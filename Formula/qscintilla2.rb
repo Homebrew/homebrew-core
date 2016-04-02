@@ -1,8 +1,8 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://downloads.sf.net/project/pyqt/QScintilla2/QScintilla-2.8.4/QScintilla-gpl-2.8.4.tar.gz"
-  sha256 "9b7b2d7440cc39736bbe937b853506b3bd218af3b79095d4f710cccb0fabe80f"
+  url "https://downloads.sf.net/project/pyqt/QScintilla2/QScintilla-2.9.1/QScintilla-gpl-2.9.1.tar.gz"
+  sha256 "79e9c39d51549061d3d489387bcee86ff20c1f746d1b25ac173d5165426eabaf"
 
   bottle do
     cellar :any
@@ -73,7 +73,7 @@ class Qscintilla2 < Formula
       cd "designer-Qt4Qt5" do
         inreplace "designer.pro" do |s|
           s.sub! "$$[QT_INSTALL_PLUGINS]", "#{lib}/qt4/plugins"
-          s.sub! "$$[QT_INSTALL_LIBS]", "#{lib}"
+          s.sub! "$$[QT_INSTALL_LIBS]", lib
         end
         system "qmake", "designer.pro", *args
         system "make"
