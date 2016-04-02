@@ -31,7 +31,6 @@ class Erlang < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "openssl"
-  depends_on "unixodbc" if MacOS.version >= :mavericks
   depends_on "fop" => :optional # enables building PDF docs
   depends_on "wxmac" => :recommended # for GUI apps like observer
 
