@@ -251,6 +251,7 @@
   "xpa": "homebrew/x11",
   "xpdf": "homebrew/x11",
   "xplot": "homebrew/x11",
+  "xsp": "homebrew/boneyard",
   "xspringies": "homebrew/x11",
   "xulrunner": "homebrew/boneyard",
   "yarp": "homebrew/x11",
