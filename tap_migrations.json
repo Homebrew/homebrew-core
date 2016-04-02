@@ -129,6 +129,7 @@
   "libqxt": "homebrew/boneyard",
   "librets": "homebrew/boneyard",
   "libspotify": "homebrew/binary",
+  "libtomcrypt": "homebrew/boneyard",
   "lilypond": "homebrew/tex",
   "lmutil": "homebrew/binary",
   "magit": "homebrew/emacs",
