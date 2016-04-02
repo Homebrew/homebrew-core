@@ -33,6 +33,7 @@
   "cmucl": "homebrew/binary",
   "comparepdf": "homebrew/boneyard",
   "coremod": "homebrew/boneyard",
+  "csync": "homebrew/boneyard",
   "curlftpfs": "homebrew/x11",
   "cwm": "homebrew/x11",
   "dart": "dart-lang/dart",
