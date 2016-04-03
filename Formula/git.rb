@@ -1,8 +1,8 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.8.0.tar.xz"
-  sha256 "9a099a4f1e68c0446800f0c538ce7d5d24bd5b4ee5d559317600cd407a59e74c"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.8.1.tar.xz"
+  sha256 "e6626b43ba4bc63ad4918df4c275f50bd7f8af2ab54bde60496ad75e91e927fc"
 
   head "https://github.com/git/git.git", :shallow => false
 
@@ -10,16 +10,6 @@ class Git < Formula
     sha256 "b6c7dced784d24490c6cdf1de30a78c36c77ae2d8605e958c5431c54efe11322" => :el_capitan
     sha256 "ab7602fff0b627697ba9ed17deec61559de5fc19d47cf929bdc551099eb58096" => :yosemite
     sha256 "dbd4997ec46627ea62bcf1f3a8820c2c84f4f9ef8d314747aeb50ae4f7fac2a4" => :mavericks
-  end
-
-  resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.8.0.tar.xz"
-    sha256 "2945558be9e16de71a67f00fe3f6bdd8ca24977389a86ef9a077ce73612fb353"
-  end
-
-  resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.8.0.tar.xz"
-    sha256 "515bee47dbb1f1c345eae394e14f82009865529aaf0c201301defee32512a7c6"
   end
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
@@ -39,6 +29,16 @@ class Git < Formula
   if build.with? "brewed-svn"
     depends_on "swig"
     depends_on "subversion" => "with-perl"
+  end
+
+  resource "html" do
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.8.1.tar.xz"
+    sha256 "0ef312091a6bc8938d3742be4e95510483a1700ccaeda6e85615f3d7c88d89a8"
+  end
+
+  resource "man" do
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.8.1.tar.xz"
+    sha256 "e7a02f82971f6c0242ce66c9d4708a3ed2449a5b8ecc72fc39d9bad10b4e359d"
   end
 
   def install
