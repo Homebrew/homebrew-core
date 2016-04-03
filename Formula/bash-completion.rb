@@ -6,6 +6,7 @@ class BashCompletion < Formula
   url "https://bash-completion.alioth.debian.org/files/bash-completion-1.3.tar.bz2"
   mirror "http://pkgs.fedoraproject.org/repo/pkgs/bash-completion/bash-completion-1.3.tar.bz2/a1262659b4bbf44dc9e59d034de505ec/bash-completion-1.3.tar.bz2"
   sha256 "8ebe30579f0f3e1a521013bcdd183193605dab353d7a244ff2582fb3a36f7bec"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -32,10 +33,6 @@ class BashCompletion < Formula
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
-
-    unless (compdir/"brew_bash_completion.sh").exist?
-      compdir.install_symlink HOMEBREW_CONTRIB/"brew_bash_completion.sh"
-    end
   end
 
   def caveats; <<-EOS.undent
@@ -47,6 +44,10 @@ class BashCompletion < Formula
     Homebrew's own bash completion script has been installed to
       #{compdir}
     EOS
+  end
+
+  test do
+    system "bash", "-c", ". #{etc}/profile.d/bash_completion.sh"
   end
 end
 
