@@ -13,8 +13,8 @@ Please replace this line with a brief summary of your issue **AND** if reporting
 `brew gist-logs <formula>`
 (where `<formula>` is the name of the formula that failed to build).
 
-### Feature/Formula Requests:
+### Formula Requests:
 
-**Please note by far the quickest way to get a new feature or formula into Homebrew is to file a [Pull Request](https://github.com/Homebrew/homebrew/blob/master/.github/CONTRIBUTING.md).**
+**Please note by far the quickest way to get a new formula into Homebrew is to file a [Pull Request](https://github.com/Homebrew/homebrew-core/blob/master/.github/CONTRIBUTING.md).**
 
 We will consider your request but it may be closed if it's something we're not actively planning to work on.
