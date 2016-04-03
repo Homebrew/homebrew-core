@@ -5,10 +5,10 @@ class Scriptcs < Formula
   sha256 "e51060406606010f1ea67ae2573fcd7bc75b40ebe990ba546c7b646f6b4bdaba"
 
   bottle do
-    cellar :any
-    sha256 "dfead67e3f9fbdb499b480eb2b29d651010b1815ef5fe0425affd4ce07295739" => :yosemite
-    sha256 "eec5baf497fc37444fc37adf7c7c761011bb50059f21ccaf10620f0887e759f6" => :mavericks
-    sha256 "206b8fd283ab15e49c91941c2dad77950adb5a9642bb8563a530f4a79d2ccaf3" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "bc27569acd1d41bc9e73a355c89bbf3bbcf8a37bbbb67ae8cf07e49d78927cad" => :el_capitan
+    sha256 "73c42a45b854ae25ef1ec2556f5488e2d4b48fecb48b223a7b7a96dfec5c04cf" => :yosemite
+    sha256 "096478d971450938f5c2333bc7ce93709c2c3456642477b8bc284093ce610e5a" => :mavericks
   end
 
   depends_on "mono" => :recommended
