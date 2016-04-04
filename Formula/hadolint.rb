@@ -26,6 +26,6 @@ class Hadolint < Formula
     df.write <<-EOS.undent
       FROM debian
     EOS
-    assert_match "DL3006", shell_output("hadolint #{df}", 1)
+    assert_match "DL3006", shell_output("#{bin}/hadolint #{df}", 1)
   end
 end
