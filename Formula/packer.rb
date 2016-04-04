@@ -6,6 +6,7 @@ class Packer < Formula
   url "https://github.com/mitchellh/packer.git",
       :tag => "v0.10.0",
       :revision => "fedb0e21f03607060b002fd1467bc617b6a4e812"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -374,6 +375,7 @@ class Packer < Formula
     cd "src/github.com/mitchellh/packer" do
       system "make", "bin"
       bin.install Dir["bin/*"]
+      zsh_completion.install "contrib/zsh-completion/_packer"
     end
   end
 
