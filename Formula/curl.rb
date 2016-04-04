@@ -21,6 +21,7 @@ class Curl < Formula
   option "with-gssapi", "Build with GSSAPI/Kerberos authentication support."
   option "with-libmetalink", "Build with libmetalink support."
   option "with-libressl", "Build with LibreSSL instead of Secure Transport or OpenSSL"
+  option "with-nss", "Build with NSS instead of Secure Transport or OpenSSL"
   option "with-nghttp2", "Build with HTTP/2 support (requires OpenSSL or LibreSSL)"
 
   deprecated_option "with-idn" => "with-libidn"
@@ -28,9 +29,9 @@ class Curl < Formula
   deprecated_option "with-ssh" => "with-libssh2"
   deprecated_option "with-ares" => "with-c-ares"
 
-  # HTTP/2 support requires OpenSSL 1.0.2+ or LibreSSL 2.1.3+ for ALPN Support
+  # HTTP/2 support requires OpenSSL 1.0.2+ or LibreSSL 2.1.3+ or NSS for ALPN Support
   # which is currently not supported by Secure Transport (DarwinSSL).
-  if MacOS.version < :mountain_lion || (build.with?("nghttp2") && build.without?("libressl"))
+  if MacOS.version < :mountain_lion || (build.with?("nghttp2") && build.without?("libressl") && build.without?("nss"))
     depends_on "openssl"
   else
     option "with-openssl", "Build with OpenSSL instead of Secure Transport"
@@ -44,6 +45,7 @@ class Curl < Formula
   depends_on "c-ares" => :optional
   depends_on "libmetalink" => :optional
   depends_on "libressl" => :optional
+  depends_on "nss" => :optional
   depends_on "nghttp2" => :optional
 
   # This patch fixes compile against LibreSSL. From:
@@ -55,9 +57,14 @@ class Curl < Formula
   def install
     # Throw an error if someone actually tries to rock both SSL choices.
     # Long-term, make this singular-ssl-option-only a requirement.
-    if build.with?("libressl") && build.with?("openssl")
+    if build.with?("nss") && (build.with?("openssl") || build.with?("libressl"))
       ohai <<-EOS.undent
-      --with-openssl and --with-libressl are both specified and
+      --with-openssl and --with-libressl or --with-nss are both specified and
+      curl can only use one at a time; proceeding with nss.
+      EOS
+    elsif build.with?("libressl") && (build.with?("openssl") || build.with?("nss"))
+      ohai <<-EOS.undent
+      --with-openssl and --with-libressl or --with-nss are both specified and
       curl can only use one at a time; proceeding with libressl.
       EOS
     end
@@ -72,7 +79,12 @@ class Curl < Formula
     # cURL has a new firm desire to find ssl with PKG_CONFIG_PATH instead of using
     # "--with-ssl" any more. "when possible, set the PKG_CONFIG_PATH environment
     # variable instead of using this option". Multi-SSL choice breaks w/o using it.
-    if build.with? "libressl"
+    if build.with? "nss"
+      ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["nss"].opt_prefix}/lib/pkgconfig"
+      args << "--without-ssl"
+      args << "--with-nss=#{Formula["nss"].opt_prefix}"
+      # FIXME: is nss CA bundle needed?
+    elsif build.with? "libressl"
       ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["libressl"].opt_prefix}/lib/pkgconfig"
       args << "--with-ssl=#{Formula["libressl"].opt_prefix}"
       args << "--with-ca-bundle=#{etc}/libressl/cert.pem"
