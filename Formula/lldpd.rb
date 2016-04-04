@@ -1,8 +1,8 @@
 class Lldpd < Formula
   desc "Implementation library for LLDP"
   homepage "https://vincentbernat.github.io/lldpd/"
-  url "http://media.luffy.cx/files/lldpd/lldpd-0.9.0.tar.gz"
-  sha256 "300e4a590f7bf21c79d5ff94c2d6a69d0b2c34dbc21e17281496462a04ca80bc"
+  url "http://media.luffy.cx/files/lldpd/lldpd-0.9.2.tar.gz"
+  sha256 "6054f29d41faf32186a22331853a299c87f4419b4332df4a564f76a139305a32"
 
   bottle do
     sha256 "717fafc9f90bfdacec93668de504cec1b8a8a9fe521159250c8839272a97462c" => :el_capitan
