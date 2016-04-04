@@ -1,23 +1,10 @@
-class FrameworkPythonRequirement < Requirement
-  fatal true
-
-  satisfy do
-    q = `python -c "import distutils.sysconfig as c; print(c.get_config_var('PYTHONFRAMEWORK'))"`
-    !q.chomp.empty?
-  end
-
-  def message
-    "Python needs to be built as a framework."
-  end
-end
-
 # Reference: https://github.com/macvim-dev/macvim/wiki/building
 class Macvim < Formula
   desc "GUI for vim, made for OS X"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-100.tar.gz"
-  version "7.4-100"
-  sha256 "dc942c43faca1bc03a80b673ddcd8818a19d61a790e7210c8323af560c9b4e0f"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-101.tar.gz"
+  version "7.4-101"
+  sha256 "fe13bf22036c51fc9e5429aace8702d79068ab8f1ef005a6697c94323ec4f6fc"
 
   head "https://github.com/macvim-dev/macvim.git"
 
@@ -33,16 +20,15 @@ class Macvim < Formula
   depends_on "luajit" => :optional
   depends_on :python => :recommended
   depends_on :python3 => :optional
-  depends_on FrameworkPythonRequirement if build.with? "python"
 
-  # Help us! We'd like to use superenv in these environments too
+  # Help us! We'd like to use superenv in these environments, too
   env :std if MacOS.version <= :snow_leopard
 
   def install
-    # MacVim doesn't have and required any Python package, unset PYTHONPATH.
+    # MacVim doesn't have or require any Python package, so unset PYTHONPATH
     ENV.delete("PYTHONPATH")
 
-    # If building for 10.7 or up, make sure that CC is set to "clang".
+    # If building for OS X 10.7 or up, make sure that CC is set to "clang"
     ENV.clang if MacOS.version >= :lion
 
     args = %W[
@@ -70,31 +56,27 @@ class Macvim < Formula
       args << "--with-luajit"
     end
 
-    # only allow either python or python3; if the optional
-    # python3 is chosen, default to it, otherwise use python2
+    # Allow python or python3, but not both; if the optional
+    # python3 is chosen, default to it; otherwise, use python2
     if build.with? "python3"
       args << "--enable-python3interp"
     elsif build.with? "python"
       ENV.prepend "LDFLAGS", `python-config --ldflags`.chomp
-      ENV.prepend "CFLAGS", `python-config --cflags`.chomp
+
+      # Needed for <= OS X 10.9.2 with Xcode 5.1
+      ENV.prepend "CFLAGS", `python-config --cflags`.chomp.gsub(/-mno-fused-madd /, "")
+
       framework_script = <<-EOS.undent
-        import distutils.sysconfig
-        print distutils.sysconfig.get_config_var("PYTHONFRAMEWORKPREFIX")
+        import sysconfig
+        print sysconfig.get_config_var("PYTHONFRAMEWORKPREFIX")
       EOS
       framework_prefix = `python -c '#{framework_script}'`.strip
-      unless framework_prefix == "/System/Library/Frameworks"
+      # Non-framework builds should have PYTHONFRAMEWORKPREFIX defined as ""
+      if framework_prefix.include?("/") && framework_prefix != "/System/Library/Frameworks"
         ENV.prepend "LDFLAGS", "-F#{framework_prefix}"
         ENV.prepend "CFLAGS", "-F#{framework_prefix}"
       end
       args << "--enable-pythoninterp"
-    end
-
-    # configure appends "SDKS/..." to the value of `xcode-select -print-path`,
-    # but this isn't correct on recent Xcode, so we need to set it manually.
-    # This is a bug, and it should be fixed upstream.
-    unless MacOS::CLT.installed?
-      args << "--with-developer-dir=#{MacOS::Xcode.prefix}/Platforms/MacOSX.platform/Developer"
-      args << "--with-macsdk=#{MacOS.version}"
     end
 
     system "./configure", *args
