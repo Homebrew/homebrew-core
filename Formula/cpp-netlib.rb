@@ -1,9 +1,9 @@
 class CppNetlib < Formula
   desc "C++ libraries for high level network programming"
   homepage "http://cpp-netlib.org"
-  url "http://downloads.cpp-netlib.org/0.11.2/cpp-netlib-0.11.2-final.tar.gz"
-  version "0.11.2"
-  sha256 "71953379c5a6fab618cbda9ac6639d87b35cab0600a4450a7392bc08c930f2b1"
+  url "http://downloads.cpp-netlib.org/0.12.0/cpp-netlib-0.12.0-final.tar.gz"
+  version "0.12.0"
+  sha256 "a0a4a5cbb57742464b04268c25b80cc1fc91de8039f7710884bf8d3c060bd711"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,17 +13,9 @@ class CppNetlib < Formula
     sha256 "093cc615abf08eeb6d698d85e9d4bb8003e536548f925246d86baa7f1ec45506" => :mountain_lion
   end
 
-  devel do
-    url "https://github.com/cpp-netlib/cpp-netlib/archive/cpp-netlib-0.12.0-rc1.tar.gz"
-    version "0.12.0-rc1"
-    sha256 "f692253c57219b52397a886af769afe207e9cf2eda8ad22ed0e9e48bb483fc03"
-
-    # Version 0.12.0+ moves from boost::asio to asio.
-    depends_on "asio"
-  end
-
   depends_on "cmake" => :build
   depends_on "openssl"
+  depends_on "asio"
 
   if MacOS.version < :mavericks
     depends_on "boost" => "c++11"
