@@ -8,9 +8,10 @@ class Perl < Formula
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   bottle do
-    sha256 "a1bbae429655d663bfa47ccad7ec10b0412f07702abf1ed442ccc37e014de3bb" => :el_capitan
-    sha256 "0e7a6aea826e32f2f3b77a1889a26457dfb8d72e6382d350590f8391b89ef3d4" => :yosemite
-    sha256 "b6c3b4aa11cd78191840029502763b9249c74e63d58412a82854fec4350ac5a3" => :mavericks
+    revision 1
+    sha256 "e5b74b2aae601761f639bc668f929a39592c2231dbef5ed28f01fdd877e0bed7" => :el_capitan
+    sha256 "f180afdea11e1f4e12378881d58c27efa04abee091140c2e055439a14a668802" => :yosemite
+    sha256 "f5561ffe42ca1559fb72e855ecc36c133a5c6142a1cfac2cf9387b4da9b25d95" => :mavericks
   end
 
   keg_only :provided_by_osx,
