@@ -4,6 +4,7 @@ class Coreutils < Formula
   url "http://ftpmirror.gnu.org/coreutils/coreutils-8.25.tar.xz"
   mirror "https://ftp.gnu.org/gnu/coreutils/coreutils-8.25.tar.xz"
   sha256 "31e67c057a5b32a582f26408c789e11c2e8d676593324849dcf5779296cdce87"
+  revision 1
 
   bottle do
     sha256 "3b278ce91252784e43d2f16fc813e72a7bd04e637627bf2916c9f847ef600d89" => :el_capitan
@@ -28,6 +29,8 @@ class Coreutils < Formula
   end
 
   depends_on "gmp" => :optional
+
+  patch :DATA
 
   def install
     # Work around unremovable, nested dirs bug that affects lots of
@@ -94,3 +97,27 @@ class Coreutils < Formula
     system "#{bin}/gsha1sum", "-c", "test.sha1"
   end
 end
+
+__END__
+--- coreutils-8.25.orig/NEWS
++++ coreutils-8.25/NEWS
+@@ -71,9 +71,6 @@ GNU coreutils NEWS
+   df now prefers sources towards the root of a device when
+   eliding duplicate bind mounted entries.
+
+-  ls now quotes file names unambiguously and appropriate for use in a shell,
+-  when outputting to a terminal.
+-
+   join, sort, uniq with --zero-terminated, now treat '\n' as a field delimiter.
+
+ ** Improvements
+--- coreutils-8.25.orig/src/ls.c
++++ coreutils-8.25/src/ls.c
+@@ -1581,7 +1581,6 @@ decode_switches (int argc, char **argv)
+       if (isatty (STDOUT_FILENO))
+         {
+           format = many_per_line;
+-          set_quoting_style (NULL, shell_escape_quoting_style);
+           /* See description of qmark_funny_chars, above.  */
+           qmark_funny_chars = true;
+         }
