@@ -6,6 +6,13 @@ class LaunchSocketServer < Formula
 
   head "https://github.com/sstephenson/launch_socket_server.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "c5b02931059c10da42c4b6728ac3c2eddd2a66ba83dfa440b2a9ad516eedda19" => :el_capitan
+    sha256 "7b916580395c0b3bab57e8e657f87876764a94d44965ff3466da2a04a9db57ef" => :yosemite
+    sha256 "0d66071633171732bb931feaf6b3cbec31d29141e2172d6118e3bcde4a39e4f9" => :mavericks
+  end
+
   depends_on "go" => :build
 
   def install
