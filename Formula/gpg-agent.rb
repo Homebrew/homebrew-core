@@ -9,10 +9,9 @@ class GpgAgent < Formula
   sha256 "e329785a4f366ba5d72c2c678a7e388b0892ac8440c2f4e6810042123c235d71"
 
   bottle do
-    sha256 "9bebbc754c440be3ac5eada58600a2843d7922aed2a3c68a3329b5a94fbf6871" => :el_capitan
-    sha256 "adf4ef470b329e18679ebd06efdb918b9e0220c7f5ab53937b476b48e11b37cd" => :yosemite
-    sha256 "e9ada5047c3138066c28722dc281ea525bc78c3b368adf719541862c27192026" => :mavericks
-    sha256 "65647148cf2989c7869f13d91f07441549e38cb4c13187df14134ce2fdbaf7b4" => :mountain_lion
+    sha256 "f833124214aeac893700d2804e2214fb0db8194716ad6d32473dd6a7fb73ae54" => :el_capitan
+    sha256 "556a07b532198e3ed431af916ff5889fb933c45925f0b42f58a885d03bf5790a" => :yosemite
+    sha256 "48611593041a51ca553aeca4d5d99a7af5ccebf029b73bfb53471e496ca792ec" => :mavericks
   end
 
   depends_on "libgpg-error"
