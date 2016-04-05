@@ -1,10 +1,9 @@
 class Unixodbc < Formula
   desc "ODBC 3 connectivity for UNIX"
   homepage "http://www.unixodbc.org/"
-  url "http://www.unixodbc.org/unixODBC-2.3.2.tar.gz"
+  url "https://downloads.sourceforge.net/project/unixodbc/unixODBC/2.3.4/unixODBC-2.3.4.tar.gz"
   mirror "ftp://mirror.ovh.net/gentoo-distfiles/distfiles/unixODBC-2.3.2.tar.gz"
-  sha256 "9c3459742f25df5aa3c10a61429bde51a6d4f11552c03095f1d33d7eb02b5c9a"
-  revision 1
+  sha256 "2e1509a96bb18d248bf08ead0d74804957304ff7c6f8b2e5965309c632421e39"
 
   bottle do
     revision 1
@@ -27,5 +26,9 @@ class Unixodbc < Formula
                           "--prefix=#{prefix}",
                           "--enable-gui=no"
     system "make", "install"
+  end
+
+  test do
+    system "odbcinst", "-j"
   end
 end
