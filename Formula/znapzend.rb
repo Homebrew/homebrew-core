@@ -1,8 +1,8 @@
 class Znapzend < Formula
   desc "zfs backup with remote capabilities and mbuffer integration"
   homepage "http://www.znapzend.org"
-  url "https://github.com/oetiker/znapzend/releases/download/v0.15.3/znapzend-0.15.3.tar.gz"
-  sha256 "27f7c218f4e71beac7b2ba52386a7742506d45c0b3fd40104f44ccef0f373b6e"
+  url "https://github.com/oetiker/znapzend/releases/download/v0.15.4/znapzend-0.15.4.tar.gz"
+  sha256 "2716c17aa0cb07a0affdb7fc8d54bc13e04971c4ae97ef1d6911fc2016920541"
 
   bottle do
     cellar :any_skip_relocation
