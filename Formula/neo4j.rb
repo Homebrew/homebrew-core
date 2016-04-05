@@ -6,9 +6,9 @@ class Neo4j < Formula
   version "2.3.3"
 
   devel do
-    url "http://dist.neo4j.org/neo4j-community-3.0.0-M02-unix.tar.gz"
-    sha256 "2a20f420e94fe4189363ce8ab327c0e5e054df3fc74a0249e9e2c7fe0455a0d6"
-    version "3.0.0-M02"
+    url "http://dist.neo4j.org/neo4j-community-3.0.0-M05-unix.tar.gz"
+    sha256 "2b7878f424859de6951e86f9abb71701d8d45ab22e1157410504fe6a6bb17a95"
+    version "3.0.0-M05"
   end
 
   bottle :unneeded
