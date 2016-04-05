@@ -8,6 +8,13 @@ class Ironcli < Formula
 
   head "https://github.com/iron-io/ironcli.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "e6c39cc1dddd6acd8ce735836bb103cea0e90ce14b49453a1bc95515ccd77229" => :el_capitan
+    sha256 "9db4f01a3e5910906cdea17bc724a8839eb277e7ce26e4d8b739dbe0917a17c1" => :yosemite
+    sha256 "e354874cfff38921a6ef25bcf911637318f89ccf8fd1f07074e55ff393152acf" => :mavericks
+  end
+
   depends_on "go" => :build
 
   def install
