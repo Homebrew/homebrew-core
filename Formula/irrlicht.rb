@@ -1,31 +1,39 @@
 class Irrlicht < Formula
   desc "Realtime 3D engine"
   homepage "http://irrlicht.sourceforge.net/"
-  head "https://irrlicht.svn.sourceforge.net/svnroot/irrlicht/trunk"
-  url "https://downloads.sourceforge.net/irrlicht/irrlicht-1.8.1.zip"
-  sha256 "814bb90116d5429449ba1d169e2cbff881c473b7eada4c2447132bc4f4a6e97b"
+  url "https://downloads.sourceforge.net/irrlicht/irrlicht-1.8.3.zip"
+  sha256 "9e7be44277bf2004d73580a8585e7bd3c9ce9a3c801691e4f4aed030ac68931c"
 
-  # may be removed when https://sourceforge.net/p/irrlicht/patches/297/ applied
   head do
-    patch do
-      url "https://gist.githubusercontent.com/neoascetic/7487c936a3c5858ad762/raw/4f572fdca4cd7a3ae4bb3893d50821cee48e3236/trunk.diff"
-      sha256 "df3ea90cfaec1fc2887a2335706bb58b0ccca6258ddb2878f1e159086a3e1abf"
+    url "https://irrlicht.svn.sourceforge.net/svnroot/irrlicht/trunk"
+
+    # may be removed when https://sourceforge.net/p/irrlicht/patches/297/ will
+    # be applied
+    if MacOS.version == :yosemite
+      patch do
+        url "https://raw.githubusercontent.com/Homebrew/patches/da81091065df021758e02b9e07e36eaba20c4ec3/irrlicht/yosemite-head.patch"
+        sha256 "32e4a964a50325489ec1598bd6ca3e24f4c773bca74cc59f585fb2703d7e6d46"
+      end
     end
   end
 
+  # may be removed when https://sourceforge.net/p/irrlicht/patches/297/ will
+  # be applied
   stable do
-    patch do
-      url "https://gist.githubusercontent.com/neoascetic/7487c936a3c5858ad762/raw/2e3ab944c43357d705e270a99a5cd7d1b7e033c1/1.8.1.diff"
-      sha256 "78f06879c48ad8d87a2790e75f76df4027ae9ab4f89e5d52bedf3778a1d35d77"
+    if MacOS.version == :yosemite
+      patch do
+        url "https://raw.githubusercontent.com/Homebrew/patches/da81091065df021758e02b9e07e36eaba20c4ec3/irrlicht/yosemite.patch"
+        sha256 "2dca39defb1044acaa87f6c8975283ce153c3f5e0ee0971565e490da8c12a496"
+      end
     end
   end
 
   bottle do
     cellar :any
     revision 1
-    sha256 "f3e6427bc2499611b12b5babb907153fdd63c478d9745e59821958644e02f915" => :yosemite
-    sha256 "4ef8e3d8f22ed7114223f89b6bc286c3fa9cadb9135d274265f2dce396522d27" => :mavericks
-    sha256 "5a68f99034d50ce45afe554a36486be55f435bd6b2ff32c8c0f647a0697b0fbb" => :mountain_lion
+    sha1 "10609d1af910d5c1efb9de13b52b25fdabd077b8" => :yosemite
+    sha1 "631246df8cf27ce69f951710737fd0b10b56ca0b" => :mavericks
+    sha1 "0684b7c6e105988e15609ed52331608e5d1d40b8" => :mountain_lion
   end
 
   depends_on :xcode => :build
