@@ -18,8 +18,6 @@ class Scsh < Formula
     depends_on "scheme48"
   end
 
-  conflicts_with "scheme48", :because => "both install include/scheme48.h"
-
   def install
     if build.head?
       system "autoreconf"
@@ -35,5 +33,6 @@ class Scsh < Formula
                           "--infodir=#{info}",
                           "--mandir=#{man}"
     system "make", "install"
+    rm_rf include
   end
 end
