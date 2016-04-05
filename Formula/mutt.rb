@@ -39,7 +39,6 @@ class Mutt < Formula
 
   option "with-debug", "Build with debug option enabled"
   option "with-s-lang", "Build against slang instead of ncurses"
-  option "with-ignore-thread-patch", "Apply ignore-thread patch"
   option "with-confirm-attachment-patch", "Apply confirm attachment patch"
 
   depends_on "autoconf" => :build
@@ -51,15 +50,6 @@ class Mutt < Formula
   depends_on "gpgme" => :optional
   depends_on "libidn" => :optional
   depends_on "s-lang" => :optional
-
-  # original source for this went missing, patch sourced from Arch at
-  # https://aur.archlinux.org/packages/mutt-ignore-thread/
-  if build.with? "ignore-thread-patch"
-    patch do
-      url "https://gist.githubusercontent.com/mistydemeo/5522742/raw/1439cc157ab673dc8061784829eea267cd736624/ignore-thread-1.5.21.patch"
-      sha256 "7290e2a5ac12cbf89d615efa38c1ada3b454cb642ecaf520c26e47e7a1c926be"
-    end
-  end
 
   if build.with? "confirm-attachment-patch"
     patch do
