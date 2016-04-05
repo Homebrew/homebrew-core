@@ -1,8 +1,8 @@
 class Libsodium < Formula
   desc "NaCl networking and cryptography library"
   homepage "https://github.com/jedisct1/libsodium/"
-  url "https://github.com/jedisct1/libsodium/releases/download/1.0.9/libsodium-1.0.9.tar.gz"
-  sha256 "611418db78c36b2e20e50363d30e9c002a98dea9322f305b5bde56a26cdfe756"
+  url "https://github.com/jedisct1/libsodium/releases/download/1.0.10/libsodium-1.0.10.tar.gz"
+  sha256 "71b786a96dd03693672b0ca3eb77f4fb08430df307051c0d45df5353d22bc4be"
 
   bottle do
     cellar :any
