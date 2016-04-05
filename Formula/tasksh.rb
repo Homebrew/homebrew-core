@@ -23,6 +23,6 @@ class Tasksh < Formula
   test do
     system "#{bin}/tasksh", "--version"
     (testpath/".taskrc").write "data.location=#{testpath}/.task\n"
-    assert pipe_output("#{bin}/tasksh", "add Test Task").include?("Created task")
+    assert_match(/Created task 1./, pipe_output("#{bin}/tasksh", "add Test Task"))
   end
 end
