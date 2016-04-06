@@ -1,11 +1,12 @@
 class Etl < Formula
   desc "Extensible Template Library"
   homepage "http://synfig.org"
-  url "https://downloads.sourceforge.net/project/synfig/releases/1.0/source/ETL-0.04.18.tar.gz"
-  sha256 "53953e477a37d2e870e3be4b22f519474c24537b0e6eb1633e3402273a684a98"
+  url "https://downloads.sourceforge.net/project/synfig/releases/1.0.2/source/ETL-0.04.19.tar.gz"
+  sha256 "ba944c1a07fd321488f9d034467931b8ba9e48454abef502a633ff4835380c1c"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
