@@ -8,9 +8,9 @@ class SigningParty < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ab9402d885e55ac2edb59d1c851ceba1a5a68e49bbecf1e3ebc51bbaa851a851" => :el_capitan
-    sha256 "f9e76620c0bbddc7790d08b3b04570b47ef1e2bda514c91cee387f013002a800" => :yosemite
-    sha256 "b19c2c8df1addf2a8013c681e7b55d3ca45a742901ad167a212c1bfbbec73b9c" => :mavericks
+    sha256 "bd1168e102583b95f60d0e312988ad41aefb3c5d6d7e667e27ab77d2e268c4e3" => :el_capitan
+    sha256 "604b2894f36b98c0a96938889ddf0a90a58a7c846dff2a37a486a80e56098ab4" => :yosemite
+    sha256 "a1d7bdb1d7d3df89ba2692e8648c7f821c42adb85fb7644958c670500d006855" => :mavericks
   end
 
   deprecated_option "without-rename-pgpring" => "with-default-names"
