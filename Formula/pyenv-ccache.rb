@@ -6,6 +6,8 @@ class PyenvCcache < Formula
 
   head "https://github.com/yyuu/pyenv-ccache.git"
 
+  bottle :unneeded
+
   depends_on "pyenv"
   depends_on "ccache" => :recommended
 
