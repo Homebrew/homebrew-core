@@ -6,10 +6,11 @@ class Tasksh < Formula
   head "https://git.tasktools.org/scm/ex/tasksh.git"
 
   bottle do
-    cellar :any
-    sha256 "736e3e4e70b6d1c6b56727dafeebf55b6c188ee298cf303c906d4e129ad1054a" => :yosemite
-    sha256 "87a3ca027b877fb67546c9b2277112c34051cf2da7ae62b7c9704289ceef4fdb" => :mavericks
-    sha256 "589fc472082ab7486c4b7b5d6348ea6a8dc5fac39ba3544b51dd8fd55f37aa9c" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "74593fb90941d65acd8a4712218c2285819cbd61916b24be3ea792abbbe4dee5" => :el_capitan
+    sha256 "a618c8e5a8bf535aa116b60a68579f6f41904169641f43dde82693355785b38c" => :yosemite
+    sha256 "d3a214c7e1dd43755ad6a0e77bf9d1a455f88c67b60126f1a9f64b9bf426bfdc" => :mavericks
   end
 
   depends_on "cmake" => :build
