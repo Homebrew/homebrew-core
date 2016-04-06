@@ -15,6 +15,6 @@ class PyenvCcache < Formula
   end
 
   test do
-    assert shell_output("eval \"$(pyenv init -)\" && pyenv hooks install").include?("ccache.bash")
+    assert_match(/ccache.bash/, shell_output("eval \"$(pyenv init -)\" && pyenv hooks install && ls"))
   end
 end
