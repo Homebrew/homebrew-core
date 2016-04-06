@@ -1,8 +1,8 @@
 class ZshSyntaxHighlighting < Formula
   desc "Fish shell like syntax highlighting for zsh"
   homepage "https://github.com/zsh-users/zsh-syntax-highlighting"
-  url "https://github.com/zsh-users/zsh-syntax-highlighting/archive/0.4.0.tar.gz"
-  sha256 "e38581310479646e8f4df7e572489b28b361c8332b186207685efbd90b3016f1"
+  url "https://github.com/zsh-users/zsh-syntax-highlighting/archive/0.4.1.tar.gz"
+  sha256 "971b9c1e881a8d60442e40003c9e4c98bd1d5243a32fdf386a217c4cd7815197"
   head "https://github.com/zsh-users/zsh-syntax-highlighting.git"
 
   bottle do
