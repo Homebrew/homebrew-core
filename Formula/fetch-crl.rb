@@ -6,10 +6,10 @@ class FetchCrl < Formula
   sha256 "22f460388416bdabdb59d2f8fd423c5b097886649e4a2650867106a7e6c8cfe7"
 
   bottle do
-    cellar :any
-    sha256 "1d2f55417dea34e899a6e593bd3b331166ac9937aa8a334dfdf07b3fece96f69" => :yosemite
-    sha256 "514023abc5298790e9436a54424da58bfcca3454875f56a7abd33877dc253123" => :mavericks
-    sha256 "8e5bc30aea5fcc6e976b525b41a664e25990b074f90d1ff9eaa2437a97b29c13" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "1ad6f73ea90d63550a76a966db784dcfb5bfaf38af908d8faa8b1a6b1e0fb05f" => :el_capitan
+    sha256 "5484c79338f4d5132c26ea4ca10e43bdac7d4e900b448a39d3013590d9ada724" => :yosemite
+    sha256 "909169de64f2a03cb1fa0bc5a5ff4128e92dffba0d896c5897a13cb39b428307" => :mavericks
   end
 
   def install
