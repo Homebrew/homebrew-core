@@ -3,6 +3,7 @@ class Ponyc < Formula
   homepage "http://www.ponylang.org"
   url "https://github.com/ponylang/ponyc/archive/0.2.1.tar.gz"
   sha256 "cb8d6830565ab6b47ecef07dc1243029cef962df7ff926140022abb69d1e554e"
+  revision 1
   head "https://github.com/ponylang/ponyc.git"
 
   bottle do
@@ -13,6 +14,8 @@ class Ponyc < Formula
   end
 
   depends_on "llvm" => "with-rtti"
+  depends_on "libressl"
+  depends_on "pcre2"
   needs :cxx11
 
   def install
