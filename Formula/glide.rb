@@ -3,8 +3,8 @@ require "language/go"
 class Glide < Formula
   desc "Simplified Go project management, dependency management, and vendoring"
   homepage "https://github.com/Masterminds/glide"
-  url "https://github.com/Masterminds/glide/archive/0.10.1.tar.gz"
-  sha256 "092e26f469b06eab7fcdddc315ad328345c0fc1828b640955faa714bfae14371"
+  url "https://github.com/Masterminds/glide/archive/0.10.2.tar.gz"
+  sha256 "f0153d88f12fb36419cb616d9922ae95b274ac7c9ed9b043701f187da5834eac"
   head "https://github.com/Masterminds/glide.git"
 
   bottle do
@@ -37,7 +37,6 @@ class Glide < Formula
   end
 
   def install
-
     ENV["GOPATH"] = buildpath
     mkdir_p buildpath/"src/github.com/Masterminds/"
     ln_s buildpath, buildpath/"src/github.com/Masterminds/glide"
