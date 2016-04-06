@@ -30,4 +30,9 @@ class Neo4j < Formula
       wrapper.java.additional.4=-Dneo4j.ext.udc.source=homebrew
     EOS
   end
+
+  test do
+    system "#{HOMEBREW_PREFIX}/bin/neo4j", "start"
+    system "#{HOMEBREW_PREFIX}/bin/neo4j", "stop"
+  end
 end
