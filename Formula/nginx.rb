@@ -16,8 +16,6 @@ class Nginx < Formula
     sha256 "2b4893076d28e6b4384bba8c4fdebfca6de6f8f68ec48a1ca94b9b855ff457d2"
   end
 
-  env :userpaths
-
   # Before submitting more options to this formula please check they aren't
   # already in Homebrew/homebrew-nginx/nginx-full:
   # https://github.com/Homebrew/homebrew-nginx/blob/master/Formula/nginx-full.rb
@@ -112,7 +110,7 @@ class Nginx < Formula
     # to #{HOMEBREW_PREFIX}/var/www. The reason we symlink instead of patching
     # is so the user can redirect it easily to something else if they choose.
     html = prefix/"html"
-    dst  = var/"www"
+    dst = var/"www"
 
     if dst.exist?
       html.rmtree
