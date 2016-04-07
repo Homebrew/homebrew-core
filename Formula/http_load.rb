@@ -1,11 +1,12 @@
 class HttpLoad < Formula
   desc "Test throughput of a web server by running parallel fetches"
   homepage "http://www.acme.com/software/http_load/"
-  url "http://www.acme.com/software/http_load/http_load-14aug2014.tar.gz"
-  version "20140814"
-  sha256 "538a19cf1a45b1c0ca9be2a5f421b0a3f8d1989c24657d08bc139144b6e14622"
+  url "http://www.acme.com/software/http_load/http_load-09Mar2016.tar.gz"
+  version "20160309"
+  sha256 "5a7b00688680e3fca8726dc836fd3f94f403fde831c71d73d9a1537f215b4587"
 
-  # HTTPS support
+  option "with-openssl", "Build with OpenSSL for HTTPS support"
+
   depends_on "openssl" => :optional
 
   def install
