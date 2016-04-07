@@ -1,9 +1,9 @@
 class Miruo < Formula
   desc "Pretty-print TCP session monitor/analyzer"
   homepage "https://github.com/KLab/miruo/"
-  url "https://github.com/KLab/miruo/archive/0.9.6a.tar.gz"
-  sha256 "346e8bd892fe15e6859486d50231238879d3b620b93df444b13a910e84864e7f"
-  version "0.9.6a"
+  url "https://github.com/KLab/miruo/archive/0.9.6b.tar.gz"
+  version "0.9.6b"
+  sha256 "0b31a5bde5b0e92a245611a8e671cec3d330686316691daeb1de76360d2fa5f1"
 
   bottle do
     cellar :any
