@@ -11,7 +11,14 @@ class Alpine < Formula
     sha256 "8f52d4ebe9e445ec975cabdd74c4a48cef80eebb21f18c33644e99de1a6d2173" => :mountain_lion
   end
 
+  option "with-maildir", "Compile with support for Maildir format mailboxes"
+
   depends_on "openssl"
+
+  patch do
+    url "http://patches.freeiz.com/alpine/patches/alpine-2.20/maildir.patch.gz"
+    sha256 "1ef0932b80d7f790ce6577a521a7b613b5ce277bb13cbaf0116bb5de1499caaa"
+  end if build.with? "maildir"
 
   def install
     ENV.j1
