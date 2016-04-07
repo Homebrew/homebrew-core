@@ -32,8 +32,10 @@ class Nginx < Formula
 
   def install
     # Changes default port to 8080
-    inreplace "conf/nginx.conf", "listen       80;", "listen       8080;"
-    inreplace "conf/nginx.conf", "    #}\n\n}", "    #}\n    include servers/*;\n}"
+    inreplace "conf/nginx.conf" do |s|
+      s.gsub! "listen       80;", "listen       8080;"
+      s.gsub! "    #}\n\n}", "    #}\n    include servers/*;\n}"
+    end
 
     pcre = Formula["pcre"]
     openssl = Formula["openssl"]
