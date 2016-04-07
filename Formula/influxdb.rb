@@ -3,8 +3,8 @@ require "language/go"
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb/archive/v0.11.0.tar.gz"
-  sha256 "04b4a1c9b2a84c44c0820eacf28a8ef7b301b27e4ed224d23c9fc4d63c2e644e"
+  url "https://github.com/influxdata/influxdb/archive/v0.12.0.tar.gz"
+  sha256 "27a0a5920db3629b81188ce1bb16e3633a457d7d8a40d09914ab876faf799400"
 
   head "https://github.com/influxdata/influxdb.git"
 
@@ -25,11 +25,6 @@ class Influxdb < Formula
   go_resource "github.com/BurntSushi/toml" do
     url "https://github.com/BurntSushi/toml.git",
     :revision => "a4eecd407cf4129fc902ece859a0114e4cf1a7f4"
-  end
-
-  go_resource "github.com/armon/go-metrics" do
-    url "https://github.com/armon/go-metrics.git",
-    :revision => "345426c77237ece5dab0e1605c3e4b35c3f54757"
   end
 
   go_resource "github.com/bmizerany/pat" do
@@ -65,21 +60,6 @@ class Influxdb < Formula
   go_resource "github.com/golang/snappy" do
     url "https://github.com/golang/snappy.git",
     :revision => "5979233c5d6225d4a8e438cdd0b411888449ddab"
-  end
-
-  go_resource "github.com/hashicorp/go-msgpack" do
-    url "https://github.com/hashicorp/go-msgpack.git",
-    :revision => "fa3f63826f7c23912c15263591e65d54d080b458"
-  end
-
-  go_resource "github.com/hashicorp/raft" do
-    url "https://github.com/hashicorp/raft.git",
-    :revision => "8fd9a2fdfd154f4b393aa24cff91e3c317efe839"
-  end
-
-  go_resource "github.com/hashicorp/raft-boltdb" do
-    url "https://github.com/hashicorp/raft-boltdb.git",
-    :revision => "d1e82c1ec3f15ee991f7cc7ffd5b67ff6f5bbaee"
   end
 
   go_resource "github.com/influxdata/usage-client" do
@@ -131,9 +111,9 @@ class Influxdb < Formula
 
     cd influxdb_path do
       if build.head?
-        system "go", "install", "-ldflags", "-X main.version=0.12.0-HEAD -X main.branch=master -X main.commit=#{`git rev-parse HEAD`.strip}", "./..."
+        system "go", "install", "-ldflags", "-X main.version=0.13.0-HEAD -X main.branch=master -X main.commit=#{`git rev-parse HEAD`.strip}", "./..."
       else
-        system "go", "install", "-ldflags", "-X main.version=0.11.0 -X main.branch=0.11 -X main.commit=1572060c6890f5c6f6e540155d99238aca8617e3", "./..."
+        system "go", "install", "-ldflags", "-X main.version=0.12.0 -X main.branch=0.12 -X main.commit=4f29ba4013f6f46efeaa948bb7e0fd561cac5e95", "./..."
       end
     end
 
@@ -141,9 +121,6 @@ class Influxdb < Formula
       s.gsub! "/var/lib/influxdb/data", "#{var}/influxdb/data"
       s.gsub! "/var/lib/influxdb/meta", "#{var}/influxdb/meta"
       s.gsub! "/var/lib/influxdb/wal", "#{var}/influxdb/wal"
-    end
-    unless build.head?
-      inreplace influxdb_path/"etc/config.sample.toml", "/var/lib/influxdb/hh", "#{var}/influxdb/hh"
     end
 
     bin.install "bin/influxd"
@@ -155,9 +132,6 @@ class Influxdb < Formula
     (var/"influxdb/data").mkpath
     (var/"influxdb/meta").mkpath
     (var/"influxdb/wal").mkpath
-    unless build.head?
-      (var/"influxdb/hh").mkpath
-    end
   end
 
   plist_options :manual => "influxd -config #{HOMEBREW_PREFIX}/etc/influxdb.conf"
@@ -204,9 +178,6 @@ class Influxdb < Formula
       s.gsub! %r{/.*/.influxdb/data}, "#{testpath}/influxdb/data"
       s.gsub! %r{/.*/.influxdb/meta}, "#{testpath}/influxdb/meta"
       s.gsub! %r{/.*/.influxdb/wal}, "#{testpath}/influxdb/wal"
-    end
-    if File.readlines(testpath/"config.toml").grep(%r{.influxdb/hh}).any?
-      inreplace testpath/"config.toml", %r{/.*/.influxdb/hh}, "#{testpath}/influxdb/hh"
     end
 
     pid = fork do
