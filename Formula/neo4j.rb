@@ -34,6 +34,8 @@ class Neo4j < Formula
   end
 
   test do
+    ENV["NEO4J_LOG"] = testpath/"libexec/data/log/neo4j.log"
+    ENV["NEO4J_PIDFILE"] = testpath/"libexec/data/neo4j-service.pid"
     system "#{HOMEBREW_PREFIX}/bin/neo4j", "start"
     system "#{HOMEBREW_PREFIX}/bin/neo4j", "stop"
   end
