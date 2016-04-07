@@ -25,6 +25,6 @@ class Vis < Formula
   end
 
   test do
-    shell_output("#{bin}/vis -v 2>&1", 1)
+    `vis -v 2>&1`
   end
 end
