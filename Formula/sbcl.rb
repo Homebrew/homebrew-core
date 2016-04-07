@@ -18,11 +18,11 @@ class Sbcl < Formula
   end
 
   option "32-bit"
-  option "without-threads", "Build SBCL without support for native threads"
-  option "without-core-compression", "Build SBCL without support for compressed cores and without a dependency on zlib"
-  option "with-ldb", "Include low-level debugger in the build"
   option "with-internal-xref", "Include XREF information for SBCL internals (increases core size by 5-6MB)"
-  option "with-sources", "Install SBCL sources"
+  option "with-ldb", "Include low-level debugger in the build"
+  option "without-sources", "Don't install SBCL sources"
+  option "without-core-compression", "Build SBCL without support for compressed cores and without a dependency on zlib"
+  option "without-threads", "Build SBCL without support for native threads"
 
   # Current binary versions are listed at http://sbcl.sourceforge.net/platform-table.html
   resource "bootstrap64" do
@@ -100,8 +100,13 @@ class Sbcl < Formula
     system "sh", "install.sh"
 
     if build.with? "sources"
-      system "cp", "-R", "contrib", prefix
-      system "cp", "-R", "src", prefix
+      bin.env_script_all_files(libexec/"bin", :SBCL_SOURCE_ROOT => pkgshare/"src")
+      pkgshare.install %w[contrib src]
+
+      (lib/"sbcl/sbclrc").write <<-EOS.undent
+        (setf (logical-pathname-translations "SYS")
+          '(("SYS:SRC;**;*.*.*" #p"#{pkgshare}/src/**/*.*")))
+        EOS
     end
   end
 
