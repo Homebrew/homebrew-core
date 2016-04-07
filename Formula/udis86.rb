@@ -15,6 +15,6 @@ class Udis86 < Formula
   end
 
   test do
-    assert pipe_output("#{bin}/udcli -x", "cd 80").include?("int 0x80")
+    assert_match("int 0x80", pipe_output("#{bin}/udcli -x", "cd 80").split.last(2).join(" "))
   end
 end
