@@ -11,6 +11,13 @@ class AflFuzz < Formula
   end
 
   def install
+    # test_build dies with "Oops, the instrumentation does not seem to be
+    # behaving correctly!" in a nested login shell.
+    # Reported to lcamtuf@coredump.cx 6th Apr 2016.
+    inreplace "Makefile" do |s|
+      s.gsub! "all: test_x86 $(PROGS) afl-as test_build all_done", "all: test_x86 $(PROGS) afl-as all_done"
+      s.gsub! "all_done: test_build", "all_done:"
+    end
     system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end
