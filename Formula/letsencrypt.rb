@@ -1,8 +1,8 @@
 class Letsencrypt < Formula
   desc "Tool to automatically receive and install X.509 certificates"
   homepage "https://letsencrypt.org/"
-  url "https://github.com/letsencrypt/letsencrypt/archive/v0.4.2.tar.gz"
-  sha256 "0f55c0f292829a9c6c1da7a57860290285cfa5da8615a87b8c268a946ab656b2"
+  url "https://github.com/letsencrypt/letsencrypt/archive/v0.5.0.tar.gz"
+  sha256 "503535fa356c45b46a166ea84875bb1fd43e994afee1485bbc3b6849d46c5d43"
 
   bottle do
     cellar :any
@@ -37,8 +37,8 @@ class Letsencrypt < Formula
   end
 
   resource "cryptography" do
-    url "https://pypi.python.org/packages/source/c/cryptography/cryptography-1.2.3.tar.gz"
-    sha256 "8eb11c77dd8e73f48df6b2f7a7e16173fe0fe8fdfe266232832e88477e08454e"
+    url "https://pypi.python.org/packages/source/c/cryptography/cryptography-1.3.1.tar.gz"
+    sha256 "b4b36175e0f95ddc88435c26dbe3397edce48e2ff5fe41d504cdb3beddcd53e2"
   end
 
   resource "enum34" do
@@ -47,13 +47,13 @@ class Letsencrypt < Formula
   end
 
   resource "funcsigs" do
-    url "https://pypi.python.org/packages/source/f/funcsigs/funcsigs-0.4.tar.gz"
-    sha256 "d83ce6df0b0ea6618700fe1db353526391a8a3ada1b7aba52fed7a61da772033"
+    url "https://pypi.python.org/packages/source/f/funcsigs/funcsigs-1.0.0.tar.gz"
+    sha256 "2310f9d4a77c284e920ec572dc2525366a107b08d216ff8dbb891d95b6a77563"
   end
 
   resource "idna" do
-    url "https://pypi.python.org/packages/source/i/idna/idna-2.0.tar.gz"
-    sha256 "16199aad938b290f5be1057c0e1efc6546229391c23cea61ca940c115f7d3d3b"
+    url "https://pypi.python.org/packages/source/i/idna/idna-2.1.tar.gz"
+    sha256 "ed36f281aebf3cd0797f163bb165d84c31507cedd15928b095b1675e2d04c676"
   end
 
   resource "ipaddress" do
@@ -62,8 +62,8 @@ class Letsencrypt < Formula
   end
 
   resource "mock" do
-    url "https://pypi.python.org/packages/source/m/mock/mock-1.3.0.tar.gz"
-    sha256 "1e247dbecc6ce057299eb7ee019ad68314bb93152e81d9a6110d35f4d5eca0f6"
+    url "https://pypi.python.org/packages/source/m/mock/mock-2.0.0.tar.gz"
+    sha256 "b158b6df76edd239b8208d481dc46b6afd45a846b7812ff0ce58971cf5bc8bba"
   end
 
   resource "ndg-httpsclient" do
@@ -71,9 +71,14 @@ class Letsencrypt < Formula
     sha256 "e8c155fdebd9c4bcb0810b4ed01ae1987554b1ee034dd7532d7b8fdae38a6274"
   end
 
+  resource "ordereddict" do
+    url "https://pypi.python.org/packages/source/o/ordereddict/ordereddict-1.1.tar.gz"
+    sha256 "1c35b4ac206cef2d24816c89f89cf289dd3d38cf7c449bb3fab7bf6d43f01b1f"
+  end
+
   resource "parsedatetime" do
-    url "https://pypi.python.org/packages/source/p/parsedatetime/parsedatetime-1.5.tar.gz"
-    sha256 "3da6be2be506f59cce32e19e30e201053e1bb4d07e25668918e00f8a49ad40ab"
+    url "https://pypi.python.org/packages/source/p/parsedatetime/parsedatetime-2.1.tar.gz"
+    sha256 "17c578775520c99131634e09cfca5a05ea9e1bd2a05cd06967ebece10df7af2d"
   end
 
   resource "pbr" do
@@ -82,8 +87,8 @@ class Letsencrypt < Formula
   end
 
   resource "psutil" do
-    url "https://pypi.python.org/packages/source/p/psutil/psutil-4.0.0.tar.gz"
-    sha256 "1a7c672f9ee79c84ff16b8de6f6040080f0e25002ac47f115f4a54aa88e5cfcd"
+    url "https://pypi.python.org/packages/source/p/psutil/psutil-4.1.0.tar.gz"
+    sha256 "c6abebec9c8833baaf1c51dd1b0259246d1d50b9b50e9a4aa66f33b1e98b8d17"
   end
 
   resource "pyasn1" do
@@ -97,8 +102,8 @@ class Letsencrypt < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://pypi.python.org/packages/source/p/pyOpenSSL/pyOpenSSL-0.15.1.tar.gz"
-    sha256 "f0a26070d6db0881de8bcc7846934b7c3c930d8f9c79d45883ee48984bc0d672"
+    url "https://pypi.python.org/packages/source/p/pyOpenSSL/pyOpenSSL-16.0.0.tar.gz"
+    sha256 "363d10ee43d062285facf4e465f4f5163f9f702f9134f0a5896f134cbb92d17d"
   end
 
   resource "pyRFC3339" do
@@ -112,8 +117,8 @@ class Letsencrypt < Formula
   end
 
   resource "pytz" do
-    url "https://pypi.python.org/packages/source/p/pytz/pytz-2015.7.tar.bz2"
-    sha256 "fbd26746772c24cb93c8b97cbdad5cb9e46c86bbdb1b9d8a743ee00e2fb1fc5d"
+    url "https://pypi.python.org/packages/source/p/pytz/pytz-2016.3.tar.bz2"
+    sha256 "c193dfa167ac32c8cb96f26cbcd92972591b22bda0bac3effdbdb04de6cc55d6"
   end
 
   resource "requests" do
@@ -149,8 +154,8 @@ class Letsencrypt < Formula
 
   # Required for the nginx module.
   resource "pyparsing" do
-    url "https://pypi.python.org/packages/source/p/pyparsing/pyparsing-2.1.0.tar.gz"
-    sha256 "f6cb2bc85a491347c3c699db47f7ecc02903959156b4f92669ebf82395982901"
+    url "https://pypi.python.org/packages/source/p/pyparsing/pyparsing-2.1.1.tar.gz"
+    sha256 "9bae5cd4cbee6da0d7d8d9a1647f5253a3b89652e707647eaf1961f4932ae6c6"
   end
 
   def install
