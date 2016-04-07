@@ -1,8 +1,8 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/archive/20150824.tar.gz"
-  sha256 "28ab2471cb010c1fa75b8ab8191a1dded81fe1e9490aa5ff6ab4706a4c78ff27"
+  url "https://github.com/fontforge/fontforge/archive/20160404.tar.gz"
+  sha256 "1cc5646fccba2e5af8f1b6c1d0d6d7b6082d9546aefed2348d6c0ed948324796"
   head "https://github.com/fontforge/fontforge.git"
 
   bottle do
@@ -28,6 +28,7 @@ class Fontforge < Formula
   depends_on "zeromq"
   depends_on "czmq"
   depends_on "cairo"
+  depends_on "fontconfig"
   depends_on "libpng" => :recommended
   depends_on "jpeg" => :recommended
   depends_on "libtiff" => :recommended
@@ -35,14 +36,9 @@ class Fontforge < Formula
   depends_on "libspiro" => :optional
   depends_on :python if MacOS.version <= :snow_leopard
 
-  # This may be causing font-display glitches and needs further isolation & fixing.
-  # https://github.com/fontforge/fontforge/issues/2083
-  # https://github.com/Homebrew/homebrew/issues/37803
-  depends_on "fontconfig"
-
   resource "gnulib" do
     url "git://git.savannah.gnu.org/gnulib.git",
-        :revision => "9a417cf7d48fa231c937c53626da6c45d09e6b3e"
+        :revision => "29ea6d6fe2a699a32edbe29f44fe72e0c253fcee"
   end
 
   fails_with :llvm do
