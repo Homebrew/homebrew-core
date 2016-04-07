@@ -1,10 +1,9 @@
 class Mdk < Formula
   desc "GNU MIX development kit"
   homepage "https://www.gnu.org/software/mdk/mdk.html"
-  url "http://ftpmirror.gnu.org/mdk/v1.2.8/mdk-1.2.8.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/mdk/v1.2.8/mdk-1.2.8.tar.gz"
-  sha256 "7bff1e10b829c6e1f3c278bfecbe82f0f658753ce80ea58b6f71c05f9490b0db"
-  revision 1
+  url "http://ftpmirror.gnu.org/mdk/v1.2.9/mdk-1.2.9.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/mdk/v1.2.9/mdk-1.2.9.tar.gz"
+  sha256 "6c265ddd7436925208513b155e7955e5a88c158cddda72c32714ccf5f3e74430"
 
   bottle do
     revision 1
@@ -45,10 +44,10 @@ class Mdk < Formula
               ALF    "LD"                                      (12)
               END    START       end of the program            (13)
     EOS
-    system "#{bin}/mixasm",  "hello"
+    system "#{bin}/mixasm", "hello"
     output = `#{bin}/mixvm -r hello`
 
-    expected =  <<-EOS.undent
+    expected = <<-EOS.undent
       Program loaded. Start address: 1000
       Running ...
       MIXAL HELLO WORLDXXX
