@@ -19,6 +19,11 @@ class YoutubeDl < Formula
     depends_on "pandoc" => :build
   end
 
+  option "with-ffmpeg", "Install ffmpeg as well to use post-processing options"
+  option "with-libav", "Install libav as well to use post-processing options"
+
+  depends_on "ffmpeg" => :optional
+  depends_on "libav" => :optional
   depends_on "rtmpdump" => :optional
 
   def install
@@ -28,10 +33,6 @@ class YoutubeDl < Formula
     bash_completion.install "youtube-dl.bash-completion"
     zsh_completion.install "youtube-dl.zsh" => "_youtube-dl"
     fish_completion.install "youtube-dl.fish"
-  end
-
-  def caveats
-    "To use post-processing options, `brew install ffmpeg` or `brew install libav`."
   end
 
   test do
