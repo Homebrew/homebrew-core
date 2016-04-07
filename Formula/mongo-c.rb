@@ -1,8 +1,8 @@
 class MongoC < Formula
   desc "Official C driver for MongoDB"
   homepage "https://docs.mongodb.org/ecosystem/drivers/c/"
-  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.1.6/mongo-c-driver-1.1.6.tar.gz"
-  sha256 "231d0d038c848e8871fa03b70f74284dd8481734eac2bf05fb240e94c9279130"
+  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.3.5/mongo-c-driver-1.3.5.tar.gz"
+  sha256 "374d37a6d6e49fbb2ed6cab0a305ced347651ec04d57808961d03afa8caa68df"
 
   bottle do
     cellar :any
@@ -18,13 +18,17 @@ class MongoC < Formula
     depends_on "libtool" => :build
   end
 
+  conflicts_with "libbson",
+                 :because => "mongo-c installs the libbson headers"
+
   depends_on "pkg-config" => :build
-  depends_on "libbson"
   depends_on "openssl" => :recommended
 
   def install
+    args = %W[--prefix=#{prefix}]
+
     # --enable-sasl=no: https://jira.mongodb.org/browse/CDRIVER-447
-    args = ["--prefix=#{prefix}", "--enable-sasl=no"]
+    args << "--enable-sasl=no" if MacOS.version <= :yosemite
 
     if build.head?
       system "./autogen.sh"
@@ -38,5 +42,15 @@ class MongoC < Formula
 
     system "./configure", *args
     system "make", "install"
+    prefix.install "examples"
+  end
+
+  test do
+    system ENV.cc, prefix/"examples/mongoc-ping.c",
+           "-I#{include}/libmongoc-1.0",
+           "-I#{include}/libbson-1.0",
+           "-L#{lib}", "-lmongoc-1.0", "-lbson-1.0",
+           "-o", "test"
+    assert_match "No suitable servers", shell_output("./test mongodb://0.0.0.0 2>&1", 3)
   end
 end
