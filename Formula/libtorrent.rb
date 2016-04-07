@@ -35,4 +35,19 @@ class Libtorrent < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    (testpath/"sample.cc").write <<-EOS.undent
+      #include <iostream>
+      #include <torrent/torrent.h>
+      int main(int argc, char* *argv)
+      {
+          std::cout << torrent::version();
+          return 0;
+      }
+    EOS
+
+    system ENV.cxx, "-o", "sample", "sample.cc", "-ltorrent"
+    system "./sample"
+  end
 end
