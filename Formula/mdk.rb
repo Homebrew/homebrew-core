@@ -6,10 +6,9 @@ class Mdk < Formula
   sha256 "6c265ddd7436925208513b155e7955e5a88c158cddda72c32714ccf5f3e74430"
 
   bottle do
-    revision 1
-    sha256 "5b24eaf48d048cd8d482ec4b28dc093e5e75fe4e3430934d8930b64d003d7b5c" => :yosemite
-    sha256 "73dee962b53150de146a017161004995a341a7239554b46a5f895c31aea80755" => :mavericks
-    sha256 "76631db9d820f00fa4f807c9316c08b20a54151827f5b40d7b49a5608dbba547" => :mountain_lion
+    sha256 "9e3290fb263592ecfcd5f11b4015536c40f676a2c31987c954f568b43c0998bd" => :el_capitan
+    sha256 "95c93e5625b975cc85854467782a18116bde17e19fc94ae11e6dce6bdae0a44f" => :yosemite
+    sha256 "eaab34ff8d2d73e08da0c3596fbee2eadc68cc269c1fe7b425b49f703348dcfa" => :mavericks
   end
 
   depends_on "gtk+"
