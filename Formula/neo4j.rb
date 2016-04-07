@@ -13,6 +13,8 @@ class Neo4j < Formula
 
   bottle :unneeded
 
+  depends_on :java
+
   def install
     # Remove windows files
     rm_f Dir["bin/*.bat"]
