@@ -5,7 +5,8 @@ class Cfssl < Formula
   homepage "https://cfssl.org/"
   url "https://github.com/cloudflare/cfssl/archive/1.2.0.tar.gz"
   sha256 "28e1d1ec6862eb926336490e2fcd1de626113d3e227293a4138fec59b7b6e443"
-  revision 1
+  revision 2
+
   head "https://github.com/cloudflare/cfssl.git"
 
   bottle do
@@ -54,7 +55,7 @@ class Cfssl < Formula
   end
 
   go_resource "github.com/coreos/go-systemd" do
-    url "github.com/coreos/go-systemd.git",
+    url "https://github.com/coreos/go-systemd.git",
     :revision => "2ed5b5012ccde5f057c197890a2c801295941149"
   end
 
