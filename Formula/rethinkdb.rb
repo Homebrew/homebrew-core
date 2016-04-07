@@ -38,7 +38,7 @@ class Rethinkdb < Formula
     etc.install "packaging/assets/config/default.conf.sample" => "rethinkdb.conf"
   end
 
-  plist_options :manuel => "rethinkdb start"
+  plist_options :manual => "rethinkdb start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
