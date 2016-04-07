@@ -33,7 +33,7 @@ class Txt2man < Formula
     EOS
 
     assert_equal "main.3\n", shell_output("#{bin}/src2man test.c 2>&1")
-    assert File.read("main.3").include?(%q(\fBmain \fP- do stuff))
+    assert_match(/\\fBmain\ \\fP\-\ do\ stuff\n/, File.read("main.3").lines.to_a[4])
 
     # bookman
     system "#{bin}/bookman", "-t", "Test", "-o", "test", Dir["#{man1}/*"]
