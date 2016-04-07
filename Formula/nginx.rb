@@ -4,6 +4,7 @@ class Nginx < Formula
   url "http://nginx.org/download/nginx-1.8.1.tar.gz"
   sha256 "8f4b3c630966c044ec72715754334d1fdf741caa1d5795fb4646c27d09f797b7"
   head "http://hg.nginx.org/nginx/", :using => :hg
+  revision 1
 
   bottle do
     sha256 "17714df889eb930a3255c27ac98e229c85ccc2e356dc54e3993d2e3caf515ae7" => :el_capitan
