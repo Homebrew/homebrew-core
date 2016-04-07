@@ -1,8 +1,8 @@
 class Glbinding < Formula
   desc "C++ binding for the OpenGL API"
-  homepage "https://github.com/hpicgs/glbinding"
-  url "https://github.com/hpicgs/glbinding/archive/v1.1.0.tar.gz"
-  sha256 "2e34024b9b5d4c6a1db9326634f77c1eaab179c36382cb2a5f005c7ec702e8b9"
+  homepage "https://github.com/cginternals/glbinding"
+  url "https://github.com/cginternals/glbinding/archive/v2.0.1.tar.gz"
+  sha256 "6712d91c5f8de81089549e499d8d63554f20abcd250cbfbfae34065760ddf6cb"
 
   bottle do
     sha256 "267be079b0657c4cc1cb4002bf4047d358630404e2ea0bcb966a5730b6a0641e" => :el_capitan
@@ -10,13 +10,16 @@ class Glbinding < Formula
     sha256 "d4e319797d5b4dbf44dcd99f01de934941d7e39e82bcf66508853b386b2bdeab" => :mavericks
   end
 
+  option "with-glfw3", "Enable tools that display OpenGL information for your system"
+
   depends_on "cmake" => :build
+  depends_on "homebrew/versions/glfw3" => :optional
   needs :cxx11
 
   def install
     ENV.cxx11
     system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "--build", ".", "--target", "install"
   end
 
   test do
