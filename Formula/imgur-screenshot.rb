@@ -1,8 +1,8 @@
 class ImgurScreenshot < Formula
   desc "Take screenshot selection, upload to imgur. + more cool things"
   homepage "https://github.com/jomo/imgur-screenshot"
-  url "https://github.com/jomo/imgur-screenshot/archive/v1.7.0.tar.gz"
-  sha256 "ddfd9cb1eef6880f9a5cdff09c6f0e5d6e687a0716128758b1f23457c014fec6"
+  url "https://github.com/jomo/imgur-screenshot/archive/v1.7.1.tar.gz"
+  sha256 "2a9ac0f59b3b6819fec5dfc4bd50d1c28adefbdaf31f0bf93a52fa40b283cf44"
   head "https://github.com/jomo/imgur-screenshot.git"
 
   bottle :unneeded
