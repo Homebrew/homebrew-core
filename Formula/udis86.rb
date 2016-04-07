@@ -4,6 +4,13 @@ class Udis86 < Formula
   url "https://downloads.sourceforge.net/udis86/udis86-1.7.2.tar.gz"
   sha256 "9c52ac626ac6f531e1d6828feaad7e797d0f3cce1e9f34ad4e84627022b3c2f4"
 
+  bottle do
+    cellar :any
+    sha256 "e763db7beca50f11ab341f13f5fd571513f4847772bb70ef83d94bb576427673" => :el_capitan
+    sha256 "bcd6eb347f55bc856ceb64604d3bace30219e346de34caa8be7de2b52a1cb35d" => :yosemite
+    sha256 "84b56e3d62695b2c39c2c450d94fcd258439baedbcd68980a19b685f2e2b95c9" => :mavericks
+  end
+
   option :universal
 
   def install
