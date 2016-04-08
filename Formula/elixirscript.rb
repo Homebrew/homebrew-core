@@ -1,8 +1,8 @@
 class Elixirscript < Formula
   desc "Elixir to JavaScript compiler"
   homepage "https://github.com/bryanjos/elixirscript"
-  url "https://github.com/bryanjos/elixirscript/archive/v0.17.0.tar.gz"
-  sha256 "7670686cd3bf73b787d4f71b854f528bc7245ab2f740d2806ef0b8d9155f7476"
+  url "https://github.com/bryanjos/elixirscript/archive/v0.18.0.tar.gz"
+  sha256 "1c9518a61abc2b587bd392bdaecfce75e6c399e5c5e21d64ed818f340a25a0ad"
 
   bottle do
     cellar :any_skip_relocation
