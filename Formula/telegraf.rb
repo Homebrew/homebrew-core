@@ -3,8 +3,8 @@ require "language/go"
 class Telegraf < Formula
   desc "Server-level metric gathering agent for InfluxDB"
   homepage "https://influxdata.com"
-  url "https://github.com/influxdata/telegraf/archive/0.11.1.tar.gz"
-  sha256 "71ead75f02cb744b52bce56188ed37524e315b06f87dfb9c00fc338ecb0212e4"
+  url "https://github.com/influxdata/telegraf/archive/0.12.0.tar.gz"
+  sha256 "81f715d3efa6f801cf9bc433922280be7fda10c2aedcb4d0b2a91f51f881ccc4"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,12 +13,26 @@ class Telegraf < Formula
     sha256 "03b42f99a8dbf2439c0384785ad7b1e1caa0a84484473b53ec0faf6c86e927e4" => :mavericks
   end
 
-  depends_on "go" => :build
+  head do
+    url "https://github.com/influxdata/telegraf.git"
 
-  go_resource "git.eclipse.org/gitroot/paho/org.eclipse.paho.mqtt.golang.git" do
-    url "git://git.eclipse.org/gitroot/paho/org.eclipse.paho.mqtt.golang.git",
-    :revision => "617c801af238c3af2d9e72c5d4a0f02edad03ce5"
+    go_resource "github.com/docker/engine-api" do
+      url "https://github.com/docker/engine-api.git",
+      :revision => "8924d6900370b4c7e7984be5adc61f50a80d7537"
+    end
+
+    go_resource "github.com/docker/go-connections" do
+      url "https://github.com/docker/go-connections.git",
+      :revision => "f549a9393d05688dff0992ef3efd8bbe6c628aeb"
+    end
+
+    go_resource "github.com/docker/go-units" do
+      url "https://github.com/docker/go-units.git",
+      :revision => "5d2041e26a699eaca682e2ea41c8f891e1060444"
+    end
   end
+
+  depends_on "go" => :build
 
   go_resource "github.com/Shopify/sarama" do
     url "https://github.com/Shopify/sarama.git",
@@ -50,6 +64,21 @@ class Telegraf < Formula
     :revision => "4dc77674aceaabba2c7e3da25d4c823edfb73f99"
   end
 
+  go_resource "github.com/couchbase/go-couchbase" do
+    url "https://github.com/couchbase/go-couchbase.git",
+    :revision => "cb664315a324d87d19c879d9cc67fda6be8c2ac1"
+  end
+
+  go_resource "github.com/couchbase/gomemcached" do
+    url "https://github.com/couchbase/gomemcached.git",
+    :revision => "a5ea6356f648fec6ab89add00edd09151455b4b2"
+  end
+
+  go_resource "github.com/couchbase/goutils" do
+    url "https://github.com/couchbase/goutils.git",
+    :revision => "5823a0cbaaa9008406021dc5daf80125ea30bba6"
+  end
+
   go_resource "github.com/dancannon/gorethink" do
     url "https://github.com/dancannon/gorethink.git",
     :revision => "e7cac92ea2bc52638791a021f212145acfedb1fc"
@@ -68,6 +97,11 @@ class Telegraf < Formula
   go_resource "github.com/eapache/queue" do
     url "https://github.com/eapache/queue.git",
     :revision => "ded5959c0d4e360646dc9e9908cff48666781367"
+  end
+
+  go_resource "github.com/eclipse/paho.mqtt.golang" do
+    url "https://github.com/eclipse/paho.mqtt.golang.git",
+    :revision => "4ab3e867810d1ec5f35157c59e965054dbf43a0d"
   end
 
   go_resource "github.com/fsouza/go-dockerclient" do
@@ -197,7 +231,7 @@ class Telegraf < Formula
 
   go_resource "github.com/shirou/gopsutil" do
     url "https://github.com/shirou/gopsutil.git",
-    :revision => "1de1357e7737a536c7f4ff6be7bd27977db4d2cb"
+    :revision => "1f32ce1bb380845be7f5d174ac641a2c592c0c42"
   end
 
   go_resource "github.com/soniah/gosnmp" do
@@ -217,7 +251,7 @@ class Telegraf < Formula
 
   go_resource "github.com/wvanbergen/kafka" do
     url "https://github.com/wvanbergen/kafka.git",
-    :revision => "1a8639a45164fcc245d5c7b4bd3ccfbd1a0ffbf3"
+    :revision => "46f9a1cf3f670edec492029fadded9c2d9e18866"
   end
 
   go_resource "github.com/wvanbergen/kazoo-go" do
