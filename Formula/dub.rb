@@ -11,6 +11,12 @@ class Dub < Formula
     sha256 "33db147c048a39cad51569940ff489e015a08f3d17d0c299efcce89c064a8513" => :mavericks
   end
 
+  devel do
+    url "https://github.com/D-Programming-Language/dub/archive/v0.9.25-alpha.1.tar.gz"
+    sha256 "c6823569045b3528238d2d2f372be1a7e4a15b0c31c5584e5d09bc646767131a"
+    version "0.9.25-alpha.1"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "dmd" => :build
 

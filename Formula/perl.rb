@@ -1,16 +1,17 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "http://www.cpan.org/src/5.0/perl-5.22.1.tar.gz"
+  url "http://www.cpan.org/src/5.0/perl-5.22.1.tar.xz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/perl/perl_5.22.1.orig.tar.xz"
-  sha256 "2b475d0849d54c4250e9cba4241b7b7291cffb45dfd083b677ca7b5d38118f27"
+  sha256 "9e87317d693ce828095204be0d09af8d60b8785533fadea1a82b6f0e071e5c79"
 
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   bottle do
-    sha256 "a1bbae429655d663bfa47ccad7ec10b0412f07702abf1ed442ccc37e014de3bb" => :el_capitan
-    sha256 "0e7a6aea826e32f2f3b77a1889a26457dfb8d72e6382d350590f8391b89ef3d4" => :yosemite
-    sha256 "b6c3b4aa11cd78191840029502763b9249c74e63d58412a82854fec4350ac5a3" => :mavericks
+    revision 1
+    sha256 "e5b74b2aae601761f639bc668f929a39592c2231dbef5ed28f01fdd877e0bed7" => :el_capitan
+    sha256 "f180afdea11e1f4e12378881d58c27efa04abee091140c2e055439a14a668802" => :yosemite
+    sha256 "f5561ffe42ca1559fb72e855ecc36c133a5c6142a1cfac2cf9387b4da9b25d95" => :mavericks
   end
 
   keg_only :provided_by_osx,
@@ -38,8 +39,8 @@ class Perl < Formula
     system "./Configure", *args
     system "make"
 
-    # OS X El Capitan's SIP feature prevents DYLD_LIBRARY_PATH from being passed to child
-    # processes, which causes the make test step to fail.
+    # OS X El Capitan's SIP feature prevents DYLD_LIBRARY_PATH from being
+    # passed to child processes, which causes the make test step to fail.
     # https://rt.perl.org/Ticket/Display.html?id=126706
     # https://github.com/Homebrew/homebrew/issues/41716
     if MacOS.version < :el_capitan

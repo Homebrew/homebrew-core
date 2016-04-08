@@ -1,16 +1,14 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/archive/20150824.tar.gz"
-  sha256 "28ab2471cb010c1fa75b8ab8191a1dded81fe1e9490aa5ff6ab4706a4c78ff27"
+  url "https://github.com/fontforge/fontforge/archive/20160404.tar.gz"
+  sha256 "1cc5646fccba2e5af8f1b6c1d0d6d7b6082d9546aefed2348d6c0ed948324796"
   head "https://github.com/fontforge/fontforge.git"
 
   bottle do
-    revision 1
-    sha256 "2a1087da08797e0c61290551b71bbb1abe3d407af53a85700c38897fd9d7951f" => :el_capitan
-    sha256 "f8228c12d9bcda768334b32b51251edd9c970e6a6f213896b7d74e8dfa96231d" => :yosemite
-    sha256 "b303e97388537aa75f15e4f9f16d84470b4f6fa9aaa2b2cb151a6b288903886c" => :mavericks
-    sha256 "065e2c82a000ed3d07f6ac8edc41b530b99f81b10c42442b3887daa5007223cb" => :mountain_lion
+    sha256 "fd97cefd808fc0f07ac61e6ea624f074c9be5f2fb11f5a45468912fe5991ca36" => :el_capitan
+    sha256 "e2dd2a2c7ce89b74b4bc2902da0ff93615b62b31bda5303a4f9bdf4447c2f05e" => :yosemite
+    sha256 "6f1a9f1a0a15a2f84f0dce5c73e80e4265efd05e4bfa570f3c5e78da2211bbc6" => :mavericks
   end
 
   option "with-giflib", "Build with GIF support"
@@ -28,6 +26,7 @@ class Fontforge < Formula
   depends_on "zeromq"
   depends_on "czmq"
   depends_on "cairo"
+  depends_on "fontconfig"
   depends_on "libpng" => :recommended
   depends_on "jpeg" => :recommended
   depends_on "libtiff" => :recommended
@@ -35,14 +34,9 @@ class Fontforge < Formula
   depends_on "libspiro" => :optional
   depends_on :python if MacOS.version <= :snow_leopard
 
-  # This may be causing font-display glitches and needs further isolation & fixing.
-  # https://github.com/fontforge/fontforge/issues/2083
-  # https://github.com/Homebrew/homebrew/issues/37803
-  depends_on "fontconfig"
-
   resource "gnulib" do
     url "git://git.savannah.gnu.org/gnulib.git",
-        :revision => "9a417cf7d48fa231c937c53626da6c45d09e6b3e"
+        :revision => "29ea6d6fe2a699a32edbe29f44fe72e0c253fcee"
   end
 
   fails_with :llvm do

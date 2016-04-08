@@ -1,15 +1,15 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
   homepage "https://github.com/libuv/libuv"
-  url "https://github.com/libuv/libuv/archive/v1.8.0.tar.gz"
-  sha256 "906e1a5c673c95cb261adeacdb7308a65b4a8f7c9c50d85f3021364951fa9cde"
+  url "https://github.com/libuv/libuv/archive/v1.9.0.tar.gz"
+  sha256 "f8b8272a0d80138b709d38fad2baf771899eed61e7f9578d17898b07a1a2a5eb"
   head "https://github.com/libuv/libuv.git", :branch => "v1.x"
 
   bottle do
     cellar :any
-    sha256 "a34b88cfbbe193271251130ea7a3b20469dbe3f83c3ba3f911c1447d5499348b" => :el_capitan
-    sha256 "60b8e218282f2e054964037e23fb8beeef20fb2475c03d40cf07050688e5f0fd" => :yosemite
-    sha256 "c24fb05674c293a89b7855ba045a3094edb6a3acee5527acd11564e2e4499ed9" => :mavericks
+    sha256 "b88c42381d2f77fd83aed8018b4584709f7cce3f4cb2af7cd171eb1193020040" => :el_capitan
+    sha256 "0a0fd0629f0948344455ce2bbe3318f9a9c72b0335a367a68bad21b1e24e1c40" => :yosemite
+    sha256 "809d792e814d311c6066ca13d0b38fed4c150c14bac716033979f33c5cd8c33f" => :mavericks
   end
 
   option "without-docs", "Don't build and install documentation"

@@ -5,9 +5,10 @@ class Lnav < Formula
   sha256 "fbebe3f4656c89b307fe06e7746e6146ae856048413a7cd98aaf8fc2bb34fc33"
 
   bottle do
-    sha256 "e9517c62ec980ae5cf4e23927806f6d701b70feb2d8097dedbbc9c35eb91c572" => :el_capitan
-    sha256 "e58d5a2f1ca5db2282969a230b8896ca18092d627bb35078f3e53ab6c8690284" => :yosemite
-    sha256 "28f135c1ca5201566eec2e75a9c724fc77af0b1c7d12a821438246b14db4e840" => :mavericks
+    revision 2
+    sha256 "d34926a00d4aca2e8045ddbe12b948042b2dfa262e403b67f303cfb01c7af482" => :el_capitan
+    sha256 "ab14e46f5a4c0570a3437ae1703ec152e86d57e5a47192d3f81d74665e74649d" => :yosemite
+    sha256 "457250f40c4f012722c23b23beed1ab8eaee7dda2184581bbec66ad981c270f7" => :mavericks
   end
 
   head do
@@ -23,10 +24,19 @@ class Lnav < Formula
   depends_on "curl" => ["with-libssh2", :optional]
 
   def install
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --with-readline=#{Formula["readline"].opt_prefix}
+    ]
+
+    # OS X ships with libcurl by default, albeit without sftp support. If we
+    # want lnav to use the keg-only curl formula that we specify as a
+    # dependency, we need to pass in the path.
+    args << "--with-libcurl=#{Formula["curl"].opt_lib}" if build.with? "curl"
+
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-readline=#{Formula["readline"].opt_prefix}"
+    system "./configure", *args
     system "make", "install"
   end
 end

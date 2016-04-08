@@ -1,25 +1,25 @@
 class Argon2 < Formula
   desc "Password hashing library and CLI utility"
   homepage "https://github.com/P-H-C/phc-winner-argon2"
-  url "https://github.com/P-H-C/phc-winner-argon2/archive/20151206.tar.gz"
-  sha256 "29f9eb6d84bfe29604c48830432aa030e96158d66e85a2c83b115e29eb025e85"
+  url "https://github.com/P-H-C/phc-winner-argon2/archive/20160406.tar.gz"
+  sha256 "fbfbea50ebdaddd2b945ee877c8e47b7863c080ee2238603ed6918a84952dc3c"
 
   bottle do
     cellar :any
-    sha256 "5aa9e252affd4fd146b9cc23c563c8cb4ee03a13df507bf6b0dff00badf8997d" => :el_capitan
-    sha256 "d35eec9e5db9398779c13cb16ffb6b1fa3e91a9032c2e32c302cb4cc7c2d513a" => :yosemite
-    sha256 "a9bc8e51ebc587f28f6d9e1024d74375800b9ad7711a394c18439ada7700d25e" => :mavericks
+    sha256 "5fb0a7803e49c9fa02d4fb687e46e5bc3fd3ba6e6b4fce6a138f8d498e61e510" => :el_capitan
+    sha256 "85711883047c0cad702f814db34cf9ace991d54b4143d0727b1e905084ff1f85" => :yosemite
+    sha256 "01ae3bd008907a16f990ef922da4d156cc410f60d5fe8b01434ac7b91db70a5f" => :mavericks
   end
 
   def install
     system "make"
-    include.install "src/argon2.h"
+    include.install "include/argon2.h"
     lib.install "libargon2.dylib"
     bin.install "argon2"
   end
 
   test do
-    assert_equal "$argon2i$m=65536,t=2,p=4$c29tZXNhbHQAAAAAAAAAAA$Q38e04oLanBHl/MHZra3ypCikyWHhVYRVbekTeGl03o\n",
+    assert_equal "$argon2i$v=19$m=65536,t=2,p=4$c29tZXNhbHQ$LY26Xe109v98jqoS57OD9ZBwh1CAQavxHyHx1IQ2g/A\n",
       pipe_output("echo -n password | #{bin}/argon2 somesalt -t 2 -m 16 -p 4 | grep Encoded | awk '{print $2}'")
   end
 end

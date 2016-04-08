@@ -1,8 +1,8 @@
 class Archey < Formula
   desc "Graphical system information display for OS X"
   homepage "https://obihann.github.io/archey-osx/"
-  url "https://github.com/obihann/archey-osx/archive/1.5.2.tar.gz"
-  sha256 "01f58ea2f57fa5b23598590cee9b91dfac0b3402e7a9c4a781ff719be2388f1a"
+  url "https://github.com/obihann/archey-osx/archive/1.6.0.tar.gz"
+  sha256 "0f0ffcf8c5f07610b98f0351dcb38bb8419001f40906d5dc4bfd28ef12dbd0f8"
   head "https://github.com/obihann/archey-osx.git"
 
   bottle :unneeded

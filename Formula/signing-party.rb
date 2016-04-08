@@ -4,20 +4,18 @@ class SigningParty < Formula
   url "https://mirrors.ocf.berkeley.edu/debian/pool/main/s/signing-party/signing-party_2.2.orig.tar.gz"
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/s/signing-party/signing-party_2.2.orig.tar.gz"
   sha256 "ad5d06c6c58de17aee104b9cf2f3a954cd9b854e5a77c1a8b62cf0a67c63168f"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ab9402d885e55ac2edb59d1c851ceba1a5a68e49bbecf1e3ebc51bbaa851a851" => :el_capitan
-    sha256 "f9e76620c0bbddc7790d08b3b04570b47ef1e2bda514c91cee387f013002a800" => :yosemite
-    sha256 "b19c2c8df1addf2a8013c681e7b55d3ca45a742901ad167a212c1bfbbec73b9c" => :mavericks
+    sha256 "bd1168e102583b95f60d0e312988ad41aefb3c5d6d7e667e27ab77d2e268c4e3" => :el_capitan
+    sha256 "604b2894f36b98c0a96938889ddf0a90a58a7c846dff2a37a486a80e56098ab4" => :yosemite
+    sha256 "a1d7bdb1d7d3df89ba2692e8648c7f821c42adb85fb7644958c670500d006855" => :mavericks
   end
 
-  option "with-rename-pgpring", "Install pgpring as pgppubring to avoid conflicting with mutt"
+  deprecated_option "without-rename-pgpring" => "with-default-names"
 
-  if build.without? "rename-pgpring"
-    conflicts_with "mutt",
-      :because => "mutt installs a private copy of pgpring"
-  end
+  option "with-default-names", "Don't rename pgpring (will conflict with mutt)"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -153,7 +151,7 @@ class SigningParty < Formula
       inreplace "pgpring/configure.in", "AM_C_PROTOTYPES", ""
       inreplace "Makefile", "automake-1.11 --add-missing && automake-1.11", "autoreconf -fvi"
       system "make"
-      if build.with? "rename-pgpring"
+      if build.without? "default-names"
         # Install pgpring as pgppubring to avoid conflicting with Mutt.
         # Reflect the installed name in manpages.
         inreplace %w[keyanalyze.1 pgpring/pgpring.1 process_keys.1], /pgpring/, "pgppubring"
@@ -179,6 +177,15 @@ class SigningParty < Formula
     end
 
     bin.env_script_all_files(libexec+"bin", "PERL5LIB" => ENV["PERL5LIB"])
+  end
+
+  def caveats
+    if build.without? "default-names"
+      <<-EOS.undent
+        pgpring has been renamed to pgppubring to avoid conflicting with mutt.
+        Reinstall --with-default-names if you don't want pgpring renamed.
+      EOS
+    end
   end
 
   test do

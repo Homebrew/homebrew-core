@@ -1,15 +1,15 @@
 class Miruo < Formula
   desc "Pretty-print TCP session monitor/analyzer"
   homepage "https://github.com/KLab/miruo/"
-  url "https://github.com/KLab/miruo/archive/0.9.6a.tar.gz"
-  sha256 "346e8bd892fe15e6859486d50231238879d3b620b93df444b13a910e84864e7f"
-  version "0.9.6a"
+  url "https://github.com/KLab/miruo/archive/0.9.6b.tar.gz"
+  version "0.9.6b"
+  sha256 "0b31a5bde5b0e92a245611a8e671cec3d330686316691daeb1de76360d2fa5f1"
 
   bottle do
-    cellar :any
-    sha256 "740829f787698e955a9e15c78cf96cfb83b5c59035d4c70186370fb8fdacae95" => :yosemite
-    sha256 "a8924a8172374a834517d5be314a14aba1135b64ad6f4ebe35fe1ff142cadfc3" => :mavericks
-    sha256 "44a926fd61e8eb14e137b88161e0638bc9d55597771cc1e742764ce11a6d6c07" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "8a5402f68bcb73e22f13fb0b049caea5d186520e81bf77889c91a558d9988c59" => :el_capitan
+    sha256 "f39aa9336ac2ec07ec0bd25bc7f7d3ae1b7a76c8af8c4d5e1f7e0ffdcfcbc9fe" => :yosemite
+    sha256 "3b5a390dae561d3ac554cbd6f16c1af6019677c3846985b116ce8fd1de649bd1" => :mavericks
   end
 
   def install

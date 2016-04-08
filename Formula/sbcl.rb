@@ -7,9 +7,10 @@ class Sbcl < Formula
   head "git://sbcl.git.sourceforge.net/gitroot/sbcl/sbcl.git"
 
   bottle do
-    sha256 "3afb1019961e846cadc4f75c2bac7e56653c1d1e957b29d4e65f0401eba7ceb2" => :el_capitan
-    sha256 "899581d4e7b9031f68f0e8b7e4b605369c756d27e96d61a18f66c3d0b0cbbddf" => :yosemite
-    sha256 "4c499f34f49dfcc006bc794cab552b942ffe85a28437052d70539919e0a3b6cb" => :mavericks
+    revision 1
+    sha256 "84e9c79a9ae97ec642e1f5d857216e8241bf7637e7ca281ff53018073ea76e34" => :el_capitan
+    sha256 "8d63a2021b43530e13b6ac98af017ea0b2ca66047acc8de17f1ed9ed299792a1" => :yosemite
+    sha256 "9708b17dd2337dbf7b862cb1cc706dd627f0850d05355db192c3c29a80c28ae4" => :mavericks
   end
 
   fails_with :llvm do
@@ -18,10 +19,11 @@ class Sbcl < Formula
   end
 
   option "32-bit"
-  option "without-threads", "Build SBCL without support for native threads"
-  option "without-core-compression", "Build SBCL without support for compressed cores and without a dependency on zlib"
-  option "with-ldb", "Include low-level debugger in the build"
   option "with-internal-xref", "Include XREF information for SBCL internals (increases core size by 5-6MB)"
+  option "with-ldb", "Include low-level debugger in the build"
+  option "without-sources", "Don't install SBCL sources"
+  option "without-core-compression", "Build SBCL without support for compressed cores and without a dependency on zlib"
+  option "without-threads", "Build SBCL without support for native threads"
 
   # Current binary versions are listed at http://sbcl.sourceforge.net/platform-table.html
   resource "bootstrap64" do
@@ -97,6 +99,16 @@ class Sbcl < Formula
 
     ENV["INSTALL_ROOT"] = prefix
     system "sh", "install.sh"
+
+    if build.with? "sources"
+      bin.env_script_all_files(libexec/"bin", :SBCL_SOURCE_ROOT => pkgshare/"src")
+      pkgshare.install %w[contrib src]
+
+      (lib/"sbcl/sbclrc").write <<-EOS.undent
+        (setf (logical-pathname-translations "SYS")
+          '(("SYS:SRC;**;*.*.*" #p"#{pkgshare}/src/**/*.*")))
+        EOS
+    end
   end
 
   test do

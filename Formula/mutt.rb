@@ -11,15 +11,15 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.5.24.tar.gz"
-  mirror "ftp://ftp.mutt.org/pub/mutt/mutt-1.5.24.tar.gz"
-  sha256 "a292ca765ed7b19db4ac495938a3ef808a16193b7d623d65562bb8feb2b42200"
+  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.6.0.tar.gz"
+  mirror "ftp://ftp.mutt.org/pub/mutt/mutt-1.6.0.tar.gz"
+  sha256 "29afb6238ab7a540c0e3a78ce25c970f975ab6c0f0bc9f919993aab772136c19"
 
   bottle do
-    revision 2
-    sha256 "5bb0c9590b522bbcc38bfecaf0561810db2660792f472aa12a3b6c8f5e5b28d7" => :el_capitan
-    sha256 "8cad91b87b615984871b6bed35a029edcef006666bc7cf3b8f6b8b74d91c5b97" => :yosemite
-    sha256 "c57d868588eb947002902c90ee68af78298cbb09987e0150c1eea73f9e574cce" => :mavericks
+    revision 1
+    sha256 "06e06c5aa69200dc8070f870faf1267e94e93a06fbbe19c56809ad8c87338970" => :el_capitan
+    sha256 "95765c32a076db6f7732217c1c667ca4d9a8157355f5c075b3912b6a2e7321f4" => :yosemite
+    sha256 "81ff19dbdfa6ea08be29388cde8ebdff19b128b51d6557ea0e42e8afadb02350" => :mavericks
   end
 
   head do
@@ -30,17 +30,11 @@ class Mutt < Formula
     end
   end
 
-  unless Tab.for_name("signing-party").with? "rename-pgpring"
-    conflicts_with "signing-party",
-      :because => "mutt installs a private copy of pgpring"
-  end
-
   conflicts_with "tin",
     :because => "both install mmdf.5 and mbox.5 man pages"
 
   option "with-debug", "Build with debug option enabled"
   option "with-s-lang", "Build against slang instead of ncurses"
-  option "with-ignore-thread-patch", "Apply ignore-thread patch"
   option "with-confirm-attachment-patch", "Apply confirm attachment patch"
 
   depends_on "autoconf" => :build
@@ -52,15 +46,6 @@ class Mutt < Formula
   depends_on "gpgme" => :optional
   depends_on "libidn" => :optional
   depends_on "s-lang" => :optional
-
-  # original source for this went missing, patch sourced from Arch at
-  # https://aur.archlinux.org/packages/mutt-ignore-thread/
-  if build.with? "ignore-thread-patch"
-    patch do
-      url "https://gist.githubusercontent.com/mistydemeo/5522742/raw/1439cc157ab673dc8061784829eea267cd736624/ignore-thread-1.5.21.patch"
-      sha256 "7290e2a5ac12cbf89d615efa38c1ada3b454cb642ecaf520c26e47e7a1c926be"
-    end
-  end
 
   if build.with? "confirm-attachment-patch"
     patch do

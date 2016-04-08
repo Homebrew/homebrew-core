@@ -5,12 +5,20 @@ class AflFuzz < Formula
   sha256 "8141291646024dcdd2e67c51fb68b4205d34c52e4b5693c88f6ce4a6bf1ebfe3"
 
   bottle do
-    sha256 "1bd94905e2c30a4d36b10cfae6ad3e2150129317a9c8cde4d5c037d2fec05aeb" => :el_capitan
-    sha256 "195e661f2078f95473ec51b4596fe8cfa563b8b35d0f0c5f735a531987eb1937" => :yosemite
-    sha256 "45d942b7a2d0fa8564fa1e80c10531f58fdbe2ae9ab2e85e559aa3a0926c175e" => :mavericks
+    revision 1
+    sha256 "cac3bcc7e0955afa373a4b3f13b8dced52d463557feac53bf284b57f2bcaa16f" => :el_capitan
+    sha256 "0e5c3298d296ab7ecb684a16ca6718c5d8de5b85cc17914f1db2bac62dff9677" => :yosemite
+    sha256 "b326e3657a81b0d9bb120cf715fd5bd19f96b1ceb5c28b4bf2e18ff9aaf990e7" => :mavericks
   end
 
   def install
+    # test_build dies with "Oops, the instrumentation does not seem to be
+    # behaving correctly!" in a nested login shell.
+    # Reported to lcamtuf@coredump.cx 6th Apr 2016.
+    inreplace "Makefile" do |s|
+      s.gsub! "all: test_x86 $(PROGS) afl-as test_build all_done", "all: test_x86 $(PROGS) afl-as all_done"
+      s.gsub! "all_done: test_build", "all_done:"
+    end
     system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end

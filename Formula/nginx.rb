@@ -6,17 +6,16 @@ class Nginx < Formula
   head "http://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "17714df889eb930a3255c27ac98e229c85ccc2e356dc54e3993d2e3caf515ae7" => :el_capitan
-    sha256 "14e9c80ef124435810403e0265bccb2a31e84da8581fb157878ab876ef7fcfa1" => :yosemite
-    sha256 "e2996cbd212024a4d4a7a3eef2ba5bf381c978372937d757da70245abb9d814a" => :mavericks
+    revision 2
+    sha256 "918a8d4ed3b18a6a7c084ca9dc1f375349b1406f8fb872e9511da8011d31b819" => :el_capitan
+    sha256 "168eaae31708c1f9f0a6274a9769b35c045a9a20ae6f586d3292d3e597ef036b" => :yosemite
+    sha256 "de4808345aa4c6413d2367ecee8f4daf797834041607032c87bbe85f8468692c" => :mavericks
   end
 
   devel do
-    url "http://nginx.org/download/nginx-1.9.13.tar.gz"
-    sha256 "f7cd529a5879cd9cd5b62e6fc4a3a7e8d8363cb12c080ab480cc718c55736609"
+    url "http://nginx.org/download/nginx-1.9.14.tar.gz"
+    sha256 "2b4893076d28e6b4384bba8c4fdebfca6de6f8f68ec48a1ca94b9b855ff457d2"
   end
-
-  env :userpaths
 
   # Before submitting more options to this formula please check they aren't
   # already in Homebrew/homebrew-nginx/nginx-full:
@@ -34,8 +33,10 @@ class Nginx < Formula
 
   def install
     # Changes default port to 8080
-    inreplace "conf/nginx.conf", "listen       80;", "listen       8080;"
-    inreplace "conf/nginx.conf", "    #}\n\n}", "    #}\n    include servers/*;\n}"
+    inreplace "conf/nginx.conf" do |s|
+      s.gsub! "listen       80;", "listen       8080;"
+      s.gsub! "    #}\n\n}", "    #}\n    include servers/*;\n}"
+    end
 
     pcre = Formula["pcre"]
     openssl = Formula["openssl"]
@@ -112,7 +113,7 @@ class Nginx < Formula
     # to #{HOMEBREW_PREFIX}/var/www. The reason we symlink instead of patching
     # is so the user can redirect it easily to something else if they choose.
     html = prefix/"html"
-    dst  = var/"www"
+    dst = var/"www"
 
     if dst.exist?
       html.rmtree

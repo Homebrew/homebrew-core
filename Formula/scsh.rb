@@ -5,9 +5,10 @@ class Scsh < Formula
   sha256 "c4a9f7df2a0bb7a7aa3dafc918aa9e9a566d4ad33a55f0192889de172d1ddb7f"
 
   bottle do
-    sha256 "8644323a340e0161ea5669062ff0154bdf606b87a9fb5c83b37e65ce13fff14f" => :el_capitan
-    sha256 "823dc978c21a886e0491a52ac62981cc62bcf1b0ec07e9bb597f072ba368e04c" => :yosemite
-    sha256 "fe8e8159c830ad3e504ae6e211d66e3ab9abcb52619c9c186c1c84df0a2565d1" => :mavericks
+    revision 1
+    sha256 "637b6d2b0055ffe923f913e43efd1859124facc4e73c5315310dc3813105ea3f" => :el_capitan
+    sha256 "093f70ab95855491d5a9ab8766ab11f9bee52588ccc07a30cb2e6a4fa9e81d02" => :yosemite
+    sha256 "8724dac1e3adb8b2cfd881042a550477054bd7c588fc7d531bad74ff62186b34" => :mavericks
   end
 
   head do
@@ -17,8 +18,6 @@ class Scsh < Formula
     depends_on "automake" => :build
     depends_on "scheme48"
   end
-
-  conflicts_with "scheme48", :because => "both install include/scheme48.h"
 
   def install
     if build.head?
@@ -35,5 +34,6 @@ class Scsh < Formula
                           "--infodir=#{info}",
                           "--mandir=#{man}"
     system "make", "install"
+    rm_rf include
   end
 end

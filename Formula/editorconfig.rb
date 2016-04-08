@@ -1,15 +1,15 @@
 class Editorconfig < Formula
   desc "Maintain consistent coding style between multiple editors"
   homepage "http://editorconfig.org"
-  url "https://downloads.sourceforge.net/project/editorconfig/EditorConfig-C-Core/0.12.0/source/editorconfig-core-c-0.12.0.tar.gz"
-  sha256 "98c581d1dce24158160c9235190ce93eeae121f978aa84a89c7de258b5122e01"
+  url "https://downloads.sourceforge.net/project/editorconfig/EditorConfig-C-Core/0.12.1/source/editorconfig-core-c-0.12.1.tar.gz"
+  sha256 "aa9cd57382c883f1be7b6c3470094317e4d3e64175a376ea49326987055153b8"
   head "https://github.com/editorconfig/editorconfig-core-c.git"
 
   bottle do
     cellar :any
-    sha256 "8701378252f11b3ace91a48addc5c9a93e264b5f5a2d7be60082713a53f2f43d" => :mavericks
-    sha256 "3dbc17ab5abf697ea8d4cde6bc896b2bba5d89058983e3688755c288b96fbeec" => :mountain_lion
-    sha256 "b6b87de9eedcd1a292ac32c5a100cb555548729e73d5a41e1854f0610dffe746" => :lion
+    sha256 "654a00e1df65376e6aa1374f57fceb651757f00ab08aacb8d077e7343230bffa" => :el_capitan
+    sha256 "0a9021863dabaf24a464bc98d1cee290f7324a175b0bd98138d364251b78f887" => :yosemite
+    sha256 "34d07fd7086716d9b0e4b078b6f45c95aa7575a1bd56acf8730a6fb69d1750e9" => :mavericks
   end
 
   option :universal

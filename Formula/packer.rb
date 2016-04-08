@@ -6,12 +6,13 @@ class Packer < Formula
   url "https://github.com/mitchellh/packer.git",
       :tag => "v0.10.0",
       :revision => "fedb0e21f03607060b002fd1467bc617b6a4e812"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c6b3c1e968a7ff6fc36344155f950cc89cf2649a2eaacf8da73c795bd0ffc26d" => :el_capitan
-    sha256 "57bf3a0a553865edfee966b8c0f6cbbaf6b8d77251bca4f258254d4cef056631" => :yosemite
-    sha256 "e1e7e6caf50244f3ed61631ae600202354d5049d4dd2b5c4306c6ecc258ae004" => :mavericks
+    sha256 "18ead2ff2d417a45c09a52a91c61f1fa33b7496280d11b6027b5ddb669e25b84" => :el_capitan
+    sha256 "4b4b2fccb5c68ec5fbdb24d0a59bf408070ad2435d288e02c0386b8a06674aa4" => :yosemite
+    sha256 "491456a64219b8eced0793cfdf07c58860ea12fe5f1368b94d2bc0236db41350" => :mavericks
   end
 
   depends_on :hg => :build
@@ -374,6 +375,7 @@ class Packer < Formula
     cd "src/github.com/mitchellh/packer" do
       system "make", "bin"
       bin.install Dir["bin/*"]
+      zsh_completion.install "contrib/zsh-completion/_packer"
     end
   end
 

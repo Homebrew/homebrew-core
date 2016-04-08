@@ -1,20 +1,19 @@
 class Ice < Formula
   desc "Comprehensive RPC framework"
   homepage "https://zeroc.com"
-  url "https://github.com/zeroc-ice/ice/archive/v3.6.1-el_capitan.tar.gz"
-  sha256 "4a348ba24daceb7694bc23ee91994e2653c5d869918e44b2b1f0d49a360e93fb"
-  version "3.6.1"
+  url "https://github.com/zeroc-ice/ice/archive/v3.6.2.tar.gz"
+  sha256 "5e9305a5eb6081c8f128d63a5546158594e9f115174fc91208f645dbe2fc02fe"
 
   bottle do
-    sha256 "d6de8a22389eda0100589d1abfe1ed341b3cd2b768a5372adc9035cd2ca3ba21" => :el_capitan
-    sha256 "5becc3d56ac408859947ce7485087370dede96019f0d951960f60a65fd076311" => :yosemite
-    sha256 "65537de34ac6fe8e5691e24c758b1511be8c2a6087acc0df3b8e85ad18a99fcb" => :mavericks
+    sha256 "0fdf8a52db7dc217a9558651593d6bfc2453a040468c8fe81770d91ba9dbf5cf" => :el_capitan
+    sha256 "3125842bc055bc4bc6121c93823a9b064936b57c4ae3a9f6eed163772d5786c1" => :yosemite
+    sha256 "f8ae8569e2aace9f55e3f631eacc3913cb8b300042c22bab66c2e72fd5b16651" => :mavericks
   end
 
   option "with-java", "Build Ice for Java and the IceGrid Admin app"
 
   depends_on "mcpp"
-  depends_on :java => [ "1.7+", :optional]
+  depends_on :java => ["1.7+", :optional]
   depends_on :macos => :mavericks
 
   resource "berkeley-db" do
@@ -37,7 +36,7 @@ class Ice < Formula
         args << "--enable-java"
 
         # @externl from ZeroC submitted this patch to Oracle through an internal ticket system
-        inreplace "dist/Makefile.in", "@JAVACFLAGS@",  "@JAVACFLAGS@ -source 1.7 -target 1.7"
+        inreplace "dist/Makefile.in", "@JAVACFLAGS@", "@JAVACFLAGS@ -source 1.7 -target 1.7"
       end
 
       # BerkeleyDB requires you to build everything from the build_unix subdirectory
@@ -48,10 +47,6 @@ class Ice < Formula
     end
 
     inreplace "cpp/src/slice2js/Makefile", /install:/, "dontinstall:"
-
-    if build.with? "java"
-      inreplace "java/src/IceGridGUI/build.gradle", "${DESTDIR}${binDir}/${appName}.app",  "${prefix}/${appName}.app"
-    end
 
     # Unset ICE_HOME as it interferes with the build
     ENV.delete("ICE_HOME")
@@ -70,10 +65,6 @@ class Ice < Formula
     cd "cpp" do
       system "make", "install", *args
     end
-
-    # Do not set this for C++ as we need to use various slice compilers to build ice. This will be
-    # unnecessary in the next release
-    args << "embedded_runpath_prefix=#{prefix}"
 
     cd "objective-c" do
       system "make", "install", *args

@@ -6,6 +6,8 @@ class PyenvCcache < Formula
 
   head "https://github.com/yyuu/pyenv-ccache.git"
 
+  bottle :unneeded
+
   depends_on "pyenv"
   depends_on "ccache" => :recommended
 
@@ -15,6 +17,6 @@ class PyenvCcache < Formula
   end
 
   test do
-    assert shell_output("eval \"$(pyenv init -)\" && pyenv hooks install").include?("ccache.bash")
+    assert_match(/ccache.bash/, shell_output("eval \"$(pyenv init -)\" && pyenv hooks install && ls"))
   end
 end

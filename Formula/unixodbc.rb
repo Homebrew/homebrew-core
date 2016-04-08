@@ -1,17 +1,14 @@
 class Unixodbc < Formula
   desc "ODBC 3 connectivity for UNIX"
   homepage "http://www.unixodbc.org/"
-  url "http://www.unixodbc.org/unixODBC-2.3.2.tar.gz"
-  mirror "ftp://mirror.ovh.net/gentoo-distfiles/distfiles/unixODBC-2.3.2.tar.gz"
-  sha256 "9c3459742f25df5aa3c10a61429bde51a6d4f11552c03095f1d33d7eb02b5c9a"
-  revision 1
+  url "https://downloads.sourceforge.net/project/unixodbc/unixODBC/2.3.4/unixODBC-2.3.4.tar.gz"
+  mirror "ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.4.tar.gz"
+  sha256 "2e1509a96bb18d248bf08ead0d74804957304ff7c6f8b2e5965309c632421e39"
 
   bottle do
-    revision 1
-    sha256 "a01d926f6ec2f5012ba73a895e9df1c381b9a5d08e73940c9dfc399071f4394f" => :el_capitan
-    sha256 "550b019631e1aeb4db26949d35e0f199918c9da5d01713fc46e7d9429a590f35" => :yosemite
-    sha256 "c9c239ea16774af35a3cddc1e5c6489b3c2b6c3072ab974c3449e89c0d24fbdb" => :mavericks
-    sha256 "3e7288eb9bc4aa158fe84d535bca202f3df28d5f3e1c1e5a96f530b000eba073" => :mountain_lion
+    sha256 "a902055dc3ca4fbda0f26f5463cf971c1f80d13028ba8a7b2631823c8c84782b" => :el_capitan
+    sha256 "91c8778727b1d8d5d2f2b0b21d25f3c8ff2f5221ec38231d06c54bbc75684f32" => :yosemite
+    sha256 "f968a389218dde09820ce6d7278bcd521d7fb43e27f186541a8bfc538ff8ead6" => :mavericks
   end
 
   option :universal
@@ -27,5 +24,9 @@ class Unixodbc < Formula
                           "--prefix=#{prefix}",
                           "--enable-gui=no"
     system "make", "install"
+  end
+
+  test do
+    system bin/"odbcinst", "-j"
   end
 end
