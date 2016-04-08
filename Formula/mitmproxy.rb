@@ -7,9 +7,10 @@ class Mitmproxy < Formula
 
   bottle do
     cellar :any
-    sha256 "8b0726d8610ce882e3eca2d1af651b36cfd15b3ab6a44ca58a016d87eb56fc3b" => :el_capitan
-    sha256 "bfb490b2e2783400384f0e39adbbc13ab603c6c0c727c5e55ffa3f54cfedf651" => :yosemite
-    sha256 "8ec7d893519c2820d5a0ac516c743054b81c07244413e1cdc6be92ef1baedfcd" => :mavericks
+    revision 1
+    sha256 "aaa06f4c92841c3576be9c95a926fc8196053ba9c8430d811afeb853b03fdfff" => :el_capitan
+    sha256 "31542212f077d5c69bc895c3de6eed60d7a766e9c876fc7f49d336a212b81704" => :yosemite
+    sha256 "9b6f1ea41c3d06aeab2f9dbe4ffc4834700915fe060a2b278cf6228c799ddf44" => :mavericks
   end
 
   option "with-pyamf", "Enable action message format (AMF) support for python"
