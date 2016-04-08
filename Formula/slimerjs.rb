@@ -26,7 +26,6 @@ class Slimerjs < Formula
 
   devel do
     url "https://download.slimerjs.org/nightlies/latest-slimerjs-master/slimerjs-0.10.0pre.zip"
-    version "0.10.0pre"
     sha256 "dec4c1b591aed9ee0562aaa9f1901eb6d9f8904db4d51f8550f98d25be9d188f"
   end
 
