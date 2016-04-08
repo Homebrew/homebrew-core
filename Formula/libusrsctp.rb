@@ -7,10 +7,9 @@ class Libusrsctp < Formula
 
   bottle do
     cellar :any
-    revision 2
-    sha256 "bf05bbef72c45daec3f682b9c12a4ad838ad5c02e1814cbfa837e610140988a3" => :el_capitan
-    sha256 "7b681d68a1dca9792595dce4dc2d677e5a578ed5027dee6ba4dc312cd3f5119b" => :yosemite
-    sha256 "a42402bb65451da92fd33b86ba33a4c1f75d8931830437d866d5298f3c2818cf" => :mavericks
+    sha256 "c11f1c4bb7ee3b7d04520d711dfac56bc5a2aa8f4b3f1e952bd591d9918528dd" => :el_capitan
+    sha256 "2998a0f18ca069da692c9c2fd44f52e5ed9fa39c223dec3e8df7206f113bc0f4" => :yosemite
+    sha256 "8fc00b935739b4e06e75773c780e7e9617d655ecf2e31ffa9ca46900c1bbd5cb" => :mavericks
   end
 
   depends_on "cmake" => :build
