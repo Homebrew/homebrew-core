@@ -4,8 +4,8 @@ class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
   url "https://github.com/influxdata/kapacitor.git",
-    :tag => "v0.11.0",
-    :revision => "97ac4edb295c9f11b5c428fe5906bc6aa4e0865b"
+    :tag => "v0.12.0",
+    :revision => "32d4d1b8f688e2d310f4e9413b3fe6ac3ef73c70"
 
   head "https://github.com/influxdata/kapacitor.git"
 
@@ -25,7 +25,7 @@ class Kapacitor < Formula
 
   go_resource "github.com/boltdb/bolt" do
     url "https://github.com/boltdb/bolt.git",
-    :revision => "c2610ee091a94978d6092586b2b98b78cd8f7aca"
+    :revision => "144418e1475d8bf7abbdc48583500f1a20c62ea7"
   end
 
   go_resource "github.com/cenkalti/backoff" do
@@ -40,7 +40,7 @@ class Kapacitor < Formula
 
   go_resource "github.com/gogo/protobuf" do
     url "https://github.com/gogo/protobuf.git",
-    :revision => "4168943e65a2802828518e95310aeeed6d84c4e5"
+    :revision => "4365f750fe246471f2a03ef5da5231c3565c5628"
   end
 
   go_resource "github.com/gorhill/cronexpr" do
@@ -50,7 +50,7 @@ class Kapacitor < Formula
 
   go_resource "github.com/influxdata/influxdb" do
     url "https://github.com/influxdata/influxdb.git",
-    :revision => "5e8e849ebdeb66e13a4c32069acd101e23f368f9"
+    :revision => "f232c0548611371929e8a2cc082e29ae2d4a4326"
   end
 
   go_resource "github.com/influxdb/usage-client" do
@@ -68,6 +68,16 @@ class Kapacitor < Formula
     :revision => "d6bea18f789704b5f83375793155289da36a3c7f"
   end
 
+  go_resource "github.com/naoina/go-stringutil" do
+    url "https://github.com/naoina/go-stringutil.git",
+    :revision => "6b638e95a32d0c1131db0e7fe83775cbea4a0d0b"
+  end
+
+  go_resource "github.com/naoina/toml" do
+    url "https://github.com/naoina/toml.git",
+    :revision => "751171607256bb66e64c9f0220c00662420c38e9"
+  end
+
   go_resource "github.com/russross/blackfriday" do
     url "https://github.com/russross/blackfriday.git",
     :revision => "b43df972fb5fdf3af8d2e90f38a69d374fe26dd0"
@@ -80,12 +90,12 @@ class Kapacitor < Formula
 
   go_resource "github.com/shurcooL/go" do
     url "https://github.com/shurcooL/go.git",
-    :revision => "4df21823efe0d75ceac67879b43bcd28c8b864ad"
+    :revision => "377921096a5b956ff0a2cd207bf03a385a3af745"
   end
 
   go_resource "github.com/shurcooL/markdownfmt" do
     url "https://github.com/shurcooL/markdownfmt.git",
-    :revision => "f9ece38f23b0150fcfaa82de98ec43ce0b98a83e"
+    :revision => "45e6ea2c4705675a93a32b5f548dbb7997826875"
   end
 
   go_resource "github.com/shurcooL/sanitized_anchor_name" do
@@ -95,7 +105,7 @@ class Kapacitor < Formula
 
   go_resource "github.com/stretchr/testify" do
     url "https://github.com/stretchr/testify.git",
-    :revision => "f390dcf405f7b83c997eac1b06768bb9f44dec18"
+    :revision => "1f4a1643a57e798696635ea4c126e9127adb7d3c"
   end
 
   go_resource "github.com/twinj/uuid" do
@@ -105,12 +115,12 @@ class Kapacitor < Formula
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-    :revision => "c197bcf24cde29d3f73c7b4ac6fd41f4384e8af6"
+    :revision => "b8a0f4bb4040f8d884435cff35b9691e362cf00c"
   end
 
   go_resource "gopkg.in/gomail.v2" do
     url "https://gopkg.in/gomail.v2.git",
-    :revision => "84856b343c307d0d076818e93d6122b71591c4a7"
+    :revision => "42916101524810bd3aed9a8b25e6bb58d8e3af82"
   end
 
   def install
