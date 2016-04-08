@@ -28,11 +28,11 @@ class Zsh < Formula
 
     args = %W[
       --prefix=#{prefix}
-      --enable-fndir=#{pkgshare}/zsh/functions
-      --enable-scriptdir=#{pkgshare}/zsh/scripts
+      --enable-fndir=#{pkgshare}/functions
+      --enable-scriptdir=#{pkgshare}/scripts
       --enable-site-fndir=#{HOMEBREW_PREFIX}/share/zsh/site-functions
       --enable-site-scriptdir=#{HOMEBREW_PREFIX}/share/zsh/site-scripts
-      --enable-runhelpdir=#{pkgshare}/zsh/help
+      --enable-runhelpdir=#{pkgshare}/help
       --enable-cap
       --enable-maildir-support
       --enable-multibyte
