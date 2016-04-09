@@ -4,6 +4,13 @@ class Mcpp < Formula
   url "https://downloads.sourceforge.net/project/mcpp/mcpp/V.2.7.2/mcpp-2.7.2.tar.gz"
   sha256 "3b9b4421888519876c4fc68ade324a3bbd81ceeb7092ecdbbc2055099fcb8864"
 
+  bottle do
+    cellar :any
+    sha256 "8e7b73fc35ad65d1e0e090f17ae0f08f407d468cd60a57320be89ce35b3f49cc" => :el_capitan
+    sha256 "baf154075e31906d4905c52b3967d7df6937260d3c942f53e19b558b7e114356" => :yosemite
+    sha256 "9a46caf80476b1f59d0c1e51e59bf3ac6bdc6f1f81b8ca9a2940acb587a3bc21" => :mavericks
+  end
+
   # stpcpy is a macro on OS X; trying to define it as an extern is invalid.
   # Patch from ZeroC fixing EOL comment parsing
   # http://www.zeroc.com/forums/bug-reports/5309-mishap-slice-compilers.html#post23231
