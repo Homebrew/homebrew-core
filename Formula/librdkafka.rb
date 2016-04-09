@@ -6,6 +6,7 @@ class Librdkafka < Formula
 
   bottle do
     cellar :any
+    sha256 "ae55feed5c47b01413b112fbf69fd201fac603e3b619fe938de759f6f2c4843d" => :el_capitan
     sha256 "355c27b5e831390916c4097701155dfd5b187a533b16e228ad22f7fcaa3d066a" => :yosemite
     sha256 "6de5dee723e8ef353e8230294688af6fa8a2dab4069015c7be837e5a14b26dc3" => :mavericks
     sha256 "b75648b576d5983858de5a1dd66a9f08e4f084c9290e93b5275c53796e8c9e0e" => :mountain_lion
