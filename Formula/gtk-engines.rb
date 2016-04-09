@@ -5,6 +5,13 @@ class GtkEngines < Formula
   sha256 "15b680abca6c773ecb85253521fa100dd3b8549befeecc7595b10209d62d66b5"
   revision 1
 
+  bottle do
+    cellar :any
+    sha256 "e6675468c5c8e18405ad1d6a7b8dec13da67048425f335ca92c7b26897a8fc97" => :el_capitan
+    sha256 "8beee72b3290b89cc96a3a6889581eb87919309f5c75c9bc1447beeff1557791" => :yosemite
+    sha256 "3519e1bec0070f54f5def933917e8f6dff085017c7ef4ebf3a8352c6454e919c" => :mavericks
+  end
+
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "gettext"
