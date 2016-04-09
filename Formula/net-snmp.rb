@@ -6,6 +6,7 @@ class NetSnmp < Formula
 
   bottle do
     revision 2
+    sha256 "ba8f07af2296c2390fd6308eb3fd06850c1c70686bf1cb58738856bc3ed3c748" => :el_capitan
     sha256 "92956eecd7dcaa9743527af24d68d52c772555c3f512f10d773aa6083a1e3290" => :yosemite
     sha256 "3c045453d9c666ec873b90477b1efe10d5c8583994b65666e3d445eb2e5670c8" => :mavericks
     sha256 "f2c4102f61ee8d6ad151bdbe6da97a5fc5127e84e7939f5e1672f81414a28873" => :mountain_lion
