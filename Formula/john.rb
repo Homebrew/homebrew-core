@@ -4,6 +4,13 @@ class John < Formula
   url "http://www.openwall.com/john/j/john-1.8.0.tar.xz"
   sha256 "952cf68369fb5b27f2d112ce7ca1eb16b975c85cbce8c658abb8bc5a20e1b266"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "729c644b587941668f0412de6a1d7aafc078b375f96421b278daecba51469ed8" => :el_capitan
+    sha256 "1576ba09d791c923265c5668aa0a0d5e7d806848d45e06210c0e3a5449bf1403" => :yosemite
+    sha256 "394909ad355846b561077f89a216fc87902d116dfcb970b92ff7f563a3d5ce3e" => :mavericks
+  end
+
   conflicts_with "john-jumbo", :because => "both install the same binaries"
 
   patch :DATA # Taken from MacPorts, tells john where to find runtime files
