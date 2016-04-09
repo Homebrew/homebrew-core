@@ -7,6 +7,7 @@ class Libdc1394 < Formula
   bottle do
     cellar :any
     revision 1
+    sha256 "aca2dc5c08f1e56d834f814d63edf32e0af86f0fa27e6fdd2df2f247179cf96f" => :el_capitan
     sha256 "7ae3e7c4217d0c76b2caa3c961480d646ed0a50fabde1567cb6f10c1b2f08e18" => :yosemite
     sha256 "c5036e695691464ce2f5b6b957b08f77b8ec436475c9eb8948305f26da81af48" => :mavericks
     sha256 "989b8f20b2ad01c6c3d607fe974c3cf5ad005b51afa8455ec712325c8d4d5b22" => :mountain_lion
