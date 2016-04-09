@@ -6,6 +6,7 @@ class Jp2a < Formula
 
   bottle do
     cellar :any
+    sha256 "d1c7db27a0b2704c0f5f3584fe7891e40ac1d26b175a85cbf8899c139330d4bc" => :el_capitan
     sha256 "1a16fd055a4c68ef949df2f37f690259860d0c3d97962fc1b0bc5b8654f1b442" => :yosemite
     sha256 "b31b7564584f3e91dc73c4f511d74c26341d621a5b6e0533541237400acfca84" => :mavericks
     sha256 "d2f2828c5ed021cac439243a6c5fbb29b9ec460fc96d7fa19c69bec7838d4689" => :mountain_lion
