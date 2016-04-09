@@ -6,6 +6,13 @@ class Darkice < Formula
 
   head "http://darkice.googlecode.com/svn/darkice/branches/darkice-macosx"
 
+  bottle do
+    cellar :any
+    sha256 "611c7496a751c6f921f87bd3658001a200ae03b24020209a5442b6f59d61c6bc" => :el_capitan
+    sha256 "79b49d0c9d3401382008f1cb0db86493947ebee6045621df5f19e9adb848619f" => :yosemite
+    sha256 "fd5b2765d5d93b1c81e485a7ff6cc8176f9d77db4dcfa5e837ab5803f69162df" => :mavericks
+  end
+
   depends_on "libvorbis"
   depends_on "lame"
   depends_on "two-lame"
