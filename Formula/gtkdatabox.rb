@@ -5,6 +5,13 @@ class Gtkdatabox < Formula
   sha256 "745a6843e8f790504a86ad1b8642e1a9e595d75586215e0d2cb2f0bf0a324040"
   revision 1
 
+  bottle do
+    cellar :any
+    sha256 "999cb4ae98d293fb666ba2f6b819dd9febb9bebb8b1ef4e2dcb2ad409666a534" => :el_capitan
+    sha256 "954c826eb6005ecda2916bafe1583b4c77b0db1f22dc3ca2c9c2151036320635" => :yosemite
+    sha256 "9f4aca58b94eac38ad5e8b08c97c11e8942691e6010cfae57e5ebfb8fc47b82e" => :mavericks
+  end
+
   depends_on "pkg-config" => :build
   depends_on "gtk+"
 
