@@ -21,8 +21,9 @@ class Irrlicht < Formula
   end
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
     revision 1
+    sha256 "ac38d1aa91367ff3cbf61845028e86547b51803d83ac627653d959d2608ee4d1" => :el_capitan
     sha256 "f3e6427bc2499611b12b5babb907153fdd63c478d9745e59821958644e02f915" => :yosemite
     sha256 "4ef8e3d8f22ed7114223f89b6bc286c3fa9cadb9135d274265f2dce396522d27" => :mavericks
     sha256 "5a68f99034d50ce45afe554a36486be55f435bd6b2ff32c8c0f647a0697b0fbb" => :mountain_lion
