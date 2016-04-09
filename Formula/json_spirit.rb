@@ -4,6 +4,13 @@ class JsonSpirit < Formula
   url "https://github.com/png85/json_spirit/archive/json_spirit-4.07.tar.gz"
   sha256 "3d53fac906261de1cf48db362436ca32b96547806ab6cce5ac195460ad732320"
 
+  bottle do
+    cellar :any
+    sha256 "7668e993b4d8ca4493d6e8a706378e840b35409a96b1ac928fd96c8933528cf4" => :el_capitan
+    sha256 "192b4f814c55d038a5a0d8ab1dd13698d1f4daa4899ef9ce1cb22b8562442a96" => :yosemite
+    sha256 "fba55377ce6098174e392e66df972e070f58f9a259aa38cad592eaf2e808eace" => :mavericks
+  end
+
   depends_on "boost"
   depends_on "cmake" => :build
 
