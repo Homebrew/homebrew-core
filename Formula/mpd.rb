@@ -1,6 +1,7 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "http://www.musicpd.org/"
+  revision 1
 
   stable do
     url "http://www.musicpd.org/download/mpd/0.19/mpd-0.19.14.tar.xz"
@@ -31,6 +32,7 @@ class Mpd < Formula
   option "with-libvorbis", "Build with vorbis support (for Ogg encoding)"
   option "with-yajl", "Build with yajl support (for playing from soundcloud)"
   option "with-opus", "Build with opus support (for Opus encoding and decoding)"
+  option "with-libmodplug", "Build with modplug support (for decoding modules supported by MODPlug)"
 
   deprecated_option "with-vorbis" => "with-libvorbis"
 
@@ -63,6 +65,7 @@ class Mpd < Formula
   depends_on "libvorbis" => :optional
   depends_on "libnfs" => :optional
   depends_on "mad" => :optional
+  depends_on "libmodplug" => :optional  # MODPlug decoder
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -93,6 +96,7 @@ class Mpd < Formula
     args << "--disable-soundcloud" if build.without? "yajl"
     args << "--enable-vorbis-encoder" if build.with? "libvorbis"
     args << "--enable-nfs" if build.with? "libnfs"
+    args << "--enable-modplug" if build.with? "libmodplug"
 
     system "./configure", *args
     system "make"
