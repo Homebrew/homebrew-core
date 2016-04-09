@@ -6,6 +6,8 @@ class PyenvWhichExt < Formula
 
   head "https://github.com/yyuu/pyenv-which-ext.git"
 
+  bottle :unneeded
+
   depends_on "pyenv"
 
   def install
