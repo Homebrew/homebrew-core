@@ -9,6 +9,8 @@ class Apgdiff < Formula
     depends_on "ant" => :build
   end
 
+  bottle :unneeded
+
   def install
     jar = "apgdiff-#{version}.jar"
 
