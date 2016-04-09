@@ -7,9 +7,11 @@ class GitCal < Formula
   head "https://github.com/k4rthik/git-cal.git"
 
   bottle do
-    sha256 "0ceb50d8f6038f54709422700ca0347e5758880b3256193059fef826c02370ea" => :yosemite
-    sha256 "06054ffa5848f289225e3bcd9978bfcfd1238e0e0de5a060b4c680a66b44fa51" => :mavericks
-    sha256 "7d6308aa47d99e203173fa12896f24bb11b9a9aba91c89de9199fed0a1f6db74" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "8f928d65dc3414900ace5751d9e93bc712f03ffcabfefeb0d659e18db3998622" => :el_capitan
+    sha256 "d61d27644f236dd221d2ea15aea7ee088afaf08c305217084b63fb85cb0d7dba" => :yosemite
+    sha256 "2f09af33dd202d56be91b6bb7ead320cbc322332e411a7b712879a9198364e64" => :mavericks
   end
 
   def install
