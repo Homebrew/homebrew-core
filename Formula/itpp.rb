@@ -5,6 +5,13 @@ class Itpp < Formula
   url "https://downloads.sourceforge.net/project/itpp/itpp/4.3.1/itpp-4.3.1.tar.bz2"
   sha256 "50717621c5dfb5ed22f8492f8af32b17776e6e06641dfe3a3a8f82c8d353b877"
 
+  bottle do
+    cellar :any
+    sha256 "c9f2f041dbdbea87029180a253fa0cd470aee6a2144a848b10f9fb5c40f01b8e" => :el_capitan
+    sha256 "6e772c61104760fcf2c9500fa06fb2d032d4db1f53ef44d090e18aca54ee75f0" => :yosemite
+    sha256 "c9e5ed1ab5febb67c61139b451ac70c501e6dd8fe656f7658d9e6aaa3f025e2a" => :mavericks
+  end
+
   depends_on "cmake" => :build
   depends_on "fftw" => :recommended
 
