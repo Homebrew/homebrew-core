@@ -4,6 +4,13 @@ class Bsdsfv < Formula
   url "https://downloads.sourceforge.net/project/bsdsfv/bsdsfv/1.18/bsdsfv-1.18.tar.gz"
   sha256 "577245da123d1ea95266c1628e66a6cf87b8046e1a902ddd408671baecf88495"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "404ec03e044a019a487adfab90012a29a6655fe67b907d9b4e9a46d4f6c57a9b" => :el_capitan
+    sha256 "fd15cb46a9499bcd1182e8fe4a6ae1de9fb77ced85186601ef6c6579a22d9c51" => :yosemite
+    sha256 "7d0590952682b7baf619122a2942dacbf7ed455263c49b0314a85be7d51b1dc1" => :mavericks
+  end
+
   # bug report:
   # http://sourceforge.net/tracker/?func=detail&aid=2887842&group_id=7211&atid=107211
   # Patch from MacPorts
