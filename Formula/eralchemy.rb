@@ -4,6 +4,7 @@ class Eralchemy < Formula
   url "https://pypi.python.org/packages/source/E/ERAlchemy/ERAlchemy-1.0.1.tar.gz"
   sha256 "98425b21fe0f12ff33e72789c8a308baa1c2d5fdf157388162deaa510551da4f"
 
+  revision 1
   bottle do
     cellar :any
     sha256 "53e20a26f69a3530b499e540a9e33eeb4cf4a125625c0ff9369204c540192eff" => :el_capitan
@@ -12,8 +13,9 @@ class Eralchemy < Formula
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
-  depends_on "graphviz"
   depends_on "pkg-config" => :build
+  depends_on "graphviz"
+  depends_on "openssl"
 
   resource "pygraphviz" do
     url "https://pypi.python.org/packages/source/p/pygraphviz/pygraphviz-1.3.1.tar.gz"
