@@ -4,6 +4,13 @@ class Bsdiff < Formula
   url "http://www.daemonology.net/bsdiff/bsdiff-4.3.tar.gz"
   sha256 "18821588b2dc5bf159aa37d3bcb7b885d85ffd1e19f23a0c57a58723fea85f48"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "4b4e2e68dc5ffa9a5fc02b6c59c4d8201d8d6df8d5e6aef5bd70854ecbe917b7" => :el_capitan
+    sha256 "79d0ef36a33a214595c66a70d8197a1eb148bcd3c1d1c782d28fc20f6a057d43" => :yosemite
+    sha256 "26899c5d4e34ccfde4633b78a8cbbdf3036f028dfb16767fb2ac64efb2296b56" => :mavericks
+  end
+
   depends_on "bsdmake" => :build
 
   patch :DATA
