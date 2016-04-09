@@ -5,7 +5,8 @@ class Lesspipe < Formula
   sha256 "3fd345b15d46cc8fb0fb1d625bf8d881b0637abc34d15df45243fd4e5a8f4241"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "b3a9fa67a70fda46dfe9dd365430fe958d19d4f516d7f218da19fcd8ed17f215" => :el_capitan
     sha256 "3a8e56f9b9b38d291d57f3a702e0dfb488814fb4686594084aa10a97f0cf2448" => :yosemite
     sha256 "f33d17225509888d6193b1c5bac74577168d57cccd274065d195c9661774c68a" => :mavericks
     sha256 "201d33d2ae2aff83e00bbcea23bf872f2a20938ba194d175426837fc041117c0" => :mountain_lion
