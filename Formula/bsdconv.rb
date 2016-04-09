@@ -6,6 +6,12 @@ class Bsdconv < Formula
 
   head "https://github.com/buganini/bsdconv.git"
 
+  bottle do
+    sha256 "1a38dd1feb798a4d6c9a236e423c2731c4e69b28f957e261450fdf9df856cf0b" => :el_capitan
+    sha256 "8644a19627371e56d1011ffa6a9ea1ce95dbfeedbca5d1d0280877acc2003fdc" => :yosemite
+    sha256 "97b9f275e05512e83dcbbb07720fe5cadaa4dd1318faf95854dcf2c92c861b45" => :mavericks
+  end
+
   def install
     system "make", "PREFIX=#{prefix}"
     system "make", "PREFIX=#{prefix}", "install"
