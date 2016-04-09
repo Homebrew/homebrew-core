@@ -6,6 +6,13 @@ class Exodriver < Formula
 
   head "https://github.com/labjack/exodriver.git"
 
+  bottle do
+    cellar :any
+    sha256 "5897f540e38aded535f6f3aa11d1df93c90305fe5196c106057ebbdda8620806" => :el_capitan
+    sha256 "dc685c1d58f01fbe304d36fc33f1c2f2993599c83636054755c0f0b7cc887969" => :yosemite
+    sha256 "bcc5eea01c69b14b1a2f3256105523016294ae54f9e026f03fbd4f65f7ce5c66" => :mavericks
+  end
+
   option :universal
 
   depends_on "libusb"
