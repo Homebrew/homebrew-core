@@ -6,6 +6,7 @@ class Fragroute < Formula
 
   bottle do
     cellar :any
+    sha256 "60baa1ea08440fed50a87e3fcfbbc8d4167b111fa3137341abf18a043bc08502" => :el_capitan
     sha256 "1a1a94c1bef2b28000555c1f0db1512a682acf0d6c59bb2725c7d82fb4b9e6b0" => :yosemite
     sha256 "027e59cefd2f7caa43556520e4a15e84071e05c9e785823a1b1001d80300e2a4" => :mavericks
     sha256 "dcfb82802240c73cb4f224665375aa97ae43287a790e84f26d1f3b2c3b2f9e56" => :mountain_lion
