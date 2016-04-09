@@ -6,6 +6,13 @@ class Cpansearch < Formula
 
   head "https://github.com/c9s/cpansearch.git"
 
+  bottle do
+    cellar :any
+    sha256 "f68927e2f114cb09d4c5f7057097f4685139dc16a58306b572b011dc11e5b27e" => :el_capitan
+    sha256 "554213c4d54b3bebfabf4eb10d274a9f86ba6271607b464a74541593cf52b8ac" => :yosemite
+    sha256 "02c985ade39c5df0aa2885022d8a1c56238975a147bda39adb0394c8acbde27a" => :mavericks
+  end
+
   depends_on "pkg-config" => :build
   depends_on "glib"
 
