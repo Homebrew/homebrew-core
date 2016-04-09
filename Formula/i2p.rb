@@ -4,6 +4,8 @@ class I2p < Formula
   url "https://download.i2p2.de/releases/0.9.21/i2pinstall_0.9.21.jar"
   sha256 "0238ffc6ea44099ef4fe6c20913cb4eec675c2760aea07dfe7d499addcc89cf2"
 
+  bottle :unneeded
+
   depends_on :java => "1.6+"
 
   def install
