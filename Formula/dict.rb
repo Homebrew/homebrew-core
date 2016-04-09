@@ -4,6 +4,12 @@ class Dict < Formula
   url "https://downloads.sourceforge.net/project/dict/dictd/dictd-1.12.1/dictd-1.12.1.tar.gz"
   sha256 "a237f6ecdc854ab10de5145ed42eaa2d9b6d51ffdc495f7daee59b05cc363656"
 
+  bottle do
+    sha256 "1179c34c302af33595d7f6890b081496591437ea5f9497c048779fdc03058942" => :el_capitan
+    sha256 "e54952913d23f81def2cec2b65ac94c5385180fa8970f613843546740435adfd" => :yosemite
+    sha256 "b41fe59b8db4eb263ca23398ca8a52f6a23893ddfeb1b26f2e7ce9fdd8b08bf5" => :mavericks
+  end
+
   depends_on "libtool" => :build
   depends_on "libmaa"
 
