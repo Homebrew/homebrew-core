@@ -4,6 +4,12 @@ class Devtodo < Formula
   url "http://swapoff.org/files/devtodo/devtodo-0.1.20.tar.gz"
   sha256 "379c6ac4499fc97e9676075188f7217e324e7ece3fb6daeda7bf7969c7093e09"
 
+  bottle do
+    sha256 "5b7ec857a599dd407518e922a093a46d5a9af55ce8469915dcc94793c3700c5c" => :el_capitan
+    sha256 "46f6beed006e560df7d1718b95706913d4d5e632ef200364abc1944890ccf412" => :yosemite
+    sha256 "1d018bb98b87b4daaad1f89b74925e52ca07403e45efe884ced4b34db3f21f9e" => :mavericks
+  end
+
   depends_on "readline"
 
   # Fix invalid regex. See http://swapoff.org/ticket/54
