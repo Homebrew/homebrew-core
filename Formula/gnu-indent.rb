@@ -5,6 +5,12 @@ class GnuIndent < Formula
   mirror "https://ftp.gnu.org/gnu/indent/indent-2.2.10.tar.gz"
   sha256 "8a9b41be5bfcab5d8c1be74204b10ae78789fc3deabea0775fdced8677292639"
 
+  bottle do
+    sha256 "cdad0b612a3236fed1b625be2bab6500e02578ba271552e6a8a19d2cdf12df2e" => :el_capitan
+    sha256 "8e19891033bc8a96894692bf0a27898112d72de5bcc78e269ba505b75b17b64f" => :yosemite
+    sha256 "ff3a53ac15b4baaf030f1f1556b24a7f69788175559660ac841e039d7aee996b" => :mavericks
+  end
+
   option "with-default-names", "Do not prepend 'g' to the binary"
 
   depends_on "gettext"
