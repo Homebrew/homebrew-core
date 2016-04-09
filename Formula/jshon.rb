@@ -5,6 +5,13 @@ class Jshon < Formula
   version "8"
   sha256 "bb8ffdbda89a24f15d23af06d23fc4a9a4319503eb631cc64a5eb4c25afd45fb"
 
+  bottle do
+    cellar :any
+    sha256 "96c3b3298a7975eacf2135f3b75a21a4a2d4df94f3b0b54a83a58da6e83148db" => :el_capitan
+    sha256 "6b58d61da14d8f458290888b7576a44ec12daa26077f94d8bbeb406fb165d117" => :yosemite
+    sha256 "66e48123e2b04de8f829cf861590d336b64215623aafc846ee9e6d6eda4aed57" => :mavericks
+  end
+
   depends_on "jansson"
 
   def install
