@@ -7,6 +7,7 @@ class Lastfmlib < Formula
   bottle do
     cellar :any
     revision 1
+    sha256 "a4cd5cb31433b852195fa2936f2c2176299a11932b794455b5a60990b3fdbe9a" => :el_capitan
     sha256 "1d8ab109ccf48af2f959cee60a5db53342b54413b655217cca649532df644b03" => :yosemite
     sha256 "7ca7a69ac77d521badefc24f656a2dfde70998b32aec67c5f1fd836582ba7ab2" => :mavericks
     sha256 "6f5219ee8f973b6275cdd5c3a1fed9cfffe6e1d99a05a6ec35881a0e3317c02b" => :mountain_lion
