@@ -5,6 +5,8 @@ class Bats < Formula
   sha256 "480d8d64f1681eee78d1002527f3f06e1ac01e173b761bc73d0cf33f4dc1d8d7"
   head "https://github.com/sstephenson/bats.git"
 
+  bottle :unneeded
+
   def install
     system "./install.sh", prefix
   end
