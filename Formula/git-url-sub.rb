@@ -6,6 +6,13 @@ class GitUrlSub < Formula
 
   head "https://github.com/gosuri/git-url-sub.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "cf954ff293abbcaf8816c8142b5762ebe7601107f76530f6bab0edea71e2d609" => :el_capitan
+    sha256 "2edfbc5f15001b1c4c08b26251a845533473a79bc2f387d3fd1d74751080cd1b" => :yosemite
+    sha256 "ce9c28238d1904b9d2c97da10fd7a6be0b1ceafde423311078dfac0bbe8a82dc" => :mavericks
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
