@@ -6,7 +6,8 @@ class Imagejs < Formula
   head "https://github.com/jklmnn/imagejs.git"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "5a7a78dde1c1d658cc34a2a4e0f997cd1c4e242cc877779ea5c4cbd7c74265d2" => :el_capitan
     sha256 "128e1bdbbfbed86c41eff7487fbf65bcea8a17367b8b91077989a56878ab1dcb" => :yosemite
     sha256 "374bd224d00aaa4f11921d81444afc6dbcb23d6df6368c8594886f4172b773eb" => :mavericks
     sha256 "a78dcf76d4df78103aab79d4b35441f7709f31bec5ea8bcd268cac4e780f6037" => :mountain_lion
