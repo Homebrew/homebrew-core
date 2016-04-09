@@ -1,8 +1,8 @@
 class IosSim < Formula
   desc "Command-line application launcher for the iOS Simulator"
   homepage "https://github.com/phonegap/ios-sim"
-  url "https://github.com/phonegap/ios-sim/archive/3.1.1.tar.gz"
-  sha256 "559e18f198d4c5298666fee8face0ac8d8dbce034d2c5241093bdd1d43014cb7"
+  url "https://github.com/phonegap/ios-sim/archive/3.2.0.tar.gz"
+  sha256 "7bde9ecde402b4907fa4bb473e6dff4f6000bf78d970e6df917fa904b9d6c645"
   head "https://github.com/phonegap/ios-sim.git"
 
   bottle do
