@@ -4,6 +4,12 @@ class Hunspell < Formula
   url "https://downloads.sourceforge.net/hunspell/hunspell-1.3.3.tar.gz"
   sha256 "a7b2c0de0e2ce17426821dc1ac8eb115029959b3ada9d80a81739fa19373246c"
 
+  bottle do
+    sha256 "cafeaa28d6684e743f52094975f46b962316c2263520d20e013606e2fac49f60" => :el_capitan
+    sha256 "b43f5e8e6588fef04b7201c7b9998f88d45118132306c09adad09fbaa394ba33" => :yosemite
+    sha256 "88afd83f16058a5a0ca55eb30469f7cebbb61c479e681c8d41195be3356da5cd" => :mavericks
+  end
+
   depends_on "readline"
 
   conflicts_with "freeling", :because => "both install 'analyze' binary"
