@@ -7,7 +7,8 @@ class Karn < Formula
   sha256 "eac77b82f7abd9c37e70d01240e8e69893b7497d3dd5ab7b0fb2df04ae1e6529"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "a74f06c146b24ba79abe246b23873f16daaa25eec4891dac297b8c64935748f1" => :el_capitan
     sha256 "217c56700267f33763c3d2c19cb16f568ede2a9354497377639d26c6998f5490" => :yosemite
     sha256 "25ac0041b1023e2b703468d194e554d2dc42664f496f2ca53082003684477ece" => :mavericks
     sha256 "0c5c97266aa7b34fdabaf54b6877b67d279fa643dc264b7f1a1926f2dd1f3790" => :mountain_lion
