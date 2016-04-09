@@ -4,6 +4,12 @@ class Automoc4 < Formula
   url "http://download.kde.org/stable/automoc4/0.9.88/automoc4-0.9.88.tar.bz2"
   sha256 "234116f4c05ae21d828594d652b4c4a052ef75727e2d8a4f3a4fb605de9e4c49"
 
+  bottle do
+    sha256 "3f9efbccd2e54425aefa23beb359a84790a702fbc83e7950a709b3a56c818898" => :el_capitan
+    sha256 "db251dc1e60d49c6ba011c28cf4d08f82468af379195c66fc5e7777b6e9fc4fd" => :yosemite
+    sha256 "86fc5bddf7faf6f2897fc626903f0d927c8c9094e41c3d238c4b3e718acf4f47" => :mavericks
+  end
+
   depends_on "cmake" => :build
   depends_on "qt"
 
