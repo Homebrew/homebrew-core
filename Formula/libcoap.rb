@@ -5,8 +5,9 @@ class Libcoap < Formula
   sha256 "20cd0f58434480aa7e97e93a66ffef4076921de9687b14bd29fbbf18621bd394"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
     revision 1
+    sha256 "daa7dc3537fba0f8403a8a03af895b6a7f6914c2ec75fd36c7f4e9e67e5295a3" => :el_capitan
     sha256 "dbb1193f7e0d36d2980653715e205a54d41ea4d0bffa53b39b27e637636de4b9" => :yosemite
     sha256 "17c6b22921cb4ea64009a8d076f95b6da70c42e3f65e0d49bfc36bcf3e1372e9" => :mavericks
     sha256 "bf67c05965270e3fd2ce47a3c3832ee9119f75ca06087978041277dd1425f72a" => :mountain_lion
