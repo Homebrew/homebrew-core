@@ -5,6 +5,13 @@ class Lastfmfpclient < Formula
   version "1.6"
   sha256 "c72c61bf5b60f7924f55c0a8809d2762768716db8bce9a346334c2aaefb9ce85"
 
+  bottle do
+    cellar :any
+    sha256 "f54f327160766c2b10f3f74fcdf698556200cec2e632370065675618470e02e1" => :el_capitan
+    sha256 "560736062bc0ce9e64d5845de635ac47c0feac645b95848433129fea4abc7763" => :yosemite
+    sha256 "31832999bcbce4e8e8ce1fc67908b126bc3ab050a10e7d68ced2ec5bfc75a48e" => :mavericks
+  end
+
   depends_on "cmake" => :build
   depends_on "taglib"
   depends_on "fftw"
