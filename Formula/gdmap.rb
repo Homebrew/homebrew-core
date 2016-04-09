@@ -4,6 +4,12 @@ class Gdmap < Formula
   url "https://downloads.sourceforge.net/project/gdmap/gdmap/0.8.1/gdmap-0.8.1.tar.gz"
   sha256 "a200c98004b349443f853bf611e49941403fce46f2335850913f85c710a2285b"
 
+  bottle do
+    sha256 "3470eccd4baaaac2636285c623a82c0e6f2e767984892e8eb673958891b1cdcb" => :el_capitan
+    sha256 "12c2690893ef0c056f366fdbdf82381f2817a45e25469edc959b7b7707acd635" => :yosemite
+    sha256 "8f5e3ac904534dbb29d7d0e1d20458631e7b3c59fda2eef8ab54e0ff12392587" => :mavericks
+  end
+
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "gettext"
