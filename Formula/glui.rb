@@ -4,6 +4,13 @@ class Glui < Formula
   url "https://downloads.sourceforge.net/project/glui/Source/2.36/glui-2.36.tgz"
   sha256 "c1ef5e83cf338e225ce849f948170cd681c99661a5c2158b4074515926702787"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "eae0f5aab2883fa397f09bb314a90672e41c39c24e0c43e49259c8016b1c50db" => :el_capitan
+    sha256 "617c71a79c2ce69ff31e7bd84e9e4f41b09e8cf3d039190bef92ad6bf1ae416c" => :yosemite
+    sha256 "1a5b5bc92fbb7077f11f53fcbd16d1e63b1e04850d029afa2a8e82822a5e82e4" => :mavericks
+  end
+
   # Fix compiler warnings in glui.h. Reported upstream:
   # http://sourceforge.net/p/glui/patches/12/
   patch :DATA
