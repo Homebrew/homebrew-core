@@ -7,6 +7,13 @@ class Iftop < Formula
   version "1.0pre4"
   sha256 "f733eeea371a7577f8fe353d86dd88d16f5b2a2e702bd96f5ffb2c197d9b4f97"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "e7b9ed6bef435d7de8e986cedfc76779f2655bfac7ed780afb33a42e92b8d01d" => :el_capitan
+    sha256 "5ac910598f86716e0dc676f0fd44af51da141ad84dfbaf5535a31f11ab91ffd7" => :yosemite
+    sha256 "9563857745dca2db9f91388d3f0d0fae4b6cdc2fc6ff84ffce14325c0cafee0f" => :mavericks
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
