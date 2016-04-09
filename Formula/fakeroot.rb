@@ -8,6 +8,7 @@ class Fakeroot < Formula
   bottle do
     cellar :any
     revision 1
+    sha256 "2d97e0b44126223c3c4ced30219e98d02c58caa5246e561557acb0e46a59a082" => :el_capitan
     sha256 "8826383a8dcef74009b3813a0297732daba8c6dc0fad6ccef0cafda1086a347a" => :yosemite
     sha256 "3f3a1a9c01102dd3fa90cd0d83c55745b5b8d44769128831cf050dd413a03402" => :mavericks
     sha256 "88f49412644e3182a2208e782a91f0da7aec1fc64655baf9c7b4696429ceaf50" => :mountain_lion
