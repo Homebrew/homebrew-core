@@ -11,6 +11,13 @@ class Jbig2enc < Formula
     # Patch data from https://github.com/agl/jbig2enc/commit/53ce5fe7e73d7ed95c9e12b52dd4984723f865fa
     patch :DATA
   end
+  bottle do
+    cellar :any
+    sha256 "41a5acbc72d2830e74690f979e902683ad0594bc50ee24339aacb83c03cccd44" => :el_capitan
+    sha256 "d4bc377df69aab54e624982ba617c4ba970cc82229d7a01d6fda18491c8e97cf" => :yosemite
+    sha256 "72935a0c1f1d543b0c1d0f915cb855a16dd2b7471a7ec0987108f8ac4a7c7390" => :mavericks
+  end
+
 
   head do
     url "https://github.com/agl/jbig2enc.git"
