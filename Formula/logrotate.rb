@@ -6,6 +6,7 @@ class Logrotate < Formula
 
   bottle do
     cellar :any
+    sha256 "2625381c3aa8e4b4c80ed6a28c0533a4341c8e63e50acd69b4e88970d5b6b5a3" => :el_capitan
     sha256 "54e30ff0979a6840433942dca543ae3369f7850db3ebf309aa4e1ef47d7fe744" => :yosemite
     sha256 "bd8a9901a24bb1a72e05a6e5dd5359d0ab609cc7fd6b48654ba5dfca0d7ada42" => :mavericks
     sha256 "ab15e12cf49a7bb508227685c404c586705497bf3fbf2a7d37f18e3476121d2b" => :mountain_lion
