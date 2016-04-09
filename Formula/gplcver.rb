@@ -4,6 +4,13 @@ class Gplcver < Formula
   url "https://downloads.sourceforge.net/project/gplcver/gplcver/2.12a/gplcver-2.12a.src.tar.bz2"
   sha256 "f7d94677677f10c2d1e366eda2d01a652ef5f30d167660905c100f52f1a46e75"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "a094d355a75148ed611e9668841a33810a1a1226bc6651b8d0c5e4868867e7fd" => :el_capitan
+    sha256 "fc4f5fc0f1bb13139740ae6f2966bd4e3adb57c7a9803b84f946d95fcb40dd2a" => :yosemite
+    sha256 "0fc13b457839ee25fc9d0b35338ada6af67d07c8e3fb4ea1ac6f7d454f13475c" => :mavericks
+  end
+
   def install
     inreplace "src/makefile.osx" do |s|
       s.gsub! "-mcpu=powerpc", ""
