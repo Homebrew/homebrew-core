@@ -5,7 +5,8 @@ class Bonniexx < Formula
   sha256 "44f5a05937648a6526ba99354555d7d15f2dd392e55d3436f6746da6f6c35982"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "4d3c98c842106b28a9ce7de5612600c6ba53d2aea1b4950af942ee56c89cd5af" => :el_capitan
     sha256 "0e262e7f22ad5b31e7aa3eb197c26e3b0b20bda3e4f5d7650b3c6a5771adf75b" => :yosemite
     sha256 "9edb4a622920f753243c3ec9dcf8cfa4e9cea31e56656f6c55004a6d74e8821a" => :mavericks
     sha256 "84cc882f89feb0df9ac06b2f7b3ace5bc817da9bf77b73da2dbb8ca3e1583504" => :mountain_lion
