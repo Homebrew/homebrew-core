@@ -1,8 +1,8 @@
 class Khard < Formula
   desc "Console carddav client."
   homepage "https://github.com/scheibler/khard/"
-  url "https://pypi.python.org/packages/source/k/khard/khard-0.8.1.tar.gz"
-  sha256 "00324a0faf87d8ca80be0a24e7d84a5faf763af3146565ac6b57db8a49d20f25"
+  url "https://pypi.python.org/packages/source/k/khard/khard-0.9.0.tar.gz"
+  sha256 "3a4c8778f314a2d1d2bb550caad7befbfbf141be92d440d682e00847a2cc0379"
 
   bottle do
     cellar :any_skip_relocation
@@ -79,6 +79,6 @@ class Khard < Formula
       N:Name;User
       END:VCARD
     EOS
-    assert_match /Address book: default/, shell_output("#{bin}/khard -s user", 0)
+    assert_match /Address book: default/, shell_output("#{bin}/khard list user", 0)
   end
 end
