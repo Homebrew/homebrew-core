@@ -9,6 +9,8 @@ class Bltool < Formula
     depends_on "leiningen" => :build
   end
 
+  bottle :unneeded
+
   def install
     if build.head?
       system "lein", "uberjar"
