@@ -5,9 +5,10 @@ class Glbinding < Formula
   sha256 "6712d91c5f8de81089549e499d8d63554f20abcd250cbfbfae34065760ddf6cb"
 
   bottle do
-    sha256 "267be079b0657c4cc1cb4002bf4047d358630404e2ea0bcb966a5730b6a0641e" => :el_capitan
-    sha256 "39355e37b3417a03a2b8ee7ce46fa27cdf72706a4ee4227fbe8cdfd9fa3a8e05" => :yosemite
-    sha256 "d4e319797d5b4dbf44dcd99f01de934941d7e39e82bcf66508853b386b2bdeab" => :mavericks
+    cellar :any
+    sha256 "35ad4632733995b8059a99f89ce3262ec277d07a1ae3ff192192cf7385c11913" => :el_capitan
+    sha256 "d6a761c8ab022449a2c30bcdf98065b4fe7d109cdb64ac11c2e4f17cb52789af" => :yosemite
+    sha256 "c8c63e3dbc77bfb112cd8e1ed3c77f2ae13a05cfc0864673d7ff73c94c722cdd" => :mavericks
   end
 
   option "with-glfw3", "Enable tools that display OpenGL information for your system"
