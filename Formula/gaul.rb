@@ -4,6 +4,13 @@ class Gaul < Formula
   url "https://downloads.sourceforge.net/project/gaul/gaul-devel/0.1850-0/gaul-devel-0.1850-0.tar.gz"
   sha256 "7aabb5c1c218911054164c3fca4f5c5f0b9c8d9bab8b2273f48a3ff573da6570"
 
+  bottle do
+    cellar :any
+    sha256 "0a6fb9c8ae17bb0785cc9c9da0fa0b3bf5fd6ca69b1ef8516b800d0d28d77360" => :el_capitan
+    sha256 "8b0cb8b79f456faf4b7a8f9af2c788290b3e2eb1785f120875f2b72b4159fbf5" => :yosemite
+    sha256 "2ce7947353b3ea8e9be3925b1e516c92cbcca5602039d91ebe729c6fb96f5a37" => :mavericks
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-debug",
