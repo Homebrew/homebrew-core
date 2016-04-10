@@ -6,6 +6,7 @@ class Tiff2png < Formula
 
   bottle do
     cellar :any
+    sha256 "a8b051f92fc5f84cee447ae5840eb83ef94c2fa226ffd853c9d8409ffd737c5e" => :el_capitan
     sha256 "3c97a9fd6dd98bb75f60ecd44059d2191d23614759b988002ed02e6d455670ce" => :yosemite
     sha256 "b6ff58f47124dfddfdeefb7e0326e22bbaff6a4955a55f860831a8d8eb83935e" => :mavericks
     sha256 "c087e255ae60a218f2d7e2368341bfa5176da0642bd3c2225ad6ca67055aca58" => :mountain_lion
