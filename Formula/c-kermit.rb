@@ -6,9 +6,11 @@ class CKermit < Formula
   sha256 "0d5f2cd12bdab9401b4c836854ebbf241675051875557783c332a6a40dac0711"
 
   bottle do
-    sha256 "01efa74febe89ad045ce0f6be8d80e10d9ef6a4efbc382b4573143d9d72ce48f" => :yosemite
-    sha256 "e170c957947432e62c7131494dc694c39df7d09e5b2c6de0323d40e86e269188" => :mavericks
-    sha256 "1ba733ef3ae9ffbdb1563741bf1c4852dd0f84c55c9e7f0da9e60942814fb61a" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "446776aff790c8f3b6f30be915dc18f4beffa973b92201384682beb7dc714562" => :el_capitan
+    sha256 "fe01b123ec7cddfbf46908bbf2071542a92f195d75733230896b5de78d92cdef" => :yosemite
+    sha256 "eebf4b834242dc754c00eb87ee5cee621d39f9369cfe67cdb620a1f81a197f20" => :mavericks
   end
 
   def install
