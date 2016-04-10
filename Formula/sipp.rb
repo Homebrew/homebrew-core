@@ -6,11 +6,11 @@ class Sipp < Formula
   revision 1
 
   bottle do
-    cellar :any
-    revision 1
-    sha256 "dd4040ea2070600b2b43dbeed1118e54c7e3a084c545684e082759f288147884" => :mavericks
-    sha256 "c271b9d4851ce5af31def30c0058b927f6694e2e5247978126db009b0b32d339" => :mountain_lion
-    sha256 "f5a95ee2f72b167b3f769cf0ad13a117f787e5e03569a9a769c7bfa1b8783b89" => :lion
+    cellar :any_skip_relocation
+    revision 2
+    sha256 "f66628394a1f698330fc39507acaed0f6ebc585b0af1a6aebf60cc22fb946f03" => :el_capitan
+    sha256 "6ac7e1cc6af6e9eee4f62d3d90e64e87e2a51b4e85ae7683ac699fece552257c" => :yosemite
+    sha256 "cc8883368e946d979c279e4bf1758d5e1c96c7899fbfeab8fce3707dfca36e2c" => :mavericks
   end
 
   depends_on "openssl" => :optional
