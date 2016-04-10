@@ -5,9 +5,10 @@ class Mpdscribble < Formula
   sha256 "ff882d02bd830bdcbccfe3c3c9b0d32f4f98d9becdb68dc3135f7480465f1e38"
 
   bottle do
-    sha256 "4db146ed5a26dbc001635cb3367c0d26978371d932acad6e0416f5c47ba38c18" => :mavericks
-    sha256 "e1e0581c453237c817b326a0da0bb5b0fe70a0ea10c4383e2f75b7332651f17a" => :mountain_lion
-    sha256 "fc0ef6831fa92779da48b9694c14d71d7b712a070b432e6aa3a9855d16b04cda" => :lion
+    cellar :any
+    revision 1
+    sha256 "68462d65b9b5e81582b923ee81ae6f02f8260d33cba36b2507d132d8ca39783e" => :el_capitan
+    sha256 "1b42dbee7ea325f3a5bd3de346ecfa9904dd5bcf65a68e10ee6f34d5065001c3" => :mavericks
   end
 
   depends_on "pkg-config" => :build
