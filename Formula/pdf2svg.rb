@@ -6,6 +6,7 @@ class Pdf2svg < Formula
 
   bottle do
     cellar :any
+    sha256 "0c3e08bcf229edd83952486a7a8d7398c25fce0bb5c2ec6c72e50c33ce31fcbd" => :el_capitan
     sha256 "786c55feabe3accf358cd8749e5579cabab96c8c33098ab8f4164227c864bd01" => :yosemite
     sha256 "7d4235fa396d76c58637be177306ab52ac8b97e2d8fd4010349f8f447117426e" => :mavericks
     sha256 "1a85e25f7769ec7a37357fb628953959e8a8216f875df894bc64bb400ed808a7" => :mountain_lion
