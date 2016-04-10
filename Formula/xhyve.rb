@@ -6,7 +6,8 @@ class Xhyve < Formula
   head "https://github.com/mist64/xhyve.git"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "5eaf3b257fc5fce821c5704b79f5671e6e8e9e73b25525da4f66b8c5c4e3c1fb" => :el_capitan
     sha256 "4b7fe0a81da6d1a6777a42c41d3465d7777047a1ec9581fcfdef949e13d68010" => :yosemite
   end
 
