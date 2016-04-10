@@ -7,10 +7,11 @@ class VisionmediaWatch < Formula
   head "https://github.com/visionmedia/watch.git"
 
   bottle do
-    cellar :any
-    sha256 "c3472ef163e074176e2bccfc957848ae128c3718d43aba0762ae763da2e56e14" => :mavericks
-    sha256 "771e32db925b2816db407938680c72c55b30ff173cb85f9e722f5e40c06a4dfe" => :mountain_lion
-    sha256 "4abb0beee91c8ead466949d830c0d4de466007aac4646144d9a52f6cc8e1e046" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "b43dbb305fcb6c681d2208456a1f39dd0aa5b97790b629ac907a666869119f20" => :el_capitan
+    sha256 "4d31b501672801394c687aa45a44741f3461fb4730e96fe94197a1e7952fe2e0" => :yosemite
+    sha256 "941cd639bf71a7d0e7397b77a3eebce4bd06fbc4ef30aac69147b04b3f6569f8" => :mavericks
   end
 
   conflicts_with "watch"
