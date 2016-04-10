@@ -5,9 +5,11 @@ class Fail2ban < Formula
   sha256 "2d579d9f403eb95064781ffb28aca2b258ca55d7a2ba056a8fa2b3e6b79721f2"
 
   bottle do
-    sha256 "fe169a2bba521ebd253035f22ee3c652db3a6d324ee6d92bd07689e1d6bd0bf7" => :mavericks
-    sha256 "0bf16e328ce670886caaeccc7279a7ebe491665e6b671aa2598ac47f93023f2d" => :mountain_lion
-    sha256 "93bd451f8f47b2962152a46b533250522fa7129b684cc3a6e82a959acaaf9758" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "1c546abfdb096457c188bd32f97f95368c9e11e0d9eb0b44172e130083b26205" => :el_capitan
+    sha256 "024aff8d53788e55039de105bef04036b97cdde3b62a67a750a5b748f2b5389a" => :yosemite
+    sha256 "f39d0f4aa122b1e40ce05ad9010901beefacd560c5d84960eed4448daa3915f2" => :mavericks
   end
 
   def install
