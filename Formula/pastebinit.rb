@@ -7,6 +7,7 @@ class Pastebinit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "01a71bae720fbbd41e00f8d091bdd82c635ec5a0377d8551fef9b411d324d4d1" => :el_capitan
     sha256 "19a89cc21076e0f0c48e2c355ef07420255938bb1170c28c5cac26924c619e25" => :yosemite
     sha256 "691f4cf7eb32ea56ef0ea02f9f0a68660147236c7abcf3e06669779a0f1033a4" => :mavericks
   end
