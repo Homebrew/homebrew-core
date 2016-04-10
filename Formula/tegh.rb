@@ -7,9 +7,11 @@ class Tegh < Formula
   head "https://github.com/D1plo1d/tegh.git", :branch => "develop"
 
   bottle do
-    sha256 "e331da57cd2bb89b5ac54ac12535c388495985c22046a565ec7799ba0b238eca" => :yosemite
-    sha256 "c2f4b64b7945944f0e99bd208dc9320b169116152208623a0189c7b09ed7bb7b" => :mavericks
-    sha256 "15207ec101af6d37b427abb9f6e5e4032373cd9b8f4fda260f0dbc4ae7987459" => :mountain_lion
+    cellar :any
+    revision 1
+    sha256 "6bba8517593f8aab0b7c6d17639299ac83657374469159797bf23283a5542718" => :el_capitan
+    sha256 "85ea2f8a5348a8dc5fa69432bdb2de26c4192ce54f12168d18ba502059e93fd5" => :yosemite
+    sha256 "041d0a30a9a5fc4d4d3a54fc7bb0b401888064a241e638f87c8d528f7cd38b62" => :mavericks
   end
 
   depends_on "node"
