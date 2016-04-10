@@ -186,6 +186,7 @@ class Llvm < Formula
 
     args = %w[
       -DLLVM_OPTIMIZED_TABLEGEN=On
+      -DLLVM_BUILD_LLVM_DYLIB=On
     ]
 
     args << "-DLLVM_ENABLE_RTTI=On" if build.with? "rtti"
