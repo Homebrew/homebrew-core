@@ -5,7 +5,8 @@ class Nrg2iso < Formula
   sha256 "25049d864680ec12bbe31b20597ce8c1ba3a4fe7a7f11e25742b83e2fda94aa3"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "fed88dfb217cc0b5fa0a4f7a7aec40342314998624e084921e1b5cc02d08d27d" => :el_capitan
     sha256 "18949f41b9ba386c996a49541875d3320184b88dccb04136846f32b3d681e647" => :yosemite
     sha256 "a46624bc9fc5f7883e923920dbc96aef720e5bb37b4ac71a281d101b96decee6" => :mavericks
     sha256 "7ae80a678e7641b6b7838aac679caad0c5c2213f068c1141e8b8cb01539babb3" => :mountain_lion
