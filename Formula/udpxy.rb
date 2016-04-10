@@ -6,9 +6,11 @@ class Udpxy < Formula
   version "1.0.23-9"
 
   bottle do
-    sha256 "2ae930fd03be10be0767d1bc518b85459531cbfdf0697c21d86f0ca950bfe7fa" => :mavericks
-    sha256 "7460132da991c62d86bfad0f93854c770bd499eab80cf80c427a346fa5789581" => :mountain_lion
-    sha256 "fbe11b0ac2e5ea5bfe9783c477d34807fbab524872c7c9d8441d77074db32fdb" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "6f2fb0a9baf932d599fca41b8ec80cd35491332ab89464bdda6d7ac8e5b5e01d" => :el_capitan
+    sha256 "7624631dffaa797191689b05fcb5d7c87c0ad233e49c308b10462c08c8a955e4" => :yosemite
+    sha256 "45dcc2c1a7d1f0170ae44edf600fee1f6112fd1e11530548a7e3b1870d71a7d8" => :mavericks
   end
 
   # Fix gzip path in Makefile for uname Darwin, this is needed to fix the install task
