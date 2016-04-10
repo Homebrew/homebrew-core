@@ -9,7 +9,8 @@ class Vpnc < Formula
 
   bottle do
     cellar :any
-    sha256 "72bd72d4bcf33f125389400f2c0b498eec5aa6bd566e4f618067bb9026dc71ae" => :mavericks
+    revision 1
+    sha256 "f9dcd6133700d6a752a980cf1547270f03e188666db826764c087b5ce7026b4f" => :mavericks
   end
 
   option "with-hybrid", "Use vpnc hybrid authentication"
