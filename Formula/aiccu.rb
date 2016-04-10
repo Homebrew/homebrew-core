@@ -22,6 +22,27 @@ class Aiccu < Formula
     etc.install "doc/aiccu.conf"
   end
 
+  def caveats
+    <<-EOS.undent
+      You may also wish to install tuntap:
+
+        The TunTap project provides kernel extensions for Mac OS X that allow
+        creation of virtual network interfaces.
+
+        http://tuntaposx.sourceforge.net/
+
+      You can install tuntap with homebrew using brew install tuntap
+
+      Unless it exists already, a aiccu.conf file has been written to:
+        #{etc}/aiccu.conf
+
+      Protect this file as it will contain your credentials.
+
+      The 'aiccu' command will load this file by default unless told to use
+      a different one.
+    EOS
+  end
+
   plist_options :startup => true
 
   def plist; <<-EOS.undent
@@ -41,27 +62,6 @@ class Aiccu < Formula
       <true/>
     </dict>
     </plist>
-    EOS
-  end
-
-  def caveats
-    <<-EOS.undent
-      You may also wish to install tuntap:
-
-        The TunTap project provides kernel extensions for Mac OS X that allow
-        creation of virtual network interfaces.
-
-        http://tuntaposx.sourceforge.net/
-
-      You can install tuntap with homebrew using brew install tuntap
-
-      Unless it exists already, a aiccu.conf file has been written to:
-        #{etc}/aiccu.conf
-
-      Protect this file as it will contain your credentials.
-
-      The 'aiccu' command will load this file by default unless told to use
-      a different one.
     EOS
   end
 
