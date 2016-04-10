@@ -5,10 +5,10 @@ class Onetime < Formula
   sha256 "36a83a83ac9f4018278bf48e868af00f3326b853229fae7e43b38d167e628348"
 
   bottle do
-    cellar :any
-    sha256 "2f9ac9a0b17acc87ba1261e87808b0cfe18fee20f2658d390c0e10923eddc1fa" => :mavericks
-    sha256 "d907f93a662fd117c8f27c1aa700a3fa11b9fc682cf4bf40d20ca9013df64405" => :mountain_lion
-    sha256 "3697775f966740653693392d8bd16ace72183ea228b82b9d3a8c744fddf97e1e" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "4d27502d9a4b8d257182dcaf99b05121033352928c3716a1ebe932a24276e73a" => :el_capitan
+    sha256 "4e914d9a8d176f3505ae88d5eff3eb905c1a5f9005cf3d62aadaeae9bb6cbc28" => :mavericks
   end
 
   devel do
