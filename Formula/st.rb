@@ -5,9 +5,11 @@ class St < Formula
   sha256 "46a3d10995a910870d07550ed86c2979a46523059bed4067e9a49a403be331c8"
 
   bottle do
-    sha256 "d2654ec5ed18e1fcfe41e8c34bfc5bda5b134698f9f7eaf1b8d1fb73e6603f49" => :yosemite
-    sha256 "bee18d7a80cf6858c025206472913e6dc39512459a0543462bdff7bee689b1c0" => :mavericks
-    sha256 "01fecae7c00ca950cd36ae14efd132027269687b59ec21d79d3ae9800617839a" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "39e686d653b963ca9bc3a306af5cd11f2d456075de10dfcec6161bb647226ef2" => :el_capitan
+    sha256 "66fae854539976ced286c31719cf038599ae0e2767d6c268dd9bc554c879beea" => :yosemite
+    sha256 "80f77d2a895dfce0e451ebbe6b8e5b9ac930e460e0745b12789d7cfce57eaf8f" => :mavericks
   end
 
   def install
