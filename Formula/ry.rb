@@ -7,10 +7,11 @@ class Ry < Formula
   head "https://github.com/jayferd/ry.git"
 
   bottle do
-    cellar :any
-    sha256 "81b21b5a615197eddf8048c3cbe21dfd0425ea7fe8fdd3d01f8ab5af487b57a4" => :mavericks
-    sha256 "1a7ee174b349b62c9c6192ebb7db6ed741dd1b88261fd2e23f43d53a9a5c2709" => :mountain_lion
-    sha256 "a62486fac22e1f2881872653ae7030e64c64e4ecc1cacab4ce0ffd3e3f4c7a80" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "5b324970a3a3c806029241e1c5c453c900f16b3aec8e32bedc5d1a6abb5670c7" => :el_capitan
+    sha256 "7b8c7549875ff9a303735ffae235f520fd85af5796953ab92949d2ec7d69ecc6" => :yosemite
+    sha256 "c94e0176f99aaefcdc84ef95c081aa348177662e1b7f20d429a5c56a5b98ef40" => :mavericks
   end
 
   depends_on "ruby-build" => :recommended
