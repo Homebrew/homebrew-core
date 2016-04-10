@@ -5,10 +5,11 @@ class Ttylog < Formula
   sha256 "80d0134ae4e29b650fff661169a6e667d22338465720ee768b2776f68aac8614"
 
   bottle do
-    cellar :any
-    sha256 "b424c6473bcd948c8ef60d81d9cf0e176cd77189a54d08e480ad2c2f33692364" => :mavericks
-    sha256 "5a0e421f1735316419f1620227a9e76d89160bb79e3e2463e6ea89145cd3f398" => :mountain_lion
-    sha256 "076970af724989d93fc7eb4eee008a8320eb5a6e09e3517f55dca7841bfced12" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "b29b2a11f90578f51027ec61d698e47945815c8c4442f3b3094d2791d3a20961" => :el_capitan
+    sha256 "e366c88f54d1c419aeb6b7382ddefd5ff1e796bb8d2aed7b993f7c914a053f12" => :yosemite
+    sha256 "52bae78a4d014b5a4f22b1b1d3e6e767e97d1954ade3b79e50d420569b6ded1e" => :mavericks
   end
 
   depends_on "cmake" => :build
