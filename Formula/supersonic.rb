@@ -6,6 +6,7 @@ class Supersonic < Formula
 
   bottle do
     revision 1
+    sha256 "cd76e23c748ec6cfb520800a1890e691680921efa4e6e1bf1dd991b0557e6d33" => :el_capitan
     sha256 "75c8903d7d637aa495c83eb3a3569b627fbdf9799e907a7d0fff536cf3ddb155" => :yosemite
     sha256 "c72cb21c7f1efc5a790be376e55dcc4a1edc76cda6686c2ba7d3d7f8c2937321" => :mavericks
     sha256 "2869dba7bb685f7f6e4df504b87e01a7dda685afc3f27fa1c6010c150982317f" => :mountain_lion
