@@ -6,9 +6,10 @@ class Marst < Formula
 
   bottle do
     cellar :any
-    sha256 "21de984044f371e807240e74c60cf86e591e4fb2ef408cfa917a46ff2645dfd6" => :mavericks
-    sha256 "dcf72c779700c73f0628a5b6b8f44abaeaa87f8e9d8cd99b78e22c55d34fdd42" => :mountain_lion
-    sha256 "da26535819ad4d3dc429bd2053312727ada90a56d2d48dd8def3810ee1d35d0c" => :lion
+    revision 1
+    sha256 "c1a70d467ff3117c2a31bd52a659fbff2293f6f17b11cd4b370e9e8220a483c8" => :el_capitan
+    sha256 "6d8834fc64e1da37fce2ed9cae3c9f0e0dbfcb41f213c55c8413c2a522ed8811" => :yosemite
+    sha256 "7fddf8023d17c4bfcb6fc4141c6202b3e856ee2ecd684236daef058592b79335" => :mavericks
   end
 
   def install
