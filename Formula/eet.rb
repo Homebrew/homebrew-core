@@ -5,10 +5,10 @@ class Eet < Formula
   sha256 "c424821eb8ba09884d3011207b1ecec826bc45a36969cd4978b78f298daae1ee"
 
   bottle do
-    cellar :any
-    sha256 "4abc83f57045bac2a616e9fad2ac2682cc0dc02349aee61eb3be476927b0a234" => :yosemite
-    sha256 "13ed7b21488a38091719103a5f10eb525ed0dc2f7488a86e380ee6e1b06833ae" => :mavericks
-    sha256 "461aa471fb79395d1a9288eb923f6ab5039230291c605203dd86455c66c13a14" => :mountain_lion
+    revision 1
+    sha256 "3225daff43da12db5b74c31c1e200a2091f74b9003bdc182d6c45c1b0d1a6fb9" => :el_capitan
+    sha256 "94691d413c2d34f9ffa33876406d30aef94f94e955ad6b2e77779329fd59cdb8" => :yosemite
+    sha256 "dc57f44fd30a52b8545dbde8c335a672a485071725f4a65037bb4b3273c55d92" => :mavericks
   end
 
   conflicts_with "efl", :because => "efl aggregates formerly distinct libs, one of which is eet"
