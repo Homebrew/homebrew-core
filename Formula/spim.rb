@@ -6,9 +6,10 @@ class Spim < Formula
   version "9.1.13"
 
   bottle do
-    sha256 "a466feaa7824c5eff4d31c6f2467e9610bc50f5d21d725085ab4fcd8c53f80fc" => :mavericks
-    sha256 "eb3063541835046d8423b3c668618171084472b189af0488f8e4161228621149" => :mountain_lion
-    sha256 "fce7c9eeb1225e034a3975f7d443a3aaa2210e1ad829e2a357c715c1302321e1" => :lion
+    revision 1
+    sha256 "952957b4ebb8b3246378a8c23acde68119659696b781a8e942da63f53a58a982" => :el_capitan
+    sha256 "c8664fba396b594ee3fce19490d7e61aa4f1e49b32073289d231309ae168d29c" => :yosemite
+    sha256 "008ff237c1a94bcf665a99717ff2ded724cbbdf7585eddc93c8000efab790222" => :mavericks
   end
 
   def install
