@@ -5,10 +5,11 @@ class Ii < Formula
   sha256 "3a72ac6606d5560b625c062c71f135820e2214fed098e6d624fc40632dc7cc9c"
 
   bottle do
-    cellar :any
-    sha256 "47979e50757886d87bf0c76d859753f5c327f455fb92fa6c58c88fd41a2fcbf6" => :mavericks
-    sha256 "312b5a5d399face7fb7cbc7c0e269a6346c4382c5340a7154a21483548b0c36b" => :mountain_lion
-    sha256 "863d660d2338446d16825b73fdb61c35ab0976b1a47441da516d09c691bc575f" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "94552db0ec06e1266deac0ec19e5d67de8d1bcb9028aac7230e54c60d89f6d82" => :el_capitan
+    sha256 "80269185a9b95dbe935859d056ba4f1510210f639a27aff6a5bfc2e847d7d985" => :yosemite
+    sha256 "5be7e1ba2e3dddf0d8700366c2ebee273c6c570fc4d6e20655d0bd9219478e9b" => :mavericks
   end
 
   head "http://git.suckless.org/ii", :using => :git
