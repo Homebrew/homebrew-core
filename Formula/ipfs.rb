@@ -4,8 +4,8 @@ class Ipfs < Formula
   desc "IPFS is The Permanent Web - A new peer-to-peer hypermedia protocol"
   homepage "https://ipfs.io/"
   url "https://github.com/ipfs/go-ipfs.git",
-    :tag => "v0.3.11",
-    :revision => "7070b4d878baad57dcc8da80080dd293aa46cabd"
+    :tag => "v0.4.0",
+    :revision => "600c95eb53e576530d73afe856bf11ae219b3acb"
   head "https://github.com/ipfs/go-ipfs.git"
 
   bottle do
@@ -18,17 +18,8 @@ class Ipfs < Formula
 
   depends_on "go" => :build
   depends_on "godep" => :build
-
-  go_resource "github.com/kr/fs" do
-    url "https://github.com/kr/fs.git",
-      :revision => "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
-  end
-
-  go_resource "golang.org/x/tools" do
-    url "https://go.googlesource.com/tools",
-      :using => :git,
-      :revision => "d02228d1857b9f49cd0252788516ff5584266eb6"
-  end
+  depends_on "gx"
+  depends_on "gx-go"
 
   def install
     ENV["GOPATH"] = buildpath
