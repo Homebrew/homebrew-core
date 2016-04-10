@@ -13,11 +13,8 @@ class Nfdump < Formula
 
   option "with-readpcap", "Read netflow packets from a give pcap_file instead of the network. Is intended for debugging only."
 
-
   def install
-    args = %W[
-      --prefix=#{prefix}
-    ]
+    args = %W[--prefix=#{prefix}]
 
     args << "--enable-readpcap" if build.with? "readpcap"
     system "./configure", *args
