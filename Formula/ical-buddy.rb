@@ -6,10 +6,11 @@ class IcalBuddy < Formula
   sha256 "3fb50cffd305ed6ac0ebb479e04ff254074ee5e4b1a1c279bd24c3cc56bcccb0"
 
   bottle do
-    cellar :any
-    sha256 "740d83125399a1ce92f49c3e32b289d5b7df1ccb26efb7fcbcdaf1cfef63d20b" => :mavericks
-    sha256 "dd01140c9f8fc6648c322e258df3718b6fe3e78a20758178a4f1f7932f205198" => :mountain_lion
-    sha256 "91b4b914f49c4a523a286b0e44e3a58e306756467a8887b97a61a26e755373db" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "1603d15b5b643a25c98baebc7c7e799bf3176a74a139a3f5dfecb474daf9037d" => :el_capitan
+    sha256 "b839dc603deeeaba18efd2c6704e174fc4593fbc4c100c8d655b70f327802407" => :yosemite
+    sha256 "44b1bb23023bf91a055f77232b0f2cdb2ad64dc389224a480e2236b308abf9a7" => :mavericks
   end
 
   def install
