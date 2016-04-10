@@ -6,9 +6,10 @@ class Vcprompt < Formula
 
   bottle do
     cellar :any
-    sha256 "cb8fad1d2c10dbf0f70da66714dc2f2db283a6045a323aae0a5f595e4816072e" => :mavericks
-    sha256 "d6673b03417a09e2ada451d5440c2e550d6790d79dea2b68d482d0115af467e8" => :mountain_lion
-    sha256 "843ca2d2b549d26cf54fbbbba88ef6db71bc1d84c10b08df19d9e2941ad39704" => :lion
+    revision 1
+    sha256 "11e4de5f008aec3510274ef2265d6d30d214249e127cc1d3045b01b47232c96b" => :el_capitan
+    sha256 "a6b02f96a018c993568e4ee43bfa23343c88aa4c6aa58b4727b69c01340f59ff" => :yosemite
+    sha256 "ee133ff8277ce6d7792acd261ba3f27259e677badfe73b80ffd6fd08c6cd3665" => :mavericks
   end
 
   head do
