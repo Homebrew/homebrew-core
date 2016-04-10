@@ -5,10 +5,10 @@ class Mon < Formula
   sha256 "978711a1d37ede3fc5a05c778a2365ee234b196a44b6c0c69078a6c459e686ac"
 
   bottle do
-    cellar :any
-    sha256 "a3305413b9c09f2bce3a9c1b8204e05b673fe0d2dade6e5f0f9746eb67662f9e" => :mavericks
-    sha256 "8c31501863d20c6b582f577055bc55b40743725911c7015a38d93991eeb71ed8" => :mountain_lion
-    sha256 "36e66fd7d8452b14e15f5110ae0689c4e6ae9aa5a3977d4941df37aa71c96a23" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "4f2d05a85fac75167df3a445a0803f7d5eddb2bacf967b10738db5066955024a" => :el_capitan
+    sha256 "b446ffbcff634978ff036de6b5585d29e11a6b38604fa78268c7717819250a0f" => :mavericks
   end
 
   def install
