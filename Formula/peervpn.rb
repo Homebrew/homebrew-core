@@ -7,8 +7,8 @@ class Peervpn < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "415752cdc8aa3e3a53f1456ca1fe9cb8966c74f2a0255309d78b505e7eeae52d" => :mavericks
+    revision 2
+    sha256 "d8929fda3ec47bcf8690b5a4f5d8195526e67026543280015c3a51e050da68e6" => :mavericks
   end
 
   depends_on "openssl"
