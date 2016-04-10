@@ -6,7 +6,8 @@ class Tvnamer < Formula
   head "https://github.com/dbr/tvnamer.git"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "86ad6072f932e5c9dd96a04891f3ba7fcd6f59721d4a067597ef1b9d575dba8e" => :el_capitan
     sha256 "e2054cad544e9a1bc8d4eb7925c33909d126efaa7cb79a63d58e655a9d5b6e7d" => :yosemite
     sha256 "ccbdd91361cf82fa43718a3aa43291901d7ec26864a03422b47dbb0d6ebcf71c" => :mavericks
     sha256 "a055ef2f5c60a5e0ae4207ad85db4b9c6c961c0b0bea74505ebd47e1d331b32a" => :mountain_lion
