@@ -36,6 +36,7 @@ class Gpac < Formula
 
   def install
     args = ["--disable-wx",
+            "--disable-pulseaudio",
             "--prefix=#{prefix}",
             "--mandir=#{man}"]
     args << "--disable-x11" if build.without? "x11"
