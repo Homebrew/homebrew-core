@@ -5,7 +5,8 @@ class TaskSpooler < Formula
   sha256 "216d09dcfbae2f9bfea7582a71494172fe91c33d65499ea01b3bcac0600de96d"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "2d54706f5ac7cd1f0ab18af122223fb63960cb04da9effb3100fb4e1c53fc891" => :el_capitan
     sha256 "bda2858d1071b3091c48b9774786c3b88b0ded7cb7a569054aa1774b141e5555" => :yosemite
     sha256 "48fec6fbf078cffbc77ad1a5f7eaa01ca28561efbd5d847957bdf574bbb6c8fe" => :mavericks
     sha256 "00fdb36feaadc5c6f552318cf7e3aed402b1c49ffde203652a0eb0ccf4ffec8b" => :mountain_lion
