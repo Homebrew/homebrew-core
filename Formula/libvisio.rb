@@ -3,6 +3,7 @@ class Libvisio < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libvisio"
   url "http://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.3.tar.xz"
   sha256 "943e03b1e6c969af4c2133a6671c9630adf3aaf8d460156744a28f58c9f47cd8"
+  revision 1
 
   bottle do
     cellar :any
