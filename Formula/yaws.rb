@@ -6,6 +6,7 @@ class Yaws < Formula
   head "https://github.com/klacke/yaws.git"
 
   bottle do
+    sha256 "84a4cd500eac5ea8e79426dc286e805e8fd111e4ce10b946e55de3b08b663f3d" => :el_capitan
     sha256 "00521fe8163065f6486332d103f2fab37236e359ade42eec6ca7996d68a2d82d" => :yosemite
     sha256 "9014e19666883f9aa5e2cd103b3de9fbea2328055b0396917e9e23eace056d64" => :mavericks
     sha256 "8a26e3ef1807631a32935fe3013b0dd77328bff0d8075d7e0fa25ad40c6423c0" => :mountain_lion
