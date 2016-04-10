@@ -6,7 +6,8 @@ class Rinetd < Formula
   sha256 "0c68d27c5bd4b16ce4f58a6db514dd6ff37b2604a88b02c1dfcdc00fc1059898"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "7bbeb35182819c5ffd0aabc81020332b0763642dcb791657e8a54e64a18686d8" => :el_capitan
     sha256 "ee8653ffad51210e68b26e6f43a34f580180aed315b050ca48cd0adcadd3e6b0" => :yosemite
     sha256 "07cbd9a185d1b3698078fd26737af105cfe31a2eb2d1a4b229e9878561f162ef" => :mavericks
     sha256 "2ed57913af533cd7778526ff633b24dbaf753558293d472d81d03ffacd9e869e" => :mountain_lion
