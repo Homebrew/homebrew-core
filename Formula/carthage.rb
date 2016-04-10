@@ -12,7 +12,7 @@ class Carthage < Formula
     sha256 "7411d6b369e1462f4c9b5da2aa17e9203e5e4168549328b2d8f8f7444ce5aeb4" => :yosemite
   end
 
-  depends_on :xcode => ["7.1", :build]
+  depends_on :xcode => ["7.3", :build]
 
   def install
     system "make", "prefix_install", "PREFIX=#{prefix}"
