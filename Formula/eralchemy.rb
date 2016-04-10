@@ -3,8 +3,8 @@ class Eralchemy < Formula
   homepage "https://github.com/Alexis-benoist/eralchemy"
   url "https://pypi.python.org/packages/source/E/ERAlchemy/ERAlchemy-1.0.1.tar.gz"
   sha256 "98425b21fe0f12ff33e72789c8a308baa1c2d5fdf157388162deaa510551da4f"
-
   revision 1
+
   bottle do
     cellar :any
     sha256 "cfdc556c98b2d81d8627d4614183f2964abd53c2838205f5831982ff061a83db" => :el_capitan
