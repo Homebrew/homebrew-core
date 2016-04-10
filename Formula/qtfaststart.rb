@@ -5,7 +5,8 @@ class Qtfaststart < Formula
   sha256 "1f1448e1245444a1fae2f077f6846fedb47dfb294bef797e6742c095a6b4d769"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "77aac045ac61652f58012dc5f0661e67f7b4a7b4b6fffb471be792ba145f2b31" => :el_capitan
     sha256 "2a489212e330d6286bc3cad6c8d03f5f29313c0d4e41dc84193c6f6efc8597b8" => :yosemite
     sha256 "3c4a8acf49e665b22b088246ec5b06c8e92077e0f7f64e3445a69e2a76742391" => :mavericks
     sha256 "e97d00bb8dac4155d6040e0d28be3134d7d64e0aced0503b255f0fd763efdca9" => :mountain_lion
