@@ -8,6 +8,7 @@ class Rtpbreak < Formula
 
   bottle do
     cellar :any
+    sha256 "9beae7808c1b8c544942d04665d8a14ab5e07b925f64ed2a043652d349085a7e" => :el_capitan
     sha256 "64c4e6a0e4a7a6e5629832f6d33605c068ff02ce623ed36467d09fb9a300b983" => :yosemite
     sha256 "2cb901c96dfc9edf0cad72bd1a97da493877a36d046697e7665f174cf5f91698" => :mavericks
     sha256 "d3f404e84878cc1d3423dc3c007123fd0e2bfbd7e6f45a83bf904f274f790f88" => :mountain_lion
