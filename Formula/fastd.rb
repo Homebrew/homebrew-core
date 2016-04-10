@@ -7,7 +7,8 @@ class Fastd < Formula
 
   bottle do
     cellar :any
-    sha256 "a03d0e7e3e25e34fcb2a6570d96b79e425a64926e9c7ac2cbd9275aaa7fcf35e" => :mavericks
+    revision 1
+    sha256 "bd4d210c9e3572fc1b06f68068e5867a7330646c0509d3f3a292b7eb48768862" => :mavericks
   end
 
   depends_on "cmake" => :build
