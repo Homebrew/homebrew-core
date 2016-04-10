@@ -6,7 +6,8 @@ class Tth < Formula
   revision 1
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "7c8b17cd1cefc82928697908e773e4ad0f7179ba8b2b3adeef42b6a3e28eb21e" => :el_capitan
     sha256 "d4f98342a0ad8edbbe8e740e2184626e32e88121ab68884c0e2902041257ce70" => :yosemite
     sha256 "fc85ad1d9985b45fbfbae6d2016c985ac9531a7a88c41f199c8386be414d5519" => :mavericks
     sha256 "81727008272c27d31ab334641f47049b07a9be6240efd9d5e02fa386e515008b" => :mountain_lion
