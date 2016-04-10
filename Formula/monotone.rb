@@ -6,9 +6,9 @@ class Monotone < Formula
   revision 1
 
   bottle do
-    sha256 "18ddf756a5fdf3b733a3f8f2f2ad04f535f2bf161433bdf724b4ee732057d8ce" => :mavericks
-    sha256 "a387b6d5d81c5eb8d452b29e9a2b81d9772fb7d97196b9c2a74baa84799e6b0c" => :mountain_lion
-    sha256 "6156cae8c108a19859b5efffe962ceafe908d7cd6a2a38286f772d91349303b8" => :lion
+    revision 1
+    sha256 "fa3f3da7abae328d91c2c8da3aaedd3dfd955ba76ab30bab7edbd592654e9e01" => :el_capitan
+    sha256 "9ec274bfec3311fb327dbf699b28c77166422920e8cff252c8d8beecd98c9a4a" => :mavericks
   end
 
   depends_on "pkg-config" => :build
