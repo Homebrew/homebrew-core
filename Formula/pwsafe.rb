@@ -7,6 +7,7 @@ class Pwsafe < Formula
 
   bottle do
     cellar :any
+    sha256 "2481743780f9bf31c32ce0b0c089dcd763835b328fd0228d802ea7a42c027e31" => :el_capitan
     sha256 "3484c4e83315adbbdf77155e2af0e1d41a4d3a99d9769e0f7c1520195d2a1a47" => :yosemite
     sha256 "3143d04abfb5df939c94d008bc6ccc716d3dec530572433c17ce665c52c37b8c" => :mavericks
     sha256 "e4537a372cb1f6e17d005fb8b2f73fad576722832058ad514bcf4fa7e0112e41" => :mountain_lion
