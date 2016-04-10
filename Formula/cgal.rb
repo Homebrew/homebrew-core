@@ -33,7 +33,7 @@ class Cgal < Formula
   depends_on "eigen" if build.with? "eigen3"
 
   # Allows to compile with clang 425: http://goo.gl/y9Dg2y
-  patch :DATA
+  #patch :DATA
 
   def install
     ENV.cxx11 if build.cxx11?
@@ -57,18 +57,18 @@ class Cgal < Formula
   end
 end
 
-__END__
-diff --git a/src/CGAL/File_header_extended_OFF.cpp b/src/CGAL/File_header_extended_OFF.cpp
-index 3f709ff..f0e5bd3 100644
---- a/src/CGAL/File_header_extended_OFF.cpp
-+++ b/src/CGAL/File_header_extended_OFF.cpp
-@@ -186,7 +186,8 @@ std::istream& operator>>( std::istream& in, File_header_extended_OFF& h) {
-         }
-         in >> keyword;
-     }
--    in >> skip_until_EOL >> skip_comment_OFF;
-+    skip_until_EOL(in);
-+    skip_comment_OFF(in);
-     return in;
- }
- #undef CGAL_IN
+# __END__
+# diff --git a/src/CGAL/File_header_extended_OFF.cpp b/src/CGAL/File_header_extended_OFF.cpp
+# index 3f709ff..f0e5bd3 100644
+# --- a/src/CGAL/File_header_extended_OFF.cpp
+# +++ b/src/CGAL/File_header_extended_OFF.cpp
+# @@ -186,7 +186,8 @@ std::istream& operator>>( std::istream& in, File_header_extended_OFF& h) {
+#         }
+#         in >> keyword;
+#     }
+# -    in >> skip_until_EOL >> skip_comment_OFF;
+# +    skip_until_EOL(in);
+# +    skip_comment_OFF(in);
+#     return in;
+# }
+# #undef CGAL_IN
