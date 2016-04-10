@@ -6,9 +6,11 @@ class Rapidjson < Formula
   head "https://github.com/miloyip/rapidjson.git"
 
   bottle do
-    sha256 "32067dca55523d203d836e416fd80e2a70d5f0907725e5eb6a6c4c988fee3d3d" => :yosemite
-    sha256 "7686ef10f5702518ff4feff0c5b609c8c21e6796bf2c8cc37f48594a1486f188" => :mavericks
-    sha256 "e31ed3128e73c9450e54c6139b3e0211edc0857bee27829029058b690aa7d747" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "173bf62f8508a599f7524d8148d73fda3cbbd3ccff93e899359e4b0d889d2469" => :el_capitan
+    sha256 "6557b78fa261a98c758bbffeb186c6e6219438f320793d7d7b02c75cccd049cc" => :yosemite
+    sha256 "9a7dc86016ecb62a3583000542c3a394b72d7cc34d10c149ecbd66d73fd35aed" => :mavericks
   end
 
   option "without-docs", "Don't build documentation"
