@@ -6,9 +6,10 @@ class Simgrid < Formula
 
   bottle do
     cellar :any
-    sha256 "8ba35b7d81ce31495edce912ecdfc603a4be684c03c384b38a36f1b8ffb604e0" => :mavericks
-    sha256 "e72c2f8824f8d0a457a848d0611f309f2cfd150f48e608baee7075c920e9cfb5" => :mountain_lion
-    sha256 "65311d5c64c2253a33c9a0c4c703b1eab6c8554c7833ef933c8fd5cb7f36230e" => :lion
+    revision 1
+    sha256 "37282c46131c5cfed6c3a12be3cb05487b800904a38c46cf3133a5b9a335d2fa" => :el_capitan
+    sha256 "ade94652c0b0157914e4a6e1e637cae0fedf57e036245680595d0913e7df815a" => :yosemite
+    sha256 "e36538092a178bed8956c4537095a17feb594846ee0dfe72c9baec8e9a52eb80" => :mavericks
   end
 
   depends_on "cmake" => :build
