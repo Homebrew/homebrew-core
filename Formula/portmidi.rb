@@ -16,11 +16,15 @@ class Portmidi < Formula
 
   depends_on "cmake" => :build
   depends_on :python => :optional
-  depends_on "Cython" => :python if build.with? "python"
 
   # Avoid that the Makefile.osx builds the java app and fails because: fatal error: 'jni.h' file not found
   # Since 217 the Makefile.osx includes pm_common/CMakeLists.txt wich builds the Java app
   patch :DATA if build.without? "java"
+
+  resource "Cython" do
+    url "https://pypi.python.org/packages/source/C/Cython/Cython-0.24.tar.gz"
+    sha256 "6de44d8c482128efc12334641347a9c3e5098d807dd3c69e867fa8f84ec2a3f1"
+  end
 
   def install
     inreplace "pm_mac/Makefile.osx", "PF=/usr/local", "PF=#{prefix}"
@@ -36,6 +40,12 @@ class Portmidi < Formula
     system "make", "-f", "pm_mac/Makefile.osx", "install"
 
     if build.with? "python"
+      ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python2.7/site-packages"
+      resource("Cython").stage do
+        system "python", *Language::Python.setup_install_args(buildpath/"cython")
+      end
+      ENV.prepend_path "PATH", buildpath/"cython/bin"
+
       cd "pm_python" do
         # There is no longer a CHANGES.txt or TODO.txt.
         inreplace "setup.py", "CHANGES = open('CHANGES.txt').read()", 'CHANGES = ""'
@@ -43,7 +53,7 @@ class Portmidi < Formula
         # Provide correct dirs (that point into the Cellar)
         ENV.append "CFLAGS", "-I#{include}"
         ENV.append "LDFLAGS", "-L#{lib}"
-        system "python", "setup.py", "install", "--prefix=#{prefix}"
+        system "python", *Language::Python.setup_install_args(prefix)
       end
     end
   end
