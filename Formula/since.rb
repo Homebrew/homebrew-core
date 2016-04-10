@@ -5,7 +5,8 @@ class Since < Formula
   sha256 "739b7f161f8a045c1dff184e0fc319417c5e2deb3c7339d323d4065f7a3d0f45"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "ec4898462899cb632329f71dc0b4dd9a13a051aafd6da7dfd22e940e9d1ce01a" => :el_capitan
     sha256 "e92218f17ac1926f4651b3e70d3fe42d43b7024e1f10d0ab6f1c7c9dd6bad606" => :yosemite
     sha256 "bfd7889688facdf732cf0bf2bb8c7a917df71e80615a5f367468708437c0519e" => :mavericks
     sha256 "caf0a03558f329e8ae25927f2bfc5d6905c098ae73773edbbe2bec9d288d9235" => :mountain_lion
