@@ -7,6 +7,7 @@ class Openslide < Formula
 
   bottle do
     cellar :any
+    sha256 "4e89ce9fd3cd519ab1c8552603fabfd3fe9be55d65ac04a59e747e45c6749412" => :el_capitan
     sha256 "f28b235cdd86e2f47b389529ed796fef5d3020cc90dd8d0fb3f56d3e050b58d7" => :yosemite
     sha256 "f5a08897f2e045b179e6058b2c721d4ef61e0304fd09f9145e33d9fb11f1d0ca" => :mavericks
     sha256 "a5ff82effc4d0b4a5efd81b7e9e61772fff9b908244d481f366954177e84ad2d" => :mountain_lion
