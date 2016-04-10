@@ -15,9 +15,8 @@ class Fltk < Formula
   end
 
   bottle do
-    revision 1
-    sha256 "69949c963a94d37d0bee674b9ae4ac5a5ee830da810c5f55ddfbcf48eba26228" => :yosemite
-    sha256 "62854e23f7cd706b433c9a6c383b99bcfb4b7116c1337778aecd1691737f8cb9" => :mavericks
+    revision 2
+    sha256 "11f078c852e0a7b8038575440d9efb7edeca727f6f740b5e24f08aaa92033ddf" => :mavericks
   end
 
   devel do
