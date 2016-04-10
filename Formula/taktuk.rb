@@ -5,9 +5,11 @@ class Taktuk < Formula
   sha256 "62d1b72616a1b260eb87cecde2e21c8cbb844939f2dcafad33507fcb16ef1cb1"
 
   bottle do
-    sha256 "ffff7a3c68049d0b5918dce6eff6230c239b0845a4b62a5df247e92e09217823" => :yosemite
-    sha256 "f87e8447c70bbbdb9419c9735adab38e4bb5e5191d227e70b387c10cbfcc0de6" => :mavericks
-    sha256 "061d1c9e324e5b73bcf79e9e6df97de5aef12a8e52ff36348506fa49681f7431" => :mountain_lion
+    cellar :any
+    revision 1
+    sha256 "b5f260c944e09210f94a3b215112ed2975bf9c4a93ad1fdd30a627700e48a364" => :el_capitan
+    sha256 "4f703e2c8fb0f1b5c4c8b19b6a42e3a14023b40d6c511a10e0d460b8810d629e" => :yosemite
+    sha256 "b0ca7976fb797a3d74c4e97d26214f6b7fdd6cf6764cd9fc3d0f2b3931479bd5" => :mavericks
   end
 
   def install
