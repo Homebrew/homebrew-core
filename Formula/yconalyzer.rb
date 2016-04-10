@@ -5,10 +5,11 @@ class Yconalyzer < Formula
   sha256 "3b2bd33ffa9f6de707c91deeb32d9e9a56c51e232be5002fbed7e7a6373b4d5b"
 
   bottle do
-    cellar :any
-    sha256 "0425db9794e242424ce15c56cc1c5c0aa4cba2ea91bd96f2cc6960db62387f8e" => :mavericks
-    sha256 "2d1477201d70504d4ecad48dd27b4e49c5b7c2c4535eb0f761d7646ae9ca89c5" => :mountain_lion
-    sha256 "d4f646f82389d1ff7b0fb9a592a648cd1be522569af340069245668e06a5e1bb" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "918ca6d2bca328923ec3ff6e5612e9a0336aad666e993cfb0d1bc42a99758f1c" => :el_capitan
+    sha256 "e3e3fcebfdd0d25fbdad33c8f2aa13976c70ab4ff4bb81ed1fbae5cb8a7c2ffd" => :yosemite
+    sha256 "c2c6d2a81a8b13515192b716bac7df7db078e986f8306d37d3b4da5a2f05ccd6" => :mavericks
   end
 
   def install
