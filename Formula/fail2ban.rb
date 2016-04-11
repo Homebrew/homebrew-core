@@ -35,6 +35,25 @@ class Fail2ban < Formula
     system "python", "setup.py", "install", "--prefix=#{prefix}", "--install-lib=#{libexec}"
   end
 
+  def caveats
+    <<-EOS.undent
+      Before using Fail2Ban for the first time you should edit jail
+      configuration and enable the jails that you want to use, for instance
+      ssh-ipfw. Also make sure that they point to the correct configuration
+      path. I.e. on Mountain Lion the sshd logfile should point to
+      /var/log/system.log.
+
+        * #{etc}/fail2ban/jail.conf
+
+      The Fail2Ban wiki has two pages with instructions for MacOS X Server that
+      describes how to set up the Jails for the standard MacOS X Server
+      services for the respective releases.
+
+        10.4: http://www.fail2ban.org/wiki/index.php/HOWTO_Mac_OS_X_Server_(10.4)
+        10.5: http://www.fail2ban.org/wiki/index.php/HOWTO_Mac_OS_X_Server_(10.5)
+    EOS
+  end
+
   plist_options :startup => true
 
   def plist; <<-EOS.undent
@@ -54,25 +73,6 @@ class Fail2ban < Formula
         <true/>
       </dict>
       </plist>
-    EOS
-  end
-
-  def caveats
-    <<-EOS.undent
-      Before using Fail2Ban for the first time you should edit jail
-      configuration and enable the jails that you want to use, for instance
-      ssh-ipfw. Also make sure that they point to the correct configuration
-      path. I.e. on Mountain Lion the sshd logfile should point to
-      /var/log/system.log.
-
-        * #{etc}/fail2ban/jail.conf
-
-      The Fail2Ban wiki has two pages with instructions for MacOS X Server that
-      describes how to set up the Jails for the standard MacOS X Server
-      services for the respective releases.
-
-        10.4: http://www.fail2ban.org/wiki/index.php/HOWTO_Mac_OS_X_Server_(10.4)
-        10.5: http://www.fail2ban.org/wiki/index.php/HOWTO_Mac_OS_X_Server_(10.5)
     EOS
   end
 end
