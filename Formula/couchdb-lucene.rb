@@ -53,6 +53,16 @@ class CouchdbLucene < Formula
     EOS
   end
 
+  def caveats; <<-EOS.undent
+    All commands have been installed with the prefix 'cl_'.
+
+    If you really need to use these commands with their normal names, you
+    can add a "clbin" directory to your PATH from your bashrc like:
+
+        PATH="#{opt_libexec}/clbin:$PATH"
+    EOS
+  end
+
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/couchdb-lucene/bin/cl_run"
 
   def plist; <<-EOS.undent
@@ -82,16 +92,6 @@ class CouchdbLucene < Formula
         <true/>
       </dict>
     </plist>
-    EOS
-  end
-
-  def caveats; <<-EOS.undent
-    All commands have been installed with the prefix 'cl_'.
-
-    If you really need to use these commands with their normal names, you
-    can add a "clbin" directory to your PATH from your bashrc like:
-
-        PATH="#{opt_libexec}/clbin:$PATH"
     EOS
   end
 
