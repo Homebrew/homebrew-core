@@ -33,6 +33,6 @@ class Fastd < Formula
   end
 
   test do
-    system "#{bin}/fastd --generate-key"
+    system "#{bin}/fastd", "--generate-key"
   end
 end
