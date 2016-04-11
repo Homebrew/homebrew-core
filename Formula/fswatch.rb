@@ -6,9 +6,9 @@ class Fswatch < Formula
 
   bottle do
     cellar :any
-    sha256 "52c3462f9ca98d86caa6be80900ffde9165dd8751e5af9fdce95e401df2a5fca" => :el_capitan
-    sha256 "b1d0e93fbf382d03bbffcf4db57991edf038fa0502e5b8978ee77a72da3f787d" => :yosemite
-    sha256 "c28909cbc10ad00e355d910a0198de310b982f57030114185bce1f100577d557" => :mavericks
+    sha256 "1302fd01516f7484a9142bd4bd9bffa2beecec9471dece89ed67a76a123ddecf" => :el_capitan
+    sha256 "16f086c38f0aae2898e99efb04234c6a075e0a0fdd4418a857b8e22d9b1a9136" => :yosemite
+    sha256 "5bd59c4f6700cdbc00b43ed847c1f0f5bad6df04bd4361dfa5e0472682024ae3" => :mavericks
   end
 
   needs :cxx11
