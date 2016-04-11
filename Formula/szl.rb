@@ -7,9 +7,9 @@ class Szl < Formula
 
   bottle do
     cellar :any
-    sha256 "d90fe8d1792a6d9ba7655c3a17c0ff46bf2bafd7ceb8ccbea956ec4351b7e795" => :el_capitan
-    sha256 "14bdd16a0735e3aafb3b31e1ca931b1ea1e1f885296ce8af180d58bbe037eb87" => :yosemite
-    sha256 "79518d98607fa13a4d077a57ea5c20a703fb305c5fdbefda88b5596dc03329c9" => :mavericks
+    sha256 "9f588bd273ba85830ee3c7febd6ee1179bb07491e31ae044f8d0be3dde87c80a" => :el_capitan
+    sha256 "e06d0ff32258281931e49c1b1eb3e1ed03cde553ffbc7975180149e0d5ef2b31" => :yosemite
+    sha256 "3cae7aa8a919c987ce0402f02e966fc6c01bd43f02763ae9994c58d3139e2dbf" => :mavericks
   end
 
   depends_on :macos => :mavericks
