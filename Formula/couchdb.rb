@@ -78,6 +78,15 @@ class Couchdb < Formula
     end
   end
 
+  def caveats; <<-EOS.undent
+    To test CouchDB run:
+        curl http://127.0.0.1:5984/
+
+    The reply should look like:
+        {"couchdb":"Welcome","uuid":"....","version":"#{version}","vendor":{"version":"#{version}-1","name":"Homebrew"}}
+    EOS
+  end
+
   plist_options :manual => "couchdb"
 
   def plist; <<-EOS.undent
@@ -97,15 +106,6 @@ class Couchdb < Formula
       <true/>
     </dict>
     </plist>
-    EOS
-  end
-
-  def caveats; <<-EOS.undent
-    To test CouchDB run:
-        curl http://127.0.0.1:5984/
-
-    The reply should look like:
-        {"couchdb":"Welcome","uuid":"....","version":"#{version}","vendor":{"version":"#{version}-1","name":"Homebrew"}}
     EOS
   end
 
