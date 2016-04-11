@@ -21,6 +21,9 @@ class Zorba < Formula
   depends_on "flex"
   depends_on "icu4c"
   depends_on "xerces-c"
+  depends_on :java => :build
+  depends_on :ruby => ["1.9", :build]
+  depends_on :python => :build
 
   conflicts_with "xqilla", :because => "Both supply xqc.h"
 
