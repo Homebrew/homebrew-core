@@ -1,9 +1,8 @@
 class Zorba < Formula
   desc "NoSQL query processor"
   homepage "http://www.zorba.io/"
-  url "https://github.com/28msec/zorba/archive/3.0.tar.gz"
-  sha256 "75661fed35fb143498ba6539314a21e0e2b0cc18c4eaa5782d488430ac4dd9c8"
-  revision 3
+  url "https://github.com/28msec/zorba/archive/3.1.tar.gz"
+  sha256 "a27e8160aca5d3aa5a6525b930da7edde44f8824dd4fba39aaef3b9af2717b74"
 
   bottle do
     revision 1
@@ -17,13 +16,9 @@ class Zorba < Formula
 
   depends_on :macos => :mavericks
   depends_on "cmake" => :build
-  depends_on "swig" => [:build, :recommended]
   depends_on "flex"
   depends_on "icu4c"
   depends_on "xerces-c"
-  depends_on :java => :build
-  depends_on :ruby => ["1.9", :build]
-  depends_on :python => :build
 
   conflicts_with "xqilla", :because => "Both supply xqc.h"
 
@@ -35,11 +30,6 @@ class Zorba < Formula
     args = std_cmake_args
     args << "-DZORBA_VERIFY_PEER_SSL_CERTIFICATE=ON" if build.with? "ssl-verification"
     args << "-DZORBA_WITH_BIG_INTEGER=ON" if build.with? "big-integer"
-
-    # https://github.com/Homebrew/homebrew/issues/42372
-    # Seems to be an assumption `/usr/include/php` will exist without an obvious
-    # override to that logic.
-    args << "-DZORBA_SUPPRESS_SWIG=ON" if !MacOS::CLT.installed? || build.without?("swig")
 
     mkdir "build" do
       system "cmake", "..", *args
