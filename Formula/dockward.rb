@@ -1,7 +1,7 @@
 require "language/go"
 
 class Dockward < Formula
-  desc "Port forwarding tool for Docker containers. "
+  desc "Port forwarding tool for Docker containers."
   homepage "https://github.com/abiosoft/dockward"
   url "https://github.com/abiosoft/dockward/archive/0.0.3.tar.gz"
   sha256 "afe9e7d8e8c6e2f60fb79516e90e7fb95b088eb444517aa5f0811f325a967a49"
@@ -56,6 +56,6 @@ class Dockward < Formula
 
   test do
     output = shell_output(bin/"dockward -v")
-    assert_match "dockward version 0.0.3", output
+    assert_match "dockward version #{version}", output
   end
 end
