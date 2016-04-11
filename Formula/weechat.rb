@@ -46,7 +46,7 @@ class Weechat < Formula
 
     mkdir "build" do
       system "cmake", "..", *args
-      system "make", "install"
+      system "make", "install", "VERBOSE=1"
     end
   end
 
