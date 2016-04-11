@@ -1,8 +1,8 @@
 class Googler < Formula
   desc "Google Search and News from the command-line"
   homepage "https://github.com/jarun/googler"
-  url "https://github.com/jarun/googler/archive/v2.2.tar.gz"
-  sha256 "5e0948e775bdfcef1db94a209778a23844a5cef4ef3aa2c12b1dadf75311db7b"
+  url "https://github.com/jarun/googler/archive/v2.3.tar.gz"
+  sha256 "b29fa0ea211998453ed1d918c59530dffda386f8904892442a21bcd6e81c0c48"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +15,9 @@ class Googler < Formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
+    bash_completion.install "auto-completion/bash/googler-completion.bash"
+    fish_completion.install "auto-completion/fish/googler.fish"
+    zsh_completion.install "auto-completion/zsh/_googler"
   end
 
   test do
