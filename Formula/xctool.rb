@@ -1,8 +1,8 @@
 class Xctool < Formula
   desc "Drop-in replacement for xcodebuild with a few extra features"
   homepage "https://github.com/facebook/xctool"
-  url "https://github.com/facebook/xctool/archive/0.2.8.tar.gz"
-  sha256 "0f0bb2f39cf5794ce53f2e7944e2893f30899c54f7d2726ae72e707b6fc1262c"
+  url "https://github.com/facebook/xctool/archive/0.2.9.tar.gz"
+  sha256 "4ac19d19742bb844bdf3f6e73c7458cde835efd9d91accba090d3f37a357bf39"
   head "https://github.com/facebook/xctool.git"
 
   bottle do
