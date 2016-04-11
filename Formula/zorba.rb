@@ -5,10 +5,9 @@ class Zorba < Formula
   sha256 "a27e8160aca5d3aa5a6525b930da7edde44f8824dd4fba39aaef3b9af2717b74"
 
   bottle do
-    revision 1
-    sha256 "58b70f797b4d0066d596a4171abd47e2271a99a7b286ac20e75de1db1dc1a6b5" => :el_capitan
-    sha256 "8ff93afa65476997671b4dc8668adda260fd3a1c592d98257fe0629fc814c42c" => :yosemite
-    sha256 "80479a279dcc7297990317a2a4af0a56e82a7bb3936081571cf486005a743a63" => :mavericks
+    sha256 "d5c6bc104cb0e199f0fb9e42ec63429106d03d2361a445569991014bb1e30404" => :el_capitan
+    sha256 "8e7ca99bc9c625ed596d47b4130532045f82a64c6430633092daf1b00f8fc37d" => :yosemite
+    sha256 "8866796808b7328b118f65d8edb112cf65296b63bda55b07dbd1225cfb4291fc" => :mavericks
   end
 
   option "with-big-integer", "Use 64 bit precision instead of arbitrary precision for performance"
