@@ -6,12 +6,13 @@ class Dumb < Formula
 
   def install
     (buildpath/"make/config.txt").write <<-EOS.undent
-include make/unix.inc
-ALL_TARGETS := core core-examples core-headers
-PREFIX := #{prefix}
+      include make/unix.inc
+      ALL_TARGETS := core core-examples core-headers
+      PREFIX := #{prefix}
     EOS
-    system "make"
-    mkdir_p [bin, include, lib]
+    bin.mkpath
+    include.mkpath
+    lib.mkpath
     system "make", "install"
   end
 end
