@@ -11,8 +11,7 @@ ALL_TARGETS := core core-examples core-headers
 PREFIX := #{prefix}
     EOS
     system "make"
-    bin.install ["examples/dumb2wav", "examples/dumbout"]
-    include.install ["include/dumb.h", "include/aldumb.h"]
-    lib.install ["lib/unix/libdumb.a", "lib/unix/libdumbd.a"]
+    mkdir_p [bin, include, lib]
+    system "make", "install"
   end
 end
