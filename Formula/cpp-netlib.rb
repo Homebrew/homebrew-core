@@ -54,7 +54,6 @@ class CppNetlib < Formula
       "-L#{Formula["boost"].lib}",
       "-lssl",
       "-lcrypto",
-      "-lboost_thread-mt",
       "-lboost_system-mt",
       "-lcppnetlib-uri",
       "-lcppnetlib-client-connections",
