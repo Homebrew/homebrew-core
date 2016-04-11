@@ -5,8 +5,8 @@ class Saltstack < Formula
   # (URLs starting with https://github.com/saltstack/salt/releases/download)
   # github tag archives will report wrong version number
   # https://github.com/Homebrew/homebrew/issues/43493
-  url "https://github.com/saltstack/salt/releases/download/v2015.8.5/salt-2015.8.5.tar.gz"
-  sha256 "db395702f048ea384ccc440201c24d7044685977ae6a8588d0d0933246f0c673"
+  url "https://github.com/saltstack/salt/releases/download/v2015.8.8/salt-2015.8.8.tar.gz"
+  sha256 "b2ecce7bf562cfcd6586d66ade278f268bb89023f0fa0accaa55f90b8a668ef5"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -68,8 +68,8 @@ class Saltstack < Formula
   end
 
   resource "msgpack-python" do
-    url "https://pypi.python.org/packages/source/m/msgpack-python/msgpack-python-0.4.6.tar.gz"
-    sha256 "bfcc581c9dbbf07cc2f951baf30c3249a57e20dcbd60f7e6ffc43ab3cc614794"
+    url "https://pypi.python.org/packages/source/m/msgpack-python/msgpack-python-0.4.7.tar.gz"
+    sha256 "5e001229a54180a02dcdd59db23c9978351af55b1290c27bc549e381f43acd6b"
   end
 
   # Required by tornado
