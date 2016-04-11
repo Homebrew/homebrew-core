@@ -1,8 +1,8 @@
 class Ford < Formula
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/cmacmackin/ford/"
-  url "https://pypi.python.org/packages/source/F/FORD/FORD-4.5.2.tar.gz"
-  sha256 "a30853b48aa05d3af6f8f8f1f4b3dc9c55a0104bd964cbdfa1bb113c5c3953ce"
+  url "https://pypi.python.org/packages/source/F/FORD/FORD-4.5.4.tar.gz"
+  sha256 "fc32eb17c2aa6bfd89e4168f237b7f66a9892c00dcc94a7ce6af08d05cdfdfc1"
 
   head "https://github.com/cmacmackin/ford.git"
 
@@ -22,8 +22,8 @@ class Ford < Formula
   end
 
   resource "graphviz" do
-    url "https://pypi.python.org/packages/source/g/graphviz/graphviz-0.4.8.zip"
-    sha256 "71d56c61af9b4ff5e1e64a89b46872aa27c598bab8b0e9083f0fd3213cfc28b0"
+    url "https://pypi.python.org/packages/source/g/graphviz/graphviz-0.4.10.zip"
+    sha256 "61e9f7126f5efdd11fb9269d4622277fbf8ed92046b73f3e78529e3be6a95f15"
   end
 
   resource "Jinja2" do
@@ -32,8 +32,8 @@ class Ford < Formula
   end
 
   resource "Markdown" do
-    url "https://pypi.python.org/packages/source/M/Markdown/Markdown-2.6.5.tar.gz"
-    sha256 "8d94cf6273606f76753fcb1324623792b3738c7612c2b180c85cc5e88642e560"
+    url "https://pypi.python.org/packages/source/M/Markdown/Markdown-2.6.6.tar.gz"
+    sha256 "9a292bb40d6d29abac8024887bcfc1159d7a32dc1d6f1f6e8d6d8e293666c504"
   end
 
   resource "markdown-include" do
@@ -47,8 +47,8 @@ class Ford < Formula
   end
 
   resource "Pygments" do
-    url "https://pypi.python.org/packages/source/P/Pygments/Pygments-2.0.2.tar.gz"
-    sha256 "7320919084e6dac8f4540638a46447a3bd730fca172afc17d2c03eed22cf4f51"
+    url "https://pypi.python.org/packages/source/P/Pygments/Pygments-2.1.3.tar.gz"
+    sha256 "88e4c8a91b2af5962bfa5ea2447ec6dd357018e86e94c7d14bd8cacbc5b55d81"
   end
 
   resource "toposort" do
