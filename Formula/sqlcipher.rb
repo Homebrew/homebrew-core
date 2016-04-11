@@ -1,8 +1,8 @@
 class Sqlcipher < Formula
   desc "SQLite extension providing 256-bit AES encryption"
   homepage "http://sqlcipher.net"
-  url "https://github.com/sqlcipher/sqlcipher/archive/v3.3.1.tar.gz"
-  sha256 "ce5167b2e4d7eb1514fd5a8dfc115a11c4b85f5fd88be2a9fd35ffbb684365bf"
+  url "https://github.com/sqlcipher/sqlcipher/archive/v3.4.0.tar.gz"
+  sha256 "99b702ecf796de02bf7b7b35de4ceef145f0d62b4467a86707c2d59beea243d0"
 
   head "https://github.com/sqlcipher/sqlcipher.git"
 
@@ -27,7 +27,7 @@ class Sqlcipher < Formula
     ]
 
     if build.with?("fts")
-      args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_FTS3"
+      args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_FTS5"
     else
       args << "CFLAGS=-DSQLITE_HAS_CODEC"
     end
