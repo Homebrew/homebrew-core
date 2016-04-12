@@ -3,6 +3,7 @@ class Newsbeuter < Formula
   homepage "https://newsbeuter.org/"
   url "https://www.newsbeuter.org/downloads/newsbeuter-2.9.tar.gz"
   sha256 "74a8bf019b09c3b270ba95adc29f2bbe48ea1f55cc0634276b21fcce1f043dc8"
+  revision 1
 
   head "https://github.com/akrennmair/newsbeuter.git"
 
