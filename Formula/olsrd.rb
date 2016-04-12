@@ -1,8 +1,8 @@
 class Olsrd < Formula
   desc "Implementation of the optimized link state routing protocol"
   homepage "http://www.olsr.org"
-  url "http://www.olsr.org/releases/0.9/olsrd-0.9.0.2.tar.bz2"
-  sha256 "cc464b29c7740354d815d5faa753fd27c0677d71e8eb42e78abc382996892845"
+  url "http://www.olsr.org/releases/0.9/olsrd-0.9.0.3.tar.bz2"
+  sha256 "1f038ed3ea72e4f73dfc9701de83de7313f5049161c8df17b9aaeba8e9711e92"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,10 +13,6 @@ class Olsrd < Formula
   end
 
   def install
-    inreplace "make/Makefile.osx",
-              "PLUGIN_FULLNAME ?= $(PLUGIN_NAME).so.$(PLUGIN_VER)",
-              "PLUGIN_FULLNAME ?= $(PLUGIN_NAME).$(PLUGIN_VER).dylib"
-
     lib.mkpath
     args = %W[
       DESTDIR=#{prefix}
