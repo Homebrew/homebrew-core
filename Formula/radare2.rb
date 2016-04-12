@@ -3,17 +3,17 @@ class Radare2 < Formula
   homepage "http://radare.org"
 
   stable do
-    url "http://radare.org/get/radare2-0.10.1.tar.xz"
-    sha256 "5ac02717786f2ff3b5326927351d5ca38464da89675c8edfb4ded43addb22987"
+    url "http://rada.re/get/radare2-0.10.2.tar.xz"
+    sha256 "1bc9ce6f5d6bec366324bc542653bba5c1b89a6980c17253ec3a1f75264beb3b"
 
     resource "bindings" do
-      url "http://radare.org/get/radare2-bindings-0.10.1.tar.xz"
-      sha256 "6cb91f4135b5e490185e25629850cb48c08c06882e2c870fa5ab1425cc84106f"
+      url "http://rada.re/get/radare2-bindings-0.10.2.tar.xz"
+      sha256 "7b47919c7f3d3a4eb432df8605160c72257a324c5f9e59c890799cf527228631"
     end
 
     resource "extras" do
-      url "http://radare.org/get/radare2-extras-0.10.1.tar.xz"
-      sha256 "c330210c8e6ce5fa8113c455e98c994fb5ecbb5d2f1c15c40c0d1bcbc24d5092"
+      url "http://rada.re/get/radare2-extras-0.10.2.tar.xz"
+      sha256 "ff5fbb37d654d8672965f67b216be9f2219da4db4f380954cd7d9c55ce69232b"
     end
   end
 
@@ -53,7 +53,7 @@ class Radare2 < Formula
     system "make", "install"
 
     resource("extras").stage do
-      ENV.append_path "PATH", "#{bin}"
+      ENV.append_path "PATH", bin.to_s
       ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
 
       system "./configure", "--prefix=#{prefix}"
@@ -62,7 +62,7 @@ class Radare2 < Formula
     end
 
     resource("bindings").stage do
-      ENV.append_path "PATH", "#{bin}"
+      ENV.append_path "PATH", bin.to_s
       ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
 
       # Language versions.
@@ -82,7 +82,8 @@ class Radare2 < Formula
                            "LUAPKG=lua-#{lua_version}",
                            "PERLPATH=#{lib}/perl5/site_perl/#{perl_version}",
                            "PYTHON_PKGDIR=#{lib}/python2.7/site-packages",
-                           "RUBYPATH=#{lib}/ruby/#{RUBY_VERSION}",]
+                           "RUBYPATH=#{lib}/ruby/#{RUBY_VERSION}",
+      ]
 
       system "./configure", "--prefix=#{prefix}"
       ["lua", "perl", "python"].each do |binding|
@@ -91,5 +92,9 @@ class Radare2 < Formula
       system "make"
       system "make", "install", *make_install_args
     end
+  end
+
+  test do
+    system "#{bin}/r2", "--version"
   end
 end
