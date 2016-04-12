@@ -7,7 +7,7 @@ class Libswiften < Formula
     sha256 "8aa490431190294e62a9fc18b69ccc63dd0f561858d7d0b05c9c65f4d6ba5397"
 
     # Patch to fix build error of dynamic library with Apple's Secure Transport API
-    # Fixed upstream: http://swift.im/git/swift/commit/?id=1d545a4a7fb877f021508094b88c1f17b30d8b4e
+    # Fixed upstream: https://swift.im/git/swift/commit/?id=1d545a4a7fb877f021508094b88c1f17b30d8b4e
     patch :DATA
   end
 
