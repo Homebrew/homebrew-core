@@ -11,6 +11,12 @@ class Node < Formula
     sha256 "e2dc939c5a81829eed7becd17477b6a11a50f53a052bfbb22b545de9e32868c1" => :mavericks
   end
 
+  devel do
+    url "https://nodejs.org/download/rc/v6.0.0-rc.1/node-v6.0.0-rc.1.tar.xz"
+    sha256 "d2ee873aa40e23c4fecd34aa6b8f6ac3091e2a8a2a016923ccd3d89eb108979f"
+    version "6.0.0-rc.1"
+  end
+
   option "with-debug", "Build with debugger hooks"
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
@@ -56,6 +62,7 @@ class Node < Formula
     else
       args << "--with-intl=small-icu"
     end
+    args << "--tag=rc.1" << "--release-urlbase=https://nodejs.org/download/rc/" if build.devel?
 
     resource("icu4c").stage buildpath/"deps/icu"
 
