@@ -1,8 +1,10 @@
+require "language/node"
+
 class GenerateJsonSchema < Formula
   desc "Generate a JSON Schema from Sample JSON"
   homepage "https://github.com/Nijikokun/generate-schema"
-  url "https://github.com/Nijikokun/generate-schema/archive/v2.1.1.tar.gz"
-  sha256 "bf43a7e616419876293e7de738dece27b3deb719cf5e8cc99bb309a5fb179af0"
+  url "https://registry.npmjs.org/generate-schema/-/generate-schema-2.1.1.tgz"
+  sha256 "8f30beb978627b39831eaabf27df9df6e075b0bcc27e6543fab7582f3f30857d"
 
   head "https://github.com/Nijikokun/generate-schema.git"
 
@@ -16,10 +18,7 @@ class GenerateJsonSchema < Formula
   depends_on "node"
 
   def install
-    ENV.prepend_path "PATH", "#{Formula["node"].opt_libexec}/npm/bin"
-
-    system "npm", "install"
-    libexec.install Dir["*"]
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
