@@ -12,9 +12,9 @@ class Tor < Formula
   end
 
   devel do
-    url "https://dist.torproject.org/tor-0.2.8.1-alpha.tar.gz"
-    mirror "https://tor.eff.org/dist/tor-0.2.8.1-alpha.tar.gz"
-    sha256 "6e41c12ce13ad9997b42a15ed2350de86682694bfd9d4c98dae874395bbe3ea3"
+    url "https://dist.torproject.org/tor-0.2.8.2-alpha.tar.gz"
+    mirror "https://tor.eff.org/dist/tor-0.2.8.2-alpha.tar.gz"
+    sha256 "4756a04dea76395f5caf89de3cd75f05cc8d43576ef0f966cea9259b16eb1628"
   end
 
   depends_on "libevent"
@@ -48,6 +48,8 @@ class Tor < Formula
     After editing the `torrc` you need to restart tor.
     EOS
   end
+
+  plist_options :manual => "tor start"
 
   test do
     pipe_output("script -q /dev/null #{bin}/tor-gencert --create-identity-key", "passwd\npasswd\n")
