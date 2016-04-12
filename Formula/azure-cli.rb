@@ -1,3 +1,5 @@
+require "language/node"
+
 class AzureCli < Formula
   desc "Official Azure CLI"
   homepage "https://github.com/azure/azure-xplat-cli"
@@ -25,15 +27,12 @@ class AzureCli < Formula
   end
 
   depends_on "node"
+  depends_on :python => :build
 
   def install
-    ENV.prepend_path "PATH", "#{Formula["node"].opt_libexec}/npm/bin"
-    # install node dependencies
-    system "npm", "install"
-    # remove windows stuff
     rm_rf "bin/windows"
-    (prefix/"src").install Dir["lib", "node_modules", "package.json", "bin"]
-    bin.install_symlink (prefix/"src/bin/azure")
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    bin.install_symlink Dir["#{libexec}/bin/*"]
     (bash_completion/"azure").write `#{bin}/azure --completion`
   end
 
