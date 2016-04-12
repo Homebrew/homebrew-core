@@ -17,6 +17,7 @@ class Lablgtk < Formula
   depends_on "ocaml"
   depends_on "gtk+"
   depends_on "librsvg"
+  depends_on "gtksourceview"
 
   def install
     system "./configure", "--bindir=#{bin}",
