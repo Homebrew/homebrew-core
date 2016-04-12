@@ -8,10 +8,9 @@ class Owfs < Formula
 
   bottle do
     cellar :any
-    sha256 "be0fba236f76563fb7927c40d47e0037c046de115057ab514c4d1cc214ea6a07" => :el_capitan
-    sha256 "97c0ad182ab7c5f000ed8734272be3a0aac38cf6df9cb7bb2e0f67825cf0a717" => :yosemite
-    sha256 "5682fed7463f0c20636a6fb961ff4edde845a497b55618eaff2d986613e09e20" => :mavericks
-    sha256 "f71d3106d44a4afd36a8d19057da893528e85c528a5727cc1ed278db0e44da2e" => :mountain_lion
+    sha256 "f3c9411be6ada67d8812d1989a588be032ff776db726c71a638662868de0d6f7" => :el_capitan
+    sha256 "ef581bfe553455f79a5fcf93ca247f1d7ad0915e3854ad2a9885b8bac3515bcb" => :yosemite
+    sha256 "6462c010b2307c488678673bec8772466baf7aafcb8917732f0606889ccadd90" => :mavericks
   end
 
   depends_on "libusb-compat"
