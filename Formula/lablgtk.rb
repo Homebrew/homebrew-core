@@ -3,7 +3,7 @@ class Lablgtk < Formula
   homepage "http://lablgtk.forge.ocamlcore.org"
   url "https://forge.ocamlcore.org/frs/download.php/1479/lablgtk-2.18.3.tar.gz"
   sha256 "975bebf2f9ca74dc3bf7431ebb640ff6a924bb80c8ee5f4467c475a7e4b0cbaf"
-  revision 1
+  revision 2
 
   bottle do
     revision 1
@@ -17,6 +17,7 @@ class Lablgtk < Formula
   depends_on "ocaml"
   depends_on "gtk+"
   depends_on "librsvg"
+  depends_on "gtksourceview"
 
   def install
     system "./configure", "--bindir=#{bin}",
