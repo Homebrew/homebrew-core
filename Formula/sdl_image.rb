@@ -3,7 +3,7 @@ class SdlImage < Formula
   homepage "https://www.libsdl.org/projects/SDL_image"
   url "https://www.libsdl.org/projects/SDL_image/release/SDL_image-1.2.12.tar.gz"
   sha256 "0b90722984561004de84847744d566809dbb9daf732a9e503b91a1b5a84e5699"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -24,10 +24,14 @@ class SdlImage < Formula
   def install
     ENV.universal_binary if build.universal?
     inreplace "SDL_image.pc.in", "@prefix@", HOMEBREW_PREFIX
-
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--disable-sdltest"
+    args = %W[--prefix=#{prefix} --disable-dependency-tracking --disable-sdltest]
+    # --enable-feature-shared args work as inverse.
+    # https://bugzilla.libsdl.org/show_bug.cgi?id=3308
+    args << "--enable-jpg-shared=no" if build.with? "jpeg"
+    args << "--enable-png-shared=no" if build.with? "libpng"
+    args << "--enable-tif-shared=no" if build.with? "libtiff"
+    args << "--enable-webp-shared=no" if build.with? "webp"
+    system "./configure", *args
     system "make", "install"
   end
 end
