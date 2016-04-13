@@ -9,10 +9,9 @@ class Go < Formula
   head "https://github.com/golang/go.git"
 
   bottle do
-    revision 2
-    sha256 "c36e89f37ded34f000440af3b74bf7ac40857a09c2d668094601cb44889a12a8" => :el_capitan
-    sha256 "99aa8ee902111b6de1864dbf2ff5a2fa2782e70aadba61991c0c0e70a8e86b5d" => :yosemite
-    sha256 "df04d44e5aff57814b6871689e4ede01fdd4444cf632264ef0d9d77a02e1d406" => :mavericks
+    sha256 "ef0163d1111174966bce588e41a56f7dade5758c797e89ae6cb99d5b5f3a34ca" => :el_capitan
+    sha256 "6368c616756269b7a8625df888c014c65158a2d7a16e97816aa13dc79d023e6e" => :yosemite
+    sha256 "b81b78f8bb58eb896241291a4b86cee9bdf852a2fda8ff02d4c530cbb2bab632" => :mavericks
   end
 
   option "without-cgo", "Build without cgo"
