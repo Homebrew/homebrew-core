@@ -1,8 +1,8 @@
 class YubicoPivTool < Formula
   desc "Command-line tool for the YubiKey NEO PIV applet"
   homepage "https://developers.yubico.com/yubico-piv-tool/"
-  url "https://developers.yubico.com/yubico-piv-tool/releases/yubico-piv-tool-1.2.2.tar.gz"
-  sha256 "150af6bf78ee9b1c72de850ee88371317a09fc588b5afc5bf6e2c9a2a147d620"
+  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-1.3.0.tar.gz"
+  sha256 "101f7ce0ac84073da538db398aa4f2b4ae004e0baf44017cf1470811f99f3451"
 
   bottle do
     cellar :any
@@ -22,6 +22,6 @@ class YubicoPivTool < Formula
   end
 
   test do
-    assert_match "yubico-piv-tool 1.2.2", shell_output("#{bin}/yubico-piv-tool --version")
+    assert_match "yubico-piv-tool 1.3.0", shell_output("#{bin}/yubico-piv-tool --version")
   end
 end
