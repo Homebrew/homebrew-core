@@ -6,10 +6,9 @@ class Ganglia < Formula
   revision 1
 
   bottle do
-    revision 1
-    sha256 "6398320db597d246d1076183c0a23fe951044d4cdf62a412212c7e822b38dc4e" => :el_capitan
-    sha256 "d81e70de25b2d384e1d06c4fde604810b587c2411df3428378e3bc89a6de10ce" => :yosemite
-    sha256 "1abf670ffa1d4a75fd1301d9386e3be1f7d6c9b2b4804ec8fc7cfdc91e93aadb" => :mavericks
+    sha256 "7b2b10090f35f813fdf1a5b715b4e2bba48bdf71a20fd0cd138be62a8f5aede2" => :el_capitan
+    sha256 "05b2e1cef93776ddbf00c297efa272cd0fb99dcd8fe3e43a6732aa76d163d37f" => :yosemite
+    sha256 "37813f22386432e9ed358cbf58b990570c31f7a989802da10da7524171654428" => :mavericks
   end
 
   head do
