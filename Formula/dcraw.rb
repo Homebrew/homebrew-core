@@ -2,6 +2,7 @@ class Dcraw < Formula
   desc "Digital camera RAW photo decoding software"
   homepage "https://www.cybercom.net/~dcoffin/dcraw/"
   url "https://www.cybercom.net/~dcoffin/dcraw/archive/dcraw-9.26.0.tar.gz"
+  mirror "https://imagemagick.org/download/delegates/dcraw-9.26.0.tar.gz"
   sha256 "85791d529e037ad5ca09770900ae975e2e4cc1587ca1da4192ca072cbbfafba3"
 
   bottle do
@@ -21,5 +22,9 @@ class Dcraw < Formula
     system ENV.cc, "-o", "dcraw", ENV.cflags, "dcraw.c", "-lm", "-ljpeg", "-llcms2", "-ljasper"
     bin.install "dcraw"
     man1.install "dcraw.1"
+  end
+
+  test do
+    assert_match "\"dcraw\" v9", shell_output("#{bin}/dcraw", 1)
   end
 end
