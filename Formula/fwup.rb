@@ -3,6 +3,7 @@ class Fwup < Formula
   homepage "https://github.com/fhunleth/fwup"
   url "https://github.com/fhunleth/fwup/releases/download/v0.6.0/fwup-0.6.0.tar.gz"
   sha256 "11d8d3a6e7464584b89d88571ee2d2dc1da758fe98525191e77982c60f35bcf3"
+  revision 1
 
   bottle do
     cellar :any
