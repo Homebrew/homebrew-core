@@ -12,9 +12,10 @@ class Libswiften < Formula
   end
 
   bottle do
-    sha256 "9cb43f800000bce150e1b2424ebbba02ba8741836219975018e94c3fbeea80d8" => :el_capitan
-    sha256 "07054017a62884cfa9b9fd0a993e2ddba2e9d93ab8366cb423f5d18c0f5b67fb" => :yosemite
-    sha256 "83770dafc516e78193eabc8b252ccef74be55e438d1bdc261cd85d2936ba220c" => :mavericks
+    revision 1
+    sha256 "6d3d8a4097fbd44527cf5a004bdcd8eb50a40b55a30f42ec478bbe64a0ea608b" => :el_capitan
+    sha256 "11b961dd62d3550b9189d1a42cc4ff99baad95b545c876719ec8852ab27125dc" => :yosemite
+    sha256 "d7c505b62c124c409804a6428e9896249fea174bdbd55406c2e3629ea68f71bd" => :mavericks
   end
 
   depends_on "scons" => :build
