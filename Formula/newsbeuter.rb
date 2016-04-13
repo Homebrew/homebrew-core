@@ -9,10 +9,9 @@ class Newsbeuter < Formula
 
   bottle do
     cellar :any
-    revision 2
-    sha256 "c763ede64fb2bf9106fe720b54facf57efc992b24044c87af386d7e16413adb2" => :el_capitan
-    sha256 "24235bf62ef863239ac94027455f75700db201c29929ccc226c973e674d58306" => :yosemite
-    sha256 "381558b29bad7187433c935864ff9bb8c912419353239caf37c89833af4af225" => :mavericks
+    sha256 "b6c4ce2cfab8856fed986a64dd4272c0838eabaaacb0d95d097dddb7340b59a1" => :el_capitan
+    sha256 "76149f52b3abd4676f7a754d173d61142235ac54ad4c91a66c52bd5ea644ba5e" => :yosemite
+    sha256 "420fc7693d89145d70b6b4d435e53d958263f0b210bd83c83af3832c322f3e8b" => :mavericks
   end
 
   depends_on "pkg-config" => :build
