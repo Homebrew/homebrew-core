@@ -10,6 +10,12 @@ class Kibana < Formula
     sha256 "d874d305e995f117f41477807381b9216efbbfa3a1fd802a617d1bc8ff3b3813" => :mavericks
   end
 
+  devel do
+    url "https://github.com/elastic/kibana/archive/v5.0.0-alpha1.tar.gz"
+    sha256 "4f59ef042438e599bc9311dcf184718892cbe3c3201e4bfc7f34f86bc7018e55"
+    version "5.0.0-alpha1"
+  end
+
   resource "node" do
     url "https://nodejs.org/dist/v4.3.2/node-v4.3.2.tar.gz"
     sha256 "1f92f6d31f7292ce56db57d6703efccf3e6c945948f5901610cefa69e78d3498"
@@ -65,8 +71,6 @@ class Kibana < Formula
     (prefix/"installedPlugins").mkdir
   end
 
-  plist_options :manual => "kibana"
-
   def caveats; <<-EOS.undent
     Config: #{etc}/kibana/
     If you wish to preserve your plugins upon upgrade, make a copy of
@@ -74,6 +78,8 @@ class Kibana < Formula
     new keg location after upgrading.
     EOS
   end
+
+  plist_options :manual => "kibana"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
