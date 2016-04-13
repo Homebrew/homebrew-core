@@ -1,10 +1,10 @@
 class Go < Formula
   desc "Go programming environment"
   homepage "https://golang.org"
-  url "https://storage.googleapis.com/golang/go1.6.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.6.src.tar.gz"
-  version "1.6"
-  sha256 "a96cce8ce43a9bf9b2a4c7d470bc7ee0cb00410da815980681c8353218dcf146"
+  url "https://storage.googleapis.com/golang/go1.6.1.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.6.1.src.tar.gz"
+  version "1.6.1"
+  sha256 "1d4b53cdee51b2298afcf50926a7fa44b286f0bf24ff8323ce690a66daa7193f"
 
   head "https://github.com/golang/go.git"
 
@@ -20,7 +20,7 @@ class Go < Formula
   option "without-vet", "vet will not be installed for you"
   option "without-race", "Build without race detector"
 
-  go_version = version
+  go_version = "1.6"
 
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
