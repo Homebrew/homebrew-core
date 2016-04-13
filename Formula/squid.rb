@@ -1,8 +1,8 @@
 class Squid < Formula
   desc "Advanced proxy caching server for HTTP, HTTPS, FTP, and Gopher"
   homepage "http://www.squid-cache.org/"
-  url "http://www.squid-cache.org/Versions/v3/3.5/squid-3.5.15.tar.xz"
-  sha256 "9cfce3231c7b3b33816fc54414d8720a51ac5e723663e0685a8bb995b9f450d2"
+  url "http://www.squid-cache.org/Versions/v3/3.5/squid-3.5.16.tar.xz"
+  sha256 "e73d821180eed8bed230f357c680c0b19f1efa51a24725e810f2b48a2079d385"
 
   bottle do
     revision 1
@@ -40,6 +40,8 @@ class Squid < Formula
     system "./configure", *args
     system "make", "install"
   end
+
+  plist_options :manual => "squid"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
