@@ -16,6 +16,11 @@ class Saltstack < Formula
     sha256 "158f53f1809d2d5c1a26f950972b982f42f83d929a6f12f47e5c5317088c8b87" => :mavericks
   end
 
+  devel do
+    url "https://github.com/saltstack/salt/releases/download/v2016.3.0rc2/salt-2016.3.0rc2.tar.gz"
+    sha256 "aaa136ad5b7ce2478f352fadaddba66deba65b939fd146e772635d79b20fd8f3"
+  end
+
   depends_on "swig" => :build
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "zeromq"
