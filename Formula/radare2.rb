@@ -95,6 +95,6 @@ class Radare2 < Formula
   end
 
   test do
-    assert_match /radare2 0\.10\.2/, shell_output("#{bin}/r2 -version")
+    assert_match /radare2 #{version.to_s}/, shell_output("#{bin}/r2 -version")
   end
 end
