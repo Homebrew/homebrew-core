@@ -81,10 +81,3 @@ index f5eb053..c1ff425 100644
 			"SecureTransport/SecureTransportContext.mm",
 			"SecureTransport/SecureTransportCertificate.mm",
 			"SecureTransport/SecureTransportContextFactory.cpp",
-@@ -38,6 +38,4 @@ elif myenv.get("HAVE_SECURETRANSPORT", 0) :
- 
- objects += myenv.SwiftenObject(["PlatformTLSFactories.cpp"])
- 
--
--
- swiften_env.Append(SWIFTEN_OBJECTS = [objects])
