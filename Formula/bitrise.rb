@@ -1,10 +1,11 @@
-require "language/go"
+ require "language/go"
+ require 'fileutils'
 
 class Bitrise < Formula
   desc "Command-line automation tool"
   homepage "https://github.com/bitrise-io/bitrise"
-  url "https://github.com/bitrise-io/bitrise/archive/1.2.4.tar.gz"
-  sha256 "7cf365dca04ac2adadea1fbe286a117336460daa2488b0e62dc080b8ac868a09"
+  url "https://github.com/bitrise-io/bitrise/archive/1.3.0.tar.gz"
+  sha256 "b95d648cd87f7d5ecc00fe12a3f3b20b2a9b2ed2442851eaf68e88a03e8d0d97"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,36 +15,53 @@ class Bitrise < Formula
   end
 
   depends_on "go" => :build
+  depends_on "godep" => :build
 
   resource "envman" do
-    url "https://github.com/bitrise-io/envman/archive/1.0.0.tar.gz"
-    sha256 "439d6c1732c3f2dbe121750ba1951df126576e393ce1028426a70dcaafcffe3a"
+    url "https://github.com/bitrise-io/envman/archive/1.1.0.tar.gz"
+    sha256 "5e8d92dc8d38050e9e4c037e6d02bf8ad454c74a9a55c1eaeec9df8c691c2a51"
   end
 
   resource "stepman" do
-    url "https://github.com/bitrise-io/stepman/archive/0.9.17.tar.gz"
-    sha256 "d4eee2cc46f63f3c842d86d9c04f0de71541eaff45d817d16ffd116673383ee8"
-  end
-
-  def go_install_package(basepth, pkgname)
-    mkdir_p "#{basepth}/src/github.com/bitrise-io"
-    ln_s basepth, "#{basepth}/src/github.com/bitrise-io/#{pkgname}"
-
-    ENV["GOPATH"] = "#{basepth}/Godeps/_workspace:#{basepth}"
-    Language::Go.stage_deps resources, "#{basepth}/src"
-    system "go", "build", "-o", "#{bin}/#{pkgname}"
+    url "https://github.com/bitrise-io/stepman/archive/0.9.18.tar.gz"
+    sha256 "9aaa9c20d3a73146f32ab280ec2127c6c812cf86fe92467369d7a304fc6563f8"
   end
 
   def install
+    ENV["GOPATH"] = buildpath
+
+    # Install bitrise
+    (buildpath + "src/github.com/bitrise-io/bitrise").install Dir[buildpath/"*"]
+
+    cd "src/github.com/bitrise-io/bitrise" do
+      system "go", "build", "-o", bin/"bitrise"
+    end
+
+    mkdir_p buildpath/"src/github.com/bitrise-io"
+
+    # Install envman
     resource("envman").stage do
-      go_install_package(Dir.pwd, "envman")
+      cp_r(Dir.pwd, buildpath/"src/github.com/bitrise-io/envman")
+
+      envman_go_pth = buildpath/"src/github.com/bitrise-io/envman"
+
+      cd envman_go_pth do
+        system "godep", "go", "build", "-o", "build/envman"
+        bin.install "build/envman"
+      end
     end
 
+    # Install stepman
     resource("stepman").stage do
-      go_install_package(Dir.pwd, "stepman")
-    end
+      cp_r(Dir.pwd, buildpath/"src/github.com/bitrise-io/stepman")
 
-    go_install_package(buildpath, "bitrise")
+      stepman_go_pth = buildpath/"src/github.com/bitrise-io/stepman"
+
+      cd stepman_go_pth do
+        system "godep", "go", "build", "-o", "build/stepman"
+        bin.install "build/stepman"
+      end
+    end
   end
 
   test do
