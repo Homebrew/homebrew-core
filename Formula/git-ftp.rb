@@ -8,9 +8,9 @@ class GitFtp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ab3dc523583810d2163ee293fed6f7af568367a8126130501df628a4b26072b7" => :el_capitan
-    sha256 "578da024d360e191ad43bfeec951a05cf4d288f2ef98db3414149826c5c6728f" => :yosemite
-    sha256 "586bdeba53fddbc4d708a315c5ad5f56356972b4250a964aaa8af79b3b619091" => :mavericks
+    sha256 "bbb14b73d5735c834c32c698e3243cfe9630e84da60a46103512b74d69d300a8" => :el_capitan
+    sha256 "b0bdb187af00eb6170de462d95a8dcdcd48e0aac445c26545ae4107e3b4ad608" => :yosemite
+    sha256 "cce74cf54124ae85fc250a6d78c338f9a3803852ebc089445c78cb183a482abb" => :mavericks
   end
 
   option "with-manpage", "build and install the manpage (depends on pandoc)"
