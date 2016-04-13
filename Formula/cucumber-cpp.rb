@@ -1,8 +1,8 @@
 class CucumberCpp < Formula
   desc "Support for writing Cucumber step definitions in C++"
   homepage "https://cucumber.io"
-  url "https://github.com/cucumber/cucumber-cpp/archive/v0.3.tar.gz"
-  sha256 "1c0f9949627e7528017bf00cbe49693ba9cbc3e11087f70aa33b21df93f341d6"
+  url "https://github.com/cucumber/cucumber-cpp/archive/v0.3.1.tar.gz"
+  sha256 "442c3fc3020c709f5609e33b76e25c3c9fc9166911e74f590590f794f24f8a9b"
 
   bottle do
     cellar :any_skip_relocation
@@ -52,7 +52,7 @@ class CucumberCpp < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lcucumber-cpp", "-o", "test",
-      "-lboost_regex", "-lboost_system"
+      "-lboost_regex", "-lboost_system", "-lboost_program_options"
     begin
       pid = fork { exec "./test" }
       expected = <<-EOS.undent
