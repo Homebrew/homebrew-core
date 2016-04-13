@@ -4,8 +4,8 @@ class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
   url "https://github.com/hashicorp/consul-template.git",
-      :tag => "v0.12.0",
-      :revision => "fb5915763cb0f8ecb3bff6f04aa71a6c2e6abaa3"
+      :tag => "v0.14.0",
+      :revision => "de567d675358c7b65d8db735bf8747215c90bd46"
 
   head "https://github.com/hashicorp/consul-template.git"
 
@@ -25,12 +25,12 @@ class ConsulTemplate < Formula
 
   go_resource "github.com/fatih/structs" do
     url "https://github.com/fatih/structs.git",
-      :revision => "9a7733345ff091c5457cb963f498a79ecd0bdbaa"
+      :revision => "73c4e3dc02a78deaba8640d5f3a8c236ec1352bf"
   end
 
   go_resource "github.com/hashicorp/consul" do
     url "https://github.com/hashicorp/consul.git",
-      :revision => "94f33972bdc1574738b00290b5b9ae1df445435e"
+      :revision => "26a0ef8c41aa2252ab4cf0844fc6470c8e1d8256"
   end
 
   go_resource "github.com/hashicorp/errwrap" do
@@ -40,7 +40,7 @@ class ConsulTemplate < Formula
 
   go_resource "github.com/hashicorp/go-cleanhttp" do
     url "https://github.com/hashicorp/go-cleanhttp.git",
-      :revision => "5df5ddc69534f1a4697289f1dca2193fbb40213f"
+      :revision => "ad28ea4487f05916463e2423a55166280e8254b5"
   end
 
   go_resource "github.com/hashicorp/go-multierror" do
@@ -50,7 +50,7 @@ class ConsulTemplate < Formula
 
   go_resource "github.com/hashicorp/go-reap" do
     url "https://github.com/hashicorp/go-reap.git",
-      :revision => "e300e334a8de28a7931fc05331345f9e985128de"
+      :revision => "2d85522212dcf5a84c6b357094f5c44710441912"
   end
 
   go_resource "github.com/hashicorp/go-syslog" do
@@ -60,7 +60,7 @@ class ConsulTemplate < Formula
 
   go_resource "github.com/hashicorp/hcl" do
     url "https://github.com/hashicorp/hcl.git",
-      :revision => "17c5c97b5a51e82c238678127e413b7635c6d5f6"
+      :revision => "2604f3bda7e8960c1be1063709e7d7f0765048d0"
   end
 
   go_resource "github.com/hashicorp/logutils" do
@@ -70,27 +70,27 @@ class ConsulTemplate < Formula
 
   go_resource "github.com/hashicorp/serf" do
     url "https://github.com/hashicorp/serf.git",
-      :revision => "e9ac4bb0c5721826d5cd3d1cd582c12fbc664bb8"
+      :revision => "0df3e3df1703f838243a7f3f12bf0b88566ade5a"
   end
 
   go_resource "github.com/hashicorp/vault" do
     url "https://github.com/hashicorp/vault.git",
-      :revision => "2c96d1fde30cf5c1cec23d525d6a52a3f37c29e5"
+      :revision => "77f2b8a2fa408e0fc77ed7402d51cf0cfa0335d7"
   end
 
   go_resource "github.com/mitchellh/mapstructure" do
     url "https://github.com/mitchellh/mapstructure.git",
-      :revision => "281073eb9eb092240d33ef253c404f1cca550309"
+      :revision => "d2dd0262208475919e1a362f675cfc0e7c10e905"
   end
 
   go_resource "golang.org/x/sys" do
     url "https://go.googlesource.com/sys.git",
-      :revision => "833a04a10549a95dc34458c195cbad61bbb6cb4d"
+      :revision => "9eef40adf05b951699605195b829612bd7b69952"
   end
 
   go_resource "gopkg.in/yaml.v2" do
     url "https://gopkg.in/yaml.v2.git",
-      :revision => "f7716cbe52baa25d2e9b0d0da546fcf909fc16b4"
+      :revision => "a83829b6f1293c91addabc89d0571c246397bbf4"
   end
 
   go_resource "github.com/mitchellh/iochan" do
