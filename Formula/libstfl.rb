@@ -6,11 +6,9 @@ class Libstfl < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "98c3c02654f076427f5243913d027029cd4607642d3c212833c21c97d0093ea0" => :el_capitan
-    sha256 "8ca63ef8c7776df77eda7a327b2e4a9d413992c08605e7922a7b82f560be618a" => :yosemite
-    sha256 "9a0b5e72c534ca6bc3e1ba2fbafb384719e5df9663ff4b507936afebfde16272" => :mavericks
-    sha256 "f30b9c76dbd4d31b7860b8ed8c0c8024f820624880db32b00d1804d38e9e6808" => :mountain_lion
+    sha256 "ca0611c953a3b50272dea995cd279622d273351f956b7b4641fc219b2a22cb0c" => :el_capitan
+    sha256 "a11384da9de449a78e0789be701c1f6cd5a1c4e9cdc2f14a6734cb0a83f3bfd4" => :yosemite
+    sha256 "598f252b531f46037a821d49f69c8da4e0335d5e72c3324e24018c0a33ea6d99" => :mavericks
   end
 
   option "without-perl", "Build without Perl support"
