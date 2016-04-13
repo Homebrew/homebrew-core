@@ -30,7 +30,7 @@ class Syncthing < Formula
     bin.install "syncthing"
   end
 
-  plist_options :startup => true
+  plist_options :manual => "syncthing"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
