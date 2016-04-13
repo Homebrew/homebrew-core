@@ -55,6 +55,8 @@ class Tor < Formula
     assert (testpath/"authority_signing_key").exist?
     assert (testpath/"authority_identity_key").exist?
   end
+  
+  plist_options :manual => "tor start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
