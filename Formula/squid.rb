@@ -4,8 +4,6 @@ class Squid < Formula
   url "http://www.squid-cache.org/Versions/v3/3.5/squid-3.5.16.tar.xz"
   sha256 "e73d821180eed8bed230f357c680c0b19f1efa51a24725e810f2b48a2079d385"
 
-  head "lp:squid", :using => :bzr
-
   bottle do
     sha256 "225d224c1311ed6c2ef2e045c7cb2a6e372ac3303470baac3308bdee35fdeaa1" => :el_capitan
     sha256 "d9a43039f5524ea5cabd9c6873b9d5ea528e75def324d303d59cd5f3093ea228" => :yosemite
@@ -13,6 +11,8 @@ class Squid < Formula
   end
 
   head do
+    url "lp:squid", :using => :bzr
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
