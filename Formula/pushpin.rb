@@ -1,8 +1,8 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "http://pushpin.org"
-  url "https://dl.bintray.com/fanout/source/pushpin-1.8.0.tar.bz2"
-  sha256 "3559a3f0cfd993156948f575dca21be5819808e4338254ab95fb6876391958b5"
+  url "https://dl.bintray.com/fanout/source/pushpin-1.9.0.tar.bz2"
+  sha256 "ab69dfae63edbae6d58d2ed510bd584a7f71e5e1b3944652950111a129e35693"
 
   head "https://github.com/fanout/pushpin.git"
 
@@ -60,6 +60,7 @@ class Pushpin < Formula
 
     system "./configure", "--prefix=#{prefix}", "--configdir=#{etc}", "--rundir=#{var}/run", "--logdir=#{var}/log", "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     system "make"
+    system "make", "check"
     system "make", "install"
 
     pyenv = { :PYTHONPATH => ENV["PYTHONPATH"] }
