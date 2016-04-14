@@ -1,9 +1,9 @@
 class Deheader < Formula
   desc "Analyze C/C++ files for unnecessary headers"
   homepage "http://www.catb.org/~esr/deheader"
-  url "http://www.catb.org/~esr/deheader/deheader-1.2.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/d/deheader/deheader_1.2.orig.tar.gz"
-  sha256 "c4e4a4af6f0707a2f8b10b10f3776674c589a569c3451dea978f2d0b76c71d12"
+  url "http://www.catb.org/~esr/deheader/deheader-1.3.tar.gz"
+  mirror "https://mirrors.kernel.org/debian/pool/main/d/deheader/deheader_1.3.orig.tar.gz"
+  sha256 "652c07bf1c7d5da7cf71c9889de11609c8cb2bd0c13122ad424f2c25da9e2e3b"
   head "https://gitlab.com/esr/deheader.git"
 
   bottle do
