@@ -12,6 +12,8 @@ class SdlImage < Formula
     sha256 "84272135304e7c475e8000a90af113127858273a4449ce6566805f5b4c2cb476" => :mavericks
   end
 
+  option :universal
+
   depends_on "pkg-config" => :build
   depends_on "sdl"
   depends_on "jpeg" => :recommended
@@ -19,12 +21,13 @@ class SdlImage < Formula
   depends_on "libtiff" => :recommended
   depends_on "webp" => :recommended
 
-  option :universal
-
   def install
     ENV.universal_binary if build.universal?
     inreplace "SDL_image.pc.in", "@prefix@", HOMEBREW_PREFIX
     args = %W[--prefix=#{prefix} --disable-dependency-tracking --disable-sdltest]
+    # The alternative of ImagIO framework or libpng, jpeg, libttf and webp.
+    # http://forums.libsdl.org/viewtopic.php?p=42910&sid=76c5b793b1e8f19d350a94773b1ced3b#42907
+    args << "--disable-imageio"
     # --enable-feature-shared args work as inverse.
     # https://bugzilla.libsdl.org/show_bug.cgi?id=3308
     args << "--enable-jpg-shared=no" if build.with? "jpeg"
