@@ -13,10 +13,20 @@ class Aften < Formula
 
   depends_on "cmake" => :build
 
+  resource "sample_wav" do
+    url "http://www.mediacollege.com/audio/tone/files/1kHz_44100Hz_16bit_05sec.wav"
+    sha256 "949dd8ef74db1793ac6174b8d38b1c8e4c4e10fb3ffe7a15b4941fa0f1fbdc20"
+  end
+
   def install
     mkdir "default" do
       system "cmake", "-DSHARED=ON", "..", *std_cmake_args
       system "make", "install"
     end
+  end
+
+  test do
+    resource("sample_wav").stage testpath
+    system "#{bin}/aften", "#{testpath}/1kHz_44100Hz_16bit_05sec.wav", "sample.ac3"
   end
 end
