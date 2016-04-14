@@ -13,7 +13,12 @@ class Nfdump < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    args = %W[
+      --prefix=#{prefix}
+      --enable-readpcap
+    ]
+
+    system "./configure", *args
     system "make", "install"
   end
 
