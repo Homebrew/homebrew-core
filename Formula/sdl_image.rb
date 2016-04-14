@@ -30,10 +30,10 @@ class SdlImage < Formula
     args << "--disable-imageio"
     # --enable-feature-shared args work as inverse.
     # https://bugzilla.libsdl.org/show_bug.cgi?id=3308
-    args << "--enable-jpg-shared=no" if build.with? "jpeg"
-    args << "--enable-png-shared=no" if build.with? "libpng"
-    args << "--enable-tif-shared=no" if build.with? "libtiff"
-    args << "--enable-webp-shared=no" if build.with? "webp"
+    args << "--enable-jpg-shared" + ((build.without? "jpeg") ? "" : "=no")
+    args << "--enable-png-shared" + ((build.without? "libpng") ? "" : "=no")
+    args << "--enable-tif-shared" + ((build.without? "libtiff") ? "" : "=no")
+    args << "--enable-webp-shared" + ((build.without? "webp") ? "" : "=no")
     system "./configure", *args
     system "make", "install"
   end
