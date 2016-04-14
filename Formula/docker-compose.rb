@@ -26,39 +26,24 @@ class DockerCompose < Formula
   depends_on "docker" => :recommended
   depends_on "docker-machine" => :recommended
 
+  resource "setuptools" do
+    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-20.7.0.tar.gz"
+    sha256 "505cdf282c5f6e3a056e79f0244b8945f3632257bba8469386c6b9b396400233"
+  end
+
+  resource "backports.ssl_match_hostname" do
+    url "https://pypi.python.org/packages/source/b/backports.ssl_match_hostname/backports.ssl_match_hostname-3.5.0.1.tar.gz"
+    sha256 "502ad98707319f4a51fa2ca1c677bd659008d27ded9f6380c79e8932e38dcdf2"
+  end
+
+  resource "cached-property" do
+    url "https://pypi.python.org/packages/source/c/cached-property/cached-property-1.3.0.tar.gz"
+    sha256 "458e78b1c7286ece887d92c9bee829da85717994c5e3ddd253a40467f488bc81"
+  end
+
   resource "docker-py" do
     url "https://pypi.python.org/packages/source/d/docker-py/docker-py-1.8.0.tar.gz"
     sha256 "09ccd3522d86ec95c0659887d1da7b2761529020694efb0eeac87074cb4536c2"
-  end
-
-  resource "requests" do
-    url "https://pypi.python.org/packages/source/r/requests/requests-2.7.0.tar.gz"
-    sha256 "398a3db6d61899d25fd4a06c6ca12051b0ce171d705decd7ed5511517b4bb93d"
-  end
-
-  resource "enum34" do
-    url "https://pypi.python.org/packages/source/e/enum34/enum34-1.0.4.tar.gz"
-    sha256 "d3c19f26a6a34629c18c775f59dfc5dd595764c722b57a2da56ebfb69b94e447"
-  end
-
-  resource "jsonschema" do
-    url "https://pypi.python.org/packages/source/j/jsonschema/jsonschema-2.5.1.tar.gz"
-    sha256 "36673ac378feed3daa5956276a829699056523d7961027911f064b52255ead41"
-  end
-
-  resource "functools32" do
-    url "https://pypi.python.org/packages/source/f/functools32/functools32-3.2.3-2.tar.gz"
-    sha256 "f6253dfbe0538ad2e387bd8fdfd9293c925d63553f5813c4e587745416501e6d"
-  end
-
-  resource "pyyaml" do
-    url "https://pypi.python.org/packages/source/P/PyYAML/PyYAML-3.10.tar.gz"
-    sha256 "e713da45c96ca53a3a8b48140d4120374db622df16ab71759c9ceb5b8d46fe7c"
-  end
-
-  resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.7.3.tar.gz"
-    sha256 "7a842c9f882c0b2ab1064d567bb9fff6a21c9efbc3d9992083ad6193787ed393"
   end
 
   resource "dockerpty" do
@@ -66,29 +51,54 @@ class DockerCompose < Formula
     sha256 "69a9d69d573a0daa31bcd1c0774eeed5c15c295fe719c61aca550ed1393156ce"
   end
 
+  resource "docopt" do
+    url "https://pypi.python.org/packages/source/d/docopt/docopt-0.6.2.tar.gz"
+    sha256 "49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
+  end
+
+  resource "enum34" do
+    url "https://pypi.python.org/packages/source/e/enum34/enum34-1.1.2.tar.gz"
+    sha256 "2475d7fcddf5951e92ff546972758802de5260bf409319a9f1934e6bbc8b1dc7"
+  end
+
+  resource "functools32" do
+    url "https://pypi.python.org/packages/source/f/functools32/functools32-3.2.3-2.tar.gz"
+    sha256 "f6253dfbe0538ad2e387bd8fdfd9293c925d63553f5813c4e587745416501e6d"
+  end
+
+  resource "jsonschema" do
+    url "https://pypi.python.org/packages/source/j/jsonschema/jsonschema-2.5.1.tar.gz"
+    sha256 "36673ac378feed3daa5956276a829699056523d7961027911f064b52255ead41"
+  end
+
+  resource "py2-ipaddress" do
+    url "https://pypi.python.org/packages/source/p/py2-ipaddress/py2-ipaddress-3.4.1.tar.gz"
+    sha256 "6d7bf02ac2590764691bf50ac213e966bc885ed37c02606513dcac484190564b"
+  end
+
+  resource "PyYAML" do
+    url "https://pypi.python.org/packages/source/P/PyYAML/PyYAML-3.11.tar.gz"
+    sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
+  end
+
+  resource "requests" do
+    url "https://pypi.python.org/packages/source/r/requests/requests-2.7.0.tar.gz"
+    sha256 "398a3db6d61899d25fd4a06c6ca12051b0ce171d705decd7ed5511517b4bb93d"
+  end
+
+  resource "six" do
+    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+  end
+
   resource "texttable" do
     url "https://pypi.python.org/packages/source/t/texttable/texttable-0.8.4.tar.gz"
     sha256 "8587b61cb6c6022d0eb79e56e59825df4353f0f33099b4ae3bcfe8d41bd1702e"
   end
 
-  resource "docopt" do
-    url "https://pypi.python.org/packages/source/d/docopt/docopt-0.6.1.tar.gz"
-    sha256 "71ad940a773fbc23be6093e9476ad57b2ecec446946a28d30127501f3b29aa35"
-  end
-
   resource "websocket-client" do
-    url "https://github.com/liris/websocket-client/archive/v0.32.0.tar.gz"
-    sha256 "255d07ffa677f571b5f51c11703f2f4bd5f331b58442677bcb4395dfa1809a5f"
-  end
-
-  resource "cached-property" do
-    url "https://pypi.python.org/packages/source/c/cached-property/cached-property-1.2.0.tar.gz"
-    sha256 "e3081a8182d3d4b7283eeade76c382bcfd4dfd644ca800598229c2ef798abb53"
-  end
-
-  resource "backports.ssl_match_hostname" do
-    url "https://pypi.python.org/packages/source/b/backports.ssl_match_hostname/backports.ssl_match_hostname-3.4.0.2.tar.gz"
-    sha256 "07410e7fb09aab7bdaf5e618de66c3dac84e2e3d628352814dc4c37de321d6ae"
+    url "https://pypi.python.org/packages/source/w/websocket-client/websocket_client-0.37.0.tar.gz"
+    sha256 "678b246d816b94018af5297e72915160e2feb042e0cde1a9397f502ac3a52f41"
   end
 
   def install
