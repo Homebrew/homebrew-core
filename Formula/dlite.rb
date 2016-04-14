@@ -7,8 +7,8 @@ class Dlite < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d1d4f942541724222136dfc715a27935844429015767d912b49e4c7f8354690" => :el_capitan
-    sha256 "b314d2118a89ceb21d37ec55fee892069348c807c5fabc33db739c0fa1a3b8a3" => :yosemite
+    sha256 "cab7bd9704df6b1f162a7d258ba3807a9d00cef93395b9fe4b4837a635969692" => :el_capitan
+    sha256 "d1244ccccc75ab8747a86c01aceeb25fee219617d9d4a2c3a3c6cd0bad45c0ee" => :yosemite
   end
 
   # DLite depends on the Hypervisor framework which only works on
