@@ -6,10 +6,10 @@ class Nfdump < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4dabc32a43c7b2aef457e9f64f822a9a4f5ac1b816a97151824e7c961bd27975" => :el_capitan
-    sha256 "2e0585426172efc2d436e3ab80574cbf048cfbcd7e9a5ca1fc072d90f763d748" => :yosemite
-    sha256 "d0b6f686b1f95dda13cb282e818b288f29fd30bebfb1b8797093d707348d627f" => :mavericks
-    sha256 "5bbd8ec9a51cde3c6ed0aaeb1b77a4f2ba59bea99d5304fa1415a7e2e0d5280b" => :mountain_lion
+    revision 1
+    sha256 "e6218ff15aa6e43f140d91a38f8162ba663a115fcdb843c3a22de5fcda30653e" => :el_capitan
+    sha256 "a56146c191cf705b83cdd0e0143ce9fc87f086386d9965ff54a259c085130697" => :yosemite
+    sha256 "09a51a71d30f8045075f11f8511a4ec0d6bfd6f9d3cbc3bbb2927c911fce1ce1" => :mavericks
   end
 
   def install
