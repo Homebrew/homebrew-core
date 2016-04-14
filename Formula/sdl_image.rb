@@ -16,10 +16,9 @@ class SdlImage < Formula
 
   depends_on "pkg-config" => :build
   depends_on "sdl"
-  depends_on "jpeg" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "libtiff" => :recommended
-  depends_on "webp" => :recommended
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "webp" => :optionall
 
   def install
     ENV.universal_binary if build.universal?
@@ -30,10 +29,8 @@ class SdlImage < Formula
     args << "--disable-imageio"
     # --enable-feature-shared args work as inverse.
     # https://bugzilla.libsdl.org/show_bug.cgi?id=3308
-    args << "--enable-jpg-shared" + ((build.without? "jpeg") ? "" : "=no")
-    args << "--enable-png-shared" + ((build.without? "libpng") ? "" : "=no")
-    args << "--enable-tif-shared" + ((build.without? "libtiff") ? "" : "=no")
-    args << "--enable-webp-shared" + ((build.without? "webp") ? "" : "=no")
+    args << "--enable-jpg-shared=no << "--enable-png-shared=no << "--enable-tif-shared=no
+    args << "--enable-webp-shared=no" if build.with? "webp"
     system "./configure", *args
     system "make", "install"
   end
