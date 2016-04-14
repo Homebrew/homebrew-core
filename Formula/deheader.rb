@@ -2,7 +2,7 @@ class Deheader < Formula
   desc "Analyze C/C++ files for unnecessary headers"
   homepage "http://www.catb.org/~esr/deheader"
   url "http://www.catb.org/~esr/deheader/deheader-1.3.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/d/deheader/deheader_1.3.orig.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/deheader/deheader_1.3.orig.tar.gz"
   sha256 "652c07bf1c7d5da7cf71c9889de11609c8cb2bd0c13122ad424f2c25da9e2e3b"
   head "https://gitlab.com/esr/deheader.git"
 
@@ -32,6 +32,6 @@ class Deheader < Formula
         return 0;
       }
     EOS
-    assert_equal "121", shell_output("deheader test.c | tr -cd 0-9")
+    assert_equal "121", shell_output("#{bin}/deheader test.c | tr -cd 0-9")
   end
 end
