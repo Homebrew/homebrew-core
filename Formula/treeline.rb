@@ -1,9 +1,10 @@
 class Treeline < Formula
   desc "Advanced outliner and personal information manager"
   homepage "http://treeline.bellz.org/"
-  url "https://downloads.sourceforge.net/project/treeline/2.0.0/treeline-2.0.0.tar.gz"
-  sha256 "71af995fca9e0eaf4e6205d72eb4ee6a979a45ea2a1f6600ed8a39bb1861d118"
-  revision 1
+  url "https://downloads.sourceforge.net/project/treeline/2.0.2/treeline-2.0.2.tar.gz"
+  sha256 "80379b6ebb5b825a02f4b8d0bb65d78f9895db5e25065f85353833e9d8ebd4c8"
+
+  bottle :unneeded
 
   depends_on :python3
   depends_on "sip" => "with-python3"
