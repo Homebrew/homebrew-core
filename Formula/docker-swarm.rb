@@ -3,9 +3,8 @@ require "language/go"
 class DockerSwarm < Formula
   desc "Turn a pool of Docker hosts into a single, virtual host"
   homepage "https://github.com/docker/swarm"
-  url "https://github.com/docker/swarm/archive/v1.1.3.tar.gz"
-  sha256 "bf9d7a2fe2cc69e34ead33952f38b621dd3bb006ec28e0185f9f7b18956a64e5"
-
+  url "https://github.com/docker/swarm/archive/v1.2.0.tar.gz"
+  sha256 "8a30745ef4129a848dd2e88fc511c9eb85af07fbdbb46645f2e860b2aacdf8e6"
   head "https://github.com/docker/swarm.git"
 
   bottle do
@@ -20,11 +19,7 @@ class DockerSwarm < Formula
   def install
     mkdir_p buildpath/"src/github.com/docker"
     ln_s buildpath, buildpath/"src/github.com/docker/swarm"
-
     ENV["GOPATH"] = "#{buildpath}/Godeps/_workspace:#{buildpath}"
-
-    Language::Go.stage_deps resources, buildpath/"src"
-
     system "go", "build", "-o", "docker-swarm"
     bin.install "docker-swarm"
   end
