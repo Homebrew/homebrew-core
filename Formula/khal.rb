@@ -1,8 +1,8 @@
 class Khal < Formula
   desc "CLI calendar application."
   homepage "https://github.com/geier/khal"
-  url "https://pypi.python.org/packages/source/k/khal/khal-0.7.0.tar.gz"
-  sha256 "c6b0c81df56133e4592f02d8e9b60702079da2affd1b09ba96358ccd8eec9402"
+  url "https://pypi.python.org/packages/source/k/khal/khal-0.8.1.tar.gz"
+  sha256 "9d352e4aa6256e493d5aea69540f642158bdcab75d2383e1e43506bf89982094"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,7 +11,7 @@ class Khal < Formula
     sha256 "913747585138e99fbf333185674d044f03981e7fd773fd28e7b92b7d03a1cda8" => :mavericks
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on :python3
 
   resource "pkginfo" do
     url "https://pypi.python.org/packages/source/p/pkginfo/pkginfo-1.2.1.tar.gz"
@@ -39,8 +39,8 @@ class Khal < Formula
   end
 
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.9.0.tar.gz"
-    sha256 "e24052411fc4fbd1f672635537c3fc2330d9481b18c0317695b46259512c91d5"
+    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   resource "python-dateutil" do
@@ -49,8 +49,18 @@ class Khal < Formula
   end
 
   resource "click" do
-    url "https://pypi.python.org/packages/source/c/click/click-4.0.tar.gz"
-    sha256 "f49e03611f5f2557788ceeb80710b1c67110f97c5e6740b97edf70245eea2409"
+    url "https://pypi.python.org/packages/source/c/click/click-6.3.tar.gz"
+    sha256 "b720d9faabe193287b71e3c26082b0f249501288e153b7e7cfce3bb87ac8cc1c"
+  end
+
+  resource "click_threading" do
+    url "https://pypi.python.org/packages/source/c/click-threading/click-threading-0.1.2.tar.gz"
+    sha256 "85045457e02f16fba3110dc6b16e980bf3e65433808da2b550dd513206d9b94a"
+  end
+
+  resource "click_log" do
+    url "https://pypi.python.org/packages/source/c/click-log/click-log-0.1.3.tar.gz"
+    sha256 "fd8dc8d65947ce6d6ee8ab3101fb0bb9015b9070730ada3f73ec761beb0ead4d"
   end
 
   resource "configobj" do
@@ -64,46 +74,75 @@ class Khal < Formula
   end
 
   resource "vdirsyncer" do
-    url "https://pypi.python.org/packages/source/v/vdirsyncer/vdirsyncer-0.4.4.tar.gz"
-    sha256 "d6f6fa7730c1c87dd10bb5bad3143515ae983987bf4154b5e53cc74aa720abd2"
+    url "https://pypi.python.org/packages/source/v/vdirsyncer/vdirsyncer-0.9.3.tar.gz"
+    sha256 "8ca2941bb99c5b67f0f9e7cae3dd65fcbd64b8969515c68d44e6f3cd9cfc50f2"
   end
 
   resource "requests" do
-    url "https://pypi.python.org/packages/source/r/requests/requests-2.7.0.tar.gz"
-    sha256 "398a3db6d61899d25fd4a06c6ca12051b0ce171d705decd7ed5511517b4bb93d"
-  end
-
-  resource "lxml" do
-    url "https://pypi.python.org/packages/source/l/lxml/lxml-3.4.4.tar.gz"
-    sha256 "b3d362bac471172747cda3513238f115cbd6c5f8b8e6319bf6a97a7892724099"
+    url "https://pypi.python.org/packages/source/r/requests/requests-2.9.1.tar.gz"
+    sha256 "c577815dd00f1394203fc44eb979724b098f88264a9ef898ee45b8e5e9cf587f"
   end
 
   resource "requests-toolbelt" do
-    url "https://pypi.python.org/packages/source/r/requests-toolbelt/requests-toolbelt-0.4.0.tar.gz"
-    sha256 "15b74b90a63841b8430d6301e5062cd92929b1074b0c95bf62166b8239db1a96"
+    url "https://pypi.python.org/packages/source/r/requests-toolbelt/requests-toolbelt-0.6.0.tar.gz"
+    sha256 "cc4e9c0ef810d6dfd165ca680330b65a4cf8a3f08f5f08ecd50a0253a08e541f"
+  end
+
+  resource "lxml" do
+    url "https://pypi.python.org/packages/source/l/lxml/lxml-3.5.0.tar.gz"
+    sha256 "349f93e3a4b09cc59418854ab8013d027d246757c51744bf20069bc89016f578"
   end
 
   resource "atomicwrites" do
-    url "https://pypi.python.org/packages/source/a/atomicwrites/atomicwrites-0.1.5.tar.gz"
-    sha256 "9b16a8f1d366fb550f3d5a5ed4587022735f139a4187735466f34cf4577e4eaa"
+    url "https://pypi.python.org/packages/source/a/atomicwrites/atomicwrites-0.1.9.tar.gz"
+    sha256 "7cdfcee8c064bc0ba30b0444ba0919ebafccf5b0b1916c8cde07e410042c4023"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    version = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{version}/site-packages"
     resources.each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{version}/site-packages"
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
-    system "#{bin}/khal", "--version"
+    ENV["LC_ALL"] = "en_US.UTF-8"
+    ENV["LANG"] = "en_US.UTF-8"
+    (testpath/".calendar/test/01ef8547.ics").write <<-EOS.undent
+      BEGIN:VCALENDAR
+      VERSION:2.0
+      BEGIN:VEVENT
+      DTSTART;VALUE=DATE:20130726
+      SUMMARY:testevent
+      DTEND;VALUE=DATE:20130727
+      LAST-MODIFIED:20130725T142824Z
+      DTSTAMP:20130725T142824Z
+      CREATED:20130725T142824Z
+      UID:01ef8547
+      END:VEVENT
+      END:VCALENDAR
+    EOS
+    (testpath/".config/khal/khal.conf").write <<-EOS.undent
+      [calendars]
+      [[test]]
+      path = #{testpath}/.calendar/test/
+      color = light gray
+      [sqlite]
+      path = #{testpath}/.calendar/khal.db
+      [locale]
+      firstweekday = 0
+      [default]
+      default_calendar = test
+    EOS
+    system "#{bin}/khal", "--no-color", "search", "testevent"
   end
 end
