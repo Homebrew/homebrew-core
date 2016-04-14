@@ -1,8 +1,8 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "http://postgis.net"
-  url "http://download.osgeo.org/postgis/source/postgis-2.2.1.tar.gz"
-  sha256 "0fe500b0250203aac656bfa8f42f8458b63f33258404844e066e0e535988fa09"
+  url "http://download.osgeo.org/postgis/source/postgis-2.2.2.tar.gz"
+  sha256 "40232391f8f66a6dc740ebb26088e568c8ccb663666998616c71c3bdaeed4163"
 
   bottle do
     cellar :any
