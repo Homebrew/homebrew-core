@@ -11,12 +11,12 @@ class Nfdump < Formula
     sha256 "5bbd8ec9a51cde3c6ed0aaeb1b77a4f2ba59bea99d5304fa1415a7e2e0d5280b" => :mountain_lion
   end
 
-  option "with-readpcap", "Enable reading netflow packets from pcap_file instead of network"
-
   def install
-    args = %W[--prefix=#{prefix}]
+    args = %W[
+      --prefix=#{prefix}
+      --enable-readpcap
+    ]
 
-    args << "--enable-readpcap" if build.with? "readpcap"
     system "./configure", *args
     system "make", "install"
   end
