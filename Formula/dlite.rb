@@ -1,8 +1,8 @@
 class Dlite < Formula
   desc "Provides a way to use docker on OS X without docker-machine"
   homepage "https://github.com/nlf/dlite"
-  url "https://github.com/nlf/dlite/archive/1.1.4.tar.gz"
-  sha256 "9fc39e4b94e141390a1f52863d4d4417f3f3c7bfd7e9622d5b8863c70f6c2c72"
+  url "https://github.com/nlf/dlite/archive/1.1.5.tar.gz"
+  sha256 "cfbd99ef79f9657c2927cf5365ab707999a7b51eae759452354aff1a0200de3f"
   head "https://github.com/nlf/dlite.git"
 
   bottle do
