@@ -7,10 +7,9 @@ class Pgpdump < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "a8780ac54e115fc857b596515a81252ae8812b65008d1a39d537c28d4a90c4d6" => :el_capitan
-    sha256 "a89324c5488f5f697bfe37cac80ea1cb0bde0d59895a526db0c2ee1031ef29e4" => :yosemite
-    sha256 "8563fa2ae51f0138d070489f8501d3141c549e7e3e88db39e97c3e08524286fa" => :mavericks
+    sha256 "a4ec44100285d60658fbef0693b6ba0b2eba90f0fa4c568fba6cbd9d6aec98d3" => :el_capitan
+    sha256 "ebc2b805a11e51d13107906b23542556a879642b2a3537fbfdcee31541bd8e7f" => :yosemite
+    sha256 "70dde593e7cbde67456e0763b1735af5ef5815e649e4178396d34c6fa7d1a51f" => :mavericks
   end
 
   def install
