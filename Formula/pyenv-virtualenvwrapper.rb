@@ -6,6 +6,8 @@ class PyenvVirtualenvwrapper < Formula
 
   head "https://github.com/yyuu/pyenv-virtualenvwrapper.git"
 
+  bottle :unneeded
+
   depends_on "pyenv"
 
   def install
