@@ -1,5 +1,4 @@
- require "language/go"
- require 'fileutils'
+require "language/go"
 
 class Bitrise < Formula
   desc "Command-line automation tool"
@@ -31,35 +30,30 @@ class Bitrise < Formula
     ENV["GOPATH"] = buildpath
 
     # Install bitrise
-    (buildpath + "src/github.com/bitrise-io/bitrise").install Dir[buildpath/"*"]
+    bitrise_go_path = buildpath/"src/github.com/bitrise-io/bitrise"
+    bitrise_go_path.install Dir["*"]
 
-    cd "src/github.com/bitrise-io/bitrise" do
+    cd bitrise_go_path do
       system "go", "build", "-o", bin/"bitrise"
     end
 
-    mkdir_p buildpath/"src/github.com/bitrise-io"
-
     # Install envman
     resource("envman").stage do
-      cp_r(Dir.pwd, buildpath/"src/github.com/bitrise-io/envman")
-
       envman_go_pth = buildpath/"src/github.com/bitrise-io/envman"
+      envman_go_pth.install Dir["*"]
 
       cd envman_go_pth do
-        system "godep", "go", "build", "-o", "build/envman"
-        bin.install "build/envman"
+        system "godep", "go", "build", "-o", bin/"envman"
       end
     end
 
     # Install stepman
     resource("stepman").stage do
-      cp_r(Dir.pwd, buildpath/"src/github.com/bitrise-io/stepman")
-
       stepman_go_pth = buildpath/"src/github.com/bitrise-io/stepman"
+      stepman_go_pth.install Dir["*"]
 
       cd stepman_go_pth do
-        system "godep", "go", "build", "-o", "build/stepman"
-        bin.install "build/stepman"
+        system "godep", "go", "build", "-o", bin/"stepman"
       end
     end
   end
