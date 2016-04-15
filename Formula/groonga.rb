@@ -22,11 +22,6 @@ class Groonga < Formula
 
   deprecated_option "enable-benchmark" => "with-benchmark"
 
-  resource "groonga-normalizer-mysql" do
-    url "http://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.0.tar.gz"
-    sha256 "525daffdb999b647ce87328ec2e94c004ab59803b00a71ce1afd0b5dfd167116"
-  end
-
   depends_on "pkg-config" => :build
   depends_on "pcre"
   depends_on "msgpack"
@@ -39,6 +34,11 @@ class Groonga < Formula
   if build.with? "suggest-plugin"
     depends_on "libevent"
     depends_on "zeromq"
+  end
+
+  resource "groonga-normalizer-mysql" do
+    url "http://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.0.tar.gz"
+    sha256 "525daffdb999b647ce87328ec2e94c004ab59803b00a71ce1afd0b5dfd167116"
   end
 
   link_overwrite "lib/groonga/plugins/normalizers/"
@@ -83,22 +83,22 @@ class Groonga < Formula
   end
 
   test do
-    IO.popen("#{bin}/groonga -n #{testpath}/test.db", "r+") {|io|
+    IO.popen("#{bin}/groonga -n #{testpath}/test.db", "r+") do |io|
       io.puts("table_create --name TestTable --flags TABLE_HASH_KEY --key_type ShortText")
       sleep 2
       io.puts("shutdown")
       # expected returned result is like this:
       # [[0,1447502555.38667,0.000824928283691406],true]\n
       assert_match(/\[\[0,\d+.\d+,\d+.\d+\],true\]/, io.read)
-    }
+    end
 
-    IO.popen("#{bin}/groonga -n #{testpath}/test-normalizer-mysql.db", "r+") {|io|
+    IO.popen("#{bin}/groonga -n #{testpath}/test-normalizer-mysql.db", "r+") do |io|
       io.puts "register normalizers/mysql"
       sleep 2
       io.puts("shutdown")
       # expected returned result is like this:
       # [[0,1447502555.38667,0.000824928283691406],true]\n
       assert_match(/\[\[0,\d+.\d+,\d+.\d+\],true\]/, io.read)
-    }
+    end
   end
 end
