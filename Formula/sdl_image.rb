@@ -17,6 +17,7 @@ class SdlImage < Formula
   depends_on "pkg-config" => :build
   depends_on "sdl"
   depends_on "libpng"
+  depends_on "jpeg"
   depends_on "libtiff"
   depends_on "webp" => :optional
 
