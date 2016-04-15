@@ -6,10 +6,11 @@ class Dasm < Formula
   head "svn://svn.code.sf.net/p/dasm-dillon/code/trunk"
 
   bottle do
-    cellar :any
-    sha256 "2db683ba88f8f3323517d67c0a34ad0dfbbe5dc8d81d905a9855b0c070471382" => :mavericks
-    sha256 "992fe2df21a3794e509e8ba29b0c08c1fee3c04fb4e4352d0c44295435bce226" => :mountain_lion
-    sha256 "5866332ebc746563da519818b581d137c82352655a171bf0eb88684812e3601c" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "854a19f232cffdeabb1cb2afef4a5713e55b545519beea8f666f2cc4882d42e6" => :el_capitan
+    sha256 "1897ee7e4d76eeb74bd6aa3c94d73f14f55c44054dd296bbd724addb3ca3b00a" => :yosemite
+    sha256 "3383c91ce64d715a05595e49d38d16ea134e139dc7b87541d8c81bf5a9aeaf15" => :mavericks
   end
 
   def install

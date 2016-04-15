@@ -4,6 +4,13 @@ class Ifstat < Formula
   url "http://gael.roualland.free.fr/ifstat/ifstat-1.1.tar.gz"
   sha256 "8599063b7c398f9cfef7a9ec699659b25b1c14d2bc0f535aed05ce32b7d9f507"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "e3b3f843c9fba2770a49dd7abcdacc30aa6b5e57f06b5ed96f09d20ada58bd6f" => :el_capitan
+    sha256 "ecce408a9ae1a82c7b2457e5a5263ec760096e7e0e71cf0da1ce98523787bcbc" => :yosemite
+    sha256 "9107e6b49f17fc1a4eac3ded9e499d164fe73f1c8d9307146b9db00952a72de9" => :mavericks
+  end
+
   # Fixes 32/64 bit incompatibility for snow leopard
   patch :DATA
 

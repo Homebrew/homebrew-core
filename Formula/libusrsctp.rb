@@ -1,33 +1,35 @@
 class Libusrsctp < Formula
-  desc "A portable SCTP userland stack"
+  desc "Portable SCTP userland stack"
   homepage "https://github.com/sctplab/usrsctp"
-  url "https://mirrorservice.org/sites/distfiles.macports.org/libusrsctp/libusrsctp-0.9.1.tar.gz"
-  mirror "https://mirror.csclub.uwaterloo.ca/MacPorts/mpdistfiles/libusrsctp/libusrsctp-0.9.1.tar.gz"
-  mirror "https://ftp.fau.de/macports/distfiles/libusrsctp/libusrsctp-0.9.1.tar.gz"
-  sha256 "63a3abe5f1cb7ddde36cba09d32579b05a98badb06ff88fca87d024925c3ff16"
+  url "https://github.com/sctplab/usrsctp/archive/0.9.3.0.tar.gz"
+  sha256 "a4573b1cd7b8fc2fce476df61093736d3fea9eef5c87d72e66768c0a6b1f9e39"
+  head "https://github.com/sctplab/usrsctp.git"
 
   bottle do
     cellar :any
-    revision 2
-    sha256 "bf05bbef72c45daec3f682b9c12a4ad838ad5c02e1814cbfa837e610140988a3" => :el_capitan
-    sha256 "7b681d68a1dca9792595dce4dc2d677e5a578ed5027dee6ba4dc312cd3f5119b" => :yosemite
-    sha256 "a42402bb65451da92fd33b86ba33a4c1f75d8931830437d866d5298f3c2818cf" => :mavericks
+    sha256 "c11f1c4bb7ee3b7d04520d711dfac56bc5a2aa8f4b3f1e952bd591d9918528dd" => :el_capitan
+    sha256 "2998a0f18ca069da692c9c2fd44f52e5ed9fa39c223dec3e8df7206f113bc0f4" => :yosemite
+    sha256 "8fc00b935739b4e06e75773c780e7e9617d655ecf2e31ffa9ca46900c1bbd5cb" => :mavericks
   end
 
-  head do
-    url "https://github.com/sctplab/usrsctp.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "cmake" => :build
 
   def install
-    system "./bootstrap" if build.head?
-
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "cmake", ".", *std_cmake_args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <unistd.h>
+      #include <usrsctp.h>
+      int main() {
+        usrsctp_init(0, NULL, NULL);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-L#{lib}", "-lusrsctp", "-o", "test"
+    system "./test"
   end
 end

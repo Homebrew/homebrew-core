@@ -3,47 +3,59 @@ require "language/go"
 class Bitrise < Formula
   desc "Command-line automation tool"
   homepage "https://github.com/bitrise-io/bitrise"
-  url "https://github.com/bitrise-io/bitrise/archive/1.2.4.tar.gz"
-  sha256 "7cf365dca04ac2adadea1fbe286a117336460daa2488b0e62dc080b8ac868a09"
+  url "https://github.com/bitrise-io/bitrise/archive/1.3.0.tar.gz"
+  sha256 "b95d648cd87f7d5ecc00fe12a3f3b20b2a9b2ed2442851eaf68e88a03e8d0d97"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3c9c6d4c4a135d79fe4dfabf93e33550e3fb3d207d366bcbe7cfe13d88a66fdc" => :el_capitan
-    sha256 "91723eb65af76465347356047ed7c38ce26b1e73bb578fc5e51d7c5336407a83" => :yosemite
-    sha256 "0f32b8a62ab83e509a2dfdfbc4df9eb333b0e7d4a0eb59ccb18e50760ed7343d" => :mavericks
+    sha256 "7e7eb5b7e67178caf3bf7595dcb1fb9714b4ea7cd0f6d5ecf12c8a6e2bbbe593" => :el_capitan
+    sha256 "447b79897dd3dac8efb3c5c7d4e40c1e74f4cc99bcb619f71e3d2829ad3173a2" => :yosemite
+    sha256 "b48907dc00d4db572a8a9558ce4b24a5c0e625b9a0b2b2d643268e2b1b612e3d" => :mavericks
   end
 
   depends_on "go" => :build
+  depends_on "godep" => :build
 
   resource "envman" do
-    url "https://github.com/bitrise-io/envman/archive/1.0.0.tar.gz"
-    sha256 "439d6c1732c3f2dbe121750ba1951df126576e393ce1028426a70dcaafcffe3a"
+    url "https://github.com/bitrise-io/envman/archive/1.1.0.tar.gz"
+    sha256 "5e8d92dc8d38050e9e4c037e6d02bf8ad454c74a9a55c1eaeec9df8c691c2a51"
   end
 
   resource "stepman" do
-    url "https://github.com/bitrise-io/stepman/archive/0.9.17.tar.gz"
-    sha256 "d4eee2cc46f63f3c842d86d9c04f0de71541eaff45d817d16ffd116673383ee8"
-  end
-
-  def go_install_package(basepth, pkgname)
-    mkdir_p "#{basepth}/src/github.com/bitrise-io"
-    ln_s basepth, "#{basepth}/src/github.com/bitrise-io/#{pkgname}"
-
-    ENV["GOPATH"] = "#{basepth}/Godeps/_workspace:#{basepth}"
-    Language::Go.stage_deps resources, "#{basepth}/src"
-    system "go", "build", "-o", "#{bin}/#{pkgname}"
+    url "https://github.com/bitrise-io/stepman/archive/0.9.18.tar.gz"
+    sha256 "9aaa9c20d3a73146f32ab280ec2127c6c812cf86fe92467369d7a304fc6563f8"
   end
 
   def install
+    ENV["GOPATH"] = buildpath
+
+    # Install bitrise
+    bitrise_go_path = buildpath/"src/github.com/bitrise-io/bitrise"
+    bitrise_go_path.install Dir["*"]
+
+    cd bitrise_go_path do
+      system "go", "build", "-o", bin/"bitrise"
+    end
+
+    # Install envman
     resource("envman").stage do
-      go_install_package(Dir.pwd, "envman")
+      envman_go_pth = buildpath/"src/github.com/bitrise-io/envman"
+      envman_go_pth.install Dir["*"]
+
+      cd envman_go_pth do
+        system "godep", "go", "build", "-o", bin/"envman"
+      end
     end
 
+    # Install stepman
     resource("stepman").stage do
-      go_install_package(Dir.pwd, "stepman")
-    end
+      stepman_go_pth = buildpath/"src/github.com/bitrise-io/stepman"
+      stepman_go_pth.install Dir["*"]
 
-    go_install_package(buildpath, "bitrise")
+      cd stepman_go_pth do
+        system "godep", "go", "build", "-o", bin/"stepman"
+      end
+    end
   end
 
   test do

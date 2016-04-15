@@ -59,6 +59,13 @@ class Hyperestraier < Formula
   url "http://fallabs.com/hyperestraier/hyperestraier-1.4.13.tar.gz"
   sha256 "496f21190fa0e0d8c29da4fd22cf5a2ce0c4a1d0bd34ef70f9ec66ff5fbf63e2"
 
+  bottle do
+    cellar :any
+    sha256 "c90ef2d3ccac1af3247726697be33748ec53df85a98af4611b6dbfc9a8dca0c7" => :el_capitan
+    sha256 "d18c19a9d691e2bd209cc05006b608776066352d297865238cc7262a527a82bd" => :yosemite
+    sha256 "b52c716897730a939ba7763492b7b1080a70c918b07571f4a4e296aea42f42ee" => :mavericks
+  end
+
   depends_on "qdbm"
   depends_on "mecab" => :optional
 

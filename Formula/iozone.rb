@@ -5,7 +5,8 @@ class Iozone < Formula
   sha256 "e8388238326dc29359e5cb9f790d193f1e1bdadfbf260e010c50fa682387faed"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "7482c9c9e45156126c677459b8201a0734fc3d4443c75a0903d52db79f419204" => :el_capitan
     sha256 "6a011fd309a2eed8f726202339b1f8671eaccfc080f41f38aee9a9f76b9e4d86" => :yosemite
     sha256 "05781c01a4a0cc49dba04466d94af788b0c783e68876f9bde302b30880407738" => :mavericks
     sha256 "b31412026e024bf635eec5a3ad750657ef3dfca590388ef8f56429039ea708ad" => :mountain_lion

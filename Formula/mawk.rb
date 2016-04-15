@@ -5,7 +5,8 @@ class Mawk < Formula
   sha256 "a88f50c1a0800ae6d2cedb0672b15bd32cc57e482715ca7c1471fb398e89767a"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "140cb2b2b1054fa25390ebe43e26de53482be5587a401b9137b2a7d1011a6281" => :el_capitan
     sha256 "d513669dc87cf81fc1526d1784191f613837b871bde25e2a3eaaa0b7f0d991ad" => :yosemite
     sha256 "e116bc17922da25b037f2b5cf15f93cf0f8f535efe5fc3435cf337af10f553e7" => :mavericks
     sha256 "3d38eee059da9baa8aa70feb54b9e1eeaff8023b80bea0dfcd482039ee971476" => :mountain_lion

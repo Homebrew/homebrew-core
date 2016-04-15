@@ -8,7 +8,8 @@ class Zpaq < Formula
   head "https://github.com/zpaq/zpaq.git"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "f0998826effe4dae407d041c4143a39b3645dc46a82456b4e86ac88f106babd3" => :el_capitan
     sha256 "bdd4716595b8eed1c52d2a2ef43abb095a996d05a0489f81f0b22ae43a26d51d" => :yosemite
     sha256 "a71ad4808da8c69844f72322ff7633b895d034028129b30c3d25409d91bd4213" => :mavericks
     sha256 "a2d2215b51cc18370f5ebe700160d1d7143ce5d680b2365a5adb4bb1622d06fc" => :mountain_lion

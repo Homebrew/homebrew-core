@@ -5,9 +5,10 @@ class VorbisTools < Formula
   sha256 "a389395baa43f8e5a796c99daf62397e435a7e73531c9f44d9084055a05d22bc"
 
   bottle do
-    sha256 "86bd3f84faae6355103c59ddd5f04d9e828f2b911a71ab24f1b5669f17d549fa" => :mavericks
-    sha256 "4b4e958341edfa08404f9011fd657826619e8187c5529f274d9bc44d1ebb8985" => :mountain_lion
-    sha256 "f633e5c0dc5947505a8dfab83dba54538d733287b131de59d364763cb7d213f2" => :lion
+    revision 1
+    sha256 "cd7429731b7a36e3f866b6614768b481b0ef2273abb90a0e1d4e1a951ec06dca" => :el_capitan
+    sha256 "1e2a1fad6865b1c6e801e194f0613c5388cc8a59f6a1ef911cd7fbc9adbe45a1" => :yosemite
+    sha256 "9f91df46cb24feb17968dea9619f2c059a581a0fafa106b774892aad95a9516a" => :mavericks
   end
 
   depends_on "pkg-config" => :build

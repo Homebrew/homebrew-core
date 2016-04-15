@@ -13,6 +13,10 @@ class Couchpotatoserver < Formula
     (bin+"couchpotatoserver").write(startup_script)
   end
 
+  def caveats
+    "CouchPotatoServer defaults to port 5050."
+  end
+
   plist_options :manual => "couchpotatoserver"
 
   def plist; <<-EOS.undent
@@ -44,10 +48,6 @@ class Couchpotatoserver < Formula
            "--data_dir=#{etc}/couchpotatoserver"\
            "$@"
     EOS
-  end
-
-  def caveats
-    "CouchPotatoServer defaults to port 5050."
   end
 
   test do

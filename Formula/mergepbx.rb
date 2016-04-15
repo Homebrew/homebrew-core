@@ -5,7 +5,8 @@ class Mergepbx < Formula
   sha256 "d0d859a902357f8059fca0c5fb061a9072b82cb7cce4f38bd9eb2c3198fce003"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "27dce93e12d1c8f5c1a3de1e91a71502bf99016495689ebbd461f7e5d782ca96" => :el_capitan
     sha256 "9fb17ccf083493455e2f43132ed15b676bb260eb96e55189ac59aa9ddf34ad8a" => :yosemite
     sha256 "db4a00c46f838a03ecac70415c065638ea22222a47258b69ff603e3e4eb3faba" => :mavericks
     sha256 "541227aa27c2d438de5be4c947417c2f017740ce6aa2ac6511bf0d668b0251da" => :mountain_lion

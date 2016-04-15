@@ -6,10 +6,9 @@ class Libmarisa < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "7f64d134b201a2791f49db66452ddeaad60310cc44df117830a5671459f535e8" => :yosemite
-    sha256 "8255b1f73c5fa15b3f7c7f5a61d54e8acc781f7bce98911f64faf4a2228e952f" => :mavericks
-    sha256 "64a82f591bea1b75e3146080a713b6d919cfd5143167061c602b277a47a576b0" => :mountain_lion
+    revision 2
+    sha256 "8a02695ab5e2d3417f3ca03b7639ef97de7d58aa72a4268c05620b0af681058b" => :yosemite
+    sha256 "b7d7691ab312b816b016a954f2e00106616870d388d2ccef5df68180bcaf30ef" => :mavericks
   end
 
   def install

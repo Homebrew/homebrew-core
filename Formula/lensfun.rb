@@ -7,6 +7,7 @@ class Lensfun < Formula
   revision 1
 
   bottle do
+    sha256 "572180649db883ce40823a4e2b6de1f2771e9422572093db1a6b4481071b7ba3" => :el_capitan
     sha256 "d267b6318b37f43153033958ed487732b14ef0362576673334baa9d0bce596b2" => :yosemite
     sha256 "f5e5e2e1af79de22e5b08ef98e8d66335de6b30e4a6d0391d1ae00ccf8ee3868" => :mavericks
     sha256 "c50bcbf69c3839a44d0bb988ea016dcabb259be866ae10dd9b3a04d3de87a487" => :mountain_lion

@@ -5,9 +5,11 @@ class XmlCoreutils < Formula
   sha256 "7fb26d57bb17fa770452ccd33caf288deee1d757a0e0a484b90c109610d1b7df"
 
   bottle do
-    sha256 "dc5419dfd0f0f7214426961d12b8b4b72d34f3b37a8c7768294499b15a3239db" => :yosemite
-    sha256 "4aa1252d1384fa5872c77d32c8a9213458c7158e4e60a75d4c6cf65b90701a26" => :mavericks
-    sha256 "6920e81b3d9fc7b9c3910ee273db6cb55ed7236d5edea3591a00b75536655a06" => :mountain_lion
+    cellar :any
+    revision 1
+    sha256 "19bdcacd49657e78f82fd7743a50266ff4945e644b069ac2c39a8787a57911a5" => :el_capitan
+    sha256 "1342c807e5ddc23a72e750f07258864fdf2fc1a8ce9072cb7797955fdd0e3656" => :yosemite
+    sha256 "6bada2b9690d698b77f9293cf7f1066e77d36c8c07ba2892b2869ddb0516bc6d" => :mavericks
   end
 
   depends_on "s-lang"

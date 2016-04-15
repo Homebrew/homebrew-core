@@ -7,7 +7,8 @@ class SuomiMalagaVoikko < Formula
   head "https://github.com/voikko/corevoikko.git"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "6856ce6fab78f195362ebd7ebd51eb630528407856b031550df616b09d641f81" => :el_capitan
     sha256 "58e0c9c5f3577c7dc3b529a5547bd5c396164de856c9f14f91dd899d9e28e6d3" => :yosemite
     sha256 "f6517988b130926540d936cbf3b415b1ff2f5803d72d88c0672225e4aa410c46" => :mavericks
     sha256 "d4a98cf1328fc05aad4aa111b718df03c0b66a1f28da980f87a9a3c5231fa037" => :mountain_lion

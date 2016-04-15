@@ -5,7 +5,8 @@ class Xdelta < Formula
   sha256 "e22577af8515f91b3d766dffa2a97740558267792a458997828f039b79abc107"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "6039d48b18eb12f9d04ff36ac3762d0fa722f06dff6a234a9471ac127a4e9a87" => :el_capitan
     sha256 "4f7dec576387e2987edd57be6e1e9df740ee2c53207f61b775904f36936dee8f" => :yosemite
     sha256 "715d5c3a585879d25788ab619bddaaca1c7f7ff45b254277e5becb33c97f4857" => :mavericks
     sha256 "7adf5ae7a00473f5c12f8c377da22ad3f98a0ef4e179c6c0b64b03de075cc756" => :mountain_lion

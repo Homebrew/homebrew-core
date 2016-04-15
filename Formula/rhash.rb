@@ -9,6 +9,7 @@ class Rhash < Formula
 
   bottle do
     cellar :any
+    sha256 "96daecac5b2d21ec7d40caf362868a80686b806e84afabe9b16b08cd79d82790" => :el_capitan
     sha256 "e957f797d99c99ad3ccba26cf960a1b2bfbf6915694b44496b8c899c322856ce" => :yosemite
     sha256 "f3a728fdbc481c60c42544e2360601e8bc8ed032b82c86a0e4f1e29949a2b653" => :mavericks
     sha256 "4d88312b2da6202c1929e5b586ed63780009d1467bdfef2cc6ec3c615e73ab42" => :mountain_lion

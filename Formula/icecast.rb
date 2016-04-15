@@ -5,9 +5,11 @@ class Icecast < Formula
   sha256 "aa1ae2fa364454ccec61a9247949d19959cb0ce1b044a79151bf8657fd673f4f"
 
   bottle do
-    sha256 "67df949d0febfeb38c0336609d41db59b3cc5e6be4e031689eab4acfcd5e9c9d" => :yosemite
-    sha256 "531becfe2f4227b94aac8bf14fa4b231f7ff90b106ee4edde6d8dc20d556e6dd" => :mavericks
-    sha256 "fa2b6d0fb4721902671979b55bee219cf27a4e01e20fa855c73094d03890c423" => :mountain_lion
+    cellar :any
+    revision 1
+    sha256 "5b80c269400e3f3acd3c46cfc9e771760f9e51128f515f4a96a7a1917d48656e" => :el_capitan
+    sha256 "037a9845bedfc65b44bae252a9529771944d3de47f291ca8b1fca01eab9043f2" => :yosemite
+    sha256 "0e00235cc643715c86a710ab12c31470e23b6304740ef942406db04b41cdf671" => :mavericks
   end
 
   depends_on "pkg-config" => :build

@@ -8,9 +8,10 @@ class Osquery < Formula
 
   bottle do
     cellar :any
-    sha256 "a9718d01a0642a33aefc7a6cda0dc996d2fa7707e9dd5f10942a8d4c5cece4b7" => :el_capitan
-    sha256 "62c7ed026f600e068a51b5e47e942db0abd7228a7771f5d3663c6f91e4b393a5" => :yosemite
-    sha256 "41a65205774cef19419abcb41b8609ff1488c34fe076217dab8720ad48731516" => :mavericks
+    revision 1
+    sha256 "478bdc556f34b100381665b9553af3f5527a0ccb7d51c91cd989d3bd63a525e2" => :el_capitan
+    sha256 "382b88d2596337f17abdcb6d66b083977673f18c7f41e394bb68ce785acb7a15" => :yosemite
+    sha256 "98243f2e24824430971e51b79edf5034e30bd65db94db27e8f40af0a493cbc7b" => :mavericks
   end
 
   # osquery only supports OS X 10.9 and above. Do not remove this.
@@ -66,8 +67,7 @@ class Osquery < Formula
       end
     end
 
-    # Append libboost_thread-mt since osquery expects cpp-netlib-0.12.
-    system "cmake", ".", "-DCMAKE_EXE_LINKER_FLAGS=-lboost_thread-mt", *std_cmake_args
+    system "cmake", ".", *std_cmake_args
     system "make"
     system "make", "install"
   end

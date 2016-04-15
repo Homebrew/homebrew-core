@@ -7,6 +7,7 @@ class OpenVcdiff < Formula
 
   bottle do
     cellar :any
+    sha256 "9233e38f04b9b7a513fb53d4220cacd535b389bb7cfd145adfe6d27b98a06c06" => :el_capitan
     sha256 "837a43737930f1f09cb5d21fe3bdc18b0cd0365fef954cfd30c81478348abc0f" => :yosemite
     sha256 "84ef8313b38bac7c846d70a9315fffc81daeb78d82ef5c0338cee438487cecbb" => :mavericks
     sha256 "aeac4cdebb0bc4796ca39b1ad04cc5a267bf9a34250d59b9268ed69999ee9f05" => :mountain_lion

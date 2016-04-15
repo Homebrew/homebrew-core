@@ -4,6 +4,13 @@ class Html2text < Formula
   url "http://www.mbayer.de/html2text/downloads/html2text-1.3.2a.tar.gz"
   sha256 "000b39d5d910b867ff7e087177b470a1e26e2819920dcffd5991c33f6d480392"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "766f16608d01f0fdf581e64e96a92d311cf96589b938cd87957d0543bb7fd1df" => :el_capitan
+    sha256 "103d5c3d14bb0b13b2c6fe20f9889ea1269d276a6d294dd058c7c75ea78bf7ae" => :yosemite
+    sha256 "b691a4fa679e2ae4562afe36d216b13ecaf2355167d4142bdb0f697f753eac19" => :mavericks
+  end
+
   # Patch provided by author. See:
   # http://www.mbayer.de/html2text/faq.shtml#sect6
   patch do

@@ -1,6 +1,7 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "http://www.musicpd.org/"
+  revision 1
 
   stable do
     url "http://www.musicpd.org/download/mpd/0.19/mpd-0.19.14.tar.xz"
@@ -12,9 +13,9 @@ class Mpd < Formula
 
   bottle do
     cellar :any
-    sha256 "a7f6e97ea94a2733006cff806c6cb7da3ab547ef75f9d52e4c92f6c22c5d5b3d" => :el_capitan
-    sha256 "a6798fb18a9b1e9e1443d236c9e9cf272a94acc32579c014d6a373c258d8d872" => :yosemite
-    sha256 "c029531f025af9e712b7b2108e81d14406c4394c46e8789ee1b9e6d13a36d22f" => :mavericks
+    sha256 "40f3fcd1bd8e6f801cb19f56bc5d8bb5afcc277c4b592209e52c97fd6877065e" => :el_capitan
+    sha256 "e9003be255c7df1063ed662a2fdf434d7bc43997766ba43c9ad9fab20d3fa2ed" => :yosemite
+    sha256 "8c2826daf44d99a76dfabcaa5955a0d527da57cc345d461da6a2b2e7b7c9f515" => :mavericks
   end
 
   head do
@@ -31,6 +32,7 @@ class Mpd < Formula
   option "with-libvorbis", "Build with vorbis support (for Ogg encoding)"
   option "with-yajl", "Build with yajl support (for playing from soundcloud)"
   option "with-opus", "Build with opus support (for Opus encoding and decoding)"
+  option "with-libmodplug", "Build with modplug support (for decoding modules supported by MODPlug)"
 
   deprecated_option "with-vorbis" => "with-libvorbis"
 
@@ -63,6 +65,7 @@ class Mpd < Formula
   depends_on "libvorbis" => :optional
   depends_on "libnfs" => :optional
   depends_on "mad" => :optional
+  depends_on "libmodplug" => :optional  # MODPlug decoder
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -93,6 +96,7 @@ class Mpd < Formula
     args << "--disable-soundcloud" if build.without? "yajl"
     args << "--enable-vorbis-encoder" if build.with? "libvorbis"
     args << "--enable-nfs" if build.with? "libnfs"
+    args << "--enable-modplug" if build.with? "libmodplug"
 
     system "./configure", *args
     system "make"

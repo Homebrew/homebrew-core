@@ -4,6 +4,13 @@ class Memcacheq < Formula
   url "https://memcacheq.googlecode.com/files/memcacheq-0.2.0.tar.gz"
   sha256 "b314c46e1fb80d33d185742afe3b9a4fadee5575155cb1a63292ac2f28393046"
 
+  bottle do
+    cellar :any
+    sha256 "27b972d2f3c9d63ce7769dd964f575bfd0cb8f6136a666c713d5c66390f23ff3" => :el_capitan
+    sha256 "91d6ebd845b87bfe94cfa32f62220c8f4bd748c7c4daa61f318cc6835eb52973" => :yosemite
+    sha256 "73325fc64a4c34b0bbfacd59e30bd1f07e8052e851f9226e7a71d3c2061e173e" => :mavericks
+  end
+
   depends_on "berkeley-db"
   depends_on "libevent"
 

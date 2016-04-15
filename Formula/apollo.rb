@@ -41,13 +41,13 @@ class Apollo < Formula
     bin.write_exec_script libexec/"bin/apollo"
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/var/apollo/bin/apollo-broker run"
-
   def caveats; <<-EOS.undent
     To create the broker:
         #{bin}/apollo create #{var}/apollo
     EOS
   end
+
+  plist_options :manual => "#{HOMEBREW_PREFIX}/var/apollo/bin/apollo-broker run"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

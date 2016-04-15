@@ -6,8 +6,8 @@ class Ctunnel < Formula
 
   bottle do
     cellar :any
-    sha256 "1897708e8aeb80cf37c65d21ad1f4ce830923c04801eba40ab20d1b5bb3898c5" => :mavericks
-    sha256 "826c0603ed8f138f71ae1df35202080b01699d03244b635f050d741cd5eb0cef" => :mountain_lion
+    revision 1
+    sha256 "0efc6fd73d83e3b3d074f1819f439fce8ffa8e55434398c6e7446f7f51eb8aae" => :mavericks
   end
 
   depends_on "openssl"

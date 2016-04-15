@@ -5,7 +5,8 @@ class Pdksh < Formula
   sha256 "ab15bcdd50f291edc632bca351b2edce5405d4f2ce3854d3d548d721ab9bbfa6"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "771aeac10fe7c544b54a38b39cdbf9c082645e1992b8ace7ff1d6112a2ed1542" => :el_capitan
     sha256 "f1f4aab0c6110d5b30050fc0ed5e4660a4adf5e2364d0622b1872795b39b1417" => :yosemite
     sha256 "fa0b42b6f6aea018b537301b38151d6a3e20f8b8d694c5f768bab1d0d64a5b35" => :mavericks
     sha256 "29bcb04237c4a30870c028220d6284303d85e55eaab91fd5a5b3ea47915e9785" => :mountain_lion

@@ -7,9 +7,10 @@ class Mitmproxy < Formula
 
   bottle do
     cellar :any
-    sha256 "8b0726d8610ce882e3eca2d1af651b36cfd15b3ab6a44ca58a016d87eb56fc3b" => :el_capitan
-    sha256 "bfb490b2e2783400384f0e39adbbc13ab603c6c0c727c5e55ffa3f54cfedf651" => :yosemite
-    sha256 "8ec7d893519c2820d5a0ac516c743054b81c07244413e1cdc6be92ef1baedfcd" => :mavericks
+    revision 1
+    sha256 "aaa06f4c92841c3576be9c95a926fc8196053ba9c8430d811afeb853b03fdfff" => :el_capitan
+    sha256 "31542212f077d5c69bc895c3de6eed60d7a766e9c876fc7f49d336a212b81704" => :yosemite
+    sha256 "9b6f1ea41c3d06aeab2f9dbe4ffc4834700915fe060a2b278cf6228c799ddf44" => :mavericks
   end
 
   option "with-pyamf", "Enable action message format (AMF) support for python"
@@ -58,8 +59,8 @@ class Mitmproxy < Formula
   end
 
   resource "click" do
-    url "https://pypi.python.org/packages/source/c/click/click-6.3.tar.gz"
-    sha256 "b720d9faabe193287b71e3c26082b0f249501288e153b7e7cfce3bb87ac8cc1c"
+    url "https://pypi.python.org/packages/source/c/click/click-6.6.tar.gz"
+    sha256 "cc6a19da8ebff6e7074f731447ef7e112bd23adf3de5c597cf9989f2fd8defe9"
   end
 
   resource "ConfigArgParse" do
@@ -83,13 +84,13 @@ class Mitmproxy < Formula
   end
 
   resource "h2" do
-    url "https://pypi.python.org/packages/source/h/h2/h2-2.1.2.tar.gz"
-    sha256 "e507c31e0647b262011470747e531b55aabcdb1522f87b92a01ee1dfa9569d1f"
+    url "https://pypi.python.org/packages/source/h/h2/h2-2.1.3.tar.gz"
+    sha256 "7d36132c42edcc19e771555e569c3f3a8610ff052e8e3d19c91b4c29a1c31e49"
   end
 
   resource "hpack" do
-    url "https://pypi.python.org/packages/source/h/hpack/hpack-2.1.0.tar.gz"
-    sha256 "535e0628e7b44f6eb76d2acf908b6537c6819f6aad400bcaebb8bde161de7cd9"
+    url "https://pypi.python.org/packages/source/h/hpack/hpack-2.1.1.tar.gz"
+    sha256 "17cf0750f0555447f546b4754f69c8a906a3c10a51d1884c83e41f4f3bd71f8a"
   end
 
   resource "html2text" do
@@ -103,8 +104,8 @@ class Mitmproxy < Formula
   end
 
   resource "idna" do
-    url "https://pypi.python.org/packages/source/i/idna/idna-2.0.tar.gz"
-    sha256 "16199aad938b290f5be1057c0e1efc6546229391c23cea61ca940c115f7d3d3b"
+    url "https://pypi.python.org/packages/source/i/idna/idna-2.1.tar.gz"
+    sha256 "ed36f281aebf3cd0797f163bb165d84c31507cedd15928b095b1675e2d04c676"
   end
 
   resource "ipaddress" do
@@ -133,8 +134,8 @@ class Mitmproxy < Formula
   end
 
   resource "Pillow" do
-    url "https://pypi.python.org/packages/source/P/Pillow/Pillow-3.1.1.tar.gz"
-    sha256 "486f4ccddee09429cb1c63ea56c02894aecf9d69acdcaf006c53835df2549fff"
+    url "https://pypi.python.org/packages/source/P/Pillow/Pillow-3.1.2.tar.gz"
+    sha256 "c593622445503ae1ee361d3a6bb40794e043b43d00c96fcb298ba43ecd375905"
   end
 
   resource "pyasn1" do
@@ -153,13 +154,13 @@ class Mitmproxy < Formula
   end
 
   resource "pyparsing" do
-    url "https://pypi.python.org/packages/source/p/pyparsing/pyparsing-2.1.0.tar.gz"
-    sha256 "f6cb2bc85a491347c3c699db47f7ecc02903959156b4f92669ebf82395982901"
+    url "https://pypi.python.org/packages/source/p/pyparsing/pyparsing-2.1.1.tar.gz"
+    sha256 "9bae5cd4cbee6da0d7d8d9a1647f5253a3b89652e707647eaf1961f4932ae6c6"
   end
 
   resource "pyperclip" do
-    url "https://pypi.python.org/packages/source/p/pyperclip/pyperclip-1.5.26.zip"
-    sha256 "15929bdb305ca54ff090f066de985aa7b21f3d5f0b695edab880f0246559a88b"
+    url "https://pypi.python.org/packages/source/p/pyperclip/pyperclip-1.5.27.zip"
+    sha256 "a3cb6df5d8f1557ca8fc514d94fabf50dc5a97042c90e5ba4f3611864fed3fc5"
   end
 
   resource "PyYAML" do
@@ -213,10 +214,15 @@ class Mitmproxy < Formula
 
     resource("Pillow").stage do
       inreplace "setup.py", "'brew', '--prefix'", "'#{HOMEBREW_PREFIX}/bin/brew', '--prefix'"
-      system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      saved_sdkroot = ENV.delete "SDKROOT"
+      begin
+        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      ensure
+        ENV["SDKROOT"] = saved_sdkroot
+      end
     end
 
-    res = resources.map { |r| r.name }.to_set - ["Pillow"]
+    res = resources.map(&:name).to_set - ["Pillow"]
 
     res << "PyAMF" if build.with? "pyamf"
     res << "cssutils" if build.with? "cssutils"

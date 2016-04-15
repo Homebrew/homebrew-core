@@ -6,9 +6,10 @@ class Sparkey < Formula
 
   bottle do
     cellar :any
-    sha256 "b98eb670ea094ed0657f213fe83bf0f67ee4fea26a2bb5cd50f4eadfbea8bffb" => :mavericks
-    sha256 "45463695180f13b78db4ad0e1c7f901636799eaaa59a16678ec1baabdecb4bb9" => :mountain_lion
-    sha256 "3197c9a2871ae2d9674ffc1321b3e66d66eac860b237498699c19a3920b8748d" => :lion
+    revision 1
+    sha256 "fb1e14e774cf28b43cda024e73aa1201967dfa3c8d192500e56b3d42bdf41850" => :el_capitan
+    sha256 "40bb3d9f1937bcfc3ddb1608228affa3676bafea61665f9aa1525936d2887260" => :yosemite
+    sha256 "b7a5df3013850fbb10e2e46ffde968972bed654dfab6964784b7b2b00b054e2d" => :mavericks
   end
 
   depends_on "autoconf" => :build

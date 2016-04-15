@@ -1,14 +1,13 @@
 class ProtobufC < Formula
   desc "Protocol buffers library"
   homepage "https://github.com/protobuf-c/protobuf-c"
-  url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.1.1/protobuf-c-1.1.1.tar.gz"
-  sha256 "09c5bb187b7a8e86bc0ff860f7df86370be9e8661cdb99c1072dcdab0763562c"
+  url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.2.1/protobuf-c-1.2.1.tar.gz"
+  sha256 "846eb4846f19598affdc349d817a8c4c0c68fd940303e6934725c889f16f00bd"
 
   bottle do
-    sha256 "961b9b3fa293f2603be21a5047132703a6f33578dc492ed3ade4752585b60321" => :el_capitan
-    sha256 "003458cd71b252785b8abe9a29008bdfff07fd38b20072a0edbc37fe08942d21" => :yosemite
-    sha256 "4a84bcf8bf4dceb90beaeee2f3c10b779ac8168ce706915f2ae920264e7531b9" => :mavericks
-    sha256 "7d5023cced2861fb48b6043415cfbd1ceff86e6e6fc10ebed2dde4e95f64a46b" => :mountain_lion
+    sha256 "a61f29e1908a243e5fdc365eac9c055ec84b4c120e99d46bb6a843b62db53844" => :el_capitan
+    sha256 "178f84dfb66628862e08a3bf58c5a0bdb1a6624f4de63d1670832ea394b5c04d" => :yosemite
+    sha256 "50c184193ace913ed581c66669418f4755e4ac44428a9383e10d6178022664aa" => :mavericks
   end
 
   option :universal

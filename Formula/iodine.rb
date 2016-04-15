@@ -12,10 +12,9 @@ class Iodine < Formula
   end
 
   bottle do
-    cellar :any
-    revision 1
-    sha256 "4bb3858d87351246c6786ddf1f3c09f9f266c83087b6f31755f2c1b610325718" => :mavericks
-    sha256 "371c3443aeebef21ec9ec072e2bcc472bd76d4909466744c66f67a9bbce5d41f" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 2
+    sha256 "0eec156b89c9bc7b9f13e9865b4e119fe5c744dfe9d5f207e444f79b87bee214" => :mavericks
   end
 
   def install

@@ -1,14 +1,14 @@
 class Elixirscript < Formula
   desc "Elixir to JavaScript compiler"
   homepage "https://github.com/bryanjos/elixirscript"
-  url "https://github.com/bryanjos/elixirscript/archive/v0.17.0.tar.gz"
-  sha256 "7670686cd3bf73b787d4f71b854f528bc7245ab2f740d2806ef0b8d9155f7476"
+  url "https://github.com/bryanjos/elixirscript/archive/v0.18.0.tar.gz"
+  sha256 "1c9518a61abc2b587bd392bdaecfce75e6c399e5c5e21d64ed818f340a25a0ad"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b83fc14f0a1ae04e71e81dd8e447a98ad786ed3ce8668b3edd6bfb4c2a7e6fef" => :el_capitan
-    sha256 "49bf0bfda2209e4dd6b12cb83452972142fd3154248aa8917321eaa894acc40b" => :yosemite
-    sha256 "719ff0d2ef8d0d799e885bc9d842303eaba2a368dadc2e04702bd3b430a000b6" => :mavericks
+    sha256 "ba05da26a6b8881204a99f68efe5c471af0c06e3c34030c9449e44a3bc63f778" => :el_capitan
+    sha256 "b83a7ff7be1c83be931c9e9b38c6b4888fe1c0d3513cec855bc5d68e7a879807" => :yosemite
+    sha256 "2af0d3128636e63856a0c822d09a2804397a1f4d96eb6da99653f0eb075dc8c6" => :mavericks
   end
 
   depends_on "elixir" => :build

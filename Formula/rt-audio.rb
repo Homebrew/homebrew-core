@@ -8,6 +8,7 @@ class RtAudio < Formula
 
   bottle do
     cellar :any
+    sha256 "7caa5b29b82ac28187a059fd4619edb8965be29289cd6db8f4b48a703aa2550d" => :el_capitan
     sha256 "1ad4fce27b7f11e88bc3d4d958d9f9a9add117dc5ad8fb0a225edcde89b6bce6" => :yosemite
     sha256 "2ac64592ba5e1c9f5dacd5774d25fea7f968cb632ae3ea48e8d3f8c95fad1420" => :mavericks
     sha256 "32fb53538dceba914cb8369e25a8d74c6ebf115f237a11dadb618e4339653a32" => :mountain_lion

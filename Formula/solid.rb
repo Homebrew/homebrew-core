@@ -6,6 +6,7 @@ class Solid < Formula
 
   bottle do
     cellar :any
+    sha256 "217b3ce0111e94edfbbae5f82c07d3a8c129e7c5733a7707eb592b80eeb94a75" => :el_capitan
     sha256 "e54bf158f4e91171c55d5514abe6fd36ca358e39e8271985f446be4002b6a5e7" => :yosemite
     sha256 "b22bde511d5fa7a1112ef122fa70e5260ac6491bdfd3f8eeb19848b5b769621d" => :mavericks
     sha256 "db9bd9a409bc447657f759852aa02feb0bc19cd84c552b9c16dfed130c2a3829" => :mountain_lion

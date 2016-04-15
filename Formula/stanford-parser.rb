@@ -7,6 +7,8 @@ class StanfordParser < Formula
 
   bottle :unneeded
 
+  depends_on :java => "1.8+"
+
   def install
     libexec.install Dir["*"]
     bin.write_exec_script Dir["#{libexec}/*.sh"]

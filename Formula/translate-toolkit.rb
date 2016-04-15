@@ -6,8 +6,9 @@ class TranslateToolkit < Formula
   head "https://github.com/translate/translate.git"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
     revision 1
+    sha256 "e86ad0efba358703d00a920fe61313de3fbf56b73aa8102656e2d0b8fd762db5" => :el_capitan
     sha256 "ee17dc35e2f0f862ac5c011f9cd0cd0022f7a4c62de0353e20eeaf9480006f49" => :yosemite
     sha256 "ae6ed22058dfd558efa42f5779f97b05fd5575bb3cfd06dff61e60c49f374337" => :mavericks
     sha256 "31459fd05ccb213ded2ff0c048e25590913778211c9eda9b980ba8248150baaa" => :mountain_lion

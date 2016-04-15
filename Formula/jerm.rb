@@ -5,6 +5,13 @@ class Jerm < Formula
   version "0.8096"
   sha256 "8a63e34a2c6a95a67110a7a39db401f7af75c5c142d86d3ba300a7b19cbcf0e9"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "5c8409bfdeba7b55199659f4b82b8df9ec2ca8685435703bf1ddff29f9e027e5" => :el_capitan
+    sha256 "bce73bc0790565d58c129116833c2bf6dab677c95287036f4b3717a02792da12" => :yosemite
+    sha256 "e7a2ed29af497e459175ac4b7bf9d4e0b9a367c653ee3d7798b316a95d8e5cbe" => :mavericks
+  end
+
   def install
     system "make", "all"
     bin.install %w[jerm tiocdtr]

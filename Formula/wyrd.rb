@@ -5,6 +5,7 @@ class Wyrd < Formula
   sha256 "b2b51d6fb38f8b8b3ec30ee72093f791ba9b6fe35418191bc2011d2c8079997e"
 
   bottle do
+    sha256 "84393cfc60c701ed1cd9d0c0011854cb663c03b73d595fdd003605bfce586323" => :el_capitan
     sha256 "1581d07d741f4b545cfc2d7fb9da05c5312cbff455b7b67c74d4504f31bc7aa9" => :yosemite
     sha256 "6515d84612a9e38c506664a8ff65dfc9b99f4865aebe3ee77715aa6c6dcc157c" => :mavericks
     sha256 "494baad62a7f6743d1a684e2c320a9ceda829f8f234b55894a36ad677f28582f" => :mountain_lion

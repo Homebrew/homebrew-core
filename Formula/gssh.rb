@@ -7,6 +7,8 @@ class Gssh < Formula
 
   head "https://github.com/int128/groovy-ssh.git"
 
+  bottle :unneeded
+
   depends_on :java => "1.6+"
 
   def install
@@ -20,6 +22,6 @@ class Gssh < Formula
   end
 
   test do
-    system "gssh"
+    system bin/"gssh"
   end
 end

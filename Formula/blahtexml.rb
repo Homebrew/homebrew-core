@@ -4,6 +4,13 @@ class Blahtexml < Formula
   url "http://gva.noekeon.org/blahtexml/blahtexml-0.9-src.tar.gz"
   sha256 "c5145b02bdf03cd95b7b136de63286819e696639824961d7408bec4591bc3737"
 
+  bottle do
+    cellar :any
+    sha256 "472b13bf5f305d0bdb3d822a81a21feee97315dbf90a27ed33853b237defd359" => :el_capitan
+    sha256 "35e3afbd8968550c0f9446b2537163187fe0e7f79574bb88de097972506f42f1" => :yosemite
+    sha256 "567c1b3872dc4d5e3b69b7c490ec4e5cd56669cf6d848cf6b451ae48a64f1661" => :mavericks
+  end
+
   deprecated_option "blahtex-only" => "without-blahtexml"
   option "without-blahtexml", "Build only blahtex, not blahtexml"
 

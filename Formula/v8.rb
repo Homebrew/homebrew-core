@@ -2,15 +2,15 @@
 # https://omahaproxy.appspot.com/
 class V8 < Formula
   desc "Google's JavaScript engine"
-  homepage "https://code.google.com/p/v8/"
-  url "https://github.com/v8/v8-git-mirror/archive/4.9.385.28.tar.gz"
-  sha256 "c77c5f9d5b6c77186485a99da459c604738d1d2d299c8224a4781cbe8227a8b9"
+  homepage "https://github.com/v8/v8/wiki"
+  url "https://github.com/v8/v8-git-mirror/archive/4.9.385.35.tar.gz"
+  sha256 "d775d0de8f0fa481254f81ccceffcdd14816316e2514a2f52b262e8ecfc390b6"
 
   bottle do
     cellar :any
-    sha256 "30a37d1bfc3a819457db2afedf76cefb97c38d44baef691cf7b9acd389dd7de1" => :el_capitan
-    sha256 "61957622c695e53d47feabdb5ba46b656bd3068a4594653e38e6b2466fc3552d" => :yosemite
-    sha256 "b13b322eaf159c3a7dfd7eeca1d383e27a1d9ab61c47486594b2c082af3a1108" => :mavericks
+    sha256 "8fe4e607c1a068ecdef73f9b5da7a43e031d03d9d4b9894fe95c4a46c609e3fa" => :el_capitan
+    sha256 "465719b89b764cbc468c8c5f43244475db4b6e7ae95880ae3f2ebdd6bd8c7d40" => :yosemite
+    sha256 "9c2c8d7fd429d1b4b4ea1bd474d4c1a8c0dff24cf3d6cc874f291787ed9fb7e7" => :mavericks
   end
 
   option "with-readline", "Use readline instead of libedit"

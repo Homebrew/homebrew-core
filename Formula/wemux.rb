@@ -7,10 +7,11 @@ class Wemux < Formula
   head "https://github.com/zolrath/wemux.git"
 
   bottle do
-    cellar :any
-    sha256 "582fd8b518b4103818772669694a0c6486cf346506d52c364cfbe01f4ab5b46b" => :mavericks
-    sha256 "f898bd7ec33a8f12691d7cfdb4cf976184e13d5d89241c7b1e0b194442d018e8" => :mountain_lion
-    sha256 "6842513f2fd6940e9905a6955394b8648935a6fd5fa4e94449d4a4711edf7bb8" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "882a3d58408b8a3f1d8d8701f23d96e2b73ea2a4cfe3ae60d6c9fa10d62a0681" => :el_capitan
+    sha256 "413d8099b66ae483fdedfecc79bcff2116d9ea579a23c5c4d3b4c24ec68db6cb" => :yosemite
+    sha256 "37be489fca544a7add785cfa20c419e3a313c2a8b3e1ba8ee611c1f7a1677467" => :mavericks
   end
 
   depends_on "tmux"

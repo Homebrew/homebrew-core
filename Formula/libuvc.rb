@@ -7,10 +7,11 @@ class Libuvc < Formula
   head "https://github.com/ktossell/libuvc.git"
 
   bottle do
-    revision 1
-    sha256 "cfb92d3277e90897153ddd3e64f2fecd5330c1b8656b9dfcd7864641988d12ac" => :yosemite
-    sha256 "fba52081f76397aab2520f7d56e09b12a78e54b8606587a45ec12305dd03407d" => :mavericks
-    sha256 "cca1e796069a44f26f64b935e371bb28c40121270f55b3cca82cbf7ef4586f6f" => :mountain_lion
+    cellar :any
+    revision 2
+    sha256 "6893748683e4eef0e0bd595acc9d7dce1e70d06778e264514ffd0fd26f3cf22d" => :el_capitan
+    sha256 "5a20089a01f4c7f1d85bc91f6f2369ce5b1f1c4faf8c9beed2a764f80609ab41" => :yosemite
+    sha256 "c2b007f5dad961d8767cc129d69ba352e0c8d6dff9746ee45697ceff6208ed8a" => :mavericks
   end
 
   depends_on "cmake" => :build

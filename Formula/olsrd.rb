@@ -1,21 +1,17 @@
 class Olsrd < Formula
   desc "Implementation of the optimized link state routing protocol"
   homepage "http://www.olsr.org"
-  url "http://www.olsr.org/releases/0.9/olsrd-0.9.0.2.tar.bz2"
-  sha256 "cc464b29c7740354d815d5faa753fd27c0677d71e8eb42e78abc382996892845"
+  url "http://www.olsr.org/releases/0.9/olsrd-0.9.0.3.tar.bz2"
+  sha256 "1f038ed3ea72e4f73dfc9701de83de7313f5049161c8df17b9aaeba8e9711e92"
 
   bottle do
-    cellar :any
-    sha256 "102397f5d03ba024aad0c4bb6b427aaeb52e1a3e744e6dbb84d574302ebe99cf" => :yosemite
-    sha256 "6c041f2004d2fb432123128a220146f8720682cbcc75e799194387efa06be964" => :mavericks
-    sha256 "f4803624b8d9614efb3e8b731043ad7bb98d60ffc4ffc84b18008c9a43ee899a" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "88c836acf65237195c3b0d74a7fde0813c2008ab79c216ba8b36e789e58192ab" => :el_capitan
+    sha256 "c6c165c6ae75a58c33995a7820f83604758ed37c9fb1c4d1557cad4c68b7f752" => :yosemite
+    sha256 "842c328edcde3ccbffcc8dfddae63f802c716fb18aa63aea4fe620bbed5d8562" => :mavericks
   end
 
   def install
-    inreplace "make/Makefile.osx",
-              "PLUGIN_FULLNAME ?= $(PLUGIN_NAME).so.$(PLUGIN_VER)",
-              "PLUGIN_FULLNAME ?= $(PLUGIN_NAME).$(PLUGIN_VER).dylib"
-
     lib.mkpath
     args = %W[
       DESTDIR=#{prefix}

@@ -5,6 +5,13 @@ class CctoolsHeaders < Formula
   url "https://opensource.apple.com/tarballs/cctools/cctools-855.tar.gz"
   sha256 "751748ddf32c8ea84c175f32792721fa44424dad6acbf163f84f41e9617dbc58"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "ca835a4d93f50715875bc1ab323630f788e64a0573ac994a7e5d60c9b064268d" => :el_capitan
+    sha256 "a8ada963317cade3c7ed5df84fdcd3251a8b31a0bb4835a78ae4375ee0624b4e" => :yosemite
+    sha256 "ac7f685067262f3b1c4f843cab7ed4c83fc58a63bb57a8c5416428db0d6c7ddd" => :mavericks
+  end
+
   keg_only :provided_by_osx
 
   resource "headers" do

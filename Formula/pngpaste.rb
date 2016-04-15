@@ -5,7 +5,8 @@ class Pngpaste < Formula
   sha256 "0fee49ae467b4db58da687089e1729a911f2c0d5c1583a4a0dcb59aba95da519"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "bfb5fd80a48aa24949ef9551f12144afeef8cbc54a04db47476754681dbcac2d" => :el_capitan
     sha256 "e134f7bca93ef8e51d1729c145b060f688999f6d3eeda051f836831c6774c2ef" => :yosemite
     sha256 "eeea5b97cd20b83f7d01fa73d9b8bc98f776dc122769cc682312981dde54b07e" => :mavericks
     sha256 "c8577460546d1c8f7f4cf9e833a420989b1fb94969dc1fcffd1c8f6d07a78e93" => :mountain_lion

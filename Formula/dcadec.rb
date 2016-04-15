@@ -2,15 +2,15 @@ class Dcadec < Formula
   desc "DTS Coherent Acoustics decoder with support for HD extensions"
   homepage "https://github.com/foo86/dcadec"
   url "https://github.com/foo86/dcadec.git",
-    :tag => "v0.1.0",
-    :revision => "2449e5d00ad32da3aed7cedfcec5bd475af9f678"
+    :tag => "v0.2.0",
+    :revision => "0e074384c9569e921f8facfe3863912cdb400596"
   head "https://github.com/foo86/dcadec.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3ddc040cb3f7ae162181a505ce6f6c633aa45beefb0bb8ad429bddfe02e2ce76" => :el_capitan
-    sha256 "222fd874fe6cd6aba92c7a7fb46cd2f4c5f2fcf228bc6165a76e2731c16e4601" => :yosemite
-    sha256 "97761971a8533704fa26e8f61465b13fff0afe387ea2270ccc8b1f38bc36699d" => :mavericks
+    sha256 "89ddc5e9a5cfd72e604bdff54ee1f09f9ad4ec281fc79c93201971bbd380ccdd" => :el_capitan
+    sha256 "640914a5ce466bbb91b551bdb35a385e4a8b08c25f78509a16c016c654963805" => :yosemite
+    sha256 "6d373b4fe5dbb76648183d83cd3161970e8f3674ea29a3133fa4d3c0a9f82ca1" => :mavericks
   end
 
   resource "sample" do

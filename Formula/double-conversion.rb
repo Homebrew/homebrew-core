@@ -7,10 +7,11 @@ class DoubleConversion < Formula
   head "https://github.com/floitsch/double-conversion.git"
 
   bottle do
-    revision 1
-    sha256 "a4bf917b0b18eadb4acd03721d59eb4ea355390f1de4ac1a5ff417827b93d7e1" => :yosemite
-    sha256 "865ac5186cad14a25d49f26100197b8416b73784d67108d6c824d015d831e055" => :mavericks
-    sha256 "9f4b00aa1763789c6df8c936a6c5a224ea48e6b76e0bbf6f68f1b73ffc9e6f68" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 2
+    sha256 "727930169ce2bde673b86c5ae242c6641cf1a593902f5e7821981009dd4a2306" => :el_capitan
+    sha256 "ffcf11a69c596f04cfb936cbc33a489f9f994b8fdaf66901f23e88a5638a4477" => :yosemite
+    sha256 "648a9a7dcebe2abca8848a11c4647c0d3c85c6c49181100859277d24b8b71f62" => :mavericks
   end
 
   depends_on "cmake" => :build

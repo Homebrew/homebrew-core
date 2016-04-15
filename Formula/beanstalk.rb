@@ -5,9 +5,11 @@ class Beanstalk < Formula
   sha256 "923b1e195e168c2a91adcc75371231c26dcf23868ed3e0403cd4b1d662a52d59"
 
   bottle do
-    sha256 "e33e39c6319ae92305b2dd810fd70bba6a61db2ab1a8e845d1bfb68b33756005" => :mavericks
-    sha256 "ae3fe9c2c70291f524fc22fbf8df34e84283da8a885262f48262f87fe19178c2" => :mountain_lion
-    sha256 "71eaae9e6f8d3db525780b84121511020887eebdb3dfb1d12e418c5a3e8b9e34" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "a1929c324475d482942447e24e4d6da0b9d47ecc7e028d5fa1e743892fe26cdf" => :el_capitan
+    sha256 "91b369d07c61cba1344e5d8d6718a1805aa49aacd777c166a6657f86cbaa3282" => :yosemite
+    sha256 "cc0f15232d47f0cb95acb6f2e252acb26cf978a564c3711c6d12995ad2598a7d" => :mavericks
   end
 
   def install

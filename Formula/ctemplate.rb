@@ -5,6 +5,13 @@ class Ctemplate < Formula
   sha256 "99e5cb6d3f8407d5b1ffef96b1d59ce3981cda3492814e5ef820684ebb782556"
   head "https://github.com/olafvdspek/ctemplate.git"
 
+  bottle do
+    cellar :any
+    sha256 "3cb0314574a76b022e365c293f50eff604def9a9171b45c4e3af1c56f5310927" => :el_capitan
+    sha256 "f405ef2681e4e0aff1a034226733e4466d6f916ae540fa7a3a52e3d94f529f26" => :yosemite
+    sha256 "335fb8f9b6ac20aeb09efba90dcdba941b7c0cef2571dcb50fb2040f515386c7" => :mavericks
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"

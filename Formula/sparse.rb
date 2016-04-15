@@ -6,7 +6,8 @@ class Sparse < Formula
   head "https://git.kernel.org/pub/scm/devel/sparse/sparse.git"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "78bc3435fd4818f38848fb1b6c57bfb70f540adf527f71390274d0d2a31efbac" => :el_capitan
     sha256 "be1693a0ec2050625898d960ffd99468d4ce7471785fe1ae6d6f373da2416b11" => :yosemite
     sha256 "4c33d0589d81abda44fef8904892dc7f6361e96caa82012a71101e9fefe4425c" => :mavericks
     sha256 "6dac58ce04e796731ea3f0ed3a239cbe6334ab54648f4238baf60d64c1d04437" => :mountain_lion

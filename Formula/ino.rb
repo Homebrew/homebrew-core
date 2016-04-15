@@ -4,6 +4,13 @@ class Ino < Formula
   url "https://pypi.python.org/packages/source/i/ino/ino-0.3.6.tar.gz"
   sha256 "9b675dc69d7a332ff65632bdffd671537b5eedce4e110ee4daca956299fbd44c"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "fe8bd44bff433014afad389f2afd63253ac747eba19ecbd055f2f37bef236430" => :el_capitan
+    sha256 "326863d7187f8c280a39c0d20a5ef568ad58a6c2f9d5f20d9fba75f4d2c2f03d" => :yosemite
+    sha256 "a2a0aeb71d02e6d67578f9c3265fa2b11ef716bc47519f3b31d001f9712e8b6e" => :mavericks
+  end
+
   depends_on "picocom"
   depends_on :python if MacOS.version <= :snow_leopard
 

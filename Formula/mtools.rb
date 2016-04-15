@@ -6,7 +6,8 @@ class Mtools < Formula
   sha256 "8fff9d6a09c700ee0a65b45f2436b96acb32e3c551acb3ff04275d51534cf7da"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "7584a56e3ce2975cc91ef802c23763c67e0d34ce3239612471d546fdb20d2b88" => :el_capitan
     sha256 "cac73cd7c693d22fc8472259f58d85c99f790950d3a7b30643af4541441d60e4" => :yosemite
     sha256 "e3d237ea8239d815b8bd2ad5b3e0e0904e06b606d13d5c1f1a9c99ed4c2764d7" => :mavericks
     sha256 "559d465879ac7d26d84522e4315447695354d9be98a5930cb05b27a8ecf9555a" => :mountain_lion

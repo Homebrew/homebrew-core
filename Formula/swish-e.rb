@@ -5,6 +5,7 @@ class SwishE < Formula
   sha256 "5ddd541ff8ecb3c78ad6ca76c79e620f457fac9f7d0721ad87e9fa22fe997962"
 
   bottle do
+    sha256 "82200d3dd5e7c13d6226d27f9191faeb5dbe3017399a33569a1c075df1b2bcc2" => :el_capitan
     sha256 "3bbf20ce0627fe663d06fbfe8aa42bb0865e122365c118992bd76fe01b9c174d" => :yosemite
     sha256 "f6914d79d603e8ae515bd2260ab6f372a57871981f50428314fe09b6500d88e6" => :mavericks
     sha256 "11cb805ebe8e0b303b94720775ff0dd1ee60d5993579197214cb3269d72ad677" => :mountain_lion

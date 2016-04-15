@@ -5,7 +5,8 @@ class Rfcdiff < Formula
   sha256 "1ff5f34a007e9219725d9e3d40767aec5e895d9f890085bec554d0e2a4150634"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "e3462b3abea27352f99c479a07a5e2aa73dd34435a691684770e407fcc3b48ee" => :el_capitan
     sha256 "590587076415e6d76a0c352a903bee09dda664529fe3b6bb15d3ea825e66d44a" => :yosemite
     sha256 "4a4b87ede364af23c406b53ec20e4729168363513c8ccc455f359bdde5bc120f" => :mavericks
     sha256 "8473a25840800f44a284dc498966abca18cf41687fce0b101982e6dbd89952e4" => :mountain_lion

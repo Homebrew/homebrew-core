@@ -5,15 +5,20 @@ class Saltstack < Formula
   # (URLs starting with https://github.com/saltstack/salt/releases/download)
   # github tag archives will report wrong version number
   # https://github.com/Homebrew/homebrew/issues/43493
-  url "https://github.com/saltstack/salt/releases/download/v2015.8.5/salt-2015.8.5.tar.gz"
-  sha256 "db395702f048ea384ccc440201c24d7044685977ae6a8588d0d0933246f0c673"
+  url "https://github.com/saltstack/salt/releases/download/v2015.8.8/salt-2015.8.8.tar.gz"
+  sha256 "b2ecce7bf562cfcd6586d66ade278f268bb89023f0fa0accaa55f90b8a668ef5"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "522c3968784dea001e8194c5e6a1156f0671c99e8cdf803d27c20eb9cec0b559" => :el_capitan
-    sha256 "8327b4ab5e1fdb07462915877babf16f34b9ee841f62d361751bbe60e2d2f5b0" => :yosemite
-    sha256 "20e5f30a0b5b76121341346e520742d297b17df5c679b310cf9815bf7ac84a77" => :mavericks
+    sha256 "c33d585ea7e73ab7e7e082d94f9bdfb8f12caff8e3ea63389469b545149082f1" => :el_capitan
+    sha256 "78644932c2df50739085b9e64f47b3215313c2b6da1f9532b3d3299c08b05402" => :yosemite
+    sha256 "158f53f1809d2d5c1a26f950972b982f42f83d929a6f12f47e5c5317088c8b87" => :mavericks
+  end
+
+  devel do
+    url "https://github.com/saltstack/salt/releases/download/v2016.3.0rc2/salt-2016.3.0rc2.tar.gz"
+    sha256 "aaa136ad5b7ce2478f352fadaddba66deba65b939fd146e772635d79b20fd8f3"
   end
 
   depends_on "swig" => :build
@@ -68,8 +73,8 @@ class Saltstack < Formula
   end
 
   resource "msgpack-python" do
-    url "https://pypi.python.org/packages/source/m/msgpack-python/msgpack-python-0.4.6.tar.gz"
-    sha256 "bfcc581c9dbbf07cc2f951baf30c3249a57e20dcbd60f7e6ffc43ab3cc614794"
+    url "https://pypi.python.org/packages/source/m/msgpack-python/msgpack-python-0.4.7.tar.gz"
+    sha256 "5e001229a54180a02dcdd59db23c9978351af55b1290c27bc549e381f43acd6b"
   end
 
   # Required by tornado

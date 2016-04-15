@@ -4,6 +4,13 @@ class Blitzwave < Formula
   url "https://github.com/oschulz/blitzwave/archive/v0.8.0.tar.gz"
   sha256 "edb0b708a0587e77b8e0aa3387b44f4e838855c17e896a8277bb80fbe79b9a63"
 
+  bottle do
+    cellar :any
+    sha256 "be9ba4deb07a468b23f430fe2f0896206b120f70e07f94d48267448c0524d3bc" => :el_capitan
+    sha256 "609c85eec329a8aa988a2b026522642f41b392039936661ce428d13887dfa84d" => :yosemite
+    sha256 "af7d02c7520db927c0d835992719922753e89d26588a00a2a53601a1e5aabd8b" => :mavericks
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

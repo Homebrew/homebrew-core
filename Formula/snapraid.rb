@@ -11,7 +11,8 @@ class Snapraid < Formula
   end
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "87755e2cc7cfe7525c39f50a7614d54d3f3f0f43440bc24127a291ca5ccf856c" => :el_capitan
     sha256 "10123687aa79706617cf0d62ee0a2d5e27d43ab633d9dc914089d325b3e22464" => :yosemite
     sha256 "d5a7af73bdf89fd946d96139ae94dcb8e5b4e437a8836ba6c9c9a21d618af763" => :mavericks
     sha256 "b5f0e760a5448d744cc279df69686d65d4aaa3d8523ca8d9a8731615ef55d059" => :mountain_lion

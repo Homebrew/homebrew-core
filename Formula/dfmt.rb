@@ -2,15 +2,15 @@ class Dfmt < Formula
   desc "Formatter for D source code"
   homepage "https://github.com/Hackerpilot/dfmt"
   url "https://github.com/Hackerpilot/dfmt.git",
-      :tag => "v0.4.4",
-      :revision => "c53eb5e0e4a6bb494dccc1eb1ff3e6f4dc820bfa"
+      :tag => "v0.4.5",
+      :revision => "4fe021df9771d83c325c879012842402a28ca5c7"
 
   head "https://github.com/Hackerpilot/dfmt.git", :shallow => false
 
   bottle do
-    sha256 "0f66b0a057dd8f99ee1b481798318eb352901a3ea1969361ea4d6a791e68ab83" => :el_capitan
-    sha256 "a72035ea39e035feadb8f64d5275114ec8391510801f9986bb1261ebd2191e65" => :yosemite
-    sha256 "d306278e22b46e60b6474593e1107db753c4fefc907e66bd1f348cc29af0fc95" => :mavericks
+    sha256 "ebbad70fca15ca4dfe2ed7f2b790b6994e34ff460d74dc44da78c8fe2a7235d4" => :el_capitan
+    sha256 "b8de4e3f4f490c157deecfaa36db786de0ad3b040d7172a88e176d6bfb377c06" => :yosemite
+    sha256 "cf0880574305df3859312cb927aa6a72d1041694677eb5305e64152416c34a8a" => :mavericks
   end
 
   devel do

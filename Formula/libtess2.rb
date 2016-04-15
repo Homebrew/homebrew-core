@@ -5,8 +5,9 @@ class Libtess2 < Formula
   sha256 "1938805e1859cbc4459797920743def39fd04154fe60da2ee3ee2198143b96bb"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
     revision 1
+    sha256 "335bfae9b72f2ba530893c493cc7c4f7738901cb087cc1624b03b0f113e5652d" => :el_capitan
     sha256 "925affe887bcd5388e30e116a7f91da95b3149f4fb2a17ee149f0abf00cbddc9" => :yosemite
     sha256 "fa438ed6e594c08dc226ca93ecc56d4f164f11576328dabcffdd3539a971ffd6" => :mavericks
     sha256 "04ffb8fe1e64575384adb1066c3b0556f75be08e65a194b93b0a1a6f8972fa13" => :mountain_lion

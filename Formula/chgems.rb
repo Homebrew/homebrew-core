@@ -5,6 +5,13 @@ class Chgems < Formula
   sha256 "515d1bfebb5d5183a41a502884e329fd4c8ddccb14ba8a6548a1f8912013f3dd"
   head "https://github.com/postmodern/chgems.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "395b45c3493721bccfc7fdefa2d81ec61b7f07f8cfd799eac5f1e96011a618f3" => :el_capitan
+    sha256 "aac706b654c0e5a617bfa9dab9310334d874d561f2eca10a16778a3b49804545" => :yosemite
+    sha256 "d3e7aba5d1fb3da9f66a1e5fd3149c6eec3afb37286ade3e40f235bdbafc8d78" => :mavericks
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end

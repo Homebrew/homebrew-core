@@ -4,6 +4,12 @@ class Fdclone < Formula
   url "http://hp.vector.co.jp/authors/VA012337/soft/fd/FD-3.01b.tar.gz"
   sha256 "d66d902cac9d4f64a91d42ceb487a138d544c9fd9cb2961730889cc8830303d4"
 
+  bottle do
+    sha256 "f9992eacec6b447a8bef9946445e371f560483799c0912e5ecd6b095bbd0b542" => :el_capitan
+    sha256 "e5983768aec9c3d61a72a06ea25b121cf54178461b22f3848c446249a99b26a9" => :yosemite
+    sha256 "1add0151a1961ea9b9b167b220dc0248a0fec6263efa351c2558f7eded98c361" => :mavericks
+  end
+
   depends_on "nkf" => :build
 
   patch :DATA

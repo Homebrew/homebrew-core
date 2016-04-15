@@ -4,6 +4,13 @@ class CupsPdf < Formula
   url "http://www.cups-pdf.de/src/cups-pdf_2.6.1.tar.gz"
   sha256 "04e17eb563dceea048e1a435edcbcf52faa5288f85e8390cd64d702edb6745f1"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "cd7411ba03303fb6a9582209a718b564a2c0837ea07364badb798f945ce9f957" => :el_capitan
+    sha256 "1dc6c7b5a9ed2813fc94c9524f2d644ef4edc18a5f49856c9eecedd97e12cb30" => :yosemite
+    sha256 "76d5bc138bef1a1e64f78119903844ca61462a2b58ed61ab5bd463920a3b744a" => :mavericks
+  end
+
   # Patch derived from MacPorts.
   patch :DATA
 

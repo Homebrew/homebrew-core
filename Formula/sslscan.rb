@@ -1,9 +1,9 @@
 class Sslscan < Formula
   desc "Test SSL/TLS enabled services to discover supported cipher suites."
   homepage "https://github.com/rbsec/sslscan"
-  url "https://github.com/rbsec/sslscan/archive/1.11.5-rbsec.tar.gz"
-  version "1.11.5"
-  sha256 "06436a9e0d8385d57b14bab207a708c569e6482939f065c2c13ae5d03d448f55"
+  url "https://github.com/rbsec/sslscan/archive/1.11.6-rbsec.tar.gz"
+  version "1.11.6"
+  sha256 "18932a78ad968dc5859b8cc72c84e64a46367887eb9302eaf13069bb9da1e08d"
   head "https://github.com/rbsec/sslscan.git"
 
   bottle do
@@ -17,10 +17,12 @@ class Sslscan < Formula
 
   def install
     system "make"
+    mkdir_p [bin, man1]
     system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/sslscan --version")
     system "#{bin}/sslscan", "google.com"
   end
 end

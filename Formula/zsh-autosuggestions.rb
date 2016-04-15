@@ -4,6 +4,8 @@ class ZshAutosuggestions < Formula
   url "https://github.com/zsh-users/zsh-autosuggestions/archive/v0.3.1.tar.gz"
   sha256 "f407454f90c560cbc34e7130d39aa88f739d62bba5a431e5f91a2a2aad37758f"
 
+  bottle :unneeded
+
   def install
     pkgshare.install "zsh-autosuggestions.zsh"
   end

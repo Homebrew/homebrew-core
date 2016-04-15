@@ -3,24 +3,24 @@ class Radare2 < Formula
   homepage "http://radare.org"
 
   stable do
-    url "http://radare.org/get/radare2-0.10.1.tar.xz"
-    sha256 "5ac02717786f2ff3b5326927351d5ca38464da89675c8edfb4ded43addb22987"
+    url "http://www.radare.org/get/radare2-0.10.2.tar.xz"
+    sha256 "1bc9ce6f5d6bec366324bc542653bba5c1b89a6980c17253ec3a1f75264beb3b"
 
     resource "bindings" do
-      url "http://radare.org/get/radare2-bindings-0.10.1.tar.xz"
-      sha256 "6cb91f4135b5e490185e25629850cb48c08c06882e2c870fa5ab1425cc84106f"
+      url "http://www.radare.org/get/radare2-bindings-0.10.2.tar.xz"
+      sha256 "7b47919c7f3d3a4eb432df8605160c72257a324c5f9e59c890799cf527228631"
     end
 
     resource "extras" do
-      url "http://radare.org/get/radare2-extras-0.10.1.tar.xz"
-      sha256 "c330210c8e6ce5fa8113c455e98c994fb5ecbb5d2f1c15c40c0d1bcbc24d5092"
+      url "http://www.radare.org/get/radare2-extras-0.10.2.tar.xz"
+      sha256 "ff5fbb37d654d8672965f67b216be9f2219da4db4f380954cd7d9c55ce69232b"
     end
   end
 
   bottle do
-    sha256 "73a42da677ce0d4fb4b02608659ff06096aa20909e8eec49cfd34904947c8728" => :el_capitan
-    sha256 "348343ac295621bb2288a9d8a418ce0a55a3fea4c445703b5697a02407d6ef65" => :yosemite
-    sha256 "2cf435b70d3ba0960a4f67190c472bffcdf247760cfdc3a58286b0336fed943b" => :mavericks
+    sha256 "91352f89ef50be76e78e6bd592f327c666b94d2a67946a041c88c728c739401b" => :el_capitan
+    sha256 "2ee94f8af46f5c6ac63c124ca465b14ad7471602fdc3782605f1f89314b7e8e3" => :yosemite
+    sha256 "263351722c084685e938e8ac1c76c89f4ca03e445a671c222d65e7c19ddf06af" => :mavericks
   end
 
   head do
@@ -53,7 +53,7 @@ class Radare2 < Formula
     system "make", "install"
 
     resource("extras").stage do
-      ENV.append_path "PATH", "#{bin}"
+      ENV.append_path "PATH", bin
       ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
 
       system "./configure", "--prefix=#{prefix}"
@@ -62,7 +62,7 @@ class Radare2 < Formula
     end
 
     resource("bindings").stage do
-      ENV.append_path "PATH", "#{bin}"
+      ENV.append_path "PATH", bin
       ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
 
       # Language versions.
@@ -82,7 +82,8 @@ class Radare2 < Formula
                            "LUAPKG=lua-#{lua_version}",
                            "PERLPATH=#{lib}/perl5/site_perl/#{perl_version}",
                            "PYTHON_PKGDIR=#{lib}/python2.7/site-packages",
-                           "RUBYPATH=#{lib}/ruby/#{RUBY_VERSION}",]
+                           "RUBYPATH=#{lib}/ruby/#{RUBY_VERSION}",
+      ]
 
       system "./configure", "--prefix=#{prefix}"
       ["lua", "perl", "python"].each do |binding|
@@ -91,5 +92,9 @@ class Radare2 < Formula
       system "make"
       system "make", "install", *make_install_args
     end
+  end
+
+  test do
+    assert_match /radare2 #{version.to_s}/, shell_output("#{bin}/r2 -version")
   end
 end

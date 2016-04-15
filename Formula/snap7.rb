@@ -6,6 +6,7 @@ class Snap7 < Formula
 
   bottle do
     cellar :any
+    sha256 "c65d8e3e9f9f1a426ed4b7581fdf44afa45da09e4dc0f70669d3c72288a96fe1" => :el_capitan
     sha256 "b8fa94cae36795dc754f17123317bd2e816f99907cecd2522e587ec52cbdb453" => :yosemite
     sha256 "d152d00966b20ae4429b3aabe53e91635bf2ee6125cae563778aefade1e59d0e" => :mavericks
     sha256 "ea1eeaee1876b4ef948cdef5b5f9b9a9b8233d93ffe285ad13fe1301100ca318" => :mountain_lion

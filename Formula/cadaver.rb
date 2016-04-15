@@ -7,6 +7,7 @@ class Cadaver < Formula
 
   bottle do
     revision 1
+    sha256 "7cbfeeedd92780e3eec32298e1ded1f341805094d470787d8ca36c5ede8bf33d" => :el_capitan
     sha256 "95b45e67937664ebdd1a96b3ef20ed870eba06270ce3d611aed233a337534008" => :mavericks
     sha256 "ef03f3dbc276461c957b0f72f906402b4c507dc21a2e77774b716e6cf90813cd" => :mountain_lion
     sha256 "37e4a590ce5cb112ce78a63f126b45bd581400444f09aa35dff8bcdad9764668" => :lion

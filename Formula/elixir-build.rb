@@ -5,6 +5,8 @@ class ElixirBuild < Formula
   sha256 "825637780a580b7ebe8c5265a43d37ceff9f3876e771aa2f824079e504ad7347"
   head "https://github.com/mururu/elixir-build.git"
 
+  bottle :unneeded
+
   conflicts_with "narwhal", :because => "both install `json` binaries"
 
   def install

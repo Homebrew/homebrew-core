@@ -5,10 +5,10 @@ class Mongroup < Formula
   sha256 "50c6fb0eb6880fa837238a2036f9bc77d2f6db8c66b8c9a041479e2771a925ae"
 
   bottle do
-    cellar :any
-    sha256 "39b8052e644bf78570cd9393f3229843445784e93f6891924ae05c118c3bc16b" => :mavericks
-    sha256 "5279c40b110406b0cdd3e62c6ea978a1a02f6a9601fadc414bd8edd04ed8ca7f" => :mountain_lion
-    sha256 "5803b417bacf1630a0044485342af46471a4107116ff05d65ad62330234a96c7" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "8e801dac08ad7a776d698dc8bfc170f1df2fcb621561b86c789cc0e8098b1b38" => :el_capitan
+    sha256 "f7db89622f5575404e2ccbb1d0aca159f06b82766f27ac28bd41492d498128a7" => :mavericks
   end
 
   depends_on "mon"

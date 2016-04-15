@@ -7,7 +7,8 @@ class Fastd < Formula
 
   bottle do
     cellar :any
-    sha256 "a03d0e7e3e25e34fcb2a6570d96b79e425a64926e9c7ac2cbd9275aaa7fcf35e" => :mavericks
+    revision 2
+    sha256 "c89ecf6a83289f7d4fee098474304e41f58799031b3468d0147884848d60e825" => :mavericks
   end
 
   depends_on "cmake" => :build
@@ -32,6 +33,6 @@ class Fastd < Formula
   end
 
   test do
-    system "#{bin}/fastd --generate-key"
+    system "#{bin}/fastd", "--generate-key"
   end
 end

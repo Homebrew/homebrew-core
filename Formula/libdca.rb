@@ -5,9 +5,11 @@ class Libdca < Formula
   sha256 "dba022e022109a5bacbe122d50917769ff27b64a7bba104bd38ced8de8510642"
 
   bottle do
-    sha256 "8b54e4bd1b265632e25711377eaf6737e48ff03d965cd76ffddc07fb76528bef" => :yosemite
-    sha256 "e7635c2ab807e636e2942840d1c8f56db69205c18649b97e4f835312d8333513" => :mavericks
-    sha256 "457848ef40ba06b2c422e090c5bb7c0a02008e86cee0b0c7e8ae35e36d5b83c0" => :mountain_lion
+    cellar :any
+    revision 1
+    sha256 "e148c79b756b8684a8a906e493bb4ce3007db3682c0ac8a1b194c76ebb1097a7" => :el_capitan
+    sha256 "893590746bb58d06c659af40adce735abcd661691a75ba8b000024aab359e1ca" => :yosemite
+    sha256 "9e3a014b2e3f3d5fb35959a1e4144b39c4fc551288393aad856028a1ccbd0fb3" => :mavericks
   end
 
   def install

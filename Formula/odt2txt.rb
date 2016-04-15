@@ -10,8 +10,9 @@ class Odt2txt < Formula
   end
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
     revision 1
+    sha256 "01006c2d30c3b5a108f82b0e24684d8abc93ca88b4b62b385867eb34a70c100a" => :el_capitan
     sha256 "dd54432a555e848fdb86e99cc4ad26b41e50ba52f045cd56056e630e6d83ac9b" => :yosemite
     sha256 "a24f4fdd461b5d25014b52abcfa4dcaba0504d60fba396582aa677af381349c3" => :mavericks
     sha256 "534b840b69bee074b4192d1d3c89a805f5647df4d9b12bddd0923bbdeedd8f9f" => :mountain_lion

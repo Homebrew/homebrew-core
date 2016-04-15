@@ -8,7 +8,8 @@ class Remarshal < Formula
   head "https://github.com/dbohdan/remarshal.git", :branch => "master"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "563123bd9e48d5a4538ac9ddae982cf7de3d21a1ba1115924cd2abac9d89918b" => :el_capitan
     sha256 "bf5b2278463be82a2a80469d35227bebbd84afb3df0c8347b85f28ab549df880" => :yosemite
     sha256 "bcdb49a223f602545591b3fd71014d4ecaa81d3032f1e046df71194672375072" => :mavericks
     sha256 "090b55a57566e88c45bd0d85adcf3eaad853a3d9603fcece459357f1ae163880" => :mountain_lion

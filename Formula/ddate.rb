@@ -5,10 +5,11 @@ class Ddate < Formula
   sha256 "d53c3f0af845045f39d6d633d295fd4efbe2a792fd0d04d25d44725d11c678ad"
 
   bottle do
-    cellar :any
-    sha256 "8b7017ecb63545d996e06008df12e7cbd3b9da90545d2accb5ebf28c6af4f088" => :mavericks
-    sha256 "91f1bb80f8fdf4fd994fba1cddafc94a17b2daa0f8a5483735a8dc38c9eda5f1" => :mountain_lion
-    sha256 "12b52e2c5881c51aa902c10b236dc6c2e42e9d4b7e666f19b86a86bf211e398a" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "fe87fe60ad1e8cbff1ebbcefd8be0f6f8ec87013a91e6385adbde0aebd45edea" => :el_capitan
+    sha256 "ad575dd84b5d2ac8395c9cd11c4ef811f28f105eb81510369bb33078164ec2e9" => :yosemite
+    sha256 "6d1dd4a9a1cc787cbd79add910fd80181dc5efc24712b9e84a7c37ce8de46d12" => :mavericks
   end
 
   def install

@@ -6,7 +6,8 @@ class Pdnsd < Formula
   sha256 "bb5835d0caa8c4b31679d6fd6a1a090b71bdf70950db3b1d0cea9cf9cb7e2a7b"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
+    sha256 "96ae86eeb5157344c0d5dd4b0cc1027731f8483d4a8df099bbfaacb3da7d5c96" => :el_capitan
     sha256 "a55b3ea9a71be9bee77ddb9ced37f77bc0f37376bf2d66ecdb7780282ae66e35" => :yosemite
     sha256 "4dc63c69195b38fdb977bfcedb97de860d21a61beb0e280634037c1dee8bd455" => :mavericks
     sha256 "473a9d25b7461badb8814355a313595c12240dd8054a6865acf709d85f197da2" => :mountain_lion

@@ -6,6 +6,7 @@ class Validns < Formula
 
   bottle do
     cellar :any
+    sha256 "029b37976b5a08efb562443f9173960d6b7abe6f8a56154659833ac0d266e1bb" => :el_capitan
     sha256 "35058db5086907db4724d357fdec06153b6c6ee682269e8d099e2e9ccf7e6bde" => :yosemite
     sha256 "b9676bbc507bd4cca40fc82ac4b4c93a939be1ad0c636372938e64dec2404000" => :mavericks
     sha256 "03136a894fe3a94f42549dac7c667ae1da171ea65491d060a7a88f4dbdb42d9d" => :mountain_lion

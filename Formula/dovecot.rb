@@ -75,6 +75,12 @@ class Dovecot < Formula
     end
   end
 
+  def caveats; <<-EOS.undent
+    For Dovecot to work, you may need to create a dovecot user
+    and group depending on your configuration file options.
+    EOS
+  end
+
   plist_options :startup => true
 
   def plist; <<-EOS.undent
@@ -99,12 +105,6 @@ class Dovecot < Formula
         <string>#{var}/log/dovecot/dovecot.log</string>
       </dict>
     </plist>
-    EOS
-  end
-
-  def caveats; <<-EOS.undent
-    For Dovecot to work, you may need to create a dovecot user
-    and group depending on your configuration file options.
     EOS
   end
 

@@ -7,6 +7,7 @@ class Ldns < Formula
 
   bottle do
     revision 4
+    sha256 "bddafc13d58f7f86243ab6ee1ec389034e7b49a899a13c5d9ca7888456d62963" => :el_capitan
     sha256 "d1fd252d9d21104d1f8558f78c5c988a9355b6211088ddc4688ad2d15e726dc7" => :yosemite
     sha256 "a6473267b96ba209161b292d6e4f76048519480c43cd7eb5db41a4c51d311205" => :mavericks
     sha256 "17d5d97bafecaad3fdd635b1e765d4d9470a195aceb27ed2214fad8332f69aff" => :mountain_lion

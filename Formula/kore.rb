@@ -7,6 +7,7 @@ class Kore < Formula
   head "https://github.com/jorisvink/kore.git"
 
   bottle do
+    sha256 "acdd632ceba6698b1a52292a1f58f7b7adaefa6a677d138c3f16a1fb3ddd19e1" => :el_capitan
     sha256 "cba37916c300a8c35d9dab23dabdd2de0abb7eef560fa4f8328195f5543854fa" => :yosemite
     sha256 "42baed336207505fcbd03f95f5e3a842413569b987ef0f5e568350f81e66bfbd" => :mavericks
     sha256 "dbb9515b193dc3caa5ada4dd048d42ea8794ecab27d1420c051979ebe456276a" => :mountain_lion

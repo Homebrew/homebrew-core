@@ -5,10 +5,11 @@ class Premake < Formula
   sha256 "36536490f8928d8ecde135da80cd8b751ea5bebe50cabba5c0de49cd41cb2780"
 
   bottle do
-    cellar :any
-    sha256 "d57b33a77188b36ad9302906ebdd16b454611ee1dc146b1fc008807347bfb141" => :mavericks
-    sha256 "dc7affe6284df57b61d81fe6ba00588c79a2c817f57bff1b5dec1a39cd7e5053" => :mountain_lion
-    sha256 "626bcb3c9d5244c91468f07e8705ad1726b3250d3018b0d11392df5374679a28" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "02f55d278bd04f5e1ebf779e9a45921ea476fdb48e56ac52f0a71cbef541bc39" => :el_capitan
+    sha256 "71c9f710b6c595054a2bc27c484b2ec684a9a14ffe5771112891e2a5226b4cbf" => :yosemite
+    sha256 "b67d28d0978c30da8d3988b289772e2f0f6dd0b5ea21bd8bce4049cfca095b46" => :mavericks
   end
 
   devel do

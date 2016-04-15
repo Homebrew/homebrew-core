@@ -25,9 +25,8 @@ class Slimerjs < Formula
   head "https://github.com/laurentj/slimerjs.git"
 
   devel do
-    url "https://download.slimerjs.org/nightlies/latest-slimerjs-stable/slimerjs-0.9.7-pre.zip"
-    version "0.9.7-pre"
-    sha256 "c2228a163770ef95b41c971cf42fdbab42cf9fd9ee53d1d6891f8e1c3f50592d"
+    url "https://download.slimerjs.org/nightlies/latest-slimerjs-master/slimerjs-0.10.0pre.zip"
+    sha256 "dec4c1b591aed9ee0562aaa9f1901eb6d9f8904db4d51f8550f98d25be9d188f"
   end
 
   bottle :unneeded

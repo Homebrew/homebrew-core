@@ -5,10 +5,10 @@ class OpenSp < Formula
   sha256 "57f4898498a368918b0d49c826aa434bb5b703d2c3b169beb348016ab25617ce"
 
   bottle do
-    revision 1
-    sha256 "7ba3e77bc9e94196db6cfdc8549dca198d58849d2692eb131d8d192341dd9ac2" => :mavericks
-    sha256 "10e4817a392f4f44c5f02d87232cb58eac393bf6a8d3b7d945d0c4184a71c2d3" => :mountain_lion
-    sha256 "8aaecc5f3ebf3db7c5192651891a382f89c2cc919a2aa8c9713b7c8abb51a97f" => :lion
+    revision 2
+    sha256 "fb795bc471277017e309d2f869dc2a06d61d643545a75d03f40534c600ab92ab" => :el_capitan
+    sha256 "bc70e3434884459a653d26f2f58772def6a819132c7ef247326745faede0196f" => :yosemite
+    sha256 "b1a305eed7f53817549187981a3916ebecdf76aba4b9003ed20d703f7dfc6b99" => :mavericks
   end
 
   def install

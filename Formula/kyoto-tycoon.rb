@@ -5,6 +5,12 @@ class KyotoTycoon < Formula
   sha256 "553e4ea83237d9153cc5e17881092cefe0b224687f7ebcc406b061b2f31c75c6"
   revision 1
 
+  bottle do
+    sha256 "f018a810f3925d61fcce6a3ef558ac3d72fbbaf3f4e4ef10b7b5b1b994081a38" => :el_capitan
+    sha256 "82548c79c4b3830b0991eb60656887d2b52f4b2d7be9467d2a446be34b550991" => :yosemite
+    sha256 "b3fd82a6dd9e2949037da1a8c634632bab67c9628169c2f81bdbfc81515e7f50" => :mavericks
+  end
+
   depends_on "lua" => :recommended
   depends_on "kyoto-cabinet"
 

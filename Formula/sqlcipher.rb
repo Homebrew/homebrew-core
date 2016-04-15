@@ -1,16 +1,16 @@
 class Sqlcipher < Formula
   desc "SQLite extension providing 256-bit AES encryption"
   homepage "http://sqlcipher.net"
-  url "https://github.com/sqlcipher/sqlcipher/archive/v3.3.1.tar.gz"
-  sha256 "ce5167b2e4d7eb1514fd5a8dfc115a11c4b85f5fd88be2a9fd35ffbb684365bf"
+  url "https://github.com/sqlcipher/sqlcipher/archive/v3.4.0.tar.gz"
+  sha256 "99b702ecf796de02bf7b7b35de4ceef145f0d62b4467a86707c2d59beea243d0"
 
   head "https://github.com/sqlcipher/sqlcipher.git"
 
   bottle do
     cellar :any
-    sha256 "66e80714a76b6dc4b05bf282ca65e780baddadb87dd1310980b42fa5d97eeb19" => :el_capitan
-    sha256 "7f2abb8d51497f300290c2914b93e1223835022d79a84556ad08a062789492cb" => :yosemite
-    sha256 "42b83a8578cd1c5a46c95095a7783ff50a6280b42751f9ae606277f356ba188d" => :mavericks
+    sha256 "4bf0216834686577051b6d58aa2b6b2a1c0a91b45831a0c8f07aea9877e2df70" => :el_capitan
+    sha256 "0354c675587c3727bf360c1562d87743361045fabca11567ad8e1fff7dd586f4" => :yosemite
+    sha256 "ed88417a177ddd5340dd7f04523aa1d444863648a7cd82a3bfa642bc4f5b1992" => :mavericks
   end
 
   option "with-fts", "Build with full-text search enabled"
@@ -27,7 +27,7 @@ class Sqlcipher < Formula
     ]
 
     if build.with?("fts")
-      args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_FTS3"
+      args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_FTS5"
     else
       args << "CFLAGS=-DSQLITE_HAS_CODEC"
     end

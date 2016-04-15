@@ -1,8 +1,8 @@
 class Luyten < Formula
   desc "Java decompiler GUI for Procyon"
   homepage "https://deathmarine.github.io/Luyten/"
-  url "https://github.com/deathmarine/Luyten/releases/download/v0.4.5/luyten-0.4.5.jar", :using => :nounzip
-  sha256 "da2e656ee99cf6cba0e246d2f1ed58907dba0c3c472e60ec9bef4b7899a8955a"
+  url "https://github.com/deathmarine/Luyten/releases/download/v0.4.6/luyten-0.4.6.jar", :using => :nounzip
+  sha256 "27b70f2fc61060f3f081c462fc2cb38f203279b734e9140ac93f9722970c840d"
 
   head do
     url "https://github.com/deathmarine/Luyten.git"
@@ -21,7 +21,7 @@ class Luyten < Formula
       system "mvn", "clean", "package"
       libexec.install "target/luyten-#{ver}.jar"
     else
-      ver = "#{version}"
+      ver = version.to_s
       libexec.install "luyten-#{ver}.jar"
     end
     bin.write_jar_script libexec/"luyten-#{ver}.jar", "luyten"

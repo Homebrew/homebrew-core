@@ -5,10 +5,10 @@ class Mvptree < Formula
   sha256 "cbb89e7368785f4823200d4ba81975cdabe77797d736047b1ea14b02e6a61839"
 
   bottle do
-    cellar :any
-    sha256 "962ab5237770110598fd758bdd8319693652e71a02209c810b246045fd33f44a" => :mavericks
-    sha256 "232ea50b963e944b6ddc5b287927230dd6bec1b7da5fba300b4949c941870e6c" => :mountain_lion
-    sha256 "2f4e35ba655125f7a5cda6d5b16d52267255cc8340808df577eb28f6be1ddaf4" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "aba4177b187d549958f160ba5f6699f0532396a43b593a9a7bef456e68ae939b" => :el_capitan
+    sha256 "6e96d7c146df25acc913aefdd421202d978d77c70cfc75d2f8da5cb59c078c8a" => :mavericks
   end
 
   # Patch submitted to upstream by mail

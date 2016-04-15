@@ -34,10 +34,6 @@ class Burp < Formula
     EOS
   end
 
-  test do
-    system "#{bin}/burp", "-v"
-  end
-
   plist_options :startup => true
 
   def plist; <<-EOS.undent
@@ -64,6 +60,10 @@ class Burp < Formula
     </dict>
     </plist>
     EOS
+  end
+
+  test do
+    system "#{bin}/burp", "-v"
   end
 end
 
