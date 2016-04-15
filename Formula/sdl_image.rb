@@ -30,7 +30,7 @@ class SdlImage < Formula
     # --enable-feature-shared args work as inverse.
     # https://bugzilla.libsdl.org/show_bug.cgi?id=3308
     args << "--enable-jpg-shared=no" << "--enable-png-shared=no" << "--enable-tif-shared=no"
-    args << (build.with?("webp") ? "--enable-webp-shared=no" : "--enable-webp-shared")
+    args << "--enable-webp-shared" + (build.with?("webp") ? "=no": "")
     system "./configure", *args
     system "make", "install"
   end
