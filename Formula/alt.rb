@@ -14,6 +14,6 @@ class Alt < Formula
   end
 
   test do
-    system "#{bin}/alt", "--version"
+    assert_match version.to_s, shell_output("#{bin}/alt --version")
   end
 end
