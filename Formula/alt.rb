@@ -10,6 +10,7 @@ class Alt < Formula
 
   def install
     bin.install "alt"
+    doc.install "README.md"
   end
 
   test do
