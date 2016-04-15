@@ -1,8 +1,8 @@
 class Sops < Formula
   desc "Editor of encrypted files"
   homepage "https://github.com/mozilla/sops"
-  url "https://pypi.python.org/packages/source/s/sops/sops-1.10.tar.gz"
-  sha256 "65cf3c4777d389a0f812887e70bbfc36dc6bf3dbb16c18c086ca0b8b63523dfa"
+  url "https://pypi.python.org/packages/source/s/sops/sops-1.11.tar.gz"
+  sha256 "e55c7143d91028a968a25e73b2b914e2b7b4bf776b9e9f9ba4ae72081fe3dc9a"
 
   bottle do
     cellar :any
@@ -22,8 +22,8 @@ class Sops < Formula
   end
 
   resource "botocore" do
-    url "https://pypi.python.org/packages/source/b/botocore/botocore-1.4.8.tar.gz"
-    sha256 "47bcd9bdcde8661f79a031da68f21bd86cc5ecf07cec5cd1de0af114911d1806"
+    url "https://pypi.python.org/packages/source/b/botocore/botocore-1.4.11.tar.gz"
+    sha256 "96295db1444e9a458a3018205187ec424213e0a69c937062347f88b7b7e078fb"
   end
 
   resource "cffi" do
@@ -42,8 +42,8 @@ class Sops < Formula
   end
 
   resource "enum34" do
-    url "https://pypi.python.org/packages/source/e/enum34/enum34-1.1.2.tar.gz"
-    sha256 "2475d7fcddf5951e92ff546972758802de5260bf409319a9f1934e6bbc8b1dc7"
+    url "https://pypi.python.org/packages/source/e/enum34/enum34-1.1.3.tar.gz"
+    sha256 "865506c22462236b3a2e87a7d9587633e18470e7a93a79b594791de2d31e9bc8"
   end
 
   resource "futures" do
@@ -87,13 +87,13 @@ class Sops < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://pypi.python.org/packages/source/r/ruamel.yaml/ruamel.yaml-0.11.7.tar.gz"
-    sha256 "c89363e16c9eafb9354e55d757723efeff8682d05e56b0881450002ffb00a344"
+    url "https://pypi.python.org/packages/source/r/ruamel.yaml/ruamel.yaml-0.11.9.tar.gz"
+    sha256 "4060cdd2aec8b3bf1bbcf6959092fb177897a14e4b8757fafdc7518d9fced2e8"
   end
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-20.6.7.tar.gz"
-    sha256 "d20152ee6337323d3b6d95cd733fb719d6b4f3fbc40f61f7a48e5a1bb96478b2"
+    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-20.8.1.tar.gz"
+    sha256 "f49be4963e2d985bf12768f46cbfe4b016787f2c0ed1f8f62c3d2bc0362586da"
   end
 
   resource "six" do
