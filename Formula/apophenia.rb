@@ -6,6 +6,7 @@ class Apophenia < Formula
 
   depends_on "gsl"
   depends_on "sqlite"
+  depends_on "gnuplot"
 
   def install
     system "./configure", "--with-mysql=no", "--enable-extended-tests", "--prefix=#{prefix}"
