@@ -1,5 +1,5 @@
 class Alt < Formula
-  desc "Command line utility to find alternate file"
+  desc "command-line utility to find alternate file"
   homepage "https://github.com/cyphactor/alt"
   url "https://github.com/cyphactor/alt/archive/v0.0.1.tar.gz"
   version "0.0.1"
