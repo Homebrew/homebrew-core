@@ -15,9 +15,13 @@ class Mbedtls < Formula
   depends_on "cmake" => :build
 
   def install
-    # "Comment this macro to disable support for SSL 3.0"
     inreplace "include/mbedtls/config.h" do |s|
+      # disable support for SSL 3.0
       s.gsub! "#define MBEDTLS_SSL_PROTO_SSL3", "//#define MBEDTLS_SSL_PROTO_SSL3"
+      # enable pthread mutexes
+      s.gsub! "//#define MBEDTLS_THREADING_PTHREAD", "#define MBEDTLS_THREADING_PTHREAD"
+      # allow use of mutexes within mbed TLS
+      s.gsub! "//#define MBEDTLS_THREADING_C", "#define MBEDTLS_THREADING_C"
     end
 
     system "cmake", *std_cmake_args
