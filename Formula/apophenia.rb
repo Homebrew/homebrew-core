@@ -6,7 +6,6 @@ class Apophenia < Formula
 
   depends_on "gsl"
   depends_on "sqlite"
-  depends_on "gnuplot"
 
   def install
     system "./configure", "--with-mysql=no", "--enable-extended-tests", "--prefix=#{prefix}"
@@ -16,12 +15,17 @@ class Apophenia < Formula
 
   test do
     # write a sample csv text file to import
-    (testpath/"foo").write("thud,bump")
-    (testpath/"foo").write("1,2")
+    (testpath/"foo.csv").write <<-EOS.undent
+      thud,bump
+      1,2
+      3,4
+      5,6
+      7,8
+    EOS
     # test the csv to sqlite importer (built with libapophenia) works
-    system "#{bin}/apop_text_to_db", "foo", "bar", "baz"
-    system "echo", ".dump", "bar", "|", "sqlite3", "baz"
+    system "#{bin}/apop_text_to_db", (testpath/"foo.csv"), "bar", (testpath/"baz.db")
+    system "echo", ".dump", "bar", "|", "sqlite3", (testpath/"baz.db")
     # test the graph plotting tool (built with libapophenia) works
-    system "#{bin}/apop_plot_query", "-d", "baz", "-q", "select thud,bump from bar", "-f", "grumble"
+    system "#{bin}/apop_plot_query", "-d", (testpath/"baz.db"), "-q", "select thud,bump from bar", "-f", "grumble"
   end
 end
