@@ -14,7 +14,8 @@ class Apophenia < Formula
   end
 
   test do
-    (testpath/"foo").write("1")
+    (testpath/"foo").write("thud,bump")
+    (testpath/"foo").write("1,2")
     system "#{bin}/apop_text_to_db", "foo", "bar", "baz"
     system "echo", ".dump", "bar", "|", "sqlite3", "baz"
   end
