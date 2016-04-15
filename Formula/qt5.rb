@@ -69,6 +69,8 @@ class Qt5 < Formula
       -system-zlib
       -qt-libpng
       -qt-libjpeg
+      -qt-freetype
+      -qt-pcre
       -nomake tests
       -no-rpath
     ]
