@@ -12,9 +12,9 @@ class Node < Formula
   end
 
   devel do
-    url "https://nodejs.org/download/rc/v6.0.0-rc.1/node-v6.0.0-rc.1.tar.xz"
-    sha256 "d2ee873aa40e23c4fecd34aa6b8f6ac3091e2a8a2a016923ccd3d89eb108979f"
-    version "6.0.0-rc.1"
+    url "https://nodejs.org/download/rc/v6.0.0-rc.2/node-v6.0.0-rc.2.tar.xz"
+    sha256 "177dbdc102f2274e4cfe5c9fa2daab7ebe037b12336d50c7535028a0e57b6fca"
+    version "6.0.0-rc.2"
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -62,7 +62,8 @@ class Node < Formula
     else
       args << "--with-intl=small-icu"
     end
-    args << "--tag=rc.1" << "--release-urlbase=https://nodejs.org/download/rc/" if build.devel?
+    args << "--tag=rc.2" << "--release-urlbase=https://nodejs.org/download/rc/" if build.devel?
+    args << "--tag=head" if build.head?
 
     resource("icu4c").stage buildpath/"deps/icu"
 
@@ -164,11 +165,12 @@ class Node < Formula
     if build.with? "npm"
       # make sure npm can find node
       ENV.prepend_path "PATH", opt_bin
+      ENV.delete "NVM_NODEJS_ORG_MIRROR"
       assert_equal which("node"), opt_bin/"node"
       assert (HOMEBREW_PREFIX/"bin/npm").exist?, "npm must exist"
       assert (HOMEBREW_PREFIX/"bin/npm").executable?, "npm must be executable"
       system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "npm@latest"
-      system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "bignum"
+      system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "bignum" unless build.head?
     end
   end
 end
