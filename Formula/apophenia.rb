@@ -14,9 +14,13 @@ class Apophenia < Formula
   end
 
   test do
+    # write a sample csv text file to import
     (testpath/"foo").write("thud,bump")
     (testpath/"foo").write("1,2")
+    # test the csv to sqlite importer (built with libapophenia) works
     system "#{bin}/apop_text_to_db", "foo", "bar", "baz"
     system "echo", ".dump", "bar", "|", "sqlite3", "baz"
+    # test the graph plotting tool (built with libapophenia) works
+    system "#{bin}/apop_plot_query", "-d", "baz", "-q", "select thud,bump from bar", "-f", "grumble"
   end
 end
