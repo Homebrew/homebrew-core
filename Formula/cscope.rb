@@ -1,8 +1,8 @@
 class Cscope < Formula
   desc "Tool for browsing source code"
   homepage "http://cscope.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/cscope/cscope/15.8a/cscope-15.8a.tar.gz"
-  sha256 "eb736ac40d5abebe8fa46820c7a8eccc8a17966a9a5f70375367b77177874d1e"
+  url "https://downloads.sourceforge.net/project/cscope/cscope/15.8b/cscope-15.8b.tar.gz"
+  sha256 "4889d091f05aa0845384b1e4965aa31d2b20911fb2c001b2cdcffbcb7212d3af"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,9 +11,6 @@ class Cscope < Formula
     sha256 "c456f77835232efe5e3f9ed52885175266a039fbbc250afd9b6e646292c4b7d7" => :mavericks
     sha256 "80dbf0043c44a13d525b06096246e6ce493c1171d4b721cfa3828ac446e51831" => :mountain_lion
   end
-
-  # Patch from http://bugs.gentoo.org/show_bug.cgi?ctype=html&id=111621
-  patch :DATA
 
   def install
     system "./configure", "--prefix=#{prefix}",
@@ -37,26 +34,8 @@ class Cscope < Formula
         return 0;
       }
     EOS
-    (testpath/"cscope.files").write ("./test.c\n")
+    (testpath/"cscope.files").write "./test.c\n"
     system "#{bin}/cscope", "-b", "-k"
     assert_match /test\.c.*func/, shell_output("#{bin}/cscope -L1func")
   end
 end
-
-__END__
-diff --git a/src/constants.h b/src/constants.h
-index 7ad8005..844836e 100644
---- a/src/constants.h
-+++ b/src/constants.h
-@@ -103,7 +103,7 @@
- #define INCLUDES	8
- #define	FIELDS		10
- 
--#if (BSD || V9) && !__NetBSD__ && !__FreeBSD__
-+#if (BSD || V9) && !__NetBSD__ && !__FreeBSD__ && !__MACH__
- # define TERMINFO	0	/* no terminfo curses */
- #else
- # define TERMINFO	1
--- 
-1.6.4
-
