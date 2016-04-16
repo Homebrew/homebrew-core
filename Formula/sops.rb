@@ -11,7 +11,7 @@ class Sops < Formula
     sha256 "06df924aefb9f43b2fecbb12bd98ff6e6794eed8c07c241c23a700f90202da7a" => :mavericks
   end
 
-  depends_on "libffi"
+  depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl"
   depends_on :python if MacOS.version <= :snow_leopard
