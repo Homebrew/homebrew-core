@@ -14,11 +14,12 @@ class Ansible < Formula
   end
 
   devel do
-    url "https://releases.ansible.com/ansible/ansible-2.0.1.0-0.2.rc2.tar.gz"
-    sha256 "4807f8e4b6c70ea1eca6bb3131c19e17d835d2e8884a63d107a842007430285a"
-    version "2.0.1.0-0.2.rc2"
+    url "https://releases.ansible.com/ansible/ansible-2.0.2.0-0.4.rc4.tar.gz"
+    sha256 "b902f974b48bd6867fc5e6770bbc80df5d8af6c5b8f5a831bc8611360af1dc08"
+    version "2.0.2.0-0.4.rc4"
   end
 
+  depends_on "pkg-config" => :build
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libyaml"
   depends_on "openssl"
@@ -26,6 +27,11 @@ class Ansible < Formula
   #
   # ansible (core dependencies)
   #
+  resource "setuptools" do
+    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-20.8.1.tar.gz"
+    sha256 "f49be4963e2d985bf12768f46cbfe4b016787f2c0ed1f8f62c3d2bc0362586da"
+  end
+
   resource "Jinja2" do
     url "https://pypi.python.org/packages/source/J/Jinja2/Jinja2-2.8.tar.gz"
     sha256 "bc1ff2ff88dbfacefde4ddde471d1417d3b304e8df103a7a9437d47269201bf4"
@@ -74,23 +80,28 @@ class Ansible < Formula
   # Install requests with [security]
   #
   resource "cffi" do
-    url "https://pypi.python.org/packages/source/c/cffi/cffi-1.4.2.tar.gz"
-    sha256 "8f1d177d364ea35900415ae24ca3e471be3d5334ed0419294068c49f45913998"
+    url "https://pypi.python.org/packages/source/c/cffi/cffi-1.5.2.tar.gz"
+    sha256 "da9bde99872e46f7bb5cff40a9b1cc08406765efafb583c704de108b6cb821dd"
   end
 
   resource "cryptography" do
-    url "https://pypi.python.org/packages/source/c/cryptography/cryptography-1.2.3.tar.gz"
-    sha256 "8eb11c77dd8e73f48df6b2f7a7e16173fe0fe8fdfe266232832e88477e08454e"
+    url "https://pypi.python.org/packages/source/c/cryptography/cryptography-1.3.1.tar.gz"
+    sha256 "b4b36175e0f95ddc88435c26dbe3397edce48e2ff5fe41d504cdb3beddcd53e2"
   end
 
   resource "enum34" do
-    url "https://pypi.python.org/packages/source/e/enum34/enum34-1.1.2.tar.gz"
-    sha256 "2475d7fcddf5951e92ff546972758802de5260bf409319a9f1934e6bbc8b1dc7"
+    url "https://pypi.python.org/packages/source/e/enum34/enum34-1.1.3.tar.gz"
+    sha256 "865506c22462236b3a2e87a7d9587633e18470e7a93a79b594791de2d31e9bc8"
   end
 
   resource "idna" do
-    url "https://pypi.python.org/packages/source/i/idna/idna-2.0.tar.gz"
-    sha256 "16199aad938b290f5be1057c0e1efc6546229391c23cea61ca940c115f7d3d3b"
+    url "https://pypi.python.org/packages/source/i/idna/idna-2.1.tar.gz"
+    sha256 "ed36f281aebf3cd0797f163bb165d84c31507cedd15928b095b1675e2d04c676"
+  end
+
+  resource "ipaddress" do
+    url "https://pypi.python.org/packages/source/i/ipaddress/ipaddress-1.0.16.tar.gz"
+    sha256 "5a3182b322a706525c46282ca6f064d27a02cffbd449f9f47416f1dc96aa71b0"
   end
 
   resource "ndg-httpsclient" do
@@ -132,13 +143,13 @@ class Ansible < Formula
   end
 
   resource "docker-py" do
-    url "https://pypi.python.org/packages/source/d/docker-py/docker-py-1.6.0.tar.gz"
-    sha256 "35fef7379d5937983d645f3a15baa4874e3d512ee15f376d92131ad27c276a99"
+    url "https://pypi.python.org/packages/source/d/docker-py/docker-py-1.8.0.tar.gz"
+    sha256 "09ccd3522d86ec95c0659887d1da7b2761529020694efb0eeac87074cb4536c2"
   end
 
   resource "websocket-client" do
-    url "https://pypi.python.org/packages/source/w/websocket-client/websocket_client-0.35.0.tar.gz"
-    sha256 "5ac3ead091be17b680a0dda926aef1a697a2b6cf1e9ac0fbe4bffb14914c2116"
+    url "https://pypi.python.org/packages/source/w/websocket-client/websocket_client-0.37.0.tar.gz"
+    sha256 "678b246d816b94018af5297e72915160e2feb042e0cde1a9397f502ac3a52f41"
   end
 
   #
@@ -171,13 +182,13 @@ class Ansible < Formula
   # boto/boto3 (for AWS support)
   #
   resource "boto" do
-    url "https://pypi.python.org/packages/source/b/boto/boto-2.38.0.tar.gz"
-    sha256 "d9083f91e21df850c813b38358dc83df16d7f253180a1344ecfedce24213ecf2"
+    url "https://pypi.python.org/packages/source/b/boto/boto-2.39.0.tar.gz"
+    sha256 "950c5bf36691df916b94ebc5679fed07f642030d39132454ec178800d5b6c58a"
   end
 
   resource "boto3" do
-    url "https://pypi.python.org/packages/source/b/boto3/boto3-1.2.3.tar.gz"
-    sha256 "091206847d296520e5ec57706a5e4b428d017352eb3168c6bcb9a1ac9feab224"
+    url "https://pypi.python.org/packages/source/b/boto3/boto3-1.3.0.tar.gz"
+    sha256 "8f85b9261a5b4606d883248a59ef1a4e82fd783602dbec8deac4d2ad36a1b6f4"
   end
 
   #
@@ -185,8 +196,8 @@ class Ansible < Formula
   # https://github.com/boto/boto3
   #
   resource "botocore" do
-    url "https://pypi.python.org/packages/source/b/botocore/botocore-1.3.17.tar.gz"
-    sha256 "1ca85c5ebe0beed7b54fc47de81d3f39c6bb907951fe6db6a38185de63db7723"
+    url "https://pypi.python.org/packages/source/b/botocore/botocore-1.4.11.tar.gz"
+    sha256 "96295db1444e9a458a3018205187ec424213e0a69c937062347f88b7b7e078fb"
   end
 
   resource "docutils" do
@@ -200,8 +211,8 @@ class Ansible < Formula
   end
 
   resource "python-dateutil" do
-    url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.4.2.tar.gz"
-    sha256 "3e95445c1db500a344079a47b171c45ef18f57d188dffdb0e4165c71bea8eb3d"
+    url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.5.2.tar.gz"
+    sha256 "063907ef47f6e187b8fe0728952e4effb587a34f2dc356888646f9b71fbb2e4b"
   end
 
   #
@@ -216,13 +227,13 @@ class Ansible < Formula
   # pyrax (for Rackspace support)
   #
   resource "Babel" do
-    url "https://pypi.python.org/packages/source/B/Babel/Babel-2.2.0.tar.gz"
-    sha256 "d8cb4c0e78148aee89560f9fe21587aa57739c975bb89ff66b1e842cc697428f"
+    url "https://pypi.python.org/packages/source/B/Babel/Babel-2.3.3.tar.gz"
+    sha256 "12dff9afa9c6cd6e2a39960d3cd4b46b2b98768cdc6646833c66b20799c1c58e"
   end
 
   resource "debtcollector" do
-    url "https://pypi.python.org/packages/source/d/debtcollector/debtcollector-1.2.0.tar.gz"
-    sha256 "6467a3a074f0f042dc610f994c4f67a26d10f4e2e6b4d12adfb8380dc7a5d169"
+    url "https://pypi.python.org/packages/source/d/debtcollector/debtcollector-1.3.0.tar.gz"
+    sha256 "9a65cf09239eab75b961ef609b3176ed2487bedcfa0a465331661824e1c8db8f"
   end
 
   resource "dnspython" do
@@ -231,8 +242,8 @@ class Ansible < Formula
   end
 
   resource "funcsigs" do
-    url "https://pypi.python.org/packages/source/f/funcsigs/funcsigs-0.4.tar.gz"
-    sha256 "d83ce6df0b0ea6618700fe1db353526391a8a3ada1b7aba52fed7a61da772033"
+    url "https://pypi.python.org/packages/source/f/funcsigs/funcsigs-1.0.0.tar.gz"
+    sha256 "2310f9d4a77c284e920ec572dc2525366a107b08d216ff8dbb891d95b6a77563"
   end
 
   resource "ip_associations_python_novaclient_ext" do
@@ -246,8 +257,13 @@ class Ansible < Formula
   end
 
   resource "keyring" do
-    url "https://pypi.python.org/packages/source/k/keyring/keyring-8.2.tar.gz"
-    sha256 "89d5392dfb82dce6610845a8dc52541ec7e46204fafe242d5c6994216cdc3580"
+    url "https://pypi.python.org/packages/source/k/keyring/keyring-9.0.tar.gz"
+    sha256 "1c1222298da2100128f821c57096c69cb6cec0d22ba3b66c2859ae95ae473799"
+  end
+
+  resource "keystoneauth1" do
+    url "https://pypi.python.org/packages/source/k/keystoneauth1/keystoneauth1-2.6.0.tar.gz"
+    sha256 "b89a5eab3bb4bd6b36dc0c34903dbc37f531fbef4c74722cc62bffd730d1d854"
   end
 
   resource "mock" do
@@ -257,8 +273,8 @@ class Ansible < Formula
   end
 
   resource "monotonic" do
-    url "https://pypi.python.org/packages/source/m/monotonic/monotonic-0.6.tar.gz"
-    sha256 "2bc780a16024427cb4bfbfff77ed328484cf6937a787cc50055b83b13b653e74"
+    url "https://pypi.python.org/packages/source/m/monotonic/monotonic-1.0.tar.gz"
+    sha256 "47d7d045b3f2a08bffe683d761ef7f9131a2598db1cec7532a06720656cf719d"
   end
 
   resource "msgpack-python" do
@@ -292,28 +308,33 @@ class Ansible < Formula
   end
 
   resource "oslo.config" do
-    url "https://pypi.python.org/packages/source/o/oslo.config/oslo.config-3.3.0.tar.gz"
-    sha256 "af487c8eb97e7a8317cb419fe339da301d49e8e7ce01fc92d3ea24831ec90a89"
+    url "https://pypi.python.org/packages/source/o/oslo.config/oslo.config-3.9.0.tar.gz"
+    sha256 "ec7bdf4a3d85f90cf07d2fa03a20783558ad0f490d71bd8faf50bf4ee2923df1"
   end
 
   resource "oslo.i18n" do
-    url "https://pypi.python.org/packages/source/o/oslo.i18n/oslo.i18n-3.2.0.tar.gz"
-    sha256 "d2b4fcbcbc9f7b5a9b1d5cfebfa9064f2d9de0c0917ece1a0401df99fea94608"
+    url "https://pypi.python.org/packages/source/o/oslo.i18n/oslo.i18n-3.5.0.tar.gz"
+    sha256 "5fff5f6ceabed9d09b18d83e049864c29eff038efbbe67e03fe68c49cc189f10"
   end
 
   resource "oslo.serialization" do
-    url "https://pypi.python.org/packages/source/o/oslo.serialization/oslo.serialization-2.2.0.tar.gz"
-    sha256 "24320d26f6bc4850057aa9996e3a2431d4c4c5d0b670658e7e632007f31c4003"
+    url "https://pypi.python.org/packages/source/o/oslo.serialization/oslo.serialization-2.4.0.tar.gz"
+    sha256 "9b95fc07310fd6df8cab064f89fd15327b259dec17a2e2b9a07b9ca4d96be0c6"
   end
 
   resource "oslo.utils" do
-    url "https://pypi.python.org/packages/source/o/oslo.utils/oslo.utils-3.4.0.tar.gz"
-    sha256 "b62438d4c5d4ba0cf32f0a4f3c5f1fe147675a607826342174694630ccce0b6f"
+    url "https://pypi.python.org/packages/source/o/oslo.utils/oslo.utils-3.8.0.tar.gz"
+    sha256 "c0e935b86e72facc02264271ed09dd9c5879d52452d7a1b4a116a6c7d05077aa"
   end
 
   resource "pbr" do
-    url "https://pypi.python.org/packages/source/p/pbr/pbr-1.8.1.tar.gz"
-    sha256 "e2127626a91e6c885db89668976db31020f0af2da728924b56480fc7ccf09649"
+    url "https://pypi.python.org/packages/source/p/pbr/pbr-1.9.1.tar.gz"
+    sha256 "3997406c90894ebf3d1371811c1e099721440a901f946ca6dc4383350403ed51"
+  end
+
+  resource "positional" do
+    url "https://pypi.python.org/packages/source/p/positional/positional-1.0.1.tar.gz"
+    sha256 "54a73f3593c6e30e9cdd0a727503b7c5dddbb75fb78bb681614b08dfde2bc444"
   end
 
   resource "PrettyTable" do
@@ -327,18 +348,18 @@ class Ansible < Formula
   end
 
   resource "python-keystoneclient" do
-    url "https://pypi.python.org/packages/source/p/python-keystoneclient/python-keystoneclient-2.1.1.tar.gz"
-    sha256 "9778aaccd142acbd545647d173aa66f3ef092bf579d43b95bc9550fbd6d7bf38"
+    url "https://pypi.python.org/packages/source/p/python-keystoneclient/python-keystoneclient-2.3.1.tar.gz"
+    sha256 "89e93551071cf29780eeafe7a61114cd36b1c2192813d3c2a58a348a6a3ac6ff"
   end
 
   resource "python-novaclient" do
-    url "https://pypi.python.org/packages/source/p/python-novaclient/python-novaclient-3.2.0.tar.gz"
-    sha256 "b00a70ba72b068adb6aaca19b14ed4bde9c950ef4f24234d095f9f9985073179"
+    url "https://pypi.python.org/packages/source/p/python-novaclient/python-novaclient-2.27.0.tar.gz"
+    sha256 "d1279d5c2857cf8c56cb953639b36225bc1fec7fa30ee632940823506a7638ef"
   end
 
   resource "pytz" do
-    url "https://pypi.python.org/packages/source/p/pytz/pytz-2015.7.tar.bz2"
-    sha256 "fbd26746772c24cb93c8b97cbdad5cb9e46c86bbdb1b9d8a743ee00e2fb1fc5d"
+    url "https://pypi.python.org/packages/source/p/pytz/pytz-2016.3.tar.bz2"
+    sha256 "c193dfa167ac32c8cb96f26cbcd92972591b22bda0bac3effdbdb04de6cc55d6"
   end
 
   resource "rackspace-auth-openstack" do
@@ -362,8 +383,8 @@ class Ansible < Formula
   end
 
   resource "simplejson" do
-    url "https://pypi.python.org/packages/source/s/simplejson/simplejson-3.8.1.tar.gz"
-    sha256 "428ac8f3219c78fb04ce05895d5dff9bd813c05a9a7922c53dc879cd32a12493"
+    url "https://pypi.python.org/packages/source/s/simplejson/simplejson-3.8.2.tar.gz"
+    sha256 "d58439c548433adcda98e695be53e526ba940a4b9c44fb9a05d92cd495cdd47f"
   end
 
   resource "stevedore" do
@@ -379,11 +400,6 @@ class Ansible < Formula
   #
   # python-keyczar (for Accelerated Mode support)
   #
-  resource "pyasn1" do
-    url "https://pypi.python.org/packages/source/p/pyasn1/pyasn1-0.1.8.tar.gz"
-    sha256 "5d33be7ca0ec5997d76d29ea4c33b65c00c0231407fff975199d7f40530b8347"
-  end
-
   resource "python-keyczar" do
     url "https://pypi.python.org/packages/source/p/python-keyczar/python-keyczar-0.715.tar.gz"
     sha256 "f43f9f15b0b719de94cab2754dcf78ef63b40ee2a12cea296e7af788b28501bb"
@@ -448,16 +464,6 @@ class Ansible < Formula
     sha256 "19485d83f7bd2151c0aeaf88fbba3ee50dadfb222ffc3b66a344ef4952b782a3"
   end
 
-  resource "idna" do
-    url "https://pypi.python.org/packages/source/i/idna/idna-2.0.tar.gz"
-    sha256 "16199aad938b290f5be1057c0e1efc6546229391c23cea61ca940c115f7d3d3b"
-  end
-
-  resource "ipaddress" do
-    url "https://pypi.python.org/packages/source/i/ipaddress/ipaddress-1.0.16.tar.gz"
-    sha256 "5a3182b322a706525c46282ca6f064d27a02cffbd449f9f47416f1dc96aa71b0"
-  end
-
   resource "jsonpatch" do
     url "https://pypi.python.org/packages/source/j/jsonpatch/jsonpatch-1.12.tar.gz"
     sha256 "2e1eb457f9c8dd5dae837ca93c0fe5bd2522c9d44b9b380fb1aab2ab4dec04b1"
@@ -471,11 +477,6 @@ class Ansible < Formula
   resource "jsonschema" do
     url "https://pypi.python.org/packages/source/j/jsonschema/jsonschema-2.5.1.tar.gz"
     sha256 "36673ac378feed3daa5956276a829699056523d7961027911f064b52255ead41"
-  end
-
-  resource "keystoneauth1" do
-    url "https://pypi.python.org/packages/source/k/keystoneauth1/keystoneauth1-2.2.0.tar.gz"
-    sha256 "e22bf11033577622a0eae70710f0caaf4f4c7c09d65661fa4b78330158d34533"
   end
 
   resource "lxml" do
@@ -493,19 +494,9 @@ class Ansible < Formula
     sha256 "d12e92d461abbba9f87d722a28927ba4241d29abbaea520f2a44146b9eeec118"
   end
 
-  resource "pycparser" do
-    url "https://pypi.python.org/packages/source/p/pycparser/pycparser-2.14.tar.gz"
-    sha256 "7959b4a74abdc27b312fed1c21e6caf9309ce0b29ea86b591fd2e99ecdf27f73"
-  end
-
   resource "pyOpenSSL" do
     url "https://pypi.python.org/packages/source/p/pyOpenSSL/pyOpenSSL-0.15.1.tar.gz"
     sha256 "f0a26070d6db0881de8bcc7846934b7c3c930d8f9c79d45883ee48984bc0d672"
-  end
-
-  resource "pyparsing" do
-    url "https://pypi.python.org/packages/source/p/pyparsing/pyparsing-2.0.7.tar.gz"
-    sha256 "2ce0db3c70ec0413603d4aea389e4ece34ff93c265649b1c5c7d56e3c2cf19c4"
   end
 
   resource "python-cinderclient" do
@@ -571,6 +562,7 @@ class Ansible < Formula
   def install
     vendor_site_packages = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
+    ENV.delete "SDKROOT"
 
     resources.each do |r|
       r.stage do
