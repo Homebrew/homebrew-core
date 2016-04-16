@@ -3,7 +3,6 @@ class Fleetctl < Formula
   homepage "https://github.com/coreos/fleet"
   url "https://github.com/coreos/fleet/archive/v0.11.7.tar.gz"
   sha256 "5c838059826d6cde1183554701d3af93619980c299fe9d1365588a30a4ca6cc8"
-  revision 1
 
   head "https://github.com/coreos/fleet.git"
 
