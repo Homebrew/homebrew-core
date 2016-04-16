@@ -4,6 +4,10 @@ class Kibana < Formula
   url "https://github.com/elastic/kibana.git", :tag => "v4.5.0", :revision => "ff5cfc5d05a58e53f7acaa762428fa803318d31e"
   head "https://github.com/elastic/kibana.git"
 
+  devel do
+    url "https://github.com/elastic/kibana.git", :tag => "v5.0.0-alpha1", :revision => "a18c3d0acd20d5c389df8904cd4b9e650aa260f0"
+  end
+
   bottle do
     sha256 "70427af44d49688d5d4bfead4d1dcfd132e080013c2a114935c14de867da490a" => :el_capitan
     sha256 "b6c945b9e19e1204b0b490fd44b27d4e5bf3ca6b726073766ffa99aaa4a52db6" => :yosemite
