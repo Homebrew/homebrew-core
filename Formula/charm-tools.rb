@@ -1,8 +1,8 @@
 class CharmTools < Formula
   desc "Tools for authoring and maintaining juju charms"
   homepage "https://github.com/juju/charm-tools"
-  url "https://github.com/juju/charm-tools/releases/download/v1.11.1/charm-tools-1.11.1.tar.gz"
-  sha256 "e6172443101134fffadf0e4953379f28a5343d77df9e8891d51199bc0fd9f745"
+  url "https://github.com/juju/charm-tools/releases/download/v2.1.2/charm-tools-2.1.2.tar.gz"
+  sha256 "81ec4363df3b79556260ee51690227ea02ef288ebbfdd73a0261ae2177ad0002"
 
   bottle do
     cellar :any
@@ -14,6 +14,7 @@ class CharmTools < Formula
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libyaml"
   depends_on :hg
+  depends_on "charm"
 
   resource "pip" do
     url "https://pypi.python.org/packages/source/p/pip/pip-7.1.2.tar.gz"
@@ -30,14 +31,9 @@ class CharmTools < Formula
     sha256 "0994797182eb828867eee81cccc79480bd2946c99304266bc427b902cf91dab0"
   end
 
-  resource "charm-tools" do
-    url "https://pypi.python.org/packages/source/c/charm-tools/charm-tools-1.9.2.tar.gz"
-    sha256 "2a1c8b0066d3f6c527d6b8d273c7def20800f7539d4c82488c84d97f92364161"
-  end
-
-  resource "charmworldlib" do
-    url "https://pypi.python.org/packages/source/c/charmworldlib/charmworldlib-0.4.2.tar.gz"
-    sha256 "bdcd0ef5e53603a3bca83d9eca7077be4d798a61325baffeab5b2267ba69bd77"
+  resource "libcharmstore" do
+    url "https://pypi.python.org/packages/source/l/libcharmstore/libcharmstore-0.0.3.tar.gz"
+    sha256 "1beb37a662e9e0d60bbebc65ec360f2f8333316706c6ae0c59d437a8a8d76ecc"
   end
 
   resource "Cheetah" do
@@ -71,8 +67,8 @@ class CharmTools < Formula
   end
 
   resource "jujubundlelib" do
-    url "https://pypi.python.org/packages/source/j/jujubundlelib/jujubundlelib-0.3.1.tar.gz"
-    sha256 "23941e8558e49b971a4500abe23bd29abca12a8ccbfe2e1aa0ab9fe4490743f4"
+    url "https://pypi.python.org/packages/source/j/jujubundlelib/jujubundlelib-0.4.1.tar.gz"
+    sha256 "4a47d0c31311bd52ce99ff88624acc0298860028e42525dcb9894496346194b8"
   end
 
   resource "keyring" do
@@ -180,6 +176,11 @@ class CharmTools < Formula
     sha256 "ad0a117383dd463827b199eaa92829b4d6a3147fbd97459820df53bae81d7231"
   end
 
+  resource "theblues" do
+    url "https://pypi.python.org/packages/source/t/theblues/theblues-0.2.1.tar.gz"
+    sha256 "f5cf6259810bc0d71f21c99438fad61ef8d5db0e9b51ea91a3501817c3d22879"
+  end
+
   resource "translationstring" do
     url "https://pypi.python.org/packages/source/t/translationstring/translationstring-1.3.tar.gz"
     sha256 "4ee44cfa58c52ade8910ea0ebc3d2d84bdcad9fa0422405b1801ec9b9a65b72d"
@@ -207,7 +208,7 @@ class CharmTools < Formula
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    %w[pip blessings bzr charm-tools charmworldlib Cheetah colander ecdsa httplib2 iso8601 jsonschema jujubundlelib keyring launchpadlib lazr.authentication lazr.restfulclient lazr.uri Markdown oauth otherstuf paramiko parse path.py pathspec pycrypto PyYAML requests ruamel.base ruamel.ordereddict ruamel.yaml simplejson stuf testresources translationstring virtualenv wadllib wsgi_intercept zope.interface].each do |r|
+    %w[pip blessings bzr libcharmstore Cheetah colander ecdsa httplib2 iso8601 jsonschema jujubundlelib keyring launchpadlib lazr.authentication lazr.restfulclient lazr.uri Markdown oauth otherstuf paramiko parse path.py pathspec pycrypto PyYAML requests ruamel.base ruamel.ordereddict ruamel.yaml simplejson stuf testresources translationstring theblues virtualenv wadllib wsgi_intercept zope.interface].each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
@@ -221,6 +222,6 @@ class CharmTools < Formula
   end
 
   test do
-    system "#{bin}/charm", "list"
+    system "#{bin}/charm-version"
   end
 end
