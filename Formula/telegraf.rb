@@ -3,33 +3,16 @@ require "language/go"
 class Telegraf < Formula
   desc "Server-level metric gathering agent for InfluxDB"
   homepage "https://influxdata.com"
-  url "https://github.com/influxdata/telegraf/archive/0.12.0.tar.gz"
-  sha256 "81f715d3efa6f801cf9bc433922280be7fda10c2aedcb4d0b2a91f51f881ccc4"
+  url "https://github.com/influxdata/telegraf/archive/0.12.1.tar.gz"
+  sha256 "af323e4557698965f675dadf99ef46dd51662a21b704f776ad773040b48b7cd3"
+
+  head "https://github.com/influxdata/telegraf.git"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "cc9fed31264f778fe0a4f6afaa79975ae06c32381a2c411e4af332b699cd36e2" => :el_capitan
     sha256 "431681b65cdb48c2efbe325770ba95387b088abb3cc755aceba37b1e68d852ae" => :yosemite
     sha256 "52943e87c5e3ae2767549164dc817fcc10e3f503a16d6fe9524ae4abc081ccc8" => :mavericks
-  end
-
-  head do
-    url "https://github.com/influxdata/telegraf.git"
-
-    go_resource "github.com/docker/engine-api" do
-      url "https://github.com/docker/engine-api.git",
-      :revision => "8924d6900370b4c7e7984be5adc61f50a80d7537"
-    end
-
-    go_resource "github.com/docker/go-connections" do
-      url "https://github.com/docker/go-connections.git",
-      :revision => "f549a9393d05688dff0992ef3efd8bbe6c628aeb"
-    end
-
-    go_resource "github.com/docker/go-units" do
-      url "https://github.com/docker/go-units.git",
-      :revision => "5d2041e26a699eaca682e2ea41c8f891e1060444"
-    end
   end
 
   depends_on "go" => :build
@@ -89,6 +72,21 @@ class Telegraf < Formula
     :revision => "5215b55f46b2b919f50a1df0eaa5886afe4e3b3d"
   end
 
+  go_resource "github.com/docker/engine-api" do
+    url "https://github.com/docker/engine-api.git",
+    :revision => "8924d6900370b4c7e7984be5adc61f50a80d7537"
+  end
+
+  go_resource "github.com/docker/go-connections" do
+    url "https://github.com/docker/go-connections.git",
+    :revision => "f549a9393d05688dff0992ef3efd8bbe6c628aeb"
+  end
+
+  go_resource "github.com/docker/go-units" do
+    url "https://github.com/docker/go-units.git",
+    :revision => "5d2041e26a699eaca682e2ea41c8f891e1060444"
+  end
+
   go_resource "github.com/eapache/go-resiliency" do
     url "https://github.com/eapache/go-resiliency.git",
     :revision => "b86b1ec0dd4209a588dc1285cdd471e73525c0b3"
@@ -101,12 +99,7 @@ class Telegraf < Formula
 
   go_resource "github.com/eclipse/paho.mqtt.golang" do
     url "https://github.com/eclipse/paho.mqtt.golang.git",
-    :revision => "4ab3e867810d1ec5f35157c59e965054dbf43a0d"
-  end
-
-  go_resource "github.com/fsouza/go-dockerclient" do
-    url "https://github.com/fsouza/go-dockerclient.git",
-    :revision => "a49c8269a6899cae30da1f8a4b82e0ce945f9967"
+    :revision => "0f7a459f04f13a41b7ed752d47944528d4bf9a86"
   end
 
   go_resource "github.com/go-sql-driver/mysql" do
