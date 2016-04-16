@@ -1,8 +1,8 @@
 class Cppformat < Formula
   desc "Open-source formatting library for C++"
   homepage "https://cppformat.github.io/"
-  url "https://github.com/cppformat/cppformat/releases/download/2.0.0/cppformat-2.0.0.zip"
-  sha256 "0f6f680fb1e5b192ed1820dca9d2f1171a0ad1d91b5a935ac5c25899e6861f0e"
+  url "https://github.com/cppformat/cppformat/releases/download/2.1.1/cppformat-2.1.1.zip"
+  sha256 "7c6c739291c4a97eec95a758b2a2243f43c79dfa2d1e94e33c09a6736de6c427"
 
   bottle do
     cellar :any_skip_relocation
