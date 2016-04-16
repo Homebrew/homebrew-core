@@ -1,8 +1,8 @@
 class CabalInstall < Formula
   desc "Command-line interface for Cabal and Hackage"
   homepage "https://www.haskell.org/cabal/"
-  url "https://hackage.haskell.org/package/cabal-install-1.22.6.0/cabal-install-1.22.6.0.tar.gz"
-  sha256 "9d239e385696a7faa49f068aea451882baec6a7df26fbddbd08271c9053cb0b4"
+  url "https://hackage.haskell.org/package/cabal-install-1.22.9.0/cabal-install-1.22.9.0.tar.gz"
+  sha256 "874035e5730263653c7aa459f270efbffc06da92ea0c828e09ebc04400e94940"
 
   bottle do
     revision 1
