@@ -12,7 +12,7 @@ class Bsdsfv < Formula
   end
 
   # bug report:
-  # http://sourceforge.net/tracker/?func=detail&aid=2887842&group_id=7211&atid=107211
+  # https://sourceforge.net/p/bsdsfv/bugs/1/
   # Patch from MacPorts
   patch :DATA
 
