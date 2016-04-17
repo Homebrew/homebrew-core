@@ -3,8 +3,8 @@ class Allegro < Formula
   homepage "http://liballeg.org/"
 
   stable do
-    url "http://download.gna.org/allegro/allegro/5.0.11/allegro-5.0.11.tar.gz"
-    sha256 "49fe14c9571463ba08db4ff778d1fbb15e49f9c33bdada3ac8599e04330ea531"
+  url "http://download.gna.org/allegro/allegro/5.2.0/allegro-5.2.0.tar.gz"
+  sha256 "af5a69cd423d05189e92952633f9c0dd0ff3a061d91fbce62fb32c4bd87f9fd7"
   end
 
   bottle do
@@ -15,17 +15,8 @@ class Allegro < Formula
     sha256 "65a04aa3c0901264e54ca91f8982da085ea90bccabcb885fac054ba5219e19bd" => :mavericks
   end
 
-  devel do
-    url "http://download.gna.org/allegro/allegro-unstable/5.1.13.1/allegro-5.1.13.1.tar.gz"
-    sha256 "c6e6265c3d661d46270971b7fbf7db34c1873af62882a9ea4025ca1298edf14d"
-
-    depends_on "theora" => :recommended
-  end
-
   head do
-    url "https://github.com/liballeg/allegro5.git", :branch => "5.1"
-
-    depends_on "theora" => :recommended
+    url "https://github.com/liballeg/allegro5.git", :branch => "5.2"
   end
 
   depends_on "cmake" => :build
@@ -33,6 +24,9 @@ class Allegro < Formula
   depends_on "freetype" => :recommended
   depends_on "flac" => :recommended
   depends_on "physfs" => :recommended
+  depends_on "dumb" => :recommended
+  depends_on "libogg" => :recommended
+  depends_on "theora" => :recommended
 
   def install
     mkdir "build" do
