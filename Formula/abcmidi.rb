@@ -28,7 +28,7 @@ class Abcmidi < Formula
     (testpath/"balk.abc").write <<-EOF.undent
       X: 1
       T: Abdala
-      F: http://www.youtube.com/watch?v=YMf8yXaQDiQ
+      F: https://www.youtube.com/watch?v=YMf8yXaQDiQ
       L: 1/8
       M: 2/4
       K:Cm
