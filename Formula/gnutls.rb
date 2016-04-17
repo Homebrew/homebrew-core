@@ -1,6 +1,6 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
-  homepage "http://gnutls.org/"
+  homepage "https://gnutls.org/"
   url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.10.tar.xz"
   mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.4/gnutls-3.4.10.tar.xz"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.4/gnutls-3.4.10.tar.xz"
