@@ -11,7 +11,7 @@ class Htmlcxx < Formula
   end
 
   # Don't try to use internal GCC headers; rely on standards-compliant header
-  # Fixed upstream: http://sourceforge.net/p/htmlcxx/code/ci/b26a4fae4e3d59d24600f9a7dfb013ce43bdd2df/
+  # Fixed upstream: https://sourceforge.net/p/htmlcxx/code/ci/b26a4fae4e3d59d24600f9a7dfb013ce43bdd2df/
   patch :DATA
 
   def install
