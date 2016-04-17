@@ -1,9 +1,9 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
-  homepage "http://botan.randombit.net/"
+  homepage "https://botan.randombit.net/"
 
   stable do
-    url "http://botan.randombit.net/releases/Botan-1.10.12.tgz"
+    url "https://botan.randombit.net/releases/Botan-1.10.12.tgz"
     sha256 "affc3a79919577943f896e64d3e4a4dcc4970c5bf80cc98c7f3a3144745eac27"
     # upstream ticket: https://bugs.randombit.net/show_bug.cgi?id=267
     patch :DATA
@@ -17,7 +17,7 @@ class Botan < Formula
   end
 
   devel do
-    url "http://botan.randombit.net/releases/Botan-1.11.28.tgz"
+    url "https://botan.randombit.net/releases/Botan-1.11.28.tgz"
     sha256 "a414c96f45b2707d4750d299ca03ec3fce5ada62ada1ba5cd012a9ace61f5932"
   end
 
