@@ -21,7 +21,7 @@ class HgFlow < Formula
   def caveats; <<-EOS.undent
     1. Put following lines into your ~/.hgrc
     2. Restart your shell and try "hg flow".
-    3. For more information go to http://bitbucket.org/yinwm/hgflow
+    3. For more information go to https://bitbucket.org/yinwm/hgflow
 
         [extensions]
         flow = #{opt_prefix}/libexec/hgflow.py
