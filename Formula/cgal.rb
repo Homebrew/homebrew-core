@@ -1,8 +1,8 @@
 class Cgal < Formula
   desc "CGAL: Computational Geometry Algorithm Library"
   homepage "http://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.7/CGAL-4.7.tar.gz"
-  sha256 "1be058fe9fc4d8331b48daf8beb114a049fd4970220d8a570ff709b7789dacae"
+  url "https://github.com/CGAL/cgal/archive/releases/CGAL-4.8.tar.gz"
+  sha256 "98f9eafbf7faffc48d0a5c3a1217d8d8e80bb0a753c76d1634236ea033722e36"
 
   bottle do
     cellar :any
@@ -33,7 +33,7 @@ class Cgal < Formula
   depends_on "eigen" if build.with? "eigen3"
 
   # Allows to compile with clang 425: http://goo.gl/y9Dg2y
-  patch :DATA
+  #patch :DATA
 
   def install
     ENV.cxx11 if build.cxx11?
@@ -57,18 +57,18 @@ class Cgal < Formula
   end
 end
 
-__END__
-diff --git a/src/CGAL/File_header_extended_OFF.cpp b/src/CGAL/File_header_extended_OFF.cpp
-index 3f709ff..f0e5bd3 100644
---- a/src/CGAL/File_header_extended_OFF.cpp
-+++ b/src/CGAL/File_header_extended_OFF.cpp
-@@ -186,7 +186,8 @@ std::istream& operator>>( std::istream& in, File_header_extended_OFF& h) {
-         }
-         in >> keyword;
-     }
--    in >> skip_until_EOL >> skip_comment_OFF;
-+    skip_until_EOL(in);
-+    skip_comment_OFF(in);
-     return in;
- }
- #undef CGAL_IN
+# __END__
+# diff --git a/src/CGAL/File_header_extended_OFF.cpp b/src/CGAL/File_header_extended_OFF.cpp
+# index 3f709ff..f0e5bd3 100644
+# --- a/src/CGAL/File_header_extended_OFF.cpp
+# +++ b/src/CGAL/File_header_extended_OFF.cpp
+# @@ -186,7 +186,8 @@ std::istream& operator>>( std::istream& in, File_header_extended_OFF& h) {
+#         }
+#         in >> keyword;
+#     }
+# -    in >> skip_until_EOL >> skip_comment_OFF;
+# +    skip_until_EOL(in);
+# +    skip_comment_OFF(in);
+#     return in;
+# }
+# #undef CGAL_IN
