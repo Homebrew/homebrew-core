@@ -1,6 +1,6 @@
 class Ansible < Formula
   desc "Automate deployment, configuration, and upgrading"
-  homepage "http://www.ansible.com"
+  homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.0.1.0.tar.gz"
   sha256 "cddc4fa6af4c1be6cd1d6634de1bd0397abad921c76b32cab6722c042744ee5d"
 
