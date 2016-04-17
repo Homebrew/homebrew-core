@@ -1,6 +1,6 @@
 class Moc < Formula
   desc "Terminal-based music player"
-  homepage "http://moc.daper.net"
+  homepage "https://moc.daper.net"
   revision 2
   head "svn://daper.net/moc/trunk"
 
@@ -9,7 +9,7 @@ class Moc < Formula
     sha256 "d29ea52240af76c4aa56fa293553da9d66675823e689249cee5f8a60657a6091"
 
     # Backport r2779: Adapt to FFmpeg/LibAV's audioconvert.h rename (commit 5980f5dd).
-    # Necessary for building against FFmpeg 3.0. See http://moc.daper.net/node/1496.
+    # Necessary for building against FFmpeg 3.0. See https://moc.daper.net/node/1496.
     patch do
       url "https://raw.githubusercontent.com/Homebrew/patches/1282e60/moc/moc-2.5.0.diff"
       sha256 "1a7d2d7f967c8182db01dd95d5a05aac8f2acae2eac6fcda419baaed068bc8ef"
