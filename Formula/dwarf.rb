@@ -7,7 +7,7 @@ class Dwarf < Formula
   depends_on "readline"
 
   # Imports inttypes.h in a generated lex file instead of stdint.h
-  # Reported upstream: http://code.autistici.org/trac/dwarf/ticket/8
+  # Reported upstream: https://code.autistici.org/trac/dwarf/ticket/8
   # Also has missing & unwanted return values in some functions
   # If the above are fixed, the newer 0.3.1 fails with a missing make target
   fails_with :clang do
