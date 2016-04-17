@@ -32,7 +32,7 @@ class Cgal < Formula
   depends_on "qt" if build.with? "imaging"
   depends_on "eigen" if build.with? "eigen3"
 
-  # Allows to compile with clang 425: http://goo.gl/y9Dg2y
+  # Allows to compile with clang 425: https://goo.gl/y9Dg2y
   patch :DATA
 
   def install
