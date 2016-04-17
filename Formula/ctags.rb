@@ -7,7 +7,7 @@ class Ctags < Formula
     url "https://downloads.sourceforge.net/ctags/ctags-5.8.tar.gz"
     sha256 "0e44b45dcabe969e0bbbb11e30c246f81abe5d32012db37395eb57d66e9e99c7"
 
-    # also fixes http://sourceforge.net/tracker/?func=detail&aid=3247256&group_id=6556&atid=106556
+    # also fixes https://sourceforge.net/p/ctags/bugs/312/
     # merged upstream but not yet in stable
     patch :p2 do
       url "https://gist.githubusercontent.com/naegelejd/9a0f3af61954ae5a77e7/raw/16d981a3d99628994ef0f73848b6beffc70b5db8/Ctags%20r782"
@@ -24,11 +24,11 @@ class Ctags < Formula
   end
 
   head do
-    url "https://svn.code.sf.net/p/ctags/code/trunk"
+    url "http://svn.code.sf.net/p/ctags/code/trunk"
     depends_on "autoconf" => :build
   end
 
-  # fixes http://sourceforge.net/tracker/?func=detail&aid=3247256&group_id=6556&atid=106556
+  # fixes https://sourceforge.net/p/ctags/bugs/312/
   patch :p2, :DATA
 
   def install
