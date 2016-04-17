@@ -1,12 +1,12 @@
 class Netpbm < Formula
   desc "Image manipulation"
   homepage "http://netpbm.sourceforge.net"
-  # Maintainers: Look at http://netpbm.svn.sourceforge.net/viewvc/netpbm/
+  # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for versions and matching revisions
-  url "http://svn.code.sf.net/p/netpbm/code/advanced", :revision => 2294
+  url "https://svn.code.sf.net/p/netpbm/code/advanced", :revision => 2294
   version "10.68"
 
-  head "http://svn.code.sf.net/p/netpbm/code/trunk"
+  head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
   bottle do
     cellar :any
@@ -65,7 +65,7 @@ class Netpbm < Formula
   end
 
   test do
-    system ("#{bin}/pngtopam #{test_fixtures("test.png")} -alphapam >> test.pam")
+    system "#{bin}/pngtopam", "#{test_fixtures("test.png")}.to_s", "-alphapam", ">>", "test.pam"
     system "#{bin}/pamdice", "test.pam", "-outstem", "#{testpath}/testing"
     assert File.exist?("testing_0_0.")
   end
