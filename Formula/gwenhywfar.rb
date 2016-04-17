@@ -33,7 +33,7 @@ class Gwenhywfar < Formula
     guis << "cocoa" if build.with? "cocoa"
 
     # https://devel.aqbanking.de/trac/aqbanking/ticket/247
-    # http://www.gnutls.org/manual/html_node/Priority-Strings.html
+    # https://www.gnutls.org/manual/html_node/Priority-Strings.html
     inreplace "src/sio/syncio_tls.c", "gnutls_protocol_set_priority", "gnutls_priority_set"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
