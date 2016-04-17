@@ -46,7 +46,7 @@ class Fuseki < Formula
     Quick-start guide:
 
     * See the Fuseki documentation for instructions on using an in-memory database:
-      http://jena.apache.org/documentation/serving_data/#fuseki-server-starting-with-an-empty-dataset
+      https://jena.apache.org/documentation/serving_data/#fuseki-server-starting-with-an-empty-dataset
 
     * Running from the LaunchAgent is different the standard configuration and
       uses traditional Unix paths: please inspect the settings here first:
