@@ -3,10 +3,10 @@ class Netpbm < Formula
   homepage "http://netpbm.sourceforge.net"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for versions and matching revisions
-  url "https://svn.code.sf.net/p/netpbm/code/advanced", :revision => 2294
+  url "http://svn.code.sf.net/p/netpbm/code/advanced", :revision => 2294
   version "10.68"
 
-  head "https://svn.code.sf.net/p/netpbm/code/trunk"
+  head "http://svn.code.sf.net/p/netpbm/code/trunk"
 
   bottle do
     cellar :any
