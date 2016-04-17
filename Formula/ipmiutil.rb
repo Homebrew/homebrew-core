@@ -16,7 +16,7 @@ class Ipmiutil < Formula
 
   # Ensure ipmiutil does not try to link against (disabled) OpenSSL's MD2
   # support. Patch submitted upstream in
-  # http://sourceforge.net/p/ipmiutil/mailman/message/33373858/
+  # https://sourceforge.net/p/ipmiutil/mailman/message/33373858/
   patch :DATA
 
   conflicts_with "renameutils", :because => "both install `icmd` binaries"
