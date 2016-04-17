@@ -2,8 +2,8 @@ class Jasper < Formula
   desc "Library for manipulating JPEG-2000 images"
   homepage "https://www.ece.uvic.ca/~frodo/jasper/"
   url "http://download.osgeo.org/gdal/jasper-1.900.1.uuid.tar.gz"
-  sha256 "0021684d909de1eb2f7f5a4d608af69000ce37773d51d1fb898e03b8d488087d"
   version "1.900.1"
+  sha256 "0021684d909de1eb2f7f5a4d608af69000ce37773d51d1fb898e03b8d488087d"
 
   bottle do
     cellar :any
@@ -26,7 +26,7 @@ class Jasper < Formula
   # The following patch fixes a bug (still in upstream as of jasper 1.900.1)
   # where an assertion fails when Jasper is fed certain JPEG-2000 files with
   # an alpha channel. See:
-  # http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=469786
+  # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=469786
   patch :DATA
 
   def install
