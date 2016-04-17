@@ -19,7 +19,7 @@ class Openconnect < Formula
   end
 
   # No longer compiles against OpenSSL 1.0.2 - It chooses the system OpenSSL instead.
-  # http://lists.infradead.org/pipermail/openconnect-devel/2015-February/002757.html
+  # https://lists.infradead.org/pipermail/openconnect-devel/2015-February/002757.html
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
