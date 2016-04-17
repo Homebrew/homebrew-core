@@ -1,7 +1,7 @@
 class Netpbm < Formula
   desc "Image manipulation"
   homepage "http://netpbm.sourceforge.net"
-  # Maintainers: Look at http://netpbm.svn.sourceforge.net/viewvc/netpbm/
+  # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for versions and matching revisions
   url "http://svn.code.sf.net/p/netpbm/code/advanced", :revision => 2294
   version "10.68"
