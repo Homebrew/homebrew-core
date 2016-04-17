@@ -17,7 +17,7 @@ class Erlang18Requirement < Requirement
       brew install erlang
 
     Or you can use an official installer from:
-      http://www.erlang.org/
+      https://www.erlang.org/
     EOS
   end
 end
