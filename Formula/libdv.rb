@@ -17,9 +17,10 @@ class Libdv < Formula
 
   def install
     # This fixes an undefined symbol error on compile.
-    # See the port file for libdv. http://libdv.darwinports.com/
+    # See the port file for libdv:
+    #   https://trac.macports.org/browser/trunk/dports/multimedia/libdv/Portfile
     # This flag is the preferred method over what macports uses.
-    # See the apple docs: http://cl.ly/2HeF bottom of the "Finding Imported Symbols" section
+    # See the apple docs: https://cl.ly/2HeF bottom of the "Finding Imported Symbols" section
     ENV.append "LDFLAGS", "-undefined dynamic_lookup"
 
     system "./configure", "--disable-dependency-tracking",
