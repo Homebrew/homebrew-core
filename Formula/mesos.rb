@@ -89,7 +89,7 @@ class Mesos < Formula
       \\0
     EOS
     inreplace "src/java/mesos.pom.in",
-              "<url>http://mesos.apache.org</url>",
+              "<url>https://mesos.apache.org</url>",
               maven_javadoc_patch
 
     args = %W[
