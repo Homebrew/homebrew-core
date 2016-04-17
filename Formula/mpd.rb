@@ -1,10 +1,10 @@
 class Mpd < Formula
   desc "Music Player Daemon"
-  homepage "http://www.musicpd.org/"
+  homepage "https://www.musicpd.org/"
   revision 1
 
   stable do
-    url "http://www.musicpd.org/download/mpd/0.19/mpd-0.19.14.tar.xz"
+    url "https://www.musicpd.org/download/mpd/0.19/mpd-0.19.14.tar.xz"
     sha256 "2fd23805132e5002a4d24930001a7c7d3aaf55e3bd0cd71af5385895160e99e7"
 
     # Fixes build because of missing patch on 0.19 branch
