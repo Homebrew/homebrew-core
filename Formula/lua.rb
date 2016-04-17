@@ -1,7 +1,7 @@
 class Lua < Formula
   desc "Powerful, lightweight programming language"
-  homepage "http://www.lua.org/"
-  url "http://www.lua.org/ftp/lua-5.2.4.tar.gz"
+  homepage "https://www.lua.org/"
+  url "https://www.lua.org/ftp/lua-5.2.4.tar.gz"
   sha256 "b9e2e4aad6789b3b63a056d442f7b39f0ecfca3ae0f1fc0ae4e9614401b69f4b"
   revision 3
 
