@@ -43,7 +43,7 @@ class Geoip < Formula
   end
 
   test do
-    system "curl", "-O", "http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz"
+    system "curl", "-O", "https://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz"
     system "gunzip", "GeoIP.dat.gz"
     system "#{bin}/geoiplookup", "-f", "GeoIP.dat", "8.8.8.8"
   end
