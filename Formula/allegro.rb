@@ -1,11 +1,9 @@
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
   homepage "http://liballeg.org/"
-
-  stable do
   url "http://download.gna.org/allegro/allegro/5.2.0/allegro-5.2.0.tar.gz"
   sha256 "af5a69cd423d05189e92952633f9c0dd0ff3a061d91fbce62fb32c4bd87f9fd7"
-  end
+  head "https://github.com/liballeg/allegro5.git", :branch => "5.2"
 
   bottle do
     cellar :any
@@ -15,22 +13,22 @@ class Allegro < Formula
     sha256 "65a04aa3c0901264e54ca91f8982da085ea90bccabcb885fac054ba5219e19bd" => :mavericks
   end
 
-  head do
-    url "https://github.com/liballeg/allegro5.git", :branch => "5.2"
-  end
 
   depends_on "cmake" => :build
   depends_on "libvorbis" => :recommended
   depends_on "freetype" => :recommended
   depends_on "flac" => :recommended
   depends_on "physfs" => :recommended
-  depends_on "dumb" => :recommended
   depends_on "libogg" => :recommended
   depends_on "theora" => :recommended
+  depends_on "dumb" => :optional
 
   def install
+    args = std_cmake_args
+    args << "-DWANT_DOCS=OFF"
+    args << "-DWANT_MODAUDIO=1" if build.with?("dumb")
     mkdir "build" do
-      system "cmake", "..", "-DWANT_DOCS=OFF", *std_cmake_args
+      system "cmake", "..", *args
       system "make", "install"
     end
   end
@@ -39,6 +37,7 @@ class Allegro < Formula
     (testpath/"allegro_test.cpp").write <<-EOS
     #include <assert.h>
     #include <allegro5/allegro5.h>
+
     int main(int n, char** c) {
       if (!al_init()) {
         return 1;
