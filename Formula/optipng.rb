@@ -13,7 +13,7 @@ class Optipng < Formula
   end
 
   # Fix compilation on 10.10
-  # http://sourceforge.net/p/optipng/bugs/47/
+  # https://sourceforge.net/p/optipng/bugs/47/
   patch :DATA
 
   def install
