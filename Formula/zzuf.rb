@@ -2,6 +2,7 @@ class Zzuf < Formula
   desc "Transparent application input fuzzer"
   homepage "http://caca.zoy.org/wiki/zzuf"
   sha256 "0842c548522028c3e0d9c9cf7d09f6320b661f33824bb6df19ca209851bdf627"
+  revision 1
 
   stable do
     url "https://github.com/samhocevar/zzuf/releases/download/v0.14/zzuf-0.14.tar.gz"
