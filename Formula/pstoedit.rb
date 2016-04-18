@@ -1,6 +1,6 @@
 class Pstoedit < Formula
   desc "Convert PostScript and PDF files to editable vector graphics"
-  homepage "http://www.pstoedit.net"
+  homepage "http://www.pstoedit.net/"
   url "https://downloads.sourceforge.net/project/pstoedit/pstoedit/3.70/pstoedit-3.70.tar.gz"
   sha256 "06b86113f7847cbcfd4e0623921a8763143bbcaef9f9098e6def650d1ff8138c"
 
@@ -23,7 +23,7 @@ class Pstoedit < Formula
   # many others.
   #
   # This patch has been submitted upstream; see:
-  # http://sourceforge.net/p/pstoedit/bugs/19/
+  # https://sourceforge.net/p/pstoedit/bugs/19/
   #
   # Taken from:
   # https://build.opensuse.org/package/view_file/openSUSE:Factory/pstoedit/pstoedit-pkglibdir.patch?expand=1
