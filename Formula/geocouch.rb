@@ -3,7 +3,7 @@ class Geocouch < Formula
   homepage "https://github.com/couchbase/geocouch"
   url "https://github.com/couchbase/geocouch/archive/couchdb1.3.x.tar.gz"
   version "1.3.0"
-  sha256 "0f678b5b79f5385c5c11349b662bb897047c72e8056dfb19f0f1e484d9348953"
+  sha256 "1bad2275756e2f03151d7b2706c089b3059736130612de279d879db91d4b21e7"
 
   head "https://github.com/couchbase/geocouch.git"
 
@@ -77,8 +77,10 @@ class Geocouch < Formula
     rm_rf (couchdb_share/"www/script/test/geocouch")
     (couchdb_share/"www/script/test/geocouch").mkpath
     (couchdb_share/"www/script/test/geocouch").install test_files
-    Dir[(couchdb_share/"www/script/test/geocouch/*.js")].each  \
-      { |geotest| system "cd #{couchdb_share/"www/script/test"};  ln -s geocouch/#{File.basename(geotest)} ." }
+    Dir[(couchdb_share/"www/script/test/geocouch/*.js")].each do |geotest|
+      Dir.chdir(couchdb_share/"www/script/test")
+      ln_s("geocouch/#{File.basename(geotest)}", ".")
+    end
     #  Complete the install by referencing the geocouch tests in couch_tests.js
     #  (which runs the tests).
     test_lines = test_files.map { |testline| testline.gsub(%r{^.*\/(.*)$}, 'loadTest("\1");' + "\n") }
@@ -137,4 +139,6 @@ class Geocouch < Formula
     run 'brew info geocouch'.)
     EOS
   end
+
+  test {}
 end
