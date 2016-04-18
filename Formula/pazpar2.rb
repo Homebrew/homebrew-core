@@ -3,6 +3,7 @@ class Pazpar2 < Formula
   homepage "https://www.indexdata.com/pazpar2"
   url "http://ftp.indexdata.dk/pub/pazpar2/pazpar2-1.12.5.tar.gz"
   sha256 "a526ac9a91f6ac4683af3e27d58adb70755d82da7ad909eb98edf68dd07062d3"
+  revision 1
 
   bottle do
     cellar :any
