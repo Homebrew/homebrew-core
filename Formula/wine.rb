@@ -1,9 +1,9 @@
 # NOTE: When updating Wine, please check Wine-Gecko and Wine-Mono for updates
 # too:
-#  - http://wiki.winehq.org/Gecko
-#  - http://wiki.winehq.org/Mono
+#  - https://wiki.winehq.org/Gecko
+#  - https://wiki.winehq.org/Mono
 class Wine < Formula
-  desc "Wine Is Not an Emulator"
+  desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
   head "git://source.winehq.org/git/wine.git"
 
