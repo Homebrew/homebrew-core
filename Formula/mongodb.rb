@@ -3,17 +3,9 @@ require "language/go"
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-
-  stable do
-    url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.4.tar.gz"
-    sha256 "b60743cc641de975c38e6e69ebbef60059ee9fe176cdd98bfab8d5c844dab42c"
-
-    go_resource "github.com/mongodb/mongo-tools" do
-      url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.2.4",
-        :revision => "eacbffc3c185686fb572c9efa8fcfaf9e9fb5c32"
-    end
-  end
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.4.tar.gz"
+  sha256 "b60743cc641de975c38e6e69ebbef60059ee9fe176cdd98bfab8d5c844dab42c"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -25,13 +17,19 @@ class Mongodb < Formula
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
   option "with-sasl", "Compile with SASL support"
 
-  needs :cxx11
-
   depends_on "boost" => :optional
   depends_on "go" => :build
   depends_on :macos => :mountain_lion
   depends_on "scons" => :build
-  depends_on "openssl" => :optional
+  depends_on "openssl" => :recommended
+
+  go_resource "github.com/mongodb/mongo-tools" do
+    url "https://github.com/mongodb/mongo-tools.git",
+      :tag => "r3.2.4",
+      :revision => "eacbffc3c185686fb572c9efa8fcfaf9e9fb5c32"
+  end
+
+  needs :cxx11
 
   def install
     ENV.cxx11 if MacOS.version < :mavericks
@@ -49,8 +47,8 @@ class Mongodb < Formula
 
       if build.with? "openssl"
         args << "ssl"
-        ENV["LIBRARY_PATH"] = "#{Formula["openssl"].opt_lib}"
-        ENV["CPATH"] = "#{Formula["openssl"].opt_include}"
+        ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
+        ENV["CPATH"] = Formula["openssl"].opt_include
       end
       system "./build.sh", *args
     end
