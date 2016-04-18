@@ -33,7 +33,7 @@ class Coin < Formula
     inreplace "configure", "-fno-for-scoping", "-fno-for-scope"
 
     # https://bitbucket.org/Coin3D/coin/issue/45 (suppress math-undefs)
-    # http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/graphics/Coin/patches/patch-include_Inventor_C_base_math-undefs.h
+    # https://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/graphics/Coin/patches/patch-include_Inventor_C_base_math-undefs.h
     inreplace "include/Inventor/C/base/math-undefs.h", "#ifndef COIN_MATH_UNDEFS_H", "#if false"
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
