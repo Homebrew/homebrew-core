@@ -1,6 +1,6 @@
 class Ssreflect < Formula
   desc "Virtual package provided by libssreflect-coq"
-  homepage "http://www.msr-inria.fr/projects/mathematical-components-2/"
+  homepage "https://www.msr-inria.fr/projects/mathematical-components-2/"
   url "http://ssr.msr-inria.inria.fr/FTP/ssreflect-1.5.tar.gz"
   sha256 "bad978693d1bfd0a89586a34678bcc244e3b7efba6431e0f83d8e1ae8f82a142"
 
