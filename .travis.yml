@@ -24,7 +24,7 @@ install:
   - ulimit -n 1024
 
 script:
-  - brew test-bot
+  - brew test-bot --tap=homebrew/core
 
 notifications:
   slack:
