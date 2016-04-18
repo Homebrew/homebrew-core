@@ -32,7 +32,7 @@ class PostgresXc < Formula
   end
 
   # Fix PL/Python build: https://github.com/Homebrew/homebrew/issues/11162
-  # Fix uuid-ossp build issues: http://www.postgresql.org/message-id/05843630-E25D-442A-A6B0-5CA63622A400@likeness.com
+  # Fix uuid-ossp build issues: https://www.postgresql.org/message-id/05843630-E25D-442A-A6B0-5CA63622A400@likeness.com
   patch :DATA
 
   def install
@@ -106,7 +106,7 @@ class PostgresXc < Formula
 
         The configure script seems to prefer this version of Python over any others,
         so you may experience linker problems as described in:
-          http://osdir.com/ml/pgsql-general/2009-09/msg00160.html
+          https://osdir.com/ml/pgsql-general/2009-09/msg00160.html
 
         To fix this issue, you may need to either delete the version of Python
         shown above, or move it out of the way before brewing PostgreSQL.
@@ -120,7 +120,7 @@ class PostgresXc < Formula
 
   def caveats; <<-EOS.undent
     To get started with Postgres-XC, read the documents at
-      http://sourceforge.net/projects/postgres-xc/files/Publication/
+      https://sourceforge.net/projects/postgres-xc/files/Publication/
       http://postgres-xc.sourceforge.net/docs/1_0/tutorial-start.html
 
     For a first cluster, you may start with a single GTM (Global Transaction Manager),
@@ -160,7 +160,7 @@ class PostgresXc < Formula
     If you get the following error:
       FATAL:  could not create shared memory segment: Cannot allocate memory
     then you need to tweak your system's shared memory parameters:
-      http://www.postgresql.org/docs/current/static/kernel-resources.html#SYSVIPC
+      https://www.postgresql.org/docs/current/static/kernel-resources.html#SYSVIPC
     EOS
   end
 
