@@ -26,7 +26,7 @@ class GribApi < Formula
     mkdir "build" do
       args = std_cmake_args
       args << "-DBUILD_SHARED_LIBS=OFF" if build.with? "static"
-      args << "-DPNG_PNG_INCLUDE_DIR=#{Formula["libpng"].opt_include}/include" << "-DENABLE_PNG=ON" if build.with? "libpng"
+      args << "-DPNG_PNG_INCLUDE_DIR=#{Formula["libpng"].opt_include}" << "-DENABLE_PNG=ON" if build.with? "libpng"
       system "cmake", "..", *args
       system "make", "install"
     end
