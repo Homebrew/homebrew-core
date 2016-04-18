@@ -16,7 +16,7 @@ class Winexe < Formula
 
   # This patch removes second definition of event context, which *should* break the build
   # virtually everywhere, but for some reason it only breaks it on OS X.
-  # http://miskstuf.tumblr.com/post/6840077505/winexe-1-00-linux-macos-windows-7-finally-working
+  # https://miskstuf.tumblr.com/post/6840077505/winexe-1-00-linux-macos-windows-7-finally-working
   # Added by @vspy
   patch :DATA
 
@@ -41,7 +41,7 @@ class Winexe < Formula
     cd "source4" do
       system "./autogen.sh"
       system "./configure", "--enable-fhs"
-      system "make basics idl bin/winexe"
+      system "make", "basics", "idl", "bin/winexe"
       bin.install "bin/winexe"
     end
   end
