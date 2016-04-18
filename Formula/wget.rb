@@ -37,6 +37,7 @@ class Wget < Formula
   depends_on "pcre" => :optional
   depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
+  depends_on "homebrew/versions/boost159"
 
   def install
     args = %W[
