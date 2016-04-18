@@ -1,9 +1,9 @@
 class Monit < Formula
   desc "Manage and monitor processes, files, directories, and devices"
   homepage "https://mmonit.com/monit/"
-  url "https://mmonit.com/monit/dist/monit-5.16.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main//m/monit/monit_5.16.orig.tar.gz"
-  sha256 "5b998e796113ce244c8b575da09d3a62bac1b2765484fe6416f224b4ba8f391f"
+  url "https://mmonit.com/monit/dist/monit-5.17.1.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main//m/monit/monit_5.17.1.orig.tar.gz"
+  sha256 "f71a22cfb6bd91ff46496e72e1d1b1021ecd651e7748131ce0f995cc37ff0b42"
 
   bottle do
     cellar :any
