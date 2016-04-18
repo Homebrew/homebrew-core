@@ -1,6 +1,6 @@
 class Scala < Formula
   desc "JVM-based programming language"
-  homepage "http://www.scala-lang.org/"
+  homepage "https://www.scala-lang.org/"
 
   stable do
     url "https://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz"
