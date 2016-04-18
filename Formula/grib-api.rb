@@ -3,7 +3,6 @@ class GribApi < Formula
   homepage "https://software.ecmwf.int/wiki/display/GRIB/Home"
   url "https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.14.7-Source.tar.gz"
   sha256 "a42b9b0bd6bd2364897c13feafd09adba6a52e05866db61d2d7ab5ee0534f1f7"
-  revision 1
 
   bottle do
     sha256 "225eccf4e850b18d3b46ac35d55618f0348256794473795ee0ca8a7fbc319ec2" => :el_capitan
@@ -27,7 +26,7 @@ class GribApi < Formula
     mkdir "build" do
       args = std_cmake_args
       args << "-DBUILD_SHARED_LIBS=OFF" if build.with? "static"
-      args << "-DPNG_PNG_INCLUDE_DIR=#{HOMEBREW_PREFIX}/include" << "-DENABLE_PNG=ON" if build.with? "libpng"
+      args << "-DPNG_PNG_INCLUDE_DIR=#{Formula["libpng"].opt_include}/include" << "-DENABLE_PNG=ON" if build.with? "libpng"
       system "cmake", "..", *args
       system "make", "install"
     end
