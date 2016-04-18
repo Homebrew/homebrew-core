@@ -95,10 +95,10 @@ class Postgresql < Formula
       https://github.com/Homebrew/homebrew/issues/2510
 
     To migrate existing data from a previous major version (pre-9.0) of PostgreSQL, see:
-      http://www.postgresql.org/docs/9.5/static/upgrading.html
+      https://www.postgresql.org/docs/9.5/static/upgrading.html
 
     To migrate existing data from a previous minor version (9.0-9.4) of PosgresSQL, see:
-      http://www.postgresql.org/docs/9.5/static/pgupgrade.html
+      https://www.postgresql.org/docs/9.5/static/pgupgrade.html
 
       You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
       Do not run `brew cleanup postgresql` until you have performed the migration.
