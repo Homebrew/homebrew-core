@@ -38,13 +38,13 @@ class Xplanet < Formula
   depends_on "freetype"
   depends_on :x11 => :optional
 
-  # support giflib 4.2.x http://sourceforge.net/p/xplanet/code/185/tree//trunk/src/libimage/gif.c?diff=5056482efd48f8457fc7910a:184
+  # support giflib 4.2.x https://sourceforge.net/p/xplanet/code/185/tree/trunk/src/libimage/gif.c?diff=5056482efd48f8457fc7910a:184
   patch do
     url "https://gist.githubusercontent.com/nijikon/e70275a4d9df4e4c6f1a/raw/f42e1b2e508c5f86c39ea20dd9315fd505d0a564/giflib-4.2.x.patch"
     sha256 "fcc998b9c728bc7232193ffb37d4f1b46fa6936f891345a3e28d0949f966bad4"
   end
 
-  # support giflib 5.x http://sourceforge.net/p/xplanet/code/186/tree//trunk/src/libimage/gif.c?diff=5056482efd48f8457fc7910a:185
+  # support giflib 5.x https://sourceforge.net/p/xplanet/code/186/tree/trunk/src/libimage/gif.c?diff=5056482efd48f8457fc7910a:185
   patch do
     url "https://gist.githubusercontent.com/nijikon/e70275a4d9df4e4c6f1a/raw/e684b89b6841e15412199b5521c9822b78c19b5f/giflib-5.x.patch"
     sha256 "821366f67bacd1b863e48a70e5ba1df571f63df1a545800e424014d1160d3287"
