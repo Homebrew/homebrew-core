@@ -9,20 +9,20 @@ class Tuntap < Formula
     patch :p2, :DATA
   end
 
-  head do
-    url "git://git.code.sf.net/p/tuntaposx/code"
-    # Get Kernel.framework headers from the SDK
-    patch :DATA
-  end
-
   bottle do
     cellar :any_skip_relocation
     revision 1
     sha256 "b10675e97a649c1730803486338780c05d3171df0f7c804603cd9206fe0b92cd" => :mavericks
   end
 
+  head do
+    url "git://git.code.sf.net/p/tuntaposx/code"
+    # Get Kernel.framework headers from the SDK
+    patch :DATA
+  end
+
   depends_on UnsignedKextRequirement => [:cask => "tuntap",
-                                         :download => "http://sourceforge.net/projects/tuntaposx/files/tuntap/"]
+                                         :download => "https://sourceforge.net/projects/tuntaposx/files/tuntap/"]
 
   def install
     cd "tuntap" if build.head?
