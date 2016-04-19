@@ -56,7 +56,7 @@ class Sqlite < Formula
 
     if build.with? "icu4c"
       icu4c = Formula["icu4c"]
-      icu4cldflags = `#{icu4c.opt_bin}/icu-config --ldflags`.tr("\n", " ":q
+      icu4cldflags = `#{icu4c.opt_bin}/icu-config --ldflags`.tr("\n", " ")
       icu4ccppflags = `#{icu4c.opt_bin}/icu-config --cppflags`.tr("\n", " ")
       ENV.append "LDFLAGS", icu4cldflags
       ENV.append "CPPFLAGS", icu4ccppflags
