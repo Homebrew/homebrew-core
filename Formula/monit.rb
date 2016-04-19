@@ -20,10 +20,10 @@ class Monit < Formula
                           "--sysconfdir=#{etc}/monit",
                           "--with-ssl-dir=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
-    (share/"monit").install "monitrc"
+    pkgshare.install "monitrc"
   end
 
   test do
-    system bin/"monit", "-c", share/"monit/monitrc", "-t"
+    system bin/"monit", "-c", pkgshare/"monit/monitrc", "-t"
   end
 end
