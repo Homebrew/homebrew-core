@@ -2,7 +2,7 @@ class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
   url "http://sqlite.org/2016/sqlite-autoconf-3120200.tar.gz"
-  version "3.12.1"
+  version "3.12.2"
   sha256 "fd00770c9afd39db555c78400e52f55e8bd6568c78be23561abb472a22d09abb"
 
   bottle do
