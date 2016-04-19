@@ -3,7 +3,7 @@ class Allegro < Formula
   homepage "http://liballeg.org/"
   url "http://download.gna.org/allegro/allegro/5.2.0/allegro-5.2.0.tar.gz"
   sha256 "af5a69cd423d05189e92952633f9c0dd0ff3a061d91fbce62fb32c4bd87f9fd7"
-  head "https://github.com/liballeg/allegro5.git", :branch => "5.2"
+  head "https://github.com/liballeg/allegro5.git", :branch => "master"
 
   bottle do
     cellar :any
@@ -11,7 +11,6 @@ class Allegro < Formula
     sha256 "00aaa7f60e21646bf62365e4f33b7bba1a24c4386a5410317e0a9b8452b4ac1b" => :yosemite
     sha256 "eac2ca128fca38ab9b5636808a927ce4941859312592acc1b6b10dd7f8f88af3" => :mavericks
   end
-
 
   depends_on "cmake" => :build
   depends_on "libvorbis" => :recommended
