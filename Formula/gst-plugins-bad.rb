@@ -29,6 +29,7 @@ class GstPluginsBad < Formula
   depends_on "faac" => :optional
   depends_on "faad2" => :optional
   depends_on "gnutls" => :optional
+  depends_on "gtk+3" => :optional
   depends_on "libdvdread" => :optional
   depends_on "libexif" => :optional
   depends_on "libmms" => :optional
@@ -49,6 +50,8 @@ class GstPluginsBad < Formula
     ]
 
     args << "--disable-apple_media" if build.without? "applemedia"
+
+    args << "--with-gtk=3.0" if build.with? "gtk+3"
 
     if build.head?
       ENV["NOCONFIGURE"] = "yes"
