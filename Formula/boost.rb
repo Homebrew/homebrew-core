@@ -3,7 +3,7 @@ class Boost < Formula
   homepage "https://www.boost.org/"
   url "https://downloads.sourceforge.net/project/boost/boost/1.60.0/boost_1_60_0.tar.bz2"
   sha256 "686affff989ac2488f79a97b9479efb9f2abae035b5ed4d8226de6857933fd3b"
-  revision 1
+  revision 2
 
   head "https://github.com/boostorg/boost.git"
 
