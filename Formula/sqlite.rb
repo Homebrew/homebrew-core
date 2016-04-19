@@ -37,7 +37,7 @@ class Sqlite < Formula
 
   resource "docs" do
     url "https://www.sqlite.org/2016/sqlite-doc-3120200.zip"
-    version "3.12.1"
+    version "3.12.2"
     sha256 "67c640c4b01b961016717db61e3e43c63c33248c78ce0de9f10b88ea7ce97670"
   end
 
