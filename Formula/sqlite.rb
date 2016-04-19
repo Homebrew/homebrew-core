@@ -1,9 +1,9 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://www.sqlite.org/2016/sqlite-autoconf-3120100.tar.gz"
+  url "http://sqlite.org/2016/sqlite-autoconf-3120200.tar.gz"
   version "3.12.1"
-  sha256 "1c038519862b3983b0475f3ed3143ce4bbfcd21bfbd0741192f415838c831a7c"
+  sha256 "fd00770c9afd39db555c78400e52f55e8bd6568c78be23561abb472a22d09abb"
 
   bottle do
     cellar :any
@@ -36,9 +36,9 @@ class Sqlite < Formula
   end
 
   resource "docs" do
-    url "https://www.sqlite.org/2016/sqlite-doc-3120100.zip"
+    url "https://www.sqlite.org/2016/sqlite-doc-3120200.zip"
     version "3.12.1"
-    sha256 "dbe53c076922c711a467dde57432583fbf9a12eac57cb75f6116a310880eb088"
+    sha256 "67c640c4b01b961016717db61e3e43c63c33248c78ce0de9f10b88ea7ce97670"
   end
 
   def install
@@ -56,7 +56,7 @@ class Sqlite < Formula
 
     if build.with? "icu4c"
       icu4c = Formula["icu4c"]
-      icu4cldflags = `#{icu4c.opt_bin}/icu-config --ldflags`.tr("\n", " ")
+      icu4cldflags = `#{icu4c.opt_bin}/icu-config --ldflags`.tr("\n", " ":q
       icu4ccppflags = `#{icu4c.opt_bin}/icu-config --cppflags`.tr("\n", " ")
       ENV.append "LDFLAGS", icu4cldflags
       ENV.append "CPPFLAGS", icu4ccppflags
