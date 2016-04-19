@@ -24,6 +24,6 @@ class Monit < Formula
   end
 
   test do
-    system bin/"monit", "-c", pkgshare/"monit/monitrc", "-t"
+    system bin/"monit", "-c", pkgshare/"monitrc", "-t"
   end
 end
