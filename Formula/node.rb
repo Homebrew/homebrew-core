@@ -12,9 +12,9 @@ class Node < Formula
   end
 
   devel do
-    url "https://nodejs.org/download/rc/v6.0.0-rc.2/node-v6.0.0-rc.2.tar.xz"
-    sha256 "177dbdc102f2274e4cfe5c9fa2daab7ebe037b12336d50c7535028a0e57b6fca"
-    version "6.0.0-rc.2"
+    url "https://nodejs.org/download/rc/v6.0.0-rc.3/node-v6.0.0-rc.3.tar.xz"
+    sha256 "95469fac86aa9a7f198632b48e5f1aefc1fe789eb0d09ee1a5b45214320a494d"
+    version "6.0.0-rc.3"
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -62,7 +62,7 @@ class Node < Formula
     else
       args << "--with-intl=small-icu"
     end
-    args << "--tag=rc.2" << "--release-urlbase=https://nodejs.org/download/rc/" if build.devel?
+    args << "--tag=rc.3" << "--release-urlbase=https://nodejs.org/download/rc/" if build.devel?
     args << "--tag=head" if build.head?
 
     resource("icu4c").stage buildpath/"deps/icu"
