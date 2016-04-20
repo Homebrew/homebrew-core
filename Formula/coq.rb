@@ -13,8 +13,9 @@ end
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://coq.inria.fr/distrib/V8.5/files/coq-8.5.tar.gz"
-  sha256 "89a92fb8b91e7cb0797d41c87cd13e4b63bee76c32a6dcc3d7c8055ca6a9ae3d"
+  url "https://coq.inria.fr/distrib/8.5pl1/files/coq-8.5pl1.tar.gz"
+  version "8.5pl1"
+  sha256 "4bfa75b10ae1be61301d0f7bc087b7c24e0b8bd025dd358c75709ac04ddd5df0"
 
   head "git://scm.gforge.inria.fr/coq/coq.git", :branch => "trunk"
 
@@ -47,5 +48,22 @@ class Coq < Formula
       (setq auto-mode-alist (cons '("\\\\.v$" . coq-mode) auto-mode-alist))
       (autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
     EOS
+  end
+
+  test do
+    (testpath/"testing.v").write <<-EOS.undent
+      Inductive nat : Set :=
+      | O : nat
+      | S : nat -> nat.
+      Fixpoint add (n m: nat) : nat :=
+        match n with
+        | O => m
+        | S n' => S (add n' m)
+        end.
+      Lemma add_O_r : forall (n: nat), add n O = n.
+      intros n; induction n; simpl; auto; rewrite IHn; auto.
+      Qed.
+    EOS
+    system("#{bin}/coqc", "#{testpath}/testing.v")
   end
 end
