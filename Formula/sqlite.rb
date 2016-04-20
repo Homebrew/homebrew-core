@@ -30,13 +30,13 @@ class Sqlite < Formula
   depends_on "icu4c" => :optional
 
   resource "functions" do
-    url "https://www.sqlite.org/contrib/download/extension-functions.c?get=25", :using => :nounzip
+    url "https://sqlite.org/contrib/download/extension-functions.c?get=25", :using => :nounzip
     version "2010-01-06"
     sha256 "991b40fe8b2799edc215f7260b890f14a833512c9d9896aa080891330ffe4052"
   end
 
   resource "docs" do
-    url "https://www.sqlite.org/2016/sqlite-doc-3120200.zip"
+    url "https://sqlite.org/2016/sqlite-doc-3120200.zip"
     version "3.12.2"
     sha256 "67c640c4b01b961016717db61e3e43c63c33248c78ce0de9f10b88ea7ce97670"
   end
@@ -89,7 +89,7 @@ class Sqlite < Formula
         In your application, call sqlite3_enable_load_extension(db,1) to
         allow loading external libraries.  Then load the library libsqlitefunctions
         using sqlite3_load_extension; the third argument should be 0.
-        See https://www.sqlite.org/loadext.html.
+        See https://sqlite.org/loadext.html.
         Select statements may now use these functions, as in
         SELECT cos(radians(inclination)) FROM satsum WHERE satnum = 25544;
 
