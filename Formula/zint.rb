@@ -3,7 +3,7 @@ class Zint < Formula
   homepage "https://zint.github.io/"
   url "https://github.com/downloads/zint/zint/zint-2.4.3.tar.gz"
   sha256 "de2f4fd0d008530511f5dea2cff7f96f45df4c029b57431b2411b7e1f3a523e8"
-  revision 1
+  revision 2
 
   head "git://zint.git.sourceforge.net/gitroot/zint/zint"
 
@@ -22,6 +22,9 @@ class Zint < Formula
   depends_on "qt" => :optional
 
   def install
+    # Sandbox fix: install FindZint.cmake in zint's prefix, not cmake's.
+    inreplace "CMakeLists.txt", "${CMAKE_ROOT}", "#{share}/cmake"
+
     mkdir "zint-build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
