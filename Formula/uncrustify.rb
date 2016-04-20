@@ -1,10 +1,10 @@
 class Uncrustify < Formula
   desc "Source code beautifier"
   homepage "http://uncrustify.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/uncrustify/uncrustify/uncrustify-0.61/uncrustify-0.61.tar.gz"
-  sha256 "1df0e5a2716e256f0a4993db12f23d10195b3030326fdf2e07f8e6421e172df9"
+  url "https://downloads.sourceforge.net/project/uncrustify/uncrustify/uncrustify-0.62/uncrustify-0.62.tar.gz"
+  sha256 "5d19307aa75f904159385d83ef7e6a605c0148ce5da3a2d9366e34867c28385a"
 
-  head "https://github.com/bengardner/uncrustify.git"
+  head "https://github.com/uncrustify/uncrustify.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -32,7 +32,7 @@ class Uncrustify < Formula
       }
     EOS
 
-    system "#{bin}/uncrustify", "-c", "#{share}/uncrustify/defaults.cfg", "t.c"
+    system "#{bin}/uncrustify", "-c", "#{pkgshare}/defaults.cfg", "t.c"
     assert_equal expected, File.read("#{testpath}/t.c.uncrustify")
   end
 end
