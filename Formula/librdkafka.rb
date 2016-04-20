@@ -1,8 +1,8 @@
 class Librdkafka < Formula
   desc "The Apache Kafka C/C++ library"
   homepage "https://github.com/edenhill/librdkafka"
-  url "https://github.com/edenhill/librdkafka/archive/0.8.6.tar.gz"
-  sha256 "184080e3898b80b3f7c1398c50787f8edb326b8271017a5f8000ef9a660e1a4f"
+  url "https://github.com/edenhill/librdkafka/archive/0.9.0.tar.gz"
+  sha256 "e7d0d5bbaed8c6b163bdcc74274b7c1608b4d8a06522c4fed1856986aee0a71a"
 
   bottle do
     cellar :any
@@ -13,11 +13,12 @@ class Librdkafka < Formula
   end
 
   depends_on "lzlib"
+  depends_on "openssl"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make"
+    system "C_INCLUDE_PATH=.:#{include}:#{Formula["openssl"].opt_prefix}/include make"
     system "make", "install"
   end
 
