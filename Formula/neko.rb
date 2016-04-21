@@ -16,9 +16,12 @@ class Neko < Formula
     sha256 "a45ce3f4eab713bea15f8b34045333462d3e6a971c10257b9789ffc8000951e2" => :mountain_lion
   end
 
-  depends_on "cmake" => :build if build.head?
-  depends_on "pkg-config" => :build if build.head?
-  depends_on "mbedtls" if build.head?
+  head do
+    depends_on "cmake" => :build
+    depends_on "pkg-config" => :build
+    depends_on "mbedtls"
+  end
+
   depends_on "bdw-gc"
   depends_on "pcre"
   depends_on "openssl"
