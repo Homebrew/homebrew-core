@@ -26,8 +26,10 @@ class Codequery < Formula
   end
 
   test do
+    # Copy test files as `cqmakedb` gets confused if we just symlink them.
     test_files = (share/"test").children
-    testpath.install_symlink test_files
+    cp test_files, testpath
+
     system "#{bin}/cqmakedb", "-s", "./codequery.db",
                               "-c", "./cscope.out",
                               "-t", "./tags",
