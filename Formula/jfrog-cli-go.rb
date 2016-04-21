@@ -31,8 +31,8 @@ class JfrogCliGo < Formula
   end
 
   test do
-    actual = pipe_output("#{bin}/jfrog -v")
-    expected = "jfrog version 1.1.0\n"
+    actual = shell_output("#{bin}/jfrog -v").chomp
+    expected = "jfrog version 1.1.0"
     assert_equal expected, actual
   end
 end
