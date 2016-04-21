@@ -16,29 +16,35 @@ class Neko < Formula
     sha256 "a45ce3f4eab713bea15f8b34045333462d3e6a971c10257b9789ffc8000951e2" => :mountain_lion
   end
 
+  depends_on "cmake" => :build if build.head?
+  depends_on "pkg-config" => :build if build.head?
+  depends_on "mbedtls" if build.head?
   depends_on "bdw-gc"
   depends_on "pcre"
   depends_on "openssl"
 
   def install
-    # Build requires targets to be built in specific order
-    ENV.deparallelize
-    system "make", "os=osx", "LIB_PREFIX=#{HOMEBREW_PREFIX}", "INSTALL_FLAGS="
+    if build.head?
+      # Let cmake download its own copy of MariaDBConnector during build and statically link it.
+      # It is because there is no easy way to define we just need any one of mariadb, mariadb-connector-c,
+      # mysql, and mysql-connector-c.
+      system "cmake", ".", "-DSTATIC_DEPS=MariaDBConnector", "-DRUN_LDCONFIG=OFF", *std_cmake_args
+      system "make", "install"
+    else
+      # Build requires targets to be built in specific order
+      ENV.deparallelize
+      system "make", "os=osx", "LIB_PREFIX=#{HOMEBREW_PREFIX}", "INSTALL_FLAGS="
 
-    include.install Dir["vm/neko*.h"]
-    neko = lib/"neko"
-    neko.install Dir["bin/*"]
+      include.install Dir["vm/neko*.h"]
+      neko = lib/"neko"
+      neko.install Dir["bin/*"]
 
-    # Symlink into bin so libneko.dylib resolves correctly for custom prefix
-    %w[neko nekoc nekoml nekotools].each do |file|
-      bin.install_symlink neko/file
+      # Symlink into bin so libneko.dylib resolves correctly for custom prefix
+      %w[neko nekoc nekoml nekotools].each do |file|
+        bin.install_symlink neko/file
+      end
+      lib.install_symlink neko/"libneko.dylib"
     end
-    lib.install_symlink neko/"libneko.dylib"
-  end
-
-  test do
-    ENV["NEKOPATH"] = "#{HOMEBREW_PREFIX}/lib/neko"
-    system "#{bin}/neko", "#{HOMEBREW_PREFIX}/lib/neko/test.n"
   end
 
   def caveats
@@ -50,5 +56,10 @@ class Neko < Formula
         EOS
     end
     s
+  end
+
+  test do
+    ENV["NEKOPATH"] = "#{HOMEBREW_PREFIX}/lib/neko"
+    system "#{bin}/neko", "#{HOMEBREW_PREFIX}/lib/neko/test.n"
   end
 end
