@@ -4,6 +4,9 @@ class Llnode < Formula
   url "https://github.com/indutny/llnode/archive/v1.0.0.tar.gz"
   sha256 "fcf90201930e52b49d0fa1b369aac7b5b74c3bbffe34f423d5aa5b899267f295"
 
+  depends_on :macos => :yosemite
+  depends_on :python => :build
+
   resource "gyp" do
     url "https://chromium.googlesource.com/external/gyp.git",
         :revision => "db72e9fcf55ba9d8089f0bc7e447180f8972b5c0"
@@ -20,7 +23,7 @@ class Llnode < Formula
 
     system "./gyp_llnode"
     system "make", "-C", "out/"
-    cp "out/Release/llnode.dylib", "#{prefix}/llnode.dylib"
+    prefix.install "out/Release/llnode.dylib"
   end
 
   def caveats; <<-EOS.undent
