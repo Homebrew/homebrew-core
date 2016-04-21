@@ -47,6 +47,7 @@ class Fontconfig < Formula
   end
 
   def post_install
+    ohai "Regenerating font cache, this may take a while"
     system "#{bin}/fc-cache", "-frv"
   end
 
