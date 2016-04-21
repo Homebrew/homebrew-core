@@ -85,10 +85,7 @@ class Openssl < Formula
       system "perl", "./Configure", *(configure_args + arch_args[arch])
       system "make", "depend"
       system "make"
-
-      if (MacOS.prefer_64_bit? || arch == MacOS.preferred_arch) && build.with?("test")
-        system "make", "test"
-      end
+      system "make", "test" if build.with?("test")
 
       if build.universal?
         cp "include/openssl/opensslconf.h", dir
