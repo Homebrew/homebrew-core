@@ -14,8 +14,18 @@ class Valkyrie < Formula
   depends_on "valgrind"
 
   def install
+    # Prevents "undeclared identifier" errors for getpid, usleep, and getuid.
+    # Reported 21st Apr 2016 to https://bugs.kde.org/show_bug.cgi?id=362033
+    inreplace "src/utils/vk_utils.h",
+      "#include <iostream>",
+      "#include <iostream>\n#include <unistd.h>"
+
     system "qmake", "PREFIX=#{prefix}"
     system "make", "install"
     prefix.install bin/"valkyrie.app"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{prefix}/valkyrie.app/Contents/MacOS/valkyrie -v 2>/dev/null")
   end
 end
