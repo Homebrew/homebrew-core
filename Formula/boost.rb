@@ -20,6 +20,14 @@ class Boost < Formula
   # patch derived from https://github.com/boostorg/graph/commit/1d5f43d
   patch :DATA
 
+  # Fix auto-pointer registration in 1.60
+  # https://github.com/boostorg/python/pull/59
+  # patch derived from https://github.com/boostorg/python/commit/f2c465f
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/patches/9e56b45/boost/boost1_60_0_python_class_metadata.diff"
+    sha256 "1a470c3a2738af409f68e3301eaecd8d07f27a8965824baf8aee0adef463b844"
+  end
+
   env :userpaths
 
   option :universal
