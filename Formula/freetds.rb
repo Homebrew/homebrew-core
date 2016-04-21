@@ -38,7 +38,7 @@ class Freetds < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --with-tdsver=7.1
+      --with-tdsver=7.3
       --mandir=#{man}
     ]
 
