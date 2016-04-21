@@ -1,10 +1,10 @@
 class Go < Formula
   desc "Go programming environment"
   homepage "https://golang.org"
-  url "https://storage.googleapis.com/golang/go1.6.1.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.6.1.src.tar.gz"
-  version "1.6.1"
-  sha256 "1d4b53cdee51b2298afcf50926a7fa44b286f0bf24ff8323ce690a66daa7193f"
+  url "https://storage.googleapis.com/golang/go1.6.2.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.6.2.src.tar.gz"
+  version "1.6.2"
+  sha256 "787b0b750d037016a30c6ed05a8a70a91b2e9db4bd9b1a2453aa502a63f1bccc"
 
   head "https://github.com/golang/go.git"
 
