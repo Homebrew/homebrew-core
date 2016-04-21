@@ -1,6 +1,6 @@
 class Scour < Formula
   desc "SVG file scrubber"
-  homepage "http://www.codedread.com/scour/"
+  homepage "https://www.codedread.com/scour/"
   url "https://github.com/codedread/scour/archive/v0.33.tar.gz"
   sha256 "e9b4fb4beb653afbdbc43c4cc0836902d6f287d882b6b7cdf714c456ff0841a8"
 
