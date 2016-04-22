@@ -4,6 +4,7 @@ class Perl < Formula
   url "http://www.cpan.org/src/5.0/perl-5.22.1.tar.xz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/perl/perl_5.22.1.orig.tar.xz"
   sha256 "9e87317d693ce828095204be0d09af8d60b8785533fadea1a82b6f0e071e5c79"
+  revision 1
 
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
@@ -13,9 +14,6 @@ class Perl < Formula
     sha256 "f180afdea11e1f4e12378881d58c27efa04abee091140c2e055439a14a668802" => :yosemite
     sha256 "f5561ffe42ca1559fb72e855ecc36c133a5c6142a1cfac2cf9387b4da9b25d95" => :mavericks
   end
-
-  keg_only :provided_by_osx,
-    "OS X ships Perl and overriding that can cause unintended issues"
 
   option "with-dtrace", "Build with DTrace probes"
   option "without-test", "Skip running the build test suite"
@@ -52,7 +50,7 @@ class Perl < Formula
 
   def caveats; <<-EOS.undent
     By default Perl installs modules in your HOME dir. If this is an issue run:
-      `#{bin}/cpan o conf init`
+      `#{opt_bin}/cpan o conf init`
     EOS
   end
 
