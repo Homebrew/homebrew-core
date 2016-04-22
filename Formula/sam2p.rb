@@ -18,4 +18,9 @@ class Sam2p < Formula
     bin.install "sam2p"
     bin.install "sam2p_pdf_scale.pl"
   end
+
+  test do
+    system bin/"sam2p", test_fixtures("test.gif"), "EPS:test.eps"
+    assert File.exist?("test.eps")
+  end
 end
