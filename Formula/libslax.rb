@@ -1,8 +1,8 @@
 class Libslax < Formula
   desc "Implementation of the SLAX language (an XSLT alternative)"
   homepage "http://www.libslax.org/"
-  url "https://github.com/Juniper/libslax/releases/download/0.19.0/libslax-0.19.0.tar.gz"
-  sha256 "a80e88709459791a3193ee665d7272109c61aa3e717c68bc95a29e6718ae2191"
+  url "https://github.com/Juniper/libslax/releases/download/0.20.1/libslax-0.20.1.tar.gz"
+  sha256 "59f8aace21fb7e02091da3b84de7e231d5d02af26401985b109d2b328ab3f09d"
 
   bottle do
     revision 1
@@ -19,21 +19,37 @@ class Libslax < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "libtool"  => :build
-
   if MacOS.version <= :mountain_lion
     depends_on "libxml2"
     depends_on "libxslt"
+    depends_on "sqlite" # Needs 3.7.13, which shipped on 10.9.
   end
 
+  depends_on "libtool"  => :build
   depends_on "curl" if MacOS.version <= :lion
+  depends_on "openssl"
 
   def install
-    system "sh", "./bin/setup.sh" if build.head?
+    # configure remembers "-lcrypto" but not the link path.
+    ENV.append "LDFLAGS", "-L#{Formula["openssl"].opt_lib}"
 
+    system "sh", "./bin/setup.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-libedit"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"hello.slax").write <<-EOS.undent
+      version 1.0;
+
+      match / {
+          expr "Hello World!";
+      }
+    EOS
+    system "#{bin}/slaxproc", "--slax-to-xslt", "hello.slax", "hello.xslt"
+    assert File.exist?("hello.xslt")
+    assert_match "<xsl:text>Hello World!</xsl:text>", File.read("hello.xslt")
   end
 end
