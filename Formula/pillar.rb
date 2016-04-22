@@ -8,6 +8,7 @@ class Pillar < Formula
   depends_on "sbt" => :build
 
   def install
+    ENV.java_cache
     system "sbt", "assembly"
 
     inreplace "src/main/bash/pillar" do |s|
@@ -22,6 +23,6 @@ class Pillar < Formula
   end
 
   test do
-    assert_match /Missing parameter/, shell_output("#{bin}/pillar 2>&1", 1)
+    assert_match "Missing parameter", shell_output("#{bin}/pillar 2>&1", 1)
   end
 end

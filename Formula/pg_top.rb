@@ -12,4 +12,8 @@ class PgTop < Formula
     (buildpath/"config.h").append_lines "#define HAVE_DECL_STRLCPY 1" if MacOS.version >= :mavericks
     system "make", "install"
   end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/pg_top -V")
+  end
 end
