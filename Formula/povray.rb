@@ -72,6 +72,12 @@ class Povray < Formula
 
     args << "--with-openexr=#{HOMEBREW_PREFIX}" if build.with? "openexr"
 
+    # Adjust some scripts to search for `etc` in HOMEBREW_PREFIX.
+    %w[allanim allscene portfolio].each do |script|
+      inreplace "unix/scripts/#{script}.sh",
+                /^DEFAULT_DIR=.*$/, "DEFAULT_DIR=#{HOMEBREW_PREFIX}"
+    end
+
     cd "unix" do
       system "./prebuild.sh"
     end
