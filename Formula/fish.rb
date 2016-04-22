@@ -11,6 +11,15 @@ class Fish < Formula
     sha256 "6b215dbab60ed14d1fe6766d92aaf55e9e3172192af5f5ee6cf1cdfda48ac4ff" => :mavericks
   end
 
+  devel do
+    url "https://github.com/fish-shell/fish-shell/releases/download/2.3b1/fish-2.3b1.tar.gz"
+    sha256 "f31f3fc7064af293e2bd7854f2f2c9ccab3f9ca970288309f15b06dd72a35171"
+
+    depends_on "autoconf" => :build
+    depends_on "doxygen" => :build
+    depends_on "pcre2"
+  end
+
   head do
     url "https://github.com/fish-shell/fish-shell.git", :shallow => false
 
@@ -20,7 +29,7 @@ class Fish < Formula
   end
 
   def install
-    system "autoconf" if build.head?
+    system "autoconf" if build.head? || build.devel?
     # In Homebrew's 'superenv' sed's path will be incompatible, so
     # the correct path is passed into configure here.
     system "./configure", "--prefix=#{prefix}", "SED=/usr/bin/sed"
