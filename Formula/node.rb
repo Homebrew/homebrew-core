@@ -13,7 +13,7 @@ class Node < Formula
 
   devel do
     url "https://nodejs.org/download/rc/v6.0.0-rc.3/node-v6.0.0-rc.3.tar.xz"
-    sha256 "95469fac86aa9a7f198632b48e5f1aefc1fe789eb0d09ee1a5b45214320a494d"
+    sha256 "472ae46a205fb65cd784b22825b7354cddb4da5f46c1974272be43e55745ce6e"
     version "6.0.0-rc.3"
   end
 
