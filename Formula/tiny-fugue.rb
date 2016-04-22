@@ -2,8 +2,8 @@ class TinyFugue < Formula
   desc "Programmable MUD client"
   homepage "http://tinyfugue.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/tinyfugue/tinyfugue/5.0%20beta%208/tf-50b8.tar.gz"
-  sha256 "3750a114cf947b1e3d71cecbe258cb830c39f3186c369e368d4662de9c50d989"
   version "5.0b8"
+  sha256 "3750a114cf947b1e3d71cecbe258cb830c39f3186c369e368d4662de9c50d989"
 
   bottle do
     sha256 "4ed6867f50a84cea3d90669ca06e8e3b491ed6660c5502b2441a59df6ddc1574" => :el_capitan
@@ -22,8 +22,6 @@ class TinyFugue < Formula
   patch :DATA
 
   def install
-    ENV.append "CPPFLAGS", "-I#{Formula["openssl"].opt_prefix}include"
-    ENV.append "LDFLAGS", "-L#{Formula["openssl"].opt_prefix}lib"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-getaddrinfo",
