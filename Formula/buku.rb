@@ -1,8 +1,8 @@
 class Buku < Formula
   desc "Command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/1.8.tar.gz"
-  sha256 "352c95f0ba69864dce37a9010e91fa227b37a072922107ec84246f3c760fa4cb"
+  url "https://github.com/jarun/Buku/archive/1.9.tar.gz"
+  sha256 "0bac6f4f1b6bcca4eea639a3a6ff22c4937f22fc49271bb610f8b25ddbf890e2"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,6 +18,7 @@ class Buku < Formula
   end
 
   test do
+    ENV["XDG_DATA_HOME"] = "#{testpath}/.local/share"
     system "#{bin}/buku", "-a", "https://github.com/Homebrew/homebrew"
     assert_match %r{https://github.com/Homebrew/homebrew}, shell_output("#{bin}/buku -s github </dev/null")
   end
