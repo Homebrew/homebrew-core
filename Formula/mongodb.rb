@@ -3,9 +3,8 @@ require "language/go"
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.4.tar.gz"
-  sha256 "b60743cc641de975c38e6e69ebbef60059ee9fe176cdd98bfab8d5c844dab42c"
-  revision 1
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.5.tar.gz"
+  sha256 "e99e00ee243945309c1a779bd3bc73d4fdf09ece900b14b5fa429e02142d1385"
 
   bottle do
     sha256 "eb4a0adb94d002ec4eb6c56ea8bf1dbffba1d144c3ae3b547ea554aedfc0b4c1" => :el_capitan
@@ -24,8 +23,8 @@ class Mongodb < Formula
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
-      :tag => "r3.2.4",
-      :revision => "eacbffc3c185686fb572c9efa8fcfaf9e9fb5c32"
+      :tag => "r3.2.5",
+      :revision => "6dab8f99eaafb764443531dc528d4b4b76eb57f2"
   end
 
   needs :cxx11
@@ -40,7 +39,7 @@ class Mongodb < Formula
 
     cd "src/github.com/mongodb/mongo-tools" do
       # https://github.com/Homebrew/homebrew/issues/40136
-      inreplace "build.sh", '-ldflags "-X github.com/mongodb/mongo-tools/common/options.Gitspec `git rev-parse HEAD`"', ""
+      inreplace "build.sh", '-ldflags "-X github.com/mongodb/mongo-tools/common/options.Gitspec `git rev-parse HEAD` -X github.com/mongodb/mongo-tools/common/options.VersionStr $(git describe)"', ""
 
       args = %W[]
 
