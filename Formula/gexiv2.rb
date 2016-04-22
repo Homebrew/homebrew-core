@@ -3,7 +3,7 @@ class Gexiv2 < Formula
   homepage "https://wiki.gnome.org/Projects/gexiv2"
   url "https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.3.tar.xz"
   sha256 "390cfb966197fa9f3f32200bc578d7c7f3560358c235e6419657206a362d3988"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "270b4350e13add5b48f08a9fa739b59a39efe29dac5ccc06fb2b063f8845787c" => :yosemite
@@ -14,6 +14,7 @@ class Gexiv2 < Formula
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
   depends_on "gobject-introspection" => :build
+  depends_on "python" if MacOS.version <= :mavericks
   depends_on "glib"
   depends_on "exiv2"
 
@@ -23,6 +24,12 @@ class Gexiv2 < Formula
                           "--disable-silent-rules",
                           "--enable-introspection",
                           "--prefix=#{prefix}"
+
+    # Sandbox fix to prevent directly installing in gobject-introspection Cellar.
+    inreplace "Makefile",
+              "`pkg-config gobject-introspection-no-export-1.0 --variable typelibdir`",
+              "$(libdir)/girepository-1.0"
+
     system "make", "install"
   end
 
@@ -39,7 +46,7 @@ class Gexiv2 < Formula
       "-I#{HOMEBREW_PREFIX}/include/glib-2.0",
       "-I#{HOMEBREW_PREFIX}/lib/glib-2.0/include",
       "-L#{lib}",
-      "-lgexiv2"
+      "-lgexiv2",
     ]
 
     system ENV.cc, "test.c", "-o", "test", *flags
