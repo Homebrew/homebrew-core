@@ -87,7 +87,12 @@ class Povray < Formula
   end
 
   test do
-    ohai "Rendering all test scenes; this may take a while"
-    system "#{share}/povray-3.7/scripts/allscene.sh", "-o", "."
+    # Condensed version of `share/povray-3.7/scripts/allscene.sh` that only
+    # renders variants of the famous Utah teapot as a quick smoke test.
+    scenes = Dir["#{share}/povray-3.7/scenes/advanced/teapot/*.pov"]
+    assert !scenes.empty?, "Failed to find test scenes."
+    scenes.each do |scene|
+      system "#{share}/povray-3.7/scripts/render_scene.sh", ".", scene
+    end
   end
 end
