@@ -14,6 +14,7 @@ class TinyFugue < Formula
   conflicts_with "tee-clc", :because => "both install a `tf` binary"
 
   depends_on "libnet"
+  depends_on "openssl"
   depends_on "pcre"
 
   # pcre deprecated pcre_info. Switch to HB pcre-8.31 and pcre_fullinfo.
@@ -21,6 +22,8 @@ class TinyFugue < Formula
   patch :DATA
 
   def install
+    ENV.append "CPPFLAGS", "-I#{Formula["openssl"].opt_prefix}include"
+    ENV.append "LDFLAGS", "-L#{Formula["openssl"].opt_prefix}lib"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-getaddrinfo",
