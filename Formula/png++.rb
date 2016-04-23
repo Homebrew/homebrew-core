@@ -3,6 +3,7 @@ class Pngxx < Formula
   homepage "http://www.nongnu.org/pngpp/"
   url "https://savannah.nongnu.org/download/pngpp/png++-0.2.9.tar.gz"
   sha256 "abbc6a0565122b6c402d61743451830b4faee6ece454601c5711e1c1b4238791"
+  head "svn://svn.savannah.nongnu.org/pngpp/trunk"
 
   bottle do
     cellar :any_skip_relocation
