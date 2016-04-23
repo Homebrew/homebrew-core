@@ -54,10 +54,13 @@ class Emacs < Formula
   end
 
   def install
-    args = ["--prefix=#{prefix}",
-            "--enable-locallisppath=#{HOMEBREW_PREFIX}/share/emacs/site-lisp",
-            "--infodir=#{info}/emacs",
-           ]
+    args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --enable-locallisppath=#{HOMEBREW_PREFIX}/share/emacs/site-lisp
+      --infodir=#{info}/emacs
+      --prefix=#{prefix}
+    ]
 
     args << "--with-file-notification=gfile" if build.with? "glib"
 
