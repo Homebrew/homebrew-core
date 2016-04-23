@@ -4,8 +4,8 @@ class GxGo < Formula
   desc "Tool to use with the gx package manager for packages written in go."
   homepage "https://github.com/whyrusleeping/gx-go"
   url "https://github.com/whyrusleeping/gx-go.git",
-    :tag => "v1.0.0",
-    :revision => "e5258e8126435420207a15d914c895e076177af4"
+    :tag => "v1.2.0",
+    :revision => "1fd3e84312ff558b7020a732207910d6c491d5e4"
   head "https://github.com/whyrusleeping/gx-go.git"
 
   bottle do
