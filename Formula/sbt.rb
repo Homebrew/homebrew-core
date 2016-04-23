@@ -11,6 +11,8 @@ class Sbt < Formula
     sha256 "3559009c0349c7ea597f300477d2a85c1e37eb1e2413f5f794e43e1644f60f28" => :mavericks
   end
 
+  depends_on :java => "1.6+"
+
   def install
     inreplace "bin/sbt" do |s|
       s.gsub! 'etc_sbt_opts_file="${sbt_home}/conf/sbtopts"', "etc_sbt_opts_file=\"#{etc}/sbtopts\""
@@ -40,5 +42,12 @@ class Sbt < Formula
     Project specific options should be placed in .sbtopts in the root of your project.
     Global settings should be placed in #{etc}/sbtopts
     EOS
+  end
+
+  test do
+    ENV["_JAVA_OPTIONS"] = "-Dsbt.log.noformat=true"
+    ENV.java_cache
+    output = shell_output("#{bin}/sbt sbt-version")
+    assert_match "[info] #{version}", output
   end
 end
