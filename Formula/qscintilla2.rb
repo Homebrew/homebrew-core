@@ -12,14 +12,17 @@ class Qscintilla2 < Formula
   end
 
   option "without-plugin", "Skip building the Qt Designer plugin"
+  option "without-python", "Skip building the Python bindings"
 
   depends_on :python => :recommended
   depends_on :python3 => :optional
 
   if build.with? "python3"
     depends_on "pyqt" => "with-python3"
-  else
+  elsif build.with? "python"
     depends_on "pyqt"
+  else
+    depends_on "qt"
   end
 
   def install
@@ -52,18 +55,20 @@ class Qscintilla2 < Formula
     # Add qscintilla2 features search path, since it is not installed in Qt keg's mkspecs/features/
     ENV["QMAKEFEATURES"] = "#{prefix}/data/mkspecs/features"
 
-    cd "Python" do
-      Language::Python.each_python(build) do |python, version|
-        (share/"sip").mkpath
-        system python, "configure.py", "-o", lib, "-n", include,
-                         "--apidir=#{prefix}/qsci",
-                         "--destdir=#{lib}/python#{version}/site-packages/PyQt4",
-                         "--qsci-sipdir=#{share}/sip",
-                         "--pyqt-sipdir=#{HOMEBREW_PREFIX}/share/sip",
-                         "--spec=#{spec}"
-        system "make"
-        system "make", "install"
-        system "make", "clean"
+    if build.with?("python") || build.with?("python3")
+      cd "Python" do
+        Language::Python.each_python(build) do |python, version|
+          (share/"sip").mkpath
+          system python, "configure.py", "-o", lib, "-n", include,
+                           "--apidir=#{prefix}/qsci",
+                           "--destdir=#{lib}/python#{version}/site-packages/PyQt4",
+                           "--qsci-sipdir=#{share}/sip",
+                           "--pyqt-sipdir=#{HOMEBREW_PREFIX}/share/sip",
+                           "--spec=#{spec}"
+          system "make"
+          system "make", "install"
+          system "make", "clean"
+        end
       end
     end
 
