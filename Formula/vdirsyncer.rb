@@ -1,8 +1,8 @@
 class Vdirsyncer < Formula
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
-  url "https://pypi.python.org/packages/source/v/vdirsyncer/vdirsyncer-0.9.3.tar.gz"
-  sha256 "8ca2941bb99c5b67f0f9e7cae3dd65fcbd64b8969515c68d44e6f3cd9cfc50f2"
+  url "https://pypi.python.org/packages/0b/fb/c42223e1e9169e4770194e62143d431755724b080d8cb77f14705b634815/vdirsyncer-0.10.0.tar.gz"
+  sha256 "e8b894022beab6f98bde80c919e5fa99cb72698e2327e8d5271c70d39636c8bd"
   head "https://github.com/pimutils/vdirsyncer"
 
   bottle do
@@ -46,11 +46,6 @@ class Vdirsyncer < Formula
     sha256 "cc4e9c0ef810d6dfd165ca680330b65a4cf8a3f08f5f08ecd50a0253a08e541f"
   end
 
-  resource "lxml" do
-    url "https://pypi.python.org/packages/source/l/lxml/lxml-3.5.0.tar.gz"
-    sha256 "349f93e3a4b09cc59418854ab8013d027d246757c51744bf20069bc89016f578"
-  end
-
   resource "atomicwrites" do
     url "https://pypi.python.org/packages/source/a/atomicwrites/atomicwrites-0.1.9.tar.gz"
     sha256 "7cdfcee8c064bc0ba30b0444ba0919ebafccf5b0b1916c8cde07e410042c4023"
@@ -59,7 +54,7 @@ class Vdirsyncer < Formula
   def install
     version = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{version}/site-packages"
-    rs = %w[click click_threading click_log requests lxml requests-toolbelt atomicwrites]
+    rs = %w[click click_threading click_log requests requests-toolbelt atomicwrites]
     rs << "requests_oauthlib" if build.with? "remotestorage"
     rs.each do |r|
       resource(r).stage do
