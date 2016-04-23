@@ -143,7 +143,7 @@ class Emacs < Formula
     end
   end
 
-  plist_options :manual => "emacs start"
+  plist_options :manual => "emacs"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
