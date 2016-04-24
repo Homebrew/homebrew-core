@@ -118,6 +118,11 @@ class Ghc < Formula
     end
 
     ENV.deparallelize { system "make", "install" }
+    Dir.glob(lib/"*/package.conf.d/package.cache") {|f| rm f }
+  end
+
+  def post_install
+    system "#{bin}/ghc-pkg", "recache"
   end
 
   test do
