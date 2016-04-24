@@ -1,7 +1,7 @@
 class Geode < Formula
   desc "In-memory Data Grid for fast transactional data processing"
-  homepage "https://geode.apache.org"
-  url "http://apache.org/dyn/closer.cgi?filename=incubator/geode/1.0.0-incubating.M2/apache-geode-1.0.0-incubating.M2.tar.gz&action=download"
+  homepage "https://geode.apache.org/"
+  url "https://www.apache.org/dyn/closer.cgi?filename=incubator/geode/1.0.0-incubating.M2/apache-geode-1.0.0-incubating.M2.tar.gz&action=download"
   version "1.0.0-incubating.M2"
   sha256 "8447912c6d893008dd03917722d01abff4853861ce3f34c2bc95b60c51675cea"
 
