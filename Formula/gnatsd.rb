@@ -57,6 +57,17 @@ class Gnatsd < Formula
   end
 
   test do
-    system "gnatsd", "-v"
+    pid = fork do
+      exec "#{bin}/gnatsd --port=8085 --pid=#{testpath}/pid --log=#{testpath}/log"
+    end
+    sleep 3
+
+    begin
+      assert_match version.to_s, shell_output("curl localhost:8085")
+      assert File.exist?(testpath/"log")
+    ensure
+      Process.kill "SIGINT", pid
+      Process.wait pid
+    end
   end
 end
