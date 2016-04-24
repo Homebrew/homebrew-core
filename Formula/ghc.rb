@@ -5,7 +5,8 @@ class Ghc < Formula
   sha256 "b0bb177b8095de6074e5a3538e55fd1fc187dae6eb6ae36b05582c55f7d2db6f"
 
   bottle do
-    revision 1
+    cellar :any
+    revision 2
     sha256 "35f640eb0f58ef517a829bfdbc046a03c84e179fb2100421b9b0c8dbc1f18e2a" => :el_capitan
     sha256 "6ac060e495d6373ed9051da8ba55bcab2d51f30ebf9f68a48f842171ee5181a6" => :yosemite
     sha256 "0f846d17016873ebf740729844286978f9673982fe686a5308ee4cd444de59cb" => :mavericks
