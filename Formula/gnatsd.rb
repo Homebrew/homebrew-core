@@ -1,8 +1,8 @@
 class Gnatsd < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/gnatsd/archive/v0.6.8.tar.gz"
-  sha256 "13dfc0ef51feaa52fc347d12a972ed800ff1f2a6a816e988ce38bf1dfce1d8eb"
+  url "https://github.com/nats-io/gnatsd/archive/v0.7.2.tar.gz"
+  sha256 "f71d77ff31fc31770cf8e140d084ecfa91f7a8333f945bac1ff44732901680b5"
   head "https://github.com/apcera/gnatsd.git"
 
   bottle do
@@ -18,9 +18,12 @@ class Gnatsd < Formula
     ENV["GOPATH"] = buildpath
     mkdir_p "src/github.com/nats-io"
     ln_s buildpath, "src/github.com/nats-io/gnatsd"
+    system "go", "get", "golang.org/x/crypto/bcrypt"
     system "go", "install", "github.com/nats-io/gnatsd"
     system "go", "build", "-o", bin/"gnatsd", "gnatsd.go"
   end
+
+  plist_options :manual => "gnatsd"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
