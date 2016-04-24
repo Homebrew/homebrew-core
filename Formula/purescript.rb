@@ -5,8 +5,8 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.8.4.tar.gz"
-  sha256 "e7465be3fd9a9d16cb3050c0a97feb80e4a9329844b9eb125ce8a2aec7881682"
+  url "https://github.com/purescript/purescript/archive/v0.8.5.tar.gz"
+  sha256 "352c0c311710907d112e5d2745e7b152adc4d7b23aff3f069c463eceedddec17"
 
   bottle do
     sha256 "011402d31c3f794644abcb2589470de0e79806e66d1a5ba5d512450747bb1119" => :el_capitan
