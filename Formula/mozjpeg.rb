@@ -4,14 +4,6 @@ class Mozjpeg < Formula
   url "https://github.com/mozilla/mozjpeg/releases/download/v3.1/mozjpeg-3.1-release-source.tar.gz"
   sha256 "deedd88342c5da219f0047d9a290cd58eebe1b7a513564fcd8ebc49670077a1f"
 
-  head do
-    url "https://github.com/mozilla/mozjpeg.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
   bottle do
     cellar :any
     revision 1
@@ -20,11 +12,19 @@ class Mozjpeg < Formula
     sha256 "4670747d1beb2e197386e7e07ecc6fa3087818d6c305d23b688487d0038faab7" => :mavericks
   end
 
+  head do
+    url "https://github.com/mozilla/mozjpeg.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
+  keg_only "mozjpeg is not linked to prevent conflicts with the standard libjpeg."
+
   depends_on "pkg-config" => :build
   depends_on "nasm" => :build
   depends_on "libpng" => :optional
-
-  keg_only "mozjpeg is not linked to prevent conflicts with the standard libjpeg."
 
   def install
     system "autoreconf", "-i" if build.head?
