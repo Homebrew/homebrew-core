@@ -8,6 +8,8 @@ class Sbt < Formula
 
   depends_on :java => "1.6+"
 
+  depends_on :java => "1.6+"
+
   def install
     inreplace "bin/sbt" do |s|
       s.gsub! 'etc_sbt_opts_file="${sbt_home}/conf/sbtopts"', "etc_sbt_opts_file=\"#{etc}/sbtopts\""
