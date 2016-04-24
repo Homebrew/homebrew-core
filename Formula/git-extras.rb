@@ -19,7 +19,10 @@ class GitExtras < Formula
     sha256 "1b0d3064c639782265ed8180c3136e86cfc65e8fa607a3b347113320888e85fe" => :mavericks
   end
 
-  conflicts_with "git-town", :because => "git-extras also ships a git-sync binary"
+  conflicts_with "git-town",
+    :because => "git-extras also ships a git-sync binary"
+  conflicts_with "git-utils",
+    :because => "both install a `git-pull-request` script"
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
@@ -27,7 +30,7 @@ class GitExtras < Formula
 
   test do
     system "git", "init"
-    assert_match /#{testpath}/, shell_output("#{bin}/git-root")
+    assert_match(/#{testpath}/, shell_output("#{bin}/git-root"))
   end
 end
 
