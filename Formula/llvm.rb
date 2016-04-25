@@ -116,6 +116,7 @@ class Llvm < Formula
   option "with-lldb", "Build LLDB debugger"
   option "with-python", "Build Python bindings against Homebrew Python"
   option "with-rtti", "Build with C++ RTTI"
+  option "with-utils", "Install utility binaries"
 
   deprecated_option "rtti" => "with-rtti"
 
@@ -190,6 +191,7 @@ class Llvm < Formula
     ]
 
     args << "-DLLVM_ENABLE_RTTI=On" if build.with? "rtti"
+    args << "-DLLVM_INSTALL_UTILS=On" if build.with? "utils"
 
     if build.universal?
       ENV.permit_arch_flags
