@@ -1,8 +1,8 @@
 class Ppl < Formula
   desc "Parma Polyhedra Library: numerical abstractions for analysis, verification"
   homepage "http://bugseng.com/products/ppl"
-  url "http://bugseng.com/products/ppl/download/ftp/releases/1.1/ppl-1.1.tar.xz"
-  sha256 "c48ccd74664ec2cd3cdb5e37f287974ccb062f0384dc658d4053c424b19ad178"
+  url "http://bugseng.com/products/ppl/download/ftp/releases/1.2/ppl-1.2.tar.xz"
+  sha256 "691f0d5a4fb0e206f4e132fc9132c71d6e33cdda168470d40ac3cf62340e9a60"
 
   bottle do
     sha256 "54f3824838393715cebf5d8cc7a99e1578b7bbcbf1e3104505221f9dfdddac12" => :el_capitan
