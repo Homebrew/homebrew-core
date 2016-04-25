@@ -1,8 +1,9 @@
 class Remake < Formula
   desc "GNU Make with improved error handling, tracing, and a debugger"
   homepage "http://bashdb.sourceforge.net/remake/"
-  url "https://downloads.sourceforge.net/project/bashdb/remake/4.1%2Bdbg-0.91/remake-4.1%2Bdbg0.91.tar.bz2"
-  sha256 "02a1c62b47e99376701f8d99b45fffdf44e8512ecf92794fc6bf5d6779900dfb"
+  url "https://downloads.sourceforge.net/project/bashdb/remake/4.1%2Bdbg-1.1/remake-4.1%2Bdbg1.1.tar.bz2"
+  version "4.1-1.1"
+  sha256 "42eb79a8418e327255341a55ccbdf358eed42c4e15ffb39052c1627de83521fe"
 
   bottle do
     sha256 "6be98927b7043f275c945e57feec44a7ae7d6b7420e2925b2243a9f92673ee68" => :el_capitan
@@ -12,7 +13,8 @@ class Remake < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
