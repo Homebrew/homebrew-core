@@ -17,7 +17,7 @@ class Bazel < Formula
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
     # Bazel has it owns sandbox, ensure it works.
-    ENV.delete("SDKROOT")
+    ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"]
     ENV["CC"] = `xcrun -f #{ENV["CC"]}`.strip
 
     system "./compile.sh"
