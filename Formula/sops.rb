@@ -1,8 +1,8 @@
 class Sops < Formula
   desc "Editor of encrypted files"
   homepage "https://github.com/mozilla/sops"
-  url "https://pypi.python.org/packages/source/s/sops/sops-1.11.tar.gz"
-  sha256 "e55c7143d91028a968a25e73b2b914e2b7b4bf776b9e9f9ba4ae72081fe3dc9a"
+  url "https://pypi.python.org/packages/52/7a/5e28550084c9722e656bd044ddd066dab53093a3e7220016d07a0a283b04/sops-1.12.tar.gz"
+  sha256 "6f477b07769694b0f5ba273dbed0a82286deb48400c6c449f984f28bbef5d3f6"
 
   bottle do
     cellar :any
