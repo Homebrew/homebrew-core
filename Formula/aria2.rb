@@ -1,6 +1,6 @@
 class Aria2 < Formula
   desc "Download with resuming and segmented downloading"
-  homepage "http://aria2.sourceforge.net/"
+  homepage "https://aria2.github.io/"
   url "https://github.com/tatsuhiro-t/aria2/releases/download/release-1.21.0/aria2-1.21.0.tar.xz"
   sha256 "225c5f2c8acc899e0a802cdf198f82bd0d3282218e80cdce251b1f9ffacf6580"
 
