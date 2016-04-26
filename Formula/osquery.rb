@@ -8,7 +8,7 @@ class Osquery < Formula
 
   bottle do
     cellar :any
-    revision 1
+    revision 2
     sha256 "478bdc556f34b100381665b9553af3f5527a0ccb7d51c91cd989d3bd63a525e2" => :el_capitan
     sha256 "382b88d2596337f17abdcb6d66b083977673f18c7f41e394bb68ce785acb7a15" => :yosemite
     sha256 "98243f2e24824430971e51b79edf5034e30bd65db94db27e8f40af0a493cbc7b" => :mavericks
