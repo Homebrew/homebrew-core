@@ -11,12 +11,6 @@ class Node < Formula
     sha256 "8254c09259aa2d869279f580e489d82181aec17b7555c2f434c290e2625906d1" => :mavericks
   end
 
-  # devel do
-  #   url "https://nodejs.org/download/rc/v6.0.0-rc.3/node-v6.0.0-rc.3.tar.xz"
-  #   sha256 "472ae46a205fb65cd784b22825b7354cddb4da5f46c1974272be43e55745ce6e"
-  #   version "6.0.0-rc.3"
-  # end
-
   option "with-debug", "Build with debugger hooks"
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
@@ -47,7 +41,7 @@ class Node < Formula
   end
 
   resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/56.1/icu4c-56_1-src.tgz"
+    url "https://ssl.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz"
     mirror "https://ftp.mirrorservice.org/sites/download.qt-project.org/development_releases/prebuilt/icu/src/icu4c-56_1-src.tgz"
     version "56.1"
     sha256 "3a64e9105c734dcf631c0b3ed60404531bce6c0f5a64bfe1a6402a4cc2314816"
@@ -62,8 +56,6 @@ class Node < Formula
     else
       args << "--with-intl=small-icu"
     end
-    # for devel releases
-    # args << "--tag=rc.3" << "--release-urlbase=https://nodejs.org/download/rc/" if build.devel?
     args << "--tag=head" if build.head?
 
     resource("icu4c").stage buildpath/"deps/icu"
