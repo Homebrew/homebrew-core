@@ -1,9 +1,10 @@
 class GnuUnits < Formula
   desc "GNU unit conversion tool"
   homepage "https://www.gnu.org/software/units/"
-  url "http://ftpmirror.gnu.org/units/units-2.02.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/units/units-2.02.tar.gz"
-  sha256 "2b34fa70c9319956135b990afc1ac99d411ba5b291b5d29e4a89fdf052944e9a"
+  url "http://ftpmirror.gnu.org/units/units-#{version}.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/units/units-#{version}.tar.gz"
+  version "2.12"
+  sha256 "7868ea5118f1fe8e9f9f7256ecc7f1ee0dd7027ba9f32cc739184af1ed94bbcb"
 
   bottle do
     revision 2
@@ -16,22 +17,10 @@ class GnuUnits < Formula
 
   option "with-default-names", "Do not prepend 'g' to the binary"
 
-  # Temporary fix for "invalid/nonprinting UTF-8" warnings on startup,
-  # see https://github.com/Homebrew/homebrew/issues/20297.
-  #
-  # The current maintainer of GNU units, Adrian Mariano, is aware of
-  # the issue (reported by mail on 2015-04-08) and has fixed it in the
-  # currently unreleased development version which will be released
-  # later this year.
-  #
-  # See https://github.com/Homebrew/homebrew/issues/38454 for details.
-  patch :DATA
+  depends_on "readline"
 
   def install
-    # OS X does not provide a `python2` executable
-    inreplace "units_cur", "#!/usr/bin/python2", "#!/usr/bin/env python"
-
-    args = ["--prefix=#{prefix}"]
+    args = ["--prefix=#{prefix}", "--with-installed-readline"]
     args << "--program-prefix=g" if build.without? "default-names"
 
     system "./configure", *args
@@ -42,28 +31,3 @@ class GnuUnits < Formula
     assert_equal "* 18288", shell_output("#{bin}/gunits '600 feet' 'cm' -1").strip
   end
 end
-
-__END__
-diff --git a/definitions.units b/definitions.units
-index a0c61f2..06269ce 100644
---- a/definitions.units
-+++ b/definitions.units
-@@ -5248,9 +5248,6 @@ röntgen                 roentgen
- ㍴                      bar
- # ㍵                          oV???
- ㍶                      pc
--#㍷                      dm      invalid on Mac
--#㍸                      dm^2    invalid on Mac
--#㍹                      dm^3    invalid on Mac
- ㎀                      pA
- ㎁                      nA
- ㎂                      µA
-@@ -5342,9 +5339,6 @@ röntgen                 roentgen
- ㏛                      sr
- ㏜                      Sv
- ㏝                      Wb
--#㏞                      V/m     Invalid on Mac
--#㏟                      A/m     Invalid on Mac
--#㏿                      gal     Invalid on Mac
-
- !endutf8
