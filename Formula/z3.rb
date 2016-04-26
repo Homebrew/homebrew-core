@@ -22,10 +22,17 @@ class Z3 < Formula
   end
 
   def install
-    inreplace "scripts/mk_util.py", "dist-packages", "site-packages"
+    # This `inreplace` can be removed on next stable release.
+    inreplace "scripts/mk_util.py", "dist-packages", "site-packages" if build.stable?
 
     Language::Python.each_python(build) do |python, version|
-      system python, "scripts/mk_make.py", "--prefix=#{prefix}", "--staticlib"
+      # On next stable release remove the `if` condition and use
+      # the first statement in the condition below.
+      if build.head?
+        system python, "scripts/mk_make.py", "--prefix=#{prefix}", "--python", "--pypkgdir=#{lib}/python#{version}/site-packages", "--staticlib"
+      else
+        system python, "scripts/mk_make.py", "--prefix=#{prefix}", "--staticlib"
+      end
       cd "build" do
         system "make"
         system "make", "install"
