@@ -18,11 +18,6 @@ class Pyqt5 < Formula
 
   depends_on :python3 => :recommended
   depends_on :python => :optional
-
-  if build.without?("python3") && build.without?("python")
-    odie "pyqt5: --with-python3 must be specified when using --without-python"
-  end
-
   depends_on "qt5"
 
   if build.with? "python3"
@@ -32,6 +27,10 @@ class Pyqt5 < Formula
   end
 
   def install
+    if build.without?("python3") && build.without?("python")
+      odie "pyqt5: --with-python3 must be specified when using --without-python"
+    end
+
     Language::Python.each_python(build) do |python, version|
       args = ["--confirm-license",
               "--bindir=#{bin}",
