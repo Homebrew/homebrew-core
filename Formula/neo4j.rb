@@ -39,7 +39,6 @@ class Neo4j < Formula
     EOS
   end
 
-
   test do
     ENV.java_cache
     ENV["NEO4J_LOG"] = testpath/"libexec/data/log/neo4j.log"
