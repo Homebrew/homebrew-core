@@ -1,8 +1,8 @@
 class Asciinema2gif < Formula
   desc "Generate animated GIFs from asciinema terminal recordings"
   homepage "https://github.com/tav/asciinema2gif"
-  url "https://github.com/tav/asciinema2gif/archive/0.2.tar.gz"
-  sha256 "fa5834aaec162b992768bed854d69eecff0862c733d4be0334dbc3b9fe86481c"
+  url "https://github.com/tav/asciinema2gif/archive/0.3.tar.gz"
+  sha256 "7b05b9abdb71ceef9f8ebb83b43aa00bf10b8138f85bc183c96122c0486c5e98"
   head "https://github.com/tav/asciinema2gif.git"
 
   bottle do
