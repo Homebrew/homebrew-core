@@ -1,33 +1,23 @@
 class Neo4j < Formula
   desc "Robust (fully ACID) transactional property graph database"
   homepage "http://neo4j.com"
-  url "http://dist.neo4j.org/neo4j-community-2.3.3-unix.tar.gz"
-  version "2.3.3"
-  sha256 "01559c55055516a42ee2dd100137b6b55d63f02959a3c6c6db7a152e045828d9"
-
-  devel do
-    url "http://dist.neo4j.org/neo4j-community-3.0.0-M05-unix.tar.gz"
-    sha256 "2b7878f424859de6951e86f9abb71701d8d45ab22e1157410504fe6a6bb17a95"
-    version "3.0.0-M05"
-  end
+  url "http://dist.neo4j.org/neo4j-community-3.0.0-unix.tar.gz"
+  version "3.0.0"
+  sha256 "1f1aeb3c748d5b05c263b7dab8b195df788507f59228e80534ed8e506a80c517"
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8+"
 
   def install
     # Remove windows files
     rm_f Dir["bin/*.bat"]
 
-    # Fix Java detection to work with 1.8
-    # https://github.com/neo4j/neo4j/issues/6895
-    inreplace "bin/utils", "java_home -v 1.7", "java_home -v 1.7+" if build.stable?
-
     # Install jars in libexec to avoid conflicts
     libexec.install Dir["*"]
 
     # Symlink binaries
-    bin.install_symlink Dir["#{libexec}/bin/neo4j{,-shell,-import}"]
+    bin.install_symlink Dir["#{libexec}/bin/neo4j{,-shell,-import,-shared.sh, -admin}"]
 
     # Adjust UDC props
     # Suppress the empty, focus-stealing java gui.
@@ -36,6 +26,19 @@ class Neo4j < Formula
       wrapper.java.additional.4=-Dneo4j.ext.udc.source=homebrew
     EOS
   end
+
+  def caveats; <<-EOS.undent
+    NEO4J has been installed to #{libexec}.
+    You need to set NEO4J_HOME to this location.
+
+    Add the following to ~/.bash_profile or ~/.bashrc:
+      EXPORT NEO4J_HOME=#{libexec}
+
+    Add the following to ~/.zshrc:
+      EXPORT NEO4J_HOME=#{libexec}
+    EOS
+  end
+
 
   test do
     ENV.java_cache
