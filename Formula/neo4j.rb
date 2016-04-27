@@ -10,6 +10,7 @@ class Neo4j < Formula
   depends_on :java => "1.8+"
 
   def install
+    ENV["NEO4J_HOME"] = libexec
     # Remove windows files
     rm_f Dir["bin/*.bat"]
 
@@ -17,25 +18,14 @@ class Neo4j < Formula
     libexec.install Dir["*"]
 
     # Symlink binaries
-    bin.install_symlink Dir["#{libexec}/bin/neo4j{,-shell,-import,-shared.sh, -admin}"]
+    bin.install Dir["#{libexec}/bin/neo4j{,-shell,-import,-shared.sh, -admin}"]
+    bin.env_script_all_files(libexec/"bin", :NEO4J_HOME => ENV["NEO4J_HOME"])
 
     # Adjust UDC props
     # Suppress the empty, focus-stealing java gui.
     (libexec/"conf/neo4j-wrapper.conf").append_lines <<-EOS.undent
       wrapper.java.additional=-Djava.awt.headless=true
       wrapper.java.additional.4=-Dneo4j.ext.udc.source=homebrew
-    EOS
-  end
-
-  def caveats; <<-EOS.undent
-    NEO4J has been installed to #{libexec}.
-    You need to set NEO4J_HOME to this location.
-
-    Add the following to ~/.bash_profile or ~/.bashrc:
-      export NEO4J_HOME=#{libexec}
-
-    Add the following to ~/.zshrc:
-      export NEO4J_HOME=#{libexec}
     EOS
   end
 
