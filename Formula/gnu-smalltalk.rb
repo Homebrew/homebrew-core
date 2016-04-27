@@ -4,7 +4,7 @@ class GnuSmalltalk < Formula
   url "http://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"
   mirror "https://ftp.gnu.org/gnu/smalltalk/smalltalk-3.2.5.tar.xz"
   sha256 "819a15f7ba8a1b55f5f60b9c9a58badd6f6153b3f987b70e7b167e7755d65acc"
-  revision 2
+  revision 3
 
   head "https://github.com/bonzini/smalltalk.git"
 
@@ -34,6 +34,7 @@ class GnuSmalltalk < Formula
   depends_on "gawk" => :build
   depends_on "readline"
   depends_on "gnutls"
+  depends_on "gdbm"
   depends_on "libffi" => :recommended
   depends_on "libsigsegv" => :recommended
   depends_on "glew" => :optional
@@ -76,6 +77,6 @@ class GnuSmalltalk < Formula
     path = testpath/"test.gst"
     path.write "0 to: 9 do: [ :n | n display ]\n"
 
-    assert_match /0123456789/, shell_output("#{bin}/gst #{path}")
+    assert_match "0123456789", shell_output("#{bin}/gst #{path}")
   end
 end
