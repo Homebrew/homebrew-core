@@ -1,11 +1,21 @@
 class AzureCli < Formula
   desc "Official Azure CLI"
   homepage "https://github.com/azure/azure-xplat-cli"
-  url "https://github.com/Azure/azure-xplat-cli/archive/v0.9.20-April2016.tar.gz"
-  version "0.9.20"
-  sha256 "c2b97a6dba7deac3d7cb030602bc84ac0af355fc95f74901bd6c8fa43d5f5da8"
+  revision 1
 
   head "https://github.com/azure/azure-xplat-cli.git", :branch => "dev"
+
+  stable do
+    url "https://github.com/Azure/azure-xplat-cli/archive/v0.9.20-April2016.tar.gz"
+    version "0.9.20"
+    sha256 "c2b97a6dba7deac3d7cb030602bc84ac0af355fc95f74901bd6c8fa43d5f5da8"
+
+    # Fixes for Node v6. Can be removed on next stable azure-cli release.
+    patch do
+      url "https://github.com/Azure/azure-xplat-cli/commit/241493584534d2.diff"
+      sha256 "2abafa41959c518ea3cb0d2c958c13220b78be3847152f0d28942185afd93c6d"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
