@@ -215,6 +215,7 @@
   "synfigstudio": "homebrew/boneyard",
   "syslog-ng": "homebrew/boneyard",
   "tabbed": "homebrew/x11",
+  "tegh": "homebrew/boneyard",
   "telepathy-gabble": "homebrew/boneyard",
   "telepathy-glib": "homebrew/boneyard",
   "telepathy-idle": "homebrew/boneyard",
