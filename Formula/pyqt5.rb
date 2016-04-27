@@ -1,9 +1,8 @@
 class Pyqt5 < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
-  url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.5.1/PyQt-gpl-5.5.1.tar.gz"
-  sha256 "0a70ef94fbffcf674b0dde024aae2a2a7a3f5a8c42806109ff7df2c941bd8386"
-  revision 1
+  url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.6/PyQt5_gpl-5.6.tar.gz"
+  sha256 "2e481a6c4c41b96ed3b33449e5f9599987c63a5c8db93313bd57a6acbf20f0e1"
 
   bottle do
     sha256 "9372001ae57afee47b5326439e9ecdac778ff18279515f45d4a0b8209247ab89" => :el_capitan
@@ -35,8 +34,8 @@ class Pyqt5 < Formula
       args = ["--confirm-license",
               "--bindir=#{bin}",
               "--destdir=#{lib}/python#{version}/site-packages",
-              # To avoid conflicts with PyQt (for Qt4):
-              "--sipdir=#{share}/sip/Qt5/",
+              "--stubsdir=#{lib}/python#{version}/site-packages/PyQt5",
+              "--sipdir=#{share}/sip/Qt5",
               # sip.h could not be found automatically
               "--sip-incdir=#{Formula["sip"].opt_include}",
               # Make sure the qt5 version of qmake is found.
