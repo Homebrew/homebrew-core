@@ -1,20 +1,14 @@
 class Node < Formula
   desc "Platform built on the V8 JavaScript runtime to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v5.11.0/node-v5.11.0.tar.xz"
-  sha256 "083766aff72fc5c78f6999dd0d00bc0340a052ab270fd60d6928b719ca2b3fd1"
+  url "https://nodejs.org/dist/v6.0.0/node-v6.0.0.tar.xz"
+  sha256 "f0e5bdc3cf4af85b8a24bdbebed81e1a9f7fda91cab8a9475737940aa90da617"
   head "https://github.com/nodejs/node.git"
 
   bottle do
     sha256 "2df9da24389b7b01851b1d794d0ea8ddcce0af2d084233f7382b678defb1a53c" => :el_capitan
     sha256 "da56a1850d323d090545de46950d986ed29c9cc63efc24b43669f9c6e3effbe7" => :yosemite
     sha256 "8254c09259aa2d869279f580e489d82181aec17b7555c2f434c290e2625906d1" => :mavericks
-  end
-
-  devel do
-    url "https://nodejs.org/download/rc/v6.0.0-rc.3/node-v6.0.0-rc.3.tar.xz"
-    sha256 "472ae46a205fb65cd784b22825b7354cddb4da5f46c1974272be43e55745ce6e"
-    version "6.0.0-rc.3"
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -62,7 +56,6 @@ class Node < Formula
     else
       args << "--with-intl=small-icu"
     end
-    args << "--tag=rc.3" << "--release-urlbase=https://nodejs.org/download/rc/" if build.devel?
     args << "--tag=head" if build.head?
 
     resource("icu4c").stage buildpath/"deps/icu"
