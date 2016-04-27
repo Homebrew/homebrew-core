@@ -32,10 +32,10 @@ class Neo4j < Formula
     You need to set NEO4J_HOME to this location.
 
     Add the following to ~/.bash_profile or ~/.bashrc:
-      EXPORT NEO4J_HOME=#{libexec}
+      export NEO4J_HOME=#{libexec}
 
     Add the following to ~/.zshrc:
-      EXPORT NEO4J_HOME=#{libexec}
+      export NEO4J_HOME=#{libexec}
     EOS
   end
 
