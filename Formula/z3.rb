@@ -5,14 +5,6 @@ class Z3 < Formula
   sha256 "50967cca12c5c6e1612d0ccf8b6ebf5f99840a783d6cf5216336a2b59c37c0ce"
   head "https://github.com/Z3Prover/z3.git"
 
-  option "without-python", "Build without python 2 support"
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
-
-  if build.without?("python3") && build.without?("python")
-    odie "z3: --with-python3 must be specified when using --without-python"
-  end
-
   bottle do
     cellar :any
     revision 1
@@ -21,11 +13,26 @@ class Z3 < Formula
     sha256 "81c89c70da771d0d1faae38657e43849f741cb68486afbf50a21be76bf612799" => :mavericks
   end
 
+  option "without-python", "Build without python 2 support"
+  depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on :python3 => :optional
+
+  if build.without?("python3") && build.without?("python")
+    odie "z3: --with-python3 must be specified when using --without-python"
+  end
+
   def install
-    inreplace "scripts/mk_util.py", "dist-packages", "site-packages"
+    # This `inreplace` can be removed on next stable release.
+    inreplace "scripts/mk_util.py", "dist-packages", "site-packages" if build.stable?
 
     Language::Python.each_python(build) do |python, version|
-      system python, "scripts/mk_make.py", "--prefix=#{prefix}", "--staticlib"
+      # On next stable release remove the `if` condition and use
+      # the first statement in the condition below.
+      if build.head?
+        system python, "scripts/mk_make.py", "--prefix=#{prefix}", "--python", "--pypkgdir=#{lib}/python#{version}/site-packages", "--staticlib"
+      else
+        system python, "scripts/mk_make.py", "--prefix=#{prefix}", "--staticlib"
+      end
       cd "build" do
         system "make"
         system "make", "install"
