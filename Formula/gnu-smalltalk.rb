@@ -15,9 +15,9 @@ class GnuSmalltalk < Formula
   end
 
   devel do
-    url "http://alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.90.tar.gz"
-    mirror "https://www.mirrorservice.org/sites/alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.90.tar.gz"
-    sha256 "aa6cab17841f999c9217cdccd185a74e42fc6a7fc17139120dad8815bdff137c"
+    url "http://alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.91.tar.gz"
+    mirror "https://www.mirrorservice.org/sites/alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.91.tar.gz"
+    sha256 "13a7480553c182dbb8092bd4f215781b9ec871758d1db7045c2d8587e4d1bef9"
   end
 
   option "with-test", "Verify the build with make check (this may hang)"
