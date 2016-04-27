@@ -1,9 +1,8 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org"
-  url "https://notmuchmail.org/releases/notmuch-0.21.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/n/notmuch/notmuch_0.21.orig.tar.gz"
-  sha256 "d06f8ffed168c7d53ffc449dd611038b5fa90f7ee22d58f3bec3b379571e25b3"
+  url "https://notmuchmail.org/releases/notmuch-0.22.tar.gz"
+  sha256 "d64118ef926ba06fba814a89a75d20b0c8c8ec07dd65e41bb9f1e9db0dcfb99a"
 
   bottle do
     cellar :any
@@ -13,12 +12,13 @@ class Notmuch < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gmime"
+  depends_on "talloc"
+  depends_on "xapian"
   depends_on :emacs => ["21.1", :optional]
   depends_on :python => :optional
   depends_on :python3 => :optional
-  depends_on "xapian"
-  depends_on "talloc"
-  depends_on "gmime"
+  depends_on :ruby => ["1.9", :optional]
 
   # Requires zlib >= 1.2.5.2
   resource "zlib" do
@@ -34,12 +34,15 @@ class Notmuch < Formula
     end
 
     args = ["--prefix=#{prefix}"]
+
     if build.with? "emacs"
       ENV.deparallelize # Emacs and parallel builds aren't friends
-      args << "--with-emacs" << "--emacslispdir=#{elisp}"
+      args << "--with-emacs" << "--emacslispdir=#{elisp}" << "--emacsetcdir=#{elisp}"
     else
       args << "--without-emacs"
     end
+
+    args << "--without-ruby" if build.without? "ruby"
 
     system "./configure", *args
     system "make", "V=1", "install"
