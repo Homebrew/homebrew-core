@@ -1,8 +1,8 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "http://groonga.org/"
-  url "http://packages.groonga.org/source/groonga/groonga-6.0.1.tar.gz"
-  sha256 "16297c1e4c7cb12c4fca515a28b5cb1e9ef0db0867ff4ad3d8d5436c0e175b6d"
+  url "http://packages.groonga.org/source/groonga/groonga-6.0.2.tar.gz"
+  sha256 "dd5e88aa8400692e82a9787cbc846bad9ec6cbfad67db97d4eb3f4c0fe3615fb"
 
   bottle do
     sha256 "dc92bb6507e72f77f020579f07aa2c767e8f3983bc2047f28732da02eacff3d2" => :el_capitan
@@ -37,8 +37,8 @@ class Groonga < Formula
   end
 
   resource "groonga-normalizer-mysql" do
-    url "http://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.0.tar.gz"
-    sha256 "525daffdb999b647ce87328ec2e94c004ab59803b00a71ce1afd0b5dfd167116"
+    url "http://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.1.tar.gz"
+    sha256 "bc83d1e5e0f32d4b95e219cb940a7e3f61f0f743abd3bd47c2d436a34e503870"
   end
 
   link_overwrite "lib/groonga/plugins/normalizers/"
