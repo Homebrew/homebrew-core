@@ -3,12 +3,12 @@ class Xapian < Formula
   homepage "https://xapian.org/"
 
   stable do
-    url "http://oligarchy.co.uk/xapian/1.2.22/xapian-core-1.2.22.tar.xz"
-    sha256 "269b87ca3faf79d444e8bb82ed58a96f1955008d7702f9966dec68608588527f"
+    url "http://oligarchy.co.uk/xapian/1.2.23/xapian-core-1.2.23.tar.xz"
+    sha256 "9783aeae4e1a6d06e5636b270db4b458a7d0804a31da158269f57fa5dc86347d"
 
     resource "bindings" do
-      url "http://oligarchy.co.uk/xapian/1.2.22/xapian-bindings-1.2.22.tar.xz"
-      sha256 "b15ca7984980a1d2aedd3378648ef5f3889cb39a047bac1522a8e5d04f0a8557"
+      url "http://oligarchy.co.uk/xapian/1.2.23/xapian-bindings-1.2.23.tar.xz"
+      sha256 "19b4b56c74863c51733d8c2567272ef7f004b898cf44016711ae25bc524b2215"
     end
   end
 
