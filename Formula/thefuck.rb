@@ -1,8 +1,8 @@
 class Thefuck < Formula
   desc "Programatically correct mistyped console commands"
   homepage "https://github.com/nvbn/thefuck"
-  url "https://pypi.python.org/packages/source/t/thefuck/thefuck-3.8.tar.gz"
-  sha256 "abcc361f1c43e46ebcf20f4824f22f2548d89080b8f00727ab1e27a1ebb105e4"
+  url "https://pypi.python.org/packages/e3/59/eba3a2b16a9a12869edb7858dbe5e84f3734b8fb58b9c6921f9720c01c8b/thefuck-3.9.tar.gz"
+  sha256 "94d7b1219fee74270575ca36a032d5e196a10f401044acc48c5a9af4810caa90"
 
   head "https://github.com/nvbn/thefuck.git"
 
