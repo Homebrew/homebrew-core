@@ -1,9 +1,9 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "http://dovecot.org/"
-  url "http://dovecot.org/releases/2.2/dovecot-2.2.21.tar.gz"
-  mirror "https://fossies.org/linux/misc/dovecot-2.2.21.tar.gz"
-  sha256 "7ab7139e59e1f0353bf9c24251f13c893cf1a6ef4bcc47e2d44de437108d0b20"
+  url "http://dovecot.org/releases/2.2/dovecot-2.2.24.tar.gz"
+  mirror "https://fossies.org/linux/misc/dovecot-2.2.24.tar.gz"
+  sha256 "71c86891ea8deb5703d3dbbc3ea31ce2cbf7638f1aa395d9e8794d3ff7aebeb7"
 
   bottle do
     revision 2
@@ -21,8 +21,8 @@ class Dovecot < Formula
   depends_on "clucene" => :optional
 
   resource "pigeonhole" do
-    url "http://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-0.4.12.tar.gz"
-    sha256 "98a2fd79b0d9effd08c0caf04d483b1caa5e4503dae811e6d436948557bfb702"
+    url "http://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-0.4.13.tar.gz"
+    sha256 "7fd187b8393a5048b302f90ad84adc7bf6e73bf79fd8d22a1c1aaa71f836a910"
   end
 
   resource "stemmer" do
