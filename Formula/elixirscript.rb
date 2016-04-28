@@ -1,3 +1,5 @@
+require "language/node"
+
 class Elixirscript < Formula
   desc "Elixir to JavaScript compiler"
   homepage "https://github.com/bryanjos/elixirscript"
@@ -15,11 +17,9 @@ class Elixirscript < Formula
   depends_on "node" => :build
 
   def install
-    ENV.prepend_path "PATH", "#{Formula["node"].opt_libexec}/npm/bin"
-
     system "mix", "local.hex", "--force"
     system "mix", "deps.get"
-    system "npm", "install"
+    system "npm", "install", *Language::Node.local_npm_install_args
     system "mix", "std_lib"
     system "mix", "clean"
     system "mix", "compile"

@@ -1,17 +1,19 @@
+require "language/node"
+
 class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git", :tag => "v4.5.0", :revision => "ff5cfc5d05a58e53f7acaa762428fa803318d31e"
   head "https://github.com/elastic/kibana.git"
 
-  devel do
-    url "https://github.com/elastic/kibana.git", :tag => "v5.0.0-alpha1", :revision => "a18c3d0acd20d5c389df8904cd4b9e650aa260f0"
-  end
-
   bottle do
     sha256 "70427af44d49688d5d4bfead4d1dcfd132e080013c2a114935c14de867da490a" => :el_capitan
     sha256 "b6c945b9e19e1204b0b490fd44b27d4e5bf3ca6b726073766ffa99aaa4a52db6" => :yosemite
     sha256 "d874d305e995f117f41477807381b9216efbbfa3a1fd802a617d1bc8ff3b3813" => :mavericks
+  end
+
+  devel do
+    url "https://github.com/elastic/kibana.git", :tag => "v5.0.0-alpha1", :revision => "a18c3d0acd20d5c389df8904cd4b9e650aa260f0"
   end
 
   resource "node" do
@@ -45,8 +47,10 @@ class Kibana < Formula
     # do not build zip package
     inreplace buildpath/"tasks/build/archives.js", /(await exec\('zip'.*)/, "// \\1"
 
+    # set npm env and fix cache edge case (https://github.com/Homebrew/brew/pull/37#issuecomment-208840366)
     ENV.prepend_path "PATH", prefix/"libexec/node/bin"
-    system "npm", "install"
+    Pathname.new("#{ENV["HOME"]}/.npmrc").write Language::Node.npm_cache_config
+    system "npm", "install", "--verbose"
     system "npm", "run", "build"
     mkdir "tar" do
       system "tar", "--strip-components", "1", "-xf", Dir[buildpath/"target/kibana-*-#{platform}.tar.gz"].first
@@ -69,8 +73,6 @@ class Kibana < Formula
     (prefix/"installedPlugins").mkdir
   end
 
-  plist_options :manual => "kibana"
-
   def caveats; <<-EOS.undent
     Config: #{etc}/kibana/
     If you wish to preserve your plugins upon upgrade, make a copy of
@@ -78,6 +80,8 @@ class Kibana < Formula
     new keg location after upgrading.
     EOS
   end
+
+  plist_options :manual => "kibana"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -1,8 +1,10 @@
+require "language/node"
+
 class Autocode < Formula
   desc "Code automation for every language, library and framework"
   homepage "https://autocode.run"
-  url "https://github.com/ctate/autocode/archive/v1.3.1.tar.gz"
-  sha256 "a263353a3ff63bd0cf7606335e453f40caa76abd783957ac4feb8b793f1751bf"
+  url "https://registry.npmjs.org/autocode/-/autocode-1.3.1.tgz"
+  sha256 "952364766e645d4ddae30f9d6cc106fdb74d05afc4028066f75eeeb17c4b0247"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,9 +16,7 @@ class Autocode < Formula
   depends_on "node"
 
   def install
-    ENV.prepend_path "PATH", "#{Formula["node"].opt_libexec}/npm/bin"
-    system "npm", "install"
-    libexec.install Dir["*", ".autocode"]
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
