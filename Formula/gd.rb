@@ -1,7 +1,7 @@
 class Gd < Formula
   desc "Graphics library to dynamically manipulate images"
   homepage "https://libgd.github.io/"
-  url "https://bitbucket.org/libgd/gd-libgd/downloads/libgd-2.1.1.tar.xz"
+  url "https://github.com/libgd/libgd/releases/download/gd-2.1.1/libgd-2.1.1.tar.xz"
   sha256 "9ada1ed45594abc998ebc942cef12b032fbad672e73efc22bc9ff54f5df2b285"
   revision 2
 
@@ -13,7 +13,7 @@ class Gd < Formula
   end
 
   head do
-    url "https://bitbucket.org/libgd/gd-libgd.git"
+    url "https://github.com/libgd/libgd.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
