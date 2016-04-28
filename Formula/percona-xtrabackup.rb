@@ -26,7 +26,9 @@ class PerconaXtrabackup < Formula
       ohai "Building with man pages"
     end
 
-    system "cmake", *cmake_args, *std_cmake_args
+    cmake_args.concat std_cmake_args
+
+    system "cmake", *cmake_args
     system "make", "-j4"
     system "make", "install"
 
