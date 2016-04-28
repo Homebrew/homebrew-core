@@ -1,10 +1,10 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server."
   homepage "http://tarantool.org"
-  url "https://github.com/tarantool/tarantool/releases/download/1.6.8.525/tarantool-1.6.8.525.tar.gz"
-  version "1.6.8-525"
-  sha256 "570c1ef7cabf86d30a98a3b8c5020a956cee0882738b223b2a385b02f9fda70f"
-  head "https://github.com/tarantool/tarantool.git", :shallow => false
+  url "http://tarantool.org/dist/1.6/tarantool-1.6.8.653.tar.gz"
+  version "1.6.8-653"
+  sha256 "1c7f210dfadb8660db6ddc4bb680cd167f37e93d3747d57989850eef7f17933e"
+  head "https://github.com/tarantool/tarantool.git", :shallow => false, :branch => "1.7"
 
   bottle do
     sha256 "c0b9b071132bd59018e0e56d15e4fae5010ef57f7fe46ceeaced26ac98145527" => :el_capitan
@@ -13,6 +13,7 @@ class Tarantool < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "openssl"
   depends_on "readline"
 
   def install
@@ -21,6 +22,7 @@ class Tarantool < Formula
     args << "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}"
     args << "-DCMAKE_INSTALL_LOCALSTATEDIR=#{var}"
     args << "-DENABLE_DIST=ON"
+    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
 
     system "cmake", ".", *args
     system "make"
