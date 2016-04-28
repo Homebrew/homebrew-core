@@ -1,9 +1,8 @@
 class Pastebinit < Formula
   desc "Send things to pastebin from the command-line"
   homepage "https://launchpad.net/pastebinit"
-  url "https://launchpad.net/pastebinit/trunk/1.4.1/+download/pastebinit-1.4.1.tar.gz"
-  sha256 "39e3dcb98d2aa9d65f86c648c375ca75fa312fc773e568963e9aefffea0c9bf7"
-  revision 1
+  url "https://launchpad.net/pastebinit/trunk/1.5/+download/pastebinit-1.5.tar.gz"
+  sha256 "0d931dddb3744ed38aa2d319dd2d8a2f38a391011ff99db68ce7c83ab8f5b62f"
 
   bottle do
     cellar :any_skip_relocation
