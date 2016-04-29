@@ -4,7 +4,7 @@ class PerconaXtrabackup < Formula
   url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.2/source/tarball/percona-xtrabackup-2.4.2.tar.gz"
   sha256 "faeac6f1db4a1270e5263e48c8a94cc5c81c772fdea36879d1be18dcbcd1926e"
 
-  option "with-docs", "Build man pages"
+  option "without-docs", "Build without man pages (which requires python-sphinx)"
 
   depends_on "cmake" => :build
   depends_on "libev" => :build
