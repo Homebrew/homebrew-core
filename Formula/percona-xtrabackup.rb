@@ -11,7 +11,6 @@ class PerconaXtrabackup < Formula
   depends_on "sphinx-doc" => :build if build.with? "docs"
   depends_on "libgcrypt"
   depends_on "openssl"
-  depends_on :mysql => :recommended
 
   resource "DBD::mysql" do
     url "https://cpan.metacpan.org/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.033.tar.gz"
