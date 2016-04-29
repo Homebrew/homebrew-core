@@ -59,7 +59,8 @@ class Readline < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lreadline", "-o", "test"
-    assert_equal "Hello, World!", pipe_output("./test", "Hello, World!\n").strip
+    system ENV.cc, "-L", lib, "test.c", "-lreadline", "-o", "test"
+    assert_equal "test> Hello, World!\nHello, World!",
+      pipe_output("./test", "Hello, World!\n").strip
   end
 end
