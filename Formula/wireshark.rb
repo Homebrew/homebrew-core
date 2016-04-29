@@ -4,19 +4,12 @@ class Wireshark < Formula
   url "https://www.wireshark.org/download/src/all-versions/wireshark-2.0.3.tar.bz2"
   mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.0.3.tar.bz2"
   sha256 "e196376e75fe21fdef41b4eaa27ce2e1b2b561e7f7b20328a8e96657cc4465fc"
+  head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
     sha256 "2e0b785e227013631cb4d389245a37156ad82abb573472aa803d0e93c16aa2b2" => :el_capitan
     sha256 "07aff65dd89f2d59bee939b245c031108ac441dd622378d7d3a73d7554a07d8f" => :yosemite
     sha256 "7ef1a8ecdca2a87ef33414bd076fa65bc79bee4a6691a3c0445460eb0a17d432" => :mavericks
-  end
-
-  head do
-    url "https://code.wireshark.org/review/wireshark", :using => :git
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   option "with-gtk+3", "Build the wireshark command with gtk+3"
@@ -26,15 +19,13 @@ class Wireshark < Formula
   option "with-headers", "Install Wireshark library headers for plug-in development"
 
   depends_on "pkg-config" => :build
-
+  depends_on "cmake" => :build
   depends_on "glib"
   depends_on "gnutls"
   depends_on "libgcrypt"
   depends_on "d-bus"
-
   depends_on "geoip" => :recommended
   depends_on "c-ares" => :recommended
-
   depends_on "libsmi" => :optional
   depends_on "lua" => :optional
   depends_on "portaudio" => :optional
@@ -62,35 +53,60 @@ class Wireshark < Formula
       ENV.prepend "LDFLAGS", "-L#{libexec}/vendor/lib"
     end
 
-    no_gui = build.without?("gtk+3") && build.without?("qt") && build.without?("gtk+") && build.without?("qt5")
-
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --with-gnutls
-    ]
-
-    args << "--disable-wireshark" if no_gui
-    args << "--disable-gtktest" if build.without?("gtk+3") && build.without?("gtk+")
-    args << "--with-gtk3" if build.with? "gtk+3"
-    args << "--with-gtk2" if build.with? "gtk+"
+    args = std_cmake_args
+    args << "-DENABLE_GNUTLS=ON" << "-DENABLE_GCRYPT=ON"
 
     if build.with?("qt") || build.with?("qt5")
-      args << "--with-qt"
+      args << "-DBUILD_wireshark=ON"
+      args << "-DENABLE_APPLICATION_BUNDLE=ON"
+      args << "-DENABLE_QT5=" + ((build.with? "qt5") ? "ON" : "OFF")
     else
-      args << "--with-qt=no"
+      args << "-DBUILD_wireshark=OFF"
+      args << "-DENABLE_APPLICATION_BUNDLE=OFF"
     end
 
-    if build.head?
-      args << "--disable-warnings-as-errors"
-      system "./autogen.sh"
+    if build.with?("gtk+3") || build.with?("gtk+")
+      args << "-DBUILD_wireshark_gtk=ON"
+      args << "-DENABLE_GTK3=" + ((build.with? "gtk+3") ? "ON" : "OFF")
+      args << "-DENABLE_PORTAUDIO=ON" if build.with? "portaudio"
+    else
+      args << "-DBUILD_wireshark_gtk=OFF"
+      args << "-DENABLE_PORTAUDIO=OFF"
     end
 
-    system "./configure", *args
+    if build.with? "geoip"
+      args << "-DENABLE_GEOIP=ON"
+    else
+      args << "-DENABLE_GEOIP=OFF"
+    end
+
+    if build.with? "c-ares"
+      args << "-DENABLE_CARES=ON"
+    else
+      args << "-DENABLE_CARES=OFF"
+    end
+
+    if build.with? "libsmi"
+      args << "-DENABLE_SMI=ON"
+    else
+      args << "-DENABLE_SMI=OFF"
+    end
+
+    if build.with? "lua"
+      args << "-DENABLE_LUA=ON"
+    else
+      args << "-DENABLE_LUA=OFF"
+    end
+
+    system "cmake", *args
     system "make"
     ENV.deparallelize # parallel install fails
     system "make", "install"
+
+    if build.with?("qt") || build.with?("qt5")
+      prefix.install bin/"Wireshark.app"
+      bin.install_symlink prefix/"Wireshark.app/Contents/MacOS/Wireshark"
+    end
 
     if build.with? "headers"
       (include/"wireshark").install Dir["*.h"]
