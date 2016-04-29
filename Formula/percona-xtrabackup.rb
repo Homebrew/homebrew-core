@@ -32,19 +32,7 @@ class PerconaXtrabackup < Formula
     rm_rf prefix/"xtrabackup-test" # Remove unnecessary files
   end
 
-  def caveats; <<-EOS.undent
-    You'll need the DBD::mysql Perl module.  To install it
-    without modifying OSX's own Perl installation:
-    (reopen terminal after each command)
-
-      brew install perl cpanminus
-      cpanm DBD::mysql
-
-    EOS
-  end
-
   test do
     system "#{bin}/xtrabackup", "--version"
-    system "#{bin}/innobackupex", "--version"
   end
 end
