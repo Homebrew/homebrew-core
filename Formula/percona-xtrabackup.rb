@@ -12,7 +12,20 @@ class PerconaXtrabackup < Formula
   depends_on "libgcrypt"
   depends_on :mysql => :recommended
 
+  resource "DBD::mysql" do
+    url "https://cpan.metacpan.org/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.033.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.033.tar.gz"
+    sha256 "cc98bbcc33581fbc55b42ae681c6946b70a26f549b3c64466740dfe9a7eac91c"
+  end
+
   def install
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+    resource("DBD::mysql").stage do
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+      system "make", "install"
+    end
+
     cmake_args = %W[
       -DBUILD_CONFIG=xtrabackup_release
       -DDOWNLOAD_BOOST=1
@@ -30,6 +43,8 @@ class PerconaXtrabackup < Formula
     system "make", "install"
 
     rm_rf prefix/"xtrabackup-test" # Remove unnecessary files
+
+    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
 
   test do
