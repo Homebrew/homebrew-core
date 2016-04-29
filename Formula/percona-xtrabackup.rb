@@ -18,6 +18,11 @@ class PerconaXtrabackup < Formula
     sha256 "cc98bbcc33581fbc55b42ae681c6946b70a26f549b3c64466740dfe9a7eac91c"
   end
 
+  resource "boost" do
+    url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
+    sha256 "727a932322d94287b62abb1bd2d41723eec4356a7728909e38adb65ca25241ca"
+  end
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
@@ -28,9 +33,13 @@ class PerconaXtrabackup < Formula
 
     cmake_args = %W[
       -DBUILD_CONFIG=xtrabackup_release
-      -DDOWNLOAD_BOOST=1
-      -DWITH_BOOST=boost
     ]
+
+    # MySQL >5.7.x mandates Boost as a requirement to build & has a strict
+    # version check in place to ensure it only builds against expected release.
+    # This is problematic when Boost releases don't align with MySQL releases.
+    (buildpath/"boost_1_59_0").install resource("boost")
+    cmake_args << "-DWITH_BOOST=#{buildpath}/boost_1_59_0"
 
     if build.without? "docs"
       cmake_args << "-DWITH_MAN_PAGES=OFF"
