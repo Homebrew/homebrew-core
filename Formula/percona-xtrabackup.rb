@@ -49,7 +49,7 @@ class PerconaXtrabackup < Formula
     cmake_args.concat std_cmake_args
 
     system "cmake", *cmake_args
-    system "make", "-j4"
+    system "make"
     system "make", "install"
 
     rm_rf prefix/"xtrabackup-test" # Remove unnecessary files
