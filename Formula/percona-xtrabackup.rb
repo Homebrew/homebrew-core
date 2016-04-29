@@ -33,18 +33,28 @@ class PerconaXtrabackup < Formula
 
     cmake_args = %W[
       -DBUILD_CONFIG=xtrabackup_release
+      -DCOMPILATION_COMMENT=Homebrew
     ]
 
+    if build.with? "docs"
+      cmake_args.concat %W[
+        -DWITH_MAN_PAGES=ON
+        -DINSTALL_MANDIR=share/man
+      ]
+
+      # OSX has this value empty by default.
+      # See https://bugs.python.org/issue18378#msg215215
+      ENV["LC_ALL"] = "en_US.UTF-8"
+    else
+      cmake_args << "-DWITH_MAN_PAGES=OFF"
+    end
+    
     # MySQL >5.7.x mandates Boost as a requirement to build & has a strict
     # version check in place to ensure it only builds against expected release.
     # This is problematic when Boost releases don't align with MySQL releases.
     (buildpath/"boost_1_59_0").install resource("boost")
     cmake_args << "-DWITH_BOOST=#{buildpath}/boost_1_59_0"
-
-    if build.without? "docs"
-      cmake_args << "-DWITH_MAN_PAGES=OFF"
-    end
-
+    
     cmake_args.concat std_cmake_args
 
     system "cmake", *cmake_args
@@ -53,6 +63,7 @@ class PerconaXtrabackup < Formula
 
     rm_rf prefix/"xtrabackup-test" # Remove unnecessary files
 
+    share.install "share/man" if build.with? "docs"
     bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
 
