@@ -1,8 +1,8 @@
 class Libpointing < Formula
-  desc "Open-source library to get HID events and master transfer functions"
+  desc "Provides direct access to HID pointing devices"
   homepage "http://libpointing.org"
-  url "https://github.com/INRIA/libpointing/releases/download/v0.9.3/libpointing-0.9.3.tar.gz"
-  sha256 "ddb362e89c39d6fb263e26bfeaf82545858f9ba9f8de510f267fc232cc21e4e6"
+  url "https://github.com/INRIA/libpointing/releases/download/v0.9.5/libpointing-0.9.5.tar.gz"
+  sha256 "53c5b34303a5d752adf9f3c0f01ec6f9ac063c9dfc65c4abead30352ed9d4b67"
 
   bottle do
     cellar :any
