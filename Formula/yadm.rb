@@ -11,46 +11,28 @@ class Yadm < Formula
 
   test do
     # init a new repo
-    system "yadm", "init"
-    unless File.exist?("#{testpath}/.yadm/repo.git/config")
-      onoe "Failed to init repository"
-      return false
-    end
+    system bin/"yadm", "init"
+    assert File.exist?(testpath/".yadm/repo.git/config"), "Failed to init repository."
 
     # confirm worktree set to $HOME
-    ohai "Verify repo worktree"
-    worktree = `yadm gitconfig core.worktree`
-    if worktree.chomp != testpath.to_s
-      onoe "Repo worktree is set incorrectly"
-      return false
-    end
+    assert_match testpath.to_s, shell_output("#{bin}/yadm gitconfig core.worktree")
 
     # disable auto-alt
-    system "yadm", "config", "yadm.auto-alt", "false"
-    ohai "Verify auto-alt configuration"
-    setting = `yadm config yadm.auto-alt`
-    if setting.chomp != "false"
-      onoe "auto-alt was not set"
-      return false
-    end
+    system bin/"yadm", "config", "yadm.auto-alt", "false"
+    assert_match "false", shell_output("#{bin}/yadm config yadm.auto-alt")
 
     # create a test file, and add it to the repo
-    File.write("#{testpath}/testfile", "test")
-    system "yadm", "add", "#{testpath}/testfile"
+    (testpath/"testfile").write "test"
+    system bin/"yadm", "add", "#{testpath}/testfile"
 
     # configure git identity
-    system "yadm", "gitconfig", "user.email", "test@test.org"
-    system "yadm", "gitconfig", "user.name", "Test User"
+    system bin/"yadm", "gitconfig", "user.email", "test@test.org"
+    system bin/"yadm", "gitconfig", "user.name", "Test User"
 
     # commit the test file to the repo
-    system "yadm", "commit", "-m", "test commit"
+    system bin/"yadm", "commit", "-m", "test commit"
 
     # verify the log
-    ohai "Verify repo log"
-    commit = `yadm log --pretty=oneline`
-    unless commit.chomp =~ /test commit$/
-      onoe "Repository log is not correct"
-      return false
-    end
+    assert_match "test commit", shell_output("#{bin}/yadm log --pretty=oneline 2>&1")
   end
 end
