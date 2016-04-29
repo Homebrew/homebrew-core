@@ -31,15 +31,17 @@ class Szip < Formula
       int main()
       {
         sz_stream c_stream;
+        c_stream.options_mask = 0;
         c_stream.bits_per_pixel = 8;
         c_stream.pixels_per_block = 8;
         c_stream.pixels_per_scanline = 16;
+        c_stream.image_pixels = 16;
         assert(SZ_CompressInit(&c_stream) == SZ_OK);
         assert(SZ_CompressEnd(&c_stream) == SZ_OK);
         return 0;
       }
     EOS
-    system ENV.cc, "-lsz", "test.c", "-o", "test"
+    system ENV.cc, "-L", lib, "test.c", "-o", "test", "-lsz"
     system "./test"
   end
 end
