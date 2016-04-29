@@ -1,8 +1,8 @@
 class GitStandup < Formula
   desc "Git extension to generate reports for standup meetings"
   homepage "https://github.com/kamranahmedse/git-standup"
-  url "https://github.com/kamranahmedse/git-standup/archive/2.1.3.tar.gz"
-  sha256 "8c8452303a59a4bb0fdc8aa65c8ff2a6d4dfa18e03bd2aca88ae69586b5c9bd9"
+  url "https://github.com/kamranahmedse/git-standup/archive/2.1.4.tar.gz"
+  sha256 "4481e2eac9d523ceae0d1c0ec13fe78e54b0e1cad8fc7af58026776fcc0d24ea"
   head "https://github.com/kamranahmedse/git-standup.git"
 
   bottle do
