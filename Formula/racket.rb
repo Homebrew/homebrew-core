@@ -1,9 +1,9 @@
 class Racket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/6.4/racket-minimal-6.4-src-builtpkgs.tgz"
-  version "6.4"
-  sha256 "cf717d4983f4198fce8973ead5d427bc9da78b73bd51fee16b58c894c2a146e8"
+  url "https://mirror.racket-lang.org/installers/6.5/racket-minimal-6.5-src-builtpkgs.tgz"
+  version "6.5"
+  sha256 "44fe95a4ec4d442b4f6f68e360104ca9715bd1fe3795d302d6cddaceb15696dc"
 
   bottle do
     sha256 "4c4aed2fbf16f3057bf570b383e407c320fb27a624f5df40ac8aa176c809a0b9" => :el_capitan
@@ -35,14 +35,14 @@ class Racket < Formula
     # configure racket's package tool (raco) to do the Right Thing
     # see: https://docs.racket-lang.org/raco/config-file.html
     inreplace etc/"racket/config.rktd" do |s|
-        s.gsub!(
-            /\(bin-dir\s+\.\s+"#{Regexp.quote(bin)}"\)/,
-            "(bin-dir . \"#{HOMEBREW_PREFIX}/bin\")"
-        )
-        s.gsub!(
-            /\n\)$/,
-            "\n      (default-scope . \"installation\")\n)"
-        )
+      s.gsub!(
+        /\(bin-dir\s+\.\s+"#{Regexp.quote(bin)}"\)/,
+        "(bin-dir . \"#{HOMEBREW_PREFIX}/bin\")"
+      )
+      s.gsub!(
+        /\n\)$/,
+        "\n      (default-scope . \"installation\")\n)"
+      )
     end
   end
 
