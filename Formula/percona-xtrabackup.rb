@@ -10,6 +10,7 @@ class PerconaXtrabackup < Formula
   depends_on "libev" => :build
   depends_on "sphinx-doc" => :build if build.with? "docs"
   depends_on "libgcrypt"
+  depends_on "openssl"
   depends_on :mysql => :recommended
 
   resource "DBD::mysql" do
