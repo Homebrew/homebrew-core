@@ -1,8 +1,8 @@
 class Gphoto2 < Formula
   desc "Command-line interface to libgphoto2"
   homepage "http://gphoto.org/"
-  url "https://downloads.sourceforge.net/project/gphoto/gphoto/2.5.9/gphoto2-2.5.9.tar.bz2"
-  sha256 "0f53803ed1f4ff7ea2aed8f7c9a0932237121941705779f7d09a8fe641ff475f"
+  url "https://downloads.sourceforge.net/project/gphoto/gphoto/2.5.10/gphoto2-2.5.10.tar.bz2"
+  sha256 "66cc2f535d54b7e5a2164546a8955a58e23745e91e916757c0bf070699886690"
 
   bottle do
     cellar :any
@@ -21,5 +21,9 @@ class Gphoto2 < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    `gphoto2 -v`
   end
 end
