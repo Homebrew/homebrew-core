@@ -31,21 +31,22 @@ class GstPluginsGood < Formula
 
   depends_on :x11 => :optional
 
-  # The set of optional dependencies is based on the intersection of
-  # gst-plugins-good-0.10.30/REQUIREMENTS and Homebrew formulae
+  # Optional dependencies based on the intersection of
+  # https://cgit.freedesktop.org/gstreamer/gst-plugins-good/tree/REQUIREMENTS
+  # and Homebrew formulae.
   depends_on "orc" => :optional
-  depends_on "gtk+" => :optional
+  depends_on "gdk-pixbuf" => :optional
   depends_on "aalib" => :optional
-  depends_on "libcdio" => :optional
-  depends_on "esound" => :optional
+  depends_on "cairo" => :optional
   depends_on "flac" => [:optional, "with-libogg"]
   depends_on "jpeg" => :optional
   depends_on "libcaca" => :optional
   depends_on "libdv" => :optional
+  depends_on "libpng" => :optional
   depends_on "libshout" => :optional
   depends_on "speex" => :optional
   depends_on "taglib" => :optional
-  depends_on "libpng" => :optional
+
   depends_on "libvpx" => :optional
   depends_on "pulseaudio" => :optional
   depends_on "jack" => :optional
