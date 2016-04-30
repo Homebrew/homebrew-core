@@ -28,6 +28,12 @@ class FileRoller < Formula
     inreplace "data/Makefile.in", "gtk-update-icon-cache", "gtk3-update-icon-cache"
     ENV.append "CFLAGS", "-I#{Formula["libmagic"].opt_include}"
     ENV.append "LIBS", "-L#{Formula["libmagic"].opt_lib}"
+
+    # Upstream bug: https://bugzilla.gnome.org/show_bug.cgi?id=756607
+    # A more elaborate, "correct" fix would be similar to this:
+    # https://github.com/mate-desktop/mate-utils/commit/c4df12f12d21ea7d4bc0d656bd5f93539c078d93
+    inreplace "configure", "$(GLIB_COMPILE_SCHEMAS) --strict", "$(GLIB_COMPILE_SCHEMAS)"
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
