@@ -31,6 +31,7 @@ class GstPluginsBase < Formula
   depends_on "pango" => :optional
   depends_on "theora" => :optional
   depends_on "libvorbis" => :optional
+  depends_on "opus" => :optional
 
   def install
     # gnome-vfs turned off due to lack of formula for it.
