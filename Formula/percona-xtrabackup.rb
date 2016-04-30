@@ -48,13 +48,13 @@ class PerconaXtrabackup < Formula
     else
       cmake_args << "-DWITH_MAN_PAGES=OFF"
     end
-    
+
     # MySQL >5.7.x mandates Boost as a requirement to build & has a strict
     # version check in place to ensure it only builds against expected release.
     # This is problematic when Boost releases don't align with MySQL releases.
     (buildpath/"boost_1_59_0").install resource("boost")
     cmake_args << "-DWITH_BOOST=#{buildpath}/boost_1_59_0"
-    
+
     cmake_args.concat std_cmake_args
 
     system "cmake", *cmake_args
