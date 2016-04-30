@@ -3,6 +3,7 @@ class Frei0r < Formula
   homepage "http://frei0r.dyne.org"
   url "https://files.dyne.org/frei0r/releases/frei0r-plugins-1.4.tar.gz"
   sha256 "8470fcabde9f341b729be3be16385ffc8383d6f3328213907a43851b6e83be57"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,11 +13,14 @@ class Frei0r < Formula
     sha256 "a20918ebf08da3636deb4bb4c3bacaf395186f2bf88685ad8380d665e7402e24" => :mountain_lion
   end
 
-  depends_on "autoconf" => :build
+  depends_on "cmake" => :build
+  depends_on "cairo" => :optional
+  depends_on "homebrew/science/opencv" => :optional
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    mkdir "build" do
+    system "cmake", "..", *std_cmake_args
     system "make", "install"
+    end
   end
 end
