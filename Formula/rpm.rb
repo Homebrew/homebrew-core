@@ -14,11 +14,10 @@ end
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "http://www.rpm5.org/"
-  url "http://rpm5.org/files/rpm/rpm-5.4/rpm-5.4.15-0.20140824.src.rpm",
+  url "http://rpm5.org/files/rpm/rpm-5.4/rpm-5.4.16-0.20160420.src.rpm",
       :using => RpmDownloadStrategy
-  version "5.4.15"
-  sha256 "d4ae5e9ed5df8ab9931b660f491418d20ab5c4d72eb17ed9055b80b71ef6c4ee"
-  revision 1
+  version "5.4.16"
+  sha256 "0a7ec6e27a2e2a80e409bd5d774db66a847de141ebb1c3f5ae4fc42ce1a7d1b9"
 
   bottle do
     sha256 "29c05e064c80738733182e6688a82cef3a2c933b40acbeb43d3a842693ca91f4" => :el_capitan
@@ -31,10 +30,31 @@ class Rpm < Formula
   depends_on "berkeley-db5"
   depends_on "libmagic"
   depends_on "popt"
+  depends_on "libtomcrypt"
   depends_on "libtasn1"
   depends_on "gettext"
   depends_on "xz"
   depends_on "ossp-uuid"
+  depends_on "lua"
+  depends_on "syck"
+  depends_on "openssl"
+
+  patch do
+    url "http://rpm5.org/cvs/patchset?cn=18870"
+    sha256 "5504de66494d82764358ef7fdeb2acf8d54d165b0b4806ce1cf9e44554aceaf2"
+  end
+  patch do
+    url "http://rpm5.org/cvs/patchset?cn=18871"
+    sha256 "210d6bfa4d3716e3cb86f1174b6a32928f0fc9cd3c90da06fae9716259101fa5"
+  end
+  patch do
+    url "http://rpm5.org/cvs/patchset?cn=18872"
+    sha256 "b7be17b0e9c91094081a0db95f17f61c73389f4fcd2b0378cc8bf559b6355d37"
+  end
+  patch do
+    url "http://rpm5.org/cvs/patchset?cn=18873"
+    sha256 "9feecfdf576467912c8e0da097476ed700ff73aec82827343be5741c680d060e"
+  end
 
   def install
     # only rpm should go into HOMEBREW_CELLAR, not rpms built
@@ -54,12 +74,18 @@ class Rpm < Formula
       --with-file=external
       --with-popt=external
       --with-beecrypt=internal
+      --with-tomcrypt=external
       --with-libtasn1=external
       --with-neon=internal
+      --with-zlib=external
+      --with-bzip2=external
+      --with-xz=external
       --with-uuid=external
       --with-pcre=internal
-      --with-lua=internal
-      --with-syck=internal
+      --with-lua=external
+      --with-syck=external
+      --with-openssl=external
+      --with-sasl2=external
       --without-apidocs
       varprefix=#{var}
     ]
@@ -68,14 +94,17 @@ class Rpm < Formula
     inreplace "configure", "DBXY=db61", "DBXY=db"
     inreplace "configure", "db-6.1", "db-5.3"
     inreplace "configure", "db_sql-6.1", "db_sql-5.3"
+    # dyld: lazy symbol binding failed: Symbol not found: _SSL_library_init
+    ENV["LIBS"] = "-lssl"
     system "./configure", *args
-    inreplace "Makefile", "--tag=CC", "--tag=CXX"
-    inreplace "Makefile", "--mode=link $(CCLD)", "--mode=link $(CXX)"
+    inreplace "config.h", "/* #undef USE_LTC_LTC_PKCS_1_V1_5 */", "#define USE_LTC_LTC_PKCS_1_V1_5 1"
+    inreplace "rpmdb/Makefile", " -Dapi.pure", ""
+    inreplace "rpmio/Makefile", " -lrt", ""
     system "make"
-    # enable rpmbuild macros, for building *.rpm packages
-    inreplace "macros/macros", "#%%{load:%{_usrlibrpm}/macros.rpmbuild}", "%{load:%{_usrlibrpm}/macros.rpmbuild}"
     # using __scriptlet_requires needs bash --rpm-requires
     inreplace "macros/macros.rpmbuild", "%_use_internal_dependency_generator\t2", "%_use_internal_dependency_generator\t1"
+    # warning: rpmbcGenerate(ECDSA): skipped (unimplemented)
+    inreplace "macros/macros.rpmbuild", "%_build_sign\tECDSA/SHA256", "%_build_sign\tRSA/SHA256"
     system "make", "install"
   end
 
