@@ -4,7 +4,7 @@ class Gdrive < Formula
   desc "Google Drive CLI Client"
   homepage "https://github.com/prasmussen/gdrive"
   url "https://github.com/prasmussen/gdrive/archive/2.1.0.tar.gz"
-  sha256 "e3cbd0d28669753c914af7c4832319d32586f6257bbd5f10d950bc4ed8322429"
+  sha256 "a1ea624e913e258596ea6340c8818a90c21962b0a75cf005e49a0f72f2077b2e"
   head "https://github.com/prasmussen/gdrive.git"
 
   bottle do
