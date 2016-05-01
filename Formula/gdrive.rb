@@ -5,10 +5,6 @@ class Gdrive < Formula
   sha256 "a1ea624e913e258596ea6340c8818a90c21962b0a75cf005e49a0f72f2077b2e"
   head "https://github.com/prasmussen/gdrive.git"
 
-  bottle do
-    cellar :any_skip_relocation
-  end
-
   depends_on "go" => :build
 
   def install
