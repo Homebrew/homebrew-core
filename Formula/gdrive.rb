@@ -1,5 +1,3 @@
-require "language/go"
-
 class Gdrive < Formula
   desc "Google Drive CLI Client"
   homepage "https://github.com/prasmussen/gdrive"
@@ -12,19 +10,18 @@ class Gdrive < Formula
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
 
   def install
     ENV["GOPATH"] = buildpath
     mkdir_p buildpath/"src/github.com/prasmussen/"
     ln_sf buildpath, buildpath/"src/github.com/prasmussen/gdrive"
     Language::Go.stage_deps resources, buildpath/"src"
-    system "godep", "go", "build", "-o", "gdrive", "."
+    system "go", "build", "-o", "gdrive", "."
     bin.install "gdrive"
     doc.install "README.md"
   end
 
   test do
-    system "#{bin}/gdrive", "version"
+    assert_match version.to_s, shell_output("#{bin}/gdrive version")
   end
 end
