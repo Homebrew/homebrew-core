@@ -57,7 +57,7 @@ class PerconaXtrabackup < Formula
     system "cmake", *cmake_args
     system "make"
     system "make", "install"
-    
+
     share.install "share/man" if build.with? "docs"
 
     rm_rf prefix/"xtrabackup-test" # Remove unnecessary files
