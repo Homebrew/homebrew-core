@@ -1,15 +1,8 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  revision 1
-
-  stable do
-    url "https://www.musicpd.org/download/mpd/0.19/mpd-0.19.14.tar.xz"
-    sha256 "2fd23805132e5002a4d24930001a7c7d3aaf55e3bd0cd71af5385895160e99e7"
-
-    # Fixes build because of missing patch on 0.19 branch
-    patch :DATA
-  end
+  url "https://www.musicpd.org/download/mpd/0.19/mpd-0.19.15.tar.xz"
+  sha256 "0cb9a223894b038ce966ce6d651d9b3ea3bdc7d7b9bec8d1e9e7e091cbc29b8b"
 
   bottle do
     cellar :any
@@ -145,18 +138,3 @@ class Mpd < Formula
     end
   end
 end
-
-__END__
-diff --git a/src/notify.hxx b/src/notify.hxx
-index 3e62a01..c96390b 100644
---- a/src/notify.hxx
-+++ b/src/notify.hxx
-@@ -28,7 +28,7 @@ struct notify {
-	Cond cond;
-	bool pending;
-
--#if !defined(WIN32) && !defined(__NetBSD__) && !defined(__BIONIC__)
-+#ifdef __GLIBC__
-	constexpr
- #endif
-	notify():pending(false) {}
