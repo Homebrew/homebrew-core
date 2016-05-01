@@ -13,14 +13,13 @@ class Quantlib < Formula
   end
 
   head do
-    url "https://github.com/lballabio/quantlib.git"
+    url "https://github.com/lballabio/QuantLib.git"
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
   end
 
   option :cxx11
-
   # fix for quantlib 1.7 linking conflicts with the boost thread library
   # this patch must be removed when quantlib 1.8 is released, because quantlib maintainers fixed the bug
   # (see https://github.com/lballabio/QuantLib/commit/d1909593d9f36c6703966460fb48773792facd7e)
@@ -38,12 +37,20 @@ class Quantlib < Formula
   def install
     ENV.cxx11 if build.cxx11?
     if build.head?
-      Dir.chdir "QuantLib"
       system "./autogen.sh"
     end
+    if MacOS.version >= :mavericks
+      ENV.append "LDFLAGS", "-stdlib=libstdc++ -mmacosx-version-min=10.6"
+      ENV.append "CXXFLAGS", "-stdlib=libstdc++ -mmacosx-version-min=10.6"
+    end
     system "./configure", "--disable-dependency-tracking",
+                          "--enable-static",
+                          "--with-boost-include=/usr/local/include/",
+                          "--with-boost-lib=/usr/local/lib/",
                           "--prefix=#{prefix}",
-                          "--with-lispdir=#{share}/emacs/site-lisp/quantlib"
+                          "--with-lispdir=#{share}/emacs/site-lisp/quantlib",
+                          "LDFLAGS=#{ENV.ldflags}",
+                          "CXXFLAGS=#{ENV.cxxflags}"
     system "make", "install"
   end
 
