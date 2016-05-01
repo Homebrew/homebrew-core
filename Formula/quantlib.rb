@@ -45,8 +45,8 @@ class Quantlib < Formula
     end
     system "./configure", "--disable-dependency-tracking",
                           "--enable-static",
-                          "--with-boost-include=/usr/local/include/",
-                          "--with-boost-lib=/usr/local/lib/",
+                          "--with-boost-include=#{Formula["boost"].opt_include}",
+                          "--with-boost-lib=#{Formula["boost"].opt_lib}",
                           "--prefix=#{prefix}",
                           "--with-lispdir=#{share}/emacs/site-lisp/quantlib",
                           "LDFLAGS=#{ENV.ldflags}",
