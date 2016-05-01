@@ -13,8 +13,8 @@ class Frei0r < Formula
     sha256 "a20918ebf08da3636deb4bb4c3bacaf395186f2bf88685ad8380d665e7402e24" => :mountain_lion
   end
 
+  depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
-  depends_on "cmake" => :build
   depends_on "cairo" => :optional
   depends_on "homebrew/science/opencv" => :optional
 
