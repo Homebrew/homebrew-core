@@ -1,7 +1,7 @@
 class Prips < Formula
   desc "Print the IP addresses in a given range"
-  homepage "http://devel.ringlet.net/sysutils/prips/"
-  url "http://devel.ringlet.net/files/sys/prips/prips-1.0.0.tar.xz"
+  homepage "https://devel.ringlet.net/sysutils/prips/"
+  url "https://devel.ringlet.net/files/sys/prips/prips-1.0.0.tar.xz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/prips/prips_1.0.0.orig.tar.xz"
   sha256 "d588b0dac6d740a07357f2c2f149dcae4cda479f047b761268ab51185cad53b7"
 
