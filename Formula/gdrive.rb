@@ -15,7 +15,6 @@ class Gdrive < Formula
     ENV["GOPATH"] = buildpath
     mkdir_p buildpath/"src/github.com/prasmussen/"
     ln_sf buildpath, buildpath/"src/github.com/prasmussen/gdrive"
-    Language::Go.stage_deps resources, buildpath/"src"
     system "go", "build", "-o", "gdrive", "."
     bin.install "gdrive"
     doc.install "README.md"
