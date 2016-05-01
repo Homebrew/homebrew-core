@@ -19,9 +19,8 @@ class Frei0r < Formula
   depends_on "homebrew/science/opencv" => :optional
 
   def install
-    mkdir "build" do
-    system "cmake", "..", *std_cmake_args
+    ENV["CAIRO_CFLAGS"] = "-I#{Formula["cairo"].opt_include}/cairo" if build.with? "cairo"
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
-    end
   end
 end
