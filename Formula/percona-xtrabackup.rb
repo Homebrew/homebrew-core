@@ -5,10 +5,12 @@ class PerconaXtrabackup < Formula
   sha256 "faeac6f1db4a1270e5263e48c8a94cc5c81c772fdea36879d1be18dcbcd1926e"
 
   option "without-docs", "Build without man pages (which requires python-sphinx)"
+  option "without-dbd-mysql", "Build without bundled Perl DBD::mysql module, to use the database of your choice."
 
   depends_on "cmake" => :build
   depends_on "libev" => :build
   depends_on "sphinx-doc" => :build if build.with? "docs"
+  depends_on :mysql => :build if build.with? "dbd-mysql"
   depends_on "libgcrypt"
   depends_on "openssl"
 
@@ -25,11 +27,6 @@ class PerconaXtrabackup < Formula
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-
-    resource("DBD::mysql").stage do
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-      system "make", "install"
-    end
 
     cmake_args = %W[
       -DBUILD_CONFIG=xtrabackup_release
@@ -60,11 +57,18 @@ class PerconaXtrabackup < Formula
     system "cmake", *cmake_args
     system "make"
     system "make", "install"
+    
+    share.install "share/man" if build.with? "docs"
 
     rm_rf prefix/"xtrabackup-test" # Remove unnecessary files
 
-    share.install "share/man" if build.with? "docs"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    if build.with? "dbd-mysql"
+      resource("DBD::mysql").stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "make", "install"
+      end
+      bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    end
   end
 
   test do
