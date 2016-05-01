@@ -3,58 +3,53 @@ require "language/go"
 class Gdrive < Formula
   desc "Google Drive CLI Client"
   homepage "https://github.com/prasmussen/gdrive"
-  url "https://github.com/prasmussen/gdrive/archive/1.6.1.tar.gz"
-  sha256 "50d5851c6f6cfa52713c001dae03a2c189ee3d9a255e8bf58ce8d4dadab5b9fc"
-
+  url "https://github.com/prasmussen/gdrive/archive/2.1.0.tar.gz"
+  sha256 "e3cbd0d28669753c914af7c4832319d32586f6257bbd5f10d950bc4ed8322429"
   head "https://github.com/prasmussen/gdrive.git"
 
   bottle do
-    cellar :any
-    sha256 "880f1d01fa1d75cf1b68c458535812dc44bbe9a698814ca0ac24c5b055560b38" => :yosemite
-    sha256 "a5369d9bf8f0de58a5e226b664ec0f113a5651a239f2d575e13151b2a8823ce3" => :mavericks
-    sha256 "244ee2e75c2dfa205c7c7248ef3f0624d5132f1fb1d06011a47aaddeb151bba0" => :mountain_lion
+    cellar :any_skip_relocation
   end
 
-  depends_on :hg => :build
   depends_on "go" => :build
+  depends_on "godep" => :build
 
-  go_resource "code.google.com/p/goauth2" do
-    url "https://code.google.com/p/goauth2/", :revision => "afe77d958c70", :using => :hg
+  go_resource "github.com/sabhiram/go-git-ignore" do
+    url "https://github.com/sabhiram/go-git-ignore.git",
+      :revision => "228fcfa2a06e870a3ef238d54c45ea847f492a37"
   end
 
-  go_resource "github.com/prasmussen/gdrive" do
-    url "https://github.com/prasmussen/gdrive.git", :revision => "24950968ecea619378a36edff78e46fee0eb3a43"
-  end
-
-  go_resource "github.com/prasmussen/google-api-go-client" do
-    url "https://github.com/prasmussen/google-api-go-client.git", :revision => "01eb774ccc14e64c3c950e85afd84a8b48b2ac1e"
-  end
-
-  go_resource "github.com/voxelbrain/goptions" do
-    url "https://github.com/voxelbrain/goptions.git", :revision => "68583de33d9209ba795a0a334dad27418e4c18f5"
-  end
-
-  go_resource "google.golang.org/api" do
-    url "https://github.com/prasmussen/google-api-go-client.git", :revision => "01eb774ccc14e64c3c950e85afd84a8b48b2ac1e"
+  go_resource "github.com/soniakeys/graph" do
+    url "https://github.com/soniakeys/graph.git",
+      :revision => "c265d9676750b13b9520ba4ad4f8359fa1aed9fd"
   end
 
   go_resource "golang.org/x/net" do
-    url "https://github.com/golang/net.git", :revision => "84ba27dd5b2d8135e9da1395277f2c9333a2ffda"
+    url "https://go.googlesource.com/net.git",
+      :revision => "fb93926129b8ec0056f2f458b1f519654814edf0"
+  end
+
+  go_resource "golang.org/x/oauth2" do
+    url "https://go.googlesource.com/oauth2.git",
+      :revision => "7e9cd5d59563851383f8f81a7fbb01213709387c"
+  end
+
+  go_resource "google.golang.org/api" do
+    url "https://github.com/google/google-api-go-client.git",
+      :revision => "9737cc9e103c00d06a8f3993361dec083df3d252"
   end
 
   def install
-    mkdir_p "#{buildpath}/src/github.com/prasmussen/"
-    ln_s buildpath, "#{buildpath}/src/github.com/prasmussen/gdrive"
-
     ENV["GOPATH"] = buildpath
-    ENV.append_path "PATH", "#{ENV["GOPATH"]}/bin"
-
+    mkdir_p buildpath/"src/github.com/prasmussen/"
+    ln_sf buildpath, buildpath/"src/github.com/prasmussen/gdrive"
     Language::Go.stage_deps resources, buildpath/"src"
-    system "go", "build", "drive.go"
-    bin.install "drive"
+    system "godep", "go", "build", "-o", "gdrive", "."
+    bin.install "gdrive"
+    doc.install "README.md"
   end
 
   test do
-    system "#{bin}/drive", "--help"
+    system "#{bin}/gdrive", "help"
   end
 end
