@@ -14,31 +14,6 @@ class Gdrive < Formula
   depends_on "go" => :build
   depends_on "godep" => :build
 
-  go_resource "github.com/sabhiram/go-git-ignore" do
-    url "https://github.com/sabhiram/go-git-ignore.git",
-      :revision => "228fcfa2a06e870a3ef238d54c45ea847f492a37"
-  end
-
-  go_resource "github.com/soniakeys/graph" do
-    url "https://github.com/soniakeys/graph.git",
-      :revision => "c265d9676750b13b9520ba4ad4f8359fa1aed9fd"
-  end
-
-  go_resource "golang.org/x/net" do
-    url "https://go.googlesource.com/net.git",
-      :revision => "fb93926129b8ec0056f2f458b1f519654814edf0"
-  end
-
-  go_resource "golang.org/x/oauth2" do
-    url "https://go.googlesource.com/oauth2.git",
-      :revision => "7e9cd5d59563851383f8f81a7fbb01213709387c"
-  end
-
-  go_resource "google.golang.org/api" do
-    url "https://github.com/google/google-api-go-client.git",
-      :revision => "9737cc9e103c00d06a8f3993361dec083df3d252"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
     mkdir_p buildpath/"src/github.com/prasmussen/"
@@ -50,6 +25,6 @@ class Gdrive < Formula
   end
 
   test do
-    system "#{bin}/gdrive", "help"
+    system "#{bin}/gdrive", "version"
   end
 end
