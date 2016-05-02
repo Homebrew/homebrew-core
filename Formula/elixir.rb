@@ -25,8 +25,8 @@ end
 class Elixir < Formula
   desc "Functional metaprogramming aware language built on Erlang VM"
   homepage "http://elixir-lang.org/"
-  url "https://github.com/elixir-lang/elixir/archive/v1.2.4.tar.gz"
-  sha256 "16759ff84d08b480b7e5499716e663b2fffd26e20cf2863de5613bc7bb05c817"
+  url "https://github.com/elixir-lang/elixir/archive/v1.2.5.tar.gz"
+  sha256 "8ed65722aeb55cbfe6022d77d0e36293d463d7b4922198f5c157e8286d896eee"
 
   head "https://github.com/elixir-lang/elixir.git"
 
