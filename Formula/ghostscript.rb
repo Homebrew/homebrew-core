@@ -3,12 +3,14 @@ class Ghostscript < Formula
   homepage "http://www.ghostscript.com/"
 
   stable do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs918/ghostscript-9.18.tar.gz"
-    sha256 "5fc93079749a250be5404c465943850e3ed5ffbc0d5c07e10c7c5ee8afbbdb1b"
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs919/ghostscript-9.19.tar.gz"
+    sha256 "cf3c0dce67db1557a87366969945f9c5235887989c0b585e037af366dc035989"
 
-    patch do
-      url "https://github.com/Homebrew/patches/raw/master/ghostscript/bug-696301_gserrors.h.patch"
-      sha256 "1639d20605693dd473399dc2ebc838442175a8f7e6eb7701fbe08e12b57bee18"
+    # http://djvu.sourceforge.net/gsdjvu.html
+    # Can't get 1.8 to compile, but feel free to open PR if you can.
+    resource "djvu" do
+      url "https://downloads.sourceforge.net/project/djvu/GSDjVu/1.6/gsdjvu-1.6.tar.gz"
+      sha256 "6236b14b79345eda87cce9ba22387e166e7614cca2ca86b1c6f0d611c26005df"
     end
   end
 
@@ -36,8 +38,8 @@ class Ghostscript < Formula
   option "with-djvu", "Build drivers for DjVU file format"
 
   depends_on "pkg-config" => :build
-  depends_on "djvulibre" if build.with? "djvu"
   depends_on "little-cms2"
+  depends_on "djvulibre" if build.with? "djvu"
   depends_on :x11 => :optional
 
   conflicts_with "gambit-scheme", :because => "both install `gsc` binaries"
@@ -46,13 +48,6 @@ class Ghostscript < Formula
   resource "fonts" do
     url "https://downloads.sourceforge.net/project/gs-fonts/gs-fonts/8.11%20%28base%2035%2C%20GPL%29/ghostscript-fonts-std-8.11.tar.gz"
     sha256 "0eb6f356119f2e49b2563210852e17f57f9dcc5755f350a69a46a0d641a0c401"
-  end
-
-  # http://djvu.sourceforge.net/gsdjvu.html
-  # Can't get 1.8 to compile, but feel free to open PR if you can.
-  resource "djvu" do
-    url "https://downloads.sourceforge.net/project/djvu/GSDjVu/1.6/gsdjvu-1.6.tar.gz"
-    sha256 "6236b14b79345eda87cce9ba22387e166e7614cca2ca86b1c6f0d611c26005df"
   end
 
   def install
