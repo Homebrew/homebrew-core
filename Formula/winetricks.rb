@@ -7,11 +7,13 @@ class Winetricks < Formula
 
   bottle :unneeded
 
+  option "with-zenity", "Needed for GUI"
+
   depends_on "cabextract"
   depends_on "p7zip"
   depends_on "unrar"
   depends_on "wine"
-  depends_on "zenity" => :optional, "Needed for GUI"
+  depends_on "zenity" => :optional
 
   def install
     bin.install "src/winetricks"
