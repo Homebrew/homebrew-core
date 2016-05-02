@@ -13,6 +13,7 @@ class Schismtracker < Formula
   end
 
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "sdl"
 
   # CC BY-NC-ND licensed set of five mods by Keith Baylis/Vim! for testing purposes
