@@ -1,9 +1,8 @@
 class Xxhash < Formula
   desc "Extremely fast non-cryptographic hash algorithm"
   homepage "https://github.com/Cyan4973/xxHash"
-  url "https://github.com/Cyan4973/xxHash/archive/r42.tar.gz"
-  version "r42"
-  sha256 "d21dba3ebf5ea8bf2f587150230189231c8d47e8b63c865c585b08d14c8218b8"
+  url "https://github.com/Cyan4973/xxHash/archive/v0.5.1.tar.gz"
+  sha256 "0171af39eefa06be1e616bc43b250d13bba417e4741135ec85c1fe8dc391997d"
 
   bottle do
     cellar :any_skip_relocation
