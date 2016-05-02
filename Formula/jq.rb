@@ -21,13 +21,13 @@ class Jq < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "oniguruma"  # jq depends > 1.5
-  depends_on "bison" => :build # jq depends on bison > 2.5
+  depends_on "oniguruma" # jq depends > 1.5
 
   def install
     system "autoreconf", "-iv" unless build.stable?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--disable-maintainer-mode",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
