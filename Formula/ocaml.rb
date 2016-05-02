@@ -17,8 +17,8 @@ class Ocaml < Formula
   head "http://caml.inria.fr/svn/ocaml/trunk", :using => :svn
 
   stable do
-    url "http://caml.inria.fr/pub/distrib/ocaml-4.02/ocaml-4.02.3.tar.gz"
-    sha256 "928fb5f64f4e141980ba567ff57b62d8dc7b951b58be9590ffb1be2172887a72"
+    url "http://caml.inria.fr/pub/distrib/ocaml-4.03/ocaml-4.03.0.tar.gz"
+    sha256 "7fdf280cc6c0a2de4fc9891d0bf4633ea417046ece619f011fd44540fcfc8da2"
   end
 
   bottle do
