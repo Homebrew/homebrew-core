@@ -14,6 +14,8 @@ class Camlp4 < Formula
   end
 
   depends_on "ocaml"
+  # since Ocaml 4.03.0, ocamlbuild is no longer part of ocaml
+  depends_on "ocamlbuild"
 
   def install
     # this build fails if jobs are parallelized
