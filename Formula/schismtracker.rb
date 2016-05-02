@@ -23,7 +23,7 @@ class Schismtracker < Formula
   end
 
   def install
-    system "autoreconf", "-ivf" if build.head?
+    system "autoreconf", "-ivf"
 
     mkdir "build" do
       # Makefile fails to create this directory before dropping files in it
