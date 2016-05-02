@@ -1,9 +1,9 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.15.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mc/mc_4.8.15.orig.tar.xz"
-  sha256 "cf4e8f5dfe419830d56ca7e5f2495898e37ebcd05da1e47ff7041446c87fba16"
+  url "https://www.midnight-commander.org/downloads/mc-4.8.16.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mc/mc_4.8.16.orig.tar.xz"
+  sha256 "bbbcbe3097d3160f865d24aa38ff122f1c59752b5ef153ca4ade5ac0f82b7020"
 
   head "https://github.com/MidnightCommander/mc.git"
 
@@ -37,9 +37,6 @@ class MidnightCommander < Formula
 
     system "./configure", *args
     system "make", "install"
-
-    # https://www.midnight-commander.org/ticket/3509
-    inreplace libexec/"mc/ext.d/text.sh", "man -P cat -l ", "man -P cat "
   end
 
   test do
