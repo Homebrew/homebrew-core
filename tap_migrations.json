@@ -73,7 +73,6 @@
   "fuse4x-kext": "homebrew/fuse",
   "gant": "homebrew/boneyard",
   "gcsfuse": "homebrew/fuse",
-  "gdrive": "homebrew/boneyard",
   "geda-gaf": "homebrew/science",
   "geeqie": "homebrew/gui",
   "geomview": "homebrew/x11",
