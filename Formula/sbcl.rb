@@ -75,7 +75,7 @@ class Sbcl < Formula
     write_features
 
     # Remove non-ASCII values from environment as they cause build failures
-    # More information: http://bugs.gentoo.org/show_bug.cgi?id=174702
+    # More information: https://bugs.gentoo.org/show_bug.cgi?id=174702
     ENV.delete_if do |_, value|
       ascii_val = value.dup
       ascii_val.force_encoding("ASCII-8BIT") if ascii_val.respond_to? :force_encoding
