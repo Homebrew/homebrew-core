@@ -1,7 +1,7 @@
 class Imlib2 < Formula
   desc "Image loading and rendering library"
-  homepage "https://docs.enlightenment.org/api/imlib2/html/"
-  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.4.8/imlib2-1.4.8.tar.bz2"
+  homepage "https://sourceforge.net/projects/enlightenment/"
+  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.4.9/imlib2-1.4.9.tar.bz2"
   sha256 "89ab531ff882c23c8c68e3e941d1bb59dde7a3b2a7853b87ab8c7615da7cb077"
 
   bottle do
