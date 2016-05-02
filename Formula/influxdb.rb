@@ -3,8 +3,8 @@ require "language/go"
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb/archive/v0.12.1.tar.gz"
-  sha256 "7b0340681e0e755db16da44ac4be30000cddc4e554da90872a238a78aeae55a0"
+  url "https://github.com/influxdata/influxdb/archive/v0.12.2.tar.gz"
+  sha256 "fb2f918794db07c2a05388fd583591bb3084b2af37a64e98be4b4c73302a8742"
 
   head "https://github.com/influxdata/influxdb.git"
 
@@ -113,7 +113,7 @@ class Influxdb < Formula
       if build.head?
         system "go", "install", "-ldflags", "-X main.version=0.13.0-HEAD -X main.branch=master -X main.commit=#{`git rev-parse HEAD`.strip}", "./..."
       else
-        system "go", "install", "-ldflags", "-X main.version=0.12.1 -X main.branch=0.12 -X main.commit=e094138084855d444195b252314dfee9eae34cab", "./..."
+        system "go", "install", "-ldflags", "-X main.version=0.12.2 -X main.branch=0.12 -X main.commit=383332daed5595926c235f250b11433f67229c35", "./..."
       end
     end
 
