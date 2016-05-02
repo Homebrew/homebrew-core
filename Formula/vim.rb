@@ -10,8 +10,11 @@ class Vim < Formula
 
   bottle :disable, "To use the user's Python."
 
-  option "override-system-vi", "Override system vi"
-  option "disable-nls", "Build vim without National Language Support (translated messages, keymaps)"
+  deprecated_option "disable-nls" => "without-nls"
+  deprecated_option "override-system-vi" => "with-override-system-vi"
+
+  option "with-override-system-vi", "Override system vi"
+  option "without-nls", "Build vim without National Language Support (translated messages, keymaps)"
   option "with-client-server", "Enable client/server mode"
 
   LANGUAGES_OPTIONAL = %w[lua mzscheme python3 tcl]
@@ -63,7 +66,7 @@ class Vim < Formula
       opts -= %W[--enable-pythoninterp]
     end
 
-    opts << "--disable-nls" if build.include? "disable-nls"
+    opts << "--disable-nls" if build.without? "nls"
     opts << "--enable-gui=no"
 
     if build.with? "client-server"
@@ -95,7 +98,7 @@ class Vim < Formula
     # statically-linked interpreters like ruby
     # https://github.com/vim/vim/issues/114
     system "make", "install", "prefix=#{prefix}", "STRIP=true"
-    bin.install_symlink "vim" => "vi" if build.include? "override-system-vi"
+    bin.install_symlink "vim" => "vi" if build.with? "override-system-vi"
   end
 
   test do
