@@ -4,14 +4,11 @@ class Vim < Formula
   # *** Vim should be updated no more than once every 7 days ***
   url "https://github.com/vim/vim/archive/v7.4.1847.tar.gz"
   sha256 "f192767f191ad75152528791d3d69b932b2ac1c91554a516b8b8fac73bc6a2da"
+  revision 1
+
   head "https://github.com/vim/vim.git"
 
   bottle :disable, "To use the user's Python."
-
-  # We only have special support for finding depends_on :python, but not yet for
-  # :ruby, :perl etc., so we use the standard environment that leaves the
-  # PATH as the user has set it right now.
-  env :std
 
   option "override-system-vi", "Override system vi"
   option "disable-nls", "Build vim without National Language Support (translated messages, keymaps)"
@@ -30,6 +27,8 @@ class Vim < Formula
 
   depends_on :python => :recommended
   depends_on :python3 => :optional
+  depends_on :ruby => "1.8" # Can be compiled against 1.8.x or >= 1.9.3-p385.
+  depends_on :perl => "5.3"
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
   depends_on :x11 if build.with? "client-server"
@@ -38,6 +37,8 @@ class Vim < Formula
     :because => "vim and ex-vi both install bin/ex and bin/view"
 
   def install
+    # https://github.com/Homebrew/homebrew-core/pull/1046
+    ENV.delete("SDKROOT")
     ENV["LUA_PREFIX"] = HOMEBREW_PREFIX if build.with?("lua") || build.with?("luajit")
 
     # vim doesn't require any Python package, unset PYTHONPATH.
@@ -76,15 +77,12 @@ class Vim < Formula
       opts << "--enable-luainterp"
     end
 
-    # XXX: Please do not submit a pull request that hardcodes the path
-    # to ruby: vim can be compiled against 1.8.x or 1.9.3-p385 and up.
-    # If you have problems with vim because of ruby, ensure a compatible
-    # version is first in your PATH when building vim.
-
     # We specify HOMEBREW_PREFIX as the prefix to make vim look in the
     # the right place (HOMEBREW_PREFIX/share/vim/{vimrc,vimfiles}) for
     # system vimscript files. We specify the normal installation prefix
     # when calling "make install".
+    # Homebrew will use the first suitable Perl & Ruby in your PATH if you
+    # build from source. Please don't attempt to hardcode either.
     system "./configure", "--prefix=#{HOMEBREW_PREFIX}",
                           "--mandir=#{man}",
                           "--enable-multibyte",
