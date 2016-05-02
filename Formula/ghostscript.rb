@@ -3,7 +3,7 @@ class Ghostscript < Formula
   homepage "http://www.ghostscript.com/"
 
   stable do
-    url "http://downloads.ghostscript.com/public/ghostscript-9.18.tar.gz"
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs918/ghostscript-9.18.tar.gz"
     sha256 "5fc93079749a250be5404c465943850e3ed5ffbc0d5c07e10c7c5ee8afbbdb1b"
 
     patch do
