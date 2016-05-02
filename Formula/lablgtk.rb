@@ -1,7 +1,7 @@
 class Lablgtk < Formula
   desc "Objective Caml interface to gtk+"
   homepage "http://lablgtk.forge.ocamlcore.org"
-  url "https://forge.ocamlcore.org/frs/download.php/1479/lablgtk-2.18.4.tar.gz"
+  url "https://forge.ocamlcore.org/frs/download.php/1602/lablgtk-2.18.4.tar.gz"
   sha256 "b316ae0b92e760c1ab0d1bdeaa0a3c2a6ab14face5a0fe2b93445be3a3d013c0"
 
   bottle do
