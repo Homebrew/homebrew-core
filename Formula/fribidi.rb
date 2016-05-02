@@ -21,9 +21,8 @@ class Fribidi < Formula
 
   def install
     ENV.universal_binary if build.universal?
-    ENV.prepend_path ["PKG_CONFIG_PATH"], "#{Formula["glib"].opt_lib}/pkgconfig"
-    system "./configure", "--disable-debug", "--disable-dependency-tracking", "--with-glib",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+                          "--with-glib", "--prefix=#{prefix}"
     system "make", "install"
   end
 
