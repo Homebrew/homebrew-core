@@ -1,7 +1,7 @@
 class Dwarfutils < Formula
   desc "lib and utility to dump and produce DWARF debug info in ELF objects"
-  homepage "http://www.prevanders.net/dwarf.html"
-  url "http://www.prevanders.net/libdwarf-20150507.tar.gz"
+  homepage "https://www.prevanders.net/dwarf.html"
+  url "https://www.prevanders.net/libdwarf-20150507.tar.gz"
   sha256 "29aa8d07db659d7d7af7079854cf42c09bf74d303942159cbfee82d655549870"
 
   bottle do
