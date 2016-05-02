@@ -37,7 +37,7 @@ class Ocaml < Formula
     ENV.deparallelize # Builds are not parallel-safe, esp. with many cores
 
     # the ./configure in this package is NOT a GNU autoconf script!
-    args = ["-prefix", "#{HOMEBREW_PREFIX}", "-with-debug-runtime", "-mandir", man]
+    args = ["-prefix", HOMEBREW_PREFIX.to_s, "-with-debug-runtime", "-mandir", man]
     args << "-no-graph" if build.without? "x11"
     system "./configure", *args
 
@@ -47,6 +47,6 @@ class Ocaml < Formula
 
   test do
     assert_match "val x : int = 1", shell_output("echo 'let x = 1 ;;' | ocaml 2>&1")
-    assert_match "#{HOMEBREW_PREFIX}", shell_output("ocamlc -where")
+    assert_match HOMEBREW_PREFIX.to_s, shell_output("ocamlc -where")
   end
 end
