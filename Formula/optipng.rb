@@ -1,8 +1,8 @@
 class Optipng < Formula
   desc "PNG file optimizer"
   homepage "http://optipng.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/optipng/OptiPNG/optipng-0.7.5/optipng-0.7.5.tar.gz"
-  sha256 "74e54b798b012dff8993fb8d90185ca83f18cfa4935f4a93b0bcfc33c849619d"
+  url "https://downloads.sourceforge.net/project/optipng/OptiPNG/optipng-0.7.6/optipng-0.7.6.tar.gz"
+  sha256 "4870631fcbd3825605f00a168b8debf44ea1cda8ef98a73e5411eee97199be80"
   head "http://hg.code.sf.net/p/optipng/mercurial", :using => :hg
 
   bottle do
@@ -11,10 +11,6 @@ class Optipng < Formula
     sha256 "2622e60d2f9313b39d2b385e84727e615839d6d531e4c6c7210a53b9cb584f61" => :yosemite
     sha256 "dd532d23f812dbc28b8f32171423946ee6fcfe87eab28665e7b484c83fc55e0e" => :mavericks
   end
-
-  # Fix compilation on 10.10
-  # https://sourceforge.net/p/optipng/bugs/47/
-  patch :DATA
 
   def install
     system "./configure", "--with-system-zlib",
@@ -27,18 +23,3 @@ class Optipng < Formula
     system "#{bin}/optipng", "-simulate", test_fixtures("test.png")
   end
 end
-
-__END__
-diff --git a/src/optipng/osys.c b/src/optipng/osys.c
-index d816ef7..610250b 100644
---- a/src/optipng/osys.c
-+++ b/src/optipng/osys.c
-@@ -518,7 +518,7 @@ osys_copy_attr(const char *src_path, const char *dest_path)
-     if (chmod(dest_path, sbuf.st_mode) != 0)
-         result = -1;
- 
--#ifdef AT_FDCWD
-+#if defined(AT_FDCWD) && !defined(__APPLE__) && !defined(__SVR4) && !defined(__sun)
-     {
-         struct timespec times[2];
- 
