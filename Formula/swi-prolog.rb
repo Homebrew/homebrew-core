@@ -1,14 +1,9 @@
 class SwiProlog < Formula
+  desc "ISO/Edinburgh-style Prolog interpreter"
+
   homepage "http://www.swi-prolog.org/"
   url "http://www.swi-prolog.org/download/stable/src/swipl-7.2.3.tar.gz"
   sha256 "43657d51b7c5887bc2d2bced50a9822b86a08a6841399b8e76ee877f51d646b5"
-
-  bottle do
-    revision 1
-    sha256 "d3d9dab5bb9f9ca0872ed6ecdff62fa09033775c3cb9f4f7b2a7f68f19c7a21a" => :el_capitan
-    sha256 "b6911b7573958dbc4ea8dbae03c06080239ce990e62a106ca03cdb6a9399d05d" => :yosemite
-    sha256 "193d6fc6f928dffda0826a1d01d04cfa6635764f4c343b0f14493a48455ebbe7" => :mavericks
-  end
 
   devel do
     url "http://www.swi-prolog.org/download/devel/src/swipl-7.3.19.tar.gz"
@@ -36,12 +31,6 @@ class SwiProlog < Formula
   if build.with? "xpce"
     depends_on :x11
     depends_on "jpeg"
-  end
-
-  # 10.5 versions of these are too old
-  if MacOS.version <= :leopard
-    depends_on "fontconfig"
-    depends_on "expat"
   end
 
   fails_with :llvm do
