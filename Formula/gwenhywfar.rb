@@ -1,9 +1,8 @@
 class Gwenhywfar < Formula
   desc "Utility library required by aqbanking and related software"
   homepage "http://www.aqbanking.de/"
-  url "http://www2.aquamaniac.de/sites/download/download.php?package=01&release=01&file=01&dummy=gwenhywfar-4.14.0.tar.gz"
-  sha256 "7e0ec2f1cab7d22a5ae0066e0ef827d4affec59470b1bdbc42132b58a903dd03"
-  revision 1
+  url "http://www2.aquamaniac.de/sites/download/download.php?package=01&release=201&file=01&dummy=gwenhywfar-4.15.3.tar.gz"
+  sha256 "6a0e8787c99620414da6140e567c616b55856c5edf8825a9ebc67431923ee63a"
 
   head "http://git.aqbanking.de/git/gwenhywfar.git"
 
@@ -32,9 +31,6 @@ class Gwenhywfar < Formula
     guis << "qt4" if build.with? "qt"
     guis << "cocoa" if build.with? "cocoa"
 
-    # https://devel.aqbanking.de/trac/aqbanking/ticket/247
-    # https://www.gnutls.org/manual/html_node/Priority-Strings.html
-    inreplace "src/sio/syncio_tls.c", "gnutls_protocol_set_priority", "gnutls_priority_set"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
