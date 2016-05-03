@@ -23,6 +23,6 @@ class Zplug < Formula
   end
 
   test do
-    system "make", "test"
+    shell_output("zsh -c \"source #{opt_prefix}/init.zsh && (( $+functions[zplug] ))\"")
   end
 end
