@@ -3,7 +3,7 @@ class Ocamlsdl < Formula
   homepage "http://ocamlsdl.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/ocamlsdl/OCamlSDL/ocamlsdl-0.9.1/ocamlsdl-0.9.1.tar.gz"
   sha256 "abfb295b263dc11e97fffdd88ea1a28b46df8cc2b196777093e4fe7f509e4f8f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -13,11 +13,11 @@ class Ocamlsdl < Formula
   end
 
   depends_on "sdl"
+  depends_on "ocaml"
   depends_on "sdl_mixer" => :recommended
   depends_on "sdl_image" => :recommended
   depends_on "sdl_gfx" => :recommended
   depends_on "sdl_ttf" => :recommended
-  depends_on "ocaml"
 
   def install
     system "./configure", "--prefix=#{prefix}",
@@ -34,6 +34,9 @@ class Ocamlsdl < Formula
 
       let _ = main ()
     EOS
-    system "ocamlopt", "-I", "+sdl", "sdl.cmxa", "-cclib", "-lSDLmain", "-cclib", "-lSDL", "-cclib", "-Wl,-framework,Cocoa", "-o", "test" "test.ml"
+    system "#{Formula["ocaml"].opt_bin}/ocamlopt", "-I", "+sdl", "sdl.cmxa",
+           "-cclib", "-lSDLmain", "-cclib", "-lSDL", "-cclib",
+           "-Wl,-framework,Cocoa", "-o", "test", "test.ml"
+    system "./test"
   end
 end
