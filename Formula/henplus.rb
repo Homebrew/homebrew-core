@@ -3,13 +3,13 @@ class Henplus < Formula
   homepage "https://github.com/neurolabs/henplus"
   url "https://github.com/downloads/neurolabs/henplus/henplus-0.9.8.tar.gz"
   sha256 "ea7ca363d0503317235e97f66aa0efefe44463d8445e88b304ec0ac1748fe1ff"
+  revision 1
 
   depends_on :ant => :build
   depends_on "libreadline-java"
+  depends_on :java => "1.6+"
 
   def install
-    ENV["JAVA_HOME"] = `/usr/libexec/java_home`.chomp
-
     inreplace "bin/henplus" do |s|
       s.gsub! "LD_LIBRARY_PATH", "DYLD_LIBRARY_PATH"
       s.change_make_var! "DYLD_LIBRARY_PATH", Formula["libreadline-java"].opt_lib
