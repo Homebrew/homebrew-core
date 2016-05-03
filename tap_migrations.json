@@ -209,7 +209,6 @@
   "sshfs": "homebrew/fuse",
   "stormfs": "homebrew/fuse",
   "sundials": "homebrew/science",
-  "swi-prolog": "homebrew/x11",
   "sxiv": "homebrew/x11",
   "synfigstudio": "homebrew/boneyard",
   "syslog-ng": "homebrew/boneyard",
