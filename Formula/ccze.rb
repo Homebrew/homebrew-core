@@ -43,3 +43,16 @@ index c6f9892..9b93b65 100644
 		-Wmissing-noreturn -Wmissing-declarations @WFLAGS_3X@
  WFLAGS_ICC	= -Wall -wd193,279,810,869,1418,1419
  WFLAGS_3X	= -Wsequence-point -Wdiv-by-zero -W -Wunused \
+diff --git a/src/ccze-compat.c b/src/ccze-compat.c
+index 0a3c335..5afdc20 100644
+--- a/src/ccze-compat.c
++++ b/src/ccze-compat.c
+@@ -275,7 +275,7 @@ ccze_getsubopt (char **optionp, char *const *tokens,
+		char **valuep)
+ {
+   int i = getsubopt (optionp, tokens, valuep);
+-#if HAVE_SUBOPTARg
++#if HAVE_SUBOPTARG
+   if (!*valuep && suboptarg)
+     *valuep = strdup (suboptarg);
+ #endif
