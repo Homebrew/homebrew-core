@@ -24,8 +24,14 @@ class Cfssl < Formula
     cd "src/github.com/cloudflare/cfssl" do
       system "go", "build", "-o", "#{bin}/cfssl", "cmd/cfssl/cfssl.go"
       system "go", "build", "-o", "#{bin}/cfssljson", "cmd/cfssljson/cfssljson.go"
-      system "go", "build", "-o", "#{bin}/mkbundle", "cmd/mkbundle/mkbundle.go"
+      system "go", "build", "-o", "#{bin}/cfsslmkbundle", "cmd/mkbundle/mkbundle.go"
     end
+  end
+
+  def caveats; <<-EOS.undent
+    `mkbundle` has been installed as `cfsslmkbundle` to avoid conflict
+    with Mono and other tools that ship the same executable.
+  EOS
   end
 
   test do
