@@ -232,6 +232,7 @@
   "timbl": "homebrew/science",
   "tmap": "homebrew/boneyard",
   "tinyscheme": "homebrew/boneyard",
+  "tokyo-tyrant": "homebrew/boneyard",
   "transmission-remote-gtk": "homebrew/gui",
   "tup": "homebrew/fuse",
   "uim": "homebrew/x11",
