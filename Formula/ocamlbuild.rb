@@ -14,6 +14,6 @@ class Ocamlbuild < Formula
   end
 
   test do
-    assert_equal "ocamlbuild 0.9.2\n", shell_output("#{bin}/ocamlbuild --version")
+    assert_match version.to_s, shell_output("#{bin}/ocamlbuild --version")
   end
 end
