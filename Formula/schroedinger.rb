@@ -31,7 +31,7 @@ class Schroedinger < Formula
 
     # The test suite is known not to build against Orc >0.4.16 in Schroedinger 1.0.11.
     # A fix is in upstream, so test when pulling 1.0.12 if this is still needed. See:
-    # http://www.mail-archive.com/schrodinger-devel@lists.sourceforge.net/msg00415.html
+    # https://www.mail-archive.com/schrodinger-devel@lists.sourceforge.net/msg00415.html
     inreplace "Makefile" do |s|
       s.change_make_var! "SUBDIRS", "schroedinger doc tools"
       s.change_make_var! "DIST_SUBDIRS", "schroedinger doc tools"

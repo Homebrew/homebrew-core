@@ -6,11 +6,10 @@ class Jq < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "d969487931abc27767a3435f5a1b2d06ed61aab0916de187ed894b6137baceee" => :el_capitan
-    sha256 "8529bc1edac66bdeec82afe80ce671b9d015b02959fe9f37efd2887fd975faf1" => :yosemite
-    sha256 "89a32fb53e7f4330d6db84ba526133228189ea3ba3b15adf7fc743787c8ef645" => :mavericks
-    sha256 "d817dec8745f52802b4ac2fbcd2a7a76a647b2000f43ba9a842f59a4363da55d" => :mountain_lion
+    revision 2
+    sha256 "4df3ac073164d99ecc20e6d0cdc363204ba992851fdd1f4a6d92eca3aae4671c" => :el_capitan
+    sha256 "c09bf921664a2d9fe9a9c1dc19b739a1b8e92ffc67e5a833c95db6687a02c200" => :yosemite
+    sha256 "6dc80e1c8032777ab107ec8ea650328cb3a9960d489877aa966924f533fee29f" => :mavericks
   end
 
   head do
@@ -21,13 +20,13 @@ class Jq < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "oniguruma"  # jq depends > 1.5
-  depends_on "bison" => :build # jq depends on bison > 2.5
+  depends_on "oniguruma" # jq depends > 1.5
 
   def install
     system "autoreconf", "-iv" unless build.stable?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--disable-maintainer-mode",
                           "--prefix=#{prefix}"
     system "make", "install"
   end

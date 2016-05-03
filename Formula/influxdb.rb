@@ -3,16 +3,16 @@ require "language/go"
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb/archive/v0.12.1.tar.gz"
-  sha256 "7b0340681e0e755db16da44ac4be30000cddc4e554da90872a238a78aeae55a0"
+  url "https://github.com/influxdata/influxdb/archive/v0.12.2.tar.gz"
+  sha256 "fb2f918794db07c2a05388fd583591bb3084b2af37a64e98be4b4c73302a8742"
 
   head "https://github.com/influxdata/influxdb.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bf6138a2b37653bc7d4fa096004ca5500a392fe5d6be34f67b894c693bae7d99" => :el_capitan
-    sha256 "4c58a861d4b68992ffee4d1d156784e83f45815cfc82ec1e0b825baf26bedeb6" => :yosemite
-    sha256 "547e8832f1393a862119c15b527fad004314b77209c08b1d9168731ec78ed43d" => :mavericks
+    sha256 "fb261aae833cbf9892541050037ebf2ebe1f695f8e321ea2ddb6deb9fdb9eafb" => :el_capitan
+    sha256 "4c3805ad7f5fb99e936545b440f2f95fce57f5b3294ab438e977806ac4fca64a" => :yosemite
+    sha256 "6b2c9a0167d0b4c0cf62aa080b9297ba25a2c4e340ccce09a8a995ec1e41c4c6" => :mavericks
   end
 
   depends_on "go" => :build
@@ -113,7 +113,7 @@ class Influxdb < Formula
       if build.head?
         system "go", "install", "-ldflags", "-X main.version=0.13.0-HEAD -X main.branch=master -X main.commit=#{`git rev-parse HEAD`.strip}", "./..."
       else
-        system "go", "install", "-ldflags", "-X main.version=0.12.1 -X main.branch=0.12 -X main.commit=e094138084855d444195b252314dfee9eae34cab", "./..."
+        system "go", "install", "-ldflags", "-X main.version=0.12.2 -X main.branch=0.12 -X main.commit=383332daed5595926c235f250b11433f67229c35", "./..."
       end
     end
 

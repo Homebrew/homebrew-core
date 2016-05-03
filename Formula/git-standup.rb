@@ -1,15 +1,15 @@
 class GitStandup < Formula
   desc "Git extension to generate reports for standup meetings"
   homepage "https://github.com/kamranahmedse/git-standup"
-  url "https://github.com/kamranahmedse/git-standup/archive/1.0.1.tar.gz"
-  sha256 "0c43e7414b308bc29ef6f04e84b02aaf3e0ac4837522d34f84359a54c0a4d54b"
+  url "https://github.com/kamranahmedse/git-standup/archive/2.1.4.tar.gz"
+  sha256 "4481e2eac9d523ceae0d1c0ec13fe78e54b0e1cad8fc7af58026776fcc0d24ea"
   head "https://github.com/kamranahmedse/git-standup.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9ec910ead4b99bdcaa2649a01a207257d56ba6e8d51233b18220637f968eb6d2" => :el_capitan
-    sha256 "a77681880f954d6e3337c582d589cb23b5b34e09a3d787737567278fbb33fc45" => :yosemite
-    sha256 "87050e61def08fe7c2c4b521c5ddc607348987241a94efeb91cf699e84fe63e0" => :mavericks
+    sha256 "ee1dcd5c5f5ad8a35848b7543245eac363cb54c689fedbb18b9084f76c97d0ab" => :el_capitan
+    sha256 "7aa37c62927c3aa039b7f9588d7fa67bc6f9c1ada424f78c2a2e802eae1e11c5" => :yosemite
+    sha256 "cf032c7c41a91355bde6be7c902445885ba6dcc4b6c90356b263729be9b1dbaa" => :mavericks
   end
 
   def install
@@ -21,6 +21,6 @@ class GitStandup < Formula
     (testpath/"test").write "test"
     system "git", "add", "#{testpath}/test"
     system "git", "commit", "--message", "test"
-    system "git", "standup", "HEAD"
+    system "git", "standup"
   end
 end

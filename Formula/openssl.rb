@@ -1,15 +1,15 @@
 class Openssl < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.0.2g.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2g.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2g.tar.gz"
-  sha256 "b784b1b3907ce39abf4098702dade6365522a253ad1552e267a9a0e89594aa33"
+  url "https://www.openssl.org/source/openssl-1.0.2h.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2h.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2h.tar.gz"
+  sha256 "1d4007e53aad94a5b2002fe045ee7bb0b3d98f1a47f8b2bc851dcd1c74332919"
 
   bottle do
-    sha256 "b1de0682c7a838a75da3a06ddad2b9700d208b2faaaa1b51c0889ba403c7dd22" => :el_capitan
-    sha256 "68e5432c7b863341bc0c42c9a9391c11ba244519f110ba7c5ef4d97eb5c6b8fa" => :yosemite
-    sha256 "cdb9ddcc2bc683afa836b40258acbd40fa82dc67b68b245b7413d85e18d98ca0" => :mavericks
+    sha256 "28320f60a208f1aba5420957148458d59b00bcac62fcb550ba88e737c07c27b4" => :el_capitan
+    sha256 "8c21504d03f0ff40a2acc232028b4b03df28ded12c0014cd57dc4602a7f93245" => :yosemite
+    sha256 "fef69163e044fbf71c1878de4bdd416afbbbf7cb7265ee0c6fedb4ba7c861525" => :mavericks
   end
 
   keg_only :provided_by_osx,
@@ -21,19 +21,6 @@ class Openssl < Formula
   deprecated_option "without-check" => "without-test"
 
   depends_on "makedepend" => :build
-
-  # Replace with upstream url if they merge the more robust fix
-  # https://github.com/openssl/openssl/pull/597
-  if MacOS.version <= :snow_leopard
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/3f1dc8ea145a70543aded8101a0c725abf82fc45/openssl/revert-pass-pure-constants-verbatim.patch"
-      sha256 "e38f84181a56e70028ade8408ad70aaffaea386b7e1b35de55728ae878d544aa"
-    end
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/3f1dc8ea145a70543aded8101a0c725abf82fc45/openssl/tshort-asm.patch"
-      sha256 "f161e2fc1395efcb53d785004d67d4962d28aa8ce282a91020f12809c03b2afd"
-    end
-  end
 
   def arch_args
     {

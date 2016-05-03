@@ -1,7 +1,7 @@
 class Avidemux < Formula
   desc "Multiformat video editor that cuts, filters, and encodes"
   homepage "http://fixounet.free.fr/avidemux/"
-  revision 1
+  revision 2
 
   stable do
     url "https://downloads.sourceforge.net/avidemux/avidemux_2.6.8.tar.gz"
@@ -16,10 +16,9 @@ class Avidemux < Formula
   end
 
   bottle do
-    revision 2
-    sha256 "cf7503f021cd5b97d87f8460dedb89066be3579b0a3a32e93e6bc23eb3690528" => :el_capitan
-    sha256 "0ed5eee0f130722cfbdb0768eb9e1c7d37b4acd695017ee78b03e5900d1aaca1" => :yosemite
-    sha256 "e4a5d4080b67245a0632eebd798b2b1b4bae260ff4ee04b70fcbe784436041e9" => :mavericks
+    sha256 "acf533d565e1f21c4d4ec8eb703e7623b16b4cacf45fc456866dc4b6d7067012" => :el_capitan
+    sha256 "670620115efff933c531a11535ef2f81a3e0cbae9b903dc304b2ec13559a453f" => :yosemite
+    sha256 "05545f1bffbddd6cd92636f775f6710dfea9c3a35c00efbca0d6473daeabc852" => :mavericks
   end
 
   head do
