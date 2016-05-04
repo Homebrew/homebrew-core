@@ -1,7 +1,7 @@
 class Devil < Formula
   desc "Cross-platform image library"
   homepage "https://sourceforge.net/projects/openil/"
-  revision 1
+  revision 2
 
   stable do
     url "https://downloads.sourceforge.net/project/openil/DevIL/1.7.8/DevIL-1.7.8.tar.gz"
@@ -31,12 +31,12 @@ class Devil < Formula
     end
   end
 
-  bottle :disable, "Can't generate bottles until builds with either Clang or GCC-5"
-
   option :universal
 
-  depends_on "libpng"
+  depends_on "gcc"
   depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff" => :recommended
 
   # most compilation issues with clang are fixed in the following pull request
   # see https://github.com/DentonW/DevIL/pull/30
@@ -47,18 +47,20 @@ class Devil < Formula
     cause "invalid -std=gnu99 flag while building C++"
   end
 
-  # ./../src-IL/include/il_internal.h:230:54:
-  #   error: expected ',' or '...' before 'FileName'
-  # https://github.com/Homebrew/homebrew/issues/40442
-  fails_with :gcc => "5"
-
   def install
     ENV.universal_binary if build.universal?
 
     if build.head?
-      cd "DevIL/"
+      cd "DevIL"
       system "./autogen.sh"
     end
+
+    # GCC 5 build failure: https://github.com/Homebrew/legacy-homebrew/issues/40442
+    # Reported 4th May 2016: https://github.com/DentonW/DevIL/issues/31
+    # Fix is from NetBSD: http://cvsweb.netbsd.org/bsdweb.cgi/pkgsrc/devel/devIL/patches/patch-include_IL_il.h
+    inreplace "include/IL/il.h",
+      "#ifdef RESTRICT_KEYWORD",
+      "#if defined(RESTRICT_KEYWORD) && !defined(__cplusplus)"
 
     args = %W[
       --disable-debug
@@ -67,6 +69,15 @@ class Devil < Formula
       --enable-ILU
     ]
     args << "--enable-ILUT" if build.stable? || build.with?("ilut")
+    args << "--disable-tiff" if build.without? "libtiff"
+
+    # "fatal error: 'IL/ilut.h' file not found"
+    # Reported 4th May 2016: https://github.com/DentonW/DevIL/issues/32
+    # Fixes the test for HEAD builds that have ILUT disabled
+    if build.without? "ilut"
+      inreplace "include/IL/devil_cpp_wrapper.hpp",
+        "<IL/ilut.h>", "\"ilu.h\""
+    end
 
     system "./configure", *args
     system "make", "install"
