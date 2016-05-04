@@ -13,7 +13,7 @@ class LibreadlineJava < Formula
   end
 
   depends_on "readline"
-  depends_on :java => "1.6"
+  depends_on :java => "1.6+"
 
   # Fix "non-void function should return a value"-Error
   # https://sourceforge.net/tracker/?func=detail&atid=453822&aid=3566332&group_id=48669
@@ -21,6 +21,14 @@ class LibreadlineJava < Formula
 
   def install
     java_home = ENV["JAVA_HOME"]
+
+    # Reported 4th May 2016: https://sourceforge.net/p/java-readline/bugs/12/
+    # JDK 8 doclint for Javadoc complains about minor HTML conformance issues
+    if `javadoc -X`.include? "doclint"
+      inreplace "Makefile",
+        "-version -author org.gnu.readline test",
+        "-version -author org.gnu.readline -Xdoclint:none test"
+    end
 
     # Current Oracle JDKs put the jni.h and jni_md.h in a different place than the
     # original Apple/Sun JDK used to.
@@ -56,7 +64,7 @@ class LibreadlineJava < Formula
       s.gsub! "$(CC) -shared $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -o $@", "$(CC) -install_name #{HOMEBREW_PREFIX}/lib/$(LIB_PRE)$(TG).$(LIB_EXT) -dynamiclib $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -o $@"
     end
 
-    (share/"libreadline-java").mkpath
+    pkgshare.mkpath
 
     system "make", "jar"
     system "make", "build-native"
@@ -73,7 +81,7 @@ class LibreadlineJava < Formula
 
   # Testing libreadline-java (can we execute and exit libreadline without exceptions?)
   test do
-    assert /Exception/ !~ pipe_output("java -Djava.library.path=#{lib} -cp #{share}/libreadline-java/libreadline-java.jar test.ReadlineTest", "exit")
+    assert /Exception/ !~ pipe_output("java -Djava.library.path=#{lib} -cp #{pkgshare}/libreadline-java.jar test.ReadlineTest", "exit")
   end
 end
 
