@@ -1,8 +1,8 @@
 class Mstch < Formula
   desc "Complete implementation of {{mustache}} templates using modern C++"
   homepage "https://github.com/no1msd/mstch"
-  url "https://github.com/no1msd/mstch/archive/1.0.1.tar.gz"
-  sha256 "0f8ce1c47ff6b52c6f347b443447651b549366a21d086927fe0b27e14da5620e"
+  url "https://github.com/no1msd/mstch/archive/1.0.2.tar.gz"
+  sha256 "811ed61400d4e9d4f9ae0f7679a2ffd590f0b3c06b16f2798e1f89ab917cba6c"
 
   bottle do
     cellar :any_skip_relocation
