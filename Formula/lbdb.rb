@@ -13,6 +13,7 @@ class Lbdb < Formula
   end
 
   depends_on :gpg => :optional
+  depends_on "abook" => :recommended
 
   def install
     args = %W[
