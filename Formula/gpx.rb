@@ -1,8 +1,9 @@
 class Gpx < Formula
   desc "Gcode to x3g converter for 3D printers running Sailfish"
   homepage "https://github.com/markwal/GPX/blob/master/README.md"
-  url "https://github.com/markwal/GPX/archive/2.4.3.tar.gz"
-  sha256 "e2d67fd11b63b7ec30b122a4c4af6910305911dc3632ce18d213196be848993c"
+  url "https://github.com/markwal/GPX/archive/2.5.2.tar.gz"
+  sha256 "8b637a366a2863ca3a11b4c6a33d8ebc10806bf7de3e3ac90f2a3a57529ea864"
+  head "https://github.com/markwal/GPX.git"
 
   bottle do
     cellar :any_skip_relocation
