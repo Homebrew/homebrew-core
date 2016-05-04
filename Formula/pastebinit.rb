@@ -25,6 +25,9 @@ class Pastebinit < Formula
   end
 
   test do
-    system "date | pastebinit"
+    url = pipe_output("#{bin}/pastebinit", "Hello, world!").chomp
+    assert_match %r{^http://pastebin\.com/}, url
+    # We can't actually fetch the URL to check the paste's success because pastebin
+    # blocks our fetches with curl, probably based on the user agent
   end
 end
