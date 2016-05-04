@@ -1,8 +1,9 @@
 class Trace2html < Formula
   desc "Utility from Google Trace Viewer to convert JSON traces to HTML"
-  homepage "https://github.com/google/trace-viewer"
-  url "https://github.com/google/trace-viewer/archive/2015-06-23.tar.gz"
-  sha256 "97ad0ca9c07a50c53a3d881b69b6b6f7424d6b0f4d9e9fb531c2d9273e413f19"
+  homepage "https://github.com/catapult-project/catapult"
+  url "https://github.com/catapult-project/catapult/archive/328391fbc1e3f931caf93d1e3f50d1643e624560.tar.gz"
+  version "2016-09-08"
+  sha256 "4439ba9037cd1328c7dcc4723537e02dfd99efad36363e025e06ab42c0b99c71"
 
   bottle :unneeded
 
@@ -10,7 +11,7 @@ class Trace2html < Formula
 
   def install
     libexec.install Dir["*"]
-    bin.install_symlink libexec/"trace2html"
+    bin.install_symlink libexec/"tracing/bin/trace2html"
   end
 
   test do
