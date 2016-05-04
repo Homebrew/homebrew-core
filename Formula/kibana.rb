@@ -14,7 +14,7 @@ class Kibana < Formula
   end
 
   devel do
-    url "https://github.com/elastic/kibana.git", :tag => "v5.0.0-alpha1", :revision => "a18c3d0acd20d5c389df8904cd4b9e650aa260f0"
+    url "https://github.com/elastic/kibana.git", :tag => "v5.0.0-alpha2", :revision => "6d7bb147cf9ae7170fde494b1f17128a50123b5f"
   end
 
   resource "node" do
