@@ -41,7 +41,7 @@ class Wine < Formula
   depends_on "little-cms2"
   depends_on "libicns"
   depends_on "libtiff"
-  depends_on "sane-backends"
+  depends_on "sane-backends" => :optional
   depends_on "gnutls"
   depends_on "libgsm" => :optional
   depends_on "samba" => :optional
@@ -122,6 +122,8 @@ class Wine < Formula
     args << "--without-x" if build.without? "x11"
     
     args << "--without-gphoto" if build.without? "libgphoto2"
+    
+    args << "--without-sane" if build.without? "sane-backends"
 
     system "./configure", *args
 
