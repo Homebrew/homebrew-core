@@ -4,6 +4,7 @@ class Gawk < Formula
   url "http://ftpmirror.gnu.org/gawk/gawk-4.1.3.tar.xz"
   mirror "https://ftp.gnu.org/gnu/gawk/gawk-4.1.3.tar.xz"
   sha256 "e3cf55e91e31ea2845f8338bedd91e40671fc30e4d82ea147d220e687abda625"
+  revision 1
 
   bottle do
     sha256 "ed2c5f0b20e4b4af151177a750b1287435aad66bb0c8c4b60daf753f3955332c" => :el_capitan
@@ -17,12 +18,13 @@ class Gawk < Formula
     cause "Undefined symbols when linking"
   end
 
+  depends_on "mpfr"
+  depends_on "readline"
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--without-readline",
-                          "--without-mpfr",
                           "--without-libsigsegv-prefix"
     system "make"
     system "make", "check"
