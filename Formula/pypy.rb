@@ -1,14 +1,14 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "http://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy-5.1.0-src.tar.bz2"
-  sha256 "16bab9501e942c0704abbf9cd6c4e950c6a76dc226cf1e447ea084916aef4714"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy-5.1.1-src.tar.bz2"
+  sha256 "99aff0c710c46903b821c7c436f9cb9de16bd7370d923f99cc7c28a66be6c5b2"
 
   bottle do
     cellar :any
-    sha256 "7aae8567fbcbadde8c25b7d2aab5c2090c0acec57fad5bfe29556446cb67d7ce" => :el_capitan
-    sha256 "d9247966781d0adad3f1b5b0c0f2b3461879761ce89594c00b93f5b75db67e5a" => :yosemite
-    sha256 "21cb1d8dd13c8d2e458abbac2048f34cc19c12fa2dcba64cc464228bff71835f" => :mavericks
+    sha256 "7e080885f3b98d748d0a7d2a3bde9d1a2cd457a003ab094297a8fbdcd36490ea" => :el_capitan
+    sha256 "a935a210160c7c7c7f6be305dd7707caae2d458f73d02ee0e4ba8ba57c31be6f" => :yosemite
+    sha256 "c3b20bfcdafbeb41bbb3a8ffd7b25cd7bdff2ab0fbd4a74fa01d8099b4d99a5e" => :mavericks
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \
