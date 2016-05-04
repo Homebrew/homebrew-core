@@ -37,7 +37,7 @@ class Wine < Formula
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "jpeg"
-  depends_on "libgphoto2"
+  depends_on "libgphoto2" => :optional
   depends_on "little-cms2"
   depends_on "libicns"
   depends_on "libtiff"
@@ -120,6 +120,8 @@ class Wine < Formula
     args << "--without-mpg123" if Hardware.is_64_bit?
 
     args << "--without-x" if build.without? "x11"
+    
+    args << "--without-gphoto" if build.without? "libgphoto2"
 
     system "./configure", *args
 
