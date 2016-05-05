@@ -1,8 +1,8 @@
 class Czmqpp < Formula
   desc "C++ wrapper for czmq"
   homepage "https://github.com/zeromq/czmqpp"
-  url "https://github.com/zeromq/czmqpp.git", :revision => "5db1042"
-  version "1.1.0"
+  url "https://github.com/zeromq/czmqpp.git", :tag => "v1.2.0"
+  version "1.2.0"
 
   head "https://github.com/zeromq/czmqpp.git"
 
