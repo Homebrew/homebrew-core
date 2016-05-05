@@ -1,8 +1,9 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "http://bazel.io/"
-  url "https://github.com/bazelbuild/bazel/archive/0.2.1.tar.gz"
-  sha256 "be964f98480ed258f249fc44c467a293e3a143aa750149b970da3d6719ba6ff1"
+  url "https://github.com/bazelbuild/bazel/archive/0.2.2b.tar.gz"
+  version "0.2.2b"
+  sha256 "0f5ebce329e4aa3c36e428f8994c72bc896f491e0d45aa55f5cc40834b4839f2"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +16,9 @@ class Bazel < Formula
 
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
+    # Bazel has it owns sandbox, ensure it works.
+    ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"]
+    ENV["CC"] = `xcrun -f #{ENV["CC"]}`.strip
 
     system "./compile.sh"
     system "./output/bazel", "build", "scripts:bash_completion"
