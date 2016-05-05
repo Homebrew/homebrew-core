@@ -1,11 +1,11 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "http://camlp5.gforge.inria.fr/"
-  url "http://camlp5.gforge.inria.fr/distrib/src/camlp5-6.15.tgz"
-  mirror "https://ftp.ucsb.edu/pub/mirrors/linux/gentoo/distfiles/camlp5-6.15.tgz"
-  mirror "https://mirror.csclub.uwaterloo.ca/gentoo-distfiles/distfiles/camlp5-6.15.tgz"
-  mirror "https://mirror.netcologne.de/gentoo/distfiles/camlp5-6.15.tgz"
-  sha256 "2e0e1e31e0537f2179766820dd9bd0a4d424bc5ab9c610e6dbf9145f27747f2b"
+  url "http://camlp5.gforge.inria.fr/distrib/src/camlp5-6.16.tgz"
+  mirror "https://ftp.ucsb.edu/pub/mirrors/linux/gentoo/distfiles/camlp5-6.16.tgz"
+  mirror "https://mirror.csclub.uwaterloo.ca/gentoo-distfiles/distfiles/camlp5-6.16.tgz"
+  mirror "https://mirror.netcologne.de/gentoo/distfiles/camlp5-6.16.tgz"
+  sha256 "fd446cff6421f5144a521c7cecfdc7217b1424908186cddd3d5be543b35058b1"
   head "https://gforge.inria.fr/anonscm/git/camlp5/camlp5.git"
 
   bottle do

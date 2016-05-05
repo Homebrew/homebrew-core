@@ -3,7 +3,7 @@ class Opam < Formula
   homepage "https://opam.ocaml.org"
   url "https://github.com/ocaml/opam/archive/1.2.2.tar.gz"
   sha256 "3e4a05df6ff8deecba019d885ebe902eb933acb6e2fc7784ffee1ee14871e36a"
-  revision 1
+  revision 2
   head "https://github.com/ocaml/opam.git"
 
   bottle do
