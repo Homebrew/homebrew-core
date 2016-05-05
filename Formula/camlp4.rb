@@ -14,7 +14,7 @@ class Camlp4 < Formula
   end
 
   depends_on "ocaml"
-  # since Ocaml 4.03.0, ocamlbuild is no longer part of ocaml
+  # since OCaml 4.03.0, ocamlbuild is no longer part of OCaml
   depends_on "ocamlbuild"
 
   def install
