@@ -1,4 +1,4 @@
-class HerokuToolbelt < Formula
+class Heroku < Formula
   desc "Everything you need to get started with Heroku"
   homepage "https://toolbelt.heroku.com/other"
   url "https://s3.amazonaws.com/assets.heroku.com/heroku-client/heroku-client-3.43.0.tgz"

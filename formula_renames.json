@@ -9,6 +9,7 @@
   "google-app-engine": "app-engine-python",
   "google-perftools": "gperftools",
   "hamsterdb": "upscaledb",
+  "heroku-toolbelt": "heroku",
   "kotlin-compiler": "kotlin",
   "libcppa": "caf",
   "mpich2": "mpich",
