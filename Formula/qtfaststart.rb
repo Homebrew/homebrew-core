@@ -1,8 +1,8 @@
 class Qtfaststart < Formula
   desc "Utility for Quicktime files"
   homepage "https://libav.org/"
-  url "https://libav.org/releases/libav-11.2.tar.gz"
-  sha256 "1f1448e1245444a1fae2f077f6846fedb47dfb294bef797e6742c095a6b4d769"
+  url "https://libav.org/releases/libav-11.6.tar.gz"
+  sha256 "4df17921e3b87170d54b738f09241833c618d2173415adf398207b43d27e4b28"
 
   bottle do
     cellar :any_skip_relocation
