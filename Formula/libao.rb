@@ -12,12 +12,35 @@ class Libao < Formula
     sha256 "21aa15e92c5577a4a610de8fbb3f5a72638a0c37a40c4ebebc14826359932efa" => :mountain_lion
   end
 
+  head do
+    url "https://git.xiph.org/libao.git"
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => :build
 
   def install
+    if build.head?
+      ENV["AUTOMAKE_FLAGS"] = "--include-deps"
+      system "./autogen.sh"
+    end
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-static"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <ao/ao.h>
+      int main() {
+        ao_initialize();
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.cpp", "-L#{lib}", "-lao", "-o", "test"
+    system "./test"
   end
 end
