@@ -1,7 +1,7 @@
 class Cairo < Formula
   desc "Vector graphics library with cross-device output support"
-  homepage "http://cairographics.org/"
-  url "http://cairographics.org/releases/cairo-1.14.6.tar.xz"
+  homepage "https://cairographics.org/"
+  url "https://cairographics.org/releases/cairo-1.14.6.tar.xz"
   mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/cairo-1.14.6.tar.xz"
   sha256 "613cb38447b76a93ff7235e17acd55a78b52ea84a9df128c3f2257f8eaa7b252"
   revision 1
@@ -13,7 +13,7 @@ class Cairo < Formula
   end
 
   devel do
-    url "http://cairographics.org/snapshots/cairo-1.15.2.tar.xz"
+    url "https://cairographics.org/snapshots/cairo-1.15.2.tar.xz"
     sha256 "268cc265a7f807403582f440643064bf52896556766890c8df7bad02d230f6c9"
   end
 
