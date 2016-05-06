@@ -1,8 +1,8 @@
 class Jsonnet < Formula
   desc "Domain specific configuration language for defining JSON data."
   homepage "https://google.github.io/jsonnet/doc/"
-  url "https://github.com/google/jsonnet/archive/v0.8.7.tar.gz"
-  sha256 "c1cc21fcc8b6d590bc13af05e5932b07ec0e00c1a9737a01f858a7aefca52ffb"
+  url "https://github.com/google/jsonnet/archive/v0.8.8.tar.gz"
+  sha256 "668f4ffe1796d22902a485e0c383c1e149dcf7b5364c1bd79e48d8a62b4943b9"
 
   bottle do
     cellar :any_skip_relocation
@@ -37,12 +37,12 @@ class Jsonnet < Formula
     expected_output = {
       "person1" => {
         "name" => "Alice",
-        "welcome" => "Hello Alice!"
+        "welcome" => "Hello Alice!",
       },
       "person2" => {
         "name" => "Bob",
-        "welcome" => "Hello Bob!"
-      }
+        "welcome" => "Hello Bob!",
+      },
     }
 
     output = shell_output("#{bin}/jsonnet #{testpath}/example.jsonnet")
