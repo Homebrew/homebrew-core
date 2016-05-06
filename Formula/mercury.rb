@@ -3,6 +3,7 @@ class Mercury < Formula
   homepage "https://mercurylang.org/"
   url "http://dl.mercurylang.org/release/mercury-srcdist-14.01.1.tar.gz"
   sha256 "98f7cbde7a7425365400feef3e69f1d6a848b25dc56ba959050523d546c4e88b"
+  revision 1
 
   bottle do
     sha256 "cd513a5ca92a2dc2162db2f87208129cb5b3ab0ce6d85e0da0c4b54498278144" => :yosemite
