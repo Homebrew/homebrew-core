@@ -20,6 +20,13 @@ class Bsdiff < Formula
     bin.install "bsdiff"
     man1.install "bsdiff.1"
   end
+
+  test do
+    (testpath/"bin1").write "\x01\x02\x03\x04"
+    (testpath/"bin2").write "\x01\x02\x03\x05"
+
+    system "#{bin}/bsdiff", "bin1", "bin2", "bindiff"
+  end
 end
 
 __END__
@@ -30,7 +37,7 @@ index 643c60b..543379c 100644
 @@ -28,6 +28,7 @@
  __FBSDID("$FreeBSD: src/usr.bin/bsdiff/bspatch/bspatch.c,v 1.1 2005/08/06 01:59:06 cperciva Exp $");
  #endif
- 
+
 +#include <sys/types.h>
  #include <bzlib.h>
  #include <stdlib.h>
