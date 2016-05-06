@@ -17,7 +17,6 @@ class Aria2 < Formula
   needs :cxx11
 
   def install
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
