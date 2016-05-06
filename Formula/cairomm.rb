@@ -1,11 +1,8 @@
 class Cairomm < Formula
   desc "Vector graphics library with cross-device output support"
   homepage "https://cairographics.org/cairomm/"
-  # canonical source (same content):
-  # url "https://cairographics.org/releases/cairomm-1.12.0.tar.gz"
-  # sha256 "50435aec6fdd976934b791e808993160113ad19ca53a5634a9b64ccbe55874cc"
-  url "https://download.gnome.org/sources/cairomm/1.12/cairomm-1.12.0.tar.xz"
-  sha256 "a54ada8394a86182525c0762e6f50db6b9212a2109280d13ec6a0b29bfd1afe6"
+  url "https://cairographics.org/releases/cairomm-1.12.0.tar.gz"
+  sha256 "50435aec6fdd976934b791e808993160113ad19ca53a5634a9b64ccbe55874cc"
 
   bottle do
     cellar :any
