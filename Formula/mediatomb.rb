@@ -1,6 +1,6 @@
 class Mediatomb < Formula
   desc "Open source (GPL) UPnP MediaServer"
-  homepage "http://mediatomb.cc"
+  homepage "https://mediatomb.cc/"
   url "https://downloads.sourceforge.net/mediatomb/mediatomb-0.12.1.tar.gz"
   sha256 "31163c34a7b9d1c9735181737cb31306f29f1f2a0335fb4f53ecccf8f62f11cd"
   revision 2
