@@ -2,7 +2,7 @@ class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "http://pypy.org/"
   url "https://bitbucket.org/pypy/pypy/downloads/pypy-5.1.1-src.tar.bz2"
-  sha256 "99aff0c710c46903b821c7c436f9cb9de16bd7370d923f99cc7c28a66be6c5b2"
+  sha256 "ca3d943d7fbd78bb957ee9e5833ada4bb8506ac99a41b7628790e286a65ed2be"
 
   bottle do
     cellar :any
