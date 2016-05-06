@@ -4,11 +4,9 @@ class Imagemagick < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/ImageMagick-6.9.3-7.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.3-7.tar.xz"
-  sha256 "6731c414b5b939713a73a088840ed68c22c91d1335514d228d6687d07ce2e1c8"
-
-  revision 1
+  url "https://dl.bintray.com/homebrew/mirror/ImageMagick-6.9.3-10.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.3-10.tar.xz"
+  sha256 "e33f021c879f31703f9e620f578ccf7d221a34941589da4bbe967b16a814336a"
 
   head "http://git.imagemagick.org/repos/ImageMagick.git"
 
@@ -62,8 +60,8 @@ class Imagemagick < Formula
   # Next release will probably have a patch for the coders themselves,
   # allowing us to remove this workaround.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/ca3940923286cc1f763848eccbef6dcfd3e5fe1c/imagemagick/disable-coders.diff"
-    sha256 "b5950e047cdcc3a787c91bbdfbc0a76537f1c8febeb9c054768c5c7325ddf409"
+    url "https://raw.githubusercontent.com/Homebrew/patches/2e4d1d1c2b13cca6292ab534b8a68cb2ac334c6c/imagemagick/disable-coders.diff"
+    sha256 "8824d64bd62b75c2cff4c54bc0afc874f3e1b1a11b8916daadafe799600b6f6a"
   end
 
   def install
