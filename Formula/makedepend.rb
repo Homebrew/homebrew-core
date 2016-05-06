@@ -1,7 +1,7 @@
 class Makedepend < Formula
   desc "Creates dependencies in makefiles"
-  homepage "http://x.org"
-  url "http://xorg.freedesktop.org/releases/individual/util/makedepend-1.0.5.tar.bz2"
+  homepage "https://x.org/"
+  url "https://xorg.freedesktop.org/releases/individual/util/makedepend-1.0.5.tar.bz2"
   sha256 "f7a80575f3724ac3d9b19eaeab802892ece7e4b0061dd6425b4b789353e25425"
 
   bottle do
@@ -16,12 +16,12 @@ class Makedepend < Formula
   depends_on "pkg-config" => :build
 
   resource "xproto" do
-    url "http://xorg.freedesktop.org/releases/individual/proto/xproto-7.0.25.tar.bz2"
+    url "https://xorg.freedesktop.org/releases/individual/proto/xproto-7.0.25.tar.bz2"
     sha256 "92247485dc4ffc3611384ba84136591923da857212a7dc29f4ad7797e13909fe"
   end
 
   resource "xorg-macros" do
-    url "http://xorg.freedesktop.org/releases/individual/util/util-macros-1.18.0.tar.bz2"
+    url "https://xorg.freedesktop.org/releases/individual/util/util-macros-1.18.0.tar.bz2"
     sha256 "e5e3d132a852f0576ea2cf831a9813c54a58810a59cdb198f56b884c5a78945b"
   end
 
