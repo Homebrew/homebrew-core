@@ -1,9 +1,9 @@
 class Squirrel < Formula
   desc "High level, imperative, object-oriented programming language"
   homepage "http://www.squirrel-lang.org"
-  url "https://downloads.sourceforge.net/project/squirrel/squirrel3/squirrel%203.0.7%20stable/squirrel_3_0_7_stable.tar.gz"
-  version "3.0.7"
-  sha256 "c7c2548e2d2d74116303445118e197f585a3a5e6bde06fdfe668c05b1cb43fa2"
+  url "https://downloads.sourceforge.net/project/squirrel/squirrel3/squirrel%203.1%20stable/squirrel_3_1_stable.tar.gz"
+  version "3.1.0"
+  sha256 "4845a7fb82e4740bde01b0854112e3bb92a0816ad959c5758236e73f4409d0cb"
 
   bottle do
     cellar :any_skip_relocation
@@ -38,5 +38,12 @@ class Squirrel < Formula
     Libs: -L${libdir} -lsquirrel -lsqstdlib
     Cflags: -I${includedir}
     EOS
+  end
+
+  test do
+    (testpath/"hello.nut").write <<-EOS.undent
+      print("hello");
+    EOS
+    assert_equal "hello", shell_output("#{bin}/sq #{testpath}/hello.nut").chomp
   end
 end
