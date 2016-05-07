@@ -4,6 +4,7 @@ class Cputhrottle < Formula
   url "http://www.willnolan.com/cputhrottle/cputhrottle.tar.gz"
   version "20100515"
   sha256 "fdf284e1c278e4a98417bbd3eeeacf40db684f4e79a9d4ae030632957491163b"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +17,16 @@ class Cputhrottle < Formula
   depends_on "boost" => :build
 
   def install
-    system "make", "all"
+    boost = Formula["boost"]
+    system "make", "BOOST_PREFIX=#{boost.opt_prefix}",
+                   "BOOST_INCLUDES=#{boost.opt_include}",
+                   "all"
     bin.install "cputhrottle"
+  end
+
+  test do
+    # Needs root for proper functionality test.
+    output = pipe_output("#{bin}/cputhrottle 2>&1")
+    assert_match "Please supply PID to throttle", output
   end
 end
