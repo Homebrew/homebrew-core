@@ -1,8 +1,8 @@
 class P7zip < Formula
   desc "7-Zip (high compression file archiver) implementation"
   homepage "http://p7zip.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/p7zip/p7zip/15.09/p7zip_15.09_src_all.tar.bz2"
-  sha256 "8783acf747e210e00150f7311cc06c4cd8ecf7b0c27b4adf2194284cc49b4d6f"
+  url "https://downloads.sourceforge.net/project/p7zip/p7zip/15.14.1/p7zip_15.14.1_src_all.tar.bz2"
+  sha256 "699db4da3621904113e040703220abb1148dfef477b55305e2f14a4f1f8f25d4"
 
   bottle do
     cellar :any_skip_relocation
