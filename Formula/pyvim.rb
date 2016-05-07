@@ -1,8 +1,8 @@
 class Pyvim < Formula
   desc "Pure Python Vim clone"
   homepage "https://pypi.python.org/pypi/pyvim"
-  url "https://pypi.python.org/packages/source/p/pyvim/pyvim-0.0.16.tar.gz"
-  sha256 "5c4b6fde5528845cf9a10267a6d598a24f2523d5b3ad451410860916cdf45378"
+  url "https://pypi.python.org/packages/b0/0b/a68957e643c184c7b395ac3c336daa75f43c484ea3dee67387bbc3ecaf8f/pyvim-0.0.17.tar.gz"
+  sha256 "e2e9495b13b00dc0d358002bf3665bb80029e90645bc2150f8b534c2da138e28"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,18 +14,18 @@ class Pyvim < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "ptpython" do
-    url "https://pypi.python.org/packages/source/p/ptpython/ptpython-0.31.tar.gz"
-    sha256 "a70ac512efc7b3c3e1ed6adba56f7214d5ed48729f9dac474e9a73472152006f"
+    url "https://pypi.python.org/packages/46/68/aeff7b6e1ed9e519eb2ef11fa78cc73e04a27b08f69f3c8ea23fc30736d4/ptpython-0.33.tar.gz"
+    sha256 "86bb8bc6b3b2e4c7d4b400867d53fd94ffc4fe029d146f7a54d4e53160479435"
   end
 
   resource "prompt_toolkit" do
-    url "https://pypi.python.org/packages/source/p/prompt_toolkit/prompt_toolkit-0.60.tar.gz"
-    sha256 "b44acc4cf3fb9f7331343ae170eac06f853a66e28cdd4ccfeee7c8dad0dec33d"
+    url "https://pypi.python.org/packages/0b/2c/ab26db81e5b9c2f179a2e9d797f2ce0d11f7cc3308830831de0daad8629e/prompt_toolkit-1.0.0.tar.gz"
+    sha256 "5108ed9e6e40d28cb1dc90ba563987859231289700d0def999007b08f4f74ea4"
   end
 
   resource "pyflakes" do
-    url "https://pypi.python.org/packages/source/p/pyflakes/pyflakes-1.1.0.tar.gz"
-    sha256 "e5f959931987e2be178781554b485d52342ec9f1b43f891d2dad07a691c7a89a"
+    url "https://pypi.python.org/packages/af/6e/6f8cb1d6dfb08b08c2f4c11fdb478b8d63f51f03d1d1bd61d4e154922cc2/pyflakes-1.2.2.tar.gz"
+    sha256 "58741f9d3bffeba8f88452c1eddcf1b3eee464560e4589e4b81de8b3c9e42e4d"
   end
 
   resource "docopt" do
