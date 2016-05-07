@@ -2,9 +2,9 @@ class Mpfr < Formula
   desc "C library for multiple-precision floating-point computations"
   homepage "http://www.mpfr.org/"
   # Upstream is down a lot, so use mirrors
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mpfr4/mpfr4_3.1.3.orig.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.3.tar.xz"
-  sha256 "6835a08bd992c8257641791e9a6a2b35b02336c8de26d0a8577953747e514a16"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mpfr4/mpfr4_3.1.4.orig.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.4.tar.xz"
+  sha256 "761413b16d749c53e2bfd2b1dfaa3b027b0e793e404b90b5fbaeef60af6517f5"
 
   bottle do
     cellar :any
@@ -16,8 +16,8 @@ class Mpfr < Formula
 
   # http://www.mpfr.org/mpfr-current/allpatches
   patch do
-    url "https://gist.github.com/anonymous/3a7d24cf2c68f21eb940/raw/471e928fcdbfb5c2fa7428cfb496496e6ee469aa/mpfr-3.1.3.diff"
-    sha256 "1ca002acc121413b9ce39e9f12bb6efe4bed4ec45cf3f3ffcff122b94f6694de"
+    url "https://raw.githubusercontent.com/Homebrew/patches/30141937f9d16/mpfr/3.1.4-patches.diff"
+    sha256 "9a03c3f304feaff747d1832f4a0f3653bbd24764df403305add0b76ca6cd6541"
   end
 
   option "32-bit"
@@ -34,7 +34,8 @@ class Mpfr < Formula
 
   def install
     ENV.m32 if build.build_32_bit?
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
+                          "--disable-silent-rules"
     system "make"
     system "make", "check"
     system "make", "install"
