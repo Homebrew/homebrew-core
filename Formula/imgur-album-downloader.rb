@@ -13,6 +13,6 @@ class ImgurAlbumDownloader < Formula
   end
 
   test do
-    system "#{bin}/imgur-album-downloader" # This should print the help message and return with exit code 0
+    system "#{bin}/imgur-album-downloader", "http://imgur.com/a/ej9g4" # Download test album
   end
 end
