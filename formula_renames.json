@@ -1,5 +1,6 @@
 {
   "app-engine-java-sdk": "app-engine-java",
+  "letsencrypt": "certbot",
   "crystal": "autocode",
   "cv": "progress",
   "cyassl": "wolfssl",
