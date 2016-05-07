@@ -1,8 +1,8 @@
 class ZshNavigationTools < Formula
   desc "Zsh curses-based tools, e.g. multi-word history searcher"
   homepage "https://github.com/psprint/zsh-navigation-tools"
-  url "https://github.com/psprint/zsh-navigation-tools/archive/v2.0.5.tar.gz"
-  sha256 "f599a36693b9bacaccdb5ce9939f5be3695b59ef5b84485f618164bb2c77fe95"
+  url "https://github.com/psprint/zsh-navigation-tools/archive/v2.1.4.tar.gz"
+  sha256 "3071d12e0982dcf7dbaaf7c3cd546de60c53eabe8f3ea09a0ece0b26db80515b"
 
   bottle do
     cellar :any_skip_relocation
