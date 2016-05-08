@@ -18,6 +18,6 @@ class Nuget < Formula
   end
 
   test do
-    assert_match "NuGet", shell_output("#{bin}/nuget help")
+    assert_match "NuGet.Protocol.Core.v3", shell_output("#{bin}/nuget list NuGet.Protocol.Core.v3")
   end
 end
