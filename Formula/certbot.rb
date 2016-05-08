@@ -1,8 +1,8 @@
-class Letsencrypt < Formula
-  desc "Tool to automatically receive and install X.509 certificates"
+class Certbot < Formula
+  desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://letsencrypt.org/"
-  url "https://github.com/letsencrypt/letsencrypt/archive/v0.5.0.tar.gz"
-  sha256 "503535fa356c45b46a166ea84875bb1fd43e994afee1485bbc3b6849d46c5d43"
+  url "https://github.com/certbot/certbot/archive/v0.5.0.tar.gz"
+  sha256 "143a7eb5bc6b1336ead2add37425170f73da471c18fb4d36c7e983e8db5251df"
 
   bottle do
     cellar :any
