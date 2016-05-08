@@ -31,9 +31,10 @@ txt   BYTE "Hello world!",0
 
 Main  LDA $255,txt
       TRAP 0,Fputs,StdOut
+      TRAP 0,Fputs,StdErr
       TRAP 0,Halt,0
     EOS
     system bin/"mmixal", "hello.mms"
-    assert_equal "Hello world!", `mmix hello.mmo`
+    assert_equal "Hello world!", shell_output("#{bin}/mmix hello.mmo")
   end
 end
