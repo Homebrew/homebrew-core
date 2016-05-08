@@ -11,7 +11,7 @@ class ApacheFlink < Formula
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install Dir["*"]
-    bin.write_exec_script Dir["#{libexec}/bin/{flink,pyflink2.sh,pyflink3.sh}"]
+    bin.write_exec_script Dir["#{libexec}/bin/flink"]
   end
 
   test do
