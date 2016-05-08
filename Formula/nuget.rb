@@ -1,5 +1,5 @@
 class Nuget < Formula
-  desc "the package manager for the Microsoft development platform including .NET"
+  desc "Package manager for Microsoft development platform including .NET"
   homepage "https://www.nuget.org/"
   url "https://dist.nuget.org/win-x86-commandline/v3.4.3/nuget.exe"
   version "3.4.3"
@@ -7,17 +7,17 @@ class Nuget < Formula
 
   bottle :unneeded
 
-  depends_on "mono" => :recommended
+  depends_on "mono"
 
   def install
     libexec.install "nuget.exe"
     (bin/"nuget").write <<-EOS.undent
-        #!/bin/bash
-        mono #{libexec}/nuget.exe "$@"
+      #!/bin/bash
+      mono #{libexec}/nuget.exe "$@"
     EOS
   end
 
   test do
-    assert_match "NuGet", shell_output("#{bin}/nuget help").strip
+    assert_match "NuGet", shell_output("#{bin}/nuget help")
   end
 end
