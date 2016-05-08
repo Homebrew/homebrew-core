@@ -13,13 +13,13 @@ class Mikmod < Formula
   depends_on "libmikmod"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/mikmod", "-V"
+    assert_match version.to_s, shell_output("#{bin}/mikmod -V")
   end
 end
