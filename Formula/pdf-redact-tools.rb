@@ -1,9 +1,9 @@
 class PdfRedactTools < Formula
   desc "Securely redacting and stripping metadata"
   homepage "https://github.com/micahflee/pdf-redact-tools"
-  url "https://github.com/micahflee/pdf-redact-tools/archive/v0.1.tar.gz"
-  sha256 "9d5f095e5d056eb527c08c4736b45c99aa6399424dd6ed7155e3d7cd1600c55e"
-  head "https://github.com/micahflee/pdf-redact-tools.git"
+  url "https://github.com/firstlookmedia/pdf-redact-tools/archive/v0.1.1.tar.gz"
+  sha256 "1b6ade577f2eeb8ea6ddfd1b7b9a6925a6c9a929ea98700e8015676ee1a13155"
+  head "https://github.com/firstlookmedia/pdf-redact-tools.git"
 
   bottle do
     cellar :any_skip_relocation
