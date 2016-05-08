@@ -20,7 +20,7 @@ class Cgal < Formula
 
   depends_on "cmake" => :build
   depends_on "mpfr"
-  depends_on "qt" if build.with? "imaging"
+  depends_on "qt5" if build.with? "imaging"
   depends_on "eigen" if build.with? "eigen3"
 
   if build.cxx11?
