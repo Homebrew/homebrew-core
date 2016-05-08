@@ -2,14 +2,8 @@ class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
   # the latest commit on the stable branch
-  url "https://git.videolan.org/git/x264.git", :revision => "a0cd7d38acb6c31973228ab207e18344920e0aa3"
-  version "r2601"
-
-  devel do
-    # the latest commit on the master branch
-    url "https://git.videolan.org/git/x264.git", :revision => "75992107adcc8317ba2888e3957a7d56f16b5cd4"
-    version "r2638"
-  end
+  url "https://git.videolan.org/git/x264.git", :revision => "fd2c324731c2199e502ded9eff723d29c6eafe0b"
+  version "r2668"
 
   head "https://git.videolan.org/git/x264.git"
 
@@ -20,10 +14,16 @@ class X264 < Formula
     sha256 "977c077c5d38c1a5842bda75aec11831f4980ae258556b9bd9ba2184deb11faa" => :mavericks
   end
 
-  depends_on "yasm" => :build
+  devel do
+    # the latest commit on the master branch
+    url "https://git.videolan.org/git/x264.git", :revision => "3b70645597bea052d2398005bc723212aeea6875"
+    version "r2694"
+  end
 
   option "with-10-bit", "Build a 10-bit x264 (default: 8-bit)"
   option "with-mp4=", "Select mp4 output: none (default), l-smash or gpac"
+
+  depends_on "yasm" => :build
 
   deprecated_option "10-bit" => "with-10-bit"
 
