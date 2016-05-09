@@ -164,3 +164,4 @@ class Git < Formula
     end
   end
 end
+
