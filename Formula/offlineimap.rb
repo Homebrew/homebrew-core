@@ -24,9 +24,7 @@ class Offlineimap < Formula
     EOS
   end
 
-  test do
-    system bin/"offlineimap", "--version"
-  end
+  plist_options :startup => true
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -52,5 +50,9 @@ class Offlineimap < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    system bin/"offlineimap", "--version"
   end
 end
