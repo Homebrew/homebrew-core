@@ -22,6 +22,14 @@ class FileRoller < Formula
   depends_on "hicolor-icon-theme"
   depends_on "gnome-icon-theme"
 
+  # Add linked-library dependencies
+  depends_on "atk"
+  depends_on "cairo"
+  depends_on "gdk-pixbuf"
+  depends_on "gettext"
+  depends_on "glib"
+  depends_on "pango"
+
   def install
     # forces use of gtk3-update-icon-cache instead of gtk-update-icon-cache. No bugreport should
     # be filed for this since it only occurs because Homebrew renames gtk+3's gtk-update-icon-cache
