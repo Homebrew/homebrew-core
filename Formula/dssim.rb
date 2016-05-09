@@ -9,7 +9,7 @@ class Dssim < Formula
 
   def install
     system "make"
-    bin.install Dir["bin/*"]
+    bin.install Dir["bin/dssim"]
   end
 
   test do
