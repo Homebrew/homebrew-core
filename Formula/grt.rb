@@ -1,5 +1,5 @@
 class Grt < Formula
-  desc "The Gesture Recognition Toolkit (GRT) for Real-time machine learning."
+  desc "The Gesture Recognition Toolkit for real-time machine learning"
   homepage "http://www.nickgillian.com/wiki/pmwiki.php/GRT/GestureRecognitionToolkit"
   url "https://github.com/nickgillian/grt/archive/v0.0.1.tar.gz"
   sha256 "56f90a9ffa8b2bf4e5831d39f9e1912879cf032efa667a5237b57f68800a2dda"
@@ -10,7 +10,6 @@ class Grt < Formula
     cd "build"
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
-      system "make"
       system "make", "install"
     end
   end
@@ -23,7 +22,7 @@ class Grt < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-L#{lib}", "-lgrt", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lgrt", "-o", "test"
     system "./test"
   end
 end
