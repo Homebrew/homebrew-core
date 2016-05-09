@@ -48,8 +48,8 @@ class Awscli < Formula
   end
 
   resource "botocore" do
-    url "https://pypi.python.org/packages/25/0d/ab3b096247630117feb8e3db628a22045a0496022fcd5ffbc23bee70ecd1/botocore-1.4.15.tar.gz"
-    sha256 "3e3affdea68431fbfb4d83ecf7e1e49a9dd5fe31d6818c9ed7bf06ee3279a58c"
+    url "https://pypi.python.org/packages/bf/df/1faaa0fb42e7b37edc302177cae4869518ad0c3e2dbb3852da6a14bcad85/botocore-1.4.17.tar.gz"
+    sha256 "bc4113758dabc3015b12054d906e48e0ef8457d14a392f647ed730204506bd8b"
   end
 
   resource "jmespath" do
