@@ -30,18 +30,32 @@ class FileRoller < Formula
   depends_on "glib"
   depends_on "pango"
 
+  # These can be removed when the next version (>3.16.4) is released, since they
+  # are only required to support the patch below, which will no longer be needed
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "yelp-tools" => :build
+
+  # Remove when >3.16.4 is released
+  # Build fails during schema validation when using glib >= 1.45.1
+  # Upstream patch for https://bugzilla.gnome.org/show_bug.cgi?id=756607
+  patch do
+    url "https://git.gnome.org/browse/file-roller/patch/?id=37df6d640817127dbad0f9ba94141cfb1e6a8360"
+    sha256 "5dee926832a607fc703518cd35b8fe0846c6bf760faf19982a89fe5f5c21fe75"
+  end
+
   def install
+    ENV.append "CFLAGS", "-I#{Formula["libmagic"].opt_include}"
+    ENV.append "LIBS", "-L#{Formula["libmagic"].opt_lib}"
+
+    # Remove when >3.16.4 is released
+    system "autoreconf", "-fiv"
+
     # forces use of gtk3-update-icon-cache instead of gtk-update-icon-cache. No bugreport should
     # be filed for this since it only occurs because Homebrew renames gtk+3's gtk-update-icon-cache
     # to gtk3-update-icon-cache in order to avoid a collision between gtk+ and gtk+3.
     inreplace "data/Makefile.in", "gtk-update-icon-cache", "gtk3-update-icon-cache"
-    ENV.append "CFLAGS", "-I#{Formula["libmagic"].opt_include}"
-    ENV.append "LIBS", "-L#{Formula["libmagic"].opt_lib}"
-
-    # Upstream bug: https://bugzilla.gnome.org/show_bug.cgi?id=756607
-    # A more elaborate, "correct" fix would be similar to this:
-    # https://github.com/mate-desktop/mate-utils/commit/c4df12f12d21ea7d4bc0d656bd5f93539c078d93
-    inreplace "configure", "$(GLIB_COMPILE_SCHEMAS) --strict", "$(GLIB_COMPILE_SCHEMAS)"
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
