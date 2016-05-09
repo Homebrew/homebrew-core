@@ -1,8 +1,8 @@
 class ActivemqCpp < Formula
   desc "C++ API for message brokers such as Apache ActiveMQ"
   homepage "https://activemq.apache.org/cms/index.html"
-  url "https://www.apache.org/dyn/closer.cgi?path=activemq/activemq-cpp/3.9.2/activemq-cpp-library-3.9.2-src.tar.bz2"
-  sha256 "b3f58fc938cf4fae37192ca317d3d9e4c77caeeeff804ec6f27642201d923bb8"
+  url "https://www.apache.org/dyn/closer.cgi?path=activemq/activemq-cpp/3.9.3/activemq-cpp-library-3.9.3-src.tar.bz2"
+  sha256 "d7554c6245f7a5f96e8b9751a562f841ee285777487ccfbca1bfd74db024b50e"
 
   bottle do
     cellar :any
