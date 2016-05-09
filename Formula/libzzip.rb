@@ -20,8 +20,6 @@ class Libzzip < Formula
   depends_on "pkg-config" => :build
   depends_on "sdl" => :optional
 
-  conflicts_with "zzuf", :because => "both install `zzcat` binaries"
-
   def install
     if build.universal?
       ENV.universal_binary
@@ -37,13 +35,14 @@ class Libzzip < Formula
     args << "--enable-sdl" if build.with? "sdl"
     system "./configure", *args
     system "make", "install"
-    ENV.deparallelize   # fails without this when a compressed file isn't ready
+
+    ENV.deparallelize # fails without this when a compressed file isn't ready
     system "make", "check" # runing this after install bypasses DYLD issues
   end
 
   test do
     (testpath/"README.txt").write("Hello World!")
-    system "zip", "test.zip", "README.txt"
+    system "/usr/bin/zip", "test.zip", "README.txt"
     assert_equal "Hello World!", shell_output("#{bin}/zzcat test/README.txt")
   end
 end
