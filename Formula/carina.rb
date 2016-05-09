@@ -2,8 +2,8 @@ class Carina < Formula
   desc "Work with Swarm clusters on Carina"
   homepage "https://github.com/getcarina/carina"
   url "https://github.com/getcarina/carina.git",
-        :tag => "v1.3.0",
-        :revision => "b611b9dad3f33e1ee9c810ece98a03643b3a4902"
+        :tag => "v1.4.0",
+        :revision => "f63790db44677584dc2639f42c7527626039f490"
   head "https://github.com/getcarina/carina.git"
 
   bottle do
