@@ -53,7 +53,7 @@ class Git < Formula
 
     # Support Tcl versions before "lime" color name was introduced
     # https://github.com/Homebrew/homebrew-core/issues/115
-    # http://www.mail-archive.com/git%40vger.kernel.org/msg92017.html
+    # https://www.mail-archive.com/git%40vger.kernel.org/msg92017.html
     inreplace "gitk-git/gitk", "lime", '"#99FF00"'
 
     perl_version = /\d\.\d+/.match(`perl --version`)
