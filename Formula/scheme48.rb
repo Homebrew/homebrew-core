@@ -21,4 +21,19 @@ class Scheme48 < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    (testpath/"hello.scm").write <<-EOS.undent
+      (display "Hello, World!") (newline)
+    EOS
+
+    expected = <<-EOS.undent
+      Hello, World!\#{Unspecific}
+
+      \#{Unspecific}
+
+    EOS
+
+    assert_equal expected, shell_output("#{bin}/scheme48 -a batch < hello.scm")
+  end
 end
