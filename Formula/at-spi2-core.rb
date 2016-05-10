@@ -3,6 +3,7 @@ class AtSpi2Core < Formula
   homepage "http://a11y.org"
   url "https://download.gnome.org/sources/at-spi2-core/2.18/at-spi2-core-2.18.3.tar.xz"
   sha256 "ada26add94155f97d0f601a20cb7a0e3fd3ba1588c3520b7288316494027d629"
+  revision 1
 
   bottle do
     sha256 "96b67926248f6950a20ea28fde034e9a91b6c4c4a14eb3cd54e0aead53224ce6" => :el_capitan
@@ -14,7 +15,7 @@ class AtSpi2Core < Formula
   depends_on "intltool" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "d-bus"
+  depends_on "dbus"
   depends_on :x11
   depends_on "gobject-introspection"
 
