@@ -12,6 +12,12 @@ class Citus < Formula
     sha256 "de90aab4bf007570bfc4bc63f700e167670a99a8491333c2b98a724a6c34cfa4" => :mavericks
   end
 
+  devel do
+    url "https://github.com/citusdata/citus/archive/v5.1.0-rc.1.tar.gz"
+    sha256 "76173773ddd5af93ae838775af117d156c7f5e9d3269226ab6943b4c4820fb17"
+    version "5.1.0-rc.1"
+  end
+
   depends_on "postgresql"
 
   def install
