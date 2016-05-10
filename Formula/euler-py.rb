@@ -1,8 +1,8 @@
 class EulerPy < Formula
   desc "Project Euler command-line tool written in Python"
   homepage "https://github.com/iKevinY/EulerPy"
-  url "https://github.com/iKevinY/EulerPy/archive/v1.2.3.tar.gz"
-  sha256 "d751d561caf6296ecc59bc77ec2fb0c81af1b045a117b8ea3334b6a948230bbb"
+  url "https://github.com/iKevinY/EulerPy/archive/v1.3.0.tar.gz"
+  sha256 "ffe2d74b5a0fbde84a96dfd39f1f899fc691e3585bf0d46ada976899038452e1"
 
   head "https://github.com/iKevinY/EulerPy.git"
 
