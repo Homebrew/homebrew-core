@@ -3,8 +3,8 @@ require "language/go"
 class Gnatsd < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/gnatsd/archive/v0.7.2.tar.gz"
-  sha256 "f71d77ff31fc31770cf8e140d084ecfa91f7a8333f945bac1ff44732901680b5"
+  url "https://github.com/nats-io/gnatsd/archive/v0.8.0.tar.gz"
+  sha256 "a2b19de7679b7c5004c75d0c39b8d5d0bd26590a574284e48660eec3a4f9f0d0"
   head "https://github.com/apcera/gnatsd.git"
 
   bottle do
@@ -19,12 +19,7 @@ class Gnatsd < Formula
 
   go_resource "github.com/nats-io/nats" do
     url "https://github.com/nats-io/nats.git",
-    :revision => "355b5b97e0842dc94f1106729aa88e33e06317ca"
-  end
-
-  go_resource "golang.org/x/crypto" do
-    url "https://go.googlesource.com/crypto.git",
-    :revision => "f18420efc3b4f8e9f3d51f6bd2476e92c46260e9"
+    :revision => "f46ea4b68042c929eda9a7e3b961f453929d8d9d"
   end
 
   def install
@@ -34,7 +29,7 @@ class Gnatsd < Formula
     mkdir_p "src/github.com/nats-io"
     ln_s buildpath, "src/github.com/nats-io/gnatsd"
     system "go", "install", "github.com/nats-io/gnatsd"
-    system "go", "build", "-o", bin/"gnatsd", "gnatsd.go"
+    system "go", "build", "-o", bin/"gnatsd", "main.go"
   end
 
   plist_options :manual => "gnatsd"
