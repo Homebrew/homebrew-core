@@ -6,6 +6,7 @@ class GitlabCiMultiRunner < Formula
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
     :tag => "v1.1.2",
     :revision => "78b3f826a6124dc20bb94f1c2d9b0c0bac26fef7"
+  revision 1
 
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
@@ -26,9 +27,9 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt.tar.gz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.1.0/docker/prebuilt.tar.gz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.1.2/docker/prebuilt.tar.gz",
       :using => :nounzip
-    sha256 "f6fcac012eee0fa9d6419f8d045110898dcff6f516b396b9e14bfffa2ccaceb4"
+    sha256 "ad692bf548f3f55967c86b71b3aeaa9cc82cd156554a546753b0829a36219b98"
   end
 
   def install
