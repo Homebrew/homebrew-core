@@ -211,4 +211,8 @@ class Sdf < Formula
                           "--with-pandora=#{libexec}/pandora"
     system "make", "install"
   end
+
+  test do
+    assert_match "sdfchecker v1.0", shell_output("#{libexec}/pgen/bin/sdfchecker -V 2>&1")
+  end
 end
