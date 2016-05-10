@@ -13,6 +13,8 @@ class Czmqpp < Formula
   depends_on "pkg-config" => :build
   depends_on "czmq"
 
+  needs :cxx11
+
   def install
     ENV.universal_binary if build.universal?
 
@@ -47,22 +49,18 @@ class Czmqpp < Formula
         czmqpp::socket push_sock(context, ZMQ_PUSH);
         push_sock.connect(addr);
 
-        {
-          czmqpp::message send_msg;
-          const czmqpp::data_chunk msg_data(msg.begin(), msg.end());
-          send_msg.append(msg_data);
-          if (!send_msg.send(push_sock))
-            return 1;
-        }
+        czmqpp::message send_msg;
+        const czmqpp::data_chunk send_data(msg.begin(), msg.end());
+        send_msg.append(send_data);
+        if (!send_msg.send(push_sock))
+          return 1;
 
-        {
-          czmqpp::message recv_msg;
-          if (!recv_msg.receive(pull_sock))
-            return 1;
-          const czmqpp::data_chunk msg_data = recv_msg.parts()[0];
-          string received_msg(msg_data.begin(), msg_data.end());
-          cout << received_msg << flush;
-        }
+        czmqpp::message recv_msg;
+        if (!recv_msg.receive(pull_sock))
+          return 1;
+        const czmqpp::data_chunk recv_data = recv_msg.parts()[0];
+        string received_msg(recv_data.begin(), recv_data.end());
+        cout << received_msg << flush;
 
         return 0;
       }
@@ -72,6 +70,7 @@ class Czmqpp < Formula
       -std=c++11
       -I#{include}
       -L#{lib}
+      -L#{Formula["czmq"].opt_lib}
       -lczmq++
       -lczmq
     ]
