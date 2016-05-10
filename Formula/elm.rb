@@ -69,7 +69,7 @@ class Elm < Formula
       main = text "Hello, world!"
     EOS
 
-    system bin/"elm", "package", "install", "evancz/elm-html", "--yes"
+    system bin/"elm", "package", "install", "elm-lang/html", "--yes"
 
     out_path = testpath/"index.html"
     system bin/"elm", "make", src_path, "--output=#{out_path}"
