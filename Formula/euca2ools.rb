@@ -1,7 +1,7 @@
 class Euca2ools < Formula
   desc "Eucalyptus client API tools-works with Amazon EC2 and IAM"
   homepage "https://github.com/eucalyptus/euca2ools"
-  url "http://downloads.eucalyptus.com/software/euca2ools/3.3/source/euca2ools-3.3.1.tar.xz"
+  url "https://downloads.eucalyptus.com/software/euca2ools/3.3/source/euca2ools-3.3.1.tar.xz"
   sha256 "4440ea5df3a52ac7009eff7313fce7e2cc3f91cefc59adeacd7d991d5244090a"
   head "https://github.com/eucalyptus/euca2ools.git"
 
