@@ -3,8 +3,8 @@ require "language/go"
 class Vultr < Formula
   desc "Command-line tool for Vultr"
   homepage "https://jamesclonk.github.io/vultr"
-  url "https://github.com/JamesClonk/vultr/archive/v1.6.tar.gz"
-  sha256 "b2dcd10704885687d84d118ebc5bdb75f2a6ab0aef654cc018929535ccf2f7ce"
+  url "https://github.com/JamesClonk/vultr/archive/v1.8.tar.gz"
+  sha256 "c11842b3c0d74d865295c1a1e1ee89a9e3349de335b366944a0eb81ff3d4830f"
 
   head "https://github.com/JamesClonk/vultr.git"
 
@@ -23,11 +23,11 @@ class Vultr < Formula
   end
 
   go_resource "golang.org/x/tools" do
-    url "https://github.com/golang/tools.git", :revision => "473fd854f8276c0b22f17fb458aa8f1a0e2cf5f5"
+    url "https://github.com/golang/tools.git", :revision => "fbb6674a7495706ad1ba2d7cca18ca9d804ccdca"
   end
 
   go_resource "golang.org/x/crypto" do
-    url "https://github.com/golang/crypto.git", :revision => "8b27f58b78dbd60e9a26b60b0d908ea642974b6d"
+    url "https://github.com/golang/crypto.git", :revision => "91ab96ae987aef3e74ab78b3aaf026109d206148"
   end
 
   def install
