@@ -1,8 +1,8 @@
 class H2o < Formula
   desc "HTTP server with support for HTTP/1.x and HTTP/2"
   homepage "https://github.com/h2o/h2o/"
-  url "https://github.com/h2o/h2o/archive/v1.7.1.tar.gz"
-  sha256 "a9488667f0b73a66d5ef593660f6c0f66311d6eb4bf9378c6b7e74ab7ec9eea2"
+  url "https://github.com/h2o/h2o/archive/v1.7.2.tar.gz"
+  sha256 "fd75eab905dff9bcfd6c9c45d83a4cd0c133cc82a7d3dd48537244b12c2327a8"
   head "https://github.com/h2o/h2o.git"
 
   bottle do
@@ -22,6 +22,10 @@ class H2o < Formula
   depends_on "wslay" => :optional
 
   def install
+    # https://github.com/Homebrew/homebrew-core/pull/1046
+    # https://github.com/Homebrew/brew/pull/251
+    ENV.delete("SDKROOT")
+
     args = std_cmake_args
     args << "-DWITH_BUNDLED_SSL=OFF"
     args << "-DWITH_MRUBY=OFF" if build.without? "mruby"
