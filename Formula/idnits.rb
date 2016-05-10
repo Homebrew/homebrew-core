@@ -6,14 +6,21 @@ class Idnits < Formula
 
   bottle :unneeded
 
-  depends_on "aspell"
-  depends_on "languagetool"
+  depends_on "aspell" => :optional
+  depends_on "languagetool" => :optional
+
+  resource "test" do
+    url "https://tools.ietf.org/id/draft-ietf-tcpm-undeployed-03.txt"
+    sha256 "34e72c2c089409dc1935e18f75351025af3cfc253dee50db042d188b46733550"
+  end
 
   def install
     bin.install "idnits"
   end
 
   test do
-    system "idnits --version"
+    resource("test").stage do
+      system "idnits", "draft-ietf-tcpm-undeployed-03.txt"
+    end
   end
 end
