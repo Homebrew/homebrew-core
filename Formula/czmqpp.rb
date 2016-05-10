@@ -30,7 +30,6 @@ class Czmqpp < Formula
     (testpath/"test.cpp").write <<-EOS.undent
       #include <iostream>
       #include <string>
-      #include <vector>
 
       #include <czmq++/czmqpp.hpp>
 
@@ -68,11 +67,8 @@ class Czmqpp < Formula
 
     flags = ENV.cxxflags.to_s.split + %W[
       -std=c++11
-      -I#{include}
-      -L#{lib}
-      -L#{Formula["czmq"].opt_lib}
-      -lczmq++
-      -lczmq
+      -I#{include} -L#{lib} -lczmq++
+      -L#{Formula["czmq"].opt_lib} -lczmq
     ]
     system ENV.cxx, "-o", "test", "test.cpp", *flags
     assert_equal "Hello, World!", shell_output("./test")
