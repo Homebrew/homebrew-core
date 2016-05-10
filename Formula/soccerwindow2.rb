@@ -16,12 +16,22 @@ class Soccerwindow2 < Formula
   depends_on "librcsc"
 
   def install
+    # ld: framework not found Security-lz; also affects the rcssserver formula
+    # Reported 10 May 2016:
+    #   https://osdn.jp/ticket/browse.php?group_id=213&tid=36316
+    #   https://sourceforge.net/p/sserver/discussion/76440/thread/e61e21e8/
+    # Previously reported 14 Jan 2016:
+    #   https://sourceforge.net/p/sserver/mailman/message/34765272/
+    inreplace "configure",
+      "$QT4_REQUIRED_MODULES)$($PKG_CONFIG",
+      "$QT4_REQUIRED_MODULES) $($PKG_CONFIG"
+
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/soccerwindow2 -v | grep 'soccerwindow2 Version #{version}'"
+    assert_match "soccerwindow2 Version #{version}", shell_output("#{bin}/soccerwindow2 -v", 1)
   end
 end
