@@ -1,14 +1,19 @@
 class Idnits < Formula
   desc "Looks for problems in internet draft formatting"
   homepage "https://tools.ietf.org/tools/idnits/"
-  url "https://tools.ietf.org/tools/idnits/idnits-2.13.02.tgz"
-  sha256 "6e42b044c79dc4e616d10ee9e283c20acc741601811a6acfc0c0d310afdf0823"
+  url "https://tools.ietf.org/tools/idnits/idnits-2.14.01.tgz"
+  sha256 "5b49749b0e4dc610fae9c12780c7a4d02723a5f4b701271bdd374d909c186654"
 
   bottle :unneeded
 
   depends_on "aspell"
+  depends_on "languagetool"
 
   def install
     bin.install "idnits"
+  end
+
+  test do
+    system "idnits --version"
   end
 end
