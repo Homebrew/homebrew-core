@@ -1,8 +1,8 @@
 class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
-  url "https://github.com/micropython/micropython/archive/v1.7.tar.gz"
-  sha256 "ad44d28700d346ceb9a70ae92d36306d42e187fc1af19fa2c7a3ab7dc18742ef"
+  url "https://github.com/micropython/micropython/archive/v1.8.tar.gz"
+  sha256 "0890bc0250cb212e0bd8aec4b2d4f83428e5a031bbb0bb92882f5c8a3e7a092e"
 
   bottle do
     cellar :any
@@ -12,12 +12,7 @@ class Micropython < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libffi"  # Requires libffi v3 closure API; OS X version is too old
-
-  # The install command in the Makefile uses GNU coreutils syntax
-  # which is incompatible with BSD's install and needs patching
-  # https://github.com/micropython/micropython/issues/1984
-  patch :DATA
+  depends_on "libffi" # Requires libffi v3 closure API; OS X version is too old
 
   def install
     cd "unix" do
@@ -38,21 +33,3 @@ class Micropython < Formula
     system "#{bin}/micropython", "ffi-hello.py"
   end
 end
-
-__END__
-diff --git a/unix/Makefile b/unix/Makefile
-index 6d6239f..c556473 100644
---- a/unix/Makefile
-+++ b/unix/Makefile
-@@ -186,8 +186,9 @@ PIPSRC = ../tools/pip-micropython
- PIPTARGET = pip-micropython
-
- install: micropython
--	install -D $(TARGET) $(BINDIR)/$(TARGET)
--	install -D $(PIPSRC) $(BINDIR)/$(PIPTARGET)
-+	install -d $(BINDIR)
-+	install $(TARGET) $(BINDIR)/$(TARGET)
-+	install $(PIPSRC) $(BINDIR)/$(PIPTARGET)
-
- # uninstall micropython
- uninstall:
