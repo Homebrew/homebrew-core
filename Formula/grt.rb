@@ -1,6 +1,6 @@
 class Grt < Formula
   desc "The Gesture Recognition Toolkit for real-time machine learning"
-  homepage "http://www.nickgillian.com/wiki/pmwiki.php/GRT/GestureRecognitionToolkit"
+  homepage "https://www.nickgillian.com/wiki/pmwiki.php/GRT/GestureRecognitionToolkit"
   url "https://github.com/nickgillian/grt/archive/v0.0.1.tar.gz"
   sha256 "56f90a9ffa8b2bf4e5831d39f9e1912879cf032efa667a5237b57f68800a2dda"
 
