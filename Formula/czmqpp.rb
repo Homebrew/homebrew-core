@@ -16,6 +16,7 @@ class Czmqpp < Formula
   needs :cxx11
 
   def install
+    ENV.cxx11
     ENV.universal_binary if build.universal?
 
     system "./autogen.sh"
@@ -65,12 +66,13 @@ class Czmqpp < Formula
       }
     EOS
 
-    flags = ENV.cxxflags.to_s.split + %W[
-      -std=c++11
+    ENV.cxx11
+    args = ENV.cxx.split + ENV.cxxflags.to_s.split + %W[
+      -o test test.cpp
       -I#{include} -L#{lib} -lczmq++
       -L#{Formula["czmq"].opt_lib} -lczmq
     ]
-    system ENV.cxx, "-o", "test", "test.cpp", *flags
+    system *args
     assert_equal "Hello, World!", shell_output("./test")
   end
 end
