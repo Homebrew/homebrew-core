@@ -3,9 +3,8 @@ require "language/go"
 class Peco < Formula
   desc "Simplistic interactive filtering tool"
   homepage "https://github.com/peco/peco"
-  url "https://github.com/peco/peco/archive/v0.3.5.tar.gz"
-  sha256 "416d2547b639b11563d0bd910fa043e532f25fcc40de3ec0d7bec4943747fff1"
-
+  url "https://github.com/peco/peco/archive/v0.3.6.tar.gz"
+  sha256 "edc1ec186a0f439ae84071c9e00f68fec6f8fe49efc9b6bb10462e72f7286b23"
   head "https://github.com/peco/peco.git"
 
   bottle do
@@ -19,22 +18,22 @@ class Peco < Formula
 
   go_resource "github.com/google/btree" do
     url "https://github.com/google/btree.git",
-      :revision => "cc6329d4279e3f025a53a83c397d2339b5705c45"
+    :revision => "00edb8c3163323f673bbe3c04afd9429eb12117d"
   end
 
   go_resource "github.com/jessevdk/go-flags" do
     url "https://github.com/jessevdk/go-flags.git",
-      :revision => "fc93116606d0a71d7e9de0ad5734fdb4b8eae834"
+    :revision => "6b9493b3cb60367edd942144879646604089e3f7"
   end
 
   go_resource "github.com/mattn/go-runewidth" do
     url "https://github.com/mattn/go-runewidth.git",
-      :revision => "12e0ff74603c9a3209d8bf84f8ab349fe1ad9477"
+    :revision => "d6bea18f789704b5f83375793155289da36a3c7f"
   end
 
   go_resource "github.com/nsf/termbox-go" do
     url "https://github.com/nsf/termbox-go.git",
-      :revision => "62033d80b58736ea31beaf43348f5147913af30e"
+    :revision => "362329b0aa6447eadd52edd8d660ec1dff470295"
   end
 
   def install
