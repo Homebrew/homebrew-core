@@ -2,7 +2,7 @@ require "language/go"
 
 class GitGitlab < Formula
   desc "Git CLI support for GitLab"
-  homepage "https://github.com/numa08/git-gitlab/tree/9a1a74a7609178f25afc1786e01c2375762de48c"
+  homepage "https://github.com/numa08/git-gitlab"
   url "https://github.com/numa08/git-gitlab/archive/9a1a74a7609178f25afc1786e01c2375762de48c.tar.gz"
   version "0.1.0"
   sha256 "3cb01102d8dcf523fa5c276719d386bc830c2d9050bfaa3911e166276f623783"
