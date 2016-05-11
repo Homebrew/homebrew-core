@@ -36,7 +36,7 @@ class GitGitlab < Formula
     Language::Go.stage_deps resources, buildpath/"src"
 
     system "go", "build", "-o", bin/"git-lab"
-    man1.install "man/git-lab.1" => "git-lab.1"
+    man1.install "man/git-lab.1"
   end
 
   test do
