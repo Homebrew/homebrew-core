@@ -56,14 +56,6 @@ class Imagemagick < Formula
 
   skip_clean :la
 
-  # Disables vulnerable coders: https://medium.com/@rhuber/imagemagick-is-on-fire-cve-2016-3714-379faf762247#.2tjfb3iks
-  # Next release will probably have a patch for the coders themselves,
-  # allowing us to remove this workaround.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/2e4d1d1c2b13cca6292ab534b8a68cb2ac334c6c/imagemagick/disable-coders.diff"
-    sha256 "8824d64bd62b75c2cff4c54bc0afc874f3e1b1a11b8916daadafe799600b6f6a"
-  end
-
   def install
     args = %W[
       --disable-osx-universal-binary
