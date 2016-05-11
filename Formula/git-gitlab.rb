@@ -5,7 +5,7 @@ class GitGitlab < Formula
   homepage "https://github.com/numa08/git-gitlab/tree/9a1a74a7609178f25afc1786e01c2375762de48c"
   url "https://github.com/numa08/git-gitlab/archive/9a1a74a7609178f25afc1786e01c2375762de48c.tar.gz"
   version "0.1.0"
-  sha256 "c4c1bd8c0695bb04c6de58cd9b922fd3c06eef053a677f375c82873ea68a219e"
+  sha256 "3cb01102d8dcf523fa5c276719d386bc830c2d9050bfaa3911e166276f623783"
 
   depends_on "libgit2" => :build
   depends_on "pkg-config" => :build
