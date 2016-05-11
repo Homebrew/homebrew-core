@@ -20,8 +20,8 @@ end
 class Slimerjs < Formula
   desc "Scriptable browser for Web developers"
   homepage "https://slimerjs.org/"
-  url "https://download.slimerjs.org/releases/0.9.6/slimerjs-0.9.6.zip"
-  sha256 "982526f734ae4005f6117b821c1703482f2bc87c6b2e3ceaae6b981d4d123e73"
+  url "https://download.slimerjs.org/releases/0.10.0/slimerjs-0.10.0.zip"
+  sha256 "80b8008d9d8592e55e2744e1842139e33498221c2a78648fea1bdd0592231afb"
   head "https://github.com/laurentj/slimerjs.git"
 
   devel do
