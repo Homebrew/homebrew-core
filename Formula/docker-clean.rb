@@ -5,7 +5,7 @@ class DockerClean < Formula
   sha256 "a2e1923fe2862ca2487e39000c68cba900711b768a8920dd1b1275a2fa0e6789"
 
   bottle :unneeded
-  
+
   def install
     bin.install "docker-clean"
   end
