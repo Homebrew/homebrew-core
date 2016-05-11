@@ -3,6 +3,7 @@ class Midgard2 < Formula
   homepage "http://www.midgard-project.org/"
   url "https://github.com/downloads/midgardproject/midgard-core/midgard2-core-12.09.tar.gz"
   sha256 "7c1d17e061df8f3b39fd8944ab97ab7220219b470f7874e74471702d2caca2cb"
+  revision 1
 
   bottle do
     sha256 "b555f5eb0fcc97d313dad782c834663938cea52e64e00bfbf0555d1e74c9b303" => :el_capitan

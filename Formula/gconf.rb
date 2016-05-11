@@ -3,6 +3,7 @@ class Gconf < Formula
   homepage "https://projects.gnome.org/gconf/"
   url "https://download.gnome.org/sources/GConf/3.2/GConf-3.2.6.tar.xz"
   sha256 "1912b91803ab09a5eed34d364bf09fe3a2a9c96751fde03a4e0cfa51a04d784c"
+  revision 1
 
   bottle do
     sha256 "c673c369ed543035a50b833e36c4c70930b866c0a679df19404d1a84121026f8" => :el_capitan
@@ -14,7 +15,7 @@ class Gconf < Formula
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "gettext"
-  depends_on "d-bus"
+  depends_on "dbus"
   depends_on "glib"
   depends_on "dbus-glib"
   depends_on "orbit"

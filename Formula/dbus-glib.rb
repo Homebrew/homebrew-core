@@ -3,6 +3,7 @@ class DbusGlib < Formula
   homepage "https://wiki.freedesktop.org/www/Software/DBusBindings/"
   url "https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.106.tar.gz"
   sha256 "b38952706dcf68bad9c302999ef0f420b8cf1a2428227123f0ac4764b689c046"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,7 +15,7 @@ class DbusGlib < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "d-bus"
+  depends_on "dbus"
 
   def install
     system "./configure", "--disable-dependency-tracking",

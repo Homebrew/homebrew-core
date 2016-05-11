@@ -1,6 +1,7 @@
 class Gimp < Formula
   desc "GNU Image Manipulation Program"
   homepage "https://www.gimp.org"
+  revision 1
 
   stable do
     url "https://download.gimp.org/pub/gimp/v2.8/gimp-2.8.16.tar.bz2"
@@ -38,7 +39,7 @@ class Gimp < Formula
   depends_on "gdk-pixbuf"
   depends_on "freetype"
   depends_on "xz" # For LZMA
-  depends_on "d-bus"
+  depends_on "dbus"
   depends_on "aalib"
   depends_on "librsvg"
   depends_on "libpng" => :recommended

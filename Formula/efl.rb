@@ -3,7 +3,7 @@ class Efl < Formula
   homepage "https://www.enlightenment.org"
   url "https://download.enlightenment.org/rel/libs/efl/efl-1.14.2.tar.gz"
   sha256 "e5699d8183c1540fe45dddaf692254632f9131335e97a09cc313e866a150b42c"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "7e97f7173a21a18e7da2ac673eaf9e44fe14b6455e173ae10166154795385355" => :el_capitan
@@ -33,7 +33,7 @@ class Efl < Formula
   depends_on "libtiff"
   depends_on "gstreamer"
   depends_on "gst-plugins-good"
-  depends_on "d-bus"
+  depends_on "dbus"
   depends_on "pulseaudio"
   depends_on "bullet"
 
