@@ -3,6 +3,7 @@ class Libressl < Formula
   homepage "http://www.libressl.org/"
   url "http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.4.tar.gz"
   sha256 "7a1135b2620f78928e89538c211a4df1d9415994001d1e7c9178c6b6d72de6a9"
+  revision 1
 
   bottle do
     sha256 "12d75b05907e9e7599bdda424e76c0ef9a8d5d8ba1d77959eecb2e815c82b565" => :el_capitan
@@ -38,7 +39,6 @@ class Libressl < Formula
 
   def post_install
     keychains = %w[
-      /Library/Keychains/System.keychain
       /System/Library/Keychains/SystemRootCertificates.keychain
     ]
 
@@ -48,7 +48,7 @@ class Libressl < Formula
     )
 
     valid_certs = certs.select do |cert|
-      IO.popen("openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
+      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
         openssl_io.write(cert)
         openssl_io.close_write
       end
@@ -57,7 +57,7 @@ class Libressl < Formula
     end
 
     # LibreSSL install a default pem - We prefer to use OS X for consistency.
-    rm_f etc/"libressl/cert.pem"
+    rm_f %W[ #{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default ]
     (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
   end
 
