@@ -1,10 +1,8 @@
-require "language/go"
-
 class Corectl < Formula
   desc "CoreOS over OS X made very simple"
   homepage "https://github.com/TheNewNormal/corectl"
-  url "https://github.com/TheNewNormal/corectl/archive/v0.5.4.tar.gz"
-  sha256 "1ff7032d51d4a8e4581f0c10c1446acac8bf34768ec31d20eb459b90c160110d"
+  url "https://github.com/TheNewNormal/corectl/archive/v0.5.5.tar.gz"
+  sha256 "47bcd42d110f0069dedcd741ea11cb0857cdcf1eaa01c69f2cdea6847d130ee6"
   head "https://github.com/TheNewNormal/corectl.git", :branch => "golang"
 
   bottle do
@@ -20,19 +18,20 @@ class Corectl < Formula
   def install
     ENV["GOPATH"] = buildpath
 
-    mkdir_p buildpath/"src/github.com/TheNewNormal/"
-    ln_s buildpath, buildpath/"src/github.com/TheNewNormal/#{name}"
-    Language::Go.stage_deps resources, buildpath/"src"
+    path = buildpath/"src/github.com/TheNewNormal/#{name}"
+    path.install Dir["*"]
 
     args = []
     args << "VERSION=#{version}" if build.stable?
 
-    system "make", "corectl", *args
-    system "make", "documentation/man"
-
-    bin.install "corectl"
-    man1.install Dir["documentation/man/*.1"]
-    share.install "cloud-init", "profiles"
+    cd path do
+      inreplace "utils.go", "engine.pwd+\"/", "\""
+      system "make", "corectl", *args
+      system "make", "documentation/man"
+      bin.install "corectl"
+      man1.install Dir["documentation/man/*.1"]
+      share.install "cloud-init", "profiles"
+    end
   end
 
   test do
