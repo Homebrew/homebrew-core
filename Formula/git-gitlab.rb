@@ -35,7 +35,6 @@ class GitGitlab < Formula
     ln_sf buildpath, buildpath/"src/github.com/numa08/git-gitlab"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    system "printenv"
     system "go", "build", "-o", bin/"git-lab"
     man1.install "man/git-lab.1" => "git-lab.1"
   end
