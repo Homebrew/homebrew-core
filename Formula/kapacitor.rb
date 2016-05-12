@@ -188,23 +188,12 @@ class Kapacitor < Formula
     (testpath/"config.toml").write shell_output("kapacitord config")
 
     inreplace testpath/"config.toml" do |s|
-      s.gsub! /\[\[influxdb\]\]\n  enabled = true/m, "[[influxdb]]\n  enabled = false"
-      s.gsub! %r{data_dir = "/.*/.kapacitor}, "data_dir = \"#{testpath}/kapacitor"
+      s.gsub! /disable-subscriptions = false/, "disable-subscriptions = true"
+      s.gsub! %r{data_dir = "/.*/.kapacitor"}, "data_dir = \"#{testpath}/kapacitor\""
       s.gsub! %r{/.*/.kapacitor/replay}, "#{testpath}/kapacitor/replay"
       s.gsub! %r{/.*/.kapacitor/tasks}, "#{testpath}/kapacitor/tasks"
+      s.gsub! %r{/.*/.kapacitor/kapacitor.db}, "#{testpath}/kapacitor/kapacitor.db"
     end
-
-    (testpath/"influxdb-config.toml").write shell_output("influxd config")
-    inreplace testpath/"influxdb-config.toml" do |s|
-      s.gsub! %r{/.*/.influxdb/data}, "#{testpath}/influxdb/data"
-      s.gsub! %r{/.*/.influxdb/meta}, "#{testpath}/influxdb/meta"
-      s.gsub! %r{/.*/.influxdb/wal}, "#{testpath}/influxdb/wal"
-    end
-
-    pid = fork do
-      exec "#{bin}/influxd -config #{testpath}/influxdb-config.toml"
-    end
-    sleep 5
 
     pid = fork do
       exec "#{bin}/kapacitord -config #{testpath}/config.toml"
@@ -212,7 +201,7 @@ class Kapacitor < Formula
     sleep 2
 
     begin
-      shell_output("#{bin}/kapacitor level info")
+      shell_output("#{bin}/kapacitor list tasks")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
