@@ -4,6 +4,7 @@ class Ccze < Formula
   url "https://mirrors.ocf.berkeley.edu/debian/pool/main/c/ccze/ccze_0.2.1.orig.tar.gz"
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/c/ccze/ccze_0.2.1.orig.tar.gz"
   sha256 "8263a11183fd356a033b6572958d5a6bb56bfd2dba801ed0bff276cfae528aa3"
+  revision 1
 
   bottle do
     sha256 "7eb127c4017e7530a53e3258f6b013e80fca1a0d30c577813bdc326b8b0e30d3" => :el_capitan
@@ -13,10 +14,14 @@ class Ccze < Formula
 
   depends_on "pcre"
 
-  # Taken from debian
-  patch :DATA
-
   def install
+    # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=823334
+    inreplace "src/ccze-compat.c", "#if HAVE_SUBOPTARg", "#if HAVE_SUBOPTARG"
+    # Allegedly from Debian & fixes compiler errors on old OS X releases.
+    # https://github.com/Homebrew/legacy-homebrew/pull/20636
+    inreplace "src/Makefile.in", "-Wreturn-type -Wswitch -Wmulticharacter",
+                                 "-Wreturn-type -Wswitch"
+
     system "./configure", "--prefix=#{prefix}",
                           "--with-builtins=all"
     system "make", "install"
@@ -28,31 +33,3 @@ class Ccze < Formula
     system "#{bin}/ccze", "--help"
   end
 end
-
-__END__
-diff --git a/src/Makefile.in b/src/Makefile.in
-index c6f9892..9b93b65 100644
---- a/src/Makefile.in
-+++ b/src/Makefile.in
-@@ -22,7 +22,7 @@ WFLAGS_GCC	= -Wshadow -Wpointer-arith -Waggregate-return \
-		-Wbad-function-cast -Wsign-compare -Wchar-subscripts \
-		-Wcomment -Wformat -Wformat-nonliteral -Wformat-security \
-		-Wimplicit -Wmain -Wmissing-braces -Wparentheses \
--		-Wreturn-type -Wswitch -Wmulticharacter \
-+		-Wreturn-type -Wswitch \
-		-Wmissing-noreturn -Wmissing-declarations @WFLAGS_3X@
- WFLAGS_ICC	= -Wall -wd193,279,810,869,1418,1419
- WFLAGS_3X	= -Wsequence-point -Wdiv-by-zero -W -Wunused \
-diff --git a/src/ccze-compat.c b/src/ccze-compat.c
-index 0a3c335..5afdc20 100644
---- a/src/ccze-compat.c
-+++ b/src/ccze-compat.c
-@@ -275,7 +275,7 @@ ccze_getsubopt (char **optionp, char *const *tokens,
-		char **valuep)
- {
-   int i = getsubopt (optionp, tokens, valuep);
--#if HAVE_SUBOPTARg
-+#if HAVE_SUBOPTARG
-   if (!*valuep && suboptarg)
-     *valuep = strdup (suboptarg);
- #endif
