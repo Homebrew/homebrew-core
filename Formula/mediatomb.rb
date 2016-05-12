@@ -44,8 +44,8 @@ class Mediatomb < Formula
   end
 
   patch do
-    url "https://sourceforge.net/p/mediatomb/patches/_discuss/thread/57c47fb9/8ad8/attachment/mediatomb-urifix.patch"
-    sha256 "537373654c1d7fa24e14f2e5a9c78228589411509d46fbd53bb38b87d5ee34fb"
+    url "https://raw.githubusercontent.com/Homebrew/patches/43c51305a0c4a9a78805f45e1cf1ff163847be4a/mediatomb/urifix.patch"
+    sha256 "9cf68bc486eba9ae5f74b59ee2aeebf7e57263b47914136b5d0e24556f0c304f"
   end
 
   # Upstream patch: https://sourceforge.net/p/mediatomb/patches/35/
