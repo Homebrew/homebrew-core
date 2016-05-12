@@ -3,8 +3,8 @@ require "language/go"
 class Karn < Formula
   desc "Manage multiple Git identities"
   homepage "https://github.com/prydonius/karn"
-  url "https://github.com/prydonius/karn/archive/v0.0.2.tar.gz"
-  sha256 "eac77b82f7abd9c37e70d01240e8e69893b7497d3dd5ab7b0fb2df04ae1e6529"
+  url "https://github.com/prydonius/karn/archive/v0.0.3.tar.gz"
+  sha256 "a9336abe63dbf6b952e1e4a3d4c31ed62dda69aa51e53f07902edb894638162d"
 
   bottle do
     cellar :any_skip_relocation
