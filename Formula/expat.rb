@@ -1,9 +1,9 @@
 class Expat < Formula
   desc "XML 1.0 parser"
-  homepage "http://www.libexpat.org"
-  url "https://downloads.sourceforge.net/project/expat/expat/2.1.0/expat-2.1.0.tar.gz"
-  mirror "https://fossies.org/linux/www/expat-2.1.0.tar.gz"
-  sha256 "823705472f816df21c8f6aa026dd162b280806838bb55b3432b0fb1fcca7eb86"
+  homepage "http://expat.sourceforge.net"
+  url "https://downloads.sourceforge.net/project/expat/expat/2.1.1/expat-2.1.1.tar.bz2"
+  mirror "https://fossies.org/linux/www/expat-2.1.1.tar.bz2"
+  sha256 "aff584e5a2f759dcfc6d48671e9529f6afe1e30b0cd6a4cec200cbe3f793de67"
   revision 1
 
   head ":pserver:anonymous:@expat.cvs.sourceforge.net:/cvsroot/expat", :using => :cvs
