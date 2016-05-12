@@ -12,13 +12,14 @@ class Librdkafka < Formula
     sha256 "b75648b576d5983858de5a1dd66a9f08e4f084c9290e93b5275c53796e8c9e0e" => :mountain_lion
   end
 
+  depends_on "pkg-config" => :build
   depends_on "lzlib"
   depends_on "openssl"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "C_INCLUDE_PATH=.:#{include}:#{Formula["openssl"].opt_prefix}/include make"
+    system "make"
     system "make", "install"
   end
 
