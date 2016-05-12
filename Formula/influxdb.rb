@@ -3,8 +3,8 @@ require "language/go"
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb/archive/v0.12.2.tar.gz"
-  sha256 "fb2f918794db07c2a05388fd583591bb3084b2af37a64e98be4b4c73302a8742"
+  url "https://github.com/influxdata/influxdb/archive/v0.13.0.tar.gz"
+  sha256 "661dc5719efa2db0ff5e5a4676c31852dd259a952dd8fc837766cb291e06d31b"
 
   head "https://github.com/influxdata/influxdb.git"
 
@@ -54,7 +54,7 @@ class Influxdb < Formula
 
   go_resource "github.com/gogo/protobuf" do
     url "https://github.com/gogo/protobuf.git",
-    :revision => "82d16f734d6d871204a3feb1a73cb220cc92574c"
+    :revision => "74b6e9deaff6ba6da1389ec97351d337f0d08b06"
   end
 
   go_resource "github.com/golang/snappy" do
@@ -69,7 +69,7 @@ class Influxdb < Formula
 
   go_resource "github.com/jwilder/encoding" do
     url "https://github.com/jwilder/encoding.git",
-    :revision => "07d88d4f35eec497617bee0c7bfe651a796dae13"
+    :revision => "b421ab402545ef5a119f4f827784c6551d9bfc37"
   end
 
   go_resource "github.com/kimor79/gollectd" do
@@ -84,7 +84,7 @@ class Influxdb < Formula
 
   go_resource "github.com/peterh/liner" do
     url "https://github.com/peterh/liner.git",
-    :revision => "ad1edfd30321d8f006ccf05f1e0524adeb943060"
+    :revision => "82a939e738b0ee23e84ec7a12d8e216f4d95c53f"
   end
 
   go_resource "github.com/rakyll/statik" do
@@ -111,9 +111,9 @@ class Influxdb < Formula
 
     cd influxdb_path do
       if build.head?
-        system "go", "install", "-ldflags", "-X main.version=0.13.0-HEAD -X main.branch=master -X main.commit=#{`git rev-parse HEAD`.strip}", "./..."
+        system "go", "install", "-ldflags", "-X main.version=0.14.0-HEAD -X main.branch=master -X main.commit=#{`git rev-parse HEAD`.strip}", "./..."
       else
-        system "go", "install", "-ldflags", "-X main.version=0.12.2 -X main.branch=0.12 -X main.commit=383332daed5595926c235f250b11433f67229c35", "./..."
+        system "go", "install", "-ldflags", "-X main.version=0.13.0 -X main.branch=0.13 -X main.commit=e57fb88a051ee40fd9277094345fbd47bb4783ce", "./..."
       end
     end
 
