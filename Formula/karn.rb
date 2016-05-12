@@ -18,12 +18,12 @@ class Karn < Formula
 
   go_resource "github.com/codegangsta/cli" do
     url "https://github.com/codegangsta/cli.git",
-        :revision => "a889873af50a499d060097216dcdbcc26ed09e7c"
+        :revision => "f47f7b7e8568e846e9614acd5738092c3acf7058"
   end
 
   go_resource "github.com/mitchellh/go-homedir" do
     url "https://github.com/mitchellh/go-homedir.git",
-        :revision => "1f6da4a72e57d4e7edd4a7295a585e0a3999a2d4"
+        :revision => "7d2d8c8a4e078ce3c58736ab521a40b37a504c52"
   end
 
   go_resource "gopkg.in/yaml.v2" do
