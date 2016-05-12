@@ -4,8 +4,8 @@ class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
   url "https://github.com/influxdata/kapacitor.git",
-    :tag => "v0.12.0",
-    :revision => "32d4d1b8f688e2d310f4e9413b3fe6ac3ef73c70"
+    :tag => "0.13.0",
+    :revision => "e64b52e05dd7c888fe0549a06db3cac118a63dec"
 
   head "https://github.com/influxdata/kapacitor.git"
 
@@ -17,6 +17,7 @@ class Kapacitor < Formula
   end
 
   depends_on "go" => :build
+  depends_on "influxdb"
 
   go_resource "github.com/BurntSushi/toml" do
     url "https://github.com/BurntSushi/toml.git",
@@ -192,6 +193,18 @@ class Kapacitor < Formula
       s.gsub! %r{/.*/.kapacitor/replay}, "#{testpath}/kapacitor/replay"
       s.gsub! %r{/.*/.kapacitor/tasks}, "#{testpath}/kapacitor/tasks"
     end
+
+    (testpath/"influxdb-config.toml").write shell_output("influxd config")
+    inreplace testpath/"influxdb-config.toml" do |s|
+      s.gsub! %r{/.*/.influxdb/data}, "#{testpath}/influxdb/data"
+      s.gsub! %r{/.*/.influxdb/meta}, "#{testpath}/influxdb/meta"
+      s.gsub! %r{/.*/.influxdb/wal}, "#{testpath}/influxdb/wal"
+    end
+
+    pid = fork do
+      exec "#{bin}/influxd -config #{testpath}/influxdb-config.toml"
+    end
+    sleep 5
 
     pid = fork do
       exec "#{bin}/kapacitord -config #{testpath}/config.toml"
