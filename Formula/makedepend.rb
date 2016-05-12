@@ -16,13 +16,13 @@ class Makedepend < Formula
   depends_on "pkg-config" => :build
 
   resource "xproto" do
-    url "https://xorg.freedesktop.org/releases/individual/proto/xproto-7.0.25.tar.bz2"
-    sha256 "92247485dc4ffc3611384ba84136591923da857212a7dc29f4ad7797e13909fe"
+    url "https://xorg.freedesktop.org/releases/individual/proto/xproto-7.0.28.tar.gz"
+    sha256 "6cabc8ce3fa2b1a2427871167b62c24d5b08a58bd3e81ed7aaf08f2bf6dbcfed"
   end
 
   resource "xorg-macros" do
-    url "https://xorg.freedesktop.org/releases/individual/util/util-macros-1.18.0.tar.bz2"
-    sha256 "e5e3d132a852f0576ea2cf831a9813c54a58810a59cdb198f56b884c5a78945b"
+    url "https://xorg.freedesktop.org/releases/individual/util/util-macros-1.19.0.tar.bz2"
+    sha256 "2835b11829ee634e19fa56517b4cfc52ef39acea0cd82e15f68096e27cbed0ba"
   end
 
   def install
