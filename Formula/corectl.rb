@@ -1,8 +1,8 @@
 class Corectl < Formula
   desc "CoreOS over OS X made very simple"
   homepage "https://github.com/TheNewNormal/corectl"
-  url "https://github.com/TheNewNormal/corectl/archive/v0.5.5.tar.gz"
-  sha256 "47bcd42d110f0069dedcd741ea11cb0857cdcf1eaa01c69f2cdea6847d130ee6"
+  url "https://github.com/TheNewNormal/corectl/archive/v0.5.6.tar.gz"
+  sha256 "90381c03ac240cf0437cd786c082c31bb2c81911f69fa4fcd223f5acd40d320a"
   head "https://github.com/TheNewNormal/corectl.git", :branch => "golang"
 
   bottle do
@@ -25,7 +25,6 @@ class Corectl < Formula
     args << "VERSION=#{version}" if build.stable?
 
     cd path do
-      inreplace "utils.go", "engine.pwd+\"/", "\""
       system "make", "corectl", *args
       system "make", "documentation/man"
       bin.install "corectl"
