@@ -98,6 +98,7 @@ class Curl < Formula
 
     system "./configure", *args
     system "make", "install"
+    libexec.install "lib/mk-ca-bundle.pl"
   end
 
   test do
