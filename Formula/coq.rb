@@ -16,6 +16,7 @@ class Coq < Formula
   url "https://coq.inria.fr/distrib/8.5pl1/files/coq-8.5pl1.tar.gz"
   version "8.5pl1"
   sha256 "4bfa75b10ae1be61301d0f7bc087b7c24e0b8bd025dd358c75709ac04ddd5df0"
+  revision 1
 
   head "git://scm.gforge.inria.fr/coq/coq.git", :branch => "trunk"
 
@@ -30,7 +31,7 @@ class Coq < Formula
   depends_on "ocaml"
 
   def install
-    camlp5_lib = Formula["camlp5"].opt_lib+"ocaml/camlp5"
+    camlp5_lib = Formula["camlp5"].opt_lib/"ocaml/camlp5"
     system "./configure", "-prefix", prefix,
                           "-mandir", man,
                           "-camlp5dir", camlp5_lib,
@@ -38,7 +39,6 @@ class Coq < Formula
                           "-coqdocdir", "#{pkgshare}/latex",
                           "-coqide", "no",
                           "-with-doc", "no"
-    ENV.j1 # Otherwise "mkdir bin" can be attempted by more than one job
     system "make", "world"
     system "make", "install"
   end
