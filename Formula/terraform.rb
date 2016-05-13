@@ -3,8 +3,8 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.6.15.tar.gz"
-  sha256 "5dc7cb1d29dee3de9ed9efacab7e72aa447052c96ae8269d932f6a979871a852"
+  url "https://github.com/hashicorp/terraform/archive/v0.6.16.tar.gz"
+  sha256 "c84bae32a170d993982de9c537eac74f70601e7a667dc2ea9803b86e04b1221d"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
@@ -16,56 +16,18 @@ class Terraform < Formula
 
   depends_on "go" => :build
 
-  terraform_deps = %w[
-    github.com/mitchellh/gox 770c39f64e66797aa46b70ea953ff57d41658e40
-    github.com/mitchellh/iochan 87b45ffd0e9581375c491fef3d32130bb15c5bd7
-  ]
-
-  terraform_deps.each_slice(2) do |x, y|
-    go_resource x do
-      url "https://#{x}.git", :revision => y
-    end
-  end
-
-  go_resource "golang.org/x/tools" do
-    url "https://go.googlesource.com/tools.git", :revision => "977844c7af2aa555048a19d28e9fe6c392e7b8e9"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
-    # For the gox buildtool used by terraform, which doesn't need to
-    # get installed permanently
-    ENV.append_path "PATH", buildpath
+    mkdir_p buildpath/"bin"
+    ENV.append_path "PATH", buildpath/"bin"
 
     terrapath = buildpath/"src/github.com/hashicorp/terraform"
     terrapath.install Dir["*"]
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/github.com/mitchellh/gox" do
-      system "go", "build"
-      buildpath.install "gox"
-    end
-
-    cd "src/golang.org/x/tools/cmd/stringer" do
-      system "go", "build"
-      buildpath.install "stringer"
-    end
 
     cd terrapath do
-      # v0.6.12 - source contains tests which fail if these environment variables are set locally.
-      ENV.delete "AWS_ACCESS_KEY"
-      ENV.delete "AWS_SECRET_KEY"
-
-      terraform_files = `go list ./...`.lines.map { |f| f.strip unless f.include? "/vendor/" }.compact
-      system "go", "test", *terraform_files
-
-      mkdir "bin"
-      arch = MacOS.prefer_64_bit? ? "amd64" : "386"
-      system "gox",
-        "-arch", arch,
-        "-os", "darwin",
-        "-output", "bin/terraform-{{.Dir}}", *terraform_files
-      bin.install "bin/terraform-terraform" => "terraform"
+      ENV["XC_OS"] = "darwin"
+      ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
+      system "make", "bin"
       bin.install Dir["bin/*"]
       zsh_completion.install "contrib/zsh-completion/_terraform"
     end
