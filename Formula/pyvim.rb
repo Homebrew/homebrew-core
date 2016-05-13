@@ -1,8 +1,8 @@
 class Pyvim < Formula
   desc "Pure Python Vim clone"
   homepage "https://pypi.python.org/pypi/pyvim"
-  url "https://pypi.python.org/packages/b0/0b/a68957e643c184c7b395ac3c336daa75f43c484ea3dee67387bbc3ecaf8f/pyvim-0.0.17.tar.gz"
-  sha256 "e2e9495b13b00dc0d358002bf3665bb80029e90645bc2150f8b534c2da138e28"
+  url "https://pypi.python.org/packages/f7/ae/21857aac8acb73f8f91aa50ba5319c5000257c5fa8ff13f29ce4698865f1/pyvim-0.0.18.tar.gz"
+  sha256 "8a676fcb5bf78db5ad70c26131128f631f21556c4431f9a7fa6a5fdcdbb7e2e5"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,8 +14,8 @@ class Pyvim < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "ptpython" do
-    url "https://pypi.python.org/packages/46/68/aeff7b6e1ed9e519eb2ef11fa78cc73e04a27b08f69f3c8ea23fc30736d4/ptpython-0.33.tar.gz"
-    sha256 "86bb8bc6b3b2e4c7d4b400867d53fd94ffc4fe029d146f7a54d4e53160479435"
+    url "https://pypi.python.org/packages/39/cc/5cd0ff55d774fd287bf3f07fd5ed57c25117b68fa3d7fc7a9649d9b3a02d/ptpython-0.34.tar.gz"
+    sha256 "23ccb0e9f28cfc8001b9db4cfd0193862e56f8e9c21425fea91059e0be8fabd6"
   end
 
   resource "prompt_toolkit" do
@@ -24,8 +24,8 @@ class Pyvim < Formula
   end
 
   resource "pyflakes" do
-    url "https://pypi.python.org/packages/af/6e/6f8cb1d6dfb08b08c2f4c11fdb478b8d63f51f03d1d1bd61d4e154922cc2/pyflakes-1.2.2.tar.gz"
-    sha256 "58741f9d3bffeba8f88452c1eddcf1b3eee464560e4589e4b81de8b3c9e42e4d"
+    url "https://pypi.python.org/packages/54/80/6a641f832eb6c6a8f7e151e7087aff7a7c04dd8b4aa6134817942cdda1b6/pyflakes-1.2.3.tar.gz"
+    sha256 "2e4a1b636d8809d8f0a69f341acf15b2e401a3221ede11be439911d23ce2139e"
   end
 
   resource "docopt" do
