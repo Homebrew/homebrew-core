@@ -3,6 +3,7 @@ class Curl < Formula
   homepage "https://curl.haxx.se/"
   url "https://curl.haxx.se/download/curl-7.48.0.tar.bz2"
   sha256 "864e7819210b586d42c674a1fdd577ce75a78b3dda64c63565abe5aefd72c753"
+  revision 1
 
   bottle do
     cellar :any
@@ -107,6 +108,10 @@ class Curl < Formula
     filename = (testpath/"test.tar.gz")
     system "#{bin}/curl", "-L", stable.url, "-o", filename
     filename.verify_checksum stable.checksum
+
+    system libexec/"mk-ca-bundle.pl", "test.pem"
+    assert File.exist?("test.pem")
+    assert File.exist?("certdata.txt")
   end
 end
 
