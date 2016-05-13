@@ -3,8 +3,8 @@ require "language/go"
 class Telegraf < Formula
   desc "Server-level metric gathering agent for InfluxDB"
   homepage "https://influxdata.com"
-  url "https://github.com/influxdata/telegraf/archive/0.12.1.tar.gz"
-  sha256 "af323e4557698965f675dadf99ef46dd51662a21b704f776ad773040b48b7cd3"
+  url "https://github.com/influxdata/telegraf/archive/0.13.0.tar.gz"
+  sha256 "e48f01e5d217af445f8152e9aeb393bf1ba94b5ccec5d535eefe62b5ff1f2c32"
 
   head "https://github.com/influxdata/telegraf.git"
 
@@ -107,6 +107,11 @@ class Telegraf < Formula
     :revision => "1fca743146605a172a266e1654e01e5cd5669bee"
   end
 
+  go_resource "github.com/gobwas/glob" do
+    url "https://github.com/gobwas/glob.git",
+    :revision => "d877f6352135181470c40c73ebb81aefa22115fa"
+  end
+
   go_resource "github.com/golang/protobuf" do
     url "https://github.com/golang/protobuf.git",
     :revision => "552c7b9542c194800fd493123b3798ef0a832032"
@@ -137,6 +142,11 @@ class Telegraf < Formula
     :revision => "e80d13ce29ede4452c43dea11e79b9bc8a15b478"
   end
 
+  go_resource "github.com/hpcloud/tail" do
+    url "https://github.com/hpcloud/tail.git",
+    :revision => "b2940955ab8b26e19d43a43c4da0475dd81bdb56"
+  end
+
   go_resource "github.com/influxdata/config" do
     url "https://github.com/influxdata/config.git",
     :revision => "b79f6829346b8d6e78ba73544b1e1038f1f1c9da"
@@ -144,7 +154,7 @@ class Telegraf < Formula
 
   go_resource "github.com/influxdata/influxdb" do
     url "https://github.com/influxdata/influxdb.git",
-    :revision => "e3fef5593c21644f2b43af55d6e17e70910b0e48"
+    :revision => "e094138084855d444195b252314dfee9eae34cab"
   end
 
   go_resource "github.com/influxdata/toml" do
@@ -224,7 +234,7 @@ class Telegraf < Formula
 
   go_resource "github.com/shirou/gopsutil" do
     url "https://github.com/shirou/gopsutil.git",
-    :revision => "1f32ce1bb380845be7f5d174ac641a2c592c0c42"
+    :revision => "37d89088411de59a4ef9fc340afa0e89dfcb4ea9"
   end
 
   go_resource "github.com/soniah/gosnmp" do
