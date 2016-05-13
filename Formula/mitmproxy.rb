@@ -1,8 +1,8 @@
 class Mitmproxy < Formula
   desc "Intercept, modify, replay, save HTTP/S traffic"
   homepage "https://mitmproxy.org"
-  url "https://github.com/mitmproxy/mitmproxy/archive/v0.16.tar.gz"
-  sha256 "d4ed9b27377431fc3d6241b43588279cb7e41e64a134a981938e162143c1ec72"
+  url "https://github.com/mitmproxy/mitmproxy/archive/v0.17.1.tar.gz"
+  sha256 "5f9605f0703f03eca21173067161332eeb0e70a22a67aa3b329dc4a203f4dadc"
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
@@ -24,13 +24,13 @@ class Mitmproxy < Formula
 
   # needs a recent setuptools
   resource "setuptools" do
-    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-20.2.2.tar.gz"
-    sha256 "24fcfc15364a9fe09a220f37d2dcedc849795e3de3e4b393ee988e66a9cbd85a"
+    url "https://pypi.python.org/packages/5b/6e/a4bf49ddc41f144fd511f24c096dfa7600bffaf348563e08ef381dd6323e/setuptools-21.2.2.tar.gz"
+    sha256 "0792954bf85cb23cf8dc07ca2e671730badebfe7c9225889129f2427718f03c6"
   end
 
   resource "argh" do
-    url "https://pypi.python.org/packages/source/a/argh/argh-0.26.1.tar.gz"
-    sha256 "06a7442cb9130fb8806fe336000fcf20edf1f2f8ad205e7b62cec118505510db"
+    url "https://pypi.python.org/packages/e3/75/1183b5d1663a66aebb2c184e0398724b624cecd4f4b679cb6e25de97ed15/argh-0.26.2.tar.gz"
+    sha256 "e9535b8c84dc9571a48999094fda7f33e63c3f1b74f3e5f3ac0105a58405bb65"
   end
 
   resource "backports_abc" do
@@ -54,8 +54,8 @@ class Mitmproxy < Formula
   end
 
   resource "cffi" do
-    url "https://pypi.python.org/packages/source/c/cffi/cffi-1.5.2.tar.gz"
-    sha256 "da9bde99872e46f7bb5cff40a9b1cc08406765efafb583c704de108b6cb821dd"
+    url "https://pypi.python.org/packages/b6/98/11feff87072e2e640fb8320712b781eccdef05d588618915236b32289d5a/cffi-1.6.0.tar.gz"
+    sha256 "a7f75c4ef2362c0a0e54657add0a6c509fecbfa3b3807bc0925f5cb1c9f927db"
   end
 
   resource "click" do
@@ -74,28 +74,33 @@ class Mitmproxy < Formula
   end
 
   resource "cryptography" do
-    url "https://pypi.python.org/packages/source/c/cryptography/cryptography-1.2.3.tar.gz"
-    sha256 "8eb11c77dd8e73f48df6b2f7a7e16173fe0fe8fdfe266232832e88477e08454e"
+    url "https://pypi.python.org/packages/04/da/35f9a1d34dab5d777f65fb87731288f338ab0ae46a525ffdf0405b573dd0/cryptography-1.3.2.tar.gz"
+    sha256 "fbaafa8827966dc588ccb00be813d3149fa8de04aec96e418ea0fdd5f0312088"
   end
 
   resource "enum34" do
-    url "https://pypi.python.org/packages/source/e/enum34/enum34-1.1.2.tar.gz"
-    sha256 "2475d7fcddf5951e92ff546972758802de5260bf409319a9f1934e6bbc8b1dc7"
+    url "https://pypi.python.org/packages/f0/0b/8a8665427c6ad17083958eb8df3987cde8206ad5c27c3ba17373316be34c/enum34-1.1.5.zip"
+    sha256 "7580699f440ebc08ce51e04efd34e685264779e64bb5312112a785eac769e037"
+  end
+
+  resource "flask" do
+    url "https://pypi.python.org/packages/db/9c/149ba60c47d107f85fe52564133348458f093dd5e6b57a5b60ab9ac517bb/Flask-0.10.1.tar.gz"
+    sha256 "4c83829ff83d408b5e1d4995472265411d2c414112298f2eb4b359d9e4563373"
   end
 
   resource "h2" do
-    url "https://pypi.python.org/packages/source/h/h2/h2-2.1.3.tar.gz"
-    sha256 "7d36132c42edcc19e771555e569c3f3a8610ff052e8e3d19c91b4c29a1c31e49"
+    url "https://pypi.python.org/packages/2b/d6/8252330d89fddf3fbde66ac8a449f4af6515600ce28b29d720a5fbc8a706/h2-2.3.1.tar.gz"
+    sha256 "5e2416e0b228788209ee3a9bf449f5e239925b36213c34e3287ce369271a23cf"
   end
 
   resource "hpack" do
-    url "https://pypi.python.org/packages/source/h/hpack/hpack-2.1.1.tar.gz"
-    sha256 "17cf0750f0555447f546b4754f69c8a906a3c10a51d1884c83e41f4f3bd71f8a"
+    url "https://pypi.python.org/packages/b6/36/d9b4d3b5802002d38cc6ce0586509ea8f24a2f256d3fa9bc23b9c50d00be/hpack-2.2.0.tar.gz"
+    sha256 "f2917b3f003c7c76c1aa17e89c1fc27a80d2175d6283131890253609f5f370ef"
   end
 
   resource "html2text" do
-    url "https://pypi.python.org/packages/source/h/html2text/html2text-2016.1.8.tar.gz"
-    sha256 "088046f9b126761ff7e3380064d4792279766abaa5722d0dd765d011cf0bb079"
+    url "https://pypi.python.org/packages/85/5f/d57f91075dfb29677bcbe29376b3ed7db361db35a091b5990dca14c63681/html2text-2016.4.2.tar.gz"
+    sha256 "32e5e49eb520335bae200a00e3cc981f1ade558930068e1bb2a6e3fb1504f951"
   end
 
   resource "hyperframe" do
@@ -113,14 +118,24 @@ class Mitmproxy < Formula
     sha256 "5a3182b322a706525c46282ca6f064d27a02cffbd449f9f47416f1dc96aa71b0"
   end
 
-  resource "lxml" do
-    url "https://pypi.python.org/packages/source/l/lxml/lxml-3.5.0.tar.gz"
-    sha256 "349f93e3a4b09cc59418854ab8013d027d246757c51744bf20069bc89016f578"
+  resource "itsdangerous" do
+    url "https://pypi.python.org/packages/dc/b4/a60bcdba945c00f6d608d8975131ab3f25b22f2bcfe1dab221165194b2d4/itsdangerous-0.24.tar.gz"
+    sha256 "cbb3fcf8d3e33df861709ecaf89d9e6629cff0a217bc2848f1b41cd30d360519"
   end
 
-  resource "netlib" do
-    url "https://pypi.python.org/packages/source/n/netlib/netlib-0.16.tar.gz"
-    sha256 "c70ed1915a5662c9ffce4dc97d143209e009cf0035a2f692031a6c47e87e6002"
+  resource "jinja2" do
+    url "https://pypi.python.org/packages/f2/2f/0b98b06a345a761bec91a079ccae392d282690c2d8272e708f4d10829e22/Jinja2-2.8.tar.gz"
+    sha256 "bc1ff2ff88dbfacefde4ddde471d1417d3b304e8df103a7a9437d47269201bf4"
+  end
+
+  resource "lxml" do
+    url "https://pypi.python.org/packages/11/1b/fe6904151b37a0d6da6e60c13583945f8ce3eae8ebd0ec763ce546358947/lxml-3.6.0.tar.gz"
+    sha256 "9c74ca28a7f0c30dca8872281b3c47705e21217c8bc63912d95c9e2a7cac6bdf"
+  end
+
+  resource "markupsafe" do
+    url "https://pypi.python.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"
+    sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
   end
 
   resource "passlib" do
@@ -134,8 +149,8 @@ class Mitmproxy < Formula
   end
 
   resource "Pillow" do
-    url "https://pypi.python.org/packages/source/P/Pillow/Pillow-3.1.2.tar.gz"
-    sha256 "c593622445503ae1ee361d3a6bb40794e043b43d00c96fcb298ba43ecd375905"
+    url "https://pypi.python.org/packages/e2/af/0a3981fffc5cd43078eb8b1057702e0dd2d5771e5aaa36cbd140e32f8473/Pillow-3.2.0.tar.gz"
+    sha256 "64b0a057210c480aea99406c9391180cd866fc0fd8f0b53367e3af21b195784a"
   end
 
   resource "pyasn1" do
@@ -149,13 +164,13 @@ class Mitmproxy < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://pypi.python.org/packages/source/p/pyOpenSSL/pyOpenSSL-0.15.1.tar.gz"
-    sha256 "f0a26070d6db0881de8bcc7846934b7c3c930d8f9c79d45883ee48984bc0d672"
+    url "https://pypi.python.org/packages/77/f2/bccec75ca4280a9fa762a90a1b8b152a22eac5d9c726d7da1fcbfe0a20e6/pyOpenSSL-16.0.0.tar.gz"
+    sha256 "363d10ee43d062285facf4e465f4f5163f9f702f9134f0a5896f134cbb92d17d"
   end
 
   resource "pyparsing" do
-    url "https://pypi.python.org/packages/source/p/pyparsing/pyparsing-2.1.1.tar.gz"
-    sha256 "9bae5cd4cbee6da0d7d8d9a1647f5253a3b89652e707647eaf1961f4932ae6c6"
+    url "https://pypi.python.org/packages/30/b6/12a3f337bf6eb3d681f4f83d6c8da596f99c6ce44797aa91869c1f103729/pyparsing-2.0.7.tar.gz"
+    sha256 "2ce0db3c70ec0413603d4aea389e4ece34ff93c265649b1c5c7d56e3c2cf19c4"
   end
 
   resource "pyperclip" do
@@ -166,6 +181,11 @@ class Mitmproxy < Formula
   resource "PyYAML" do
     url "https://pypi.python.org/packages/source/P/PyYAML/PyYAML-3.11.tar.gz"
     sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
+  end
+
+  resource "requests" do
+    url "https://pypi.python.org/packages/64/20/2133a092a0e87d1c250fe48704974b73a1341b7e4f800edecf40462a825d/requests-2.9.2.tar.gz"
+    sha256 "d8be941a08cf36e4f424ac76073eb911e5e646a33fcb3402e1642c426bf34682"
   end
 
   resource "singledispatch" do
@@ -191,6 +211,11 @@ class Mitmproxy < Formula
   resource "watchdog" do
     url "https://pypi.python.org/packages/source/w/watchdog/watchdog-0.8.3.tar.gz"
     sha256 "7e65882adb7746039b6f3876ee174952f8eaaa34491ba34333ddf1fe35de4162"
+  end
+
+  resource "werkzeug" do
+    url "https://pypi.python.org/packages/0f/7c/b316cd9779817173e93f5cebc8fb387db33cc8dc526f3db5e61f2c008d5b/Werkzeug-0.11.9.tar.gz"
+    sha256 "837b71338794634c24713a79c3b9c287301433f2d18cd0adefcbcf885e60c8a1"
   end
 
   # Optional resources
@@ -242,6 +267,6 @@ class Mitmproxy < Formula
 
   test do
     ENV["LANG"] = "en_US.UTF-8"
-    system bin/"mitmproxy", "--version"
+    assert_match version.to_s, shell_output("#{bin}/mitmproxy --version 2>&1")
   end
 end
