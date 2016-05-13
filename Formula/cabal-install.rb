@@ -6,7 +6,7 @@ class CabalInstall < Formula
 
   # disables haddock for hackage-security
   patch :p2 do
-    url "https://patch-diff.githubusercontent.com/raw/haskell/cabal/pull/3393.patch"
+    url "https://github.com/haskell/cabal/commit/9441fe.patch"
     sha256 "5506d46507f38c72270efc4bb301a85799a7710804e033eaef7434668a012c5e"
   end
 
