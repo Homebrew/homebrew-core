@@ -1,8 +1,8 @@
 class ZshNavigationTools < Formula
   desc "Zsh curses-based tools, e.g. multi-word history searcher"
   homepage "https://github.com/psprint/zsh-navigation-tools"
-  url "https://github.com/psprint/zsh-navigation-tools/archive/v2.1.4.tar.gz"
-  sha256 "3071d12e0982dcf7dbaaf7c3cd546de60c53eabe8f3ea09a0ece0b26db80515b"
+  url "https://github.com/psprint/zsh-navigation-tools/archive/v2.1.11.tar.gz"
+  sha256 "a14c2218bdea29287c434b871b274fed3bb0cdc270714f7eac3bd80e94969732"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +17,6 @@ class ZshNavigationTools < Formula
 
   def caveats; <<-EOS.undent
     To run zsh-navigation-tools, add the following at the end of your .zshrc:
-      fpath+=( #{HOMEBREW_PREFIX}/share/zsh-navigation-tools )
       source #{HOMEBREW_PREFIX}/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 
     You will also need to force reload of your .zshrc:
