@@ -1,9 +1,8 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus.git",
-    :tag => "0.17.0",
-    :revision => "e11fab35d76d19c5c49b7d85e28275f894d3ada4"
+  url "https://github.com/prometheus/prometheus/archive/0.18.0.tar.gz"
+  sha256 "4def1a9e72acb6ea360e246b34e69cf21888be5c7e1bdbf29a3ab9f244e6e0aa"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +15,6 @@ class Prometheus < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO15VENDOREXPERIMENT"] = "1"
     mkdir_p buildpath/"src/github.com/prometheus"
     ln_sf buildpath, buildpath/"src/github.com/prometheus/prometheus"
 
