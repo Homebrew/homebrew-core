@@ -53,12 +53,12 @@ class Curl < Formula
   patch :DATA
 
   def install
-    # Throw an error if someone actually tries to rock both SSL choices.
-    # Long-term, make this singular-ssl-option-only a requirement.
+    # Fail if someone tries to use both SSL choices.
+    # Long-term, handle conflicting options case in core code.
     if build.with?("libressl") && build.with?("openssl")
-      ohai <<-EOS.undent
+      odie <<-EOS.undent
       --with-openssl and --with-libressl are both specified and
-      curl can only use one at a time; proceeding with libressl.
+      curl can only use one at a time.
       EOS
     end
 
