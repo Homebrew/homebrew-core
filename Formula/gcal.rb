@@ -16,6 +16,8 @@ class Gcal < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
+    system "make", "-C", "doc/en", "html"
+    doc.install "doc/en/gcal.html"
   end
 
   test do
