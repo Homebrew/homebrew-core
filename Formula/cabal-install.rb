@@ -1,8 +1,14 @@
 class CabalInstall < Formula
   desc "Command-line interface for Cabal and Hackage"
   homepage "https://www.haskell.org/cabal/"
-  url "https://hackage.haskell.org/package/cabal-install-1.22.9.0/cabal-install-1.22.9.0.tar.gz"
-  sha256 "874035e5730263653c7aa459f270efbffc06da92ea0c828e09ebc04400e94940"
+  url "https://hackage.haskell.org/package/cabal-install-1.24.0.0/cabal-install-1.24.0.0.tar.gz"
+  sha256 "d840ecfd0a95a96e956b57fb2f3e9c81d9fc160e1fd0ea350b0d37d169d9e87e"
+
+  # disables haddock for hackage-security
+  patch :p2 do
+    url "https://patch-diff.githubusercontent.com/raw/haskell/cabal/pull/3393.patch"
+    sha256 "5506d46507f38c72270efc4bb301a85799a7710804e033eaef7434668a012c5e"
+  end
 
   bottle do
     sha256 "e0aeba6df425d2e6d3c9f40059eeafffc4c7ab50fcf9e8a018a6bafed859c253" => :el_capitan
