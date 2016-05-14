@@ -9,9 +9,12 @@ class OspacGui < Formula
   depends_on "ospac"
 
   def install
-    system "make", "ospac-gui"
+    inreplace "makefile.targets" do |s|
+      s.gsub! "/usr/local", prefix.to_s
+      s.gsub! "cp ../ospac.1", "#cp ../ospac.1"
+    end
     mkdir bin.to_s
-    cp "GUI-Release/ospac-gui", bin.to_s
+    system "make", "ospac-gui", "install-gui"
   end
 
   test do

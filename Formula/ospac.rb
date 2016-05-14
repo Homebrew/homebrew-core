@@ -7,13 +7,12 @@ class Ospac < Formula
   depends_on "libsndfile"
 
   def install
-    system "make", "ospac"
+    inreplace "makefile.targets", "/usr/local", prefix.to_s
     mkdir bin.to_s
     mkdir share.to_s
     mkdir man.to_s
     mkdir man1.to_s
-    cp "Release/ospac", bin.to_s
-    cp "ospac.1", man1.to_s
+    system "make", "ospac", "install"
   end
 
   test do
