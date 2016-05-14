@@ -1,17 +1,17 @@
 class Go < Formula
   desc "Go programming environment"
   homepage "https://golang.org"
-  url "https://storage.googleapis.com/golang/go1.6.1.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.6.1.src.tar.gz"
-  version "1.6.1"
-  sha256 "1d4b53cdee51b2298afcf50926a7fa44b286f0bf24ff8323ce690a66daa7193f"
+  url "https://storage.googleapis.com/golang/go1.6.2.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.6.2.src.tar.gz"
+  version "1.6.2"
+  sha256 "787b0b750d037016a30c6ed05a8a70a91b2e9db4bd9b1a2453aa502a63f1bccc"
 
   head "https://github.com/golang/go.git"
 
   bottle do
-    sha256 "ef0163d1111174966bce588e41a56f7dade5758c797e89ae6cb99d5b5f3a34ca" => :el_capitan
-    sha256 "6368c616756269b7a8625df888c014c65158a2d7a16e97816aa13dc79d023e6e" => :yosemite
-    sha256 "b81b78f8bb58eb896241291a4b86cee9bdf852a2fda8ff02d4c530cbb2bab632" => :mavericks
+    sha256 "d5bc857fefd343383d00cf6083bc56297e35a1e202bf4414c10562c9456db362" => :el_capitan
+    sha256 "d3ff36402dc9e1319ac5ae0b38d65ded681eeacc490160d626f9fa18e4f6994f" => :yosemite
+    sha256 "0cf1ef52a5ac93b20b5f8cce1d7f2fd470fd0af9ac70d5ecea77ec7a87dee92c" => :mavericks
   end
 
   option "without-cgo", "Build without cgo"

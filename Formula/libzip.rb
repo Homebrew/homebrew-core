@@ -1,14 +1,14 @@
 class Libzip < Formula
   desc "C library for reading, creating, and modifying zip archives"
   homepage "http://www.nih.at/libzip/"
-  url "http://www.nih.at/libzip/libzip-1.1.tar.xz"
-  sha256 "13b0b49637f9857ab8ba7335f529e26d02aadacf2074bf0c9b28889a0fc83b24"
+  url "http://www.nih.at/libzip/libzip-1.1.2.tar.xz"
+  sha256 "a921b45b5d840e998ff2544197eba4c3593dccb8ad0ee938630c2227c2c59fb3"
 
   bottle do
     cellar :any
-    sha256 "544666849b04c846203c55c6b70a4412cd49e10ae7b7250f01fb1fd78b7ce1e9" => :el_capitan
-    sha256 "2fb035f82a334d4d712a1597200796a9e84f7bc3192f2405df4f20542f47eb3c" => :yosemite
-    sha256 "7947355b5093939e74f689075942060bf77ffdbb33f60753aa1c7081684e68ec" => :mavericks
+    sha256 "c28e83d87bf7c83b0a6f9acbe1d42088310d7790ffb120515c4eeb4e452ddbb6" => :el_capitan
+    sha256 "ad08d1d50f0e5b263ec39253eaec4e70216bef97558a0ec37aae4d7849a1e17f" => :yosemite
+    sha256 "e5c8a9203db8983a448ab144a7457b069f560354f2a0f6ee677e89dc4b07c21e" => :mavericks
   end
 
   option :universal

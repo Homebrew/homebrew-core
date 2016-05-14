@@ -12,13 +12,13 @@ class Glui < Formula
   end
 
   # Fix compiler warnings in glui.h. Reported upstream:
-  # http://sourceforge.net/p/glui/patches/12/
+  # https://sourceforge.net/p/glui/patches/12/
   patch :DATA
 
   def install
     cd "src" do
       system "make", "setup"
-      system "make lib/libglui.a"
+      system "make", "lib/libglui.a"
       lib.install "lib/libglui.a"
       include.install "include/GL"
     end

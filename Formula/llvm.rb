@@ -4,8 +4,8 @@ class CodesignRequirement < Requirement
 
   satisfy(:build_env => false) do
     mktemp do
-      touch "llvm_check.txt"
-      quiet_system "/usr/bin/codesign", "-s", "lldb_codesign", "--dryrun", "llvm_check.txt"
+      cp "/usr/bin/false", "llvm_check"
+      quiet_system "/usr/bin/codesign", "-f", "-s", "lldb_codesign", "--dryrun", "llvm_check"
     end
   end
 
@@ -116,6 +116,7 @@ class Llvm < Formula
   option "with-lldb", "Build LLDB debugger"
   option "with-python", "Build Python bindings against Homebrew Python"
   option "with-rtti", "Build with C++ RTTI"
+  option "with-utils", "Install utility binaries"
 
   deprecated_option "rtti" => "with-rtti"
 
@@ -190,6 +191,7 @@ class Llvm < Formula
     ]
 
     args << "-DLLVM_ENABLE_RTTI=On" if build.with? "rtti"
+    args << "-DLLVM_INSTALL_UTILS=On" if build.with? "utils"
 
     if build.universal?
       ENV.permit_arch_flags

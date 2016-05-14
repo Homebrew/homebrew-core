@@ -15,11 +15,9 @@ before_install:
   - brew update
   - rm -rf "$(brew --repo $TRAVIS_REPO_SLUG)"
   - mkdir -p "$(brew --repo $TRAVIS_REPO_SLUG)"
-  - rsync -az "$TRAVIS_BUILD_DIR" "$(brew --repo $TRAVIS_REPO_SLUG)"
+  - rsync -az "$TRAVIS_BUILD_DIR/" "$(brew --repo $TRAVIS_REPO_SLUG)"
   - export TRAVIS_BUILD_DIR="$(brew --repo $TRAVIS_REPO_SLUG)"
-  - cd "$(brew --repo $TRAVIS_REPO_SLUG)"
-
-install:
+  - cd "$(brew --repo)"
   - export HOMEBREW_DEVELOPER="1"
   - ulimit -n 1024
 

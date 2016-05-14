@@ -1,6 +1,6 @@
 class Scala < Formula
   desc "JVM-based programming language"
-  homepage "http://www.scala-lang.org/"
+  homepage "https://www.scala-lang.org/"
 
   stable do
     url "https://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz"
@@ -27,22 +27,22 @@ class Scala < Formula
   end
 
   devel do
-    url "http://www.scala-lang.org/files/archive/scala-2.12.0-M3.tgz"
-    sha256 "67ee3394ff5f9a98f9579accc9e20e0c9911d6f0bce96d70cf63cbb676643802"
-    version "2.12.0-M3"
+    url "http://www.scala-lang.org/files/archive/scala-2.12.0-M4.tgz"
+    sha256 "2ea78303f1d1ba53ed4a1b905e22ea7a14556da0b31eb081f21a1b723bf672b7"
+    version "2.12.0-M4"
 
     depends_on :java => "1.8+"
 
     resource "docs" do
-      url "http://www.scala-lang.org/files/archive/scala-docs-2.12.0-M3.zip"
-      sha256 "f5c5bc3635c08dde2e938b8051974404bb7126c27039753de337f7e3fa4e5844"
-      version "2.12.0-M3"
+      url "http://www.scala-lang.org/files/archive/scala-docs-2.12.0-M4.zip"
+      sha256 "ccfbc72c5bfd3743b08f4ecfb3dea46cb2b982eaaba5ada24378a93c351f8c77"
+      version "2.12.0-M4"
     end
 
     resource "src" do
-      url "https://github.com/scala/scala/archive/v2.12.0-M3.tar.gz"
-      sha256 "104a5ec973bfc40bfd1cd1bbaeec43b767555367c65fa7880a615f2285550d70"
-      version "2.12.0-M3"
+      url "https://github.com/scala/scala/archive/v2.12.0-M4.tar.gz"
+      sha256 "2f98086788e684a3236ca96bc1b32abca499a728099c273ed4f6e150fcb8edc4"
+      version "2.12.0-M4"
     end
   end
 

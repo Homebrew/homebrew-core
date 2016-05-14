@@ -30,7 +30,7 @@ class Ctorrent < Formula
 
   test do
     agent_string = "Enhanced-CTorrent/dnh#{version}"
-    test_url     = "http://example.com/test"
+    test_url     = "https://example.com/test"
 
     # Arbitrary content
     (testpath/"test").write "Test\n"

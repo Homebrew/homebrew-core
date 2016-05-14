@@ -1,9 +1,8 @@
 class Gifify < Formula
   desc "Turn movies into GIFs"
   homepage "https://github.com/jclem/gifify"
-  url "https://github.com/jclem/gifify/archive/v3.0.tar.gz"
-  sha256 "1fc7c77672b1f93b009b39b44beba44d0ea0573cf21f7c906c3ec97d663168e5"
-  revision 1
+  url "https://github.com/jclem/gifify/archive/v4.0.tar.gz"
+  sha256 "4cb967e8d0ba897bc91a60006e34299687f388dd47e05fd534f2eff8379fe479"
   head "https://github.com/jclem/gifify.git"
 
   bottle :unneeded
@@ -17,6 +16,6 @@ class Gifify < Formula
 
   test do
     system "ffmpeg", "-f", "lavfi", "-i", "testsrc", "-t", "1", "-c:v", "libx264", "test.m4v"
-    system "#{bin}/gifify", "-n", "test.m4v"
+    system "#{bin}/gifify", "test.m4v"
   end
 end

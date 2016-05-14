@@ -4,20 +4,20 @@ class GnuSmalltalk < Formula
   url "http://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"
   mirror "https://ftp.gnu.org/gnu/smalltalk/smalltalk-3.2.5.tar.xz"
   sha256 "819a15f7ba8a1b55f5f60b9c9a58badd6f6153b3f987b70e7b167e7755d65acc"
-  revision 2
+  revision 3
 
   head "https://github.com/bonzini/smalltalk.git"
 
   bottle do
-    sha256 "06731a07d89cbffdac00bd04e417de8633a8090f5a1083dbc500fc65d7310c5f" => :el_capitan
-    sha256 "bd20234afab424d9e9bdeb4d2088b84e19ffd475bff510a56714cffbffbe0d38" => :yosemite
-    sha256 "ab126ae6c45c5ce3db0d6bfd1bb1689ae1777382a1d19dfeeb432d489f201d04" => :mavericks
+    sha256 "bb6f1d1b564752a8feaf40be0c9dcecf116339b210a583cfd859b7d91950a9a2" => :el_capitan
+    sha256 "994b6c542d0c1a6913d0a30b9ae1429c9067faa85cdf483e8cf10a99a18d00d6" => :yosemite
+    sha256 "4e7a90fc84d973a3b94f63e7b719b48ebe1905a2016d4f8dba5508f5b6d87cb2" => :mavericks
   end
 
   devel do
-    url "http://alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.90.tar.gz"
-    mirror "https://www.mirrorservice.org/sites/alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.90.tar.gz"
-    sha256 "aa6cab17841f999c9217cdccd185a74e42fc6a7fc17139120dad8815bdff137c"
+    url "http://alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.91.tar.gz"
+    mirror "https://www.mirrorservice.org/sites/alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.91.tar.gz"
+    sha256 "13a7480553c182dbb8092bd4f215781b9ec871758d1db7045c2d8587e4d1bef9"
   end
 
   option "with-test", "Verify the build with make check (this may hang)"
@@ -34,6 +34,7 @@ class GnuSmalltalk < Formula
   depends_on "gawk" => :build
   depends_on "readline"
   depends_on "gnutls"
+  depends_on "gdbm"
   depends_on "libffi" => :recommended
   depends_on "libsigsegv" => :recommended
   depends_on "glew" => :optional
@@ -76,6 +77,6 @@ class GnuSmalltalk < Formula
     path = testpath/"test.gst"
     path.write "0 to: 9 do: [ :n | n display ]\n"
 
-    assert_match /0123456789/, shell_output("#{bin}/gst #{path}")
+    assert_match "0123456789", shell_output("#{bin}/gst #{path}")
   end
 end

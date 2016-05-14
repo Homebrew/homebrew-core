@@ -1,16 +1,19 @@
 class Winetricks < Formula
   desc "Download and install various runtime libraries"
   homepage "https://github.com/Winetricks/winetricks"
-  url "https://github.com/Winetricks/winetricks/archive/20160219.tar.gz"
-  sha256 "ce399bb8c644ff276d97b2e9f97190ab4bc27a07016ad75483e3c750b806bc1c"
+  url "https://github.com/Winetricks/winetricks/archive/20160425.tar.gz"
+  sha256 "0ddd2d896ab3803057f0eeec3afd6fd2f1b8ebb21e4ec0647c66e3cad0da1d0e"
   head "https://github.com/Winetricks/winetricks.git"
 
   bottle :unneeded
+
+  option "with-zenity", "Zenity is needed for GUI"
 
   depends_on "cabextract"
   depends_on "p7zip"
   depends_on "unrar"
   depends_on "wine"
+  depends_on "zenity" => [:optional, :run]
 
   def install
     bin.install "src/winetricks"

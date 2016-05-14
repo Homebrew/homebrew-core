@@ -1,13 +1,33 @@
 class GstPluginsBad < Formula
-  desc "GStreamer plugins (less supported, missing docs, not fully tested)"
+  desc "GStreamer plugins less supported, not fully tested"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.8.0.tar.xz"
-  sha256 "116376dd1085082422e0b21b0ecd3d1cb345c469c58e32463167d4675f4ca90e"
+
+  stable do
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.8.1.tar.xz"
+    sha256 "0bbd58f363734fc0c4a620b2d6fb01d427fdafdbda7b90b4e15d03b751ca40f5"
+
+    # corevideomemory.h and iosurfacememory.h are missing from the tarball
+    # should be removed after >1.8.1 is released
+    # https://bugzilla.gnome.org/show_bug.cgi?id=766163
+    # https://github.com/GStreamer/gst-plugins-bad/commit/43487482e5c5ec71867acb887d50b8c3f813cd63
+    resource "corevideomemory_header" do
+      url "https://raw.githubusercontent.com/GStreamer/gst-plugins-bad/1.8.1/sys/applemedia/corevideomemory.h"
+      sha256 "9d8c0fc6b310cb510a2af93a7614db80ec272ebd3dd943ecd47e65130b43aeea"
+    end
+
+    # same as above
+    # should be removed after >1.8.1 is released
+    resource "iosurfacememory_header" do
+      url "https://raw.githubusercontent.com/GStreamer/gst-plugins-bad/1.8.1/sys/applemedia/iosurfacememory.h"
+      sha256 "c617ff11e5abd8d71e97afe33d8e573685ab209a1a22184d56ad2cdb916d826c"
+    end
+  end
 
   bottle do
-    sha256 "ab943db09b262f4b5fa59152b43ea696ac63bceecdcebcf562803e35288e24f8" => :el_capitan
-    sha256 "5a4fe017192fae12728b3a87c989292c4bcf4af79b3dfdf0a60623795867253e" => :yosemite
-    sha256 "a7e795af9f43beff8caf6211171210a25927c622e492c6eae2c0e0e6b1de2e6d" => :mavericks
+    revision 1
+    sha256 "a1f52b1f2643bbe3329182bdbbb98a9e67d5670d215703355b904f8929757e7e" => :el_capitan
+    sha256 "c4d2e28320b7071391ab8afff92c420e0013f3693103a818006282ad6010283a" => :yosemite
+    sha256 "8639ee531a7a7150ac654f4d91dbb898f0ad60b81f5b9e86ebe07a4018e74a27" => :mavericks
   end
 
   head do
@@ -18,8 +38,6 @@ class GstPluginsBad < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-applemedia", "Build with applemedia support"
-
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gst-plugins-base"
@@ -29,6 +47,7 @@ class GstPluginsBad < Formula
   depends_on "faac" => :optional
   depends_on "faad2" => :optional
   depends_on "gnutls" => :optional
+  depends_on "gtk+3" => :optional
   depends_on "libdvdread" => :optional
   depends_on "libexif" => :optional
   depends_on "libmms" => :optional
@@ -48,7 +67,18 @@ class GstPluginsBad < Formula
       --disable-dependency-tracking
     ]
 
-    args << "--disable-apple_media" if build.without? "applemedia"
+    # upstream does not support Apple video for older SDKs
+    # error: use of undeclared identifier 'AVQueuedSampleBufferRenderingStatusFailed'
+    # https://github.com/Homebrew/legacy-homebrew/pull/35284
+    if MacOS.version <= :mavericks
+      args << "--disable-apple_media"
+    elsif !build.head?
+      # should be removed after >1.8.1 is released
+      resource("corevideomemory_header").stage buildpath/"sys/applemedia"
+      resource("iosurfacememory_header").stage buildpath/"sys/applemedia"
+    end
+
+    args << "--with-gtk=3.0" if build.with? "gtk+3"
 
     if build.head?
       ENV["NOCONFIGURE"] = "yes"
@@ -58,5 +88,11 @@ class GstPluginsBad < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    gst = Formula["gstreamer"].opt_bin/"gst-inspect-1.0"
+    output = shell_output("#{gst} --plugin dvbsuboverlay")
+    assert_match version.to_s, output
   end
 end

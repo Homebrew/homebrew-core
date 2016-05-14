@@ -1,6 +1,6 @@
 class JsonSpirit < Formula
   desc "C++ JSON parser/generator"
-  homepage "http://www.codeproject.com/KB/recipes/JSON_Spirit.aspx"
+  homepage "https://www.codeproject.com/Articles/20027/JSON-Spirit-A-C-JSON-Parser-Generator-Implemented"
   url "https://github.com/png85/json_spirit/archive/json_spirit-4.07.tar.gz"
   sha256 "3d53fac906261de1cf48db362436ca32b96547806ab6cce5ac195460ad732320"
 

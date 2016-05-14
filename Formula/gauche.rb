@@ -1,6 +1,6 @@
 class Gauche < Formula
   desc "R5RS Scheme implementation, developed to be a handy script interpreter"
-  homepage "http://practical-scheme.net/gauche/"
+  homepage "https://practical-scheme.net/gauche/"
   url "https://downloads.sourceforge.net/gauche/Gauche/Gauche-0.9.4.tgz"
   sha256 "7b18bcd70beaced1e004594be46c8cff95795318f6f5830dd2a8a700410fc149"
 
@@ -21,7 +21,7 @@ class Gauche < Formula
   end
 
   test do
-    output = shell_output("gosh -V")
-    assert_match /Gauche scheme shell, version #{version}/, output
+    output = shell_output("#{bin}/gosh -V")
+    assert_match "Gauche scheme shell, version #{version}", output
   end
 end

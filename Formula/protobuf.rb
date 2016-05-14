@@ -12,10 +12,10 @@ class Protobuf < Formula
   end
 
   bottle do
-    revision 4
-    sha256 "86b6d300868bb5e8579370e99808faa95303a4cd7878833163e083586d16be90" => :el_capitan
-    sha256 "af85f70b1f44156475d6235192760715484594c108f8d42e0d3dde2a8c38e5ca" => :yosemite
-    sha256 "9e07fe0d49634dbebfb7f55a68573f1ca2bb2cf5f6ab3bffc3fc451323900965" => :mavericks
+    revision 5
+    sha256 "b1a6c4508ec66e706929e3e34a5b57b3c881c5ac1e3d0fc7c4b3598f97902c7f" => :el_capitan
+    sha256 "5c21d50d1d3ca2dc2906bba174bfb4ec0d55c0f16bac5541abf3180e68f885c2" => :yosemite
+    sha256 "6f6a30044450bb3e2d420fea3435d0c84594b197ea0d3a54bca473e3b4c855b5" => :mavericks
   end
 
   devel do
@@ -51,23 +51,23 @@ class Protobuf < Formula
   end
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-18.7.1.tar.gz"
-    sha256 "aff36c95035e0b311eacb1434e3f7e85f5ccaad477773847e582978f8f45bd74"
+    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-20.9.0.tar.gz"
+    sha256 "2a360c782e067f84840315bcdcb5ed6c7c841cdedf6444f3232ab4a8b3204ac1"
   end
 
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.9.0.tar.gz"
-    sha256 "e24052411fc4fbd1f672635537c3fc2330d9481b18c0317695b46259512c91d5"
+    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   resource "python-dateutil" do
-    url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.4.1.tar.bz2"
-    sha256 "a9f62b12e28f11c732ad8e255721a9c7ab905f9479759491bc1f1e91de548d0f"
+    url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.5.2.tar.gz"
+    sha256 "063907ef47f6e187b8fe0728952e4effb587a34f2dc356888646f9b71fbb2e4b"
   end
 
   resource "pytz" do
-    url "https://pypi.python.org/packages/source/p/pytz/pytz-2014.10.tar.bz2"
-    sha256 "387f968fde793b142865802916561839f5591d8b4b14c941125eb0fca7e4e58d"
+    url "https://pypi.python.org/packages/source/p/pytz/pytz-2016.3.tar.bz2"
+    sha256 "c193dfa167ac32c8cb96f26cbcd92972591b22bda0bac3effdbdb04de6cc55d6"
   end
 
   resource "python-gflags" do

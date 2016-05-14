@@ -1,31 +1,15 @@
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
   homepage "http://liballeg.org/"
-
-  stable do
-    url "http://download.gna.org/allegro/allegro/5.0.11/allegro-5.0.11.tar.gz"
-    sha256 "49fe14c9571463ba08db4ff778d1fbb15e49f9c33bdada3ac8599e04330ea531"
-  end
+  url "http://download.gna.org/allegro/allegro/5.2.0/allegro-5.2.0.tar.gz"
+  sha256 "af5a69cd423d05189e92952633f9c0dd0ff3a061d91fbce62fb32c4bd87f9fd7"
+  head "https://github.com/liballeg/allegro5.git", :branch => "master"
 
   bottle do
     cellar :any
-    revision 2
-    sha256 "920e11cc6cbb00016fdd6626aae4a051b38bf97ce8702ffdc11fc567f192601f" => :el_capitan
-    sha256 "53bd9902195241cdddc873a3c9afa92beab73c234e1e337d376bcb8d4b3fd2c6" => :yosemite
-    sha256 "65a04aa3c0901264e54ca91f8982da085ea90bccabcb885fac054ba5219e19bd" => :mavericks
-  end
-
-  devel do
-    url "http://download.gna.org/allegro/allegro-unstable/5.1.13.1/allegro-5.1.13.1.tar.gz"
-    sha256 "c6e6265c3d661d46270971b7fbf7db34c1873af62882a9ea4025ca1298edf14d"
-
-    depends_on "theora" => :recommended
-  end
-
-  head do
-    url "https://github.com/liballeg/allegro5.git", :branch => "5.1"
-
-    depends_on "theora" => :recommended
+    sha256 "73bd8ce63b7d8788973abc736e27bb342dd03c7e9d33be241ae9847d483ee448" => :el_capitan
+    sha256 "00aaa7f60e21646bf62365e4f33b7bba1a24c4386a5410317e0a9b8452b4ac1b" => :yosemite
+    sha256 "eac2ca128fca38ab9b5636808a927ce4941859312592acc1b6b10dd7f8f88af3" => :mavericks
   end
 
   depends_on "cmake" => :build
@@ -33,10 +17,16 @@ class Allegro < Formula
   depends_on "freetype" => :recommended
   depends_on "flac" => :recommended
   depends_on "physfs" => :recommended
+  depends_on "libogg" => :recommended
+  depends_on "theora" => :recommended
+  depends_on "dumb" => :optional
 
   def install
+    args = std_cmake_args
+    args << "-DWANT_DOCS=OFF"
+    args << "-DWANT_MODAUDIO=1" if build.with?("dumb")
     mkdir "build" do
-      system "cmake", "..", "-DWANT_DOCS=OFF", *std_cmake_args
+      system "cmake", "..", *args
       system "make", "install"
     end
   end

@@ -3,13 +3,13 @@ class Codequery < Formula
   homepage "https://github.com/ruben2020/codequery"
   url "https://github.com/ruben2020/codequery/archive/v0.16.0.tar.gz"
   sha256 "4896435a8aa35dbdca43cba769aece9731f647ac9422a92c3209c2955d2e7101"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "0705afd5f032c11dec91fb317c721098f66ca5bc3193116d6a0848dd67be6b25" => :el_capitan
-    sha256 "622d9750948ae1eeef67c4f2824b3af800a671bec6a358ffef3019711991796b" => :yosemite
-    sha256 "ff3d941bf41fd5d9cb0947bddf3236846722a2ea6fdbb24e7f291c039a56140a" => :mavericks
-    sha256 "e5e30987a1a4ca4358f2dcb6848df9cfef4d8bfce49aa72831a22cbe6125d8a6" => :mountain_lion
+    sha256 "efcc6f507735a404c8699276c140bdf776ae894aa3e636597ba83000c1e8a55d" => :el_capitan
+    sha256 "840c8bfe119700cbc567d73d597876289892a615b1c25147b1d5a879d37c9625" => :yosemite
+    sha256 "283dac43dac39b2e03699cd80157cf24d8ff30d6186a0493bafc70d13b1f013e" => :mavericks
   end
 
   depends_on "cmake" => :build
@@ -26,8 +26,10 @@ class Codequery < Formula
   end
 
   test do
+    # Copy test files as `cqmakedb` gets confused if we just symlink them.
     test_files = (share/"test").children
-    testpath.install_symlink test_files
+    cp test_files, testpath
+
     system "#{bin}/cqmakedb", "-s", "./codequery.db",
                               "-c", "./cscope.out",
                               "-t", "./tags",

@@ -1,15 +1,14 @@
 class Qd < Formula
   desc "C++/Fortran-90 double-double and quad-double package"
-  homepage "http://crd.lbl.gov/~dhbailey/mpdist/"
-  url "http://crd.lbl.gov/~dhbailey/mpdist/qd-2.3.15.tar.gz"
-  sha256 "17d7ed554613e4c17ac18670ef49d114ba706a63d735d72032b63a8833771ff7"
+  homepage "https://crd.lbl.gov/~dhbailey/mpdist/"
+  url "https://crd.lbl.gov/~dhbailey/mpdist/qd-2.3.17.tar.gz"
+  sha256 "c58e276f6fcf5f2f442c525f3de42ea00004734572b29c74028bbda0ad81096d"
 
   bottle do
     cellar :any
-    sha256 "1a1d73437a489b1f95810cce3e2ce221890d79dad7648b5055c8dadddcff60e0" => :el_capitan
-    sha256 "b1257ee410b078479bbdcb863cd8bf8a865c67190992c19606433ff29e77852f" => :yosemite
-    sha256 "2014943651c31b17c8f1463fe4f68175b2c3065a9533d7cc09c7b07a9621c51b" => :mavericks
-    sha256 "380ce7cce036b99f6d203cf1f2e7d2b8ae27a78f668d933a4579ba4c887e69d8" => :mountain_lion
+    sha256 "02f2e11cae957f20fee46218a559368ac2c44cfdf6edd042c7430c3f5e3c5227" => :el_capitan
+    sha256 "bd53e8612f09d48ffcfd9d981717e94ae5c617c08c0e2b0e8250ea085a75dd57" => :yosemite
+    sha256 "35c7acae6a87c02301cde8c5d76b59bb696d9c3dd04970948c5fdbe3c1c6776e" => :mavericks
   end
 
   depends_on :fortran => :recommended

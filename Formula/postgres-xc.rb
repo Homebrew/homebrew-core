@@ -5,9 +5,10 @@ class PostgresXc < Formula
   sha256 "b467cbb7d562a8545645182958efd1608799ed4e04a9c3906211878d477b29c1"
 
   bottle do
-    sha256 "1a8e8d86ffbdce0287ed016a8fe98ab166097356c25db0796defb346d7bd77a6" => :el_capitan
-    sha256 "6a96a35995306b0f3f32a5d3f3b4527d9bced585f828cc9dbec1ef8c29eb8790" => :yosemite
-    sha256 "1f05cbe6cb40097c0e5fb7d3b62d32b5305dce2c364f018c830069e7ad1adcd9" => :mavericks
+    revision 1
+    sha256 "636beaed9fb5a7c632fa8d8185689d9747300cf59938e30240b0be8f492e746c" => :el_capitan
+    sha256 "10ad7c4fc4aea8d963a2020a52e51ba5d386ad6bb987156acd19c7d1ec211751" => :yosemite
+    sha256 "ebc0406afc7906bf6c3a7e8557a51254a37057eeb4db73b049fb5b9232f2709b" => :mavericks
   end
 
   option "with-dtrace", "Build with DTrace support"
@@ -32,7 +33,7 @@ class PostgresXc < Formula
   end
 
   # Fix PL/Python build: https://github.com/Homebrew/homebrew/issues/11162
-  # Fix uuid-ossp build issues: http://www.postgresql.org/message-id/05843630-E25D-442A-A6B0-5CA63622A400@likeness.com
+  # Fix uuid-ossp build issues: https://www.postgresql.org/message-id/05843630-E25D-442A-A6B0-5CA63622A400@likeness.com
   patch :DATA
 
   def install
@@ -106,7 +107,7 @@ class PostgresXc < Formula
 
         The configure script seems to prefer this version of Python over any others,
         so you may experience linker problems as described in:
-          http://osdir.com/ml/pgsql-general/2009-09/msg00160.html
+          https://osdir.com/ml/pgsql-general/2009-09/msg00160.html
 
         To fix this issue, you may need to either delete the version of Python
         shown above, or move it out of the way before brewing PostgreSQL.
@@ -120,7 +121,7 @@ class PostgresXc < Formula
 
   def caveats; <<-EOS.undent
     To get started with Postgres-XC, read the documents at
-      http://sourceforge.net/projects/postgres-xc/files/Publication/
+      https://sourceforge.net/projects/postgres-xc/files/Publication/
       http://postgres-xc.sourceforge.net/docs/1_0/tutorial-start.html
 
     For a first cluster, you may start with a single GTM (Global Transaction Manager),
@@ -160,7 +161,7 @@ class PostgresXc < Formula
     If you get the following error:
       FATAL:  could not create shared memory segment: Cannot allocate memory
     then you need to tweak your system's shared memory parameters:
-      http://www.postgresql.org/docs/current/static/kernel-resources.html#SYSVIPC
+      https://www.postgresql.org/docs/current/static/kernel-resources.html#SYSVIPC
     EOS
   end
 

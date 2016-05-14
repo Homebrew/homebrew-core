@@ -1,17 +1,16 @@
-class DBus < Formula
+class Dbus < Formula
   # releases: even (1.10.x) = stable, odd (1.11.x) = development
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
-  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.6.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.6.orig.tar.gz"
-  sha256 "b5fefa08a77edd76cd64d872db949eebc02cf6f3f8be82e4bbc641742af5d35f"
+  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.8.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.8.orig.tar.gz"
+  sha256 "baf3d22baa26d3bdd9edc587736cd5562196ce67996d65b82103bedbe1f0c014"
   head "https://anongit.freedesktop.org/git/dbus/dbus.git"
 
   bottle do
-    revision 1
-    sha256 "93ff1512d2ee0dfbf25e77822165c2a62439af86d63cd3811d325bc43195445b" => :el_capitan
-    sha256 "54729cfbe8f3f889012aa4cdd8565979c80ad6c8cc896cdbfe15b842e196f9b1" => :yosemite
-    sha256 "e50f1ade0a5871d9c0441fb129e74f45166e928d32fbf50972ada039917155a6" => :mavericks
+    sha256 "df858961c007d3f1bf7d2bc03856b4f1981b9c260837516da523e9d8162a3e46" => :el_capitan
+    sha256 "e3bd3fc1b0a8eee96eda8dedbb4f610ac8c8a4b303f05c0f31be6bff55d573cd" => :yosemite
+    sha256 "397cd888dcf08bd86c08e7c667663b896c65099c80ebe2901aa81050a9480541" => :mavericks
   end
 
   # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494

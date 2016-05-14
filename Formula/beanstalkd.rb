@@ -1,4 +1,4 @@
-class Beanstalk < Formula
+class Beanstalkd < Formula
   desc "Generic work queue originally designed to reduce web latency"
   homepage "https://kr.github.io/beanstalkd/"
   url "https://github.com/kr/beanstalkd/archive/v1.10.tar.gz"
@@ -6,10 +6,9 @@ class Beanstalk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "a1929c324475d482942447e24e4d6da0b9d47ecc7e028d5fa1e743892fe26cdf" => :el_capitan
-    sha256 "91b369d07c61cba1344e5d8d6718a1805aa49aacd777c166a6657f86cbaa3282" => :yosemite
-    sha256 "cc0f15232d47f0cb95acb6f2e252acb26cf978a564c3711c6d12995ad2598a7d" => :mavericks
+    sha256 "6665ec5a9a493341134eca920517547340b672513f96317620c5095db3db9499" => :el_capitan
+    sha256 "1772e0af60fe42a471437285f29a9c03b52cd8ddd805eaf3339a9d644c4d1bb5" => :yosemite
+    sha256 "3d0c54d751784dd7ecfe1b482f30067ade6e7f99ec21d1e87e8f850fe2582f37" => :mavericks
   end
 
   def install

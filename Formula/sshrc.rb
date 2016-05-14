@@ -1,8 +1,8 @@
 class Sshrc < Formula
   desc "Bring your .bashrc, .vimrc, etc. with you when you SSH"
   homepage "https://github.com/Russell91/sshrc"
-  url "https://github.com/Russell91/sshrc/archive/0.6.tar.gz"
-  sha256 "3ef0da05883921632b6faed391672080bfffc7efd238be4d128ef1b23c62949b"
+  url "https://github.com/Russell91/sshrc/archive/0.6.1.tar.gz"
+  sha256 "e849ff19319381548011a9bdf1e33abc6eba3dc6a910c4226e6981d75d5564dd"
 
   head "https://github.com/Russell91/sshrc.git"
 

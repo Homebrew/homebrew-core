@@ -1,14 +1,17 @@
 class Snow < Formula
   desc "Whitespace steganography: coded messages using whitespace"
   homepage "http://www.darkside.com.au/snow/"
-  url "http://www.darkside.com.au/snow/snow-20130616.tar.gz"
+  # The upstream website seems to be rejecting curl connections.
+  # Consistently returns "HTTP/1.1 406 Not Acceptable".
+  url "https://dl.bintray.com/homebrew/mirror/snow-20130616.tar.gz"
   sha256 "c0b71aa74ed628d121f81b1cd4ae07c2842c41cfbdf639b50291fc527c213865"
 
   bottle do
-    cellar :any
-    sha256 "cd83ae6c6d087bdae0a3116e254cd2ebc229bdd587f143d97e69777574e5ef76" => :yosemite
-    sha256 "d559c8e54528d7372872cb933eeb13288f3f3de3749f1b28e5862541012e49e3" => :mavericks
-    sha256 "79ada7520a8147bd49ed617a3d62f2e83ec7942e9ed32105e7cfb4bb1940e4e2" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "5121a5196c5ed20b7496a5190830bf2e49bdd18c3950fc6b1b8fabb239c9ef7c" => :el_capitan
+    sha256 "f4e949f65f946916a5f0b018a75e741336fed9e6434f1802d906e003e9da6b65" => :yosemite
+    sha256 "4d6bd4ca3de8ee330802495bdb04b0928afa21bb47a8fb1cde71d8a0c7919ada" => :mavericks
   end
 
   def install

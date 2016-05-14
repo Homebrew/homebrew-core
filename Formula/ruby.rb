@@ -3,14 +3,14 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
 
   stable do
-    url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.0.tar.bz2"
-    sha256 "ec7579eaba2e4c402a089dbc86c98e5f1f62507880fd800b9b34ca30166bfa5e"
+    url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.bz2"
+    sha256 "4a7c5f52f205203ea0328ca8e1963a7a88cf1f7f0e246f857d595b209eac0a4d"
 
     # Reverts an upstream commit which incorrectly tries to install headers
     # into SDKROOT, if defined
     # See https://bugs.ruby-lang.org/issues/11881
-    # The issue has been fixed on HEAD as of 1 Jan 2016, but there has not been
-    # a release since then, so the patch is still required for release builds
+    # The issue has been fixed on HEAD as of 1 Jan 2016, but has not been
+    # backported to the 2.3 branch yet and patch is still required.
     patch do
       url "https://raw.githubusercontent.com/Homebrew/patches/ba8cc6b88e6b7153ac37739e5a1a6bbbd8f43817/ruby/mkconfig.patch"
       sha256 "929c618f74e89a5e42d899a962d7d2e4af75716523193af42626884eaba1d765"
@@ -18,10 +18,9 @@ class Ruby < Formula
   end
 
   bottle do
-    revision 2
-    sha256 "a6dca59ac0c5f65b0855d556210d1e1ac3458e39a4350793daeadaa6ab83f037" => :el_capitan
-    sha256 "67fc5ce859ff0ee81c802e2a16081fb61af870987958c78a4c9847739e056dba" => :yosemite
-    sha256 "7a22a019656c870c3749f32cece8fe743cf2ecee51979f6a358a026fbc27fa20" => :mavericks
+    sha256 "e40f882e477f0e97c1650d952af368274f4df994ecca66db4b1146b56fbb4f24" => :el_capitan
+    sha256 "f0dfef7b1f179d4a3f39a8bc910938f0c838dc9a7c5399d3a5dbb2367bd8ddbf" => :yosemite
+    sha256 "6825cfee4ed3625d3b2c99d2de7ee22c59a70c0ea1efbf1883de966881ddf68b" => :mavericks
   end
 
   head do

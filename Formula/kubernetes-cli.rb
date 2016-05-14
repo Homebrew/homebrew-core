@@ -4,21 +4,21 @@ class KubernetesCli < Formula
   head "https://github.com/kubernetes/kubernetes.git"
 
   stable do
-    url "https://github.com/kubernetes/kubernetes/archive/v1.2.2.tar.gz"
-    sha256 "28337012d145a540e840a1da0d0271ca53a6e279c790ccc409a1b82e2f675b54"
+    url "https://github.com/kubernetes/kubernetes/archive/v1.2.4.tar.gz"
+    sha256 "20a3984f9c044f1a1da3088166b181f3c10380d3efd4bf3fbc64678fef279ced"
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1d60879b570097a916246e1d844d48abdbb7075dba9b6c348ee2c9e561380c93" => :el_capitan
-    sha256 "040c41bf2a5fee185235d3bb378e2778feb86b2f1b41d748c2ce31a589de8920" => :yosemite
-    sha256 "4ba883f62e16e65e8162e14dc46ba384c885b487bfe8e4274ae80525d8cc5cda" => :mavericks
+    sha256 "c2afb7e7b7fcc5f81d8b139c0bb6b6fc19a1269b8e0cf5fb5f956260554e00b3" => :el_capitan
+    sha256 "dbbf24d98fdee97b0675c6be8233ba5795c60508e8a2d02c9d3d254fc08517c5" => :yosemite
+    sha256 "f4178cff5b72929e176095cd4c734b3be6c77525028381da9793b02dcd474ccb" => :mavericks
   end
 
   devel do
-    url "https://github.com/kubernetes/kubernetes/archive/v1.3.0-alpha.2.tar.gz"
-    sha256 "a0d865e294a65cce54ab0ed3e5d04c574db4fca361e155f1e5f9f773ad699f5b"
-    version "1.3.0-alpha.2"
+    url "https://github.com/kubernetes/kubernetes/archive/v1.3.0-alpha.3.tar.gz"
+    sha256 "887bcb59fb517124b22ca683d1161aff571a86e42b48e89ba748629a4d259992"
+    version "1.3.0-alpha.3"
   end
 
   depends_on "go" => :build

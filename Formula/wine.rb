@@ -1,35 +1,28 @@
 # NOTE: When updating Wine, please check Wine-Gecko and Wine-Mono for updates
 # too:
-#  - http://wiki.winehq.org/Gecko
-#  - http://wiki.winehq.org/Mono
+#  - https://wiki.winehq.org/Gecko
+#  - https://wiki.winehq.org/Mono
 class Wine < Formula
-  desc "Wine Is Not an Emulator"
+  desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
   head "git://source.winehq.org/git/wine.git"
 
   stable do
-    url "https://dl.winehq.org/wine/source/1.8/wine-1.8.1.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.8.1.tar.bz2"
-    sha256 "149ad3daaf8593b36c5c061285df0ec2a25e20ea48c61323be91088c4d22ca97"
-
-    # Patch to fix MSI creation issues.
-    # https://bugs.winehq.org/show_bug.cgi?id=40129
-    patch do
-      url "https://bugs.winehq.org/attachment.cgi?id=53632"
-      sha256 "b9f98711cfe62228f5d84ab394394008ee10127bebcea7ef966d24127b466e0a"
-    end
+    url "https://dl.winehq.org/wine/source/1.8/wine-1.8.2.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.8.2.tar.bz2"
+    sha256 "51624fadf0145e87f0c01e7ce8524ea1e8d9d360c3e8a86e78cd26a52ce55a6f"
   end
 
   bottle do
-    sha256 "04203794850697cab2119e3a5ac31a77119067780b3f468e4f195279e77bd11c" => :el_capitan
-    sha256 "9c0a4c424a60284e7020df46301c7cb559a0bec187ba402fd221644fec7bedf3" => :yosemite
-    sha256 "2c332eb04f43ea0f7ae6d953a21be102348f156d6b2b407043914d6bf53e40dd" => :mavericks
+    sha256 "3d82248fcae5e2ca44f5105ef5d80cc808d7b4c93ce6c3cd37ca6a32dde0a75f" => :el_capitan
+    sha256 "a41b56ada2e8f6f2d263c6b344a26a045e8c9999d772c0efc06289de4e1fab8e" => :yosemite
+    sha256 "7ff82bfddeb5899f6995c68017aa998ad926db0e7252f3543a63c29df5e9a8bc" => :mavericks
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.8.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.8.tar.bz2"
-    sha256 "8bf34e8dd68e7187ed11fb06a55a76789073dda6ab2db6b84e194acf4f561a1d"
+    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.9.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.9.tar.bz2"
+    sha256 "a1e76fd9842d0fe385e930cd62e7193035a04ed11fe771d9cd6ee9b2ceda7b41"
   end
 
   # note that all wine dependencies should declare a --universal option in their formula,

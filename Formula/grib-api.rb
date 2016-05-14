@@ -1,13 +1,13 @@
 class GribApi < Formula
   desc "Encode and decode grib messages (editions 1 and 2)"
   homepage "https://software.ecmwf.int/wiki/display/GRIB/Home"
-  url "https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.14.7-Source.tar.gz"
-  sha256 "a42b9b0bd6bd2364897c13feafd09adba6a52e05866db61d2d7ab5ee0534f1f7"
+  url "https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.15.0-Source.tar.gz"
+  sha256 "733f48e2882141003b83fa165d1ea12cad3c0c56953bc30be1d5d4aa6a0e5913"
 
   bottle do
-    sha256 "225eccf4e850b18d3b46ac35d55618f0348256794473795ee0ca8a7fbc319ec2" => :el_capitan
-    sha256 "87a9bbc980bdd0e7b4aded23fe8e1063004f26141d1efc4a3b49ab2700c4a353" => :yosemite
-    sha256 "6a10d0d9a39fda3c06505fd0b8a3f2fded6652bb2ac4e11a80d2cbcd5eb5441c" => :mavericks
+    sha256 "73ba03c7dd6fb0374d9290844bba8ccc872fab0e9d6a863341b45c52da7993e9" => :el_capitan
+    sha256 "34c8ff3bcca753743676e9a0c96f50edcc7ea72d24765b48b386bc743ff1bddb" => :yosemite
+    sha256 "8f7350d08fc12db9f6f44174ac12a43666b02f168b1e58188a4fe40b31d68350" => :mavericks
   end
 
   option "with-static", "Build static instead of shared library."
@@ -16,6 +16,7 @@ class GribApi < Formula
   depends_on "cmake" => :build
   depends_on "jasper" => :recommended
   depends_on "openjpeg" => :optional
+  depends_on "libpng" => :optional
 
   # Fixes build errors in Lion
   # https://software.ecmwf.int/wiki/plugins/viewsource/viewpagesrc.action?pageId=12648475
@@ -25,6 +26,7 @@ class GribApi < Formula
     mkdir "build" do
       args = std_cmake_args
       args << "-DBUILD_SHARED_LIBS=OFF" if build.with? "static"
+      args << "-DPNG_PNG_INCLUDE_DIR=#{Formula["libpng"].opt_include}" << "-DENABLE_PNG=ON" if build.with? "libpng"
       system "cmake", "..", *args
       system "make", "install"
     end

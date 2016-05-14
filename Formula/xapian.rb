@@ -1,14 +1,33 @@
 class Xapian < Formula
   desc "C++ search engine library with many bindings"
-  homepage "http://xapian.org"
-  url "http://oligarchy.co.uk/xapian/1.2.22/xapian-core-1.2.22.tar.xz"
-  sha256 "269b87ca3faf79d444e8bb82ed58a96f1955008d7702f9966dec68608588527f"
+  homepage "https://xapian.org/"
+
+  stable do
+    url "http://oligarchy.co.uk/xapian/1.2.23/xapian-core-1.2.23.tar.xz"
+    sha256 "9783aeae4e1a6d06e5636b270db4b458a7d0804a31da158269f57fa5dc86347d"
+
+    resource "bindings" do
+      url "http://oligarchy.co.uk/xapian/1.2.23/xapian-bindings-1.2.23.tar.xz"
+      sha256 "19b4b56c74863c51733d8c2567272ef7f004b898cf44016711ae25bc524b2215"
+    end
+  end
 
   bottle do
     cellar :any
-    sha256 "b267353a70be8ff9891d3d4d24d95eb31d5153ca67ec8abecb62b65f18e9af90" => :el_capitan
-    sha256 "97538ad4b81b4166eac4bb266ff49c6d4e0db702d674596bdfe606ddc58ec646" => :yosemite
-    sha256 "996605fec788d00abcc5c3d2be02f8cc4f06142329188a516e33236ea5a49ba3" => :mavericks
+    sha256 "08232fd96069f4d80cf947a22d40a729bb9a65169e0c60eb59091041da987722" => :el_capitan
+    sha256 "a076ee6fbab9f6eb3171171d9d54d68f2b6ffcabf88016d028b16bc68cfeafdf" => :yosemite
+    sha256 "f881021eee674478fbd70179414d27e502a1de2751e8d4454f933551052b06fb" => :mavericks
+  end
+
+  devel do
+    url "http://oligarchy.co.uk/xapian/1.3.5/xapian-core-1.3.5.tar.xz"
+    sha256 "3ad99ff4e91a4ff997fd576377e7c8f0134ceb3695c49e8f7d78ebf3c19b70ad"
+    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/x/xapian-core/xapian-core_1.3.5.orig.tar.xz"
+
+    resource "bindings" do
+      url "http://oligarchy.co.uk/xapian/1.3.5/xapian-bindings-1.3.5.tar.xz"
+      sha256 "4b5b9089d39b2a725651349127f64d24fe66db46572bdd92f39b8483bca400c3"
+    end
   end
 
   option "with-java", "Java bindings"
@@ -20,11 +39,6 @@ class Xapian < Formula
   deprecated_option "ruby" => "with-ruby"
 
   depends_on :python => :optional
-
-  resource "bindings" do
-    url "http://oligarchy.co.uk/xapian/1.2.22/xapian-bindings-1.2.22.tar.xz"
-    sha256 "b15ca7984980a1d2aedd3378648ef5f3889cb39a047bac1522a8e5d04f0a8557"
-  end
 
   skip_clean :la
 
@@ -94,6 +108,7 @@ class Xapian < Formula
   end
 
   test do
-    system bin/"xapian-config", "--libs"
+    suffix = devel? ? "-1.3" : ""
+    system bin/"xapian-config#{suffix}", "--libs"
   end
 end

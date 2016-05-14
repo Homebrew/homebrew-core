@@ -4,19 +4,20 @@ class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
   url "https://github.com/influxdata/kapacitor.git",
-    :tag => "v0.12.0",
-    :revision => "32d4d1b8f688e2d310f4e9413b3fe6ac3ef73c70"
+    :tag => "0.13.0",
+    :revision => "e64b52e05dd7c888fe0549a06db3cac118a63dec"
 
   head "https://github.com/influxdata/kapacitor.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d53415ad2d106dd8e51a3a63b33a3bb35aae680145bd7d4708f5d32100dbcae2" => :el_capitan
-    sha256 "a80e7aebfa3b896aa06136d7f373cc0302b6e7ea22c81d084a5eb79c2caf2610" => :yosemite
-    sha256 "eb5b3ece7565870d1e2a9d18a35da48e12a0b1a0ac88d062fa3b39dc47451005" => :mavericks
+    sha256 "8a5e6bf031d32dcecf9c95a6bb7f0ee5a3db23516c6d05ee5548369bcb10f841" => :el_capitan
+    sha256 "2d7816d69316e2f57958e03560787ac0b0ec99fcdff754f4f304a07733c6e334" => :yosemite
+    sha256 "13a79d4136850f6b09a69342db955b8369fc9890c2dc292a201e816b69a85253" => :mavericks
   end
 
   depends_on "go" => :build
+  depends_on "influxdb"
 
   go_resource "github.com/BurntSushi/toml" do
     url "https://github.com/BurntSushi/toml.git",
@@ -187,10 +188,11 @@ class Kapacitor < Formula
     (testpath/"config.toml").write shell_output("kapacitord config")
 
     inreplace testpath/"config.toml" do |s|
-      s.gsub! /\[\[influxdb\]\]\n  enabled = true/m, "[[influxdb]]\n  enabled = false"
-      s.gsub! %r{data_dir = "/.*/.kapacitor}, "data_dir = \"#{testpath}/kapacitor"
+      s.gsub! /disable-subscriptions = false/, "disable-subscriptions = true"
+      s.gsub! %r{data_dir = "/.*/.kapacitor"}, "data_dir = \"#{testpath}/kapacitor\""
       s.gsub! %r{/.*/.kapacitor/replay}, "#{testpath}/kapacitor/replay"
       s.gsub! %r{/.*/.kapacitor/tasks}, "#{testpath}/kapacitor/tasks"
+      s.gsub! %r{/.*/.kapacitor/kapacitor.db}, "#{testpath}/kapacitor/kapacitor.db"
     end
 
     pid = fork do
@@ -199,7 +201,7 @@ class Kapacitor < Formula
     sleep 2
 
     begin
-      shell_output("#{bin}/kapacitor level info")
+      shell_output("#{bin}/kapacitor list tasks")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)

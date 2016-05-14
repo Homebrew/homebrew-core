@@ -84,7 +84,7 @@ class Disco < Formula
     <<-EOS.undent
       Please copy #{etc}/disco/settings.py to ~/.disco and edit it if necessary. The
       DDFS_*_REPLICA settings have been set to 1 assuming a single-machine install.
-      Please see http://disco.readthedocs.org/en/latest/start/install.html for further
+      Please see https://disco.readthedocs.org/en/latest/start/install.html for further
       instructions.
     EOS
   end

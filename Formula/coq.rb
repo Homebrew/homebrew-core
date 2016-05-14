@@ -13,15 +13,16 @@ end
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://coq.inria.fr/distrib/V8.5/files/coq-8.5.tar.gz"
-  sha256 "89a92fb8b91e7cb0797d41c87cd13e4b63bee76c32a6dcc3d7c8055ca6a9ae3d"
+  url "https://coq.inria.fr/distrib/8.5pl1/files/coq-8.5pl1.tar.gz"
+  version "8.5pl1"
+  sha256 "4bfa75b10ae1be61301d0f7bc087b7c24e0b8bd025dd358c75709ac04ddd5df0"
 
   head "git://scm.gforge.inria.fr/coq/coq.git", :branch => "trunk"
 
   bottle do
-    sha256 "3d632ef3f1412b32893693c169f599c42e0e140bea0ce088895c05b6b3bcdabe" => :el_capitan
-    sha256 "5675dbdee88a87e5e2200a82f51aac37e7410657ef9c0e28b8551f45d7ecc787" => :yosemite
-    sha256 "5bbf0f5893b9d96e13ba123d9c63c2c8e83ed1e6f2e283f53dfc63cc591e745f" => :mavericks
+    sha256 "e706d2948ccd15a6e18457eb67bb63d8d53455f7c1f990a204009e1047a1bbbf" => :el_capitan
+    sha256 "4e8fde277f24161668a9de85d257b86b70d3cf865f4ba12763830ef0d5e95e29" => :yosemite
+    sha256 "3991916a01a65169945183ad301995080da96e52869e539f051d66b93c3969bf" => :mavericks
   end
 
   depends_on Camlp5TransitionalModeRequirement
@@ -47,5 +48,22 @@ class Coq < Formula
       (setq auto-mode-alist (cons '("\\\\.v$" . coq-mode) auto-mode-alist))
       (autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
     EOS
+  end
+
+  test do
+    (testpath/"testing.v").write <<-EOS.undent
+      Inductive nat : Set :=
+      | O : nat
+      | S : nat -> nat.
+      Fixpoint add (n m: nat) : nat :=
+        match n with
+        | O => m
+        | S n' => S (add n' m)
+        end.
+      Lemma add_O_r : forall (n: nat), add n O = n.
+      intros n; induction n; simpl; auto; rewrite IHn; auto.
+      Qed.
+    EOS
+    system("#{bin}/coqc", "#{testpath}/testing.v")
   end
 end

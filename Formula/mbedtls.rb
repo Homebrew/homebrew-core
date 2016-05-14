@@ -7,17 +7,22 @@ class Mbedtls < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "154cf41b17b358385fe502306695022a32bb8ae014c9f549281684475ba827bb" => :el_capitan
-    sha256 "6e4ae0210116bae3d4b9d516d48213f894b24e6d8d6ba9cb97d681fa435d241a" => :yosemite
-    sha256 "61e46dded8bda3817a6d61701b9095b2eca26fabd5dbccb2c125a24f989c66eb" => :mavericks
+    revision 1
+    sha256 "20f67e11cae0c356b5c33dac6fb3b9a17a3e62537a826233a8135ca07e62257d" => :el_capitan
+    sha256 "cc267afb274b37c6f5edf6b95118e92a98c7f0bb900cf83bd4eb10e3e76672f1" => :yosemite
+    sha256 "52b4b8b60e962562ffb165c35f5881f731c21a43cc56110eb9d92abe2ac96bc2" => :mavericks
   end
 
   depends_on "cmake" => :build
 
   def install
-    # "Comment this macro to disable support for SSL 3.0"
     inreplace "include/mbedtls/config.h" do |s|
+      # disable support for SSL 3.0
       s.gsub! "#define MBEDTLS_SSL_PROTO_SSL3", "//#define MBEDTLS_SSL_PROTO_SSL3"
+      # enable pthread mutexes
+      s.gsub! "//#define MBEDTLS_THREADING_PTHREAD", "#define MBEDTLS_THREADING_PTHREAD"
+      # allow use of mutexes within mbed TLS
+      s.gsub! "//#define MBEDTLS_THREADING_C", "#define MBEDTLS_THREADING_C"
     end
 
     system "cmake", *std_cmake_args

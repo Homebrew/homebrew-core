@@ -4,7 +4,7 @@ class Shellcheck < Formula
   include Language::Haskell::Cabal
 
   desc "Static analysis and lint tool, for (ba)sh scripts"
-  homepage "http://www.shellcheck.net"
+  homepage "https://www.shellcheck.net/"
   url "https://github.com/koalaman/shellcheck/archive/v0.4.3.tar.gz"
   sha256 "229a3bd5e38c4da2ce7ddf43c06ca388454e0406f3dbfc44865208b6b334109e"
   head "https://github.com/koalaman/shellcheck.git"

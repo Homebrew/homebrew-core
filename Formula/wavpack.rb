@@ -1,14 +1,14 @@
 class Wavpack < Formula
   desc "Hybrid lossless audio compression"
   homepage "http://www.wavpack.com/"
-  url "http://www.wavpack.com/wavpack-4.75.2.tar.bz2"
-  sha256 "7d31b34166c33c3109b45c6e4579b472fd05e3ee8ec6d728352961c5cdd1d6b0"
+  url "http://www.wavpack.com/wavpack-4.80.0.tar.bz2"
+  sha256 "79182ea75f7bd1ca931ed230062b435fde4a4c2e0dbcad048007bd1ef1e66be9"
 
   bottle do
     cellar :any
-    sha256 "2558e5df140a20b53ed4b8022844803f7f3c31902ea484d1b0fa5817f93342b4" => :el_capitan
-    sha256 "62bbb3a5c1c0f30e8b121791d58c67c55bf43f88aa4b68b3cbd53739abad1491" => :yosemite
-    sha256 "fd1a0d8e4de7612abc11f1f84620290f2606e0797872a368bda943bc065b3d44" => :mavericks
+    sha256 "09cf095c693a86fc3dc0d0c6f07c11d0987c68b885c92b4f0755cf16b86ea315" => :el_capitan
+    sha256 "24b04bf3efb68226dad7fecd7dec17cde6aafc39ba7ed24ea5730db02bb600e8" => :yosemite
+    sha256 "1b334fd19ec16882bbd5170c5d9d5abbb5e8dee6f78965e572d909f198dac5ef" => :mavericks
   end
 
   head do

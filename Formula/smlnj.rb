@@ -130,7 +130,7 @@ class Smlnj < Formula
   # Pings `unname -r` to determine OS X version & panics that
   # it doesn't recognise El Capitan. Already fixed upstream, but
   # patch doesn't apply cleanly from trunk.
-  # http://smlnj-gforge.cs.uchicago.edu/scm/viewvc.php?view=rev&root=smlnj&revision=4073
+  # https://smlnj-gforge.cs.uchicago.edu/scm/viewvc.php?view=rev&root=smlnj&revision=4073
   patch :DATA
 
   def install

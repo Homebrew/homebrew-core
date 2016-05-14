@@ -2,13 +2,14 @@ class Mailutils < Formula
   desc "Swiss Army knife of email handling"
   homepage "http://mailutils.org/"
   url "http://ftpmirror.gnu.org/mailutils/mailutils-2.2.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/mailutils/mailutils-2.2.tar.gz"
   sha256 "97591debcd32ac1f4c4d16eaa8f21690d9dfefcb79e29bd293871d57c4a5e05d"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "fccedf57a8a126a59070d2038ff46b5fc12ef98a2e5d4a670d43360258904471" => :el_capitan
-    sha256 "2b427bbb6d4043c70441b037916ca60a0abb2bdbc78c255162d63f87bbdce86c" => :yosemite
-    sha256 "79fb430c09ce7803450a55d8be2185d62bb1c3b6bd880ff76826928a067a9453" => :mavericks
+    sha256 "c7c974534ca6db72c3516a777763c94080b3a45d867b393a048d4f681edce5d6" => :el_capitan
+    sha256 "e7bc5e495d073e9a9630524c1a77408e530cc2659ff79ea63354b2b7bf168231" => :yosemite
+    sha256 "1568cfc945f5ec8c06936b583aab81966bff79fc78fb064cdb8788f4c8c82dac" => :mavericks
   end
 
   depends_on "gnutls"

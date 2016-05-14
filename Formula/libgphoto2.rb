@@ -1,13 +1,13 @@
 class Libgphoto2 < Formula
   desc "Gphoto2 digital camera library"
   homepage "http://www.gphoto.org/proj/libgphoto2/"
-  url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.9/libgphoto2-2.5.9.tar.bz2"
-  sha256 "cdb0e8e3a93417eb25892c4b03e64c07e93488ce05072edb62e1b70ff3291f32"
+  url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.10/libgphoto2-2.5.10.tar.bz2"
+  sha256 "8d8668d432ba595c7466442aec2cf553bdf8782ec171291dbc65717c633a4ef2"
 
   bottle do
-    sha256 "e2d8ad91607270b43671899448beb926b98e639f4a61892eb2756743a5d74d0e" => :el_capitan
-    sha256 "7ffab7c5114e341807a93656bca4909dba424ed847ebb939be5d1eb46bdeb6eb" => :yosemite
-    sha256 "2e444b4547330228c78e30112692d79d54f3786c99a015328ba9b039dfcc79c2" => :mavericks
+    sha256 "576dc15066fd0a849abac37194d820d4c61c90e00341050e239efa0d81e1be0f" => :el_capitan
+    sha256 "d8bf8c3b22dfe3c1443556a6f2a4858038ecc9b37e64c7f99df4697b38927f4e" => :yosemite
+    sha256 "ede9214875529506ee8a3537c14a5fa4685c90628d8a8241172f61cad3f48f99" => :mavericks
   end
 
   head do
@@ -34,5 +34,17 @@ class Libgphoto2 < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <gphoto2/gphoto2-camera.h>
+      int main(void) {
+        Camera *camera;
+        return gp_camera_new(&camera);
+      }
+    EOS
+    system ENV.cc, "test.c", "-lgphoto2", "-o", "test"
+    system "./test"
   end
 end

@@ -1,6 +1,6 @@
 class GlobusToolkit < Formula
   desc "Toolkit used for building grids"
-  homepage "http://www.globus.org/toolkit/"
+  homepage "https://www.globus.org/toolkit/"
   # Note: Stable distributions have an even minor version number (e.g. 5.0.3)
   url "http://toolkit.globus.org/ftppub/gt6/installers/src/globus_toolkit-6.0.1443479657.tar.gz"
   sha256 "1aebd5599af535c5978bd085c5614f0f28cbd1fd724a53072a30e74a07597cc5"

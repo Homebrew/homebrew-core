@@ -1,13 +1,13 @@
 class Siege < Formula
   desc "HTTP regression testing and benchmarking utility"
   homepage "https://www.joedog.org/siege-home/"
-  url "http://download.joedog.org/siege/siege-3.1.3.tar.gz"
-  sha256 "4d3932ea23cbf6d1d22df7c7ee6e7a6bc9f591b604ab582393eeb62f393f5a33"
+  url "http://download.joedog.org/siege/siege-4.0.1.tar.gz"
+  sha256 "fddd7225084ec7116e4e3401946e02d780d60d0479058bf8f090fea389992837"
 
   bottle do
-    sha256 "b6fd654eff78d2b326e8308f3c779300d2dbf034853d13dddeee26e36388497a" => :el_capitan
-    sha256 "1d794a569a64cc6158fabe7bf8940db6aa0f6153d50b2e71457bfc13e4918a24" => :yosemite
-    sha256 "a78857a335916fafa6bf143d428291dcff7057e061a99bc154aee35fd17b13e9" => :mavericks
+    sha256 "e0cfb14f0f2dad3fb3514bc4ceeae6ee137797dcd4f030f000464079a189bf1e" => :el_capitan
+    sha256 "559f879db66339deee11d3c56d9901ba4f234369c50ffb5f4e63555de4ca4f05" => :yosemite
+    sha256 "2dcd1922340050f44e0f6f5c145d3f9932db5058fd1743bf6af8864026fab88e" => :mavericks
   end
 
   depends_on "openssl"

@@ -3,38 +3,37 @@ require "language/go"
 class Peco < Formula
   desc "Simplistic interactive filtering tool"
   homepage "https://github.com/peco/peco"
-  url "https://github.com/peco/peco/archive/v0.3.5.tar.gz"
-  sha256 "416d2547b639b11563d0bd910fa043e532f25fcc40de3ec0d7bec4943747fff1"
-
+  url "https://github.com/peco/peco/archive/v0.3.6.tar.gz"
+  sha256 "edc1ec186a0f439ae84071c9e00f68fec6f8fe49efc9b6bb10462e72f7286b23"
   head "https://github.com/peco/peco.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3f42983ae2cdb2f8f4c583becbad5c708b95a9e9fbf474d80ee2abf813e16cd7" => :el_capitan
-    sha256 "f327e9d88ef8f10a405b6296868b5782743d047b4b8df7b25647ad0b92c07062" => :yosemite
-    sha256 "f341d17b7831b69486f632ed0b762610d47de56d364d4cf31e69ef49c67cc9ca" => :mavericks
+    sha256 "c8c03e514e10c5d2c6824838a9d8777624f2295ac9d8fc7cca92a5298dcb0b22" => :el_capitan
+    sha256 "5b8320b037471270db0c9c1a866c15d00225a2b1b147b74e4bdbb3e696e136db" => :yosemite
+    sha256 "ca37bbcdaee4c45e850872b7835128e8ca1e675684e8e5e17d48b790cddca1d0" => :mavericks
   end
 
   depends_on "go" => :build
 
   go_resource "github.com/google/btree" do
     url "https://github.com/google/btree.git",
-      :revision => "cc6329d4279e3f025a53a83c397d2339b5705c45"
+    :revision => "00edb8c3163323f673bbe3c04afd9429eb12117d"
   end
 
   go_resource "github.com/jessevdk/go-flags" do
     url "https://github.com/jessevdk/go-flags.git",
-      :revision => "fc93116606d0a71d7e9de0ad5734fdb4b8eae834"
+    :revision => "6b9493b3cb60367edd942144879646604089e3f7"
   end
 
   go_resource "github.com/mattn/go-runewidth" do
     url "https://github.com/mattn/go-runewidth.git",
-      :revision => "12e0ff74603c9a3209d8bf84f8ab349fe1ad9477"
+    :revision => "d6bea18f789704b5f83375793155289da36a3c7f"
   end
 
   go_resource "github.com/nsf/termbox-go" do
     url "https://github.com/nsf/termbox-go.git",
-      :revision => "62033d80b58736ea31beaf43348f5147913af30e"
+    :revision => "362329b0aa6447eadd52edd8d660ec1dff470295"
   end
 
   def install

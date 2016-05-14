@@ -3,38 +3,40 @@ require "language/go"
 class Gost < Formula
   desc "Simple command-line utility for easily creating Gists for Github."
   homepage "https://github.com/wilhelm-murdoch/gost"
-  url "https://github.com/wilhelm-murdoch/gost/archive/1.1.1.tar.gz"
-  sha256 "6e932ad58c9147a6d08528f16d5e496441e577a6175ddca10fbaffcd077a080a"
+  url "https://github.com/wilhelm-murdoch/gost/archive/1.2.0.tar.gz"
+  sha256 "2dfe960f13a4dc6abb1148a28083d474f8caf63d5cf756558bf94772266f8512"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b1b473716ce46ea5dc6360b2721df68040c676a53fb9b09b819a480f5620b831" => :el_capitan
-    sha256 "556404ce4c4fd2b7fe78df8d059e1185bbb793343c523b246d08fd21227e0bee" => :yosemite
-    sha256 "85283889c48ec714015969840e83cdbcef0dc8acc9558744ba969ddcb0b7c1bd" => :mavericks
-    sha256 "88c83dde87a0890a85e478ceeffaa0df7865e4761cb99387b0e1367f46618650" => :mountain_lion
+    sha256 "42a60235f9f31d12b59d33867b4f74ac4e4fa979fd92f7066bd5720da2eb607b" => :el_capitan
+    sha256 "7acb5fcbd1230614a630cb4c0fefaef4a40b66dba633e067a641c17a4d444db2" => :yosemite
+    sha256 "7cc1cf98d45f0cfd43e0d822d60430670e58dbd40f221033b2a446f0f03bb681" => :mavericks
   end
 
   depends_on "go" => :build
-  depends_on :hg => :build
 
-  go_resource "code.google.com/p/goauth2" do
-    url "https://code.google.com/p/goauth2/", :revision => "afe77d958c70", :using => :hg
+  go_resource "golang.org/x/oauth2" do
+    url "https://go.googlesource.com/oauth2.git", :revision => "8434495902bd0900797016affe4ca35c55babb3f"
+  end
+
+  go_resource "golang.org/x/net" do
+    url "https://go.googlesource.com/net.git", :revision => "35ec611a141ee705590b9eb64d673f9e6dfeb1ac"
   end
 
   go_resource "github.com/atotto/clipboard" do
-    url "https://github.com/atotto/clipboard.git", :revision => "dfde2702d61cc95071f9def0fe9fc47d43136d6d"
+    url "https://github.com/atotto/clipboard.git", :revision => "bb272b845f1112e10117e3e45ce39f690c0001ad"
   end
 
   go_resource "github.com/docopt/docopt.go" do
-    url "https://github.com/docopt/docopt.go.git", :revision => "7fb3e64728058525f5940d913d0b854474dcd66a"
+    url "https://github.com/docopt/docopt.go.git", :revision => "784ddc588536785e7299f7272f39101f7faccc3f"
   end
 
   go_resource "github.com/google/go-github" do
-    url "https://github.com/google/go-github.git", :revision => "62a50bb14ba982864a5f54e344d0e05764fb41b1"
+    url "https://github.com/google/go-github.git", :revision => "842c551fdeae14c97c04ef490f601ae4d849a00c"
   end
 
   go_resource "github.com/google/go-querystring" do
-    url "https://github.com/google/go-querystring.git", :revision => "d8840cbb2baa915f4836edda4750050a2c0b7aea"
+    url "https://github.com/google/go-querystring.git", :revision => "9235644dd9e52eeae6fa48efd539fdc351a0af53"
   end
 
   def install

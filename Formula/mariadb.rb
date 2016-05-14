@@ -1,17 +1,17 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.13/source/mariadb-10.1.13.tar.gz"
-  sha256 "21e1c7da1421146c69f5e8077333aaac06778a87046a1943ee4f449fbcefc00d"
+  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.14/source/mariadb-10.1.14.tar.gz"
+  sha256 "18e71974a059a268a3f28281599607344d548714ade823d575576121f76ada13"
 
   bottle do
-    sha256 "8ed95893c2972e42f36ca839d1d3ede415e534de180149773addbaa06f3807c9" => :el_capitan
-    sha256 "ced80e12a86d96195dc70d1da078eb6917f0933688f3241218787850a6a8e1df" => :yosemite
-    sha256 "01a7918d7d2d6f3346defe4ed61dc1b661a1e70df908389de33b0df3e6935329" => :mavericks
+    sha256 "7d1ec840153e4921f2db498afba1809aa117ea51ca154fc43b384704f88fb773" => :el_capitan
+    sha256 "2b82f99cb3e318906b358157f76e2474ec2b68386f5d6fb4738d666bf75c406b" => :yosemite
+    sha256 "fa09ca1ec1a6557099eafe2b0955a78ec4841a795194400b321914f84aab99fe" => :mavericks
   end
 
   option :universal
-  option "with-tests", "Keep test when installing"
+  option "with-test", "Keep test when installing"
   option "with-bench", "Keep benchmark app when installing"
   option "with-embedded", "Build the embedded server"
   option "with-libedit", "Compile with editline wrapper instead of readline"
@@ -20,6 +20,7 @@ class Mariadb < Formula
   option "with-local-infile", "Build with local infile loading support"
 
   deprecated_option "enable-local-infile" => "with-local-infile"
+  deprecated_option "with-tests" => "with-test"
 
   depends_on "cmake" => :build
   depends_on "pidof" unless MacOS.version >= :mountain_lion
@@ -74,7 +75,7 @@ class Mariadb < Formula
     # disable TokuDB, which is currently not supported on Mac OS X
     args << "-DPLUGIN_TOKUDB=NO"
 
-    args << "-DWITH_UNIT_TESTS=OFF" if build.without? "tests"
+    args << "-DWITH_UNIT_TESTS=OFF" if build.without? "test"
 
     # Build the embedded server
     args << "-DWITH_EMBEDDED_SERVER=ON" if build.with? "embedded"
@@ -112,7 +113,7 @@ class Mariadb < Formula
     # See: https://github.com/Homebrew/homebrew/issues/4975
     rm_rf prefix+"data"
 
-    (prefix+"mysql-test").rmtree if build.without? "tests" # save 121MB!
+    (prefix+"mysql-test").rmtree if build.without? "test" # save 121MB!
     (prefix+"sql-bench").rmtree if build.without? "bench"
 
     # Link the setup script into bin
@@ -189,7 +190,7 @@ class Mariadb < Formula
   end
 
   test do
-    if build.with? "tests"
+    if build.with? "test"
       (prefix+"mysql-test").cd do
         system "./mysql-test-run.pl", "status"
       end

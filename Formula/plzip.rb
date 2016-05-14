@@ -12,15 +12,19 @@ class Plzip < Formula
     sha256 "7e8f6bbcb52876b808fc247a46e9f189b1e8a04f829717dc27979d1393f7a15a" => :mountain_lion
   end
 
+  devel do
+    url "http://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.5-rc2.tar.lz"
+    sha256 "3b4ba622875f33d124ddf79f13ad3ff0fb977fec078f1fd6e88f0432515472f5"
+  end
+
   depends_on "lzlib"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "CXX=#{ENV.cxx}",
-                          "CXXFLAGS=#{ENV.cflags}"
+    system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "check"
-    system "make", "-j1", "install"
+    ENV.deparallelize
+    system "make", "install"
   end
 
   test do

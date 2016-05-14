@@ -1,6 +1,6 @@
 class Frei0r < Formula
   desc "Minimalistic plugin API for video effects"
-  homepage "http://frei0r.dyne.org"
+  homepage "https://frei0r.dyne.org/"
   url "https://files.dyne.org/frei0r/releases/frei0r-plugins-1.4.tar.gz"
   sha256 "8470fcabde9f341b729be3be16385ffc8383d6f3328213907a43851b6e83be57"
 
@@ -13,8 +13,12 @@ class Frei0r < Formula
   end
 
   depends_on "autoconf" => :build
+  depends_on "pkg-config" => :build
+  depends_on "cairo" => :optional
+  depends_on "homebrew/science/opencv" => :optional
 
   def install
+    ENV["CAIRO_CFLAGS"] = "-I#{Formula["cairo"].opt_include}/cairo" if build.with? "cairo"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

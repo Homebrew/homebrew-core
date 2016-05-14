@@ -1,25 +1,25 @@
+require "language/node"
+
 class GenerateJsonSchema < Formula
   desc "Generate a JSON Schema from Sample JSON"
   homepage "https://github.com/Nijikokun/generate-schema"
-  url "https://github.com/Nijikokun/generate-schema/archive/v2.1.1.tar.gz"
-  sha256 "bf43a7e616419876293e7de738dece27b3deb719cf5e8cc99bb309a5fb179af0"
+  url "https://registry.npmjs.org/generate-schema/-/generate-schema-2.1.1.tgz"
+  sha256 "8f30beb978627b39831eaabf27df9df6e075b0bcc27e6543fab7582f3f30857d"
 
   head "https://github.com/Nijikokun/generate-schema.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "04ed1478348610996f3def3a546d6a99b844100bb85f9b74d246f85f2f424b4c" => :el_capitan
-    sha256 "54ddac9d0e01ef646f541ecbd5c8adfd734aec0f2e623ed97b504c79fa228fea" => :yosemite
-    sha256 "de5e23cd917d04cdd74642c905b67a65515b846138e48bb34e7a6b7eb8774a79" => :mavericks
+    revision 1
+    sha256 "d573136e4025aa6ecdad3ca73bfc53307ef6ab212bd8307387a7ff9763db14ed" => :el_capitan
+    sha256 "ac72c27b5ae36a0c40ba48b21d590519175395bd903ca7a3c46e4af840daa449" => :yosemite
+    sha256 "8fc1b18f001ea586ce7f3e5d5c021ad76be4cb8010688a783a1c80b22e3e3167" => :mavericks
   end
 
   depends_on "node"
 
   def install
-    ENV.prepend_path "PATH", "#{Formula["node"].opt_libexec}/npm/bin"
-
-    system "npm", "install"
-    libexec.install Dir["*"]
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

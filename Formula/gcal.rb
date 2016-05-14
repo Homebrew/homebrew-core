@@ -7,15 +7,17 @@ class Gcal < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "32c335802cde011da010be16d71198be297309c6b9fefe0a6940271e037dceb1" => :el_capitan
-    sha256 "e7f8fa3ae065b6ba9f1b231228dd498a7154098433249c565165da3713870ece" => :yosemite
-    sha256 "3b6cef64c1612a4e2858d8562972ba8aaf382968a4d92a790e814d581750807a" => :mavericks
+    revision 2
+    sha256 "fbe42347ddde707d847d215350a19d2a0356e54614b289cde17b8ecb7f8156c4" => :el_capitan
+    sha256 "dab7e957c76dd7ff92202fcc25da0f78fd35639edaa9a3cb84442a97d2a9a3a8" => :yosemite
+    sha256 "5bbba3a4824c1d11dcea9dc80912333e904c84e6e2b18f5d0abe6377eb5c0c27" => :mavericks
   end
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
+    system "make", "-C", "doc/en", "html"
+    doc.install "doc/en/gcal.html"
   end
 
   test do

@@ -3,16 +3,16 @@ require "language/go"
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb/archive/v0.12.1.tar.gz"
-  sha256 "7b0340681e0e755db16da44ac4be30000cddc4e554da90872a238a78aeae55a0"
+  url "https://github.com/influxdata/influxdb/archive/v0.13.0.tar.gz"
+  sha256 "661dc5719efa2db0ff5e5a4676c31852dd259a952dd8fc837766cb291e06d31b"
 
   head "https://github.com/influxdata/influxdb.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bf6138a2b37653bc7d4fa096004ca5500a392fe5d6be34f67b894c693bae7d99" => :el_capitan
-    sha256 "4c58a861d4b68992ffee4d1d156784e83f45815cfc82ec1e0b825baf26bedeb6" => :yosemite
-    sha256 "547e8832f1393a862119c15b527fad004314b77209c08b1d9168731ec78ed43d" => :mavericks
+    sha256 "979c4ef2a1024adddefd58ead3055617fa92ea03463db121cbda4bba95c3df8c" => :el_capitan
+    sha256 "f48c3e0089f71716d631ba4d3c008be1b903d7743050cf88403ff928b6063695" => :yosemite
+    sha256 "ee92a83c004e9899be1947690b987dc1290c747ab5ff738221c0977f464a4d69" => :mavericks
   end
 
   depends_on "go" => :build
@@ -54,7 +54,7 @@ class Influxdb < Formula
 
   go_resource "github.com/gogo/protobuf" do
     url "https://github.com/gogo/protobuf.git",
-    :revision => "82d16f734d6d871204a3feb1a73cb220cc92574c"
+    :revision => "74b6e9deaff6ba6da1389ec97351d337f0d08b06"
   end
 
   go_resource "github.com/golang/snappy" do
@@ -69,7 +69,7 @@ class Influxdb < Formula
 
   go_resource "github.com/jwilder/encoding" do
     url "https://github.com/jwilder/encoding.git",
-    :revision => "07d88d4f35eec497617bee0c7bfe651a796dae13"
+    :revision => "b421ab402545ef5a119f4f827784c6551d9bfc37"
   end
 
   go_resource "github.com/kimor79/gollectd" do
@@ -84,7 +84,7 @@ class Influxdb < Formula
 
   go_resource "github.com/peterh/liner" do
     url "https://github.com/peterh/liner.git",
-    :revision => "ad1edfd30321d8f006ccf05f1e0524adeb943060"
+    :revision => "82a939e738b0ee23e84ec7a12d8e216f4d95c53f"
   end
 
   go_resource "github.com/rakyll/statik" do
@@ -111,9 +111,9 @@ class Influxdb < Formula
 
     cd influxdb_path do
       if build.head?
-        system "go", "install", "-ldflags", "-X main.version=0.13.0-HEAD -X main.branch=master -X main.commit=#{`git rev-parse HEAD`.strip}", "./..."
+        system "go", "install", "-ldflags", "-X main.version=0.14.0-HEAD -X main.branch=master -X main.commit=#{`git rev-parse HEAD`.strip}", "./..."
       else
-        system "go", "install", "-ldflags", "-X main.version=0.12.1 -X main.branch=0.12 -X main.commit=e094138084855d444195b252314dfee9eae34cab", "./..."
+        system "go", "install", "-ldflags", "-X main.version=0.13.0 -X main.branch=0.13 -X main.commit=e57fb88a051ee40fd9277094345fbd47bb4783ce", "./..."
       end
     end
 

@@ -3,11 +3,13 @@ class Golo < Formula
   homepage "http://golo-lang.org"
   url "https://bintray.com/artifact/download/golo-lang/downloads/golo-3.1.0.zip"
   sha256 "a684a089a808b29d42a4aa972db74c000c7686d32031764da8ab0c11a2b97820"
+  head "https://github.com/eclipse/golo-lang.git"
 
-  head do
-    url "https://github.com/eclipse/golo-lang.git"
+  devel do
+    url "https://bintray.com/artifact/download/golo-lang/downloads/golo-3.2.0-M1.zip"
+    sha256 "d562adda31982a9ad18ead7b3b482b604b15545a74144e3f6e5a35b38d65688e"
+    version "3.2.0-M1"
   end
-
   bottle :unneeded
 
   depends_on :java => "1.8+"

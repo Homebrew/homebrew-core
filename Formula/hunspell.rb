@@ -15,7 +15,7 @@ class Hunspell < Formula
   conflicts_with "freeling", :because => "both install 'analyze' binary"
 
   # hunspell does not prepend $HOME to all USEROODIRs
-  # http://sourceforge.net/p/hunspell/bugs/236/
+  # https://sourceforge.net/p/hunspell/bugs/236/
   patch :p0, :DATA
 
   def install

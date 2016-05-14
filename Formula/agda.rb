@@ -7,31 +7,19 @@ class Agda < Formula
   homepage "http://wiki.portal.chalmers.se/agda/"
 
   stable do
-    url "https://github.com/agda/agda/archive/2.4.2.5.tar.gz"
-    sha256 "a357470e47751e5757922b05ab8d692a526b8ed50619fb3dab0735a9a0e94cd1"
+    url "https://github.com/agda/agda/archive/2.5.1.tar.gz"
+    sha256 "7d80e22710ab9d7fb6ecf9366ea6df6e9a5881008c32dd349df06e9a2f203e40"
 
     resource "stdlib" do
-      url "https://github.com/agda/agda-stdlib.git",
-          :tag => "v0.11",
-          :revision => "8602c29a7627eb001344cf50e6b74f880fb6bf18"
-    end
-
-    # Remove when 2.5.1 is released
-    # https://github.com/agda/agda/issues/1779
-    # This is the last config that has
-    #   - unordered-containers ==0.2.5.1
-    #   - transformers-compat-0.4.0.4
-    resource "cabal_config" do
-      url "https://www.stackage.org/nightly-2016-02-08/cabal.config"
-      sha256 "d4f4a0fcdfe486d0604d3e9810e8671793f4bb64d610bcd81fafa2aaa14c60c8"
+      url "https://github.com/agda/agda-stdlib/archive/v0.12.tar.gz"
+      sha256 "2fddbc6d08e74c6205075704f40c550fc40137dee44e6b22b2e08ddee1410e87"
     end
   end
 
   bottle do
-    revision 1
-    sha256 "f768533c1dae7b890211b834296285075b59242f3a445c694f57dbe26d80a749" => :el_capitan
-    sha256 "65d52209f9897bf1857e0691848543e00d8f60ff11f23b51525f4348d73f1479" => :yosemite
-    sha256 "2bc50943308f863403b4095f603e5eb2a227fa9bff60b1f8783b58477c759acc" => :mavericks
+    sha256 "7dda3c16081b04cdf2d76f65ebe065b9470968e857d53a7fdc3c4c2efb6e3178" => :el_capitan
+    sha256 "5863e5cf5ab6996cc34d15d0cb9918ad7856331b111a30d71621949a7cb9fda4" => :yosemite
+    sha256 "9b3888867a8a18950d27430a7d4ee6c98ecd777d7cc26b3cd3cb92c28553c22d" => :mavericks
   end
 
   head do
@@ -42,24 +30,23 @@ class Agda < Formula
     end
   end
 
-  option "without-stdlib", "Don't install the Agda standard library"
-  option "without-malonzo", "Disable the MAlonzo backend"
+  deprecated_option "without-malonzo" => "without-ghc"
 
-  if build.with? "malonzo"
-    depends_on "ghc"
+  option "without-stdlib", "Don't install the Agda standard library"
+  option "without-ghc", "Disable the GHC backend"
+
+  depends_on "ghc" => :recommended
+  if build.with? "ghc"
+    depends_on "cabal-install"
   else
     depends_on "ghc" => :build
+    depends_on "cabal-install" => :build
   end
-  depends_on "cabal-install" => :build
 
   depends_on "gmp"
   depends_on :emacs => ["21.1", :recommended]
 
   def install
-    # Remove when 2.5.1 is released
-    # https://github.com/agda/agda/issues/1779
-    resource("cabal_config").stage(buildpath) if build.stable?
-
     # install Agda core
     install_cabal_package :using => ["alex", "happy", "cpphs"]
 
@@ -72,22 +59,6 @@ class Agda < Formula
           cabal_install "--only-dependencies"
           cabal_install
           system "GenerateEverything"
-        end
-      end
-
-      # install the standard library's FFI bindings for the MAlonzo backend
-      # in a dedicated GHC package database
-      if build.with? "malonzo"
-        db_path = lib/"agda"/"ffi"/"package.conf.d"
-
-        mkdir db_path
-        system "ghc-pkg", "--package-db=#{db_path}", "recache"
-
-        cd lib/"agda"/"ffi" do
-          cabal_sandbox :home => buildpath, :keep_lib => true do
-            system "cabal", "--ignore-sandbox", "install", "--package-db=#{db_path}",
-              "--prefix=#{lib}/agda/ffi"
-          end
         end
       end
 
@@ -109,60 +80,111 @@ class Agda < Formula
 
     if build.with? "stdlib"
       s += <<-EOS.undent
-      To use the Agda standard library, point Agda to the following include dir:
-        #{HOMEBREW_PREFIX}/lib/agda/src
+      To use the Agda standard library by default:
+        mkdir -p ~/.agda
+        echo #{HOMEBREW_PREFIX}/lib/agda/standard-library.agda-lib >>~/.agda/libraries
+        echo standard-library >>~/.agda/defaults
       EOS
-
-      if build.with? "malonzo"
-        s += <<-EOS.undent
-
-        To use the FFI bindings for the MAlonzo backend, give Agda the following option:
-          --ghc-flag=-package-db=#{HOMEBREW_PREFIX}/lib/agda/ffi/package.conf.d
-        EOS
-      end
     end
 
     s
   end
 
   test do
+    simpletest = testpath/"SimpleTest.agda"
+    simpletest.write <<-EOS.undent
+      module SimpleTest where
+
+      data ℕ : Set where
+        zero : ℕ
+        suc  : ℕ → ℕ
+
+      infixl 6 _+_
+      _+_ : ℕ → ℕ → ℕ
+      zero  + n = n
+      suc m + n = suc (m + n)
+
+      infix 4 _≡_
+      data _≡_ {A : Set} (x : A) : A → Set where
+        refl : x ≡ x
+
+      cong : ∀ {A B : Set} (f : A → B) {x y} → x ≡ y → f x ≡ f y
+      cong f refl = refl
+
+      +-assoc : ∀ m n o → (m + n) + o ≡ m + (n + o)
+      +-assoc zero    _ _ = refl
+      +-assoc (suc m) n o = cong suc (+-assoc m n o)
+    EOS
+
+    stdlibtest = testpath/"StdlibTest.agda"
+    stdlibtest.write <<-EOS.undent
+      module StdlibTest where
+
+      open import Data.Nat
+      open import Relation.Binary.PropositionalEquality
+
+      +-assoc : ∀ m n o → (m + n) + o ≡ m + (n + o)
+      +-assoc zero    _ _ = refl
+      +-assoc (suc m) n o = cong suc (+-assoc m n o)
+    EOS
+
+    iotest = testpath/"IOTest.agda"
+    iotest.write <<-EOS.undent
+      module IOTest where
+
+      open import Agda.Builtin.IO
+      open import Agda.Builtin.Unit
+
+      postulate
+        return : ∀ {A : Set} → A → IO A
+
+      {-# COMPILED return (\\_ -> return) #-}
+
+      main : _
+      main = return tt
+    EOS
+
+    stdlibiotest = testpath/"StdlibIOTest.agda"
+    stdlibiotest.write <<-EOS.undent
+      module StdlibIOTest where
+
+      open import IO
+
+      main : _
+      main = run (putStr "Hello, world!")
+    EOS
+
     # run Agda's built-in test suite
     system bin/"agda", "--test"
 
-    # typecheck and compile a simple module
-    test_file_path = testpath/"simple-test.agda"
-    test_file_path.write <<-EOS.undent
-      {-# OPTIONS --without-K #-}
-      module simple-test where
-      open import Agda.Primitive
-      infixr 6 _::_
-      data List {i} (A : Set i) : Set i where
-        [] : List A
-        _::_ : A -> List A -> List A
-      snoc : forall {i} {A : Set i} -> List A -> A -> List A
-      snoc [] x = x :: []
-      snoc (x :: xs) y = x :: (snoc xs y)
-    EOS
-    if build.with? "malonzo"
-      system bin/"agda", "-c", "--no-main", "--safe", test_file_path
-    end
-    system bin/"agda", "--js", "--safe", test_file_path
+    # typecheck a simple module
+    system bin/"agda", simpletest
 
-    # typecheck, compile, and run a program that uses the standard library
-    if build.with?("stdlib") && build.with?("malonzo")
-      test_file_path = testpath/"stdlib-test.agda"
-      test_file_path.write <<-EOS.undent
-        module stdlib-test where
-        open import Data.String
-        open import Function
-        open import IO
-        main : _
-        main = run $ putStr "Hello, world!"
-      EOS
-      system bin/"agda", "-i", testpath, "-i", lib/"agda"/"src",
-        "--ghc-flag=-package-db=#{lib}/agda/ffi/package.conf.d",
-        "-c", test_file_path
-      assert_equal "Hello, world!", shell_output("#{testpath}/stdlib-test")
+    # typecheck a module that uses the standard library
+    if build.with? "stdlib"
+      system bin/"agda", "-i", lib/"agda"/"src", stdlibtest
+    end
+
+    # compile a simple module using the JS backend
+    system bin/"agda", "--js", simpletest
+
+    # test the GHC backend
+    if build.with? "ghc"
+      cabal_sandbox do
+        cabal_install "text"
+        dbpath = Dir["#{testpath}/.cabal-sandbox/*-packages.conf.d"].first
+        dbopt = "--ghc-flag=-package-db=#{dbpath}"
+
+        # compile and run a simple program
+        system bin/"agda", "-c", dbopt, iotest
+        assert_equal "", shell_output(testpath/"IOTest")
+
+        # compile and run a program that uses the standard library
+        if build.with? "stdlib"
+          system bin/"agda", "-c", "-i", lib/"agda"/"src", dbopt, stdlibiotest
+          assert_equal "Hello, world!", shell_output(testpath/"StdlibIOTest")
+        end
+      end
     end
   end
 end

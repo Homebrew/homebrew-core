@@ -13,7 +13,7 @@ class Ngrep < Formula
     sha256 "a86b9021fa54635f144c7de70ea7dba6bd35a872f19cae877c341a00730c9d17" => :mavericks
   end
 
-  # http://sourceforge.net/p/ngrep/bugs/27/
+  # https://sourceforge.net/p/ngrep/bugs/27/
   patch do
     url "https://launchpadlibrarian.net/44952147/ngrep-fix-ipv6-support.patch"
     sha256 "f1bcc0a344e5f454207254746cab5b1d216d3de3efaf08f59732f2182d42bbb1"

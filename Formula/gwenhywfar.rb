@@ -1,16 +1,15 @@
 class Gwenhywfar < Formula
   desc "Utility library required by aqbanking and related software"
   homepage "http://www.aqbanking.de/"
-  url "http://www2.aquamaniac.de/sites/download/download.php?package=01&release=01&file=01&dummy=gwenhywfar-4.14.0.tar.gz"
-  sha256 "7e0ec2f1cab7d22a5ae0066e0ef827d4affec59470b1bdbc42132b58a903dd03"
-  revision 1
+  url "http://www2.aquamaniac.de/sites/download/download.php?package=01&release=201&file=01&dummy=gwenhywfar-4.15.3.tar.gz"
+  sha256 "6a0e8787c99620414da6140e567c616b55856c5edf8825a9ebc67431923ee63a"
 
   head "http://git.aqbanking.de/git/gwenhywfar.git"
 
   bottle do
-    sha256 "a862274810765ea8012c59b3277b4f2ac82981aa8817070f885872c7074784f4" => :el_capitan
-    sha256 "fc2fe0818ae3bb051544dd9587473529d2c4f17af60052ce349076650263b916" => :yosemite
-    sha256 "6066462c7dc97f8ccb8f4f89f5cc149faf11404a7f6c57a5a24c28d0034d5e3f" => :mavericks
+    sha256 "9b78e775989003bfe9e79bc745ef477b2c485c58d4aaff947cf4a44e86f1fc9b" => :el_capitan
+    sha256 "f0beb1b72cafab6696ab63c5a0ae5aa22040095bd6ae8997121f1725e7a11d5f" => :yosemite
+    sha256 "ef8ea6c7fa80e6e89faf9dbbc3f2aa7ef89fd31e16b940abd64ed036a7b1069a" => :mavericks
   end
 
   option "without-cocoa", "Build without cocoa support"
@@ -32,9 +31,6 @@ class Gwenhywfar < Formula
     guis << "qt4" if build.with? "qt"
     guis << "cocoa" if build.with? "cocoa"
 
-    # https://devel.aqbanking.de/trac/aqbanking/ticket/247
-    # http://www.gnutls.org/manual/html_node/Priority-Strings.html
-    inreplace "src/sio/syncio_tls.c", "gnutls_protocol_set_priority", "gnutls_priority_set"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

@@ -3,13 +3,12 @@ class Web100clt < Formula
   homepage "http://software.internet2.edu/ndt/"
   url "http://software.internet2.edu/sources/ndt/ndt-3.7.0.2.tar.gz"
   sha256 "bd298eb333d4c13f191ce3e9386162dd0de07cddde8fe39e9a74fde4e072cdd9"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    revision 1
-    sha256 "40905e73d8ec661939ae35fd36d8a147a926a0a915817eb3f60bdef77f2fee60" => :el_capitan
-    sha256 "82b4c044555f75e0ed2e61e6e1a3c7f0817e470c34d4c5dcc4b29fef0106704e" => :yosemite
-    sha256 "3e979b6967e43b8aeff385fa105e39d750056d204ad7f6e231e5cd63079cc7ad" => :mavericks
+    sha256 "d0998cd6fb89d689aeb6f88bcd92039ad88daa3aef8b718bbcb8be6a3c4a7e39" => :el_capitan
+    sha256 "e2acae1966b2897ef89dcec1610e164f4c8bee054369d2012e1619853c6674d0" => :yosemite
+    sha256 "86b6d51af3d9e33db8220d8834d04aeed0241872a28aeac697b4357d2afbcc2e" => :mavericks
   end
 
   depends_on "i2util"
@@ -17,10 +16,10 @@ class Web100clt < Formula
   depends_on "openssl"
 
   # fixes issue with new default secure strlcpy/strlcat functions in 10.9
-  # https://code.google.com/p/ndt/issues/detail?id=106
+  # https://github.com/ndt-project/ndt/issues/106
   if MacOS.version >= :mavericks
     patch do
-      url "https://gist.githubusercontent.com/igable/8077668/raw/4475e6e653f080be111fa0a3fd649af42fa14c3d/ndt-3.6.5.2-osx-10.9.patch"
+      url "https://raw.githubusercontent.com/Homebrew/patches/37aa64888341/web100clt/ndt-3.6.5.2-osx-10.9.patch"
       sha256 "86d2399e3d139c02108ce2afb45193d8c1f5782996714743ec673c7921095e8e"
     end
   end
@@ -29,7 +28,8 @@ class Web100clt < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+                          "--mandir=#{man}",
+                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
 
     # we only want to build the web100clt client so we need
     # to change to the src directory before installing.
@@ -38,6 +38,6 @@ class Web100clt < Formula
   end
 
   test do
-    system "#{bin}/web100clt", "-v"
+    assert_match version.to_s, shell_output("#{bin}/web100clt -v")
   end
 end

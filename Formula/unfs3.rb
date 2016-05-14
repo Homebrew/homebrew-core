@@ -12,7 +12,7 @@ class Unfs3 < Formula
   end
 
   head do
-    url "https://svn.code.sf.net/p/unfs3/code/trunk/"
+    url "http://svn.code.sf.net/p/unfs3/code/trunk/"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

@@ -1,13 +1,13 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.5.2/postgresql-9.5.2.tar.bz2"
-  sha256 "f8d132e464506b551ef498719f18cfe9d777709c7a1589dc360afc0b20e47c41"
+  url "https://ftp.postgresql.org/pub/source/v9.5.3/postgresql-9.5.3.tar.bz2"
+  sha256 "7385c01dc58acba8d7ac4e6ad42782bd7c0b59272862a3a3d5fe378d4503a0b4"
 
   bottle do
-    sha256 "5458a4e6ff80ea693a5524ad50417e90316025fea7dac45b256318928cf2c2fe" => :el_capitan
-    sha256 "ddc56204624e11a273e81c9c53feadb490064dfbe0e94dd82fb22c7b2f5662db" => :yosemite
-    sha256 "4fa8aaf463af6bb3acf3e2ee4302fec1dcfd69e2afc30b57a69958eccba31197" => :mavericks
+    sha256 "5e238fdf3e7e2c8ac74f23dfc92f50d7c4598e05f89cc3e7c7e0da26fe2542e3" => :el_capitan
+    sha256 "bc90e7b53017314e559b7110bfa1257f01457d4097eebf2690195ae5c013875b" => :yosemite
+    sha256 "eeb7a800b5b93cb9d24b82e78664645d3b899166fe0b3cf25d1e42e91cdb37bf" => :mavericks
   end
 
   option "32-bit"
@@ -95,10 +95,10 @@ class Postgresql < Formula
       https://github.com/Homebrew/homebrew/issues/2510
 
     To migrate existing data from a previous major version (pre-9.0) of PostgreSQL, see:
-      http://www.postgresql.org/docs/9.5/static/upgrading.html
+      https://www.postgresql.org/docs/9.5/static/upgrading.html
 
     To migrate existing data from a previous minor version (9.0-9.4) of PosgresSQL, see:
-      http://www.postgresql.org/docs/9.5/static/pgupgrade.html
+      https://www.postgresql.org/docs/9.5/static/pgupgrade.html
 
       You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
       Do not run `brew cleanup postgresql` until you have performed the migration.

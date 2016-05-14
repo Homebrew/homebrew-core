@@ -1,6 +1,6 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
-  homepage "http://www.mltframework.org/"
+  homepage "https://www.mltframework.org/"
   url "https://github.com/mltframework/mlt/archive/v6.0.0.tar.gz"
   sha256 "34f0cb60eb2e7400e9964de5ee439851b3e51a942206cccc2961fd41b42ee5d2"
   revision 1

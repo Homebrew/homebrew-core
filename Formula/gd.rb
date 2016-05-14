@@ -1,19 +1,31 @@
 class Gd < Formula
   desc "Graphics library to dynamically manipulate images"
   homepage "https://libgd.github.io/"
-  url "https://bitbucket.org/libgd/gd-libgd/downloads/libgd-2.1.1.tar.xz"
-  sha256 "9ada1ed45594abc998ebc942cef12b032fbad672e73efc22bc9ff54f5df2b285"
-  revision 2
+  revision 3
+
+  stable do
+    url "https://github.com/libgd/libgd/releases/download/gd-2.1.1/libgd-2.1.1.tar.xz"
+    sha256 "9ada1ed45594abc998ebc942cef12b032fbad672e73efc22bc9ff54f5df2b285"
+
+    # Fix for CVE-2016-3074.
+    # https://www.debian.org/security/2016/dsa-3556
+    patch do
+      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libg/libgd2/libgd2_2.1.1-4.1.debian.tar.xz"
+      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libg/libgd2/libgd2_2.1.1-4.1.debian.tar.xz"
+      sha256 "ce2051fcdb161e4f780650ca76c3144941eb62e9d186e1f8cd36b6efd6fedea0"
+      apply "patches/gd2-handle-corrupt-images-better-CVE-2016-3074.patch"
+    end
+  end
 
   bottle do
     cellar :any
-    sha256 "07dcaf06b6f4b55fa209f1ad8a03ef549abfc789b820c7fc77762037337557df" => :el_capitan
-    sha256 "acb0d79ec9ae9cbe1c114d0a772821036926dc8b2d5d09a9945037a49db21719" => :yosemite
-    sha256 "7f96680ac98c529395492865f7a7ffe056e130a99c1006978682620dfa0da365" => :mavericks
+    sha256 "f5163a6627242fa27c334428ddc58105003526bd496a2b4f0d1afcc1ef32294b" => :el_capitan
+    sha256 "3acbc1f243e98a831c045c0e0a14aa73bff979d8514124c994eb9bf15271434c" => :yosemite
+    sha256 "d26ee8c7197eec3b71d0837934d5975e2cbd2588c5548dce400825810ebb4f73" => :mavericks
   end
 
   head do
-    url "https://bitbucket.org/libgd/gd-libgd.git"
+    url "https://github.com/libgd/libgd.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

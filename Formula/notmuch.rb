@@ -1,24 +1,24 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org"
-  url "https://notmuchmail.org/releases/notmuch-0.21.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/n/notmuch/notmuch_0.21.orig.tar.gz"
-  sha256 "d06f8ffed168c7d53ffc449dd611038b5fa90f7ee22d58f3bec3b379571e25b3"
+  url "https://notmuchmail.org/releases/notmuch-0.22.tar.gz"
+  sha256 "d64118ef926ba06fba814a89a75d20b0c8c8ec07dd65e41bb9f1e9db0dcfb99a"
 
   bottle do
     cellar :any
-    sha256 "a54c75c58070d551d5dc5e4e4cee00ada55c889266eb0217921c233d5a1f2e6b" => :el_capitan
-    sha256 "a9679f7a870e10d12633dab987223d96b50bc6cf40ae705741c7f99413d302bd" => :yosemite
-    sha256 "cf83e129e4624002ca6c3e9942f67cd3acfc40f868d5c0ce2a49b62af1872793" => :mavericks
+    sha256 "0caa82ec8a459275d5386585bdf944a6892b0fe499b2cb7b96243fed91c09b3a" => :el_capitan
+    sha256 "1f7ac589626fd82ce3de8a399f6cd832982ee756c6d4fa618a62de461d200ca1" => :yosemite
+    sha256 "6e5950e4159217dc865277576e3c75875269a286fb26a8e3a3e52987e651717f" => :mavericks
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gmime"
+  depends_on "talloc"
+  depends_on "xapian"
   depends_on :emacs => ["21.1", :optional]
   depends_on :python => :optional
   depends_on :python3 => :optional
-  depends_on "xapian"
-  depends_on "talloc"
-  depends_on "gmime"
+  depends_on :ruby => ["1.9", :optional]
 
   # Requires zlib >= 1.2.5.2
   resource "zlib" do
@@ -34,12 +34,15 @@ class Notmuch < Formula
     end
 
     args = ["--prefix=#{prefix}"]
+
     if build.with? "emacs"
       ENV.deparallelize # Emacs and parallel builds aren't friends
-      args << "--with-emacs" << "--emacslispdir=#{elisp}"
+      args << "--with-emacs" << "--emacslispdir=#{elisp}" << "--emacsetcdir=#{elisp}"
     else
       args << "--without-emacs"
     end
+
+    args << "--without-ruby" if build.without? "ruby"
 
     system "./configure", *args
     system "make", "V=1", "install"

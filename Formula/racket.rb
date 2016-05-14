@@ -1,14 +1,14 @@
 class Racket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/6.4/racket-minimal-6.4-src-builtpkgs.tgz"
-  version "6.4"
-  sha256 "cf717d4983f4198fce8973ead5d427bc9da78b73bd51fee16b58c894c2a146e8"
+  url "https://mirror.racket-lang.org/installers/6.5/racket-minimal-6.5-src-builtpkgs.tgz"
+  version "6.5"
+  sha256 "44fe95a4ec4d442b4f6f68e360104ca9715bd1fe3795d302d6cddaceb15696dc"
 
   bottle do
-    sha256 "4c4aed2fbf16f3057bf570b383e407c320fb27a624f5df40ac8aa176c809a0b9" => :el_capitan
-    sha256 "2f647fb3d2c13249b85f9a52a97fdce17669bee1102805b8a0a9435397397977" => :yosemite
-    sha256 "6b67a01389d715b9a0cf692dab51b45904fe117f9c1243d5c19b9d0e323c1f4f" => :mavericks
+    sha256 "d6ab6c4c623dd00a78a3ce158c836241b3478df747215f5d5364c6333f3fd213" => :el_capitan
+    sha256 "c9fd1a5445576238a6dc0d5a486b211562a6206a2872397a9218aca115c8f111" => :yosemite
+    sha256 "d7a76bd531b6f02e0beecc96bb3bf6ff48b30d8e19928ab3f78fd3abacd9206a" => :mavericks
   end
 
   # these two files are amended when (un)installing packages
@@ -35,14 +35,14 @@ class Racket < Formula
     # configure racket's package tool (raco) to do the Right Thing
     # see: https://docs.racket-lang.org/raco/config-file.html
     inreplace etc/"racket/config.rktd" do |s|
-        s.gsub!(
-            /\(bin-dir\s+\.\s+"#{Regexp.quote(bin)}"\)/,
-            "(bin-dir . \"#{HOMEBREW_PREFIX}/bin\")"
-        )
-        s.gsub!(
-            /\n\)$/,
-            "\n      (default-scope . \"installation\")\n)"
-        )
+      s.gsub!(
+        /\(bin-dir\s+\.\s+"#{Regexp.quote(bin)}"\)/,
+        "(bin-dir . \"#{HOMEBREW_PREFIX}/bin\")"
+      )
+      s.gsub!(
+        /\n\)$/,
+        "\n      (default-scope . \"installation\")\n)"
+      )
     end
   end
 

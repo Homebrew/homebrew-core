@@ -1,16 +1,16 @@
 class Polipo < Formula
   desc "Web caching proxy"
-  homepage "http://www.pps.jussieu.fr/~jch/software/polipo/"
-  url "http://www.pps.univ-paris-diderot.fr/~jch/software/files/polipo/polipo-1.1.1.tar.gz"
+  homepage "https://www.irif.univ-paris-diderot.fr/~jch/software/polipo/"
+  url "https://www.irif.univ-paris-diderot.fr/~jch/software/files/polipo/polipo-1.1.1.tar.gz"
   sha256 "a259750793ab79c491d05fcee5a917faf7d9030fb5d15e05b3704e9c9e4ee015"
 
   head "git://git.wifi.pps.jussieu.fr/polipo"
 
   bottle do
-    sha256 "2034a4d4ddf8542f91e2a977336f4b22ba5d9a5c67adcb5e1cef41559b7e6369" => :el_capitan
-    sha256 "13ad85c18936fc72dd1dc8c03f1d821fe3bae10af77ac9145dbdeed5178f5e7f" => :yosemite
-    sha256 "22b7c21ac284e81f7c23e00b6de80991dc7376a21208edd2c9d693c8a54a3bf6" => :mavericks
-    sha256 "5de1c405d5506806cd915ca4170b51b4e6d23143d7e7ede00824e901ded65e4f" => :mountain_lion
+    revision 1
+    sha256 "54142753c1ad2f0bbb0b7d3acd62c12dd6f5e33f059f27432a739e01a351f1a7" => :el_capitan
+    sha256 "ce6453203feafa737212242a0ea9d2faa118e5880775e115682901e59fad5891" => :yosemite
+    sha256 "74930c6406c860315088f3bde52332fb3708a60f5aabeeff1497a3cbbdf10a73" => :mavericks
   end
 
   option "with-large-chunks", "Set chunk size to 16k (more RAM, but more performance)"

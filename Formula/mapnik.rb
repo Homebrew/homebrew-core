@@ -3,14 +3,15 @@ class Mapnik < Formula
   homepage "http://www.mapnik.org/"
   url "https://github.com/mapnik/mapnik/archive/v3.0.9.tar.gz"
   sha256 "f0242606096e2c4ca2cd0caac1ff0fd5f8054a38b5f288ba38b0e397b5b311b2"
+  revision 1
 
   head "https://github.com/mapnik/mapnik.git"
 
   bottle do
     cellar :any
-    sha256 "82e145962067bfe676c2ea8ce9caf82fa3de26496079dda9ac05cb16130ddbf1" => :el_capitan
-    sha256 "78fad8f64e9fe57730809dce924f43917bbf2eaf4a0a046e0beffe3b472a4161" => :yosemite
-    sha256 "960999bc14e4e551ef8ffcb3fab0c8aa34f22a4b4cec4a02f39c11696f2583e6" => :mavericks
+    sha256 "c8dfc593d8922773f03499fccdcb472c0f5e37c45cccd5c8ae374b314162fa88" => :el_capitan
+    sha256 "c7f6a2d4acadd7f5ba4d0fc40695f312a8fd506e9e671ce446d7f2c27150718e" => :yosemite
+    sha256 "c914c4e1da1aac4aa24083f15a1e5454d334ea9867c50f71f37942acb5e9988b" => :mavericks
   end
 
   depends_on "pkg-config" => :build

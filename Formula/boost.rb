@@ -1,17 +1,18 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
-  homepage "http://www.boost.org"
+  homepage "https://www.boost.org/"
   url "https://downloads.sourceforge.net/project/boost/boost/1.60.0/boost_1_60_0.tar.bz2"
   sha256 "686affff989ac2488f79a97b9479efb9f2abae035b5ed4d8226de6857933fd3b"
-  revision 1
+  revision 2
 
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "2f7a84ca6edf978eef4fc23b6f1d4c540b343f5941f068dfc59eb1c103f01dc7" => :el_capitan
-    sha256 "cdea70d456a842617a9aa59dd297da2e63e95eddd74c1fa302eedfed21a51538" => :yosemite
-    sha256 "1a7feb411f4e89237fc212cab55c0f3acd1abe86a887069236ef6e7c58bdd82a" => :mavericks
+    revision 1
+    sha256 "932c8ad1cbf1acef67e8ff18ff6eddd8eb995c2670ba89f1d9525c41517e132b" => :el_capitan
+    sha256 "677e37a021fc677f9e6f15c1511ea2ac33f247ec25ea85ac90e5fa11419386db" => :yosemite
+    sha256 "fa6ee8ea6a5975fb94235db3d3c18681011289b4d1588ff675259b2088aaff21" => :mavericks
   end
 
   # Handle compile failure with boost/graph/adjacency_matrix.hpp
@@ -19,6 +20,14 @@ class Boost < Formula
   # https://svn.boost.org/trac/boost/ticket/11880
   # patch derived from https://github.com/boostorg/graph/commit/1d5f43d
   patch :DATA
+
+  # Fix auto-pointer registration in 1.60
+  # https://github.com/boostorg/python/pull/59
+  # patch derived from https://github.com/boostorg/python/commit/f2c465f
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/patches/9e56b45/boost/boost1_60_0_python_class_metadata.diff"
+    sha256 "1a470c3a2738af409f68e3301eaecd8d07f27a8965824baf8aee0adef463b844"
+  end
 
   env :userpaths
 

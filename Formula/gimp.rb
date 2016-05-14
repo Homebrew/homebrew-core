@@ -1,6 +1,7 @@
 class Gimp < Formula
   desc "GNU Image Manipulation Program"
   homepage "https://www.gimp.org"
+  revision 1
 
   stable do
     url "https://download.gimp.org/pub/gimp/v2.8/gimp-2.8.16.tar.bz2"
@@ -13,10 +14,9 @@ class Gimp < Formula
   end
 
   bottle do
-    revision 2
-    sha256 "62d2ecdca7b19379f9ca21c70d12d4fc4ac6e6ba99f14f43e09496f9cf92507c" => :el_capitan
-    sha256 "67100a94031c36bf1e95b0f58bc756b00f507e3d05889c546c743b52f5055f14" => :yosemite
-    sha256 "88c84b9a7bf6fe2ddbec6ec78c2d091c7b86c801799f57aa254ca93d0996f97d" => :mavericks
+    sha256 "3265ff12a50380f25ce3bc52486896814d913ea99bddc6440088b3cfd5bd0e13" => :el_capitan
+    sha256 "129c841e7fd9d9c9792fa40ff8d9111e5148fc9a6ad5b7854287cfe7de66808b" => :yosemite
+    sha256 "04d580da6f86b8b78f6c0607e96bbc93b4d327dd63fa17e8784de30e8d6ea5b2" => :mavericks
   end
 
   head do
@@ -38,7 +38,7 @@ class Gimp < Formula
   depends_on "gdk-pixbuf"
   depends_on "freetype"
   depends_on "xz" # For LZMA
-  depends_on "d-bus"
+  depends_on "dbus"
   depends_on "aalib"
   depends_on "librsvg"
   depends_on "libpng" => :recommended

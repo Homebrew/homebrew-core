@@ -1,33 +1,33 @@
+require "language/node"
+
 class AzureCli < Formula
   desc "Official Azure CLI"
   homepage "https://github.com/azure/azure-xplat-cli"
-  url "https://github.com/Azure/azure-xplat-cli/archive/v0.9.19-March2016.tar.gz"
-  version "0.9.19"
-  sha256 "8f0e4093a2a91097a2621f01cad435cc5856dadbe3e343c3538409e2c9386b11"
+  url "https://github.com/Azure/azure-xplat-cli/archive/v0.10.0-May2016.tar.gz"
+  version "0.10.0"
+  sha256 "d703af982daaa44253db177f0816bda9951844fd2ca7a96139f9c79a5e28a8db"
 
   head "https://github.com/azure/azure-xplat-cli.git", :branch => "dev"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb5c5ab9d2b9e451af0448a48200aa4f9bd8d0a1416bf975ba78743f68ae778f" => :el_capitan
-    sha256 "656260824be014aefff7f0c5c9a0783993c2ded0b467a900d61a181ad8497106" => :yosemite
-    sha256 "3c5be8a2921f122790e11722a54ef3a75c35144f523d0e1bf312f1c1250f14c5" => :mavericks
+    sha256 "cb13ad6285c15e487eb8cbaf2d12a81215158d708062f1097293c90b409a3e32" => :el_capitan
+    sha256 "eff5ce464353395fdc3be26e387efcb0457e5ca6fb8b5897b5c6337a470bb153" => :yosemite
+    sha256 "acfc00b60417da09c7f712641523d228947ba5f2de50aff70eb85f668acad512" => :mavericks
   end
 
   depends_on "node"
+  depends_on :python => :build
 
   def install
-    ENV.prepend_path "PATH", "#{Formula["node"].opt_libexec}/npm/bin"
-    # install node dependencies
-    system "npm", "install"
-    # remove windows stuff
     rm_rf "bin/windows"
-    (prefix/"src").install Dir["lib", "node_modules", "package.json", "bin"]
-    bin.install_symlink (prefix/"src/bin/azure")
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    bin.install_symlink Dir["#{libexec}/bin/*"]
     (bash_completion/"azure").write `#{bin}/azure --completion`
   end
 
   test do
+    shell_output("#{bin}/azure telemetry --disable")
     json_text = shell_output("#{bin}/azure account env show AzureCloud --json")
     azure_cloud = Utils::JSON.load(json_text)
     assert_equal azure_cloud["name"], "AzureCloud"

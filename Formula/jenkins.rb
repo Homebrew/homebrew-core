@@ -1,14 +1,8 @@
 class Jenkins < Formula
   desc "Extendable open source continuous integration server"
   homepage "https://jenkins-ci.org"
-  url "http://mirrors.jenkins-ci.org/war/1.655/jenkins.war"
-  sha256 "0cee889af697c115961ce50229cc5e39d1b798c0a0a689687b745c0a938c8547"
-
-  devel do
-    url "http://mirrors.jenkins-ci.org/war-rc/2.0/jenkins.war"
-    version "2.0-rc"
-    sha256 "7ff7759e1d7a097e018c8001db5f4248db04d0bf39f9b0f06934c124a936cfa2"
-  end
+  url "http://mirrors.jenkins-ci.org/war/2.3/jenkins.war"
+  sha256 "e1a17311776daee38cb1c3a5e687140f39b8dc922d142f4b9c457803f76aa974"
 
   head do
     url "https://github.com/jenkinsci/jenkins.git"
@@ -29,6 +23,11 @@ class Jenkins < Formula
     libexec.install Dir["**/jenkins.war", "**/jenkins-cli.jar"]
     bin.write_jar_script libexec/"jenkins.war", "jenkins"
     bin.write_jar_script libexec/"jenkins-cli.jar", "jenkins-cli"
+  end
+
+  def caveats; <<-EOS.undent
+    Note: When using launchctl the port will be 8080.
+  EOS
   end
 
   plist_options :manual => "jenkins"
@@ -53,11 +52,6 @@ class Jenkins < Formula
         <true/>
       </dict>
     </plist>
-  EOS
-  end
-
-  def caveats; <<-EOS.undent
-    Note: When using launchctl the port will be 8080.
   EOS
   end
 

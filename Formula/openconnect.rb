@@ -2,6 +2,7 @@ class Openconnect < Formula
   desc "Open client for Cisco AnyConnect VPN"
   homepage "http://www.infradead.org/openconnect.html"
   url "ftp://ftp.infradead.org/pub/openconnect/openconnect-7.06.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/o/openconnect/openconnect_7.06.orig.tar.gz"
   sha256 "facf695368dc4537a6a30e2147be90b1d77ee3cb2d269eaef070b6d9ddab70f2"
   revision 1
 
@@ -19,7 +20,7 @@ class Openconnect < Formula
   end
 
   # No longer compiles against OpenSSL 1.0.2 - It chooses the system OpenSSL instead.
-  # http://lists.infradead.org/pipermail/openconnect-devel/2015-February/002757.html
+  # https://lists.infradead.org/pipermail/openconnect-devel/2015-February/002757.html
 
   depends_on "pkg-config" => :build
   depends_on "gettext"

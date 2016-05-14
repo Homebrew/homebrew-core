@@ -11,11 +11,11 @@ class Unixodbc < Formula
     sha256 "f968a389218dde09820ce6d7278bcd521d7fb43e27f186541a8bfc538ff8ead6" => :mavericks
   end
 
+  keg_only "Shadows system iODBC header files" if MacOS.version < :mavericks
+
   option :universal
 
   conflicts_with "virtuoso", :because => "Both install `isql` binaries."
-
-  keg_only "Shadows system iODBC header files" if MacOS.version < :mavericks
 
   def install
     ENV.universal_binary if build.universal?

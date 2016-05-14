@@ -11,7 +11,7 @@ class Rssh < Formula
   end
 
   # Submitted upstream:
-  # http://sourceforge.net/p/rssh/mailman/message/32251335/
+  # https://sourceforge.net/p/rssh/mailman/message/32251335/
   patch do
     url "https://gist.githubusercontent.com/arminsch/9230011/raw/f0c5ed95bbba0be28ce2b5f0d1080de84ec317ab/rsshconf-log-rename.diff"
     sha256 "abd625a8dc24f3089b177fd0318ffc1cf4fcb08d0c149191bb45943ad55f6934"

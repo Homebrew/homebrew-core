@@ -1,15 +1,15 @@
 class Arangodb < Formula
   desc "Universal open-source database with a flexible data model"
   homepage "https://www.arangodb.com/"
-  url "https://www.arangodb.com/repositories/Source/ArangoDB-2.8.6.tar.gz"
-  sha256 "0a11eb98e5c6bfda88a1e1e0bcae09dda2c88cdbcc3d01a669e4ef66c3284c4f"
+  url "https://www.arangodb.com/repositories/Source/ArangoDB-2.8.7.tar.gz"
+  sha256 "cda284af7e1d45c2250dcb2acd253e805e9aaad3504f1d09cfcb8afa5ad87020"
 
   head "https://github.com/arangodb/arangodb.git", :branch => "unstable"
 
   bottle do
-    sha256 "55b02e0392524ae1cffcc7bcc18bd44a4b10c167940f11db98ee25c267cb92dd" => :el_capitan
-    sha256 "bec740ff6215d3bda3ee7a9e73b2f5c586114d739f728a5c4c00a7d050da95c2" => :yosemite
-    sha256 "02b3a5bf310dba74670eae9bc451ce41cf94d2f11ab9010103b4687d47a5f8ee" => :mavericks
+    sha256 "b048abb7d6c7ed967885375341dc141512cd498ec004c823f21979a9b9e96315" => :el_capitan
+    sha256 "e55fc36e8e167732f2160b1366edcee901fe380ad9deef92d963c2eb745f69c7" => :yosemite
+    sha256 "b3b0b09665fef2cc8dabfacd15110e8f1d72680aeeffa6e1dc72ab3cc2fa5376" => :mavericks
   end
 
   depends_on "go" => :build

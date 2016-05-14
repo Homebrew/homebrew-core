@@ -23,7 +23,7 @@ class Findutils < Formula
     # https://github.com/Homebrew/homebrew/issues/45273
     # https://github.com/Homebrew/homebrew/issues/44993
     # This is thought to be an el_capitan bug:
-    # http://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
+    # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
     if MacOS.version == :el_capitan
       ENV["gl_cv_func_getcwd_abort_bug"] = "no"
     end
@@ -42,7 +42,7 @@ class Findutils < Formula
     # https://savannah.gnu.org/bugs/index.php?46846
     # https://github.com/Homebrew/homebrew/issues/47791
     updatedb = (build.with?("default-names") ? "updatedb" : "gupdatedb")
-    (libexec/"bin").install bin/"#{updatedb}"
+    (libexec/"bin").install bin/updatedb
     (bin/updatedb).write <<-EOS.undent
       #!/bin/sh
       export LC_ALL='C'

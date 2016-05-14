@@ -1,22 +1,21 @@
 class Ansible < Formula
   desc "Automate deployment, configuration, and upgrading"
-  homepage "http://www.ansible.com"
-  url "https://releases.ansible.com/ansible/ansible-2.0.1.0.tar.gz"
-  sha256 "cddc4fa6af4c1be6cd1d6634de1bd0397abad921c76b32cab6722c042744ee5d"
+  homepage "https://www.ansible.com/"
+  url "https://releases.ansible.com/ansible/ansible-2.0.2.0.tar.gz"
+  sha256 "373a2e50319d90da50948e3faf1c033464b7302200e0199da8981d24646d4387"
 
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
-    revision 2
-    sha256 "457a6bcbe29bde7543544dbd44d702e9d6ee51135dc59687cd923f8737a3d31d" => :el_capitan
-    sha256 "339d9bc27942b45d7322f6960422718523a92dbd167869bb3f5cb80d54075369" => :yosemite
-    sha256 "d0684bc344e8bfee3ecdc79316c24b57cf06c1417cc84a79643c10d81ea74d96" => :mavericks
+    sha256 "b24e695649a6467d13288e892910b677eb16a5dcb197ecfe09839ff8c536115d" => :el_capitan
+    sha256 "71b8c4e609a97225dbf816ecb8430feb9f27649be9d64ac6045bb63671c01a1a" => :yosemite
+    sha256 "260b5ce5252d6071580e6e14a7147a2642b6fbf54fa7152daea15a0cfddf936b" => :mavericks
   end
 
   devel do
-    url "https://releases.ansible.com/ansible/ansible-2.0.2.0-0.4.rc4.tar.gz"
-    sha256 "b902f974b48bd6867fc5e6770bbc80df5d8af6c5b8f5a831bc8611360af1dc08"
-    version "2.0.2.0-0.4.rc4"
+    url "https://releases.ansible.com/ansible/ansible-2.1.0.0-0.1.rc1.tar.gz"
+    sha256 "635ac5234a07506839d4ec36d180bdcbd3568549cdee1832af17560f304446a0"
+    version "2.1.0.0-0.1.rc1"
   end
 
   depends_on "pkg-config" => :build

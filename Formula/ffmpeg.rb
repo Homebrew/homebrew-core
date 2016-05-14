@@ -1,14 +1,14 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.0.1.tar.bz2"
-  sha256 "f7f7052c120f494dd501f96becff9b5a4ae10cfbde97bc2f1e9f0fd6613a4984"
+  url "https://ffmpeg.org/releases/ffmpeg-3.0.2.tar.bz2"
+  sha256 "30e3c77c2f4c358ed087869455a7496cbd7753a5e1b98d20ba49c1004009fd36"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "754cd2da64d2dda3aab3bca329757e102c781678ee9289e3ed238f5a639229cf" => :el_capitan
-    sha256 "b9a08881ea2053b739b92cb7dfdef4ce704ffef1776c68173e5e08c996c94004" => :yosemite
-    sha256 "1ce859c211f6759e1eac392ca85f91f99d89e464520312edd9f96618e97626b3" => :mavericks
+    sha256 "427e874885b03997de009cec923ed9872a498ff431bc24d007c191658e4633b3" => :el_capitan
+    sha256 "eb9ab80d69d69e2c4b6d311b3b84ce3e9539f5c1962187d4e018a29424c627a0" => :yosemite
+    sha256 "b6eb3f5481b89b4031bd1f4146f34b2e8736625c1cca29f14cffdfd2511fdfe6" => :mavericks
   end
 
   option "without-x264", "Disable H.264 encoder"

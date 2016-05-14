@@ -20,13 +20,13 @@ end
 class Slimerjs < Formula
   desc "Scriptable browser for Web developers"
   homepage "https://slimerjs.org/"
-  url "https://download.slimerjs.org/releases/0.9.6/slimerjs-0.9.6.zip"
-  sha256 "982526f734ae4005f6117b821c1703482f2bc87c6b2e3ceaae6b981d4d123e73"
+  url "https://download.slimerjs.org/releases/0.10.0/slimerjs-0.10.0.zip"
+  sha256 "80b8008d9d8592e55e2744e1842139e33498221c2a78648fea1bdd0592231afb"
   head "https://github.com/laurentj/slimerjs.git"
 
   devel do
-    url "https://download.slimerjs.org/nightlies/latest-slimerjs-master/slimerjs-0.10.0pre.zip"
-    sha256 "dec4c1b591aed9ee0562aaa9f1901eb6d9f8904db4d51f8550f98d25be9d188f"
+    url "https://download.slimerjs.org/nightlies/latest-slimerjs-master/slimerjs-1.0.0-pre.zip"
+    sha256 "4fa35f42267b8a4c5f84301e20b18603c5a71e723d4838fd9a5756cc824c0355"
   end
 
   bottle :unneeded

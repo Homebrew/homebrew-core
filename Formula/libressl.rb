@@ -1,13 +1,14 @@
 class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "http://www.libressl.org/"
-  url "http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.3.tar.gz"
-  sha256 "76733166187cc8587e0ebe1e83965ef257262a1a676a36806edd3b6d51b50aa9"
+  url "http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.4.tar.gz"
+  sha256 "7a1135b2620f78928e89538c211a4df1d9415994001d1e7c9178c6b6d72de6a9"
+  revision 1
 
   bottle do
-    sha256 "8293395e7dc5bed93db97e215e56517c6c871b6a4fb76ccb36b30c7384f88bfc" => :el_capitan
-    sha256 "adb8fdae706d589ecdb24d338fb712c396d3a4c052e9e58d1bc7f1b6b4a1ea96" => :yosemite
-    sha256 "ac399714e57b5debf5a8d3ad7a4ac83f71efe3c9bfaf87a4f84fd13e2d544ed5" => :mavericks
+    sha256 "427079b4457f30362192acf399ccd24c7ca9e9e00b12a3595d8db20650f03c98" => :el_capitan
+    sha256 "f29af615a87df16e0e416e140160a008917c74d0d682ec211615e583f6f7ec1f" => :yosemite
+    sha256 "c9d29096d94ef1d6043a318392b10d3189ac968ab1ac249176e4db8ee9b6a552" => :mavericks
   end
 
   head do
@@ -38,7 +39,6 @@ class Libressl < Formula
 
   def post_install
     keychains = %w[
-      /Library/Keychains/System.keychain
       /System/Library/Keychains/SystemRootCertificates.keychain
     ]
 
@@ -48,7 +48,7 @@ class Libressl < Formula
     )
 
     valid_certs = certs.select do |cert|
-      IO.popen("openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
+      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
         openssl_io.write(cert)
         openssl_io.close_write
       end
@@ -57,7 +57,7 @@ class Libressl < Formula
     end
 
     # LibreSSL install a default pem - We prefer to use OS X for consistency.
-    rm_f etc/"libressl/cert.pem"
+    rm_f %W[ #{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default ]
     (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
   end
 

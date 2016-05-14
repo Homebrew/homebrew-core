@@ -1,15 +1,15 @@
 class PdfRedactTools < Formula
   desc "Securely redacting and stripping metadata"
-  homepage "https://github.com/micahflee/pdf-redact-tools"
-  url "https://github.com/micahflee/pdf-redact-tools/archive/v0.1.tar.gz"
-  sha256 "9d5f095e5d056eb527c08c4736b45c99aa6399424dd6ed7155e3d7cd1600c55e"
-  head "https://github.com/micahflee/pdf-redact-tools.git"
+  homepage "https://github.com/firstlookmedia/pdf-redact-tools"
+  url "https://github.com/firstlookmedia/pdf-redact-tools/archive/v0.1.1.tar.gz"
+  sha256 "1b6ade577f2eeb8ea6ddfd1b7b9a6925a6c9a929ea98700e8015676ee1a13155"
+  head "https://github.com/firstlookmedia/pdf-redact-tools.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "17c2dd805cf6f02dbd9f87c2f8c492abee296f08d0190699179a76eb1caad4e6" => :el_capitan
-    sha256 "4c841b25222983bc322fc1551a0142b34baa5033f560ec06d8a48c3e43dfea7d" => :yosemite
-    sha256 "a18d2048339064b527df22c675c8417fc5c2771d0dfb4176c8bd66ffc3e714c1" => :mavericks
+    sha256 "660fd61a0bb83272ec2d5e818435484ff53d5a88f7bc619fcccafd5c5e855203" => :el_capitan
+    sha256 "1bfb6823d1c7e94f37cf86a3d30bcd777873b69f1a58556dcb7f3d2d25cd4123" => :yosemite
+    sha256 "13ef89b6f2f20f22513412f4a4b7f815fe297276a451097228df21bb8835e610" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

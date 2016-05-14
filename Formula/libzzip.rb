@@ -6,10 +6,10 @@ class Libzzip < Formula
 
   bottle do
     cellar :any
-    revision 2
-    sha256 "f93a8fd68c8ed930f84f54f4f438191f4445d555f601b370b48c0fbeb2db0e56" => :el_capitan
-    sha256 "ca2078a2a603b0d1c6fd81d01bb50ec0c82c15891b2549918ca058fd4d88f520" => :yosemite
-    sha256 "84694b367a72ce8edb39976ab0b3f383c5dfffc1e58571e94e5d0d08ec190ed0" => :mavericks
+    revision 3
+    sha256 "661b7f130316bfd82f6781652820198afecc0b92b5f9d92d6028ea866252e761" => :el_capitan
+    sha256 "648e60acdbbe15d1abfccbdb8e34656cea044036eddbcc61e081eee9ccac245b" => :yosemite
+    sha256 "6356e30f6be759bdb0234b811ef83069d36fdef29f5f3cf618a9547773672918" => :mavericks
   end
 
   option "with-sdl", "Enable SDL usage and create SDL_rwops_zzip.pc"
@@ -19,8 +19,6 @@ class Libzzip < Formula
 
   depends_on "pkg-config" => :build
   depends_on "sdl" => :optional
-
-  conflicts_with "zzuf", :because => "both install `zzcat` binaries"
 
   def install
     if build.universal?
@@ -37,13 +35,14 @@ class Libzzip < Formula
     args << "--enable-sdl" if build.with? "sdl"
     system "./configure", *args
     system "make", "install"
-    ENV.deparallelize   # fails without this when a compressed file isn't ready
+
+    ENV.deparallelize # fails without this when a compressed file isn't ready
     system "make", "check" # runing this after install bypasses DYLD issues
   end
 
   test do
     (testpath/"README.txt").write("Hello World!")
-    system "zip", "test.zip", "README.txt"
+    system "/usr/bin/zip", "test.zip", "README.txt"
     assert_equal "Hello World!", shell_output("#{bin}/zzcat test/README.txt")
   end
 end

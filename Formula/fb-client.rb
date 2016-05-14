@@ -1,5 +1,5 @@
 class FbClient < Formula
-  desc "Shell-script client for http://paste.xinu.at"
+  desc "Shell-script client for https://paste.xinu.at"
   homepage "https://paste.xinu.at"
   url "https://paste.xinu.at/data/client/fb-1.5.0.tar.gz"
   sha256 "205514e7ae6d2ce687c05a5f581248d0f06c29c4e8e004f768ba0b54a39ed2f3"

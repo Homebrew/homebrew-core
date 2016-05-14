@@ -1,31 +1,31 @@
 class Pyvim < Formula
   desc "Pure Python Vim clone"
   homepage "https://pypi.python.org/pypi/pyvim"
-  url "https://pypi.python.org/packages/source/p/pyvim/pyvim-0.0.16.tar.gz"
-  sha256 "5c4b6fde5528845cf9a10267a6d598a24f2523d5b3ad451410860916cdf45378"
+  url "https://pypi.python.org/packages/f7/ae/21857aac8acb73f8f91aa50ba5319c5000257c5fa8ff13f29ce4698865f1/pyvim-0.0.18.tar.gz"
+  sha256 "8a676fcb5bf78db5ad70c26131128f631f21556c4431f9a7fa6a5fdcdbb7e2e5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5e73f934e89da7871b0fd645dcf75ae6cb2f3e7eba0326ad80de39a8e442a28a" => :el_capitan
-    sha256 "514e9c6314fe574df2306a80a4eaf7227136de74419d2edae735acd5039ea39f" => :yosemite
-    sha256 "05555d583b3aacb1e5f52273faf5f819f4087076896076ce28e572607467f070" => :mavericks
+    sha256 "02b67a7b79ef341d0140de636ceabdddf8dee46212cdc303b0110fcbf5b08a4f" => :el_capitan
+    sha256 "b88954d67cb3cc4663e58b835bba56d2827b84b71e239ef58c036aac7b0b5c12" => :yosemite
+    sha256 "ff4daf14062aca74555c3d8e1a90bc464051c804300d7222e197b374ee196d2c" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "ptpython" do
-    url "https://pypi.python.org/packages/source/p/ptpython/ptpython-0.31.tar.gz"
-    sha256 "a70ac512efc7b3c3e1ed6adba56f7214d5ed48729f9dac474e9a73472152006f"
+    url "https://pypi.python.org/packages/39/cc/5cd0ff55d774fd287bf3f07fd5ed57c25117b68fa3d7fc7a9649d9b3a02d/ptpython-0.34.tar.gz"
+    sha256 "23ccb0e9f28cfc8001b9db4cfd0193862e56f8e9c21425fea91059e0be8fabd6"
   end
 
   resource "prompt_toolkit" do
-    url "https://pypi.python.org/packages/source/p/prompt_toolkit/prompt_toolkit-0.60.tar.gz"
-    sha256 "b44acc4cf3fb9f7331343ae170eac06f853a66e28cdd4ccfeee7c8dad0dec33d"
+    url "https://pypi.python.org/packages/0b/2c/ab26db81e5b9c2f179a2e9d797f2ce0d11f7cc3308830831de0daad8629e/prompt_toolkit-1.0.0.tar.gz"
+    sha256 "5108ed9e6e40d28cb1dc90ba563987859231289700d0def999007b08f4f74ea4"
   end
 
   resource "pyflakes" do
-    url "https://pypi.python.org/packages/source/p/pyflakes/pyflakes-1.1.0.tar.gz"
-    sha256 "e5f959931987e2be178781554b485d52342ec9f1b43f891d2dad07a691c7a89a"
+    url "https://pypi.python.org/packages/54/80/6a641f832eb6c6a8f7e151e7087aff7a7c04dd8b4aa6134817942cdda1b6/pyflakes-1.2.3.tar.gz"
+    sha256 "2e4a1b636d8809d8f0a69f341acf15b2e401a3221ede11be439911d23ce2139e"
   end
 
   resource "docopt" do

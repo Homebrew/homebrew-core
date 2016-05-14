@@ -1,18 +1,17 @@
 class Moreutils < Formula
   desc "Collection of tools that nobody wrote when UNIX was young"
   homepage "https://joeyh.name/code/moreutils/"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/moreutils/moreutils_0.57.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/moreutils/moreutils_0.57.orig.tar.gz"
-  sha256 "3a7d54b0634e5eda8c3c43490d47cea189156700892dea6d876867cef9bc0d1d"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/moreutils/moreutils_0.58.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/moreutils/moreutils_0.58.orig.tar.gz"
+  sha256 "9c4bba745518f1cc4d5594b1276793bd4f737fedb2e5b14beeab4b73f106c00a"
 
   head "git://git.kitenet.net/moreutils"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "58f4880792b76e847b7ce7ad4ba057c7c63b2ffb0dbe3e6532630e7216c3ee5f" => :el_capitan
-    sha256 "a7deb1afc2618334d45b48796543a8ca1d01ade8b47937b4fe67a0de19dd32a6" => :yosemite
-    sha256 "08e96c68bc1786c779b96902164840bcd14342388194c61674711204b96576a0" => :mavericks
+    sha256 "fbe3a3e2b61398a699da4de280baf7afb3a6a4cca3403195abc51af0b04b7834" => :el_capitan
+    sha256 "7530db1d5cb7b02d06085ebfc6377418a158f12f9e9c774d66aefba9148d1d36" => :yosemite
+    sha256 "c05d7423cac183a57a3bc415283789725516c64389e13aa933504416f7f8e9fd" => :mavericks
   end
 
   option "without-parallel", "Build without the 'parallel' tool."

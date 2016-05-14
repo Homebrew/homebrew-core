@@ -1,6 +1,6 @@
 class Swftools < Formula
   desc "SWF manipulation and generation tools"
-  homepage "http://www.swftools.org"
+  homepage "http://www.swftools.org/"
   url "http://www.swftools.org/swftools-0.9.2.tar.gz"
   sha256 "bf6891bfc6bf535a1a99a485478f7896ebacbe3bbf545ba551298080a26f01f1"
   revision 1
@@ -27,7 +27,7 @@ class Swftools < Formula
 
   # Fixes a conftest for libfftwf.dylib that mistakenly calls fftw_malloc()
   # rather than fftwf_malloc().  Reported upstream to their mailing list:
-  # http://lists.nongnu.org/archive/html/swftools-common/2012-04/msg00014.html
+  # https://lists.nongnu.org/archive/html/swftools-common/2012-04/msg00014.html
   # Patch is merged upstream.  Remove at swftools-0.9.3.
   patch :DATA
 

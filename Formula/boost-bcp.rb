@@ -1,6 +1,6 @@
 class BoostBcp < Formula
   desc "Utility for extracting subsets of the Boost library"
-  homepage "http://www.boost.org/doc/tools/bcp/"
+  homepage "https://www.boost.org/doc/tools/bcp/"
   url "https://downloads.sourceforge.net/project/boost/boost/1.60.0/boost_1_60_0.tar.bz2"
   sha256 "686affff989ac2488f79a97b9479efb9f2abae035b5ed4d8226de6857933fd3b"
 

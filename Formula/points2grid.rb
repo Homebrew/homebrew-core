@@ -1,15 +1,14 @@
 class Points2grid < Formula
   desc "Generate digital elevation models using local griding"
   homepage "https://github.com/CRREL/points2grid"
-  url "https://github.com/CRREL/points2grid/archive/1.3.0.tar.gz"
-  sha256 "87acdfd336fac20d2c2a22926b045c7f3f0fc925769a87393aff28b8c351c62b"
-  revision 2
+  url "https://github.com/CRREL/points2grid/archive/1.3.1.tar.gz"
+  sha256 "6e2f2d3bbfd6f0f5c2d0c7d263cbd5453745a6fbe3113a3a2a630a997f4a1807"
 
   bottle do
     cellar :any
-    sha256 "6aff5db2a68b128e8fba0dc703ca307c97710b3c9738ea9976851dd0df1b68a5" => :el_capitan
-    sha256 "c2b5e8d04aec3a9f174c43e23eac017342768614b903538be5f0da23206ad18c" => :yosemite
-    sha256 "e4bb77cf46bf8209813afec8e40d1c377c3d3c7e7117cd481cd0198c6df7b379" => :mavericks
+    sha256 "0f30c1a159b2a7efac5caf2c77484832e281b787dd9e034fc130a2ae1743d9f0" => :el_capitan
+    sha256 "4c7b0feae78f632c8195d3d8e009178f40b8a2758a509ce139dba6edab52784d" => :yosemite
+    sha256 "0e57a93ae8dde68b2e1e9d8d41a4085de4c0dc29a8ba10ceac638f3896f463e9" => :mavericks
   end
 
   depends_on :macos => :mavericks
@@ -20,7 +19,7 @@ class Points2grid < Formula
 
   def install
     args = std_cmake_args + ["-DWITH_GDAL=ON"]
-    libexec.install "example.las"
+    libexec.install "test/data/example.las"
     system "cmake", ".", *args
     system "make", "install"
   end

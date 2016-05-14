@@ -12,9 +12,9 @@ class Dub < Formula
   end
 
   devel do
-    url "https://github.com/D-Programming-Language/dub/archive/v0.9.25-alpha.1.tar.gz"
-    sha256 "c6823569045b3528238d2d2f372be1a7e4a15b0c31c5584e5d09bc646767131a"
-    version "0.9.25-alpha.1"
+    url "https://github.com/rejectedsoftware/dub/archive/v0.9.25-beta.3.tar.gz"
+    sha256 "c67dc40757cbe0b422f7d38669b786ff344a7dc752bb78aa1652c2b0c405de34"
+    version "0.9.25-beta.3"
   end
 
   depends_on "pkg-config" => :build

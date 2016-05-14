@@ -1,14 +1,13 @@
 class Pyqt5 < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
-  url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.5.1/PyQt-gpl-5.5.1.tar.gz"
-  sha256 "0a70ef94fbffcf674b0dde024aae2a2a7a3f5a8c42806109ff7df2c941bd8386"
-  revision 1
+  url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.6/PyQt5_gpl-5.6.tar.gz"
+  sha256 "2e481a6c4c41b96ed3b33449e5f9599987c63a5c8db93313bd57a6acbf20f0e1"
 
   bottle do
-    sha256 "9372001ae57afee47b5326439e9ecdac778ff18279515f45d4a0b8209247ab89" => :el_capitan
-    sha256 "6c66da7a5f6716181e0fcb35970b65dacd8bd1bc023ac9e0ab790c47921f74e3" => :yosemite
-    sha256 "84cdcdfe9b984806871383c129f01b6857eae3805a20b82bef3ba474237408ed" => :mavericks
+    sha256 "4815f60529eadc829c704adbfb6a01ea2daec7acae4c4f7871579d3b01bdbc63" => :el_capitan
+    sha256 "ac14ff2a18458c8201415adf3dfbd872849b0fef9968e105c4ce43e72876fcbf" => :yosemite
+    sha256 "111602985fb4ced414dc4722a1af8ee3d428b2e013e22bdae8d0d059570ac44c" => :mavericks
   end
 
   option "with-debug", "Build with debug symbols"
@@ -18,11 +17,6 @@ class Pyqt5 < Formula
 
   depends_on :python3 => :recommended
   depends_on :python => :optional
-
-  if build.without?("python3") && build.without?("python")
-    odie "pyqt5: --with-python3 must be specified when using --without-python"
-  end
-
   depends_on "qt5"
 
   if build.with? "python3"
@@ -32,12 +26,16 @@ class Pyqt5 < Formula
   end
 
   def install
+    if build.without?("python3") && build.without?("python")
+      odie "pyqt5: --with-python3 must be specified when using --without-python"
+    end
+
     Language::Python.each_python(build) do |python, version|
       args = ["--confirm-license",
               "--bindir=#{bin}",
               "--destdir=#{lib}/python#{version}/site-packages",
-              # To avoid conflicts with PyQt (for Qt4):
-              "--sipdir=#{share}/sip/Qt5/",
+              "--stubsdir=#{lib}/python#{version}/site-packages/PyQt5",
+              "--sipdir=#{share}/sip/Qt5",
               # sip.h could not be found automatically
               "--sip-incdir=#{Formula["sip"].opt_include}",
               # Make sure the qt5 version of qmake is found.

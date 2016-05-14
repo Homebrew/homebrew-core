@@ -3,15 +3,14 @@ require "language/go"
 class JfrogCliGo < Formula
   desc "command-line interface for Jfrog Artifactory and Bintray"
   homepage "https://github.com/JFrogDev/jfrog-cli-go"
-  url "https://github.com/JFrogDev/jfrog-cli-go/archive/1.0.1.tar.gz"
-  sha256 "9189993c3201dc354a73fdbd5dfdecb8ae077ef06e2d3badc6ac6450e7c64eaa"
+  url "https://github.com/JFrogDev/jfrog-cli-go/archive/1.2.0.tar.gz"
+  sha256 "e37c99a26cf51154a071090e06bf145302862d38a4406a77926dd639f836760e"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "4bc2bed7d7bce710fc0279a9f7d6eeb6514a3a060d81d6875c50e6f059ff627d" => :el_capitan
-    sha256 "b2f04248ecdb95cabec6dca51b1e0d6c96b026d327efb3f2999439c064fcb031" => :yosemite
-    sha256 "eba7de045f256ac8f079b33ed4d891b6551636ac4aae88cf586cd2dc3639ae0b" => :mavericks
+    sha256 "9f569aadeb960f99595303b5c9031af600024eeaaca734d6b1b6b7ae5624fb68" => :el_capitan
+    sha256 "178343e4d3b291eff0cbbb399cc39f0db5496fe15767812fbd4470b8d48e058d" => :yosemite
+    sha256 "9f68bbe27f7b0160e185ccf03f714de2cb84ea389976fabfd0eac55125f8b567" => :mavericks
   end
 
   depends_on "go" => :build
@@ -31,8 +30,6 @@ class JfrogCliGo < Formula
   end
 
   test do
-    actual = pipe_output("#{bin}/jfrog rt -v")
-    expected = "jfrog version 1.0.1\n"
-    assert_equal expected, actual
+    assert_equal "jfrog version 1.2.0", shell_output("#{bin}/jfrog -v").chomp
   end
 end

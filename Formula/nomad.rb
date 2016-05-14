@@ -4,16 +4,16 @@ class Nomad < Formula
   desc "Distributed, Highly Available, Datacenter-Aware Scheduler"
   homepage "https://www.nomadproject.io"
   url "https://github.com/hashicorp/nomad.git",
-    :tag => "v0.3.1",
-    :revision => "17fa55c4cfdacbcaf9459a7210d58aa4b47ed541"
+    :tag => "v0.3.2",
+    :revision => "efcd4e822d9e1569187ac649da15610b47167f24"
 
   head "https://github.com/hashicorp/nomad.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3c13f727ea94205939c69a1a98a95f56547f0472de45f19757af796a83388ed5" => :el_capitan
-    sha256 "49e6875dc35f9ac3c8bf4e88236920d285b9be6c73d724e0d8935185472ce1c6" => :yosemite
-    sha256 "eecc51d26cd0867c669d723d09fb90cd2f879c052ac4f3184f5441ccfd0a9576" => :mavericks
+    sha256 "84e58064b2bda80accd7a9ed8ef022b059e24de2cefbec47a6beaab9a51cff0b" => :el_capitan
+    sha256 "ed1fcf63a27a7259ffa5b0bf43a97c01a99681f2712c958eb8900904e09b0536" => :yosemite
+    sha256 "211e4a482e1bb27bfeea759a893dc012627e0155611e331b91454b74e8d96b19" => :mavericks
   end
 
   depends_on "go" => :build

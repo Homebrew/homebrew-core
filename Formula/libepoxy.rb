@@ -21,7 +21,7 @@ class Libepoxy < Formula
   depends_on :python => :build if MacOS.version <= :snow_leopard
 
   resource "xorg-macros" do
-    url "http://xorg.freedesktop.org/releases/individual/util/util-macros-1.19.0.tar.bz2"
+    url "https://xorg.freedesktop.org/releases/individual/util/util-macros-1.19.0.tar.bz2"
     sha256 "2835b11829ee634e19fa56517b4cfc52ef39acea0cd82e15f68096e27cbed0ba"
   end
 

@@ -1,18 +1,31 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers."
   homepage "http://www.ibex-lib.org/"
-  url "http://www.ibex-lib.org/sites/default/files/ibex-2.1.16.tar.gz"
-  sha256 "d92ff32f14d27ad7b390ae693beb311b58cf6babccac85bbdaa5f5d0b8648845"
+  head "https://github.com/ibex-team/ibex-lib.git"
+
+  stable do
+    url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.2.0.tar.gz"
+    sha256 "fa6f281d5f28db11fa8715569937b4d19bd24ab744d0c7f21674cc1552d674ee"
+
+    # Patch the optional param-estim plugin build script
+    patch do
+      url "https://github.com/ibex-team/ibex-lib/pull/192.diff"
+      sha256 "91cc070ad5464a5c19205228470161ff87a09df5b3aeaae2b65361319e509fbf"
+    end
+  end
 
   bottle do
     cellar :any
-    sha256 "21744850c087156a1ced058b7c4ca6bc8521d0f29b97929b211f544f9284e3c9" => :el_capitan
-    sha256 "8f3820e87fea2799f4789bf956803dadab7789e2c51c29567e339db4e08473b7" => :yosemite
-    sha256 "51288d9af477d65a26f8f37bee74e07913df0e77be6bbc979758a8486a1d6fd3" => :mavericks
-    sha256 "41327b6a0da9b8b2ed888c3c2c33d5f6ff061ea13eceb4b9e8b6e660049d624d" => :mountain_lion
+    sha256 "5abdb26e6f429833331b3a59201b1dd000b0ee1f8a8a119ae3f64a406982fae9" => :el_capitan
+    sha256 "065bd27248281bb02f351a0248a3a2753e83aa08ea8fb5ad8f01285161c68beb" => :yosemite
+    sha256 "641812e10e130e6ef29c1f9410ac180230a2ef9c827be6c454695e3508955aac" => :mavericks
   end
 
-  option "with-java", "Build Java bindings for Choco solver."
+  option "with-java", "Enable Java bindings for CHOCO solver."
+  option "with-ampl", "Use AMPL file loader plugin"
+
+  option "without-ensta-robotics", "Don't build the Contractors for robotics (SLAM) plugin"
+  option "without-param-estim", "Don't build the Parameter Estimation (enhanced Q-intersection algorithm) plugin"
 
   depends_on :java => ["1.8+", :optional]
   depends_on "bison" => :build
@@ -20,29 +33,54 @@ class Ibex < Formula
   depends_on "pkg-config" => :build
 
   def install
-    args = ["--prefix=#{prefix}"]
-
-    if build.with? "java"
-      args << "--with-jni"
-    else
-      args << "--enable-shared"
+    if build.with?("java") && build.with?("ampl")
+      odie "Cannot set options --with-java and --with-ampl simultaneously for now."
     end
+
+    args = %W[
+      --prefix=#{prefix}
+      --enable-shared
+      --with-affine
+      --with-optim
+    ]
+
+    args << "--with-jni" if build.with? "java"
+    args << "--with-ampl" if build.with? "ampl"
+    args << "--with-ensta-robotics" if build.with? "ensta-robotics"
+    args << "--with-param-estim" if build.with? "param-estim"
 
     system "./waf", "configure", *args
     system "./waf", "install"
 
     cd "examples" do
-      cxxflags = "-frounding-math -ffloat-store -I#{include} -I#{include}/ibex"
-      libflags = "-L#{lib} -libex -lprim -lClp -lCoinUtils -lm"
-      system "make", "defaultsolver", "LIBS=#{libflags}", "CXXFLAGS=#{cxxflags}"
+      ENV["PKG_CONFIG_PATH"] = "#{share}/pkgconfig"
+      # Build Ibex examples
+      system "make", *%w[ctc01 ctc02 symb01 solver01 solver02]
+      # Build SLAM examples
+      cd "slam" do
+        system "make", *%w[slam1 slam2 slam3]
+      end
     end
 
     pkgshare.install %w[examples benchs]
+    (pkgshare/"examples/symb01.txt").write <<-EOS.undent
+      function f(x)
+        return ((2*x,-x);(-x,3*x));
+      end
+    EOS
   end
 
   test do
     cp_r "#{pkgshare}/examples/.", testpath
+
+    # Base Ibex examples
+    %w[ctc01 ctc02 symb01].each { |a| system "./#{a}" }
+    # Ibex solver examples
     cp "#{pkgshare}/benchs/cyclohexan3D.bch", testpath
-    system "./defaultsolver", "cyclohexan3D.bch", "1e-05", "10"
+    %w[solver01 solver02].each { |a| system "./#{a}", "cyclohexan3D.bch", "1e-05", "10" }
+    # Slam example (base Ibex)
+    cd "slam" do
+      %w[slam1 slam2 slam3].each { |a| system "./#{a}" }
+    end
   end
 end

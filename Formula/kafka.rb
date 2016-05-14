@@ -1,17 +1,17 @@
 class Kafka < Formula
-  homepage "https://kafka.apache.org"
   desc "Publish-subscribe messaging rethought as a distributed commit log"
-  url "http://mirrors.ibiblio.org/apache/kafka/0.9.0.0/kafka-0.9.0.0-src.tgz"
-  mirror "https://archive.apache.org/dist/kafka/0.9.0.0/kafka-0.9.0.0-src.tgz"
-  sha256 "642316ddcd87d0b972c876b6d47cf286aa393e6a8427bc1e77a718047a364046"
+  homepage "https://kafka.apache.org"
+  url "http://mirrors.ibiblio.org/apache/kafka/0.9.0.1/kafka-0.9.0.1-src.tgz"
+  mirror "https://archive.apache.org/dist/kafka/0.9.0.1/kafka-0.9.0.1-src.tgz"
+  sha256 "95d6bcb8fb1ee697b15c262dd9b61d0b47c7c9d1c8ece07205d4c2545ed12596"
 
   head "https://git-wip-us.apache.org/repos/asf/kafka.git", :branch => "trunk"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d0e85fc8e63d70fc580f8fcb30fce5a561a15e16559504da0a24c2b0780e10c8" => :el_capitan
-    sha256 "f19f1d971644fa6ca54d3d5b376b3fe0025534e7f18c3f64d4873008e8ff81fa" => :yosemite
-    sha256 "8bab5dfada48123f88bc299737393ca25dd0205ff8629ae3faf7593f4f113144" => :mavericks
+    sha256 "8808773c5ae7251a75592963271766e969f2faba4feaa0f1259da15c56a30c00" => :el_capitan
+    sha256 "d1cbd5529d005643619bb5832edb6f5c9b4a45f9bac8115c79b0bb63886bbabf" => :yosemite
+    sha256 "0543a3798af77854d36cc640ecebc6067607be1dbcea6dc60de4adb88cd45261" => :mavericks
   end
 
   depends_on "gradle"
@@ -52,7 +52,7 @@ class Kafka < Formula
 
     prefix.install "bin"
     bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.7+"))
-    Dir["#{bin}/*.sh"].each {|f| mv f, f.to_s.gsub(/.sh$/, "") }
+    Dir["#{bin}/*.sh"].each { |f| mv f, f.to_s.gsub(/.sh$/, "") }
 
     mv "config", "kafka"
     etc.install "kafka"
@@ -63,6 +63,33 @@ class Kafka < Formula
   end
 
   plist_options :manual => "zookeeper-server-start #{HOMEBREW_PREFIX}/etc/kafka/zookeeper.properties; kafka-server-start #{HOMEBREW_PREFIX}/etc/kafka/server.properties"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>#{opt_bin}/kafka-server-start</string>
+            <string>#{etc}/kafka/server.properties</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/kafka/kafka_output.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/kafka/kafka_output.log</string>
+    </dict>
+    </plist>
+    EOS
+  end
 
   test do
     ENV["LOG_DIR"] = "#{testpath}/kafkalog"
@@ -96,32 +123,5 @@ class Kafka < Formula
     end
 
     assert_match "Received message: ", IO.read("#{testpath}/kafka/demo.out")
-  end
-
-  def plist; <<-EOS.undent
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-        <key>ProgramArguments</key>
-        <array>
-            <string>#{opt_bin}/kafka-server-start</string>
-            <string>#{etc}/kafka/server.properties</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/kafka/kafka_output.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/kafka/kafka_output.log</string>
-    </dict>
-    </plist>
-    EOS
   end
 end

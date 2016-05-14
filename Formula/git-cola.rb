@@ -1,15 +1,15 @@
 class GitCola < Formula
   desc "Highly caffeinated git GUI"
   homepage "https://git-cola.github.io/"
-  url "https://github.com/git-cola/git-cola/archive/v2.4.tar.gz"
-  sha256 "ef735431a2e58bac7671c4b9ab4fbb369195b16987fe9d3d931a9097c06c7f36"
+  url "https://github.com/git-cola/git-cola/archive/v2.6.tar.gz"
+  sha256 "ed566548793b4905005528d5e612c41bea5b5f7602649c0eec0787fbb0ab9cd2"
   head "https://github.com/git-cola/git-cola.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1d9b0f0b7df97b5e37fdf2b548f297aca05d303b4b27e66a81bd2972a9164163" => :el_capitan
-    sha256 "0e307cb96047b9448bc531188fb8f44831074647a95819d5de76c59b4c4fb9fa" => :yosemite
-    sha256 "3c1cde2b3b70661603f9eb94d3d0560ceaf27b11b98edb2b68b3bf524c444751" => :mavericks
+    sha256 "581410959c98c1b223334eb0d7c2938ef2549044dcdf663d9824d0f1c7182252" => :el_capitan
+    sha256 "be7c12091cc413e5e5173aca38668211c64e76256f2d95486504de6bbb2d0e77" => :yosemite
+    sha256 "bd8b4c704efb91dd35236c2e86719d6a0e27324595c35744f75bbc7767922e3e" => :mavericks
   end
 
   option "with-docs", "Build manpages and HTML docs"

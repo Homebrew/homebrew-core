@@ -1,18 +1,19 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
+  revision 1
 
   stable do
-    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.8.0.tar.xz"
-    sha256 "c20c134d47dbc238d921707a3b66da709c2b4dd89f9d267cec13d1ddf16e9f4d"
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.8.1.tar.xz"
+    sha256 "2103e17921d67894e82eafdd64fb9b06518599952fd93e625bfbc83ffead0972"
 
     depends_on "check" => :optional
   end
 
   bottle do
-    sha256 "d95d88e4355f0319d84d168299f8bde72a741207c7653c9343ed88006e64b5f6" => :el_capitan
-    sha256 "776af71fc8207152af28ca730afeb7e251a29982a6ccd21a45d95b83018fe466" => :yosemite
-    sha256 "76c232b8015d6e3448d0d7738553f4d55cec970f798c8115494b004be5fdeabe" => :mavericks
+    sha256 "8e2e33a722d5f06775cc466157737f153c80793873d10ec439d81a407dadb008" => :el_capitan
+    sha256 "68d396a9c55d2c36450a994c4d7dc834dbf88a15420d7a50f56f5e4872a23a39" => :yosemite
+    sha256 "e3ab65beb5127a69106fa2f8927e0efeddb3aa31878123cfe3dbf0909e46e903" => :mavericks
   end
 
   head do
@@ -31,23 +32,25 @@ class GstPluginsGood < Formula
 
   depends_on :x11 => :optional
 
-  # The set of optional dependencies is based on the intersection of
-  # gst-plugins-good-0.10.30/REQUIREMENTS and Homebrew formulae
-  depends_on "orc" => :optional
-  depends_on "gtk+" => :optional
+  # Dependencies based on the intersection of
+  # https://cgit.freedesktop.org/gstreamer/gst-plugins-good/tree/REQUIREMENTS
+  # and Homebrew formulae.
+  depends_on "orc" => :recommended
+  depends_on "gdk-pixbuf" => :optional
   depends_on "aalib" => :optional
-  depends_on "libcdio" => :optional
-  depends_on "esound" => :optional
+  depends_on "cairo" => :optional
   depends_on "flac" => [:optional, "with-libogg"]
   depends_on "jpeg" => :optional
   depends_on "libcaca" => :optional
   depends_on "libdv" => :optional
+  depends_on "libpng" => :optional
   depends_on "libshout" => :optional
   depends_on "speex" => :optional
   depends_on "taglib" => :optional
-  depends_on "libpng" => :optional
+
   depends_on "libvpx" => :optional
   depends_on "pulseaudio" => :optional
+  depends_on "jack" => :optional
 
   depends_on "libogg" if build.with? "flac"
 
@@ -82,5 +85,11 @@ class GstPluginsGood < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    gst = Formula["gstreamer"].opt_bin/"gst-inspect-1.0"
+    output = shell_output("#{gst} --plugin cairo")
+    assert_match version.to_s, output
   end
 end

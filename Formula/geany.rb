@@ -1,7 +1,7 @@
 class Geany < Formula
   desc "Basic text editor with IDE support"
-  homepage "http://geany.org/"
-  url "http://download.geany.org/geany-1.26.tar.bz2"
+  homepage "https://geany.org/"
+  url "https://download.geany.org/geany-1.26.tar.bz2"
   sha256 "e38530e87c577e1e9806be3b40e08fb9ee321eb1abc6361ddacdad89c825f90d"
 
   bottle do

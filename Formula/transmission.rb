@@ -1,6 +1,6 @@
 class Transmission < Formula
   desc "Lightweight BitTorrent client"
-  homepage "http://www.transmissionbt.com/"
+  homepage "https://www.transmissionbt.com/"
   url "https://download.transmissionbt.com/files/transmission-2.92.tar.xz"
   sha256 "3a8d045c306ad9acb7bf81126939b9594553a388482efa0ec1bfb67b22acd35f"
 
@@ -41,7 +41,7 @@ class Transmission < Formula
   def caveats; <<-EOS.undent
     This formula only installs the command line utilities.
     Transmission.app can be downloaded from Transmission's website:
-      http://www.transmissionbt.com
+      https://www.transmissionbt.com/
     EOS
   end
 

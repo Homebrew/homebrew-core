@@ -1,13 +1,13 @@
 class GstPluginsBase < Formula
   desc "GStreamer plugins (well-supported, basic set)"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.8.0.tar.xz"
-  sha256 "abc0acc1d15b4b9c97c65cd9689bd6400081853b9980ea428d3c8572dd791522"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.8.1.tar.xz"
+  sha256 "15a9de985cd265c344e359f5b19347df4021b7611ed2c2d91917cb900f2fad6f"
 
   bottle do
-    sha256 "ad7d6fc9e1a6f1f8128782321f82b82f77fb94d160cd8d753e84d7aa2c6ae5d7" => :el_capitan
-    sha256 "b87d37536843f419ce9ecd7d5d6f4170217f78e8d4c9665c0f2967be047f9d00" => :yosemite
-    sha256 "dd1cfeb994248015d9bdefe34f623ee2fc9166df60d24812e824c44b1cc27e51" => :mavericks
+    sha256 "1b351dc2c8252809a421d90042594b715d77f84d40089e99a5d756de7ce36f1b" => :el_capitan
+    sha256 "78feee4ab69958f03c2ffbb1acff78bb0ea400fe41fd7a773852bafb3607605d" => :yosemite
+    sha256 "5188434ed671fa6be931703e10116611a579072db1c8390a1958d58b38afe9ae" => :mavericks
   end
 
   head do
@@ -31,6 +31,7 @@ class GstPluginsBase < Formula
   depends_on "pango" => :optional
   depends_on "theora" => :optional
   depends_on "libvorbis" => :optional
+  depends_on "opus" => :optional
 
   def install
     # gnome-vfs turned off due to lack of formula for it.
@@ -57,5 +58,11 @@ class GstPluginsBase < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    gst = Formula["gstreamer"].opt_bin/"gst-inspect-1.0"
+    output = shell_output("#{gst} --plugin volume")
+    assert_match version.to_s, output
   end
 end

@@ -1,15 +1,14 @@
 class Pstoedit < Formula
   desc "Convert PostScript and PDF files to editable vector graphics"
-  homepage "http://www.pstoedit.net"
+  homepage "http://www.pstoedit.net/"
   url "https://downloads.sourceforge.net/project/pstoedit/pstoedit/3.70/pstoedit-3.70.tar.gz"
   sha256 "06b86113f7847cbcfd4e0623921a8763143bbcaef9f9098e6def650d1ff8138c"
 
   bottle do
-    revision 1
-    sha256 "ebead6381ae8729b99868e77f53433123293b0153adea4399ce52b481dc79a30" => :el_capitan
-    sha256 "7aaeb9a02ccedc2487890d021e56a5303d0e3b9a45a2ebb1a79d82136f5f98eb" => :yosemite
-    sha256 "edf89792e82fd205773febafd90e9af391566fc20c1a48799854aa2ef1bf6888" => :mavericks
-    sha256 "d1f51d8a33fe2f1d69200cee962bd8a0eb78cd891f174efa872a6d91fe11b35b" => :mountain_lion
+    revision 2
+    sha256 "cc96b0fb284bbabdf14cc129b8e1fe3d92bf9936395f492c9d6e374bbb4b741e" => :el_capitan
+    sha256 "30ceb72f6abb640d43688b3375815a5c7ebf5299916917788c10914519a43127" => :yosemite
+    sha256 "3389eded1fc8a6c62dc47ad1ceba64f2e476f964d09e4f989071d1b290a8996d" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -23,7 +22,7 @@ class Pstoedit < Formula
   # many others.
   #
   # This patch has been submitted upstream; see:
-  # http://sourceforge.net/p/pstoedit/bugs/19/
+  # https://sourceforge.net/p/pstoedit/bugs/19/
   #
   # Taken from:
   # https://build.opensuse.org/package/view_file/openSUSE:Factory/pstoedit/pstoedit-pkglibdir.patch?expand=1

@@ -1,15 +1,15 @@
 class GitVendor < Formula
   desc "command for managing git vendored dependencies"
   homepage "https://brettlangdon.github.io/git-vendor"
-  url "https://github.com/brettlangdon/git-vendor/archive/v1.1.1.tar.gz"
-  sha256 "e73a44e06e6576a0147958ef4aa37326dbb85e43981ee54a99a5475a16a3f687"
+  url "https://github.com/brettlangdon/git-vendor/archive/v1.1.2.tar.gz"
+  sha256 "1ae2c12ae535669d0f65d297f5ff79d36d37dabf372feb6bda3f7856cf14ef97"
   head "https://github.com/brettlangdon/git-vendor.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f0bb2c2364a14c8cc6a02f675433e0d030d049c2191a09de23ecf69904eb2d56" => :el_capitan
-    sha256 "f7adc00d5b68e3590d7cc10152013d14c6b99d808214c74f42a05a1d3db5caee" => :yosemite
-    sha256 "371068d0a8f6086099b25a3984b035324e6a6796013b64e7331ddcd5612e1999" => :mavericks
+    sha256 "9461c5ce8f0b418d4ab1180c1fff22ef847b0d0af740489b3553d1715a8dc8c0" => :el_capitan
+    sha256 "62a8d29afff9e7e99c93917cfee92a68495443234346a72f16c8167d6310126a" => :yosemite
+    sha256 "962f05607dbd8ea0669f081039ce2fad01cddcdbfe53859b57c9ef69d89cde45" => :mavericks
   end
 
   def install

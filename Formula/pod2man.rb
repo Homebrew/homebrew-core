@@ -1,14 +1,14 @@
 class Pod2man < Formula
   desc "perl documentation generator"
-  homepage "http://www.eyrie.org/~eagle/software/podlators/"
-  url "https://archives.eyrie.org/software/perl/podlators-4.06.tar.xz"
-  sha256 "11c7b32a8f5d32e28c732927f337697174d6c31714acbdc39c2dd24b0b9e5a21"
+  homepage "https://www.eyrie.org/~eagle/software/podlators/"
+  url "https://archives.eyrie.org/software/perl/podlators-4.07.tar.xz"
+  sha256 "39c5e09708df9d0c0df58625306f9936019517112c67e41dbbfcafb7bdf27538"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e0ae6f201d4771a6539be2026226528f3dba5c4321a73a59ed05971725ab9759" => :el_capitan
-    sha256 "8806729aca1eafefe388f2553d11e97087f5272271f11861c6b5ce2f8782acfa" => :yosemite
-    sha256 "72b70d3540fbbe10b8afa8e4ac366075a45947b340576d0d0ec66f218363100a" => :mavericks
+    sha256 "749f02f9d7129123ef10481bbcb96bfc6b7ef65871e0d181d67b9944e19c099d" => :el_capitan
+    sha256 "9d35b78b3e6b22d9411636cc6d8ef9989e7f1cb36585adc1250d2d4406f0c24d" => :yosemite
+    sha256 "e8b9e6de8dd8bfac2b6da0ad02005bf6d0a734203bc0b3e0099dc28f804ada2d" => :mavericks
   end
 
   keg_only :provided_by_osx

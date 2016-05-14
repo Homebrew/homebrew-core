@@ -1,20 +1,14 @@
 class Node < Formula
   desc "Platform built on the V8 JavaScript runtime to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v5.10.1/node-v5.10.1.tar.xz"
-  sha256 "9eecd853cdd06ebee24a1bb8d753cd20af5a19297c5d3a3b1680fe36b47d5cbe"
+  url "https://nodejs.org/dist/v6.1.0/node-v6.1.0.tar.xz"
+  sha256 "c7940301917232527490a166df78f9d3d58e70e10fd502f73889d936763cfe84"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "13c3eb788984ef77a838f1ad0617fd2ab6e9532025c16fa1e4a972951ab1d1c1" => :el_capitan
-    sha256 "d80a3285ab25ce6af3a2f84644e2fa6d42f5cb8523dd2b7393a2cda998b7978e" => :yosemite
-    sha256 "e2dc939c5a81829eed7becd17477b6a11a50f53a052bfbb22b545de9e32868c1" => :mavericks
-  end
-
-  devel do
-    url "https://nodejs.org/download/rc/v6.0.0-rc.2/node-v6.0.0-rc.2.tar.xz"
-    sha256 "177dbdc102f2274e4cfe5c9fa2daab7ebe037b12336d50c7535028a0e57b6fca"
-    version "6.0.0-rc.2"
+    sha256 "c35414aefb18736dc450c8b58a3174d3153ac7301057317dc49c5565759732b6" => :el_capitan
+    sha256 "5abf9a7016d6021dcd39910254c2387393fefa9e877672c3bada354208ea9956" => :yosemite
+    sha256 "376018f73888e416ed0f708da8929c4a17ee73f64ef6a85c1251bd4d8fc89d47" => :mavericks
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -42,8 +36,8 @@ class Node < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.8.3.tgz"
-    sha256 "0ff5109e80732aa74d648882c1f5ef86ce6ef7123c0c95fa18845e8a262a13d4"
+    url "https://registry.npmjs.org/npm/-/npm-3.8.6.tgz"
+    sha256 "29bc9d6f6123c9281914b298e863f683fd98ac2762632a55458308bb88b005e8"
   end
 
   resource "icu4c" do
@@ -62,7 +56,6 @@ class Node < Formula
     else
       args << "--with-intl=small-icu"
     end
-    args << "--tag=rc.2" << "--release-urlbase=https://nodejs.org/download/rc/" if build.devel?
     args << "--tag=head" if build.head?
 
     resource("icu4c").stage buildpath/"deps/icu"

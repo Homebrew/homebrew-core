@@ -150,7 +150,7 @@ class Gdal < Formula
       # Should be installed separately after GRASS installation using the
       # official GDAL GRASS plugin.
       "--without-grass",
-      "--without-libgrass"
+      "--without-libgrass",
     ]
 
     # Optional Homebrew packages supporting additional formats.
@@ -171,8 +171,8 @@ class Gdal < Formula
       supported_backends.delete "liblzma"
       args << "--with-liblzma=yes"
       args.concat supported_backends.map { |b| "--with-" + b + "=" + HOMEBREW_PREFIX }
-    else
-      args.concat supported_backends.map { |b| "--without-" + b } if build.without? "unsupported"
+    elsif build.without? "unsupported"
+      args.concat supported_backends.map { |b| "--without-" + b }
     end
 
     # The following libraries are either proprietary, not available for public
@@ -272,7 +272,7 @@ class Gdal < Formula
     # Reset ARCHFLAGS to match how we build.
     ENV["ARCHFLAGS"] = "-arch #{MacOS.preferred_arch}"
 
-    # Fix hardcoded mandir: http://trac.osgeo.org/gdal/ticket/5092
+    # Fix hardcoded mandir: https://trac.osgeo.org/gdal/ticket/5092
     inreplace "configure", %r[^mandir='\$\{prefix\}/man'$], ""
 
     # These libs are statically linked in vendored libkml and libkml formula

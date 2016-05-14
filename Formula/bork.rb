@@ -4,6 +4,7 @@ class Bork < Formula
   url "https://github.com/mattly/bork/archive/v0.10.0.tar.gz"
   sha256 "c06433ee2879b89e116a940c1549089e41e6e07da9bc1241a305bc72c14a9494"
 
+  head "https://github.com/mattly/bork.git"
   bottle :unneeded
 
   def install

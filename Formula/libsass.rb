@@ -1,14 +1,14 @@
 class Libsass < Formula
   desc "C implementation of a Sass compiler"
   homepage "https://github.com/sass/libsass"
-  url "https://github.com/sass/libsass.git", :tag => "3.3.4", :revision => "213339a802827fab23cb61b79ad7d592fad33c2d"
+  url "https://github.com/sass/libsass.git", :tag => "3.3.6", :revision => "3ae9a2066152f9438aebaaacd12f39deaceaebc2"
   head "https://github.com/sass/libsass.git"
 
   bottle do
     cellar :any
-    sha256 "c4025f473057bf31c13bf9ac4d4a20eb751a2fcf7b04fbace621be44926e94bf" => :el_capitan
-    sha256 "4b0d80be7b0613fe225553ad8dcb9b8cd02e5442e6f59ff276d250fe3cc9046a" => :yosemite
-    sha256 "7946a4f1d9686006c082cce7b23af874e4e902ca221b41ffd96d9c7d3099f367" => :mavericks
+    sha256 "dda76f52e1804320e6bbd44f4fd6e8f5b68a97321ce9fd099b9d58c22c88f25b" => :el_capitan
+    sha256 "5a53801da164f057777551c030c2266db876ea109e9dba9addde3899b6143c7b" => :yosemite
+    sha256 "db89145686bfab97c2736b6a6a8cd129c9323091b4e7f12f5af55ec2443575f9" => :mavericks
   end
 
   depends_on "autoconf" => :build

@@ -15,7 +15,7 @@ class Libnatpmp < Formula
 
   def install
     # Reported upstream:
-    # http://miniupnp.tuxfamily.org/forum/viewtopic.php?t=978
+    # https://miniupnp.tuxfamily.org/forum/viewtopic.php?t=978
     inreplace "Makefile", "-Wl,-install_name,$(SONAME)", "-Wl,-install_name,$(INSTALLDIRLIB)/$(SONAME)"
     system "make", "INSTALLPREFIX=#{prefix}", "install"
   end

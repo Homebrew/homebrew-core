@@ -1,16 +1,14 @@
 class Getmail < Formula
   desc "Extensible mail retrieval system with POP3, IMAP4, SSL support"
   homepage "http://pyropus.ca/software/getmail/"
-  url "http://pyropus.ca/software/getmail/old-versions/getmail-4.48.0.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/g/getmail4/getmail4_4.48.0.orig.tar.gz"
-  sha256 "49441e92eed577127331caf9b97f2ddaea14e97e8a49259efd9184a766a9b94c"
+  url "http://pyropus.ca/software/getmail/old-versions/getmail-4.49.0.tar.gz"
+  sha256 "1c6c4a3ebd17c1b15dc940a5888b0ceca4d135c1c20629ebe274ba025aff1ed4"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ff53f654a843c290b5fe6779281df1cc3aa6e12ed9f62730668be17c57dd599a" => :el_capitan
-    sha256 "d419e3a1ef926b9f9883497b58b0adf5e4d2abab5568028f180689405b6f8044" => :yosemite
-    sha256 "525b3e87f0e39be465de58a425755800dc8c0cd00383c879008caa9ec4edc347" => :mavericks
-    sha256 "3549cc78fb6723551dd3c69bff5ccc8f8830bb2fa5d6261a8218fb24435dbcaf" => :mountain_lion
+    sha256 "37f222a5229a89983b0238748ea2828df9ac08eb87b0260feda54603fba572a0" => :el_capitan
+    sha256 "8123f6f1a331902fab3ab427fad3e2c8f00277e54a8bfdcc081ce1053ae9ad1e" => :yosemite
+    sha256 "db0a01b3ed8ecd7c8cd30fd929713d9ac3d2b24e18369dd526703b79e5c6492e" => :mavericks
   end
 
   # See: https://github.com/Homebrew/homebrew/pull/28739

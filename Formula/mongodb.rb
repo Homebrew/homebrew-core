@@ -3,35 +3,31 @@ require "language/go"
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-
-  stable do
-    url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.4.tar.gz"
-    sha256 "b60743cc641de975c38e6e69ebbef60059ee9fe176cdd98bfab8d5c844dab42c"
-
-    go_resource "github.com/mongodb/mongo-tools" do
-      url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.2.4",
-        :revision => "eacbffc3c185686fb572c9efa8fcfaf9e9fb5c32"
-    end
-  end
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.6.tar.gz"
+  sha256 "0415a9b503f62e40d2ba87f555b553757a14fac281d1d6a583d8d880b8720921"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f62f1106371ef0481b4f6f28c641aa2d082e57f3ef2cff8ee12cc988475b8cfa" => :el_capitan
-    sha256 "4794fbc40163f785d8396d182ad84cd413db7f27238268680c10b350f91cb48c" => :yosemite
-    sha256 "a52733ee4375c047ed7e8cccc10fa469a088ad4334c9170d073f574ef106ac33" => :mavericks
+    sha256 "fda0a97f40d04a93d8938482fdb9aae47136b7ab062e5015a5d708dae5006e16" => :el_capitan
+    sha256 "8a21559dbda8aa1194c6659a7961605b8b7f79ebfe4b238fa6d781613b29d237" => :yosemite
+    sha256 "a10b249f46289ec5a71a8d5a140131a41d3bbe5295aaf67506171d6e468411c6" => :mavericks
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
   option "with-sasl", "Compile with SASL support"
 
-  needs :cxx11
-
   depends_on "boost" => :optional
   depends_on "go" => :build
   depends_on :macos => :mountain_lion
   depends_on "scons" => :build
-  depends_on "openssl" => :optional
+  depends_on "openssl" => :recommended
+
+  go_resource "github.com/mongodb/mongo-tools" do
+    url "https://github.com/mongodb/mongo-tools.git",
+      :tag => "r3.2.5",
+      :revision => "6dab8f99eaafb764443531dc528d4b4b76eb57f2"
+  end
+
+  needs :cxx11
 
   def install
     ENV.cxx11 if MacOS.version < :mavericks
@@ -43,14 +39,14 @@ class Mongodb < Formula
 
     cd "src/github.com/mongodb/mongo-tools" do
       # https://github.com/Homebrew/homebrew/issues/40136
-      inreplace "build.sh", '-ldflags "-X github.com/mongodb/mongo-tools/common/options.Gitspec `git rev-parse HEAD`"', ""
+      inreplace "build.sh", '-ldflags "-X github.com/mongodb/mongo-tools/common/options.Gitspec `git rev-parse HEAD` -X github.com/mongodb/mongo-tools/common/options.VersionStr $(git describe)"', ""
 
       args = %W[]
 
       if build.with? "openssl"
         args << "ssl"
-        ENV["LIBRARY_PATH"] = "#{Formula["openssl"].opt_lib}"
-        ENV["CPATH"] = "#{Formula["openssl"].opt_include}"
+        ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
+        ENV["CPATH"] = Formula["openssl"].opt_include
       end
       system "./build.sh", *args
     end

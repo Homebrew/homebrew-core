@@ -2,6 +2,7 @@ class Gmp < Formula
   desc "GNU multiple precision arithmetic library"
   homepage "https://gmplib.org/"
   url "https://gmplib.org/download/gmp/gmp-6.1.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.1.0.tar.xz"
   sha256 "68dadacce515b0f8a54f510edf07c1b636492bcdb8e8d54c56eb216225d16989"
 
   bottle do

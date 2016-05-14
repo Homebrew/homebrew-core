@@ -1,20 +1,14 @@
 class Nginx < Formula
   desc "HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server"
   homepage "http://nginx.org/"
-  url "http://nginx.org/download/nginx-1.8.1.tar.gz"
-  sha256 "8f4b3c630966c044ec72715754334d1fdf741caa1d5795fb4646c27d09f797b7"
+  url "http://nginx.org/download/nginx-1.10.0.tar.gz"
+  sha256 "8ed647c3dd65bc4ced03b0e0f6bf9e633eff6b01bac772bcf97077d58bc2be4d"
   head "http://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    revision 2
-    sha256 "918a8d4ed3b18a6a7c084ca9dc1f375349b1406f8fb872e9511da8011d31b819" => :el_capitan
-    sha256 "168eaae31708c1f9f0a6274a9769b35c045a9a20ae6f586d3292d3e597ef036b" => :yosemite
-    sha256 "de4808345aa4c6413d2367ecee8f4daf797834041607032c87bbe85f8468692c" => :mavericks
-  end
-
-  devel do
-    url "http://nginx.org/download/nginx-1.9.14.tar.gz"
-    sha256 "2b4893076d28e6b4384bba8c4fdebfca6de6f8f68ec48a1ca94b9b855ff457d2"
+    sha256 "69839647f12306f8756eb7934eed946e55ffb47c1a2813f126523d824cd53a9d" => :el_capitan
+    sha256 "af4b2cad55c8414c2c29db340c94da9270ec66044f8a52f1d0e0efe1f11adb9b" => :yosemite
+    sha256 "8bc5364108c213b062427a98b361d3caf91e8f5a8ef518f23954bdb41e10b9df" => :mavericks
   end
 
   # Before submitting more options to this formula please check they aren't
@@ -23,8 +17,10 @@ class Nginx < Formula
   option "with-passenger", "Compile with support for Phusion Passenger module"
   option "with-webdav", "Compile with support for WebDAV module"
   option "with-debug", "Compile with support for debug log"
-  option "with-spdy", "Compile with support for either SPDY or HTTP/2 module"
+  option "with-http2", "Compile with support for the HTTP/2 module"
   option "with-gunzip", "Compile with support for gunzip module"
+
+  deprecated_option "with-spdy" => "with-http2"
 
   depends_on "pcre"
   depends_on "passenger" => :optional
@@ -79,17 +75,7 @@ class Nginx < Formula
     args << "--with-http_dav_module" if build.with? "webdav"
     args << "--with-debug" if build.with? "debug"
     args << "--with-http_gunzip_module" if build.with? "gunzip"
-
-    # This became "with-http_v2_module" in 1.9.5
-    # http://nginx.org/en/docs/http/ngx_http_spdy_module.html
-    # We handle devel/stable block variable options badly, so this installs
-    # the expected module rather than fatally bailing out of configure.
-    # The option should be deprecated to the new name when stable.
-    if build.devel? || build.head? && build.with?("spdy")
-      args << "--with-http_v2_module"
-    elsif build.with?("spdy")
-      args << "--with-http_spdy_module"
-    end
+    args << "--with-http_v2_module" if build.with? "http2"
 
     if build.head?
       system "./auto/configure", *args

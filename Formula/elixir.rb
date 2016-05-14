@@ -17,7 +17,7 @@ class Erlang18Requirement < Requirement
       brew install erlang
 
     Or you can use an official installer from:
-      http://www.erlang.org/
+      https://www.erlang.org/
     EOS
   end
 end
@@ -25,15 +25,15 @@ end
 class Elixir < Formula
   desc "Functional metaprogramming aware language built on Erlang VM"
   homepage "http://elixir-lang.org/"
-  url "https://github.com/elixir-lang/elixir/archive/v1.2.4.tar.gz"
-  sha256 "16759ff84d08b480b7e5499716e663b2fffd26e20cf2863de5613bc7bb05c817"
+  url "https://github.com/elixir-lang/elixir/archive/v1.2.5.tar.gz"
+  sha256 "8ed65722aeb55cbfe6022d77d0e36293d463d7b4922198f5c157e8286d896eee"
 
   head "https://github.com/elixir-lang/elixir.git"
 
   bottle do
-    sha256 "6f591430b6088ce017564b52dcffdbe1272970efdc429b12ee124a97b349d2f6" => :el_capitan
-    sha256 "99032d65dd735455ff9a517ec9a0b989b33020b22c5bcf91882cddb4f904983a" => :yosemite
-    sha256 "df2c122f5937eafe8aa3b9a87c6cfdd0bc4a17b9c57ebf7c9f12082d793c60db" => :mavericks
+    sha256 "cc1704fe65472776701b8f94417a3e24194d739306d62b045d8635652a535c56" => :el_capitan
+    sha256 "f541dad4343aef8d99578cc49a85381a0a81e4071d9a9f928e957c380270f3e1" => :yosemite
+    sha256 "67e5e7cb245c218995c431c6ed0ebec4921315aad747783616fb4b770366826a" => :mavericks
   end
 
   depends_on Erlang18Requirement

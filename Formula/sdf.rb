@@ -5,9 +5,11 @@ class Sdf < Formula
   sha256 "181ae979118d75c6163f2acec8e455952f3033378a4518b0b829d26a96e10b3d"
 
   bottle do
-    sha256 "fd6d28045077329bfa7a65db2d70a21e5d5b36168deba4b54ec053f2e5af7168" => :mavericks
-    sha256 "52088515427e70bb3f4f5602476d03508c93d8e8be266b170c18dbd1aa49198f" => :mountain_lion
-    sha256 "1abf4584e65dbfab2fb42c857bcff3879f8db8764dd9c64bcf844fae8485bfe0" => :lion
+    cellar :any
+    revision 1
+    sha256 "7b99bc3c67466c7bde1e59908b82f023962e14df0e0ae83bfcebcd2e11ca5f29" => :el_capitan
+    sha256 "abadd2d273826b42b95fd342bf3a7c8a523d0126b8d9aedfcec67b21bcbc6d6f" => :yosemite
+    sha256 "d29da190673806e54a235b203658a5123007511c48ca7d7a408bc4fed5c3bc51" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -210,5 +212,9 @@ class Sdf < Formula
                           "--with-pgen=#{libexec}/pgen",
                           "--with-pandora=#{libexec}/pandora"
     system "make", "install"
+  end
+
+  test do
+    assert_match "sdfchecker v1.0", shell_output("#{libexec}/pgen/bin/sdfchecker -V 2>&1")
   end
 end

@@ -1,22 +1,23 @@
+require "language/node"
+
 class Autocode < Formula
   desc "Code automation for every language, library and framework"
   homepage "https://autocode.run"
-  url "https://github.com/ctate/autocode/archive/v1.3.1.tar.gz"
-  sha256 "a263353a3ff63bd0cf7606335e453f40caa76abd783957ac4feb8b793f1751bf"
+  url "https://registry.npmjs.org/autocode/-/autocode-1.3.1.tgz"
+  sha256 "952364766e645d4ddae30f9d6cc106fdb74d05afc4028066f75eeeb17c4b0247"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "406f503777d7335cc815bfc4281a736aa0b93538ed3b52211f8ec819e85267da" => :el_capitan
-    sha256 "25bbae994afdf3383fd2009881f09afb2adda58ae9f2803e43a1230fbd0eb19d" => :yosemite
-    sha256 "1d7dfd2af3332f0048458ce250c1d98caefc7cb77718e74a0646ae233ee3e468" => :mavericks
+    revision 1
+    sha256 "c321c73e1662332392c5949467c544e18db30849019555086ad14eeb097656d2" => :el_capitan
+    sha256 "a0b7c969db9e2870e818587c7d832bbe0bb187cbc01346b85bb81a6097a9e015" => :yosemite
+    sha256 "04effb5aecdd48e2a3c38435079424fd83f08dff206096f9807ff7c4ccd68b93" => :mavericks
   end
 
   depends_on "node"
 
   def install
-    ENV.prepend_path "PATH", "#{Formula["node"].opt_libexec}/npm/bin"
-    system "npm", "install"
-    libexec.install Dir["*", ".autocode"]
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

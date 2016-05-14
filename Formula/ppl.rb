@@ -1,14 +1,13 @@
 class Ppl < Formula
   desc "Parma Polyhedra Library: numerical abstractions for analysis, verification"
   homepage "http://bugseng.com/products/ppl"
-  url "http://bugseng.com/products/ppl/download/ftp/releases/1.1/ppl-1.1.tar.xz"
-  sha256 "c48ccd74664ec2cd3cdb5e37f287974ccb062f0384dc658d4053c424b19ad178"
+  url "http://bugseng.com/products/ppl/download/ftp/releases/1.2/ppl-1.2.tar.xz"
+  sha256 "691f0d5a4fb0e206f4e132fc9132c71d6e33cdda168470d40ac3cf62340e9a60"
 
   bottle do
-    sha256 "54f3824838393715cebf5d8cc7a99e1578b7bbcbf1e3104505221f9dfdddac12" => :el_capitan
-    sha256 "227619b5fff1b893d8ba6fde9d7026107e077ff70c7ef4f7c51f1599b45774f1" => :yosemite
-    sha256 "1f8cdd6f99a760ec80cdc8277ea1627ee7a170c29980369e9daacdc986b2d852" => :mavericks
-    sha256 "ed01b3815b6fc79b003b366604564e74599875c7bf295bb182cfc72359389caa" => :mountain_lion
+    sha256 "34a1396fefc946754958e92d7ecffde0175b33f16f4545f46a00d4f63408cfd8" => :el_capitan
+    sha256 "83c3f03aa0766155e98e322409f6d4389bfee3ec510848c7eab1c91329d5fa82" => :yosemite
+    sha256 "d174ac172a3c986dfa92fe650354ce6b614d080f5ab497c90fc9b6395faf5caf" => :mavericks
   end
 
   depends_on "gmp"

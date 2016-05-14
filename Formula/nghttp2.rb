@@ -1,17 +1,17 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.9.2/nghttp2-1.9.2.tar.xz"
-  sha256 "3d600ef8bfd151769559bc23806877b8b4eaf3d66776e6c1427b9c04cce8e853"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.10.0/nghttp2-1.10.0.tar.xz"
+  sha256 "c7e4624d91f32cddfd81233361804c004ef5295851b93e31f95f54a224e5091f"
 
   bottle do
-    sha256 "ec38f560b8477ec6f5fdf2d73ddc028964ae1db6bd0512698bbcc85ceb12352c" => :el_capitan
-    sha256 "34ab8d855e11aaf9ee4c240bf698d609d0574e0532d7ad1c11a749dbb6b4e0ff" => :yosemite
-    sha256 "d98b1baa78f3ef7d9b225afc209c3237e261d82f10bfcb2f8605f53941795bae" => :mavericks
+    sha256 "b547328487f7a431019e153df75502aede77f593ded7193734393a0c773a8832" => :el_capitan
+    sha256 "41d3dfa8604fb5dd0d6628ab67e35cef954624e61687ac6c871b9eb0755d2cf8" => :yosemite
+    sha256 "2fb24307cae351a4d67d0b23ca4eaa0cfb6b7540e8c3e720c781a05272ae8ee3" => :mavericks
   end
 
   head do
-    url "https://github.com/tatsuhiro-t/nghttp2.git"
+    url "https://github.com/nghttp2/nghttp2.git"
 
     depends_on "automake" => :build
     depends_on "autoconf" => :build

@@ -7,9 +7,10 @@ class Pngnq < Formula
 
   bottle do
     cellar :any
+    revision 1
     sha256 "dd6970fb9055fb1a6702c820e75a3d7b826e165e61c23c17b0845cca780c3da9" => :el_capitan
     sha256 "cba40b130f3d16666580be2b572721d0d8d312f60f62e4fdef656ffa825bc65e" => :yosemite
-    sha256 "567b59896332ae5974077a2402eefcf3246942d82599318d95ab6e53faa6a2d7" => :mavericks
+    sha256 "4d9e35ec7c627bd2dc8c1ca26982e9c93e0a74687600830d5d491587ec04f967" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -17,8 +18,8 @@ class Pngnq < Formula
 
   # Fixes compilation on OSX Lion
   # png.h on Lion does not, in fact, include zlib.h
-  # See: http://sourceforge.net/tracker/?func=detail&aid=3353513&group_id=213072&atid=1024252
-  # See: http://sourceforge.net/tracker/?func=detail&aid=3402960&group_id=213072&atid=1024252
+  # See: https://sourceforge.net/p/pngnq/bugs/13/
+  # See: https://sourceforge.net/p/pngnq/bugs/14/
   patch :DATA
 
   def install

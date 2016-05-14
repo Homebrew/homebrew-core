@@ -22,7 +22,7 @@ class GitFtp < Formula
     system "make", "prefix=#{prefix}", "install"
     if build.with? "manpage"
       system "make", "-C", "man", "man"
-      man1.install "man/man1/git-ftp.1"
+      man1.install "man/git-ftp.1"
     end
     libexec.install bin/"git-ftp"
     (bin/"git-ftp").write <<-EOS.undent

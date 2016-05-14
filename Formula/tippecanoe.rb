@@ -1,17 +1,15 @@
 class Tippecanoe < Formula
   desc "Build vector tilesets from collections of GeoJSON features"
   homepage "https://github.com/mapbox/tippecanoe"
-  url "https://github.com/mapbox/tippecanoe/archive/1.9.13.tar.gz"
-  sha256 "65d4b63301e8b6c02577753cc177de74630aaba4d53dd669f4e5da67b4ea1c5f"
+  url "https://github.com/mapbox/tippecanoe/archive/1.11.4.tar.gz"
+  sha256 "372fdf3b2421d8d6db4fed168504a6f26fdfea6510ad117c0d105022bfff0c80"
 
   bottle do
-    cellar :any
-    sha256 "0db2f044811968263f674eac12d09091fd07b5cee9c17ed91322ff7fdcb29a00" => :el_capitan
-    sha256 "673b9bb54a6526ca8190bf2f8bd7e946edc5bcf4296599bfa19872f2391b81fa" => :yosemite
-    sha256 "0f5b315ccbe15d64da3bfd31bd86edbfd521c2dd5fb25bc2171761e8f16e4b68" => :mavericks
+    cellar :any_skip_relocation
+    sha256 "213d2e989ab50309f1f9049c10d88910c3df8ea5c01146a608414a64862ff0a5" => :el_capitan
+    sha256 "89a1f6c00f883da3deb103abf9f9a33299fc0584e12e1e49689543e6d9a13a07" => :yosemite
+    sha256 "8b9127308d3e6b4474372353976125259de1a3a6530a282bc8962ae083f2f042" => :mavericks
   end
-
-  depends_on "protobuf-c"
 
   def install
     system "make"

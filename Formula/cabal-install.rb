@@ -1,18 +1,24 @@
 class CabalInstall < Formula
   desc "Command-line interface for Cabal and Hackage"
   homepage "https://www.haskell.org/cabal/"
-  url "https://hackage.haskell.org/package/cabal-install-1.22.9.0/cabal-install-1.22.9.0.tar.gz"
-  sha256 "874035e5730263653c7aa459f270efbffc06da92ea0c828e09ebc04400e94940"
+  url "https://hackage.haskell.org/package/cabal-install-1.24.0.0/cabal-install-1.24.0.0.tar.gz"
+  sha256 "d840ecfd0a95a96e956b57fb2f3e9c81d9fc160e1fd0ea350b0d37d169d9e87e"
 
   bottle do
-    sha256 "e0aeba6df425d2e6d3c9f40059eeafffc4c7ab50fcf9e8a018a6bafed859c253" => :el_capitan
-    sha256 "07c790c32d85cc62230eb35bed0f1ba6c589000f2e7548f1bcd88d087d969e87" => :yosemite
-    sha256 "780faa5309f62c7e4cf222c9f7f82f4f2e6b8c3d87e18d45ca2e3ebbb9757347" => :mavericks
+    sha256 "cd1b2478062f3632b186722a8cd92b3a664051fbc974f0e30b39d2c1d994340c" => :el_capitan
+    sha256 "ccca2644fbf124d5991154ce9d320d45832f877c00f68de6357ccdf502f6ae61" => :yosemite
+    sha256 "bab61fbb71e68fda371aaab615331dcef51505dfecb0d1428fc47d60be79c737" => :mavericks
   end
 
   depends_on "ghc"
 
-  fails_with :clang if MacOS.version < :lion # Same as ghc.rb
+  fails_with :clang if MacOS.version <= :lion # Same as ghc.rb
+
+  # disables haddock for hackage-security
+  patch :p2 do
+    url "https://github.com/haskell/cabal/commit/9441fe.patch"
+    sha256 "5506d46507f38c72270efc4bb301a85799a7710804e033eaef7434668a012c5e"
+  end
 
   def install
     system "sh", "bootstrap.sh", "--sandbox"

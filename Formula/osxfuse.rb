@@ -19,7 +19,7 @@ class Osxfuse < Formula
   # See https://github.com/Homebrew/homebrew/issues/35073
   depends_on NonBinaryOsxfuseRequirement => :build
   depends_on UnsignedKextRequirement => [:cask => "osxfuse",
-                                         :download => "http://sourceforge.net/projects/osxfuse/files/"]
+                                         :download => "https://sourceforge.net/projects/osxfuse/files/"]
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

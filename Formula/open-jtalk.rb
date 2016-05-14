@@ -39,7 +39,7 @@ class OpenJtalk < Formula
 
     if MacOS.version <= :mavericks
       inreplace "config.status", "-finput-charset=UTF-8 -fexec-charset=UTF-8", ""
-      # http://sourceforge.net/p/open-jtalk/mailman/message/33404251/
+      # https://sourceforge.net/p/open-jtalk/mailman/message/33404251/
     end
 
     system "make", "install"
