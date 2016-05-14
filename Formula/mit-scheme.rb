@@ -12,8 +12,6 @@ class MitScheme < Formula
     sha256 "659e5c2d794c00133a6b3a5403d99b22877642bde0ccedc882155c058018ccc7" => :mavericks
   end
 
-  conflicts_with "tinyscheme", :because => "both install a `scheme` binary"
-
   # Has a hardcoded compile check for /Applications/Xcode.app
   # Dies on "configure: error: SIZEOF_CHAR is not 1" without Xcode.
   # https://github.com/Homebrew/homebrew-x11/issues/103#issuecomment-125014423
