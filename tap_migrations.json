@@ -58,6 +58,7 @@
   "echoping": "homebrew/boneyard",
   "electric-fence": "homebrew/boneyard",
   "encfs": "homebrew/fuse",
+  "evas": "homebrew/boneyard",
   "ext2fuse": "homebrew/fuse",
   "ext4fuse": "homebrew/fuse",
   "fceux": "homebrew/games",

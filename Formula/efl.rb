@@ -12,7 +12,6 @@ class Efl < Formula
   end
 
   conflicts_with "eina", :because => "efl aggregates formerly distinct libs, one of which is eina"
-  conflicts_with "evas", :because => "efl aggregates formerly distinct libs, one of which is evas"
   conflicts_with "eet", :because => "efl aggregates formerly distinct libs, one of which is eet"
   conflicts_with "embryo", :because => "efl aggregates formerly distinct libs, one of which is embryo"
 
