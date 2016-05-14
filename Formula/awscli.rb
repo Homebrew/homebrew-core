@@ -1,9 +1,9 @@
 class Awscli < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://pypi.python.org/packages/66/38/4661426e4f9e3a2dc3e52bd86f1d6e2aba551c734f39a927b6f9dcc72623/awscli-1.10.26.tar.gz"
-  mirror "https://github.com/aws/aws-cli/archive/1.10.26.tar.gz"
-  sha256 "92075d988e1739e6646b7ea84e4aa28d27887629cadaccaa82e5892b2c2fce4e"
+  url "https://pypi.python.org/packages/cc/ec/75a4789de599e6d5a5afe4bde5a729e80af07a64e8e042a17b8d4d225375/awscli-1.10.28.tar.gz"
+  mirror "https://github.com/aws/aws-cli/archive/1.10.28.tar.gz"
+  sha256 "c45befaec3185d32a441190eaa86629853e6213dd704e2cb59052454dbc9907d"
 
   bottle do
     cellar :any_skip_relocation
