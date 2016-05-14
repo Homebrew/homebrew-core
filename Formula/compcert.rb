@@ -15,6 +15,7 @@ class Compcert < Formula
   homepage "http://compcert.inria.fr"
   url "https://github.com/AbsInt/CompCert/archive/v2.6.tar.gz"
   sha256 "a1f21365c41c2462fce52a4a25e1c7e4b7fea7a0cd60b6bae1d31f2edeeb4d17"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
