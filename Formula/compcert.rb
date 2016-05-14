@@ -39,11 +39,17 @@ class Compcert < Formula
       system "./configure", "-prefix", buildpath/"coq84",
                             "-camlp5dir", Formula["camlp5"].opt_lib/"ocaml/camlp5",
                             "-coqide", "no",
-                            "-with-doc", "no"
-      ENV.deparallelize do
-        system "make", "world"
-        system "make", "install"
-      end
+                            "-with-doc", "no",
+                            # Prevent warning 31 (module is linked twice in the
+                            # same executable) from being a fatal error, which
+                            # would otherwise be the default as of ocaml 4.03.0;
+                            # note that "-custom" is the default value of
+                            # coqrunbyteflags, and is necessary, so don't just
+                            # overwrite it with "-warn-error -a"
+                            "-coqrunbyteflags", "-warn-error -a -custom"
+
+      system "make", "VERBOSE=1", "world"
+      ENV.deparallelize { system "make", "install" }
     end
 
     ENV.prepend_path "PATH", buildpath/"coq84/bin"
