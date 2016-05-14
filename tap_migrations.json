@@ -57,6 +57,7 @@
   "easy-tag": "homebrew/gui",
   "echoping": "homebrew/boneyard",
   "electric-fence": "homebrew/boneyard",
+  "embryo": "homebrew/boneyard",
   "encfs": "homebrew/fuse",
   "ext2fuse": "homebrew/fuse",
   "ext4fuse": "homebrew/fuse",
