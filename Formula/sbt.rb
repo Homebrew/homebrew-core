@@ -4,6 +4,12 @@ class Sbt < Formula
   url "https://dl.bintray.com/sbt/native-packages/sbt/0.13.11/sbt-0.13.11.tgz"
   sha256 "a36a6fbf6dd70afd93fb8db16c40e8ac00798fdddfa0b4c678786dc15617afa6"
 
+  devel do
+    url "https://dl.bintray.com/sbt/native-packages/sbt/1.0.0-M4/sbt-1.0.0-M4.tgz"
+    sha256 "8cb2eaabcbfeceeb65023311b08c980feff80552b22524213c71857ced2f8de7"
+    version "1.0.0-M4"
+  end
+
   bottle :unneeded
 
   depends_on :java => "1.6+"

@@ -1,14 +1,14 @@
 class Mg3a < Formula
   desc "Small Emacs-like editor inspired like mg with UTF8 support"
   homepage "http://www.bengtl.net/files/mg3a/"
-  url "http://www.bengtl.net/files/mg3a/mg3a.160410.tar.gz"
-  sha256 "10c14d01e8c55ba34a3b24ec10e740f3631809e0ed9274837160ed774c1dbe6d"
+  url "http://www.bengtl.net/files/mg3a/mg3a.160511.tar.gz"
+  sha256 "1281e31930216565cf6572e05064e06fcbf64074f9ebf4677ef0e4b22fbf21f8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "25e29a64207f15f7b8801bdba27c7cc4b7019a50e1d607d1beb76fac05beffed" => :el_capitan
-    sha256 "68e083de3e87d4457dd7b714f051945057233f827295900fd803ea15c049dc0d" => :yosemite
-    sha256 "de78a363edfb078412d393541cb6c87d4db67fe2060c43f2fd90060a24d8c27f" => :mavericks
+    sha256 "62ae10d29c7f8b9df0ea3f2d6ba76ac11ca2afa27c1bac68eb5328fd941bd67c" => :el_capitan
+    sha256 "0739510b46503faecb3793d9a230d33a283b17dfc3b208087d2fb44e6e9fbe67" => :yosemite
+    sha256 "334f8cafe8d0410aab5a07d99d530babdccffa1f63fdc6286b947dce87ef9222" => :mavericks
   end
 
   conflicts_with "mg", :because => "both install `mg`"

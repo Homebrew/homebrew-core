@@ -1,16 +1,14 @@
 class Awscli < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://pypi.python.org/packages/66/38/4661426e4f9e3a2dc3e52bd86f1d6e2aba551c734f39a927b6f9dcc72623/awscli-1.10.26.tar.gz"
-  mirror "https://github.com/aws/aws-cli/archive/1.10.26.tar.gz"
-  sha256 "92075d988e1739e6646b7ea84e4aa28d27887629cadaccaa82e5892b2c2fce4e"
+  url "https://pypi.python.org/packages/cc/ec/75a4789de599e6d5a5afe4bde5a729e80af07a64e8e042a17b8d4d225375/awscli-1.10.28.tar.gz"
+  sha256 "c45befaec3185d32a441190eaa86629853e6213dd704e2cb59052454dbc9907d"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "63829fab989e3e2b53e20e557ece1efeeb795d9d9e0c71a05a254274a1219cfb" => :el_capitan
-    sha256 "7f52d5c557928c01a2174374cfc0b97673354a55f0ab6c531ef965e4a8d77c7e" => :yosemite
-    sha256 "57d1bc8ed23bcc746f50a3b01ad7d098ed74f16a60b6eb01ec0488cb14767259" => :mavericks
+    sha256 "721bf98906bb59772fbd76f7624737962f2a990b71022fc9542399d4e1b18190" => :el_capitan
+    sha256 "a7e54c97bcc7a0b7bc255163e2033095ee465166efb4a182c785027c329cf49f" => :yosemite
+    sha256 "bb464a969a21cad85b606a995da69775d8bdad571b87d28c8d7972a5aea659eb" => :mavericks
   end
 
   head do
