@@ -1,8 +1,8 @@
 class Mg3a < Formula
   desc "Small Emacs-like editor inspired like mg with UTF8 support"
   homepage "http://www.bengtl.net/files/mg3a/"
-  url "http://www.bengtl.net/files/mg3a/mg3a.160410.tar.gz"
-  sha256 "10c14d01e8c55ba34a3b24ec10e740f3631809e0ed9274837160ed774c1dbe6d"
+  url "http://www.bengtl.net/files/mg3a/mg3a.160511.tar.gz"
+  sha256 "1281e31930216565cf6572e05064e06fcbf64074f9ebf4677ef0e4b22fbf21f8"
 
   bottle do
     cellar :any_skip_relocation
