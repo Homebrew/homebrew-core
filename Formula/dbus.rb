@@ -44,6 +44,36 @@ class Dbus < Formula
     system "#{bin}/dbus-uuidgen", "--ensure=#{var}/lib/dbus/machine-id"
   end
 
+  plist_options :manual => "dbus-daemon"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{bin}/dbus-daemon</string>
+          <string>--nofork</string>
+          <string>--session</string>
+        </array>
+
+        <key>Sockets</key>
+        <dict>
+          <key>unix_domain_listener</key>
+            <dict>
+              <key>SecureSocketWithKey</key>
+              <string>DBUS_LAUNCHD_SESSION_BUS_SOCKET</string>
+            </dict>
+        </dict>
+      </dict>
+    </plist>
+    EOS
+  end
+
   test do
     system "#{bin}/dbus-daemon", "--version"
   end
