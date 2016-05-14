@@ -11,6 +11,8 @@ class Evas < Formula
     sha256 "71e90d343bd3355ff57bdf84fb7ffdad0e8e060cdfc13c887216bd94b5f317c9" => :mountain_lion
   end
 
+  conflicts_with "efl", :because => "efl aggregates formerly distinct libs, one of which is evas"
+
   option "with-docs", "Install development libraries/headers and HTML docs"
 
   depends_on "pkg-config" => :build
