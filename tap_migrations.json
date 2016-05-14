@@ -56,6 +56,7 @@
   "dzen2": "homebrew/x11",
   "easy-tag": "homebrew/gui",
   "echoping": "homebrew/boneyard",
+  "eet": "homebrew/boneyard",
   "electric-fence": "homebrew/boneyard",
   "encfs": "homebrew/fuse",
   "ext2fuse": "homebrew/fuse",
