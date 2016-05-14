@@ -48,13 +48,14 @@ class Qt5 < Formula
   option "without-webengine", "Build without QtWebEngine module"
 
   deprecated_option "qtdbus" => "with-d-bus"
+  deprecated_option "with-d-bus" => "with-dbus"
 
   # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
   # configuration and thus untested in practice. Builds on OS X 10.7 have been
   # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
   depends_on :macos => :mountain_lion
 
-  depends_on "d-bus" => :optional
+  depends_on "dbus" => :optional
   depends_on :mysql => :optional
   depends_on :xcode => :build
 
@@ -79,8 +80,8 @@ class Qt5 < Formula
 
     args << "-plugin-sql-mysql" if build.with? "mysql"
 
-    if build.with? "d-bus"
-      dbus_opt = Formula["d-bus"].opt_prefix
+    if build.with? "dbus"
+      dbus_opt = Formula["dbus"].opt_prefix
       args << "-I#{dbus_opt}/lib/dbus-1.0/include"
       args << "-I#{dbus_opt}/include/dbus-1.0"
       args << "-L#{dbus_opt}/lib"
