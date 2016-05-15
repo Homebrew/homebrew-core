@@ -11,8 +11,6 @@ class Efl < Formula
     sha256 "4d1e000d79e426ffaf82e1b4603239b2c629c8eab5549b29d403a2b88eca24f5" => :mavericks
   end
 
-  conflicts_with "eina", :because => "efl aggregates formerly distinct libs, one of which is eina"
-
   option "with-docs", "Install development libraries/headers and HTML docs"
 
   depends_on "doxygen" => :build if build.with? "docs"

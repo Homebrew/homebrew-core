@@ -57,6 +57,7 @@
   "easy-tag": "homebrew/gui",
   "echoping": "homebrew/boneyard",
   "eet": "homebrew/boneyard",
+  "eina": "homebrew/boneyard",
   "electric-fence": "homebrew/boneyard",
   "embryo": "homebrew/boneyard",
   "encfs": "homebrew/fuse",
