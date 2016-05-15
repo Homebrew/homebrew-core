@@ -1,9 +1,8 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.1.4/hbase-1.1.4-bin.tar.gz"
-  sha256 "2979384e7677f9ea95b8b2753d082b9a79cb9540a22dbcd072b942796363a925"
-  revision 1
+  url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.1.5/hbase-1.1.5-bin.tar.gz"
+  sha256 "e06fa399c7ba48acd14b71ba6316d272f14b18b5b7398d6a3d60b6b8a9073f0e"
 
   bottle do
     sha256 "aa56392402e8d0014f81012360cf401af690b8b3f53afce9286dfe45c32db26c" => :el_capitan
