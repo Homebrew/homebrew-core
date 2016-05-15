@@ -1,8 +1,8 @@
 class Buku < Formula
   desc "Command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/1.9.tar.gz"
-  sha256 "0bac6f4f1b6bcca4eea639a3a6ff22c4937f22fc49271bb610f8b25ddbf890e2"
+  url "https://github.com/jarun/Buku/archive/v2.0.tar.gz"
+  sha256 "78b98be8f000812dcc945c0aa9ca4fa56322659c095250d4787c21bfd6383897"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +15,9 @@ class Buku < Formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
+    bash_completion.install "auto-completion/bash/buku-completion.bash"
+    fish_completion.install "auto-completion/fish/buku.fish"
+    zsh_completion.install "auto-completion/zsh/_buku"
   end
 
   test do
