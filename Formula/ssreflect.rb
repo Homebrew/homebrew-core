@@ -1,20 +1,58 @@
+class Camlp5TransitionalModeRequirement < Requirement
+  fatal true
+
+  satisfy(:build_env => false) { !Tab.for_name("camlp5").with?("strict") }
+
+  def message; <<-EOS.undent
+    camlp5 must be compiled in transitional mode (instead of --strict mode):
+      brew install camlp5
+    EOS
+  end
+end
+
 class Ssreflect < Formula
   desc "Virtual package provided by libssreflect-coq"
   homepage "https://www.msr-inria.fr/projects/mathematical-components-2/"
   url "http://ssr.msr-inria.inria.fr/FTP/ssreflect-1.5.tar.gz"
   sha256 "bad978693d1bfd0a89586a34678bcc244e3b7efba6431e0f83d8e1ae8f82a142"
-
-  depends_on "ocaml"
-  depends_on "coq"
+  revision 1
 
   option "with-doc", "Install HTML documents"
-  option "with-static", "Build with static linking"
+  option "without-static", "Build without static linking"
+
+  depends_on "ocaml"
+  depends_on "menhir" => :build
+  depends_on "camlp5" => :build # needed for building Coq 8.4
+  depends_on Camlp5TransitionalModeRequirement # same requirement as in Coq formula
+
+  resource "coq84" do
+    url "https://coq.inria.fr/distrib/V8.4pl6/files/coq-8.4pl6.tar.gz"
+    sha256 "a540a231a9970a49353ca039f3544616ff86a208966ab1c593779ae13c91ebd6"
+  end
 
   # Fix an ill-formatted ocamldoc comment.
   patch :DATA
 
   def install
-    ENV.j1
+    resource("coq84").stage do
+      system "./configure", "-prefix", libexec/"coq",
+                            "-camlp5dir", Formula["camlp5"].opt_lib/"ocaml/camlp5",
+                            "-coqide", "no",
+                            "-with-doc", "no",
+                            # Prevent warning 31 (module is linked twice in the
+                            # same executable) from being a fatal error, which
+                            # would otherwise be the default as of ocaml 4.03.0;
+                            # note that "-custom" is the default value of
+                            # coqrunbyteflags, and is necessary, so don't just
+                            # overwrite it with "-warn-error -a"
+                            "-coqrunbyteflags", "-warn-error -a -custom"
+
+      system "make", "VERBOSE=1", "world"
+      ENV.deparallelize { system "make", "install" }
+    end
+
+    ENV.prepend_path "PATH", libexec/"coq/bin"
+    ENV.deparallelize
 
     # Enable static linking.
     if build.with? "static"
@@ -24,10 +62,12 @@ class Ssreflect < Formula
       end
     end
 
-    args = ["COQBIN=#{HOMEBREW_PREFIX}/bin/",
-            "COQLIBINSTALL=lib/coq/user-contrib",
-            "COQDOCINSTALL=share/doc",
-            "DSTROOT=#{prefix}/"]
+    args = %W[
+      COQBIN=#{libexec}/coq/bin/
+      COQLIBINSTALL=lib/coq/user-contrib
+      COQDOCINSTALL=share/doc
+      DSTROOT=#{prefix}/
+    ]
     system "make", *args
     system "make", "install", *args
     if build.with? "doc"
@@ -36,7 +76,27 @@ class Ssreflect < Formula
       system "make", "-f", "Makefile.coq", "install-doc", *args
     end
     bin.install "bin/ssrcoq.byte", "bin/ssrcoq" if build.with? "static"
-    (share/"ssreflect").install "pg-ssr.el"
+    pkgshare.install "pg-ssr.el"
+  end
+
+  test do
+    (testpath/"helloworld.v").write <<-EOS.undent
+      Add LoadPath "#{lib}/coq/user-contrib/Ssreflect" as Ssreflect.
+      Require Import Ssreflect.ssreflect.
+      Variable P:Prop.
+
+      Theorem helloworld: P -> P.
+      Proof.
+        done.
+      Qed.
+
+      Check helloworld.
+    EOS
+    (testpath/"expected").write <<-EOS.undent
+      helloworld
+           : P -> P
+    EOS
+    assert_equal File.read(testpath/"expected"), pipe_output("ssrcoq -compile helloworld")
   end
 end
 
