@@ -1,8 +1,8 @@
 class Imapsync < Formula
   desc "Migrate or backup IMAP mail accounts"
   homepage "http://ks.lamiral.info/imapsync/"
-  url "https://fedorahosted.org/released/imapsync/imapsync-1.678.tgz"
-  sha256 "39cc21bc7b046d46f02fb0ef507119eecd4446fd0f795d998927a5ff635ea9f7"
+  url "https://fedorahosted.org/released/imapsync/imapsync-1.684.tgz"
+  sha256 "ab4409c50949fc829bc212d7d9a4919dcafd3ccc55bce6e4e5b11bb8946a98c6"
 
   head "https://git.fedorahosted.org/git/imapsync.git"
 
@@ -26,9 +26,9 @@ class Imapsync < Formula
   end
 
   resource "Mail::IMAPClient" do
-    url "https://cpan.metacpan.org/authors/id/P/PL/PLOBBES/Mail-IMAPClient-3.35.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/P/PL/PLOBBES/Mail-IMAPClient-3.35.tar.gz"
-    sha256 "8a4503833ce87d980be2d54603d94de4b365c2369eab19b095216506ce40f663"
+    url "https://cpan.metacpan.org/authors/id/P/PL/PLOBBES/Mail-IMAPClient-3.38.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/P/PL/PLOBBES/Mail-IMAPClient-3.38.tar.gz"
+    sha256 "d0f346d111dba93548ceac1192a993210ffcd5f81f83638ee277607bfacc1a4d"
   end
 
   resource "Authen::NTLM" do
@@ -59,5 +59,13 @@ class Imapsync < Formula
     bin.install "imapsync"
     man1.install "imapsync.1"
     bin.env_script_all_files(libexec+"bin", :PERL5LIB => ENV["PERL5LIB"])
+  end
+
+  test do
+    output = shell_output("#{bin}/imapsync --dry", 2)
+    assert_match version.to_s, output
+    resources.each do |r|
+      assert_match /#{r.name}\s+#{r.version}/, output
+    end
   end
 end
