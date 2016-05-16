@@ -1,8 +1,8 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "http://flowtype.org/"
-  url "https://github.com/facebook/flow/archive/v0.24.1.tar.gz"
-  sha256 "15865797704ecb8784a5fbc667a467a058e4a0a91f9ea3365da2b2c64409cece"
+  url "https://github.com/facebook/flow/archive/v0.25.0.tar.gz"
+  sha256 "7144ecef267fb629051f6a941652cd6cb26793b9d91213eca0f9ef31a466cffa"
   head "https://github.com/facebook/flow.git"
 
   bottle do
@@ -13,6 +13,7 @@ class Flow < Formula
   end
 
   depends_on "ocaml" => :build
+  depends_on "ocamlbuild" => :build
 
   def install
     system "make"
