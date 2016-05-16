@@ -1,8 +1,8 @@
 class JsonFortran < Formula
   desc "Fortran 2008 JSON API"
   homepage "https://github.com/jacobwilliams/json-fortran"
-  url "https://github.com/jacobwilliams/json-fortran/archive/4.3.0.tar.gz"
-  sha256 "c97f8de53e2ca9ee91fb3148bfa971b00eaea6e757b5e3d67cc4b4ff197e392e"
+  url "https://github.com/jacobwilliams/json-fortran/archive/5.0.0.tar.gz"
+  sha256 "0a1bf8788bdf8bdc6af009ae078ed374b2c95e0cfc3f30354b5dc5d3d35e5e66"
 
   head "https://github.com/jacobwilliams/json-fortran.git"
 
@@ -38,16 +38,21 @@ class JsonFortran < Formula
   test do
     ENV.fortran
     (testpath/"json_test.f90").write <<-EOS.undent
-      program json_test
-        use json_module
-        use ,intrinsic :: iso_fortran_env ,only: error_unit
-        implicit none
-        call json_initialize()
-        if ( json_failed() ) then
-          call json_print_error_message(error_unit)
-          stop 2
-        endif
-      end program
+      program example
+      use json_module, RK => json_RK
+      use iso_fortran_env, only: stdout => output_unit
+      implicit none
+      type(json_core) :: json
+      type(json_value),pointer :: p, inp
+      call json%initialize()
+      call json%create_object(p,'')
+      call json%create_object(inp,'inputs')
+      call json%add(p, inp)
+      call json%add(inp, 't0', 0.1_RK)
+      call json%print(p,stdout)
+      call json%destroy(p)
+      if (json%failed()) error stop 'error'
+      end program example
     EOS
     system ENV.fc, "-ojson_test", "-ljsonfortran", "-I#{HOMEBREW_PREFIX}/include", testpath/"json_test.f90"
     system "./json_test"
