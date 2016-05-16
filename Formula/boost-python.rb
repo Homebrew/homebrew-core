@@ -100,7 +100,7 @@ class BoostPython < Formula
     Language::Python.each_python(build) do |python, _|
       pyflags = (`#{python}-config --includes`.strip +
                  `#{python}-config --ldflags`.strip).split(" ")
-      system ENV.cxx, "-shared", "hello.cpp", "-lboost_#{python}", "-o", "hello.so", *pyflags
+      system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_#{python}", "-o", "hello.so", *pyflags
       output = `#{python} -c "from __future__ import print_function; import hello; print(hello.greet())"`
       assert_match "Hello, world!", output
     end
