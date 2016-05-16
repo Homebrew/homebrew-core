@@ -11,6 +11,13 @@ class Wine < Formula
     url "https://dl.winehq.org/wine/source/1.8/wine-1.8.2.tar.bz2"
     mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.8.2.tar.bz2"
     sha256 "51624fadf0145e87f0c01e7ce8524ea1e8d9d360c3e8a86e78cd26a52ce55a6f"
+
+    # Patch to fix screen-flickering issues. Still relevant on 1.8. Broken on 1.9.10.
+    # https://bugs.winehq.org/show_bug.cgi?id=34166
+    patch do
+      url "https://bugs.winehq.org/attachment.cgi?id=52485"
+      sha256 "59f1831a1b49c1b7a4c6e6af7e3f89f0bc60bec0bead645a615b251d37d232ac"
+    end
   end
 
   bottle do
@@ -20,9 +27,9 @@ class Wine < Formula
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.9.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.9.tar.bz2"
-    sha256 "a1e76fd9842d0fe385e930cd62e7193035a04ed11fe771d9cd6ee9b2ceda7b41"
+    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.10.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.10.tar.bz2"
+    sha256 "8d4900dff6542c973c3e6112fe23da6d85c28be9a4f842a9d0041e8530861bbf"
   end
 
   # note that all wine dependencies should declare a --universal option in their formula,
@@ -45,13 +52,6 @@ class Wine < Formula
   depends_on "gnutls"
   depends_on "libgsm" => :optional
   depends_on "samba" => :optional
-
-  # Patch to fix screen-flickering issues. Still relevant on 1.8.
-  # https://bugs.winehq.org/show_bug.cgi?id=34166
-  patch do
-    url "https://bugs.winehq.org/attachment.cgi?id=52485"
-    sha256 "59f1831a1b49c1b7a4c6e6af7e3f89f0bc60bec0bead645a615b251d37d232ac"
-  end
 
   # Patch to fix texture compression issues. Still relevant on 1.8.
   # https://bugs.winehq.org/show_bug.cgi?id=14939
