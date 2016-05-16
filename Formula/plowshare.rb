@@ -1,8 +1,8 @@
 class Plowshare < Formula
   desc "Download/upload tool for popular file sharing websites"
   homepage "https://github.com/mcrapet/plowshare"
-  url "https://github.com/mcrapet/plowshare/archive/v2.1.2.tar.gz"
-  sha256 "d9b9f2aa464d7d2966f49704234c79139d1162705a0a553a3059c68fbf4be21a"
+  url "https://github.com/mcrapet/plowshare/archive/v2.1.4.tar.gz"
+  sha256 "d6bb484fe63a8e9219a3f284a9ad21e260e2fc21aa004eedfcac86fb65e8c13e"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,35 +14,12 @@ class Plowshare < Formula
   depends_on "aview"
   depends_on "bash"
   depends_on "coreutils"
-  depends_on "gnu-getopt"
   depends_on "gnu-sed"
   depends_on "imagemagick" => "with-x11"
   depends_on "recode"
   depends_on "spidermonkey"
-  depends_on "tesseract"
-
-  # This patch makes sure GNUtools are used on OSX.
-  # gnu-getopt is keg-only hence the backtick expansion.
-  # These aliases only exist for the duration of plowshare,
-  # inside the plowshare shells. Normal operation of bash is
-  # unaffected - getopt will still find the version supplied
-  # by OSX in other shells, for example.
-  patch :DATA
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "install", "patch_gnused", "GNU_SED=#{Formula["gnu-sed"].opt_bin}/gsed", "PREFIX=#{prefix}"
   end
 end
-
-__END__
---- a/src/core.sh
-+++ b/src/core.sh
-@@ -1,4 +1,8 @@
- #!/usr/bin/env bash
-+shopt -s expand_aliases
-+alias sed='gsed'
-+alias getopt='`brew --prefix gnu-getopt`/bin/getopt'
-+alias head='ghead'
- #
- # Common set of functions used by modules
- # Copyright (c) 2010 - 2011 Plowshare team
