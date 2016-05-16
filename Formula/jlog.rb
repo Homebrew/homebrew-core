@@ -1,9 +1,18 @@
 class Jlog < Formula
   desc "Pure C message queue with subscribers and publishers for logs"
   homepage "https://labs.omniti.com/labs/jlog"
-  url "https://github.com/omniti-labs/jlog/archive/2.1.3.2.tar.gz"
-  sha256 "2915a964cade8fbc7f392b454ef33ef999a33a53457f503762e6108b86c4d979"
   head "https://github.com/omniti-labs/jlog.git"
+
+  stable do
+    url "https://github.com/omniti-labs/jlog/archive/2.2.0.tar.gz"
+    sha256 "81b7a9d86a4ee8dbc3cc08a7032ee0ecd31b531573525474be298bd4f1404e53"
+
+    # Fixes `make install` to depend on `make all`
+    patch do
+      url "https://github.com/omniti-labs/jlog/commit/38955d8ca07e9c2433231a89c9702a72bc3707f2.diff"
+      sha256 "f8630d425227533d1641efbb7a3c489e859b5190c9a82a5f8fb4b81e1e8cd946"
+    end
+  end
 
   bottle do
     cellar :any
@@ -18,7 +27,6 @@ class Jlog < Formula
   def install
     system "autoconf"
     system "./configure", "--prefix=#{prefix}"
-    system "make"
     system "make", "install"
   end
 
