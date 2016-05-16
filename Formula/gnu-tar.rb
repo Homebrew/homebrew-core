@@ -1,9 +1,9 @@
 class GnuTar < Formula
   desc "GNU version of the tar archiving utility"
   homepage "https://www.gnu.org/software/tar/"
-  url "http://ftpmirror.gnu.org/tar/tar-1.28.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/tar/tar-1.28.tar.gz"
-  sha256 "6a6b65bac00a127a508533c604d5bf1a3d40f82707d56f20cefd38a05e8237de"
+  url "http://ftpmirror.gnu.org/tar/tar-1.29.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/tar/tar-1.29.tar.gz"
+  sha256 "cae466e6e58c7292355e7080248f244db3a4cf755f33f4fa25ca7f9a7ed09af0"
 
   bottle do
     revision 4
@@ -13,13 +13,6 @@ class GnuTar < Formula
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
-
-  # Fix for xattrs bug causing build failures on OS X:
-  # https://lists.gnu.org/archive/html/bug-tar/2014-08/msg00001.html
-  patch do
-    url "https://gist.githubusercontent.com/mistydemeo/10fbae8b8441359ba86d/raw/e5c183b72036821856f9e82b46fba6185e10e8b9/gnutar-configure-xattrs.patch"
-    sha256 "f2e56bb8afd1c641a7e5b81e35fdbf36b6fb66434b1e35caa8b55196b30c3ad9"
-  end
 
   def install
     # Work around unremovable, nested dirs bug that affects lots of
