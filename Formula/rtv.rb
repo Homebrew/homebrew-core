@@ -1,8 +1,8 @@
 class Rtv < Formula
   desc "Command-line Reddit client"
   homepage "https://github.com/michael-lazar/rtv"
-  url "https://github.com/michael-lazar/rtv/archive/v1.8.0.tar.gz"
-  sha256 "90828ad016d669dfc162ff958124700abcce7f2cf1aedcf5be90fe97f4552764"
+  url "https://github.com/michael-lazar/rtv/archive/v1.9.0.tar.gz"
+  sha256 "6d14e3995840a3e427761824250688c4bcba76c31fdf17ffe96e41ddf427aed3"
 
   bottle do
     cellar :any_skip_relocation
