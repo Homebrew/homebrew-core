@@ -45,6 +45,11 @@ class Folly < Formula
     sha256 "e74f04f09a2bb891567796093ca2ce87b69ea838bb19aadc0b5c241ab6e768eb"
   end
 
+  patch do
+    url "https://github.com/xnox/folly/commit/ca2e9c7f1b6bf92f1f67ae627692547710932577.patch"
+    sha256 "8fe2192e3e10d46a77bbe4fda7ed588eecda22fd83d5952c79985f642bf00d68"
+  end
+
   def install
     ENV.cxx11
     cd "folly" do
