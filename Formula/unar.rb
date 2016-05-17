@@ -1,9 +1,9 @@
 class Unar < Formula
   desc "Command-line unarchiving tools supporting multiple formats"
   homepage "https://unarchiver.c3.cx/commandline"
-  url "https://wakaba.c3.cx/releases/TheUnarchiver/unar1.9.1_src.zip"
-  version "1.9.1"
-  sha256 "28045fb688563c002b7c2807e80575d3f9af8eb024739f9ab836f681bb8e822c"
+  url "https://wakaba.c3.cx/releases/TheUnarchiver/unar1.10_src.zip"
+  version "1.10"
+  sha256 "866320ef9a4a21d593d314e229e38d928bbb31965b9e81ed347bfbf55fc2f25f"
 
   head "https://bitbucket.org/WAHa_06x36/theunarchiver", :using => :hg
 
@@ -16,16 +16,8 @@ class Unar < Formula
   depends_on :xcode => :build
 
   def install
-    # Files in unar1.9.1_src.zip have "The Unarchiver" path prefix, but HEAD checkout does not.
-    # Build on some versions of Xcode will fail if there's whitespace in path, so workaround
-    # by moving things out of "The Unarchiver" folder.
-    unless build.head?
-      mv "./The Unarchiver/Extra", "."
-      mv "./The Unarchiver/UniversalDetector", "."
-      mv "./The Unarchiver/XADMaster", "."
-    end
-
     # Build XADMaster.framework, unar and lsar
+    xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-alltargets", "-configuration", "Release", "clean"
     xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-target", "XADMaster", "SYMROOT=../", "-configuration", "Release"
     xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-target", "unar", "SYMROOT=../", "-configuration", "Release"
     xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-target", "lsar", "SYMROOT=../", "-configuration", "Release"
@@ -43,7 +35,10 @@ class Unar < Formula
   end
 
   test do
-    system bin/"unar", "--version"
-    system bin/"lsar", "--version"
+    cp prefix/"README.md", "."
+    system "gzip", "README.md"
+    assert_equal "README.md.gz: Gzip\nREADME.md\n", shell_output("#{bin}/lsar README.md.gz")
+    system bin/"unar", "README.md.gz"
+    assert (testpath/"README.md").exist?
   end
 end
