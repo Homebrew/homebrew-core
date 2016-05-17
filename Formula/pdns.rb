@@ -34,10 +34,12 @@ class Pdns < Formula
     # https://github.com/Homebrew/homebrew/pull/33739
     ENV.deparallelize
 
-    args = ["--prefix=#{prefix}",
-            "--with-lua",
-            "--with-openssl=#{Formula["openssl"].opt_prefix}",
-            "--with-sqlite3"]
+    args = %W[
+      --prefix=#{prefix}
+      --with-lua
+      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-sqlite3
+    ]
 
     # Include the PostgreSQL backend if requested
     if build.with? "pgsql"
@@ -56,6 +58,7 @@ class Pdns < Formula
   end
 
   test do
-    assert_match "PowerDNS Authoritative Server 3.4.9", shell_output("#{bin}/pdns_server --version")
+    output = shell_output("#{sbin}/pdns_server --version 2>&1", 99)
+    assert_match "PowerDNS Authoritative Server #{version}", output
   end
 end
