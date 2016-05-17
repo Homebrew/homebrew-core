@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on the V8 JavaScript runtime to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.1.0/node-v6.1.0.tar.xz"
-  sha256 "c7940301917232527490a166df78f9d3d58e70e10fd502f73889d936763cfe84"
+  url "https://nodejs.org/dist/v6.2.0/node-v6.2.0.tar.xz"
+  sha256 "8633fe606fd1f2235d26901c6bc4c11b5b88fd3c772af18a902e3efd1254e492"
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -36,29 +36,27 @@ class Node < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.8.6.tgz"
-    sha256 "29bc9d6f6123c9281914b298e863f683fd98ac2762632a55458308bb88b005e8"
+    url "https://registry.npmjs.org/npm/-/npm-3.8.9.tgz"
+    sha256 "97c831727e9cc0543ca437ab688a4eeba862f2238f4d57ff13ee1888402a9c7b"
   end
 
   resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/56.1/icu4c-56_1-src.tgz"
-    mirror "https://ftp.mirrorservice.org/sites/download.qt-project.org/development_releases/prebuilt/icu/src/icu4c-56_1-src.tgz"
-    version "56.1"
-    sha256 "3a64e9105c734dcf631c0b3ed60404531bce6c0f5a64bfe1a6402a4cc2314816"
+    url "https://ssl.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz"
+    mirror "https://fossies.org/linux/misc/icu4c-57_1-src.tgz"
+    version "57.1"
+    sha256 "ff8c67cb65949b1e7808f2359f2b80f722697048e90e7cfc382ec1fe229e9581"
   end
 
   def install
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
     args << "--shared-openssl" if build.with? "openssl"
-    if build.with? "full-icu"
-      args << "--with-intl=full-icu"
-    else
-      args << "--with-intl=small-icu"
-    end
     args << "--tag=head" if build.head?
 
-    resource("icu4c").stage buildpath/"deps/icu"
+    if build.with? "full-icu"
+      resource("icu4c").stage buildpath/"deps/icu"
+      args << "--with-intl=full-icu"
+    end
 
     system "./configure", *args
     system "make", "install"
@@ -138,8 +136,10 @@ class Node < Formula
     if build.without? "full-icu"
       s += <<-EOS.undent
         Please note by default only English locale support is provided. If you need
-        full locale support you should:
+        full locale support you should either rebuild with full icu:
           `brew reinstall node --with-full-icu`
+        or add full icu data at runtime following:
+          https://github.com/nodejs/node/wiki/Intl#using-and-customizing-the-small-icu-build
       EOS
     end
 
@@ -152,8 +152,12 @@ class Node < Formula
 
     output = shell_output("#{bin}/node #{path}").strip
     assert_equal "hello", output
-    output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat().format(1234.56))'").strip
+    output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat(\"en-EN\").format(1234.56))'").strip
     assert_equal "1,234.56", output
+    if build.with? "full-icu"
+      output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat(\"de-DE\").format(1234.56))'").strip
+      assert_equal "1.234,56", output
+    end
 
     if build.with? "npm"
       # make sure npm can find node
@@ -163,7 +167,7 @@ class Node < Formula
       assert (HOMEBREW_PREFIX/"bin/npm").exist?, "npm must exist"
       assert (HOMEBREW_PREFIX/"bin/npm").executable?, "npm must be executable"
       system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "npm@latest"
-      system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "bignum" unless build.head?
+      system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "bignum" unless head?
     end
   end
 end
