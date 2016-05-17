@@ -13,9 +13,9 @@ class Ansible < Formula
   end
 
   devel do
-    url "https://releases.ansible.com/ansible/ansible-2.1.0.0-0.1.rc1.tar.gz"
-    sha256 "635ac5234a07506839d4ec36d180bdcbd3568549cdee1832af17560f304446a0"
-    version "2.1.0.0-0.1.rc1"
+    url "https://releases.ansible.com/ansible/ansible-2.1.0.0-0.2.rc2.tar.gz"
+    sha256 "a4410614afb5ce2b355b3b8f7321c5e7006d4eaf2673553b50d3afdfe1386d7e"
+    version "2.1.0.0-0.2.rc2"
   end
 
   depends_on "pkg-config" => :build
