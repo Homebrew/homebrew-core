@@ -3,7 +3,10 @@ require "language/node"
 class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
-  url "https://github.com/elastic/kibana.git", :tag => "v4.5.0", :revision => "ff5cfc5d05a58e53f7acaa762428fa803318d31e"
+  url "https://github.com/elastic/kibana.git",
+    :tag => "v4.5.0",
+    :revision => "ff5cfc5d05a58e53f7acaa762428fa803318d31e"
+
   head "https://github.com/elastic/kibana.git"
 
   bottle do
@@ -14,7 +17,10 @@ class Kibana < Formula
   end
 
   devel do
-    url "https://github.com/elastic/kibana.git", :tag => "v5.0.0-alpha2", :revision => "6d7bb147cf9ae7170fde494b1f17128a50123b5f"
+    url "https://github.com/elastic/kibana.git",
+      :tag => "v5.0.0-alpha2",
+      :revision => "6d7bb147cf9ae7170fde494b1f17128a50123b5f"
+    version "5.0.0-alpha2"
   end
 
   resource "node" do
