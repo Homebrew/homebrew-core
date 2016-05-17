@@ -46,8 +46,8 @@ class Folly < Formula
   end
 
   patch do
-    url "https://github.com/xnox/folly/commit/ca2e9c7f1b6bf92f1f67ae627692547710932577.patch"
-    sha256 "8fe2192e3e10d46a77bbe4fda7ed588eecda22fd83d5952c79985f642bf00d68"
+    url "https://github.com/facebook/folly/commit/50b33d29c25c9cb33ff61988a6fc16ec1a25e6d0.patch"
+    sha256 "b2a42e2ec5ab193fb4d6c86efc70e7436fd52afc4a80cbbb085a7e200346c866"
   end
 
   def install
