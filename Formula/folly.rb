@@ -35,6 +35,8 @@ class Folly < Formula
     cause "Fails with compile errors"
   end
 
+  fails_with :gcc => "5"
+
   patch do
     url "https://github.com/facebook/folly/commit/f0fdd87aa9b1074b41bbaa3257fb398deacc6e16.patch"
     sha256 "2321118a14e642424822245f67dc644a208adb711e2c085adef0fc5ff8da20d3"
@@ -43,11 +45,6 @@ class Folly < Formula
   patch do
     url "https://github.com/facebook/folly/commit/29193aca605bb93d82a3c92acd95bb342115f3a4.patch"
     sha256 "e74f04f09a2bb891567796093ca2ce87b69ea838bb19aadc0b5c241ab6e768eb"
-  end
-
-  patch do
-    url "https://github.com/facebook/folly/commit/50b33d29c25c9cb33ff61988a6fc16ec1a25e6d0.patch"
-    sha256 "b2a42e2ec5ab193fb4d6c86efc70e7436fd52afc4a80cbbb085a7e200346c866"
   end
 
   def install
