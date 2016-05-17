@@ -30,6 +30,11 @@ class Folly < Formula
   needs :cxx11
   depends_on :macos => :mavericks
 
+  fails_with :clang do
+    build 600
+    cause "Fails with compile errors"
+  end
+
   patch do
     url "https://github.com/facebook/folly/commit/f0fdd87aa9b1074b41bbaa3257fb398deacc6e16.patch"
     sha256 "2321118a14e642424822245f67dc644a208adb711e2c085adef0fc5ff8da20d3"
