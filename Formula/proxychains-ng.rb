@@ -15,10 +15,11 @@ class ProxychainsNg < Formula
   option :universal
 
   def install
-    args = ["--prefix=#{prefix}", "--sysconfdir=#{prefix}/etc", "-arch i386"]
+    args = ["--prefix=#{prefix}", "--sysconfdir=#{prefix}/etc"]
     if build.universal?
       ENV.universal_binary
       args << "--fat-binary"
+      args << "-arch i386"
     end
     system "./configure", *args
     system "make"
