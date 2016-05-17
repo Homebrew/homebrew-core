@@ -1,9 +1,18 @@
 class TranslateShell < Formula
   desc "Command-line translator using Google Translate and more"
   homepage "https://www.soimort.org/translate-shell"
-  url "https://github.com/soimort/translate-shell/archive/v0.9.3.2.tar.gz"
-  sha256 "4ddf7292802f6d81a8e9c736a3ff854ebcc193866e9774376dc0c2f8d893323a"
   head "https://github.com/soimort/translate-shell.git", :branch => "develop"
+  revision 1
+
+  stable do
+    url "https://github.com/soimort/translate-shell/archive/v0.9.3.2.tar.gz"
+    sha256 "4ddf7292802f6d81a8e9c736a3ff854ebcc193866e9774376dc0c2f8d893323a"
+
+    patch do
+      url "https://github.com/soimort/translate-shell/commit/c5f0744006e8dff78852cffae64837addff8c26b.diff"
+      sha256 "83aaa2b7182ac918bdc662a33cbf6faae12bd2a39e7567d5f4d32a0b3fcd527b"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
