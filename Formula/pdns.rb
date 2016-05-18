@@ -1,8 +1,8 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-3.4.8.tar.bz2"
-  sha256 "4f818fd09bff89625b4317cc7c05445f6e7bd9ea8d21e7eefeaaca07b8b0cd9f"
+  url "https://downloads.powerdns.com/releases/pdns-3.4.9.tar.bz2"
+  sha256 "2b1124db2d937ed6666525b9fc60a5dd55cb82f4cae58116cb986de53faa5dff"
 
   bottle do
     sha256 "f6ecaa7fdac97b5d0210c5b245b6d322c3fbbabe9f1de7d1be7a05e50c5731ff" => :el_capitan
@@ -26,6 +26,7 @@ class Pdns < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "lua"
+  depends_on "openssl"
   depends_on "sqlite"
   depends_on :postgresql if build.with? "pgsql"
 
@@ -35,6 +36,7 @@ class Pdns < Formula
 
     args = ["--prefix=#{prefix}",
             "--with-lua",
+            "--with-openssl=#{Formula["openssl"].opt_prefix}",
             "--with-sqlite3"]
 
     # Include the PostgreSQL backend if requested
@@ -51,5 +53,9 @@ class Pdns < Formula
     # Compilation fails at polarssl if we skip straight to make install
     system "make"
     system "make", "install"
+  end
+
+  test do
+    assert_match "PowerDNS Authoritative Server 3.4.9", shell_output("#{bin}/pdns_server --version")
   end
 end
