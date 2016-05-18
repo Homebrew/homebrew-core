@@ -22,7 +22,7 @@ class Fsw < Formula
 
   test do
     begin
-      io = IO.popen("fsw test")
+      io = IO.popen("#{bin}/fsw test")
       (testpath/"test").write("foo")
       sleep 2
       rm testpath/"test"
