@@ -1,8 +1,8 @@
 class ChrubyFish < Formula
   desc "Thin wrapper around chruby to make it work with the Fish shell"
   homepage "https://github.com/JeanMertz/chruby-fish#readme"
-  url "https://github.com/JeanMertz/chruby-fish/archive/v0.7.2.tar.gz"
-  sha256 "d64248ce9b80dfdb327b69f4db3cfd0901957a745fd8b3b0f8c2a31fd0840297"
+  url "https://github.com/JeanMertz/chruby-fish/archive/v0.8.0.tar.gz"
+  sha256 "d74fada4c4e22689d08a715a2772e73776975337640bd036fbfc01d90fbf67b7"
   head "https://github.com/JeanMertz/chruby-fish.git"
 
   bottle do
@@ -12,9 +12,14 @@ class ChrubyFish < Formula
     sha256 "d56f48b0a49d0c381bffc28ffe320019b89a87a708ec51f24218a0911104bd78" => :mavericks
   end
 
+  depends_on "fish" => :recommended
   depends_on "chruby" => :recommended
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
+  end
+
+  test do
+    assert_match /chruby-fish/, shell_output("fish -c '. #{share}/chruby/chruby.fish; chruby --version'")
   end
 end
