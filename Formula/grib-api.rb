@@ -3,6 +3,7 @@ class GribApi < Formula
   homepage "https://software.ecmwf.int/wiki/display/GRIB/Home"
   url "https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.15.0-Source.tar.gz"
   sha256 "733f48e2882141003b83fa165d1ea12cad3c0c56953bc30be1d5d4aa6a0e5913"
+  revision 1
 
   bottle do
     sha256 "73ba03c7dd6fb0374d9290844bba8ccc872fab0e9d6a863341b45c52da7993e9" => :el_capitan
