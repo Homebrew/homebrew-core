@@ -1,8 +1,8 @@
 class Khal < Formula
   desc "CLI calendar application."
   homepage "https://github.com/geier/khal"
-  url "https://pypi.python.org/packages/source/k/khal/khal-0.8.1.tar.gz"
-  sha256 "9d352e4aa6256e493d5aea69540f642158bdcab75d2383e1e43506bf89982094"
+  url "https://pypi.python.org/packages/11/41/e1610f6575ac33e0f3783f15a60dff4d107cb2efdefe01b422486c91d823/khal-0.8.2.tar.gz"
+  sha256 "f2ff3cf58ea4de55b42e6f3cd61818be1ebaf86fabb7f7d5c11b762d07a40c46"
 
   bottle do
     cellar :any_skip_relocation
