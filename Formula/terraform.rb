@@ -3,8 +3,8 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.6.15.tar.gz"
-  sha256 "5dc7cb1d29dee3de9ed9efacab7e72aa447052c96ae8269d932f6a979871a852"
+  url "https://github.com/hashicorp/terraform/archive/v0.6.16.tar.gz"
+  sha256 "c84bae32a170d993982de9c537eac74f70601e7a667dc2ea9803b86e04b1221d"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
@@ -30,6 +30,11 @@ class Terraform < Formula
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git", :revision => "977844c7af2aa555048a19d28e9fe6c392e7b8e9"
   end
+
+  # This patch works around a known test failure, which will be fixed in terraform version 0.6.17.
+  # https://github.com/hashicorp/terraform/issues/6709
+  # https://github.com/hashicorp/terraform/commit/6a20e8
+  patch :DATA
 
   def install
     ENV["GOPATH"] = buildpath
@@ -103,3 +108,20 @@ class Terraform < Formula
     system "#{bin}/terraform", "graph", testpath
   end
 end
+
+__END__
+diff --git a/state/remote/atlas_test.go b/state/remote/atlas_test.go
+index 847fb39..1a6c710 100644
+--- a/state/remote/atlas_test.go
++++ b/state/remote/atlas_test.go
+@@ -159,8 +159,8 @@ func TestAtlasClient_UnresolvableConflict(t *testing.T) {
+ 	select {
+ 	case <-doneCh:
+ 		// OK
+-	case <-time.After(50 * time.Millisecond):
+-		t.Fatalf("Timed out after 50ms, probably because retrying infinitely.")
++	case <-time.After(500 * time.Millisecond):
++		t.Fatalf("Timed out after 500ms, probably because retrying infinitely.")
+ 	}
+ }
+ 
