@@ -1,7 +1,7 @@
 class Devil < Formula
   desc "Cross-platform image library"
   homepage "https://sourceforge.net/projects/openil/"
-  revision 2
+  revision 3
 
   stable do
     url "https://downloads.sourceforge.net/project/openil/DevIL/1.7.8/DevIL-1.7.8.tar.gz"
@@ -19,7 +19,6 @@ class Devil < Formula
     sha256 "c75d0b1abbbafc8d302c70b9ad2c54018f63ceaa936e233b8781ca9395acd37e" => :yosemite
     sha256 "ea60067ae64f574fea8cd904e681294ad1c50cde25531bfc75b24c7736c4f367" => :mavericks
   end
-
 
   head do
     url "https://github.com/DentonW/DevIL.git"
