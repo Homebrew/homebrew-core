@@ -4,9 +4,9 @@ class Re2 < Formula
   head "https://github.com/google/re2.git"
 
   stable do
-    url "https://github.com/google/re2/archive/2016-03-01.tar.gz"
-    version "20160301"
-    sha256 "2dc6188270fe83660ccb379ef2d5ce38e0e38ca0e1c0b3af4b2b7cf0d8c9c11a"
+    url "https://github.com/google/re2/archive/2016-05-01.tar.gz"
+    version "20160501"
+    sha256 "d9d13f0ea4e1c6628b1cb85eeee284d4fdd4948da94b1f205096254927092e3d"
   end
 
   bottle do
