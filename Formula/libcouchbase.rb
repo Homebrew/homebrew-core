@@ -28,8 +28,8 @@ class Libcouchbase < Formula
     args = std_cmake_args
     args << "-DLCB_NO_TESTS=1"
 
-    ["libev", "libevent", "libuv"].each do |pname|
-      args << "-DLCB_BUILD_#{pname.upcase}=" + (build.with?("#{pname}") ? "ON" : "OFF")
+    ["libev", "libevent", "libuv"].each do |dep|
+      args << "-DLCB_BUILD_#{dep.upcase}=" + (build.with?(dep) ? "ON" : "OFF")
     end
     if build.universal?
       args << "-DLCB_UNIVERSAL_BINARY=1"
