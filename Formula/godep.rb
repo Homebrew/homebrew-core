@@ -1,8 +1,8 @@
 class Godep < Formula
   desc "Dependency tool for go"
   homepage "https://godoc.org/github.com/tools/godep"
-  url "https://github.com/tools/godep/archive/v66.tar.gz"
-  sha256 "730020ef823dc29cdc139c097831a4df7a7b91941e378efd37f9e217dae62eb5"
+  url "https://github.com/tools/godep/archive/v69.tar.gz"
+  sha256 "a3eb2a2458383ffcd3d0df4565911aa601cd3172546749a571888ef3b11e9a0e"
   head "https://github.com/tools/godep.git"
 
   bottle do
@@ -27,10 +27,10 @@ class Godep < Formula
   test do
     ENV["GO15VENDOREXPERIMENT"] = "0"
     mkdir "Godeps"
-    (testpath/"Godeps/Geodeps.json").write <<-EOS.undent
+    (testpath/"Godeps/Godeps.json").write <<-EOS.undent
       {
         "ImportPath": "github.com/tools/godep",
-        "GoVersion": "go1.4.2",
+        "GoVersion": "go1.6",
         "Deps": []
       }
     EOS
