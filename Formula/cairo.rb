@@ -54,10 +54,7 @@ class Cairo < Formula
       args << "--enable-xcb=no" << "--enable-xlib=no" << "--enable-xlib-xrender=no"
     end
 
-    if build.head?
-      system "./autogen.sh", *args
-    end
-
+    system "./autogen.sh", *args if build.head?
     system "./configure", *args
     system "make", "install"
   end
