@@ -3,8 +3,8 @@ require "language/go"
 class Deisctl < Formula
   desc "Deis Control Utility"
   homepage "http://deis.io/"
-  url "https://github.com/deis/deis/archive/v1.12.2.tar.gz"
-  sha256 "48aa8f81697b213bd25e95bc2065f7c0dc75e824d7420e71856e102cc16a5229"
+  url "https://github.com/deis/deis/archive/v1.13.1.tar.gz"
+  sha256 "6fd7d3f7947437ba513654cf893c06a761321dd6fbe53ab56a3d1ca2e30bd060"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,19 +17,24 @@ class Deisctl < Formula
   depends_on "godep" => :build
 
   go_resource "github.com/docopt/docopt-go" do
-    url "https://github.com/docopt/docopt-go.git", :revision => "854c423c810880e30b9fecdabb12d54f4a92f9bb"
+    url "https://github.com/docopt/docopt-go.git",
+      :revision => "854c423c810880e30b9fecdabb12d54f4a92f9bb"
   end
 
   go_resource "github.com/coreos/go-etcd" do
-    url "https://github.com/coreos/go-etcd.git", :revision => "c904d7032a70da6551c43929f199244f6a45f4c1"
+    url "https://github.com/coreos/go-etcd.git",
+      :revision => "c904d7032a70da6551c43929f199244f6a45f4c1"
   end
 
   go_resource "github.com/coreos/fleet" do
-    url "https://github.com/coreos/fleet.git", :tag => "v0.9.2", :revision => "e0f7a2316dc6ae610979598c4efe127ac8ff1ae9"
+    url "https://github.com/coreos/fleet.git",
+      :tag => "v0.9.2",
+      :revision => "e0f7a2316dc6ae610979598c4efe127ac8ff1ae9"
   end
 
   go_resource "github.com/ugorji/go" do
-    url "https://github.com/ugorji/go.git", :revision => "821cda7e48749cacf7cad2c6ed01e96457ca7e9d"
+    url "https://github.com/ugorji/go.git",
+      :revision => "821cda7e48749cacf7cad2c6ed01e96457ca7e9d"
   end
 
   def install
