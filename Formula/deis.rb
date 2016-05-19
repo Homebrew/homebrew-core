@@ -3,8 +3,8 @@ require "language/go"
 class Deis < Formula
   desc "Deploy and manage applications on your own servers"
   homepage "http://deis.io"
-  url "https://github.com/deis/deis/archive/v1.12.2.tar.gz"
-  sha256 "48aa8f81697b213bd25e95bc2065f7c0dc75e824d7420e71856e102cc16a5229"
+  url "https://github.com/deis/deis/archive/v1.13.1.tar.gz"
+  sha256 "6fd7d3f7947437ba513654cf893c06a761321dd6fbe53ab56a3d1ca2e30bd060"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,17 +18,17 @@ class Deis < Formula
 
   go_resource "github.com/docopt/docopt-go" do
     url "https://github.com/docopt/docopt-go.git",
-        :revision => "854c423c810880e30b9fecdabb12d54f4a92f9bb"
+      :revision => "854c423c810880e30b9fecdabb12d54f4a92f9bb"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "f7445b17d61953e333441674c2d11e91ae4559d3"
+      :revision => "f7445b17d61953e333441674c2d11e91ae4559d3"
   end
 
   go_resource "gopkg.in/yaml.v2" do
     url "https://github.com/go-yaml/yaml.git",
-        :revision => "eca94c41d994ae2215d455ce578ae6e2dc6ee516"
+      :revision => "eca94c41d994ae2215d455ce578ae6e2dc6ee516"
   end
 
   def install
