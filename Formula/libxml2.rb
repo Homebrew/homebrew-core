@@ -20,11 +20,11 @@ class Libxml2 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on :python => :optional
-
   keg_only :provided_by_osx
 
   option :universal
+
+  depends_on :python => :optional
 
   fails_with :llvm do
     build 2326
