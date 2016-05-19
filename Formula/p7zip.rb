@@ -13,8 +13,8 @@ class P7zip < Formula
   end
 
   # CVE-2016-2334 and CVE-2016-2335
-  # http://www.talosintel.com/reports/TALOS-2016-0093/
-  # http://www.talosintel.com/reports/TALOS-2016-0094/
+  # https://www.talosintel.com/reports/TALOS-2016-0093/
+  # https://www.talosintel.com/reports/TALOS-2016-0094/
   # https://packages.qa.debian.org/p/p7zip/news/20160515T102412Z.html
   patch do
     url "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/p7zip/p7zip_15.14.1+dfsg-2.debian.tar.xz"
