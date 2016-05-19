@@ -3,6 +3,7 @@ class Anjuta < Formula
   homepage "http://anjuta.org"
   url "https://download.gnome.org/sources/anjuta/3.18/anjuta-3.18.2.tar.xz"
   sha256 "be864f2f1807e1b870697f646294e997d221d5984a135245543b719e501cef8e"
+  revision 1
 
   bottle do
     revision 1
@@ -27,6 +28,7 @@ class Anjuta < Formula
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "vala" => :recommended
   depends_on "autogen" => :recommended
+  depends_on "gnutls"
 
   def install
     system "./configure", "--disable-debug",
