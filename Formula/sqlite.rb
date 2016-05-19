@@ -25,6 +25,7 @@ class Sqlite < Formula
   option "with-functions", "Enable more math and string functions for SQL queries"
   option "with-dbstat", "Enable the 'dbstat' virtual table"
   option "with-json1", "Enable the JSON1 extension"
+  option "with-session", "Enable the session extension"
 
   depends_on "readline" => :recommended
   depends_on "icu4c" => :optional
@@ -53,6 +54,7 @@ class Sqlite < Formula
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_UNLOCK_NOTIFY=1" if build.with? "unlock-notify"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_DBSTAT_VTAB=1" if build.with? "dbstat"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_JSON1=1" if build.with? "json1"
+    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_PREUPDATE_HOOK=1 -DSQLITE_ENABLE_SESSION=1" if build.with? "session"
 
     if build.with? "icu4c"
       icu4c = Formula["icu4c"]
