@@ -1,8 +1,9 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://fishshell.com/files/2.2.0/fish-2.2.0.tar.gz"
-  sha256 "a76339fd14ce2ec229283c53e805faac48c3e99d9e3ede9d82c0554acfc7b77a"
+  url "https://fishshell.com/files/2.3.0/fish-2.3.0.tar.gz"
+  mirror "https://github.com/fish-shell/fish-shell/releases/download/2.3.0/fish-2.3.0.tar.gz"
+  sha256 "912bac47552b1aa0d483a39ade330356632586a8f726c0e805b46d45cfad54e5"
 
   bottle do
     revision 2
@@ -11,22 +12,14 @@ class Fish < Formula
     sha256 "39b820ee1cf8bffac46add0da2bdedd0a73ac5ce06c6f9a7e6d609aebef28dd2" => :mavericks
   end
 
-  devel do
-    url "https://github.com/fish-shell/fish-shell/releases/download/2.3b2/fish-2.3b2.tar.gz"
-    sha256 "2b9342e7d5baf163e7384ea8f1270b8cdc06b19c8602e3c01546cc11d4337de9"
-
-    depends_on "autoconf" => :build
-    depends_on "doxygen" => :build
-    depends_on "pcre2"
-  end
-
   head do
     url "https://github.com/fish-shell/fish-shell.git", :shallow => false
 
     depends_on "autoconf" => :build
     depends_on "doxygen" => :build
-    depends_on "pcre2"
   end
+
+  depends_on "pcre2"
 
   def install
     system "autoconf" if build.head? || build.devel?
