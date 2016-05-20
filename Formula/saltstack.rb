@@ -17,8 +17,8 @@ class Saltstack < Formula
   end
 
   devel do
-    url "https://github.com/saltstack/salt/releases/download/v2016.3.0rc2/salt-2016.3.0rc2.tar.gz"
-    sha256 "aaa136ad5b7ce2478f352fadaddba66deba65b939fd146e772635d79b20fd8f3"
+    url "https://github.com/saltstack/salt/releases/download/v2016.3.0rc3/salt-2016.3.0rc3.tar.gz"
+    sha256 "994a2468ea5bb854237f4d7f1efcbf651438cc1e8ae16fbd22b8d2f37f68707f"
   end
 
   depends_on "swig" => :build
