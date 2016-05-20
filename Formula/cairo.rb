@@ -18,7 +18,7 @@ class Cairo < Formula
   end
 
   head do
-    url "http://anongit.freedesktop.org/git/cairo", :using => :git
+    url "https://anongit.freedesktop.org/git/cairo", :using => :git
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
