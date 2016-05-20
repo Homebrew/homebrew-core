@@ -60,15 +60,15 @@ class Opentsdb < Formula
 
     (bin/"start-tsdb.sh").write <<-EOS.undent
       #!/bin/sh
-      exec "#{opt_bin}/tsdb" tsd \
-      --config="#{HOMEBREW_PREFIX}/etc/opentsdb/opentsdb.conf" \
-      --staticroot="#{HOMEBREW_PREFIX}/opt/opentsdb/share/opentsdb/static/" \
-      --cachedir="#{HOMEBREW_PREFIX}/var/cache/opentsdb" \
-      --port=4242 \
-      --zkquorum=localhost:2181 \
-      --zkbasedir=/hbase \
-      --auto-metric \
-      "$@"
+      exec "#{opt_bin}/tsdb" tsd \\
+        --config="#{etc}/opentsdb/opentsdb.conf" \\
+        --staticroot="#{opt_pkgshare}/static/" \\
+        --cachedir="#{var}/cache/opentsdb" \\
+        --port=4242 \\
+        --zkquorum=localhost:2181 \\
+        --zkbasedir=/hbase \\
+        --auto-metric \\
+        "$@"
     EOS
   end
 
@@ -97,7 +97,7 @@ class Opentsdb < Formula
       <string>#{plist_name}</string>
       <key>ProgramArguments</key>
       <array>
-        #{opt_bin}/start-tsdb.sh
+        <string>#{opt_bin}/start-tsdb.sh</string>
       </array>
       <key>WorkingDirectory</key>
       <string>#{HOMEBREW_PREFIX}</string>
