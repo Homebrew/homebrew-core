@@ -40,6 +40,7 @@ class Dpkg < Formula
 
     bin.install Dir["#{libexec}/bin/*"]
     man.install Dir["#{libexec}/share/man/*"]
+    (lib/"pkgconfig").install Dir["#{libexec}/lib/pkgconfig/*.pc"]
     bin.env_script_all_files(libexec+"bin", :PERL5LIB => ENV["PERL5LIB"])
 
     (buildpath/"dummy").write "Vendor: dummy\n"
