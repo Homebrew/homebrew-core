@@ -24,14 +24,17 @@ class Opentsdb < Formula
   depends_on :java => "1.6+"
   depends_on "gnuplot" => :optional
 
-  # Patch for makefile issue
-  # https://github.com/OpenTSDB/opentsdb/pull/711
-  patch do
-    url "https://github.com/OpenTSDB/opentsdb/commit/5d0cfa9b4b6d8da86735efeea4856632581a7adb.patch"
-    sha256 "03593afc905086d2a77d9a1c5e323ddc4b1bc99a0547a3d7e8a97dc1d6e3a229"
-  end
-
   def install
+    # submitted to upstream: https://github.com/OpenTSDB/opentsdb/pull/711
+    # pulled to next branch: https://github.com/OpenTSDB/opentsdb/commit/5d0cfa9b4b6d8da86735efeea4856632581a7adb.patch
+    # doesn't apply cleanly on this release though
+    # mkdir_p is called from in a subdir of build so needs an extra ../ and there is no rule to create $(classes) and
+    # everything builds without specifying them as dependencies of the jar.
+    inreplace "Makefile.in" do |s|
+      s.sub!(/(\$\(jar\): manifest \.javac-stamp) \$\(classes\)/, '\1')
+      s.sub!(/(echo " \$\(mkdir_p\) '\$\$dstdir'"; )/, '\1../')
+    end
+
     mkdir "build" do
       system "../configure",
              "--disable-silent-rules",
@@ -54,6 +57,19 @@ class Opentsdb < Formula
     inreplace pkgshare/"etc/opentsdb/opentsdb.conf", "/usr/share", "#{HOMEBREW_PREFIX}/share"
     etc.install Dir["#{pkgshare}/etc/opentsdb"]
     (pkgshare/"plugins/.keep").write ""
+
+    (bin/"start-tsdb.sh").write <<-EOS.undent
+      #!/bin/sh
+      exec "#{opt_bin}/tsdb" tsd \
+      --config="#{HOMEBREW_PREFIX}/etc/opentsdb/opentsdb.conf" \
+      --staticroot="#{HOMEBREW_PREFIX}/opt/opentsdb/share/opentsdb/static/" \
+      --cachedir="#{HOMEBREW_PREFIX}/var/cache/opentsdb" \
+      --port=4242 \
+      --zkquorum=localhost:2181 \
+      --zkbasedir=/hbase \
+      --auto-metric \
+      "$@"
+    EOS
   end
 
   def post_install
@@ -65,25 +81,9 @@ class Opentsdb < Formula
     system "#{Formula["hbase"].opt_libexec}/bin/stop-hbase.sh"
   end
 
-  def tsdb_args
-    %W[
-      #{opt_bin}/tsdb
-      tsd
-      --config=#{HOMEBREW_PREFIX}/etc/opentsdb/opentsdb.conf
-      --staticroot=#{HOMEBREW_PREFIX}/opt/opentsdb/share/opentsdb/static/
-      --cachedir=#{HOMEBREW_PREFIX}/var/cache/opentsdb
-      --port=4242
-      --zkquorum=localhost:2181
-      --zkbasedir=/hbase
-      --auto-metric
-    ]
-  end
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/opentsdb/bin/start-tsdb.sh"
 
-  plist_options :manual => tsdb_args.join(" ")
-
-  def plist
-    program_args = tsdb_args.map { |s| "    <string>#{s}</string>" }.join("\n")
-    <<-EOS.undent
+  def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -97,7 +97,7 @@ class Opentsdb < Formula
       <string>#{plist_name}</string>
       <key>ProgramArguments</key>
       <array>
-        #{program_args}
+        #{opt_bin}/start-tsdb.sh
       </array>
       <key>WorkingDirectory</key>
       <string>#{HOMEBREW_PREFIX}</string>
@@ -119,9 +119,9 @@ class Opentsdb < Formula
       s.gsub! /(hbase.zookeeper.property.dataDir.*)\n.*/, "\\1\n<value>#{testpath}/zookeeper</value>"
     end
 
-    ENV["HBASE_LOG_DIR"]  = (testpath/"logs")
-    ENV["HBASE_CONF_DIR"] = (testpath/"conf")
-    ENV["HBASE_PID_DIR"]  = (testpath/"pid")
+    ENV["HBASE_LOG_DIR"]  = testpath/"logs"
+    ENV["HBASE_CONF_DIR"] = testpath/"conf"
+    ENV["HBASE_PID_DIR"]  = testpath/"pid"
 
     system "#{Formula["hbase"].opt_bin}/start-hbase.sh"
     sleep 2
@@ -129,7 +129,7 @@ class Opentsdb < Formula
     system "#{opt_bin}/create_table.sh"
 
     pid = fork do
-      exec tsdb_args.join(" ")
+      exec("#{opt_bin}/start-tsdb.sh")
     end
 
     sleep 2
