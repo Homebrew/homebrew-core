@@ -1,9 +1,8 @@
 class Dspdfviewer < Formula
   desc "Dual-Screen PDF Viewer for latex-beamer"
   homepage "http://dspdfviewer.danny-edel.de"
-  url "https://github.com/dannyedel/dspdfviewer/archive/v1.13.1.tar.gz"
-  sha256 "333588de0316cfdb5821b8484ee55690dfa3c7431b67c126bfdbe9c9cc3e1ed4"
-  revision 1
+  url "https://github.com/dannyedel/dspdfviewer/archive/v1.15.tar.gz"
+  sha256 "19986053ac4a60e086a9edd78281f1e422a64efef29e3c6604386419e9420686"
   head "https://github.com/dannyedel/dspdfviewer.git"
 
   bottle do
@@ -13,17 +12,22 @@ class Dspdfviewer < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "poppler" => "with-qt"
+  depends_on "poppler" => "with-qt5"
 
   def install
+    args = std_cmake_args
+    args << "-DUsePrerenderedPDF=ON"
+    args << "-DRunDualScreenTests=OFF"
+    args << "-DUseQtFive=ON"
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *args
       system "make", "install"
     end
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/dspdfviewer --version", 1)
+    assert_match /#{version}/, shell_output("#{bin}/dspdfviewer --version", 0)
   end
 end
