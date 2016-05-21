@@ -153,9 +153,9 @@ class Hbase < Formula
       s.gsub! /(hbase.zookeeper.property.dataDir.*)\n.*/, "\\1\n<value>#{testpath}/zookeeper</value>"
     end
 
-    ENV["HBASE_LOG_DIR"]  = (testpath/"logs")
-    ENV["HBASE_CONF_DIR"] = (testpath/"conf")
-    ENV["HBASE_PID_DIR"]  = (testpath/"pid")
+    ENV["HBASE_LOG_DIR"]  = testpath/"logs"
+    ENV["HBASE_CONF_DIR"] = testpath/"conf"
+    ENV["HBASE_PID_DIR"]  = testpath/"pid"
 
     system "#{bin}/start-hbase.sh"
     sleep 2
