@@ -128,7 +128,11 @@ class Opentsdb < Formula
 
     system "#{opt_bin}/create_table.sh"
 
+    tsdb_err = "#{testpath}/tsdb.err"
+    tsdb_out = "#{testpath}/tsdb.out"
     pid = fork do
+      $stderr.reopen(tsdb_err, "w")
+      $stdout.reopen(tsdb_out, "w")
       exec("#{opt_bin}/start-tsdb.sh")
     end
 
