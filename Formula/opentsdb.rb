@@ -136,7 +136,7 @@ class Opentsdb < Formula
       exec("#{opt_bin}/start-tsdb.sh")
     end
 
-    sleep 2
+    sleep 15
 
     socket = TCPSocket.new "localhost", 4242
     socket.puts "put homebrew.install.test 1356998400 42.5 host=webserver01 cpu=0"
