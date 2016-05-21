@@ -3,6 +3,7 @@ class Hbase < Formula
   homepage "https://hbase.apache.org"
   url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.1.5/hbase-1.1.5-bin.tar.gz"
   sha256 "e06fa399c7ba48acd14b71ba6316d272f14b18b5b7398d6a3d60b6b8a9073f0e"
+  revision 1
 
   bottle do
     sha256 "9885dc9e22c35e7d682da9c3a98fbe6152bb936ef417af8ab853b71df1d84b57" => :el_capitan
@@ -55,6 +56,11 @@ class Hbase < Formula
               "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\"")
       s.gsub!("# export JAVA_HOME=/usr/java/jdk1.6.0/",
               "export JAVA_HOME=\"$(/usr/libexec/java_home)\"")
+
+      # Default `$HBASE_HOME/logs` is unsuitable as it would cause writes to the
+      # formula's prefix. Provide a better default but still allow override.
+      s.gsub!(/^# export HBASE_LOG_DIR=.*$/,
+              "export HBASE_LOG_DIR=\"${HBASE_LOG_DIR:-#{var}/log/hbase}\"")
     end
 
     # makes hbase usable out of the box
@@ -89,11 +95,10 @@ class Hbase < Formula
           <value>lo0</value>
         </property>
       EOS
-
-    (libexec/"logs").mkpath
   end
 
   def post_install
+    (var/"log/hbase").mkpath
     (var/"run/hbase").mkpath
   end
 
