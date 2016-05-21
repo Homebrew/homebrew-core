@@ -30,7 +30,12 @@ class Hbase < Formula
     ENV.java_cache if build.with? "lzo"
     rm_f Dir["bin/*.cmd", "conf/*.cmd"]
     libexec.install %w[bin conf docs lib hbase-webapps]
-    bin.write_exec_script Dir["#{libexec}/bin/*"]
+
+    # Some binaries have really generic names (like `test`) and most seem to be
+    # too special-purpose to be permanently available via PATH.
+    %w[hbase start-hbase.sh stop-hbase.sh].each do |script|
+      bin.write_exec_script "#{libexec}/bin/#{script}"
+    end
 
     if build.with? "lzo"
       resource("hadoop-lzo").stage do
