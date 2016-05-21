@@ -7,6 +7,7 @@ class Gradle < Formula
   devel do
     url "https://downloads.gradle.org/distributions/gradle-2.14-rc-1-bin.zip"
     sha256 "2ff85eb9eda60f13bc8debec69849e1e2a72b7bfc5af5d26e61a293b5dcbceba"
+    version "2.14-rc-1"
   end
 
   bottle :unneeded
