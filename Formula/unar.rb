@@ -1,9 +1,9 @@
 class Unar < Formula
   desc "Command-line unarchiving tools supporting multiple formats"
   homepage "https://unarchiver.c3.cx/commandline"
-  url "https://wakaba.c3.cx/releases/TheUnarchiver/unar1.10_src.zip"
-  version "1.10"
-  sha256 "866320ef9a4a21d593d314e229e38d928bbb31965b9e81ed347bfbf55fc2f25f"
+  url "https://wakaba.c3.cx/releases/TheUnarchiver/unar1.10.1_src.zip"
+  version "1.10.1"
+  sha256 "40967014a505b7a27864c49dc3b5d30b98ae4e6d4873783b2ef9ef9215fd092b"
 
   head "https://bitbucket.org/WAHa_06x36/theunarchiver", :using => :hg
 
@@ -17,6 +17,10 @@ class Unar < Formula
   depends_on :xcode => :build
 
   def install
+    # ZIP for 1.10.1 additionally contains a `__MACOSX` directory, preventing
+    # stripping of the first path component during extraction of the archive.
+    mv Dir["The Unarchiver/*"], "."
+
     # Build XADMaster.framework, unar and lsar
     xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-alltargets", "-configuration", "Release", "clean"
     xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-target", "XADMaster", "SYMROOT=../", "-configuration", "Release"
