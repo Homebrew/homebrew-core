@@ -145,7 +145,7 @@ class Hbase < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/hbase mapredcp")
+    assert_match "HBase #{version}", shell_output("#{bin}/hbase version 2>&1")
 
     cp_r (libexec/"conf"), testpath
     inreplace (testpath/"conf/hbase-site.xml") do |s|
