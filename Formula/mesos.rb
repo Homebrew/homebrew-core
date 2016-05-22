@@ -1,9 +1,9 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=mesos/0.28.0/mesos-0.28.0.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/0.28.0/mesos-0.28.0.tar.gz"
-  sha256 "7e4183ada965ac8a1345ef71cd284c9c2834ac57fe4c0794fdf1ea5bb291b615"
+  url "https://www.apache.org/dyn/closer.cgi?path=mesos/0.28.1/mesos-0.28.1.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/0.28.1/mesos-0.28.1.tar.gz"
+  sha256 "0995d4979085503d6c47149ac9f241c1107eb01af58683bb41a7ddbab4530c6a"
 
   bottle do
     sha256 "1d474440a7b8151af1a353453efff73c120fd7a5383a1e1d14560e80c63498ae" => :el_capitan
@@ -18,8 +18,8 @@ class Mesos < Formula
   depends_on "subversion"
 
   resource "boto" do
-    url "https://pypi.python.org/packages/source/b/boto/boto-2.36.0.tar.gz"
-    sha256 "8033c6f7a7252976df0137b62536cfe38f1dbd1ef443a7a6d8bc06c063bc36bd"
+    url "https://pypi.python.org/packages/6f/ce/3447e2136c629ae895611d946879b43c19346c54876dea614316306b17dd/boto-2.40.0.tar.gz"
+    sha256 "e12d5fca11fcabfd0acd18f78651e0f0dba60f958a0520ff4e9b73e35cd9928f"
   end
 
   resource "protobuf" do
