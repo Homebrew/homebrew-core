@@ -144,7 +144,7 @@ class Opentsdb < Formula
 
       system "#{bin}/tsdb", "query", "1356998000", "1356999000", "sum", "homebrew.install.test", "host=webserver01", "cpu=0"
     ensure
-      Process.kill(9, pid) if defined? pid and pid > 1
+      Process.kill(9, pid) if defined? pid && pid > 1
 
       system "#{Formula["hbase"].opt_bin}/stop-hbase.sh"
     end
