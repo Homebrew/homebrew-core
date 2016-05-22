@@ -1,5 +1,5 @@
 class Asciiquarium < Formula
-  desc "Enjoy the mysteries of the sea from the safety of your own termin…"
+  desc "An aquarium animation in ASCII art"
   homepage "http://robobunny.com/projects/asciiquarium/html/"
   url "http://www.robobunny.com/projects/asciiquarium/asciiquarium.tar.gz"
   version "1.1"
