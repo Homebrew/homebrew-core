@@ -1,8 +1,7 @@
 class Asciiquarium < Formula
-  desc "An aquarium animation in ASCII art"
+  desc "Aquarium animation in ASCII art"
   homepage "http://robobunny.com/projects/asciiquarium/html/"
   url "http://www.robobunny.com/projects/asciiquarium/asciiquarium_1.1.tar.gz"
-  version "1.1"
   sha256 "1b08c6613525e75e87546f4e8984ab3b33f1e922080268c749f1777d56c9d361"
 
   resource "Curses" do
