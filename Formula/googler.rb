@@ -1,8 +1,8 @@
 class Googler < Formula
   desc "Google Search and News from the command-line"
   homepage "https://github.com/jarun/googler"
-  url "https://github.com/jarun/googler/archive/v2.3.tar.gz"
-  sha256 "b29fa0ea211998453ed1d918c59530dffda386f8904892442a21bcd6e81c0c48"
+  url "https://github.com/jarun/googler/archive/v2.4.1.tar.gz"
+  sha256 "0346a0e0df1091e16e6504154e7da15a98fa3fb9e76df6497c37ac76acf19924"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,7 +11,7 @@ class Googler < Formula
     sha256 "6692cfd6a59508167364c3650d16209a093a47939ba60632a2d264ed10a8079f" => :mavericks
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on :python3
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
@@ -21,6 +21,7 @@ class Googler < Formula
   end
 
   test do
-    assert_match /Homebrew/, shell_output("PYTHONIOENCODING=utf-8 #{bin}/googler Homebrew </dev/null")
+    ENV["PYTHONIOENCODING"] = "utf-8"
+    assert_match /Homebrew/, shell_output("#{bin}/googler --noprompt Homebrew")
   end
 end
