@@ -1,8 +1,8 @@
 class Hive < Formula
   desc "Hadoop-based data summarization, query, and analysis"
   homepage "https://hive.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=hive/hive-1.2.1/apache-hive-1.2.1-bin.tar.gz"
-  sha256 "29d9780c4af887ef623bafe6a73ec6f1bea9759bbe31fb4aeeb5b0f68c4c9979"
+  url "https://www.apache.org/dyn/closer.cgi?path=hive/hive-2.0.0/apache-hive-2.0.0-bin.tar.gz"
+  sha256 "e854798954f48bdbc40235b1367287218464b62376d29dfcd2a328a0e7a184e6"
 
   bottle :unneeded
 
@@ -10,7 +10,7 @@ class Hive < Formula
   depends_on :java
 
   def install
-    rm_f Dir["bin/ext/*.cmd", "bin/ext/util/*.cmd"]
+    rm_f Dir["bin/*.cmd, bin/ext/*.cmd", "bin/ext/util/*.cmd"]
     libexec.install %w[bin conf examples hcatalog lib scripts]
     bin.write_exec_script Dir["#{libexec}/bin/*"]
   end
@@ -29,6 +29,7 @@ class Hive < Formula
   end
 
   test do
-    assert_match /default/, shell_output("#{bin}/hive -e 'show databases;'")
+    system "#{bin}/schematool -initSchema -dbType derby"
+    assert_match /Hive 2.0.0/, shell_output("#{bin}/hive --version")
   end
 end
