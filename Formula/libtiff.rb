@@ -4,6 +4,7 @@ class Libtiff < Formula
   url "http://download.osgeo.org/libtiff/tiff-4.0.6.tar.gz"
   mirror "ftp://ftp.remotesensing.org/pub/libtiff/tiff-4.0.6.tar.gz"
   sha256 "4d57a50907b510e3049a4bba0d7888930fdfc16ce49f1bf693e5b6247370d68c"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,9 +19,21 @@ class Libtiff < Formula
 
   depends_on "jpeg"
 
+  # Backports of various security/potential security fixes from Debian.
+  # Already applied upstream in CVS but no new release yet.
+  patch do
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.6-1.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.6-1.debian.tar.xz"
+    sha256 "f663c483883b623a136c015d355626a7aedf790f2786d6c6a63e68b015e7c09d"
+    apply "patches/01-CVE-2015-8665_and_CVE-2015-8683.patch",
+          "patches/02-fix_potential_out-of-bound_writes_in_decode_functions.patch",
+          "patches/03-fix_potential_out-of-bound_write_in_NeXTDecode.patch"
+  end
+
   def install
     ENV.universal_binary if build.universal?
     ENV.cxx11 if build.cxx11?
+
     jpeg = Formula["jpeg"].opt_prefix
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
@@ -45,6 +58,6 @@ class Libtiff < Formula
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-ltiff", "-o", "test"
     system "./test", "test.tif"
-    assert_match /ImageWidth.*10/, shell_output("#{bin}/tiffdump test.tif")
+    assert_match(/ImageWidth.*10/, shell_output("#{bin}/tiffdump test.tif"))
   end
 end
