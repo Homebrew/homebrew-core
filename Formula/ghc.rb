@@ -1,8 +1,8 @@
 class Ghc < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/7.10.3/ghc-7.10.3b-src.tar.bz2"
-  sha256 "b0bb177b8095de6074e5a3538e55fd1fc187dae6eb6ae36b05582c55f7d2db6f"
+  url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-src.tar.xz"
+  sha256 "90fb20cd8712e3c0fbeb2eac8dab6894404c21569746655b9b12ca9684c7d1d2"
 
   bottle do
     cellar :any
@@ -39,37 +39,29 @@ class Ghc < Formula
       url "https://downloads.haskell.org/~ghc/7.6.3/ghc-7.6.3-x86_64-apple-darwin.tar.bz2"
       sha256 "f7a35bea69b6cae798c5f603471a53b43c4cc5feeeeb71733815db6e0a280945"
     else
-      url "https://downloads.haskell.org/~ghc/7.10.3/ghc-7.10.3-x86_64-apple-darwin.tar.xz"
-      sha256 "852781d43d41cd55d02f818fe798bb4d1f7e52f488408167f413f7948cf1e7df"
+      url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-x86_64-apple-darwin.tar.xz"
+      sha256 "06ec33056b927da5e68055147f165f873088f6812fe0c642c4c78c9a449fbc42"
     end
   end
 
   resource "testsuite" do
-    url "https://downloads.haskell.org/~ghc/7.10.3/ghc-7.10.3-testsuite.tar.xz"
-    sha256 "50c151695c8099901334a8478713ee3bb895a90132e2b75d1493961eb8ec643a"
+    url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-testsuite.tar.xz"
+    sha256 "bc57163656ece462ef61072559d491b72c5cdd694f3c39b80ac0f6b9a3dc8151"
   end
 
   def install
-    # As of Xcode 7.3 (and the corresponding CLT) `nm` is a symlink to `llvm-nm`
-    # and the old `nm` is renamed `nm-classic`. Building with the new `nm`, a
-    # segfault occurs with the following error:
-    #   make[1]: * [compiler/stage2/dll-split.stamp] Segmentation fault: 11
-    # Upstream is aware of the issue and is recommending the use of nm-classic
-    # until Apple and LLVM restore POSIX compliance:
-    # https://ghc.haskell.org/trac/ghc/ticket/11744
-    # https://ghc.haskell.org/trac/ghc/ticket/11823
-    # https://mail.haskell.org/pipermail/ghc-devs/2016-April/011862.html
-    if MacOS.clang_build_version >= 703
-      nm_classic = buildpath/"brewtools/nm"
-
-      nm_classic.write <<-EOS.undent
-        #!/bin/bash
-        exec xcrun nm-classic "$@"
-      EOS
-
-      chmod 0755, nm_classic
-      ENV.prepend_path "PATH", buildpath/"brewtools"
-    end
+    # Setting -march=native, which is what --build-from-source does, fails
+    # on Skylake (and possibly other architectures as well) with the error
+    # "Segmentation fault: 11" for at least the following files:
+    #   utils/haddock/dist/build/Haddock/Backends/Hyperlinker/Types.dyn_o
+    #   utils/haddock/dist/build/Documentation/Haddock/Types.dyn_o
+    #   utils/haddock/dist/build/Haddock/GhcUtils.dyn_o
+    #   utils/haddock/dist/build/Paths_haddock.dyn_o
+    #   utils/haddock/dist/build/ResponseFile.dyn_o
+    # Setting -march=core2 works around the bug.
+    # Reported 22 May 2016: https://ghc.haskell.org/trac/ghc/ticket/12100
+    # Note that `unless build.bottle?` avoids overriding --bottle-arch=[...].
+    ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}" unless build.bottle?
 
     # Build a static gmp rather than in-tree gmp, otherwise it links to brew's.
     gmp = libexec/"integer-gmp"
@@ -98,6 +90,19 @@ class Ghc < Formula
       args << "--with-gcc-4.2=#{ENV.cc}"
     end
 
+    # As of Xcode 7.3 (and the corresponding CLT) `nm` is a symlink to `llvm-nm`
+    # and the old `nm` is renamed `nm-classic`. Building with the new `nm`, a
+    # segfault occurs with the following error:
+    #   make[1]: * [compiler/stage2/dll-split.stamp] Segmentation fault: 11
+    # Upstream is aware of the issue and is recommending the use of nm-classic
+    # until Apple restores POSIX compliance:
+    # https://ghc.haskell.org/trac/ghc/ticket/11744
+    # https://ghc.haskell.org/trac/ghc/ticket/11823
+    # https://mail.haskell.org/pipermail/ghc-devs/2016-April/011862.html
+    # LLVM itself has already fixed the bug: llvm-mirror/llvm@ae7cf585
+    # rdar://25311883 and rdar://25299678
+    args << "--with-nm=#{`xcrun --find nm-classic`.chomp}" if MacOS.clang_build_version >= 703
+
     resource("binary").stage do
       binary = buildpath/"binary"
 
@@ -110,7 +115,7 @@ class Ghc < Formula
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
 
-    if build.with? "test"
+    if build.bottle? || build.with?("test")
       resource("testsuite").stage { buildpath.install Dir["*"] }
       cd "testsuite" do
         system "make", "clean"
@@ -119,7 +124,7 @@ class Ghc < Formula
     end
 
     ENV.deparallelize { system "make", "install" }
-    Dir.glob(lib/"*/package.conf.d/package.cache") {|f| rm f }
+    Dir.glob(lib/"*/package.conf.d/package.cache") { |f| rm f }
   end
 
   def post_install
