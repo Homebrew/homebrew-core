@@ -1,8 +1,8 @@
 class Librsvg < Formula
   desc "Library to render SVG files using Cairo"
   homepage "https://live.gnome.org/LibRsvg"
-  url "https://download.gnome.org/sources/librsvg/2.40/librsvg-2.40.13.tar.xz"
-  sha256 "4d6ea93ec05f5dabe7262d711d246a0a99b2311e215360dd3dcabd6afe3b9804"
+  url "https://download.gnome.org/sources/librsvg/2.40/librsvg-2.40.15.tar.xz"
+  sha256 "d9cac4a123eec6e553a26e120979bab7425def9ae7ce7c079eba5e4a45db05f4"
 
   bottle do
     sha256 "d17e2b85ffb9fd05850a8c9a5e74ef4fa478a514bb2f49758b735f22fbb14e34" => :el_capitan
@@ -14,26 +14,29 @@ class Librsvg < Formula
   depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "glib"
-  depends_on "gtk+3" => :optional
   depends_on "libcroco"
-  depends_on "libgsf" => :optional
   depends_on "pango"
+  depends_on "libgsf" => :optional
+  depends_on "gtk+3" => :optional
 
   def install
-    args = ["--disable-dependency-tracking",
-            "--prefix=#{prefix}",
-            "--disable-Bsymbolic",
-            "--enable-tools=yes",
-            "--enable-pixbuf-loader=yes",
-            "--enable-introspection=yes"]
-
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --disable-Bsymbolic
+      --enable-tools=yes
+      --enable-pixbuf-loader=yes
+      --enable-introspection=yes
+    ]
     args << "--enable-svgz" if build.with? "libgsf"
 
     system "./configure", *args
 
     # disable updating gdk-pixbuf cache, we will do this manually in post_install
     # https://github.com/Homebrew/homebrew/issues/40833
-    inreplace "gdk-pixbuf-loader/Makefile", "$(GDK_PIXBUF_QUERYLOADERS) > $(DESTDIR)$(gdk_pixbuf_cache_file) ;", ""
+    inreplace "gdk-pixbuf-loader/Makefile",
+              "$(GDK_PIXBUF_QUERYLOADERS) > $(DESTDIR)$(gdk_pixbuf_cache_file) ;",
+              ""
 
     system "make", "install",
       "gdk_pixbuf_binarydir=#{lib}/gdk-pixbuf-2.0/2.10.0/loaders",
