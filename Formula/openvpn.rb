@@ -1,9 +1,9 @@
 class Openvpn < Formula
   desc "SSL VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/index.php/download/community-downloads.html"
-  url "https://swupdate.openvpn.org/community/releases/openvpn-2.3.10.tar.gz"
-  mirror "http://build.openvpn.net/downloads/releases/openvpn-2.3.10.tar.gz"
-  sha256 "f8b0b5b92e35bbca1db1a7e6b49e04639e45634e9accd460459b40b2c99ec8f6"
+  url "https://swupdate.openvpn.org/community/releases/openvpn-2.3.11.tar.xz"
+  mirror "http://build.openvpn.net/downloads/releases/openvpn-2.3.11.tar.xz"
+  sha256 "0f5f1ca1dc5743fa166d93dd4ec952f014b5f33bafd88f0ea34b455cae1434a7"
 
   bottle do
     cellar :any
@@ -44,18 +44,21 @@ class Openvpn < Formula
     args << "--enable-pkcs11" if build.with? "pkcs11-helper"
 
     system "./configure", *args
-
     system "make", "install"
 
     inreplace "sample/sample-config-files/openvpn-startup.sh",
-      "/etc/openvpn", "#{etc}/openvpn"
+              "/etc/openvpn", "#{etc}/openvpn"
 
-    (doc/"sample").install Dir["sample/sample-*"]
+    (doc/"samples").install Dir["sample/sample-*"]
+    (etc/"openvpn").install doc/"samples/sample-config-files/client.conf"
+    (etc/"openvpn").install doc/"samples/sample-config-files/server.conf"
 
-    (etc+"openvpn").mkpath
-    (var+"run/openvpn").mkpath
-    # We don't use PolarSSL, so this file is unnecessary and somewhat confusing.
-    rm "#{share}/doc/openvpn/README.polarssl"
+    # We don't use PolarSSL, so this file is unnecessary & somewhat confusing.
+    rm doc/"README.polarssl"
+  end
+
+  def post_install
+    (var/"run/openvpn").mkpath
   end
 
   def caveats
@@ -69,11 +72,6 @@ class Openvpn < Formula
 
       EOS
     end
-
-    s += <<-EOS.undent
-      For OpenVPN to work as a server, you will need to create configuration file
-      in #{etc}/openvpn, samples can be found in #{share}/doc/openvpn
-    EOS
 
     s
   end
