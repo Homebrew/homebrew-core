@@ -1,6 +1,4 @@
 require "language/go"
-require "socket"
-require "timeout"
 
 class ApacheBrooklynCli < Formula
   desc "Apache Brooklyn command-line interface"
@@ -37,6 +35,9 @@ class ApacheBrooklynCli < Formula
   end
 
   test do
+    require "socket"
+    require "timeout"
+
     server = TCPServer.new("localhost", 0)
     pid_mock_brooklyn = fork do
       Timeout.timeout(10) do
