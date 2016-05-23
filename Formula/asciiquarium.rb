@@ -33,12 +33,13 @@ class Asciiquarium < Formula
   end
 
   test do
+    ENV["TERM"] = "xterm"
     require "pty"
     PTY.spawn("asciiquarium") do |stdin, _stdout, pid|
       sleep 0.1
       Process.kill "TERM", pid
       output = stdin.read
-      assert_match "\e[?10", output
+      assert_match "\e[?10", output[0..4]
     end
   end
 end
