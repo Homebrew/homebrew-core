@@ -36,28 +36,27 @@ class ApacheBrooklynCli < Formula
 
   test do
     require "socket"
-    require "timeout"
 
     server = TCPServer.new("localhost", 0)
     pid_mock_brooklyn = fork do
-      Timeout.timeout(10) do
-        loop do
-          socket = server.accept
-          response = '{"version":"1.2.3","buildSha1":"dummysha","buildBranch":"1.2.3"}'
-          socket.print "HTTP/1.1 200 OK\r\n" \
+      loop do
+        socket = server.accept
+        response = '{"version":"1.2.3","buildSha1":"dummysha","buildBranch":"1.2.3"}'
+        socket.print "HTTP/1.1 200 OK\r\n" \
                       "Content-Type: application/json\r\n" \
                       "Content-Length: #{response.bytesize}\r\n" \
                       "Connection: close\r\n"
-          socket.print "\r\n"
-          socket.print response
-          socket.close
-        end
+        socket.print "\r\n"
+        socket.print response
+        socket.close
       end
     end
 
-    mock_brooklyn_url = "http://localhost:#{server.addr[1]}"
-    assert_equal "Connected to Brooklyn version 1.2.3 at #{mock_brooklyn_url}", shell_output("br login #{mock_brooklyn_url}").strip
-
-    Process.kill("KILL", pid_mock_brooklyn)
+    begin
+      mock_brooklyn_url = "http://localhost:#{server.addr[1]}"
+      assert_equal "Connected to Brooklyn version 1.2.3 at #{mock_brooklyn_url}\n", shell_output("#{bin}/br login #{mock_brooklyn_url}")
+    ensure
+      Process.kill("KILL", pid_mock_brooklyn)
+    end
   end
 end
