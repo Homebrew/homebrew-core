@@ -38,7 +38,7 @@ class Asciiquarium < Formula
       sleep 0.1
       Process.kill "TERM", pid
       output = stdin.read
-      assert_match "\e[?10", output[0..4]
+      assert_match "\e[?10", output
     end
   end
 end
