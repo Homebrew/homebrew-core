@@ -14,6 +14,7 @@ class Keybase < Formula
   end
 
   depends_on "go" => :build
+  depends_on "gnupg"
 
   def install
     ENV["GOPATH"] = buildpath
