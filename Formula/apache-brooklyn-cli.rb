@@ -3,9 +3,8 @@ require "language/go"
 class ApacheBrooklynCli < Formula
   desc "Apache Brooklyn command-line interface"
   homepage "https://brooklyn.apache.org"
-  url "https://github.com/apache/brooklyn-client.git",
-      :tag => "rel/apache-brooklyn-0.9.0",
-      :revision => "bc8593a933fcb76327ae4a511643e39d25a87ba2"
+  url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-0.9.0.tar.gz"
+  sha256 "873804a145aed33de86e3928df05bad31a921f73984fed06ecdeb11e799d9c01"
 
   depends_on "go" => :build
 
@@ -43,9 +42,9 @@ class ApacheBrooklynCli < Formula
         socket = server.accept
         response = '{"version":"1.2.3","buildSha1":"dummysha","buildBranch":"1.2.3"}'
         socket.print "HTTP/1.1 200 OK\r\n" \
-                      "Content-Type: application/json\r\n" \
-                      "Content-Length: #{response.bytesize}\r\n" \
-                      "Connection: close\r\n"
+                     "Content-Type: application/json\r\n" \
+                     "Content-Length: #{response.bytesize}\r\n" \
+                     "Connection: close\r\n"
         socket.print "\r\n"
         socket.print response
         socket.close
