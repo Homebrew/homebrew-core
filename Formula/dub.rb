@@ -17,6 +17,8 @@ class Dub < Formula
   def install
     # Create a dummy commit and tag it because build.sh uses "git describe" to compile
     # in the application version
+    # This is an ugly workaround until a new version of dub comes with a customizable build.sh.
+    # see: https://github.com/dlang/dub/pull/850
     system "git", "init"
     system "git", "add", "dub.json"
     system "git", "commit", "-a", "-m", "'dummy commit'"
