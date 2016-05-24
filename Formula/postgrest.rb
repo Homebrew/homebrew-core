@@ -4,7 +4,7 @@ require "net/http"
 class Postgrest < Formula
   include Language::Haskell::Cabal
 
-  desc "Serves a fully RESTful API from any existing PostgreSQL database."
+  desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/begriffs/postgrest"
   url "https://github.com/begriffs/postgrest/archive/v0.3.1.1.tar.gz"
   sha256 "1830900175879d4be40b93410a7617cb637aae7e9e70792bf70e2bf72b0b2150"
