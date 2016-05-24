@@ -23,7 +23,7 @@ class PandocCrossref < Formula
   end
 
   test do
-    md = testpath/"test.md"
+    md = testpath/"hello.md"
     md.write <<-EOS.undent
       Demo for pandoc-crossref.
       See equation @eq:eqn1 for cross-referencing.
