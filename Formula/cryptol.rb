@@ -27,11 +27,11 @@ class Cryptol < Formula
   end
 
   test do
-    (testpath/"hello.icry").write <<-EOS.undent
+    (testpath/"helloworld.icry").write <<-EOS.undent
       :prove \\(x : [8]) -> x == x
       :prove \\(x : [32]) -> x + zero == x
     EOS
-    result = shell_output "#{bin}/cryptol -b #{(testpath/"hello.icry")}"
+    result = shell_output "#{bin}/cryptol -b #{(testpath/"helloworld.icry")}"
     expected = <<-EOS.undent
       Loading module Cryptol
       Q.E.D.
