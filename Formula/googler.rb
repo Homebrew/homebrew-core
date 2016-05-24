@@ -11,6 +11,8 @@ class Googler < Formula
     sha256 "71bfac5cfdac269170b4c073059629b090181c969542829f8ca683b0bac19b52" => :mavericks
   end
 
+  head "https://github.com/jarun/googler.git"
+
   depends_on :python3
 
   def install
