@@ -10,7 +10,7 @@ class Hive < Formula
   depends_on :java
 
   def install
-    rm_f Dir["bin/*.cmd, bin/ext/*.cmd", "bin/ext/util/*.cmd"]
+    rm_f Dir["bin/*.cmd", "bin/ext/*.cmd", "bin/ext/util/*.cmd"]
     libexec.install %w[bin conf examples hcatalog lib scripts]
     bin.write_exec_script Dir["#{libexec}/bin/*"]
   end
@@ -29,7 +29,7 @@ class Hive < Formula
   end
 
   test do
-    system "#{bin}/schematool -initSchema -dbType derby"
-    assert_match /Hive 2.0.0/, shell_output("#{bin}/hive --version")
+    system "#{bin}/schematool", "-initSchema", "-dbType", "derby"
+    assert_match "Hive #{version}", shell_output("#{bin}/hive --version")
   end
 end
