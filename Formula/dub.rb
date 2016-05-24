@@ -1,7 +1,7 @@
 class Dub < Formula
   desc "Build tool for D projects"
   homepage "https://code.dlang.org/about"
-  url "https://github.com/dlang/dub.git", :tag => "v0.9.25"
+  url "https://github.com/dlang/dub.git", :tag => "v0.9.25", :revision => "777e0033e9ca502c134a6cca6b5a06d0e3f78617"
   head "https://github.com/dlang/dub.git", :shallow => false
 
   bottle do
