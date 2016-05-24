@@ -1,25 +1,8 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
-
-  stable do
-    url "https://github.com/tmux/tmux/releases/download/2.1/tmux-2.1.tar.gz"
-    sha256 "31564e7bf4bcef2defb3cb34b9e596bd43a3937cad9e5438701a81a5a9af6176"
-
-    patch do
-      # This fixes the Tmux 2.1 update that broke the ability to use select-pane [-LDUR]
-      # to switch panes when in a maximized pane https://github.com/tmux/tmux/issues/150#issuecomment-149466158
-      url "https://github.com/tmux/tmux/commit/a05c27a7e1c4d43709817d6746a510f16c960b4b.diff"
-      sha256 "2a60a63f0477f2e3056d9f76207d4ed905de8a9ce0645de6c29cf3f445bace12"
-    end
-
-    patch do
-      # This fixes the Tmux 2.1 update that breaks "tmux killw\; detach"
-      # https://github.com/tmux/tmux/issues/153#issuecomment-150184957
-      url "https://github.com/tmux/tmux/commit/3ebcf25149d75977ea97e9d4f786e0508d1a0d5e.diff"
-      sha256 "65a8bc0b2f6a8b41ad27605fd99419fff36314499969adc9d17dd3940a173508"
-    end
-  end
+  url "https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz"
+  sha256 "bc28541b64f99929fe8e3ae7a02291263f3c97730781201824c0f05d7c8e19e4"
 
   bottle do
     cellar :any
@@ -40,6 +23,11 @@ class Tmux < Formula
   depends_on "pkg-config" => :build
   depends_on "libevent"
 
+  resource "completion" do
+    url "https://raw.githubusercontent.com/przepompownia/tmux-bash-completion/v0.0.1/completions/tmux"
+    sha256 "a0905c595fec7f0258fba5466315d42d67eca3bd2d3b12f4af8936d7f168b6c6"
+  end
+
   def install
     system "sh", "autogen.sh" if build.head?
 
@@ -50,12 +38,9 @@ class Tmux < Formula
 
     system "make", "install"
 
-    if build.head?
-      pkgshare.install "example_tmux.conf"
-    else
-      bash_completion.install "examples/bash_completion_tmux.sh" => "tmux"
-      pkgshare.install "examples"
-    end
+    pkgshare.install "example_tmux.conf" if build.head?
+
+    bash_completion.install resource("completion")
   end
 
   def caveats; <<-EOS.undent
