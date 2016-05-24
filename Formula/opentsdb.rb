@@ -76,8 +76,8 @@ class Opentsdb < Formula
 
   def post_install
     (var/"cache/opentsdb").mkpath
+    system "#{Formula["hbase"].opt_bin}/start-hbase.sh"
     begin
-      system "#{Formula["hbase"].opt_bin}/start-hbase.sh"
       sleep 2
       system "#{pkgshare}/tools/create_table_with_env.sh"
     ensure
@@ -124,28 +124,30 @@ class Opentsdb < Formula
     ENV["HBASE_LOG_DIR"]  = testpath/"logs"
     ENV["HBASE_CONF_DIR"] = testpath/"conf"
     ENV["HBASE_PID_DIR"]  = testpath/"pid"
+
+    system "#{Formula["hbase"].opt_bin}/start-hbase.sh"
     begin
-      system "#{Formula["hbase"].opt_bin}/start-hbase.sh"
       sleep 2
 
       system "#{pkgshare}/tools/create_table_with_env.sh"
 
       tsdb_err = "#{testpath}/tsdb.err"
       tsdb_out = "#{testpath}/tsdb.out"
-      pid = fork do
+      tsdb_daemon_pid = fork do
         $stderr.reopen(tsdb_err, "w")
         $stdout.reopen(tsdb_out, "w")
         exec("#{bin}/start-tsdb.sh")
       end
-
       sleep 15
 
-      pipe_output("nc localhost 4242 2>&1", "put homebrew.install.test 1356998400 42.5 host=webserver01 cpu=0\n")
+      begin
+        pipe_output("nc localhost 4242 2>&1", "put homebrew.install.test 1356998400 42.5 host=webserver01 cpu=0\n")
 
-      system "#{bin}/tsdb", "query", "1356998000", "1356999000", "sum", "homebrew.install.test", "host=webserver01", "cpu=0"
+        system "#{bin}/tsdb", "query", "1356998000", "1356999000", "sum", "homebrew.install.test", "host=webserver01", "cpu=0"
+      ensure
+        Process.kill(9, tsdb_daemon_pid)
+      end
     ensure
-      Process.kill(9, pid) if defined? pid && pid > 1
-
       system "#{Formula["hbase"].opt_bin}/stop-hbase.sh"
     end
   end
