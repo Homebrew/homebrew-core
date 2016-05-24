@@ -5,8 +5,8 @@ class Darcs < Formula
 
   desc "Distributed version control system that tracks changes, via Haskell"
   homepage "http://darcs.net/"
-  url "http://darcs.net/releases/darcs-2.10.3.tar.gz"
-  sha256 "ca00c40d08276f94868c7c1bbc6dbd9b6b41a15c1907c34947aaa51d4dbbf642"
+  url "https://hackage.haskell.org/package/darcs-2.12.0/darcs-2.12.0.tar.gz"
+  sha256 "17318d1b49ca4b1aa00a4bffc2ab30a448e7440ce1945eed9bf382d77582308d"
 
   bottle do
     sha256 "a65c9d857fd868ff6768c3076511b6bfe5d11f893b58a3d943ae7b0319db73d3" => :el_capitan
@@ -24,13 +24,13 @@ class Darcs < Formula
 
   test do
     mkdir "my_repo" do
-      system "darcs", "init"
+      system bin/"darcs", "init"
       (Pathname.pwd/"foo").write "hello homebrew!"
-      system "darcs", "add", "foo"
-      system "darcs", "record", "-am", "add foo", "--author=homebrew"
+      system bin/"darcs", "add", "foo"
+      system bin/"darcs", "record", "-am", "add foo", "--author=homebrew"
     end
-    system "darcs", "get", "my_repo", "my_repo_clone"
-    Dir.chdir "my_repo_clone" do
+    system bin/"darcs", "get", "my_repo", "my_repo_clone"
+    cd "my_repo_clone" do
       assert_match "hello homebrew!", (Pathname.pwd/"foo").read
     end
   end
