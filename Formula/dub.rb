@@ -11,14 +11,6 @@ class Dub < Formula
     sha256 "33db147c048a39cad51569940ff489e015a08f3d17d0c299efcce89c064a8513" => :mavericks
   end
 
-  # No devel tag currently available in the repository.
-  #
-  # devel do
-  #   url "https://github.com/rejectedsoftware/dub/archive/v0.9.25-rc.1.tar.gz"
-  #   sha256 "577e127e5e361d1ed7fe6ef40100e91e361dd7063f304afeab7ae5a6274005de"
-  #   version "0.9.25-rc.1"
-  # end
-
   depends_on "pkg-config" => :build
   depends_on "dmd" => :build
 
