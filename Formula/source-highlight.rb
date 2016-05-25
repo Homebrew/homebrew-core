@@ -5,7 +5,7 @@ class SourceHighlight < Formula
   mirror "https://ftp.gnu.org/gnu/src-highlite/source-highlight-3.1.8.tar.gz"
   mirror "http://mirror.anl.gov/pub/gnu/src-highlite/source-highlight-3.1.8.tar.gz"
   sha256 "01336a7ea1d1ccc374201f7b81ffa94d0aecb33afc7d6903ebf9fbf33a55ada3"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "d9d498b1fc3eb7075ecb76c87c8ce9d6241f00c5e82b0b03f2a4b46c25fa625f" => :el_capitan
