@@ -44,6 +44,11 @@ class Elm < Formula
     # elm-compiler needs to be staged in a subdirectory for the build process to succeed
     (buildpath/"elm-compiler").install Dir["*"]
 
+    # GHC 8 compat
+    # Fixes "cabal: Could not resolve dependencies"
+    # Reported 25 May 2016: https://github.com/elm-lang/elm-compiler/issues/1397
+    (buildpath/"cabal.config").write("allow-newer: aeson,base,HTTP,time,transformers\n")
+
     extras_no_reactor = ["elm-package", "elm-make", "elm-repl"]
     extras = extras_no_reactor + ["elm-reactor"]
     extras.each do |extra|
