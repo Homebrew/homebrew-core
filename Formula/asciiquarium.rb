@@ -33,8 +33,18 @@ class Asciiquarium < Formula
   end
 
   test do
-    ENV["TERM"] = "xterm"
+    # This is difficult to test because:
+    # - There are no command line switches that make the process exit
+    # - The output is a constant stream of terminal control codes
+    # - Testing only if the binary exists can still result in failure
+
+    # The test process is as follows:
+    # - Spawn the process capturing stdout and the pid
+    # - Kill the process after there is some output
+    # - Ensure the start of the output matches what is expected
+
     require "pty"
+    ENV["TERM"] = "xterm"
     PTY.spawn("#{bin}/asciiquarium") do |stdin, _stdout, pid|
       sleep 0.1
       Process.kill "TERM", pid
