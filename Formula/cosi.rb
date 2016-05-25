@@ -1,7 +1,7 @@
 require "language/go"
 
 class Cosi < Formula
-  desc "CoSi protocol for scalable collective signing"
+  desc "Implementation of scalable collective signing"
   homepage "https://github.com/dedis/cosi"
   url "https://github.com/dedis/cosi/archive/0.8.3.tar.gz"
   version "0.8.3"
@@ -61,20 +61,16 @@ class Cosi < Formula
     ENV["GOPATH"] = "#{buildpath}/Godeps/_workspace:#{buildpath}"
 
     Language::Go.stage_deps resources, buildpath/"src"
-    #ENV["GOPATH"] = buildpath
-    #opoo Dir[bin/"*"]
-    #opoo bin/""
-    #system "go", "get", "./..."
 
     system "go", "build", "-o", "cosi"
-    bin.install "dedis_group.toml"
+    prefix.install "dedis_group.toml"
     bin.install "cosi"
   end
 
   test do
     (testpath/"test.txt").write("This is my test file")
-    group = bin/"dedis_group.toml"
-    file = bin/"../README.md"
+    group = prefix/"dedis_group.toml"
+    file = prefix/"README.md"
     sig = shell_output(bin/"cosi sign -g #{group} #{file}")
     sigfile = "sig.json"
     (testpath/sigfile).write(sig)
