@@ -3,6 +3,7 @@ class VowpalWabbit < Formula
   homepage "https://github.com/JohnLangford/vowpal_wabbit"
   url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.1.1.tar.gz"
   sha256 "174609bb09eaeac150c08639a82713a2290442a42bc0b23d53943e9a0f22911b"
+  revision 1
   head "https://github.com/JohnLangford/vowpal_wabbit.git"
 
   bottle do
@@ -30,6 +31,10 @@ class VowpalWabbit < Formula
                            "--with-boost=#{Formula["boost"].opt_prefix}"
     system "make"
     system "make", "install"
+    bin.install Dir["utl/*"]
+    rm bin/"active_interactor.py"
+    rm bin/"new_version"
+    rm bin/"vw-validate.html"
   end
 
   test do
