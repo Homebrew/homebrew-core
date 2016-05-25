@@ -1,9 +1,9 @@
 class Gammu < Formula
   desc "Command-line utility to control a phone"
   homepage "https://wammu.eu/gammu/"
-  url "https://dl.cihar.com/gammu/releases/gammu-1.37.0.tar.xz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/g/gammu/gammu_1.37.0.orig.tar.xz"
-  sha256 "f0a597be5c5138691606b78a82a17c76769c6ed445b4b541fcc06520f3bea61f"
+  url "https://dl.cihar.com/gammu/releases/gammu-1.37.3.tar.xz"
+  mirror "https://mirrors.kernel.org/debian/pool/main/g/gammu/gammu_1.37.3.orig.tar.xz"
+  sha256 "63fcb78e94e1c8cff199cada3f64c694f49c1e9fe2c3f17495dc01a5e8e03a84"
   head "https://github.com/gammu/gammu.git"
 
   bottle do
