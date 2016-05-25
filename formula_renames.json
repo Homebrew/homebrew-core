@@ -20,5 +20,6 @@
   "objective-caml": "ocaml",
   "offline-imap": "offlineimap",
   "plt-racket": "racket",
-  "polarssl": "mbedtls"
+  "polarssl": "mbedtls",
+  "screenbrightness": "brightness"
 }

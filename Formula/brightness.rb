@@ -1,4 +1,4 @@
-class Screenbrightness < Formula
+class Brightness < Formula
   desc "Change OS X display brightness from the command-line"
   homepage "https://github.com/nriley/brightness"
   url "https://github.com/nriley/brightness/archive/1.2.tar.gz"
