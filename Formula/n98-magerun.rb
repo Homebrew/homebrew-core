@@ -1,5 +1,5 @@
 class N98Magerun < Formula
-  desc "The swiss army knife for Magento developers, sysadmins and devops."
+  desc "Swiss army knife for Magento developers, sysadmins and devops."
   homepage "http://magerun.net/"
   url "https://files.magerun.net/n98-magerun.phar"
   version "1.97.22"
