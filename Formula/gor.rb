@@ -3,7 +3,6 @@ require "language/go"
 class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://gortool.com"
-  
   url "https://github.com/buger/gor/archive/v0.13.0.tar.gz"
   sha256 "e4af70afacc162200b63d66927824f64f54e3cf662c50ce37e54912565a31f23"
   head "https://github.com/buger/gor.git"
