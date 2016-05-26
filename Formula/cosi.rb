@@ -3,8 +3,8 @@ require "language/go"
 class Cosi < Formula
   desc "Implementation of scalable collective signing"
   homepage "https://github.com/dedis/cosi"
-  url "https://github.com/dedis/cosi/archive/0.8.4.tar.gz"
-  sha256 "a96aa45973a021dec881bfdca805ff409664448bfc29ed4a135ed35af5d8b906"
+  url "https://github.com/dedis/cosi/archive/0.8.5.tar.gz"
+  sha256 "7dd25c83a838ebadff3c8f6b8a5bd84702cf74e5e6eb545359b7816f89b85e73"
 
   depends_on "go" => :build
 
