@@ -45,7 +45,7 @@ class Asciiquarium < Formula
 
     require "pty"
     ENV["TERM"] = "xterm"
-    PTY.spawn("#{bin}/asciiquarium") do |stdin, _stdout, pid|
+    PTY.spawn(bin/"asciiquarium") do |stdin, _stdout, pid|
       sleep 0.1
       Process.kill "TERM", pid
       output = stdin.read
