@@ -8,6 +8,7 @@ class Postgrest < Formula
   homepage "https://github.com/begriffs/postgrest"
   url "https://github.com/begriffs/postgrest/archive/v0.3.1.1.tar.gz"
   sha256 "1830900175879d4be40b93410a7617cb637aae7e9e70792bf70e2bf72b0b2150"
+  revision 1
 
   bottle do
     revision 1
@@ -21,7 +22,31 @@ class Postgrest < Formula
   depends_on "postgresql"
 
   def install
-    install_cabal_package :using => ["happy"]
+    # GHC 8 compat
+    # Reported 26 May 2016: https://github.com/begriffs/postgrest/issues/612
+    cabalcfg = "allow-newer: base,transformers"
+    cabalcfg << "\nconstraints:"
+    cabal_sandbox do
+      %w[
+        bytestring-tree-builder 0.2.6
+        postgresql-binary 0.9
+        hasql-transaction 0.4.4.1
+      ].each_slice(2) do |pkg, ver|
+        cabalcfg << "\n#{pkg} ==#{ver}"
+        system "cabal", "get", pkg
+        cabal_sandbox_add_source "#{pkg}-#{ver}"
+        inreplace "#{pkg}-#{ver}/#{pkg}.cabal" do |s|
+          if pkg == "hasql-transaction"
+            s.gsub! "build-depends:", "build-depends: base,"
+          else
+            s.gsub! "ghc-options:", "ghc-options: -XNoImpredicativeTypes"
+          end
+        end
+      end
+      (buildpath/"cabal.config").write(cabalcfg)
+
+      install_cabal_package :using => ["happy"]
+    end
   end
 
   test do
