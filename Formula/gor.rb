@@ -6,6 +6,7 @@ class Gor < Formula
   url "https://github.com/buger/gor.git",
       :tag => "v0.13.0",
       :revision => "98fe7f19b21eaaffcd0d733a57668f63de5921d7"
+  head "https://github.com/buger/gor.git"
 
   bottle do
     cellar :any_skip_relocation
