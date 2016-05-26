@@ -19,6 +19,11 @@ class PandocCiteproc < Formula
   depends_on "pandoc"
 
   def install
+    # GHC 8 compat
+    # Fixes "cabal: Could not resolve dependencies"
+    # Reported 26 May 2016: https://github.com/jgm/pandoc-citeproc/issues/235
+    (buildpath/"cabal.config").write("allow-newer: base,data-default,time\n")
+
     args = []
     args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
     install_cabal_package *args
