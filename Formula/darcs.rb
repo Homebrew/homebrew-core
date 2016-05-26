@@ -20,6 +20,14 @@ class Darcs < Formula
   depends_on "gmp"
 
   def install
+    # GHC 8 compat
+    # Fixes the build error:
+    #   checking whether to use -liconv...
+    #   dist/dist-sandbox-296ea86f/setup/setup.hs:149:15-41: Irrefutable pattern
+    #   failed for pattern Just lib
+    # Reported 26 May 2016: http://bugs.darcs.net/issue2498
+    (buildpath/"cabal.config").write("allow-newer: base\n")
+
     install_cabal_package
   end
 
