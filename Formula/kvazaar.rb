@@ -1,8 +1,9 @@
 class Kvazaar < Formula
-  desc "HEVC encoder"
+  desc "Ultravideo HEVC encoder"
   homepage "https://github.com/ultravideo/kvazaar"
-  url "https://github.com/ultravideo/kvazaar/archive/v0.5.0.tar.gz"
-  sha256 "2facdbffcf739171127487cd7d1e48c925560f39755a16542c4a40e65e293070"
+  url "https://github.com/ultravideo/kvazaar/archive/v0.8.2.tar.gz"
+  sha256 "1b9354a639ab6c902e974780b39112b5e75477205611f88b54562c895182b945"
+  head "https://github.com/ultravideo/kvazaar.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,14 +13,27 @@ class Kvazaar < Formula
     sha256 "5fc3c49c10479539474539e1bee928f89a3586f1f44e2f346c3b6484ff6395d2" => :mountain_lion
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "yasm" => :build
 
+  resource "videosample" do
+    url "https://samples.mplayerhq.hu/V-codecs/lm20.avi"
+    sha256 "a0ab512c66d276fd3932aacdd6073f9734c7e246c8747c48bf5d9dd34ac8b392"
+  end
+
   def install
-    system "make", "-C", "src"
-    bin.install "src/kvazaar"
+    system "./autogen.sh"
+    system "./configure", "--prefix=#{prefix}"
+    system "make", "install"
   end
 
   test do
-    assert_match "HEVC Encoder", shell_output("#{bin}/kvazaar 2>&1", 1)
+    # download small sample and try to encode it
+    resource("videosample").stage do
+      system bin/"kvazaar", "-i", "lm20.avi", "--input-res", "16x16", "-o", "lm20.hevc"
+      assert File.exist? "lm20.hevc"
+    end
   end
 end
