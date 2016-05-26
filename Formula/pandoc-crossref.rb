@@ -7,6 +7,7 @@ class PandocCrossref < Formula
   homepage "https://github.com/lierdakil/pandoc-crossref"
   url "https://hackage.haskell.org/package/pandoc-crossref-0.2.1.3/pandoc-crossref-0.2.1.3.tar.gz"
   sha256 "d14b78972c48a722b7e53d12fb601e4379d5384f9a58c8ce46ab42b058125471"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -20,9 +21,39 @@ class PandocCrossref < Formula
   depends_on "pandoc" => :run
 
   def install
-    args = []
-    args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
-    install_cabal_package *args
+    cabal_sandbox do
+      # GHC 8 compat
+      # Reported upstream 26 May 2016: https://github.com/lierdakil/pandoc-crossref/issues/69
+      # For specifics regarding the API changes, see
+      # https://ghc.haskell.org/trac/ghc/wiki/Migration/8.0#template-haskell-2.11.0.0
+      # http://git.haskell.org/ghc.git/commitdiff/575abf42e218925e456bf765abb14f069ac048a0
+      inreplace "lib/Text/Pandoc/CrossRef/Util/Settings/Template.hs" do |s|
+        s.gsub! "DataD _ _ params cons' _", "DataD _ _ params _ cons' _"
+        s.gsub! "NewtypeD _ _ params con' _", "NewtypeD _ _ params _ con' _"
+        s.gsub! "VarI _ t' _ _ <- reify accName", "VarI _ t' _ <- reify accName"
+      end
+      (buildpath/"cabal.config").write <<-EOS.undent
+        allow-newer: base,time
+        constraints: data-accessor-template ==0.2.1.12
+      EOS
+      system "cabal", "get", "data-accessor-template"
+      cd "data-accessor-template-0.2.1.12" do
+        inreplace "data-accessor-template.cabal",
+          "Build-Depends:  template-haskell >=2.4 && <2.11",
+          "Build-Depends:  template-haskell >=2.4 && <2.12"
+        inreplace "src-5/Data/Accessor/Template.hs" do |s|
+          s.gsub! "DataD _ _ params cons' _ -> return (params, cons')",
+            "DataD _ _ params _ cons' _ -> return (params, cons')"
+          s.gsub! "NewtypeD _ _ params con' _ -> return (params, [con'])",
+            "NewtypeD _ _ params _ con' _ -> return (params, [con'])"
+        end
+      end
+      cabal_sandbox_add_source "data-accessor-template-0.2.1.12"
+
+      args = []
+      args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
+      install_cabal_package *args
+    end
   end
 
   test do
