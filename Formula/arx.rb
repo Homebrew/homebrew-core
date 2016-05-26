@@ -7,6 +7,7 @@ class Arx < Formula
   homepage "https://github.com/solidsnack/arx"
   url "https://github.com/solidsnack/arx/archive/0.2.2.tar.gz"
   sha256 "47e7a61a009d43c40ac0ce9c71917b0f967ef880c99d4602c7314b51c270fd0f"
+  revision 1
 
   bottle do
     sha256 "3c68700a3ddfaed0ce393599f7709066641a33fba11b718c2b50e12496bc2131" => :el_capitan
