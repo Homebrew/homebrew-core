@@ -87,4 +87,8 @@ class Jmeter < Formula
       end
     end
   end
+
+  test do
+    system "#{bin}/jmeter", "--version"
+  end
 end
