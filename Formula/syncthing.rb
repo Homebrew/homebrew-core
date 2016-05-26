@@ -2,7 +2,7 @@ class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
   url "https://github.com/syncthing/syncthing.git",
-    :tag => "v0.13.2", :revision => "e7280f1eb5b96e8fd5240336853a98af5f29d338"
+    :tag => "v0.13.4", :revision => "9bb5988b4ed726a7eb7662dce01580b0e82dab02"
 
   head "https://github.com/syncthing/syncthing.git"
 
@@ -14,7 +14,6 @@ class Syncthing < Formula
   end
 
   depends_on "go" => :build
-  depends_on :hg => :build
 
   def install
     ENV["GOPATH"] = buildpath/".syncthing-gopath"
