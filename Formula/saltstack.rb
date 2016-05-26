@@ -5,8 +5,8 @@ class Saltstack < Formula
   # (URLs starting with https://github.com/saltstack/salt/releases/download)
   # github tag archives will report wrong version number
   # https://github.com/Homebrew/homebrew/issues/43493
-  url "https://github.com/saltstack/salt/releases/download/v2015.8.10/salt-2015.8.10.tar.gz"
-  sha256 "4a81273ab4b01e0f1d29b28ab99a16eb94e5c430107b05491c94f3baf8b95c99"
+  url "https://github.com/saltstack/salt/releases/download/v2016.3.0/salt-2016.3.0.tar.gz"
+  sha256 "e316dd103b7faeaa97820197e4d0d7d358519f0ca2a6dcb1d9b718eea801ed30"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -14,11 +14,6 @@ class Saltstack < Formula
     sha256 "74d5d271c38a7e29c3635bf7d1c31c3d7c52612967e914da81632b4cb65702c6" => :el_capitan
     sha256 "e1d1b92cb44507aaca341ef5f034eb98b5f71a5fbefad902161f685df3e6bef5" => :yosemite
     sha256 "e506ef751b9e9cbe9473a1a4e3c2717e1804271bd91bbaa5c2af7edc0c99bf90" => :mavericks
-  end
-
-  devel do
-    url "https://github.com/saltstack/salt/releases/download/v2016.3.0rc3/salt-2016.3.0rc3.tar.gz"
-    sha256 "994a2468ea5bb854237f4d7f1efcbf651438cc1e8ae16fbd22b8d2f37f68707f"
   end
 
   depends_on "swig" => :build
