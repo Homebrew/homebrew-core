@@ -73,7 +73,6 @@ class Cosi < Formula
     sig = shell_output(bin/"cosi sign -g #{group} #{file}")
     sigfile = "sig.json"
     (testpath/sigfile).write(sig)
-    output = shell_output(bin/"cosi verify -g #{group} -s #{sigfile} #{file}")
-    output.include? "OK"
+    assert_match "OK", shell_output("#{bin}/cosi verify -g #{group} -s #{sigfile} #{file}")
   end
 end
