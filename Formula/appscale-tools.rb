@@ -47,19 +47,19 @@ class AppscaleTools < Formula
   end
 
   resource "argparse" do
-    url "https://pypi.python.org/packages/source/a/argparse/argparse-1.3.0.tar.gz"
-    sha256 "b3a79a23d37b5a02faa550b92cbbbebeb4aa1d77e649c3eb39c19abf5262da04"
+    url "https://pypi.python.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
+    sha256 "62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4"
   end
 
   resource "google-api-python-client" do
-    url "https://pypi.python.org/packages/source/g/google-api-python-client/google-api-python-client-1.5.0.tar.gz"
-    sha256 "ffb89782c74702bd47d217709741717f0e4812d87f6cea04783f991d3eb51abd"
+    url "https://pypi.python.org/packages/b5/b4/e7030ec96ce8eb5b00707d2530906c0c6389eb61af8f5a7ca4ee29d02643/google-api-python-client-1.5.1.tar.gz"
+    sha256 "2fd69ea71497a7de01cee4c85a9a64a593458eba0c1fec8d8a24e34d1298fdbd"
   end
 
   # dependencies for google-api-python-client
   resource "oauth2client" do
-    url "https://pypi.python.org/packages/source/o/oauth2client/oauth2client-2.0.0.post1.tar.gz"
-    sha256 "eb14cfe72f0af2b3bbb7c1da3f0f781b61ed89b31e4282313220746798aa7bdd"
+    url "https://pypi.python.org/packages/7d/3d/fbafca0c10e400c80711a18365502b46c949f18d4c40d410ce059895bf2a/oauth2client-2.1.0.tar.gz"
+    sha256 "d628c9c925815ce0aca159dd4c26f5bc013a8ef025574dd338314d98c1df4f72"
   end
 
   # dependencies for oauth2client
@@ -67,19 +67,22 @@ class AppscaleTools < Formula
     url "https://pypi.python.org/packages/source/p/pyasn1/pyasn1-0.1.9.tar.gz"
     sha256 "853cacd96d1f701ddd67aa03ecc05f51890135b7262e922710112f12a2ed2a7f"
   end
+
   resource "pyasn1-modules" do
     url "https://pypi.python.org/packages/source/p/pyasn1-modules/pyasn1-modules-0.0.8.tar.gz"
     sha256 "10561934f1829bcc455c7ecdcdacdb4be5ffd3696f26f468eb6eb41e107f3837"
   end
+
   resource "rsa" do
-    url "https://pypi.python.org/packages/source/r/rsa/rsa-3.3.tar.gz"
-    sha256 "03f3d9bebad06681771016b8752a40b12f615ff32363c7aa19b3798e73ccd615"
+    url "https://pypi.python.org/packages/14/89/adf8b72371e37f3ca69c6cb8ab6319d009c4a24b04a31399e5bd77d9bb57/rsa-3.4.2.tar.gz"
+    sha256 "25df4e10c263fb88b5ace923dd84bf9aa7f5019687b5e55382ffcdb8bede9db5"
   end
 
   resource "six" do
     url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
+
   resource "uritemplate" do
     url "https://pypi.python.org/packages/source/u/uritemplate/uritemplate-0.6.tar.gz"
     sha256 "a30e230aeb7ebedbcb5da9999a17fa8a30e512e6d5b06f73d47c6e03c8e357fd"
