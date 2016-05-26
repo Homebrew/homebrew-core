@@ -70,7 +70,7 @@ class Cosi < Formula
     (testpath/"test.txt").write("This is my test file")
     group = prefix/"dedis_group.toml"
     file = prefix/"README.md"
-    sig = shell_output(bin/"cosi sign -g #{group} #{file}")
+    sig = shell_output("#{bin}/cosi sign -g #{group} #{file}")
     sigfile = "sig.json"
     (testpath/sigfile).write(sig)
     assert_match "OK", shell_output("#{bin}/cosi verify -g #{group} -s #{sigfile} #{file}")
