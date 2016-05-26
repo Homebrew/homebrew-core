@@ -5,11 +5,13 @@ class N98Magerun < Formula
   version "1.97.22"
   sha256 "199dd0d416260c68e691580ffd3f7a448d60f616529aadadcfee584992d6253e"
 
+  bottle :unneeded
+
   def install
     bin.install "n98-magerun.phar" => "n98-magerun"
   end
 
   test do
-    system "#{bin}/n98-magerun", "--version"
+    system "#{bin}/n98-magerun", "list"
   end
 end
