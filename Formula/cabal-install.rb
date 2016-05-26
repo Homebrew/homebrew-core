@@ -3,6 +3,7 @@ class CabalInstall < Formula
   homepage "https://www.haskell.org/cabal/"
   url "https://hackage.haskell.org/package/cabal-install-1.24.0.0/cabal-install-1.24.0.0.tar.gz"
   sha256 "d840ecfd0a95a96e956b57fb2f3e9c81d9fc160e1fd0ea350b0d37d169d9e87e"
+  revision 1
 
   bottle do
     sha256 "cd1b2478062f3632b186722a8cd92b3a664051fbc974f0e30b39d2c1d994340c" => :el_capitan
