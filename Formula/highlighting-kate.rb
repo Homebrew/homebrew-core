@@ -7,6 +7,7 @@ class HighlightingKate < Formula
   homepage "https://github.com/jgm/highlighting-kate"
   url "https://hackage.haskell.org/package/highlighting-kate-0.6.2/highlighting-kate-0.6.2.tar.gz"
   sha256 "728f10ccba6dfa1604398ae527520d2debeef870472fe104c2bf0714c513b411"
+  revision 1
 
   head "https://github.com/jgm/highlighting-kate.git"
 
