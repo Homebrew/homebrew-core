@@ -1,8 +1,9 @@
+# coding: utf-8
 class Vdirsyncer < Formula
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
-  url "https://pypi.python.org/packages/0b/fb/c42223e1e9169e4770194e62143d431755724b080d8cb77f14705b634815/vdirsyncer-0.10.0.tar.gz"
-  sha256 "e8b894022beab6f98bde80c919e5fa99cb72698e2327e8d5271c70d39636c8bd"
+  url "https://pypi.python.org/packages/39/e5/1e7097b5f0cd6de79ec9014f162a6000b77ca2a369ea8a1588a2eebff570/vdirsyncer-0.11.0.tar.gz"
+  sha256 "dbe1d139abf576ccf0b8220a30c80803c7ecaa52c7088241565c379cc4dcc0ad"
   head "https://github.com/pimutils/vdirsyncer"
 
   bottle do
@@ -67,11 +68,21 @@ class Vdirsyncer < Formula
 
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+
+    prefix.install "contrib/vdirsyncer.plist"
+    inreplace prefix/"vdirsyncer.plist" do |s|
+      s.gsub! "@@WORKINGDIRECTORY@@", bin
+      s.gsub! "@@VDIRSYNCER@@", bin/name
+      s.gsub! "@@SYNCINTERVALL@@", "60"
+    end
+  end
+
+  def post_install
+    inreplace prefix/"vdirsyncer.plist", "@@LOCALE@@", ENV["LC_ALL"] || ENV["LANG"] || "en_US.UTF-8"
   end
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
-    ENV["LANG"] = "en_US.UTF-8"
     (testpath/".config/vdirsyncer/config").write <<-EOS.undent
       [general]
       status_path = #{testpath}/.vdirsyncer/status/
@@ -92,13 +103,14 @@ class Vdirsyncer < Formula
       BEGIN:VCARD
       VERSION:3.0
       EMAIL;TYPE=work:username@example.org
-      FN:User Name
+      FN:User Name Ö φ 風 ض
       UID:092a1e3b55
       N:Name;User
       END:VCARD
     EOS
     (testpath/".contacts/b/foo/").mkpath
+    system "#{bin}/vdirsyncer", "discover"
     system "#{bin}/vdirsyncer", "sync"
-    assert_match /BEGIN:VCARD/, (testpath/".contacts/b/foo/092a1e3b55.vcf").read
+    assert_match /Ö φ 風 ض/, (testpath/".contacts/b/foo/092a1e3b55.vcf").read
   end
 end
