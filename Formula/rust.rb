@@ -16,13 +16,6 @@ class Rust < Formula
       url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2015-09-17/cargo-nightly-x86_64-apple-darwin.tar.gz"
       sha256 "02ba744f8d29bad84c5e698c0f316f9e428962b974877f7f582cd198fdd807a8"
     end
-
-    # Build on Xcode 7.3
-    # https://github.com/rust-lang/rust/issues/32442
-    patch do
-      url "https://github.com/rust-lang/rust/commit/79da64a.diff"
-      sha256 "78ebf373cb19be5fef053776729109824cc7bbbd2bd375e9c444bef7ea41faf7"
-    end
   end
 
   head do
