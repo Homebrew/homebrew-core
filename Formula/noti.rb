@@ -1,11 +1,10 @@
 require "language/go"
 
 class Noti < Formula
-  desc "Displays a notification after a terminal process finishes."
+  desc "Trigger notifications when a process completes"
   homepage "https://github.com/variadico/noti"
-  url "https://github.com/variadico/noti/archive/v2.1.1.tar.gz"
-  sha256 "c31c763eb92b4600371b2a62f6dc1dbb3390d89c09e0baab7af0dc427b55a8c5"
-  head "https://github.com/variadico/noti.git", :branch => "dev"
+  url "https://github.com/variadico/noti/archive/v2.2.0.tar.gz"
+  sha256 "3acb1cb0c352e6387b172867e5187f9241b66f9104d95c93ad8dc9a908937626"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,15 +16,14 @@ class Noti < Formula
   depends_on "go" => :build
 
   def install
-    mkdir_p "#{buildpath}/src/github.com/variadico"
-    ln_s buildpath, "#{buildpath}/src/github.com/variadico/noti"
     ENV["GOPATH"] = buildpath
-    cd "#{buildpath}/src/github.com/variadico/noti" do
-      if build.stable?
-        system "go", "build", "-o", "#{bin}/noti"
-      else
-        system "go", "build", "-o", "#{bin}/noti", "cmd/noti/main.go", "cmd/noti/osx.go"
-      end
+
+    notipath = buildpath/"src/github.com/variadico/noti"
+    notipath.install Dir["*"]
+
+    cd "src/github.com/variadico/noti/cmd/noti" do
+      system "go", "build"
+      bin.install "noti"
     end
   end
 
