@@ -7,6 +7,7 @@ class Texmath < Formula
   homepage "http://johnmacfarlane.net/texmath.html"
   url "https://github.com/jgm/texmath/archive/0.8.4.1.tar.gz"
   sha256 "f3e6e8ba0136462299c8873e9aefc05aa61a85b782ba8e487d4fc4a1fe10005f"
+  revision 1
 
   bottle do
     sha256 "918f6900fe1de5b3aec79a3235f36e9568b0f3813bfa5ca4cd0cab940e282042" => :el_capitan
