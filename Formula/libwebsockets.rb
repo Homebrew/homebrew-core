@@ -1,11 +1,9 @@
 class Libwebsockets < Formula
   desc "C websockets server library"
   homepage "https://libwebsockets.org"
-  url "http://git.libwebsockets.org/cgi-bin/cgit/libwebsockets/snapshot/libwebsockets-1.6.2.tar.gz"
-  sha256 "cdc54444f5bf5a74d2b6d81f40a9081d7e6c2ae88a0c5f09e3fdfc5c77e65860"
-  head "git://git.libwebsockets.org/libwebsockets"
-
-  depends_on "openssl"
+  url "https://github.com/warmcat/libwebsockets/archive/v2.0.1.tar.gz"
+  sha256 "f98cf9e35385863cfe64a5f181403bf3113cc5d82604c4811e1373ba8676ef88"
+  head "https://github.com/warmcat/libwebsockets.git"
 
   bottle do
     sha256 "2479ab31e046ae0ff45b48ae5239cedca875e0c7986463f7a1e33b7c29fd9132" => :el_capitan
@@ -14,6 +12,7 @@ class Libwebsockets < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "openssl"
 
   def install
     system "cmake", ".", *std_cmake_args
