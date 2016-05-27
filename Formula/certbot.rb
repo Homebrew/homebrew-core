@@ -1,8 +1,8 @@
 class Certbot < Formula
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.6.0.tar.gz"
-  sha256 "58eaa6be4ae90af07d682296e42dbac924b5602c51002445059596313e182a09"
+  url "https://github.com/certbot/certbot/archive/v0.7.0.tar.gz"
+  sha256 "76e08e7bf0e1d44ea5d174efb9ac71597da9bb98faf8d244ff2ab5ce8bb02c87"
 
   bottle do
     cellar :any
@@ -17,8 +17,8 @@ class Certbot < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-19.4.tar.gz"
-    sha256 "214bf29933f47cf25e6faa569f710731728a07a19cae91ea64f826051f68a8cf"
+    url "https://pypi.python.org/packages/13/e8/35d9c7528b3c266a17e888bea1e02eb061e9ab6cdabc7107dfb7da83a1d2/setuptools-21.2.1.tar.gz"
+    sha256 "635b899b72c0f3793752227ebb388935053a33a42b283088ba66a90e28145a96"
   end
 
   resource "cffi" do
@@ -42,8 +42,8 @@ class Certbot < Formula
   end
 
   resource "enum34" do
-    url "https://pypi.python.org/packages/66/18/bbdbe6a09b2dd4517913a8cd7aed246dc78ae11a9ed108b88e6695819ee4/enum34-1.1.5.tar.gz"
-    sha256 "35cf09a65db802269a76b7df60f548940575579a0e8a00ec45294995d28b0862"
+    url "https://pypi.python.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
+    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
   end
 
   resource "funcsigs" do
@@ -77,13 +77,13 @@ class Certbot < Formula
   end
 
   resource "pbr" do
-    url "https://pypi.python.org/packages/89/d0/d4db92ef43e9b21a7034f6dc041fa9c3b0310599c131c9fb07273b6ca1c4/pbr-1.9.1.tar.gz"
-    sha256 "3997406c90894ebf3d1371811c1e099721440a901f946ca6dc4383350403ed51"
+    url "https://pypi.python.org/packages/c3/2c/63275fab26a0fd8cadafca71a3623e4d0f0ee8ed7124a5bb128853d178a7/pbr-1.10.0.tar.gz"
+    sha256 "186428c270309e6fdfe2d5ab0949ab21ae5f7dea831eab96701b86bd666af39c"
   end
 
   resource "psutil" do
-    url "https://pypi.python.org/packages/71/9b/6b6f630ad4262572839033b69905d415ef152d7701ef40aa98941ba75b38/psutil-4.1.0.tar.gz"
-    sha256 "c6abebec9c8833baaf1c51dd1b0259246d1d50b9b50e9a4aa66f33b1e98b8d17"
+    url "https://pypi.python.org/packages/a6/bf/5ce23dc9f50de662af3b4bf54812438c298634224924c4e18b7c3b57a2aa/psutil-4.2.0.tar.gz"
+    sha256 "544f013a0aea7199e07e3efe5627f5d4165179a04c66050b234cc3be2eca1ace"
   end
 
   resource "pyasn1" do
@@ -149,8 +149,8 @@ class Certbot < Formula
 
   # Required for the nginx module.
   resource "pyparsing" do
-    url "https://pypi.python.org/packages/38/2c/e2f2562a7568c0234f600f5257ae077deb7b87cd8ce75a29f2653844952a/pyparsing-2.1.3.tar.gz"
-    sha256 "07ed062c8e38c682ddc728e7aa42fab44612744fce33812bc533f93ea53c9347"
+    url "https://pypi.python.org/packages/ae/0c/b6ce7eea7ccf020ae68db1119bacaa07ad91fedaefaf8f3265e8dd156813/pyparsing-2.1.4.tar.gz"
+    sha256 "a9234dea79b50d49b92a994132cd1c84e873f3936db94977a66f0a4159b1797c"
   end
 
   def install
