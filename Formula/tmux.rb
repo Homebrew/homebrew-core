@@ -3,30 +3,21 @@ class Tmux < Formula
   homepage "https://tmux.github.io/"
 
   stable do
-    url "https://github.com/tmux/tmux/releases/download/2.1/tmux-2.1.tar.gz"
-    sha256 "31564e7bf4bcef2defb3cb34b9e596bd43a3937cad9e5438701a81a5a9af6176"
+    url "https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz"
+    sha256 "bc28541b64f99929fe8e3ae7a02291263f3c97730781201824c0f05d7c8e19e4"
 
     patch do
-      # This fixes the Tmux 2.1 update that broke the ability to use select-pane [-LDUR]
-      # to switch panes when in a maximized pane https://github.com/tmux/tmux/issues/150#issuecomment-149466158
-      url "https://github.com/tmux/tmux/commit/a05c27a7e1c4d43709817d6746a510f16c960b4b.diff"
-      sha256 "2a60a63f0477f2e3056d9f76207d4ed905de8a9ce0645de6c29cf3f445bace12"
+      # required for the following patch
+      url "https://github.com/tmux/tmux/commit/d303e5.patch"
+      sha256 "a3ae96b209254de9dc1f10207cc0da250f7d5ec771f2b5f5593c687e21028f67"
     end
 
     patch do
-      # This fixes the Tmux 2.1 update that breaks "tmux killw\; detach"
-      # https://github.com/tmux/tmux/issues/153#issuecomment-150184957
-      url "https://github.com/tmux/tmux/commit/3ebcf25149d75977ea97e9d4f786e0508d1a0d5e.diff"
-      sha256 "65a8bc0b2f6a8b41ad27605fd99419fff36314499969adc9d17dd3940a173508"
+      # workaround for bug in system unicode library reporting negative width
+      # for some valid characters
+      url "https://github.com/tmux/tmux/commit/23fdbc.patch"
+      sha256 "7ec4e7f325f836de5948c3f3b03bec6031d60a17927a5f50fdb2e13842e90c3e"
     end
-  end
-
-  bottle do
-    cellar :any
-    revision 2
-    sha256 "815920cd38a8102360f7d667271d9c724f41087dd79be433db29259390ef8011" => :el_capitan
-    sha256 "93e2156c3c7e1c9f3f4b86dd84617e7519e9bee630f1e8769e00a91aa341d274" => :yosemite
-    sha256 "03c4ca001f72a1623393c0ec9406dfd82b7e449d745762a6e761da6a95d0fbd9" => :mavericks
   end
 
   head do
@@ -40,6 +31,11 @@ class Tmux < Formula
   depends_on "pkg-config" => :build
   depends_on "libevent"
 
+  resource "completion" do
+    url "https://raw.githubusercontent.com/przepompownia/tmux-bash-completion/v0.0.1/completions/tmux"
+    sha256 "a0905c595fec7f0258fba5466315d42d67eca3bd2d3b12f4af8936d7f168b6c6"
+  end
+
   def install
     system "sh", "autogen.sh" if build.head?
 
@@ -50,12 +46,9 @@ class Tmux < Formula
 
     system "make", "install"
 
-    if build.head?
-      pkgshare.install "example_tmux.conf"
-    else
-      bash_completion.install "examples/bash_completion_tmux.sh" => "tmux"
-      pkgshare.install "examples"
-    end
+    pkgshare.install "example_tmux.conf"
+
+    bash_completion.install resource("completion")
   end
 
   def caveats; <<-EOS.undent
