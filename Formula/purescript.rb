@@ -7,6 +7,7 @@ class Purescript < Formula
   homepage "http://www.purescript.org"
   url "https://github.com/purescript/purescript/archive/v0.8.5.tar.gz"
   sha256 "352c0c311710907d112e5d2745e7b152adc4d7b23aff3f069c463eceedddec17"
+  revision 1
 
   bottle do
     sha256 "9d9cf746058847a06cfbfdb7fb3a74c9a8c7eaf7dd1edafc604dfb720cdb8c83" => :el_capitan
