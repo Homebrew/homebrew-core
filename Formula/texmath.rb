@@ -5,8 +5,8 @@ class Texmath < Formula
 
   desc "Haskell library for converting LaTeX math to MathML"
   homepage "http://johnmacfarlane.net/texmath.html"
-  url "https://github.com/jgm/texmath/archive/0.8.4.1.tar.gz"
-  sha256 "f3e6e8ba0136462299c8873e9aefc05aa61a85b782ba8e487d4fc4a1fe10005f"
+  url "https://hackage.haskell.org/package/texmath-0.8.6.3/texmath-0.8.6.3.tar.gz"
+  sha256 "74f600a77a5ce2d88aa1aa81b0bea5f5e79da6b64b51e50656f7bbf27debc22b"
 
   bottle do
     sha256 "918f6900fe1de5b3aec79a3235f36e9568b0f3813bfa5ca4cd0cab940e282042" => :el_capitan
@@ -18,10 +18,12 @@ class Texmath < Formula
   depends_on "cabal-install" => :build
 
   def install
-    install_cabal_package "-f executable"
+    install_cabal_package "--enable-tests", :flags => ["executable"] do
+      system "cabal", "test"
+    end
   end
 
   test do
-    assert_match "<mn>2</mn>", pipe_output("texmath", "a^2 + b^2 = c^2")
+    assert_match "<mn>2</mn>", pipe_output(bin/"texmath", "a^2 + b^2 = c^2")
   end
 end
