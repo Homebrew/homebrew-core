@@ -26,7 +26,7 @@ class PandocCrossref < Formula
       # Reported upstream 26 May 2016: https://github.com/lierdakil/pandoc-crossref/issues/69
       # For specifics regarding the API changes, see
       # https://ghc.haskell.org/trac/ghc/wiki/Migration/8.0#template-haskell-2.11.0.0
-      # http://git.haskell.org/ghc.git/commitdiff/575abf42e218925e456bf765abb14f069ac048a0
+      # https://git.haskell.org/ghc.git/commitdiff/575abf42e218925e456bf765abb14f069ac048a0
       inreplace "lib/Text/Pandoc/CrossRef/Util/Settings/Template.hs" do |s|
         s.gsub! "DataD _ _ params cons' _", "DataD _ _ params _ cons' _"
         s.gsub! "NewtypeD _ _ params con' _", "NewtypeD _ _ params _ con' _"
