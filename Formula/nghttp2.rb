@@ -1,8 +1,8 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.10.0/nghttp2-1.10.0.tar.xz"
-  sha256 "c7e4624d91f32cddfd81233361804c004ef5295851b93e31f95f54a224e5091f"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.11.0/nghttp2-1.11.0.tar.xz"
+  sha256 "40457054017318221fc6a4a65ec3250008919cf7eadf7f0f5eca19793ef0a730"
 
   bottle do
     sha256 "b547328487f7a431019e153df75502aede77f593ded7193734393a0c773a8832" => :el_capitan
@@ -36,8 +36,8 @@ class Nghttp2 < Formula
   depends_on "spdylay" => :recommended
 
   resource "Cython" do
-    url "https://pypi.python.org/packages/source/C/Cython/Cython-0.23.1.tar.gz"
-    sha256 "bdfd12d6a2a2e34b9a1bbc1af5a772cabdeedc3851703d249a52dcda8378018a"
+    url "https://pypi.python.org/packages/b1/51/bd5ef7dff3ae02a2c6047aa18d3d06df2fb8a40b00e938e7ea2f75544cac/Cython-0.24.tar.gz"
+    sha256 "6de44d8c482128efc12334641347a9c3e5098d807dd3c69e867fa8f84ec2a3f1"
   end
 
   # https://github.com/tatsuhiro-t/nghttp2/issues/125
