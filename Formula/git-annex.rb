@@ -26,7 +26,7 @@ class GitAnnex < Formula
 
     # Remove when >6.20160511 is released since this has been merged to HEAD
     # ghc 8.0.1 didn't like runner because it used Rank2Types
-    # Reported 22 May 2016: http://git-annex.branchable.com/bugs/ghc_8.0.1_build_fixes
+    # Reported 22 May 2016: https://git-annex.branchable.com/bugs/ghc_8.0.1_build_fixes
     patch do
       url "https://github.com/joeyh/git-annex/commit/fe944a96d3e2b8c755970bd28641925617f19613.patch"
       sha256 "311282f6df5f10488ed0bd0e093757f6fd4c1b8d31c937ddceaa8c4303183542"
