@@ -4,7 +4,7 @@ class Vim < Formula
   # *** Vim should be updated no more than once every 7 days ***
   url "https://github.com/vim/vim/archive/v7.4.1847.tar.gz"
   sha256 "f192767f191ad75152528791d3d69b932b2ac1c91554a516b8b8fac73bc6a2da"
-  revision 1
+  revision 2
 
   head "https://github.com/vim/vim.git"
 
@@ -17,8 +17,8 @@ class Vim < Formula
   option "without-nls", "Build vim without National Language Support (translated messages, keymaps)"
   option "with-client-server", "Enable client/server mode"
 
-  LANGUAGES_OPTIONAL = %w[lua mzscheme python3 tcl]
-  LANGUAGES_DEFAULT  = %w[perl python ruby]
+  LANGUAGES_OPTIONAL = %w[lua mzscheme python3 tcl].freeze
+  LANGUAGES_DEFAULT  = %w[perl python ruby].freeze
 
   option "with-python3", "Build vim with python3 instead of python[2] support"
   LANGUAGES_OPTIONAL.each do |language|
