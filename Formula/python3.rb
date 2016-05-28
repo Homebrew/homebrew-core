@@ -1,8 +1,21 @@
 class Python3 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.5.1/Python-3.5.1.tar.xz"
-  sha256 "c6d57c0c366d9060ab6c0cdf889ebf3d92711d466cc0119c441dbf2746f725c9"
+
+  head "https://hg.python.org/cpython", :using => :hg
+
+  stable do
+    url "https://www.python.org/ftp/python/3.5.1/Python-3.5.1.tar.xz"
+    sha256 "c6d57c0c366d9060ab6c0cdf889ebf3d92711d466cc0119c441dbf2746f725c9"
+
+    # Fix extension module builds against Xcode 7 SDKs
+    # https://github.com/Homebrew/homebrew/issues/41085
+    # https://bugs.python.org/issue25136
+    patch do
+      url "https://bugs.python.org/file40478/xcode-stubs.diff"
+      sha256 "029cc0dc72b1bcf4ddc5f913cc4a3fd970378073c6355921891f041aca2f8b12"
+    end
+  end
 
   bottle do
     revision 3
@@ -10,8 +23,6 @@ class Python3 < Formula
     sha256 "dbb3625c9cd6b31e496f78e776821d3c3e8f30a7db39f7dea1801a5b19187b64" => :yosemite
     sha256 "228380b8fb1ed6f496c6b071443ecdf98b1130aa840a4e2bd9ccae3dc7bb2713" => :mavericks
   end
-
-  head "https://hg.python.org/cpython", :using => :hg
 
   option :universal
   option "with-tcl-tk", "Use Homebrew's Tk instead of OS X Tk (has optional Cocoa and threads support)"
@@ -56,14 +67,6 @@ class Python3 < Formula
   # so we have to stop python from searching for frameworks and linking against
   # X11.
   patch :DATA if build.with? "tcl-tk"
-
-  # Fix extension module builds against Xcode 7 SDKs
-  # https://github.com/Homebrew/homebrew/issues/41085
-  # https://bugs.python.org/issue25136
-  patch do
-    url "https://bugs.python.org/file40478/xcode-stubs.diff"
-    sha256 "029cc0dc72b1bcf4ddc5f913cc4a3fd970378073c6355921891f041aca2f8b12"
-  end
 
   def lib_cellar
     prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}"
