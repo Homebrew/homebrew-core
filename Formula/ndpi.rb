@@ -1,7 +1,7 @@
 class Ndpi < Formula
   desc "Deep Packet Inspection (DPI) library"
   homepage "http://www.ntop.org/products/ndpi/"
-  url "http://downloads.sourceforge.net/project/ntop/nDPI/nDPI-1.8.tgz"
+  url "https://downloads.sourceforge.net/project/ntop/nDPI/nDPI-1.8.tgz"
   sha256 "f490137a7387b69d0d55e990f2150b86d7b5eaae870e5326e8c2f18c17412443"
 
   bottle do
