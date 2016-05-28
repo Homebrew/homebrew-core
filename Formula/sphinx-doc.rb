@@ -1,8 +1,8 @@
 class SphinxDoc < Formula
   desc "Tool to create intelligent and beautiful documentation"
   homepage "http://sphinx-doc.org"
-  url "https://pypi.python.org/packages/source/S/Sphinx/Sphinx-1.4.tar.gz"
-  sha256 "0ffb35263dbc7b6f3e5fdadc33815ae859e31bf1070226be52448cd43cd3ceeb"
+  url "https://pypi.python.org/packages/source/S/Sphinx/Sphinx-1.4.1.tar.gz"
+  sha256 "c6871a784d24aba9270b6b28541537a57e2fcf4d7c799410eba18236bc76d6bc"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,13 +19,13 @@ class SphinxDoc < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "alabaster" do
-    url "https://pypi.python.org/packages/source/a/alabaster/alabaster-0.7.7.tar.gz"
-    sha256 "f416a84e0d0ddbc288f6b8f2c276d10b40ca1238562cd9ed5a751292ec647b71"
+    url "https://pypi.python.org/packages/46/01/3539c406b47b0e44464a2b6c7b51871300d815b9d7b07c98309c9270bd50/alabaster-0.7.8.tar.gz"
+    sha256 "a1cb1b94fcc192ff74ca212d6ef5cb543bb169cfe7991c2b9df256bb354c1fff"
   end
 
   resource "Babel" do
-    url "https://pypi.python.org/packages/source/B/Babel/Babel-2.2.0.tar.gz"
-    sha256 "d8cb4c0e78148aee89560f9fe21587aa57739c975bb89ff66b1e842cc697428f"
+    url "https://pypi.python.org/packages/6e/96/ba2a2462ed25ca0e651fb7b66e7080f5315f91425a07ea5b34d7c870c114/Babel-2.3.4.tar.gz"
+    sha256 "c535c4403802f6eb38173cd4863e419e2274921a01a8aad8a5b497c131c62875"
   end
 
   resource "docutils" do
@@ -34,8 +34,8 @@ class SphinxDoc < Formula
   end
 
   resource "imagesize" do
-    url "https://pypi.python.org/packages/source/i/imagesize/imagesize-0.7.0.tar.gz"
-    sha256 "bb3d10fca0f66f771298d19035d8e6d01aaafb9ec8d9ae972dcb8acb2cf94f57"
+    url "https://pypi.python.org/packages/53/72/6c6f1e787d9cab2cc733cf042f125abec07209a58308831c9f292504e826/imagesize-0.7.1.tar.gz"
+    sha256 "0ab2c62b87987e3252f89d30b7cedbec12a01af9274af9ffa48108f2c13c6062"
   end
 
   resource "Jinja2" do
@@ -54,8 +54,8 @@ class SphinxDoc < Formula
   end
 
   resource "pytz" do
-    url "https://pypi.python.org/packages/source/p/pytz/pytz-2016.3.tar.bz2"
-    sha256 "c193dfa167ac32c8cb96f26cbcd92972591b22bda0bac3effdbdb04de6cc55d6"
+    url "https://pypi.python.org/packages/f4/7d/7c0c85e9c64a75dde11bc9d3e1adc4e09a42ce7cdb873baffa1598118709/pytz-2016.4.tar.bz2"
+    sha256 "ee7c751544e35a7b7fb5e3fb25a49dade37d51e70a93e5107f10575d7102c311"
   end
 
   resource "six" do
