@@ -1,8 +1,8 @@
 class GnustepMake < Formula
   desc "Basic GNUstep Makefiles"
   homepage "http://gnustep.org"
-  url "http://ftpmain.gnustep.org/pub/gnustep/core/gnustep-make-2.6.7.tar.gz"
-  sha256 "112b57737c3dcc66c78a5c88925ae1d672673d256d9935598e98bcd687d051e4"
+  url "http://ftpmain.gnustep.org/pub/gnustep/core/gnustep-make-2.6.8.tar.gz"
+  sha256 "603ed2d1339b44d154ea25229330acdedb6784b9c802b3797b2fefe3d2200064"
 
   bottle do
     cellar :any_skip_relocation
