@@ -7,7 +7,7 @@ class N98Magerun < Formula
   bottle :unneeded
 
   def install
-    bin.install "n98-magerun.phar" => "n98-magerun"
+    bin.install "n98-magerun-#{version}.phar" => "n98-magerun"
   end
 
   test do
