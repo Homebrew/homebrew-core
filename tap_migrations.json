@@ -154,6 +154,7 @@
   "mysql-connector-odbc": "homebrew/boneyard",
   "mysql-proxy": "homebrew/boneyard",
   "mysqlreport": "homebrew/boneyard",
+  "n98-magerun": "homebrew/php",
   "net6": "homebrew/boneyard",
   "newick-utils": "homebrew/science",
   "ngrok": "homebrew/boneyard",
