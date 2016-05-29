@@ -1,8 +1,8 @@
 class GitSecret < Formula
   desc "Bash-tool to store the private data inside a git repo."
   homepage "https://sobolevn.github.io/git-secret/"
-  url "https://github.com/sobolevn/git-secret/archive/v0.1.2.tar.gz"
-  sha256 "96032c1c0b2b161c4df5b8627be8d98a97a92a5d32127c9a5e8686bd64b5a3e7"
+  url "https://github.com/sobolevn/git-secret/archive/v0.2.0.tar.gz"
+  sha256 "db4afbc3a453df2527603bf8bfffd9946f00d5595f2dca4f5088cb6bb47cacdf"
   head "https://github.com/sobolevn/git-secret.git"
 
   bottle do
