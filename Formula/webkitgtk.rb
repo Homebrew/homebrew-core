@@ -1,9 +1,8 @@
 class Webkitgtk < Formula
   desc "Full-featured Gtk+ port of the WebKit rendering engine"
-  homepage "https://webkitgtk.org/"
-  url "https://webkitgtk.org/releases/webkitgtk-2.10.9.tar.xz"
-  sha256 "bbb18d741780b1b7fa284beb9a97361ac57cda2e42bad2ae2fcdbf797919e969"
-  revision 1
+  homepage "https://webkitgtk.org"
+  url "https://webkitgtk.org/releases/webkitgtk-2.12.3.tar.xz"
+  sha256 "173cbb9a2eca23eee52e99965483ab25aa9c0569ef5b57041fc0c129cc26c307"
 
   bottle do
     sha256 "259c9237a79f0c596ec790b91dc18230beeac86d18ee3880c14afab504e5e6f3" => :el_capitan
@@ -18,10 +17,6 @@ class Webkitgtk < Formula
   depends_on "webp"
 
   needs :cxx11
-
-  # modified version of the patch in https://bugs.webkit.org/show_bug.cgi?id=151293
-  # should be included in next version
-  patch :DATA
 
   def install
     extra_args = %W[
@@ -121,18 +116,3 @@ class Webkitgtk < Formula
     assert_match version.to_s, shell_output("./test")
   end
 end
-
-__END__
-diff --git a/Source/WebKit2/Platform/IPC/unix/ConnectionUnix.cpp b/Source/WebKit2/Platform/IPC/unix/ConnectionUnix.cpp
-index 7594cac..7e39ac0 100644
---- a/Source/WebKit2/Platform/IPC/unix/ConnectionUnix.cpp
-+++ b/Source/WebKit2/Platform/IPC/unix/ConnectionUnix.cpp
-@@ -43,7 +43,7 @@
- #include <gio/gio.h>
- #endif
-
--#if defined(SOCK_SEQPACKET)
-+#if defined(SOCK_SEQPACKET) && !OS(DARWIN)
- #define SOCKET_TYPE SOCK_SEQPACKET
- #else
- #if PLATFORM(GTK)
