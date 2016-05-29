@@ -5,33 +5,9 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-
+  url "https://hackage.haskell.org/package/git-annex-6.20160527/git-annex-6.20160527.tar.gz"
+  sha256 "9482a13acd8b6c4cbe4f354243726e94689d0b3f516eabfbc78900e94ad67924"
   head "git://git-annex.branchable.com/"
-
-  stable do
-    url "https://hackage.haskell.org/package/git-annex-6.20160511/git-annex-6.20160511.tar.gz"
-    sha256 "85fc8853166fe57d91dc2776d5df4acb5911a91815f8aa12881928a1afe8ba01"
-
-    # Can be removed once the library deps are worked out upstream of git-annex
-    # Upstream commit "temporarily add cabal.config to support ghc 8.0.1 build"
-    # https://github.com/joeyh/git-annex/commit/7b61c7f5d0fe76e9d2db9a61848611eeaa66c3d4
-    # Regarding the aws library specifically, see the following:
-    # https://github.com/aristidb/aws/issues/202
-    # https://github.com/aristidb/aws/pull/204
-    # https://github.com/aristidb/aws/pull/203
-    resource "cabalcfg" do
-      url "https://raw.githubusercontent.com/joeyh/git-annex/7b61c7f5d0fe76e9d2db9a61848611eeaa66c3d4/cabal.config"
-      sha256 "c3a1b66113344f58b8d9cc4da37db5d2c83dabd0ec9b8d5adbda9b89cde0a559"
-    end
-
-    # Remove when >6.20160511 is released since this has been merged to HEAD
-    # ghc 8.0.1 didn't like runner because it used Rank2Types
-    # Reported 22 May 2016: https://git-annex.branchable.com/bugs/ghc_8.0.1_build_fixes
-    patch do
-      url "https://github.com/joeyh/git-annex/commit/fe944a96d3e2b8c755970bd28641925617f19613.patch"
-      sha256 "311282f6df5f10488ed0bd0e093757f6fd4c1b8d31c937ddceaa8c4303183542"
-    end
-  end
 
   bottle do
     cellar :any
@@ -53,8 +29,6 @@ class GitAnnex < Formula
   depends_on "quvi"
 
   def install
-    buildpath.install resource("cabalcfg") if build.stable?
-
     install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
       # this can be made the default behavior again once git-union-merge builds properly when bottling
       if build.with? "git-union-merge"
