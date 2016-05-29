@@ -1,9 +1,9 @@
 class Cflow < Formula
   desc "Generate call graphs from C code"
   homepage "https://www.gnu.org/software/cflow/"
-  url "http://ftpmirror.gnu.org/cflow/cflow-1.4.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/cflow/cflow-1.4.tar.bz2"
-  sha256 "037e39d6048ea91c68a5f3a561e10f22fd085d1f7641643e19c831a94ec26bca"
+  url "http://ftpmirror.gnu.org/cflow/cflow-1.5.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/cflow/cflow-1.5.tar.bz2"
+  sha256 "6fe40a106a9ffd6a5489938b939d4301c04fa28a09596294b4f787abca1c037b"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,8 +13,11 @@ class Cflow < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}", "--infodir=#{info}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--infodir=#{info}",
+                          "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--with-lispdir=#{elisp}"
     system "make", "install"
   end
 
