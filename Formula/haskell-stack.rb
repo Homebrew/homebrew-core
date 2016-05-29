@@ -5,7 +5,7 @@ class HaskellStack < Formula
 
   desc "The Haskell Tool Stack"
   homepage "http://haskellstack.org"
-  revision 1
+  revision 2
   head "https://github.com/commercialhaskell/stack.git"
 
   stable do
