@@ -12,6 +12,11 @@ class Libvirt < Formula
     sha256 "1a2775e24fe299eb67b869656e05fb5ae6f76749f7c42f3bb20ff2ebfcdddffd" => :mavericks
   end
 
+  devel do
+    url "http://libvirt.org/sources/libvirt-1.3.5-rc1.tar.gz"
+    sha256 "45c9f8273df9e5c9d9da6b92045a22bb41df31a561b7185324e096a90d1ef862"
+  end
+
   option "without-libvirtd", "Build only the virsh client and development libraries"
 
   depends_on "pkg-config" => :build
