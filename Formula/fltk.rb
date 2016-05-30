@@ -24,9 +24,9 @@ class Fltk < Formula
   end
 
   devel do
-    url "http://fltk.org/pub/fltk/snapshots/fltk-1.3.x-r11419.tar.gz"
-    sha256 "fd5a445634b799c031d78e7c046cb083779fd2dc79fab072cd512cfb0fc48262"
-    version "1.3.3-r11419" # convince brew that this is newer than stable
+    url "http://fltk.org/pub/fltk/snapshots/fltk-1.3.x-r11756.tar.gz"
+    sha256 "3c0594bdf9043edb2a3b77bcd632ca43ad529404b3d9ae0a1f29f2d60890e4b0"
+    version "1.3.3-r11756" # convince brew that this is newer than stable
 
     depends_on "autoconf" => :build
     depends_on "autogen" => :build
