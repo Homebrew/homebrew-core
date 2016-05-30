@@ -1,8 +1,18 @@
 class Usbmuxd < Formula
   desc "USB multiplexor daemon for iPhone and iPod Touch devices"
   homepage "http://www.libimobiledevice.org"
-  url "http://www.libimobiledevice.org/downloads/libusbmuxd-1.0.10.tar.bz2"
-  sha256 "1aa21391265d2284ac3ccb7cf278126d10d354878589905b35e8102104fec9f2"
+  revision 1
+
+  stable do
+    url "http://www.libimobiledevice.org/downloads/libusbmuxd-1.0.10.tar.bz2"
+    sha256 "1aa21391265d2284ac3ccb7cf278126d10d354878589905b35e8102104fec9f2"
+
+    # Backport of upstream security fix for CVE-2016-5104.
+    patch do
+      url "https://github.com/libimobiledevice/libusbmuxd/commit/4397b3376dc4.patch"
+      sha256 "9f3a84c8d0a32df13985f6574f5f0e86af435a67606612c0811df631070a97e3"
+    end
+  end
 
   bottle do
     cellar :any
@@ -31,5 +41,9 @@ class Usbmuxd < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    system bin/"iproxy"
   end
 end
