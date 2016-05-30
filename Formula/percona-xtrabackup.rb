@@ -3,6 +3,7 @@ class PerconaXtrabackup < Formula
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
   url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.2/source/tarball/percona-xtrabackup-2.4.2.tar.gz"
   sha256 "faeac6f1db4a1270e5263e48c8a94cc5c81c772fdea36879d1be18dcbcd1926e"
+  revision 1
 
   bottle do
     sha256 "21f50e161b66679564cd0b9e43a59b74cd46dbfd4d36bd056c0649af3a310766" => :el_capitan
@@ -14,9 +15,9 @@ class PerconaXtrabackup < Formula
   option "without-mysql", "Build without bundled Perl DBD::mysql module, to use the database of your choice."
 
   depends_on "cmake" => :build
-  depends_on "libev" => :build
   depends_on "sphinx-doc" => :build if build.with? "docs"
-  depends_on :mysql => [:build, :recommended]
+  depends_on :mysql => :recommended
+  depends_on "libev"
   depends_on "libgcrypt"
   depends_on "openssl"
 
