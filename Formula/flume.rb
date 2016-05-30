@@ -13,7 +13,8 @@ class Flume < Formula
     rm_f Dir["bin/*.cmd", "bin/*.ps1"]
     libexec.install %w[conf docs lib tools]
     bin.install Dir["bin/*"]
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.7+"))
+    bin.env_script_all_files(libexec/"bin",
+      Language::Java.java_home_env("1.7+").merge(:FLUME_HOME => libexec))
   end
 
   test do
