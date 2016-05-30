@@ -1,20 +1,25 @@
 class Gd < Formula
   desc "Graphics library to dynamically manipulate images"
   homepage "https://libgd.github.io/"
-  revision 3
 
   stable do
-    url "https://github.com/libgd/libgd/releases/download/gd-2.1.1/libgd-2.1.1.tar.xz"
-    sha256 "9ada1ed45594abc998ebc942cef12b032fbad672e73efc22bc9ff54f5df2b285"
+    url "https://github.com/libgd/libgd/releases/download/gd-2.2.1/libgd-2.2.1.tar.xz"
+    sha256 "708762ae483e5fe46b58659f622c3e8f820c7ce0b3ae4e10ad0fbf17d4c4b976"
 
-    # Fix for CVE-2016-3074.
-    # https://www.debian.org/security/2016/dsa-3556
+    # https://github.com/libgd/libgd/issues/214
     patch do
-      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libg/libgd2/libgd2_2.1.1-4.1.debian.tar.xz"
-      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libg/libgd2/libgd2_2.1.1-4.1.debian.tar.xz"
-      sha256 "ce2051fcdb161e4f780650ca76c3144941eb62e9d186e1f8cd36b6efd6fedea0"
-      apply "patches/gd2-handle-corrupt-images-better-CVE-2016-3074.patch"
+      url "https://github.com/libgd/libgd/commit/502e4cd8.patch"
+      sha256 "34fecd59b7f9646492647503375aaa34896bcc5a6eca1408c59a4b17e84896da"
     end
+
+    # These are only needed for the 2.2.1 release. Remove on next
+    # stable release & reset bootstrap step to head-only in install.
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "gnu-sed" => :build
+    depends_on "pkg-config" => :build
+    depends_on "gettext" => :build
   end
 
   bottle do
@@ -49,7 +54,7 @@ class Gd < Formula
   def install
     ENV.universal_binary if build.universal?
 
-    args = %W[--disable-dependency-tracking --prefix=#{prefix}]
+    args = %W[--disable-dependency-tracking --prefix=#{prefix} --without-x]
 
     if build.with? "libpng"
       args << "--with-png=#{Formula["libpng"].opt_prefix}"
@@ -87,7 +92,14 @@ class Gd < Formula
       args << "--without-vpx"
     end
 
-    system "./bootstrap.sh" if build.head?
+    # Already fixed upstream via:
+    # https://github.com/libgd/libgd/commit/0bc8586ee25ce33d95049927d
+    # Remove on next stable release.
+    if build.stable?
+      ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
+    end
+
+    system "./bootstrap.sh"
     system "./configure", *args
     system "make", "install"
   end
