@@ -2,11 +2,10 @@ class AircrackNg < Formula
   desc "Next-generation aircrack with lots of new features"
   homepage "https://aircrack-ng.org/"
 
-  # We can't update this due to linux-only dependencies in >1.1.
-  # See https://github.com/Homebrew/homebrew/issues/29450
-  url "https://download.aircrack-ng.org/aircrack-ng-1.1.tar.gz"
-  sha256 "b136b549b7d2a2751c21793100075ea43b28de9af4c1969508bb95bcc92224ad"
-  revision 2
+  # If you compile aircrack-ng from source using Gmake, it is compatible with OS X
+  # Issue fixed by compiling aircrack-ng from source
+  url "http://download.aircrack-ng.org/aircrack-ng-1.2-rc4.tar.gz"
+  sha256 "d93ac16aade5b4d37ab8cdf6ce4b855835096ccf83deb65ffdeff6d666eaff36"
 
   bottle do
     cellar :any
@@ -18,24 +17,24 @@ class AircrackNg < Formula
   depends_on "pkg-config" => :build
   depends_on "sqlite"
   depends_on "openssl"
+  depends_on "pcre"
 
   # Remove root requirement from OUI update script. See:
   # https://github.com/Homebrew/homebrew/pull/12755
   patch :DATA
 
   def install
-    # Fix incorrect OUI url
-    inreplace "scripts/airodump-ng-oui-update",
-      "http://standards.ieee.org/regauth/oui/oui.txt",
-      "http://standards-oui.ieee.org/oui.txt"
-
-    system "make", "CC=#{ENV.cc}"
+    system "make", "xcode=true", "sqlite=true", "experimental=true", "pcre=true"
     system "make", "prefix=#{prefix}", "mandir=#{man1}", "install"
   end
 
   def caveats; <<-EOS.undent
     Run `airodump-ng-oui-update` install or update the Airodump-ng OUI file.
     EOS
+  end
+
+  test do
+    system "#{bin}/aircrack-ng", "--help"
   end
 end
 
@@ -65,7 +64,6 @@ __END__
 -	echo Run it as root ; exit ;
 -fi
 -
- 
- if [ ! -d "${OUI_PATH}" ]; then
- 	mkdir -p ${OUI_PATH}
 
+ if [ ! -d "${OUI_PATH}" ]; then
+   mkdir -p ${OUI_PATH}
