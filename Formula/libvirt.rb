@@ -4,6 +4,8 @@ class Libvirt < Formula
   url "https://libvirt.org/sources/libvirt-1.3.4.tar.gz"
   sha256 "e2396ebebb3f3fdb50429ce8faa99559f6e8e3cc0493d5fa0c1999db189c25bd"
 
+  head "https://github.com/libvirt/libvirt.git"
+
   bottle do
     sha256 "ddf44ea39669e5385ab669cccdf83da9085a9e1dfe690b0e402d334440cb3243" => :el_capitan
     sha256 "aff8939d5b19080cc5b95bd5baead8f05bb2c807e6f7e6b3520474fbe08494b5" => :yosemite
