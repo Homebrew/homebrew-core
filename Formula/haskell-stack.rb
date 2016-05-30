@@ -5,57 +5,11 @@ class HaskellStack < Formula
 
   desc "The Haskell Tool Stack"
   homepage "http://haskellstack.org"
-  revision 2
+  url "https://github.com/commercialhaskell/stack/releases/download/v1.1.2/stack-1.1.2-sdist-2.tar.gz"
+  version "1.1.2"
+  sha256 "8197e055451437218e964ff4a53936a497a2c1ed4818c17cf290c9a59fff9424"
+  revision 3
   head "https://github.com/commercialhaskell/stack.git"
-
-  stable do
-    url "https://github.com/commercialhaskell/stack/archive/v1.1.2.tar.gz"
-    sha256 "8f43d69a00a8861b156705a634e55179524cefbd98e6c29182e7bdcb57d8b3be"
-
-    # Fix build with newer cabal
-    # Due to per-component cabal_macros.h, the executable code doesn't have
-    # access to VERSION_hpack
-    patch do
-      url "https://github.com/commercialhaskell/stack/commit/93cedb7ce20d1fcc4f46d4b0b38b7842d44bad20.patch"
-      sha256 "378a30878cc25e3b1580e24f832ed171c4fb67786dd46a5d2653863c1b01ea3f"
-    end
-
-    # stack.cabal: adjust dependency bounds
-    # Allow generic-deriving < 1.11 and monad-unlift < 0.3
-    # https://github.com/fpco/stackage/issues/1467
-    patch do
-      url "https://github.com/commercialhaskell/stack/commit/3a7122e61b0263f44b35761ff093d134f9166899.patch"
-      sha256 "e188b457883da73888119772f308828f8f34090f294afabf9d49f7072c365ab3"
-    end
-
-    # Have `stack ghci` skip build if there are no targets
-    # https://github.com/commercialhaskell/stack/issues/2176
-    patch do
-      url "https://github.com/commercialhaskell/stack/commit/0b58282cd97be66b22019832eb5906c29b4c8971.patch"
-      sha256 "6a2f52e6b389ad3e17892ea584bef46e07ad9a0c7598cd857832f650eb6464ac"
-    end
-
-    # Remove debug info from default output
-    # https://github.com/commercialhaskell/stack/issues/2175
-    patch do
-      url "https://github.com/commercialhaskell/stack/commit/0060443d53673ee035e1a755b7082b892a47cb56.patch"
-      sha256 "6e91794e3cdebb3cafa74f58a4338c867cb9cd981eb500bdf8e545ba23725d3e"
-    end
-
-    # Bump GHC-included package upper bounds
-    # https://github.com/fpco/stackage/issues/1476
-    patch do
-      url "https://github.com/commercialhaskell/stack/commit/f848ceb16b147636e112068d346267b1de661c1b.patch"
-      sha256 "d7229380ec9c4a6de8abaeaf58afab71dfb434e5c65ed20cde1fb35c2dd4f306"
-    end
-
-    # Restrict persistent-sqlite < 2.5.0.1
-    # https://github.com/commercialhaskell/stack/issues/2182
-    patch do
-      url "https://github.com/commercialhaskell/stack/commit/b388d11e2013c3e755573c44e40788461a26116f.patch"
-      sha256 "dfcf888ff715a4843fbd4730912b640445e28a4440445d6198112acdb89f56ed"
-    end
-  end
 
   bottle do
     sha256 "4ee81138d47a78fb6cd416491d1c6f1f9c610473870dcba8617c6625d82b7d20" => :el_capitan
@@ -63,14 +17,29 @@ class HaskellStack < Formula
     sha256 "0cb19aded681b0b4a002236f0e0ed992e229c1a5598adf2748a5272328dd5b41" => :mavericks
   end
 
+  option "without-bootstrap", "Don't bootstrap a stage 2 stack"
+
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
-    install_cabal_package
+    if build.with? "bootstrap"
+      cabal_sandbox do
+        cabal_install
+        # Let `stack` handle its own parallelization
+        # Prevents "install: mkdir ... ghc-7.10.3/lib: File exists"
+        jobs = ENV.make_jobs
+        ENV.deparallelize do
+          system "stack", "-j#{jobs}", "setup"
+          system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install"
+        end
+      end
+    else
+      install_cabal_package
+    end
   end
 
   test do
-    system "#{bin}/stack", "new", "test"
+    system bin/"stack", "new", "test"
   end
 end
