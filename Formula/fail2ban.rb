@@ -4,6 +4,8 @@ class Fail2ban < Formula
   url "https://github.com/fail2ban/fail2ban/archive/0.8.14.tar.gz"
   sha256 "2d579d9f403eb95064781ffb28aca2b258ca55d7a2ba056a8fa2b3e6b79721f2"
 
+  head "https://github.com/fail2ban/fail2ban.git"
+
   bottle do
     cellar :any_skip_relocation
     revision 1
