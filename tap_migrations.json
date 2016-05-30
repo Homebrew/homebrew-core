@@ -76,6 +76,7 @@
   "fuse-zip": "homebrew/fuse",
   "fuse4x": "homebrew/fuse",
   "fuse4x-kext": "homebrew/fuse",
+  "gambit-scheme": "homebrew/boneyard",
   "gant": "homebrew/boneyard",
   "gasnet": "homebrew/boneyard",
   "gcsfuse": "homebrew/fuse",
