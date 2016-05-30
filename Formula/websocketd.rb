@@ -3,9 +3,8 @@ require "language/go"
 class Websocketd < Formula
   desc "WebSockets the Unix way"
   homepage "http://websocketd.com"
-  url "https://github.com/joewalnes/websocketd/archive/v0.2.11.tar.gz"
-  sha256 "b67a07248cd8675344e4a8553b1ea6434d6789a3990aafe5ecb98d5210f85071"
-  revision 1
+  url "https://github.com/joewalnes/websocketd/archive/v0.2.12.tar.gz"
+  sha256 "89440f28b5af985d43550bdeee3e04c4ad0cb2bc373af8e0563f176959202550"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,12 +17,12 @@ class Websocketd < Formula
 
   go_resource "github.com/joewalnes/websocketd" do
     url "https://github.com/joewalnes/websocketd.git",
-      :revision => "4ec0493c99e8c1885e524f6af6c1e41250e36202"
+      :revision => "709c49912b0d8575e9e9d4035aa0b07183bd879e"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-      :revision => "db8e4de5b2d6653f66aea53094624468caad15d2"
+      :revision => "30db96677b74e24b967e23f911eb3364fc61a011"
   end
 
   def install
