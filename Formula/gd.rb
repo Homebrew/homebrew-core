@@ -44,7 +44,7 @@ class Gd < Formula
   depends_on "jpeg" => :recommended
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
-  depends_on "libvpx" => :optional
+  depends_on "webp" => :optional
 
   fails_with :llvm do
     build 2326
@@ -86,10 +86,10 @@ class Gd < Formula
       args << "--without-tiff"
     end
 
-    if build.with? "libvpx"
-      args << "--with-vpx=#{Formula["libvpx"].opt_prefix}"
+    if build.with? "webp"
+      args << "--with-webp=#{Formula["webp"].opt_prefix}"
     else
-      args << "--without-vpx"
+      args << "--without-webp"
     end
 
     # Already fixed upstream via:
