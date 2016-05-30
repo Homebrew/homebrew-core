@@ -6,7 +6,7 @@ class Racer < Formula
   sha256 "f969e66d5119f544347e9f9424e83d739eef0c75811fa1a5c77e58df621e066d"
   head "https://github.com/phildawes/racer.git"
 
-  depends_on :rust => ["1.9.0", :build]
+  depends_on :rust => :build # rust MUST be up to date or else racer will produce invalid completions
 
   resource "rust_source" do
     url "https://static.rust-lang.org/dist/rustc-1.9.0-src.tar.gz"
@@ -24,11 +24,11 @@ class Racer < Formula
   end
 
   def post_install
-    ln_s (share/"rust_src/1.9.0"), (share/"rust_src/current"), :force => true
+    ln_sf (share/"rust_src/1.9.0"), (share/"rust_src/current")
   end
 
   test do
-    ENV["RUST_SRC_PATH"] = (share/"rust_src/src")
+    ENV["RUST_SRC_PATH"] = share/"rust_src/src"
     system "#{bin}/racer", "complete", "std::io::B"
   end
 end
