@@ -14,6 +14,11 @@ class Fail2ban < Formula
     sha256 "f39d0f4aa122b1e40ce05ad9010901beefacd560c5d84960eed4448daa3915f2" => :mavericks
   end
 
+  devel do
+    url "https://github.com/fail2ban/fail2ban/archive/0.10.tar.gz"
+    sha256 "0ba941d3c419ef31a42654c20e4a371615b0713326921defa92aea4fda9c8cd8"
+  end
+
   def install
     rm "setup.cfg"
     inreplace "setup.py" do |s|
