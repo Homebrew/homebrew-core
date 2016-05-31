@@ -6,8 +6,10 @@ class Fltk < Formula
     url "https://fossies.org/linux/misc/fltk-1.3.3-source.tar.gz"
     sha256 "f8398d98d7221d40e77bc7b19e761adaf2f1ef8bb0c30eceb7beb4f2273d0d97"
 
-    # Fltk 1.3.4 include support for El Capitan. Remove on update.
-    depends_on MaximumMacOSRequirement => :yosemite
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/92b5f073bee3ee37c2d6194571c76ce19efdc94f/fltk/patch-CGLineCap.patch"
+      sha256 "bfe8e8cf889fcbf3c5fb8bdad7cf7a9fedb92d8b4aa8f40bb9930382bb97d197"
+    end
 
     # Fixes issue with -lpng not found.
     # Based on: https://trac.macports.org/browser/trunk/dports/aqua/fltk/files/patch-src-Makefile.diff
