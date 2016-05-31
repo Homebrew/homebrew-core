@@ -22,7 +22,6 @@ class Ejabberd < Formula
   depends_on "elixir"
   depends_on "erlang"
   depends_on "expat"
-  depends_on "libiconv"
   depends_on "libyaml"
   depends_on "openssl"
   depends_on "sqlite"
