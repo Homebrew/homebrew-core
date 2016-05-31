@@ -6,6 +6,7 @@ class Wget < Formula
   url "http://ftpmirror.gnu.org/wget/wget-1.17.1.tar.xz"
   mirror "https://ftp.gnu.org/gnu/wget/wget-1.17.1.tar.xz"
   sha256 "fe559b61eb9cc01635ac6206a14e02cb51591838c35fa83c7a4aacae0bdd97c9"
+  revision 1
 
   bottle do
     revision 1
