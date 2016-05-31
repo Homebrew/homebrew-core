@@ -158,8 +158,14 @@ class Git < Formula
   end
 
   test do
-    HOMEBREW_REPOSITORY.cd do
-      assert_equal "bin/brew", `#{bin}/git ls-files -- bin`.strip
-    end
+    assert_match(/^git version .*$/, shell_output("#{bin}/git --version").strip)
+    system "#{bin}/git init"
+    system "#{bin}/git status"
+    system "#{bin}/git config user.email \"you@example.com\""
+    system "#{bin}/git config user.name \"Your Name\""
+    touch "foo"
+    system "#{bin}/git add foo"
+    system "#{bin}/git commit -m foo"
+    assert_match(/foo/, shell_output("#{bin}/git log --oneline"))
   end
 end
