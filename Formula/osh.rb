@@ -1,8 +1,10 @@
 class Osh < Formula
   desc "Two ports of /bin/sh from V6 UNIX (circa 1975)"
   homepage "http://v6shell.org"
-  url "http://v6shell.org/src/osh-20160108.tar.gz"
-  sha256 "51980473429cd1f8dad255c30749b8588278caf42b28185e22b9455e8f381bf7"
+  url "http://v6shell.org/src/osh-4.2.1.tar.gz"
+  # TODO: fix this when epochs exist
+  version "20160515"
+  sha256 "2e2855c58b88d96146accbdc60f39a5745dea571b620b5f38ebf3e43d9b0ca74"
   head "https://github.com/JNeitzel/v6shell.git"
 
   bottle do
@@ -14,8 +16,8 @@ class Osh < Formula
   option "with-examples", "Build with shell examples"
 
   resource "examples" do
-    url "http://v6shell.org/v6scripts/v6scripts-20150201.tar.gz"
-    sha256 "411184449da48c59c9f341de748b1b6ea2a1c898848bf3bbf2b523e33ef62518"
+    url "http://v6shell.org/v6scripts/v6scripts-20160128.tar.gz"
+    sha256 "c23251137de67b042067b68f71cd85c3993c566831952af305f1fde93edcaf4d"
   end
 
   def install
