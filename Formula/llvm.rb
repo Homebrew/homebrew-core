@@ -58,7 +58,7 @@ class Llvm < Formula
       sha256 "af3eaf39ecdc3b9e89863fb62e1aa3c135cfde7e9415424e4e396d7486a9422b"
     end
 
-   resource "lld" do
+    resource "lld" do
       url "http://llvm.org/releases/#{llvm_version}/lld-#{llvm_version}.src.tar.xz"
       sha256 "94704dda228c9f75f4403051085001440b458501ec97192eee06e8e67f7f9f0c"
     end
@@ -125,15 +125,15 @@ class Llvm < Formula
   option :universal
   # option "with-clang",             "Build the Clang compiler and support libraries"
   option "without-clang",          "Do not build the Clang compiler and support libraries"
+  option "without-libcxx",         "Do not build the libc++ standard library"
+  option "without-rtti",           "Do not build C++ RTTI"
+
   option "with-clang-extra-tools", "Build extra tools for Clang"
   option "with-compiler-rt",       "Build Clang runtime support libraries for code sanitizers, builtins, and profiling"
-  option "with-libcxx",            "Build the libc++ standard library"
   option "with-libcxxabi",         "Build the libc++abi standard library"
   option "with-libunwind",         "Build the libunwind library"
   option "with-lld",               "Build LLD linker"
   option "with-lldb",              "Build LLDB debugger"
-  # option "with-rtti",              "Build with C++ RTTI"
-  option "without-rtti",           "Do not build C++ RTTI"
   option "with-utils",             "Install utility binaries"
   option "with-polly",             "Build with the experimental Polly optimizer"
   option "with-python",            "Build Python bindings against Homebrew Python"
@@ -183,7 +183,7 @@ class Llvm < Formula
       (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     end
 
-    (buildpath/"projects/libcxx").install    resource("libcxx")    if build.with? "libcxx"
+    (buildpath/"projects/libcxx").install    resource("libcxx")    if build.with? "libcxx" || (build.with? "clang" && !MacOS::CLT.installed?)
     (buildpath/"projects/libcxxabi").install resource("libcxxabi") if build.with? "libcxxabi"
     (buildpath/"projects/libunwind").install resource("libunwind") if build.with? "libunwind"
     (buildpath/"tools/lld").install          resource("lld")       if build.with? "lld"
@@ -233,7 +233,7 @@ class Llvm < Formula
     end
     args << "-DLLVM_ENABLE_RTTI=On"      if build.with? "rtti"
     args << "-DLLVM_INSTALL_UTILS=On"    if build.with? "utils"
-    args << "-DLLVM_ENABLE_LIBCXX=On"    if build.with? "libcxx"
+    args << "-DLLVM_ENABLE_LIBCXX=On"    if build.with? "libcxx" || (build.with? "clang" && !MacOS::CLT.installed?)
     args << "-DLLVM_ENABLE_LIBCXXABI=On" if build.with? "libcxxabi"
     args << "-DLLVM_ENABLE_DOXYGEN=On"   if build.with? "doxygen"
     args << "-DBUILD_SHARED_LIBS=On"     if build.with? "shared-libs" # for developers
@@ -279,19 +279,19 @@ class Llvm < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    caveat_message = <<-EOS.undent
       LLVM executables are installed in #{opt_bin}.
     Extra tools are installed in #{opt_share}/llvm.
     EOS
 
     if build.with? "libcxx"
-      s += <<-EOS.undent
+      caveat_message += <<-EOS.undent
         To use the bundled libc++ please add the following LDFLAGS:
           LDFLAGS="-L#{opt_lib} -lc++"
       EOS
     end
 
-    s
+    caveat_message
   end
 
   test do
@@ -308,8 +308,19 @@ class Llvm < Formula
           return 0;
         }
       EOS
-      system "#{bin}/clang++", "test.cpp", "-o", "test"
-      system "./test"
+
+      if MacOS::CLT.installed?
+        # Test with CLT
+        system "#{bin}/clang++", "-v", "-std=c++11", "-stdlib=libc++", "-I/usr/include", "-L/usr/lib", "test.cpp", "-o", "test"
+        system "./test"
+      end
+
+      if build.with? "libcxx" || ! MacOS::CLT.installed?
+        # Test with libcxx
+        system "#{bin}/clang++", "-v", "-std=c++11", "-stdlib=libc++", "-I#{include}", "-L#{lib}", "test.cpp", "-o", "test"
+        system "./test"
+      end
+
     end
   end
 end
