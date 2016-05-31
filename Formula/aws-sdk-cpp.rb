@@ -14,6 +14,8 @@ class AwsSdkCpp < Formula
 
   option "with-static", "Build with static linking"
   option "without-http-client", "Don't include the libcurl HTTP client"
+  option "with-logging-only", "Only build logging-related SDKs"
+  option "with-minimize-size", "Request size optimization"
 
   depends_on "cmake" => :build
 
@@ -21,6 +23,8 @@ class AwsSdkCpp < Formula
     args = std_cmake_args
     args << "-DSTATIC_LINKING=1" if build.with? "static"
     args << "-DNO_HTTP_CLIENT=1" if build.without? "http-client"
+    args << "-DBUILD_ONLY=firehose;kinesis" if build.with? "logging-only"
+    args << "-DMINIMIZE_SIZE=ON" if build.with? "minimize-size"
 
     mkdir "build" do
       system "cmake", "..", *args
