@@ -47,6 +47,31 @@ class Filebeat < Formula
   end
 
   test do
-    system bin/"filebeat", "--version"
+    logFile = testpath/"log"
+    logFile.write ""
+
+    (testpath/"filebeat.yml").write <<-EOS.undent
+      filebeat:
+        prospectors:
+          -
+            paths:
+              - #{logFile}
+            scan_frequency: 0s
+      output:
+        file:
+          path: #{testpath}
+        console:
+          pretty: true
+    EOS
+
+    begin
+      fork { system bin/"filebeat", "-c", testpath/"filebeat.yml" }
+      sleep 5
+      system "echo 'foo bar baz' > #{logFile}"
+      sleep 10
+      assert File.exists? testpath/"filebeat"
+    ensure
+      system "pkill", "filebeat"
+    end
   end
 end
