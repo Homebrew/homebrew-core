@@ -6,9 +6,18 @@ class Postgrest < Formula
 
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/begriffs/postgrest"
-  url "https://github.com/begriffs/postgrest/archive/v0.3.1.1.tar.gz"
-  sha256 "1830900175879d4be40b93410a7617cb637aae7e9e70792bf70e2bf72b0b2150"
-  revision 1
+  revision 2
+
+  stable do
+    url "https://github.com/begriffs/postgrest/archive/v0.3.1.1.tar.gz"
+    sha256 "1830900175879d4be40b93410a7617cb637aae7e9e70792bf70e2bf72b0b2150"
+
+    # Upstream postgrest PR bumping the constraints for bytestring-tree-builder,
+    # hasql-transaction, and postgresql-binary, so that we no longer have to
+    # patch any of those; https://github.com/begriffs/postgrest/pull/619 doesn't
+    # apply cleanly to the tagged release, so using an equivalent patch :DATA
+    patch :DATA
+  end
 
   bottle do
     sha256 "ba54697c96d2c860b70cd4b741903321c3888b2fb7c1da5f8e9902d19c3c45cd" => :el_capitan
@@ -16,33 +25,43 @@ class Postgrest < Formula
     sha256 "442ed19e6f8a0f2655113d0470af713f5bbbe2a6ec040a1eca038bea66e47324" => :mavericks
   end
 
+  head do
+    url "https://github.com/begriffs/postgrest.git"
+
+    # Equivalent to the patch :DATA for stable above
+    patch do
+      url "https://github.com/begriffs/postgrest/pull/619.patch"
+      sha256 "e98e5bad88a62d33ab2a7dfda88c1b34315231d27179cc708b959468c1a20191"
+    end
+  end
+
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
   depends_on "postgresql"
 
+  # Upstream wai-cors commit removing the parsers dependency. Alternatively,
+  # there is an upstream parsers patch that would work, but wai-cors is higher
+  # up the dependency tree
+  resource "wai-cors-remove-parsers-dep" do
+    url "https://github.com/larskuhtz/wai-cors/commit/3f90298038ca391351f4c2d243db3114842f4bf3.patch"
+    sha256 "10e6ff38ec2da94d359143ffdbcabe1fca127c26f2716e532459fb217dc0819e"
+  end
+
   def install
-    # GHC 8 compat
-    # Reported 26 May 2016: https://github.com/begriffs/postgrest/issues/612
-    cabalcfg = "allow-newer: base,transformers"
-    cabalcfg << "\nconstraints:"
     cabal_sandbox do
-      %w[
-        bytestring-tree-builder 0.2.6
-        postgresql-binary 0.9
-        hasql-transaction 0.4.4.1
-      ].each_slice(2) do |pkg, ver|
-        cabalcfg << "\n#{pkg} ==#{ver}"
-        system "cabal", "get", pkg
-        cabal_sandbox_add_source "#{pkg}-#{ver}"
-        inreplace "#{pkg}-#{ver}/#{pkg}.cabal" do |s|
-          if pkg == "hasql-transaction"
-            s.gsub! "build-depends:", "build-depends: base,"
-          else
-            s.gsub! "ghc-options:", "ghc-options: -XNoImpredicativeTypes"
-          end
-        end
+      buildpath.install resource("wai-cors-remove-parsers-dep")
+      system "cabal", "get", "wai-cors"
+      cd "wai-cors-0.2.4" do
+        system "/usr/bin/patch", "-p1", "-i", buildpath/"3f90298038ca391351f4c2d243db3114842f4bf3.patch"
       end
-      (buildpath/"cabal.config").write(cabalcfg)
+      cabal_sandbox_add_source "wai-cors-0.2.4"
+
+      system "cabal", "get", "jwt"
+      # Equivalent to upstream jwt commit https://bitbucket.org/ssaasen/haskell-jwt/commits/2c48f81ed5d53af4d5d3ecf49f6e45adae61b348?at=master
+      inreplace "jwt-0.7.1/jwt.cabal",
+        "build-depends:       base >= 4.6 && < 4.9",
+        "build-depends:       base >= 4.6 && < 5"
+      cabal_sandbox_add_source "jwt-0.7.1"
 
       install_cabal_package :using => ["happy"]
     end
@@ -80,3 +99,34 @@ class Postgrest < Formula
     end
   end
 end
+
+__END__
+diff --git a/postgrest.cabal b/postgrest.cabal
+index 0b32e03..abcc078 100644
+--- a/postgrest.cabal
++++ b/postgrest.cabal
+@@ -29,6 +29,7 @@ executable postgrest
+   build-depends:       aeson (>= 0.8 && < 0.10) || (>= 0.11 && < 0.12)
+                      , base >= 4.8 && < 5
+                      , bytestring
++                     , bytestring-tree-builder == 0.2.7
+                      , case-insensitive
+                      , cassava
+                      , containers
+@@ -36,7 +37,7 @@ executable postgrest
+                      , errors
+                      , hasql >= 0.19.9 && < 0.20
+                      , hasql-pool >= 0.4 && < 0.5
+-                     , hasql-transaction >= 0.4.3 && < 0.5
++                     , hasql-transaction == 0.4.5
+                      , http-types
+                      , interpolatedstring-perl6
+                      , jwt
+@@ -46,6 +47,7 @@ executable postgrest
+                      , optparse-applicative >= 0.11 && < 0.13
+                      , parsec
+                      , postgrest
++                     , postgresql-binary == 0.9.0.1
+                      , regex-tdfa
+                      , safe >= 0.3 && < 0.4
+                      , scientific
