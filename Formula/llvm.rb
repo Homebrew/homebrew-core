@@ -53,7 +53,12 @@ class Llvm < Formula
       sha256 "c5ee0871aff6ec741380c4899007a7d97f0b791c81df69d25b744eebc5cee504"
     end
 
-    resource "lld" do
+    resource "libunwind" do
+      url    "http://llvm.org/releases/#{llvm_version}/libunwind-#{llvm_version}.src.tar.xz"
+      sha256 "af3eaf39ecdc3b9e89863fb62e1aa3c135cfde7e9415424e4e396d7486a9422b"
+    end
+
+   resource "lld" do
       url "http://llvm.org/releases/#{llvm_version}/lld-#{llvm_version}.src.tar.xz"
       sha256 "94704dda228c9f75f4403051085001440b458501ec97192eee06e8e67f7f9f0c"
     end
