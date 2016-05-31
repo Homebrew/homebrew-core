@@ -1,8 +1,8 @@
 class NodeBuild < Formula
   desc "Install NodeJS versions"
   homepage "https://github.com/nodenv/node-build"
-  url "https://github.com/nodenv/node-build/archive/v2.2.11.tar.gz"
-  sha256 "bcf139b74528fd881afe5c737a6823eab38ad2e52e6d718e7c6690853e03ef73"
+  url "https://github.com/nodenv/node-build/archive/v2.2.12.tar.gz"
+  sha256 "3c3e274409711b7d6fa54ddcf185d5ee72a5a525b879bbc567b8cb23fea2a480"
   head "https://github.com/nodenv/node-build.git"
 
   bottle :unneeded
