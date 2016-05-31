@@ -21,8 +21,8 @@ class Filebeat < Formula
     end
 
     (bin/"filebeat").write <<-EOS.undent
-      #!/bin/bash
-      #{libexec}/filebeat -c #{etc}/filebeat.yml "$@"
+      #!/bin/sh
+      exec "#{libexec}/filebeat" -c "#{etc}/filebeat.yml" "$@"
     EOS
   end
 
@@ -59,18 +59,17 @@ class Filebeat < Formula
       output:
         file:
           path: #{testpath}
-        console:
-          pretty: true
     EOS
 
+    filebeat_pid = fork { exec bin/"filebeat", "-c", testpath/"filebeat.yml" }
+    sleep 5
+    log_file.append_lines "foo bar baz"
+    sleep 10
+
     begin
-      fork { system bin/"filebeat", "-c", testpath/"filebeat.yml" }
-      sleep 5
-      log_file.append_lines "foo bar baz"
-      sleep 10
       assert File.exist? testpath/"filebeat"
     ensure
-      system "pkill", "filebeat"
+      Process.kill("TERM", filebeat_pid)
     end
   end
 end
