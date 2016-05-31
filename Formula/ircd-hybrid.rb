@@ -1,8 +1,8 @@
 class IrcdHybrid < Formula
   desc "High-performance secure IRC server"
   homepage "http://www.ircd-hybrid.org/"
-  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.12/ircd-hybrid-8.2.12.tgz"
-  sha256 "effeac9669bf77c298b5afd0b6c9e9362862be666dffeb77a13cd7f777d613fc"
+  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.17/ircd-hybrid-8.2.17.tgz"
+  sha256 "336ed06ffa59a654065ec7d474f3d954cdcce6f7e413d61f7dc1e064ce786dd5"
 
   bottle do
     sha256 "ea01b907e045d4fd85ca2431e52ee76ef5b7b1abbd865ff51d9f34da17db388a" => :el_capitan
@@ -35,10 +35,6 @@ class IrcdHybrid < Formula
     EOS
   end
 
-  test do
-    system "#{bin}/ircd", "-version"
-  end
-
   plist_options :manual => "ircd"
 
   def plist; <<-EOS.undent
@@ -63,5 +59,9 @@ class IrcdHybrid < Formula
     </dict>
     </plist>
     EOS
+  end
+
+  test do
+    system "#{bin}/ircd", "-version"
   end
 end
