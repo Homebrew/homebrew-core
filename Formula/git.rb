@@ -146,15 +146,14 @@ class Git < Formula
     # To avoid this feature hooking into the system OpenSSL, remove it.
     # If you need it, install git --with-brewed-openssl.
     rm "#{libexec}/git-core/git-imap-send" if build.without? "brewed-openssl"
-  end
 
-  def caveats; <<-EOS.undent
-    The OS X keychain credential helper has been installed to:
-      #{HOMEBREW_PREFIX}/bin/git-credential-osxkeychain
-
-    The "contrib" directory has been installed to:
-      #{HOMEBREW_PREFIX}/share/git-core/contrib
+    # Set the OS X keychain credential helper by default
+    # (as Apple's CLT's git also does this).
+    (buildpath/"gitconfig").write <<-EOS
+      [credential]
+        helper = osxkeychain
     EOS
+    etc.install "gitconfig"
   end
 
   test do
