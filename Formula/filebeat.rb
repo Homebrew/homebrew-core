@@ -15,7 +15,6 @@ class Filebeat < Formula
     ENV["GOPATH"] = gopath
 
     cd gopath/"src/github.com/elastic/beats/filebeat" do
-      system "go", "get"
       system "make"
       libexec.install "filebeat"
       etc.install "etc/filebeat.yml"
