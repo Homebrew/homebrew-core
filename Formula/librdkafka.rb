@@ -18,7 +18,7 @@ class Librdkafka < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make"
+    system "C_INCLUDE_PATH=.:#{include}:#{Formula["openssl"].opt_prefix}/include make"
     system "make", "install"
   end
 
