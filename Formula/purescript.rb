@@ -21,6 +21,11 @@ class Purescript < Formula
     sha256 "3c08582cacb909fbf2d2db7e7681afa14efd105d2e47ad93998377b273b853b8"
   end
 
+  devel do
+    url "https://github.com/purescript/purescript/archive/v0.9.0.tar.gz"
+    sha256 "3c08582cacb909fbf2d2db7e7681afa14efd105d2e47ad93998377b273b853b8"
+  end
+
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
