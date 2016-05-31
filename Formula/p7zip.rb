@@ -23,6 +23,17 @@ class P7zip < Formula
     apply "patches/CVE-2016-2334.patch", "patches/CVE-2016-2335.patch"
   end
 
+  # CVE-2016-2334 and CVE-2016-2335
+  # http://www.talosintel.com/reports/TALOS-2016-0093/
+  # http://www.talosintel.com/reports/TALOS-2016-0094/
+  # https://packages.qa.debian.org/p/p7zip/news/20160515T102412Z.html
+  patch do
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/p7zip/p7zip_15.14.1+dfsg-2.debian.tar.xz"
+    mirror "https://mirrors.kernel.org/debian/pool/main/p/p7zip/p7zip_15.14.1%2bdfsg-2.debian.tar.xz"
+    sha256 "f4db6803535fc30b6ae9db5aabfd9f57a851c6773d72073847ec5e3731b7af37"
+    apply "patches/CVE-2016-2334.patch", "patches/CVE-2016-2335.patch"
+  end
+
   def install
     mv "makefile.macosx_llvm_64bits", "makefile.machine"
     system "make", "all3",
