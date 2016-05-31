@@ -1,18 +1,16 @@
 class Filebeat < Formula
   desc "File harvester, used to fetch logs files and feed them into logstash"
   homepage "https://www.elastic.co/products/beats/filebeat"
-  url "https://github.com/elastic/beats.git",
-    :tag => "v1.2.3",
-    :revision => "e849e45f713a6112145ac8309fc23bd69bc41ef8"
+  url "https://github.com/elastic/beats/archive/v1.2.3.tar.gz"
+  sha256 "8eea85de415898c362144ba533062651d8891241c738799e54cc9b17040c1fc9"
 
   head "https://github.com/elastic/beats.git"
 
   depends_on "go" => :build
 
   def install
-    contents = Dir["{*,.git,.gitignore}"]
     gopath = buildpath/"gopath"
-    (gopath/"src/github.com/elastic/beats").install contents
+    (gopath/"src/github.com/elastic/beats").install Dir["{*,.git,.gitignore}"]
 
     ENV["GOPATH"] = gopath
 
@@ -23,8 +21,10 @@ class Filebeat < Formula
       etc.install "etc/filebeat.yml"
     end
 
-    sh = bin/"filebeat"
-    sh.write "#!/usr/bin/env bash\n\n#{libexec}/filebeat -c #{etc}/filebeat.yml \"$@\""
+    (bin/"filebeat").write <<-EOS.undent
+      #!/bin/bash
+      #{libexec}/filebeat -c #{etc}/filebeat.yml "$@"
+    EOS
   end
 
   plist_options :manual => "filebeat"
@@ -47,15 +47,15 @@ class Filebeat < Formula
   end
 
   test do
-    logFile = testpath/"log"
-    logFile.write ""
+    log_file = testpath/"log"
+    touch log_file
 
     (testpath/"filebeat.yml").write <<-EOS.undent
       filebeat:
         prospectors:
           -
             paths:
-              - #{logFile}
+              - #{log_file}
             scan_frequency: 0s
       output:
         file:
@@ -67,9 +67,9 @@ class Filebeat < Formula
     begin
       fork { system bin/"filebeat", "-c", testpath/"filebeat.yml" }
       sleep 5
-      system "echo 'foo bar baz' > #{logFile}"
+      log_file.append_lines "foo bar baz"
       sleep 10
-      assert File.exists? testpath/"filebeat"
+      assert File.exist? testpath/"filebeat"
     ensure
       system "pkill", "filebeat"
     end
