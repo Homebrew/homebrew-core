@@ -43,6 +43,7 @@ class Orientdb < Formula
   test do
     begin
       system "#{bin}/orientdb", "start"
+      sleep 2
       assert_match "OrientDB Server v.2.2.0", shell_output("curl -I localhost:2480")
     ensure
       system "#{bin}/orientdb", "stop"
