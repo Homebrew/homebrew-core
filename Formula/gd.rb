@@ -1,6 +1,7 @@
 class Gd < Formula
   desc "Graphics library to dynamically manipulate images"
   homepage "https://libgd.github.io/"
+  revision 1
 
   stable do
     url "https://github.com/libgd/libgd/archive/gd-2.2.1.tar.gz"
@@ -52,7 +53,7 @@ class Gd < Formula
   depends_on "jpeg" => :recommended
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
-  depends_on "webp" => :optional
+  depends_on "webp" => :recommended
 
   fails_with :llvm do
     build 2326
