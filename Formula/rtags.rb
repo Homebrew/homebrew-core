@@ -4,6 +4,7 @@ class Rtags < Formula
   url "https://github.com/Andersbakken/rtags.git",
       :tag => "v2.2",
       :revision => "925a188e4038fa6e4a7c8ea4d30d682609c46578"
+	revision 1
 
   head "https://github.com/Andersbakken/rtags.git"
 
@@ -14,7 +15,7 @@ class Rtags < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" => "with-clang"
+  depends_on "llvm"
   depends_on "openssl"
 
   def install

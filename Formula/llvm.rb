@@ -319,7 +319,7 @@ class Llvm < Formula
 
       if MacOS::CLT.installed?
         # Test with CLT
-        system "#{bin}/clang++", "-v", "-std=c++11", "-stdlib=libc++", "-I/usr/include", "-L/usr/lib", "test.cpp", "-o", "test"
+        system "#{bin}/clang++", "-v", "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "test"
         system "./test"
       end
 

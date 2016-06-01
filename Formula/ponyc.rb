@@ -13,7 +13,7 @@ class Ponyc < Formula
     sha256 "007c43a75741ecd4c7c96c9fc67d816ebc845c0aac94687c4e2cbb1ee959ebfb" => :mavericks
   end
 
-  depends_on "llvm" => "with-rtti"
+  depends_on "llvm"
   depends_on "libressl"
   depends_on "pcre2"
   needs :cxx11
