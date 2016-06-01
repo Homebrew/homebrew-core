@@ -17,6 +17,13 @@ class Cairo < Formula
     sha256 "268cc265a7f807403582f440643064bf52896556766890c8df7bad02d230f6c9"
   end
 
+  head do
+    url "https://anongit.freedesktop.org/git/cairo", :using => :git
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
+  end
+
   keg_only :provided_pre_mountain_lion
 
   option :universal
@@ -47,7 +54,11 @@ class Cairo < Formula
       args << "--enable-xcb=no" << "--enable-xlib=no" << "--enable-xlib-xrender=no"
     end
 
-    system "./configure", *args
+    if build.head?
+      system "./autogen.sh", *args
+    else
+      system "./configure", *args
+    end
     system "make", "install"
   end
 
