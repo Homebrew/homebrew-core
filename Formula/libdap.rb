@@ -1,8 +1,8 @@
 class Libdap < Formula
   desc "Framework for scientific data networking"
   homepage "http://www.opendap.org"
-  url "https://github.com/OPENDAP/libdap4/archive/version-3.17.1.tar.gz"
-  sha256 "b9ee8e8dcc1a93a5c2d2e3a6fee39a3dc05c82e0e44151f8df3fc7c0f6363885"
+  url "https://github.com/OPENDAP/libdap4/archive/version-3.18.0.tar.gz"
+  sha256 "373c60cf2c5c9eaf598558167aedbc3ef9a0d9b652dfbd96b4725637cf03f628"
   head "https://github.com/OPENDAP/libdap4.git"
 
   bottle do
