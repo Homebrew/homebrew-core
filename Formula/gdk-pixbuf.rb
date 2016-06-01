@@ -24,6 +24,15 @@ class GdkPixbuf < Formula
   # 'loaders.cache' must be writable by other packages
   skip_clean "lib/gdk-pixbuf-2.0"
 
+  # Patch that fixes an occasional segfault in Freeciv
+  # See:
+  # - https://bugzilla.gnome.org/show_bug.cgi?id=766842
+  # - https://gna.org/bugs/?func=detailitem&item_id=24298
+  patch do
+    url "https://github.com/GNOME/gdk-pixbuf/commit/ad43d54b11d0b337e8032d9d25b09eb8f8650ace.patch"
+    sha256 "c38cbf14bee68a15a12edb55a5fa39e36a8dc3d82b4160e9cefea921eda6a13d"
+  end
+
   def install
     ENV.universal_binary if build.universal?
     ENV.append_to_cflags "-DGDK_PIXBUF_LIBDIR=\\\"#{HOMEBREW_PREFIX}/lib\\\""
@@ -34,7 +43,7 @@ class GdkPixbuf < Formula
             "--enable-introspection=yes",
             "--disable-Bsymbolic",
             "--enable-static",
-            "--without-gdiplus",]
+            "--without-gdiplus"]
 
     args << "--enable-relocations" if build.with?("relocations")
 
