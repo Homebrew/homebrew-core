@@ -147,6 +147,7 @@
   "mesalib-glw": "homebrew/x11",
   "mess": "homebrew/games",
   "metalua": "homebrew/boneyard",
+  "miredo": "homebrew/boneyard",
   "morse": "homebrew/x11",
   "mp3fs": "homebrew/fuse",
   "mpio": "homebrew/boneyard",
