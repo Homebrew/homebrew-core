@@ -5,11 +5,15 @@ class Emojify < Formula
   sha256 "fabefc4767428a2634a77e7845e315725b75b50f282d0943c5b65789650c25d1"
   head "https://github.com/mrowa44/emojify.git"
 
+  bottle :unneeded
+
   def install
     bin.install "emojify"
   end
 
   test do
-    assert_equal("Hey, I just 🙋 you, and this is 😱 , but here's my 📲 , so 📞 me, maybe?", shell_output("#{bin}/emojify \"Hey, I just :raising_hand: you, and this is :scream: , but here's my :calling: , so :telephone_receiver: me, maybe?\"").strip)
+    input = "Hey, I just :raising_hand: you, and this is :scream: , but here's my :calling: , so :telephone_receiver: me, maybe?"
+    expected = "Hey, I just 🙋 you, and this is 😱 , but here's my 📲 , so 📞 me, maybe?"
+    assert_equal(expected, shell_output("#{bin}/emojify \"#{input}\"").strip)
   end
 end
