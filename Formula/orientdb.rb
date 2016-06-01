@@ -41,8 +41,11 @@ class Orientdb < Formula
   end
 
   test do
-    # quick check if file is there
-    result = `if [ -f #{libexec}/bin/orientdb.sh ]; then echo 'true'; else echo 'false'; fi`.strip
-    result == "true" ? true : false
+    begin
+      system "#{bin}/orientdb", "start"
+      assert_match "OrientDB Server v.2.2.0", shell_output("curl -I localhost:2480")
+    ensure
+      system "#{bin}/orientdb", "stop"
+    end
   end
 end
