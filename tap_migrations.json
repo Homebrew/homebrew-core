@@ -246,6 +246,7 @@
   "upnp-router-control": "homebrew/gui",
   "urweb": "homebrew/boneyard",
   "ushare": "homebrew/boneyard",
+  "validns": "homebrew/boneyard",
   "viewglob": "homebrew/boneyard",
   "vobcopy": "homebrew/boneyard",
   "wdfs": "homebrew/fuse",
