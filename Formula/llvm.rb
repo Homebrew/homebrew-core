@@ -24,8 +24,8 @@ class Llvm < Formula
   llvm_version = "3.8.0"
 
   stable do
-    url "http://llvm.org/releases/#{llvm_version}/llvm-#{llvm_version}.src.tar.xz"
-    sha256 "555b028e9ee0f6445ff8f949ea10e9cd8be0d084840e21fbbe1d31d51fc06e46"
+    url      "http://llvm.org/releases/#{llvm_version}/llvm-#{llvm_version}.src.tar.xz"
+    sha256   "555b028e9ee0f6445ff8f949ea10e9cd8be0d084840e21fbbe1d31d51fc06e46"
 
     resource "clang" do
       url    "http://llvm.org/releases/#{llvm_version}/cfe-#{llvm_version}.src.tar.xz"
@@ -59,24 +59,33 @@ class Llvm < Formula
     end
 
     resource "lld" do
-      url "http://llvm.org/releases/#{llvm_version}/lld-#{llvm_version}.src.tar.xz"
+      url    "http://llvm.org/releases/#{llvm_version}/lld-#{llvm_version}.src.tar.xz"
       sha256 "94704dda228c9f75f4403051085001440b458501ec97192eee06e8e67f7f9f0c"
     end
 
     resource "lldb" do
-      url "http://llvm.org/releases/#{llvm_version}/lldb-#{llvm_version}.src.tar.xz"
+      url    "http://llvm.org/releases/#{llvm_version}/lldb-#{llvm_version}.src.tar.xz"
       sha256 "e3f68f44147df0433e7989bf6ed1c58ff28d7c68b9c47553cb9915f744785a35"
     end
 
     resource "openmp" do
-      url "http://llvm.org/releases/#{llvm_version}/openmp-#{llvm_version}.src.tar.xz"
+      url    "http://llvm.org/releases/#{llvm_version}/openmp-#{llvm_version}.src.tar.xz"
       sha256 "92510e3f62e3de955e3a0b6708cebee1ca344d92fb02369cba5fdd5c68f773a0"
     end
 
     resource "polly" do
-      url "http://llvm.org/releases/#{llvm_version}/polly-#{llvm_version}.src.tar.xz"
+      url    "http://llvm.org/releases/#{llvm_version}/polly-#{llvm_version}.src.tar.xz"
       sha256 "84cbabc0b6a10a664797907d291b6955d5ea61aef04e3f3bb464e42374d1d1f2"
     end
+
+    bottle do
+      cellar :any
+      revision 2
+      sha256 "3b4b2c50e018125c0fa7aa9a14e8066b301afa6ebe2c36a198962e4c9af318a7" => :el_capitan
+      sha256 "382eb51bb69c52fb3800c0498d1c6799b9046af8413be15217fc58effc9963b3" => :yosemite
+      sha256 "57f2bb04233429051ff77deeaf74612c2d56be5d6bc13d1c6f8457cd057bc9e7" => :mavericks
+    end
+
   end
 
   head do
@@ -123,7 +132,6 @@ class Llvm < Formula
 
   # Options
   option :universal
-  # option "with-clang",             "Build the Clang compiler and support libraries"
   option "without-clang",          "Do not build the Clang compiler and support libraries"
   option "without-libcxx",         "Do not build the libc++ standard library"
   option "without-rtti",           "Do not build C++ RTTI"
