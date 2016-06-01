@@ -1,7 +1,7 @@
 class Moco < Formula
   desc "Stub server with Maven, Gradle, Scala, and shell integration"
   homepage "https://github.com/dreamhead/moco"
-  url "https://repo1.maven.org/maven2/com/github/dreamhead/moco-runner/0.11.0/moco-runner-0.11.0-standalone.jar"
+  url "https://search.maven.org/remotecontent?filepath=com/github/dreamhead/moco-runner/0.11.0/moco-runner-0.11.0-standalone.jar"
   version "0.11.0"
   sha256 "d3c772333f6a35fe4bc168d0541e97a0d36071afe343ced840f7afd1c037b661"
 
