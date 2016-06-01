@@ -35,6 +35,16 @@ class Postgrest < Formula
     end
   end
 
+  head do
+    url "https://github.com/begriffs/postgrest.git"
+
+    # Equivalent to the patch :DATA for stable above
+    patch do
+      url "https://github.com/begriffs/postgrest/pull/619.patch"
+      sha256 "e98e5bad88a62d33ab2a7dfda88c1b34315231d27179cc708b959468c1a20191"
+    end
+  end
+
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
   depends_on "postgresql"
