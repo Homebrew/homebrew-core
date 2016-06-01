@@ -5,15 +5,15 @@ class Nginx < Formula
   sha256 "1fd35846566485e03c0e318989561c135c598323ff349c503a6c14826487a801"
   head "http://hg.nginx.org/nginx/", :using => :hg
 
-  devel do
-    url "http://nginx.org/download/nginx-1.11.0.tar.gz"
-    sha256 "6ca0e7bf540cdae387ce9470568c2c3a826bc7e7f12def1ae7d20b66f4065a99"
-  end
-
   bottle do
     sha256 "69839647f12306f8756eb7934eed946e55ffb47c1a2813f126523d824cd53a9d" => :el_capitan
     sha256 "af4b2cad55c8414c2c29db340c94da9270ec66044f8a52f1d0e0efe1f11adb9b" => :yosemite
     sha256 "8bc5364108c213b062427a98b361d3caf91e8f5a8ef518f23954bdb41e10b9df" => :mavericks
+  end
+
+  devel do
+    url "http://nginx.org/download/nginx-1.11.1.tar.gz"
+    sha256 "5d8dd0197e3ffeb427729c045382182fb28db8e045c635221b2e0e6722821ad0"
   end
 
   # Before submitting more options to this formula please check they aren't
