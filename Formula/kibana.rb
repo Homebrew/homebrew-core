@@ -17,9 +17,9 @@ class Kibana < Formula
 
   devel do
     url "https://github.com/elastic/kibana.git",
-      :tag => "v5.0.0-alpha2",
-      :revision => "6d7bb147cf9ae7170fde494b1f17128a50123b5f"
-    version "5.0.0-alpha2"
+      :tag => "v5.0.0-alpha3",
+      :revision => "b6190c95064a7c48c390c4566e82b5a562ca744f"
+    version "5.0.0-alpha3"
   end
 
   resource "node" do
