@@ -3,8 +3,17 @@ class Gd < Formula
   homepage "https://libgd.github.io/"
 
   stable do
-    url "https://github.com/libgd/libgd/releases/download/gd-2.2.1/libgd-2.2.1.tar.xz"
-    sha256 "708762ae483e5fe46b58659f622c3e8f820c7ce0b3ae4e10ad0fbf17d4c4b976"
+    url "https://github.com/libgd/libgd/archive/gd-2.2.1.tar.gz"
+    sha256 "06b0f2ef45fbdde7b05816a8a988868b11ac348f77ffa15a958128a8106b1e08"
+
+    # Prevents need for a dependency on gnu-sed; fixes
+    #  sed: 1: "2i/* Generated from con ...": command i expects \ followed by text
+    # Requires the source archive tarball to apply cleanly; fix taken from HEAD,
+    # so most likely the release tarball can be restored upon the next release
+    patch do
+      url "https://github.com/libgd/libgd/commit/0bc8586e.patch"
+      sha256 "fc7e372c873afc6f750256f49cd7f3540b0e424e10a1a25fa708d2ebd2d3c9ca"
+    end
 
     # https://github.com/libgd/libgd/issues/214
     patch do
@@ -17,7 +26,6 @@ class Gd < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-    depends_on "gnu-sed" => :build
     depends_on "pkg-config" => :build
     depends_on "gettext" => :build
   end
@@ -90,13 +98,6 @@ class Gd < Formula
       args << "--with-webp=#{Formula["webp"].opt_prefix}"
     else
       args << "--without-webp"
-    end
-
-    # Already fixed upstream via:
-    # https://github.com/libgd/libgd/commit/0bc8586ee25ce33d95049927d
-    # Remove on next stable release.
-    if build.stable?
-      ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
     end
 
     system "./bootstrap.sh"
