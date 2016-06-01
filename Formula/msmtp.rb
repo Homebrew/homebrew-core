@@ -1,8 +1,8 @@
 class Msmtp < Formula
   desc "SMTP client that can be used as an SMTP plugin for Mutt"
   homepage "http://msmtp.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/msmtp/msmtp/1.6.4/msmtp-1.6.4.tar.xz"
-  sha256 "9b49c022a5440d41b6782c97ef2977d0346c3dae05aa8836243a9953e982d1cd"
+  url "https://downloads.sourceforge.net/project/msmtp/msmtp/1.6.5/msmtp-1.6.5.tar.xz"
+  sha256 "76a0d60693c7e65d0c7a12f01d300882d280b1e1be0202f54730ae44d44a5006"
 
   bottle do
     sha256 "6d1eef02a990fc1355f9d47da7237870d43ce0b5d24cb30a45c15952fdd815c4" => :el_capitan
