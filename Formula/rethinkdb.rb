@@ -1,8 +1,8 @@
 class Rethinkdb < Formula
   desc "The open-source database for the realtime web"
   homepage "https://www.rethinkdb.com/"
-  url "https://download.rethinkdb.com/dist/rethinkdb-2.3.2.tgz"
-  sha256 "af8760271c63496fdeaa8de8bae834febd4b6c09a57743570b30134e9837eaac"
+  url "https://download.rethinkdb.com/dist/rethinkdb-2.3.3.tgz"
+  sha256 "5d077a640990834cd90f95c0690f67476e22b91a3f9477ab74eaea1edb704034"
 
   bottle do
     cellar :any
@@ -38,7 +38,7 @@ class Rethinkdb < Formula
     etc.install "packaging/assets/config/default.conf.sample" => "rethinkdb.conf"
   end
 
-  plist_options :manual => "rethinkdb start"
+  plist_options :manual => "rethinkdb"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
