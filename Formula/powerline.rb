@@ -6,9 +6,9 @@ class Powerline < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "40f105e9571a23d78d26c30b5562081c1804a20a54bf162ed013ba76b0b3cccf" => :el_capitan
-    sha256 "753dc2345d95c924f36c012f9fd72c1b2f72defe9df7a2485145b025b3ac2fa7" => :yosemite
-    sha256 "7b56d3e45382da9c2519fb034a48b169458a6cfb188c56678734e4eeb0124348" => :mavericks
+    sha256 "3af142342f5dd1ecea60d93d2e572f505a25bf7fe5777b3798183f010ae7c6b4" => :el_capitan
+    sha256 "b115774dc24b1a55d787f91cbc67835c3c145f1085751832737f5b84074e3a49" => :yosemite
+    sha256 "4adada4e0f6f6ce5cef17a4594f41ce21f97416893e91b203b6fa7ac099eeabb" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
