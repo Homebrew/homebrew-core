@@ -16,8 +16,7 @@ class Gradle < Formula
 
   def install
     libexec.install %w[bin lib]
-    (bin/"gradle").write_env_script libexec/"bin/gradle",
-      Language::Java.java_home_env.merge(:GRADLE_HOME => libexec)
+    bin.install_symlink libexec+"bin/gradle"
   end
 
   test do
