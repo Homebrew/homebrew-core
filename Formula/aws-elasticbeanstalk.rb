@@ -1,8 +1,8 @@
 class AwsElasticbeanstalk < Formula
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-reference-eb.html"
-  url "https://pypi.python.org/packages/source/a/awsebcli/awsebcli-3.7.3.tar.gz"
-  sha256 "4e1c7cb66db8255df134197d6663decebc792dcd617cef19878289c9e1d8e294"
+  url "https://pypi.python.org/packages/56/6c/bf15423bbc54b7fe8cfc9a718c7a18434a760156ee81276511200f24c4a2/awsebcli-3.7.6.tar.gz"
+  sha256 "c8b7a15b1e6c45fea55e247ad62e8acb7a8e73b8e8aa0a19c346ba1da265e820"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,8 +19,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "cement" do
-    url "https://pypi.python.org/packages/source/c/cement/cement-2.4.0.tar.gz"
-    sha256 "81c46cd056cbc7e48ae2342b3a65afbae4732b09af5d1d3e2e079678d2ccd5bb"
+    url "https://pypi.python.org/packages/70/60/608f0b8975f4ee7deaaaa7052210d095e0b96e7cd3becdeede9bd13674a1/cement-2.8.2.tar.gz"
+    sha256 "8765ed052c061d74e4d0189addc33d268de544ca219b259d797741f725e422d2"
   end
 
   resource "backports.ssl_match_hostname" do
@@ -29,8 +29,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "pathspec" do
-    url "https://pypi.python.org/packages/source/p/pathspec/pathspec-0.3.3.tar.gz"
-    sha256 "38d0613ee2ce75adbbad61a33895c3b88122c768a732fb14800e6f660cc1380b"
+    url "https://pypi.python.org/packages/14/9d/c9d790d373d6f6938d793e9c549b87ad8670b6fa7fc6176485e6ef11c1a4/pathspec-0.3.4.tar.gz#md5=2a4af9bf2dee98845d583ec61a00d05d"
+    sha256 "7605ca5c26f554766afe1d177164a2275a85bb803b76eba3428f422972f66728"
   end
 
   resource "docopt" do
@@ -84,13 +84,13 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "colorama" do
-    url "https://pypi.python.org/packages/source/c/colorama/colorama-0.3.3.tar.gz"
-    sha256 "eb21f2ba718fbf357afdfdf6f641ab393901c7ca8d9f37edd0bee4806ffa269c"
+    url "https://pypi.python.org/packages/f0/d0/21c6449df0ca9da74859edc40208b3a57df9aca7323118c913e58d442030/colorama-0.3.7.tar.gz#md5=349d2b02618d3d39e5c6aede36fe3c1a"
+    sha256 "e043c8d32527607223652021ff648fbb394d5e19cba9f1a698670b338c9d782b"
   end
 
   resource "botocore" do
-    url "https://pypi.python.org/packages/source/b/botocore/botocore-1.3.1.tar.gz"
-    sha256 "23591dc68edfae2f55efab89a6eb250ea1d49d25f16adbf9934b8a2cbc520928"
+    url "https://pypi.python.org/packages/0d/b4/cf63a4ca94af097219d11147e9cbc9f5b4a23487e210cf526dbdb2eafc55/botocore-1.4.24.tar.gz#md5=9bf4bfecc95adeeb4fa5330c3d096ed4"
+    sha256 "5261c804edbb4bb9422768fa0a46b7daeca3665f3ff664ab86fe0fe1d3413a46"
   end
 
   resource "wcwidth" do
@@ -101,6 +101,16 @@ class AwsElasticbeanstalk < Formula
   resource "docutils" do
     url "https://pypi.python.org/packages/source/d/docutils/docutils-0.12.tar.gz"
     sha256 "c7db717810ab6965f66c8cf0398a98c9d8df982da39b4cd7f162911eb89596fa"
+  end
+
+  resource "setuptools" do
+    url "https://pypi.python.org/packages/f5/90/010892bde11d2da00548285da29a055e6b0e3b81592bb6021571b87f34a1/setuptools-22.0.0.tar.gz#md5=ddd9fbe3da4ac564830d75fadf796930"
+    sha256 "1324ed0b1b4929fe49c347909624dbf53989555a033419f3d45ceff4c0acd6f3"
+  end
+
+  resource "semantic_version" do
+    url "https://pypi.python.org/packages/8e/0e/33052dd97ab9d07dae8ddffcfb2740efe58c46d72efbc060cf6da250439f/semantic_version-2.5.0.tar.gz#md5=9a3f8e3ca00dcd2da16e30d55a4d4d99"
+    sha256 "3baad35dcb074a49419539cea6a33b484706b6c2dd03f05b67763eba4c1bb65c"
   end
 
   def install
