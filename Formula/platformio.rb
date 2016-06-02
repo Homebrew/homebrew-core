@@ -1,8 +1,8 @@
 class Platformio < Formula
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
   homepage "http://platformio.org"
-  url "https://pypi.python.org/packages/4e/c6/fa03609bf12703e96dd2c8adf1c3c280d280dafc59e8c5a0d13a1fa18118/platformio-2.9.1.tar.gz"
-  sha256 "3d7d0e0602b1855e36bfb4079fc0a185ba35c13769a55aecf41cb9e65a96d6cc"
+  url "https://pypi.python.org/packages/b2/8e/bc075a06af0374bb46f9febbc7e0c76888d9841296dd608fc4c4a2e79fdb/platformio-2.9.2.tar.gz"
+  sha256 "dc2d3b5427b9aaae88f26ab392b20feed211172cb607c9db52322f8a168a584d"
 
   bottle do
     cellar :any_skip_relocation
@@ -24,8 +24,8 @@ class Platformio < Formula
   end
 
   resource "colorama" do
-    url "https://pypi.python.org/packages/source/c/colorama/colorama-0.3.6.tar.gz"
-    sha256 "ec9efcccb086a1d727876384f94ee6358d2f3f096688c1ba18b0f318f2b453b5"
+    url "https://pypi.python.org/packages/f0/d0/21c6449df0ca9da74859edc40208b3a57df9aca7323118c913e58d442030/colorama-0.3.7.tar.gz"
+    sha256 "e043c8d32527607223652021ff648fbb394d5e19cba9f1a698670b338c9d782b"
   end
 
   resource "lockfile" do
@@ -34,13 +34,13 @@ class Platformio < Formula
   end
 
   resource "pyserial" do
-    url "https://pypi.python.org/packages/source/p/pyserial/pyserial-3.0.1.tar.gz"
-    sha256 "969cb6405d1d87f8960cf9c10f597ae58f85da2fb9769dba96f4aeeaade54656"
+    url "https://pypi.python.org/packages/ce/9c/694ce79a9d4a164e109aeba1a40fba23336f3b7554978553e22a5d41d54d/pyserial-3.1.tar.gz"
+    sha256 "c8ffdcbd8bfd308842409e558848c32aa3499a1bfe95a591e4210072b9520f1e"
   end
 
   resource "requests" do
-    url "https://pypi.python.org/packages/source/r/requests/requests-2.9.1.tar.gz"
-    sha256 "c577815dd00f1394203fc44eb979724b098f88264a9ef898ee45b8e5e9cf587f"
+    url "https://pypi.python.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
+    sha256 "63f1815788157130cee16a933b2ee184038e975f0017306d723ac326b5525b54"
   end
 
   def install
