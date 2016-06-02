@@ -1,10 +1,9 @@
 class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "http://www.ponylang.org"
-  url "https://github.com/ponylang/ponyc/archive/0.2.1.tar.gz"
-  sha256 "cb8d6830565ab6b47ecef07dc1243029cef962df7ff926140022abb69d1e554e"
-  revision 1
-  head "https://github.com/ponylang/ponyc.git"
+  url "https://github.com/ponylang/ponyc.git",
+    :revision => "aafebac938273d4786c02dfb2ba9ec7a164675e7"
+  version "0.2.2-candidate"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,10 +19,20 @@ class Ponyc < Formula
 
   def install
     ENV.cxx11
-    system "make", "install", "config=release", "destdir=#{prefix}", "verbose=1"
+    ENV["LLVM_CONFIG"]="#{Formula["llvm"].bin}/llvm-config"
+    system "make", "config=release", "destdir=#{prefix}", "install", "verbose=1"
   end
 
   test do
     system "#{bin}/ponyc", "-rexpr", "#{prefix}/packages/stdlib"
+
+    (testpath/"test/main.pony").write <<-EOS.undent
+    actor Main
+      new create(env: Env) =>
+        env.out.print("Hello World!")
+    EOS
+    system "#{bin}/ponyc", "test"
+    assert_equal "Hello World!", shell_output("./test1").strip
+
   end
 end
