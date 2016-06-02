@@ -4,6 +4,12 @@ class Libchewing < Formula
   url "https://github.com/chewing/libchewing/releases/download/v0.5.1/libchewing-0.5.1.tar.bz2"
   sha256 "9708c63415fa6034435c0f38100e7d30d0e1bac927f67bec6dfeb3fef016172b"
 
+  bottle do
+    sha256 "88a9b836056148fe60b312550a1e7484bf9b53e8ffad3c16e98032862a3e38f2" => :el_capitan
+    sha256 "dafa1e3cfcea92190179e5627774df43a045bc7413b571d17576c43089d9dc57" => :yosemite
+    sha256 "a291dd35150e8fb3a170b743f5415191cdcc8559abf0179650765af341d98fcf" => :mavericks
+  end
+
   head do
     url "https://github.com/chewing/libchewing.git"
     depends_on "autoconf" => :build
