@@ -1,9 +1,8 @@
 class Sipp < Formula
   desc "Traffic generator for the SIP protocol"
   homepage "http://sipp.sourceforge.net/"
-  url "https://github.com/SIPp/sipp/archive/v3.4.1.tar.gz"
-  sha256 "bb6829a1f3af8d8b5f08ffcd7de40e2692b4dfb9a83eccec3653a51f77a82bc4"
-  revision 1
+  url "https://github.com/SIPp/sipp/releases/download/v3.5.1/sipp-3.5.1.tar.gz"
+  sha256 "56421ba7b43b67e9b04e21894b726502a82a6149fc86ba06df33dfc7252a1891"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,5 +20,9 @@ class Sipp < Formula
     system "./configure", *args
     system "make", "DESTDIR=#{prefix}"
     bin.install "sipp"
+  end
+
+  test do
+    assert_equal "SIPp", shell_output("#{bin}/sipp -v | grep SIPp | awk '{ print $1 }'").strip
   end
 end
