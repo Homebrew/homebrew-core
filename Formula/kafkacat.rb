@@ -6,9 +6,9 @@ class Kafkacat < Formula
 
   bottle do
     cellar :any
-    sha256 "6a5d1f3ab0c3619b53f88d435f05a2bc6e5ca05a612b3e12d13f85bba7d71517" => :el_capitan
-    sha256 "f9cdd267383c3ca532da813bdabd7bf3715e2e22bc078f949a8e12dd4f103f49" => :yosemite
-    sha256 "a66d6d312498e117d485d7eea58e412da287be1dc08a1be0cd621d6a77763c7f" => :mavericks
+    sha256 "632efceabc31814305eb5331bc25a361414afd9ef1562cb9bb6463526997bb5e" => :el_capitan
+    sha256 "32bcf9d514f4e566029b3427098c6d73f78dad911fd6b762e38395c1ef41edb8" => :yosemite
+    sha256 "c1dcf8abd6c4917950403a872bca4d0502a116dfdfb0eb29c950f03a120ada6f" => :mavericks
   end
 
   option "with-yajl", "Adds JSON support"
