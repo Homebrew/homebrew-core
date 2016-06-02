@@ -102,7 +102,10 @@ class Opentsdb < Formula
       <key>KeepAlive</key>
       <dict>
         <key>OtherJobEnabled</key>
-        <string>#{Formula["hbase"].plist_name}</string>
+        <dict>
+          <key>#{Formula["hbase"].plist_name}</key>
+          <true/>
+        </dict>
       </dict>
       <key>Label</key>
       <string>#{plist_name}</string>
