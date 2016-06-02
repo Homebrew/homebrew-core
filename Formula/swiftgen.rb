@@ -1,8 +1,8 @@
 class Swiftgen < Formula
   desc "Collection of Swift tools to generate Swift code"
   homepage "https://github.com/AliSoftware/SwiftGen"
-  url "https://github.com/AliSoftware/SwiftGen/archive/0.8.0.tar.gz"
-  sha256 "fd95c0c1e8504df0cfa708a75e77343e2e89944aa4815e644d11b6e4e82f4dd0"
+  url "https://github.com/AliSoftware/SwiftGen/archive/1.0.0.tar.gz"
+  sha256 "336ff7ae873e15869ca9952a33ad0974f8cdd2a47042b28749ceb51362c22543"
   head "https://github.com/AliSoftware/SwiftGen.git"
 
   bottle do
@@ -22,7 +22,7 @@ class Swiftgen < Formula
       UnitTests/fixtures/Localizable.strings
       UnitTests/fixtures/Message.storyboard
       UnitTests/expected/Images-File-Defaults.swift.out
-      UnitTests/expected/Colors-File-Defaults.swift.out
+      UnitTests/expected/Colors-Txt-File-Defaults.swift.out
       UnitTests/expected/Strings-File-Defaults.swift.out
       UnitTests/expected/Storyboards-Message-Defaults.swift.out
     ]
@@ -38,7 +38,7 @@ class Swiftgen < Formula
     assert_equal output, (fixtures/"Images-File-Defaults.swift.out").read.strip, "swiftgen images failed"
 
     output = shell_output("#{bin}/swiftgen colors --templatePath #{pkgshare/"templates/colors-default.stencil"} #{fixtures}/colors.txt").strip
-    assert_equal output, (fixtures/"Colors-File-Defaults.swift.out").read.strip, "swiftgen colors failed"
+    assert_equal output, (fixtures/"Colors-Txt-File-Defaults.swift.out").read.strip, "swiftgen colors failed"
 
     output = shell_output("#{bin}/swiftgen strings --templatePath #{pkgshare/"templates/strings-default.stencil"} #{fixtures}/Localizable.strings").strip
     assert_equal output, (fixtures/"Strings-File-Defaults.swift.out").read.strip, "swiftgen strings failed"
