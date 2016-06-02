@@ -8,9 +8,9 @@ class Pixz < Formula
 
   bottle do
     cellar :any
-    sha256 "67f3a69e7d2443d5f1956af5fddf85d29ff4a515b01af3ffa24ace710364fbe1" => :el_capitan
-    sha256 "130d33c9ee2fc8b5e02d36aab52314b4a1a323b4e5b79d9f55bb6853ceaf9e53" => :yosemite
-    sha256 "4e8d29305549eb2e836bdef4d2075a2864f1333bf1bc763c0d886acee1e12cf1" => :mavericks
+    sha256 "5e9e759698f203e6cc9cc369014bb86236ae83135f66659faaf8e024c727a5b4" => :el_capitan
+    sha256 "f3409a92f9943e02c500d52b552810b6c75132288c969f2aff58d0c93dd4ceca" => :yosemite
+    sha256 "8a7d9c9017d273bb234520e560893bff827e0e43d7b83fde9783031d46b0b0f3" => :mavericks
   end
 
   option "with-docs", "Build man pages using asciidoc and DocBook"
