@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on the V8 JavaScript runtime to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.2.0/node-v6.2.0.tar.xz"
-  sha256 "8633fe606fd1f2235d26901c6bc4c11b5b88fd3c772af18a902e3efd1254e492"
+  url "https://nodejs.org/dist/v6.2.1/node-v6.2.1.tar.xz"
+  sha256 "dbaeb8fb68a599e5164b17c74f66d24f424ee4ab3a25d8de8a3c6808e5b42bfb"
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -36,8 +36,8 @@ class Node < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.8.9.tgz"
-    sha256 "97c831727e9cc0543ca437ab688a4eeba862f2238f4d57ff13ee1888402a9c7b"
+    url "https://registry.npmjs.org/npm/-/npm-3.9.3.tgz"
+    sha256 "34e191630a5c736f505925df2855342faa3a13c5b6e59cac9253dea4e22b3014"
   end
 
   resource "icu4c" do
