@@ -3,16 +3,23 @@ require "language/go"
 class Telegraf < Formula
   desc "Server-level metric gathering agent for InfluxDB"
   homepage "https://influxdata.com"
-  url "https://github.com/influxdata/telegraf/archive/0.13.0.tar.gz"
-  sha256 "e48f01e5d217af445f8152e9aeb393bf1ba94b5ccec5d535eefe62b5ff1f2c32"
-
-  head "https://github.com/influxdata/telegraf.git"
+  url "https://github.com/influxdata/telegraf/archive/0.13.1.tar.gz"
+  sha256 "96d67c203eb3820d3cde5bd89c87521ad7a404a495db9f250084f767c26d8990"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "d8eae764d96dd27a372ee461b3a3596ac6d6cf86c045e5d35652571e163a3482" => :el_capitan
     sha256 "18530098cdf5af56d2f296b01eded80fa930538383c6c2fc36a7222df6a03c9a" => :yosemite
     sha256 "9cd7950fe3c64a44b33817429f7dcc171cf1e6bfcfd4da873b87717c9893acbe" => :mavericks
+  end
+
+  head do
+    url "https://github.com/influxdata/telegraf.git"
+
+    go_resource "github.com/hashicorp/consul" do
+      url "https://github.com/hashicorp/consul.git",
+      :revision => "ebf7ea1d759184c02a5bb5263a7c52d29838ffc3"
+    end
   end
 
   depends_on "go" => :build
@@ -234,7 +241,7 @@ class Telegraf < Formula
 
   go_resource "github.com/shirou/gopsutil" do
     url "https://github.com/shirou/gopsutil.git",
-    :revision => "37d89088411de59a4ef9fc340afa0e89dfcb4ea9"
+    :revision => "83c6e72cbdef6e8ada934549abf700ff0ba96776"
   end
 
   go_resource "github.com/soniah/gosnmp" do
