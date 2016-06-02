@@ -2,7 +2,7 @@ class Creduce < Formula
   desc "Reduce a C/C++ program while keeping a property of interest"
   homepage "https://embed.cs.utah.edu/creduce/"
   url "https://github.com/csmith-project/creduce/archive/creduce-2.5.0.tar.gz"
-	mirror "http://embed.cs.utah.edu/creduce/creduce-2.5.0.tar.gz"
+  mirror "http://embed.cs.utah.edu/creduce/creduce-2.5.0.tar.gz"
   sha256 "6d860adaeac10589441b6075f78778b70a25d1305c7c1638f02e953c804ab16d"
   head "https://github.com/csmith-project/creduce.git"
 
