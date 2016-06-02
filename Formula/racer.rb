@@ -6,7 +6,7 @@ class Racer < Formula
   sha256 "f969e66d5119f544347e9f9424e83d739eef0c75811fa1a5c77e58df621e066d"
   head "https://github.com/phildawes/racer.git"
 
-  depends_on :rust => :build # rust MUST be up to date or else racer will produce invalid completions
+  depends_on "rust" => :build # rust MUST be up to date or else racer will produce invalid completions
 
   resource "rust_source" do
     url "https://static.rust-lang.org/dist/rustc-1.9.0-src.tar.gz"
