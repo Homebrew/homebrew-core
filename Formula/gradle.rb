@@ -12,8 +12,6 @@ class Gradle < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.6+"
-
   def install
     libexec.install %w[bin lib]
     bin.install_symlink libexec+"bin/gradle"
@@ -21,6 +19,7 @@ class Gradle < Formula
 
   test do
     ENV.java_cache
-    assert_match(/Gradle #{version}/, shell_output("#{bin}/gradle --version"))
+    output = shell_output("#{bin}/gradle --version")
+    assert_match /Gradle #{version}/, output
   end
 end
