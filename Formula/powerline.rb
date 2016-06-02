@@ -1,8 +1,8 @@
 class Powerline < Formula
   desc "statusline plugin for vim, and provides statuslines & prompts"
   homepage "https://github.com/powerline/powerline"
-  url "https://github.com/powerline/powerline/archive/2.3.tar.gz"
-  sha256 "c65762df4733afed585af722978d24bc555fbbabb8ae707e4e525dff6412de5f"
+  url "https://github.com/powerline/powerline/archive/2.4.tar.gz"
+  sha256 "04050051e033fd1d9b3c60b1183cbe6801185cd5b7495789647ddec72f1bd789"
 
   bottle do
     cellar :any_skip_relocation
