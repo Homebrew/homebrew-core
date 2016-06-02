@@ -9,7 +9,7 @@ class Tika < Formula
   depends_on :java => "1.7+"
 
   resource "server" do
-    url "https://repo1.maven.org/maven2/org/apache/tika/tika-server/1.13/tika-server-1.13.jar"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/tika/tika-server/1.13/tika-server-1.13.jar"
     sha256 "97bcecd72271c75ecd715619e4f91bcaae84f0e06a1e9c4f3ba48d90be9912df"
   end
 
