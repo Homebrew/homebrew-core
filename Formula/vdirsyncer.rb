@@ -1,4 +1,3 @@
-# coding: utf-8
 class Vdirsyncer < Formula
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
