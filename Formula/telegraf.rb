@@ -22,6 +22,15 @@ class Telegraf < Formula
     end
   end
 
+  head do
+    url "https://github.com/influxdata/telegraf.git"
+
+    go_resource "github.com/hashicorp/consul" do
+      url "https://github.com/hashicorp/consul.git",
+      :revision => "ebf7ea1d759184c02a5bb5263a7c52d29838ffc3"
+    end
+  end
+
   depends_on "go" => :build
 
   go_resource "github.com/Shopify/sarama" do
