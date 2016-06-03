@@ -1,9 +1,11 @@
 class Czmq < Formula
   desc "High-level C binding for ZeroMQ"
   homepage "http://czmq.zeromq.org/"
-  url "http://download.zeromq.org/czmq-3.0.2.tar.gz"
-  sha256 "8bca39ab69375fa4e981daf87b3feae85384d5b40cef6adbe9d5eb063357699a"
+  url "https://github.com/zeromq/czmq/archive/v3.0.2.tar.gz"
+  sha256 "e56f8498daf70310b31c42669b2f9b753c5e747eafaff6d4fdac26d72a474b27"
   revision 3
+
+  head "https://github.com/zeromq/czmq.git"
 
   bottle do
     cellar :any
@@ -14,16 +16,11 @@ class Czmq < Formula
 
   conflicts_with "mono", :because => "both install `makecert` binaries"
 
-  head do
-    url "https://github.com/zeromq/czmq.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
   option :universal
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libsodium" => :recommended
 
@@ -39,7 +36,7 @@ class Czmq < Formula
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
     args << "--with-libsodium" if build.with? "libsodium"
 
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", *args
     system "make"
     system "make", "check"
