@@ -1,4 +1,3 @@
-
 class Traildb < Formula
   desc "Blazingly-fast database for log-structured data"
   homepage "http://traildb.io"
