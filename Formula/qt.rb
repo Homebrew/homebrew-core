@@ -24,7 +24,6 @@ class Qt < Formula
     sha256 "c8a0fa819c8012a7cb70e902abb7133fc05235881ce230235d93719c47650c4e"
   end
 
-  option :universal
   option "with-qt3support", "Build with deprecated Qt3Support module support"
   option "with-docs", "Build documentation"
   option "without-webkit", "Build without QtWebKit module"
@@ -43,8 +42,6 @@ class Qt < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = %W[
       -prefix #{prefix}
       -release
@@ -94,11 +91,9 @@ class Qt < Formula
 
     args << "-nomake" << "docs" if build.without? "docs"
 
-    if MacOS.prefer_64_bit? || build.universal?
+    if MacOS.prefer_64_bit?
       args << "-arch" << "x86_64"
-    end
-
-    if !MacOS.prefer_64_bit? || build.universal?
+    else
       args << "-arch" << "x86"
     end
 
