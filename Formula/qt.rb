@@ -149,6 +149,6 @@ class Qt < Formula
     resource("test-project").stage testpath
     system bin/"qmake"
     system "make"
-    assert_match /GitHub/, pipe_output(testpath/"qtnetwork-test 2>&1", nil, 0)
+    assert_match(/GitHub/, pipe_output(testpath/"qtnetwork-test 2>&1", nil, 0))
   end
 end
