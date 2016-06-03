@@ -22,6 +22,7 @@ class Perl < Formula
     args = %W[
       -des
       -Dprefix=#{prefix}
+      -Dprivlib=#{lib}/perl5/#{version}
       -Dman1dir=#{man1}
       -Dman3dir=#{man3}
       -Duseshrplib
