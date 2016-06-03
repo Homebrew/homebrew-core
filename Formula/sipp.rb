@@ -23,6 +23,8 @@ class Sipp < Formula
   end
 
   test do
-    assert_equal "SIPp", shell_output("#{bin}/sipp -v | grep SIPp | awk '{ print $1 }'").strip
+    sipp_output = `#{bin}/sipp -v`.split(/$/)
+    sipp_output.each { |o| print o }
+    assert_match "SIPp v3.5.1", sipp_output[0]
   end
 end
