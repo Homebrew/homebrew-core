@@ -3,7 +3,7 @@ class CrystalLang < Formula
   homepage "http://crystal-lang.org/"
   url "https://github.com/crystal-lang/crystal/archive/0.17.4.tar.gz"
   sha256 "a5f3984c5d76b4fe2364869215596d1a3b148902d14f6bed54cd79cd4efe7b63"
-  head "https://github.com/manastech/crystal.git"
+  head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
     sha256 "3d18ae474bbeaa307e9df18c99a65d16eb8604d8519ebd2acba0ef7911d6d26e" => :el_capitan
@@ -20,9 +20,9 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with?("shards")
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.16.0/crystal-0.16.0-1-darwin-x86_64.tar.gz"
-    version "0.16.0"
-    sha256 "a41e55b7beecd22a681f53ce5fa4fe7c8cd193ebb87508b1cbd4e211c3e5409e"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.17.4/crystal-0.17.4-1-darwin-x86_64.tar.gz"
+    version "0.17.4"
+    sha256 "d469967cef1f5136349589a3fccb3ea5fde9765ba60aa5eee8724049315a9606"
   end
 
   resource "shards" do
