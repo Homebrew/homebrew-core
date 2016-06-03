@@ -18,7 +18,7 @@ class CrystalIcr < Formula
   end
 
   test do
-    assert_equal "icr version #{version}",
+    assert_equal "icr version #{version}\n",
       shell_output("#{bin/"icr"} -v").lines.first
   end
 end
