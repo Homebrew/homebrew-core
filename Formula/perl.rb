@@ -23,6 +23,8 @@ class Perl < Formula
       -des
       -Dprefix=#{prefix}
       -Dprivlib=#{lib}/perl5/#{version}
+      -Dsitelib=#{lib}/perl5/site_perl/#{version}
+      -Dotherlibdirs=#{HOMEBREW_PREFIX}/lib/perl5/site_perl/#{version}
       -Dman1dir=#{man1}
       -Dman3dir=#{man3}
       -Duseshrplib
