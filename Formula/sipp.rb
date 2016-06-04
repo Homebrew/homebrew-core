@@ -23,9 +23,6 @@ class Sipp < Formula
   end
 
   test do
-    # sipp_output = `#{bin}/sipp -v`.split(/$/)
-    # sipp_output.each { |o| print o }
-    # assert_match "SIPp v#{version}", sipp_output[0]
-    assert_match "SIPp v#{version}", shell_output("#{bin}/sipp -v 2>&1 || true")
+    assert_match "SIPp v#{version}", shell_output("#{bin}/sipp -v", 99)
   end
 end
