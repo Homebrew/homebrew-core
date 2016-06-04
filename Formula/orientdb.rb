@@ -24,12 +24,14 @@ class Orientdb < Formula
     inreplace %W[bin/orientdb.sh bin/console.sh bin/gremlin.sh],
       '"YOUR_ORIENTDB_INSTALLATION_PATH"', libexec
 
+    inreplace "#{libexec}/config/orientdb-server-log.properties", "../log", "#{var}/log"
+
     chmod 0755, Dir["bin/*"]
     libexec.install Dir["*"]
 
-    mkpath "#{libexec}/log"
-    touch "#{libexec}/log/orientdb.err"
-    touch "#{libexec}/log/orientdb.log"
+    mkpath "#{var}/log"
+    touch "#{var}/log/orientdb.err"
+    touch "#{var}/log/orientdb.log"
 
     bin.install_symlink "#{libexec}/bin/orientdb.sh" => "orientdb"
     bin.install_symlink "#{libexec}/bin/console.sh" => "orientdb-console"
@@ -41,12 +43,15 @@ class Orientdb < Formula
   end
 
   test do
-    begin
+    pid = fork do
       system "#{bin}/orientdb", "start"
-      sleep 2
+    end
+    sleep 2
+    begin
       assert_match "OrientDB Server v.2.2.0", shell_output("curl -I localhost:2480")
     ensure
-      system "#{bin}/orientdb", "stop"
+      Process.kill("SIGINT", pid)
+      Process.wait(pid)
     end
   end
 end
