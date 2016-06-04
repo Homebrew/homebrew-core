@@ -20,6 +20,7 @@ class Traildb < Formula
     resource("judy").stage do
       system "./configure", "--disable-debug", "--disable-dependency-tracking",
           "--disable-shared", "--prefix=#{judyprefix}"
+      # Build with -j1 because parallel builds are broken
       system "make", "-j1", "install"
     end
 
