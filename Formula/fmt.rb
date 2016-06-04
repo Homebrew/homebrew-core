@@ -1,8 +1,8 @@
-class Cppformat < Formula
+class Fmt < Formula
   desc "Open-source formatting library for C++"
-  homepage "https://cppformat.github.io/"
-  url "https://github.com/cppformat/cppformat/releases/download/2.1.1/cppformat-2.1.1.zip"
-  sha256 "7c6c739291c4a97eec95a758b2a2243f43c79dfa2d1e94e33c09a6736de6c427"
+  homepage "https://fmtlib.github.io/"
+  url "https://github.com/fmtlib/fmt/releases/download/3.0.0/fmt-3.0.0.zip"
+  sha256 "1b050b66fa31b74f1d75a14f15e99e728ab79572f176a53b2f8ad7c201c30ceb"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,7 +22,7 @@ class Cppformat < Formula
     (testpath/"test.cpp").write <<-EOS.undent
       #include <iostream>
       #include <string>
-      #include <cppformat/format.h>
+      #include <fmt/format.h>
       int main()
       {
         std::string str = fmt::format("The answer is {}", 42);
@@ -34,7 +34,7 @@ class Cppformat < Formula
     system ENV.cxx, "test.cpp", "-o", "test",
                   "-I#{include}",
                   "-L#{lib}",
-                  "-lcppformat"
+                  "-lfmt"
     assert_equal "The answer is 42", shell_output("./test")
   end
 end

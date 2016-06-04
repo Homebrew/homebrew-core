@@ -2,6 +2,7 @@
   "app-engine-java-sdk": "app-engine-java",
   "beanstalk": "beanstalkd",
   "letsencrypt": "certbot",
+  "cppformat": "fmt",
   "crystal": "autocode",
   "cv": "progress",
   "cyassl": "wolfssl",
