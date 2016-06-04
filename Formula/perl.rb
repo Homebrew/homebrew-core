@@ -4,6 +4,7 @@ class Perl < Formula
   url "http://www.cpan.org/src/5.0/perl-5.24.0.tar.xz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/perl/perl_5.24.0.orig.tar.xz"
   sha256 "a9a37c0860380ecd7b23aa06d61c20fc5bc6d95198029f3684c44a9d7e2952f2"
+  revision 1
 
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
