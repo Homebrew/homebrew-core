@@ -4,6 +4,7 @@ class Vim < Formula
   # *** Vim should be updated no more than once every 7 days ***
   url "https://github.com/vim/vim/archive/v7.4.1864.tar.gz"
   sha256 "81e6aceadf298f5fbbbe5347feb2ee73a1e556032becc8ea33a3f4579c01e794"
+  revision 1
 
   head "https://github.com/vim/vim.git"
 
