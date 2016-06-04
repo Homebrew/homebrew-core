@@ -105,9 +105,8 @@ class Algernon < Formula
       sleep(1)
 
       # Check that the server is responding correctly
-      output = `curl -sIm3 -o- http://localhost#{cport}`
-      assert_match /^Server: Algernon/, output
-      assert_equal 0, $?.exitstatus
+      output = shell_output("curl -sIm3 -o- http://localhost#{cport}")
+      assert_match(/^Server: Algernon/, output)
 
     ensure
       # Stop the server gracefully
