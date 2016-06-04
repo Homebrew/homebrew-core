@@ -30,6 +30,24 @@ class Traildb < Formula
   end
 
   test do
+    # Check that the library has been installed correctly
+    (testpath/"test.c").write <<-EOS.undent
+      #include <traildb.h>
+      #include <assert.h>
+      int main() {
+        const char *path = "test.tdb";
+        const char *fields[] = {};
+        tdb_cons* c1 = tdb_cons_init();
+        assert(tdb_cons_open(c1, path, fields, 0) == 0);
+        assert(tdb_cons_finalize(c1) == 0);
+        tdb* t1 = tdb_init();
+        assert(tdb_open(t1, path) == 0);
+      }
+    EOS
+    system ENV.cc, "test.c", "-L#{lib}", "-ltraildb", "-o", "test"
+    system "./test"
+
+    # Check that the provided tdb binary works correctly
     (testpath/"in.csv").write("1234 1234\n")
     system "#{bin}/tdb", "make", "-c", "-i", "in.csv", "--tdb-format", "pkg"
   end
