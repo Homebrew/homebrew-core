@@ -5,7 +5,6 @@ class Vasm < Formula
   version "1.7e"
   sha256 "2878c9c62bd7b33379111a66649f6de7f9267568946c097ffb7c08f0acd0df92"
 
-  # target options
   option "with-6502", "Enable 6502 CPU target (binary vasm6502_SYNTAX)"
   option "with-6800", "Enable Motorola 6800 CPU target (binary vasm6800_SYNTAX)"
   option "with-arm", "Enable ARM CPU target (binary vasmarm_SYNTAX)"
@@ -18,7 +17,6 @@ class Vasm < Formula
   option "with-x86", "Enable Intel x86 CPU target (binary vasmx86_SYNTAX)"
   option "with-z80", "Enable Zilog Z80 CPU target (binary vasmz80_SYNTAX)"
 
-  # syntax options
   option "with-std", "Enable standard syntax (binary vasmCPU_std) (default)"
   option "with-madmac", "Enable MadMac (Atari) syntax (binary vasmCPU_madmac)"
   option "with-mot", "Enable Motorola syntax (binary vasmCPU_mot)"
