@@ -5,9 +5,9 @@ class Gradle < Formula
   sha256 "0f665ec6a5a67865faf7ba0d825afb19c26705ea0597cec80dd191b0f2cbb664"
 
   devel do
-    url "https://downloads.gradle.org/distributions/gradle-2.14-rc-3-bin.zip"
-    sha256 "6b076728aef0adb281bcc31db7b4f83a061caaa36d61f00dc43e606a3de85578"
-    version "2.14-rc-3"
+    url "https://downloads.gradle.org/distributions/gradle-2.14-rc-4-bin.zip"
+    sha256 "471424c0998851572c8b0ac71807215fc717de1373dcb5b64889e0aa5d147d26"
+    version "2.14-rc-4"
   end
 
   bottle :unneeded
