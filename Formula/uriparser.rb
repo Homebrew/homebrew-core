@@ -1,9 +1,9 @@
 class Uriparser < Formula
   desc "URI parsing library (strictly RFC 3986 compliant)"
   homepage "http://uriparser.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/uriparser/Sources/0.8.2/uriparser-0.8.2.tar.bz2"
-  mirror "https://mirrors.kernel.org/debian/pool/main/u/uriparser/uriparser_0.8.2.orig.tar.bz2"
-  sha256 "6d6e66b0615f65e9e2391933dab7e45eca0947160f10c6b47bc50feda93e508f"
+  url "https://downloads.sourceforge.net/project/uriparser/Sources/0.8.4/uriparser-0.8.4.tar.bz2"
+  mirror "https://mirrors.kernel.org/debian/pool/main/u/uriparser/uriparser_0.8.4.orig.tar.bz2"
+  sha256 "ce7ccda4136974889231e8426a785e7578e66a6283009cfd13f1b24a5e657b23"
 
   head do
     url "git://git.code.sf.net/p/uriparser/git"
