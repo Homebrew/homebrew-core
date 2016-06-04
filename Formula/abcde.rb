@@ -1,25 +1,10 @@
 class Abcde < Formula
   desc "Better CD Encoder"
   homepage "https://abcde.einval.com"
-  revision 1
-
+  url "https://abcde.einval.com/download/abcde-2.7.2.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/a/abcde/abcde_2.7.2.orig.tar.gz"
+  sha256 "aa39881682ac46eb9fc199d1343b97bc56a322b41a5c57013acda31948bc53dd"
   head "https://git.einval.com/git/abcde.git"
-
-  stable do
-    url "https://abcde.einval.com/download/abcde-2.7.1.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/a/abcde/abcde_2.7.1.orig.tar.gz"
-    sha256 "3401e39785b20edee843d4d875b47d2b559f764681c482c4491a8c8ba605f250"
-
-    # Fix "Expansion of $REDIR quoted on MacOSX breaks cp" bug
-    # (https://abcde.einval.com/bugzilla/show_bug.cgi?id=22)
-    # Obsolete once a new version is released as upstream already merged this
-    # patch in c024365a846faae390f23c86f32235d6209e6edf
-    # (https://git.einval.com/cgi-bin/gitweb.cgi?p=abcde.git;a=commit;h=c024365a846faae390f23c86f32235d6209e6edf)
-    patch do
-      url "https://abcde.einval.com/bugzilla/attachment.cgi?id=12"
-      sha256 "4620dd5ef7ab32b6511782da85831661ccee292fadff1f58acc3b4992486af62"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
@@ -38,10 +23,10 @@ class Abcde < Formula
   depends_on "glyr" => :optional
 
   def install
-    system "make", "install", "prefix=#{prefix}", "etcdir=#{etc}"
+    system "make", "install", "prefix=#{prefix}", "sysconfdir=#{etc}"
   end
 
   test do
-    system "#{bin}/abcde", "-v"
+    assert_match version.to_s, shell_output("#{bin}/abcde -v")
   end
 end
