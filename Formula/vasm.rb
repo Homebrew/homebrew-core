@@ -10,7 +10,7 @@ class Vasm < Formula
   option "with-arm", "Enable ARM CPU target (binary vasmarm_SYNTAX)"
   option "with-c16x", "Enable c16x/st10 microcontroller target (binary vasmc16x_SYNTAX)"
   option "with-jagrisc", "Enable Atari Jaguar GPU/DSP RISC target (binary vasmjagrisc_SYNTAX)"
-  option "with-m68k", "Enable Motorola 68K CPU target (binary vasmm68k_SYNTAX)"
+  option "with-m68k", "Enable Motorola 68K CPU target (binary vasmm68k_SYNTAX) (default)"
   option "with-ppc", "Enable PowerPC CPU target (binary vasmppc_SYNTAX)"
   option "with-tr3200", "Enable Trillek TR3200 CPU target (binary vasmtr3200_SYNTAX)"
   option "with-vidcore", "Enable VideoCore IV CPU target (binary vasmvidcore_SYNTAX)"
@@ -23,7 +23,8 @@ class Vasm < Formula
   option "with-oldstyle", "Enable oldstyle (8-bit) syntax (binary vasmCPU_oldstyle)"
 
   def cpu_options
-    %w[6502 6800 arm c16x jagrisc m68k ppc tr3200 vidcore x86 z80].select { |c| build.with? c }
+    opts = %w[6502 6800 arm c16x jagrisc m68k ppc tr3200 vidcore x86 z80].select { |c| build.with? c }
+    opts.empty? ? ["m68k"] : opts
   end
 
   def syntax_options
@@ -32,20 +33,21 @@ class Vasm < Formula
   end
 
   def install
-    configs = 0
     cpu_options.each do |cpu|
       syntax_options.each do |syntax|
         prog = "vasm#{cpu}_#{syntax}"
         system "make", prog, "CPU="+cpu, "SYNTAX="+syntax
         bin.install prog
-        configs += 1
       end
     end
 
-    odie "Please specify at least one cpu with --with-<cpu>" unless configs > 0
-
     system "make", "vobjdump"
     bin.install "vobjdump"
+  end
+
+  def caveats
+    opts = %w[6502 6800 arm c16x jagrisc m68k ppc tr3200 vidcore x86 z80].select { |c| build.with? c }
+    "No target CPU was specified with --with-<cpu>, so #{cpu_options} has been chosen by default." if opts.empty?
   end
 
   test do
