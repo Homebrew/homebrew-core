@@ -87,12 +87,14 @@ class Elasticsearch < Formula
     (libexec/"plugins").mkdir
   end
 
-  def caveats; <<-EOS.undent
+  def caveats
+    plugin=(devel? || head?) ? "#{libexec}/elasticsearch-plugin" : "#{libexec}/plugin"
+    <<-EOS.undent
     Data:    #{var}/elasticsearch/#{cluster_name}/
     Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
     Plugins: #{libexec}/plugins/
     Config:  #{etc}/elasticsearch/
-    plugin script: in #{libexec}/bin
+    plugin script: #{plugin}
     EOS
   end
 
@@ -128,17 +130,17 @@ class Elasticsearch < Formula
   end
 
   test do
-    if FileTest.exist?("#{libexec}/bin/plugin")
-      system "#{libexec}/bin/plugin", "list"
-    else
+    if devel? || head?
       system "#{libexec}/bin/elasticsearch-plugin", "list"
+    else
+      system "#{libexec}/bin/plugin", "list"
     end
     pid = "#{testpath}/pid"
     begin
-      if FileTest.exist?("#{libexec}/bin/plugin")
-        system "#{bin}/elasticsearch", "-d", "-p", pid, "--path.data", testpath/"data"
-      else
+      if devel? || head?
         system "#{bin}/elasticsearch", "-d", "-p", pid, "-Epath.data=#{testpath}/data"
+      else
+        system "#{bin}/elasticsearch", "-d", "-p", pid, "--path.data", testpath/"data"
       end
       sleep 10
       system "curl", "-XGET", "localhost:9200/"
