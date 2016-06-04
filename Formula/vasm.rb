@@ -19,15 +19,24 @@ class Vasm < Formula
   option "with-z80", "Enable Zilog Z80 CPU target (binary vasmz80_SYNTAX)"
 
   # syntax options
-  option "with-std", "Enable standard syntax (binary vasmCPU_std)"
+  option "with-std", "Enable standard syntax (binary vasmCPU_std) (default)"
   option "with-madmac", "Enable MadMac (Atari) syntax (binary vasmCPU_madmac)"
   option "with-mot", "Enable Motorola syntax (binary vasmCPU_mot)"
   option "with-oldstyle", "Enable oldstyle (8-bit) syntax (binary vasmCPU_oldstyle)"
 
+  def cpu_options
+    %w[6502 6800 arm c16x jagrisc m68k ppc tr3200 vidcore x86 z80].select { |c| build.with? c }
+  end
+
+  def syntax_options
+    opts = %w[std madmac mot oldstyle].select { |s| build.with? s }
+    opts.empty? ? ["std"] : opts
+  end
+
   def install
     configs = 0
-    %w[6502 6800 arm c16x jagrisc m68k ppc tr3200 vidcore x86 z80].select { |c| build.with? c }.each do |cpu|
-      %w[std madmac mot oldstyle].select { |s| build.with? s }.each do |syntax|
+    cpu_options.each do |cpu|
+      syntax_options.each do |syntax|
         prog = "vasm#{cpu}_#{syntax}"
         system "make", prog, "CPU="+cpu, "SYNTAX="+syntax
         bin.install prog
@@ -35,7 +44,7 @@ class Vasm < Formula
       end
     end
 
-    odie "Please specify at least one cpu with --with-<cpu> and at least one syntax with --with-<syntax>" unless configs > 0
+    odie "Please specify at least one cpu with --with-<cpu>" unless configs > 0
 
     system "make", "vobjdump"
     bin.install "vobjdump"
@@ -47,8 +56,8 @@ class Vasm < Formula
     (testpath/"mot.asm").write 'foo: dc.b "bar"'
     (testpath/"oldstyle.asm").write 'foo: ascii "bar"'
 
-    %w[6502 6800 arm c16x jagrisc m68k ppc tr3200 vidcore x86 z80].select { |c| build.with? c }.each do |cpu|
-      %w[std madmac mot oldstyle].select { |s| build.with? s }.each do |syntax|
+    cpu_options.each do |cpu|
+      syntax_options.each do |syntax|
         prog = "vasm#{cpu}_#{syntax}"
         system bin/prog, "-o", "vasm.out", "#{syntax}.asm"
         system "grep", "62 61 72", "vasm.out"
