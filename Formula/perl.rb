@@ -25,6 +25,8 @@ class Perl < Formula
       -Dprivlib=#{lib}/perl5/#{version}
       -Dsitelib=#{lib}/perl5/site_perl/#{version}
       -Dotherlibdirs=#{HOMEBREW_PREFIX}/lib/perl5/site_perl/#{version}
+      -Dperlpath=#{opt_bin}/perl
+      -Dstartperl=#!#{opt_bin}/perl
       -Dman1dir=#{man1}
       -Dman3dir=#{man3}
       -Duseshrplib
