@@ -19,7 +19,6 @@ class Pandoc < Formula
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
-  depends_on "gmp"
 
   def install
     args = []
