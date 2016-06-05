@@ -3,6 +3,7 @@ class Nikto < Formula
   homepage "https://cirt.net/nikto2"
   url "https://cirt.net/nikto/nikto-2.1.5.tar.bz2"
   sha256 "65b99c1fdec14d1d5e7cbc964f70fce162cbec50aee878e1500e2d22df079b34"
+  head "https://github.com/sullo/nikto.git"
 
   bottle :unneeded
 
