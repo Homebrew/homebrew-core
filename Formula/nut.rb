@@ -1,8 +1,8 @@
 class Nut < Formula
   desc "Network UPS Tools: Support for various power devices"
   homepage "http://www.networkupstools.org"
-  url "http://www.networkupstools.org/source/2.7/nut-2.7.3.tar.gz"
-  sha256 "ff44d95d06a51559a0a018eef7f8d17911c1002b6352a7d7580ff75acb12126b"
+  url "http://www.networkupstools.org/source/2.7/nut-2.7.4.tar.gz"
+  sha256 "980e82918c52d364605c0703a5dcf01f74ad2ef06e3d365949e43b7d406d25a7"
 
   bottle do
     revision 1
@@ -47,16 +47,17 @@ class Nut < Formula
       system "./autogen.sh"
     end
 
-    args = ["--disable-dependency-tracking",
-            "--prefix=#{prefix}",
-            "--localstatedir=#{var}",
-            "--without-doc",
-            "--without-avahi",
-            "--with-macosx_ups",
-            "--with-openssl",
-            "--without-nss",
-            "--without-wrap"
-           ]
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --localstatedir=#{var}
+      --without-doc
+      --without-avahi
+      --with-macosx_ups
+      --with-openssl
+      --without-nss
+      --without-wrap
+    ]
     args << (build.with?("serial") ? "--with-serial" : "--without-serial")
     args << (build.with?("libusb-compat") ? "--with-usb" : "--without-usb")
     args << (build.with?("dev") ? "--with-dev" : "--without-dev")
