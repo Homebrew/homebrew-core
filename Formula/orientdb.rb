@@ -24,14 +24,14 @@ class Orientdb < Formula
     inreplace %W[bin/orientdb.sh bin/console.sh bin/gremlin.sh],
       '"YOUR_ORIENTDB_INSTALLATION_PATH"', libexec
 
-    inreplace "#{libexec}/config/orientdb-server-log.properties", "../log", "#{var}/log"
-
     chmod 0755, Dir["bin/*"]
     libexec.install Dir["*"]
 
-    mkpath "#{var}/log"
-    touch "#{var}/log/orientdb.err"
-    touch "#{var}/log/orientdb.log"
+    mkpath "#{var}/log/orientdb"
+    touch "#{var}/log/orientdb/orientdb.err"
+    touch "#{var}/log/orientdb/orientdb.log"
+    inreplace "#{libexec}/config/orientdb-server-log.properties", "../log", "#{var}/log/orientdb"
+    inreplace "#{libexec}/bin/orientdb.sh", "../log", "#{var}/log/orientdb"
 
     bin.install_symlink "#{libexec}/bin/orientdb.sh" => "orientdb"
     bin.install_symlink "#{libexec}/bin/console.sh" => "orientdb-console"
