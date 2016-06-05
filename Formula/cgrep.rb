@@ -10,9 +10,9 @@ class Cgrep < Formula
   head "https://github.com/awgn/cgrep.git"
 
   bottle do
-    sha256 "dabd94ad8b75860ed63eb6ed8621b84f91c1c61935d414d38b903c6ac23a7acf" => :el_capitan
-    sha256 "d0e7c38a6d5f18a367f6447fa7e82754b16948364a0ffe10c3fda499bb9d5b89" => :yosemite
-    sha256 "094b58255baa7afc40efcfe3e12c21b5fa24a6624aec4e907162b9bcdd6fc1cd" => :mavericks
+    sha256 "829332aa6bde15863c51de6f44c4466c7d789871ed5c98901820c5ef453e2c36" => :el_capitan
+    sha256 "b0f75aec38e853fe99ce8ac058cfa2501a9b5581d4e241065ec58627687d5c6e" => :yosemite
+    sha256 "bbf36b6488a106bd40efba61796d82c83b3b8d8ed930ad091f22ce32dab57c43" => :mavericks
   end
 
   depends_on "ghc" => :build
