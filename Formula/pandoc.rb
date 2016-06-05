@@ -5,8 +5,8 @@ class Pandoc < Formula
 
   desc "Swiss-army knife of markup format conversion"
   homepage "http://pandoc.org"
-  url "https://hackage.haskell.org/package/pandoc-1.17.0.3/pandoc-1.17.0.3.tar.gz"
-  sha256 "7b14e1bcb78a7e2ad1e585f127be7efd20225c9f9b5131d507b376b62cd77e32"
+  url "https://hackage.haskell.org/package/pandoc-1.17.1/pandoc-1.17.1.tar.gz"
+  sha256 "5978baaf664ce254b508108a6be9d5a11a2c2ac61462ae85286be2ecdb010c86"
 
   head "https://github.com/jgm/pandoc.git"
 
@@ -22,11 +22,6 @@ class Pandoc < Formula
   depends_on "gmp"
 
   def install
-    # GHC 8 compat
-    # Fixes "cabal: Could not resolve dependencies"
-    # Reported 26 May 2016: https://github.com/jgm/pandoc/issues/2948
-    (buildpath/"cabal.config").write("allow-newer: base,time\n")
-
     args = []
     args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
     install_cabal_package *args
