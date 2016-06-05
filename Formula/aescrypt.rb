@@ -20,8 +20,8 @@ class Aescrypt < Formula
   test do
     (testpath/"key").write "kk=12345678901234567890123456789abc0"
     original_text = "hello"
-    cipher_text = pipe_output("echo #{originalText} | #{bin}/aescrypt -k #{testpath}/key -s 128").chomp
-    deciphered_text = pipe_output("echo #{originalText} | #{bin}/aescrypt -k #{testpath}/key -s 128 | #{bin}/aesget -k #{testpath}/key -s 128").chomp
+    cipher_text = pipe_output("echo #{original_text} | #{bin}/aescrypt -k #{testpath}/key -s 128").chomp
+    deciphered_text = pipe_output("echo #{original_text} | #{bin}/aescrypt -k #{testpath}/key -s 128 | #{bin}/aesget -k #{testpath}/key -s 128").chomp
     assert_not_equal original_text, cipher_text
     assert_equal original_text, deciphered_text
   end
