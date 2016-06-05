@@ -127,31 +127,30 @@ class Llvm < Formula
 
   keg_only :provided_by_osx
 
-  # Options
   option :universal
   option "without-clang", "Do not build the Clang compiler and support libraries"
-  option "with-clang-extra-tools", "Build extra tools for Clang"
-  option "with-compiler-rt", "Build Clang runtime support libraries for code sanitizers, builtins, and profiling"
+  option "without-clang-extra-tools", "Do not build extra tools for Clang"
+  option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
   option "without-libcxx", "Do not build the libc++ standard library"
   option "with-libcxxabi", "Build the libc++abi standard library"
   option "with-libunwind", "Build the libunwind library"
   option "with-lld", "Build LLD linker"
   option "with-lldb", "Build LLDB debugger"
+  option "with-openmp", "Build additional OpenMP Runtime Libraries"
   option "with-python", "Build Python bindings against Homebrew Python"
-  option "without-rtti", "Do not build C++ RTTI"
-  option "with-utils", "Install utility binaries"
-  option "with-polly", "Build with the experimental Polly optimizer"
+  option "without-rtti", "Build without C++ RTTI"
+  option "without-utils", "Do not install utility binaries"
+  option "without-polly", "Build without Polly optimizer"
   option "with-test", "Build LLVM unit tests"
-  option "with-shared-libs", "Build all libs as shared instead of static"
-  option "with-libffi", "Use libffi to call external functions from the interpreter"
+  option "with-shared-libs", "Build all libs as shared instead of static (for developers)"
+  option "without-libffi", "Use libffi to call external functions from the interpreter"
 
-  # Dependencies
-  depends_on "libffi"   => :optional # llvm.org/docs/GettingStarted.grml#requirements
-  depends_on "doxygen"  => :optional # for C++ API reference (lldb)
+  depends_on "libffi" => :recommended # llvm.org/docs/GettingStarted.grml#requirements
+  # depends_on "doxygen"  => :optional # for C++ API reference (lldb)
+  # commenting this out for now to avoid circular dependency with doxygen
   depends_on "graphviz" => :optional # for the 'dot' tool (lldb)
-  depends_on "ocaml"    => :optional
+  depends_on "ocaml" => :optional
 
-  # Python
   if build.with? "python"
     depends_on "python"
   elsif MacOS.version <= :snow_leopard
@@ -175,6 +174,11 @@ class Llvm < Formula
     fails_with :gcc => n
   end
 
+  def
+  build_libcxx
+    (build.with?("libcxx") || build.with?("clang") && !MacOS::CLT.installed?)
+  end
+
   def install
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
@@ -186,10 +190,11 @@ class Llvm < Formula
       (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     end
 
-    (buildpath/"projects/libcxx").install resource("libcxx") if build.with? "libcxx" || (build.with? "clang" && !MacOS::CLT.installed?)
+    (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx
     (buildpath/"tools/lld").install resource("lld") if build.with? "lld"
     (buildpath/"projects/libcxxabi").install resource("libcxxabi") if build.with? "libcxxabi"
     (buildpath/"projects/libunwind").install resource("libunwind") if build.with? "libunwind"
+    (buildpath/"projects/openmp").install resource("openmp") if build.with? "openmp"
 
     if build.with? "lldb"
       odie "--with-lldb requires --with-clang" if build.without? "clang"
@@ -226,7 +231,7 @@ class Llvm < Formula
     args = %w[
       -DLLVM_OPTIMIZED_TABLEGEN=On
       -DLLVM_BUILD_LLVM_DYLIB=On
-      -DLLVM_TARGETS_TO_BUILD=X86
+      -DLLVM_TARGETS_TO_BUILD=AMDGPU;ARM;NVPTX;X86
     ]
 
     args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=On" if build.with? "compiler-rt"
@@ -236,14 +241,21 @@ class Llvm < Formula
     end
     args << "-DLLVM_ENABLE_RTTI=On" if build.with? "rtti"
     args << "-DLLVM_INSTALL_UTILS=On" if build.with? "utils"
-    args << "-DLLVM_ENABLE_LIBCXX=On" if build.with? "libcxx" || (build.with? "clang" && !MacOS::CLT.installed?)
+    if build_libcxx
+      args << "-DLLVM_ENABLE_LIBCXX=On"
+    end
     args << "-DLLVM_ENABLE_LIBCXXABI=On" if build.with? "libcxxabi"
-    args << "-DLLVM_ENABLE_DOXYGEN=On" if build.with? "doxygen"
+   # args << "-DLLVM_ENABLE_DOXYGEN=On" if build.with? "doxygen"
     args << "-DBUILD_SHARED_LIBS=On" if build.with? "shared-libs" # for developers
+
+    if build.with? "openmp"
+      args << "-DLIBOMP_ENABLE_SHARED=On" if build.with? "shared-libs"
+      args << "-DLIBOMP_ARCH=x86_64"
+    end
 
     if build.with? "libffi"
       args << "-DLLVM_ENABLE_FFI=On"
-      args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].lib}/libffi-#{Formula["libffi"].version}/include" # upstream bug?
+      args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].lib}/libffi-#{Formula["libffi"].version}/include"
       args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].lib}"
     end
 
@@ -284,7 +296,7 @@ class Llvm < Formula
   def caveats
     caveat_message = <<-EOS.undent
       LLVM executables are installed in #{opt_bin}.
-    Extra tools are installed in #{opt_share}/llvm.
+      Extra tools are installed in #{opt_pkgshare}.
     EOS
 
     if build.with? "libcxx"
@@ -312,17 +324,17 @@ class Llvm < Formula
         }
       EOS
 
-      ohai "#{ENV.cflags}"
+      # test xcode
+      # test clt
+      # set libcxx
 
       if MacOS::CLT.installed?
-        # Test with CLT
         system "#{bin}/clang++", "-v", "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "test"
         system "./test"
       end
 
-      if build.with? "libcxx" || ! MacOS::CLT.installed?
-        # Test with libcxx
-        system "#{bin}/clang++", "-v", "-std=c++11", "-stdlib=libc++","-I#{include}", "-L#{lib}", "test.cpp", "-o", "test"
+      if build_libcxx
+        system "#{bin}/clang++", "-v", "-std=c++11", "-stdlib=libc++", "-nostdinc++", "-I#{include}/c++/v1", "-L#{lib}", "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
         system "./test"
       end
 

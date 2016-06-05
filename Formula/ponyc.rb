@@ -3,7 +3,7 @@ class Ponyc < Formula
   homepage "http://www.ponylang.org"
   url "https://github.com/ponylang/ponyc.git",
     :revision => "aafebac938273d4786c02dfb2ba9ec7a164675e7"
-  version "0.2.2-candidate"
+  version "0.2.2-alpha"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,7 +19,7 @@ class Ponyc < Formula
 
   def install
     ENV.cxx11
-    ENV["LLVM_CONFIG"]="#{Formula["llvm"].bin}/llvm-config"
+    ENV["LLVM_CONFIG"]="#{Formula["llvm"].opt_bin}/llvm-config"
     system "make", "config=release", "destdir=#{prefix}", "install", "verbose=1"
   end
 
@@ -33,6 +33,5 @@ class Ponyc < Formula
     EOS
     system "#{bin}/ponyc", "test"
     assert_equal "Hello World!", shell_output("./test1").strip
-
   end
 end
