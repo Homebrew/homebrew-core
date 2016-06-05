@@ -3,8 +3,8 @@ require "language/go"
 class PathExtractor < Formula
   desc "unix filter which outputs the filepaths found in stdin"
   homepage "https://github.com/edi9999/path-extractor"
-  url "https://github.com/edi9999/path-extractor/archive/v0.1.0.tar.gz"
-  sha256 "33fe041196a36161a67cddb20405ad9d53c9b6fba4f30b8e6bc6c3e1ce0ac1c8"
+  url "https://github.com/edi9999/path-extractor/archive/v0.2.0.tar.gz"
+  sha256 "7d6c7463e833305e6d27c63727fec1029651bfe8bca5e8d23ac7db920c2066e7"
 
   head "https://github.com/edi9999/path-extractor.git"
 
