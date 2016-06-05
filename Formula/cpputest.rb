@@ -7,10 +7,9 @@ class Cpputest < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5ad7b1baccaa82cc4774b77447e5cef3c71ddc039a37a2745021ad4a97a67eb2" => :el_capitan
-    sha256 "0a423cd7875cf7e7e1d650b47fc81b2f609f7e4306e63939d8a8f73949bd38b7" => :yosemite
-    sha256 "e20d81ca7436928b79328b32c19158def2e31da83b698531c71c6503cf6ff626" => :mavericks
-    sha256 "dbde383c51725ef3fb71480f59627e64158c5639cb827e76d7c944b0d354fa9b" => :mountain_lion
+    sha256 "8c0b631188acc7fc0e6e5a8a2502871e4856990786fcb1268b32da7058304297" => :el_capitan
+    sha256 "415557e97a8e876764595006b205bd9c61fce448558d22863306ca6b22a30e12" => :yosemite
+    sha256 "12d974e118f21b0858c74db544604b7c984d72610a74883ffed12639965d7b99" => :mavericks
   end
 
   depends_on "cmake" => :build
