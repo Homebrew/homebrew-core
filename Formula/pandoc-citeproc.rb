@@ -5,8 +5,8 @@ class PandocCiteproc < Formula
 
   desc "Library and executable for using citeproc with pandoc"
   homepage "https://github.com/jgm/pandoc-citeproc"
-  url "https://hackage.haskell.org/package/pandoc-citeproc-0.9.1.1/pandoc-citeproc-0.9.1.1.tar.gz"
-  sha256 "15c89a9aa6bce4efd6b728ea16151eb6390cad0495eb82c50cbac490591c8f86"
+  url "https://hackage.haskell.org/package/pandoc-citeproc-0.10/pandoc-citeproc-0.10.tar.gz"
+  sha256 "2465117b5e922d8c93f6ebf3b99d76c90d31573d01bd9935f5a1cc7be1cdb702"
 
   bottle do
     revision 1
@@ -20,11 +20,6 @@ class PandocCiteproc < Formula
   depends_on "pandoc"
 
   def install
-    # GHC 8 compat
-    # Fixes "cabal: Could not resolve dependencies"
-    # Reported 26 May 2016: https://github.com/jgm/pandoc-citeproc/issues/235
-    (buildpath/"cabal.config").write("allow-newer: base,data-default,time\n")
-
     args = []
     args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
     install_cabal_package *args
