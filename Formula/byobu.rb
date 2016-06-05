@@ -1,8 +1,8 @@
 class Byobu < Formula
   desc "Text-based window manager and terminal multiplexer"
   homepage "http://byobu.co"
-  url "https://launchpad.net/byobu/trunk/5.106/+download/byobu_5.106.orig.tar.gz"
-  sha256 "e22bf8e680db322d21a9df4114620622f340c5fa0e3149698df39598c4779148"
+  url "https://launchpad.net/byobu/trunk/5.108/+download/byobu_5.108.orig.tar.gz"
+  sha256 "a8ad1e99b32dbafcd1cb6a58b6541ea177850567d504218af08ffac79a01e39e"
 
   bottle do
     cellar :any_skip_relocation
