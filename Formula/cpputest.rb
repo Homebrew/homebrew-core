@@ -1,8 +1,9 @@
 class Cpputest < Formula
   desc "C /C++ based unit xUnit test framework"
   homepage "http://www.cpputest.org/"
-  url "https://github.com/cpputest/cpputest/releases/download/3.7.2/cpputest-3.7.2.tar.gz"
-  sha256 "8c5d00be3a08ea580e51e5cfe26f05d05c6bf546206ff67dbb3757d48c109653"
+  url "https://github.com/cpputest/cpputest/releases/download/v3.8/cpputest-3.8.tar.gz"
+  sha256 "c81dccc5a1bfc7fc6511590c0a61def5f78e3fb19cb8e1f889d8d3395a476456"
+  head "https://github.com/cpputest/cpputest.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,16 +13,24 @@ class Cpputest < Formula
     sha256 "dbde383c51725ef3fb71480f59627e64158c5639cb827e76d7c944b0d354fa9b" => :mountain_lion
   end
 
-  head do
-    url "https://github.com/cpputest/cpputest.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "cmake" => :build
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--prefix=#{prefix}"
-    system "make", "install"
+    cd "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include "CppUTest/CommandLineTestRunner.h"
+      int main(int ac, char** av)
+      {
+        return CommandLineTestRunner::RunAllTests(ac, av);
+      }
+    EOS
+    system ENV.cxx, "test.cpp", "-lCppUTest", "-o", "test"
+    assert_match /OK \(0 tests/, shell_output("./test")
   end
 end
