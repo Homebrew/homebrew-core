@@ -146,8 +146,6 @@ class Llvm < Formula
   option "without-libffi", "Use libffi to call external functions from the interpreter"
 
   depends_on "libffi" => :recommended # llvm.org/docs/GettingStarted.grml#requirements
-  # depends_on "doxygen"  => :optional # for C++ API reference (lldb)
-  # commenting this out for now to avoid circular dependency with doxygen
   depends_on "graphviz" => :optional # for the 'dot' tool (lldb)
   depends_on "ocaml" => :optional
 
