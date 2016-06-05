@@ -4,9 +4,8 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-    :tag => "v1.1.2",
-    :revision => "78b3f826a6124dc20bb94f1c2d9b0c0bac26fef7"
-  revision 1
+    :tag => "v1.2.0",
+    :revision => "3a4fcd46356db83f45e89d2a8d770f034e7b9cf5"
 
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
@@ -27,9 +26,9 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt.tar.gz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.1.2/docker/prebuilt.tar.gz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.2.0/docker/prebuilt.tar.gz",
       :using => :nounzip
-    sha256 "ad692bf548f3f55967c86b71b3aeaa9cc82cd156554a546753b0829a36219b98"
+    sha256 "f7b669d5120ffdccb97b66470a3297a98acf8b8e9d621ddc000a8fba84f272ce"
   end
 
   def install
@@ -63,7 +62,7 @@ class GitlabCiMultiRunner < Formula
   end
 
   test do
-    assert_match "gitlab-ci-multi-runner version #{version}", shell_output("#{bin}/gitlab-ci-multi-runner --version")
-    assert_match "gitlab-runner version #{version}", shell_output("#{bin}/gitlab-runner --version")
+    assert_match "Version:      #{version}", shell_output("#{bin}/gitlab-ci-multi-runner --version")
+    assert_match "Version:      #{version}", shell_output("#{bin}/gitlab-runner --version")
   end
 end
