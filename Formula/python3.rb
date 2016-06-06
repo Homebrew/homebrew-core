@@ -24,6 +24,11 @@ class Python3 < Formula
     sha256 "228380b8fb1ed6f496c6b071443ecdf98b1130aa840a4e2bd9ccae3dc7bb2713" => :mavericks
   end
 
+  devel do
+    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0a1.tar.xz"
+    sha256 "7528a7c78ef6f319fec4e3ab40aca22e398e40716772f6030b7f0ea97d3d273f"
+  end
+
   option :universal
   option "with-tcl-tk", "Use Homebrew's Tk instead of OS X Tk (has optional Cocoa and threads support)"
   option "with-quicktest", "Run `make quicktest` after the build"
