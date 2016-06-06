@@ -80,6 +80,7 @@
   "gant": "homebrew/boneyard",
   "gasnet": "homebrew/boneyard",
   "gcsfuse": "homebrew/fuse",
+  "gdal-grass": "homebrew/boneyard",
   "geda-gaf": "homebrew/science",
   "geeqie": "homebrew/gui",
   "geomview": "homebrew/x11",
