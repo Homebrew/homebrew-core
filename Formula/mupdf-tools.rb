@@ -23,6 +23,10 @@ class MupdfTools < Formula
            "HAVE_X11=no",
            "CC=#{ENV.cc}",
            "prefix=#{prefix}"
+
+    # Symlink `mutool` as `mudraw` (a popular shortcut for `mutool draw`).
+    bin.install_symlink bin/"mutool" => "mudraw"
+    man1.install_symlink man1/"mutool.1" => "mudraw.1"
   end
 
   test do
