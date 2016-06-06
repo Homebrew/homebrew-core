@@ -7,9 +7,9 @@ class Binwalk < Formula
   head "https://github.com/devttys0/binwalk.git"
 
   bottle do
-    sha256 "7c45d823c2fc4eae924ebda88a59fa1ea793bbc43346816a48da9f87931a13ec" => :el_capitan
-    sha256 "764a4275eb3ffa1317cdb9d38a9af75490717fb5eb0efd84b3968a11443a1a1e" => :yosemite
-    sha256 "8b5210a335b36d32040061b611ad122828877a7df8138dc544c566b16542fcee" => :mavericks
+    sha256 "7d923d9f5f12dad8e3a082b79e767d0bfb2178b3ae379a8f4451d231afa30923" => :el_capitan
+    sha256 "2f3890c8e50521c7987f963bc7a600c95477288d0a5f2a4edd696d4b9b461cfe" => :yosemite
+    sha256 "70c17ab802c7b2f7f01683aee7e787c8a20500d2f477b573228fc3a047a5a07c" => :mavericks
   end
 
   option "with-matplotlib", "Check for presence of matplotlib, which is required for entropy graphing support"
