@@ -1,13 +1,13 @@
 class Grass < Formula
   desc "Geographic Resources Analysis Support System"
   homepage "https://grass.osgeo.org/"
-  revision 1
 
   stable do
-    url "https://grass.osgeo.org/grass64/source/grass-6.4.4.tar.gz"
-    sha256 "5ddba27b4e5495f602ee5249a07e287f342dd8e1422ea5d490c04311c731d274"
+    url "https://grass.osgeo.org/grass64/source/grass-6.4.5.tar.gz"
+    sha256 "f501da62807eb08efcb85820859fe5ade9bc392e20641b606273c956bb678f3e"
 
-    # Patches that files are not installed outside of the prefix.
+    # Patches to keep files from being installed outside of the prefix.
+    # Also, quick patch for compiling with clang (as yet, unreported issue)
     patch :DATA
   end
 
@@ -29,7 +29,6 @@ class Grass < Formula
   option "without-gui", "Build without WxPython interface. Command line tools still available."
 
   depends_on :macos => :lion
-  depends_on "gcc" if MacOS.version >= :mountain_lion
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "readline"
@@ -38,20 +37,14 @@ class Grass < Formula
   depends_on "unixodbc"
   depends_on "fftw"
   depends_on "cairo"
-  depends_on "freetype"
   depends_on :x11 # needs to find at least X11/include/GL/gl.h
-  depends_on "wxpython" => :recommended
+  depends_on "wxpython" if build.with? "gui"
   depends_on :postgresql => :optional
   depends_on :mysql => :optional
 
-  fails_with :clang do
-    cause "Multiple build failures while compiling GRASS tools."
-  end
-
   def headless?
-    # The GRASS GUI is based on WxPython. Unfortunately, Lion does not include
-    # this module so we have to drop it.
-    build.without?("gui") || MacOS.version == :lion
+    # The GRASS GUI is based on WxPython.
+    build.without? "gui"
   end
 
   def install
@@ -70,6 +63,7 @@ class Grass < Formula
       "--with-sqlite",
       "--with-odbc",
       "--with-geos=#{Formula["geos"].opt_bin}/geos-config",
+      "--with-proj-share=#{Formula["proj"].opt_share}/proj",
       "--with-png",
       "--with-readline-includes=#{readline}/include",
       "--with-readline-libs=#{readline}/lib",
@@ -78,7 +72,8 @@ class Grass < Formula
       "--with-nls-libs=#{gettext}/lib",
       "--with-nls",
       "--with-freetype",
-      "--without-tcltk" # Disabled due to compatibility issues with OS X Tcl/Tk
+      "--without-tcltk", # Disabled due to compatibility issues with OS X Tcl/Tk
+      "--with-includes=#{gettext}/include"
     ]
 
     unless MacOS::CLT.installed?
@@ -87,16 +82,13 @@ class Grass < Formula
       args << "--with-opengl-includes=#{MacOS.sdk_path}/System/Library/Frameworks/OpenGL.framework/Headers"
     end
 
-    if headless? || build.without?("wxmac")
+    if headless?
       args << "--without-wxwidgets"
     else
-      args << "--with-wxwidgets=#{Formula["wxmac"].opt_bin}/wx-config"
-    end
-
-    if build.with? "wxpython"
       python_site_packages = HOMEBREW_PREFIX/"lib/python2.7/site-packages"
       default_wx_path = File.read(python_site_packages/"wx.pth").strip
       ENV.prepend_path "PYTHONPATH", python_site_packages/default_wx_path
+      args << "--with-wxwidgets=#{Formula["wxmac"].opt_bin}/wx-config"
     end
 
     args << "--enable-64bit" if MacOS.prefer_64_bit?
@@ -117,6 +109,12 @@ class Grass < Formula
       args << "--with-mysql"
     end
 
+    if MacOS.version >= :el_capitan
+      # handle stripping of DYLD_* env vars by SIP when passed to utilities;
+      # HOME env var is .brew_home during build, so it is still checked for lib
+      ln_sf "#{buildpath}/dist.x86_64-apple-darwin#{`uname -r`.strip}/lib", ".brew_home/lib"
+    end
+
     system "./configure", "--prefix=#{prefix}", *args
     # make and make install must be separate steps.
     system "make", "GDAL_DYNAMIC="
@@ -127,34 +125,18 @@ class Grass < Formula
   def caveats
     if headless?
       <<-EOS.undent
-        This build of GRASS has been compiled without the WxPython GUI. This is
-        done by default on Lion because there is no stable build of WxPython
-        available to compile against.
+        This build of GRASS has been compiled without the WxPython GUI.
 
         The command line tools remain fully functional.
         EOS
-    elsif MacOS.version < :lion
-      # On Lion or above, we are very happy with our brewed wxwidgets.
-      <<-EOS.undent
-        GRASS is currently in a transition period with respect to GUI support.
-        The old Tcl/Tk GUI cannot be built using the version of Tcl/Tk provided
-        by OS X. This has the unfortunate consquence of disabling the NVIZ
-        visualization system. A keg-only Tcl/Tk brew or some deep hackery of
-        the GRASS source may be possible ways to get around this.
-
-        Tcl/Tk will eventually be deprecated in GRASS 7 and this version has
-        been built to support the newer wxPython based GUI. However, there is
-        a problem as wxWidgets does not compile as a 64 bit library on OS X
-        which affects Snow Leopard users. In order to remedy this, the GRASS
-        startup script:
-
-          #{prefix}/grass-#{version}/etc/Init.sh
-
-        has been modified to use the OS X system Python and to start it in 32 bit mode.
-        EOS
     end
   end
+
+  test do
+    system "#{bin}/grass64", "--version"
+  end
 end
+
 
 __END__
 Remove two lines of the Makefile that try to install stuff to
@@ -174,3 +156,49 @@ index f1edea6..be404b0 100644
 
 
  install-strip: FORCE
+diff --git a/raster/r.terraflow/direction.cc b/raster/r.terraflow/direction.cc
+index 7744518..778c225 100644
+--- a/raster/r.terraflow/direction.cc
++++ b/raster/r.terraflow/direction.cc
+@@ -53,11 +53,11 @@ encodeDirectionMFD(const genericWindow<elevation_type>& elevwin,
+   
+   if(!is_nodata(elevwin.get())) {
+     dir = 0;
+-    if (elevwin.get(5) < elevwin.get() && !is_void(elevwin.get(5))) dir |= 1;
+-    if (elevwin.get(3) < elevwin.get() && !is_void(elevwin.get(3))) dir |= 16;
++    if (elevwin.get(5) < elevwin.get() && !is_voided(elevwin.get(5))) dir |= 1;
++    if (elevwin.get(3) < elevwin.get() && !is_voided(elevwin.get(3))) dir |= 16;
+     for(int i=0; i<3; i++) {
+-      if(elevwin.get(i) < elevwin.get() && !is_void(elevwin.get(i))) dir |= 32<<i;
+-      if(elevwin.get(i+6) < elevwin.get() && !is_void(elevwin.get(6+i))) dir |= 8>>i;
++      if(elevwin.get(i) < elevwin.get() && !is_voided(elevwin.get(i))) dir |= 32<<i;
++      if(elevwin.get(i+6) < elevwin.get() && !is_voided(elevwin.get(6+i))) dir |= 8>>i;
+     }
+   }
+   
+diff --git a/raster/r.terraflow/nodata.cc b/raster/r.terraflow/nodata.cc
+index 159c66d..610ca55 100644
+--- a/raster/r.terraflow/nodata.cc
++++ b/raster/r.terraflow/nodata.cc
+@@ -73,7 +73,7 @@ is_nodata(float x) {
+ 
+ 
+ int
+-is_void(elevation_type el) {
++is_voided(elevation_type el) {
+   return (el == nodataType::ELEVATION_NODATA);
+ }
+ 
+diff --git a/raster/r.terraflow/nodata.h b/raster/r.terraflow/nodata.h
+index 1e843c5..ac56504 100644
+--- a/raster/r.terraflow/nodata.h
++++ b/raster/r.terraflow/nodata.h
+@@ -37,7 +37,7 @@
+ int is_nodata(elevation_type el);
+ int is_nodata(int x);
+ int is_nodata(float x);
+-int is_void(elevation_type el);
++int is_voided(elevation_type el);
+ 
+ 
+ class nodataType : public ijBaseType {
