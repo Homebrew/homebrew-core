@@ -97,6 +97,7 @@
   "gptfdisk": "homebrew/boneyard",
   "grace": "homebrew/x11",
   "grads": "homebrew/binary",
+  "grass": "homebrew/geospatial",
   "graylog2-server": "homebrew/boneyard",
   "gromacs": "homebrew/science",
   "gsmartcontrol": "homebrew/gui",

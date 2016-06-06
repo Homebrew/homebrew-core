@@ -3,6 +3,7 @@ class AbiComplianceChecker < Formula
   homepage "http://ispras.linuxbase.org/index.php/ABI_compliance_checker"
   url "https://github.com/lvc/abi-compliance-checker/archive/1.99.9.tar.gz"
   sha256 "52b0daca89fcda73cde126497c8015ca823417074ba02fcff68b7acf2f45e516"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -25,7 +26,7 @@ class AbiComplianceChecker < Formula
       <headers>#{Formula["ctags"].include}</headers>
       <libs>#{Formula["ctags"].lib}</libs>
     EOS
-    gcc_suffix = Formula["gcc"].version.to_s.slice(/\d\.\d+/)
+    gcc_suffix = Formula["gcc"].version.to_s.slice(/\d/)
     system bin/"abi-compliance-checker", "-cross-gcc", "gcc-" + gcc_suffix,
                                          "-lib", "ctags",
                                          "-old", testpath/"test.xml",
