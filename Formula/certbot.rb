@@ -1,8 +1,8 @@
 class Certbot < Formula
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.7.0.tar.gz"
-  sha256 "76e08e7bf0e1d44ea5d174efb9ac71597da9bb98faf8d244ff2ab5ce8bb02c87"
+  url "https://github.com/certbot/certbot/archive/v0.8.0.tar.gz"
+  sha256 "b9f2c7b2d2867769abda8464575715899bb1f6993dbcd21f94e2a686f124357d"
 
   bottle do
     cellar :any
@@ -37,8 +37,8 @@ class Certbot < Formula
   end
 
   resource "cryptography" do
-    url "https://pypi.python.org/packages/04/da/35f9a1d34dab5d777f65fb87731288f338ab0ae46a525ffdf0405b573dd0/cryptography-1.3.2.tar.gz"
-    sha256 "fbaafa8827966dc588ccb00be813d3149fa8de04aec96e418ea0fdd5f0312088"
+    url "https://pypi.python.org/packages/a9/5b/a383b3a778609fe8177bd51307b5ebeee369b353550675353f46cb99c6f0/cryptography-1.4.tar.gz"
+    sha256 "bb149540ed90c4b2171bf694fe6991d6331bc149ae623c8ff419324f4222d128"
   end
 
   resource "enum34" do
@@ -151,6 +151,13 @@ class Certbot < Formula
   resource "pyparsing" do
     url "https://pypi.python.org/packages/ae/0c/b6ce7eea7ccf020ae68db1119bacaa07ad91fedaefaf8f3265e8dd156813/pyparsing-2.1.4.tar.gz"
     sha256 "a9234dea79b50d49b92a994132cd1c84e873f3936db94977a66f0a4159b1797c"
+  end
+
+  # https://github.com/certbot/certbot/pull/3118
+  # Safe to remove on next stable release.
+  patch do
+    url "https://github.com/certbot/certbot/commit/45e47f6d.patch"
+    sha256 "5aa52ed90e6bc401856d553e233911181fc4aca28bbb4a6966392102797d33c9"
   end
 
   def install
