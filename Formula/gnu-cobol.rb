@@ -16,9 +16,9 @@ class GnuCobol < Formula
   end
 
   bottle do
-    sha256 "012a52adf5bdb3f137afaadafb315bf966f037e1620fee022d98bab3541531cd" => :el_capitan
-    sha256 "62b99b26f9a6e83330ff6b0fc4834c578fecef83d4b49e418a4435b9d2e766d5" => :yosemite
-    sha256 "044fad7cd09f88cdda0c9e84f5af6c45c854749e69a0b481fc6e3868641595f9" => :mavericks
+    sha256 "a131417f7ad9681d3f3d52e4cb7be7b2b088690c3abada3ce7a4dcb622297939" => :el_capitan
+    sha256 "e9f7cf55043f5f2ec64c4d057f96c8e0803866f0fe2bdf351ec0187543bcb518" => :yosemite
+    sha256 "24d59407e2d5086b2737045bd3883a7b3b9f7f99f6b48b44ac49f751c256aa72" => :mavericks
   end
 
   devel do
