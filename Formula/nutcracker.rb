@@ -7,10 +7,9 @@ class Nutcracker < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "276645111292739c724e136020622e688eb0c168989a917c7d1c10b1eb0040fd" => :el_capitan
-    sha256 "369a87e5fc60849e8fb1b40f8df1f57406f7b86fbb7b2b5503b3b1a75fc1ecfd" => :yosemite
-    sha256 "603e6a29b7f3c80680aa811e80e52ddbf5c5b35aa676d363ac79cdd254489d16" => :mavericks
-    sha256 "58e30a2d345c686e6cecb492a8356d9696d9200481c55fabc7460a55ae24e162" => :mountain_lion
+    sha256 "1f3714c4459185e9002ea87f4fc4a4de429f028df957615ee9876c61a7c89a6d" => :el_capitan
+    sha256 "73698710fa026b8585665a9b730626df444dabe6acf118cc4f0c2f57c27e214c" => :yosemite
+    sha256 "8e66691c40fe71934bb5eab848c61ef07f8f427774e253c0065eb64cc5410f9b" => :mavericks
   end
 
   depends_on "automake" => :build
