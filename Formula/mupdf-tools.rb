@@ -6,11 +6,10 @@ class MupdfTools < Formula
   head "git://git.ghostscript.com/mupdf.git"
 
   bottle do
-    cellar :any
-    revision 1
-    sha256 "7ef90b7f58164276f38a6fa90324b352960c41bfc19b57b883386add52cf0148" => :el_capitan
-    sha256 "2d94022c4922f42bdc64576f5893750c5ee2e0c8c545f305d4a4ac5634073ed0" => :yosemite
-    sha256 "d442f5e49898025714b9664ea70304ca433ca07589e360c528915efc81298f34" => :mavericks
+    cellar :any_skip_relocation
+    sha256 "091b901203e9633c053fccdd02644043ff9ab3d7e5c2ec72547d1966cfe74204" => :el_capitan
+    sha256 "d626c89c21af7f672342d08675e6694f819deae30af76a66e7a0301c093a87de" => :yosemite
+    sha256 "0dfd41dbe9c11575ce9a84449997d5291f8dca58066ac2fe4817b69178d09a6b" => :mavericks
   end
 
   depends_on :macos => :snow_leopard
