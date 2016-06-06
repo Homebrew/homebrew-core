@@ -15,9 +15,9 @@ class Devil < Formula
   end
   bottle do
     cellar :any
-    sha256 "7a06d584329097c3e911681f5075e6cf63c4e4654317f6db2157c5dcb615d2dc" => :el_capitan
-    sha256 "c75d0b1abbbafc8d302c70b9ad2c54018f63ceaa936e233b8781ca9395acd37e" => :yosemite
-    sha256 "ea60067ae64f574fea8cd904e681294ad1c50cde25531bfc75b24c7736c4f367" => :mavericks
+    sha256 "1953824a6ba55112277ba40ee9604c58b4c93d3b61950583323113fd64ed5ae3" => :el_capitan
+    sha256 "bd23907c8dd2202835e8cfb5e03b879aa304a2bdf74481a3d148231b869ae230" => :yosemite
+    sha256 "5d77a3dcfed8123738dbfa1d77ea6dd2459688b0acbc35a0fd5dfe4b2cf0fead" => :mavericks
   end
 
   head do
