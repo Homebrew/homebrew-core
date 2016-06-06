@@ -6,10 +6,9 @@ class Libconfig < Formula
 
   bottle do
     cellar :any
-    sha256 "39a2e2d85ca89f895832cfa75710cb9094c3d4e315d7b45db58ebb7fb626a984" => :el_capitan
-    sha256 "04d66c5f07d74f31a5b57a6bb50d0c2b73222876e6c4ba40470bfb852e6f7b99" => :yosemite
-    sha256 "b48857221d7df42fdfb5a1e8a61da669ca2d30331539797e57d436d8cd78f4c9" => :mavericks
-    sha256 "3053bef646c2eb74d9f9a723a496a09d786a3e46e193993a0c10281b28500e50" => :mountain_lion
+    sha256 "b761558d36680478ea69e888a35bb64df066a561f9534e9b893b26e07a4062e4" => :el_capitan
+    sha256 "da3783f62333e9f65b235c7359de96264476e7bb7a0e472f7f81d288cbd059ec" => :yosemite
+    sha256 "dfb06c8602d8cb3a81a0d63127fc45c112bbdd494772f5ce50715f06383d596d" => :mavericks
   end
 
   head do
