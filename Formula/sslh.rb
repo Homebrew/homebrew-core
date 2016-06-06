@@ -1,17 +1,10 @@
 class Sslh < Formula
   desc "Forward connections based on first data packet sent by client"
   homepage "http://www.rutschle.net/tech/sslh.shtml"
+  url "http://www.rutschle.net/tech/sslh/sslh-v1.18.tar.gz"
+  sha256 "1601a5b377dcafc6b47d2fbb8d4d25cceb83053a4adcc5874d501a2d5a7745ad"
+  head "https://github.com/yrutschle/sslh.git"
 
-  stable do
-    url "http://www.rutschle.net/tech/sslh-v1.17.tar.gz"
-    sha256 "4f3589ed36d8a21581268d53055240eee5e5adf02894a2ca7a6c9022f24b582a"
-
-    # fixes `make install`, fixed in HEAD
-    patch do
-      url "https://github.com/yrutschle/sslh/commit/7c35ef8528d47b97894a6495275b57dc1ae3f8c7.diff"
-      sha256 "a6f8e1c3f9776d7344ea839de1d8a40e9925101528bd3beee50a0c60c62872cf"
-    end
-  end
   bottle do
     cellar :any
     sha256 "57377bc2f5df6479428b757741a61ab2d3aa1fc899772f732f602bd9d4be9dd8" => :el_capitan
@@ -20,16 +13,14 @@ class Sslh < Formula
     sha256 "2a712be56b116244717fb4e414846b6b9373bf2b0482b764b2142096cffbac18" => :mountain_lion
   end
 
-  head "https://github.com/yrutschle/sslh.git"
-
   depends_on "libconfig"
 
   def install
-    ENV.j1
+    ENV.deparallelize
     system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
-    system sbin/"sslh", "-V"
+    assert_match version.to_s, shell_output("#{sbin}/sslh -V")
   end
 end
