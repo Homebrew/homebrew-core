@@ -28,9 +28,9 @@ class Gcc < Formula
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
   bottle do
-    sha256 "90ad519442f0336b0beee3cf2be305ea495fb2e2ad82c2a96c5b0c3bcef8f268" => :el_capitan
-    sha256 "334bd7afbec85740ec7c49eedf52858209c31ed1f284ad10ccab7c50a41bcd35" => :yosemite
-    sha256 "679c9bfc2082f8ab4320c89082b08c4eab9523dd72bfed27fe4b712de7013a1f" => :mavericks
+    sha256 "af4822329b0673723b16c7237495ee86e099f5170d6ff28f17934d4c0681b515" => :el_capitan
+    sha256 "034a2af8373a2151f8b659ec9eda4c832669976a8ef5c90c7bdc2bc9ce616191" => :yosemite
+    sha256 "00d7f43e48f29ae4bbf0d9896f602fd3722ecb83294466a0c2c3ee293834100a" => :mavericks
   end
 
   # GCC's Go compiler is not currently supported on Mac OS X.
