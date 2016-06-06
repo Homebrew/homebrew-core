@@ -1,8 +1,8 @@
 class Awscli < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://pypi.python.org/packages/9a/c9/56c9c98c30bbe0115baea79cca303e7ee7d569987aaac34d822fbae95fe0/awscli-1.10.34.tar.gz"
-  sha256 "79b1cce1db0187b09fe8af2ace45155369d3d65f1de42e1cf73763e93a0bb812"
+  url "https://pypi.python.org/packages/7e/4d/e82e96bf21192049a30e4eeea88614ad238277ef0e64f0711264602d6c89/awscli-1.10.35.tar.gz"
+  sha256 "1ea76ed2dc38d719ba81c90340a4e2eb157c4517db2d66086d1692a11ee9287a"
 
   bottle do
     cellar :any_skip_relocation
@@ -47,8 +47,8 @@ class Awscli < Formula
   end
 
   resource "botocore" do
-    url "https://pypi.python.org/packages/0d/b4/cf63a4ca94af097219d11147e9cbc9f5b4a23487e210cf526dbdb2eafc55/botocore-1.4.24.tar.gz"
-    sha256 "5261c804edbb4bb9422768fa0a46b7daeca3665f3ff664ab86fe0fe1d3413a46"
+    url "https://pypi.python.org/packages/75/15/1c2d57e1a7fcac8ccab81007020880a8bb4bb83afc1e01bfa421dac1d537/botocore-1.4.25.tar.gz"
+    sha256 "1b67bb78a1ebd0ffe9daf5ee33196b7c02a196c9b46799b9a2c35237ebd77fe2"
   end
 
   resource "jmespath" do
