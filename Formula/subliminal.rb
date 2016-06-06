@@ -1,8 +1,8 @@
 class Subliminal < Formula
   desc "Library to search and download subtitles"
   homepage "https://subliminal.readthedocs.org"
-  url "https://github.com/Diaoul/subliminal/archive/2.0.0.tar.gz"
-  sha256 "08d4cad5a544f89e31c4ab8e3e7a9665ab402f4a3fc886bb979374e9df981cc6"
+  url "https://github.com/Diaoul/subliminal/archive/2.0.2.tar.gz"
+  sha256 "26ca17d28617d8f18759724386cc1940facf89f9f6fdc90b19c43eb0daa1c109"
   head "https://github.com/Diaoul/subliminal.git"
 
   bottle do
@@ -45,13 +45,8 @@ class Subliminal < Formula
   end
 
   resource "dogpile.cache" do
-    url "https://pypi.python.org/packages/07/74/2a83bedf758156d9c95d112691bbad870d3b77ccbcfb781b4ef836ea7d96/dogpile.cache-0.5.7.tar.gz"
-    sha256 "dcf99b09ddf3d8216b1b4378100eb0235619612fb0e6300ba5d74f10962d0956"
-  end
-
-  resource "dogpile.core" do
-    url "https://pypi.python.org/packages/0e/77/e72abc04c22aedf874301861e5c1e761231c288b5de369c18be8f4b5c9bb/dogpile.core-0.4.1.tar.gz"
-    sha256 "be652fb11a8eaf66f7e5c94d418d2eaa60a2fe81dae500f3743a863cc9dbed76"
+    url "https://pypi.python.org/packages/16/15/8de884814301e26d273d51f0b07ad605f71cb7fad37deec096da4d2f031d/dogpile.cache-0.6.0.tar.gz"
+    sha256 "1b65aba2dde75cb577f275b5f3f4fcc635d21b3dc6781b98cef57bd009d93185"
   end
 
   resource "enzyme" do
@@ -90,8 +85,8 @@ class Subliminal < Formula
   end
 
   resource "rarfile" do
-    url "https://pypi.python.org/packages/5c/19/e03b15dfc4b8bb65883f1413df306b46cf3e4ee52239c8d7806dd44c013b/rarfile-2.7.tar.gz"
-    sha256 "47148088ddb6c020774f4c38927fec9625ca33651bdc551bdaeafc78690b1635"
+    url "https://pypi.python.org/packages/21/20/f07592dcf45f8f88a23c094019008ad220307401214a5c5a4e44d3e93acf/rarfile-2.8.tar.gz"
+    sha256 "2a27e401daa6d8ff0df1112a274a3661ca3e4afaac626217506fb1391069ca61"
   end
 
   resource "rebulk" do
