@@ -1,8 +1,8 @@
 class Libconfig < Formula
   desc "Configuration file processing library"
   homepage "http://www.hyperrealm.com/libconfig/"
-  url "http://www.hyperrealm.com/libconfig/libconfig-1.5.tar.gz"
-  sha256 "e31daa390d8e4461c8830512fe2e13ba1a3d6a02a2305a02429eec61e68703f6"
+  url "https://github.com/hyperrealm/libconfig/archive/v1.6.tar.gz"
+  sha256 "18739792eb463d73525d7aea9b0a48b14106fae1cfec09aedc668d8c1079adf1"
 
   bottle do
     cellar :any
@@ -23,8 +23,15 @@ class Libconfig < Formula
 
   def install
     ENV.universal_binary if build.universal?
+
     system "autoreconf", "-i" if build.head?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+
+    # Fixes "scanner.l:137:59: error: too few arguments to function call ..."
+    # Forces regeneration of the BUILT_SOURCES "scanner.c" and "scanner.h"
+    # Reported 6 Jun 2016: https://github.com/hyperrealm/libconfig/issues/66
+    touch "lib/scanner.l"
+
     system "make", "install"
   end
 
