@@ -3,8 +3,8 @@ require "language/go"
 class JfrogCliGo < Formula
   desc "command-line interface for Jfrog Artifactory and Bintray"
   homepage "https://github.com/JFrogDev/jfrog-cli-go"
-  url "https://github.com/JFrogDev/jfrog-cli-go/archive/1.2.0.tar.gz"
-  sha256 "e37c99a26cf51154a071090e06bf145302862d38a4406a77926dd639f836760e"
+  url "https://github.com/JFrogDev/jfrog-cli-go/archive/1.3.0.tar.gz"
+  sha256 "e9796b628b891d51b9a84ad45ddb30c04a033760aaae3af6563256e79e27acb5"
 
   bottle do
     cellar :any_skip_relocation
@@ -30,6 +30,6 @@ class JfrogCliGo < Formula
   end
 
   test do
-    assert_equal "jfrog version 1.2.0", shell_output("#{bin}/jfrog -v").chomp
+    assert_equal "jfrog version 1.3.0", shell_output("#{bin}/jfrog -v").chomp
   end
 end
