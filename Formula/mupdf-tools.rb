@@ -1,8 +1,8 @@
 class MupdfTools < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "http://mupdf.com"
-  url "http://mupdf.com/downloads/archive/mupdf-1.8-source.tar.gz"
-  sha256 "a2a3c64d8b24920f87cf4ea9339a25abf7388496440f13b37482d1403c33c206"
+  url "http://mupdf.com/downloads/archive/mupdf-1.9a-source.tar.gz"
+  sha256 "8015c55f4e6dd892d3c50db4f395c1e46660a10b460e2ecd180a497f55bbc4cc"
   head "git://git.ghostscript.com/mupdf.git"
 
   bottle do
@@ -14,7 +14,6 @@ class MupdfTools < Formula
   end
 
   depends_on :macos => :snow_leopard
-  depends_on "openssl"
 
   def install
     system "make", "install",
@@ -31,6 +30,6 @@ class MupdfTools < Formula
 
   test do
     pdf = test_fixtures("test.pdf")
-    assert_match /Homebrew test/, shell_output("#{bin}/mutool draw -F txt #{pdf}")
+    assert_match "Homebrew test", shell_output("#{bin}/mutool draw -F txt #{pdf}")
   end
 end
