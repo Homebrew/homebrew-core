@@ -1,8 +1,8 @@
 class Nutcracker < Formula
   desc "Proxy for memcached and redis"
   homepage "https://github.com/twitter/twemproxy"
-  url "https://github.com/twitter/twemproxy/archive/v0.4.0.tar.gz"
-  sha256 "5f417fa3f03ac20fc5e9b36d831df107b00db90795a8155c1e66e2c38248ab13"
+  url "https://github.com/twitter/twemproxy/archive/v0.4.1.tar.gz"
+  sha256 "00c2940f91947bea9457a348316aac1aa1d4e757238aafbefc9d51057da8ede0"
   head "https://github.com/twitter/twemproxy.git"
 
   bottle do
@@ -23,10 +23,10 @@ class Nutcracker < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    (share+"nutcracker").install "conf",  "notes", "scripts"
+    pkgshare.install "conf", "notes", "scripts"
   end
 
   test do
-    system "#{opt_sbin}/nutcracker", "-V"
+    assert_match version.to_s, shell_output("#{sbin}/nutcracker -V 2>&1")
   end
 end
