@@ -4,6 +4,7 @@ class Gitup < Formula
   url "https://github.com/earwig/git-repo-updater.git",
     :revision => "10494e677bba19622acfa3fc62093a06451c8562",
     :tag => "v0.3"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -21,8 +22,8 @@ class Gitup < Formula
   end
 
   resource "colorama" do
-    url "https://pypi.python.org/packages/source/c/colorama/colorama-0.3.3.tar.gz"
-    sha256 "eb21f2ba718fbf357afdfdf6f641ab393901c7ca8d9f37edd0bee4806ffa269c"
+    url "https://pypi.python.org/packages/source/c/colorama/colorama-0.3.7.tar.gz"
+    sha256 "e043c8d32527607223652021ff648fbb394d5e19cba9f1a698670b338c9d782b"
   end
 
   resource "gitdb" do
@@ -31,8 +32,8 @@ class Gitup < Formula
   end
 
   resource "GitPython" do
-    url "https://pypi.python.org/packages/source/G/GitPython/GitPython-1.0.1.tar.gz"
-    sha256 "9c88c17bbcae2a445ff64024ef13526224f70e35e38c33416be5ceb56ca7f760"
+    url "https://pypi.python.org/packages/47/28/30f51df811ccdde2f719c034afc1cd1b036dcbb94ecf93ee61af25fe1738/GitPython-2.0.5.tar.gz"
+    sha256 "20f3c90fb8a11edc52d363364fb0a116a410c7b7bdee24a433712b5413d1028e"
   end
 
   def install
@@ -71,7 +72,7 @@ class Gitup < Formula
       prepare_repo("https://github.com/pr0d1r2/homebrew-cask-games.git", second_head_start)
     end
 
-    system "gitup", "first", "second"
+    system bin/"gitup", "first", "second"
 
     first_head = `cd first ; git rev-parse HEAD`.split.first
     assert_not_equal first_head, first_head_start
@@ -84,14 +85,14 @@ class Gitup < Formula
       prepare_repo("https://github.com/pr0d1r2/homebrew-contrib.git", third_head_start)
     end
 
-    system "gitup", "--add", "third"
+    system bin/"gitup", "--add", "third"
 
-    system "gitup"
+    system bin/"gitup"
     third_head = `cd third ; git rev-parse HEAD`.split.first
     assert_not_equal third_head, third_head_start
 
-    assert_match %r{#{Dir.pwd}/third}, `gitup --list`.strip
+    assert_match %r{#{Dir.pwd}/third}, `#{bin}/gitup --list`.strip
 
-    system "gitup", "--delete", "#{Dir.pwd}/third"
+    system bin/"gitup", "--delete", "#{Dir.pwd}/third"
   end
 end
