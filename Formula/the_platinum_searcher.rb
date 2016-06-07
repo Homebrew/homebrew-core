@@ -10,9 +10,9 @@ class ThePlatinumSearcher < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a707dbf5be883bbfc87279774ecd09979a4e089ce2dbee17b57a6a45b0bd0432" => :el_capitan
-    sha256 "5324f347210586ca770d21c2004867b7be67fa6191c05657ebf8b2e2ef30544e" => :yosemite
-    sha256 "a7ee9ef3b664c9690c3e0e7c53a4b48fa73f63d7ad8fd5e425ac3ad6a8dc19f3" => :mavericks
+    sha256 "eee31563767f08c15976ec06c6a0fa547480aeaefd5187fd67aa97e90f4bfa96" => :el_capitan
+    sha256 "df2a3094381047b830ab471af7dd013bbd85f8dcb6e22fba31dfe3a33d7be1ea" => :yosemite
+    sha256 "3bf0eec92d2a86fd6a527aaa9c9215ba67154625c4654ff46f4e4d62742016a0" => :mavericks
   end
 
   depends_on "go" => :build
