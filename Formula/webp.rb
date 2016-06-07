@@ -30,6 +30,7 @@ class Webp < Formula
 
     ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
+                          "--disable-gl",
                           "--enable-libwebpmux",
                           "--enable-libwebpdemux",
                           "--enable-libwebpdecoder",
