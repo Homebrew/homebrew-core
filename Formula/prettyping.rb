@@ -6,6 +6,11 @@ class Prettyping < Formula
 
   bottle :unneeded
 
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/848211f/prettyping/ipv6.patch"
+    sha256 "263113acb0c2c99d0fefe979ac450cf00361cb0283df21564958cc4c38e98aad"
+  end
+
   def install
     bin.install "prettyping"
   end
