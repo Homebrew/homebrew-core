@@ -1,6 +1,6 @@
 class Pmdmini < Formula
   desc "Plays music in PC-88/98 PMD chiptune format"
-  homepage "https://github.com/BouKiCHi/mdxplayer"
+  homepage "https://github.com/mistydemeo/pmdmini"
   url "https://github.com/mistydemeo/pmdmini/archive/v1.0.0.tar.gz"
   sha256 "526cb2be1a7e32be9782908cbaeae89b3aca20cad8e42f238916ce9b6d17679c"
 
@@ -18,7 +18,7 @@ class Pmdmini < Formula
   depends_on "sdl" if build.without? "lib-only"
 
   resource "test_song" do
-    url "http://ftp.modland.com/pub/modules/PMD/Shiori%20Ueno/His%20Name%20Is%20Diamond/dd06.m"
+    url "https://ftp.modland.com/pub/modules/PMD/Shiori%20Ueno/His%20Name%20Is%20Diamond/dd06.m"
     sha256 "36be8cfbb1d3556554447c0f77a02a319a88d8c7a47f9b7a3578d4a21ac85510"
   end
 
