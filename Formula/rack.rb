@@ -2,8 +2,8 @@ class Rack < Formula
   desc "CLI for Rackspace"
   homepage "https://github.com/rackspace/rack"
   url "https://github.com/rackspace/rack.git",
-      :tag => "1.0.1",
-      :revision => "71a8d7c80b3652b4dd39e683bc423b8a542b0167"
+      :tag => "1.2",
+      :revision => "09c14b061f4a115c8f1ff07ae6be96d9b11e08df"
   head "https://github.com/rackspace/rack.git"
 
   bottle do
@@ -23,6 +23,7 @@ class Rack < Formula
     rackpath.install Dir["{*,.??*}"]
 
     cd rackpath do
+      ln_s "internal", "vendor"
       system "script/build", "rack"
       bin.install "rack"
     end
