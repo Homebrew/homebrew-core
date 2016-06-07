@@ -12,6 +12,7 @@ class Node < Formula
   end
 
   option "with-debug", "Build with debugger hooks"
+  option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
   option "with-full-icu", "Build with full-icu (all locales) instead of small-icu (English only)"
@@ -48,6 +49,8 @@ class Node < Formula
   end
 
   def install
+    # Never install the bundled "npm", always prefer our
+    # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
     args << "--shared-openssl" if build.with? "openssl"
