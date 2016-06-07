@@ -1,5 +1,3 @@
-require "language/go"
-
 class Doctl < Formula
   desc "Command-line tool for DigitalOcean"
   homepage "https://github.com/digitalocean/doctl"
@@ -21,7 +19,6 @@ class Doctl < Formula
 
     mkdir_p buildpath/"src/github.com/digitalocean/"
     ln_sf buildpath, buildpath/"src/github.com/digitalocean/doctl"
-    Language::Go.stage_deps resources, buildpath/"src"
 
     doctl_version = version.to_s.split(/\./)
     base_flag = "-X github.com/digitalocean/doctl"
@@ -36,6 +33,6 @@ class Doctl < Formula
   end
 
   test do
-    assert_match "doctl version #{version.to_s}-release", shell_output("#{bin}/doctl version")
+    assert_match "doctl version #{version}-release", shell_output("#{bin}/doctl version")
   end
 end
