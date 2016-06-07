@@ -4,7 +4,7 @@ class Xdot < Formula
   url "https://pypi.python.org/packages/source/x/xdot/xdot-0.6.tar.gz"
   sha256 "c71d82bad0fec696af36af788c2a1dbb5d9975bd70bfbdc14bda15b5c7319e6c"
 
-  head "https://github.com/jrfonseca/xdot.git"
+  head "https://github.com/jrfonseca/xdot.py.git"
 
   bottle do
     cellar :any_skip_relocation
