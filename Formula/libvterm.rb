@@ -7,7 +7,6 @@ class Libvterm < Formula
   depends_on "libtool" => :build
 
   def install
-    ENV.deparallelize
     system "make", "install", "PREFIX=#{prefix}"
   end
 
