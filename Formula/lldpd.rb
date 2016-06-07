@@ -1,7 +1,7 @@
 class Lldpd < Formula
   desc "Implementation of IEEE 802.1ab (LLDP)"
   homepage "https://vincentbernat.github.io/lldpd/"
-  url "http://media.luffy.cx/files/lldpd/lldpd-0.9.3.tar.gz"
+  url "https://media.luffy.cx/files/lldpd/lldpd-0.9.3.tar.gz"
   sha256 "cfa8a3245dd71efc1f5de064a72576a7c1afaaf0ccb5833238398b6dc612b127"
 
   bottle do
