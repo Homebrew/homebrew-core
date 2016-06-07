@@ -6,7 +6,7 @@ class Postgrest < Formula
 
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/begriffs/postgrest"
-  revision 2
+  revision 3
 
   stable do
     url "https://github.com/begriffs/postgrest/archive/v0.3.1.1.tar.gz"
@@ -39,32 +39,8 @@ class Postgrest < Formula
   depends_on "cabal-install" => :build
   depends_on "postgresql"
 
-  # Upstream wai-cors commit removing the parsers dependency. Alternatively,
-  # there is an upstream parsers patch that would work, but wai-cors is higher
-  # up the dependency tree
-  resource "wai-cors-remove-parsers-dep" do
-    url "https://github.com/larskuhtz/wai-cors/commit/3f90298038ca391351f4c2d243db3114842f4bf3.patch"
-    sha256 "10e6ff38ec2da94d359143ffdbcabe1fca127c26f2716e532459fb217dc0819e"
-  end
-
   def install
-    cabal_sandbox do
-      buildpath.install resource("wai-cors-remove-parsers-dep")
-      system "cabal", "get", "wai-cors"
-      cd "wai-cors-0.2.4" do
-        system "/usr/bin/patch", "-p1", "-i", buildpath/"3f90298038ca391351f4c2d243db3114842f4bf3.patch"
-      end
-      cabal_sandbox_add_source "wai-cors-0.2.4"
-
-      system "cabal", "get", "jwt"
-      # Equivalent to upstream jwt commit https://bitbucket.org/ssaasen/haskell-jwt/commits/2c48f81ed5d53af4d5d3ecf49f6e45adae61b348?at=master
-      inreplace "jwt-0.7.1/jwt.cabal",
-        "build-depends:       base >= 4.6 && < 4.9",
-        "build-depends:       base >= 4.6 && < 5"
-      cabal_sandbox_add_source "jwt-0.7.1"
-
-      install_cabal_package :using => ["happy"]
-    end
+    install_cabal_package :using => ["happy"]
   end
 
   test do
