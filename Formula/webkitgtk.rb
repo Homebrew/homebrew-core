@@ -3,6 +3,7 @@ class Webkitgtk < Formula
   homepage "http://webkitgtk.org"
   url "http://webkitgtk.org/releases/webkitgtk-2.10.9.tar.xz"
   sha256 "bbb18d741780b1b7fa284beb9a97361ac57cda2e42bad2ae2fcdbf797919e969"
+  revision 1
 
   bottle do
     sha256 "34d4b523b20515fbbebcfc8371a184e58c6b311e0124880b166798f7213a713b" => :el_capitan
