@@ -6,9 +6,9 @@ class Msgpack < Formula
 
   bottle do
     cellar :any
-    sha256 "ab5e719c5c0e82c16da78e28e54ca44d63e90571bac3ac07a8b3c42e3c2b86f1" => :el_capitan
-    sha256 "3b7b6cca59c935e0fc1bedfad8507167c0f20bdd4b45d776d94f43b90113a35d" => :yosemite
-    sha256 "8d0cacd65a1a32fc34895c84387a639d2af4a9770568e4351ec479bfa9a570d2" => :mavericks
+    sha256 "d7fbe4332a60de9474d4dbfb14ded1438da70e710b7feb6694da5446e5a6707f" => :el_capitan
+    sha256 "fdcdb01e8b75847f10b695a76cca99c76b78757811d1b9fc08e4e1bde43baa18" => :yosemite
+    sha256 "080c493d334f376fca8f1caceb2d34324152531f7612972cb982ee79b498c8c0" => :mavericks
   end
 
   head do
