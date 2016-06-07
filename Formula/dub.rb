@@ -10,10 +10,17 @@ class Dub < Formula
     sha256 "1c05ee4b3f609f81cd1507e22706befa2b78b945b8e2a7560d86e0a13746e845" => :mavericks
   end
 
+  devel do
+    url "https://github.com/dlang/dub/archive/v1.0.0-beta.1.tar.gz"
+    sha256 "47191b7299562e0f25bdad28ad8be1d4fe09e6f7c40f50acc78455e3dc28da0c"
+    version "1.0.0-beta.1"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "dmd" => :build
 
   def install
+    ENV["GITVER"] = "1.0.0-beta.1" if build.devel?
     system "./build.sh"
     bin.install "bin/dub"
   end
