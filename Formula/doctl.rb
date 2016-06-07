@@ -3,8 +3,8 @@ require "language/go"
 class Doctl < Formula
   desc "Command-line tool for DigitalOcean"
   homepage "https://github.com/digitalocean/doctl"
-  url "https://github.com/digitalocean/doctl/archive/v1.1.0.tar.gz"
-  sha256 "4504965edfa8e32a1b65f890b3141f6bd16428640c7b4d365dcf76709633b68f"
+  url "https://github.com/digitalocean/doctl/archive/v1.2.0.tar.gz"
+  sha256 "2c39570b8f5f69283ac2889b6de532680f7164ad326cd028410a8152b75b3389"
   head "https://github.com/digitalocean/doctl.git"
 
   bottle do
