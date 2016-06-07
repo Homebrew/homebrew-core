@@ -8,9 +8,9 @@ class Rack < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "20b5623a5d690e48337504081504e75dc841a7cef3b4f1f7430e0c41e85562e4" => :el_capitan
-    sha256 "e514e03dfb4c556b161c9fa2d2be4c2953549c5c060c11d274f8a1eacaa75fa5" => :yosemite
-    sha256 "10c96e3863e45ac0761df401f28fc905c8c40532d4693e9be4bcc47c5b2a3615" => :mavericks
+    sha256 "a0301d96ab10f35f417d51f22c85c5a2245848b42a75d5deb23c46b0b6f88dcc" => :el_capitan
+    sha256 "74834b52803e42ec8b216b358d24e50a1ea80d01a7b826a54026038cfefbbb8f" => :yosemite
+    sha256 "48ddc5dfd45f15ee9dd70a25719161296389cad484765ce0d99a94c43951e919" => :mavericks
   end
 
   depends_on "go" => :build
