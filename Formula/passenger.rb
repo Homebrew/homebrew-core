@@ -1,8 +1,8 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.26.tar.gz"
-  sha256 "de3b63b65ff27d193096361a330d9db1dc07076c1ba9be5ecee90322d91dbbc9"
+  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.28.tar.gz"
+  sha256 "a5adb8c5446045f56a7c13bc75c5f3e96b7cfb01a10462107032929167dc17fa"
   head "https://github.com/phusion/passenger.git"
 
   bottle do
@@ -19,6 +19,9 @@ class Passenger < Formula
   depends_on :macos => :lion
 
   def install
+    # https://github.com/Homebrew/homebrew-core/pull/1046
+    ENV.delete("SDKROOT")
+
     rake "apache2" if build.with? "apache2-module"
     rake "nginx"
 
