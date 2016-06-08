@@ -1,9 +1,8 @@
 class Powerman < Formula
   desc "Control (remotely and in parallel) switched power distribution units"
   homepage "https://code.google.com/p/powerman/"
-  url "https://github.com/chaos/powerman/releases/download/2.3.20/powerman-2.3.20.tar.gz"
-  sha256 "a4b0858d1214aab18e2673596b00ac9bad976cb7b777209e10732467c3551b88"
-  revision 1
+  url "https://github.com/chaos/powerman/releases/download/2.3.24/powerman-2.3.24.tar.gz"
+  sha256 "85d5d0e0aef05a1637a8efe58f436f1548d2411c98c90c1616d22ee79c19d275"
 
   bottle do
     revision 1
@@ -29,10 +28,10 @@ class Powerman < Formula
   depends_on "genders" => :optional
 
   def install
-    args = [
-      "--disable-dependency-tracking",
-      "--prefix=#{prefix}",
-      "--localstatedir=#{var}"
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --localstatedir=#{var}
     ]
 
     args << (build.with?("curl") ? "--with-httppower" : "--without-httppower")
