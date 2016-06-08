@@ -39,7 +39,7 @@ class Czmq < Formula
     system "./autogen.sh"
     system "./configure", *args
     system "make"
-    system "make", "check"
+    system "make", "check-verbose"
     system "make", "install"
     rm Dir["#{bin}/*.gsl"]
   end
