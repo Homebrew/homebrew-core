@@ -1,9 +1,10 @@
 class Headphones < Formula
   desc "Automatic music downloader for SABnzbd"
   homepage "https://github.com/rembo10/headphones"
-  head "https://github.com/rembo10/headphones.git"
   url "https://github.com/rembo10/headphones/archive/v0.5.15.tar.gz"
   sha256 "f0e4b07f8916b03b442e443bb608c26693b972151fef15ff9e73f58fbbbc671a"
+
+  head "https://github.com/rembo10/headphones.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -30,18 +31,23 @@ class Headphones < Formula
   end
 
   def install
-    # TODO: - strip down to the minimal install
-    prefix.install_metafiles
+    # TODO: strip down to the minimal install.
     libexec.install Dir["*"]
 
     ENV["CHEETAH_INSTALL_WITHOUT_SETUPTOOLS"] = "1"
-    ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python2.7/site-packages"
-    install_args = ["setup.py", "install", "--prefix=#{libexec}"]
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python", *Language::Python.setup_install_args(libexec)
+      end
+    end
 
-    resource("Markdown").stage { system "python", *install_args }
-    resource("Cheetah").stage { system "python", *install_args }
+    (bin/"headphones").write(startup_script)
+  end
 
-    (bin+"headphones").write(startup_script)
+  def caveats; <<-EOS.undent
+    Headphones defaults to port 8181.
+  EOS
   end
 
   plist_options :manual => "headphones"
@@ -65,9 +71,5 @@ class Headphones < Formula
     </dict>
     </plist>
     EOS
-  end
-
-  def caveats
-    "Headphones defaults to port 8181."
   end
 end
