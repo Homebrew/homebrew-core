@@ -5,11 +5,9 @@ class Powerman < Formula
   sha256 "85d5d0e0aef05a1637a8efe58f436f1548d2411c98c90c1616d22ee79c19d275"
 
   bottle do
-    revision 1
-    sha256 "f0c2779ebd34bf10ead39d82ffd90ca58ae17780e3bcca769778840b87889c4e" => :el_capitan
-    sha256 "d66a3faf7b2e5e07a56a3160158a3d9dc8314a2ca0acd09ba7b8ecebd42fc9e9" => :yosemite
-    sha256 "ad709cbaf0eb057c18ca98a8c9215132785b3d9a751df89600c38059b7b12265" => :mavericks
-    sha256 "c801c9d90323a6817a144dd9bf24ea095642eff51cae2500451507a367701546" => :mountain_lion
+    sha256 "26b893065e1f5e2f345d8b75fe2770bb4616fb62d7aec73022c4472df8158b2a" => :el_capitan
+    sha256 "e90be29b1ab6ab310f39775973edbaa647a0ac12d81bbde374bbc5ed262c317c" => :yosemite
+    sha256 "412042f83e03f1cbd9e285b1566bb785471dd79f93049df8bbfdde3544122a24" => :mavericks
   end
 
   head do
