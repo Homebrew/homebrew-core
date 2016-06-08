@@ -1,9 +1,8 @@
 class Loudmouth < Formula
   desc "Lightweight C library for the Jabber protocol"
   homepage "https://mcabber.com"
-  url "https://mcabber.com/files/loudmouth/loudmouth-1.5.1.tar.bz2"
-  sha256 "ffb493b085c1d40176ecbe1c478f05932f265e0e5ba93444b87d3cd076267939"
-  revision 1
+  url "https://mcabber.com/files/loudmouth/loudmouth-1.5.3.tar.bz2"
+  sha256 "54329415cb1bacb783c20f5f1f975de4fc460165d0d8a1e3b789367b5f69d32c"
 
   bottle do
     cellar :any
@@ -24,11 +23,25 @@ class Loudmouth < Formula
   depends_on "glib"
   depends_on "libidn"
   depends_on "gnutls"
+  depends_on "gettext"
 
   def install
     system "./autogen.sh", "-n" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-ssl=gnutls"
+    system "make"
+    system "make", "check"
     system "make", "install"
+    (pkgshare/"examples").install Dir["examples/*.c"]
+  end
+
+  test do
+    cp pkgshare/"examples/lm-send-async.c", testpath
+    system ENV.cc, "lm-send-async.c", "-o", "test",
+      "-lloudmouth-1", "-lglib-2.0",
+      "-I#{include}/loudmouth-1.0",
+      "-I#{Formula["glib"].opt_include}/glib-2.0",
+      "-I#{Formula["glib"].opt_lib}/glib-2.0/include"
+    system "./test", "--help"
   end
 end
