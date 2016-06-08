@@ -2,8 +2,8 @@ class Headphones < Formula
   desc "Automatic music downloader for SABnzbd"
   homepage "https://github.com/rembo10/headphones"
   head "https://github.com/rembo10/headphones.git"
-  url "https://github.com/rembo10/headphones/archive/v0.5.9.tar.gz"
-  sha256 "c1811985ac93a7a24fc0668bb4a726a663e815b7f1a90eb52bf5af60f035c953"
+  url "https://github.com/rembo10/headphones/archive/v0.5.15.tar.gz"
+  sha256 "f0e4b07f8916b03b442e443bb608c26693b972151fef15ff9e73f58fbbbc671a"
 
   bottle do
     cellar :any_skip_relocation
