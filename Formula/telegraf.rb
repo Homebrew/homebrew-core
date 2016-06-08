@@ -6,6 +6,8 @@ class Telegraf < Formula
   url "https://github.com/influxdata/telegraf/archive/0.13.1.tar.gz"
   sha256 "96d67c203eb3820d3cde5bd89c87521ad7a404a495db9f250084f767c26d8990"
 
+  head "https://github.com/influxdata/telegraf.git"
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ff7f3f1f8f4cbdf708eada5ab3ef1e0eb0d594a22690777cb224fe71d6c608d3" => :el_capitan
@@ -13,16 +15,39 @@ class Telegraf < Formula
     sha256 "c95fbde1b93a8c93176d562b797a71941dd4c677cb9ca5d3514615b67ee43a75" => :mavericks
   end
 
-  head do
-    url "https://github.com/influxdata/telegraf.git"
-
-    go_resource "github.com/hashicorp/consul" do
-      url "https://github.com/hashicorp/consul.git",
-      :revision => "ebf7ea1d759184c02a5bb5263a7c52d29838ffc3"
-    end
+  devel do
+    url "https://github.com/influxdata/telegraf/archive/1.0.0-beta1.tar.gz"
+    sha256 "8b8d9fdcd49bddd9d0a5c62fdaad15c40effa25bd0de031a6004859af3542e4b"
   end
 
   depends_on "go" => :build
+
+  if build.stable?
+    go_resource "github.com/gobwas/glob" do
+      url "https://github.com/gobwas/glob.git",
+      :revision => "d877f6352135181470c40c73ebb81aefa22115fa"
+    end
+
+    go_resource "github.com/shirou/gopsutil" do
+      url "https://github.com/shirou/gopsutil.git",
+      :revision => "83c6e72cbdef6e8ada934549abf700ff0ba96776"
+    end
+  else
+    go_resource "github.com/hashicorp/consul" do
+      url "https://github.com/hashicorp/consul.git",
+      :revision => "5aa90455ce78d4d41578bafc86305e6e6b28d7d2"
+    end
+
+    go_resource "github.com/gobwas/glob" do
+      url "https://github.com/gobwas/glob.git",
+      :revision => "49571a1557cd20e6a2410adc6421f85b66c730b5"
+    end
+
+    go_resource "github.com/shirou/gopsutil" do
+      url "https://github.com/shirou/gopsutil.git",
+      :revision => "586bb697f3ec9f8ec08ffefe18f521a64534037c"
+    end
+  end
 
   go_resource "github.com/Shopify/sarama" do
     url "https://github.com/Shopify/sarama.git",
@@ -112,11 +137,6 @@ class Telegraf < Formula
   go_resource "github.com/go-sql-driver/mysql" do
     url "https://github.com/go-sql-driver/mysql.git",
     :revision => "1fca743146605a172a266e1654e01e5cd5669bee"
-  end
-
-  go_resource "github.com/gobwas/glob" do
-    url "https://github.com/gobwas/glob.git",
-    :revision => "d877f6352135181470c40c73ebb81aefa22115fa"
   end
 
   go_resource "github.com/golang/protobuf" do
@@ -239,11 +259,6 @@ class Telegraf < Formula
     :revision => "218e9c81c0dd8b3b18172b2bbfad92cc7d6db55f"
   end
 
-  go_resource "github.com/shirou/gopsutil" do
-    url "https://github.com/shirou/gopsutil.git",
-    :revision => "83c6e72cbdef6e8ada934549abf700ff0ba96776"
-  end
-
   go_resource "github.com/soniah/gosnmp" do
     url "https://github.com/soniah/gosnmp.git",
     :revision => "b1b4f885b12c5dcbd021c5cee1c904110de6db7d"
@@ -318,9 +333,19 @@ class Telegraf < Formula
     Language::Go.stage_deps resources, buildpath/"src"
 
     cd telegraf_path do
-      system "go", "build", "-o", "telegraf",
-             "-ldflags", "-X main.Version=#{version}",
-             "cmd/telegraf/telegraf.go"
+      if build.head?
+        system "go", "build", "-o", "telegraf",
+               "-ldflags", "-X main.version=1.0.0-HEAD -X main.commit=#{`git rev-parse HEAD`.strip}",
+               "cmd/telegraf/telegraf.go"
+      elsif build.devel?
+        system "go", "build", "-o", "telegraf",
+               "-ldflags", "-X main.version=1.0.0-beta1 -X main.commit=ad88a9421a16456c1e3029392a29c5bb7ad907e7",
+               "cmd/telegraf/telegraf.go"
+      else
+        system "go", "build", "-o", "telegraf",
+               "-ldflags", "-X main.version=#{version} -X main.commit=e10392343043fb03846699200cf32952a0eb8bc8",
+               "cmd/telegraf/telegraf.go"
+      end
     end
 
     bin.install telegraf_path/"telegraf"
