@@ -1,8 +1,8 @@
 class Stlink < Formula
   desc "stm32 discovery line Linux programmer"
   homepage "https://github.com/texane/stlink"
-  url "https://github.com/texane/stlink/archive/1.1.0.tar.gz"
-  sha256 "3ac4dfcf1da0da40a1b71a8789ff0f1e7d978ea0222158bebd2de916c550682c"
+  url "https://github.com/texane/stlink/archive/1.2.0.tar.gz"
+  sha256 "acfdd52e350a61c14910f3c14b9ed232a79febcf35b38479b011d5cd2d4af688"
 
   head "https://github.com/texane/stlink.git"
 
@@ -14,16 +14,13 @@ class Stlink < Formula
     sha256 "36ad00988ff74f08da8be3653ed7070b206ac53c9720e5c6e2a5476b2d1fa7cf" => :mavericks
   end
 
-  depends_on "libusb"
-
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "libusb"
+  depends_on "gtk+3" => :optional
 
   def install
-    system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}"
-    system "make"
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
