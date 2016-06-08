@@ -10,6 +10,11 @@ class Newlisp < Formula
     sha256 "dbacba90228024041cbe50efc63959cdaa94c3ca0d30267bcedcd1769dc4c597" => :mavericks
   end
 
+  devel do
+    url "http://www.newlisp.org/downloads/development/inprogress/newlisp-10.7.1.tgz"
+    sha256 "9e019f876f4179601c569e0324dbe2e48f28aa67b1c9e61ee194b700be6c1067"
+  end
+
   depends_on "readline" => :recommended
 
   def install
