@@ -189,6 +189,7 @@ class Certbot < Formula
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    pkgshare.install "examples"
 
     # Keep the old name around temporarily for compatibility
     # so that people's scripts don't suddenly bork.
