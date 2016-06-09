@@ -5,9 +5,9 @@ class Hunspell < Formula
   sha256 "c4476aff0ced52eec334eae1e8d3fdaaebdd90f5ecd0b57cf2a92a6fd220d1bb"
 
   bottle do
-    sha256 "cafeaa28d6684e743f52094975f46b962316c2263520d20e013606e2fac49f60" => :el_capitan
-    sha256 "b43f5e8e6588fef04b7201c7b9998f88d45118132306c09adad09fbaa394ba33" => :yosemite
-    sha256 "88afd83f16058a5a0ca55eb30469f7cebbb61c479e681c8d41195be3356da5cd" => :mavericks
+    sha256 "9e39c10d16b5d2aad7ec52d4b4d6d056405f549d9ed0142b31f8313380531fee" => :el_capitan
+    sha256 "1ba6cfc5387c24503baac98c2dabcc7fd1f372ec48d624efc83a8033c06b4c87" => :yosemite
+    sha256 "b82cfbed16eaa49053704eecba80831cf7a3fe2b3e3f5c43028c102d3acf7fef" => :mavericks
   end
 
   depends_on "readline"
