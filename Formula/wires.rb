@@ -1,8 +1,8 @@
 class Wires < Formula
   desc "WebDriver <-> Marionette proxy"
-  homepage "https://github.com/jgraham/wires"
-  url "https://github.com/jgraham/wires/archive/v0.6.2.tar.gz"
-  sha256 "bbc73c1014dd218b424a82da6e656f638aa672fd0990229eff8c1a005166db07"
+  homepage "https://github.com/mozilla/geckodriver"
+  url "https://github.com/mozilla/geckodriver/archive/v0.8.0.tar.gz"
+  sha256 "a3b2cc5fd48622cdc811f952565ab235e5b64b5776e1f03c889a5c5c02367e1a"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,10 +15,11 @@ class Wires < Formula
 
   def install
     system "cargo", "build"
-    bin.install "target/debug/wires"
+    bin.install "target/debug/geckodriver"
+    bin.install_symlink bin/"geckodriver" => "wires"
   end
 
   test do
-    system "#{bin}/wires", "--help"
+    system "#{bin}/geckodriver", "--help"
   end
 end
