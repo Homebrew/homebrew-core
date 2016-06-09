@@ -1,8 +1,8 @@
 class Macosvpn < Formula
   desc "Create Mac OS VPNs programmatically"
   homepage "https://github.com/halo/macosvpn"
-  url "https://github.com/halo/macosvpn/archive/0.1.4.tar.gz"
-  sha256 "577a93fff84a6076a4f53da0406ee712522f37e88c1857ad54686b7b7d936fcb"
+  url "https://github.com/halo/macosvpn/archive/0.2.0.tar.gz"
+  sha256 "94d834885848481d216613d4ce03681930076c60a2ca07d16d1256c8735a9038"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,7 +11,7 @@ class Macosvpn < Formula
     sha256 "f46d4474233ed96a42a6cd2dee7cb80efb198b13a35b426dded181e0be8be4d9" => :mavericks
   end
 
-  depends_on :xcode => ["6.1", :build]
+  depends_on :xcode => ["7.3", :build]
 
   def install
     xcodebuild
