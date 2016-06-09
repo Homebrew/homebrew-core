@@ -1,8 +1,8 @@
 class Hevea < Formula
   desc "LaTeX-to-HTML translator"
   homepage "http://hevea.inria.fr/"
-  url "http://hevea.inria.fr/old/hevea-2.25.tar.gz"
-  sha256 "e4c75b550bb2aa663052063d979dd1490fd7817e7cbb97b208dee92ed24ec94e"
+  url "http://hevea.inria.fr/old/hevea-2.28.tar.gz"
+  sha256 "cde2000e4642f3f88d73a317aec54e8b6036e29e81a00262daf15aca47d0d691"
 
   bottle do
     sha256 "0ffbef5c06e466891bbd0fa4dca681a3a613630bdf1cf51c5da7af434994e82c" => :el_capitan
@@ -11,6 +11,7 @@ class Hevea < Formula
   end
 
   depends_on "ocaml"
+  depends_on "ocamlbuild" => :build
   depends_on "ghostscript" => :optional
 
   def install
