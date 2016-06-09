@@ -3,8 +3,8 @@ require "language/go"
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.6.tar.gz"
-  sha256 "0415a9b503f62e40d2ba87f555b553757a14fac281d1d6a583d8d880b8720921"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.7.tar.gz"
+  sha256 "cd89676af6f97561700a08b599c287fb638f14a6a1019ef9167cf55ed6a3952a"
 
   bottle do
     sha256 "fda0a97f40d04a93d8938482fdb9aae47136b7ab062e5015a5d708dae5006e16" => :el_capitan
@@ -48,6 +48,9 @@ class Mongodb < Formula
         ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
         ENV["CPATH"] = Formula["openssl"].opt_include
       end
+
+      args << "sasl" if build.with? "sasl"
+
       system "./build.sh", *args
     end
 
