@@ -3,8 +3,8 @@ require "language/go"
 class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://gortool.com"
-  url "https://github.com/buger/gor/archive/v0.13.0.tar.gz"
-  sha256 "e4af70afacc162200b63d66927824f64f54e3cf662c50ce37e54912565a31f23"
+  url "https://github.com/buger/gor/archive/v0.14.0.tar.gz"
+  sha256 "62260a6f5cabde571b91d5762fba9c47691643df0a58565cbe808854cd064dc8"
   head "https://github.com/buger/gor.git"
 
   bottle do
