@@ -59,6 +59,7 @@ class Wolfssl < Formula
       --enable-hkdf
       --enable-inline
       --enable-ipv6
+      --enable-jni
       --enable-keygen
       --enable-ocsp
       --enable-opensslextra
