@@ -15,8 +15,11 @@ class Gradle < Formula
   depends_on :java => "1.6+"
 
   def install
-    libexec.install %w[bin lib]
-    bin.install_symlink libexec+"bin/gradle"
+    rm_f Dir["bin/*.cmd"]
+    libexec.install Dir["*"]
+
+    bin.install Dir["#{libexec}/bin/*"]
+    bin.env_script_all_files(libexec/"bin", Language::Java.overridable_java_home_env("1.6+"))
   end
 
   test do
