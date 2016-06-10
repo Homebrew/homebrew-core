@@ -167,6 +167,11 @@ class Ooniprobe < Formula
     (var/"lib/ooni").mkpath
   end
 
+  def post_install
+   system bin/"ooniresources"
+   system bin/"oonideckgen", "-o", "#{HOMEBREW_PREFIX}/share/ooni/decks/"
+  end
+
   def caveats; <<-EOS.undent
     Decks are installed to #{HOMEBREW_PREFIX}/share/ooni.
     EOS
