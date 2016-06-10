@@ -167,8 +167,8 @@ class Ooniprobe < Formula
   end
 
   def post_install
-   system bin/"ooniresources"
-   system bin/"oonideckgen", "-o", "#{HOMEBREW_PREFIX}/share/ooni/decks/"
+    system bin/"ooniresources"
+    system bin/"oonideckgen", "-o", "#{HOMEBREW_PREFIX}/share/ooni/decks/"
   end
 
   def caveats; <<-EOS.undent
