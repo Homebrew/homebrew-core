@@ -1,8 +1,8 @@
 class SpoofMac < Formula
   desc "Spoof your MAC address in OS X"
   homepage "https://github.com/feross/SpoofMAC"
-  url "https://pypi.python.org/packages/source/S/SpoofMAC/SpoofMAC-2.1.0.tar.gz"
-  sha256 "02a6a1eaed85d0e2be52299db29cbc517f60d41eeca9897eff3d5bb1ca14f3ab"
+  url "https://pypi.python.org/packages/9c/59/cc52a4c5d97b01fac7ff048353f8dc96f217eadc79022f78455e85144028/SpoofMAC-2.1.1.tar.gz"
+  sha256 "48426efe033a148534e1d4dc224c4f1b1d22299c286df963c0b56ade4c7dc297"
   head "https://github.com/feross/SpoofMAC.git"
 
   bottle do
@@ -28,9 +28,8 @@ class SpoofMac < Formula
     end
 
     system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install_symlink "spoof-mac.py" => "spoof-mac"
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.install Dir[libexec/"bin/*"]
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   plist_options :startup => true, :manual => "spoof-mac"
