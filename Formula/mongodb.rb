@@ -7,9 +7,9 @@ class Mongodb < Formula
   sha256 "cd89676af6f97561700a08b599c287fb638f14a6a1019ef9167cf55ed6a3952a"
 
   bottle do
-    sha256 "fda0a97f40d04a93d8938482fdb9aae47136b7ab062e5015a5d708dae5006e16" => :el_capitan
-    sha256 "8a21559dbda8aa1194c6659a7961605b8b7f79ebfe4b238fa6d781613b29d237" => :yosemite
-    sha256 "a10b249f46289ec5a71a8d5a140131a41d3bbe5295aaf67506171d6e468411c6" => :mavericks
+    sha256 "40f0556c93e212a70c6a295b3f6f4a6ac7d243abc0e44dacb9c633dc7725106e" => :el_capitan
+    sha256 "30c8ac35adc9f0ef0bde8af6c7d58cf02bc14c779c09626f89bafc451c6d5329" => :yosemite
+    sha256 "d1fd8b7daf61e0448429fabe10ce554f98151cba30441744aeb1fdbbb0f1c76f" => :mavericks
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
