@@ -1,8 +1,8 @@
 class Qbs < Formula
-  desc "Qt Build Suite"
-  homepage "https://wiki.qt.io/Qt_Build_Suite"
-  url "https://download.qt.io/official_releases/qbs/1.5.0/qbs-src-1.5.0.tar.gz"
-  sha256 "541106d3e53429c5375a58f395413b3cd5a026d91a304a10f36d78b5e39d9085"
+  desc "Build tool for developing projects across multiple platforms."
+  homepage "https://wiki.qt.io/Qbs"
+  url "https://download.qt.io/official_releases/qbs/1.5.1/qbs-src-1.5.1.tar.gz"
+  sha256 "ac6b9cf56d19245c9c1e0f6b1bf5b36f8194838faf2b4a7d9dbe85373bdbeabe"
   head "https://code.qt.io/qt-labs/qbs.git"
 
   bottle do
