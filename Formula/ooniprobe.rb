@@ -1,8 +1,8 @@
 class Ooniprobe < Formula
   desc "Network interference detection tool"
   homepage "https://ooni.torproject.org/"
-  url "https://pypi.python.org/packages/source/o/ooniprobe/ooniprobe-1.3.1.tar.gz"
-  sha256 "0d90b85f74c9dd98f8f111c058a2a734aa5e0aea927b2653f7a0387c93e090b2"
+  url "https://pypi.python.org/packages/93/39/e679fd5590243112cbec0ca0d98ba6b698e5df3000d26b0735820c1c1df0/ooniprobe-1.5.1.tar.gz"
+  sha256 "42095417b084eec3a0bf3b9746885e5292f620427f0e550b9c0cd0fe34e7c790"
 
   bottle do
     cellar :any
@@ -22,8 +22,8 @@ class Ooniprobe < Formula
   # these 4 need to come first or else cryptography will let setuptools
   # easy_install them (which is bad)
   resource "cffi" do
-    url "https://pypi.python.org/packages/source/c/cffi/cffi-1.5.2.tar.gz"
-    sha256 "da9bde99872e46f7bb5cff40a9b1cc08406765efafb583c704de108b6cb821dd"
+    url "https://pypi.python.org/packages/b6/98/11feff87072e2e640fb8320712b781eccdef05d588618915236b32289d5a/cffi-1.6.0.tar.gz"
+    sha256 "a7f75c4ef2362c0a0e54657add0a6c509fecbfa3b3807bc0925f5cb1c9f927db"
   end
 
   resource "enum34" do
@@ -32,8 +32,8 @@ class Ooniprobe < Formula
   end
 
   resource "pyasn1" do
-    url "https://pypi.python.org/packages/source/p/pyasn1/pyasn1-0.1.8.tar.gz"
-    sha256 "5d33be7ca0ec5997d76d29ea4c33b65c00c0231407fff975199d7f40530b8347"
+    url "https://pypi.python.org/packages/f7/83/377e3dd2e95f9020dbd0dfd3c47aaa7deebe3c68d3857a4e51917146ae8b/pyasn1-0.1.9.tar.gz"
+    sha256 "853cacd96d1f701ddd67aa03ecc05f51890135b7262e922710112f12a2ed2a7f"
   end
 
   resource "pycparser" do
@@ -48,8 +48,8 @@ class Ooniprobe < Formula
   end
 
   resource "cryptography" do
-    url "https://pypi.python.org/packages/source/c/cryptography/cryptography-1.2.3.tar.gz"
-    sha256 "8eb11c77dd8e73f48df6b2f7a7e16173fe0fe8fdfe266232832e88477e08454e"
+    url "https://pypi.python.org/packages/a9/5b/a383b3a778609fe8177bd51307b5ebeee369b353550675353f46cb99c6f0/cryptography-1.4.tar.gz"
+    sha256 "bb149540ed90c4b2171bf694fe6991d6331bc149ae623c8ff419324f4222d128"
   end
 
   resource "GeoIP" do
@@ -98,8 +98,8 @@ class Ooniprobe < Formula
   end
 
   resource "scapy" do
-    url "https://bitbucket.org/secdev/scapy/downloads/scapy-2.3.1.zip"
-    sha256 "8972c02e39a826a10c02c2bdd5025f7251dce9589c57befd9bb55c65f02e4934"
+    url "https://pypi.python.org/packages/6d/72/c055abd32bcd4ee6b36ef8e9ceccc2e242dea9b6c58fdcf2e8fd005f7650/scapy-2.3.2.tar.gz"
+    sha256 "a9059ced6e1ded0565527c212f6ae4c735f4245d0f5f2d7313c4a6049b005cd8"
   end
 
   resource "service_identity" do
@@ -113,8 +113,8 @@ class Ooniprobe < Formula
   end
 
   resource "Twisted" do
-    url "https://pypi.python.org/packages/source/T/Twisted/Twisted-15.4.0.tar.bz2"
-    sha256 "78862662fa9ae29654bc2b9d349c3f1d887e6b2ed978512c4442d53ea861f05c"
+    url "https://pypi.python.org/packages/18/85/eb7af503356e933061bf1220033c3a85bad0dbc5035dfd9a97f1e900dfcb/Twisted-16.2.0.tar.bz2"
+    sha256 "a090e8dc675e97fb20c3bb5f8114ae94169f4e29fd3b3cbede35705fd3cdbd79"
   end
 
   resource "txsocksx" do
@@ -123,8 +123,8 @@ class Ooniprobe < Formula
   end
 
   resource "txtorcon" do
-    url "https://pypi.python.org/packages/source/t/txtorcon/txtorcon-0.13.0.tar.gz"
-    sha256 "3218d0fa0c22f49eee9324a5862b2d53ef77d5cb8e555e2bcffc24070aaeca7d"
+    url "https://pypi.python.org/packages/69/f9/57b6179ba15c111f4926284a16a4486bdc3648508feeb72a93d203eb9b3c/txtorcon-0.14.2.tar.gz"
+    sha256 "f99819b1a71b8dea9e80317ec83c990b4ff608c98bc78a9fc1dc9991d349d13f"
   end
 
   resource "zope.interface" do
@@ -147,8 +147,6 @@ class Ooniprobe < Formula
     inreplace "requirements.txt" do |s|
       # provided by libdnet
       s.gsub! "pydumbnet", ""
-      # don't expect the pypi version of scapy
-      s.gsub! /scapy-real.*/, "scapy>=2.3.1"
     end
 
     # force a distutils install
@@ -167,10 +165,6 @@ class Ooniprobe < Formula
     man1.install Dir["data/*.1"]
     (share/"ooni").install Dir["data/*"]
     (var/"lib/ooni").mkpath
-  end
-
-  def post_install
-    system bin/"ooniresources", "--update-inputs", "--update-geoip"
   end
 
   def caveats; <<-EOS.undent
