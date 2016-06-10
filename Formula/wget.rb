@@ -3,9 +3,9 @@
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
-  url "http://ftpmirror.gnu.org/wget/wget-1.17.1.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/wget/wget-1.17.1.tar.xz"
-  sha256 "fe559b61eb9cc01635ac6206a14e02cb51591838c35fa83c7a4aacae0bdd97c9"
+  url "http://ftpmirror.gnu.org/wget/wget-1.18.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/wget/wget-1.18.tar.xz"
+  sha256 "b5b55b75726c04c06fe253daec9329a6f1a3c0c1878e3ea76ebfebc139ea9cc1"
 
   bottle do
     revision 1
@@ -39,6 +39,10 @@ class Wget < Formula
   depends_on "gpgme" => :optional
 
   def install
+    # Fixes undefined symbols _iconv, _iconv_close, _iconv_open
+    # Reported 10 Jun 2016: https://savannah.gnu.org/bugs/index.php?48193
+    ENV.append "LDFLAGS", "-liconv"
+
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}
