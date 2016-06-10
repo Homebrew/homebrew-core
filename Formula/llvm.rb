@@ -134,7 +134,7 @@ class Llvm < Formula
   option "without-libcxx", "Do not build the libc++ standard library"
   option "with-libcxxabi", "Build the libc++abi standard library"
   option "with-libunwind", "Build the libunwind library"
-  option "with-lld", "Build LLD linker"
+  option "without-lld", "Do not build LLD linker"
   option "with-lldb", "Build LLDB debugger"
   option "with-openmp", "Build additional OpenMP Runtime Libraries"
   option "with-python", "Build Python bindings against Homebrew Python"
