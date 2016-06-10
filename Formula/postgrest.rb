@@ -21,9 +21,10 @@ class Postgrest < Formula
   end
 
   bottle do
-    sha256 "3e1e6f8ba867ea149374b712c75a97cee87281ef2cb1c96c780efc59dbf6f5fb" => :el_capitan
-    sha256 "b8b506f74214d00cf4741a1ec65651a9cc6fa88d5156e2f9aa97caab60c57deb" => :yosemite
-    sha256 "e2d4bc81c1d9dfd43d11b57bc7224684f0d60f89737041b2fdc74f27cb3ae78c" => :mavericks
+    revision 1
+    sha256 "affa097c58a8de7ba195c15ee671b94ee2f10c0dce776c010ffe59fd0a84bf09" => :el_capitan
+    sha256 "e143e98a440369f71395df49f19f7e9a83805fcae9013492efa84d88575499f1" => :yosemite
+    sha256 "09ebd854d07d16e6add8f5b13733de154094b10f90ded01b1fb828719b998448" => :mavericks
   end
 
   depends_on "ghc" => :build
