@@ -149,9 +149,9 @@ class Git < Formula
 
     # Set the OS X keychain credential helper by default
     # (as Apple's CLT's git also does this).
-    (buildpath/"gitconfig").write <<-EOS
+    (buildpath/"gitconfig").write <<-EOS.undent
       [credential]
-        helper = osxkeychain
+      \thelper = osxkeychain
     EOS
     etc.install "gitconfig"
   end
