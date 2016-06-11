@@ -15,8 +15,10 @@ class Libtiff < Formula
 
   option :universal
   option :cxx11
+  option "with-lzma", "Include support for LZMA compression"
 
   depends_on "jpeg"
+  depends_on "xz" if build.with? "lzma"
 
   # Backports of various security/potential security fixes from Debian.
   # Already applied upstream in CVS but no new release yet.
@@ -34,12 +36,14 @@ class Libtiff < Formula
     ENV.cxx11 if build.cxx11?
 
     jpeg = Formula["jpeg"].opt_prefix
+    lzma = Formula["xz"].opt_prefix
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--without-x",
-                          "--disable-lzma",
                           "--with-jpeg-include-dir=#{jpeg}/include",
-                          "--with-jpeg-lib-dir=#{jpeg}/lib"
+                          "--with-jpeg-lib-dir=#{jpeg}/lib",
+                          "--with-lzma-include-dir=#{lzma}/include",
+                          "--with-lzma-lib-dir=#{lzma}/lib"
     system "make", "install"
   end
 
