@@ -3,8 +3,9 @@ require "language/go"
 class Dockviz < Formula
   desc "Visualizing docker data"
   homepage "https://github.com/justone/dockviz"
-  url "https://github.com/justone/dockviz.git", :tag => "v0.4",
-                                                :revision => "551ef0434f74aa7ed0c8807b4e2dc9874a49160c"
+  url "https://github.com/justone/dockviz.git",
+    :tag => "v0.4.1",
+    :revision => "8a7f88523842a7cf3594fb00ef3e72b3c33de81d"
   head "https://github.com/justone/dockviz.git"
 
   bottle do
@@ -18,22 +19,22 @@ class Dockviz < Formula
 
   go_resource "github.com/Sirupsen/logrus" do
     url "https://github.com/Sirupsen/logrus.git",
-    :revision => "cd7d1bbe41066b6c1f19780f895901052150a575"
+    :revision => "f3cfb454f4c209e6668c95216c4744b8fddb2356"
   end
 
   go_resource "github.com/docker/docker" do
     url "https://github.com/docker/docker.git",
-    :revision => "ac2f4dd71b9d1e7d028bf3e7cb3b662c109c5836"
+    :revision => "ee8c512dc32117fbd327b4a19da0ffefe47abfcd"
   end
 
   go_resource "github.com/docker/go-units" do
     url "https://github.com/docker/go-units.git",
-    :revision => "5d2041e26a699eaca682e2ea41c8f891e1060444"
+    :revision => "09dda9d4b0d748c57c14048906d3d094a58ec0c9"
   end
 
   go_resource "github.com/fsouza/go-dockerclient" do
     url "https://github.com/fsouza/go-dockerclient.git",
-    :revision => "7cbfc4525fb2aeeeff56dc5c6fe18a5536a51f6b"
+    :revision => "9df1f25d542e79d7909ef321b5c13c5d34ea7f1d"
   end
 
   go_resource "github.com/hashicorp/go-cleanhttp" do
@@ -43,17 +44,17 @@ class Dockviz < Formula
 
   go_resource "github.com/jessevdk/go-flags" do
     url "https://github.com/jessevdk/go-flags.git",
-    :revision => "6b9493b3cb60367edd942144879646604089e3f7"
+    :revision => "b9b882a3990882b05e02765f5df2cd3ad02874ee"
   end
 
   go_resource "github.com/opencontainers/runc" do
     url "https://github.com/opencontainers/runc.git",
-    :revision => "4ad7bbc172f2aed1ebaf5c0ddf1ea8c8136c2e93"
+    :revision => "ae312e5155c4740b1c8ceb59a1a50be6390e49c2"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-    :revision => "2a35e686583654a1b89ca79c4ac78cb3d6529ca3"
+    :revsion => "3f122ce3dbbe488b7e6a8bdb26f41edec852a40b"
   end
 
   def install
@@ -63,6 +64,6 @@ class Dockviz < Formula
   end
 
   test do
-    system "#{bin}/dockviz", "--version"
+    system bin/"dockviz", "--version"
   end
 end
