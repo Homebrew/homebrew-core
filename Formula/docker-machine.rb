@@ -19,6 +19,7 @@ class DockerMachine < Formula
   depends_on "go" => :build
   depends_on "automake" => :build
 
+
   def install
     ENV["GOBIN"] = bin
     ENV["GOPATH"] = buildpath
@@ -34,6 +35,43 @@ class DockerMachine < Formula
       bin.install Dir["bin/*"]
       bash_completion.install Dir["contrib/completion/bash/*.bash"]
     end
+  end
+
+  plist_options :manual => "docker-machine start"
+
+  def plist; <<-EOS.undent
+     <?xml version="1.0" encoding="UTF-8"?>
+     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+     <plist version="1.0">
+       <dict>
+         <key>EnvironmentVariables</key>
+         <dict>
+             <key>PATH</key>
+             <string>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin</string>
+         </dict>
+         <key>Label</key>
+         <string>#{plist_name}</string>
+         <key>ProgramArguments</key>
+         <array>
+             <string>#{opt_bin}/docker-machine</string>
+             <string>start</string>
+             <string>default</string>
+         </array>
+         <key>RunAtLoad</key>
+         <true/>
+         <key>WorkingDirectory</key>
+         <string>#{HOMEBREW_PREFIX}</string>
+       </dict>
+     </plist>
+     EOS
+  end
+
+  def caveats
+    s = <<-EOS.undent
+
+    Create a docker machine ie: docker-machine create -d {driver} default
+    EOS
+    s
   end
 
   test do
