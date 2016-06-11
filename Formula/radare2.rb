@@ -3,17 +3,17 @@ class Radare2 < Formula
   homepage "http://radare.org"
 
   stable do
-    url "http://www.radare.org/get/radare2-0.10.2.tar.xz"
-    sha256 "1bc9ce6f5d6bec366324bc542653bba5c1b89a6980c17253ec3a1f75264beb3b"
+    url "http://www.radare.org/get/radare2-0.10.3.tar.xz"
+    sha256 "40200c9ceb42f1ef4634843249c03d9149822e690c7edfb748c88f596eb8cb93"
 
     resource "bindings" do
-      url "http://www.radare.org/get/radare2-bindings-0.10.2.tar.xz"
-      sha256 "7b47919c7f3d3a4eb432df8605160c72257a324c5f9e59c890799cf527228631"
+      url "http://www.radare.org/get/radare2-bindings-0.10.3.tar.xz"
+      sha256 "eabc7036bd84f0df1f45d54beb1644712475993a3e9bbc48ec41e5d2a25ba1f2"
     end
 
     resource "extras" do
-      url "http://www.radare.org/get/radare2-extras-0.10.2.tar.xz"
-      sha256 "ff5fbb37d654d8672965f67b216be9f2219da4db4f380954cd7d9c55ce69232b"
+      url "http://www.radare.org/get/radare2-extras-0.10.3.tar.xz"
+      sha256 "5717cc8d5da6bab6ab20a09555d6091b3ffbb50c03dd47c2a89cf1b5566ddd2d"
     end
   end
 
@@ -82,8 +82,7 @@ class Radare2 < Formula
                            "LUAPKG=lua-#{lua_version}",
                            "PERLPATH=#{lib}/perl5/site_perl/#{perl_version}",
                            "PYTHON_PKGDIR=#{lib}/python2.7/site-packages",
-                           "RUBYPATH=#{lib}/ruby/#{RUBY_VERSION}",
-      ]
+                           "RUBYPATH=#{lib}/ruby/#{RUBY_VERSION}"]
 
       system "./configure", "--prefix=#{prefix}"
       ["lua", "perl", "python"].each do |binding|
