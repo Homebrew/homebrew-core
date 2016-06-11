@@ -19,7 +19,6 @@ class DockerMachine < Formula
   depends_on "go" => :build
   depends_on "automake" => :build
 
-
   def install
     ENV["GOBIN"] = bin
     ENV["GOPATH"] = buildpath
@@ -35,6 +34,14 @@ class DockerMachine < Formula
       bin.install Dir["bin/*"]
       bash_completion.install Dir["contrib/completion/bash/*.bash"]
     end
+  end
+
+  def caveats
+    s = <<-EOS.undent
+
+    Create a docker machine ie: docker-machine create -d {driver} default
+    EOS
+    s
   end
 
   plist_options :manual => "docker-machine start"
@@ -64,14 +71,6 @@ class DockerMachine < Formula
        </dict>
      </plist>
      EOS
-  end
-
-  def caveats
-    s = <<-EOS.undent
-
-    Create a docker machine ie: docker-machine create -d {driver} default
-    EOS
-    s
   end
 
   test do
