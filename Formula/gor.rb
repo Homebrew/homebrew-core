@@ -3,8 +3,8 @@ require "language/go"
 class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://gortool.com"
-  url "https://github.com/buger/gor/archive/v0.14.0.tar.gz"
-  sha256 "62260a6f5cabde571b91d5762fba9c47691643df0a58565cbe808854cd064dc8"
+  url "https://github.com/buger/gor/archive/v0.14.1.tar.gz"
+  sha256 "802c253fd5218e914e707afb7f3b79baa54871160c4085b949ef3855abfb86d5"
   head "https://github.com/buger/gor.git"
 
   bottle do
@@ -28,16 +28,16 @@ class Gor < Formula
 
   go_resource "github.com/google/gopacket" do
     url "https://github.com/google/gopacket.git",
-      :revision => "aa09ced736460d76535444c825932a0742975f7d"
+      :revision => "f4807986c9ee46845a35c59a382d6ccd9304b320"
   end
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/buger/"
+    (buildpath/"src/github.com/buger").mkpath
     ln_sf buildpath, buildpath/"src/github.com/buger/gor"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    system "go", "build", "-o", "#{bin}/gor", "-ldflags", "-X main.VERSION \"#{version}\""
+    system "go", "build", "-o", bin/"gor", "-ldflags", "-X main.VERSION=#{version}"
   end
 
   test do
