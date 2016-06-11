@@ -21,6 +21,10 @@ class Wolfssl < Formula
   depends_on "libtool" => :build
 
   def install
+    # https://github.com/Homebrew/homebrew-core/pull/1046
+    # https://github.com/Homebrew/brew/pull/251
+    ENV.delete("SDKROOT")
+
     args = %W[
       --disable-silent-rules
       --disable-dependency-tracking
