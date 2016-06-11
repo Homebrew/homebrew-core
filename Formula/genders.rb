@@ -1,21 +1,23 @@
 class Genders < Formula
   desc "Static cluster configuration database for cluster management"
   homepage "https://computing.llnl.gov/linux/genders.html"
-  url "https://downloads.sourceforge.net/project/genders/genders/1.20-1/genders-1.20.tar.gz"
-  sha256 "374ef2833ad53ea9ca4ccbabd7a66d77ab0b46785e299c0e64f95577eed96ac9"
+  url "https://downloads.sourceforge.net/project/genders/genders/1.22-1/genders-1.22.tar.gz"
+  sha256 "0ff292825a29201106239c4d47d9ce4c6bda3f51c78c0463eb2634ecc337b774"
 
   bottle do
     cellar :any
-    sha256 "f079371f0806c6cca9cb8494636dc20ff07b67ac6e236df955a9e4955389e999" => :el_capitan
-    sha256 "116ea2ec83b058a2f22f379c769b09af58548fae4dbf72129e7c25a0fd030bb7" => :yosemite
-    sha256 "a10c47616878f37541875643e1bc54e50b95d839f72277041ffbc269bce75c17" => :mavericks
+    sha256 "4d5c7ced8593d2571b06d076a16ccce0bfcc99a1ea3f314b3f5f0d09d18c6076" => :el_capitan
+    sha256 "f4e7550bac6a7d427ada6d5af16b5e5bbae52786fbad1f673af1e296bace5343" => :yosemite
+    sha256 "c455a536ad6b100887fbc6badf0e054157cf961ea02802f67a694c5e8dd30b96" => :mavericks
   end
 
   option "with-non-shortened-hostnames", "Allow non shortened hostnames that can include dots e.g. www.google.com"
 
   def install
-    args = ["--prefix=#{prefix}"]
-
+    args = %W[
+      --prefix=#{prefix}
+      --with-java-extensions=no
+    ]
     args << "--with-non-shortened-hostnames" if build.with? "non-shortened-hostnames"
 
     system "./configure", *args

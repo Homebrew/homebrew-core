@@ -2,6 +2,7 @@
   "app-engine-java-sdk": "app-engine-java",
   "beanstalk": "beanstalkd",
   "letsencrypt": "certbot",
+  "cppformat": "fmt",
   "crystal": "autocode",
   "cv": "progress",
   "cyassl": "wolfssl",
@@ -20,5 +21,6 @@
   "objective-caml": "ocaml",
   "offline-imap": "offlineimap",
   "plt-racket": "racket",
-  "polarssl": "mbedtls"
+  "polarssl": "mbedtls",
+  "screenbrightness": "brightness"
 }

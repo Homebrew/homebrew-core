@@ -4,15 +4,27 @@ require "net/http"
 class Postgrest < Formula
   include Language::Haskell::Cabal
 
-  desc "Serves a fully RESTful API from any existing PostgreSQL database."
+  desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/begriffs/postgrest"
-  url "https://github.com/begriffs/postgrest/archive/v0.3.1.1.tar.gz"
-  sha256 "1830900175879d4be40b93410a7617cb637aae7e9e70792bf70e2bf72b0b2150"
+  revision 3
+  head "https://github.com/begriffs/postgrest.git"
+
+  stable do
+    url "https://github.com/begriffs/postgrest/archive/v0.3.1.1.tar.gz"
+    sha256 "1830900175879d4be40b93410a7617cb637aae7e9e70792bf70e2bf72b0b2150"
+
+    # Upstream postgrest PR bumping the constraints for bytestring-tree-builder,
+    # hasql-transaction, and postgresql-binary, so that we no longer have to
+    # patch any of those; https://github.com/begriffs/postgrest/pull/619 doesn't
+    # apply cleanly to the tagged release, so using an equivalent patch :DATA
+    patch :DATA
+  end
 
   bottle do
-    sha256 "17403cf79873ee9771e6af936386c07ee57d4e74dbef893ca813b856726339e9" => :el_capitan
-    sha256 "13195c0ffc3095ff433e71f080410162732e9353c2bea70b12a6d2578de5bf38" => :yosemite
-    sha256 "d75b2d421104cb8d9d052b59ef7ca014ea07bb6984756ec0566694b07bae8ac9" => :mavericks
+    revision 1
+    sha256 "affa097c58a8de7ba195c15ee671b94ee2f10c0dce776c010ffe59fd0a84bf09" => :el_capitan
+    sha256 "e143e98a440369f71395df49f19f7e9a83805fcae9013492efa84d88575499f1" => :yosemite
+    sha256 "09ebd854d07d16e6add8f5b13733de154094b10f90ded01b1fb828719b998448" => :mavericks
   end
 
   depends_on "ghc" => :build
@@ -55,3 +67,57 @@ class Postgrest < Formula
     end
   end
 end
+
+__END__
+diff --git a/postgrest.cabal b/postgrest.cabal
+index 0b32e03..ff5e7c4 100644
+--- a/postgrest.cabal
++++ b/postgrest.cabal
+@@ -27,16 +27,17 @@ executable postgrest
+   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+   default-language:    Haskell2010
+   build-depends:       aeson (>= 0.8 && < 0.10) || (>= 0.11 && < 0.12)
+-                     , base >= 4.8 && < 5
++                     , base >= 4.8 && < 6
+                      , bytestring
++                     , bytestring-tree-builder == 0.2.7
+                      , case-insensitive
+                      , cassava
+                      , containers
+                      , contravariant
+                      , errors
+-                     , hasql >= 0.19.9 && < 0.20
+-                     , hasql-pool >= 0.4 && < 0.5
+-                     , hasql-transaction >= 0.4.3 && < 0.5
++                     , hasql == 0.19.12
++                     , hasql-pool == 0.4.1
++                     , hasql-transaction == 0.4.5
+                      , http-types
+                      , interpolatedstring-perl6
+                      , jwt
+@@ -45,6 +46,7 @@ executable postgrest
+                      , mtl
+                      , optparse-applicative >= 0.11 && < 0.13
+                      , parsec
++                     , postgresql-binary == 0.9.0.1
+                      , postgrest
+                      , regex-tdfa
+                      , safe >= 0.3 && < 0.4
+@@ -82,7 +84,7 @@ library
+   default-language:    Haskell2010
+   default-extensions:  OverloadedStrings, ScopedTypeVariables, QuasiQuotes
+   build-depends:       aeson
+-                     , base >=4.6 && <5
++                     , base
+                      , bytestring
+                      , case-insensitive
+                      , cassava
+@@ -175,7 +177,7 @@ Test-Suite spec
+                      , hasql-pool
+                      , hasql-transaction
+                      , heredoc
+-                     , hspec == 2.2.*
++                     , hspec
+                      , hspec-wai
+                      , hspec-wai-json
+                      , http-types

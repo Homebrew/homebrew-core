@@ -3,12 +3,12 @@ class Anjuta < Formula
   homepage "http://anjuta.org"
   url "https://download.gnome.org/sources/anjuta/3.18/anjuta-3.18.2.tar.xz"
   sha256 "be864f2f1807e1b870697f646294e997d221d5984a135245543b719e501cef8e"
+  revision 1
 
   bottle do
-    revision 1
-    sha256 "a86acb12825402db12cf881bb80600a4b04792251202f431806203909ed25eea" => :el_capitan
-    sha256 "d886002dcfa6fef994dcebc2e6552b70be5bc0ec346ef3f39525ee40814d5618" => :yosemite
-    sha256 "d8d56bd52d1f3eeec0ea3adb7a01c3e6b641236f1a283d408b73d105607417a2" => :mavericks
+    sha256 "e47ebd52776fb698063e6f3f7c1597bd0ac067ecb712a694ade93df2f529e1c0" => :el_capitan
+    sha256 "a540496cfb3246eb36c84df73591db84550aa35ff1fbd3abfc738b806558bd90" => :yosemite
+    sha256 "08d2588afa1ec9c51d3b0a57f2a94ceae64b1a0df7e551326e63233b6c78421e" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -27,6 +27,7 @@ class Anjuta < Formula
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "vala" => :recommended
   depends_on "autogen" => :recommended
+  depends_on "gnutls"
 
   def install
     system "./configure", "--disable-debug",

@@ -1,39 +1,42 @@
 class Librsvg < Formula
   desc "Library to render SVG files using Cairo"
   homepage "https://live.gnome.org/LibRsvg"
-  url "https://download.gnome.org/sources/librsvg/2.40/librsvg-2.40.13.tar.xz"
-  sha256 "4d6ea93ec05f5dabe7262d711d246a0a99b2311e215360dd3dcabd6afe3b9804"
+  url "https://download.gnome.org/sources/librsvg/2.40/librsvg-2.40.15.tar.xz"
+  sha256 "d9cac4a123eec6e553a26e120979bab7425def9ae7ce7c079eba5e4a45db05f4"
 
   bottle do
-    sha256 "d17e2b85ffb9fd05850a8c9a5e74ef4fa478a514bb2f49758b735f22fbb14e34" => :el_capitan
-    sha256 "13b363e91d8e7063ba343c77b0aa97a98a1e35996c9577ac9eb383be4c913cf6" => :yosemite
-    sha256 "ab539c5206f1a5795c270842058a350cd253ac427e756bb0610cefd785254273" => :mavericks
+    sha256 "cfde18a8eeb05390e4f918163b6cf9a24c3f91a40213aa77e0a48e0c74f66e93" => :el_capitan
+    sha256 "c7f646b1f3b06d114fe3c3ffe12b91e0b921ab36646e2a2f6643343c484e3330" => :yosemite
+    sha256 "fc4eae3c1a74a5f226c6a04a2b0cf6eb9fac70bcc3645e3099d7acd6f4112376" => :mavericks
   end
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "glib"
-  depends_on "gtk+3" => :optional
   depends_on "libcroco"
-  depends_on "libgsf" => :optional
   depends_on "pango"
+  depends_on "libgsf" => :optional
+  depends_on "gtk+3" => :optional
 
   def install
-    args = ["--disable-dependency-tracking",
-            "--prefix=#{prefix}",
-            "--disable-Bsymbolic",
-            "--enable-tools=yes",
-            "--enable-pixbuf-loader=yes",
-            "--enable-introspection=yes"]
-
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --disable-Bsymbolic
+      --enable-tools=yes
+      --enable-pixbuf-loader=yes
+      --enable-introspection=yes
+    ]
     args << "--enable-svgz" if build.with? "libgsf"
 
     system "./configure", *args
 
     # disable updating gdk-pixbuf cache, we will do this manually in post_install
     # https://github.com/Homebrew/homebrew/issues/40833
-    inreplace "gdk-pixbuf-loader/Makefile", "$(GDK_PIXBUF_QUERYLOADERS) > $(DESTDIR)$(gdk_pixbuf_cache_file) ;", ""
+    inreplace "gdk-pixbuf-loader/Makefile",
+              "$(GDK_PIXBUF_QUERYLOADERS) > $(DESTDIR)$(gdk_pixbuf_cache_file) ;",
+              ""
 
     system "make", "install",
       "gdk_pixbuf_binarydir=#{lib}/gdk-pixbuf-2.0/2.10.0/loaders",

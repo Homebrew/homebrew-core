@@ -12,7 +12,7 @@ class Rubberband < Formula
     # https://bitbucket.org/breakfastquay/rubberband/commits/cb02b7ed1500f0c06c0ffd196921c812dbcf6888
     # https://bitbucket.org/breakfastquay/rubberband/commits/9e32f693c6122b656a0df63bc77e6a96d6ba213d
     patch :p1 do
-      url "https://raw.githubusercontent.com/homebrew/patches/1fd51a983/rubberband/rubberband-1.8.1-yosemite.diff"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1fd51a983/rubberband/rubberband-1.8.1-yosemite.diff"
       sha256 "7686dd9d05fddbcbdf4015071676ac37ecad5c7594cc06470440a18da17c71cd"
     end
   end

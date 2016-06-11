@@ -45,7 +45,8 @@ class Lua < Formula
   # sigaction provided by posix signalling power patch
   if build.with? "sigaction"
     patch do
-      url "http://lua-users.org/files/wiki_insecure/power_patches/5.2/lua-5.2.3-sig_catch.patch"
+      # original patch file (not available): http://lua-users.org/files/wiki_insecure/power_patches/5.2/lua-5.2.3-sig_catch.patch
+      url "https://raw.githubusercontent.com/Homebrew/patches/d674e02d1097b21032198854080204680b616b61/lua/lua-5.2.3-sig_catch.patch"
       sha256 "f2e77f73791c08169573658caa3c97ba8b574c870a0a165972ddfbddb948c164"
     end
   end

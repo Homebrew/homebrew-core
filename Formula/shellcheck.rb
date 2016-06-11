@@ -5,14 +5,14 @@ class Shellcheck < Formula
 
   desc "Static analysis and lint tool, for (ba)sh scripts"
   homepage "https://www.shellcheck.net/"
-  url "https://github.com/koalaman/shellcheck/archive/v0.4.3.tar.gz"
-  sha256 "229a3bd5e38c4da2ce7ddf43c06ca388454e0406f3dbfc44865208b6b334109e"
+  url "https://github.com/koalaman/shellcheck/archive/v0.4.4.tar.gz"
+  sha256 "1f558bf3e2469477e260f8d2edcab381a9b600b01d0f6498f8a2565965d75407"
   head "https://github.com/koalaman/shellcheck.git"
 
   bottle do
-    sha256 "daf97f6a1ff883a55039074774c30a049635207d2c9af573c2cacd2d700a09a7" => :el_capitan
-    sha256 "a3ba4ae51b06d96ef1275938a0183f7590a437dce5f015011d1a104aaa092274" => :yosemite
-    sha256 "62e937dccd8b7f49c3e5f15b49b8fa26f3a71e51ae04af41a6dd5d83721b055e" => :mavericks
+    sha256 "798c1d8b536aca0f25b51656e5d97bf7b15d499ccadabb81cdae6ab945d637ec" => :el_capitan
+    sha256 "87e95a3d80bcd72c3f6209dbde585b080fb89d72181fe529c6286ac5d403337c" => :yosemite
+    sha256 "96be49df8c50dbd78f4d32f534dfd78287946ddf1849f348426c6dcd13cef2eb" => :mavericks
   end
 
   depends_on "ghc" => :build

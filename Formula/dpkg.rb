@@ -6,9 +6,10 @@ class Dpkg < Formula
   sha256 "fe89243868888ce715bf45861f26264f767d4e4dbd0d6f1a26ce60bbbbf106da"
 
   bottle do
-    sha256 "012bcb1fc4095615f2c5694ac16e12ad17448708794b74517b69249b2dff49ea" => :el_capitan
-    sha256 "81e8e27dc155bbfc3b2a5f106f1caddc8960f562dc8dea00920d9bf8235c5cc3" => :yosemite
-    sha256 "6e7977501e3f923d0177796509cb59b67f31dc88d0f0fbae91b97df4becf45f5" => :mavericks
+    revision 1
+    sha256 "e6ba155240fe365ee05567909c86096bb4ffa4162bbba8a07ecc5c7e22916250" => :el_capitan
+    sha256 "cb856a812621215882eb2c96a371bf4786e7b3a2997c49a7aeba19ec64f9563d" => :yosemite
+    sha256 "80f3d962fee89e0ae81d304d6d2b159052df6afd83b8d49507b61df62d12a52b" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -40,6 +41,7 @@ class Dpkg < Formula
 
     bin.install Dir["#{libexec}/bin/*"]
     man.install Dir["#{libexec}/share/man/*"]
+    (lib/"pkgconfig").install_symlink Dir["#{libexec}/lib/pkgconfig/*.pc"]
     bin.env_script_all_files(libexec+"bin", :PERL5LIB => ENV["PERL5LIB"])
 
     (buildpath/"dummy").write "Vendor: dummy\n"

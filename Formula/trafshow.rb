@@ -24,7 +24,7 @@ class Trafshow < Formula
     "configure"         => "c6e34dddd6c159cbd373b2b593f7643642cb10449c6bc6c606e160586bc5b794",
   }.each do |name, sha|
     patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/patches/be6fd4a/trafshow/patch-#{name}"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/be6fd4a/trafshow/patch-#{name}"
       sha256 sha
     end
   end

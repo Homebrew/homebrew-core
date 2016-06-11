@@ -12,7 +12,7 @@ class Ruby < Formula
     # The issue has been fixed on HEAD as of 1 Jan 2016, but has not been
     # backported to the 2.3 branch yet and patch is still required.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/ba8cc6b88e6b7153ac37739e5a1a6bbbd8f43817/ruby/mkconfig.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/ba8cc6b88e6b7153ac37739e5a1a6bbbd8f43817/ruby/mkconfig.patch"
       sha256 "929c618f74e89a5e42d899a962d7d2e4af75716523193af42626884eaba1d765"
     end
   end

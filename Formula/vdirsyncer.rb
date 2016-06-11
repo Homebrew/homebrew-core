@@ -1,15 +1,15 @@
 class Vdirsyncer < Formula
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
-  url "https://pypi.python.org/packages/0b/fb/c42223e1e9169e4770194e62143d431755724b080d8cb77f14705b634815/vdirsyncer-0.10.0.tar.gz"
-  sha256 "e8b894022beab6f98bde80c919e5fa99cb72698e2327e8d5271c70d39636c8bd"
+  url "https://pypi.python.org/packages/39/e5/1e7097b5f0cd6de79ec9014f162a6000b77ca2a369ea8a1588a2eebff570/vdirsyncer-0.11.0.tar.gz"
+  sha256 "dbe1d139abf576ccf0b8220a30c80803c7ecaa52c7088241565c379cc4dcc0ad"
   head "https://github.com/pimutils/vdirsyncer"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cd3a68144c85441f022c795ec339897c3db4f6a002ce2bdd226e8784f6297856" => :el_capitan
-    sha256 "fa5fbc3f72399b0d52309e3c3bd1b24f4b91fa8a09e44eda65d5652fae7fb583" => :yosemite
-    sha256 "c517ed6c8f4c5cac62751ea103f438739fdfb6c087f50d1f0f4cb07a5b7d78af" => :mavericks
+    sha256 "5cd89af21228006b51200916480fdd9b69a50236c11d2bfd041e625bc88bc4f9" => :el_capitan
+    sha256 "a00272ea7a08ef2b8c7d5faedeb32f93384e073c0b6d8786e7c928fd8dd7a494" => :yosemite
+    sha256 "350b32d002f84a2a4f9964f814875e707b8fe0d348f576b53493b1c0dc89055d" => :mavericks
   end
 
   option "with-remotestorage", "Build with support for remote-storage"
@@ -67,11 +67,21 @@ class Vdirsyncer < Formula
 
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+
+    prefix.install "contrib/vdirsyncer.plist"
+    inreplace prefix/"vdirsyncer.plist" do |s|
+      s.gsub! "@@WORKINGDIRECTORY@@", bin
+      s.gsub! "@@VDIRSYNCER@@", bin/name
+      s.gsub! "@@SYNCINTERVALL@@", "60"
+    end
+  end
+
+  def post_install
+    inreplace prefix/"vdirsyncer.plist", "@@LOCALE@@", ENV["LC_ALL"] || ENV["LANG"] || "en_US.UTF-8"
   end
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
-    ENV["LANG"] = "en_US.UTF-8"
     (testpath/".config/vdirsyncer/config").write <<-EOS.undent
       [general]
       status_path = #{testpath}/.vdirsyncer/status/
@@ -92,13 +102,14 @@ class Vdirsyncer < Formula
       BEGIN:VCARD
       VERSION:3.0
       EMAIL;TYPE=work:username@example.org
-      FN:User Name
+      FN:User Name Ö φ 風 ض
       UID:092a1e3b55
       N:Name;User
       END:VCARD
     EOS
     (testpath/".contacts/b/foo/").mkpath
+    system "#{bin}/vdirsyncer", "discover"
     system "#{bin}/vdirsyncer", "sync"
-    assert_match /BEGIN:VCARD/, (testpath/".contacts/b/foo/092a1e3b55.vcf").read
+    assert_match /Ö φ 風 ض/, (testpath/".contacts/b/foo/092a1e3b55.vcf").read
   end
 end

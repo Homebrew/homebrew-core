@@ -1,8 +1,19 @@
 class Logstash < Formula
   desc "Tool for managing events and logs"
   homepage "https://www.elastic.co/products/logstash"
-  url "https://download.elastic.co/logstash/logstash/logstash-2.3.2.tar.gz"
-  sha256 "b3c9d943fa273c8087386736ef6809df9c5959bab870a6ab4723f58d48dd38c1"
+
+  stable do
+    url "https://download.elastic.co/logstash/logstash/logstash-2.3.2.tar.gz"
+    sha256 "b3c9d943fa273c8087386736ef6809df9c5959bab870a6ab4723f58d48dd38c1"
+    depends_on :java => "1.7+"
+  end
+
+  devel do
+    url "https://download.elastic.co/logstash/logstash/logstash-5.0.0-alpha3.tar.gz"
+    sha256 "22ab6665f1049e7df18f020ba5e1f5287bffa0b53e205b178e9e3364941550d1"
+    version "5.0.0-alpha3"
+    depends_on :java => "1.8"
+  end
 
   head do
     url "https://github.com/elastic/logstash.git"
@@ -10,8 +21,6 @@ class Logstash < Formula
   end
 
   bottle :unneeded
-
-  depends_on :java => "1.7+"
 
   def install
     if build.head?

@@ -1,13 +1,13 @@
 class IrcdHybrid < Formula
   desc "High-performance secure IRC server"
   homepage "http://www.ircd-hybrid.org/"
-  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.12/ircd-hybrid-8.2.12.tgz"
-  sha256 "effeac9669bf77c298b5afd0b6c9e9362862be666dffeb77a13cd7f777d613fc"
+  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.17/ircd-hybrid-8.2.17.tgz"
+  sha256 "336ed06ffa59a654065ec7d474f3d954cdcce6f7e413d61f7dc1e064ce786dd5"
 
   bottle do
-    sha256 "ea01b907e045d4fd85ca2431e52ee76ef5b7b1abbd865ff51d9f34da17db388a" => :el_capitan
-    sha256 "eac835043d6fc9186823cf363c6c659262f78cc1619d54558a3578885e099e5f" => :yosemite
-    sha256 "5822f818be6f3e267c85579e3f137ab204333c6bf23a583d3730d0cfb498bb50" => :mavericks
+    sha256 "2eb3af3e9cc2cfc1a376ba7bbbcbe9cec553c64519417c389940dbb214158085" => :el_capitan
+    sha256 "a0dcbdad48fbb7523ec4f1a5d576320ead380519c1773745f4b3332118d3feae" => :yosemite
+    sha256 "017eb7f79bbae9f834ca8d394c55c34eea0f5f838e605479ce6c34b4ba513a0b" => :mavericks
   end
 
   # ircd-hybrid needs the .la files
@@ -35,10 +35,6 @@ class IrcdHybrid < Formula
     EOS
   end
 
-  test do
-    system "#{bin}/ircd", "-version"
-  end
-
   plist_options :manual => "ircd"
 
   def plist; <<-EOS.undent
@@ -63,5 +59,9 @@ class IrcdHybrid < Formula
     </dict>
     </plist>
     EOS
+  end
+
+  test do
+    system "#{bin}/ircd", "-version"
   end
 end

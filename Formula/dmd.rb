@@ -4,21 +4,21 @@ class Dmd < Formula
   revision 1
 
   stable do
-    url "https://github.com/D-Programming-Language/dmd/archive/v2.071.0.tar.gz"
+    url "https://github.com/dlang/dmd/archive/v2.071.0.tar.gz"
     sha256 "e223bfa0ad6d3cf04afd35ef03f3507e674ceefc19ff0b0109265b86b7857500"
 
     resource "druntime" do
-      url "https://github.com/D-Programming-Language/druntime/archive/v2.071.0.tar.gz"
+      url "https://github.com/dlang/druntime/archive/v2.071.0.tar.gz"
       sha256 "54f9aea60424fe43d950112d6beaa102048e82f78bf1362d20c98525f199f356"
     end
 
     resource "phobos" do
-      url "https://github.com/D-Programming-Language/phobos/archive/v2.071.0.tar.gz"
+      url "https://github.com/dlang/phobos/archive/v2.071.0.tar.gz"
       sha256 "3d3f63c2cd303546c1f4ed0169b9dd69173c9d4ded501721cd846c1a05738a69"
     end
 
     resource "tools" do
-      url "https://github.com/D-Programming-Language/tools/archive/v2.071.0.tar.gz"
+      url "https://github.com/dlang/tools/archive/v2.071.0.tar.gz"
       sha256 "e41f444cb85ee2ca723abc950c1f875d9e0004d92208a883454ff2b8efd2c441"
     end
   end
@@ -29,19 +29,43 @@ class Dmd < Formula
     sha256 "0871b4dec6f4cade32d48037e840b62b9829a0806986553033b58712821ecfaf" => :mavericks
   end
 
-  head do
-    url "https://github.com/D-Programming-Language/dmd.git"
+  devel do
+    url "https://github.com/dlang/dmd/archive/v2.071.1-b2.tar.gz"
+    sha256 "15a1f1b2fe75a3d1f280621ac3c5ed6a046f9ff343f993f2d753e33c098fca28"
+    version "2.071.1-b2"
 
     resource "druntime" do
-      url "https://github.com/D-Programming-Language/druntime.git"
+      url "https://github.com/dlang/druntime/archive/v2.071.1-b2.tar.gz"
+      sha256 "ef52710217ce24ac7ee188e5d06552ba207d98d3feba9ac108af651048872dc7"
+      version "2.071.1-b2"
     end
 
     resource "phobos" do
-      url "https://github.com/D-Programming-Language/phobos.git"
+      url "https://github.com/dlang/phobos/archive/v2.071.1-b2.tar.gz"
+      sha256 "a8bae8e2798a60aa6659764849bab7417c0edb2e08d99dcf792cf5b4e9c61bf0"
+      version "2.071.1-b2"
     end
 
     resource "tools" do
-      url "https://github.com/D-Programming-Language/tools.git"
+      url "https://github.com/dlang/tools/archive/v2.071.1-b2.tar.gz"
+      sha256 "043a0ee183d5ab3deca0063dd4cd279a2dfe63716a9e13f2cdac8b9c5f3b7408"
+      version "2.071.1-b2"
+    end
+  end
+
+  head do
+    url "https://github.com/dlang/dmd.git"
+
+    resource "druntime" do
+      url "https://github.com/dlang/druntime.git"
+    end
+
+    resource "phobos" do
+      url "https://github.com/dlang/phobos.git"
+    end
+
+    resource "tools" do
+      url "https://github.com/dlang/tools.git"
     end
   end
 

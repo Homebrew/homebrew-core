@@ -1,14 +1,14 @@
 class Corectl < Formula
   desc "CoreOS over OS X made very simple"
   homepage "https://github.com/TheNewNormal/corectl"
-  url "https://github.com/TheNewNormal/corectl/archive/v0.5.6.tar.gz"
-  sha256 "90381c03ac240cf0437cd786c082c31bb2c81911f69fa4fcd223f5acd40d320a"
+  url "https://github.com/TheNewNormal/corectl/archive/v0.5.9.tar.gz"
+  sha256 "3d8ce542ca5cc5f68dfeaa7fe41b9b8a50f9afdc8ec60b7b55386bc6519decae"
   head "https://github.com/TheNewNormal/corectl.git", :branch => "golang"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "225d99f3eaaea3b7ca6ee4f67639371c9a8ccbc8848d3cb95fdfcfc272c8948c" => :el_capitan
-    sha256 "066adb95ece89b9682d74859bea15bf78a209a12d5c5b0787a6bf3b46f6aa236" => :yosemite
+    sha256 "b29a9318bc7cc62b0893fbdea0399be704db692d28ebed87bf8b584660807eae" => :el_capitan
+    sha256 "d2d46384a817b0075df0d97610a10be3a5a1ba46a9e5ca228299ae3c242817f7" => :yosemite
   end
 
   depends_on "go" => :build

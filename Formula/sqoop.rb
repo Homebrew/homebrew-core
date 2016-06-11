@@ -32,7 +32,7 @@ class Sqoop < Formula
     libexec.install Dir["*.jar"]
 
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env)
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.6+"))
 
     # Install a sqoop-env.sh file
     envs = libexec/"conf/sqoop-env.sh"

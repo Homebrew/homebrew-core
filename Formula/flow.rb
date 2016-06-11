@@ -1,18 +1,19 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "http://flowtype.org/"
-  url "https://github.com/facebook/flow/archive/v0.24.1.tar.gz"
-  sha256 "15865797704ecb8784a5fbc667a467a058e4a0a91f9ea3365da2b2c64409cece"
+  url "https://github.com/facebook/flow/archive/v0.26.0.tar.gz"
+  sha256 "7813c98f7509d89e5a187df4252dbf8e6c429b1d711e10156eccb1ac793fb571"
   head "https://github.com/facebook/flow.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0f2ecfe53d734eb178fa824c113eb649a99d97d94c9d946e829aa311b853ad58" => :el_capitan
-    sha256 "9997c113e02a5e2596c69345c08f16d66fa7d4833c508bfd18a8a4fcd5482c23" => :yosemite
-    sha256 "73db8e20450f1f27000b021fbb60a95826b2aa3405fb6030482051f675ef463e" => :mavericks
+    sha256 "83cddee9525e8810e97160e958e09fc13e735b30448b8e1e72061471b12c53eb" => :el_capitan
+    sha256 "48e7c2e249636cdbbd4a4d139cc6c7dfa65517f9eade2709b9e6c122a02e3304" => :yosemite
+    sha256 "5aafcd68ff667669cd0e3f10be44d6e83855ab1b7cb112853831295a6cfcc970" => :mavericks
   end
 
   depends_on "ocaml" => :build
+  depends_on "ocamlbuild" => :build
 
   def install
     system "make"

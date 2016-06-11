@@ -47,7 +47,7 @@ class Mediatomb < Formula
   # Workaround for Samsung TV; upstream has accepted this patch
   # https://sourceforge.net/p/mediatomb/code/ci/2753e70013636bb5dd4cfc595f9776d368709f04
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/43c51305a0c4a9a78805f45e1cf1ff163847be4a/mediatomb/urifix.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/43c51305a0c4a9a78805f45e1cf1ff163847be4a/mediatomb/urifix.patch"
     sha256 "9cf68bc486eba9ae5f74b59ee2aeebf7e57263b47914136b5d0e24556f0c304f"
   end
 
@@ -70,7 +70,7 @@ class Mediatomb < Formula
   # https://svnweb.freebsd.org/ports/head/net/mediatomb/files/patch-timer.cc?revision=397755&view=markup
   # Noted here with the GCC patch: https://sourceforge.net/p/mediatomb/patches/46/#54bc
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/d316eac2/mediatomb/timercc.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d316eac2/mediatomb/timercc.diff"
     sha256 "e1ea57ca4b855b78c70de1e5041ecfa46521a19bd95d2594efe7e6f69014baca"
   end
 

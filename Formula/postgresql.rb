@@ -10,6 +10,12 @@ class Postgresql < Formula
     sha256 "eeb7a800b5b93cb9d24b82e78664645d3b899166fe0b3cf25d1e42e91cdb37bf" => :mavericks
   end
 
+  devel do
+    url "https://ftp.postgresql.org/pub/source/v9.6beta1/postgresql-9.6beta1.tar.gz"
+    version "9.6beta1"
+    sha256 "14539ea9cba8c588b46bb746f8ab999de4093464b8fc16747b8002ca5f93787d"
+  end
+
   option "32-bit"
   option "without-perl", "Build without Perl support"
   option "without-tcl", "Build without Tcl support"

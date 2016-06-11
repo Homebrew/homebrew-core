@@ -3,14 +3,14 @@ require "language/go"
 class Deis < Formula
   desc "Deploy and manage applications on your own servers"
   homepage "http://deis.io"
-  url "https://github.com/deis/deis/archive/v1.12.2.tar.gz"
-  sha256 "48aa8f81697b213bd25e95bc2065f7c0dc75e824d7420e71856e102cc16a5229"
+  url "https://github.com/deis/deis/archive/v1.13.1.tar.gz"
+  sha256 "6fd7d3f7947437ba513654cf893c06a761321dd6fbe53ab56a3d1ca2e30bd060"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cc0e58c2a9c9ccc78682da73ea641a493ab8d3914ca42c1d0a021f23dbebdf16" => :el_capitan
-    sha256 "a8c047c7d0713c13707073ccc0907ada267690ca306b6b3626e61274b53028c7" => :yosemite
-    sha256 "ea98f93bf5baece7c84767d7150044a41606a590bd881810418376456e11a765" => :mavericks
+    sha256 "99001d66871f738fb68b5bc7514bf7a8ee759516cc0cbec6d47f0dbb5e3196b6" => :el_capitan
+    sha256 "d94a1a91d61bcb9a9c4c2d3696eeb1fb5b51993c96d9c2c8bd83913e901fc441" => :yosemite
+    sha256 "2fe7be530f9f863f0be4be8204b1b299e68c1bad105bd353d2bff0a05f8d503a" => :mavericks
   end
 
   depends_on "go" => :build
@@ -18,17 +18,17 @@ class Deis < Formula
 
   go_resource "github.com/docopt/docopt-go" do
     url "https://github.com/docopt/docopt-go.git",
-        :revision => "854c423c810880e30b9fecdabb12d54f4a92f9bb"
+      :revision => "854c423c810880e30b9fecdabb12d54f4a92f9bb"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "f7445b17d61953e333441674c2d11e91ae4559d3"
+      :revision => "f7445b17d61953e333441674c2d11e91ae4559d3"
   end
 
   go_resource "gopkg.in/yaml.v2" do
     url "https://github.com/go-yaml/yaml.git",
-        :revision => "eca94c41d994ae2215d455ce578ae6e2dc6ee516"
+      :revision => "eca94c41d994ae2215d455ce578ae6e2dc6ee516"
   end
 
   def install

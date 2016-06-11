@@ -1,14 +1,14 @@
 class Ntl < Formula
   desc "C++ number theory library"
   homepage "http://www.shoup.net/ntl"
-  url "http://www.shoup.net/ntl/ntl-9.6.4.tar.gz"
-  sha256 "c4a1f015a879b4a20f6b76a98eb6033a7936b0ff3b3f3ca6159d7e7b2afd89eb"
+  url "http://www.shoup.net/ntl/ntl-9.8.1.tar.gz"
+  sha256 "52572595cd1a3b93b5b622168dda4bce7954471cc8f7d5b4c594187259e5ca43"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6c80f485b943143a51bcc9a4e0a07c856f9e144a7eb9e0283f77234302a9d95f" => :el_capitan
-    sha256 "5d79a7cbe3f93fb8d0eb1cf64c13d26db61c99cbff98034b0828eca51dfcb49a" => :yosemite
-    sha256 "68c86d6e81d649ee2a91ff0c17e431f9c1a5aefca2e51288c6847581e24cadb4" => :mavericks
+    sha256 "b2e49f847d542cb590e61c9bc42f61e14a9734253376139ee921f721270a0359" => :el_capitan
+    sha256 "e6e5d4d8a2ceebab398cf07046302deb58b51436cb1c58842a5aa3421229eca7" => :yosemite
+    sha256 "08e30b7e8157984b72483ecc2141e892eb9ec2884ec4285138851b3e4373ccba" => :mavericks
   end
 
   depends_on "gmp"

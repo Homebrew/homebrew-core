@@ -5,6 +5,7 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "http://wiki.portal.chalmers.se/agda/"
+  revision 1
 
   stable do
     url "https://github.com/agda/agda/archive/2.5.1.tar.gz"
@@ -17,9 +18,9 @@ class Agda < Formula
   end
 
   bottle do
-    sha256 "7dda3c16081b04cdf2d76f65ebe065b9470968e857d53a7fdc3c4c2efb6e3178" => :el_capitan
-    sha256 "5863e5cf5ab6996cc34d15d0cb9918ad7856331b111a30d71621949a7cb9fda4" => :yosemite
-    sha256 "9b3888867a8a18950d27430a7d4ee6c98ecd777d7cc26b3cd3cb92c28553c22d" => :mavericks
+    sha256 "f4bf0f777cc375c8659eba82062ef4bb1d8b83f64b2fb62ba787dffe23a80e3a" => :el_capitan
+    sha256 "f4124bf1dac0dae0daaed79d79b4fc32701b29baabaf58345d33d80a95a2151c" => :yosemite
+    sha256 "cb7a3700dd35a28255e4311866ab1a8ca74c5bb2540d44cf37a190a77e3c00b3" => :mavericks
   end
 
   head do

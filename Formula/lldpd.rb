@@ -1,13 +1,13 @@
 class Lldpd < Formula
-  desc "Implementation library for LLDP"
+  desc "Implementation of IEEE 802.1ab (LLDP)"
   homepage "https://vincentbernat.github.io/lldpd/"
-  url "http://media.luffy.cx/files/lldpd/lldpd-0.9.2.tar.gz"
-  sha256 "6054f29d41faf32186a22331853a299c87f4419b4332df4a564f76a139305a32"
+  url "https://media.luffy.cx/files/lldpd/lldpd-0.9.3.tar.gz"
+  sha256 "cfa8a3245dd71efc1f5de064a72576a7c1afaaf0ccb5833238398b6dc612b127"
 
   bottle do
-    sha256 "a653e4fab4e04a21c1cf30acce6a6aef8747146239ad3e749958be6989696c11" => :el_capitan
-    sha256 "2c8789cf6590fc9b9d341f92ec44a439d130502a5137f01d46218a8824abe604" => :yosemite
-    sha256 "da4209b5c0a98657602877247777d2b2df55a916745e5fe83e3632e80bdbe03b" => :mavericks
+    sha256 "63c0a76719d7243976cbdd971ce4f65ebb9d1bad7909a8144a3f77d26fa08b0e" => :el_capitan
+    sha256 "741ba34732c3ab89031eb42eb797bbe25709912db0877188011c495a4ff79cff" => :yosemite
+    sha256 "2685403a92d8825c6ea70ccbfded8d7f019d38d24bf2d951565659aa46e15955" => :mavericks
   end
 
   option "with-snmp", "Build SNMP subagent support"

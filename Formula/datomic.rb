@@ -1,9 +1,9 @@
 class Datomic < Formula
   desc "Database separating transactions, storage and queries"
   homepage "http://www.datomic.com/"
-  url "https://my.datomic.com/downloads/free/0.9.5350"
-  version "0.9.5350"
-  sha256 "bb99dede052d66cf195499dc09be3d12162ec8982867bf4fc7d6a0c07a3d5fc7"
+  url "https://my.datomic.com/downloads/free/0.9.5372"
+  version "0.9.5372"
+  sha256 "2af4e62525a30ff6fbe969c1cd425bb9db382a822a99cb1a1a0aae1128ea7dc2"
 
   bottle :unneeded
 
@@ -30,7 +30,7 @@ class Datomic < Formula
 
   test do
     IO.popen("#{bin}/datomic-repl", "r+") do |pipe|
-      assert_equal "Clojure 1.7.0", pipe.gets.chomp
+      assert_equal "Clojure 1.8.0", pipe.gets.chomp
       pipe.puts "^C"
       pipe.close_write
       pipe.close

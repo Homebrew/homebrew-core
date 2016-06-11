@@ -29,7 +29,7 @@ class Gperftools < Formula
   #     ProcMapsIterator::~ProcMapsIterator() in libsysinfo.a(sysinfo.o)
   # Reported 17 April 2016: gperftools/gperftools#794
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/edb49c752c0c02eb9e47bd2ab9788d504fd5b495/gperftools/revert-sized-delete-aliases.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/edb49c752c0c02eb9e47bd2ab9788d504fd5b495/gperftools/revert-sized-delete-aliases.patch"
     sha256 "49eb4f2ac52ad38723d3bf371e7d682644ef09ee7c1e2e2098e69b6c085153b6"
   end
 

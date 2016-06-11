@@ -14,7 +14,7 @@ class Madplay < Formula
   depends_on "libid3tag"
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/f6c5992c/madplay/patch-audio_carbon.c"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f6c5992c/madplay/patch-audio_carbon.c"
     sha256 "380e1a5ee3357fef46baa9ba442705433e044ae9e37eece52c5146f56da75647"
   end
 

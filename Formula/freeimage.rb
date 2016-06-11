@@ -28,7 +28,7 @@ class Freeimage < Formula
 
   # fix GCC 5.0 compile.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/f2b4fb19/freeimage/gcc5.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f2b4fb19/freeimage/gcc5.diff"
     sha256 "da0e052e2519b61b57fe9f371b517114f8be81dd2d3dd1721b8fb630dc67edff"
   end
 

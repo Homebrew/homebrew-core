@@ -16,7 +16,7 @@ class Rcs < Formula
   # Fixes use of _Noreturn attribute
   # This patch is a commit from the upstream git repo; will be in the next release.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/3fff7c990b8df4174045834b9c1210e7736ff5a4/rcs/noreturn.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3fff7c990b8df4174045834b9c1210e7736ff5a4/rcs/noreturn.patch"
     sha256 "ac2f5ad1df932361e19c6184d2dfddfbe7664184ac4c24a3224c85707cd4da9f"
   end
 

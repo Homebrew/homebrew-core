@@ -1,15 +1,14 @@
 class Loudmouth < Formula
   desc "Lightweight C library for the Jabber protocol"
   homepage "https://mcabber.com"
-  url "https://mcabber.com/files/loudmouth/loudmouth-1.5.1.tar.bz2"
-  sha256 "ffb493b085c1d40176ecbe1c478f05932f265e0e5ba93444b87d3cd076267939"
-  revision 1
+  url "https://mcabber.com/files/loudmouth/loudmouth-1.5.3.tar.bz2"
+  sha256 "54329415cb1bacb783c20f5f1f975de4fc460165d0d8a1e3b789367b5f69d32c"
 
   bottle do
     cellar :any
-    sha256 "b1cc2d6af15d37cb3317a52d8a82422cd071c3ae4efe93353f75cdba83a20723" => :el_capitan
-    sha256 "1f5d182146487152aa2b20b7cf998b1ed57da9f0c5f9830fb2a316afcbaa48f7" => :yosemite
-    sha256 "50967fd422f40a3b911205cb4dfdac27038120c1e860646621dc7343f07c231b" => :mavericks
+    sha256 "53889a88701be6fe002a01116ec82318bef831da9612b9d18c80415a6ae04838" => :el_capitan
+    sha256 "cbb202d52194ab9e27a7879fe82c0eec3704e27906b7765103370ae710bdbc88" => :yosemite
+    sha256 "d6a2f38aa092c260e00ef7f370c8ceb826268ec59ace265e52788284b70402d8" => :mavericks
   end
 
   head do
@@ -24,11 +23,25 @@ class Loudmouth < Formula
   depends_on "glib"
   depends_on "libidn"
   depends_on "gnutls"
+  depends_on "gettext"
 
   def install
     system "./autogen.sh", "-n" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-ssl=gnutls"
+    system "make"
+    system "make", "check"
     system "make", "install"
+    (pkgshare/"examples").install Dir["examples/*.c"]
+  end
+
+  test do
+    cp pkgshare/"examples/lm-send-async.c", testpath
+    system ENV.cc, "lm-send-async.c", "-o", "test",
+      "-lloudmouth-1", "-lglib-2.0",
+      "-I#{include}/loudmouth-1.0",
+      "-I#{Formula["glib"].opt_include}/glib-2.0",
+      "-I#{Formula["glib"].opt_lib}/glib-2.0/include"
+    system "./test", "--help"
   end
 end

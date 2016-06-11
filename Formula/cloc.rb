@@ -1,15 +1,15 @@
 class Cloc < Formula
   desc "Statistics utility to count lines of code"
   homepage "https://github.com/AlDanial/cloc/"
-  url "https://github.com/AlDanial/cloc/archive/v1.66.tar.gz"
-  sha256 "6d8b5e9fac8934478a0fd815f60d814b93d4a12344c4820f5b47a55048b21d53"
+  url "https://github.com/AlDanial/cloc/archive/v1.68.tar.gz"
+  sha256 "869c778659d5cd0dc7a3db1888de1bff8b844762ea06bc88b8e314ab2d171526"
   head "https://github.com/AlDanial/cloc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c140cd2b7244b48e45971130d69ffa3a250d7fda4885098b6a01a33fb3bc4ef1" => :el_capitan
-    sha256 "4abbd7aec11e52eac56a1ab969a3825ff162f7d19598b94c02116dc01ad18e43" => :yosemite
-    sha256 "994e73fb9afde00c2f3fde26a9421707bf73ce85de6d7021d4db2819307fbd48" => :mavericks
+    sha256 "95d2733aa357872347ecd584c4e541b249ca3b3e2a53237725369d3c6b79c0e6" => :el_capitan
+    sha256 "e21f1b24097805ec0de904b93fb26894980630caffd7b9e09efbcf0010df6126" => :yosemite
+    sha256 "103095b754ef166c18b492c2e146130bf27e86a214f7a3fef68d942d52b20442" => :mavericks
   end
 
   def install

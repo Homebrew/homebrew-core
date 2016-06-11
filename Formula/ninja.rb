@@ -1,16 +1,15 @@
 class Ninja < Formula
   desc "Small build system for use with gyp or CMake"
   homepage "https://martine.github.io/ninja/"
-  url "https://github.com/martine/ninja/archive/v1.6.0.tar.gz"
-  sha256 "b43e88fb068fe4d92a3dfd9eb4d19755dae5c33415db2e9b7b61b4659009cde7"
+  url "https://github.com/ninja-build/ninja/archive/v1.7.1.tar.gz"
+  sha256 "51581de53cf4705b89eb6b14a85baa73288ad08bff256e7d30d529155813be19"
   head "https://github.com/martine/ninja.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "facfca510094c956257dbffd94719139eb7a8f7ad8362d4064638c753268b6fe" => :el_capitan
-    sha256 "827e1ce721bd8c95fea9093b74fa5c9d9b5aa0e2660241b44b5f5233833c58f0" => :yosemite
-    sha256 "7a8da38c247855e12054ea7dc8ca8796be19151a2683fcaf50772780d122e90a" => :mavericks
-    sha256 "3717352656bb260ac96de4a0db856ebaa6602c6b4f4d42a0d2475ba511ab834f" => :mountain_lion
+    sha256 "bb3550493e570f24379007bfd6012eef1aaf82c739662f02aef0c907031326dc" => :el_capitan
+    sha256 "6beefb141b4e39c64a9a42c59acef74c4010b31f67f0696d2e62fa454a959ae9" => :yosemite
+    sha256 "3d9341568fbf3d01b5b851d9697623f818d86c425bdbfa7b69db1474fd611d5c" => :mavericks
   end
 
   option "without-test", "Don't run build-time tests"

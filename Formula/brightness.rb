@@ -1,4 +1,4 @@
-class Screenbrightness < Formula
+class Brightness < Formula
   desc "Change OS X display brightness from the command-line"
   homepage "https://github.com/nriley/brightness"
   url "https://github.com/nriley/brightness/archive/1.2.tar.gz"
@@ -6,10 +6,9 @@ class Screenbrightness < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f100aa66aef9cd837ce1614b24fd3a19443fa74c8dc607dba19c1cab9ad117e0" => :el_capitan
-    sha256 "daba4223ac40edc23967a4b5f18fd21d292d5e698ce2808483dba8cd77980135" => :yosemite
-    sha256 "cb4a3e3e7089a675d9067d7d64b5e5f783758e859301516849b65c4ab9fe6c70" => :mavericks
-    sha256 "9bc33321a6f83786f092c0b7e83bdccf2e103f84962f9defa02856f9336db97f" => :mountain_lion
+    sha256 "675d9a1b7e39b75d2b569fa4f148fbc2342dbcd4a1b23045763c0103058ecc26" => :el_capitan
+    sha256 "360b009d1a2ffed665c9d9168b3f91edba44c8da8f08d2f307b09ee63f399e0d" => :yosemite
+    sha256 "222e314519f00aa2ad858c718f0dbed624f486f307828ed93a85d1df4e08a8f8" => :mavericks
   end
 
   def install

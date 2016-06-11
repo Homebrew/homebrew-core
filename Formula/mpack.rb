@@ -13,7 +13,7 @@ class Mpack < Formula
 
   # Fix missing return value; clang refuses to compile otherwise
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/1ad38a9c/mpack/uudecode.c.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/1ad38a9c/mpack/uudecode.c.patch"
     sha256 "52ad1592ee4b137cde6ddb3c26e3541fa0dcea55c53ae8b37546cd566c897a43"
   end
 

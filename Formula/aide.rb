@@ -12,17 +12,21 @@ class Aide < Formula
   end
 
   devel do
-    url "https://downloads.sourceforge.net/project/aide/devel/0.16a2/aide-0.16a2.tar.gz"
-    sha256 "b52451816bc85409ea09dc612e32823336f78438afd28248c252912ea8b91b87"
+    url "https://downloads.sourceforge.net/project/aide/devel/0.16b1/aide-0.16b1.tar.gz"
+    sha256 "35d99899d8b7cd723ac744b8cbd8d5f911ec22a4b568134dd0b6f7116d21b566"
+
+    depends_on "pcre"
   end
 
   head do
     url "http://git.code.sf.net/p/aide/code.git"
     depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "pcre"
   end
 
   depends_on "libgcrypt"
+  depends_on "libgpg-error"
 
   def install
     system "sh", "./autogen.sh" if build.head?

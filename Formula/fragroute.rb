@@ -16,17 +16,17 @@ class Fragroute < Formula
   depends_on "libevent"
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/2f5cab626/fragroute/configure.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2f5cab626/fragroute/configure.patch"
     sha256 "215e21d92304e47239697945963c61445f961762aea38afec202e4dce4487557"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/2f5cab626/fragroute/fragroute.c.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2f5cab626/fragroute/fragroute.c.patch"
     sha256 "f4475dbe396ab873dcd78e3697db9d29315dcc4147fdbb22acb6391c0de011eb"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/2f5cab626/fragroute/pcaputil.c.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2f5cab626/fragroute/pcaputil.c.patch"
     sha256 "c1036f61736289d3e9b9328fcb723dbe609453e5f2aab4875768068faade0391"
   end
 

@@ -2,16 +2,16 @@ class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
   url "https://github.com/openshift/origin.git",
-    :tag => "v1.1.6",
-    :revision => "ef1caba064de975387860175c3138aad432cf356"
+    :tag => "v1.2.0",
+    :revision => "2e62fabf9639c792410e98a9a1414937d4b786c9"
 
   head "https://github.com/openshift/origin.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1fbe3b0888581a3d1fcad4334f38c85e7b8478fb787721226ab1d8578441d4fe" => :el_capitan
-    sha256 "85a74d8a6a9af7707d44a8be0cb21db1a9af393fecda04d8fde09ff49701c792" => :yosemite
-    sha256 "7e542ffa5106b93e4ecde58643f7ad8e836b8aa1ae651e348fcfffad2e32fb17" => :mavericks
+    sha256 "cc52088d75660ee5d386ff75ac2d41a7e8cc2d336d90cf22bb2e1f8c19ffe29f" => :el_capitan
+    sha256 "a8639329e7d86ffa5dcc9ef4a6077304a5d3c5699feba188983f9d7ca3451262" => :yosemite
+    sha256 "f270ff2b41dfb00201066e2730f60abc0fa1f271a91c3de931eadb90f2ce9d78" => :mavericks
   end
 
   depends_on "go" => :build

@@ -1,14 +1,14 @@
 class Rtv < Formula
   desc "Command-line Reddit client"
   homepage "https://github.com/michael-lazar/rtv"
-  url "https://github.com/michael-lazar/rtv/archive/v1.8.0.tar.gz"
-  sha256 "90828ad016d669dfc162ff958124700abcce7f2cf1aedcf5be90fe97f4552764"
+  url "https://github.com/michael-lazar/rtv/archive/v1.9.0.tar.gz"
+  sha256 "6d14e3995840a3e427761824250688c4bcba76c31fdf17ffe96e41ddf427aed3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8c13018e72a86444366d7b943db2e8dd35945df3b4e12dd1509d9eda1df53269" => :el_capitan
-    sha256 "53996bb8ee219673b167c11a8eec3e4675089787bf9e9028af1293a2c3ce00b6" => :yosemite
-    sha256 "386e1969d5ee871f94d68d929c2b93e7f14e0b68849522ce404b9ef50da9cacd" => :mavericks
+    sha256 "4e9aed84273914ba52344a09e922dc7b3b7986b55f79b12387cff70b7e332801" => :el_capitan
+    sha256 "2071eec517dbb6d1c059a51f3af7b7cd3472e22ea1aeb59b7197c836e94abedf" => :yosemite
+    sha256 "17ae3ea2795b224f27de0978367fec660fe2471fc760a4039078e93a2db2b84e" => :mavericks
   end
 
   depends_on :python3

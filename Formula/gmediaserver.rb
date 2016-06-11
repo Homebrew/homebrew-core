@@ -20,7 +20,7 @@ class Gmediaserver < Formula
   # Patching gmediaserver because sigwaitinfo is not available on
   # OS X Snow Leopard, using sigwait instead.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/c68985023c/gmediaserver/sigwait.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c68985023c/gmediaserver/sigwait.diff"
     sha256 "28078d44158f3750462d529d26148c80fe45879ba679ad02839fd652c9af1a42"
   end
 
@@ -29,7 +29,7 @@ class Gmediaserver < Formula
   # Reported upstream 26/03/2016 to mailing list but not published yet:
   # https://lists.gnu.org/archive/html/gmediaserver-devel/
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/893042fbfb/gmediaserver/libupnp_1.6.19_support.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/893042fbfb/gmediaserver/libupnp_1.6.19_support.diff"
     sha256 "ca18709e79f667cf9ce049aeca62c97afd1d0a9d34bef50446e1ca4e95f44b61"
   end
 

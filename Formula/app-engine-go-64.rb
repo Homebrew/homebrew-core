@@ -1,8 +1,8 @@
 class AppEngineGo64 < Formula
   desc "Google App Engine SDK for Go (AMD64)"
   homepage "https://cloud.google.com/appengine/docs/go/"
-  url "https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_darwin_amd64-1.9.37.zip"
-  sha256 "5b7313f9b77224caad9af07f743cc1c7bf52a7395f79edd5b348e2dd4e6627fd"
+  url "https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_darwin_amd64-1.9.38.zip"
+  sha256 "f24625214fa5e77d83b0af69e1f422c58a0b4a9842c4e30a265e572d3b91aecf"
 
   bottle :unneeded
 

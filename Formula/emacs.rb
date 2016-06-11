@@ -13,8 +13,8 @@ class Emacs < Formula
   end
 
   devel do
-    url "http://alpha.gnu.org/gnu/emacs/pretest/emacs-25.0.93.tar.xz"
-    sha256 "b39199a491ce53f8b8a5b74fe6f1f191257e424f3ba047b3098ff9218e1579f1"
+    url "http://alpha.gnu.org/gnu/emacs/pretest/emacs-25.0.95.tar.xz"
+    sha256 "1438c51268250344739c31752d9292fc51cab0d8384b9f574ecaf1bcd879bb2e"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
@@ -31,11 +31,12 @@ class Emacs < Formula
 
   deprecated_option "cocoa" => "with-cocoa"
   deprecated_option "keep-ctags" => "with-ctags"
+  deprecated_option "with-d-bus" => "with-dbus"
   deprecated_option "with-x" => "with-x11"
 
   depends_on "pkg-config" => :build
   depends_on :x11 => :optional
-  depends_on "d-bus" => :optional
+  depends_on "dbus" => :optional
   depends_on "gnutls" => :optional
   depends_on "librsvg" => :optional
   depends_on "imagemagick" => :optional
@@ -70,7 +71,7 @@ class Emacs < Formula
       args << "--without-xml2"
     end
 
-    if build.with? "d-bus"
+    if build.with? "dbus"
       args << "--with-dbus"
     else
       args << "--without-dbus"

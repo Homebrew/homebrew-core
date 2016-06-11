@@ -3,7 +3,7 @@ class Civl < Formula
   homepage "http://vsl.cis.udel.edu/civl/"
   url "http://vsl.cis.udel.edu/lib/sw/civl/1.7/r3157/release/CIVL-1.7_3157.tgz"
   version "1.7-3157"
-  sha256 "33fa5b4877fbf494b0a4b426c15d6a165fa3db48a9f97cbf391818d965d2dfb9"
+  sha256 "49ed0467ea281bf5a436b2caf4f87862d3f613fa9e6e746ce52cfd409c3f4403"
   revision 1
 
   bottle :unneeded

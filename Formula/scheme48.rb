@@ -11,7 +11,6 @@ class Scheme48 < Formula
     sha256 "6ae24159bb6e2485465135ba60d60291be7681dfc9662e42f176bb9f9d4a6f00" => :mavericks
   end
 
-  conflicts_with "gambit-scheme", :because => "both install `scheme-r5rs` binaries"
   conflicts_with "scsh", :because => "both install include/scheme48.h"
 
   def install

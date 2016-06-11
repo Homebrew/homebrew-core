@@ -1,16 +1,15 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.8.2.tar.xz"
-  sha256 "ec0283d78a0f1c8408c5fd43610697b953fbaafe4077bb1e41446a9ee3a2f83d"
-  revision 1
+  url "https://www.kernel.org/pub/software/scm/git/git-2.8.4.tar.xz"
+  sha256 "120e9a32a1858871dea34165622ec7a63f27887b93093c8d72a18bcf89fe1657"
 
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "5d3586ec7834418aec22526a508b0e4af77ef353072a13e46ff4324b55f18c1e" => :el_capitan
-    sha256 "769118df0709a5e0eb3e00b16f98f558b4e627b38efa51f63a9ca9aa6e3d19a6" => :yosemite
-    sha256 "6f8c793e71d2bd28855a270e3bf8e06310a113c638e32ddd6dedc8206cc9ad4c" => :mavericks
+    sha256 "2c14a2f05ca487077b030fba22c99bd8ca7735cdf7121e08770c3e0b046f87bd" => :el_capitan
+    sha256 "63ecd62955957b1493d1dffe972d43ee8571e07ae654192d54882a54c6f4e6bb" => :yosemite
+    sha256 "b32bba9d8a346d4c0b44242da38daf97b40f8695e1b651c43604d33d78677804" => :mavericks
   end
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
@@ -33,13 +32,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.8.2.tar.xz"
-    sha256 "28260088b325a75c66ae6333849f138c098ebb07fcfe78ca398e16f87811e29b"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.8.4.tar.xz"
+    sha256 "78135be591e3a68d1030a76e343d59622e5e40f6990667f4385a01d9dafe9bbd"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.8.2.tar.xz"
-    sha256 "9edff3393b7d388a148a4c21fe4ebfb18fe3a2b96ba149d882184f20a6478998"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.8.4.tar.xz"
+    sha256 "d2ddfc302e5b3c0ad182916b27c28d95bc667ea8b9db8dc099bf3d8d62b8b7f5"
   end
 
   def install
@@ -147,15 +146,14 @@ class Git < Formula
     # To avoid this feature hooking into the system OpenSSL, remove it.
     # If you need it, install git --with-brewed-openssl.
     rm "#{libexec}/git-core/git-imap-send" if build.without? "brewed-openssl"
-  end
 
-  def caveats; <<-EOS.undent
-    The OS X keychain credential helper has been installed to:
-      #{HOMEBREW_PREFIX}/bin/git-credential-osxkeychain
-
-    The "contrib" directory has been installed to:
-      #{HOMEBREW_PREFIX}/share/git-core/contrib
+    # Set the OS X keychain credential helper by default
+    # (as Apple's CLT's git also does this).
+    (buildpath/"gitconfig").write <<-EOS
+      [credential]
+        helper = osxkeychain
     EOS
+    etc.install "gitconfig"
   end
 
   test do

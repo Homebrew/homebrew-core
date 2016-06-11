@@ -31,6 +31,7 @@ class Mpv < Formula
   depends_on "libbluray" => :optional
   depends_on "libaacs" => :optional
   depends_on "vapoursynth" => :optional
+  depends_on "uchardet" => :optional
   depends_on :x11 => :optional
 
   depends_on :macos => :mountain_lion

@@ -1,15 +1,15 @@
 class ZshCompletions < Formula
   desc "Additional completion definitions for zsh"
   homepage "https://github.com/zsh-users/zsh-completions"
-  url "https://github.com/zsh-users/zsh-completions/archive/0.17.0.tar.gz"
-  sha256 "e1797e22e2bbbe50bf61f88db43216c0aef53713c84373bafddf6090b1fe8f68"
+  url "https://github.com/zsh-users/zsh-completions/archive/0.18.0.tar.gz"
+  sha256 "b94eb63d044920a4ea6d5d51ae4f237f21b0c3174f3c58ff464b5284477cdb7a"
 
   head "https://github.com/zsh-users/zsh-completions.git"
 
   bottle :unneeded
 
   def install
-    (share/"zsh-completions").install Dir["src/_*"]
+    pkgshare.install Dir["src/_*"]
   end
 
   def caveats

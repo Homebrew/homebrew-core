@@ -2,30 +2,25 @@ class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
   url "https://github.com/syncthing/syncthing.git",
-    :tag => "v0.12.24", :revision => "b4f941784f2150cddfd3fd3a7501ee34c1b56777"
+    :tag => "v0.13.5", :revision => "eefcecc7ce2ea2f8dacd3762a484e9de546574fb"
 
   head "https://github.com/syncthing/syncthing.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e3eaf16a00433e74d8489524e619eeef6d8d75613014eb5e9961a7845ecb0a4c" => :el_capitan
-    sha256 "ecc6f6f9774c4026e7f32130244e8522dc27e5ac54373a8488abab78e3b3a2b7" => :yosemite
-    sha256 "41297fdc6f99370169a791fac294cd1d88ad39e6a2ccf4a489171a444278608a" => :mavericks
+    sha256 "e048b2386a38234f9ce258956c1a3350afc3d5bafdf0fc564b8dfbb7c98faef9" => :el_capitan
+    sha256 "ec753a7e92adb1cd2fa77cd5cba59d9a96faeb221e6b1dcaa0bd2faef21682fe" => :yosemite
+    sha256 "83259bd39438611797a8ed876d53eca29a025a08523fcf6dab425966d5324e1e" => :mavericks
   end
 
   depends_on "go" => :build
-  depends_on :hg => :build
 
   def install
-    ENV["GOPATH"] = cached_download/".gopath"
+    ENV["GOPATH"] = buildpath/".syncthing-gopath"
+    mkdir_p buildpath/".syncthing-gopath/src/github.com/syncthing"
+    cp_r cached_download, buildpath/".syncthing-gopath/src/github.com/syncthing/syncthing"
     ENV.append_path "PATH", "#{ENV["GOPATH"]}/bin"
-
-    # FIXTHIS: do this without mutating the cache!
-    hack_dir = cached_download/".gopath/src/github.com/syncthing"
-    rm_rf hack_dir
-    mkdir_p hack_dir
-    ln_s cached_download, "#{hack_dir}/syncthing"
-
+    cd buildpath/".syncthing-gopath/src/github.com/syncthing/syncthing"
     system "./build.sh", "noupgrade"
     bin.install "syncthing"
   end

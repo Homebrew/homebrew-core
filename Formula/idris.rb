@@ -5,28 +5,42 @@ class Idris < Formula
 
   desc "Pure functional programming language with dependent types"
   homepage "http://www.idris-lang.org"
-  url "https://github.com/idris-lang/Idris-dev/archive/v0.11.tar.gz"
-  sha256 "759eafb5f5cb01ce891e611be49da55f56878e7ce4549c0339ae9b901eb90b5d"
+  url "https://github.com/idris-lang/Idris-dev/archive/v0.11.2.tar.gz"
+  sha256 "eddc8d8d6401d5c5743df43003a11d031be42eb6b09800dc1111606c39a3c8bc"
+  revision 1
   head "https://github.com/idris-lang/Idris-dev.git"
 
   bottle do
-    sha256 "26ad3069842ab7f5cec28374b1871c5c632d0a8e937fa06f29edaca4b08d8273" => :el_capitan
-    sha256 "157bbd32de94ee929dc86819d47847dff77c1504ed4946a08a234095af9f6c77" => :yosemite
-    sha256 "5dc7e9ea4fd50fef6d95144a239c848022af3ae6a6b2bde29340ec2070e37879" => :mavericks
+    sha256 "ef4de83fa2e754bc7730a6e79e4e7be548e47713790573804465ec84ef6b96de" => :el_capitan
+    sha256 "233838359600772f282b90030147b6cdb78ebceb95a7c7c85e9a0b81d8413ac5" => :yosemite
+    sha256 "0f949e2fd727d9c73575c6ea002048057440472fc916435ee542232461ea2485" => :mavericks
   end
 
-  depends_on "ghc" => :build
-  depends_on "cabal-install" => :build
+  depends_on "haskell-stack" => :build
+  depends_on "pkg-config" => :build
   depends_on "gmp"
-
-  depends_on "libffi" => :recommended
-  depends_on "pkg-config" => :build if build.with? "libffi"
+  depends_on "libffi"
 
   def install
-    args = []
-    args << "-f FFI" if build.with? "libffi"
-    args << "-f release" if build.stable?
-    install_cabal_package *args
+    ENV["STACK_ROOT"] = "#{HOMEBREW_CACHE}/stack_root"
+    (libexec/"stack").install Dir["#{buildpath}/*"]
+
+    cd libexec/"stack" do
+      system "stack", "setup"
+      system "stack", "build"
+
+      bin.mkpath
+      system "stack", "install", "--local-bin-path=#{bin}"
+
+      install_dir = Utils.popen_read("stack", "path", "--local-install-root").chomp
+
+      share.mkpath
+      mv "#{install_dir}/share/man", share
+      mv "#{install_dir}/doc", share
+
+      libexec.install_symlink "#{install_dir}/lib"
+      libexec.install_symlink "#{install_dir}/share"
+    end
   end
 
   test do
@@ -44,14 +58,10 @@ class Idris < Formula
       main : IO ()
       main = puts "Hello, interpreter!"
     EOS
-    shell_output "#{bin}/idris #{testpath}/hello.idr -o #{testpath}/hello"
-    result = shell_output "#{testpath}/hello"
-    assert_match /Hello, Homebrew!/, result
+    system bin/"idris", testpath/"hello.idr", "-o", testpath/"hello"
+    assert_match /Hello, Homebrew!/, shell_output(testpath/"hello")
 
-    if build.with? "libffi"
-      shell_output "#{bin}/idris #{testpath}/ffi.idr -o #{testpath}/ffi"
-      result = shell_output "#{testpath}/ffi"
-      assert_match /Hello, interpreter!/, result
-    end
+    system bin/"idris", testpath/"ffi.idr", "-o", testpath/"ffi"
+    assert_match /Hello, interpreter!/, shell_output(testpath/"ffi")
   end
 end

@@ -1,21 +1,15 @@
 class Ansible < Formula
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://releases.ansible.com/ansible/ansible-2.0.2.0.tar.gz"
-  sha256 "373a2e50319d90da50948e3faf1c033464b7302200e0199da8981d24646d4387"
+  url "https://releases.ansible.com/ansible/ansible-2.1.0.0.tar.gz"
+  sha256 "403443b55f6522cf86f9b41544a9b6b81f7d27f088446e85334d5d7a6317ccad"
 
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
-    sha256 "b24e695649a6467d13288e892910b677eb16a5dcb197ecfe09839ff8c536115d" => :el_capitan
-    sha256 "71b8c4e609a97225dbf816ecb8430feb9f27649be9d64ac6045bb63671c01a1a" => :yosemite
-    sha256 "260b5ce5252d6071580e6e14a7147a2642b6fbf54fa7152daea15a0cfddf936b" => :mavericks
-  end
-
-  devel do
-    url "https://releases.ansible.com/ansible/ansible-2.1.0.0-0.1.rc1.tar.gz"
-    sha256 "635ac5234a07506839d4ec36d180bdcbd3568549cdee1832af17560f304446a0"
-    version "2.1.0.0-0.1.rc1"
+    sha256 "aa64b63dcf3c60f8fc8f3fe9b72730ab57c702ffcd19b0dd8649f95f27f5956b" => :el_capitan
+    sha256 "608ce12bb4311243f4a297acbda8cd67368d613695af6bddae0faf089a34b1a0" => :yosemite
+    sha256 "2d0ae0aa7ab710db5505b81de1b8af696a7d95469820d395c9d898368d2679a4" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -42,8 +36,8 @@ class Ansible < Formula
   end
 
   resource "paramiko" do
-    url "https://pypi.python.org/packages/source/p/paramiko/paramiko-1.16.0.tar.gz"
-    sha256 "3297ebd3cd072f573772f7c7426939a443c62c458d54bb632ff30fd6ecf96892"
+    url "https://pypi.python.org/packages/ce/63/cc9baa5d5b568aadaaa7c19190a9b852a0a740b478dd068137c4b0c7cb74/paramiko-2.0.0.tar.gz"
+    sha256 "51219ecaf88aa1cea9952b3c4ddcc0c1316f015d23d77edb7aee78a3468ef0e2"
   end
 
   resource "pycrypto" do
@@ -79,18 +73,18 @@ class Ansible < Formula
   # Install requests with [security]
   #
   resource "cffi" do
-    url "https://pypi.python.org/packages/source/c/cffi/cffi-1.5.2.tar.gz"
-    sha256 "da9bde99872e46f7bb5cff40a9b1cc08406765efafb583c704de108b6cb821dd"
+    url "https://pypi.python.org/packages/b6/98/11feff87072e2e640fb8320712b781eccdef05d588618915236b32289d5a/cffi-1.6.0.tar.gz"
+    sha256 "a7f75c4ef2362c0a0e54657add0a6c509fecbfa3b3807bc0925f5cb1c9f927db"
   end
 
   resource "cryptography" do
-    url "https://pypi.python.org/packages/source/c/cryptography/cryptography-1.3.1.tar.gz"
-    sha256 "b4b36175e0f95ddc88435c26dbe3397edce48e2ff5fe41d504cdb3beddcd53e2"
+    url "https://pypi.python.org/packages/04/da/35f9a1d34dab5d777f65fb87731288f338ab0ae46a525ffdf0405b573dd0/cryptography-1.3.2.tar.gz"
+    sha256 "fbaafa8827966dc588ccb00be813d3149fa8de04aec96e418ea0fdd5f0312088"
   end
 
   resource "enum34" do
-    url "https://pypi.python.org/packages/source/e/enum34/enum34-1.1.3.tar.gz"
-    sha256 "865506c22462236b3a2e87a7d9587633e18470e7a93a79b594791de2d31e9bc8"
+    url "https://pypi.python.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
+    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
   end
 
   resource "idna" do

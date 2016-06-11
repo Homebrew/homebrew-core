@@ -1,15 +1,14 @@
 class Ndpi < Formula
   desc "Deep Packet Inspection (DPI) library"
   homepage "http://www.ntop.org/products/ndpi/"
-  url "https://downloads.sourceforge.net/project/ntop/nDPI/nDPI-1.7.tar.gz"
-  sha256 "714b745103a072462130b0e14cf31b2eb5270f580b7c839da5cf5ea75150262d"
+  url "https://downloads.sourceforge.net/project/ntop/nDPI/nDPI-1.8.tgz"
+  sha256 "f490137a7387b69d0d55e990f2150b86d7b5eaae870e5326e8c2f18c17412443"
 
   bottle do
     cellar :any
-    sha256 "05053767fc3c70557745c348c7352e7c2716c040ca54c5cf8d5306167c878fcb" => :el_capitan
-    sha256 "34c0269039a0079820eeed862daa28158d9291f73f640a9415da60746d69a662" => :yosemite
-    sha256 "a2af4dc62c24313593b3a20e45ca9d2d49f8efc0ea5e52fd064001ea441b93e4" => :mavericks
-    sha256 "1bb200268a4d9df9bbe5d33bc773ee3bcf4b5d4fa00c76a040f16318438c284f" => :mountain_lion
+    sha256 "8aa12f9a224a380a958ffca3484ed6115512d534a73e9e1c4ea12454884f2c38" => :el_capitan
+    sha256 "7bc4d4b6b2c7c9a28fdc1755d4a66f67768200fd8e9dfd5bc161d799199fb534" => :yosemite
+    sha256 "fd2762a77e68415e14c3fb8a1da10801c38e1cdf1f0bbe0780c0e57f54862df5" => :mavericks
   end
 
   depends_on "autoconf" => :build

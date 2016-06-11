@@ -1,15 +1,16 @@
 class Headphones < Formula
   desc "Automatic music downloader for SABnzbd"
   homepage "https://github.com/rembo10/headphones"
+  url "https://github.com/rembo10/headphones/archive/v0.5.15.tar.gz"
+  sha256 "f0e4b07f8916b03b442e443bb608c26693b972151fef15ff9e73f58fbbbc671a"
+
   head "https://github.com/rembo10/headphones.git"
-  url "https://github.com/rembo10/headphones/archive/v0.5.9.tar.gz"
-  sha256 "c1811985ac93a7a24fc0668bb4a726a663e815b7f1a90eb52bf5af60f035c953"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a7ec802ae3b408718f32e486d0acd99cccbdfa6323637f909d522d02c50714c6" => :el_capitan
-    sha256 "f3e510b4e855350ab24ee1fc463438df3c9273e52ec6f047cf0ecd228f23dfd6" => :yosemite
-    sha256 "6e66ba50f949f45d295d5cd75e4240a893c4d564f2522ca9c3985298c14181b8" => :mavericks
+    sha256 "beec961d738e8aea05d3b318a8883e7e550e890f915301d079828840badaf4af" => :el_capitan
+    sha256 "2236700ca75f92802ad6c4e249f48097944ebb63282f77164010a19ef1a9b739" => :yosemite
+    sha256 "878c26a5d44b861c94be037995acdec785ad6ead7713c9d06a816a5c075a1531" => :mavericks
   end
 
   resource "Markdown" do
@@ -30,18 +31,23 @@ class Headphones < Formula
   end
 
   def install
-    # TODO: - strip down to the minimal install
-    prefix.install_metafiles
+    # TODO: strip down to the minimal install.
     libexec.install Dir["*"]
 
     ENV["CHEETAH_INSTALL_WITHOUT_SETUPTOOLS"] = "1"
-    ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python2.7/site-packages"
-    install_args = ["setup.py", "install", "--prefix=#{libexec}"]
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python", *Language::Python.setup_install_args(libexec)
+      end
+    end
 
-    resource("Markdown").stage { system "python", *install_args }
-    resource("Cheetah").stage { system "python", *install_args }
+    (bin/"headphones").write(startup_script)
+  end
 
-    (bin+"headphones").write(startup_script)
+  def caveats; <<-EOS.undent
+    Headphones defaults to port 8181.
+  EOS
   end
 
   plist_options :manual => "headphones"
@@ -65,9 +71,5 @@ class Headphones < Formula
     </dict>
     </plist>
     EOS
-  end
-
-  def caveats
-    "Headphones defaults to port 8181."
   end
 end

@@ -10,7 +10,7 @@ class Gkrellm < Formula
     # http://git.srcbox.net/gkrellm/commit/?id=207a0519ac73290ba65b6e5f7446549a2a66f5d2
     # Resolves a NULL value crash. Fixed upstream already but unreleased in stable.
     patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/patches/8040a52382/gkrellm/nullpointer.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/8040a52382/gkrellm/nullpointer.patch"
       sha256 "d005e7ad9b4c46d4930ccb4391481716b72c9a68454b8d8f4dfd2b597bfd77cc"
     end
   end

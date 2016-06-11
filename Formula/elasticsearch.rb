@@ -1,8 +1,14 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.2/elasticsearch-2.3.2.tar.gz"
-  sha256 "04c4d3913d496d217e038da88df939108369ae2e78eea29cb1adf1c4ab3a000a"
+  url "https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.3/elasticsearch-2.3.3.tar.gz"
+  sha256 "5fe0a6887432bb8a8d3de2e79c9b81c83cfa241e6440f0f0379a686657789165"
+
+  devel do
+    url "https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/5.0.0-alpha3/elasticsearch-5.0.0-alpha3.tar.gz"
+    sha256 "8fc606d56bdec83dc5219b5ad2346f2fe7c95feec9ad1d92c2bc1268323885e5"
+    version "5.0.0-alpha3"
+  end
 
   head do
     url "https://github.com/elasticsearch/elasticsearch.git"
@@ -21,10 +27,11 @@ class Elasticsearch < Formula
   def install
     if build.head?
       # Build the package from source
-      system "gradle", "clean", "assemble"
-      # Extract the package to the current directory
-      targz = Dir["distribution/tar/build/distributions/elasticsearch-*.tar.gz"].first
-      system "tar", "--strip-components=1", "-xf", targz
+      system "gradle", "clean", ":distribution:tar:assemble"
+      # Extract the package to the tar directory
+      mkdir "tar"
+      cd "tar"
+      system "tar", "--strip-components=1", "-xf", Dir["../distribution/tar/build/distributions/elasticsearch-*.tar.gz"].first
     end
 
     # Remove Windows files
@@ -46,10 +53,15 @@ class Elasticsearch < Formula
 
     inreplace "#{libexec}/bin/elasticsearch.in.sh" do |s|
       # Configure ES_HOME
-      s.sub!(%r{#\!/bin/sh\n}, "#!/bin/sh\n\nES_HOME=#{libexec}")
+      if build.devel? || build.head?
+        s.sub!(%r{#\!/bin/bash\n}, "#!/bin/bash\n\nES_HOME=#{libexec}")
+      else
+        s.sub!(%r{#\!/bin/sh\n}, "#!/bin/sh\n\nES_HOME=#{libexec}")
+      end
     end
 
-    inreplace "#{libexec}/bin/plugin" do |s|
+    plugin=(build.devel? || build.head?) ? "#{libexec}/bin/elasticsearch-plugin" : "#{libexec}/bin/plugin"
+    inreplace plugin do |s|
       # Add the proper ES_CLASSPATH configuration
       s.sub!(/SCRIPT="\$0"/, %(SCRIPT="$0"\nES_CLASSPATH=#{libexec}/lib))
       # Replace paths to use libexec instead of lib
@@ -62,6 +74,9 @@ class Elasticsearch < Formula
     (libexec/"config").rmtree
 
     bin.write_exec_script Dir[libexec/"bin/elasticsearch"]
+    if build.devel? || build.head?
+      bin.write_exec_script Dir[libexec/"bin/elasticsearch-plugin"]
+    end
   end
 
   def post_install
@@ -72,12 +87,14 @@ class Elasticsearch < Formula
     (libexec/"plugins").mkdir
   end
 
-  def caveats; <<-EOS.undent
+  def caveats
+    plugin=(devel? || head?) ? "#{libexec}/elasticsearch-plugin" : "#{libexec}/plugin"
+    <<-EOS.undent
     Data:    #{var}/elasticsearch/#{cluster_name}/
     Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
     Plugins: #{libexec}/plugins/
     Config:  #{etc}/elasticsearch/
-    plugin script: #{libexec}/bin/plugin
+    plugin script: #{plugin}
     EOS
   end
 
@@ -113,11 +130,18 @@ class Elasticsearch < Formula
   end
 
   test do
-    system "#{libexec}/bin/plugin", "list"
+    if devel? || head?
+      system "#{libexec}/bin/elasticsearch-plugin", "list"
+    else
+      system "#{libexec}/bin/plugin", "list"
+    end
     pid = "#{testpath}/pid"
     begin
-      mkdir testpath/"config"
-      system "#{bin}/elasticsearch", "-d", "-p", pid, "--path.home", testpath
+      if devel? || head?
+        system "#{bin}/elasticsearch", "-d", "-p", pid, "-Epath.data=#{testpath}/data"
+      else
+        system "#{bin}/elasticsearch", "-d", "-p", pid, "--path.data", testpath/"data"
+      end
       sleep 10
       system "curl", "-XGET", "localhost:9200/"
     ensure

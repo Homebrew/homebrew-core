@@ -5,23 +5,25 @@ class Texmath < Formula
 
   desc "Haskell library for converting LaTeX math to MathML"
   homepage "http://johnmacfarlane.net/texmath.html"
-  url "https://github.com/jgm/texmath/archive/0.8.4.1.tar.gz"
-  sha256 "f3e6e8ba0136462299c8873e9aefc05aa61a85b782ba8e487d4fc4a1fe10005f"
+  url "https://hackage.haskell.org/package/texmath-0.8.6.3/texmath-0.8.6.3.tar.gz"
+  sha256 "74f600a77a5ce2d88aa1aa81b0bea5f5e79da6b64b51e50656f7bbf27debc22b"
 
   bottle do
-    sha256 "918f6900fe1de5b3aec79a3235f36e9568b0f3813bfa5ca4cd0cab940e282042" => :el_capitan
-    sha256 "5df6efcd9d088e8e572bff63824f992cfc5ca024546165c9908c4363a3a6361a" => :yosemite
-    sha256 "7d81c8e4f6c6bc56017ae573cc6eba4f068e2cfdce669472492a5a23d3b0d672" => :mavericks
+    sha256 "0ab6832982913be0f60bb69e6dfbe6eeeb5b8afc4d5a5b485bf46073ce15ccde" => :el_capitan
+    sha256 "a03d0dedee2485314258ab26fc8c53c54f23dee39b4171ab684c8c82b78d260b" => :yosemite
+    sha256 "27f77c1e3f0d9a2ffa939be94063911aaa6780fdd428cd9d4a13536c846f67bc" => :mavericks
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
-    install_cabal_package "-f executable"
+    install_cabal_package "--enable-tests", :flags => ["executable"] do
+      system "cabal", "test"
+    end
   end
 
   test do
-    assert_match "<mn>2</mn>", pipe_output("texmath", "a^2 + b^2 = c^2")
+    assert_match "<mn>2</mn>", pipe_output(bin/"texmath", "a^2 + b^2 = c^2")
   end
 end

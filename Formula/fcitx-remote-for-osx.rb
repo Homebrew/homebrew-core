@@ -1,14 +1,14 @@
 class FcitxRemoteForOsx < Formula
   desc "handle input method in command-line"
   homepage "https://github.com/CodeFalling/fcitx-remote-for-osx"
-  url "https://github.com/CodeFalling/fcitx-remote-for-osx/archive/0.1.0.tar.gz"
-  sha256 "0a4233175e7dfbaaa0ba308b54552503e814c001c6366f28cce7f9bcae3abebb"
+  url "https://github.com/CodeFalling/fcitx-remote-for-osx/archive/0.2.0.tar.gz"
+  sha256 "6b641f692e96d1da741780d46941e8ab1d59ca7ea8909458888f20dea628b481"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cf7efa11cfe3c881508944be45d8e738457686fb4fdfe44aacee794c966130e3" => :el_capitan
-    sha256 "e626aa6a38097d77b659f2fe00f336e472c6ccc11f4580260b5f683af783dc29" => :yosemite
-    sha256 "1ef36e4590006d34b20c5beb8a428de5177a7f492dff8ade55e6e3346f1b2a6d" => :mavericks
+    sha256 "5dd74e46ad011a623dedf189e7e63c7ae5b037e60f728b5aac9389bf20628d63" => :el_capitan
+    sha256 "1a400d131adec21aea258c11c83038ac72ee6fe6cd0bc237af0f3238d5459984" => :yosemite
+    sha256 "7e64b4eb71352b65cb227017068c2a9ec22708a9ca612228cfafd8208b3e1fe9" => :mavericks
   end
 
   option "with-input-method=", "Select input method: general(default), baidu-pinyin, baidu-wubi, sogou-pinyin, qq-wubi, squirrel-rime, osx-pinyin"

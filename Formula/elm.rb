@@ -32,9 +32,10 @@ class Elm < Formula
   end
 
   bottle do
-    sha256 "43b3b8877a49e940d6d166af0a5a6cde8f7f311571b7481f9c066716434bc2fc" => :el_capitan
-    sha256 "44dace30dc9bb27f3899276c7236574b034483147eb3c34c67d25a49f768f4bd" => :yosemite
-    sha256 "ce2f302ab2269c5254cea74682dfe1cefb129ab80e17c179f386fdd9cdf785ef" => :mavericks
+    revision 1
+    sha256 "4f1136c3d7f7788539481f5d1d849447933c7e45afe97ec0e82601e7da89f45d" => :el_capitan
+    sha256 "fd6acc31a75ae65d3c90592c4dad93d8972ee001e200e42c679f89ce1931f566" => :yosemite
+    sha256 "5cbfc6da062d7a87c3ac205d7689dacdd04455d22e184964327081c7f1cb4cb4" => :mavericks
   end
 
   depends_on "ghc" => :build
@@ -43,6 +44,11 @@ class Elm < Formula
   def install
     # elm-compiler needs to be staged in a subdirectory for the build process to succeed
     (buildpath/"elm-compiler").install Dir["*"]
+
+    # GHC 8 compat
+    # Fixes "cabal: Could not resolve dependencies"
+    # Reported 25 May 2016: https://github.com/elm-lang/elm-compiler/issues/1397
+    (buildpath/"cabal.config").write("allow-newer: aeson,base,HTTP,time,transformers\n")
 
     extras_no_reactor = ["elm-package", "elm-make", "elm-repl"]
     extras = extras_no_reactor + ["elm-reactor"]

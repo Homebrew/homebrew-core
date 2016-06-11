@@ -1,21 +1,20 @@
 class Planck < Formula
   desc "Stand-alone OS X ClojureScript REPL"
   homepage "http://planck-repl.org/"
-  url "https://github.com/mfikes/planck/archive/1.11.tar.gz"
-  sha256 "61e4105d4df04edeea5ec4e884b749339ba65b1ca6b719e4cf14f94d6042f786"
+  url "https://github.com/mfikes/planck/archive/1.14.tar.gz"
+  sha256 "fb46888507a6501219f09dc0d2a044dadbf55521bb48ecbf8f6ea363cda2cb02"
   head "https://github.com/mfikes/planck.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "736294f7feca9b2fde6569e896bdc5b702d0ee74fb7ae5e3a447a333ec096e6f" => :el_capitan
-    sha256 "8d9bf3c8d482e81dc67333f2cc8b223a92e7ef35b040b08f951315616a961ea6" => :yosemite
-    sha256 "d119087ea5bb9fe7d2775ace2f7f3367209032e1cec1fd88ea1103eb03b2c6de" => :mavericks
+    sha256 "20604286366be1064717882b2695b3d8eb1f1c08adddd7a0da8801c514d0d98f" => :el_capitan
+    sha256 "3af23c0d5b5d56de59add578b27084cd748b655b626ac843f6d82ee9877b9c29" => :yosemite
+    sha256 "7e2b80e0c2ce8269c6614209fe796b2286c217fc31a560b3491680ba655a490b" => :mavericks
   end
 
   depends_on "leiningen" => :build
-  depends_on "maven" => :build
   depends_on :xcode => :build
-  depends_on :macos => :lion
+  depends_on :macos => :mavericks
 
   def install
     system "./script/build-sandbox"

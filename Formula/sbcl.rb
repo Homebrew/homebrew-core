@@ -1,15 +1,15 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.5/sbcl-1.3.5-source.tar.bz2"
-  sha256 "c8f1e16f8662313948531135b5e7d26eb57548e1bc4643832588b2c6f74a6e5c"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.6/sbcl-1.3.6-source.tar.bz2"
+  sha256 "f017ac1bd8fe0ad56a4cfda4f7543a06a8993db8da1c9c079e188c28c551b0d9"
 
   head "git://sbcl.git.sourceforge.net/gitroot/sbcl/sbcl.git"
 
   bottle do
-    sha256 "059b84bb63a51bad55efba623037d9048f5780ff40b299b39f5e87eef23d56c7" => :el_capitan
-    sha256 "7c1d87fcf0a24c987cfbee16e94c1787a9e2a8c30a7577376f10c9ae65d0d4e9" => :yosemite
-    sha256 "9e00d8deb3d52b38bcec2a7d712f5fe79a80fcf50842b066b14393a8afc27523" => :mavericks
+    sha256 "9caeb3039190d7341b7dbcf1ff4a65289383393e1eb93967a7366f835fb32eec" => :el_capitan
+    sha256 "e4ade5177059e83a28b6be6d747ba926b8ca1f2c722289ffe536949576a78aec" => :yosemite
+    sha256 "85bfea7ce516a6e1d2393cdcbd81f10cf7fa3858edbb82d3d16d297d2e051157" => :mavericks
   end
 
   fails_with :llvm do
@@ -36,22 +36,22 @@ class Sbcl < Formula
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/c5ffdb11/sbcl/patch-base-target-features.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-base-target-features.diff"
     sha256 "e101d7dc015ea71c15a58a5c54777283c89070bf7801a13cd3b3a1969a6d8b75"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/c5ffdb11/sbcl/patch-make-doc.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-make-doc.diff"
     sha256 "7c21c89fd6ec022d4f17670c3253bd33a4ac2784744e4c899c32fbe27203d87e"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/c5ffdb11/sbcl/patch-posix-tests.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-posix-tests.diff"
     sha256 "06908aaa94ba82447d64cf15eb8e011ac4c2ae4c3050b19b36316f64992ee21d"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/c5ffdb11/sbcl/patch-use-mach-exception-handler.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-use-mach-exception-handler.diff"
     sha256 "089b8fdc576a9a32da0b2cdf2b7b2d8bfebf3d542ac567f1cb06f19c03eaf57d"
   end
 

@@ -1,25 +1,28 @@
 class Buku < Formula
   desc "Command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/1.9.tar.gz"
-  sha256 "0bac6f4f1b6bcca4eea639a3a6ff22c4937f22fc49271bb610f8b25ddbf890e2"
+  url "https://github.com/jarun/Buku/archive/v2.1.tar.gz"
+  sha256 "2b80de34a8fb47d430421a2a27f80bea5195dd89d979f5911c035281998a07d5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b950c782bece56e63bac91997cc8a2a5d2a48fb5be9b272a50631dc150b896e2" => :el_capitan
-    sha256 "c9f968aa2e58c58deae937b0e3054ec787461816e9d1b1fcf869cfa9a9840746" => :yosemite
-    sha256 "e2ff69c1162642311edddac73ef1f6a342a2b6446689937f62b65d2784f57093" => :mavericks
+    sha256 "be15ff762a030825bd946b2f284efe52739dd16f431af04118a412c11592ebb8" => :el_capitan
+    sha256 "118f95dae5477b26d99cc84e9480c72a60a6d92f26c53368b913abad48e734a7" => :yosemite
+    sha256 "ab1f5bbf4168ea6d0295decbe1b10c4a2bb3da1c85bc2251eeb3e92ff5688df9" => :mavericks
   end
 
   depends_on :python3
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
+    bash_completion.install "auto-completion/bash/buku-completion.bash"
+    fish_completion.install "auto-completion/fish/buku.fish"
+    zsh_completion.install "auto-completion/zsh/_buku"
   end
 
   test do
     ENV["XDG_DATA_HOME"] = "#{testpath}/.local/share"
     system "#{bin}/buku", "-a", "https://github.com/Homebrew/homebrew"
-    assert_match %r{https://github.com/Homebrew/homebrew}, shell_output("#{bin}/buku -s github </dev/null")
+    assert_match "https://github.com/Homebrew/homebrew", shell_output("#{bin}/buku --noprompt -s github")
   end
 end

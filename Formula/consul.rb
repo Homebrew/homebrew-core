@@ -4,16 +4,15 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-    :tag => "v0.6.3", :revision => "c933efde50d25395c7b5a42167578fda603d43d8"
+    :tag => "v0.6.4", :revision => "26a0ef8c41aa2252ab4cf0844fc6470c8e1d8256"
 
   head "https://github.com/hashicorp/consul.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "503c9f676c449e4723db01edefd0d1eea09f193461f5d15c86d61422da9e9b1c" => :el_capitan
-    sha256 "75ece59d870ca2c3e8eef6949ef05015f902287c27d3377a0aa0ebe235e545f5" => :yosemite
-    sha256 "aec77618aeacbe6b822d441140faf5cc72f521a4c2d6fe50c745508fb351508c" => :mavericks
+    sha256 "6574dabf1c77c5597c7658f2e475bacc3ab7a2493117b4f8d472f6b335fffcbf" => :el_capitan
+    sha256 "b4d1785bbea0b69677f0b18abdc482e5a35974a2ba5fe3d8acc684fbb41f16fc" => :yosemite
+    sha256 "e1cfaac0273e09e1e01665187779b6d3791786013b94394a4ff55a8a05d9aa29" => :mavericks
   end
 
   option "with-web-ui", "Installs the consul web ui"

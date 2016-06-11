@@ -1,14 +1,14 @@
 class Znapzend < Formula
   desc "zfs backup with remote capabilities and mbuffer integration"
   homepage "http://www.znapzend.org"
-  url "https://github.com/oetiker/znapzend/releases/download/v0.15.5/znapzend-0.15.5.tar.gz"
-  sha256 "f419f390de3b5da54f4d9aabd01027881f0572ead41a04b93d0f60dc28740343"
+  url "https://github.com/oetiker/znapzend/releases/download/v0.15.7/znapzend-0.15.7.tar.gz"
+  sha256 "7d2cf9955e058f42a58c19e1cd4c36a972fb4a303a2eba8b23651117e5ec812e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7f22ee659925d6b5d1667cd2cceef518b88bc443a33a4e38471535433fb8d87f" => :el_capitan
-    sha256 "ee6f5a2dbfd00ab21472dc27f430febe0ebb5d218d42597c96336ef9ea8bd749" => :yosemite
-    sha256 "6eb5d715fc5d7c3d3bd929d08f6dc3961182611f10e211961e540d17a7f31cde" => :mavericks
+    sha256 "b6d641f12a56d7a911128b42d51487697f7483efca63e2093290d21a131a309e" => :el_capitan
+    sha256 "a2b0ddd2b42e9c436b7cc7d98db98798cddcda70b3f8484f70c94bc11f4b6209" => :yosemite
+    sha256 "6b44f5c900f903f23349a564cfd8fc6f4b588dba162c3626c9bbc1d4c151ae31" => :mavericks
   end
 
   depends_on "perl" if MacOS.version <= :mavericks

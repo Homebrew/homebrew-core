@@ -20,7 +20,7 @@ class Newt < Formula
   # build dylibs with -dynamiclib; version libraries
   # Patch via MacPorts
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/0eb53878/newt/patch-Makefile.in.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0eb53878/newt/patch-Makefile.in.diff"
     sha256 "6672c253b42696fdacd23424ae0e07af6d86313718e06cd44e40e532a892db16"
   end
 

@@ -1,27 +1,41 @@
 class Gd < Formula
   desc "Graphics library to dynamically manipulate images"
   homepage "https://libgd.github.io/"
-  revision 3
+  revision 1
 
   stable do
-    url "https://github.com/libgd/libgd/releases/download/gd-2.1.1/libgd-2.1.1.tar.xz"
-    sha256 "9ada1ed45594abc998ebc942cef12b032fbad672e73efc22bc9ff54f5df2b285"
+    url "https://github.com/libgd/libgd/archive/gd-2.2.1.tar.gz"
+    sha256 "06b0f2ef45fbdde7b05816a8a988868b11ac348f77ffa15a958128a8106b1e08"
 
-    # Fix for CVE-2016-3074.
-    # https://www.debian.org/security/2016/dsa-3556
+    # Prevents need for a dependency on gnu-sed; fixes
+    #  sed: 1: "2i/* Generated from con ...": command i expects \ followed by text
+    # Requires the source archive tarball to apply cleanly; fix taken from HEAD,
+    # so most likely the release tarball can be restored upon the next release
     patch do
-      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libg/libgd2/libgd2_2.1.1-4.1.debian.tar.xz"
-      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libg/libgd2/libgd2_2.1.1-4.1.debian.tar.xz"
-      sha256 "ce2051fcdb161e4f780650ca76c3144941eb62e9d186e1f8cd36b6efd6fedea0"
-      apply "patches/gd2-handle-corrupt-images-better-CVE-2016-3074.patch"
+      url "https://github.com/libgd/libgd/commit/0bc8586e.patch"
+      sha256 "fc7e372c873afc6f750256f49cd7f3540b0e424e10a1a25fa708d2ebd2d3c9ca"
     end
+
+    # https://github.com/libgd/libgd/issues/214
+    patch do
+      url "https://github.com/libgd/libgd/commit/502e4cd8.patch"
+      sha256 "34fecd59b7f9646492647503375aaa34896bcc5a6eca1408c59a4b17e84896da"
+    end
+
+    # These are only needed for the 2.2.1 release. Remove on next
+    # stable release & reset bootstrap step to head-only in install.
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
+    depends_on "gettext" => :build
   end
 
   bottle do
     cellar :any
-    sha256 "f5163a6627242fa27c334428ddc58105003526bd496a2b4f0d1afcc1ef32294b" => :el_capitan
-    sha256 "3acbc1f243e98a831c045c0e0a14aa73bff979d8514124c994eb9bf15271434c" => :yosemite
-    sha256 "d26ee8c7197eec3b71d0837934d5975e2cbd2588c5548dce400825810ebb4f73" => :mavericks
+    sha256 "f773ad16deb79598d1d176f76dcfb47e9d3c09a0a46f12de9bf32a109f7a9782" => :el_capitan
+    sha256 "77d0417f21909badb6643ed5ae435532c35c2a9cdbf0db9db16739765da7d004" => :yosemite
+    sha256 "ef94bf115b380c741c3ec1a29e25ff6e69b68870adb847c3a170de43e5f96164" => :mavericks
   end
 
   head do
@@ -39,7 +53,7 @@ class Gd < Formula
   depends_on "jpeg" => :recommended
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
-  depends_on "libvpx" => :optional
+  depends_on "webp" => :recommended
 
   fails_with :llvm do
     build 2326
@@ -49,7 +63,7 @@ class Gd < Formula
   def install
     ENV.universal_binary if build.universal?
 
-    args = %W[--disable-dependency-tracking --prefix=#{prefix}]
+    args = %W[--disable-dependency-tracking --prefix=#{prefix} --without-x]
 
     if build.with? "libpng"
       args << "--with-png=#{Formula["libpng"].opt_prefix}"
@@ -81,13 +95,13 @@ class Gd < Formula
       args << "--without-tiff"
     end
 
-    if build.with? "libvpx"
-      args << "--with-vpx=#{Formula["libvpx"].opt_prefix}"
+    if build.with? "webp"
+      args << "--with-webp=#{Formula["webp"].opt_prefix}"
     else
-      args << "--without-vpx"
+      args << "--without-webp"
     end
 
-    system "./bootstrap.sh" if build.head?
+    system "./bootstrap.sh"
     system "./configure", *args
     system "make", "install"
   end

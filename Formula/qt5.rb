@@ -14,16 +14,16 @@ end
 class Qt5 < Formula
   desc "Version 5 of the Qt framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.6/5.6.0/single/qt-everywhere-opensource-src-5.6.0.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.6/5.6.0/single/qt-everywhere-opensource-src-5.6.0.tar.xz"
-  sha256 "76a95cf6c1503290f75a641aa25079cd0c5a8fcd7cff07ddebff80a955b07de7"
+  url "https://download.qt.io/official_releases/qt/5.6/5.6.1/single/qt-everywhere-opensource-src-5.6.1.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.6/5.6.1/single/qt-everywhere-opensource-src-5.6.1.tar.xz"
+  sha256 "0d3cc75d2368ad988c9ec6bcbed6362dbaa8e03fdfd04e679284f4b9af91e565"
 
   head "https://code.qt.io/qt/qt5.git", :branch => "5.6", :shallow => false
 
   bottle do
-    sha256 "c20268ac2ca94cb2daa0da352ad3ca8f2a16b0429c00e2fa444bc1f6b5488f6f" => :el_capitan
-    sha256 "9924fa2ac0cd8b661c861f81696679ba10496b91a35ee706033739816bb5bb90" => :yosemite
-    sha256 "bcbb60b1c00e63cf75e8632d1577e9f882da1febb1ae5a8a2ca8afd9e4d07a61" => :mavericks
+    sha256 "e33fe196cfc3997a3620be91e52a2e3378bc140ca2a17a84a6de769d77a96b9b" => :el_capitan
+    sha256 "721d7569b6880b31bd7ab684773f40ee147b3ea2ee9c6f0b81eb71d99ace90dd" => :yosemite
+    sha256 "76b0e2a980326bf520e0f1405132928eec91f68547602e562d81e4690e6a3b27" => :mavericks
   end
 
   # Restore `.pc` files for framework-based build of Qt 5 on OS X. This
@@ -35,7 +35,7 @@ class Qt5 < Formula
   #   * poppler    (with `--with-qt5` option)
   #   * wireshark  (with `--with-qt5` option)
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/e8fe6567/qt5/restore-pc-files.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
   end
 
@@ -47,14 +47,15 @@ class Qt5 < Formula
 
   option "without-webengine", "Build without QtWebEngine module"
 
-  deprecated_option "qtdbus" => "with-d-bus"
+  deprecated_option "qtdbus" => "with-dbus"
+  deprecated_option "with-d-bus" => "with-dbus"
 
   # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
   # configuration and thus untested in practice. Builds on OS X 10.7 have been
   # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
   depends_on :macos => :mountain_lion
 
-  depends_on "d-bus" => :optional
+  depends_on "dbus" => :optional
   depends_on :mysql => :optional
   depends_on :xcode => :build
 
@@ -79,8 +80,8 @@ class Qt5 < Formula
 
     args << "-plugin-sql-mysql" if build.with? "mysql"
 
-    if build.with? "d-bus"
-      dbus_opt = Formula["d-bus"].opt_prefix
+    if build.with? "dbus"
+      dbus_opt = Formula["dbus"].opt_prefix
       args << "-I#{dbus_opt}/lib/dbus-1.0/include"
       args << "-I#{dbus_opt}/include/dbus-1.0"
       args << "-L#{dbus_opt}/lib"

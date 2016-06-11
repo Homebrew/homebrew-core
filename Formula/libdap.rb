@@ -1,14 +1,14 @@
 class Libdap < Formula
   desc "Framework for scientific data networking"
   homepage "http://www.opendap.org"
-  url "https://github.com/OPENDAP/libdap4/archive/version-3.17.1.tar.gz"
-  sha256 "b9ee8e8dcc1a93a5c2d2e3a6fee39a3dc05c82e0e44151f8df3fc7c0f6363885"
+  url "https://github.com/OPENDAP/libdap4/archive/version-3.18.0.tar.gz"
+  sha256 "373c60cf2c5c9eaf598558167aedbc3ef9a0d9b652dfbd96b4725637cf03f628"
   head "https://github.com/OPENDAP/libdap4.git"
 
   bottle do
-    sha256 "0ed1a25312873af1797bade7a0f3706df5cf1b2049bd1eec3d0ca0618b38da92" => :el_capitan
-    sha256 "07bba9bf47aa4d7d8c73dad126160f82a9b6dec7c3a9b54d915fcd8524727b23" => :yosemite
-    sha256 "bb4b42776292f6adb3af91fb2a5df61a1e13d1dfcc07a275c0595a470dbddb64" => :mavericks
+    sha256 "4c7e4ac48248b98e01434e58b0f4bd49430728494a79a14606c7dc7b36a1214a" => :el_capitan
+    sha256 "1adc5a6e18823ac189ee748323f6e95160d098faa2ce0f2dec94dc08c9c0afc0" => :yosemite
+    sha256 "cf167f219d06fe935453d1af606d8d38711c865f541d1f61007cb27f2666bae6" => :mavericks
   end
 
   option "without-test", "Skip build-time tests (Not recommended)"

@@ -3,11 +3,12 @@ class Mosquitto < Formula
   homepage "https://mosquitto.org/"
   url "https://mosquitto.org/files/source/mosquitto-1.4.8.tar.gz"
   sha256 "d96eb5610e57cc3e273f4527d3f54358ab7711459941a9e64bc4d0a85c2acfda"
+  revision 1
 
   bottle do
-    sha256 "e675921d54e51a7cf9aca154d464cda5a65b64f9c68c18f5d028bc7305c0030c" => :el_capitan
-    sha256 "c2639beb4f71fa7520a017c888b7008bf3c3046343ef742f651dfa671157a132" => :yosemite
-    sha256 "5b86c30729f7d3fc6528564a8b92ac1765e50abb8b0fb59b6896bcf4505503f0" => :mavericks
+    sha256 "665df312ae477fc559ba2f722d1b16362e9ce24779623f2a6e0a77af303ed3ea" => :el_capitan
+    sha256 "525a478c57abf958a608f490a8423f3fc746d551cb906c01e1fab6e66c88b9e0" => :yosemite
+    sha256 "5761d7765ec32148849eccd50685a35af0d461cb250c819ad701befc37c6a18c" => :mavericks
   end
 
   depends_on "pkg-config" => :build

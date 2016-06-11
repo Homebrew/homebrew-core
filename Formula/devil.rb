@@ -1,7 +1,7 @@
 class Devil < Formula
   desc "Cross-platform image library"
   homepage "https://sourceforge.net/projects/openil/"
-  revision 2
+  revision 3
 
   stable do
     url "https://downloads.sourceforge.net/project/openil/DevIL/1.7.8/DevIL-1.7.8.tar.gz"
@@ -9,17 +9,16 @@ class Devil < Formula
 
     # fix compilation issue for ilur.c
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/3db2f9727cea4a51fbcfae742518c614020fb8f2/devil/patch-src-ILU-ilur-ilur.c.diff"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/3db2f9727cea4a51fbcfae742518c614020fb8f2/devil/patch-src-ILU-ilur-ilur.c.diff"
       sha256 "ce96bc4aad940b80bc918180d6948595ee72624ae925886b1b770f2a7be8a2f9"
     end
   end
   bottle do
     cellar :any
-    sha256 "7a06d584329097c3e911681f5075e6cf63c4e4654317f6db2157c5dcb615d2dc" => :el_capitan
-    sha256 "c75d0b1abbbafc8d302c70b9ad2c54018f63ceaa936e233b8781ca9395acd37e" => :yosemite
-    sha256 "ea60067ae64f574fea8cd904e681294ad1c50cde25531bfc75b24c7736c4f367" => :mavericks
+    sha256 "1953824a6ba55112277ba40ee9604c58b4c93d3b61950583323113fd64ed5ae3" => :el_capitan
+    sha256 "bd23907c8dd2202835e8cfb5e03b879aa304a2bdf74481a3d148231b869ae230" => :yosemite
+    sha256 "5d77a3dcfed8123738dbfa1d77ea6dd2459688b0acbc35a0fd5dfe4b2cf0fead" => :mavericks
   end
-
 
   head do
     url "https://github.com/DentonW/DevIL.git"
@@ -33,7 +32,7 @@ class Devil < Formula
 
     # fix compilation issue for ilur.c
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/3db2f9727cea4a51fbcfae742518c614020fb8f2/devil/patch-DevIL-src-ILU-ilur-ilur.c.diff"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/3db2f9727cea4a51fbcfae742518c614020fb8f2/devil/patch-DevIL-src-ILU-ilur-ilur.c.diff"
       sha256 "8021ffcd5c9ea151b991c7cd29b49ecea14afdfe07cb04fa9d25ab07d836f7d0"
     end
   end

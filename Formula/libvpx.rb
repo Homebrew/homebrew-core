@@ -1,6 +1,6 @@
 class Libvpx < Formula
   desc "VP8 video codec"
-  homepage "http://www.webmproject.org/code/"
+  homepage "https://www.webmproject.org/code/"
   url "https://github.com/webmproject/libvpx/archive/v1.5.0.tar.gz"
   sha256 "f199b03b67042e8d94a3ae8bc841fb82b6a8430bdf3965aeeaafe8245bcfa699"
   head "https://chromium.googlesource.com/webm/libvpx", :using => :git

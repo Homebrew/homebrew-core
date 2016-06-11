@@ -1,8 +1,8 @@
 class Desk < Formula
   desc "Lightweight workspace manager for the shell"
   homepage "https://github.com/jamesob/desk"
-  url "https://github.com/jamesob/desk/archive/v0.5.0.tar.gz"
-  sha256 "4ed7a2547fdb3e442e9456be7ca27c41f3fc580d3fdffd69fcfed84260ca2576"
+  url "https://github.com/jamesob/desk/archive/v0.5.1.tar.gz"
+  sha256 "1f7b9ba4883a942518bb8fe2dffcfef319e1017abd1a8798859ceb0c3d884e88"
 
   bottle :unneeded
 

@@ -3,23 +3,28 @@ require "language/node"
 class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
-  url "https://github.com/elastic/kibana.git", :tag => "v4.5.0", :revision => "ff5cfc5d05a58e53f7acaa762428fa803318d31e"
+  url "https://github.com/elastic/kibana.git",
+    :tag => "v4.5.1",
+    :revision => "addb28966a74b61791ceda352cd5b8b1200f2b2a"
+
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    revision 1
-    sha256 "6af189c5637460bdd3d78492e85d89a11adf17b6d74cedbed58bd2498cd06f55" => :el_capitan
-    sha256 "785fd76f71b6fb27476a6d722e306edbf7ee5a8b473747c1a432d903c37ad766" => :yosemite
-    sha256 "bc8cadd81b4a31ea1084ae5835d8950a89c4547a97231f11d00858929ed32056" => :mavericks
+    sha256 "2a4de8b9c0223d3e7ef17e776ab79401e8c0e5ba78ba238f6d8159d8d16fb9be" => :el_capitan
+    sha256 "ec01418d4941f836cd7afcdfb79919ba1d8eae6ddf32ec5df4b7d49d6e5781c2" => :yosemite
+    sha256 "58dd7c70a51d0410ef7b3622e4022f2cc15a2060bc6a393bc29e1d79505084fb" => :mavericks
   end
 
   devel do
-    url "https://github.com/elastic/kibana.git", :tag => "v5.0.0-alpha2", :revision => "6d7bb147cf9ae7170fde494b1f17128a50123b5f"
+    url "https://github.com/elastic/kibana.git",
+      :tag => "v5.0.0-alpha3",
+      :revision => "b6190c95064a7c48c390c4566e82b5a562ca744f"
+    version "5.0.0-alpha3"
   end
 
   resource "node" do
-    url "https://nodejs.org/dist/v4.3.2/node-v4.3.2.tar.gz"
-    sha256 "1f92f6d31f7292ce56db57d6703efccf3e6c945948f5901610cefa69e78d3498"
+    url "https://nodejs.org/dist/v4.4.4/node-v4.4.4.tar.gz"
+    sha256 "53c694c203ee18e7cd393612be08c61ed6ab8b2a165260984a99c014d1741414"
   end
 
   def install

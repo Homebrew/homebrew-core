@@ -19,7 +19,7 @@ class Web100clt < Formula
   # https://github.com/ndt-project/ndt/issues/106
   if MacOS.version >= :mavericks
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/37aa64888341/web100clt/ndt-3.6.5.2-osx-10.9.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/37aa64888341/web100clt/ndt-3.6.5.2-osx-10.9.patch"
       sha256 "86d2399e3d139c02108ce2afb45193d8c1f5782996714743ec673c7921095e8e"
     end
   end

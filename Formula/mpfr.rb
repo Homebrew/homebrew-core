@@ -15,7 +15,7 @@ class Mpfr < Formula
 
   # http://www.mpfr.org/mpfr-current/allpatches
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/30141937f9d16/mpfr/3.1.4-patches.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/30141937f9d16/mpfr/3.1.4-patches.diff"
     sha256 "9a03c3f304feaff747d1832f4a0f3653bbd24764df403305add0b76ca6cd6541"
   end
 

@@ -1,14 +1,14 @@
 class H2o < Formula
   desc "HTTP server with support for HTTP/1.x and HTTP/2"
   homepage "https://github.com/h2o/h2o/"
-  url "https://github.com/h2o/h2o/archive/v1.7.1.tar.gz"
-  sha256 "a9488667f0b73a66d5ef593660f6c0f66311d6eb4bf9378c6b7e74ab7ec9eea2"
+  url "https://github.com/h2o/h2o/archive/v2.0.0.tar.gz"
+  sha256 "068cc88fe7313ea3c637764abc296629f6c9250e12b714f5629065bdc49d28c8"
   head "https://github.com/h2o/h2o.git"
 
   bottle do
-    sha256 "e508a6fd99c3c239e0c9b68cba0ae0bd7adec39f951667752fe83991318fb291" => :el_capitan
-    sha256 "8eb33197e5bde2ac3518b7fab376f43b6a4a1254a994808e07f1458f41c25c9f" => :yosemite
-    sha256 "6dec3c949e45bf260a214f8163f5de65a23b45859a161118eff233936f5926b8" => :mavericks
+    sha256 "54f345f266ef2a61f2f26f57d2eea13c64dd5b10036c5b44a7d702f6ca891785" => :el_capitan
+    sha256 "c20e31f4656651b5dc625c8f2fa0590665509a2a6a0447df4aca2984a1ce6769" => :yosemite
+    sha256 "a31bf6c8b988f8e81d6a723246c3966cce061d394dee7a8bc0eebc10677b35de" => :mavericks
   end
 
   option "with-libuv", "Build the H2O library in addition to the executable"
@@ -22,6 +22,10 @@ class H2o < Formula
   depends_on "wslay" => :optional
 
   def install
+    # https://github.com/Homebrew/homebrew-core/pull/1046
+    # https://github.com/Homebrew/brew/pull/251
+    ENV.delete("SDKROOT")
+
     args = std_cmake_args
     args << "-DWITH_BUNDLED_SSL=OFF"
     args << "-DWITH_MRUBY=OFF" if build.without? "mruby"

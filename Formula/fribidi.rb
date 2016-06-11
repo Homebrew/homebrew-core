@@ -3,21 +3,25 @@ class Fribidi < Formula
   homepage "https://fribidi.org/"
   url "https://fribidi.org/download/fribidi-0.19.7.tar.bz2"
   sha256 "08222a6212bbc2276a2d55c3bf370109ae4a35b689acbc66571ad2a670595a8e"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "87e69d69af75d25d8f8f9029d747ea1ac83a1ab2f1587eefb74b17e5a35a3d04" => :el_capitan
-    sha256 "cb0bfe8325e4f8080bb6035f33a71af75482b9d6ca9b7b1f0acb8581a888df9e" => :yosemite
-    sha256 "2aba6a847848ca88141dbe840ff3465cb882d6c7f7b2951d39ac88abc0d3e578" => :mavericks
-    sha256 "1bc5b4d99f7d9efd38f1ca3e36f24c69c0a39751d4633d842d110065b4eca036" => :mountain_lion
+    sha256 "6ba76553f8ec26d4de32e84ce0a99e758d1bb5b7272ac2a985ff71322957d1ac" => :el_capitan
+    sha256 "e414b99827d9a472609639ab5030bf5344077763bc178ce743a082008874f232" => :yosemite
+    sha256 "70caed8cb2f44044c41e0b91c2645111b9f177d98b4d49cef01fb0d8558c0f98" => :mavericks
   end
 
   option :universal
 
+  depends_on "pkg-config" => :build
+  depends_on "glib"
+  depends_on "pcre"
+
   def install
     ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--with-glib", "--prefix=#{prefix}"
     system "make", "install"
   end
 

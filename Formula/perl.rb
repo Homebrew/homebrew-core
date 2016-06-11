@@ -1,17 +1,17 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "http://www.cpan.org/src/5.0/perl-5.22.1.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/perl/perl_5.22.1.orig.tar.xz"
-  sha256 "9e87317d693ce828095204be0d09af8d60b8785533fadea1a82b6f0e071e5c79"
+  url "http://www.cpan.org/src/5.0/perl-5.24.0.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/perl/perl_5.24.0.orig.tar.xz"
+  sha256 "a9a37c0860380ecd7b23aa06d61c20fc5bc6d95198029f3684c44a9d7e2952f2"
   revision 1
 
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   bottle do
-    sha256 "0e2be2de0d24806763d6f6f97c1686bea9cd753a04709af63816f6ce74beae15" => :el_capitan
-    sha256 "410801e02a37ca7d63ec3af56f84a56c271d911477731bcccc26f9dae7ccc697" => :yosemite
-    sha256 "6d595837aa06cb8c1d4e878efbb3b2d6ca5ca1f1e0045dfb8c672c12f8c177f9" => :mavericks
+    sha256 "9b7e0cea4fdb51a17bed1d7733d300a33e29186c8f5e7afc601e7cbbfda20f8e" => :el_capitan
+    sha256 "75876c7d492a675d3a1fd257afd10d2c30fdb339ba53de925ab97fcdc97b9131" => :yosemite
+    sha256 "a2e15a577db6428bfaad8c441973d85cfdea65bf6ed54d8c4c36b8d767d1fa62" => :mavericks
   end
 
   option "with-dtrace", "Build with DTrace probes"
@@ -23,6 +23,11 @@ class Perl < Formula
     args = %W[
       -des
       -Dprefix=#{prefix}
+      -Dprivlib=#{lib}/perl5/#{version}
+      -Dsitelib=#{lib}/perl5/site_perl/#{version}
+      -Dotherlibdirs=#{HOMEBREW_PREFIX}/lib/perl5/site_perl/#{version}
+      -Dperlpath=#{opt_bin}/perl
+      -Dstartperl=#!#{opt_bin}/perl
       -Dman1dir=#{man1}
       -Dman3dir=#{man3}
       -Duseshrplib
@@ -39,7 +44,7 @@ class Perl < Formula
     # OS X El Capitan's SIP feature prevents DYLD_LIBRARY_PATH from being
     # passed to child processes, which causes the make test step to fail.
     # https://rt.perl.org/Ticket/Display.html?id=126706
-    # https://github.com/Homebrew/homebrew/issues/41716
+    # https://github.com/Homebrew/legacy-homebrew/issues/41716
     if MacOS.version < :el_capitan
       system "make", "test" if build.with? "test"
     end
@@ -48,8 +53,12 @@ class Perl < Formula
   end
 
   def caveats; <<-EOS.undent
-    By default Perl installs modules in your HOME dir. If this is an issue run:
-      `#{opt_bin}/cpan o conf init`
+    By default non-brewed cpan modules are installed to the Cellar. If you wish
+    for your modules to persist across updates we recommend using `local::lib`.
+
+    You can set that up like this:
+      PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" cpan local::lib
+      echo 'eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"' >> #{shell_profile}
     EOS
   end
 
