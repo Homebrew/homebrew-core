@@ -1,8 +1,8 @@
 class EvasGenericLoaders < Formula
   desc "Extra complex image type loaders for Enlightenment"
   homepage "https://enlightenment.org"
-  url "https://download.enlightenment.org/rel/libs/evas_generic_loaders/evas_generic_loaders-1.14.0.tar.gz"
-  sha256 "943b25427c4e77a3aeae72811557a0b1b7ec4c61aa53922a4c4faf17b3dea812"
+  url "https://download.enlightenment.org/rel/libs/evas_generic_loaders/evas_generic_loaders-1.17.0.tar.gz"
+  sha256 "be46c1619677dd6d1947a3db6eeaa9b8099f0e1684d72c4182304536bdb1e3dd"
 
   bottle do
     cellar :any
