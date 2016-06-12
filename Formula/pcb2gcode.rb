@@ -1,8 +1,8 @@
 class Pcb2gcode < Formula
   desc "Command-line tool for isolation, routing and drilling of PCBs"
   homepage "https://github.com/pcb2gcode/pcb2gcode"
-  url "https://github.com/pcb2gcode/pcb2gcode/releases/download/v1.2.3/pcb2gcode-1.2.3.tar.gz"
-  sha256 "90fbd6c2c353609451e4284fcdcc395359ff582b13c053939f2da2825f081477"
+  url "https://github.com/pcb2gcode/pcb2gcode/releases/download/v1.3.0/pcb2gcode-1.3.0.tar.gz"
+  sha256 "27843ca6bfbb885520326f095697920ba8d9d97287d200cab522e723166681f4"
 
   bottle do
     cellar :any
@@ -36,40 +36,30 @@ class Pcb2gcode < Formula
       %FSLAX46Y46*%
       %MOMM*%
       G01*
-      %ADD10C,0.100000*%
       %ADD11R,2.032000X2.032000*%
       %ADD12O,2.032000X2.032000*%
       %ADD13C,0.250000*%
-      D10*
       D11*
       X127000000Y-63500000D03*
       D12*
       X127000000Y-66040000D03*
       D13*
-      X124460000Y-66040000D02*
-      X127000000Y-66040000D01*
-      X124460000Y-63500000D02*
       X124460000Y-66040000D01*
-      X127000000Y-63500000D02*
       X124460000Y-63500000D01*
+      X127000000Y-63500000D01*
       M02*
     EOS
     (testpath/"edge.gbr").write <<-EOS.undent
       %FSLAX46Y46*%
       %MOMM*%
       G01*
-      %ADD10C,0.100000*%
       %ADD11C,0.150000*%
-      D10*
       D11*
       X123190000Y-67310000D02*
-      X123190000Y-62230000D01*
-      X128270000Y-67310000D02*
-      X123190000Y-67310000D01*
-      X128270000Y-62230000D02*
       X128270000Y-67310000D01*
-      X123190000Y-62230000D02*
       X128270000Y-62230000D01*
+      X123190000Y-62230000D01*
+      X123190000Y-67310000D01*
       M02*
     EOS
     (testpath/"drill.drl").write <<-EOS.undent
