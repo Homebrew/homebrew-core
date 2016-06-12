@@ -1,15 +1,15 @@
 class Nim < Formula
   desc "Statically typed, imperative programming language"
   homepage "http://nim-lang.org/"
-  url "http://nim-lang.org/download/nim-0.14.0.tar.xz"
-  sha256 "023524b422c745a8fc2ee1207e35babbeb9c6b5f81a3bf85071986b48debd6a5"
+  url "http://nim-lang.org/download/nim-0.14.2.tar.xz"
+  sha256 "8f8d38d70ed57164795fc55e19de4c11488fcd31dbe42094e44a92a23e3f5e92"
   head "https://github.com/nim-lang/Nim.git", :branch => "devel"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9de8a96411f3972403d8592339539d781b0eff68839d2d5d66cfdf21abc5e198" => :el_capitan
-    sha256 "ea92442a591de42a008e27c98842186f4bb083b0e16072217cc5627acb8111c8" => :yosemite
-    sha256 "b824926db0dac9c09162deb31770544a4a22c397156eb8f9052f0911b68820ba" => :mavericks
+    cellar :any
+    sha256 "34f4f23ae2cfdff9000bbdab3ef3d8c591c3e84a0959b28d4e9ecabb3f97e821" => :el_capitan
+    sha256 "8edeeedab5b808f140e5987062c51cc708b07e21aee39a81a9c70970c72ddaba" => :yosemite
+    sha256 "a722af3627f9051373bd77d9969ec3e1422f9c86019369e81ea8b5a604fd6a29" => :mavericks
   end
 
   def install
