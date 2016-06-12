@@ -78,11 +78,13 @@ class Radare2 < Formula
       inreplace "libr/lang/p/Makefile", "R2_PLUGIN_PATH=", "#R2_PLUGIN_PATH="
       inreplace "Makefile", "LUAPKG=", "#LUAPKG="
       inreplace "Makefile", "${DESTDIR}$$_LUADIR", "#{lib}/lua/#{lua_version}"
-      make_install_args = ["R2_PLUGIN_PATH=#{lib}/radare2/#{version}",
-                           "LUAPKG=lua-#{lua_version}",
-                           "PERLPATH=#{lib}/perl5/site_perl/#{perl_version}",
-                           "PYTHON_PKGDIR=#{lib}/python2.7/site-packages",
-                           "RUBYPATH=#{lib}/ruby/#{RUBY_VERSION}"]
+      make_install_args = %W[
+        R2_PLUGIN_PATH=#{lib}/radare2/#{version}
+        LUAPKG=lua-#{lua_version}
+        PERLPATH=#{lib}/perl5/site_perl/#{perl_version}
+        PYTHON_PKGDIR=#{lib}/python2.7/site-packages
+        RUBYPATH=#{lib}/ruby/#{RUBY_VERSION}
+      ]
 
       system "./configure", "--prefix=#{prefix}"
       ["lua", "perl", "python"].each do |binding|
@@ -94,6 +96,6 @@ class Radare2 < Formula
   end
 
   test do
-    assert_match /radare2 #{version.to_s}/, shell_output("#{bin}/r2 -version")
+    assert_match "radare2 #{version}", shell_output("#{bin}/r2 -version")
   end
 end
