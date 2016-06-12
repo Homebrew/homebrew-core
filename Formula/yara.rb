@@ -9,7 +9,7 @@ class Yara < Formula
 
     # fixes a variable redefinition error with clang (fixed in HEAD)
     patch do
-      url "https://github.com/plusvic/yara/pull/261.diff"
+      url "https://patch-diff.githubusercontent.com/raw/VirusTotal/yara/pull/261.diff"
       sha256 "6b5c135b577a71ca1c1a5f0a15e512f5157b13dfbd08710f9679fb4cd0b47dba"
     end
   end
