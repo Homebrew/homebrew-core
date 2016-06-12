@@ -1,5 +1,5 @@
 class Mg3a < Formula
-  desc "Small Emacs-like editor inspired like mg with UTF8 support"
+  desc "Small Emacs-like editor inspired by mg with UTF8 support"
   homepage "http://www.bengtl.net/files/mg3a/"
   url "http://www.bengtl.net/files/mg3a/mg3a.160609.tar.gz"
   sha256 "006aee36be4a0558ea1ab386d18b128b3300b607ab36facc04ce5a6b1121ab23"
