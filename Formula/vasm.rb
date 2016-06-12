@@ -36,7 +36,7 @@ class Vasm < Formula
     cpu_options.each do |cpu|
       syntax_options.each do |syntax|
         prog = "vasm#{cpu}_#{syntax}"
-        system "make", prog, "CPU="+cpu, "SYNTAX="+syntax
+        system "make", prog, "CPU=#{cpu}", "SYNTAX=#{syntax}"
         bin.install prog
       end
     end
