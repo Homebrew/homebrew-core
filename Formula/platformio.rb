@@ -1,8 +1,8 @@
 class Platformio < Formula
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
   homepage "http://platformio.org"
-  url "https://pypi.python.org/packages/4e/29/49972bac9706a618a58a396746a2004aa13f0540c68fc3bf411b17867b41/platformio-2.9.4.tar.gz"
-  sha256 "3bef1e5f5c67aeef746a463db213af2d55ec355a6ac6da9735b5b8e701790217"
+  url "https://pypi.python.org/packages/22/65/254fc55bd4e8297a15a3374878c12c1ec2adf3ddbb068c83e5ca586dd818/platformio-2.10.0.tar.gz"
+  sha256 "5d44ba5da168a313dd5db6c5ce732f96170a2b1b63d0a5b27f5f5b73f1b07975"
 
   bottle do
     cellar :any_skip_relocation
@@ -34,8 +34,8 @@ class Platformio < Formula
   end
 
   resource "pyserial" do
-    url "https://pypi.python.org/packages/ce/9c/694ce79a9d4a164e109aeba1a40fba23336f3b7554978553e22a5d41d54d/pyserial-3.1.tar.gz"
-    sha256 "c8ffdcbd8bfd308842409e558848c32aa3499a1bfe95a591e4210072b9520f1e"
+    url "https://pypi.python.org/packages/3c/d8/a9fa247ca60b02b3bebbd61766b4f321393b57b13c53b18f6f62cf172c08/pyserial-3.1.1.tar.gz"
+    sha256 "d657051249ce3cbd0446bcfb2be07a435e1029da4d63f53ed9b4cdde7373364c"
   end
 
   resource "requests" do
