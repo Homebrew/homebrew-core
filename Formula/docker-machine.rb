@@ -1,5 +1,3 @@
-require "language/go"
-
 class DockerMachine < Formula
   desc "Create Docker hosts locally and on cloud providers"
   homepage "https://docs.docker.com/machine"
@@ -27,8 +25,6 @@ class DockerMachine < Formula
 
     path = buildpath/"src/github.com/docker/machine"
     path.install Dir["*"]
-
-    Language::Go.stage_deps resources, buildpath/"src"
 
     cd path do
       system "make", "build"
@@ -67,6 +63,6 @@ class DockerMachine < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output(bin/"docker-machine --version")
+    assert_match version.to_s, shell_output(bin/"docker-machine --version")
   end
 end
