@@ -6,9 +6,9 @@ class Mg3a < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "62ae10d29c7f8b9df0ea3f2d6ba76ac11ca2afa27c1bac68eb5328fd941bd67c" => :el_capitan
-    sha256 "0739510b46503faecb3793d9a230d33a283b17dfc3b208087d2fb44e6e9fbe67" => :yosemite
-    sha256 "334f8cafe8d0410aab5a07d99d530babdccffa1f63fdc6286b947dce87ef9222" => :mavericks
+    sha256 "cbb8f6bb062b4861ebd18264df69476b72d0d0bfb2a023a340fff903e98c36d6" => :el_capitan
+    sha256 "f91578661287817f8acf971499917ada99600dff666d916b2fc7b2a33c1d765f" => :yosemite
+    sha256 "272e4968b831d13ca41ba0abc342f73f24197a65c535f0c1add6e33981363c5a" => :mavericks
   end
 
   conflicts_with "mg", :because => "both install `mg`"
