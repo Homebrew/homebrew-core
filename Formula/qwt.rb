@@ -1,8 +1,8 @@
 class Qwt < Formula
   desc "Qt Widgets for Technical Applications (v5.1)"
   homepage "http://qwt.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.2/qwt-6.1.2.tar.bz2"
-  sha256 "2b08f18d1d3970e7c3c6096d850f17aea6b54459389731d3ce715d193e243d0c"
+  url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.3/qwt-6.1.3.tar.bz2"
+  sha256 "f996074eb50cafa06d45dc41cc1c18a087287d9f2079cc817eb8cfc96b710885"
 
   bottle do
     cellar :any
@@ -61,6 +61,23 @@ class Qwt < Formula
     end
 
     s
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <qwt_plot_curve.h>
+      int main() {
+        QwtPlotCurve *curve1 = new QwtPlotCurve("Curve 1");
+        return (curve1 == NULL);
+      }
+    EOS
+    system ENV.cxx, "test.cpp", "-o", "out",
+      "-framework", "qwt", "-framework", "QtCore",
+      "-F#{lib}", "-F#{Formula["qt"].opt_lib}",
+      "-I#{lib}/qwt.framework/Headers",
+      "-I#{Formula["qt"].opt_lib}/QtCore.framework/Headers",
+      "-I#{Formula["qt"].opt_lib}/QtGui.framework/Headers"
+    system "./out"
   end
 end
 
