@@ -36,14 +36,6 @@ class DockerMachine < Formula
     end
   end
 
-  def caveats
-    s = <<-EOS.undent
-
-    Create a docker machine ie: docker-machine create -d {driver} default
-    EOS
-    s
-  end
-
   plist_options :manual => "docker-machine start"
 
   def plist; <<-EOS.undent
@@ -54,7 +46,7 @@ class DockerMachine < Formula
          <key>EnvironmentVariables</key>
          <dict>
              <key>PATH</key>
-             <string>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin</string>
+             <string>/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin</string>
          </dict>
          <key>Label</key>
          <string>#{plist_name}</string>
