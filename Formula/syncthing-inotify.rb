@@ -1,11 +1,8 @@
-require "language/go"
-
 class SyncthingInotify < Formula
   desc "File watcher intended for use with Syncthing"
   homepage "https://github.com/syncthing/syncthing-inotify"
-  url "https://github.com/syncthing/syncthing-inotify/archive/v0.8.tar.gz"
-  sha256 "886f38fa4b62ef58d54cfa379a1de7e9c461a0ff14149497934fa654e73c946a"
-
+  url "https://github.com/syncthing/syncthing-inotify/archive/v0.8.2.tar.gz"
+  sha256 "2bf26bd37a4d496a6118140556ecd60ce20bc9f63cb7f6086af8d76c3e0e7448"
   head "https://github.com/syncthing/syncthing-inotify.git"
 
   bottle do
@@ -16,23 +13,17 @@ class SyncthingInotify < Formula
   end
 
   depends_on "go" => :build
-
-  go_resource "github.com/cenkalti/backoff" do
-    url "https://github.com/cenkalti/backoff.git",
-      :revision => "32cd0c5b3aef12c76ed64aaf678f6c79736be7dc"
-  end
-
-  go_resource "github.com/zillode/notify" do
-    url "https://github.com/Zillode/notify.git",
-      :revision => "2da5cc9881e8f16bab76b63129c7781898f97d16"
-  end
+  depends_on "godep" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    bin_name = "syncthing-inotify"
-    Language::Go.stage_deps resources, buildpath/"src"
-    system "go", "build", "-ldflags", "-w -X main.Version #{version}", "-o", bin_name
-    bin.install bin_name
+    dir = buildpath/"src/github.com/syncthing/syncthing-inotify"
+    dir.install buildpath.children
+    cd dir do
+      system "godep", "restore"
+      system "go", "build", "-ldflags", "-w -X main.Version=#{version}"
+      bin.install name
+    end
   end
 
   plist_options :manual => "syncthing-inotify"
