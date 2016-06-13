@@ -6,10 +6,9 @@ class Qwt < Formula
 
   bottle do
     cellar :any
-    revision 2
-    sha256 "0203eb8c150c368c97e00e607c2bbda1bf7bd50740a987ba59f6198a408a4fc6" => :el_capitan
-    sha256 "e855bb9cec6c3c2a1c977a1ec3719eaf5f032b8c8654919ed8c1cbbc22ab63c3" => :yosemite
-    sha256 "e5e240d5a1b148679d79b95216615bfb997a41be27d178d8b056e0be3ffab6cd" => :mavericks
+    sha256 "aa7c63dfca5596afd895dffea6d0ba32c1facd02a2c387ec413beec7f9bb533a" => :el_capitan
+    sha256 "3151dd0893bec7443b165491eb7d01d228da341af8c3602c2261b8e94ea24f76" => :yosemite
+    sha256 "f553686487410a74e9eaf09e974908d9833a08ba256cae06fe01fe50a912d12a" => :mavericks
   end
 
   option "with-qwtmathml", "Build the qwtmathml library"
