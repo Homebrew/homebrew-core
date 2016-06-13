@@ -42,7 +42,7 @@ class Czmq < Formula
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make"
-    system "make", "check-verbose"
+    system "(ZSYS_INTERFACE=lo0 && make check-verbose)"
     system "make", "install"
     rm Dir["#{bin}/*.gsl"]
   end
