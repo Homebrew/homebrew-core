@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-1.3.4.tar.gz"
-  sha256 "e2396ebebb3f3fdb50429ce8faa99559f6e8e3cc0493d5fa0c1999db189c25bd"
+  url "https://libvirt.org/sources/libvirt-1.3.5.tar.gz"
+  sha256 "93a23c44eb431da46c9458f95a66e29c9b98e37515d44b6be09e75b35ec94ac8"
 
   bottle do
     sha256 "ddf44ea39669e5385ab669cccdf83da9085a9e1dfe690b0e402d334440cb3243" => :el_capitan
@@ -51,9 +51,7 @@ class Libvirt < Formula
     system "make", "install"
 
     # Update the SASL config file with the Homebrew prefix
-    inreplace "#{etc}/sasl2/libvirt.conf" do |s|
-      s.gsub! "/etc/", "#{HOMEBREW_PREFIX}/etc/"
-    end
+    inreplace "#{etc}/sasl2/libvirt.conf", "/etc/", "#{HOMEBREW_PREFIX}/etc/"
 
     # If the libvirt daemon is built, update its config file to reflect
     # the Homebrew prefix
