@@ -1,9 +1,8 @@
 class Weighttp < Formula
   desc "Webserver benchmarking tool that supports multithreading"
   homepage "https://redmine.lighttpd.net/projects/weighttp/wiki"
-  url "https://github.com/lighttpd/weighttp/archive/weighttp-0.3.tar.gz"
-  sha256 "376e2311af2decb8f6051e4f968d7c0ba92ca60cd563d768beb4868eb9679f45"
-
+  url "https://github.com/lighttpd/weighttp/archive/weighttp-0.4.tar.gz"
+  sha256 "b4954f2a1eca118260ffd503a8e3504dd32942e2e61d0fa18ccb6b8166594447"
   head "https://git.lighttpd.net/weighttp.git"
 
   bottle do
