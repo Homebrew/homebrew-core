@@ -1,7 +1,7 @@
 class Logtalk < Formula
   desc "Object-oriented logic programming language"
   homepage "http://logtalk.org"
-  url "https://github.com/LogtalkDotOrg/logtalk3/archive/lgt3050stable.tar.gz"
+  url "https://github.com/LogtalkDotOrg/logtalk3/archive/lgt3060stable.tar.gz"
   version "3.06.0"
   sha256 "4adb097bf27fc8e90e1df534bf5ef290a4cc96fcf8f60bc0a7dc5dcb0098fb44"
 
