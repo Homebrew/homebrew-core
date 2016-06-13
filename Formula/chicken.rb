@@ -6,10 +6,9 @@ class Chicken < Formula
   head "https://code.call-cc.org/git/chicken-core.git"
 
   bottle do
-    revision 1
-    sha256 "199e04ed0a8a62c936ed24c3c044f4c0a14c7f9e356501b936223a8ef10da6bf" => :el_capitan
-    sha256 "fb5d63369b19db771c3620ae5aa584b110fb3f40df5cdd3760d9070878043e6d" => :yosemite
-    sha256 "2f3a6ea745ffae4ab324c0740808d69b90e985e58946a0dfcf6bb4d44621342f" => :mavericks
+    sha256 "46cf38e5f44a23d9fbbe9a833fba73297c54721387e74da4349e82997a5c657b" => :el_capitan
+    sha256 "972a4c6c87fc3ea8d23312a76d650da696ebb66a2905ecf792f1e762dc21ea1e" => :yosemite
+    sha256 "1521fde608c55c8fcf182a341f90c96274c7a6f5eb07ad75f437a6a3fde44ad5" => :mavericks
   end
 
   def install
