@@ -11,9 +11,10 @@ class DockerMachine < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "86d9ec6859f7fde204cb91dae32156ecaef8a2212d30d259ec28277404e6b673" => :el_capitan
-    sha256 "aa181f63f646a447fb68f0d6961a5baf7a136354d59918da63701cbaf10ed2de" => :yosemite
-    sha256 "eeffcd5720a79489fb93dba2fa7f1e8bc7f4b1824f51dae885c10833a9dca33c" => :mavericks
+    revision 1
+    sha256 "9f7a99dd1cda46e0e795a417d16cbb6daeb92aad5994eb5ed52823287453a271" => :el_capitan
+    sha256 "d1fa06ba509240391d27edd626c86184501c23184918f4b646e7b3c9a0e28e15" => :yosemite
+    sha256 "b2d0dceb5f7a7e5e39e2e30b91c25f87357be9a24aa1f52254c223009c901be6" => :mavericks
   end
 
   depends_on "go" => :build
