@@ -7,10 +7,9 @@ class Xorriso < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9166d527cb3b26aadf5a7304e4110e38c30e34e94721c120ea1334205f1d275e" => :el_capitan
-    sha256 "99291dcf6826ec15b82c9d32ddae8279244f304661f23e1086f69392ce14f34c" => :yosemite
-    sha256 "611ac7bb03593af3216d772b0d4d0b3b5797257dd656b3eb04db3da0f7582f7d" => :mavericks
-    sha256 "88442ed4676b021a09bafeef4cd3b40a7e822bb7b4239a1de0518360eefbd5a6" => :mountain_lion
+    sha256 "3e9c949005d71d7cef9779fca8934b129d0c740fccd432f629bf759cdfbc7ec7" => :el_capitan
+    sha256 "86a2ef87dc3d1880050a155e2662f68838ab99d6996695e0259e1fdc04cd5e73" => :yosemite
+    sha256 "f367a006365ecd19ac68c8af6d86f5a15cc872e2f9e3e7b0e0e002d671d395af" => :mavericks
   end
 
   # Upstream fix for "unknown type name 'ssize_t'"
