@@ -9,9 +9,9 @@ class Gauge < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1bb93557140d17321f4eabedc08e89f47f114856947b1e3f41a199a9f5983a11" => :el_capitan
-    sha256 "4681d2a182665e0589b4343496ad87ddeb937f74ca973eeea882a68104dabd0c" => :yosemite
-    sha256 "ff77e91da209db15a31193ef43c8c0502accf46384cf02c2901d63f973520d0d" => :mavericks
+    sha256 "f6793d3aa9fee7dc8481be6dc6c9e157b852e702b50cd019dde95aa9ad607622" => :el_capitan
+    sha256 "6658d008e493c622f93890a31f9e8260b0a58c244703927f6038b37bc0cf2f35" => :yosemite
+    sha256 "87169632ce339e1be1ec3e1e43e7f7bf42f4605c2f7eb1accfa883194c013e5d" => :mavericks
   end
 
   depends_on "go" => :build
