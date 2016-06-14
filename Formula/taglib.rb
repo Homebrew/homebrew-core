@@ -7,9 +7,9 @@ class Taglib < Formula
 
   bottle do
     cellar :any
-    sha256 "083ede2ae70eabf409a82e4999aa78f027ecb8c0b71065008eee90d4a4ccc59d" => :el_capitan
-    sha256 "60a0e999802c0a3b4aced2375cbe0cb94744329bd9773beb18bbefb99b5692c4" => :yosemite
-    sha256 "7f673f94a4263441327b83691f47c56605b8f4d20e7129c5d2883b8f603dcc15" => :mavericks
+    sha256 "bfcd6575c21fce26f3f49cfc43fb30b46906749d81d757e10597b6fdbaf8b512" => :el_capitan
+    sha256 "e5a9e62fc16e32b8ad3239a712bf3eab630b245ed397bd957d1b89e2a807e310" => :yosemite
+    sha256 "2e0df8adfa080dc22265478490aca953384e97d41e9421b110ef142e07d15ab2" => :mavericks
   end
 
   option :cxx11
