@@ -25,6 +25,12 @@ class Macvim < Formula
   env :std if MacOS.version <= :snow_leopard
 
   def install
+    custom_python = which("python").to_s == "/usr/bin/python"
+    custom_ruby = which("ruby").to_s == "/usr/bin/ruby"
+    custom_perl = which("perl").to_s == "/usr/bin/perl"
+    Utils::Analytics.report_event "macvim_defaults",
+      "python: #{custom_python}, ruby: #{custom_ruby}, perl: #{custom_perl}"
+
     # MacVim doesn't have or require any Python package, so unset PYTHONPATH
     ENV.delete("PYTHONPATH")
 

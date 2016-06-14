@@ -39,6 +39,12 @@ class Vim < Formula
     :because => "vim and ex-vi both install bin/ex and bin/view"
 
   def install
+    custom_python = which("python").to_s == "/usr/bin/python"
+    custom_ruby = which("ruby").to_s == "/usr/bin/ruby"
+    custom_perl = which("perl").to_s == "/usr/bin/perl"
+    Utils::Analytics.report_event "vim_defaults",
+      "python: #{custom_python}, ruby: #{custom_ruby}, perl: #{custom_perl}"
+
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
     ENV["LUA_PREFIX"] = HOMEBREW_PREFIX if build.with?("lua") || build.with?("luajit")
