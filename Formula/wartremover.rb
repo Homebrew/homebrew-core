@@ -6,10 +6,10 @@ class Wartremover < Formula
   head "https://github.com/puffnfresh/wartremover.git"
 
   bottle do
-    cellar :any
-    sha256 "7cf8e78114d8212a56e71cf62b415151e0458141bef644a4a5f8e75417cc7f8b" => :yosemite
-    sha256 "a5c0eb64c5d8165c918772f3462eada415ad90545f77eb6d8aa8d636ba73ed32" => :mavericks
-    sha256 "4727d2f98bbe8c3b4e60a99cb97af633a1b33a8a1e42b8caade98ebd1d7131d0" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "c27c739dc9ff1d060888cf427a57d5e3dba9f6d11fd845b255f3ec084ab48bd7" => :el_capitan
+    sha256 "7628645cb2ee8480966d01d28f1628163aba27095fb98902a8ce1d30667284b8" => :yosemite
+    sha256 "ad332de35667d3e096c3f8fb6e98cbffdfadaed64b9d7bacd9453084f7bca817" => :mavericks
   end
 
   depends_on "sbt" => :build
