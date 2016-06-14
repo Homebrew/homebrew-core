@@ -7,9 +7,9 @@ class Brotli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "55d144b12585d2135be9ec4f7880798eabda037e14c48209b4bc7da064407da8" => :el_capitan
-    sha256 "380c2852c24248fcbdeb2aa25848b958765131fa7126103603f7603ad1510b9b" => :yosemite
-    sha256 "79e2367abe6f3e1958a8857052bd406312fc4db60ce603d594e708bd4dc6bd4a" => :mavericks
+    sha256 "58d3d62ce9588ea4fab0e5d638f898b445314522847818ac55572ec423ba592c" => :el_capitan
+    sha256 "1ad5e3fc7106bceb888193703f757dd1d138d338e64a7ef39d6141b8b3bf9ba6" => :yosemite
+    sha256 "62905194568ea45d2a85499d12b06d4c2d713a71c8d5b6d70c0fa5a25cd26aa0" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
