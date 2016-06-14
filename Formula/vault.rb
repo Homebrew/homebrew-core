@@ -7,9 +7,8 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      :tag => "v0.5.2",
-      :revision => "77f2b8a2fa408e0fc77ed7402d51cf0cfa0335d7"
-
+      :tag => "v0.6.0-rebuild",
+      :revision => "d2d0aa07d079836c9a5bd258479b019ca00eb6b8"
   head "https://github.com/hashicorp/vault.git"
 
   bottle do
@@ -19,58 +18,46 @@ class Vault < Formula
     sha256 "abcab81352fef3223c675200fc58db92c809510d2453ee2b03fd7ce672b46333" => :mavericks
   end
 
+  option "with-test", "Run tests after compilation"
+
   depends_on "go" => :build
-  depends_on "godep" => :build
 
-  # godep's dependencies
-  go_resource "github.com/kr/fs" do
-    url "https://github.com/kr/fs.git",
-        :revision => "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
-  end
-
-  go_resource "golang.org/x/tools" do
-    url "https://go.googlesource.com/tools.git",
-        :revision => "fe74a4186116b8d7dd38a723993e0d84f8834b34"
+  go_resource "github.com/mitchellh/iochan" do
+    url "https://github.com/mitchellh/iochan.git",
+    :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
   end
 
   go_resource "github.com/mitchellh/gox" do
     url "https://github.com/mitchellh/gox.git",
-        :revision => "39862d88e853ecc97f45e91c1cdcb1b312c51eaa"
-  end
-
-  # gox dependency
-  go_resource "github.com/mitchellh/iochan" do
-    url "https://github.com/mitchellh/iochan.git",
-        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
+    :revision => "6e9ee79eab7bb1b84155379b3f94ff9a87b344e4"
   end
 
   def install
-    contents = Dir["{*,.git,.gitignore,.travis.yml}"]
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/hashicorp/vault").install contents
+    ENV["GOPATH"] = buildpath
 
-    ENV["GOPATH"] = gopath
-    ENV.prepend_create_path "PATH", gopath/"bin"
+    contents = buildpath.children - [buildpath/".brew_home"]
+    (buildpath/"src/github.com/hashicorp/vault").install contents
 
-    Language::Go.stage_deps resources, gopath/"src"
+    ENV.prepend_create_path "PATH", buildpath/"bin"
 
-    cd gopath/"src/github.com/mitchellh/gox" do
+    Language::Go.stage_deps resources, buildpath/"src"
+
+    cd "src/github.com/mitchellh/gox" do
       system "go", "install"
     end
 
-    cd gopath/"src/github.com/hashicorp/vault" do
+    cd "src/github.com/hashicorp/vault" do
       system "make", "dev"
+      system "make", "test" if build.bottle? || build.with?("test")
       bin.install "bin/vault"
     end
   end
 
   test do
-    pid = fork do
-      exec "#{bin}/vault", "server", "-dev"
-    end
+    pid = fork { exec bin/"vault", "server", "-dev" }
     sleep 1
     ENV.append "VAULT_ADDR", "http://127.0.0.1:8200"
-    system "#{bin}/vault", "status"
+    system bin/"vault", "status"
     Process.kill("TERM", pid)
   end
 end
