@@ -4,8 +4,8 @@ class Dockviz < Formula
   desc "Visualizing docker data"
   homepage "https://github.com/justone/dockviz"
   url "https://github.com/justone/dockviz.git",
-    :tag => "v0.4.1",
-    :revision => "8a7f88523842a7cf3594fb00ef3e72b3c33de81d"
+    :tag => "v0.4.2",
+    :revision => "9863e97953bde4fc770c6f1a499513b01f907902"
   head "https://github.com/justone/dockviz.git"
 
   bottle do
@@ -24,17 +24,22 @@ class Dockviz < Formula
 
   go_resource "github.com/docker/docker" do
     url "https://github.com/docker/docker.git",
-    :revision => "ee8c512dc32117fbd327b4a19da0ffefe47abfcd"
+    :revision => "1704914d7cf8318a69ba9712f664cd031b6e61f6"
+  end
+
+  go_resource "github.com/docker/engine-api" do
+    url "https://github.com/docker/engine-api.git",
+    :revision => "de0bc7ec1a2b90b7191e63d3d6f06833188bbd85"
   end
 
   go_resource "github.com/docker/go-units" do
     url "https://github.com/docker/go-units.git",
-    :revision => "09dda9d4b0d748c57c14048906d3d094a58ec0c9"
+    :revision => "f2d77a61e3c169b43402a0a1e84f06daf29b8190"
   end
 
   go_resource "github.com/fsouza/go-dockerclient" do
     url "https://github.com/fsouza/go-dockerclient.git",
-    :revision => "9df1f25d542e79d7909ef321b5c13c5d34ea7f1d"
+    :revision => "3c8f092cb1e9d1e18a07c1d05d993e69a6676097"
   end
 
   go_resource "github.com/hashicorp/go-cleanhttp" do
@@ -49,7 +54,7 @@ class Dockviz < Formula
 
   go_resource "github.com/opencontainers/runc" do
     url "https://github.com/opencontainers/runc.git",
-    :revision => "ae312e5155c4740b1c8ceb59a1a50be6390e49c2"
+    :revision => "42dfd606437b538ffde4f0640d433916bee928e3"
   end
 
   go_resource "golang.org/x/net" do
@@ -64,6 +69,6 @@ class Dockviz < Formula
   end
 
   test do
-    system bin/"dockviz", "--version"
+    assert_match version.to_s, shell_output("#{bin}/dockviz --version")
   end
 end
