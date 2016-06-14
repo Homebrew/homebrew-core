@@ -25,6 +25,24 @@ class Wxmac < Formula
   devel do
     url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.0/wxWidgets-3.1.0.tar.bz2"
     sha256 "e082460fb6bf14b7dd6e8ac142598d1d3d0b08a7b5ba402fdbf8711da7e66da8"
+
+    # Fix Issue: Creating wxComboCtrl without wxTE_PROCESS_ENTER style results in an assert.
+    patch do
+      url "https://github.com/wxWidgets/wxWidgets/commit/cee3188c1abaa5b222c57b87cc94064e56921db8.patch"
+      sha256 "c6503ba36a166c031426be4554b033bae5b0d9da6fabd33c10ffbcb8672a0c2d"
+    end
+
+    # Fix Issue: Building under OS X in C++11 mode for i386 architecture (but not amd64) results in an error about narrowing conversion.
+    patch do
+      url "https://github.com/wxWidgets/wxWidgets/commit/ee486dba32d02c744ae4007940f41a5b24b8c574.patch"
+      sha256 "88ef4c5ec0422d00ae01aff18143216d1e20608f37090be7f18e924c631ab678"
+    end
+
+    # Fix Issue: Building under OS X in C++11 results in several -Winconsistent-missing-override warnings.
+    patch do
+      url "https://github.com/wxWidgets/wxWidgets/commit/173ecd77c4280e48541c33bdfe499985852935ba.patch"
+      sha256 "018fdb6abda38f5d017cffae5925fa4ae8afa9c84912c61e0afd26cd4f7b5473"
+    end
   end
 
   option :universal
