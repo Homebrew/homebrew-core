@@ -1,9 +1,8 @@
 class Taglib < Formula
   desc "Audio metadata library"
   homepage "https://taglib.github.io/"
-  url "https://taglib.github.io/releases/taglib-1.10.tar.gz"
-  sha256 "24c32d50042cb0ddf162eb263f8ac75c5a158e12bf32ed534c1d5c71ee369baa"
-
+  url "https://taglib.github.io/releases/taglib-1.11.tar.gz"
+  sha256 "ed4cabb3d970ff9a30b2620071c2b054c4347f44fc63546dbe06f97980ece288"
   head "https://github.com/taglib/taglib.git"
 
   bottle do
@@ -19,8 +18,16 @@ class Taglib < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
-    system "cmake", "-DWITH_MP4=ON", "-DWITH_ASF=ON", *std_cmake_args
-    system "make"
+    args = std_cmake_args + %w[
+      -DWITH_MP4=ON
+      -DWITH_ASF=ON
+      -DBUILD_SHARED_LIBS=ON
+    ]
+    system "cmake", *args
     system "make", "install"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/taglib-config --version")
   end
 end
