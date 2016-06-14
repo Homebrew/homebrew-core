@@ -1,18 +1,9 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers."
   homepage "http://www.ibex-lib.org/"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.2.1.tar.gz"
+  sha256 "67448e063559f409815be0075d4a1e9024f79e014ddf0cbbcaf6f716694df6e3"
   head "https://github.com/ibex-team/ibex-lib.git"
-
-  stable do
-    url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.2.0.tar.gz"
-    sha256 "fa6f281d5f28db11fa8715569937b4d19bd24ab744d0c7f21674cc1552d674ee"
-
-    # Patch the optional param-estim plugin build script
-    patch do
-      url "https://github.com/ibex-team/ibex-lib/pull/192.diff"
-      sha256 "91cc070ad5464a5c19205228470161ff87a09df5b3aeaae2b65361319e509fbf"
-    end
-  end
 
   bottle do
     cellar :any
