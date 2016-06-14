@@ -3,8 +3,8 @@ require "language/go"
 class Emp < Formula
   desc "CLI for Empire."
   homepage "https://github.com/remind101/empire"
-  url "https://github.com/remind101/empire/archive/v0.10.0.tar.gz"
-  sha256 "0f49543e25d44a05522f8e2cbb4afbb5b08153767620e304e371e13b8f574508"
+  url "https://github.com/remind101/empire/archive/v0.10.1.tar.gz"
+  sha256 "b1cd7ee7cb3608075071c56e83d0e3ee9faea2a98b0d406f26be9e245d8f8b2d"
 
   bottle do
     cellar :any_skip_relocation
