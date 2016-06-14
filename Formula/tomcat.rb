@@ -3,31 +3,31 @@ class Tomcat < Formula
   homepage "https://tomcat.apache.org/"
 
   stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.0.35/bin/apache-tomcat-8.0.35.tar.gz"
-    mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.35/bin/apache-tomcat-8.0.35.tar.gz"
-    sha256 "6bc380aeebe0b56cf9b37b8c3c128919d2e8ac84d756448fc8e9d8af122f88fd"
+    url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.5.3/bin/apache-tomcat-8.5.3.tar.gz"
+    mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.3/bin/apache-tomcat-8.5.3.tar.gz"
+    sha256 "d70eb2ef9d3c265cd6892bd21b7e56f36162e68fdf4323274cf24045f6d865fc"
 
     depends_on :java => "1.7+"
 
     resource "fulldocs" do
-      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-8/v8.0.35/bin/apache-tomcat-8.0.35-fulldocs.tar.gz"
-      mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.35/bin/apache-tomcat-8.0.35-fulldocs.tar.gz"
-      version "8.0.35"
-      sha256 "572e91559b7ade53f69ef5d0277db19717c672963ef10b719b8f4b7cd2c79ccf"
+      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-8/v8.5.3/bin/apache-tomcat-8.5.3-fulldocs.tar.gz"
+      mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.3/bin/apache-tomcat-8.5.3-fulldocs.tar.gz"
+      version "8.5.3"
+      sha256 "7714a7324bf6490f56a2f8ec3b6e33449e9e4bbf8390cbddad1b0db196992de9"
     end
   end
 
   devel do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.0.M6/bin/apache-tomcat-9.0.0.M6.tar.gz"
-    version "9.0.0.M6"
-    sha256 "5a58d6454a3ef27a464ab090e82aca7a94f4525524ef4163fa500b9e49d5d42c"
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.0.M8/bin/apache-tomcat-9.0.0.M8.tar.gz"
+    version "9.0.0.M8"
+    sha256 "bcc76aa2806c1af3aa1f8698971428edc086d81797e2ffa53f05baf61944a55c"
 
     depends_on :java => "1.8+"
 
     resource "fulldocs" do
-      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.0.M6/bin/apache-tomcat-9.0.0.M6-fulldocs.tar.gz"
-      version "9.0.0.M6"
-      sha256 "4e34b6255231a052acc31b8d2c4679c5328d9ed8b7be1f28199b5147ad82d9bd"
+      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.0.M8/bin/apache-tomcat-9.0.0.M8-fulldocs.tar.gz"
+      version "9.0.0.M8"
+      sha256 "a6a2f9e6e407be668cf329c9dd599cafbafc0e5b4d3bf748fe963b8090f1e4d3"
     end
   end
 
