@@ -1,10 +1,8 @@
 class Innotop < Formula
   desc "Top clone for MySQL"
   homepage "https://github.com/innotop/innotop/"
-  url "https://innotop.googlecode.com/files/innotop-1.9.1.tar.gz"
-  sha256 "117e5af58a83af79b6cf99877b25b1479197597be5a7d51b245a0ad9c69f4d3d"
-  revision 1
-
+  url "https://github.com/innotop/innotop/archive/v1.11.tar.gz"
+  sha256 "f59430d1cbbe5d9e67dc225d21aeb5611ba9a2a53d3399d1c19c595646617226"
   head "https://github.com/innotop/innotop.git"
 
   bottle do
@@ -27,6 +25,10 @@ class Innotop < Formula
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+    # Fix the version
+    # Reported 14 Jun 2016: https://github.com/innotop/innotop/issues/139
+    inreplace "innotop", "1.10", version
 
     resource("DBD::mysql").stage do
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
