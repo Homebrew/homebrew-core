@@ -8,9 +8,9 @@ class Emp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b7d8024e8a08a77c422b616b371a89c52f90770e84a0722365518dbb011d8650" => :el_capitan
-    sha256 "f934afd2e28b70d8c2fd7adcd04dd52375547e43017509e87527818c40ee1314" => :yosemite
-    sha256 "bc4729e750ef40429f3881c25f9cd120c0ddf8d7949f52ecf5bad7cabcb8caad" => :mavericks
+    sha256 "c37f3533f55d6d82b4cf2ddbee5bd157cc5c16f336a97f65559c137c67f52c31" => :el_capitan
+    sha256 "4b4b77212f95f811575352e813bf662e928a69684c18964bf17ca5cf2c6966b0" => :yosemite
+    sha256 "f7f483893edd5495dbfb9dce1749b3d1568adf1ce2a12e4e771ca5cb6d6a92ab" => :mavericks
   end
 
   depends_on "go" => :build
