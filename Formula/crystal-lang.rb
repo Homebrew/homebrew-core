@@ -6,9 +6,9 @@ class CrystalLang < Formula
   head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
-    sha256 "3d18ae474bbeaa307e9df18c99a65d16eb8604d8519ebd2acba0ef7911d6d26e" => :el_capitan
-    sha256 "282f97c8bebb2216e98701757cb69f05592ae316f5a453dbd1617d72cd639cbc" => :yosemite
-    sha256 "569f5ef74d072169c51d59afe87c9db390f487ac391a214d8b073f5d2dadd7a5" => :mavericks
+    sha256 "cf116acc0b2f2028e2a848e3405b603c0989d4ea51086e3a8c9d728d3881363e" => :el_capitan
+    sha256 "5e66e475695d0336f12a813cb633e23e4bdc2051ebfe562a53b4f9af13651b49" => :yosemite
+    sha256 "eb8fbbac4c8af7a46a946a615c3248d13692e319a6829d9765988df44c62a7ff" => :mavericks
   end
 
   option "without-release", "Do not build the compiler in release mode"
