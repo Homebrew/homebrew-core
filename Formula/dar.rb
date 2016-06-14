@@ -5,10 +5,9 @@ class Dar < Formula
   sha256 "19a977e3ca7ed15e4406bb3e08ff2b8225d291a5c4189a6d5b7b3d75eea50f2b"
 
   bottle do
-    sha256 "8b15f98a70067c4438c93e51345a07b2d04580c8df7e0880cbf422eae2993bf9" => :el_capitan
-    sha256 "23e1c63d1796575d398c12ed4d2d30b727f4f1df015965d1decfb8fc233b9d96" => :yosemite
-    sha256 "26098cdd3e59ddd9598cd71d5c018c89ba48f803eb43924a7e8cded84c768ab9" => :mavericks
-    sha256 "bc09f5b9d90b75d1c98fb70887e08b3fbd325477b03f70b1837f3a3ae754b77e" => :mountain_lion
+    sha256 "502782415aee418c5a81f16e2635b618c88108a642240c94117d041bed2a1c6c" => :el_capitan
+    sha256 "7e672a55def541a9dd43b6915aca0ca2cc3d5e5fdcce55e77274caca98eb5f59" => :yosemite
+    sha256 "a74696553c86f94dfd1ebdad29ad9c5d22c79d78fc023e43bb86f272fbfc4d87" => :mavericks
   end
 
   option "with-docs", "build programming documentation (in particular libdar API documentation) and html man page"
