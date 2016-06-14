@@ -1,9 +1,9 @@
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org"
-  url "http://mirrors.ibiblio.org/apache/kafka/0.9.0.1/kafka-0.9.0.1-src.tgz"
-  mirror "https://archive.apache.org/dist/kafka/0.9.0.1/kafka-0.9.0.1-src.tgz"
-  sha256 "95d6bcb8fb1ee697b15c262dd9b61d0b47c7c9d1c8ece07205d4c2545ed12596"
+  url "http://mirrors.ibiblio.org/apache/kafka/0.10.0.0/kafka-0.10.0.0-src.tgz"
+  mirror "https://archive.apache.org/dist/kafka/0.10.0.0/kafka-0.10.0.0-src.tgz"
+  sha256 "ed2f8f83419846ff70ff2fc1cf366ac61e803d3960043075c9faecbb9dce140b"
 
   head "https://git-wip-us.apache.org/repos/asf/kafka.git", :branch => "trunk"
 
@@ -31,9 +31,6 @@ class Kafka < Formula
 
     system "gradle"
     system "gradle", "jar"
-
-    logs = var/"log/kafka"
-    inreplace "config/test-log4j.properties", ".File=logs/", ".File=#{logs}/"
 
     data = var/"lib"
     inreplace "config/server.properties",
