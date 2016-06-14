@@ -1,9 +1,8 @@
 class Wartremover < Formula
   desc "Flexible Scala code linting tool"
   homepage "https://github.com/puffnfresh/wartremover"
-  url "https://github.com/puffnfresh/wartremover/archive/v0.13.tar.gz"
-  sha256 "65d2f9907662bc2cc892801055713dd80a7fc25ade5091cb534bfc51eaae626b"
-
+  url "https://github.com/puffnfresh/wartremover/archive/v0.14.tar.gz"
+  sha256 "144f90168c9e24c7fb9dee57212ee6aa19eb42d125a9a2f73927503fcccff124"
   head "https://github.com/puffnfresh/wartremover.git"
 
   bottle do
@@ -16,6 +15,8 @@ class Wartremover < Formula
   depends_on "sbt" => :build
 
   def install
+    # Prevents sandbox violation
+    ENV.java_cache
     system "sbt", "core/assembly"
     libexec.install Dir["core/target/scala-*/wartremover-assembly-*.jar"]
     bin.write_jar_script Dir[libexec/"wartremover-assembly-*.jar"][0], "wartremover"
