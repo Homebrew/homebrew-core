@@ -1,10 +1,8 @@
-require "language/go"
-
 class Gnatsd < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/gnatsd/archive/v0.8.0.tar.gz"
-  sha256 "a2b19de7679b7c5004c75d0c39b8d5d0bd26590a574284e48660eec3a4f9f0d0"
+  url "https://github.com/nats-io/gnatsd/archive/v0.8.1.tar.gz"
+  sha256 "d2040c47b242ccff9703bca4162ee6c6d3e7163e6af0441704680b2c19599ac0"
   head "https://github.com/apcera/gnatsd.git"
 
   bottle do
@@ -16,18 +14,10 @@ class Gnatsd < Formula
 
   depends_on "go" => :build
 
-  go_resource "github.com/nats-io/nats" do
-    url "https://github.com/nats-io/nats.git",
-    :revision => "f46ea4b68042c929eda9a7e3b961f453929d8d9d"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
-    Language::Go.stage_deps resources, buildpath/"src"
-
     mkdir_p "src/github.com/nats-io"
     ln_s buildpath, "src/github.com/nats-io/gnatsd"
-    system "go", "install", "github.com/nats-io/gnatsd"
     system "go", "build", "-o", bin/"gnatsd", "main.go"
   end
 
