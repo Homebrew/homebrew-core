@@ -10,9 +10,10 @@ class Consul < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6574dabf1c77c5597c7658f2e475bacc3ab7a2493117b4f8d472f6b335fffcbf" => :el_capitan
-    sha256 "b4d1785bbea0b69677f0b18abdc482e5a35974a2ba5fe3d8acc684fbb41f16fc" => :yosemite
-    sha256 "e1cfaac0273e09e1e01665187779b6d3791786013b94394a4ff55a8a05d9aa29" => :mavericks
+    revision 1
+    sha256 "f9dc303e3da2f509bb9aeacdd34a3f93deb474c3201089623911c260cab44181" => :el_capitan
+    sha256 "f3489f7156757dd0a896dbb9d58436c7e84d6d4703804fec89e737809f2220d8" => :yosemite
+    sha256 "02c98b52b0eb41979f77f366b8a7bebc1f0b391c37b1f281ddba9fb3484f1b58" => :mavericks
   end
 
   option "with-web-ui", "Installs the consul web ui"
