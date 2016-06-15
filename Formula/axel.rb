@@ -6,10 +6,9 @@ class Axel < Formula
   head "https://github.com/eribertomota/axel.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5bf1bfc2e77a9e08c629fca2519166ba6edef07940c466fd95fafb828bd5f1b4" => :el_capitan
-    sha256 "1a00cb5af07025ba54e1fb48dea4e0723dcd81142aca8e74caafa79f8ea51dfd" => :yosemite
-    sha256 "b0a7bcbab57df1b9877ac3a6a8343a3a5b4256b4cfa5a6bfe777b9ba92930d31" => :mavericks
+    sha256 "0bf17ed83896ebf161419fd6a57613c023430280893dd67f7c52a879df7e26ef" => :el_capitan
+    sha256 "82f22d3449c483cbb5555afe13a59f7f18e604dc3cbc49550c11650c076dd7d2" => :yosemite
+    sha256 "2580ae99bbe1a36e5bc4630398887e29a93abeacc0d2f1acbe894539bc5ea2bf" => :mavericks
   end
 
   depends_on "autoconf" => :build
