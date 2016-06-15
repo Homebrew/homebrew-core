@@ -38,12 +38,20 @@ class Vim < Formula
   conflicts_with "ex-vi",
     :because => "vim and ex-vi both install bin/ex and bin/view"
 
+  def language_type language
+    type = if which(language).to_s == "/usr/bin/#{language}"
+      "system"
+    elsif which(language).to_s == "#{HOMEBREW_PREFIX}/bin/#{language}"
+      "homebrew"
+    else
+      "custom"
+    end
+    "#{language}: #{type}"
+  end
+
   def install
-    custom_python = which("python").to_s == "/usr/bin/python"
-    custom_ruby = which("ruby").to_s == "/usr/bin/ruby"
-    custom_perl = which("perl").to_s == "/usr/bin/perl"
-    Utils::Analytics.report_event "vim_defaults",
-      "python: #{custom_python}, ruby: #{custom_ruby}, perl: #{custom_perl}"
+    Utils::Analytics.report_event "vim_language_type",
+      "#{language_type("python")}, #{language_type("ruby")}, #{language_type("perl")}"
 
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")

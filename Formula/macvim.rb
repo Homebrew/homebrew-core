@@ -24,12 +24,19 @@ class Macvim < Formula
   # Help us! We'd like to use superenv in these environments, too
   env :std if MacOS.version <= :snow_leopard
 
+  def language_type language
+    if which(language).to_s == "/usr/bin/#{language}"
+      "system"
+    elsif which(language).to_s == "#{HOMEBREW_PREFIX}/bin/#{language}"
+      "homebrew"
+    else
+      "custom"
+    end
+  end
+
   def install
-    custom_python = which("python").to_s == "/usr/bin/python"
-    custom_ruby = which("ruby").to_s == "/usr/bin/ruby"
-    custom_perl = which("perl").to_s == "/usr/bin/perl"
-    Utils::Analytics.report_event "macvim_defaults",
-      "python: #{custom_python}, ruby: #{custom_ruby}, perl: #{custom_perl}"
+    Utils::Analytics.report_event "macvim_language_type",
+    "#{language_type("python")}, #{language_type("ruby")}, #{language_type("perl")}"
 
     # MacVim doesn't have or require any Python package, so unset PYTHONPATH
     ENV.delete("PYTHONPATH")
