@@ -1,9 +1,9 @@
 class Pcre < Formula
   desc "Perl compatible regular expressions library"
   homepage "http://www.pcre.org/"
-  url "https://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.38.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/downloads.sourceforge.net/p/pc/pcre/pcre/8.38/pcre-8.38.tar.bz2"
-  sha256 "b9e02d36e23024d6c02a2e5b25204b3a4fa6ade43e0a5f869f254f49535079df"
+  url "https://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.39.tar.bz2"
+  # mirror "https://www.mirrorservice.org/sites/downloads.sourceforge.net/p/pc/pcre/pcre/8.39/pcre-8.39.tar.bz2"
+  sha256 "b858099f82483031ee02092711689e7245586ada49e534a06e678b8ea9549e8b"
 
   bottle do
     cellar :any
