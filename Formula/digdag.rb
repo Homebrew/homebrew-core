@@ -11,10 +11,11 @@ class Digdag < Formula
   def install
     libexec.install "digdag-#{version}" => "digdag"
     chmod 0755, (libexec/"digdag")
-    bin.install_symlink (libexec/"digdag") => "digdag"
+    bin.install_symlink "#{libexec}/digdag" => "digdag"
   end
 
   test do
-    assert_match(/#{version}/, shell_output("#{bin}/digdag --version"))
+    ENV.java_cache
+    system "#{bin}/digdag", "--version"
   end
 end
