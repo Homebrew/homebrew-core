@@ -1,8 +1,8 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "http://www.mono-project.com/"
-  url "http://download.mono-project.com/sources/mono/mono-4.2.3.4.tar.bz2"
-  sha256 "4703d390416a6e9977585f13711f59a6d54431086c2dbacee49888dcc31937be"
+  url "http://download.mono-project.com/sources/mono/mono-4.4.0.182.tar.bz2"
+  sha256 "983e27a054bc3dc6709b32b8de45a0f4335e9e9c3911b20d29f63eb7cc00bfe5"
 
   # xbuild requires the .exe files inside the runtime directories to
   # be executable
@@ -23,8 +23,8 @@ class Mono < Formula
   depends_on "pkg-config" => :build
 
   resource "fsharp" do
-    url "https://github.com/fsharp/fsharp.git", :tag => "4.0.1.0",
-                                                :revision => "b22167013d1f4f0c41107fd40935dc1a8fe46386"
+    url "https://github.com/fsharp/fsharp.git", :tag => "4.0.1.1",
+                                                :revision => "849e3061fd7db397f07c7bd0c08e5df19f2b712a"
   end
 
   link_overwrite "bin/fsharpi"
