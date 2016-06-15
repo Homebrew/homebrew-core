@@ -25,18 +25,19 @@ class Macvim < Formula
   env :std if MacOS.version <= :snow_leopard
 
   def language_type language
-    if which(language).to_s == "/usr/bin/#{language}"
+    type = if which(language).to_s == "/usr/bin/#{language}"
       "system"
     elsif which(language).to_s == "#{HOMEBREW_PREFIX}/bin/#{language}"
       "homebrew"
     else
       "custom"
     end
+    "#{language}: #{type}"
   end
 
   def install
     Utils::Analytics.report_event "macvim_language_type",
-    "#{language_type("python")}, #{language_type("ruby")}, #{language_type("perl")}"
+      "#{language_type("python")}, #{language_type("ruby")}, #{language_type("perl")}"
 
     # MacVim doesn't have or require any Python package, so unset PYTHONPATH
     ENV.delete("PYTHONPATH")
