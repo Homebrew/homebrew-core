@@ -51,7 +51,8 @@ class Orientdb < Formula
     begin
       assert_match "OrientDB Server v.2.2.2", shell_output("curl -I localhost:2480")
     ensure
-      system "#{bin}/orientdb", "stop"
+      Process.kill "SIGINT", pid
+      Process.wait pid
     end
   end
 end
