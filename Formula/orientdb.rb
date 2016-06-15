@@ -27,11 +27,14 @@ class Orientdb < Formula
     chmod 0755, Dir["bin/*"]
     libexec.install Dir["*"]
 
+    mkpath "#{var}/db/orientdb"
     mkpath "#{var}/log/orientdb"
     touch "#{var}/log/orientdb/orientdb.err"
     touch "#{var}/log/orientdb/orientdb.log"
+    inreplace "#{libexec}/config/orientdb-server-config.xml", "</properties>", "  <entry name=\"server.database.path\" value=\"#{var}/db/orientdb\" />\n    </properties>"
     inreplace "#{libexec}/config/orientdb-server-log.properties", "../log", "#{var}/log/orientdb"
     inreplace "#{libexec}/bin/orientdb.sh", "../log", "#{var}/log/orientdb"
+    inreplace "#{libexec}/bin/server.sh", "ORIENTDB_PID=$ORIENTDB_HOME/bin", "ORIENTDB_PID=#{var}/run"
 
     bin.install_symlink "#{libexec}/bin/orientdb.sh" => "orientdb"
     bin.install_symlink "#{libexec}/bin/console.sh" => "orientdb-console"
@@ -43,16 +46,13 @@ class Orientdb < Formula
   end
 
   test do
-    pid = fork do
-      system "#{bin}/orientdb", "start"
-    end
+    system "#{bin}/orientdb", "start"
     sleep 2
 
     begin
       assert_match "OrientDB Server v.2.2.2", shell_output("curl -I localhost:2480")
     ensure
-      Process.kill "SIGINT", pid
-      Process.wait pid
+      system "#{bin}/orientdb", "stop"
     end
   end
 end
