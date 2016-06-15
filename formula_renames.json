@@ -22,5 +22,6 @@
   "offline-imap": "offlineimap",
   "plt-racket": "racket",
   "polarssl": "mbedtls",
-  "screenbrightness": "brightness"
+  "screenbrightness": "brightness",
+  "wires": "geckodriver"
 }
