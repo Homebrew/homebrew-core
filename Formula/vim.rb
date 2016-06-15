@@ -15,6 +15,7 @@ class Vim < Formula
   option "with-override-system-vi", "Override system vi"
   option "without-nls", "Build vim without National Language Support (translated messages, keymaps)"
   option "with-client-server", "Enable client/server mode"
+  option "with-termguicolors", "Enable 24-bit color (requires a ISO-8613-3 compatible terminal)"
 
   LANGUAGES_OPTIONAL = %w[lua mzscheme python3 tcl]
   LANGUAGES_DEFAULT  = %w[perl python ruby]
@@ -81,6 +82,7 @@ class Vim < Formula
 
     opts << "--disable-nls" if build.without? "nls"
     opts << "--enable-gui=no"
+    opts << "--enable-termguicolors" if build.with? "termguicolors"
 
     if build.with? "client-server"
       opts << "--with-x"
