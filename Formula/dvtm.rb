@@ -7,10 +7,9 @@ class Dvtm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a49715cb36f2fb6155d44a4d04aba32b2177f5c20cd32a42065c10227600589f" => :el_capitan
-    sha256 "5b87346df1de5e39993819a29b5c0c0d831c8044055bc2f2eaf04128439109aa" => :yosemite
-    sha256 "d06ea6daaea24641ce1d34e69bcf023611a61d1ea1f7cb23aff6b7add3c7c1c2" => :mavericks
-    sha256 "ce96ad3bda840699a6576849a44ededc184e0a9db76dbaabe4a4e0209f344768" => :mountain_lion
+    sha256 "927868c56e99b513a5dcf873ac444a7f688d8e32435d5535ca98cff078a2f0d1" => :el_capitan
+    sha256 "3707849011fc54151fa110c66578ea3ad33d9cb6047d59ee10dc0e3a217ee0b4" => :yosemite
+    sha256 "88bffcbc907f9ffa900331acf5f994af07f5c1787c328ac56c72935813f57b92" => :mavericks
   end
 
   def install
