@@ -36,6 +36,7 @@ class Ffmpeg < Formula
   option "with-rubberband", "Enable rubberband library"
   option "with-zimg", "Enable z.lib zimg library"
   option "with-openh264", "Enable OpenH264 library"
+  option "with-xz", "Enable decoding of LZMA-compressed TIFF files"
 
   depends_on "pkg-config" => :build
 
@@ -78,6 +79,7 @@ class Ffmpeg < Formula
   depends_on "rubberband" => :optional
   depends_on "zimg" => :optional
   depends_on "openh264" => :optional
+  depends_on "xz" => :optional
 
   def install
     args = ["--prefix=#{prefix}",
@@ -128,6 +130,12 @@ class Ffmpeg < Formula
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
     args << "--enable-libopenh264" if build.with? "openh264"
+
+    if build.with? "xz"
+        args << "--enable-lzma"
+    else
+        args << "--disable-lzma"
+    end
 
     if build.with? "openjpeg"
       args << "--enable-libopenjpeg"
