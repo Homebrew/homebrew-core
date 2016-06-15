@@ -11,8 +11,13 @@ class Conan < Formula
     sha256 "aae8d317e2e9add74d893d0183c3f93539f98b81f59f67bed1d1f2a9466198bd" => :mavericks
   end
 
-  depends_on :python
+  depends_on :python if MacOS.version <= :snow_leopard
   depends_on "openssl"
+
+  resource "setuptools" do
+    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-20.9.0.tar.gz"
+    sha256 "2a360c782e067f84840315bcdcb5ed6c7c841cdedf6444f3232ab4a8b3204ac1"
+  end
 
   resource "backport_ipaddress" do
     url "https://pypi.python.org/packages/d3/30/54c6dab05a4dec44db25ff309f1fbb6b7a8bde3f2bade38bb9da67bbab8f/backport_ipaddress-0.1.tar.gz"
@@ -145,6 +150,6 @@ class Conan < Formula
   end
 
   test do
-    system "#{bin}/conan", "install", "zlib/1.2.8@lasote/stable"
+    system "#{bin}/conan", "install", "OpenSSL/1.0.2h@lasote/stable", "--build", "OpenSSL"
   end
 end
