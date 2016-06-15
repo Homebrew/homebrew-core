@@ -1,4 +1,4 @@
-class Wires < Formula
+class Geckodriver < Formula
   desc "WebDriver <-> Marionette proxy"
   homepage "https://github.com/mozilla/geckodriver"
   url "https://github.com/mozilla/geckodriver/archive/v0.8.0.tar.gz"
