@@ -1,8 +1,8 @@
 class Syntaxerl < Formula
-  homepage "https://github.com/ten0s/syntaxerl"
   desc "Syntax checker for Erlang code and config files"
-  url "https://github.com/ten0s/syntaxerl/archive/0.10.0.tar.gz"
-  sha256 "ee2748ecfbcdc62a6cc4181032be9c6de232f5603ac019f9d14d6861a3c5df8a"
+  homepage "https://github.com/ten0s/syntaxerl"
+  url "https://github.com/ten0s/syntaxerl/archive/0.12.0.tar.gz"
+  sha256 "41245dc4ec6fe5e38f9669480ffe65789781e7ae93094e7a6c9eff21f9b7b234"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,6 +23,6 @@ class Syntaxerl < Formula
     assert_equal "", shell_output("#{bin}/syntaxerl #{testpath}/app.config")
 
     (testpath/"invalid.config").write "]["
-    assert_match /invalid.config:1: syntax error before: '\]'/, shell_output("#{bin}/syntaxerl #{testpath}/invalid.config")
+    assert_match "invalid.config:1: syntax error before: ']'", shell_output("#{bin}/syntaxerl #{testpath}/invalid.config", 1)
   end
 end
