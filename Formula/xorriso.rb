@@ -19,6 +19,13 @@ class Xorriso < Formula
     sha256 "c548c59b143efb87ccb3dc08f80f527ae93918fab56894c9f8876f31dccce142"
   end
 
+  # Upstream fix for "unknown type name 'ssize_t'"
+  # See http://lists.gnu.org/archive/html/bug-xorriso/2016-05/msg00001.html
+  patch :p0 do
+    url "http://bazaar.launchpad.net/~libburnia-team/libisofs/scdbackup/diff/1319"
+    sha256 "c548c59b143efb87ccb3dc08f80f527ae93918fab56894c9f8876f31dccce142"
+  end
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
