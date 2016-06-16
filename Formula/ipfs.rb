@@ -1,11 +1,9 @@
-require "language/go"
-
 class Ipfs < Formula
-  desc "IPFS is The Permanent Web - A new peer-to-peer hypermedia protocol"
+  desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.io/"
   url "https://github.com/ipfs/go-ipfs.git",
-    :tag => "v0.4.0",
-    :revision => "600c95eb53e576530d73afe856bf11ae219b3acb"
+    :tag => "v0.4.2",
+    :revision => "41c5e11ab1f99bd5aa2ba738fd7dd51392546863"
   head "https://github.com/ipfs/go-ipfs.git"
 
   bottle do
@@ -22,18 +20,12 @@ class Ipfs < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO15VENDOREXPERIMENT"] = "0"
-    mkdir_p buildpath/"src/github.com/ipfs/"
-    ln_sf buildpath, buildpath/"src/github.com/ipfs/go-ipfs"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "cmd/ipfs" do
-      system "make", "build"
-      bin.install "ipfs"
-    end
+    (buildpath/"src/github.com/ipfs/go-ipfs").install buildpath.children
+    cd("src/github.com/ipfs/go-ipfs") { system "make", "install" }
+    bin.install "bin/ipfs"
   end
 
   test do
-    system "#{bin}/ipfs", "version"
+    system bin/"ipfs", "version"
   end
 end
