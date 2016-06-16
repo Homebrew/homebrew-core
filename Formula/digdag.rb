@@ -19,6 +19,6 @@ class Digdag < Formula
 
   test do
     ENV.java_cache
-    system "#{bin}/digdag", "--version"
+    assert_match version.to_s, shell_output("#{bin}/digdag --version")
   end
 end
