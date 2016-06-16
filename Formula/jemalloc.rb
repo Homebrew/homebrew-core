@@ -1,8 +1,8 @@
 class Jemalloc < Formula
   desc "malloc implementation emphasizing fragmentation avoidance"
-  homepage "http://www.canonware.com/jemalloc/download.html"
-  url "https://github.com/jemalloc/jemalloc/releases/download/4.0.0/jemalloc-4.0.0.tar.bz2"
-  sha256 "214dbc74c3669b34219b0c5a55cb96f07cb12f44c834ed9ee64d1185ee6c3ef2"
+  homepage "http://www.canonware.com/jemalloc/"
+  url "https://github.com/jemalloc/jemalloc/releases/download/4.2.1/jemalloc-4.2.1.tar.bz2"
+  sha256 "5630650d5c1caab95d2f0898de4fe5ab8519dc680b04963b38bb425ef6a42d57"
   head "https://github.com/jemalloc/jemalloc.git"
 
   bottle do
@@ -15,5 +15,25 @@ class Jemalloc < Formula
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}", "--with-jemalloc-prefix="
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <stdlib.h>
+      #include <jemalloc/jemalloc.h>
+
+      int main(void) {
+
+        for (size_t i = 0; i < 1000; i++) {
+            // Leak some memory
+            malloc(i * 100);
+        }
+
+        // Dump allocator statistics to stderr
+        malloc_stats_print(NULL, NULL, NULL);
+      }
+    EOS
+    system ENV.cc, "test.c", "-L#{lib}", "-ljemalloc", "-o", "test"
+    system "./test"
   end
 end
