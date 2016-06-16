@@ -1,8 +1,8 @@
 class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "http://www.libressl.org/"
-  url "http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.6.tar.gz"
-  sha256 "358a4779e6813bd06f07db0cf0f0fe531401ed0c6ed958973d404416c3d537fa"
+  url "http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.1.tar.gz"
+  sha256 "121922b13169cd47a85e3e77f0bc129f8d04247193b42491cb1fab9074e80477"
 
   bottle do
     sha256 "e20fddd926faeb3d6d0d45bd74f803208fc5e39d31a1f7032d8bbd2fe0a173fb" => :el_capitan
