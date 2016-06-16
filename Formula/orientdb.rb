@@ -2,7 +2,6 @@ class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.com"
   url "https://orientdb.com/download.php?file=orientdb-community-2.2.2.tar.gz"
-  version "2.2.2"
   sha256 "1ae672fc15638526980e132b92fe1896867fa765da79eadf5adf7cdcad946f88"
 
   bottle do
