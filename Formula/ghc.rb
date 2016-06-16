@@ -15,6 +15,8 @@ class Ghc < Formula
   deprecated_option "tests" => "with-test"
   deprecated_option "with-tests" => "with-test"
 
+  depends_on :macos => :lion
+
   resource "gmp" do
     url "http://ftpmirror.gnu.org/gmp/gmp-6.1.0.tar.bz2"
     mirror "https://gmplib.org/download/gmp/gmp-6.1.0.tar.bz2"
@@ -33,14 +35,11 @@ class Ghc < Formula
     end
   end
 
+  # https://www.haskell.org/ghc/download_ghc_8_0_1#macosx_x86_64
+  # "This is a distribution for Mac OS X, 10.7 or later."
   resource "binary" do
-    if MacOS.version <= :lion
-      url "https://downloads.haskell.org/~ghc/7.6.3/ghc-7.6.3-x86_64-apple-darwin.tar.bz2"
-      sha256 "f7a35bea69b6cae798c5f603471a53b43c4cc5feeeeb71733815db6e0a280945"
-    else
-      url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-x86_64-apple-darwin.tar.xz"
-      sha256 "06ec33056b927da5e68055147f165f873088f6812fe0c642c4c78c9a449fbc42"
-    end
+    url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-x86_64-apple-darwin.tar.xz"
+    sha256 "06ec33056b927da5e68055147f165f873088f6812fe0c642c4c78c9a449fbc42"
   end
 
   resource "testsuite" do
