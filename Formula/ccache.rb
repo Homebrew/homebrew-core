@@ -12,7 +12,7 @@ class Ccache < Formula
   end
 
   head do
-    url "https://github.com/jrosdahl/ccache.git"
+    url "https://github.com/ccache/ccache.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
