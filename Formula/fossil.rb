@@ -1,8 +1,8 @@
 class Fossil < Formula
   desc "Distributed software configuration management"
   homepage "https://www.fossil-scm.org/"
-  url "https://www.fossil-scm.org/download/fossil-src-1.34.tar.gz"
-  sha256 "53a6b83e878feced9ac7705f87e5b6ea82727314e3e19202ae1c46c7e4dba49f"
+  url "https://www.fossil-scm.org/download/fossil-src-1.35.tar.gz"
+  sha256 "c1f92f925a87c9872cb40d166f56ba08b90edbab01a8546ff37025836136ba1d"
 
   head "https://www.fossil-scm.org/", :using => :fossil
 
@@ -23,7 +23,7 @@ class Fossil < Formula
     args = [
       # fix a build issue, recommended by upstream on the mailing-list:
       # http://comments.gmane.org/gmane.comp.version-control.fossil-scm.user/22444
-      "--with-tcl-private-stubs=1"
+      "--with-tcl-private-stubs=1",
     ]
     args << "--json" if build.with? "json"
 
