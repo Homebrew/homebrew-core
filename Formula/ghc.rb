@@ -48,6 +48,13 @@ class Ghc < Formula
     sha256 "bc57163656ece462ef61072559d491b72c5cdd694f3c39b80ac0f6b9a3dc8151"
   end
 
+  # fix clock_gettime support on 10.12
+  # https://ghc.haskell.org/trac/ghc/ticket/12195
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9eef46168ca5daa1629082af5532fc4b521d1a8d/ghc/clock_gettime.patch"
+    sha256 "42444b381840d9d90202ff619f0070c28a753243af5d7e6b60efd227c6cf308c"
+  end
+
   def install
     # Setting -march=native, which is what --build-from-source does, fails
     # on Skylake (and possibly other architectures as well) with the error
