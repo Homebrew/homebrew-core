@@ -7,9 +7,9 @@ class Nanomsg < Formula
 
   bottle do
     cellar :any
-    sha256 "a4ce042732d7112efac1f35c654f748615396b7f8defecfb55c3ac5c3ad2bcb6" => :el_capitan
-    sha256 "68c2434b5da8880dd93f5bc6c6a58cf9a6a6315dcdc5d8a8d9586fe1cd35c6b4" => :yosemite
-    sha256 "252a364dc0d5da396e3b3c194e502bace71b670cdbc3a073216255ee3d1fab12" => :mavericks
+    sha256 "fb85b321fc5d554c0bfd7b31c53dd7e6496ff5ad6dd94111298f23f45c6b5559" => :el_capitan
+    sha256 "255ec0f726980ca16320ec1795e81ce275d8da730c5034e16c1134981d044522" => :yosemite
+    sha256 "d3acb38b0fba0c1d78252471cb9ec63d6bbf82cdfbe0a3a125e3a6fc311ed57e" => :mavericks
   end
 
   depends_on "cmake" => :build
