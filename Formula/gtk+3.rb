@@ -33,6 +33,15 @@ class Gtkx3 < Formula
     end
   end
 
+  # Fixes detection of CUPS 2.x by the configure script
+  # https://bugzilla.gnome.org/show_bug.cgi?id=767766
+  if MacOS.version >= :sierra
+    patch :p0 do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a1fccbb34751eabe52366b8bb68bcf56ae74517c/gtk%2B3/cups.patch"
+      sha256 "c1e8eb7ebf0fc75365bf76f1db11ac4ff347b9a568529b3051adaecca0573c81"
+    end
+  end
+
   def install
     ENV.universal_binary if build.universal?
 
