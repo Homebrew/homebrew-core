@@ -13,9 +13,9 @@ class Vault < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "91c1c51230de2293299ebd5126751484f74c5173cbd7738d9278cca61ed65560" => :el_capitan
-    sha256 "f9afb31390b5e347b0ec6bd1e375938a4ab530455c4b6e37b767630e4091c65c" => :yosemite
-    sha256 "abcab81352fef3223c675200fc58db92c809510d2453ee2b03fd7ce672b46333" => :mavericks
+    sha256 "9468465da2abefb10d5fae81c8bd2bb91f07e8074bc3b4cb67f65099b5540e70" => :el_capitan
+    sha256 "55f4996c2801100f9ab896a628ef3cd42f08fe166a87a461424ba78abe2dbbec" => :yosemite
+    sha256 "91c4e8315f40988ad94a0797488bf668b79289a0190357c8d5b0737a96003c8f" => :mavericks
   end
 
   option "with-test", "Run tests after compilation"
