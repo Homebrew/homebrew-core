@@ -23,6 +23,7 @@ class Erlang < Formula
   option "without-hipe", "Disable building hipe; fails on various OS X systems"
   option "with-native-libs", "Enable native library compilation"
   option "with-dirty-schedulers", "Enable experimental dirty schedulers"
+  option "with-java", "Build jinterface application"
   option "without-docs", "Do not install documentation"
 
   deprecated_option "disable-hipe" => "without-hipe"
@@ -33,6 +34,7 @@ class Erlang < Formula
   depends_on "libtool" => :build
   depends_on "openssl"
   depends_on "fop" => :optional # enables building PDF docs
+  depends_on :java => :optional
   depends_on "wxmac" => :recommended # for GUI apps like observer
 
   fails_with :llvm
@@ -86,6 +88,12 @@ class Erlang < Formula
       args << "--disable-hipe"
     else
       args << "--enable-hipe"
+    end
+
+    if build.with? "java"
+      args << "--with-javac"
+    else
+      args << "--without-javac"
     end
 
     system "./configure", *args
