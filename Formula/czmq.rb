@@ -1,7 +1,7 @@
 class Czmq < Formula
   desc "High-level C binding for ZeroMQ"
   homepage "http://czmq.zeromq.org/"
-  url "http://download.zeromq.org/czmq-3.0.2.tar.gz"
+  url "https://github.com/zeromq/czmq/releases/download/v3.0.2/czmq-3.0.2.tar.gz"
   sha256 "8bca39ab69375fa4e981daf87b3feae85384d5b40cef6adbe9d5eb063357699a"
   revision 3
 
@@ -42,7 +42,7 @@ class Czmq < Formula
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make"
-    system "make", "check"
+    system "(ZSYS_INTERFACE=lo0 && make check-verbose)"
     system "make", "install"
     rm Dir["#{bin}/*.gsl"]
   end

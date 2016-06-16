@@ -3,24 +3,24 @@ class Radare2 < Formula
   homepage "http://radare.org"
 
   stable do
-    url "http://www.radare.org/get/radare2-0.10.2.tar.xz"
-    sha256 "1bc9ce6f5d6bec366324bc542653bba5c1b89a6980c17253ec3a1f75264beb3b"
+    url "http://www.radare.org/get/radare2-0.10.3.tar.xz"
+    sha256 "40200c9ceb42f1ef4634843249c03d9149822e690c7edfb748c88f596eb8cb93"
 
     resource "bindings" do
-      url "http://www.radare.org/get/radare2-bindings-0.10.2.tar.xz"
-      sha256 "7b47919c7f3d3a4eb432df8605160c72257a324c5f9e59c890799cf527228631"
+      url "http://www.radare.org/get/radare2-bindings-0.10.3.tar.xz"
+      sha256 "eabc7036bd84f0df1f45d54beb1644712475993a3e9bbc48ec41e5d2a25ba1f2"
     end
 
     resource "extras" do
-      url "http://www.radare.org/get/radare2-extras-0.10.2.tar.xz"
-      sha256 "ff5fbb37d654d8672965f67b216be9f2219da4db4f380954cd7d9c55ce69232b"
+      url "http://www.radare.org/get/radare2-extras-0.10.3.tar.xz"
+      sha256 "5717cc8d5da6bab6ab20a09555d6091b3ffbb50c03dd47c2a89cf1b5566ddd2d"
     end
   end
 
   bottle do
-    sha256 "91352f89ef50be76e78e6bd592f327c666b94d2a67946a041c88c728c739401b" => :el_capitan
-    sha256 "2ee94f8af46f5c6ac63c124ca465b14ad7471602fdc3782605f1f89314b7e8e3" => :yosemite
-    sha256 "263351722c084685e938e8ac1c76c89f4ca03e445a671c222d65e7c19ddf06af" => :mavericks
+    sha256 "2d07896ff499ba5ef7b003a4da24ac68252499c06be265ccb964e7942d91b31e" => :el_capitan
+    sha256 "6326bc1a114aab239118865467e1669c0de9137b6724b94376ab953face5f816" => :yosemite
+    sha256 "fc0d35e68a13e164bfe4e48bd8a8bc2ba1dade7ecc7d1164780b0819ce9fe239" => :mavericks
   end
 
   head do
@@ -78,11 +78,12 @@ class Radare2 < Formula
       inreplace "libr/lang/p/Makefile", "R2_PLUGIN_PATH=", "#R2_PLUGIN_PATH="
       inreplace "Makefile", "LUAPKG=", "#LUAPKG="
       inreplace "Makefile", "${DESTDIR}$$_LUADIR", "#{lib}/lua/#{lua_version}"
-      make_install_args = ["R2_PLUGIN_PATH=#{lib}/radare2/#{version}",
-                           "LUAPKG=lua-#{lua_version}",
-                           "PERLPATH=#{lib}/perl5/site_perl/#{perl_version}",
-                           "PYTHON_PKGDIR=#{lib}/python2.7/site-packages",
-                           "RUBYPATH=#{lib}/ruby/#{RUBY_VERSION}",
+      make_install_args = %W[
+        R2_PLUGIN_PATH=#{lib}/radare2/#{version}
+        LUAPKG=lua-#{lua_version}
+        PERLPATH=#{lib}/perl5/site_perl/#{perl_version}
+        PYTHON_PKGDIR=#{lib}/python2.7/site-packages
+        RUBYPATH=#{lib}/ruby/#{RUBY_VERSION}
       ]
 
       system "./configure", "--prefix=#{prefix}"
@@ -95,6 +96,6 @@ class Radare2 < Formula
   end
 
   test do
-    assert_match /radare2 #{version.to_s}/, shell_output("#{bin}/r2 -version")
+    assert_match "radare2 #{version}", shell_output("#{bin}/r2 -version")
   end
 end

@@ -1,14 +1,14 @@
 class WakatimeCli < Formula
   desc "Command-line interface to the WakaTime api"
   homepage "https://wakatime.com/"
-  url "https://pypi.python.org/packages/83/79/ccc7f8ea7b2a8deb9098359bf242654f0097c3bcd6501d7a811ea6eb701d/wakatime-6.0.4.tar.gz"
-  sha256 "653fbca6409f426d25388ab8e2691522c8dcad8a2817befd93533089e13fec5c"
+  url "https://pypi.python.org/packages/fb/99/79972e66ae5d6a05cb76edfbe9e628b49a84f16959bd2045d14e539b8c61/wakatime-6.0.5.tar.gz"
+  sha256 "f600575009d17881403c2e65a572448c8901b0dfea5ac2fa47becba905fe6a25"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7157361c0ae358100e29f844046bba95367b3c3f2566c27652f028d16910e04a" => :el_capitan
-    sha256 "f16df9dc486332075b1b502be4b393f02f4b9cb0c8511d896ccc8977c4305e7d" => :yosemite
-    sha256 "7c5d377f2f08cae33d548cf6773738745d29fe08bd131e4bea394e413ff19703" => :mavericks
+    sha256 "fed6c0c8282a1c1c51a3f8a85e5a18930a6308e70ed1665fb91d47a05bfccbb5" => :el_capitan
+    sha256 "c718c1551f40a37599010b17cfef2b99d9f6b514b96256ec17386eeebe83deb1" => :yosemite
+    sha256 "96146e5221f2d6b3c22f4eda5fd7a3105565e995b8377b675790cc793f222f51" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

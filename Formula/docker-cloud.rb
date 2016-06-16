@@ -1,14 +1,14 @@
 class DockerCloud < Formula
   desc "SaaS to build, deploy and manage Docker-based applications"
   homepage "https://cloud.docker.com/"
-  url "https://pypi.python.org/packages/3f/c9/3cd5eee6776e9c0b8866f39c0b63603c8dc8f8560825394677af350fbec7/docker-cloud-1.0.4.tar.gz"
-  sha256 "f11aa181a3f8ceac493394d95c1d566d244ade8d905de737780ae3326aab3d83"
+  url "https://pypi.python.org/packages/89/21/ac249244a73d185db81993537400aa3f8dbeb5fd5f8133f47b39e1537b51/docker-cloud-1.0.5.tar.gz"
+  sha256 "0db3432d07c5c19f8846f55f7bfd22f09fb0a69c30a67a58b5a6782e84c3078a"
 
   bottle do
     cellar :any
-    sha256 "07075cfa40956fd8601da48a3f4b7a7dd7b0a92b5e725d037ec771b3d3bbc066" => :el_capitan
-    sha256 "1736c04f1e5eb84ab0337219c3266a8ae634fab48c7cae85860ca6c28a55e618" => :yosemite
-    sha256 "6f22903be4e1f3ba4ea7c24d9871ce9ed35e408dd392260e0252d1bcdf5e9ef6" => :mavericks
+    sha256 "93c4d7b22630985e54e4cabf52a1584257f02c433e4c39c77d409cb17393cf17" => :el_capitan
+    sha256 "c876073ee7f66894ced76425d4c8c895d595300c88a91b6f75671187631aeaa6" => :yosemite
+    sha256 "7e35a8ac374084baf030a52fdac7354d972c8b9b11f43dcbc032f704b4a694e3" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -25,8 +25,8 @@ class DockerCloud < Formula
   end
 
   resource "python-dockercloud" do
-    url "https://pypi.python.org/packages/15/1e/d8bade5c51d458748e68783a78fc9f0f2664f2b6bb937e75ec2bb4e4c3da/python-dockercloud-1.0.5.tar.gz"
-    sha256 "b256265caa51593535d985657d6bab3027142c1ed66454e693a5155b33bfc90a"
+    url "https://pypi.python.org/packages/45/b7/3387fb6d4fd5dadddabcaaf2c973aac176340fd786247ab9b5e94978960b/python-dockercloud-1.0.6.tar.gz"
+    sha256 "e04e6da9adebec821af25d11a4fb48ade33ece0a5508cba3c3a90a421d4f5676"
   end
 
   resource "backports.ssl-match-hostname" do

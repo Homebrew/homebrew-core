@@ -1,14 +1,14 @@
 class Pcb2gcode < Formula
   desc "Command-line tool for isolation, routing and drilling of PCBs"
   homepage "https://github.com/pcb2gcode/pcb2gcode"
-  url "https://github.com/pcb2gcode/pcb2gcode/releases/download/v1.2.3/pcb2gcode-1.2.3.tar.gz"
-  sha256 "90fbd6c2c353609451e4284fcdcc395359ff582b13c053939f2da2825f081477"
+  url "https://github.com/pcb2gcode/pcb2gcode/releases/download/v1.3.0/pcb2gcode-1.3.0.tar.gz"
+  sha256 "27843ca6bfbb885520326f095697920ba8d9d97287d200cab522e723166681f4"
 
   bottle do
     cellar :any
-    sha256 "63919bc4899d152f8c61017d765f35c0a17f104c57db06f62d6ffcae10e5b2db" => :el_capitan
-    sha256 "d04fe0a9ed1490499226bfbb656a204df7603d6c523ba1754fd21393d819fc61" => :yosemite
-    sha256 "a7403533e4ea86459bf8e2d5db1d57289e46a65a5fb2775a97dbb521ccf67635" => :mavericks
+    sha256 "92f27a306fdfc2f4fdec1ae443c44ad9640eaa275958e446d2e47a1cd3953e60" => :el_capitan
+    sha256 "5c04686203966b38c23e6a2b0ab8515930022c0bcaca2b7206666770e100772c" => :yosemite
+    sha256 "3fc5fdda749ec0bd86b812cd8267aed85a7f42aba5ecb298618d873a92836581" => :mavericks
   end
 
   head do
@@ -36,40 +36,30 @@ class Pcb2gcode < Formula
       %FSLAX46Y46*%
       %MOMM*%
       G01*
-      %ADD10C,0.100000*%
       %ADD11R,2.032000X2.032000*%
       %ADD12O,2.032000X2.032000*%
       %ADD13C,0.250000*%
-      D10*
       D11*
       X127000000Y-63500000D03*
       D12*
       X127000000Y-66040000D03*
       D13*
-      X124460000Y-66040000D02*
-      X127000000Y-66040000D01*
-      X124460000Y-63500000D02*
       X124460000Y-66040000D01*
-      X127000000Y-63500000D02*
       X124460000Y-63500000D01*
+      X127000000Y-63500000D01*
       M02*
     EOS
     (testpath/"edge.gbr").write <<-EOS.undent
       %FSLAX46Y46*%
       %MOMM*%
       G01*
-      %ADD10C,0.100000*%
       %ADD11C,0.150000*%
-      D10*
       D11*
       X123190000Y-67310000D02*
-      X123190000Y-62230000D01*
-      X128270000Y-67310000D02*
-      X123190000Y-67310000D01*
-      X128270000Y-62230000D02*
       X128270000Y-67310000D01*
-      X123190000Y-62230000D02*
       X128270000Y-62230000D01*
+      X123190000Y-62230000D01*
+      X123190000Y-67310000D01*
       M02*
     EOS
     (testpath/"drill.drl").write <<-EOS.undent

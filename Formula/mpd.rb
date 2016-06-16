@@ -1,14 +1,14 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.19/mpd-0.19.15.tar.xz"
-  sha256 "0cb9a223894b038ce966ce6d651d9b3ea3bdc7d7b9bec8d1e9e7e091cbc29b8b"
+  url "https://www.musicpd.org/download/mpd/0.19/mpd-0.19.16.tar.xz"
+  sha256 "58ecbff4b07ec42a6f31bdbbb3c3eb51317978e4a0ea3071f6ae6127848a03d6"
 
   bottle do
     cellar :any
-    sha256 "14b7d310c9d92c4632b4154754d9e60fcd0091fe2d1d32c17a51d90132e126e4" => :el_capitan
-    sha256 "13378d8796587be398336ab329d677a71971883dcc001fca61dc8c46f98200b2" => :yosemite
-    sha256 "74cee039cbf84d12baedbb6454987e362e18d82b625bbe97891dd2a10bdb7e82" => :mavericks
+    sha256 "c7f59dd212cc121bc18ae35218a1391577f73caab75756013f67399447e77f37" => :el_capitan
+    sha256 "1633dc1e733fe9d9c0028421e001d0f4b9e1794d361aefbb9485422f19ce3964" => :yosemite
+    sha256 "7282b0ef5a5f10d6f8d97ec83ffef8828c502524ec4b001e6ae9d0d1ec0c483c" => :mavericks
   end
 
   head do
