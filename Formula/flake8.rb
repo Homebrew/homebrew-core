@@ -6,6 +6,13 @@ class Flake8 < Formula
 
   head "https://gitlab.com/PyCQA/flake8.git", :shallow => false
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "7351a58838ebfbba5510cc777508347cecaeed932f2f1b6dd0e565ea76371bc3" => :el_capitan
+    sha256 "ef337bebeb41d1aa44b8dd87c199137d9ce190d4e25f796b9e06c707b65f619b" => :yosemite
+    sha256 "55d3e4108c60e0a874bdd99b675a7c88d443e35d75bbe7b58641b8c663c2e39d" => :mavericks
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "pycodestyle" do
