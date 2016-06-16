@@ -41,7 +41,7 @@ class Vim < Formula
   def language_type language
     type = if which(language).to_s == "/usr/bin/#{language}"
       "system"
-    elsif which(language).to_s == "#{HOMEBREW_PREFIX}/bin/#{language}"
+    elsif which(language).to_s == "#{HOMEBREW_PREFIX}/opt/#{language}/bin/#{language}"
       "homebrew"
     else
       "custom"
@@ -50,7 +50,7 @@ class Vim < Formula
   end
 
   def install
-    Utils::Analytics.report_event "vim_language_type",
+    Utils::Analytics.report_event "vim_language_type2",
       "#{language_type("python")}, #{language_type("ruby")}, #{language_type("perl")}"
 
     # https://github.com/Homebrew/homebrew-core/pull/1046
