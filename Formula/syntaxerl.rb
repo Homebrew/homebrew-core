@@ -6,9 +6,9 @@ class Syntaxerl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "76dbad50161a18864c891857eed2800ba11057b7e8d25866cd2273d656057887" => :el_capitan
-    sha256 "3354fa14b4179431e38ce4f5f65153a30a262822d08c30b387cadd0f94708c36" => :yosemite
-    sha256 "85a9db8ff434298e3fa40a4429e298b9aa2205bdefbebe1ac2b83b8b949d7c67" => :mavericks
+    sha256 "e41ec5d0fe9d78f9574c8ddeb08943e4e4d09cc826e7012d089ca7ed0d719523" => :el_capitan
+    sha256 "9402057ae3c091f56a08c2746ac0d56da0bb337250c9765ccc01a0e1f2331656" => :yosemite
+    sha256 "ccf1aecf79fbf0da7f8857a88ce536068095148d47a9791503b256cde0eed2d3" => :mavericks
   end
 
   depends_on "erlang"
