@@ -1,3 +1,5 @@
+require "language/go"
+
 class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
@@ -15,17 +17,33 @@ class ConsulTemplate < Formula
 
   depends_on "go" => :build
 
+  go_resource "github.com/mitchellh/gox" do
+    url "https://github.com/mitchellh/gox.git",
+    :revision => "6e9ee79eab7bb1b84155379b3f94ff9a87b344e4"
+  end
+
+  # gox dependency
+  go_resource "github.com/mitchellh/iochan" do
+    url "https://github.com/mitchellh/iochan.git",
+    :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
-    ENV.prepend_create_path "PATH", buildpath/"bin"
+
     dir = buildpath/"src/github.com/hashicorp/consul-template"
     dir.install buildpath.children
+
+    Language::Go.stage_deps resources, buildpath/"src"
+    ENV.prepend_create_path "PATH", buildpath/"bin"
+    cd("src/github.com/mitchellh/gox") { system "go", "install" }
+
     cd dir do
-      system "make", "bootstrap"
       system "make", "updatedeps" if build.head?
       system "make", "dev"
       system "make", "test"
     end
+
     bin.install "bin/consul-template"
   end
 
