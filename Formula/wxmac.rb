@@ -16,7 +16,7 @@ class Wxmac < Formula
 
     # Fails to find QuickTime headers; fixed in 3.1.0 and newer.
     # https://github.com/Homebrew/homebrew-core/issues/1957
-    depends_on MaximumMacOSRequirement => :sierra
+    depends_on MaximumMacOSRequirement => :el_capitan
   end
 
   bottle do
