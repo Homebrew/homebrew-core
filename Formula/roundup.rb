@@ -7,9 +7,9 @@ class Roundup < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "54fd2eea633548d627df8cd4cc3962c5ca3521c7d8c69c9e76018749ed1c8614" => :el_capitan
-    sha256 "86362d0a78da1dcb29dc1a421161446d6664feba9ad6be2f8392ad64daf0978d" => :yosemite
-    sha256 "ba15d496c1d2be929e477488d4917748b3652d4fb82703388228fd37992249c8" => :mavericks
+    sha256 "77ff95001e3a2de6eedd4d5702e5e418b7c4ecfa6855af7b479e1e978249882f" => :el_capitan
+    sha256 "5dd0f6d1e64f54b3bb389411f95cd823b75e31f073e739d78793fca4b21e8e59" => :yosemite
+    sha256 "42a3781280553b56fdd9330f2ef1f930b489c932ac0191313eb1cf6482e9728f" => :mavericks
   end
 
   def install
