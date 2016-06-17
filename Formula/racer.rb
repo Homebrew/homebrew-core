@@ -9,8 +9,8 @@ class Racer < Formula
   depends_on "rust" => :build
 
   resource "rust_source" do
-    url "https://static.rust-lang.org/dist/rustc-1.9.0-src.tar.gz"
-    sha256 "b19b21193d7d36039debeaaa1f61cbf98787e0ce94bd85c5cbe2a59462d7cfcd"
+    url Formula['rust'].stable.url
+    sha256 Formula['rust'].stable.checksum.hexdigest
   end
 
   def install
@@ -19,12 +19,12 @@ class Racer < Formula
     (bin/"racer").write_env_script(libexec/"bin/racer", :RUST_SRC_PATH => "#{HOMEBREW_PREFIX}/share/rust_src/current")
     resource("rust_source").stage do
       rm_rf ["src/llvm", "src/test", "src/librustdoc", "src/etc/snapshot.pyc"]
-      (share/"rust_src/1.9.0").install Dir["src/*"]
+      (share/"rust_src/#{Formula['rust'].stable.version}").install Dir["src/*"]
     end
   end
 
   def post_install
-    ln_sf (share/"rust_src/1.9.0"), (share/"rust_src/current")
+    ln_sf (share/"rust_src/#{Formula['rust'].stable.version}"), (share/"rust_src/current")
   end
 
   test do
