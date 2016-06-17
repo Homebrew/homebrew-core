@@ -15,8 +15,6 @@ class Ghc < Formula
   deprecated_option "tests" => "with-test"
   deprecated_option "with-tests" => "with-test"
 
-  # https://www.haskell.org/ghc/download_ghc_8_0_1#macosx_x86_64
-  # "This is a distribution for Mac OS X, 10.7 or later."
   depends_on :macos => :lion
 
   resource "gmp" do
