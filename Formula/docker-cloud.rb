@@ -1,8 +1,8 @@
 class DockerCloud < Formula
   desc "SaaS to build, deploy and manage Docker-based applications"
   homepage "https://cloud.docker.com/"
-  url "https://pypi.python.org/packages/89/21/ac249244a73d185db81993537400aa3f8dbeb5fd5f8133f47b39e1537b51/docker-cloud-1.0.5.tar.gz"
-  sha256 "0db3432d07c5c19f8846f55f7bfd22f09fb0a69c30a67a58b5a6782e84c3078a"
+  url "https://pypi.python.org/packages/57/43/f6706678e16cb5c6fd36c12462fc53d6d36bf8de3d6c916d19e0ce63632c/docker-cloud-1.0.6.tar.gz"
+  sha256 "e7141dfb5b6ad91ea9d3155c13d3124215bea2771cc7785fdfce61908bf2a846"
 
   bottle do
     cellar :any
@@ -25,8 +25,8 @@ class DockerCloud < Formula
   end
 
   resource "python-dockercloud" do
-    url "https://pypi.python.org/packages/45/b7/3387fb6d4fd5dadddabcaaf2c973aac176340fd786247ab9b5e94978960b/python-dockercloud-1.0.6.tar.gz"
-    sha256 "e04e6da9adebec821af25d11a4fb48ade33ece0a5508cba3c3a90a421d4f5676"
+    url "https://pypi.python.org/packages/b6/6c/69e2e70f9300a20346642ef654a0d0f64a1f279cb81b08ff3b9bd5ee3e86/python-dockercloud-1.0.7.tar.gz"
+    sha256 "8f1b70a4b411418741be0616196b7a894aac6702204cd32077b7c21a35117204"
   end
 
   resource "backports.ssl-match-hostname" do
