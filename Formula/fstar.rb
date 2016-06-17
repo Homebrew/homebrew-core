@@ -5,6 +5,7 @@ class Fstar < Formula
     :tag => "v0.9.2.0",
     :revision => "2a8ce0b3dfbfb9703079aace0d73f2479f0d0ce2"
   head "https://github.com/FStarLang/FStar.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +16,7 @@ class Fstar < Formula
   end
 
   depends_on "opam" => :build
+  depends_on "gmp" => :build
   depends_on "ocaml" => :recommended
   depends_on "z3" => :recommended
 
@@ -24,8 +26,18 @@ class Fstar < Formula
   end
 
   resource "batteries" do
-    url "https://github.com/ocaml-batteries-team/batteries-included/archive/v2.4.0.tar.gz"
-    sha256 "f13ff15efa35c272e1e63a2604f92c1823d5685cd73d3d6cf00f25f80178439f"
+    url "https://github.com/ocaml-batteries-team/batteries-included/archive/v2.5.2.tar.gz"
+    sha256 "649038b47cdc2b7d4d4331fdb54b1e726212ce904c3472687a86aaa8d6006451"
+  end
+
+  resource "zarith" do
+    url "https://forge.ocamlcore.org/frs/download.php/1471/zarith-1.3.tgz"
+    sha256 "946687d6f032b96ab9db9661d876e39437bff783e0ad473ac463c06259b7a3d7"
+  end
+
+  resource "yojson" do
+    url "http://mjambon.com/releases/yojson/yojson-1.1.6.tar.gz"
+    sha256 "d97497f4d0694f515a9c12708eda2654dddb289b2ed567a377706e62e54c480d"
   end
 
   def install
