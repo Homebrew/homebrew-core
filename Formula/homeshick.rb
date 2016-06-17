@@ -5,6 +5,8 @@ class Homeshick < Formula
   sha256 "8bd3c46f1cfd68d82d97fa72a68a07c966092c77f276d1335cb390b2ec6062bf"
   head "https://github.com/andsens/homeshick.git"
 
+  bottle :unneeded
+
   option "with-fish", "Build fish bindings"
   option "with-csh", "Build csh bindings"
 
