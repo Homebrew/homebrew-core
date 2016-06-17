@@ -20,8 +20,6 @@ class Tor < Formula
 
   depends_on "libevent"
   depends_on "openssl"
-  depends_on "libnatpmp" => :optional
-  depends_on "miniupnpc" => :optional
   depends_on "libscrypt" => :optional
 
   def install
@@ -30,11 +28,10 @@ class Tor < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --sysconfdir=#{etc}
+      --localstatedir=#{var}
       --with-openssl-dir=#{Formula["openssl"].opt_prefix}
     ]
 
-    args << "--with-libnatpmp-dir=#{Formula["libnatpmp"].opt_prefix}" if build.with? "libnatpmp"
-    args << "--with-libminiupnpc-dir=#{Formula["miniupnpc"].opt_prefix}" if build.with? "miniupnpc"
     args << "--disable-libscrypt" if build.without? "libscrypt"
 
     system "./configure", *args
