@@ -1,6 +1,7 @@
 class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "http://www.libressl.org/"
+  # Please ensure when updating version the release is from stable branch.
   url "http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.6.tar.gz"
   sha256 "358a4779e6813bd06f07db0cf0f0fe531401ed0c6ed958973d404416c3d537fa"
 

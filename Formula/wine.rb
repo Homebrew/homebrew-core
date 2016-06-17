@@ -8,9 +8,9 @@ class Wine < Formula
   head "git://source.winehq.org/git/wine.git"
 
   stable do
-    url "https://dl.winehq.org/wine/source/1.8/wine-1.8.2.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.8.2.tar.bz2"
-    sha256 "51624fadf0145e87f0c01e7ce8524ea1e8d9d360c3e8a86e78cd26a52ce55a6f"
+    url "https://dl.winehq.org/wine/source/1.8/wine-1.8.3.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.8.3.tar.bz2"
+    sha256 "d7cecdf7aab93bfe950e6f83ec526681b8770788c7b2a802bfe50ff97fc17a6c"
 
     # Patch to fix screen-flickering issues. Still relevant on 1.8. Broken on 1.9.10.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
@@ -21,9 +21,9 @@ class Wine < Formula
   end
 
   bottle do
-    sha256 "3d82248fcae5e2ca44f5105ef5d80cc808d7b4c93ce6c3cd37ca6a32dde0a75f" => :el_capitan
-    sha256 "a41b56ada2e8f6f2d263c6b344a26a045e8c9999d772c0efc06289de4e1fab8e" => :yosemite
-    sha256 "7ff82bfddeb5899f6995c68017aa998ad926db0e7252f3543a63c29df5e9a8bc" => :mavericks
+    sha256 "5f09c0c48299895929a2816ddef0c7d430d9ae36b617996be99330a24f290dc1" => :el_capitan
+    sha256 "d7923a5b6f57c9410ac63f03b2769f832f69413f7db7268dc57be6968541394e" => :yosemite
+    sha256 "e1594c0d42c14a01b422b3c657aa93dc066a78b8f03e9864a1a3e761bf13a583" => :mavericks
   end
 
   devel do

@@ -14,15 +14,16 @@ class Erlang < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "1a461f90881d65d171104c4e59cab7e128a2bd89939eb99fdb90a084c357fec2" => :el_capitan
-    sha256 "2589b9d8bc59cf79ed0bb5796496179365dcc3f7b72c2fb56856b463ad65ac3b" => :yosemite
-    sha256 "5e529a202d2d642129a8c56b652ade6721cb7ba55f1d49cdc06430f1a405f9be" => :mavericks
+    revision 2
+    sha256 "40c0acf9675257003e2f590d5e0d2500c56f348e8631f97e05b5f825ed4ed36c" => :el_capitan
+    sha256 "b982d71869783c3615cb22fa0fd5bc689e071ab3960bc4f1679fb11108be7ed9" => :yosemite
+    sha256 "6a5c2f8702940ca205e9445db3c6915540d81b0ee088af48ab215a3a34689e16" => :mavericks
   end
 
   option "without-hipe", "Disable building hipe; fails on various OS X systems"
   option "with-native-libs", "Enable native library compilation"
   option "with-dirty-schedulers", "Enable experimental dirty schedulers"
+  option "with-java", "Build jinterface application"
   option "without-docs", "Do not install documentation"
 
   deprecated_option "disable-hipe" => "without-hipe"
@@ -33,6 +34,7 @@ class Erlang < Formula
   depends_on "libtool" => :build
   depends_on "openssl"
   depends_on "fop" => :optional # enables building PDF docs
+  depends_on :java => :optional
   depends_on "wxmac" => :recommended # for GUI apps like observer
 
   fails_with :llvm
@@ -86,6 +88,12 @@ class Erlang < Formula
       args << "--disable-hipe"
     else
       args << "--enable-hipe"
+    end
+
+    if build.with? "java"
+      args << "--with-javac"
+    else
+      args << "--without-javac"
     end
 
     system "./configure", *args

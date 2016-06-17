@@ -13,6 +13,10 @@ class Wxmac < Formula
     # Please keep an eye on http://trac.wxwidgets.org/ticket/16329 as well
     # Theoretically the above linked patch should still be needed, but it isn't. Try to find out why.
     patch :DATA
+
+    # Fails to find QuickTime headers; fixed in 3.1.0 and newer.
+    # https://github.com/Homebrew/homebrew-core/issues/1957
+    depends_on MaximumMacOSRequirement => :el_capitan
   end
 
   bottle do

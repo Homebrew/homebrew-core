@@ -30,7 +30,9 @@ class Dvm < Formula
   def caveats; <<-EOS.undent
     dvm is a shell function, and must be sourced before it can be used.
     Add the following command to your bash profile:
-      . "$(brew --prefix dvm)/dvm.sh"
+
+        [[ -s "$(brew --prefix dvm)/dvm.sh" ]] && source "$(brew --prefix dvm)/dvm.sh"
+
     EOS
   end
 

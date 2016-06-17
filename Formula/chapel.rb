@@ -17,8 +17,7 @@ class Chapel < Formula
     ENV["CHPL_HOME"] = libexec
 
     # Must be built from within CHPL_HOME to prevent build bugs.
-    # https://gist.github.com/DomT4/90dbcabcc15e5d4f786d
-    # https://github.com/Homebrew/homebrew/pull/35166
+    # https://github.com/Homebrew/legacy-homebrew/pull/35166
     cd libexec do
       system "make"
       system "make", "chpldoc"
