@@ -1,9 +1,9 @@
 class Ipmitool < Formula
   desc "Utility for IPMI control with kernel driver or LAN interface"
   homepage "http://ipmitool.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ipmitool/ipmitool/1.8.16/ipmitool-1.8.16.tar.bz2"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/ipmitool/ipmitool_1.8.16.orig.tar.bz2"
-  sha256 "3c5da6b067abf475bc24685120ec79f6e4ef6b3ea606aaa267e462023861223e"
+  url "https://downloads.sourceforge.net/project/ipmitool/ipmitool/1.8.17/ipmitool-1.8.17.tar.bz2"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/ipmitool/ipmitool_1.8.17.orig.tar.bz2"
+  sha256 "97fa20efd9c87111455b174858544becae7fcc03a3cb7bf5c19b09065c842d02"
 
   bottle do
     cellar :any
