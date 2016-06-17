@@ -16,7 +16,7 @@ class Racer < Formula
   def install
     system "cargo", "build", "--release"
     (libexec/"bin").install "./target/release/racer"
-    bin.write_env_script(libexec/"bin/racer", :RUST_SRC_PATH => "#{HOMEBREW_PREFIX}/share/rust_src/current")
+    (bin/"racer").write_env_script(libexec/"bin/racer", :RUST_SRC_PATH => "#{HOMEBREW_PREFIX}/share/rust_src/current")
     resource("rust_source").stage do
       rm_rf(["src/llvm", "src/test", "src/librustdoc", "src/etc/snapshot.pyc"])
       (share/"rust_src/1.9.0").install Dir["./src/*"]
