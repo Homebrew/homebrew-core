@@ -7,9 +7,9 @@ class Isl < Formula
   # and update isl_version() function accordingly.  All other names will
   # result in isl_version() function returning "UNKNOWN" and hence break
   # package detection.
-  url "http://isl.gforge.inria.fr/isl-0.15.tar.bz2"
-  mirror "ftp://gcc.gnu.org//pub/gcc/infrastructure/isl-0.15.tar.bz2"
-  sha256 "8ceebbf4d9a81afa2b4449113cee4b7cb14a687d7a549a963deb5e2a41458b6b"
+  url "http://isl.gforge.inria.fr/isl-0.17.1.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/isl/isl_0.17.1.orig.tar.xz"
+  sha256 "be152e5c816b477594f4c6194b5666d8129f3a27702756ae9ff60346a8731647"
 
   bottle do
     cellar :any
