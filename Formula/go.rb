@@ -13,11 +13,11 @@ class Go < Formula
     sha256 "d3ff36402dc9e1319ac5ae0b38d65ded681eeacc490160d626f9fa18e4f6994f" => :yosemite
     sha256 "0cf1ef52a5ac93b20b5f8cce1d7f2fd470fd0af9ac70d5ecea77ec7a87dee92c" => :mavericks
   end
-  
+
   devel do
-    url "https://storage.googleapis.com/golang/go1.7beta1.src.tar.gz"
-    version "1.7beta1"
-    sha256 "a04e99ffd4139e514b91d9acec7ce11f85429a59e8552897e39fb52bcf5e1094"
+    url "https://storage.googleapis.com/golang/go1.7beta2.src.tar.gz"
+    version "1.7beta2"
+    sha256 "88840e78905bdff7c8e408385182b4f77e8bdd062cac5c0c6382630588d426c7"
   end
 
   option "without-cgo", "Build without cgo"
