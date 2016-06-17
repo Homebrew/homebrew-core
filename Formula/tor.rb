@@ -12,10 +12,10 @@ class Tor < Formula
   end
 
   devel do
-    url "https://dist.torproject.org/tor-0.2.8.3-alpha.tar.gz"
-    mirror "https://tor.eff.org/dist/tor-0.2.8.3-alpha.tar.gz"
-    version "0.2.8.3-alpha"
-    sha256 "88da40c24f0bb19e19b37b8deab1b0d86608798746c81380cf17996d269f9053"
+    url "https://dist.torproject.org/tor-0.2.8.4-rc.tar.gz"
+    mirror "https://tor.eff.org/dist/tor-0.2.8.4-rc.tar.gz"
+    version "0.2.8.4-rc"
+    sha256 "3070015123094bf576641a34aaf4cec17f548f0108447031445d42cae164f6ba"
   end
 
   depends_on "libevent"
