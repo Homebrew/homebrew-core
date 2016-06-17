@@ -175,6 +175,7 @@
   "openwsman": "homebrew/boneyard",
   "orfeo": "homebrew/boneyard",
   "ori": "homebrew/fuse",
+  "osxfuse": "caskroom/cask",
   "p11-kit": "homebrew/boneyard",
   "pan": "homebrew/boneyard",
   "paq8px": "homebrew/boneyard",
