@@ -1,8 +1,8 @@
 class Gdnsd < Formula
   desc "Authoritative-only DNS server"
   homepage "http://gdnsd.org/"
-  url "https://github.com/gdnsd/gdnsd/releases/download/v2.2.1/gdnsd-2.2.1.tar.xz"
-  sha256 "dd78ff355704b2da9dd064efb0cb78b16b58020843d07dc0403684b2afe2d4c0"
+  url "https://github.com/gdnsd/gdnsd/releases/download/v2.2.4/gdnsd-2.2.4.tar.xz"
+  sha256 "ee26ddd11087f4dd617c9aa6bfa3b963c5d883578b49c7d5dcae5d0edf38094f"
 
   bottle do
     sha256 "2e07ada030282cd7a8b28640fc7deceaad15edd378516fafc8487a0a99c958a3" => :el_capitan
