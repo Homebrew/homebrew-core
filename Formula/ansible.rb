@@ -559,6 +559,7 @@ class Ansible < Formula
 
     resources.each do |r|
       r.stage do
+        inreplace "setup.cfg", "optimize = 1", "optimize = 0" if r.name == "pyrax" ## no *.pyo
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
