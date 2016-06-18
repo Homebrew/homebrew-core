@@ -334,6 +334,37 @@ class Duplicity < Formula
   end
 
   test do
-    system bin/"duplicity", "--dry-run", "--no-encryption", testpath, "file:///#{testpath}/test"
+    # Note that test do is always in temporary path, with HOME captured,
+    # so this doesn't interfere with a user's pre-existing keychain.
+    (testpath/"batchgpg").write <<-EOS.undent
+    Key-Type: RSA
+    Key-Length: 2048
+    Subkey-Type: RSA
+    Subkey-Length: 2048
+    Name-Real: Testing
+    Name-Email: testing@foo.bar
+    Expire-Date: 1d
+    Passphrase: brew
+    %commit
+    EOS
+    system "gpg2", "--batch", "--gen-key", "batchgpg"
+
+    (testpath/"test/hello.txt").write "Hello!"
+    (testpath/"command.sh").write <<-EOS.undent
+      #!/usr/bin/expect -f
+      set timeout -1
+      spawn #{bin}/duplicity #{testpath} "file://test"
+      expect -exact "Local and Remote metadata are synchronized, no sync needed."
+      expect -exact "Last full backup date: none"
+      expect -exact "GnuPG passphrase:"
+      send -- "brew\n"
+      expect -exact "Retype passphrase to confirm:"
+      send -- "brew\n"
+      expect -exact "No signatures found, switching to full backup."
+      expect eof
+    EOS
+    chmod 0755, testpath/"command.sh"
+    system "./command.sh"
+    assert_match "duplicity-full-signatures", Dir["test/*"].to_s
   end
 end
