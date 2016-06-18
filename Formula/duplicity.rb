@@ -3,6 +3,7 @@ class Duplicity < Formula
   homepage "http://www.nongnu.org/duplicity/"
   url "https://code.launchpad.net/duplicity/0.7-series/0.7.07.1/+download/duplicity-0.7.07.1.tar.gz"
   sha256 "594c6d0e723e56f8a7114d57811c613622d535cafdef4a3643a4d4c89c1904f8"
+  revision 1
 
   bottle do
     sha256 "47cdf42038348b3a3e009ccd8d148a05f41a33769bdbbf82b0a59cbc1ab16ed3" => :el_capitan
@@ -324,7 +325,12 @@ class Duplicity < Formula
     # OSX doesn't provide a /usr/bin/python2. Upstream has been notified but
     # cannot fix the issue. See:
     #   https://github.com/Homebrew/homebrew/pull/34165#discussion_r22342214
-    inreplace "#{libexec}/bin/duplicity", "python2", "python"
+    inreplace libexec/"bin/duplicity", "python2", "python"
+
+    # We prefer gpg2, so set a default. This can still be overriden by
+    # passing the `--gpg-binary=` command line flag.
+    inreplace libexec/"lib/python2.7/site-packages/duplicity/globals.py",
+              "gpg_binary = None", "gpg_binary = 'gpg2'"
   end
 
   test do
