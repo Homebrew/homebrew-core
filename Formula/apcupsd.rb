@@ -1,8 +1,8 @@
 class Apcupsd < Formula
   desc "Daemon for controlling APC UPSes"
   homepage "http://www.apcupsd.org"
-  url "https://downloads.sourceforge.net/project/apcupsd/apcupsd%20-%20Stable/3.14.13/apcupsd-3.14.13.tar.gz"
-  sha256 "57ecbde01d0448bf8c4dbfe0ad016724ae66ab98adf2de955bf2be553c5d03f9"
+  url "https://downloads.sourceforge.net/project/apcupsd/apcupsd%20-%20Stable/3.14.14/apcupsd-3.14.14.tar.gz"
+  sha256 "db7748559b6b4c3784f9856561ef6ac6199ef7bd019b3edcd7e0a647bf8f9867"
 
   bottle do
     cellar :any
@@ -25,20 +25,13 @@ class Apcupsd < Formula
     end
 
     cd "platforms/darwin" do
-      # Fixes the `--sbindir` option.
-      # Patch submitted to upstream repo:
-      # https://sourceforge.net/p/apcupsd/mailman/message/34627459/
-      inreplace "Makefile", "/sbin", "$(sbindir)"
-
       # Install launch daemon and kernel extension to subdirectories of `prefix`.
       inreplace "Makefile", "/Library/LaunchDaemons", "#{prefix}/Library/LaunchDaemons"
       inreplace "Makefile", "/System/Library/Extensions", kext_prefix
 
       # Use appropriate paths for launch daemon and launch script.
-      inreplace "apcupsd-start", "/sbin", opt_sbin
-      inreplace "apcupsd-start", "/etc/apcupsd", sysconfdir
-      inreplace "org.apcupsd.apcupsd.plist", "/sbin", opt_sbin
-      inreplace "org.apcupsd.apcupsd.plist", "/etc/apcupsd", sysconfdir
+      inreplace "apcupsd-start.in", "/etc/apcupsd", sysconfdir
+      inreplace "org.apcupsd.apcupsd.plist.in", "/etc/apcupsd", sysconfdir
 
       # Custom uninstaller not needed as this is handled by Homebrew.
       inreplace "Makefile", /.*apcupsd-uninstall.*/, ""
