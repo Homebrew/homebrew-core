@@ -3,6 +3,7 @@ class Clamav < Formula
   homepage "https://www.clamav.net/"
   url "https://www.clamav.net/downloads/production/clamav-0.99.2.tar.gz"
   sha256 "167bd6a13e05ece326b968fdb539b05c2ffcfef6018a274a10aeda85c2c0027a"
+  revision 1
 
   bottle do
     sha256 "057465d3af56d272c79cb46fafad7d73846cc94af383b73ff91413d8f4ff7039" => :el_capitan
@@ -20,9 +21,9 @@ class Clamav < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
+  depends_on "pcre" => :recommended
   depends_on "yara" => :optional
   depends_on "json-c" => :optional
-  depends_on "pcre" => :optional
 
   skip_clean "share/clamav"
 
