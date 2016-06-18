@@ -18,6 +18,7 @@ class Macvim < Formula
   depends_on "cscope" => :recommended
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
+  depends_on :perl => "5.6"
   depends_on :python => :recommended
   depends_on :python3 => :optional
 
