@@ -1,10 +1,10 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
-  homepage "https://github.com/plusvic/yara/"
-  head "https://github.com/plusvic/yara.git"
+  homepage "https://github.com/VirusTotal/yara/"
+  head "https://github.com/VirusTotal/yara.git"
 
   stable do
-    url "https://github.com/plusvic/yara/archive/v3.4.0.tar.gz"
+    url "https://github.com/VirusTotal/yara/archive/v3.4.0.tar.gz"
     sha256 "528571ff721364229f34f6d1ff0eedc3cd5a2a75bb94727dc6578c6efe3d618b"
 
     # fixes a variable redefinition error with clang (fixed in HEAD)
@@ -26,15 +26,11 @@ class Yara < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on :python if MacOS.version <= :snow_leopard
-  depends_on "pcre"
   depends_on "openssl"
 
   def install
     # Use of "inline" requires gnu89 semantics
     ENV.append "CFLAGS", "-std=gnu89" if ENV.compiler == :clang
-
-    # find Homebrew's libpcre
-    ENV.append "LDFLAGS", "-L#{Formula["pcre"].opt_lib} -lpcre"
 
     system "./bootstrap.sh"
     system "./configure", "--disable-silent-rules",
