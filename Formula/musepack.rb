@@ -1,7 +1,7 @@
 class Musepack < Formula
   desc "Audio compression format and tools"
   homepage "https://www.musepack.net/"
-  url "http://files.musepack.net/source/musepack_src_r475.tar.gz"
+  url "https://files.musepack.net/source/musepack_src_r475.tar.gz"
   version "r475"
   sha256 "a4b1742f997f83e1056142d556a8c20845ba764b70365ff9ccf2e3f81c427b2b"
 
