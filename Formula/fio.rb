@@ -1,8 +1,8 @@
 class Fio < Formula
   desc "I/O benchmark and stress test"
   homepage "http://freecode.com/projects/fio"
-  url "http://brick.kernel.dk/snaps/fio-2.2.10.tar.bz2"
-  sha256 "04b4490c69f82bafeccbab51d33732cfd74e7a54e74eae0d9a2450faf4f1d857"
+  url "https://github.com/axboe/fio/archive/fio-2.12.tar.gz"
+  sha256 "b692f2b3bb9a63369252e4c55aa70e2ba064c16869ea81b58d2798b212636bd6"
   head "git://git.kernel.dk/fio.git"
 
   bottle do
