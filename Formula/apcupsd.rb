@@ -6,9 +6,9 @@ class Apcupsd < Formula
 
   bottle do
     cellar :any
-    sha256 "99759baac67d1133831cffcd7f3536064ee9b7dd521cd636aa7891239810011b" => :el_capitan
-    sha256 "f69e0d86dbd74242d264618223d1f6aa893037fdf102bf4c0b82586f438376dd" => :yosemite
-    sha256 "9396f5c9ba3788888b5f86e635bae2ec85d3f8d25a7de133dc781526c74d5a55" => :mavericks
+    sha256 "faf979d85d50adebb20de24efbb113a52fe3760f5d4cc4bebda6eaec2268eb09" => :el_capitan
+    sha256 "49cc19f7e0d435d5b70ef75d393de827207ad3ea821e9104d783c61692ea62ba" => :yosemite
+    sha256 "488ed2fc48933a1c4ca08037016ae5af81050bdc27e7975296fd1c172cf10b31" => :mavericks
   end
 
   depends_on "gd"
