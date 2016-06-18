@@ -1,9 +1,9 @@
 class Serialosc < Formula
   desc "Opensound control server for monome devices"
-  homepage "http://docs.monome.org/doku.php?id=app:serialosc"
-  url "https://github.com/monome/serialosc/archive/1.2.tar.gz"
-  sha256 "9b4852b8ea402f2675b39bec98ec976fdd718f3295713743e3e898349e0f1b77"
-
+  homepage "http://monome.org/docs/osc/"
+  url "https://github.com/monome/serialosc.git",
+    :tag => "v1.4",
+    :revision => "c46a0fa5ded4ed9dff57a47d77ecb54281e2e2ea"
   head "https://github.com/monome/serialosc.git"
 
   bottle do
@@ -19,7 +19,11 @@ class Serialosc < Formula
 
   def install
     system "./waf", "configure", "--prefix=#{prefix}"
-    system "./waf build"
-    system "./waf install"
+    system "./waf", "build"
+    system "./waf", "install"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/serialosc-device -v")
   end
 end
