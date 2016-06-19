@@ -1,8 +1,8 @@
 class Wrk < Formula
   desc "HTTP benchmarking tool"
   homepage "https://github.com/wg/wrk"
-  url "https://github.com/wg/wrk/archive/4.0.1.tar.gz"
-  sha256 "c03bbc283836cb4b706eb6bfd18e724a8ce475e2c16154c13c6323a845b4327d"
+  url "https://github.com/wg/wrk/archive/4.0.2.tar.gz"
+  sha256 "a4a6ad6727733023771163e7250189a9a23e6253b5e5025191baa6092d5a26fb"
   head "https://github.com/wg/wrk.git"
 
   bottle do
