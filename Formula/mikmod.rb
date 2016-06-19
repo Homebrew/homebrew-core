@@ -5,10 +5,9 @@ class Mikmod < Formula
   sha256 "5f398d5a5ccee2ce331036514857ac7e13a5644267a13fb11f5a7209cf709264"
 
   bottle do
-    revision 1
-    sha256 "72bc9ddab041d72dbb3c8a09093c64ecc2c19346a3dcf1e9409311db1e6ff497" => :el_capitan
-    sha256 "b881f86816e66413b6eefa1b5e35e2f87a80559532060e7944504f73be68ab88" => :yosemite
-    sha256 "1a8649c6c9e8e9f69616e5ac525bdb31fd45a6a01b0a949df8ac4476244dda41" => :mavericks
+    sha256 "21475a8a26d1f3821b39ef2eb9de78ff2468986f1b8f8d8cf0cfbeb6423dd6f7" => :el_capitan
+    sha256 "7860621b85ca9f842f8f05f8aba4cbe1487af34d6c193270ef03aa0560d3a144" => :yosemite
+    sha256 "2337f777efccccb0f56e8120192f2bd67824876a5242e7213feac2eb58f81321" => :mavericks
   end
 
   depends_on "libmikmod"
