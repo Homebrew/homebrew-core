@@ -7,10 +7,9 @@ class Bam < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "40501301dcb3d0af9ca402535d91b79729a684978299d52f3595274f0385a9a6" => :el_capitan
-    sha256 "832033a89e90b4152690ac9738af8db839f322e79b7169bc8bdf1a866707cf22" => :yosemite
-    sha256 "ba4ee90c3fc9001761bf2c09906c5c3df66c6175d7b763fa3527c3c512c2f2d5" => :mavericks
-    sha256 "73362b46dfe24dc3d6c4bb59bdb9d0403ec717054428f78bc9dd32a93343a187" => :mountain_lion
+    sha256 "bdf84408b791d7e5dca2e0f96cec0aea62f549611a8f6e1c0ea4b8dd8b03d7c0" => :el_capitan
+    sha256 "1d76b73f0b46d0bb9f0ba998128abd1271f79ca5d2016703ac783a55369892e2" => :yosemite
+    sha256 "505d0773336c1820057945fc016af04a1ea8b159d042725f435dd314e0f07f67" => :mavericks
   end
 
   # Fixes "[string "src/tools.lua"]:165: no driver set"; patch is from upstream
