@@ -61,7 +61,8 @@ class Mpv < Formula
     end
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
-    args = ["--prefix=#{prefix}", "--enable-gpl3", "--enable-zsh-comp"]
+    args = ["--prefix=#{prefix}", "--enable-zsh-comp"]
+    args << "--enable-gpl3" if build.stable?
     args << "--enable-libmpv-shared" if build.with? "shared"
 
     waf = resource("waf")
