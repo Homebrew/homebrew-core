@@ -1,8 +1,8 @@
 class Lcm < Formula
   desc "libraries and tools for message passing and data marshalling"
   homepage "https://lcm-proj.github.io/"
-  url "https://github.com/lcm-proj/lcm/releases/download/v1.3.0/lcm-1.3.0.zip"
-  sha256 "23bce19a4a6dc5df444d811f57796e14b4b0d1886cb3c219f90b72f328f2184e"
+  url "https://github.com/lcm-proj/lcm/releases/download/v1.3.1/lcm-1.3.1.zip"
+  sha256 "3fd7c736cf218549dfc1bff1830000ad96f3d8a8d78d166904323b1df573ade1"
 
   bottle do
     sha256 "245403933bda8f5ec66767b8f56c1cf862d19e76dd73ea08dbf70d3843caa638" => :el_capitan
