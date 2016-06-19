@@ -6,6 +6,7 @@ class Multirust < Formula
   url "https://github.com/brson/multirust.git",
     :tag => "0.8.0",
     :revision => "8654d1c07729e961c172425088c451509557ef32"
+  revision 1
 
   head "https://github.com/brson/multirust.git"
 
