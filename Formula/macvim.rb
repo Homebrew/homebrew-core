@@ -18,13 +18,15 @@ class Macvim < Formula
   depends_on "cscope" => :recommended
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
+  depends_on :ruby => "1.6"
+  depends_on :perl => "5.6"
   depends_on :python => :recommended
   depends_on :python3 => :optional
 
   # Help us! We'd like to use superenv in these environments, too
   env :std if MacOS.version <= :snow_leopard
 
-  def language_type language
+  def language_type(language)
     type = if which(language).to_s == "/usr/bin/#{language}"
       "system"
     elsif which(language).to_s == "#{HOMEBREW_PREFIX}/opt/#{language}/bin/#{language}"
