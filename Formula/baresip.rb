@@ -14,6 +14,12 @@ class Baresip < Formula
   depends_on "libre"
 
   def install
+    # baresip doesn't like the 10.11 SDK when on Yosemite
+    if MacOS::Xcode.installed? && MacOS::Xcode.version.to_i >= 7
+      ENV.delete("SDKROOT")
+      ENV.delete("HOMEBREW_SDKROOT") if MacOS::Xcode.without_clt?
+    end
+
     libre = Formula["libre"]
     system "make", "install", "PREFIX=#{prefix}",
                               "LIBRE_MK=#{libre.opt_share}/re/re.mk",
