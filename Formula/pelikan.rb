@@ -1,8 +1,8 @@
 class Pelikan < Formula
   desc "production-ready cache services"
   homepage "http://pelikan.io"
-  url "https://github.com/twitter/pelikan/archive/0.1.1.tar.gz"
-  sha256 "24a84bd9be7bb25da507a355b7ed3a35f7cb2a8c9447092f5acc91ff32f98775"
+  url "https://github.com/twitter/pelikan/archive/0.1.2.tar.gz"
+  sha256 "c105fdab8306f10c1dfa660b4e958ff6f381a5099eabcb15013ba42e4635f824"
   head "https://github.com/twitter/pelikan.git"
 
   bottle do
