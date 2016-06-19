@@ -7,9 +7,9 @@ class Help2man < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4bb6faedcef5f7f902243b262fac4b8ecc700be779bb32a2b387a4a92046c047" => :el_capitan
-    sha256 "a44b9866d1d24730fc09e9a7d9180bf5bca726f71b03e457812a5715dd3179b8" => :yosemite
-    sha256 "2e14f7b80487ebac1c91c87684a0a4ae027208e115ad024bd3a2326dc8ddcd48" => :mavericks
+    sha256 "1ce372ea4da79821e251a867c380232a036569d5e05ab8734ca52bd25b9ff3bb" => :el_capitan
+    sha256 "b52243aae3f9552873d6a0befa2158c116993560719b7aada59dbafb2cdf281d" => :yosemite
+    sha256 "d63079ec5272bb4d5be4c244ffa36af7ddbcb0fd738e2acfb657b8268b932c05" => :mavericks
   end
 
   def install
