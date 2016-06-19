@@ -1,7 +1,6 @@
 class Multirust < Formula
-  homepage "https://github.com/brson/multirust"
   desc "Manage multiple Rust installations"
-
+  homepage "https://github.com/brson/multirust"
   # Use the tag instead of the tarball to get submodules
   url "https://github.com/brson/multirust.git",
     :tag => "0.8.0",
