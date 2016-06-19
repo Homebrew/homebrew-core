@@ -3,6 +3,7 @@ class Git < Formula
   homepage "https://git-scm.com"
   url "https://www.kernel.org/pub/software/scm/git/git-2.9.0.tar.xz"
   sha256 "f41fa97949948fbf49af94a43d779e072a5452c6b5039d86ffa41ebab747b409"
+  revision 1
 
   head "https://github.com/git/git.git", :shallow => false
 
@@ -104,6 +105,9 @@ class Git < Formula
       bin.install "git-credential-osxkeychain"
       system "make", "clean"
     end
+
+    # install diff-highlight
+    bin.install "contrib/diff-highlight/diff-highlight"
 
     # Install git-subtree
     cd "contrib/subtree" do
