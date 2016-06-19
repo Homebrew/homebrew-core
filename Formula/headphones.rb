@@ -1,9 +1,8 @@
 class Headphones < Formula
   desc "Automatic music downloader for SABnzbd"
   homepage "https://github.com/rembo10/headphones"
-  url "https://github.com/rembo10/headphones/archive/v0.5.15.tar.gz"
-  sha256 "f0e4b07f8916b03b442e443bb608c26693b972151fef15ff9e73f58fbbbc671a"
-
+  url "https://github.com/rembo10/headphones/archive/v0.5.16.tar.gz"
+  sha256 "4dc789a48140ec2cfd62905c001397ef73b971dd79cd3cf24cf8b4dd1fe70143"
   head "https://github.com/rembo10/headphones.git"
 
   bottle do
@@ -14,12 +13,12 @@ class Headphones < Formula
   end
 
   resource "Markdown" do
-    url "https://pypi.python.org/packages/source/M/Markdown/Markdown-2.4.tar.gz"
-    sha256 "b8370fce4fbcd6b68b6b36c0fb0f4ec24d6ba37ea22988740f4701536611f1ae"
+    url "https://files.pythonhosted.org/packages/9b/53/4492f2888408a2462fd7f364028b6c708f3ecaa52a028587d7dd729f40b4/Markdown-2.6.6.tar.gz"
+    sha256 "9a292bb40d6d29abac8024887bcfc1159d7a32dc1d6f1f6e8d6d8e293666c504"
   end
 
   resource "Cheetah" do
-    url "https://pypi.python.org/packages/source/C/Cheetah/Cheetah-2.4.4.tar.gz"
+    url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
     sha256 "be308229f0c1e5e5af4f27d7ee06d90bb19e6af3059794e5fd536a6f29a9b550"
   end
 
@@ -71,5 +70,9 @@ class Headphones < Formula
     </dict>
     </plist>
     EOS
+  end
+
+  test do
+    assert_match "Music add-on", shell_output("#{bin}/headphones -h")
   end
 end
