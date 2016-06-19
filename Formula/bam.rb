@@ -1,9 +1,8 @@
 class Bam < Formula
   desc "Build system that uses Lua to describe the build process"
   homepage "https://matricks.github.io/bam/"
-  url "https://github.com/downloads/matricks/bam/bam-0.4.0.tar.gz"
-  sha256 "5e4e4920b4d265da582f66774e9b1ec8ddfbe75ddc028fba86c12f686ea18db3"
-
+  url "https://github.com/matricks/bam/archive/v0.5.0.tar.gz"
+  sha256 "16c0bccb6c5dee62f4381acaa004dd4f7bc9a32c10d0f2a40d83ea7e2ae25998"
   head "https://github.com/matricks/bam.git"
 
   bottle do
@@ -14,6 +13,12 @@ class Bam < Formula
     sha256 "73362b46dfe24dc3d6c4bb59bdb9d0403ec717054428f78bc9dd32a93343a187" => :mountain_lion
   end
 
+  # Fixes "[string "src/tools.lua"]:165: no driver set"; patch is from upstream
+  patch do
+    url "https://github.com/matricks/bam/commit/27b28f09.patch"
+    sha256 "12488633b7feaf486c92427d64a0ebad41ddf5b3195a8d4708e51a8db8c7b7c0"
+  end
+
   def install
     system "./make_unix.sh"
     bin.install "bam"
@@ -22,7 +27,10 @@ class Bam < Formula
   test do
     (testpath/"hello.c").write <<-EOS.undent
       #include <stdio.h>
-      int main(void) { printf("hello\\n"); return 0; }
+      int main() {
+        printf("hello\\n");
+        return 0;
+      }
     EOS
 
     (testpath/"bam.lua").write <<-EOS.undent
@@ -31,7 +39,7 @@ class Bam < Formula
       exe = Link(settings, "hello", objs)
     EOS
 
-    system "bam", "-v"
-    assert_equal "hello\n", shell_output("./hello")
+    system bin/"bam", "-v"
+    assert_equal "hello", shell_output("./hello").chomp
   end
 end
