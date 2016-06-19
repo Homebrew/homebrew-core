@@ -11,7 +11,6 @@ class Mlt < Formula
   end
 
   depends_on "pkg-config" => :build
-
   depends_on "ffmpeg"
   depends_on "frei0r"
   depends_on "libdv"
@@ -21,14 +20,11 @@ class Mlt < Formula
   depends_on "sox"
 
   def install
-    args = ["--prefix=#{prefix}",
-            "--disable-jackrack",
-            "--disable-swfdec",
-            "--disable-gtk",
-            "--enable-gpl"]
-
-    system "./configure", *args
-
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-jackrack",
+                          "--disable-swfdec",
+                          "--disable-gtk",
+                          "--enable-gpl"
     system "make"
     system "make", "install"
   end
