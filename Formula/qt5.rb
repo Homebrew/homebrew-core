@@ -39,6 +39,15 @@ class Qt5 < Formula
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
   end
 
+  # Fix build error due to missing Mac QtBase widget example targets, detected
+  # by logic introduced in <https://codereview.qt-project.org/#/c/156610/> and
+  # corrected in <https://codereview.qt-project.org/#/c/161001/>.
+  # Should land in either 5.6.2 and/or 5.7.1.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6ffd0e250d374193613a51beda8830dda9b67e56/qt5/QTBUG-54110.patch"
+    sha256 "2cf77b820f46f0c404284882b4a4a97bf005b680062842cdc53e107a821deeda"
+  end
+
   keg_only "Qt 5 conflicts Qt 4 (which is currently much more widely used)."
 
   option "with-docs", "Build documentation"
