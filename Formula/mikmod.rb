@@ -1,8 +1,8 @@
 class Mikmod < Formula
   desc "Portable tracked music player"
   homepage "http://mikmod.raphnet.net/"
-  url "https://downloads.sourceforge.net/project/mikmod/mikmod/3.2.6/mikmod-3.2.6.tar.gz"
-  sha256 "04544e0edb36a19fab61233dff97430969cff378a98f5989a1378320550e2673"
+  url "https://downloads.sourceforge.net/project/mikmod/mikmod/3.2.7/mikmod-3.2.7.tar.gz"
+  sha256 "5f398d5a5ccee2ce331036514857ac7e13a5644267a13fb11f5a7209cf709264"
 
   bottle do
     revision 1
