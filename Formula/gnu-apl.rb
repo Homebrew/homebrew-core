@@ -16,10 +16,9 @@ class GnuApl < Formula
   end
 
   bottle do
-    revision 1
-    sha256 "272fc906d7e7889c87e7f2f3a46af194730482c6fc6e8021b06580798694ff91" => :el_capitan
-    sha256 "0a061c8ca10b237d15eddd13acf0bc1007b1b18888eda30cd43beeaa77602979" => :yosemite
-    sha256 "350db093b3749d355147717f3e3209378c32aae2e508e2b54534f002be5fdedd" => :mavericks
+    sha256 "fd46b7642d9bf9012dd2d8dc745131be3e1e49744892c17144bc2a1e90f81134" => :el_capitan
+    sha256 "d05a338bb83638d10d55880310ab62fb5ba2b8265fb52b87839ac7af26058128" => :yosemite
+    sha256 "c6b72b03650f7477351e66b1bed497eea6ba4a439dd131fd48cb903532e16d04" => :mavericks
   end
 
   head do
