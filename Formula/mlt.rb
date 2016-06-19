@@ -1,9 +1,8 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
-  url "https://github.com/mltframework/mlt/archive/v6.0.0.tar.gz"
-  sha256 "34f0cb60eb2e7400e9964de5ee439851b3e51a942206cccc2961fd41b42ee5d2"
-  revision 1
+  url "https://github.com/mltframework/mlt/archive/v6.2.0.tar.gz"
+  sha256 "dd2ee742e89620de78a259790f92a7cadad67f0e0a6c1ea7ed932f96fb739fff"
 
   bottle do
     sha256 "b12a98b91f51fa92d9b170556a1e622bba20a65734ba12eaefb79ed52a0357bd" => :el_capitan
@@ -25,7 +24,8 @@ class Mlt < Formula
     args = ["--prefix=#{prefix}",
             "--disable-jackrack",
             "--disable-swfdec",
-            "--disable-gtk"]
+            "--disable-gtk",
+            "--enable-gpl"]
 
     system "./configure", *args
 
