@@ -1,8 +1,8 @@
 class Lhasa < Formula
   desc "LHA implementation to decompress .lzh and .lzs archives"
   homepage "https://fragglet.github.io/lhasa/"
-  url "https://github.com/fragglet/lhasa/archive/v0.3.0.tar.gz"
-  sha256 "b9baae6508e6028a0cb871be7e4669be508542644382794d88d44744b9efdbe0"
+  url "https://github.com/fragglet/lhasa/archive/v0.3.1.tar.gz"
+  sha256 "ad76d763c7e91f47fde455a1baef4bfb0d1debba424039eabe0140fa8f115c5e"
   head "https://github.com/fragglet/lhasa.git"
 
   bottle do
