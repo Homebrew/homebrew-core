@@ -7,10 +7,9 @@ class Lhasa < Formula
 
   bottle do
     cellar :any
-    sha256 "9bf2cc5224e9cd76854a180c426b0b455cf4c3b148439b496c2e3de2bc0bcc90" => :el_capitan
-    sha256 "e165d272782133234ee3064fcb3dcac1923c3fe5d79891cb181619b6d8e79dde" => :yosemite
-    sha256 "c7c28b850933f06b27a7af32a73a840437663aa334010eb097ecb7f3ff6dd4c1" => :mavericks
-    sha256 "af8aac8f99b3cf42dde5e69d0f18e1e72370cde24b3b00fb1577fd5a99e54489" => :mountain_lion
+    sha256 "0d407f1058853c656a4aef717c1e72ff57472e0622fb344a5ef57c4c9ad8c3ee" => :el_capitan
+    sha256 "afd0b2c24f4e4103c6ab8e918a972fda1b614890fc527bf314cc253e199013ee" => :yosemite
+    sha256 "eecde92149160d0ec03d5b2f88408d67a4bc03b415ed4a78ff12474f6aa965f4" => :mavericks
   end
 
   conflicts_with "lha", :because => "both install a `lha` binary"
