@@ -1,8 +1,8 @@
 class Vapoursynth < Formula
   desc "Video processing framework with simplicity in mind"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R29.tar.gz"
-  sha256 "5a2e37f3a9a5dc60f55a301b222df75a580ccf319b099a3e421e2334ef8cbde6"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R32.tar.gz"
+  sha256 "e9560f64ba298c2ef9e6e3d88f63ea0ab88e14bbd0e9feee9c621b9224e408c8"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
@@ -11,35 +11,35 @@ class Vapoursynth < Formula
     sha256 "90247e7b2a1fa10587512449d822ea548846ee904ffd26a0dace3e7944de61d5" => :mavericks
   end
 
-  # issue with upstream: https://github.com/vapoursynth/vapoursynth/issues/201
-  patch :DATA
-
   needs :cxx11
-  depends_on "pkg-config" => :build
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "yasm" => :build
-  depends_on :python3
 
-  depends_on "zimg"
-  depends_on "tesseract"
   depends_on "libass"
+  depends_on :python3
+  depends_on "tesseract"
+  depends_on "zimg"
 
-  resource "cython" do
-    url "https://pypi.python.org/packages/source/C/Cython/Cython-0.21.2.tar.gz"
-    sha256 "b01af23102143515e6138a4d5e185c2cfa588e0df61c0827de4257bac3393679"
+  resource "Cython" do
+    url "https://files.pythonhosted.org/packages/b1/51/bd5ef7dff3ae02a2c6047aa18d3d06df2fb8a40b00e938e7ea2f75544cac/Cython-0.24.tar.gz"
+    sha256 "6de44d8c482128efc12334641347a9c3e5098d807dd3c69e867fa8f84ec2a3f1"
   end
 
   def install
     version = Language::Python.major_minor_version("python3")
-    ENV.prepend_create_path "PKG_CONFIG_PATH", Pathname.new(`python3-config --prefix`.chomp)/"lib/pkgconfig"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{version}/site-packages"
-    ENV.prepend_create_path "PATH", libexec/"bin"
-    resource("cython").stage do
+    py3_site_packages = libexec/"lib/python#{version}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", py3_site_packages
+
+    resource("Cython").stage do
       system "python3", *Language::Python.setup_install_args(libexec)
     end
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+
+    ENV.prepend_create_path "PATH", libexec/"bin"
 
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
@@ -51,20 +51,3 @@ class Vapoursynth < Formula
     system "python3", "-c", "import vapoursynth"
   end
 end
-
-__END__
-diff --git a/Makefile.am b/Makefile.am
-index 88287a0..dfcaace 100644
---- a/Makefile.am
-+++ b/Makefile.am
-@@ -98,8 +98,8 @@ pyexec_LTLIBRARIES = vapoursynth.la
-
- vapoursynth_la_SOURCES = src/cython/vapoursynth.pyx
- vapoursynth_la_CPPFLAGS = $(PYTHON3_CFLAGS)
--vapoursynth_la_LIBADD = $(PYTHON3_LIBS) libvapoursynth.la
--vapoursynth_la_LDFLAGS = -no-undefined -avoid-version -module
-+vapoursynth_la_LIBADD = libvapoursynth.la
-+vapoursynth_la_LDFLAGS = -undefined dynamic_lookup -avoid-version -module
- vapoursynth_la_LIBTOOLFLAGS = $(commonlibtoolflags)
-
- MOSTLYCLEANFILES = src/cython/vapoursynth.c \
