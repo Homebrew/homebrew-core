@@ -9,9 +9,9 @@ class Nsq < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "91a000705ffecf918ce61962a624e7420fcd241a528d8682acdf44e47791c4fa" => :el_capitan
-    sha256 "eaebbc4585c48399e709c81a83c29f974dcc237efa80e3b2ee42708da3494149" => :yosemite
-    sha256 "cc993cfc69b4104b71536b1d069cf102e7f11b50410395048ca9f1b88ff48c8b" => :mavericks
+    sha256 "a47078542e18ded524af3072f7311175012611dd5f39fbfcc4b42d33e1e96ac7" => :el_capitan
+    sha256 "c1de144a1b744bef456c9ac933e57d6c5dfc0779351955f23e70120cbff3d8de" => :yosemite
+    sha256 "c2429649bf69d28e46d6a616c14dff1231b54791d82e8e847fd361f2907ac0d0" => :mavericks
   end
 
   depends_on "go" => :build
