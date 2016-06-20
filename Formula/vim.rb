@@ -7,8 +7,6 @@ class Vim < Formula
 
   head "https://github.com/vim/vim.git"
 
-  bottle :disable, "To use the user's Python."
-
   deprecated_option "disable-nls" => "without-nls"
   deprecated_option "override-system-vi" => "with-override-system-vi"
 
@@ -18,6 +16,12 @@ class Vim < Formula
 
   LANGUAGES_OPTIONAL = %w[lua mzscheme python3 tcl]
   LANGUAGES_DEFAULT  = %w[perl python ruby]
+
+  if MacOS.version >= :mavericks
+    option "with-custom-python", "Build with a custom Python 2 instead of the Homebrew version."
+    option "with-custom-ruby", "Build with a custom Ruby instead of the system version."
+    option "with-custom-perl", "Build with a custom Perl instead of the system version."
+  end
 
   option "with-python3", "Build vim with python3 instead of python[2] support"
   LANGUAGES_OPTIONAL.each do |language|
@@ -38,21 +42,7 @@ class Vim < Formula
   conflicts_with "ex-vi",
     :because => "vim and ex-vi both install bin/ex and bin/view"
 
-  def language_type language
-    type = if which(language).to_s == "/usr/bin/#{language}"
-      "system"
-    elsif which(language).to_s == "#{HOMEBREW_PREFIX}/opt/#{language}/bin/#{language}"
-      "homebrew"
-    else
-      "custom"
-    end
-    "#{language}: #{type}"
-  end
-
   def install
-    Utils::Analytics.report_event "vim_language_type2",
-      "#{language_type("python")}, #{language_type("ruby")}, #{language_type("perl")}"
-
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
     ENV["LUA_PREFIX"] = HOMEBREW_PREFIX if build.with?("lua") || build.with?("luajit")
