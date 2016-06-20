@@ -3,7 +3,7 @@ require "language/go"
 class JfrogCliGo < Formula
   desc "command-line interface for Jfrog Artifactory and Bintray"
   homepage "https://github.com/JFrogDev/jfrog-cli-go"
-  url "https://github.com/JFrogDev/jfrog-cli-go/archive/#{version}.tar.gz"
+  url "https://github.com/JFrogDev/jfrog-cli-go/archive/1.3.2.tar.gz"
   sha256 "aac1e592d694996f1ff86e68245cd6e470a82ffafb3bd472f76523860023ac80"
 
   bottle do
