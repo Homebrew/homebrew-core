@@ -8,6 +8,12 @@ class Macvim < Formula
 
   head "https://github.com/macvim-dev/macvim.git"
 
+  bottle do
+    sha256 "10bf27b12a73fac2f221984ea48bcaa0891b8d2ce97b9e6919631dc691c2bc9a" => :el_capitan
+    sha256 "1b5aea35ca34d35b87aceb359949cfe362b545efd81a21c7f87e4b358003e581" => :yosemite
+    sha256 "650d35979be9d1a364063dba75f8ae8994ec73f66f50656f3561292bfcfa393a" => :mavericks
+  end
+
   option "with-override-system-vim", "Override system vim"
 
   deprecated_option "override-system-vim" => "with-override-system-vim"
