@@ -171,6 +171,7 @@
   "opencv": "homebrew/science",
   "openfst": "homebrew/science",
   "opengrm-ngram": "homebrew/science",
+  "openwsman": "homebrew/boneyard",
   "ori": "homebrew/fuse",
   "p11-kit": "homebrew/boneyard",
   "pan": "homebrew/boneyard",
