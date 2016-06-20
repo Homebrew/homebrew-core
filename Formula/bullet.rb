@@ -1,8 +1,8 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "http://bulletphysics.org/wordpress/"
-  url "https://github.com/bulletphysics/bullet3/archive/2.83.6.tar.gz"
-  sha256 "dcd5448f31ded71c7bd22fddd7d816ac590ae7b97e1fdda8d1253f8ff3655571"
+  url "https://github.com/bulletphysics/bullet3/archive/2.83.7.tar.gz"
+  sha256 "00d1d8f206ee85ffd171643ac8e72f9f4e0bf6dbf3d4ac55f4495cb168b51243"
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
@@ -16,20 +16,18 @@ class Bullet < Formula
   deprecated_option "framework" => "with-framework"
   deprecated_option "shared" => "with-shared"
   deprecated_option "build-demo" => "with-demo"
-  deprecated_option "build-extra" => "with-extra"
   deprecated_option "double-precision" => "with-double-precision"
 
   option :universal
-  option "with-framework",        "Build Frameworks"
-  option "with-shared",           "Build shared libraries"
-  option "with-demo",             "Build demo applications"
-  option "with-extra",            "Build extra library"
+  option "with-framework", "Build frameworks"
+  option "with-shared", "Build shared libraries"
+  option "with-demo", "Build demo applications"
   option "with-double-precision", "Use double precision"
 
   depends_on "cmake" => :build
 
   def install
-    args = []
+    args = ["-DINSTALL_EXTRA_LIBS=ON"]
 
     if build.with? "framework"
       args << "-DBUILD_SHARED_LIBS=ON" << "-DFRAMEWORK=ON"
@@ -54,12 +52,6 @@ class Bullet < Formula
     end
 
     args << "-DBUILD_BULLET2_DEMOS=OFF" if build.without? "demo"
-
-    if build.with?("extra")
-      args << "-DINSTALL_EXTRA_LIBS=ON"
-    else
-      args << "-DBUILD_EXTRAS=OFF"
-    end
 
     system "cmake", *args
     system "make"
