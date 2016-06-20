@@ -173,6 +173,7 @@
   "openfst": "homebrew/science",
   "opengrm-ngram": "homebrew/science",
   "openwsman": "homebrew/boneyard",
+  "orfeo": "homebrew/boneyard",
   "ori": "homebrew/fuse",
   "p11-kit": "homebrew/boneyard",
   "pan": "homebrew/boneyard",
