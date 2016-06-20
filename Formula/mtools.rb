@@ -1,9 +1,9 @@
 class Mtools < Formula
   desc "Tools for manipulating MSDOS files"
   homepage "https://www.gnu.org/software/mtools/"
-  url "https://ftpmirror.gnu.org/mtools/mtools-4.0.17.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/mtools/mtools-4.0.17.tar.gz"
-  sha256 "8fff9d6a09c700ee0a65b45f2436b96acb32e3c551acb3ff04275d51534cf7da"
+  url "https://ftpmirror.gnu.org/mtools/mtools-4.0.18.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/mtools/mtools-4.0.18.tar.gz"
+  sha256 "30d408d039b4cedcd04fbf824c89b0ff85dcbb6f71f13d2d8d65abb3f58cacc3"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,6 +18,14 @@ class Mtools < Formula
   depends_on :x11 => :optional
 
   def install
+    # Prevents errors such as "mainloop.c:89:15: error: expected ')'"
+    # Upstream issue https://lists.gnu.org/archive/html/info-mtools/2014-02/msg00000.html
+    if ENV.cc == "clang"
+      inreplace "sysincludes.h",
+        "#  define UNUSED(x) x __attribute__ ((unused));x",
+        "#  define UNUSED(x) x"
+    end
+
     args = %W[
       LIBS=-liconv
       --disable-debug
