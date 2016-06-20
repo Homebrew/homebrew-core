@@ -15,6 +15,11 @@ class Ld64 < Formula
 
   depends_on MaximumMacOSRequirement => :snow_leopard
 
+  bottle do
+    sha256 "8a0d5cdd74392a9c3b35b5ac46825e3bab03480ec6af828280322916862eb872" => :snow_leopard
+    sha256 "e8da7e6c25c4966420cb0aaf2b2b144f769b8e974365e102c7afa9b3bda70488" => :leopard
+  end
+
   # Tiger either includes old versions of these headers,
   # or doesn't ship them at all
   depends_on "cctools-headers" => :build
