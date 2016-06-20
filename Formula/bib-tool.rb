@@ -1,8 +1,8 @@
 class BibTool < Formula
   desc "Manipulates BibTeX databases"
   homepage "http://www.gerd-neugebauer.de/software/TeX/BibTool/en/"
-  url "https://github.com/ge-ne/bibtool/archive/BibTool_2_64.tar.gz"
-  sha256 "946b218f04f654e74712eba300a4e21dc62247a92a39b02d85b90dce97a22ff4"
+  url "https://github.com/ge-ne/bibtool/archive/BibTool_2_65.tar.gz"
+  sha256 "d05832a97da4c48a234b898a95d96701406a52fd6e3edc528ff50e658a0cef60"
 
   bottle do
     sha256 "e5768d948fb3075075248ab90d4c97f76f9ae9f45a29f4004e35f1a02f1a3f19" => :el_capitan
