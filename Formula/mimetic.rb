@@ -4,6 +4,13 @@ class Mimetic < Formula
   url "http://www.codesink.org/download/mimetic-0.9.8.tar.gz"
   sha256 "3a07d68d125f5e132949b078c7275d5eb0078dd649079bd510dd12b969096700"
 
+  bottle do
+    cellar :any
+    sha256 "d836b7b260b8705617f0a7e49ad674c0e2428810fa6e8228913253e4e4e2e873" => :el_capitan
+    sha256 "0d3f1d86b2c73efdfad1e3c65e1cb9e0257c75d24cc46133730c2deb0b710319" => :yosemite
+    sha256 "bc076f799788cbb59f7c822d77a5693f7fbd1c11eb5cc3a6388bf11921b2e749" => :mavericks
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
