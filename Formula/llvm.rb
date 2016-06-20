@@ -190,7 +190,7 @@ class Llvm < Formula
 
     (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx
     (buildpath/"tools/lld").install resource("lld") if build.with? "lld"
-    [ "libcxxabi", "libunwind", "openmp" ].each do |r|
+    ["libcxxabi", "libunwind", "openmp"].each do |r|
       (buildpath/"projects"/r).install resource(r) if build.with? r
     end
 
