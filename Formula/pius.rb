@@ -3,6 +3,8 @@ class Pius < Formula
   homepage "https://www.phildev.net/pius/"
   url "https://github.com/jaymzh/pius/archive/v2.2.2.tar.gz"
   sha256 "2a3a7f1c4ecaa7df46fa7c791387f2de5ef377a8f769fc325ba067d225ebfc79"
+  revision 1
+
   head "https://github.com/jaymzh/pius.git"
 
   bottle do
@@ -16,19 +18,17 @@ class Pius < Formula
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    # Replace hardcoded gpg path (WONTFIX):
-    # https://sourceforge.net/p/pgpius/bugs/12/
-    # According to the author, the next version of pius should ONLY support gpg2
-    # at which point we should change this to point to gpg2.  See discussion at:
-    # https://github.com/Homebrew/homebrew/pull/44756/files#r41721585
-    inreplace "libpius/constants.py", %r{/usr/bin/gpg2?}, "#{HOMEBREW_PREFIX}/bin/gpg"
+
+    # Note: Upstream are planning to remove gpg1.x support in future.
+    gpg = which("gpg2") || which("gpg")
+    inreplace "libpius/constants.py", %r{/usr/bin/gpg2?}, gpg
     system "python", *Language::Python.setup_install_args(libexec)
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   def caveats; <<-EOS.undent
-    The path to gpg is hardcoded in pius as #{HOMEBREW_PREFIX}/bin/gpg.
+    The path to gpg is hardcoded in pius at compile time.
     You can specify a different path by editing ~/.pius:
       gpg-path=/path/to/gpg
     EOS
