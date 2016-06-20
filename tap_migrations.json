@@ -197,6 +197,7 @@
   "prooftree": "homebrew/gui",
   "pulse": "homebrew/boneyard",
   "pyenv-pip-rehash": "homebrew/boneyard",
+  "pylucene": "homebrew/boneyard",
   "pyxplot": "homebrew/x11",
   "qfits": "homebrew/boneyard",
   "qi": "homebrew/boneyard",
