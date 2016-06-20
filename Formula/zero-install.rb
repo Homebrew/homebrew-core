@@ -1,8 +1,17 @@
 class ZeroInstall < Formula
   desc "Zero Install is a decentralised software installation system"
   homepage "http://0install.net/"
-  url "https://downloads.sf.net/project/zero-install/0install/2.8/0install-2.8.tar.bz2"
-  sha256 "12de771be748bce9350c90bc4720029a566b078ceabd335af09386ac6a37df2b"
+  # This is a fairly nasty hack to avoid backporting 10k+ lines of
+  # changes in patch format. It should be reverted to use the SF tarball
+  # as pointed to on the upstream website on next release.
+  # One of the resources, lwt, was updated in an incompatible way,
+  # but the older versions of lwt no longer support the ocaml Homebrew
+  # ships since May 5th 2016. Upstream pushed changes to fix this
+  # but those haven't made it into a stable release yet.
+  # There's also a build fix for Ocaml 4.03.0 not in latest release.
+  url "https://github.com/0install/0install.git",
+      :revision => "5ec4a9f55ba8e38b60cceeef5da982847395928c"
+  version "2.11"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,77 +23,75 @@ class ZeroInstall < Formula
 
   depends_on "pkg-config" => :build
   depends_on "ocaml" => :build
+  depends_on "ocamlbuild" => :build
   depends_on "opam" => :build
+  depends_on "camlp4" => :build
   depends_on "gtk+" => :optional
   depends_on :gpg
 
-  # 0install.2.8 resources from https://github.com/ocaml/opam-repository.git
-
   resource "easy-format" do # [required by yojson]
-    url "https://opam.ocaml.org/archives/easy-format.1.0.2+opam.tar.gz"
-    sha256 "c2a04ab1084bc5ce1ec52a3aa320c825c22f8be527fb5f82d920a9d92a673cd3"
+    url "https://github.com/mjambon/easy-format/archive/v1.2.0.tar.gz"
+    sha256 "a288fabcdc19c2262e76cf93e0fd987fe1b21493edd13309522fbae405329ffd"
   end
 
   resource "biniou" do # [required by yojson]
-    url "https://opam.ocaml.org/archives/biniou.1.0.9+opam.tar.gz"
-    sha256 "08e6a17a19fbe5e9da4c77d1e8c1bb05333f84ec8a634721a39c6c505ce51e0d"
+    url "http://mjambon.com/releases/biniou/biniou-1.0.9.tar.gz"
+    sha256 "eb47c48f61b169e652629e7f2ee582dfd5965e640ee51bf28fab63b960864392"
   end
 
   resource "cppo" do # [required by yojson]
-    url "https://opam.ocaml.org/archives/cppo.1.1.2+opam.tar.gz"
-    sha256 "8341d5a37d9e9351c1a46bf4d0843bff4fe1690b6329c28f8f41ca3dd189252a"
+    url "https://github.com/mjambon/cppo/archive/v1.3.2.tar.gz"
+    sha256 "c49e3080b3326466c7ddd97100c63bd568301802b3e48cebea3406e1ca76ebc8"
   end
 
   resource "yojson" do
-    url "https://opam.ocaml.org/archives/yojson.1.1.8+opam.tar.gz"
-    sha256 "20ce2c2f752b49695468b0bf66f17cf20219d7bca5a0b71a3fb89af500fb52f1"
+    url "https://github.com/mjambon/yojson/archive/v1.3.2.tar.gz"
+    sha256 "eff510621efd6dcfb86b65eaf1d4d6f3b9b680143d88e652b6f14072523a2351"
   end
 
   resource "xmlm" do
-    url "https://opam.ocaml.org/archives/xmlm.1.2.0+opam.tar.gz"
-    sha256 "a73af14cb2771247311e9130cbf7d10d66970f4725359db0923c92106ba94457"
+    url "http://erratique.ch/software/xmlm/releases/xmlm-1.2.0.tbz"
+    sha256 "d012018af5d1948f65404e1cc811ae0eab563b23006416f79b6ffc627966dccb"
   end
 
   resource "ounit" do
-    url "https://opam.ocaml.org/archives/ounit.2.0.0+opam.tar.gz"
-    sha256 "5a26c6404d9c8701f5a7510a985963f4eae003d58ae5fc3d9b7f1a862e91de71"
+    url "https://forge.ocamlcore.org/frs/download.php/1258/ounit-2.0.0.tar.gz"
+    sha256 "4d4a05b20c39c60d7486fb7a90eb4c5c08e8c9862360b5938b97a09e9bd21d85"
   end
 
   resource "react" do
-    url "https://opam.ocaml.org/archives/react.1.2.0+opam.tar.gz"
-    sha256 "51cab5941511220cd3f51b04cbab58ed34409bf9ec78dfed7611ab169f294499"
+    url "http://erratique.ch/software/react/releases/react-1.2.0.tbz"
+    sha256 "887aaea9191870bc0f37f945c02ec4c90497d949cd4dedc3d565c3fbec7ad04e"
   end
 
   resource "ppx_tools" do # [required by lwt]
-    url "https://opam.ocaml.org/archives/ppx_tools.0.99.2+opam.tar.gz"
-    sha256 "0c5b9802de2005b55717ac78bffcead1ee11dd28f91fb32f7e3518a7d7d8c48a"
+    url "https://github.com/alainfrisch/ppx_tools/archive/5.0+4.03.0.tar.gz"
+    sha256 "2cd990ef36145c35b0fd2cfaadc379cf032dd0987c07bea094d4437277d573e5"
   end
 
   resource "lwt" do
-    url "https://opam.ocaml.org/archives/lwt.2.4.6+opam.tar.gz"
-    sha256 "f0d814e04e4447322b592ee38b2bb634287bc6142c195381da39e28d4a0e9071"
+    url "https://github.com/ocsigen/lwt/archive/2.5.2.tar.gz"
+    sha256 "b319514cf51656780a8f609a63ead08d3052a442546b218530ce146d37bf6331"
   end
 
   resource "extlib" do
-    url "https://opam.ocaml.org/archives/extlib.1.6.1+opam.tar.gz"
-    sha256 "c76176916c39d4ccae82a34c33e694652c0c55d79eec8830dfddadb580b53773"
+    url "https://github.com/ygrek/ocaml-extlib/archive/1.7.0.tar.gz"
+    sha256 "3c9fd159a4ec401559905f96e578317a4933452ced9a7f3a4f89f9c7130d9a63"
   end
 
   resource "ocurl" do
-    url "https://opam.ocaml.org/archives/ocurl.0.7.2+opam.tar.gz"
-    sha256 "669c5142b7f4002521468b75ee254b269f0094c9a22d3381e94a440a6aa2d400"
+    url "http://ygrek.org.ua/p/release/ocurl/ocurl-0.7.7.tar.gz"
+    sha256 "79805776f207ae8e64d63cda63d0bf8c6ee079c70b0d7f3bd2114faba0d5f41c"
   end
 
-  if build.with? "gtk+"
-    resource "lablgtk" do
-      url "https://opam.ocaml.org/archives/lablgtk.2.18.3+opam.tar.gz"
-      sha256 "f0b7ed0bd85f6cf4b4c5f81966f03763e76bb9f866f5172511ce48cf31fd433c"
-    end
+  resource "lablgtk" do
+    url "https://forge.ocamlcore.org/frs/download.php/1602/lablgtk-2.18.4.tar.gz"
+    sha256 "b316ae0b92e760c1ab0d1bdeaa0a3c2a6ab14face5a0fe2b93445be3a3d013c0"
   end
 
   resource "sha" do
-    url "https://opam.ocaml.org/archives/sha.1.9+opam.tar.gz"
-    sha256 "d3cfda4cd6f79b01c6613219baa3e8548365c309952168b3539e0edce9370b40"
+    url "https://github.com/vincenthz/ocaml-sha/archive/ocaml-sha-v1.9.tar.gz"
+    sha256 "caa1dd9071c2c56ca180061bb8e1824ac3b5e83de8ec4ed197275006c2a088d0"
   end
 
   def install
@@ -95,6 +102,9 @@ class ZeroInstall < Formula
     archives = opamroot/"repo/default/archives"
     modules = []
     resources.each do |r|
+      if build.without? "gtk+"
+        next if r.name == "lablgtk"
+      end
       r.verify_download_integrity(r.fetch)
       original_name = File.basename(r.url)
       cp r.cached_download, archives/original_name
