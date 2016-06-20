@@ -1,23 +1,19 @@
+require "language/node"
+
 class Jsdoc3 < Formula
-  desc "Inline API documentation processor for JavaScript"
+  desc "API documentation generator for JavaScript"
   homepage "http://usejsdoc.org/"
-  url "https://github.com/jsdoc3/jsdoc/archive/v3.2.2.tar.gz"
-  sha256 "c101896d2cf08be636332a5eaaf38fe318ae7f639c37735abd1643b1b973254b"
+  url "https://registry.npmjs.org/jsdoc/-/jsdoc-3.4.0.tgz"
+  sha256 "5c6955f86b67a5ecc5eaf71d7dd064f5b4ab94170f66caa27845f5594eb5cc56"
   head "https://github.com/jsdoc3/jsdoc.git"
 
-  devel do
-    url "https://github.com/jsdoc3/jsdoc/archive/3.3.0-beta3.tar.gz"
-    sha256 "de32d538a5eb1835fdafbb686cdab7ea80ad64b3651a0b85904766c2f5e94b44"
-    version "3.3.0-alpha13"
-  end
-
-  bottle :unneeded
+  depends_on "node"
 
   conflicts_with "jsdoc-toolkit", :because => "both install jsdoc"
 
   def install
-    libexec.install Dir["*"]
-    bin.install_symlink libexec/"jsdoc"
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
@@ -31,6 +27,6 @@ class Jsdoc3 < Formula
       function Formula(name, version) {}
     EOS
 
-    system "#{bin}/jsdoc", "--verbose", "test.js"
+    system bin/"jsdoc", "--verbose", "test.js"
   end
 end
