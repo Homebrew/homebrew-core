@@ -29,6 +29,23 @@ class Pass < Formula
   end
 
   test do
-    system "#{bin}/pass", "--version"
+    # Note that test do is always in temporary path, with HOME captured,
+    # so this doesn't interfere with a user's pre-existing keychain.
+    (testpath/"batchgpg").write <<-EOS.undent
+    Key-Type: RSA
+    Key-Length: 2048
+    Subkey-Type: RSA
+    Subkey-Length: 2048
+    Name-Real: Testing
+    Name-Email: testing@foo.bar
+    Expire-Date: 1d
+    Passphrase: brew
+    %commit
+    EOS
+    system "gpg2", "--batch", "--gen-key", "batchgpg"
+
+    system bin/"pass", "init", "Testing"
+    system bin/"pass", "generate", "Email/testing@foo.bar", "15"
+    assert File.exist?(".password-store/Email/testing@foo.bar.gpg")
   end
 end
