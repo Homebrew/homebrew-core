@@ -7,8 +7,9 @@ class Urweb < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl"
   depends_on "mlton" => :build
+  depends_on "openssl"
+  depends_on "gmp"
   depends_on :postgresql => :optional
   depends_on :mysql => :optional
 
