@@ -3,6 +3,8 @@ class Passpie < Formula
   homepage "https://github.com/marcwebbie/passpie"
   url "https://files.pythonhosted.org/packages/6b/d1/e198766fee560af7d6568f213209c7f377376edaa326a7d5802ef5262aa5/passpie-1.4.3.tar.gz"
   sha256 "c6778a65fd7c1e00be94cc39a0468f04509d0c14b3686a1788f2012917b1d2fc"
+  revision 1
+
   head "https://github.com/marcwebbie/passpie.git"
 
   bottle do
