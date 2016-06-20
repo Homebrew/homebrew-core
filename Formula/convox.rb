@@ -1,12 +1,16 @@
 class Convox < Formula
   desc "The convox AWS PaaS CLI tool"
   homepage "https://convox.com/"
-  url "https://bin.equinox.io/a/9RUvivxx6Lm/convox-20160606232025-darwin-amd64.tar.gz"
-  version "20160606232025"
-  sha256 "ad9c6cee12b8b34096ee7ce85cd980a5b1784cc05e02df8e1be1ef3ce86a684d"
+  url "https://github.com/convox/rack/archive/20160615213630.tar.gz"
+  version "20160615213630"
+  sha256 "f09b6adda368d67efa87b097299d9cdae1852d1a0c255f6740ff990f0064d937"
+
+  depends_on "go" => :build
 
   def install
-    bin.install "convox"
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/convox/rack").install Dir["*"]
+    system "go", "build", "-o", "#{bin}/convox", "-v", "github.com/convox/rack/cmd/convox"
   end
 
   test do
