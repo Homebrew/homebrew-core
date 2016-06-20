@@ -136,14 +136,15 @@ class Llvm < Formula
   option "with-libunwind", "Build the libunwind library"
   option "without-lld", "Do not build LLD linker"
   option "with-lldb", "Build LLDB debugger"
-  option "with-openmp", "Build additional OpenMP Runtime Libraries"
+  option "without-openmp", "Build without the additional OpenMP Runtime Libraries"
   option "with-python", "Build Python bindings against Homebrew Python"
   option "without-rtti", "Build without C++ RTTI"
   option "without-utils", "Do not install utility binaries"
   option "without-polly", "Build without Polly optimizer"
   option "with-test", "Build LLVM unit tests"
-  option "with-shared-libs", "Build all libs as shared instead of static (for developers)"
+  option "with-shared-libs", "Build shared instead of static libraries"
   option "without-libffi", "Use libffi to call external functions from the interpreter"
+  option "with-all-targets", "Build all targets rather than just AMDGPU, ARM, NVPTX, and X86"
 
   depends_on "libffi" => :recommended # llvm.org/docs/GettingStarted.grml#requirements
   depends_on "graphviz" => :optional # for the 'dot' tool (lldb)
@@ -172,9 +173,8 @@ class Llvm < Formula
     fails_with :gcc => n
   end
 
-  def
-  build_libcxx
-    (build.with?("libcxx") || build.with?("clang") && !MacOS::CLT.installed?)
+  def build_libcxx
+    build.with?("libcxx") || (build.with?("clang") && !MacOS::CLT.installed?)
   end
 
   def install
@@ -190,9 +190,9 @@ class Llvm < Formula
 
     (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx
     (buildpath/"tools/lld").install resource("lld") if build.with? "lld"
-    (buildpath/"projects/libcxxabi").install resource("libcxxabi") if build.with? "libcxxabi"
-    (buildpath/"projects/libunwind").install resource("libunwind") if build.with? "libunwind"
-    (buildpath/"projects/openmp").install resource("openmp") if build.with? "openmp"
+    [ "libcxxabi", "libunwind", "openmp" ].each do |r|
+      (buildpath/"projects"/r).install resource(r) if build.with? r
+    end
 
     if build.with? "lldb"
       odie "--with-lldb requires --with-clang" if build.without? "clang"
@@ -227,34 +227,31 @@ class Llvm < Formula
     end
 
     args = %w[
-      -DLLVM_OPTIMIZED_TABLEGEN=On
-      -DLLVM_BUILD_LLVM_DYLIB=On
-      -DLLVM_TARGETS_TO_BUILD=AMDGPU;ARM;NVPTX;X86
+      -DLLVM_OPTIMIZED_TABLEGEN=ON
     ]
-
-    args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=On" if build.with? "compiler-rt"
+    args << "-DLLVM_TARGETS_TO_BUILD=#{build.with?("all-targets") ? "all" : "AMDGPU;ARM;NVPTX;X86"}"
+    args << "-DLLVM_BUILD_LLVM_DYLIB=ON" if build.without? "shared-libs"
+    args << "-DBUILD_SHARED_LIBS=ON" if build.with? "shared-libs"
+    args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if build.with? "compiler-rt"
     if build.with? "test"
-      args << "-DLLVM_BUILD_TESTS=On"
-      args << "-DLLVM_ABI_BREAKING_CHECKS=On"
+      args << "-DLLVM_BUILD_TESTS=ON"
+      args << "-DLLVM_ABI_BREAKING_CHECKS=ON"
     end
-    args << "-DLLVM_ENABLE_RTTI=On" if build.with? "rtti"
-    args << "-DLLVM_INSTALL_UTILS=On" if build.with? "utils"
-    if build_libcxx
-      args << "-DLLVM_ENABLE_LIBCXX=On"
-    end
-    args << "-DLLVM_ENABLE_LIBCXXABI=On" if build.with? "libcxxabi"
-   # args << "-DLLVM_ENABLE_DOXYGEN=On" if build.with? "doxygen"
-    args << "-DBUILD_SHARED_LIBS=On" if build.with? "shared-libs" # for developers
+    args << "-DLLVM_ENABLE_RTTI=ON" if build.with? "rtti"
+    args << "-DLLVM_INSTALL_UTILS=ON" if build.with? "utils"
+    args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx
+    args << "-DLLVM_ENABLE_LIBCXXABI=ON" if build.with? "libcxxabi"
+    # args << "-DLLVM_ENABLE_DOXYGEN=ON" if build.with? "doxygen"
 
     if build.with? "openmp"
-      args << "-DLIBOMP_ENABLE_SHARED=On" if build.with? "shared-libs"
+      args << "-DLIBOMP_ENABLE_SHARED=ON" if build.with? "shared-libs"
       args << "-DLIBOMP_ARCH=x86_64"
     end
 
     if build.with? "libffi"
-      args << "-DLLVM_ENABLE_FFI=On"
-      args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].lib}/libffi-#{Formula["libffi"].version}/include"
-      args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].lib}"
+      args << "-DLLVM_ENABLE_FFI=ON"
+      args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include"
+      args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
     end
 
     if build.universal?
@@ -263,8 +260,8 @@ class Llvm < Formula
     end
 
     if build.with? "polly"
-      args << "-DWITH_POLLY=On"
-      args << "-DLINK_POLLY_INTO_TOOLS=On"
+      args << "-DWITH_POLLY=ON"
+      args << "-DLINK_POLLY_INTO_TOOLS=ON"
     end
 
     mktemp do
@@ -292,19 +289,19 @@ class Llvm < Formula
   end
 
   def caveats
-    caveat_message = <<-EOS.undent
+    s = <<-EOS.undent
       LLVM executables are installed in #{opt_bin}.
       Extra tools are installed in #{opt_pkgshare}.
     EOS
 
     if build.with? "libcxx"
-      caveat_message += <<-EOS.undent
+      s += <<-EOS.undent
         To use the bundled libc++ please add the following LDFLAGS:
           LDFLAGS="-L#{opt_lib} -lc++"
       EOS
     end
 
-    caveat_message
+    s
   end
 
   test do
