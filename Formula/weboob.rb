@@ -3,6 +3,8 @@ class Weboob < Formula
   homepage "http://weboob.org/"
   url "https://symlink.me/attachments/download/324/weboob-1.1.tar.gz"
   sha256 "cbc0d8a88e402ec71a79f0cf09594fd3a969122111f5cd695f4a4ca67961661c"
+  revision 1
+
   head "https://git.symlink.me/pub/weboob/stable.git"
 
   bottle do
@@ -15,8 +17,8 @@ class Weboob < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libyaml"
-  depends_on :gpg
   depends_on "pyqt"
+  depends_on :gpg => :run
 
   resource "termcolor" do
     url "https://pypi.python.org/packages/source/t/termcolor/termcolor-1.1.0.tar.gz"
@@ -54,7 +56,7 @@ class Weboob < Formula
   end
 
   test do
-    system "#{bin}/weboob-config", "update"
-    system "#{bin}/weboob-config", "applications"
+    system bin/"weboob-config", "update"
+    system bin/"weboob-config", "applications"
   end
 end
