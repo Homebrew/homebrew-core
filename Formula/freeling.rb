@@ -1,9 +1,9 @@
 class Freeling < Formula
   desc "Suite of language analyzers"
   homepage "http://nlp.lsi.upc.edu/freeling/"
-  url "http://devel.cpl.upc.edu/freeling/downloads/32"
-  version "3.1"
-  sha256 "e98471ceb3f58afbe70369584d8d316323d13fcc51d09b2fd7f431a3220982ba"
+  url "https://github.com/TALP-UPC/FreeLing/releases/download/4.0/FreeLing-4.0.tar.gz"
+  version "4.0"
+  sha256 "c79d21c5af215105ba16eb69ee75b589bf7d41abce86feaa40757513e33c6ecf"
   revision 8
 
   bottle do
@@ -13,6 +13,8 @@ class Freeling < Formula
     sha256 "2ce0f9a11180f73f40a2bd42b8528713fc38d255d248ec58ae4b07203275e5f2" => :mavericks
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "boost" => "with-icu4c"
   depends_on "icu4c"
@@ -27,6 +29,7 @@ class Freeling < Formula
     ENV.append "CPPFLAGS", "-I#{libtool.include}"
     ENV.append "CPPFLAGS", "-I#{icu4c.include}"
 
+    system "autoreconf", "--install"
     system "./configure", "--prefix=#{prefix}", "--enable-boost-locale"
     system "make", "install"
 
