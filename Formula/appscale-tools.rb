@@ -1,8 +1,8 @@
 class AppscaleTools < Formula
   desc "Command-line tools for working with AppScale"
   homepage "https://github.com/AppScale/appscale-tools"
-  url "https://github.com/AppScale/appscale-tools/archive/2.8.0.tar.gz"
-  sha256 "f77d50e850d7930ebd91c494b549e54d392953a831a5cb4e4e21c7c30a486217"
+  url "https://github.com/AppScale/appscale-tools/archive/2.9.0.tar.gz"
+  sha256 "3b70656a377481ffae05bff2ec01fff5967f0ae83b92434f09dbd8c15cd2446f"
   head "https://github.com/AppScale/appscale-tools.git"
 
   bottle do
@@ -102,8 +102,12 @@ class AppscaleTools < Formula
       end
     end
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    site_packages = libexec/"lib/python2.7/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", site_packages
     system "python", *Language::Python.setup_install_args(libexec)
+
+    # appscale is a namespace package
+    touch site_packages/"appscale/__init__.py"
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
