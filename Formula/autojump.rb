@@ -1,8 +1,8 @@
 class Autojump < Formula
   desc "Shell extension to jump to frequently used directories"
   homepage "https://github.com/wting/autojump"
-  url "https://github.com/wting/autojump/archive/release-v22.3.0.tar.gz"
-  sha256 "800f444b820b3a985e1da2d183fb5e2e23753a2ade53d6e1195678c650379a03"
+  url "https://github.com/wting/autojump/archive/release-v22.3.1.tar.gz"
+  sha256 "e093d38bf247ba09a8a3bbc4f4f2710a23810022ce952d4461dacd4b74dfca93"
 
   head "https://github.com/wting/autojump.git"
 
@@ -35,14 +35,14 @@ class Autojump < Formula
   end
 
   test do
-    path = testpath/"foo"
-    path.mkdir
+    path = testpath/"foo/bar"
+    path.mkpath
     output = %x(
       source #{HOMEBREW_PREFIX}/etc/profile.d/autojump.sh
-      j -a foo
+      j -a "#{path.relative_path_from(testpath)}"
       j foo >/dev/null
       pwd
     ).strip
-    assert_equal path.to_s, output
+    assert_equal path.realpath.to_s, output
   end
 end
