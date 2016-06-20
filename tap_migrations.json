@@ -164,6 +164,7 @@
   "nant": "homebrew/boneyard",
   "net6": "homebrew/boneyard",
   "newick-utils": "homebrew/science",
+  "ninja-ide": "homebrew/boneyard",
   "ngrok": "homebrew/boneyard",
   "nlopt": "homebrew/science",
   "ntfs-3g": "homebrew/fuse",
