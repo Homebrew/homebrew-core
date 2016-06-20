@@ -13,12 +13,16 @@ class Urweb < Formula
   depends_on :mysql => :optional
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--with-openssl=/usr/local/opt/openssl",
-                          "--prefix=#{prefix}"
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --prefix=#{prefix}
+      SITELISP=$prefix/share/emacs/site-lisp/urweb
+    ]
 
+    system "./configure", *args
     system "make", "install"
   end
 
