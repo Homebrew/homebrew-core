@@ -8,8 +8,6 @@ class Macvim < Formula
 
   head "https://github.com/macvim-dev/macvim.git"
 
-  bottle :disable, "To use the user's Python."
-
   option "with-override-system-vim", "Override system vim"
 
   deprecated_option "override-system-vim" => "with-override-system-vim"
@@ -18,27 +16,18 @@ class Macvim < Formula
   depends_on "cscope" => :recommended
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
+
+  if MacOS.version >= :mavericks
+    option "with-custom-python", "Build with a custom Python 2 instead of the Homebrew version."
+  end
+
   depends_on :python => :recommended
   depends_on :python3 => :optional
 
   # Help us! We'd like to use superenv in these environments, too
   env :std if MacOS.version <= :snow_leopard
 
-  def language_type language
-    type = if which(language).to_s == "/usr/bin/#{language}"
-      "system"
-    elsif which(language).to_s == "#{HOMEBREW_PREFIX}/opt/#{language}/bin/#{language}"
-      "homebrew"
-    else
-      "custom"
-    end
-    "#{language}: #{type}"
-  end
-
   def install
-    Utils::Analytics.report_event "macvim_language_type2",
-      "#{language_type("python")}, #{language_type("ruby")}, #{language_type("perl")}"
-
     # MacVim doesn't have or require any Python package, so unset PYTHONPATH
     ENV.delete("PYTHONPATH")
 
