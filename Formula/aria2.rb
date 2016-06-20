@@ -1,8 +1,8 @@
 class Aria2 < Formula
   desc "Download with resuming and segmented downloading"
   homepage "https://aria2.github.io/"
-  url "https://github.com/aria2/aria2/releases/download/release-1.23.0/aria2-1.23.0.tar.xz"
-  sha256 "585185866415bf1120e4bf0a484e7dfec2e9e7c5305023b15ad0f66f90391f93"
+  url "https://github.com/aria2/aria2/releases/download/release-1.24.0/aria2-1.24.0.tar.xz"
+  sha256 "35a496d2704ffb07e0b0dcac16c6d9b2854327967f984218517403d187f7bf37"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +15,12 @@ class Aria2 < Formula
   depends_on "libssh2" => :optional
 
   needs :cxx11
+
+  # Fix compile error on OS X
+  patch do
+    url "https://github.com/aria2/aria2/commit/1e59e357af626edc870b7f53c1ae8083658d0d1a.diff"
+    sha256 "05c78b58cc78ba6b766da96cac42e3c87051561af7309fb19881a43f30ce6951"
+  end
 
   def install
     args = %W[
