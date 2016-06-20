@@ -6,10 +6,9 @@ class Sshguard < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "abce8fa2ed4290871d433a22b539a89bb96d9e3797c55dc4a0f85314758b3af0" => :el_capitan
-    sha256 "d1939f763079959ce9bd3c49db2b56b0cb2dac3206c33c6c69ff14d07407790b" => :yosemite
-    sha256 "0ab30d0a677d360f02ead6c98f510bd86ddbd9a693c63f87e6a5e7c79e830474" => :mavericks
-    sha256 "2c115efec5b401a9c3463b830031db885db06b6bb432d29c81db4a0596de28bd" => :mountain_lion
+    sha256 "cd2a21d2b45af181adc43f52a7be536e776c635f2f0ae9e24625a54ce00883fe" => :el_capitan
+    sha256 "3a6ac732f48047afb5ebc169d7b24b33439a9b87ed7c8eb3686c3a8cf595b6b0" => :yosemite
+    sha256 "535afed1333998dd1b80eb8a2d3da16a5fee41e8d18fa47e55ec8f8b13e239b3" => :mavericks
   end
 
   depends_on "automake" => :build
