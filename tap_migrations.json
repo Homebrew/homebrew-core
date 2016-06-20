@@ -263,6 +263,7 @@
   "vcodex": "homebrew/boneyard",
   "viewglob": "homebrew/boneyard",
   "visualnetkit": "homebrew/boneyard",
+  "vmalloc": "homebrew/boneyard",
   "vobcopy": "homebrew/boneyard",
   "wdfs": "homebrew/fuse",
   "whereami": "homebrew/boneyard",
