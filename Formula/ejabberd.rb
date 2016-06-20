@@ -3,13 +3,13 @@ class Ejabberd < Formula
   homepage "https://www.ejabberd.im"
 
   stable do
-    url "https://www.process-one.net/downloads/ejabberd/16.01/ejabberd-16.01.tgz"
-    sha256 "e2cc479d5870539b2e6756690b227969c88a541d464d1fc6e1cbf7270ad7d681"
+    url "https://www.process-one.net/downloads/ejabberd/16.04/ejabberd-16.04.tgz"
+    sha256 "3d964fe74e438253c64c8498eb7465d2440823614a23df8d33bdf40126d72cc3"
 
     resource "lager" do
       url "https://github.com/basho/lager.git",
-          :tag => "3.0.2",
-          :revision => "599dda6786a81200e00b3d9b4b36951e052727a3"
+          :tag => "3.2.1",
+          :revision => "8187757388c9adc915379caaab36a2f2ca26e944"
     end
 
     resource "p1_logger" do
@@ -20,14 +20,14 @@ class Ejabberd < Formula
 
     resource "p1_utils" do
       url "https://github.com/processone/p1_utils.git",
-          :tag => "1.0.2",
-          :revision => "e6779f1ee7a0841da08a063930d7ea51c2be4203"
+          :tag => "1.0.4",
+          :revision => "e8d35fa5accd9a748bb8ac4942edcfa45be09ec3"
     end
 
     resource "cache_tab" do
       url "https://github.com/processone/cache_tab.git",
-          :tag => "1.0.1",
-          :revision => "26caea06c72c2117ca54d04beedb5b49a45af1a8"
+          :tag => "1.0.2",
+          :revision => "aeb255793d1ca48a147d8b5f22c3bc09ddb6ba87"
     end
 
     resource "p1_tls" do
@@ -38,43 +38,43 @@ class Ejabberd < Formula
 
     resource "p1_stringprep" do
       url "https://github.com/processone/stringprep.git",
-          :tag => "1.0.0",
-          :revision => "7315a75360547cd6458b144a65ede64b44c6193d"
+          :tag => "1.0.3",
+          :revision => "5005ecbe503ae8b55d3ee81dc4e4db1193c216e2"
     end
 
     resource "p1_xml" do
       url "https://github.com/processone/xml.git",
-          :tag => "1.1.1",
-          :revision => "1190214326c70101db26809b61c2d30133c940b1"
+          :tag => "1.1.2",
+          :revision => "79c6d54e56bf991f1ec70ceb5e255afcb8dbf53f"
     end
 
     resource "p1_stun" do
       url "https://github.com/processone/stun.git",
-          :tag => "0.9.0",
-          :revision => "ab418dfb11bd9b37d6f7501420f32384729fecd7"
+          :tag => "1.0.3",
+          :revision => "653943e6d0cc0f4803a9c3f014955f02f7b96bcd"
     end
 
     resource "esip" do
       url "https://github.com/processone/p1_sip.git",
-          :tag => "1.0.0",
-          :revision => "ff3cc9fa2f9ea96f47e6b5b60a04da90889a5626"
+          :tag => "1.0.1",
+          :revision => "3bcccd4dfe705cb90f205887f749b1c5195fcad1"
     end
 
     resource "p1_yaml" do
       url "https://github.com/processone/p1_yaml.git",
-          :tag => "1.0.0",
-          :revision => "753f99c39200705bb7ccb6f38f7f10aeb45c0ea4"
+          :tag => "1.0.1",
+          :revision => "9109a7c4c18713999d0dc3a960d6d55c6f62b386"
     end
 
     resource "jiffy" do
       url "https://github.com/davisp/jiffy.git",
-          :tag => "0.14.5",
-          :revision => "e43ea64ae0d227af5dd003132234cdf4494d781d"
+          :tag => "0.14.8",
+          :revision => "1febce3ca86c5ca5d5a3618ed3d5f125bb99e4c5"
     end
 
     resource "oauth2" do
       url "https://github.com/kivra/oauth2.git",
-          :revision => "8d129fbf8866930b4ffa6dd84e65bd2b32b9acb8"
+          :revision => "218c963d387fafa16495bd50d62089b18fd28662"
     end
 
     resource "xmlrpc" do
@@ -97,7 +97,7 @@ class Ejabberd < Formula
 
     resource "sqlite3" do
       url "https://github.com/alexeyr/erlang-sqlite3.git",
-          :revision => "cbc3505f7a131254265d3ef56191b2581b8cc172"
+          :revision => "7cf50f858975f9d493fdef2202c706240531caa1"
     end
 
     resource "p1_pam" do
@@ -119,13 +119,14 @@ class Ejabberd < Formula
 
     resource "riakc" do
       url "https://github.com/basho/riak-erlang-client.git",
-          :revision => "527722d12d0433b837cdb92a60900c2cb5df8942"
+          :tag => "2.1.2",
+          :revision => "8c3256eba4468d7c56215d3f6b8af48634c1d4b1"
     end
 
     resource "elixir" do
       url "https://github.com/elixir-lang/elixir.git",
-          :tag => "v1.1.0",
-          :revision => "f2a9c7016633ca63541a8160c63a53eb7edbccdb"
+          :tag => "v1.2.6",
+          :revision => "3dbfb92860fb24f83c92e1f1b67f48554fb211d6"
     end
 
     resource "rebar_elixir_plugin" do
@@ -142,8 +143,8 @@ class Ejabberd < Formula
 
     resource "meck" do
       url "https://github.com/eproxus/meck.git",
-          :tag => "0.8.2",
-          :revision => "dde759050eff19a1a80fd854d7375174b191665d"
+          :tag => "0.8.4",
+          :revision => "70d6a33ce7407029dc59e22a5b3c1c61c1348b23"
     end
 
     resource "eredis" do
