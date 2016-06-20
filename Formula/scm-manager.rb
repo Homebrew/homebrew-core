@@ -1,11 +1,9 @@
 class ScmManager < Formula
   desc "Manage Git, Mercurial, and Subversion repos over HTTP"
   homepage "https://www.scm-manager.org"
-  url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/scm-server/1.46/scm-server-1.46-app.tar.gz"
-  version "1.46"
-  sha256 "984737422d403f2db95bdd9f268f900a537413b1d78721929faa53785bf7b54c"
-
-  depends_on :java => "1.6+"
+  url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/scm-server/1.47/scm-server-1.47-app.tar.gz"
+  version "1.47"
+  sha256 "58e86e0cd3465733a14db09d95a0ef72906b69df1341140ee7d0329a5bbe47a3"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,10 +13,12 @@ class ScmManager < Formula
     sha256 "979071c94926cda759b8270d4d51b0e54c9d70ce4b078864d041b9c926093919" => :mountain_lion
   end
 
+  depends_on :java => "1.6+"
+
   resource "client" do
-    url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/clients/scm-cli-client/1.46/scm-cli-client-1.46-jar-with-dependencies.jar"
-    version "1.46"
-    sha256 "6f0470d119c534eab6ac0b66c41584bf975cf5f3f845d119ad2cde751e675865"
+    url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/clients/scm-cli-client/1.47/scm-cli-client-1.47-jar-with-dependencies.jar"
+    version "1.47"
+    sha256 "d4424b9d5104a1668f90278134cbe86a52d8bceba7bc85c4c9f5991debc54739"
   end
 
   def install
@@ -38,12 +38,12 @@ class ScmManager < Formula
     tools = libexec/"tools"
     tools.install resource("client")
 
-    scmCliClient = bin+"scm-cli-client"
-    scmCliClient.write <<-EOS.undent
+    scm_cli_client = bin+"scm-cli-client"
+    scm_cli_client.write <<-EOS.undent
       #!/bin/bash
       java -jar "#{tools}/scm-cli-client-#{version}-jar-with-dependencies.jar" "$@"
     EOS
-    chmod 0755, scmCliClient
+    chmod 0755, scm_cli_client
   end
 
   plist_options :manual => "scm-server start"
@@ -65,5 +65,9 @@ class ScmManager < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    system "#{opt_libexec}/../bin/scm-cli-client version | grep #{version}"
   end
 end
