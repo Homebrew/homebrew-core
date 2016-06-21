@@ -18,4 +18,8 @@ class Mpop < Formula
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
   end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/mpop --version")
+  end
 end
