@@ -3,16 +3,35 @@ require "language/go"
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb/archive/v0.13.0.tar.gz"
-  sha256 "661dc5719efa2db0ff5e5a4676c31852dd259a952dd8fc837766cb291e06d31b"
-
-  head "https://github.com/influxdata/influxdb.git"
+  url "https://github.com/influxdata/influxdb.git",
+    :tag => "v0.13.0",
+    :revision => "e57fb88a051ee40fd9277094345fbd47bb4783ce"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "979c4ef2a1024adddefd58ead3055617fa92ea03463db121cbda4bba95c3df8c" => :el_capitan
     sha256 "f48c3e0089f71716d631ba4d3c008be1b903d7743050cf88403ff928b6063695" => :yosemite
     sha256 "ee92a83c004e9899be1947690b987dc1290c747ab5ff738221c0977f464a4d69" => :mavericks
+  end
+
+  devel do
+    url "https://github.com/influxdata/influxdb.git",
+      :tag => "v1.0.0-beta2",
+      :revision => "bed66cfbe4abf7558594a86f1779c809ffe23b1d"
+
+    go_resource "github.com/dgrijalva/jwt-go" do
+      url "https://github.com/dgrijalva/jwt-go.git",
+      :revision => "a2c85815a77d0f951e33ba4db5ae93629a1530af"
+    end
+  end
+
+  head do
+    url "https://github.com/influxdata/influxdb.git"
+
+    go_resource "github.com/dgrijalva/jwt-go" do
+      url "https://github.com/dgrijalva/jwt-go.git",
+      :revision => "a2c85815a77d0f951e33ba4db5ae93629a1530af"
+    end
   end
 
   depends_on "go" => :build
@@ -106,15 +125,15 @@ class Influxdb < Formula
     ENV["GOPATH"] = buildpath
     influxdb_path = buildpath/"src/github.com/influxdata/influxdb"
     influxdb_path.install Dir["*"]
+    revision = `git rev-parse HEAD`.strip
+    version = `git describe --tags`.strip
 
     Language::Go.stage_deps resources, buildpath/"src"
 
     cd influxdb_path do
-      if build.head?
-        system "go", "install", "-ldflags", "-X main.version=0.14.0-HEAD -X main.branch=master -X main.commit=#{`git rev-parse HEAD`.strip}", "./..."
-      else
-        system "go", "install", "-ldflags", "-X main.version=0.13.0 -X main.branch=0.13 -X main.commit=e57fb88a051ee40fd9277094345fbd47bb4783ce", "./..."
-      end
+      system "go", "install",
+             "-ldflags", "-X main.version=#{version} -X main.commit=#{revision} -X main.branch=master",
+             "./..."
     end
 
     inreplace influxdb_path/"etc/config.sample.toml" do |s|
@@ -180,14 +199,13 @@ class Influxdb < Formula
       s.gsub! %r{/.*/.influxdb/wal}, "#{testpath}/influxdb/wal"
     end
 
-    pid = fork do
-      exec "#{bin}/influxd -config #{testpath}/config.toml"
-    end
-    sleep 5
-
     begin
+      pid = fork do
+        exec "#{bin}/influxd -config #{testpath}/config.toml"
+      end
+      sleep 1
       output = shell_output("curl -Is localhost:8086/ping")
-      sleep 2
+      sleep 1
       assert_match /X-Influxdb-Version:/, output
     ensure
       Process.kill("SIGINT", pid)
