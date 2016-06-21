@@ -1,8 +1,8 @@
 class Libgxps < Formula
   desc "GObject based library for handling and rendering XPS documents"
   homepage "https://live.gnome.org/libgxps"
-  url "https://download.gnome.org/sources/libgxps/0.2/libgxps-0.2.3.2.tar.xz"
-  sha256 "6ea5f0ed85665a4e6702e31e38b5f1b2e5ae4f3d316a55d7f1fb1799224b4127"
+  url "https://download.gnome.org/sources/libgxps/0.2/libgxps-0.2.4.tar.xz"
+  sha256 "e9d6aa02836d9d4823a51705d3e1dee6fc4bce11d72566024042cfaac56ec7a4"
 
   bottle do
     cellar :any
