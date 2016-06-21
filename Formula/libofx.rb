@@ -5,11 +5,9 @@ class Libofx < Formula
   sha256 "54e26a4944ef2785087cfd8ed8f187ab9d397d9b92b5acc199dd7d5d095cf695"
 
   bottle do
-    revision 1
-    sha256 "cb45299c0a279d0cf67a3f0de1875b78f6944cf899ae9844ba6cfc8f39689599" => :el_capitan
-    sha256 "5d29ae89fa771229fd80ce514db0303507a51f2bd3a32ea85f4db4727e11a59b" => :yosemite
-    sha256 "deddd527249a7d2a77772c42d656e4b44ea54a7b122da6b485594947927ec49b" => :mavericks
-    sha256 "88f857936a621b9ee2b09b7e0d2412673d49271e3528507c2071619490dc3534" => :mountain_lion
+    sha256 "51e0d70b279d22394058c04cc4509788047d9d6cdb0ac7ed7a121f2863bddb7b" => :el_capitan
+    sha256 "f569247d3c0849ed8ebe0d639fb281f64ce175c6db38241f1c60e5d46dc0cff6" => :yosemite
+    sha256 "d2aedd050d47d0ca1274a34cf6ae14f3a2a4c8db65309ab3d46554c9d64ccd2b" => :mavericks
   end
 
   depends_on "open-sp"
