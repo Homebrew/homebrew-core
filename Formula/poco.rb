@@ -38,4 +38,8 @@ class Poco < Formula
       system "make", "install"
     end
   end
+
+  test do
+    system bin/"cpspc", "-h"
+  end
 end
