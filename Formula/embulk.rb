@@ -8,12 +8,10 @@ class Embulk < Formula
 
   depends_on :java
 
-  skip_clean "libexec"
-
   def install
-    (libexec/"bin").install "embulk-#{version}.jar" => "embulk"
-    chmod 0755, libexec/"bin/embulk"
-    bin.write_exec_script libexec/"bin/embulk"
+    # Execute through /bin/bash to be compatible with OS X 10.9.
+    libexec.install "embulk-#{version}.jar" => "embulk.jar"
+    (bin/"embulk").write "#!/bin/bash\nexec /bin/bash \"#{libexec/"embulk.jar"}\" \"$@\"\n"
   end
 
   test do
