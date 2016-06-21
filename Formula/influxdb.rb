@@ -15,6 +15,11 @@ class Influxdb < Formula
     sha256 "ee92a83c004e9899be1947690b987dc1290c747ab5ff738221c0977f464a4d69" => :mavericks
   end
 
+  devel do
+    url "https://github.com/influxdata/influxdb/archive/v1.0.0-beta1.tar.gz"
+    sha256 "e6da09291dd376cf61aa560be68702d297ebff9826355a62a7316b49137533f8"
+  end
+
   depends_on "go" => :build
 
   go_resource "collectd.org" do
@@ -40,6 +45,11 @@ class Influxdb < Formula
   go_resource "github.com/davecgh/go-spew" do
     url "https://github.com/davecgh/go-spew.git",
     :revision => "fc32781af5e85e548d3f1abaf0fa3dbe8a72495c"
+  end
+
+  go_resource "github.com/dgrijalva/jwt-go" do
+    url "https://github.com/dgrijalva/jwt-go.git",
+    :revision => "a2c85815a77d0f951e33ba4db5ae93629a1530af"
   end
 
   go_resource "github.com/dgryski/go-bits" do
@@ -111,7 +121,9 @@ class Influxdb < Formula
 
     cd influxdb_path do
       if build.head?
-        system "go", "install", "-ldflags", "-X main.version=0.14.0-HEAD -X main.branch=master -X main.commit=#{`git rev-parse HEAD`.strip}", "./..."
+        system "go", "install", "-ldflags", "-X main.version=1.0.0-HEAD -X main.branch=master -X main.commit=#{`git rev-parse HEAD`.strip}", "./..."
+      elsif build.devel?
+        system "go", "install", "-ldflags", "-X main.version=1.0.0-beta1 -X main.branch=master -X main.commit=bf3c22689b68a6d03d20eac695a7049a7c78b21d", "./..."
       else
         system "go", "install", "-ldflags", "-X main.version=0.13.0 -X main.branch=0.13 -X main.commit=e57fb88a051ee40fd9277094345fbd47bb4783ce", "./..."
       end
