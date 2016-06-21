@@ -1,7 +1,8 @@
 class Libmodbus < Formula
   desc "Portable modbus library"
   homepage "http://libmodbus.org"
-  url "http://libmodbus.org/site_media/build/libmodbus-3.1.1.tar.gz"
+  url "http://libmodbus.org/releases/libmodbus-3.1.1.tar.gz"
+  mirror "ftp://mirror.us.oneandone.net/linux/distributions/gentoo/gentoo/distfiles/libmodbus-3.1.1.tar.gz"
   sha256 "76d93aff749d6029f81dcf1fb3fd6abe10c9b48d376f3a03a4f41c5197c95c99"
 
   bottle do
@@ -25,5 +26,32 @@ class Libmodbus < Formula
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"hellomodbus.c").write <<-EOS.undent
+      #include <modbus.h>
+      #include <stdio.h>
+      int main() {
+        modbus_t *mb;
+        uint16_t tab_reg[32];
+
+        mb = 0;
+        mb = modbus_new_tcp("127.0.0.1", 1502);
+        modbus_connect(mb);
+
+        /* Read 5 registers from the address 0 */
+        modbus_read_registers(mb, 0, 5, tab_reg);
+
+        void *p = mb;
+        modbus_close(mb);
+        modbus_free(mb);
+        mb = 0;
+        return (p == 0);
+      }
+    EOS
+    system ENV.cc, "hellomodbus.c", "-o", "foo", "-lmodbus",
+      "-I#{include}/libmodbus", "-I#{include}/modbus"
+    system "./foo"
   end
 end
