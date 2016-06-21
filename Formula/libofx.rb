@@ -19,4 +19,8 @@ class Libofx < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    assert_equal "ofxdump #{version}", shell_output("ofxdump -V").chomp
+  end
 end
