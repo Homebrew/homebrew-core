@@ -23,6 +23,12 @@ class Ruby < Formula
     sha256 "6825cfee4ed3625d3b2c99d2de7ee22c59a70c0ea1efbf1883de966881ddf68b" => :mavericks
   end
 
+  devel do
+    url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0-preview1.tar.xz"
+    version "2.4.0-preview1"
+    sha256 "62942c7300727469fe3d2b43e5a5c772d4836cf624a1d644bdece2afaca472c8"
+  end
+
   head do
     url "http://svn.ruby-lang.org/repos/ruby/trunk/"
     depends_on "autoconf" => :build
