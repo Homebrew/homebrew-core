@@ -8,9 +8,9 @@ class Parallel < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d263d75bbcf5bc287c5097176f3d062ec9943745282d164729b115a0d59709e6" => :el_capitan
-    sha256 "aa06fd80b943c128b265d3404c211f5947897845b816fa8b0f9e3a46da933e85" => :yosemite
-    sha256 "329e9c9d9a44a7b889729bc4c2dfc8259039d3877d291287a54b8d89e03dd6d5" => :mavericks
+    sha256 "421bf3c3f5dc9ed02bd547fcc0dd17840cf00746b28ad6f38009b829515a4631" => :el_capitan
+    sha256 "ed566d860296a06d09760936a80900f1ce520f83275916d4f505215b3d5c26f3" => :yosemite
+    sha256 "cc93ff4ba1288030ba27c11cd930e02d383cb4c36d766ff7e0845db8ec324b2d" => :mavericks
   end
 
   conflicts_with "moreutils", :because => "both install a 'parallel' executable."
