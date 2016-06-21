@@ -42,7 +42,7 @@ class Mimetic < Formula
             return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L/usr/local/lib", "-lmimetic", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lmimetic", "-o", "test"
     system "./test"
   end
 end
