@@ -34,4 +34,8 @@ class Libfreenect < Formula
       system "make", "install"
     end
   end
+
+  test do
+    system bin/"fakenect-record", "-h"
+  end
 end
