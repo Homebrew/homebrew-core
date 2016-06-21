@@ -6,9 +6,9 @@ class Libmtp < Formula
 
   bottle do
     cellar :any
-    sha256 "f1aef2931e982752ef4fd41a5be2d22fd7ee59004692dfbb62ed378b85b8059d" => :el_capitan
-    sha256 "b7f92f9c8f9ba818bf8b3913ac00f8502b43cedad27af6396daecb2c73d5637e" => :yosemite
-    sha256 "0e0da0a291315f2ac64fa3592f6fe477433e7e5ef97258016b7e870a418cdc7c" => :mavericks
+    sha256 "e4a3cdc99e98442b56cb2b7ffc5eb73d5846b55381b6606c0e5960da16bf5c0d" => :el_capitan
+    sha256 "6ba664bf6548074b9ae973b534e6ab61a07f4e83f4a6e5de68b0658eefb69411" => :yosemite
+    sha256 "9c61ba0beccdce922eea28c04d20e7d4c025bc2bd6d5716e6ee9fe447eedeec3" => :mavericks
   end
 
   depends_on "pkg-config" => :build
