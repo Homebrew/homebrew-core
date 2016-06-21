@@ -1,9 +1,9 @@
 class Libmodbus < Formula
   desc "Portable modbus library"
   homepage "http://libmodbus.org"
-  url "http://libmodbus.org/releases/libmodbus-3.1.1.tar.gz"
-  mirror "ftp://mirror.us.oneandone.net/linux/distributions/gentoo/gentoo/distfiles/libmodbus-3.1.1.tar.gz"
-  sha256 "76d93aff749d6029f81dcf1fb3fd6abe10c9b48d376f3a03a4f41c5197c95c99"
+  url "http://libmodbus.org/releases/libmodbus-3.1.4.tar.gz"
+  mirror "https://sources.lede-project.org/dl/dl/libmodbus-3.1.4.tar.gz"
+  sha256 "c8c862b0e9a7ba699a49bc98f62bdffdfafd53a5716c0e162696b4bf108d3637"
 
   bottle do
     cellar :any
