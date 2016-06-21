@@ -1,9 +1,8 @@
 class Pidgin < Formula
   desc "Multi-protocol chat client"
   homepage "https://pidgin.im/"
-  url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.10.12/pidgin-2.10.12.tar.bz2"
-  sha256 "2c7523f0fefe89749c03b2b738ab9f7bd186da435be4762f1487eee31e77ffdd"
-  revision 1
+  url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.11.0/pidgin-2.11.0.tar.bz2"
+  sha256 "f72613440586da3bdba6d58e718dce1b2c310adf8946de66d8077823e57b3333"
 
   bottle do
     sha256 "a010b4baeb0d28eb3c22ddb45ce85c0dc73ee1c32e01f1f42d55f52718e8aaf9" => :el_capitan
@@ -36,8 +35,8 @@ class Pidgin < Formula
   # Finch has an equal port called purple-otr but it is a NIGHTMARE to compile
   # If you want to fix this and create a PR on Homebrew please do so.
   resource "pidgin-otr" do
-    url "https://otr.cypherpunks.ca/pidgin-otr-4.0.1.tar.gz"
-    sha256 "1b781f48c27bcc9de3136c0674810df23f7d6b44c727dbf4dfb24067909bf30a"
+    url "https://otr.cypherpunks.ca/pidgin-otr-4.0.2.tar.gz"
+    sha256 "f4b59eef4a94b1d29dbe0c106dd00cdc630e47f18619fc754e5afbf5724ebac4"
   end
 
   def install
