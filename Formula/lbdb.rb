@@ -13,15 +13,17 @@ class Lbdb < Formula
     sha256 "a82a06c8e00a7188315891f06529f460fc995db9cdb65bf59c4b1a24e3366329" => :mavericks
   end
 
-  depends_on :gpg => :optional
+  depends_on "gnupg" => :optional
   depends_on "abook" => :recommended
+
+  deprecated_option "with-gpg" => "with-gnupg"
 
   def install
     args = %W[
       --prefix=#{prefix}
       --libdir=#{libexec}
     ]
-    args << "--with-gpg" if build.with? "gpg"
+    args << "--with-gpg" if build.with? "gnupg"
     system "./configure", *args
     system "make", "install"
   end
