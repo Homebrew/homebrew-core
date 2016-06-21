@@ -5,10 +5,9 @@ class DesktopFileUtils < Formula
   sha256 "6c094031bdec46c9f621708f919084e1cb5294e2c5b1e4c883b3e70cb8903385"
 
   bottle do
-    revision 1
-    sha256 "2b4fe662f033ada8fa53802450e00335d6618d6da7a30ea16a25acd52fd19efe" => :el_capitan
-    sha256 "558c6215f94e6e9c1ab3cdc6ba16e692d77bc9a9c7938ced5d96ae4e9e9f4c41" => :yosemite
-    sha256 "1bc084beb933e4ccd9b0a8a39aaef5cc0e0100019254d8aad0ad31f422458dd3" => :mavericks
+    sha256 "8c18c3fe21f8d2b1bdb4befdadd2b6dabbbe89dcb9ebb7fbaf4a8a3c7a2153a1" => :el_capitan
+    sha256 "a6a09a60579ac8875cb92fbcf6177a860da6954c0aa61f323c66441211af0d1b" => :yosemite
+    sha256 "ccca14604b32329e36acf15be710bdc1458410c4bd382b8708d4afba1b68177a" => :mavericks
   end
 
   depends_on "pkg-config" => :build
