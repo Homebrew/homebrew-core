@@ -20,4 +20,8 @@ class Libmtp < Formula
                           "--disable-mtpz"
     system "make", "install"
   end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/mtp-getfile")
+  end
 end
