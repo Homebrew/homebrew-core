@@ -3,6 +3,8 @@ class GitSecret < Formula
   homepage "https://sobolevn.github.io/git-secret/"
   url "https://github.com/sobolevn/git-secret/archive/v0.2.0.tar.gz"
   sha256 "db4afbc3a453df2527603bf8bfffd9946f00d5595f2dca4f5088cb6bb47cacdf"
+  revision 1
+
   head "https://github.com/sobolevn/git-secret.git"
 
   bottle do
@@ -15,8 +17,18 @@ class GitSecret < Formula
   depends_on :gpg => :recommended
 
   def install
+    # Prefer GPG2 by default.
+    inreplace "src/_utils/_git_secret_tools.sh", ':="gpg"', ':="gpg2"'
     system "make", "build"
     system "bash", "utils/install.sh", prefix
+  end
+
+  def caveats; <<-EOS.undent
+    Homebrew defaults `git-secret` to using `gpg2`. If you
+    wish to use alternative GPG executables you should add:
+      export SECRETS_GPG_COMMAND="gpg"
+    to your shell profile.
+  EOS
   end
 
   test do
