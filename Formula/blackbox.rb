@@ -18,7 +18,24 @@ class Blackbox < Formula
   end
 
   test do
+    # Note that test do is always in temporary path, with HOME captured,
+    # so this doesn't interfere with a user's pre-existing keychain.
+    (testpath/"batchgpg").write <<-EOS.undent
+    Key-Type: RSA
+    Key-Length: 2048
+    Subkey-Type: RSA
+    Subkey-Length: 2048
+    Name-Real: Testing
+    Name-Email: testing@foo.bar
+    Expire-Date: 1d
+    Passphrase: brew
+    %commit
+    EOS
+    system "gpg2", "--batch", "--gen-key", "batchgpg"
+
     system "git", "init"
     system bin/"blackbox_initialize", "yes"
+    add_created_key = shell_output("#{bin}/blackbox_addadmin Testing 2>&1")
+    assert_match "<testing@foo.bar>", add_created_key
   end
 end
