@@ -5,11 +5,10 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "http://wiki.portal.chalmers.se/agda/"
-  revision 1
 
   stable do
-    url "https://github.com/agda/agda/archive/2.5.1.tar.gz"
-    sha256 "7d80e22710ab9d7fb6ecf9366ea6df6e9a5881008c32dd349df06e9a2f203e40"
+    url "https://github.com/agda/agda/archive/v2.5.1.1.tar.gz"
+    sha256 "a0e23cbbcfd5a7e182d52efb9302c1c35085594fa650234806f6b0d90c7fe8d8"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib/archive/v0.12.tar.gz"
