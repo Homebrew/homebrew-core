@@ -27,5 +27,15 @@ class Libmicrohttpd < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+    pkgshare.install "doc/examples"
+  end
+
+  test do
+    cp pkgshare/"examples/simplepost.c", testpath
+    inreplace "simplepost.c",
+      "return 0",
+      "printf(\"daemon %p\", daemon) ; return 0"
+    system ENV.cc, "-o", "foo", "simplepost.c", "-I#{include}", "-L#{lib}", "-lmicrohttpd"
+    assert_match /daemon 0x[0-9a-f]+[1-9a-f]+/, pipe_output("./foo")
   end
 end
