@@ -5,9 +5,9 @@ class Lcdproc < Formula
   sha256 "843007d377adc856529ed0c7c42c9a7563043f06b1b73add0372bba3a3029804"
 
   bottle do
-    sha256 "2a7bd5effc794f54e2364b74caba344f949a288b4ae67e55e829e6256a585732" => :el_capitan
-    sha256 "7ed7e364837c7f0c3702d522d3dd8f73de0bd06fed5bd27c9010975042337ca7" => :yosemite
-    sha256 "2a1f1649eeab5698d37280c86e8d7ec935a99a48e3d844d9f366beea431e5175" => :mavericks
+    sha256 "e1008387529718eb94cf0c886fc03ae2ffa98d56cab19d7e86148b1de811e4ae" => :el_capitan
+    sha256 "1768dad06b78f2dd815e8f1c270016e89db964abdc8fdfbe21710305e2e5f951" => :yosemite
+    sha256 "e7666856c50e76fd2eb9877669ad0e233f6417cf897cf7ee4296b85a38e3cac3" => :mavericks
   end
 
   depends_on "pkg-config" => :build
