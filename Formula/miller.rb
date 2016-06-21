@@ -6,9 +6,9 @@ class Miller < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f9797ffb7e265e21ebbd5e75e1fec994c9f263c10388b1b783321c7f9be67fd9" => :el_capitan
-    sha256 "e9045c345fc41716d21922eff347d851e86c13386095d05aca76f8ef937318aa" => :yosemite
-    sha256 "20b8e15eecd7756be6a7fcbdf1aaf55fbd9307cca47e628856a860415879c27f" => :mavericks
+    sha256 "5acfed0c2b9105e515a732341d746913dc65a3b6b2733be98f254eb2485c4ea6" => :el_capitan
+    sha256 "f6bacb78c22ab5e2e21b5a4118856942d91f1f1947aee6867a29f893d37813b5" => :yosemite
+    sha256 "4d59881cf215c20bbae35642d098118d395193f9080dae461882eb841459f90f" => :mavericks
   end
 
   head do
