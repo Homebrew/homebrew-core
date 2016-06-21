@@ -17,6 +17,8 @@ class Zenity < Formula
   depends_on "gtk+3"
   depends_on "gnome-doc-utils"
   depends_on "scrollkeeper"
+  depends_on "webkitgtk" => :recommended
+  depends_on "libnotify" => :optional
 
   # submitted upstream at https://bugzilla.gnome.org/show_bug.cgi?id=756756
   patch :DATA
