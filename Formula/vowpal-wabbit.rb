@@ -1,9 +1,8 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/JohnLangford/vowpal_wabbit"
-  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.1.1.tar.gz"
-  sha256 "174609bb09eaeac150c08639a82713a2290442a42bc0b23d53943e9a0f22911b"
-  revision 1
+  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.2.0.tar.gz"
+  sha256 "49a555c63535d190ce389a3aaeaf22231d35d0919fb98e0067c2cfe2ea01850d"
   head "https://github.com/JohnLangford/vowpal_wabbit.git"
 
   bottle do
@@ -35,6 +34,7 @@ class VowpalWabbit < Formula
     rm bin/"active_interactor.py"
     rm bin/"new_version"
     rm bin/"vw-validate.html"
+    rm bin/"release.ps1"
   end
 
   test do
