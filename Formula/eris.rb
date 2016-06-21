@@ -11,6 +11,11 @@ class Eris < Formula
     sha256 "b859c6d4f18bc2310f9aa97be6b98b5a5e3d620eb7d9e3d386283ed70cbab665" => :mavericks
   end
 
+  devel do
+    url "https://github.com/eris-ltd/eris-cli/archive/v0.12.0-rc1.tar.gz"
+    sha256 "1924f18a721c0533570191a857fad03e1c4a395b2d1a0f34826499ac41ccf144"
+  end
+
   depends_on "go" => :build
   depends_on "docker"
   depends_on "docker-machine"
