@@ -17,9 +17,9 @@ class Agda < Formula
   end
 
   bottle do
-    sha256 "f4bf0f777cc375c8659eba82062ef4bb1d8b83f64b2fb62ba787dffe23a80e3a" => :el_capitan
-    sha256 "f4124bf1dac0dae0daaed79d79b4fc32701b29baabaf58345d33d80a95a2151c" => :yosemite
-    sha256 "cb7a3700dd35a28255e4311866ab1a8ca74c5bb2540d44cf37a190a77e3c00b3" => :mavericks
+    sha256 "8acc704bcf541cdf86f5f66667fceca18256309406154852710b1995edaf29fc" => :el_capitan
+    sha256 "cb96e1f74d7ae4621fd058ca8de67899f15bd638ef2c891064d84b3203e19097" => :yosemite
+    sha256 "f2d6c6377afcbc5ab2701b23c6cd6baa79c138a6563f31eb1803d5125414bbb3" => :mavericks
   end
 
   head do
