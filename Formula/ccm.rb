@@ -1,8 +1,8 @@
 class Ccm < Formula
   desc "Create and destroy an Apache Cassandra cluster on localhost"
   homepage "https://github.com/pcmanus/ccm"
-  url "https://github.com/pcmanus/ccm/archive/ccm-2.0.3.tar.gz"
-  sha256 "591c441c6d1b06595d1112951c6edccec29e5e793ee8562c318eeee84fc62301"
+  url "https://files.pythonhosted.org/packages/c6/11/f9d69d65ca3f8995aea37d94c8636b3662340a355ab61b583316a1cc36d1/ccm-2.1.6.tar.gz"
+  sha256 "16b1d1db66239e7af801ec1a6d4fc796c0155243db40676064648e597577ed9c"
   head "https://github.com/pcmanus/ccm.git"
 
   bottle do
@@ -15,24 +15,19 @@ class Ccm < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.9.0.tar.gz"
-    sha256 "e24052411fc4fbd1f672635537c3fc2330d9481b18c0317695b46259512c91d5"
-  end
-
-  resource "psutil" do
-    url "https://pypi.python.org/packages/source/p/psutil/psutil-2.2.1.tar.gz"
-    sha256 "a0e9b96f1946975064724e242ac159f3260db24ffa591c3da0a355361a3a337f"
-  end
-
-  resource "pyyaml" do
-    url "https://pypi.python.org/packages/source/P/PyYAML/PyYAML-3.11.tar.gz"
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/75/5e/b84feba55e20f8da46ead76f14a3943c8cb722d40360702b2365b91dec00/PyYAML-3.11.tar.gz"
     sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    %w[six psutil pyyaml].each do |r|
+    %w[PyYAML six].each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
@@ -41,11 +36,11 @@ class Ccm < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", *Language::Python.setup_install_args(libexec)
 
-    bin.install Dir["#{libexec}/bin/*"]
+    bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
-    assert_match(/Usage/, shell_output("#{bin}/ccm; 2>&1"))
+    assert_match "Usage", shell_output("#{bin}/ccm", 1)
   end
 end
