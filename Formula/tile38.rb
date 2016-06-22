@@ -3,8 +3,8 @@ require "language/go"
 class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
   homepage "http://tile38.com"
-  url "https://github.com/tidwall/tile38/archive/1.0.4.tar.gz"
-  sha256 "0bd7d33ced312a84ce7e2ce8309ea04187b95473f77d2645a3f86d60e4d46413"
+  url "https://github.com/tidwall/tile38/archive/1.2.0.tar.gz"
+  sha256 "8797cfe8ad0f787cc00c26a863329090a929257d9f5c5d8d20c17f05234cb2a5"
 
   head "https://github.com/tidwall/tile38.git"
 
