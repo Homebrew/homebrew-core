@@ -3,9 +3,8 @@ require "language/go"
 class Assh < Formula
   desc "Advanced SSH config - Regex, aliases, gateways, includes and dynamic hosts"
   homepage "https://github.com/moul/advanced-ssh-config"
-  url "https://github.com/moul/advanced-ssh-config/archive/v2.2.0.tar.gz"
-  sha256 "8a71969df06e8db0bd4b06cf928780e45e22cf5f131f06aec43cccd955ee2ead"
-
+  url "https://github.com/moul/advanced-ssh-config/archive/v2.3.0.tar.gz"
+  sha256 "d2903d3723c8349ec09bc8c7ada1fcb60d835f248d4df1faf5fe6fbadf484f16"
   head "https://github.com/moul/advanced-ssh-config.git"
 
   bottle do
@@ -20,12 +19,12 @@ class Assh < Formula
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/moul/advanced-ssh-config").install Dir["*"]
-
-    system "go", "build", "-o", "#{bin}/assh", "-v", "github.com/moul/advanced-ssh-config/cmd/assh/"
+    cd "src/github.com/moul/advanced-ssh-config/cmd/assh" do
+      system "go", "build", "-o", bin/"assh"
+    end
   end
 
   test do
-    output = shell_output(bin/"assh --version")
-    assert_match "assh version 2", output
+    assert_match version.to_s, shell_output("#{bin}/assh --version")
   end
 end
