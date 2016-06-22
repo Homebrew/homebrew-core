@@ -1,8 +1,8 @@
 class Libfixposix < Formula
   desc "Thin wrapper over POSIX syscalls"
   homepage "https://github.com/sionescu/libfixposix"
-  url "https://github.com/sionescu/libfixposix/archive/v0.3.0.tar.gz"
-  sha256 "9fda592842c28b3beb2707b908b2bdca1982c0a37572fad5cfce2ab1ba07f6d3"
+  url "https://github.com/sionescu/libfixposix/archive/v0.4.0.tar.gz"
+  sha256 "c8625ccb6c661ae786c3070b7b034c97c5ffd12851a9e06255df376d3071ded8"
   head "https://github.com/sionescu/libfixposix.git"
 
   bottle do
