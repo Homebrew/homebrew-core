@@ -1,8 +1,8 @@
 class Ccextractor < Formula
   desc "Free, GPL licensed closed caption tool"
   homepage "http://ccextractor.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ccextractor/ccextractor/0.78/ccextractor.src.0.78.zip"
-  sha256 "95c40f788c803c1932f5678d10b4b63e6650290c35fa2328882af551ec6d3fc9"
+  url "https://downloads.sourceforge.net/project/ccextractor/ccextractor/0.81/ccextractor.src.0.81.zip"
+  sha256 "54c7dbebe23670b2dabd87a5a141dee748439c4015a75f0a9c9e389708300d3d"
   head "https://github.com/ccextractor/ccextractor.git"
 
   bottle do
@@ -13,15 +13,12 @@ class Ccextractor < Formula
     sha256 "f353febd41be9199e791aedf219fb15d506a10928a86782c7afeab766d470a2f" => :mavericks
   end
 
-  depends_on "cmake" => :build
-  depends_on "libpng"
-
   def install
-    ENV.append "LDFLAGS", "-lpng"
-    system "cmake", "src", *std_cmake_args
-    system "make"
-    system "make", "install"
-    (share/"examples").install "docs/ccextractor.cnf.sample"
+    cd "mac" do
+      system "./build.command"
+      bin.install "ccextractor"
+    end
+    (pkgshare/"examples").install "docs/ccextractor.cnf.sample"
   end
 
   test do
