@@ -1,8 +1,8 @@
 class Autojump < Formula
   desc "Shell extension to jump to frequently used directories"
   homepage "https://github.com/wting/autojump"
-  url "https://github.com/wting/autojump/archive/release-v22.3.1.tar.gz"
-  sha256 "e093d38bf247ba09a8a3bbc4f4f2710a23810022ce952d4461dacd4b74dfca93"
+  url "https://github.com/wting/autojump/archive/release-v22.3.2.tar.gz"
+  sha256 "4b644772d34323213ed6da300f53b7b70e4aa635df5b779d15dca9b38e88a64b"
 
   head "https://github.com/wting/autojump.git"
 
