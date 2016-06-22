@@ -47,7 +47,7 @@ class Gtkx3 < Formula
     ENV.universal_binary if build.universal?
 
     args = %W[
-      --disable-debug
+      --enable-debug=minimal
       --disable-dependency-tracking
       --prefix=#{prefix}
       --disable-glibtest
