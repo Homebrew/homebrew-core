@@ -1,8 +1,8 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers."
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.2.1.tar.gz"
-  sha256 "67448e063559f409815be0075d4a1e9024f79e014ddf0cbbcaf6f716694df6e3"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.3.0.tar.gz"
+  sha256 "637cd0d3bdae5f72867264fa9349a4f86023ac34b6d01ca0bec3618bc38d4a79"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
@@ -24,6 +24,14 @@ class Ibex < Formula
   depends_on "pkg-config" => :build
 
   def install
+    # Test failure "uncaught exception of type ibex::DimException"
+    # Same as upstream fix https://github.com/ibex-team/ibex-lib/commit/1c882ef2
+    if build.stable?
+      inreplace "examples/slam/slam1.cpp",
+        "x,dist(x[t],beacons[b])=d[t][b]);",
+        "x,dist(transpose(x[t]),beacons[b])=d[t][b]);"
+    end
+
     if build.with?("java") && build.with?("ampl")
       odie "Cannot set options --with-java and --with-ampl simultaneously for now."
     end
