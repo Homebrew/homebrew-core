@@ -25,7 +25,7 @@ class Ruby < Formula
 
   devel do
     url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0-preview1.tar.xz"
-    version "2.4.0-preview1"
+    version "2.4.0-beta1"
     sha256 "62942c7300727469fe3d2b43e5a5c772d4836cf624a1d644bdece2afaca472c8"
   end
 
