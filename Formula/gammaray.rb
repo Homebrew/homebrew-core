@@ -1,9 +1,8 @@
 class Gammaray < Formula
   desc "Examine and manipulate Qt application internals at runtime"
   homepage "https://www.kdab.com/kdab-products/gammaray/"
-  url "https://github.com/KDAB/GammaRay/releases/download/v2.3.0/gammaray-2.3.0.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/g/gammaray/gammaray_2.3.0.orig.tar.gz"
-  sha256 "d3da28ff1f7ac5534e518a9d4a7b5d7d22267490d3ab3ae094b0592d33244799"
+  url "https://github.com/KDAB/GammaRay/releases/download/v2.4.1/gammaray-2.4.1.tar.gz"
+  sha256 "08b151eaa4afeaaebc28eaae789f8da47d99012f1071f19d20d8d4d91115b6ab"
   head "https://github.com/KDAB/GammaRay.git"
 
   bottle do
@@ -13,35 +12,33 @@ class Gammaray < Formula
     sha256 "1e11205cfd53296ea2a45f08d64c510bade4e910288202bb2d695e3511c9178e" => :mountain_lion
   end
 
-  option "without-qt4", "Build against Qt5 instead of Qt4 (default)"
   option "with-vtk", "Build with VTK-with-Qt support, for object 3D visualizer"
+  option "with-test", "Verify the build with `make check`"
 
   needs :cxx11
 
   depends_on "cmake" => :build
-  depends_on "qt" if build.with? "qt4"
-  depends_on "qt5" if build.without? "qt4"
+  depends_on "qt5"
   depends_on "graphviz" => :recommended
 
   # VTK needs to have Qt support, and it needs to match GammaRay's
-  depends_on "homebrew/science/vtk" => [:optional, ((build.with? "qt4") ? "with-qt" : "with-qt5")]
+  depends_on "homebrew/science/vtk" => [:optional, "with-qt5"]
 
   def install
     # For Mountain Lion
     ENV.libcxx
 
     args = std_cmake_args
-    args << "-DGAMMARAY_ENFORCE_QT4_BUILD=" + ((build.with? "qt4") ? "ON" : "OFF")
     args << "-DCMAKE_DISABLE_FIND_PACKAGE_VTK=" + ((build.without? "vtk") ? "ON" : "OFF")
     args << "-DCMAKE_DISABLE_FIND_PACKAGE_Graphviz=" + ((build.without? "graphviz") ? "ON" : "OFF")
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", *args
+    system "make"
+    system "make", "test" if build.bottle? || build.with?("test")
+    system "make", "install"
   end
 
   test do
-    (prefix/"GammaRay.app/Contents/MacOS/GammaRay").executable?
+    (prefix/"GammaRay.app/Contents/MacOS/gammaray").executable?
   end
 end
