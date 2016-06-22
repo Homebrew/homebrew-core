@@ -1,11 +1,9 @@
 class Expat < Formula
   desc "XML 1.0 parser"
   homepage "http://expat.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/expat/expat/2.1.1/expat-2.1.1.tar.bz2"
-  mirror "https://fossies.org/linux/www/expat-2.1.1.tar.bz2"
-  sha256 "aff584e5a2f759dcfc6d48671e9529f6afe1e30b0cd6a4cec200cbe3f793de67"
-  revision 1
-
+  url "https://downloads.sourceforge.net/project/expat/expat/2.2.0/expat-2.2.0.tar.bz2"
+  mirror "https://fossies.org/linux/www/expat-2.2.0.tar.bz2"
+  sha256 "d9e50ff2d19b3538bd2127902a89987474e1a4db8e43a66a4d1a712ab9a504ff"
   head ":pserver:anonymous:@expat.cvs.sourceforge.net:/cvsroot/expat", :using => :cvs
 
   bottle do
@@ -18,12 +16,6 @@ class Expat < Formula
   keg_only :provided_by_osx, "OS X includes Expat 1.5."
 
   option :universal
-
-  # http://seclists.org/oss-sec/2016/q2/360
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/1c9ee45548b75/expat/CVE-2016-0718-v2-2-1.patch"
-    sha256 "575f8d45835b917da833106ee4cb92efd98c5c1284f6f437aaf65bbc63edd767"
-  end
 
   def install
     ENV.universal_binary if build.universal?
