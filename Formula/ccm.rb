@@ -7,10 +7,9 @@ class Ccm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "19ee206337025ca0e62f84869b8eb95d2453ae49e1747f4a55ba8e0921859995" => :el_capitan
-    sha256 "8655aa728be65e6a231da79889fdf82e0d2b9f48e2a048ef83ad36154e3068ec" => :yosemite
-    sha256 "46d15b6f0f213b3b4228bb83f744326edf0ef443b80e7990d338e722150102b6" => :mavericks
-    sha256 "d2f00ee08b94a6d26bc6ef4004c8c68b6365c7de0ff88e0aa57b9d326e85cfd8" => :mountain_lion
+    sha256 "17a2cc69b2808dad1ad47018bd40d6db645c0af332822622bdb3e7a48727c65c" => :el_capitan
+    sha256 "e70194684f0841f64bb6411245f4358ee8e5cd0a90675b1d6e4796fa0e1594ea" => :yosemite
+    sha256 "b27407e39fb003847b6827de1919af0dd207325544a0caefd16c57a893629054" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
