@@ -21,6 +21,7 @@ class Perl < Formula
 
   # Fixes Time::HiRes module bug related to the presence of clock_gettime
   # https://rt.perl.org/Public/Bug/Display.html?id=128427
+  # Merged upstream, should be in the next release.
   if MacOS.version >= :sierra
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/4455ab37423c123b2e4bd334ad48812ecf2f9109/perl/clock_gettime.patch"
