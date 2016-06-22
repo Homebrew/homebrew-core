@@ -28,6 +28,7 @@ class Emacs < Formula
   option "with-cocoa", "Build a Cocoa version of emacs"
   option "with-ctags", "Don't remove the ctags executable that emacs provides"
   option "without-libxml2", "Don't build with libxml2 support"
+  option "with-modules", "Build with dynamic module support (devel/HEAD only)"
 
   deprecated_option "cocoa" => "with-cocoa"
   deprecated_option "keep-ctags" => "with-ctags"
@@ -86,6 +87,14 @@ class Emacs < Formula
     args << "--with-rsvg" if build.with? "librsvg"
     args << "--with-imagemagick" if build.with? "imagemagick"
     args << "--without-popmail" if build.with? "mailutils"
+
+    if build.with? "modules"
+      if build.head? || build.devel?
+        args << "--with-modules"
+      else
+        opoo "Dynamic module support is only available in devel/HEAD. Ignoring..."
+      end
+    end
 
     system "./autogen.sh" if build.head? || build.devel?
 
