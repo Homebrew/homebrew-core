@@ -8,9 +8,9 @@ class Autojump < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "164ca0b56523cca31454b37afb0938f6534ccd5362559f0e6e0a9ec015d89617" => :el_capitan
-    sha256 "bac1fb7a05096b15b046bca2ec2615342f8480dc104bcca22a9ad51cc52dcef1" => :yosemite
-    sha256 "c0ee5101a5b1f6be1f64a082b0d95c3d62ee3eca419aa06141bee6c6414b3646" => :mavericks
+    sha256 "bf3f21aa2d2f11af871cce897b256e54da22d4290eee6ac1696e4f82ebc88474" => :el_capitan
+    sha256 "f98d8647808130d777f94ccd919bd2f46e304589766284c03d2c461f541343f5" => :yosemite
+    sha256 "c59a755ec00ef709819b9dcf37c0d0b0639ca61c9922f7d43af395db3a95c9d0" => :mavericks
   end
 
   def install
