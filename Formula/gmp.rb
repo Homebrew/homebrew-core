@@ -7,9 +7,9 @@ class Gmp < Formula
 
   bottle do
     cellar :any
-    sha256 "1d236d4debd6880259e58a51a28f0c2d67fc57c4882f9a690ebc222c8264605b" => :el_capitan
-    sha256 "f86f185327ee1f6dc44c816229f332eb262616a648afd5d1caf55c407e72035d" => :yosemite
-    sha256 "2ad0982b8c33432ad9c71b0e5517171aee5bc73d2207d7bda3c306e0cf42dcc1" => :mavericks
+    sha256 "3d404810952ae59470709709f0b64e4122520afcbb65633d449bcca546f3ca41" => :el_capitan
+    sha256 "8858a1e22d62875d5424b354302c818b194c8d21a669287d0e0b190816be32e9" => :yosemite
+    sha256 "b604a20e2501a10773abc384d9750fa27112cf9ad9c532367ebd7caf241c8d4b" => :mavericks
   end
 
   option "32-bit"
