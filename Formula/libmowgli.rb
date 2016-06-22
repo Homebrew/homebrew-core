@@ -7,11 +7,9 @@ class Libmowgli < Formula
 
   bottle do
     cellar :any
-    revision 3
-    sha256 "6576cf998b59cc3deb45d7072930296eaad347e3993a9243bea4ca984d5d06c2" => :el_capitan
-    sha256 "e32cc8c528e1cb58775f1fd4fb2e491649bbc1d50fe6c7767d8502fa183d1cab" => :yosemite
-    sha256 "687b05dd17d208907b854c245be8ee1c2eae759aab0db7e2b620173cd6fd06f1" => :mavericks
-    sha256 "c7bb30b3ec74cbeb74a9092504b336c5e1ec155c6702830ae6d6f548b65d74e0" => :mountain_lion
+    sha256 "589ebb9198954ec9be1b13bb6f9b4eba1dad687ee41d51719ce195c2700d2612" => :el_capitan
+    sha256 "4a5be18af974959de8bed7b09b7b3721967de5f3e29f986a7739fb24fcb563e1" => :yosemite
+    sha256 "ecb826e4b3993e1c378d8f3368ff91edcb3dabee0bda61cac57a0097b5c95548" => :mavericks
   end
 
   depends_on "openssl"
