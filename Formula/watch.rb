@@ -1,8 +1,22 @@
 class Watch < Formula
   desc "Executes a program periodically, showing output fullscreen"
   homepage "https://gitlab.com/procps-ng/procps"
-  url "https://download.sourceforge.net/project/procps-ng/Production/procps-ng-3.3.10.tar.xz"
-  sha256 "a02e6f98974dfceab79884df902ca3df30b0e9bad6d76aee0fb5dce17f267f04"
+  head "https://gitlab.com/procps-ng/procps.git"
+
+  stable do
+    url "https://gitlab.com/procps-ng/procps.git",
+      :tag => "v3.3.11",
+      :revision => "de985eced583f18df273146b110491b0f7404aab"
+
+    # Upstream commit, which (probably inadvertently) fixes the error
+    # "conflicting types for 'user_from_uid"
+    # Commit subject is "watch: Correctly process [m Remove lib dependency"
+    # Preexisting upstream report: https://gitlab.com/procps-ng/procps/issues/34
+    patch do
+      url "https://gitlab.com/procps-ng/procps/commit/99fa7f9f.diff"
+      sha256 "7f907db30f4777746224506b120d5d402c01073fbd275e83d37259a8eb4f62b1"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -14,19 +28,27 @@ class Watch < Formula
 
   conflicts_with "visionmedia-watch"
 
-  def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
 
-    # AM_LDFLAGS contains a non-existing library './proc/libprocps.la' that
-    # breaks the linking process. Upstream developers have been informed (see
-    # https://github.com/Homebrew/homebrew/pull/34852/files#r21796727).
-    system "make", "watch", "AM_LDFLAGS="
+  depends_on "gettext"
+
+  def install
+    # Prevents undefined symbol errors for _libintl_gettext, etc.
+    # Reported 22 Jun 2016: https://gitlab.com/procps-ng/procps/issues/35
+    ENV.append "LDFLAGS", "-lintl"
+
+    system "autoreconf", "-fiv"
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "make", "watch"
     bin.install "watch"
     man1.install "watch.1"
   end
 
   test do
     ENV["TERM"] = "xterm"
-    system "#{bin}/watch", "--errexit", "--chgexit", "--interval", "1", "date"
+    system bin/"watch", "--errexit", "--chgexit", "--interval", "1", "date"
   end
 end
