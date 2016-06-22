@@ -35,6 +35,7 @@ class Gtkx3 < Formula
 
   # Fixes detection of CUPS 2.x by the configure script
   # https://bugzilla.gnome.org/show_bug.cgi?id=767766
+  # Merged upstream, should be in the next release.
   if MacOS.version >= :sierra
     patch :p0 do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/a1fccbb34751eabe52366b8bb68bcf56ae74517c/gtk%2B3/cups.patch"
