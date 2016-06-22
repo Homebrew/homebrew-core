@@ -1,8 +1,8 @@
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
-  url "https://download.gnome.org/sources/libgweather/3.18/libgweather-3.18.1.tar.xz"
-  sha256 "94b2292f8f7616e2aa81b1516befd7b27682b20acecbd5d656b6954990ca7ad0"
+  url "https://download.gnome.org/sources/libgweather/3.20/libgweather-3.20.1.tar.xz"
+  sha256 "81eb829fab6375cc9a4d448ae0f790e48f9720e91eb74678b22264cfbc8938d0"
 
   bottle do
     sha256 "e2b7853e95cf104ccd5f3cff216336077d77e671349b1734f7b4c3a4f0773fba" => :el_capitan
@@ -20,7 +20,10 @@ class Libgweather < Formula
 
   def install
     # ensures that the vala files remain within the keg
-    inreplace "libgweather/Makefile.in", "VAPIGEN_VAPIDIR = @VAPIGEN_VAPIDIR@", "VAPIGEN_VAPIDIR = @datadir@/vala/vapi"
+    inreplace "libgweather/Makefile.in",
+              "VAPIGEN_VAPIDIR = @VAPIGEN_VAPIDIR@",
+              "VAPIGEN_VAPIDIR = @datadir@/vala/vapi"
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
