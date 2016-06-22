@@ -13,10 +13,6 @@ class Ats2Postiats < Formula
 
   depends_on "gmp"
 
-  fails_with :clang do
-    cause "Trying to compile this with Clang is failure-galore."
-  end
-
   # error: expected declaration specifiers or '...' before '__builtin_object_size'
   # Already fixed upstream. Can remove this on next release.
   patch do
@@ -26,12 +22,8 @@ class Ats2Postiats < Formula
 
   def install
     ENV.deparallelize
-
     system "./configure", "--prefix=#{prefix}"
-
-    # Disable GC support for patsopt
-    # https://github.com/githwxi/ATS-Postiats/issues/76
-    system "make", "GCFLAG=-D_ATS_NGC", "all", "install"
+    system "make", "all", "install"
   end
 
   test do
