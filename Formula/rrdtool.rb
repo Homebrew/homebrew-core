@@ -1,8 +1,8 @@
 class Rrdtool < Formula
   desc "Round Robin Database"
   homepage "https://oss.oetiker.ch/rrdtool/index.en.html"
-  url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.5.5/rrdtool-1.5.5.tar.gz"
-  sha256 "aeb5e58799b6c02e1046e409ceed1b9ed8b3238241d952e0267c7e9be1525a54"
+  url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.6.0/rrdtool-1.6.0.tar.gz"
+  sha256 "cd948e89cd2d8825fab4a6fb0323f810948d934af7d92c9ee8b5e9e1350e52d7"
 
   bottle do
     sha256 "40ef7a5538670895456321c7f34e359a88556532be110fe1f5c9b75912678e98" => :el_capitan
@@ -28,6 +28,9 @@ class Rrdtool < Formula
   patch :DATA
 
   def install
+    # fatal error: 'ruby/config.h' file not found
+    ENV.delete("SDKROOT")
+
     ENV.libxml2
 
     args = %W[
