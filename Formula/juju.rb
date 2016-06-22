@@ -1,6 +1,6 @@
 class Juju < Formula
   desc "DevOps management tool"
-  homepage "https://juju.ubuntu.com"
+  homepage "https://jujucharms.com/"
   url "https://launchpad.net/juju-core/1.25/1.25.5/+download/juju-core_1.25.5.tar.gz"
   sha256 "7667b5695f1117ca48f1b40c24daa60d0b747c8c1c02ff4b96f2f8954688eb90"
 
@@ -12,9 +12,9 @@ class Juju < Formula
   end
 
   devel do
-    url "https://launchpad.net/juju-core/trunk/2.0-beta8/+download/juju-core_2.0-beta8.tar.gz"
-    sha256 "0896e389c5afd7964a5d86e6c3657aedc14896654b6d2e151c90c09d0d98541f"
-    version "2.0-beta8"
+    url "https://launchpad.net/juju-core/trunk/2.0-beta9/+download/juju-core_2.0-beta9.tar.gz"
+    sha256 "0f201909de0c77be21097f7749a32c131606e86a4b5940484d2fe668c108c22b"
+    version "2.0-beta9"
   end
 
   depends_on "go" => :build
