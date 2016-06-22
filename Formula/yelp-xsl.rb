@@ -1,8 +1,8 @@
 class YelpXsl < Formula
   desc "Yelp's universal stylesheets for Mallard and DocBook"
   homepage "https://github.com/GNOME/yelp-xsl"
-  url "https://download.gnome.org/sources/yelp-xsl/3.18/yelp-xsl-3.18.1.tar.xz"
-  sha256 "00870fbe59a1bc7797b385fce16386917e2987c404e9b5a7adcf0036f1c1ba62"
+  url "https://download.gnome.org/sources/yelp-xsl/3.20/yelp-xsl-3.20.1.tar.xz"
+  sha256 "dc61849e5dca473573d32e28c6c4e3cf9c1b6afe241f8c26e29539c415f97ba0"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,12 +11,12 @@ class YelpXsl < Formula
     sha256 "155670c085ed84002b69978bd679ff128a8be811fc686b8b0936cbae9634ad20" => :mavericks
   end
 
-  depends_on "libxslt"
-  depends_on "libxml2"
   depends_on "itstool" => :build
   depends_on "intltool" => :build
   depends_on "gettext" => :build
-  depends_on "gtk+3"=> :run
+  depends_on "libxslt"
+  depends_on "libxml2"
+  depends_on "gtk+3" => :run
 
   def install
     system "./configure", "--disable-debug",
@@ -31,9 +31,9 @@ class YelpXsl < Formula
   end
 
   test do
-    assert (share/"yelp-xsl/xslt/mallard/html/mal2html-links.xsl").exist?
-    assert (share/"yelp-xsl/js/jquery.syntax.brush.smalltalk.js").exist?
-    assert (share/"yelp-xsl/icons/hicolor/24x24/status/yelp-note-warning.png").exist?
+    assert (pkgshare/"xslt/mallard/html/mal2html-links.xsl").exist?
+    assert (pkgshare/"js/jquery.syntax.brush.smalltalk.js").exist?
+    assert (pkgshare/"icons/hicolor/24x24/status/yelp-note-warning.png").exist?
     assert (share/"pkgconfig/yelp-xsl.pc").exist?
   end
 end
