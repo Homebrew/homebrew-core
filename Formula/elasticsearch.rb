@@ -88,7 +88,7 @@ class Elasticsearch < Formula
   end
 
   def caveats
-    plugin=(devel? || head?) ? "#{libexec}/elasticsearch-plugin" : "#{libexec}/plugin"
+    plugin=(devel? || head?) ? "#{libexec}/bin/elasticsearch-plugin" : "#{libexec}/bin/plugin"
     <<-EOS.undent
     Data:    #{var}/elasticsearch/#{cluster_name}/
     Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
