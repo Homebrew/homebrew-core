@@ -1,8 +1,8 @@
 class TmuxMemCpuLoad < Formula
   desc "CPU, RAM memory, and load monitor for use with tmux"
   homepage "https://github.com/thewtex/tmux-mem-cpu-load"
-  url "https://github.com/thewtex/tmux-mem-cpu-load/archive/v3.2.2.tar.gz"
-  sha256 "cf595916ccf92ece9d3bc50c71d6963f83515605ad7639407e7f893203ae5022"
+  url "https://github.com/thewtex/tmux-mem-cpu-load/archive/v3.3.0.tar.gz"
+  sha256 "523c69aabd304105b6d7db7f95fa7b50715794af6e000a0f705ce533026af977"
 
   head "https://github.com/thewtex/tmux-mem-cpu-load.git"
 
