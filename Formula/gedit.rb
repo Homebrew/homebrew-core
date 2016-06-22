@@ -1,8 +1,8 @@
 class Gedit < Formula
   desc "The GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/3.18/gedit-3.18.3.tar.xz"
-  sha256 "6762ac0d793b0f754a2da5f88739d04fa39daa7491c5c46401d24bcef76c32e7"
+  url "https://download.gnome.org/sources/gedit/3.20/gedit-3.20.2.tar.xz"
+  sha256 "32a1276a71a0d4a5af4e20a87bc273170ba8e075fc1ca7f51c8d3a6c150463f8"
 
   bottle do
     sha256 "12119b98084b680cb7db10db4b7a60bffb60ff2ba14dd2b6c4f2af8a95df1630" => :el_capitan
@@ -40,7 +40,7 @@ class Gedit < Formula
 
   test do
     # main executable test
-    system "gedit", "--version"
+    system bin/"gedit", "--version"
     # API test
     (testpath/"test.c").write <<-EOS.undent
       #include <gedit/gedit-utils.h>
