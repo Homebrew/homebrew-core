@@ -7,9 +7,9 @@ class Scamper < Formula
 
   bottle do
     cellar :any
-    sha256 "1dc57d10084cc92178a0824c552dd014fdac0d44372309b4f5a6d30d7c9120d5" => :el_capitan
-    sha256 "812c9f540f76595b237570cfec1ffac14be32a8e013a4209b73cce9967369905" => :yosemite
-    sha256 "81c7d9bc7aa27886acf4e1ae5e95dfab2539332ac98f6a3220ee2b463dd1b7b1" => :mavericks
+    sha256 "5ce1e8a4ae2c76df62e60987c0f3a41f5ce7ae268d79ce5fb608a63837f36242" => :el_capitan
+    sha256 "87ff82dc8a7a2c058726f07fe73c61f2acd0b3c4f124c4072f3159c995317cf5" => :yosemite
+    sha256 "81991c6883e2c9767cdca29feb0e1cb7cab07e6b7c1af6d0832c706ad161340b" => :mavericks
   end
 
   depends_on "pkg-config" => :build
