@@ -1,8 +1,8 @@
 class Libsecret < Formula
   desc "Library for storing/retrieving passwords and other secrets"
   homepage "https://wiki.gnome.org/Projects/Libsecret"
-  url "https://download.gnome.org/sources/libsecret/0.18/libsecret-0.18.4.tar.xz"
-  sha256 "0f29b51698198e6999c91f4adce3119c8c457f546b133a85baea5ea9010a19ed"
+  url "https://download.gnome.org/sources/libsecret/0.18/libsecret-0.18.5.tar.xz"
+  sha256 "9ce7bd8dd5831f2786c935d82638ac428fa085057cc6780aba0e39375887ccb3"
 
   bottle do
     sha256 "4d726f0a13c77ba0db1be9a8e6a033af5908e0dea0733ac20ec19bbf34d621b2" => :el_capitan
@@ -15,10 +15,10 @@ class Libsecret < Formula
   depends_on "intltool" => :build
   depends_on "gettext" => :build
   depends_on "docbook-xsl" => :build
-  depends_on "vala" => :optional
-  depends_on "gobject-introspection" => :recommended
   depends_on "glib"
   depends_on "libgcrypt"
+  depends_on "gobject-introspection" => :recommended
+  depends_on "vala" => :optional
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
