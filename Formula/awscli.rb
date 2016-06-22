@@ -2,9 +2,8 @@
 class Awscli < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://files.pythonhosted.org/packages/f4/a3/3dabdad7395512b1e01ad6113439bf6d4e2628b0aa6ef1431af4a1ddbed2/awscli-1.10.38.tar.gz"
-  sha256 "56fc0d938aa1ee6ec71c9e7f6f0d7b96614419ccd7c7edf99a8dc071ad26a105"
-  revision 1
+  url "https://files.pythonhosted.org/packages/1e/d4/1de72c1651070d34563e6ec27555e6b7a5e5e811808501344fbcf795f137/awscli-1.10.39.tar.gz"
+  sha256 "4a6fde23d60489d3bdf72f52274834acf65f2871498463825bbbc4db7456d650"
 
   bottle do
     cellar :any_skip_relocation
@@ -33,14 +32,9 @@ class Awscli < Formula
   # https://github.com/Homebrew/homebrew/pull/37240
   depends_on :python if MacOS.version <= :lion
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
-  end
-
-  resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
-    sha256 "1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed"
+  resource "botocore" do
+    url "https://files.pythonhosted.org/packages/87/1e/0b59d9d2f21537e056e8de109fd594b8cec4bf26e3e5a933daa991810c0c/botocore-1.4.29.tar.gz"
+    sha256 "4bd0b855d42b4a84efc63b9c1b7aaf15a74d42190e4cb8a2f848c46408d94e1e"
   end
 
   resource "colorama" do
@@ -48,19 +42,9 @@ class Awscli < Formula
     sha256 "eb21f2ba718fbf357afdfdf6f641ab393901c7ca8d9f37edd0bee4806ffa269c"
   end
 
-  resource "botocore" do
-    url "https://files.pythonhosted.org/packages/37/31/8fc18c6886325075aaafd66b1bff684cedc8e6792645f623e956207a3546/botocore-1.4.28.tar.gz"
-    sha256 "145e41531a5d38862974ddf45c055e1561046f72caa04564f0435d25cf62dbe1"
-  end
-
-  resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/8f/d8/6e3e602a3e90c5e3961d3d159540df6b2ff32f5ab2ee8ee1d28235a425c1/jmespath-0.9.0.tar.gz"
-    sha256 "08dfaa06d4397f283a01e57089f3360e3b52b5b9da91a70e1fd91e9f0cdd3d3d"
-  end
-
-  resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/6e/12/5d0ea478e6d261857a461af921b78f3bc6f92c479ffe57076f4fc9a362ab/s3transfer-0.0.1.tar.gz"
-    sha256 "2bb9ed8db58af94dfa78f75f554d646dfe4b4741fc87f63a20c2bfb3f70f4355"
+  resource "docutils" do
+    url "https://files.pythonhosted.org/packages/37/38/ceda70135b9144d84884ae2fc5886c6baac4edea39550f28bcd144c1234d/docutils-0.12.tar.gz"
+    sha256 "c7db717810ab6965f66c8cf0398a98c9d8df982da39b4cd7f162911eb89596fa"
   end
 
   resource "futures" do
@@ -68,9 +52,9 @@ class Awscli < Formula
     sha256 "0542525145d5afc984c88f914a0c85c77527f65946617edb5274f72406f981df"
   end
 
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/37/38/ceda70135b9144d84884ae2fc5886c6baac4edea39550f28bcd144c1234d/docutils-0.12.tar.gz"
-    sha256 "c7db717810ab6965f66c8cf0398a98c9d8df982da39b4cd7f162911eb89596fa"
+  resource "jmespath" do
+    url "https://files.pythonhosted.org/packages/8f/d8/6e3e602a3e90c5e3961d3d159540df6b2ff32f5ab2ee8ee1d28235a425c1/jmespath-0.9.0.tar.gz"
+    sha256 "08dfaa06d4397f283a01e57089f3360e3b52b5b9da91a70e1fd91e9f0cdd3d3d"
   end
 
   resource "pyasn1" do
@@ -78,9 +62,24 @@ class Awscli < Formula
     sha256 "853cacd96d1f701ddd67aa03ecc05f51890135b7262e922710112f12a2ed2a7f"
   end
 
+  resource "python-dateutil" do
+    url "https://files.pythonhosted.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
+    sha256 "1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed"
+  end
+
   resource "rsa" do
     url "https://files.pythonhosted.org/packages/14/89/adf8b72371e37f3ca69c6cb8ab6319d009c4a24b04a31399e5bd77d9bb57/rsa-3.4.2.tar.gz"
     sha256 "25df4e10c263fb88b5ace923dd84bf9aa7f5019687b5e55382ffcdb8bede9db5"
+  end
+
+  resource "s3transfer" do
+    url "https://files.pythonhosted.org/packages/6e/12/5d0ea478e6d261857a461af921b78f3bc6f92c479ffe57076f4fc9a362ab/s3transfer-0.0.1.tar.gz"
+    sha256 "2bb9ed8db58af94dfa78f75f554d646dfe4b4741fc87f63a20c2bfb3f70f4355"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   def install
