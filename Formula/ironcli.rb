@@ -1,12 +1,18 @@
-require "language/go"
-
 class Ironcli < Formula
-  desc "CLI for Iron.io services"
+  desc "Go version of the Iron.io command-line tools"
   homepage "https://github.com/iron-io/ironcli"
-  url "https://github.com/iron-io/ironcli/archive/0.0.22.tar.gz"
-  sha256 "af179a2be5d78844f166f09a21c0387bf22ad87b696b31632e1bc81d002a4779"
-
   head "https://github.com/iron-io/ironcli.git"
+
+  stable do
+    url "https://github.com/iron-io/ironcli/archive/0.1.2.tar.gz"
+    sha256 "ff4d8b87f3dec4af83e6a907b3a857e24ceb41fabd2baa4057aae496b12324e6"
+
+    # fixes the version
+    patch do
+      url "https://github.com/iron-io/ironcli/commit/1fde89f1.patch"
+      sha256 "d037582e62073ae56b751ef543361cc381334f747b4547c0ccdf93df0098dba5"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -16,23 +22,19 @@ class Ironcli < Formula
   end
 
   depends_on "go" => :build
+  depends_on "glide" => :build
 
   def install
-    contents = Dir["{*,.git,.gitignore}"]
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/iron-io/ironcli").install contents
-
-    ENV["GOPATH"] = gopath
-    ENV.prepend_create_path "PATH", gopath/"bin"
-
-    cd gopath/"src/github.com/iron-io/ironcli" do
-      system "go", "build", "-o", "iron"
-      bin.install "iron"
+    ENV["GOPATH"] = buildpath
+    dir = buildpath/"src/github.com/iron-io/ironcli"
+    dir.install Dir["*"]
+    cd dir do
+      system "glide", "install"
+      system "go", "build", "-o", bin/"iron"
     end
   end
 
   test do
-    output = shell_output(bin/"iron --version")
-    assert_match version.to_s, output
+    assert_equal version.to_s, shell_output("#{bin}/iron --version").chomp
   end
 end
