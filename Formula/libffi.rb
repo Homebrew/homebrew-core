@@ -1,9 +1,10 @@
 class Libffi < Formula
   desc "Portable Foreign Function Interface library"
   homepage "https://sourceware.org/libffi/"
-  url "https://mirrorservice.org/sites/sources.redhat.com/pub/libffi/libffi-3.0.13.tar.gz"
-  mirror "ftp://sourceware.org/pub/libffi/libffi-3.0.13.tar.gz"
-  sha256 "1dddde1400c3bcb7749d398071af88c3e4754058d2d4c0b3696c2f82dc5cf11c"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libf/libffi/libffi_3.2.1.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libf/libffi/libffi_3.2.1.orig.tar.gz"
+  mirror "ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz"
+  sha256 "d06ebb8e1d9a22d19e38d63fdb83954253f39bedc5d46232a05645685722ca37"
 
   bottle do
     cellar :any
@@ -25,8 +26,6 @@ class Libffi < Formula
   keg_only :provided_by_osx, "Some formulae require a newer version of libffi."
 
   def install
-    ENV.deparallelize # https://github.com/Homebrew/homebrew/pull/19267
-    ENV.universal_binary
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
