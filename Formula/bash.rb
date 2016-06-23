@@ -79,10 +79,9 @@ class Bash < Formula
   end
 
   bottle do
-    revision 2
-    sha256 "d049592d79b9793d2c04709d9aa2c3a6156374f8d009ca1cba1117e457238a9a" => :el_capitan
-    sha256 "f3fcc6293765dbd1cc5d2fe5a1160db4fbf36b4cd620bab7171fc2fd942fa529" => :yosemite
-    sha256 "53d723b1e1b273e815e5211e56b5c325147b94f3cbdda09e3a23d1c452f8942a" => :mavericks
+    sha256 "d2b6fc817178545e78be78a4eadf69a9d40b559b5246f4d850de0f69a0f3c79e" => :el_capitan
+    sha256 "2cbb5cf87a3da713347934fd1c64ad33a4c4bf293e72bec482ec32ffed73f52e" => :yosemite
+    sha256 "d8e78e912e10db0bf717c5958da825e5f01b2c80a80a41cb8cd2dbc14c0a2242" => :mavericks
   end
 
   devel do
