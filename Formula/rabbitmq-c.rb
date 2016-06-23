@@ -1,9 +1,8 @@
 class RabbitmqC < Formula
   desc "RabbitMQ C client"
   homepage "https://github.com/alanxz/rabbitmq-c"
-  url "https://github.com/alanxz/rabbitmq-c/releases/download/v0.7.1/rabbitmq-c-0.7.1.tar.gz"
-  sha256 "23df349a7d157543e756acc67e47b217843ecbdafaefe3e4974073bb99d8a26d"
-
+  url "https://github.com/alanxz/rabbitmq-c/archive/v0.8.0.tar.gz"
+  sha256 "d8ed9dcb49903d83d79d7b227da35ef68c60e5e0b08d0fc1fb4e4dc577b8802b"
   head "https://github.com/alanxz/rabbitmq-c.git"
 
   bottle do
@@ -39,6 +38,6 @@ class RabbitmqC < Formula
   end
 
   test do
-    system "amqp-get", "--help"
+    system bin/"amqp-get", "--help"
   end
 end
