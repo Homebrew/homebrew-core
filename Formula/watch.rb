@@ -19,11 +19,9 @@ class Watch < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    revision 1
-    sha256 "96f5eb357252388cfe7051ffcec7c568681257e6965a58276ed53164b69e85cd" => :el_capitan
-    sha256 "a8a2e64c291503ed386c06703a6a224b83d9d418dc28e7e118844707fdd1ef6f" => :yosemite
-    sha256 "7240e4583b401d6931b75f35be341bd3805435409bf8ff1dee004b9a2db5534e" => :mavericks
+    sha256 "3bcef103b4c05c5bee8a1f77f02f2ea7e9fb5c7496681677245bd8abcce7fdb5" => :el_capitan
+    sha256 "fa4fc04f62518328ec879c595156a115ec14dde46be23c4b9dd79da9a378f74e" => :yosemite
+    sha256 "f4e6ab66a65524de9fcca757afd95d1178f21ef87be1b04f56beec25e8cb191f" => :mavericks
   end
 
   conflicts_with "visionmedia-watch"
