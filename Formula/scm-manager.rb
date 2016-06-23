@@ -38,7 +38,7 @@ class ScmManager < Formula
     tools = libexec/"tools"
     tools.install resource("client")
 
-    scm_cli_client = bin+"scm-cli-client"
+    scm_cli_client = bin/"scm-cli-client"
     scm_cli_client.write <<-EOS.undent
       #!/bin/bash
       java -jar "#{tools}/scm-cli-client-#{version}-jar-with-dependencies.jar" "$@"
@@ -68,6 +68,6 @@ class ScmManager < Formula
   end
 
   test do
-    system "#{opt_libexec}/../bin/scm-cli-client version | grep #{version}"
+    assert_match version.to_s, shell_output("#{bin}/scm-cli-client version")
   end
 end
