@@ -5,9 +5,9 @@ class Gedit < Formula
   sha256 "32a1276a71a0d4a5af4e20a87bc273170ba8e075fc1ca7f51c8d3a6c150463f8"
 
   bottle do
-    sha256 "12119b98084b680cb7db10db4b7a60bffb60ff2ba14dd2b6c4f2af8a95df1630" => :el_capitan
-    sha256 "00212299adb87ff33cb0c87d5bfbb591286eaae2b336f756d80a175fc59f8360" => :yosemite
-    sha256 "ad6eba6059ad411a573a9ebb8c00922dc07fed9214894a243823d39507866a79" => :mavericks
+    sha256 "f82d3eda571bfd09c0f25f35ecbfe5ec3f27495c698caa9a0f099a20055dcb73" => :el_capitan
+    sha256 "dfb0ecca21a09bf5ce5d2eadb9b619731a4cdd68e5caf4f274e2f58a8cfdebe7" => :yosemite
+    sha256 "421dd30ffd44155452dc99db471e9d92f38d67b99b5e83dfc98e3e121f7883b9" => :mavericks
   end
 
   depends_on "pkg-config" => :build
