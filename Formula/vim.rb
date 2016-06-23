@@ -8,8 +8,8 @@ class Vim < Formula
   end
 
   # *** Vim should be updated no more than once every 7 days ***
-  url "https://github.com/vim/vim/archive/v7.4.1941.tar.gz"
-  sha256 "1dfe9c180e9fb0db4d91831ee8f2d8c6f24f536dab1b86fa0b05928b48336547"
+  url "https://github.com/vim/vim/archive/v7.4.1952.tar.gz"
+  sha256 "8de19b12cabde17b87f915a05e1855f6ff8404962947c5cf2204cf51f1ce5d67"
 
   head "https://github.com/vim/vim.git"
 
