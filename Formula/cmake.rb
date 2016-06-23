@@ -15,8 +15,8 @@ class Cmake < Formula
   end
 
   devel do
-    url "https://cmake.org/files/v3.6/cmake-3.6.0-rc2.tar.gz"
-    sha256 "0c3f7abb258e2d0a1e01583d024f0b2d6bb8e9f7515e44bcfc9b81a83b81255f"
+    url "https://cmake.org/files/v3.6/cmake-3.6.0-rc3.tar.gz"
+    sha256 "3a6aff86a3ae93253456dfc8196034b2a580a0c3bc34174d99a2e5175bc578c6"
   end
 
   option "without-docs", "Don't build man pages"
