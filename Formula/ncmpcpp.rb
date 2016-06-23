@@ -1,9 +1,8 @@
 class Ncmpcpp < Formula
   desc "Ncurses-based client for the Music Player Daemon"
   homepage "http://rybczak.net/ncmpcpp/"
-  url "http://rybczak.net/ncmpcpp/stable/ncmpcpp-0.7.3.tar.bz2"
-  sha256 "2c8b29435ca4fd845400cee7c9fd50a731bee215e92fd7e98a7446c84136b212"
-  revision 1
+  url "http://ncmpcpp.rybczak.net/stable/ncmpcpp-0.7.4.tar.bz2"
+  sha256 "d70425f1dfab074a12a206ddd8f37f663bce2bbdc0a20f7ecf290ebe051f1e63"
 
   bottle do
     cellar :any
@@ -34,10 +33,10 @@ class Ncmpcpp < Formula
   depends_on "fftw" if build.with? "visualizer"
 
   if MacOS.version < :mavericks
-    depends_on "boost" => ["with-icu4c", "c++11"]
+    depends_on "boost" => "c++11"
     depends_on "taglib" => "c++11"
   else
-    depends_on "boost" => ["with-icu4c"]
+    depends_on "boost"
     depends_on "taglib"
   end
 
