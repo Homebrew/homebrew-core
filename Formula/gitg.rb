@@ -1,8 +1,8 @@
 class Gitg < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
-  url "https://download.gnome.org/sources/gitg/3.18/gitg-3.18.0.tar.xz"
-  sha256 "fa4b7b9c492f13f5f1d864af1281ea377ac8c7619c856e05f533b18989edf421"
+  url "https://download.gnome.org/sources/gitg/3.20/gitg-3.20.1.tar.xz"
+  sha256 "104420bcdd765fa2196a7b146ba1e0fa82a5686ed5ba9af40e31e88e601aa585"
 
   bottle do
     sha256 "5da83eb431d2bac44657f9be88a3e227d112754bd520215a7d590a62a243f08d" => :el_capitan
@@ -26,10 +26,7 @@ class Gitg < Formula
   depends_on "hicolor-icon-theme"
   depends_on "gnome-icon-theme"
   depends_on :python3 => :optional
-
-  if build.with?("python3")
-    depends_on "pygobject3" => "with-python3"
-  end
+  depends_on "pygobject3" => "with-python3" if build.with?("python3")
 
   def install
     system "./configure", "--disable-debug",
@@ -47,7 +44,7 @@ class Gitg < Formula
 
   test do
     # test executable
-    assert_match /#{version}/, shell_output("#{bin}/gitg --version")
+    assert_match version.to_s, shell_output("#{bin}/gitg --version")
     # test API
     (testpath/"test.c").write <<-EOS.undent
       #include <libgitg/libgitg.h>

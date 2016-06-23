@@ -3,6 +3,7 @@ class Librsvg < Formula
   homepage "https://live.gnome.org/LibRsvg"
   url "https://download.gnome.org/sources/librsvg/2.40/librsvg-2.40.16.tar.xz"
   sha256 "d48bcf6b03fa98f07df10332fb49d8c010786ddca6ab34cbba217684f533ff2e"
+  revision 1
 
   bottle do
     sha256 "7d8d13cceb697da1fff3c552cfa1596dc5fb6e49939a94f44d8deb5fe53b99b3" => :el_capitan
