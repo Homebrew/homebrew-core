@@ -6,12 +6,15 @@ class Embulk < Formula
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on :java => "1.7+"
 
   def install
     # Execute through /bin/bash to be compatible with OS X 10.9.
     libexec.install "embulk-#{version}.jar" => "embulk.jar"
-    (bin/"embulk").write "#!/bin/bash\nexec /bin/bash \"#{libexec/"embulk.jar"}\" \"$@\"\n"
+    (bin/"embulk").write <<-EOS.undent
+      #!/bin/bash
+      exec /bin/bash "#{libexec/"embulk.jar"}" "$@"
+    EOS
   end
 
   test do
