@@ -1,17 +1,16 @@
 class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
+  # *** Vim should be updated no more than once every 7 days ***
+  url "https://github.com/vim/vim/archive/v7.4.1952.tar.gz"
+  sha256 "8de19b12cabde17b87f915a05e1855f6ff8404962947c5cf2204cf51f1ce5d67"
+  head "https://github.com/vim/vim.git"
+
   bottle do
     sha256 "9f81197d508815b35912b5330250bdd244bc335346533eab4e399a96747b8bc6" => :el_capitan
     sha256 "c51a7f96b1e33aa64fcf3868dd5c269c529e64156360f50e219c708a91ab05ae" => :yosemite
     sha256 "32ea9159683dbb65c4ed0ee9af0321b8398ccdb72f72a15de9e0f396d29ba67c" => :mavericks
   end
-
-  # *** Vim should be updated no more than once every 7 days ***
-  url "https://github.com/vim/vim/archive/v7.4.1952.tar.gz"
-  sha256 "8de19b12cabde17b87f915a05e1855f6ff8404962947c5cf2204cf51f1ce5d67"
-
-  head "https://github.com/vim/vim.git"
 
   deprecated_option "disable-nls" => "without-nls"
   deprecated_option "override-system-vi" => "with-override-system-vi"
