@@ -5,7 +5,7 @@ class Bash < Formula
   head "http://git.savannah.gnu.org/r/bash.git"
 
   stable do
-    url "http://ftpmirror.gnu.org/bash/bash-4.3.tar.gz"
+    url "https://ftpmirror.gnu.org/bash/bash-4.3.tar.gz"
     mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-4.3.tar.gz"
     mirror "https://mirrors.kernel.org/gnu/bash/bash-4.3.tar.gz"
     mirror "https://ftp.gnu.org/gnu/bash/bash-4.3.tar.gz"
@@ -61,7 +61,7 @@ class Bash < Formula
       042 ac219322db2791da87a496ee6e8e5544846494bdaaea2626270c2f73c1044919
     ].each_slice(2) do |p, checksum|
       patch :p0 do
-        url "http://ftpmirror.gnu.org/bash/bash-4.3-patches/bash43-#{p}"
+        url "https://ftpmirror.gnu.org/bash/bash-4.3-patches/bash43-#{p}"
         mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-4.3-patches/bash43-#{p}"
         mirror "https://mirrors.kernel.org/gnu/bash/bash-4.3-patches/bash43-#{p}"
         mirror "https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-#{p}"
@@ -82,7 +82,7 @@ class Bash < Formula
   end
 
   devel do
-    url "http://ftpmirror.gnu.org/bash/bash-4.4-rc1.tar.gz"
+    url "https://ftpmirror.gnu.org/bash/bash-4.4-rc1.tar.gz"
     mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-4.4-rc1.tar.gz"
     mirror "https://mirrors.kernel.org/gnu/bash/bash-4.4-rc1.tar.gz"
     mirror "https://ftp.gnu.org/gnu/bash/bash-4.4-rc1.tar.gz"
