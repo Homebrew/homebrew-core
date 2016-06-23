@@ -3,7 +3,7 @@
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
-  url "http://ftpmirror.gnu.org/wget/wget-1.18.tar.xz"
+  url "https://ftpmirror.gnu.org/wget/wget-1.18.tar.xz"
   mirror "https://ftp.gnu.org/gnu/wget/wget-1.18.tar.xz"
   sha256 "b5b55b75726c04c06fe253daec9329a6f1a3c0c1878e3ea76ebfebc139ea9cc1"
 
