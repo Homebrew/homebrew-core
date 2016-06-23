@@ -30,7 +30,8 @@ class Gedit < Formula
                           "--prefix=#{prefix}",
                           "--disable-updater",
                           "--disable-schemas-compile",
-                          "--disable-python"
+                          "--disable-python",
+                          "--disable-spell" # Expects gspell < 1.0.
     system "make", "install"
   end
 
