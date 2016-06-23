@@ -5,9 +5,9 @@ class Atk < Formula
   sha256 "493a50f6c4a025f588d380a551ec277e070b28a82e63ef8e3c06b3ee7c1238f0"
 
   bottle do
-    sha256 "fe1c92ea4289e68e062a861b7b150ccf69beba70e95d38f7f028b52ca2f6314d" => :el_capitan
-    sha256 "7cd7097c3dd7a00e9a16bd22740e1dc242ca7a6e8e7d78d35204ecfa345e8c44" => :yosemite
-    sha256 "2b108c87daaaf48d7628f8e4187533533c726331c55d0182327551366525829b" => :mavericks
+    sha256 "22ef1732768f4e044c726d472f8df3b65d6ec551a48281b7510f9353bc4a2bf2" => :el_capitan
+    sha256 "39faebf76827aa4cdf00c5773d734701dec79dc0ed39b0f4bc5e002ebb73aec4" => :yosemite
+    sha256 "ef489d35b9bf74d41110287fbccab60c0581005cfa91f55cacaa642f5a184896" => :mavericks
   end
 
   option :universal
