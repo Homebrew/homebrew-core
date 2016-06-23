@@ -27,6 +27,21 @@ class Tor < Formula
     sha256 "595d64e121de2417e647d5c8a1d0051d5a3e3de9c0e15429134c5dd494459573" => :mavericks
   end
 
+  stable do
+    # autotools only needed as long as the patch below is applied;
+    # remove them when the patch goes away
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+
+    # Fixes build on 10.12
+    # https://trac.torproject.org/projects/tor/ticket/17819
+    # Applied upstream, will be in the next release.
+    patch do
+      url "https://trac.torproject.org/projects/tor/raw-attachment/ticket/17819/pthread.diff"
+      sha256 "9eb64548f0c1efae28535dcfa4ed19824eccaea1cee62607adb480b99217697b"
+    end
+  end
+
   devel do
     url "https://dist.torproject.org/tor-0.2.8.4-rc.tar.gz"
     mirror "https://tor.eff.org/dist/tor-0.2.8.4-rc.tar.gz"
