@@ -63,7 +63,12 @@ class Gd < Formula
   def install
     ENV.universal_binary if build.universal?
 
-    args = %W[--disable-dependency-tracking --prefix=#{prefix} --without-x]
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --without-x
+      --without-xpm
+    ]
 
     if build.with? "libpng"
       args << "--with-png=#{Formula["libpng"].opt_prefix}"
