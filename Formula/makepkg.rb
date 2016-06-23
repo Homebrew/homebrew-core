@@ -20,7 +20,7 @@ class Makepkg < Formula
   depends_on "asciidoc" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "libarchive" => :build
+  depends_on "libarchive"
   depends_on "bash"
   depends_on "fakeroot"
   depends_on "gettext"
