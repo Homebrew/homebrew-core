@@ -6,9 +6,9 @@ class Librsvg < Formula
   revision 1
 
   bottle do
-    sha256 "7d8d13cceb697da1fff3c552cfa1596dc5fb6e49939a94f44d8deb5fe53b99b3" => :el_capitan
-    sha256 "a7021675f605dba5e8e6facce00d8a4aa1d9f17e3d032c0e9e20537f63e905e1" => :yosemite
-    sha256 "7afd7cee503372f4b94c4dd63513ec418254ac5e50c26460db055b7c65e26c19" => :mavericks
+    sha256 "f4b8c0b69418d3cb0720af733219b2177a801f6f98f6767acaa1d538457b5c7d" => :el_capitan
+    sha256 "23c9650d0d5f26898e3387836fc6c7272998d7a41aa5a76bda84ba9be31fbb81" => :yosemite
+    sha256 "b00aa2f676d225950a9ac5ee7c6595b2bfe365252c362bc781ef8e86fdf033fc" => :mavericks
   end
 
   depends_on "pkg-config" => :build
