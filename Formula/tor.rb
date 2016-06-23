@@ -1,9 +1,25 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://dist.torproject.org/tor-0.2.7.6.tar.gz"
-  mirror "https://tor.eff.org/dist/tor-0.2.7.6.tar.gz"
-  sha256 "493a8679f904503048114aca6467faef56861206bab8283d858f37141d95105d"
+
+  stable do
+    url "https://dist.torproject.org/tor-0.2.7.6.tar.gz"
+    mirror "https://tor.eff.org/dist/tor-0.2.7.6.tar.gz"
+    sha256 "493a8679f904503048114aca6467faef56861206bab8283d858f37141d95105d"
+
+    # autotools only needed as long as the patch below is applied;
+    # remove them when the patch goes away
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+
+    # Fixes build on 10.12
+    # https://trac.torproject.org/projects/tor/ticket/17819
+    # Applied upstream, will be in the next release.
+    patch do
+      url "https://trac.torproject.org/projects/tor/raw-attachment/ticket/17819/pthread.diff"
+      sha256 "9eb64548f0c1efae28535dcfa4ed19824eccaea1cee62607adb480b99217697b"
+    end
+  end
 
   bottle do
     sha256 "32bb77890419cef8b2152e9a6cd554b71021baa64d3dac8fc8d48d7d24d51e99" => :el_capitan
