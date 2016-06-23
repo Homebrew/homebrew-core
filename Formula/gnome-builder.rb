@@ -19,6 +19,7 @@ class GnomeBuilder < Formula
   depends_on "gtksourceview3"
   depends_on "hicolor-icon-theme"
   depends_on "gnome-icon-theme"
+  depends_on "desktop-file-utils"
   depends_on "pcre"
   depends_on "gjs" => :recommended
   depends_on "vala" => :recommended
