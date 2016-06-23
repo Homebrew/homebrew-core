@@ -3,7 +3,7 @@ class Ganglia < Formula
   homepage "http://ganglia.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/ganglia/ganglia%20monitoring%20core/3.7.1/ganglia-3.7.1.tar.gz"
   sha256 "e735a6218986a0ff77c737e5888426b103196c12dc2d679494ca9a4269ca69a3"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "7b2b10090f35f813fdf1a5b715b4e2bba48bdf71a20fd0cd138be62a8f5aede2" => :el_capitan
