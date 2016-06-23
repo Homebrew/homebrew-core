@@ -15,5 +15,16 @@ class Protozero < Formula
     files.each do |f|
       assert_equal(File.exist?("#{include}/protozero/#{f}"), true)
     end
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <protozero/version.hpp>
+      int main() {
+        if (PROTOZERO_VERSION_STRING == "#{version}") {
+          return 0;
+        }
+        return 1;
+      }
+    EOS
+    system "c++", testpath/"test.cpp", "-o", "test"
+    system testpath/"test"
   end
 end
