@@ -6,9 +6,9 @@ class Goffice < Formula
   revision 1
 
   bottle do
-    sha256 "60c6737ae9ab68d67ee3dc4fc2f80b7aac3cfb737c653ff5237fae131937e9cc" => :el_capitan
-    sha256 "e946e1d48d61718580cc272cec5a0eea4dcbbe3d1cdf31cf724cb011b6a448c7" => :yosemite
-    sha256 "a8f4b5c9f3870145b2dfd0e8a011020ec99881590be549db8c0a8fe59f3cfd8c" => :mavericks
+    sha256 "76aa00c6d93fdc06f174e0b33cf20fecb7bb4cf34524b6e8c3daca5770439a55" => :el_capitan
+    sha256 "afaa983bf988dc92d96c1c0862d3ab30e07f699ca127ef44b8022bd0c711bad1" => :yosemite
+    sha256 "4543d57c729c918f4dea87279bbab6541942dfc5e8bd220e741d2b0325f8fe0e" => :mavericks
   end
 
   head do
