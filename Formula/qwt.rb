@@ -2,7 +2,7 @@ class Qwt < Formula
   desc "Qt Widgets for Technical Applications (v5.1)"
   homepage "http://qwt.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.3/qwt-6.1.3.tar.bz2"
-  sha256 "f996074eb50cafa06d45dc41cc1c18a087287d9f2079cc817eb8cfc96b710885"
+  sha256 "f3ecd34e72a9a2b08422fb6c8e909ca76f4ce5fa77acad7a2883b701f4309733"
 
   bottle do
     cellar :any
