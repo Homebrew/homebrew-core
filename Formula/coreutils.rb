@@ -1,7 +1,7 @@
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils"
-  url "http://ftpmirror.gnu.org/coreutils/coreutils-8.25.tar.xz"
+  url "https://ftpmirror.gnu.org/coreutils/coreutils-8.25.tar.xz"
   mirror "https://ftp.gnu.org/gnu/coreutils/coreutils-8.25.tar.xz"
   sha256 "31e67c057a5b32a582f26408c789e11c2e8d676593324849dcf5779296cdce87"
 
