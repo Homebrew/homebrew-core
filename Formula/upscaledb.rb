@@ -1,9 +1,8 @@
 class Upscaledb < Formula
   desc "Database for embedded devices"
   homepage "https://upscaledb.com/"
-  url "http://files.upscaledb.com/dl/upscaledb-2.1.12.tar.gz"
-  sha256 "f68c7e7b8f5aaf41ab47d60e351db35506f96ebf8be2ad695a0d8a12035001df"
-  revision 1
+  url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
+  sha256 "7d0d1ace47847a0f95a9138637fcaaf78b897ef682053e405e2c0865ecfd253e"
 
   bottle do
     cellar :any
@@ -74,15 +73,13 @@ class Upscaledb < Formula
 
     system "./configure", *args
     system "make", "install"
-    # https://github.com/cruppstahl/upscaledb/commit/b435cc4fdfd8750aa3e717321608ef0c059d15ca
-    mv include/"ham", include/"ups" if build.stable?
 
-    share.install "samples"
+    pkgshare.install "samples"
   end
 
   test do
     system ENV.cc, "-I#{include}", "-L#{lib}", "-lupscaledb",
-           share/"samples/db1.c", "-o", "test"
+           pkgshare/"samples/db1.c", "-o", "test"
     system "./test"
   end
 end
