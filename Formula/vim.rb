@@ -2,9 +2,9 @@ class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
   bottle do
-    sha256 "b882eaa25b5252c87c2c7c038e668efbffc44a26eb9ed5ff8e37507943f9b92b" => :el_capitan
-    sha256 "88ca73c3808971a9a775fd0d2fc23899838113d9ec4ecbb2d353862d9c2c5d3d" => :yosemite
-    sha256 "698175237e57805bbe77e71eaddc5892800aeb8d3d003e3651400f6db0436aff" => :mavericks
+    sha256 "9f81197d508815b35912b5330250bdd244bc335346533eab4e399a96747b8bc6" => :el_capitan
+    sha256 "c51a7f96b1e33aa64fcf3868dd5c269c529e64156360f50e219c708a91ab05ae" => :yosemite
+    sha256 "32ea9159683dbb65c4ed0ee9af0321b8398ccdb72f72a15de9e0f396d29ba67c" => :mavericks
   end
 
   # *** Vim should be updated no more than once every 7 days ***
