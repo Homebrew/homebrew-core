@@ -17,9 +17,9 @@ class Mvtools < Formula
 
   bottle do
     cellar :any
-    sha256 "1edd2c510374f7f7100b702e81ef68ea1b7461b2f4d93fac013052bbb8c2f4f5" => :el_capitan
-    sha256 "a9fe49ecb6275bd8f183caf6ad7ea662abb7ba8417757186681b5b517eeedb2f" => :yosemite
-    sha256 "cbb7dd3106bf1407eeded6b894454c9c7dbec765e00c9a6909301db2d2c83cd1" => :mavericks
+    sha256 "0f25725affeb1ded389954c2a83f53ee18d6f3259578ec42a8822e25ae439fad" => :el_capitan
+    sha256 "e2940a96c64ff3fac2be67ea1a30d669e6a12ba5a9dfd0f90efa59e22afda9dc" => :yosemite
+    sha256 "ad22aec093ace4cfdaa2e8fb8febf6748ea8878cd045f94ec205e74f2f269252" => :mavericks
   end
 
   depends_on "pkg-config" => :build
