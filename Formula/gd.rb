@@ -1,34 +1,18 @@
 class Gd < Formula
   desc "Graphics library to dynamically manipulate images"
   homepage "https://libgd.github.io/"
-  revision 1
 
   stable do
-    url "https://github.com/libgd/libgd/archive/gd-2.2.1.tar.gz"
-    sha256 "06b0f2ef45fbdde7b05816a8a988868b11ac348f77ffa15a958128a8106b1e08"
+    url "https://github.com/libgd/libgd/releases/download/gd-2.2.2/libgd-2.2.2.tar.xz"
+    sha256 "489f756ce07f0c034b1a794f4d34fdb4d829256112cb3c36feb40bb56b79218c"
 
-    # Prevents need for a dependency on gnu-sed; fixes
-    #  sed: 1: "2i/* Generated from con ...": command i expects \ followed by text
-    # Requires the source archive tarball to apply cleanly; fix taken from HEAD,
-    # so most likely the release tarball can be restored upon the next release
+    # OS X linker restricts the revision field to 8 bits: libgd/libgd#214.
+    # Same as https://github.com/libgd/libgd/commit/502e4cd8, but recommended by
+    # upstream for patching the release tarball; already fixed in HEAD.
     patch do
-      url "https://github.com/libgd/libgd/commit/0bc8586e.patch"
-      sha256 "fc7e372c873afc6f750256f49cd7f3540b0e424e10a1a25fa708d2ebd2d3c9ca"
+      url "https://gitweb.gentoo.org/repo/gentoo.git/plain/media-libs/gd/files/gd-2.2.2-osx-libtool.patch?id=ede657b970d1deee8305dbefaf5651c37aea115c"
+      sha256 "8af30e9f8da6ca7ed28ee766e87b66d8ccf034745851760fb4fc8e9bc4907f14"
     end
-
-    # https://github.com/libgd/libgd/issues/214
-    patch do
-      url "https://github.com/libgd/libgd/commit/502e4cd8.patch"
-      sha256 "34fecd59b7f9646492647503375aaa34896bcc5a6eca1408c59a4b17e84896da"
-    end
-
-    # These are only needed for the 2.2.1 release. Remove on next
-    # stable release & reset bootstrap step to head-only in install.
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
-    depends_on "gettext" => :build
   end
 
   bottle do
@@ -106,7 +90,7 @@ class Gd < Formula
       args << "--without-webp"
     end
 
-    system "./bootstrap.sh"
+    system "./bootstrap.sh" if build.head?
     system "./configure", *args
     system "make", "install"
   end
