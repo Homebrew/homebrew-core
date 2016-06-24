@@ -4,8 +4,8 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-    :tag => "v1.2.0",
-    :revision => "3a4fcd46356db83f45e89d2a8d770f034e7b9cf5"
+    :tag => "v1.3.0",
+    :revision => "f9b343781c947a8ccc89edcd4e460dec8f70828b"
 
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
@@ -25,10 +25,10 @@ class GitlabCiMultiRunner < Formula
       :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
   end
 
-  resource "prebuilt.tar.gz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.2.0/docker/prebuilt.tar.gz",
+  resource "prebuilt-x86_64.tar.gz" do
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.3.0/docker/prebuilt-x86_64.tar.gz",
       :using => :nounzip
-    sha256 "f7b669d5120ffdccb97b66470a3297a98acf8b8e9d621ddc000a8fba84f272ce"
+    sha256 "cf2d9e9d776d712e3f088c7845302c70a13b68b7326749581c7877637b0ca770"
   end
 
   def install
@@ -44,8 +44,8 @@ class GitlabCiMultiRunner < Formula
       system "go", "install"
     end
 
-    resource("prebuilt.tar.gz").stage do
-      system "go-bindata", "-pkg", "docker", "-nocompress", "-nomemcopy", "-nometadata", "-o", buildpath/"executors/docker/bindata.go", "prebuilt.tar.gz"
+    resource("prebuilt-x86_64.tar.gz").stage do
+      system "go-bindata", "-pkg", "docker", "-nocompress", "-nomemcopy", "-nometadata", "-o", buildpath/"executors/docker/bindata.go", "prebuilt-x86_64.tar.gz"
     end
 
     cd "src/gitlab.com/gitlab-org/gitlab-ci-multi-runner" do
