@@ -1,8 +1,8 @@
 class AuroraCli < Formula
   desc "Apache Aurora Scheduler Client"
   homepage "https://aurora.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=/aurora/0.13.0/apache-aurora-0.13.0.tar.gz"
-  sha256 "d26c245c9ae1b3262d0bfd3e1452dc9941f1f607e457b610b95f0a0e1b24925e"
+  url "https://www.apache.org/dyn/closer.cgi?path=/aurora/0.14.0/apache-aurora-0.14.0.tar.gz"
+  sha256 "c62a152c9e3a851e701c760f4ea50dc8ba1833299f0cbae72e0d92e7011712bb"
 
   bottle do
     cellar :any_skip_relocation
