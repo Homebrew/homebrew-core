@@ -9,22 +9,32 @@ class Protozero < Formula
   end
 
   test do
-    files = ["byteswap.hpp", "config.hpp", "exception.hpp",
-             "pbf_builder.hpp", "pbf_message.hpp", "pbf_reader.hpp",
-             "pbf_writer.hpp", "types.hpp", "varint.hpp", "version.hpp"]
-    files.each do |f|
-      assert_equal(File.exist?("#{include}/protozero/#{f}"), true)
-    end
     (testpath/"test.cpp").write <<-EOS.undent
-      #include <protozero/version.hpp>
+      #include <protozero/pbf_reader.hpp>
       int main() {
-        if (PROTOZERO_VERSION_STRING == "#{version}") {
-          return 0;
+        const char raw[] = { 0x12, 0x06 };
+        std::string check = "foobar";
+        std::string input(raw, 2);
+        input += check;
+        protozero::pbf_reader message(input);
+        while (message.next()) {
+          switch(message.tag()) {
+            case 2:
+            {
+              std::string s = message.get_string();
+              if (s == check) {
+                return 0;
+              }
+              break;
+            }
+            default:
+              message.skip();
+          }
         }
         return 1;
       }
     EOS
-    system "c++", testpath/"test.cpp", "-o", "test"
-    system testpath/"test"
+    system ENV.cxx, "-I#{include}", "-std=c++11", "test.cpp", "-o", "test"
+    system "./test"
   end
 end
