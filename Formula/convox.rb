@@ -1,7 +1,8 @@
 class Convox < Formula
   desc "The convox AWS PaaS CLI tool"
   homepage "https://convox.com/"
-  url "https://github.com/convox/rack/archive/20160623185456.tar.gz"
+  version "20160623185456"
+  url "https://github.com/convox/rack/archive/#{version}.tar.gz"
   sha256 "0ff842a5ac3d21f8b3b7d40b36f6286e389ccebfb3befdf6786c0bf808c09e13"
 
   bottle do
@@ -16,7 +17,7 @@ class Convox < Formula
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/convox/rack").install Dir["*"]
-    system "go", "build", "-ldflags=-X main.Version=20160623185456", "-o", "#{bin}/convox", "-v", "github.com/convox/rack/cmd/convox"
+    system "go", "build", "-ldflags=-X main.Version=#{version}", "-o", "#{bin}/convox", "-v", "github.com/convox/rack/cmd/convox"
   end
 
   test do
