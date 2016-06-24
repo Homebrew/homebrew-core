@@ -49,8 +49,8 @@ class Glib < Formula
 
   if build.universal?
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/59e4d32/glib/universal.patch"
-      sha256 "7e1ad7667c7d89fcd08950c9c32cd66eb9c8e2ee843f023d1fadf09a9ba39fee"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/fe50d25d/glib/universal.diff"
+      sha256 "e21f902907cca543023c930101afe1d0c1a7ad351daa0678ba855341f3fd1b57"
     end
   end
 
