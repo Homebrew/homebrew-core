@@ -1,9 +1,8 @@
 class Libfixposix < Formula
   desc "Thin wrapper over POSIX syscalls"
   homepage "https://github.com/sionescu/libfixposix"
-  url "https://github.com/sionescu/libfixposix/archive/v0.4.0.tar.gz"
-  sha256 "c8625ccb6c661ae786c3070b7b034c97c5ffd12851a9e06255df376d3071ded8"
-  head "https://github.com/sionescu/libfixposix.git"
+  url "https://github.com/sionescu/libfixposix/releases/download/v0.4.1/libfixposix-0.4.1.tar.gz"
+  sha256 "38b111111d87f87e5c53a207effb25e5a86b5879770dcd8cf4f38e440620e6d5"
 
   bottle do
     cellar :any
@@ -12,15 +11,18 @@ class Libfixposix < Formula
     sha256 "cc623212cd334aeb63d849b0cb73a6c5ec50b7b7569c64ebfd65834ffb2bb9f9" => :mavericks
   end
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  head do
+    url "https://github.com/sionescu/libfixposix.git"
+
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
+  end
 
   def install
-    system "autoreconf", "-fvi"
+    system "autoreconf", "-fvi" if build.head?
     system "./configure", "--prefix=#{prefix}"
-    system "make"
     system "make", "install"
   end
 
@@ -47,7 +49,7 @@ class Libfixposix < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "mxstemp.c", lib/"libfixposix.dylib", "-I#{include}", "-L#{lib}", "-o", "mxstemp"
+    system ENV.cc, "mxstemp.c", lib/"libfixposix.dylib", "-o", "mxstemp"
     system "./mxstemp"
   end
 end
