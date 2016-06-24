@@ -1,8 +1,8 @@
 class Cjdns < Formula
   desc "Advanced mesh routing system with cryptographic addressing"
   homepage "https://github.com/cjdelisle/cjdns/"
-  url "https://github.com/cjdelisle/cjdns/archive/cjdns-v17.3.tar.gz"
-  sha256 "3193df651ad9c00f31ab04feb33f801645996f6647c89b63bcc327b48e17e602"
+  url "https://github.com/cjdelisle/cjdns/archive/cjdns-v17.4.tar.gz"
+  sha256 "2f30aa4d2cc96a6c1f00e873df19b7b213cca1af716d74a091f59aa98b5758c4"
   head "https://github.com/cjdelisle/cjdns.git"
 
   bottle do
@@ -14,13 +14,6 @@ class Cjdns < Formula
   end
 
   depends_on "node" => :build
-
-  # Fixes a node 6 compatibility issue
-  # https://github.com/cjdelisle/cjdns/commit/9e1da7adc96b8c05cb69a6e0f5f12818502b591c
-  patch do
-    url "https://github.com/cjdelisle/cjdns/commit/9e1da7adc96b8c05cb69a6e0f5f12818502b591c.patch"
-    sha256 "83a2bc4dfd864785a60d7c10532e0b6eeab9b0346a24f61fad6f36d7891e677a"
-  end
 
   def install
     system "./do"
