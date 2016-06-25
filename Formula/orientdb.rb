@@ -48,7 +48,7 @@ class Orientdb < Formula
 
   test do
     ENV["CONFIG_FILE"] = "#{testpath}/orientdb-server-config.xml"
-    
+
     cp "#{libexec}/config/orientdb-server-config.xml", testpath
     inreplace "#{testpath}/orientdb-server-config.xml", "</properties>", "  <entry name=\"server.database.path\" value=\"#{testpath}\" />\n    </properties>"
 
