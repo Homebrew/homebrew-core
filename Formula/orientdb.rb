@@ -28,6 +28,7 @@ class Orientdb < Formula
 
     (var/"db/orientdb").mkpath
     (var/"log/orientdb").mkpath
+    (var/"run/orientdb").mkpath
     touch "#{var}/log/orientdb/orientdb.err"
     touch "#{var}/log/orientdb/orientdb.log"
     inreplace "#{libexec}/config/orientdb-server-config.xml", "</properties>", "  <entry name=\"server.database.path\" value=\"#{var}/db/orientdb\" />\n    </properties>"
@@ -46,8 +47,13 @@ class Orientdb < Formula
   end
 
   test do
+    ENV["CONFIG_FILE"] = "#{testpath}/orientdb-server-config.xml"
+
+    cp "#{libexec}/config/orientdb-server-config.xml", testpath
+    inreplace "#{testpath}/orientdb-server-config.xml", "</properties>", "  <entry name=\"server.database.path\" value=\"#{testpath}\" />\n    </properties>"
+
     system "#{bin}/orientdb", "start"
-    sleep 2
+    sleep 4
 
     begin
       assert_match "OrientDB Server v.2.2.2", shell_output("curl -I localhost:2480")
