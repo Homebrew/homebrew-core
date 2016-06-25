@@ -3,6 +3,7 @@ class Groonga < Formula
   homepage "http://groonga.org/"
   url "http://packages.groonga.org/source/groonga/groonga-6.0.4.tar.gz"
   sha256 "2c6ebe7e5b1065b777cbc5c6696a47a2b7da510b4c3e785f45437a56ad65ad58"
+  revision 1
 
   bottle do
     sha256 "b65438696232bba8aaa051f49f8ef14558e2e5be8d1bb5dc28ef341aff738029" => :el_capitan
