@@ -213,14 +213,34 @@ class Ejabberd < Formula
     ENV["MAN_DIR"] = man
     ENV["SBIN_DIR"] = sbin
 
+    if build.build_32_bit?
+      ENV.append %w[CFLAGS LDFLAGS], "-arch #{Hardware::CPU.arch_32_bit}"
+    end
+
+    deps_file = "rebar.config"
+
+    resources.each do |r|
+      r.fetch
+      r.url =~ %r{github\.com/([^/]+)/(.+?)\.git$}
+      user = $1
+      repo = $2
+
+      inreplace deps_file,
+        # match https://github.com, git://github.com, and git@github
+        %r{(?:https://|git(?:://|@))github\.com[:/]#{user}/#{repo}(?:\.git)?},
+        r.cached_download
+    end
+
     args = ["--prefix=#{prefix}",
-            "--bindir=#{prefix}/ebin",
             "--sysconfdir=#{etc}",
             "--localstatedir=#{var}",
-            "--enable-all",
+            "--enable-pgsql",
+            "--enable-mysql",
+            "--enable-odbc",
+            "--enable-pam",
            ]
 
-    system "./autogen.sh"
+    system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make"
     system "make", "install"
