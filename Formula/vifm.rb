@@ -18,12 +18,10 @@ class Vifm < Formula
   end
 
   def install
+    system "autoreconf", "-ivf" if build.head?
+
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
-    if build.head?
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
-    end
+    system "./configure", *args
 
     ENV.deparallelize
     system "make", "install"
