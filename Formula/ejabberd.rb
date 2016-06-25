@@ -189,7 +189,7 @@ class Ejabberd < Formula
 
     resource "sqlite3" do
       url "https://github.com/processone/erlang-sqlite3.git"
-   end
+    end
 
     resource "stringprep" do
       url "https://github.com/processone/stringprep.git"
@@ -237,8 +237,7 @@ class Ejabberd < Formula
             "--enable-pgsql",
             "--enable-mysql",
             "--enable-odbc",
-            "--enable-pam",
-           ]
+            "--enable-pam"]
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
