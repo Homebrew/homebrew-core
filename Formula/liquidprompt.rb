@@ -1,8 +1,8 @@
 class Liquidprompt < Formula
   desc "Adaptive prompt for bash and zsh shells"
   homepage "https://github.com/nojhan/liquidprompt"
-  url "https://github.com/nojhan/liquidprompt/archive/v_1.10.tar.gz"
-  sha256 "5a1e01b86e81002ac20c61cbd96f5fd276db7f3fa09ef220f3db0fb7aa614e24"
+  url "https://github.com/nojhan/liquidprompt/archive/v_1.11.tar.gz"
+  sha256 "669dde6b8274a57b3e39dc41539d157a86252e40e39bcc4c3102b5a81bd8f2f5"
   head "https://github.com/nojhan/liquidprompt.git"
 
   bottle :unneeded
@@ -25,5 +25,11 @@ class Liquidprompt < Formula
     Don't modify the PROMPT_COMMAND variable elsewhere in your shell config;
     that will break things.
     EOS
+  end
+
+  test do
+    liquidprompt = "#{HOMEBREW_PREFIX}/share/liquidprompt"
+    output = shell_output("/bin/sh #{liquidprompt} 2>&1")
+    assert_match "add-zsh-hook: command not found", output
   end
 end
