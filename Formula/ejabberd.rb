@@ -62,8 +62,8 @@ class Ejabberd < Formula
 
     resource "lager" do
       url "https://github.com/basho/lager.git",
-        :tag => "3.0.3",
-        :revision => "c7737da3a1892dbee0eb7554e236e1b041809269"
+        :tag => "3.0.2",
+        :revision => "599dda6786a81200e00b3d9b4b36951e052727a3"
     end
 
     resource "p1_mysql" do
