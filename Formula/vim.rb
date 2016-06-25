@@ -24,8 +24,8 @@ class Vim < Formula
 
   if MacOS.version >= :mavericks
     option "with-custom-python", "Build with a custom Python 2 instead of the Homebrew version."
-    option "with-custom-ruby", "Build with a custom Ruby instead of the system version."
-    option "with-custom-perl", "Build with a custom Perl instead of the system version."
+    option "with-custom-ruby", "Build with a custom Ruby instead of the Homebrew version."
+    option "with-custom-perl", "Build with a custom Perl instead of the Homebrew version."
   end
 
   option "with-python3", "Build vim with python3 instead of python[2] support"
