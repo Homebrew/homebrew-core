@@ -155,7 +155,7 @@ class Llvm < Formula
   elsif MacOS.version <= :snow_leopard
     depends_on :python
   else
-    depends_on :python => :optional # not sure this is correct
+    depends_on :python => :optional
   end
   depends_on "cmake" => :build
 
@@ -294,10 +294,10 @@ class Llvm < Formula
       Extra tools are installed in #{opt_pkgshare}.
     EOS
 
-    if build.with? "libcxx"
+    if build_libcxx
       s += <<-EOS.undent
         To use the bundled libc++ please add the following LDFLAGS:
-          LDFLAGS="-L#{opt_lib} -lc++"
+          LDFLAGS="-L#{opt_lib} -Wl,-rpath,#{opt_lib}"
       EOS
     end
 
@@ -308,31 +308,79 @@ class Llvm < Formula
     assert_equal prefix.to_s, shell_output("#{bin}/llvm-config --prefix").chomp
 
     if build.with? "clang"
-      (testpath/"test.cpp").write <<-EOS.undent
-        #include <iostream>
-        using namespace std;
+
+      (testpath/"test.c").write <<-EOS.undent
+        #include <stdio.h>
 
         int main()
         {
-          cout << "Hello World!" << endl;
+          printf("Hello World!\\n");
           return 0;
         }
       EOS
 
-      # test xcode
-      # test clt
-      # set libcxx
+      (testpath/"test.cpp").write <<-EOS.undent
+        #include <iostream>
 
+        int main()
+        {
+          std::cout << "Hello World!" << std::endl;
+          return 0;
+        }
+      EOS
+
+      # Testing Command Line Tools
       if MacOS::CLT.installed?
-        system "#{bin}/clang++", "-v", "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "test"
-        system "./test"
+        libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS.clang_version}*"].last { |f| File.directory? f }
+
+        system "#{bin}/clang++", "-v", "-nostdinc",
+               "-I/Library/Developer/CommandLineTools/usr/include/c++/v1",
+               "-I#{libclangclt}/include",
+               "-I/usr/include", # need it because /Library/.../usr/include/c++/v1/iosfwd refers to <wchar.h>, which CLT installs to /usr/include
+               "test.cpp", "-o", "testCLT++"
+        assert_match "/usr/lib/libc++.1.dylib", shell_output("otool -L ./testCLT++").chomp
+        assert_equal "Hello World!", shell_output("./testCLT++").chomp
+
+        system "#{bin}/clang", "-v", "-nostdinc",
+               "-I/usr/include", # this is where CLT installs stdio.h
+               "test.c", "-o", "testCLT"
+        assert_equal "Hello World!", shell_output("./testCLT").chomp
+
       end
 
+      # Testing Xcode
+      if MacOS::Xcode.installed?
+        libclangxc = Dir["#{MacOS::Xcode.toolchain_path}/usr/lib/clang/#{MacOS.clang_version}*"].last { |f| File.directory? f }
+
+        system "#{bin}/clang++", "-v", "-nostdinc",
+               "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
+               "-I#{libclangxc}/include",
+               "-I#{MacOS.sdk_path}/usr/include",
+               "test.cpp", "-o", "testXC++"
+        assert_match "/usr/lib/libc++.1.dylib", shell_output("otool -L ./testXC++").chomp
+        assert_equal "Hello World!", shell_output("./testXC++").chomp
+
+        system "#{bin}/clang", "-v", "-nostdinc",
+               "-I#{MacOS.sdk_path}/usr/include",
+               "test.c", "-o", "testXC"
+        assert_equal "Hello World!", shell_output("./testXC").chomp
+      end
+
+      # link against installed libc++
+      # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
       if build_libcxx
-        system "#{bin}/clang++", "-v", "-std=c++11", "-stdlib=libc++", "-nostdinc++", "-I#{include}/c++/v1", "-L#{lib}", "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
-        system "./test"
+        system "#{bin}/clang++", "-v", "-nostdinc",
+               "-std=c++11", "-stdlib=libc++",
+               "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
+               "-I#{libclangxc}/include",
+               "-I#{MacOS.sdk_path}/usr/include",
+               "-L#{lib}",
+               "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
+        assert_match "/usr/local/opt/llvm/lib/libc++.1.dylib", shell_output("otool -L ./test").chomp
+        assert_equal "Hello World!", shell_output("./test").chomp
       end
 
+      ## write a similar test for libcxxabi (if installed)
     end
   end
 end
