@@ -7,10 +7,8 @@ class Makepkg < Formula
   head "https://projects.archlinux.org/git/pacman.git"
 
   bottle do
-    revision 1
-    sha256 "519f7c1d0932fccdfc10884ed069dc96a460e433cf3a31587c5fe602d9e702d6" => :el_capitan
-    sha256 "10870ad76b81268069bc2396e36a04a67f887f34de91764921f9261012524fac" => :yosemite
-    sha256 "5579c38c1b058128d8c0e2487df32ad6a5c2c32c796dbbd16149e0999d3a502a" => :mavericks
+    sha256 "0fabfa371db2dd7b98ec349e6b7a5ba1e8a2413fbef195a1d808829b21a59c4a" => :el_capitan
+    sha256 "71b87a9e173cfe65bda64ef6e14be450561aada6f4b337927e6a0d12e9a09ae7" => :yosemite
   end
 
   # libalpm now calls fstatat, which is only available for >= 10.10
