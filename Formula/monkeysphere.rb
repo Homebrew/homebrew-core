@@ -1,10 +1,9 @@
 class Monkeysphere < Formula
   desc "Use the OpenPGP web of trust to verify ssh connections"
   homepage "http://web.monkeysphere.info/"
-  url "http://archive.monkeysphere.info/debian/pool/monkeysphere/m/monkeysphere/monkeysphere_0.37.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/monkeysphere/monkeysphere_0.37.orig.tar.gz"
-  sha256 "b510b8a414fb400356e80f1f882488785df72ac54078410b54d4c50a84686e59"
-
+  url "http://archive.monkeysphere.info/debian/pool/monkeysphere/m/monkeysphere/monkeysphere_0.38.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/monkeysphere/monkeysphere_0.38.orig.tar.gz"
+  sha256 "6951821d11ad646e6e7651d677bfab8f800fbc52703a0ab9942d03cd13959073"
   head "git://git.monkeysphere.info/monkeysphere"
 
   bottle do
@@ -15,6 +14,9 @@ class Monkeysphere < Formula
   end
 
   depends_on "gnu-sed" => :build
+  depends_on "libassuan"
+  depends_on "libgcrypt"
+  depends_on "libgpg-error"
   depends_on "openssl"
 
   resource "Crypt::OpenSSL::Bignum" do
