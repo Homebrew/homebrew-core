@@ -1,8 +1,8 @@
 class Wartremover < Formula
   desc "Flexible Scala code linting tool"
   homepage "https://github.com/puffnfresh/wartremover"
-  url "https://github.com/puffnfresh/wartremover/archive/v0.14.tar.gz"
-  sha256 "144f90168c9e24c7fb9dee57212ee6aa19eb42d125a9a2f73927503fcccff124"
+  url "https://github.com/puffnfresh/wartremover/archive/v1.0.0.tar.gz"
+  sha256 "b315b38ccb633c14c83ea699cb8d12fa8a7105e3c6b066b87c1b53e9eb95a043"
   head "https://github.com/puffnfresh/wartremover.git"
 
   bottle do
@@ -23,7 +23,7 @@ class Wartremover < Formula
   end
 
   test do
-    test_data = <<-EOS.undent
+    (testpath/"foo").write <<-EOS.undent
       object Foo {
         def foo() {
           var msg = "Hello World"
@@ -31,9 +31,7 @@ class Wartremover < Formula
         }
       }
     EOS
-
-    (testpath/"foo.scala").write test_data
-    cmd = "#{bin}/wartremover -traverser org.brianmckenna.wartremover.warts.Unsafe #{testpath}/foo.scala 2>&1"
-    assert_match /var is disabled/, shell_output(cmd, 1)
+    cmd = "#{bin}/wartremover -traverser org.wartremover.warts.Unsafe foo 2>&1"
+    assert_match "var is disabled", shell_output(cmd, 1)
   end
 end
