@@ -1,8 +1,8 @@
 class Pgpdump < Formula
   desc "PGP packet visualizer"
   homepage "http://www.mew.org/~kazu/proj/pgpdump/en/"
-  url "https://github.com/kazu-yamamoto/pgpdump/archive/v0.30.tar.gz"
-  sha256 "ef985afa0ae031f3f0319893fadef5b9100de569113ca898d94175b876ddc062"
+  url "https://github.com/kazu-yamamoto/pgpdump/archive/v0.31.tar.gz"
+  sha256 "7abf04a530c902cfb1f1a81c6b5fb88bd2c12b5f3c37dceb1245bfe28f2a7c0b"
   head "https://github.com/kazu-yamamoto/pgpdump.git"
 
   bottle do
@@ -31,6 +31,6 @@ class Pgpdump < Formula
     EOS
 
     output = shell_output("#{bin}/pgpdump sig.pgp")
-    assert_match(/Key ID - 0x6D2EC41AE0982209/, output)
+    assert_match("Key ID - 0x6D2EC41AE0982209", output)
   end
 end
