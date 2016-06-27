@@ -7,14 +7,6 @@ class Python3 < Formula
   stable do
     url "https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz"
     sha256 "0010f56100b9b74259ebcd5d4b295a32324b58b517403a10d1a2aa7cb22bca40"
-
-    # Fix extension module builds against Xcode 7 SDKs
-    # https://github.com/Homebrew/homebrew/issues/41085
-    # https://bugs.python.org/issue25136
-    patch do
-      url "https://bugs.python.org/file40478/xcode-stubs.diff"
-      sha256 "029cc0dc72b1bcf4ddc5f913cc4a3fd970378073c6355921891f041aca2f8b12"
-    end
   end
 
   bottle do
