@@ -5,10 +5,10 @@ class Conan < Formula
   sha256 "deb686194e77e4c12b8b56caf6da9abf6bc510987cb2b06c939c145aaffa4c87"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "19429d91da1d79fb1021a2e7a663603eff4286f495e3700e9014219aede6b3a5" => :el_capitan
-    sha256 "4a4a219f12eca63bfb3b6238ba1718508454109354eff31f332664f7dee47507" => :yosemite
-    sha256 "aae8d317e2e9add74d893d0183c3f93539f98b81f59f67bed1d1f2a9466198bd" => :mavericks
+    cellar :any
+    sha256 "ef1fa603e0b2baa1caa5a4ef1a322ec492bbb062421f1f0040cf400c56045183" => :el_capitan
+    sha256 "37387b1e536593b24196f3b30c1af3645d73b606539fffd53df7eb344a29fcbb" => :yosemite
+    sha256 "860b92415e7326a9b7fe8083d844fb147d0ec766b3753e917dae17085d9f2fa5" => :mavericks
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard
