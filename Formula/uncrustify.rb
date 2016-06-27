@@ -1,7 +1,7 @@
 class Uncrustify < Formula
   desc "Source code beautifier"
   homepage "http://uncrustify.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/uncrustify/uncrustify/uncrustify-0.63/uncrustify-0.63.tar.gz"
+  url "https://github.com/uncrustify/uncrustify/archive/uncrustify-0.63.tar.gz"
   sha256 "dffbb1341a8d208e0c76b65209750e34e75b29c5a0e9a5d5a943df58bfdc2ae3"
 
   head "https://github.com/uncrustify/uncrustify.git"
@@ -13,7 +13,13 @@ class Uncrustify < Formula
     sha256 "7bbc100632b13c81d2ec3ab897629f49effbb5dc76f991c4abde65566742b868" => :mavericks
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   def install
+    if File.file?("./autogen.sh")
+      system "./autogen.sh"
+    end
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
