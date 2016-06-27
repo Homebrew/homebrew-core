@@ -5,9 +5,9 @@ class AflFuzz < Formula
   sha256 "f78a042c16ba23f186703679fe683406141139b12b50fbed1395dbda3c3b7883"
 
   bottle do
-    sha256 "8ef4b6a2d22a799a7246809a95a0d96d2e72ae351ec314ffe013e927f62baf54" => :el_capitan
-    sha256 "fa384ad29a36b4ce2000b1f108664cd3d172129aceaa87cf0dc4776f52dfc5ba" => :yosemite
-    sha256 "13dd38e0466c873cc74be36c8e47374169a0abf06e55346dbcf24ef4fe833e0e" => :mavericks
+    sha256 "184b3f7000cc856b475138d2cd80277abb5c70e82cb08fbdfa9012b765061b8a" => :el_capitan
+    sha256 "ce12d0d8fb882b8a6ced1632ebcda56df7e42a0d2fabb4c6302dee9aa35760fd" => :yosemite
+    sha256 "a1128965560c9c58ab2ecc426c5f9abd7447bff4f879302d145b12c01d30a3eb" => :mavericks
   end
 
   def install
