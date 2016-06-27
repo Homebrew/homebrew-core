@@ -1,9 +1,19 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.0.2.tar.bz2"
-  sha256 "30e3c77c2f4c358ed087869455a7496cbd7753a5e1b98d20ba49c1004009fd36"
   head "https://github.com/FFmpeg/FFmpeg.git"
+
+  stable do
+    url "https://ffmpeg.org/releases/ffmpeg-3.1.tar.bz2"
+    sha256 "2100fca81627e6cbe937fd6a071ae89277c02350538944b2b0c3c2cc71d9402a"
+
+    # See https://github.com/Homebrew/homebrew-core/pull/2416 and
+    # https://trac.ffmpeg.org/ticket/5670
+    patch do
+      url "https://git.videolan.org/?p=ffmpeg.git;a=patch;h=c5566f0a944e376b39c8f994659060ca036c441d"
+      sha256 "408d11d8ae496ed4f83e36e1da0db4b373e8c016cb3723e029ba2fd25b1e7611"
+    end
+  end
 
   bottle do
     sha256 "427e874885b03997de009cec923ed9872a498ff431bc24d007c191658e4633b3" => :el_capitan
@@ -82,17 +92,18 @@ class Ffmpeg < Formula
   depends_on "xz" => :optional
 
   def install
-    args = ["--prefix=#{prefix}",
-            "--enable-shared",
-            "--enable-pthreads",
-            "--enable-gpl",
-            "--enable-version3",
-            "--enable-hardcoded-tables",
-            "--enable-avresample",
-            "--cc=#{ENV.cc}",
-            "--host-cflags=#{ENV.cflags}",
-            "--host-ldflags=#{ENV.ldflags}",
-           ]
+    args = %W[
+      --prefix=#{prefix}
+      --enable-shared
+      --enable-pthreads
+      --enable-gpl
+      --enable-version3
+      --enable-hardcoded-tables
+      --enable-avresample
+      --cc=#{ENV.cc}
+      --host-cflags=#{ENV.cflags}
+      --host-ldflags=#{ENV.ldflags}
+    ]
 
     args << "--enable-opencl" if MacOS.version > :lion
 
