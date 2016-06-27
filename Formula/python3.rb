@@ -5,16 +5,8 @@ class Python3 < Formula
   head "https://hg.python.org/cpython", :using => :hg
 
   stable do
-    url "https://www.python.org/ftp/python/3.5.1/Python-3.5.1.tar.xz"
-    sha256 "c6d57c0c366d9060ab6c0cdf889ebf3d92711d466cc0119c441dbf2746f725c9"
-
-    # Fix extension module builds against Xcode 7 SDKs
-    # https://github.com/Homebrew/homebrew/issues/41085
-    # https://bugs.python.org/issue25136
-    patch do
-      url "https://bugs.python.org/file40478/xcode-stubs.diff"
-      sha256 "029cc0dc72b1bcf4ddc5f913cc4a3fd970378073c6355921891f041aca2f8b12"
-    end
+    url "https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz"
+    sha256 "0010f56100b9b74259ebcd5d4b295a32324b58b517403a10d1a2aa7cb22bca40"
   end
 
   bottle do
@@ -49,18 +41,18 @@ class Python3 < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5"
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-19.4.tar.gz"
-    sha256 "214bf29933f47cf25e6faa569f710731728a07a19cae91ea64f826051f68a8cf"
+    url "https://pypi.python.org/packages/9f/7c/0a33c528164f1b7ff8cf0684cf88c2e733c8ae0119ceca4a3955c7fc059d/setuptools-23.1.0.tar.gz"
+    sha256 "4e269d36ba2313e6236f384b36eb97b3433cf99a16b94c74cca7eee2b311f2be"
   end
 
   resource "pip" do
-    url "https://pypi.python.org/packages/source/p/pip/pip-8.0.2.tar.gz"
-    sha256 "46f4bd0d8dfd51125a554568d646fe4200a3c2c6c36b9f2d06d2212148439521"
+    url "https://pypi.python.org/packages/e7/a8/7556133689add8d1a54c0b14aeff0acb03c64707ce100ecd53934da1aa13/pip-8.1.2.tar.gz"
+    sha256 "4d24b03ffa67638a3fa931c09fd9e0273ffa904e95ebebe7d4b1a54c93d7b732"
   end
 
   resource "wheel" do
-    url "https://pypi.python.org/packages/source/w/wheel/wheel-0.26.0.tar.gz"
-    sha256 "eaad353805c180a47545a256e6508835b65a8e830ba1093ed8162f19a50a530c"
+    url "https://pypi.python.org/packages/source/w/wheel/wheel-0.29.0.tar.gz"
+    sha256 "1ebb8ad7e26b448e9caa4773d2357849bf80ff9e313964bcaf79cbf0201a1648"
   end
 
   fails_with :clang do
@@ -326,8 +318,8 @@ class Python3 < Formula
 
   def caveats
     text = <<-EOS.undent
-      Pip and setuptools have been installed. To update them
-        pip3 install --upgrade pip setuptools
+      Pip, setuptools, and wheel have been installed. To update them
+        pip3 install --upgrade pip setuptools wheel
 
       You can install Python packages with
         pip3 install <package>
