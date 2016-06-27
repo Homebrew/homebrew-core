@@ -1,8 +1,8 @@
 class Gucharmap < Formula
   desc "GNOME Character Map, based on the Unicode Character Database"
   homepage "https://live.gnome.org/Gucharmap"
-  url "https://download.gnome.org/sources/gucharmap/3.18/gucharmap-3.18.2.tar.xz"
-  sha256 "80141d3e892c3c4812c1a8fad8f89978559ef19e933843267e6e9a5524c09ec9"
+  url "https://download.gnome.org/sources/gucharmap/9.0/gucharmap-9.0.0.tar.xz"
+  sha256 "d698ce4bba5486f7e32e9a4ec0ecd916926fb876640856746121d8ae8012765c"
 
   bottle do
     sha256 "7cd1aab34bc2297b50b5310fd51fe833ae812d25055bf249606ffd05b5c923a9" => :el_capitan
@@ -14,6 +14,8 @@ class Gucharmap < Formula
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "desktop-file-utils" => :build
+  depends_on "wget" => :build
+  depends_on "coreutils" => :build
   depends_on "gtk+3"
 
   def install
