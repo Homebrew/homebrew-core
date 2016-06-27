@@ -1,9 +1,9 @@
 class Jsoncpp < Formula
   desc "Library for interacting with JSON"
   homepage "https://github.com/open-source-parsers/jsoncpp"
-  url "https://github.com/open-source-parsers/jsoncpp/archive/1.6.5.tar.gz"
+  url "https://github.com/open-source-parsers/jsoncpp/archive/1.7.3.tar.gz"
+  sha256 "1cfcad14054039ba97c22531888796cb9369e6353f257aacaad34fda956ada53"
   head "https://github.com/open-source-parsers/jsoncpp.git"
-  sha256 "a2b121eaff56ec88cfd034d17685821a908d0d87bc319329b04f91a6552c1ac2"
 
   bottle do
     cellar :any
@@ -21,8 +21,13 @@ class Jsoncpp < Formula
   def install
     ENV.cxx11
 
-    cmake_args = std_cmake_args
-    cmake_args << "-DBUILD_STATIC_LIBS=ON" << "-DBUILD_SHARED_LIBS=ON" << "-DJSONCPP_WITH_CMAKE_PACKAGE=ON" << "-DJSONCPP_WITH_TESTS=OFF" << "-DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF"
+    cmake_args = std_cmake_args + %W[
+      -DBUILD_STATIC_LIBS=ON
+      -DBUILD_SHARED_LIBS=ON
+      -DJSONCPP_WITH_CMAKE_PACKAGE=ON
+      -DJSONCPP_WITH_TESTS=OFF
+      -DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF
+    ]
     if build.universal?
       ENV.universal_binary
       cmake_args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
