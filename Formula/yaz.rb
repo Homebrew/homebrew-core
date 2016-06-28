@@ -2,9 +2,8 @@
 class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/yaz"
-  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.15.1.tar.gz"
-  sha256 "ebef25b0970ea1485bbba43a721d7001523b6faa18c8d8da4080a8f83d5e2116"
-  revision 1
+  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.16.0.tar.gz"
+  sha256 "46708320152c1475f6a5ee6f29903caa76121c2440123051546c1b3403c78686"
 
   head do
     url "https://github.com/indexdata/yaz.git"
