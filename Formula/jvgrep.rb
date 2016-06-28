@@ -3,8 +3,8 @@ require "language/go"
 class Jvgrep < Formula
   desc "Grep for Japanese users of Vim"
   homepage "https://github.com/mattn/jvgrep"
-  url "https://github.com/mattn/jvgrep/archive/v4.9.tar.gz"
-  sha256 "74fe0090eb131ca5b8962886122606c7a5a8540e7992c71d138403731b704b4f"
+  url "https://github.com/mattn/jvgrep/archive/v5.0.tar.gz"
+  sha256 "70078c61ff86a7d1c8c689c8535d06010672027d636f6e624598ec186df4d2e7"
   head "https://github.com/mattn/jvgrep.git"
 
   bottle do
@@ -28,12 +28,17 @@ class Jvgrep < Formula
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-    :revision => "1961d9def2b2d7a28d7958926d2457d05a178ecd"
+    :revision => "04557861f124410b768b1ba5bb3a91b705afbfc6"
   end
 
   go_resource "golang.org/x/text" do
     url "https://go.googlesource.com/text.git",
-    :revision => "e3c902a8b2c4c420ce61514795e05b8e28a6364e"
+    :revision => "4440cd4f4c2ea31e1872e00de675a86d0c19006c"
+  end
+
+  go_resource "github.com/k-takata/go-iscygpty" do
+    url "https://github.com/k-takata/go-iscygpty.git",
+    :revision => "f91f8810106213f01bd64933dc10d849bd9137ac"
   end
 
   def install
