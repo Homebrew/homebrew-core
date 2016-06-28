@@ -1,8 +1,8 @@
 class Platformio < Formula
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
   homepage "http://platformio.org"
-  url "https://pypi.python.org/packages/b7/a3/1d3a9d7bae91df1b607e0f31549ec3e0006f29484cc6a1431b3fe3c5b02e/platformio-2.10.3.tar.gz"
-  sha256 "f3a646871f9baed05f336a32576edaab90abf0737d8adb54f2acb7bcad42a65f"
+  url "https://pypi.python.org/packages/71/76/05dd805502dc5f9adadc7cdfd91f89320f505038884d97d0c05024a98e0f/platformio-2.11.0.tar.gz"
+  sha256 "11775c303fc3cb82fd353574bd2258b4ec6504855dcde6c557624a963a88fe08"
 
   bottle do
     cellar :any_skip_relocation
