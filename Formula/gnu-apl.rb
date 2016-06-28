@@ -29,6 +29,14 @@ class GnuApl < Formula
     depends_on "libtool" => :build
   end
 
+  head do
+    url "http://svn.savannah.gnu.org/svn/apl/trunk"
+
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
+  end
+
   # GNU Readline is required; libedit won't work.
   depends_on "readline"
   depends_on :macos => :mavericks
