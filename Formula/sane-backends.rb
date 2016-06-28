@@ -12,6 +12,9 @@ class SaneBackends < Formula
       sha256 "168d5dc5f38b6e568f2d757de77dc86c7b3bab1a84a50f1b30103eb9ba9bf367" => :mavericks
       sha256 "483533ac9a7d48d15350afaed266ac9472cd8c945fdd34d610253253e3c384e7" => :mountain_lion
     end
+    # Fixes some missing headers missing error. Reported upstream
+    # https://lists.alioth.debian.org/pipermail/sane-devel/2015-October/033972.html
+    patch :DATA
   end
 
   head do
@@ -25,9 +28,7 @@ class SaneBackends < Formula
   depends_on "libusb-compat"
   depends_on "openssl"
 
-  # Fixes some missing headers missing error. Reported upstream
-  # https://lists.alioth.debian.org/pipermail/sane-devel/2015-October/033972.html
-  patch :DATA
+  
 
   def install
     ENV.universal_binary if build.universal?
