@@ -42,6 +42,17 @@ class Python < Formula
     end
   end
 
+  devel do
+    url "https://www.python.org/ftp/python/2.7.12/Python-2.7.12rc1.tgz"
+    sha256 "83f5cdbbb3494753d0e1ed2a093942c1ddcd04264af5e7d6183c7f7c64ffd33c"
+
+    # Adjusted for :devel, but same as patch for pyport.h macro issue above
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/259e7daa1886e5a674d6001bf67d827b49ce81de/python/issue10910-workaround-for-2.7.12.diff"
+      sha256 "b60546ecb072712694488ce9986dc1e04efb6ccfe977c9774bf8d5af305ab337"
+    end
+  end
+
   # Please don't add a wide/ucs4 option as it won't be accepted.
   # More details in: https://github.com/Homebrew/homebrew/pull/32368
   option :universal
