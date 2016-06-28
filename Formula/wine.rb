@@ -18,6 +18,13 @@ class Wine < Formula
       url "https://bugs.winehq.org/attachment.cgi?id=52485"
       sha256 "59f1831a1b49c1b7a4c6e6af7e3f89f0bc60bec0bead645a615b251d37d232ac"
     end
+
+    # Fixes build on 10.12; included in the latest devel release already
+    # https://bugs.winehq.org/show_bug.cgi?id=40830
+    patch do
+      url "https://github.com/wine-mirror/wine/commit/cac226200d88b7454747b5ee1016f06b89ce4aa6.patch"
+      sha256 "ad5dd3aff4dd03aa6dd9e00162a52ad335dbd9ddb5a4472ad8533efb677fb479"
+    end
   end
 
   bottle do
@@ -58,6 +65,15 @@ class Wine < Formula
   patch do
     url "https://bugs.winehq.org/attachment.cgi?id=52384"
     sha256 "30766403f5064a115f61de8cacba1defddffe2dd898b59557956400470adc699"
+  end
+
+  # Fixes a CUPS-related build failure; should be in the next devel.
+  # https://bugs.winehq.org/show_bug.cgi?id=40851
+  if MacOS.version >= :sierra
+    patch do
+      url "https://bugs.winehq.org/attachment.cgi?id=54854"
+      sha256 "07da01c4141052d274dbe39d45a13568265cbdcbc9de4f6e80f4eeb08aad9ff8"
+    end
   end
 
   # This option is currently disabled because Apple clang currently doesn't
