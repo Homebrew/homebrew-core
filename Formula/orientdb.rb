@@ -1,9 +1,9 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.com"
-  url "https://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-community-2.1.16.tar.gz&os=mac"
-  version "2.1.16"
-  sha256 "41ad0db53c418459d0efbf6a7f7e2b39f48467f1ec582efa925ceb38de3f3cc6"
+  url "https://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-community-2.2.0.tar.gz&os=mac"
+  version "2.2.0"
+  sha256 "32db9f634433563b15654a3f726750f35b53af77f0b9bd4fb15ca57434c252e4"
 
   bottle do
     cellar :any_skip_relocation
@@ -27,9 +27,11 @@ class Orientdb < Formula
     chmod 0755, Dir["bin/*"]
     libexec.install Dir["*"]
 
-    mkpath "#{libexec}/log"
-    touch "#{libexec}/log/orientdb.err"
-    touch "#{libexec}/log/orientdb.log"
+    mkpath "#{var}/log/orientdb"
+    touch "#{var}/log/orientdb/orientdb.err"
+    touch "#{var}/log/orientdb/orientdb.log"
+    inreplace "#{libexec}/config/orientdb-server-log.properties", "../log", "#{var}/log/orientdb"
+    inreplace "#{libexec}/bin/orientdb.sh", "../log", "#{var}/log/orientdb"
 
     bin.install_symlink "#{libexec}/bin/orientdb.sh" => "orientdb"
     bin.install_symlink "#{libexec}/bin/console.sh" => "orientdb-console"
@@ -38,5 +40,18 @@ class Orientdb < Formula
 
   def caveats
     "Use `orientdb <start | stop | status>`, `orientdb-console` and `orientdb-gremlin`."
+  end
+
+  test do
+    pid = fork do
+      system "#{bin}/orientdb", "start"
+    end
+    sleep 2
+    begin
+      assert_match "OrientDB Server v.2.2.0", shell_output("curl -I localhost:2480")
+    ensure
+      Process.kill("SIGINT", pid)
+      Process.wait(pid)
+    end
   end
 end
