@@ -1,8 +1,8 @@
 class Progress < Formula
   desc "Progress: Coreutils Progress Viewer"
   homepage "https://github.com/Xfennec/progress"
-  url "https://github.com/Xfennec/progress/archive/v0.9.tar.gz"
-  sha256 "63e1834ec114ccc1de3d11722131b5975e475bfd72711d457e21ddd7fd16b6bd"
+  url "https://github.com/Xfennec/progress/archive/v0.13.tar.gz"
+  sha256 "160cb6156a0b8df32a3944f3dcecba956ae3e5579e91d53c9d7417bc4956718c"
   head "https://github.com/Xfennec/progress.git"
 
   bottle do
@@ -18,14 +18,15 @@ class Progress < Formula
 
   test do
     pid = fork do
-      system "/bin/dd", "if=/dev/zero", "of=/dev/null", "bs=100000", "count=1000000"
+      system "/bin/dd", "if=/dev/urandom", "of=foo", "bs=512", "count=1048576"
     end
     sleep 1
     begin
-      assert_match(/dd/, shell_output("#{bin}/progress"))
+      assert_match "dd", shell_output("#{bin}/progress")
     ensure
       Process.kill 9, pid
       Process.wait pid
+      rm "foo"
     end
   end
 end
