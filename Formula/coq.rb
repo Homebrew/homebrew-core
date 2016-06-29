@@ -40,7 +40,7 @@ class Coq < Formula
                           "-coqide", "no",
                           "-with-doc", "no"
     system "make", "world"
-    system "make", "install"
+    ENV.deparallelize { system "make", "install" }
   end
 
   test do
