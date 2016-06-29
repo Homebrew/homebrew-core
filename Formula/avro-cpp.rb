@@ -1,8 +1,8 @@
 class AvroCpp < Formula
   desc "Data serialization system"
   homepage "https://avro.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=avro/avro-1.8.0/cpp/avro-cpp-1.8.0.tar.gz"
-  sha256 "ec6e2ec957e95ca07f70cc25f02f5c416f47cb27bd987a6ec770dcbe72527368"
+  url "https://www.apache.org/dyn/closer.cgi?path=avro/avro-1.8.1/cpp/avro-cpp-1.8.1.tar.gz"
+  sha256 "6559755ac525e908e42a2aa43444576cba91e522fe989088ee7f70c169bcc403"
 
   bottle do
     cellar :any
