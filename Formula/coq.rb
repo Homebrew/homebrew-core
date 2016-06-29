@@ -43,13 +43,6 @@ class Coq < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
-    To use the Coq Emacs mode, add the following to your init file:
-      (setq auto-mode-alist (cons '("\\\\.v$" . coq-mode) auto-mode-alist))
-      (autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
-    EOS
-  end
-
   test do
     (testpath/"testing.v").write <<-EOS.undent
       Inductive nat : Set :=
