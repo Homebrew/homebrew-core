@@ -1,9 +1,9 @@
 class Binutils < Formula
   desc "FSF Binutils for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftpmirror.gnu.org/binutils/binutils-2.26.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.26.tar.gz"
-  sha256 "9615feddaeedc214d1a1ecd77b6697449c952eab69d79ab2125ea050e944bcc1"
+  url "https://ftpmirror.gnu.org/binutils/binutils-2.26.1.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.26.1.tar.gz"
+  sha256 "dd9c3e37c266e4fefba68e444e2a00538b3c902dd31bf4912d90dca6d830a2a1"
 
   bottle do
     sha256 "6290d3d2b56f5b9450043d1f71d0597e7405e6d27c1c6eddd54f1f6bb5ff96f0" => :el_capitan
