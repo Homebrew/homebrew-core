@@ -5,13 +5,31 @@ class Peco < Formula
   homepage "https://github.com/peco/peco"
   url "https://github.com/peco/peco/archive/v0.3.6.tar.gz"
   sha256 "edc1ec186a0f439ae84071c9e00f68fec6f8fe49efc9b6bb10462e72f7286b23"
-  head "https://github.com/peco/peco.git"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "c8c03e514e10c5d2c6824838a9d8777624f2295ac9d8fc7cca92a5298dcb0b22" => :el_capitan
     sha256 "5b8320b037471270db0c9c1a866c15d00225a2b1b147b74e4bdbb3e696e136db" => :yosemite
     sha256 "ca37bbcdaee4c45e850872b7835128e8ca1e675684e8e5e17d48b790cddca1d0" => :mavericks
+  end
+
+  head do
+    url "https://github.com/peco/peco.git"
+
+    go_resource "github.com/lestrrat/go-pdebug" do
+      url "https://github.com/lestrrat/go-pdebug.git",
+      :revision => "a45b04725d5819f9f30fb68085be53b90a1d55f1"
+    end
+
+    go_resource "github.com/pkg/errors" do
+      url "https://github.com/pkg/errors.git",
+      :revision => "01fa4104b9c248c8945d14d9f128454d5b28d595"
+    end
+
+    go_resource "golang.org/x/net" do
+      url "https://go.googlesource.com/net.git",
+      :revision => "ef2e00e88c5e0a3569f0bb9df697e9cbc6215fea"
+    end
   end
 
   depends_on "go" => :build
