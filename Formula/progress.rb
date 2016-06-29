@@ -7,9 +7,9 @@ class Progress < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "966124c6d66ed029895b1f2f3a9548e9d100287676cc31630e7179eec0009728" => :el_capitan
-    sha256 "003f1a3ba9356bfd68149d9ae6f57e4e81bb0d7def7dc9d4419338275f2e6af1" => :yosemite
-    sha256 "9bb9bb6343e1d886f98e9ab94f2dc9391c800151bae49b27f87397319c69d730" => :mavericks
+    sha256 "92fdddbc22594566e79458fa3b4a63bee3f4bcdd569b88827837e8a18d6eaf3a" => :el_capitan
+    sha256 "35741d1986bd5df66ecec5603af82aefa0f1c5728fd6481780a1b77875edc4ad" => :yosemite
+    sha256 "965f987b35a069855eb9d43068c05f284272211ebfaaf1e3197386974d6da3a6" => :mavericks
   end
 
   def install
