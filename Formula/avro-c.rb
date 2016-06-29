@@ -6,9 +6,9 @@ class AvroC < Formula
 
   bottle do
     cellar :any
-    sha256 "6e2983b58e06fa1356fc64aabf818b002c6b8a093b3ede5bd13bda0314037949" => :el_capitan
-    sha256 "9d43ac24878d7cfd3240c819f2a74e5c2b6edf0a1c2dbc205d18cc9bfae7092e" => :yosemite
-    sha256 "d9fc74fd9baa1bd10f745f37d37c190ff3b3be48b77a30bef60af44a7e927f35" => :mavericks
+    sha256 "e572f37156e85db6e008fc394c7cb09fc5ff87c6a8a3f9f55d38f38f2253cdd9" => :el_capitan
+    sha256 "c84beca0ab8defc026fccb3eecc77b26523014f64f7d377e195f8906622beba4" => :yosemite
+    sha256 "ba3f6ab12df1ad13ec5aa04a038f4e4d4823c671bfb0f65b50d7015488db346e" => :mavericks
   end
 
   depends_on "pkg-config" => :build
