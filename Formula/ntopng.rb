@@ -1,9 +1,17 @@
 class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "http://www.ntop.org/products/ntop/"
-  url "https://downloads.sourceforge.net/project/ntop/ntopng/ntopng-2.2.tar.gz"
-  sha256 "4fccfc9e9f333addcd3c957b4520c471117bc2df5655d6eabf328c7385fb255e"
-  revision 1
+
+  stable do
+    url "https://github.com/ntop/ntopng/archive/2.4.tar.gz"
+    sha256 "86f8ed46983f46bcd931304d3d992fc1af572b11e461ab9fb4f0f472429bd5dd"
+
+    resource "nDPI" do
+      # tip of 1.8-stable branch; four commits beyond the 1.8 tag
+      url "https://github.com/ntop/nDPI.git",
+        :revision => "6fb81f146e2542cfbf7fab7d53678339c7747b35"
+    end
+  end
 
   bottle do
     sha256 "21c5efd12b1c2871d076bed943c23a337fa626503d793c570894da8c9a85a464" => :el_capitan
@@ -39,12 +47,10 @@ class Ntopng < Formula
   depends_on "mariadb" => :optional
 
   def install
-    if build.head?
-      resource("nDPI").stage do
-        system "./autogen.sh"
-        system "make"
-        (buildpath/"nDPI").install Dir["*"]
-      end
+    resource("nDPI").stage do
+      system "./autogen.sh"
+      system "make"
+      (buildpath/"nDPI").install Dir["*"]
     end
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
