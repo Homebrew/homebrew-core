@@ -9,25 +9,14 @@ class CloudbreakShell < Formula
 
   depends_on :java => "1.8+"
 
-  def bin_wrapper; <<-EOS.undent
-    #!/bin/sh
-    exec java -jar #{libexec}/cloudbreak-shell.jar "$@"
-    EOS
-  end
-
   def install
     libexec.install "cloudbreak-shell-#{version}.jar" => "cloudbreak-shell.jar"
-    (bin/"cloudbreak-shell").write(bin_wrapper)
-  end
-
-  def caveats; <<-EOS.undent
-    CloudBreak Shell requires the Java Runtime Engine (JRE) version 8.x or
-    newer; it will not run on older JRE versions.
-    EOS
+    bin.write_jar_script libexec/"cloudbreak-shell.jar", "cloudbreak-shell"
   end
 
   test do
-    File.exist? "#{bin}/cloudbreak-shell"
-    File.exist? "#{libexec}/cloudbreak-shell.jar"
+    output = shell_output("#{bin}/cloudbreak-shell")
+    assert_match /Cloudbreak Shell:/, output
+    assert_match /Usage:/, output
   end
 end
