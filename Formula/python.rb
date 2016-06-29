@@ -1,45 +1,15 @@
 class Python < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org"
+  url "https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz"
+  sha256 "d7837121dd5652a05fef807c361909d255d173280c4e1a4ded94d73d80a1f978"
   head "https://hg.python.org/cpython", :using => :hg, :branch => "2.7"
-
-  stable do
-    url "https://www.python.org/ftp/python/2.7.11/Python-2.7.11.tgz"
-    sha256 "82929b96fd6afc8da838b149107078c02fa1744b7e60999a8babbc0d3fa86fc6"
-
-    # Patch for pyport.h macro issue
-    # https://bugs.python.org/issue10910
-    # https://trac.macports.org/ticket/44288
-    patch do
-      url "https://bugs.python.org/file30805/issue10910-workaround.txt"
-      sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
-    end
-
-    # Fix extension module builds against Xcode 7 SDKs
-    # https://github.com/Homebrew/homebrew/issues/41085
-    # https://bugs.python.org/issue25136
-    patch do
-      url "https://bugs.python.org/file40479/xcode-stubs-2.7.patch"
-      sha256 "86714b750c887065952cd556f4d23246edf3124384f579356c8e377bc6ff2f83"
-    end
-  end
 
   bottle do
     revision 3
     sha256 "eed72bf7121ea53c10f1e8eebfde353a041fa94f7c1adaee4bcaabbc4039d707" => :el_capitan
     sha256 "cfb524c670d0e7d0206e8cb875901c343b7d116814e5d7e2872640ea9534d7fa" => :yosemite
     sha256 "1719312dea4f295ab75393a55ff2520f05c5ab4094927261e0ccb63c576b7b8f" => :mavericks
-  end
-
-  devel do
-    url "https://www.python.org/ftp/python/2.7.12/Python-2.7.12rc1.tgz"
-    sha256 "83f5cdbbb3494753d0e1ed2a093942c1ddcd04264af5e7d6183c7f7c64ffd33c"
-
-    # Adjusted for :devel, but same as patch for pyport.h macro issue above
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/259e7daa1886e5a674d6001bf67d827b49ce81de/python/issue10910-workaround-for-2.7.12.diff"
-      sha256 "b60546ecb072712694488ce9986dc1e04efb6ccfe977c9774bf8d5af305ab337"
-    end
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
@@ -65,8 +35,8 @@ class Python < Formula
   skip_clean "bin/easy_install", "bin/easy_install-2.7"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/45/5e/79ca67a0d6f2f42bfdd9e467ef97398d6ad87ee2fa9c8cdf7caf3ddcab1e/setuptools-23.0.0.tar.gz"
-    sha256 "699b03e5faed482d642fc706e568749537eb72be7e6ede8dbee5135593d2724e"
+    url "https://files.pythonhosted.org/packages/9f/7c/0a33c528164f1b7ff8cf0684cf88c2e733c8ae0119ceca4a3955c7fc059d/setuptools-23.1.0.tar.gz"
+    sha256 "4e269d36ba2313e6236f384b36eb97b3433cf99a16b94c74cca7eee2b311f2be"
   end
 
   resource "pip" do
@@ -82,6 +52,14 @@ class Python < Formula
   # Patch to disable the search for Tk.framework, since Homebrew's Tk is
   # a plain unix build. Remove `-lX11`, too because our Tk is "AquaTk".
   patch :DATA if build.with? "tcl-tk"
+
+  # Patch for pyport.h macro issue
+  # https://bugs.python.org/issue10910
+  # https://trac.macports.org/ticket/44288
+  patch do
+    url "https://bugs.python.org/file30805/issue10910-workaround.txt"
+    sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
+  end
 
   def lib_cellar
     prefix/"Frameworks/Python.framework/Versions/2.7/lib/python2.7"
