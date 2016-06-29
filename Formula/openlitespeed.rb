@@ -13,14 +13,13 @@ class Openlitespeed < Formula
 
   option "with-debug", "Build with support for debug log"
   option "with-redis", "Enable redis for cache module"
-
   option "without-http2", "Disable SPDY and http2"
 
   depends_on "pcre"
   depends_on "geoip"
   depends_on "openssl"
-  depends_on "expat"
-  depends_on "zlib"
+  depends_on "expat" => :optional
+  depends_on "zlib" => :optional
 
   def install
     args = %W[
@@ -28,23 +27,29 @@ class Openlitespeed < Formula
       --prefix=#{prefix}
       --with-pcre=#{Formula["pcre"].opt_prefix}
       --with-openssl=#{Formula["openssl"].opt_prefix}
-      --with-zlib=#{Formula["zlib"].opt_prefix}
-      --with-expat=#{Formula["expat"].opt_prefix}
-      --with-expat-inc=#{Formula["expat"].opt_prefix}/include
-      --with-expat-lib=#{Formula["expat"].opt_prefix}/lib
     ]
 
     args << "--enable-debug" if build.with? "debug"
     args << "--enable-redis=yes" if build.with? "redis"
     args << "--enable-http2=no" if build.without? "http2"
 
-    ENV["CPPFLAGS"] = "-I#{Formula["openssl"].opt_prefix}/include/openssl"
+    args << "--with-zlib=#{Formula["zlib"].opt_prefix}" if build.with? "zlib"
+
+    if build.with? "expat"
+      args << "--with-expat=#{Formula["expat"].opt_prefix}"
+      args << "--with-expat-inc=#{Formula["expat"].opt_include}"
+      args << "--with-expat-lib=#{Formula["expat"].opt_lib}"
+    end
+
+    ENV["CPPFLAGS"] = "-I#{Formula["openssl"].opt_include}/openssl"
 
     system "./configure", *args
     system "make"
     system "make", "install"
 
-    inreplace bin/"lswsctrl.open", "RESTART_LOG=\"\$BASE_DIR\/\.\.\/logs\/lsrestart.log\"", "RESTART_LOG=\"#{opt_prefix}\/logs\/lsrestart.log\""
+    inreplace bin/"lswsctrl.open",
+      "RESTART_LOG=\"\$BASE_DIR\/\.\.\/logs\/lsrestart.log\"",
+      "RESTART_LOG=\"#{opt_prefix}\/logs\/lsrestart.log\""
   end
 
   def post_install
@@ -83,11 +88,11 @@ class Openlitespeed < Formula
   end
 
   test do
-    opt_prefix = "#{HOMEBREW_PREFIX}/opt/openlitespeed"
-    lswsctrl = "#{opt_prefix}/bin/lswsctrl"
+    ENV["LSWS_HOME"] = opt_prefix
 
-    system "LSWS_HOME=#{opt_prefix}", lswsctrl, "start"
-    system lswsctrl, "status"
-    system lswsctrl, "stop"
+    system bin/"lswsctrl", "start"
+    status = `#{bin/"lswsctrl"} status`
+    assert_not_nil /litespeed\sis\srunning\swith\sPID.+/.match(status)
+    system bin/"lswsctrl", "stop"
   end
 end
