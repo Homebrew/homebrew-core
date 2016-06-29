@@ -6,10 +6,9 @@ class Python < Formula
   head "https://hg.python.org/cpython", :using => :hg, :branch => "2.7"
 
   bottle do
-    revision 3
-    sha256 "eed72bf7121ea53c10f1e8eebfde353a041fa94f7c1adaee4bcaabbc4039d707" => :el_capitan
-    sha256 "cfb524c670d0e7d0206e8cb875901c343b7d116814e5d7e2872640ea9534d7fa" => :yosemite
-    sha256 "1719312dea4f295ab75393a55ff2520f05c5ab4094927261e0ccb63c576b7b8f" => :mavericks
+    sha256 "b4779ada60f6809a6f12369a407e366a8ffc4660a29446525e23108fd5da91a9" => :el_capitan
+    sha256 "b222252c54e4407258b6c53a3402aac61b8901447414f1f5ffe0d79f568c7014" => :yosemite
+    sha256 "1ce2d4130a8924254c41e4ad5a31a549ac574d1a77593a5f7a1b3ecdbb18552b" => :mavericks
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
