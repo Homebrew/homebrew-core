@@ -12,6 +12,11 @@ class Webp < Formula
     sha256 "b8b828ea83e78852db35041feb9e16b999b035f4d23a5a51d5be72245eac662d" => :mavericks
   end
 
+  devel do
+    url "http://downloads.webmproject.org/releases/webp/libwebp-0.5.1-rc5.tar.gz"
+    sha256 "7bd3022eefbcf34233b20570de89c1a8687acdfaa739c12e4236fc0b736339fd"
+  end
+
   head do
     url "https://chromium.googlesource.com/webm/libwebp.git"
     depends_on "autoconf" => :build
@@ -40,8 +45,8 @@ class Webp < Formula
   end
 
   test do
-    system "#{bin}/cwebp", test_fixtures("test.png"), "-o", "webp_test.png"
-    system "#{bin}/dwebp", "webp_test.png", "-o", "webp_test.webp"
+    system bin/"cwebp", test_fixtures("test.png"), "-o", "webp_test.png"
+    system bin/"dwebp", "webp_test.png", "-o", "webp_test.webp"
     assert File.exist?("webp_test.webp")
   end
 end
