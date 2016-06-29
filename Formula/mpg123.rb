@@ -13,10 +13,13 @@ class Mpg123 < Formula
   end
 
   def install
-    args = ["--disable-debug", "--disable-dependency-tracking",
-            "--prefix=#{prefix}",
-            "--with-default-audio=coreaudio",
-            "--with-module-suffix=.so"]
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --with-default-audio=coreaudio
+      --with-module-suffix=.so
+    ]
 
     if MacOS.prefer_64_bit?
       args << "--with-cpu=x86-64"
@@ -29,6 +32,6 @@ class Mpg123 < Formula
   end
 
   test do
-    system "#{bin}/mpg123", test_fixtures("test.mp3")
+    system bin/"mpg123", test_fixtures("test.mp3")
   end
 end
