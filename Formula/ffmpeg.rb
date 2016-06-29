@@ -16,9 +16,9 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 "427e874885b03997de009cec923ed9872a498ff431bc24d007c191658e4633b3" => :el_capitan
-    sha256 "eb9ab80d69d69e2c4b6d311b3b84ce3e9539f5c1962187d4e018a29424c627a0" => :yosemite
-    sha256 "b6eb3f5481b89b4031bd1f4146f34b2e8736625c1cca29f14cffdfd2511fdfe6" => :mavericks
+    sha256 "493ba317ca0980ccf28b9e6b202c6f3fa7553334a82776944b61247706f3f272" => :el_capitan
+    sha256 "3dce04d1f5bd871143d90f6a9c5b14003978552854f5119253ead306701f9995" => :yosemite
+    sha256 "ab035d1c4a3f0e486eaeb3a5b5b1628fb3eea2a04ab8b7dc12142e9590a2652a" => :mavericks
   end
 
   option "without-x264", "Disable H.264 encoder"
