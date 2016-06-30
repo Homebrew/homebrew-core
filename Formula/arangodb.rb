@@ -1,8 +1,9 @@
 class Arangodb < Formula
   desc "Universal open-source database with a flexible data model"
   homepage "https://www.arangodb.com/"
-  url "https://www.arangodb.com/repositories/Source/ArangoDB-2.8.9.tar.gz"
-  sha256 "cff21ca654056bed08781c5e462966f5f15acec7b6522191d286dee3339e327e"
+  url "https://www.arangodb.com/repositories/Source/ArangoDB-3.0.0.tar.gz"
+  sha256 "b69d364c2d5d8ed7ab57428a111fe19b3daf8d2ad4dface12047f354c9f8be56"
+  head "https://github.com/arangodb/arangodb.git", :branch => "unstable"
 
   bottle do
     revision 1
@@ -11,11 +12,7 @@ class Arangodb < Formula
     sha256 "60d59e09f4a440cffeb077f1de14784519223e6f25ccaaf6df692dc63fd6cac8" => :mavericks
   end
 
-  head do
-    url "https://github.com/arangodb/arangodb.git", :branch => "unstable"
-    depends_on "cmake" => :build
-  end
-
+  depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on "openssl"
 
@@ -28,32 +25,15 @@ class Arangodb < Formula
 
   def install
     ENV.libcxx
-
-    if build.head?
-      mkdir "arangodb-build" do
-        system "cmake", "..", "-DHOMEBREW=On", "-DUSE_OPTIMIZE_FOR_ARCHITECTURE=Off", "-DASM_OPTIMIZATIONS=Off", "-DETCDIR=#{prefix}/etc", "-DVARDIR=#{var}", *std_cmake_args
-        system "make", "install"
-      end
-
-    else
-      # clang on 10.8 will still try to build against libstdc++,
-      # which fails because it doesn't have the C++0x features
-      # arangodb requires.
-      args = %W[
-        --disable-dependency-tracking
-        --prefix=#{prefix}
-        --disable-relative
-        --datadir=#{share}
-        --localstatedir=#{var}
+    mkdir "arangodb-build" do
+      args = std_cmake_args + %W[
+        -DHOMEBREW=ON
+        -DUSE_OPTIMIZE_FOR_ARCHITECTURE=OFF
+        -DASM_OPTIMIZATIONS=OFF
+        -DETCDIR=#{etc}
+        -DVARDIR=#{var}
       ]
-
-      args << "--program-suffix=-unstable" if build.head?
-
-      if ENV.compiler != :clang
-        ENV.append "LDFLAGS", "-static-libgcc -static-libstdc++"
-      end
-
-      system "./configure", *args
+      system "cmake", "..", *args
       system "make", "install"
     end
   end
@@ -66,10 +46,9 @@ class Arangodb < Formula
     end
   else
     def post_install
-      (var/"arangodb").mkpath
-      (var/"log/arangodb").mkpath
-
-      system "#{sbin}/arangod", "--upgrade"
+      (var/"lib/arangodb3").mkpath
+      (var/"log/arangodb3").mkpath
+      system sbin/"arangod", "--database.auto-upgrade", "true"
     end
   end
 
@@ -105,7 +84,7 @@ class Arangodb < Formula
         <array>
           <string>#{opt_sbin}/arangod</string>
           <string>-c</string>
-          <string>#{etc}/arangodb/arangod.conf</string>
+          <string>#{etc}/arangodb3/arangod.conf</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
@@ -115,6 +94,11 @@ class Arangodb < Formula
   end
 
   test do
-    assert_equal "it works!\n", shell_output("#{bin}/arangosh --javascript.execute-string \"require('@arangodb').print('it works!')\"")
+    cmd = %W[
+      #{bin}/arangosh
+      --server.password ""
+      --javascript.execute-string "require('@arangodb').print('it works!')"
+    ]
+    assert_equal "it works!", shell_output(cmd.join(" ")).chomp
   end
 end
