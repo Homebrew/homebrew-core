@@ -1,8 +1,8 @@
 class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/coreos/etcd"
-  url "https://github.com/coreos/etcd/archive/v2.2.5.tar.gz"
-  sha256 "a7fb7998ada620fda74e517c100891d25a15a6fa20b627df52da7cd29328e6d5"
+  url "https://github.com/coreos/etcd/archive/v2.3.6.tar.gz"
+  sha256 "2d2f715fbe3aad679077d45e93a05a4b951811964e1e47ad7eba6e17d1d613a8"
   head "https://github.com/coreos/etcd.git"
 
   bottle do
@@ -13,9 +13,9 @@ class Etcd < Formula
   end
 
   devel do
-    url "https://github.com/coreos/etcd/archive/v2.3.0-alpha.0.tar.gz"
-    version "2.3.0-alpha.0"
-    sha256 "6603684824a650c472c791fc7c4cdf6811920f473e01bcfe8b1d95b0fd1f25c6"
+    url "https://github.com/coreos/etcd/archive/v3.0.0-beta.0.tar.gz"
+    version "3.0.0-beta.0"
+    sha256 "613c958a7ed9bb92069a46d5fc972a3c2b38b571ede475f88a5803f1f7bff1b3"
   end
 
   depends_on "go" => :build
