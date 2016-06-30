@@ -13,7 +13,6 @@ class CrystalIcr < Formula
   end
 
   def install
-    system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
