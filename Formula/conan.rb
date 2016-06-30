@@ -1,8 +1,8 @@
 class Conan < Formula
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://github.com/conan-io/conan"
-  url "https://pypi.python.org/packages/27/47/9098ac3ad4416c5a2ecb6bfbd45dd65e59c01a1f1281493c737a95245ce2/conan-0.9.4.tar.gz"
-  sha256 "deb686194e77e4c12b8b56caf6da9abf6bc510987cb2b06c939c145aaffa4c87"
+  url "https://pypi.python.org/packages/fa/c6/f94d46dd2b958248114a86a8952882e67a6ace55c72b8600fd30bf85ce7f/conan-0.10.0.tar.gz"
+  sha256 "b6b7534d85145ad7f44d9448e1cad905c6e96c0e8f49e214eadbec83b280744a"
 
   bottle do
     cellar :any
