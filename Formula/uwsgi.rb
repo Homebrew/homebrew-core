@@ -3,7 +3,7 @@ class Uwsgi < Formula
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
   url "https://projects.unbit.it/downloads/uwsgi-2.0.11.2.tar.gz"
   sha256 "0b889b0b4d2dd3f6625df28cb0b86ec44a68d074ede2d0dfad0b91e88914885c"
-  revision 1
+  revision 2
 
   head "https://github.com/unbit/uwsgi.git"
 
@@ -46,6 +46,10 @@ class Uwsgi < Formula
   depends_on "yajl" if build.without? "jansson"
 
   def install
+    # "no such file or directory: '... libpython2.7.a'"
+    # Reported 23 Jun 2016: https://github.com/unbit/uwsgi/issues/1299
+    ENV.delete("SDKROOT")
+
     ENV.append %w[CFLAGS LDFLAGS], "-arch #{MacOS.preferred_arch}"
     openssl = Formula["openssl"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
