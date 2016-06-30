@@ -249,10 +249,10 @@ class Llvm < Formula
     args << "-DLLVM_ENABLE_LIBCXXABI=ON" if build.with? "libcxxabi"
     # args << "-DLLVM_ENABLE_DOXYGEN=ON" if build.with? "doxygen"
 
-    if build.with? "lldb" && build.with? "python"
-        args << "-DLLDB_RELOCATABLE_PYTHON=ON"
-        args << "-DPYTHON_LIBRARY=#{pylib}"
-        args << "-DPYTHON_INCLUDE_DIR=#{pyinclude}"
+    if build.with?("lldb") && build.with?("python")
+      args << "-DLLDB_RELOCATABLE_PYTHON=ON"
+      args << "-DPYTHON_LIBRARY=#{pylib}"
+      args << "-DPYTHON_INCLUDE_DIR=#{pyinclude}"
     end
 
     if build.with? "openmp"
