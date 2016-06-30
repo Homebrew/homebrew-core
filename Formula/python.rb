@@ -76,7 +76,11 @@ class Python < Formula
   # setuptools remembers the build flags python is built with and uses them to
   # build packages later. Xcode-only systems need different flags.
   pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
+    reason <<-EOS.undent
+    The bottle needs the Apple Command Line Tools to be installed.
+      You can install them, if desired, with:
+        xcode-select --install
+    EOS
     satisfy { MacOS::CLT.installed? }
   end
 
