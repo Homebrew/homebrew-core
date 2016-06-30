@@ -150,9 +150,7 @@ class Llvm < Formula
   depends_on "graphviz" => :optional # for the 'dot' tool (lldb)
   depends_on "ocaml" => :optional
 
-  if build.with? "python"
-    depends_on "python"
-  elsif MacOS.version <= :snow_leopard
+  if MacOS.version <= :snow_leopard
     depends_on :python
   else
     depends_on :python => :optional
