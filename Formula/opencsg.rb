@@ -15,9 +15,9 @@ class Opencsg < Formula
     system "make", "install"
   end
 
-  def patches
-    # Patch to make the library install correctly
-    DATA
+  patch do
+    url "https://raw.githubusercontent.com/openscad/homebrew-tap/master/patches/opencsg.diff"
+    sha256 "9d710cf6c2d5495ca5ba51c0319785cefc21477c85fa3aacb9ccd3473fee54f3"
   end
 
   test do
@@ -36,39 +36,3 @@ class Opencsg < Formula
     system "./test"
   end
 end
-
-__END__
-diff -ru OpenCSG-1.4.0/opencsg.pro OpenCSG-1.4.0-new/opencsg.pro
---- OpenCSG-1.4.0/opencsg.pro	2016-06-26 20:41:15.000000000 -0400
-+++ OpenCSG-1.4.0-new/opencsg.pro	2014-09-15 16:25:33.000000000 -0400
-@@ -1,2 +1,2 @@
- TEMPLATE = subdirs
--SUBDIRS  = src example
-+SUBDIRS  = src
-diff -ru OpenCSG-1.4.0/src/src.pro OpenCSG-1.4.0-new/src/src.pro
---- OpenCSG-1.4.0/src/src.pro	2014-09-15 16:25:33.000000000 -0400
-+++ OpenCSG-1.4.0-new/src/src.pro	2016-06-26 20:33:50.000000000 -0400
-@@ -2,16 +2,19 @@
- TARGET = opencsg
- VERSION = 1.4.0
- 
-+isEmpty(INSTALLDIR) {
-+  INSTALLDIR = /usr/local
-+}
-+
- CONFIG += opengl warn_on release
--INCLUDEPATH += ../include ../
-+INCLUDEPATH += ../include ../ $$INSTALLDIR/include
- CONFIG -= qt
--LIBS += -lGLEW
-+LIBS += -L$$INSTALLDIR/lib -lGLEW
- 
- DESTDIR = ../lib
--INSTALLDIR = /usr/local
- headers.files = ../include/opencsg.h
- headers.path = $$INSTALLDIR/include
--target.path = /usr/local/lib
-+target.path = $$INSTALLDIR/lib
- INSTALLS += target headers
- 
- HEADERS		= ../include/opencsg.h \
