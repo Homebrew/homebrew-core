@@ -128,23 +128,23 @@ class Llvm < Formula
   keg_only :provided_by_osx
 
   option :universal
-  option "without-clang", "Do not build the Clang compiler and support libraries"
+  option "without-clang", "Do not build Clang compiler and support libraries"
   option "without-clang-extra-tools", "Do not build extra tools for Clang"
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
-  option "without-libcxx", "Do not build the libc++ standard library"
-  option "with-libcxxabi", "Build the libc++abi standard library"
-  option "with-libunwind", "Build the libunwind library"
+  option "without-libcxx", "Do not build libc++ standard library"
+  option "without-libcxxabi", "Do not build libc++abi standard library"
+  option "without-libunwind", "Do not build libunwind library"
   option "without-lld", "Do not build LLD linker"
   option "with-lldb", "Build LLDB debugger"
-  option "without-openmp", "Build without the additional OpenMP Runtime Libraries"
-  option "with-python", "Build Python bindings against Homebrew Python"
+  option "without-openmp", "Do not build additional OpenMP runtime libraries"
+  option "without-python", "Do not build bindings against custom Python"
   option "without-rtti", "Build without C++ RTTI"
   option "without-utils", "Do not install utility binaries"
-  option "without-polly", "Build without Polly optimizer"
+  option "without-polly", "Do not build Polly optimizer"
   option "with-test", "Build LLVM unit tests"
   option "with-shared-libs", "Build shared instead of static libraries"
-  option "without-libffi", "Use libffi to call external functions from the interpreter"
-  option "with-all-targets", "Build all targets rather than just AMDGPU, ARM, NVPTX, and X86"
+  option "without-libffi", "Do not use libffi to call external functions"
+  option "with-all-targets", "Build all targets. Default targets: AMDGPU, ARM, NVPTX, and X86"
 
   depends_on "libffi" => :recommended # llvm.org/docs/GettingStarted.grml#requirements
   depends_on "graphviz" => :optional # for the 'dot' tool (lldb)
@@ -196,6 +196,12 @@ class Llvm < Formula
 
     if build.with? "lldb"
       odie "--with-lldb requires --with-clang" if build.without? "clang"
+      if build.with? "python"
+        pyhome = `python-config --prefix`.chomp
+        ENV["PYTHONHOME"] = pyhome
+        pylib = pyhome + "/lib/libpython2.7.dylib"
+        pyinclude = pyhome + "/include/python2.7"
+      end
       (buildpath/"tools/lldb").install resource("lldb")
 
       # Building lldb requires a code signing certificate.
@@ -243,6 +249,16 @@ class Llvm < Formula
     args << "-DLLVM_ENABLE_LIBCXXABI=ON" if build.with? "libcxxabi"
     # args << "-DLLVM_ENABLE_DOXYGEN=ON" if build.with? "doxygen"
 
+    if build.with? "lldb"
+      if build.with? "python"
+        args << "-DLLDB_RELOCATABLE_PYTHON=ON"
+        args << "-DPYTHON_LIBRARY=#{pylib}"
+        args << "-DPYTHON_INCLUDE_DIR=#{pyinclude}"
+      else
+        args << "-DLLDB_DISABLE_PYTHON=ON"
+      end
+    end
+
     if build.with? "openmp"
       args << "-DLIBOMP_ENABLE_SHARED=ON" if build.with? "shared-libs"
       args << "-DLIBOMP_ARCH=x86_64"
@@ -273,11 +289,11 @@ class Llvm < Formula
     if build.with? "clang"
       (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
       if build.head?
-        # inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
+        inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
         bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
         man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
       else
-        # inreplace "#{share}/clang/tools/scan-build/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
+        inreplace "#{share}/clang/tools/scan-build/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
         bin.install_symlink share/"clang/tools/scan-build/scan-build", share/"clang/tools/scan-view/scan-view"
         man1.install_symlink share/"clang/tools/scan-build/scan-build.1"
       end
