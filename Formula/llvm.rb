@@ -173,7 +173,7 @@ class Llvm < Formula
     fails_with :gcc => n
   end
 
-  def build_libcxx
+  def build_libcxx?
     build.with?("libcxx") || (build.with?("clang") && !MacOS::CLT.installed?)
   end
 
@@ -188,7 +188,7 @@ class Llvm < Formula
       (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     end
 
-    (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx
+    (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx?
     (buildpath/"tools/lld").install resource("lld") if build.with? "lld"
     ["libcxxabi", "libunwind", "openmp"].each do |r|
       (buildpath/"projects"/r).install resource(r) if build.with? r
@@ -245,18 +245,14 @@ class Llvm < Formula
     end
     args << "-DLLVM_ENABLE_RTTI=ON" if build.with? "rtti"
     args << "-DLLVM_INSTALL_UTILS=ON" if build.with? "utils"
-    args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx
+    args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
     args << "-DLLVM_ENABLE_LIBCXXABI=ON" if build.with? "libcxxabi"
     # args << "-DLLVM_ENABLE_DOXYGEN=ON" if build.with? "doxygen"
 
-    if build.with? "lldb"
-      if build.with? "python"
+    if build.with? "lldb" && build.with? "python"
         args << "-DLLDB_RELOCATABLE_PYTHON=ON"
         args << "-DPYTHON_LIBRARY=#{pylib}"
         args << "-DPYTHON_INCLUDE_DIR=#{pyinclude}"
-      else
-        args << "-DLLDB_DISABLE_PYTHON=ON"
-      end
     end
 
     if build.with? "openmp"
@@ -288,15 +284,9 @@ class Llvm < Formula
 
     if build.with? "clang"
       (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
-      if build.head?
-        inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
-        bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
-        man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
-      else
-        inreplace "#{share}/clang/tools/scan-build/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
-        bin.install_symlink share/"clang/tools/scan-build/scan-build", share/"clang/tools/scan-view/scan-view"
-        man1.install_symlink share/"clang/tools/scan-build/scan-build.1"
-      end
+      inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
+      bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
+      man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
     end
 
     # install llvm python bindings
@@ -310,7 +300,7 @@ class Llvm < Formula
       Extra tools are installed in #{opt_pkgshare}.
     EOS
 
-    if build_libcxx
+    if build_libcxx?
       s += <<-EOS.undent
         To use the bundled libc++ please add the following LDFLAGS:
           LDFLAGS="-L#{opt_lib} -Wl,-rpath,#{opt_lib}"
@@ -384,7 +374,7 @@ class Llvm < Formula
 
       # link against installed libc++
       # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
-      if build_libcxx
+      if build_libcxx?
         system "#{bin}/clang++", "-v", "-nostdinc",
                "-std=c++11", "-stdlib=libc++",
                "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
