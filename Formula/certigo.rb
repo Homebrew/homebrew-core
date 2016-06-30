@@ -5,6 +5,13 @@ class Certigo < Formula
     :tag => "v1.1.0",
     :revision => "beac5ca8f48521a8361df8c953e66902f1d6632c"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "75cc1d2ff4040352a403b1ddb7f1b7381a57172084dba2a270534486b41dd153" => :el_capitan
+    sha256 "b0ce6094c5856f7e8d27b1145bedc7cc8a6a82e972b2e135547c1667241e530f" => :yosemite
+    sha256 "fa4ae50bc0700df7db84f40e35d81b258472009a21f9b40262e0ef8e29cb138b" => :mavericks
+  end
+
   depends_on "go" => :build
 
   def install
