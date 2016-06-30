@@ -5,9 +5,9 @@ class Gnumeric < Formula
   sha256 "c8ace78e75c280dced3f15b27c44c7a98e8d21cd8361c6b2599cce191f6d6ae7"
 
   bottle do
-    sha256 "d81d1a61958af1ecb53780402f7119dbafcb79e55971f37e2b11face6596029f" => :el_capitan
-    sha256 "9d2af6b8ab785aec809eae2c3840e8e8fd1f65c27875da5d3d8825a1c1c9b171" => :yosemite
-    sha256 "740c6d87205c8b81268668a8eda2996d46d9586637241208808cd624fd57ebee" => :mavericks
+    sha256 "f34a50977ece768bc1dc36f1575b1d707144a6f74a1d9309213b3fc2812059d4" => :el_capitan
+    sha256 "e6ae60e9466949b26bf195c15d261c4fb0cf99fad028f521b5c1e9c966a365ea" => :yosemite
+    sha256 "b0bcddec6232e8ca9c5e24be6e36436b47b8e0a8c6d9c78307464439d09db46e" => :mavericks
   end
 
   option "with-python-scripting", "Enable Python scripting."
