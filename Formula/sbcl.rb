@@ -1,8 +1,8 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.6/sbcl-1.3.6-source.tar.bz2"
-  sha256 "f017ac1bd8fe0ad56a4cfda4f7543a06a8993db8da1c9c079e188c28c551b0d9"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.7/sbcl-1.3.7-source.tar.bz2"
+  sha256 "854d71cf264d26321bc8ae13f6776b69882c8fb8dc937452dca2ea2c96c54d3a"
 
   head "git://sbcl.git.sourceforge.net/gitroot/sbcl/sbcl.git"
 
@@ -26,8 +26,8 @@ class Sbcl < Formula
 
   # Current binary versions are listed at http://sbcl.sourceforge.net/platform-table.html
   resource "bootstrap64" do
-    url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.1.8/sbcl-1.1.8-x86-64-darwin-binary.tar.bz2"
-    sha256 "729054dc27d6b53bd734eac4dffeaa9e231e97bdbe4927d7a68c8f0210cad700"
+    url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.2.11/sbcl-1.2.11-x86-64-darwin-binary.tar.bz2"
+    sha256 "057d3a1c033fb53deee994c0135110636a04f92d2f88919679864214f77d0452"
   end
 
   resource "bootstrap32" do
