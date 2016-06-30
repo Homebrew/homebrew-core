@@ -1,9 +1,9 @@
 class Clog < Formula
   desc "Colorized pattern-matching log tail utility."
   homepage "https://tasktools.org/projects/clog.html"
-  url "https://tasktools.org/download/clog-1.2.1.tar.gz"
-  sha256 "880cfe248326a5c6f7c2a183008c76fae8b78c45f6e5795f74d02627e634f29d"
-  head "https://git.tasktools.org/scm/ut/clog.git", :branch => "1.3.0", :shallow => false
+  url "https://tasktools.org/download/clog-1.3.0.tar.gz"
+  sha256 "fed44a8d398790ab0cf426c1b006e7246e20f3fcd56c0ec4132d24b05d5d2018"
+  head "https://git.tasktools.org/scm/ut/clog.git", :branch => "1.4.0", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
