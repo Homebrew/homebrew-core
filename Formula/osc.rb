@@ -5,6 +5,13 @@ class Osc < Formula
   sha256 "88daae5b94354e9bcab03523aa7e3d270f69ffeaef8e4a1493bce19757d4699d"
   head "https://github.com/openSUSE/osc.git"
 
+  bottle do
+    cellar :any
+    sha256 "c222f3a00e708e82946f1b60a13c3203a5a76b0cb762ce0ba2d45f0eae6ce0b2" => :el_capitan
+    sha256 "d4527195fd393ae22bf47539b75f9e58f3e8b7dda6a2c188dd6dccc4fd6218ad" => :yosemite
+    sha256 "f60c8850b29deb453fe7ea6f58a262bd8070ebedfb7ef9a3844fe35056315afe" => :mavericks
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "swig" => :build
   depends_on "openssl" # For M2Crypto
