@@ -12,9 +12,9 @@ class Juju < Formula
   end
 
   devel do
-    url "https://launchpad.net/juju-core/trunk/2.0-beta9/+download/juju-core_2.0-beta9.tar.gz"
-    sha256 "0f201909de0c77be21097f7749a32c131606e86a4b5940484d2fe668c108c22b"
-    version "2.0-beta9"
+    url "https://launchpad.net/juju-core/1.26/1.26-alpha3/+download/juju-core_1.26-alpha3.tar.gz"
+    sha256 "505e995082c3dff885ec6096dd3cdf2f69c177d0eba44b01bae8e84c37033a13"
+    version "1.26-alpha3"
   end
 
   depends_on "go" => :build
@@ -24,11 +24,7 @@ class Juju < Formula
     system "go", "build", "github.com/juju/juju/cmd/juju"
     system "go", "build", "github.com/juju/juju/cmd/plugins/juju-metadata"
     bin.install "juju", "juju-metadata"
-    if build.stable?
-      bash_completion.install "src/github.com/juju/juju/etc/bash_completion.d/juju-core"
-    else
-      bash_completion.install "src/github.com/juju/juju/etc/bash_completion.d/juju2"
-    end
+    bash_completion.install "src/github.com/juju/juju/etc/bash_completion.d/juju-core"
   end
 
   test do
