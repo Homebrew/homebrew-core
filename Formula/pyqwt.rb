@@ -3,6 +3,7 @@ class Pyqwt < Formula
   homepage "http://pyqwt.sourceforge.net"
   url "https://downloads.sourceforge.net/project/pyqwt/pyqwt5/PyQwt-5.2.0/PyQwt-5.2.0.tar.gz"
   sha256 "98a8c7e0c76d07701c11dffb77793b05f071b664a8b520d6e97054a98179e70b"
+  revision 1
 
   bottle do
     cellar :any
