@@ -3,7 +3,7 @@ class GnuApl < Formula
   homepage "https://www.gnu.org/software/apl/"
 
   stable do
-    url "http://ftpmirror.gnu.org/apl/apl-1.5.tar.gz"
+    url "https://ftpmirror.gnu.org/apl/apl-1.5.tar.gz"
     mirror "https://ftp.gnu.org/gnu/apl/apl-1.5.tar.gz"
     sha256 "013addd15cab829d3212fb787023a723e01f2e58e4836acbedbc2dc7078e8d40"
 
