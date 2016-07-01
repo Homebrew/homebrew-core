@@ -1,9 +1,11 @@
 class Unrtf < Formula
   desc "RTF to other formats converter"
   homepage "https://www.gnu.org/software/unrtf/"
-  url "http://ftpmirror.gnu.org/unrtf/unrtf-0.21.9.tar.gz"
+  url "https://ftpmirror.gnu.org/unrtf/unrtf-0.21.9.tar.gz"
   mirror "https://ftp.gnu.org/gnu/unrtf/unrtf-0.21.9.tar.gz"
   sha256 "22a37826f96d754e335fb69f8036c068c00dd01ee9edd9461a36df0085fb8ddd"
+
+  head "http://hg.savannah.gnu.org/hgweb/unrtf/", :using => :hg
 
   bottle do
     sha256 "2d658e54c0f66ae90764c8588fa7181c68d69d505336747b9bd5e496ba7b99d6" => :el_capitan
@@ -11,8 +13,6 @@ class Unrtf < Formula
     sha256 "852bd896c8537489400e646ed41f2876079e124203e493cfc1e2d7f51d024726" => :mavericks
     sha256 "7e680da7a4c4da9ed3b21f04e5125721cf506cc9579a2e95b4635078b0606cb2" => :mountain_lion
   end
-
-  head "http://hg.savannah.gnu.org/hgweb/unrtf/", :using => :hg
 
   depends_on "automake" => :build
   depends_on "autoconf" => :build
