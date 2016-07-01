@@ -1,7 +1,7 @@
 class Global < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "http://ftpmirror.gnu.org/global/global-6.5.4.tar.gz"
+  url "https://ftpmirror.gnu.org/global/global-6.5.4.tar.gz"
   mirror "https://ftp.gnu.org/gnu/global/global-6.5.4.tar.gz"
   sha256 "af16e0a686a46f759156cb685e25f345680703f43f93af1ce8d834caaf541da6"
 
@@ -88,19 +88,17 @@ class Global < Formula
         assert_match /test\.c/, shell_output("#{bin}/global -d cfunc")
         assert_match /test\.c/, shell_output("#{bin}/global -d c2func")
         assert_match /test\.c/, shell_output("#{bin}/global -r c2func")
-        assert_match /test\.c/, shell_output("#{bin}/global -s cvar")
         assert_match /test\.py/, shell_output("#{bin}/global -d pyfunc")
         assert_match /test\.py/, shell_output("#{bin}/global -r py2func")
-        assert_match /test\.py/, shell_output("#{bin}/global -s pyvar")
       else
         # Everything is a symbol in this case
         assert_match /test\.c/, shell_output("#{bin}/global -s cfunc")
         assert_match /test\.c/, shell_output("#{bin}/global -s c2func")
-        assert_match /test\.c/, shell_output("#{bin}/global -s cvar")
         assert_match /test\.py/, shell_output("#{bin}/global -s pyfunc")
         assert_match /test\.py/, shell_output("#{bin}/global -s py2func")
-        assert_match /test\.py/, shell_output("#{bin}/global -s pyvar")
       end
+      assert_match /test\.c/, shell_output("#{bin}/global -s cvar")
+      assert_match /test\.py/, shell_output("#{bin}/global -s pyvar")
     end
     if build.with? "ctags"
       assert shell_output("#{bin}/gtags --gtagsconf=#{share}/gtags/gtags.conf --gtagslabel=exuberant-ctags .")
