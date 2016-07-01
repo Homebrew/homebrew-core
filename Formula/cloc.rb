@@ -7,9 +7,9 @@ class Cloc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "95d2733aa357872347ecd584c4e541b249ca3b3e2a53237725369d3c6b79c0e6" => :el_capitan
-    sha256 "e21f1b24097805ec0de904b93fb26894980630caffd7b9e09efbcf0010df6126" => :yosemite
-    sha256 "103095b754ef166c18b492c2e146130bf27e86a214f7a3fef68d942d52b20442" => :mavericks
+    sha256 "73e94bf311ad9d6e96b6257e7d5db37fda630d3b9beee0d1332ee7a274f23b67" => :el_capitan
+    sha256 "977fc57cdec9172b3a2948b862a95a5f3ef9ecb301ca55e614b56f8a3d64c90c" => :yosemite
+    sha256 "12bfa1e13c517e2c90ce0de1a5d5e468486f1191445b6ac19c7d9ad7be883ea9" => :mavericks
   end
 
   def install
