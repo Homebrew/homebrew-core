@@ -3,10 +3,15 @@ require "language/go"
 class Ghq < Formula
   desc "Remote repository management made easy"
   homepage "https://github.com/motemen/ghq"
-  url "https://github.com/motemen/ghq/archive/v0.7.4.tar.gz"
-  sha256 "f6e79a7efec2cc11dd8489ae31619de85f15b588158d663256bc9fd45aca6a5d"
 
-  head "https://github.com/motemen/ghq.git"
+  stable do
+    url "https://github.com/motemen/ghq/archive/v0.7.4.tar.gz"
+    sha256 "f6e79a7efec2cc11dd8489ae31619de85f15b588158d663256bc9fd45aca6a5d"
+
+    go_resource "github.com/codegangsta/cli" do
+      url "https://github.com/codegangsta/cli.git", :revision => "aca5b047ed14d17224157c3434ea93bf6cdaadee"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -15,13 +20,17 @@ class Ghq < Formula
     sha256 "d87b3b0ab5a3a1f62d4ab34da198a20bb08abab16b21cdd98ef5c194220fb5de" => :mavericks
   end
 
+  head do
+    url "https://github.com/motemen/ghq.git"
+
+    go_resource "github.com/codegangsta/cli" do
+      url "https://github.com/codegangsta/cli.git", :revision => "1efa31f08b9333f1bd4882d61f9d668a70cd902e"
+    end
+  end
+
   option "without-completions", "Disable zsh completions"
 
   depends_on "go" => :build
-
-  go_resource "github.com/codegangsta/cli" do
-    url "https://github.com/codegangsta/cli.git", :revision => "aca5b047ed14d17224157c3434ea93bf6cdaadee"
-  end
 
   go_resource "github.com/mitchellh/go-homedir" do
     url "https://github.com/mitchellh/go-homedir.git", :revision => "981ab348d865cf048eb7d17e78ac7192632d8415"
