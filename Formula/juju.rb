@@ -11,12 +11,6 @@ class Juju < Formula
     sha256 "4961bebf88d7c5167e6df8da19d652fea3c3b87a7936d37d130bfcb80962e717" => :mavericks
   end
 
-  devel do
-    url "https://launchpad.net/juju-core/1.26/1.26-alpha3/+download/juju-core_1.26-alpha3.tar.gz"
-    sha256 "505e995082c3dff885ec6096dd3cdf2f69c177d0eba44b01bae8e84c37033a13"
-    version "1.26-alpha3"
-  end
-
   depends_on "go" => :build
 
   def install
