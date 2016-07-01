@@ -11,6 +11,8 @@ class Hyperscan < Formula
     sha256 "13c9cb6d0aa29dd4039148a7ac06a6dadc9c89d72ff5b2fa42a29d1d3833fd32" => :mavericks
   end
 
+  option "with-debug", "Build with debug symbols"
+
   depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "boost" => :build
   depends_on "ragel" => :build
@@ -18,7 +20,21 @@ class Hyperscan < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      args = std_cmake_args
+
+      if build.with? "debug"
+        args -= %w[
+          -DCMAKE_BUILD_TYPE=Release
+          -DCMAKE_C_FLAGS_RELEASE=-DNDEBUG
+          -DCMAKE_CXX_FLAGS_RELEASE=-DNDEBUG
+        ]
+        args += %w[
+          -DCMAKE_BUILD_TYPE=Debug
+          -DDEBUG_OUTPUT=on
+        ]
+      end
+
+      system "cmake", "..", *args
       system "make", "install"
     end
   end
