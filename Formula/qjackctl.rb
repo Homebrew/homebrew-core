@@ -4,6 +4,7 @@ class Qjackctl < Formula
   url "https://downloads.sourceforge.net/qjackctl/qjackctl-0.4.2.tar.gz"
   sha256 "cf1c4aff22f8410feba9122e447b1e28c8fa2c71b12cfc0551755d351f9eaf5e"
   head "http://git.code.sf.net/p/qjackctl/code", :using => :git
+  revision 1
 
   bottle do
     sha256 "881297bbb05a0367be914b6c696a1fd38b1591906dfd08077a827f6c28dda692" => :el_capitan
