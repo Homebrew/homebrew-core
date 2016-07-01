@@ -1,19 +1,9 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
+  url "https://ffmpeg.org/releases/ffmpeg-3.1.1.tar.bz2"
+  sha256 "a5bca50a90a37b983eaa17c483a387189175f37ca678ae7e51d43e7610b4b3b4"
   head "https://github.com/FFmpeg/FFmpeg.git"
-
-  stable do
-    url "https://ffmpeg.org/releases/ffmpeg-3.1.tar.bz2"
-    sha256 "2100fca81627e6cbe937fd6a071ae89277c02350538944b2b0c3c2cc71d9402a"
-
-    # See https://github.com/Homebrew/homebrew-core/pull/2416 and
-    # https://trac.ffmpeg.org/ticket/5670
-    patch do
-      url "https://git.videolan.org/?p=ffmpeg.git;a=patch;h=c5566f0a944e376b39c8f994659060ca036c441d"
-      sha256 "408d11d8ae496ed4f83e36e1da0db4b373e8c016cb3723e029ba2fd25b1e7611"
-    end
-  end
 
   bottle do
     sha256 "493ba317ca0980ccf28b9e6b202c6f3fa7553334a82776944b61247706f3f272" => :el_capitan
@@ -42,11 +32,11 @@ class Ffmpeg < Formula
   option "with-webp", "Enable using libwebp to encode WEBP images"
   option "with-zeromq", "Enable using libzeromq to receive commands sent through a libzeromq client"
   option "with-snappy", "Enable Snappy library"
-  option "with-dcadec", "Enable dcadec library"
   option "with-rubberband", "Enable rubberband library"
   option "with-zimg", "Enable z.lib zimg library"
   option "with-openh264", "Enable OpenH264 library"
   option "with-xz", "Enable decoding of LZMA-compressed TIFF files"
+  option "with-libebur128", "Enable using libebur128 for EBU R128 loudness measurement"
 
   depends_on "pkg-config" => :build
 
@@ -85,11 +75,11 @@ class Ffmpeg < Formula
   depends_on "webp" => :optional
   depends_on "zeromq" => :optional
   depends_on "libbs2b" => :optional
-  depends_on "dcadec" => :optional
   depends_on "rubberband" => :optional
   depends_on "zimg" => :optional
   depends_on "openh264" => :optional
   depends_on "xz" => :optional
+  depends_on "libebur128" => :optional
 
   def install
     args = %W[
@@ -136,11 +126,11 @@ class Ffmpeg < Formula
     args << "--enable-libwebp" if build.with? "webp"
     args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-libbs2b" if build.with? "libbs2b"
-    args << "--enable-libdcadec" if build.with? "dcadec"
     args << "--enable-librubberband" if build.with? "rubberband"
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
     args << "--enable-libopenh264" if build.with? "openh264"
+    args << "--enable-libebur128" if build.with? "libebur128"
 
     if build.with? "xz"
       args << "--enable-lzma"
