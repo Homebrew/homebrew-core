@@ -18,7 +18,7 @@ class Ghc < Formula
   depends_on :macos => :lion
 
   resource "gmp" do
-    url "http://ftpmirror.gnu.org/gmp/gmp-6.1.0.tar.bz2"
+    url "https://ftpmirror.gnu.org/gmp/gmp-6.1.0.tar.bz2"
     mirror "https://gmplib.org/download/gmp/gmp-6.1.0.tar.bz2"
     mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.1.0.tar.bz2"
     sha256 "498449a994efeba527885c10405993427995d3f86b8768d8cdf8d9dd7c6b73e8"
