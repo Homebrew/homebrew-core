@@ -1,7 +1,7 @@
 class Texinfo < Formula
   desc "Official documentation format of the GNU project"
   homepage "https://www.gnu.org/software/texinfo/"
-  url "http://ftpmirror.gnu.org/texinfo/texinfo-6.1.tar.xz"
+  url "https://ftpmirror.gnu.org/texinfo/texinfo-6.1.tar.xz"
   mirror "https://ftp.gnu.org/gnu/texinfo/texinfo-6.1.tar.xz"
   sha256 "ac68394ce21b2420ba7ed7cec65d84aacf308cc88e9bf4716fcfff88286883d2"
 
