@@ -13,8 +13,12 @@ class Cryptopp < Formula
   option :cxx11
 
   def install
-    ENV.cxx11 if build.cxx11?
-    system "make", "CXX=#{ENV.cxx}"
+    if build.cxx11?
+      ENV.cxx11
+      system "make", "CXX=#{ENV.cxx}", "CXXFLAGS=-std=c++11"
+    else
+      system "make", "CXX=#{ENV.cxx}"
+    end
     system "make", "install", "PREFIX=#{prefix}"
   end
 
