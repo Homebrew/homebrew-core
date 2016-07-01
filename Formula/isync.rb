@@ -3,6 +3,7 @@ class Isync < Formula
   homepage "http://isync.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/isync/isync/1.2.1/isync-1.2.1.tar.gz"
   sha256 "e716de28c9a08e624a035caae3902fcf3b511553be5d61517a133e03aa3532ae"
+  revision 1
 
   bottle do
     cellar :any
