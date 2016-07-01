@@ -9,7 +9,8 @@ class Ghq < Formula
     sha256 "f6e79a7efec2cc11dd8489ae31619de85f15b588158d663256bc9fd45aca6a5d"
 
     go_resource "github.com/codegangsta/cli" do
-      url "https://github.com/codegangsta/cli.git", :revision => "aca5b047ed14d17224157c3434ea93bf6cdaadee"
+      url "https://github.com/codegangsta/cli.git",
+      :revision => "aca5b047ed14d17224157c3434ea93bf6cdaadee"
     end
   end
 
@@ -24,7 +25,8 @@ class Ghq < Formula
     url "https://github.com/motemen/ghq.git"
 
     go_resource "github.com/codegangsta/cli" do
-      url "https://github.com/codegangsta/cli.git", :revision => "1efa31f08b9333f1bd4882d61f9d668a70cd902e"
+      url "https://github.com/codegangsta/cli.git",
+      :revision => "1efa31f08b9333f1bd4882d61f9d668a70cd902e"
     end
   end
 
@@ -33,15 +35,18 @@ class Ghq < Formula
   depends_on "go" => :build
 
   go_resource "github.com/mitchellh/go-homedir" do
-    url "https://github.com/mitchellh/go-homedir.git", :revision => "981ab348d865cf048eb7d17e78ac7192632d8415"
+    url "https://github.com/mitchellh/go-homedir.git",
+    :revision => "981ab348d865cf048eb7d17e78ac7192632d8415"
   end
 
   go_resource "github.com/motemen/go-colorine" do
-    url "https://github.com/motemen/go-colorine.git", :revision => "49ff36b8fa42db28092361cd20dcefd0b03b1472"
+    url "https://github.com/motemen/go-colorine.git",
+    :revision => "49ff36b8fa42db28092361cd20dcefd0b03b1472"
   end
 
   go_resource "github.com/daviddengcn/go-colortext" do
-    url "https://github.com/daviddengcn/go-colortext.git", :revision => "3b18c8575a432453d41fdafb340099fff5bba2f7"
+    url "https://github.com/daviddengcn/go-colortext.git",
+    :revision => "3b18c8575a432453d41fdafb340099fff5bba2f7"
   end
 
   def install
@@ -53,10 +58,7 @@ class Ghq < Formula
 
     system "go", "build", "-ldflags", "-X main.Version #{version}", "-o", "ghq"
     bin.install "ghq"
-
-    if build.with? "completions"
-      zsh_completion.install "zsh/_ghq"
-    end
+    zsh_completion.install "zsh/_ghq" if build.with? "completions"
   end
 
   test do
