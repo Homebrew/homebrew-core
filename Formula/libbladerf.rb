@@ -3,6 +3,7 @@ class Libbladerf < Formula
   homepage "https://nuand.com/"
   url "https://github.com/Nuand/bladeRF/archive/2015.07.tar.gz"
   sha256 "9e15911ab39ba1eb4aa1bcbf518a0eac5396207fc4a58c32b2550fe0a65f9d22"
+  head "https://github.com/Nuand/bladeRF.git"
 
   bottle do
     sha256 "a0f5f3a24237452816c8d25caf2d615d00bf54b1f5f1afaac3aeed3db24dfb06" => :el_capitan
