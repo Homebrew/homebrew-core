@@ -1,9 +1,9 @@
 class Dirt < Formula
   desc "Experimental sample playback"
-  homepage "https://github.com/yaxu/Dirt"
-  url "https://github.com/yaxu/Dirt/archive/1.0.tar.gz"
-  sha256 "c7c51ea3f279c048e84d988978455f075fd8ae063b2ad7378fc9b8369218f8fb"
-  head "https://github.com/yaxu/Dirt.git"
+  homepage "https://github.com/tidalcycles/Dirt"
+  url "https://github.com/tidalcycles/Dirt/archive/1.0.tar.gz"
+  sha256 "4a79a3c8650e8852907beb2d40af0f9bc2824adcffc91041fe62edd55c23ecdc"
+  head "https://github.com/tidalcycles/Dirt.git"
 
   bottle do
     cellar :any
