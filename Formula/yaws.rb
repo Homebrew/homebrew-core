@@ -6,9 +6,9 @@ class Yaws < Formula
   head "https://github.com/klacke/yaws.git"
 
   bottle do
-    sha256 "c670ffd7b510fed39e73e7be38779b0115435893ea4553f24fe96f9767375b3b" => :el_capitan
-    sha256 "f9c21dbaaff1b4abaf5e9375fde9d3c8c38754a9345d876951f7d18c28f6cbe8" => :yosemite
-    sha256 "76885ddae6aafe18bb24c71ebd84f66fb8282e843a20076a4d06c8cf66bdea08" => :mavericks
+    sha256 "1ee10be2188e6dc7c2e01def77e2e8201d4ebf4adf6ac8321569e12b6e1aa0c6" => :el_capitan
+    sha256 "fa73b56f2fae2f2a6ffd988a846e16329d9e498738d39b2416830ba7373f2afc" => :yosemite
+    sha256 "696fe509205bbc64331c3d6c83894d1b39ee996a42e5157b7a8a50bb10470458" => :mavericks
   end
 
   option "without-yapp", "Omit yaws applications"
