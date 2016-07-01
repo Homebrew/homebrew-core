@@ -27,6 +27,7 @@ class Tesseract < Formula
   option "with-all-languages", "Install recognition data for all languages"
   option "with-training-tools", "Install OCR training tools"
   option "with-opencl", "Enable OpenCL support"
+  option "with-serial-num-tools", "Install training tools for serial number recognition"
 
   deprecated_option "all-languages" => "with-all-languages"
 
@@ -62,6 +63,11 @@ class Tesseract < Formula
   resource "osd" do
     url "https://github.com/tesseract-ocr/tessdata/raw/3.04.00/osd.traineddata"
     sha256 "9cf5d576fcc47564f11265841e5ca839001e7e6f38ff7f7aacf46d15a96b00ff"
+  end
+
+  resource "snum" do
+    url "https://github.com/USCDataScience/counterfeit-electronics-tesseract/blob/master/Training%20Tesseract/snum.traineddata"
+    sha256 "36f772980ff17c66a767f584a0d80bf2302a1afa585c01a226c1863afcea1392"
   end
 
   def install
@@ -103,6 +109,9 @@ class Tesseract < Formula
     else
       resource("eng").stage { mv "eng.traineddata", share/"tessdata" }
       resource("osd").stage { mv "osd.traineddata", share/"tessdata" }
+    end
+    if build.with? "serial-num-tools"
+      resource("snum").stage{ mv "snum.traineddata", share/"tessdata"}
     end
   end
 
