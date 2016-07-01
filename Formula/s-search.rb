@@ -3,9 +3,8 @@ require "language/go"
 class SSearch < Formula
   desc "Web search from the terminal"
   homepage "https://github.com/zquestz/s"
-  url "https://github.com/zquestz/s/archive/v0.4.5.tar.gz"
-  sha256 "5c6cc19f3e66b5a98eb757e7b42d6faaceeff3c88a3d4c57af2107ac3be20a19"
-
+  url "https://github.com/zquestz/s/archive/v0.5.2.tar.gz"
+  sha256 "e4e224bffec720d718ac066a329097b5fd05d3c2c1a3c5b071d710abc7104220"
   head "https://github.com/zquestz/s.git"
 
   bottle do
@@ -19,22 +18,22 @@ class SSearch < Formula
 
   go_resource "github.com/NYTimes/gziphandler" do
     url "https://github.com/NYTimes/gziphandler.git",
-    :revision => "a88790d49798560db24af70fb6a10a66e2549a72"
+    :revision => "63027b26b87e2ae2ce3810393d4b81021cfd3a35"
   end
 
   go_resource "github.com/mitchellh/go-homedir" do
     url "https://github.com/mitchellh/go-homedir.git",
-    :revision => "981ab348d865cf048eb7d17e78ac7192632d8415"
+    :revision => "756f7b183b7ab78acdbbee5c7f392838ed459dda"
   end
 
   go_resource "github.com/spf13/cobra" do
     url "https://github.com/spf13/cobra.git",
-    :revision => "966e6048eb43ccf9f240a078557b37f0a407f1df"
+    :revision => "6a8bd97bdb1fc0d08a83459940498ea49d3e8c93"
   end
 
   go_resource "github.com/spf13/pflag" do
     url "https://github.com/spf13/pflag.git",
-    :revision => "7f60f83a2c81bc3c3c0d5297f61ddfa68da9d3b7"
+    :revision => "367864438f1b1a3c7db4da06a2f55b144e6784e0"
   end
 
   go_resource "github.com/zquestz/go-ucl" do
@@ -44,20 +43,20 @@ class SSearch < Formula
 
   go_resource "golang.org/x/text" do
     url "https://go.googlesource.com/text.git",
-    :revision => "1b466db55e0ba5d56ef5315c728216b42f796491"
+    :revision => "4440cd4f4c2ea31e1872e00de675a86d0c19006c"
   end
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/zquestz").mkpath
-    ln_s buildpath, buildpath/"src/github.com/zquestz/s"
+    ln_s buildpath, "src/github.com/zquestz/s"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    system "go", "build", "-o", "#{bin}/s"
+    system "go", "build", "-o", bin/"s"
   end
 
   test do
-    assert_equal "https://www.google.com/search?q=homebrew\n",
-      shell_output("#{bin}/s -p google -b echo homebrew")
+    output = shell_output("#{bin}/s -p bing -b echo homebrew")
+    assert_equal "https://www.bing.com/search?q=homebrew", output.chomp
   end
 end
