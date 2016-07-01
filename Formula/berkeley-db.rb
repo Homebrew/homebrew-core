@@ -1,8 +1,8 @@
 class BerkeleyDb < Formula
   desc "High performance key/value database"
   homepage "https://www.oracle.com/technology/products/berkeley-db/index.html"
-  url "http://download.oracle.com/berkeley-db/db-6.1.26.tar.gz"
-  sha256 "dd1417af5443f326ee3998e40986c3c60e2a7cfb5bfa25177ef7cadb2afb13a6"
+  url "http://download.oracle.com/berkeley-db/db-6.2.23.tar.gz"
+  sha256 "47612c8991aa9ac2f6be721267c8d3cdccf5ac83105df8e50809daea24e95dc7"
 
   bottle do
     cellar :any
@@ -41,5 +41,39 @@ class BerkeleyDb < Formula
       doc.parent.mkpath
       mv prefix/"docs", doc
     end
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <assert.h>
+      #include <string.h>
+
+      #include <db_cxx.h>
+
+      int main() {
+        Db db(NULL, 0);
+        assert(db.open(NULL, "test.db", NULL, DB_BTREE, DB_CREATE, 0) == 0);
+
+        const char *project = "Homebrew";
+        const char *stored_description = "The missing package manager for OS X";
+        Dbt key(const_cast<char *>(project), strlen(project) + 1);
+        Dbt stored_data(const_cast<char *>(stored_description), strlen(stored_description) + 1);
+        assert(db.put(NULL, &key, &stored_data, DB_NOOVERWRITE) == 0);
+
+        Dbt returned_data;
+        assert(db.get(NULL, &key, &returned_data, 0) == 0);
+        assert(strcmp(stored_description, (const char *)(returned_data.get_data())) == 0);
+
+        assert(db.close(0) == 0);
+      }
+    EOS
+    flags = %W[
+      -I#{include}
+      -L#{lib}
+      -ldb_cxx
+    ]
+    system ENV.cxx, "test.cpp", "-o", "test", *flags
+    system "./test"
+    assert (testpath/"test.db").exist?
   end
 end
