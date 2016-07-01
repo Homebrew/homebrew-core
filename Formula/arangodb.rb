@@ -1,8 +1,8 @@
 class Arangodb < Formula
   desc "Universal open-source database with a flexible data model"
   homepage "https://www.arangodb.com/"
-  url "https://www.arangodb.com/repositories/Source/ArangoDB-2.8.9.tar.gz"
-  sha256 "cff21ca654056bed08781c5e462966f5f15acec7b6522191d286dee3339e327e"
+  url "https://www.arangodb.com/repositories/Source/ArangoDB-2.8.10.tar.gz"
+  sha256 "3f2adba7bb4fe5a93959c6929b984b053e66d3653144ed6bb1cdedd017c65050"
 
   bottle do
     revision 1
