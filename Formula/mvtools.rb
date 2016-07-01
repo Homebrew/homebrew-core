@@ -1,19 +1,9 @@
 class Mvtools < Formula
   desc "Filters for motion estimation and compensation"
   homepage "https://github.com/dubhater/vapoursynth-mvtools"
+  url "https://github.com/dubhater/vapoursynth-mvtools/archive/v15.tar.gz"
+  sha256 "8f1b4504914003fc7132be9484064d3e8bd719b7cf1d2af8baa7323b906b6eb2"
   head "https://github.com/dubhater/vapoursynth-mvtools.git"
-
-  stable do
-    url "https://github.com/dubhater/vapoursynth-mvtools/archive/v14.tar.gz"
-    sha256 "ecffe1a413a9e0c11af542ff70e7c0ad78ba6e3973d360b27b14f0aac13b5fa1"
-
-    # commit subject: "Depan: fix compilation with clang/libc++"
-    # upstream fix for dubhater/vapoursynth-mvtools#27
-    patch do
-      url "https://github.com/dubhater/vapoursynth-mvtools/commit/28abae24.patch"
-      sha256 "0338f6ff94f0bc8f77195e5b08fb8f080c6068e61f2493d600bbd2019afe7a62"
-    end
-  end
 
   bottle do
     cellar :any
