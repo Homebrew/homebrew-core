@@ -137,7 +137,7 @@ class Llvm < Formula
   option "without-lld", "Do not build LLD linker"
   option "with-lldb", "Build LLDB debugger"
   option "without-openmp", "Do not build additional OpenMP runtime libraries"
-  option "without-python", "Do not build bindings against custom Python"
+  option "with-python", "Build bindings against custom Python"
   option "without-rtti", "Build without C++ RTTI"
   option "without-utils", "Do not install utility binaries"
   option "without-polly", "Do not build Polly optimizer"
