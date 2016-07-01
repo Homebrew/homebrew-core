@@ -65,6 +65,24 @@ class Jrnl < Formula
   end
 
   test do
-    system "#{bin}/jrnl", "-v"
+    (testpath/"write_journal.sh").write <<-EOS.undent
+      #!/usr/bin/expect -f
+      set timeout -1
+      spawn #{bin}/jrnl today: Wrote this fancy test.
+      expect -exact "Path to your journal file (leave blank for ~/journal.txt):"
+      send -- "#{testpath}/journal\n"
+      expect -exact "Enter password for journal (leave blank for no encryption): "
+      send -- "Homebrew\n"
+      expect "Do you want to store the password in your keychain?"
+      send -- "N\n"
+      expect -exact "Journal will be encrypted."
+      expect "Entry added to default journal"
+      expect eof
+    EOS
+    chmod 0755, testpath/"write_journal.sh"
+
+    system "./write_journal.sh"
+    assert File.exist?("journal")
+    assert File.exist?(".jrnl_config")
   end
 end
