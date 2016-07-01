@@ -14,7 +14,8 @@ class Cryptopp < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
-    system "make", "CXX=#{ENV.cxx}"
+    system "make", "shared", "all", "CXX=#{ENV.cxx}"
+    system "./cryptest.exe", "v"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
