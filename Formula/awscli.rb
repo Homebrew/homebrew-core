@@ -2,8 +2,8 @@
 class Awscli < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://files.pythonhosted.org/packages/e1/99/1bf0dc775cb73abc44bde28dfee3bfb00915a13b43de8fc6a0f43c2f3394/awscli-1.10.43.tar.gz"
-  sha256 "d1af5b183cfad5d38501785e671c4a5246cbb26774c37fc045a3b65c4345b9b2"
+  url "https://files.pythonhosted.org/packages/86/4e/cf2a5fc67149db716aee0c4b0d2af8ea872c066317c7f0d70920a56f766a/awscli-1.10.44.tar.gz"
+  sha256 "d34e23914867a4693c9545148540d00386b2cd2f2fc0b0e59f9f983665dd4065"
 
   bottle do
     cellar :any_skip_relocation
@@ -33,8 +33,8 @@ class Awscli < Formula
   depends_on :python if MacOS.version <= :lion
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/d1/55/da40f32b95d9e5046171d18f88c298c6e52c6e74cbf56958899cd0841397/botocore-1.4.33.tar.gz"
-    sha256 "ffbd81c1a6820749dbf16e1ef6c6ec76aa59d9a8b5c33b17648e6bc8bc02920d"
+    url "https://files.pythonhosted.org/packages/79/e9/5b08a80541c6ff0797caea9ca3218e6286bb655121b358df91ef208082a7/botocore-1.4.34.tar.gz"
+    sha256 "a649ab5f9d9ddaa235510f62939e874aa3e37677564319883337ef9e98b7e5a1"
   end
 
   resource "colorama" do
