@@ -1,8 +1,8 @@
 class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "http://www.sysdig.org/"
-  url "https://github.com/draios/sysdig/archive/0.9.0.tar.gz"
-  sha256 "72a809b32153713e6d8697e86ee821eb969fa0ec486fa7432471374feb0f1da5"
+  url "https://github.com/draios/sysdig/archive/0.10.1.tar.gz"
+  sha256 "fa98d6ec98666e5e052ebebc30d6b40d2b0ca79ce22e236bab39a2cda725297f"
 
   bottle do
     sha256 "dbe1d7ff71b897c90c0f03ce5eaf58b99ec1bda0e13b0fac8291673931dd4888" => :el_capitan
@@ -11,6 +11,7 @@ class Sysdig < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "jsoncpp"
   depends_on "luajit"
 
   # More info on https://gist.github.com/juniorz/9986999
@@ -23,29 +24,17 @@ class Sysdig < Formula
     ENV.libcxx if MacOS.version < :mavericks
 
     mkdir "build" do
-      args = %W[
-        -DSYSDIG_VERSION=#{version}
-        -DUSE_BUNDLED_LUAJIT=OFF
-        -DUSE_BUNDLED_ZLIB=OFF
-      ] + std_cmake_args
-
-      system "cmake", "..", *args
+      system "cmake", "..", "-DSYSDIG_VERSION=#{version}",
+                            "-DUSE_BUNDLED_DEPS=OFF",
+                            *std_cmake_args
       system "make", "install"
     end
 
-    (share/"demos").install resource("sample_file").files("sample.scap")
+    (pkgshare/"demos").install resource("sample_file").files("sample.scap")
   end
 
   test do
-    # tests if it can load chisels
-    `#{bin}/sysdig -cl`
-    assert_equal 0, $?.exitstatus
-
-    # tests if it can read a sample capture file
-    # uses a custom output format because evt.time (in default format) is not UTC
-    expected_output = "1 open fd=5(<f>/tmp/sysdig/sample.scap) name=sample.scap(/tmp/sysdig/sample.scap) flags=262(O_TRUNC|O_CREAT|O_WRONLY) mode=0"
-
-    assert_equal expected_output, `#{bin}/sysdig -r #{share}/demos/sample.scap -p "%evt.num %evt.type %evt.args" "evt.type=open and evt.arg.name contains /tmp/sysdig/sample.scap"`.strip
-    assert_equal 0, $?.exitstatus
+    output = shell_output("#{bin}/sysdig -r #{pkgshare}/demos/sample.scap")
+    assert_match "/tmp/sysdig/sample", output
   end
 end
