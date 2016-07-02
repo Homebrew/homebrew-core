@@ -1,7 +1,7 @@
 class Kawa < Formula
   desc "Programming language for Java (implementation of Scheme)"
   homepage "https://www.gnu.org/software/kawa/"
-  url "http://ftpmirror.gnu.org/kawa/kawa-2.1.jar"
+  url "https://ftpmirror.gnu.org/kawa/kawa-2.1.jar"
   mirror "https://ftp.gnu.org/gnu/kawa/kawa-2.1.jar"
   sha256 "d579e81d51c481222a5bfd12098bf0f292a3e7c9754d508c4a0686cced8c72af"
 

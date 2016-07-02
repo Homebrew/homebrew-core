@@ -1,7 +1,7 @@
 class GnuUnits < Formula
   desc "GNU unit conversion tool"
   homepage "https://www.gnu.org/software/units/"
-  url "http://ftpmirror.gnu.org/units/units-2.13.tar.gz"
+  url "https://ftpmirror.gnu.org/units/units-2.13.tar.gz"
   mirror "https://ftp.gnu.org/gnu/units/units-2.13.tar.gz"
   sha256 "0ba5403111f8e5ea22be7d51ab74c8ccb576dc30ddfbf18a46cb51f9139790ab"
 
