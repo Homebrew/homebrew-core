@@ -7,9 +7,10 @@ class Dirt < Formula
 
   bottle do
     cellar :any
-    sha256 "4433c2f444c42144017d8c0bd0fff5726a8fcdef2a7127b3a1da20e601efd0aa" => :el_capitan
-    sha256 "7a613357e497ebf96d96cbb18fd4a29a6e7a3e348296f4286b4a0ef62ec45ca2" => :yosemite
-    sha256 "21e3d01b0d6995f1e3e6fbd1fb8e249920db144c5f6ddd50ad53fa3750d241f4" => :mavericks
+    revision 1
+    sha256 "69b2cd867f521cb496e5f08a78c6746b9130470799d992120e4a510fcef4f50e" => :el_capitan
+    sha256 "48051e60852c03311590435ea1c169eeb731e63d08999247cb1348f6f187b5ee" => :yosemite
+    sha256 "d044f78c53c70177327e93f7faa670d7bc66c62b91ecfb710d472385a5a9b4a3" => :mavericks
   end
 
   depends_on "jack"
