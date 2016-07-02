@@ -5,9 +5,9 @@ class Mariadb < Formula
   sha256 "7cc0e55eec64e9ef48345288abe67cf36e72dd2da30d52e4726332ad2a5fea0f"
 
   bottle do
-    sha256 "7d1ec840153e4921f2db498afba1809aa117ea51ca154fc43b384704f88fb773" => :el_capitan
-    sha256 "2b82f99cb3e318906b358157f76e2474ec2b68386f5d6fb4738d666bf75c406b" => :yosemite
-    sha256 "fa09ca1ec1a6557099eafe2b0955a78ec4841a795194400b321914f84aab99fe" => :mavericks
+    sha256 "8d31649deaea945b4e4ed3f7390178352cda98064429afdc92107dd5ef4b938d" => :el_capitan
+    sha256 "527bf3a9a68e8988a895b54d062589c5fd3c43d956dec37cbbd1e42ede815d21" => :yosemite
+    sha256 "09ecb41f988d051bd3eb4f0ddb6823a60c37e33eaaf4a5830a0b7e658aac8993" => :mavericks
   end
 
   # upstream fix for compilation error, marked fixed for 10.1.16
