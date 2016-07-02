@@ -27,7 +27,7 @@ class Tesseract < Formula
   option "with-all-languages", "Install recognition data for all languages"
   option "with-training-tools", "Install OCR training tools"
   option "with-opencl", "Enable OpenCL support"
-  option "with-serial-num-tools", "Install training tools for serial number recognition"
+  option "with-serial-num-pack", "Install serial number recognition pack"
 
   deprecated_option "all-languages" => "with-all-languages"
 
@@ -66,7 +66,7 @@ class Tesseract < Formula
   end
 
   resource "snum" do
-    url "https://github.com/USCDataScience/counterfeit-electronics-tesseract/blob/master/Training%20Tesseract/snum.traineddata"
+    url "https://github.com/USCDataScience/counterfeit-electronics-tesseract/raw/319a6eeacff181dad5c02f3e7a3aff804eaadeca/Training%20Tesseract/snum.traineddata"
     sha256 "36f772980ff17c66a767f584a0d80bf2302a1afa585c01a226c1863afcea1392"
   end
 
@@ -98,6 +98,9 @@ class Tesseract < Formula
     system "./configure", *args
 
     system "make", "install"
+    if build.with? "serial-num-pack"
+      resource("snum").stage{ mv "snum.traineddata", share/"tessdata" }
+    end
     if build.with? "training-tools"
       system "make", "training"
       system "make", "training-install"
@@ -109,9 +112,6 @@ class Tesseract < Formula
     else
       resource("eng").stage { mv "eng.traineddata", share/"tessdata" }
       resource("osd").stage { mv "osd.traineddata", share/"tessdata" }
-    end
-    if build.with? "serial-num-tools"
-      resource("snum").stage{ mv "snum.traineddata", share/"tessdata"}
     end
   end
 
