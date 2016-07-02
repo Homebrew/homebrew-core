@@ -14,9 +14,8 @@ class Couchdb < Formula
 
   bottle do
     cellar :any
-    sha256 "b08d92fea3d5ff8fb8da3fb19778615c224a3841d48bc3a37c519c5b84e7b7a6" => :el_capitan
-    sha256 "922be8a18ea5b71553171bb859b563349917aaf39346f87f076f6f201ac03ed5" => :yosemite
-    sha256 "fb4f49968be99783e1e0777c4dc44c387467976bb8c81771d7a151c278996b8b" => :mavericks
+    revision 1
+    sha256 "cc3f64e80e56d1c3d12907e85b9c4070da8d409aeb949aaef406a0f09a57298e" => :mavericks
   end
 
   head do
@@ -30,10 +29,17 @@ class Couchdb < Formula
     depends_on "help2man" => :build
   end
 
+  option "with-geocouch", "Build with GeoCouch spatial index extension"
+
   depends_on "spidermonkey"
   depends_on "icu4c"
   depends_on "erlang"
   depends_on "curl" if MacOS.version <= :leopard
+
+  resource "geocouch" do
+    url "https://github.com/couchbase/geocouch/archive/couchdb1.3.x.tar.gz"
+    sha256 "1bad2275756e2f03151d7b2706c089b3059736130612de279d879db91d4b21e7"
+  end
 
   def install
     # CouchDB >=1.3.0 supports vendor names and versioning
@@ -60,15 +66,63 @@ class Couchdb < Formula
     system "make"
     system "make", "install"
 
+    install_geocouch if build.with? "geocouch"
+
     # Use our plist instead to avoid faffing with a new system user.
     (prefix/"Library/LaunchDaemons/org.apache.couchdb.plist").delete
     (lib/"couchdb/bin/couchjs").chmod 0755
-    (var/"lib/couchdb").mkpath
-    (var/"log/couchdb").mkpath
-    (var/"run/couchdb").mkpath
+  end
+
+  def geocouch_share
+    share/"couchdb-geocouch"
+  end
+
+  def install_geocouch
+    resource("geocouch").stage(buildpath/"geocouch")
+    ENV["COUCH_SRC"]="#{buildpath}/src/couchdb"
+    cd "geocouch" do
+      system "make"
+
+      linked_geocouch_share = (HOMEBREW_PREFIX/"share/couchdb-geocouch")
+      geocouch_share.mkpath
+      geocouch_share.install "ebin"
+      #  Install geocouch.plist for launchctl support.
+      geocouch_plist = geocouch_share/"geocouch.plist"
+      cp buildpath/"etc/launchd/org.apache.couchdb.plist.tpl.in", geocouch_plist
+      geocouch_plist.chmod 0644
+      inreplace geocouch_plist, "<string>org.apache.couchdb</string>", \
+        "<string>geocouch</string>"
+      inreplace geocouch_plist, "<key>HOME</key>", <<-EOS.lstrip.chop
+        <key>ERL_FLAGS</key>
+        <string>-pa #{linked_geocouch_share}/ebin</string>
+        <key>HOME</key>
+      EOS
+      inreplace geocouch_plist, "%bindir%/%couchdb_command_name%", \
+        HOMEBREW_PREFIX/"bin/couchdb"
+      #  Turn off RunAtLoad and KeepAlive (to simplify experience for first-timers)
+      inreplace geocouch_plist, "<key>RunAtLoad</key>\n    <true/>",
+        "<key>RunAtLoad</key>\n    <false/>"
+      inreplace geocouch_plist, "<key>KeepAlive</key>\n    <true/>",
+        "<key>KeepAlive</key>\n    <false/>"
+      #  Install geocouch.ini into couchdb.
+      (etc/"couchdb/default.d").install "etc/couchdb/default.d/geocouch.ini"
+
+      #  Install tests into couchdb.
+      test_files = Dir["share/www/script/test/*.js"]
+      (pkgshare/"www/script/test").install test_files
+      #  Complete the install by referencing the geocouch tests in couch_tests.js
+      #  (which runs the tests).
+      test_lines = ["//  GeoCouch Tests..."]
+      test_lines.concat(test_files.map { |file| file.gsub(%r{^.*\/(.*)$}, 'loadTest("\1");') })
+      test_lines << "//  ...GeoCouch Tests"
+      (pkgshare/"www/script/couch_tests.js").append_lines test_lines
+    end
   end
 
   def post_install
+    (var/"lib/couchdb").mkpath
+    (var/"log/couchdb").mkpath
+    (var/"run/couchdb").mkpath
     # default.ini is owned by CouchDB and marked not user-editable
     # and must be overwritten to ensure correct operation.
     if (etc/"couchdb/default.ini.default").exist?
@@ -78,12 +132,67 @@ class Couchdb < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats
+    str = <<-EOS.undent
     To test CouchDB run:
         curl http://127.0.0.1:5984/
 
     The reply should look like:
         {"couchdb":"Welcome","uuid":"....","version":"#{version}","vendor":{"version":"#{version}-1","name":"Homebrew"}}
+    EOS
+    str += "\n#{geocouch_caveats}" if build.with? "geocouch"
+    str
+  end
+
+  def geocouch_caveats; <<-EOS.undent
+    GeoCouch Caveats:
+
+    FYI:  geocouch installs as an extension of couchdb, so couchdb effectively
+    becomes geocouch.  However, you can use couchdb normally (using geocouch
+    extensions optionally).  NB: one exception: the couchdb test suite now
+    includes several geocouch tests.
+
+    To start geocouch manually and verify any geocouch version information (-V),
+
+      ERL_FLAGS="-pa #{geocouch_share}/ebin"  couchdb -V
+
+    For general convenience, export your ERL_FLAGS (erlang flags, above) in
+    your login shell, and then start geocouch:
+
+      export ERL_FLAGS="-pa #{geocouch_share}/ebin"
+      couchdb
+
+    Alternately, prepare launchctl to start/stop geocouch as follows:
+
+      cp #{geocouch_share}/geocouch.plist ~/Library/LaunchAgents
+      chmod 0644 ~/Library/LaunchAgents/geocouch.plist
+
+      launchctl load ~/Library/LaunchAgents/geocouch.plist
+
+    Then start, check status of, and stop geocouch with the following three
+    commands.
+
+      launchctl start geocouch
+      launchctl list geocouch
+      launchctl stop geocouch
+
+    Finally, access, test, and configure your new geocouch with:
+
+      http://127.0.0.1:5984
+      http://127.0.0.1:5984/_utils/couch_tests.html?script/couch_tests.js
+      http://127.0.0.1:5984/_utils
+
+    And... relax.
+
+    -=-
+
+    To uninstall geocouch from your couchdb installation, uninstall couchdb
+    and re-install it without the '--with-geocouch' option.
+
+      brew uninstall couchdb
+      brew install couchdb
+
+    To see these instructions again, just run 'brew info couchdb'.
     EOS
   end
 
@@ -120,12 +229,13 @@ class Couchdb < Formula
     inreplace "#{testpath}/couchdb/default.ini", "/usr/local/var", testpath/"var"
 
     pid = fork do
+      ENV["ERL_LIBS"] = geocouch_share if build.with? "geocouch"
       exec "#{bin}/couchdb -A #{testpath}/couchdb"
     end
     sleep 2
 
     begin
-      assert_match /Homebrew/, shell_output("curl localhost:5984")
+      assert_match /Homebrew/, shell_output("curl -# localhost:5984")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
