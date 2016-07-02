@@ -6,9 +6,9 @@ class Tcpkali < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bbdeb97c8a187d5cf926ab94e086ad4f22fa7243d38e44da98b7bc620ed83e8c" => :el_capitan
-    sha256 "138c06054147690136a8f5693448046f297add6ae52716a574f216bfde948df1" => :yosemite
-    sha256 "04534dd1c88044f21c0cf60e028b66f261f7964584c70924242e98f8f5afa596" => :mavericks
+    sha256 "8d8d1ef4e650647919f4f38e690fb918474be00a45da85f93d001ae914eb5870" => :el_capitan
+    sha256 "6bd81cef0a0671a3baddaeef3600d78d2db6ecf66e41bdb68d34068a0913ff4b" => :yosemite
+    sha256 "573d2ddb670aacbd2379136d96d7ee80822786ddc9100409d8006df32bae229b" => :mavericks
   end
 
   def install
