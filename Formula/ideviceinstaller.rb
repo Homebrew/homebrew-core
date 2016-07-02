@@ -20,6 +20,7 @@ class Ideviceinstaller < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libplist"
   depends_on "libimobiledevice"
   depends_on "libzip"
 

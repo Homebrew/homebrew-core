@@ -20,21 +20,71 @@ class Libimobiledevice < Formula
     depends_on "libxml2"
   end
 
+  option "with-python", "Enable Cython Python bindings"
+  option "with-python3", "Enable Cython Python3 bindings"
+
+  libplist_depends = []
+  libplist_depends << "with-python" if build.with? "python"
+  libplist_depends << "with-python3" if build.with? "python3"
+
   depends_on "pkg-config" => :build
   depends_on "libtasn1"
-  depends_on "libplist"
   depends_on "usbmuxd"
   depends_on "openssl"
+  depends_on "libplist" => libplist_depends
+  depends_on :python => :optional
+  depends_on :python3 => :optional
+
+  resource "cython" do
+    url "https://github.com/cython/cython/archive/0.24.tar.gz"
+    sha256 "b60b91f1ec88921a423d5f0a5e2a7c232cdff12d9130088014bf89d542ce137b"
+  end
+
+  if build.with?("python") && build.with?("python3")
+    raise "Either python or python3 bindings can be installed at the same time."
+  end
+
+  patch do
+    # ensure python3 compatibility
+    url "https://github.com/libimobiledevice/libimobiledevice/pull/335.patch"
+    sha256 "ceb6076131ea204f411bf2d6eb584b83c300f2caf8def1c34a781920039e0063"
+  end
 
   def install
+    args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+    ]
+
+    if build.with? "python3"
+      version = Language::Python.major_minor_version "python3"
+      resource("cython").stage do
+        ENV.prepend_create_path "PYTHONPATH", buildpath/"lib/python#{version}/site-packages"
+        system "python3", *Language::Python.setup_install_args(buildpath)
+      end
+      ENV.prepend_path "PATH", buildpath/"bin"
+
+      args << "PYTHON=python3"
+      args << "PYTHON_LDFLAGS=-undefined dynamic_lookup"
+    elsif build.with? "python"
+      resource("cython").stage do
+        ENV.prepend_create_path "PYTHONPATH", buildpath/"lib/python2.7/site-packages"
+        system "python", *Language::Python.setup_install_args(buildpath)
+      end
+      ENV.prepend_path "PATH", buildpath/"bin"
+    else
+      args << "--without-cython"
+    end
+
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          # As long as libplist builds without Cython
-                          # bindings, libimobiledevice must as well.
-                          "--without-cython"
-    system "make", "install"
+    inreplace "cython/Makefile.in", "-no-undefined", ""
+    system "./configure", *args
+    system "make", "install", "PYTHON_LDFLAGS=-undefined dynamic_lookup"
+  end
+
+  test do
+    system "#{bin}/idevice_id"
   end
 
   test do
