@@ -1,5 +1,3 @@
-# brew install https://gist.githubusercontent.com/jkbrzt/e59a0cde6ae6f59f2182/raw/httpie.rb
-
 class Httpie < Formula
   desc "User-friendly cURL replacement (command-line HTTP client)"
   homepage "http://httpie.org/"
@@ -8,8 +6,8 @@ class Httpie < Formula
 
   head "https://github.com/jkbrzt/httpie.git"
 
-  # The system OS X Python 2.7 is old and has poor SSL support.
-  # HTTPie works best with the latest Python 3.
+
+
   depends_on :python3
 
   resource "pygments" do
@@ -23,22 +21,20 @@ class Httpie < Formula
   end
 
   def install
-    python = "python3"
-    pyver = Language::Python.major_minor_version python
+    pyver = Language::Python.major_minor_version "python3"
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{pyver}/site-packages"
     %w[pygments requests].each do |r|
       resource(r).stage do
-        system python, *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{pyver}/site-packages"
-    system python, *Language::Python.setup_install_args(libexec)
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-
   end
 
   test do
