@@ -1,8 +1,8 @@
 class Dockutil < Formula
   desc "Tool for managing dock items"
   homepage "https://github.com/kcrawford/dockutil"
-  url "https://github.com/kcrawford/dockutil/archive/2.0.2.tar.gz"
-  sha256 "7d7a546adb825b0fba3f13d2dfc0cc08f2f3f6935c8bfa05c396bcc6e5df56b3"
+  url "https://github.com/kcrawford/dockutil/archive/2.0.3.tar.gz"
+  sha256 "6954330cc2b5280bbb345c208f9cb1c51a50c2b04a7ab5d278e987167ec01a4b"
 
   bottle :unneeded
 
