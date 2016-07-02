@@ -199,7 +199,7 @@ class Mariadb < Formula
         system "./mysql-test-run.pl", "status"
       end
     else
-      system "mysqld", "--version"
+      system bin/"mysqld", "--version"
     end
   end
 end
