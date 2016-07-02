@@ -108,9 +108,8 @@ class Mariadb < Formula
 
     # Fix my.cnf to point to #{etc} instead of /etc
     (etc/"my.cnf.d").mkpath
-    inreplace "#{etc}/my.cnf" do |s|
-      s.gsub!("!includedir /etc/my.cnf.d", "!includedir #{etc}/my.cnf.d")
-    end
+    inreplace "#{etc}/my.cnf", "!includedir /etc/my.cnf.d",
+                               "!includedir #{etc}/my.cnf.d"
     touch etc/"my.cnf.d/.homebrew_dont_prune_me"
 
     # Don't create databases inside of the prefix!
