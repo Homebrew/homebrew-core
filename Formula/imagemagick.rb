@@ -64,7 +64,7 @@ class Imagemagick < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --enable-shared
-      --disable-static
+      --enable-static
       --with-modules
     ]
 
