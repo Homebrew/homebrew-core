@@ -6,9 +6,9 @@ class Pacapt < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b467fc10b95da7d063f8057a1ae7ef7e726c585396ab930b62f9189ad4c88cbe" => :el_capitan
-    sha256 "a25829c85af35900e5f49bc26736c4ab6e49774c39bfd7bb6d4849db192d4370" => :yosemite
-    sha256 "ea5c2cae36f7e3080835cf843e91c61ce5b47d47a7ada8a6ec7c577e9047b096" => :mavericks
+    sha256 "94853f20681f81a015846e94b0cc08d885b04f14d3efea044f20a6d9960147c6" => :el_capitan
+    sha256 "c41985d5670e2a38ae53096fde8d3bdf03c9b122dd0c893e3749809b1b4e236d" => :yosemite
+    sha256 "1279c6c1574261b292b6a236fba4399c9861ea14b063e314f6a4c7c74807a364" => :mavericks
   end
 
   def install
