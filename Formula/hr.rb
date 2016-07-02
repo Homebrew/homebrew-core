@@ -1,8 +1,8 @@
 class Hr < Formula
   desc "<hr />, for your terminal window"
   homepage "https://github.com/LuRsT/hr"
-  url "https://github.com/LuRsT/hr/archive/1.1.tar.gz"
-  sha256 "1aa26d670a55da3a97730c89fe5fa6ae690e20d5aa8e56e07802afc75c974442"
+  url "https://github.com/LuRsT/hr/archive/1.2.tar.gz"
+  sha256 "8f611b3f25e10fac1e67cf8b30fea4c1c02db7ab8c55d39402fe08caecb68a1a"
   head "https://github.com/LuRsT/hr"
 
   bottle :unneeded
