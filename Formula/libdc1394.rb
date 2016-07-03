@@ -1,6 +1,6 @@
 class Libdc1394 < Formula
   desc "Provides API for IEEE 1394 cameras"
-  homepage "http://damien.douxchamps.net/ieee1394/libdc1394/"
+  homepage "https://damien.douxchamps.net/ieee1394/libdc1394/"
   url "https://downloads.sourceforge.net/project/libdc1394/libdc1394-2/2.2.2/libdc1394-2.2.2.tar.gz"
   sha256 "ff8744a92ab67a276cfaf23fa504047c20a1ff63262aef69b4f5dbaa56a45059"
 
