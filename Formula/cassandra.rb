@@ -126,7 +126,7 @@ class Cassandra < Formula
     (bin/"cqlsh.py").write_env_script libexec/"bin/cqlsh.py", :PYTHONPATH => pypath
   end
 
-  plist_options :manual => "cassandra start"
+  plist_options :manual => "cassandra -f"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -152,9 +152,8 @@ class Cassandra < Formula
   end
 
   test do
-    system "#{bin}/cassandra", "-v"
-    system "#{bin}/cassandra-stressd", "-v"
-    system "#{bin}/sstablesplit", "-h"
-    system "#{bin}/nodetool", "help"
+    assert_match version.to_s, shell_output("#{bin}/cassandra -v")
+    # This is enough to error out if env script is broken/insufficient.
+    system bin/"cqlsh", "--version"
   end
 end
