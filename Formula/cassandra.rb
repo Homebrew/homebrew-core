@@ -1,9 +1,9 @@
 class Cassandra < Formula
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.lua/cassandra/3.5/apache-cassandra-3.5-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/3.5/apache-cassandra-3.5-bin.tar.gz"
-  sha256 "b575990dfa53567bc67407318330f9406750f4543a9d385b0fce326eb430bf4f"
+  url "https://www.apache.org/dyn/closer.lua/cassandra/3.7/apache-cassandra-3.7-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/3.7/apache-cassandra-3.7-bin.tar.gz"
+  sha256 "335f5344c4e6b98ec51324d821fa06e99101145ac6e83b5f6ede8c0ca5d15748"
 
   bottle do
     sha256 "1ee1f606696f6210ca500e52e87c8c84ae604912cf9b8408b99783b31e5e82d8" => :el_capitan
@@ -15,33 +15,38 @@ class Cassandra < Formula
 
   # Only Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
-    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-12.0.5.tar.gz"
-    sha256 "bda326cad34921060a45004b0dd81f828d471695346e303f4ca53b8ba6f4547f"
+    url "https://files.pythonhosted.org/packages/7a/a8/5877fa2cec00f7678618fb465878fd9356858f0894b60c6960364b5cf816/setuptools-24.0.1.tar.gz"
+    sha256 "5d3ae6f1cc9f1d3e1fe420c5daaeb8d79059fcb12624f4897d5ed8a9348ee1d2"
   end
 
-  resource "thrift" do
-    url "https://pypi.python.org/packages/source/t/thrift/thrift-0.9.2.tar.gz"
-    sha256 "08f665e4b033c9d2d0b6174d869273104362c80e77ee4c01054a74141e378afa"
+  resource "Cython" do
+    url "https://files.pythonhosted.org/packages/b1/51/bd5ef7dff3ae02a2c6047aa18d3d06df2fb8a40b00e938e7ea2f75544cac/Cython-0.24.tar.gz"
+    sha256 "6de44d8c482128efc12334641347a9c3e5098d807dd3c69e867fa8f84ec2a3f1"
   end
 
   resource "futures" do
-    url "https://pypi.python.org/packages/source/f/futures/futures-2.2.0.tar.gz"
-    sha256 "151c057173474a3a40f897165951c0e33ad04f37de65b6de547ddef107fd0ed3"
+    url "https://files.pythonhosted.org/packages/55/db/97c1ca37edab586a1ae03d6892b6633d8eaa23b23ac40c7e5bbc55423c78/futures-3.0.5.tar.gz"
+    sha256 "0542525145d5afc984c88f914a0c85c77527f65946617edb5274f72406f981df"
   end
 
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.9.0.tar.gz"
-    sha256 "e24052411fc4fbd1f672635537c3fc2330d9481b18c0317695b46259512c91d5"
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+  end
+
+  resource "thrift" do
+    url "https://files.pythonhosted.org/packages/ae/58/35e3f0cd290039ff862c2c9d8ae8a76896665d70343d833bdc2f748b8e55/thrift-0.9.3.tar.gz"
+    sha256 "dfbc3d3bd19d396718dab05abaf46d93ae8005e2df798ef02e32793cd963877e"
   end
 
   resource "cql" do
-    url "https://pypi.python.org/packages/source/c/cql/cql-1.4.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/0b/15/523f6008d32f05dd3c6a2e7c2f21505f0a785b6dc8949cad325306858afc/cql-1.4.0.tar.gz"
     sha256 "7857c16d8aab7b736ab677d1016ef8513dedb64097214ad3a50a6c550cb7d6e0"
   end
 
   resource "cassandra-driver" do
-    url "https://pypi.python.org/packages/source/c/cassandra-driver/cassandra-driver-3.0.0.tar.gz"
-    sha256 "b84e3a0716564f1f6a0deba120308d801f0232010d9c2df90579de293e59fa78"
+    url "https://files.pythonhosted.org/packages/de/d0/38682a3bc9d581444e2106366ceaaa684bff4b2b5977e5f85b6014f7b6cc/cassandra-driver-3.5.0.tar.gz"
+    sha256 "924ea4f3458d39fad54eab5e2f0f5b98ccc636d1ee415f869f66c5163d405e0f"
   end
 
   def install
