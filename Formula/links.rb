@@ -2,9 +2,9 @@ class Links < Formula
   desc "Lynx-like WWW browser that supports tables, menus, etc."
   homepage "http://links.twibright.com/"
   # Switch url & mirror back over when twibright is responsive.
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/links2/links2_2.12.orig.tar.bz2"
-  mirror "http://links.twibright.com/download/links-2.12.tar.bz2"
-  sha256 "98411811ded1e8028f5aed708dd7d8ec0ae63ce24c2991a0241a989b7d09d84e"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/links2/links2_2.13.orig.tar.bz2"
+  mirror "http://links.twibright.com/download/links-2.13.tar.bz2"
+  sha256 "c252095334a3b199fa791c6f9a9affe2839a7fbd536685ab07851cb7efaa4405"
 
   bottle do
     cellar :any
