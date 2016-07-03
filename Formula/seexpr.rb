@@ -6,9 +6,9 @@ class Seexpr < Formula
 
   bottle do
     cellar :any
-    sha256 "a0ab2f6f50d81504f2767c03daf3d99fd9fd433b67a507a7d367b0970f0e01f3" => :el_capitan
-    sha256 "f26765862bfbd77b50fe6613f70cd26db486992615980efbef2a808f0e8a99d3" => :yosemite
-    sha256 "000ddf09be887ce59a805445078b4dd91712b1e6a81bf33d543771eff1298134" => :mavericks
+    sha256 "0a374c2f84169d0b4ab064dfdd2dee856d5f80c9b8b27eee57e3d1614abffaa9" => :el_capitan
+    sha256 "c023332d27c1977db807f890011688ed756eb130fa1df40aa562776192733ffd" => :yosemite
+    sha256 "2e55d79f1519adbf0f1fdcf566aa67bd5515a60132516e2908250831d8e40355" => :mavericks
   end
 
   depends_on "cmake" => :build
