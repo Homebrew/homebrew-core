@@ -1,8 +1,8 @@
 class IrcdHybrid < Formula
   desc "High-performance secure IRC server"
   homepage "http://www.ircd-hybrid.org/"
-  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.17/ircd-hybrid-8.2.17.tgz"
-  sha256 "336ed06ffa59a654065ec7d474f3d954cdcce6f7e413d61f7dc1e064ce786dd5"
+  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.18/ircd-hybrid-8.2.18.tgz"
+  sha256 "8dcbd45a049dd4da03045bfa4833527555fdfdfce4e4637ee8b63abe6ae13405"
 
   bottle do
     sha256 "2eb3af3e9cc2cfc1a376ba7bbbcbe9cec553c64519417c389940dbb214158085" => :el_capitan
