@@ -8,9 +8,9 @@ class Acmetool < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "25548d779aa3f94534ebe01637887b627d8f25d3e4ecc9b31504934f825044e9" => :el_capitan
-    sha256 "03ee95de4a237e11a523380789dfc777aeab36dd4a5bf2eb960e58d6bb6bdeb5" => :yosemite
-    sha256 "c1316f4f3694bff1dff55965d79d24345fa4d83b011e1c9081d937c9023a7798" => :mavericks
+    sha256 "bea5bc93662d074b0d1abeccbb3504e8676ed95f50c1fd58bd22eac1ccccbdc9" => :el_capitan
+    sha256 "ac30c7f8e8ffe4b36efb4fba973292ffc02adcab4ce1284214caf87cc324b0e9" => :yosemite
+    sha256 "8851dcc3b30468ca70bedb12c201a7d5eb20eb6e4a0805b02062a606a2aa5f5a" => :mavericks
   end
 
   depends_on "go" => :build
