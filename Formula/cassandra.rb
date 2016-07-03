@@ -86,10 +86,10 @@ class Cassandra < Formula
     libexec.install Dir["*.txt", "{bin,interface,javadoc,pylib,lib/licenses}"]
     libexec.install Dir["lib/*.jar"]
 
-    share.install [libexec/"bin/cassandra.in.sh", libexec/"bin/stop-server"]
+    pkgshare.install [libexec/"bin/cassandra.in.sh", libexec/"bin/stop-server"]
     inreplace Dir["#{libexec}/bin/cassandra*", "#{libexec}/bin/debug-cql", "#{libexec}/bin/nodetool", "#{libexec}/bin/sstable*"],
               %r{`dirname "?\$0"?`/cassandra.in.sh},
-              "#{share}/cassandra.in.sh"
+              "#{pkgshare}/cassandra.in.sh"
 
     # Make sure tools are installed
     rm Dir[buildpath/"tools/bin/*.bat"] # Delete before install to avoid copying useless files
@@ -110,12 +110,12 @@ class Cassandra < Formula
       s.gsub! "cassandra_storagedir\=\"$CASSANDRA_HOME/data\"", "cassandra_storagedir\=\"#{var}/lib/cassandra\""
     end
 
-    share.install [buildpath/"tools/bin/cassandra-tools.in.sh"]
+    pkgshare.install [buildpath/"tools/bin/cassandra-tools.in.sh"]
 
     # Update tools script files
     inreplace Dir[buildpath/"tools/bin/*"],
               "`dirname \"$0\"`/cassandra.in.sh",
-              "#{share}/cassandra-tools.in.sh"
+              "#{pkgshare}/cassandra-tools.in.sh"
 
     # Make sure tools are available
     bin.install Dir[buildpath/"tools/bin/*"]
