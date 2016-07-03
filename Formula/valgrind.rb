@@ -5,6 +5,14 @@ class Valgrind < Formula
   stable do
     url "http://valgrind.org/downloads/valgrind-3.11.0.tar.bz2"
     sha256 "6c396271a8c1ddd5a6fb9abe714ea1e8a86fce85b30ab26b4266aeb4c2413b42"
+
+    # Fix tst->os_state.pthread - magic_delta assertion failure on OSX 10.11
+    # https://bugs.kde.org/show_bug.cgi?id=354883
+    # https://github.com/liquid-mirror/valgrind/commit/8f0b10fdc795f6011c17a7d80a0d65c36fcb8619.diff
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/86ecccf/valgrind/10.11_assertion.diff"
+      sha256 "7e12fdb0f44cc0bfa8e721afce8218487405088c198d31b800f4741f32178e5c"
+    end
   end
 
   bottle do
