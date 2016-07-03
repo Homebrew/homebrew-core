@@ -1,8 +1,8 @@
 class Libosinfo < Formula
   desc "The Operating System information database"
   homepage "https://libosinfo.org/"
-  url "https://fedorahosted.org/releases/l/i/libosinfo/libosinfo-0.3.0.tar.gz"
-  sha256 "538a3468792e919edf5364fe102d751353ae600a92ad3a24f024424a182cefbc"
+  url "https://fedorahosted.org/releases/l/i/libosinfo/libosinfo-0.3.1.tar.gz"
+  sha256 "50b272943d68b77d5259f72be860acfd048126bc27e7aa9c2f9c77a7eacf3894"
 
   bottle do
     sha256 "b07a6866bdd322d8598e0c1b5a81c2a43deecf1cc200a2b453f61c03ba88717c" => :el_capitan
