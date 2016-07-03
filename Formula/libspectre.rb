@@ -1,9 +1,8 @@
 class Libspectre < Formula
   desc "Small library for rendering Postscript documents"
   homepage "https://wiki.freedesktop.org/www/Software/libspectre/"
-  url "https://libspectre.freedesktop.org/releases/libspectre-0.2.7.tar.gz"
-  sha256 "e81b822a106beed14cf0fec70f1b890c690c2ffa150fa2eee41dc26518a6c3ec"
-  revision 2
+  url "https://libspectre.freedesktop.org/releases/libspectre-0.2.8.tar.gz"
+  sha256 "65256af389823bbc4ee4d25bfd1cc19023ffc29ae9f9677f2d200fa6e98bc7a8"
 
   bottle do
     cellar :any
