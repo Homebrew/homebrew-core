@@ -22,6 +22,6 @@ class Pkgdiff < Formula
   end
 
   test do
-    system "pkgdiff"
+    system bin/"pkgdiff"
   end
 end
