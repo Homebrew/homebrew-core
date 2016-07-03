@@ -1,9 +1,9 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://fishshell.com/files/2.3.0/fish-2.3.0.tar.gz"
-  mirror "https://github.com/fish-shell/fish-shell/releases/download/2.3.0/fish-2.3.0.tar.gz"
-  sha256 "912bac47552b1aa0d483a39ade330356632586a8f726c0e805b46d45cfad54e5"
+  url "https://fishshell.com/files/2.3.1/fish-2.3.1.tar.gz"
+  mirror "https://github.com/fish-shell/fish-shell/releases/download/2.3.1/fish-2.3.1.tar.gz"
+  sha256 "328acad35d131c94118c1e187ff3689300ba757c4469c8cc1eaa994789b98664"
 
   bottle do
     sha256 "852d440fd58cde4473ba35f732c7bdfb675c9083891aeb5c54d15d567b54de2f" => :el_capitan
@@ -36,10 +36,6 @@ class Fish < Formula
     Then run:
       chsh -s #{HOMEBREW_PREFIX}/bin/fish
     to make fish your default shell.
-
-    If you are upgrading from an older version of fish, you should now run:
-      killall fishd
-    to terminate the outdated fish daemon.
     EOS
   end
 
