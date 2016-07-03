@@ -13,7 +13,7 @@ class Cassandra < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  # Only Yosemite has new enough setuptools for successful compile of the below deps.
+  # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/7a/a8/5877fa2cec00f7678618fb465878fd9356858f0894b60c6960364b5cf816/setuptools-24.0.1.tar.gz"
     sha256 "5d3ae6f1cc9f1d3e1fe420c5daaeb8d79059fcb12624f4897d5ed8a9348ee1d2"
@@ -50,13 +50,13 @@ class Cassandra < Formula
   end
 
   def install
-    (var+"lib/cassandra").mkpath
-    (var+"log/cassandra").mkpath
+    (var/"lib/cassandra").mkpath
+    (var/"log/cassandra").mkpath
 
     pypath = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", pypath
-    %w[setuptools thrift futures six cql cassandra-driver].each do |r|
-      resource(r).stage do
+    resources.each do |r|
+      r.stage do
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
@@ -81,12 +81,12 @@ class Cassandra < Formula
 
     # This breaks on `brew uninstall cassandra && brew install cassandra`
     # https://github.com/Homebrew/homebrew/pull/38309
-    (etc+"cassandra").install Dir["conf/*"]
+    (etc/"cassandra").install Dir["conf/*"]
 
     libexec.install Dir["*.txt", "{bin,interface,javadoc,pylib,lib/licenses}"]
     libexec.install Dir["lib/*.jar"]
 
-    share.install [libexec+"bin/cassandra.in.sh", libexec+"bin/stop-server"]
+    share.install [libexec/"bin/cassandra.in.sh", libexec/"bin/stop-server"]
     inreplace Dir["#{libexec}/bin/cassandra*", "#{libexec}/bin/debug-cql", "#{libexec}/bin/nodetool", "#{libexec}/bin/sstable*"],
               %r{`dirname "?\$0"?`/cassandra.in.sh},
               "#{share}/cassandra.in.sh"
