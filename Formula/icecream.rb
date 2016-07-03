@@ -66,9 +66,9 @@ class Icecream < Formula
 
   def caveats; <<-EOS.undent
     To override the toolset with icecc, add to your path:
-      #{opt_libexec}/bin/icecc
+      #{opt_libexec}/icecc/bin
 
-    To have launchd start the icecc daemo at login:
+    To have launchd start the icecc daemon at login:
       cp #{opt_prefix}/org.opensuse.icecc.plist ~/Library/LaunchAgents/
       launchctl load -w ~/Library/LaunchAgents/org.opensuse.icecc.plist
     EOS
