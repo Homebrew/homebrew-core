@@ -119,10 +119,11 @@ class Cassandra < Formula
 
     # Make sure tools are available
     bin.install Dir[buildpath/"tools/bin/*"]
-
     bin.write_exec_script Dir["#{libexec}/bin/*"]
-    rm bin/"cqlsh" # Remove existing exec script
+
+    rm %W[#{bin}/cqlsh #{bin}/cqlsh.py] # Remove existing exec scripts
     (bin/"cqlsh").write_env_script libexec/"bin/cqlsh", :PYTHONPATH => pypath
+    (bin/"cqlsh.py").write_env_script libexec/"bin/cqlsh.py", :PYTHONPATH => pypath
   end
 
   plist_options :manual => "cassandra start"
