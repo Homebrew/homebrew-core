@@ -1,7 +1,7 @@
 class Lzlib < Formula
   desc "Data compression library"
   homepage "http://www.nongnu.org/lzip/lzlib.html"
-  url "http://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.8.tar.gz"
+  url "https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.8.tar.gz"
   sha256 "41bfa82c6ee184ed0884437dc4074ad505e64cb747432cefa97976b89045cbad"
 
   bottle do
