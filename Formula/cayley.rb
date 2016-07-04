@@ -7,9 +7,9 @@ class Cayley < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1d82ae788b6eaa64c144de0953b71f421cc43de660a6ca05fcfb4f41c138ccb5" => :el_capitan
-    sha256 "ab869f231a2a301f63ddd4923812c194c0e10c249534af31c156a820e9864fdf" => :yosemite
-    sha256 "101f0ffaebf3f5085a6b070acdd51ebdaf94d671f544830c623fada50bbe616d" => :mavericks
+    sha256 "534940e21466304d1cd3f41bcd6c16b428567dc568f9ab6fb50b1141eae9d2b6" => :el_capitan
+    sha256 "75b8e3c300a50bf85e9d6aa394313aeed9a5e12d39258343dcb3c6dbad2fc013" => :yosemite
+    sha256 "b4e736e73826c1c1caafc5b6fca77be722bb6f0d7b30c8d8e77646bf6e621269" => :mavericks
   end
 
   option "without-samples", "Don't install sample data"
