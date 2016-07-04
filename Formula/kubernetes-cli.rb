@@ -4,8 +4,8 @@ class KubernetesCli < Formula
   head "https://github.com/kubernetes/kubernetes.git"
 
   stable do
-    url "https://github.com/kubernetes/kubernetes/archive/v1.2.4.tar.gz"
-    sha256 "20a3984f9c044f1a1da3088166b181f3c10380d3efd4bf3fbc64678fef279ced"
+    url "https://github.com/kubernetes/kubernetes/archive/v1.3.0.tar.gz"
+    sha256 "77fbc5db607daa723e7b6576644d25e98924439954523808cf7ad2c992566398"
   end
 
   bottle do
@@ -16,9 +16,9 @@ class KubernetesCli < Formula
   end
 
   devel do
-    url "https://github.com/kubernetes/kubernetes/archive/v1.3.0-alpha.4.tar.gz"
-    sha256 "3cff9661b94c138149721e8f57411e89690afef97bcdb515092ca3acf8705900"
-    version "1.3.0-alpha.4"
+    url "https://github.com/kubernetes/kubernetes/archive/v1.4.0-alpha.0.tar.gz"
+    sha256 "7530fabf418fccf7bef08281efa9a51d86921726c8efac4f0e63ba1e87d83482"
+    version "1.4.0-alpha.0"
   end
 
   depends_on "go" => :build
@@ -30,7 +30,7 @@ class KubernetesCli < Formula
 
     dir = "_output/local/bin/darwin/#{arch}"
     bin.install "#{dir}/kubectl"
-    bash_completion.install "contrib/completions/bash/kubectl"
+    (bash_completion/"kubectl").write `#{bin}/kubectl completion bash`
   end
 
   test do
