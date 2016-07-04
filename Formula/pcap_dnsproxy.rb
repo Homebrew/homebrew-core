@@ -1,24 +1,20 @@
 class PcapDnsproxy < Formula
   desc "Powerful DNS proxy designed to anti DNS spoofing"
   homepage "https://github.com/chengr28/Pcap_DNSProxy"
-  url "https://github.com/chengr28/Pcap_DNSProxy/archive/v0.4.5.tar.gz"
-  sha256 "22861dba30b90d43b8623b71e5d02300968f1ef9f4fc341a6a0ce6dd315e8004"
+  url "https://github.com/chengr28/Pcap_DNSProxy/archive/v0.4.6.0.tar.gz"
+  sha256 "f48ac6575f84ab838044d278e0ba7f748dd4b453a40d73eb17e8d6e400373485"
   head "https://github.com/chengr28/Pcap_DNSProxy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "09f35f2540a8d1c5c40a63739eb1d7756e41ff18e523e790d2ec2b644849385f" => :el_capitan
-    sha256 "d7e4f07ff78f4d846e5394279822edb6ece1b37fe4a0e9d266914919f64ca114" => :yosemite
+    sha256 "d030e72d4c358d7ad02d7490b0419767f4457429fc47ec02d996584ed2452750" => :el_capitan
+    sha256 "c825c32e556b3742359fff8284fcf7734bae731ad675ba4bb6512e48e80a37b5" => :yosemite
   end
 
   depends_on :macos => :yosemite
   depends_on :xcode => :build
-  depends_on "libsodium" => :build
 
   def install
-    rm Dir[buildpath/"Source/LibSodium/*"]
-    ln_s "#{Formula["libsodium"].opt_lib}/libsodium.a", "#{buildpath}/Source/LibSodium/LibSodium_Mac.a"
-    ln_s Dir[Formula["libsodium"].opt_include/"*"], "#{buildpath}/Source/LibSodium/"
     xcodebuild "-project", "./Source/KeyPairGenerator.xcodeproj", "-target", "KeyPairGenerator", "-configuration", "Release", "SYMROOT=build"
     xcodebuild "-project", "./Source/FileHash.xcodeproj", "-target", "FileHash", "-configuration", "Release", "SYMROOT=build"
     xcodebuild "-project", "./Source/Pcap_DNSProxy.xcodeproj", "-target", "Pcap_DNSProxy", "-configuration", "Release", "SYMROOT=build"

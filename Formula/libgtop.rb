@@ -1,13 +1,13 @@
 class Libgtop < Formula
   desc "Library for portably obtaining information about processes"
   homepage "https://library.gnome.org/devel/libgtop/stable/"
-  url "https://download.gnome.org/sources/libgtop/2.32/libgtop-2.32.0.tar.xz"
-  sha256 "8443246332f22b33e389f565825b58cd9623fb7625bf874d404354b705ad178e"
+  url "https://download.gnome.org/sources/libgtop/2.34/libgtop-2.34.0.tar.xz"
+  sha256 "8d8ae39e700d1c8c0b3e1391ed10ca88e6fc14f49d175d516dab6e3313b4ee2a"
 
   bottle do
-    sha256 "6ef8bfd87b331fd871f5e3e0b8d915a39597a3c928c3c2d7393ebf402347c620" => :el_capitan
-    sha256 "52f03bdb25fba9efeb963f1715cc5e7bd47c949d3545e5af82118a5182c77eb4" => :yosemite
-    sha256 "7ea322eee9ce082ba9ba5a6b051916b5d3590b838fa52fbc22cb15de5dbc2a52" => :mavericks
+    sha256 "9b8ceeb264abb5c07af3a72bcefa52c2b1adb4fc653fce58e08781e07f4a6345" => :el_capitan
+    sha256 "19d041da8eb252e9b96445bdbd90bceaaa9433006c54bfb19ee1aed9f4699007" => :yosemite
+    sha256 "31cc9651d4ecfb271a6186218e0b3c208321d76bf81d3d60f63d514794dcabb1" => :mavericks
   end
 
   depends_on "pkg-config" => :build

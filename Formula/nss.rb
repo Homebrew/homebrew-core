@@ -1,14 +1,14 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://developer.mozilla.org/docs/NSS"
-  url "https://archive.mozilla.org/pub/security/nss/releases/NSS_3_23_RTM/src/nss-3.23.tar.gz"
-  sha256 "94b383e31c9671e9dfcca81084a8a813817e8f05a57f54533509b318d26e11cf"
+  url "https://archive.mozilla.org/pub/security/nss/releases/NSS_3_25_RTM/src/nss-3.25.tar.gz"
+  sha256 "5d1ad475da19d0c033a716350dc5f8a747999d3eba5ac07ee0368c5bad6e2359"
 
   bottle do
     cellar :any
-    sha256 "22b9780114233c2b627aded2107fa072ba8eed15ceb6e5fd97d220e07ff23c22" => :el_capitan
-    sha256 "75387e6f73471973a1502586f0c374269f2ad4820f94d0b71804febc1866325f" => :yosemite
-    sha256 "5cf46836d6567289e2475256790f755566503a3c07c10309c92462ca32053b34" => :mavericks
+    sha256 "83154774032afea53bf8172d6082012e2878df6baa8e7e280094471baff3fabd" => :el_capitan
+    sha256 "95d6a1d7e5acf85bd40e5953410db2613a663faa77f50817ddcad9bb4f810d75" => :yosemite
+    sha256 "871ac96082ac41f57b2f1c4fd956d83620fe1ff0ab52d976fa61bb7dd5aac1ca" => :mavericks
   end
 
   keg_only <<-EOS.undent

@@ -1,7 +1,7 @@
 class Svg2pdf < Formula
   desc "Renders SVG images to a PDF file (using Cairo)"
-  homepage "http://cairographics.org/"
-  url "http://cairographics.org/snapshots/svg2pdf-0.1.3.tar.gz"
+  homepage "https://cairographics.org/"
+  url "https://cairographics.org/snapshots/svg2pdf-0.1.3.tar.gz"
   sha256 "854a870722a9d7f6262881e304a0b5e08a1c61cecb16c23a8a2f42f2b6a9406b"
 
   bottle do

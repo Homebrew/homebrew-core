@@ -1,24 +1,23 @@
 class ScmManager < Formula
   desc "Manage Git, Mercurial, and Subversion repos over HTTP"
   homepage "https://www.scm-manager.org"
-  url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/scm-server/1.46/scm-server-1.46-app.tar.gz"
-  version "1.46"
-  sha256 "984737422d403f2db95bdd9f268f900a537413b1d78721929faa53785bf7b54c"
-
-  depends_on :java => "1.6+"
+  url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/scm-server/1.47/scm-server-1.47-app.tar.gz"
+  version "1.47"
+  sha256 "58e86e0cd3465733a14db09d95a0ef72906b69df1341140ee7d0329a5bbe47a3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dd719aaa1992d8443e81f529e6c98a81da3187771033146b6c736a876e728335" => :el_capitan
-    sha256 "cb4f58a1ec6c26ee09534d8b6d42c28a21fb461b1d7e4a8ac1a4793d0a0fecf9" => :yosemite
-    sha256 "142969086cc96c7300bd92b4cc28063a57e9f014aafbcf45360fee5bae0fba1c" => :mavericks
-    sha256 "979071c94926cda759b8270d4d51b0e54c9d70ce4b078864d041b9c926093919" => :mountain_lion
+    sha256 "d16a74d953954dfbc1d788ae62fe0a279248570d5a5d173949f997020b326962" => :el_capitan
+    sha256 "d37319696b700361b7a9e2c0daf3e5f2de6b21bcb69d04bb963c775d73337f65" => :yosemite
+    sha256 "10f94fa5dafdb40dbcf6a7744a98b2433e294af16e7712a572de49daaed031e0" => :mavericks
   end
 
+  depends_on :java => "1.6+"
+
   resource "client" do
-    url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/clients/scm-cli-client/1.46/scm-cli-client-1.46-jar-with-dependencies.jar"
-    version "1.46"
-    sha256 "6f0470d119c534eab6ac0b66c41584bf975cf5f3f845d119ad2cde751e675865"
+    url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/clients/scm-cli-client/1.47/scm-cli-client-1.47-jar-with-dependencies.jar"
+    version "1.47"
+    sha256 "d4424b9d5104a1668f90278134cbe86a52d8bceba7bc85c4c9f5991debc54739"
   end
 
   def install
@@ -38,12 +37,12 @@ class ScmManager < Formula
     tools = libexec/"tools"
     tools.install resource("client")
 
-    scmCliClient = bin+"scm-cli-client"
-    scmCliClient.write <<-EOS.undent
+    scm_cli_client = bin/"scm-cli-client"
+    scm_cli_client.write <<-EOS.undent
       #!/bin/bash
       java -jar "#{tools}/scm-cli-client-#{version}-jar-with-dependencies.jar" "$@"
     EOS
-    chmod 0755, scmCliClient
+    chmod 0755, scm_cli_client
   end
 
   plist_options :manual => "scm-server start"
@@ -65,5 +64,9 @@ class ScmManager < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/scm-cli-client version")
   end
 end

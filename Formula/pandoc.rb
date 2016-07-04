@@ -5,20 +5,19 @@ class Pandoc < Formula
 
   desc "Swiss-army knife of markup format conversion"
   homepage "http://pandoc.org"
-  url "https://hackage.haskell.org/package/pandoc-1.17.0.3/pandoc-1.17.0.3.tar.gz"
-  sha256 "7b14e1bcb78a7e2ad1e585f127be7efd20225c9f9b5131d507b376b62cd77e32"
+  url "https://hackage.haskell.org/package/pandoc-1.17.1/pandoc-1.17.1.tar.gz"
+  sha256 "5978baaf664ce254b508108a6be9d5a11a2c2ac61462ae85286be2ecdb010c86"
 
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
-    sha256 "a41e10d0080667ba6777473be848ffcf16d39ec258832a3d95b6d4b9cd1e4386" => :el_capitan
-    sha256 "d70667981bff53646d462614c4132bfbb12ef6dcfd4b44d55b39122d19e2e28a" => :yosemite
-    sha256 "0a353ef662cfc105533a9834b90e701fa8d22fe1853c1a2f51cdae2b03afb9e2" => :mavericks
+    sha256 "466fe8c81ee3464943990baad04de7094402fd1a74c4f1cf392b7d9853bd1ed6" => :el_capitan
+    sha256 "38fb459f1f287b13544cb17ff0311c0b637ea1cbc8908eee71dd368f6cd93d2d" => :yosemite
+    sha256 "49d9f1e3d09902a6ad23d0938ca01ac2e6df8b3b440ad228e357f00fd8d9e044" => :mavericks
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
-  depends_on "gmp"
 
   def install
     args = []

@@ -1,22 +1,22 @@
 class Mycli < Formula
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "http://mycli.net/"
-  url "https://pypi.python.org/packages/source/m/mycli/mycli-1.6.0.tar.gz"
-  sha256 "f298eb307e431d666d094b484830796f68b7c099773330a709cbff388559e461"
+  url "https://pypi.python.org/packages/f8/8a/9f024656457cfb2afd19f93c3478f45c22a5599ebb24e04262a40d9171af/mycli-1.7.0.tar.gz"
+  sha256 "f738d7f43f2c6420ed3da2410f06e8a1c58656a11a4b83d3557832c7f11b7b3d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7b5a77407b8b16380a9f0443c951a3d917dd593dbec7415a9f8e4857d7aa1288" => :el_capitan
-    sha256 "6614175fe7794386753d3530958bca5617238b32851ea2e68181f3b2a92f263a" => :yosemite
-    sha256 "06f07fefa1ad025bba3c4d688ff0df6b8da8a12f484b0d7b5a4ebfe7b828bc73" => :mavericks
+    sha256 "cb5c204df0f187845a6b0855e40328ed7917b478cfc65f89b3d8fcf9b8aaa27c" => :el_capitan
+    sha256 "788cacc6752dd88e965d72aa3ce762dbbcfb7e81e73db8de1e18ba650140c709" => :yosemite
+    sha256 "1173bdeba93190f076b6df5aa98601d94d15be537dd668dbf41dda87f8b793db" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "openssl"
 
   resource "click" do
-    url "https://pypi.python.org/packages/source/c/click/click-6.4.tar.gz"
-    sha256 "6eb86ac0e44e60b3085e7b87797fe2adf745dbea38b78d7db1f17ec96ca016ed"
+    url "https://pypi.python.org/packages/source/c/click/click-6.6.tar.gz"
+    sha256 "cc6a19da8ebff6e7074f731447ef7e112bd23adf3de5c597cf9989f2fd8defe9"
   end
 
   resource "configobj" do
@@ -25,8 +25,8 @@ class Mycli < Formula
   end
 
   resource "prompt_toolkit" do
-    url "https://pypi.python.org/packages/source/p/prompt_toolkit/prompt_toolkit-0.60.tar.gz"
-    sha256 "b44acc4cf3fb9f7331343ae170eac06f853a66e28cdd4ccfeee7c8dad0dec33d"
+    url "https://pypi.python.org/packages/0b/2c/ab26db81e5b9c2f179a2e9d797f2ce0d11f7cc3308830831de0daad8629e/prompt_toolkit-1.0.0.tar.gz"
+    sha256 "5108ed9e6e40d28cb1dc90ba563987859231289700d0def999007b08f4f74ea4"
   end
 
   resource "pycrypto" do

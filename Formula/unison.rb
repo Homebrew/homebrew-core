@@ -1,16 +1,14 @@
 class Unison < Formula
   desc "Unison file synchronizer"
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
-  url "https://www.seas.upenn.edu/~bcpierce/unison//download/releases/stable/unison-2.48.3.tar.gz"
-  sha256 "f40d3cfbe82078d79328b51acab3e5179f844135260c2f4710525b9b45b15483"
+  url "https://www.seas.upenn.edu/~bcpierce/unison//download/releases/stable/unison-2.48.4.tar.gz"
+  sha256 "30aa53cd671d673580104f04be3cf81ac1e20a2e8baaf7274498739d59e99de8"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "bdd87bd8da922dcafb207de183d7d1c4bc5deaab21ebe5b327da0d61ad404cf1" => :el_capitan
-    sha256 "b4f4ebf0db23e5aa52528ec12c6dd84315ed36e4894cefba9c3c85e293ca9350" => :yosemite
-    sha256 "790d915ca2e98518227626ad2ce91b53f60ce584f4ca8c8392c30a4917e2e167" => :mavericks
-    sha256 "dc4dcbeb2e2f224f9fffede14f8d3c7c220f032023b83626b75409707e93df35" => :mountain_lion
+    sha256 "f6c266af01a145381c73d0ab5b89c480c9cb1770e08b0d8d88e514d19045afd0" => :el_capitan
+    sha256 "55f770497c67900e508bb9478671e7148f4214694a09ad475e246529a64a3a3a" => :yosemite
+    sha256 "fe26dcfa9763fe9ed89a2cca23f82ca11b0c9117a0d52758ef245d5f307304f5" => :mavericks
   end
 
   depends_on "ocaml" => :build

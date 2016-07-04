@@ -16,17 +16,17 @@ class Dvdrtools < Formula
 
   # Below three patches via MacPorts.
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/8a41dd4/dvdrtools/patch-cdda2wav-cdda2wav.c"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/8a41dd4/dvdrtools/patch-cdda2wav-cdda2wav.c"
     sha256 "f792a26af38f63ee1220455da8dba2afc31296136a97c11476d8e3abe94a4a94"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/8a41dd4/dvdrtools/patch-cdrecord-cdrecord.c"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/8a41dd4/dvdrtools/patch-cdrecord-cdrecord.c"
     sha256 "c7f182ce154785e19235f30d22d3cf56e60f6c9c8cc953a9d16b58205e29a039"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/8a41dd4/dvdrtools/patch-scsi-mac-iokit.c"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/8a41dd4/dvdrtools/patch-scsi-mac-iokit.c"
     sha256 "f31253e021a70cc49e026eed81c5a49166a59cb8da1a7f0695fa2f26c7a3d98f"
   end
 

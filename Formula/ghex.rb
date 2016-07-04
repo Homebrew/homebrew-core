@@ -1,13 +1,13 @@
 class Ghex < Formula
   desc "GNOME hex editor"
   homepage "https://wiki.gnome.org/Apps/Ghex"
-  url "https://download.gnome.org/sources/ghex/3.18/ghex-3.18.0.tar.xz"
-  sha256 "c5b1eb50a8dd1334880b37617871498b778ea137f79bb43894ec68e4f63dc925"
+  url "https://download.gnome.org/sources/ghex/3.18/ghex-3.18.2.tar.xz"
+  sha256 "ebd341c49e2cc4e710230703cd20e9febb29b64e34a1b5396d6aa818936e55bf"
 
   bottle do
-    sha256 "9eb6931e7ac0fb1ea0e5403cc02cd403a19874269b9d23946a2cfb17c3b8c588" => :el_capitan
-    sha256 "2bf38162e119817cf5151c7ac1152fcb722fd9305a5555db865e3a83b027ab6b" => :yosemite
-    sha256 "d20ac82df9e830d9579a4ad7689a9162744f1373d601f91edd18b80e3d4fe386" => :mavericks
+    sha256 "1bddbbe5d0ec759f23cffd8e9125492326417212762a45049c5375d2254385ff" => :el_capitan
+    sha256 "c817ef9963054421bec94208ce55ac74209c27c0dbff8ce80be220afaa7b954b" => :yosemite
+    sha256 "061169057a411c6b4f656b53124c7f92c5cf9898417ce1f39ec59fce7484c05c" => :mavericks
   end
 
   depends_on "pkg-config" => :build

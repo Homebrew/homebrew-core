@@ -1,14 +1,14 @@
 class Rethinkdb < Formula
   desc "The open-source database for the realtime web"
   homepage "https://www.rethinkdb.com/"
-  url "https://download.rethinkdb.com/dist/rethinkdb-2.3.1.tgz"
-  sha256 "4a2a84a57a5a03523b66d9ec551e92d5e8bd6b04b7275db1aae890d357387ceb"
+  url "https://download.rethinkdb.com/dist/rethinkdb-2.3.4.tgz"
+  sha256 "93a7927d1ed785d084be3b8bac3f9af2d89c86de16e003848acbe21a32a9e1a7"
 
   bottle do
     cellar :any
-    sha256 "ac064ca6edab270b0ddd5699645aa8395621d719f9cf5be5055e9222b6f0df32" => :el_capitan
-    sha256 "b2a6864359f57320af5644bfd1b3e32c262707e2be3333a0bbb02b78ffd91e6f" => :yosemite
-    sha256 "220ebbcc2c24a1efa827006c635b0752b87ba36d32831223a50bc9c933aa1868" => :mavericks
+    sha256 "9a6f43cae294ddde004759d4b209b957bc1b9dd6aeaccc0f87a3f7c7ad07bfab" => :el_capitan
+    sha256 "47b54007ac840149cba21e32d29e76310f71eb72f8d5a1631d8870c92f199f80" => :yosemite
+    sha256 "d7e8bee9b385976eb8f0d8ba06f898d50bb7129539cc2e419e4fd4aa1e440504" => :mavericks
   end
 
   depends_on :macos => :lion
@@ -38,7 +38,7 @@ class Rethinkdb < Formula
     etc.install "packaging/assets/config/default.conf.sample" => "rethinkdb.conf"
   end
 
-  plist_options :manual => "rethinkdb start"
+  plist_options :manual => "rethinkdb"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -1,29 +1,38 @@
 class Libarchive < Formula
   desc "Multi-format archive and compression library"
   homepage "http://www.libarchive.org"
-  url "http://www.libarchive.org/downloads/libarchive-3.1.2.tar.gz"
-  mirror "https://github.com/libarchive/libarchive/archive/v3.1.2.tar.gz"
-  sha256 "eb87eacd8fe49e8d90c8fdc189813023ccc319c5e752b01fb6ad0cc7b2c53d5e"
+  url "http://www.libarchive.org/downloads/libarchive-3.2.1.tar.gz"
+  sha256 "72ee1a4e3fd534525f13a0ba1aa7b05b203d186e0c6072a8a4738649d0b3cfd2"
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "a73405a0d1395f88af0999215bb0cc342b09113f6270375c7b9fe0bbad870c57" => :el_capitan
-    sha256 "daf4fb57f9b01c4a0d3ac33ec5fcc59e133ce3b08e01caa6ffaa2e098ae1adad" => :yosemite
-    sha256 "2f640bcaaa7ea8f090b9d163bb0cabba69e3efb62ec5ca5547ccfc5980935f9e" => :mavericks
-    sha256 "a0da458477e1e080db4c7dc75326dd28fc40b2d9ba158d39089c079de4fefbdf" => :mountain_lion
+    sha256 "6ef9838a7fda2a6ffacf250a29a1ce5fb9a71072f6c02b134c464096d6514491" => :el_capitan
+    sha256 "f79d996c549f190b3225dbef988824afdec92cdcd76e39faae3ac2e67731d34f" => :yosemite
+    sha256 "a702d412a72902bfec4c7093673d9df7e7a6df819a73aa1ccec5f074685d30eb" => :mavericks
   end
 
   keg_only :provided_by_osx
 
-  depends_on "xz" => :optional
+  depends_on "xz" => :recommended
+  depends_on "lz4" => :optional
+  depends_on "lzop" => :optional
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--without-lzo2",
-                          "--without-nettle",
-                          "--without-xml2"
+    system "./configure",
+           "--prefix=#{prefix}",
+           "--without-lzo2",    # Use lzop binary instead of lzo2 due to GPL
+           "--without-nettle",  # xar hashing option but GPLv3
+           "--without-xml2",    # xar hashing option but tricky dependencies
+           "--without-openssl", # mtree hashing now possible without OpenSSL
+           "--with-expat"       # best xar hashing option
+
     system "make", "install"
+
+    # Just as apple does it.
+    ln_s bin/"bsdtar", bin/"tar"
+    ln_s bin/"bsdcpio", bin/"cpio"
+    ln_s man1/"bsdtar.1", man1/"tar.1"
+    ln_s man1/"bsdcpio.1", man1/"cpio.1"
   end
 
   test do

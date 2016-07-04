@@ -1,16 +1,15 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-1.4.tar.gz"
-  sha256 "51859bf3b26ffeed95c0a3399167e6670e8240542c52772439fb9cade06857a5"
-  revision 2
+  url "https://weechat.org/files/src/weechat-1.5.tar.gz"
+  sha256 "3174558556a20ae8f9ee3abbf66b7d42b657d3370322555501a707e339e10771"
 
   head "https://github.com/weechat/weechat.git"
 
   bottle do
-    sha256 "db3a54440dffabf0fd061295eb23a67685f3337303df4c15f1c917823b4c765d" => :el_capitan
-    sha256 "e154dafd4f0cbf1fb568e23c8b1e4868b4feaab537e638155a2c3457a4800cf7" => :yosemite
-    sha256 "45406a9280b5f34da630867ba5aa413b90c2f044718e36de5fe5eb365dc28ee6" => :mavericks
+    sha256 "86118fb13bbbe371612fe38351adbf5b32da676daf139e59f7a0f9e1a2ae5290" => :el_capitan
+    sha256 "80ac11ead01b4e87a5006f0663cb1efe6e500d2c7d05b66610d5f27cbe97f5e1" => :yosemite
+    sha256 "5829823f5b1e1605a10f372b903467d80bc39377f686316bd7284c2cb94ed098" => :mavericks
   end
 
   option "with-perl", "Build the perl module"

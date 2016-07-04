@@ -1,15 +1,14 @@
 class UBootTools < Formula
   desc "Universal boot loader"
   homepage "http://www.denx.de/wiki/U-Boot/"
-  url "ftp://ftp.denx.de/pub/u-boot/u-boot-2015.01.tar.bz2"
-  sha256 "383051a656ebe11757b17d38a3326387e4a1b0949ca8a9e8ee506bf71dac9fde"
+  url "ftp://ftp.denx.de/pub/u-boot/u-boot-2016.05.tar.bz2"
+  sha256 "87d02275615aaf0cd007b54cbe9fbadceef2bee7c79e6c323ea1ae8956dcb171"
 
   bottle do
     cellar :any
-    sha256 "6644cfd8e914f6d64d73aa88f1aa6b0a0525c589963f3dd2c9eec286be6cf4e3" => :el_capitan
-    sha256 "4c369426945ddde9ec41b7b85108dce2f8dd0dd70a2fb7a308e2175f76efa55f" => :yosemite
-    sha256 "4268ed8923b3fe1f2d3e2dc87db23104a8b578636d86c47bf0ea25daae1c03ea" => :mavericks
-    sha256 "9756327207b93d3b3cd1c00365f5059ab16f2c3c2baffbfde5e8b918d85483bd" => :mountain_lion
+    sha256 "0d5eb7664ca7aa6e65d0d2fb0fdfb60a72f1efd155e66af92afcd25a972d75e0" => :el_capitan
+    sha256 "7cb2d54b1215be75c3e086a6800ffd00ba61cf8907e1316020f798557daf47a8" => :yosemite
+    sha256 "d8d53065724d5f955ab879cbbb0bdb3c868ef267ca7c23c5a2d9fd3bf69b2fe3" => :mavericks
   end
 
   depends_on "openssl"

@@ -20,4 +20,8 @@ class Icon < Formula
     doc.install Dir["doc/*"]
     man1.install Dir["man/man1/*.1"]
   end
+
+  test do
+    assert_equal "Hello, World!", shell_output("#{bin}/icon -P 'procedure main(); writes(\"Hello, World!\"); end'")
+  end
 end

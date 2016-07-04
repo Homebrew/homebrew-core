@@ -1,14 +1,14 @@
 class Natalie < Formula
   desc "Storyboard Code Generator (for Swift)"
   homepage "https://github.com/krzyzanowskim/Natalie"
-  url "https://github.com/krzyzanowskim/Natalie/archive/0.4.tar.gz"
-  sha256 "cdec277f33fcda3b5287bdc79d6f958ddfabf23fb4bf4f9e68b441173768bfde"
+  url "https://github.com/krzyzanowskim/Natalie/archive/0.4.1.tar.gz"
+  sha256 "c2ef0ad5f68294ac8886abb1a8c20a6f647d81f2a7e5452c73b572382229b38a"
   head "https://github.com/krzyzanowskim/Natalie.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a87cfda63b88d60206a15c2ef27d487f38d410f268367d42728b933f91937edd" => :el_capitan
-    sha256 "dbce3badcef384c4b59968545eb7bb3d7aceb9cf115cbcfe7a7d0f276c8723a0" => :yosemite
+    sha256 "d7fd9b48527854344686e872a961ace175033d554ed37819e5fbae83cacd046e" => :el_capitan
+    sha256 "ca9641d7eba42ec3f565b32ec4277ab98666b715f3a7ea9f4dd1b0689188160e" => :yosemite
   end
 
   depends_on :xcode => "7.0"

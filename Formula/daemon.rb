@@ -14,7 +14,7 @@ class Daemon < Formula
   # fixes for mavericks strlcpy/strlcat: https://trac.macports.org/ticket/42845
   if MacOS.version >= :mavericks
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/3323958/daemon/daemon-0.6.4-ignore-strlcpy-strlcat.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/3323958/daemon/daemon-0.6.4-ignore-strlcpy-strlcat.patch"
       sha256 "a56e16b0801a13045d388ce7e755b2b4e40288c3731ce0f92ea879d0871782c0"
     end
   end

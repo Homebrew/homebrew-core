@@ -1,16 +1,15 @@
 class Stuntman < Formula
   desc "Implementation of the STUN protocol"
   homepage "http://www.stunprotocol.org/"
-  url "http://www.stunprotocol.org/stunserver-1.2.7.tgz"
-  sha256 "51415bf83339f059c6a65bbece9b758e3f198cb86063a0f1b4f12d825c87640e"
+  url "http://www.stunprotocol.org/stunserver-1.2.9.tgz"
+  sha256 "f63452869bccc6dc1ae55a9cce9e34fba3b96bb7b0f70ea33b211a0fb4eff49a"
   head "https://github.com/jselbie/stunserver.git"
-  revision 1
 
   bottle do
     cellar :any
-    sha256 "70c9db5d6503508bb29ea52a1bc006909abb4d03da9ad34a4d39fb42a2f5ea81" => :el_capitan
-    sha256 "1704bb907134f990497cec59b9e279c88104e3bd723b999ac8b64d3f9e4c6ac7" => :yosemite
-    sha256 "316bcef26dd5e39a141f4761c19919a249859d04992ab99d4417c23e383c5ffb" => :mavericks
+    sha256 "0881a820844462a70725adb5fbf1df14b873dc7e30c603d7ef294569e9a017ac" => :el_capitan
+    sha256 "dfa719526c70219fc276f65bbf95d51283e5e9609df712bf1a8f3950323b175c" => :yosemite
+    sha256 "1e8299d93a333000f7f02a5525aa29b5ebf6b5490c3523a7eb27972d4c9bef77" => :mavericks
   end
 
   depends_on "boost" => :build

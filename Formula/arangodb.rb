@@ -1,15 +1,19 @@
 class Arangodb < Formula
   desc "Universal open-source database with a flexible data model"
   homepage "https://www.arangodb.com/"
-  url "https://www.arangodb.com/repositories/Source/ArangoDB-2.8.7.tar.gz"
-  sha256 "cda284af7e1d45c2250dcb2acd253e805e9aaad3504f1d09cfcb8afa5ad87020"
-
-  head "https://github.com/arangodb/arangodb.git", :branch => "unstable"
+  url "https://www.arangodb.com/repositories/Source/ArangoDB-2.8.9.tar.gz"
+  sha256 "cff21ca654056bed08781c5e462966f5f15acec7b6522191d286dee3339e327e"
 
   bottle do
-    sha256 "b048abb7d6c7ed967885375341dc141512cd498ec004c823f21979a9b9e96315" => :el_capitan
-    sha256 "e55fc36e8e167732f2160b1366edcee901fe380ad9deef92d963c2eb745f69c7" => :yosemite
-    sha256 "b3b0b09665fef2cc8dabfacd15110e8f1d72680aeeffa6e1dc72ab3cc2fa5376" => :mavericks
+    revision 1
+    sha256 "f9699b28c53f744b7b4701890739d7a9369a6e0b144d486d7fee27ed4b4a9486" => :el_capitan
+    sha256 "7490e2e4026fca6442fce8c6f56d654deb45ba864ca6b7a73872d670b4475d49" => :yosemite
+    sha256 "60d59e09f4a440cffeb077f1de14784519223e6f25ccaaf6df692dc63fd6cac8" => :mavericks
+  end
+
+  head do
+    url "https://github.com/arangodb/arangodb.git", :branch => "unstable"
+    depends_on "cmake" => :build
   end
 
   depends_on "go" => :build
@@ -23,44 +27,70 @@ class Arangodb < Formula
   end
 
   def install
-    # clang on 10.8 will still try to build against libstdc++,
-    # which fails because it doesn't have the C++0x features
-    # arangodb requires.
     ENV.libcxx
 
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --disable-relative
-      --datadir=#{share}
-      --localstatedir=#{var}
-    ]
+    if build.head?
+      mkdir "arangodb-build" do
+        system "cmake", "..", "-DHOMEBREW=On", "-DUSE_OPTIMIZE_FOR_ARCHITECTURE=Off", "-DASM_OPTIMIZATIONS=Off", "-DETCDIR=#{prefix}/etc", "-DVARDIR=#{var}", *std_cmake_args
+        system "make", "install"
+      end
 
-    args << "--program-suffix=-unstable" if build.head?
+    else
+      # clang on 10.8 will still try to build against libstdc++,
+      # which fails because it doesn't have the C++0x features
+      # arangodb requires.
+      args = %W[
+        --disable-dependency-tracking
+        --prefix=#{prefix}
+        --disable-relative
+        --datadir=#{share}
+        --localstatedir=#{var}
+      ]
 
-    if ENV.compiler != :clang
-      ENV.append "LDFLAGS", "-static-libgcc -static-libstdc++"
+      args << "--program-suffix=-unstable" if build.head?
+
+      if ENV.compiler != :clang
+        ENV.append "LDFLAGS", "-static-libgcc -static-libstdc++"
+      end
+
+      system "./configure", *args
+      system "make", "install"
+    end
+  end
+
+  # moving the "if" inside post_install does not work
+  if build.head?
+    def post_install
+      (var/"lib/arangodb3").mkpath
+      (var/"log/arangodb3").mkpath
+    end
+  else
+    def post_install
+      (var/"arangodb").mkpath
+      (var/"log/arangodb").mkpath
+
+      system "#{sbin}/arangod", "--upgrade"
+    end
+  end
+
+  def caveats
+    s = <<-EOS.undent
+      Please note that clang and/or its standard library 7.0.0 has a severe
+      performance issue. Please consider using '--cc=gcc-5' when installing
+      if you are running on such a system.
+    EOS
+
+    if build.head?
+      s += <<-EOS.undent
+        A default password has been set. You can change it by executing
+          #{sbin}/arango-secure-installation
+      EOS
     end
 
-    system "./configure", *args
-    system "make", "install"
+    s
   end
 
-  def post_install
-    (var/"arangodb").mkpath
-    (var/"log/arangodb").mkpath
-
-    system "#{sbin}/arangod" + (build.head? ? "-unstable" : ""), "--upgrade", "--log.file", "-"
-  end
-
-  def caveats; <<-EOS.undent
-    Please note that clang and/or its standard library 7.0.0 has a severe
-    performance issue. Please consider using '--cc=gcc-5' when installing
-    if you are running on such a system.
-    EOS
-  end
-
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/arangodb/sbin/arangod" + (build.head? ? "-unstable" : "") + " --log.file -"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/arangodb/sbin/arangod"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -82,5 +112,9 @@ class Arangodb < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    assert_equal "it works!\n", shell_output("#{bin}/arangosh --javascript.execute-string \"require('@arangodb').print('it works!')\"")
   end
 end

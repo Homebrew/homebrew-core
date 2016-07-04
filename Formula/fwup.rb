@@ -1,15 +1,14 @@
 class Fwup < Formula
   desc "Configurable embedded Linux firmware update creator and runner"
   homepage "https://github.com/fhunleth/fwup"
-  url "https://github.com/fhunleth/fwup/releases/download/v0.6.0/fwup-0.6.0.tar.gz"
-  sha256 "11d8d3a6e7464584b89d88571ee2d2dc1da758fe98525191e77982c60f35bcf3"
-  revision 1
+  url "https://github.com/fhunleth/fwup/releases/download/v0.8.0/fwup-0.8.0.tar.gz"
+  sha256 "9d249cb8b73919eec85645e31d9ba346b1d02e297d747d969c2ba5dff9d2a12a"
 
   bottle do
     cellar :any
-    sha256 "8cf719c1fcc597773f3ba9cba9275af1a36af3e2c5111456f2d19755ee7fbf14" => :el_capitan
-    sha256 "98be975a405d85ca7555151656cce1019eeae5ee653f7061ed424f8cb68cf40d" => :yosemite
-    sha256 "733e83b973d626ff99d047d0d8e25dbb026d07d70e460842de47f115cf014839" => :mavericks
+    sha256 "590bfdf523902eec53518ca36a1913a32b42080b8533b588a1116d2e33197263" => :el_capitan
+    sha256 "aeb822c13562919113be2cf8b55214776a338021b6270b3f45505faf585c0fe1" => :yosemite
+    sha256 "5fe1615e422ccfe484aa81c8d7cbdd6a7cc59b86bb14d5965cac9c03a771a76c" => :mavericks
   end
 
   depends_on "confuse"

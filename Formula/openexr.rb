@@ -25,7 +25,7 @@ class Openexr < Formula
   # Fixes builds on 32-bit targets due to incorrect long literals
   # Patches are already applied in the upstream git repo.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/f1a3ea4f69b7a54d8123e2f16488864d52202de8/openexr/64bit_types.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f1a3ea4f69b7a54d8123e2f16488864d52202de8/openexr/64bit_types.patch"
     sha256 "c95374d8fdcc41ddc2f7c5b3c6f295a56dd5a6249bc26d0829548e70f5bd2dc9"
   end
 

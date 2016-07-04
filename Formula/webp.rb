@@ -6,9 +6,15 @@ class Webp < Formula
 
   bottle do
     cellar :any
-    sha256 "529d1728871778a8c9f1a698077d074d264aedce93bf6e7e0c7d197a931e46aa" => :el_capitan
-    sha256 "d2df3e42efcb574601a4ced6f9a4174014aa20696a453a4ce76b2877d5a74594" => :yosemite
-    sha256 "1ace7ca51265fcb6c3490ded7e209678b3648eb87d06473533b6435a8b71f543" => :mavericks
+    revision 1
+    sha256 "6a3b7bcb3faba322e780726c9d1f9dc4ce3800f1e567099f818d3899e8386dbd" => :el_capitan
+    sha256 "d9b26f0db04df6f53b4357efcf329d6c8751238e45c93abe32568272210734cc" => :yosemite
+    sha256 "b8b828ea83e78852db35041feb9e16b999b035f4d23a5a51d5be72245eac662d" => :mavericks
+  end
+
+  devel do
+    url "http://downloads.webmproject.org/releases/webp/libwebp-0.5.1-rc5.tar.gz"
+    sha256 "7bd3022eefbcf34233b20570de89c1a8687acdfaa739c12e4236fc0b736339fd"
   end
 
   head do
@@ -30,6 +36,7 @@ class Webp < Formula
 
     ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
+                          "--disable-gl",
                           "--enable-libwebpmux",
                           "--enable-libwebpdemux",
                           "--enable-libwebpdecoder",
@@ -38,8 +45,8 @@ class Webp < Formula
   end
 
   test do
-    system "#{bin}/cwebp", test_fixtures("test.png"), "-o", "webp_test.png"
-    system "#{bin}/dwebp", "webp_test.png", "-o", "webp_test.webp"
+    system bin/"cwebp", test_fixtures("test.png"), "-o", "webp_test.png"
+    system bin/"dwebp", "webp_test.png", "-o", "webp_test.webp"
     assert File.exist?("webp_test.webp")
   end
 end

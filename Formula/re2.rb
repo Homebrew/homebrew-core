@@ -1,19 +1,16 @@
 class Re2 < Formula
   desc "Alternative to backtracking PCRE-style regular expression engines"
   homepage "https://github.com/google/re2"
+  url "https://github.com/google/re2/archive/2016-07-01.tar.gz"
+  version "20160701"
+  sha256 "06c8c99c7c7b4bb869e088c007d4162b4f302ab55671880333d01eff63997626"
   head "https://github.com/google/re2.git"
-
-  stable do
-    url "https://github.com/google/re2/archive/2016-03-01.tar.gz"
-    version "20160301"
-    sha256 "2dc6188270fe83660ccb379ef2d5ce38e0e38ca0e1c0b3af4b2b7cf0d8c9c11a"
-  end
 
   bottle do
     cellar :any
-    sha256 "e1042bd0951be2c2651327269ffdf605c6cddff01162c266dac9663ee846940a" => :el_capitan
-    sha256 "00abdcbad108a5dee607a6b34ccb97d970f6dc6fd53dd9680e0549945ef2fb9e" => :yosemite
-    sha256 "941571b08e34921134c2fc15b5e855f7c2da5a882fd262766fa01dac988990f3" => :mavericks
+    sha256 "917546580bed4d2f8e60531a93ddc3cd5001be66100ffe52c862a31d30b1067b" => :el_capitan
+    sha256 "3b75d5e178a745d21e338e9ab54f373dc81f4c3a85bce08e8e6f47f0f259b94e" => :yosemite
+    sha256 "091c858f09f468f04b964f5b8986a85c0e4eb2b0c458502e96382a81b330e0f7" => :mavericks
   end
 
   def install

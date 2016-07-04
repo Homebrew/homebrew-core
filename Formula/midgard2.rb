@@ -3,11 +3,12 @@ class Midgard2 < Formula
   homepage "http://www.midgard-project.org/"
   url "https://github.com/downloads/midgardproject/midgard-core/midgard2-core-12.09.tar.gz"
   sha256 "7c1d17e061df8f3b39fd8944ab97ab7220219b470f7874e74471702d2caca2cb"
+  revision 1
 
   bottle do
-    sha256 "b555f5eb0fcc97d313dad782c834663938cea52e64e00bfbf0555d1e74c9b303" => :el_capitan
-    sha256 "92e816d0054901c0ac017e090609149b5252ea735c068d583a54e75e8471bf90" => :yosemite
-    sha256 "ac9ebb309b40032df71e0bd73eef209acc7677e0ea4c30599db8b96559cb5870" => :mavericks
+    sha256 "e9c17c300e476ee15ca5d3ccc34c70715da56a8e7be41a7e0638d3dfbbf49113" => :el_capitan
+    sha256 "b1d949df0056f3855adfdd4542825fbffa13043e4666516662b3e69f81c24e2b" => :yosemite
+    sha256 "8cb700e06f34ca0a08745d42f53dc2b451eb7a739105dda3aade4db2b03a9a3f" => :mavericks
   end
 
   head do

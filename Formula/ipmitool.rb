@@ -1,15 +1,15 @@
 class Ipmitool < Formula
   desc "Utility for IPMI control with kernel driver or LAN interface"
   homepage "http://ipmitool.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ipmitool/ipmitool/1.8.16/ipmitool-1.8.16.tar.bz2"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/ipmitool/ipmitool_1.8.16.orig.tar.bz2"
-  sha256 "3c5da6b067abf475bc24685120ec79f6e4ef6b3ea606aaa267e462023861223e"
+  url "https://downloads.sourceforge.net/project/ipmitool/ipmitool/1.8.17/ipmitool-1.8.17.tar.bz2"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/ipmitool/ipmitool_1.8.17.orig.tar.bz2"
+  sha256 "97fa20efd9c87111455b174858544becae7fcc03a3cb7bf5c19b09065c842d02"
 
   bottle do
     cellar :any
-    sha256 "c7018b064716f0b24941a54722527395ac99234b03f22553dfa59be90f70d44b" => :el_capitan
-    sha256 "a155567444aef5b7805c3585156ce4495087938472a4529943339ffc805ce159" => :yosemite
-    sha256 "a043b09b7ed3ade3c5aab3ef9d48a419e5ba1ed93ebceabab20cec3b8df82d84" => :mavericks
+    sha256 "3e36dbf39144cf9dd90cef46f5f8bb55e1fed1a8351f410bb2329c585750a6d2" => :el_capitan
+    sha256 "a3ed251ff9008a7e77af4abf35f5b065c9ead124f00aba63f22da20b34863411" => :yosemite
+    sha256 "99b52bd33e47acc539d407a254c15255c8ec1b6d61de0c1cb758a43126af3529" => :mavericks
   end
 
   depends_on "openssl"

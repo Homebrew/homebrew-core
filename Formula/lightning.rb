@@ -1,7 +1,7 @@
 class Lightning < Formula
   desc "Generates assembly language code at run-time"
   homepage "https://www.gnu.org/software/lightning/"
-  url "http://ftpmirror.gnu.org/lightning/lightning-2.1.0.tar.gz"
+  url "https://ftpmirror.gnu.org/lightning/lightning-2.1.0.tar.gz"
   mirror "https://ftp.gnu.org/gnu/lightning/lightning-2.1.0.tar.gz"
   sha256 "1fa3a2421852598b3162d6765645bb3cd0fccb5f0c105d0800c64c8428b749a6"
 

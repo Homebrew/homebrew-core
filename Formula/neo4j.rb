@@ -1,9 +1,9 @@
 class Neo4j < Formula
   desc "Robust (fully ACID) transactional property graph database"
   homepage "http://neo4j.com"
-  url "http://dist.neo4j.org/neo4j-community-3.0.0-unix.tar.gz"
-  version "3.0.0"
-  sha256 "1f1aeb3c748d5b05c263b7dab8b195df788507f59228e80534ed8e506a80c517"
+  url "http://dist.neo4j.org/neo4j-community-3.0.3-unix.tar.gz"
+  version "3.0.3"
+  sha256 "20cd65c84a6e5345f17bb03c145190f74e58ec2754c2e515a64b317e34dae2ce"
 
   bottle :unneeded
 
@@ -18,7 +18,7 @@ class Neo4j < Formula
     libexec.install Dir["*"]
 
     # Symlink binaries
-    bin.install Dir["#{libexec}/bin/neo4j{,-shell,-import,-shared.sh, -admin}"]
+    bin.install Dir["#{libexec}/bin/neo4j{,-shell,-import,-shared.sh,-admin}"]
     bin.env_script_all_files(libexec/"bin", :NEO4J_HOME => ENV["NEO4J_HOME"])
 
     # Adjust UDC props

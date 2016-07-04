@@ -21,18 +21,20 @@ class Gcc < Formula
 
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org"
-  url "http://ftpmirror.gnu.org/gcc/gcc-5.3.0/gcc-5.3.0.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/gcc/gcc-5.3.0/gcc-5.3.0.tar.bz2"
-  sha256 "b84f5592e9218b73dbae612b5253035a7b34a9a1f7688d2e1bfaaf7267d5c4db"
+  url "https://ftpmirror.gnu.org/gcc/gcc-6.1.0/gcc-6.1.0.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/gcc/gcc-6.1.0/gcc-6.1.0.tar.bz2"
+  sha256 "09c4c85cabebb971b1de732a0219609f93fc0af5f86f6e437fd8d7f832f1a351"
 
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
   bottle do
-    sha256 "90ad519442f0336b0beee3cf2be305ea495fb2e2ad82c2a96c5b0c3bcef8f268" => :el_capitan
-    sha256 "334bd7afbec85740ec7c49eedf52858209c31ed1f284ad10ccab7c50a41bcd35" => :yosemite
-    sha256 "679c9bfc2082f8ab4320c89082b08c4eab9523dd72bfed27fe4b712de7013a1f" => :mavericks
+    sha256 "af4822329b0673723b16c7237495ee86e099f5170d6ff28f17934d4c0681b515" => :el_capitan
+    sha256 "034a2af8373a2151f8b659ec9eda4c832669976a8ef5c90c7bdc2bc9ce616191" => :yosemite
+    sha256 "00d7f43e48f29ae4bbf0d9896f602fd3722ecb83294466a0c2c3ee293834100a" => :mavericks
   end
 
+  # GCC's Go compiler is not currently supported on Mac OS X.
+  # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=46986
   option "with-java", "Build the gcj compiler"
   option "with-all-languages", "Enable all compilers and languages, except Ada"
   option "with-nls", "Build with native language support (localization)"
@@ -72,7 +74,12 @@ class Gcc < Formula
 
   # Fix for libgccjit.so linkage on Darwin
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
-  patch :DATA
+  # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225625332
+  # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225626490
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9e0ee09389a54cc4c8fe1c24ebca3cd765ed0ba/gcc/6.1.0-jit.patch"
+    sha256 "863957f90a934ee8f89707980473769cff47ca0663c3906992da6afb242fb220"
+  end
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
@@ -172,19 +179,7 @@ class Gcc < Formula
     # Even when suffixes are appended, the info pages conflict when
     # install-info is run. TODO fix this.
     info.rmtree
-
-    # Rename java properties
-    if build.with?("java") || build.with?("all-languages")
-      config_files = [
-        "#{lib}/gcc/#{version_suffix}/logging.properties",
-        "#{lib}/gcc/#{version_suffix}/security/classpath.security",
-        "#{lib}/gcc/#{version_suffix}/i386/logging.properties",
-        "#{lib}/gcc/#{version_suffix}/i386/security/classpath.security",
-      ]
-      config_files.each do |file|
-        add_suffix file, version_suffix if File.exist? file
-      end
-    end
+    # Since GCC 4.9 java properties are properly sandboxed.
   end
 
   def add_suffix(file, suffix)
@@ -246,37 +241,3 @@ class Gcc < Formula
     end
   end
 end
-__END__
-diff --git a/gcc/jit/Make-lang.in b/gcc/jit/Make-lang.in
-index 44d0750..4df2a9c 100644
---- a/gcc/jit/Make-lang.in
-+++ b/gcc/jit/Make-lang.in
-@@ -85,8 +85,7 @@ $(LIBGCCJIT_FILENAME): $(jit_OBJS) \
-	     $(jit_OBJS) libbackend.a libcommon-target.a libcommon.a \
-	     $(CPPLIB) $(LIBDECNUMBER) $(LIBS) $(BACKENDLIBS) \
-	     $(EXTRA_GCC_OBJS) \
--	     -Wl,--version-script=$(srcdir)/jit/libgccjit.map \
--	     -Wl,-soname,$(LIBGCCJIT_SONAME)
-+	     -Wl,-install_name,$(LIBGCCJIT_SONAME)
-
- $(LIBGCCJIT_SONAME_SYMLINK): $(LIBGCCJIT_FILENAME)
-	ln -sf $(LIBGCCJIT_FILENAME) $(LIBGCCJIT_SONAME_SYMLINK)
-diff --git a/gcc/jit/jit-playback.c b/gcc/jit/jit-playback.c
-index 925fa86..01cfd4b 100644
---- a/gcc/jit/jit-playback.c
-+++ b/gcc/jit/jit-playback.c
-@@ -2416,6 +2416,15 @@ invoke_driver (const char *ctxt_progname,
-      time.  */
-   ADD_ARG ("-fno-use-linker-plugin");
-
-+#if defined (DARWIN_X86) || defined (DARWIN_PPC)
-+  /* OS X's linker defaults to treating undefined symbols as errors.
-+     If the context has any imported functions or globals they will be
-+     undefined until the .so is dynamically-linked into the process.
-+     Ensure that the driver passes in "-undefined dynamic_lookup" to the
-+     linker.  */
-+  ADD_ARG ("-Wl,-undefined,dynamic_lookup");
-+#endif
-+
-   /* pex argv arrays are NULL-terminated.  */
-   argvec.safe_push (NULL);

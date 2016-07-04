@@ -2,13 +2,17 @@
 class Macvim < Formula
   desc "GUI for vim, made for OS X"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-102.tar.gz"
-  version "7.4-102"
-  sha256 "700655d5b7548f2b32aa39825ebbf0c03fe07def0461a5e829ad07db96a14fc4"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-104.tar.gz"
+  version "7.4-104"
+  sha256 "b58ce2343150b5ef26fc401cc57dac50688429512fa862e90e3c516f26306ff3"
 
   head "https://github.com/macvim-dev/macvim.git"
 
-  bottle :disable, "To use the user's Python."
+  bottle do
+    sha256 "10bf27b12a73fac2f221984ea48bcaa0891b8d2ce97b9e6919631dc691c2bc9a" => :el_capitan
+    sha256 "1b5aea35ca34d35b87aceb359949cfe362b545efd81a21c7f87e4b358003e581" => :yosemite
+    sha256 "650d35979be9d1a364063dba75f8ae8994ec73f66f50656f3561292bfcfa393a" => :mavericks
+  end
 
   option "with-override-system-vim", "Override system vim"
 
@@ -18,6 +22,11 @@ class Macvim < Formula
   depends_on "cscope" => :recommended
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
+
+  if MacOS.version >= :mavericks
+    option "with-custom-python", "Build with a custom Python 2 instead of the Homebrew version."
+  end
+
   depends_on :python => :recommended
   depends_on :python3 => :optional
 

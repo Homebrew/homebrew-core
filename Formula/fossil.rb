@@ -1,16 +1,16 @@
 class Fossil < Formula
   desc "Distributed software configuration management"
   homepage "https://www.fossil-scm.org/"
-  url "https://www.fossil-scm.org/download/fossil-src-1.34.tar.gz"
-  sha256 "53a6b83e878feced9ac7705f87e5b6ea82727314e3e19202ae1c46c7e4dba49f"
+  url "https://www.fossil-scm.org/download/fossil-src-1.35.tar.gz"
+  sha256 "c1f92f925a87c9872cb40d166f56ba08b90edbab01a8546ff37025836136ba1d"
 
   head "https://www.fossil-scm.org/", :using => :fossil
 
   bottle do
     cellar :any
-    sha256 "c63a8f0c159ca20bfd2808c1bd56d2a0e599fa316c56e731285bb2adc68389b2" => :el_capitan
-    sha256 "032e30a35f52aa80a409ae62194b412132bd2fb16399e64593594d3e60f77388" => :yosemite
-    sha256 "7ed7555f4240cdc6366e40810c57285e2402f7637483a69befeec52dd2693d65" => :mavericks
+    sha256 "4ff3c58d50dea6f0324d48f821f1e3371f94e14cb8d0d6e4b0dfbaab0f07db69" => :el_capitan
+    sha256 "42495830280a61b3122388aefb108a9c20547c5cd0745f47020999d73bcc03aa" => :yosemite
+    sha256 "f0967b37baa7fc8ad43f20a12c61dbbbaf78b2f711acd004180e5d0374617b5d" => :mavericks
   end
 
   option "without-json", "Build without 'json' command support"
@@ -23,7 +23,7 @@ class Fossil < Formula
     args = [
       # fix a build issue, recommended by upstream on the mailing-list:
       # http://comments.gmane.org/gmane.comp.version-control.fossil-scm.user/22444
-      "--with-tcl-private-stubs=1"
+      "--with-tcl-private-stubs=1",
     ]
     args << "--json" if build.with? "json"
 

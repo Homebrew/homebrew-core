@@ -1,8 +1,8 @@
 class Bltool < Formula
   desc "Tool for command-line interaction with backloggery.com"
   homepage "https://github.com/ToxicFrog/bltool"
-  url "https://github.com/ToxicFrog/bltool/releases/download/v0.2.1/bltool-0.2.1.zip"
-  sha256 "dceb5812058699b726bcd43a87c703eba39527959f712ef262919e0e14d6608e"
+  url "https://github.com/ToxicFrog/bltool/releases/download/v0.2.2/bltool-0.2.2.zip"
+  sha256 "613151a5d86a80f8b2f4a71da3aa93f56649ab19ff1597eed2a96fb43e3cdcd4"
 
   head do
     url "https://github.com/ToxicFrog/bltool.git"
@@ -24,17 +24,18 @@ class Bltool < Formula
   end
 
   test do
-    input_data = <<-EOS.undent
+    (testpath/"test.edn").write <<-EOS.undent
       [{:id "12527736",
         :name "Assassin's Creed",
         :platform "360",
         :progress "unfinished"}]
     EOS
 
-    output_regex = /12527736\s+360\s+unfinished\s+Assassin's Creed/
+    system bin/"bltool", "--from", "edn",
+                         "--to", "text",
+                         "--input", "test.edn",
+                         "--output", "test.txt"
 
-    (testpath/"test.edn").write input_data
-    system bin/"bltool", "--from", "edn", "--to", "text", "--input", testpath/"test.edn", "--output", testpath/"test.txt"
-    assert_match output_regex, (testpath/"test.txt").read
+    assert_match /12527736\s+360\s+unfinished\s+Assassin/, File.read("test.txt")
   end
 end

@@ -14,6 +14,12 @@ class Go < Formula
     sha256 "0cf1ef52a5ac93b20b5f8cce1d7f2fd470fd0af9ac70d5ecea77ec7a87dee92c" => :mavericks
   end
 
+  devel do
+    url "https://storage.googleapis.com/golang/go1.7beta2.src.tar.gz"
+    version "1.7beta2"
+    sha256 "88840e78905bdff7c8e408385182b4f77e8bdd062cac5c0c6382630588d426c7"
+  end
+
   option "without-cgo", "Build without cgo"
   option "without-godoc", "godoc will not be installed for you"
   option "without-vet", "vet will not be installed for you"

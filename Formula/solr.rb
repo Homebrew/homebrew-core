@@ -1,9 +1,9 @@
 class Solr < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://lucene.apache.org/solr/"
-  url "https://www.apache.org/dyn/closer.cgi?path=lucene/solr/6.0.0/solr-6.0.0.tgz"
-  mirror "https://archive.apache.org/dist/lucene/solr/6.0.0/solr-6.0.0.tgz"
-  sha256 "abf5ae9f16a752ddbb2184c97ce62249a0d9f28642c62fa3333adc1c27916672"
+  url "https://www.apache.org/dyn/closer.cgi?path=lucene/solr/6.1.0/solr-6.1.0.tgz"
+  mirror "https://archive.apache.org/dist/lucene/solr/6.1.0/solr-6.1.0.tgz"
+  sha256 "74630a06d45eb44c0afe2bfb6e2cd80c9d8d92aa0c48a563e39c32996a76c8b0"
 
   bottle :unneeded
 
@@ -25,8 +25,8 @@ class Solr < Formula
 
     # Fix the paths in the sample solrconfig.xml files
     Dir.glob(["#{prefix}/example/**/solrconfig.xml",
-      "#{prefix}/**/data_driven_schema_configs/**/solrconfig.xml",
-      "#{prefix}/**/sample_techproducts_configs/**/solrconfig.xml"]) do |f|
+              "#{prefix}/**/data_driven_schema_configs/**/solrconfig.xml",
+              "#{prefix}/**/sample_techproducts_configs/**/solrconfig.xml"]) do |f|
       inreplace f, ":../../../..}/", "}/libexec/"
     end
   end

@@ -1,14 +1,13 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/3.16/file-roller-3.16.4.tar.xz"
-  sha256 "5455980b2c9c7eb063d2d65560ae7ab2e7f01b208ea3947e151680231c7a4185"
+  url "https://download.gnome.org/sources/file-roller/3.20/file-roller-3.20.2.tar.xz"
+  sha256 "93188a7ac9285cb85551c327082aeaeb51ac39a9722cb96b0e29d5ec2ae353c6"
 
   bottle do
-    revision 1
-    sha256 "6ae889f74188bbc0063d4dec3aa433709af988c5056f42f1e03cb8272a12b8da" => :el_capitan
-    sha256 "660296eb74711e2c8a90ed8e2083585398fc166c452cc2f925fab6877cf7484f" => :yosemite
-    sha256 "05ca1ccdd5771e574bf4b1bad58fa0ddc6d2db65d2fda7999912ced5e0cb704e" => :mavericks
+    sha256 "c3a021b0f45d4a9f15ba04761fa9789bbec8b47ae2ee5501316003ce5a756451" => :el_capitan
+    sha256 "3c85ae1f3273a240c1ac4963b41f4807db644523e6df0a444c33e8a18d4b5549" => :yosemite
+    sha256 "7955d920d08916cb076e4e26d75f475d2e6b93f7d225ba435a377cba562e4046" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -22,6 +21,14 @@ class FileRoller < Formula
   depends_on "hicolor-icon-theme"
   depends_on "gnome-icon-theme"
 
+  # Add linked-library dependencies
+  depends_on "atk"
+  depends_on "cairo"
+  depends_on "gdk-pixbuf"
+  depends_on "gettext"
+  depends_on "glib"
+  depends_on "pango"
+
   def install
     # forces use of gtk3-update-icon-cache instead of gtk-update-icon-cache. No bugreport should
     # be filed for this since it only occurs because Homebrew renames gtk+3's gtk-update-icon-cache
@@ -29,11 +36,6 @@ class FileRoller < Formula
     inreplace "data/Makefile.in", "gtk-update-icon-cache", "gtk3-update-icon-cache"
     ENV.append "CFLAGS", "-I#{Formula["libmagic"].opt_include}"
     ENV.append "LIBS", "-L#{Formula["libmagic"].opt_lib}"
-
-    # Upstream bug: https://bugzilla.gnome.org/show_bug.cgi?id=756607
-    # A more elaborate, "correct" fix would be similar to this:
-    # https://github.com/mate-desktop/mate-utils/commit/c4df12f12d21ea7d4bc0d656bd5f93539c078d93
-    inreplace "configure", "$(GLIB_COMPILE_SCHEMAS) --strict", "$(GLIB_COMPILE_SCHEMAS)"
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -51,6 +53,6 @@ class FileRoller < Formula
   end
 
   test do
-    system "#{bin}/file-roller", "--version"
+    assert_match version.to_s, shell_output("#{bin}/file-roller --version 2>&1")
   end
 end

@@ -4,16 +4,17 @@ class Imagemagick < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/ImageMagick-6.9.3-7.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.3-7.tar.xz"
-  sha256 "6731c414b5b939713a73a088840ed68c22c91d1335514d228d6687d07ce2e1c8"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick-6.9.5-0.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.5-0.tar.xz"
+  sha256 "7830ce045bde3283b7479cf6b039a0956253f058e1a47da7fbe1003d6dad30b4"
 
   head "http://git.imagemagick.org/repos/ImageMagick.git"
 
   bottle do
-    sha256 "69bb41b7508782d9872dacbce53d8d9788a52ab74573c5e5e23a9004879c275a" => :el_capitan
-    sha256 "c6849cde7067a0a11dcbb6ff44bac17f659ff67f75597836246fc6ef621a099a" => :yosemite
-    sha256 "0a5367b1ffbda4793a7d86ccbe06fc36395769b468f54a4c2316aa25ec44e8ee" => :mavericks
+    revision 1
+    sha256 "4c0e1469d543b499ca60ea74e314881d8233eb61baace08d077c636bfa4b6c52" => :el_capitan
+    sha256 "c2ce1f18c6aa22be327b4178bf22afaaba17c3e0f734090b631f07ab154fa393" => :yosemite
+    sha256 "1b9e193b05423802e4b01795ebe11bad5b997eddd8a1d0d49c2059436cd055a5" => :mavericks
   end
 
   deprecated_option "enable-hdri" => "with-hdri"
@@ -22,7 +23,7 @@ class Imagemagick < Formula
   option "with-hdri", "Compile with HDRI support"
   option "with-jp2", "Compile with Jpeg2000 support"
   option "with-openmp", "Compile with OpenMP support"
-  option "with-perl", "enable build/install of PerlMagick"
+  option "with-perl", "Compile with PerlMagick"
   option "with-quantum-depth-8", "Compile with a quantum depth of 8 bit"
   option "with-quantum-depth-16", "Compile with a quantum depth of 16 bit"
   option "with-quantum-depth-32", "Compile with a quantum depth of 32 bit"
@@ -51,6 +52,7 @@ class Imagemagick < Formula
   depends_on "homebrew/versions/openjpeg21" if build.with? "jp2"
   depends_on "fftw" => :optional
   depends_on "pango" => :optional
+  depends_on :perl => ["5.5", :optional]
 
   needs :openmp if build.with? "openmp"
 
@@ -63,7 +65,7 @@ class Imagemagick < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --enable-shared
-      --disable-static
+      --enable-static
       --with-modules
     ]
 

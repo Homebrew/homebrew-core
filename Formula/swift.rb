@@ -3,29 +3,29 @@ class Swift < Formula
   homepage "https://github.com/apple/swift"
 
   stable do
-    url "https://github.com/apple/swift/archive/swift-2.2-RELEASE.tar.gz"
-    sha256 "6dfb9de14201b9804974b1f221573cfb3e24fd657ec3bf132bf3c75de02565f5"
+    url "https://github.com/apple/swift/archive/swift-2.2.1-RELEASE.tar.gz"
+    sha256 "e971e2287055da72564356f369bad97e95821afb1ef36157e954a04a7e90753a"
 
     swift_tag = "swift-#{version}-RELEASE"
     resource "cmark" do
       url "https://github.com/apple/swift-cmark/archive/#{swift_tag}.tar.gz"
-      sha256 "09c8da18c37f32cd0eb82b252a172481f5403c1bc6ab5740f92e87f8d1e79991"
+      sha256 "254d3c02bf2b03ad456fa3ad27b4da854e36318fcaf6b6f199fdb3e978a90803"
     end
 
     resource "clang" do
       url "https://github.com/apple/swift-clang/archive/#{swift_tag}.tar.gz"
-      sha256 "ba9220e61971a55d13f501dc30f452a5c272e4d897b444a5220f2e23dbbfc2f8"
+      sha256 "40bdfa7eec0497ec69005d6a5d018b12c85aa2c0959d3408ecaaa9e34ff0415f"
     end
 
     resource "llvm" do
       url "https://github.com/apple/swift-llvm/archive/#{swift_tag}.tar.gz"
-      sha256 "b975b816773aa9d888a9139f51acd1b57fd58959bb391f8f65645a2f9b6d4cc4"
+      sha256 "f7977e5bb275494b5dac4490afc5d634f894ba5f209f3b2dbd5b7e520fa5fce2"
     end
   end
 
   bottle do
-    sha256 "c0b8bed3990381cda9d84142f1eac4ef4f378d20e88e59fb7c0878bce0e89bab" => :el_capitan
-    sha256 "ebb1b44f3fb466deec1e7b5b198a4ec31388e47fc8e452124e2ae65d7c03884f" => :yosemite
+    sha256 "f63f2c86b7d5aaed1c922d50e98b146d0cdc0a6437977fef519ee616ec39ac73" => :el_capitan
+    sha256 "573b2120ea67319f8c398c2fa604479281b922deaa884c59b53ee0bc575765c6" => :yosemite
   end
 
   head do

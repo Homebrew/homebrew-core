@@ -19,13 +19,10 @@ class Aescrypt < Formula
 
   test do
     (testpath/"key").write "kk=12345678901234567890123456789abc0"
-
-    require "open3"
-    Open3.popen3("#{bin}/aescrypt", "-k", testpath/"key") do |stdin, stdout, _|
-      stdin.write("hello")
-      stdin.close
-      # we can't predict the output
-      stdout.read.length > 0
-    end
+    original_text = "hello"
+    cipher_text = pipe_output("#{bin}/aescrypt -k #{testpath}/key -s 128", original_text)
+    deciphered_text = pipe_output("#{bin}/aesget -k #{testpath}/key -s 128", cipher_text)
+    assert_not_equal original_text, cipher_text
+    assert_equal original_text, deciphered_text
   end
 end

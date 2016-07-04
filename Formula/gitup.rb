@@ -4,13 +4,13 @@ class Gitup < Formula
   url "https://github.com/earwig/git-repo-updater.git",
     :revision => "10494e677bba19622acfa3fc62093a06451c8562",
     :tag => "v0.3"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "51b4abede9028a4762fbdd2983a11532b65826e2a566c7e2519d3346f5fdbb0f" => :el_capitan
-    sha256 "0b5f3064bcdc561e931afbd126bd472a7d7ad87a68c02f5c03defbdb9c140d85" => :yosemite
-    sha256 "c0b86146ca84fd6962066a3bc11634d504c97df17bcf113f77ea3ff16543aa41" => :mavericks
-    sha256 "030291b81b361518a13917c16235fac9bb06ce12ce8f9c7ebb8ae38a9e4ad531" => :mountain_lion
+    sha256 "cef33e7aeac55b0c65396559fa73e933a7752c88659fc812797948ecf76d0987" => :el_capitan
+    sha256 "9426a727f17fc9637e1a2a55ca7e1c27933bea30e8575470a53c0c9c31e11cd9" => :yosemite
+    sha256 "6207251eb906b35befcf09cd52fc27f8932970bc2cb4f9b78c488e99f561c205" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -21,8 +21,8 @@ class Gitup < Formula
   end
 
   resource "colorama" do
-    url "https://pypi.python.org/packages/source/c/colorama/colorama-0.3.3.tar.gz"
-    sha256 "eb21f2ba718fbf357afdfdf6f641ab393901c7ca8d9f37edd0bee4806ffa269c"
+    url "https://pypi.python.org/packages/source/c/colorama/colorama-0.3.7.tar.gz"
+    sha256 "e043c8d32527607223652021ff648fbb394d5e19cba9f1a698670b338c9d782b"
   end
 
   resource "gitdb" do
@@ -31,8 +31,8 @@ class Gitup < Formula
   end
 
   resource "GitPython" do
-    url "https://pypi.python.org/packages/source/G/GitPython/GitPython-1.0.1.tar.gz"
-    sha256 "9c88c17bbcae2a445ff64024ef13526224f70e35e38c33416be5ceb56ca7f760"
+    url "https://pypi.python.org/packages/47/28/30f51df811ccdde2f719c034afc1cd1b036dcbb94ecf93ee61af25fe1738/GitPython-2.0.5.tar.gz"
+    sha256 "20f3c90fb8a11edc52d363364fb0a116a410c7b7bdee24a433712b5413d1028e"
   end
 
   def install
@@ -71,7 +71,7 @@ class Gitup < Formula
       prepare_repo("https://github.com/pr0d1r2/homebrew-cask-games.git", second_head_start)
     end
 
-    system "gitup", "first", "second"
+    system bin/"gitup", "first", "second"
 
     first_head = `cd first ; git rev-parse HEAD`.split.first
     assert_not_equal first_head, first_head_start
@@ -84,14 +84,14 @@ class Gitup < Formula
       prepare_repo("https://github.com/pr0d1r2/homebrew-contrib.git", third_head_start)
     end
 
-    system "gitup", "--add", "third"
+    system bin/"gitup", "--add", "third"
 
-    system "gitup"
+    system bin/"gitup"
     third_head = `cd third ; git rev-parse HEAD`.split.first
     assert_not_equal third_head, third_head_start
 
-    assert_match %r{#{Dir.pwd}/third}, `gitup --list`.strip
+    assert_match %r{#{Dir.pwd}/third}, `#{bin}/gitup --list`.strip
 
-    system "gitup", "--delete", "#{Dir.pwd}/third"
+    system bin/"gitup", "--delete", "#{Dir.pwd}/third"
   end
 end

@@ -1,17 +1,15 @@
-require "language/go"
-
 class Doctl < Formula
   desc "Command-line tool for DigitalOcean"
   homepage "https://github.com/digitalocean/doctl"
-  url "https://github.com/digitalocean/doctl/archive/v1.1.0.tar.gz"
-  sha256 "4504965edfa8e32a1b65f890b3141f6bd16428640c7b4d365dcf76709633b68f"
+  url "https://github.com/digitalocean/doctl/archive/v1.3.0.tar.gz"
+  sha256 "788590896679e1921642da6ec3e6b660b4b032626cbba82fd0d80f8559231683"
   head "https://github.com/digitalocean/doctl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d488bd227e29d9483c8cffa1181233fa3d66c7e065fa5cd66abc6e2eebfd3f08" => :el_capitan
-    sha256 "d5917a2962f24087c0a106ee8896e8691bf5e7410ef30ecc071259f2f077455a" => :yosemite
-    sha256 "c198bf12a5b7adad667a9e05cc165fa20091d0a7bfb62eb46d57b8e3c6c110fd" => :mavericks
+    sha256 "533905ad448a8288e8b119e78c6686672e64f2bc27c11a17a38d573671b5c8ee" => :el_capitan
+    sha256 "95e20a1b330b8ef853d7292e905b7198afb2a184aefb35ace8ea859f140a24b9" => :yosemite
+    sha256 "4e699d213de14dfaee7e45342b06f5c34ff5bcb01551f44c0b027a76d848d4ed" => :mavericks
   end
 
   depends_on "go" => :build
@@ -21,7 +19,6 @@ class Doctl < Formula
 
     mkdir_p buildpath/"src/github.com/digitalocean/"
     ln_sf buildpath, buildpath/"src/github.com/digitalocean/doctl"
-    Language::Go.stage_deps resources, buildpath/"src"
 
     doctl_version = version.to_s.split(/\./)
     base_flag = "-X github.com/digitalocean/doctl"
@@ -36,6 +33,6 @@ class Doctl < Formula
   end
 
   test do
-    assert_match "doctl version #{version.to_s}-release", shell_output("#{bin}/doctl version")
+    assert_match "doctl version #{version}-release", shell_output("#{bin}/doctl version")
   end
 end

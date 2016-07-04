@@ -1,16 +1,16 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/2.10.0.tar.gz"
-  sha256 "90d7286a4609ec200a059360faba0557000c82957399fda7db04d8860982ff4e"
+  url "https://github.com/aajanki/yle-dl/archive/2.10.1.tar.gz"
+  sha256 "56f305738a938341fe3e11a6fc396c6f36165da6cacfb175e5653402d082f1ab"
 
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4fe7b71d435029f54ae84524d986e38013aa1ceb88f755a9a44bfcde80c7a7ae" => :el_capitan
-    sha256 "8e79cd6285a2726cab3c5bf537e2be679c3f61b23121ed625f64b24a544412da" => :yosemite
-    sha256 "e0a490e1011a7735895b2ec6fdd92efc8e9281b19f008bf47dfd9c82d0a11df9" => :mavericks
+    sha256 "380d4337bb3ea7053489b7c0b6daf24ffb7ea50255cd9f86106ded47e5e0b922" => :el_capitan
+    sha256 "01a249e17fe5ba0563f3d789361e313bfe31f58851b9d46e220b03a13831a743" => :yosemite
+    sha256 "69b292b10dd9112376bb19d990b140da19014aa959d2a9adc28aaa5be4337362" => :mavericks
   end
 
   depends_on "rtmpdump"
@@ -24,12 +24,12 @@ class YleDl < Formula
   resource "AdobeHDS.php" do
     # NOTE: yle-dl always installs the HEAD version of AdobeHDS.php. We use a specific commit.
     # Check if there are bugfixes at https://github.com/K-S-V/Scripts/commits/master/AdobeHDS.php
-    url "https://raw.githubusercontent.com/K-S-V/Scripts/7e1c8d844e9907ea6407d74bc1d784e71ccb3ca3/AdobeHDS.php"
-    sha256 "61a012547a97ebee3342ba37f9d01c2eed9cdd08674fc9d59cc1b266ce80494e"
+    url "https://raw.githubusercontent.com/K-S-V/Scripts/3a9b748f957a921c5f846b3ebc7c99bb8255d2e0/AdobeHDS.php"
+    sha256 "45adf9b03dc991fcf6a44bb4cf62dd3777bf69647f1a98290e160a2bf89ebc2d"
   end
 
   resource "pycrypto" do
-    url "https://pypi.python.org/packages/source/p/pycrypto/pycrypto-2.6.1.tar.gz"
+    url "https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz"
     sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
   end
 
@@ -60,7 +60,7 @@ class YleDl < Formula
   end
 
   test do
-    assert_equal "Yle - Sinun tarinasi: 3 minuuttia-2012-05-30T10:51:00+03:00\n",
+    assert_equal "Traileri: 3 minuuttia-2012-05-30T10:51:00+03:00\n",
                  shell_output("#{bin}/yle-dl --showtitle http://areena.yle.fi/1-1570236")
   end
 end

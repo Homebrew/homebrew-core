@@ -40,8 +40,12 @@ class Transmission < Formula
 
   def caveats; <<-EOS.undent
     This formula only installs the command line utilities.
-    Transmission.app can be downloaded from Transmission's website:
+
+    Transmission.app can be downloaded directly from the website:
       https://www.transmissionbt.com/
+
+    Alternatively, install with Homebrew-Cask:
+      brew cask install transmission
     EOS
   end
 

@@ -1,13 +1,13 @@
 class ClutterGtk < Formula
   desc "GTK+ integration library for Clutter"
   homepage "https://wiki.gnome.org/Projects/Clutter"
-  url "https://download.gnome.org/sources/clutter-gtk/1.6/clutter-gtk-1.6.6.tar.xz"
-  sha256 "9440a68600f58d00fe0af35383738943e8ead9907f4cf507a102d96822434a28"
+  url "https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.0.tar.xz"
+  sha256 "742ef9d68ece36cbb1b2e1a4a6fbdad932f6645360be7e6de75abbb140dfbf1d"
 
   bottle do
-    sha256 "b877f157f95367d57649090765d3ee751bc0640f3d22fe7c4b548036559f70f2" => :el_capitan
-    sha256 "003d0f0cf0316b0db59b59709ef881b6825d6af3c067ff2c51a57767e5ef2d31" => :yosemite
-    sha256 "e60f0391b3ea16940125d56d59f085853b8ee2d264daef4a1326a94c2b623a0d" => :mavericks
+    sha256 "1491c366ff7686c09ffd8d23491e1689c716e6df820ef81bd20a5ca9f685e788" => :el_capitan
+    sha256 "d12a6bdf9a4f12aadb2603031b23a35e94da32bdfe1c612868f60d6edd14d377" => :yosemite
+    sha256 "e0a49758f14433e41493183cc8a0f4106ec2f42435a11a8f64ef1c6f576255cf" => :mavericks
   end
 
   depends_on "pkg-config" => :build

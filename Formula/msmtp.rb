@@ -1,13 +1,13 @@
 class Msmtp < Formula
   desc "SMTP client that can be used as an SMTP plugin for Mutt"
   homepage "http://msmtp.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/msmtp/msmtp/1.6.4/msmtp-1.6.4.tar.xz"
-  sha256 "9b49c022a5440d41b6782c97ef2977d0346c3dae05aa8836243a9953e982d1cd"
+  url "https://downloads.sourceforge.net/project/msmtp/msmtp/1.6.5/msmtp-1.6.5.tar.xz"
+  sha256 "76a0d60693c7e65d0c7a12f01d300882d280b1e1be0202f54730ae44d44a5006"
 
   bottle do
-    sha256 "6d1eef02a990fc1355f9d47da7237870d43ce0b5d24cb30a45c15952fdd815c4" => :el_capitan
-    sha256 "d006ac74d71d76fb5c1881513c8204408c88863f38f37c5d2c1face8c7aeadfd" => :yosemite
-    sha256 "a87c7d5ee59c48fdb1151cca93acea417db67f17cde2994ad97c2b0ee43722e3" => :mavericks
+    sha256 "587b8765d86f2b497bbb081ac4532d274e89d9e4ebd0a3917a798c67e921d712" => :el_capitan
+    sha256 "5605ee05b8922d12d228c271cb3e8df87c2294cccc083501f19ea5316e19e539" => :yosemite
+    sha256 "fc48e443dfe5c98f3ca5d40e66e05b6def31b06f17927d5743ea9906fc228775" => :mavericks
   end
 
   option "with-gsasl", "Use GNU SASL authentication library"

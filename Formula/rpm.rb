@@ -106,18 +106,21 @@ class Rpm < Formula
   end
 
   test do
-    (testpath/"var/lib/rpm").mkpath
+    (testpath/"rpmbuild").mkpath
     (testpath/".rpmmacros").write <<-EOS.undent
-      %_topdir		#{testpath}/var/lib/rpm
-      %_specdir		%{_topdir}/SPECS
+      %_topdir		#{testpath}/rpmbuild
       %_tmppath		%{_topdir}/tmp
     EOS
 
-    system "#{bin}/rpm", "-vv", "-qa", "--dbpath=#{testpath}"
+    system "#{bin}/rpm", "-vv", "-qa", "--dbpath=#{testpath}/var/lib/rpm"
+    assert File.exist?(testpath/"var/lib/rpm/Packages")
     rpmdir("%_builddir").mkpath
     specfile = rpmdir("%_specdir")+"test.spec"
     specfile.write(test_spec)
     system "#{bin}/rpmbuild", "-ba", specfile
-    assert File.exist?(testpath/"var/lib/rpm/SRPMS/test-1.0-1.src.rpm")
+    assert File.exist?(rpmdir("%_srcrpmdir")/"test-1.0-1.src.rpm")
+    assert File.exist?(rpmdir("%_rpmdir")/"noarch/test-1.0-1.noarch.rpm")
+    system "#{bin}/rpm", "-qpi", "--dbpath=#{testpath}/var/lib/rpm",
+                         rpmdir("%_rpmdir")/"noarch/test-1.0-1.noarch.rpm"
   end
 end

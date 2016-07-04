@@ -1,17 +1,17 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.9.2/nghttp2-1.9.2.tar.xz"
-  sha256 "3d600ef8bfd151769559bc23806877b8b4eaf3d66776e6c1427b9c04cce8e853"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.12.0/nghttp2-1.12.0.tar.xz"
+  sha256 "445c24243b8132b031c2c9fc9fe99f5abadbce2db4fbdf7eb6d3beaa5797dd4b"
 
   bottle do
-    sha256 "ec38f560b8477ec6f5fdf2d73ddc028964ae1db6bd0512698bbcc85ceb12352c" => :el_capitan
-    sha256 "34ab8d855e11aaf9ee4c240bf698d609d0574e0532d7ad1c11a749dbb6b4e0ff" => :yosemite
-    sha256 "d98b1baa78f3ef7d9b225afc209c3237e261d82f10bfcb2f8605f53941795bae" => :mavericks
+    sha256 "9d75d6846e9402a9e2f4a84bd0af6f3fe49709ec070c413d5b6703b7bc46cd4e" => :el_capitan
+    sha256 "47ad32e5319dcaa7461925d3a27e8eb065a4969a932cfede0b1c395698abe28c" => :yosemite
+    sha256 "5aa502633f6e56501b80ee84b5c117829d0a55b4d83d9c521b1eaaf19dd7ca0e" => :mavericks
   end
 
   head do
-    url "https://github.com/tatsuhiro-t/nghttp2.git"
+    url "https://github.com/nghttp2/nghttp2.git"
 
     depends_on "automake" => :build
     depends_on "autoconf" => :build
@@ -36,8 +36,8 @@ class Nghttp2 < Formula
   depends_on "spdylay" => :recommended
 
   resource "Cython" do
-    url "https://pypi.python.org/packages/source/C/Cython/Cython-0.23.1.tar.gz"
-    sha256 "bdfd12d6a2a2e34b9a1bbc1af5a772cabdeedc3851703d249a52dcda8378018a"
+    url "https://pypi.python.org/packages/b1/51/bd5ef7dff3ae02a2c6047aa18d3d06df2fb8a40b00e938e7ea2f75544cac/Cython-0.24.tar.gz"
+    sha256 "6de44d8c482128efc12334641347a9c3e5098d807dd3c69e867fa8f84ec2a3f1"
   end
 
   # https://github.com/tatsuhiro-t/nghttp2/issues/125

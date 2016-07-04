@@ -1,8 +1,8 @@
 class Offlineimap < Formula
   desc "Synchronizes emails between two repositories"
   homepage "http://offlineimap.org/"
-  url "https://github.com/OfflineIMAP/offlineimap/archive/v6.7.0.tar.gz"
-  sha256 "c446fb31bdca90c7db4146b918ad3fa05f6df5362a4cc961df6a7727a8aac210"
+  url "https://github.com/OfflineIMAP/offlineimap/archive/v6.7.0.1.tar.gz"
+  sha256 "00e91ff782217506dd91f502d094ef0daa27732cfc68c914029aefc1c53642fb"
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
   bottle :unneeded
@@ -24,15 +24,18 @@ class Offlineimap < Formula
     EOS
   end
 
-  test do
-    system bin/"offlineimap", "--version"
-  end
+  plist_options :manual => "offlineimap"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
       <dict>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>PATH</key>
+          <string>/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin</string>
+        </dict>
         <key>KeepAlive</key>
         <false/>
         <key>Label</key>
@@ -52,5 +55,9 @@ class Offlineimap < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    system bin/"offlineimap", "--version"
   end
 end

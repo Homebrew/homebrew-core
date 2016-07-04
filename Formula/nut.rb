@@ -1,14 +1,13 @@
 class Nut < Formula
   desc "Network UPS Tools: Support for various power devices"
   homepage "http://www.networkupstools.org"
-  url "http://www.networkupstools.org/source/2.7/nut-2.7.3.tar.gz"
-  sha256 "ff44d95d06a51559a0a018eef7f8d17911c1002b6352a7d7580ff75acb12126b"
+  url "http://www.networkupstools.org/source/2.7/nut-2.7.4.tar.gz"
+  sha256 "980e82918c52d364605c0703a5dcf01f74ad2ef06e3d365949e43b7d406d25a7"
 
   bottle do
-    revision 1
-    sha256 "b78afeef0043a9a22fe57d673c0c4f4ff14fcf77cfcdb7ea8d8b9b9092ba00d2" => :el_capitan
-    sha256 "8d2e76b8ee440afde4ea901484b73d60d587fa0f06000f5397b2686e526d09ed" => :yosemite
-    sha256 "d2f0ffcf035b9a7313732d3581f4ff57b9af2006e5f77286b403b2973024d9ed" => :mavericks
+    sha256 "df1f1a4b7efa73d48ada9d97ec13983fd1ba674773a058f771044dcd841a4b79" => :el_capitan
+    sha256 "d544abc34f9ed56f76fae104b8a472fe081c5072e32aeddbbd674316e9c0931d" => :yosemite
+    sha256 "83183c2346ec3642b45a20e47439225d94a58d6617669dd2001922f12d544942" => :mavericks
   end
 
   head do
@@ -47,16 +46,17 @@ class Nut < Formula
       system "./autogen.sh"
     end
 
-    args = ["--disable-dependency-tracking",
-            "--prefix=#{prefix}",
-            "--localstatedir=#{var}",
-            "--without-doc",
-            "--without-avahi",
-            "--with-macosx_ups",
-            "--with-openssl",
-            "--without-nss",
-            "--without-wrap"
-           ]
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --localstatedir=#{var}
+      --without-doc
+      --without-avahi
+      --with-macosx_ups
+      --with-openssl
+      --without-nss
+      --without-wrap
+    ]
     args << (build.with?("serial") ? "--with-serial" : "--without-serial")
     args << (build.with?("libusb-compat") ? "--with-usb" : "--without-usb")
     args << (build.with?("dev") ? "--with-dev" : "--without-dev")

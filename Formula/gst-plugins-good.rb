@@ -1,19 +1,18 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
-  revision 1
 
   stable do
-    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.8.1.tar.xz"
-    sha256 "2103e17921d67894e82eafdd64fb9b06518599952fd93e625bfbc83ffead0972"
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.8.2.tar.xz"
+    sha256 "8d7549118a3b7a009ece6bb38a05b66709c551d32d2adfd89eded4d1d7a23944"
 
     depends_on "check" => :optional
   end
 
   bottle do
-    sha256 "8e2e33a722d5f06775cc466157737f153c80793873d10ec439d81a407dadb008" => :el_capitan
-    sha256 "68d396a9c55d2c36450a994c4d7dc834dbf88a15420d7a50f56f5e4872a23a39" => :yosemite
-    sha256 "e3ab65beb5127a69106fa2f8927e0efeddb3aa31878123cfe3dbf0909e46e903" => :mavericks
+    sha256 "279c7a4f5b1b95c6f18bde298f6d34c80c0c6abaf5e6b42bd1c0aae96c1d838e" => :el_capitan
+    sha256 "92fe5a7435f0e0d960739462b7bc5f96f7b0dfe95d44244d8de82341324a83a5" => :yosemite
+    sha256 "36dd3543041e31326566df1cad981c9288e7f4b3d4459980f971b6f025988091" => :mavericks
   end
 
   head do

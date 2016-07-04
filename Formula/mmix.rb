@@ -5,10 +5,11 @@ class Mmix < Formula
   sha256 "aa64c4b9dc3cf51f07b330791f8ce542b0ae8a1132e098fa95a19b31350050b4"
 
   bottle do
-    cellar :any
-    sha256 "6c4c3827aeb30811a8b611cd4a32fd03891176461a0574d605afc7366f4c6b24" => :mavericks
-    sha256 "1923c3763f050c857b32695d5d01488159e677803aa6fd0cc9e2ba563e7424b1" => :mountain_lion
-    sha256 "9753b9a76618842b5c1d1d14d3ed0505aa233515db53465aa476e04dd186e548" => :lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "4b475fc20b7db2c181af3fc7d428cee8a84908d561e6c6e465d04be87f720174" => :el_capitan
+    sha256 "ee8d4243e19537e2f63583118b1e28cb7f381025ca22ab886c4d9be81ad67687" => :yosemite
+    sha256 "03721382856f84325efda7ea173e3489412ab71d98928b50c3400c7a435b227e" => :mavericks
   end
 
   depends_on "cweb" => :build
@@ -31,9 +32,10 @@ txt   BYTE "Hello world!",0
 
 Main  LDA $255,txt
       TRAP 0,Fputs,StdOut
+      TRAP 0,Fputs,StdErr
       TRAP 0,Halt,0
     EOS
     system bin/"mmixal", "hello.mms"
-    assert_equal "Hello world!", `mmix hello.mmo`
+    assert_equal "Hello world!", shell_output("#{bin}/mmix hello.mmo")
   end
 end

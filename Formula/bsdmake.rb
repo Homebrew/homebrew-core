@@ -17,22 +17,22 @@ class Bsdmake < Formula
   # MacPorts patches to make bsdmake play nice with our prefix system
   # Also a MacPorts patch to circumvent setrlimit error
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/1fcaddfc/bsdmake/patch-Makefile.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/1fcaddfc/bsdmake/patch-Makefile.diff"
     sha256 "1e247cb7d8769d50e675e3f66b6f19a1bc7663a7c0800fc29a2489f3f6397242"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/1fcaddfc/bsdmake/patch-mk.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/1fcaddfc/bsdmake/patch-mk.diff"
     sha256 "b7146bfe7a28fc422e740e28e56e5bf0166a29ddf47a54632ad106bca2d72559"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/1fcaddfc/bsdmake/patch-pathnames.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/1fcaddfc/bsdmake/patch-pathnames.diff"
     sha256 "b24d73e5fe48ac2ecdfbe381e9173f97523eed5b82a78c69dcdf6ce936706ec6"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/1fcaddfc/bsdmake/patch-setrlimit.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/1fcaddfc/bsdmake/patch-setrlimit.diff"
     sha256 "cab53527564d775d9bd9a6e4969f116fdd85bcf0ad3f3e57ec2dcc648f7ed448"
   end
 

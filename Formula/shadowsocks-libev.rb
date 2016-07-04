@@ -1,15 +1,15 @@
 class ShadowsocksLibev < Formula
   desc "Libev port of shadowsocks"
   homepage "https://github.com/shadowsocks/shadowsocks-libev"
-  url "https://github.com/shadowsocks/shadowsocks-libev/archive/v2.4.5.tar.gz"
-  sha256 "08bf7f240ee39fa700aac636ca84b65f2f0cfbcfa63a0783afb05872940067e2"
+  url "https://github.com/shadowsocks/shadowsocks-libev/archive/v2.4.7.tar.gz"
+  sha256 "957265cc5339e020d8c8bb7414ab14936e3939dc7355f334aec896ec9b03c6ed"
   head "https://github.com/shadowsocks/shadowsocks-libev.git"
 
   bottle do
     cellar :any
-    sha256 "5f1a5d06dedfa3933d06d68e954eb2ed800dc4300b14a8b7292fcbf1f0080e04" => :el_capitan
-    sha256 "1bfb078358f96a492f1047cf57a2a70ed168725aa916d4ffcb30cb82cfc26ff3" => :yosemite
-    sha256 "850d0120fb1db1b0e08450c021bcd88d75e71101d0a73096f870db77637a558d" => :mavericks
+    sha256 "278ad0f88ed3727f8b1eef96be36b5881e3372fb8421b024c5a13e59a32bc9b4" => :el_capitan
+    sha256 "708d451963e353f97fa0bb693f55e271ef3f18518bb2ea09c94ebed326ff7af4" => :yosemite
+    sha256 "97ba97b90fa8f170817163b4f403db2fc38818bdb207b9579cb8f21e6055fafc" => :mavericks
   end
 
   depends_on "openssl"
@@ -40,6 +40,30 @@ class ShadowsocksLibev < Formula
     man1.install Dir["man/*.1"]
   end
 
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/shadowsocks-libev/bin/ss-local -c #{HOMEBREW_PREFIX}/etc/shadowsocks-libev.json"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/ss-local</string>
+          <string>-c</string>
+          <string>#{etc}/shadowsocks-libev.json</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+      </dict>
+    </plist>
+    EOS
+  end
+
   test do
     (testpath/"shadowsocks-libev.json").write <<-EOS.undent
       {
@@ -63,29 +87,5 @@ class ShadowsocksLibev < Formula
       Process.kill 9, client
       Process.wait client
     end
-  end
-
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/shadowsocks-libev/bin/ss-local -c #{HOMEBREW_PREFIX}/etc/shadowsocks-libev.json"
-
-  def plist; <<-EOS.undent
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/ss-local</string>
-          <string>-c</string>
-          <string>#{etc}/shadowsocks-libev.json</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-      </dict>
-    </plist>
-    EOS
   end
 end

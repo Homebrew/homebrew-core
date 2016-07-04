@@ -16,7 +16,7 @@ class Webfs < Formula
   depends_on "openssl"
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/0518a6d1/webfs/patch-ls.c"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0518a6d1/webfs/patch-ls.c"
     sha256 "8ddb6cb1a15f0020bbb14ef54a8ae5c6748a109564fa461219901e7e34826170"
   end
 

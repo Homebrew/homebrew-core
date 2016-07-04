@@ -1,14 +1,14 @@
 class Libcouchbase < Formula
   desc "C library for Couchbase"
   homepage "http://docs.couchbase.com/developer/c-2.4/c-intro.html"
-  url "https://s3.amazonaws.com/packages.couchbase.com/clients/c/libcouchbase-2.5.8.tar.gz"
-  sha256 "49a44a17184341c0b081ba1284898af339f0e71760f94875481ca9fd86dc0da6"
+  url "https://s3.amazonaws.com/packages.couchbase.com/clients/c/libcouchbase-2.6.1.tar.gz"
+  sha256 "c4d4914355a18067fb18f4a1c3249a4a3c639aadbb7e0279fa87421b17b89700"
   head "https://github.com/couchbase/libcouchbase.git"
 
   bottle do
-    sha256 "964ed355a4041ec426c76a83e77321c34fa535e9bb7345205d91e0b8f47efe9e" => :el_capitan
-    sha256 "f76e55584a397c7311a7b3c53a7ea51df0f4c916db66cf9de45eff20cab95c89" => :yosemite
-    sha256 "5b1bfa35752b0480f3edd633179eb69216258595444b60ee3f1595a94ef18f2f" => :mavericks
+    sha256 "d88fb37337a0375c23efdc9b82a52d97d9d44747ebe474876f7dcd19c92e9a11" => :el_capitan
+    sha256 "0a526ab23fc9531c31ebe0b3f03002fa4619465512a2499f01d19ac4d5893017" => :yosemite
+    sha256 "addbf3bd0a96c289cb2ac426970f708908d73e4a04ba1a8bd1d47441aa6b959a" => :mavericks
   end
 
   option :universal
@@ -28,8 +28,8 @@ class Libcouchbase < Formula
     args = std_cmake_args
     args << "-DLCB_NO_TESTS=1"
 
-    ["libev", "libevent", "libuv"].each do |pname|
-      args << "-DLCB_BUILD_#{pname.upcase}=" + (build.with?("#{pname}") ? "ON" : "OFF")
+    ["libev", "libevent", "libuv"].each do |dep|
+      args << "-DLCB_BUILD_#{dep.upcase}=" + (build.with?(dep) ? "ON" : "OFF")
     end
     if build.universal?
       args << "-DLCB_UNIVERSAL_BINARY=1"

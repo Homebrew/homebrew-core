@@ -1,14 +1,13 @@
 class Libsoup < Formula
   desc "HTTP client/server library for GNOME"
   homepage "https://live.gnome.org/LibSoup"
-  url "https://download.gnome.org/sources/libsoup/2.52/libsoup-2.52.2.tar.xz"
-  sha256 "db55628b5c7d952945bb71b236469057c8dfb8dea0c271513579c6273c2093dc"
-  revision 1
+  url "https://download.gnome.org/sources/libsoup/2.54/libsoup-2.54.1.tar.xz"
+  sha256 "47b42c232034734d66e5f093025843a5d8cc4b2357c011085a2fd04ef02dd633"
 
   bottle do
-    sha256 "de28079d444082ea4f6f2aca4388152aa8d303926917baa5f656bdd7d222ef72" => :el_capitan
-    sha256 "20307b7b63cc31b13243d5c69352a650ddb9c814f7ed3da4e25eaf5658488d95" => :yosemite
-    sha256 "5906c25c1cc3da2f65759625853be406fda083a8551129b79141196dbb63c81c" => :mavericks
+    sha256 "2c80bed91542ec201d048111f191d1d587c11a891b535a7e5829f65c58f61fa6" => :el_capitan
+    sha256 "1cf828bf708c7ecad96eaa47c8669aca22995d9587113be10639ef4fda4f8c61" => :yosemite
+    sha256 "d3be03abe735a36ab28fdcf1bbd9a98d5be013ed8ed2b4d52ba566183aab03d4" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -20,17 +19,20 @@ class Libsoup < Formula
   depends_on "vala"
 
   def install
-    args = [
-      "--disable-debug",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}",
-      "--without-gnome",
-      "--disable-tls-check",
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+      --disable-tls-check
+      --enable-introspection=yes
     ]
 
     # ensures that the vala files remain within the keg
-    inreplace "libsoup/Makefile.in", "VAPIDIR = @VAPIDIR@", "VAPIDIR = @datadir@/vala/vapi"
+    inreplace "libsoup/Makefile.in",
+              "VAPIDIR = @VAPIDIR@",
+              "VAPIDIR = @datadir@/vala/vapi"
+
     system "./configure", *args
     system "make", "install"
   end

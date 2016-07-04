@@ -1,13 +1,13 @@
 class Clutter < Formula
   desc "Generic high-level canvas library"
   homepage "https://wiki.gnome.org/Projects/Clutter"
-  url "https://download.gnome.org/sources/clutter/1.24/clutter-1.24.2.tar.xz"
-  sha256 "9631c98cb4bcbfec15e1bbe9eaa6eef0f127201552fce40d7d28f2133803cd63"
+  url "https://download.gnome.org/sources/clutter/1.26/clutter-1.26.0.tar.xz"
+  sha256 "67514e7824b3feb4723164084b36d6ce1ae41cb3a9897e9f1a56c8334993ce06"
 
   bottle do
-    sha256 "6b5dfa3423c12b165975b543b3d248c6a2d952a11f54592adb521d545762fb2e" => :el_capitan
-    sha256 "abec612052d49b3358be8c62c13390424bac6125c99943e387843be8b9b569b1" => :yosemite
-    sha256 "57f0e339ca82e2a2db0233fa02cdab5c546c60331c5467ae541d02ed8885b5ce" => :mavericks
+    sha256 "ee1428123c15251c5393d5ad5f0693704e7aa60c131dc1d56de3df48a5dcb4c2" => :el_capitan
+    sha256 "61e314bfe13c06db50812c577a88099e9f6dbff7ec0fa7a14fcce0fde7c55611" => :yosemite
+    sha256 "6f9fb993c83c0e52d8e8b0e3edb15657cfb68159912810ae5787f1050c781fd8" => :mavericks
   end
 
   depends_on "pkg-config" => :build

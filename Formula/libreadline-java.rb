@@ -6,14 +6,14 @@ class LibreadlineJava < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "f4577832ad395d95b5eafed87f7b9383a674886bbc0944956348b721c63030e5" => :yosemite
-    sha256 "50849b0c88536b0ba32bf844b652a3b784dce4e5add2dc22463a94fc07292669" => :mavericks
-    sha256 "861edbe4b8e9fa0d4cd3113cf87d3eb2cce4b52618deb2609b621c9fb2255dfc" => :mountain_lion
+    revision 2
+    sha256 "60c87ccb25de4a8f74ab8c556bd20f1d8dea166a0a294b411cc921dbb441b8ed" => :el_capitan
+    sha256 "ff9a64314f4462ca7ce6001128468dc10764713d2f335eb942d61e4b846c7ce0" => :yosemite
+    sha256 "f5bb381d7cb58817f7626dfbdd6e07c027e78e3df232c003cdfc4a2889906f43" => :mavericks
   end
 
   depends_on "readline"
-  depends_on :java => "1.6"
+  depends_on :java => "1.6+"
 
   # Fix "non-void function should return a value"-Error
   # https://sourceforge.net/tracker/?func=detail&atid=453822&aid=3566332&group_id=48669
@@ -21,6 +21,14 @@ class LibreadlineJava < Formula
 
   def install
     java_home = ENV["JAVA_HOME"]
+
+    # Reported 4th May 2016: https://sourceforge.net/p/java-readline/bugs/12/
+    # JDK 8 doclint for Javadoc complains about minor HTML conformance issues
+    if `javadoc -X`.include? "doclint"
+      inreplace "Makefile",
+        "-version -author org.gnu.readline test",
+        "-version -author org.gnu.readline -Xdoclint:none test"
+    end
 
     # Current Oracle JDKs put the jni.h and jni_md.h in a different place than the
     # original Apple/Sun JDK used to.
@@ -56,7 +64,7 @@ class LibreadlineJava < Formula
       s.gsub! "$(CC) -shared $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -o $@", "$(CC) -install_name #{HOMEBREW_PREFIX}/lib/$(LIB_PRE)$(TG).$(LIB_EXT) -dynamiclib $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -o $@"
     end
 
-    (share/"libreadline-java").mkpath
+    pkgshare.mkpath
 
     system "make", "jar"
     system "make", "build-native"
@@ -73,7 +81,7 @@ class LibreadlineJava < Formula
 
   # Testing libreadline-java (can we execute and exit libreadline without exceptions?)
   test do
-    assert /Exception/ !~ pipe_output("java -Djava.library.path=#{lib} -cp #{share}/libreadline-java/libreadline-java.jar test.ReadlineTest", "exit")
+    assert /Exception/ !~ pipe_output("java -Djava.library.path=#{lib} -cp #{pkgshare}/libreadline-java.jar test.ReadlineTest", "exit")
   end
 end
 

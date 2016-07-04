@@ -15,7 +15,7 @@ class Libspectre < Formula
   depends_on "ghostscript"
 
   patch do
-    url "https://github.com/Homebrew/patches/raw/master/libspectre/libspectre-0.2.7-gs918.patch"
+    url "https://github.com/Homebrew/formula-patches/raw/master/libspectre/libspectre-0.2.7-gs918.patch"
     sha256 "e4c186ddc6cebc92ee0aee24bc79c7f5fff147a0c0d9cadf7ebdc3906d44711c"
   end
 

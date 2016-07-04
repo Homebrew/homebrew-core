@@ -23,7 +23,7 @@ class Pdksh < Formula
   end
 
   patch :p0 do # Use `sort -k 3n -k 1` instead of `sort +2n +0n`, via MacPorts.
-    url "https://raw.githubusercontent.com/Homebrew/patches/af7a9de9/pdksh/patch-siglist.sh"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/af7a9de9/pdksh/patch-siglist.sh"
     sha256 "23a3b4cbf67886c358a26818a95f9b39304d0aab82dead78d5438b633a0917bc"
   end
 

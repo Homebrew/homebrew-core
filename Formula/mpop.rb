@@ -1,14 +1,14 @@
 class Mpop < Formula
   desc "POP3 client"
   homepage "http://mpop.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/mpop/mpop/1.2.0/mpop-1.2.0.tar.xz"
-  sha256 "9d28817a6950f64aadf10bf5841400701917102181ebf96c136fbd4707c17ba7"
+  url "https://downloads.sourceforge.net/project/mpop/mpop/1.2.5/mpop-1.2.5.tar.xz"
+  sha256 "01612b5fc60dcbd5368b7cc2e0fce6c141c2e835d4646f8d7214d9898a901158"
 
   bottle do
     cellar :any
-    sha256 "d0cf8dbb1e38b7cecd1e7bb25b36d030ba84dcf7ba9fea9c7ba85a079dfac5c9" => :el_capitan
-    sha256 "74065aba089ad65eeae5981b1959e82ab0780c05cceefeb7bf1c70a7ecb90289" => :yosemite
-    sha256 "44711199cbcfc5903eaf7032da4fa390888e507f836d28e00ee027a98ec9d668" => :mavericks
+    sha256 "6aaf347d5917c4366b7572ff6ac48e5cf7be653a1dc34347503f64c6d5b38d4d" => :el_capitan
+    sha256 "55de4c36ac34e22563d5adf327a50e9859e7ba6a848254d3f9f226791086bf72" => :yosemite
+    sha256 "6152acd7293ead40fce85a67e9e451d15ddfa71775e688e08aef11d9565005ae" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -17,5 +17,9 @@ class Mpop < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/mpop --version")
   end
 end

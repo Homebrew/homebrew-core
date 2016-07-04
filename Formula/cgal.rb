@@ -1,6 +1,6 @@
 class Cgal < Formula
   desc "CGAL: Computational Geometry Algorithm Library"
-  homepage "http://www.cgal.org/"
+  homepage "https://www.cgal.org/"
   url "https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.7/CGAL-4.7.tar.gz"
   sha256 "1be058fe9fc4d8331b48daf8beb114a049fd4970220d8a570ff709b7789dacae"
 

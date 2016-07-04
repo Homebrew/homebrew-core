@@ -1,8 +1,8 @@
 class Psql2csv < Formula
   desc "Run a query in psql and output the result as CSV"
   homepage "https://github.com/fphilipe/psql2csv"
-  url "https://github.com/fphilipe/psql2csv/archive/v0.8.tar.gz"
-  sha256 "266d27baf4ca20b7dd9383efccd4119619e8e7cd1c6a1f246d8cd12534bd4f66"
+  url "https://github.com/fphilipe/psql2csv/archive/v0.9.tar.gz"
+  sha256 "80dffcb2b41de131dd6023f5f496ff5981d86877de81f154f56c169793026022"
 
   bottle :unneeded
 
@@ -13,7 +13,7 @@ class Psql2csv < Formula
   end
 
   test do
-    expected = "COPY (SELECT 1) TO STDOUT WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8')"
+    expected = "COPY (SELECT 1) TO STDOUT WITH (FORMAT csv, ENCODING 'UTF8', HEADER true)"
     output = shell_output(%(#{bin}/psql2csv --dry-run "SELECT 1")).strip
     assert_equal expected, output
   end

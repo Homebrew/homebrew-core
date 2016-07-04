@@ -14,7 +14,7 @@ class Makeicns < Formula
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/e59da9d/makeicns/patch-IconFamily.m.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e59da9d/makeicns/patch-IconFamily.m.diff"
     sha256 "f5ddbf6a688d6f153cf6fc2e15e75309adaf61677ab423cb67351e4fbb26066e"
   end
 

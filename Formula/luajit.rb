@@ -14,8 +14,14 @@ class Luajit < Formula
   end
 
   devel do
-    url "http://luajit.org/git/luajit-2.0.git", :branch => "v2.1"
-    version "2.1"
+    url "http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz"
+    sha256 "713924ca034b9d99c84a0b7b701794c359ffb54f8e3aa2b84fad52d98384cf47"
+
+    # https://github.com/LuaJIT/LuaJIT/issues/180
+    patch do
+      url "https://github.com/LuaJIT/LuaJIT/commit/5837c2a2fb1ba6651.diff"
+      sha256 "7b5d233fc3a95437bd1c8459ad35bba63825655f47951b6dba1d053df7f98587"
+    end
   end
 
   deprecated_option "enable-debug" => "with-debug"
@@ -35,6 +41,7 @@ class Luajit < Formula
     ENV.O2 # Respect the developer's choice.
 
     args = %W[PREFIX=#{prefix}]
+    args << "XCFLAGS=-DLUAJIT_ENABLE_LUA52COMPAT" if build.with? "52compat"
 
     # This doesn't yet work under superenv because it removes "-g"
     args << "CCDEBUG=-g" if build.with? "debug"
@@ -42,19 +49,16 @@ class Luajit < Formula
     # The development branch of LuaJIT normally does not install "luajit".
     args << "INSTALL_TNAME=luajit" if build.devel?
 
-    args << "XCFLAGS=-DLUAJIT_ENABLE_LUA52COMPAT" if build.with? "52compat"
-
     system "make", "amalg", *args
     system "make", "install", *args
 
     # LuaJIT doesn't automatically symlink unversioned libraries:
     # https://github.com/Homebrew/homebrew/issues/45854.
-    lib.install_symlink lib/"libluajit-5.1.2.0.4.dylib" => "libluajit.dylib"
+    lib.install_symlink lib/"libluajit-5.1.dylib" => "libluajit.dylib"
     lib.install_symlink lib/"libluajit-5.1.a" => "libluajit.a"
 
-    # Having an empty Lua dir in Lib/share can screw with other Homebrew Luas.
-    rm_rf lib/"lua"
-    rm_rf share/"lua"
+    # Having an empty Lua dir in lib/share can mess with other Homebrew Luas.
+    %W[ #{lib}/lua #{share}/lua ].each { |d| rm_rf d }
   end
 
   test do

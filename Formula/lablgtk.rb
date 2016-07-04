@@ -1,14 +1,13 @@
 class Lablgtk < Formula
   desc "Objective Caml interface to gtk+"
   homepage "http://lablgtk.forge.ocamlcore.org"
-  url "https://forge.ocamlcore.org/frs/download.php/1479/lablgtk-2.18.3.tar.gz"
-  sha256 "975bebf2f9ca74dc3bf7431ebb640ff6a924bb80c8ee5f4467c475a7e4b0cbaf"
-  revision 2
+  url "https://forge.ocamlcore.org/frs/download.php/1602/lablgtk-2.18.4.tar.gz"
+  sha256 "b316ae0b92e760c1ab0d1bdeaa0a3c2a6ab14face5a0fe2b93445be3a3d013c0"
 
   bottle do
-    sha256 "bef271a1a3f37813f42cfe6f8780aa8b0ebba4891b950d09c54abc98becaf086" => :el_capitan
-    sha256 "02b8ccf9c645fb183d6baf80dec423aeff7e3bdc0d2aeccf0e1d88282cbd52f7" => :yosemite
-    sha256 "0456edef7ebcd5d985520270c44102ce6e4550b10150ddb056a370771d17784d" => :mavericks
+    sha256 "2d577a0bd0e44f54456ddd73d998c552812a20e0dc4fa17ec0c39cdfe7859206" => :el_capitan
+    sha256 "8119325541fe1f222d5174126c54edecab8be1b91622f007d574714ad4e66a8f" => :yosemite
+    sha256 "4c650d1ae2959ab8fa796c3075b96527025e2a133d6797188b96d37b55f62353" => :mavericks
   end
 
   depends_on "pkg-config" => :build

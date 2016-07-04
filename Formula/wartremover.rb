@@ -1,28 +1,29 @@
 class Wartremover < Formula
   desc "Flexible Scala code linting tool"
   homepage "https://github.com/puffnfresh/wartremover"
-  url "https://github.com/puffnfresh/wartremover/archive/v0.13.tar.gz"
-  sha256 "65d2f9907662bc2cc892801055713dd80a7fc25ade5091cb534bfc51eaae626b"
-
+  url "https://github.com/puffnfresh/wartremover/archive/v1.0.0.tar.gz"
+  sha256 "b315b38ccb633c14c83ea699cb8d12fa8a7105e3c6b066b87c1b53e9eb95a043"
   head "https://github.com/puffnfresh/wartremover.git"
 
   bottle do
-    cellar :any
-    sha256 "7cf8e78114d8212a56e71cf62b415151e0458141bef644a4a5f8e75417cc7f8b" => :yosemite
-    sha256 "a5c0eb64c5d8165c918772f3462eada415ad90545f77eb6d8aa8d636ba73ed32" => :mavericks
-    sha256 "4727d2f98bbe8c3b4e60a99cb97af633a1b33a8a1e42b8caade98ebd1d7131d0" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "11b231be52c5e33487d2a68c51dd2dec57e4f6d5ae0e5ea579813668b4ddc504" => :el_capitan
+    sha256 "153ba2e298749b87d75bdb04da31a63a0a453fcf1371525c6a3c9bae351e8fcb" => :yosemite
+    sha256 "dbb57e97b6672ef9fde16f61db87ed5c1568e629fa1c7672b17425ef267f23a5" => :mavericks
   end
 
   depends_on "sbt" => :build
 
   def install
+    # Prevents sandbox violation
+    ENV.java_cache
     system "sbt", "core/assembly"
     libexec.install Dir["core/target/scala-*/wartremover-assembly-*.jar"]
     bin.write_jar_script Dir[libexec/"wartremover-assembly-*.jar"][0], "wartremover"
   end
 
   test do
-    test_data = <<-EOS.undent
+    (testpath/"foo").write <<-EOS.undent
       object Foo {
         def foo() {
           var msg = "Hello World"
@@ -30,9 +31,7 @@ class Wartremover < Formula
         }
       }
     EOS
-
-    (testpath/"foo.scala").write test_data
-    cmd = "#{bin}/wartremover -traverser org.brianmckenna.wartremover.warts.Unsafe #{testpath}/foo.scala 2>&1"
-    assert_match /var is disabled/, shell_output(cmd, 1)
+    cmd = "#{bin}/wartremover -traverser org.wartremover.warts.Unsafe foo 2>&1"
+    assert_match "var is disabled", shell_output(cmd, 1)
   end
 end

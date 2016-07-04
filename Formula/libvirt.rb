@@ -1,13 +1,13 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-1.3.3.tar.gz"
-  sha256 "99603b8dba574bc592673fdf5c77e96cf5221e21104ab0477efeb8aba133858f"
+  url "https://libvirt.org/sources/libvirt-1.3.5.tar.gz"
+  sha256 "93a23c44eb431da46c9458f95a66e29c9b98e37515d44b6be09e75b35ec94ac8"
 
   bottle do
-    sha256 "613e9a7668d75e90a49e3659209be5c0d7fd387fee8f4fc31f2bf0fa1adcfa75" => :el_capitan
-    sha256 "d0f40e5ff9482a70b40f98a392d506932f2addcd50e08c8a5e82bd935b5ab006" => :yosemite
-    sha256 "324252922c80fa0b4bb850c2f8a958d344efb9375fcb0626595a0d65a4dde7ec" => :mavericks
+    sha256 "b8eca973a86ff46830181f18d318295991f561fd3b672b8c874cff7e8e8ae2de" => :el_capitan
+    sha256 "0a63f4aecf98011d75d5486d4bde3cfcec4c8056849f85b795c020ca56caa278" => :yosemite
+    sha256 "2959093b516c41b971414157d11b0e0033677d13cbb306d0d64c329f423e6b6b" => :mavericks
   end
 
   option "without-libvirtd", "Build only the virsh client and development libraries"
@@ -51,9 +51,7 @@ class Libvirt < Formula
     system "make", "install"
 
     # Update the SASL config file with the Homebrew prefix
-    inreplace "#{etc}/sasl2/libvirt.conf" do |s|
-      s.gsub! "/etc/", "#{HOMEBREW_PREFIX}/etc/"
-    end
+    inreplace "#{etc}/sasl2/libvirt.conf", "/etc/", "#{HOMEBREW_PREFIX}/etc/"
 
     # If the libvirt daemon is built, update its config file to reflect
     # the Homebrew prefix

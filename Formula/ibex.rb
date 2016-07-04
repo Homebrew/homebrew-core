@@ -1,24 +1,15 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers."
   homepage "http://www.ibex-lib.org/"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.3.0.tar.gz"
+  sha256 "637cd0d3bdae5f72867264fa9349a4f86023ac34b6d01ca0bec3618bc38d4a79"
   head "https://github.com/ibex-team/ibex-lib.git"
-
-  stable do
-    url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.2.0.tar.gz"
-    sha256 "fa6f281d5f28db11fa8715569937b4d19bd24ab744d0c7f21674cc1552d674ee"
-
-    # Patch the optional param-estim plugin build script
-    patch do
-      url "https://github.com/ibex-team/ibex-lib/pull/192.diff"
-      sha256 "91cc070ad5464a5c19205228470161ff87a09df5b3aeaae2b65361319e509fbf"
-    end
-  end
 
   bottle do
     cellar :any
-    sha256 "5abdb26e6f429833331b3a59201b1dd000b0ee1f8a8a119ae3f64a406982fae9" => :el_capitan
-    sha256 "065bd27248281bb02f351a0248a3a2753e83aa08ea8fb5ad8f01285161c68beb" => :yosemite
-    sha256 "641812e10e130e6ef29c1f9410ac180230a2ef9c827be6c454695e3508955aac" => :mavericks
+    sha256 "3f02be452b5cf8c02fe5c9b94f5046ccd82f5640d1b3b8709a5cb32089631f9b" => :el_capitan
+    sha256 "11790b747655c7b726d8a83e58e569660561734052a7667f07d54dd064178b29" => :yosemite
+    sha256 "01b0a1a82ffa341626c76f858d5387a3a0246d7b30a01f6ab6fef3d4a05d993e" => :mavericks
   end
 
   option "with-java", "Enable Java bindings for CHOCO solver."
@@ -33,6 +24,14 @@ class Ibex < Formula
   depends_on "pkg-config" => :build
 
   def install
+    # Test failure "uncaught exception of type ibex::DimException"
+    # Same as upstream fix https://github.com/ibex-team/ibex-lib/commit/1c882ef2
+    if build.stable?
+      inreplace "examples/slam/slam1.cpp",
+        "x,dist(x[t],beacons[b])=d[t][b]);",
+        "x,dist(transpose(x[t]),beacons[b])=d[t][b]);"
+    end
+
     if build.with?("java") && build.with?("ampl")
       odie "Cannot set options --with-java and --with-ampl simultaneously for now."
     end

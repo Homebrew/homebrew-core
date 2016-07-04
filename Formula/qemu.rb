@@ -1,17 +1,16 @@
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "http://wiki.qemu.org"
-  url "http://wiki.qemu-project.org/download/qemu-2.5.0.tar.bz2"
-  mirror "http://ftp.osuosl.org/pub/blfs/conglomeration/qemu/qemu-2.5.0.tar.bz2"
-  sha256 "3443887401619fe33bfa5d900a4f2d6a79425ae2b7e43d5b8c36eb7a683772d4"
-  revision 2
+  url "http://wiki.qemu-project.org/download/qemu-2.6.0.tar.bz2"
+  mirror "http://ftp.osuosl.org/pub/blfs/conglomeration/qemu/qemu-2.6.0.tar.bz2"
+  sha256 "c9ac4a651b273233d21b8bec32e30507cb9cce7900841febc330956a1a8434ec"
 
   head "git://git.qemu-project.org/qemu.git"
 
   bottle do
-    sha256 "bc9faeed43aa6c6e8a5212cf983468d4c3e55f99c812e9c66ce80d0d0436cb56" => :el_capitan
-    sha256 "d32bc574ae7489ac4ae981247eb3e7e980de30b684f080ec29b56e21d81a29f3" => :yosemite
-    sha256 "e60b1ffe823022f680d3dcb38bbd621bfd73b8a794e53bc78e6ac3f3991d6af5" => :mavericks
+    sha256 "3315fd7c6093169133497b4eae48f82f22919f41286adf28b666a3da894764b5" => :el_capitan
+    sha256 "41c8a897ab1296ac0724e49e617b8fe319bcc35c66718c5375e22bca4aa71d81" => :yosemite
+    sha256 "060e7a83fb5e2d270b9b306188ea536524b42ee4dc6b8203c8c98f9b9ddddcae" => :mavericks
   end
 
   depends_on "pkg-config" => :build

@@ -1,13 +1,13 @@
 class Ola < Formula
   desc "Open Lighting Architecture for lighting control information"
   homepage "https://www.openlighting.org/ola/"
-  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.1/ola-0.10.1.tar.gz"
-  sha256 "621f18f591a418236595d0117b4ab16d8e39a69b03071e62fdae0e9b01533de0"
+  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.2/ola-0.10.2.tar.gz"
+  sha256 "986e61874bc80db3b23cf201af2dafa39e3412cc50cddf1cd449c869110bfd27"
 
   bottle do
-    sha256 "03f1e69ea600927d840a5f1fe1a9932256fbd3b37530cd262caf641b4ae6db89" => :el_capitan
-    sha256 "38cc4502fa98c4afe97a2d1d8919508fda999a08cabc1af2bc19e0a6d6bb69a2" => :yosemite
-    sha256 "fff088b40bc18986aa3dfa1a90500727f90d6ef637890dc4a973e806b67ed525" => :mavericks
+    sha256 "37dabc62d0ed531c06bdf4bc153858d0a8f30f895b4f3765d6f2b9a69b03e840" => :el_capitan
+    sha256 "02e54e500f150f1319e293e1a4ad8e5069f4d11a09e25bf6934a5f5cc6acc8cf" => :yosemite
+    sha256 "999880d987365682c1e90cb81e0def7139e244aa573bc327cf038fe920596705" => :mavericks
   end
 
   head do

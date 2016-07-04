@@ -1,23 +1,21 @@
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/v0.23.4.tar.gz"
-  sha256 "c7f5e2d7381dbc4d7e878013d14f9993ae8a41bd23f032718e39ffba57894029"
+  url "https://github.com/libgit2/libgit2/archive/v0.24.1.tar.gz"
+  sha256 "60198cbb34066b9b5c1613d15c0479f6cd25f4aef42f7ec515cd1cc13a77fede"
   head "https://github.com/libgit2/libgit2.git"
 
   bottle do
-    cellar :any
-    revision 1
-    sha256 "76ab9cf0de803820f9009475bb1646ae584a496aacbe5fa77480379af4adff15" => :el_capitan
-    sha256 "479dfc903eb7f90d6ddf9d2e197afc1eaa359116de4ab5ca0c81a6cda2fef165" => :yosemite
-    sha256 "6e0e3c7d27cdba4579bbda4a88bfdad8e49e8e3ce19502778d2c9e646fa24f15" => :mavericks
+    sha256 "e0163bb10778e218f79d9b2f6e23684c21718dc32ff83b02987537b2c220d590" => :el_capitan
+    sha256 "5a4960a681598dfd3c9ba0973c5cdcb338dc1ba28a7794972f423f3428c15265" => :yosemite
+    sha256 "b570c202f7a2438b98cbcda66ba36c57026e47623d74ca5ba4cb728b7660e9a5" => :mavericks
   end
 
   option :universal
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "libssh2" => :optional
+  depends_on "libssh2" => :recommended
   depends_on "openssl" if MacOS.version <= :lion # Uses SecureTransport on >10.7
 
   def install

@@ -1,14 +1,14 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.0.2.tar.bz2"
-  sha256 "30e3c77c2f4c358ed087869455a7496cbd7753a5e1b98d20ba49c1004009fd36"
+  url "https://ffmpeg.org/releases/ffmpeg-3.1.1.tar.bz2"
+  sha256 "a5bca50a90a37b983eaa17c483a387189175f37ca678ae7e51d43e7610b4b3b4"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "427e874885b03997de009cec923ed9872a498ff431bc24d007c191658e4633b3" => :el_capitan
-    sha256 "eb9ab80d69d69e2c4b6d311b3b84ce3e9539f5c1962187d4e018a29424c627a0" => :yosemite
-    sha256 "b6eb3f5481b89b4031bd1f4146f34b2e8736625c1cca29f14cffdfd2511fdfe6" => :mavericks
+    sha256 "a6f05c702bb1edfb8ab5d32b57da7d91d92bb4a3aceeb09a7cf18ee7e683e8eb" => :el_capitan
+    sha256 "dfcc5912fb849c4ed218f161f09379f87e538f1b74403b91e92f92eda562da13" => :yosemite
+    sha256 "9efc53d98c426500cebd86c81cdc8af86747eb07c12d67b415c17900ed7bbde4" => :mavericks
   end
 
   option "without-x264", "Disable H.264 encoder"
@@ -32,10 +32,11 @@ class Ffmpeg < Formula
   option "with-webp", "Enable using libwebp to encode WEBP images"
   option "with-zeromq", "Enable using libzeromq to receive commands sent through a libzeromq client"
   option "with-snappy", "Enable Snappy library"
-  option "with-dcadec", "Enable dcadec library"
   option "with-rubberband", "Enable rubberband library"
   option "with-zimg", "Enable z.lib zimg library"
   option "with-openh264", "Enable OpenH264 library"
+  option "with-xz", "Enable decoding of LZMA-compressed TIFF files"
+  option "with-libebur128", "Enable using libebur128 for EBU R128 loudness measurement"
 
   depends_on "pkg-config" => :build
 
@@ -74,23 +75,25 @@ class Ffmpeg < Formula
   depends_on "webp" => :optional
   depends_on "zeromq" => :optional
   depends_on "libbs2b" => :optional
-  depends_on "dcadec" => :optional
   depends_on "rubberband" => :optional
   depends_on "zimg" => :optional
   depends_on "openh264" => :optional
+  depends_on "xz" => :optional
+  depends_on "libebur128" => :optional
 
   def install
-    args = ["--prefix=#{prefix}",
-            "--enable-shared",
-            "--enable-pthreads",
-            "--enable-gpl",
-            "--enable-version3",
-            "--enable-hardcoded-tables",
-            "--enable-avresample",
-            "--cc=#{ENV.cc}",
-            "--host-cflags=#{ENV.cflags}",
-            "--host-ldflags=#{ENV.ldflags}",
-           ]
+    args = %W[
+      --prefix=#{prefix}
+      --enable-shared
+      --enable-pthreads
+      --enable-gpl
+      --enable-version3
+      --enable-hardcoded-tables
+      --enable-avresample
+      --cc=#{ENV.cc}
+      --host-cflags=#{ENV.cflags}
+      --host-ldflags=#{ENV.ldflags}
+    ]
 
     args << "--enable-opencl" if MacOS.version > :lion
 
@@ -123,11 +126,17 @@ class Ffmpeg < Formula
     args << "--enable-libwebp" if build.with? "webp"
     args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-libbs2b" if build.with? "libbs2b"
-    args << "--enable-libdcadec" if build.with? "dcadec"
     args << "--enable-librubberband" if build.with? "rubberband"
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
     args << "--enable-libopenh264" if build.with? "openh264"
+    args << "--enable-libebur128" if build.with? "libebur128"
+
+    if build.with? "xz"
+      args << "--enable-lzma"
+    else
+      args << "--disable-lzma"
+    end
 
     if build.with? "openjpeg"
       args << "--enable-libopenjpeg"

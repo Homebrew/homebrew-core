@@ -1,13 +1,14 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://www.clamav.net/downloads/production/clamav-0.99.1.tar.gz"
-  sha256 "e144689122d3f91293808c82cbb06b7d3ac9eca7ae29564c5d148ffe7b25d58a"
+  url "https://www.clamav.net/downloads/production/clamav-0.99.2.tar.gz"
+  sha256 "167bd6a13e05ece326b968fdb539b05c2ffcfef6018a274a10aeda85c2c0027a"
+  revision 1
 
   bottle do
-    sha256 "f1febe378c19074dd99542d20156ebed49ebab91ebb5ba27d9a095f6bf9121f0" => :el_capitan
-    sha256 "1b13689bef5dd5afb06da556bea1030f04c4d100bac96dfd83bde0adc135e067" => :yosemite
-    sha256 "a7ca98533a103e466d3724ffe32f28f2891f0a97a1e96e644cd692f16c502590" => :mavericks
+    sha256 "0e8fa7cfafc6a8c2fefd2f0c2044d7ef6c7efa3839444609c326c4ed0cf5520f" => :el_capitan
+    sha256 "7f0d14eb642997a856796366e8ff6c1b17fb6076aa198d1255c6bf73c0862a33" => :yosemite
+    sha256 "6b82bf35cd1cc06cf6f736e69763397ed6225f71217c780ae91ebc30df8f1c70" => :mavericks
   end
 
   head do
@@ -20,9 +21,9 @@ class Clamav < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
+  depends_on "pcre" => :recommended
   depends_on "yara" => :optional
   depends_on "json-c" => :optional
-  depends_on "pcre" => :optional
 
   skip_clean "share/clamav"
 

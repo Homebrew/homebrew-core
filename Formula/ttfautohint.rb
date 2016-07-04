@@ -1,6 +1,6 @@
 class Ttfautohint < Formula
   desc "Auto-hinter for TrueType fonts"
-  homepage "http://www.freetype.org/ttfautohint"
+  homepage "https://www.freetype.org/ttfautohint"
   url "https://downloads.sourceforge.net/project/freetype/ttfautohint/1.5/ttfautohint-1.5.tar.gz"
   sha256 "644fe721e9e7fe3390ae1f66d40c74e4459fa539d436f4e0f8635c432683efd1"
 

@@ -11,6 +11,12 @@ class Watchman < Formula
     sha256 "74c19390f79a0ca19faa5290f1e494cda14390606bb891a43cf8957d0098a3dd" => :mavericks
   end
 
+  devel do
+    url "https://github.com/facebook/watchman/archive/v4.6.0-rc2.tar.gz"
+    version "4.6.0-rc2"
+    sha256 "2b8cae97615cfa83178fdf0cc1e320a6b4c9277b07217f2c642ae240cc39be19"
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -23,7 +29,8 @@ class Watchman < Formula
                           "--with-pcre",
                           # we'll do the homebrew specific python
                           # installation below
-                          "--without-python"
+                          "--without-python",
+                          "--enable-statedir=#{var}/run/watchman"
     system "make"
     system "make", "install"
 
@@ -36,10 +43,12 @@ class Watchman < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
+  def post_install
+    (var/"run/watchman").mkpath
+    chmod 042777, var/"run/watchman"
+  end
+
   test do
-    list = shell_output("#{bin}/watchman -v")
-    if list.index(version).nil?
-      raise "expected to see #{version} in the version output"
-    end
+    assert_equal /(\d+\.\d+\.\d+)/.match(version)[0], shell_output("#{bin}/watchman -v").chomp
   end
 end

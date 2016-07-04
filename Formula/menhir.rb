@@ -1,16 +1,17 @@
 class Menhir < Formula
   desc "LR(1) parser generator for the OCaml programming language"
   homepage "http://cristal.inria.fr/~fpottier/menhir"
-  url "http://cristal.inria.fr/~fpottier/menhir/menhir-20151112.tar.gz"
-  sha256 "06616e300ed2e5f4f2c74c58873fcd4b5f8f033b4f375f201049dafe4cd20e3a"
+  url "http://cristal.inria.fr/~fpottier/menhir/menhir-20160504.tar.gz"
+  sha256 "5fcd7cd38eef7ec78eee12cfaa9d22cbec6ba85f8d42e45b86215a89a496b20d"
 
   bottle do
-    sha256 "04253a1bc5f714e425074636699fdef28d60422bd163077321ee271eec310add" => :el_capitan
-    sha256 "0a9d4d791b3a9467d6412cde9b7e2d308a4fcea7cabfac56d742da899add802a" => :yosemite
-    sha256 "b9af60976a71b286966fa774403a292b44d169c6d0edff3b757a4b1b9cb3d79f" => :mavericks
+    sha256 "76ad73cc2d4f0b2a7729b5057d2a27c3e10e1aedfd95779af435419bab9062fa" => :el_capitan
+    sha256 "8ec208a2b6f43b83aee96e2218c865e97315d7a01023aef694980e5a887579d5" => :yosemite
+    sha256 "822dd6fcc7ea291329b7f20e2894013929f0e64230ce47e6e36dc13ee70e8dbb" => :mavericks
   end
 
   depends_on "ocaml"
+  depends_on "ocamlbuild"
 
   # Workaround parallelized build failure by separating all steps
   # Submitted to menhir-list@yquem.inria.fr on 24th Feb 2016.

@@ -1,17 +1,16 @@
 class EulerPy < Formula
   desc "Project Euler command-line tool written in Python"
   homepage "https://github.com/iKevinY/EulerPy"
-  url "https://github.com/iKevinY/EulerPy/archive/v1.2.3.tar.gz"
-  sha256 "d751d561caf6296ecc59bc77ec2fb0c81af1b045a117b8ea3334b6a948230bbb"
+  url "https://github.com/iKevinY/EulerPy/archive/v1.3.0.tar.gz"
+  sha256 "ffe2d74b5a0fbde84a96dfd39f1f899fc691e3585bf0d46ada976899038452e1"
 
   head "https://github.com/iKevinY/EulerPy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "914a6ad292704a5bcc8798a524c9613995a45bba30bbd38559e282b64a8bb027" => :el_capitan
-    sha256 "cb5678aba9536bbc64c2a2cc6c6a0808b19d00f8f228099f415f6e4bdb7f4de6" => :yosemite
-    sha256 "429bf72a785e8d4d7fd50d76364806998ef63e0ec4dd5df8352fb2b52db9eb83" => :mavericks
-    sha256 "0751ec60117c432ce0cfd264442d3f8f9394ea876fb8f5b08c26fe8ffe831168" => :mountain_lion
+    sha256 "4c887a4af203e4991ff844f4836663cbaf1afc835ae8c628d769e32ff0f1e4e1" => :el_capitan
+    sha256 "69ffb29dd9b1f1fdf6fa7ecf31871c5010a06a94eda99e916681aac73d9bca15" => :yosemite
+    sha256 "6006f400f9f2e010c104325f4e1903c8fe825884b54ef88bea47918b58876576" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

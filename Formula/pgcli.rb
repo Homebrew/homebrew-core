@@ -1,74 +1,79 @@
 class Pgcli < Formula
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "http://pgcli.com/"
-  url "https://pypi.python.org/packages/source/p/pgcli/pgcli-0.20.1.tar.gz"
-  sha256 "e645d21abf98303259bf588e9afa1bedf507f54ae27f78f0587cce98315421ab"
+  url "https://pypi.python.org/packages/86/93/40c017988649b596a9237e4ef0833e05ed99d6e531d8732058d1795682ee/pgcli-1.0.0.tar.gz"
+  sha256 "2ed5d5b46b0e2bfe09e4054449e2bf9c4ed964680b08314cd4cc3bf66eec5d0b"
 
   bottle do
     cellar :any
-    sha256 "c61d08c167b473467e79954decaf7c3f8d78295ee7377958c1f536e6db99ae2c" => :el_capitan
-    sha256 "b8e88ed6f1a4c2ce8ca672a96c0e842236f69dc7ad5ff000eadc1fc21e494fc1" => :yosemite
-    sha256 "f83f82e184a724ddfb5ba21faab65cf7f5974fe32b534f1cff1a8b85f6f48041" => :mavericks
+    sha256 "fe28fe0900829ca61a04d87478ffab9357a6e8027b31e5c2e8aa95c62b2e26b9" => :el_capitan
+    sha256 "dae96de8155a808adc721833288095ff0f6b9d5340f5795f55a83f2db9610fc4" => :yosemite
+    sha256 "6e47e357b20b29f4614cb4d1b0b6bd1a56d9b292dedca81af3e2c78c572b3f24" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "openssl"
   depends_on :postgresql
 
+  resource "humanize" do
+    url "https://pypi.python.org/packages/8c/e0/e512e4ac6d091fc990bbe13f9e0378f34cf6eecd1c6c268c9e598dcf5bb9/humanize-0.5.1.tar.gz"
+    sha256 "a43f57115831ac7c70de098e6ac46ac13be00d69abbf60bdcac251344785bb19"
+  end
+
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
+    url "https://pypi.python.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   resource "configobj" do
-    url "https://pypi.python.org/packages/source/c/configobj/configobj-5.0.6.tar.gz"
+    url "https://pypi.python.org/packages/64/61/079eb60459c44929e684fa7d9e2fdca403f67d64dd9dbac27296be2e0fab/configobj-5.0.6.tar.gz"
     sha256 "a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902"
   end
 
   resource "sqlparse" do
-    url "https://pypi.python.org/packages/source/s/sqlparse/sqlparse-0.1.16.tar.gz"
-    sha256 "678c6c36ca4b01405177da8b84eecf92ec92c9f6c762396c965bb5d305f20f81"
+    url "https://pypi.python.org/packages/9c/cc/3d8d34cfd0507dd3c278575e42baff2316a92513de0a87ac0ec9f32806c9/sqlparse-0.1.19.tar.gz"
+    sha256 "d896be1a1c7f24bffe08d7a64e6f0176b260e281c5f3685afe7826f8bada4ee8"
   end
 
   resource "setproctitle" do
-    url "https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.9.tar.gz"
-    sha256 "1c3414d18f9cacdab78b0ffd8e886d56ad45f22e55001a72aaa0b2aeb56a0ad7"
+    url "https://pypi.python.org/packages/5a/0d/dc0d2234aacba6cf1a729964383e3452c52096dc695581248b548786f2b3/setproctitle-1.1.10.tar.gz"
+    sha256 "6283b7a58477dd8478fbb9e76defb37968ee4ba47b05ec1c053cb39638bd7398"
   end
 
   resource "psycopg2" do
-    url "https://pypi.python.org/packages/source/p/psycopg2/psycopg2-2.6.1.tar.gz"
+    url "https://pypi.python.org/packages/86/fd/cc8315be63a41fe000cce20482a917e874cdc1151e62cb0141f5e55f711e/psycopg2-2.6.1.tar.gz"
     sha256 "6acf9abbbe757ef75dc2ecd9d91ba749547941abaffbe69ff2086a9e37d4904c"
   end
 
   resource "wcwidth" do
-    url "https://pypi.python.org/packages/source/w/wcwidth/wcwidth-0.1.5.tar.gz"
-    sha256 "66c7ce3199c87833aaaa1fe1241b63261ce53c1062597c189a16a54713e0919d"
+    url "https://pypi.python.org/packages/c2/d1/7689293086a8d5320025080cde0e3155b94ae0a7496fb89a3fbaa92c354a/wcwidth-0.1.6.tar.gz"
+    sha256 "dcb3ec4771066cc15cf6aab5d5c4a499a5f01c677ff5aeb46cf20500dccd920b"
   end
 
   resource "Pygments" do
-    url "https://pypi.python.org/packages/source/P/Pygments/Pygments-2.0.2.tar.gz"
-    sha256 "7320919084e6dac8f4540638a46447a3bd730fca172afc17d2c03eed22cf4f51"
+    url "https://pypi.python.org/packages/b8/67/ab177979be1c81bc99c8d0592ef22d547e70bb4c6815c383286ed5dec504/Pygments-2.1.3.tar.gz"
+    sha256 "88e4c8a91b2af5962bfa5ea2447ec6dd357018e86e94c7d14bd8cacbc5b55d81"
   end
 
   resource "click" do
-    url "https://pypi.python.org/packages/source/c/click/click-5.1.tar.gz"
+    url "https://pypi.python.org/packages/b7/34/a496632c4fb6c1ee76efedf77bb8d28b29363d839953d95095b12defe791/click-5.1.tar.gz"
     sha256 "678c98275431fad324275dec63791e4a17558b40e5a110e20a82866139a85a5a"
   end
 
   resource "prompt_toolkit" do
-    url "https://pypi.python.org/packages/source/p/prompt_toolkit/prompt_toolkit-0.46.tar.gz"
-    sha256 "1aa25cb9772e1e27d12f7920b5a514421ab763231067119bbd2f8b1574b409fb"
+    url "https://pypi.python.org/packages/8d/de/412f23919929c01e6b55183e124623f705e4b91796d3d2dce2cb53d595ad/prompt_toolkit-1.0.3.tar.gz"
+    sha256 "805e026f0cbad27467e93f9dd3e3777718d401a62788c1e84ca038e967ad8ba2"
   end
 
   resource "pgspecial" do
-    url "https://pypi.python.org/packages/source/p/pgspecial/pgspecial-1.2.0.tar.gz"
-    sha256 "36ae9126f50fd146c96609b71a34ffa9122cfb72e658f46114c4cb8642530b17"
+    url "https://pypi.python.org/packages/f8/07/c799a14af14719769a4b47414e3455e1458d401722d0d351aad64389e72b/pgspecial-1.5.0.tar.gz"
+    sha256 "cd4c4a0655be80f15eadc116a576f16c7147338e27f3f2fe8cc3fa6519a77891"
   end
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    %w[click prompt_toolkit psycopg2 pgspecial sqlparse Pygments wcwidth six setproctitle configobj].each do |r|
-      resource(r).stage do
+    resources.each do |r|
+      r.stage do
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end

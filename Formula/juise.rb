@@ -1,13 +1,13 @@
 class Juise < Formula
   desc "JUNOS user interface scripting environment"
   homepage "https://github.com/Juniper/juise/wiki"
-  url "https://github.com/Juniper/juise/releases/download/0.6.1/juise-0.6.1.tar.gz"
-  sha256 "5985f2b19d017a52de2a77b0246afed86d2b9227acd277113468407db11cd146"
+  url "https://github.com/Juniper/juise/releases/download/0.7.2/juise-0.7.2.tar.gz"
+  sha256 "869f18cb6095c2340872bc02235530616fcfc2e88c523c6a05238a521d0afe82"
 
   bottle do
-    sha256 "da6dcf67dee23e98befee63f93796490a877229679e77befa25246da59756822" => :mavericks
-    sha256 "abcd4d9e493d030922978364f95b7e91c38f99e661c9fa118a666c282abe3758" => :mountain_lion
-    sha256 "076b551d5489dd55636e7c5945b593ad75219416c95bd61656cc7cfd45ea2e8f" => :lion
+    sha256 "fc1e16d6035e93e4a13aa2eddb37d5588ee51095705a0f13470bd8a3c68e1ada" => :el_capitan
+    sha256 "c0efb90b6a493eb7ca92844378f560da1d11043e2a9c20f58309892613e2baeb" => :yosemite
+    sha256 "9fee9246ca23f5928cc5e8fd1d4feb77ce45ca31c8ce93385eb611976c63481b" => :mavericks
   end
 
   head do
@@ -19,17 +19,24 @@ class Juise < Formula
 
   depends_on "libtool" => :build
   depends_on "libslax"
-  depends_on "libssh2"
-  depends_on "pcre"
-  depends_on "sqlite"
 
   def install
-    system "sh ./bin/setup.sh" if build.head?
+    system "sh", "./bin/setup.sh" if build.head?
+
+    # Prevent sandbox violation where juise's `make install` tries to
+    # write to "/usr/local/Cellar/libslax/0.20.1/lib/slax/extensions"
+    # Reported 5th May 2016: https://github.com/Juniper/juise/issues/34
+    inreplace "configure",
+      "SLAX_EXTDIR=\"`$SLAX_CONFIG --extdir | head -1`\"",
+      "SLAX_EXTDIR=\"#{lib}/slax/extensions\""
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-libssh2-prefix=#{HOMEBREW_PREFIX}",
-                          "--with-sqlite3-prefix=#{Formula["sqlite"].opt_prefix}",
                           "--enable-libedit"
     system "make", "install"
+  end
+
+  test do
+    assert_equal "libjuice version #{version}", shell_output("#{bin}/juise -V").lines.first.chomp
   end
 end

@@ -1,15 +1,16 @@
 class Openssl < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.0.2g.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2g.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2g.tar.gz"
-  sha256 "b784b1b3907ce39abf4098702dade6365522a253ad1552e267a9a0e89594aa33"
+  url "https://www.openssl.org/source/openssl-1.0.2h.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2h.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2h.tar.gz"
+  sha256 "1d4007e53aad94a5b2002fe045ee7bb0b3d98f1a47f8b2bc851dcd1c74332919"
+  revision 1
 
   bottle do
-    sha256 "b1de0682c7a838a75da3a06ddad2b9700d208b2faaaa1b51c0889ba403c7dd22" => :el_capitan
-    sha256 "68e5432c7b863341bc0c42c9a9391c11ba244519f110ba7c5ef4d97eb5c6b8fa" => :yosemite
-    sha256 "cdb9ddcc2bc683afa836b40258acbd40fa82dc67b68b245b7413d85e18d98ca0" => :mavericks
+    sha256 "55728391c10d1c33c069ef5bf3e5ca77334605ab6c1c7810b6eedc91337807c2" => :el_capitan
+    sha256 "a3bc912aae8f79ed28d885dce49f582737a6e528b9d707eee208ed3b6ea41f5d" => :yosemite
+    sha256 "4d332b0effca483c6b896548f818ba7043d61e3ec071d1a611a64809ae8610b1" => :mavericks
   end
 
   keg_only :provided_by_osx,
@@ -21,19 +22,6 @@ class Openssl < Formula
   deprecated_option "without-check" => "without-test"
 
   depends_on "makedepend" => :build
-
-  # Replace with upstream url if they merge the more robust fix
-  # https://github.com/openssl/openssl/pull/597
-  if MacOS.version <= :snow_leopard
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/3f1dc8ea145a70543aded8101a0c725abf82fc45/openssl/revert-pass-pure-constants-verbatim.patch"
-      sha256 "e38f84181a56e70028ade8408ad70aaffaea386b7e1b35de55728ae878d544aa"
-    end
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/3f1dc8ea145a70543aded8101a0c725abf82fc45/openssl/tshort-asm.patch"
-      sha256 "f161e2fc1395efcb53d785004d67d4962d28aa8ce282a91020f12809c03b2afd"
-    end
-  end
 
   def arch_args
     {
@@ -53,6 +41,10 @@ class Openssl < Formula
   end
 
   def install
+    # OpenSSL will prefer the PERL environment variable if set over $PATH
+    # which can cause some odd edge cases & isn't intended. Unset for safety.
+    ENV.delete("PERL")
+
     # Load zlib from an explicit path instead of relying on dyld's fallback
     # path, which is empty in a SIP context. This patch will be unnecessary
     # when we begin building openssl with no-comp to disable TLS compression.
@@ -134,7 +126,6 @@ class Openssl < Formula
 
   def post_install
     keychains = %w[
-      /Library/Keychains/System.keychain
       /System/Library/Keychains/SystemRootCertificates.keychain
     ]
 

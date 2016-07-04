@@ -13,14 +13,14 @@ end
 class Compcert < Formula
   desc "Formally verified C compiler"
   homepage "http://compcert.inria.fr"
-  url "https://github.com/AbsInt/CompCert/archive/v2.6.tar.gz"
-  sha256 "a1f21365c41c2462fce52a4a25e1c7e4b7fea7a0cd60b6bae1d31f2edeeb4d17"
+  url "https://github.com/AbsInt/CompCert/archive/v2.7.tar.gz"
+  sha256 "025aff18f7fa18ce06ac99a18c9b2fa3146ce13f56bd1fc62f3032a8adbe3794"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dbde563143839f312c41fa0f456b7ce331a339caebe93946151e0bf5ce52fffd" => :el_capitan
-    sha256 "7db0b1313255cf028b519be86bf56dc0d0d7adc97d23faaf374fc0249f0e98ac" => :yosemite
-    sha256 "ee7839ffed2ccc0ad65550bf7bb8200c8d9738bc47b348c6f424cf4a5d1a8db7" => :mavericks
+    sha256 "0f7b9269576dc2d5bbdbe8b84c099da8e6047c751baf7f576d65d5ddc6bf612f" => :el_capitan
+    sha256 "1c088641e995b6c15ec7f3205c1e6c3179d6e5e3337ffadb7e8f859934597098" => :yosemite
+    sha256 "fdbc8b9bfb1d849a88d7ce0ad0c83a65464df98898dedb3d15f842ecdec6d8b3" => :mavericks
   end
 
   depends_on "ocaml" => :build
@@ -39,11 +39,17 @@ class Compcert < Formula
       system "./configure", "-prefix", buildpath/"coq84",
                             "-camlp5dir", Formula["camlp5"].opt_lib/"ocaml/camlp5",
                             "-coqide", "no",
-                            "-with-doc", "no"
-      ENV.deparallelize do
-        system "make", "world"
-        system "make", "install"
-      end
+                            "-with-doc", "no",
+                            # Prevent warning 31 (module is linked twice in the
+                            # same executable) from being a fatal error, which
+                            # would otherwise be the default as of ocaml 4.03.0;
+                            # note that "-custom" is the default value of
+                            # coqrunbyteflags, and is necessary, so don't just
+                            # overwrite it with "-warn-error -a"
+                            "-coqrunbyteflags", "-warn-error -a -custom"
+
+      system "make", "VERBOSE=1", "world"
+      ENV.deparallelize { system "make", "install" }
     end
 
     ENV.prepend_path "PATH", buildpath/"coq84/bin"

@@ -1,8 +1,8 @@
 class Leafnode < Formula
-  desc "Leafnode is a store and forward NNTP proxy"
-  homepage "https://sourceforge.net/projects/leafnode/"
-  url "https://downloads.sourceforge.net/project/leafnode/leafnode/1.11.10/leafnode-1.11.10.tar.bz2"
-  sha256 "d75ba79961a8900b273eb74c3ad6976bf9fd64c2fa0284273e65f98190c5f2bc"
+  desc "NNTP server for small sites"
+  homepage "http://www.leafnode.org/"
+  url "https://downloads.sourceforge.net/project/leafnode/leafnode/1.11.11/leafnode-1.11.11.tar.bz2"
+  sha256 "3ec325216fb5ddcbca13746e3f4aab4b49be11616a321b25978ffd971747adc0"
 
   bottle :disable, "leafnode hardcodes the user at compile time with no override available."
 

@@ -1,8 +1,8 @@
 class Sonar < Formula
   desc "Manage code quality"
   homepage "http://www.sonarqube.org/"
-  url "https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-5.5.zip"
-  sha256 "f61d342cc266d188007c59f6e7bd34d4f4ac4eec455759d71be73df35e5b6e84"
+  url "https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-5.6.zip"
+  sha256 "397c4eaf1d220cc2cef2075f709a4c50208dc91289e0234b0ae5954533f66994"
 
   depends_on :java => "1.7+"
 

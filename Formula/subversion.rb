@@ -25,7 +25,7 @@ class Subversion < Formula
   depends_on :apr => :build
 
   resource "serf" do
-    url "https://serf.googlecode.com/svn/src_releases/serf-1.3.8.tar.bz2", :using => :curl
+    url "https://archive.apache.org/dist/serf/serf-1.3.8.tar.bz2"
     sha256 "e0500be065dbbce490449837bb2ab624e46d64fc0b090474d9acaa87c82b2590"
   end
 

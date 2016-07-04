@@ -4,12 +4,13 @@ class Pxz < Formula
   url "https://jnovy.fedorapeople.org/pxz/pxz-4.999.9beta.20091201git.tar.xz"
   version "4.999.9"
   sha256 "df69f91103db6c20f0b523bb7f026d86ee662c49fe714647ed63f918cd39767a"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "8f24054e8bb4c57d7ce43b9a87236b3e26884ea882a94e374c9830e639face96" => :el_capitan
-    sha256 "76f6429cffa1c25c333abe06c77b8d15c695df9c3ff7182ff074f83ba97d6df6" => :yosemite
-    sha256 "aa8d6ad7fb7e1ee38e26e97cd9fcbc23dcf40cc44dea5cece306bf0556322c1a" => :mavericks
+    sha256 "fb94fe085e695c7a097701bdac07cb406ff1ea59a9d220f82f2f458a0a860325" => :el_capitan
+    sha256 "443b2e618e2977c3abc54eb50b43e4ab8ac727878914425ba24d9789be737c16" => :yosemite
+    sha256 "164217b1098d7a3231eb6bee4c80d5e224a7f2afcd9d2a42773d513481f476eb" => :mavericks
   end
 
   head do

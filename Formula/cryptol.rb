@@ -5,15 +5,27 @@ class Cryptol < Formula
 
   desc "Domain-specific language for specifying cryptographic algorithms"
   homepage "http://www.cryptol.net/"
-  url "https://github.com/GaloisInc/cryptol.git",
-      :tag => "2.3.0",
-      :revision => "eb51fab238797dfc10274fd60c68acd4bdf53820"
+  revision 1
   head "https://github.com/GaloisInc/cryptol.git"
 
+  stable do
+    url "https://github.com/GaloisInc/cryptol.git",
+        :tag => "2.3.0",
+        :revision => "eb51fab238797dfc10274fd60c68acd4bdf53820"
+
+    # Upstream commit titled "tweak for deepseq-generics-0.2"
+    # Fixes the error "Not in scope: type constructor or class NFData"
+    patch do
+      url "https://github.com/GaloisInc/cryptol/commit/ab43c275d4130abeeec952f491e4cffc936d3f54.patch"
+      sha256 "464be670065579b4c53f2b14b41af7394c1122e8884c3af2c29358f90ee34d82"
+    end
+  end
+
   bottle do
-    sha256 "9643af9999d726207637d934f8eab3c9a336a35436f12a4db7eb4f483ac98294" => :el_capitan
-    sha256 "9974c88e44602ab06a725a52867e1315e99527095625bdb02a911c0d7f0f2d1b" => :yosemite
-    sha256 "4b3c0e6576fee29f9db6e3f089d55854724c91d11112b43c1a3ca224385efaea" => :mavericks
+    revision 1
+    sha256 "e120fc36eb8037afeb3f36e03b2af6b42a8edb396a0ae526265f4a54333bf625" => :el_capitan
+    sha256 "53477d30e0dfaa39787764c90f6353ca08ff4bec92eb3f8ccfbbae8fb6d107d5" => :yosemite
+    sha256 "5f7d3090604c66df255d93ddf02b2325ade12cbad907428cd01eba2e1fb47cbf" => :mavericks
   end
 
   depends_on "ghc" => :build
@@ -27,11 +39,11 @@ class Cryptol < Formula
   end
 
   test do
-    (testpath/"hello.icry").write <<-EOS.undent
+    (testpath/"helloworld.icry").write <<-EOS.undent
       :prove \\(x : [8]) -> x == x
       :prove \\(x : [32]) -> x + zero == x
     EOS
-    result = shell_output "#{bin}/cryptol -b #{(testpath/"hello.icry")}"
+    result = shell_output "#{bin}/cryptol -b #{(testpath/"helloworld.icry")}"
     expected = <<-EOS.undent
       Loading module Cryptol
       Q.E.D.

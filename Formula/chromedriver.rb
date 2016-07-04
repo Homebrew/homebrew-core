@@ -1,15 +1,17 @@
 class Chromedriver < Formula
   desc "Tool for automated testing of webapps across many browsers"
   homepage "https://sites.google.com/a/chromium.org/chromedriver/"
-  url "https://chromedriver.storage.googleapis.com/2.21/chromedriver_mac32.zip"
-  version "2.21"
-  sha256 "41f21005b498adc5896e4c3e264d718e4ade09609a7544ea8753d4e8ef1e787f"
+  url "https://chromedriver.storage.googleapis.com/2.22/chromedriver_mac32.zip"
+  version "2.22"
+  sha256 "086943786ce736c72f790d85bc810cd541d97abdf81d51e30da62a6d3e2152e3"
 
   bottle :unneeded
 
   def install
     bin.install "chromedriver"
   end
+
+  plist_options :manual => "chromedriver"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

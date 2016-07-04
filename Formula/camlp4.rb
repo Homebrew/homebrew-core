@@ -1,19 +1,21 @@
 class Camlp4 < Formula
   desc "Tool to write extensible parsers in OCaml"
   homepage "https://github.com/ocaml/camlp4"
-  url "https://github.com/ocaml/camlp4/archive/4.02+6.tar.gz"
-  version "4.02.3+6"
-  sha256 "820c35b69fdff3225bda6045fabffe5d7c54dda00fb157444ac8bda5e1778d45"
+  url "https://github.com/ocaml/camlp4/archive/4.03+1.tar.gz"
+  version "4.03+1"
+  sha256 "6eefeacced81cca59ddf90c2538505fd5cd6596a3fc1acf4971e9796c2e7f2ae"
   head "https://github.com/ocaml/camlp4.git", :branch => "trunk"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bbfa590ccdfdfee06dbd5a751201bb8e74b469ef2e2b86755225ffb2eb4720da" => :el_capitan
-    sha256 "6194932d62c0002c8286e7c7bf3d04272301669d2a036b7f9d717af3b1370ea4" => :yosemite
-    sha256 "a791cec5c4ff4cec0bdff1f25ac2b1a6e906b3e9c485bac285d1b527c9caeeaa" => :mavericks
+    sha256 "8393f45f735de47ccae58ea6974aacd34770449980664377b7533a6de8a08c25" => :el_capitan
+    sha256 "5fb90eba1c7b96d259b6dff9049b52d2aee380ff3312376514f96fbd6bd2b613" => :yosemite
+    sha256 "e7082ef589dbf2df951d3da8caaafacfada7def89ae24bde05fb1eb29b12d09d" => :mavericks
   end
 
   depends_on "ocaml"
+  # since Ocaml 4.03.0, ocamlbuild is no longer part of ocaml
+  depends_on "ocamlbuild"
 
   def install
     # this build fails if jobs are parallelized

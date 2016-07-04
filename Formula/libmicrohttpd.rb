@@ -1,16 +1,15 @@
 class Libmicrohttpd < Formula
   desc "Light HTTP/1.1 server library"
   homepage "https://www.gnu.org/software/libmicrohttpd/"
-  url "http://ftpmirror.gnu.org/libmicrohttpd/libmicrohttpd-0.9.47.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.47.tar.gz"
-  sha256 "96bdab4352a09fd3952a346bc01898536992f50127d0adea1c3096a8ec9f658c"
-  revision 1
+  url "https://ftpmirror.gnu.org/libmicrohttpd/libmicrohttpd-0.9.50.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.50.tar.gz"
+  sha256 "d1b6385068abded29b6470e383287aa7705de05ae3c08ad0bf5747ac4dc6ebd7"
 
   bottle do
     cellar :any
-    sha256 "93c8f51521bcf53845a45e9b4b6d3e3ed75e8139e6fd2ebb9746d81e7f897a60" => :el_capitan
-    sha256 "5e7745e96d525f853d1ddbe1665ed7245283b88ae17d51e019c8dc4319071f17" => :yosemite
-    sha256 "45bb84451daa9e020cc81e8b17f8a461ce0f972735d583a2d366b9b7d468544d" => :mavericks
+    sha256 "e2672267f1431be3c924ec2f9a99c6c1396e0cd21a2553379faf1e6ba0b48ad1" => :el_capitan
+    sha256 "f7a4141e0f89a6934d93a8ed65cb4c59c0c9f9e9e8f408619668f005aa47f9c5" => :yosemite
+    sha256 "3a45b0257777cb5639b38ad88800307cd04e7faadedec3efb531a76c6254dfff" => :mavericks
   end
 
   option "with-ssl", "Enable SSL support"
@@ -27,5 +26,15 @@ class Libmicrohttpd < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+    pkgshare.install "doc/examples"
+  end
+
+  test do
+    cp pkgshare/"examples/simplepost.c", testpath
+    inreplace "simplepost.c",
+      "return 0",
+      "printf(\"daemon %p\", daemon) ; return 0"
+    system ENV.cc, "-o", "foo", "simplepost.c", "-I#{include}", "-L#{lib}", "-lmicrohttpd"
+    assert_match /daemon 0x[0-9a-f]+[1-9a-f]+/, pipe_output("./foo")
   end
 end

@@ -36,4 +36,12 @@ class Scsh < Formula
     system "make", "install"
     rm_rf include
   end
+
+  test do
+    (testpath/"hello.scm").write <<-EOS.undent
+      (display "Hello, World!") (newline)
+    EOS
+
+    assert_equal "Hello, World!\n", shell_output("#{bin}/scsh -s hello.scm")
+  end
 end

@@ -3,18 +3,18 @@ class Gconf < Formula
   homepage "https://projects.gnome.org/gconf/"
   url "https://download.gnome.org/sources/GConf/3.2/GConf-3.2.6.tar.xz"
   sha256 "1912b91803ab09a5eed34d364bf09fe3a2a9c96751fde03a4e0cfa51a04d784c"
+  revision 1
 
   bottle do
-    sha256 "c673c369ed543035a50b833e36c4c70930b866c0a679df19404d1a84121026f8" => :el_capitan
-    sha256 "4945b61b81111da7a46af2328d6ac4471f7a4755bebc7579349a8b83424d775f" => :yosemite
-    sha256 "f7b6bc808bc9457f2109319b07f902bd7832b761bb73e21418800d9001664cae" => :mavericks
-    sha256 "693d1380ac759dcec1b702cf236ab7dfbe0142f3cb4d976020c69c4d199f230a" => :mountain_lion
+    sha256 "e810083f15d5ebb027c92071ea67c5960abf4d0b19c5e7809a71d026a78ae34a" => :el_capitan
+    sha256 "85f809fb483b3c78b283d3e7b681b133d106d991717d361c0bdd9596a81178ea" => :yosemite
+    sha256 "91bbb172f214d7fc407f20eef91a6d4dcf0140da4e91d99f4e0c2fd1e902815d" => :mavericks
   end
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "gettext"
-  depends_on "d-bus"
+  depends_on "dbus"
   depends_on "glib"
   depends_on "dbus-glib"
   depends_on "orbit"

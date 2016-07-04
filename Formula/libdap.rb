@@ -1,23 +1,27 @@
 class Libdap < Formula
   desc "Framework for scientific data networking"
   homepage "http://www.opendap.org"
-  url "https://github.com/OPENDAP/libdap4/archive/version-3.17.1.tar.gz"
-  sha256 "b9ee8e8dcc1a93a5c2d2e3a6fee39a3dc05c82e0e44151f8df3fc7c0f6363885"
-  head "https://github.com/OPENDAP/libdap4.git"
+  url "http://www.opendap.org/pub/source/libdap-3.18.1.tar.gz"
+  sha256 "a755c472d7c9e54bc3aa6c92a847a69466fbc6cdc56ee912f411802a725d57a4"
 
   bottle do
-    sha256 "0ed1a25312873af1797bade7a0f3706df5cf1b2049bd1eec3d0ca0618b38da92" => :el_capitan
-    sha256 "07bba9bf47aa4d7d8c73dad126160f82a9b6dec7c3a9b54d915fcd8524727b23" => :yosemite
-    sha256 "bb4b42776292f6adb3af91fb2a5df61a1e13d1dfcc07a275c0595a470dbddb64" => :mavericks
+    sha256 "024ce54a0d4192fdc537fc1e343b48bb19f9018a46ff596b3f09cc88f4906ba5" => :el_capitan
+    sha256 "8cddd4d9c355d8f620264e984d9ef3751bb1833344972255855b6e75055a13bf" => :yosemite
+    sha256 "d990821b7e00a3d7640b9caeeb29b27787a2df74cf868db0a2878b1055f8aeee" => :mavericks
+  end
+
+  head do
+    url "https://github.com/OPENDAP/libdap4.git"
+
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
   end
 
   option "without-test", "Skip build-time tests (Not recommended)"
 
   depends_on "pkg-config" => :build
   depends_on "bison" => :build
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "libtool" => :build
   depends_on "libxml2"
   depends_on "openssl"
 
@@ -47,7 +51,7 @@ class Libdap < Formula
     # over to `dap-config` and from there the contamination will spread.
     args << "--with-curl=/usr" if MacOS.version <= :snow_leopard
 
-    system "autoreconf", "-fvi"
+    system "autoreconf", "-fvi" if build.head?
     system "./configure", *args
     system "make"
     system "make", "check" if build.with? "test"

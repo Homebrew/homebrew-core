@@ -1,16 +1,14 @@
-require "language/go"
-
 class Corectl < Formula
   desc "CoreOS over OS X made very simple"
   homepage "https://github.com/TheNewNormal/corectl"
-  url "https://github.com/TheNewNormal/corectl/archive/v0.5.4.tar.gz"
-  sha256 "1ff7032d51d4a8e4581f0c10c1446acac8bf34768ec31d20eb459b90c160110d"
+  url "https://github.com/TheNewNormal/corectl/archive/v0.5.10.tar.gz"
+  sha256 "e7b86914316d00f161c92f2b0bc0beb2ce26486199057e0536b16e6d47e2b47a"
   head "https://github.com/TheNewNormal/corectl.git", :branch => "golang"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "14038a71082300f74007f76de8fee3b455219f6f63002bc2e694720ad8f42590" => :el_capitan
-    sha256 "f4bafb18c96df67e09d893ab39281247fb5fb27154a97aec11d7460492e4e88c" => :yosemite
+    sha256 "bccdbdfd94b10e3b61c7b69c5420e5c5c580ac52502b6a09eec04955015c6aed" => :el_capitan
+    sha256 "77bc96fd4dc2de9a6c1fb2bb736d04d698f82aa110e352c61474ed84748f89a4" => :yosemite
   end
 
   depends_on "go" => :build
@@ -20,19 +18,19 @@ class Corectl < Formula
   def install
     ENV["GOPATH"] = buildpath
 
-    mkdir_p buildpath/"src/github.com/TheNewNormal/"
-    ln_s buildpath, buildpath/"src/github.com/TheNewNormal/#{name}"
-    Language::Go.stage_deps resources, buildpath/"src"
+    path = buildpath/"src/github.com/TheNewNormal/#{name}"
+    path.install Dir["*"]
 
     args = []
     args << "VERSION=#{version}" if build.stable?
 
-    system "make", "corectl", *args
-    system "make", "documentation/man"
-
-    bin.install "corectl"
-    man1.install Dir["documentation/man/*.1"]
-    share.install "cloud-init", "profiles"
+    cd path do
+      system "make", "corectl", *args
+      system "make", "documentation/man"
+      bin.install "corectl"
+      man1.install Dir["documentation/man/*.1"]
+      share.install "cloud-init", "profiles"
+    end
   end
 
   test do

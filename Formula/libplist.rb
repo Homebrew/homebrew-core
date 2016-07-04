@@ -52,6 +52,6 @@ class Libplist < Formula
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
-    system "make", "install"
+    system "make", "install", "PYTHON_LDFLAGS=-undefined dynamic_lookup"
   end
 end

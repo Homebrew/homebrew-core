@@ -1,15 +1,15 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.5/sbcl-1.3.5-source.tar.bz2"
-  sha256 "c8f1e16f8662313948531135b5e7d26eb57548e1bc4643832588b2c6f74a6e5c"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.7/sbcl-1.3.7-source.tar.bz2"
+  sha256 "854d71cf264d26321bc8ae13f6776b69882c8fb8dc937452dca2ea2c96c54d3a"
 
   head "git://sbcl.git.sourceforge.net/gitroot/sbcl/sbcl.git"
 
   bottle do
-    sha256 "059b84bb63a51bad55efba623037d9048f5780ff40b299b39f5e87eef23d56c7" => :el_capitan
-    sha256 "7c1d87fcf0a24c987cfbee16e94c1787a9e2a8c30a7577376f10c9ae65d0d4e9" => :yosemite
-    sha256 "9e00d8deb3d52b38bcec2a7d712f5fe79a80fcf50842b066b14393a8afc27523" => :mavericks
+    sha256 "4b3ce54a80bf7406d6ad0d81b269b4ee897c2a0d3f74f724c136e6064e99c780" => :el_capitan
+    sha256 "d7fe3b37761a615de398855a498bf237f7785791863d8ddc587c5b7f1b156200" => :yosemite
+    sha256 "b0afb453c0695228e0810ff5d395b775b8339708565a0c9ccd867a34e28d4653" => :mavericks
   end
 
   fails_with :llvm do
@@ -26,8 +26,8 @@ class Sbcl < Formula
 
   # Current binary versions are listed at http://sbcl.sourceforge.net/platform-table.html
   resource "bootstrap64" do
-    url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.1.8/sbcl-1.1.8-x86-64-darwin-binary.tar.bz2"
-    sha256 "729054dc27d6b53bd734eac4dffeaa9e231e97bdbe4927d7a68c8f0210cad700"
+    url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.2.11/sbcl-1.2.11-x86-64-darwin-binary.tar.bz2"
+    sha256 "057d3a1c033fb53deee994c0135110636a04f92d2f88919679864214f77d0452"
   end
 
   resource "bootstrap32" do
@@ -36,22 +36,22 @@ class Sbcl < Formula
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/c5ffdb11/sbcl/patch-base-target-features.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-base-target-features.diff"
     sha256 "e101d7dc015ea71c15a58a5c54777283c89070bf7801a13cd3b3a1969a6d8b75"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/c5ffdb11/sbcl/patch-make-doc.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-make-doc.diff"
     sha256 "7c21c89fd6ec022d4f17670c3253bd33a4ac2784744e4c899c32fbe27203d87e"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/c5ffdb11/sbcl/patch-posix-tests.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-posix-tests.diff"
     sha256 "06908aaa94ba82447d64cf15eb8e011ac4c2ae4c3050b19b36316f64992ee21d"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/c5ffdb11/sbcl/patch-use-mach-exception-handler.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-use-mach-exception-handler.diff"
     sha256 "089b8fdc576a9a32da0b2cdf2b7b2d8bfebf3d542ac567f1cb06f19c03eaf57d"
   end
 

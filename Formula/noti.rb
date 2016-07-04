@@ -1,31 +1,29 @@
 require "language/go"
 
 class Noti < Formula
-  desc "Displays a notification after a terminal process finishes."
+  desc "Trigger notifications when a process completes"
   homepage "https://github.com/variadico/noti"
-  url "https://github.com/variadico/noti/archive/v2.1.1.tar.gz"
-  sha256 "c31c763eb92b4600371b2a62f6dc1dbb3390d89c09e0baab7af0dc427b55a8c5"
-  head "https://github.com/variadico/noti.git", :branch => "dev"
+  url "https://github.com/variadico/noti/archive/v2.2.0.tar.gz"
+  sha256 "3acb1cb0c352e6387b172867e5187f9241b66f9104d95c93ad8dc9a908937626"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d35a463a362591ce41b9e609071ed876ffaa5c9540f2393a2e6bc0a20f97eea8" => :el_capitan
-    sha256 "f5cc202358c1a7409b66ec9b3b3b411fbe2b9caccbd7746ec20beb70afdfc238" => :yosemite
-    sha256 "5d655704e9f39feba5b6cf26a74be4a4dcf3bf337d18d0c0652ff4bfa2693012" => :mavericks
+    sha256 "86798629e20bc7b956fb0912b6bc1dc2e4a28e94f2052aa53fe091f8f9eab05a" => :el_capitan
+    sha256 "dfca3b3386417fc3b3f80fb2ce871324fccba2b8cfc067a7ed2a24580bc3f70c" => :yosemite
+    sha256 "b5bec6039469988873fa2445a1c9662cb7982af690d4f21e1b88c0b7022cbd0e" => :mavericks
   end
 
   depends_on "go" => :build
 
   def install
-    mkdir_p "#{buildpath}/src/github.com/variadico"
-    ln_s buildpath, "#{buildpath}/src/github.com/variadico/noti"
     ENV["GOPATH"] = buildpath
-    cd "#{buildpath}/src/github.com/variadico/noti" do
-      if build.stable?
-        system "go", "build", "-o", "#{bin}/noti"
-      else
-        system "go", "build", "-o", "#{bin}/noti", "cmd/noti/main.go", "cmd/noti/osx.go"
-      end
+
+    notipath = buildpath/"src/github.com/variadico/noti"
+    notipath.install Dir["*"]
+
+    cd "src/github.com/variadico/noti/cmd/noti" do
+      system "go", "build"
+      bin.install "noti"
     end
   end
 

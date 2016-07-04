@@ -19,9 +19,9 @@ class Protobuf < Formula
   end
 
   devel do
-    url "https://github.com/google/protobuf/archive/v3.0.0-beta-2.tar.gz"
-    sha256 "be224d07ce87f12e362cff3df02851107bf92a4e4604349b1d7a4b1f0c3bfd86"
-    version "3.0.0-beta-2"
+    url "https://github.com/google/protobuf/archive/v3.0.0-beta-3.tar.gz"
+    sha256 "d8d11564ff4085e7095cf5601fdc094946e6dbb0085863829668eb3a50b1ae0d"
+    version "3.0.0-beta-3"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -80,6 +80,14 @@ class Protobuf < Formula
     sha256 "47959d0651c32102c10ad919b8a0ffe0ae85f44b8457ddcf2bdc0358fb03dc29"
   end
 
+  # Upstream's autogen script fetches this for devel/head if not present
+  # but does no integrity verification & mandates being online to install.
+  resource "gmock" do
+    url "https://googlemock.googlecode.com/files/gmock-1.7.0.zip"
+    mirror "https://dl.bintray.com/homebrew/mirror/gmock-1.7.0.zip"
+    sha256 "26fcbb5925b74ad5fc8c26b0495dfc96353f4d553492eb97e85a8a6d2f43095b"
+  end
+
   def install
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
@@ -88,10 +96,13 @@ class Protobuf < Formula
     ENV.universal_binary if build.universal?
     ENV.cxx11 if build.cxx11?
 
-    system "./autogen.sh" if build.devel? || build.head?
+    if build.devel? || build.head?
+      (buildpath/"gmock").install resource("gmock")
+      system "./autogen.sh"
+    end
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-zlib"
+                          "--prefix=#{prefix}", "--with-zlib"
     system "make"
     system "make", "check" if build.with?("test") || build.bottle?
     system "make", "install"

@@ -1,15 +1,14 @@
 class Pastebinit < Formula
   desc "Send things to pastebin from the command-line"
   homepage "https://launchpad.net/pastebinit"
-  url "https://launchpad.net/pastebinit/trunk/1.4.1/+download/pastebinit-1.4.1.tar.gz"
-  sha256 "39e3dcb98d2aa9d65f86c648c375ca75fa312fc773e568963e9aefffea0c9bf7"
-  revision 1
+  url "https://launchpad.net/pastebinit/trunk/1.5/+download/pastebinit-1.5.tar.gz"
+  sha256 "0d931dddb3744ed38aa2d319dd2d8a2f38a391011ff99db68ce7c83ab8f5b62f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "01a71bae720fbbd41e00f8d091bdd82c635ec5a0377d8551fef9b411d324d4d1" => :el_capitan
-    sha256 "19a89cc21076e0f0c48e2c355ef07420255938bb1170c28c5cac26924c619e25" => :yosemite
-    sha256 "691f4cf7eb32ea56ef0ea02f9f0a68660147236c7abcf3e06669779a0f1033a4" => :mavericks
+    sha256 "c4ba9f88e6fad1b21fb2b433adf16855086063c143df0b10aea669dce3df189a" => :el_capitan
+    sha256 "42f4b20a8f4361de3f03077bda5c2ecdac87759723ac383b562f0c21b8791d93" => :yosemite
+    sha256 "628ce64e3127dff93a92aa08019ad7c191f0b285dc8ed8cc2248c09d72abc5f5" => :mavericks
   end
 
   depends_on "python3"
@@ -26,6 +25,9 @@ class Pastebinit < Formula
   end
 
   test do
-    system "date | pastebinit"
+    url = pipe_output("#{bin}/pastebinit", "Hello, world!").chomp
+    assert_match %r{^http://pastebin\.com/}, url
+    # We can't actually fetch the URL to check the paste's success because pastebin
+    # blocks our fetches with curl, probably based on the user agent
   end
 end

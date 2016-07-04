@@ -1,23 +1,18 @@
 class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
-  url "https://github.com/micropython/micropython/archive/v1.7.tar.gz"
-  sha256 "ad44d28700d346ceb9a70ae92d36306d42e187fc1af19fa2c7a3ab7dc18742ef"
+  url "https://github.com/micropython/micropython/archive/v1.8.tar.gz"
+  sha256 "0890bc0250cb212e0bd8aec4b2d4f83428e5a031bbb0bb92882f5c8a3e7a092e"
 
   bottle do
     cellar :any
-    sha256 "811bdee93e7d2c4dfcaed11437b540b3473e6a1e7ccec08b573c2601afb21176" => :el_capitan
-    sha256 "b2c3ccfd452ad15f6840dd3efd7706cd7bd19769920467534e23b0ea2107108a" => :yosemite
-    sha256 "78c2a5e5280c047e0f8aa1e20cb22f0ee31f41aa7287b718d36c10d80c76ae67" => :mavericks
+    sha256 "941151408d8edd3fc9df1029b946c269bbe85ce5517744ea45df734e10210e89" => :el_capitan
+    sha256 "b70712b51d196e23da3c0905a2135b96a22369f3e69cf2f43622b0fe1814fe9e" => :yosemite
+    sha256 "33ba0a96ca228e6790db5eca7dd4af16beff334b94d19332322cdd041d9ea5fe" => :mavericks
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libffi"  # Requires libffi v3 closure API; OS X version is too old
-
-  # The install command in the Makefile uses GNU coreutils syntax
-  # which is incompatible with BSD's install and needs patching
-  # https://github.com/micropython/micropython/issues/1984
-  patch :DATA
+  depends_on "libffi" # Requires libffi v3 closure API; OS X version is too old
 
   def install
     cd "unix" do
@@ -38,21 +33,3 @@ class Micropython < Formula
     system "#{bin}/micropython", "ffi-hello.py"
   end
 end
-
-__END__
-diff --git a/unix/Makefile b/unix/Makefile
-index 6d6239f..c556473 100644
---- a/unix/Makefile
-+++ b/unix/Makefile
-@@ -186,8 +186,9 @@ PIPSRC = ../tools/pip-micropython
- PIPTARGET = pip-micropython
-
- install: micropython
--	install -D $(TARGET) $(BINDIR)/$(TARGET)
--	install -D $(PIPSRC) $(BINDIR)/$(PIPTARGET)
-+	install -d $(BINDIR)
-+	install $(TARGET) $(BINDIR)/$(TARGET)
-+	install $(PIPSRC) $(BINDIR)/$(PIPTARGET)
-
- # uninstall micropython
- uninstall:

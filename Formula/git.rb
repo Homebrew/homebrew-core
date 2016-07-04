@@ -1,15 +1,15 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.8.2.tar.xz"
-  sha256 "ec0283d78a0f1c8408c5fd43610697b953fbaafe4077bb1e41446a9ee3a2f83d"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.9.0.tar.xz"
+  sha256 "f41fa97949948fbf49af94a43d779e072a5452c6b5039d86ffa41ebab747b409"
 
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "4a50f8614c33d24dda689386f5ae3e22810819117ae5145d297ec2330f6cca5a" => :el_capitan
-    sha256 "aca2c284e381720e266642773f8036f9cc412b564fabf3eb77d219c26cb9e51d" => :yosemite
-    sha256 "fc5d589862331488a121175d461c9a64d0dc5fa89fbb64ad5d1d09483d4f78ba" => :mavericks
+    sha256 "6b230fa505e98f2947134271fee52d5fcd16eaff49d9dc0fd9ef933f568b92db" => :el_capitan
+    sha256 "076146d0cefd7643c02446a279da627cf290702472e7cd9d3756d6a38cf3c13c" => :yosemite
+    sha256 "396bb11465e7d13141bfa9c67f41a81628259060761df820193763b9e973fc61" => :mavericks
   end
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
@@ -32,13 +32,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.8.2.tar.xz"
-    sha256 "28260088b325a75c66ae6333849f138c098ebb07fcfe78ca398e16f87811e29b"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.9.0.tar.xz"
+    sha256 "664dc1aa20966a91cf6b90d282bb5f93b4e4c831a32a0791f43218389ce3b955"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.8.2.tar.xz"
-    sha256 "9edff3393b7d388a148a4c21fe4ebfb18fe3a2b96ba149d882184f20a6478998"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.9.0.tar.xz"
+    sha256 "dc85c1afa923fd709d651a49d0a720d50a3c248cb16c6c09517cceae88fe8445"
   end
 
   def install
@@ -49,6 +49,11 @@ class Git < Formula
     ENV["NO_R_TO_GCC_LINKER"] = "1" # pass arguments to LD correctly
     ENV["PYTHON_PATH"] = which "python"
     ENV["PERL_PATH"] = which "perl"
+
+    # Support Tcl versions before "lime" color name was introduced
+    # https://github.com/Homebrew/homebrew-core/issues/115
+    # https://www.mail-archive.com/git%40vger.kernel.org/msg92017.html
+    inreplace "gitk-git/gitk", "lime", '"#99FF00"'
 
     perl_version = /\d\.\d+/.match(`perl --version`)
 
@@ -141,15 +146,14 @@ class Git < Formula
     # To avoid this feature hooking into the system OpenSSL, remove it.
     # If you need it, install git --with-brewed-openssl.
     rm "#{libexec}/git-core/git-imap-send" if build.without? "brewed-openssl"
-  end
 
-  def caveats; <<-EOS.undent
-    The OS X keychain credential helper has been installed to:
-      #{HOMEBREW_PREFIX}/bin/git-credential-osxkeychain
-
-    The "contrib" directory has been installed to:
-      #{HOMEBREW_PREFIX}/share/git-core/contrib
+    # Set the OS X keychain credential helper by default
+    # (as Apple's CLT's git also does this).
+    (buildpath/"gitconfig").write <<-EOS.undent
+      [credential]
+      \thelper = osxkeychain
     EOS
+    etc.install "gitconfig"
   end
 
   test do

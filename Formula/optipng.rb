@@ -1,20 +1,16 @@
 class Optipng < Formula
   desc "PNG file optimizer"
   homepage "http://optipng.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/optipng/OptiPNG/optipng-0.7.5/optipng-0.7.5.tar.gz"
-  sha256 "74e54b798b012dff8993fb8d90185ca83f18cfa4935f4a93b0bcfc33c849619d"
+  url "https://downloads.sourceforge.net/project/optipng/OptiPNG/optipng-0.7.6/optipng-0.7.6.tar.gz"
+  sha256 "4870631fcbd3825605f00a168b8debf44ea1cda8ef98a73e5411eee97199be80"
   head "http://hg.code.sf.net/p/optipng/mercurial", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d5f0a362fc4d8821b73be6767b401bced46b897ef36d56881a10070fb3c07d88" => :el_capitan
-    sha256 "2622e60d2f9313b39d2b385e84727e615839d6d531e4c6c7210a53b9cb584f61" => :yosemite
-    sha256 "dd532d23f812dbc28b8f32171423946ee6fcfe87eab28665e7b484c83fc55e0e" => :mavericks
+    sha256 "b062317980451b8a6a129e87f3a22ae851e42c498775a9c5a0e885d265425450" => :el_capitan
+    sha256 "a8b8c3682ae147ff68f37db1155ecd86c965e6e5c4fc0e20b0da3297060cbea2" => :yosemite
+    sha256 "64e1d9fd2a5dd56a91af23ab2a170f68fa06993b2b1ed539b17ffad086e1e28f" => :mavericks
   end
-
-  # Fix compilation on 10.10
-  # https://sourceforge.net/p/optipng/bugs/47/
-  patch :DATA
 
   def install
     system "./configure", "--with-system-zlib",
@@ -27,18 +23,3 @@ class Optipng < Formula
     system "#{bin}/optipng", "-simulate", test_fixtures("test.png")
   end
 end
-
-__END__
-diff --git a/src/optipng/osys.c b/src/optipng/osys.c
-index d816ef7..610250b 100644
---- a/src/optipng/osys.c
-+++ b/src/optipng/osys.c
-@@ -518,7 +518,7 @@ osys_copy_attr(const char *src_path, const char *dest_path)
-     if (chmod(dest_path, sbuf.st_mode) != 0)
-         result = -1;
- 
--#ifdef AT_FDCWD
-+#if defined(AT_FDCWD) && !defined(__APPLE__) && !defined(__SVR4) && !defined(__sun)
-     {
-         struct timespec times[2];
- 

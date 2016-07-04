@@ -1,6 +1,6 @@
 class Virtuoso < Formula
   desc "High-performance object-relational SQL database"
-  homepage "http://virtuoso.openlinksw.com/wiki/main/"
+  homepage "https://virtuoso.openlinksw.com/wiki/main/"
   url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.1/virtuoso-opensource-7.2.1.tar.gz"
   mirror "https://downloads.sourceforge.net/project/virtuoso/virtuoso/7.2.1/virtuoso-opensource-7.2.1.tar.gz"
   sha256 "8e680173f975266046cdc33b0949c6c3320b82630288aed778524657a32ee094"

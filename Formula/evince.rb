@@ -1,14 +1,13 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/3.18/evince-3.18.2.tar.xz"
-  sha256 "42ad6c7354d881a9ecab136ea84ff867acb942605bcfac48b6c12e1c2d8ecb17"
-  revision 3
+  url "https://download.gnome.org/sources/evince/3.20/evince-3.20.1.tar.xz"
+  sha256 "fc7ac23036939c24f02e9fed6dd6e28a85b4b00b60fa4b591b86443251d20055"
 
   bottle do
-    sha256 "1285a7fdb434b1954a82b626af26541e6de62da829701c9c8804f033dc449ed3" => :el_capitan
-    sha256 "0d5c8297ab8cf9dac12fd8be506504e5dc7bf7e764faf3285e8a2bd8df474b0f" => :yosemite
-    sha256 "276fa2a59c85a06b2ea3e5f0144a6e5a01bb321fe0c1fe8386407c97e9349984" => :mavericks
+    sha256 "5fc0afcbb58e4a64c5c4075610f22f6acff6dd62d86b3dc5bf754cd48f440f19" => :el_capitan
+    sha256 "0b99ed070eafbaf115b09c6382e9c4d85115056e4d8c7c4b9fcef5a193d05004" => :yosemite
+    sha256 "c8fb40e626420261e73dfddda4da797747855645efce1705adc598c172c92154" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -25,10 +24,6 @@ class Evince < Formula
   depends_on "shared-mime-info"
   depends_on "djvulibre"
   depends_on :python if MacOS.version <= :snow_leopard
-
-  # adds support for UTF-8 filenames in the DjVu backend
-  # submitted upstream as https://bugzilla.gnome.org/show_bug.cgi?id=761161
-  patch :DATA
 
   def install
     # forces use of gtk3-update-icon-cache instead of gtk-update-icon-cache. No bugreport should
@@ -55,26 +50,6 @@ class Evince < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/evince --version")
+    assert_match version.to_s, shell_output("#{bin}/evince --version")
   end
 end
-
-__END__
-diff --git a/backend/djvu/djvu-document.c b/backend/djvu/djvu-document.c
-index 06ce813..6711f31 100644
---- a/backend/djvu/djvu-document.c
-+++ b/backend/djvu/djvu-document.c
-@@ -164,8 +164,12 @@ djvu_document_load (EvDocument  *document,
-	filename = g_filename_from_uri (uri, NULL, error);
-	if (!filename)
-		return FALSE;
--
-+
-+#ifdef __APPLE__
-+	doc = ddjvu_document_create_by_filename_utf8 (djvu_document->d_context, filename, TRUE);
-+#else
-	doc = ddjvu_document_create_by_filename (djvu_document->d_context, filename, TRUE);
-+#endif
-
-	if (!doc) {
-		g_free (filename);

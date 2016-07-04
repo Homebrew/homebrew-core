@@ -1,14 +1,14 @@
 class GnustepMake < Formula
   desc "Basic GNUstep Makefiles"
   homepage "http://gnustep.org"
-  url "http://ftpmain.gnustep.org/pub/gnustep/core/gnustep-make-2.6.7.tar.gz"
-  sha256 "112b57737c3dcc66c78a5c88925ae1d672673d256d9935598e98bcd687d051e4"
+  url "http://ftpmain.gnustep.org/pub/gnustep/core/gnustep-make-2.6.8.tar.gz"
+  sha256 "603ed2d1339b44d154ea25229330acdedb6784b9c802b3797b2fefe3d2200064"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a810d2598a9e35a24c04fb6f86f84422acca27aeade6cd75e9584445f8a1b004" => :el_capitan
-    sha256 "fe5e51c24948e4aaba4704cd8d1c478b366c739225b3f65bda0c920879f6f5f6" => :yosemite
-    sha256 "f8c9ccee8f22ac1e8fa0c3fc9a6e054e32fb722a287d32759ec7b579d9cf0b5c" => :mavericks
+    sha256 "1598a85b3b9bbf721fb75d57c36d5dd6bc5810ec0f5281b35d2e8a13d24edf12" => :el_capitan
+    sha256 "a944ce4d2cd6131d53837f1e674806a073f534e15870ffd01c484aaab8702f8c" => :yosemite
+    sha256 "e1aed229b3582202cc41d91a208a0e92b36cdb05007450ddd1e6c824e9cde952" => :mavericks
   end
 
   def install

@@ -1,14 +1,14 @@
 class Apcupsd < Formula
   desc "Daemon for controlling APC UPSes"
   homepage "http://www.apcupsd.org"
-  url "https://downloads.sourceforge.net/project/apcupsd/apcupsd%20-%20Stable/3.14.13/apcupsd-3.14.13.tar.gz"
-  sha256 "57ecbde01d0448bf8c4dbfe0ad016724ae66ab98adf2de955bf2be553c5d03f9"
+  url "https://downloads.sourceforge.net/project/apcupsd/apcupsd%20-%20Stable/3.14.14/apcupsd-3.14.14.tar.gz"
+  sha256 "db7748559b6b4c3784f9856561ef6ac6199ef7bd019b3edcd7e0a647bf8f9867"
 
   bottle do
     cellar :any
-    sha256 "99759baac67d1133831cffcd7f3536064ee9b7dd521cd636aa7891239810011b" => :el_capitan
-    sha256 "f69e0d86dbd74242d264618223d1f6aa893037fdf102bf4c0b82586f438376dd" => :yosemite
-    sha256 "9396f5c9ba3788888b5f86e635bae2ec85d3f8d25a7de133dc781526c74d5a55" => :mavericks
+    sha256 "faf979d85d50adebb20de24efbb113a52fe3760f5d4cc4bebda6eaec2268eb09" => :el_capitan
+    sha256 "49cc19f7e0d435d5b70ef75d393de827207ad3ea821e9104d783c61692ea62ba" => :yosemite
+    sha256 "488ed2fc48933a1c4ca08037016ae5af81050bdc27e7975296fd1c172cf10b31" => :mavericks
   end
 
   depends_on "gd"
@@ -25,20 +25,13 @@ class Apcupsd < Formula
     end
 
     cd "platforms/darwin" do
-      # Fixes the `--sbindir` option.
-      # Patch submitted to upstream repo:
-      # https://sourceforge.net/p/apcupsd/mailman/message/34627459/
-      inreplace "Makefile", "/sbin", "$(sbindir)"
-
       # Install launch daemon and kernel extension to subdirectories of `prefix`.
       inreplace "Makefile", "/Library/LaunchDaemons", "#{prefix}/Library/LaunchDaemons"
       inreplace "Makefile", "/System/Library/Extensions", kext_prefix
 
       # Use appropriate paths for launch daemon and launch script.
-      inreplace "apcupsd-start", "/sbin", opt_sbin
-      inreplace "apcupsd-start", "/etc/apcupsd", sysconfdir
-      inreplace "org.apcupsd.apcupsd.plist", "/sbin", opt_sbin
-      inreplace "org.apcupsd.apcupsd.plist", "/etc/apcupsd", sysconfdir
+      inreplace "apcupsd-start.in", "/etc/apcupsd", sysconfdir
+      inreplace "org.apcupsd.apcupsd.plist.in", "/etc/apcupsd", sysconfdir
 
       # Custom uninstaller not needed as this is handled by Homebrew.
       inreplace "Makefile", /.*apcupsd-uninstall.*/, ""

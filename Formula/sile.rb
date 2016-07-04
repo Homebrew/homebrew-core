@@ -1,8 +1,8 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "http://www.sile-typesetter.org/"
-  url "https://github.com/simoncozens/sile/releases/download/v0.9.2/sile-0.9.2.tar.bz2"
-  sha256 "2223582818df06daa4609cee40a81e8787085ad1795d4b2ce5edbe0663b74e18"
+  url "https://github.com/simoncozens/sile/releases/download/v0.9.3/sile-0.9.3.tar.bz2"
+  sha256 "30dfce5dca517280f3c41c34d52e7983080f880f22aca6ddca471d541a2d3f49"
 
   head do
     url "https://github.com/simoncozens/sile.git"
@@ -10,6 +10,8 @@ class Sile < Formula
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
   end
+
+  bottle :disable, "LuaRocks requirements preclude bottling"
 
   depends_on "pkg-config" => :build
   depends_on "harfbuzz"
@@ -31,5 +33,9 @@ class Sile < Formula
                           "--prefix=#{prefix}"
     system "make"
     system "make", "install"
+  end
+
+  test do
+    assert_match "SILE #{version}", shell_output("#{bin}/sile --version")
   end
 end

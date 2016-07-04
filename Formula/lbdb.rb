@@ -7,12 +7,14 @@ class Lbdb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0ce4fe2c478ff098f15498a6e3bb68045d17695234f7d8bb5a10292c7d279778" => :el_capitan
-    sha256 "2b0d428903f819fa92fb66ac2ffc255366371ee9aed7ee2d4a3c21ce0c9d5f1c" => :yosemite
-    sha256 "103383cc3856d211c8773cdcf88f202f421f74a7294df24c356dbc5a2e52add6" => :mavericks
+    revision 1
+    sha256 "1b7bfcbc6d961b138dbe30db866440bd6f56b5f6b7b503adc506665621b6a599" => :el_capitan
+    sha256 "442a646275cac874c93ca7edd9147ad084e286359ed90762296afb65492cb18e" => :yosemite
+    sha256 "a82a06c8e00a7188315891f06529f460fc995db9cdb65bf59c4b1a24e3366329" => :mavericks
   end
 
   depends_on :gpg => :optional
+  depends_on "abook" => :recommended
 
   def install
     args = %W[
