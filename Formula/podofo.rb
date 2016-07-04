@@ -6,9 +6,9 @@ class Podofo < Formula
 
   bottle do
     cellar :any
-    sha256 "de00466beb51138f76ef2229079bf11ee858a9eca375eb142be2b02e06a4d183" => :el_capitan
-    sha256 "dfc753d91fe5301fcf250165365e7a1897bacbf1cb652256722961c10028ad6b" => :yosemite
-    sha256 "02040cb02339a7842136a01a708da16b0924a0e6f24f6d4c71d80061554a14d1" => :mavericks
+    sha256 "48324ad3bc842e158ed203adc1b092fb78cd5807978305833137fa40f0747075" => :el_capitan
+    sha256 "842429d939790291beca9559a7383764bf3f1db96451d02c61c7ad2e0a680528" => :yosemite
+    sha256 "8de2d18ab47458a4751a5286840451bdec435d06a9070738ffbe29d2463001bd" => :mavericks
   end
 
   depends_on "cmake" => :build
