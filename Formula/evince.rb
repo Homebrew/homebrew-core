@@ -3,11 +3,12 @@ class Evince < Formula
   homepage "https://wiki.gnome.org/Apps/Evince"
   url "https://download.gnome.org/sources/evince/3.20/evince-3.20.1.tar.xz"
   sha256 "fc7ac23036939c24f02e9fed6dd6e28a85b4b00b60fa4b591b86443251d20055"
+  revision 1
 
   bottle do
-    sha256 "5fc0afcbb58e4a64c5c4075610f22f6acff6dd62d86b3dc5bf754cd48f440f19" => :el_capitan
-    sha256 "0b99ed070eafbaf115b09c6382e9c4d85115056e4d8c7c4b9fcef5a193d05004" => :yosemite
-    sha256 "c8fb40e626420261e73dfddda4da797747855645efce1705adc598c172c92154" => :mavericks
+    sha256 "fa5d7a4becdd0da9fe9b864c8fa4b0f67e6949497deb8dd5abd86d92f7ca8107" => :el_capitan
+    sha256 "f8b73e52c589d8c1e19bbd9f4edff0fccb471196304e6bf4c87d08a064904978" => :yosemite
+    sha256 "7987ea6935e9850ce2a4ad72ff6d06269e6cfb966cb0a2e19129ba1ce6ff3993" => :mavericks
   end
 
   depends_on "pkg-config" => :build

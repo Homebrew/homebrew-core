@@ -1,15 +1,14 @@
 class Libspectre < Formula
   desc "Small library for rendering Postscript documents"
   homepage "https://wiki.freedesktop.org/www/Software/libspectre/"
-  url "https://libspectre.freedesktop.org/releases/libspectre-0.2.7.tar.gz"
-  sha256 "e81b822a106beed14cf0fec70f1b890c690c2ffa150fa2eee41dc26518a6c3ec"
-  revision 2
+  url "https://libspectre.freedesktop.org/releases/libspectre-0.2.8.tar.gz"
+  sha256 "65256af389823bbc4ee4d25bfd1cc19023ffc29ae9f9677f2d200fa6e98bc7a8"
 
   bottle do
     cellar :any
-    sha256 "79f1beae474d4c964555db602422c17cf59521d8a4753df00676b02a79cbbd80" => :el_capitan
-    sha256 "761e89b0ed74ca24a6950fe789fbd18b47c3c7c318a9ddc8a1808b02b73a6342" => :yosemite
-    sha256 "0e6bae9391fcbc3fd2c827e8a86b677ed7442f961a24de252fee6ba357cac827" => :mavericks
+    sha256 "94c040c805847bf56bccaf077a0e7bf0632bb0340a1a62e1f491c8520a5d8236" => :el_capitan
+    sha256 "0ddfdf1223b3cefd8aeecb4f9b83ae2a51e6786258d574f6f6da0e7f98be2456" => :yosemite
+    sha256 "5ac963d62d71162de892a06d3e3b140592ade0096bd9a33cf0ad8644e78e7104" => :mavericks
   end
 
   depends_on "ghostscript"

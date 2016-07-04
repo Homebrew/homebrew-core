@@ -1,15 +1,15 @@
 class Entr < Formula
   desc "Run arbitrary commands when files change"
   homepage "http://entrproject.org/"
-  url "http://entrproject.org/code/entr-3.5.tar.gz"
-  mirror "https://bitbucket.org/eradman/entr/get/entr-3.5.tar.gz"
-  sha256 "e3e455346bcaf1e9099547eb050fbf667a96610b34304e5513f90265a5976416"
+  url "http://entrproject.org/code/entr-3.6.tar.gz"
+  mirror "https://bitbucket.org/eradman/entr/get/entr-3.6.tar.gz"
+  sha256 "a42746d81c548d7e557d500f93422b8ec9731d719309eb2601b8be69ae0dc8eb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f50782a10f3c10ef14da80fc1645261c43a0803b0bd6939c58b2d2ff0817b9a0" => :el_capitan
-    sha256 "7ccda8f571d409cd95e7362d6633d3de982f5c91a9d9841ece3180d8854353f2" => :yosemite
-    sha256 "1e13edf1ea820bb8bc95753b88c6d800ec26f4d0ff99f57e130a95ae53cf3483" => :mavericks
+    sha256 "b985e1ddf35f9804096c09e8852c24e62076a1e8e23e04905a1d09de3eb8d153" => :el_capitan
+    sha256 "6d154a9923b93066f5f27b076d08124ad884c8771427f0f2d21c7f7e52f4750e" => :yosemite
+    sha256 "ea4441dbe3bbf558d11559ba2decfc71bcb5ac321a9fcfc3281b5b8bd81cd03d" => :mavericks
   end
 
   head do
