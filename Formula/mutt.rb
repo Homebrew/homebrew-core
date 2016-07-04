@@ -35,6 +35,7 @@ class Mutt < Formula
   option "with-debug", "Build with debug option enabled"
   option "with-s-lang", "Build against slang instead of ncurses"
   option "with-confirm-attachment-patch", "Apply confirm attachment patch"
+  option "with-trash-patch", "Apply trash folder patch"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -45,6 +46,13 @@ class Mutt < Formula
   depends_on "gpgme" => :optional
   depends_on "libidn" => :optional
   depends_on "s-lang" => :optional
+
+  if build.with? "trash-patch"
+    patch do
+      url "https://raw.githubusercontent.com/emmanuelbernard/homebrew-mutt/master/patchs/trashfolder-1.6.0.diff.gz"
+      sha256 "b779c6df61a77f3069139aad8562b4a47c8eed8ab5b8f5681742a1c2eaa190b8"
+    end
+  end
 
   if build.with? "confirm-attachment-patch"
     patch do
