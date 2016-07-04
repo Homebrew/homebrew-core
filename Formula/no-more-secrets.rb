@@ -6,9 +6,9 @@ class NoMoreSecrets < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cd05137d5e6612beaef95b5baefa0390bff9b9bfcc2ccdac08936d0f1662623f" => :el_capitan
-    sha256 "c5bfc8f8213fad1b9f31e9d12bfc5d235fb00a8880dd29e7159a496508d794e7" => :yosemite
-    sha256 "b1efac63c0fafcecc0f2c7ef04820f50e00d99b2e0a8fe46ed889b8042803b6f" => :mavericks
+    sha256 "9b4c4af8d3475fc8288541878ef4261317155fd898a45add6a99ed7f704f873e" => :el_capitan
+    sha256 "9043f555a3586cb6f9e6d14cb2ee6af8e10510e6946f80bb6d8799ca914492d2" => :yosemite
+    sha256 "e6969faff5484a728a6b339b4c6448e4b801313253c4eea874d8f705f8f3b6fe" => :mavericks
   end
 
   # upstream commit that fixes version for 0.2.0
