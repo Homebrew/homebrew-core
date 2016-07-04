@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.15/source/mariadb-10.1.15.tar.gz"
-  sha256 "7cc0e55eec64e9ef48345288abe67cf36e72dd2da30d52e4726332ad2a5fea0f"
+  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.14/source/mariadb-10.1.14.tar.gz"
+  sha256 "18e71974a059a268a3f28281599607344d548714ade823d575576121f76ada13"
 
   bottle do
     sha256 "7d1ec840153e4921f2db498afba1809aa117ea51ca154fc43b384704f88fb773" => :el_capitan
@@ -202,17 +202,3 @@ class Mariadb < Formula
     end
   end
 end
-__END__
-diff --git a/storage/connect/jdbconn.cpp b/storage/connect/jdbconn.cpp
-index 9b47927..7c0582d 100644
---- a/storage/connect/jdbconn.cpp
-+++ b/storage/connect/jdbconn.cpp
-@@ -270,7 +270,7 @@ PQRYRES JDBCColumns(PGLOBAL g, char *db, char *table, char *colpat,
-		return NULL;
-
-	// Colpat cannot be null or empty for some drivers
--	cap->Pat = (colpat && *colpat) ? colpat : "%";
-+	cap->Pat = (colpat && *colpat) ? colpat : PlugDup(g, "%");
-
-	/************************************************************************/
-	/*  Now get the results into blocks.                                    */
