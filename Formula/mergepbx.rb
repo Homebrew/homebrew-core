@@ -1,8 +1,8 @@
 class Mergepbx < Formula
   desc "Merge XCode project files in git"
   homepage "https://github.com/simonwagner/mergepbx"
-  url "https://github.com/simonwagner/mergepbx/archive/v0.9.tar.gz"
-  sha256 "d0d859a902357f8059fca0c5fb061a9072b82cb7cce4f38bd9eb2c3198fce003"
+  url "https://github.com/simonwagner/mergepbx/archive/v0.10.tar.gz"
+  sha256 "1727ea75ffbd95426fe5d1d825bfcfb82dbea3dbc03e96f6d7d7ab2699c67572"
 
   bottle do
     cellar :any_skip_relocation
@@ -33,13 +33,8 @@ class Mergepbx < Formula
   end
 
   test do
-    system "mergepbx", "-h"
-
-    resource("dummy_base").stage testpath
-    resource("dummy_mine").stage testpath
-    resource("dummy_theirs").stage testpath
-    system "#{bin}/mergepbx", "project.pbxproj.base",
-                              "project.pbxproj.mine",
-                              "project.pbxproj.theirs"
+    system bin/"mergepbx", "-h"
+    resources.each { |r| r.stage testpath }
+    system bin/"mergepbx", *Dir["project.pbxproj.{base,mine,theirs}"]
   end
 end
