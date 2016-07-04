@@ -16,6 +16,14 @@ class Rust < Formula
       url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2015-09-17/cargo-nightly-x86_64-apple-darwin.tar.gz"
       sha256 "02ba744f8d29bad84c5e698c0f316f9e428962b974877f7f582cd198fdd807a8"
     end
+
+    # Removes the clang version check; already committed upstream.
+    # Fixes the build with Xcode 8.
+    # https://github.com/rust-lang/rust/commit/3c778953d559ca420449421f9415589ef2976a18
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/2db8635d8a5f3ce902bb633c21027429cf73ff18/rust/clang-version-check.patch"
+      sha256 "cca0d22b3e08f5d4a68436ed28309452bdca329f364b333a91abfaa5e6fa56a0"
+    end
   end
 
   bottle do
