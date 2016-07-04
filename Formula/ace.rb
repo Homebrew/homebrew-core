@@ -20,7 +20,7 @@ class Ace < Formula
 
     # Set up the environment the way ACE expects during build.
     ENV["ACE_ROOT"] = buildpath
-    ENV["DYLD_LIBRARY_PATH"] = "#{buildpath}/ace:#{buildpath}/lib"
+    ENV["DYLD_LIBRARY_PATH"] = "#{buildpath}/lib"
 
     # Done! We go ahead and build.
     system "make", "-C", "ace", "-f", "GNUmakefile.ACE",
