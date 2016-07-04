@@ -17,6 +17,12 @@ class NoMoreSecrets < Formula
     sha256 "20dce9db7b7164f5529a94dca71c9f21195477980dae7bb8c082eef5d942f911"
   end
 
+  # upstream commit that fixes version for 0.2.0
+  patch do
+    url "https://github.com/bartobri/no-more-secrets/commit/e07eddae.patch"
+    sha256 "20dce9db7b7164f5529a94dca71c9f21195477980dae7bb8c082eef5d942f911"
+  end
+
   def install
     # ld: library not found for -lncursesw
     # Reported 4 Jul 2016: https://github.com/bartobri/no-more-secrets/issues/24
