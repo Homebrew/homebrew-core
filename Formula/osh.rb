@@ -8,9 +8,9 @@ class Osh < Formula
   head "https://github.com/JNeitzel/v6shell.git"
 
   bottle do
-    sha256 "abcfe34bbddad2d1dea4da6e8a852a9cd63df92fcdc67de01e77c6b0173922be" => :el_capitan
-    sha256 "9cdf662f481f3d5903dc44bfe1b8085074d3053a4612a59f830e1c4c58fd7409" => :yosemite
-    sha256 "1ca3cd79dc33ec932357ceb64ad5f05c002d7c6d19f6603c98d15415255efacb" => :mavericks
+    sha256 "cedd57af18833fdca6996438d708c5b6e90a2a332c5e3e3e0795d40842e090c7" => :el_capitan
+    sha256 "b905743bf8cdd83730ef394e45b5f6d98f6ec0af06559589012a307fde957a06" => :yosemite
+    sha256 "0f0d9e240615dabed38ecaac5ec85d5eab948a29afb70f5a845e802cd8bc6392" => :mavericks
   end
 
   option "with-examples", "Build with shell examples"
