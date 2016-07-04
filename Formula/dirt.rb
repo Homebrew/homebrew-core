@@ -1,8 +1,8 @@
 class Dirt < Formula
   desc "Experimental sample playback"
   homepage "https://github.com/tidalcycles/Dirt"
-  url "https://github.com/tidalcycles/Dirt/archive/1.0.tar.gz"
-  sha256 "4a79a3c8650e8852907beb2d40af0f9bc2824adcffc91041fe62edd55c23ecdc"
+  url "https://github.com/tidalcycles/Dirt/archive/1.1.tar.gz"
+  sha256 "bb1ae52311813d0ea3089bf3837592b885562518b4b44967ce88a24bc10802b6"
   head "https://github.com/tidalcycles/Dirt.git"
 
   bottle do
@@ -17,10 +17,10 @@ class Dirt < Formula
   depends_on "liblo"
 
   def install
-    system "make", "DESTDIR=#{prefix}", "install"
+    system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
-    system "#{bin}/dirt", "-h"
+    assert_match "Usage", shell_output("#{bin}/dirt --help; :")
   end
 end
