@@ -24,8 +24,8 @@ class Perl < Formula
   # Merged upstream, should be in the next release.
   if MacOS.version >= :sierra
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/4455ab37423c123b2e4bd334ad48812ecf2f9109/perl/clock_gettime.patch"
-      sha256 "c94716d26bd82854cc3e6c86a2a264028692a845dda994354159184e7905891d"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/b18137128c4e0cb7e92e9ee007a9f78bc9d03b21/perl/clock_gettime.patch"
+      sha256 "612825c24ed19d6fa255bb42af59dff46ee65c16ea77abf4a59b754aa8ab05ac"
     end
   end
 
