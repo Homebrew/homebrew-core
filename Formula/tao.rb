@@ -53,8 +53,19 @@ class Tao < Formula
                    "static_libs=0",
                    "install"
 
+    system "make", "-C", "TAO", "tests", "hello", "-f", "GNUmakefile",
+                   "INSTALL_PREFIX=#{prefix}",
+                   "LDFLAGS=",
+                   "DESTDIR=",
+                   "INST_DIR=/tao",
+                   "debug=0",
+                   "shared_libs=1",
+                   "static_libs=0",
+                   "install"
   end
 
   test do
+    cp_r "#{pkgshare}/tests/hello/.", testpath
+    system "./run_test.pl"
   end
 end
