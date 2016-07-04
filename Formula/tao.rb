@@ -5,18 +5,14 @@ class Tao < Formula
   sha256 "8177d4f16bf013f7a003a7d1f83de9fda646406754c1f4cc0b0964a4b839eb0f"
 
   def install
-    # Figure out the names of the header and makefile for this version
-    # of OSX and link those files to the standard names.
     name = MacOS.cat.to_s.delete "_"
     ln_sf "config-macosx-#{name}.h", "ace/config.h"
     ln_sf "platform_macosx_#{name}.GNU", "include/makeinclude/platform_macros.GNU"
 
-    # Set up the environment the way TAO expects during build.
     ENV["ACE_ROOT"] = buildpath
     ENV["TAO_ROOT"] = "#{buildpath}/TAO"
     ENV["DYLD_LIBRARY_PATH"] = "#{buildpath}/lib"
 
-    # Done! We go ahead and build.
     system "make", "-C", "ace", "-f", "GNUmakefile",
                    "INSTALL_PREFIX=#{prefix}",
                    "LDFLAGS=",
