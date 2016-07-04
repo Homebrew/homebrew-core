@@ -34,10 +34,6 @@ class Mariadb < Formula
   conflicts_with "mariadb-connector-c",
     :because => "both install plugins"
 
-  # upstream fix for compilation error, marked fixed for 10.1.16
-  # https://jira.mariadb.org/browse/MDEV-10322
-  patch :DATA
-
   def install
     # Don't hard-code the libtool path. See:
     # https://github.com/Homebrew/homebrew/issues/20185
