@@ -11,18 +11,15 @@ class Todolist < Formula
   depends_on "go" => :build
 
   go_resource "github.com/mattn/go-isatty" do
-    url "https://github.com/mattn/go-isatty",
-      :revision => "56b76bdf51f7708750eac80fa38b952bb9f32639", :using => :git
+    url "https://github.com/mattn/go-isatty.git", :revision => "56b76bdf51f7708750eac80fa38b952bb9f32639"
   end
 
   go_resource "github.com/mattn/go-colorable" do
-    url "https://github.com/mattn/go-colorable",
-      :revision => "9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59", :using => :git
+    url "https://github.com/mattn/go-colorable", :revision => "9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59"
   end
 
   go_resource "github.com/fatih/color" do
-    url "https://github.com/fatih/color",
-      :revision => "87d4004f2ab62d0d255e0a38f1680aa534549fe3", :using => :git
+    url "https://github.com/fatih/color", :revision => "87d4004f2ab62d0d255e0a38f1680aa534549fe3"
   end
 
   go_resource "github.com/jinzhu/now" do
