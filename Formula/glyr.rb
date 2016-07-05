@@ -1,8 +1,8 @@
 class Glyr < Formula
   desc "Music related metadata search engine with command-line interface and C API"
   homepage "https://github.com/sahib/glyr"
-  url "https://github.com/sahib/glyr/archive/1.0.8.tar.gz"
-  sha256 "0f25f291c7d956bc76d097a4a28595b6607ae8f599988018b36769ef3284b29a"
+  url "https://github.com/sahib/glyr/archive/1.0.9.tar.gz"
+  sha256 "b2be2d51ba4a8f2bf83d4af8f2491c24b5090c561b72bb3ee319995023678aed"
 
   bottle do
     cellar :any
@@ -22,8 +22,8 @@ class Glyr < Formula
   end
 
   test do
-    out = testpath/"cover.txt"
-    system "#{bin}/glyrc", "cover", "-D", "--artist", "Beatles", "--album", "Please Please Me", "-w", out
-    assert_match %r{^https?://}, out.read
+    search = "--artist Beatles --album \"Please Please Me\""
+    cmd = "#{bin}/glyrc cover --no-download #{search} -w stdout"
+    assert_match %r{^https?://}, pipe_output(cmd, nil, 0)
   end
 end
