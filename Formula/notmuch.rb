@@ -40,7 +40,7 @@ class Notmuch < Formula
       ENV.append_path "PKG_CONFIG_PATH", "#{buildpath}/zlib/lib/pkgconfig"
     end
 
-    args = ["--prefix=#{prefix}"]
+    args = %W[--prefix=#{prefix}]
 
     if build.with? "emacs"
       ENV.deparallelize # Emacs and parallel builds aren't friends
@@ -63,8 +63,8 @@ class Notmuch < Formula
 
   test do
     (testpath/".notmuch-config").write "[database]\npath=#{testpath}/Mail"
-    (testpath/"Mail").mkdir
-    assert_match /0 total/, shell_output("#{bin}/notmuch new")
+    (testpath/"Mail").mkpath
+    assert_match "0 total", shell_output("#{bin}/notmuch new")
   end
 end
 
