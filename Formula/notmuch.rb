@@ -7,9 +7,9 @@ class Notmuch < Formula
 
   bottle do
     cellar :any
-    sha256 "0caa82ec8a459275d5386585bdf944a6892b0fe499b2cb7b96243fed91c09b3a" => :el_capitan
-    sha256 "1f7ac589626fd82ce3de8a399f6cd832982ee756c6d4fa618a62de461d200ca1" => :yosemite
-    sha256 "6e5950e4159217dc865277576e3c75875269a286fb26a8e3a3e52987e651717f" => :mavericks
+    sha256 "cff2642ef4a415cf6417041d02badd1110afedc25286c04954d96b436817c4cc" => :el_capitan
+    sha256 "10bff4ea8b851b5577d143e7c4727000f50ca2cab283ca619dd647b2653b3dc6" => :yosemite
+    sha256 "05fb26810c9809e8207671fb63853f55e45fda24786c19a827d6833915b7e053" => :mavericks
   end
 
   option "without-python", "Build without python support"
