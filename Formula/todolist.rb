@@ -43,7 +43,9 @@ class Todolist < Formula
   end
 
   test do
-    output = shell_output("#{bin}/todolist")
-    assert_match "Todolist was lovingly crafted by Grant Ammons", output
+    system bin/"todolist", "init"
+    assert File.exist?(".todos.json")
+    add_task = shell_output("#{bin}/todolist add learn the Tango")
+    assert_match "Todo added", add_task
   end
 end
