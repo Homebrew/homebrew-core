@@ -1,9 +1,11 @@
 class Freetype < Formula
   desc "Software library to render fonts"
   homepage "https://www.freetype.org/"
-  url "https://downloads.sf.net/project/freetype/freetype2/2.6.3/freetype-2.6.3.tar.bz2"
-  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.6.3.tar.bz2"
-  sha256 "371e707aa522acf5b15ce93f11183c725b8ed1ee8546d7b3af549863045863a2"
+  url "https://downloads.sf.net/project/freetype/freetype2/2.6.4/freetype-2.6.4.tar.bz2"
+  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.6.4.tar.bz2"
+  sha256 "5f83ce531c7035728e03f7f0421cb0533fca4e6d90d5e308674d6d313c23074d"
+
+  patch :DATA
 
   # Note: when bumping freetype's version, you must also bump revisions of formula with
   # "full path" references to freetype in their pkgconfig.
@@ -41,3 +43,22 @@ class Freetype < Formula
       "--exec-prefix", "--prefix"
   end
 end
+
+__END__
+diff --git a/builds/exports.mk b/builds/exports.mk
+index 9685f1f..d5a5085 100644
+--- a/builds/exports.mk
++++ b/builds/exports.mk
+@@ -40,7 +40,11 @@ ifneq ($(EXPORTS_LIST),)
+   endif
+
+   # The list of public headers we're going to parse.
+-  PUBLIC_HEADERS := $(wildcard $(PUBLIC_DIR)/*.h)
++  PUBLIC_HEADERS := $(filter-out $(PUBLIC_DIR)/ftmac.h, \
++                                 $(wildcard $(PUBLIC_DIR)/*.h))
++  ifneq ($(ftmac_c),)
++    PUBLIC_HEADERS += $(PUBLIC_DIR)/ftmac.h
++  endif
+
+   # The `apinames' source and executable.  We use $E_BUILD as the host
+   # executable suffix, which *includes* the final dot.
