@@ -42,7 +42,6 @@ class Livestreamer < Formula
   end
 
   test do
-    output = shell_output("#{bin}/livestreamer --version 2>&1")
-    assert_match "livestreamer #{version}", output
+    assert_match version.to_s, shell_output("#{bin}/livestreamer --version 2>&1")
   end
 end
