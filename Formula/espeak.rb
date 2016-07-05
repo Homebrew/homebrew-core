@@ -13,12 +13,23 @@ class Espeak < Formula
 
   depends_on "portaudio"
 
+  patch do
+    url "https://github.com/danielbair/homebrew-tap/raw/master/libespeak/espeak-osx.patch"
+    sha256 "58b769e7e7f6f3904e2eee221f733029681184b8da654eb211bf90120abcab6b"
+  end
+
   def install
     share.install "espeak-data"
+    share.install "docs"
     cd "src" do
       rm "portaudio.h"
       system "make", "speak", "DATADIR=#{share}/espeak-data", "PREFIX=#{prefix}"
       bin.install "speak" => "espeak"
+      system "make", "libespeak.a", "DATADIR=#{share}/espeak-data", "PREFIX=#{prefix}"
+      lib.install "libespeak.a" => "libespeak.a"
+      system "make", "libespeak.so", "DATADIR=#{share}/espeak-data", "PREFIX=#{prefix}"
+      lib.install "libespeak.so.1.1.48" => "libespeak.dylib"
+      system "install_name_tool", "-id", "#{lib}/libespeak.dylib", "#{lib}/libespeak.dylib"
     end
   end
 
