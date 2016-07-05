@@ -4,6 +4,13 @@ class Livestreamer < Formula
   url "https://files.pythonhosted.org/packages/ee/d6/efbe3456160a2c62e3dd841c5d9504d071c94449a819148bb038b50d862a/livestreamer-1.12.2.tar.gz"
   sha256 "ef3e743d0cabc27d8ad906c356e74370799e25ba46c94d3b8d585af77a258de0"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "08751c90099fb817e5adb721dae3cb1e11852e975c731909baff4001bae4da2c" => :el_capitan
+    sha256 "4f3e898e82718fb8c6fe9597cd0e7289388283c30cedd8c78d699989a0805977" => :yosemite
+    sha256 "b91f4e0f5a293dbb12134bc5be6b2d4ec7c80e309fca8d4901376e15c8b5df87" => :mavericks
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "futures" do
