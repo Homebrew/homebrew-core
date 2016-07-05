@@ -15,7 +15,6 @@ class Tao < Formula
 
     system "make", "-C", "ace", "-f", "GNUmakefile",
                    "INSTALL_PREFIX=#{prefix}",
-                   "LDFLAGS=",
                    "DESTDIR=",
                    "INST_DIR=/ace",
                    "debug=0",
@@ -25,7 +24,6 @@ class Tao < Formula
 
     system "make", "-C", "ace", "apps", "gperf", "src", "-f", "GNUmakefile.gperf",
                    "INSTALL_PREFIX=#{prefix}",
-                   "LDFLAGS=",
                    "DESTDIR=",
                    "INST_DIR=/ace",
                    "debug=0",
