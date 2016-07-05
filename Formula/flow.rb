@@ -4,8 +4,8 @@ class Flow < Formula
   # Switch back to archive tarball when possible.
   # https://github.com/facebook/flow/issues/1981
   url "https://github.com/facebook/flow.git",
-    :tag => "v0.27.0",
-    :revision => "ceea4c3616824b9ad7cd7028dece2d55a7f3b539"
+    :tag => "v0.28.0",
+    :revision => "e0a9b9782f6791019855cdc79ce54c560f97b5da"
   head "https://github.com/facebook/flow.git"
 
   bottle do
