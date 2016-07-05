@@ -1,26 +1,25 @@
 class Dirt < Formula
   desc "Experimental sample playback"
   homepage "https://github.com/tidalcycles/Dirt"
-  url "https://github.com/tidalcycles/Dirt/archive/1.0.tar.gz"
-  sha256 "4a79a3c8650e8852907beb2d40af0f9bc2824adcffc91041fe62edd55c23ecdc"
+  url "https://github.com/tidalcycles/Dirt/archive/1.1.tar.gz"
+  sha256 "bb1ae52311813d0ea3089bf3837592b885562518b4b44967ce88a24bc10802b6"
   head "https://github.com/tidalcycles/Dirt.git"
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "69b2cd867f521cb496e5f08a78c6746b9130470799d992120e4a510fcef4f50e" => :el_capitan
-    sha256 "48051e60852c03311590435ea1c169eeb731e63d08999247cb1348f6f187b5ee" => :yosemite
-    sha256 "d044f78c53c70177327e93f7faa670d7bc66c62b91ecfb710d472385a5a9b4a3" => :mavericks
+    sha256 "b1a17908e39a4ac31d147f52477a60b538c9c4b9f14caf4b3e6fa26a09e11d03" => :el_capitan
+    sha256 "2600455e336a98af56559766a30c38baa04539b5c3fc087285af12931db84e0b" => :yosemite
+    sha256 "5191aa383bb7edf3a85122140d8ebd6113ab56a851ac8d35e09e086632f8eb9c" => :mavericks
   end
 
   depends_on "jack"
   depends_on "liblo"
 
   def install
-    system "make", "DESTDIR=#{prefix}", "install"
+    system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
-    system "#{bin}/dirt", "-h"
+    assert_match "Usage", shell_output("#{bin}/dirt --help; :")
   end
 end
