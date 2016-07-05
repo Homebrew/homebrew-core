@@ -6,6 +6,13 @@ class Todolist < Formula
   url "https://github.com/gammons/todolist/archive/0.2.0.tar.gz"
   sha256 "13882bbbbcb86e05d6729f5bab2507de3aeabc1b4b4b34008480ee7549212c86"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6391f9b576bbbdcc136d92e16f69090589fbb6da73c23bb4ca160670f776afa1" => :el_capitan
+    sha256 "f90e4215f3eb542d81a1f22885e99a24fb2f9cb98febba8060b52fc0edbcdeac" => :yosemite
+    sha256 "6660423f7b92d5843a28341fd7eeae4ce965fd38bb8c8f38495d52e8d2f18f20" => :mavericks
+  end
+
   depends_on "go" => :build
 
   go_resource "github.com/mattn/go-isatty" do
