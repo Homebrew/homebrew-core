@@ -1,8 +1,7 @@
 class Cromwell < Formula
   desc "Workflow Execution Engine using Workflow Description Language"
   homepage "https://github.com/broadinstitute/cromwell"
-  url "https://github.com/broadinstitute/cromwell/releases/download/0.19.3/cromwell-0.19.jar"
-  version "0.19.3"
+  url "https://github.com/broadinstitute/cromwell/releases/download/0.19.3/cromwell-0.19.3.jar"
   sha256 "982f86f061b6391ffe2a05ebab193289e760b169cde1362e5cb420e1ebb2392f"
 
   head do
@@ -21,9 +20,8 @@ class Cromwell < Formula
       libexec.install Dir["target/scala-*/cromwell-*.jar"][0]
       bin.write_jar_script Dir[libexec/"cromwell-*.jar"][0], "cromwell"
     else
-      jar = Pathname.new(active_spec.url).basename
-      libexec.install jar
-      bin.write_jar_script libexec/jar, "cromwell"
+      libexec.install "cromwell-#{version}.jar"
+      bin.write_jar_script libexec/"cromwell-#{version}.jar", "cromwell"
     end
   end
 
