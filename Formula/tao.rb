@@ -1,5 +1,5 @@
 class Tao < Formula
-  desc "TAO, the C++ CORBA implementation"
+  desc "CORBA C++ implementation"
   homepage "https://www.dre.vanderbilt.edu/~schmidt/TAO.html"
   url "http://download.dre.vanderbilt.edu/previous_versions/ACE+TAO-6.4.0.tar.bz2"
   sha256 "8177d4f16bf013f7a003a7d1f83de9fda646406754c1f4cc0b0964a4b839eb0f"
