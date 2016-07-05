@@ -23,7 +23,7 @@ class Tao < Formula
                    "static_libs=0",
                    "install"
 
-    system "make", "-C", "ace", "apps", "gperf", "src",  "-f", "GNUmakefile.gperf",
+    system "make", "-C", "ace", "apps", "gperf", "src", "-f", "GNUmakefile.gperf",
                    "INSTALL_PREFIX=#{prefix}",
                    "LDFLAGS=",
                    "DESTDIR=",
