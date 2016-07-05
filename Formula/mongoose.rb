@@ -6,11 +6,9 @@ class Mongoose < Formula
 
   bottle do
     cellar :any
-    revision 2
-    sha256 "5bf038e627db9453b463a081a58b7e289b112cdf8965209547e40eec047c258a" => :el_capitan
-    sha256 "158f24303e018ec3f9ee05d3ffe10a2399b700cfdf869e9fe2970f68105b1fe5" => :yosemite
-    sha256 "53cbd378f59876d7922ba743c99dedc305707c13caeea0339667bf5006080b24" => :mavericks
-    sha256 "e9ee23cf028f5be715fbae963cf661dffc9850b71039c90f2aae70e07c410fda" => :mountain_lion
+    sha256 "6fae836feb5c6c4feb9ef9a6a25b6b36ab851fecc5de45eb57aee4bff138e280" => :el_capitan
+    sha256 "290997562d18b42dd30fd879fa9308f91e2f57f9f9cde5bd22a4687afba0c0d7" => :yosemite
+    sha256 "8fbc956d0e4116f9a597dd028ca26889db9857a8773b033c9298a0f6989b0f46" => :mavericks
   end
 
   depends_on "openssl" => :recommended
