@@ -26,7 +26,7 @@ class Gsoap < Formula
   end
 
   test do
-    system "#{bin}/wsdl2h", "-o", "calc.h", "http://www.genivia.com/calc.wsdl"
+    system "#{bin}/wsdl2h", "-o", "calc.h", "https://www.genivia.com/calc.wsdl"
     system "#{bin}/soapcpp2", "calc.h"
     assert File.exist?("calc.add.req.xml")
   end
