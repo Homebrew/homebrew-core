@@ -16,6 +16,10 @@ class Bwctl < Formula
   depends_on "iperf3" => :optional
   depends_on "thrulay" => :optional
 
+  # Fix to allow bwctl -Z to start under launchd.
+  # https://github.com/perfsonar/bwctl/pull/36
+  patch :DATA
+
   def install
     # configure mis-sets CFLAGS for I2util
     # https://lists.internet2.edu/sympa/arc/perfsonar-user/2015-04/msg00016.html
@@ -28,9 +32,106 @@ class Bwctl < Formula
                           "--mandir=#{man}",
                           "--with-I2util=#{Formula["i2util"].opt_prefix}"
     system "make", "install"
+
+    (buildpath+"bwctld.conf").write bwctld_conf
+    (buildpath+"bwctld.keys").write ""
+    (buildpath+"bwctld.limits").write bwctld_limits
+    etc.install "bwctld.conf"
+    etc.install "bwctld.keys"
+    etc.install "bwctld.limits"
+
+    (var+"log/bwctl").mkpath
+    (var+"run").mkpath
+  end
+
+  def bwctld_conf; <<-EOS.undent
+    allow_unsync
+    log_location
+    peer_port       6001-6200
+    facility        local5
+    test_port       5001-5900
+    iperf_port      5001-5300
+    nuttcp_port     5301-5600
+    owamp_port      5601-5900
+    user            nobody
+    group           nobody
+    EOS
+  end
+
+  def bwctld_limits; <<-EOS.undent
+    limit root with allow_udp=on, bandwidth=900000000, max_time_error=20, allow_tcp=on, allow_open_mode=on, duration=60
+    limit regular with allow_udp=off, parent=root
+    limit jail with allow_udp=off, bandwidth=1, parent=root, allow_tcp=off, allow_open_mode=off, duration=1
+    assign net ::1/128 root
+    assign net 127.0.0.1/32 root
+    assign net 172.16.10.0/24 jail
+    assign default regular
+    EOS
+  end
+
+  plist_options :startup => true,
+                :manual => "bwctld -c #{HOMEBREW_PREFIX}/etc -R #{HOMEBREW_PREFIX}/var/run"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+      <key>Label</key>
+      <string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{opt_bin}/bwctld</string>
+        <string>-c</string>
+        <string>#{etc}</string>
+        <string>-R</string>
+        <string>#{var}/run</string>
+        <string>-Z</string>
+      </array>
+      <key>RunAtLoad</key>
+      <true/>
+      <key>KeepAlive</key>
+      <true/>
+      <key>EnvironmentVariables</key>
+      <dict>
+        <!-- Needs to be able to find iperf and iperf3 binaries -->
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+      </dict>
+      <key>WorkingDirectory</key>
+      <string>#{var}/log/bwctl</string>
+      <key>StandardErrorPath</key>
+      <string>#{var}/log/bwctl/output.log</string>
+      <key>StandardOutPath</key>
+      <string>#{var}/log/bwctl/output.log</string>
+      <key>HardResourceLimits</key>
+      <dict>
+        <key>NumberOfFiles</key>
+        <integer>1024</integer>
+      </dict>
+      <key>SoftResourceLimits</key>
+      <dict>
+        <key>NumberOfFiles</key>
+        <integer>1024</integer>
+      </dict>
+    </dict>
+    </plist>
+    EOS
   end
 
   test do
     system "#{bin}/bwctl", "-V"
   end
 end
+__END__
+--- a/bwctld/bwctld.c
++++ b/bwctld/bwctld.c
+@@ -2566,7 +2566,7 @@ main(int argc, char *argv[])
+          * kill call.) setsid handles this when daemonizing.
+          */
+         mypid = getpid();
+-        if(setpgid(0,mypid) != 0){
++        if(getsid(0) != mypid && setpgid(0,mypid) != 0){
+             I2ErrLog(errhand,"setpgid(): %M");
+             exit(1);
+         }
