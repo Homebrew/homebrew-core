@@ -40,6 +40,10 @@ class KubernetesCli < Formula
       # Install bash completion
       output = Utils.popen_read("#{bin}/kubectl completion bash")
       (bash_completion/"kubectl").write output
+
+      # Install zsh completion
+      output = Utils.popen_read("#{bin}/kubectl completion zsh")
+      (zsh_completion/"kubectl").write output
     end
   end
 
