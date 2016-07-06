@@ -12,6 +12,8 @@ class Jrnl < Formula
     sha256 "34e9c83cd58485a32877f7ceb7612cb38e7633732bd753850f52d502d7fd0f22" => :mavericks
   end
 
+  include Language::Python::Virtualenv
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "pycrypto" do
@@ -50,18 +52,7 @@ class Jrnl < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
