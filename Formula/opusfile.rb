@@ -1,8 +1,8 @@
 class Opusfile < Formula
   desc "API for decoding and seeking in .opus files"
   homepage "https://www.opus-codec.org/"
-  url "https://archive.mozilla.org/pub/opus/opusfile-0.7.tar.gz"
-  sha256 "9e2bed13bc729058591a0f1cab2505e8cfd8e7ac460bf10a78bcc3b125e7c301"
+  url "https://archive.mozilla.org/pub/opus/opusfile-0.8.tar.gz"
+  sha256 "2c231ed3cfaa1b3173f52d740e5bbd77d51b9dfecb87014b404917fba4b855a4"
 
   bottle do
     cellar :any
