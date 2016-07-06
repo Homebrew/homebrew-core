@@ -1,6 +1,6 @@
 class Httpie < Formula
   desc "User-friendly cURL replacement (command-line HTTP client)"
-  homepage "http://httpie.org/"
+  homepage "https://httpie.org/"
   url "https://pypi.python.org/packages/70/91/47c81b650d3cf33e7e9e639c315903947466a1993053fe1ff019f555ca97/httpie-0.9.4.tar.gz"
   sha256 "0fc288a85d6c018c64bbc86dfcc9c7fad063e79816840dfa91e8d6c43654761e"
 

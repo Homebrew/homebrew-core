@@ -14,7 +14,7 @@ class RegexOpt < Formula
   def install
     # regex-opt uses _Find_first() in std::bitset, which is a
     # nonstandard extension supported in libstdc++ but not libc++
-    # See: http://lists.w3.org/Archives/Public/www-archive/2006Jan/0002.html
+    # See: https://lists.w3.org/Archives/Public/www-archive/2006Jan/0002.html
     ENV.libstdcxx if ENV.compiler == :clang
 
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}"
