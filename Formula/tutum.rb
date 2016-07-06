@@ -5,10 +5,10 @@ class Tutum < Formula
   sha256 "868ee3b085fd271e163b27a28cc45c1a8d290e95094f4128206b9b55bddecb09"
 
   bottle do
-    cellar :any
-    sha256 "71cb041d393587a0d8284d27c21e4a62c8ec27ea975a7961dbd7ca761a3e4064" => :el_capitan
-    sha256 "f582972886f61e8c9f2552fd309ef620b18ec0a552061368267e006b4fba323f" => :yosemite
-    sha256 "bd41d3fa9f32924075e27c0dab01bc1eb22477655e2bd4f1340ef4f475c2b83c" => :mavericks
+    cellar :any_skip_relocation
+    sha256 "59d67147fbcbe56b851f158dda7551f2539ca0a97176f4fbdfb2699458806d5a" => :el_capitan
+    sha256 "47976d0e8099d0b4f35e809aaf1187656116e6ba1914bb9c22a9f220c08a493f" => :yosemite
+    sha256 "160d6e3eaeea07efd2f629c92e90754bfe112122b01fb1e7a2312bf4dc0d19d0" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
