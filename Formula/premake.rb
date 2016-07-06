@@ -13,8 +13,8 @@ class Premake < Formula
   end
 
   devel do
-    url "https://github.com/premake/premake-core/releases/download/v5.0.0-alpha6/premake-5.0.0-alpha6-src.zip"
-    sha256 "9c13372699d25824cba1c16a0483507a6a28903e2556ffb148b288c189403aee"
+    url "https://github.com/premake/premake-core/releases/download/v5.0.0-alpha9/premake-5.0.0-alpha9-src.zip"
+    sha256 "6a71a47c3da137d72bfca9774a2c74476ace111a423aa02f2e6a6be394c5838a"
   end
 
   def install
