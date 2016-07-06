@@ -1,8 +1,8 @@
 class RancherCompose < Formula
   desc "Docker Compose compatible client to deploy to Rancher"
   homepage "https://github.com/rancher/rancher-compose"
-  url "https://github.com/rancher/rancher-compose/archive/v0.8.3.tar.gz"
-  sha256 "a1da1fd08d4432fd7a3edf1995fd88d48cd16fb695a25afbf6060b002f1a06ea"
+  url "https://github.com/rancher/rancher-compose/archive/v0.8.5.tar.gz"
+  sha256 "4c5f7bada72d6d2705406be11e7b9f2be477aac38682821fddb1dedd1fceb990"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,13 +14,15 @@ class RancherCompose < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = "#{buildpath}:#{buildpath}/Godeps/_workspace"
-    mkdir_p "#{buildpath}/src/github.com/rancher"
-    ln_s buildpath, "#{buildpath}/src/github.com/rancher/rancher-compose"
-    system "go", "build", "-ldflags", "-w -X github.com/rancher/rancher-compose/version.VERSION #{version}", "-o", "#{bin}/rancher-compose"
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/rancher/rancher-compose/").install Dir["*"]
+    system "go", "build", "-ldflags",
+           "-w -X github.com/rancher/rancher-compose/version.VERSION=#{version}",
+           "-o", "#{bin}/rancher-compose",
+           "-v", "github.com/rancher/rancher-compose/"
   end
 
   test do
-    system "#{bin}/rancher-compose", "help"
+    system bin/"rancher-compose", "help"
   end
 end
