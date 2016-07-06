@@ -6,9 +6,9 @@ class Glyr < Formula
 
   bottle do
     cellar :any
-    sha256 "7b240a58a5d1560d2d161935be8dc14c670098b76398c45afb528a8bc654b2ef" => :el_capitan
-    sha256 "cdf7b602cdf76dad1371363ff5ae75d92d66a2fb683ae4a618d23ac654b1883b" => :yosemite
-    sha256 "c1c0fc54aa3937936c41b92138661c760bcf03f260be7a0486c53f66273b7b20" => :mavericks
+    sha256 "d734d6df100a1fce794cf3a4369f209d8ef3035bde0396a857f116b58945b229" => :el_capitan
+    sha256 "f7f98aaa44e4132985579133546abb0f7ef4a7fc2e12f1f438950835b10efd86" => :yosemite
+    sha256 "57679677a24b330752690f30172d8fc187363cb7109b2368ea26996840a3bf21" => :mavericks
   end
 
   depends_on "cmake" => :build
