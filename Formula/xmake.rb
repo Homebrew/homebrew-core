@@ -1,8 +1,8 @@
 class Xmake < Formula
   desc "The Automatic Cross-platform Build Tool"
   homepage "https://github.com/waruqi/xmake"
-  url "https://github.com/waruqi/xmake/archive/v2.0.1.tar.gz"
-  sha256 "88b90a416abb0ccb5b3a910d8361eb9acd07b9b843de3db910948b02f59f2557"
+  url "https://github.com/waruqi/xmake/archive/v2.0.2.tar.gz"
+  sha256 "e7a832d407a52a3eb290b5465eb01d1c1d5567eecb6fc627393093b9d6f84bae"
   head "https://github.com/waruqi/xmake.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Xmake < Formula
     system "./install", "output"
     pkgshare.install Dir["xmake/*"]
     bin.install "output/share/xmake/xmake"
-    bin.env_script_all_files(libexec, :XMAKE_PROGRAM_DIR =>"#{pkgshare}")
+    bin.env_script_all_files(libexec, :XMAKE_PROGRAM_DIR => pkgshare)
   end
 
   test do
