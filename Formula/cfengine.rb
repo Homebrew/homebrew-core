@@ -1,8 +1,8 @@
 class Cfengine < Formula
   desc "Help manage and understand IT infrastructure"
   homepage "https://cfengine.com/"
-  url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-3.8.0.tar.gz"
-  sha256 "21743034e3e3e0bea1faba956462079260e8486423eaa955e5f0e58d1ddf5088"
+  url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-3.9.0.tar.gz"
+  sha256 "32a38aedf1199c2361e1335e0d4a1d98f9efa7cd591bcb647f35c7395bb66f2d"
 
   bottle do
     cellar :any
@@ -11,21 +11,17 @@ class Cfengine < Formula
     sha256 "eff5d4c4f4713df4aa5f862b5c2d9c6fade5c507d8a323b41e0618236cdd0ef8" => :mavericks
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "libxml2" if MacOS.version < :mountain_lion
   depends_on "pcre"
   depends_on "lmdb"
   depends_on "openssl"
 
   resource "masterfiles" do
-    url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-masterfiles-3.8.0.tar.gz"
-    sha256 "6956ba4a359e8fe03b627b3fb16b382fed6e33cdfc303db08fb9790895c2a98e"
+    url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-masterfiles-3.9.0.tar.gz"
+    sha256 "63dec2f8649f5f2788cd463dccf47f8dbe941522acfcf3093517f983bbfa0606"
   end
 
   def install
-    system "autoreconf", "-Wno-portability", "-fvi", "-I", "m4" # see autogen.sh
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-workdir=#{var}/cfengine",
