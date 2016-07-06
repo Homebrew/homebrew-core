@@ -12,10 +12,12 @@ class Ghc < Formula
   end
 
   option "with-test", "Verify the build using the testsuite"
+  option "without-docs", "Do not build documentation (including man page)"
   deprecated_option "tests" => "with-test"
   deprecated_option "with-tests" => "with-test"
 
   depends_on :macos => :lion
+  depends_on "sphinx-doc" => :build if build.with? "docs"
 
   resource "gmp" do
     url "https://ftpmirror.gnu.org/gmp/gmp-6.1.0.tar.bz2"
