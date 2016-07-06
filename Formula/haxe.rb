@@ -1,6 +1,6 @@
 class Haxe < Formula
   desc "Multi-platform programming language"
-  homepage "http://haxe.org"
+  homepage "https://haxe.org/"
 
   stable do
     url "https://github.com/HaxeFoundation/haxe.git", :tag => "3.2.1", :revision => "deab4424399b520750671e51e5f5c2684e942c17"
@@ -36,14 +36,14 @@ class Haxe < Formula
     bin.install_symlink lib/"haxe/haxe"
   end
 
-  test do
-    ENV["HAXE_STD_PATH"] = "#{HOMEBREW_PREFIX}/lib/haxe/std"
-    system "#{bin}/haxe", "-v", "Std"
-  end
-
   def caveats; <<-EOS.undent
     Add the following line to your .bashrc or equivalent:
       export HAXE_STD_PATH="#{HOMEBREW_PREFIX}/lib/haxe/std"
     EOS
+  end
+
+  test do
+    ENV["HAXE_STD_PATH"] = "#{HOMEBREW_PREFIX}/lib/haxe/std"
+    system "#{bin}/haxe", "-v", "Std"
   end
 end
