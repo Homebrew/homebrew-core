@@ -1,10 +1,8 @@
-require "language/go"
-
 class AmazonEcsCli < Formula
   desc "CLI for Amazon ECS to manage clusters and tasks for development."
   homepage "https://aws.amazon.com/ecs"
-  url "https://github.com/aws/amazon-ecs-cli/archive/v0.3.0.tar.gz"
-  sha256 "6f3ea5559a0104d59260618734c5992a85d48cc2702e7198d1a93b9e701af9ed"
+  url "https://github.com/aws/amazon-ecs-cli/archive/v0.3.1.tar.gz"
+  sha256 "45a5fcd9bfd4b32c3f9b4d37bbcca4230df97a4a4dd2f532e5709511a43483a4"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,23 +15,15 @@ class AmazonEcsCli < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-
-    clipath = buildpath/"src/github.com/aws/amazon-ecs-cli"
-    clipath.install Dir["*"]
-
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    ENV.append_path "PATH", buildpath/"bin"
-
+    (buildpath/"src/github.com/aws/amazon-ecs-cli").install buildpath.children
     cd "src/github.com/aws/amazon-ecs-cli" do
       system "make", "build"
+      system "make", "test"
       bin.install "bin/local/ecs-cli"
     end
   end
 
   test do
-    output = shell_output(bin/"ecs-cli --version")
-    assert_match "ecs-cli version #{version} (*UNKNOWN)", output
+    assert_match version.to_s, shell_output("#{bin}/ecs-cli -v")
   end
 end
