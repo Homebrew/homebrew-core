@@ -1,9 +1,9 @@
 class Jmxtrans < Formula
   desc "Tool to connect to JVMs and query their attributes"
   homepage "https://github.com/jmxtrans/jmxtrans"
-  url "https://github.com/jmxtrans/jmxtrans/archive/jmxtrans-250.tar.gz"
-  version "20150426-250"
-  sha256 "8590731dcbfb900e46b7073ff5d99f7df542da488f97fbaa5c70999f45ca69b4"
+  url "https://github.com/jmxtrans/jmxtrans/archive/jmxtrans-parent-259.tar.gz"
+  version "20160706-259"
+  sha256 "9a93c23e463cd6af152f4fb715a0ffc04b8fdb5617178d8fd4da3030bcca1d86"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,11 +22,15 @@ class Jmxtrans < Formula
                              "-Dmaven.javadoc.skip=true",
                              "-Dcobertura.skip=true"
 
-    libexec.install Dir["*"]
-    inreplace libexec/"jmxtrans.sh", '"jmxtrans-all.jar"',
-                                     "\"#{libexec}/target/jmxtrans-249-all.jar\""
+    cd "jmxtrans" do
+      inreplace "jmxtrans.sh", "lib/jmxtrans-all.jar",
+                               libexec/"target/jmxtrans-259-all.jar"
+      chmod 0755, "jmxtrans.sh"
+      libexec.install %w[jmxtrans.sh target]
+      pkgshare.install %w[bin example.json src tools vagrant]
+      doc.install Dir["doc/*"]
+    end
 
-    (libexec/"jmxtrans.sh").chmod 0755
     bin.install_symlink libexec/"jmxtrans.sh" => "jmxtrans"
   end
 
