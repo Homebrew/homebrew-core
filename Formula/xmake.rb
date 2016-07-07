@@ -4,7 +4,6 @@ class Xmake < Formula
   url "https://github.com/waruqi/xmake/archive/v2.0.2.tar.gz"
   sha256 "e7a832d407a52a3eb290b5465eb01d1c1d5567eecb6fc627393093b9d6f84bae"
   head "https://github.com/waruqi/xmake.git"
-  version "2.0.2"
 
   bottle do
     cellar :any_skip_relocation
