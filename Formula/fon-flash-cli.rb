@@ -8,10 +8,8 @@ class FonFlashCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9f6a248a19a645ea96026056c282c0a50487e0157e7524dcb132e5d68819036b" => :el_capitan
-    sha256 "81a834863603744f16c18b9aa5ea35c2a2d94cab29ec813ebbb26f036a7cbe05" => :yosemite
-    sha256 "6d9553416c6ee3357c1c160b2f77bcea950a9c326c659011c11ea039200d3384" => :mavericks
-    sha256 "0e2e7ff173495f9e9d908be176ad95589637da5f4849ce4702ee82ee410f3308" => :mountain_lion
+    sha256 "20a4d83d686b4c8ac2ec4fa4e242f186b45682e4fe1878e75223c0687ad29919" => :el_capitan
+    sha256 "5d452d1f7eaf65c8aa0e34321fc7c7f0d9831a30860b70349eefee3c17c17865" => :yosemite
   end
 
   # requires at least the 10.11 SDK
