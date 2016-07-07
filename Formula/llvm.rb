@@ -132,7 +132,10 @@ class Llvm < Formula
   option "without-clang-extra-tools", "Do not build extra tools for Clang"
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
   option "without-libcxx", "Do not build libc++ standard library"
-  option "without-libcxxabi", "Do not build libc++abi standard library"
+  option "with-libcxxabi", "Build libc++abi standard library"
+  # From TODO.TXT file in libcxxabi: CMake always link to /usr/lib/libc++abi.dylib on OS X.
+  # Building libcxxabi results in an additional @rpath in libc++.1.0.dylib that Homebrew can not "fix".
+  # As a result, library does not work when invoked as usual.
   option "without-libunwind", "Do not build libunwind library"
   option "without-lld", "Do not build LLD linker"
   option "with-lldb", "Build LLDB debugger"
@@ -245,7 +248,6 @@ class Llvm < Formula
     args << "-DLLVM_INSTALL_UTILS=ON" if build.with? "utils"
     args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
     args << "-DLLVM_ENABLE_LIBCXXABI=ON" if build.with? "libcxxabi"
-    # args << "-DLLVM_ENABLE_DOXYGEN=ON" if build.with? "doxygen"
 
     if build.with?("lldb") && build.with?("python")
       args << "-DLLDB_RELOCATABLE_PYTHON=ON"
@@ -272,6 +274,10 @@ class Llvm < Formula
     if build.with? "polly"
       args << "-DWITH_POLLY=ON"
       args << "-DLINK_POLLY_INTO_TOOLS=ON"
+    end
+
+    if build.with?("libunwind") && build.with?("libcxxabi")
+      args << "-DLIBCXXABI_USE_LLVM_UNWINDER=ON"
     end
 
     mktemp do
@@ -383,8 +389,6 @@ class Llvm < Formula
         assert_match "/usr/local/opt/llvm/lib/libc++.1.dylib", shell_output("otool -L ./test").chomp
         assert_equal "Hello World!", shell_output("./test").chomp
       end
-
-      ## write a similar test for libcxxabi (if installed)
     end
   end
 end
