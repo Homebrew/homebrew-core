@@ -1,7 +1,7 @@
 class Jbig2enc < Formula
   desc "JBIG2 encoder (for monochrome documents)"
   homepage "https://github.com/agl/jbig2enc"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/agl/jbig2enc/archive/0.28-dist.tar.gz"
