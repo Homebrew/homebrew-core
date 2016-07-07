@@ -6,9 +6,9 @@ class Jsonnet < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3e398400d16ad859db77f6c0f5150369fa355c3e50d47971cc339292ef5c15b5" => :el_capitan
-    sha256 "c1193f9c7e550643f90b3e18708287424430729e4ff266ec47dcd78d48e4794a" => :yosemite
-    sha256 "9de0592ed42f1af11a850a3297225b457f72d03428bc37cb33da1cbb95e15fc7" => :mavericks
+    sha256 "514ae0343883f63d5f39ec27ceb38872a23de1c9d3ffc6ad23de9e0e07b74ed3" => :el_capitan
+    sha256 "e36044b2d7a55e276d28fdc061000d2ca2cd82dd5eccbee4c6a5198f2c0ae25e" => :yosemite
+    sha256 "e88d88f1c4b971dd91178e26158d792a1611623543a7297ccf458bdedcf4a5c8" => :mavericks
   end
 
   needs :cxx11
