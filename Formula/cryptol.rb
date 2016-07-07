@@ -5,21 +5,9 @@ class Cryptol < Formula
 
   desc "Domain-specific language for specifying cryptographic algorithms"
   homepage "http://www.cryptol.net/"
-  revision 1
+  url "https://hackage.haskell.org/package/cryptol-2.4.0/cryptol-2.4.0.tar.gz"
+  sha256 "d34471f734429c25b52ca71ce63270ec3157a8413eeaf7f65dd7abe3cb27014d"
   head "https://github.com/GaloisInc/cryptol.git"
-
-  stable do
-    url "https://github.com/GaloisInc/cryptol.git",
-        :tag => "2.3.0",
-        :revision => "eb51fab238797dfc10274fd60c68acd4bdf53820"
-
-    # Upstream commit titled "tweak for deepseq-generics-0.2"
-    # Fixes the error "Not in scope: type constructor or class NFData"
-    patch do
-      url "https://github.com/GaloisInc/cryptol/commit/ab43c275d4130abeeec952f491e4cffc936d3f54.patch"
-      sha256 "464be670065579b4c53f2b14b41af7394c1122e8884c3af2c29358f90ee34d82"
-    end
-  end
 
   bottle do
     revision 1
@@ -30,12 +18,10 @@ class Cryptol < Formula
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
-  depends_on "z3"
+  depends_on "z3" => :run
 
   def install
-    cabal_sandbox do
-      system "make", "PREFIX=#{prefix}", "install"
-    end
+    install_cabal_package :using => ["alex", "happy"]
   end
 
   test do
@@ -43,12 +29,11 @@ class Cryptol < Formula
       :prove \\(x : [8]) -> x == x
       :prove \\(x : [32]) -> x + zero == x
     EOS
-    result = shell_output "#{bin}/cryptol -b #{(testpath/"helloworld.icry")}"
     expected = <<-EOS.undent
       Loading module Cryptol
       Q.E.D.
       Q.E.D.
     EOS
-    assert_match expected, result
+    assert_match expected, shell_output("#{bin}/cryptol -b helloworld.icry")
   end
 end
