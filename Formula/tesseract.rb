@@ -99,7 +99,7 @@ class Tesseract < Formula
 
     system "make", "install"
     if build.with? "serial-num-pack"
-      resource("snum").stage { mv "snum.traineddata", share/"tessdata" }
+      (pkgshare/"tessdata").install resource("snum")
     end
     if build.with? "training-tools"
       system "make", "training"
