@@ -3,26 +3,18 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.9.0-src.tar.gz"
-    sha256 "b19b21193d7d36039debeaaa1f61cbf98787e0ce94bd85c5cbe2a59462d7cfcd"
+    url "https://static.rust-lang.org/dist/rustc-1.10.0-src.tar.gz"
+    sha256 "a4015aacf4f6d8a8239253c4da46e7abaa8584f8214d1828d2ff0a8f56176869"
 
     resource "cargo" do
       # git required because of submodules
-      url "https://github.com/rust-lang/cargo.git", :tag => "0.10.0", :revision => "10ddd7d5b3080fb0fa6c720cedca64407d4ca2f9"
+      url "https://github.com/rust-lang/cargo.git", :tag => "0.11.0", :revision => "259324cd8f9bb6e1068a3a2b77685e90fda3e3b6"
     end
 
     # name includes date to satisfy cache
     resource "cargo-nightly-2015-09-17" do
       url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2015-09-17/cargo-nightly-x86_64-apple-darwin.tar.gz"
       sha256 "02ba744f8d29bad84c5e698c0f316f9e428962b974877f7f582cd198fdd807a8"
-    end
-
-    # Removes the clang version check; already committed upstream.
-    # Fixes the build with Xcode 8.
-    # https://github.com/rust-lang/rust/commit/3c778953d559ca420449421f9415589ef2976a18
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/2db8635d8a5f3ce902bb633c21027429cf73ff18/rust/clang-version-check.patch"
-      sha256 "cca0d22b3e08f5d4a68436ed28309452bdca329f364b333a91abfaa5e6fa56a0"
     end
   end
 
