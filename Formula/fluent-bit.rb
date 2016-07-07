@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Data Collector for IoT"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v0.8.2.tar.gz"
-  sha256 "fb5c9bd23a97ae83a93ec76f4ab92a7710b952c68595eeb78c1770372c8550c0"
+  url "https://github.com/fluent/fluent-bit/archive/v0.8.3.tar.gz"
+  sha256 "f44a859950d7ecb744794ae91f5088885949758bce6fb2e7ead2e369637f0933"
   head "https://github.com/fluent/fluent-bit.git"
 
   bottle do
@@ -22,10 +22,7 @@ class FluentBit < Formula
   end
 
   test do
-    io = IO.popen("#{bin}/fluent-bit --input stdin --output stdout --daemon")
-    sleep 1
-    Process.kill("SIGINT", io.pid)
-    Process.wait(io.pid)
-    assert_match(/Fluent-Bit v#{version}/, io.read)
+    output = shell_output("#{bin}/fluent-bit -V").chomp
+    assert_equal "Fluent Bit v#{version}", output
   end
 end
