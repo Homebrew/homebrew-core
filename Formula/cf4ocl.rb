@@ -6,6 +6,7 @@ class Cf4ocl < Formula
 
   depends_on "cmake" => :build
   depends_on "glib"
+  depends_on "pkg-config"
 
   def install
     system "cmake", ".", *std_cmake_args
