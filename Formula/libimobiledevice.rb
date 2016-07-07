@@ -36,4 +36,10 @@ class Libimobiledevice < Formula
                           "--without-cython"
     system "make", "install"
   end
+
+  test do
+    # Many of libimobiledevice's actions depend on a plugged-in iDevice.
+    # A bad test is better than none?
+    system "idevicedate", "--help"
+  end
 end
