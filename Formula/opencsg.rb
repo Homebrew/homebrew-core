@@ -8,7 +8,7 @@ class Opencsg < Formula
   depends_on "glew"
 
   patch do
-    url "https://raw.githubusercontent.com/openscad/homebrew-tap/master/patches/opencsg.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/814a29d3ce4c6e7e919cd2fcd64bf45d421e821b/opencsg/patch-build.diff"
     sha256 "9d710cf6c2d5495ca5ba51c0319785cefc21477c85fa3aacb9ccd3473fee54f3"
   end
 
