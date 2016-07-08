@@ -15,11 +15,12 @@ class Duti < Formula
 
   depends_on "autoconf" => :build
 
-  # Add hardcoded SDK path for El Capitan. See https://github.com/moretension/duti/pull/13
-  if MacOS.version == :el_capitan
+  # Add hardcoded SDK path for El Capitan or later.
+  # See https://github.com/moretension/duti/pull/20.
+  if MacOS.version >= :el_capitan
     patch do
-      url "https://github.com/moretension/duti/pull/13.patch"
-      sha256 "5e2d482fe73fe95aea23c25417fdc3815f14724e96e4ac60e5a329424a735388"
+      url "https://github.com/moretension/duti/pull/20.patch"
+      sha256 "8fab50d10242f8ebc4be10e9a9e11d3daf91331d438d06f692fb6ebd6cbec2f8"
     end
   end
 
