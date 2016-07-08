@@ -8,7 +8,7 @@ require "language/go"
 class Minio < Formula
   desc "object storage server compatible with Amazon S3"
   homepage "https://github.com/minio/minio"
-  url "https://github.com/minio/minio/archive/RELEASE.2016-06-03T19-32-05Z.tar.gz", :using => :nounzip
+  url "https://github.com/minio/minio/archive/RELEASE.2016-06-03T19-32-05Z.tar.gz"
   version "20160603193205"
   sha256 "8ecf52cc344c99f84bef632b8dfecf8fdc6a8493a541b2fe42f5b22d8bbfa802"
   head "https://github.com/minio/minio.git"
@@ -18,9 +18,10 @@ class Minio < Formula
   def install
     ENV["GOPATH"] = buildpath
 
-    mkdir_p buildpath/"src/github.com/minio/minio/"
+    clipath = buildpath/"src/github.com/minio/minio"
+    clipath.install Dir["*"]
+
     cd buildpath/"src/github.com/minio/minio/" do
-      safe_system "tar", "vxf", buildpath/"RELEASE.2016-06-03T19-32-05Z.tar.gz", "--strip-components=1"
       system "go", "build", "-o", buildpath/"minio"
     end
 
