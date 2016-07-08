@@ -13,11 +13,9 @@ end
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://coq.inria.fr/distrib/8.5pl1/files/coq-8.5pl1.tar.gz"
-  version "8.5pl1"
-  sha256 "4bfa75b10ae1be61301d0f7bc087b7c24e0b8bd025dd358c75709ac04ddd5df0"
-  revision 1
-
+  url "https://coq.inria.fr/distrib/8.5pl2/files/coq-8.5pl2.tar.gz"
+  version "8.5pl2"
+  sha256 "83239d1251bf6c54a9ca5045d738e469019b93ca601756bf982aab0654e4de73"
   head "git://scm.gforge.inria.fr/coq/coq.git", :branch => "trunk"
 
   bottle do
