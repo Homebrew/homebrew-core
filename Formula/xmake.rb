@@ -1,6 +1,6 @@
 class Xmake < Formula
-  desc "The Automatic Cross-platform Build Tool"
-  homepage "https://github.com/waruqi/xmake"
+  desc "A make-like build utility based on Lua"
+  homepage "http://xmake.io"
   url "https://github.com/waruqi/xmake/archive/v2.0.2.tar.gz"
   sha256 "e7a832d407a52a3eb290b5465eb01d1c1d5567eecb6fc627393093b9d6f84bae"
   head "https://github.com/waruqi/xmake.git"
