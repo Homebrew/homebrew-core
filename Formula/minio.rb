@@ -1,10 +1,5 @@
 require "language/go"
 
-# we're using an ugly workaround here, because the tar is being extracted in builddir,
-# and we need to build into the $GOPATH/src/github.com/minio/minio/. Softlinking isn't working
-# with every shell. So we're using the go_resource to go get the correct revision, while
-# actually not using the tar from the url. The url isn't possible to skip.
-
 class Minio < Formula
   desc "object storage server compatible with Amazon S3"
   homepage "https://github.com/minio/minio"
