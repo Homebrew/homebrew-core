@@ -1,16 +1,15 @@
 class Pgtap < Formula
   desc "Unit testing framework for PostgreSQL"
   homepage "http://pgtap.org/"
-  url "http://api.pgxn.org/dist/pgtap/0.95.0/pgtap-0.95.0.zip"
-  sha256 "a39093e451ce23ab4f67a3ce25543fe59471148f65d5e83ef514df2f90656dc5"
+  url "http://api.pgxn.org/dist/pgtap/0.96.0/pgtap-0.96.0.zip"
+  sha256 "84ad5e2212555077393d74b4628b9cbd141b1f382e7b7f39662ffe64e3fa2521"
   head "https://github.com/theory/pgtap.git"
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "1c3606c85bd39711477ed41f5649978fbabf84abdc97d1e3ac89ab23738d8d42" => :el_capitan
-    sha256 "f97876efe309956ae947a647402f283f44cb98049f4099ca727124def9449bb5" => :yosemite
-    sha256 "31172fee9e4e593f992c6e0038835a1b575fca61ee9465486d352610fd311c38" => :mavericks
+    sha256 "6704c4b67bbac51ddf4d24a9c0f569729ff86806780832b94ab8a20cc54a45cb" => :el_capitan
+    sha256 "f71e5b9c78dc0e5fe95b0c35acba676022fc98d44e9ae31df14e373ceaa0a90a" => :yosemite
+    sha256 "bbe1dc9d175131b2c6ceba5c397ce8f04eccc04e0ccf7b5cece8ea44214d712e" => :mavericks
   end
 
   # Not :postgresql, because we need to install into its share directory.

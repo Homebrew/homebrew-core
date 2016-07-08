@@ -1,15 +1,15 @@
 class Scalariform < Formula
   desc "Scala source code formatter"
   homepage "https://github.com/daniel-trinh/scalariform"
-  url "https://github.com/daniel-trinh/scalariform/releases/download/0.1.6/scalariform.jar"
-  sha256 "346276c5f3a25a44d64ed38f43739813933487299a651f7c64db748427641c54"
-
-  bottle :unneeded
+  url "https://github.com/daniel-trinh/scalariform/releases/download/0.1.7/scalariform.jar"
+  sha256 "8cb179402a7960310a8c6639a20ab94277ec3052cb75ea3ddba31265d070f0d6"
 
   head do
     url "https://github.com/daniel-trinh/scalariform.git"
     depends_on "sbt" => :build
   end
+
+  bottle :unneeded
 
   def install
     if build.head?

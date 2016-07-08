@@ -1,14 +1,14 @@
 class Node < Formula
   desc "Platform built on the V8 JavaScript runtime to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.2.1/node-v6.2.1.tar.xz"
-  sha256 "dbaeb8fb68a599e5164b17c74f66d24f424ee4ab3a25d8de8a3c6808e5b42bfb"
+  url "https://nodejs.org/dist/v6.3.0/node-v6.3.0.tar.xz"
+  sha256 "66c2015bfedfff219f6026b1271a7a94942eb66856929cca1f40f895fbbef62c"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "ecbb784426f302bf25916a803215e39159ad67611864a543e6538dde24879dd7" => :el_capitan
-    sha256 "3a1d21d7dcf372f8c41ace82f6d368d851023bba8d862cf8a87858345ee2b14e" => :yosemite
-    sha256 "11b66415b774ab750a517475d0514cd2652b4be4680e3fcb5278fcef9af4754c" => :mavericks
+    sha256 "d770c1d1b1d421e39b7c13a2b5adf562b5ceb44ada25a32acccf5f0dba7ac9d6" => :el_capitan
+    sha256 "2f8cf7d0b7cd9a5f150e396c2e08bb1b7636fa340eb2727b255b3b13021feaf3" => :yosemite
+    sha256 "4a26a8ca759e4134b7751a549b34e989cfb566458b5b564085df84e3e6a0a7a9" => :mavericks
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -37,8 +37,8 @@ class Node < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.9.3.tgz"
-    sha256 "34e191630a5c736f505925df2855342faa3a13c5b6e59cac9253dea4e22b3014"
+    url "https://registry.npmjs.org/npm/-/npm-3.10.3.tgz"
+    sha256 "82e6089077d40370da445b9209557ee03e3685c8d23dae9cf7a9b1635c7824de"
   end
 
   resource "icu4c" do

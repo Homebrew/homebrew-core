@@ -1,7 +1,7 @@
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
-  url "http://ftpmirror.gnu.org/emacs/emacs-24.5.tar.xz"
+  url "https://ftpmirror.gnu.org/emacs/emacs-24.5.tar.xz"
   mirror "https://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz"
   sha256 "dd47d71dd2a526cf6b47cb49af793ec2e26af69a0951cc40e43ae290eacfc34e"
 

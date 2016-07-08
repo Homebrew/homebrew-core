@@ -3,12 +3,12 @@ class Pike < Formula
   homepage "https://pike.lysator.liu.se"
   url "https://pike.lysator.liu.se/pub/pike/all/7.8.866/Pike-v7.8.866.tar.gz"
   sha256 "0b12e1a99bd8bdd9c8a2daa46e623ac718bc0737290236a0c8474091359b594e"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "df8e5edbe83a457ee1c204379a5baa08ec93d4e9e3e8d73450e25e2300d2ddc8" => :el_capitan
-    sha256 "79355b5af85414754e18b4b93bbe021fb871d1668ff9c84618f3bd8494d3abb5" => :yosemite
-    sha256 "c3710a19d5c15fe84b99b1f92c93b39e297ca27af5f844d8ea5b0bf91082de9c" => :mavericks
+    sha256 "f39667a578587d3274fce318e92430c37755f5b42c4f608c80332d96ff630803" => :el_capitan
+    sha256 "740fa259972600b23f8c7437d59c89f471f0c0a8fc0a2af2738be5f47fdb5069" => :yosemite
+    sha256 "3dab476ddc379606639b5b44cddc19ec1764ac5227924a1e6b591f0961ba33b5" => :mavericks
   end
 
   option "with-gettext", "Include Gettext support"

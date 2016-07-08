@@ -1,14 +1,14 @@
 class Ace < Formula
   desc "ADAPTIVE Communication Environment: OO network programming in C++"
   homepage "https://www.dre.vanderbilt.edu/~schmidt/ACE.html"
-  url "http://download.dre.vanderbilt.edu/previous_versions/ACE-6.3.4.tar.bz2"
-  sha256 "9dd3c639fef1e4d3e2483f8cf4b201b2e80b1ffd8dd9c9a7ce57d0ba9e80f789"
+  url "http://download.dre.vanderbilt.edu/previous_versions/ACE-6.4.0.tar.bz2"
+  sha256 "6a7fd5f23f6a004bb21978767df4e36adea078cd344e45bab50266213586c001"
 
   bottle do
     cellar :any
-    sha256 "a52a47e981ba575a1b43030bbc0abf2aacfb219b6c2b3d093cc09cd625488777" => :el_capitan
-    sha256 "2c00224c6b36ee70552868d953631c77738acfba5d4d6de9b3df5c4b1829b1b4" => :yosemite
-    sha256 "f7da478aa4950a96b33966d2ae0f2ea2a3b87f0d87fc141f8dce4e95fcbfaf2f" => :mavericks
+    sha256 "0b53c1e14820be00af7115e9afefa09a380803589597038d962bb8ab16b79331" => :el_capitan
+    sha256 "d3e7e45197f7d7643d675ff84057df769947f6c0a9185388d23b2a28375760f0" => :yosemite
+    sha256 "72f21357797c350fe547a7978f402e564cf328c3662a0e321d1ec293f4899139" => :mavericks
   end
 
   def install
@@ -20,7 +20,7 @@ class Ace < Formula
 
     # Set up the environment the way ACE expects during build.
     ENV["ACE_ROOT"] = buildpath
-    ENV["DYLD_LIBRARY_PATH"] = "#{buildpath}/ace:#{buildpath}/lib"
+    ENV["DYLD_LIBRARY_PATH"] = "#{buildpath}/lib"
 
     # Done! We go ahead and build.
     system "make", "-C", "ace", "-f", "GNUmakefile.ACE",

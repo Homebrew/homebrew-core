@@ -1,8 +1,8 @@
 class Mahout < Formula
   desc "Library to help build scalable machine learning libraries"
   homepage "https://mahout.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=mahout/0.11.1/apache-mahout-distribution-0.11.1.tar.gz"
-  sha256 "0731e01ba9610f034cbd5316b9ba911356bedca9ba7915db4e958180afaf9cc9"
+  url "https://www.apache.org/dyn/closer.cgi?path=mahout/0.12.2/apache-mahout-distribution-0.12.2.tar.gz"
+  sha256 "8e9d9fb04c6f1cfc11932a8cf268dea87460ffdd50aa0355db7cd470d0420946"
 
   head do
     url "https://github.com/apache/mahout.git"

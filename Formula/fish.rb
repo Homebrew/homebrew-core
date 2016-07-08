@@ -1,14 +1,14 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://fishshell.com/files/2.3.0/fish-2.3.0.tar.gz"
-  mirror "https://github.com/fish-shell/fish-shell/releases/download/2.3.0/fish-2.3.0.tar.gz"
-  sha256 "912bac47552b1aa0d483a39ade330356632586a8f726c0e805b46d45cfad54e5"
+  url "https://fishshell.com/files/2.3.1/fish-2.3.1.tar.gz"
+  mirror "https://github.com/fish-shell/fish-shell/releases/download/2.3.1/fish-2.3.1.tar.gz"
+  sha256 "328acad35d131c94118c1e187ff3689300ba757c4469c8cc1eaa994789b98664"
 
   bottle do
-    sha256 "852d440fd58cde4473ba35f732c7bdfb675c9083891aeb5c54d15d567b54de2f" => :el_capitan
-    sha256 "9367a6ec60e99b38143a683cb8529f07cb1be58ced1330410c5b1f1474d16799" => :yosemite
-    sha256 "e1e3f0e0d6b32cfa95ff4d5c082252033e4ec3c7c49bb5bdb26f3e55bff7f6af" => :mavericks
+    sha256 "99462c8b9fc844882b8877f2b016823ce7c9e54dd89d532e13ce9e3af90558d4" => :el_capitan
+    sha256 "30254c4c5bd3f2c6df4da5f805d8023f867b3ac0b5e3ed6557d864db102ff6f7" => :yosemite
+    sha256 "c91612a4f4e6e99bb81a0e699adce007c48a175e73dde5af239ae7ee41f3af90" => :mavericks
   end
 
   head do
@@ -36,10 +36,6 @@ class Fish < Formula
     Then run:
       chsh -s #{HOMEBREW_PREFIX}/bin/fish
     to make fish your default shell.
-
-    If you are upgrading from an older version of fish, you should now run:
-      killall fishd
-    to terminate the outdated fish daemon.
     EOS
   end
 

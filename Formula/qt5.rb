@@ -14,16 +14,16 @@ end
 class Qt5 < Formula
   desc "Version 5 of the Qt framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.6/5.6.1/single/qt-everywhere-opensource-src-5.6.1.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.6/5.6.1/single/qt-everywhere-opensource-src-5.6.1.tar.xz"
-  sha256 "0d3cc75d2368ad988c9ec6bcbed6362dbaa8e03fdfd04e679284f4b9af91e565"
+  url "https://download.qt.io/official_releases/qt/5.6/5.6.1-1/single/qt-everywhere-opensource-src-5.6.1-1.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.6/5.6.1-1/single/qt-everywhere-opensource-src-5.6.1-1.tar.xz"
+  sha256 "ce08a7eb54661705f55fb283d895a089b267c688fabe017062bd71b9231736db"
 
   head "https://code.qt.io/qt/qt5.git", :branch => "5.6", :shallow => false
 
   bottle do
-    sha256 "e33fe196cfc3997a3620be91e52a2e3378bc140ca2a17a84a6de769d77a96b9b" => :el_capitan
-    sha256 "721d7569b6880b31bd7ab684773f40ee147b3ea2ee9c6f0b81eb71d99ace90dd" => :yosemite
-    sha256 "76b0e2a980326bf520e0f1405132928eec91f68547602e562d81e4690e6a3b27" => :mavericks
+    sha256 "2aaa410f2ab2fbbddbc8c3438e43bc9f4271774c794bcae8f935fb6b1b5a82ed" => :el_capitan
+    sha256 "eefa531c6ebc757982b31f17935fa2220aad52caf3112e389a878dce04f40490" => :yosemite
+    sha256 "73d33dd2563c39542844c276a7bd43463f2974fde141e7afeb3057168adbe606" => :mavericks
   end
 
   # Restore `.pc` files for framework-based build of Qt 5 on OS X. This
@@ -37,6 +37,15 @@ class Qt5 < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
+  end
+
+  # Fix build error due to missing Mac QtBase widget example targets, detected
+  # by logic introduced in <https://codereview.qt-project.org/#/c/156610/> and
+  # corrected in <https://codereview.qt-project.org/#/c/161001/>.
+  # Should land in either 5.6.2 and/or 5.7.1.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6ffd0e250d374193613a51beda8830dda9b67e56/qt5/QTBUG-54110.patch"
+    sha256 "2cf77b820f46f0c404284882b4a4a97bf005b680062842cdc53e107a821deeda"
   end
 
   keg_only "Qt 5 conflicts Qt 4 (which is currently much more widely used)."
@@ -57,6 +66,7 @@ class Qt5 < Formula
 
   depends_on "dbus" => :optional
   depends_on :mysql => :optional
+  depends_on :postgresql => :optional
   depends_on :xcode => :build
 
   depends_on OracleHomeVarRequirement if build.with? "oci"
@@ -79,6 +89,7 @@ class Qt5 < Formula
     args << "-nomake" << "examples" if build.without? "examples"
 
     args << "-plugin-sql-mysql" if build.with? "mysql"
+    args << "-plugin-sql-psql" if build.with? "postgresql"
 
     if build.with? "dbus"
       dbus_opt = Formula["dbus"].opt_prefix

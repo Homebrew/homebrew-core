@@ -1,13 +1,13 @@
 class ClutterGst < Formula
   desc "ClutterMedia interface using GStreamer for video and audio"
   homepage "https://developer.gnome.org/clutter-gst/"
-  url "https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.16.tar.xz"
-  sha256 "803e8b7265e63e0581e21fd0c6064792dfe951512e9f515e9e7a9b452caaf9f0"
+  url "https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.18.tar.xz"
+  sha256 "0aec0d0c6020cd19a5bb0dab1165a92748f81a9a3acdfabb0f966d5f53bc8093"
 
   bottle do
-    sha256 "713a99de8f38abe30e09c31259c678e461464b6b1d525373d21405a5028ef830" => :el_capitan
-    sha256 "52fa121f3dd99cd80823ce0afcb23897b32484d962bd52c92c26ae5793b5c3b2" => :yosemite
-    sha256 "ffcaafdac4bbbb170b7c33d533ec6a98bfad4e77304cf39f5f0e851e44e16f13" => :mavericks
+    sha256 "23589497f145c4cbebab2f7aa06dabc1f651179f36abbfa7dbc5e982facc37fa" => :el_capitan
+    sha256 "2885b0c1cf9e0aa2dfc5594f8f63f788cb8d9195da1e39adf953a9589160d51b" => :yosemite
+    sha256 "208eac2d1030241bd5ac8063c50b4019a1c0298b600225e66e5cd2e65207ee4d" => :mavericks
   end
 
   depends_on "pkg-config" => :build

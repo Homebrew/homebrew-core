@@ -3,16 +3,16 @@ class Multimarkdown < Formula
   homepage "http://fletcherpenney.net/multimarkdown/"
   # Use git tag instead of the tarball to get submodules
   url "https://github.com/fletcher/MultiMarkdown-5.git",
-    :tag => "5.2.0",
-    :revision => "101bbad1dc572c5d87788b2b17b6f9375f1d2bc8"
+    :tag => "5.3.0",
+    :revision => "b03f660e73abc6d5243b829a0cbe4899c86dc435"
 
   head "https://github.com/fletcher/MultiMarkdown-5.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a0ac27ece734aea62e7043fa1d5d5721371da181bcc9c7d3aefcaffdb6b79ae5" => :el_capitan
-    sha256 "21ae8819f596925da49ee77152f9e8f1951b76372fc6231a1c61721ca782837b" => :yosemite
-    sha256 "4b0cf6b5d9f25d4895316c59d25dd45f9d4b92ae7aafc7d38072e1c512639d86" => :mavericks
+    sha256 "8c6c18b293bc6df5495af9e6048b114d9582b14c99edfc790f1edb01341c665f" => :el_capitan
+    sha256 "5ca4d414003d869395880dcf4068b15421464ce6aabd32711b21d31bab49750c" => :yosemite
+    sha256 "070759d16a75575f519ee4f8dd263940df46cff83a901a925ebd4da1c4f7871b" => :mavericks
   end
 
   depends_on "cmake" => :build

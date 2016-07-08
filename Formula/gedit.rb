@@ -1,13 +1,13 @@
 class Gedit < Formula
   desc "The GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/3.18/gedit-3.18.3.tar.xz"
-  sha256 "6762ac0d793b0f754a2da5f88739d04fa39daa7491c5c46401d24bcef76c32e7"
+  url "https://download.gnome.org/sources/gedit/3.20/gedit-3.20.2.tar.xz"
+  sha256 "32a1276a71a0d4a5af4e20a87bc273170ba8e075fc1ca7f51c8d3a6c150463f8"
 
   bottle do
-    sha256 "12119b98084b680cb7db10db4b7a60bffb60ff2ba14dd2b6c4f2af8a95df1630" => :el_capitan
-    sha256 "00212299adb87ff33cb0c87d5bfbb591286eaae2b336f756d80a175fc59f8360" => :yosemite
-    sha256 "ad6eba6059ad411a573a9ebb8c00922dc07fed9214894a243823d39507866a79" => :mavericks
+    sha256 "f82d3eda571bfd09c0f25f35ecbfe5ec3f27495c698caa9a0f099a20055dcb73" => :el_capitan
+    sha256 "dfb0ecca21a09bf5ce5d2eadb9b619731a4cdd68e5caf4f274e2f58a8cfdebe7" => :yosemite
+    sha256 "421dd30ffd44155452dc99db471e9d92f38d67b99b5e83dfc98e3e121f7883b9" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -30,7 +30,8 @@ class Gedit < Formula
                           "--prefix=#{prefix}",
                           "--disable-updater",
                           "--disable-schemas-compile",
-                          "--disable-python"
+                          "--disable-python",
+                          "--disable-spell" # Expects gspell < 1.0.
     system "make", "install"
   end
 
@@ -40,7 +41,7 @@ class Gedit < Formula
 
   test do
     # main executable test
-    system "gedit", "--version"
+    system bin/"gedit", "--version"
     # API test
     (testpath/"test.c").write <<-EOS.undent
       #include <gedit/gedit-utils.h>

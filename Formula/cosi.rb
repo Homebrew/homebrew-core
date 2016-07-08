@@ -74,12 +74,27 @@ class Cosi < Formula
   end
 
   test do
-    (testpath/"test.txt").write("This is my test file")
-    group = prefix/"dedis_group.toml"
-    file = prefix/"README.md"
-    sig = shell_output("#{bin}/cosi sign -g #{group} #{file}")
-    sigfile = "sig.json"
-    (testpath/sigfile).write(sig)
-    assert_match "OK", shell_output("#{bin}/cosi verify -g #{group} -s #{sigfile} #{file}")
+    (testpath/"config.toml").write <<-EOS.undent
+      Public = "7b6d6361686d0c76d9f4b40961736eb5d0849f7db3f8bfd8f869b8015d831d45"
+      Private = "01a80f4fef21db2aea18e5288fe9aa71324a8ad202609139e5cfffc4ffdc4484"
+      Addresses = ["0.0.0.0:6879"]
+    EOS
+    (testpath/"group.toml").write <<-EOS.undent
+      [[servers]]
+        Addresses = ["127.0.0.1:6879"]
+        Public = "e21jYWhtDHbZ9LQJYXNutdCEn32z+L/Y+Gm4AV2DHUU="
+    EOS
+    begin
+      file = prefix/"README.md"
+      sig = "README.sig"
+      pid = fork { exec bin/"cosi", "server", "-config", "config.toml" }
+      sleep 2
+      assert_match "Success", shell_output("#{bin}/cosi check -g group.toml")
+      system bin/"cosi", "sign", "-g", "group.toml", "-o", sig, file
+      out = shell_output("#{bin}/cosi verify -g group.toml -s #{sig} #{file}")
+      assert_match "OK", out
+    ensure
+      Process.kill("TERM", pid)
+    end
   end
 end

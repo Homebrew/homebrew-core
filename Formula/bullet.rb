@@ -1,35 +1,32 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "http://bulletphysics.org/wordpress/"
-  url "https://github.com/bulletphysics/bullet3/archive/2.83.6.tar.gz"
-  sha256 "dcd5448f31ded71c7bd22fddd7d816ac590ae7b97e1fdda8d1253f8ff3655571"
+  url "https://github.com/bulletphysics/bullet3/archive/2.83.7.tar.gz"
+  sha256 "00d1d8f206ee85ffd171643ac8e72f9f4e0bf6dbf3d4ac55f4495cb168b51243"
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1d9119bc35c1349dd67776d358abd8f62ffd4cb2a8ada2f3dbd045ee5cfc8e22" => :el_capitan
-    sha256 "79e79f3dcc6dbe62ca2422df12469a545be28ee150eaba3d67fa66826da7c730" => :yosemite
-    sha256 "bc42f536182a138dc1007df0ab7188a9c8fbaa6e6c9ac27d1ed550ab1372816f" => :mavericks
-    sha256 "f63b943a84faa74f80756ba3aae7b3c12f6a934a50953fcf367a7f088c769615" => :mountain_lion
+    sha256 "76ccbd35bad9d8314034ff565faaa0554780ccb824a8e2f8e0f2c8e6d943c36f" => :el_capitan
+    sha256 "f1820f7ee747911117fc28eef8fee1d9e4cb4d776aa5f26c575edc5545a3d995" => :yosemite
+    sha256 "affa568baabe79d993fe27eaa89466d1e837002754dd407f595a9c992eef58c4" => :mavericks
   end
 
   deprecated_option "framework" => "with-framework"
   deprecated_option "shared" => "with-shared"
   deprecated_option "build-demo" => "with-demo"
-  deprecated_option "build-extra" => "with-extra"
   deprecated_option "double-precision" => "with-double-precision"
 
   option :universal
-  option "with-framework",        "Build Frameworks"
-  option "with-shared",           "Build shared libraries"
-  option "with-demo",             "Build demo applications"
-  option "with-extra",            "Build extra library"
+  option "with-framework", "Build frameworks"
+  option "with-shared", "Build shared libraries"
+  option "with-demo", "Build demo applications"
   option "with-double-precision", "Use double precision"
 
   depends_on "cmake" => :build
 
   def install
-    args = []
+    args = ["-DINSTALL_EXTRA_LIBS=ON"]
 
     if build.with? "framework"
       args << "-DBUILD_SHARED_LIBS=ON" << "-DFRAMEWORK=ON"
@@ -54,12 +51,6 @@ class Bullet < Formula
     end
 
     args << "-DBUILD_BULLET2_DEMOS=OFF" if build.without? "demo"
-
-    if build.with?("extra")
-      args << "-DINSTALL_EXTRA_LIBS=ON"
-    else
-      args << "-DBUILD_EXTRAS=OFF"
-    end
 
     system "cmake", *args
     system "make"

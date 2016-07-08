@@ -1,14 +1,14 @@
 class AuroraCli < Formula
   desc "Apache Aurora Scheduler Client"
   homepage "https://aurora.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=/aurora/0.13.0/apache-aurora-0.13.0.tar.gz"
-  sha256 "d26c245c9ae1b3262d0bfd3e1452dc9941f1f607e457b610b95f0a0e1b24925e"
+  url "https://www.apache.org/dyn/closer.cgi?path=/aurora/0.14.0/apache-aurora-0.14.0.tar.gz"
+  sha256 "c62a152c9e3a851e701c760f4ea50dc8ba1833299f0cbae72e0d92e7011712bb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "006b9d33d98736ebee6053b8530c22d9a188a2e1e7ad019d7cdece96a86ceb7c" => :el_capitan
-    sha256 "5c972f89ee513838173c9641ee01f81ddaa40b02d98bb05b462a5fddc6838b7e" => :yosemite
-    sha256 "bc4c5caac41a770e5d25bf05b2a52fddda76db9628fe17f8d4952039ede45ea9" => :mavericks
+    sha256 "b48f209069faa373d10ab284feb7dc83847dee45aa805d9260f1e367bcd26da3" => :el_capitan
+    sha256 "c350d082b32c1c0e2fcd8387839c725b4d94c97ad517b906cebfcb63c13c5f13" => :yosemite
+    sha256 "211ef89b103c5cd5c4b7aabe70bdbb297256e3e825da5572d37230857043b792" => :mavericks
   end
 
   depends_on :java => "1.8+"

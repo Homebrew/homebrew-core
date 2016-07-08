@@ -1,15 +1,15 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.6/sbcl-1.3.6-source.tar.bz2"
-  sha256 "f017ac1bd8fe0ad56a4cfda4f7543a06a8993db8da1c9c079e188c28c551b0d9"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.7/sbcl-1.3.7-source.tar.bz2"
+  sha256 "854d71cf264d26321bc8ae13f6776b69882c8fb8dc937452dca2ea2c96c54d3a"
 
   head "git://sbcl.git.sourceforge.net/gitroot/sbcl/sbcl.git"
 
   bottle do
-    sha256 "9caeb3039190d7341b7dbcf1ff4a65289383393e1eb93967a7366f835fb32eec" => :el_capitan
-    sha256 "e4ade5177059e83a28b6be6d747ba926b8ca1f2c722289ffe536949576a78aec" => :yosemite
-    sha256 "85bfea7ce516a6e1d2393cdcbd81f10cf7fa3858edbb82d3d16d297d2e051157" => :mavericks
+    sha256 "4b3ce54a80bf7406d6ad0d81b269b4ee897c2a0d3f74f724c136e6064e99c780" => :el_capitan
+    sha256 "d7fe3b37761a615de398855a498bf237f7785791863d8ddc587c5b7f1b156200" => :yosemite
+    sha256 "b0afb453c0695228e0810ff5d395b775b8339708565a0c9ccd867a34e28d4653" => :mavericks
   end
 
   fails_with :llvm do
@@ -26,8 +26,8 @@ class Sbcl < Formula
 
   # Current binary versions are listed at http://sbcl.sourceforge.net/platform-table.html
   resource "bootstrap64" do
-    url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.1.8/sbcl-1.1.8-x86-64-darwin-binary.tar.bz2"
-    sha256 "729054dc27d6b53bd734eac4dffeaa9e231e97bdbe4927d7a68c8f0210cad700"
+    url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.2.11/sbcl-1.2.11-x86-64-darwin-binary.tar.bz2"
+    sha256 "057d3a1c033fb53deee994c0135110636a04f92d2f88919679864214f77d0452"
   end
 
   resource "bootstrap32" do

@@ -3,8 +3,8 @@ class Logstash < Formula
   homepage "https://www.elastic.co/products/logstash"
 
   stable do
-    url "https://download.elastic.co/logstash/logstash/logstash-2.3.2.tar.gz"
-    sha256 "b3c9d943fa273c8087386736ef6809df9c5959bab870a6ab4723f58d48dd38c1"
+    url "https://download.elastic.co/logstash/logstash/logstash-2.3.4.tar.gz"
+    sha256 "7f62a03ddc3972e33c343e982ada1796b18284f43ed9c0089a2efee78b239583"
     depends_on :java => "1.7+"
   end
 

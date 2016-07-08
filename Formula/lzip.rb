@@ -1,15 +1,14 @@
 class Lzip < Formula
   desc "LZMA-based compression program similar to gzip or bzip2"
   homepage "http://www.nongnu.org/lzip/lzip.html"
-  url "http://download.savannah.gnu.org/releases/lzip/lzip-1.17.tar.gz"
-  sha256 "9443855e0a33131233b22cdb6c62c9313a483f16cc7415efe88d4a494cea0352"
+  url "https://download.savannah.gnu.org/releases/lzip/lzip-1.18.tar.gz"
+  sha256 "47f9882a104ab05532f467a7b8f4ddbb898fa2f1e8d9d468556d6c2d04db14dd"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7914d124a70223bfa59bfcc4973810a26e6b05e99326a33efabe69b05b68df26" => :el_capitan
-    sha256 "220396d58834507c1a82d6baa6713c754fd0b1363e40c6db76d6d659a6bb452a" => :yosemite
-    sha256 "1a2749597e4dfee9ddc74451d932fc3d6c335ab00c1d0ca15b3b5643b696e3c6" => :mavericks
-    sha256 "2932b6bfc8e63d336b58f373d46012ee379143d6e06bb9b99398149ce13edd86" => :mountain_lion
+    sha256 "dcebc83e260a8bfdfe55a2cc991a4184d935b6fe53390160d7e2154371671845" => :el_capitan
+    sha256 "a5e4b8f48d93f2d3ca8988df55b619ff779ff5331d3ee64dd31b57b7d88959db" => :yosemite
+    sha256 "cfde4d3e188c4347a23811e2712a60bd646a3037e6f7b9cf6afecd6db933fda0" => :mavericks
   end
 
   def install

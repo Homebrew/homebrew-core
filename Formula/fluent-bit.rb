@@ -1,16 +1,15 @@
 class FluentBit < Formula
   desc "Data Collector for IoT"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v0.8.0.tar.gz"
-  sha256 "e9a5321a76d2cfc2717f32b91561cd2d1c2121b73729e712704a6a6274de37f0"
-
+  url "https://github.com/fluent/fluent-bit/archive/v0.8.3.tar.gz"
+  sha256 "f44a859950d7ecb744794ae91f5088885949758bce6fb2e7ead2e369637f0933"
   head "https://github.com/fluent/fluent-bit.git"
 
   bottle do
     cellar :any
-    sha256 "7b1195afb3f8db710f357b54cdce15df760b5a750c2a6558a13db45619506290" => :el_capitan
-    sha256 "6ec3a37d4a9004969963d77ec2f47e6de9da8f72b83c59567f58c34bbf4c90dc" => :yosemite
-    sha256 "27f7a79bc4b756a7623a9432c049f7c85698c8552adf1df1e83bcc2a24fed737" => :mavericks
+    sha256 "4e4d5723c3836d26281627eca0bacf90eb4d6284584ae0238be3eb7d9e61aa23" => :el_capitan
+    sha256 "47096bd201f82eeb166676629f839ca0f8aaeace800cc628a55d462dd7dbb006" => :yosemite
+    sha256 "ef8492e3ba570b4dba31192b2fd0eba26d3703d0950f1c980a36a38f666053f2" => :mavericks
   end
 
   depends_on "cmake" => :build
@@ -23,10 +22,7 @@ class FluentBit < Formula
   end
 
   test do
-    io = IO.popen("#{bin}/fluent-bit --input stdin --output stdout --daemon")
-    sleep 1
-    Process.kill("SIGINT", io.pid)
-    Process.wait(io.pid)
-    assert_match(/Fluent-Bit v#{version}/, io.read)
+    output = shell_output("#{bin}/fluent-bit -V").chomp
+    assert_equal "Fluent Bit v#{version}", output
   end
 end

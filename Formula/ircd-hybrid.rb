@@ -1,13 +1,13 @@
 class IrcdHybrid < Formula
   desc "High-performance secure IRC server"
   homepage "http://www.ircd-hybrid.org/"
-  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.17/ircd-hybrid-8.2.17.tgz"
-  sha256 "336ed06ffa59a654065ec7d474f3d954cdcce6f7e413d61f7dc1e064ce786dd5"
+  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.18/ircd-hybrid-8.2.18.tgz"
+  sha256 "8dcbd45a049dd4da03045bfa4833527555fdfdfce4e4637ee8b63abe6ae13405"
 
   bottle do
-    sha256 "2eb3af3e9cc2cfc1a376ba7bbbcbe9cec553c64519417c389940dbb214158085" => :el_capitan
-    sha256 "a0dcbdad48fbb7523ec4f1a5d576320ead380519c1773745f4b3332118d3feae" => :yosemite
-    sha256 "017eb7f79bbae9f834ca8d394c55c34eea0f5f838e605479ce6c34b4ba513a0b" => :mavericks
+    sha256 "ba2c91d06c5a60b39c2101de3a51859ece7ce2d1a51505932e62b13d7c25f714" => :el_capitan
+    sha256 "c910cc2c4abe4b2fcd98443c6d900499fe7fcda57a7069261b73af282d3fa543" => :yosemite
+    sha256 "a6780c66f7fc1e44ed01a6de14f33886e0a679d9512bd5b8920ac770a7a9869c" => :mavericks
   end
 
   # ircd-hybrid needs the .la files

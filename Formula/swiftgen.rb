@@ -1,14 +1,14 @@
 class Swiftgen < Formula
   desc "Collection of Swift tools to generate Swift code"
   homepage "https://github.com/AliSoftware/SwiftGen"
-  url "https://github.com/AliSoftware/SwiftGen/archive/1.1.2.tar.gz"
-  sha256 "2870db01db815cbac2577a77efb78471678711f33cde29de14dfc3884c1fdb01"
+  url "https://github.com/AliSoftware/SwiftGen/archive/2.0.0.tar.gz"
+  sha256 "dcf2a1d0fbcc57e96771be62474bbb4af6f5090e061b8ea3b63f4c5e682e529e"
   head "https://github.com/AliSoftware/SwiftGen.git"
 
   bottle do
     cellar :any
-    sha256 "e90ed1d9e249907b6bc583337287600905c7bdd0b8b16f88598f27483d141fb4" => :el_capitan
-    sha256 "49889708a6cfca793c161e8b6121185ff08ee125368efb619cfbc0680fb40f4c" => :yosemite
+    sha256 "c64e714e3dc1367d72fd22e9867a1782fa1cff60944150e99efc0c7f6dea0636" => :el_capitan
+    sha256 "b1abc22ac4d4e306a80df7aba47f70225faa8a4e81ac1d69e09754f194bb2f83" => :yosemite
   end
 
   depends_on :xcode => "7.0"
@@ -20,7 +20,7 @@ class Swiftgen < Formula
       UnitTests/fixtures/Images.xcassets
       UnitTests/fixtures/colors.txt
       UnitTests/fixtures/Localizable.strings
-      UnitTests/fixtures/Message.storyboard
+      UnitTests/fixtures/Storyboards-iOS/Message.storyboard
       UnitTests/fixtures/Fonts
       UnitTests/expected/Images-File-Default.swift.out
       UnitTests/expected/Colors-Txt-File-Default.swift.out

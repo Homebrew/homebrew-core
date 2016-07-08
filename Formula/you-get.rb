@@ -1,15 +1,15 @@
 class YouGet < Formula
   desc "Dumb downloader that scrapes the web"
   homepage "https://you-get.org/"
-  url "https://github.com/soimort/you-get/archive/v0.4.424.tar.gz"
-  sha256 "d664fa7d1da6878c9f3f673e64506ee9593b7677a27b3fdd0b6e994b0f87072d"
+  url "https://github.com/soimort/you-get/archive/v0.4.455.tar.gz"
+  sha256 "669e94790b55f19a00ad7d94e53b2dc8d86b34f6ff015041df6dfa8787acf369"
   head "https://github.com/soimort/you-get.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "12d1f1a28cecb146535561a7ab06b30fa5b7afe817a1331df477c8ae8c674d9b" => :el_capitan
-    sha256 "5a39178566670a44f95ef400eac9ae5cd6320c00c68b39ba630a965776191e4c" => :yosemite
-    sha256 "6b3c2eaa88a62f0cb2d74c8952b4905888ecc97c0fcdeda8d51fd12a2af16025" => :mavericks
+    sha256 "5ed39d4f8713b15adbf5e9c5fc924c233cd54496825f5572f3c5b0ce268e8e2d" => :el_capitan
+    sha256 "24541ff856125b908adc764e91c475386fa4393010ddd5424b3a612847998844" => :yosemite
+    sha256 "16f8a5779af418887f1c52899ddc16937d001ba70a4236798428a3e7e7220013" => :mavericks
   end
 
   depends_on :python3

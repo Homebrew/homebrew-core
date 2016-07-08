@@ -14,14 +14,14 @@ end
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "http://ftpmirror.gnu.org/gdb/gdb-7.11.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gdb/gdb-7.11.tar.xz"
-  sha256 "7a434116cb630d77bb40776e8f5d3937bed11dea56bafebb4d2bc5dd389fe5c1"
+  url "https://ftpmirror.gnu.org/gdb/gdb-7.11.1.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gdb/gdb-7.11.1.tar.xz"
+  sha256 "e9216da4e3755e9f414c1aa0026b626251dfc57ffe572a266e98da4f6988fc70"
 
   bottle do
-    sha256 "2714b84c6f290c5283410aa320bd5e49f76d9fbf976c1411ef2064995db1ee40" => :el_capitan
-    sha256 "abf5752e3b3dcf2ca63ed56075f40c26829eed163f9e8687b74babfdf86483bd" => :yosemite
-    sha256 "a4914821731b5cf229efcb061a4866a1a111590093334778f772fa6a9f9444c4" => :mavericks
+    sha256 "90b608379fefd418b72e6b73ae1bde9014d94b9f366259cbc3fea99dc63985b1" => :el_capitan
+    sha256 "588dcb9acd832060e189004a4c7fef14b7a3bdeda3a7780b1f1bb8106c810327" => :yosemite
+    sha256 "07db094029ff33ec19e0b90633f9a2b8fcceaec14d2bf30f7824b618ce993a3e" => :mavericks
   end
 
   deprecated_option "with-brewed-python" => "with-python"

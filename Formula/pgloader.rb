@@ -4,11 +4,12 @@ class Pgloader < Formula
   url "https://github.com/dimitri/pgloader/archive/v3.2.2.tar.gz"
   sha256 "5fe5c115e277a9dd616b1077f89bffdf978bc6983ce62d99af9a218142c39e40"
   head "https://github.com/dimitri/pgloader.git"
+  revision 1
 
   bottle do
-    sha256 "552a515720eaa8ac645c9c0ada47f7b670dff2b3ee8443bc8ffb0d2d18f474a4" => :el_capitan
-    sha256 "2bcb60b7017af6bd821185c91e73bda746f1355ecbb6f777c0f106097c64edcf" => :yosemite
-    sha256 "a0f2366fad76983674ef1f086544bd8d329cf1e7bd6fb1b713bc56cb6cd0fff4" => :mavericks
+    sha256 "31d9ea383b24bb08f5bc0b89f31fa93938a8e08e7c1809ae4647dd4514136f05" => :el_capitan
+    sha256 "31e8516ba133ef1adc25a6584f3507161d3787ea8ae04f0de84edff093b09d92" => :yosemite
+    sha256 "8fbdf3a61ecaf31d45dcb43d898e0f7ae628f787adeda7bc0eb6eaaff3953064" => :mavericks
   end
 
   depends_on "sbcl"

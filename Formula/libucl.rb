@@ -6,22 +6,30 @@ class Libucl < Formula
 
   bottle do
     cellar :any
-    sha256 "2efba6c1eb7a6934e798bab1c4727d589febf61252e8db4203644c15386ca0a6" => :el_capitan
-    sha256 "a851aabab914417b6233313d100ca28771f471b61879038e1444e554d62b593a" => :yosemite
-    sha256 "726166a182e3d7eef29d36669fd1dde7536ec4c1108ec39f43c93519ea50355c" => :mavericks
+    revision 1
+    sha256 "f505e0d68fbcb0cd33ffbd71ea2e14aea67742c44cd665810cf11447723d91d7" => :el_capitan
+    sha256 "d2132009336951013a66d39bf84f49e1b6a167705bfa6006fbdadd223a5ddcb5" => :yosemite
+    sha256 "5f5396fc96e31d5114f8b8f708805a13c9781b96ca530445f0e7e80f3623e6b6" => :mavericks
   end
 
   depends_on "automake" => :build
   depends_on "autoconf" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "lua" => :optional
 
   def install
     system "./autogen.sh"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+    ]
+    args << "--enable-lua" if build.with? "lua"
+
+    system "./configure", *args
     system "make", "install"
   end
 

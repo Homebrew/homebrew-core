@@ -1,7 +1,7 @@
 class Global < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "http://ftpmirror.gnu.org/global/global-6.5.4.tar.gz"
+  url "https://ftpmirror.gnu.org/global/global-6.5.4.tar.gz"
   mirror "https://ftp.gnu.org/gnu/global/global-6.5.4.tar.gz"
   sha256 "af16e0a686a46f759156cb685e25f345680703f43f93af1ce8d834caaf541da6"
 
@@ -50,7 +50,7 @@ class Global < Formula
     end
 
     if build.with? "pygments"
-      ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python2.7/site-packages"
+      ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
       pygments_args = %W[build install --prefix=#{libexec}]
       resource("pygments").stage { system "python", "setup.py", *pygments_args }
     end
@@ -69,63 +69,62 @@ class Global < Formula
       rm %w[README COPYING LICENSE INSTALL ChangeLog AUTHORS]
     end
   end
+
   test do
-    (testpath/"test.c").write <<-EOF.undent
+    (testpath/"test.c").write <<-EOS.undent
        int c2func (void) { return 0; }
        void cfunc (void) {int cvar = c2func(); }")
-    EOF
+    EOS
     if build.with?("pygments") || build.with?("ctags")
-      (testpath/"test.py").write <<-EOF
+      (testpath/"test.py").write <<-EOS
         def py2func ():
              return 0
         def pyfunc ():
              pyvar = py2func()
-      EOF
+      EOS
     end
     if build.with? "pygments"
       assert shell_output("#{bin}/gtags --gtagsconf=#{share}/gtags/gtags.conf --gtagslabel=pygments .")
       if build.with? "ctags"
-        assert_match /test\.c/, shell_output("#{bin}/global -d cfunc")
-        assert_match /test\.c/, shell_output("#{bin}/global -d c2func")
-        assert_match /test\.c/, shell_output("#{bin}/global -r c2func")
-        assert_match /test\.c/, shell_output("#{bin}/global -s cvar")
-        assert_match /test\.py/, shell_output("#{bin}/global -d pyfunc")
-        assert_match /test\.py/, shell_output("#{bin}/global -r py2func")
-        assert_match /test\.py/, shell_output("#{bin}/global -s pyvar")
+        assert_match "test.c", shell_output("#{bin}/global -d cfunc")
+        assert_match "test.c", shell_output("#{bin}/global -d c2func")
+        assert_match "test.c", shell_output("#{bin}/global -r c2func")
+        assert_match "test.py", shell_output("#{bin}/global -d pyfunc")
+        assert_match "test.py", shell_output("#{bin}/global -r py2func")
       else
         # Everything is a symbol in this case
-        assert_match /test\.c/, shell_output("#{bin}/global -s cfunc")
-        assert_match /test\.c/, shell_output("#{bin}/global -s c2func")
-        assert_match /test\.c/, shell_output("#{bin}/global -s cvar")
-        assert_match /test\.py/, shell_output("#{bin}/global -s pyfunc")
-        assert_match /test\.py/, shell_output("#{bin}/global -s py2func")
-        assert_match /test\.py/, shell_output("#{bin}/global -s pyvar")
+        assert_match "test.c", shell_output("#{bin}/global -s cfunc")
+        assert_match "test.c", shell_output("#{bin}/global -s c2func")
+        assert_match "test.py", shell_output("#{bin}/global -s pyfunc")
+        assert_match "test.py", shell_output("#{bin}/global -s py2func")
       end
+      assert_match "test.c", shell_output("#{bin}/global -s cvar")
+      assert_match "test.py", shell_output("#{bin}/global -s pyvar")
     end
     if build.with? "ctags"
       assert shell_output("#{bin}/gtags --gtagsconf=#{share}/gtags/gtags.conf --gtagslabel=exuberant-ctags .")
       # ctags only yields definitions
-      assert_match /test\.c/, shell_output("#{bin}/global -d cfunc   # passes")
-      assert_match /test\.c/, shell_output("#{bin}/global -d c2func  # passes")
-      assert_no_match /test\.c/, shell_output("#{bin}/global -r c2func  # correctly fails")
-      assert_no_match /test\.c/, shell_output("#{bin}/global -s cvar    # correctly fails")
-      assert_match /test\.py/, shell_output("#{bin}/global -d pyfunc  # passes")
-      assert_match /test\.py/, shell_output("#{bin}/global -d py2func # passes")
-      assert_no_match /test\.py/, shell_output("#{bin}/global -r py2func # correctly fails")
-      assert_no_match /test\.py/, shell_output("#{bin}/global -s pyvar   # correctly fails")
+      assert_match "test.c", shell_output("#{bin}/global -d cfunc   # passes")
+      assert_match "test.c", shell_output("#{bin}/global -d c2func  # passes")
+      assert_match "test.py", shell_output("#{bin}/global -d pyfunc  # passes")
+      assert_match "test.py", shell_output("#{bin}/global -d py2func # passes")
+      assert_no_match(/test\.c/, shell_output("#{bin}/global -r c2func  # correctly fails"))
+      assert_no_match(/test\.c/, shell_output("#{bin}/global -s cvar    # correctly fails"))
+      assert_no_match(/test\.py/, shell_output("#{bin}/global -r py2func # correctly fails"))
+      assert_no_match(/test\.py/, shell_output("#{bin}/global -s pyvar   # correctly fails"))
     end
     if build.with? "sqlite3"
       assert shell_output("#{bin}/gtags --sqlite3 --gtagsconf=#{share}/gtags/gtags.conf --gtagslabel=default .")
-      assert_match /test\.c/, shell_output("#{bin}/global -d cfunc")
-      assert_match /test\.c/, shell_output("#{bin}/global -d c2func")
-      assert_match /test\.c/, shell_output("#{bin}/global -r c2func")
-      assert_match /test\.c/, shell_output("#{bin}/global -s cvar")
+      assert_match "test.c", shell_output("#{bin}/global -d cfunc")
+      assert_match "test.c", shell_output("#{bin}/global -d c2func")
+      assert_match "test.c", shell_output("#{bin}/global -r c2func")
+      assert_match "test.c", shell_output("#{bin}/global -s cvar")
     end
     # C should work with default parser for any build
     assert shell_output("#{bin}/gtags --gtagsconf=#{share}/gtags/gtags.conf --gtagslabel=default .")
-    assert_match /test\.c/, shell_output("#{bin}/global -d cfunc")
-    assert_match /test\.c/, shell_output("#{bin}/global -d c2func")
-    assert_match /test\.c/, shell_output("#{bin}/global -r c2func")
-    assert_match /test\.c/, shell_output("#{bin}/global -s cvar")
+    assert_match "test.c", shell_output("#{bin}/global -d cfunc")
+    assert_match "test.c", shell_output("#{bin}/global -d c2func")
+    assert_match "test.c", shell_output("#{bin}/global -r c2func")
+    assert_match "test.c", shell_output("#{bin}/global -s cvar")
   end
 end

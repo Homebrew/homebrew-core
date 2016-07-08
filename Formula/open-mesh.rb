@@ -1,7 +1,7 @@
 class OpenMesh < Formula
   desc "Generic data structure to represent and manipulate polygonal meshes"
-  homepage "http://openmesh.org"
-  url "http://www.openmesh.org/media/Releases/5.1/OpenMesh-5.1.tar.gz"
+  homepage "https://openmesh.org/"
+  url "https://www.openmesh.org/media/Releases/5.1/OpenMesh-5.1.tar.gz"
   sha256 "643262dec62d1c2527950286739613a5b8d450943c601ecc42a817738556e6f7"
   head "http://openmesh.org/svnrepo/OpenMesh/trunk/", :using => :svn
 

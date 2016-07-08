@@ -3,11 +3,12 @@ class Clamav < Formula
   homepage "https://www.clamav.net/"
   url "https://www.clamav.net/downloads/production/clamav-0.99.2.tar.gz"
   sha256 "167bd6a13e05ece326b968fdb539b05c2ffcfef6018a274a10aeda85c2c0027a"
+  revision 1
 
   bottle do
-    sha256 "057465d3af56d272c79cb46fafad7d73846cc94af383b73ff91413d8f4ff7039" => :el_capitan
-    sha256 "fe1dfc76b755c95c8b89794914f294f9ace4e8e6dacb0dc9a0c02ee0c7648d54" => :yosemite
-    sha256 "718d0a2220aab846413edb8ad1b0f56cebc10f035c766ff9cdd8dc63924872b6" => :mavericks
+    sha256 "0e8fa7cfafc6a8c2fefd2f0c2044d7ef6c7efa3839444609c326c4ed0cf5520f" => :el_capitan
+    sha256 "7f0d14eb642997a856796366e8ff6c1b17fb6076aa198d1255c6bf73c0862a33" => :yosemite
+    sha256 "6b82bf35cd1cc06cf6f736e69763397ed6225f71217c780ae91ebc30df8f1c70" => :mavericks
   end
 
   head do
@@ -20,9 +21,9 @@ class Clamav < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
+  depends_on "pcre" => :recommended
   depends_on "yara" => :optional
   depends_on "json-c" => :optional
-  depends_on "pcre" => :optional
 
   skip_clean "share/clamav"
 

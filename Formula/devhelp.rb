@@ -1,13 +1,13 @@
 class Devhelp < Formula
   desc "API documentation browser for GTK+ and GNOME"
   homepage "https://wiki.gnome.org/Apps/Devhelp"
-  url "https://download.gnome.org/sources/devhelp/3.18/devhelp-3.18.1.tar.xz"
-  sha256 "303a162ad294dc6f9984898e501a06dc5d2aa9812b06801c2e39b250d8c51aef"
+  url "https://download.gnome.org/sources/devhelp/3.20/devhelp-3.20.0.tar.xz"
+  sha256 "a23375c2e2b2ef6240994bc2327fcacfd42403af6d872d0cba2e16dd45ca1f1d"
 
   bottle do
-    sha256 "0a8fceef8356c847134a86553a469af6c4e48f72b9e8e9b6576e4bcfe80eca79" => :el_capitan
-    sha256 "3f052f305449b5f24d004c1b2561b3fa59c2354d2fb2b54ba61189e115fb91b9" => :yosemite
-    sha256 "81fd4026bae8091f1d8485b69189de7cb4184e87f4dadff8a779100c4d19534d" => :mavericks
+    sha256 "20c195d75481de422ec0e65b7efa3f6817cc6a603c0f37b9b4c90212df912552" => :el_capitan
+    sha256 "383468387249e03b2fedaadb308835fa3425b1c27fd9db4cc1ac39c688bb5adf" => :yosemite
+    sha256 "f33332669eb47d404ea73fbc99fe89e5d33f5044cc8b93acee84f274dc343a32" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -30,6 +30,6 @@ class Devhelp < Formula
   end
 
   test do
-    system "#{bin}/devhelp", "--version"
+    system bin/"devhelp", "--version"
   end
 end

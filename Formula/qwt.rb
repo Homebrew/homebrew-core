@@ -1,15 +1,15 @@
 class Qwt < Formula
   desc "Qt Widgets for Technical Applications (v5.1)"
   homepage "http://qwt.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.2/qwt-6.1.2.tar.bz2"
-  sha256 "2b08f18d1d3970e7c3c6096d850f17aea6b54459389731d3ce715d193e243d0c"
+  url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.3/qwt-6.1.3.tar.bz2"
+  sha256 "f3ecd34e72a9a2b08422fb6c8e909ca76f4ce5fa77acad7a2883b701f4309733"
 
   bottle do
     cellar :any
-    revision 2
-    sha256 "0203eb8c150c368c97e00e607c2bbda1bf7bd50740a987ba59f6198a408a4fc6" => :el_capitan
-    sha256 "e855bb9cec6c3c2a1c977a1ec3719eaf5f032b8c8654919ed8c1cbbc22ab63c3" => :yosemite
-    sha256 "e5e240d5a1b148679d79b95216615bfb997a41be27d178d8b056e0be3ffab6cd" => :mavericks
+    revision 1
+    sha256 "e8c3fcd136e3da5ad5a9c9a08621585c30d610e7c9cebc1b39fb0d2da4582876" => :el_capitan
+    sha256 "85b9c0169f8dc07eab6ce43d41882f55e96e6e990ef15c998e4d5b348828e89a" => :yosemite
+    sha256 "0399fac9166e7a7a62cd07552253054b79c80ed8c182ad8d249b61d678ef3a95" => :mavericks
   end
 
   option "with-qwtmathml", "Build the qwtmathml library"
@@ -61,6 +61,23 @@ class Qwt < Formula
     end
 
     s
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <qwt_plot_curve.h>
+      int main() {
+        QwtPlotCurve *curve1 = new QwtPlotCurve("Curve 1");
+        return (curve1 == NULL);
+      }
+    EOS
+    system ENV.cxx, "test.cpp", "-o", "out",
+      "-framework", "qwt", "-framework", "QtCore",
+      "-F#{lib}", "-F#{Formula["qt"].opt_lib}",
+      "-I#{lib}/qwt.framework/Headers",
+      "-I#{Formula["qt"].opt_lib}/QtCore.framework/Headers",
+      "-I#{Formula["qt"].opt_lib}/QtGui.framework/Headers"
+    system "./out"
   end
 end
 

@@ -11,9 +11,9 @@ class Postgresql < Formula
   end
 
   devel do
-    url "https://ftp.postgresql.org/pub/source/v9.6beta1/postgresql-9.6beta1.tar.gz"
-    version "9.6beta1"
-    sha256 "14539ea9cba8c588b46bb746f8ab999de4093464b8fc16747b8002ca5f93787d"
+    url "https://ftp.postgresql.org/pub/source/v9.6beta2/postgresql-9.6beta2.tar.gz"
+    version "9.6beta2"
+    sha256 "fe4b75548ebccea7140f3285f2a4b118fa0651f18dd1f63a6c41ef9046042cb1"
   end
 
   option "32-bit"
@@ -28,7 +28,12 @@ class Postgresql < Formula
   depends_on "openssl"
   depends_on "readline"
   depends_on "libxml2" if MacOS.version <= :leopard # Leopard libxml is too old
+
+  option "with-python", "Enable PL/Python2"
   depends_on :python => :optional
+
+  option "with-python3", "Enable PL/Python3 (incompatible with --with-python)"
+  depends_on :python3 => :optional
 
   conflicts_with "postgres-xc",
     :because => "postgresql and postgres-xc install the same binaries."
@@ -40,6 +45,8 @@ class Postgresql < Formula
 
   def install
     ENV.libxml2 if MacOS.version >= :snow_leopard
+    # avoid adding the SDK library directory to the linker search path
+    ENV["XML2_CONFIG"] = "xml2-config --exec-prefix=/usr"
 
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl"].opt_include} -I#{Formula["readline"].opt_include}"
@@ -61,8 +68,16 @@ class Postgresql < Formula
       --with-libxslt
     ]
 
-    args << "--with-python" if build.with? "python"
     args << "--with-perl" if build.with? "perl"
+
+    which_python = nil
+    if build.with?("python") && build.with?("python3")
+      odie "Cannot provide both --with-python and --with-python3"
+    elsif build.with?("python") || build.with?("python3")
+      args << "--with-python"
+      which_python = which(build.with?("python") ? "python" : "python3")
+    end
+    ENV["PYTHON"] = which_python
 
     # The CLT is required to build Tcl support on 10.7 and 10.8 because
     # tclConfig.sh is not part of the SDK
@@ -103,7 +118,7 @@ class Postgresql < Formula
     To migrate existing data from a previous major version (pre-9.0) of PostgreSQL, see:
       https://www.postgresql.org/docs/9.5/static/upgrading.html
 
-    To migrate existing data from a previous minor version (9.0-9.4) of PosgresSQL, see:
+    To migrate existing data from a previous minor version (9.0-9.4) of PostgreSQL, see:
       https://www.postgresql.org/docs/9.5/static/pgupgrade.html
 
       You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.

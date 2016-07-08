@@ -1,13 +1,13 @@
 class Libsecret < Formula
   desc "Library for storing/retrieving passwords and other secrets"
   homepage "https://wiki.gnome.org/Projects/Libsecret"
-  url "https://download.gnome.org/sources/libsecret/0.18/libsecret-0.18.4.tar.xz"
-  sha256 "0f29b51698198e6999c91f4adce3119c8c457f546b133a85baea5ea9010a19ed"
+  url "https://download.gnome.org/sources/libsecret/0.18/libsecret-0.18.5.tar.xz"
+  sha256 "9ce7bd8dd5831f2786c935d82638ac428fa085057cc6780aba0e39375887ccb3"
 
   bottle do
-    sha256 "4d726f0a13c77ba0db1be9a8e6a033af5908e0dea0733ac20ec19bbf34d621b2" => :el_capitan
-    sha256 "9888c18e94b2e13588c5ff0d63890e2a9ae2ad3f301e92ca9a430da122d39a1b" => :yosemite
-    sha256 "73af85f9feaf25353d04347b047e9335bcdca4c165a19a001815213e27b68cb3" => :mavericks
+    sha256 "07d7fd02e1c3857a2a27415575248ea89a19c7dd1a86efe53fcf1866dce1bf46" => :el_capitan
+    sha256 "090ea52539396135f710956cd051cbab59d6dd7fb94d8666dc4ed4e0312cddac" => :yosemite
+    sha256 "b7f878856f2f272de7d0456ad3c82a6e260a9a272a7c4eefc1504a668a430fb0" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -15,10 +15,10 @@ class Libsecret < Formula
   depends_on "intltool" => :build
   depends_on "gettext" => :build
   depends_on "docbook-xsl" => :build
-  depends_on "vala" => :optional
-  depends_on "gobject-introspection" => :recommended
   depends_on "glib"
   depends_on "libgcrypt"
+  depends_on "gobject-introspection" => :recommended
+  depends_on "vala" => :optional
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

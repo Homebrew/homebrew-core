@@ -40,14 +40,7 @@ class Coq < Formula
                           "-coqide", "no",
                           "-with-doc", "no"
     system "make", "world"
-    system "make", "install"
-  end
-
-  def caveats; <<-EOS.undent
-    To use the Coq Emacs mode, add the following to your init file:
-      (setq auto-mode-alist (cons '("\\\\.v$" . coq-mode) auto-mode-alist))
-      (autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
-    EOS
+    ENV.deparallelize { system "make", "install" }
   end
 
   test do

@@ -2,15 +2,6 @@ class Icecream < Formula
   desc "Distributed compiler with a central scheduler to share build load"
   homepage "https://en.opensuse.org/Icecream"
 
-  option "with-docbook2X", "Build with man page"
-  option "without-clang-wrappers", "Don't use symlink wrappers for clang/clang++"
-  option "with-clang-rewrite-includes", "Use by default Clang's -frewrite-includes option"
-
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "docbook2X" => [:optional, :build]
-
   stable do
     url "https://github.com/icecc/icecream/archive/1.0.1.tar.gz"
     sha256 "10f85e172c5c435d81e7c05595c5ae9a9ffa83490dded7eefa95f9ad401fb31b"
@@ -48,27 +39,40 @@ class Icecream < Formula
     depends_on "lzo"
   end
 
+  option "with-docbook2X", "Build with man page"
+  option "without-clang-wrappers", "Don't use symlink wrappers for clang/clang++"
+  option "with-clang-rewrite-includes", "Use by default Clang's -frewrite-includes option"
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "docbook2X" => [:optional, :build]
+
   def install
     ENV.libstdcxx if ENV.compiler == :clang && build.stable?
 
-    args = "--disable-dependency-tracking",
-           "--disable-silent-rules",
-           "--prefix=#{prefix}"
+    args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+    ]
     args << "--without-man" if build.without? "docbook2X"
     args << "--enable-clang-wrappers" if build.with? "clang-wrappers"
     args << "--enable-clang-write-includes" if build.with? "clang-rewrite-includes"
+
     system "./autogen.sh"
     system "./configure", *args
     system "make", "install"
-    (prefix+"org.opensuse.icecc.plist").write iceccd_plist
-    (prefix+"org.opensuse.icecc-scheduler.plist").write scheduler_plist
+
+    (prefix/"org.opensuse.icecc.plist").write iceccd_plist
+    (prefix/"org.opensuse.icecc-scheduler.plist").write scheduler_plist
   end
 
   def caveats; <<-EOS.undent
     To override the toolset with icecc, add to your path:
-      #{opt_libexec}/bin/icecc
+      #{opt_libexec}/icecc/bin
 
-    To have launchd start the icecc daemo at login:
+    To have launchd start the icecc daemon at login:
       cp #{opt_prefix}/org.opensuse.icecc.plist ~/Library/LaunchAgents/
       launchctl load -w ~/Library/LaunchAgents/org.opensuse.icecc.plist
     EOS
@@ -122,7 +126,7 @@ class Icecream < Formula
       }
     EOS
     system opt_libexec/"icecc/bin/gcc", "-o", "hello-c", "hello-c.c"
-    assert_equal "Hello, world!\n", `./hello-c`
+    assert_equal "Hello, world!\n", shell_output("./hello-c")
 
     (testpath/"hello-cc.cc").write <<-EOS.undent
       #include <iostream>
@@ -133,7 +137,7 @@ class Icecream < Formula
       }
     EOS
     system opt_libexec/"icecc/bin/g++", "-o", "hello-cc", "hello-cc.cc"
-    assert_equal "Hello, world!\n", `./hello-cc`
+    assert_equal "Hello, world!\n", shell_output("./hello-cc")
 
     if build.with? "clang-wrappers"
       (testpath/"hello-clang.c").write <<-EOS.undent
@@ -145,7 +149,7 @@ class Icecream < Formula
         }
       EOS
       system opt_libexec/"icecc/bin/clang", "-o", "hello-clang", "hello-clang.c"
-      assert_equal "Hello, world!\n", `./hello-clang`
+      assert_equal "Hello, world!\n", shell_output("./hello-clang")
 
       (testpath/"hello-cclang.cc").write <<-EOS.undent
         #include <iostream>
@@ -156,7 +160,7 @@ class Icecream < Formula
         }
       EOS
       system opt_libexec/"icecc/bin/clang++", "-o", "hello-cclang", "hello-cclang.cc"
-      assert_equal "Hello, world!\n", `./hello-cclang`
+      assert_equal "Hello, world!\n", shell_output("./hello-cclang")
     end
   end
 end

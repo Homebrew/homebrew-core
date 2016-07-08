@@ -1,22 +1,25 @@
 class Mpg123 < Formula
   desc "MP3 player for Linux and UNIX"
   homepage "https://www.mpg123.de/"
-  url "https://www.mpg123.de/download/mpg123-1.23.4.tar.bz2"
-  mirror "https://mpg123.orgis.org/download/mpg123-1.23.4.tar.bz2"
-  sha256 "3495e678dec9a60f29cbcd4fc698abc4c811ec60d1276e744f7a10ac35023b48"
+  url "https://www.mpg123.de/download/mpg123-1.23.6.tar.bz2"
+  mirror "https://mpg123.orgis.org/download/mpg123-1.23.6.tar.bz2"
+  sha256 "4073d9c60a43872f6f5a3a322f5ea21ab7f0869d2ed25e79c3eb8521fa3c32d4"
 
   bottle do
     cellar :any
-    sha256 "73b263481485a4c89d9ec088087d84fe193a1b1d0d4a5d454841dd958ef268cf" => :el_capitan
-    sha256 "d5af0c34be1709c5de0778ed6e0694050c2d4c0babe7673edd5ec29a8364f043" => :yosemite
-    sha256 "12fbd68462b7bfa9745e26305397789a29105ba860cc58eaa53d29f3f3197442" => :mavericks
+    sha256 "bdf3414a597053ca410a5fcecf26b83db90f5af841016b20a4d7346c97ef5632" => :el_capitan
+    sha256 "35ce9d91de57ed29a6e97212fc106af5c3d3f73797133889d18d091137ec3443" => :yosemite
+    sha256 "d7951ac7646e779ba5a2c7a35bc48a788e1b4e435480d9e2aeef858ca27835fa" => :mavericks
   end
 
   def install
-    args = ["--disable-debug", "--disable-dependency-tracking",
-            "--prefix=#{prefix}",
-            "--with-default-audio=coreaudio",
-            "--with-module-suffix=.so"]
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --with-default-audio=coreaudio
+      --with-module-suffix=.so
+    ]
 
     if MacOS.prefer_64_bit?
       args << "--with-cpu=x86-64"
@@ -29,6 +32,6 @@ class Mpg123 < Formula
   end
 
   test do
-    system "#{bin}/mpg123", test_fixtures("test.mp3")
+    system bin/"mpg123", test_fixtures("test.mp3")
   end
 end

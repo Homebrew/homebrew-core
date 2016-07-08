@@ -1,13 +1,13 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.3/elasticsearch-2.3.3.tar.gz"
-  sha256 "5fe0a6887432bb8a8d3de2e79c9b81c83cfa241e6440f0f0379a686657789165"
+  url "https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.4/elasticsearch-2.3.4.tar.gz"
+  sha256 "371e0c5f4ded0a8548f1cce55faff3efebcfd5f895c2c816f220146521f6f06e"
 
   devel do
-    url "https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/5.0.0-alpha3/elasticsearch-5.0.0-alpha3.tar.gz"
-    sha256 "8fc606d56bdec83dc5219b5ad2346f2fe7c95feec9ad1d92c2bc1268323885e5"
-    version "5.0.0-alpha3"
+    url "https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/5.0.0-alpha4/elasticsearch-5.0.0-alpha4.tar.gz"
+    sha256 "088ca4a5bd34b3c46c910bfe8948b1bc77bbb2a06a92e6aa161f3552c0afd46c"
+    version "5.0.0-alpha4"
   end
 
   head do
@@ -88,14 +88,20 @@ class Elasticsearch < Formula
   end
 
   def caveats
-    plugin=(devel? || head?) ? "#{libexec}/elasticsearch-plugin" : "#{libexec}/plugin"
-    <<-EOS.undent
-    Data:    #{var}/elasticsearch/#{cluster_name}/
-    Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
-    Plugins: #{libexec}/plugins/
-    Config:  #{etc}/elasticsearch/
-    plugin script: #{plugin}
+    s = <<-EOS.undent
+      Data:    #{var}/elasticsearch/#{cluster_name}/
+      Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
+      Plugins: #{libexec}/plugins/
+      Config:  #{etc}/elasticsearch/
     EOS
+
+    if stable?
+      s += <<-EOS.undent
+        plugin script: #{libexec}/bin/plugin
+      EOS
+    end
+
+    s
   end
 
   plist_options :manual => "elasticsearch"

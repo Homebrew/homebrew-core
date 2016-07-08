@@ -1,16 +1,14 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://github.com/cesanta/mongoose"
-  url "https://github.com/cesanta/mongoose/archive/5.6.tar.gz"
-  sha256 "cc2557c7cf9f15e1e691f285a4c6c705cc7e56cb70c64cb49703a428a0677065"
+  url "https://github.com/cesanta/mongoose/archive/6.4.tar.gz"
+  sha256 "4691ade3ca645e568e0f6049953ac13cabcb289a734fb0f245a6ddce12f97d41"
 
   bottle do
     cellar :any
-    revision 2
-    sha256 "5bf038e627db9453b463a081a58b7e289b112cdf8965209547e40eec047c258a" => :el_capitan
-    sha256 "158f24303e018ec3f9ee05d3ffe10a2399b700cfdf869e9fe2970f68105b1fe5" => :yosemite
-    sha256 "53cbd378f59876d7922ba743c99dedc305707c13caeea0339667bf5006080b24" => :mavericks
-    sha256 "e9ee23cf028f5be715fbae963cf661dffc9850b71039c90f2aae70e07c410fda" => :mountain_lion
+    sha256 "6fae836feb5c6c4feb9ef9a6a25b6b36ab851fecc5de45eb57aee4bff138e280" => :el_capitan
+    sha256 "290997562d18b42dd30fd879fa9308f91e2f57f9f9cde5bd22a4687afba0c0d7" => :yosemite
+    sha256 "8fbc956d0e4116f9a597dd028ca26889db9857a8773b033c9298a0f6989b0f46" => :mavericks
   end
 
   depends_on "openssl" => :recommended
@@ -19,12 +17,9 @@ class Mongoose < Formula
     # No Makefile but is an expectation upstream of binary creation
     # https://github.com/cesanta/mongoose/blob/master/docs/Usage.md
     # https://github.com/cesanta/mongoose/issues/326
-    cd "examples/web_server" do
-      args = []
-      args << "openssl" if build.with? "openssl"
-
-      system "make", *args
-      bin.install "web_server" => "mongoose"
+    cd "examples/simplest_web_server" do
+      system "make"
+      bin.install "simplest_web_server" => "mongoose"
     end
 
     system ENV.cc, "-dynamiclib", "mongoose.c", "-o", "libmongoose.dylib"
@@ -42,18 +37,15 @@ class Mongoose < Formula
           <title>Homebrew</title>
         </head>
         <body>
-          <p>Hello World!</p>
+          <p>Hi!</p>
         </body>
       </html>
     EOS
 
-    pid = fork do
-      exec "#{bin}/mongoose -document_root #{testpath} -index_files hello.html"
-    end
-    sleep 2
-
     begin
-      assert_match /Hello World!/, shell_output("curl localhost:8080")
+      pid = fork { exec "#{bin}/mongoose" }
+      sleep 2
+      assert_match "Hi!", shell_output("curl http://localhost:8000/hello.html")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)

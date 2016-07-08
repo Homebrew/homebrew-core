@@ -19,6 +19,16 @@ class Perl < Formula
 
   deprecated_option "with-tests" => "with-test"
 
+  # Fixes Time::HiRes module bug related to the presence of clock_gettime
+  # https://rt.perl.org/Public/Bug/Display.html?id=128427
+  # Merged upstream, should be in the next release.
+  if MacOS.version >= :sierra
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/b18137128c4e0cb7e92e9ee007a9f78bc9d03b21/perl/clock_gettime.patch"
+      sha256 "612825c24ed19d6fa255bb42af59dff46ee65c16ea77abf4a59b754aa8ab05ac"
+    end
+  end
+
   def install
     args = %W[
       -des

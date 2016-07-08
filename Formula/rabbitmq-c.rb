@@ -1,16 +1,15 @@
 class RabbitmqC < Formula
   desc "RabbitMQ C client"
   homepage "https://github.com/alanxz/rabbitmq-c"
-  url "https://github.com/alanxz/rabbitmq-c/releases/download/v0.7.1/rabbitmq-c-0.7.1.tar.gz"
-  sha256 "23df349a7d157543e756acc67e47b217843ecbdafaefe3e4974073bb99d8a26d"
-
+  url "https://github.com/alanxz/rabbitmq-c/archive/v0.8.0.tar.gz"
+  sha256 "d8ed9dcb49903d83d79d7b227da35ef68c60e5e0b08d0fc1fb4e4dc577b8802b"
   head "https://github.com/alanxz/rabbitmq-c.git"
 
   bottle do
     cellar :any
-    sha256 "5a6f844aeb5433fdc3e406ba9d319ee3df227d3841ee79c1a44ac7d09be91e97" => :el_capitan
-    sha256 "bae2a20f1cfbd87e773bede8a02c93d4045da92dd10e6c5b169491e8d657ee05" => :yosemite
-    sha256 "9169b80d2df549456ec072b248609645a8dbc88a84d0bad5e36dcc470a72b7f0" => :mavericks
+    sha256 "eb9a25f5371072c0f4833c7f4554f2b5e53b7e2b5ea10e33230cad8b6c9affe4" => :el_capitan
+    sha256 "c0775f463db385d302b4d73d6403842ce16654c2f7a2618e6c0d1aa7c0590a14" => :yosemite
+    sha256 "f4e4d641af6559ee49beec28a7620af68e643ac26429c5f031953e8d79c8b0b6" => :mavericks
   end
 
   option :universal
@@ -39,6 +38,6 @@ class RabbitmqC < Formula
   end
 
   test do
-    system "amqp-get", "--help"
+    system bin/"amqp-get", "--help"
   end
 end

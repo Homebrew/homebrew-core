@@ -1,27 +1,43 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://dist.torproject.org/tor-0.2.7.6.tar.gz"
-  mirror "https://tor.eff.org/dist/tor-0.2.7.6.tar.gz"
-  sha256 "493a8679f904503048114aca6467faef56861206bab8283d858f37141d95105d"
+
+  stable do
+    url "https://dist.torproject.org/tor-0.2.7.6.tar.gz"
+    mirror "https://tor.eff.org/dist/tor-0.2.7.6.tar.gz"
+    sha256 "493a8679f904503048114aca6467faef56861206bab8283d858f37141d95105d"
+
+    # autotools only needed as long as the patch below is applied;
+    # remove them when the patch goes away
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+
+    # Fixes build on 10.12
+    # https://trac.torproject.org/projects/tor/ticket/17819
+    # Applied upstream, will be in the next release.
+    patch do
+      url "https://trac.torproject.org/projects/tor/raw-attachment/ticket/17819/pthread.diff"
+      sha256 "9eb64548f0c1efae28535dcfa4ed19824eccaea1cee62607adb480b99217697b"
+    end
+  end
 
   bottle do
-    sha256 "32bb77890419cef8b2152e9a6cd554b71021baa64d3dac8fc8d48d7d24d51e99" => :el_capitan
-    sha256 "a3edf9af56c01b70f582ca4d4ddb552274b876db7922c0494407804f3877975b" => :yosemite
-    sha256 "595d64e121de2417e647d5c8a1d0051d5a3e3de9c0e15429134c5dd494459573" => :mavericks
+    revision 1
+    sha256 "6b8355ab0fc0768cc9ae1c17b043355850c83fb297425986e25774cec4d07bc7" => :el_capitan
+    sha256 "b34b44ebbbc84d785cb9c9fab6a19006cb2b85160ab45b62ed8d7eef807ac409" => :yosemite
+    sha256 "64564813dde75909e57a7a3790694022168104a9c29423822f503c54347c1fa1" => :mavericks
   end
 
   devel do
-    url "https://dist.torproject.org/tor-0.2.8.3-alpha.tar.gz"
-    mirror "https://tor.eff.org/dist/tor-0.2.8.3-alpha.tar.gz"
-    version "0.2.8.3-alpha"
-    sha256 "88da40c24f0bb19e19b37b8deab1b0d86608798746c81380cf17996d269f9053"
+    url "https://dist.torproject.org/tor-0.2.8.5-rc.tar.gz"
+    mirror "https://tor.eff.org/dist/tor-0.2.8.5-rc.tar.gz"
+    version "0.2.8.5-rc"
+    sha256 "715c15230f1160c170c61286b02620a1d99a8476dd9c4f80a2e66779be63780a"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "openssl"
-  depends_on "libnatpmp" => :optional
-  depends_on "miniupnpc" => :optional
   depends_on "libscrypt" => :optional
 
   def install
@@ -30,11 +46,10 @@ class Tor < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --sysconfdir=#{etc}
+      --localstatedir=#{var}
       --with-openssl-dir=#{Formula["openssl"].opt_prefix}
     ]
 
-    args << "--with-libnatpmp-dir=#{Formula["libnatpmp"].opt_prefix}" if build.with? "libnatpmp"
-    args << "--with-libminiupnpc-dir=#{Formula["miniupnpc"].opt_prefix}" if build.with? "miniupnpc"
     args << "--disable-libscrypt" if build.without? "libscrypt"
 
     system "./configure", *args
@@ -51,13 +66,6 @@ class Tor < Formula
   end
 
   plist_options :manual => "tor start"
-
-  test do
-    pipe_output("script -q /dev/null #{bin}/tor-gencert --create-identity-key", "passwd\npasswd\n")
-    assert (testpath/"authority_certificate").exist?
-    assert (testpath/"authority_signing_key").exist?
-    assert (testpath/"authority_identity_key").exist?
-  end
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -83,5 +91,12 @@ class Tor < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    pipe_output("script -q /dev/null #{bin}/tor-gencert --create-identity-key", "passwd\npasswd\n")
+    assert (testpath/"authority_certificate").exist?
+    assert (testpath/"authority_signing_key").exist?
+    assert (testpath/"authority_identity_key").exist?
   end
 end

@@ -1,13 +1,13 @@
 class Baobab < Formula
   desc "Gnome disk usage analyzer"
   homepage "https://wiki.gnome.org/Apps/Baobab"
-  url "https://download.gnome.org/sources/baobab/3.18/baobab-3.18.1.tar.xz"
-  sha256 "c2ac90426390e77147446a290c1480c49936c0a224f740b555ddaec2675b44b5"
+  url "https://download.gnome.org/sources/baobab/3.20/baobab-3.20.1.tar.xz"
+  sha256 "e9dff12a76b0d730ce224215860512eb0188280c622faf186937563b96249d1f"
 
   bottle do
-    sha256 "55ea4703861707e433de02cf3d18420ffa0de197c089a8a28c4ee5c43917eb88" => :el_capitan
-    sha256 "99293f3b05027dad41935c43dfc6aeddabe657ecb780f69849bb32c69b570770" => :yosemite
-    sha256 "55e3aba6eb76b43203d32abbb7c299513a97a79b820676cdf525f6eb7d736005" => :mavericks
+    sha256 "2c8716685d745afb1ac24ba61d96d9a08a4e8dd2fe0b5412a6ccdb1f744cd7f5" => :el_capitan
+    sha256 "c9194f003ce07fc6688622580f3f9efdbaba76da8c8af5ebdf633e9542996cf1" => :yosemite
+    sha256 "9611904e45132e879e2828134ec704beccfb57ce6cf2c80d099acba96261022a" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -35,6 +35,6 @@ class Baobab < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/baobab --version")
+    assert_match version.to_s, shell_output("#{bin}/baobab --version")
   end
 end

@@ -13,15 +13,14 @@ end
 class Compcert < Formula
   desc "Formally verified C compiler"
   homepage "http://compcert.inria.fr"
-  url "https://github.com/AbsInt/CompCert/archive/v2.6.tar.gz"
-  sha256 "a1f21365c41c2462fce52a4a25e1c7e4b7fea7a0cd60b6bae1d31f2edeeb4d17"
+  url "https://github.com/AbsInt/CompCert/archive/v2.7.tar.gz"
+  sha256 "025aff18f7fa18ce06ac99a18c9b2fa3146ce13f56bd1fc62f3032a8adbe3794"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "823686809063af67b896557d7a7c4cbbe8fe30b41132b34531608211848bcdd0" => :el_capitan
-    sha256 "db93c4266c2272e960bb3d60e4bada1f90b714a3546e604b9d23c44ee8d0e726" => :yosemite
-    sha256 "533d0c317afd18a3b4e06135e74ae170ef0eb772e7465b2f5d930e640709c409" => :mavericks
+    sha256 "0f7b9269576dc2d5bbdbe8b84c099da8e6047c751baf7f576d65d5ddc6bf612f" => :el_capitan
+    sha256 "1c088641e995b6c15ec7f3205c1e6c3179d6e5e3337ffadb7e8f859934597098" => :yosemite
+    sha256 "fdbc8b9bfb1d849a88d7ce0ad0c83a65464df98898dedb3d15f842ecdec6d8b3" => :mavericks
   end
 
   depends_on "ocaml" => :build

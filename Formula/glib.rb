@@ -1,13 +1,13 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.46/glib-2.46.2.tar.xz"
-  sha256 "5031722e37036719c1a09163cc6cf7c326e4c4f1f1e074b433c156862bd733db"
+  url "https://download.gnome.org/sources/glib/2.48/glib-2.48.1.tar.xz"
+  sha256 "74411bff489cb2a3527bac743a51018841a56a4d896cc1e0d0d54f8166a14612"
 
   bottle do
-    sha256 "7712b8d7682c79d31f8325e4a6a99d43ed480907420193035ba4a874603d720e" => :el_capitan
-    sha256 "8422313233976bdfc64bbfa2e899bdfb97c38015505ccaca02039c44d00426b7" => :yosemite
-    sha256 "b4cdea43b21075a6bb51d263d0e1bd486d32302ca464aa3928fb453dfb95d0cb" => :mavericks
+    sha256 "3b20d056a0308ad3dacc78be1da0a4dc20d391ec481eadefcc8f88d1d89600d6" => :el_capitan
+    sha256 "410ae1338bd7edeac8df664615bef69a505727e52f9a19b8a02661d32d90da3d" => :yosemite
+    sha256 "f6704d9a20bc37e9390e34783674fd44d149c1d7d4d2a387e9ef6ea159b0b9ff" => :mavericks
   end
 
   option :universal
@@ -18,6 +18,7 @@ class Glib < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libffi"
+  depends_on "pcre"
 
   fails_with :llvm do
     build 2334
@@ -48,8 +49,8 @@ class Glib < Formula
 
   if build.universal?
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/59e4d32/glib/universal.patch"
-      sha256 "7e1ad7667c7d89fcd08950c9c32cd66eb9c8e2ee843f023d1fadf09a9ba39fee"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/fe50d25d/glib/universal.diff"
+      sha256 "e21f902907cca543023c930101afe1d0c1a7ad351daa0678ba855341f3fd1b57"
     end
   end
 

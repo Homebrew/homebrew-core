@@ -1,13 +1,13 @@
 class Librest < Formula
   desc "Library to access RESTful web services"
   homepage "https://wiki.gnome.org/Projects/Librest"
-  url "https://download.gnome.org/sources/rest/0.7/rest-0.7.93.tar.xz"
-  sha256 "c710644455340a44ddc005c645c466f05c0d779993138ea21a62c6082108b216"
+  url "https://download.gnome.org/sources/rest/0.8/rest-0.8.0.tar.xz"
+  sha256 "e7b89b200c1417073aef739e8a27ff2ab578056c27796ec74f5886a5e0dff647"
 
   bottle do
-    sha256 "9a85440762ae254d1dca4442499cef96777539cb6266e70a4b8dd72496ed1d25" => :el_capitan
-    sha256 "31ffb12406788d8352991ce2342a1c971db18033bd140a19bfd7486664cd8235" => :yosemite
-    sha256 "5350da99c8645c1b2f3ca7d00b5c9e11e25c7b8c9802dc697721a2f8bea7f2c0" => :mavericks
+    sha256 "493c2bf876de213bce3ec5aa739c437a0b0384ac8f8f722a23ba7987d2604879" => :el_capitan
+    sha256 "8b98b39acc982309f1d15c20466a6675185100fdf9a21da6ff30ed4cc32a9946" => :yosemite
+    sha256 "d2e3fbb297d83bcf4064539968f5c070443786c187c803d264ad4a30d8454a35" => :mavericks
   end
 
   depends_on "pkg-config" => :build

@@ -103,18 +103,17 @@ class Mariadb < Formula
     system "make", "install"
 
     # Fix my.cnf to point to #{etc} instead of /etc
-    (etc+"my.cnf.d").mkpath
-    inreplace "#{etc}/my.cnf" do |s|
-      s.gsub!("!includedir /etc/my.cnf.d", "!includedir #{etc}/my.cnf.d")
-    end
+    (etc/"my.cnf.d").mkpath
+    inreplace "#{etc}/my.cnf", "!includedir /etc/my.cnf.d",
+                               "!includedir #{etc}/my.cnf.d"
     touch etc/"my.cnf.d/.homebrew_dont_prune_me"
 
     # Don't create databases inside of the prefix!
     # See: https://github.com/Homebrew/homebrew/issues/4975
-    rm_rf prefix+"data"
+    rm_rf prefix/"data"
 
-    (prefix+"mysql-test").rmtree if build.without? "test" # save 121MB!
-    (prefix+"sql-bench").rmtree if build.without? "bench"
+    (prefix/"mysql-test").rmtree if build.without? "test" # save 121MB!
+    (prefix/"sql-bench").rmtree if build.without? "bench"
 
     # Link the setup script into bin
     bin.install_symlink prefix/"scripts/mysql_install_db"
@@ -146,7 +145,7 @@ class Mariadb < Formula
 
   def post_install
     # Make sure the var/mysql directory exists
-    (var+"mysql").mkpath
+    (var/"mysql").mkpath
     unless File.exist? "#{var}/mysql/mysql/user.frm"
       ENV["TMPDIR"] = nil
       system "#{bin}/mysql_install_db", "--verbose", "--user=#{ENV["USER"]}",
@@ -191,11 +190,11 @@ class Mariadb < Formula
 
   test do
     if build.with? "test"
-      (prefix+"mysql-test").cd do
+      (prefix/"mysql-test").cd do
         system "./mysql-test-run.pl", "status"
       end
     else
-      system "mysqld", "--version"
+      system bin/"mysqld", "--version"
     end
   end
 end

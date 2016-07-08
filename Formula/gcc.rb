@@ -21,7 +21,7 @@ class Gcc < Formula
 
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org"
-  url "http://ftpmirror.gnu.org/gcc/gcc-6.1.0/gcc-6.1.0.tar.bz2"
+  url "https://ftpmirror.gnu.org/gcc/gcc-6.1.0/gcc-6.1.0.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-6.1.0/gcc-6.1.0.tar.bz2"
   sha256 "09c4c85cabebb971b1de732a0219609f93fc0af5f86f6e437fd8d7f832f1a351"
 
@@ -74,7 +74,12 @@ class Gcc < Formula
 
   # Fix for libgccjit.so linkage on Darwin
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
-  patch :DATA
+  # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225625332
+  # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225626490
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9e0ee09389a54cc4c8fe1c24ebca3cd765ed0ba/gcc/6.1.0-jit.patch"
+    sha256 "863957f90a934ee8f89707980473769cff47ca0663c3906992da6afb242fb220"
+  end
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
@@ -236,37 +241,3 @@ class Gcc < Formula
     end
   end
 end
-__END__
-diff --git a/gcc/jit/Make-lang.in b/gcc/jit/Make-lang.in
-index 44d0750..4df2a9c 100644
---- a/gcc/jit/Make-lang.in
-+++ b/gcc/jit/Make-lang.in
-@@ -85,8 +85,7 @@ $(LIBGCCJIT_FILENAME): $(jit_OBJS) \
-	     $(jit_OBJS) libbackend.a libcommon-target.a libcommon.a \
-	     $(CPPLIB) $(LIBDECNUMBER) $(LIBS) $(BACKENDLIBS) \
-	     $(EXTRA_GCC_OBJS) \
--	     -Wl,--version-script=$(srcdir)/jit/libgccjit.map \
--	     -Wl,-soname,$(LIBGCCJIT_SONAME)
-+	     -Wl,-install_name,$(LIBGCCJIT_SONAME)
-
- $(LIBGCCJIT_SONAME_SYMLINK): $(LIBGCCJIT_FILENAME)
-	ln -sf $(LIBGCCJIT_FILENAME) $(LIBGCCJIT_SONAME_SYMLINK)
-diff --git a/gcc/jit/jit-playback.c b/gcc/jit/jit-playback.c
-index 925fa86..01cfd4b 100644
---- a/gcc/jit/jit-playback.c
-+++ b/gcc/jit/jit-playback.c
-@@ -2416,6 +2416,15 @@ invoke_driver (const char *ctxt_progname,
-      time.  */
-   ADD_ARG ("-fno-use-linker-plugin");
-
-+#if defined (DARWIN_X86) || defined (DARWIN_PPC)
-+  /* OS X's linker defaults to treating undefined symbols as errors.
-+     If the context has any imported functions or globals they will be
-+     undefined until the .so is dynamically-linked into the process.
-+     Ensure that the driver passes in "-undefined dynamic_lookup" to the
-+     linker.  */
-+  ADD_ARG ("-Wl,-undefined,dynamic_lookup");
-+#endif
-+
-   /* pex argv arrays are NULL-terminated.  */
-   argvec.safe_push (NULL);

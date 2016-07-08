@@ -1,24 +1,25 @@
 class GnomeBuilder < Formula
   desc "IDE for GNOME"
   homepage "https://wiki.gnome.org/Apps/Builder"
-  url "https://download.gnome.org/sources/gnome-builder/3.18/gnome-builder-3.18.1.tar.xz"
-  mirror "https://launchpad.net/ubuntu/+archive/primary/+files/gnome-builder_3.18.1.orig.tar.xz"
-  sha256 "501c95220dcf8ca44a5748e863492377fe2c3aee78a95973d6819b1836e5407c"
+  url "https://download.gnome.org/sources/gnome-builder/3.20/gnome-builder-3.20.4.tar.xz"
+  sha256 "b3e69495cd0fcfd3e3a7590f52aadaae7f45393eefd47ab5581a851cdd489041"
 
   bottle do
-    sha256 "f7d422a29b7c9b98c20bdce9e8a56b14265fad5d9ce174d77c686adb26d752ad" => :el_capitan
-    sha256 "294e0df51b9781d53996761965bde4a300485e92af2f39f79965cbee5203f4e5" => :yosemite
-    sha256 "0a7a3ea11c1db7a79faeb78240631b0ea55d59cc2b053a4f89e95769d1f1c26c" => :mavericks
+    sha256 "f998975b2542a7b8a28a0c3c59a5a01efc025f6452bafa742021be3ad07115d6" => :el_capitan
+    sha256 "485b20e976415463b143b67c4f778e7da373a68d6053d1c1b1f4807fb8c8115e" => :yosemite
+    sha256 "bbcab43c4a10dd4bca406eae433cdbd6c459c97decdd67fa8fa8870aa5da5bd0" => :mavericks
   end
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "itstool" => :build
   depends_on "libgit2-glib"
   depends_on "gtk+3"
   depends_on "libpeas"
   depends_on "gtksourceview3"
   depends_on "hicolor-icon-theme"
   depends_on "gnome-icon-theme"
+  depends_on "desktop-file-utils"
   depends_on "pcre"
   depends_on "gjs" => :recommended
   depends_on "vala" => :recommended
@@ -31,13 +32,6 @@ class GnomeBuilder < Formula
 
   def install
     ENV.cxx11
-
-    # Fix build failure on case-sensitive volumes for libgit2-glib without vala.
-    # Reported 7th Mar 2016 to https://bugzilla.gnome.org/show_bug.cgi?id=763208
-    unless File.exist?(Formula["libgit2-glib"].share/"vala/vapi/ggit-1.0.vapi")
-      inreplace Dir["libide/{Makefile.am,Makefile.in,libide-1.0.deps}"],
-        "ggit-1.0", "Ggit-1.0"
-    end
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -53,6 +47,6 @@ class GnomeBuilder < Formula
   end
 
   test do
-    system "#{bin}/gnome-builder", "--version"
+    assert_match version.to_s, shell_output("#{bin}/gnome-builder --version")
   end
 end

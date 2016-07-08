@@ -1,43 +1,43 @@
 class Passpie < Formula
   desc "Manage login credentials from the terminal"
   homepage "https://github.com/marcwebbie/passpie"
-  url "https://pypi.python.org/packages/75/74/81b61b369c029454647c0a662d08c76bb7fe4757cf761c3890884b71096d/passpie-1.4.2.tar.gz"
-  sha256 "c6faf0b6cb1a1c8f942b93fbe43b10e66a06bae1b263e544e7cd26add5b130a7"
+  url "https://files.pythonhosted.org/packages/a2/59/9c7adf9f005d4d51a60d569c2ea613f67aa326e84b585ac21651b482058e/passpie-1.5.2.tar.gz"
+  sha256 "e5b7b4979db65b2f3f058325a1e174aa64cad39fb7b8043d822d3353d7e3802b"
   head "https://github.com/marcwebbie/passpie.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "42e24bd9c51c488d9c67d886cc22ffb86713ac72573e87ad362c6c5cf32d0c7b" => :el_capitan
-    sha256 "dc749a017e65064c6c6fe1a289910d27bddab0ac5d22671986be554dcaa14d5d" => :yosemite
-    sha256 "1d38d62088f5d48cece28dc3fc47bb8a2a9835db328db04e0f62d51a12d2f0d9" => :mavericks
+    sha256 "05bf273743de29fdfd42dff2d2abbf7500677d36b2188cd1521565e7b13d0e70" => :el_capitan
+    sha256 "b580eeebf136a7cb7babc24f54b503cf53fd1c5103ca0e4d69017140fff66c71" => :yosemite
+    sha256 "02775007c1bbcea6c6aa9ce7fe76a2ad265da16cc66cd8fdae323d0841b1573a" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on :gpg
 
   resource "click" do
-    url "https://pypi.python.org/packages/source/c/click/click-6.2.tar.gz"
-    sha256 "fba0ff70f5ebb4cebbf64c40a8fbc222fb7cf825237241e548354dabe3da6a82"
+    url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"
+    sha256 "cc6a19da8ebff6e7074f731447ef7e112bd23adf3de5c597cf9989f2fd8defe9"
   end
 
   resource "PyYAML" do
-    url "https://pypi.python.org/packages/source/P/PyYAML/PyYAML-3.11.tar.gz"
+    url "https://files.pythonhosted.org/packages/75/5e/b84feba55e20f8da46ead76f14a3943c8cb722d40360702b2365b91dec00/PyYAML-3.11.tar.gz"
     sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
   end
 
   resource "rstr" do
-    url "https://pypi.python.org/packages/source/r/rstr/rstr-2.2.3.tar.gz"
-    sha256 "10a58eb08a7e3735eddc8f32f3db419797dadb6335b02b94dcd8d741363d79e9"
+    url "https://files.pythonhosted.org/packages/34/73/bf268029482255aa125f015baab1522a22ad201ea5e324038fb542bc3706/rstr-2.2.4.tar.gz"
+    sha256 "64a086a7449a576de7f40327f8cd0a7752efbbb298e65dc68363ee7db0a1c8cf"
   end
 
   resource "tabulate" do
-    url "https://pypi.python.org/packages/source/t/tabulate/tabulate-0.7.5.tar.gz"
+    url "https://files.pythonhosted.org/packages/db/40/6ffc855c365769c454591ac30a25e9ea0b3e8c952a1259141f5b9878bd3d/tabulate-0.7.5.tar.gz"
     sha256 "9071aacbd97a9a915096c1aaf0dc684ac2672904cd876db5904085d6dac9810e"
   end
 
   resource "tinydb" do
-    url "https://pypi.python.org/packages/source/t/tinydb/tinydb-3.1.2.zip"
-    sha256 "6d9df6c30fc37dad487c23bfadfa6161de422a7f2b16b55d779df88559fc9095"
+    url "https://files.pythonhosted.org/packages/6c/2e/0df79439cf5cb3c6acfc9fb87e12d9a0ff45d3c573558079b09c72b64ced/tinydb-3.2.1.zip"
+    sha256 "7fc5bfc2439a0b379bd60638b517b52bcbf70220195b3f3245663cb8ad9dbcf0"
   end
 
   def install

@@ -1,16 +1,16 @@
 class Autojump < Formula
   desc "Shell extension to jump to frequently used directories"
   homepage "https://github.com/wting/autojump"
-  url "https://github.com/wting/autojump/archive/release-v22.3.0.tar.gz"
-  sha256 "800f444b820b3a985e1da2d183fb5e2e23753a2ade53d6e1195678c650379a03"
+  url "https://github.com/wting/autojump/archive/release-v22.3.2.tar.gz"
+  sha256 "4b644772d34323213ed6da300f53b7b70e4aa635df5b779d15dca9b38e88a64b"
 
   head "https://github.com/wting/autojump.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b1d061456b911c1a36216ee3e6569a73aad5e1e9994fb0ba515715a43675811e" => :el_capitan
-    sha256 "08e603c2689a7ac96839cdd6b02f1c1b1803e50598dcd5eaef73d5b7d9275bc6" => :yosemite
-    sha256 "374c3703dab50849119b2d511eeca5fa7523df903fa2ae34acf334c229343182" => :mavericks
+    sha256 "bf3f21aa2d2f11af871cce897b256e54da22d4290eee6ac1696e4f82ebc88474" => :el_capitan
+    sha256 "f98d8647808130d777f94ccd919bd2f46e304589766284c03d2c461f541343f5" => :yosemite
+    sha256 "c59a755ec00ef709819b9dcf37c0d0b0639ca61c9922f7d43af395db3a95c9d0" => :mavericks
   end
 
   def install
@@ -35,14 +35,14 @@ class Autojump < Formula
   end
 
   test do
-    path = testpath/"foo"
-    path.mkdir
+    path = testpath/"foo/bar"
+    path.mkpath
     output = %x(
       source #{HOMEBREW_PREFIX}/etc/profile.d/autojump.sh
-      j -a foo
+      j -a "#{path.relative_path_from(testpath)}"
       j foo >/dev/null
       pwd
     ).strip
-    assert_equal path.to_s, output
+    assert_equal path.realpath.to_s, output
   end
 end

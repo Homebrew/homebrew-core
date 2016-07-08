@@ -1,15 +1,15 @@
 class GitStandup < Formula
   desc "Git extension to generate reports for standup meetings"
   homepage "https://github.com/kamranahmedse/git-standup"
-  url "https://github.com/kamranahmedse/git-standup/archive/2.1.4.tar.gz"
-  sha256 "4481e2eac9d523ceae0d1c0ec13fe78e54b0e1cad8fc7af58026776fcc0d24ea"
+  url "https://github.com/kamranahmedse/git-standup/archive/2.1.8.tar.gz"
+  sha256 "25b002f1df34ecc31c0a254ee95bf077dd4285a3d428a48e5d4821c289795800"
   head "https://github.com/kamranahmedse/git-standup.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ee1dcd5c5f5ad8a35848b7543245eac363cb54c689fedbb18b9084f76c97d0ab" => :el_capitan
-    sha256 "7aa37c62927c3aa039b7f9588d7fa67bc6f9c1ada424f78c2a2e802eae1e11c5" => :yosemite
-    sha256 "cf032c7c41a91355bde6be7c902445885ba6dcc4b6c90356b263729be9b1dbaa" => :mavericks
+    sha256 "8da88a1d4e590d8e2ec6bef3f34c2f88817c89b1473cde291b8ee6c79be6cdef" => :el_capitan
+    sha256 "ab3b98ecf47de06d1d5093257bf63675495a5f57d2e94e1ae53757b933736c02" => :yosemite
+    sha256 "641e5f5e5dbd1761c88603a5c93d40c2b6b4c93d32ffdd1619acf6db8b14f464" => :mavericks
   end
 
   def install

@@ -1,15 +1,15 @@
 class Help2man < Formula
   desc "Automatically generate simple man pages"
   homepage "https://www.gnu.org/software/help2man/"
-  url "http://ftpmirror.gnu.org/help2man/help2man-1.47.3.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/help2man/help2man-1.47.3.tar.xz"
-  sha256 "c232af6475ef65bee02770862a362f4c4c2e6c9967d39e987eb94cadcfc13856"
+  url "https://ftpmirror.gnu.org/help2man/help2man-1.47.4.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/help2man/help2man-1.47.4.tar.xz"
+  sha256 "d4ecf697d13f14dd1a78c5995f06459bff706fd1ce593d1c02d81667c0207753"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4bb6faedcef5f7f902243b262fac4b8ecc700be779bb32a2b387a4a92046c047" => :el_capitan
-    sha256 "a44b9866d1d24730fc09e9a7d9180bf5bca726f71b03e457812a5715dd3179b8" => :yosemite
-    sha256 "2e14f7b80487ebac1c91c87684a0a4ae027208e115ad024bd3a2326dc8ddcd48" => :mavericks
+    sha256 "1ce372ea4da79821e251a867c380232a036569d5e05ab8734ca52bd25b9ff3bb" => :el_capitan
+    sha256 "b52243aae3f9552873d6a0befa2158c116993560719b7aada59dbafb2cdf281d" => :yosemite
+    sha256 "d63079ec5272bb4d5be4c244ffa36af7ddbcb0fd738e2acfb657b8268b932c05" => :mavericks
   end
 
   def install

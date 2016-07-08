@@ -3,21 +3,21 @@ require "language/go"
 class Acmetool < Formula
   desc "Automatic certificate acquisition tool for ACME (Let's Encrypt)"
   homepage "https://github.com/hlandau/acme"
-  url "https://github.com/hlandau/acme/archive/v0.0.49.tar.gz"
-  sha256 "2132c5e461d0be85932365da28f12a2fef0f820e0674200b91c48dcf1f49c56b"
+  url "https://github.com/hlandau/acme/archive/v0.0.54.tar.gz"
+  sha256 "470e5ebe3e28002d32d9f79e35b04d925c84bba33a89b67ad42cd970b924398a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "25548d779aa3f94534ebe01637887b627d8f25d3e4ecc9b31504934f825044e9" => :el_capitan
-    sha256 "03ee95de4a237e11a523380789dfc777aeab36dd4a5bf2eb960e58d6bb6bdeb5" => :yosemite
-    sha256 "c1316f4f3694bff1dff55965d79d24345fa4d83b011e1c9081d937c9023a7798" => :mavericks
+    sha256 "bea5bc93662d074b0d1abeccbb3504e8676ed95f50c1fd58bd22eac1ccccbdc9" => :el_capitan
+    sha256 "ac30c7f8e8ffe4b36efb4fba973292ffc02adcab4ce1284214caf87cc324b0e9" => :yosemite
+    sha256 "8851dcc3b30468ca70bedb12c201a7d5eb20eb6e4a0805b02062a606a2aa5f5a" => :mavericks
   end
 
   depends_on "go" => :build
 
   go_resource "github.com/alecthomas/template" do
     url "https://github.com/alecthomas/template.git",
-      :revision => "14fd436dd20c3cc65242a9f396b61bfc8a3926fc"
+      :revision => "a0175ee3bccc567396460bf5acd36800cb10c49c"
   end
 
   go_resource "github.com/alecthomas/units" do
@@ -27,17 +27,17 @@ class Acmetool < Formula
 
   go_resource "github.com/coreos/go-systemd" do
     url "https://github.com/coreos/go-systemd.git",
-      :revision => "7b2428fec40033549c68f54e26e89e7ca9a9ce31"
+      :revision => "b32b8467dbea18858bfebf65c1a6a761090f2c31"
   end
 
   go_resource "github.com/hlandau/degoutils" do
     url "https://github.com/hlandau/degoutils.git",
-      :revision => "16c74ccb617a3a6c45ff5631cb4679d10b20ad2c"
+      :revision => "389a84765529fb80bf6fff3cdcdf814cbc42ee47"
   end
 
   go_resource "github.com/hlandau/xlog" do
     url "https://github.com/hlandau/xlog.git",
-      :revision => "c18de5703f79e62275a7282dc8979ff6c2d5f7d8"
+      :revision => "197ef798aed28e08ed3e176e678fda81be993a31"
   end
 
   go_resource "github.com/hlandauf/gspt" do
@@ -45,14 +45,9 @@ class Acmetool < Formula
       :revision => "25f3bd3f5948489aa5f31c949310ae9f2b0e956c"
   end
 
-  go_resource "github.com/hlandauf/pb" do
-    url "https://github.com/hlandauf/pb.git",
-      :revision => "0c1cdefd84b3b1937c4e54309f3a817d9c683bab"
-  end
-
   go_resource "github.com/jmhodges/clock" do
     url "https://github.com/jmhodges/clock.git",
-      :revision => "3c4ebd218625c9364c33db6d39c276d80c3090c6"
+      :revision => "880ee4c335489bc78d01e4d0a254ae880734bc15"
   end
 
   go_resource "github.com/mattn/go-isatty" do
@@ -72,12 +67,12 @@ class Acmetool < Formula
 
   go_resource "github.com/peterhellberg/link" do
     url "https://github.com/peterhellberg/link.git",
-      :revision => "1053d3b2893eeebd482fce32550ec24bebed308c"
+      :revision => "d1cebc7ea14a5fc0de7cb4a45acae773161642c6"
   end
 
   go_resource "github.com/satori/go.uuid" do
     url "https://github.com/satori/go.uuid.git",
-      :revision => "e673fdd4dea8a7334adbbe7f57b7e4b00bdc5502"
+      :revision => "879c5887cd475cd7864858769793b2ceb0d44feb"
   end
 
   go_resource "github.com/shiena/ansicolor" do
@@ -85,24 +80,24 @@ class Acmetool < Formula
       :revision => "a422bbe96644373c5753384a59d678f7d261ff10"
   end
 
-  go_resource "github.com/square/go-jose" do
-    url "https://github.com/square/go-jose.git",
-      :revision => "7465d2baefd097ef32054b46be7d9c41185869a1"
-  end
-
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-      :revision => "5dc8cb4b8a8eb076cbb5a06bc3b8682c15bdbbd3"
+      :revision => "811831de4c4dd03a0b8737233af3b36852386373"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-      :revision => "3e5cd1ed149001198e582f9d3f5bfd564cde2896"
+      :revision => "b400c2eff1badec7022a8c8f5bea058b6315eed7"
   end
 
   go_resource "gopkg.in/alecthomas/kingpin.v2" do
     url "https://gopkg.in/alecthomas/kingpin.v2.git",
       :revision => "8cccfa8eb2e3183254457fb1749b2667fbc364c7"
+  end
+
+  go_resource "gopkg.in/cheggaaa/pb.v1" do
+    url "https://gopkg.in/cheggaaa/pb.v1.git",
+      :revision => "8808370bf63524e115da1371ba42bce6739f3a6b"
   end
 
   go_resource "gopkg.in/hlandau/configurable.v1" do
@@ -112,7 +107,7 @@ class Acmetool < Formula
 
   go_resource "gopkg.in/hlandau/easyconfig.v1" do
     url "https://gopkg.in/hlandau/easyconfig.v1.git",
-      :revision => "f38184c467a3200c92ac929527daf77497b7ec69"
+      :revision => "bc5afaa18a1a72fe424da647d6bb57ca4d7f83c4"
   end
 
   go_resource "gopkg.in/hlandau/service.v2" do
@@ -125,9 +120,14 @@ class Acmetool < Formula
       :revision => "09c5458e23bda3b8e4d925fd587bd44fbdb5950e"
   end
 
+  go_resource "gopkg.in/square/go-jose.v1" do
+    url "https://gopkg.in/square/go-jose.v1.git",
+      :revision => "e3f973b66b91445ec816dd7411ad1b6495a5a2fc"
+  end
+
   go_resource "gopkg.in/tylerb/graceful.v1" do
     url "https://gopkg.in/tylerb/graceful.v1.git",
-      :revision => "119c58e176bce26fd40698146d9a106c8f1723a5"
+      :revision => "ecde8c8f16df93a994dda8936c8f60f0c26c28ab"
   end
 
   go_resource "gopkg.in/yaml.v2" do
@@ -140,7 +140,7 @@ class Acmetool < Formula
     ENV["GOPATH"] = buildpath
     ENV["GOHOME"] = buildpath
 
-    mkdir_p buildpath/"src/github.com/hlandau/"
+    (buildpath/"src/github.com/hlandau").mkpath
     ln_sf buildpath, buildpath/"src/github.com/hlandau/acme"
     Language::Go.stage_deps resources, buildpath/"src"
 
@@ -156,8 +156,7 @@ class Acmetool < Formula
     system "go", "build", "-o", bin/"acmetool", "-ldflags", ldflags,
         "github.com/hlandau/acme/cmd/acmetool"
 
-    system "#{bin}/acmetool --help-man >> acmetool.8"
-    man8.install "acmetool.8"
+    (man8/"acmetool.8").write Utils.popen_read(bin/"acmetool", "--help-man")
 
     doc.install "README.md", Dir["_doc/*"]
   end
@@ -168,6 +167,6 @@ class Acmetool < Formula
   end
 
   test do
-    system "#{bin}/acmetool", "help"
+    assert_match version.to_s, shell_output("#{bin}/acmetool --version", 2)
   end
 end

@@ -7,9 +7,11 @@ class Ansible < Formula
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
-    sha256 "aa64b63dcf3c60f8fc8f3fe9b72730ab57c702ffcd19b0dd8649f95f27f5956b" => :el_capitan
-    sha256 "608ce12bb4311243f4a297acbda8cd67368d613695af6bddae0faf089a34b1a0" => :yosemite
-    sha256 "2d0ae0aa7ab710db5505b81de1b8af696a7d95469820d395c9d898368d2679a4" => :mavericks
+    cellar :any
+    revision 2
+    sha256 "28d23a463cbeb35009682095af308a54b3c7edc768366fc212ef34daf5b14790" => :el_capitan
+    sha256 "e0f96206343434c7db8a6e526a60e82c1c6b90b8cfc275c4f144c4e4f75c262d" => :yosemite
+    sha256 "0d4a7edd9e2da253d67127d9a17b79f50f747cadb1724485aa87264ad65f8a20" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -550,6 +552,11 @@ class Ansible < Formula
   resource "warlock" do
     url "https://pypi.python.org/packages/source/w/warlock/warlock-1.2.0.tar.gz"
     sha256 "7c0d17891e14cf77e13a598edecc9f4682a5bc8a219dc84c139c5ba02789ef5a"
+  end
+
+  resource "zabbix-api" do
+    url "https://pypi.python.org/packages/source/z/zabbix-api/zabbix-api-0.4.tar.gz"
+    sha256 "31fab8ca9b12aa5e6fe79b4463cfe62f33ded770ddc933a8d99c4debe934a0de"
   end
 
   def install
