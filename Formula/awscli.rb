@@ -7,9 +7,9 @@ class Awscli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a2671e558b97c6bdc8eef3dee94a9a872e5204712e1dff0c2295cfdd649a8d03" => :el_capitan
-    sha256 "e62d4efacb30d48fb75d15f02923892c152f70f3553fbc77b01551b9e02414d4" => :yosemite
-    sha256 "ee868a8f73aff14fda4ebea56bbffb8151e0bb2fe3d1bbf84c656bb2a6ed8562" => :mavericks
+    sha256 "d99ec4da3bf1a01fc0e3a4c1bb1d31911301bfb0f65440dfb47ea80a87dd872f" => :el_capitan
+    sha256 "17dfc6f8c7503e3af199be31deb62f878c1ac196f95fca0ce6539c5eb2608289" => :yosemite
+    sha256 "205591470e7aa754ffe450836b1eb5986f32a8a70855d63715db13d0515f8869" => :mavericks
   end
 
   head do
