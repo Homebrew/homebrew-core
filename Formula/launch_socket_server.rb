@@ -10,8 +10,8 @@ class LaunchSocketServer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "05b608ede0783538b8ae28fcbd1bfcb49a6f01007223a19fe8f73233f3fe02b7" => :el_capitan
-    sha256 "f167359571fcf6dc0feec94b59fb2c1936e41b6f07abe1cc35986be582ca4bca" => :yosemite
+    sha256 "393c5e9e891e553aa69f0233ac5966b014df4e63beda2a567e8c59bf34a167f8" => :el_capitan
+    sha256 "97464d0f611bcc2bd568d1a12c96c4bec49e6f12b43528f44a08eccb6dd27f03" => :yosemite
   end
 
   depends_on "go" => :build
