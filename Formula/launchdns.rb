@@ -9,8 +9,9 @@ class Launchdns < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d9434fae9c609c44264c90bef1e52b66db7f1ce2ef12cb8f2498a89d2ba4d0e0" => :el_capitan
-    sha256 "bdc3fea3f9a6c59908a2b81f1d3bb373dbe807efe62f4b6e0c00fac4dbf0d2c7" => :yosemite
+    revision 1
+    sha256 "32e7c5fad3d98c50f6396328e669f880b6c5ac3f30c8d67735bcf42d4c65b015" => :el_capitan
+    sha256 "7df1ba7afd33fb76de28051fc835e4c8aed32dcd8c8530189d7db021be5b8600" => :yosemite
   end
 
   def install
@@ -59,6 +60,10 @@ class Launchdns < Formula
             <string>55353</string>
           </dict>
         </dict>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/launchdns.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/launchdns.log</string>
       </dict>
     </plist>
     EOS

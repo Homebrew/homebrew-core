@@ -3,15 +3,15 @@ require "language/go"
 class SSearch < Formula
   desc "Web search from the terminal"
   homepage "https://github.com/zquestz/s"
-  url "https://github.com/zquestz/s/archive/v0.5.2.tar.gz"
-  sha256 "e4e224bffec720d718ac066a329097b5fd05d3c2c1a3c5b071d710abc7104220"
+  url "https://github.com/zquestz/s/archive/v0.5.3.tar.gz"
+  sha256 "e2cf0398899becc92df4d1a153c7fd523e1f50c7d708f575ab0e69e51b046903"
   head "https://github.com/zquestz/s.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c304a280b03d2108d2a584d0ddba3d3f268f4ca222b838de75a5dfc19614d001" => :el_capitan
-    sha256 "9ced2df29cf3b081387e544f5826c75ce95af117db9e744244eb96b0212997f3" => :yosemite
-    sha256 "c448b231dc092b5ae65697424aceb4422b52b3e103b95b1477b09a96f4cdb85d" => :mavericks
+    sha256 "dad8a7ea2f07d49a9ba643a1614d4d4921c623671134a6f4b72c5efb1d5dcf5e" => :el_capitan
+    sha256 "743d1d642507e1801f14a0e671602268964c67dc4828e51d64a3cae1abb8f1f4" => :yosemite
+    sha256 "8b37ab0bcbd4c8638cc117ce31d3d57410432e6143cf5749d921b45871b1bd26" => :mavericks
   end
 
   depends_on "go" => :build
@@ -43,7 +43,7 @@ class SSearch < Formula
 
   go_resource "golang.org/x/text" do
     url "https://go.googlesource.com/text.git",
-    :revision => "4440cd4f4c2ea31e1872e00de675a86d0c19006c"
+    :revision => "ce78b075c2fbd48520f4995b173eb9fe18b56ef3"
   end
 
   def install

@@ -3,12 +3,12 @@ class Tesseract < Formula
   homepage "https://github.com/tesseract-ocr/"
   url "https://github.com/tesseract-ocr/tesseract/archive/3.04.01.tar.gz"
   sha256 "57f63e1b14ae04c3932a2683e4be4954a2849e17edd638ffe91bc5a2156adc6a"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "0e1ea373a757f19a7f19f3412cda85b612cc2d230e14cacb26ea0ddc694ca101" => :el_capitan
-    sha256 "99a634c471474235b5c846cd74e242b30691b2a02153e6e1bd63aa4a8f2c9b6f" => :yosemite
-    sha256 "aee2237246941213a2a042c2a305a460751678046ce0c27af832d5da8935667f" => :mavericks
+    sha256 "61fe45974f9c0d9ea56d7c0c8adff0f62bef5892623403fb6a7c9bc85bbe7040" => :el_capitan
+    sha256 "f8e99bc1013c533d78cfce0a049840e693a75a83ac465f3f4bce9a2ec6049809" => :yosemite
+    sha256 "7f18bf4f30a861e949f453aea13debe638c052b8e6b4dda56f5329357ed23709" => :mavericks
   end
 
   head do
