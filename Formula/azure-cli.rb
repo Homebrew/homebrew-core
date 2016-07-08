@@ -23,7 +23,7 @@ class AzureCli < Formula
     rm_rf "bin/windows"
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
-    (bash_completion/"azure").write `#{bin}/azure --completion`
+    (bash_completion/"azure").write Utils.popen_read("#{bin}/azure --completion")
   end
 
   test do
