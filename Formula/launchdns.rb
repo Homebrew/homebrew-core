@@ -59,6 +59,10 @@ class Launchdns < Formula
             <string>55353</string>
           </dict>
         </dict>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/launchdns.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/launchdns.log</string>
       </dict>
     </plist>
     EOS
