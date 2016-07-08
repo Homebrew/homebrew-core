@@ -1,8 +1,8 @@
 class Webp < Formula
   desc "Image format providing lossless and lossy compression for web images"
   homepage "https://developers.google.com/speed/webp/"
-  url "http://downloads.webmproject.org/releases/webp/libwebp-0.5.0.tar.gz"
-  sha256 "5cd3bb7b623aff1f4e70bd611dc8dbabbf7688fd5eb225b32e02e09e37dfb274"
+  url "http://downloads.webmproject.org/releases/webp/libwebp-0.5.1.tar.gz"
+  sha256 "6ad66c6fcd60a023de20b6856b03da8c7d347269d76b1fd9c3287e8b5e8813df"
 
   bottle do
     cellar :any
@@ -10,11 +10,6 @@ class Webp < Formula
     sha256 "6a3b7bcb3faba322e780726c9d1f9dc4ce3800f1e567099f818d3899e8386dbd" => :el_capitan
     sha256 "d9b26f0db04df6f53b4357efcf329d6c8751238e45c93abe32568272210734cc" => :yosemite
     sha256 "b8b828ea83e78852db35041feb9e16b999b035f4d23a5a51d5be72245eac662d" => :mavericks
-  end
-
-  devel do
-    url "http://downloads.webmproject.org/releases/webp/libwebp-0.5.1-rc5.tar.gz"
-    sha256 "7bd3022eefbcf34233b20570de89c1a8687acdfaa739c12e4236fc0b736339fd"
   end
 
   head do
