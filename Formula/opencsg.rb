@@ -7,17 +7,17 @@ class Opencsg < Formula
   depends_on "qt5" => :build
   depends_on "glew"
 
+  patch do
+    url "https://raw.githubusercontent.com/openscad/homebrew-tap/master/patches/opencsg.diff"
+    sha256 "9d710cf6c2d5495ca5ba51c0319785cefc21477c85fa3aacb9ccd3473fee54f3"
+  end
+
   def install
     system "qmake", "-r", "INSTALLDIR=#{prefix}",
       "INCLUDEPATH+=#{HOMEBREW_PREFIX}/include",
       "LIBS+=-L#{HOMEBREW_PREFIX}/lib -lGLEW"
 
     system "make", "install"
-  end
-
-  patch do
-    url "https://raw.githubusercontent.com/openscad/homebrew-tap/master/patches/opencsg.diff"
-    sha256 "9d710cf6c2d5495ca5ba51c0319785cefc21477c85fa3aacb9ccd3473fee54f3"
   end
 
   test do
