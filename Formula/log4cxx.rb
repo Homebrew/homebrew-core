@@ -1,29 +1,9 @@
 class Log4cxx < Formula
   desc "Library of C++ classes for flexible logging"
   homepage "https://logging.apache.org/log4cxx/index.html"
+  stable do
   url "https://www.apache.org/dyn/closer.cgi?path=logging/log4cxx/0.10.0/apache-log4cxx-0.10.0.tar.gz"
   sha256 "0de0396220a9566a580166e66b39674cb40efd2176f52ad2c65486c99c920c8c"
-
-  bottle do
-    cellar :any
-    sha256 "e588ef7c319d3fca76aeb29684ed1ec66f648a04c06d2f4263889b81d3c24067" => :el_capitan
-    sha256 "803d857c115430068d91887a218159dd728b87c94c8a819807225817ff9f2ecb" => :yosemite
-    sha256 "93b74be0ecb9bdb32ab803fbae0836ad58387a9ff1ba9346334e734596da7b6d" => :mavericks
-    sha256 "6b07acbb1e77d8d7edc7e111f57250b9d05c9b9c8aa6f1363f919940695aa1f9" => :mountain_lion
-  end
-
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-
-  option :universal
-  option :cxx11
-
-  fails_with :llvm do
-    build 2334
-    cause "Fails with 'collect2: ld terminated with signal 11 [Segmentation fault]'"
-  end
-
   # Incorporated upstream, remove on next version update
   # https://issues.apache.org/jira/browse/LOGCXX-400 (r1414037)
   # https://issues.apache.org/jira/browse/LOGCXX-404 (r1414037)
@@ -43,6 +23,30 @@ class Log4cxx < Formula
     url "https://gist.githubusercontent.com/cawka/b4a79f6b883c46ac1672/raw/f33998566cccf91fb84133e101f5a92a14b31aed/LOGCXX-404---domtestcase.cpp.patch"
     sha256 "3eaf321e1df8e8e4a0a507a96646727180e7e721b2c42af22a5d40962d3dbecc"
   end
+  done
+
+  bottle do
+    cellar :any
+    sha256 "e588ef7c319d3fca76aeb29684ed1ec66f648a04c06d2f4263889b81d3c24067" => :el_capitan
+    sha256 "803d857c115430068d91887a218159dd728b87c94c8a819807225817ff9f2ecb" => :yosemite
+    sha256 "93b74be0ecb9bdb32ab803fbae0836ad58387a9ff1ba9346334e734596da7b6d" => :mavericks
+    sha256 "6b07acbb1e77d8d7edc7e111f57250b9d05c9b9c8aa6f1363f919940695aa1f9" => :mountain_lion
+  end
+
+  head "http://svn.apache.org/repos/asf/incubator/log4cxx/trunk"
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
+  option :universal
+  option :cxx11
+
+  fails_with :llvm do
+    build 2334
+    cause "Fails with 'collect2: ld terminated with signal 11 [Segmentation fault]'"
+  end
+
 
   def install
     ENV.universal_binary if build.universal?
