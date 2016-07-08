@@ -4,7 +4,7 @@ class LaunchSocketServer < Formula
   url "https://github.com/sstephenson/launch_socket_server/archive/v1.0.0.tar.gz"
   sha256 "77b7eebf54a1f0e0ce250b3cf3fa19eb6bee6cb6d70989a9b6cd5b6a95695608"
 
-  revision 1
+  revision 2
 
   head "https://github.com/sstephenson/launch_socket_server.git"
 
@@ -40,7 +40,17 @@ class LaunchSocketServer < Formula
             <string>#{opt_sbin}/launch_socket_server</string>
             <string>-</string>
           </array>
-          <key>LAUNCH_PROGRAM_TCP_ADDRESS</key>
+          <key>Sockets</key>
+          <dict>
+            <key>Socket</key>
+            <dict>
+              <key>SockNodeName</key>
+              <string>0.0.0.0</string>
+              <key>SockServiceName</key>
+              <string>80</string>
+            </dict>
+          </dict>
+          <key>EnvironmentVariables</key>
           <dict>
             <key>LAUNCH_PROGRAM_TCP_ADDRESS</key>
             <string>127.0.0.1:8080</string>
