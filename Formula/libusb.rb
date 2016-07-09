@@ -36,5 +36,15 @@ class Libusb < Formula
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make", "install"
+    pkgshare.install "examples"
+  end
+
+  test do
+    cp_r (pkgshare/"examples"), testpath
+    cd "examples" do
+      system ENV.cc, "-lusb-1.0", "-L#{lib}", "-I#{include}/libusb-1.0",
+             "listdevs.c", "-o", "test"
+      system "./test"
+    end
   end
 end
