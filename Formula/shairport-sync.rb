@@ -28,6 +28,8 @@ class ShairportSync < Formula
       --with-ssl=openssl
       --with-dns_sd
       --with-ao
+      --with-stdout
+      --with-pipe
       --with-soxr
       --with-configfiles=no
       --with-piddir=#{prefix}
@@ -40,6 +42,6 @@ class ShairportSync < Formula
 
   test do
     test_cmd = "#{bin}/shairport-sync -V"
-    assert_match(/openssl-ao-soxr/, shell_output(test_cmd, 1))
+    assert_match(/openssl-ao-stdout-pipe-soxr/, shell_output(test_cmd, 1))
   end
 end
