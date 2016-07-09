@@ -6,9 +6,9 @@ class Mpd < Formula
 
   bottle do
     cellar :any
-    sha256 "c7f59dd212cc121bc18ae35218a1391577f73caab75756013f67399447e77f37" => :el_capitan
-    sha256 "1633dc1e733fe9d9c0028421e001d0f4b9e1794d361aefbb9485422f19ce3964" => :yosemite
-    sha256 "7282b0ef5a5f10d6f8d97ec83ffef8828c502524ec4b001e6ae9d0d1ec0c483c" => :mavericks
+    sha256 "942a30333287d471ffae13ed00c317f7bf7f40ba6309e8cf92f56f9d50ebe621" => :el_capitan
+    sha256 "a1044b314b13e5367f1bce688e92a141864e0d2215838b8225be273784ff5621" => :yosemite
+    sha256 "ef6b0b59c8282e62b43f833959566971dc10eb1ed15ac17b25b42452ed34f086" => :mavericks
   end
 
   head do
