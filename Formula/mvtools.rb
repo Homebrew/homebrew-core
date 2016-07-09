@@ -1,8 +1,8 @@
 class Mvtools < Formula
   desc "Filters for motion estimation and compensation"
   homepage "https://github.com/dubhater/vapoursynth-mvtools"
-  url "https://github.com/dubhater/vapoursynth-mvtools/archive/v15.tar.gz"
-  sha256 "8f1b4504914003fc7132be9484064d3e8bd719b7cf1d2af8baa7323b906b6eb2"
+  url "https://github.com/dubhater/vapoursynth-mvtools/archive/v16.tar.gz"
+  sha256 "22232d5684bf144408ed0e463e2475a90d7ea9e9c7f3c13b92f60452037b07b3"
   head "https://github.com/dubhater/vapoursynth-mvtools.git"
 
   bottle do
