@@ -1,7 +1,8 @@
 class Libusb < Formula
   desc "Library for USB device access"
   homepage "http://libusb.info"
-  url "https://downloads.sourceforge.net/project/libusb/libusb-1.0/libusb-1.0.20/libusb-1.0.20.tar.bz2"
+  url "https://github.com/libusb/libusb/releases/download/v1.0.20/libusb-1.0.20.tar.bz2"
+  mirror "https://downloads.sourceforge.net/project/libusb/libusb-1.0/libusb-1.0.20/libusb-1.0.20.tar.bz2"
   sha256 "cb057190ba0a961768224e4dc6883104c6f945b2bf2ef90d7da39e7c1834f7ff"
 
   bottle do
