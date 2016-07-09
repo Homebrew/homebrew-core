@@ -29,7 +29,7 @@ class Activemq < Formula
         <key>AbandonProcessGroup</key>
         <true/>
         <key>WorkingDirectory</key>
-        <string>#{libexec}</string>
+        <string>#{opt_libexec}</string>
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_bin}/activemq</string>
