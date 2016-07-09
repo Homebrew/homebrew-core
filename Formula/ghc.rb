@@ -6,9 +6,10 @@ class Ghc < Formula
 
   bottle do
     cellar :any
-    sha256 "950b8ce79292f62f01327d7dbec598187ee5f26360c1393b6de56a4bc3dc237d" => :el_capitan
-    sha256 "6ed36065af3ee25688d104bd1b15be7a8e531a31af0d375f4b8b5b331a13de98" => :yosemite
-    sha256 "ea383499e518fa6ac12f472ae3e245eebec9ab6b7c4ad2396a61911d8c1f58c5" => :mavericks
+    revision 1
+    sha256 "210f5b5e8d223cc58689289e651fc6f2a3a9276e08a97eb8b9e2ea73e37718c5" => :el_capitan
+    sha256 "854bec85cc5fb00ea0b9dd22d260294f4d2927fcee962d2c3b6804765f012f52" => :yosemite
+    sha256 "d7ac762642463f397ec2edb5cde43b6f573293474fd989ac7f49aaa1e0d8f25e" => :mavericks
   end
 
   option "with-test", "Verify the build using the testsuite"
