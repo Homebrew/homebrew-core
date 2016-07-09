@@ -1,8 +1,8 @@
 class Pillar < Formula
   desc "Manage migrations for Cassandra data stores"
   homepage "https://github.com/comeara/pillar"
-  url "https://github.com/comeara/pillar/archive/v2.0.1.tar.gz"
-  sha256 "d5db7fbf956dae05794ec7b26c1de70aaab1d21fed774d95d16a241e9dd3952e"
+  url "https://github.com/comeara/pillar/archive/v2.1.0.tar.gz"
+  sha256 "9e371a5a074a6d30c9a014f6a97c720e0735b1a6dfe0c2d70157664188da396b"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,6 +13,12 @@ class Pillar < Formula
 
   depends_on :java
   depends_on "sbt" => :build
+
+  # Upstream PR 9 Jul 2016: "Fix deduplicate error during merge"
+  patch do
+    url "https://github.com/comeara/pillar/pull/32.patch"
+    sha256 "b3786ef473b7d10916654d7747df998bfa9e6db504dd9ac9cd5f4d411bab0094"
+  end
 
   def install
     ENV.java_cache
