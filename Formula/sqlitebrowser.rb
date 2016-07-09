@@ -13,12 +13,16 @@ class Sqlitebrowser < Formula
     sha256 "bdb49155b98d84480159b291c51ae01f47c0626ca56f66fc5f0d45756d36846f" => :mavericks
   end
 
-  depends_on "qt"
+  depends_on "qt5"
   depends_on "cmake" => :build
   depends_on "sqlite" => "with-functions"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", "-DUSE_QT5=TRUE", *std_cmake_args
     system "make", "install"
+  end
+
+  test do
+    system "#{bin}/sqlitebrowser", "-h"
   end
 end
