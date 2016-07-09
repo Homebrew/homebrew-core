@@ -20,14 +20,13 @@ class Go < Formula
     url "https://storage.googleapis.com/golang/go1.7rc1.src.tar.gz"
     version "1.7rc1"
     sha256 "f26b42ea8d3de92efda5e2f7172b22d59e19676f23bbcf64412b32b4f4a5ff58"
-  go_version = "1.7"
+    go_version = "1.7"
   end
 
   option "without-cgo", "Build without cgo"
   option "without-godoc", "godoc will not be installed for you"
   option "without-vet", "vet will not be installed for you"
   option "without-race", "Build without race detector"
-
 
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
@@ -91,7 +90,7 @@ class Go < Formula
 
       # go vet is now part of the standard Go toolchain. Remove this block
       # and the option once Go 1.7 is released
-      if build.with? "vet" && File.exist?("src/golang.org/x/tools/cmd/vet/")
+      if build.with?("vet") && File.exist?("src/golang.org/x/tools/cmd/vet/")
         cd "src/golang.org/x/tools/cmd/vet/" do
           system "go", "build"
           # This is where Go puts vet natively; not in the bin.
