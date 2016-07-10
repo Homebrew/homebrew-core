@@ -7,10 +7,10 @@ class PureFtpd < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "69135ddfc954654af6cf664027b0417b0d0bc5c075570efe368587f846f737e7" => :el_capitan
-    sha256 "6569d0a5243612b9569da048c08a40b9826a2dcc231040ac2d2e4c12cd991eb5" => :yosemite
-    sha256 "c97aa32a237cdfb02780d6808a42507ec8fa97345ef4f3332cfcfb6cce91ff1a" => :mavericks
+    revision 2
+    sha256 "86d1097a53f790ed8c25dd50034d1839c63edd70d9075ffad0938db2e9c40de7" => :el_capitan
+    sha256 "f97ab54d8932b289e91467fb04c158b092d33e97ca35d51f1099fa4b12991f77" => :yosemite
+    sha256 "054b8d5193b19c5d296766f1b3046673400416080773bc1a559a7d8f99607d2a" => :mavericks
   end
 
   option "with-virtualchroot", "Follow symbolic links even for chrooted accounts"
