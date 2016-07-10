@@ -3,6 +3,7 @@ class CrosstoolNg < Formula
   homepage "http://crosstool-ng.org"
   url "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.22.0.tar.xz"
   sha256 "a8b50ddb6e651c3eec990de54bd191f7b8eb88cd4f88be9338f7ae01639b3fba"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,8 +15,8 @@ class CrosstoolNg < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "coreutils" => :build
   depends_on "help2man" => :build
+  depends_on "coreutils"
   depends_on "wget"
   depends_on "gnu-sed"
   depends_on "gawk"
@@ -28,17 +29,18 @@ class CrosstoolNg < Formula
   env :std
 
   def install
-    args = ["--prefix=#{prefix}",
-            "--exec-prefix=#{prefix}",
-            "--with-objcopy=gobjcopy",
-            "--with-objdump=gobjdump",
-            "--with-readelf=greadelf",
-            "--with-libtool=glibtool",
-            "--with-libtoolize=glibtoolize",
-            "--with-install=ginstall",
-            "--with-sed=gsed",
-            "--with-awk=gawk",
-           ]
+    args = [
+      "--prefix=#{prefix}",
+      "--exec-prefix=#{prefix}",
+      "--with-objcopy=gobjcopy",
+      "--with-objdump=gobjdump",
+      "--with-readelf=greadelf",
+      "--with-libtool=glibtool",
+      "--with-libtoolize=glibtoolize",
+      "--with-install=ginstall",
+      "--with-sed=gsed",
+      "--with-awk=gawk",
+    ]
 
     args << "--with-grep=ggrep" if build.with? "grep"
 
