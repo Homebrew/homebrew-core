@@ -3,6 +3,7 @@ class Stout < Formula
   homepage "http://stout.is"
   url "https://github.com/EagerIO/Stout/archive/v1.2.2.tar.gz"
   sha256 "e04a44735c4c04ccce63e73d211d2a8c0232594b23c8dfc5c971c10d1aa72aaa"
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9020d9cfd6ca410fec81df29a31732c6c9025958e1247fb95f93e6c5942c389e" => :el_capitan
@@ -16,8 +17,7 @@ class Stout < Formula
     ENV["GOPATH"] = buildpath
     mkdir_p buildpath/"src/github.com/eagerio"
     ln_s buildpath, buildpath/"src/github.com/eagerio/stout"
-    system "go", "build", "-o", "stout", "github.com/eagerio/stout/src"
-    bin.install "stout"
+    system "go", "build", "-o", bin/"stout", "-v", "github.com/eagerio/stout/src"
   end
 
   test do
