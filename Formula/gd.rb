@@ -15,6 +15,8 @@ class Gd < Formula
     end
   end
 
+  revision 1
+
   bottle do
     cellar :any
     sha256 "f17582f4983460221308bb459b8b7ffa8df9fc8609707a1915a83905f72b51b2" => :el_capitan
