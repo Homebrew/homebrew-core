@@ -13,6 +13,8 @@ class PureFtpd < Formula
     sha256 "c97aa32a237cdfb02780d6808a42507ec8fa97345ef4f3332cfcfb6cce91ff1a" => :mavericks
   end
 
+  option "with-virtualchroot", "Follow symbolic links even for chrooted accounts"
+
   depends_on "libsodium"
   depends_on "openssl"
   depends_on :postgresql => :optional
