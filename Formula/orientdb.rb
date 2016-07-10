@@ -26,12 +26,11 @@ class Orientdb < Formula
     chmod 0755, Dir["bin/*"]
     libexec.install Dir["*"]
 
-    (var/"db/orientdb").mkpath
-    (var/"log/orientdb").mkpath
-    (var/"run/orientdb").mkpath
-    touch "#{var}/log/orientdb/orientdb.err"
-    touch "#{var}/log/orientdb/orientdb.log"
-    inreplace "#{libexec}/config/orientdb-server-config.xml", "</properties>", "  <entry name=\"server.database.path\" value=\"#{var}/db/orientdb\" />\n    </properties>"
+    inreplace "#{libexec}/config/orientdb-server-config.xml", "</properties>",
+       <<-EOS.undent
+         <entry name="server.database.path" value="#{var}/db/orientdb" />
+         </properties>
+       EOS
     inreplace "#{libexec}/config/orientdb-server-log.properties", "../log", "#{var}/log/orientdb"
     inreplace "#{libexec}/bin/orientdb.sh", "../log", "#{var}/log/orientdb"
     inreplace "#{libexec}/bin/server.sh", "ORIENTDB_PID=$ORIENTDB_HOME/bin", "ORIENTDB_PID=#{var}/run/orientdb"
@@ -40,6 +39,14 @@ class Orientdb < Formula
     bin.install_symlink "#{libexec}/bin/orientdb.sh" => "orientdb"
     bin.install_symlink "#{libexec}/bin/console.sh" => "orientdb-console"
     bin.install_symlink "#{libexec}/bin/gremlin.sh" => "orientdb-gremlin"
+  end
+
+  def post_install
+    (var/"db/orientdb").mkpath
+    (var/"run/orientdb").mkpath
+    (var/"log/orientdb").mkpath
+    touch "#{var}/log/orientdb/orientdb.err"
+    touch "#{var}/log/orientdb/orientdb.log"
   end
 
   def caveats
