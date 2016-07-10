@@ -23,23 +23,15 @@ class PureFtpd < Formula
       --prefix=#{prefix}
       --mandir=#{man}
       --sysconfdir=#{etc}
+      --with-everything
       --with-pam
-      --with-altlog
-      --with-puredb
-      --with-throttling
-      --with-ratios
-      --with-quotas
-      --with-ftpwho
-      --with-virtualhosts
-      --with-virtualchroot
-      --with-diraliases
-      --with-peruserlimits
       --with-tls
       --with-bonjour
     ]
 
     args << "--with-pgsql" if build.with? "postgresql"
     args << "--with-mysql" if build.with? "mysql"
+    args << "--with-virtualchroot" if build.with? "virtualchroot"
 
     system "./configure", *args
     system "make", "install"
