@@ -21,7 +21,6 @@ class Dosfstools < Formula
     sha256 "fc128348728cfb7b634e5d286dc69aa954aee9dc79cb6dec0c27de31ebc1c264" => :mavericks
   end
 
-
   option "with-compat-symlinks",
     "Symlink older names of the tools to the current ones on installation"
 
