@@ -1,8 +1,8 @@
 class BaculaFd < Formula
   desc "Network backup solution"
   homepage "http://www.bacula.org/"
-  url "https://downloads.sourceforge.net/project/bacula/bacula/7.4.1/bacula-7.4.1.tar.gz"
-  sha256 "d0874e94c0534274455efd91d6f9477c57c7f14882138f03b3572eff2660e861"
+  url "https://downloads.sourceforge.net/project/bacula/bacula/7.4.2/bacula-7.4.2.tar.gz"
+  sha256 "0c5f7fe1d35fc2aa4ffba73e977b710b955b1fe3e45ab90c67b47b279152ad67"
 
   bottle do
     sha256 "57d67afab43a0bbfb8c47f1db23467feaebd08a9da8510bcc95a6c9646fd8371" => :el_capitan
@@ -18,24 +18,23 @@ class BaculaFd < Formula
     #   (conio support not tested)
     # * working directory in /var/lib/bacula, reasonable place that
     #   matches Debian's location.
-    readline = Formula["readline"].opt_prefix
     system "./configure", "--prefix=#{prefix}",
                           "--sbindir=#{bin}",
                           "--with-working-dir=#{var}/lib/bacula",
-                          "--with-pid-dir=#{HOMEBREW_PREFIX}/var/run",
+                          "--with-pid-dir=#{var}/run",
                           "--with-logdir=#{var}/log/bacula",
                           "--enable-client-only",
                           "--disable-conio",
-                          "--with-readline=#{readline}"
+                          "--with-readline=#{Formula["readline"].opt_prefix}"
 
     system "make"
     system "make", "install"
 
-    # Ensure var/run exists:
-    (var + "run").mkpath
+    (var/"lib/bacula").mkpath
+  end
 
-    # Create the working directory:
-    (var + "lib/bacula").mkpath
+  def post_install
+    (var/"run").mkpath
   end
 
   plist_options :startup => true, :manual => "bacula-fd"
@@ -54,10 +53,12 @@ class BaculaFd < Formula
           <string>#{opt_bin}/bacula-fd</string>
           <string>-f</string>
         </array>
-        <key>UserName</key>
-        <string>root</string>
       </dict>
     </plist>
   EOS
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/bacula-fd -? 2>&1", 1)
   end
 end
