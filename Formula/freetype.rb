@@ -1,15 +1,12 @@
 class Freetype < Formula
   desc "Software library to render fonts"
   homepage "https://www.freetype.org/"
+  # Note: when bumping freetype's version, you must also bump revisions of
+  # formula with "full path" references to freetype in their pkgconfig.
+  # See https://github.com/Homebrew/legacy-homebrew/pull/44587
   url "https://downloads.sf.net/project/freetype/freetype2/2.6.4/freetype-2.6.4.tar.bz2"
   mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.6.4.tar.bz2"
   sha256 "5f83ce531c7035728e03f7f0421cb0533fca4e6d90d5e308674d6d313c23074d"
-
-  patch :DATA
-
-  # Note: when bumping freetype's version, you must also bump revisions of formula with
-  # "full path" references to freetype in their pkgconfig.
-  # See https://github.com/Homebrew/homebrew/pull/44587
 
   bottle do
     cellar :any
@@ -24,6 +21,10 @@ class Freetype < Formula
   option "without-subpixel", "Disable sub-pixel rendering (a.k.a. LCD rendering, or ClearType)"
 
   depends_on "libpng"
+
+  # http://git.savannah.gnu.org/cgit/freetype/freetype2.git/commit/?id=783cbcd67
+  # Should be in next stable release & safe to remove then.
+  patch :DATA
 
   def install
     if build.with? "subpixel"
