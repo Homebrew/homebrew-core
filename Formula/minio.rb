@@ -1,5 +1,3 @@
-require "language/go"
-
 class Minio < Formula
   desc "object storage server compatible with Amazon S3"
   homepage "https://github.com/minio/minio"
@@ -24,10 +22,8 @@ class Minio < Formula
     clipath.install Dir["*"]
 
     cd buildpath/"src/github.com/minio/minio/" do
-      system "go", "build", "-o", buildpath/"minio"
+      system "go", "build", "-o", bin/"minio", "-v"
     end
-
-    bin.install buildpath/"minio"
   end
 
   test do
