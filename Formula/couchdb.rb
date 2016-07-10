@@ -1,7 +1,7 @@
 class Couchdb < Formula
   desc "Document database server"
   homepage "https://couchdb.apache.org/"
-  revision 5
+  revision 6
 
   stable do
     url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.6.1/apache-couchdb-1.6.1.tar.gz"
@@ -138,7 +138,6 @@ class Couchdb < Formula
     str = <<-EOS.undent
     To test CouchDB run:
         curl http://127.0.0.1:5984/
-
     The reply should look like:
         {"couchdb":"Welcome","uuid":"....","version":"#{version}","vendor":{"version":"#{version}-1","name":"Homebrew"}}
     EOS
@@ -148,52 +147,35 @@ class Couchdb < Formula
 
   def geocouch_caveats; <<-EOS.undent
     GeoCouch Caveats:
-
     FYI:  geocouch installs as an extension of couchdb, so couchdb effectively
     becomes geocouch.  However, you can use couchdb normally (using geocouch
     extensions optionally).  NB: one exception: the couchdb test suite now
     includes several geocouch tests.
-
     To start geocouch manually and verify any geocouch version information (-V),
-
       ERL_FLAGS="-pa #{geocouch_share}/ebin"  couchdb -V
-
     For general convenience, export your ERL_FLAGS (erlang flags, above) in
     your login shell, and then start geocouch:
-
       export ERL_FLAGS="-pa #{geocouch_share}/ebin"
       couchdb
-
     Alternately, prepare launchctl to start/stop geocouch as follows:
-
       cp #{geocouch_share}/geocouch.plist ~/Library/LaunchAgents
       chmod 0644 ~/Library/LaunchAgents/geocouch.plist
-
       launchctl load ~/Library/LaunchAgents/geocouch.plist
-
     Then start, check status of, and stop geocouch with the following three
     commands.
-
       launchctl start geocouch
       launchctl list geocouch
       launchctl stop geocouch
-
     Finally, access, test, and configure your new geocouch with:
-
       http://127.0.0.1:5984
       http://127.0.0.1:5984/_utils/couch_tests.html?script/couch_tests.js
       http://127.0.0.1:5984/_utils
-
     And... relax.
-
     -=-
-
     To uninstall geocouch from your couchdb installation, uninstall couchdb
     and re-install it without the '--with-geocouch' option.
-
       brew uninstall couchdb
       brew install couchdb
-
     To see these instructions again, just run 'brew info couchdb'.
     EOS
   end
@@ -250,7 +232,7 @@ commit 95cb436be30305efa091809813b64ef31af968c8
 Author: Dave Cottlehuber <dch@apache.org>
 Date:   Fri Jun 26 10:31:27 2015 +0200
 
-    build: support OTP-18.0
+    build: support OTP-19.0
 
 diff --git a/INSTALL.Unix b/INSTALL.Unix
 index f66f98c..4c63bc8 100644
@@ -261,7 +243,7 @@ index f66f98c..4c63bc8 100644
  You should have the following installed:
 
 - * Erlang OTP (>=R14B01, =<R17) (http://erlang.org/)
-+ * Erlang OTP (>=R14B01, =<R18) (http://erlang.org/)
++ * Erlang OTP (>=R14B01, =<R19) (http://erlang.org/)
   * ICU                          (http://icu-project.org/)
   * OpenSSL                      (http://www.openssl.org/)
   * Mozilla SpiderMonkey (1.8.5) (http://www.mozilla.org/js/spidermonkey/)
@@ -274,7 +256,7 @@ index 29c69b0..1ca04fd 100644
  You will need the following installed:
 
 - * Erlang OTP (>=14B01, <R17)    (http://erlang.org/)
-+ * Erlang OTP (>=14B01, <R18)    (http://erlang.org/)
++ * Erlang OTP (>=14B01, <R19)    (http://erlang.org/)
   * ICU        (>=4.*)            (http://icu-project.org/)
   * OpenSSL    (>=0.9.8r)         (http://www.openssl.org/)
   * Mozilla SpiderMonkey (=1.8.5) (http://www.mozilla.org/js/spidermonkey/)
@@ -287,7 +269,7 @@ index 103f029..bf9ffc4 100644
  { $as_echo "$as_me:${as_lineno-$LINENO}: checking Erlang version compatibility" >&5
  $as_echo_n "checking Erlang version compatibility... " >&6; }
 -erlang_version_error="The installed Erlang version must be >= R14B (erts-5.8.1) and =< 17 (erts-6.0)"
-+erlang_version_error="The installed Erlang version must be >= R14B (erts-5.8.1) and =< 18 (erts-7.0)"
++erlang_version_error="The installed Erlang version must be >= R14B (erts-5.8.1) and =< 19 (erts-8.0.1)"
 
  version="`${ERL} -version 2>&1 | ${SED} 's/[[^0-9]]/ /g'` 0 0 0"
  major_version=`echo $version | ${AWK} "{print \\$1}"`
@@ -296,7 +278,7 @@ index 103f029..bf9ffc4 100644
  echo -n "detected Erlang version: $major_version.$minor_version.$patch_version..."
 
 -if test $major_version -lt 5 -o $major_version -gt 6; then
-+if test $major_version -lt 5 -o $major_version -gt 7; then
++if test $major_version -lt 5 -o $major_version -gt 8; then
      as_fn_error $? "$erlang_version_error major_version does not match" "$LINENO" 5
  fi
 
@@ -305,10 +287,10 @@ index 103f029..bf9ffc4 100644
 
  AM_CONDITIONAL([USE_OTP_NIFS],
 -    [can_use_nifs=$(echo $otp_release | grep -E "^(R14B|R15|R16|17)")])
-+    [can_use_nifs=$(echo $otp_release | grep -E "^(R14B|R15|R16|17|18)")])
++    [can_use_nifs=$(echo $otp_release | grep -E "^(R14B|R15|R16|17|18|19)")])
  AM_CONDITIONAL([USE_EJSON_COMPARE_NIF],
 -    [can_use_ejson=$(echo $otp_release | grep -E "^(R14B03|R15|R16|17)")])
-+    [can_use_ejson=$(echo $otp_release | grep -E "^(R14B03|R15|R16|17|18)")])
++    [can_use_ejson=$(echo $otp_release | grep -E "^(R14B03|R15|R16|17|18|19)")])
 
  has_crypto=`\
      ${ERL} -eval "\
@@ -321,7 +303,7 @@ index 76fe922..904c128 100644
  You should have the following installed:
 
 -* `Erlang OTP (>=R14B01, =<R17) <http://erlang.org/>`_
-+* `Erlang OTP (>=R14B01, =<R18) <http://erlang.org/>`_
++* `Erlang OTP (>=R14B01, =<R19) <http://erlang.org/>`_
  * `ICU                          <http://icu-project.org/>`_
  * `OpenSSL                      <http://www.openssl.org/>`_
  * `Mozilla SpiderMonkey (1.8.5) <http://www.mozilla.org/js/spidermonkey/>`_
@@ -334,7 +316,7 @@ index b7b66af..494ef65 100644
  You should have the following installed:
 
 -* `Erlang OTP (>=14B01, <R17)    <http://erlang.org/>`_
-+* `Erlang OTP (>=14B01, <R18)    <http://erlang.org/>`_
++* `Erlang OTP (>=14B01, <R19)    <http://erlang.org/>`_
  * `ICU        (>=4.*)            <http://icu-project.org/>`_
  * `OpenSSL    (>0.9.8r)          <http://www.openssl.org/>`_
  * `Mozilla SpiderMonkey (=1.8.5) <http://www.mozilla.org/js/spidermonkey/>`_
@@ -345,7 +327,7 @@ index b7b66af..494ef65 100644
  { $as_echo "$as_me:${as_lineno-$LINENO}: checking Erlang version compatibility" >&5
  $as_echo_n "checking Erlang version compatibility... " >&6; }
 -erlang_version_error="The installed Erlang version must be >= R14B (erts-5.8.1) and =< 17 (erts-6.0)"
-+erlang_version_error="The installed Erlang version must be >= R14B (erts-5.8.1) and =< 18 (erts-7.0)"
++erlang_version_error="The installed Erlang version must be >= R14B (erts-5.8.1) and =< 19 (erts-8.0.1)"
 
  version="`${ERL} -version 2>&1 | ${SED} 's/[^0-9]/ /g'` 0 0 0"
  major_version=`echo $version | ${AWK} "{print \\$1}"`
@@ -354,7 +336,7 @@ index b7b66af..494ef65 100644
  echo -n "detected Erlang version: $major_version.$minor_version.$patch_version..."
 
 -if test $major_version -lt 5 -o $major_version -gt 6; then
-+if test $major_version -lt 5 -o $major_version -gt 7; then
++if test $major_version -lt 5 -o $major_version -gt 8; then
      as_fn_error $? "$erlang_version_error major_version does not match" "$LINENO" 5
  fi
 
@@ -363,7 +345,7 @@ index b7b66af..494ef65 100644
 
 
 - if can_use_nifs=$(echo $otp_release | grep -E "^(R14B|R15|R16|17)"); then
-+ if can_use_nifs=$(echo $otp_release | grep -E "^(R14B|R15|R16|17|18)"); then
++ if can_use_nifs=$(echo $otp_release | grep -E "^(R14B|R15|R16|17|18|19)"); then
    USE_OTP_NIFS_TRUE=
    USE_OTP_NIFS_FALSE='#'
  else
@@ -372,7 +354,7 @@ index b7b66af..494ef65 100644
  fi
 
 - if can_use_ejson=$(echo $otp_release | grep -E "^(R14B03|R15|R16|17)"); then
-+ if can_use_ejson=$(echo $otp_release | grep -E "^(R14B03|R15|R16|17|18)"); then
++ if can_use_ejson=$(echo $otp_release | grep -E "^(R14B03|R15|R16|17|18|19)"); then
    USE_EJSON_COMPARE_NIF_TRUE=
    USE_EJSON_COMPARE_NIF_FALSE='#'
  else
