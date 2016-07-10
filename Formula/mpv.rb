@@ -37,8 +37,8 @@ class Mpv < Formula
   depends_on :macos => :mountain_lion
 
   resource "waf" do
-    url "https://waf.io/waf-1.8.21"
-    sha256 "31383a18d183c72be70d251e09b47389a6eb4bebbc94b737cff3187ddd88dff1"
+    url "https://waf.io/waf-1.9.1"
+    sha256 "8c71b0372a4bea1c02e2ff5e1aa52484ab9d2e81076538be2cda4e85498d7021"
   end
 
   resource "docutils" do
