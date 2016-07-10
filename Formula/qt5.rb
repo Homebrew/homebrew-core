@@ -14,11 +14,11 @@ end
 class Qt5 < Formula
   desc "Version 5 of the Qt framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.6/5.6.1-1/single/qt-everywhere-opensource-src-5.6.1-1.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.6/5.6.1-1/single/qt-everywhere-opensource-src-5.6.1-1.tar.xz"
-  sha256 "ce08a7eb54661705f55fb283d895a089b267c688fabe017062bd71b9231736db"
+  url "https://download.qt.io/official_releases/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.xz"
+  sha256 "a6a2632de7e44bbb790bc3b563f143702c610464a7f537d02036749041fd1800"
 
-  head "https://code.qt.io/qt/qt5.git", :branch => "5.6", :shallow => false
+  head "https://code.qt.io/qt/qt5.git", :branch => "5.7", :shallow => false
 
   bottle do
     sha256 "2aaa410f2ab2fbbddbc8c3438e43bc9f4271774c794bcae8f935fb6b1b5a82ed" => :el_capitan
@@ -48,6 +48,20 @@ class Qt5 < Formula
     sha256 "2cf77b820f46f0c404284882b4a4a97bf005b680062842cdc53e107a821deeda"
   end
 
+  # Fix failure to build qtwebengine on Xcode versions 6.1 and 6.2,
+  # which are the latest versions that can run on OS X 10.9.
+  # See <https://codereview.qt-project.org/#/c/164100/>,
+  # <https://codereview.qt-project.org/#/c/164101/>,
+  # and <https://codereview.qt-project.org/#/c/163076>.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a49592c440962558737b6881cd291576b960028c/qt5/QTBUG-54486.patch"
+    sha256 "493574df1f69b7a23a04b5d96b11326e4867f237b2495e765d457644020aec8e"
+  end
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4be35441d1fbc8d86f2f7397aae267afaf951db0/qt5/QTBUG-54190.patch"
+    sha256 "a2f6cc311bfc7a1f5939bf78e8da7464d7d41d3cfdb4ef564cf11c682a3444a2"
+  end
+
   keg_only "Qt 5 conflicts Qt 4 (which is currently much more widely used)."
 
   option "with-docs", "Build documentation"
@@ -59,10 +73,9 @@ class Qt5 < Formula
   deprecated_option "qtdbus" => "with-dbus"
   deprecated_option "with-d-bus" => "with-dbus"
 
-  # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
-  # configuration and thus untested in practice. Builds on OS X 10.7 have been
-  # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
-  depends_on :macos => :mountain_lion
+  # While Qt 5.7 supports OS X 10.8 Mountain Lion, Building QtWebEngine
+  # requires Xcode 6.1 or later, which needs OS X 10.9 to run
+  depends_on :macos => :mavericks
 
   depends_on "dbus" => :optional
   depends_on :mysql => :optional
