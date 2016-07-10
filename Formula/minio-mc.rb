@@ -20,6 +20,6 @@ class MinioMc < Formula
   end
 
   test do
-    system bin/"mc","version"
+    system bin/"mc", "version"
   end
 end
