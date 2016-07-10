@@ -10,6 +10,15 @@ class Mariadb < Formula
     sha256 "fa09ca1ec1a6557099eafe2b0955a78ec4841a795194400b321914f84aab99fe" => :mavericks
   end
 
+  devel do
+    url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.2.1/source/mariadb-10.2.1.tar.gz"
+    sha256 "90b7a17f3372c92c12dff084b37fcca8c4cf8106f4dcabd35fadc8efbaa348a2"
+
+    # upstream fix for compilation error
+    # https://jira.mariadb.org/browse/MDEV-10322
+    patch :DATA
+  end
+
   option :universal
   option "with-test", "Keep test when installing"
   option "with-bench", "Keep benchmark app when installing"
@@ -137,9 +146,8 @@ class Mariadb < Formula
       wsrep_sst_xtrabackup
       wsrep_sst_xtrabackup-v2
     ].each do |f|
-      inreplace "#{bin}/#{f}" do |s|
-        s.gsub!("$(dirname $0)/wsrep_sst_common", "#{libexec}/wsrep_sst_common")
-      end
+      inreplace "#{bin}/#{f}", "$(dirname $0)/wsrep_sst_common",
+                               "#{libexec}/wsrep_sst_common"
     end
   end
 
@@ -198,3 +206,17 @@ class Mariadb < Formula
     end
   end
 end
+__END__
+diff --git a/storage/connect/jdbconn.cpp b/storage/connect/jdbconn.cpp
+index 9b47927..7c0582d 100644
+--- a/storage/connect/jdbconn.cpp
++++ b/storage/connect/jdbconn.cpp
+@@ -270,7 +270,7 @@ PQRYRES JDBCColumns(PGLOBAL g, char *db, char *table, char *colpat,
+ 		return NULL;
+
+ 	// Colpat cannot be null or empty for some drivers
+-	cap->Pat = (colpat && *colpat) ? colpat : "%";
++	cap->Pat = (colpat && *colpat) ? colpat : PlugDup(g, "%");
+
+ 	/************************************************************************/
+ 	/*  Now get the results into blocks.                                    */
