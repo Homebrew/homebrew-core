@@ -7,6 +7,10 @@ class Opencsg < Formula
   depends_on "qt5" => :build
   depends_on "glew"
 
+  # This patch adds support for specifying INSTALLDIR
+  # It has been submitted upstream and accepted 20160709, through private email
+  # (as that's how submissions are done)
+  # Should be in the next release (> 1.4.0)
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/814a29d3ce4c6e7e919cd2fcd64bf45d421e821b/opencsg/patch-build.diff"
     sha256 "9d710cf6c2d5495ca5ba51c0319785cefc21477c85fa3aacb9ccd3473fee54f3"
