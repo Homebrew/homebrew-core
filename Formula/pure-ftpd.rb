@@ -13,6 +13,9 @@ class PureFtpd < Formula
     sha256 "c97aa32a237cdfb02780d6808a42507ec8fa97345ef4f3332cfcfb6cce91ff1a" => :mavericks
   end
 
+  option "with-virtualchroot", "Follow symbolic links even for chrooted accounts"
+
+  depends_on "libsodium"
   depends_on "openssl"
   depends_on :postgresql => :optional
   depends_on :mysql => :optional
@@ -23,23 +26,15 @@ class PureFtpd < Formula
       --prefix=#{prefix}
       --mandir=#{man}
       --sysconfdir=#{etc}
+      --with-everything
       --with-pam
-      --with-altlog
-      --with-puredb
-      --with-throttling
-      --with-ratios
-      --with-quotas
-      --with-ftpwho
-      --with-virtualhosts
-      --with-virtualchroot
-      --with-diraliases
-      --with-peruserlimits
       --with-tls
       --with-bonjour
     ]
 
     args << "--with-pgsql" if build.with? "postgresql"
     args << "--with-mysql" if build.with? "mysql"
+    args << "--with-virtualchroot" if build.with? "virtualchroot"
 
     system "./configure", *args
     system "make", "install"
