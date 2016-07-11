@@ -1,13 +1,11 @@
-require "language/go"
 require "socket"
 require "timeout"
 
 class Fabio < Formula
   desc "Zero-conf load balancing HTTP(S) router."
   homepage "https://github.com/eBay/fabio"
-  url "https://github.com/eBay/fabio/archive/v1.0.8.tar.gz"
-  sha256 "32f771087cbd789293b655d7469e9a79d4f16c65956f81d54be8ff0fcf2d6e39"
-
+  url "https://github.com/eBay/fabio/archive/v1.1.5.tar.gz"
+  sha256 "774d2c3ffc267e94e20443a70e12fedd3341122aab71ff5dee880a1022b31272"
   head "https://github.com/eBay/fabio.git"
 
   bottle do
@@ -21,15 +19,13 @@ class Fabio < Formula
   depends_on "consul" => :recommended
 
   def install
-    mkdir_p buildpath/"src/github.com/ebay"
-    ln_s buildpath, buildpath/"src/github.com/ebay/fabio"
+    mkdir_p buildpath/"src/github.com/eBay"
+    ln_s buildpath, buildpath/"src/github.com/eBay/fabio"
 
-    ENV["GOPATH"] = "#{buildpath}/_third_party:#{buildpath}"
+    ENV["GOPATH"] = buildpath.to_s
 
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    system "go", "build", "-o", "fabio"
-    bin.install "fabio"
+    system "go", "install", "github.com/eBay/fabio"
+    bin.install "#{buildpath}/bin/fabio"
   end
 
   test do
