@@ -1,8 +1,8 @@
 class Mspdebug < Formula
   desc "Debugger for use with MSP430 MCUs"
   homepage "http://dlbeer.co.nz/mspdebug/"
-  url "https://github.com/dlbeer/mspdebug/archive/v0.23.tar.gz"
-  sha256 "e4db9ac519d5989aa48e43e92f04a6821a5dc7dff8c8b3795508a77ec4edde84"
+  url "https://github.com/dlbeer/mspdebug/archive/v0.24.tar.gz"
+  sha256 "ace77951dc36227bbc4d5df1c33c1e5de833cccded33aa2a322c831bd8f8c146"
 
   bottle do
     sha256 "ca534bad59641ade8811ce3e78ba7738746ed826cd9f8e4cf49750f0ea40ee7b" => :el_capitan
@@ -17,13 +17,13 @@ class Mspdebug < Formula
   end
 
   def caveats; <<-EOS.undent
-      You may need to install a kernel extension if you're having trouble with
-      RF2500-like devices such as the TI Launchpad:
-        http://dlbeer.co.nz/mspdebug/faq.html#rf2500_osx
+    You may need to install a kernel extension if you're having trouble with
+    RF2500-like devices such as the TI Launchpad:
+      http://dlbeer.co.nz/mspdebug/faq.html#rf2500_osx
     EOS
   end
 
   test do
-    system "#{bin}/mspdebug", "--help"
+    system bin/"mspdebug", "--help"
   end
 end
