@@ -1,8 +1,9 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.com"
-  url "https://orientdb.com/download.php?file=orientdb-community-2.2.2.tar.gz"
-  sha256 "1ae672fc15638526980e132b92fe1896867fa765da79eadf5adf7cdcad946f88"
+  # url "http://central.maven.org/maven2/com/orientechnologies/orientdb-community/2.2.4/orientdb-community-2.2.4.tar.gz"
+  url "https://search.maven.org/remotecontent?filepath=com/orientechnologies/orientdb-community/2.2.4/orientdb-community-2.2.4.tar.gz"
+  sha256 "9505522872cd653c8ae9d98ac0b0786b543e9a6936750dc3b07f91082f7085e8"
 
   bottle do
     cellar :any_skip_relocation
@@ -63,7 +64,7 @@ class Orientdb < Formula
     sleep 4
 
     begin
-      assert_match "OrientDB Server v.2.2.2", shell_output("curl -I localhost:2480")
+      assert_match "OrientDB Server v.2.2.4", shell_output("curl -I localhost:2480")
     ensure
       system "#{bin}/orientdb", "stop"
     end
