@@ -1,8 +1,8 @@
 class Tcpreplay < Formula
   desc "Replay saved tcpdump files at arbitrary speeds"
   homepage "http://tcpreplay.appneta.com"
-  url "https://github.com/appneta/tcpreplay/releases/download/v4.1.0/tcpreplay-4.1.0.tar.gz"
-  sha256 "ad285b08d7a61ed88799713c4c5d657a7a503eee832304d3a767f67efe5d1a20"
+  url "https://github.com/appneta/tcpreplay/releases/download/v4.1.1/tcpreplay-4.1.1.tar.gz"
+  sha256 "61b916ef91049cad2a9ddc8de6f5e3e3cc5d9998dbb644dc91cf3a798497ffe4"
 
   bottle do
     cellar :any
@@ -12,23 +12,33 @@ class Tcpreplay < Formula
     sha256 "ab0379428462fbdc2653feae2bcc404cf6b6d2129ddf0461019c53794ce87e4f" => :mavericks
   end
 
-  depends_on "libdnet" => :recommended
+  depends_on "libdnet"
 
   def install
-    # Recognise .tbd files inside Xcode 7 as valid.
-    # https://github.com/appneta/tcpreplay/pull/202
-    # Merged but into configure.ac, so inreplace here to avoid needing autotools.
-    inreplace "configure", "for ext in .dylib .so", "for ext in .dylib .so .tbd"
+    args = %W[
+      --disable-dependency-tracking
+      --disable-debug
+      --prefix=#{prefix}
+      --enable-dynamic-link
+    ]
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-debug",
-                          "--prefix=#{prefix}",
-                          "--enable-dynamic-link",
-                          "--with-libpcap=#{MacOS.sdk_path}/usr"
+    if MacOS::Xcode.installed?
+      args << "--with-macosx-sdk=#{MacOS.sdk.version}"
+    else
+      # Allows the CLT to be used if Xcode's not available
+      # Reported 11 Jul 2016: https://github.com/appneta/tcpreplay/issues/254
+      inreplace "configure" do |s|
+        s.gsub! /^.*Could not figure out the location of a Mac OS X SDK.*$/,
+                "MACOSX_SDK_PATH=\"\""
+        s.gsub! " -isysroot $MACOSX_SDK_PATH", ""
+      end
+    end
+
+    system "./configure", *args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/tcpreplay", "--version"
+    system bin/"tcpreplay", "--version"
   end
 end
