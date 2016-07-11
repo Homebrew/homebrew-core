@@ -28,15 +28,27 @@ class Autotrace < Formula
   end
 
   def install
-    args = ["--disable-debug",
-            "--disable-dependency-tracking",
-            "--prefix=#{prefix}",
-            "--mandir=#{man}",
-           ]
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --mandir=#{man}
+    ]
 
     args << "--without-magick" if build.without? "imagemagick"
 
     system "./configure", *args
     system "make", "install"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/autotrace -version")
+
+    # Prepare a bitmap `autotrace` can work with (there's something to trace).
+    convert = Formula["imagemagick"].bin/"convert"
+    system convert, test_fixtures("test.eps"), "test.tga"
+
+    system bin/"autotrace", "-output-file", "test.eps", "test.tga"
+    assert_predicate testpath/"test.eps", :exist?
   end
 end
