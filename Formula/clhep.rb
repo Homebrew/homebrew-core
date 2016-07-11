@@ -1,8 +1,8 @@
 class Clhep < Formula
   desc "Class Library for High Energy Physics"
   homepage "https://proj-clhep.web.cern.ch/proj-clhep/"
-  url "https://proj-clhep.web.cern.ch/proj-clhep/DISTRIBUTION/tarFiles/clhep-2.3.1.1.tgz"
-  sha256 "0e2b170df99176feb0aa4f20ea3b33463193c086682749790c5b9b79388d0ff4"
+  url "https://proj-clhep.web.cern.ch/proj-clhep/DISTRIBUTION/tarFiles/clhep-2.3.3.1.tgz"
+  sha256 "cd74bfae4773620dd0c7cc9c1696a08386931d7e47a3906aa632cc5cb44ed6bd"
 
   bottle do
     cellar :any
@@ -13,6 +13,7 @@ class Clhep < Formula
 
   head do
     url "http://git.cern.ch/pub/CLHEP", :using => :git
+
     depends_on "automake" => :build
     depends_on "autoconf" => :build
   end
@@ -25,9 +26,9 @@ class Clhep < Formula
     cd dir do
       args = std_cmake_args
       if build.stable?
-        args << "#{buildpath}/CLHEP"
+        args << buildpath/"CLHEP"
       else
-        args << "#{buildpath}"
+        args << buildpath
       end
       system "cmake", *args
       system "make", "install"
