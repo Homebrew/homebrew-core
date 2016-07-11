@@ -255,6 +255,7 @@
   "tokyo-tyrant": "homebrew/boneyard",
   "transmission-remote-gtk": "homebrew/gui",
   "ttytter": "homebrew/boneyard",
+  "tuntap": "caskroom/cask",
   "tup": "homebrew/fuse",
   "uim": "homebrew/x11",
   "ume": "homebrew/games",
