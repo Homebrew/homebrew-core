@@ -14,6 +14,6 @@ class Cf4ocl < Formula
   end
 
   test do
-    system "ccl_devinfo"
+    system bin/"ccl_devinfo"
   end
 end
