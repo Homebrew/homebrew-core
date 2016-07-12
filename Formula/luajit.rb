@@ -8,9 +8,9 @@ class Luajit < Formula
   head "http://luajit.org/git/luajit-2.0.git"
 
   bottle do
-    sha256 "38b21090f297f25d5ff011aebc4dd1b91f1ca8660c9cdbcb61abc9d42c63dd58" => :el_capitan
-    sha256 "56302fd3162c220a4ebdc64481e07665fa76035d0b0fab29eb9375ccb505fc28" => :yosemite
-    sha256 "cdef95c2178de6852d295a596c85f01733e67e54b1e026021b136586a185ad0d" => :mavericks
+    sha256 "bcbaa0927b7d477abbb2637d9123f503875b1d4cfef7f94d28d1aad017b99688" => :el_capitan
+    sha256 "f5fe1202211a883040feafba6a8c54befb5efa095aa635e319fe7df057e5a1e3" => :yosemite
+    sha256 "06454e65ba92df5be021f2e2b37d7b7bd3c4a3f99f4b1659c317ddc6227842cd" => :mavericks
   end
 
   devel do
