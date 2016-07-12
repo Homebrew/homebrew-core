@@ -5,8 +5,8 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.9.1.tar.gz"
-  sha256 "ae5f565c1a5ce04cb3bb972be33855d2b932a1866fd8c21eb1f714692b951abc"
+  url "https://github.com/purescript/purescript/archive/v0.9.2.tar.gz"
+  sha256 "f02e5b39764346aa83103ef40cfd90e5aeea6958793ec64ab0eac37293b8df2f"
   head "https://github.com/purescript/purescript.git"
 
   bottle do
@@ -19,6 +19,10 @@ class Purescript < Formula
   depends_on "cabal-install" => :build
 
   def install
+    # "ambiguous occurrence" errors for fromStrict, decodeUtf8, and encodeUtf8
+    # protlude 0.1.6 issue reported 11 Jul 2016: purescript/purescript#2225
+    inreplace "purescript.cabal", "protolude >= 0.1.5,", "protolude == 0.1.5,"
+
     install_cabal_package :using => ["alex", "happy"]
   end
 
