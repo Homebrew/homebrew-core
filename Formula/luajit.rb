@@ -3,7 +3,7 @@ class Luajit < Formula
   homepage "http://luajit.org/luajit.html"
   url "http://luajit.org/download/LuaJIT-2.0.4.tar.gz"
   sha256 "620fa4eb12375021bef6e4f237cbd2dd5d49e56beb414bee052c746beef1807d"
-  revision 1
+  revision 2
 
   head "http://luajit.org/git/luajit-2.0.git"
 
@@ -56,6 +56,15 @@ class Luajit < Formula
     # https://github.com/Homebrew/homebrew/issues/45854.
     lib.install_symlink lib/"libluajit-5.1.dylib" => "libluajit.dylib"
     lib.install_symlink lib/"libluajit-5.1.a" => "libluajit.a"
+
+    # Fix path in pkg-config so modules are installed
+    # to permanent location rather than inside the Cellar.
+    inreplace lib/"pkgconfig/luajit.pc" do |s|
+      s.gsub! "INSTALL_LMOD=${prefix}/share/lua/${abiver}",
+              "INSTALL_LMOD=#{HOMEBREW_PREFIX}/share/lua/${abiver}"
+      s.gsub! "INSTALL_CMOD=${prefix}/${multilib}/lua/${abiver}",
+              "INSTALL_CMOD=#{HOMEBREW_PREFIX}/${multilib}/lua/${abiver}"
+    end
 
     # Having an empty Lua dir in lib/share can mess with other Homebrew Luas.
     %W[ #{lib}/lua #{share}/lua ].each { |d| rm_rf d }
