@@ -1,3 +1,6 @@
+require "socket"
+require "timeout"
+
 class Fabio < Formula
   desc "Zero-conf load balancing HTTP(S) router."
   homepage "https://github.com/eBay/fabio"
