@@ -60,10 +60,9 @@ class Lua < Formula
     ENV.universal_binary if build.universal?
 
     # Subtitute formula prefix in `src/Makefile` for install name (dylib ID).
-    inreplace "src/Makefile", "@LUA_PREFIX@", prefix
-
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
+      s.gsub! "@LUA_PREFIX@", prefix
       s.remove_make_var! "CC"
       s.change_make_var! "CFLAGS", "#{ENV.cflags} -DLUA_COMPAT_ALL $(SYSCFLAGS) $(MYCFLAGS)"
       s.change_make_var! "MYLDFLAGS", ENV.ldflags
@@ -98,7 +97,7 @@ class Lua < Formula
         system "make", "build"
         system "make", "install"
 
-        (share/"lua/5.2/luarocks").install_symlink Dir["#{libexec}/share/lua/5.2/luarocks/*"]
+        (pkgshare/"5.2/luarocks").install_symlink Dir["#{libexec}/share/lua/5.2/luarocks/*"]
         bin.install_symlink libexec/"bin/luarocks-5.2"
         bin.install_symlink libexec/"bin/luarocks-admin-5.2"
         bin.install_symlink libexec/"bin/luarocks"
