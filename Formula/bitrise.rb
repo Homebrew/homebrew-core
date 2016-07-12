@@ -1,10 +1,8 @@
-require "language/go"
-
 class Bitrise < Formula
   desc "Command-line automation tool"
   homepage "https://github.com/bitrise-io/bitrise"
-  url "https://github.com/bitrise-io/bitrise/archive/1.3.5.tar.gz"
-  sha256 "13b0205eb47bf5fe11e9424980f09b02a416e5aec5ef8554853f30adfd3ed046"
+  url "https://github.com/bitrise-io/bitrise/archive/1.3.6.tar.gz"
+  sha256 "b52d51fa0a8989ea5ecd3049868fefe3c77c6f845f063a8cd9863b8989275964"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,8 +20,8 @@ class Bitrise < Formula
   end
 
   resource "stepman" do
-    url "https://github.com/bitrise-io/stepman/archive/0.9.19.tar.gz"
-    sha256 "05c0705be8406d2b547f0ae7c6cb4d7149c12c3a7b40d16a63e31fcf274ad696"
+    url "https://github.com/bitrise-io/stepman/archive/0.9.21.tar.gz"
+    sha256 "a9448ad6d139685287ebdf7f89707b5ec1d1e4206d981360050dd5675a73e987"
   end
 
   def install
