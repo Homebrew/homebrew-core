@@ -20,7 +20,8 @@ class Bazel < Formula
     system "./compile.sh"
     system "./output/bazel", "build", "scripts:bash_completion"
 
-    bin.install "output/bazel" => "bazel"
+    bin.install "scripts/packages/bazel.sh" => "bazel"
+    bin.install "output/bazel" => "bazel-real"
     bash_completion.install "bazel-bin/scripts/bazel-complete.bash"
     zsh_completion.install "scripts/zsh_completion/_bazel"
   end
