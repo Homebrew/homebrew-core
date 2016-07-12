@@ -1,8 +1,8 @@
 class MysqlSandbox < Formula
   desc "Install one or more MySQL servers"
   homepage "http://mysqlsandbox.net"
-  url "https://github.com/datacharmer/mysql-sandbox/releases/download/3.1.08/MySQL-Sandbox-3.1.08.tar.gz"
-  sha256 "24e48bcd44370160214895b1594182605f5cd2f775cfa6c09325564efacd3366"
+  url "https://github.com/datacharmer/mysql-sandbox/releases/download/3.1.11/MySQL-Sandbox-3.1.11.tar.gz"
+  sha256 "b6c5a4c4fd011bdea335187052f4826cd4139875ff340849bdf1bb0e06557736"
   head "https://github.com/datacharmer/mysql-sandbox.git"
 
   bottle do
@@ -14,13 +14,13 @@ class MysqlSandbox < Formula
 
   def install
     ENV["PERL_LIBDIR"] = libexec/"lib/perl5"
-    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5/site_perl/"
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5/site_perl"
 
     system "perl", "Makefile.PL", "PREFIX=#{libexec}"
     system "make", "test", "install"
 
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec+"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
 
   test do
