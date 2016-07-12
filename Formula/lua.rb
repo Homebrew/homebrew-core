@@ -3,7 +3,7 @@ class Lua < Formula
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.2.4.tar.gz"
   sha256 "b9e2e4aad6789b3b63a056d442f7b39f0ecfca3ae0f1fc0ae4e9614401b69f4b"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -75,7 +75,7 @@ class Lua < Formula
     # We ship our own pkg-config file as Lua no longer provide them upstream.
     system "make", "macosx", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
     system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
-    (lib+"pkgconfig/lua.pc").write pc_file
+    (lib/"pkgconfig/lua.pc").write pc_file
 
     # Fix some software potentially hunting for different pc names.
     bin.install_symlink "lua" => "lua5.2"
@@ -98,7 +98,7 @@ class Lua < Formula
         system "make", "build"
         system "make", "install"
 
-        (share+"lua/5.2/luarocks").install_symlink Dir["#{libexec}/share/lua/5.2/luarocks/*"]
+        (share/"lua/5.2/luarocks").install_symlink Dir["#{libexec}/share/lua/5.2/luarocks/*"]
         bin.install_symlink libexec/"bin/luarocks-5.2"
         bin.install_symlink libexec/"bin/luarocks-admin-5.2"
         bin.install_symlink libexec/"bin/luarocks"
@@ -118,13 +118,13 @@ class Lua < Formula
   def pc_file; <<-EOS.undent
     V= 5.2
     R= 5.2.4
-    prefix=#{prefix}
+    prefix=#{opt_prefix}
     INSTALL_BIN= ${prefix}/bin
     INSTALL_INC= ${prefix}/include
     INSTALL_LIB= ${prefix}/lib
     INSTALL_MAN= ${prefix}/share/man/man1
-    INSTALL_LMOD= ${prefix}/share/lua/${V}
-    INSTALL_CMOD= ${prefix}/lib/lua/${V}
+    INSTALL_LMOD= #{HOMEBREW_PREFIX}/share/lua/${V}
+    INSTALL_CMOD= #{HOMEBREW_PREFIX}/lib/lua/${V}
     exec_prefix=${prefix}
     libdir=${exec_prefix}/lib
     includedir=${prefix}/include
