@@ -29,23 +29,21 @@ class CrosstoolNg < Formula
   env :std
 
   def install
-    args = [
-      "--prefix=#{prefix}",
-      "--exec-prefix=#{prefix}",
-      "--with-objcopy=gobjcopy",
-      "--with-objdump=gobjdump",
-      "--with-readelf=greadelf",
-      "--with-libtool=glibtool",
-      "--with-libtoolize=glibtoolize",
-      "--with-install=ginstall",
-      "--with-sed=gsed",
-      "--with-awk=gawk",
+    args = %W[
+      --prefix=#{prefix}
+      --exec-prefix=#{prefix}
+      --with-objcopy=gobjcopy
+      --with-objdump=gobjdump
+      --with-readelf=greadelf
+      --with-libtool=glibtool
+      --with-libtoolize=glibtoolize
+      --with-install=ginstall
+      --with-sed=gsed
+      --with-awk=gawk
     ]
 
     args << "--with-grep=ggrep" if build.with? "grep"
-
     args << "--with-make=#{Formula["make"].opt_bin}/gmake" if build.with? "make"
-
     args << "CFLAGS=-std=gnu89"
 
     system "./configure", *args
@@ -56,7 +54,7 @@ class CrosstoolNg < Formula
   end
 
   def caveats; <<-EOS.undent
-    You will need to install modern gcc compiler in order to use this tool.
+    You will need to install a modern gcc compiler in order to use this tool.
     EOS
   end
 
