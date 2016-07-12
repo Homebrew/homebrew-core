@@ -15,7 +15,7 @@ class Gd < Formula
     end
   end
 
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
