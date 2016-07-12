@@ -6,9 +6,8 @@ class Libsoundio < Formula
 
   bottle do
     cellar :any
-    sha256 "2834f97ed4a894557fcf3af44f96e733b0987744b991d721c54a5a1879141203" => :el_capitan
-    sha256 "b0e334a48e59b046b2fe798dc020424c4ddf82928303de72330c142f2128206e" => :yosemite
-    sha256 "bc45824227f9e1c37a26064bf2a146917fa2ad19f82051240865e53028846f2d" => :mavericks
+    sha256 "33e6599cba76ac835cb2ffc597f8358a8b13c7cd19c7ce9b85a3d3ff60ec4327" => :el_capitan
+    sha256 "594c0042c86a0a6aeca3b7286435b3cc9593ffa158f921092df90f0aef3a865e" => :yosemite
   end
 
   # fatal error: 'stdatomic.h' file not found
