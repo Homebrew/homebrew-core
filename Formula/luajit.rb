@@ -67,7 +67,7 @@ class Luajit < Formula
     end
 
     # Having an empty Lua dir in lib/share can mess with other Homebrew Luas.
-    %W[ #{lib}/lua #{share}/lua ].each { |d| rm_rf d }
+    %W[#{lib}/lua #{share}/lua].each { |d| rm_rf d }
   end
 
   test do
