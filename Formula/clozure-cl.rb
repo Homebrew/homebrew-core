@@ -13,20 +13,18 @@ class ClozureCl < Formula
     # Get rid of all the .svn directories
     rm_rf Dir["**/.svn"]
 
+    prefix.install "doc/README"
+    doc.install Dir["doc/*"]
+
     libexec.install Dir["*"]
-    scripts = Dir["#{libexec}/scripts/ccl{,64}"]
-
-    inreplace scripts, /CCL_DEFAULT_DIRECTORY=.+$/, %(CCL_DEFAULT_DIRECTORY="#{libexec}")
-    bin.install_symlink scripts
-  end
-
-  def test_ccl(bit = 32)
-    ccl = bin + "ccl#{"64" if bit == 64}"
-    %{#{ccl} -e '(progn (format t "Hello world from #{bit}-bit ClozureCL") (ccl::quit))'}
+    bin.install Dir["#{libexec}/scripts/ccl{,64}"]
+    bin.env_script_all_files(libexec/"bin", :CCL_DEFAULT_DIRECTORY => libexec)
   end
 
   test do
-    system test_ccl
-    system test_ccl(64)
+    args = "-n -e '(write-line (write-to-string (* 3 7)))' -e '(quit)'"
+    %w[ccl ccl64].each do |ccl|
+      assert_equal "21", shell_output("#{bin}/#{ccl} #{args}").strip
+    end
   end
 end
