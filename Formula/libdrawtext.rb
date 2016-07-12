@@ -34,9 +34,9 @@ class Libdrawtext < Formula
 
   bottle do
     cellar :any
-    sha256 "62d67858d4ac988f9b1c0717640061ddaac3d07253f833346ab03b5b95523e3d" => :el_capitan
-    sha256 "3ec19e5df4406d47abe45f9c630b7bb78648cc1955d3b220ed53b0c010595f8c" => :yosemite
-    sha256 "d4fe6c0cc2f75c6e41c7a2a39dec07dedf8e6122fe7069558ec2468334ec55fb" => :mavericks
+    sha256 "c8fec5b5b1598f63ddcfbe5b1b74a782ae40f664edbd1073aa7e80a4896d628b" => :el_capitan
+    sha256 "6ae003ec108b3ea6a09472339e749ee169e16a5840348d7c4ca5c963e1e8db91" => :yosemite
+    sha256 "a6f88eda7040bca6f9857aacfca149eb6f1d2a022965b15f52cdb8e98271f4ae" => :mavericks
   end
 
   depends_on "pkg-config" => :build
