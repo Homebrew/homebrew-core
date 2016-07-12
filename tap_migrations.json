@@ -86,6 +86,7 @@
   "geomview": "homebrew/x11",
   "ggobi": "homebrew/science",
   "giblib": "homebrew/x11",
+  "gimp": "caskroom/cask",
   "git-encrypt": "homebrew/boneyard",
   "git-flow-clone": "homebrew/boneyard",
   "git-latexdiff": "homebrew/tex",
