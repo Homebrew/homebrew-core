@@ -1,8 +1,8 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.9.0.tar.xz"
-  sha256 "f41fa97949948fbf49af94a43d779e072a5452c6b5039d86ffa41ebab747b409"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.9.1.tar.xz"
+  sha256 "e8fe60bc72c1c979feb43740b3c74fea7f8ffbe7712b71cd9734ddb9c89282a2"
 
   head "https://github.com/git/git.git", :shallow => false
 
@@ -32,17 +32,17 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.9.0.tar.xz"
-    sha256 "664dc1aa20966a91cf6b90d282bb5f93b4e4c831a32a0791f43218389ce3b955"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.9.1.tar.xz"
+    sha256 "67421138a9319cc72b0ec8295c2428daf25449eb4f76f727e0464990370afea1"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.9.0.tar.xz"
-    sha256 "dc85c1afa923fd709d651a49d0a720d50a3c248cb16c6c09517cceae88fe8445"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.9.1.tar.xz"
+    sha256 "17bd0ac02f6923e509238be066a0dd79081c420ba94ee5cecb79ef829c6631ed"
   end
 
   def install
-    # If these things are installed, tell Git build system to not use them
+    # If these things are installed, tell Git build system not to use them
     ENV["NO_FINK"] = "1"
     ENV["NO_DARWIN_PORTS"] = "1"
     ENV["V"] = "1" # build verbosely
@@ -132,12 +132,12 @@ class Git < Formula
     end
 
     elisp.install Dir["contrib/emacs/*.el"]
-    (share+"git-core").install "contrib"
+    (share/"git-core").install "contrib"
 
     # We could build the manpages ourselves, but the build process depends
     # on many other packages, and is somewhat crazy, this way is easier.
     man.install resource("man")
-    (share+"doc/git-doc").install resource("html")
+    (share/"doc/git-doc").install resource("html")
 
     # Make html docs world-readable
     chmod 0644, Dir["#{share}/doc/git-doc/**/*.{html,txt}"]
