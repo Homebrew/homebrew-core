@@ -4,6 +4,13 @@ class Opencsg < Formula
   url "http://www.opencsg.org/OpenCSG-1.4.0.tar.gz"
   sha256 "ecb46be54cfb8a338d2a9b62dec90ec8da6c769078c076f58147d4a6ba1c878d"
 
+  bottle do
+    cellar :any
+    sha256 "87afa18c15e140a07175c1d1d7cdf366177aed5a4798e6bcb43ce6e25fababfe" => :el_capitan
+    sha256 "ec3ff4f9037e33126629739dcf54c93684e8c4f9ae4455bab72678214534aefa" => :yosemite
+    sha256 "b0d339919a5f510f6b43524a02d9d3b985fdce9544df45ef84cf071e00314177" => :mavericks
+  end
+
   depends_on "qt5" => :build
   depends_on "glew"
 
