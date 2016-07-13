@@ -14,7 +14,7 @@ class Kawa < Formula
     (bin/"kawa").write <<-EOS.undent
       #!/bin/sh
       KAWA_HOME="#{libexec}"
-      java -jar "$KAWA_HOME/kawa-#{version}.jar"
+      java -jar "$KAWA_HOME/kawa-#{version}.jar" "$@"
     EOS
   end
 end
