@@ -21,7 +21,7 @@ class Fabio < Formula
   devel do
     url "https://github.com/eBay/fabio/archive/v1.2rc4.tar.gz"
     sha256 "93696b6a4caf63c190426e0ce9699f4f868dd643dcf1c07eca80a49bfbd5a085"
-	version "1.2rc4"
+    version "1.2rc4"
   end
 
   depends_on "go" => :build
