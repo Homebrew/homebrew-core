@@ -1,5 +1,5 @@
 class Hyper < Formula
-  desc "client for Hyper_ cloud where container replace VM as the building block"
+  desc "Client for the Hyper_ cloud service"
   homepage "https://hyper.sh"
   url "https://github.com/hyperhq/hypercli.git",
     :tag => "v1.10",
