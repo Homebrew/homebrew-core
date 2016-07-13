@@ -18,8 +18,8 @@ class Opencsg < Formula
 
   def install
     system "qmake", "-r", "INSTALLDIR=#{prefix}",
-      "INCLUDEPATH+=#{HOMEBREW_PREFIX}/include",
-      "LIBS+=-L#{HOMEBREW_PREFIX}/lib -lGLEW"
+      "INCLUDEPATH+=#{Formula["glew"].opt_include}",
+      "LIBS+=-L#{Formula["glew"].opt_lib} -lGLEW"
 
     system "make", "install"
   end
