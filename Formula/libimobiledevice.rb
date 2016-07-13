@@ -38,8 +38,6 @@ class Libimobiledevice < Formula
   end
 
   test do
-    # Many of libimobiledevice's actions depend on a plugged-in iDevice.
-    # A bad test is better than none?
-    system "idevicedate", "--help"
+    system "#{bin}/idevicedate", "--help"
   end
 end
