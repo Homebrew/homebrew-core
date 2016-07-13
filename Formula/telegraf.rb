@@ -373,6 +373,11 @@ class Telegraf < Formula
     etc.install telegraf_path/"etc/telegraf.conf" => "telegraf.conf"
   end
 
+  def post_install
+    # Create directory for additional user configurations
+    (etc/"telegraf.d").mkpath
+  end
+
   plist_options :manual => "telegraf -config #{HOMEBREW_PREFIX}/etc/telegraf.conf"
 
   def plist; <<-EOS.undent
@@ -391,7 +396,9 @@ class Telegraf < Formula
         <array>
           <string>#{opt_bin}/telegraf</string>
           <string>-config</string>
-          <string>#{HOMEBREW_PREFIX}/etc/telegraf.conf</string>
+          <string>#{etc}/telegraf.conf</string>
+          <string>-config-directory</string>
+          <string>#{etc}/telegraf.d</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
