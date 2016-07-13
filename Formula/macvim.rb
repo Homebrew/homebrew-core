@@ -57,12 +57,12 @@ class Macvim < Formula
 
     if build.with? "lua"
       args << "--enable-luainterp"
-      args << "--with-lua-prefix=#{HOMEBREW_PREFIX}"
+      args << "--with-lua-prefix=#{Formula["lua"].opt_prefix}"
     end
 
     if build.with? "luajit"
       args << "--enable-luainterp"
-      args << "--with-lua-prefix=#{HOMEBREW_PREFIX}"
+      args << "--with-lua-prefix=#{Formula["luajit"].opt_prefix}"
       args << "--with-luajit"
     end
 
