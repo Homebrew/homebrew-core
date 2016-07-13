@@ -7,10 +7,10 @@ class Pdnsd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "96ae86eeb5157344c0d5dd4b0cc1027731f8483d4a8df099bbfaacb3da7d5c96" => :el_capitan
-    sha256 "a55b3ea9a71be9bee77ddb9ced37f77bc0f37376bf2d66ecdb7780282ae66e35" => :yosemite
-    sha256 "4dc63c69195b38fdb977bfcedb97de860d21a61beb0e280634037c1dee8bd455" => :mavericks
-    sha256 "473a9d25b7461badb8814355a313595c12240dd8054a6865acf709d85f197da2" => :mountain_lion
+    revision 1
+    sha256 "2bfe96e4ac7eddad0250bc74907d3c11b94e1f3b62f7aaa7e9f4efc0e4d945a7" => :el_capitan
+    sha256 "38ee1685f816a7b6d4355450b9d7936f5bb413f9ab9ad43c6f802b678578a869" => :yosemite
+    sha256 "f5403ea586fe8b10534fc367e63601f5a8f7e37b464eb43b9a27ffb2bc8ca8b0" => :mavericks
   end
 
   def install
