@@ -4,8 +4,8 @@ require "timeout"
 class Fabio < Formula
   desc "Zero-conf load balancing HTTP(S) router."
   homepage "https://github.com/eBay/fabio"
-  url "https://github.com/eBay/fabio/archive/v1.1.5.tar.gz"
-  sha256 "774d2c3ffc267e94e20443a70e12fedd3341122aab71ff5dee880a1022b31272"
+  url "https://github.com/eBay/fabio/archive/v1.1.6.tar.gz"
+  sha256 "ae80fb63426cc26a432cd2e310f5c5dbb69a807eeef33b51fb9decb7771b0041"
   head "https://github.com/eBay/fabio.git"
 
   bottle do
