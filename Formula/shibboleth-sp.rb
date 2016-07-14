@@ -15,11 +15,12 @@ class ShibbolethSp < Formula
   depends_on :macos => :yosemite
   depends_on "curl" => "with-openssl"
   depends_on "opensaml"
-  depends_on "xml-tooling-c" => "with-openssl"
+  depends_on "xml-tooling-c"
   depends_on "xerces-c"
   depends_on "xml-security-c"
   depends_on "log4shib"
   depends_on "boost"
+  depends_on "unixodbc"
 
   def install
     ENV.O2 # Os breaks the build
