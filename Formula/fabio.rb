@@ -1,6 +1,3 @@
-require "socket"
-require "timeout"
-
 class Fabio < Formula
   desc "Zero-conf load balancing HTTP(S) router."
   homepage "https://github.com/eBay/fabio"
@@ -35,6 +32,9 @@ class Fabio < Formula
   end
 
   test do
+    require "socket"
+    require "timeout"
+
     CONSUL_DEFAULT_PORT=8500
     FABIO_DEFAULT_PORT=9999
     LOCALHOST_IP="127.0.0.1".freeze
