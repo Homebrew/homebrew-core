@@ -1,9 +1,8 @@
 class Aha < Formula
   desc "ANSI HTML adapter"
   homepage "https://github.com/theZiz/aha"
-  url "https://github.com/theZiz/aha/archive/0.4.8.tar.gz"
-  sha256 "a1ebbbd5ebc37ccca74dc5f894e3066157e9e77fcdf158bf5587215b8968049c"
-
+  url "https://github.com/theZiz/aha/archive/0.4.9.tar.gz"
+  sha256 "9aefb7d7838e2061672813482d062ac4c32c932f7f8f0928766ba0152fec3d77"
   head "https://github.com/theZiz/aha.git"
 
   bottle do
@@ -15,9 +14,7 @@ class Aha < Formula
   end
 
   def install
-    # install manpages under share/man/
-    inreplace "Makefile", "$(PREFIX)/man", "$(PREFIX)/share/man"
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}", "MANDIR=#{man}"
   end
 
   test do
