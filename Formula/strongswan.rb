@@ -5,9 +5,9 @@ class Strongswan < Formula
   sha256 "58463998ac6725eac3687e8a20c1f69803c3772657076d06c43386a24b4c8454"
 
   bottle do
-    sha256 "62939c3cfbe8c4cb29713f8e9d62b07409d728e3f8d13e02934e0b6c0e13e22c" => :el_capitan
-    sha256 "5068c35ac8bd7ed6b0cec8609533916253dd3297c656045cadf868da6c661260" => :yosemite
-    sha256 "0b7e27871489c6fef1a1d23fbfe35292961748ce8e11dc13625a4294a82f8e3e" => :mavericks
+    sha256 "d1b273eee5d17795af8c17ca2d6bcddb3d71f320034b11bc859011e65b7ab195" => :el_capitan
+    sha256 "2b11c4eaa159cf44b0465901d24ab2c52a1a390a2504bba9990fdaef8cf828ea" => :yosemite
+    sha256 "23c2cfb6f92e6ed979067f3500b1ea8f4457ea39739ee166c4421bc6c409104b" => :mavericks
   end
 
   head do
