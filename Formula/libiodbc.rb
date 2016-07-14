@@ -1,8 +1,8 @@
 class Libiodbc < Formula
   desc "Database connectivity layer based on ODBC. (alternative to unixodbc)"
   homepage "http://www.iodbc.org/dataspace/iodbc/wiki/iODBC/"
-  url "https://downloads.sourceforge.net/project/iodbc/iodbc/3.52.10/libiodbc-3.52.10.tar.gz"
-  sha256 "1568b42b4e97f36110af661d39bfea7d94ac4ff020014574b16a7199f068e11f"
+  url "https://downloads.sourceforge.net/project/iodbc/iodbc/3.52.12/libiodbc-3.52.12.tar.gz"
+  sha256 "51c5ff3a7d9a54202486cb77a3514e0e379a135beefcd5d12b96d1901f9dfb62"
 
   bottle do
     cellar :any
@@ -12,19 +12,19 @@ class Libiodbc < Formula
     sha256 "c70f91b15fd9efffb36f3849f8e1f66314fbf6d697ad6821aac8b160b7441b1a" => :mountain_lion
   end
 
+  keg_only :provided_pre_mavericks
+
   depends_on "automake" => :build
   depends_on "autoconf" => :build
   depends_on "libtool" => :build
 
-  keg_only :provided_pre_mavericks
-
   def install
-    system "sh", "./bootstrap.sh"
+    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/iodbc-config", "--version"
+    system bin/"iodbc-config", "--version"
   end
 end
