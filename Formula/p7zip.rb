@@ -6,9 +6,9 @@ class P7zip < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "434d44f856b99cb91d764fa7d33381fa99b6dada32414cc389448c43d894d958" => :el_capitan
-    sha256 "9600ee488e04666b807ecbb0df5bafbb36428ca31e649a0a5d754991cc8c41dd" => :yosemite
-    sha256 "f6d30782b659590984cff65fd9bb8e53a7ea32ee3eb0b3c43d623e7eeacdbd12" => :mavericks
+    sha256 "7c43699b4c1c186d1dfccb2246ed8c8a9175c5c57ba211b0774395335edce2c8" => :el_capitan
+    sha256 "1b3a075e34531a09c8714e92499726d4df8c082c29b43e2b11b35d6d20934627" => :yosemite
+    sha256 "78981de13a763ab595e073360e2848ca0ad65d9a13b7f7728e0c255945cdd00e" => :mavericks
   end
 
   def install
