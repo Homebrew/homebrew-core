@@ -7,8 +7,9 @@ class Couchdb < Formula
     url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.6.1/apache-couchdb-1.6.1.tar.gz"
     sha256 "5a601b173733ce3ed31b654805c793aa907131cd70b06d03825f169aa48c8627"
 
-    # Support Erlang/OTP 18.0 compatibility, see upstream #95cb436
+    # Support Erlang/OTP 18.0+ compatibility, see upstream #95cb436
     # It will be in the next CouchDB point release, likely 1.6.2.
+    # https://github.com/apache/couchdb/pull/431
     patch :DATA
   end
 
@@ -50,7 +51,7 @@ class Couchdb < Formula
       s.gsub! "%version%", pkg_version
     end
 
-    if build.devel? || build.head?
+    unless build.stable?
       # workaround for the auto-generation of THANKS file which assumes
       # a developer build environment incl access to git sha
       touch "THANKS"
@@ -80,14 +81,15 @@ class Couchdb < Formula
 
   def install_geocouch
     resource("geocouch").stage(buildpath/"geocouch")
-    ENV["COUCH_SRC"]="#{buildpath}/src/couchdb"
+    ENV["COUCH_SRC"] = "#{buildpath}/src/couchdb"
+
     cd "geocouch" do
       system "make"
 
       linked_geocouch_share = (HOMEBREW_PREFIX/"share/couchdb-geocouch")
       geocouch_share.mkpath
       geocouch_share.install "ebin"
-      #  Install geocouch.plist for launchctl support.
+      # Install geocouch.plist for launchctl support.
       geocouch_plist = geocouch_share/"geocouch.plist"
       cp buildpath/"etc/launchd/org.apache.couchdb.plist.tpl.in", geocouch_plist
       geocouch_plist.chmod 0644
@@ -218,7 +220,7 @@ class Couchdb < Formula
     sleep 2
 
     begin
-      assert_match /Homebrew/, shell_output("curl -# localhost:5984")
+      assert_match "Homebrew", shell_output("curl -# localhost:5984")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
