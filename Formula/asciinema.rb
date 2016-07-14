@@ -8,9 +8,9 @@ class Asciinema < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a912cac0c3f63fdf3e102cbde0b1a42895c80d176f9bb9116a00f3835b5d9260" => :el_capitan
-    sha256 "845f9ac6d0a94b7938583baf12485edc678334d7ce3758a629f76eeabac99e1f" => :yosemite
-    sha256 "b92022ad9a785aebbedc1cbd19160eba65416070dea34f5cb8d5d2de7e6d0315" => :mavericks
+    sha256 "6205d485d86ea24d0a0396cc56fd76b09490a83c5210e74ff505aa03cd4fcb1d" => :el_capitan
+    sha256 "6578e8f11c7d2918f1f7a6c00350c485a937ae1a7037e4d715ecf66e80001cd7" => :yosemite
+    sha256 "25455ff63f3f68f17671727ba02f09bb7b03bfa4fadab3fa0c9bd4a7d687cbf0" => :mavericks
   end
 
   depends_on :python3
