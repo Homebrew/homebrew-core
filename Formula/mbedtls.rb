@@ -5,6 +5,15 @@ class Mbedtls < Formula
   sha256 "590734c8bc8b3ac48e9123d44bf03562e91f8dce0d1ac2615c318c077f3215b2"
   head "https://github.com/ARMmbed/mbedtls.git", :branch => "development"
 
+  stable do
+    patch do
+      # https://github.com/ARMmbed/mbedtls/issues/522
+      # It is a commit already applied to the upstream.
+      url "https://github.com/ARMmbed/mbedtls/commit/7247f99b3e068a2b90b7776a2cdd438fddb7a38b.patch"
+      sha256 "071830f9b1870ed319fcc65e34ce6d6f9b3476e81f0a204d474635e59ac08687"
+    end
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "bd0d1b53b53dc6ed0018315c45523911530c50ad12ee38754f2cde22ba81f180" => :el_capitan
