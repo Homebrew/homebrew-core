@@ -38,12 +38,16 @@ class Libgcrypt < Formula
 
     # Parallel builds work, but only when run as separate steps
     system "make"
-    system "make", "install"
-    # Make check currently dies on El Capitan
-    # https://github.com/Homebrew/homebrew/issues/41599
+    # Slightly hideous hack to help `make check` work in
+    # normal place on >10.10 where SIP is enabled.
+    # https://github.com/Homebrew/homebrew-core/pull/3004
     # https://bugs.gnupg.org/gnupg/issue2056
-    # This check should be above make install again when fixed.
+    system "install_name_tool", "-change",
+                                lib/"libgcrypt.20.dylib",
+                                buildpath/"src/.libs/libgcrypt.20.dylib",
+                                buildpath/"tests/.libs/random"
     system "make", "check"
+    system "make", "install"
   end
 
   test do
