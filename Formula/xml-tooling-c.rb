@@ -11,14 +11,13 @@ class XmlToolingC < Formula
     sha256 "bd4c05a80dc82e1fac3b4fd68f6a518c45cd19d62f9a682642f23b333302d856" => :mavericks
   end
 
-  option "with-openssl", "Build with OpenSSL instead of Secure Transport"
-
   depends_on "pkg-config" => :build
   depends_on "log4shib"
   depends_on "xerces-c"
   depends_on "xml-security-c"
   depends_on "boost"
-  depends_on "curl" => "with-openssl" if build.with? "openssl"
+  depends_on "openssl"
+  depends_on "curl" => "with-openssl"
 
   def install
     ENV.O2 # Os breaks the build

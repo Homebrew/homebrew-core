@@ -16,6 +16,7 @@ class Opensaml < Formula
   depends_on "xerces-c"
   depends_on "xml-security-c"
   depends_on "xml-tooling-c"
+  depends_on "openssl"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
