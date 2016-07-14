@@ -3,7 +3,7 @@ class Mbedtls < Formula
   homepage "https://tls.mbed.org/"
   url "https://tls.mbed.org/download/mbedtls-2.3.0-apache.tgz"
   sha256 "590734c8bc8b3ac48e9123d44bf03562e91f8dce0d1ac2615c318c077f3215b2"
-  head "https://github.com/ARMmbed/mbedtls.git"
+  head "https://github.com/ARMmbed/mbedtls.git", :branch => "development"
 
   bottle do
     cellar :any_skip_relocation
