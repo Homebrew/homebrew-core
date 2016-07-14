@@ -14,8 +14,8 @@ end
 class GitIntegration < Formula
   desc "Manage git integration branches"
   homepage "https://johnkeeping.github.io/git-integration/"
-  url "https://github.com/johnkeeping/git-integration/archive/v0.3.tar.gz"
-  sha256 "7fb0a4ed4e4c23b7fa9334abfd1894ed5821b73be144d56d67d926e3cd7a1eb5"
+  url "https://github.com/johnkeeping/git-integration/archive/v0.4.tar.gz"
+  sha256 "b0259e90dca29c71f6afec4bfdea41fe9c08825e740ce18409cfdbd34289cc02"
   head "https://github.com/johnkeeping/git-integration.git"
 
   bottle do
