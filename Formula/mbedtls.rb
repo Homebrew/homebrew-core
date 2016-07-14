@@ -30,9 +30,9 @@ class Mbedtls < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bd0d1b53b53dc6ed0018315c45523911530c50ad12ee38754f2cde22ba81f180" => :el_capitan
-    sha256 "7a4df5593deb57d4ab23d5236aa5957f9ec1e56cf0bc10e538480f3119488a95" => :yosemite
-    sha256 "53e89e75891e56b1f0a35fa30be8082a9cd566bb06eb37fd8a9395dd222263ef" => :mavericks
+    sha256 "e7017361efd47700212fc87e609bedd7a1cb00ed448ea7131048cb47e5d8681a" => :el_capitan
+    sha256 "7a7364b2aaeb02b9542f10f5ebb1907b31e692301aa61b40d8bf0aa617d63bc9" => :yosemite
+    sha256 "aa40b81cecc451a28e4599404f113f9591101cc5f6ab66d975e0de8c0c43d912" => :mavericks
   end
 
   depends_on "cmake" => :build
