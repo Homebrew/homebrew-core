@@ -2,6 +2,7 @@ class Mbedtls < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://tls.mbed.org/"
   head "https://github.com/ARMmbed/mbedtls.git", :branch => "development"
+  revision 1
 
   stable do
     url "https://tls.mbed.org/download/mbedtls-2.3.0-apache.tgz"
