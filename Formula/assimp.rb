@@ -1,9 +1,8 @@
 class Assimp < Formula
   desc "Portable library for importing many well-known 3D model formats"
   homepage "http://www.assimp.org"
-  url "https://github.com/assimp/assimp/archive/v3.2.tar.gz"
-  sha256 "187f825c563e84b1b17527a4da0351aa3d575dfd696a9d204ae4bb19ee7df94a"
-
+  url "https://github.com/assimp/assimp/archive/v3.3.1.tar.gz"
+  sha256 "d385c3f90876241343f09e45f4e5033a6a05861b971c63d1f6d512371ffdc7bf"
   head "https://github.com/assimp/assimp.git"
 
   bottle do
@@ -45,19 +44,29 @@ class Assimp < Formula
       g MySquareBasedPyramid
 
       # List of vertices:
-      v -0.5 0 0.5    # Front left.
-      v 0.5 0 0.5   # Front right.
-      v 0.5 0 -0.5    # Back right
-      v -0.5 0 -0.5   # Back left.
-      v 0 1 0           # Top point (top of pyramid).
+      # Front left
+      v -0.5 0 0.5
+      # Front right
+      v 0.5 0 0.5
+      # Back right
+      v 0.5 0 -0.5
+      # Back left
+      v -0.5 0 -0.5
+      # Top point (top of pyramid).
+      v 0 1 0
 
       # List of faces:
-      f 4 3 2 1       # Square base (note: normals are placed anti-clockwise).
-      f 1 2 5         # Triangle on front.
-      f 3 4 5         # Triangle on back.
-      f 4 1 5         # Triangle on left side.
+      # Square base (note: normals are placed anti-clockwise).
+      f 4 3 2 1
+      # Triangle on front
+      f 1 2 5
+      # Triangle on back
+      f 3 4 5
+      # Triangle on left side
+      f 4 1 5
+      # Triangle on right side
       f 2 3 5
     EOS
-    system "assimp", "export", testpath/"test.obj", testpath/"test.ply"
+    system bin/"assimp", "export", "test.obj", "test.ply"
   end
 end
