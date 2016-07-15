@@ -7,9 +7,9 @@ class Assimp < Formula
 
   bottle do
     cellar :any
-    sha256 "b3d78e827c13d6f66a98bd9c52cf2a3bd44a69082f33183f2afbcbbf4fe68fc5" => :el_capitan
-    sha256 "bf4f61f6fe5c3debd29c768bba9024ca1ce51606fe2e9814ad36415ea4f391a7" => :yosemite
-    sha256 "82faa217aabc364693ca749e55f990cf16c8cc808eceb768d0880f70cff95d59" => :mavericks
+    sha256 "369a938fd09b266261be1ea9dbcbccf4f14117b3fd5d8943d4d54423c486d759" => :el_capitan
+    sha256 "5f1100de213334b15b640ab15ef063cace602607ca637a8b9b8e426238ca63a9" => :yosemite
+    sha256 "73fa896885b3fae3812ef5b0db1c8d3ac68d72cb33a13b3715454f52b09d5588" => :mavericks
   end
 
   option "without-boost", "Compile without thread safe logging or multithreaded computation if boost isn't installed"
