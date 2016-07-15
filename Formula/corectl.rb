@@ -1,8 +1,8 @@
 class Corectl < Formula
   desc "CoreOS over OS X made very simple"
   homepage "https://github.com/TheNewNormal/corectl"
-  url "https://github.com/TheNewNormal/corectl/archive/v0.7.10.tar.gz"
-  sha256 "2bb5cd52a080036de0aa2334b00a62a7f6f7350cecb96725dfb94dacd524d41d"
+  url "https://github.com/TheNewNormal/corectl/archive/v0.7.11.tar.gz"
+  sha256 "a904f94ec7548dd3298fabda8dd35c43ac31ffef878fe34801b2e7318b0304ef"
   head "https://github.com/TheNewNormal/corectl.git", :branch => "golang"
 
   bottle do
