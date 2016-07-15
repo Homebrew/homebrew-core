@@ -3,6 +3,7 @@ class Ponyc < Formula
   homepage "http://www.ponylang.org"
   url "https://github.com/ponylang/ponyc.git",
     :revision => "aafebac938273d4786c02dfb2ba9ec7a164675e7"
+  # 0.2.2 tag requested in https://github.com/ponylang/ponyc/issues/1029
   version "0.2.2-alpha"
 
   bottle do
