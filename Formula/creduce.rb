@@ -54,7 +54,7 @@ class Creduce < Formula
   end
 
   def install
-    ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
     resources.each do |r|
       r.stage do
@@ -75,7 +75,7 @@ class Creduce < Formula
   end
 
   test do
-    (testpath/"test1.c").write(<<-EOS.undent)
+    (testpath/"test1.c").write <<-EOS.undent
       #include <stdio.h>
 
       int main() {
@@ -85,7 +85,7 @@ class Creduce < Formula
       }
 
     EOS
-    (testpath/"test1.sh").write(<<-EOS.undent)
+    (testpath/"test1.sh").write <<-EOS.undent
       #!/usr/bin/env bash
 
       clang -Weverything "$(dirname "${BASH_SOURCE[0]}")"/test1.c 2>&1 | \
