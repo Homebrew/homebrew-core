@@ -6,9 +6,9 @@ class Nethogs < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1a4a5fbe64015f701ebb4dde35905f333c66ed2365b5880d54f1ffccd1261616" => :el_capitan
-    sha256 "95ed6efb5d64d447d4c5b86e65746282b4e146610ce008e37a73c75ffcfd2db5" => :yosemite
-    sha256 "8b885955dcf5abcc9bdf424a1db9f03f94e287ffddaef9fd281d55c4ed8928fd" => :mavericks
+    sha256 "f133cdfd28bd88778241a607fda39d17419d8aaf24fd6de49d8a086e112fc7bf" => :el_capitan
+    sha256 "aa00775f5f8add09c031b13d3ec2575b082da47aa573e869288b28cad879f431" => :yosemite
+    sha256 "3652cadd0558c01c522e586a483b03b95badf98028ab3b7f9a227f8bae275def" => :mavericks
   end
 
   def install
