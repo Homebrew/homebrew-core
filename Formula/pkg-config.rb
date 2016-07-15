@@ -4,6 +4,7 @@ class PkgConfig < Formula
   url "https://pkgconfig.freedesktop.org/releases/pkg-config-0.29.1.tar.gz"
   mirror "https://fossies.org/linux/misc/pkg-config-0.29.1.tar.gz"
   sha256 "beb43c9e064555469bd4390dcfd8030b1536e0aa103f08d7abf7ae8cac0cb001"
+  revision 1
 
   bottle do
     sha256 "6bf11398f37f686faf47bf5fa96138423950428cd08316d9f0edcce6cda53561" => :el_capitan
@@ -17,7 +18,7 @@ class PkgConfig < Formula
       #{HOMEBREW_PREFIX}/share/pkgconfig
       /usr/local/lib/pkgconfig
       /usr/lib/pkgconfig
-      #{HOMEBREW_LIBRARY}/ENV/pkgconfig/#{MacOS.version}
+      #{HOMEBREW_LIBRARY}/Homebrew/os/mac/pkgconfig/#{MacOS.version}
     ].uniq.join(File::PATH_SEPARATOR)
 
     ENV.append "LDFLAGS", "-framework Foundation -framework Cocoa"
