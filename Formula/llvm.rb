@@ -137,7 +137,6 @@ class Llvm < Formula
   option "without-libunwind", "Do not build libunwind library"
   option "without-lld", "Do not build LLD linker"
   option "with-lldb", "Build LLDB debugger"
-  option "without-openmp", "Do not build additional OpenMP runtime libraries"
   option "with-python", "Build bindings against custom Python"
   option "without-rtti", "Build without C++ RTTI"
   option "without-utils", "Do not install utility binaries"
@@ -187,9 +186,10 @@ class Llvm < Formula
       (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     end
 
+    (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx?
     (buildpath/"tools/lld").install resource("lld") if build.with? "lld"
-    ["libcxxabi", "libunwind", "openmp"].each do |r|
+    ["libcxxabi", "libunwind"].each do |r|
       (buildpath/"projects"/r).install resource(r) if build.with? r
     end
 
@@ -235,9 +235,16 @@ class Llvm < Formula
       -DLLVM_OPTIMIZED_TABLEGEN=ON
     ]
     args << "-DLLVM_TARGETS_TO_BUILD=#{build.with?("all-targets") ? "all" : "AMDGPU;ARM;NVPTX;X86"}"
-    args << "-DLLVM_BUILD_LLVM_DYLIB=ON" if build.without? "shared-libs"
-    args << "-DBUILD_SHARED_LIBS=ON" if build.with? "shared-libs"
+    args << "-DLIBOMP_ARCH=x86_64"
     args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if build.with? "compiler-rt"
+
+    if build.with? "shared-libs"
+      args << "-DBUILD_SHARED_LIBS=ON"
+      args << "-DLIBOMP_ENABLE_SHARED=ON"
+    else
+      args << "-DLLVM_BUILD_LLVM_DYLIB=ON"
+    end
+
     if build.with? "test"
       args << "-DLLVM_BUILD_TESTS=ON"
       args << "-DLLVM_ABI_BREAKING_CHECKS=ON"
@@ -251,11 +258,6 @@ class Llvm < Formula
       args << "-DLLDB_RELOCATABLE_PYTHON=ON"
       args << "-DPYTHON_LIBRARY=#{pylib}"
       args << "-DPYTHON_INCLUDE_DIR=#{pyinclude}"
-    end
-
-    if build.with? "openmp"
-      args << "-DLIBOMP_ENABLE_SHARED=ON" if build.with? "shared-libs"
-      args << "-DLIBOMP_ARCH=x86_64"
     end
 
     if build.with? "libffi"
