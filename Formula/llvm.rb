@@ -127,8 +127,6 @@ class Llvm < Formula
   keg_only :provided_by_osx
 
   option :universal
-  option "without-clang", "Do not build Clang compiler and support libraries"
-  option "without-clang-extra-tools", "Do not build extra tools for Clang"
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
   option "without-libcxx", "Do not build libc++ standard library"
   option "with-libcxxabi", "Build libc++abi standard library"
@@ -173,29 +171,24 @@ class Llvm < Formula
   end
 
   def build_libcxx?
-    build.with?("libcxx") || (build.with?("clang") && !MacOS::CLT.installed?)
+    build.with?("libcxx") || !MacOS::CLT.installed?
   end
 
   def install
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
-    (buildpath/"tools/clang").install resource("clang") if build.with? "clang"
-
-    if build.with? "clang-extra-tools"
-      odie "--with-extra-tools requires --with-clang" if build.without? "clang"
-      (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
-    end
-
+    (buildpath/"tools/clang").install resource("clang")
+    (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx?
     (buildpath/"tools/lld").install resource("lld") if build.with? "lld"
+    (buildpath/"tools/polly").install resource("polly") if build.with? "polly"
     ["libcxxabi", "libunwind"].each do |r|
       (buildpath/"projects"/r).install resource(r) if build.with? r
     end
 
     if build.with? "lldb"
-      odie "--with-lldb requires --with-clang" if build.without? "clang"
       if build.with? "python"
         pyhome = `python-config --prefix`.chomp
         ENV["PYTHONHOME"] = pyhome
@@ -215,13 +208,7 @@ class Llvm < Formula
       system "security", "list-keychains", "-d", "user", "-s", "/Users/#{username}/Library/Keychains/login.keychain"
     end
 
-    if build.with? "polly"
-      odie "--with-polly requires --with-clang" if build.without? "clang"
-      (buildpath/"tools/polly").install resource("polly")
-    end
-
     if build.with? "compiler-rt"
-      odie "--with-compiler-rt requires --with-clang" if build.without? "clang"
       (buildpath/"projects/compiler-rt").install resource("compiler-rt")
 
       # compiler-rt has some iOS simulator features that require i386 symbols
@@ -287,16 +274,14 @@ class Llvm < Formula
       system "make", "install"
     end
 
-    if build.with? "clang"
-      (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
-      inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
-      bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
-      man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
-    end
+    (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
+    inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
+    bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
+    man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 
     # install llvm python bindings
     (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
-    (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang" if build.with? "clang"
+    (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
   end
 
   def caveats
@@ -318,78 +303,74 @@ class Llvm < Formula
   test do
     assert_equal prefix.to_s, shell_output("#{bin}/llvm-config --prefix").chomp
 
-    if build.with? "clang"
+    (testpath/"test.c").write <<-EOS.undent
+      #include <stdio.h>
 
-      (testpath/"test.c").write <<-EOS.undent
-        #include <stdio.h>
+      int main()
+      {
+        printf("Hello World!\\n");
+        return 0;
+      }
+    EOS
 
-        int main()
-        {
-          printf("Hello World!\\n");
-          return 0;
-        }
-      EOS
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <iostream>
 
-      (testpath/"test.cpp").write <<-EOS.undent
-        #include <iostream>
+      int main()
+      {
+        std::cout << "Hello World!" << std::endl;
+        return 0;
+      }
+    EOS
 
-        int main()
-        {
-          std::cout << "Hello World!" << std::endl;
-          return 0;
-        }
-      EOS
+    # Testing Command Line Tools
+    if MacOS::CLT.installed?
+      libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS.clang_version}*"].last { |f| File.directory? f }
 
-      # Testing Command Line Tools
-      if MacOS::CLT.installed?
-        libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS.clang_version}*"].last { |f| File.directory? f }
+      system "#{bin}/clang++", "-v", "-nostdinc",
+              "-I/Library/Developer/CommandLineTools/usr/include/c++/v1",
+              "-I#{libclangclt}/include",
+              "-I/usr/include", # need it because /Library/.../usr/include/c++/v1/iosfwd refers to <wchar.h>, which CLT installs to /usr/include
+              "test.cpp", "-o", "testCLT++"
+      assert_match "/usr/lib/libc++.1.dylib", shell_output("otool -L ./testCLT++").chomp
+      assert_equal "Hello World!", shell_output("./testCLT++").chomp
 
-        system "#{bin}/clang++", "-v", "-nostdinc",
-               "-I/Library/Developer/CommandLineTools/usr/include/c++/v1",
-               "-I#{libclangclt}/include",
-               "-I/usr/include", # need it because /Library/.../usr/include/c++/v1/iosfwd refers to <wchar.h>, which CLT installs to /usr/include
-               "test.cpp", "-o", "testCLT++"
-        assert_match "/usr/lib/libc++.1.dylib", shell_output("otool -L ./testCLT++").chomp
-        assert_equal "Hello World!", shell_output("./testCLT++").chomp
+      system "#{bin}/clang", "-v", "-nostdinc",
+              "-I/usr/include", # this is where CLT installs stdio.h
+              "test.c", "-o", "testCLT"
+      assert_equal "Hello World!", shell_output("./testCLT").chomp
+    end
 
-        system "#{bin}/clang", "-v", "-nostdinc",
-               "-I/usr/include", # this is where CLT installs stdio.h
-               "test.c", "-o", "testCLT"
-        assert_equal "Hello World!", shell_output("./testCLT").chomp
+    # Testing Xcode
+    if MacOS::Xcode.installed?
+      libclangxc = Dir["#{MacOS::Xcode.toolchain_path}/usr/lib/clang/#{MacOS.clang_version}*"].last { |f| File.directory? f }
 
-      end
+      system "#{bin}/clang++", "-v", "-nostdinc",
+              "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
+              "-I#{libclangxc}/include",
+              "-I#{MacOS.sdk_path}/usr/include",
+              "test.cpp", "-o", "testXC++"
+      assert_match "/usr/lib/libc++.1.dylib", shell_output("otool -L ./testXC++").chomp
+      assert_equal "Hello World!", shell_output("./testXC++").chomp
 
-      # Testing Xcode
-      if MacOS::Xcode.installed?
-        libclangxc = Dir["#{MacOS::Xcode.toolchain_path}/usr/lib/clang/#{MacOS.clang_version}*"].last { |f| File.directory? f }
+      system "#{bin}/clang", "-v", "-nostdinc",
+              "-I#{MacOS.sdk_path}/usr/include",
+              "test.c", "-o", "testXC"
+      assert_equal "Hello World!", shell_output("./testXC").chomp
+    end
 
-        system "#{bin}/clang++", "-v", "-nostdinc",
-               "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
-               "-I#{libclangxc}/include",
-               "-I#{MacOS.sdk_path}/usr/include",
-               "test.cpp", "-o", "testXC++"
-        assert_match "/usr/lib/libc++.1.dylib", shell_output("otool -L ./testXC++").chomp
-        assert_equal "Hello World!", shell_output("./testXC++").chomp
-
-        system "#{bin}/clang", "-v", "-nostdinc",
-               "-I#{MacOS.sdk_path}/usr/include",
-               "test.c", "-o", "testXC"
-        assert_equal "Hello World!", shell_output("./testXC").chomp
-      end
-
-      # link against installed libc++
-      # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
-      if build_libcxx?
-        system "#{bin}/clang++", "-v", "-nostdinc",
-               "-std=c++11", "-stdlib=libc++",
-               "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
-               "-I#{libclangxc}/include",
-               "-I#{MacOS.sdk_path}/usr/include",
-               "-L#{lib}",
-               "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
-        assert_match "#{opt_lib}/libc++.1.dylib", shell_output("otool -L ./test").chomp
-        assert_equal "Hello World!", shell_output("./test").chomp
-      end
+    # link against installed libc++
+    # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
+    if build_libcxx?
+      system "#{bin}/clang++", "-v", "-nostdinc",
+              "-std=c++11", "-stdlib=libc++",
+              "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
+              "-I#{libclangxc}/include",
+              "-I#{MacOS.sdk_path}/usr/include",
+              "-L#{lib}",
+              "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
+      assert_match "#{opt_lib}/libc++.1.dylib", shell_output("otool -L ./test").chomp
+      assert_equal "Hello World!", shell_output("./test").chomp
     end
   end
 end
