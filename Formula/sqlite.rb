@@ -84,9 +84,9 @@ class Sqlite < Formula
       system ENV.cc, "-fno-common",
                      "-dynamiclib",
                      "extension-functions.c",
-                     "-o", "libsqlitefunctions.dylib",
+                     "-o", "libfunctions.dylib",
                      *ENV.cflags.to_s.split
-      lib.install "libsqlitefunctions.dylib"
+      lib.install "libfunctions.dylib"
     end
 
     if build.with? "regexp"
@@ -117,7 +117,7 @@ class Sqlite < Formula
 
         If the program is built so that loading extensions is permitted,
         the following will work:
-         sqlite> SELECT load_extension('#{lib}/libsqlitefunctions.dylib');
+         sqlite> SELECT load_extension('#{lib}/libfunctions.dylib');
          sqlite> select cos(radians(45));
          0.707106781186548
          sqlite> SELECT load_extension('#{lib}/libregexp.dylib');
