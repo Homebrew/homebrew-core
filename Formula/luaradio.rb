@@ -5,6 +5,13 @@ class Luaradio < Formula
   sha256 "344cf0cd3799ca2dfbf8206952797f304e74c9456fe8b4061ab0377a44e9e2e5"
   head "https://github.com/vsergeev/luaradio.git"
 
+  bottle do
+    cellar :any
+    sha256 "e83236648001cdbf2c1ed883c27f81ec4dc0dd28c5e0cef513bc5021b79b1790" => :el_capitan
+    sha256 "fa16128c4a41780276ce1a3c9247d6fba816600d24a79900f479a8bb4391a660" => :yosemite
+    sha256 "d831ef3a9e7b4f0ed3a313a90fe59fde9de4c40ab89992a8029dd983db4bff6b" => :mavericks
+  end
+
   depends_on "pkg-config" => :build
   depends_on "luajit"
   depends_on "fftw" => :recommended
