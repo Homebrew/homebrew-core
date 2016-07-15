@@ -67,7 +67,7 @@ class Caddy < Formula
   end
 
   go_resource "gopkg.in/square/go-jose.v1" do
-    url "http://gopkg.in/square/go-jose.v1.git",
+    url "https://gopkg.in/square/go-jose.v1.git",
     :revision => "e3f973b66b91445ec816dd7411ad1b6495a5a2fc"
   end
 
