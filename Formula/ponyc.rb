@@ -2,9 +2,9 @@ class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "http://www.ponylang.org"
   url "https://github.com/ponylang/ponyc.git",
-    :revision => "aafebac938273d4786c02dfb2ba9ec7a164675e7"
+    :revision => "5f061fa201b47dc6a767d3bbe8a8999ada66993e"
   # 0.2.2 tag requested in https://github.com/ponylang/ponyc/issues/1029
-  version "0.2.2-alpha"
+  version "0.2.2-alpha2"
 
   bottle do
     cellar :any
