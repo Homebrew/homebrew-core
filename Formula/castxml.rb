@@ -1,10 +1,10 @@
 class Castxml < Formula
   desc "C-family Abstract Syntax Tree XML Output"
   homepage "https://github.com/CastXML/CastXML"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/c/castxml/castxml_0.1+git20160202.orig.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/c/castxml/castxml_0.1+git20160202.orig.tar.xz"
-  version "0.1+git20160202-1"
-  sha256 "8de10ad3e930a48a6602c3adf23ed27d3845de24c231d562ca5c23e6df8dd94a"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/c/castxml/castxml_0.1+git20160412.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/c/castxml/castxml_0.1+git20160412.orig.tar.gz"
+  version "0.1+git20160412"
+  sha256 "d65a4e447e1315021c8230f806100c4a812edeff48b8ce564998066315599c86"
 
   head "https://github.com/CastXML/castxml.git"
 
@@ -15,7 +15,7 @@ class Castxml < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" => "with-clang"
+  depends_on "llvm"
 
   def install
     mkdir "build" do
