@@ -112,6 +112,7 @@
   "hexchat": "homebrew/gui",
   "hllib": "homebrew/boneyard",
   "honeyd": "homebrew/boneyard",
+  "horndis": "caskroom/cask",
   "hugs98": "homebrew/boneyard",
   "hwloc": "homebrew/science",
   "ifuse": "homebrew/fuse",
