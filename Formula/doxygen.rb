@@ -16,15 +16,16 @@ class Doxygen < Formula
 
   option "with-graphviz", "Build with dot command support from Graphviz."
   option "with-qt5", "Build GUI frontend with Qt support."
-  option "with-libclang", "Build with libclang support."
+  option "with-llvm", "Build with libclang support."
 
   deprecated_option "with-dot" => "with-graphviz"
   deprecated_option "with-doxywizard" => "with-qt5"
+  deprecated_option "with-libclang" => "with-llvm"
 
   depends_on "cmake" => :build
   depends_on "graphviz" => :optional
   depends_on "qt5" => :optional
-  depends_on "llvm" if build.with? "libclang"
+  depends_on "llvm" => :optional
 
   def install
     args = std_cmake_args
