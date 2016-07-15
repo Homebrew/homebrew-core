@@ -14,6 +14,7 @@ class Es < Formula
   option "with-readline", "Use readline instead of libedit"
 
   depends_on "readline" => :optional
+  depends_on "readline" => :linked
 
   conflicts_with "kes", :because => "both install 'es' binary"
 
