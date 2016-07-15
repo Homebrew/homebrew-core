@@ -2,6 +2,8 @@ class Webp < Formula
   desc "Image format providing lossless and lossy compression for web images"
   homepage "https://developers.google.com/speed/webp/"
   url "http://downloads.webmproject.org/releases/webp/libwebp-0.5.1.tar.gz"
+  # Because Google-hosted upstream URL gets firewalled in some countries.
+  mirror "https://dl.bintray.com/homebrew/mirror/webp-0.5.1.tar.gz"
   sha256 "6ad66c6fcd60a023de20b6856b03da8c7d347269d76b1fd9c3287e8b5e8813df"
 
   bottle do
