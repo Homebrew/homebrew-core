@@ -2,6 +2,7 @@ class EmacsClangCompleteAsync < Formula
   desc "Emacs plugin using libclang to complete C/C++ code"
   homepage "https://github.com/Golevka/emacs-clang-complete-async"
   head "https://github.com/Golevka/emacs-clang-complete-async.git"
+  revision 1
 
   stable do
     url "https://github.com/Golevka/emacs-clang-complete-async/archive/v0.5.tar.gz"
@@ -19,7 +20,7 @@ class EmacsClangCompleteAsync < Formula
 
   option "with-elisp", "Include Emacs lisp package"
 
-  depends_on "llvm" => "with-clang"
+  depends_on "llvm"
 
   # https://github.com/Golevka/emacs-clang-complete-async/pull/59
   patch do
