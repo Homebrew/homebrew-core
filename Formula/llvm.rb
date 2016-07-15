@@ -40,7 +40,8 @@ class Llvm < Formula
       sha256 "c8d3387e55f229543dac1941769120f24dc50183150bf19d1b070d53d29d56b0"
     end
 
-    # only required to build and run Compiler-RT tests on OS X, optional otherwise. clang.llvm.org/get_started.html
+    # Only required to build & run Compiler-RT tests on OS X, optional otherwise.
+    # http://clang.llvm.org/get_started.html
     resource "libcxx" do
       url "http://llvm.org/releases/3.8.0/libcxx-3.8.0.src.tar.xz"
       sha256 "36804511b940bc8a7cefc7cb391a6b28f5e3f53f6372965642020db91174237b"
@@ -146,7 +147,7 @@ class Llvm < Formula
   option "without-libffi", "Do not use libffi to call external functions"
   option "with-all-targets", "Build all targets. Default targets: AMDGPU, ARM, NVPTX, and X86"
 
-  depends_on "libffi" => :recommended # llvm.org/docs/GettingStarted.grml#requirements
+  depends_on "libffi" => :recommended # http://llvm.org/docs/GettingStarted.html#requirement
   depends_on "graphviz" => :optional # for the 'dot' tool (lldb)
   depends_on "ocaml" => :optional
 
@@ -198,8 +199,8 @@ class Llvm < Formula
       if build.with? "python"
         pyhome = `python-config --prefix`.chomp
         ENV["PYTHONHOME"] = pyhome
-        pylib = pyhome + "/lib/libpython2.7.dylib"
-        pyinclude = pyhome + "/include/python2.7"
+        pylib = "#{pyhome}/lib/libpython2.7.dylib"
+        pyinclude = "#{pyhome}/include/python2.7"
       end
       (buildpath/"tools/lldb").install resource("lldb")
 
