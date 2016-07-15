@@ -6,10 +6,10 @@ class Es < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "913ca2237f6dee8fda5024158cf74d6c531fa5f1d5543e48bd88a0b0c00043f0" => :el_capitan
-    sha256 "b030162c4cf054e3c5faaf4184634f438734ef5d44d0fa0b26e21da53cfe3b97" => :yosemite
-    sha256 "dc05ff3d6cda43cd0c8a0423eeefaf8a517d6a5412b561b7092451c4d49e1adf" => :mavericks
+    cellar :any_skip_relocation
+    sha256 "53f0c0654ddecc62b99135fb96722b6467593248d884c1506ea93681367c611d" => :el_capitan
+    sha256 "bceadf8a0ef4d3231d149f30cc53d2c7fe686cd8fdd0dafe83ceaabc35151d5e" => :yosemite
+    sha256 "14f203383d01f581bdb63e7240ff57d1174553467314351d49ea41d3052148f9" => :mavericks
   end
 
   option "with-readline", "Use readline instead of libedit"
