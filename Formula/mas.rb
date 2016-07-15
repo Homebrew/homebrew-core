@@ -3,6 +3,7 @@ class Mas < Formula
   homepage "https://github.com/argon/mas"
   url "https://github.com/argon/mas/archive/v1.2.0.tar.gz"
   sha256 "79a30d2b8c053a33b69a255da3ad35a96a337f0b9dded5112e6e48cdadddf73a"
+  head "https://github.com/argon/mas.git"
 
   bottle do
     cellar :any_skip_relocation
