@@ -3,6 +3,7 @@ class Es < Formula
   homepage "https://wryun.github.io/es-shell/"
   url "https://github.com/wryun/es-shell/releases/download/v0.9.1/es-0.9.1.tar.gz"
   sha256 "b0b41fce99b122a173a06b899a4d92e5bd3cc48b227b2736159f596a58fff4ba"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,8 +19,14 @@ class Es < Formula
   conflicts_with "kes", :because => "both install 'es' binary"
 
   def install
-    args = ["--prefix=#{prefix}"]
-    args << "--with-readline" if build.with? "readline"
+    args = %W[--prefix=#{prefix}]
+
+    if build.with? "readline"
+      args << "--with-readline"
+    else
+      args << "--with-editline"
+    end
+
     system "./configure", *args
     system "make"
 
