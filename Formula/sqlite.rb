@@ -23,6 +23,7 @@ class Sqlite < Formula
   option "with-unlock-notify", "Enable the unlock notification feature"
   option "with-icu4c", "Enable the ICU module"
   option "with-functions", "Enable more math and string functions for SQL queries"
+  option "with-regexp", "Enable regexp function and operator for SQL queries"
   option "with-dbstat", "Enable the 'dbstat' virtual table"
   option "with-json1", "Enable the JSON1 extension"
   option "with-session", "Enable the session extension"
@@ -34,6 +35,12 @@ class Sqlite < Formula
     url "https://sqlite.org/contrib/download/extension-functions.c?get=25", :using => :nounzip
     version "2010-01-06"
     sha256 "991b40fe8b2799edc215f7260b890f14a833512c9d9896aa080891330ffe4052"
+  end
+
+  resource "regexp" do
+    url "http://localhost/regexp.c", :using => :nounzip
+    version "2016-04-12"
+    sha256 "a079722fe557d8a510021990af061e9f16026344e05b9f407bee60de712d968e"
   end
 
   resource "docs" do
@@ -81,11 +88,22 @@ class Sqlite < Formula
                      *ENV.cflags.to_s.split
       lib.install "libsqlitefunctions.dylib"
     end
+
+    if build.with? "regexp"
+      buildpath.install resource("regexp")
+      system ENV.cc, "-fno-common",
+                     "-dynamiclib",
+                     "regexp.c",
+                     "-o", "libregexp.dylib",
+                     *ENV.cflags.to_s.split
+      lib.install "libregexp.dylib"
+    end
+
     doc.install resource("docs") if build.with? "docs"
   end
 
   def caveats
-    if build.with? "functions" then <<-EOS.undent
+    if (build.with? "functions") || (build.with? "regexp") then <<-EOS.undent
       Usage instructions for applications calling the sqlite3 API functions:
 
         In your application, call sqlite3_enable_load_extension(db,1) to
@@ -102,6 +120,11 @@ class Sqlite < Formula
          sqlite> SELECT load_extension('#{lib}/libsqlitefunctions.dylib');
          sqlite> select cos(radians(45));
          0.707106781186548
+         sqlite> SELECT load_extension('#{lib}/libregexp.dylib');
+         sqlite> select "abc" REGEXP "ab";
+         1
+         sqlite> select "abc" REGEXP "de";
+         0
       EOS
     end
   end
