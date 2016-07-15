@@ -77,7 +77,7 @@ class Wine < Formula
   end
 
   # This option is currently disabled because Apple clang currently doesn't
-  # support a required feature: http://reviews.llvm.org/D1623
+  # support a required feature: https://reviews.llvm.org/D1623
   # It builds fine with GCC, however.
   # option "with-win64",
   #        "Build with win64 emulator (won't run 32-bit binaries.)"
