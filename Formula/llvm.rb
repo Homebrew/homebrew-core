@@ -384,7 +384,7 @@ class Llvm < Formula
                "-I#{MacOS.sdk_path}/usr/include",
                "-L#{lib}",
                "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
-        assert_match "#{lib}/libc++.1.dylib", shell_output("otool -L ./test").chomp
+        assert_match "#{opt_lib}/libc++.1.dylib", shell_output("otool -L ./test").chomp
         assert_equal "Hello World!", shell_output("./test").chomp
       end
     end
