@@ -279,10 +279,6 @@ class Llvm < Formula
     bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 
-    # Create symlinks for compatibility with prior "clang-omp" formula.
-    bin.install_symlink bin/"clang" => "clang-omp"
-    bin.install_symlink bin/"clang" => "clang-omp++"
-
     # install llvm python bindings
     (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
@@ -321,9 +317,9 @@ class Llvm < Formula
       }
     EOS
 
-    system "#{bin}/clang-omp", "-L#{lib}", "-liomp5", "-fopenmp",
-                               "-I#{lib}/clang/#{version}/include",
-                               "omptest.c", "-o", "omptest"
+    system "#{bin}/clang", "-L#{lib}", "-liomp5", "-fopenmp",
+                           "-I#{lib}/clang/#{version}/include",
+                           "omptest.c", "-o", "omptest"
     testresult = shell_output("./omptest")
 
     sorted_testresult = testresult.split("\n").sort.join("\n")
