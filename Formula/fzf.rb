@@ -3,8 +3,8 @@ require "language/go"
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/0.13.2.tar.gz"
-  sha256 "063c2e0e23944acead08e90a33ebce0d5d1c05b168571f56800b3b2ddf7c5ee9"
+  url "https://github.com/junegunn/fzf/archive/0.13.3.tar.gz"
+  sha256 "04bb6901959fb9d4a3193662ef27b6a9bac106630b9a4d2921d6af3512de8d2f"
   head "https://github.com/junegunn/fzf.git"
 
   bottle do
@@ -41,7 +41,7 @@ class Fzf < Formula
     (prefix/"shell").install %w[bash zsh fish].map { |s| "shell/key-bindings.#{s}" }
     (prefix/"shell").install %w[bash zsh].map { |s| "shell/completion.#{s}" }
     (prefix/"plugin").install "plugin/fzf.vim"
-    man1.install "man/man1/fzf.1"
+    man1.install "man/man1/fzf.1", "man/man1/fzf-tmux.1"
     bin.install "bin/fzf-tmux"
   end
 
