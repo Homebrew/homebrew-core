@@ -23,6 +23,6 @@ class MinioMc < Formula
 
   test do
     system bin/"mc", "mb", testpath/"test"
-    assert File.exist?(testpath/"test")
+    assert_predicate testpath/"test", :exist?
   end
 end
