@@ -1,4 +1,4 @@
-class Commonmark < Formula
+class Cmark < Formula
   desc "Strongly specified, highly compatible implementation of Markdown"
   homepage "http://commonmark.org"
   url "https://github.com/jgm/cmark/archive/0.26.0.tar.gz"
