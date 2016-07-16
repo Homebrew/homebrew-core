@@ -11,13 +11,10 @@ class Nmap < Formula
     sha256 "be7ba56789fa1aa900396955d2a99c1929907ca8df1a9ccd37081d5178c440de" => :mavericks
   end
 
-  option "with-zenmap", "With Zenmap GUI"
+  option "with-pygtk", "Build Zenmap GUI"
 
   depends_on "openssl"
-
-  if build.with? "zenmap"
-    depends_on "pygtk"
-  end
+  depends_on "pygtk" => :optional
 
   conflicts_with "ndiff", :because => "both install `ndiff` binaries"
 
@@ -37,7 +34,7 @@ class Nmap < Formula
       --disable-universal
     ]
 
-    args << "--without-zenmap" if build.without? "zenmap"
+    args << "--without-zenmap" if build.without? "pygtk"
 
     system "./configure", *args
     system "make" # separate steps required otherwise the build fails
