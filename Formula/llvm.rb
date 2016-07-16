@@ -236,7 +236,7 @@ class Llvm < Formula
 
     if build.with? "test"
       args << "-DLLVM_BUILD_TESTS=ON"
-      args << "-DLLVM_ABI_BREAKING_CHECKS=ON"
+      args << "-DLLVM_ABI_BREAKING_CHECKS=WITH_ASSERTS"
     end
     args << "-DLLVM_ENABLE_RTTI=ON" if build.with? "rtti"
     args << "-DLLVM_INSTALL_UTILS=ON" if build.with? "utils"
