@@ -1,8 +1,8 @@
 class Passpie < Formula
   desc "Manage login credentials from the terminal"
   homepage "https://github.com/marcwebbie/passpie"
-  url "https://files.pythonhosted.org/packages/1d/06/77b6cc4f85e971a4e5031d0bcb591650c171d2531076fc0581346abe730e/passpie-1.5.3.tar.gz"
-  sha256 "2e9921f08cb6a7c21e3f95b8943d6e6a67d2d747fae38a194d0c5b4fa77b295b"
+  url "https://files.pythonhosted.org/packages/f3/68/0b60f45c2604c7aabea83407085447c33ecab2991f03a43cdac11334ce38/passpie-1.5.4.tar.gz"
+  sha256 "3d58faca452dad5ddbb6000af16b0ef3c6591eae61423c87b64252faf1106e3c"
   head "https://github.com/marcwebbie/passpie.git"
 
   bottle do
@@ -58,5 +58,7 @@ class Passpie < Formula
 
   test do
     system bin/"passpie", "-D", "passpiedb", "init", "--force", "--passphrase", "s3cr3t"
+    system bin/"passpie", "-D", "passpiedb", "add", "foo@bar", "--random"
+    system bin/"passpie", "-D", "passpiedb", "copy", "--passphrase", "s3cr3t", "foo@bar", "--to", "stdout"
   end
 end
