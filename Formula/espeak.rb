@@ -6,10 +6,9 @@ class Espeak < Formula
   revision 1
 
   bottle do
-    sha256 "f174e6d33f96be4924ecb4b33c764cffdbc2444ea87a626f150dd80a3d2f6765" => :el_capitan
-    sha256 "1bb63666e796b5454d53df1004365da2f53f428a6f953fa20fd1bacf909ca61a" => :mavericks
-    sha256 "0ed56b0461f6c4c9e859c88d438cdcb8abfad974becb192bb758b7ba6b8fb0b4" => :mountain_lion
-    sha256 "2a029aca1a91cf4b2a4cb652f9a3ce6c7a3c9590d5af4aba7038b710ce6d6441" => :lion
+    sha256 "b835553e35b44510466bbe3085b4cdf2bc5420ff981da1a33b53ba41dc08df73" => :el_capitan
+    sha256 "0b853208b775ec7b17d65bf4c1b6e9d2aad339b2b1461c072ec404fa365a76c4" => :yosemite
+    sha256 "b7a9911770c8d3d112aa6ebdea7c42e5e0f5153c16faae135a8d695d4e31a1cc" => :mavericks
   end
 
   depends_on "portaudio"
