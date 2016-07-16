@@ -1,10 +1,8 @@
 class Minio < Formula
   desc "object storage server compatible with Amazon S3"
   homepage "https://github.com/minio/minio"
-  url "https://github.com/minio/minio/archive/RELEASE.2016-06-03T19-32-05Z.tar.gz"
-  version "20160603193205"
-  sha256 "8ecf52cc344c99f84bef632b8dfecf8fdc6a8493a541b2fe42f5b22d8bbfa802"
-  head "https://github.com/minio/minio.git"
+  url "https://github.com/minio/minio.git", :tag => "RELEASE.2016-07-13T21-46-05Z", :revision => "3f27734c22212f224037a223439a425e6d2b653a"
+  version "20160713214605"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,12 +19,22 @@ class Minio < Formula
     clipath = buildpath/"src/github.com/minio/minio"
     clipath.install Dir["*"]
 
-    cd buildpath/"src/github.com/minio/minio/" do
-      system "go", "build", "-o", bin/"minio", "-v"
+    cd clipath do
+      if build.head?
+        system "go", "build", "-o", buildpath/"minio"
+      else
+        minio_release = `git tag --points-at HEAD`.chomp
+        minio_version = minio_release.gsub(/RELEASE\./, "").chomp
+        minio_commit = `git rev-parse HEAD`.chomp
+
+        system "go", "build", "-ldflags", "-X main.minioVersion=#{minio_version} -X main.minioReleaseTag=#{minio_release} -X main.minioCommitID=#{minio_commit}", "-o", buildpath/"minio"
+      end
     end
+
+    bin.install buildpath/"minio"
   end
 
   test do
-    system "#{bin}/minio"
+    system "#{bin}/minio", "version"
   end
 end
