@@ -12,10 +12,9 @@ class Libtool < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "b3ecfcb96cdab58b4916e60f8c51b79396f6fad9572812a5f84a5b3c0ad68304" => :el_capitan
-    sha256 "07701b3a36b601c6489d5398200a4c86fa98fef90bf045f0bec0dc6ade73cf6a" => :yosemite
-    sha256 "b675800040bcf5d554e30ea03a91a00aeae2417895fcd2dea6d0fa550748cb20" => :mavericks
+    sha256 "b7651d0a082e2f103f03ca3a5ed831e2ff5655ccc1044ac0452e4d1825475a35" => :el_capitan
+    sha256 "0eb206c0f51e8ce2e3e9340b5ce3c8ecef961ae6696f676073327a7ac04e5c0b" => :yosemite
+    sha256 "2e51ef82ef2bd1ad9d921a9016b9e5d7fa82d131849e2c32a3c90daa119e2eda" => :mavericks
   end
 
   keg_only :provided_until_xcode43
