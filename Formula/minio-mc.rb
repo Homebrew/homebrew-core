@@ -5,7 +5,8 @@ class MinioMc < Formula
   version "20160713214605"
   sha256 "611444a66ea3d2cc8fbb821147bcd3995c1956ef2aa9d62cd35f6d07f3f972cf"
   head "https://github.com/minio/mc.git"
-  conflicts_with "midnight-commander"
+
+  conflicts_with "midnight-commander", :because => "Both install a `mc` binary"
 
   depends_on "go" => :build
 
@@ -21,7 +22,7 @@ class MinioMc < Formula
   end
 
   test do
-    system bin/"mc", "mb", (testpath"/test")
+    system bin/"mc", "mb", testpath/"test"
     assert File.exist?(testpath/"test")
   end
 end
