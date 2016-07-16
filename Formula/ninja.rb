@@ -1,9 +1,9 @@
 class Ninja < Formula
   desc "Small build system for use with gyp or CMake"
-  homepage "https://martine.github.io/ninja/"
+  homepage "https://ninja-build.org/"
   url "https://github.com/ninja-build/ninja/archive/v1.7.1.tar.gz"
   sha256 "51581de53cf4705b89eb6b14a85baa73288ad08bff256e7d30d529155813be19"
-  head "https://github.com/martine/ninja.git"
+  head "https://github.com/ninja-build/ninja.git"
 
   bottle do
     cellar :any_skip_relocation
