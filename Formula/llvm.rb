@@ -22,59 +22,59 @@ class Llvm < Formula
   homepage "http://llvm.org/"
 
   stable do
-    url "http://llvm.org/releases/3.8.0/llvm-3.8.0.src.tar.xz"
-    sha256 "555b028e9ee0f6445ff8f949ea10e9cd8be0d084840e21fbbe1d31d51fc06e46"
+    url "http://llvm.org/releases/3.8.1/llvm-3.8.1.src.tar.xz"
+    sha256 "6e82ce4adb54ff3afc18053d6981b6aed1406751b8742582ed50f04b5ab475f9"
 
     resource "clang" do
-      url "http://llvm.org/releases/3.8.0/cfe-3.8.0.src.tar.xz"
-      sha256 "04149236de03cf05232d68eb7cb9c50f03062e339b68f4f8a03b650a11536cf9"
+      url "http://llvm.org/releases/3.8.1/cfe-3.8.1.src.tar.xz"
+      sha256 "4cd3836dfb4b88b597e075341cae86d61c63ce3963e45c7fe6a8bf59bb382cdf"
     end
 
     resource "clang-extra-tools" do
-      url "http://llvm.org/releases/3.8.0/clang-tools-extra-3.8.0.src.tar.xz"
-      sha256 "afbda810106a6e64444bc164b921be928af46829117c95b996f2678ce4cb1ec4"
+      url "http://llvm.org/releases/3.8.1/clang-tools-extra-3.8.1.src.tar.xz"
+      sha256 "664a5c60220de9c290bf2a5b03d902ab731a4f95fe73a00856175ead494ec396"
     end
 
     resource "compiler-rt" do
-      url "http://llvm.org/releases/3.8.0/compiler-rt-3.8.0.src.tar.xz"
-      sha256 "c8d3387e55f229543dac1941769120f24dc50183150bf19d1b070d53d29d56b0"
+      url "http://llvm.org/releases/3.8.1/compiler-rt-3.8.1.src.tar.xz"
+      sha256 "0df011dae14d8700499dfc961602ee0a9572fef926202ade5dcdfe7858411e5c"
     end
 
     # Only required to build & run Compiler-RT tests on OS X, optional otherwise.
     # http://clang.llvm.org/get_started.html
     resource "libcxx" do
-      url "http://llvm.org/releases/3.8.0/libcxx-3.8.0.src.tar.xz"
-      sha256 "36804511b940bc8a7cefc7cb391a6b28f5e3f53f6372965642020db91174237b"
+      url "http://llvm.org/releases/3.8.1/libcxx-3.8.1.src.tar.xz"
+      sha256 "77d7f3784c88096d785bd705fa1bab7031ce184cd91ba8a7008abf55264eeecc"
     end
 
     resource "libcxxabi" do
-      url "http://llvm.org/releases/3.8.0/libcxxabi-3.8.0.src.tar.xz"
-      sha256 "c5ee0871aff6ec741380c4899007a7d97f0b791c81df69d25b744eebc5cee504"
+      url "http://llvm.org/releases/3.8.1/libcxxabi-3.8.1.src.tar.xz"
+      sha256 "e1b55f7be3fad746bdd3025f43e42d429fb6194aac5919c2be17c4a06314dae1"
     end
 
     resource "libunwind" do
-      url "http://llvm.org/releases/3.8.0/libunwind-3.8.0.src.tar.xz"
-      sha256 "af3eaf39ecdc3b9e89863fb62e1aa3c135cfde7e9415424e4e396d7486a9422b"
+      url "http://llvm.org/releases/3.8.1/libunwind-3.8.1.src.tar.xz"
+      sha256 "21e58ce09a5982255ecf86b86359179ddb0be4f8f284a95be14201df90e48453"
     end
 
     resource "lld" do
-      url "http://llvm.org/releases/3.8.0/lld-3.8.0.src.tar.xz"
-      sha256 "94704dda228c9f75f4403051085001440b458501ec97192eee06e8e67f7f9f0c"
+      url "http://llvm.org/releases/3.8.1/lld-3.8.1.src.tar.xz"
+      sha256 "2bd9be8bb18d82f7f59e31ea33b4e58387dbdef0bc11d5c9fcd5ce9a4b16dc00"
     end
 
     resource "lldb" do
-      url "http://llvm.org/releases/3.8.0/lldb-3.8.0.src.tar.xz"
-      sha256 "e3f68f44147df0433e7989bf6ed1c58ff28d7c68b9c47553cb9915f744785a35"
+      url "http://llvm.org/releases/3.8.1/lldb-3.8.1.src.tar.xz"
+      sha256 "349148116a47e39dcb5d5042f10d8a6357d2c865034563283ca512f81cdce8a3"
     end
 
     resource "openmp" do
-      url "http://llvm.org/releases/3.8.0/openmp-3.8.0.src.tar.xz"
-      sha256 "92510e3f62e3de955e3a0b6708cebee1ca344d92fb02369cba5fdd5c68f773a0"
+      url "http://llvm.org/releases/3.8.1/openmp-3.8.1.src.tar.xz"
+      sha256 "68fcde6ef34e0275884a2de3450a31e931caf1d6fda8606ef14f89c4123617dc"
     end
 
     resource "polly" do
-      url "http://llvm.org/releases/3.8.0/polly-3.8.0.src.tar.xz"
-      sha256 "84cbabc0b6a10a664797907d291b6955d5ea61aef04e3f3bb464e42374d1d1f2"
+      url "http://llvm.org/releases/3.8.1/polly-3.8.1.src.tar.xz"
+      sha256 "453c27e1581614bb3b6351bf5a2da2939563ea9d1de99c420f85ca8d87b928a2"
     end
   end
 
