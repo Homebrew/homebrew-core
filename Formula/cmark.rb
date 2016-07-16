@@ -1,8 +1,8 @@
 class Cmark < Formula
   desc "Strongly specified, highly compatible implementation of Markdown"
   homepage "http://commonmark.org"
-  url "https://github.com/jgm/cmark/archive/0.26.0.tar.gz"
-  sha256 "7ed32e77966c5d06cd6f010b46894cd4d1f494651d6e0da55cb876436fdac806"
+  url "https://github.com/jgm/cmark/archive/0.26.1.tar.gz"
+  sha256 "b50615a97f9c19e353d65f3bdbd6898ed1443a6f49e38f0aa888d5b58867f5d6"
 
   bottle do
     cellar :any
@@ -18,14 +18,13 @@ class Cmark < Formula
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make"
+      system "make", "test"
       system "make", "install"
     end
   end
 
   test do
-    test_input = "*hello, world*\n"
-    expected_output = "<p><em>hello, world</em></p>\n"
-    test_output = `/bin/echo -n "#{test_input}" | #{bin}/cmark`
-    assert_equal expected_output, test_output
+    output = pipe_output("#{bin}/cmark", "*hello, world*")
+    assert_equal "<p><em>hello, world</em></p>", output.chomp
   end
 end
