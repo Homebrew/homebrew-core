@@ -317,7 +317,7 @@ class Llvm < Formula
       }
     EOS
 
-    system "#{bin}/clang", "-L#{lib}", "-liomp5", "-fopenmp",
+    system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
                            "-I#{lib}/clang/#{version}/include",
                            "omptest.c", "-o", "omptest"
     testresult = shell_output("./omptest")
