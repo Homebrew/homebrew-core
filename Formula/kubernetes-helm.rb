@@ -1,8 +1,8 @@
 class KubernetesHelm < Formula
   desc "The package manager for Kubernetes"
   homepage "https://helm.sh"
-  url "https://github.com/helm/helm/archive/0.6.0.tar.gz"
-  sha256 "6582f095af305504132c45fba28548b0bb49da51d2f7ac20a89a324606719ed1"
+  url "https://github.com/helm/helm/archive/0.8.1.tar.gz"
+  sha256 "48325bf823a278db995d08168cbbc7817c23aede8c7d0404b0af77d9435867bf"
 
   bottle do
     cellar :any_skip_relocation
