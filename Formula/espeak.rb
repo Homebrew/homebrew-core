@@ -24,7 +24,7 @@ class Espeak < Formula
       # See http://stackoverflow.com/questions/4580789/ld-unknown-option-soname-on-os-x/32280483#32280483
       inreplace "speech.h", "#define USE_ASYNC", "//#define USE_ASYNC"
       # OS X does not provide sem_timedwait() so disabling #define USE_ASYNC to compile for OS X.
-      # See https://sourceforge.net/p/espeak/discussion/538922/thread/0d957467/#407d 
+      # See https://sourceforge.net/p/espeak/discussion/538922/thread/0d957467/#407d
       system "make", "speak", "DATADIR=#{share}/espeak-data", "PREFIX=#{prefix}"
       bin.install "speak" => "espeak"
       system "make", "libespeak.a", "DATADIR=#{share}/espeak-data", "PREFIX=#{prefix}"
