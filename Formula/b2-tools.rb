@@ -6,9 +6,9 @@ class B2Tools < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0980b12bbf18f4b71a681dccdf275dd7a22e5523421a3f31767fbf99ed799b8a" => :el_capitan
-    sha256 "e919fdec20bee0c12ce7223de650a2b0075b5875543ce105dff56f1b8fb340db" => :yosemite
-    sha256 "b8a315f86ca11dd7758c12808e1501278f6fbd70a31ac1695c67beb097e0f1f2" => :mavericks
+    sha256 "038f9ccdd7db52a971e01a76af0eb6f4d2aca06c47921fc3812b5254953cdc2b" => :el_capitan
+    sha256 "b2af14494700c952cea63f5e88dfb00bd9be5c2129f20656e5ffb37fd2173ad0" => :yosemite
+    sha256 "4d443066e20eacad9a7581da4de3243ec406635f978af7dd8d8409ef573fc375" => :mavericks
   end
 
   option "without-test", "Skip build-time tests"
