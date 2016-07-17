@@ -1,9 +1,9 @@
 class Certigo < Formula
   desc "Utility to examine and validate certificates in a variety of formats"
   homepage "https://github.com/square/certigo"
-  url "https://github.com/square/certigo.git",
-    :tag => "v1.1.0",
-    :revision => "beac5ca8f48521a8361df8c953e66902f1d6632c"
+  url "https://github.com/square/certigo/archive/v1.2.0.tar.gz"
+  sha256 "b3613cc2580203c320765171ee6c837b357a429dc80fc3ca404e07082e3d9922"
+  head "https://github.com/square/certigo.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -41,6 +41,6 @@ class Certigo < Formula
       YSv7SyFevNwDwcxcAq6uVitKi0YCqHiNZ7Ye3/BGRDUFpK2IASUo8YbXYNyA/6nu
       -----END CERTIFICATE-----
     EOS
-    system "#{bin}/certigo", "dump", "test.crt"
+    system bin/"certigo", "dump", "test.crt"
   end
 end
