@@ -77,9 +77,17 @@ class Ffmpeg < Formula
   depends_on "libbs2b" => :optional
   depends_on "rubberband" => :optional
   depends_on "zimg" => :optional
-  depends_on "openh264" => :optional
   depends_on "xz" => :optional
   depends_on "libebur128" => :optional
+
+  depends_on "nasm" => :build if build.with? "openh264"
+
+  # Remove when ffmpeg has support for openh264 1.6.0
+  # See https://github.com/cisco/openh264/issues/2505
+  resource "openh264-1.5.0" do
+    url "https://github.com/cisco/openh264/archive/v1.5.0.tar.gz"
+    sha256 "98077bd5d113c183ce02b678733b0cada2cf36750370579534c4d70f0b6c27b5"
+  end
 
   def install
     args = %W[
@@ -94,6 +102,15 @@ class Ffmpeg < Formula
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
     ]
+
+    if build.with? "openh264"
+      resource("openh264-1.5.0").stage do
+        system "make", "install-shared", "PREFIX=#{libexec}/openh264-1.5.0"
+        chmod 0444, libexec/"openh264-1.5.0/lib/libopenh264.dylib"
+      end
+      ENV.prepend_path "PKG_CONFIG_PATH", libexec/"openh264-1.5.0/lib/pkgconfig"
+      args << "--enable-libopenh264"
+    end
 
     args << "--enable-opencl" if MacOS.version > :lion
 
@@ -129,7 +146,6 @@ class Ffmpeg < Formula
     args << "--enable-librubberband" if build.with? "rubberband"
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
-    args << "--enable-libopenh264" if build.with? "openh264"
     args << "--enable-libebur128" if build.with? "libebur128"
 
     if build.with? "xz"
