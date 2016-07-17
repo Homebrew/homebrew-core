@@ -394,6 +394,12 @@ class Llvm < Formula
     # link against installed libc++
     # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
     if build_libcxx?
+      if MacOS.version >= :el_capitan
+        inreplace "#{libcxx_buildpath}/include/string",
+          "basic_string<_CharT, _Traits, _Allocator>::basic_string(const allocator_type& __a)",
+          "basic_string<_CharT, _Traits, _Allocator>::basic_string(const allocator_type& __a) noexcept(is_nothrow_copy_constructible<allocator_type>::value)"
+      end
+
       system "#{bin}/clang++", "-v", "-nostdinc",
               "-std=c++11", "-stdlib=libc++",
               "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
