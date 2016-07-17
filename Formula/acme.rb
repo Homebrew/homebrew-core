@@ -23,6 +23,7 @@ class Acme < Formula
 
   def install
     system "make", "-C", "src", "install", "BINDIR=#{bin}"
+    doc.install Dir["docs/*"]
   end
 
   test do
