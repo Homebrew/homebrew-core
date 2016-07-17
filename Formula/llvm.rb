@@ -130,6 +130,7 @@ class Llvm < Formula
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
   option "without-libcxx", "Do not build libc++ standard library"
   option "with-libcxxabi", "Build libc++abi standard library"
+  option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
   # From TODO.TXT file in libcxxabi: CMake always link to /usr/lib/libc++abi.dylib on OS X.
   # Building libcxxabi results in an additional @rpath in libc++.1.0.dylib that Homebrew can not "fix".
   # As a result, library does not work when invoked as usual.
@@ -226,6 +227,7 @@ class Llvm < Formula
     args << "-DLLVM_TARGETS_TO_BUILD=#{build.with?("all-targets") ? "all" : "AMDGPU;ARM;NVPTX;X86"}"
     args << "-DLIBOMP_ARCH=x86_64"
     args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if build.with? "compiler-rt"
+    args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON" if build.with? "toolchain"
 
     if build.with? "shared-libs"
       args << "-DBUILD_SHARED_LIBS=ON"
@@ -273,6 +275,7 @@ class Llvm < Formula
       system "cmake", "-G", "Unix Makefiles", buildpath, *(std_cmake_args + args)
       system "make"
       system "make", "install"
+      system "make", "install-xcode-toolchain" if build.with? "toolchain"
     end
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
