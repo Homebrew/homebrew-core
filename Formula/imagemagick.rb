@@ -28,6 +28,8 @@ class Imagemagick < Formula
   option "with-quantum-depth-32", "Compile with a quantum depth of 32 bit"
   option "without-opencl", "Disable OpenCL"
   option "without-magick-plus-plus", "disable build/install of Magick++"
+  option "without-modules", "Disable support for dynamically loadable modules"
+  option "without-threads", "Disable threads support"
 
   depends_on "xz"
   depends_on "libtool" => :run
@@ -65,8 +67,13 @@ class Imagemagick < Formula
       --disable-silent-rules
       --enable-shared
       --enable-static
-      --with-modules
     ]
+
+    if build.without? "modules"
+      args << "--without-modules"
+    else
+      args << "--with-modules"
+    end
 
     if build.with? "openmp"
       args << "--enable-openmp"
@@ -81,6 +88,7 @@ class Imagemagick < Formula
     args << "--enable-hdri=yes" if build.with? "hdri"
     args << "--enable-fftw=yes" if build.with? "fftw"
     args << "--without-pango" if build.without? "pango"
+    args << "--without-threads" if build.without? "threads"
 
     if build.with? "quantum-depth-32"
       quantum_depth = 32
