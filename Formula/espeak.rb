@@ -27,7 +27,7 @@ class Espeak < Formula
       system "make", "speak", "DATADIR=#{share}/espeak-data", "PREFIX=#{prefix}"
       bin.install "speak" => "espeak"
       system "make", "libespeak.a", "DATADIR=#{share}/espeak-data", "PREFIX=#{prefix}"
-      lib.install "libespeak.a" => "libespeak.a"
+      lib.install "libespeak.a"
       system "make", "libespeak.so", "DATADIR=#{share}/espeak-data", "PREFIX=#{prefix}"
       lib.install "libespeak.so.1.1.48" => "libespeak.dylib"
       system "install_name_tool", "-id", "#{lib}/libespeak.dylib", "#{lib}/libespeak.dylib"
