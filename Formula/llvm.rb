@@ -119,6 +119,10 @@ class Llvm < Formula
       url "http://llvm.org/git/lldb.git"
     end
 
+    resource "openmp" do
+      url "http://llvm.org/git/openmp.git"
+    end
+
     resource "polly" do
       url "http://llvm.org/git/polly.git"
     end
