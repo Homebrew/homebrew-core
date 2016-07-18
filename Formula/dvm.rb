@@ -1,8 +1,8 @@
 class Dvm < Formula
   desc "Docker Version Manager"
   homepage "https://github.com/getcarina/dvm"
-  url "https://github.com/getcarina/dvm/archive/0.6.2.tar.gz"
-  sha256 "57a14fc85c37d30c3c2265eb0f06d2fdc18273306052a5ccc748b54a5c38660c"
+  url "https://github.com/getcarina/dvm/archive/0.6.3.tar.gz"
+  sha256 "09089036d881a6f3544198d93be82e5861cbc5f8682bfa3466e4d099923eb493"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,14 +15,16 @@ class Dvm < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["PATH"] = "#{ENV["PATH"]}:#{buildpath}/bin"
 
     dvmpath = buildpath/"src/github.com/getcarina/dvm"
     dvmpath.install Dir["{*,.git}"]
 
     cd dvmpath do
-      system "make", "VERSION=#{version}", "COMMIT=6467884b2e25d080c25aa647bbcbbf8c12dc45bd", "UPGRADE_DISABLED=true"
+      system "make", "VERSION=#{version}", "COMMIT=65c380cf2079fa5387ca49c7b5552ae4e2ec3b77", "UPGRADE_DISABLED=true"
 
       prefix.install "dvm.sh"
+      prefix.install "bash_completion"
       (prefix/"dvm-helper").install "dvm-helper/dvm-helper"
     end
   end
@@ -32,6 +34,9 @@ class Dvm < Formula
     Add the following command to your bash profile:
 
         [[ -s "$(brew --prefix dvm)/dvm.sh" ]] && source "$(brew --prefix dvm)/dvm.sh"
+
+    To enable tab completion of commands, add the following command to your bash profile:
+        [[ -s "$(brew --prefix dvm)/bash_completion" ]] && source "$(brew --prefix dvm)/bash_completion"
 
     EOS
   end
