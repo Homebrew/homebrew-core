@@ -1,9 +1,9 @@
 class Libassuan < Formula
   desc "Assuan IPC Library"
   homepage "https://www.gnupg.org/related_software/libassuan/"
-  url "https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.4.2.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libassuan/libassuan-2.4.2.tar.bz2"
-  sha256 "bb06dc81380b74bf1b64d5849be5c0409a336f3b4c45f20ac688e86d1b5bcb20"
+  url "https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.4.3.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libassuan/libassuan-2.4.3.tar.bz2"
+  sha256 "22843a3bdb256f59be49842abf24da76700354293a066d82ade8134bb5aa2b71"
 
   bottle do
     cellar :any
@@ -23,6 +23,6 @@ class Libassuan < Formula
   end
 
   test do
-    system "#{bin}/libassuan-config", "--version"
+    system bin/"libassuan-config", "--version"
   end
 end
