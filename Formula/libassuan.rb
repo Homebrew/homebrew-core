@@ -7,9 +7,9 @@ class Libassuan < Formula
 
   bottle do
     cellar :any
-    sha256 "f16eadc3c931b76eaebd8a99d84dadf0221d961b8d2086a47c4a01294667eaea" => :el_capitan
-    sha256 "c32b2a92af1b9b9dbd19f0fef2357e178ab5fbd6d0ef5f65873db9f620e52b8b" => :yosemite
-    sha256 "30fb2a811710def13ce920ce6a1edd8eccc0814ef8b6d442b33fdb47ea48c5a3" => :mavericks
+    sha256 "ee2963ca282ce3c07f7d04e07e13d24ced2945da91cddc13af7daa63d44f31c1" => :el_capitan
+    sha256 "6fcc4cac8e6667776d23dd16205798db9c1dcf5033ba20d977ffd98ee6c074da" => :yosemite
+    sha256 "c9dfbe5c31ad0afe6371e10b526fd18581b29a9d69fd99cedf826eb4f75485a6" => :mavericks
   end
 
   depends_on "libgpg-error"
