@@ -4,6 +4,7 @@ class Openvpn < Formula
   url "https://swupdate.openvpn.org/community/releases/openvpn-2.3.11.tar.xz"
   mirror "http://build.openvpn.net/downloads/releases/openvpn-2.3.11.tar.xz"
   sha256 "0f5f1ca1dc5743fa166d93dd4ec952f014b5f33bafd88f0ea34b455cae1434a7"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,8 +13,10 @@ class Openvpn < Formula
     sha256 "6a64d83068e97d4aa0fb63cacba14630c7c36e5d6e87e8bc5875fbd379d111bf" => :mavericks
   end
 
+  # Requires tuntap for < 10.10
+  depends_on :macos => :yosemite
+
   depends_on "lzo"
-  depends_on :tuntap if MacOS.version < :yosemite
   depends_on "openssl"
   depends_on "pkcs11-helper" => [:optional, "without-threading", "without-slotevent"]
 
@@ -25,13 +28,6 @@ class Openvpn < Formula
   end
 
   def install
-    # pam_appl header is installed in a different location on Leopard
-    # and older; reported upstream https://community.openvpn.net/openvpn/ticket/326
-    if MacOS.version < :snow_leopard
-      inreplace Dir["src/plugins/auth-pam/{auth-pam,pamdl}.c"],
-        "security/pam_appl.h", "pam/pam_appl.h"
-    end
-
     args = %W[
       --disable-debug
       --disable-dependency-tracking
@@ -59,21 +55,6 @@ class Openvpn < Formula
 
   def post_install
     (var/"run/openvpn").mkpath
-  end
-
-  def caveats
-    s = ""
-
-    if MacOS.version < :yosemite
-      s += <<-EOS.undent
-        If you have installed the Tuntap dependency as a source package you will
-        need to follow the instructions found in `brew info tuntap`. If you have
-        installed the binary Tuntap package, no further action is necessary.
-
-      EOS
-    end
-
-    s
   end
 
   plist_options :startup => true
