@@ -1,12 +1,21 @@
 class Go < Formula
   desc "Go programming environment"
   homepage "https://golang.org"
-  url "https://storage.googleapis.com/golang/go1.6.3.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.6.3.src.tar.gz"
-  version "1.6.3"
-  sha256 "6326aeed5f86cf18f16d6dc831405614f855e2d416a91fd3fdc334f772345b00"
-
   head "https://github.com/golang/go.git"
+
+  stable do
+    url "https://storage.googleapis.com/golang/go1.6.3.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.6.3.src.tar.gz"
+    version "1.6.3"
+    sha256 "6326aeed5f86cf18f16d6dc831405614f855e2d416a91fd3fdc334f772345b00"
+
+    go_version = "1.6"
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git",
+          :branch => "release-branch.go#{go_version}",
+          :revision => "c887be1b2ebd11663d4bf2fbca508c449172339e"
+    end
+  end
 
   bottle do
     sha256 "54159189e4779b8c34235bd3f18c62122b4826f478a0a6c9812fbcce608849bf" => :el_capitan
@@ -14,25 +23,23 @@ class Go < Formula
     sha256 "41a1322a0c302b9d7c74788f7d57cffc1296b627e77165507106412b3932d44a" => :mavericks
   end
 
-  go_version = "1.6"
-
   devel do
     url "https://storage.googleapis.com/golang/go1.7rc1.src.tar.gz"
     version "1.7rc1"
     sha256 "f26b42ea8d3de92efda5e2f7172b22d59e19676f23bbcf64412b32b4f4a5ff58"
+
     go_version = "1.7"
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git",
+          :branch => "release-branch.go#{go_version}",
+          :revision => "c887be1b2ebd11663d4bf2fbca508c449172339e"
+    end
   end
 
   option "without-cgo", "Build without cgo"
   option "without-godoc", "godoc will not be installed for you"
   option "without-vet", "vet will not be installed for you"
   option "without-race", "Build without race detector"
-
-  resource "gotools" do
-    url "https://go.googlesource.com/tools.git",
-    :branch => "release-branch.go#{go_version}",
-    :revision => "c887be1b2ebd11663d4bf2fbca508c449172339e"
-  end
 
   resource "gobootstrap" do
     if MacOS.version > :lion
