@@ -32,7 +32,7 @@ class Go < Formula
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
           :branch => "release-branch.go#{go_version}",
-          :revision => "c887be1b2ebd11663d4bf2fbca508c449172339e"
+          :revision => "527b253f588776e5f72a0a0d1e93195cd3f82707"
     end
   end
 
