@@ -24,9 +24,9 @@ class Go < Formula
   end
 
   devel do
-    url "https://storage.googleapis.com/golang/go1.7rc1.src.tar.gz"
-    version "1.7rc1"
-    sha256 "f26b42ea8d3de92efda5e2f7172b22d59e19676f23bbcf64412b32b4f4a5ff58"
+    url "https://storage.googleapis.com/golang/go1.7rc2.src.tar.gz"
+    version "1.7rc2"
+    sha256 "87bafefb093dd163d264099b39b1bcdc227f54f935b77f5ff74b0d57e3638da6"
 
     go_version = "1.7"
     resource "gotools" do
