@@ -14,18 +14,19 @@ class Go < Formula
     sha256 "41a1322a0c302b9d7c74788f7d57cffc1296b627e77165507106412b3932d44a" => :mavericks
   end
 
+  go_version = "1.6"
+
   devel do
     url "https://storage.googleapis.com/golang/go1.7rc1.src.tar.gz"
     version "1.7rc1"
     sha256 "f26b42ea8d3de92efda5e2f7172b22d59e19676f23bbcf64412b32b4f4a5ff58"
+    go_version = "1.7"
   end
 
   option "without-cgo", "Build without cgo"
   option "without-godoc", "godoc will not be installed for you"
   option "without-vet", "vet will not be installed for you"
   option "without-race", "Build without race detector"
-
-  go_version = "1.6"
 
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
@@ -87,7 +88,9 @@ class Go < Formula
         bin.install_symlink libexec/"bin/godoc"
       end
 
-      if build.with? "vet"
+      # go vet is now part of the standard Go toolchain. Remove this block
+      # and the option once Go 1.7 is released
+      if build.with?("vet") && File.exist?("src/golang.org/x/tools/cmd/vet/")
         cd "src/golang.org/x/tools/cmd/vet/" do
           system "go", "build"
           # This is where Go puts vet natively; not in the bin.
