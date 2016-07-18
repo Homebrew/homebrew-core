@@ -6,9 +6,9 @@ class Deisctl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ae17d6bda26e9c497c1424d098538ac96c821ccd39966a7d391155b1311f5240" => :el_capitan
-    sha256 "2ca0059e5a3a156ceefcf2191940368c8fcf47b884ac9c12f570545d2c37e022" => :yosemite
-    sha256 "71c7e4237c0163eae73d0bca9caa722fe8abe980b95d0e5e9ca8d5f46f492a81" => :mavericks
+    sha256 "08d1e5bad11d8ab1555bef30e7bfdf0437b493f3e18dd1dd48934d48172f428b" => :el_capitan
+    sha256 "a7c22bf596d3167c0a74abe1bb0d84dcfb9eadd986d6b6c73241d1a18fd2666b" => :yosemite
+    sha256 "0feba5e74ba401b1d8d39d623f716924dad54614a3cb00fe55faaac651866af5" => :mavericks
   end
 
   depends_on "go" => :build
