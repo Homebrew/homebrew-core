@@ -7,6 +7,7 @@ class PandocCiteproc < Formula
   homepage "https://github.com/jgm/pandoc-citeproc"
   url "https://hackage.haskell.org/package/pandoc-citeproc-0.10.1/pandoc-citeproc-0.10.1.tar.gz"
   sha256 "ebc3eb3ff95e97ebd46c0918a65db2da021de2a70d02dc85ca5b344ea5c21205"
+  head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
     sha256 "9ea68bf53585b7033415dfe6bde764ab98bd417e3bbd16c64b07ee496067ab00" => :el_capitan
@@ -25,8 +26,7 @@ class PandocCiteproc < Formula
   end
 
   test do
-    bib = testpath/"test.bib"
-    bib.write <<-EOS.undent
+    (testpath/"test.bib").write <<-EOS.undent
       @Book{item1,
       author="John Doe",
       title="First Book",
@@ -35,6 +35,21 @@ class PandocCiteproc < Formula
       publisher="Cambridge University Press"
       }
     EOS
-    system "pandoc-citeproc", "--bib2yaml", bib
+    expected = <<-EOS.undent
+      ---
+      references:
+      - id: item1
+        type: book
+        author:
+        - family: Doe
+          given: John
+        issued:
+        - year: '2005'
+        title: First book
+        publisher: Cambridge University Press
+        publisher-place: Cambridge
+      ...
+    EOS
+    assert_equal expected, shell_output("#{bin}/pandoc-citeproc -y test.bib")
   end
 end
