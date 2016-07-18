@@ -5,10 +5,9 @@ class Frescobaldi < Formula
   sha256 "b426bd53d54fdc4dfc16fcfbff957fdccfa319d6ac63614de81f6ada5044d3e6"
 
   bottle do
-    sha256 "6fdac72c8203c0585515a1bba8f36faea8b394a8852b258b7f630273c818b9e9" => :el_capitan
-    sha256 "2b11cbd21fef365684ec0be8543a557fbc943ce9832b5c2b7b5204a081de74aa" => :yosemite
-    sha256 "c592d71f41e66f3f5115c8eac982344fa903eff02a7e3a011852a5ee3e39d968" => :mavericks
-    sha256 "cc6e9b3a940690ae225a157f4a0d95aec4db46f0ccf78442a99ae941f7a358a0" => :mountain_lion
+    sha256 "870a7b212350aae4690c78229ffaae0142bc1562123dd854a5354ff9b26b3793" => :el_capitan
+    sha256 "26e48b5718d55f9422aa8f42d5f762801f059f5b255dc29d57670eca24f26357" => :yosemite
+    sha256 "28d163ba9f0a8fede7c15b8454ae124bdc012558099ede1f09d3e01a7b0d2726" => :mavericks
   end
 
   option "with-lilypond", "Install Lilypond from Homebrew/tex"
