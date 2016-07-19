@@ -4,7 +4,7 @@ class Dirmngr < Formula
   url "https://gnupg.org/ftp/gcrypt/dirmngr/dirmngr-1.1.1.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/dirmngr/dirmngr-1.1.1.tar.bz2"
   sha256 "d2280b8c314db80cdaf101211a47826734443436f5c3545cc1b614c50eaae6ff"
-  revision 1
+  revision 2
 
   bottle do
     revision 2
@@ -30,7 +30,8 @@ class Dirmngr < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}"
+                          "--sysconfdir=#{etc}",
+                          "--localstatedir=#{var}"
     system "make"
     system "make", "install"
   end
