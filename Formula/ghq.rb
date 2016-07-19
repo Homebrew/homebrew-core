@@ -50,14 +50,13 @@ class Ghq < Formula
   end
 
   def install
-    mkdir_p "#{buildpath}/src/github.com/motemen/"
-    ln_s buildpath, "#{buildpath}/src/github.com/motemen/ghq"
+    mkdir_p buildpath/"src/github.com/motemen/"
+    ln_s buildpath, buildpath/"src/github.com/motemen/ghq"
     ENV["GOPATH"] = buildpath
-    ENV.append_path "PATH", "#{ENV["GOPATH"]}/bin"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    system "go", "build", "-ldflags", "-X main.Version #{version}", "-o", "ghq"
-    bin.install "ghq"
+    system "go", "build", "-ldflags", "-X main.Version=#{version}",
+                          "-o", bin/"ghq"
     zsh_completion.install "zsh/_ghq" if build.with? "completions"
   end
 
