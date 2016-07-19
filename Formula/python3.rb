@@ -150,7 +150,9 @@ class Python3 < Formula
     end
 
     # Allow sqlite3 module to load extensions: https://docs.python.org/library/sqlite3.html#f1
-    inreplace("setup.py", 'sqlite_defines.append(("SQLITE_OMIT_LOAD_EXTENSION", "1"))', "pass") if build.with? "sqlite"
+    if MacOS.version < :sierra && build.with?("sqlite")
+      inreplace("setup.py", 'sqlite_defines.append(("SQLITE_OMIT_LOAD_EXTENSION", "1"))', "pass")
+    end
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
     # even if homebrew is not a /usr/local/lib. Try this with:
