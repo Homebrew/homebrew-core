@@ -7,6 +7,7 @@ class Gnupg2 < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   sha256 "e329785a4f366ba5d72c2c678a7e388b0892ac8440c2f4e6810042123c235d71"
+  revision 1
 
   bottle do
     sha256 "d06e6713dde77b49fa895cec8854db0a1b46204a3575fafa6f42c7f2c09530bb" => :el_capitan
