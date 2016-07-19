@@ -1,9 +1,9 @@
 class Pig < Formula
   desc "Platform for analyzing large data sets"
   homepage "https://pig.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=pig/pig-0.15.0/pig-0.15.0.tar.gz"
-  mirror "https://archive.apache.org/dist/pig/pig-0.15.0/pig-0.15.0.tar.gz"
-  sha256 "c52112ca618daaca298cf068e6451449fe946e8dccd812d56f8f537aa275234b"
+  url "https://www.apache.org/dyn/closer.cgi?path=pig/pig-0.16.0/pig-0.16.0.tar.gz"
+  mirror "https://archive.apache.org/dist/pig/pig-0.16.0/pig-0.16.0.tar.gz"
+  sha256 "08947c3f381a1f810430c3703081277bd0b27ac3f76c5a52c096ea587e7ee95c"
 
   bottle :unneeded
 
