@@ -193,6 +193,7 @@
   "pdfjam": "homebrew/tex",
   "pdftoipe": "homebrew/head-only",
   "pebble-sdk": "pebble/pebble-sdk",
+  "peervpn": "homebrew/boneyard",
   "pgplot": "homebrew/x11",
   "phash": "homebrew/boneyard",
   "pixie": "homebrew/x11",
