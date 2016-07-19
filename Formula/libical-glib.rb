@@ -34,8 +34,7 @@ class LibicalGlib < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     libical = Formula["libical"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
