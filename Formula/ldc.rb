@@ -1,6 +1,7 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
+  revision 1
 
   stable do
     url "https://github.com/ldc-developers/ldc/releases/download/v1.0.0/ldc-1.0.0-src.tar.gz"
@@ -29,7 +30,7 @@ class Ldc < Formula
   needs :cxx11
 
   depends_on "cmake" => :build
-  depends_on "llvm" => :build
+  depends_on "llvm"
   depends_on "libconfig"
 
   def install
