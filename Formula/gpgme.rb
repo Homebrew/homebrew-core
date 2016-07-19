@@ -4,6 +4,7 @@ class Gpgme < Formula
   url "https://gnupg.org/ftp/gcrypt/gpgme/gpgme-1.6.0.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gpgme/gpgme-1.6.0.tar.bz2"
   sha256 "b09de4197ac280b102080e09eaec6211d081efff1963bf7821cf8f4f9916099d"
+  revision 1
 
   bottle do
     cellar :any
@@ -36,8 +37,10 @@ class Gpgme < Formula
                           "--prefix=#{prefix}",
                           "--enable-static"
     system "make"
-    system "make", "check"
     system "make", "install"
+
+    # avoid triggering mandatory rebuilds of software that hard-codes this path
+    inreplace bin/"gpgme-config", prefix, opt_prefix
   end
 
   test do
