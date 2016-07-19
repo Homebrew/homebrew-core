@@ -7,9 +7,9 @@ class Fping < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5acae93b5ae34fe14b62a8b432cf49fff4a67ccfe3d4b1795730d055df72b2bc" => :el_capitan
-    sha256 "e1fe3659afb3979ddceb3015297cdfe84637d1d303508376294a311b85540f0a" => :yosemite
-    sha256 "c8a38daff4c51ffbfa0c76a75e84b574f1dc5e302c24edfc43336c3c6a70338a" => :mavericks
+    sha256 "cf5686f1319e39cb12b440119f703d854caa61ad6f228c900e3f4bd843486e0c" => :el_capitan
+    sha256 "30ff58bad8f3fae892bb06f7b1b23780cdf74de27ae902bcc4deea7a25a03d19" => :yosemite
+    sha256 "e04ff465c10f41339c09466c58a81f336fe985dfa038cc9c6aeec580fbd53b1d" => :mavericks
   end
 
   head do
