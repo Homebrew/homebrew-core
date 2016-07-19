@@ -8,10 +8,10 @@ class Forego < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "43023b8d7dced63e30b15df1381d08ea0c3da8dada801c1e74ad733785333ec1" => :el_capitan
-    sha256 "b5250bbca85972af704278f539b5b95fe0b2f1f17e3174299353ad79e8955e02" => :yosemite
-    sha256 "39be1155c04fe129cc63c3b131ba4e302daaf09cf6faa76c79461f2c75d7c725" => :mavericks
+    revision 2
+    sha256 "db597e351270dd29d239af3e144c3e73ae588305267610365f218a9fbef784ee" => :el_capitan
+    sha256 "75463485e3de109732c7b046f159a08c4b282fc2ea95ce7be2281b829726a3d7" => :yosemite
+    sha256 "d60bb47949dfc148d0e6788c3389c392a479bbb6b1e17acad0ce45a1e90bbe6b" => :mavericks
   end
 
   depends_on "go" => :build
