@@ -140,7 +140,7 @@ class Python < Formula
 
     # Allow sqlite3 module to load extensions:
     # https://docs.python.org/library/sqlite3.html#f1
-    if build.with? "sqlite"
+    if MacOS.version < :sierra && build.with?("sqlite")
       inreplace("setup.py", 'sqlite_defines.append(("SQLITE_OMIT_LOAD_EXTENSION", "1"))', "")
     end
 
