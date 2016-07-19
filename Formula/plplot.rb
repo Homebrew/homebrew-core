@@ -49,8 +49,7 @@ class Plplot < Formula
         return 0;
       }
     EOS
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{include}/plplot
       -L#{lib}
       -lcsirocsa
