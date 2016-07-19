@@ -274,6 +274,7 @@
   "visualnetkit": "homebrew/boneyard",
   "vmalloc": "homebrew/boneyard",
   "vobcopy": "homebrew/boneyard",
+  "vpnc": "homebrew/boneyard",
   "wdfs": "homebrew/fuse",
   "whereami": "homebrew/boneyard",
   "why3": "homebrew/tex",
