@@ -3,8 +3,8 @@ require "language/go"
 class SSearch < Formula
   desc "Web search from the terminal"
   homepage "https://github.com/zquestz/s"
-  url "https://github.com/zquestz/s/archive/v0.5.3.tar.gz"
-  sha256 "e2cf0398899becc92df4d1a153c7fd523e1f50c7d708f575ab0e69e51b046903"
+  url "https://github.com/zquestz/s/archive/v0.5.4.tar.gz"
+  sha256 "d607d44642b136a6a8dbc27a7867e97a92075ba32e66680a977717a930360ed9"
   head "https://github.com/zquestz/s.git"
 
   bottle do
