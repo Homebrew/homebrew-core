@@ -26,15 +26,14 @@ class Websocketd < Formula
   end
 
   def install
-    ENV["GOBIN"] = bin
     ENV["GOPATH"] = buildpath
-    ENV["GOHOME"] = buildpath
 
     mkdir_p buildpath/"src/github.com/joewalnes/"
     ln_sf buildpath, buildpath/"src/github.com/joewalnes/websocketd"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    system "go", "build", "-ldflags", "-X main.version #{version}", "-o", bin/"websocketd", "main.go", "config.go", "help.go", "version.go"
+    system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"websocketd",
+                          "main.go", "config.go", "help.go", "version.go"
     man1.install "release/websocketd.man" => "websocketd.1"
   end
 
