@@ -37,12 +37,21 @@ class Ldc < Formula
     (buildpath/"ldc-lts").install resource("ldc-lts")
     cd "ldc-lts" do
       mkdir "build" do
-        system "cmake", "..", *std_cmake_args
+        args = std_cmake_args + %W[
+          -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
+        ]
+        system "cmake", "..", *args
         system "make"
       end
     end
     mkdir "build" do
-      system "cmake", "..", "-DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc", "-DD_COMPILER=#{buildpath}/ldc-lts/build/bin/ldmd2", *std_cmake_args
+      args = std_cmake_args + %W[
+        -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
+        -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
+        -DD_COMPILER=#{buildpath}/ldc-lts/build/bin/ldmd2
+      ]
+
+      system "cmake", "..", *args
       system "make"
       system "make", "install"
     end
@@ -56,9 +65,9 @@ class Ldc < Formula
       }
     EOS
 
-    system "#{bin}/ldc2", "test.d"
-    system "./test"
-    system "#{bin}/ldmd2", "test.d"
-    system "./test"
+    system bin/"ldc2", "test.d"
+    assert_match "Hello, world!", shell_output("./test")
+    system bin/"ldmd2", "test.d"
+    assert_match "Hello, world!", shell_output("./test")
   end
 end
