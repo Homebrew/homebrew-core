@@ -1,11 +1,9 @@
 class Fping < Formula
   desc "Scriptable ping program for checking if multiple hosts are up"
   homepage "http://fping.org/"
-  url "http://fping.org/dist/fping-3.10.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/f/fping/fping_3.10.orig.tar.gz"
-  sha256 "cd47e842f32fe6aa72369d8a0e3545f7c137bb019e66f47379dc70febad357d8"
-
-  head "https://github.com/schweikert/fping.git"
+  url "http://fping.org/dist/fping-3.13.tar.gz"
+  mirror "https://mirrors.kernel.org/debian/pool/main/f/fping/fping_3.13.orig.tar.gz"
+  sha256 "4bb28efd1cb3d1240ae551dadc20daa852b1ba71bafe32e49ca629c1848e5720"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,11 +12,23 @@ class Fping < Formula
     sha256 "c8a38daff4c51ffbfa0c76a75e84b574f1dc5e302c24edfc43336c3c6a70338a" => :mavericks
   end
 
+  head do
+    url "https://github.com/schweikert/fping.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   def install
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--sbindir=#{bin}",
                           "--enable-ipv6"
     system "make", "install"
+  end
+
+  test do
+    output = shell_output("#{bin}/fping -A localhost")
+    assert_equal "127.0.0.1 is alive", output.chomp
   end
 end
