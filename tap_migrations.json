@@ -119,6 +119,7 @@
   "ifuse": "homebrew/fuse",
   "imake": "homebrew/x11",
   "inkscape": "homebrew/gui",
+  "iodine": "homebrew/boneyard",
   "iojs": "homebrew/versions",
   "ipe": "homebrew/boneyard",
   "ipopt": "homebrew/science",
