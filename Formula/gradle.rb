@@ -16,11 +16,11 @@ class Gradle < Formula
 
   def install
     libexec.install %w[bin lib]
-    bin.install_symlink libexec+"bin/gradle"
+    bin.install_symlink libexec/"bin/gradle"
   end
 
   test do
     ENV.java_cache
-    assert_match(/Gradle #{version}/, shell_output("#{bin}/gradle --version"))
+    assert_match version.to_s, shell_output("#{bin}/gradle --version")
   end
 end
