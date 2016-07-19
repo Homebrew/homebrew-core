@@ -1,8 +1,8 @@
 class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com/wolfSSL/Home.html"
-  url "https://github.com/wolfSSL/wolfssl/archive/v3.9.0.tar.gz"
-  sha256 "9d461209f663391d4c0349c23466556782c13964b9626fef694f2d420a176658"
+  url "https://github.com/wolfSSL/wolfssl/archive/v3.9.6.tar.gz"
+  sha256 "d32422ef76cec78fea6e51a96cc9e999d64be75b9c1d0f14fa9237507bed4467"
   head "https://github.com/wolfSSL/wolfssl.git"
 
   bottle do
@@ -49,11 +49,11 @@ class Wolfssl < Formula
       --enable-chacha
       --enable-crl
       --enable-crl-monitor
+      --enable-curve25519
       --enable-dtls
       --enable-dh
       --enable-ecc
       --enable-eccencrypt
-      --enable-ecc25519
       --enable-ed25519
       --enable-filesystem
       --enable-hc128
