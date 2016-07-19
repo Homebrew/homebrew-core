@@ -1,5 +1,3 @@
-require "language/go"
-
 class Forego < Formula
   desc "Foreman in Go"
   homepage "https://github.com/ddollar/forego"
@@ -19,26 +17,13 @@ class Forego < Formula
   depends_on "go" => :build
   depends_on "godep" => :build
 
-  go_resource "github.com/kr/fs" do
-    url "https://github.com/kr/fs.git",
-        :revision => "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
-  end
-
-  go_resource "golang.org/x/tools" do
-    url "https://go.googlesource.com/tools",
-        :using => :git,
-        :revision => "b1aed1a596ad02d2aa2eb5c5af431a7ba2f6afc4"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
     mkdir_p buildpath/"src/github.com/ddollar/"
     ln_sf buildpath, buildpath/"src/github.com/ddollar/forego"
-    Language::Go.stage_deps resources, buildpath/"src"
 
-    ldflags = "-X main.Version #{version} -X main.allowUpdate false"
-    system "godep", "go", "build", "-ldflags", ldflags, "-o", "forego"
-    bin.install "forego"
+    ldflags = "-X main.Version=#{version} -X main.allowUpdate=false"
+    system "godep", "go", "build", "-ldflags", ldflags, "-o", bin/"forego"
   end
 
   test do
