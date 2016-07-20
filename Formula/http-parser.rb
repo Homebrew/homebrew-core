@@ -1,8 +1,8 @@
 class HttpParser < Formula
   desc "HTTP request/response parser for c"
   homepage "https://github.com/nodejs/http-parser"
-  url "https://github.com/nodejs/http-parser/archive/v2.7.0.tar.gz"
-  sha256 "b0c5bf03fe9a57c4e63760d19d5a51d3063e0502cae54b3a8f2f6c6eb6911167"
+  url "https://github.com/nodejs/http-parser/archive/v2.7.1.tar.gz"
+  sha256 "70409ad324e5de2da6a0f39e859e566d497c1ff0a249c0c38a5012df91b386b3"
 
   bottle do
     cellar :any
@@ -15,12 +15,13 @@ class HttpParser < Formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "INSTALL=ginstall"
-    share.install "test.c"
+    pkgshare.install "test.c"
   end
 
   test do
     # Set HTTP_PARSER_STRICT=0 to bypass "tab in URL" test on OS X
-    system ENV.cc, share/"test.c", "-o", "test", "-lhttp_parser", "-DHTTP_PARSER_STRICT=0"
+    system ENV.cc, pkgshare/"test.c", "-o", "test", "-L#{lib}", "-lhttp_parser",
+           "-DHTTP_PARSER_STRICT=0"
     system "./test"
   end
 end
