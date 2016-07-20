@@ -1,9 +1,9 @@
 class Virtuoso < Formula
   desc "High-performance object-relational SQL database"
   homepage "https://virtuoso.openlinksw.com/wiki/main/"
-  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.1/virtuoso-opensource-7.2.1.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/virtuoso/virtuoso/7.2.1/virtuoso-opensource-7.2.1.tar.gz"
-  sha256 "8e680173f975266046cdc33b0949c6c3320b82630288aed778524657a32ee094"
+  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.4.2/virtuoso-opensource-7.2.4.2.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/virtuoso/virtuoso/7.2.4.2/virtuoso-opensource-7.2.4.2.tar.gz"
+  sha256 "028075d3cf1970dbb9b79f660c833771de8be5be7403b9001d6907f64255b889"
 
   bottle do
     cellar :any
@@ -23,6 +23,7 @@ class Virtuoso < Formula
   # If gawk isn't found, make fails deep into the process.
   depends_on "gawk" => :build
   depends_on "openssl"
+  depends_on "xz" => :linked
 
   conflicts_with "unixodbc", :because => "Both install `isql` binaries."
 
