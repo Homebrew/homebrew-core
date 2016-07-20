@@ -1,8 +1,8 @@
 class Bmon < Formula
   desc "Interface bandwidth monitor"
   homepage "https://github.com/tgraf/bmon"
-  url "https://github.com/tgraf/bmon/releases/download/v3.8/bmon-3.8.tar.gz"
-  sha256 "da3e9f5f82f6e65bf08d912cc1e6ba450e488c543151f4b37791da03373054ff"
+  url "https://github.com/tgraf/bmon/releases/download/v3.9/bmon-3.9.tar.gz"
+  sha256 "9c08332520497ef1d51a733ca531ffedbb5a30c7c3f55579efe86c36138f93e1"
 
   bottle do
     sha256 "7215050b89d4cbf877365c7a66885ca80be97f94b0cace93dc51cc1b29c2108e" => :el_capitan
@@ -17,8 +17,8 @@ class Bmon < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "confuse" => :build
   depends_on "pkg-config" => :build
+  depends_on "confuse" => :linked
 
   def install
     system "./autogen.sh" if build.head?
@@ -29,6 +29,6 @@ class Bmon < Formula
   end
 
   test do
-    system "#{bin}/bmon", "-o", "ascii:quitafter=1"
+    system bin/"bmon", "-o", "ascii:quitafter=1"
   end
 end
