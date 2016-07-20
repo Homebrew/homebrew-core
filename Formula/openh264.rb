@@ -3,6 +3,8 @@ class Openh264 < Formula
   homepage "http://www.openh264.org"
   url "https://github.com/cisco/openh264/archive/v1.6.0.tar.gz"
   sha256 "65d307bf312543ad6e98ec02abb7c27d8fd2c9740fd069d7249844612674a2c7"
+  revision 1
+
   head "https://github.com/cisco/openh264.git"
 
   bottle do
