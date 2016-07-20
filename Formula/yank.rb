@@ -1,8 +1,8 @@
 class Yank < Formula
-  desc "Yank terminal output to clipboard"
+  desc "Copy terminal output to clipboard"
   homepage "https://github.com/mptre/yank"
-  url "https://github.com/mptre/yank/archive/v0.6.4.tar.gz"
-  sha256 "4794bd1e5eba2358b63253e750c547a2791e663105d91b18cd4818e0a534e75f"
+  url "https://github.com/mptre/yank/archive/v0.7.0.tar.gz"
+  sha256 "7f147741462303e9a7530435ea8c0ba243054516a67f321c63bec2cedd593685"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,11 +16,10 @@ class Yank < Formula
   end
 
   test do
-    (testpath/"test").write <<-EOS.undent
-      #!/usr/bin/expect -f
+    (testpath/"test.exp").write <<-EOS.undent
       spawn sh
       set timeout 1
-      send "echo key=value | yank -d = | cat"
+      send "echo key=value | #{bin}/yank -d = | cat"
       send "\r"
       send "\016"
       send "\r"
@@ -29,7 +28,6 @@ class Yank < Formula
             timeout { send "exit\r"; exit 1 }
       }
     EOS
-    (testpath/"test").chmod 0755
-    system "./test"
+    system "expect", "-f", "test.exp"
   end
 end
