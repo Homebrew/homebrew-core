@@ -1,8 +1,9 @@
 class Latexml < Formula
   desc "LaTeX to XML/HTML/MathML Converter"
   homepage "http://dlmf.nist.gov/LaTeXML"
-  url "https://github.com/brucemiller/LaTeXML/archive/v0.8.1.tar.gz"
-  sha256 "2ba1a580258ff5c7e3d9c2b40fd15cb4c92e388e5cd6b6127e8fbf9b1b9c63ce"
+  url "http://dlmf.nist.gov/LaTeXML/releases/LaTeXML-0.8.2.tar.gz"
+  sha256 "3d41a3012760d31d721b569d8c1b430cde1df2b68fcc3c66f41ec640965caabf"
+  head "https://github.com/brucemiller/LaTeXML.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +16,11 @@ class Latexml < Formula
     url "https://cpan.metacpan.org/authors/id/R/RJ/RJRAY/Image-Size-3.300.tar.gz"
     mirror "http://search.cpan.org/CPAN/authors/id/R/RJ/RJRAY/Image-Size-3.300.tar.gz"
     sha256 "53c9b1f86531cde060ee63709d1fda73cabc0cf2d581d29b22b014781b9f026b"
+  end
+
+  resource "Text::Unidecode" do
+    url "http://search.cpan.org/CPAN/authors/id/S/SB/SBURKE/Text-Unidecode-1.27.tar.gz"
+    sha256 "11876a90f0ce858d31203e80d62900383bb642ed8a470c67539b607f2a772d02"
   end
 
   def install
@@ -46,6 +52,6 @@ class Latexml < Formula
     \\end{document}
     EOS
     assert_match %r{<title>LaTeXML Homebrew Test</title>},
-      shell_output("#{bin}/latexml --quiet #{testpath}/test.tex 2>/dev/null")
+      shell_output("#{bin}/latexml --quiet #{testpath}/test.tex")
   end
 end
