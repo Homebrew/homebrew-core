@@ -29,4 +29,9 @@ class Lynis < Formula
     bin.install "lynis"
     man8.install "lynis.8"
   end
+
+ test do
+    # has return code 1 when finding invalid option
+    assert_match "lynis", shell_output("#{bin}/lynis --invalid 2>&1", 64)
+  end
 end
