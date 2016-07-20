@@ -39,7 +39,7 @@ class Bind < Formula
   end
 
   def post_install
-    (var+"log/named").mkpath
+    (var/"log/named").mkpath
 
     # Create initial configuration/zone/ca files.
     # (Mirrors Apple system install from 10.8)
