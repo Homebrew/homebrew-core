@@ -40,8 +40,11 @@ class Percol < Formula
   end
 
   test do
+    (testpath/"textfile").write <<-EOS.undent
+      Homebrew, the missing package manager for OS X.
+    EOS
     (testpath/"expect-script").write <<-EOS.undent
-      spawn #{bin}/percol --query=Homebrew #{HOMEBREW_PREFIX}/README.md
+      spawn #{bin}/percol --query=Homebrew textfile
       expect "QUERY> Homebrew"
     EOS
     assert_match "Homebrew", shell_output("/usr/bin/expect -f expect-script")
