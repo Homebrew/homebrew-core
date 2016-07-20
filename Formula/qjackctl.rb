@@ -1,12 +1,9 @@
 class Qjackctl < Formula
   desc "simple Qt application to control the JACK sound server daemon"
   homepage "http://qjackctl.sourceforge.net"
-  head "http://git.code.sf.net/p/qjackctl/code", :using=>:git
-
-  stable do
-    url "https://downloads.sourceforge.net/qjackctl/qjackctl-0.4.2.tar.gz"
-    sha256 "cf1c4aff22f8410feba9122e447b1e28c8fa2c71b12cfc0551755d351f9eaf5e"
-  end
+  url "https://downloads.sourceforge.net/qjackctl/qjackctl-0.4.2.tar.gz"
+  sha256 "cf1c4aff22f8410feba9122e447b1e28c8fa2c71b12cfc0551755d351f9eaf5e"
+  head "http://git.code.sf.net/p/qjackctl/code", :using => :git
 
   bottle do
     sha256 "881297bbb05a0367be914b6c696a1fd38b1591906dfd08077a827f6c28dda692" => :el_capitan
@@ -27,11 +24,12 @@ class Qjackctl < Formula
                           "--prefix=#{prefix}"
 
     system "make", "install"
-    prefix.install "#{bin}/qjackctl.app"
-    bin.install_symlink "#{prefix}/qjackctl.app/Contents/MacOS/qjackctl"
+    prefix.install bin/"qjackctl.app"
+    bin.install_symlink prefix/"qjackctl.app/Contents/MacOS/qjackctl"
   end
 
   test do
-    assert_match /QjackCtl: \d+\.\b+/, shell_output("qjackctl --version 2>&1", 1)
+    output = shell_output("#{bin}/qjackctl --version 2>&1", 1)
+    assert_match version.to_s, output
   end
 end
