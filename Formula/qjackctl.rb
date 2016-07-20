@@ -17,9 +17,9 @@ class Qjackctl < Formula
   end
 
   bottle do
-    sha256 "5eb11af861de629ba8afba7d75c71b02029817a69d2a6a2db15f13fb3bea9594" => :el_capitan
-    sha256 "5cf871c347c52298c161c83443f12a825cd18ce8037286dcc9cd552ab3857e9e" => :yosemite
-    sha256 "671c6d52aa37729c4471390673310fa90c68139dae697f1630552b3b2511d690" => :mavericks
+    sha256 "881297bbb05a0367be914b6c696a1fd38b1591906dfd08077a827f6c28dda692" => :el_capitan
+    sha256 "2d86adb7ea68a8b7dd18c7f00a53aa7191c910bf0d985b931a76587e91f864ca" => :yosemite
+    sha256 "41f607f3a331eaa2c5be1aaaf3e7f173b58975e24a3d4d78aaa8f21a74d70025" => :mavericks
   end
 
   depends_on "autoconf" => :build
