@@ -6,14 +6,6 @@ class Qjackctl < Formula
   stable do
     url "https://downloads.sourceforge.net/qjackctl/qjackctl-0.4.2.tar.gz"
     sha256 "cf1c4aff22f8410feba9122e447b1e28c8fa2c71b12cfc0551755d351f9eaf5e"
-    # fixes compile error with getDeviceUIDFromID and combo box device selection is general
-    # also fixes linking without X11
-    #
-    # patch is composed of
-    # https://sourceforge.net/p/qjackctl/code/ci/ce7bbc6814da9be44b9320fbe20dd524516d525f
-    # https://sourceforge.net/p/qjackctl/code/ci/1983c9c4ce3ef663e29e8d07addee1d6856664fd
-    # https://sourceforge.net/p/qjackctl/code/ci/979f0a5afef3107288b17a508966ca5f27ce7069
-    patch :DATA
   end
 
   bottle do
@@ -43,5 +35,3 @@ class Qjackctl < Formula
     assert_match /QjackCtl: \d+\.\b+/, shell_output("qjackctl --version 2>&1", 1)
   end
 end
-
-__END__
