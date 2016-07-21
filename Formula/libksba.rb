@@ -8,9 +8,9 @@ class Libksba < Formula
 
   bottle do
     cellar :any
-    sha256 "0dad12f817ca2c61cb4f1426698901d3adb6c23ae443a870921d515c74a67f76" => :el_capitan
-    sha256 "123d144d93b05838ce214ce58d8f57c0f0c6a78369d8dcc4340243fcc52ccb7b" => :yosemite
-    sha256 "f9132545434af2ab14457b574233aedabe15d0b843ca4a554f7f5e5bbb011af3" => :mavericks
+    sha256 "3749554e37d40462d49cbb604cf07c2ed16165fe9ff54c55cd025e748f9907fc" => :el_capitan
+    sha256 "5f1a4115836df7c235cc8961eec1d07a7c9142368bf2e46b99a3fb5d7d65e2ee" => :yosemite
+    sha256 "52bdf9b140ebfcc20291056e1a6c38c88987d518c41c5ac857e212751be598d0" => :mavericks
   end
 
   depends_on "libgpg-error"
