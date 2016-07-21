@@ -1,8 +1,8 @@
 class Harfbuzz < Formula
   desc "OpenType text shaping engine"
   homepage "https://wiki.freedesktop.org/www/Software/HarfBuzz/"
-  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.2.7.tar.bz2"
-  sha256 "bba0600ae08b84384e6d2d7175bea10b5fc246c4583dc841498d01894d479026"
+  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.3.0.tar.bz2"
+  sha256 "b04be31633efee2cae1d62d46434587302554fa837224845a62565ec68a0334d"
 
   bottle do
     sha256 "5e544a9ef6aa19e9700659d4c244cf8f32ccb430a2ed4ecaf806010920126ff4" => :el_capitan
@@ -29,6 +29,7 @@ class Harfbuzz < Formula
   depends_on "icu4c" => :recommended
   depends_on "cairo" => :optional
   depends_on "graphite2" => :optional
+  depends_on "gettext" => :linked
 
   resource "ttf" do
     url "https://github.com/behdad/harfbuzz/raw/fc0daafab0336b847ac14682e581a8838f36a0bf/test/shaping/fonts/sha1sum/270b89df543a7e48e206a2d830c0e10e5265c630.ttf"
@@ -42,14 +43,30 @@ class Harfbuzz < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --enable-introspection=yes
+      --with-freetype=yes
+      --with-glib=yes
       --with-gobject=yes
       --with-coretext=yes
       --enable-static
     ]
 
-    args << "--with-icu" if build.with? "icu4c"
-    args << "--with-graphite2" if build.with? "graphite2"
-    args << "--with-cairo" if build.with? "cairo"
+    if build.with? "icu4c"
+      args << "--with-icu=yes"
+    else
+      args << "--with-icu=no"
+    end
+
+    if build.with? "graphite2"
+      args << "--with-graphite2=yes"
+    else
+      args << "--with-graphite2=no"
+    end
+
+    if build.with? "cairo"
+      args << "--with-cairo=yes"
+    else
+      args << "--with-cairo=no"
+    end
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
