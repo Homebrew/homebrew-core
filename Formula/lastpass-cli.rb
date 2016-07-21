@@ -7,9 +7,9 @@ class LastpassCli < Formula
 
   bottle do
     cellar :any
-    sha256 "abf5e87bfdf5953746476f5ac1bc7b44cd51ea94af1f32f07bd0f3c93b89d4ce" => :el_capitan
-    sha256 "e8ca9db904d637852830910ff8905c4be206a7b15ebbf04c0e1ead5073ea9642" => :yosemite
-    sha256 "bf2a47f74b67df21875b3a01e87acad4d5e3d69ccff79987d73ca56e8020134a" => :mavericks
+    sha256 "42710f8cf1bef7628e61251e10bd0bf2a36f219e950fd40fb9d93561f87f4335" => :el_capitan
+    sha256 "6d8a04d5bab5db00b80f5d6a35c639040ca0494e81ee85e7ae21bb52d8e617b8" => :yosemite
+    sha256 "dc2eb72ebe79a0963dc9cae50ec6a38633740866b356e7521f37bf1c586a37f0" => :mavericks
   end
 
   option "with-doc", "Install man pages"
