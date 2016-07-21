@@ -1,6 +1,6 @@
 class Libtbox < Formula
-  desc "A glib-like multi-platform c library"
-  homepage "https://tboox.org"
+  desc "Glib-like multi-platform c library"
+  homepage "http://www.tboox.org"
   url "https://github.com/waruqi/tbox/archive/v1.5.2.tar.gz"
   sha256 "c470a8a5b8f84d928d83af87c8f69c87ec9ecb6f89017bef93dc0d188e91a8c6"
   head "https://github.com/waruqi/tbox.git"
@@ -8,15 +8,7 @@ class Libtbox < Formula
   depends_on "xmake" => :build
 
   def install
-    args = ["--smallest=y"]
-    args << "--demo=n"
-    args << "--xml=y"
-    args << "--asio=y"
-    args << "--thread=y"
-    args << "--network=y"
-    args << "--charset=y"
-
-    system "xmake", "config", *args
+    system "xmake", "config", "--smallest=y", "--demo=n", "--xml=y", "--asio=y", "--thread=y", "--network=y", "--charset=y"
     system "xmake", "install", "-o", prefix
   end
 
@@ -34,5 +26,6 @@ class Libtbox < Formula
       }
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-ltbox", "-I#{include}", "-o", "test"
+    system "./test"
   end
 end
