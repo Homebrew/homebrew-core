@@ -43,7 +43,6 @@ class Agda < Formula
     depends_on "cabal-install" => :build
   end
 
-  depends_on "gmp"
   depends_on :emacs => ["23.4", :recommended]
 
   def install
