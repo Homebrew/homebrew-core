@@ -4,6 +4,7 @@ class Libksba < Formula
   url "https://gnupg.org/ftp/gcrypt/libksba/libksba-1.3.4.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libksba/libksba-1.3.4.tar.bz2"
   sha256 "f6c2883cebec5608692d8730843d87f237c0964d923bbe7aa89c05f20558ad4f"
+  revision 1
 
   bottle do
     cellar :any
@@ -19,6 +20,7 @@ class Libksba < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+    inreplace bin/"ksba-config", prefix, opt_prefix
   end
 
   test do

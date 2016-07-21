@@ -3,7 +3,7 @@ class GnupgPkcs11Scd < Formula
   homepage "http://gnupg-pkcs11.sourceforge.net"
   url "https://github.com/alonbl/gnupg-pkcs11-scd/archive/gnupg-pkcs11-scd-0.7.3.tar.gz"
   sha256 "69412cf0a71778026dd9a8adc5276b43e54dc698d12ca36f7f6969d1a76330b8"
-  revision 1
+  revision 2
 
   head "https://github.com/alonbl/gnupg-pkcs11-scd.git"
 
@@ -22,6 +22,7 @@ class GnupgPkcs11Scd < Formula
   depends_on "libassuan"
   depends_on "libgcrypt"
   depends_on "pkcs11-helper"
+  depends_on "openssl" => :linked
 
   def install
     system "autoreconf", "-fvi"
