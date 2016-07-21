@@ -6,9 +6,9 @@ class Libgetdata < Formula
 
   bottle do
     cellar :any
-    sha256 "7395337146c678b1759f9a9a8ce7c579f2eb014571fc063c741702d3a1e43c31" => :el_capitan
-    sha256 "245625c558e690197d5b86e8a80f07b18ccdcbfe1de4fb829c652991ba79be5d" => :yosemite
-    sha256 "f1af1ab131a848cf8976511a2e74bdc38c3b615fe207d8f504e5ca5a7f4c171b" => :mavericks
+    sha256 "ed19136a77b5c6cad977bdbf5bb5124d0b16515bc6906bc5b8d410cd5636c58a" => :el_capitan
+    sha256 "11a7ef0416a4df76d1408872961e8d96e9d40c2c6d814c45eddd0d80464c78df" => :yosemite
+    sha256 "f3181c8aab9763b649c26462b420839aed5c2241c60502a48842da8ed06c0926" => :mavericks
   end
 
   option "with-fortran", "Build Fortran 77 bindings"
