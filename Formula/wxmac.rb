@@ -9,6 +9,13 @@ class Wxmac < Formula
     url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxWidgets-3.0.2.tar.bz2"
     sha256 "346879dc554f3ab8d6da2704f651ecb504a22e9d31c17ef5449b129ed711585d"
 
+    # Patch for wxOSXPrintData, custom paper not applied
+    # http://trac.wxwidgets.org/ticket/16959
+    patch do
+      url "http://trac.wxwidgets.org/raw-attachment/ticket/16959/wxPaperCustomPatch.patch"
+      sha256 "391b5c05caa3843de1579294a62918d9e00b2311313ee2ce1c1943cd5a8494b3"
+    end
+
     # Various fixes related to Yosemite. Revisit in next stable release.
     # Please keep an eye on http://trac.wxwidgets.org/ticket/16329 as well
     # Theoretically the above linked patch should still be needed, but it isn't. Try to find out why.
