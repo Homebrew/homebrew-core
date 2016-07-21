@@ -5,12 +5,7 @@ class Nuxeo < Formula
   version "8.3"
   sha256 "6de18ffa1737d6ef3fb9561f6c35f3200cfeedc7e7693e424ce31396eb42206c"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "41eceb5b761f78e2cac1c64e3687db41aed82c7720d85813e25416e039edc3fd" => :el_capitan
-    sha256 "fd565b9b3beb86ab6ff4b3e8869fe666d258899cc5e43cd269ae34fb4fa0398b" => :yosemite
-    sha256 "03a8a8ec9a98dbf07f03c56f68f58c476297035477e9ba712075a93e418ce9b7" => :mavericks
-  end
+  bottle :unneeded
 
   depends_on "poppler" => :recommended
   depends_on "pdftohtml" => :optional
