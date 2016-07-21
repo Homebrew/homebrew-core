@@ -1,8 +1,8 @@
 class ShadowsocksLibev < Formula
   desc "Libev port of shadowsocks"
   homepage "https://github.com/shadowsocks/shadowsocks-libev"
-  url "https://github.com/shadowsocks/shadowsocks-libev/archive/v2.4.7.tar.gz"
-  sha256 "957265cc5339e020d8c8bb7414ab14936e3939dc7355f334aec896ec9b03c6ed"
+  url "https://github.com/shadowsocks/shadowsocks-libev/archive/v2.4.8.tar.gz"
+  sha256 "af3fc3be50fb24dfd1aed8ce34d2d13448735f6181269f54f4860438a1838472"
   head "https://github.com/shadowsocks/shadowsocks-libev.git"
 
   bottle do
@@ -12,15 +12,15 @@ class ShadowsocksLibev < Formula
     sha256 "97ba97b90fa8f170817163b4f403db2fc38818bdb207b9579cb8f21e6055fafc" => :mavericks
   end
 
+  depends_on "asciidoc" => :build
+  depends_on "xmlto" => :build
   depends_on "openssl"
 
   def install
-    args = ["--prefix=#{prefix}"]
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}"
     system "make"
-
-    bin.install "src/ss-local", "src/ss-tunnel", "src/ss-server", "src/ss-manager"
 
     (buildpath/"shadowsocks-libev.json").write <<-EOS.undent
       {
@@ -34,10 +34,9 @@ class ShadowsocksLibev < Formula
     EOS
     etc.install "shadowsocks-libev.json"
 
-    rm "man/ss-redir.1"
     inreplace Dir["man/*"], "/etc/shadowsocks-libev/config.json", "#{etc}/shadowsocks-libev.json"
-    man8.install Dir["man/*.8"]
-    man1.install Dir["man/*.1"]
+
+    system "make", "install"
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/shadowsocks-libev/bin/ss-local -c #{HOMEBREW_PREFIX}/etc/shadowsocks-libev.json"
