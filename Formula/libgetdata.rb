@@ -1,8 +1,8 @@
 class Libgetdata < Formula
   desc "Reference implementation of the Dirfile Standards"
   homepage "http://getdata.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/getdata/getdata/0.9.2.1/getdata-0.9.2.1.tar.xz"
-  sha256 "e41d82abdb86577ce41600f187a4271e17e544b67dc0e0518d42f285cd809499"
+  url "https://downloads.sourceforge.net/project/getdata/getdata/0.9.3/getdata-0.9.3.tar.xz"
+  sha256 "1b3766c18f01cf097bff213bef4ba1f6c0913527d9dd2a217bd1a9647fe07b35"
 
   bottle do
     cellar :any
