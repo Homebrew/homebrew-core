@@ -1,8 +1,8 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.com"
-  url "https://orientdb.com/download.php?file=orientdb-community-2.2.2.tar.gz"
-  sha256 "1ae672fc15638526980e132b92fe1896867fa765da79eadf5adf7cdcad946f88"
+  url "https://orientdb.com/download.php?file=orientdb-community-2.2.5.tar.gz"
+  sha256 "958d479beeabeb5658c23460bf29043a7a4b80c0d238f36e586e3b108f12bae0"
 
   bottle do
     cellar :any_skip_relocation
@@ -63,7 +63,7 @@ class Orientdb < Formula
     sleep 4
 
     begin
-      assert_match "OrientDB Server v.2.2.2", shell_output("curl -I localhost:2480")
+      assert_match "OrientDB Server v.2.2.5", shell_output("curl -I localhost:2480")
     ensure
       system "#{bin}/orientdb", "stop"
     end
