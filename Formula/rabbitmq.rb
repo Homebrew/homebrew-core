@@ -1,8 +1,8 @@
 class Rabbitmq < Formula
   desc "Messaging broker"
   homepage "https://www.rabbitmq.com"
-  url "https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.1/rabbitmq-server-generic-unix-3.6.1.tar.xz"
-  sha256 "5febee587216de438c228cbbb23611f45d1506add9977b740c6f77e3c82dec87"
+  url "https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.3/rabbitmq-server-generic-unix-3.6.3.tar.xz"
+  sha256 "756d8ea95f19f04d84ff2a477faf77a88957f00171df9b6cd6e2784d67aba5da"
 
   bottle :unneeded
 
@@ -52,13 +52,6 @@ class Rabbitmq < Formula
     EOS
   end
 
-  test do
-    ENV["RABBITMQ_MNESIA_BASE"] = testpath/"var/lib/rabbitmq/mnesia"
-    system sbin/"rabbitmq-server", "-detached"
-    system sbin/"rabbitmqctl", "status"
-    system sbin/"rabbitmqctl", "stop"
-  end
-
   def rabbitmq_env; <<-EOS.undent
     CONFIG_FILE=#{etc}/rabbitmq/rabbitmq
     NODE_IP_ADDRESS=127.0.0.1
@@ -92,5 +85,12 @@ class Rabbitmq < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    ENV["RABBITMQ_MNESIA_BASE"] = testpath/"var/lib/rabbitmq/mnesia"
+    system sbin/"rabbitmq-server", "-detached"
+    system sbin/"rabbitmqctl", "status"
+    system sbin/"rabbitmqctl", "stop"
   end
 end
