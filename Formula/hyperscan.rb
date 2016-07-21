@@ -18,6 +18,11 @@ class Hyperscan < Formula
   depends_on "ragel" => :build
   depends_on "cmake" => :build
 
+  # workaround for freebsd/clang/libc++ build issues
+  # https://github.com/01org/hyperscan/issues/27
+  # https://github.com/01org/hyperscan/commit/e9cfbae68f69b06bb4fdcd2abd7c1ee5afec0262
+  patch :DATA
+
   def install
     mkdir "build" do
       args = std_cmake_args
@@ -53,3 +58,31 @@ class Hyperscan < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/src/parser/ComponentRepeat.cpp b/src/parser/ComponentRepeat.cpp
+index ff02703..74aa590 100644
+--- a/src/parser/ComponentRepeat.cpp
++++ b/src/parser/ComponentRepeat.cpp
+@@ -184,7 +184,7 @@ void ComponentRepeat::notePositions(GlushkovBuildState &bs) {
+
+ vector<PositionInfo> ComponentRepeat::first() const {
+     if (!m_max) {
+-        return {};
++        return vector<PositionInfo>();
+     }
+
+     assert(!m_firsts.empty()); // notePositions should already have run
+diff --git a/src/rose/rose_build_misc.cpp b/src/rose/rose_build_misc.cpp
+index b16e3a6..1977f92 100644
+--- a/src/rose/rose_build_misc.cpp
++++ b/src/rose/rose_build_misc.cpp
+@@ -880,7 +880,7 @@ namespace {
+ class OutfixAllReports : public boost::static_visitor<set<ReportID>> {
+ public:
+     set<ReportID> operator()(const boost::blank &) const {
+-        return {};
++        return set<ReportID>();
+     }
+
+     template<class T>
