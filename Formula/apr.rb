@@ -3,6 +3,7 @@ class Apr < Formula
   homepage "https://apr.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-1.5.2.tar.bz2"
   sha256 "7d03ed29c22a7152be45b8e50431063736df9e1daa1ddf93f6a547ba7a28f67a"
+  revision 1
 
   bottle do
     sha256 "ce60ca59b86b7e0bba92bd04b91a0667a4c9e2061358d728da7aa8b7053b0541" => :el_capitan
@@ -29,6 +30,6 @@ class Apr < Formula
   end
 
   test do
-    system "#{bin}/apr-1-config", "--link-libtool", "--libs"
+    system bin/"apr-1-config", "--link-libtool", "--libs"
   end
 end
