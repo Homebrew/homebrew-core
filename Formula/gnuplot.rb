@@ -1,8 +1,8 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.3/gnuplot-5.0.3.tar.gz"
-  sha256 "5f6ee35f3f22014058e999911934bfa9db28e02a2722a7001c192cd182b8c715"
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.4/gnuplot-5.0.4.tar.gz"
+  sha256 "151cb845728bde75eb9d1561b35140114a05a7c52a52bd35b4b2b3d944e0c31e"
 
   bottle do
     sha256 "e429bd5f40c8611b5e2e7c286124fc9da2547bfb5d80aed32f5e1d4dbd3481ec" => :el_capitan
@@ -29,7 +29,6 @@ class Gnuplot < Formula
   deprecated_option "pdf" => "with-pdflib-lite"
   deprecated_option "wx" => "with-wxmac"
   deprecated_option "qt" => "with-qt"
-  deprecated_option "nogd" => "without-gd"
   deprecated_option "cairo" => "with-cairo"
   deprecated_option "nolua" => "without-lua"
   deprecated_option "tests" => "with-test"
@@ -39,12 +38,14 @@ class Gnuplot < Formula
 
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
-  depends_on "gd" => :recommended
+  depends_on "freetype" => :linked
+  depends_on "gd"
   depends_on "lua" => :recommended
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "readline"
+  depends_on "webp"
   depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
   depends_on "pdflib-lite" => :optional
   depends_on "qt" => :optional
@@ -73,7 +74,6 @@ class Gnuplot < Formula
     ]
 
     args << "--with-pdf=#{pdflib}" if build.with? "pdflib-lite"
-    args << ((build.with? "gd") ? "--with-gd=#{gd}" : "--without-gd")
 
     if build.without? "wxmac"
       args << "--disable-wxwidgets"
