@@ -1,5 +1,3 @@
-require "language/go"
-
 class Minio < Formula
   desc "object storage server compatible with Amazon S3"
   homepage "https://github.com/minio/minio"
