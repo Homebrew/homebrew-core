@@ -44,7 +44,7 @@ class Agda < Formula
   end
 
   depends_on "gmp"
-  depends_on :emacs => ["21.1", :recommended]
+  depends_on :emacs => ["23.4", :recommended]
 
   def install
     # install Agda core
