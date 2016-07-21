@@ -1,8 +1,8 @@
 class Reposurgeon < Formula
   desc "Edit version-control repository history"
   homepage "http://www.catb.org/esr/reposurgeon/"
-  url "http://www.catb.org/~esr/reposurgeon/reposurgeon-3.33.tar.xz"
-  sha256 "88a88d8fa0f612f5efc7ba5b2ca741713d260a250ada5b1ee01029436c08b571"
+  url "http://www.catb.org/~esr/reposurgeon/reposurgeon-3.37.tar.xz"
+  sha256 "563dfffd71baa45a70796260f7851c00f9b47960678e0c7e81b00edfc9935a91"
   head "https://gitlab.com/esr/reposurgeon.git"
 
   bottle do
@@ -18,24 +18,18 @@ class Reposurgeon < Formula
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
 
-  resource "cython" do
-    url "http://cython.org/release/Cython-0.23.4.tar.gz"
-    sha256 "fec42fecee35d6cc02887f1eef4e4952c97402ed2800bfe41bbd9ed1a0730d8e"
+  resource "Cython" do
+    url "https://files.pythonhosted.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz"
+    sha256 "84808fda00508757928e1feadcf41c9f78e9a9b7167b6649ab0933b76f75e7b9"
   end
 
   def install
-    # OSX doesn't provide 'python2', but on some Linux distributions
-    # 'python' is an alias for python3 so this won't be changed
-    # upstream
-    inreplace %w[reposurgeon repodiffer],
-      "#!/usr/bin/env python2", "#!/usr/bin/env python"
-
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     system "make", "install", "prefix=#{prefix}"
-    (share/"emacs/site-lisp/reposurgeon").install "reposurgeon-mode.el"
+    elisp.install "reposurgeon-mode.el"
 
     if build.with? "cython"
-      resource("cython").stage do
+      resource("Cython").stage do
         system "python", *Language::Python.setup_install_args(buildpath/"vendor")
       end
       ENV.prepend_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
