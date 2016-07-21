@@ -2,10 +2,10 @@ class AndroidPlatformTools < Formula
   desc "Tools for the Android SDK"
   homepage "https://developer.android.com/sdk"
   # the url is from:
-  # https://dl.google.com/android/repository/repository-10.xml
-  url "https://dl.google.com/android/repository/platform-tools_r23.0.1-macosx.zip"
-  version "23.0.1"
-  sha256 "d2439f5de236c3831c048b678653c5955487351be8e196c65923b4eca5c47692"
+  # https://dl.google.com/android/repository/repository-12.xml
+  url "https://dl.google.com/android/repository/platform-tools_r24-macosx.zip"
+  version "24"
+  sha256 "5eb758fe3ddddd8e522c17244bbcb886f399529855bad60c8ba14711dc5a8a12"
 
   bottle :unneeded
 
