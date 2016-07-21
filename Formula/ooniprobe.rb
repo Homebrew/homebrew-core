@@ -143,10 +143,8 @@ class Ooniprobe < Formula
     # namespace package hint
     touch libexec/"vendor/lib/python2.7/site-packages/zope/__init__.py"
 
-    inreplace "requirements.txt" do |s|
-      # provided by libdnet
-      s.gsub! "pydumbnet", ""
-    end
+    # provided by libdnet
+    inreplace "requirements.txt", "pydumbnet", ""
 
     # force a distutils install
     inreplace "setup.py", "def run(", "def norun("
@@ -163,11 +161,12 @@ class Ooniprobe < Formula
 
     man1.install Dir["data/*.1"]
     (share/"ooni").install Dir["data/*"]
-    (var/"lib/ooni").mkpath
   end
 
   def post_install
     require "open3"
+
+    (var/"lib/ooni").mkpath
     system bin/"ooniresources"
     Open3.popen3("#{bin}/oonideckgen", "-o",
                  "#{HOMEBREW_PREFIX}/share/ooni/decks/") do |_, stdout, _|
