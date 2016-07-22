@@ -33,7 +33,7 @@ class Coq < Formula
     system "./configure", "-prefix", prefix,
                           "-mandir", man,
                           "-camlp5dir", camlp5_lib,
-                          "-emacslib", "#{share}/emacs/site-lisp/coq",
+                          "-emacslib", elisp,
                           "-coqdocdir", "#{pkgshare}/latex",
                           "-coqide", "no",
                           "-with-doc", "no"
