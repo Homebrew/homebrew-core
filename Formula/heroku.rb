@@ -14,12 +14,14 @@ class Heroku < Formula
     libexec.install Dir["*"]
     # turn off autoupdates (off by default in HEAD)
     if build.stable?
-      inreplace libexec/"bin/heroku", "Heroku::Updater.inject_libpath", "Heroku::Updater.disable(\"Use `brew upgrade heroku` to update\")"
+      inreplace libexec/"bin/heroku",
+                "Heroku::Updater.inject_libpath",
+                "Heroku::Updater.disable(\"Use `brew upgrade heroku` to update\")"
     end
     bin.write_exec_script libexec/"bin/heroku"
   end
 
   test do
-    system "#{bin}/heroku", "version"
+    system bin/"heroku", "version"
   end
 end
