@@ -1,7 +1,7 @@
 class ImgurAlbumDownloader < Formula
   desc "Command Line Utility to Download Imgur Albums"
-  homepage "https://github.com/alexgisby/imgur-album-downloader"
-  url "https://github.com/alexgisby/imgur-album-downloader.git", :revision => "dbaee1e342c1b46c022fccd26c294e251ac04015"
+  homepage "https://github.com/Szero/imgur-album-downloader"
+  url "https://github.com/Szero/imgur-album-downloader.git", :revision => "13500208e28d200fd687a25b5c218a6dcfac1190"
   version "1"
 
   bottle :unneeded
