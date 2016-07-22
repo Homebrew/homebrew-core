@@ -6,9 +6,9 @@ class LibxmpLite < Formula
 
   bottle do
     cellar :any
-    sha256 "571a9f7c0e685a6b83acf5fc1b610bbc91a28f5bf7ebd694a588375379dcd316" => :el_capitan
-    sha256 "3599734852e4d085dc804c42b3f1ae3811635704460982454da4331d63688ee2" => :yosemite
-    sha256 "167a12adeedd45a9c93775d57b23a5a8e007f276471f18309bdac168ae705f1d" => :mavericks
+    sha256 "4fed865546c6b743738eb0a954ffec64979c94f901a5ebd9db6abd1f60394380" => :el_capitan
+    sha256 "0fadd923ffad8f89d0cd8474d1fd0a022bc966a7a346a5063e62555d09b36c52" => :yosemite
+    sha256 "dfe9f20c4ecd19e7eda3517737015f58201115334bf2145b0c21ef4b0bab252c" => :mavericks
   end
 
   def install
