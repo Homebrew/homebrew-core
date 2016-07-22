@@ -1,9 +1,9 @@
 class Xplanetfx < Formula
   desc "Configure, run or daemonize xplanet for HQ Earth wallpapers"
   homepage "http://mein-neues-blog.de/xplanetFX/"
-  url "http://repository.mein-neues-blog.de:9000/archive/xplanetfx-2.6.9_all.tar.gz"
-  version "2.6.9"
-  sha256 "a739f58bad5656be9c947b184661aa95941488add2bca181b294f2d5429989a1"
+  url "http://repository.mein-neues-blog.de:9000/archive/xplanetfx-2.6.12_all.tar.gz"
+  version "2.6.12"
+  sha256 "bae39af674fc89b3fbe07ba6271bbf0a1c2ff64bbf63f4b04ff3d6f0bcc4380c"
 
   bottle do
     cellar :any_skip_relocation
