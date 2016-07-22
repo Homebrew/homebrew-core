@@ -27,7 +27,7 @@ class ProofGeneral < Formula
       PREFIX=#{prefix}
       DEST_PREFIX=#{prefix}
       ELISPP=share/emacs/site-lisp/proof-general
-      ELISP_START=#{share}/emacs/site-lisp/proof-general/site-start.d
+      ELISP_START=#{elisp}/site-start.d
       EMACS=#{which "emacs"}
     ]
 

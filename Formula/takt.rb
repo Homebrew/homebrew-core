@@ -14,7 +14,7 @@ class Takt < Formula
   depends_on "readline"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--with-lispdir=#{share}/emacs/site-lisp/#{name}"
+    system "./configure", "--prefix=#{prefix}", "--with-lispdir=#{elisp}"
     system "make", "install"
   end
 

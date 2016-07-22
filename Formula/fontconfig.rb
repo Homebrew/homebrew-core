@@ -3,15 +3,15 @@ class Fontconfig < Formula
   homepage "https://wiki.freedesktop.org/www/Software/fontconfig/"
   url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.11.1.tar.bz2"
   sha256 "dc62447533bca844463a3c3fd4083b57c90f18a70506e7a9f4936b5a1e516a99"
-  revision 2
+  revision 4
 
   # The bottle tooling is too lenient and thinks fontconfig
   # is relocatable, but it has hardcoded paths in the executables.
   bottle do
     cellar :any
-    sha256 "6a2492b8e02a1b17cb2b2090917a5957934a25d24b13fe33cc213f07c7119955" => :el_capitan
-    sha256 "23574b814f3cd34dbbc00151038e50eee7d7db2cb0db9a581a06155a30b31b91" => :yosemite
-    sha256 "36104e396d373ff8c593ee61053534007f4436bf5c2d9ebbf29843aaccc51064" => :mavericks
+    sha256 "6c1bf06d44c732a3304b4b8c39511e336fcce9e4255c59b250e18b63e30fe660" => :el_capitan
+    sha256 "a643c5596ef3e7c11d46d0cf8766f1e8a6e16dfedef55f0e14a2094d2e6bd3f0" => :yosemite
+    sha256 "217ed41407f0027afac6f1b3e6748ca51fb45e60168d0ee2b86c8ce1093ee7c2" => :mavericks
   end
 
   pour_bottle? do

@@ -25,6 +25,15 @@ class Wine < Formula
       url "https://github.com/wine-mirror/wine/commit/cac226200d88b7454747b5ee1016f06b89ce4aa6.patch"
       sha256 "ad5dd3aff4dd03aa6dd9e00162a52ad335dbd9ddb5a4472ad8533efb677fb479"
     end
+
+    # Fixes a CUPS-related build failure
+    # https://bugs.winehq.org/show_bug.cgi?id=40851
+    if MacOS.version >= :sierra
+      patch do
+        url "https://bugs.winehq.org/attachment.cgi?id=54854"
+        sha256 "07da01c4141052d274dbe39d45a13568265cbdcbc9de4f6e80f4eeb08aad9ff8"
+      end
+    end
   end
 
   bottle do
@@ -34,9 +43,9 @@ class Wine < Formula
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.13.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.13.tar.bz2"
-    sha256 "9b678019d71f28f1e570f7f40e43fcdd52a0d4276123679f2dfea8665f37c0d9"
+    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.14.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.14.tar.bz2"
+    sha256 "7fbe961caf171d95e1ae109e361f3a9e7cb9f6c9321775e961be2bc12892c52c"
   end
 
   # note that all wine dependencies should declare a --universal option in their formula,
@@ -67,17 +76,8 @@ class Wine < Formula
     sha256 "30766403f5064a115f61de8cacba1defddffe2dd898b59557956400470adc699"
   end
 
-  # Fixes a CUPS-related build failure; should be in the next devel.
-  # https://bugs.winehq.org/show_bug.cgi?id=40851
-  if MacOS.version >= :sierra
-    patch do
-      url "https://bugs.winehq.org/attachment.cgi?id=54854"
-      sha256 "07da01c4141052d274dbe39d45a13568265cbdcbc9de4f6e80f4eeb08aad9ff8"
-    end
-  end
-
   # This option is currently disabled because Apple clang currently doesn't
-  # support a required feature: http://reviews.llvm.org/D1623
+  # support a required feature: https://reviews.llvm.org/D1623
   # It builds fine with GCC, however.
   # option "with-win64",
   #        "Build with win64 emulator (won't run 32-bit binaries.)"
@@ -187,5 +187,9 @@ class Wine < Formula
       EOS
     end
     s
+  end
+
+  test do
+    system "#{bin}/wine", "--version"
   end
 end

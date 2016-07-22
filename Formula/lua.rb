@@ -3,13 +3,13 @@ class Lua < Formula
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.2.4.tar.gz"
   sha256 "b9e2e4aad6789b3b63a056d442f7b39f0ecfca3ae0f1fc0ae4e9614401b69f4b"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "5e52670b9b9c2554018545afcc13a08efde638aab521d39740c273992fc65922" => :el_capitan
-    sha256 "3a1f5bfe0fd490c96e933b0726d327079b6a1cd6b9e881440173351ff9a349ad" => :yosemite
-    sha256 "a84d3ebd9afa4a61b0120471e5a0dfcc670d294701a64edebd25fcc815fe76f8" => :mavericks
+    sha256 "cfcc9d3f4326de0690e09f046329dc656922fd2201270393cb02b6fb1ffe1349" => :el_capitan
+    sha256 "809d4bcc9937b0d7d6483f1cdf211a5adb7d3adbf13663d1e3917211d0de6165" => :yosemite
+    sha256 "8acadcad5cc0e79193a9d88e11e391b366ed631d23279954bd4fed6807e14db4" => :mavericks
   end
 
   pour_bottle? do
@@ -60,10 +60,9 @@ class Lua < Formula
     ENV.universal_binary if build.universal?
 
     # Subtitute formula prefix in `src/Makefile` for install name (dylib ID).
-    inreplace "src/Makefile", "@LUA_PREFIX@", prefix
-
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
+      s.gsub! "@LUA_PREFIX@", prefix
       s.remove_make_var! "CC"
       s.change_make_var! "CFLAGS", "#{ENV.cflags} -DLUA_COMPAT_ALL $(SYSCFLAGS) $(MYCFLAGS)"
       s.change_make_var! "MYLDFLAGS", ENV.ldflags
@@ -75,7 +74,7 @@ class Lua < Formula
     # We ship our own pkg-config file as Lua no longer provide them upstream.
     system "make", "macosx", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
     system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
-    (lib+"pkgconfig/lua.pc").write pc_file
+    (lib/"pkgconfig/lua.pc").write pc_file
 
     # Fix some software potentially hunting for different pc names.
     bin.install_symlink "lua" => "lua5.2"
@@ -98,7 +97,7 @@ class Lua < Formula
         system "make", "build"
         system "make", "install"
 
-        (share+"lua/5.2/luarocks").install_symlink Dir["#{libexec}/share/lua/5.2/luarocks/*"]
+        (pkgshare/"5.2/luarocks").install_symlink Dir["#{libexec}/share/lua/5.2/luarocks/*"]
         bin.install_symlink libexec/"bin/luarocks-5.2"
         bin.install_symlink libexec/"bin/luarocks-admin-5.2"
         bin.install_symlink libexec/"bin/luarocks"
@@ -118,13 +117,13 @@ class Lua < Formula
   def pc_file; <<-EOS.undent
     V= 5.2
     R= 5.2.4
-    prefix=#{prefix}
+    prefix=#{opt_prefix}
     INSTALL_BIN= ${prefix}/bin
     INSTALL_INC= ${prefix}/include
     INSTALL_LIB= ${prefix}/lib
     INSTALL_MAN= ${prefix}/share/man/man1
-    INSTALL_LMOD= ${prefix}/share/lua/${V}
-    INSTALL_CMOD= ${prefix}/lib/lua/${V}
+    INSTALL_LMOD= #{HOMEBREW_PREFIX}/share/lua/${V}
+    INSTALL_CMOD= #{HOMEBREW_PREFIX}/lib/lua/${V}
     exec_prefix=${prefix}
     libdir=${exec_prefix}/lib
     includedir=${prefix}/include

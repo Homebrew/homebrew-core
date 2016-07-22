@@ -12,18 +12,19 @@ class Portmidi < Formula
     sha256 "c950ba2eed6221f1734ab05fe44c263eedbabd7510bec2de3333c61984bfb87c" => :mavericks
   end
 
-  option "with-java", "Build java based app and bindings. You need the Java SDK for this."
+  option "with-java", "Build Java-based app and bindings."
 
   depends_on "cmake" => :build
   depends_on :python => :optional
+  depends_on :java => :optional
 
   # Avoid that the Makefile.osx builds the java app and fails because: fatal error: 'jni.h' file not found
   # Since 217 the Makefile.osx includes pm_common/CMakeLists.txt wich builds the Java app
   patch :DATA if build.without? "java"
 
   resource "Cython" do
-    url "https://pypi.python.org/packages/source/C/Cython/Cython-0.24.tar.gz"
-    sha256 "6de44d8c482128efc12334641347a9c3e5098d807dd3c69e867fa8f84ec2a3f1"
+    url "https://files.pythonhosted.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz"
+    sha256 "84808fda00508757928e1feadcf41c9f78e9a9b7167b6649ab0933b76f75e7b9"
   end
 
   def install
@@ -33,8 +34,11 @@ class Portmidi < Formula
     include.mkpath
     lib.mkpath
 
-    # Fix outdated SYSROOT to avoid: No rule to make target `/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/CoreAudio.framework', needed by `latency'.  Stop.
-    inreplace "pm_common/CMakeLists.txt", "set(CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.5.sdk CACHE", "set(CMAKE_OSX_SYSROOT /#{MacOS.sdk_path} CACHE"
+    # Fix outdated SYSROOT to avoid:
+    # No rule to make target `/Developer/SDKs/MacOSX10.5.sdk/...'
+    inreplace "pm_common/CMakeLists.txt",
+              "set(CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.5.sdk CACHE",
+              "set(CMAKE_OSX_SYSROOT /#{MacOS.sdk_path} CACHE"
 
     system "make", "-f", "pm_mac/Makefile.osx"
     system "make", "-f", "pm_mac/Makefile.osx", "install"
@@ -48,8 +52,10 @@ class Portmidi < Formula
 
       cd "pm_python" do
         # There is no longer a CHANGES.txt or TODO.txt.
-        inreplace "setup.py", "CHANGES = open('CHANGES.txt').read()", 'CHANGES = ""'
-        inreplace "setup.py", "TODO = open('TODO.txt').read()", 'TODO = ""'
+        inreplace "setup.py" do |s|
+          s.gsub! "CHANGES = open('CHANGES.txt').read()", 'CHANGES = ""'
+          s.gsub! "TODO = open('TODO.txt').read()", 'TODO = ""'
+        end
         # Provide correct dirs (that point into the Cellar)
         ENV.append "CFLAGS", "-I#{include}"
         ENV.append "LDFLAGS", "-L#{lib}"

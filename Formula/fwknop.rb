@@ -21,7 +21,7 @@ class Fwknop < Formula
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking", "--disable-silent-rules",
                           "--prefix=#{prefix}", "--with-gpgme", "--sysconfdir=#{etc}",
-                          "--with-gpg=#{Formula["gnupg2"].opt_prefix}/bin/gpg2"
+                          "--with-gpg=#{Formula["gnupg2"].opt_bin}/gpg2"
     system "make", "install"
   end
 

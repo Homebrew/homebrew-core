@@ -16,9 +16,10 @@ class Ghq < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b54f10088af100659f5ddaa493ed0a67227a97996c476b2beb2e1f66109c4c96" => :el_capitan
-    sha256 "1640e26475d3ced7964f622de92b62f1eb216d36a880b512eb27f3655d607904" => :yosemite
-    sha256 "d87b3b0ab5a3a1f62d4ab34da198a20bb08abab16b21cdd98ef5c194220fb5de" => :mavericks
+    revision 1
+    sha256 "c44dbb258731843fde8fee860d0935ae184db1439f5de11464f70444c8db7464" => :el_capitan
+    sha256 "2f59e9c8da2819b2a1d117352fc6d6e66e19a4ca4e31fa12bac955d57d7f5f17" => :yosemite
+    sha256 "45bb6555ca33acfad9a9b0d8abe702dc1a2c3b07c4fd28e889acc8c952383022" => :mavericks
   end
 
   head do
@@ -50,14 +51,13 @@ class Ghq < Formula
   end
 
   def install
-    mkdir_p "#{buildpath}/src/github.com/motemen/"
-    ln_s buildpath, "#{buildpath}/src/github.com/motemen/ghq"
+    mkdir_p buildpath/"src/github.com/motemen/"
+    ln_s buildpath, buildpath/"src/github.com/motemen/ghq"
     ENV["GOPATH"] = buildpath
-    ENV.append_path "PATH", "#{ENV["GOPATH"]}/bin"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    system "go", "build", "-ldflags", "-X main.Version #{version}", "-o", "ghq"
-    bin.install "ghq"
+    system "go", "build", "-ldflags", "-X main.Version=#{version}",
+                          "-o", bin/"ghq"
     zsh_completion.install "zsh/_ghq" if build.with? "completions"
   end
 

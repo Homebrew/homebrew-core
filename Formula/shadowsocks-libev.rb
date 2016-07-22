@@ -1,26 +1,26 @@
 class ShadowsocksLibev < Formula
   desc "Libev port of shadowsocks"
   homepage "https://github.com/shadowsocks/shadowsocks-libev"
-  url "https://github.com/shadowsocks/shadowsocks-libev/archive/v2.4.7.tar.gz"
-  sha256 "957265cc5339e020d8c8bb7414ab14936e3939dc7355f334aec896ec9b03c6ed"
+  url "https://github.com/shadowsocks/shadowsocks-libev/archive/v2.4.8.tar.gz"
+  sha256 "af3fc3be50fb24dfd1aed8ce34d2d13448735f6181269f54f4860438a1838472"
   head "https://github.com/shadowsocks/shadowsocks-libev.git"
 
   bottle do
     cellar :any
-    sha256 "278ad0f88ed3727f8b1eef96be36b5881e3372fb8421b024c5a13e59a32bc9b4" => :el_capitan
-    sha256 "708d451963e353f97fa0bb693f55e271ef3f18518bb2ea09c94ebed326ff7af4" => :yosemite
-    sha256 "97ba97b90fa8f170817163b4f403db2fc38818bdb207b9579cb8f21e6055fafc" => :mavericks
+    sha256 "6644ff81772e06f298a9c6f31a430a9c991d6981401704d6876a15add56313bf" => :el_capitan
+    sha256 "4935b75d1b17961633d87698546806f2fd94d6bf9258950bb3e8ad395aa2a812" => :yosemite
+    sha256 "63ee376b55bd165d3ca8c9253a1186f296f85e13119153b89cecf6ec9ffc3b84" => :mavericks
   end
 
+  depends_on "asciidoc" => :build
+  depends_on "xmlto" => :build
   depends_on "openssl"
 
   def install
-    args = ["--prefix=#{prefix}"]
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}"
     system "make"
-
-    bin.install "src/ss-local", "src/ss-tunnel", "src/ss-server", "src/ss-manager"
 
     (buildpath/"shadowsocks-libev.json").write <<-EOS.undent
       {
@@ -34,10 +34,9 @@ class ShadowsocksLibev < Formula
     EOS
     etc.install "shadowsocks-libev.json"
 
-    rm "man/ss-redir.1"
     inreplace Dir["man/*"], "/etc/shadowsocks-libev/config.json", "#{etc}/shadowsocks-libev.json"
-    man8.install Dir["man/*.8"]
-    man1.install Dir["man/*.1"]
+
+    system "make", "install"
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/shadowsocks-libev/bin/ss-local -c #{HOMEBREW_PREFIX}/etc/shadowsocks-libev.json"

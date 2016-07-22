@@ -24,6 +24,7 @@ class CKermit < Formula
   end
 
   test do
-    assert_equal "#{testpath}", shell_output("#{bin}/kermit -C PWD,exit").chomp
+    assert_match "C-Kermit #{version}",
+                 shell_output("#{bin}/kermit -C VERSION,exit")
   end
 end

@@ -45,8 +45,7 @@ class Libgdata < Formula
     json_glib = Formula["json-glib"]
     liboauth = Formula["liboauth"]
     libsoup = Formula["libsoup"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include

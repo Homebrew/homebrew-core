@@ -16,6 +16,13 @@ class ConsulTemplate < Formula
     sha256 "e1567a7ebe4e7f7c0710f47138566044acca5f4694181566b662f8884025ddaf" => :mavericks
   end
 
+  devel do
+    url "https://github.com/hashicorp/consul-template.git",
+        :tag => "v0.16.0-rc1",
+        :revision => "95065346ba9a95564536f2154dfb054c18cc5cc3"
+    version "0.16.0-rc1"
+  end
+
   depends_on "go" => :build
 
   go_resource "github.com/mitchellh/gox" do

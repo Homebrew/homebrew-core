@@ -1,14 +1,14 @@
 class Pacapt < Formula
   desc "Package manager in the style or Arch's pacman"
   homepage "https://github.com/icy/pacapt"
-  url "https://github.com/icy/pacapt/archive/v2.3.8.tar.gz"
-  sha256 "6ac7d16cf225a4fc625da40776577b62b44c6b83fe3a2e5b33fe3db467c1dd7e"
+  url "https://github.com/icy/pacapt/archive/v2.3.13.tar.gz"
+  sha256 "078596bcbf6cb5e50abdeae2cf057432bccda5c716eb48fefdeee8da04998b7f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "94853f20681f81a015846e94b0cc08d885b04f14d3efea044f20a6d9960147c6" => :el_capitan
-    sha256 "c41985d5670e2a38ae53096fde8d3bdf03c9b122dd0c893e3749809b1b4e236d" => :yosemite
-    sha256 "1279c6c1574261b292b6a236fba4399c9861ea14b063e314f6a4c7c74807a364" => :mavericks
+    sha256 "7f6cffa5423937eadf3fa5ce19f1a579dd36394a30717514b245de18881940ab" => :el_capitan
+    sha256 "6a08957b772fcf7adc3e15e03bfd94c25eb5e204c33ec2a3812c3a3c7977b691" => :yosemite
+    sha256 "129d05a1bdbbc6f5b669bc3ae9d4750df51459b7689de480e59ea116b65705d4" => :mavericks
   end
 
   def install

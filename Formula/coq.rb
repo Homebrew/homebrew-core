@@ -13,17 +13,15 @@ end
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://coq.inria.fr/distrib/8.5pl1/files/coq-8.5pl1.tar.gz"
-  version "8.5pl1"
-  sha256 "4bfa75b10ae1be61301d0f7bc087b7c24e0b8bd025dd358c75709ac04ddd5df0"
-  revision 1
-
+  url "https://coq.inria.fr/distrib/8.5pl2/files/coq-8.5pl2.tar.gz"
+  version "8.5pl2"
+  sha256 "83239d1251bf6c54a9ca5045d738e469019b93ca601756bf982aab0654e4de73"
   head "git://scm.gforge.inria.fr/coq/coq.git", :branch => "trunk"
 
   bottle do
-    sha256 "76ad5f2d99e653cc9a752b00fe5007615927b2beb8d88e84fa1b309465b46a69" => :el_capitan
-    sha256 "5fe48d7badae317ef4d13d73bca7b4e3a02b9f382b98b9fef066356264a4b13c" => :yosemite
-    sha256 "66f5126d6805da8ae653e1442897c8b3796dd046eba3a9e25684576d221aa10e" => :mavericks
+    sha256 "6bca59c08a4ec3b0633621332d9e66eb252c652d3efbce51f039ff8e6b7fe28f" => :el_capitan
+    sha256 "a61a407c55cde0cd9a68e2995af1af227b5dfc66060438254b3f4d76baa4dc1d" => :yosemite
+    sha256 "12444450f927ce6ebe0ff4dbbde42530edc57ee2e3a1baa5748cd987bf9750d8" => :mavericks
   end
 
   depends_on Camlp5TransitionalModeRequirement
@@ -35,7 +33,7 @@ class Coq < Formula
     system "./configure", "-prefix", prefix,
                           "-mandir", man,
                           "-camlp5dir", camlp5_lib,
-                          "-emacslib", "#{share}/emacs/site-lisp/coq",
+                          "-emacslib", elisp,
                           "-coqdocdir", "#{pkgshare}/latex",
                           "-coqide", "no",
                           "-with-doc", "no"

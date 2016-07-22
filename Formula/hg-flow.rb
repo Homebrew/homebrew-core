@@ -24,7 +24,7 @@ class HgFlow < Formula
     3. For more information go to https://bitbucket.org/yinwm/hgflow
 
         [extensions]
-        flow = #{opt_prefix}/libexec/hgflow.py
+        flow = #{opt_libexec}/hgflow.py
         [flow]
         autoshelve = true
 
@@ -34,7 +34,7 @@ class HgFlow < Formula
   test do
     (testpath/".hgrc").write <<-EOS.undent
       [extensions]
-      flow = #{opt_prefix}/libexec/hgflow.py
+      flow = #{opt_libexec}/hgflow.py
       [flow]
       autoshelve = true
     EOS

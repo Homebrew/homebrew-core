@@ -3,27 +3,27 @@ require "language/go"
 class Caddy < Formula
   desc "Alternative general-purpose HTTP/2 web server"
   homepage "https://caddyserver.com/"
-  url "https://github.com/mholt/caddy/archive/v0.8.2.tar.gz"
-  sha256 "daa06cc4ed4485c42c0cda26e72f6b893227dd4e95c94b97996ef0d1986d32a1"
+  url "https://github.com/mholt/caddy/archive/v0.8.3.tar.gz"
+  sha256 "e7d56c93315e5f114d5f1240bb8c98c129b65c79b774954902615d5a199128f2"
   head "https://github.com/mholt/caddy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4cfef908af6feae248efde0be8812b001c32cae5b6c4d8b97635788a0482f57e" => :el_capitan
-    sha256 "e0b056b4c8ee4104ba4f97ccb15fc9d30fc2b07858f5ee3aaf8ac361df7c6d7c" => :yosemite
-    sha256 "b76de3fb0ffe6b5d3e3779ecd882d4736d246fcd4d3ca4c3afdb7e638c3674d7" => :mavericks
+    sha256 "f691568e6d6f08442f06f448a0a46348ed10461cea75d0cdda52fe40a5774dcf" => :el_capitan
+    sha256 "42b1e64f8cf84da3aba009fd5e24823106244d6d99c58d25563eeeb996edd616" => :yosemite
+    sha256 "0bc99eebf7a40a3320e27bd9eb51ac3d5643591d236279565a89efacd6ce13ae" => :mavericks
   end
 
   depends_on "go" => :build
 
   go_resource "github.com/BurntSushi/toml" do
     url "https://github.com/BurntSushi/toml.git",
-    :revision => "a4eecd407cf4129fc902ece859a0114e4cf1a7f4"
+    :revision => "bbd5bb678321a0d6e58f1099321dfa73391c1b6f"
   end
 
   go_resource "github.com/dustin/go-humanize" do
     url "https://github.com/dustin/go-humanize.git",
-    :revision => "8929fe90cee4b2cb9deb468b51fb34eba64d1bf0"
+    :revision => "fef948f2d241bd1fd0631108ecc2c9553bae60bf"
   end
 
   go_resource "github.com/flynn/go-shlex" do
@@ -33,7 +33,7 @@ class Caddy < Formula
 
   go_resource "github.com/gorilla/websocket" do
     url "https://github.com/gorilla/websocket.git",
-    :revision => "5c91b59efa232fa9a87b705d54101832c498a172"
+    :revision => "1f512fc3f05332ba7117626cdfb4e07474e58e60"
   end
 
   go_resource "github.com/hashicorp/go-syslog" do
@@ -48,7 +48,7 @@ class Caddy < Formula
 
   go_resource "github.com/miekg/dns" do
     url "https://github.com/miekg/dns.git",
-    :revision => "905106d0e8908efdda8d4519c817622c7e8ee8ec"
+    :revision => "5d001d020961ae1c184f9f8152fdc73810481677"
   end
 
   go_resource "github.com/mitchellh/goamz" do
@@ -58,7 +58,7 @@ class Caddy < Formula
 
   go_resource "github.com/russross/blackfriday" do
     url "https://github.com/russross/blackfriday.git",
-    :revision => "006144af03eeeff1037240a71865a9fd61f1c25f"
+    :revision => "1d6b8e9301e720b08a8938b8c25c018285885438"
   end
 
   go_resource "github.com/shurcooL/sanitized_anchor_name" do
@@ -66,9 +66,9 @@ class Caddy < Formula
     :revision => "10ef21a441db47d8b13ebcc5fd2310f636973c77"
   end
 
-  go_resource "github.com/square/go-jose" do
-    url "https://github.com/square/go-jose.git",
-    :revision => "c3113091ae786777ea1e7ef2489086bcb574891e"
+  go_resource "gopkg.in/square/go-jose.v1" do
+    url "https://gopkg.in/square/go-jose.v1.git",
+    :revision => "e3f973b66b91445ec816dd7411ad1b6495a5a2fc"
   end
 
   go_resource "github.com/vaughan0/go-ini" do
@@ -83,12 +83,17 @@ class Caddy < Formula
 
   go_resource "github.com/xenolf/lego" do
     url "https://github.com/xenolf/lego.git",
-    :revision => "da7dd0f7b877b4bd9dd6da52d4348940d1ed664e"
+    :revision => "96a24777ffb3c6a25f6bb0b3a7997969c1fcde4b"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-    :revision => "1f22c0103821b9390939b6776727195525381532"
+    :revision => "2c99acdd1e9b90d779ca23f632aad86af9909c62"
+  end
+
+  go_resource "golang.org/x/net" do
+    url "https://go.googlesource.com/net.git",
+    :revision => "a728288923b47049b2ce791836767ffbe964a5bd"
   end
 
   go_resource "gopkg.in/natefinch/lumberjack.v2" do
@@ -98,7 +103,7 @@ class Caddy < Formula
 
   go_resource "gopkg.in/yaml.v2" do
     url "https://gopkg.in/yaml.v2.git",
-    :revision => "f7716cbe52baa25d2e9b0d0da546fcf909fc16b4"
+    :revision => "a83829b6f1293c91addabc89d0571c246397bbf4"
   end
 
   def install
@@ -110,7 +115,7 @@ class Caddy < Formula
     ln_s buildpath, buildpath/"src/github.com/mholt/caddy"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    system "go", "build", "-o", bin/"caddy"
+    system "go", "build", "-ldflags", "-X \"main.gitTag=#{version}\"", "-o", bin/"caddy"
     doc.install %w[README.md LICENSE.txt]
   end
 

@@ -1,13 +1,13 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-3.4.9.tar.bz2"
-  sha256 "2b1124db2d937ed6666525b9fc60a5dd55cb82f4cae58116cb986de53faa5dff"
+  url "https://downloads.powerdns.com/releases/pdns-4.0.0.tar.bz2"
+  sha256 "9f3ea273e11c898d9a91a2454eb7f2f38bdcc1ec4ea70a5e5de09c61b4ab65d5"
 
   bottle do
-    sha256 "7bca82f79308ce90494b954886828f361086b7822b71ab93ec27238bfc889974" => :el_capitan
-    sha256 "c833517faba97da8db76e9f73aefbb6bb737d6871479a0587600c48c9f1209e4" => :yosemite
-    sha256 "447a9d123c1663354ffda4dabd4d21ac707e08dfd8cc456c84c7d95e741e8562" => :mavericks
+    sha256 "bf8307c0cf9fd6e06d778158574df150a295984f151e4b35a64616311ad93280" => :el_capitan
+    sha256 "89bf20ed6f998b40951d7be6b3ca9e777143428c3f5042d93d4df0a3512678e8" => :yosemite
+    sha256 "59d50d8c4254875c1e2a68f76c9c12fda93b84af1c8fa6418576eeabbb784d92" => :mavericks
   end
 
   head do

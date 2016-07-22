@@ -1,15 +1,15 @@
 class Virtuoso < Formula
   desc "High-performance object-relational SQL database"
   homepage "https://virtuoso.openlinksw.com/wiki/main/"
-  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.1/virtuoso-opensource-7.2.1.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/virtuoso/virtuoso/7.2.1/virtuoso-opensource-7.2.1.tar.gz"
-  sha256 "8e680173f975266046cdc33b0949c6c3320b82630288aed778524657a32ee094"
+  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.4.2/virtuoso-opensource-7.2.4.2.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/virtuoso/virtuoso/7.2.4.2/virtuoso-opensource-7.2.4.2.tar.gz"
+  sha256 "028075d3cf1970dbb9b79f660c833771de8be5be7403b9001d6907f64255b889"
 
   bottle do
     cellar :any
-    sha256 "cf68911a2cf5d7a585cc62d00ffc5821cb53b527785c81fc949c92a1ceb91e1f" => :el_capitan
-    sha256 "f3e13eaf6ad4c143d49a14475d82884f24c3dcb5ddf93d5ffb7e6657d4db4917" => :yosemite
-    sha256 "c43ed7906276ca762e87b2dee10581db96d41317a6e8027db6987b905f3ca78c" => :mavericks
+    sha256 "76d5201d062e528bff78d3c42b9f4d3e8f8b041bfdc9a0881546572cdad87717" => :el_capitan
+    sha256 "4a2d5b2a0c81caa351a8388c781c189f36a45245479cd04584284668ca6a9ba6" => :yosemite
+    sha256 "feba222422d9882640afbd5d62f2e3a5cd3d8f9ecf00bb31c399bee5f685a53a" => :mavericks
   end
 
   head do
@@ -23,6 +23,7 @@ class Virtuoso < Formula
   # If gawk isn't found, make fails deep into the process.
   depends_on "gawk" => :build
   depends_on "openssl"
+  depends_on "xz" => :linked
 
   conflicts_with "unixodbc", :because => "Both install `isql` binaries."
 

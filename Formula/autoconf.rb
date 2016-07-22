@@ -24,15 +24,14 @@ class Autoconf < Formula
     # also touch the man page so that it isn't rebuilt
     inreplace "man/autoreconf.1", "libtoolize", "glibtoolize"
 
-    system "./configure", "--prefix=#{prefix}",
-           "--with-lispdir=#{share}/emacs/site-lisp/autoconf"
+    system "./configure", "--prefix=#{prefix}", "--with-lispdir=#{elisp}"
     system "make", "install"
 
     rm_f info/"standards.info"
   end
 
   test do
-    cp "#{pkgshare}/autotest/autotest.m4", "autotest.m4"
-    system "#{bin}/autoconf", "autotest.m4"
+    cp pkgshare/"autotest/autotest.m4", "autotest.m4"
+    system bin/"autoconf", "autotest.m4"
   end
 end

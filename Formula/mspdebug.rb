@@ -1,13 +1,13 @@
 class Mspdebug < Formula
   desc "Debugger for use with MSP430 MCUs"
   homepage "http://dlbeer.co.nz/mspdebug/"
-  url "https://github.com/dlbeer/mspdebug/archive/v0.23.tar.gz"
-  sha256 "e4db9ac519d5989aa48e43e92f04a6821a5dc7dff8c8b3795508a77ec4edde84"
+  url "https://github.com/dlbeer/mspdebug/archive/v0.24.tar.gz"
+  sha256 "ace77951dc36227bbc4d5df1c33c1e5de833cccded33aa2a322c831bd8f8c146"
 
   bottle do
-    sha256 "ca534bad59641ade8811ce3e78ba7738746ed826cd9f8e4cf49750f0ea40ee7b" => :el_capitan
-    sha256 "d867fe5b0ec60ee3c4bb60c247f5f6f8539bd33447107e271e01d91b8f5718e2" => :yosemite
-    sha256 "c0c42979013ec17216dd7e5ec7cb9bec2284f72324048ebe48d411e23035cedb" => :mavericks
+    sha256 "cf344bb3dde57fbed99d121dae7018abe2243ba5151ac2229210e1f2b2be29c8" => :el_capitan
+    sha256 "303e0f55100d99ded862be2cced8d9c84d5b1048e44aaf15f013a8b2ed28e857" => :yosemite
+    sha256 "0c2ec6054005d777a0da7dfff74d401811fe5d0543b14cd6b02e6e03dc5bd173" => :mavericks
   end
 
   depends_on "libusb-compat"
@@ -17,13 +17,13 @@ class Mspdebug < Formula
   end
 
   def caveats; <<-EOS.undent
-      You may need to install a kernel extension if you're having trouble with
-      RF2500-like devices such as the TI Launchpad:
-        http://dlbeer.co.nz/mspdebug/faq.html#rf2500_osx
+    You may need to install a kernel extension if you're having trouble with
+    RF2500-like devices such as the TI Launchpad:
+      http://dlbeer.co.nz/mspdebug/faq.html#rf2500_osx
     EOS
   end
 
   test do
-    system "#{bin}/mspdebug", "--help"
+    system bin/"mspdebug", "--help"
   end
 end

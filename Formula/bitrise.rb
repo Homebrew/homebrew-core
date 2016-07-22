@@ -1,16 +1,14 @@
-require "language/go"
-
 class Bitrise < Formula
   desc "Command-line automation tool"
   homepage "https://github.com/bitrise-io/bitrise"
-  url "https://github.com/bitrise-io/bitrise/archive/1.3.5.tar.gz"
-  sha256 "13b0205eb47bf5fe11e9424980f09b02a416e5aec5ef8554853f30adfd3ed046"
+  url "https://github.com/bitrise-io/bitrise/archive/1.3.6.tar.gz"
+  sha256 "b52d51fa0a8989ea5ecd3049868fefe3c77c6f845f063a8cd9863b8989275964"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c5c7c05e3619129e8c18d1e7da8dc36826626beffcd0ecceb964b21f47869cd0" => :el_capitan
-    sha256 "250c3044b82a78aa64279cb80ed885d7e1dc89be35cb62631246950eb3fde19e" => :yosemite
-    sha256 "43bad5377664034c51a1031fd97710ccf07b82af5e40b62675ce3b61513fb002" => :mavericks
+    sha256 "c59dab8e4ecb75848f3aff364fb1c8a532ea61ccc84fce97bb7e9fcdd8769d52" => :el_capitan
+    sha256 "87e55365782beff8548bf93036adab17b92738d97a0a1c3539413ff1c02d6332" => :yosemite
+    sha256 "85efacfcefd7cac83713a36af18abc6c4e2583279bb8bde0603f49bad1259cfc" => :mavericks
   end
 
   depends_on "go" => :build
@@ -22,8 +20,8 @@ class Bitrise < Formula
   end
 
   resource "stepman" do
-    url "https://github.com/bitrise-io/stepman/archive/0.9.19.tar.gz"
-    sha256 "05c0705be8406d2b547f0ae7c6cb4d7149c12c3a7b40d16a63e31fcf274ad696"
+    url "https://github.com/bitrise-io/stepman/archive/0.9.21.tar.gz"
+    sha256 "a9448ad6d139685287ebdf7f89707b5ec1d1e4206d981360050dd5675a73e987"
   end
 
   def install

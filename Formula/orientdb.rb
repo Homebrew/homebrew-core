@@ -1,15 +1,14 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.com"
-  url "https://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-community-2.1.16.tar.gz&os=mac"
-  version "2.1.16"
-  sha256 "41ad0db53c418459d0efbf6a7f7e2b39f48467f1ec582efa925ceb38de3f3cc6"
+  url "https://orientdb.com/download.php?file=orientdb-community-2.2.2.tar.gz"
+  sha256 "1ae672fc15638526980e132b92fe1896867fa765da79eadf5adf7cdcad946f88"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "21cce353bad1dfbc05a66cc2efe100611ba16ce394ee6ea22919519e8b92b062" => :el_capitan
-    sha256 "ba8fa3dff13b14214a6b7d6389a679b37e63b4ae9be6ae7c5c92343abe7d8545" => :yosemite
-    sha256 "41338bb2c9d6a7e07867f880e5de061caa0a1561d6b196a8718f6eed2bdf3731" => :mavericks
+    sha256 "2d10047d91dd4171419f57a9c3ad35b77754496a63106cf412d41baebf01903e" => :el_capitan
+    sha256 "084c2e3d596a91c63a4f5a57f6c61c3df6c2531dca1e849eeb7983e3a099c84f" => :yosemite
+    sha256 "86f94f50e2e4c6d18263f256e0dd2f70fbb099254850afa0d286a59ade8d26ef" => :mavericks
   end
 
   # Fixing OrientDB init scripts
@@ -27,16 +26,46 @@ class Orientdb < Formula
     chmod 0755, Dir["bin/*"]
     libexec.install Dir["*"]
 
-    mkpath "#{libexec}/log"
-    touch "#{libexec}/log/orientdb.err"
-    touch "#{libexec}/log/orientdb.log"
+    inreplace "#{libexec}/config/orientdb-server-config.xml", "</properties>",
+       <<-EOS.undent
+         <entry name="server.database.path" value="#{var}/db/orientdb" />
+         </properties>
+       EOS
+    inreplace "#{libexec}/config/orientdb-server-log.properties", "../log", "#{var}/log/orientdb"
+    inreplace "#{libexec}/bin/orientdb.sh", "../log", "#{var}/log/orientdb"
+    inreplace "#{libexec}/bin/server.sh", "ORIENTDB_PID=$ORIENTDB_HOME/bin", "ORIENTDB_PID=#{var}/run/orientdb"
+    inreplace "#{libexec}/bin/shutdown.sh", "ORIENTDB_PID=$ORIENTDB_HOME/bin", "ORIENTDB_PID=#{var}/run/orientdb"
 
     bin.install_symlink "#{libexec}/bin/orientdb.sh" => "orientdb"
     bin.install_symlink "#{libexec}/bin/console.sh" => "orientdb-console"
     bin.install_symlink "#{libexec}/bin/gremlin.sh" => "orientdb-gremlin"
   end
 
+  def post_install
+    (var/"db/orientdb").mkpath
+    (var/"run/orientdb").mkpath
+    (var/"log/orientdb").mkpath
+    touch "#{var}/log/orientdb/orientdb.err"
+    touch "#{var}/log/orientdb/orientdb.log"
+  end
+
   def caveats
     "Use `orientdb <start | stop | status>`, `orientdb-console` and `orientdb-gremlin`."
+  end
+
+  test do
+    ENV["CONFIG_FILE"] = "#{testpath}/orientdb-server-config.xml"
+
+    cp "#{libexec}/config/orientdb-server-config.xml", testpath
+    inreplace "#{testpath}/orientdb-server-config.xml", "</properties>", "  <entry name=\"server.database.path\" value=\"#{testpath}\" />\n    </properties>"
+
+    system "#{bin}/orientdb", "start"
+    sleep 4
+
+    begin
+      assert_match "OrientDB Server v.2.2.2", shell_output("curl -I localhost:2480")
+    ensure
+      system "#{bin}/orientdb", "stop"
+    end
   end
 end

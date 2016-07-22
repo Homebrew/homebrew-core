@@ -1,15 +1,15 @@
 class SyncthingInotify < Formula
   desc "File watcher intended for use with Syncthing"
   homepage "https://github.com/syncthing/syncthing-inotify"
-  url "https://github.com/syncthing/syncthing-inotify/archive/v0.8.2.tar.gz"
-  sha256 "2bf26bd37a4d496a6118140556ecd60ce20bc9f63cb7f6086af8d76c3e0e7448"
+  url "https://github.com/syncthing/syncthing-inotify/archive/v0.8.3.tar.gz"
+  sha256 "3bbcce6788b44019472205c000bed2b3255a2ee08c0d20a93a9e7b22c73f3d45"
   head "https://github.com/syncthing/syncthing-inotify.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fba4a13fb55746bdea04bdaba6717f0ee1fab176b2b204f7c0915a75e2b7fa91" => :el_capitan
-    sha256 "c5a952d1acc74b2c524b8103af08d61aad069755fc5237db9c9c1b75136c993f" => :yosemite
-    sha256 "e4428f603ac6a74ab8a1ab250de04bbc167cc838c61164f4354e4434f22e1790" => :mavericks
+    sha256 "1ac1dcf264f1969ca962acaf0e486b356f51a791845f56f07116cd6f880f88f0" => :el_capitan
+    sha256 "dd038217ba9dbda2d7e1626e63f144ca66a36b19b6b726bc33502286b33b9755" => :yosemite
+    sha256 "960a018f4daa6174e9f8205055bbe6a41addd172fb3e4e7675ad17b9eb6ea26d" => :mavericks
   end
 
   depends_on "go" => :build

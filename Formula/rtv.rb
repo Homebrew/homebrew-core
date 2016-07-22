@@ -1,14 +1,14 @@
 class Rtv < Formula
   desc "Command-line Reddit client"
   homepage "https://github.com/michael-lazar/rtv"
-  url "https://github.com/michael-lazar/rtv/archive/v1.9.1.tar.gz"
-  sha256 "66307483708a6dc77bf6f3c289221c8ccba4743e2f592448239c01b4989b3927"
+  url "https://github.com/michael-lazar/rtv/archive/v1.10.0.tar.gz"
+  sha256 "2f54e0383a65b8d771f4e4b23064126695ce23bbacee7f215393eb54f0fc453c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5720f9a54499cc6fa50df9355036aeba4e032489d35c222a946966b4b5f5ba78" => :el_capitan
-    sha256 "f86627aa57e0b92d93f9e96480d69caf09ebd62890e261b00c1bf3c6a27b15dd" => :yosemite
-    sha256 "b5ac28d5bc385429367d25cbf72ae824930d69adee40368d976a8915633a2d95" => :mavericks
+    sha256 "fe80af63d07695ee56ccbd68e065d98d3bec1c4891c25cea08f8315e7344dadd" => :el_capitan
+    sha256 "cfb8ba46ded388336e617be0eaf278035acb62785be0fa978b80b5055244f412" => :yosemite
+    sha256 "326f66e20d187674400db04f63b3d958d5280be25dda9e752f146634b8b35d67" => :mavericks
   end
 
   depends_on :python3
@@ -18,19 +18,19 @@ class Rtv < Formula
     sha256 "9c6e98edcb33499881b86ede07d9968c81ab7c769e28e9af24075f0a5379f070"
   end
 
-  resource "update_checker" do
-    url "https://files.pythonhosted.org/packages/ae/06/84e8872337ff2c94a417eef571ac727b1cf2c98355462f7ca239d9eba987/update_checker-0.11.tar.gz"
-    sha256 "681bc7c26cffd1564eb6f0f3170d975a31c2a9f2224a32f80fe954232b86f173"
+  resource "kitchen" do
+    url "https://files.pythonhosted.org/packages/d7/17/75c460f30b8f964bd5c1ce54e0280ea3ec8830a7c73a35d5036974245b2f/kitchen-1.2.4.tar.gz"
+    sha256 "38f73d844532dba7b8cce170e6eb032fc07d0d04a07670e1af754bd4c91dfb3d"
+  end
+
+  resource "praw" do
+    url "https://files.pythonhosted.org/packages/9b/90/2b41c0b374164a9b033093aea7c7f2b392c6333972f83156ab92a3bfbbc4/praw-3.5.0.zip"
+    sha256 "0aa3da06d731ed5aa8994f34e46fb36006d168d597ddee216671369917fe8dc3"
   end
 
   resource "requests" do
     url "https://files.pythonhosted.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
     sha256 "63f1815788157130cee16a933b2ee184038e975f0017306d723ac326b5525b54"
-  end
-
-  resource "praw" do
-    url "https://files.pythonhosted.org/packages/3c/ca/8b47a272a639dc5d115f0d6a993a6f97d05bc01773868ae96259fe0d1d5a/praw-3.4.0.tar.gz"
-    sha256 "22a5dc3ef47007248752d517a637ff4f4b8acddfea31f589fe5a6e23c9f99ffe"
   end
 
   resource "six" do
@@ -43,23 +43,24 @@ class Rtv < Formula
     sha256 "c9c2d32593d16eedf2cec1b6a41893626a2649b40b21ca9c4cac4243bde2efbf"
   end
 
-  resource "kitchen" do
-    url "https://files.pythonhosted.org/packages/d7/17/75c460f30b8f964bd5c1ce54e0280ea3ec8830a7c73a35d5036974245b2f/kitchen-1.2.4.tar.gz"
-    sha256 "38f73d844532dba7b8cce170e6eb032fc07d0d04a07670e1af754bd4c91dfb3d"
+  resource "update_checker" do
+    url "https://files.pythonhosted.org/packages/ae/06/84e8872337ff2c94a417eef571ac727b1cf2c98355462f7ca239d9eba987/update_checker-0.11.tar.gz"
+    sha256 "681bc7c26cffd1564eb6f0f3170d975a31c2a9f2224a32f80fe954232b86f173"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python3.5/site-packages"
-    %w[update_checker decorator tornado praw six requests kitchen].each do |r|
-      resource(r).stage do
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    resources.each do |r|
+      r.stage do
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python3.5/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     system "python3", *Language::Python.setup_install_args(libexec)
 
-    bin.install Dir["#{libexec}/bin/*"]
+    bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 

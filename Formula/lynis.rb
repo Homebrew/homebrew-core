@@ -1,14 +1,14 @@
 class Lynis < Formula
   desc "Security and system auditing tool to harden systems"
   homepage "https://cisofy.com/lynis/"
-  url "https://cisofy.com/files/lynis-2.2.0.tar.gz"
-  sha256 "64fe15be52fa77bce14250867da87e8c262fb0e9229517c4e2d2d5a38223bea4"
+  url "https://cisofy.com/files/lynis-2.3.1.tar.gz"
+  sha256 "7657ee66f81f72504c70a3a321f4fe87ddb5754f32e6a3c4234fd38a5c23c28c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "843e6038c9637cc3f39a52d1c7475c0a751d0c7f4699b810fe09f63c79eaba43" => :el_capitan
-    sha256 "704a1577a690667e11b78de4181c6308e736ef1dd1439f54d8c9ea7bce27d39f" => :yosemite
-    sha256 "6b0b745d65629fcfd969f7c476b0ccb98255344aa303edca93a8e2a42029aeed" => :mavericks
+    sha256 "f11621d247bfc4fa9571ee78081f7111ff9ea33d80c63a35e5bbea15cdae3668" => :el_capitan
+    sha256 "dfa06ae915df07c88e10f57061a528e02abfdc82d5ea5559f3965e8fc6d18435" => :yosemite
+    sha256 "2ddc163d0dc97885bb863cd373eeefb2d053d3a4700a6b980bd515cb561f5083" => :mavericks
   end
 
   def install
@@ -19,12 +19,18 @@ class Lynis < Formula
         %(tPLUGIN_TARGETS="#{prefix}/plugins")
       s.gsub! 'tDB_TARGETS="/usr/local/share/lynis/db /usr/local/lynis/db /usr/share/lynis/db ./db"',
         %(tDB_TARGETS="#{prefix}/db")
-      s.gsub! 'tPROFILE_TARGETS="/usr/local/etc/lynis/default.prf /etc/lynis/default.prf /usr/local/lynis/default.prf ./default.prf"',
-        %(tPROFILE_TARGETS="#{prefix}/default.prf")
+    end
+    inreplace "include/functions" do |s|
+      s.gsub! 'tPROFILE_TARGETS="/usr/local/etc/lynis /etc/lynis /usr/local/lynis ."',
+        %(tPROFILE_TARGETS="#{prefix}")
     end
 
     prefix.install "db", "include", "plugins", "default.prf"
     bin.install "lynis"
     man8.install "lynis.8"
+  end
+
+  test do
+    assert_match "lynis", shell_output("#{bin}/lynis --invalid 2>&1", 64)
   end
 end

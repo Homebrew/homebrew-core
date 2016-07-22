@@ -3,14 +3,14 @@ class Luajit < Formula
   homepage "http://luajit.org/luajit.html"
   url "http://luajit.org/download/LuaJIT-2.0.4.tar.gz"
   sha256 "620fa4eb12375021bef6e4f237cbd2dd5d49e56beb414bee052c746beef1807d"
-  revision 1
+  revision 2
 
   head "http://luajit.org/git/luajit-2.0.git"
 
   bottle do
-    sha256 "38b21090f297f25d5ff011aebc4dd1b91f1ca8660c9cdbcb61abc9d42c63dd58" => :el_capitan
-    sha256 "56302fd3162c220a4ebdc64481e07665fa76035d0b0fab29eb9375ccb505fc28" => :yosemite
-    sha256 "cdef95c2178de6852d295a596c85f01733e67e54b1e026021b136586a185ad0d" => :mavericks
+    sha256 "bcbaa0927b7d477abbb2637d9123f503875b1d4cfef7f94d28d1aad017b99688" => :el_capitan
+    sha256 "f5fe1202211a883040feafba6a8c54befb5efa095aa635e319fe7df057e5a1e3" => :yosemite
+    sha256 "06454e65ba92df5be021f2e2b37d7b7bd3c4a3f99f4b1659c317ddc6227842cd" => :mavericks
   end
 
   devel do
@@ -57,8 +57,17 @@ class Luajit < Formula
     lib.install_symlink lib/"libluajit-5.1.dylib" => "libluajit.dylib"
     lib.install_symlink lib/"libluajit-5.1.a" => "libluajit.a"
 
+    # Fix path in pkg-config so modules are installed
+    # to permanent location rather than inside the Cellar.
+    inreplace lib/"pkgconfig/luajit.pc" do |s|
+      s.gsub! "INSTALL_LMOD=${prefix}/share/lua/${abiver}",
+              "INSTALL_LMOD=#{HOMEBREW_PREFIX}/share/lua/${abiver}"
+      s.gsub! "INSTALL_CMOD=${prefix}/${multilib}/lua/${abiver}",
+              "INSTALL_CMOD=#{HOMEBREW_PREFIX}/${multilib}/lua/${abiver}"
+    end
+
     # Having an empty Lua dir in lib/share can mess with other Homebrew Luas.
-    %W[ #{lib}/lua #{share}/lua ].each { |d| rm_rf d }
+    %W[#{lib}/lua #{share}/lua].each { |d| rm_rf d }
   end
 
   test do

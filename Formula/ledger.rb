@@ -48,10 +48,10 @@ class Ledger < Formula
     system "./acprep", flavor, "make", "doc", *args
     system "./acprep", flavor, "make", "install", *args
 
-    (pkgshare+"examples").install Dir["test/input/*.dat"]
-    (pkgshare).install "contrib"
-    (pkgshare).install "python/demo.py" if build.with? "python"
-    (share/"emacs/site-lisp/ledger").install Dir["lisp/*.el", "lisp/*.elc"]
+    (pkgshare/"examples").install Dir["test/input/*.dat"]
+    pkgshare.install "contrib"
+    pkgshare.install "python/demo.py" if build.with? "python"
+    elisp.install Dir["lisp/*.el", "lisp/*.elc"]
   end
 
   test do
@@ -64,8 +64,6 @@ class Ledger < Formula
     assert_equal "          $-2,500.00  Equity", balance.read.chomp
     assert_equal 0, $?.exitstatus
 
-    if build.with? "python"
-      system "python", "#{pkgshare}/demo.py"
-    end
+    system "python", pkgshare/"demo.py" if build.with? "python"
   end
 end

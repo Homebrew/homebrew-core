@@ -6,9 +6,10 @@ class ShairportSync < Formula
   head "https://github.com/mikebrady/shairport-sync.git"
 
   bottle do
-    sha256 "88c1b4ef5dca2608facc7f8f1f43a0f81a3db36062b72e82072b2384c2bf5ba0" => :el_capitan
-    sha256 "666b3395911138b68def5056fff8c1b0fb29418917b6799c53f67413e073595d" => :yosemite
-    sha256 "2c293241a94db289521af9ac3885b351b272b617f9fe4910f147af6368fb4324" => :mavericks
+    revision 1
+    sha256 "db6badb38ad81e3b8a884fb6997d45c9895134f530ba30fb0e2a1a3a979044ce" => :el_capitan
+    sha256 "7b5b30ab5741b5833f3a170efee2724aa77df233741223895f107b70528d3079" => :yosemite
+    sha256 "4da33ef7fb709b02bc147db5484422cf2cb7f1f40f31a11a1cb58c0be7f190d1" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -28,6 +29,8 @@ class ShairportSync < Formula
       --with-ssl=openssl
       --with-dns_sd
       --with-ao
+      --with-stdout
+      --with-pipe
       --with-soxr
       --with-configfiles=no
       --with-piddir=#{prefix}
@@ -40,6 +43,6 @@ class ShairportSync < Formula
 
   test do
     test_cmd = "#{bin}/shairport-sync -V"
-    assert_match(/openssl-ao-soxr/, shell_output(test_cmd, 1))
+    assert_match(/openssl-ao-stdout-pipe-soxr/, shell_output(test_cmd, 1))
   end
 end

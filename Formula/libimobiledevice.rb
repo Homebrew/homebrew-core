@@ -13,7 +13,7 @@ class Libimobiledevice < Formula
   end
 
   head do
-    url "http://git.sukimashita.com/libimobiledevice.git"
+    url "https://git.libimobiledevice.org/libimobiledevice.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -35,5 +35,9 @@ class Libimobiledevice < Formula
                           # bindings, libimobiledevice must as well.
                           "--without-cython"
     system "make", "install"
+  end
+
+  test do
+    system "#{bin}/idevicedate", "--help"
   end
 end

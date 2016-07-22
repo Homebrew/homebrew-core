@@ -28,8 +28,10 @@ class Hub < Formula
   end
 
   test do
-    HOMEBREW_REPOSITORY.cd do
-      assert_equal "bin/brew", shell_output("#{bin}/hub ls-files -- bin").strip
-    end
+    system "git", "init"
+    %w[haunted house].each { |f| touch testpath/f }
+    system "git", "add", "haunted", "house"
+    system "git", "commit", "-a", "-m", "Initial Commit"
+    assert_equal "haunted\nhouse", shell_output("#{bin}/hub ls-files").strip
   end
 end

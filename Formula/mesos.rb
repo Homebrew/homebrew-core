@@ -101,7 +101,7 @@ class Mesos < Formula
     ]
 
     unless MacOS::CLT.installed?
-      args << "--with-apr=#{Formula["apr"].opt_prefix}/libexec"
+      args << "--with-apr=#{Formula["apr"].opt_libexec}"
     end
 
     ENV.cxx11

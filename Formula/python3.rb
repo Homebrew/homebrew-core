@@ -16,8 +16,8 @@ class Python3 < Formula
   end
 
   devel do
-    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0a2.tar.xz"
-    sha256 "2dd2ddf22a63ef9642a20b1f5a40983209e8d7a8ad8371a881fde520edc9ff86"
+    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0a3.tar.xz"
+    sha256 "2cd0611c3456a83737d99d8ffd36d4094b3d44c29dd3a4185f1146be502a8321"
   end
 
   option :universal
@@ -182,7 +182,7 @@ class Python3 < Formula
     system "make", "quicktest" if build.with? "quicktest"
 
     # Any .app get a " 3" attached, so it does not conflict with python 2.x.
-    Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(".app", " 3.app") }
+    Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 3.app") }
 
     # A fix, because python and python3 both want to install Python.framework
     # and therefore we can't link both into HOMEBREW_PREFIX/Frameworks

@@ -8,12 +8,13 @@ class Libtool < Formula
   mirror "https://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz"
   sha256 "7c87a8c2c8c0fc9cd5019e402bed4292462d00a718a7cd5f11218153bf28b26f"
 
+  revision 1
+
   bottle do
     cellar :any
-    sha256 "6cb942b57a00f038100af861b4e835a79dae305c13aee550be21b71c4dfc48ed" => :el_capitan
-    sha256 "3b240bf5f3bb91aa3a61d91827573f902da6ba57ca4a0d026e54a789453ac2d7" => :yosemite
-    sha256 "de922636432ee49070e8b5208c095d9c0390781db38c887f77f8b657f4a94e14" => :mavericks
-    sha256 "8508d1f8e6b92dac8418fc881bd3009419a53a7ac15a685ba4eb9e6b7be9e532" => :mountain_lion
+    sha256 "b7651d0a082e2f103f03ca3a5ed831e2ff5655ccc1044ac0452e4d1825475a35" => :el_capitan
+    sha256 "0eb206c0f51e8ce2e3e9340b5ce3c8ecef961ae6696f676073327a7ac04e5c0b" => :yosemite
+    sha256 "2e51ef82ef2bd1ad9d921a9016b9e5d7fa82d131849e2c32a3c90daa119e2eda" => :mavericks
   end
 
   keg_only :provided_until_xcode43
@@ -22,6 +23,7 @@ class Libtool < Formula
 
   def install
     ENV.universal_binary if build.universal?
+    ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--program-prefix=g",

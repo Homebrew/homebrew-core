@@ -1,44 +1,21 @@
 class Htmlcxx < Formula
   desc "Non-validating CSS1 and HTML parser for C++"
   homepage "http://htmlcxx.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/htmlcxx/htmlcxx/0.85/htmlcxx-0.85.tar.gz"
-  sha256 "ab02a0c4addc82f82d564f7d163fe0cc726179d9045381c288f5b8295996bae5"
+  url "https://downloads.sourceforge.net/project/htmlcxx/htmlcxx/0.86/htmlcxx-0.86.tar.gz"
+  sha256 "07542b5ea2442143b125ba213b6823ff4a23fff352ecdd84bbebe1d154f4f5c1"
 
   bottle do
-    sha256 "708b5eeb03eb5f2070f4fe34efb80f9198009a23106c98ec9aaf5472b49dbf1c" => :el_capitan
-    sha256 "a013c7a43b1587c458df1ebae586d4b15b2a3c994c7de12dc6c7c24a80886a09" => :yosemite
-    sha256 "fceb4660730162bdb44be089ab347afd7a24b3f06bc3579cffdf2bb5891466f5" => :mavericks
+    sha256 "2be957cd2a735529bc4e921733cdee1b7a7afdfc6614914c76e9fcd08a89c90e" => :el_capitan
+    sha256 "b456c9087eb6dc788ec52717cb7eef3bf6dac24dbdd0d46674ed30c8597398ef" => :yosemite
+    sha256 "86839a9ca4861d4409d7a71b6553d3cbff78d5f99bf2a72971c302891245ed64" => :mavericks
   end
-
-  # Don't try to use internal GCC headers; rely on standards-compliant header
-  # Fixed upstream: https://sourceforge.net/p/htmlcxx/code/ci/b26a4fae4e3d59d24600f9a7dfb013ce43bdd2df/
-  patch :DATA
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
-end
 
-__END__
-diff --git a/html/ci_string.h b/html/ci_string.h
-index 61ed462..e461469 100644
---- a/html/ci_string.h
-+++ b/html/ci_string.h
-@@ -4,16 +4,7 @@
- #include <cctype>
- #include <string>
- 
--#if __GNUC__ >= 3
--#include <bits/char_traits.h>
- struct ci_char_traits : public std::char_traits<char>
--#elif defined(__GNUC__)
--#include <std/straits.h>
--struct ci_char_traits : public std::string_char_traits<char>
--#else 
--//Hope string already include it
--struct ci_char_traits : public std::char_traits<char>
--#endif
- 
- // just inherit all the other functions
- //  that we don't need to override
+  test do
+    assert_equal version.to_s, shell_output("#{bin}/htmlcxx -V 2>&1").chomp
+  end
+end

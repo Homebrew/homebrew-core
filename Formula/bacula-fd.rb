@@ -1,13 +1,13 @@
 class BaculaFd < Formula
   desc "Network backup solution"
   homepage "http://www.bacula.org/"
-  url "https://downloads.sourceforge.net/project/bacula/bacula/7.4.1/bacula-7.4.1.tar.gz"
-  sha256 "d0874e94c0534274455efd91d6f9477c57c7f14882138f03b3572eff2660e861"
+  url "https://downloads.sourceforge.net/project/bacula/bacula/7.4.3/bacula-7.4.3.tar.gz"
+  sha256 "597db51997fcdb4c8bdc201f2dc22b466e69152bc2945e2222a27f4ffaeba5bc"
 
   bottle do
-    sha256 "57d67afab43a0bbfb8c47f1db23467feaebd08a9da8510bcc95a6c9646fd8371" => :el_capitan
-    sha256 "327b7d3f066de688893d3ebe32628c7152ff76c4e7c3319b8d4143761e2d51a2" => :yosemite
-    sha256 "a78745f17e254242d36120d577ce9b2e63dc7546cb8d9fc36163c55c1990b2c4" => :mavericks
+    sha256 "c4d151638573421aebb24af923adeb5fe84bcf64ed15f336def4581e04520d20" => :el_capitan
+    sha256 "92b170b3501e97979f17ae15a40574454178112b80b6044ea79b9fcf51b73634" => :yosemite
+    sha256 "fd770a2d7ccd6f687bc7d40c046b37bbe83011b726581717fd05711366381f09" => :mavericks
   end
 
   depends_on "readline"
@@ -18,24 +18,23 @@ class BaculaFd < Formula
     #   (conio support not tested)
     # * working directory in /var/lib/bacula, reasonable place that
     #   matches Debian's location.
-    readline = Formula["readline"].opt_prefix
     system "./configure", "--prefix=#{prefix}",
                           "--sbindir=#{bin}",
                           "--with-working-dir=#{var}/lib/bacula",
-                          "--with-pid-dir=#{HOMEBREW_PREFIX}/var/run",
+                          "--with-pid-dir=#{var}/run",
                           "--with-logdir=#{var}/log/bacula",
                           "--enable-client-only",
                           "--disable-conio",
-                          "--with-readline=#{readline}"
+                          "--with-readline=#{Formula["readline"].opt_prefix}"
 
     system "make"
     system "make", "install"
 
-    # Ensure var/run exists:
-    (var + "run").mkpath
+    (var/"lib/bacula").mkpath
+  end
 
-    # Create the working directory:
-    (var + "lib/bacula").mkpath
+  def post_install
+    (var/"run").mkpath
   end
 
   plist_options :startup => true, :manual => "bacula-fd"
@@ -54,10 +53,12 @@ class BaculaFd < Formula
           <string>#{opt_bin}/bacula-fd</string>
           <string>-f</string>
         </array>
-        <key>UserName</key>
-        <string>root</string>
       </dict>
     </plist>
   EOS
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/bacula-fd -? 2>&1", 1)
   end
 end

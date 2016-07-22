@@ -43,7 +43,7 @@ class Quantlib < Formula
     end
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-lispdir=#{share}/emacs/site-lisp/quantlib"
+                          "--with-lispdir=#{elisp}"
     system "make", "install"
   end
 

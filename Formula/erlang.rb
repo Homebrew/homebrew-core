@@ -8,16 +8,15 @@ class Erlang < Formula
 
   stable do
     # Download tarball from GitHub; it is served faster than the official tarball.
-    url "https://github.com/erlang/otp/archive/OTP-18.3.tar.gz"
-    sha256 "8d5436faf37a1273c1b8529c4f02c28af0eccde31e52d474cb740b012d5da7e6"
+    url "https://github.com/erlang/otp/archive/OTP-19.0.2.tar.gz"
+    sha256 "d0ec363d460994e63ef984c2367598990978ffe1d41bb0e0c25520a0ee1dab21"
   end
 
   bottle do
     cellar :any
-    revision 2
-    sha256 "40c0acf9675257003e2f590d5e0d2500c56f348e8631f97e05b5f825ed4ed36c" => :el_capitan
-    sha256 "b982d71869783c3615cb22fa0fd5bc689e071ab3960bc4f1679fb11108be7ed9" => :yosemite
-    sha256 "6a5c2f8702940ca205e9445db3c6915540d81b0ee088af48ab215a3a34689e16" => :mavericks
+    sha256 "37f013b91588e54d30f5300667628eeb58973ffd796805550b0b1143e1ca8ea7" => :el_capitan
+    sha256 "87df689efac86b2fe55d7e6e792e42afdfe8168a37a1cda64270ea69943564ea" => :yosemite
+    sha256 "d208f5b0bee55a701659987293e67b2603184c364e68b6418e5f5c44f40067c9" => :mavericks
   end
 
   option "without-hipe", "Disable building hipe; fails on various OS X systems"
@@ -40,13 +39,13 @@ class Erlang < Formula
   fails_with :llvm
 
   resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_18.3.tar.gz"
-    sha256 "978be100e9016874921b3ad1a65ee46b7b6a1e597b8db2ec4b5ef436d4c9ecc2"
+    url "https://www.erlang.org/download/otp_doc_man_19.0.tar.gz"
+    sha256 "c7a3d6d85a5a2b96d844297a3fa1bee448c3dd86237734688466249fd5a1401e"
   end
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_18.3.tar.gz"
-    sha256 "8fd6980fd05367735779a487df107ace7c53733f52fbe56de7ca7844a355676f"
+    url "https://www.erlang.org/download/otp_doc_html_19.0.tar.gz"
+    sha256 "b6f7c4e964673333f6c3eea8530dd988b41339b8912ae293f6f1b429489159ff"
   end
 
   def install

@@ -40,8 +40,7 @@ class Librest < Formula
     EOS
     glib = Formula["glib"]
     libsoup = Formula["libsoup"]
-    flags = (ENV.cflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{libsoup.opt_include}/libsoup-2.4
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include

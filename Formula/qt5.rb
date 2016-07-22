@@ -48,7 +48,7 @@ class Qt5 < Formula
     sha256 "2cf77b820f46f0c404284882b4a4a97bf005b680062842cdc53e107a821deeda"
   end
 
-  keg_only "Qt 5 conflicts Qt 4 (which is currently much more widely used)."
+  keg_only "Qt 5 conflicts Qt 4"
 
   option "with-docs", "Build documentation"
   option "with-examples", "Build examples"

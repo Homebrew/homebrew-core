@@ -52,7 +52,7 @@ class GnuSmalltalk < Formula
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --with-lispdir=#{share}/emacs/site-lisp/#{name}
+      --with-lispdir=#{elisp}
       --disable-gtk
       --with-readline=#{Formula["readline"].opt_lib}
     ]

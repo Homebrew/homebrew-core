@@ -25,8 +25,9 @@ class Idutils < Formula
       ENV["gl_cv_func_getcwd_abort_bug"] = "no"
     end
 
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
-                          "--with-lispdir=#{share}/emacs/site-lisp/idutils"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--with-lispdir=#{elisp}"
     system "make", "install"
   end
 

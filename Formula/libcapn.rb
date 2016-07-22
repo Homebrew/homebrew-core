@@ -4,30 +4,19 @@ class Libcapn < Formula
   head "https://github.com/adobkin/libcapn.git"
 
   stable do
-    url "https://github.com/adobkin/libcapn/archive/1.1.0.tar.gz"
-    sha256 "fbe93f8fad4247b898d518ea0f38484eb062cd830a41bb26a6ac4b95cbf076e4"
+    url "https://github.com/adobkin/libcapn/archive/v2.0.0.tar.gz"
+    sha256 "6a0d786a431864178f19300aa5e1208c6c0cbd2d54fadcd27f032b4f3dd3539e"
 
     resource "jansson" do
-      url "https://github.com/akheron/jansson/archive/v2.5.tar.gz"
-      sha256 "f328f25fc74a14b6a636245ad28d4cd3affd792f7ffaab4c021a99b3694e4287"
+      url "https://github.com/akheron/jansson.git",
+        :revision => "8f067962f6442bda65f0a8909f589f2616a42c5a"
     end
   end
 
   bottle do
-    cellar :any
-    sha256 "228057a01ee8f67b8cb4122798d12e19b596c7cb1c5c7bc216ade96a0a632ef4" => :el_capitan
-    sha256 "35071a03d946979792e7ac7792e2bf6e94073c242ccf58066fefd0d49c7d72d4" => :yosemite
-    sha256 "70d7e47ff2ad168c6f26e61d86805b4e0d1c37015c1e3528d589195a66e9d185" => :mavericks
-  end
-
-  devel do
-    url "https://github.com/adobkin/libcapn/archive/2.0.0-beta.tar.gz"
-    sha256 "551dccfa66b616a390e3c9fc8ac35869a076c979246728e9343f9eeb50d66551"
-    version "2.0.0-beta"
-
-    resource "jansson" do
-      url "https://github.com/akheron/jansson.git", :revision => "e44b2231b50aea5de78b7ea2debec0d5327cd711"
-    end
+    sha256 "1ea44f9bd53e6729a874c0b55a4031e0ff806ae967ab20267d0b0ec87219ceda" => :el_capitan
+    sha256 "e046c34011f734511cbaa38f5defeec5da3ed3ad3d2f7c11e8c5eddc92e8e596" => :yosemite
+    sha256 "a9405089ccb42d828415d5ce60a9da5c6d39c28d89d599244317c37634a6e580" => :mavericks
   end
 
   depends_on "cmake" => :build
@@ -35,43 +24,22 @@ class Libcapn < Formula
   depends_on "openssl"
 
   def install
+    # head gets jansson as a git submodule
     if build.stable?
-      (buildpath/"jansson").install resource("jansson")
-    elsif build.devel?
       (buildpath/"src/third_party/jansson").install resource("jansson")
     end
-    cmake_args = std_cmake_args
-    cmake_args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
-    system "cmake", ".", *cmake_args
+    system "cmake", ".", "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}",
+                         *std_cmake_args
     system "make", "install"
-    example = if build.stable?
-      "docs/send_push.c"
-    elsif build.head? || build.devel?
-      "examples/send_push_message.c"
-    end
-    (doc/"examples").install example
+    pkgshare.install "examples"
   end
 
   test do
-    spec = Tab.for_name("libcapn").source["spec"]
-    example = if spec == "stable"
-      "send_push.c"
-    elsif spec == "head" || spec == "devel"
-      "send_push_message.c"
-    end
-    cp "#{doc}/examples/#{example}", testpath
-    flags = [
-      "-I#{Formula["openssl"].opt_prefix}/include",
-      "-I#{include}/capn",
-      "-L#{lib}/capn",
-      "-lcapn",
-      ENV.cflags.to_s.split,
-    ].flatten
-    system ENV.cc, "-o", "example", example, *flags
-    if spec == "stable"
-      assert_match /unable to use specified SSL certificate \(12\)/, shell_output("./example", 1)
-    elsif spec == "head" || spec == "devel"
-      assert_match /unable to use specified PKCS12 file \(errno: 9012\)/, shell_output("./example", 255)
-    end
+    system ENV.cc, pkgshare/"examples/send_push_message.c",
+                   "-o", "send_push_message",
+                   "-I#{Formula["openssl"].opt_include}",
+                   "-L#{lib}/capn", "-lcapn"
+    output = shell_output("./send_push_message", 255)
+    assert_match "unable to use specified PKCS12 file (errno: 9012)", output
   end
 end

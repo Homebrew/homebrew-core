@@ -22,9 +22,10 @@ class Telegraf < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ff7f3f1f8f4cbdf708eada5ab3ef1e0eb0d594a22690777cb224fe71d6c608d3" => :el_capitan
-    sha256 "8199d5fcfda82dbf3671280c6e3bf5d34a20701fb30d656fb46790a6c9eaf1d1" => :yosemite
-    sha256 "c95fbde1b93a8c93176d562b797a71941dd4c677cb9ca5d3514615b67ee43a75" => :mavericks
+    revision 1
+    sha256 "791a266550e983b700f48b8aa769edf3ec642dfc8328b716e825880a5d2dad26" => :el_capitan
+    sha256 "872734aab6dcf430c69f9db5819c5ba1a9fc929a46d9a925a455d80529940d73" => :yosemite
+    sha256 "9ca4a7846733a09a712231aa584787889c0a9bd5122ae27f9b0294cc426d911f" => :mavericks
   end
 
   devel do
@@ -373,6 +374,11 @@ class Telegraf < Formula
     etc.install telegraf_path/"etc/telegraf.conf" => "telegraf.conf"
   end
 
+  def post_install
+    # Create directory for additional user configurations
+    (etc/"telegraf.d").mkpath
+  end
+
   plist_options :manual => "telegraf -config #{HOMEBREW_PREFIX}/etc/telegraf.conf"
 
   def plist; <<-EOS.undent
@@ -391,7 +397,9 @@ class Telegraf < Formula
         <array>
           <string>#{opt_bin}/telegraf</string>
           <string>-config</string>
-          <string>#{HOMEBREW_PREFIX}/etc/telegraf.conf</string>
+          <string>#{etc}/telegraf.conf</string>
+          <string>-config-directory</string>
+          <string>#{etc}/telegraf.d</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
