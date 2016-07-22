@@ -7,9 +7,9 @@ class Poco < Formula
 
   bottle do
     cellar :any
-    sha256 "fb77d69a952461f1dc8b97a5a715335fac8f9dcf96ce3b63147c20aab14e020f" => :el_capitan
-    sha256 "9028068c6c3578af781a9acb8311e57aa86b7b2b1c184a616d2c61fee21e56e1" => :yosemite
-    sha256 "a799fd928197ffbd7b2b40646c7e392be149480bba5e1dd9f38d9c7837074e9b" => :mavericks
+    sha256 "c01ed1ca68597f7c589f72f7f0ed8cc88a402032dcbf29bc1c487ff930f3e1f9" => :el_capitan
+    sha256 "ec8251d0b48421096da72bb4c2bbe9c2fea300d07c7a4eea906c4d637c52b64d" => :yosemite
+    sha256 "ce5330607a1fdad9b79434f0990ad953da56acbdd16f9ad88c0b8fc8dcdc17bd" => :mavericks
   end
 
   option :cxx11
