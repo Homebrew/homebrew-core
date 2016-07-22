@@ -1,7 +1,6 @@
 class Go < Formula
   desc "Go programming environment"
   homepage "https://golang.org"
-  head "https://github.com/golang/go.git"
 
   stable do
     url "https://storage.googleapis.com/golang/go1.6.3.src.tar.gz"
@@ -33,6 +32,14 @@ class Go < Formula
       url "https://go.googlesource.com/tools.git",
           :branch => "release-branch.go#{go_version}",
           :revision => "527b253f588776e5f72a0a0d1e93195cd3f82707"
+    end
+  end
+
+  head do
+    url "https://github.com/golang/go.git"
+
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git"
     end
   end
 
