@@ -25,8 +25,6 @@ class AflFuzz < Formula
 
   test do
     cpp_file = testpath/"main.cpp"
-    exe_file = testpath/"test"
-
     cpp_file.write <<-EOS.undent
       #include <iostream>
 
@@ -35,9 +33,7 @@ class AflFuzz < Formula
       }
     EOS
 
-    system "#{bin}/afl-clang++", "-g", cpp_file, "-o", exe_file
-    output = `#{exe_file}`
-    assert_equal 0, $?.exitstatus
-    assert_equal output, "Hello, world!"
+    system bin/"afl-clang++", "-g", cpp_file, "-o", "test"
+    assert_equal "Hello, world!", shell_output("./test")
   end
 end
