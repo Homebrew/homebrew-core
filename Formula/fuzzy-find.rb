@@ -19,10 +19,10 @@ class FuzzyFind < Formula
     system "make"
     bin.install "ff"
     man1.install "ff.1"
-    (share/"emacs/site-lisp/fuzzy-find").install "fuzzy-find.el"
+    elisp.install "fuzzy-find.el"
   end
 
   test do
-    system "#{bin}/ff", "-t"
+    system bin/"ff", "-t"
   end
 end
