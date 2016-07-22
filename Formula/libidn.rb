@@ -21,12 +21,12 @@ class Libidn < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-csharp",
-                          "--with-lispdir=#{share}/emacs/site-lisp/#{name}"
+                          "--with-lispdir=#{elisp}"
     system "make", "install"
   end
 
   test do
     ENV["CHARSET"] = "UTF-8"
-    system "#{bin}/idn", "räksmörgås.se", "blåbærgrød.no"
+    system bin/"idn", "räksmörgås.se", "blåbærgrød.no"
   end
 end
