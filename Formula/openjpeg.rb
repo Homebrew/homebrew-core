@@ -1,12 +1,10 @@
 class Openjpeg < Formula
   desc "Library for JPEG-2000 image manipulation"
-  homepage "http://www.openjpeg.org"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/o/openjpeg/openjpeg_1.5.2.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/o/openjpeg/openjpeg_1.5.2.orig.tar.gz"
-  sha256 "aef498a293b4e75fa1ca8e367c3f32ed08e028d3557b069bf8584d0c1346026d"
-  revision 1
+  homepage "http://www.openjpeg.org/"
+  url "https://github.com/uclouvain/openjpeg/archive/v2.1.1.tar.gz"
+  sha256 "82c27f47fc7219e2ed5537ac69545bf15ed8c6ba8e6e1e529f89f7356506dbaa"
 
-  head "https://github.com/uclouvain/openjpeg.git", :branch => "openjpeg-1.5"
+  head "https://github.com/uclouvain/openjpeg.git"
 
   bottle do
     cellar :any
@@ -16,9 +14,11 @@ class Openjpeg < Formula
     sha256 "a30aa5b0a7ebcc1daba910671183084d69afb1d30cb85bfeb8b213f8e7a617d7" => :mountain_lion
   end
 
+  option "without-doxygen", "Do not build HTML documentation."
   option "with-static", "Build a static library."
 
   depends_on "cmake" => :build
+  depends_on "doxygen" => [:build, :recommended]
   depends_on "little-cms2"
   depends_on "libtiff"
   depends_on "libpng"
@@ -26,11 +26,9 @@ class Openjpeg < Formula
   def install
     args = std_cmake_args
     args << "-DBUILD_SHARED_LIBS=OFF" if build.with? "static"
+    args << "-DBUILD_DOC=ON" if build.with? "doxygen"
     system "cmake", ".", *args
     system "make", "install"
-
-    # https://github.com/uclouvain/openjpeg/issues/562
-    (lib/"pkgconfig").install_symlink lib/"pkgconfig/libopenjpeg1.pc" => "libopenjpeg.pc"
   end
 
   test do
@@ -39,7 +37,7 @@ class Openjpeg < Formula
 
       int main () {
         opj_image_cmptparm_t cmptparm;
-        const OPJ_COLOR_SPACE color_space = CLRSPC_GRAY;
+        const OPJ_COLOR_SPACE color_space = OPJ_CLRSPC_GRAY;
 
         opj_image_t *image;
         image = opj_image_create(1, &cmptparm, color_space);
@@ -48,7 +46,7 @@ class Openjpeg < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}/openjpeg-1.5", "-L#{lib}", "-lopenjpeg",
+    system ENV.cc, "-I#{include}/openjpeg-2.1", "-L#{lib}", "-lopenjp2",
            testpath/"test.c", "-o", "test"
     system "./test"
   end
