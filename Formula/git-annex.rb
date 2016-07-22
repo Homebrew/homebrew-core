@@ -5,9 +5,20 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20160613/git-annex-6.20160613.tar.gz"
-  sha256 "595e1945ea42bdcd55fd6b6096cbdb64646f2391ad34eb9b45ab92190e1d5314"
   head "git://git-annex.branchable.com/"
+
+  stable do
+    url "https://hackage.haskell.org/package/git-annex-6.20160619/git-annex-6.20160619.tar.gz"
+    sha256 "5acc80dfb86d8f568819256a428f04794bff4c654389692f27a7bf0877ebe12f"
+
+    # Upstream commit "cabal constraints for aws and esqueleto"
+    # Upstream aws issue: https://github.com/aristidb/aws/issues/206
+    # Upstream esqueleto issue: https://github.com/prowdsponsor/esqueleto/issues/137
+    patch do
+      url "https://github.com/joeyh/git-annex/commit/18e458db.patch"
+      sha256 "75c3f7426e492ea48062f9922badae5c7809f2494f128e41f9d3e148fb9daa50"
+    end
+  end
 
   bottle do
     cellar :any
