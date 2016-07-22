@@ -19,6 +19,14 @@ class Htop < Formula
     depends_on "libtool" => :build
   end
 
+  head do
+    url "https://github.com/hishamhm/htop.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   option "with-ncurses", "Build using homebrew ncurses (enables mouse scroll)"
 
   depends_on "homebrew/dupes/ncurses" => :optional
