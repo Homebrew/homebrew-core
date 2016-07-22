@@ -23,15 +23,15 @@ class Go < Formula
   end
 
   devel do
-    url "https://storage.googleapis.com/golang/go1.7rc2.src.tar.gz"
-    version "1.7rc2"
-    sha256 "87bafefb093dd163d264099b39b1bcdc227f54f935b77f5ff74b0d57e3638da6"
+    url "https://storage.googleapis.com/golang/go1.7rc3.src.tar.gz"
+    version "1.7rc3"
+    sha256 "6df6425ec3ac23fe9bcc52e1950f3a5829e5ed5a964d396d7f662a3d2fa95232"
 
     go_version = "1.7"
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
           :branch => "release-branch.go#{go_version}",
-          :revision => "527b253f588776e5f72a0a0d1e93195cd3f82707"
+          :revision => "a84e830bb0d2811304f6e66498eb3123ca97b68e"
     end
   end
 
