@@ -4,6 +4,13 @@ class Grip < Formula
   url "https://github.com/joeyespo/grip/archive/v4.3.2.tar.gz"
   sha256 "c39c91764e1674718e185f7dec12b70347ca5ba845eeb67e996a9e9fd8710bbe"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "4efc8cb0c63c7e7a6f0d5a48a918085c9500aea5fa722846bfdd5d4ddd25b31b" => :el_capitan
+    sha256 "c88f5f49a2d9abf4ec1ce943dd100b74f18652314c2a02f47ab2668b6b2c1c78" => :yosemite
+    sha256 "02829b92c3bfc2c5569c703452912f272d17e949a7e1f93978b891613f1f645a" => :mavericks
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "click" do
