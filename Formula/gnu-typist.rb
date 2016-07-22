@@ -25,7 +25,7 @@ class GnuTypist < Formula
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-lispdir=#{share}/emacs/site-lisp/gnu-typist"
+                          "--with-lispdir=#{elisp}"
     system "make"
     system "make", "install"
   end
