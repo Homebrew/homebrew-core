@@ -14,8 +14,8 @@ class Rabbitmq < Formula
     prefix.install Dir["*"]
 
     # Setup the lib files
-    (var+"lib/rabbitmq").mkpath
-    (var+"log/rabbitmq").mkpath
+    (var/"lib/rabbitmq").mkpath
+    (var/"log/rabbitmq").mkpath
 
     # Correct SYS_PREFIX for things like rabbitmq-plugins
     inreplace sbin/"rabbitmq-defaults" do |s|
@@ -26,14 +26,16 @@ class Rabbitmq < Formula
     end
 
     # Set RABBITMQ_HOME in rabbitmq-env
-    inreplace (sbin + "rabbitmq-env"), 'RABBITMQ_HOME="$(rmq_realpath "${RABBITMQ_SCRIPTS_DIR}/..")"', "RABBITMQ_HOME=#{prefix}"
+    inreplace sbin/"rabbitmq-env",
+              'RABBITMQ_HOME="$(rmq_realpath "${RABBITMQ_SCRIPTS_DIR}/..")"',
+              "RABBITMQ_HOME=#{prefix}"
 
     # Create the rabbitmq-env.conf file
-    rabbitmq_env_conf = etc+"rabbitmq/rabbitmq-env.conf"
+    rabbitmq_env_conf = etc/"rabbitmq/rabbitmq-env.conf"
     rabbitmq_env_conf.write rabbitmq_env unless rabbitmq_env_conf.exist?
 
     # Enable plugins - management web UI and visualiser; STOMP, MQTT, AMQP 1.0 protocols
-    enabled_plugins_path = etc+"rabbitmq/enabled_plugins"
+    enabled_plugins_path = etc/"rabbitmq/enabled_plugins"
     enabled_plugins_path.write "[rabbitmq_management,rabbitmq_management_visualiser,rabbitmq_stomp,rabbitmq_amqp1_0,rabbitmq_mqtt]." unless enabled_plugins_path.exist?
 
     # Extract rabbitmqadmin and install to sbin
@@ -44,7 +46,7 @@ class Rabbitmq < Formula
 
     sbin.install "rabbitmqadmin"
     (sbin/"rabbitmqadmin").chmod 0755
-    (bash_completion/"rabbitmqadmin.bash").write `#{sbin}/rabbitmqadmin --bash-completion`
+    (bash_completion/"rabbitmqadmin.bash").write Utils.popen_read("#{sbin}/rabbitmqadmin --bash-completion")
   end
 
   def caveats; <<-EOS.undent
