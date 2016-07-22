@@ -31,7 +31,7 @@ class Cmake < Formula
 
   # The `with-qt` GUI option was removed due to circular dependencies if
   # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
-  # For the GUI application please instead use brew install caskroom/cask/cmake.
+  # For the GUI application please instead use `brew cask install cmake`.
 
   def install
     args = %W[
@@ -45,7 +45,7 @@ class Cmake < Formula
       --system-bzip2
     ]
 
-    # https://github.com/Homebrew/homebrew/issues/45989
+    # https://github.com/Homebrew/legacy-homebrew/issues/45989
     if MacOS.version <= :lion
       args << "--no-system-curl"
     else
@@ -69,11 +69,11 @@ class Cmake < Formula
       end
     end
 
-    (share/"emacs/site-lisp/cmake").install "Auxiliary/cmake-mode.el"
+    elisp.install "Auxiliary/cmake-mode.el"
   end
 
   test do
     (testpath/"CMakeLists.txt").write("find_package(Ruby)")
-    system "#{bin}/cmake", "."
+    system bin/"cmake", "."
   end
 end
