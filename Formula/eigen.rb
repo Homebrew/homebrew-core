@@ -7,9 +7,9 @@ class Eigen < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "28e7161064b8d297df044d27b4677348d039ce45d3b4ea9a08bb856dc7c687ba" => :el_capitan
-    sha256 "727c2ee0d0c4db05699a69b7df364441944361fdad5b74f885a0ac50935c7d9d" => :yosemite
-    sha256 "d4b39c9f304c4f75e7b9a9b02bd69849f4e4400a9b7cc10df7d3f61b4777ab32" => :mavericks
+    sha256 "5bee0cf6f6c64d467ef5137aa05581735d45128a8c532c0fe9f6600db75dbb53" => :el_capitan
+    sha256 "7f18b841e313362745c87b4e71f3730619559203e0f2e874701f2e2e83533803" => :yosemite
+    sha256 "4a2f963a6ea117369a31e68f3c85081d58f187e886a38164c439508272076761" => :mavericks
   end
 
   option :universal
