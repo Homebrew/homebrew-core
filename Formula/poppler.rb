@@ -3,6 +3,7 @@ class Poppler < Formula
   homepage "https://poppler.freedesktop.org/"
   url "https://poppler.freedesktop.org/poppler-0.46.0.tar.xz"
   sha256 "967d35d13d61dee2fee656b80efef9e388a9e752bc79b7123f15b49c7769e487"
+  revision 1
 
   bottle do
     sha256 "b646131621704dc93d7a7af4d79fd939a1858dd00457eb5a4cacb92af022ed93" => :el_capitan
@@ -41,7 +42,7 @@ class Poppler < Formula
 
   def install
     ENV.cxx11 if MacOS.version < :mavericks
-    ENV["LIBOPENJPEG_CFLAGS"] = "-I#{Formula["openjpeg"].opt_include}/openjpeg-1.5"
+    ENV["LIBOPENJPEG_CFLAGS"] = "-I#{Formula["openjpeg"].opt_include}/openjpeg-2.1"
 
     args = %W[
       --disable-dependency-tracking
