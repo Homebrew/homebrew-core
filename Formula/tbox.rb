@@ -1,4 +1,4 @@
-class Libtbox < Formula
+class Tbox < Formula
   desc "Glib-like multi-platform c library"
   homepage "http://www.tboox.org"
   url "https://github.com/waruqi/tbox/archive/v1.5.2.tar.gz"
