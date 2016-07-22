@@ -51,7 +51,7 @@ class Ledger < Formula
     (pkgshare+"examples").install Dir["test/input/*.dat"]
     (pkgshare).install "contrib"
     (pkgshare).install "python/demo.py" if build.with? "python"
-    (share/"emacs/site-lisp/ledger").install Dir["lisp/*.el", "lisp/*.elc"]
+    elisp.install Dir["lisp/*.el", "lisp/*.elc"]
   end
 
   test do
