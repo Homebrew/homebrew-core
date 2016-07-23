@@ -1,8 +1,8 @@
 class Fswatch < Formula
   desc "Monitor a directory for changes and run a shell command"
   homepage "https://github.com/emcrisostomo/fswatch"
-  url "https://github.com/emcrisostomo/fswatch/releases/download/1.9.2/fswatch-1.9.2.tar.gz"
-  sha256 "e8bcb9018831c353cd85a8ce5fcc427e27bdff8bfc3cace1619f6cda3527d111"
+  url "https://github.com/emcrisostomo/fswatch/releases/download/1.9.3/fswatch-1.9.3.tar.gz"
+  sha256 "b92043fb6bde122da79025e99dda110930c5688848dc5d401e3e3bf346012a65"
 
   bottle do
     cellar :any
@@ -19,5 +19,9 @@ class Fswatch < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules"
     system "make", "install"
+  end
+
+  test do
+    system bin/"fswatch", "-h"
   end
 end
