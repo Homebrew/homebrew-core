@@ -31,7 +31,6 @@ class Gpac < Formula
   depends_on "sdl" => :optional
   depends_on "theora" => :optional
   depends_on "ffmpeg" => :optional
-  depends_on "openjpeg" => :optional
 
   def install
     args = ["--disable-wx",
