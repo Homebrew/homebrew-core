@@ -26,23 +26,27 @@ class OsmGpsMap < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+    ]
+
+    system "./configure", *args
     system "make", "install"
   end
 
   test do
-    system "test", "-f", "#{share}/gir-1.0/OsmGpsMap-1.0.gir"
     (testpath/"test.c").write <<-EOS.undent
     #include <osmgpsmap-1.0/osm-gps-map.h>
 
     int main(int argc, char *argv[]) {
-        OsmGpsMap *map;
-        gtk_init (&argc, &argv);
-        map = g_object_new (OSM_TYPE_GPS_MAP, NULL);
-        return 0;
+      OsmGpsMap *map;
+      gtk_init (&argc, &argv);
+      map = g_object_new (OSM_TYPE_GPS_MAP, NULL);
+      return 0;
     }
     EOS
     atk = Formula["atk"]
