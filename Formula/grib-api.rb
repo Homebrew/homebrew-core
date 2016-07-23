@@ -15,7 +15,6 @@ class GribApi < Formula
   depends_on :fortran
   depends_on "cmake" => :build
   depends_on "jasper" => :recommended
-  depends_on "openjpeg" => :optional
   depends_on "libpng" => :optional
 
   # Fixes build errors in Lion
