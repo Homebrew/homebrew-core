@@ -17,14 +17,15 @@ class Spdylay < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libevent" => :recommended
-  depends_on "libxml2"
+  depends_on "libxml2" if MacOS.version <= :lion
   depends_on "openssl"
 
   def install
-    system "autoreconf -i"
-    system "automake"
-    system "autoconf"
+    if MacOS.version > :lion
+      Formula["libxml2"].stable.stage { (buildpath/"m4").install "libxml.m4" }
+    end
 
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
