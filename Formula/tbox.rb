@@ -15,7 +15,8 @@ class Tbox < Formula
   depends_on "xmake" => :build
 
   def install
-    system "xmake", "config", "--smallest=y", "--demo=n", "--xml=y", "--asio=y", "--thread=y", "--network=y", "--charset=y"
+    system "xmake", "config", "--smallest=y", "--demo=n", "--xml=y", "--asio=y",
+                              "--thread=y", "--network=y", "--charset=y"
     system "xmake", "install", "-o", prefix
   end
 
