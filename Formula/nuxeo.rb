@@ -1,7 +1,7 @@
 class Nuxeo < Formula
   desc "Enterprise Content Management"
   homepage "https://nuxeo.github.io/"
-  url "https://cdn.nuxeo.com/nuxeo-8.3/nuxeo-cap-8.3-tomcat.zip"
+  url "https://cdn.nuxeo.com/nuxeo-8.3/nuxeo-server-8.3-tomcat.zip"
   version "8.3"
   sha256 "69a51ea0f5663723a58448be80b5caf4258f9d1f8df124e4de90676224afac3c"
 
