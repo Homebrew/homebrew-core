@@ -1,8 +1,8 @@
 class LittleCms2 < Formula
   desc "Color management engine supporting ICC profiles"
   homepage "http://www.littlecms.com/"
-  url "https://downloads.sourceforge.net/project/lcms/lcms/2.7/lcms2-2.7.tar.gz"
-  sha256 "4524234ae7de185e6b6da5d31d6875085b2198bc63b1211f7dde6e2d197d6a53"
+  url "https://downloads.sourceforge.net/project/lcms/lcms/2.8/lcms2-2.8.tar.gz"
+  sha256 "8e27f5207204e41c6e7f5aa3c1b92cd89f54b839464b7df4cd0d93b07b16333a"
 
   bottle do
     cellar :any
@@ -12,10 +12,10 @@ class LittleCms2 < Formula
     sha256 "a1e7a20c35f166372c4907f505b0ed0a560d64cfad88c795681817035930af38" => :mountain_lion
   end
 
+  option :universal
+
   depends_on "jpeg" => :recommended
   depends_on "libtiff" => :recommended
-
-  option :universal
 
   def install
     ENV.universal_binary if build.universal?
