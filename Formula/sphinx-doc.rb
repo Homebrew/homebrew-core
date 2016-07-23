@@ -1,8 +1,8 @@
 class SphinxDoc < Formula
   desc "Tool to create intelligent and beautiful documentation"
   homepage "http://sphinx-doc.org"
-  url "https://pypi.python.org/packages/source/S/Sphinx/Sphinx-1.4.1.tar.gz"
-  sha256 "c6871a784d24aba9270b6b28541537a57e2fcf4d7c799410eba18236bc76d6bc"
+  url "https://files.pythonhosted.org/packages/8b/78/eeea2b837f911cdc301f5f05163f9729a2381cadd03ccf35b25afe816c90/Sphinx-1.4.5.tar.gz"
+  sha256 "c5df65d97a58365cbf4ea10212186a9a45d89c61ed2c071de6090cdf9ddb4028"
 
   bottle do
     cellar :any_skip_relocation
@@ -54,8 +54,8 @@ class SphinxDoc < Formula
   end
 
   resource "pytz" do
-    url "https://pypi.python.org/packages/f4/7d/7c0c85e9c64a75dde11bc9d3e1adc4e09a42ce7cdb873baffa1598118709/pytz-2016.4.tar.bz2"
-    sha256 "ee7c751544e35a7b7fb5e3fb25a49dade37d51e70a93e5107f10575d7102c311"
+    url "https://files.pythonhosted.org/packages/f7/c7/08e54702c74baf9d8f92d0bc331ecabf6d66a56f6d36370f0a672fc6a535/pytz-2016.6.1.tar.bz2"
+    sha256 "b5aff44126cf828537581e534cc94299b223b945a2bb3b5434d37bf8c7f3a10c"
   end
 
   resource "six" do
