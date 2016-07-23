@@ -1,8 +1,8 @@
 class Casperjs < Formula
   desc "Navigation scripting and testing tool for PhantomJS"
   homepage "http://www.casperjs.org/"
-  url "https://github.com/casperjs/casperjs/archive/1.1.2.tar.gz"
-  sha256 "f4f4c3dd99c029dd6a52d0415e5a4dd6527df7ea6b7bb18468b0cda888a2a61a"
+  url "https://github.com/casperjs/casperjs/archive/1.1.3.tar.gz"
+  sha256 "3e9c385a2e3124a44728b24d3b4cad05a48e2b3827e9350bdfe11c9a6d4a4298"
   head "https://github.com/casperjs/casperjs.git"
 
   bottle do
