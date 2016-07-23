@@ -7,9 +7,9 @@ class Casperjs < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "173fd68859407972910339e63fec3c1a91f925a6be3169f34613368d36536855" => :el_capitan
-    sha256 "6e76d1abbe8c2f05996fc1040853f276096b0044da0106d25d8727655ea4540f" => :yosemite
-    sha256 "01892cf1ea3199da831de22b8b0ef3541ee727931177a0a9e73a1d671a49737e" => :mavericks
+    sha256 "b71c26fc5d2d6da94cc95554defbe5db1c6e0213d64ec09fea99755ffd529df4" => :el_capitan
+    sha256 "3ca3351236ac827a5cd745087e7763dbd7445e05e4ce05aa11c5bbc7d62d75a6" => :yosemite
+    sha256 "082b442968052c819463dacd01b99954f9e2e9e0a5d318c9b7a69e9f31e660f2" => :mavericks
   end
 
   # For embedded Phantomjs
