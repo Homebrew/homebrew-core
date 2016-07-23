@@ -8,10 +8,9 @@ class Cfitsio < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "b2547586bac20323985eddf44b08f9b3f33272dbb6517d8fd2c467369a67891b" => :el_capitan
-    sha256 "1d8292ec9b2e94aa664e1d50a40d53fd11af1143de9f94a2d483619923c61df4" => :yosemite
-    sha256 "5f10522a362eddf2ca8a0d8492630076143bc0d8501b5140fd6c82ebcda6799d" => :mavericks
+    sha256 "f6bb6a0b64a65a5232524a309abe0d32f5ef878eb8283268370b16caa2775377" => :el_capitan
+    sha256 "96a511692e8f86955a5e2c614a93c3f4629360d4ee605e130d42963c9f8c350a" => :yosemite
+    sha256 "3b46d2eb53d651c3c7b1f6fe086bb964532b1f849d480b4d3c0d02d961e8158e" => :mavericks
   end
 
   option "with-examples", "Compile and install example programs"
