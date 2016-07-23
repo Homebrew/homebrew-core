@@ -21,7 +21,6 @@ class Libav < Formula
 
   option "with-opencore-amr", "Enable AMR-NB de/encoding and AMR-WB decoding " \
     "via libopencore-amrnb and libopencore-amrwb"
-  option "with-openjpeg", "Enable JPEG 2000 de/encoding via OpenJPEG"
   option "with-openssl", "Enable SSL support"
   option "with-rtmpdump", "Enable RTMP protocol support"
   option "with-schroedinger", "Enable Dirac video format"
@@ -52,7 +51,6 @@ class Libav < Formula
   depends_on "libvorbis" => :optional
   depends_on "libvpx" => :optional
   depends_on "opencore-amr" => :optional
-  depends_on "openjpeg" => :optional
   depends_on "opus" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "schroedinger" => :optional
@@ -91,7 +89,6 @@ class Libav < Formula
     args << "--enable-libmp3lame" if build.with? "lame"
     args << "--enable-libopencore-amrnb" if build.with? "opencore-amr"
     args << "--enable-libopencore-amrwb" if build.with? "opencore-amr"
-    args << "--enable-libopenjpeg" if build.with? "openjpeg"
     args << "--enable-libopus" if build.with? "opus"
     args << "--enable-librtmp" if build.with? "rtmpdump"
     args << "--enable-libschroedinger" if build.with? "schroedinger"
