@@ -7,10 +7,9 @@ class Groovyserv < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "31f32f93dac174aa311922516715111469adb33ab44e4c7ecdf7787bbb8fe429" => :el_capitan
-    sha256 "574847450b751be607198f21d470b5e7cd4693d1dafd634474700d121fc2b4eb" => :yosemite
-    sha256 "891d92de6d33ca81ec885640a3a30b37749c272a2c69a37126e31bac2659b59c" => :mavericks
-    sha256 "58a7a2dbd1327dd88b5a010b570140c479a1b28940769ac0cff644c7f19e11bb" => :mountain_lion
+    sha256 "884a2439775c2dc1627e96fb42e9d91bf13437e54c7f9f7e29f747ca0c141ef7" => :el_capitan
+    sha256 "98381f0d0a1f0703e445779a204e0145776682611249457adbcad541bc0aa58e" => :yosemite
+    sha256 "0d24747aaa39d8075e262caf1ee21a13f63bf74e68efb8799a3b15ec94ac6599" => :mavericks
   end
 
   depends_on "go" => :build
