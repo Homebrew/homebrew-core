@@ -1,21 +1,10 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  revision 1
+  url "https://cmake.org/files/v3.6/cmake-3.6.1.tar.gz"
+  sha256 "28ee98ec40427d41a45673847db7a905b59ce9243bb866eaf59dce0f58aaef11"
 
   head "https://cmake.org/cmake.git"
-
-  stable do
-    url "https://cmake.org/files/v3.6/cmake-3.6.0.tar.gz"
-    sha256 "fd05ed40cc40ef9ef99fac7b0ece2e0b871858a82feade48546f5d2940147670"
-
-    # This patch fixes an incompatibility with hdf5
-    # See https://gitlab.kitware.com/cmake/cmake/issues/16190
-    patch do
-      url "https://gitlab.kitware.com/cmake/cmake/merge_requests/34.patch"
-      sha256 "6d47140ebb65c045d9eee2c363aa22e53973a54b9bcdc11ef7b622c97419999f"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
