@@ -1,9 +1,9 @@
 class Racket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/6.5/racket-minimal-6.5-src-builtpkgs.tgz"
-  version "6.5"
-  sha256 "44fe95a4ec4d442b4f6f68e360104ca9715bd1fe3795d302d6cddaceb15696dc"
+  url "https://mirror.racket-lang.org/installers/6.6/racket-minimal-6.6-src-builtpkgs.tgz"
+  version "6.6"
+  sha256 "f0666dbf0c7fc446f103b0c16eed508225addb09596f9c44a87b9d546422b1e9"
 
   bottle do
     sha256 "d6ab6c4c623dd00a78a3ce158c836241b3478df747215f5d5364c6333f3fd213" => :el_capitan
