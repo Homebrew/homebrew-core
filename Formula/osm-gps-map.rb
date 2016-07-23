@@ -40,14 +40,14 @@ class OsmGpsMap < Formula
 
   test do
     (testpath/"test.c").write <<-EOS.undent
-    #include <osmgpsmap-1.0/osm-gps-map.h>
+      #include <osmgpsmap-1.0/osm-gps-map.h>
 
-    int main(int argc, char *argv[]) {
-      OsmGpsMap *map;
-      gtk_init (&argc, &argv);
-      map = g_object_new (OSM_TYPE_GPS_MAP, NULL);
-      return 0;
-    }
+      int main(int argc, char *argv[]) {
+        OsmGpsMap *map;
+        gtk_init (&argc, &argv);
+        map = g_object_new (OSM_TYPE_GPS_MAP, NULL);
+        return 0;
+      }
     EOS
     atk = Formula["atk"]
     cairo = Formula["cairo"]
