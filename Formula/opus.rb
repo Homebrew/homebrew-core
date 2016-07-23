@@ -1,8 +1,8 @@
 class Opus < Formula
   desc "Audio codec"
   homepage "https://www.opus-codec.org"
-  url "http://downloads.xiph.org/releases/opus/opus-1.1.2.tar.gz"
-  sha256 "0e290078e31211baa7b5886bcc8ab6bc048b9fc83882532da4a1a45e58e907fd"
+  url "http://downloads.xiph.org/releases/opus/opus-1.1.3.tar.gz"
+  sha256 "58b6fe802e7e30182e95d0cde890c0ace40b6f125cffc50635f0ad2eef69b633"
 
   bottle do
     cellar :any
@@ -19,7 +19,7 @@ class Opus < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-custom-modes", "Enable custom-modes for opus see https://www.opus-codec.org/docs/opus_api-1.1.2/group__opus__custom.html"
+  option "with-custom-modes", "Enable custom-modes for opus see https://www.opus-codec.org/docs/opus_api-1.1.3/group__opus__custom.html"
 
   def install
     args = ["--disable-dependency-tracking", "--disable-doc", "--prefix=#{prefix}"]
