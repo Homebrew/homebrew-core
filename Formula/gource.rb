@@ -3,7 +3,7 @@ class Gource < Formula
   homepage "https://github.com/acaudwell/Gource"
   url "https://github.com/acaudwell/Gource/releases/download/gource-0.43/gource-0.43.tar.gz"
   sha256 "85a40ac8e4f5c277764216465c248d6b76589ceac012541c4cc03883a24abde4"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "cb581cb4c8afafd98dc4fd96f3c87a26ad57519d5ab65267de14b3da5790934a" => :el_capitan
@@ -26,6 +26,7 @@ class Gource < Formula
   depends_on "freetype"
   depends_on "glew"
   depends_on "jpeg"
+  depends_on "libpng"
   depends_on "pcre"
   depends_on "sdl2"
   depends_on "sdl2_image"
