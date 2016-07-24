@@ -7,9 +7,9 @@ class Wallpaper < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "152f1f07305a06dd48445ed3f2c76ea5200cffc474ee02e2aad5141d59979f84" => :el_capitan
-    sha256 "6f838047f55e449e44ee3d46ac7d4911dfbc8f5c7d38210f623ddaceaf4d9abe" => :yosemite
-    sha256 "e0bef9ac123afc7b6deecc01680fd03787431a5c7d034082ce9bf3b54a884a92" => :mavericks
+    sha256 "371927997832b14cfc197aa5be3c5bcc2e3bca84523c8e43340080bf8e81e340" => :el_capitan
+    sha256 "5010ad61cc504d0268a7da142d1fea366498675dda2e92a08b93a5f24b28613d" => :yosemite
+    sha256 "6f60873e8ac2f4f8a41770496e43e1284534a954134198cee9837cdd8cad7e0f" => :mavericks
   end
 
   def install
