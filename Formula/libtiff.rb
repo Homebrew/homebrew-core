@@ -23,9 +23,9 @@ class Libtiff < Formula
   # Backports of various security/potential security fixes from Debian.
   # Already applied upstream in CVS but no new release yet.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.6-1.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.6-1.debian.tar.xz"
-    sha256 "f663c483883b623a136c015d355626a7aedf790f2786d6c6a63e68b015e7c09d"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.6-2.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.6-2.debian.tar.xz"
+    sha256 "82a0ef3f713d2a22d40b9be71fd121b9136657d313ae6b76b51430302a7b9f8b"
     apply "patches/01-CVE-2015-8665_and_CVE-2015-8683.patch",
           "patches/02-fix_potential_out-of-bound_writes_in_decode_functions.patch",
           "patches/03-fix_potential_out-of-bound_write_in_NeXTDecode.patch"
