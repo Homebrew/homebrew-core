@@ -26,15 +26,8 @@ class OsmGpsMap < Formula
 
   def install
     system "./autogen.sh" if build.head?
-
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-    ]
-
-    system "./configure", *args
+    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+                          "--disable-silent-rules", "--prefix=#{prefix}"
     system "make", "install"
   end
 
