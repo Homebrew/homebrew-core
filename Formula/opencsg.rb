@@ -7,9 +7,9 @@ class Opencsg < Formula
 
   bottle do
     cellar :any
-    sha256 "87afa18c15e140a07175c1d1d7cdf366177aed5a4798e6bcb43ce6e25fababfe" => :el_capitan
-    sha256 "ec3ff4f9037e33126629739dcf54c93684e8c4f9ae4455bab72678214534aefa" => :yosemite
-    sha256 "b0d339919a5f510f6b43524a02d9d3b985fdce9544df45ef84cf071e00314177" => :mavericks
+    sha256 "577e6777db3c9ee1010577e9dd29f7d86cff106273ef650bf58b08b20020a751" => :el_capitan
+    sha256 "d6e5913457b310b32a3dd9673a248793fd53bc6d2863f55b3d3334be7665c544" => :yosemite
+    sha256 "26098d8c2d4e89f2a0389c470f8b094a805e97c959defa3381ab0cd8c8d8ec9e" => :mavericks
   end
 
   depends_on "qt5" => :build
