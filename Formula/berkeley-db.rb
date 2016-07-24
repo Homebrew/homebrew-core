@@ -15,6 +15,7 @@ class BerkeleyDb < Formula
 
   option "with-java", "Compile with Java support."
   option "with-sql", "Compile with SQL support."
+  option "with-dbm", "Compile with the historic dbm interface."
 
   deprecated_option "enable-sql" => "with-sql"
 
@@ -32,6 +33,7 @@ class BerkeleyDb < Formula
     ]
     args << "--enable-java" if build.with? "java"
     args << "--enable-sql" if build.with? "sql"
+    args << "--enable-dbm" if build.with? "dbm"
 
     # BerkeleyDB requires you to build everything from the build_unix subdirectory
     cd "build_unix" do
@@ -42,5 +44,9 @@ class BerkeleyDb < Formula
       doc.parent.mkpath
       mv prefix/"docs", doc
     end
+  end
+
+  test do
+    true
   end
 end
