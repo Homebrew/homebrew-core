@@ -17,7 +17,6 @@ class Sfml < Formula
   depends_on "doxygen" => :optional
   depends_on "flac"
   depends_on "freetype"
-  depends_on "glew"
   depends_on "jpeg"
   depends_on "libogg"
   depends_on "libvorbis"
