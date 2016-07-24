@@ -1,9 +1,8 @@
 class Glew < Formula
   desc "OpenGL Extension Wrangler Library"
   homepage "http://glew.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/glew/glew/1.13.0/glew-1.13.0.tgz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/g/glew/glew_1.13.0.orig.tar.gz"
-  sha256 "aa25dc48ed84b0b64b8d41cdd42c8f40f149c37fa2ffa39cd97f42c78d128bc7"
+  url "https://downloads.sourceforge.net/project/glew/glew/2.0.0/glew-2.0.0.tgz"
+  sha256 "c572c30a4e64689c342ba1624130ac98936d7af90c3103f9ce12b8a0c5736764"
   head "https://github.com/nigels-com/glew.git"
 
   bottle do
@@ -16,9 +15,6 @@ class Glew < Formula
   option :universal
 
   def install
-    # Makefile directory race condition on lion
-    ENV.deparallelize
-
     if build.universal?
       ENV.universal_binary
 
@@ -48,8 +44,8 @@ class Glew < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-framework", "OpenGL", "-framework", "GLUT",
-           "-lglew", testpath/"test.c", "-o", "test"
+    system ENV.cc, testpath/"test.c", "-o", "test", "-L#{lib}", "-lGLEW",
+           "-framework", "GLUT"
     system "./test"
   end
 end
