@@ -4,6 +4,12 @@ class OsmGpsMap < Formula
   url "https://github.com/nzjrs/osm-gps-map/releases/download/1.1.0/osm-gps-map-1.1.0.tar.gz"
   sha256 "8f2ff865ed9ed9786cc5373c37b341b876958416139d0065ebb785cf88d33586"
 
+  bottle do
+    sha256 "764f9a62335f14db107b7d3e9c5ec0c8bb1d1fdbf032457bcca49a0c222bde92" => :el_capitan
+    sha256 "2950e2e4a2f492e76cc42a097b537336bd92c07c3057cc35057cbb01af445a1e" => :yosemite
+    sha256 "2386d1592d78c701e237ce1fa74478d762551e415320d8664270865b566502e7" => :mavericks
+  end
+
   head do
     url "https://github.com/nzjrs/osm-gps-map.git"
     depends_on "gnome-common" => :build
