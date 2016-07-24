@@ -66,7 +66,7 @@ class GdkPixbuf < Formula
 
   def post_install
     # Change the version directory below with any future update
-    if build.with?("relocations")
+    if build.with?("relocations") || HOMEBREW_PREFIX.to_s != "/usr/local"
       ENV["GDK_PIXBUF_MODULE_FILE"]="#{lib}/gdk-pixbuf-2.0/2.10.0/loaders.cache"
       ENV["GDK_PIXBUF_MODULEDIR"]="#{HOMEBREW_PREFIX}/lib/gdk-pixbuf-2.0/2.10.0/loaders"
     end
@@ -80,7 +80,7 @@ class GdkPixbuf < Formula
     If you need to manually update the query loader cache, set these variables then run
       #{bin}/gdk-pixbuf-query-loaders --update-cache
     EOS
-  end if build.with?("relocations")
+  end if build.with?("relocations") || HOMEBREW_PREFIX.to_s != "/usr/local"
 
   test do
     system bin/"gdk-pixbuf-csource", test_fixtures("test.png")
