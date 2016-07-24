@@ -4,7 +4,7 @@ class Libtiff < Formula
   url "http://download.osgeo.org/libtiff/tiff-4.0.6.tar.gz"
   mirror "ftp://ftp.remotesensing.org/pub/libtiff/tiff-4.0.6.tar.gz"
   sha256 "4d57a50907b510e3049a4bba0d7888930fdfc16ce49f1bf693e5b6247370d68c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -28,7 +28,11 @@ class Libtiff < Formula
     sha256 "82a0ef3f713d2a22d40b9be71fd121b9136657d313ae6b76b51430302a7b9f8b"
     apply "patches/01-CVE-2015-8665_and_CVE-2015-8683.patch",
           "patches/02-fix_potential_out-of-bound_writes_in_decode_functions.patch",
-          "patches/03-fix_potential_out-of-bound_write_in_NeXTDecode.patch"
+          "patches/03-fix_potential_out-of-bound_write_in_NeXTDecode.patch",
+          "patches/04-CVE-2016-5314_CVE-2016-5316_CVE-2016-5320_CVE-2016-5875.patch",
+          "patches/05-CVE-2016-6223.patch",
+          "patches/06-CVE-2016-5321.patch",
+          "patches/07-CVE-2016-5323.patch"
   end
 
   def install
