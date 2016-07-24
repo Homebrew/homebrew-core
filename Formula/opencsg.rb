@@ -3,6 +3,7 @@ class Opencsg < Formula
   homepage "http://www.opencsg.org"
   url "http://www.opencsg.org/OpenCSG-1.4.0.tar.gz"
   sha256 "ecb46be54cfb8a338d2a9b62dec90ec8da6c769078c076f58147d4a6ba1c878d"
+  revision 1
 
   bottle do
     cellar :any
@@ -27,12 +28,11 @@ class Opencsg < Formula
     system "qmake", "-r", "INSTALLDIR=#{prefix}",
       "INCLUDEPATH+=#{Formula["glew"].opt_include}",
       "LIBS+=-L#{Formula["glew"].opt_lib} -lGLEW"
-
     system "make", "install"
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.cpp").write <<-EOS.undent
       #include <opencsg.h>
       class Test : public OpenCSG::Primitive {
         public:
@@ -43,7 +43,8 @@ class Opencsg < Formula
         Test test;
       }
     EOS
-    system ENV.cxx, "-framework", "OpenGL", "-lopencsg", testpath/"test.c", "-o", "test"
+    system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-lopencsg",
+           "-framework", "OpenGL"
     system "./test"
   end
 end
