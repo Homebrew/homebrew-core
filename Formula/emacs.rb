@@ -13,16 +13,21 @@ class Emacs < Formula
   end
 
   devel do
-    url "http://alpha.gnu.org/gnu/emacs/pretest/emacs-25.0.95.tar.xz"
-    sha256 "1438c51268250344739c31752d9292fc51cab0d8384b9f574ecaf1bcd879bb2e"
+    url "http://alpha.gnu.org/gnu/emacs/pretest/emacs-25.1-rc1.tar.xz"
+    version "25.1-rc1"
+    sha256 "c00c50e66474359d1e24baa2a0703bc64207caffc31d0808d8b4ffa4b3826133"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "jpeg" => :linked
   end
 
   head do
     url "https://github.com/emacs-mirror/emacs.git"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "jpeg" => :linked
   end
 
   option "with-cocoa", "Build a Cocoa version of emacs"
