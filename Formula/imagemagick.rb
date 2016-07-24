@@ -30,6 +30,7 @@ class Imagemagick < Formula
   option "without-magick-plus-plus", "disable build/install of Magick++"
   option "without-modules", "Disable support for dynamically loadable modules"
   option "without-threads", "Disable threads support"
+  option "with-zero-configuration", "Disables depending on XML configuration files"
 
   depends_on "xz"
   depends_on "libtool" => :run
@@ -110,6 +111,7 @@ class Imagemagick < Formula
     args << "--with-fontconfig=yes" if build.with? "fontconfig"
     args << "--with-freetype=yes" if build.with? "freetype"
     args << "--with-webp=yes" if build.with? "webp"
+    args << "--enable-zero-configuration" if build.with? "zero-configuration"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
