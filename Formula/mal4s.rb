@@ -3,7 +3,7 @@ class Mal4s < Formula
   homepage "https://github.com/secure411dotorg/mal4s/"
   url "https://service.dissectcyber.com/mal4s/mal4s-1.2.8.tar.gz"
   sha256 "1c40ca9d11d113278c4fbd5c7ec9ce0edc78d6c8bd1aa7d85fb6b9473e60f0f1"
-  revision 4
+  revision 5
 
   head "https://github.com/secure411dotorg/mal4s.git"
 
@@ -47,6 +47,14 @@ class Mal4s < Formula
   end
 
   test do
-    system "#{bin}/mal4s", "--stop-at-end", "#{share}/mal4s/sample--newns.mal4s"
+    begin
+      pid = fork do
+        exec bin/"mal4s", "-t", "2", "-o", "out", pkgshare/"sample--newns.mal4s"
+      end
+      sleep 1
+      assert File.exist?("out"), "Failed to output PPM stream!"
+    ensure
+      Process.kill("TERM", pid)
+    end
   end
 end
