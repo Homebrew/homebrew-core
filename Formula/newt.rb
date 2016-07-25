@@ -3,6 +3,7 @@ class Newt < Formula
   homepage "https://fedorahosted.org/newt/"
   url "https://fedorahosted.org/releases/n/e/newt/newt-0.52.18.tar.gz"
   sha256 "771b0e634ede56ae6a6acd910728bb5832ac13ddb0d1d27919d2498dab70c91e"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,6 @@ class Newt < Formula
   depends_on "gettext"
   depends_on "popt"
   depends_on "s-lang"
-  depends_on :python => :optional
 
   # build dylibs with -dynamiclib; version libraries
   # Patch via MacPorts
@@ -26,7 +26,6 @@ class Newt < Formula
 
   def install
     args = ["--prefix=#{prefix}", "--without-tcl"]
-    args << "--without-python" if build.without? "python"
 
     inreplace "Makefile.in" do |s|
       # name libraries correctly
