@@ -22,8 +22,8 @@ class Yasm < Formula
   end
 
   resource "cython" do
-    url "http://cython.org/release/Cython-0.20.2.tar.gz"
-    sha256 "ed13b606a2aeb5bd6c235f8ed6c9988c99d01a033d0d21d56137c13d5c7be63f"
+	url "https://files.pythonhosted.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz"
+	sha256 "84808fda00508757928e1feadcf41c9f78e9a9b7167b6649ab0933b76f75e7b9"
   end
 
   depends_on :python => :optional
