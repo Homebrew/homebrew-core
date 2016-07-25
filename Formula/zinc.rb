@@ -1,8 +1,8 @@
 class Zinc < Formula
   desc "Stand-alone version of sbt's Scala incremental compiler"
   homepage "https://github.com/typesafehub/zinc"
-  url "https://downloads.typesafe.com/zinc/0.3.9/zinc-0.3.9.tgz"
-  sha256 "29dd3078d8b01c14231ed92f2d1abfca62cd4b63fd69505ff7abaa39f1193325"
+  url "https://downloads.typesafe.com/zinc/0.3.11/zinc-0.3.11.tgz"
+  sha256 "41532cc1758af6feed7f4955b8af1465116e19045fba1fd4692c8a667e2c96a9"
 
   bottle :unneeded
 

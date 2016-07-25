@@ -1,20 +1,23 @@
+require "language/haskell"
+
 class PandocCrossref < Formula
   include Language::Haskell::Cabal
 
   desc "Pandoc filter for numbering and cross-referencing."
   homepage "https://github.com/lierdakil/pandoc-crossref"
-  url "https://hackage.haskell.org/package/pandoc-crossref-0.2.0.1/pandoc-crossref-0.2.0.1.tar.gz"
-  sha256 "44bdbc38d8d7a743951a2333fb70b33a6497b2d50ccdb5696736fdc5133aef21"
+  url "https://hackage.haskell.org/package/pandoc-crossref-0.2.2.1/pandoc-crossref-0.2.2.1.tar.gz"
+  sha256 "85da5dff663b578367ed75dcd71d8273a9cd92e8ae4a907ff0b83694d8417abd"
 
   bottle do
-    sha256 "2edd7fe6757e7a3b4599b459940ae77dcb4bfa265d6ef2555b8139d56a2b6750" => :el_capitan
-    sha256 "66d0ccc3d84db7029b841db98c575d457881935377922668e1e1cf631c3a3242" => :yosemite
-    sha256 "35ce5fe43ada3cdadfd1552c0cffbe0032c499f868c951de40789877755f4dcb" => :mavericks
+    cellar :any_skip_relocation
+    sha256 "48a2077a0ec3a4f51854eb183611dc1e9d4d1b7ee030939716dce5fe6940ebfd" => :el_capitan
+    sha256 "c5bf3548f56ce86cacf3f44b3ae18411e9ff9bc497967dabbe9d9e763fb3caf6" => :yosemite
+    sha256 "36ed9a8269ded642e8d3d607087991916eb261edd4817cf340888a552be7acc0" => :mavericks
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
-  depends_on "pandoc"
+  depends_on "pandoc" => :run
 
   def install
     args = []
@@ -23,16 +26,18 @@ class PandocCrossref < Formula
   end
 
   test do
-    md = testpath/"test.md"
-    md.write <<-EOS.undent
+    (testpath/"hello.md").write <<-EOS.undent
       Demo for pandoc-crossref.
       See equation @eq:eqn1 for cross-referencing.
       Display equations are labelled and numbered
 
       $$ P_i(x) = \sum_i a_i x^i $$ {#eq:eqn1}
-
-
     EOS
-    system "pandoc", "-F", "pandoc-crossref", md
+    (testpath/"expected.txt").write <<-EOS.undent
+      <p>Demo for pandoc-crossref. See equation eq.M-BM- 1 for cross-referencing. Display equations are labelled and numbered</p>$
+      <p><br /><span class="math display"><em>P</em><sub><em>i</em></sub>(<em>x</em>)=<em>u</em><em>m</em><sub><em>i</em></sub><em>a</em><sub><em>i</em></sub><em>x</em><sup><em>i</em></sup>M-bM-^@M-^AM-bM-^@M-^A(1)</span><br /></p>$
+    EOS
+    system Formula["pandoc"].bin/"pandoc", "-F", bin/"pandoc-crossref", "-o", "out.html", "hello.md"
+    assert_equal File.read("expected.txt"), pipe_output("/bin/cat -et", File.read("out.html"))
   end
 end

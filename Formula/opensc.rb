@@ -1,29 +1,14 @@
 class Opensc < Formula
   desc "Tools and libraries for smart cards"
   homepage "https://github.com/OpenSC/OpenSC/wiki"
+  url "https://github.com/OpenSC/OpenSC/releases/download/0.16.0/opensc-0.16.0.tar.gz"
+  sha256 "3ac8c29542bb48179e7086d35a1b8907a4e86aca3de3323c2f48bd74eaaf5729"
   head "https://github.com/OpenSC/OpenSC.git"
 
-  stable do
-    url "https://github.com/OpenSC/OpenSC/archive/0.15.0.tar.gz"
-    sha256 "8f8f8cf52e0252334e4dfdccca829b876a3de6340deb772aa0bfe0c0cc10eaf5"
-
-    patch :p1 do
-      url "https://github.com/carlhoerberg/OpenSC/commit/e5ae77cae32fdcc7a23d6bd0013c2fd115a43591.diff"
-      sha256 "18bd9b6220bfc03768c6a7f5324e7f3981eff0bc8b8f7eb0f5159508b43d6863"
-    end
-  end
-
   bottle do
-    revision 2
-    sha256 "b84361bf93572c5b156e5e722408ad88f94ecb76ff5703ad731300cc2bf4a59d" => :el_capitan
-    sha256 "68c918cc0aa1660dd91ed127b3d0dcc07a0ce4001cbdb530904b4aec04c6d48b" => :yosemite
-    sha256 "def6a8fa98e04884692da8e0c01043b861c4879becb7a773b1321c2374b019d7" => :mavericks
-  end
-
-  devel do
-    url "https://github.com/OpenSC/OpenSC/archive/v0.16.0-pre1.tar.gz"
-    sha256 "097132ce24d8c19f9ef79b46fde558698ed1dc1bd616d8ad275e32eaf79e5ba6"
-    version "0.16.0-pre1"
+    sha256 "bf69be51f29b45bd0c5f862560748d30f7d8661002b171a03e78823c73c5eeae" => :el_capitan
+    sha256 "1c76d44ec875c6d622a0f6d4ae1f873adb75a789afbe0f2ce3a96231dd3dafd6" => :yosemite
+    sha256 "8ef4c4c62042d5db9c6454a1fb050e79ce8ff0081be44483ce2b8b909d701af3" => :mavericks
   end
 
   option "without-man-pages", "Skip building manual pages"
@@ -51,9 +36,5 @@ class Opensc < Formula
     system "./bootstrap"
     system "./configure", *args
     system "make", "install"
-  end
-
-  test do
-    assert_match "0.15.0", shell_output("#{bin}/opensc-tool -i")
   end
 end

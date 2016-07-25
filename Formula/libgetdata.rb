@@ -1,14 +1,14 @@
 class Libgetdata < Formula
   desc "Reference implementation of the Dirfile Standards"
   homepage "http://getdata.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/getdata/getdata/0.9.0/getdata-0.9.0.tar.xz"
-  sha256 "b38de059ff21df873e95978867eb82f716b89fc7e8e503e2cc7cef93d22685a2"
+  url "https://downloads.sourceforge.net/project/getdata/getdata/0.9.3/getdata-0.9.3.tar.xz"
+  sha256 "1b3766c18f01cf097bff213bef4ba1f6c0913527d9dd2a217bd1a9647fe07b35"
 
   bottle do
     cellar :any
-    sha256 "cb9eeb31d322ae668aa42808d3dfabd871bfead6a7b1d82e51493e4c3acd0cd7" => :el_capitan
-    sha256 "eda5fc0d909f1ab30370e714730d270b2c8881653b61fd239e795a3152a51f31" => :yosemite
-    sha256 "54dc79a3ea3c5a3f783917342bfb724bfbbd9fbe3139f78a002d929223416255" => :mavericks
+    sha256 "ed19136a77b5c6cad977bdbf5bb5124d0b16515bc6906bc5b8d410cd5636c58a" => :el_capitan
+    sha256 "11a7ef0416a4df76d1408872961e8d96e9d40c2c6d814c45eddd0d80464c78df" => :yosemite
+    sha256 "f3181c8aab9763b649c26462b420839aed5c2241c60502a48842da8ed06c0926" => :mavericks
   end
 
   option "with-fortran", "Build Fortran 77 bindings"
@@ -20,6 +20,7 @@ class Libgetdata < Formula
   deprecated_option "zzip" => "with-libzzip"
 
   depends_on :fortran => :optional
+  depends_on :perl => ["5.3", :optional]
   depends_on "xz" => :optional
   depends_on "libzzip" => :optional
 
@@ -32,7 +33,11 @@ class Libgetdata < Formula
       --disable-php
     ]
 
-    args << "--disable-perl" if build.without? "perl"
+    if build.with? "perl"
+      args << "--with-perl-dir=#{lib}/perl5/site_perl"
+    else
+      args << "--disable-perl"
+    end
     args << "--without-liblzma" if build.without? "xz"
     args << "--without-libzzip" if build.without? "libzzip"
     args << "--disable-fortran" << "--disable-fortran95" if build.without? "fortran"

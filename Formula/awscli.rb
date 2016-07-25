@@ -1,15 +1,15 @@
+# Make sure that you also bump botocore
 class Awscli < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://pypi.python.org/packages/c6/89/c238bda4e5e51f2972fd331acaec03b58c75cb27b6ecbc4d535bb88e3e32/awscli-1.10.24.tar.gz"
-  mirror "https://github.com/aws/aws-cli/archive/1.10.24.tar.gz"
-  sha256 "6afd7a77c4116a7903a462fa5db73dd1086f414c89bfcee85e60d5a94338da60"
+  url "https://files.pythonhosted.org/packages/9f/7e/5cd86a38cf92bd8fc11758717156058a94a30366ba70e70628cfd3c3c69a/awscli-1.10.49.tar.gz"
+  sha256 "6a6cd57efbbb640b02e2c3219a19719a14fac2f7f81fa0c172903359465952b3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "96d34b7dbc42088574544385c97c3bbf6dfee0d919173e4426450d57723b3ac2" => :el_capitan
-    sha256 "32bfe5f2710f40d68c4070a7fec544382340db1aed1fb23218ed350fbd02ed0f" => :yosemite
-    sha256 "f08658a2988e0610378ee8c9cbbca78bf3fb3e3233a542a4be3266d623dd0976" => :mavericks
+    sha256 "982b114751424636330032c51be8a05d9346eaef2c49351efe4177feb29ec04f" => :el_capitan
+    sha256 "574102c7a5dfa052bc3f8dd5e25e0b89379cc30f8396d4dca30936eed72bdc8e" => :yosemite
+    sha256 "e36f304e0ad3aa005ddfb34069af6ea0523c2ca1be256bdf9e4e1aafcff72524" => :mavericks
   end
 
   head do
@@ -32,71 +32,65 @@ class Awscli < Formula
   # https://github.com/Homebrew/homebrew/pull/37240
   depends_on :python if MacOS.version <= :lion
 
-  resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
-  end
-
-  resource "python-dateutil" do
-    url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.4.2.tar.gz"
-    sha256 "3e95445c1db500a344079a47b171c45ef18f57d188dffdb0e4165c71bea8eb3d"
+  resource "botocore" do
+    url "https://files.pythonhosted.org/packages/aa/b9/c18be8cc0431f43ad0acb6f6d376c7399267c6ec876edb3aab8e7b1a913a/botocore-1.4.39.tar.gz"
+    sha256 "e8377e312fae3f67b4e1f336a58f412f2dc9ff02117bc4a1a91ef568e6299cbe"
   end
 
   resource "colorama" do
-    url "https://pypi.python.org/packages/source/c/colorama/colorama-0.3.3.tar.gz"
-    sha256 "eb21f2ba718fbf357afdfdf6f641ab393901c7ca8d9f37edd0bee4806ffa269c"
-  end
-
-  resource "botocore" do
-    url "https://pypi.python.org/packages/25/0d/ab3b096247630117feb8e3db628a22045a0496022fcd5ffbc23bee70ecd1/botocore-1.4.15.tar.gz"
-    sha256 "3e3affdea68431fbfb4d83ecf7e1e49a9dd5fe31d6818c9ed7bf06ee3279a58c"
-  end
-
-  resource "jmespath" do
-    url "https://pypi.python.org/packages/source/j/jmespath/jmespath-0.9.0.tar.gz"
-    sha256 "08dfaa06d4397f283a01e57089f3360e3b52b5b9da91a70e1fd91e9f0cdd3d3d"
-  end
-
-  resource "s3transfer" do
-    url "https://pypi.python.org/packages/source/s/s3transfer/s3transfer-0.0.1.tar.gz"
-    sha256 "2bb9ed8db58af94dfa78f75f554d646dfe4b4741fc87f63a20c2bfb3f70f4355"
-  end
-
-  resource "futures" do
-    url "https://pypi.python.org/packages/source/f/futures/futures-3.0.5.tar.gz"
-    sha256 "0542525145d5afc984c88f914a0c85c77527f65946617edb5274f72406f981df"
+    url "https://files.pythonhosted.org/packages/f0/d0/21c6449df0ca9da74859edc40208b3a57df9aca7323118c913e58d442030/colorama-0.3.7.tar.gz"
+    sha256 "e043c8d32527607223652021ff648fbb394d5e19cba9f1a698670b338c9d782b"
   end
 
   resource "docutils" do
-    url "https://pypi.python.org/packages/source/d/docutils/docutils-0.12.tar.gz"
+    url "https://files.pythonhosted.org/packages/37/38/ceda70135b9144d84884ae2fc5886c6baac4edea39550f28bcd144c1234d/docutils-0.12.tar.gz"
     sha256 "c7db717810ab6965f66c8cf0398a98c9d8df982da39b4cd7f162911eb89596fa"
   end
 
+  resource "futures" do
+    url "https://files.pythonhosted.org/packages/55/db/97c1ca37edab586a1ae03d6892b6633d8eaa23b23ac40c7e5bbc55423c78/futures-3.0.5.tar.gz"
+    sha256 "0542525145d5afc984c88f914a0c85c77527f65946617edb5274f72406f981df"
+  end
+
+  resource "jmespath" do
+    url "https://files.pythonhosted.org/packages/8f/d8/6e3e602a3e90c5e3961d3d159540df6b2ff32f5ab2ee8ee1d28235a425c1/jmespath-0.9.0.tar.gz"
+    sha256 "08dfaa06d4397f283a01e57089f3360e3b52b5b9da91a70e1fd91e9f0cdd3d3d"
+  end
+
   resource "pyasn1" do
-    url "https://pypi.python.org/packages/source/p/pyasn1/pyasn1-0.1.9.tar.gz"
+    url "https://files.pythonhosted.org/packages/f7/83/377e3dd2e95f9020dbd0dfd3c47aaa7deebe3c68d3857a4e51917146ae8b/pyasn1-0.1.9.tar.gz"
     sha256 "853cacd96d1f701ddd67aa03ecc05f51890135b7262e922710112f12a2ed2a7f"
   end
 
-  resource "rsa" do
-    url "https://pypi.python.org/packages/source/r/rsa/rsa-3.3.tar.gz"
-    sha256 "03f3d9bebad06681771016b8752a40b12f615ff32363c7aa19b3798e73ccd615"
+  resource "python-dateutil" do
+    url "https://files.pythonhosted.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
+    sha256 "1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed"
   end
 
-  resource "tox" do
-    url "https://pypi.python.org/packages/source/t/tox/tox-2.3.1.tar.gz"
-    sha256 "bf7fcc140863820700d3ccd65b33820ba747b61c5fe4e2b91bb8c64cb21a47ee"
+  resource "rsa" do
+    url "https://files.pythonhosted.org/packages/14/89/adf8b72371e37f3ca69c6cb8ab6319d009c4a24b04a31399e5bd77d9bb57/rsa-3.4.2.tar.gz"
+    sha256 "25df4e10c263fb88b5ace923dd84bf9aa7f5019687b5e55382ffcdb8bede9db5"
+  end
+
+  resource "s3transfer" do
+    url "https://files.pythonhosted.org/packages/6e/12/5d0ea478e6d261857a461af921b78f3bc6f92c479ffe57076f4fc9a362ab/s3transfer-0.0.1.tar.gz"
+    sha256 "2bb9ed8db58af94dfa78f75f554d646dfe4b4741fc87f63a20c2bfb3f70f4355"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   def install
-    ENV["PYTHONPATH"] = libexec/"lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-
     resources.each do |r|
       r.stage do
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", *Language::Python.setup_install_args(libexec)
 
     # Install zsh completion
@@ -106,7 +100,7 @@ class Awscli < Formula
     pkgshare.install "awscli/examples"
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   def caveats; <<-EOS.undent
@@ -129,6 +123,6 @@ class Awscli < Formula
   end
 
   test do
-    system "#{bin}/aws", "--version"
+    assert_match version.to_s, shell_output("#{bin}/aws --version 2>&1")
   end
 end

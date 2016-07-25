@@ -1,8 +1,8 @@
 class Tailor < Formula
   desc "Cross-platform static analyzer and linter for Swift"
   homepage "https://tailor.sh"
-  url "https://github.com/sleekbyte/tailor/releases/download/v0.9.1/tailor-0.9.1.tar"
-  sha256 "6dff0e5ce1badaaa4b3440332a06e9a883a9e81535fca5e84f4e6e04eab1f1e7"
+  url "https://github.com/sleekbyte/tailor/releases/download/v0.10.0/tailor-0.10.0.tar"
+  sha256 "4a93db14c60d788e818de7af52c6ef492da5b20f02f23552c43ba1eee02d9b75"
 
   bottle :unneeded
 

@@ -1,15 +1,14 @@
 class GtkDoc < Formula
   desc "GTK+ documentation tool"
   homepage "http://www.gtk.org/gtk-doc/"
-  url "https://download.gnome.org/sources/gtk-doc/1.24/gtk-doc-1.24.tar.xz"
-  sha256 "b420759ea05c760301bada14e428f1b321f5312f44e10a176d6804822dabb58b"
+  url "https://download.gnome.org/sources/gtk-doc/1.25/gtk-doc-1.25.tar.xz"
+  sha256 "1ea46ed400e6501f975acaafea31479cea8f32f911dca4dff036f59e6464fd42"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "cd47e91b2834ee4b6e6ba33c7ac76897fa1205507fab44728120f783e0ca3178" => :el_capitan
-    sha256 "9fdd9481987ef549e4b28e1bf7c8f85b593e092e39b4162eb260cc48c0b3abea" => :yosemite
-    sha256 "e7bce97e0b25bae469c86eec2d0f22d17987307077ad613bac9d9fc35917a407" => :mavericks
+    sha256 "a9d525c60fdaf4339391d9c22aa4e2bfedc29f3c4eb5c2af7600c1e029961c90" => :el_capitan
+    sha256 "2a8c0cfe362660629d19ac91e7150d9460a4a7448fd088000bbea23b93e1498c" => :yosemite
+    sha256 "3602498d17e7382bbe3f7a643853b3d80ff009faddcf28e1ea666262f2e4a345" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -20,6 +19,7 @@ class GtkDoc < Formula
   depends_on "docbook"
   depends_on "docbook-xsl"
   depends_on "libxml2" => "with-python"
+  depends_on :perl => "5.18" if MacOS.version <= :mavericks
 
   def install
     ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
@@ -33,7 +33,7 @@ class GtkDoc < Formula
   end
 
   test do
-    system "#{bin}/gtkdoc-scan", "--module=test"
-    system "#{bin}/gtkdoc-mkdb", "--module=test"
+    system bin/"gtkdoc-scan", "--module=test"
+    system bin/"gtkdoc-mkdb", "--module=test"
   end
 end

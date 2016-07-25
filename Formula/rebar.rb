@@ -1,16 +1,16 @@
 class Rebar < Formula
   desc "Erlang build tool"
   homepage "https://github.com/rebar/rebar"
-  url "https://github.com/rebar/rebar/archive/2.6.1.tar.gz"
-  sha256 "aed933d4e60c4f11e0771ccdb4434cccdb9a71cf8b1363d17aaf863988b3ff60"
+  url "https://github.com/rebar/rebar/archive/2.6.2.tar.gz"
+  sha256 "ed2a49300f2f8ae7c95284e53e95dd85430952d2843ce224a17db2b312964400"
 
   head "https://github.com/rebar/rebar.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4f78372d4343ce728ecc2bb555ffe37d3fc4b867331baa4ea23cc42ecc08e32d" => :el_capitan
-    sha256 "addcbc45971028066f03c4fcf10b096fca8759677a03375d512d59b1cff78c35" => :yosemite
-    sha256 "4ada78621f9e1b8fec08e63de736602f407c70af3de4b288a7edaf00a14c4b5b" => :mavericks
+    sha256 "6138205d90151d23256a7b4b35636378cdd80561ecfc06000310d8b3aaabc3b6" => :el_capitan
+    sha256 "8f23d08a9f9cd2921c0d492bc193fd9120cb0960e872f6cfcca4a55b8f3202da" => :yosemite
+    sha256 "95ee34b3f97814b6d9b77881b50ddf743b7381912ab8658ff06b9d95fe377127" => :mavericks
   end
 
   depends_on "erlang"

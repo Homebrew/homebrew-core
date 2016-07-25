@@ -17,4 +17,10 @@ class Detox < Formula
     pkgshare.mkpath
     system "make", "install"
   end
+
+  test do
+    (testpath/"rename this").write "foobar"
+
+    assert_equal "rename this -> rename_this\n", shell_output("#{bin}/detox --dry-run rename\\ this")
+  end
 end

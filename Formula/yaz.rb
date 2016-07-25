@@ -1,15 +1,21 @@
 class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/yaz"
-  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.15.1.tar.gz"
-  sha256 "ebef25b0970ea1485bbba43a721d7001523b6faa18c8d8da4080a8f83d5e2116"
-  revision 1
+  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.16.0.tar.gz"
+  sha256 "46708320152c1475f6a5ee6f29903caa76121c2440123051546c1b3403c78686"
+
+  head do
+    url "https://github.com/indexdata/yaz.git"
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
+  end
 
   bottle do
     cellar :any
-    sha256 "5c92b86a99954d7c94d4fea236515387c985b4cb53ae08e7b44db3273bdf7752" => :el_capitan
-    sha256 "24875e71916b26cbe8758bb8ecbd8efe4a3b0cf02349fc7668fb84db99c6e048" => :yosemite
-    sha256 "6326adcf981c85d58153e9472797efe34605196ec5ead5cf19faf127e1d93444" => :mavericks
+    sha256 "20027255c45c35bfe555491c4eb142baef9e04cedf591389a7b220f0d0d3d540" => :el_capitan
+    sha256 "fead54929afc14c84dda24e8360c1281af45f91aa48884b7c6584460bb8df6fe" => :yosemite
+    sha256 "2ef8e7ec3a9db92bc26e00539da2a35aeed4c5b64a476cc1d27d6c7a814f7242" => :mavericks
   end
 
   option :universal
@@ -20,6 +26,7 @@ class Yaz < Formula
   def install
     ENV.universal_binary if build.universal?
 
+    system "./buildconf.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-xml2"

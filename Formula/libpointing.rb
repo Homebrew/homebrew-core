@@ -1,14 +1,14 @@
 class Libpointing < Formula
   desc "Provides direct access to HID pointing devices"
   homepage "http://libpointing.org"
-  url "https://github.com/INRIA/libpointing/releases/download/v0.9.6/libpointing-0.9.6.tar.gz"
-  sha256 "9098f7efb87296db75e34d69d80d1b9bc01109a7b47f1fc8b17e12d7867eec76"
+  url "https://github.com/INRIA/libpointing/releases/download/v1.0.0/libpointing-mac-1.0.0.tar.gz"
+  sha256 "bc660390899d0bbd90fff9294a03fe6697404940e7d01267baeae6e9dfbd221f"
 
   bottle do
     cellar :any
-    sha256 "f8a394a1901f5b9966a9e95ad53dd357e10b92964048b13f36bdd088e966ab71" => :el_capitan
-    sha256 "5d08d3684ee51ce7bd9fb5fc845e62440a8d976e3753fb247db5c81c6414c1c9" => :yosemite
-    sha256 "01fe35550fe5b4a6847744cd6bca035083f0bb11366948ad5bc1a0a8f922399a" => :mavericks
+    sha256 "b01b5ecd5414895be0800699356bf90744fcd2b312c814fd1be3c5975f991d79" => :el_capitan
+    sha256 "04e722aad17ff31cea60ed6da8564294a8a8ec9fbea674c638922642becc85c3" => :yosemite
+    sha256 "8bc1371ef1ba9b2339594a3cb963680df280500e27cba265d8f5f9ec8ec8b139" => :mavericks
   end
 
   def install

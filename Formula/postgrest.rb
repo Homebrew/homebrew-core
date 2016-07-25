@@ -4,15 +4,16 @@ require "net/http"
 class Postgrest < Formula
   include Language::Haskell::Cabal
 
-  desc "Serves a fully RESTful API from any existing PostgreSQL database."
+  desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/begriffs/postgrest"
-  url "https://github.com/begriffs/postgrest/archive/v0.3.1.1.tar.gz"
-  sha256 "1830900175879d4be40b93410a7617cb637aae7e9e70792bf70e2bf72b0b2150"
+  url "https://github.com/begriffs/postgrest/archive/v0.3.2.0.tar.gz"
+  sha256 "1cedceb22f051d4d80a75e4ac7a875164e3ee15bd6f6edc68dfca7c9265a2481"
+  head "https://github.com/begriffs/postgrest.git"
 
   bottle do
-    sha256 "17403cf79873ee9771e6af936386c07ee57d4e74dbef893ca813b856726339e9" => :el_capitan
-    sha256 "13195c0ffc3095ff433e71f080410162732e9353c2bea70b12a6d2578de5bf38" => :yosemite
-    sha256 "d75b2d421104cb8d9d052b59ef7ca014ea07bb6984756ec0566694b07bae8ac9" => :mavericks
+    sha256 "a6315f312795298dca7bb58b8b671020e52db78f7f60c85a80647f2af0ef5ba5" => :el_capitan
+    sha256 "f775adbb96f422903e41af81d5277dcbd6497197308fe26abce04e574d7778d1" => :yosemite
+    sha256 "f245755397ec6c1718f989f3df8cb6a5b0e6d3ae821304954d51c22050f58e6e" => :mavericks
   end
 
   depends_on "ghc" => :build

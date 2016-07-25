@@ -1,7 +1,7 @@
 class Ircii < Formula
   desc "IRC and ICB client"
   homepage "http://www.eterna.com.au/ircii/"
-  url "http://ircii.warped.com/ircii-20151120.tar.bz2"
+  url "https://ircii.warped.com/ircii-20151120.tar.bz2"
   sha256 "5dfd3fd364a96960e1f57ade4d755474556858653e4ce64265599520378c5f65"
 
   bottle do

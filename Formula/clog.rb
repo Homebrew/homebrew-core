@@ -1,15 +1,15 @@
 class Clog < Formula
   desc "Colorized pattern-matching log tail utility."
-  homepage "https://tasktools.org/projects/clog.html"
-  url "https://tasktools.org/download/clog-1.2.1.tar.gz"
-  sha256 "880cfe248326a5c6f7c2a183008c76fae8b78c45f6e5795f74d02627e634f29d"
-  head "https://git.tasktools.org/scm/ut/clog.git", :branch => "1.3.0", :shallow => false
+  homepage "https://taskwarrior.org/docs/clog/"
+  url "https://tasktools.org/download/clog-1.3.0.tar.gz"
+  sha256 "fed44a8d398790ab0cf426c1b006e7246e20f3fcd56c0ec4132d24b05d5d2018"
+  head "https://git.tasktools.org/scm/ut/clog.git", :branch => "1.4.0", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4467cfd645790f505f60ad798d9cf517057b0bad6829ae54bec0309331d55ed7" => :el_capitan
-    sha256 "3ea89c398cdf711a1781ccb23d3b1e092fef36f1ca66b64c615060732763af3a" => :yosemite
-    sha256 "d4907545ee0aa42a38cac90161061004a20a51c002e800bb4d725c5230b241e1" => :mavericks
+    sha256 "8f42168b8e165c4c1f1265b410ef62087b370075cc27269f1908eb0f373645c5" => :el_capitan
+    sha256 "a6c42c7d0795252434a3e1fc0307fc40490a4f29a9186408fa3ed7d82ba5f02e" => :yosemite
+    sha256 "61ce3b9c332f9487f9981d8bb93d62fd4b6dfd0bbf0aa8f680b3fd625b2d8576" => :mavericks
   end
 
   depends_on "cmake" => :build

@@ -1,16 +1,15 @@
 class Wrk < Formula
   desc "HTTP benchmarking tool"
   homepage "https://github.com/wg/wrk"
-  url "https://github.com/wg/wrk/archive/4.0.1.tar.gz"
-  sha256 "c03bbc283836cb4b706eb6bfd18e724a8ce475e2c16154c13c6323a845b4327d"
+  url "https://github.com/wg/wrk/archive/4.0.2.tar.gz"
+  sha256 "a4a6ad6727733023771163e7250189a9a23e6253b5e5025191baa6092d5a26fb"
   head "https://github.com/wg/wrk.git"
 
   bottle do
-    cellar :any
-    sha256 "a004d0027dbd7ff65be1590f3be9adb173bf9dc1ea486db5d724b295c0e73ee1" => :el_capitan
-    sha256 "982842de8ea8ff98e798a70b51f928e45d6ae17eabd96ba3a6112f4d4cceff50" => :yosemite
-    sha256 "fa18093d7236c1d2c68b4f41d633065d716b7bbfea8723605f8793afd2161e17" => :mavericks
-    sha256 "1890cb7b8fa9a9ce9ef1f495c407dba4bc5a082e5bcde939fa8d59e807c40499" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "9dffba88a5ca3dfb25ea4be55bd45c9c4e3964543d4ea4485cb21fdba7f3c18c" => :el_capitan
+    sha256 "0d8d195984217da0cc6e734e2f2c876cacbad02b18fe2b3b22a77d3e356104f0" => :yosemite
+    sha256 "be9f47bac642704c6575810875dfd86bcdacdceb799c11a13bdab4d4f14965ab" => :mavericks
   end
 
   depends_on "openssl"

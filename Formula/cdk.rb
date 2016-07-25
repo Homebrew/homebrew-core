@@ -1,16 +1,15 @@
 class Cdk < Formula
   desc "Curses development kit provides predefined curses widget for apps"
   homepage "http://invisible-island.net/cdk/"
-  url "ftp://invisible-island.net/cdk/cdk-5.0-20141106.tgz"
-  version "5.0.20141106"
-  sha256 "d7ce8d9698b4998fa49a63b6e19309d3eb61cc3a019bfc95101d845ef03c4803"
+  url "ftp://invisible-island.net/cdk/cdk-5.0-20160131.tgz"
+  version "5.0.20160131"
+  sha256 "c32d075806c231b96ca3778bd24132c7aa0ba9a126f3cebb8a16c59a8b132c22"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d5ffeadc5a12e9a747cd06d5321fac858edf3b2c962a904e83ceb8ddb9c1df04" => :el_capitan
-    sha256 "ffd31d6fbe4d2ba6995c0d405a86988e7746683624a6247821bd81d8d9981ada" => :yosemite
-    sha256 "558928d85f0ce838cf2995f7106249988e7a3ffdad8bceb006909cc0e176ec95" => :mavericks
-    sha256 "b8eeb47d460bfaaeb9a398b8f23ef0905afabacf81fcf2c7d2860e15701e23ec" => :mountain_lion
+    sha256 "44d59e8d469fb3232f12b8cd3c8c84f2c30fbe874d911403164811b41a77d633" => :el_capitan
+    sha256 "308bde479ebe6315c3a5309e12b4606bc36a43719aff815e787a904fabdd5877" => :yosemite
+    sha256 "e974e6af5cd57bbab511884ca0c0df82155303d4e94f40d1bcb9aa55a65703c5" => :mavericks
   end
 
   def install
@@ -19,6 +18,6 @@ class Cdk < Formula
   end
 
   test do
-    assert_match "#{lib}", shell_output("#{bin}/cdk5-config --libdir")
+    assert_match lib.to_s, shell_output("#{bin}/cdk5-config --libdir")
   end
 end

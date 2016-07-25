@@ -1,14 +1,14 @@
 class Pillar < Formula
   desc "Manage migrations for Cassandra data stores"
   homepage "https://github.com/comeara/pillar"
-  url "https://github.com/comeara/pillar/archive/v2.0.1.tar.gz"
-  sha256 "d5db7fbf956dae05794ec7b26c1de70aaab1d21fed774d95d16a241e9dd3952e"
+  url "https://github.com/comeara/pillar/archive/v2.1.1.tar.gz"
+  sha256 "5ed988911ae1e0d72531fec9a8834c4350879e68810a9703733ab650f19e77f8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "15701b3bcfcfbded994680a3b923ea430e1e5618f2b2cb96a45a65c50b012d0f" => :el_capitan
-    sha256 "6399b70e777a2067922a435c0bd71409d8c01dc3bb89618aa1859f1714a0dc2b" => :yosemite
-    sha256 "366bd1d56bd750f7886ff97c5108831213361d996fcf1b6085dde53cd1638c37" => :mavericks
+    sha256 "1515564663541917b83a77cad63a8e85d129295c58fe6e94a4dad8084e17182a" => :el_capitan
+    sha256 "bfc2ef8aa748e93e40d3cdcb10bc5bdc8528de93692594c0a4414855e97ebde6" => :yosemite
+    sha256 "ce43d94788d256a37410dd2b8b8635e57f0bedab12f681e99a2dd369d65fa001" => :mavericks
   end
 
   depends_on :java

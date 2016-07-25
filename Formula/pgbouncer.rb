@@ -1,15 +1,14 @@
 class Pgbouncer < Formula
   desc "Lightweight connection pooler for PostgreSQL"
   homepage "https://wiki.postgresql.org/wiki/PgBouncer"
-  url "https://pgbouncer.github.io/downloads/files/1.6.1/pgbouncer-1.6.1.tar.gz"
-  mirror "https://github.com/pgbouncer/pgbouncer/archive/pgbouncer_1_6_1.tar.gz"
-  sha256 "40ff5cd84399b4da3ba864ad654fe155a0ed085261e68f3e31b1117812b17056"
+  url "https://pgbouncer.github.io/downloads/files/1.7.2/pgbouncer-1.7.2.tar.gz"
+  sha256 "de36b318fe4a2f20a5f60d1c5ea62c1ca331f6813d2c484866ecb59265a160ba"
 
   bottle do
     cellar :any
-    sha256 "f4002665b424ad1a17fbeb6823b9ebc5dcb7ba1e46b508275de9ffdea9bf05f1" => :el_capitan
-    sha256 "d74eb1920c6b93d10f9143e89170a57850a1e07b95988dc84216951d8ebf70dd" => :yosemite
-    sha256 "041022098c72050bbeea9b3af992287e24453e590b549bb81c396cfff2b7f5c7" => :mavericks
+    sha256 "f0a7e86e73f82b123b993491ed593e3a3683e4de80180c6b412f40e1c7426b1b" => :el_capitan
+    sha256 "e92de7aa798c662214aa866f1160226a941df217a90081080daccfd6b91d0ade" => :yosemite
+    sha256 "5934355f560dbbddd7e0caf8b1e7c861debb1e9a96d8575461971689ca90a875" => :mavericks
   end
 
   depends_on "asciidoc" => :build

@@ -13,14 +13,13 @@ class Apel < Formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}",
-           "LISPDIR=#{share}/emacs/site-lisp/apel",
-           "VERSION_SPECIFIC_LISPDIR=#{share}/emacs/site-lisp/apel"
+           "LISPDIR=#{elisp}", "VERSION_SPECIFIC_LISPDIR=#{elisp}"
   end
 
   test do
     program = testpath/"test-apel.el"
     program.write <<-EOS.undent
-      (add-to-list 'load-path "#{share}/emacs/site-lisp/apel/emu")
+      (add-to-list 'load-path "#{elisp}/emu")
       (require 'poe)
       (print (minibuffer-prompt-width))
     EOS

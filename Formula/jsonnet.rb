@@ -1,14 +1,14 @@
 class Jsonnet < Formula
   desc "Domain specific configuration language for defining JSON data."
   homepage "https://google.github.io/jsonnet/doc/"
-  url "https://github.com/google/jsonnet/archive/v0.8.7.tar.gz"
-  sha256 "c1cc21fcc8b6d590bc13af05e5932b07ec0e00c1a9737a01f858a7aefca52ffb"
+  url "https://github.com/google/jsonnet/archive/v0.8.9.tar.gz"
+  sha256 "88154d91fd925b6f5fccc7b41d4662297d2d61eadde836b3b74e56b209784015"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "de8636d5e2c72b12302d0b580cc523dd69d42515df6b7e989d3f7d70bf12c626" => :el_capitan
-    sha256 "a4f3f40594c54f87347348f1398610f1e7755f1328345572d259bd7d3a0564db" => :yosemite
-    sha256 "d873d720f899167b86bb62aa7ef77c148e7daca45d16ecefc9b42e7a5b9185c4" => :mavericks
+    sha256 "514ae0343883f63d5f39ec27ceb38872a23de1c9d3ffc6ad23de9e0e07b74ed3" => :el_capitan
+    sha256 "e36044b2d7a55e276d28fdc061000d2ca2cd82dd5eccbee4c6a5198f2c0ae25e" => :yosemite
+    sha256 "e88d88f1c4b971dd91178e26158d792a1611623543a7297ccf458bdedcf4a5c8" => :mavericks
   end
 
   needs :cxx11
@@ -37,12 +37,12 @@ class Jsonnet < Formula
     expected_output = {
       "person1" => {
         "name" => "Alice",
-        "welcome" => "Hello Alice!"
+        "welcome" => "Hello Alice!",
       },
       "person2" => {
         "name" => "Bob",
-        "welcome" => "Hello Bob!"
-      }
+        "welcome" => "Hello Bob!",
+      },
     }
 
     output = shell_output("#{bin}/jsonnet #{testpath}/example.jsonnet")

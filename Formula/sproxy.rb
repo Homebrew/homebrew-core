@@ -5,18 +5,38 @@ class Sproxy < Formula
   sha256 "29b84ba66112382c948dc8c498a441e5e6d07d2cd5ed3077e388da3525526b72"
 
   bottle do
-    revision 1
-    sha256 "d67b0980fcf79176396ee6e144ca1ba5d32a81663f8265364c280c2dc9aa99e7" => :yosemite
-    sha256 "a0a8ba324aae03371d74fbf9ccb299f41456cc1ade63161c90a216b028c4256c" => :mavericks
-    sha256 "344332d9ca503184f80ab8ea6505574316d4bd994070d86dc2ddc138b77e331e" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 2
+    sha256 "4ed786b0b05ca3c88d5904e3119d84725a9f9bedf5d952c055f22a81661a825c" => :el_capitan
+    sha256 "19da9a5b680a860e721ec60763dd48e9a5213505ee643703abcdc66707e8ce51" => :yosemite
+    sha256 "96b9cdebf5a11907998ba33e2b568fd5a77d46261a6faaa9c33a5d8eeca9a27f" => :mavericks
   end
 
+  # Only needed due to the change to "Makefile.am"
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   def install
+    # Prevents "ERROR: Can't create '/usr/local/share/man/man3'"; also fixes an
+    # audit violation triggered if the man page is installed in #{prefix}/man.
+    # After making the change below and running autoreconf, the default ends up
+    # being the same as #{man}, so there's no need for us to pass --mandir to
+    # configure, though, as a result of this change, that flag would be honored.
+    # Reported 10th May 2016 to https://www.joedog.org/support/
+    inreplace "doc/Makefile.am", "$(prefix)/man", "$(mandir)"
+    inreplace "lib/Makefile.am", "Makefile.PL", "Makefile.PL PREFIX=$(prefix)"
+
+    # Only needed due to the change to "Makefile.am"
+    system "autoreconf", "-fiv"
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
     system "make", "install"
-    # Makefile doesn't honor mandir, so move manpages post-install
-    share.install prefix+"man"
+  end
+
+  test do
+    assert_match "SPROXY v#{version}-", shell_output("#{bin}/sproxy -V")
   end
 end

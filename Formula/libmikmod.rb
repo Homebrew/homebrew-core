@@ -6,9 +6,10 @@ class Libmikmod < Formula
 
   bottle do
     cellar :any
-    sha256 "1c6f5b600d2910d383f63f4f8c0b2ff66f98993bf19973a9459d6c2bdb9acdb7" => :el_capitan
-    sha256 "e2e4471fb83ce3b4f9507f83873a6e99650cc81683030eaef912017a9eadec1a" => :yosemite
-    sha256 "5ecca18000c9e113385929e5618b644f81f33da059c0b280e22e55545d30825f" => :mavericks
+    revision 1
+    sha256 "d4ab73d546746bec04cd6b46458457d5c8fb35244acc8289deaba2d27ea4d1aa" => :el_capitan
+    sha256 "aa439fc42772f79091390244f084476def518280ba53699b8d540cfefa311778" => :yosemite
+    sha256 "3bc07cf9d3295a6888ada8b508834246d26981e8f2935ac2d9847f7038c3f8c3" => :mavericks
   end
 
   option "with-debug", "Enable debugging symbols"
@@ -18,7 +19,7 @@ class Libmikmod < Formula
     ENV.O2 if build.with? "debug"
     ENV.universal_binary if build.universal?
 
-    # OSX has CoreAudio, but ALSA is not for this OS nor is SAM9407 nor ULTRA.
+    # OS X has CoreAudio, but ALSA is not for this OS nor is SAM9407 nor ULTRA.
     args = %W[
       --prefix=#{prefix}
       --disable-alsa

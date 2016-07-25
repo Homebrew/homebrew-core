@@ -1,16 +1,16 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://cmake.org/files/v3.5/cmake-3.5.2.tar.gz"
-  sha256 "92d8410d3d981bb881dfff2aed466da55a58d34c7390d50449aa59b32bb5e62a"
+  url "https://cmake.org/files/v3.6/cmake-3.6.1.tar.gz"
+  sha256 "28ee98ec40427d41a45673847db7a905b59ce9243bb866eaf59dce0f58aaef11"
 
   head "https://cmake.org/cmake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2366e55b9466d7f8499c21784711e7006ed36258c7ac3b2ad16612d005c56020" => :el_capitan
-    sha256 "b6211f8e35ea232c822da67b03fe76892d216c434b43448c958d62905cff5317" => :yosemite
-    sha256 "0f1a4cf28813ee8f95f06267902f2d9fb586307cd27d3ffeec22c87525e09c4c" => :mavericks
+    sha256 "c2dd35936fd86bf1a17173e874dc8a1eb0bcc3a540b445473c7eaea0d62e7fac" => :el_capitan
+    sha256 "4666f51505837370e477d7762f4d6439a4f3637f945cccf6bc2542feb11ba9e8" => :yosemite
+    sha256 "3908d65e9ff688489bb23ce1b9d13330eda6b57a73dc34402742a637f649dd6a" => :mavericks
   end
 
   option "without-docs", "Don't build man pages"
@@ -20,7 +20,7 @@ class Cmake < Formula
 
   # The `with-qt` GUI option was removed due to circular dependencies if
   # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
-  # For the GUI application please instead use brew install caskroom/cask/cmake.
+  # For the GUI application please instead use `brew cask install cmake`.
 
   def install
     args = %W[
@@ -34,7 +34,7 @@ class Cmake < Formula
       --system-bzip2
     ]
 
-    # https://github.com/Homebrew/homebrew/issues/45989
+    # https://github.com/Homebrew/legacy-homebrew/issues/45989
     if MacOS.version <= :lion
       args << "--no-system-curl"
     else
@@ -58,11 +58,11 @@ class Cmake < Formula
       end
     end
 
-    (share/"emacs/site-lisp/cmake").install "Auxiliary/cmake-mode.el"
+    elisp.install "Auxiliary/cmake-mode.el"
   end
 
   test do
     (testpath/"CMakeLists.txt").write("find_package(Ruby)")
-    system "#{bin}/cmake", "."
+    system bin/"cmake", "."
   end
 end

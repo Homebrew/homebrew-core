@@ -1,13 +1,13 @@
 class Harfbuzz < Formula
   desc "OpenType text shaping engine"
   homepage "https://wiki.freedesktop.org/www/Software/HarfBuzz/"
-  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.2.6.tar.bz2"
-  sha256 "7537bacccb3524df0cd2a4d5bc7e168bcc10e8171e0324f3cd522583868192c1"
+  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.3.0.tar.bz2"
+  sha256 "b04be31633efee2cae1d62d46434587302554fa837224845a62565ec68a0334d"
 
   bottle do
-    sha256 "3e149cde316d1345b0d208bd2d37a79013a13fdd45d1ebe6d25feb511a48c840" => :el_capitan
-    sha256 "1cede358b3d8a271776b0f4a4ea4db945a2dfd156f468489cac6ac148ae154b1" => :yosemite
-    sha256 "610ab8caaed3f31018317b6e05a484b36c161a1396d419f731127c024f475c52" => :mavericks
+    sha256 "9ea36c4b16291399d9206f5312699d22ae5aff22365c65a2c540b49ff567c412" => :el_capitan
+    sha256 "7c4620ba3edd0fafd9e73efc8738b2b8039327a9c77a4cf1dc1f2c309b7dc749" => :yosemite
+    sha256 "43be4893fe40aafce53258909b5e27746bb80fe70a038b8876294e405d237fe7" => :mavericks
   end
 
   head do
@@ -29,6 +29,7 @@ class Harfbuzz < Formula
   depends_on "icu4c" => :recommended
   depends_on "cairo" => :optional
   depends_on "graphite2" => :optional
+  depends_on "gettext" => :linked
 
   resource "ttf" do
     url "https://github.com/behdad/harfbuzz/raw/fc0daafab0336b847ac14682e581a8838f36a0bf/test/shaping/fonts/sha1sum/270b89df543a7e48e206a2d830c0e10e5265c630.ttf"
@@ -42,14 +43,30 @@ class Harfbuzz < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --enable-introspection=yes
+      --with-freetype=yes
+      --with-glib=yes
       --with-gobject=yes
       --with-coretext=yes
       --enable-static
     ]
 
-    args << "--with-icu" if build.with? "icu4c"
-    args << "--with-graphite2" if build.with? "graphite2"
-    args << "--with-cairo" if build.with? "cairo"
+    if build.with? "icu4c"
+      args << "--with-icu=yes"
+    else
+      args << "--with-icu=no"
+    end
+
+    if build.with? "graphite2"
+      args << "--with-graphite2=yes"
+    else
+      args << "--with-graphite2=no"
+    end
+
+    if build.with? "cairo"
+      args << "--with-cairo=yes"
+    else
+      args << "--with-cairo=no"
+    end
 
     system "./autogen.sh" if build.head?
     system "./configure", *args

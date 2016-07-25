@@ -1,20 +1,17 @@
 class Haxe < Formula
   desc "Multi-platform programming language"
-  homepage "http://haxe.org"
+  homepage "https://haxe.org/"
+  url "https://github.com/HaxeFoundation/haxe.git",
+      :tag => "3.2.1",
+      :revision => "deab4424399b520750671e51e5f5c2684e942c17"
 
-  stable do
-    url "https://github.com/HaxeFoundation/haxe.git", :tag => "3.2.1", :revision => "deab4424399b520750671e51e5f5c2684e942c17"
-  end
+  head "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "131893375697db4a6f747ebec788f9d0d7304b742a3c007f27ea877f561e1e9f" => :el_capitan
     sha256 "104c2a1e9cc5c0d3ca3ee794a4872e8b25107139106f904c2471162ce278474e" => :yosemite
     sha256 "1e4c88518c6747bf86345ac67b2e3e2da5d9f3cea3c3917e8837ac4db2083412" => :mavericks
-  end
-
-  head do
-    url "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
   end
 
   depends_on "ocaml" => :build
@@ -36,14 +33,14 @@ class Haxe < Formula
     bin.install_symlink lib/"haxe/haxe"
   end
 
-  test do
-    ENV["HAXE_STD_PATH"] = "#{HOMEBREW_PREFIX}/lib/haxe/std"
-    system "#{bin}/haxe", "-v", "Std"
-  end
-
   def caveats; <<-EOS.undent
     Add the following line to your .bashrc or equivalent:
       export HAXE_STD_PATH="#{HOMEBREW_PREFIX}/lib/haxe/std"
     EOS
+  end
+
+  test do
+    ENV["HAXE_STD_PATH"] = "#{HOMEBREW_PREFIX}/lib/haxe/std"
+    system "#{bin}/haxe", "-v", "Std"
   end
 end

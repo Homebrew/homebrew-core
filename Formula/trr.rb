@@ -13,27 +13,27 @@ class Trr < Formula
     sha256 "2373aaab80559228b2d5510494ba23f22fa6527d6e906ce4c7c6dbc6ff8a9ce4" => :mountain_lion
   end
 
-  depends_on "apel"
   depends_on "nkf" => :build
+  depends_on "apel"
 
   def install
     system "make", "clean"
-    cp Dir["#{Formula["apel"].share}/emacs/site-lisp/apel/**/*.el"], buildpath
+    cp Dir["#{Formula["apel"].opt_elisp}/**/*.el"], buildpath
 
     # The file "CONTENTS" is firstly encoded to EUC-JP.
     # This encodes it to UTF-8 to avoid garbled characters.
-    system "nkf", "-w", "--overwrite", "#{buildpath}/CONTENTS"
+    system "nkf", "-w", "--overwrite", buildpath/"CONTENTS"
 
     # wrong text filename
-    inreplace "#{buildpath}/CONTENTS", "EmacsLisp", "Elisp_programs"
+    inreplace buildpath/"CONTENTS", "EmacsLisp", "Elisp_programs"
 
     system "make", "clean"
-    cp Dir["#{Formula["apel"].share}/emacs/site-lisp/apel/**/*.elc"], buildpath
+    cp Dir["#{Formula["apel"].opt_elisp}/**/*.elc"], buildpath
 
     # texts for playing trr
     texts = "The_Constitution_Of_JAPAN Constitution_of_the_USA Iccad_90 C_programs Elisp_programs Java_programs Ocaml_programs Python_programs"
 
-    inreplace "#{buildpath}/Makefile", "japanese = t", "japanese = nil"
+    inreplace buildpath/"Makefile", "japanese = t", "japanese = nil"
 
     system "make", "install",
                    "CC=#{ENV.cc}",
@@ -41,7 +41,7 @@ class Trr < Formula
                    "INFODIR=#{info}",
                    "BINDIR=#{bin}",
                    "TEXTS=#{texts}",
-                   "LISPDIR=#{share}/emacs/site-lisp/trr"
+                   "LISPDIR=#{elisp}"
     (prefix/"record").install Dir["record/*"]
   end
 
@@ -49,7 +49,7 @@ class Trr < Formula
     program = testpath/"test-trr.el"
     program.write <<-EOS.undent
       (add-to-list 'load-path "#{HOMEBREW_PREFIX}/share/emacs/site-lisp/apel/emu")
-      (add-to-list 'load-path "#{share}/emacs/site-lisp/trr")
+      (add-to-list 'load-path "#{elisp}")
       (require 'trr)
       (print (TRR:trainer-menu-buffer))
     EOS

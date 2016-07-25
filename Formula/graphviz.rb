@@ -53,7 +53,7 @@ class Graphviz < Formula
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/ec8d133/graphviz/patch-project.pbxproj.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ec8d133/graphviz/patch-project.pbxproj.diff"
     sha256 "7c8d5c2fd475f07de4ca3a4340d722f472362615a369dd3f8524021306605684"
   end
 

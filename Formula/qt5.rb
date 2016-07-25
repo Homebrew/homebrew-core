@@ -14,16 +14,16 @@ end
 class Qt5 < Formula
   desc "Version 5 of the Qt framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.6/5.6.0/single/qt-everywhere-opensource-src-5.6.0.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.6/5.6.0/single/qt-everywhere-opensource-src-5.6.0.tar.xz"
-  sha256 "76a95cf6c1503290f75a641aa25079cd0c5a8fcd7cff07ddebff80a955b07de7"
+  url "https://download.qt.io/official_releases/qt/5.6/5.6.1-1/single/qt-everywhere-opensource-src-5.6.1-1.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.6/5.6.1-1/single/qt-everywhere-opensource-src-5.6.1-1.tar.xz"
+  sha256 "ce08a7eb54661705f55fb283d895a089b267c688fabe017062bd71b9231736db"
 
   head "https://code.qt.io/qt/qt5.git", :branch => "5.6", :shallow => false
 
   bottle do
-    sha256 "c20268ac2ca94cb2daa0da352ad3ca8f2a16b0429c00e2fa444bc1f6b5488f6f" => :el_capitan
-    sha256 "9924fa2ac0cd8b661c861f81696679ba10496b91a35ee706033739816bb5bb90" => :yosemite
-    sha256 "bcbb60b1c00e63cf75e8632d1577e9f882da1febb1ae5a8a2ca8afd9e4d07a61" => :mavericks
+    sha256 "2aaa410f2ab2fbbddbc8c3438e43bc9f4271774c794bcae8f935fb6b1b5a82ed" => :el_capitan
+    sha256 "eefa531c6ebc757982b31f17935fa2220aad52caf3112e389a878dce04f40490" => :yosemite
+    sha256 "73d33dd2563c39542844c276a7bd43463f2974fde141e7afeb3057168adbe606" => :mavericks
   end
 
   # Restore `.pc` files for framework-based build of Qt 5 on OS X. This
@@ -35,11 +35,20 @@ class Qt5 < Formula
   #   * poppler    (with `--with-qt5` option)
   #   * wireshark  (with `--with-qt5` option)
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/e8fe6567/qt5/restore-pc-files.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
   end
 
-  keg_only "Qt 5 conflicts Qt 4 (which is currently much more widely used)."
+  # Fix build error due to missing Mac QtBase widget example targets, detected
+  # by logic introduced in <https://codereview.qt-project.org/#/c/156610/> and
+  # corrected in <https://codereview.qt-project.org/#/c/161001/>.
+  # Should land in either 5.6.2 and/or 5.7.1.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6ffd0e250d374193613a51beda8830dda9b67e56/qt5/QTBUG-54110.patch"
+    sha256 "2cf77b820f46f0c404284882b4a4a97bf005b680062842cdc53e107a821deeda"
+  end
+
+  keg_only "Qt 5 conflicts Qt 4"
 
   option "with-docs", "Build documentation"
   option "with-examples", "Build examples"
@@ -47,15 +56,17 @@ class Qt5 < Formula
 
   option "without-webengine", "Build without QtWebEngine module"
 
-  deprecated_option "qtdbus" => "with-d-bus"
+  deprecated_option "qtdbus" => "with-dbus"
+  deprecated_option "with-d-bus" => "with-dbus"
 
   # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
   # configuration and thus untested in practice. Builds on OS X 10.7 have been
   # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
   depends_on :macos => :mountain_lion
 
-  depends_on "d-bus" => :optional
+  depends_on "dbus" => :optional
   depends_on :mysql => :optional
+  depends_on :postgresql => :optional
   depends_on :xcode => :build
 
   depends_on OracleHomeVarRequirement if build.with? "oci"
@@ -78,9 +89,10 @@ class Qt5 < Formula
     args << "-nomake" << "examples" if build.without? "examples"
 
     args << "-plugin-sql-mysql" if build.with? "mysql"
+    args << "-plugin-sql-psql" if build.with? "postgresql"
 
-    if build.with? "d-bus"
-      dbus_opt = Formula["d-bus"].opt_prefix
+    if build.with? "dbus"
+      dbus_opt = Formula["dbus"].opt_prefix
       args << "-I#{dbus_opt}/lib/dbus-1.0/include"
       args << "-I#{dbus_opt}/include/dbus-1.0"
       args << "-L#{dbus_opt}/lib"

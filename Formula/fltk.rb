@@ -6,8 +6,10 @@ class Fltk < Formula
     url "https://fossies.org/linux/misc/fltk-1.3.3-source.tar.gz"
     sha256 "f8398d98d7221d40e77bc7b19e761adaf2f1ef8bb0c30eceb7beb4f2273d0d97"
 
-    # Fltk 1.3.4 include support for El Capitan. Remove on update.
-    depends_on MaximumMacOSRequirement => :yosemite
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/92b5f073bee3ee37c2d6194571c76ce19efdc94f/fltk/patch-CGLineCap.patch"
+      sha256 "bfe8e8cf889fcbf3c5fb8bdad7cf7a9fedb92d8b4aa8f40bb9930382bb97d197"
+    end
 
     # Fixes issue with -lpng not found.
     # Based on: https://trac.macports.org/browser/trunk/dports/aqua/fltk/files/patch-src-Makefile.diff
@@ -15,14 +17,16 @@ class Fltk < Formula
   end
 
   bottle do
-    revision 2
-    sha256 "11f078c852e0a7b8038575440d9efb7edeca727f6f740b5e24f08aaa92033ddf" => :mavericks
+    revision 3
+    sha256 "4e1b9e5a401319d74b77aae46a12b2d3da3a2a8e0a50364ac9ac9aadbbf5fb50" => :el_capitan
+    sha256 "c2c1f6f6219979cb8864c2afb03ef5aed71b2df6fe232c0b8ad024b2a57d506f" => :yosemite
+    sha256 "c9891be771225c5729be4227f7da60ca7d199d90fa868c737bc7f0893f31947e" => :mavericks
   end
 
   devel do
-    url "http://fltk.org/pub/fltk/snapshots/fltk-1.3.x-r11419.tar.gz"
-    sha256 "fd5a445634b799c031d78e7c046cb083779fd2dc79fab072cd512cfb0fc48262"
-    version "1.3.3-r11419" # convince brew that this is newer than stable
+    url "http://fltk.org/pub/fltk/snapshots/fltk-1.3.x-r11756.tar.gz"
+    sha256 "3c0594bdf9043edb2a3b77bcd632ca43ad529404b3d9ae0a1f29f2d60890e4b0"
+    version "1.3.3-r11756" # convince brew that this is newer than stable
 
     depends_on "autoconf" => :build
     depends_on "autogen" => :build

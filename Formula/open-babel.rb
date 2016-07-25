@@ -2,6 +2,8 @@ class OpenBabel < Formula
   desc "Chemical toolbox"
   homepage "http://www.openbabel.org"
 
+  head "https://github.com/openbabel/openbabel.git"
+
   stable do
     url "https://downloads.sourceforge.net/project/openbabel/openbabel/2.3.2/openbabel-2.3.2.tar.gz"
     sha256 "4eaca26679aa6cc85ebf96af19191472ac63ca442c36b0427b369c3a25705188"
@@ -18,6 +20,7 @@ class OpenBabel < Formula
       sha256 "52141601c7c87eaf3dec877b9120ac0eac2d1a75e3f0c1d82b6521f32410a892"
     end
   end
+
   bottle do
     sha256 "c83b5fb690526decabcb2add2a64454008c988a8ee47cbba0db7da324d948066" => :el_capitan
     sha256 "e632200d401723ed2f24181a785eb10234d2698a5d360f22356a13063bd46f0e" => :yosemite
@@ -25,14 +28,10 @@ class OpenBabel < Formula
     sha256 "0350407844a4bbc86dbf0c6dd562ca6bac7b71b92251cfdf222a9f1d2a092306" => :mountain_lion
   end
 
-  head do
-    url "https://github.com/openbabel/openbabel.git"
-  end
-
-  option "with-cairo",  "Support PNG depiction"
-  option "with-java",   "Compile Java language bindings"
+  option "with-cairo", "Support PNG depiction"
+  option "with-java", "Compile Java language bindings"
   option "with-python", "Compile Python language bindings"
-  option "with-wxmac",  "Build with GUI"
+  option "with-wxmac", "Build with GUI"
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
@@ -73,7 +72,7 @@ class OpenBabel < Formula
 
     # Manually install the python files (fixed in HEAD)
     if build.with?("python") && !build.head?
-      (lib+"python2.7/site-packages").install lib/"openbabel.py", lib/"pybel.py", lib/"_openbabel.so"
+      (lib/"python2.7/site-packages").install lib/"openbabel.py", lib/"pybel.py", lib/"_openbabel.so"
     end
   end
 
@@ -85,6 +84,6 @@ class OpenBabel < Formula
   end
 
   test do
-    system "obabel", "-:'C1=CC=CC=C1Br'", "-omol"
+    system "#{bin}/obabel", "-:'C1=CC=CC=C1Br'", "-omol"
   end
 end

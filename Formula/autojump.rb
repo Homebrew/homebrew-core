@@ -1,16 +1,16 @@
 class Autojump < Formula
   desc "Shell extension to jump to frequently used directories"
   homepage "https://github.com/wting/autojump"
-  url "https://github.com/wting/autojump/archive/release-v22.3.0.tar.gz"
-  sha256 "800f444b820b3a985e1da2d183fb5e2e23753a2ade53d6e1195678c650379a03"
+  url "https://github.com/wting/autojump/archive/release-v22.3.4.tar.gz"
+  sha256 "3fbd83f19e60514887c7efa1ce1b9015179c55c381a8867417eed933f2657984"
 
   head "https://github.com/wting/autojump.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b1d061456b911c1a36216ee3e6569a73aad5e1e9994fb0ba515715a43675811e" => :el_capitan
-    sha256 "08e603c2689a7ac96839cdd6b02f1c1b1803e50598dcd5eaef73d5b7d9275bc6" => :yosemite
-    sha256 "374c3703dab50849119b2d511eeca5fa7523df903fa2ae34acf334c229343182" => :mavericks
+    sha256 "3c54876bea6f113a56470ca1313fd5fb89d316b6913b175d17ed46cc39f0226c" => :el_capitan
+    sha256 "6160d25c96b4cae7a2764a4235696c18696829b54f1ca34e5e5f99de79b7ff23" => :yosemite
+    sha256 "5af726c31ecfea4c1b08ade48c931e1ff0834e5cb208ce93213aa8b2bde13c59" => :mavericks
   end
 
   def install
@@ -30,19 +30,19 @@ class Autojump < Formula
       [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
     If you use the Fish shell then add the following line to your ~/.config/fish/config.fish:
-      [ -f #{HOMEBREW_PREFIX}/share/autojump/autojump.fish ]; and . #{HOMEBREW_PREFIX}/share/autojump/autojump.fish
+      [ -f #{HOMEBREW_PREFIX}/share/autojump/autojump.fish ]; and source #{HOMEBREW_PREFIX}/share/autojump/autojump.fish
     EOS
   end
 
   test do
-    path = testpath/"foo"
-    path.mkdir
+    path = testpath/"foo/bar"
+    path.mkpath
     output = %x(
       source #{HOMEBREW_PREFIX}/etc/profile.d/autojump.sh
-      j -a foo
+      j -a "#{path.relative_path_from(testpath)}"
       j foo >/dev/null
       pwd
     ).strip
-    assert_equal path.to_s, output
+    assert_equal path.realpath.to_s, output
   end
 end

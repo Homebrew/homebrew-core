@@ -6,10 +6,10 @@ class Spdylay < Formula
 
   bottle do
     cellar :any
-    sha256 "583d77b3795c803258649d42dcad161587dfd4619c57e69e4a09a0b16289d612" => :el_capitan
-    sha256 "b520acd2e6169ca96a5a00214908b819f0a4ad3ecb109dc4bcac7567dbd0747b" => :yosemite
-    sha256 "409ae0e5fea5a7e9534a914c3eb9eca48198892d100818e913c5f5868f507fff" => :mavericks
-    sha256 "d9a294e36d238945e881f75f33d07e93f77370e0902a0de5591aeb4d482f28f1" => :mountain_lion
+    revision 1
+    sha256 "e5697185ba673e6bea9ca829c173611a7d54001276c63ac25bc0a4d8eb27b86d" => :el_capitan
+    sha256 "7941300edad0919881502d991886af07479a0c52dc06f04c1b66170f34cca6ed" => :yosemite
+    sha256 "2c93e33dbaedf67e7badf73a35c28ec0abe930bc8e53ad87d990394384a563ac" => :mavericks
   end
 
   depends_on "autoconf" => :build
@@ -17,14 +17,15 @@ class Spdylay < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libevent" => :recommended
-  depends_on "libxml2"
+  depends_on "libxml2" if MacOS.version <= :lion
   depends_on "openssl"
 
   def install
-    system "autoreconf -i"
-    system "automake"
-    system "autoconf"
+    if MacOS.version > :lion
+      Formula["libxml2"].stable.stage { (buildpath/"m4").install "libxml.m4" }
+    end
 
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

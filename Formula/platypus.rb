@@ -33,10 +33,14 @@ class Platypus < Formula
     end
   end
 
-  def caveats
-    <<-EOS.undent
-      This formula only installs the command-line Platypus tool, not the GUI.
-      If you want the GUI, download the app from the project's Web page directly.
+  def caveats; <<-EOS.undent
+    This formula only installs the command-line Platypus tool, not the GUI.
+
+    The GUI can be downloaded from Platypus' website:
+      http://sveinbjorn.org/platypus
+
+    Alternatively, install with Homebrew-Cask:
+      brew cask install platypus
     EOS
   end
 

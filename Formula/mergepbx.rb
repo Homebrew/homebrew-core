@@ -1,15 +1,14 @@
 class Mergepbx < Formula
   desc "Merge XCode project files in git"
   homepage "https://github.com/simonwagner/mergepbx"
-  url "https://github.com/simonwagner/mergepbx/archive/v0.9.tar.gz"
-  sha256 "d0d859a902357f8059fca0c5fb061a9072b82cb7cce4f38bd9eb2c3198fce003"
+  url "https://github.com/simonwagner/mergepbx/archive/v0.10.tar.gz"
+  sha256 "1727ea75ffbd95426fe5d1d825bfcfb82dbea3dbc03e96f6d7d7ab2699c67572"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "27dce93e12d1c8f5c1a3de1e91a71502bf99016495689ebbd461f7e5d782ca96" => :el_capitan
-    sha256 "9fb17ccf083493455e2f43132ed15b676bb260eb96e55189ac59aa9ddf34ad8a" => :yosemite
-    sha256 "db4a00c46f838a03ecac70415c065638ea22222a47258b69ff603e3e4eb3faba" => :mavericks
-    sha256 "541227aa27c2d438de5be4c947417c2f017740ce6aa2ac6511bf0d668b0251da" => :mountain_lion
+    sha256 "9330e987d0c93a73b9edfbc77f265fa225b058d36b9210c797fe02494d1a656f" => :el_capitan
+    sha256 "77c1ec431ae1a7cd6fb4b04376e14e8aa1f7399cf840e006caf69c0f88839a7e" => :yosemite
+    sha256 "690559c9a95577702180b53493822f2c6887d2896f27c26cdfe9f2cad506809e" => :mavericks
   end
 
   resource "dummy_base" do
@@ -33,13 +32,8 @@ class Mergepbx < Formula
   end
 
   test do
-    system "mergepbx", "-h"
-
-    resource("dummy_base").stage testpath
-    resource("dummy_mine").stage testpath
-    resource("dummy_theirs").stage testpath
-    system "#{bin}/mergepbx", "project.pbxproj.base",
-                              "project.pbxproj.mine",
-                              "project.pbxproj.theirs"
+    system bin/"mergepbx", "-h"
+    resources.each { |r| r.stage testpath }
+    system bin/"mergepbx", *Dir["project.pbxproj.{base,mine,theirs}"]
   end
 end

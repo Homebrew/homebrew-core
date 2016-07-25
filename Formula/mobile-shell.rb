@@ -18,11 +18,19 @@ class MobileShell < Formula
     sha256 "5a244c07094d5d3d30a95888a7bb0df6051fd81cfec7fd35ac861090f1897d6e" => :mountain_lion
   end
 
+  devel do
+    url "https://github.com/mobile-shell/mosh/releases/download/mosh-1.2.5.95rc1/mosh-1.2.5.95rc1.tar.gz"
+    sha256 "a2697c41cfc8c92dc7a743dd101849a7a508c6986b24d6f44711d8533d18fcf5"
+
+    depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
+  end
+
   head do
     url "https://github.com/mobile-shell/mosh.git", :shallow => false
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
   end
 
   option "without-test", "Run build-time tests"

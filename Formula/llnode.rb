@@ -1,13 +1,13 @@
 class Llnode < Formula
   desc "LLDB plugin for live/post-mortem debugging of node.js apps"
   homepage "https://github.com/indutny/llnode"
-  url "https://github.com/indutny/llnode/archive/v1.0.0.tar.gz"
-  sha256 "fcf90201930e52b49d0fa1b369aac7b5b74c3bbffe34f423d5aa5b899267f295"
+  url "https://github.com/indutny/llnode/archive/v1.2.1.tar.gz"
+  sha256 "be3290d3ffd4fae115e62e4f60e029f94b28f4fc5912f619d6732dbbd4178c8b"
 
   bottle do
     cellar :any
-    sha256 "8ef6767b8b4a452fd0a9a74fbc24870175b9364a7b780cf2b3d1104d63b2c70b" => :el_capitan
-    sha256 "b50054f05fc127b3976ad2a5c0cbd4bd19294f7b57cb2a28acf2ae51cd02406c" => :yosemite
+    sha256 "0d7c7fab104e495e5f392d900d8f187bb10a99088d63cca6cce5ced042b1a6aa" => :el_capitan
+    sha256 "e761fdb6dc583cead747bcce0907d023ac800c18f0d754397187e3018f513874" => :yosemite
   end
 
   depends_on :macos => :yosemite

@@ -1,15 +1,15 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.8.2.tar.xz"
-  sha256 "ec0283d78a0f1c8408c5fd43610697b953fbaafe4077bb1e41446a9ee3a2f83d"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.9.2.tar.xz"
+  sha256 "f8f546648f77f246f1302e3ec4037c81db25af1f02931597148c5bf61fac2db5"
 
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "4a50f8614c33d24dda689386f5ae3e22810819117ae5145d297ec2330f6cca5a" => :el_capitan
-    sha256 "aca2c284e381720e266642773f8036f9cc412b564fabf3eb77d219c26cb9e51d" => :yosemite
-    sha256 "fc5d589862331488a121175d461c9a64d0dc5fa89fbb64ad5d1d09483d4f78ba" => :mavericks
+    sha256 "98aa5ac5634365c768013c3007d88e4dbbfcef607fb5fd8df82024b7e5320fc9" => :el_capitan
+    sha256 "5b5460409196083456cf657f6a8ea9661bc3079feb06a106e0d80ef546e00e56" => :yosemite
+    sha256 "e0bc597031a6f45a83ade135a64db4ed9283759c93da3ee297f169c0d64553c9" => :mavericks
   end
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
@@ -32,17 +32,17 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.8.2.tar.xz"
-    sha256 "28260088b325a75c66ae6333849f138c098ebb07fcfe78ca398e16f87811e29b"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.9.2.tar.xz"
+    sha256 "6dddb003184f2ab68aa6b54e02e1e55c82c774fe6e74602e9dbefdf06826fb1c"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.8.2.tar.xz"
-    sha256 "9edff3393b7d388a148a4c21fe4ebfb18fe3a2b96ba149d882184f20a6478998"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.9.2.tar.xz"
+    sha256 "4c5c516ee4c0412b9475739e2125a257f6022e7c7bd006827c376fe70d47c323"
   end
 
   def install
-    # If these things are installed, tell Git build system to not use them
+    # If these things are installed, tell Git build system not to use them
     ENV["NO_FINK"] = "1"
     ENV["NO_DARWIN_PORTS"] = "1"
     ENV["V"] = "1" # build verbosely
@@ -50,11 +50,16 @@ class Git < Formula
     ENV["PYTHON_PATH"] = which "python"
     ENV["PERL_PATH"] = which "perl"
 
+    # Support Tcl versions before "lime" color name was introduced
+    # https://github.com/Homebrew/homebrew-core/issues/115
+    # https://www.mail-archive.com/git%40vger.kernel.org/msg92017.html
+    inreplace "gitk-git/gitk", "lime", '"#99FF00"'
+
     perl_version = /\d\.\d+/.match(`perl --version`)
 
     if build.with? "brewed-svn"
       ENV["PERLLIB_EXTRA"] = %W[
-        #{Formula["subversion"].opt_prefix}/lib/perl5/site_perl
+        #{Formula["subversion"].opt_lib}/perl5/site_perl
         #{Formula["subversion"].opt_prefix}/Library/Perl/#{perl_version}/darwin-thread-multi-2level
       ].join(":")
     elsif MacOS.version >= :mavericks
@@ -127,12 +132,12 @@ class Git < Formula
     end
 
     elisp.install Dir["contrib/emacs/*.el"]
-    (share+"git-core").install "contrib"
+    (share/"git-core").install "contrib"
 
     # We could build the manpages ourselves, but the build process depends
     # on many other packages, and is somewhat crazy, this way is easier.
     man.install resource("man")
-    (share+"doc/git-doc").install resource("html")
+    (share/"doc/git-doc").install resource("html")
 
     # Make html docs world-readable
     chmod 0644, Dir["#{share}/doc/git-doc/**/*.{html,txt}"]
@@ -141,20 +146,21 @@ class Git < Formula
     # To avoid this feature hooking into the system OpenSSL, remove it.
     # If you need it, install git --with-brewed-openssl.
     rm "#{libexec}/git-core/git-imap-send" if build.without? "brewed-openssl"
-  end
 
-  def caveats; <<-EOS.undent
-    The OS X keychain credential helper has been installed to:
-      #{HOMEBREW_PREFIX}/bin/git-credential-osxkeychain
-
-    The "contrib" directory has been installed to:
-      #{HOMEBREW_PREFIX}/share/git-core/contrib
+    # Set the OS X keychain credential helper by default
+    # (as Apple's CLT's git also does this).
+    (buildpath/"gitconfig").write <<-EOS.undent
+      [credential]
+      \thelper = osxkeychain
     EOS
+    etc.install "gitconfig"
   end
 
   test do
-    HOMEBREW_REPOSITORY.cd do
-      assert_equal "bin/brew", `#{bin}/git ls-files -- bin`.strip
-    end
+    system bin/"git", "init"
+    %w[haunted house].each { |f| touch testpath/f }
+    system bin/"git", "add", "haunted", "house"
+    system bin/"git", "commit", "-a", "-m", "Initial Commit"
+    assert_equal "haunted\nhouse", shell_output("#{bin}/git ls-files").strip
   end
 end

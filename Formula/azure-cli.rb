@@ -3,28 +3,17 @@ require "language/node"
 class AzureCli < Formula
   desc "Official Azure CLI"
   homepage "https://github.com/azure/azure-xplat-cli"
-  revision 1
+  url "https://github.com/Azure/azure-xplat-cli/archive/v0.10.2-July2016.tar.gz"
+  version "0.10.2"
+  sha256 "490290c628ca2ad36a006f4c689511d0950613909e80f3eb595471f84fd17c8f"
 
   head "https://github.com/azure/azure-xplat-cli.git", :branch => "dev"
 
-  stable do
-    url "https://github.com/Azure/azure-xplat-cli/archive/v0.9.20-April2016.tar.gz"
-    version "0.9.20"
-    sha256 "c2b97a6dba7deac3d7cb030602bc84ac0af355fc95f74901bd6c8fa43d5f5da8"
-
-    # Fixes for Node v6. Can be removed on next stable azure-cli release.
-    patch do
-      url "https://github.com/Azure/azure-xplat-cli/commit/241493584534d2.diff"
-      sha256 "2abafa41959c518ea3cb0d2c958c13220b78be3847152f0d28942185afd93c6d"
-    end
-  end
-
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "eb2d3bdf148b0d5d13be5800470a3f17e9718f75084bdbf0334640528b4c75c6" => :el_capitan
-    sha256 "ce2ccac2be213d123f1ed7e72627d05ea34d2184a15fb6e7d6739c3a40a7e292" => :yosemite
-    sha256 "ee86e87e4f8a18f0f807802625e9d6774d013178292dba94355d59651a111bf7" => :mavericks
+    sha256 "9c6bd17f7485b7e9f2aaca4f7860a5da2047799e003212b647c66c352509dad6" => :el_capitan
+    sha256 "35429759c01405f67a9c01644d8acfd8d4b7296dc6929c7d5c1a100c80921b1f" => :yosemite
+    sha256 "fbabbf188ec247349a66cae1e4b422682f5e5c2626c09cc56390f1841140e5f5" => :mavericks
   end
 
   depends_on "node"
@@ -34,7 +23,7 @@ class AzureCli < Formula
     rm_rf "bin/windows"
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
-    (bash_completion/"azure").write `#{bin}/azure --completion`
+    (bash_completion/"azure").write Utils.popen_read("#{bin}/azure --completion")
   end
 
   test do

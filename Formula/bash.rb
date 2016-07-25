@@ -5,7 +5,7 @@ class Bash < Formula
   head "http://git.savannah.gnu.org/r/bash.git"
 
   stable do
-    url "http://ftpmirror.gnu.org/bash/bash-4.3.tar.gz"
+    url "https://ftpmirror.gnu.org/bash/bash-4.3.tar.gz"
     mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-4.3.tar.gz"
     mirror "https://mirrors.kernel.org/gnu/bash/bash-4.3.tar.gz"
     mirror "https://ftp.gnu.org/gnu/bash/bash-4.3.tar.gz"
@@ -14,7 +14,7 @@ class Bash < Formula
     mirror "https://mirror1.babylon.network/gnu/bash/bash-4.3.tar.gz"
     mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.3.tar.gz"
     sha256 "afc687a28e0e24dc21b988fa159ff9dbcf6b7caa92ade8645cc6d5605cd024d4"
-    version "4.3.42"
+    version "4.3.46"
 
     %w[
       001 ecb3dff2648667513e31554b3ad054ccd89fce38e33367c9459ac3a285153742
@@ -59,9 +59,13 @@ class Bash < Formula
       040 84bb396b9262992ca5424feab6ed3ec39f193ef5c76dfe4a62b551bd8dd9d76b
       041 4ec432966e4198524a7e0cd685fe222e96043769c9613e66742ac475db132c1a
       042 ac219322db2791da87a496ee6e8e5544846494bdaaea2626270c2f73c1044919
+      043 47a8a3c005b46e25821f4d8f5ccb04c1d653b1c829cb40568d553dc44f7a6180
+      044 9338820630bf67373b44d8ea68409f65162ea7a47b9b29ace06a0aed12567f99
+      045 ba6ec3978e9eaa1eb3fabdaf3cc6fdf8c4606ac1c599faaeb4e2d69864150023
+      046 b3b456a6b690cd293353f17e22d92a202b3c8bce587ae5f2667c20c9ab6f688f
     ].each_slice(2) do |p, checksum|
       patch :p0 do
-        url "http://ftpmirror.gnu.org/bash/bash-4.3-patches/bash43-#{p}"
+        url "https://ftpmirror.gnu.org/bash/bash-4.3-patches/bash43-#{p}"
         mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-4.3-patches/bash43-#{p}"
         mirror "https://mirrors.kernel.org/gnu/bash/bash-4.3-patches/bash43-#{p}"
         mirror "https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-#{p}"
@@ -75,14 +79,13 @@ class Bash < Formula
   end
 
   bottle do
-    revision 2
-    sha256 "d049592d79b9793d2c04709d9aa2c3a6156374f8d009ca1cba1117e457238a9a" => :el_capitan
-    sha256 "f3fcc6293765dbd1cc5d2fe5a1160db4fbf36b4cd620bab7171fc2fd942fa529" => :yosemite
-    sha256 "53d723b1e1b273e815e5211e56b5c325147b94f3cbdda09e3a23d1c452f8942a" => :mavericks
+    sha256 "d2b6fc817178545e78be78a4eadf69a9d40b559b5246f4d850de0f69a0f3c79e" => :el_capitan
+    sha256 "2cbb5cf87a3da713347934fd1c64ad33a4c4bf293e72bec482ec32ffed73f52e" => :yosemite
+    sha256 "d8e78e912e10db0bf717c5958da825e5f01b2c80a80a41cb8cd2dbc14c0a2242" => :mavericks
   end
 
   devel do
-    url "http://ftpmirror.gnu.org/bash/bash-4.4-rc1.tar.gz"
+    url "https://ftpmirror.gnu.org/bash/bash-4.4-rc1.tar.gz"
     mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-4.4-rc1.tar.gz"
     mirror "https://mirrors.kernel.org/gnu/bash/bash-4.4-rc1.tar.gz"
     mirror "https://ftp.gnu.org/gnu/bash/bash-4.4-rc1.tar.gz"

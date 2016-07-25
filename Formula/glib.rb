@@ -1,13 +1,13 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.46/glib-2.46.2.tar.xz"
-  sha256 "5031722e37036719c1a09163cc6cf7c326e4c4f1f1e074b433c156862bd733db"
+  url "https://download.gnome.org/sources/glib/2.48/glib-2.48.1.tar.xz"
+  sha256 "74411bff489cb2a3527bac743a51018841a56a4d896cc1e0d0d54f8166a14612"
 
   bottle do
-    sha256 "7712b8d7682c79d31f8325e4a6a99d43ed480907420193035ba4a874603d720e" => :el_capitan
-    sha256 "8422313233976bdfc64bbfa2e899bdfb97c38015505ccaca02039c44d00426b7" => :yosemite
-    sha256 "b4cdea43b21075a6bb51d263d0e1bd486d32302ca464aa3928fb453dfb95d0cb" => :mavericks
+    sha256 "3b20d056a0308ad3dacc78be1da0a4dc20d391ec481eadefcc8f88d1d89600d6" => :el_capitan
+    sha256 "410ae1338bd7edeac8df664615bef69a505727e52f9a19b8a02661d32d90da3d" => :yosemite
+    sha256 "f6704d9a20bc37e9390e34783674fd44d149c1d7d4d2a387e9ef6ea159b0b9ff" => :mavericks
   end
 
   option :universal
@@ -18,6 +18,7 @@ class Glib < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libffi"
+  depends_on "pcre"
 
   fails_with :llvm do
     build 2334
@@ -25,7 +26,7 @@ class Glib < Formula
   end
 
   resource "config.h.ed" do
-    url "https://raw.githubusercontent.com/Homebrew/patches/eb51d82/glib/config.h.ed"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/eb51d82/glib/config.h.ed"
     version "111532"
     sha256 "9f1e23a084bc879880e589893c17f01a2f561e20835d6a6f08fcc1dad62388f1"
   end
@@ -34,7 +35,7 @@ class Glib < Formula
   # but needed to fix an assumption about the location of the d-bus machine
   # id file.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/59e4d32/glib/hardcoded-paths.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/59e4d32/glib/hardcoded-paths.diff"
     sha256 "a4cb96b5861672ec0750cb30ecebe1d417d38052cac12fbb8a77dbf04a886fcb"
   end
 
@@ -42,14 +43,14 @@ class Glib < Formula
   # to unrelated issues in GCC, but improves the situation.
   # Patch submitted upstream: https://bugzilla.gnome.org/show_bug.cgi?id=672777
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/59e4d32/glib/gio.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/59e4d32/glib/gio.patch"
     sha256 "cc3f0f6d561d663dfcdd6154b075150f68a36f5a92f94e5163c1c20529bfdf32"
   end
 
   if build.universal?
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/59e4d32/glib/universal.patch"
-      sha256 "7e1ad7667c7d89fcd08950c9c32cd66eb9c8e2ee843f023d1fadf09a9ba39fee"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/fe50d25d/glib/universal.diff"
+      sha256 "e21f902907cca543023c930101afe1d0c1a7ad351daa0678ba855341f3fd1b57"
     end
   end
 
@@ -62,7 +63,7 @@ class Glib < Formula
   # also applied to configure and gio/Makefile.in
   if MacOS.version < :mavericks
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/59e4d32/glib/gnotification-mountain.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/59e4d32/glib/gnotification-mountain.patch"
       sha256 "723def732304552ca55ae9f5b568ff3e8a59a14d512af72b6c1f0421f8228a68"
     end
   end

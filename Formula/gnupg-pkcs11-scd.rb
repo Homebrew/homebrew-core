@@ -3,15 +3,15 @@ class GnupgPkcs11Scd < Formula
   homepage "http://gnupg-pkcs11.sourceforge.net"
   url "https://github.com/alonbl/gnupg-pkcs11-scd/archive/gnupg-pkcs11-scd-0.7.3.tar.gz"
   sha256 "69412cf0a71778026dd9a8adc5276b43e54dc698d12ca36f7f6969d1a76330b8"
-  revision 1
+  revision 2
 
   head "https://github.com/alonbl/gnupg-pkcs11-scd.git"
 
   bottle do
     cellar :any
-    sha256 "d9cacdee8efb8ac048b960969d915f09277ae335e07772b06cbc93d1d06bd948" => :el_capitan
-    sha256 "d132133e7e9f4a472e7d8d4cb420ae0933d9415dbd097fb5a2eb301e21ab07ab" => :yosemite
-    sha256 "0626529265338ef096b94253d970495c937bc66de281accb2839c15361394de5" => :mavericks
+    sha256 "50f2025059f91cdf5c316d96b4e52d52414c56fe6d986f2a9cafb8fbb41ea306" => :el_capitan
+    sha256 "cb40786fe9903329fc542a638f96bc7a7a40a5f7edae7b632bb667acb9cc6e89" => :yosemite
+    sha256 "534831eb894e729bf231892c974305d0e70763179a105ba5b9babb43756ee5ba" => :mavericks
   end
 
   depends_on "autoconf" => :build
@@ -22,6 +22,7 @@ class GnupgPkcs11Scd < Formula
   depends_on "libassuan"
   depends_on "libgcrypt"
   depends_on "pkcs11-helper"
+  depends_on "openssl" => :linked
 
   def install
     system "autoreconf", "-fvi"

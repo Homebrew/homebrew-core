@@ -4,16 +4,16 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-    :tag => "v0.6.3", :revision => "c933efde50d25395c7b5a42167578fda603d43d8"
+    :tag => "v0.6.4", :revision => "26a0ef8c41aa2252ab4cf0844fc6470c8e1d8256"
 
   head "https://github.com/hashicorp/consul.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
     revision 1
-    sha256 "503c9f676c449e4723db01edefd0d1eea09f193461f5d15c86d61422da9e9b1c" => :el_capitan
-    sha256 "75ece59d870ca2c3e8eef6949ef05015f902287c27d3377a0aa0ebe235e545f5" => :yosemite
-    sha256 "aec77618aeacbe6b822d441140faf5cc72f521a4c2d6fe50c745508fb351508c" => :mavericks
+    sha256 "f9dc303e3da2f509bb9aeacdd34a3f93deb474c3201089623911c260cab44181" => :el_capitan
+    sha256 "f3489f7156757dd0a896dbb9d58436c7e84d6d4703804fec89e737809f2220d8" => :yosemite
+    sha256 "02c98b52b0eb41979f77f366b8a7bebc1f0b391c37b1f281ddba9fb3484f1b58" => :mavericks
   end
 
   option "with-web-ui", "Installs the consul web ui"
@@ -198,6 +198,41 @@ class Consul < Formula
   def caveats; <<-EOS.undent
     If consul was built with --with-web-ui, you can activate the UI by running
     consul with `-ui-dir #{pkgshare}/web-ui`.
+    EOS
+  end
+
+  plist_options :manual => "consul agent -dev -advertise 127.0.0.1"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <dict>
+          <key>SuccessfulExit</key>
+          <false/>
+        </dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/consul</string>
+          <string>agent</string>
+          <string>-dev</string>
+          <string>-advertise</string>
+          <string>127.0.0.1</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/consul.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/consul.log</string>
+      </dict>
+    </plist>
     EOS
   end
 

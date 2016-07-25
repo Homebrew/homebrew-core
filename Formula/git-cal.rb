@@ -21,9 +21,10 @@ class GitCal < Formula
   end
 
   test do
-    # git-cal fails when run outside of a git repo.
-    HOMEBREW_REPOSITORY.cd do
-      system "#{bin}/git-cal"
-    end
+    system "git", "init"
+    (testpath/"Hello").write "Hello World!"
+    system "git", "add", "Hello"
+    system "git", "commit", "-a", "-m", "Initial Commit"
+    system bin/"git-cal"
   end
 end

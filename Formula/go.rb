@@ -1,31 +1,52 @@
 class Go < Formula
   desc "Go programming environment"
   homepage "https://golang.org"
-  url "https://storage.googleapis.com/golang/go1.6.2.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.6.2.src.tar.gz"
-  version "1.6.2"
-  sha256 "787b0b750d037016a30c6ed05a8a70a91b2e9db4bd9b1a2453aa502a63f1bccc"
 
-  head "https://github.com/golang/go.git"
+  stable do
+    url "https://storage.googleapis.com/golang/go1.6.3.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.6.3.src.tar.gz"
+    version "1.6.3"
+    sha256 "6326aeed5f86cf18f16d6dc831405614f855e2d416a91fd3fdc334f772345b00"
+
+    go_version = "1.6"
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git",
+          :branch => "release-branch.go#{go_version}",
+          :revision => "c887be1b2ebd11663d4bf2fbca508c449172339e"
+    end
+  end
 
   bottle do
-    sha256 "d5bc857fefd343383d00cf6083bc56297e35a1e202bf4414c10562c9456db362" => :el_capitan
-    sha256 "d3ff36402dc9e1319ac5ae0b38d65ded681eeacc490160d626f9fa18e4f6994f" => :yosemite
-    sha256 "0cf1ef52a5ac93b20b5f8cce1d7f2fd470fd0af9ac70d5ecea77ec7a87dee92c" => :mavericks
+    sha256 "54159189e4779b8c34235bd3f18c62122b4826f478a0a6c9812fbcce608849bf" => :el_capitan
+    sha256 "597524370e994f7d153e6ae20ed28a4ad9fee1ea9e2d8a7b29674699a52ae601" => :yosemite
+    sha256 "41a1322a0c302b9d7c74788f7d57cffc1296b627e77165507106412b3932d44a" => :mavericks
+  end
+
+  devel do
+    url "https://storage.googleapis.com/golang/go1.7rc3.src.tar.gz"
+    version "1.7rc3"
+    sha256 "6df6425ec3ac23fe9bcc52e1950f3a5829e5ed5a964d396d7f662a3d2fa95232"
+
+    go_version = "1.7"
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git",
+          :branch => "release-branch.go#{go_version}",
+          :revision => "a84e830bb0d2811304f6e66498eb3123ca97b68e"
+    end
+  end
+
+  head do
+    url "https://github.com/golang/go.git"
+
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git"
+    end
   end
 
   option "without-cgo", "Build without cgo"
   option "without-godoc", "godoc will not be installed for you"
   option "without-vet", "vet will not be installed for you"
   option "without-race", "Build without race detector"
-
-  go_version = "1.6"
-
-  resource "gotools" do
-    url "https://go.googlesource.com/tools.git",
-    :branch => "release-branch.go#{go_version}",
-    :revision => "c887be1b2ebd11663d4bf2fbca508c449172339e"
-  end
 
   resource "gobootstrap" do
     if MacOS.version > :lion
@@ -81,7 +102,9 @@ class Go < Formula
         bin.install_symlink libexec/"bin/godoc"
       end
 
-      if build.with? "vet"
+      # go vet is now part of the standard Go toolchain. Remove this block
+      # and the option once Go 1.7 is released
+      if build.with?("vet") && File.exist?("src/golang.org/x/tools/cmd/vet/")
         cd "src/golang.org/x/tools/cmd/vet/" do
           system "go", "build"
           # This is where Go puts vet natively; not in the bin.

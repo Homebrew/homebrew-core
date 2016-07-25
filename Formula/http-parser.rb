@@ -1,26 +1,27 @@
 class HttpParser < Formula
   desc "HTTP request/response parser for c"
   homepage "https://github.com/nodejs/http-parser"
-  url "https://github.com/nodejs/http-parser/archive/v2.6.0.tar.gz"
-  sha256 "a11c5ccb9808496f3de66d54ea1f89271919923307e31c75de2a3a77a6754c97"
+  url "https://github.com/nodejs/http-parser/archive/v2.7.1.tar.gz"
+  sha256 "70409ad324e5de2da6a0f39e859e566d497c1ff0a249c0c38a5012df91b386b3"
 
   bottle do
     cellar :any
-    sha256 "97ec0721a31d2ee16574b1dd7a63af6e358d242c8c076f3f8742394eef55d6e3" => :el_capitan
-    sha256 "5093012bc63795d621fa370f2926e2b03e6a8a7202f880d69907646259c285ae" => :yosemite
-    sha256 "23e5130b3b4f75eb75d996e28eaa1cefaf1795b863a3776ad35c22657c3aaac3" => :mavericks
+    sha256 "afc0af78e3a4789b18b96ec83a09a38c5e6fc0f6ba72523a1f5c0f4b4d1441e6" => :el_capitan
+    sha256 "0d62dc8723a72e60d13fbd61f870a8e3cc3a7f29fc5814c645322c284be7514c" => :yosemite
+    sha256 "5d3aaf70d3ca4ee5ff688b9f834acd68891d4fb637721b54597deeba6fca41d0" => :mavericks
   end
 
   depends_on "coreutils" => :build
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "INSTALL=ginstall"
-    share.install "test.c"
+    pkgshare.install "test.c"
   end
 
   test do
     # Set HTTP_PARSER_STRICT=0 to bypass "tab in URL" test on OS X
-    system ENV.cc, share/"test.c", "-o", "test", "-lhttp_parser", "-DHTTP_PARSER_STRICT=0"
+    system ENV.cc, pkgshare/"test.c", "-o", "test", "-L#{lib}", "-lhttp_parser",
+           "-DHTTP_PARSER_STRICT=0"
     system "./test"
   end
 end

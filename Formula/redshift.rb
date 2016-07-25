@@ -42,6 +42,14 @@ class Redshift < Formula
     pkgshare.install "redshift.conf.sample"
   end
 
+  def caveats; <<-EOS.undent
+    A sample .conf file has been installed to #{opt_pkgshare}.
+
+    Please note redshift expects to read its configuration file from
+    #{ENV["HOME"]}/.config
+    EOS
+  end
+
   plist_options :manual => "redshift"
 
   def plist; <<-EOS.undent
@@ -65,14 +73,6 @@ class Redshift < Formula
         <string>/dev/null</string>
       </dict>
     </plist>
-    EOS
-  end
-
-  def caveats; <<-EOS.undent
-    A sample .conf file has been installed to #{opt_pkgshare}.
-
-    Please note redshift expects to read its configuration file from
-    #{ENV["HOME"]}/.config
     EOS
   end
 

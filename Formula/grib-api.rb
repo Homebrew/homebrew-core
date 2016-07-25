@@ -1,13 +1,13 @@
 class GribApi < Formula
   desc "Encode and decode grib messages (editions 1 and 2)"
   homepage "https://software.ecmwf.int/wiki/display/GRIB/Home"
-  url "https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.15.0-Source.tar.gz"
-  sha256 "733f48e2882141003b83fa165d1ea12cad3c0c56953bc30be1d5d4aa6a0e5913"
+  url "https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.16.0-Source.tar.gz"
+  sha256 "0068ca4149a9f991d4c86a813ac73b4e2299c6a3fd53aba9e6ab276ef6f0ff9a"
 
   bottle do
-    sha256 "73ba03c7dd6fb0374d9290844bba8ccc872fab0e9d6a863341b45c52da7993e9" => :el_capitan
-    sha256 "34c8ff3bcca753743676e9a0c96f50edcc7ea72d24765b48b386bc743ff1bddb" => :yosemite
-    sha256 "8f7350d08fc12db9f6f44174ac12a43666b02f168b1e58188a4fe40b31d68350" => :mavericks
+    sha256 "9f094d8bfd27b69f6a74041317bdb768797f4a1d537ea7d48f8f70d20f485bc0" => :el_capitan
+    sha256 "e3e044737aeb3a7b91c61478b18d0eacfda406b8b845ef35c3225b2811c2fefb" => :yosemite
+    sha256 "3b4164b27b1a5133d324d026f3569c8d613a60a39171d6a22643a57b3182f64f" => :mavericks
   end
 
   option "with-static", "Build static instead of shared library."

@@ -1,14 +1,14 @@
 class Libxmp < Formula
   desc "C library for playback of module music (MOD, S3M, IT, etc)"
   homepage "http://xmp.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.3.10/libxmp-4.3.10.tar.gz"
-  sha256 "c11c0bf27f3ba97051cd5e3e04d9b487febdc31cb2ce35e462d71fc580eaa5be"
+  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.4.0/libxmp-4.4.0.tar.gz"
+  sha256 "1488dd953fd30384fb946745111824ad14a5c2ed82d76af671ac9cd733ac5c82"
 
   bottle do
     cellar :any
-    sha256 "95a29a2efd115f4bebb9589c0e777f4cee8b0847ebceb4103f11f4f6bfa609d2" => :el_capitan
-    sha256 "22ee915a58a14bedf819c307533f1d67d471db3a07a7494ad6b8cfd65b7bd37e" => :yosemite
-    sha256 "11fb81b1cf895ef247d38313c0f1385e9d93a3b0d478a2186b83ad19816c8e7f" => :mavericks
+    sha256 "191951654a31f81bfb55c8d71d8cd195fc379e433e824f6b9ce629a0dcb152a5" => :el_capitan
+    sha256 "352f3989d9c9250f710c112d884cd1e37b2096296f279b1f0f0f025978026638" => :yosemite
+    sha256 "128521103f100741a14d8301a359f27bebb2568610f402badfa1f41632824b35" => :mavericks
   end
 
   head do

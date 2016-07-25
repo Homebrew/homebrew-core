@@ -146,7 +146,7 @@ class MysqlCluster < Formula
       ndb_mgmd -f #{var}/mysql-cluster/conf/config.ini --initial --configdir=#{var}/mysql-cluster/conf/
       ndbd -c localhost:1186
       ndbd -c localhost:1186
-      mysqld --defaults-file=/usr/local/var/mysql-cluster/conf/my.cnf &
+      mysqld --defaults-file=#{var}/mysql-cluster/conf/my.cnf &
       mysql -h 127.0.0.1 -P 5000 -u root -p
       (Leave the password empty and press Enter)
         create database clusterdb;

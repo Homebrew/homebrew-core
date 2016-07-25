@@ -1,7 +1,7 @@
 class Lout < Formula
   desc "Text formatting like TeX, but simpler"
   homepage "https://savannah.nongnu.org/projects/lout"
-  url "http://download.savannah.gnu.org/releases/lout/lout-3.40.tar.gz"
+  url "https://download.savannah.gnu.org/releases/lout/lout-3.40.tar.gz"
   sha256 "3d16f1ce3373ed96419ba57399c2e4d94f88613c2cb4968cb0331ecac3da68bd"
 
   bottle do

@@ -1,17 +1,17 @@
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org"
-  url "http://mirrors.ibiblio.org/apache/kafka/0.9.0.1/kafka-0.9.0.1-src.tgz"
-  mirror "https://archive.apache.org/dist/kafka/0.9.0.1/kafka-0.9.0.1-src.tgz"
-  sha256 "95d6bcb8fb1ee697b15c262dd9b61d0b47c7c9d1c8ece07205d4c2545ed12596"
+  url "http://mirrors.ibiblio.org/apache/kafka/0.10.0.0/kafka-0.10.0.0-src.tgz"
+  mirror "https://archive.apache.org/dist/kafka/0.10.0.0/kafka-0.10.0.0-src.tgz"
+  sha256 "ed2f8f83419846ff70ff2fc1cf366ac61e803d3960043075c9faecbb9dce140b"
 
   head "https://git-wip-us.apache.org/repos/asf/kafka.git", :branch => "trunk"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8808773c5ae7251a75592963271766e969f2faba4feaa0f1259da15c56a30c00" => :el_capitan
-    sha256 "d1cbd5529d005643619bb5832edb6f5c9b4a45f9bac8115c79b0bb63886bbabf" => :yosemite
-    sha256 "0543a3798af77854d36cc640ecebc6067607be1dbcea6dc60de4adb88cd45261" => :mavericks
+    sha256 "30498aa96a9c389b480dfcf1ca8c434171aa78450091b4a4962dc0c21fb53c07" => :el_capitan
+    sha256 "1d8faddef401835986589fc13c443e2d779fefe87ff61803ff00cabf5aacf68e" => :yosemite
+    sha256 "005c78fa50a6afaa96aaf30a8e62c21fc9f922c27471a7188f085bc05818694d" => :mavericks
   end
 
   depends_on "gradle"
@@ -31,9 +31,6 @@ class Kafka < Formula
 
     system "gradle"
     system "gradle", "jar"
-
-    logs = var/"log/kafka"
-    inreplace "config/test-log4j.properties", ".File=logs/", ".File=#{logs}/"
 
     data = var/"lib"
     inreplace "config/server.properties",

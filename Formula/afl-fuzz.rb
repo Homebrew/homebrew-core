@@ -1,14 +1,14 @@
 class AflFuzz < Formula
   desc "American fuzzy lop: Security-oriented fuzzer"
   homepage "http://lcamtuf.coredump.cx/afl/"
-  url "http://lcamtuf.coredump.cx/afl/releases/afl-2.10b.tgz"
-  sha256 "8141291646024dcdd2e67c51fb68b4205d34c52e4b5693c88f6ce4a6bf1ebfe3"
+  url "http://lcamtuf.coredump.cx/afl/releases/afl-2.20b.tgz"
+  sha256 "b7e2d422aa9bc104ddd2bf49f932d55c73627722cc38736124a8febdd64e9431"
+  revision 1
 
   bottle do
-    revision 1
-    sha256 "cac3bcc7e0955afa373a4b3f13b8dced52d463557feac53bf284b57f2bcaa16f" => :el_capitan
-    sha256 "0e5c3298d296ab7ecb684a16ca6718c5d8de5b85cc17914f1db2bac62dff9677" => :yosemite
-    sha256 "b326e3657a81b0d9bb120cf715fd5bd19f96b1ceb5c28b4bf2e18ff9aaf990e7" => :mavericks
+    sha256 "45615dbfc6e941e169cf1a79c5b6f9e4a5cfa0d224c298671fff2bc35a5ec14d" => :el_capitan
+    sha256 "e0358d1fad1b9b2b3cc469c76af74597f544c25b5f21786f9a9e3d5fd280b918" => :yosemite
+    sha256 "c5a172abd3eafca72752850f8aa95deaa044fa42e2107bb08db86b94a59fdaa4" => :mavericks
   end
 
   def install
@@ -25,8 +25,6 @@ class AflFuzz < Formula
 
   test do
     cpp_file = testpath/"main.cpp"
-    exe_file = testpath/"test"
-
     cpp_file.write <<-EOS.undent
       #include <iostream>
 
@@ -35,9 +33,7 @@ class AflFuzz < Formula
       }
     EOS
 
-    system "#{bin}/afl-clang++", "-g", cpp_file, "-o", exe_file
-    output = `#{exe_file}`
-    assert_equal 0, $?.exitstatus
-    assert_equal output, "Hello, world!"
+    system bin/"afl-clang++", "-g", cpp_file, "-o", "test"
+    assert_equal "Hello, world!", shell_output("./test")
   end
 end

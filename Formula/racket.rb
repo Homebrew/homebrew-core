@@ -1,14 +1,14 @@
 class Racket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/6.5/racket-minimal-6.5-src-builtpkgs.tgz"
-  version "6.5"
-  sha256 "44fe95a4ec4d442b4f6f68e360104ca9715bd1fe3795d302d6cddaceb15696dc"
+  url "https://mirror.racket-lang.org/installers/6.6/racket-minimal-6.6-src-builtpkgs.tgz"
+  version "6.6"
+  sha256 "f0666dbf0c7fc446f103b0c16eed508225addb09596f9c44a87b9d546422b1e9"
 
   bottle do
-    sha256 "d6ab6c4c623dd00a78a3ce158c836241b3478df747215f5d5364c6333f3fd213" => :el_capitan
-    sha256 "c9fd1a5445576238a6dc0d5a486b211562a6206a2872397a9218aca115c8f111" => :yosemite
-    sha256 "d7a76bd531b6f02e0beecc96bb3bf6ff48b30d8e19928ab3f78fd3abacd9206a" => :mavericks
+    sha256 "6b50bf5d15701b944b15e10114768001464cbd57835be58ae0545d1e9881b322" => :el_capitan
+    sha256 "47eb9eab233c9bdc0faa0c81f966656314524c1a4464815dad245aba0ab1d24a" => :yosemite
+    sha256 "bc214629b72c9604100d84dc1aae4ec80d2b39f9c3bb87b9f50d2d550ce2e9a9" => :mavericks
   end
 
   # these two files are amended when (un)installing packages

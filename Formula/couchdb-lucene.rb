@@ -1,15 +1,14 @@
 class CouchdbLucene < Formula
   desc "Full-text search of CouchDB documents using Lucene"
   homepage "https://github.com/rnewson/couchdb-lucene"
-  url "https://github.com/rnewson/couchdb-lucene/archive/v1.0.2.tar.gz"
-  sha256 "c3f33890670160b14515fd1e26aa30df89f6101f36148639f213c40a6fff8e7d"
+  url "https://github.com/rnewson/couchdb-lucene/archive/v1.1.0.tar.gz"
+  sha256 "854ea7410e542a81a458d0b7a55c6ff7dc40d02e79221928059556292f001087"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "38f8b7946415fadd1ed0d0bae55a2b4a07b887b68a6513436bb33347fe25b59f" => :el_capitan
-    sha256 "9da083783bddfdff05e89511006eddc7a4e382b04b897741a7418f48f6b6dff0" => :yosemite
-    sha256 "41fdbc137d3a24139de0fd0ae4111ae7d6f14d20fb9aaba25b5ef0b5bb21085d" => :mavericks
+    sha256 "56bfe9e52b98c06711412eabf4154b6d6f0347938207924715c33cdcf87a6823" => :el_capitan
+    sha256 "e0051826e2cca177c53f5433bd47f28f870d3c1d998dc33f92cbb8032119bd2d" => :yosemite
+    sha256 "a92d0b0c097bac1da9f9625e13eea8121bb5b8d9b81ee3d059e71b9e55d11bd7" => :mavericks
   end
 
   depends_on "couchdb"

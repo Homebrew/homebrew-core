@@ -1,24 +1,24 @@
 class Headphones < Formula
   desc "Automatic music downloader for SABnzbd"
   homepage "https://github.com/rembo10/headphones"
+  url "https://github.com/rembo10/headphones/archive/v0.5.16.tar.gz"
+  sha256 "4dc789a48140ec2cfd62905c001397ef73b971dd79cd3cf24cf8b4dd1fe70143"
   head "https://github.com/rembo10/headphones.git"
-  url "https://github.com/rembo10/headphones/archive/v0.5.9.tar.gz"
-  sha256 "c1811985ac93a7a24fc0668bb4a726a663e815b7f1a90eb52bf5af60f035c953"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a7ec802ae3b408718f32e486d0acd99cccbdfa6323637f909d522d02c50714c6" => :el_capitan
-    sha256 "f3e510b4e855350ab24ee1fc463438df3c9273e52ec6f047cf0ecd228f23dfd6" => :yosemite
-    sha256 "6e66ba50f949f45d295d5cd75e4240a893c4d564f2522ca9c3985298c14181b8" => :mavericks
+    sha256 "66580fb1be0cc42040dbc101b0a79e67aaf21bd9abd51609d56c44e32df6f44c" => :el_capitan
+    sha256 "44e240a8fcc6ee7d65e7ab242cf4225a11e81668711473e65fb25adf5525e461" => :yosemite
+    sha256 "a51c67470df2d7b42d1f26b9d861553bbe62c5bd20598bc3d29260b946da8f70" => :mavericks
   end
 
   resource "Markdown" do
-    url "https://pypi.python.org/packages/source/M/Markdown/Markdown-2.4.tar.gz"
-    sha256 "b8370fce4fbcd6b68b6b36c0fb0f4ec24d6ba37ea22988740f4701536611f1ae"
+    url "https://files.pythonhosted.org/packages/9b/53/4492f2888408a2462fd7f364028b6c708f3ecaa52a028587d7dd729f40b4/Markdown-2.6.6.tar.gz"
+    sha256 "9a292bb40d6d29abac8024887bcfc1159d7a32dc1d6f1f6e8d6d8e293666c504"
   end
 
   resource "Cheetah" do
-    url "https://pypi.python.org/packages/source/C/Cheetah/Cheetah-2.4.4.tar.gz"
+    url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
     sha256 "be308229f0c1e5e5af4f27d7ee06d90bb19e6af3059794e5fd536a6f29a9b550"
   end
 
@@ -30,18 +30,23 @@ class Headphones < Formula
   end
 
   def install
-    # TODO: - strip down to the minimal install
-    prefix.install_metafiles
+    # TODO: strip down to the minimal install.
     libexec.install Dir["*"]
 
     ENV["CHEETAH_INSTALL_WITHOUT_SETUPTOOLS"] = "1"
-    ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python2.7/site-packages"
-    install_args = ["setup.py", "install", "--prefix=#{libexec}"]
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python", *Language::Python.setup_install_args(libexec)
+      end
+    end
 
-    resource("Markdown").stage { system "python", *install_args }
-    resource("Cheetah").stage { system "python", *install_args }
+    (bin/"headphones").write(startup_script)
+  end
 
-    (bin+"headphones").write(startup_script)
+  def caveats; <<-EOS.undent
+    Headphones defaults to port 8181.
+  EOS
   end
 
   plist_options :manual => "headphones"
@@ -67,7 +72,7 @@ class Headphones < Formula
     EOS
   end
 
-  def caveats
-    "Headphones defaults to port 8181."
+  test do
+    assert_match "Music add-on", shell_output("#{bin}/headphones -h")
   end
 end

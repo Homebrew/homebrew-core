@@ -1,29 +1,38 @@
 class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "http://www.ponylang.org"
-  url "https://github.com/ponylang/ponyc/archive/0.2.1.tar.gz"
-  sha256 "cb8d6830565ab6b47ecef07dc1243029cef962df7ff926140022abb69d1e554e"
-  revision 1
-  head "https://github.com/ponylang/ponyc.git"
+  url "https://github.com/ponylang/ponyc.git",
+    :revision => "5f061fa201b47dc6a767d3bbe8a8999ada66993e"
+  # 0.2.2 tag requested in https://github.com/ponylang/ponyc/issues/1029
+  version "0.2.2-alpha2"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "767013d4ffb5ae596f17282b80205034601f029b649b8b5e428fde32ca5e27f0" => :el_capitan
-    sha256 "08857152c0ba5a5dc00b96a7e3d1c47a8ef4710dca6262e3eae0dd90122b29f3" => :yosemite
-    sha256 "007c43a75741ecd4c7c96c9fc67d816ebc845c0aac94687c4e2cbb1ee959ebfb" => :mavericks
+    cellar :any
+    sha256 "0334cba03d7c3bd17b8c91429abbde308b821868287d747c34cf985477f4f1e4" => :el_capitan
+    sha256 "2dae1d035c593d1483420b8186bf767b0f3e11e9956c3cd55145f2dfceea262e" => :yosemite
+    sha256 "321006063e24e196c834cabc358b8872773cab743962ad0b75ecd559a6892148" => :mavericks
   end
 
-  depends_on "llvm" => "with-rtti"
+  depends_on "llvm"
   depends_on "libressl"
   depends_on "pcre2"
   needs :cxx11
 
   def install
     ENV.cxx11
-    system "make", "install", "config=release", "destdir=#{prefix}", "verbose=1"
+    ENV["LLVM_CONFIG"]="#{Formula["llvm"].opt_bin}/llvm-config"
+    system "make", "config=release", "destdir=#{prefix}", "install", "verbose=1"
   end
 
   test do
     system "#{bin}/ponyc", "-rexpr", "#{prefix}/packages/stdlib"
+
+    (testpath/"test/main.pony").write <<-EOS.undent
+    actor Main
+      new create(env: Env) =>
+        env.out.print("Hello World!")
+    EOS
+    system "#{bin}/ponyc", "test"
+    assert_equal "Hello World!", shell_output("./test1").strip
   end
 end

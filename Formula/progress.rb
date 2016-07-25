@@ -1,15 +1,15 @@
 class Progress < Formula
   desc "Progress: Coreutils Progress Viewer"
   homepage "https://github.com/Xfennec/progress"
-  url "https://github.com/Xfennec/progress/archive/v0.9.tar.gz"
-  sha256 "63e1834ec114ccc1de3d11722131b5975e475bfd72711d457e21ddd7fd16b6bd"
+  url "https://github.com/Xfennec/progress/archive/v0.13.tar.gz"
+  sha256 "160cb6156a0b8df32a3944f3dcecba956ae3e5579e91d53c9d7417bc4956718c"
   head "https://github.com/Xfennec/progress.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "966124c6d66ed029895b1f2f3a9548e9d100287676cc31630e7179eec0009728" => :el_capitan
-    sha256 "003f1a3ba9356bfd68149d9ae6f57e4e81bb0d7def7dc9d4419338275f2e6af1" => :yosemite
-    sha256 "9bb9bb6343e1d886f98e9ab94f2dc9391c800151bae49b27f87397319c69d730" => :mavericks
+    sha256 "92fdddbc22594566e79458fa3b4a63bee3f4bcdd569b88827837e8a18d6eaf3a" => :el_capitan
+    sha256 "35741d1986bd5df66ecec5603af82aefa0f1c5728fd6481780a1b77875edc4ad" => :yosemite
+    sha256 "965f987b35a069855eb9d43068c05f284272211ebfaaf1e3197386974d6da3a6" => :mavericks
   end
 
   def install
@@ -18,14 +18,15 @@ class Progress < Formula
 
   test do
     pid = fork do
-      system "/bin/dd", "if=/dev/zero", "of=/dev/null", "bs=100000", "count=1000000"
+      system "/bin/dd", "if=/dev/urandom", "of=foo", "bs=512", "count=1048576"
     end
     sleep 1
     begin
-      assert_match(/dd/, shell_output("#{bin}/progress"))
+      assert_match "dd", shell_output("#{bin}/progress")
     ensure
       Process.kill 9, pid
       Process.wait pid
+      rm "foo"
     end
   end
 end

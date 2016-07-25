@@ -1,14 +1,14 @@
 class DockerCloud < Formula
   desc "SaaS to build, deploy and manage Docker-based applications"
   homepage "https://cloud.docker.com/"
-  url "https://pypi.python.org/packages/source/d/docker-cloud/docker-cloud-1.0.3.tar.gz"
-  sha256 "182219e9cf6500357c55dbbe7b8133e7b3ab1c030e1242923e82df047f10d652"
+  url "https://pypi.python.org/packages/57/43/f6706678e16cb5c6fd36c12462fc53d6d36bf8de3d6c916d19e0ce63632c/docker-cloud-1.0.6.tar.gz"
+  sha256 "e7141dfb5b6ad91ea9d3155c13d3124215bea2771cc7785fdfce61908bf2a846"
 
   bottle do
     cellar :any
-    sha256 "46bc8816571d9a8a2171d735ae53dfdce018eee68fc6d87bbe32f4900510a2a4" => :el_capitan
-    sha256 "430734a4ac5ba00f7b2852a39052340de96aa04e561e348db37d0c2f7a122988" => :yosemite
-    sha256 "def4017ff2738186648c15aaac89cd8c78182a63a0edf1682c26d8b3bb05f43b" => :mavericks
+    sha256 "8c0f4595ccf2743ef3adbc8fbe6305644947682cef3caf601cf234afc69e9d0a" => :el_capitan
+    sha256 "53f82eab28e4a5df8d05263debed35071078c8c101f47e5abe98228b66f9b840" => :yosemite
+    sha256 "cad62cfbd3bc9ec0ce5ad439af43a9eb0bced53189849f7301aeab19df3ef152" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -25,8 +25,8 @@ class DockerCloud < Formula
   end
 
   resource "python-dockercloud" do
-    url "https://pypi.python.org/packages/source/p/python-dockercloud/python-dockercloud-1.0.2.tar.gz"
-    sha256 "aed4bfcb96e51a392e4f8cc82a79b63eb4489da695ab193a8a7679c76335459e"
+    url "https://pypi.python.org/packages/b6/6c/69e2e70f9300a20346642ef654a0d0f64a1f279cb81b08ff3b9bd5ee3e86/python-dockercloud-1.0.7.tar.gz"
+    sha256 "8f1b70a4b411418741be0616196b7a894aac6702204cd32077b7c21a35117204"
   end
 
   resource "backports.ssl-match-hostname" do
@@ -55,8 +55,8 @@ class DockerCloud < Formula
   end
 
   resource "websocket-client" do
-    url "https://pypi.python.org/packages/source/w/websocket-client/websocket_client-0.32.0.tar.gz"
-    sha256 "cb3ab95617ed2098d24723e3ad04ed06c4fde661400b96daa1859af965bfe040"
+    url "https://pypi.python.org/packages/a3/1e/b717151e29a70e8f212edae9aebb7812a8cae8477b52d9fe990dcaec9bbd/websocket_client-0.37.0.tar.gz"
+    sha256 "678b246d816b94018af5297e72915160e2feb042e0cde1a9397f502ac3a52f41"
   end
 
   resource "future" do

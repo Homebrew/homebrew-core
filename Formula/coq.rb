@@ -13,16 +13,15 @@ end
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://coq.inria.fr/distrib/8.5pl1/files/coq-8.5pl1.tar.gz"
-  version "8.5pl1"
-  sha256 "4bfa75b10ae1be61301d0f7bc087b7c24e0b8bd025dd358c75709ac04ddd5df0"
-
+  url "https://coq.inria.fr/distrib/8.5pl2/files/coq-8.5pl2.tar.gz"
+  version "8.5pl2"
+  sha256 "83239d1251bf6c54a9ca5045d738e469019b93ca601756bf982aab0654e4de73"
   head "git://scm.gforge.inria.fr/coq/coq.git", :branch => "trunk"
 
   bottle do
-    sha256 "e706d2948ccd15a6e18457eb67bb63d8d53455f7c1f990a204009e1047a1bbbf" => :el_capitan
-    sha256 "4e8fde277f24161668a9de85d257b86b70d3cf865f4ba12763830ef0d5e95e29" => :yosemite
-    sha256 "3991916a01a65169945183ad301995080da96e52869e539f051d66b93c3969bf" => :mavericks
+    sha256 "6bca59c08a4ec3b0633621332d9e66eb252c652d3efbce51f039ff8e6b7fe28f" => :el_capitan
+    sha256 "a61a407c55cde0cd9a68e2995af1af227b5dfc66060438254b3f4d76baa4dc1d" => :yosemite
+    sha256 "12444450f927ce6ebe0ff4dbbde42530edc57ee2e3a1baa5748cd987bf9750d8" => :mavericks
   end
 
   depends_on Camlp5TransitionalModeRequirement
@@ -30,24 +29,16 @@ class Coq < Formula
   depends_on "ocaml"
 
   def install
-    camlp5_lib = Formula["camlp5"].opt_lib+"ocaml/camlp5"
+    camlp5_lib = Formula["camlp5"].opt_lib/"ocaml/camlp5"
     system "./configure", "-prefix", prefix,
                           "-mandir", man,
                           "-camlp5dir", camlp5_lib,
-                          "-emacslib", "#{share}/emacs/site-lisp/coq",
+                          "-emacslib", elisp,
                           "-coqdocdir", "#{pkgshare}/latex",
                           "-coqide", "no",
                           "-with-doc", "no"
-    ENV.j1 # Otherwise "mkdir bin" can be attempted by more than one job
     system "make", "world"
-    system "make", "install"
-  end
-
-  def caveats; <<-EOS.undent
-    To use the Coq Emacs mode, add the following to your init file:
-      (setq auto-mode-alist (cons '("\\\\.v$" . coq-mode) auto-mode-alist))
-      (autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
-    EOS
+    ENV.deparallelize { system "make", "install" }
   end
 
   test do

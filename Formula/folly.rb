@@ -1,16 +1,13 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v0.48.0.tar.gz"
-  sha256 "e0b6b3cd143b5d581e8cef470aea1b6f8aeaa4e7431522058872e245cac5c144"
-  revision 1
+  url "https://github.com/facebook/folly/archive/v0.57.0.tar.gz"
+  sha256 "92fc421e5ea4283e3c515d6062cb1b7ef21965621544f4f85a2251455e034e4b"
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "085000e4af6e1d62c902b6da76fcff7598324856c8c129f8dd8844c9d19e099e" => :el_capitan
-    sha256 "458df2aa0cad8420b702875999bc4b75ecbb842faa85d1ebcc0d6a731da9ed60" => :yosemite
-    sha256 "8dd2b333ea7c77e92eccdc7df93cd46917d7048c8834c9ec30330a91c90c91a8" => :mavericks
+    sha256 "8a94470124a2cd93b775e233f3d75ac9b03e0dd4a9ba5da2ddf25901f94b1456" => :el_capitan
+    sha256 "00b1bb3943041c7f43fc4f45bc427825966988116be0d8bb9e4f60e361480348" => :yosemite
   end
 
   depends_on "autoconf" => :build
@@ -30,6 +27,23 @@ class Folly < Formula
 
   needs :cxx11
   depends_on :macos => :mavericks
+
+  fails_with :clang do
+    build 600
+    cause "Fails with compile errors"
+  end
+
+  fails_with :gcc => "5"
+
+  patch do
+    url "https://github.com/facebook/folly/commit/f0fdd87aa9b1074b41bbaa3257fb398deacc6e16.patch"
+    sha256 "2321118a14e642424822245f67dc644a208adb711e2c085adef0fc5ff8da20d3"
+  end
+
+  patch do
+    url "https://github.com/facebook/folly/commit/29193aca605bb93d82a3c92acd95bb342115f3a4.patch"
+    sha256 "e74f04f09a2bb891567796093ca2ce87b69ea838bb19aadc0b5c241ab6e768eb"
+  end
 
   def install
     ENV.cxx11

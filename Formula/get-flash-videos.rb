@@ -1,14 +1,14 @@
 class GetFlashVideos < Formula
   desc "Download or play videos from various Flash-based websites"
   homepage "https://github.com/monsieurvideo/get-flash-videos"
-  url "https://github.com/monsieurvideo/get-flash-videos/archive/1.25.91.tar.gz"
-  sha256 "af673516741f08b61da4dfbb49343bb56c353f7c4bfbf209972e2223d987e8e9"
+  url "https://github.com/monsieurvideo/get-flash-videos/archive/1.25.92.tar.gz"
+  sha256 "e4b64eb51058e55f07cb66b7c50b11ea1ca0a57162946b7af96db748ed22cdcb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1f09bd2333d59e2f9b74cad060ab24c874a1d98728d40e41b55cc2d4a6b45ebb" => :el_capitan
-    sha256 "bb59c101f017b084ab672c853379d43a82088bbb30a39ee079993cb854d4b2fe" => :yosemite
-    sha256 "007f0b643544676053327d08a9d9a1bbe26d658876ae0623f76f2656867695f7" => :mavericks
+    sha256 "aa4d0cd861625d151c762d02e82b2561f6cd5ef9e71a82b6a7f8e04e80e65921" => :el_capitan
+    sha256 "ca00455cb5d0984c1642177ea6d5735969924df12e38a3fcf5594d96df1eb028" => :yosemite
+    sha256 "648139985a7dcf350c029faf908364acc9ebe74f154173436668753295bd3717" => :mavericks
   end
 
   depends_on "rtmpdump"
@@ -33,6 +33,16 @@ class GetFlashVideos < Formula
     sha256 "5310051feb66c6ef9f7a4c070c66ec6092932129fc9cd18bba009ce999b7930b"
   end
 
+  resource "Term::ProgressBar" do
+    url "https://cpan.metacpan.org/authors/id/S/SZ/SZABGAB/Term-ProgressBar-2.17.tar.gz"
+    sha256 "c1e0602c738a91fe54b01bcaa0d1a898b07ef6815c55eb2ebd6da4e3be20f696"
+  end
+
+  resource "Class::MethodMaker" do
+    url "https://cpan.metacpan.org/authors/id/S/SC/SCHWIGON/class-methodmaker/Class-MethodMaker-2.24.tar.gz"
+    sha256 "5eef58ccb27ebd01bcde5b14bcc553b5347a0699e5c3e921c7780c3526890328"
+  end
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     resources.each do |r|
@@ -55,7 +65,8 @@ class GetFlashVideos < Formula
   end
 
   test do
+    file = "BBC_-__Do_whatever_it_takes_to_get_him_to_talk.flv"
     system bin/"get_flash_videos", "http://news.bbc.co.uk/2/hi/programmes/hardtalk/9560793.stm"
-    File.exist? "BBC_-__Do_whatever_it_takes_to_get_him_to_talk.flv"
+    assert File.exist?(file), "Failed to download #{file}!"
   end
 end

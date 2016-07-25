@@ -1,6 +1,6 @@
 class Dtc < Formula
   desc "Device tree compiler"
-  homepage "http://www.devicetree.org/"
+  homepage "https://www.devicetree.org/"
   url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/device-tree-compiler/device-tree-compiler_1.4.0+dfsg.orig.tar.gz"
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/device-tree-compiler/device-tree-compiler_1.4.0+dfsg.orig.tar.gz"
   version "1.4.0"

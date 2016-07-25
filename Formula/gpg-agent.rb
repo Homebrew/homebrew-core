@@ -7,11 +7,12 @@ class GpgAgent < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   sha256 "e329785a4f366ba5d72c2c678a7e388b0892ac8440c2f4e6810042123c235d71"
+  revision 1
 
   bottle do
-    sha256 "f833124214aeac893700d2804e2214fb0db8194716ad6d32473dd6a7fb73ae54" => :el_capitan
-    sha256 "556a07b532198e3ed431af916ff5889fb933c45925f0b42f58a885d03bf5790a" => :yosemite
-    sha256 "48611593041a51ca553aeca4d5d99a7af5ccebf029b73bfb53471e496ca792ec" => :mavericks
+    sha256 "d13f81eed299b09bb12bc3d9cb3a85af17e28662c9353c6928d90efbd01556d5" => :el_capitan
+    sha256 "d495205bb284b493fcc5cdbcbda32d9d9c0408532e99ce9d4f13ed6e3f74d969" => :yosemite
+    sha256 "cbcab34d6357423d93904bc3f80b552519291852e1bc87e3fbfb70628237f094" => :mavericks
   end
 
   depends_on "libgpg-error"

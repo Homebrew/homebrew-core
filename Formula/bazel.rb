@@ -1,13 +1,14 @@
 class Bazel < Formula
   desc "Google's own build tool"
-  homepage "http://bazel.io/"
-  url "https://github.com/bazelbuild/bazel/archive/0.2.1.tar.gz"
-  sha256 "be964f98480ed258f249fc44c467a293e3a143aa750149b970da3d6719ba6ff1"
+  homepage "http://www.bazel.io/"
+  url "https://github.com/bazelbuild/bazel/archive/0.3.0.tar.gz"
+  sha256 "d2309c29781dc4ede79eb652776517ca3c1dff29b58849dc80bdb86031cce3ad"
+  head "https://github.com/bazelbuild/bazel.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "33e512a0e8f97f6fa95e3134317cd385f3447ab83b90fc09e31db52b0c646d05" => :el_capitan
-    sha256 "7b5e0bd6824200bbbb0943205c6c5021b5448476f7923b9aaf6e3542ab937206" => :yosemite
+    sha256 "d51899dc3a99c1c5a965006aacabf4a935dfb4d145b1d66df724fc0a35f8807d" => :el_capitan
+    sha256 "b2f7b4b77be9111ea8b4b4a9a5058b2e0c2bc015acdb06e72634a7babb6cb583" => :yosemite
   end
 
   depends_on :java => "1.8+"

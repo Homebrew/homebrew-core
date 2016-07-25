@@ -1,14 +1,14 @@
 class Aria2 < Formula
   desc "Download with resuming and segmented downloading"
   homepage "https://aria2.github.io/"
-  url "https://github.com/tatsuhiro-t/aria2/releases/download/release-1.21.0/aria2-1.21.0.tar.xz"
-  sha256 "225c5f2c8acc899e0a802cdf198f82bd0d3282218e80cdce251b1f9ffacf6580"
+  url "https://github.com/aria2/aria2/releases/download/release-1.25.0/aria2-1.25.0.tar.xz"
+  sha256 "ff89eb4c76cfc816a6f5abc7dfd416cc3f339e7d02c761f822fa965a18cf0d35"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "724b7aa74bd3e7cd470162adf27ab5bd1d1369a16108ddd5def2dc1ab99fac95" => :el_capitan
-    sha256 "83b3f974bc53c3b59f8bf32fc84c855e24e794e0e0350f7477b4773e6e6a2fa0" => :yosemite
-    sha256 "8fc117fbdf3470cf3be39573b0553728538742a45776dc6a3dbfedef30b430e1" => :mavericks
+    sha256 "45e25bc07de1dde58b90b45c5af8988e4cbf4a4f1208c8ed5067d0d81f58b630" => :el_capitan
+    sha256 "dced3844d85fb2da818606a69a7818a6ab538bf301395b66ed8f09dc12fe8c0b" => :yosemite
+    sha256 "33fc83a43eba0477bccccf32735d21c06fa81afeb611cd8868242d5753458e3c" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -17,7 +17,6 @@ class Aria2 < Formula
   needs :cxx11
 
   def install
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}

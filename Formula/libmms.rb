@@ -18,7 +18,7 @@ class Libmms < Formula
   # https://trac.macports.org/ticket/27988
   if MacOS.version <= :leopard
     patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/patches/1fac7062/libmms/src_mms-common.h.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1fac7062/libmms/src_mms-common.h.patch"
       sha256 "773193b878b7c061f05fe76f0ea5d331b8ab3e7b348608fae8cb144139e94798"
     end
   end

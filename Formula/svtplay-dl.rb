@@ -1,16 +1,17 @@
 class SvtplayDl < Formula
   desc "Download videos from http://svtplay.se"
   homepage "https://svtplay-dl.se"
-  url "https://pypi.python.org/packages/source/s/svtplay-dl/svtplay-dl-0.30.2016.2.8.tar.gz"
-  sha256 "ca541a5ce2ef5f8fc7587b5d3bc899d7ff0e86f0fc9cb3cb4f9daaef7632f7f1"
+  url "https://pypi.python.org/packages/d0/1d/64a5b6dd832e76b3dcb6b55fd389f402b2288dfee821d769b0857d3d0dcf/svtplay-dl-1.1.tar.gz"
+  sha256 "bf2d0ea75a7c381cc28be74e3851efdf4716a5f8bca8791c35d997a0b45d5e0d"
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "f700eeed0d80208cc25fc44c97592e92e24057e721227c5549a58db4dc9742c2" => :el_capitan
-    sha256 "7cfbd94fa74c6853b4a84fcd527c0c27ea2bbd72d9dc541ecf9e6c44026f0ac7" => :yosemite
-    sha256 "f7489152a7a3d065520691837f59ea5fb80e9ae834b0dda27c636f1c74ab416c" => :mavericks
+    sha256 "abd1fbccfb87595e716a55d4bde64ad69a5ebdc21155915448de66ca5270b422" => :el_capitan
+    sha256 "9f671c8bede5528c3c4d8833e1b433d117a728ec92e2f76735bf611ecfe2ac1f" => :yosemite
+    sha256 "55c50a6378d39316264bb6bab982cd418f15d0b5c5d73ea887955433385c4af4" => :mavericks
   end
+
+  depends_on "rtmpdump"
 
   # for request security
   resource "cffi" do
@@ -65,8 +66,6 @@ class SvtplayDl < Formula
     sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
   end
 
-  depends_on "rtmpdump"
-
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
     resources.each do |r|
@@ -84,5 +83,15 @@ class SvtplayDl < Formula
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+  end
+
+  def caveats; <<-EOS.undent
+    To use post-processing options:
+      `brew install ffmpeg` or `brew install libav`.
+  EOS
+  end
+
+  test do
+    system "#{bin}/svtplay-dl", "-g", "http://tv.aftonbladet.se/abtv/articles/121638"
   end
 end

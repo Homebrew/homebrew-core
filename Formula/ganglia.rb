@@ -3,12 +3,12 @@ class Ganglia < Formula
   homepage "http://ganglia.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/ganglia/ganglia%20monitoring%20core/3.7.1/ganglia-3.7.1.tar.gz"
   sha256 "e735a6218986a0ff77c737e5888426b103196c12dc2d679494ca9a4269ca69a3"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "7b2b10090f35f813fdf1a5b715b4e2bba48bdf71a20fd0cd138be62a8f5aede2" => :el_capitan
-    sha256 "05b2e1cef93776ddbf00c297efa272cd0fb99dcd8fe3e43a6732aa76d163d37f" => :yosemite
-    sha256 "37813f22386432e9ed358cbf58b990570c31f7a989802da10da7524171654428" => :mavericks
+    sha256 "349f8c9d15380b37ab66eccba278a8f83537d4de091c76b1a699ea4c419131f7" => :el_capitan
+    sha256 "e09a9d76d29124ed9c1b7c9f92d43a98a43f95be498d315296300a9bb487b980" => :yosemite
+    sha256 "6aebfbaf3ebff825177eb2226d9a7d82f1543fd1ece8948eb6feea01f07b43e1" => :mavericks
   end
 
   head do

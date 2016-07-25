@@ -2,16 +2,16 @@ require "language/go"
 
 class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
-  homepage "https://github.com/buger/gor/"
-  url "https://github.com/buger/gor/archive/v0.10.1.tar.gz"
-  sha256 "283ca037a782844df42a0352c072efb558ffca3dc76f88a6317eca0d44ab1a5c"
+  homepage "https://gortool.com"
+  url "https://github.com/buger/gor/archive/v0.14.1.tar.gz"
+  sha256 "802c253fd5218e914e707afb7f3b79baa54871160c4085b949ef3855abfb86d5"
   head "https://github.com/buger/gor.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f552482322a1f17d656f4079509cfe4e2ed44a02d0270bc842fb7d71c1140ed" => :el_capitan
-    sha256 "33c2c144336309b25f877c18d5daa69b7948ad20c505da4832135d77629ee880" => :yosemite
-    sha256 "06d1905b52b0d9b6ea0ee983e4d1981a9070ffe06b80b2488ef1fe4e2f654522" => :mavericks
+    sha256 "09bc8e6d7411acf4938005f0d53ab4ebbb8b7e334d03c8bc722bf392a236cf85" => :el_capitan
+    sha256 "3c790b1f23a5977c1d03a47df86e3c5bf906882283122fe3ae7fabb3d24c8406" => :yosemite
+    sha256 "a5513e92344941dcc5d683dc56b7e37897df1c4729007d38f988cfeb690fd615" => :mavericks
   end
 
   depends_on "go" => :build
@@ -26,13 +26,18 @@ class Gor < Formula
       :revision => "23fcfd9db0d8be2189a98fdab77a4c90fcc3a1e9"
   end
 
+  go_resource "github.com/google/gopacket" do
+    url "https://github.com/google/gopacket.git",
+      :revision => "f4807986c9ee46845a35c59a382d6ccd9304b320"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/buger/"
+    (buildpath/"src/github.com/buger").mkpath
     ln_sf buildpath, buildpath/"src/github.com/buger/gor"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    system "go", "build", "-o", "#{bin}/gor", "-ldflags", "-X main.VERSION \"#{version}\""
+    system "go", "build", "-o", bin/"gor", "-ldflags", "-X main.VERSION=#{version}"
   end
 
   test do

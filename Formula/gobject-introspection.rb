@@ -1,15 +1,13 @@
 class GobjectIntrospection < Formula
   desc "Generate introspection data for GObject libraries"
   homepage "https://live.gnome.org/GObjectIntrospection"
-  url "https://download.gnome.org/sources/gobject-introspection/1.46/gobject-introspection-1.46.0.tar.xz"
-  sha256 "6658bd3c2b8813eb3e2511ee153238d09ace9d309e4574af27443d87423e4233"
-  revision 1
+  url "https://download.gnome.org/sources/gobject-introspection/1.48/gobject-introspection-1.48.0.tar.xz"
+  sha256 "fa275aaccdbfc91ec0bc9a6fd0562051acdba731e7d584b64a277fec60e75877"
 
   bottle do
-    revision 1
-    sha256 "f74299d5504653f479d86f29239def40bcc790bfcf9a3df4ecd4ab95e2a13aab" => :el_capitan
-    sha256 "e1d5345ae31ba57ccffdfb12e8499e3cfe3c69e29387c4d0765c9872f1117baa" => :yosemite
-    sha256 "e3468554dddb9d16af1a15741f2734ce0aa9d87e7c81cd6a1c7161b6ef57d93c" => :mavericks
+    sha256 "00cdb24c5e74f65800d88ca69b5e49f087ab5ea6d59117a1cd47d81e669c9c0d" => :el_capitan
+    sha256 "65d2698a5a28799513d4aaa8d28e5d41a87034fa38ce5b9412af43f1b7a9ecb4" => :yosemite
+    sha256 "227e7041931934d9bc54ad74e7c163ea80b287120d79e7e3a664e3819687a26f" => :mavericks
   end
 
   option :universal
@@ -22,13 +20,6 @@ class GobjectIntrospection < Formula
   #    Caught exception: <type 'exceptions.AttributeError'> AttributeError("'NoneType' object has no attribute 'get'",)
   #    > /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/distutils/sysconfig.py(171)customize_compiler()
   depends_on "python" if MacOS.version <= :mavericks
-
-  # see https://bugzilla.gnome.org/show_bug.cgi?id=625195
-  # to be removed when 1.48.0 is released
-  patch do
-    url "https://github.com/GNOME/gobject-introspection/commit/4a724ac699f0c34fba2fb452cfadea11540325e8.patch"
-    sha256 "047c350bad2d222f1037c3ce1889444ebc1095df76120188037c4eb2900848c4"
-  end
 
   resource "tutorial" do
     url "https://gist.github.com/7a0023656ccfe309337a.git",

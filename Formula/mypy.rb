@@ -1,87 +1,52 @@
 class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
-  url "https://github.com/JukkaL/mypy/archive/v0.2.0.tar.gz"
-  sha256 "0c24f50509bdf3e0d9bd386a08ef4f11ee0114e1f5a9b2afeacbf9561cf022c1"
+  url "https://github.com/JukkaL/mypy.git",
+      :tag => "v0.4.3",
+      :revision => "e5f27adf8f143604af241533cdd69df3ddb8d1c9"
   head "https://github.com/JukkaL/mypy.git"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "596670f2387beba24f8b0a7d51dd7ad0f9d10599b1ac44b65dcca1785659b9b6" => :el_capitan
-    sha256 "cc2780459f9cbb98805a0873ca7c5e6286bfad54545ba8d6898c663658867fea" => :yosemite
-    sha256 "2c5872aed4f6c1fe965bb6962f448e47d412930bc270e4fbfc50427a094b3a23" => :mavericks
-    sha256 "6a67aefdf446d5600f06aa0f7e9de8c79a7165cb73edfbd6e2dd73aba072ff73" => :mountain_lion
+    sha256 "251f784f48ce4154e7fd447d97b7b78e65530ee7fc910661b07a25917a86b765" => :el_capitan
+    sha256 "317ded0c3972fbd1132c312673b6868d8021749a61448b2e0006ad9098de6ff7" => :yosemite
+    sha256 "80405da001e50eb6df68a136929aff46f1131300a369bc432d7b0433a532984c" => :mavericks
   end
 
-  option "without-docs", "Don't build documentation"
+  option "without-sphinx-doc", "Don't build documentation"
+
+  deprecated_option "without-docs" => "without-sphinx-doc"
 
   depends_on :python3
+  depends_on "sphinx-doc" => [:build, :recommended]
 
-  resource "sphinx" do
-    url "https://pypi.python.org/packages/source/S/Sphinx/Sphinx-1.2.3.tar.gz"
-    sha256 "94933b64e2fe0807da0612c574a021c0dac28c7bd3c4a23723ae5a39ea8f3d04"
-  end
-
-  resource "docutils" do
-    url "https://pypi.python.org/packages/source/d/docutils/docutils-0.12.tar.gz"
-    sha256 "c7db717810ab6965f66c8cf0398a98c9d8df982da39b4cd7f162911eb89596fa"
-  end
-
-  resource "pygments" do
-    url "https://pypi.python.org/packages/source/P/Pygments/Pygments-2.0.2.tar.gz"
-    sha256 "7320919084e6dac8f4540638a46447a3bd730fca172afc17d2c03eed22cf4f51"
-  end
-
-  resource "jinja2" do
-    url "https://pypi.python.org/packages/source/J/Jinja2/Jinja2-2.7.3.tar.gz"
-    sha256 "2e24ac5d004db5714976a04ac0e80c6df6e47e98c354cb2c0d82f8879d4f8fdb"
-  end
-
-  resource "markupsafe" do
-    url "https://pypi.python.org/packages/source/M/MarkupSafe/MarkupSafe-0.23.tar.gz"
-    sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
-  end
-
-  resource "rtd_theme" do
-    url "https://pypi.python.org/packages/source/s/sphinx_rtd_theme/sphinx_rtd_theme-0.1.7.tar.gz"
-    sha256 "9a490c861f6cf96a0050c29a92d5d1e01eda02ae6f50760ad5c96a327cdf14e8"
+  resource "sphinx_rtd_theme" do
+    url "https://files.pythonhosted.org/packages/99/b5/249a803a428b4fd438dd4580a37f79c0d552025fb65619d25f960369d76b/sphinx_rtd_theme-0.1.9.tar.gz"
+    sha256 "273846f8aacac32bf9542365a593b495b68d8035c2e382c9ccedcac387c9a0a1"
   end
 
   def install
-    pyver = Language::Python.major_minor_version "python3"
-    if build.with? "docs"
-      ENV.prepend_create_path "PYTHONPATH", buildpath/"sphinx/lib/python#{pyver}/site-packages"
-      %w[docutils pygments jinja2 markupsafe sphinx].each do |r|
-        resource(r).stage do
-          system "python3", *Language::Python.setup_install_args(buildpath/"sphinx")
-        end
-      end
+    xy = Language::Python.major_minor_version "python3"
 
-      ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{pyver}/site-packages"
-      %w[rtd_theme].each do |r|
-        resource(r).stage do
-          system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-        end
+    if build.with? "sphinx-doc"
+      ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+      resource("sphinx_rtd_theme").stage do
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
-
-      ENV.prepend_path "PATH", buildpath/"sphinx/bin"
-      cd "docs" do
-        system "make", "html"
-        doc.install Dir["build/html/*"]
-      end
+      system "make", "-C", "docs", "html"
+      doc.install Dir["docs/build/html/*"]
     end
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{pyver}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     system "python3", *Language::Python.setup_install_args(libexec)
 
-    bin.install Dir["#{libexec}/bin/*"]
+    bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
-    pyver = Language::Python.major_minor_version "python3"
-    ENV["PYTHONPATH"] = libexec/"lib/python#{pyver}/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV["PYTHONPATH"] = libexec/"lib/python#{xy}/site-packages"
 
     (testpath/"broken.py").write <<-EOS.undent
       def p() -> None:
@@ -89,8 +54,8 @@ class Mypy < Formula
       a = p()
     EOS
 
-    expected_error = /line 3: "p" does not return a value/
-    assert_match expected_error, pipe_output("#{bin}/mypy #{testpath}/broken.py 2>&1")
+    output = pipe_output("#{bin}/mypy #{testpath}/broken.py 2>&1")
+    assert_match "\"p\" does not return a value", output
     system "python3", "-c", "import typing"
   end
 end

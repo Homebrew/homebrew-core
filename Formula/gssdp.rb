@@ -1,13 +1,13 @@
 class Gssdp < Formula
   desc "GUPnP library for resource discovery and announcement over SSDP"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gssdp/0.14/gssdp-0.14.14.tar.xz"
-  sha256 "685718755b5b8d24aaeadda44047e515443784712891fc53879ab9a4865b48d6"
+  url "https://download.gnome.org/sources/gssdp/0.14/gssdp-0.14.16.tar.xz"
+  sha256 "54520bfb230b9c8c938eba88d87df44e04749682c95fb8aa381d13441345c5b2"
 
   bottle do
-    sha256 "0472c58015680bdeafdf065d1b1faebc42b7ae7b1ee1ab063f683b3a34d8692a" => :el_capitan
-    sha256 "bc2db9b2ce31a9c31fa1bc3ab4f19e3a3e1918576c15704fa281d82eb0646fa1" => :yosemite
-    sha256 "f5f26b0097b89d8ec488754cb3016e727e4c2010043ae84332c214399ef96256" => :mavericks
+    sha256 "bb3bd6262597d452e76e8e7cf9bfae9f0a894a88384b38f4e6fba6e34f439efb" => :el_capitan
+    sha256 "99733c9ae851b23df2bd0f83ac3f1ae2509dcc580ce38e8787f4de216748ce59" => :yosemite
+    sha256 "ab33195c31c56ef95a8eca198f8628ad31b9df3af45b086ffaefe1e459b9c408" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -33,8 +33,7 @@ class Gssdp < Formula
     EOS
     gettext = Formula["gettext"]
     glib = Formula["glib"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include

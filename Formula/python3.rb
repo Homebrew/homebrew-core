@@ -1,17 +1,24 @@
 class Python3 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.5.1/Python-3.5.1.tar.xz"
-  sha256 "c6d57c0c366d9060ab6c0cdf889ebf3d92711d466cc0119c441dbf2746f725c9"
-
-  bottle do
-    revision 3
-    sha256 "a15feed8e9ff551e8f8ec5d56298223dce898a832c446a34a0aa773b000e968c" => :el_capitan
-    sha256 "dbb3625c9cd6b31e496f78e776821d3c3e8f30a7db39f7dea1801a5b19187b64" => :yosemite
-    sha256 "228380b8fb1ed6f496c6b071443ecdf98b1130aa840a4e2bd9ccae3dc7bb2713" => :mavericks
-  end
 
   head "https://hg.python.org/cpython", :using => :hg
+
+  stable do
+    url "https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz"
+    sha256 "0010f56100b9b74259ebcd5d4b295a32324b58b517403a10d1a2aa7cb22bca40"
+  end
+
+  bottle do
+    sha256 "708bde2d223b19ef066796cc678f0498526f183992bcdf97d4945e76124b4945" => :el_capitan
+    sha256 "70559493f96e55d9c789ce496942b9dbcdacc34842b5df562d591c040d61d9f0" => :yosemite
+    sha256 "743e03b7090ffbf3b444b86babfd3c0bd739f4e89cb9aa15447fe8d55f1d8cc1" => :mavericks
+  end
+
+  devel do
+    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0a3.tar.xz"
+    sha256 "2cd0611c3456a83737d99d8ffd36d4094b3d44c29dd3a4185f1146be502a8321"
+  end
 
   option :universal
   option "with-tcl-tk", "Use Homebrew's Tk instead of OS X Tk (has optional Cocoa and threads support)"
@@ -33,18 +40,18 @@ class Python3 < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5"
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-19.4.tar.gz"
-    sha256 "214bf29933f47cf25e6faa569f710731728a07a19cae91ea64f826051f68a8cf"
+    url "https://pypi.python.org/packages/9f/7c/0a33c528164f1b7ff8cf0684cf88c2e733c8ae0119ceca4a3955c7fc059d/setuptools-23.1.0.tar.gz"
+    sha256 "4e269d36ba2313e6236f384b36eb97b3433cf99a16b94c74cca7eee2b311f2be"
   end
 
   resource "pip" do
-    url "https://pypi.python.org/packages/source/p/pip/pip-8.0.2.tar.gz"
-    sha256 "46f4bd0d8dfd51125a554568d646fe4200a3c2c6c36b9f2d06d2212148439521"
+    url "https://pypi.python.org/packages/e7/a8/7556133689add8d1a54c0b14aeff0acb03c64707ce100ecd53934da1aa13/pip-8.1.2.tar.gz"
+    sha256 "4d24b03ffa67638a3fa931c09fd9e0273ffa904e95ebebe7d4b1a54c93d7b732"
   end
 
   resource "wheel" do
-    url "https://pypi.python.org/packages/source/w/wheel/wheel-0.26.0.tar.gz"
-    sha256 "eaad353805c180a47545a256e6508835b65a8e830ba1093ed8162f19a50a530c"
+    url "https://pypi.python.org/packages/source/w/wheel/wheel-0.29.0.tar.gz"
+    sha256 "1ebb8ad7e26b448e9caa4773d2357849bf80ff9e313964bcaf79cbf0201a1648"
   end
 
   fails_with :clang do
@@ -56,14 +63,6 @@ class Python3 < Formula
   # so we have to stop python from searching for frameworks and linking against
   # X11.
   patch :DATA if build.with? "tcl-tk"
-
-  # Fix extension module builds against Xcode 7 SDKs
-  # https://github.com/Homebrew/homebrew/issues/41085
-  # https://bugs.python.org/issue25136
-  patch do
-    url "https://bugs.python.org/file40478/xcode-stubs.diff"
-    sha256 "029cc0dc72b1bcf4ddc5f913cc4a3fd970378073c6355921891f041aca2f8b12"
-  end
 
   def lib_cellar
     prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}"
@@ -94,7 +93,11 @@ class Python3 < Formula
   # setuptools remembers the build flags python is built with and uses them to
   # build packages later. Xcode-only systems need different flags.
   pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
+    reason <<-EOS.undent
+    The bottle needs the Apple Command Line Tools to be installed.
+      You can install them, if desired, with:
+        xcode-select --install
+    EOS
     satisfy { MacOS::CLT.installed? }
   end
 
@@ -175,11 +178,11 @@ class Python3 < Formula
     # Tell Python not to install into /Applications (default for framework builds)
     system "make", "install", "PYTHONAPPSDIR=#{prefix}"
     # Demos and Tools
-    system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{share}/python3"
+    system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
     system "make", "quicktest" if build.with? "quicktest"
 
     # Any .app get a " 3" attached, so it does not conflict with python 2.x.
-    Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(".app", " 3.app") }
+    Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 3.app") }
 
     # A fix, because python and python3 both want to install Python.framework
     # and therefore we can't link both into HOMEBREW_PREFIX/Frameworks
@@ -318,8 +321,8 @@ class Python3 < Formula
 
   def caveats
     text = <<-EOS.undent
-      Pip and setuptools have been installed. To update them
-        pip3 install --upgrade pip setuptools
+      Pip, setuptools, and wheel have been installed. To update them
+        pip3 install --upgrade pip setuptools wheel
 
       You can install Python packages with
         pip3 install <package>

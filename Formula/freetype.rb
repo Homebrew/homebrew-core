@@ -1,19 +1,18 @@
 class Freetype < Formula
   desc "Software library to render fonts"
-  homepage "http://www.freetype.org"
-  url "https://downloads.sf.net/project/freetype/freetype2/2.6.3/freetype-2.6.3.tar.bz2"
-  mirror "http://download.savannah.gnu.org/releases/freetype/freetype-2.6.3.tar.bz2"
-  sha256 "371e707aa522acf5b15ce93f11183c725b8ed1ee8546d7b3af549863045863a2"
-
-  # Note: when bumping freetype's version, you must also bump revisions of formula with
-  # "full path" references to freetype in their pkgconfig.
-  # See https://github.com/Homebrew/homebrew/pull/44587
+  homepage "https://www.freetype.org/"
+  # Note: when bumping freetype's version, you must also bump revisions of
+  # formula with "full path" references to freetype in their pkgconfig.
+  # See https://github.com/Homebrew/legacy-homebrew/pull/44587
+  url "https://downloads.sf.net/project/freetype/freetype2/2.6.5/freetype-2.6.5.tar.bz2"
+  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.6.5.tar.bz2"
+  sha256 "e20a6e1400798fd5e3d831dd821b61c35b1f9a6465d6b18a53a9df4cf441acf0"
 
   bottle do
     cellar :any
-    sha256 "03d81469f42b34176ad9b7a382a2ab613445541a57e3db02e80121508cc43309" => :el_capitan
-    sha256 "ff8df778e420e76ac823fb5d31b3bfd1d89be87aa664bb1140bb44508f4d5e23" => :yosemite
-    sha256 "ecfb1b9f4dcce361d4c40367dc205842411cbcbb6628238da571aff84caf05c3" => :mavericks
+    sha256 "9830f84e55635b445eb5422d7383ef37c76e71d4fcfd041eccd528f0580a6223" => :el_capitan
+    sha256 "53ffcde03d0c0ec7c31ae45de6ff699be97357276833c3b62ce0e2270f6d6b70" => :yosemite
+    sha256 "3fa3f187bca761465c8b02ccff5c4dbb13edfa9e342c246a1ca46959f37df513" => :mavericks
   end
 
   keg_only :provided_pre_mountain_lion

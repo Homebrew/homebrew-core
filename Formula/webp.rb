@@ -1,14 +1,16 @@
 class Webp < Formula
   desc "Image format providing lossless and lossy compression for web images"
   homepage "https://developers.google.com/speed/webp/"
-  url "http://downloads.webmproject.org/releases/webp/libwebp-0.5.0.tar.gz"
-  sha256 "5cd3bb7b623aff1f4e70bd611dc8dbabbf7688fd5eb225b32e02e09e37dfb274"
+  url "http://downloads.webmproject.org/releases/webp/libwebp-0.5.1.tar.gz"
+  # Because Google-hosted upstream URL gets firewalled in some countries.
+  mirror "https://dl.bintray.com/homebrew/mirror/webp-0.5.1.tar.gz"
+  sha256 "6ad66c6fcd60a023de20b6856b03da8c7d347269d76b1fd9c3287e8b5e8813df"
 
   bottle do
     cellar :any
-    sha256 "529d1728871778a8c9f1a698077d074d264aedce93bf6e7e0c7d197a931e46aa" => :el_capitan
-    sha256 "d2df3e42efcb574601a4ced6f9a4174014aa20696a453a4ce76b2877d5a74594" => :yosemite
-    sha256 "1ace7ca51265fcb6c3490ded7e209678b3648eb87d06473533b6435a8b71f543" => :mavericks
+    sha256 "b110fdb97fa2abeeb6653343dbdf3a7d49d16863623b9884c2088e4e5384560a" => :el_capitan
+    sha256 "e345e20c86d54365d313ec9ff498857405b6dc738101c1e9c047d93333395436" => :yosemite
+    sha256 "eb44042c412d6701172e5dd2da764041abb523d391b400d136695b5059a9a133" => :mavericks
   end
 
   head do
@@ -30,6 +32,7 @@ class Webp < Formula
 
     ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
+                          "--disable-gl",
                           "--enable-libwebpmux",
                           "--enable-libwebpdemux",
                           "--enable-libwebpdecoder",
@@ -38,8 +41,8 @@ class Webp < Formula
   end
 
   test do
-    system "#{bin}/cwebp", test_fixtures("test.png"), "-o", "webp_test.png"
-    system "#{bin}/dwebp", "webp_test.png", "-o", "webp_test.webp"
+    system bin/"cwebp", test_fixtures("test.png"), "-o", "webp_test.png"
+    system bin/"dwebp", "webp_test.png", "-o", "webp_test.webp"
     assert File.exist?("webp_test.webp")
   end
 end

@@ -16,6 +16,7 @@ class Ppl < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--with-gmp=#{Formula["gmp"].opt_prefix}",
                           "--prefix=#{prefix}"
     system "make", "install"
   end

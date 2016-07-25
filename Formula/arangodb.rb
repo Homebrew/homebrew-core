@@ -1,17 +1,17 @@
 class Arangodb < Formula
-  desc "Universal open-source database with a flexible data model"
+  desc "The Multi-Model NoSQL Database."
   homepage "https://www.arangodb.com/"
-  url "https://www.arangodb.com/repositories/Source/ArangoDB-2.8.7.tar.gz"
-  sha256 "cda284af7e1d45c2250dcb2acd253e805e9aaad3504f1d09cfcb8afa5ad87020"
-
+  url "https://www.arangodb.com/repositories/Source/ArangoDB-3.0.3.tar.gz"
+  sha256 "09fb1161afcade627b1e022c2c15b6f26c17eac9d07b9636829212dca01272bb"
   head "https://github.com/arangodb/arangodb.git", :branch => "unstable"
 
   bottle do
-    sha256 "b048abb7d6c7ed967885375341dc141512cd498ec004c823f21979a9b9e96315" => :el_capitan
-    sha256 "e55fc36e8e167732f2160b1366edcee901fe380ad9deef92d963c2eb745f69c7" => :yosemite
-    sha256 "b3b0b09665fef2cc8dabfacd15110e8f1d72680aeeffa6e1dc72ab3cc2fa5376" => :mavericks
+    sha256 "ebe4bb39ae02e92b9f91d0096be08766b971c856d861a556b2e71f9fd3f83b8b" => :el_capitan
+    sha256 "6a67aef1dc8c8cfa3f16cca307309f45671d0c2f0e15d55ec0302fc93732a488" => :yosemite
   end
 
+  depends_on :macos => :yosemite
+  depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on "openssl"
 
@@ -22,45 +22,99 @@ class Arangodb < Formula
     cause "Fails with compile errors"
   end
 
+  resource "arangodb2" do
+    url "https://www.arangodb.com/repositories/Source/ArangoDB-2.8.10.tar.gz"
+    sha256 "3a455e9d6093739660ad79bd3369652db79f3dabd9ae02faca1b014c9aa220f4"
+  end
+
+  resource "upgrade" do
+    url "https://www.arangodb.com/repositories/Source/upgrade3-1.0.0.tar.gz"
+    sha256 "965f899685e420530bb3c68ada903c815ebd0aa55e477d6949abba9506574011"
+  end
+
   def install
-    # clang on 10.8 will still try to build against libstdc++,
-    # which fails because it doesn't have the C++0x features
-    # arangodb requires.
-    ENV.libcxx
+    ENV.cxx11
 
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --disable-relative
-      --datadir=#{share}
-      --localstatedir=#{var}
-    ]
+    (libexec/"arangodb2/bin").install resource("upgrade")
 
-    args << "--program-suffix=-unstable" if build.head?
+    resource("arangodb2").stage do
+      ENV.cxx11
 
-    if ENV.compiler != :clang
-      ENV.append "LDFLAGS", "-static-libgcc -static-libstdc++"
+      args = %W[
+        --disable-dependency-tracking
+        --prefix=#{libexec}/arangodb2
+        --disable-relative
+        --localstatedir=#{var}
+        --program-suffix=-2.8
+      ]
+
+      if ENV.compiler == "gcc-6"
+        ENV.append "CXXFLAGS", "-O2 -g -fno-delete-null-pointer-checks"
+        inreplace "3rdParty/Makefile.v8", "CXXFLAGS=\"", "CXXFLAGS=\"-fno-delete-null-pointer-checks "
+      end
+
+      system "./configure", *args
+      system "make", "install"
     end
 
-    system "./configure", *args
-    system "make", "install"
+    mkdir "build" do
+      args = std_cmake_args + %W[
+        -DHOMEBREW=ON
+        -DUSE_OPTIMIZE_FOR_ARCHITECTURE=OFF
+        -DASM_OPTIMIZATIONS=OFF
+        -DCMAKE_INSTALL_DATADIR=#{share}
+        -DETCDIR=#{etc}
+        -DVARDIR=#{var}
+      ]
+
+      if ENV.compiler == "gcc-6"
+        ENV.append "V8_CXXFLAGS", "-O3 -g -fno-delete-null-pointer-checks"
+      end
+
+      system "cmake", "..", *args
+      system "make", "install"
+
+      %w[arangod arango-dfdb arangosh foxx-manager].each do |f|
+        inreplace etc/"arangodb3/#{f}.conf", pkgshare, opt_pkgshare
+      end
+    end
   end
 
   def post_install
-    (var/"arangodb").mkpath
-    (var/"log/arangodb").mkpath
+    oldpath_prefix = "#{HOMEBREW_PREFIX}/Cellar/arangodb/3.0."
+    oldpath_regexp = /#{Regexp.escape(oldpath_prefix)}[12]/
 
-    system "#{sbin}/arangod" + (build.head? ? "-unstable" : ""), "--upgrade", "--log.file", "-"
+    %w[arangod arango-dfdb arangosh foxx-manager].each do |f|
+      inreplace etc/"arangodb3/#{f}.conf", oldpath_regexp, opt_prefix, false
+    end
+
+    (var/"lib/arangodb3").mkpath
+    (var/"log/arangodb3").mkpath
+
+    args = %W[
+      #{libexec}/arangodb2
+      #{var}/lib/arangodb
+      #{opt_prefix}
+      #{var}/lib/arangodb3
+    ]
+
+    system libexec/"arangodb2/bin/upgrade.sh", *args
   end
 
-  def caveats; <<-EOS.undent
-    Please note that clang and/or its standard library 7.0.0 has a severe
-    performance issue. Please consider using '--cc=gcc-5' when installing
-    if you are running on such a system.
+  def caveats
+    s = <<-EOS.undent
+      The database format between ArangoDB 2.x and ArangoDB 3.x has
+      been changed, please checkout
+      https://docs.arangodb.com/3.0/Manual/Administration/Upgrading/index.html
+
+      An empty password has been set. Please change it by executing
+        #{opt_sbin}/arango-secure-installation
     EOS
+
+    s
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/arangodb/sbin/arangod" + (build.head? ? "-unstable" : "") + " --log.file -"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/arangodb/sbin/arangod"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -71,16 +125,18 @@ class Arangodb < Formula
         <true/>
         <key>Label</key>
         <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/arangod</string>
-          <string>-c</string>
-          <string>#{etc}/arangodb/arangod.conf</string>
-        </array>
+        <key>Program</key>
+        <string>#{opt_sbin}/arangod</string>
         <key>RunAtLoad</key>
         <true/>
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    testcase = "require('@arangodb').print('it works!')"
+    output = shell_output("#{bin}/arangosh --server.password \"\" --javascript.execute-string \"#{testcase}\"")
+    assert_equal "it works!", output.chomp
   end
 end

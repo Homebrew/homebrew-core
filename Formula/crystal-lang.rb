@@ -1,14 +1,14 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
-  homepage "http://crystal-lang.org/"
-  url "https://github.com/crystal-lang/crystal/archive/0.15.0.tar.gz"
-  sha256 "d79445ec92faa2a045af150fca4886d90ecd9fba27451003b68118c8714b26bd"
-  head "https://github.com/manastech/crystal.git"
+  homepage "https://crystal-lang.org/"
+  url "https://github.com/crystal-lang/crystal/archive/0.18.7.tar.gz"
+  sha256 "72b33fd4bd903a9f0957c74c2f95429e8c0f94c04df86396711b5560f540805d"
+  head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
-    sha256 "ad7c29c8fb31a01bf7c84d53188897afeaefdd6dc8d6d14490d15f6f9ea37af4" => :el_capitan
-    sha256 "4009fdf987166c815428738a1fd2e6d784846899a9d36685f3380f19f00b6b8f" => :yosemite
-    sha256 "51f05828adedb594550f42ee1f4c3e3352aa9c110249786ed0c69acce247e2ad" => :mavericks
+    sha256 "6bf18b706aa7edd453e06a4a7dd012d0bef41bee17070ab2ef4701281d66274d" => :el_capitan
+    sha256 "f954cd43a83fa48c772ab448f8cddd99da0a35b6efa6ded222fdd74b63074416" => :yosemite
+    sha256 "edc2772511e3d34768f95e03239a3839f293dfa68746fda3dad91c12c2059bed" => :mavericks
   end
 
   option "without-release", "Do not build the compiler in release mode"
@@ -20,14 +20,14 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with?("shards")
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.14.2/crystal-0.14.2-1-darwin-x86_64.tar.gz"
-    version "0.14.2"
-    sha256 "f75036b1950035b49a73faa125acd9ff031cecab7020f15cd4db4c4ee6417bfa"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.18.6/crystal-0.18.6-1-darwin-x86_64.tar.gz"
+    version "0.18.6"
+    sha256 "ce4e282edbf35542cee2cc95a1feb070612716200f142f712707c17cf4175c48"
   end
 
   resource "shards" do
-    url "https://github.com/ysbaddaden/shards/archive/v0.6.2.tar.gz"
-    sha256 "11d22086d736598efa87eea558e7b304d538372f017fce9bb21476e40c586110"
+    url "https://github.com/ysbaddaden/shards/archive/v0.6.3.tar.gz"
+    sha256 "5245aebb21af0a5682123732e4f4d476e7aa6910252fb3ffe4be60ee8df03ac2"
   end
 
   def install

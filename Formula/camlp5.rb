@@ -1,17 +1,17 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "http://camlp5.gforge.inria.fr/"
-  url "http://camlp5.gforge.inria.fr/distrib/src/camlp5-6.15.tgz"
-  mirror "https://ftp.ucsb.edu/pub/mirrors/linux/gentoo/distfiles/camlp5-6.15.tgz"
-  mirror "https://mirror.csclub.uwaterloo.ca/gentoo-distfiles/distfiles/camlp5-6.15.tgz"
-  mirror "https://mirror.netcologne.de/gentoo/distfiles/camlp5-6.15.tgz"
-  sha256 "2e0e1e31e0537f2179766820dd9bd0a4d424bc5ab9c610e6dbf9145f27747f2b"
+  url "http://camlp5.gforge.inria.fr/distrib/src/camlp5-6.16.tgz"
+  mirror "https://ftp.ucsb.edu/pub/mirrors/linux/gentoo/distfiles/camlp5-6.16.tgz"
+  mirror "https://mirror.csclub.uwaterloo.ca/gentoo-distfiles/distfiles/camlp5-6.16.tgz"
+  mirror "https://mirror.netcologne.de/gentoo/distfiles/camlp5-6.16.tgz"
+  sha256 "fd446cff6421f5144a521c7cecfdc7217b1424908186cddd3d5be543b35058b1"
   head "https://gforge.inria.fr/anonscm/git/camlp5/camlp5.git"
 
   bottle do
-    sha256 "90a523e4dc28c340ccec3e2aa7b2ef37a9534c6cb47f92396c7a7e12b0ba1b85" => :el_capitan
-    sha256 "d512ce25f65960cfe8edc96eb13a9577bea6b4156d2b60a7e95ba6da322c4a88" => :yosemite
-    sha256 "48b7eee6bd396c3cbfb1ad54213ddafd273754192257253f30426a95f6a8e7ce" => :mavericks
+    sha256 "9f38f3084632691b7b45bd26245a5f824b65f8058b9a343a0b27e07e23264168" => :el_capitan
+    sha256 "3f142db90e8ba6d095249d1c741b6869c751c38a5a1a07daf0beeebf422b28d0" => :yosemite
+    sha256 "19c58865719d70228380b7107377dbf4519b3a982612c5702fa7592c943fd864" => :mavericks
   end
 
   deprecated_option "strict" => "with-strict"

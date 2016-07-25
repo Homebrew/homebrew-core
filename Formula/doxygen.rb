@@ -8,25 +8,28 @@ class Doxygen < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "79122ca4ad9d8a4a02171fbe26ea2b8100a5efbd7e98ffb57a6c1110050f7f3a" => :el_capitan
-    sha256 "4136c8d0c7309b74d5e91e31a3c712bcaa3a1caacada0f768d3da73dc2a40485" => :yosemite
-    sha256 "73ac008f6b99545d800c0c9672f42de733c88e4dcdc4f15b554a6c0917af9743" => :mavericks
+    revision 1
+    sha256 "9df85acfeb11860211f19566ac66695ca43f8bd59e52ff56f3463eeb437499e3" => :el_capitan
+    sha256 "83e6c4021244d178ba02700036881a52ff0f3e00979d941d3149cccfa1744bc3" => :yosemite
+    sha256 "ac11e18aa71b11ee9b6630ff231ddd1b2e47aae2b724b0c39a54daf968322bf4" => :mavericks
   end
 
   option "with-graphviz", "Build with dot command support from Graphviz."
-  option "with-doxywizard", "Build GUI frontend with qt support."
-  option "with-libclang", "Build with libclang support."
+  option "with-qt5", "Build GUI frontend with Qt support."
+  option "with-llvm", "Build with libclang support."
 
   deprecated_option "with-dot" => "with-graphviz"
+  deprecated_option "with-doxywizard" => "with-qt5"
+  deprecated_option "with-libclang" => "with-llvm"
 
   depends_on "cmake" => :build
   depends_on "graphviz" => :optional
-  depends_on "qt" if build.with? "doxywizard"
-  depends_on "llvm" => "with-clang" if build.with? "libclang"
+  depends_on "qt5" => :optional
+  depends_on "llvm" => :optional
 
   def install
     args = std_cmake_args
-    args << "-Dbuild_wizard=ON" if build.with? "doxywizard"
+    args << "-Dbuild_wizard=ON" if build.with? "qt5"
     args << "-Duse_libclang=ON -DLLVM_CONFIG=#{Formula["llvm"].opt_bin}/llvm-config" if build.with? "libclang"
 
     mkdir "build" do

@@ -1,15 +1,14 @@
 class Python < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org"
+  url "https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz"
+  sha256 "d7837121dd5652a05fef807c361909d255d173280c4e1a4ded94d73d80a1f978"
   head "https://hg.python.org/cpython", :using => :hg, :branch => "2.7"
-  url "https://www.python.org/ftp/python/2.7.11/Python-2.7.11.tgz"
-  sha256 "82929b96fd6afc8da838b149107078c02fa1744b7e60999a8babbc0d3fa86fc6"
 
   bottle do
-    revision 2
-    sha256 "990c30084e9c55ee708db3f2a5f15984dc44406473002ef97c11b183566abacb" => :el_capitan
-    sha256 "301c5cef9bc3b8afc6e4a35b92f75739eecae0a9407f8ee39d3af83ce5425f2f" => :yosemite
-    sha256 "f9c35b48fd15a35b1ac69f36deff4f403e4839ca8f6a8b7fe2311da8c17397c3" => :mavericks
+    sha256 "b4779ada60f6809a6f12369a407e366a8ffc4660a29446525e23108fd5da91a9" => :el_capitan
+    sha256 "b222252c54e4407258b6c53a3402aac61b8901447414f1f5ffe0d79f568c7014" => :yosemite
+    sha256 "1ce2d4130a8924254c41e4ad5a31a549ac574d1a77593a5f7a1b3ecdbb18552b" => :mavericks
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
@@ -35,19 +34,23 @@ class Python < Formula
   skip_clean "bin/easy_install", "bin/easy_install-2.7"
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-19.4.tar.gz"
-    sha256 "214bf29933f47cf25e6faa569f710731728a07a19cae91ea64f826051f68a8cf"
+    url "https://files.pythonhosted.org/packages/9f/7c/0a33c528164f1b7ff8cf0684cf88c2e733c8ae0119ceca4a3955c7fc059d/setuptools-23.1.0.tar.gz"
+    sha256 "4e269d36ba2313e6236f384b36eb97b3433cf99a16b94c74cca7eee2b311f2be"
   end
 
   resource "pip" do
-    url "https://pypi.python.org/packages/source/p/pip/pip-8.0.2.tar.gz"
-    sha256 "46f4bd0d8dfd51125a554568d646fe4200a3c2c6c36b9f2d06d2212148439521"
+    url "https://files.pythonhosted.org/packages/e7/a8/7556133689add8d1a54c0b14aeff0acb03c64707ce100ecd53934da1aa13/pip-8.1.2.tar.gz"
+    sha256 "4d24b03ffa67638a3fa931c09fd9e0273ffa904e95ebebe7d4b1a54c93d7b732"
   end
 
   resource "wheel" do
-    url "https://pypi.python.org/packages/source/w/wheel/wheel-0.26.0.tar.gz"
-    sha256 "eaad353805c180a47545a256e6508835b65a8e830ba1093ed8162f19a50a530c"
+    url "https://files.pythonhosted.org/packages/c9/1d/bd19e691fd4cfe908c76c429fe6e4436c9e83583c4414b54f6c85471954a/wheel-0.29.0.tar.gz"
+    sha256 "1ebb8ad7e26b448e9caa4773d2357849bf80ff9e313964bcaf79cbf0201a1648"
   end
+
+  # Patch to disable the search for Tk.framework, since Homebrew's Tk is
+  # a plain unix build. Remove `-lX11`, too because our Tk is "AquaTk".
+  patch :DATA if build.with? "tcl-tk"
 
   # Patch for pyport.h macro issue
   # https://bugs.python.org/issue10910
@@ -55,18 +58,6 @@ class Python < Formula
   patch do
     url "https://bugs.python.org/file30805/issue10910-workaround.txt"
     sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
-  end
-
-  # Patch to disable the search for Tk.framework, since Homebrew's Tk is
-  # a plain unix build. Remove `-lX11`, too because our Tk is "AquaTk".
-  patch :DATA if build.with? "tcl-tk"
-
-  # Fix extension module builds against Xcode 7 SDKs
-  # https://github.com/Homebrew/homebrew/issues/41085
-  # https://bugs.python.org/issue25136
-  patch do
-    url "https://bugs.python.org/file40479/xcode-stubs-2.7.patch"
-    sha256 "86714b750c887065952cd556f4d23246edf3124384f579356c8e377bc6ff2f83"
   end
 
   def lib_cellar
@@ -85,7 +76,11 @@ class Python < Formula
   # setuptools remembers the build flags python is built with and uses them to
   # build packages later. Xcode-only systems need different flags.
   pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
+    reason <<-EOS.undent
+    The bottle needs the Apple Command Line Tools to be installed.
+      You can install them, if desired, with:
+        xcode-select --install
+    EOS
     satisfy { MacOS::CLT.installed? }
   end
 
@@ -182,7 +177,7 @@ class Python < Formula
     # Tell Python not to install into /Applications
     system "make", "install", "PYTHONAPPSDIR=#{prefix}"
     # Demos and Tools
-    system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{share}/python"
+    system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
     system "make", "quicktest" if build.with? "quicktest"
 
     # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.

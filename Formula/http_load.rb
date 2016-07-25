@@ -1,7 +1,7 @@
 class HttpLoad < Formula
   desc "Test throughput of a web server by running parallel fetches"
-  homepage "http://www.acme.com/software/http_load/"
-  url "http://www.acme.com/software/http_load/http_load-09Mar2016.tar.gz"
+  homepage "https://www.acme.com/software/http_load/"
+  url "https://www.acme.com/software/http_load/http_load-09Mar2016.tar.gz"
   version "20160309"
   sha256 "5a7b00688680e3fca8726dc836fd3f94f403fde831c71d73d9a1537f215b4587"
 

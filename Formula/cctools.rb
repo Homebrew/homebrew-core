@@ -32,30 +32,30 @@ class Cctools < Formula
 
     # These patches apply to cctools 855, for newer OSes
     patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/patches/db27850/cctools/cctools-829-lto.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/db27850/cctools/cctools-829-lto.patch"
       sha256 "8ed90e0eef2a3afc810b375f9d3873d1376e16b17f603466508793647939a868"
     end
 
     patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/patches/db27850/cctools/PR-37520.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/db27850/cctools/PR-37520.patch"
       sha256 "921cba3546389809500449b08f4275cfd639295ace28661c4f06174b455bf3d4"
     end
 
     patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/patches/db27850/cctools/cctools-839-static-dis_info.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/db27850/cctools/cctools-839-static-dis_info.patch"
       sha256 "f49162b5c5d2753cf19923ff09e90949f01379f8de5604e86c59f67441a1214c"
     end
 
     # Fix building libtool with LTO disabled
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/db27850/cctools/libtool-no-lto.diff"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/db27850/cctools/libtool-no-lto.diff"
       sha256 "3b687f2b9388ac6c4acac2b7ba28d9fd07f2a16e7d2dad09aa2255d98ec1632b"
     end
 
     # strnlen patch only needed on Snow Leopard
     if MacOS.version == :snow_leopard
       patch :p0 do
-        url "https://raw.githubusercontent.com/Homebrew/patches/db27850/cctools/snowleopard-strnlen.patch"
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/db27850/cctools/snowleopard-strnlen.patch"
         sha256 "b118f94411ad194596102f230abafa2f20262343ab36f2a578c6bdc1ae83ae12"
       end
     end
@@ -64,33 +64,33 @@ class Cctools < Formula
 
     # This set of patches only applies to cctools 806, for older OSes
     patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/patches/db27850/cctools/cctools-806-lto.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/db27850/cctools/cctools-806-lto.patch"
       sha256 "a92f38f0c34749b0988d4bfec77dec3ce3fc27d50a2cf9f3aaffa4277386470c"
     end
 
     patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/patches/db27850/cctools/PR-9087924.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/db27850/cctools/PR-9087924.patch"
       sha256 "6020933a25196660c2eb09d06f2cc4c2b5d67158fd2d99c221a17b63111ff391"
     end
 
     patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/patches/db27850/cctools/PR-9830754.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/db27850/cctools/PR-9830754.patch"
       sha256 "092e2762328477227f9589adf14c14945ebe6f266567deef16754ccc2ecb352d"
     end
 
     # Despite the patch name this is needed on 806 too
     patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/patches/db27850/cctools/cctools-822-no-lto.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/db27850/cctools/cctools-822-no-lto.patch"
       sha256 "535fe18d8842b03d23b0be057905f4f685d63b9c6436227b623b7aecd8e6ea83"
     end
 
     patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/patches/db27850/cctools/PR-11136237.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/db27850/cctools/PR-11136237.patch"
       sha256 "a19685c8870bdf270ed0fb8240985d87556be07eef14920ea782e2f5ec076759"
     end
 
     patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/patches/db27850/cctools/PR-12475288.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/db27850/cctools/PR-12475288.patch"
       sha256 "2883e782094e05cbe5bc5a9f672aa775bc23ca0c77d2ecaa931be8b39e3525cb"
     end
   end

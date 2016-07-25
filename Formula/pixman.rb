@@ -1,7 +1,7 @@
 class Pixman < Formula
   desc "Low-level library for pixel manipulation"
-  homepage "http://cairographics.org/"
-  url "http://cairographics.org/releases/pixman-0.34.0.tar.gz"
+  homepage "https://cairographics.org/"
+  url "https://cairographics.org/releases/pixman-0.34.0.tar.gz"
   sha256 "21b6b249b51c6800dc9553b65106e1e37d0e25df942c90531d4c3997aa20a88e"
 
   bottle do
@@ -49,8 +49,7 @@ class Pixman < Formula
         return 0;
       }
     EOS
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{include}/pixman-1
       -L#{lib}
       -lpixman-1

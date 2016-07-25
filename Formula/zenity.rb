@@ -1,13 +1,13 @@
 class Zenity < Formula
   desc "GTK+ dialog boxes for the command-line"
   homepage "https://live.gnome.org/Zenity"
-  url "https://download.gnome.org/sources/zenity/3.18/zenity-3.18.1.tar.xz"
-  sha256 "089d45f8e82bb48ae80fcb78693bcd7a29579631234709d752afed6c5a107ba8"
+  url "https://download.gnome.org/sources/zenity/3.20/zenity-3.20.0.tar.xz"
+  sha256 "02e8759397f813c0a620b93ebeacdab9956191c9dc0d0fcba1815c5ea3f15a48"
 
   bottle do
-    sha256 "f0017ba4ecdcdb89d8339ea2efefed1c1d7753544899cde824cd59864761710e" => :el_capitan
-    sha256 "0e585f77e9f945c54a3257f3f212bc2f19aff927475090b73ffa83e98b32e3c4" => :yosemite
-    sha256 "8cf1d00ab9bedf112479aa4f503ec475379046e90916364a65e169766d87e0e8" => :mavericks
+    sha256 "ffa980a8e878b69b027fbf1c418196732ad43fab5c37e1ffe72c0884a6b602df" => :el_capitan
+    sha256 "9349b8d5c3b3dd4d22e79665389fdf8b6b6b38ecbafed0aad0abe9c22c9175cf" => :yosemite
+    sha256 "4f425ef4b8f460ea99a24d495d4a973cbdd0e23c1fa9821b33104ecd2ef0d0c1" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -17,36 +17,15 @@ class Zenity < Formula
   depends_on "gtk+3"
   depends_on "gnome-doc-utils"
   depends_on "scrollkeeper"
-
-  # submitted upstream at https://bugzilla.gnome.org/show_bug.cgi?id=756756
-  patch :DATA
+  depends_on "webkitgtk" => :optional
 
   def install
-    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/zenity", "--help"
+    system bin/"zenity", "--help"
   end
 end
-
-__END__
-diff --git a/src/option.c b/src/option.c
-index 79a6f92..246cf22 100644
---- a/src/option.c
-+++ b/src/option.c
-@@ -2074,9 +2074,11 @@ zenity_text_post_callback (GOptionContext *context,
-     if (zenity_text_font)
-       zenity_option_error (zenity_option_get_name (text_options, &zenity_text_font),
-                            ERROR_SUPPORT);
-+#ifdef HAVE_WEBKITGTK
-     if (zenity_text_enable_html)
-       zenity_option_error (zenity_option_get_name (text_options, &zenity_text_enable_html),
-                            ERROR_SUPPORT);
-+#endif
-   }
-   return TRUE;
- }

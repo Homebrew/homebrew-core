@@ -1,8 +1,8 @@
 class Rmate < Formula
   desc "Edit files from an SSH session in TextMate"
   homepage "https://github.com/textmate/rmate"
-  url "https://github.com/textmate/rmate/archive/v1.5.7.tar.gz"
-  sha256 "a84105e2c986ef39def5147fa83b8607bab41502177040f4324f5f94946a8e50"
+  url "https://github.com/textmate/rmate/archive/v1.5.8.tar.gz"
+  sha256 "40be07ae251bfa47b408eb56395dd2385d8e9ea220a19efd5145593cd8cbd89c"
   head "https://github.com/textmate/rmate.git"
 
   bottle :unneeded

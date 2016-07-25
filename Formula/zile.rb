@@ -1,7 +1,7 @@
 class Zile < Formula
   desc "Zile Is Lossy Emacs (ZILE)"
   homepage "https://www.gnu.org/software/zile/"
-  url "http://ftpmirror.gnu.org/zile/zile-2.4.11.tar.gz"
+  url "https://ftpmirror.gnu.org/zile/zile-2.4.11.tar.gz"
   mirror "https://ftp.gnu.org/gnu/zile/zile-2.4.11.tar.gz"
   sha256 "1fd27bbddc61491b1fbb29a345d0d344734aa9e80cfa07b02892eedf831fa9cc"
 

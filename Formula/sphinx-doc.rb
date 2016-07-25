@@ -1,14 +1,14 @@
 class SphinxDoc < Formula
   desc "Tool to create intelligent and beautiful documentation"
   homepage "http://sphinx-doc.org"
-  url "https://pypi.python.org/packages/source/S/Sphinx/Sphinx-1.4.tar.gz"
-  sha256 "0ffb35263dbc7b6f3e5fdadc33815ae859e31bf1070226be52448cd43cd3ceeb"
+  url "https://files.pythonhosted.org/packages/8b/78/eeea2b837f911cdc301f5f05163f9729a2381cadd03ccf35b25afe816c90/Sphinx-1.4.5.tar.gz"
+  sha256 "c5df65d97a58365cbf4ea10212186a9a45d89c61ed2c071de6090cdf9ddb4028"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6f3a3ab0c4106d1e2ef3248ae95550234b285f4339bed73e7c4445dd8473cd5a" => :el_capitan
-    sha256 "981eef30ad42a1bfb04ddc2aec53dfbbfb7e4acc6797b0371e0a25c89e56eec5" => :yosemite
-    sha256 "96f89a5d05cb08afeb9f847be349f05d706b4484bf94bd5693bc9319f4fd9352" => :mavericks
+    sha256 "6973f0a6dac17b26f63ccdec98888aeefa4cef48a0e4d81e5f2d86bbbfc1cc3f" => :el_capitan
+    sha256 "1ec4ce94c7d0b183616fcc19eb15ca4b8f83dde00bac2dbb9aa6194eeeddac3a" => :yosemite
+    sha256 "9789199ec50d6669c0d762d8789c3815fb5ff4bfcf4d2d5af1a72c98f2623041" => :mavericks
   end
 
   keg_only <<-EOS.undent
@@ -19,13 +19,13 @@ class SphinxDoc < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "alabaster" do
-    url "https://pypi.python.org/packages/source/a/alabaster/alabaster-0.7.7.tar.gz"
-    sha256 "f416a84e0d0ddbc288f6b8f2c276d10b40ca1238562cd9ed5a751292ec647b71"
+    url "https://pypi.python.org/packages/46/01/3539c406b47b0e44464a2b6c7b51871300d815b9d7b07c98309c9270bd50/alabaster-0.7.8.tar.gz"
+    sha256 "a1cb1b94fcc192ff74ca212d6ef5cb543bb169cfe7991c2b9df256bb354c1fff"
   end
 
   resource "Babel" do
-    url "https://pypi.python.org/packages/source/B/Babel/Babel-2.2.0.tar.gz"
-    sha256 "d8cb4c0e78148aee89560f9fe21587aa57739c975bb89ff66b1e842cc697428f"
+    url "https://pypi.python.org/packages/6e/96/ba2a2462ed25ca0e651fb7b66e7080f5315f91425a07ea5b34d7c870c114/Babel-2.3.4.tar.gz"
+    sha256 "c535c4403802f6eb38173cd4863e419e2274921a01a8aad8a5b497c131c62875"
   end
 
   resource "docutils" do
@@ -34,8 +34,8 @@ class SphinxDoc < Formula
   end
 
   resource "imagesize" do
-    url "https://pypi.python.org/packages/source/i/imagesize/imagesize-0.7.0.tar.gz"
-    sha256 "bb3d10fca0f66f771298d19035d8e6d01aaafb9ec8d9ae972dcb8acb2cf94f57"
+    url "https://pypi.python.org/packages/53/72/6c6f1e787d9cab2cc733cf042f125abec07209a58308831c9f292504e826/imagesize-0.7.1.tar.gz"
+    sha256 "0ab2c62b87987e3252f89d30b7cedbec12a01af9274af9ffa48108f2c13c6062"
   end
 
   resource "Jinja2" do
@@ -54,8 +54,8 @@ class SphinxDoc < Formula
   end
 
   resource "pytz" do
-    url "https://pypi.python.org/packages/source/p/pytz/pytz-2016.3.tar.bz2"
-    sha256 "c193dfa167ac32c8cb96f26cbcd92972591b22bda0bac3effdbdb04de6cc55d6"
+    url "https://files.pythonhosted.org/packages/f7/c7/08e54702c74baf9d8f92d0bc331ecabf6d66a56f6d36370f0a672fc6a535/pytz-2016.6.1.tar.bz2"
+    sha256 "b5aff44126cf828537581e534cc94299b223b945a2bb3b5434d37bf8c7f3a10c"
   end
 
   resource "six" do

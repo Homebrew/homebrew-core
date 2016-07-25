@@ -5,38 +5,34 @@ class Cryptol < Formula
 
   desc "Domain-specific language for specifying cryptographic algorithms"
   homepage "http://www.cryptol.net/"
-  url "https://github.com/GaloisInc/cryptol.git",
-      :tag => "2.3.0",
-      :revision => "eb51fab238797dfc10274fd60c68acd4bdf53820"
+  url "https://hackage.haskell.org/package/cryptol-2.4.0/cryptol-2.4.0.tar.gz"
+  sha256 "d34471f734429c25b52ca71ce63270ec3157a8413eeaf7f65dd7abe3cb27014d"
   head "https://github.com/GaloisInc/cryptol.git"
 
   bottle do
-    sha256 "9643af9999d726207637d934f8eab3c9a336a35436f12a4db7eb4f483ac98294" => :el_capitan
-    sha256 "9974c88e44602ab06a725a52867e1315e99527095625bdb02a911c0d7f0f2d1b" => :yosemite
-    sha256 "4b3c0e6576fee29f9db6e3f089d55854724c91d11112b43c1a3ca224385efaea" => :mavericks
+    sha256 "a5f2ee4dd5b97cd902df46add9279e1575bd053d0638cceb27df4d250952e1c7" => :el_capitan
+    sha256 "605b746d10521d8b5de1c8711974eed1c929490e35417927f1ca000c477cd705" => :yosemite
+    sha256 "baaf041702d1bd513e7ec73ee373224da009bdc7609ba13cd3aa2d6ca8141ae3" => :mavericks
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
-  depends_on "z3"
+  depends_on "z3" => :run
 
   def install
-    cabal_sandbox do
-      system "make", "PREFIX=#{prefix}", "install"
-    end
+    install_cabal_package :using => ["alex", "happy"]
   end
 
   test do
-    (testpath/"hello.icry").write <<-EOS.undent
+    (testpath/"helloworld.icry").write <<-EOS.undent
       :prove \\(x : [8]) -> x == x
       :prove \\(x : [32]) -> x + zero == x
     EOS
-    result = shell_output "#{bin}/cryptol -b #{(testpath/"hello.icry")}"
     expected = <<-EOS.undent
       Loading module Cryptol
       Q.E.D.
       Q.E.D.
     EOS
-    assert_match expected, result
+    assert_match expected, shell_output("#{bin}/cryptol -b helloworld.icry")
   end
 end

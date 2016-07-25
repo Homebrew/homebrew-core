@@ -21,7 +21,7 @@ class Tinyproxy < Formula
 
   # Fix linking error, via MacPorts: https://trac.macports.org/ticket/27762
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/2b17ed2/tinyproxy/patch-configure.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2b17ed2/tinyproxy/patch-configure.diff"
     sha256 "414b8ae7d0944fb8d90bef708864c4634ce1576c5f89dd79539bce1f630c9c8d"
   end
 

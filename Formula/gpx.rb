@@ -1,14 +1,15 @@
 class Gpx < Formula
   desc "Gcode to x3g converter for 3D printers running Sailfish"
   homepage "https://github.com/markwal/GPX/blob/master/README.md"
-  url "https://github.com/markwal/GPX/archive/2.4.3.tar.gz"
-  sha256 "e2d67fd11b63b7ec30b122a4c4af6910305911dc3632ce18d213196be848993c"
+  url "https://github.com/markwal/GPX/archive/2.5.2.tar.gz"
+  sha256 "8b637a366a2863ca3a11b4c6a33d8ebc10806bf7de3e3ac90f2a3a57529ea864"
+  head "https://github.com/markwal/GPX.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "daa0f72890ce52877941637f2ec33d8bf05f948c06babb214a8d778817a8fae9" => :el_capitan
-    sha256 "f00fccb4ee486da781bb63c415167df55d50768e4989ae77ab0a296e5bdfc7f9" => :yosemite
-    sha256 "8328513137d9c3328f0d447d2ea664eca67311c4cda37a9c3bcf4107d48728f8" => :mavericks
+    sha256 "29621a041a78876e963bdd922c6ea5203f102dbbcd87038d3ade22eca6bafb29" => :el_capitan
+    sha256 "451eab6ecaf8a42858ae0d71cfa141bc14fd3d0608285bc1a677422fcc8a662e" => :yosemite
+    sha256 "d1fdd06431d4efa1043c364c34d1e2f1fd0d904aa58047829ec0beda4aa47340" => :mavericks
   end
 
   def install

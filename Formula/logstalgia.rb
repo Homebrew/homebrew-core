@@ -3,11 +3,12 @@ class Logstalgia < Formula
   homepage "http://logstalgia.io/"
   url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.0.7/logstalgia-1.0.7.tar.gz"
   sha256 "5553fd03fb7be564538fe56e871eac6e3caf56f40e8abc4602d2553964f8f0e1"
+  revision 1
 
   bottle do
-    sha256 "248428cb04a28dd6cfac58d860417324e2d3349314d0fcbbf180470e618ca8a0" => :el_capitan
-    sha256 "ae50b8635b79a567f8076581fe74ec5fdeb191acdc9174a64463a5253dde9866" => :yosemite
-    sha256 "bf42ae5b89745a8e16450611d0bfabd5c9b157222abbacff2ecf75f68d6e2da8" => :mavericks
+    sha256 "ff663d84629d8d26a43498394ff9ea8231d79e60c836e2f7862685a7ee3f6592" => :el_capitan
+    sha256 "d224adca8bdd80d7145b23be1a70e201fe49139b47eea9a713d18cfb38c52c61" => :yosemite
+    sha256 "7527bbe6dc03b41d5dad76d4a60fe698c54baa9453b089d821985b3c048e487f" => :mavericks
   end
 
   head do

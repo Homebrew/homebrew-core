@@ -89,8 +89,8 @@ class Fontforge < Formula
     system "make"
     system "make", "install"
 
-    # The app here is not functional. You should install Fontforge
-    # via the Cask if you want GUI/App support.
+    # The app here is not functional.
+    # If you want GUI/App support, check the caveats to see how to get it.
     (pkgshare/"osx/FontForge.app").rmtree
 
     if build.with? "extra-tools"
@@ -99,6 +99,17 @@ class Fontforge < Formula
         bin.install Dir["*"].select { |f| File.executable? f }
       end
     end
+  end
+
+  def caveats; <<-EOS.undent
+    This formula only installs the command line utilities.
+
+    FontForge.app can be downloaded directly from the website:
+      https://fontforge.github.io
+
+    Alternatively, install with Homebrew-Cask:
+      brew cask install fontforge
+    EOS
   end
 
   test do

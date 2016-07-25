@@ -1,14 +1,14 @@
 class GnuUnits < Formula
   desc "GNU unit conversion tool"
   homepage "https://www.gnu.org/software/units/"
-  url "http://ftpmirror.gnu.org/units/units-2.12.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/units/units-2.12.tar.gz"
-  sha256 "7868ea5118f1fe8e9f9f7256ecc7f1ee0dd7027ba9f32cc739184af1ed94bbcb"
+  url "https://ftpmirror.gnu.org/units/units-2.13.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/units/units-2.13.tar.gz"
+  sha256 "0ba5403111f8e5ea22be7d51ab74c8ccb576dc30ddfbf18a46cb51f9139790ab"
 
   bottle do
-    sha256 "945af21fb90242bc27210c6006e9592a9f41a1e42525703adf9ee285b6230336" => :el_capitan
-    sha256 "619546f41b4c1a0c5a766cbb389ee85c47f5cd5853abf297ec500144e6b1cc50" => :yosemite
-    sha256 "7aadfeebfa644b3d2d2d86f642eb365983f8ffba859cb1782530a7ee0c2f307b" => :mavericks
+    sha256 "76982a809c64af4f45e97cc450cd717b4a12fef538c78ba362bf45b0e49877cb" => :el_capitan
+    sha256 "ad75ca96d61f7f09dd95c831b6b468e04c4912e9834bebea17a02162758e0f9b" => :yosemite
+    sha256 "89fe5cd2960513e836909fae964b0e787d8b9747711cc1cee79fc30be2332fcd" => :mavericks
   end
 
   deprecated_option "default-names" => "with-default-names"

@@ -20,12 +20,12 @@ class Makensis < Formula
   end
 
   devel do
-    url "https://downloads.sourceforge.net/project/nsis/NSIS%203%20Pre-release/3.0rc1/nsis-3.0rc1-src.tar.bz2"
-    sha256 "4e2a98c96f470386f41dcc7fd3163935228f8833d6accd0884aa0f4cb960b232"
+    url "https://downloads.sourceforge.net/project/nsis/NSIS%203%20Pre-release/3.0rc2/nsis-3.0rc2-src.tar.bz2"
+    sha256 "259a5a80fa18ec73e1264b528a10666be07be6e02d8c86af7702ec0d7ae7dd30"
 
     resource "nsis" do
-      url "https://downloads.sourceforge.net/project/nsis/NSIS%203%20Pre-release/3.0rc1/nsis-3.0rc1.zip"
-      sha256 "d9ae82c7ace44dd265f1081861287a5565c742448e0460386b165b54c6465694"
+      url "https://downloads.sourceforge.net/project/nsis/NSIS%203%20Pre-release/3.0rc2/nsis-3.0rc2.zip"
+      sha256 "f6792547b2d0e3b6638766dcefcd362673239e5d09627d7e80e8cd6275109712"
     end
   end
 

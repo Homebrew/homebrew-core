@@ -1,14 +1,13 @@
 class Gputils < Formula
   desc "GNU PIC Utilities"
   homepage "http://gputils.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/gputils/gputils/1.4.0/gputils-1.4.0-1.tar.gz"
-  sha256 "d0ce93b6bcf266b8dfa0d0d589d5626a04b950a4e450ff27ef62534243ac7edb"
+  url "https://downloads.sourceforge.net/project/gputils/gputils/1.4.2/gputils-1.4.2-1.tar.gz"
+  sha256 "e27b5c5ef3802a9c6c4a859d9ac2c380c31b3a2d6d6880718198bd1139b71271"
 
   bottle do
-    revision 1
-    sha256 "519dc4bdafc29039dfd5c12db4e58e1514554404b744119cd710f415b00e6290" => :el_capitan
-    sha256 "d2ff0a1800f55f45a83003f1cbfeb4f04d9eec5ff6e029bf88799269af4aad7d" => :yosemite
-    sha256 "d787ebb6410c76e5b983f977da35ee2a1ff150a49f906bd32b7422b1851383eb" => :mavericks
+    sha256 "32a73229f86fc8a3bfbbd4582f435c9c92f0b7335e523f3b377d2528631b42b8" => :el_capitan
+    sha256 "169a9bcc46bc5e57c7fe9c688ae7bd7f9afc157a222948179133a47d6d2038b4" => :yosemite
+    sha256 "6d085798dce7be27385f28b97893d4bb3f44b0d02983e75865c7c6a54b3e5f5b" => :mavericks
   end
 
   def install

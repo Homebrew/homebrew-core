@@ -1,16 +1,27 @@
 class Phantomjs < Formula
   desc "Headless WebKit scriptable with a JavaScript API"
   homepage "http://phantomjs.org/"
-  url "https://github.com/ariya/phantomjs.git",
-      :tag => "2.1.1",
-      :revision => "d9cda3dcd26b0e463533c5cc96e39c0f39fc32c1"
   head "https://github.com/ariya/phantomjs.git"
+
+  stable do
+    url "https://github.com/ariya/phantomjs.git",
+        :tag => "2.1.1",
+        :revision => "d9cda3dcd26b0e463533c5cc96e39c0f39fc32c1"
+
+    # Fixes build.py for non-standard Homebrew prefixes.  Applied
+    # upstream, can be removed in next release.
+    patch do
+      url "https://github.com/ariya/phantomjs/commit/6090f5457d2051ab374264efa18f655fa3e15e79.diff"
+      sha256 "43c7d2c76db434aa845c0504209052af6011a20d1295b203c3bee881071aa471"
+    end
+  end
 
   bottle do
     cellar :any
-    sha256 "f66255cd772834de297a10fc7053800bfbd99c4833196958c18f05299dec6bc9" => :el_capitan
-    sha256 "0ba4152cce3869cc01ed697d9bbf4dfe55d7749693dfbf6bede24c191c0f177f" => :yosemite
-    sha256 "908cacf9af85893f54c5330987099896448c2699a7f3712de3e2232348c433b2" => :mavericks
+    revision 1
+    sha256 "370e6f729ac20091c408dc5a1be14361b861bef78f1a52efb201e27e7440cfa4" => :el_capitan
+    sha256 "ec65660b5c4097886d52fe0b4928aaefd6d09fb0e6ab707b1fa4d762acf873e1" => :yosemite
+    sha256 "d837e04d137ae8ddc8eb807b7ca5a08a0fccdfd513f4fdd4f1d610ce8abc0874" => :mavericks
   end
 
   depends_on MinimumMacOSRequirement => :lion
@@ -18,7 +29,7 @@ class Phantomjs < Formula
   depends_on "openssl"
 
   def install
-    inreplace "build.py", "/usr/local", HOMEBREW_PREFIX
+    ENV["OPENSSL"] = Formula["openssl"].opt_prefix
     system "./build.py", "--confirm", "--jobs", ENV.make_jobs
     bin.install "bin/phantomjs"
     pkgshare.install "examples"

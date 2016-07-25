@@ -3,16 +3,35 @@ require "language/go"
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb/archive/v0.12.2.tar.gz"
-  sha256 "fb2f918794db07c2a05388fd583591bb3084b2af37a64e98be4b4c73302a8742"
-
-  head "https://github.com/influxdata/influxdb.git"
+  url "https://github.com/influxdata/influxdb.git",
+    :tag => "v0.13.0",
+    :revision => "e57fb88a051ee40fd9277094345fbd47bb4783ce"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fb261aae833cbf9892541050037ebf2ebe1f695f8e321ea2ddb6deb9fdb9eafb" => :el_capitan
-    sha256 "4c3805ad7f5fb99e936545b440f2f95fce57f5b3294ab438e977806ac4fca64a" => :yosemite
-    sha256 "6b2c9a0167d0b4c0cf62aa080b9297ba25a2c4e340ccce09a8a995ec1e41c4c6" => :mavericks
+    sha256 "979c4ef2a1024adddefd58ead3055617fa92ea03463db121cbda4bba95c3df8c" => :el_capitan
+    sha256 "f48c3e0089f71716d631ba4d3c008be1b903d7743050cf88403ff928b6063695" => :yosemite
+    sha256 "ee92a83c004e9899be1947690b987dc1290c747ab5ff738221c0977f464a4d69" => :mavericks
+  end
+
+  devel do
+    url "https://github.com/influxdata/influxdb.git",
+      :tag => "v1.0.0-beta2",
+      :revision => "bed66cfbe4abf7558594a86f1779c809ffe23b1d"
+
+    go_resource "github.com/dgrijalva/jwt-go" do
+      url "https://github.com/dgrijalva/jwt-go.git",
+      :revision => "a2c85815a77d0f951e33ba4db5ae93629a1530af"
+    end
+  end
+
+  head do
+    url "https://github.com/influxdata/influxdb.git"
+
+    go_resource "github.com/dgrijalva/jwt-go" do
+      url "https://github.com/dgrijalva/jwt-go.git",
+      :revision => "a2c85815a77d0f951e33ba4db5ae93629a1530af"
+    end
   end
 
   depends_on "go" => :build
@@ -54,7 +73,7 @@ class Influxdb < Formula
 
   go_resource "github.com/gogo/protobuf" do
     url "https://github.com/gogo/protobuf.git",
-    :revision => "82d16f734d6d871204a3feb1a73cb220cc92574c"
+    :revision => "74b6e9deaff6ba6da1389ec97351d337f0d08b06"
   end
 
   go_resource "github.com/golang/snappy" do
@@ -69,7 +88,7 @@ class Influxdb < Formula
 
   go_resource "github.com/jwilder/encoding" do
     url "https://github.com/jwilder/encoding.git",
-    :revision => "07d88d4f35eec497617bee0c7bfe651a796dae13"
+    :revision => "b421ab402545ef5a119f4f827784c6551d9bfc37"
   end
 
   go_resource "github.com/kimor79/gollectd" do
@@ -84,7 +103,7 @@ class Influxdb < Formula
 
   go_resource "github.com/peterh/liner" do
     url "https://github.com/peterh/liner.git",
-    :revision => "ad1edfd30321d8f006ccf05f1e0524adeb943060"
+    :revision => "82a939e738b0ee23e84ec7a12d8e216f4d95c53f"
   end
 
   go_resource "github.com/rakyll/statik" do
@@ -106,15 +125,15 @@ class Influxdb < Formula
     ENV["GOPATH"] = buildpath
     influxdb_path = buildpath/"src/github.com/influxdata/influxdb"
     influxdb_path.install Dir["*"]
+    revision = `git rev-parse HEAD`.strip
+    version = `git describe --tags`.strip
 
     Language::Go.stage_deps resources, buildpath/"src"
 
     cd influxdb_path do
-      if build.head?
-        system "go", "install", "-ldflags", "-X main.version=0.13.0-HEAD -X main.branch=master -X main.commit=#{`git rev-parse HEAD`.strip}", "./..."
-      else
-        system "go", "install", "-ldflags", "-X main.version=0.12.2 -X main.branch=0.12 -X main.commit=383332daed5595926c235f250b11433f67229c35", "./..."
-      end
+      system "go", "install",
+             "-ldflags", "-X main.version=#{version} -X main.commit=#{revision} -X main.branch=master",
+             "./..."
     end
 
     inreplace influxdb_path/"etc/config.sample.toml" do |s|
@@ -180,14 +199,13 @@ class Influxdb < Formula
       s.gsub! %r{/.*/.influxdb/wal}, "#{testpath}/influxdb/wal"
     end
 
-    pid = fork do
-      exec "#{bin}/influxd -config #{testpath}/config.toml"
-    end
-    sleep 5
-
     begin
+      pid = fork do
+        exec "#{bin}/influxd -config #{testpath}/config.toml"
+      end
+      sleep 1
       output = shell_output("curl -Is localhost:8086/ping")
-      sleep 2
+      sleep 1
       assert_match /X-Influxdb-Version:/, output
     ensure
       Process.kill("SIGINT", pid)

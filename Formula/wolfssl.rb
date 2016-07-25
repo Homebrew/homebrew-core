@@ -1,15 +1,15 @@
 class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com/wolfSSL/Home.html"
-  url "https://github.com/wolfSSL/wolfssl/archive/v3.9.0.tar.gz"
-  sha256 "9d461209f663391d4c0349c23466556782c13964b9626fef694f2d420a176658"
+  url "https://github.com/wolfSSL/wolfssl/archive/v3.9.6.tar.gz"
+  sha256 "d32422ef76cec78fea6e51a96cc9e999d64be75b9c1d0f14fa9237507bed4467"
   head "https://github.com/wolfSSL/wolfssl.git"
 
   bottle do
     cellar :any
-    sha256 "20a0541d43f454a258155cbd495a7ca5df3f8d4a39ddc434079158714a937630" => :el_capitan
-    sha256 "bfe0acbb5356fb570a5bd9b096d4c0b6e8d022809006a32d0a49e25831c1c7f1" => :yosemite
-    sha256 "426e82e80b3c1b4275cb11267ce8d8d8c00efbf32426df0590b50a865d0904ec" => :mavericks
+    sha256 "5de5f6a35b5759ae75dc32e863d62af42a38e3ed17070ff473f4d7120c61a1b7" => :el_capitan
+    sha256 "f56967bb958c6f4b3a4380e8987997ff29ac624499844d37062febe39573c8d1" => :yosemite
+    sha256 "190abbc96a4e0ed90f05657c60ddadb3065d6e1b2b68d688898c9e0f2a987ddc" => :mavericks
   end
 
   option "without-test", "Skip compile-time tests"
@@ -21,6 +21,10 @@ class Wolfssl < Formula
   depends_on "libtool" => :build
 
   def install
+    # https://github.com/Homebrew/homebrew-core/pull/1046
+    # https://github.com/Homebrew/brew/pull/251
+    ENV.delete("SDKROOT")
+
     args = %W[
       --disable-silent-rules
       --disable-dependency-tracking
@@ -44,17 +48,18 @@ class Wolfssl < Formula
       --enable-chacha
       --enable-crl
       --enable-crl-monitor
+      --enable-curve25519
       --enable-dtls
       --enable-dh
       --enable-ecc
       --enable-eccencrypt
-      --enable-ecc25519
       --enable-ed25519
       --enable-filesystem
       --enable-hc128
       --enable-hkdf
       --enable-inline
       --enable-ipv6
+      --enable-jni
       --enable-keygen
       --enable-ocsp
       --enable-opensslextra

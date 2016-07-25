@@ -1,14 +1,14 @@
 class Libmagic < Formula
   desc "Implementation of the file(1) command"
   homepage "https://www.darwinsys.com/file/"
-  url "ftp://ftp.astron.com/pub/file/file-5.25.tar.gz"
-  mirror "https://fossies.org/linux/misc/file-5.25.tar.gz"
-  sha256 "3735381563f69fb4239470b8c51b876a80425348b8285a7cded8b61d6b890eca"
+  url "ftp://ftp.astron.com/pub/file/file-5.28.tar.gz"
+  mirror "https://fossies.org/linux/misc/file-5.28.tar.gz"
+  sha256 "0ecb5e146b8655d1fa84159a847ee619fc102575205a0ff9c6cc60fc5ee2e012"
 
   bottle do
-    sha256 "d3a6cdd08087e9b489335a0a8356e2e2fbff451f6a0e6a235fb9e85ad47db7d3" => :el_capitan
-    sha256 "e036124db97064c7dba5641c48b427f6932c66caebb5b4f708fe1f7651750483" => :yosemite
-    sha256 "11d5a175b69618acfb80aa5832f66afe57c7bb23b9487785ab8512eeedce860e" => :mavericks
+    sha256 "13beb0a727a18c47d10c4569772fd2077b37ed363c008faa82bc184a104c380b" => :el_capitan
+    sha256 "ab633517a9be283ce7518864086d58a49a1de0926da5f65e1bbdfb5ef1d20ffb" => :yosemite
+    sha256 "dfbcd1f3bee44e44bbeaa8638167359966e810f77cc6f81516776dbba979c68b" => :mavericks
   end
 
   option :universal
@@ -17,9 +17,6 @@ class Libmagic < Formula
 
   def install
     ENV.universal_binary if build.universal?
-
-    # Clean up "src/magic.h" as per http://bugs.gw.com/view.php?id=330
-    rm "src/magic.h"
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

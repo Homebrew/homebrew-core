@@ -3,6 +3,7 @@ class Csmith < Formula
   homepage "https://embed.cs.utah.edu/csmith/"
   url "https://embed.cs.utah.edu/csmith/csmith-2.2.0.tar.gz"
   sha256 "62fd96d3a5228241d4f3159511ad3ff5b8c4cedb9e9a82adc935830b421c8e37"
+  head "https://github.com/csmith-project/csmith.git"
 
   bottle do
     cellar :any

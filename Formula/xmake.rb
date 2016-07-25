@@ -1,27 +1,26 @@
 class Xmake < Formula
-  desc "The Automatic Cross-platform Build Tool"
-  homepage "https://github.com/waruqi/xmake"
-  url "https://github.com/waruqi/xmake/archive/v1.0.4.tar.gz"
-  mirror "http://tboox.net/release/xmake/xmake-v1.0.4.tar.gz"
-  sha256 "36307effa4251413f26b5c7af454269f0a06c891e1a4918a3801760b78d1a365"
+  desc "Make-like build utility based on Lua"
+  homepage "http://xmake.io"
+  url "https://github.com/waruqi/xmake/archive/v2.0.3.tar.gz"
+  sha256 "80f1e1de8049850419acc964a510f21c456b95f4e22637dce162c54e7244fba2"
   head "https://github.com/waruqi/xmake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "43acc8707721039771c55da22ba3ca952a5455f5f2e429a5f77ed483a51eaf9d" => :el_capitan
-    sha256 "b410d812545bed22448185426ddc8efd4d469d0921268279b48481de797288a0" => :yosemite
-    sha256 "3226fee22117f1763b1167293311351c707740a9be7236c7f03fd867deab5b74" => :mavericks
+    sha256 "ec118cea9544e2a17906c28a71f37511e67632087d63b8bada1c3d8a21c191cd" => :el_capitan
+    sha256 "9120c6274000e37374bd27c757c000af4d81962c9b31a9ca3f213282f3462009" => :yosemite
+    sha256 "62a06cd76179965b01ab919661c8f8bca129b268032abd1d3feb5e866f5816c2" => :mavericks
   end
 
   def install
     system "./install", "output"
     pkgshare.install Dir["xmake/*"]
     bin.install "output/share/xmake/xmake"
-    bin.env_script_all_files(libexec, :XMAKE_PROGRAM_DIR =>"#{pkgshare}")
+    bin.env_script_all_files(libexec, :XMAKE_PROGRAM_DIR => pkgshare)
   end
 
   test do
-    touch testpath/"xmake.lua"
-    system "#{bin}/xmake"
+    system bin/"xmake", "create", "-P", testpath
+    assert_match "build ok!", pipe_output(bin/"xmake")
   end
 end

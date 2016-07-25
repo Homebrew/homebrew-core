@@ -12,9 +12,18 @@ class Cryptopp < Formula
 
   option :cxx11
 
+  patch do
+    # fix failing test
+    # https://github.com/Homebrew/homebrew-core/issues/2783
+    # http://comments.gmane.org/gmane.comp.encryption.cryptopp/8028
+    url "https://github.com/weidai11/cryptopp/commit/0059f48.diff"
+    sha256 "f75d6cf87f00dfa98839a89a3c0c57dc26c1739916d6d5c0abbd9228b0a01829"
+  end
+
   def install
     ENV.cxx11 if build.cxx11?
-    system "make", "CXX=#{ENV.cxx}"
+    system "make", "shared", "all", "CXX=#{ENV.cxx}"
+    system "./cryptest.exe", "v"
     system "make", "install", "PREFIX=#{prefix}"
   end
 

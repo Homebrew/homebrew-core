@@ -1,18 +1,13 @@
 class Vala < Formula
   desc "Compiler for the GObject type system"
   homepage "https://live.gnome.org/Vala"
-  url "https://download.gnome.org/sources/vala/0.30/vala-0.30.1.tar.xz"
-  sha256 "23add78e5c6a5e6df019d4a885c9c79814c9e0b957519ec8a4f4d826c4e5df2c"
+  url "https://download.gnome.org/sources/vala/0.32/vala-0.32.1.tar.xz"
+  sha256 "dd0d47e548a34cfb1e4b04149acd082a86414c49057ffb79902eb9a508a161a9"
 
   bottle do
-    sha256 "b68681f676381035cdd85e944aa234f0566137bda514ec105477fbeed246a365" => :el_capitan
-    sha256 "752fe91460002b335c35084f073d6e3f3666017f6b7dea9f728a828a0dde911e" => :yosemite
-    sha256 "bf422cf5802d09413482943afac7cd0b7d19e2defa1955330acb11d644d61299" => :mavericks
-  end
-
-  devel do
-    url "https://download.gnome.org/sources/vala/0.31/vala-0.31.1.tar.xz"
-    sha256 "c3cbff1cc29f3fca3939c3994b8591ec3d9aca4d85d042353ee46c00ddf4055f"
+    sha256 "b145fd3b3a57d95e90ff2b0ee093e0f29871687bab4af8a2f50ed76410663ccb" => :el_capitan
+    sha256 "7838ebeb324f2b6ec511874389732d4816ec8cb34996858f641220530e4483c6" => :yosemite
+    sha256 "b4f091f677a6fe7f3f67e7dc086ce9ca58dc8dcb70a2a786e9f0f029ed67f12c" => :mavericks
   end
 
   depends_on "pkg-config" => :run
@@ -35,14 +30,16 @@ class Vala < Formula
         print ("#{test_string}");
       }
     EOS
-    valac_args = [ # Build with debugging symbols.
+    valac_args = [
+      # Build with debugging symbols.
       "-g",
       # Use Homebrew's default C compiler.
       "--cc=#{ENV.cc}",
       # Save generated C source code.
       "--save-temps",
       # Vala source code path.
-      path.to_s]
+      path.to_s,
+    ]
     system "#{bin}/valac", *valac_args
     assert File.exist?(testpath/"hello.c")
 

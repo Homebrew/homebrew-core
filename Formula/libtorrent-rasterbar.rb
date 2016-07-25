@@ -1,14 +1,14 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library by Rasterbar Software"
   homepage "http://www.libtorrent.org/"
-  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_0_9/libtorrent-rasterbar-1.0.9.tar.gz"
-  sha256 "11a93125ed49f796fca83da925ab7dc29e91d88b915f078caaddaaf559d63db6"
+  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1/libtorrent-rasterbar-1.1.0.tar.gz"
+  sha256 "2713df7da4aec5263ac11b6626ea966f368a5a8081103fd8f2f2ed97b5cd731d"
 
   bottle do
     cellar :any
-    sha256 "b3b02cf5da26bddb5876067b414c7867297c5a00225424b3ba97e8d6bca1791d" => :el_capitan
-    sha256 "1b6c1f9eab95420b4a8c852ded53bb668ac110b0a713d09fb311e08204d30674" => :yosemite
-    sha256 "18fe39240ec4ae6b2cbbb93369be738d0acccbe82f6e92128302a39c1a0747f1" => :mavericks
+    sha256 "5050d8aac4b229d7af963a06703010ffc7efabe8fe6aa6096388052e0c89d1e2" => :el_capitan
+    sha256 "13489f01602f83b27ca3d3656ec555141521eed60d900b0e027b7e4eb610b693" => :yosemite
+    sha256 "6b79702c81dd8b40306b7d195693de36caeceab59038f6740107bcff96376a18" => :mavericks
   end
 
   head do

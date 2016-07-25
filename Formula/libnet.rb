@@ -19,7 +19,7 @@ class Libnet < Formula
 
   # Fix raw sockets support
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/a689647/libnet/patch-configure.in.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a689647/libnet/patch-configure.in.diff"
     sha256 "3c1ca12609d83372cf93223d69e903eb6e137ed7a4749a8ee19c21bd43f97f18"
   end
 

@@ -2,13 +2,18 @@
 class Macvim < Formula
   desc "GUI for vim, made for OS X"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-102.tar.gz"
-  version "7.4-102"
-  sha256 "700655d5b7548f2b32aa39825ebbf0c03fe07def0461a5e829ad07db96a14fc4"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-104.tar.gz"
+  version "7.4-104"
+  sha256 "b58ce2343150b5ef26fc401cc57dac50688429512fa862e90e3c516f26306ff3"
+  revision 1
 
   head "https://github.com/macvim-dev/macvim.git"
 
-  bottle :disable, "To use the user's Python."
+  bottle do
+    sha256 "2c5fd5164e1cdf41ef9c57eb1db690476ace37f97d7a6579d8b5b572f8d4ea01" => :el_capitan
+    sha256 "8a1330f47a3629e5ddb49065934ffdbf2e0d5be53ab85696824a2b98604cf522" => :yosemite
+    sha256 "9a736b37245e569543f9f3d1e9c544fea5c405f90b126e588b2997eb6f867074" => :mavericks
+  end
 
   option "with-override-system-vim", "Override system vim"
 
@@ -18,6 +23,11 @@ class Macvim < Formula
   depends_on "cscope" => :recommended
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
+
+  if MacOS.version >= :mavericks
+    option "with-custom-python", "Build with a custom Python 2 instead of the Homebrew version."
+  end
+
   depends_on :python => :recommended
   depends_on :python3 => :optional
 
@@ -47,12 +57,12 @@ class Macvim < Formula
 
     if build.with? "lua"
       args << "--enable-luainterp"
-      args << "--with-lua-prefix=#{HOMEBREW_PREFIX}"
+      args << "--with-lua-prefix=#{Formula["lua"].opt_prefix}"
     end
 
     if build.with? "luajit"
       args << "--enable-luainterp"
-      args << "--with-lua-prefix=#{HOMEBREW_PREFIX}"
+      args << "--with-lua-prefix=#{Formula["luajit"].opt_prefix}"
       args << "--with-luajit"
     end
 

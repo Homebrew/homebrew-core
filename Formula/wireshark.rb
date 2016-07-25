@@ -1,15 +1,16 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.0.3.tar.bz2"
-  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.0.3.tar.bz2"
-  sha256 "e196376e75fe21fdef41b4eaa27ce2e1b2b561e7f7b20328a8e96657cc4465fc"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.0.4.tar.bz2"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.0.4.tar.bz2"
+  sha256 "9ea9c82da9942194ebc8fc5c951a02e6d179afa7472cb6d96ca76154510de1a5"
+
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
-    sha256 "031983c39798ac3ecd0378835ecd26713a347f690b8a63671367aa6f60928674" => :el_capitan
-    sha256 "610d2fad4869846c74f9c439c8c11fa4ec62c127e6031cfef63f125f616a8057" => :yosemite
-    sha256 "f381f463f840b1b7e09048bfd78e159d928dc4a4f826cc582dc1686f189d616c" => :mavericks
+    sha256 "0f7385bfd31d50c49d428c4d1d48f77c0d1ea7d2bd8805c7484e7134a7a4c29e" => :el_capitan
+    sha256 "e144d712a4aa9c38b3a4b0d4cd6161af7ac267b3702bf4d0cf35edadb3a580fa" => :yosemite
+    sha256 "97b8caa741f6697e5cec8ddbf5d136a358c2c22be6f501fcaf9a8d3f1da417e9" => :mavericks
   end
 
   option "with-gtk+3", "Build the wireshark command with gtk+3"
@@ -23,7 +24,7 @@ class Wireshark < Formula
   depends_on "glib"
   depends_on "gnutls"
   depends_on "libgcrypt"
-  depends_on "d-bus"
+  depends_on "dbus"
   depends_on "geoip" => :recommended
   depends_on "c-ares" => :recommended
   depends_on "libsmi" => :optional
@@ -123,16 +124,13 @@ class Wireshark < Formula
 
   def caveats; <<-EOS.undent
     If your list of available capture interfaces is empty
-    (default OS X behavior), try the following commands:
+    (default OS X behavior), try installing ChmodBPF from homebrew cask:
 
-      curl https://bugs.wireshark.org/bugzilla/attachment.cgi?id=3373 -o ChmodBPF.tar.gz
-      tar zxvf ChmodBPF.tar.gz
-      open ChmodBPF/Install\\ ChmodBPF.app
+      brew cask install wireshark-chmodbpf
 
-    This adds a launch daemon that changes the permissions of your BPF
-    devices so that all users in the 'admin' group - all users with
-    'Allow user to administer this computer' turned on - have both read
-    and write access to those devices.
+    This creates an 'access_bpf' group and adds a launch daemon that changes the
+    permissions of your BPF devices so that all users in that group have both
+    read and write access to those devices.
 
     See bug report:
       https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=3760

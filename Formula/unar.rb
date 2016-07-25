@@ -1,31 +1,28 @@
 class Unar < Formula
   desc "Command-line unarchiving tools supporting multiple formats"
   homepage "https://unarchiver.c3.cx/commandline"
-  url "https://wakaba.c3.cx/releases/TheUnarchiver/unar1.9.1_src.zip"
-  version "1.9.1"
-  sha256 "28045fb688563c002b7c2807e80575d3f9af8eb024739f9ab836f681bb8e822c"
+  url "https://wakaba.c3.cx/releases/TheUnarchiver/unar1.10.1_src.zip"
+  version "1.10.1"
+  sha256 "40967014a505b7a27864c49dc3b5d30b98ae4e6d4873783b2ef9ef9215fd092b"
 
   head "https://bitbucket.org/WAHa_06x36/theunarchiver", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "3f0abeedfdc17860ef6f8f8406b34cc6fb2b334e13c3081d00fb7c2ef98f7cc1" => :el_capitan
-    sha256 "829f81a91ebb65385bb5b39944f40a8a6a3a900e4717ef00cf608fec2884e3d6" => :yosemite
+    sha256 "90f8103e17eedfa6825268488c425e050e24ad703919e8aa63bfbd4c03fcf44f" => :el_capitan
+    sha256 "b337f36dc2ec53be49d52ceee23924670319c819b259e39c76fe57720bfb1659" => :yosemite
+    sha256 "dab9604cafaab887741e0d6511f88e7ca66ad556ee86a41f4b1896ec558d9650" => :mavericks
   end
 
   depends_on :xcode => :build
 
   def install
-    # Files in unar1.9.1_src.zip have "The Unarchiver" path prefix, but HEAD checkout does not.
-    # Build on some versions of Xcode will fail if there's whitespace in path, so workaround
-    # by moving things out of "The Unarchiver" folder.
-    unless build.head?
-      mv "./The Unarchiver/Extra", "."
-      mv "./The Unarchiver/UniversalDetector", "."
-      mv "./The Unarchiver/XADMaster", "."
-    end
+    # ZIP for 1.10.1 additionally contains a `__MACOSX` directory, preventing
+    # stripping of the first path component during extraction of the archive.
+    mv Dir["The Unarchiver/*"], "."
 
     # Build XADMaster.framework, unar and lsar
+    xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-alltargets", "-configuration", "Release", "clean"
     xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-target", "XADMaster", "SYMROOT=../", "-configuration", "Release"
     xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-target", "unar", "SYMROOT=../", "-configuration", "Release"
     xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-target", "lsar", "SYMROOT=../", "-configuration", "Release"
@@ -43,7 +40,10 @@ class Unar < Formula
   end
 
   test do
-    system bin/"unar", "--version"
-    system bin/"lsar", "--version"
+    cp prefix/"README.md", "."
+    system "gzip", "README.md"
+    assert_equal "README.md.gz: Gzip\nREADME.md\n", shell_output("#{bin}/lsar README.md.gz")
+    system bin/"unar", "README.md.gz"
+    assert (testpath/"README.md").exist?
   end
 end

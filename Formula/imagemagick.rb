@@ -4,18 +4,16 @@ class Imagemagick < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/ImageMagick-6.9.3-7.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.3-7.tar.xz"
-  sha256 "6731c414b5b939713a73a088840ed68c22c91d1335514d228d6687d07ce2e1c8"
-
-  revision 1
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick-6.9.5-3.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.5-3.tar.xz"
+  sha256 "6fec9f493bb7434b8c143eb3bba86f3892c68e0b6633ce7eeed970d47c5db4ec"
 
   head "http://git.imagemagick.org/repos/ImageMagick.git"
 
   bottle do
-    sha256 "53f7e2e5f613e3a90188f31ce6868a5c9217e54cde17e19814b6c4c682ac66f5" => :el_capitan
-    sha256 "e2ffb92fd9e57c0b820e6b827892213cb3ec5181f2b9224d21f462834240cc27" => :yosemite
-    sha256 "f1c18e5ca3bd4c1a5bf8bd145e6db15b2f42ede7503ccf97822f0e52420099bf" => :mavericks
+    sha256 "a278197bdc894283d3e015aa638082e607c09922e4b0bed5e64f193c8cd40b1c" => :el_capitan
+    sha256 "5e8b096ed56f5acb285405cf1782f22656916f093ecf62f904db412163b18681" => :yosemite
+    sha256 "ec9bbb8d2bfa7a01d4cbda33c2f7dbe4046edb84686bbb54f792bb963bcca8ca" => :mavericks
   end
 
   deprecated_option "enable-hdri" => "with-hdri"
@@ -24,12 +22,15 @@ class Imagemagick < Formula
   option "with-hdri", "Compile with HDRI support"
   option "with-jp2", "Compile with Jpeg2000 support"
   option "with-openmp", "Compile with OpenMP support"
-  option "with-perl", "enable build/install of PerlMagick"
+  option "with-perl", "Compile with PerlMagick"
   option "with-quantum-depth-8", "Compile with a quantum depth of 8 bit"
   option "with-quantum-depth-16", "Compile with a quantum depth of 16 bit"
   option "with-quantum-depth-32", "Compile with a quantum depth of 32 bit"
   option "without-opencl", "Disable OpenCL"
   option "without-magick-plus-plus", "disable build/install of Magick++"
+  option "without-modules", "Disable support for dynamically loadable modules"
+  option "without-threads", "Disable threads support"
+  option "with-zero-configuration", "Disables depending on XML configuration files"
 
   depends_on "xz"
   depends_on "libtool" => :run
@@ -53,18 +54,11 @@ class Imagemagick < Formula
   depends_on "homebrew/versions/openjpeg21" if build.with? "jp2"
   depends_on "fftw" => :optional
   depends_on "pango" => :optional
+  depends_on :perl => ["5.5", :optional]
 
   needs :openmp if build.with? "openmp"
 
   skip_clean :la
-
-  # Disables vulnerable coders: https://medium.com/@rhuber/imagemagick-is-on-fire-cve-2016-3714-379faf762247#.2tjfb3iks
-  # Next release will probably have a patch for the coders themselves,
-  # allowing us to remove this workaround.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/ca3940923286cc1f763848eccbef6dcfd3e5fe1c/imagemagick/disable-coders.diff"
-    sha256 "b5950e047cdcc3a787c91bbdfbc0a76537f1c8febeb9c054768c5c7325ddf409"
-  end
 
   def install
     args = %W[
@@ -73,9 +67,14 @@ class Imagemagick < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --enable-shared
-      --disable-static
-      --with-modules
+      --enable-static
     ]
+
+    if build.without? "modules"
+      args << "--without-modules"
+    else
+      args << "--with-modules"
+    end
 
     if build.with? "openmp"
       args << "--enable-openmp"
@@ -90,6 +89,7 @@ class Imagemagick < Formula
     args << "--enable-hdri=yes" if build.with? "hdri"
     args << "--enable-fftw=yes" if build.with? "fftw"
     args << "--without-pango" if build.without? "pango"
+    args << "--without-threads" if build.without? "threads"
 
     if build.with? "quantum-depth-32"
       quantum_depth = 32
@@ -111,6 +111,7 @@ class Imagemagick < Formula
     args << "--with-fontconfig=yes" if build.with? "fontconfig"
     args << "--with-freetype=yes" if build.with? "freetype"
     args << "--with-webp=yes" if build.with? "webp"
+    args << "--enable-zero-configuration" if build.with? "zero-configuration"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"

@@ -1,25 +1,25 @@
 class Mikmod < Formula
   desc "Portable tracked music player"
   homepage "http://mikmod.raphnet.net/"
-  url "https://downloads.sourceforge.net/project/mikmod/mikmod/3.2.6/mikmod-3.2.6.tar.gz"
-  sha256 "04544e0edb36a19fab61233dff97430969cff378a98f5989a1378320550e2673"
+  url "https://downloads.sourceforge.net/project/mikmod/mikmod/3.2.7/mikmod-3.2.7.tar.gz"
+  sha256 "5f398d5a5ccee2ce331036514857ac7e13a5644267a13fb11f5a7209cf709264"
 
   bottle do
-    sha256 "759d6d16ac5743599942b67695b3aca27996f40b96e61210905f0bfdfc4c48a7" => :mavericks
-    sha256 "377735f1553d44e6f02a6dc92742a0c0c84546a7085c3a1839488ae26a9f280a" => :mountain_lion
-    sha256 "ab3e1ab1d55c3f2197db079a0f05570ac95602ebbde179ca43be83b65d51a3aa" => :lion
+    sha256 "21475a8a26d1f3821b39ef2eb9de78ff2468986f1b8f8d8cf0cfbeb6423dd6f7" => :el_capitan
+    sha256 "7860621b85ca9f842f8f05f8aba4cbe1487af34d6c193270ef03aa0560d3a144" => :yosemite
+    sha256 "2337f777efccccb0f56e8120192f2bd67824876a5242e7213feac2eb58f81321" => :mavericks
   end
 
   depends_on "libmikmod"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/mikmod", "-V"
+    assert_match version.to_s, shell_output("#{bin}/mikmod -V")
   end
 end

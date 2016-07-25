@@ -1,13 +1,13 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.12.tar.gz"
-  sha256 "3990c78b4064e4e972e763d62449cb8f930717b3dd2ddcbbaeeaa0f644d5333d"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.13.tar.gz"
+  sha256 "2a768682c37dfbca286912bd137f1a526075ac1f00a6a46da8b6fe63f6fcfa37"
 
   bottle do
-    sha256 "a9d86f6fa1e06ca43b6070becb9d1fc310420ee650deaf0532bc167986557f1d" => :el_capitan
-    sha256 "65df78dd61118bd6cdd19d3e88410a751986a0be073424e612e6c2a98d9642b4" => :yosemite
-    sha256 "b32fa33b76697bdca581863f0c42ecd0bd1d3cf74ca79ef5847fd5283101fd4f" => :mavericks
+    sha256 "071ef959bbcacd87cf2e1f605f169bd0bf3a1c7df091a3b83e0f67931e187804" => :el_capitan
+    sha256 "db5937fc10d3aa7423bf5acc1d9c97517d6544a18369c38d975fd218a9dd9081" => :yosemite
+    sha256 "d25f2e5b6b45825679115c2edd7420f9b0a5b61f5ffd8c59e99b5c6bda244a84" => :mavericks
   end
 
   option "with-test", "Build with unit tests"
@@ -24,6 +24,11 @@ class Mysql < Formula
   depends_on "cmake" => :build
   depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
+
+  # https://github.com/Homebrew/homebrew-core/issues/1475
+  # Needs at least Clang 3.3, which shipped alongside Lion.
+  # Note: MySQL themselves don't support anything below Mavericks.
+  depends_on :macos => :lion
 
   conflicts_with "mysql-cluster", "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."

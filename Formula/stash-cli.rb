@@ -1,9 +1,9 @@
 class StashCli < Formula
   desc "Command-line interface clients for Atlassian products"
   homepage "https://bobswift.atlassian.net/wiki/pages/viewpage.action?pageId=1966101"
-  url "https://bobswift.atlassian.net/wiki/download/attachments/16285777/atlassian-cli-4.5.0-distribution.zip"
-  version "4.5.0"
-  sha256 "79fc81d3b383348702cb6d24983fe002aefe4a9b859380bcdd1f19e78ac6f046"
+  url "https://bobswift.atlassian.net/wiki/download/attachments/16285777/atlassian-cli-5.3.0-distribution.zip"
+  version "5.3.0"
+  sha256 "eb7139e700e023f01c02d12d9b88a8ec61315689195fac19bc1e5fcefdb6afff"
 
   bottle :unneeded
 

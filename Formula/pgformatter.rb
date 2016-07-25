@@ -1,6 +1,6 @@
 class Pgformatter < Formula
   desc "PostgreSQL syntax beautifier"
-  homepage "http://sqlformat.darold.net/"
+  homepage "https://sqlformat.darold.net/"
   url "https://github.com/darold/pgFormatter/archive/v1.5.tar.gz"
   sha256 "ab57195a1489ed4daf2356642d5b74885f497e39b94f5edc39c2488755261d03"
 

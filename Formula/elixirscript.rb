@@ -3,42 +3,43 @@ require "language/node"
 class Elixirscript < Formula
   desc "Elixir to JavaScript compiler"
   homepage "https://github.com/bryanjos/elixirscript"
-  url "https://github.com/bryanjos/elixirscript/archive/v0.18.0.tar.gz"
-  sha256 "1c9518a61abc2b587bd392bdaecfce75e6c399e5c5e21d64ed818f340a25a0ad"
+  url "https://github.com/bryanjos/elixirscript/archive/v0.21.0.tar.gz"
+  sha256 "8580826b248ae1d268ea1439b05fcc53a7010a4bb64c4e240baabc20be6c3bcf"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "076b2b0885465bef7edc8e6008dec1daca35ac6691004d19993fea3eabdae78d" => :el_capitan
-    sha256 "3d22354f4856dbaf811a43af66cb50c462313179f76d69408aa065486d136f75" => :yosemite
-    sha256 "69644a1a22e47ae63f8cf186e213a0e3b305acc61d9ac5daa1a7e1d8b01356e5" => :mavericks
+    sha256 "bc42d5a2dba3a02c35436741bc9a3e5aaf79e75d9be04ddd20e115a092a6da72" => :el_capitan
+    sha256 "3a0e04f52b69a4e9c852906439956b324cb11fe78534b5a72d1e2a9c6a00de4d" => :yosemite
+    sha256 "349cb1b7acf6075a9ee5d3dddc42ed5aea179fd7162416c19e48a45f4436dc91" => :mavericks
   end
 
   depends_on "elixir" => :build
   depends_on "node" => :build
 
   def install
+    ENV["MIX_ENV"] = "prod"
+
     system "mix", "local.hex", "--force"
+    system "mix", "local.rebar", "--force"
     system "mix", "deps.get"
     system "npm", "install", *Language::Node.local_npm_install_args
     system "mix", "std_lib"
     system "mix", "clean"
     system "mix", "compile"
     system "mix", "dist"
+    system "mix", "test"
+    system "npm", "test"
+
+    ENV.delete("MIX_ENV")
+    system "mix", "docs"
+
     bin.install "elixirscript"
-    prefix.install Dir["priv/*"], "LICENSE"
+    prefix.install Dir["priv/*"]
+    doc.install Dir["doc/*"]
   end
 
   test do
-    src_path = testpath/"Example.exjs"
-    src_path.write <<-EOS.undent
-      :keith
-    EOS
-
-    out_path = testpath/"dest"
-    system "elixirscript", src_path, "-o", out_path
-
-    assert File.exist?(out_path)
-    assert_match("keith", (out_path/"Elixir.ElixirScript.Temp.js").read)
+    output = shell_output("#{bin}/elixirscript -ex :keith")
+    assert_equal "Symbol.for('keith')", output.strip
   end
 end

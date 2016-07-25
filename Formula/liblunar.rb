@@ -12,7 +12,7 @@ class Liblunar < Formula
     sha256 "66a40eb29dedc1cecc5947e5837e221a233273b130361eecb3488d51eede35be" => :mountain_lion
   end
 
-  option "python", "Build python bindings using pygobject"
+  option "with-python", "Build python bindings using pygobject"
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build

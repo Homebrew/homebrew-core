@@ -1,8 +1,8 @@
 class Cairomm < Formula
   desc "Vector graphics library with cross-device output support"
-  homepage "http://cairographics.org/cairomm/"
-  url "https://download.gnome.org/sources/cairomm/1.12/cairomm-1.12.0.tar.xz"
-  sha256 "a54ada8394a86182525c0762e6f50db6b9212a2109280d13ec6a0b29bfd1afe6"
+  homepage "https://cairographics.org/cairomm/"
+  url "https://cairographics.org/releases/cairomm-1.12.0.tar.gz"
+  sha256 "50435aec6fdd976934b791e808993160113ad19ca53a5634a9b64ccbe55874cc"
 
   bottle do
     cellar :any
@@ -45,8 +45,7 @@ class Cairomm < Formula
     libpng = Formula["libpng"]
     libsigcxx = Formula["libsigc++"]
     pixman = Formula["pixman"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{cairo.opt_include}/cairo
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2

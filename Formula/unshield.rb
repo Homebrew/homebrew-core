@@ -11,6 +11,16 @@ class Unshield < Formula
     sha256 "804098ab7f9c7ecac5d8749d7b13d542b07dd3551170da17568a073710740ac6" => :mavericks
   end
 
+  head do
+    url "https://github.com/twogood/unshield.git"
+
+    # Fix compilation on OS X
+    patch do
+      url "https://github.com/twogood/unshield/pull/47.patch"
+      sha256 "3b37bdac497a9113e576c2ddc042b978ce15758ef8158e3f495f819f92dad531"
+    end
+  end
+
   depends_on "openssl"
   depends_on "cmake" => :build
 

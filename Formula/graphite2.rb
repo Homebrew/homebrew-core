@@ -1,16 +1,16 @@
 class Graphite2 < Formula
   desc "Smart font renderer for non-Roman scripts"
   homepage "http://graphite.sil.org"
-  url "https://github.com/silnrsi/graphite/archive/1.3.7.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/graphite2/graphite2_1.3.7.orig.tar.gz"
-  sha256 "4689f96f6bed02ce0caff710c1f99c281c888864b0c2c10eff08605274d8f7a8"
+  url "https://github.com/silnrsi/graphite/archive/1.3.8.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/graphite2/graphite2_1.3.8.orig.tar.gz"
+  sha256 "954f3dc88f4cf02d892697f4fb7e5bb5a515da81eb26e63f7d1a046459ed7842"
   head "https://github.com/silnrsi/graphite.git"
 
   bottle do
     cellar :any
-    sha256 "39571f2f4d88c97a99923c35448ff478cd6920058563b6d78273471d418ac4d8" => :el_capitan
-    sha256 "97478b8d3e7ad6fdae98d9017348704a52dc6ec17dd105ce1251ba67025d8dcb" => :yosemite
-    sha256 "f01c55c3e1fbf3ddd969e6402c2130fca1d07d8ee7d1a5058bb06363c57a3826" => :mavericks
+    sha256 "370edc1fe934114152aff3075bbaadc342044239faf9c5893677bbf6c05194ae" => :el_capitan
+    sha256 "47d2137c843fe5bbc7f0351c8f3b4410607862329d841dac33aa9fe1867d2481" => :yosemite
+    sha256 "9213295b7665ee17f45d3c76fca8a20fbf51c616e3e16d680379f1e5732a0c6d" => :mavericks
   end
 
   option :universal

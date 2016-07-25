@@ -3,39 +3,38 @@ require "language/go"
 class Websocketd < Formula
   desc "WebSockets the Unix way"
   homepage "http://websocketd.com"
-  url "https://github.com/joewalnes/websocketd/archive/v0.2.11.tar.gz"
-  sha256 "b67a07248cd8675344e4a8553b1ea6434d6789a3990aafe5ecb98d5210f85071"
-  revision 1
+  url "https://github.com/joewalnes/websocketd/archive/v0.2.12.tar.gz"
+  sha256 "89440f28b5af985d43550bdeee3e04c4ad0cb2bc373af8e0563f176959202550"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fb6272c915a2e11304fda7dcc3082745f15e323dcd75e2b3d0b8894e31e2ba8d" => :el_capitan
-    sha256 "c7dffa33a41c4cd37b6c32b24ef72bcf52a66459940c788fb2ff29d4b6c7d24a" => :yosemite
-    sha256 "b83fd95c900d994654ed40bf9c7f90a3674d4add5a7f8fa6fdcbdddb61fd88c6" => :mavericks
+    revision 1
+    sha256 "560f7a2a5455bbd31f0f30f3beba292543bfb1e7fae6a1ab5d0b2c1b3ebe6904" => :el_capitan
+    sha256 "1b525264a32863baf094ec1e6e2a9b932b79aa51135cd20b26c086a970294d48" => :yosemite
+    sha256 "db7d13cd8b3888f830f2c2c566a045dce4ad3cfb18c193472c5f19fe26d1700d" => :mavericks
   end
 
   depends_on "go" => :build
 
   go_resource "github.com/joewalnes/websocketd" do
     url "https://github.com/joewalnes/websocketd.git",
-      :revision => "4ec0493c99e8c1885e524f6af6c1e41250e36202"
+      :revision => "709c49912b0d8575e9e9d4035aa0b07183bd879e"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-      :revision => "db8e4de5b2d6653f66aea53094624468caad15d2"
+      :revision => "30db96677b74e24b967e23f911eb3364fc61a011"
   end
 
   def install
-    ENV["GOBIN"] = bin
     ENV["GOPATH"] = buildpath
-    ENV["GOHOME"] = buildpath
 
     mkdir_p buildpath/"src/github.com/joewalnes/"
     ln_sf buildpath, buildpath/"src/github.com/joewalnes/websocketd"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    system "go", "build", "-ldflags", "-X main.version #{version}", "-o", bin/"websocketd", "main.go", "config.go", "help.go", "version.go"
+    system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"websocketd",
+                          "main.go", "config.go", "help.go", "version.go"
     man1.install "release/websocketd.man" => "websocketd.1"
   end
 

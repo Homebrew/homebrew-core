@@ -1,8 +1,8 @@
 class Rabbitmq < Formula
   desc "Messaging broker"
   homepage "https://www.rabbitmq.com"
-  url "https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.1/rabbitmq-server-generic-unix-3.6.1.tar.xz"
-  sha256 "5febee587216de438c228cbbb23611f45d1506add9977b740c6f77e3c82dec87"
+  url "https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.3/rabbitmq-server-generic-unix-3.6.3.tar.xz"
+  sha256 "756d8ea95f19f04d84ff2a477faf77a88957f00171df9b6cd6e2784d67aba5da"
 
   bottle :unneeded
 
@@ -14,8 +14,8 @@ class Rabbitmq < Formula
     prefix.install Dir["*"]
 
     # Setup the lib files
-    (var+"lib/rabbitmq").mkpath
-    (var+"log/rabbitmq").mkpath
+    (var/"lib/rabbitmq").mkpath
+    (var/"log/rabbitmq").mkpath
 
     # Correct SYS_PREFIX for things like rabbitmq-plugins
     inreplace sbin/"rabbitmq-defaults" do |s|
@@ -26,14 +26,16 @@ class Rabbitmq < Formula
     end
 
     # Set RABBITMQ_HOME in rabbitmq-env
-    inreplace (sbin + "rabbitmq-env"), 'RABBITMQ_HOME="$(rmq_realpath "${RABBITMQ_SCRIPTS_DIR}/..")"', "RABBITMQ_HOME=#{prefix}"
+    inreplace sbin/"rabbitmq-env",
+              'RABBITMQ_HOME="$(rmq_realpath "${RABBITMQ_SCRIPTS_DIR}/..")"',
+              "RABBITMQ_HOME=#{prefix}"
 
     # Create the rabbitmq-env.conf file
-    rabbitmq_env_conf = etc+"rabbitmq/rabbitmq-env.conf"
+    rabbitmq_env_conf = etc/"rabbitmq/rabbitmq-env.conf"
     rabbitmq_env_conf.write rabbitmq_env unless rabbitmq_env_conf.exist?
 
     # Enable plugins - management web UI and visualiser; STOMP, MQTT, AMQP 1.0 protocols
-    enabled_plugins_path = etc+"rabbitmq/enabled_plugins"
+    enabled_plugins_path = etc/"rabbitmq/enabled_plugins"
     enabled_plugins_path.write "[rabbitmq_management,rabbitmq_management_visualiser,rabbitmq_stomp,rabbitmq_amqp1_0,rabbitmq_mqtt]." unless enabled_plugins_path.exist?
 
     # Extract rabbitmqadmin and install to sbin
@@ -44,19 +46,12 @@ class Rabbitmq < Formula
 
     sbin.install "rabbitmqadmin"
     (sbin/"rabbitmqadmin").chmod 0755
-    (bash_completion/"rabbitmqadmin.bash").write `#{sbin}/rabbitmqadmin --bash-completion`
+    (bash_completion/"rabbitmqadmin.bash").write Utils.popen_read("#{sbin}/rabbitmqadmin --bash-completion")
   end
 
   def caveats; <<-EOS.undent
     Management Plugin enabled by default at http://localhost:15672
     EOS
-  end
-
-  test do
-    ENV["RABBITMQ_MNESIA_BASE"] = testpath/"var/lib/rabbitmq/mnesia"
-    system sbin/"rabbitmq-server", "-detached"
-    system sbin/"rabbitmqctl", "status"
-    system sbin/"rabbitmqctl", "stop"
   end
 
   def rabbitmq_env; <<-EOS.undent
@@ -92,5 +87,12 @@ class Rabbitmq < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    ENV["RABBITMQ_MNESIA_BASE"] = testpath/"var/lib/rabbitmq/mnesia"
+    system sbin/"rabbitmq-server", "-detached"
+    system sbin/"rabbitmqctl", "status"
+    system sbin/"rabbitmqctl", "stop"
   end
 end

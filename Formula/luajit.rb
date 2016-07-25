@@ -3,19 +3,25 @@ class Luajit < Formula
   homepage "http://luajit.org/luajit.html"
   url "http://luajit.org/download/LuaJIT-2.0.4.tar.gz"
   sha256 "620fa4eb12375021bef6e4f237cbd2dd5d49e56beb414bee052c746beef1807d"
-  revision 1
+  revision 2
 
   head "http://luajit.org/git/luajit-2.0.git"
 
   bottle do
-    sha256 "38b21090f297f25d5ff011aebc4dd1b91f1ca8660c9cdbcb61abc9d42c63dd58" => :el_capitan
-    sha256 "56302fd3162c220a4ebdc64481e07665fa76035d0b0fab29eb9375ccb505fc28" => :yosemite
-    sha256 "cdef95c2178de6852d295a596c85f01733e67e54b1e026021b136586a185ad0d" => :mavericks
+    sha256 "bcbaa0927b7d477abbb2637d9123f503875b1d4cfef7f94d28d1aad017b99688" => :el_capitan
+    sha256 "f5fe1202211a883040feafba6a8c54befb5efa095aa635e319fe7df057e5a1e3" => :yosemite
+    sha256 "06454e65ba92df5be021f2e2b37d7b7bd3c4a3f99f4b1659c317ddc6227842cd" => :mavericks
   end
 
   devel do
-    url "http://luajit.org/git/luajit-2.0.git", :branch => "v2.1"
-    version "2.1"
+    url "http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz"
+    sha256 "713924ca034b9d99c84a0b7b701794c359ffb54f8e3aa2b84fad52d98384cf47"
+
+    # https://github.com/LuaJIT/LuaJIT/issues/180
+    patch do
+      url "https://github.com/LuaJIT/LuaJIT/commit/5837c2a2fb1ba6651.diff"
+      sha256 "7b5d233fc3a95437bd1c8459ad35bba63825655f47951b6dba1d053df7f98587"
+    end
   end
 
   deprecated_option "enable-debug" => "with-debug"
@@ -35,6 +41,7 @@ class Luajit < Formula
     ENV.O2 # Respect the developer's choice.
 
     args = %W[PREFIX=#{prefix}]
+    args << "XCFLAGS=-DLUAJIT_ENABLE_LUA52COMPAT" if build.with? "52compat"
 
     # This doesn't yet work under superenv because it removes "-g"
     args << "CCDEBUG=-g" if build.with? "debug"
@@ -42,19 +49,25 @@ class Luajit < Formula
     # The development branch of LuaJIT normally does not install "luajit".
     args << "INSTALL_TNAME=luajit" if build.devel?
 
-    args << "XCFLAGS=-DLUAJIT_ENABLE_LUA52COMPAT" if build.with? "52compat"
-
     system "make", "amalg", *args
     system "make", "install", *args
 
     # LuaJIT doesn't automatically symlink unversioned libraries:
     # https://github.com/Homebrew/homebrew/issues/45854.
-    lib.install_symlink lib/"libluajit-5.1.2.0.4.dylib" => "libluajit.dylib"
+    lib.install_symlink lib/"libluajit-5.1.dylib" => "libluajit.dylib"
     lib.install_symlink lib/"libluajit-5.1.a" => "libluajit.a"
 
-    # Having an empty Lua dir in Lib/share can screw with other Homebrew Luas.
-    rm_rf lib/"lua"
-    rm_rf share/"lua"
+    # Fix path in pkg-config so modules are installed
+    # to permanent location rather than inside the Cellar.
+    inreplace lib/"pkgconfig/luajit.pc" do |s|
+      s.gsub! "INSTALL_LMOD=${prefix}/share/lua/${abiver}",
+              "INSTALL_LMOD=#{HOMEBREW_PREFIX}/share/lua/${abiver}"
+      s.gsub! "INSTALL_CMOD=${prefix}/${multilib}/lua/${abiver}",
+              "INSTALL_CMOD=#{HOMEBREW_PREFIX}/${multilib}/lua/${abiver}"
+    end
+
+    # Having an empty Lua dir in lib/share can mess with other Homebrew Luas.
+    %W[#{lib}/lua #{share}/lua].each { |d| rm_rf d }
   end
 
   test do

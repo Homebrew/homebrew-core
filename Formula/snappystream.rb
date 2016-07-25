@@ -1,17 +1,16 @@
 class Snappystream < Formula
   desc "C++ snappy stream realization (compatible with snappy)"
   homepage "https://github.com/hoxnox/snappystream"
-  url "https://github.com/hoxnox/snappystream/archive/0.2.1.tar.gz"
-  sha256 "7c7ecd23d4b0be5255d4ddbcba14b03ec6adf9d38e0e393d6190787621e66952"
+  url "https://github.com/hoxnox/snappystream/archive/0.2.3.tar.gz"
+  sha256 "f7c0a5d7c0a1f03afeb980d87d374dc3d01019387a4494ece1dd127b69f4ed8b"
 
   head "https://github.com/hoxnox/snappystream.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9ee874e70e79230157988cb9653821eadf81be8ff8e08817548450118e9c2ed9" => :el_capitan
-    sha256 "3bca80e05819e5f779ca39880fdadb0f3373ae03532e3a116d22bd49b7266227" => :yosemite
-    sha256 "ff2b8f6fe94c84bdc490a8c5f8d63fbfd64fd79783109be96e0e58adc8805bdb" => :mavericks
-    sha256 "257bfba15d83cb174afafd30d221aaa5134d7c5640b1dbc44d811587997c9073" => :mountain_lion
+    sha256 "bf3b3332beaacb71c0c66b4796dfd8ec7dd2ca305bc886dca579fc12f1b99ce9" => :el_capitan
+    sha256 "9b41a2b327c55c2d2768c2d4abbc1d4b2f547077fbb0bdb127a6e028d5103e18" => :yosemite
+    sha256 "e21581830b437f1451f7a0dff3542f8cf0715bd1ff4dde0f9f7bb371731084d2" => :mavericks
   end
 
   depends_on "cmake" => :build

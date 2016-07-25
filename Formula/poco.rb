@@ -1,16 +1,15 @@
 class Poco < Formula
   desc "C++ class libraries for building network and internet-based applications"
   homepage "http://pocoproject.org/"
-  url "http://pocoproject.org/releases/poco-1.7.2/poco-1.7.2-all.tar.gz"
-  sha256 "926eaf5cb7c61ead0450b1cd9ec7a2c074a3e26620bffcb78e22ad3b2d9f0630"
-
+  url "http://pocoproject.org/releases/poco-1.7.4/poco-1.7.4-all.tar.gz"
+  sha256 "2935d9c5e805d90d2d4c12d8c45330f0558fb531e6947f5b4bf0748016e6959b"
   head "https://github.com/pocoproject/poco.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "a63143c104d73bcc6d5895682f3924121d8f885f7b97c933652219e2b8e7edb4" => :el_capitan
-    sha256 "1d9084a724fb5f93777a8400e4e9d376260ad59410bb8c43b354249a6dbfd169" => :yosemite
-    sha256 "814bee36baa3286c2b6e22de23d3108693f5e8894e2ffff88e2ecefbdead5b8f" => :mavericks
+    sha256 "c01ed1ca68597f7c589f72f7f0ed8cc88a402032dcbf29bc1c487ff930f3e1f9" => :el_capitan
+    sha256 "ec8251d0b48421096da72bb4c2bbe9c2fea300d07c7a4eea906c4d637c52b64d" => :yosemite
+    sha256 "ce5330607a1fdad9b79434f0990ad953da56acbdd16f9ad88c0b8fc8dcdc17bd" => :mavericks
   end
 
   option :cxx11
@@ -37,5 +36,9 @@ class Poco < Formula
       system "cmake", buildpath, *args
       system "make", "install"
     end
+  end
+
+  test do
+    system bin/"cpspc", "-h"
   end
 end

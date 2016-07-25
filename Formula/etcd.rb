@@ -1,31 +1,29 @@
 class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/coreos/etcd"
-  url "https://github.com/coreos/etcd/archive/v2.2.5.tar.gz"
-  sha256 "a7fb7998ada620fda74e517c100891d25a15a6fa20b627df52da7cd29328e6d5"
+  url "https://github.com/coreos/etcd/archive/v3.0.3.tar.gz"
+  sha256 "2e7ffb640da321df5e4efff378e3cc3329465d97c2abea8bee0c108d6536bf2e"
   head "https://github.com/coreos/etcd.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "59ce397905777b9ba8bf16bde4b688a324d5cf8178af783eaaa3d42ba110e35a" => :el_capitan
-    sha256 "696d1b52ee701451fb4ce950bbc0026b44817595eb01ca0fb8fb19fb813a1bf1" => :yosemite
-    sha256 "77e16e9d78546f5dd81d452afeae71828f7a239d47993cc5edaf457315f616b8" => :mavericks
-  end
-
-  devel do
-    url "https://github.com/coreos/etcd/archive/v2.3.0-alpha.0.tar.gz"
-    version "2.3.0-alpha.0"
-    sha256 "6603684824a650c472c791fc7c4cdf6811920f473e01bcfe8b1d95b0fd1f25c6"
+    sha256 "d60d1c658cf5ec716504cf2c011bc7f0ebff5297a1a06e58a2dd21dd411cbe39" => :el_capitan
+    sha256 "09629e0e325365242a4c8039d8874ec5a6fb4db9e1c0aa4864cfa236b1540587" => :yosemite
+    sha256 "475951fc4ce0bee3dd11e4c1d68c53c2a0b5c415cce888f391e4e0d55adced16" => :mavericks
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    mkdir_p "src/github.com/coreos"
+    ln_s buildpath, "src/github.com/coreos/etcd"
     system "./build"
     bin.install "bin/etcd"
     bin.install "bin/etcdctl"
   end
+
+  plist_options :manual => "etcd"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -57,13 +55,13 @@ class Etcd < Formula
       require "utils/json"
       test_string = "Hello from brew test!"
       etcd_pid = fork do
-        exec "etcd", "--force-new-cluster", "--data-dir=#{testpath}"
+        exec bin/"etcd", "--force-new-cluster", "--data-dir=#{testpath}"
       end
       # sleep to let etcd get its wits about it
       sleep 10
-      etcd_uri = "http://127.0.0.1:4001/v2/keys/brew_test"
+      etcd_uri = "http://127.0.0.1:2379/v2/keys/brew_test"
       system "curl", "--silent", "-L", etcd_uri, "-XPUT", "-d", "value=#{test_string}"
-      curl_output = shell_output "curl --silent -L #{etcd_uri}"
+      curl_output = shell_output("curl --silent -L #{etcd_uri}")
       response_hash = Utils::JSON.load(curl_output)
       assert_match(test_string, response_hash.fetch("node").fetch("value"))
     ensure

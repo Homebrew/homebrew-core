@@ -1,17 +1,18 @@
 class Googler < Formula
   desc "Google Search and News from the command-line"
   homepage "https://github.com/jarun/googler"
-  url "https://github.com/jarun/googler/archive/v2.3.tar.gz"
-  sha256 "b29fa0ea211998453ed1d918c59530dffda386f8904892442a21bcd6e81c0c48"
+  url "https://github.com/jarun/googler/archive/v2.6.tar.gz"
+  sha256 "76cef768c69c44623031b80ad29ab7eaa52bb7c8b265cc230d64c1c5ca2baadb"
+  head "https://github.com/jarun/googler.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0b7d82888f19cfe670dae4b6a4cafa1f7da41e97f648f4905eaa4e34d81a2b92" => :el_capitan
-    sha256 "d4c1b022a56463e3516d24c8445a1c765743ce97c27f5bea635a7c65e00b2014" => :yosemite
-    sha256 "6692cfd6a59508167364c3650d16209a093a47939ba60632a2d264ed10a8079f" => :mavericks
+    sha256 "9012b7678914b690069d0b89a2322ffbc394bdb0b8ea2c15a6bf8d07ab23a6e0" => :el_capitan
+    sha256 "94842d1f7089f9a18c518ced907d1b789d93cc956b57c163279cf11f94542cda" => :yosemite
+    sha256 "8c7bca96861a3501126d40b0678d28d174e89e503ddec0bfd88f690b2df85e7e" => :mavericks
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on :python3
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
@@ -21,6 +22,7 @@ class Googler < Formula
   end
 
   test do
-    assert_match /Homebrew/, shell_output("PYTHONIOENCODING=utf-8 #{bin}/googler Homebrew </dev/null")
+    ENV["PYTHONIOENCODING"] = "utf-8"
+    assert_match /Homebrew/, shell_output("#{bin}/googler --noprompt Homebrew")
   end
 end

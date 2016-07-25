@@ -19,4 +19,10 @@ class Ee < Formula
     bin.install "ee"
     man1.install "ee.1"
   end
+
+  test do
+    ENV["TERM"] = "xterm"
+    # escape + a + b is the exit sequence for `ee`
+    pipe_output("#{bin}/ee", "\\033[ab", 0)
+  end
 end

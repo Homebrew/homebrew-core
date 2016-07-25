@@ -1,7 +1,7 @@
 class Opendbx < Formula
   desc "Lightweight but extensible database access library in C"
-  homepage "http://www.linuxnetworks.de/doc/index.php/OpenDBX"
-  url "http://linuxnetworks.de/opendbx/download/opendbx-1.4.6.tar.gz"
+  homepage "https://linuxnetworks.de/doc/index.php/OpenDBX"
+  url "https://linuxnetworks.de/opendbx/download/opendbx-1.4.6.tar.gz"
   sha256 "2246a03812c7d90f10194ad01c2213a7646e383000a800277c6fb8d2bf81497c"
 
   bottle do

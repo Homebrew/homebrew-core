@@ -1,14 +1,13 @@
 class Htop < Formula
   desc "Improved top (interactive process viewer)"
   homepage "https://hisham.hm/htop/"
-  url "https://hisham.hm/htop/releases/2.0.1/htop-2.0.1.tar.gz"
-  sha256 "f410626dfaf6b70fdf73cd7bb33cae768869707028d847fed94a978e974f5666"
-  revision 1
+  url "https://hisham.hm/htop/releases/2.0.2/htop-2.0.2.tar.gz"
+  sha256 "179be9dccb80cee0c5e1a1f58c8f72ce7b2328ede30fb71dcdf336539be2f487"
 
   bottle do
-    sha256 "17e7e101576e5a6ab21c9cb466abb06c9aa9f41bf48a8bafab7b35724be10a22" => :el_capitan
-    sha256 "ae6da1461494e36c71e5ccf77f3b84d89b83eb5edc50b25e170c6021de8d3978" => :yosemite
-    sha256 "0105446a79d2a2d8e559f1e815597dc735efe50cf51d9de27c545f0a1a881d1f" => :mavericks
+    sha256 "b13e6457905778a75d2627e1586e14ab20920001bed16b84c1fb64a258715741" => :el_capitan
+    sha256 "f50fd11325a34da989c268f1e4bb998c4b8415079c23a95c267088e9576bef3e" => :yosemite
+    sha256 "785c2806efe12a008c2fc958f567501e2931d2457261eed721ffae374f989498" => :mavericks
   end
 
   head do

@@ -3,101 +3,46 @@ require "language/go"
 class Gauge < Formula
   desc "Test automation tool that supports executable documentation"
   homepage "http://getgauge.io"
-  url "https://github.com/getgauge/gauge/archive/v0.4.0.tar.gz"
-  sha256 "510dddbf70eb041aee460c6fc93e71542d06c45bf246f7d689ae44a445f57bbb"
+  url "https://github.com/getgauge/gauge/archive/v0.6.0.tar.gz"
+  sha256 "67afa98e0f0f0b32bab59fadd17fc82c08b7a3bc72e530775ba6bed08e683310"
   head "https://github.com/getgauge/gauge.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1bb93557140d17321f4eabedc08e89f47f114856947b1e3f41a199a9f5983a11" => :el_capitan
-    sha256 "4681d2a182665e0589b4343496ad87ddeb937f74ca973eeea882a68104dabd0c" => :yosemite
-    sha256 "ff77e91da209db15a31193ef43c8c0502accf46384cf02c2901d63f973520d0d" => :mavericks
+    sha256 "4535772e5ce735896f564bbfec0f3b78e3ca1fd763062e31d3a5ae326143ebaf" => :el_capitan
+    sha256 "40353f161da122194193c9a358145fc4b565fbbcf375f87c7aef53474cce788f" => :yosemite
+    sha256 "d81a388c284e560b444bdb1639ac99919112b11ea9c6e13ca4f5e9c4d159f696" => :mavericks
   end
 
   depends_on "go" => :build
+  depends_on "godep" => :build
 
-  go_resource "github.com/getgauge/common" do
-    url "https://github.com/getgauge/common.git",
-        :revision => "702bc5040f898e4782ea5e61e85f034845474570"
-  end
-
-  go_resource "github.com/daviddengcn/go-colortext" do
-    url "https://github.com/daviddengcn/go-colortext.git",
-      :revision => "3b18c8575a432453d41fdafb340099fff5bba2f7"
-  end
-
-  go_resource "github.com/golang/protobuf" do
-    url "https://github.com/golang/protobuf.git",
-        :revision => "552c7b9542c194800fd493123b3798ef0a832032"
-  end
-
-  go_resource "github.com/mattn/go-isatty" do
-    url "https://github.com/mattn/go-isatty.git",
-        :revision => "56b76bdf51f7708750eac80fa38b952bb9f32639"
-  end
-
-  go_resource "github.com/getgauge/mflag" do
-    url "https://github.com/getgauge/mflag.git",
-        :revision => "d64a28a7abc05602c9e6d9c5a1488ee69f9fcb83"
-  end
-
-  go_resource "github.com/op/go-logging" do
-    url "https://github.com/op/go-logging.git",
-        :revision => "fb0230561a6ba1cab17beb95f1faedc16584fdb8"
-  end
-
-  go_resource "golang.org/x/tools" do
-    url "https://go.googlesource.com/tools",
-        :revision => "2ef5a0d23bc4e07573bb094b97e96c9cd9844fca",
-        :using => :git
-  end
-
-  go_resource "gopkg.in/natefinch/lumberjack.v2" do
-    url "https://gopkg.in/natefinch/lumberjack.v2",
-        :revision => "d28785c2f27cd682d872df46ccd8232843629f54",
-        :using =>:git
-  end
-
-  go_resource "github.com/dmotylev/goproperties" do
-    url "https://github.com/dmotylev/goproperties.git",
-        :revision => "7cbffbaada472bc302cbaca51c1d5ed2682eb509"
-  end
-
-  go_resource "github.com/apoorvam/goterminal" do
-    url "https://github.com/apoorvam/goterminal.git",
-        :revision => "4d296b6c70d14de84a3ddbddb11a2fba3babd5e6"
-  end
-
-  go_resource "gopkg.in/fsnotify.v1" do
-    url "https://gopkg.in/fsnotify.v1",
-        :revision => "96c060f6a6b7e0d6f75fddd10efeaca3e5d1bcb0",
-        :using => :git
-  end
-
-  go_resource "golang.org/x/net/" do
-    url "https://github.com/golang/net.git",
-      :revision => "4599ae7937fce9b670ce32b8ad32bbb7ae726b3e"
-  end
-
-  go_resource "google.golang.org/grpc" do
-    url "https://github.com/grpc/grpc-go.git",
-        :revision => "89f694edb447e224bd0ffff7a03f9161ce486482"
+  go_resource "github.com/getgauge/gauge_screenshot" do
+    url "https://github.com/getgauge/gauge_screenshot.git",
+    :revision => "d04c2acc873b408211df8408f0217d4eafd327fe"
   end
 
   def install
     ENV["GOPATH"] = buildpath
-    gauge_path = buildpath/"src/github.com/getgauge"
-    mkdir_p gauge_path
-    ln_s buildpath, gauge_path/"gauge"
-    Language::Go.stage_deps resources, buildpath/"src"
 
-    cd gauge_path/"gauge" do
+    # Avoid executing `go get`
+    inreplace "build/make.go", /\tgetGaugeScreenshot\(\)\n/, ""
+
+    dir = buildpath/"src/github.com/getgauge/gauge"
+    dir.install buildpath.children
+    ln_s buildpath/"src", dir
+
+    Language::Go.stage_deps resources, buildpath/"src"
+    ln_s "gauge_screenshot", "src/github.com/getgauge/screenshot"
+
+    cd dir do
+      system "godep", "restore"
       system "go", "run", "build/make.go"
       system "go", "run", "build/make.go", "--install", "--prefix", prefix
     end
   end
 
   test do
-    system bin/"gauge", "-v"
+    assert_match version.to_s, shell_output("#{bin}/gauge -v")
   end
 end

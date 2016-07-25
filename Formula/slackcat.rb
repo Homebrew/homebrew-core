@@ -3,31 +3,36 @@ require "language/go"
 class Slackcat < Formula
   desc "Command-line utility for posting snippets to Slack"
   homepage "https://github.com/vektorlab/slackcat"
-  url "https://github.com/vektorlab/slackcat/archive/v1.0.tar.gz"
-  sha256 "85430661208fdcb57575017d2c6131d5720964a30c5a02ca9688b8fd56def81e"
+  url "https://github.com/vektorlab/slackcat/archive/v1.1.tar.gz"
+  sha256 "f22c6915c4f8e17e7df8ed2dc22905870a8c05bd683c84b2e12205a6a387ea27"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "38fb183bec1966bd1c1d7529a23afe5e618ec00ad990d349f3235e3e5663ffae" => :el_capitan
-    sha256 "1c5db5b97a607dbdcc93d9242ee4656130ee2c9362974c0f5b5405d674f3a073" => :yosemite
-    sha256 "c4fc8d42a8dfe26b70974e55ca78ab3d55189a10e463e3799eba8988c26a8b76" => :mavericks
+    sha256 "16b2f127d5f0d9d3c1cd7ebebe85d8681ad244a2f666d857451b932f72d1b99a" => :el_capitan
+    sha256 "544aaa7b4a26cfd750090bfb3dcb56ccbf7f1b4528074905f361774f62fd0d60" => :yosemite
+    sha256 "1e3b19cc013cd9b6deed44b66b84968354cb49ac889672eb9ad34df8828b988c" => :mavericks
   end
 
   depends_on "go" => :build
 
   go_resource "github.com/bluele/slack" do
     url "https://github.com/bluele/slack.git",
-      :revision => "6d00f93158acefc3a0f605c171d1baa80ba86b73"
+      :revision => "ffdcd19858d03d5ebabba5bead2b5dfb18b2c73f"
   end
 
   go_resource "github.com/codegangsta/cli" do
     url "https://github.com/codegangsta/cli.git",
-      :revision => "c31a7975863e7810c92e2e288a9ab074f9a88f29"
+      :revision => "1efa31f08b9333f1bd4882d61f9d668a70cd902e"
   end
 
   go_resource "github.com/fatih/color" do
     url "https://github.com/fatih/color.git",
-      :revision => "9aae6aaa22315390f03959adca2c4d395b02fcef"
+      :revision => "87d4004f2ab62d0d255e0a38f1680aa534549fe3"
+  end
+
+  go_resource "github.com/mattn/go-colorable" do
+    url "https://github.com/mattn/go-colorable.git",
+      :revision => "9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59"
   end
 
   go_resource "github.com/mattn/go-isatty" do
@@ -35,29 +40,19 @@ class Slackcat < Formula
       :revision => "56b76bdf51f7708750eac80fa38b952bb9f32639"
   end
 
-  go_resource "github.com/mattn/go-colorable" do
-    url "https://github.com/mattn/go-colorable.git",
-      :revision => "3dac7b4f76f6e17fb39b768b89e3783d16e237fe"
-  end
-
   go_resource "github.com/skratchdot/open-golang" do
     url "https://github.com/skratchdot/open-golang.git",
-      :revision => "c8748311a7528d0ba7330d302adbc5a677ef9c9e"
+      :revision => "75fb7ed4208cf72d323d7d02fd1a5964a7a9073c"
   end
 
   def install
-    ENV["GOBIN"] = bin
     ENV["GOPATH"] = buildpath
-    ENV["GOHOME"] = buildpath
-
-    mkdir_p buildpath/"src/github.com/vektorlab/"
-    ln_sf buildpath, buildpath/"src/github.com/vektorlab/slackcat"
     Language::Go.stage_deps resources, buildpath/"src"
-
-    system "go", "build", "-ldflags", "-s -X main.version=#{version}", "-o", bin/"slackcat"
+    system "go", "build", "-o", bin/"slackcat",
+           "-ldflags", "-X main.version=#{version}"
   end
 
   test do
-    assert_match /slackcat version #{version}/, shell_output("#{bin}/slackcat -v")
+    assert_match version.to_s, shell_output("#{bin}/slackcat -v")
   end
 end

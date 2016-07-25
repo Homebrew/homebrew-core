@@ -1,13 +1,13 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-3.4.8.tar.bz2"
-  sha256 "4f818fd09bff89625b4317cc7c05445f6e7bd9ea8d21e7eefeaaca07b8b0cd9f"
+  url "https://downloads.powerdns.com/releases/pdns-4.0.0.tar.bz2"
+  sha256 "9f3ea273e11c898d9a91a2454eb7f2f38bdcc1ec4ea70a5e5de09c61b4ab65d5"
 
   bottle do
-    sha256 "f6ecaa7fdac97b5d0210c5b245b6d322c3fbbabe9f1de7d1be7a05e50c5731ff" => :el_capitan
-    sha256 "eeb9f40d26d2c433c65ce9bbbdb0766159ee1a8d7636abf3752bf49e8a79ddc4" => :yosemite
-    sha256 "01bfafddc5e3cea395c093869b890101d8a1e3d590646111db06211eb849d14d" => :mavericks
+    sha256 "bf8307c0cf9fd6e06d778158574df150a295984f151e4b35a64616311ad93280" => :el_capitan
+    sha256 "89bf20ed6f998b40951d7be6b3ca9e777143428c3f5042d93d4df0a3512678e8" => :yosemite
+    sha256 "59d50d8c4254875c1e2a68f76c9c12fda93b84af1c8fa6418576eeabbb784d92" => :mavericks
   end
 
   head do
@@ -26,6 +26,7 @@ class Pdns < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "lua"
+  depends_on "openssl"
   depends_on "sqlite"
   depends_on :postgresql if build.with? "pgsql"
 
@@ -33,9 +34,12 @@ class Pdns < Formula
     # https://github.com/Homebrew/homebrew/pull/33739
     ENV.deparallelize
 
-    args = ["--prefix=#{prefix}",
-            "--with-lua",
-            "--with-sqlite3"]
+    args = %W[
+      --prefix=#{prefix}
+      --with-lua
+      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-sqlite3
+    ]
 
     # Include the PostgreSQL backend if requested
     if build.with? "pgsql"
@@ -51,5 +55,10 @@ class Pdns < Formula
     # Compilation fails at polarssl if we skip straight to make install
     system "make"
     system "make", "install"
+  end
+
+  test do
+    output = shell_output("#{sbin}/pdns_server --version 2>&1", 99)
+    assert_match "PowerDNS Authoritative Server #{version}", output
   end
 end

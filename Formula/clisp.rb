@@ -1,7 +1,7 @@
 class Clisp < Formula
   desc "GNU CLISP, a Common Lisp implementation"
   homepage "http://www.clisp.org/"
-  url "http://ftpmirror.gnu.org/clisp/release/2.49/clisp-2.49.tar.bz2"
+  url "https://ftpmirror.gnu.org/clisp/release/2.49/clisp-2.49.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/clisp/release/2.49/clisp-2.49.tar.bz2"
   sha256 "8132ff353afaa70e6b19367a25ae3d5a43627279c25647c220641fed00f8e890"
 
@@ -23,7 +23,7 @@ class Clisp < Formula
   patch :DATA
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/e2cc7c1/clisp/patch-src_lispbibl_d.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e2cc7c1/clisp/patch-src_lispbibl_d.diff"
     sha256 "fd4e8a0327e04c224fb14ad6094741034d14cb45da5b56a2f3e7c930f84fd9a0"
   end
 

@@ -1,15 +1,15 @@
 class Abduco < Formula
   desc "Provides session management: i.e. separate programs from terminals"
   homepage "http://www.brain-dump.org/projects/abduco"
-  url "http://www.brain-dump.org/projects/abduco/abduco-0.5.tar.gz"
-  sha256 "bf22226a4488355a7001a5dabbd1e8e3b7e7645efd1519274b956fcb8bcff086"
+  url "http://www.brain-dump.org/projects/abduco/abduco-0.6.tar.gz"
+  sha256 "c90909e13fa95770b5afc3b59f311b3d3d2fdfae23f9569fa4f96a3e192a35f4"
   head "git://repo.or.cz/abduco.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2810ca2edcaa1b8eaab028a576e267548af21569002a36f72e2b9253a9c376ff" => :el_capitan
-    sha256 "51d6b180c576a7bed2aecf64dc357b25b064540cc41225cc2dd6d94f041a7250" => :yosemite
-    sha256 "8d89785db68551d9c53ecf2afb099976b61b7fde76d2eaff34acf18d50b09da0" => :mavericks
+    sha256 "62b4673f4fba1d3c5b201b972e220a2736ec053e0c83b1369bb4e5641a71f8e4" => :el_capitan
+    sha256 "17338a1f1f2cace2bfb40c79d746ad60c6604555e8fb34476ec4ef9a2f68234e" => :yosemite
+    sha256 "1f48e0d684ba7b41768b5aa770df9c8ee716a3132d3c8043b4f7ff970c925ac5" => :mavericks
   end
 
   def install

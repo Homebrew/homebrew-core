@@ -1,24 +1,21 @@
 class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "http://kubernetes.io/"
+  url "https://github.com/kubernetes/kubernetes/archive/v1.3.0.tar.gz"
+  sha256 "77fbc5db607daa723e7b6576644d25e98924439954523808cf7ad2c992566398"
   head "https://github.com/kubernetes/kubernetes.git"
-
-  stable do
-    url "https://github.com/kubernetes/kubernetes/archive/v1.2.3.tar.gz"
-    sha256 "542db5eb9f635aae53dc4055c778101e1192f34d04549505bd2ada8dec0d837c"
-  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3048d47f8f76cf3a7810ddf32fa8033de19e176cc6580517baac0c9cf1cd2f91" => :el_capitan
-    sha256 "efc627b0b7f8ec3a303c12f7c744a865e0f02bb8f566f196ba2a1b6174a81b81" => :yosemite
-    sha256 "fdff09be5f09b4963473687269166ebce01bd738ea90fb65881b8ffced5f6559" => :mavericks
+    sha256 "43c56949efa157d52d661fe58274fb9dd424a16d9afba18164268349bc2630ce" => :el_capitan
+    sha256 "1e1bbc70659eb347b15d40d820c558b6a394dd42de808a3ae385f2a49b5bcf3d" => :yosemite
+    sha256 "494f9a50ea488232072cd056cdaaaa0879bb1f604cba060e06207d7694b9cac4" => :mavericks
   end
 
   devel do
-    url "https://github.com/kubernetes/kubernetes/archive/v1.3.0-alpha.3.tar.gz"
-    sha256 "887bcb59fb517124b22ca683d1161aff571a86e42b48e89ba748629a4d259992"
-    version "1.3.0-alpha.3"
+    url "https://github.com/kubernetes/kubernetes/archive/v1.4.0-alpha.0.tar.gz"
+    sha256 "7530fabf418fccf7bef08281efa9a51d86921726c8efac4f0e63ba1e87d83482"
+    version "1.4.0-alpha.0"
   end
 
   depends_on "go" => :build
@@ -30,10 +27,11 @@ class KubernetesCli < Formula
 
     dir = "_output/local/bin/darwin/#{arch}"
     bin.install "#{dir}/kubectl"
-    bash_completion.install "contrib/completions/bash/kubectl"
+    (bash_completion/"kubectl").write Utils.popen_read("#{bin}/kubectl completion bash")
   end
 
   test do
-    assert_match /^kubectl controls the Kubernetes cluster manager./, shell_output("#{bin}/kubectl 2>&1", 0)
+    output = shell_output("#{bin}/kubectl 2>&1")
+    assert_match "kubectl controls the Kubernetes cluster manager.", output
   end
 end

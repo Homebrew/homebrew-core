@@ -1,7 +1,8 @@
 class Bibclean < Formula
   desc "BibTeX bibliography file pretty printer and syntax checker"
-  homepage "http://www.math.utah.edu/~beebe/software/bibclean/bibclean-03.html#HDR.3"
+  homepage "https://www.math.utah.edu/~beebe/software/bibclean/bibclean-03.html#HDR.3"
   url "http://ftp.math.utah.edu/pub/bibclean/bibclean-2.17.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/bibclean-2.17.tar.gz"
   sha256 "d79b191fda9658fa83cb43f638321ae98b4acec5bef23a029ef2fd695639ff24"
 
   bottle do
@@ -50,7 +51,7 @@ class Bibclean < Formula
   end
 
   test do
-    (testpath+"test.bib").write <<-EOS.undent
+    (testpath/"test.bib").write <<-EOS.undent
       @article{small,
       author = {Test, T.},
       title = {Test},

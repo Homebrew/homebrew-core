@@ -17,12 +17,12 @@ class Orbit < Formula
 
   # per MacPorts, re-enable use of deprecated glib functions
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/6b7eaf2b/orbit/patch-linc2-src-Makefile.in.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6b7eaf2b/orbit/patch-linc2-src-Makefile.in.diff"
     sha256 "572771ea59f841d74ac361d51f487cc3bcb2d75dacc9c20a8bd6cbbaeae8f856"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/6b7eaf2b/orbit/patch-configure.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6b7eaf2b/orbit/patch-configure.diff"
     sha256 "34d068df8fc9482cf70b291032de911f0e75a30994562d4cf56b0cc2a8e28e42"
   end
 

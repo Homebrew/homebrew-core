@@ -1,15 +1,15 @@
 class LibgpgError < Formula
   desc "Common error values for all GnuPG components"
   homepage "https://www.gnupg.org/related_software/libgpg-error/"
-  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.21.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-1.21.tar.bz2"
-  sha256 "b7dbdb3cad63a740e9f0c632a1da32d4afdb694ec86c8625c98ea0691713b84d"
+  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.24.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-1.24.tar.bz2"
+  sha256 "9268e1cc487de5e6e4460fca612a06e4f383072ac43ae90603e5e46783d3e540"
 
   bottle do
     cellar :any
-    sha256 "6073da3448cb87c72a9c8db2cda4b9051296ad1a4bee076cd5994eefaf96e874" => :el_capitan
-    sha256 "1d608bacb312bf3a3bb32ac55f41d9b5479e1e07711f631141f7db446c7cb99f" => :yosemite
-    sha256 "eb0ed3990eb7a231078a99c69d53b72c83d54d1e3bf17fff78cac69804cc9fbe" => :mavericks
+    sha256 "4a8ddf89b1502ed14a165b834c95aefb0bb519f23cbfc3d7212524dd301ff3be" => :el_capitan
+    sha256 "a06c5094fb9ebf5e4069672d0c83a98fb695f59748c59051df20b3d776f71f3b" => :yosemite
+    sha256 "44d4ca69136518bddf81d6e2d1cadc7191e5b0b384d37f47e08f39e5e0121d7d" => :mavericks
   end
 
   option :universal
@@ -22,6 +22,9 @@ class LibgpgError < Formula
                           "--prefix=#{prefix}",
                           "--enable-static"
     system "make", "install"
+
+    # avoid triggering mandatory rebuilds of software that hard-codes this path
+    inreplace bin/"gpg-error-config", prefix, opt_prefix
   end
 
   test do

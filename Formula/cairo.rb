@@ -1,7 +1,7 @@
 class Cairo < Formula
   desc "Vector graphics library with cross-device output support"
-  homepage "http://cairographics.org/"
-  url "http://cairographics.org/releases/cairo-1.14.6.tar.xz"
+  homepage "https://cairographics.org/"
+  url "https://cairographics.org/releases/cairo-1.14.6.tar.xz"
   mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/cairo-1.14.6.tar.xz"
   sha256 "613cb38447b76a93ff7235e17acd55a78b52ea84a9df128c3f2257f8eaa7b252"
   revision 1
@@ -13,8 +13,15 @@ class Cairo < Formula
   end
 
   devel do
-    url "http://cairographics.org/snapshots/cairo-1.15.2.tar.xz"
+    url "https://cairographics.org/snapshots/cairo-1.15.2.tar.xz"
     sha256 "268cc265a7f807403582f440643064bf52896556766890c8df7bad02d230f6c9"
+  end
+
+  head do
+    url "https://anongit.freedesktop.org/git/cairo", :using => :git
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
   end
 
   keg_only :provided_pre_mountain_lion
@@ -47,7 +54,11 @@ class Cairo < Formula
       args << "--enable-xcb=no" << "--enable-xlib=no" << "--enable-xlib-xrender=no"
     end
 
-    system "./configure", *args
+    if build.head?
+      system "./autogen.sh", *args
+    else
+      system "./configure", *args
+    end
     system "make", "install"
   end
 
@@ -69,8 +80,7 @@ class Cairo < Formula
     glib = Formula["glib"]
     libpng = Formula["libpng"]
     pixman = Formula["pixman"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gettext.opt_include}

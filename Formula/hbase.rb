@@ -1,14 +1,14 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.1.4/hbase-1.1.4-bin.tar.gz"
-  sha256 "2979384e7677f9ea95b8b2753d082b9a79cb9540a22dbcd072b942796363a925"
+  url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.1.5/hbase-1.1.5-bin.tar.gz"
+  sha256 "e06fa399c7ba48acd14b71ba6316d272f14b18b5b7398d6a3d60b6b8a9073f0e"
   revision 1
 
   bottle do
-    sha256 "aa56392402e8d0014f81012360cf401af690b8b3f53afce9286dfe45c32db26c" => :el_capitan
-    sha256 "df4607af5cf5f0ae15abbd9aa47e7a2f84d1448ccd3b3a2c17c1dc6542ffc5b2" => :yosemite
-    sha256 "ade4391323f49c2d99bee36b808bcd3a4121ac37b1dd3c253967664ab500683a" => :mavericks
+    sha256 "4d3cdeb9062d589359955117a2012c5ab1f9643cd9076bd2eaaa7ade8a1d94b2" => :el_capitan
+    sha256 "168366c440e13265393c3f918cfe3cf606de5571e9cb6bf56338ceb0fceb4d99" => :yosemite
+    sha256 "3cbb7b2809c152f66adf4450fb44e8a4c15934c364219773a786175be3e5c4b8" => :mavericks
   end
 
   depends_on :java => "1.7+"
@@ -30,7 +30,12 @@ class Hbase < Formula
     ENV.java_cache if build.with? "lzo"
     rm_f Dir["bin/*.cmd", "conf/*.cmd"]
     libexec.install %w[bin conf docs lib hbase-webapps]
-    bin.write_exec_script Dir["#{libexec}/bin/*"]
+
+    # Some binaries have really generic names (like `test`) and most seem to be
+    # too special-purpose to be permanently available via PATH.
+    %w[hbase start-hbase.sh stop-hbase.sh].each do |script|
+      bin.write_exec_script "#{libexec}/bin/#{script}"
+    end
 
     if build.with? "lzo"
       resource("hadoop-lzo").stage do
@@ -56,6 +61,11 @@ class Hbase < Formula
               "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\"")
       s.gsub!("# export JAVA_HOME=/usr/java/jdk1.6.0/",
               "export JAVA_HOME=\"$(/usr/libexec/java_home)\"")
+
+      # Default `$HBASE_HOME/logs` is unsuitable as it would cause writes to the
+      # formula's prefix. Provide a better default but still allow override.
+      s.gsub!(/^# export HBASE_LOG_DIR=.*$/,
+              "export HBASE_LOG_DIR=\"${HBASE_LOG_DIR:-#{var}/log/hbase}\"")
     end
 
     # makes hbase usable out of the box
@@ -90,11 +100,10 @@ class Hbase < Formula
           <value>lo0</value>
         </property>
       EOS
-
-    (libexec/"logs").mkpath
   end
 
   def post_install
+    (var/"log/hbase").mkpath
     (var/"run/hbase").mkpath
   end
 
@@ -146,7 +155,7 @@ class Hbase < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/hbase mapredcp")
+    assert_match "HBase #{version}", shell_output("#{bin}/hbase version 2>&1")
 
     cp_r (libexec/"conf"), testpath
     inreplace (testpath/"conf/hbase-site.xml") do |s|
@@ -154,9 +163,9 @@ class Hbase < Formula
       s.gsub! /(hbase.zookeeper.property.dataDir.*)\n.*/, "\\1\n<value>#{testpath}/zookeeper</value>"
     end
 
-    ENV["HBASE_LOG_DIR"]  = (testpath/"logs")
-    ENV["HBASE_CONF_DIR"] = (testpath/"conf")
-    ENV["HBASE_PID_DIR"]  = (testpath/"pid")
+    ENV["HBASE_LOG_DIR"]  = testpath/"logs"
+    ENV["HBASE_CONF_DIR"] = testpath/"conf"
+    ENV["HBASE_PID_DIR"]  = testpath/"pid"
 
     system "#{bin}/start-hbase.sh"
     sleep 2

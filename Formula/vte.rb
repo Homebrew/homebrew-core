@@ -55,8 +55,7 @@ class Vte < Formula
     libpng = Formula["libpng"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{cairo.opt_include}/cairo
       -I#{fontconfig.opt_include}

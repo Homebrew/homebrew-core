@@ -1,16 +1,15 @@
 class Graphicsmagick < Formula
   desc "Image processing tools collection"
   homepage "http://www.graphicsmagick.org/"
-  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.23/GraphicsMagick-1.3.23.tar.bz2"
-  sha256 "6e14a9e9e42ec074239b2de4db37ebebb8268b0361332d5bc86d7c3fbfe5aabf"
-  revision 1
+  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.24/GraphicsMagick-1.3.24.tar.bz2"
+  sha256 "b060a4076308f93c25d52c903ad9a07e71b402dcb2a5c62356384865c129dff2"
 
   head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
 
   bottle do
-    sha256 "a77f97d5e497e26cbc73568b42f6b9d26fd4efec83b49adf9fa079961d0ba739" => :el_capitan
-    sha256 "71144976c74ef0afac37fc9e00b278f746a5c02c04322654078a5a127fbaecf4" => :yosemite
-    sha256 "66057aa95ba0524fc9bf9903eb5ca734b69faec5f95c09bca519e29e76c4f670" => :mavericks
+    sha256 "7680ed5c67bb60fc6d4930e38434043509c0e84905e681254084cf77608a9b13" => :el_capitan
+    sha256 "590faf4b8048646072133f075bc79abf67110da64160e16b846ef24976e10872" => :yosemite
+    sha256 "4800d7b893fa69becfcd81f0a262196ee3d09ef5317183a4693fbc18c0dc0741" => :mavericks
   end
 
   option "with-quantum-depth-8", "Compile with a quantum depth of 8 bit"

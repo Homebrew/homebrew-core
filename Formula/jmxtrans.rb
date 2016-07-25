@@ -1,15 +1,15 @@
 class Jmxtrans < Formula
   desc "Tool to connect to JVMs and query their attributes"
   homepage "https://github.com/jmxtrans/jmxtrans"
-  url "https://github.com/jmxtrans/jmxtrans/archive/jmxtrans-250.tar.gz"
-  version "20150426-250"
-  sha256 "8590731dcbfb900e46b7073ff5d99f7df542da488f97fbaa5c70999f45ca69b4"
+  url "https://github.com/jmxtrans/jmxtrans/archive/jmxtrans-parent-259.tar.gz"
+  version "20160706-259"
+  sha256 "9a93c23e463cd6af152f4fb715a0ffc04b8fdb5617178d8fd4da3030bcca1d86"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "83d1adc9a2dc7f73c99d5bee85c78bf129afef269fe83cf4da1ac8c889cedfc9" => :el_capitan
-    sha256 "a7e7e933f1da5c5ca88b0b399c9606d8805f7756dba8cf1ef7df0595e23f707c" => :yosemite
-    sha256 "64337db305c727c34f20f619c647fc11f07b2ae9f1716e048ca954b13da179aa" => :mavericks
+    sha256 "a41b37df947adff1a076e1066ca0b8847105f8f8d5ca13c1bed1dbc44aca636f" => :el_capitan
+    sha256 "51624098720247a7a54a2a1023578cba4adbb7673c804bfbfbfe83124e37d51e" => :yosemite
+    sha256 "c57be793f849944d5fdb0a98ca089dacc61afb9a99ab3e353ef67aa1ff605d9f" => :mavericks
   end
 
   depends_on :java => "1.6+"
@@ -22,11 +22,15 @@ class Jmxtrans < Formula
                              "-Dmaven.javadoc.skip=true",
                              "-Dcobertura.skip=true"
 
-    libexec.install Dir["*"]
-    inreplace libexec/"jmxtrans.sh", '"jmxtrans-all.jar"',
-                                     "\"#{libexec}/target/jmxtrans-249-all.jar\""
+    cd "jmxtrans" do
+      inreplace "jmxtrans.sh", "lib/jmxtrans-all.jar",
+                               libexec/"target/jmxtrans-259-all.jar"
+      chmod 0755, "jmxtrans.sh"
+      libexec.install %w[jmxtrans.sh target]
+      pkgshare.install %w[bin example.json src tools vagrant]
+      doc.install Dir["doc/*"]
+    end
 
-    (libexec/"jmxtrans.sh").chmod 0755
     bin.install_symlink libexec/"jmxtrans.sh" => "jmxtrans"
   end
 

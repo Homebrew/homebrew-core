@@ -1,7 +1,7 @@
 class AutoconfArchive < Formula
   desc "Collection of over 500 reusable autoconf macros"
   homepage "https://savannah.gnu.org/projects/autoconf-archive/"
-  url "http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2016.03.20.tar.xz"
+  url "https://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2016.03.20.tar.xz"
   mirror "https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-2016.03.20.tar.xz"
   sha256 "88fb2efff640eddd28a52ae550ff5561bca3bd2bba09e1d7b0580e719875e437"
 

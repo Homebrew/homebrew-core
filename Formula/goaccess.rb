@@ -1,35 +1,32 @@
 class Goaccess < Formula
   desc "Log analyzer and interactive viewer for the Apache Webserver"
   homepage "https://goaccess.io/"
-  url "http://tar.goaccess.io/goaccess-0.9.7.tar.gz"
-  sha256 "9427e6425cb71638d08fcdc45d63190c45ea5a10e28a03def24a9b8bdd584e34"
+  url "http://tar.goaccess.io/goaccess-1.0.2.tar.gz"
+  sha256 "58a83e201f29f0127b89032fbd40677558a643f6141b8c8413afd1e182f104f1"
+  head "https://github.com/allinurl/goaccess.git"
 
   bottle do
-    sha256 "e5df396714dfff7947bb94d2f2c948d21e08330ca8f1722e357b21f70e88167d" => :el_capitan
-    sha256 "e4d052205467c653c2596e5dbec8582559e7da940fa7b611a41b6b157fece804" => :yosemite
-    sha256 "d1bcf0796d143f80ca19a1dc599ef91e1d29e9814e4216dea840f71d30f2c701" => :mavericks
-  end
-
-  head do
-    url "https://github.com/allinurl/goaccess.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
+    sha256 "175c517502b2d1373b37a2ec732048b01f6385d50c6b87d66eaad09568b5643f" => :el_capitan
+    sha256 "1308e96418654e0423118e77ac9dabde20739bb25714cba5bbcb5e0ea7c28a1a" => :yosemite
+    sha256 "c203423728013f2b7d47c3c439c5939bbd5f32937cf3239d07244a3f12942cc7" => :mavericks
   end
 
   option "with-geoip", "Enable IP location information using GeoIP"
 
   deprecated_option "enable-geoip" => "with-geoip"
 
-  depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "geoip" => :optional
 
   def install
-    system "autoreconf", "-vfi" if build.head?
+    system "autoreconf", "-vfi"
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --enable-utf8
     ]
 
     args << "--enable-geoip" if build.with? "geoip"
@@ -47,6 +44,6 @@ class Goaccess < Formula
 
     output = shell_output("#{bin}/goaccess --time-format=%T --date-format=%d/%b/%Y --log-format='%h %^[%d:%t %^] \"%r\" %s %b \"%R\" \"%u\"' -f access.log -o json 2>/dev/null")
 
-    assert_equal "Chrome", Utils::JSON.load(output)["browsers"][0]["data"]
+    assert_equal "Chrome", Utils::JSON.load(output)["browsers"]["data"][0]["data"]
   end
 end

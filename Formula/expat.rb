@@ -1,20 +1,16 @@
 class Expat < Formula
   desc "XML 1.0 parser"
-  homepage "http://www.libexpat.org"
-  url "https://downloads.sourceforge.net/project/expat/expat/2.1.0/expat-2.1.0.tar.gz"
-  mirror "https://fossies.org/linux/www/expat-2.1.0.tar.gz"
-  sha256 "823705472f816df21c8f6aa026dd162b280806838bb55b3432b0fb1fcca7eb86"
-  revision 1
-
+  homepage "http://expat.sourceforge.net"
+  url "https://downloads.sourceforge.net/project/expat/expat/2.2.0/expat-2.2.0.tar.bz2"
+  mirror "https://fossies.org/linux/www/expat-2.2.0.tar.bz2"
+  sha256 "d9e50ff2d19b3538bd2127902a89987474e1a4db8e43a66a4d1a712ab9a504ff"
   head ":pserver:anonymous:@expat.cvs.sourceforge.net:/cvsroot/expat", :using => :cvs
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "c866592f74d84d50d2465120deac0309ea2a192dbc647785553cce5d42c445e6" => :el_capitan
-    sha256 "159b1125406c697ec737f7ba548c2f43cde630e6c78ad02cb3071786f8799d6b" => :yosemite
-    sha256 "bfea179a87f894127f9a7454ef9bf31800b29f7579ec06cbed34aae02517f8f6" => :mavericks
-    sha256 "760375f5814e2b1b3c1f2f2c8b31b0ed37fdc5022b4ca484dc6b8f106d14a72a" => :mountain_lion
+    sha256 "b12ee86df3f1faa5eb07e2624ab464428d9b96fb09cadc25a20fe7a065459f54" => :el_capitan
+    sha256 "228e8d539fc0447150a0f1508cad4ab33347e45178964966df0802389b0c5a3d" => :yosemite
+    sha256 "48dcc5c1d0dedd3ebac9e238ff5e5cf1d725577062f5902cb58cfcb9f105d5f2" => :mavericks
   end
 
   keg_only :provided_by_osx, "OS X includes Expat 1.5."
@@ -63,7 +59,7 @@ class Expat < Formula
         return result;
       }
     EOS
-    system ENV.cc, "test.c", "-lexpat", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lexpat", "-o", "test"
     assert_equal "tag:str|data:Hello, world!|", shell_output("./test")
   end
 end
