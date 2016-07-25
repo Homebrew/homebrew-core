@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-1.3.5.tar.gz"
-  sha256 "93a23c44eb431da46c9458f95a66e29c9b98e37515d44b6be09e75b35ec94ac8"
+  url "https://libvirt.org/sources/libvirt-2.0.0.tar.xz"
+  sha256 "10e90af55e613953c0ddc60b4ac3a10c73c0f3493d7014259e3f012b2ffc9acb"
 
   bottle do
     sha256 "b8eca973a86ff46830181f18d318295991f561fd3b672b8c874cff7e8e8ae2de" => :el_capitan
@@ -26,6 +26,11 @@ class Libvirt < Formula
   fails_with :llvm do
     build 2326
     cause "Undefined symbols when linking"
+  end
+
+  patch :p0 do
+    url "https://gist.githubusercontent.com/nijikon/b0d91afdfd3bced10ad27da329fc88cc/raw/f74414747037a4ee80dd7a8dc07c01b2adb6730d/libvirt-2.0.0.patch"
+    sha256 "b4a23e6724350decc90a4e5729f887843a9dd8cf9c476557a4c8adbc2ebbe61c"
   end
 
   def install
