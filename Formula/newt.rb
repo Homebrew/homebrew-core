@@ -43,4 +43,18 @@ class Newt < Formula
     system "./configure", *args
     system "make", "install"
   end
+
+  test do
+    ENV["TERM"] = "xterm"
+    system "python", "-c", "import snack"
+    (testpath/"test.c").write <<-EOS.undent
+      #import <newt.h>
+      int main() {
+        newtInit();
+        newtFinished();
+      }
+    EOS
+    system ENV.cc, testpath/"test.c", "-o", testpath/"newt_test", "-lnewt"
+    system testpath/"newt_test"
+  end
 end
