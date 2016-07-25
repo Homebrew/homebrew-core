@@ -3,12 +3,12 @@ class Makensis < Formula
   homepage "http://nsis.sourceforge.net/"
 
   stable do
-    url "https://downloads.sourceforge.net/project/nsis/NSIS%202/2.50/nsis-2.50-src.tar.bz2"
-    sha256 "3fb674cb75e0237ef6b7c9e8a8e8ce89504087a6932c5d2e26764d4220a89848"
+    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.0/nsis-3.0-src.tar.bz2"
+    sha256 "53a1e8ef109acd828ec909f3e6203f69d917f1a5b8bff27e93e66d0bddc5637e"
 
     resource "nsis" do
-      url "https://downloads.sourceforge.net/project/nsis/NSIS%202/2.50/nsis-2.50.zip"
-      sha256 "36bebcd12ad8ec6b94920b46c4c5a7a9fccdaa5e9aececb9e89aecfdfa35e472"
+      url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.0/nsis-3.0.zip"
+      sha256 "87b1d36765bb2f6e0fe531fdd8c9282b28e86b88d1f6b61842777bb791955372"
     end
   end
 
@@ -17,16 +17,6 @@ class Makensis < Formula
     sha256 "3fe7c4c515178d9f03d41c1cdae529b757a4dc0677590878af36c5ad18139da2" => :el_capitan
     sha256 "dfb81426bb147fe471cb314647c91862e45f27a7a72773685e20421d504ac6c4" => :yosemite
     sha256 "df608eed02642d4f9dfbc230e175e460e9769d351acbd9411455ad4333cf1282" => :mavericks
-  end
-
-  devel do
-    url "https://downloads.sourceforge.net/project/nsis/NSIS%203%20Pre-release/3.0rc2/nsis-3.0rc2-src.tar.bz2"
-    sha256 "259a5a80fa18ec73e1264b528a10666be07be6e02d8c86af7702ec0d7ae7dd30"
-
-    resource "nsis" do
-      url "https://downloads.sourceforge.net/project/nsis/NSIS%203%20Pre-release/3.0rc2/nsis-3.0rc2.zip"
-      sha256 "f6792547b2d0e3b6638766dcefcd362673239e5d09627d7e80e8cd6275109712"
-    end
   end
 
   depends_on "scons" => :build
@@ -44,13 +34,7 @@ class Makensis < Formula
 
     # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
     scons "STRIP=0", "SKIPUTILS=all", "makensis"
-
-    if build.stable?
-      bin.install "build/release/makensis/makensis"
-    else
-      bin.install "build/urelease/makensis/makensis"
-    end
-
+    bin.install "build/urelease/makensis/makensis"
     (share/"nsis").install resource("nsis")
   end
 
