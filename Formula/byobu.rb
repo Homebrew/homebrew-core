@@ -23,7 +23,7 @@ class Byobu < Formula
   depends_on "coreutils"
   depends_on "gnu-sed" # fails with BSD sed
   depends_on "tmux"
-  depends_on "newt" => "with-python"
+  depends_on "newt"
 
   def install
     if build.head?
