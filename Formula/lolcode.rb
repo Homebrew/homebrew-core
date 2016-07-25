@@ -1,6 +1,7 @@
 class Lolcode < Formula
-  desc "LOLCODE interpreter"
+  desc "An esoteric programming language"
   homepage "http://lolcode.org"
+  sha256 "cb1065936d3a7463928dcddfc345a8d7d8602678394efc0e54981f9dd98c27d2"
   head "https://github.com/justinmeza/lolcode.git"
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,6 @@ class Lolcode < Formula
 
   # note: 0.10.* releases are stable versions, 0.11.* are dev ones
   url "https://github.com/justinmeza/lci/archive/v0.11.2.tar.gz"
-  sha256 "cb1065936d3a7463928dcddfc345a8d7d8602678394efc0e54981f9dd98c27d2"
 
   depends_on "cmake" => :build
 
