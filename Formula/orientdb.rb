@@ -6,9 +6,9 @@ class Orientdb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2d10047d91dd4171419f57a9c3ad35b77754496a63106cf412d41baebf01903e" => :el_capitan
-    sha256 "084c2e3d596a91c63a4f5a57f6c61c3df6c2531dca1e849eeb7983e3a099c84f" => :yosemite
-    sha256 "86f94f50e2e4c6d18263f256e0dd2f70fbb099254850afa0d286a59ade8d26ef" => :mavericks
+    sha256 "6ca2f994653590ac3f04ace2ddd369b0f66d5b648c5a151c5c592d7aab5ca982" => :el_capitan
+    sha256 "356a546861606b228294421816f188ed42f4a05d234ee7e1c96e4ccc8f03ade5" => :yosemite
+    sha256 "b065a2a8527b54005b7b9b65c395491700a165f56c4c22ab4523018a15816ebc" => :mavericks
   end
 
   # Fixing OrientDB init scripts
