@@ -2,7 +2,7 @@ class LittleCms2 < Formula
   desc "Color management engine supporting ICC profiles"
   homepage "http://www.littlecms.com/"
   url "https://downloads.sourceforge.net/project/lcms/lcms/2.8/lcms2-2.8.tar.gz"
-  sha256 "8e27f5207204e41c6e7f5aa3c1b92cd89f54b839464b7df4cd0d93b07b16333a"
+  sha256 "66d02b229d2ea9474e62c2b6cd6720fde946155cd1d0d2bffdab829790a0fb22"
 
   bottle do
     cellar :any
