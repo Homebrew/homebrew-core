@@ -5,8 +5,8 @@ class Texmath < Formula
 
   desc "Haskell library for converting LaTeX math to MathML"
   homepage "http://johnmacfarlane.net/texmath.html"
-  url "https://hackage.haskell.org/package/texmath-0.8.6.4/texmath-0.8.6.4.tar.gz"
-  sha256 "8ef75b8a82ba0d0002388b8a25148b40c06a7e4ea8033f6cc07c806dfa4c6c50"
+  url "https://hackage.haskell.org/package/texmath-0.8.6.5/texmath-0.8.6.5.tar.gz"
+  sha256 "33f8c3d78f2f46246b64cecab47e27f1f4e587f05b2375e94a8a43dfce446c90"
 
   bottle do
     sha256 "d2bde4f0afe9a44bffe077126b09ca5e5bfed335cbb5f92843e6a289a0a1dd20" => :el_capitan
