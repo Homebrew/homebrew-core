@@ -1,8 +1,8 @@
 class Groovyserv < Formula
   desc "Speed up Groovy startup time"
   homepage "https://kobo.github.io/groovyserv/"
-  url "https://bitbucket.org/kobo/groovyserv-mirror/downloads/groovyserv-1.0.0-src.zip"
-  sha256 "2e684f589792aad638ef5391fbad7a6b3c2e7e1d7f35e098cb1d3d60a8b1882b"
+  url "https://bitbucket.org/kobo/groovyserv-mirror/downloads/groovyserv-1.1.0-src.zip"
+  sha256 "4d425c606fba54c6a9e3babc79f178de470fc3d5479a1561d947ca7045b40544"
   head "https://github.com/kobo/groovyserv.git"
 
   bottle do
@@ -14,12 +14,6 @@ class Groovyserv < Formula
   end
 
   depends_on "go" => :build
-
-  # This fix is upstream and can be removed in the next released version.
-  patch do
-    url "https://github.com/kobo/groovyserv/commit/4ea88fbfe940b50801be5e0b0bc84cd0ce627530.diff"
-    sha256 "b7de43a030f97d8368ad9a9b895bd1242abc53c4ce0f12e7ab2acfc82e97da65"
-  end
 
   def install
     # Sandbox fix to stop it ignoring our temporary $HOME variable.
