@@ -33,18 +33,20 @@ class Libvirt < Formula
   patch :p1, :DATA
 
   def install
-    args = ["--prefix=#{prefix}",
-            "--localstatedir=#{var}",
-            "--mandir=#{man}",
-            "--sysconfdir=#{etc}",
-            "--with-esx",
-            "--with-init-script=none",
-            "--with-remote",
-            "--with-test",
-            "--with-vbox",
-            "--with-vmware",
-            "--with-yajl",
-            "--without-qemu"]
+    args = %W[
+      --prefix=#{prefix}
+      --localstatedir=#{var}
+      --mandir=#{man}
+      --sysconfdir=#{etc}
+      --with-esx
+      --with-init-script=none
+      --with-remote
+      --with-test
+      --with-vbox
+      --with-vmware
+      --with-yajl
+      --without-qemu
+    ]
 
     args << "--without-libvirtd" if build.without? "libvirtd"
 
