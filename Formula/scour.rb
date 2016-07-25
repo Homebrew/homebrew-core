@@ -1,8 +1,8 @@
 class Scour < Formula
   desc "SVG file scrubber"
   homepage "https://www.codedread.com/scour/"
-  url "https://github.com/codedread/scour/archive/v0.33.tar.gz"
-  sha256 "e9b4fb4beb653afbdbc43c4cc0836902d6f287d882b6b7cdf714c456ff0841a8"
+  url "https://github.com/codedread/scour/archive/v0.34.tar.gz"
+  sha256 "5bf12de7acab8958531fc6b84641bbb656cc85b1517d7b28bcfa54eb84f133be"
 
   bottle do
     cellar :any_skip_relocation
