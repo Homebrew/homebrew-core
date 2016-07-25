@@ -7,10 +7,9 @@ class Newt < Formula
 
   bottle do
     cellar :any
-    sha256 "0e47676dc127c77710bf3ed146edb3f7a22d96c113cc9b7322779dc94987eccc" => :el_capitan
-    sha256 "33403d77594cecec7efb68b21a3a55b0c2510cd3c97d8aa5f252015632c5962b" => :yosemite
-    sha256 "d1a3b95da1718bae9461c958cc05b739f94ee4ec0e5d08f7a8001cd29aa82dc8" => :mavericks
-    sha256 "ace3c7f7beacda4039b3d147687214a01f6006a6d53eadbb245825a2cea402ad" => :mountain_lion
+    sha256 "87bfa0e43bd4bfecdedc8995fbd509bb7a7b4f94ea932f203ae95fd037a91eb3" => :el_capitan
+    sha256 "9df1357a08367454f2588dbe414ebce74352cdd230262ee7d08ab4ec169b3019" => :yosemite
+    sha256 "44f755d2e9f16c715366b80b2c1fe65b73c42b486453e71c45c2702e32e61e10" => :mavericks
   end
 
   depends_on "gettext"
