@@ -49,6 +49,11 @@ class Dpkg < Formula
     (etc/"dpkg/origins").install_symlink "dummy" => "default"
   end
 
+  def post_install
+    (var/"lib/dpkg").mkpath
+    (var/"log").mkpath
+  end
+
   def caveats; <<-EOS.undent
     This installation of dpkg is not configured to install software, so
     commands such as `dpkg -i`, `dpkg --configure` will fail.
