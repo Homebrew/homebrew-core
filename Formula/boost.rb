@@ -1,9 +1,26 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://downloads.sourceforge.net/project/boost/boost/1.60.0/boost_1_60_0.tar.bz2"
-  sha256 "686affff989ac2488f79a97b9479efb9f2abae035b5ed4d8226de6857933fd3b"
   revision 2
+
+  stable do
+    url "https://downloads.sourceforge.net/project/boost/boost/1.60.0/boost_1_60_0.tar.bz2"
+    sha256 "686affff989ac2488f79a97b9479efb9f2abae035b5ed4d8226de6857933fd3b"
+
+    # Handle compile failure with boost/graph/adjacency_matrix.hpp
+    # https://github.com/Homebrew/homebrew/pull/48262
+    # https://svn.boost.org/trac/boost/ticket/11880
+    # patch derived from https://github.com/boostorg/graph/commit/1d5f43d
+    patch :DATA
+
+    # Fix auto-pointer registration in 1.60
+    # https://github.com/boostorg/python/pull/59
+    # patch derived from https://github.com/boostorg/python/commit/f2c465f
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9e56b45/boost/boost1_60_0_python_class_metadata.diff"
+      sha256 "1a470c3a2738af409f68e3301eaecd8d07f27a8965824baf8aee0adef463b844"
+    end
+  end
 
   head "https://github.com/boostorg/boost.git"
 
@@ -13,20 +30,6 @@ class Boost < Formula
     sha256 "932c8ad1cbf1acef67e8ff18ff6eddd8eb995c2670ba89f1d9525c41517e132b" => :el_capitan
     sha256 "677e37a021fc677f9e6f15c1511ea2ac33f247ec25ea85ac90e5fa11419386db" => :yosemite
     sha256 "fa6ee8ea6a5975fb94235db3d3c18681011289b4d1588ff675259b2088aaff21" => :mavericks
-  end
-
-  # Handle compile failure with boost/graph/adjacency_matrix.hpp
-  # https://github.com/Homebrew/homebrew/pull/48262
-  # https://svn.boost.org/trac/boost/ticket/11880
-  # patch derived from https://github.com/boostorg/graph/commit/1d5f43d
-  patch :DATA
-
-  # Fix auto-pointer registration in 1.60
-  # https://github.com/boostorg/python/pull/59
-  # patch derived from https://github.com/boostorg/python/commit/f2c465f
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9e56b45/boost/boost1_60_0_python_class_metadata.diff"
-    sha256 "1a470c3a2738af409f68e3301eaecd8d07f27a8965824baf8aee0adef463b844"
   end
 
   env :userpaths
