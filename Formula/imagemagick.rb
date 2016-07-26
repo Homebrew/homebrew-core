@@ -8,6 +8,8 @@ class Imagemagick < Formula
   mirror "https://www.imagemagick.org/download/ImageMagick-6.9.5-3.tar.xz"
   sha256 "6fec9f493bb7434b8c143eb3bba86f3892c68e0b6633ce7eeed970d47c5db4ec"
 
+  revision 1
+
   head "http://git.imagemagick.org/repos/ImageMagick.git"
 
   bottle do
@@ -59,6 +61,14 @@ class Imagemagick < Formula
   needs :openmp if build.with? "openmp"
 
   skip_clean :la
+
+  # Disables vulnerable coders: https://medium.com/@rhuber/imagemagick-is-on-fire-cve-2016-3714-379faf762247#.2tjfb3iks
+  # Next release will probably have a patch for the coders themselves,
+  # allowing us to remove this workaround.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/patches/ca3940923286cc1f763848eccbef6dcfd3e5fe1c/imagemagick/disable-coders.diff"
+    sha256 "b5950e047cdcc3a787c91bbdfbc0a76537f1c8febeb9c054768c5c7325ddf409"
+  end
 
   def install
     args = %W[
