@@ -25,9 +25,7 @@ class Pev < Formula
       s.change_make_var! "MANDIR", man
     end
 
-    inreplace "lib/libpe/Makefile" do |s|
-      s.gsub! "/usr", prefix
-    end
+    inreplace "lib/libpe/Makefile", "/usr", prefix
 
     system "make", "CC=#{ENV.cc}"
     system "make", "install"
