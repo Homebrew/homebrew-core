@@ -3,9 +3,9 @@ class Collectd < Formula
   homepage "https://collectd.org/"
 
   stable do
-    url "https://collectd.org/files/collectd-5.5.1.tar.bz2"
-    mirror "http://pkgs.fedoraproject.org/repo/pkgs/collectd/collectd-5.5.1.tar.bz2/fd24b947cef9351ce3e2d6d2a0762e18/collectd-5.5.1.tar.bz2"
-    sha256 "f9c5d526e1f0429a7db1ccd90bdf9e23923a2fd43b7285cfda8f0341e5c0bc3f"
+    url "https://collectd.org/files/collectd-5.5.2.tar.bz2"
+    mirror "http://pkgs.fedoraproject.org/repo/pkgs/collectd/collectd-5.5.2.tar.bz2/40b83343f72089e0330f53965f1140bd/collectd-5.5.2.tar.bz2"
+    sha256 "017f3a4062187e594d8ab6af685655fb82a8a942dc574668e68242bdb8ba820f"
   end
 
   bottle do
@@ -59,6 +59,8 @@ class Collectd < Formula
     system "./configure", *args
     system "make", "install"
   end
+
+  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/collectd -f -C #{HOMEBREW_PREFIX}/etc/collectd.conf"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
