@@ -13,12 +13,11 @@ class Log4cxx < Formula
   end
 
   option :universal
+  option :cxx11
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-
-  option :cxx11
 
   fails_with :llvm do
     build 2334
