@@ -17,9 +17,7 @@ class Genstats < Formula
     # Tried to make this a patch.  Applying the patch hunk would
     # fail, even though I used "git diff | pbcopy".  Tried messing
     # with whitespace, # lines, etc.  Ugh.
-    inreplace "br.cpp" do |s|
-      s.gsub! /if \(_XOPEN_VERSION >= 600\)/, "if (_XOPEN_VERSION >= 600) && !__APPLE__"
-    end
+    inreplace "br.cpp", /if \(_XOPEN_VERSION >= 600\)/, "if (_XOPEN_VERSION >= 600) && !__APPLE__"
 
     system "make"
     bin.install("genstats")
