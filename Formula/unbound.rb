@@ -6,9 +6,9 @@ class Unbound < Formula
 
   bottle do
     cellar :any
-    sha256 "2d1c65516c798ced266790de75c5fc109eeb9b7f8ff919a737d218baf3b7f9d2" => :el_capitan
-    sha256 "0dcf599a2eabaf8d21b6a3261454658194e67d8fc23da489e1740c7514aba96c" => :yosemite
-    sha256 "a8dfb20a0fe4fd35aef6278fccffbcd7087234ba93d32c10a65454cccd7d90b3" => :mavericks
+    sha256 "0be2dedc49de0ba2afa1ac12542e20155625eb6bbad784065dd7c01da0550863" => :el_capitan
+    sha256 "0b641ab092cbd5aa02b33054f6f3fa27c76787bd17d7c4f1cd9dc7d798725a60" => :yosemite
+    sha256 "bdf1c759a2767507889a253069dc2cb9ef9c3bb558e08113665b59a6bcbbc204" => :mavericks
   end
 
   depends_on "openssl"
