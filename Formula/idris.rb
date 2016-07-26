@@ -5,10 +5,8 @@ class Idris < Formula
 
   desc "Pure functional programming language with dependent types"
   homepage "http://www.idris-lang.org"
-  url "https://github.com/idris-lang/Idris-dev/archive/v0.12.tar.gz"
-  sha256 "dfc31dffd1bafd996a951cbcc551a69337f16a3fa5c2974ec872d62a38bd7c75"
-  revision 1
-
+  url "https://github.com/idris-lang/Idris-dev/archive/v0.12.1.tar.gz"
+  sha256 "c3cabf16fcfad69f3d13e24e3426fd2335378a38387c69ceaeedd9cbf741f41b"
   head "https://github.com/idris-lang/Idris-dev.git"
 
   bottle do
@@ -24,19 +22,7 @@ class Idris < Formula
   depends_on "gmp"
   depends_on "libffi" => :recommended
 
-  # GHC 8 compat
-  # Adapted from upstream PR: https://github.com/idris-lang/Idris-dev/pull/3226
-  # Fixes https://github.com/idris-lang/Idris-dev/issues/3193
-  # Underlying GHC 8 issue: https://ghc.haskell.org/trac/ghc/ticket/12201
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/49941f6249e5b05dfd180abb4776f9e3a3bb25d8/idris/idris-ghc8.diff"
-    sha256 "002e2b6d8392d451ecf0ddb37f181e3c87ed42ca0eee82cc4f8aba76e5e1cc11"
-  end
-
   def install
-    # GHC 8 compat for trifecta dependency; already fixed in trifecta HEAD
-    (buildpath/"cabal.config").write("allow-newer: comonad,transformers\n")
-
     args = []
     args << "-f FFI" if build.with? "libffi"
     args << "-f release" if build.stable?
