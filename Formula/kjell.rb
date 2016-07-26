@@ -17,6 +17,11 @@ class Kjell < Formula
   depends_on "erlang"
 
   def install
+    # mkdir: $HOME/.kjell: Operation not permitted
+    # Prevent sandbox violation
+    # Reported 5th May 2016: https://github.com/karlll/kjell/issues/33
+    inreplace "Makefile", "CFG_DIR=~${USER}/.kjell", "CFG_DIR=#{pkgshare}"
+
     system "make"
     system "make", "configure", "PREFIX=#{prefix}"
     system "make", "install", "NO_SYMLINK=1"
