@@ -18,7 +18,8 @@ class Wxmac < Formula
 
     # Various fixes related to Yosemite. Revisit in next stable release.
     # Please keep an eye on http://trac.wxwidgets.org/ticket/16329 as well
-    # Theoretically the above linked patch should still be needed, but it isn't. Try to find out why.
+    # Theoretically the above linked patch should still be needed, but it isn't.
+    # Try to find out why.
     patch :DATA
 
     # Fails to find QuickTime headers; fixed in 3.1.0 and newer.
@@ -79,7 +80,7 @@ class Wxmac < Formula
       "--with-libtiff",
       # Otherwise, even in superenv, the internal libtiff can pick
       # up on a nonuniversal xz and fail
-      # https://github.com/Homebrew/homebrew/issues/22732
+      # https://github.com/Homebrew/legacy-homebrew/issues/22732
       "--without-liblzma",
       "--with-libpng",
       "--with-zlib",
