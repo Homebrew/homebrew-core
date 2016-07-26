@@ -133,6 +133,7 @@
   "judy": "homebrew/boneyard",
   "justniffer": "homebrew/boneyard",
   "kbtin": "homebrew/boneyard",
+  "kdiff3": "caskroom/cask",
   "kernagic": "homebrew/gui",
   "kismet": "homebrew/boneyard",
   "klavaro": "homebrew/gui",
