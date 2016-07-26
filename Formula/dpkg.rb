@@ -1,9 +1,9 @@
 class Dpkg < Formula
   desc "Debian package management system"
   homepage "https://wiki.debian.org/Teams/Dpkg"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.4.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.4.tar.xz"
-  sha256 "fe89243868888ce715bf45861f26264f767d4e4dbd0d6f1a26ce60bbbbf106da"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.9.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.9.tar.xz"
+  sha256 "86ac4af917e9e75eb9b6c947a0a11439d1de32f72237413f7ddab17f77082093"
 
   bottle do
     revision 1
