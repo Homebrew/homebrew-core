@@ -19,7 +19,7 @@ class Commandbox < Formula
   end
 
   test do
-    system "box", "--commandbox_home=~/", "version"
-    system "box", "--commandbox_home=~/", "help"
+    system bin/"box", "--commandbox_home=~/", "version"
+    system bin/"box", "--commandbox_home=~/", "help"
   end
 end
