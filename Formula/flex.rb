@@ -1,8 +1,8 @@
 class Flex < Formula
   desc "Fast Lexical Analyzer, generates Scanners (tokenizers)"
   homepage "http://flex.sourceforge.net"
-  url "https://downloads.sourceforge.net/flex/flex-2.6.0.tar.bz2"
-  sha256 "24e611ef5a4703a191012f80c1027dc9d12555183ce0ecd46f3636e587e9b8e9"
+  url "https://github.com/westes/flex/releases/download/v2.6.1/flex-2.6.1.tar.xz"
+  sha256 "2c7a412c1640e094cb058d9b2fe39d450186e09574bebb7aa28f783e3799103f"
 
   bottle do
     sha256 "5ff47ed93df4c58a708c88d5638180dc989e17f1ac0ef2caf13bba20d32e646a" => :el_capitan
@@ -16,6 +16,7 @@ class Flex < Formula
 
   def install
     system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
                           "--disable-shared",
                           "--prefix=#{prefix}"
     system "make", "install"
