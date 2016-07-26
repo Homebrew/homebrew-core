@@ -6,9 +6,9 @@ class Aide < Formula
 
   bottle do
     cellar :any
-    sha256 "ed398a49873201175ca83f9bb467b975e6ae5ce114c644689a6372f5cd9d37fb" => :el_capitan
-    sha256 "e4a9afb7f03a1a66d29fb3fde36082745922e3b7de9718a90bfea7a259518caa" => :yosemite
-    sha256 "d723494937ba8af946f24bd1c03501d6787655b06173fabbbfba2fbddf2026a3" => :mavericks
+    sha256 "ac9b57a6912ac73ccd6bdb013842168f0d77a597ead54bff0640db6e2d0e49d8" => :el_capitan
+    sha256 "0def5269c4525296c167ceb591be1f69f4d65151da7bd9ef9a25160e5ca6e0a6" => :yosemite
+    sha256 "96addc96a4768e2343e2760022e115404c80b54b64f160925d24447bb393f39d" => :mavericks
   end
 
   head do
