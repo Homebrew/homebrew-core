@@ -34,6 +34,17 @@ class Zpaq < Formula
     sha256 "b110688939477bbe62263faff1ce488872c68c0352aa8e55779346f1bd1ed07e"
   end
 
+  devel do
+    url "http://mattmahoney.net/dc/zpaq713.zip"
+    sha256 "9120cf4fb1afdecea3ac4f690d7b0577f7cb004ca6b152856edd8ac444f0d919"
+    version "7.13"
+  end
+
+  resource "test" do
+    url "http://mattmahoney.net/dc/calgarytest2.zpaq"
+    sha256 "b110688939477bbe62263faff1ce488872c68c0352aa8e55779346f1bd1ed07e"
+  end
+
   def install
     # Should be removed once >7.05 ships as stable
     if build.stable?
