@@ -1,8 +1,8 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://unbound.net/downloads/unbound-1.5.8.tar.gz"
-  sha256 "33567a20f73e288f8daa4ec021fbb30fe1824b346b34f12677ad77899ecd09be"
+  url "https://unbound.net/downloads/unbound-1.5.9.tar.gz"
+  sha256 "01328cfac99ab5b8c47115151896a244979e442e284eb962c0ea84b7782b6990"
 
   bottle do
     cellar :any
@@ -13,11 +13,13 @@ class Unbound < Formula
 
   depends_on "openssl"
   depends_on "libevent"
+  depends_on "expat"
 
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--with-libevent=#{Formula["libevent"].opt_prefix}",
+                          "--with-libexpat=#{Formula["expat"].opt_prefix}",
                           "--with-ssl=#{Formula["openssl"].opt_prefix}"
     inreplace "doc/example.conf", 'username: "unbound"', 'username: "@@HOMEBREW-UNBOUND-USER@@"'
     system "make", "install"
