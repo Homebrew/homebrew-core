@@ -10,8 +10,8 @@ class MCli < Formula
     inreplace "#{prefix}/m", /MPATH=.*/, "MPATH=#{prefix}"
 
     bin.install_symlink "#{prefix}/m" => "m"
-	bash_completion.install prefix/"completion/bash/m"
-	zsh_completion.install prefix/"completion/zsh/_m"
+    bash_completion.install prefix/"completion/bash/m"
+    zsh_completion.install prefix/"completion/zsh/_m"
   end
 
   test do
