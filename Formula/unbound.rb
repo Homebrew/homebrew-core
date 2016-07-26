@@ -13,14 +13,17 @@ class Unbound < Formula
 
   depends_on "openssl"
   depends_on "libevent"
-  depends_on "expat"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
-                          "--with-libevent=#{Formula["libevent"].opt_prefix}",
-                          "--with-libexpat=#{Formula["expat"].opt_prefix}",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}"
+    args = %W[
+      --prefix=#{prefix}
+      --sysconfdir=#{etc}
+      --with-libevent=#{Formula["libevent"].opt_prefix}
+      --with-ssl=#{Formula["openssl"].opt_prefix}
+    ]
+    args << "--with-libexpat=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
+    system "./configure", *args
+
     inreplace "doc/example.conf", 'username: "unbound"', 'username: "@@HOMEBREW-UNBOUND-USER@@"'
     system "make", "install"
   end
