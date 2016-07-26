@@ -12,6 +12,7 @@
   "auctex": "homebrew/tex",
   "authexec": "homebrew/boneyard",
   "avfs": "homebrew/fuse",
+  "avidemux": "caskroom/cask",
   "aws-iam-tools": "homebrew/boneyard",
   "awsenv": "Luzifer/tools",
   "bbcp": "homebrew/head-only",
