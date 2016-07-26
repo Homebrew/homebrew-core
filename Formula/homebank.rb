@@ -1,8 +1,8 @@
 class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "http://homebank.free.fr"
-  url "http://homebank.free.fr/public/homebank-5.0.8.tar.gz"
-  sha256 "9bdf10b0d94c92d5216462fb110bba34cd2a1b01d38d2c6b629db81a0513a310"
+  url "http://homebank.free.fr/public/homebank-5.0.9.tar.gz"
+  sha256 "d0bc763e94da0cba544495b07070e79faecf1d5de0cfb092d126482525e062b7"
 
   bottle do
     sha256 "e1ec320fac03c45443d853d0d6b360bee7429a43d3497526618de125724d2b93" => :el_capitan
@@ -19,6 +19,11 @@ class Homebank < Formula
   depends_on "freetype"
   depends_on "fontconfig"
   depends_on "libofx" => :optional
+  depends_on "atk" => :linked
+  depends_on "cairo" => :linked
+  depends_on "gdk-pixbuf" => :linked
+  depends_on "glib" => :linked
+  depends_on "pango" => :linked
 
   def install
     args = ["--disable-dependency-tracking",
