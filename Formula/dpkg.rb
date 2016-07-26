@@ -39,10 +39,10 @@ class Dpkg < Formula
     system "make"
     system "make", "install"
 
-    bin.install Dir["#{libexec}/bin/*"]
-    man.install Dir["#{libexec}/share/man/*"]
-    (lib/"pkgconfig").install_symlink Dir["#{libexec}/lib/pkgconfig/*.pc"]
-    bin.env_script_all_files(libexec+"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.install Dir[libexec/"bin/*"]
+    man.install Dir[libexec/"share/man/*"]
+    (lib/"pkgconfig").install_symlink Dir[libexec/"lib/pkgconfig/*.pc"]
+    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
 
     (buildpath/"dummy").write "Vendor: dummy\n"
     (etc/"dpkg/origins").install "dummy"
