@@ -211,6 +211,7 @@
   "qi": "homebrew/boneyard",
   "qiv": "homebrew/boneyard",
   "qrupdate": "homebrew/science",
+  "quassel": "caskroom/cask",
   "rdesktop": "homebrew/x11",
   "rocket": "homebrew/boneyard",
   "rofs-filtered": "homebrew/fuse",
