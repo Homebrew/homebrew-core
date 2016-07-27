@@ -37,7 +37,7 @@ class CrystalLang < Formula
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "bdw-gc"
-  depends_on "llvm" => :build
+  depends_on "llvm"
   depends_on "libyaml" if build.with?("shards")
 
   resource "boot" do
