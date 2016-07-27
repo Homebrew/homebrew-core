@@ -11,6 +11,7 @@ class Ngspice < Formula
   end
 
   option "without-xspice", "Build without x-spice extensions"
+  option "with-shared", "Build shared library"
 
   deprecated_option "with-x" => "with-x11"
 
@@ -28,6 +29,19 @@ class Ngspice < Formula
       args << "--without-x"
     end
     args << "--enable-xspice" if build.with? "xspice"
+
+    if build.with? "shared"
+      # The build system cannot build both the executable and the shared
+      # library in one sequence, see
+      # https://sourceforge.net/p/ngspice/support-requests/19 .
+      # But we can build the shared library first, clean up, and then build
+      # the executable.
+      args << "--with-ngshared"
+      system "./configure", *args
+      system "make", "install"
+      system "make", "clean"
+      args.pop
+    end
 
     system "./configure", *args
     system "make", "install"
