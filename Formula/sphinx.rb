@@ -1,23 +1,23 @@
 class Sphinx < Formula
-  desc "Sphinx is a full-text search engine"
+  desc "Full-text search engine"
   homepage "http://www.sphinxsearch.com"
 
-  stable do
-    url "http://sphinxsearch.com/files/sphinx-2.2.10-release.tar.gz"
-    sha256 '054cb86e64bd48997d89386e1224d4405063d9857b2d7c33dc6cc1b9ef6df440'
-  end
-
-  devel do
-    url "http://sphinxsearch.com/files/sphinx-2.3.1-beta.tar.gz"
-    sha256 "0e5ebee66fe5b83dd8cbdebffd236dcd7cd33a7633c2e30b23330c65c61ee0e3"
-  end
-
   head "http://sphinxsearch.googlecode.com/svn/trunk/"
+
+  stable do
+    url "http://sphinxsearch.com/files/sphinx-2.2.11-release.tar.gz"
+    sha256 "6662039f093314f896950519fa781bc87610f926f64b3d349229002f06ac41a9"
+  end
 
   bottle do
     sha256 "becbeff5c3c56ff65a66ce321dbe19673be86bc2466b560f3be651c81a1166ed" => :el_capitan
     sha256 "7ac68d7f84767988fd1842b59999dba1226549f98847032ac179c763662b11d3" => :yosemite
     sha256 "0a6cab6b68544bce68a09912f5cd26b10cee817adf9a2ec6f3b011d46444323f" => :mavericks
+  end
+
+  devel do
+    url "http://sphinxsearch.com/files/sphinx-2.3.1-beta.tar.gz"
+    sha256 "0e5ebee66fe5b83dd8cbdebffd236dcd7cd33a7633c2e30b23330c65c61ee0e3"
   end
 
   option "with-mysql",      "Force compiling against MySQL"
@@ -99,5 +99,9 @@ class Sphinx < Formula
     We don't install these for you when you install this formula, as
     we don't know which datasource you intend to use.
     EOS
+  end
+
+  test do
+    system "searchd --help"
   end
 end
