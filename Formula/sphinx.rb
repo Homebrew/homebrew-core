@@ -2,7 +2,7 @@ class Sphinx < Formula
   desc "Full-text search engine"
   homepage "http://www.sphinxsearch.com"
 
-  head "http://sphinxsearch.googlecode.com/svn/trunk/"
+  head "https://github.com/sphinxsearch/sphinx.git"
 
   stable do
     url "http://sphinxsearch.com/files/sphinx-2.2.11-release.tar.gz"
