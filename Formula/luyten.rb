@@ -1,8 +1,8 @@
 class Luyten < Formula
   desc "Java decompiler GUI for Procyon"
   homepage "https://deathmarine.github.io/Luyten/"
-  url "https://github.com/deathmarine/Luyten/releases/download/v0.4.7/luyten-0.4.7.jar", :using => :nounzip
-  sha256 "7bd890b470b863bab48f941c21528a71488fd6f50fbf8e9ad7431ea02df5431c"
+  url "https://github.com/deathmarine/Luyten/releases/download/v0.4.8/luyten-0.4.8.jar", :using => :nounzip
+  sha256 "9aabb0afec05906b37b7015607ac3b1b2f736f461ddaa80836cef7fcf5437df8"
 
   head do
     url "https://github.com/deathmarine/Luyten.git"
@@ -28,10 +28,6 @@ class Luyten < Formula
   end
 
   test do
-    io = IO.popen("luyten")
-    sleep 5
-    Process.kill("SIGINT", io.pid)
-    Process.wait(io.pid)
-    io.read !~ /Exception/
+    assert File.exist?(bin/"luyten"), "I'm an untestable GUI app."
   end
 end
