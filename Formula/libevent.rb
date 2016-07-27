@@ -30,14 +30,14 @@ class Libevent < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "doxygen" => [:optional, :build]
-  depends_on "pkg-config" => :build
-  depends_on "openssl"
-
   option :universal
-  option "with-doxygen", "Build and install the manpages (using Doxygen)"
+  option "without-doxygen", "Don't build & install the manpages (uses Doxygen)"
 
   deprecated_option "enable-manpages" => "with-doxygen"
+
+  depends_on "doxygen" => [:recommended, :build]
+  depends_on "pkg-config" => :build
+  depends_on "openssl"
 
   fails_with :llvm do
     build 2326
