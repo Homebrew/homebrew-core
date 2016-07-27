@@ -1,8 +1,8 @@
 class Aide < Formula
   desc "File and directory integrity checker"
   homepage "http://aide.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/aide/aide/0.15.1/aide-0.15.1.tar.gz"
-  sha256 "303e5c186257df8c86e418193199f4ea2183fc37d3d4a9098a614f61346059ef"
+  url "https://downloads.sourceforge.net/project/aide/aide/0.16/aide-0.16.tar.gz"
+  sha256 "a81c53a131c4fd130b169b3a26ac35386a2f6e1e014f12807524cc273ed97345"
 
   bottle do
     cellar :any
@@ -11,22 +11,15 @@ class Aide < Formula
     sha256 "d723494937ba8af946f24bd1c03501d6787655b06173fabbbfba2fbddf2026a3" => :mavericks
   end
 
-  devel do
-    url "https://downloads.sourceforge.net/project/aide/devel/0.16b1/aide-0.16b1.tar.gz"
-    sha256 "35d99899d8b7cd723ac744b8cbd8d5f911ec22a4b568134dd0b6f7116d21b566"
-
-    depends_on "pcre"
-  end
-
   head do
     url "http://git.code.sf.net/p/aide/code.git"
     depends_on "automake" => :build
     depends_on "autoconf" => :build
-    depends_on "pcre"
   end
 
   depends_on "libgcrypt"
   depends_on "libgpg-error"
+  depends_on "pcre"
 
   def install
     system "sh", "./autogen.sh" if build.head?
