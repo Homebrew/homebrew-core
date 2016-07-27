@@ -17,10 +17,9 @@ class SaneBackends < Formula
   end
 
   bottle do
-    sha256 "e8cd147368ca911b15da016a09cb3d0b58843b5169291a75fe2a42fed7c9c887" => :el_capitan
-    sha256 "006f73ab657625408f5d56ec1596498b911781164db60cc4518370b2a08686f3" => :yosemite
-    sha256 "168d5dc5f38b6e568f2d757de77dc86c7b3bab1a84a50f1b30103eb9ba9bf367" => :mavericks
-    sha256 "483533ac9a7d48d15350afaed266ac9472cd8c945fdd34d610253253e3c384e7" => :mountain_lion
+    sha256 "c364f8df292faa1eee687c1fb5a5dafff7268848c152a633d5b8a859fb992162" => :el_capitan
+    sha256 "35efb94cba3d127913248037e2096641d050fda4bf268fcb41fc38c5f55c026f" => :yosemite
+    sha256 "939b4e1c1547ba0ccd218b09bbe3e763bc03e9b4471d9bed7ee3179c90d0e94f" => :mavericks
   end
 
   option :universal
