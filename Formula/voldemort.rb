@@ -1,8 +1,8 @@
 class Voldemort < Formula
   desc "Distributed key-value storage system"
   homepage "http://www.project-voldemort.com/"
-  url "https://github.com/voldemort/voldemort/archive/release-1.10.18-cutoff.tar.gz"
-  sha256 "a51fd1a53adb36a3fc70617ae5cd05ed31892a64074dfb612bb4a78aae28ecf6"
+  url "https://github.com/voldemort/voldemort/archive/release-1.10.19-cutoff.tar.gz"
+  sha256 "a4aa19783eb167ee0c744344048990c526ef4f04ede4c6aefbd421d3aa152c7e"
 
   bottle do
     cellar :any_skip_relocation
