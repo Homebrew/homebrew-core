@@ -1,8 +1,8 @@
 class Ptex < Formula
   desc "Texture mapping system"
   homepage "http://ptex.us"
-  url "https://github.com/wdas/ptex/archive/v2.1.10.tar.gz"
-  sha256 "0fb978e57f5e287c34b74896e3a9564a202d8806c75a18dd83855ba6d7c02122"
+  url "https://github.com/wdas/ptex/archive/v2.1.28.tar.gz"
+  sha256 "919af3cc56a7617079757bac5c0202f4375acf21861a3990e313739e56a6142c"
 
   bottle do
     cellar :any
