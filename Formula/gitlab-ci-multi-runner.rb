@@ -4,8 +4,8 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-    :tag => "v1.4.0",
-    :revision => "5dd9b2fdfe118bd146b06f905dfa0f3346e2a575"
+    :tag => "v1.4.1",
+    :revision => "fae8f189cd367d870c3d41471ba569070acee2e1"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
@@ -24,10 +24,10 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.gz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.4.0/docker/prebuilt-x86_64.tar.gz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.4.1/docker/prebuilt-x86_64.tar.gz",
       :using => :nounzip
-    version "1.4.0"
-    sha256 "01246d4b97ff91e3ce7de258bf0987bee265ed71d647e5dbf10b104b7073a645"
+    version "1.4.1"
+    sha256 "297a732c527a272635b49fba8b91e32a04404b2be696be77206a269acd1c97ff"
   end
 
   def install
@@ -51,7 +51,8 @@ class GitlabCiMultiRunner < Formula
       end
 
       commit = Utils.popen_read("git", "rev-parse", "--short", "HEAD")
-      branch = Utils.popen_read("git", "name-rev", "--name-only", "HEAD")
+      branch = Utils.popen_read("git", "branch", "-a", "--contains", "HEAD")
+      branch = branch[/remotes\/origin\/([a-zA-Z1-9-]+)\n/]
       ldflags = %W[
         --ldflags=
         -X #{proj}/common.NAME=gitlab-ci-multi-runner
