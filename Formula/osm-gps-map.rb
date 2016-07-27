@@ -25,10 +25,6 @@ class OsmGpsMap < Formula
   depends_on "gdk-pixbuf"
   depends_on "gobject-introspection"
   depends_on "libsoup"
-  depends_on "atk" => :linked
-  depends_on "cairo" => :linked
-  depends_on "gettext" => :linked
-  depends_on "pango" => :linked
 
   def install
     system "./autogen.sh" if build.head?
