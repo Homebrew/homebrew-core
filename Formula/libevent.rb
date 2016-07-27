@@ -1,8 +1,18 @@
 class Libevent < Formula
   desc "Asynchronous event library"
   homepage "http://libevent.org"
-  url "https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz"
-  sha256 "71c2c49f0adadacfdbe6332a372c38cf9c8b7895bb73dabeaa53cdcc1d4e1fa3"
+
+  stable do
+    url "https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz"
+    sha256 "71c2c49f0adadacfdbe6332a372c38cf9c8b7895bb73dabeaa53cdcc1d4e1fa3"
+
+    # https://github.com/Homebrew/homebrew-core/issues/2869
+    # https://github.com/libevent/libevent/issues/376
+    patch do
+      url "https://github.com/libevent/libevent/commit/df6f99e5b51a3.patch"
+      sha256 "26e831f7b000c7a0d79fed68ddc1d9bd1f1c3fab8a3c150fcec04a3e282b1acb"
+    end
+  end
 
   bottle do
     cellar :any
