@@ -1,8 +1,8 @@
 class Nfdump < Formula
   desc "Tools to collect and process netflow data on the command-line"
   homepage "http://nfdump.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/nfdump/stable/nfdump-1.6.13/nfdump-1.6.13.tar.gz"
-  sha256 "251533c316c9fe595312f477cdb051e9c667517f49fb7ac5b432495730e45693"
+  url "https://github.com/phaag/nfdump/archive/v1.6.15.tar.gz"
+  sha256 "9505c0511d273b9aa3f87a5e664425689a3c7370c6ae3bbc05ff4bdb41bfd457"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,9 +12,11 @@ class Nfdump < Formula
     sha256 "09a51a71d30f8045075f11f8511a4ec0d6bfd6f9d3cbc3bbb2927c911fce1ce1" => :mavericks
   end
 
+  depends_on "automake" => :build
+
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-readpcap"
-    system "make", "install"
+    ENV.deparallelize { system "make", "install" }
   end
 
   test do
