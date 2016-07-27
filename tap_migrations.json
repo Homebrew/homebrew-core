@@ -278,6 +278,7 @@
   "vpnc": "homebrew/boneyard",
   "wdfs": "homebrew/fuse",
   "whereami": "homebrew/boneyard",
+  "wireshark": "caskroom/cask",
   "why3": "homebrew/tex",
   "wkhtmltopdf": "homebrew/boneyard",
   "wmctrl": "homebrew/x11",
