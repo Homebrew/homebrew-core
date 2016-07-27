@@ -1,17 +1,17 @@
 class SaneBackends < Formula
   desc "Backends for scanner access"
   homepage "http://www.sane-project.org/"
-
   head "https://anonscm.debian.org/cgit/sane/sane-backends.git"
 
   stable do
     url "https://fossies.org/linux/misc/sane-backends-1.0.25.tar.gz"
     mirror "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.25.orig.tar.gz"
     sha256 "a4d7ba8d62b2dea702ce76be85699940992daf3f44823ddc128812da33dc6e2c"
+
     # Fixes some missing headers missing error. Reported upstream
     # https://lists.alioth.debian.org/pipermail/sane-devel/2015-October/033972.html
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/sane-backends/1.0.25-missing-types.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6dd7790c/sane-backends/1.0.25-missing-types.patch"
       sha256 "f1cda7914e95df80b7c2c5f796e5db43896f90a0a9679fbc6c1460af66bdbb93"
     end
   end
@@ -41,8 +41,14 @@ class SaneBackends < Formula
                           "--disable-latex"
     system "make"
     system "make", "install"
+  end
 
+  def post_install
     # Some drivers require a lockfile
-    (var+"lock/sane").mkpath
+    (var/"lock/sane").mkpath
+  end
+
+  test do
+    assert_match prefix.to_s, shell_output("#{bin}/sane-config --prefix")
   end
 end
