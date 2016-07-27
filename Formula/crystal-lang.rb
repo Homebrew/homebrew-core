@@ -38,7 +38,7 @@ class CrystalLang < Formula
   depends_on "libevent"
   depends_on "bdw-gc"
   depends_on "llvm"
-  depends_on "libyaml" if build.with?("shards")
+  depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
     url "https://github.com/crystal-lang/crystal/releases/download/0.18.6/crystal-0.18.6-1-darwin-x86_64.tar.gz"
@@ -55,7 +55,7 @@ class CrystalLang < Formula
     (buildpath/"boot").install resource("boot")
 
     if build.head?
-      ENV["CRYSTAL_CONFIG_VERSION"] = `git rev-parse --short HEAD`.strip
+      ENV["CRYSTAL_CONFIG_VERSION"] = Utils.popen_read("git rev-parse --short HEAD").strip
     else
       ENV["CRYSTAL_CONFIG_VERSION"] = version
     end
@@ -85,6 +85,6 @@ class CrystalLang < Formula
   end
 
   test do
-    system "#{bin}/crystal", "eval", "puts 1"
+    assert_match "1", shell_output("#{bin}/crystal eval puts 1")
   end
 end
