@@ -22,7 +22,6 @@ class GnupgPkcs11Scd < Formula
   depends_on "libassuan"
   depends_on "libgcrypt"
   depends_on "pkcs11-helper"
-  depends_on "openssl" => :linked
 
   def install
     system "autoreconf", "-fvi"
