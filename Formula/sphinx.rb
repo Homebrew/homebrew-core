@@ -102,6 +102,6 @@ class Sphinx < Formula
   end
 
   test do
-    system "searchd --help"
+    system "searchd", "--help"
   end
 end
