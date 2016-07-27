@@ -1,8 +1,8 @@
 class Xdelta < Formula
   desc "Binary diff, differential compression tools"
   homepage "http://xdelta.org"
-  url "https://github.com/jmacd/xdelta-devel/releases/download/v3.0.10/xdelta3-3.0.10.tar.gz"
-  sha256 "e22577af8515f91b3d766dffa2a97740558267792a458997828f039b79abc107"
+  url "https://github.com/jmacd/xdelta/archive/v3.1.0.tar.gz"
+  sha256 "7515cf5378fca287a57f4e2fee1094aabc79569cfe60d91e06021a8fd7bae29d"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,9 +12,20 @@ class Xdelta < Formula
     sha256 "7adf5ae7a00473f5c12f8c377da22ad3f98a0ef4e179c6c0b64b03de075cc756" => :mountain_lion
   end
 
+  depends_on "libtool" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "xz"
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    cd "xdelta3" do
+      system "autoreconf", "--install"
+      system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+      system "make", "install"
+    end
+  end
+
+  test do
+    system bin/"xdelta3", "config"
   end
 end
