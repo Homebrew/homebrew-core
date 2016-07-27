@@ -38,7 +38,6 @@ class Gnuplot < Formula
 
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
-  depends_on "freetype" => :linked
   depends_on "gd"
   depends_on "lua" => :recommended
   depends_on "jpeg"
