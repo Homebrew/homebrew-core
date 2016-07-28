@@ -7,7 +7,6 @@ class Imagemagick < Formula
   url "https://dl.bintray.com/homebrew/mirror/imagemagick-6.9.5-3.tar.xz"
   mirror "https://www.imagemagick.org/download/ImageMagick-6.9.5-3.tar.xz"
   sha256 "6fec9f493bb7434b8c143eb3bba86f3892c68e0b6633ce7eeed970d47c5db4ec"
-
   head "http://git.imagemagick.org/repos/ImageMagick.git"
 
   bottle do
@@ -15,8 +14,6 @@ class Imagemagick < Formula
     sha256 "5e8b096ed56f5acb285405cf1782f22656916f093ecf62f904db412163b18681" => :yosemite
     sha256 "ec9bbb8d2bfa7a01d4cbda33c2f7dbe4046edb84686bbb54f792bb963bcca8ca" => :mavericks
   end
-
-  deprecated_option "enable-hdri" => "with-hdri"
 
   option "with-fftw", "Compile with FFTW support"
   option "with-hdri", "Compile with HDRI support"
@@ -32,9 +29,11 @@ class Imagemagick < Formula
   option "without-threads", "Disable threads support"
   option "with-zero-configuration", "Disables depending on XML configuration files"
 
-  depends_on "xz"
-  depends_on "libtool" => :run
+  deprecated_option "enable-hdri" => "with-hdri"
+
   depends_on "pkg-config" => :build
+  depends_on "libtool" => :run
+  depends_on "xz"
 
   depends_on "jpeg" => :recommended
   depends_on "libpng" => :recommended
@@ -82,6 +81,18 @@ class Imagemagick < Formula
       args << "--disable-openmp"
     end
 
+    if build.with? "webp"
+      args << "--with-webp=yes"
+    else
+      args << "--without-webp"
+    end
+
+    if build.with? "jp2"
+      args << "--with-openjp2"
+    else
+      args << "--without-openjp2"
+    end
+
     args << "--disable-opencl" if build.without? "opencl"
     args << "--without-gslib" if build.without? "ghostscript"
     args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
@@ -91,6 +102,11 @@ class Imagemagick < Formula
     args << "--without-fftw" if build.without? "fftw"
     args << "--without-pango" if build.without? "pango"
     args << "--without-threads" if build.without? "threads"
+    args << "--with-rsvg" if build.with? "librsvg"
+    args << "--without-x" if build.without? "x11"
+    args << "--with-fontconfig=yes" if build.with? "fontconfig"
+    args << "--with-freetype=yes" if build.with? "freetype"
+    args << "--enable-zero-configuration" if build.with? "zero-configuration"
 
     if build.with? "quantum-depth-32"
       quantum_depth = 32
@@ -99,25 +115,7 @@ class Imagemagick < Formula
     elsif build.with? "quantum-depth-8"
       quantum_depth = 8
     end
-
-    if build.with? "jp2"
-      args << "--with-openjp2"
-    else
-      args << "--without-openjp2"
-    end
-
-    if build.with? "webp"
-      args << "--with-webp=yes"
-    else
-      args << "--without-webp"
-    end
-
     args << "--with-quantum-depth=#{quantum_depth}" if quantum_depth
-    args << "--with-rsvg" if build.with? "librsvg"
-    args << "--without-x" if build.without? "x11"
-    args << "--with-fontconfig=yes" if build.with? "fontconfig"
-    args << "--with-freetype=yes" if build.with? "freetype"
-    args << "--enable-zero-configuration" if build.with? "zero-configuration"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
