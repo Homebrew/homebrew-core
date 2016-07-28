@@ -35,6 +35,8 @@ class Wireshark < Formula
   depends_on "gtk+3" => :optional
   depends_on "gtk+" => :optional
   depends_on "gnome-icon-theme" if build.with? "gtk+3"
+  depends_on "gettext" => :linked
+  depends_on "libgpg-error" => :linked
 
   resource "libpcap" do
     url "http://www.tcpdump.org/release/libpcap-1.7.4.tar.gz"
