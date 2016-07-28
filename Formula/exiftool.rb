@@ -1,8 +1,10 @@
 class Exiftool < Formula
   desc "Perl lib for reading and writing EXIF metadata"
   homepage "http://www.sno.phy.queensu.ca/~phil/exiftool/index.html"
-  url "http://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.15.tar.gz"
-  sha256 "e1a94fdd1717e81bad4625e3fc51644b6cc3b6667024d29afe7a9bbe5457e935"
+  # Ensure release is tagged production before submitting.
+  # http://www.sno.phy.queensu.ca/~phil/exiftool/history.html
+  url "http://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.20.tar.gz"
+  sha256 "f06ae200950cd3f441f20f7532163365965aa45a91d96114672b0eb176b76d2a"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,15 +15,14 @@ class Exiftool < Formula
 
   def install
     # replace the hard-coded path to the lib directory
-    inreplace "exiftool", "$exeDir/lib", "#{libexec}/lib"
+    inreplace "exiftool", "$exeDir/lib", libexec/"lib"
 
     system "perl", "Makefile.PL"
-
     libexec.install "lib"
     bin.install "exiftool"
   end
 
   test do
-    system "#{bin}/exiftool"
+    system bin/"exiftool"
   end
 end
