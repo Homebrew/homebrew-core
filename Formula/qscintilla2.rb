@@ -26,7 +26,8 @@ class Qscintilla2 < Formula
   end
 
   def install
-    # On Mavericks we want to target libc++, this requires a unsupported/macx-clang-libc++ flag
+    # On Mavericks we want to target libc++, this requires an
+    # unsupported/macx-clang-libc++ flag.
     if ENV.compiler == :clang && MacOS.version >= :mavericks
       spec = "unsupported/macx-clang-libc++"
     else
@@ -38,8 +39,8 @@ class Qscintilla2 < Formula
       inreplace "qscintilla.pro" do |s|
         s.gsub! "$$[QT_INSTALL_LIBS]", lib
         s.gsub! "$$[QT_INSTALL_HEADERS]", include
-        s.gsub! "$$[QT_INSTALL_TRANSLATIONS]", "#{prefix}/trans"
-        s.gsub! "$$[QT_INSTALL_DATA]", "#{prefix}/data"
+        s.gsub! "$$[QT_INSTALL_TRANSLATIONS]", prefix/"trans"
+        s.gsub! "$$[QT_INSTALL_DATA]", prefix/"data"
       end
 
       inreplace "features/qscintilla2.prf" do |s|
@@ -53,7 +54,7 @@ class Qscintilla2 < Formula
     end
 
     # Add qscintilla2 features search path, since it is not installed in Qt keg's mkspecs/features/
-    ENV["QMAKEFEATURES"] = "#{prefix}/data/mkspecs/features"
+    ENV["QMAKEFEATURES"] = prefix/"data/mkspecs/features"
 
     if build.with?("python") || build.with?("python3")
       cd "Python" do
