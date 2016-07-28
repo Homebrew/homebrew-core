@@ -60,6 +60,7 @@
   "eet": "homebrew/boneyard",
   "eina": "homebrew/boneyard",
   "electric-fence": "homebrew/boneyard",
+  "emacs": "caskroom/cask",
   "embryo": "homebrew/boneyard",
   "encfs": "homebrew/fuse",
   "evas": "homebrew/boneyard",
