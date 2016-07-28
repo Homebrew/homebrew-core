@@ -1,6 +1,7 @@
 class Python3 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
+  revision 1
 
   head "https://hg.python.org/cpython", :using => :hg
 
@@ -65,6 +66,14 @@ class Python3 < Formula
   # so we have to stop python from searching for frameworks and linking against
   # X11.
   patch :DATA if build.with? "tcl-tk"
+
+  # Patch for pyport.h macro issue
+  # https://bugs.python.org/issue10910
+  # https://trac.macports.org/ticket/44288
+  patch do
+    url "https://bugs.python.org/file30805/issue10910-workaround.txt"
+    sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
+  end
 
   def lib_cellar
     prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}"
