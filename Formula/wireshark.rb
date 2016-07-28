@@ -1,9 +1,9 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.0.4.tar.bz2"
-  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.0.4.tar.bz2"
-  sha256 "9ea9c82da9942194ebc8fc5c951a02e6d179afa7472cb6d96ca76154510de1a5"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.0.5.tar.bz2"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.0.5.tar.bz2"
+  sha256 "0ce0241330828973f5b4efee422a3760cab8ce0b41e7721c4b9fd185be1bb10b"
 
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
