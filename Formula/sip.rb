@@ -3,7 +3,6 @@ class Sip < Formula
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
   url "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.18.1/sip-4.18.1.tar.gz"
   sha256 "9bce7a2dbf7f105bf68ad1bab58eebc0ce33087ec40396da756463f086ffa290"
-
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
@@ -25,7 +24,7 @@ class Sip < Formula
     if build.head?
       # Link the Mercurial repository into the download directory so
       # build.py can use it to figure out a version number.
-      ln_s cached_download + ".hg", ".hg"
+      ln_s cached_download/".hg", ".hg"
       # build.py doesn't run with python3
       system "python", "build.py", "prepare"
     end
@@ -45,11 +44,12 @@ class Sip < Formula
   end
 
   def post_install
-    mkdir_p "#{HOMEBREW_PREFIX}/share/sip"
+    (HOMEBREW_PREFIX/"share/sip").mkpath
   end
 
-  def caveats
-    "The sip-dir for Python is #{HOMEBREW_PREFIX}/share/sip."
+  def caveats; <<-EOS.undent
+    The sip-dir for Python is #{HOMEBREW_PREFIX}/share/sip.
+  EOS
   end
 
   test do
@@ -95,7 +95,7 @@ class Sip < Formula
     EOS
     system ENV.cxx, "-shared", "-Wl,-install_name,#{testpath}/libtest.dylib",
                     "-o", "libtest.dylib", "test.cpp"
-    system "#{bin}/sip", "-b", "test.build", "-c", ".", "test.sip"
+    system bin/"sip", "-b", "test.build", "-c", ".", "test.sip"
     Language::Python.each_python(build) do |python, version|
       ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
       system python, "generate.py"
