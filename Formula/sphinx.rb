@@ -3,7 +3,6 @@ class Sphinx < Formula
   homepage "http://www.sphinxsearch.com"
   url "http://sphinxsearch.com/files/sphinx-2.2.11-release.tar.gz"
   sha256 "6662039f093314f896950519fa781bc87610f926f64b3d349229002f06ac41a9"
-
   head "https://github.com/sphinxsearch/sphinx.git"
 
   bottle do
@@ -12,27 +11,30 @@ class Sphinx < Formula
     sha256 "4ec1f1ea71e17b9e924e9f36747d7184114463640f100022cdbb46202e46261f" => :mavericks
   end
 
-  option "with-mysql",      "Force compiling against MySQL"
+  option "with-mysql", "Force compiling against MySQL"
   option "with-postgresql", "Force compiling against PostgreSQL"
-  option "with-id64",       "Force compiling with 64-bit ID support"
+  option "with-id64", "Force compiling with 64-bit ID support"
 
   deprecated_option "mysql" => "with-mysql"
   deprecated_option "pgsql" => "with-postgresql"
-  deprecated_option "id64"  => "with-id64"
+  deprecated_option "id64" => "with-id64"
 
   depends_on "re2" => :optional
   depends_on :mysql => :optional
   depends_on :postgresql => :optional
-  depends_on "openssl" if build.with?("mysql")
+  depends_on "openssl" if build.with? "mysql"
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
-      :revision => "9b58e92c965cd7e3208247ace3cc00d173397f3c"
+        :revision => "9b58e92c965cd7e3208247ace3cc00d173397f3c"
   end
 
   fails_with :llvm do
     build 2334
-    cause "ld: rel32 out of range in _GetPrivateProfileString from /usr/lib/libodbc.a(SQLGetPrivateProfileString.o)"
+    cause <<-EOS.undent
+      ld: rel32 out of range in _GetPrivateProfileString from
+          /usr/lib/libodbc.a(SQLGetPrivateProfileString.o)
+    EOS
   end
 
   fails_with :clang do
@@ -46,10 +48,12 @@ class Sphinx < Formula
       system "tar", "xzf", "dist/libstemmer_c.tgz", "-C", buildpath
     end
 
-    args = %W[--prefix=#{prefix}
-              --disable-dependency-tracking
-              --localstatedir=#{var}
-              --with-libstemmer]
+    args = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+      --localstatedir=#{var}
+      --with-libstemmer
+    ]
 
     args << "--enable-id64" if build.with? "id64"
     args << "--with-re2" if build.with? "re2"
