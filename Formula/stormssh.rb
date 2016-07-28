@@ -1,8 +1,8 @@
 class Stormssh < Formula
   desc "Command-line tool to manage your ssh connections"
   homepage "https://github.com/emre/storm"
-  url "https://pypi.python.org/packages/source/s/stormssh/stormssh-0.6.7.tar.gz"
-  sha256 "9a68f77a23db68294fc65b0d7613b0e62de991c5b5925c1d544a4c8e26b14606"
+  url "https://pypi.python.org/packages/07/b9/1ed919b9924003ea9abff0ff61116de5e5bac0675b9106fa6efbed10d030/stormssh-0.6.9.tar.gz"
+  sha256 "e896597b902d1191bae1f6a9b248d3374258f8775e9726cff1ba2300ad664c8a"
   head "https://github.com/emre/storm.git"
 
   bottle do
@@ -12,6 +12,7 @@ class Stormssh < Formula
     sha256 "297400513bf1d37eaeb1ed90c764bf2ee0d6a21fd3afcfad846eaceeed057b11" => :mavericks
   end
 
+  depends_on :python if MacOS.version <= :snow_leopard
   conflicts_with "storm", :because => "both install 'storm' binary"
 
   resource "pycrypto" do
