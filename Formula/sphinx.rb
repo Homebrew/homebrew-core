@@ -7,9 +7,9 @@ class Sphinx < Formula
   head "https://github.com/sphinxsearch/sphinx.git"
 
   bottle do
-    sha256 "becbeff5c3c56ff65a66ce321dbe19673be86bc2466b560f3be651c81a1166ed" => :el_capitan
-    sha256 "7ac68d7f84767988fd1842b59999dba1226549f98847032ac179c763662b11d3" => :yosemite
-    sha256 "0a6cab6b68544bce68a09912f5cd26b10cee817adf9a2ec6f3b011d46444323f" => :mavericks
+    sha256 "c75e018d69afb7d3cb662ebd129af67607d47f7b7f71ce8ea95be75d66dc502d" => :el_capitan
+    sha256 "f89b43df8735d295a55c74f18d6af4a1a10b9f3ae81df69713c27f9240f78d14" => :yosemite
+    sha256 "4ec1f1ea71e17b9e924e9f36747d7184114463640f100022cdbb46202e46261f" => :mavericks
   end
 
   option "with-mysql",      "Force compiling against MySQL"
