@@ -81,13 +81,14 @@ class Imagemagick < Formula
     else
       args << "--disable-openmp"
     end
+
     args << "--disable-opencl" if build.without? "opencl"
     args << "--without-gslib" if build.without? "ghostscript"
     args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
     args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
     args << "--without-magick-plus-plus" if build.without? "magick-plus-plus"
     args << "--enable-hdri=yes" if build.with? "hdri"
-    args << "--enable-fftw=yes" if build.with? "fftw"
+    args << "--without-fftw" if build.without? "fftw"
     args << "--without-pango" if build.without? "pango"
     args << "--without-threads" if build.without? "threads"
 
@@ -105,12 +106,17 @@ class Imagemagick < Formula
       args << "--without-openjp2"
     end
 
+    if build.with? "webp"
+      args << "--with-webp=yes"
+    else
+      args << "--without-webp"
+    end
+
     args << "--with-quantum-depth=#{quantum_depth}" if quantum_depth
     args << "--with-rsvg" if build.with? "librsvg"
     args << "--without-x" if build.without? "x11"
     args << "--with-fontconfig=yes" if build.with? "fontconfig"
     args << "--with-freetype=yes" if build.with? "freetype"
-    args << "--with-webp=yes" if build.with? "webp"
     args << "--enable-zero-configuration" if build.with? "zero-configuration"
 
     # versioned stuff in main tree is pointless for us
