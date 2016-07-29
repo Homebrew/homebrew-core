@@ -119,16 +119,17 @@ class Protobuf < Formula
   end
 
   test do
-    <<-EOS.undent
-      syntax = "proto3";
-      package test;
-      message TestCase {
-        string name = 4;
-      }
-      message Test {
-        repeated TestCase case = 1;
-      }
-      EOS
+    testdata = 
+      <<-EOS.undent
+        syntax = "proto3";
+        package test;
+        message TestCase {
+          string name = 4;
+        }
+        message Test {
+          repeated TestCase case = 1;
+        }
+        EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
     system "python", "-c", "import google.protobuf" if build.with? "python"
