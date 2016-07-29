@@ -3,6 +3,8 @@ class Gammaray < Formula
   homepage "https://www.kdab.com/kdab-products/gammaray/"
   url "https://github.com/KDAB/GammaRay/releases/download/v2.4.1/gammaray-2.4.1.tar.gz"
   sha256 "08b151eaa4afeaaebc28eaae789f8da47d99012f1071f19d20d8d4d91115b6ab"
+  revision 1
+
   head "https://github.com/KDAB/GammaRay.git"
 
   bottle do
