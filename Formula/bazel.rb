@@ -17,10 +17,10 @@ class Bazel < Formula
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
     # Force Bazel to put all temporary file in the homebrew cache
-    ENV["BAZEL_WRKDIR"] = "#{HOMEBREW_CACHE}/bazel-workdir"
+    ENV["BAZEL_WRKDIR"] = "#{buildpath}"
 
     system "./compile.sh"
-    system "./output/bazel", "build", "scripts:bash_completion"
+    system "./output/bazel", "--output_user_root", "#{buildpath}/output_user_root", "build", "scripts:bash_completion"
 
     bin.install "scripts/packages/bazel.sh" => "bazel"
     bin.install "output/bazel" => "bazel-real"
