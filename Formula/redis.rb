@@ -7,9 +7,9 @@ class Redis < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c68b3747f88c22f40f3b72602b4ef02895c1b7e7e36c3f87861b693402c94bfd" => :el_capitan
-    sha256 "4458b40cd6e5e0446faccae54409c11214684da965361a7f26d4fd1dff241cb5" => :yosemite
-    sha256 "79cf7f53fb4c27fecbb02f756fe90afbe330d4f8a6ba25f2940acac2fde0f491" => :mavericks
+    sha256 "85bb1f27ee2768a4650f4dd8b2edb9fec2ad533c0246061e0c541e6208ca7dc9" => :el_capitan
+    sha256 "2958f7b2f8d0e472331fe190ef02dbd931ce05a9c761d1a3d4e30bbc42575f95" => :yosemite
+    sha256 "efa56afe07f33612fdb360d8f52696652d0ebc41336335b362b5d3f132a9e9a7" => :mavericks
   end
 
   option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
