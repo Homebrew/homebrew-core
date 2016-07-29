@@ -17,6 +17,7 @@ class Bmon < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "confuse" => :linked
 
   def install
     system "./autogen.sh" if build.head?
