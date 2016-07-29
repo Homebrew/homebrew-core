@@ -119,7 +119,7 @@ class Protobuf < Formula
   end
 
   test do
-    testdata = 
+    testdata =
       <<-EOS.undent
         syntax = "proto3";
         package test;
