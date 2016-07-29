@@ -3,6 +3,7 @@ class Bmon < Formula
   homepage "https://github.com/tgraf/bmon"
   url "https://github.com/tgraf/bmon/releases/download/v3.9/bmon-3.9.tar.gz"
   sha256 "9c08332520497ef1d51a733ca531ffedbb5a30c7c3f55579efe86c36138f93e1"
+  revision 1
 
   bottle do
     sha256 "656220781bed16f2b95f8644bbf853d47fe9006d49d63db7fe89db794c9afdb7" => :el_capitan
@@ -17,6 +18,7 @@ class Bmon < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "confuse"
 
   def install
     system "./autogen.sh" if build.head?
