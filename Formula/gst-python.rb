@@ -10,6 +10,13 @@ class GstPython < Formula
     sha256 "0a8daf89bcb8ce4f492c8754f0df629cce80514dfd455050f6830cb9ebdca03e" => :mavericks
   end
 
+  devel do
+    url "https://gstreamer.freedesktop.org/src/gst-python/gst-python-1.9.1.tar.xz"
+    sha256 "2ab16a84efbabacfcf8f7920ab6c6725c577f08a82bf4cee45edf415a917015f"
+
+    depends_on "gst-plugins-base" => :devel
+  end
+
   option "without-python", "Build without python 2 support"
 
   depends_on :python3 => :optional

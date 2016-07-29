@@ -10,6 +10,13 @@ class GstPluginsBase < Formula
     sha256 "dfef2ed4a9041298eb621cf079dec31d43785c41f1b92435ee94dddae4a05962" => :mavericks
   end
 
+  devel do
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.9.1.tar.xz"
+    sha256 "8309d1660406274a94bd056f8d805fb35b902208fbb76ff8ca705b37d950fdc9"
+
+    depends_on "gstreamer" => :devel
+  end
+
   head do
     url "https://anongit.freedesktop.org/git/gstreamer/gst-plugins-base.git"
 

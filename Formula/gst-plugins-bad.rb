@@ -29,6 +29,27 @@ class GstPluginsBad < Formula
     sha256 "22543bf30f8f003dba42bfec05792885454925af3131034c64e98bf6671bc7c6" => :mavericks
   end
 
+  devel do
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.9.1.tar.xz"
+    sha256 "65ec284c2df3e2ff746e44d6e8ca08627235f410bf3d2cfa9ca5ce113a0a770a"
+
+    depends_on "gst-plugins-base" => :devel
+
+    # corevideomemory.h and iosurfacememory.h are still missing from the tarball
+    # https://bugzilla.gnome.org/show_bug.cgi?id=766163
+    # https://github.com/GStreamer/gst-plugins-bad/commit/43487482e5c5ec71867acb887d50b8c3f813cd63
+    resource "corevideomemory_header" do
+      url "https://raw.githubusercontent.com/GStreamer/gst-plugins-bad/1.9.1/sys/applemedia/corevideomemory.h"
+      sha256 "9d8c0fc6b310cb510a2af93a7614db80ec272ebd3dd943ecd47e65130b43aeea"
+    end
+
+    # same as above
+    resource "iosurfacememory_header" do
+      url "https://raw.githubusercontent.com/GStreamer/gst-plugins-bad/1.9.1/sys/applemedia/iosurfacememory.h"
+      sha256 "a2e46d5fbb8f6df20ab74fe6ed2f68ff8aaa2ef1de779df94478210d8aff0a29"
+    end
+  end
+
   head do
     url "https://anongit.freedesktop.org/git/gstreamer/gst-plugins-bad.git"
 

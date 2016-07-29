@@ -10,6 +10,14 @@ class GstValidate < Formula
     sha256 "b31a53cfaa7d819fcd2b8febd54e432b37dfe80124f38f5a0aac6b89637135b3" => :mavericks
   end
 
+  devel do
+    url "https://gstreamer.freedesktop.org/src/gst-validate/gst-validate-1.9.1.tar.xz"
+    sha256 "f0a7bc19d7fbe62e30fefa66bfbe04d1babd20f3d79cec3db17642aba84089b8"
+
+    depends_on "gstreamer" => :devel
+    depends_on "gst-plugins-base" => :devel
+  end
+
   head do
     url "https://anongit.freedesktop.org/git/gstreamer/gst-devtools.git"
 
