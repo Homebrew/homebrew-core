@@ -11,13 +11,13 @@ class Plantuml < Formula
   def install
     jar = "plantuml.#{version}.jar"
     prefix.install jar
-    (bin+"plantuml").write <<-EOS.undent
+    (bin/"plantuml").write <<-EOS.undent
       #!/bin/bash
       GRAPHVIZ_DOT="#{Formula["graphviz"].opt_bin}/dot" exec java -jar #{prefix}/#{jar} "$@"
     EOS
   end
 
   test do
-    system "#{bin}/plantuml", "-testdot"
+    system bin/"plantuml", "-testdot"
   end
 end
