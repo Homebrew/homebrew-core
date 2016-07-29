@@ -3,37 +3,12 @@ class Protobuf < Formula
   homepage "https://github.com/google/protobuf/"
 
   stable do
-    url "https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.bz2"
-    sha256 "ee445612d544d885ae240ffbcbf9267faa9f593b7b101f21d58beceb92661910"
-
-    # Fixes the unexpected identifier error when compiling software against protobuf:
-    # https://github.com/google/protobuf/issues/549
-    patch :p1, :DATA
-  end
-
-  bottle do
-    revision 5
-    sha256 "b1a6c4508ec66e706929e3e34a5b57b3c881c5ac1e3d0fc7c4b3598f97902c7f" => :el_capitan
-    sha256 "5c21d50d1d3ca2dc2906bba174bfb4ec0d55c0f16bac5541abf3180e68f885c2" => :yosemite
-    sha256 "6f6a30044450bb3e2d420fea3435d0c84594b197ea0d3a54bca473e3b4c855b5" => :mavericks
-  end
-
-  devel do
-    url "https://github.com/google/protobuf/archive/v3.0.0-beta-4.tar.gz"
-    sha256 "132ba7654ee45f5cbbd33fa8f2c9efa25f2193640e42098029bfa993a8360a9c"
-    version "3.0.0-beta-4"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+    url "https://github.com/google/protobuf/archive/v3.0.0.tar.gz"
+    sha256 "f5b3563f118f1d3d6e001705fa7082e8fc3bda50038ac3dff787650795734146"
   end
 
   head do
     url "https://github.com/google/protobuf.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   # this will double the build time approximately if enabled
@@ -44,6 +19,11 @@ class Protobuf < Formula
   option :cxx11
 
   option "without-python", "Build without python support"
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
 
   fails_with :llvm do
@@ -51,8 +31,8 @@ class Protobuf < Formula
   end
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-20.9.0.tar.gz"
-    sha256 "2a360c782e067f84840315bcdcb5ed6c7c841cdedf6444f3232ab4a8b3204ac1"
+    url "https://pypi.python.org/packages/df/c3/4265eb901f9db8c0ea5bdfb344084d85bc96c1a9b883f70430254b5491f6/setuptools-26.1.0.tar.gz"
+    sha256 "64a2f7676cd026b64e46d179ed26b365e2f92f26c7fe04228ddd86d0436b797f"
   end
 
   resource "six" do
@@ -61,18 +41,18 @@ class Protobuf < Formula
   end
 
   resource "python-dateutil" do
-    url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.5.2.tar.gz"
-    sha256 "063907ef47f6e187b8fe0728952e4effb587a34f2dc356888646f9b71fbb2e4b"
+    url "https://pypi.python.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
+    sha256 "1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed"
   end
 
   resource "pytz" do
-    url "https://pypi.python.org/packages/source/p/pytz/pytz-2016.3.tar.bz2"
-    sha256 "c193dfa167ac32c8cb96f26cbcd92972591b22bda0bac3effdbdb04de6cc55d6"
+    url "https://pypi.python.org/packages/f7/c7/08e54702c74baf9d8f92d0bc331ecabf6d66a56f6d36370f0a672fc6a535/pytz-2016.6.1.tar.bz2"
+    sha256 "b5aff44126cf828537581e534cc94299b223b945a2bb3b5434d37bf8c7f3a10c"
   end
 
   resource "python-gflags" do
-    url "https://pypi.python.org/packages/source/p/python-gflags/python-gflags-2.0.tar.gz"
-    sha256 "0dff6360423f3ec08cbe3bfaf37b339461a54a21d13be0dd5d9c9999ce531078"
+    url "https://pypi.python.org/packages/91/97/84778286b3a1c0d52533a35a0b70a477050df2b83229f56e99c7a0f2d9d6/python-gflags-3.0.6.tar.gz"
+    sha256 "e904b251cb1d70ddd3a1fd152bd4b3674a95981dcac497450efd1311ff2b9b5a"
   end
 
   resource "google-apputils" do
@@ -80,7 +60,7 @@ class Protobuf < Formula
     sha256 "47959d0651c32102c10ad919b8a0ffe0ae85f44b8457ddcf2bdc0358fb03dc29"
   end
 
-  # Upstream's autogen script fetches this for devel/head if not present
+  # Upstream's autogen script fetches this if not present
   # but does no integrity verification & mandates being online to install.
   resource "gmock" do
     url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/googlemock/gmock-1.7.0.zip"
@@ -96,10 +76,8 @@ class Protobuf < Formula
     ENV.universal_binary if build.universal?
     ENV.cxx11 if build.cxx11?
 
-    if build.devel? || build.head?
-      (buildpath/"gmock").install resource("gmock")
-      system "./autogen.sh"
-    end
+    (buildpath/"gmock").install resource("gmock")
+    system "./autogen.sh"
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-zlib"
@@ -141,7 +119,7 @@ class Protobuf < Formula
   end
 
   test do
-    testdata = if devel?
+    testdata =
       <<-EOS.undent
         syntax = "proto3";
         package test;
@@ -152,35 +130,8 @@ class Protobuf < Formula
           repeated TestCase case = 1;
         }
         EOS
-    else
-      <<-EOS.undent
-        package test;
-        message TestCase {
-          required string name = 4;
-        }
-        message Test {
-          repeated TestCase case = 1;
-        }
-        EOS
-    end
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
     system "python", "-c", "import google.protobuf" if build.with? "python"
   end
 end
-
-__END__
-diff --git a/src/google/protobuf/descriptor.h b/src/google/protobuf/descriptor.h
-index 67afc77..504d5fe 100644
---- a/src/google/protobuf/descriptor.h
-+++ b/src/google/protobuf/descriptor.h
-@@ -59,6 +59,9 @@
- #include <vector>
- #include <google/protobuf/stubs/common.h>
-
-+#ifdef TYPE_BOOL
-+#undef TYPE_BOOL
-+#endif
-
- namespace google {
- namespace protobuf {
