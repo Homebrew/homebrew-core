@@ -150,6 +150,7 @@
   "libtorrent": "homebrew/boneyard",
   "lilypond": "homebrew/tex",
   "lmutil": "homebrew/binary",
+  "luyten": "homebrew/gui",
   "magit": "homebrew/emacs",
   "meld": "homebrew/gui",
   "memo": "homebrew/boneyard",
