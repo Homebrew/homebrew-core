@@ -16,7 +16,9 @@ class Redis < Formula
 
   fails_with :llvm do
     build 2334
-    cause "Fails with \"reference out of range from _linenoise\""
+    cause <<-EOS.undent
+      Fails with "reference out of range from _linenoise"
+    EOS
   end
 
   def install
@@ -30,11 +32,11 @@ class Redis < Formula
     args << "MALLOC=jemalloc" if build.with? "jemalloc"
     system "make", "install", *args
 
-    %w[run db/redis log].each { |p| (var+p).mkpath }
+    %w[run db/redis log].each { |p| (var/p).mkpath }
 
     # Fix up default conf file to match our paths
     inreplace "redis.conf" do |s|
-      s.gsub! "/var/run/redis.pid", "#{var}/run/redis.pid"
+      s.gsub! "/var/run/redis.pid", var/"run/redis.pid"
       s.gsub! "dir ./", "dir #{var}/db/redis/"
       s.gsub! "\# bind 127.0.0.1", "bind 127.0.0.1"
     end
@@ -76,6 +78,6 @@ class Redis < Formula
   end
 
   test do
-    system "#{bin}/redis-server", "--test-memory", "2"
+    system bin/"redis-server", "--test-memory", "2"
   end
 end
