@@ -1,8 +1,8 @@
 class Libmill < Formula
   desc "Go-style concurrency in C"
   homepage "http://libmill.org/"
-  url "http://libmill.org/libmill-1.1.tar.gz"
-  sha256 "146add8283cb88f3d42418e4666211d4a085f57c317a24a56e9afab8167db77d"
+  url "http://libmill.org/libmill-1.14.tar.gz"
+  sha256 "eb990ac8a5847180ee4e7352ab83a6da69bca4be53435f0e44fcb537632bf375"
   head "https://github.com/sustrik/libmill.git"
 
   bottle do
@@ -15,7 +15,6 @@ class Libmill < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "cmake" => :build
 
   def install
     system "./autogen.sh" if build.head?
