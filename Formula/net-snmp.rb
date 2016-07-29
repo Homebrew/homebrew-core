@@ -12,10 +12,10 @@ class NetSnmp < Formula
     sha256 "f2c4102f61ee8d6ad151bdbe6da97a5fc5127e84e7939f5e1672f81414a28873" => :mountain_lion
   end
 
+  keg_only :provided_by_osx
+
   depends_on "openssl"
   depends_on :python => :optional
-
-  keg_only :provided_by_osx
 
   def install
     args = [
@@ -29,7 +29,7 @@ class NetSnmp < Formula
       "--without-rpm",
       "--without-kmem-usage",
       "--disable-embedded-perl",
-      "--without-perl-modules"
+      "--without-perl-modules",
     ]
 
     if build.with? "python"
