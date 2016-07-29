@@ -5,16 +5,11 @@ class Protobuf < Formula
   stable do
     url "https://github.com/google/protobuf/archive/v3.0.0.tar.gz"
     sha256 "f5b3563f118f1d3d6e001705fa7082e8fc3bda50038ac3dff787650795734146"
-    version "3.0.0"
   end
 
   head do
     url "https://github.com/google/protobuf.git"
   end
-
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
 
   # this will double the build time approximately if enabled
   option "with-test", "Run build-time check"
@@ -24,6 +19,11 @@ class Protobuf < Formula
   option :cxx11
 
   option "without-python", "Build without python support"
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
 
   fails_with :llvm do
