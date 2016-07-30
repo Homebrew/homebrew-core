@@ -48,7 +48,7 @@ class Flac < Formula
       --enable-static
     ]
 
-    args << "--disable-asm-optimizations" if build.universal? || Hardware.is_32_bit?
+    args << "--disable-asm-optimizations" if build.universal? || Hardware::CPU.is_32_bit?
     args << "--without-ogg" if build.without? "libogg"
 
     system "./autogen.sh" if build.head?
