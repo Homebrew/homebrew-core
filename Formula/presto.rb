@@ -4,14 +4,14 @@ class Presto < Formula
   url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.150/presto-server-0.150.tar.gz"
   sha256 "a3249691c16dc49395fb0effe1d407501cf54caf0db8d8596eab575e1867b30b"
 
-  resource "presto-cli" do
-    url "https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/0.150/presto-cli-0.150-executable.jar"
-    sha256 "cf7032e820e88cce76e2cc92710a5bf82c459588c2d628165d084438e18a35ff"
-  end
-
   bottle :unneeded
 
   depends_on :java => "1.8+"
+
+  resource "presto-cli" do
+    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.150/presto-cli-0.150-executable.jar"
+    sha256 "cf7032e820e88cce76e2cc92710a5bf82c459588c2d628165d084438e18a35ff"
+  end
 
   def install
     libexec.install Dir["*"]
