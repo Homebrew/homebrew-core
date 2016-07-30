@@ -3,8 +3,8 @@ require "language/go"
 class Vultr < Formula
   desc "Command-line tool for Vultr"
   homepage "https://jamesclonk.github.io/vultr"
-  url "https://github.com/JamesClonk/vultr/archive/v1.8.tar.gz"
-  sha256 "c11842b3c0d74d865295c1a1e1ee89a9e3349de335b366944a0eb81ff3d4830f"
+  url "https://github.com/JamesClonk/vultr/archive/v1.9.tar.gz"
+  sha256 "c6c9e3b710692574714bb697ba4f8486da46ba2ff77f6501be8befc32c15c269"
 
   head "https://github.com/JamesClonk/vultr.git"
 
