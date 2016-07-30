@@ -6,8 +6,11 @@ class MCli < Formula
 
   def install
     prefix.install Dir["*"]
-    inreplace "#{prefix}/m", /^\[ -L.*|^\s+\|\| pushd.*|^popd.*/, ""
-    inreplace "#{prefix}/m", /MPATH=.*/, "MPATH=#{prefix}"
+    # Use absolute rather than relative path to plugins.
+    inreplace prefix/"m" do |s|
+      s.gsub! /^\[ -L.*|^\s+\|\| pushd.*|^popd.*/, ""
+      s.gsub! /MPATH=.*/, "MPATH=#{prefix}"
+    end
 
     bin.install_symlink "#{prefix}/m" => "m"
     bash_completion.install prefix/"completion/bash/m"
