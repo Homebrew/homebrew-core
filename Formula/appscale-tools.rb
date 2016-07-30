@@ -7,9 +7,9 @@ class AppscaleTools < Formula
 
   bottle do
     cellar :any
-    sha256 "3d1d9ed39a5df61461f6400113e3b60e38abb396c8087cc82609dda357abf340" => :el_capitan
-    sha256 "52662ddea86b5d6bae4e95187c86ecb50ce212785d039ea996a164ce7e498b96" => :yosemite
-    sha256 "eff62d8c145f8542027e21e473a90544422c5ec7acce6c675288772857d33eec" => :mavericks
+    sha256 "55d4065489140d832c0855edf9001f924cef1af68d75204b2cc128acd4e9fe59" => :el_capitan
+    sha256 "39955728db67a21362ce4293655fc24967e360385b2d7281ff4920183dd58085" => :yosemite
+    sha256 "bce4b45d193670695e8cbb903b4ba41abc4991889bf613b7c9081da57a3402f5" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
