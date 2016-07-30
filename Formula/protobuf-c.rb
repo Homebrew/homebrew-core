@@ -9,6 +9,7 @@ class ProtobufC < Formula
     sha256 "178f84dfb66628862e08a3bf58c5a0bdb1a6624f4de63d1670832ea394b5c04d" => :yosemite
     sha256 "50c184193ace913ed581c66669418f4755e4ac44428a9383e10d6178022664aa" => :mavericks
   end
+  revision 1
 
   option :universal
 
