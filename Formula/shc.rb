@@ -7,9 +7,9 @@ class Shc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cacc738baf6282ee5f8e65c306f47787fd9a817a2e75f38f91c93640ff6d48f6" => :el_capitan
-    sha256 "bbd21d92cd05f24b27b0f5f122565e1ebdc6e61856ea18b293b5438bf3a24aed" => :yosemite
-    sha256 "8e78fd63f9e46f1bcdbef8c94f1cebaffec264065e38cca1bfd7003d2d3fd057" => :mavericks
+    sha256 "918944db57ab256090519ccc01c438d8c155c845ecbe17a229f26aa4f89b73e6" => :el_capitan
+    sha256 "76553475bbd0e302f140ce18bf768a882c2b1dbf47b4b30670767cf021405783" => :yosemite
+    sha256 "7d24f1d903daaf3bda4cfa84f97fca6e5cbdf8e630d0b235671a625062053507" => :mavericks
   end
 
   def install
