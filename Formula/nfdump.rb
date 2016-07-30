@@ -1,9 +1,8 @@
 class Nfdump < Formula
   desc "Tools to collect and process netflow data on the command-line"
   homepage "http://nfdump.sourceforge.net"
-  url "https://github.com/phaag/nfdump.git",
-    :tag => "v1.6.15",
-    :revision => "68d660e984e8b6ce099fc7309f61f3bfa460598f"
+  url "https://github.com/phaag/nfdump/archive/v1.6.15.tar.gz"
+  sha256 "9505c0511d273b9aa3f87a5e664425689a3c7370c6ae3bbc05ff4bdb41bfd457"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +16,7 @@ class Nfdump < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-readpcap"
-    system "make", "-j1", "install"
+    ENV.deparallelize { system "make", "install" }
   end
 
   test do
