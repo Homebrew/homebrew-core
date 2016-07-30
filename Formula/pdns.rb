@@ -1,8 +1,8 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.0.0.tar.bz2"
-  sha256 "9f3ea273e11c898d9a91a2454eb7f2f38bdcc1ec4ea70a5e5de09c61b4ab65d5"
+  url "https://downloads.powerdns.com/releases/pdns-4.0.1.tar.bz2"
+  sha256 "d191eed4a6664430e85969f49835c59e810ecbb7b3eb506e64c6b2734091edd7"
 
   bottle do
     sha256 "bf8307c0cf9fd6e06d778158574df150a295984f151e4b35a64616311ad93280" => :el_capitan
@@ -31,9 +31,6 @@ class Pdns < Formula
   depends_on :postgresql if build.with? "pgsql"
 
   def install
-    # https://github.com/Homebrew/homebrew/pull/33739
-    ENV.deparallelize
-
     args = %W[
       --prefix=#{prefix}
       --with-lua
