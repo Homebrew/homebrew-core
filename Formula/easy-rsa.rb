@@ -9,17 +9,15 @@ class EasyRsa < Formula
   def install
     # We don't use the installer from the package, as it doesn't organize things
     # well for brew install. It puts the binary in the prefix root, and defaults
-    # to a pki path that will be overwritten on installation. Instead, I rewrite
-    # its defaults to find its SSL and PKI in brew-appropriate locations.
+    # to a pki path that will be overwritten on installation.
     inreplace "easyrsa3/easyrsa" do |s|
       s.gsub! /set_var EASYRSA		"\$PWD"/,
               "set_var EASYRSA		\"#{libexec}\""
       s.gsub! /set_var EASYRSA_PKI	.*/,
               "set_var EASYRSA_PKI	\"#{etc}/pki\""
       openssl_path = Formula["openssl"].opt_bin/"openssl"
-      ohai "Using OpenSSL from #{openssl_path}"
       s.gsub! /set_var EASYRSA_OPENSSL	openssl/,
-              "set_var EASYRSA_OPENSSL		\"#{openssl_path}\""
+              "set_var EASYRSA_OPENSSL	\"#{openssl_path}\""
     end
     bin.install "easyrsa3/easyrsa"
     libexec.install "easyrsa3/openssl-1.0.cnf", "easyrsa3/x509-types"
