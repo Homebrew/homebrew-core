@@ -2,8 +2,8 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/docker.git",
-      :tag => "v1.11.2",
-      :revision => "b9f10c951893f9a00865890a5232e85d770c1087"
+      :tag => "v1.12.0",
+      :revision => "8eab29edd820017901796eb60d4bea28d760f16f"
 
   head "https://github.com/docker/docker.git"
 
@@ -26,13 +26,12 @@ class Docker < Formula
 
   def install
     ENV["AUTO_GOPATH"] = "1"
-    ENV["DOCKER_CLIENTONLY"] = "1"
     ENV["DOCKER_EXPERIMENTAL"] = "1" if build.with? "experimental"
 
-    system "hack/make.sh", "dynbinary"
+    system "hack/make.sh", "dynbinary-client"
 
     build_version = build.head? ? File.read("VERSION").chomp : version
-    bin.install "bundles/#{build_version}/dynbinary/docker-#{build_version}" => "docker"
+    bin.install "bundles/#{build_version}/dynbinary-client/docker-#{build_version}" => "docker"
 
     if build.with? "completions"
       bash_completion.install "contrib/completion/bash/docker"
