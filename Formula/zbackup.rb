@@ -10,6 +10,7 @@ class Zbackup < Formula
     sha256 "31810ae9ab799eaa715815973d64229f29f6847e9f7608d475c1c1c63f4988e4" => :yosemite
     sha256 "5f98bc19b226d88e2cd3e68edc9286779fa082251d0a587d5d5ffb6210b43133" => :mavericks
   end
+  revision 1
 
   depends_on "cmake" => :build
   depends_on "openssl"
