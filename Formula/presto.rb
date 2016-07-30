@@ -11,8 +11,6 @@ class Presto < Formula
   def install
     libexec.install Dir["*"]
 
-    mkdir "#{libexec}/etc"
-
     (libexec/"etc/node.properties").write <<-EOS.undent
       node.environment=production
       node.id=ffffffff-ffff-ffff-ffff-ffffffffffff
@@ -44,9 +42,19 @@ class Presto < Formula
       com.facebook.presto=INFO
     EOS
 
+    (libexec/"etc/catalog/jmx.properties").write <<-EOS.undent
+      connector.name=jmx
+    EOS
+
     (bin/"presto-server").write <<-EOS.undent
       #!/bin/bash
       exec "#{libexec}/bin/launcher" "$@"
+    EOS
+  end
+
+  def caveats; <<-EOS.undent
+    Add connectors to #{libexec}/presto/catalog/. See:
+    https://prestodb.io/docs/current/connector.html
     EOS
   end
 
@@ -77,6 +85,6 @@ class Presto < Formula
   end
 
   test do
-    system "#{bin}/presto-server", "run", "--help"
+    system bin/"presto-server", "run", "--help"
   end
 end
