@@ -6,9 +6,9 @@ class Bmon < Formula
   revision 1
 
   bottle do
-    sha256 "656220781bed16f2b95f8644bbf853d47fe9006d49d63db7fe89db794c9afdb7" => :el_capitan
-    sha256 "f5dafdb632d98aaeaebfff0fb3701715ce90858c28a2521257e5509958cf1525" => :yosemite
-    sha256 "56d69cb7519759d2da860407d8d12412334acce8d5083bad10bc02688918ba53" => :mavericks
+    sha256 "6673c478d4f7558bab1ce6f1939d24bc8b88f81f3f31a92cf447317f8143cdf0" => :el_capitan
+    sha256 "e70015fe4b38f8c75783ac2d3a6f828d4a6d20ef7fbbb95378483fa2a22af7d4" => :yosemite
+    sha256 "dba21c9ad3060c78df2d11b71b6a23dd1a7dc609648fd0562cf59e08f45a7884" => :mavericks
   end
 
   head do
