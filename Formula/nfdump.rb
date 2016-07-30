@@ -5,11 +5,10 @@ class Nfdump < Formula
   sha256 "9505c0511d273b9aa3f87a5e664425689a3c7370c6ae3bbc05ff4bdb41bfd457"
 
   bottle do
-    cellar :any_skip_relocation
-    revision 1
-    sha256 "e6218ff15aa6e43f140d91a38f8162ba663a115fcdb843c3a22de5fcda30653e" => :el_capitan
-    sha256 "a56146c191cf705b83cdd0e0143ce9fc87f086386d9965ff54a259c085130697" => :yosemite
-    sha256 "09a51a71d30f8045075f11f8511a4ec0d6bfd6f9d3cbc3bbb2927c911fce1ce1" => :mavericks
+    cellar :any
+    sha256 "ab1c65e136ed09f0fbe3abbc225e50f21f26bb890726cde8d77458061d55a8de" => :el_capitan
+    sha256 "bb20de7ab419cf0834e933b882e5de304aa904c195eec9bdcab8d9549b51dcc3" => :yosemite
+    sha256 "684c713ad51c8394df5c8dd3d834eea96600bda373b1e6123db284d55bfc7709" => :mavericks
   end
 
   depends_on "automake" => :build
