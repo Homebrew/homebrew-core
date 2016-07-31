@@ -47,8 +47,8 @@ class DockerCompose < Formula
   end
 
   resource "docker-py" do
-    url "https://pypi.python.org/packages/d9/af/4c4edd438a1d132a30c7877d929841a6b8e843ee281f41d91500ad7fac65/docker-py-1.8.1.tar.gz"
-    sha256 "4f47a05e677472b5e022be1ab1dfd91b473ab3fc14a6b71337042ac2caaafa0b"
+    url "https://pypi.python.org/packages/d7/32/1e6be8c9ebc7d02fe74cb1a050008bc9d7e2eb9219f5d5e257648166e275/docker-py-1.9.0.tar.gz"
+    sha256 "6dc6b914a745786d97817bf35bfc1559834c08517c119f846acdfda9cc7f6d7e"
   end
 
   resource "dockerpty" do
