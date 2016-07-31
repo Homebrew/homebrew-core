@@ -41,6 +41,6 @@ class Mytop < Formula
   end
 
   test do
-    shell_output("#{bin}/mytop", 1)
+    assert_match "username you specified", pipe_output("#{bin}/mytop 2>&1")
   end
 end
