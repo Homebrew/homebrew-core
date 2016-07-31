@@ -1,14 +1,14 @@
 class ProtobufSwift < Formula
   desc "Implementation of Protocol Buffers in Apple Swift."
   homepage "https://github.com/alexeyxo/protobuf-swift"
-  url "https://github.com/alexeyxo/protobuf-swift/archive/2.4.4.tar.gz"
-  sha256 "c5960def4f9d48d4933f1a1ff1ac403ca278c0502ee048c6c8704d769b0ae7c5"
+  url "https://github.com/alexeyxo/protobuf-swift/archive/3.0.0.tar.gz"
+  sha256 "3e93f410844049673a164698589f1cb2c8f8ee1e4169b6cee3c6c32f8f5c4edb"
   revision 1
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "protobuf" => "2.6.1"
+  depends_on "protobuf"
 
   def install
     system "./autogen.sh"
@@ -19,14 +19,15 @@ class ProtobufSwift < Formula
 
   test do
     testdata = <<-EOS.undent
-       enum Flavor{
-         CHOCOLATE = 1;
-          VANILLA = 2;
-        }
-        message IceCreamCone {
-          optional int32 scoops = 1;
-          optional Flavor flavor = 2;
-        }
+      syntax = "proto3";
+      enum Flavor {
+        CHOCOLATE = 0;
+        VANILLA = 1;
+      }
+      message IceCreamCone {
+        int32 scoops = 1;
+        Flavor flavor = 2;
+      }
     EOS
     (testpath/"test.proto").write(testdata)
     system "protoc", "test.proto", "--swift_out=."
