@@ -3,6 +3,7 @@ class Pygobject < Formula
   homepage "https://live.gnome.org/PyGObject"
   url "https://download.gnome.org/sources/pygobject/2.28/pygobject-2.28.6.tar.bz2"
   sha256 "e4bfe017fa845940184c82a4d8949db3414cb29dfc84815fb763697dc85bdcee"
+  revision 1
 
   bottle do
     sha256 "2eeb114e8508e6e58a35ac263f39abce53b409f350e3677a0bf49980e4a9920b" => :el_capitan
@@ -29,5 +30,12 @@ class Pygobject < Formula
                           "--prefix=#{prefix}",
                           "--disable-introspection"
     system "make", "install"
+    (lib/"python2.7/site-packages/pygtk.pth").append_lines <<-EOS.undent
+      #{HOMEBREW_PREFIX}/lib/python2.7/site-packages/gtk-2.0
+    EOS
+  end
+
+  test do
+    system "python", "-c", "import dsextras"
   end
 end
