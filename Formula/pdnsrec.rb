@@ -5,11 +5,9 @@ class Pdnsrec < Formula
   sha256 "472db541307c8ca83a846d260ecfc854fd8e879c1bb2ce5683a8df5d21e860b0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "90319425e9cf1c1bf5db4a1c62c48d98f88dc57f321cbfdb4be48dc91330e93f" => :el_capitan
-    sha256 "68e80d6dd093d9ab1c986d9f68c97dfe9d8b46b228c4b27d64ce4bcd47105250" => :yosemite
-    sha256 "afc4630468ea74d4a7aec183f5f5f3c4872b3bcca1aac7a58c9a579aa7d0cbcc" => :mavericks
-    sha256 "a9faf9edf0e71de5e9ec9fa70d27811f353a8451b41746208fbdc0d592aa5910" => :mountain_lion
+    sha256 "31428673a49cfd7d9499e98154daefc493da5e4457adb3ff58ea5f60fdd08ba2" => :el_capitan
+    sha256 "e08235e2eac088be0bd6a6ec69536874173a0ff02a2707d1a63e19132bc30f1a" => :yosemite
+    sha256 "32433ecf6ab52d6c4f2c4f1bcb9f7d56102766fa23d316a9354932d86ed9f255" => :mavericks
   end
 
   depends_on "pkg-config" => :build
