@@ -11,15 +11,29 @@ class Xdelta < Formula
     sha256 "a0801a8bd9796d03d8c031905e28a6e5f50b155da3102337070ec787ccb5cee9" => :mavericks
   end
 
+  option "without-xz", "Disable LZMA secondary compression"
+
   depends_on "libtool" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "xz"
+
+  depends_on "xz" => :recommended
 
   def install
     cd "xdelta3" do
+      args = %W[
+        --disable-dependency-tracking
+        --prefix=#{prefix}
+      ]
+
+      if build.with? "xz"
+        args << "--with-liblzma"
+      else
+        args << "--with-liblzma=no"
+      end
+
       system "autoreconf", "--install"
-      system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+      system "./configure", *args
       system "make", "install"
     end
   end
