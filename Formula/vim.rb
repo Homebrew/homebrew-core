@@ -55,7 +55,7 @@ class Vim < Formula
     # vim doesn't require any Python package, unset PYTHONPATH.
     ENV.delete("PYTHONPATH")
 
-    if build.with?("python") && which("python").to_s == "/usr/bin/python" && !MacOS.clt_installed?
+    if build.with?("python") && which("python").to_s == "/usr/bin/python" && !MacOS::CLT.installed?
       # break -syslibpath jail
       ln_s "/System/Library/Frameworks", buildpath
       ENV.append "LDFLAGS", "-F#{buildpath}/Frameworks"
