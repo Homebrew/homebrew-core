@@ -56,8 +56,8 @@ class Presto < Formula
       exec "#{libexec}/bin/launcher" "$@"
     EOS
 
-    resource("presto-cli").stage do |s|
-      cp s.resource.cached_download, bin/"presto"
+    resource("presto-cli").stage do
+      bin.install "presto-cli-#{version}-executable.jar" => "presto"
     end
   end
 
