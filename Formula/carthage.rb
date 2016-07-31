@@ -1,9 +1,10 @@
 class Carthage < Formula
   desc "Decentralized dependency manager for Cocoa"
   homepage "https://github.com/Carthage/Carthage"
-  url "https://github.com/Carthage/Carthage.git", :tag => "0.17.2",
-                                                  :revision => "6b9728006ef8a7ceaeda5687c052e05dc8e49d02",
-                                                  :shallow => false
+  url "https://github.com/Carthage/Carthage.git",
+      :tag => "0.17.2",
+      :revision => "6b9728006ef8a7ceaeda5687c052e05dc8e49d02",
+      :shallow => false
   head "https://github.com/Carthage/Carthage.git", :shallow => false
 
   bottle do
@@ -23,6 +24,6 @@ class Carthage < Formula
 
   test do
     (testpath/"Cartfile").write 'github "jspahrsummers/xcconfigs"'
-    system "#{bin}/carthage", "update"
+    system bin/"carthage", "update"
   end
 end
