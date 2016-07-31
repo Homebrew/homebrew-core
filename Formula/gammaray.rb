@@ -1,8 +1,8 @@
 class Gammaray < Formula
   desc "Examine and manipulate Qt application internals at runtime"
   homepage "https://www.kdab.com/kdab-products/gammaray/"
-  url "https://github.com/KDAB/GammaRay/releases/download/v2.4.1/gammaray-2.4.1.tar.gz"
-  sha256 "08b151eaa4afeaaebc28eaae789f8da47d99012f1071f19d20d8d4d91115b6ab"
+  url "https://github.com/KDAB/GammaRay/releases/download/v2.5.1/gammaray-2.5.1.tar.gz"
+  sha256 "fd493d4b53fdd05f288f7a8ae0f414faa38c5626269643eec64a0a858e854c61"
   head "https://github.com/KDAB/GammaRay.git"
 
   bottle do
@@ -26,6 +26,10 @@ class Gammaray < Formula
   def install
     # For Mountain Lion
     ENV.libcxx
+
+    # attachtest-lldb causes "make check" to fail
+    # Reported 31 Jul 2016: https://github.com/KDAB/GammaRay/issues/241
+    inreplace "tests/CMakeLists.txt", "/gammaray lldb", "/gammaray nosuchfile"
 
     args = std_cmake_args
     args << "-DCMAKE_DISABLE_FIND_PACKAGE_VTK=" + ((build.without? "vtk") ? "ON" : "OFF")
