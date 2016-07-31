@@ -46,6 +46,7 @@ class ClangFormat < Formula
 
     mkdir "build" do
       args = std_cmake_args
+      args << "-DCMAKE_OSX_SYSROOT=/" unless MacOS::Xcode.installed?
       args << "-DLLVM_ENABLE_LIBCXX=ON"
       args << ".."
       system "cmake", "-G", "Ninja", *args
