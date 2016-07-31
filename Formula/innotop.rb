@@ -3,6 +3,8 @@ class Innotop < Formula
   homepage "https://github.com/innotop/innotop/"
   url "https://github.com/innotop/innotop/archive/v1.11.1.tar.gz"
   sha256 "c93a4fb496ce1749aaaf0a70f0899ed1fa1aa5cd231208b6b3424285c77dc1b7"
+  revision 1
+
   head "https://github.com/innotop/innotop.git"
 
   bottle do
@@ -15,17 +17,14 @@ class Innotop < Formula
   depends_on :mysql
   depends_on "openssl"
 
-  conflicts_with "mytop", :because => "both install `perllocal.pod`"
-
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.033.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.033.tar.gz"
-    sha256 "cc98bbcc33581fbc55b42ae681c6946b70a26f549b3c64466740dfe9a7eac91c"
+    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.035.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.035.tar.gz"
+    sha256 "b7eca365ea16bcf4c96c2fc0221304ff9c4995e7a551886837804a8f66b61937"
   end
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-
     resource("DBD::mysql").stage do
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
       system "make"
