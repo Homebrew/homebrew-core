@@ -7,9 +7,9 @@ class Asciinema2gif < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1f90b2c59593dafb3c991a15b17d82cda792fd2845b55126ba2d3e5765df494e" => :el_capitan
-    sha256 "ce148f38246901791b98c8f7a296fb9f1c940411946498960fb8d84eaa569d66" => :yosemite
-    sha256 "7d607750f7abf4bf0dd7c810424232f848c72debaafeb75c4dda4b4cc61ddb3b" => :mavericks
+    sha256 "26670adbfe2b8416f8fd82f93f56b8f0d4f38b4587f1e7f3f131d75e94eb1907" => :el_capitan
+    sha256 "8ab3c567585c2e2a14a89c7e85dfaf76e4cc6ce102652bd94e603beacf4a427d" => :yosemite
+    sha256 "f7d8dfbca402fbdb334a778bd94fb33cea1e432639b4e51280622baf9c3a1adb" => :mavericks
   end
 
   depends_on "gifsicle"
