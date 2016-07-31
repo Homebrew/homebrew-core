@@ -1,9 +1,17 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "http://www.zsh.org/"
-  url "https://downloads.sourceforge.net/project/zsh/zsh/5.2/zsh-5.2.tar.gz"
-  mirror "http://www.zsh.org/pub/zsh-5.2.tar.gz"
-  sha256 "fa924c534c6633c219dcffdcd7da9399dabfb63347f88ce6ddcd5bb441215937"
+
+  stable do
+    url "https://downloads.sourceforge.net/project/zsh/zsh/5.2/zsh-5.2.tar.gz"
+    mirror "http://www.zsh.org/pub/zsh-5.2.tar.gz"
+    sha256 "fa924c534c6633c219dcffdcd7da9399dabfb63347f88ce6ddcd5bb441215937"
+
+    # We cannot build HTML doc on HEAD, because yodl which is required for
+    # building zsh.texi is not available.
+    option "with-texi2html", "Build HTML documentation"
+    depends_on "texi2html" => [:build, :optional]
+  end
 
   bottle do
     revision 1
@@ -61,6 +69,7 @@ class Zsh < Formula
     else
       system "make", "install"
       system "make", "install.info"
+      system "make", "install.html" if build.with? "texi2html"
     end
   end
 
