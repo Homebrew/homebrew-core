@@ -3,6 +3,8 @@ class Pgtap < Formula
   homepage "http://pgtap.org/"
   url "http://api.pgxn.org/dist/pgtap/0.96.0/pgtap-0.96.0.zip"
   sha256 "84ad5e2212555077393d74b4628b9cbd141b1f382e7b7f39662ffe64e3fa2521"
+  revision 1
+
   head "https://github.com/theory/pgtap.git"
 
   bottle do
@@ -14,8 +16,6 @@ class Pgtap < Formula
 
   # Not :postgresql, because we need to install into its share directory.
   depends_on "postgresql"
-
-  conflicts_with "mytop", :because => "both install `perllocal.pod`"
 
   resource "Test::Harness" do
     url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.36.tar.gz"
