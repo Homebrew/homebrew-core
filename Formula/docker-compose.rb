@@ -3,8 +3,8 @@ class DockerCompose < Formula
   homepage "https://docs.docker.com/compose/"
 
   stable do
-    url "https://github.com/docker/compose/archive/1.7.1.tar.gz"
-    sha256 "002be1c4cd22f73cee219e97e97dfd6b9ff7bfd8dbb40c0aa31c55e5e1a965e5"
+    url "https://github.com/docker/compose/archive/1.8.0.tar.gz"
+    sha256 "a93d702086fdc95f79d20462ddaf7cd174e3d8053b79fe3c565f0ace76a16750"
   end
 
   bottle do
