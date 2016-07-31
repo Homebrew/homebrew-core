@@ -4,6 +4,7 @@ class PerconaToolkit < Formula
   url "https://www.percona.com/downloads/percona-toolkit/2.2.18/tarball/percona-toolkit-2.2.18.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/percona-toolkit/percona-toolkit_2.2.18.orig.tar.gz"
   sha256 "62f6bab6ed4a57259b86a5ccbcc5ced8d37f22d06ed18a0508314a7d1c7e19f5"
+  revision 1
 
   head "lp:percona-toolkit", :using => :bzr
 
@@ -12,12 +13,10 @@ class PerconaToolkit < Formula
   depends_on :mysql
   depends_on "openssl"
 
-  conflicts_with "mytop", :because => "both install `perllocal.pod`"
-
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.033.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.033.tar.gz"
-    sha256 "cc98bbcc33581fbc55b42ae681c6946b70a26f549b3c64466740dfe9a7eac91c"
+    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.035.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.035.tar.gz"
+    sha256 "b7eca365ea16bcf4c96c2fc0221304ff9c4995e7a551886837804a8f66b61937"
   end
 
   resource "JSON" do
@@ -28,15 +27,11 @@ class PerconaToolkit < Formula
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-
-    resource("JSON").stage do
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-      system "make", "install"
-    end
-
-    resource("DBD::mysql").stage do
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-      system "make", "install"
+    resources.each do |r|
+      r.stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "make", "install"
+      end
     end
 
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
