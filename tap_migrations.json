@@ -116,6 +116,7 @@
   "horndis": "caskroom/cask",
   "hugs98": "homebrew/boneyard",
   "hwloc": "homebrew/science",
+  "icmake": "homebrew/boneyard",
   "ifuse": "homebrew/fuse",
   "imake": "homebrew/x11",
   "inkscape": "homebrew/gui",
