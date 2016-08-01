@@ -76,6 +76,6 @@ class Ettercap < Formula
   end
 
   test do
-    system bin/"ettercap", "--version"
+    assert_match version.to_s, shell_output("#{bin}/ettercap --version")
   end
 end
