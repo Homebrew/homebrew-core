@@ -23,22 +23,54 @@ class Ettercap < Formula
   depends_on "curl" # require libcurl >= 7.26.0
   depends_on "openssl"
   depends_on "gtk+" => :optional
+  depends_on "gtk+3" => :optional
   depends_on "luajit" => :optional
 
   def install
-    args = std_cmake_args
+    args = std_cmake_args + %W[
+      -DBUNDLED_LIBS=OFF
+      -DINSTALL_SYSCONFDIR=#{etc}
+    ]
 
-    args << "-DINSTALL_SYSCONFDIR=#{etc}"
-    args << "-DENABLE_CURSES=OFF" if build.without? "curses"
-    args << "-DENABLE_PLUGINS=OFF" if build.without? "plugins"
-    args << "-DENABLE_IPV6=ON" if build.with? "ipv6"
-    args << "-DENABLE_PDF_DOCS=ON" if build.with? "ghostscript"
-    args << "-DENABLE_GTK=OFF" if build.without? "gtk+"
-    args << "-DENABLE_LUA=ON" if build.with? "luajit"
-    args << ".."
+    if build.with? "curses"
+      args << "-DENABLE_CURSES=ON"
+    else
+      args << "-DENABLE_CURSES=OFF"
+    end
+
+    if build.with? "plugins"
+      args << "-DENABLE_PLUGINS=ON"
+    else
+      args << "-DENABLE_PLUGINS=OFF"
+    end
+
+    if build.with? "ipv6"
+      args << "-DENABLE_IPV6=ON"
+    else
+      args << "-DENABLE_IPV6=OFF"
+    end
+
+    if build.with? "ghostscript"
+      args << "-DENABLE_PDF_DOCS=ON"
+    else
+      args << "-DENABLE_PDF_DOCS=OFF"
+    end
+
+    if build.with?("gtk+") || build.with?("gtk+3")
+      args << "-DENABLE_GTK=ON" << "-DINSTALL_DESKTOP=ON"
+      args << "-DGTK_BUILD_TYPE=GTK3" if build.with? "gtk+3"
+    else
+      args << "-DENABLE_GTK=OFF" << "-DINSTALL_DESKTOP=OFF"
+    end
+
+    if build.with? "luajit"
+      args << "-DENABLE_LUA=ON"
+    else
+      args << "-DENABLE_LUA=OFF"
+    end
 
     mkdir "build" do
-      system "cmake", *args
+      system "cmake", "..", *args
       system "make", "install"
     end
   end
