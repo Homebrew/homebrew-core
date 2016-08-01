@@ -14,7 +14,7 @@ class Ettercap < Formula
 
   option "without-curses", "Install without curses interface"
   option "without-plugins", "Install without plugins support"
-  option "with-ipv6", "Install with IPv6 support"
+  option "without-ipv6", "Install without IPv6 support"
 
   depends_on "cmake" => :build
   depends_on "ghostscript" => [:build, :optional]
