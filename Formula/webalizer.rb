@@ -4,6 +4,7 @@ class Webalizer < Formula
   url "ftp://ftp.mrunix.net/pub/webalizer/webalizer-2.23-08-src.tgz"
   mirror "https://mirrors.kernel.org/debian/pool/main/w/webalizer/webalizer_2.23.08.orig.tar.gz"
   sha256 "edaddb5aa41cc4a081a1500e3fa96615d4b41bc12086bcedf9938018ce79ed8d"
+  revision 1
 
   bottle do
     sha256 "b49462177a945b9a9bd3d8fc9004c35b2150d1206a5967a5231a5da3f609d956" => :el_capitan

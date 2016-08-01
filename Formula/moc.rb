@@ -3,6 +3,7 @@ class Moc < Formula
   homepage "https://moc.daper.net"
   url "http://ftp.daper.net/pub/soft/moc/stable/moc-2.5.1.tar.bz2"
   sha256 "1b419c75a92a85ff4ee7670c65d660c86fef32032c65e89e868b988f80fac4f2"
+  revision 1
   head "svn://daper.net/moc/trunk"
 
   bottle do
