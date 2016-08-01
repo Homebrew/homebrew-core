@@ -3,8 +3,8 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-    :tag => "1.7.3",
-    :revision => "6901aa644a9bcc0667207008db71471abf756b82"
+    :tag => "1.7.4",
+    :revision => "209900d5a87fd5111ca99bb1cc201f3ad357222e"
 
   bottle do
     cellar :any
@@ -31,18 +31,18 @@ class Osquery < Formula
   depends_on "sleuthkit"
 
   resource "markupsafe" do
-    url "https://pypi.python.org/packages/source/M/MarkupSafe/MarkupSafe-0.23.tar.gz"
+    url "https://pypi.python.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"
     sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
   end
 
   resource "jinja2" do
-    url "https://pypi.python.org/packages/source/J/Jinja2/Jinja2-2.7.3.tar.gz"
-    sha256 "2e24ac5d004db5714976a04ac0e80c6df6e47e98c354cb2c0d82f8879d4f8fdb"
+    url "https://pypi.python.org/packages/f2/2f/0b98b06a345a761bec91a079ccae392d282690c2d8272e708f4d10829e22/Jinja2-2.8.tar.gz"
+    sha256 "bc1ff2ff88dbfacefde4ddde471d1417d3b304e8df103a7a9437d47269201bf4"
   end
 
-  resource "psutil" do
-    url "https://pypi.python.org/packages/source/p/psutil/psutil-2.2.1.tar.gz"
-    sha256 "a0e9b96f1946975064724e242ac159f3260db24ffa591c3da0a355361a3a337f"
+  resource "argparse" do
+    url "https://pypi.python.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
+    sha256 "62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4"
   end
 
   def install
