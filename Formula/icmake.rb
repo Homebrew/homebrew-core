@@ -1,9 +1,8 @@
 class Icmake < Formula
   desc "Make utility using a C-line grammar"
   homepage "https://fbb-git.github.io/icmake/"
-  url "https://github.com/fbb-git/icmake/archive/7.23.02.tar.gz"
-  sha256 "f030086d0630c2c1755519556b9cf88b8495bc8debf36b257e0c69d3b199c46b"
-  revision 1
+  url "https://github.com/fbb-git/icmake/archive/8.01.00.tar.gz"
+  sha256 "d77304994fb07cf437f7fbe6ff5a0fd72b42a2bccab81f398f056245cea48dcc"
 
   bottle do
     sha256 "49ab9282e271c7ef224d96bc8275ee514c947db502776875214836d26adca07e" => :el_capitan
