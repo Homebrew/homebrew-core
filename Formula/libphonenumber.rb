@@ -2,7 +2,8 @@ class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/googlei18n/libphonenumber"
   url "https://github.com/googlei18n/libphonenumber/archive/libphonenumber-7.5.1.tar.gz"
-  sha256 "f6c251b4574009a26fb859fed50b0682c9f197ba0bce7417272bff956f3af1a6"
+  sha256 "42bb57b8c582920fc2d96ed1db07bc4792ec0731bc0f1f24dbc1e177f99bb77d"
+  revision 1
 
   bottle do
     cellar :any
@@ -31,10 +32,11 @@ class Libphonenumber < Formula
       system "make"
     end
 
-    args = std_cmake_args
-    args << "-DGTEST_INCLUDE_DIR:PATH=#{(buildpath/"gtest/include")}"
-    args << "-DGTEST_LIB:PATH=#{buildpath/"gtest/libgtest.a"}"
-    args << "-DGTEST_SOURCE_DIR:PATH=#{buildpath/"gtest/src"}"
+    args = std_cmake_args + %W[
+      -DGTEST_INCLUDE_DIR:PATH=#{buildpath}/gtest/include
+      -DGTEST_LIB:PATH=#{buildpath}/gtest/libgtest.a
+      -DGTEST_SOURCE_DIR:PATH=#{buildpath}/gtest/src
+    ]
 
     system "cmake", "cpp", *args
     system "make", "install"
