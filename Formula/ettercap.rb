@@ -6,10 +6,10 @@ class Ettercap < Formula
   head "https://github.com/Ettercap/ettercap.git"
 
   bottle do
-    revision 1
-    sha256 "05e3c0fe0da148df590f32a71d6265ef92028a031814c1f34d87a028dc7ee598" => :el_capitan
-    sha256 "6bdead34623676c9b61f134985bab01f59a58f19848fdc93c51ac512a65685c5" => :yosemite
-    sha256 "c01dfad3aa45e307c633dbf87069bd39f6ac99761342e21c364ac412fa4513bf" => :mavericks
+    revision 2
+    sha256 "65ea7526addde2a4a53a3148c056e12514481394e4c9e2d04f79edf0fb3b9c58" => :el_capitan
+    sha256 "90cb2fbbd2d792293aad154f293f8d2c8b486b6478c3087ad8657005f3e1d1cd" => :yosemite
+    sha256 "6f11280ec2f3d7e6b89663ced4fd4d0051a5e35b335108a56561dab6e8728257" => :mavericks
   end
 
   option "without-curses", "Install without curses interface"
