@@ -20,7 +20,7 @@ class Curl < Formula
   option "with-gssapi", "Build with GSSAPI/Kerberos authentication support."
   option "with-libmetalink", "Build with libmetalink support."
   option "with-libressl", "Build with LibreSSL instead of Secure Transport or OpenSSL"
-  option "with-nghttp2", "Build with HTTP/2 support (requires OpenSSL or LibreSSL)"
+  option "without-nghttp2", "Build without HTTP/2 support (for optional Secure Transport support)"
 
   deprecated_option "with-idn" => "with-libidn"
   deprecated_option "with-rtmp" => "with-rtmpdump"
@@ -43,7 +43,7 @@ class Curl < Formula
   depends_on "c-ares" => :optional
   depends_on "libmetalink" => :optional
   depends_on "libressl" => :optional
-  depends_on "nghttp2" => :optional
+  depends_on "nghttp2" => :recommended
 
   def install
     # Fail if someone tries to use both SSL choices.
