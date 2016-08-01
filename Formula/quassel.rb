@@ -23,11 +23,7 @@ class Quassel < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-
-  # Official binary packages upstream now built against qt5 by default. But source
-  # packages default to qt4 *for now*, and Homebrew prioritises qt5 in PATH due to keg_only.
-  depends_on "qt5" => :optional
-  depends_on "qt" => :recommended
+  depends_on "qt5" => :recommended
 
   needs :cxx11
 
