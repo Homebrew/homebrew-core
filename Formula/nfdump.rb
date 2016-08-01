@@ -15,10 +15,11 @@ class Nfdump < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-readpcap"
+    # https://github.com/phaag/nfdump/issues/32
     ENV.deparallelize { system "make", "install" }
   end
 
   test do
-    system "#{bin}/nfdump", "-Z 'host 8.8.8.8'"
+    system bin/"nfdump", "-Z 'host 8.8.8.8'"
   end
 end
