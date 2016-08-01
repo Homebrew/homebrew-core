@@ -16,8 +16,8 @@ class Bazel < Formula
 
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
-    # Force Bazel to put all temporary file in the homebrew cache
-    ENV["BAZEL_WRKDIR"] = "#{buildpath}"
+    # Force Bazel ./compile.sh to put its temporary file in the homebrew cache
+    ENV["BAZEL_WRKDIR"] = "#{buildpath}/work"
 
     system "./compile.sh"
     system "./output/bazel", "--output_user_root", "#{buildpath}/output_user_root", "build", "scripts:bash_completion"
