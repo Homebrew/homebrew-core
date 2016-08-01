@@ -20,8 +20,8 @@ class Ettercap < Formula
   depends_on "ghostscript" => [:build, :optional]
   depends_on "pcre"
   depends_on "libnet"
-  depends_on "curl" # require libcurl >= 7.26.0
   depends_on "openssl"
+  depends_on "curl" if MacOS.version <= :mountain_lion # requires >= 7.26.0.
   depends_on "gtk+" => :optional
   depends_on "gtk+3" => :optional
   depends_on "luajit" => :optional
