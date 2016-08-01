@@ -1,8 +1,8 @@
 class Libsodium < Formula
   desc "NaCl networking and cryptography library"
   homepage "https://github.com/jedisct1/libsodium/"
-  url "https://github.com/jedisct1/libsodium/releases/download/1.0.10/libsodium-1.0.10.tar.gz"
-  sha256 "71b786a96dd03693672b0ca3eb77f4fb08430df307051c0d45df5353d22bc4be"
+  url "https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gz"
+  sha256 "a14549db3c49f6ae2170cbbf4664bd48ace50681045e8dbea7c8d9fb96f9c765"
 
   bottle do
     cellar :any
@@ -42,7 +42,8 @@ class Libsodium < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lsodium", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}",
+                   "-lsodium", "-o", "test"
     system "./test"
   end
 end
