@@ -3,13 +3,7 @@ class NanopbGenerator < Formula
   homepage "https://koti.kapsi.fi/jpa/nanopb/docs/index.html"
   url "https://koti.kapsi.fi/~jpa/nanopb/download/nanopb-0.3.5.tar.gz"
   sha256 "3dd539671403d578425f15c6b4b6ba7390ee9a20369b969637ef1d18487e150e"
-
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "e48c213f1af09ef52f38a874991dcd5bc6e2fe86e5404a7b272160d4a9cea5cb" => :el_capitan
-    sha256 "1390bb0c55b7b6a278588d3648b1ca6441fd2294d6f62d34e8552405710093eb" => :yosemite
-    sha256 "cf5dabc592b4c8d4b338915dcbc1bddb9a000fe0c087bd03c2f13ff0981c2edd" => :mavericks
-  end
+  revision 1
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "protobuf"
