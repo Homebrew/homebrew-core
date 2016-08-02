@@ -35,27 +35,14 @@ class Emacs < Formula
   deprecated_option "cocoa" => "with-cocoa"
   deprecated_option "keep-ctags" => "with-ctags"
   deprecated_option "with-d-bus" => "with-dbus"
-  deprecated_option "with-x" => "with-x11"
 
   depends_on "pkg-config" => :build
-  depends_on :x11 => :optional
   depends_on "dbus" => :optional
   depends_on "gnutls" => :optional
-  depends_on "librsvg" => :optional
+  depends_on "librsvg" => :recommended
   depends_on "imagemagick" => :optional
   depends_on "mailutils" => :optional
   depends_on "glib" => :optional
-
-  # https://github.com/Homebrew/homebrew/issues/37803
-  if build.with? "x11"
-    depends_on "freetype" => :recommended
-    depends_on "fontconfig" => :recommended
-  end
-
-  fails_with :llvm do
-    build 2334
-    cause "Duplicate symbol errors while linking."
-  end
 
   def install
     args = %W[
@@ -64,6 +51,7 @@ class Emacs < Formula
       --enable-locallisppath=#{HOMEBREW_PREFIX}/share/emacs/site-lisp
       --infodir=#{info}/emacs
       --prefix=#{prefix}
+      --without-x
     ]
 
     args << "--with-file-notification=gfile" if build.with? "glib"
@@ -94,10 +82,15 @@ class Emacs < Formula
 
     if build.with? "cocoa"
       args << "--with-ns" << "--disable-ns-self-contained"
-      system "./configure", *args
-      system "make"
-      system "make", "install"
+    else
+      args << "--without-ns"
+    end
 
+    system "./configure", *args
+    system "make"
+    system "make", "install"
+
+    if build.with? "cocoa"
       # Remove when 25.1 is released
       if build.stable?
         chmod 0644, %w[nextstep/Emacs.app/Contents/PkgInfo
@@ -113,22 +106,6 @@ class Emacs < Formula
         #!/bin/bash
         exec #{prefix}/Emacs.app/Contents/MacOS/Emacs "$@"
       EOS
-    else
-      if build.with? "x11"
-        # These libs are not specified in xft's .pc. See:
-        # https://trac.macports.org/browser/trunk/dports/editors/emacs/Portfile#L74
-        # https://github.com/Homebrew/homebrew/issues/8156
-        ENV.append "LDFLAGS", "-lfreetype -lfontconfig"
-        args << "--with-x"
-        args << "--with-gif=no" << "--with-tiff=no" << "--with-jpeg=no"
-      else
-        args << "--without-x"
-      end
-      args << "--without-ns"
-
-      system "./configure", *args
-      system "make"
-      system "make", "install"
     end
 
     # Follow MacPorts and don't install ctags from Emacs. This allows Vim
@@ -141,8 +118,8 @@ class Emacs < Formula
 
   def caveats
     if build.with? "cocoa" then <<-EOS.undent
-      A command line wrapper for the cocoa app was installed to:
-        #{bin}/emacs
+      Please try the Cask for a better-supported Cocoa version:
+        brew cask install emacs
       EOS
     end
   end
