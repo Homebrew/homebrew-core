@@ -9,9 +9,9 @@ class Fibjs < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "582616a3f4eb28d8b0153890f504af2b7b6feb2e35c5b035e12110d08edf8d97" => :el_capitan
-    sha256 "97832036fe7302f20c3a2ce04b543fdb38283818d45fd19a497549a4d361585a" => :yosemite
-    sha256 "e28aee6fbd4f4a6475dcd720784bd9ca45a77f77674a9432c67b6ede84560d8b" => :mavericks
+    sha256 "ba281f85ad6e3b0ad65c47c25d8b3f3eda6a969f429735432a62451e024bab33" => :el_capitan
+    sha256 "acb0013c7cf6d3f6dbf7793b5a3a1a627afd39af55c0b5e0cdf0b64da7eab9eb" => :yosemite
+    sha256 "e08ec48ecb64a708f148d56e60f2b54d75629e3a9e0ee9bb88d8afa13a4964e4" => :mavericks
   end
 
   depends_on "cmake" => :build
