@@ -7,6 +7,7 @@ class Imagemagick < Formula
   url "https://dl.bintray.com/homebrew/mirror/imagemagick-6.9.5-4.tar.xz"
   mirror "https://www.imagemagick.org/download/ImageMagick-6.9.5-4.tar.xz"
   sha256 "00549fb8588673bb510e9dc952d9937b2cd1186e9322f5265dd96803e592eed8"
+  revision 1
   head "http://git.imagemagick.org/repos/ImageMagick.git"
 
   bottle do
@@ -35,25 +36,25 @@ class Imagemagick < Formula
   depends_on "libtool" => :run
   depends_on "xz"
 
+  depends_on "freetype" => :recommended
   depends_on "jpeg" => :recommended
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
-  depends_on "freetype" => :recommended
 
-  depends_on :x11 => :optional
+  depends_on "fftw" => :optional
   depends_on "fontconfig" => :optional
+  depends_on "ghostscript" => :optional
+  depends_on "liblqr" => :optional
+  depends_on "librsvg" => :optional
+  depends_on "libwmf" => :optional
   depends_on "little-cms" => :optional
   depends_on "little-cms2" => :optional
-  depends_on "libwmf" => :optional
-  depends_on "librsvg" => :optional
-  depends_on "liblqr" => :optional
   depends_on "openexr" => :optional
-  depends_on "ghostscript" => :optional
-  depends_on "webp" => :optional
   depends_on "homebrew/versions/openjpeg21" if build.with? "jp2"
-  depends_on "fftw" => :optional
   depends_on "pango" => :optional
+  depends_on "webp" => :optional
   depends_on :perl => ["5.5", :optional]
+  depends_on :x11 => :optional
 
   needs :openmp if build.with? "openmp"
 
@@ -69,22 +70,76 @@ class Imagemagick < Formula
       --enable-static
     ]
 
+    if build.without? "freetype"
+      args << "--without-freetype"
+    else
+      args << "--with-freetype"
+    end
+
+    if build.without? "jpeg"
+      args << "--without-jpeg"
+    else
+      args << "--with-jpeg"
+    end
+
+    if build.without? "libpng"
+      args << "--disable-png"
+    else
+      args << "--enable-png"
+    end
+
+    if build.without? "libtiff"
+      args << "--disable-tiff"
+    else
+      args << "--enable-tiff"
+    end
+
+    if build.without? "magick-plus-plus"
+      args << "--disable-magick-plus-plus"
+    else
+      args << "--enable-magick-plus-plus"
+    end
+
     if build.without? "modules"
-      args << "--without-modules"
+      args << "--disable-modules"
     else
-      args << "--with-modules"
+      args << "--enable-modules"
     end
 
-    if build.with? "openmp"
-      args << "--enable-openmp"
+    if build.without? "opencl"
+      args << "--disable-opencl"
     else
-      args << "--disable-openmp"
+      args << "--enable-opencl"
     end
 
-    if build.with? "webp"
-      args << "--with-webp=yes"
+    if build.without? "threads"
+      args << "--without-threads"
     else
-      args << "--without-webp"
+      args << "--with-threads"
+    end
+
+    if build.with? "fftw"
+      args << "--with-fftw"
+    else
+      args << "--without-fftw"
+    end
+
+    if build.with? "fontconfig"
+      args << "--with-fontconfig"
+    else
+      args << "--without-fontconfig"
+    end
+
+    if build.with? "ghostscript"
+      args << "--with-gslib" << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts"
+    else
+      args << "--without-gslib"
+    end
+
+    if build.with? "hdri"
+      args << "--enable-hdri"
+    else
+      args << "--disable-hdri"
     end
 
     if build.with? "jp2"
@@ -93,20 +148,71 @@ class Imagemagick < Formula
       args << "--without-openjp2"
     end
 
-    args << "--disable-opencl" if build.without? "opencl"
-    args << "--without-gslib" if build.without? "ghostscript"
-    args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
-    args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
-    args << "--without-magick-plus-plus" if build.without? "magick-plus-plus"
-    args << "--enable-hdri=yes" if build.with? "hdri"
-    args << "--without-fftw" if build.without? "fftw"
-    args << "--without-pango" if build.without? "pango"
-    args << "--without-threads" if build.without? "threads"
-    args << "--with-rsvg" if build.with? "librsvg"
-    args << "--without-x" if build.without? "x11"
-    args << "--with-fontconfig=yes" if build.with? "fontconfig"
-    args << "--with-freetype=yes" if build.with? "freetype"
-    args << "--enable-zero-configuration" if build.with? "zero-configuration"
+    if build.with? "liblqr"
+      args << "--with-lqr"
+    else
+      args << "--without-lqr"
+    end
+
+    if build.with? "librsvg"
+      args << "--with-rsvg"
+    else
+      args << "--without-rsvg"
+    end
+
+    if build.with? "libwmf"
+      args << "--with-wmf"
+    else
+      args << "--without-wmf"
+    end
+
+    if build.with? "little-cms"
+      args << "--with-lcms"
+    else
+      args << "--without-lcms"
+    end
+
+    if build.with? "openexr"
+      args << "--with-openexr"
+    else
+      args << "--without-openexr"
+    end
+
+    if build.with? "openmp"
+      args << "--enable-openmp"
+    else
+      args << "--disable-openmp"
+    end
+
+    if build.with? "pango"
+      args << "--with-pango"
+    else
+      args << "--without-pango"
+    end
+
+    if build.with? "perl"
+      args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'"
+    else
+      args << "--without-perl"
+    end
+
+    if build.with? "webp"
+      args << "--with-webp"
+    else
+      args << "--without-webp"
+    end
+
+    if build.with? "x11"
+      args << "--with-x"
+    else
+      args << "--without-x"
+    end
+
+    if build.with? "zero-configuration"
+      args << "--enable-zero-configuration"
+    else
+      args << "--disable-zero-configuration"
+    end
 
     if build.with? "quantum-depth-32"
       quantum_depth = 32
@@ -132,6 +238,14 @@ class Imagemagick < Formula
   end
 
   test do
-    system "#{bin}/identify", test_fixtures("test.png")
+    system bin/"identify", test_fixtures("test.png")
+    # Test recommended features and delegates.
+    features = shell_output("#{bin}/convert -version")
+    assert_match "freetype", features
+    assert_match "jpeg", features
+    assert_match "png", features
+    assert_match "tiff", features
+    assert_match "Modules", features
+    assert_match "OpenCL", features
   end
 end
