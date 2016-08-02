@@ -1,9 +1,9 @@
 class Fibjs < Formula
   desc "JavaScript on Fiber"
   homepage "http://fibjs.org/en/index.html"
-  url "https://github.com/xicilion/fibjs/releases/download/v0.2.0/fullsrc.zip"
-  version "0.2.0"
-  sha256 "db79df72f4e46e23f1ee3c0c21c5e265ee1fd6ccf841a6cf544b1fa7241713c5"
+  url "https://github.com/xicilion/fibjs/releases/download/v0.2.1/fullsrc.zip"
+  version "0.2.1"
+  sha256 "914d79bb18e5309228747d73c481c1c243db8cc0ab1b29ec66f201cc2d8f85b9"
 
   head "https://github.com/xicilion/fibjs.git"
 
@@ -17,8 +17,8 @@ class Fibjs < Formula
   depends_on "cmake" => :build
 
   def install
-    system "./build", "Release", "-j#{ENV.make_jobs}"
-    bin.install "bin/Darwin_Release/fibjs"
+    system "./build", "release", "-j#{ENV.make_jobs}"
+    bin.install "bin/Darwin_amd64_release/fibjs"
   end
 
   test do
