@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-2.0.0.tar.xz"
-  sha256 "10e90af55e613953c0ddc60b4ac3a10c73c0f3493d7014259e3f012b2ffc9acb"
+  url "https://libvirt.org/sources/libvirt-2.1.0.tar.xz"
+  sha256 "1a799562337472ab00f76aa30a53d54c623c96633070ec53286c9cc2a456316b"
 
   bottle do
     sha256 "7acc4fefda57345d86297de6bfd267f5abcbc902daf4b976fc45807525ec5440" => :el_capitan
@@ -27,10 +27,6 @@ class Libvirt < Formula
     build 2326
     cause "Undefined symbols when linking"
   end
-
-  # Fixes compile failure.  Will be in next upstream release:
-  #  https://www.redhat.com/archives/libvir-list/2016-July/msg00815.html
-  patch :p1, :DATA
 
   def install
     args = %W[
@@ -74,20 +70,3 @@ class Libvirt < Formula
     assert_match version.to_s, output
   end
 end
-
-__END__
-diff --git a/src/util/virsystemd.c b/src/util/virsystemd.c
-index 969cd68..7d6985b 100644
---- a/src/util/virsystemd.c
-+++ b/src/util/virsystemd.c
-@@ -41,6 +41,10 @@
-
- VIR_LOG_INIT("util.systemd");
-
-+#ifndef MSG_NOSIGNAL
-+# define MSG_NOSIGNAL 0
-+#endif
-+
- static void virSystemdEscapeName(virBufferPtr buf,
-                                  const char *name)
- {
