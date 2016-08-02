@@ -11,23 +11,26 @@ class Pastebinit < Formula
     sha256 "628ce64e3127dff93a92aa08019ad7c191f0b285dc8ed8cc2248c09d72abc5f5" => :mavericks
   end
 
-  depends_on "python3"
   depends_on "docbook2x" => :build
+  depends_on "python3"
 
   def install
-    inreplace "pastebinit", "/usr/bin/python3", Formula["python3"].opt_bin + "python3"
-    inreplace "pastebinit", "/usr/local/etc/pastebin.d", etc + "pastebin.d"
+    inreplace "pastebinit" do |s|
+      s.gsub! "/usr/bin/python3", Formula["python3"].opt_bin/"python3"
+      s.gsub! "/usr/local/etc/pastebin.d", etc/"pastebin.d"
+    end
+
     system "docbook2man", "pastebinit.xml"
     bin.install "pastebinit"
     etc.install "pastebin.d"
     man1.install "PASTEBINIT.1" => "pastebinit.1"
-    libexec.install "po", "utils"
+    libexec.install %w[po utils]
   end
 
   test do
     url = pipe_output("#{bin}/pastebinit", "Hello, world!").chomp
-    assert_match %r{^http://pastebin\.com/}, url
-    # We can't actually fetch the URL to check the paste's success because pastebin
-    # blocks our fetches with curl, probably based on the user agent
+    assert_match "http://pastebin.com/", url
+    # We can't actually fetch the URL to check the paste's success because
+    # pastebin blocks our fetches with curl, probably based on the user agent.
   end
 end
