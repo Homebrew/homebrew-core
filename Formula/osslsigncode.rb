@@ -12,13 +12,24 @@ class Osslsigncode < Formula
     sha256 "49a6dd76e78c82062041e5025ed1e7d71f1c53b51ef0e314a5e6938a07b6e49d" => :mountain_lion
   end
 
+  head do
+    url "http://git.code.sf.net/p/osslsigncode/osslsigncode.git"
+    depends_on "automake" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "openssl"
   depends_on "libgsf" => :optional
 
   def install
+    system "autoreconf", "-ivf" if build.head?
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    # Requires Windows PE executable as input, so we're just showing the version
+    assert_match "osslsigncode", shell_output("#{bin}/osslsigncode --version", 255)
   end
 end
