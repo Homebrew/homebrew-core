@@ -3,8 +3,9 @@ class Ledger < Formula
   homepage "http://ledger-cli.org"
   url "https://github.com/ledger/ledger/archive/v3.1.1.tar.gz"
   sha256 "90f06561ab692b192d46d67bc106158da9c6c6813cc3848b503243a9dfd8548a"
+  revision 2
+
   head "https://github.com/ledger/ledger.git"
-  revision 1
 
   bottle do
     sha256 "a009cd705baad8407ccc6b56a3acecda01160f0eb27c7554ca30e6faec236c01" => :el_capitan
