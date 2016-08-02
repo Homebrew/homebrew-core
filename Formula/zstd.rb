@@ -4,8 +4,6 @@ class Zstd < Formula
   url "https://github.com/Cyan4973/zstd/archive/v0.6.2.tar.gz"
   sha256 "f80c35b2860d66299c8457b891d05277ce4e88b9bdd1f10a431e74804404cb8f"
 
-  depends_on "make" => :build
-
   def install
     system "make", "install", "PREFIX=#{prefix}/"
   end
