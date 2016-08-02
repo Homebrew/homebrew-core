@@ -13,6 +13,13 @@ class Mercurial < Formula
     sha256 "8934a8fc26c36e56f017d99ac43a0ebe9d6922f8276c1dfccd9ccb980ae05e45" => :mavericks
   end
 
+  if MacOS.version <= :snow_leopard
+    depends_on :python
+  else
+    option "without-python", "Use system Python (will not support TLS 1.1)"
+    depends_on :python => :recommended
+  end
+
   def install
     ENV.minimal_optimization if MacOS.version <= :snow_leopard
 
