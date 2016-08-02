@@ -3,7 +3,7 @@ class Qjackctl < Formula
   homepage "http://qjackctl.sourceforge.net"
   url "https://downloads.sourceforge.net/qjackctl/qjackctl-0.4.2.tar.gz"
   sha256 "cf1c4aff22f8410feba9122e447b1e28c8fa2c71b12cfc0551755d351f9eaf5e"
-  head "http://git.code.sf.net/p/qjackctl/code", :using => :git
+  head "http://git.code.sf.net/p/qjackctl/code.git"
 
   bottle do
     revision 1
