@@ -236,6 +236,7 @@
   "soccerwindow2": "homebrew/boneyard",
   "solfege": "homebrew/boneyard",
   "sptk": "homebrew/x11",
+  "sqlitebrowser": "caskroom/cask",
   "sshfs": "homebrew/fuse",
   "stormfs": "homebrew/fuse",
   "sundials": "homebrew/science",
