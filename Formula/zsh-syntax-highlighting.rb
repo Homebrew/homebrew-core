@@ -35,6 +35,6 @@ class ZshSyntaxHighlighting < Formula
 
   test do
     assert_match "#{version}\n",
-      shell_output("zsh -c '. #{share}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh && echo $ZSH_HIGHLIGHT_VERSION'")
+      shell_output("zsh -c '. #{pkgshare}/zsh-syntax-highlighting.zsh && echo $ZSH_HIGHLIGHT_VERSION'")
   end
 end
