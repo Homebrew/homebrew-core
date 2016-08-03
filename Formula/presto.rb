@@ -43,9 +43,7 @@ class Presto < Formula
       discovery.uri=http://localhost:8080
     EOS
 
-    (libexec/"etc/log.properties").write <<-EOS.undent
-      com.facebook.presto=INFO
-    EOS
+    (libexec/"etc/log.properties").write "com.facebook.presto=INFO"
 
     (libexec/"etc/catalog/jmx.properties").write <<-EOS.undent
       connector.name=jmx
@@ -59,6 +57,10 @@ class Presto < Formula
     resource("presto-cli").stage do
       bin.install "presto-cli-#{version}-executable.jar" => "presto"
     end
+  end
+
+  def post_install
+    (var/"presto/data").mkpath
   end
 
   def caveats; <<-EOS.undent
