@@ -10,6 +10,6 @@ class Zstd < Formula
 
   test do
     assert_equal "hello\n",
-      shell_output("echo hello | #{bin}/zstd | #{bin}/zstd -d")
+      pipe_output("#{bin}/zstd | #{bin}/zstd -d", "hello\n", 0)
   end
 end
