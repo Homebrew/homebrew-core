@@ -3,6 +3,8 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-3.1.1.tar.bz2"
   sha256 "a5bca50a90a37b983eaa17c483a387189175f37ca678ae7e51d43e7610b4b3b4"
+  revision 1
+
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
