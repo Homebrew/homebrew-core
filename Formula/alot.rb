@@ -5,6 +5,13 @@ class Alot < Formula
   sha256 "fd2d4121ba109224560919e84e320b09526891fbc0038afcea26a3f1284dad26"
   head "https://github.com/pazz/alot.git", :branch => "testing"
 
+  bottle do
+    cellar :any
+    sha256 "3f181ad220a8c70237ba564d30b0da7475921d8644702fea31f88167ca71df81" => :el_capitan
+    sha256 "d48c2504956c24c88a64876946efa8a5a284829839fa7165a59b9e9e2ef03550" => :yosemite
+    sha256 "257b06000d6ac02a509acd7161567d753d8ad31abba99bd0a0af4cdcac39486a" => :mavericks
+  end
+
   option "without-sphinx-doc", "Don't build documentation"
 
   depends_on "gpgme"
