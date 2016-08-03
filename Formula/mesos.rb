@@ -1,9 +1,9 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=mesos/0.28.1/mesos-0.28.1.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/0.28.1/mesos-0.28.1.tar.gz"
-  sha256 "0995d4979085503d6c47149ac9f241c1107eb01af58683bb41a7ddbab4530c6a"
+  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.0.0/mesos-1.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/1.0.0/mesos-1.0.0.tar.gz"
+  sha256 "dabca5b60604fd672aaa34e4178bb42c6513eab59a07a98ece1e057eb34c28b2"
 
   bottle do
     sha256 "573959e78d890804de03934e94d0099fb8abc155866e8b6d7b4d1bb87ca592aa" => :el_capitan
@@ -18,38 +18,38 @@ class Mesos < Formula
   depends_on "subversion"
 
   resource "boto" do
-    url "https://pypi.python.org/packages/6f/ce/3447e2136c629ae895611d946879b43c19346c54876dea614316306b17dd/boto-2.40.0.tar.gz"
-    sha256 "e12d5fca11fcabfd0acd18f78651e0f0dba60f958a0520ff4e9b73e35cd9928f"
+    url "https://files.pythonhosted.org/packages/c4/bb/28324652bedb4ea9ca77253b84567d1347b54df6231b51822eaaa296e6e0/boto-2.42.0.tar.gz"
+    sha256 "dcf140d4ce535bb8f5266d1750c16def4d50f6c46eff27fab38b55d0d74d5ac7"
   end
 
   resource "protobuf" do
-    url "https://pypi.python.org/packages/source/p/protobuf/protobuf-2.6.1.tar.gz"
-    sha256 "8faca1fb462ee1be58d00f5efb4ca4f64bde92187fe61fde32615bbee7b3e745"
+    url "https://files.pythonhosted.org/packages/14/3e/56da1ecfa58f6da0053a523444dff9dfb8a18928c186ad529a24b0e82dec/protobuf-3.0.0.tar.gz"
+    sha256 "ecc40bc30f1183b418fe0ec0c90bc3b53fa1707c4205ee278c6b90479e5b6ff5"
   end
 
   # build dependencies for protobuf
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.9.0.tar.gz"
-    sha256 "e24052411fc4fbd1f672635537c3fc2330d9481b18c0317695b46259512c91d5"
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   resource "python-dateutil" do
-    url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.4.0.tar.gz"
-    sha256 "439df33ce47ef1478a4f4765f3390eab0ed3ec4ae10be32f2930000c8d19f417"
+    url "https://files.pythonhosted.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
+    sha256 "1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed"
   end
 
   resource "pytz" do
-    url "https://pypi.python.org/packages/source/p/pytz/pytz-2014.10.tar.bz2"
-    sha256 "387f968fde793b142865802916561839f5591d8b4b14c941125eb0fca7e4e58d"
+    url "https://files.pythonhosted.org/packages/f7/c7/08e54702c74baf9d8f92d0bc331ecabf6d66a56f6d36370f0a672fc6a535/pytz-2016.6.1.tar.bz2"
+    sha256 "b5aff44126cf828537581e534cc94299b223b945a2bb3b5434d37bf8c7f3a10c"
   end
 
   resource "python-gflags" do
-    url "https://pypi.python.org/packages/source/p/python-gflags/python-gflags-2.0.tar.gz"
-    sha256 "0dff6360423f3ec08cbe3bfaf37b339461a54a21d13be0dd5d9c9999ce531078"
+    url "https://files.pythonhosted.org/packages/1f/01/3ca6527f51b7ff26abb635d4e7e2fa8413c7cf191564cc2c1e535f50dec7/python-gflags-3.0.5.tar.gz"
+    sha256 "c7afbabda959f9da2a6100484f84dd12fb83b015d277468513413329bba20878"
   end
 
   resource "google-apputils" do
-    url "https://pypi.python.org/packages/source/g/google-apputils/google-apputils-0.4.2.tar.gz"
+    url "https://files.pythonhosted.org/packages/69/66/a511c428fef8591c5adfa432a257a333e0d14184b6c5d03f1450827f7fe7/google-apputils-0.4.2.tar.gz"
     sha256 "47959d0651c32102c10ad919b8a0ffe0ae85f44b8457ddcf2bdc0358fb03dc29"
   end
 
@@ -75,22 +75,10 @@ class Mesos < Formula
       os.environ["LDFLAGS"] = "@LIBS@"
       \\0
     EOS
-    inreplace "src/python/native/setup.py.in",
-              "import ext_modules",
-              native_patch
 
-    # skip build javadoc because Homebrew sandbox ENV.java_cache
-    # would trigger maven-javadoc-plugin bug.
-    # https://issues.apache.org/jira/browse/MESOS-3482
-    maven_javadoc_patch = <<-EOS.undent
-      <properties>
-        <maven.javadoc.skip>true</maven.javadoc.skip>
-      </properties>
-      \\0
-    EOS
-    inreplace "src/java/mesos.pom.in",
-              "<url>http://mesos.apache.org</url>",
-              maven_javadoc_patch
+    inreplace %w[src/python/executor/setup.py.in
+                 src/python/scheduler/setup.py.in],
+      "import ext_modules", native_patch
 
     args = %W[
       --prefix=#{prefix}
