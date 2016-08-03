@@ -8,9 +8,9 @@ class TmuxMemCpuLoad < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "82e784c1cfc1311cae4e696522dc89c92b0eba5ce847fafe62abeb85516238d8" => :el_capitan
-    sha256 "57b1b66ad50d59fff39bd4bcbe7e6729b75d53143de2df5d41445ccb63783a0d" => :yosemite
-    sha256 "432a3ab49d734ea72a7fc16aa6a51bd6c7c74030700c0220ef21d58f09b2427d" => :mavericks
+    sha256 "9e2c7e5fd03feb98cead3f366a9cc35375cee80c30fd570c742440d69319c296" => :el_capitan
+    sha256 "abd6293238671268ea1f0362518cd82c4b3133cb42b0327d579c93768ea81110" => :yosemite
+    sha256 "24e52a177d0201edf30621a648c7cbbf1f2cc7e4bd9f9145a7f8c258d9219725" => :mavericks
   end
 
   depends_on "cmake" => :build
