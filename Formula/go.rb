@@ -50,8 +50,8 @@ class Go < Formula
 
   resource "gobootstrap" do
     if MacOS.version > :lion
-      url "https://storage.googleapis.com/golang/go1.4.2.darwin-amd64-osx10.8.tar.gz"
-      sha256 "c2f53983fc8fe5159d811081022ebc401b8111759ce008f91193abdae82cdbc9"
+      url "https://storage.googleapis.com/golang/go1.4.3.darwin-amd64.tar.gz"
+      sha256 "c360f195b6bc0eeb4ebd4d590e5a11be830ebb11f28eaa2da107047a8cae4c24"
     else
       url "https://storage.googleapis.com/golang/go1.4.2.darwin-amd64-osx10.6.tar.gz"
       sha256 "da40e85a2c9bda9d2c29755c8b57b8d5932440ba466ca366c2a667697a62da4c"
