@@ -15,7 +15,7 @@ class AflFuzz < Formula
     # behaving correctly!" in a nested login shell.
     # Reported to lcamtuf@coredump.cx 6th Apr 2016.
     inreplace "Makefile" do |s|
-      s.gsub! "all: test_x86 $(PROGS) afl-as test_build all_done", "all: test_x86 $(PROGS) afl-as all_done"
+      s.gsub! "all: test_x86 $(PROGS) afl-as libdislocator.so test_build all_done", "all: test_x86 $(PROGS) afl-as libdislocator.so all_done"
       s.gsub! "all_done: test_build", "all_done:"
     end
     system "make", "PREFIX=#{prefix}"
