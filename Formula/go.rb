@@ -8,6 +8,17 @@ class Go < Formula
     version "1.6.3"
     sha256 "6326aeed5f86cf18f16d6dc831405614f855e2d416a91fd3fdc334f772345b00"
 
+    # 1.6.3 does not build on macOS Sierra. Users should use devel instead
+    # until 1.7 is stable (due soon).
+    depends_on MaximumMacOSRequirement => :el_capitan
+
+    # Should use the last stable binary release to bootstrap.
+    resource "gobootstrap" do
+      url "https://storage.googleapis.com/golang/go1.6.2.darwin-amd64.tar.gz"
+      version "1.6.2"
+      sha256 "6ebbafcac53bbbf8c4105fa84b63cca3d6ce04370f5a04ac2ac065782397fc26"
+    end
+
     go_version = "1.6"
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
@@ -27,6 +38,15 @@ class Go < Formula
     version "1.7rc5"
     sha256 "206c90e797e66335fe134052568f63a493f27b86f765087add390d5fb4c596c4"
 
+    # Should use the last stable binary release to bootstrap.
+    # Not the case here because 1.6.3 is lacking a fix for an issue which breaks
+    # compile on macOS Sierra; in future this should share bootstrap with stable.
+    resource "gobootstrap" do
+      url "https://storage.googleapis.com/golang/go1.7rc5.darwin-amd64.tar.gz"
+      version "1.7rc5"
+      sha256 "d9991c5e60464f75334368fa6831484f5c577de9dadfb6e799aab43e95ef5894"
+    end
+
     go_version = "1.7"
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
@@ -37,6 +57,14 @@ class Go < Formula
 
   head do
     url "https://github.com/golang/go.git"
+
+    # Should use the last stable binary release to bootstrap.
+    # See devel for notes as to why not the case here, for now.
+    resource "gobootstrap" do
+      url "https://storage.googleapis.com/golang/go1.7rc5.darwin-amd64.tar.gz"
+      version "1.7rc5"
+      sha256 "d9991c5e60464f75334368fa6831484f5c577de9dadfb6e799aab43e95ef5894"
+    end
 
     resource "gotools" do
       url "https://go.googlesource.com/tools.git"
@@ -50,28 +78,9 @@ class Go < Formula
 
   depends_on :macos => :mountain_lion
 
-  resource "gobootstrap" do
-    if MacOS.version > :lion
-      url "https://storage.googleapis.com/golang/go1.4.3.darwin-amd64.tar.gz"
-      sha256 "c360f195b6bc0eeb4ebd4d590e5a11be830ebb11f28eaa2da107047a8cae4c24"
-    else
-      url "https://storage.googleapis.com/golang/go1.4.2.darwin-amd64-osx10.6.tar.gz"
-      sha256 "da40e85a2c9bda9d2c29755c8b57b8d5932440ba466ca366c2a667697a62da4c"
-    end
-  end
-
   def install
-    # GOROOT_FINAL must be overidden later on real Go install
-    ENV["GOROOT_FINAL"] = buildpath/"gobootstrap"
-
-    # build the gobootstrap toolchain Go >=1.4
     (buildpath/"gobootstrap").install resource("gobootstrap")
-    cd "#{buildpath}/gobootstrap/src" do
-      system "./make.bash", "--no-clean"
-    end
-    # This should happen after we build the test Go, just in case
-    # the bootstrap toolchain is aware of this variable too.
-    ENV["GOROOT_BOOTSTRAP"] = ENV["GOROOT_FINAL"]
+    ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
