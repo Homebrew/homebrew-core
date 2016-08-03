@@ -1,8 +1,10 @@
 class Supervisor < Formula
+  include Language::Python::Virtualenv
+
   desc "Process Control System"
   homepage "http://supervisord.org/"
-  url "https://github.com/Supervisor/supervisor/archive/3.3.0.tar.gz"
-  sha256 "972a9a0f8738a62d166217ec8b8cdd8fdd23f6b1717dd2623512af72d9913f6c"
+  url "https://github.com/Supervisor/supervisor/archive/3.3.1.tar.gz"
+  sha256 "454f532fae5a54363838fba42bc568f7b2fd0fd71d946b8c39d848a225d0da0f"
 
   bottle do
     cellar :any_skip_relocation
@@ -27,20 +29,7 @@ class Supervisor < Formula
       s.gsub! %r{^;files = relative/directory/\*\.ini$}, "files = #{etc}/supervisor.d/*.ini"
     end
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resource("meld3").stage do
-      system "python", *Language::Python.setup_install_args(libexec/"vendor")
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-
-    # For an explanation, see https://github.com/Supervisor/supervisor/issues/608.
-    touch libexec/"lib/python2.7/site-packages/supervisor/__init__.py"
+    virtualenv_install_with_resources
 
     etc.install buildpath/"supervisor/skel/sample.conf" => "supervisord.ini"
   end
@@ -56,14 +45,14 @@ class Supervisor < Formula
           <key>KeepAlive</key>
           <dict>
             <key>SuccessfulExit</key>
-            <false />
+            <false/>
           </dict>
           <key>Label</key>
           <string>#{plist_name}</string>
           <key>ProgramArguments</key>
           <array>
             <string>#{opt_bin}/supervisord</string>
-            <string>--configuration</string>
+            <string>-c</string>
             <string>#{etc}/supervisord.ini</string>
             <string>--nodaemon</string>
           </array>
@@ -78,7 +67,7 @@ class Supervisor < Formula
   end
 
   test do
-    (testpath/"supervisord.ini").write <<-EOS.undent
+    (testpath/"sd.ini").write <<-EOS.undent
       [unix_http_server]
       file=supervisor.sock
 
@@ -93,13 +82,10 @@ class Supervisor < Formula
     EOS
 
     begin
-      pid = fork do
-        exec "#{bin}/supervisord", "--configuration", "supervisord.ini",
-                                   "--nodaemon"
-      end
+      pid = fork { exec bin/"supervisord", "--nodaemon", "-c", "sd.ini" }
       sleep 1
-      assert_match(version.to_s,
-                   shell_output("#{bin}/supervisorctl --configuration supervisord.ini version"))
+      output = shell_output("#{bin}/supervisorctl -c sd.ini version")
+      assert_match version.to_s, output
     ensure
       Process.kill "TERM", pid
     end
