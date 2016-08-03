@@ -17,7 +17,6 @@ class Imagemagick < Formula
 
   option "with-fftw", "Compile with FFTW support"
   option "with-hdri", "Compile with HDRI support"
-  option "with-jp2", "Compile with Jpeg2000 support"
   option "with-openmp", "Compile with OpenMP support"
   option "with-perl", "Compile with PerlMagick"
   option "with-quantum-depth-8", "Compile with a quantum depth of 8 bit"
@@ -30,6 +29,7 @@ class Imagemagick < Formula
   option "with-zero-configuration", "Disables depending on XML configuration files"
 
   deprecated_option "enable-hdri" => "with-hdri"
+  deprecated_option "with-jp2" => "with-openjpeg"
 
   depends_on "pkg-config" => :build
   depends_on "libtool" => :run
@@ -50,7 +50,7 @@ class Imagemagick < Formula
   depends_on "openexr" => :optional
   depends_on "ghostscript" => :optional
   depends_on "webp" => :optional
-  depends_on "homebrew/versions/openjpeg21" if build.with? "jp2"
+  depends_on "openjpeg" => :optional
   depends_on "fftw" => :optional
   depends_on "pango" => :optional
   depends_on :perl => ["5.5", :optional]
@@ -87,7 +87,7 @@ class Imagemagick < Formula
       args << "--without-webp"
     end
 
-    if build.with? "jp2"
+    if build.with? "openjpeg"
       args << "--with-openjp2"
     else
       args << "--without-openjp2"
