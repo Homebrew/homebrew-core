@@ -7,10 +7,9 @@ class Mtr < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "fba272c1219a2386b034110dc129fa484597e7865b544d979386e0bfa0bc7f2e" => :el_capitan
-    sha256 "96c3b22edc936bb9b7053a1920f34a524fdc3a6d99d32f5c6313a903d6b3ff1f" => :yosemite
-    sha256 "3fb9172a95469e6ee38faeee2e67682f75dd79a6e222426674751846fee5f0a9" => :mavericks
+    sha256 "72fcba3d0131ff90e068ad0076738b95f20d096553cc519eb6107d94b58a2513" => :el_capitan
+    sha256 "8a95636a767153b0bf2a6b00136f450d86bbcf6558ca6a4b5b561b2ce86843d7" => :yosemite
+    sha256 "7dfd1382e2334613185fef1f749b15a30206c62c2aaeded8c6c8f74007b68ec6" => :mavericks
   end
 
   depends_on "automake" => :build
