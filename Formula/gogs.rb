@@ -11,10 +11,28 @@ class Gogs < Formula
     EOS
   end
 
+  def migrate_script; <<-EOS.undent
+    #!/bin/sh
+    cd #{var}
+    [ -d gogs.bak ] && { echo "#{var}/gogs.bak already exists, quitting" >&2; exit 1; }
+    mv gogs gogs.bak
+    brew reinstall gogs
+    for d in custom data log; do [ -d gogs.bak/$d ] && cp -R gogs.bak/$d gogs; done
+    EOS
+  end
+
   def install
     (var/"gogs").mkpath
     (var/"gogs").install Dir["*"]
+    (bin/"gogs-migrate").write migrate_script
     (bin/"gogs").write startup_script
+  end
+
+  def caveats; <<-EOS.undent
+    If the `gogs web` command is failing after a `brew upgrade`, run:
+        #{bin}/gogs-migrate
+    See https://gogs.io/docs/upgrade/upgrade_from_binary for more info.
+    EOS
   end
 
   test do
