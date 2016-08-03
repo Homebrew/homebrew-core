@@ -6,6 +6,13 @@ class Rclone < Formula
   url "https://github.com/ncw/rclone/archive/v1.32.tar.gz"
   sha256 "9b29478188f183a33252e00a2bb63eb21d6f9dc415fbdaa0865a31a524147466"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "25135434f23792013f7e5926bb82db7766e793cb259fa7381f61c59f87e57e14" => :el_capitan
+    sha256 "32c5f7e2d3cd939a6a5334fd00936b4fb71c8f96495605cd4a899dc532ac5d6d" => :yosemite
+    sha256 "aa125fecdd72cc8144ef9febf935093c291df45138fecd5ccb2d62a16e05c37c" => :mavericks
+  end
+
   depends_on "go" => :build
 
   go_resource "golang.org/x/oauth2" do
