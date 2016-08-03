@@ -45,9 +45,7 @@ class Presto < Formula
 
     (libexec/"etc/log.properties").write "com.facebook.presto=INFO"
 
-    (libexec/"etc/catalog/jmx.properties").write <<-EOS.undent
-      connector.name=jmx
-    EOS
+    (libexec/"etc/catalog/jmx.properties").write "connector.name=jmx"
 
     (bin/"presto-server").write <<-EOS.undent
       #!/bin/bash
