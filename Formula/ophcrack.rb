@@ -1,10 +1,9 @@
 class Ophcrack < Formula
   desc "Microsoft Windows password cracker using rainbow tables"
   homepage "http://ophcrack.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ophcrack/ophcrack/3.6.0/ophcrack-3.6.0.tar.bz2"
-  mirror "https://mirrors.kernel.org/debian/pool/main/o/ophcrack/ophcrack_3.6.0.orig.tar.bz2"
-  sha256 "79219baa03afd7e52bc6d365dd5a445bc73dfac2e88216e7b050ad7749191893"
-  revision 1
+  url "https://downloads.sourceforge.net/project/ophcrack/ophcrack/3.6.1/ophcrack-3.6.1.tar.bz2"
+  mirror "https://mirrors.kernel.org/debian/pool/main/o/ophcrack/ophcrack_3.6.1.orig.tar.bz2"
+  sha256 "82dd1699eb7340ce8c7913758db2ab434659f8ad0a27abb186467627a0b8b798"
 
   bottle do
     cellar :any
@@ -27,6 +26,6 @@ class Ophcrack < Formula
   end
 
   test do
-    system "#{bin}/ophcrack", "-h"
+    system bin/"ophcrack", "-h"
   end
 end
