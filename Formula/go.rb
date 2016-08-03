@@ -48,6 +48,8 @@ class Go < Formula
   option "without-vet", "vet will not be installed for you"
   option "without-race", "Build without race detector"
 
+  depends_on :macos => :mountain_lion
+
   resource "gobootstrap" do
     if MacOS.version > :lion
       url "https://storage.googleapis.com/golang/go1.4.3.darwin-amd64.tar.gz"
