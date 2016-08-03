@@ -5,6 +5,7 @@ class Ponyc < Formula
     :revision => "5f061fa201b47dc6a767d3bbe8a8999ada66993e"
   # 0.2.2 tag requested in https://github.com/ponylang/ponyc/issues/1029
   version "0.2.2-alpha2"
+  revision 1
 
   bottle do
     cellar :any
