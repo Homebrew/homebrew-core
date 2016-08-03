@@ -13,7 +13,6 @@ class Libbdplus < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "bison" => :build
   depends_on "libgcrypt"
 
   def install
