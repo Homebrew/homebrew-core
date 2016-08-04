@@ -19,12 +19,13 @@ class Zpython < Formula
   desc "Embeds a Python interpreter into zsh"
   homepage "https://bitbucket.org/ZyX_I/zsh"
   version "00-5.0.5"
+
   head "https://bitbucket.org/ZyX_I/zsh.git", :branch => "zpython"
 
   stable do
-    sha256 "6624d2fb6c8fa4e044d2b009f86ed1617fe8583c83acfceba7ec82826cfa8eaf"
     url "https://downloads.sourceforge.net/project/zsh/zsh/5.0.5/zsh-5.0.5.tar.bz2"
     mirror "http://www.zsh.org/pub/zsh-5.0.5.tar.bz2"
+    sha256 "6624d2fb6c8fa4e044d2b009f86ed1617fe8583c83acfceba7ec82826cfa8eaf"
 
     # Note, non-head version is completly implemented in this lengthy patch
     # later on, we hope to use https://bitbucket.org/ZyX_I/zsh.git to download a tagged release.
@@ -33,7 +34,6 @@ class Zpython < Formula
       sha256 "73d6565536abe269cc7715e5200ba63000b7fb830c8975db7e5e6db2222e8f09"
     end
   end
-  
   bottle do
     cellar :any_skip_relocation
     sha256 "aa8efa349bbf477746aee3cb977d1b0c430ec05d1947f2bd33667f054d8692cc" => :el_capitan
