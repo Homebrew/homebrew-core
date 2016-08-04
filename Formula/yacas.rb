@@ -17,8 +17,7 @@ class Yacas < Formula
   def install
     args = ["--disable-silent-rules",
             "--disable-dependency-tracking",
-            "--prefix=#{prefix}"
-           ]
+            "--prefix=#{prefix}"]
 
     args << "--enable-server" if build.with? "server"
 
