@@ -1,9 +1,9 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=trafficserver/trafficserver-6.1.1.tar.bz2"
-  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-6.1.1.tar.bz2"
-  sha256 "67ddd7fc79e4435f353b2aa8937a7b205f217ca15beba3adb5213a92f9527d8b"
+  url "https://www.apache.org/dyn/closer.cgi?path=trafficserver/trafficserver-6.2.0.tar.bz2"
+  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-6.2.0.tar.bz2"
+  sha256 "bd5e8c178d02957b89a81d1e428ee50bcca0831a6917f32408915c56f486fd85"
 
   bottle do
     sha256 "c8fa833d763a36c2f80112b062bae83c8a91873a5296cacd9894c6134f8170a6" => :el_capitan
@@ -13,6 +13,7 @@ class Trafficserver < Formula
 
   head do
     url "https://github.com/apache/trafficserver.git"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool"  => :build
@@ -33,13 +34,14 @@ class Trafficserver < Formula
 
   def install
     ENV.cxx11
-    # Needed for correct ./configure detections.
-    ENV.enable_warnings
-    # Needed for OpenSSL headers on Lion.
-    ENV.append_to_cflags "-Wno-deprecated-declarations"
 
-    (var/"log/trafficserver").mkpath
-    (var/"trafficserver").mkpath
+    # Needed for correct ./configure detections
+    ENV.enable_warnings
+
+    # Needed for OpenSSL headers
+    if MacOS.version <= :lion
+      ENV.append_to_cflags "-Wno-deprecated-declarations"
+    end
 
     args = %W[
       --prefix=#{prefix}
@@ -65,11 +67,18 @@ class Trafficserver < Formula
       inreplace "plugins/experimental/Makefile", " mysql_remap", ""
     end
 
+    inreplace "lib/perl/Makefile",
+      "Makefile.PL INSTALLDIRS=$(INSTALLDIRS)",
+      "Makefile.PL INSTALLDIRS=$(INSTALLDIRS) INSTALLSITEMAN3DIR=#{man3}"
+
     system "make" if build.head?
     system "make", "install"
   end
 
   def post_install
+    (var/"log/trafficserver").mkpath
+    (var/"trafficserver").mkpath
+
     config = etc/"trafficserver/records.config"
     return unless File.exist?(config)
     return if File.read(config).include?("proxy.config.admin.user_id STRING #{ENV["USER"]}")
@@ -78,6 +87,7 @@ class Trafficserver < Formula
   end
 
   test do
-    assert_match "Apache Traffic Server is not running.", shell_output("#{bin}/trafficserver status").chomp
+    output = shell_output("#{bin}/trafficserver status")
+    assert_match "Apache Traffic Server is not running", output
   end
 end
