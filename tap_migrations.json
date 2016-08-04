@@ -266,6 +266,7 @@
   "ttytter": "homebrew/boneyard",
   "tuntap": "caskroom/cask",
   "tup": "homebrew/fuse",
+  "ucspi-tools": "homebrew/boneyard",
   "uim": "homebrew/x11",
   "ume": "homebrew/games",
   "upnp-router-control": "homebrew/gui",
