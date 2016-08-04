@@ -1,8 +1,8 @@
 class Assh < Formula
   desc "Advanced SSH config - Regex, aliases, gateways, includes and dynamic hosts"
   homepage "https://github.com/moul/advanced-ssh-config"
-  url "https://github.com/moul/advanced-ssh-config/archive/v2.4.0.tar.gz"
-  sha256 "4929e2c3947b383fb86550f23528590e45b9d5166b1d001c9ef043d9e5c5fbf3"
+  url "https://github.com/moul/advanced-ssh-config/archive/v2.4.1.tar.gz"
+  sha256 "8867df447e654dae384cf598a81eb6be57a49082449ef4387f33725bb216853c"
   head "https://github.com/moul/advanced-ssh-config.git"
 
   bottle do
@@ -19,6 +19,7 @@ class Assh < Formula
     (buildpath/"src/github.com/moul/advanced-ssh-config").install Dir["*"]
     cd "src/github.com/moul/advanced-ssh-config/cmd/assh" do
       system "go", "build", "-o", bin/"assh"
+      prefix.install_metafiles
     end
   end
 
