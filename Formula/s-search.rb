@@ -3,9 +3,18 @@ require "language/go"
 class SSearch < Formula
   desc "Web search from the terminal"
   homepage "https://github.com/zquestz/s"
-  url "https://github.com/zquestz/s/archive/v0.5.4.tar.gz"
-  sha256 "d607d44642b136a6a8dbc27a7867e97a92075ba32e66680a977717a930360ed9"
   head "https://github.com/zquestz/s.git"
+
+  stable do
+    url "https://github.com/zquestz/s/archive/v0.5.5.tar.gz"
+    sha256 "d8d8e5cd201a90deb5ec785edb1c7242b68cea83392e5c82fb52b99368578c4d"
+
+    # gvt vendoring; remove for > 0.5.5
+    patch do
+      url "https://github.com/zquestz/s/commit/c9e18505.patch"
+      sha256 "86a250ccf05d42d90b37c41651dae97b6a86bfc9b187c7d156c1e624aa57748a"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -16,42 +25,18 @@ class SSearch < Formula
 
   depends_on "go" => :build
 
-  go_resource "github.com/NYTimes/gziphandler" do
-    url "https://github.com/NYTimes/gziphandler.git",
-    :revision => "63027b26b87e2ae2ce3810393d4b81021cfd3a35"
-  end
-
-  go_resource "github.com/mitchellh/go-homedir" do
-    url "https://github.com/mitchellh/go-homedir.git",
-    :revision => "756f7b183b7ab78acdbbee5c7f392838ed459dda"
-  end
-
-  go_resource "github.com/spf13/cobra" do
-    url "https://github.com/spf13/cobra.git",
-    :revision => "6a8bd97bdb1fc0d08a83459940498ea49d3e8c93"
-  end
-
-  go_resource "github.com/spf13/pflag" do
-    url "https://github.com/spf13/pflag.git",
-    :revision => "367864438f1b1a3c7db4da06a2f55b144e6784e0"
-  end
-
-  go_resource "github.com/zquestz/go-ucl" do
-    url "https://github.com/zquestz/go-ucl.git",
-    :revision => "ec59c7af0062f62671cdc1e974aa857771f105d2"
-  end
-
-  go_resource "golang.org/x/text" do
-    url "https://go.googlesource.com/text.git",
-    :revision => "ce78b075c2fbd48520f4995b173eb9fe18b56ef3"
+  go_resource "github.com/FiloSottile/gvt" do
+    url "https://github.com/FiloSottile/gvt.git",
+        :revision => "945672cd8cb7d1fe502c627952ebf6fcb1f883f1"
   end
 
   def install
     ENV["GOPATH"] = buildpath
+    Language::Go.stage_deps resources, buildpath/"src"
+    cd("src/github.com/FiloSottile/gvt") { system "go", "install" }
     (buildpath/"src/github.com/zquestz").mkpath
     ln_s buildpath, "src/github.com/zquestz/s"
-    Language::Go.stage_deps resources, buildpath/"src"
-
+    system buildpath/"bin/gvt", "restore"
     system "go", "build", "-o", bin/"s"
   end
 
