@@ -4,8 +4,8 @@ class Yara < Formula
   head "https://github.com/VirusTotal/yara.git"
 
   stable do
-    url "https://github.com/VirusTotal/yara/archive/v3.4.0.tar.gz"
-    sha256 "528571ff721364229f34f6d1ff0eedc3cd5a2a75bb94727dc6578c6efe3d618b"
+    url "https://github.com/VirusTotal/yara/archive/v3.5.0.tar.gz"
+    sha256 "ff2ee440515684c272df52febc8b73e730ca99ce194c24bd3cb43bec2b4c47f2"
 
     # fixes a variable redefinition error with clang (fixed in HEAD)
     patch do
