@@ -1,8 +1,8 @@
 class Fwup < Formula
   desc "Configurable embedded Linux firmware update creator and runner"
   homepage "https://github.com/fhunleth/fwup"
-  url "https://github.com/fhunleth/fwup/releases/download/v0.8.0/fwup-0.8.0.tar.gz"
-  sha256 "9d249cb8b73919eec85645e31d9ba346b1d02e297d747d969c2ba5dff9d2a12a"
+  url "https://github.com/fhunleth/fwup/releases/download/v0.8.1/fwup-0.8.1.tar.gz"
+  sha256 "edd7f65bf64c28651e3cf93f17eabe8e280d4c28c64fb3536e482be3d2744d83"
 
   bottle do
     cellar :any
@@ -11,6 +11,7 @@ class Fwup < Formula
     sha256 "5fe1615e422ccfe484aa81c8d7cbdd6a7cc59b86bb14d5965cac9c03a771a76c" => :mavericks
   end
 
+  depends_on "pkg-config" => :build
   depends_on "confuse"
   depends_on "libarchive"
   depends_on "libsodium"
@@ -21,8 +22,8 @@ class Fwup < Formula
   end
 
   test do
-    system "#{bin}/fwup", "-g"
-    assert File.exist?("fwup-key.priv")
-    assert File.exist?("fwup-key.pub")
+    system bin/"fwup", "-g"
+    assert File.exist?("fwup-key.priv"), "Failed to create fwup-key.priv!"
+    assert File.exist?("fwup-key.pub"), "Failed to create fwup-key.pub!"
   end
 end
