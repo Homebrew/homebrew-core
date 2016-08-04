@@ -1,18 +1,9 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://github.com/VirusTotal/yara/"
+  url "https://github.com/VirusTotal/yara/archive/v3.5.0.tar.gz"
+  sha256 "ff2ee440515684c272df52febc8b73e730ca99ce194c24bd3cb43bec2b4c47f2"
   head "https://github.com/VirusTotal/yara.git"
-
-  stable do
-    url "https://github.com/VirusTotal/yara/archive/v3.4.0.tar.gz"
-    sha256 "528571ff721364229f34f6d1ff0eedc3cd5a2a75bb94727dc6578c6efe3d618b"
-
-    # fixes a variable redefinition error with clang (fixed in HEAD)
-    patch do
-      url "https://github.com/VirusTotal/yara/pull/261.diff"
-      sha256 "6b5c135b577a71ca1c1a5f0a15e512f5157b13dfbd08710f9679fb4cd0b47dba"
-    end
-  end
 
   bottle do
     cellar :any
@@ -29,18 +20,11 @@ class Yara < Formula
   depends_on "openssl"
 
   def install
-    # Use of "inline" requires gnu89 semantics
-    ENV.append "CFLAGS", "-std=gnu89" if ENV.compiler == :clang
-
     system "./bootstrap.sh"
     system "./configure", "--disable-silent-rules",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
-
-    cd "yara-python" do
-      system "python", *Language::Python.setup_install_args(prefix)
-    end
   end
 
   test do
