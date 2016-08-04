@@ -1,8 +1,8 @@
 class Geoserver < Formula
   desc "Java server to share and edit geospatial data"
   homepage "http://geoserver.org/"
-  url "https://downloads.sourceforge.net/project/geoserver/GeoServer/2.9.0/geoserver-2.9.0-bin.zip"
-  sha256 "169c3f801ee338d1f05573123c0f918aeb7b808e1836fd1b43aeaad46630a9a8"
+  url "https://downloads.sourceforge.net/project/geoserver/GeoServer/2.9.1/geoserver-2.9.1-bin.zip"
+  sha256 "65ef2ade4b4da7293c49f6f0ec82c1b1894240bffb865e7f6c97cdafeb987fdf"
 
   bottle :unneeded
 
@@ -25,6 +25,6 @@ class Geoserver < Formula
   end
 
   test do
-    assert_match /geoserver path/, shell_output("#{bin}/geoserver")
+    assert_match "geoserver path", shell_output("#{bin}/geoserver")
   end
 end
