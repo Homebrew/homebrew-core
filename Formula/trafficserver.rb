@@ -6,9 +6,9 @@ class Trafficserver < Formula
   sha256 "bd5e8c178d02957b89a81d1e428ee50bcca0831a6917f32408915c56f486fd85"
 
   bottle do
-    sha256 "c8fa833d763a36c2f80112b062bae83c8a91873a5296cacd9894c6134f8170a6" => :el_capitan
-    sha256 "f3205d51a3cca216b838cd41e4e455d0c3efb082672651eaccc1a84149afeb67" => :yosemite
-    sha256 "80b1e7d13bae8b827599000a718ec659a559f494b379aa0d250a99eb1a60e6a4" => :mavericks
+    sha256 "401991b905cf77bac76c1ef305c51e9ed8fad52c9b96510dffb6a2a45f178852" => :el_capitan
+    sha256 "02b6debf85db785a781649d4533c3d1e8f05c076e21fb6000e3d9828fd0269d4" => :yosemite
+    sha256 "86015b548eb9c33df0d90033e187fd765f6da5a98d2123bff7282562ad08a996" => :mavericks
   end
 
   head do
