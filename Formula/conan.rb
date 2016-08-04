@@ -6,9 +6,9 @@ class Conan < Formula
 
   bottle do
     cellar :any
-    sha256 "e6c9df5f8a12bb1f3d9acfe690936af70698c03f82c92c14ec97f432da4553e9" => :el_capitan
-    sha256 "cc957a7cf0cc3f301797dd88620398798d163fa96d4707bd3e480ed76889b34d" => :yosemite
-    sha256 "95edc5115f155a8e50cf10338557c1eb9d7ccfe62aaaeb8da131b7455adc792f" => :mavericks
+    sha256 "92c57c9b5662aaadf2fa0ef3271b1dfaf2aded92f49e2f7bf2c70481fcefbf77" => :el_capitan
+    sha256 "f7f541c49fea655b1742fa9bf9b405555ed13c328eb3c5488c22546e6939381e" => :yosemite
+    sha256 "3e9a4203db35a876df97b715cf22b8c1f239d76f063cc25cefada53ce7889465" => :mavericks
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard
