@@ -1,8 +1,8 @@
 class Psgrep < Formula
   desc "Shortcut for the 'ps aux | grep' idiom"
   homepage "https://github.com/jvz/psgrep"
-  url "https://github.com/jvz/psgrep/archive/1.0.7.tar.gz"
-  sha256 "467bc5cdd19d4fa061571d5c94094e52cfc9c32d38149750a26d16dc3b804094"
+  url "https://github.com/jvz/psgrep/archive/1.0.8.tar.gz"
+  sha256 "76c8d716ebcf9b3a7ce3ecef2716be82477af8af7c2627f3305aca18708f1622"
   head "https://github.com/jvz/psgrep.git"
 
   bottle :unneeded
