@@ -36,8 +36,8 @@ class Mercurial < Formula
   end
 
   def caveats
-    return unless (bin/"hg").exist?
-    cacerts_configured = `#{bin}/hg config web.cacerts`.strip
+    return unless (opt_bin/"hg").exist?
+    cacerts_configured = `#{opt_bin}/hg config web.cacerts`.strip
     return if cacerts_configured == ""
     <<-EOS.undent
       Mercurial is configured to use a certificate bundle file as its trust
