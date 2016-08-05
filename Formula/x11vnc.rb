@@ -53,8 +53,8 @@ index d6b0bda..0b2cfa9 100644
 
   XImage *solid_root(char *color) {
     #if NO_X11
-    -	    RAWFB_RET_VOID
-    +	    RAWFB_RET(NULL)
+    -	RAWFB_RET_VOID
+    +	RAWFB_RET(NULL)
     if (!color) {}
       return NULL;
-    #else
+      #else
