@@ -19,9 +19,13 @@ class Zpython < Formula
   desc "Embeds a Python interpreter into zsh"
   homepage "https://bitbucket.org/ZyX_I/zsh"
 
+  head "https://bitbucket.org/ZyX_I/zsh.git", :branch => "zpython"
+
   stable do
     url "https://downloads.sourceforge.net/project/zsh/zsh/5.0.5/zsh-5.0.5.tar.bz2"
     mirror "http://www.zsh.org/pub/zsh-5.0.5.tar.bz2"
+    version "00-5.0.5"
+    sha256 "6624d2fb6c8fa4e044d2b009f86ed1617fe8583c83acfceba7ec82826cfa8eaf"
 
     # Note, non-head version is completly implemented in this lengthy patch
     # later on, we hope to use https://bitbucket.org/ZyX_I/zsh.git to download a tagged release.
@@ -37,17 +41,12 @@ class Zpython < Formula
     sha256 "9137eefb79a7a529b016e3c949e24a15d4747e4f35108f91db6ea58441f456a9" => :mavericks
   end
 
-
   # We prepend `00-` for the first version of the zpython module, which is
   # itself a patch on top of zsh and does not have own version number yet.
   # Hoping that upstream will provide tags that we could download properly.
   # Starting here with `00-`, so that once we get tags for the upstream
   # repository at https://bitbucket.org/ZyX_I/zsh.git, brew outdated will
   # be able to tell us to upgrade zpython.
-  version "00-5.0.5"
-  sha256 "6624d2fb6c8fa4e044d2b009f86ed1617fe8583c83acfceba7ec82826cfa8eaf"
-
-  head "https://bitbucket.org/ZyX_I/zsh.git", :branch => "zpython"
 
   depends_on Zsh5Requirement
   depends_on "autoconf" => :build
@@ -69,10 +68,6 @@ class Zpython < Formula
     (lib/"zpython/zsh").install "Src/Modules/zpython.so"
   end
 
-  test do
-    system "zsh -c 'MODULE_PATH=#{HOMEBREW_PREFIX}/lib/zpython zmodload zsh/zpython && zpython print'"
-  end
-
   def caveats; <<-EOS.undent
     To use the zpython module in zsh you need to
     add the following line to your .zshrc:
@@ -85,5 +80,9 @@ class Zpython < Formula
     After reloading your shell you can test with:
       zmodload zsh/zpython && zpython 'print "hello world"'
     EOS
+  end
+
+  test do
+    system "zsh -c 'MODULE_PATH=#{HOMEBREW_PREFIX}/lib/zpython zmodload zsh/zpython && zpython print'"
   end
 end
