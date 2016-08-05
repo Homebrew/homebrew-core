@@ -1,8 +1,10 @@
 class YouGet < Formula
+  include Language::Python::Virtualenv
+
   desc "Dumb downloader that scrapes the web"
   homepage "https://you-get.org/"
-  url "https://github.com/soimort/you-get/archive/v0.4.486.tar.gz"
-  sha256 "22002542c079ba049a8c2797700d07d5da2e22eb38eeb46ead19c28783855ca1"
+  url "https://files.pythonhosted.org/packages/93/bd/f7a81c7b73d3a7bac9f254ec11854c70ab2f5c22dcdbefbe01573faee014/you-get-0.4.523.tar.gz"
+  sha256 "01e51b48665a7b3de97394c9ad8e34e510664ffdada6b4f1fcf1651977e8347f"
   head "https://github.com/soimort/you-get.git", :branch => "develop"
 
   bottle do
@@ -17,12 +19,8 @@ class YouGet < Formula
   depends_on "rtmpdump" => :optional
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_create(libexec, "python3")
+    virtualenv_install_with_resources
   end
 
   def caveats
@@ -30,6 +28,6 @@ class YouGet < Formula
   end
 
   test do
-    system "#{bin}/you-get", "--info", "https://www.youtube.com/watch?v=he2a4xK8ctk"
+    system bin/"you-get", "--info", "https://youtu.be/he2a4xK8ctk"
   end
 end
