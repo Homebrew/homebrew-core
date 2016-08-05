@@ -21,11 +21,11 @@ class X11vnc < Formula
   patch :DATA
 
   def install
-    args = [
-      "--disable-debug",
-      "--disable-dependency-tracking",
-      "--prefix=#{prefix}",
-      "--mandir=#{man}"
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --mandir=#{man}
     ]
 
     if build.with? "x11"
@@ -40,7 +40,7 @@ class X11vnc < Formula
   end
 
   test do
-    system "#{bin}/x11vnc --version"
+    system bin/"x11vnc", "--version"
   end
 end
 
