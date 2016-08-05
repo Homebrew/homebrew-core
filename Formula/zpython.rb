@@ -18,13 +18,13 @@ end
 class Zpython < Formula
   desc "Embeds a Python interpreter into zsh"
   homepage "https://bitbucket.org/ZyX_I/zsh"
-  version "00-5.0.5"
 
   head "https://bitbucket.org/ZyX_I/zsh.git", :branch => "zpython"
 
   stable do
     url "https://downloads.sourceforge.net/project/zsh/zsh/5.0.5/zsh-5.0.5.tar.bz2"
     mirror "http://www.zsh.org/pub/zsh-5.0.5.tar.bz2"
+    version "00-5.0.5"
     sha256 "6624d2fb6c8fa4e044d2b009f86ed1617fe8583c83acfceba7ec82826cfa8eaf"
 
     # Note, non-head version is completly implemented in this lengthy patch
