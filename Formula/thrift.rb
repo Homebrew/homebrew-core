@@ -3,7 +3,7 @@ class Thrift < Formula
   homepage "https://thrift.apache.org/"
 
   stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.9.3/thrift-0.9.3.tar.gz"
+    url "https://www-us.apache.org/dist/thrift/0.9.3/thrift-0.9.3.tar.gz"
     sha256 "b0740a070ac09adde04d43e852ce4c320564a292f26521c46b78e0641564969e"
 
     # Apply any necessary patches (none currently required)
@@ -83,5 +83,8 @@ class Thrift < Formula
     To install PHP extension for e.g. PHP 5.5:
       brew install homebrew/php/php55-thrift
   EOS
+  end
+
+  test do
   end
 end
