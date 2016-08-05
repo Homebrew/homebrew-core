@@ -133,7 +133,7 @@ class Wine < Formula
     args << "--enable-win64" if build.with? "win64"
 
     # 64-bit builds of mpg123 are incompatible with 32-bit builds of Wine
-    args << "--without-mpg123" if Hardware.is_64_bit?
+    args << "--without-mpg123" if Hardware::CPU.is_64_bit?
 
     args << "--without-x" if build.without? "x11"
 
