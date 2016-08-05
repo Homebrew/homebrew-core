@@ -1,10 +1,9 @@
 class Guile < Formula
   desc "GUILE: GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
-  url "https://ftpmirror.gnu.org/guile/guile-2.0.11.tar.xz"
-  mirror "https://ftp.gnu.org/pub/gnu/guile/guile-2.0.11.tar.xz"
-  sha256 "aed0a4a6db4e310cbdfeb3613fa6f86fddc91ef624c1e3f8937a6304c69103e2"
-  revision 2
+  url "https://ftpmirror.gnu.org/guile/guile-2.0.12.tar.xz"
+  mirror "https://ftp.gnu.org/pub/gnu/guile/guile-2.0.12.tar.xz"
+  sha256 "de8187736f9b260f2fa776ed39b52cb74dd389ccf7039c042f0606270196b7e9"
 
   bottle do
     sha256 "d7e7ad8d491f84c1405b82ee8ef0da5b21f551b6a0f2795bae92e8bec2f19be2" => :el_capitan
@@ -15,8 +14,8 @@ class Guile < Formula
 
   devel do
     url "http://git.savannah.gnu.org/r/guile.git",
-        :tag => "v2.1.2",
-        :revision => "d236022eb0d285af3d462de9e99a212eba459df2"
+        :tag => "v2.1.3",
+        :revision => "3bea4c6970775e33a8fd2d316a6e597343e4a3c4"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build
