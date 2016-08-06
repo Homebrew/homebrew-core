@@ -13,14 +13,14 @@ class Wiki < Formula
     sha256 "271812a50a0455e1947006624f0442f084c69ab387cc858d41be26a4cce195f0" => :mavericks
   end
 
+  depends_on "go" => :build
+
+  conflicts_with "osxutils", :because => "both install `wiki` binaries"
+
   go_resource "github.com/mattn/go-colorable" do
     url "https://github.com/mattn/go-colorable.git",
       :revision => "40e4aedc8fabf8c23e040057540867186712faa5"
   end
-
-  depends_on "go" => :build
-
-  conflicts_with "osxutils", :because => "both install `wiki` binaries"
 
   def install
     ENV["GOPATH"] = buildpath
