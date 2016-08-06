@@ -33,4 +33,8 @@ class Zile < Formula
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/zile --version")
+  end
 end
