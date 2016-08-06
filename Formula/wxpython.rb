@@ -29,9 +29,9 @@ class Wxpython < Formula
     depends_on :python
     depends_on FrameworkPythonRequirement
   end
-  depends_on "wxmac"
 
   option :universal
+  depends_on "wxmac"
 
   def install
     ENV["WXWIN"] = buildpath
@@ -46,7 +46,7 @@ class Wxpython < Formula
     # set it to use wxPython's prefix instead
     # See #47187.
     inreplace %w[wxPython/config.py wxPython/wx/build/config.py],
-      "WXPREFIX +", "'#{prefix.to_s}' +"
+      "WXPREFIX +", "'#{prefix}' +"
 
     args = [
       "WXPORT=osx_cocoa",
@@ -60,11 +60,15 @@ class Wxpython < Formula
       # OpenGL and stuff
       "BUILD_GLCANVAS=1",
       "BUILD_GIZMOS=1",
-      "BUILD_STC=1"
+      "BUILD_STC=1",
     ]
 
     cd "wxPython" do
       system "python", "setup.py", "install", "--prefix=#{prefix}", *args
     end
+  end
+
+  test do
+    system "python -c 'import wx ; print wx.version()'"
   end
 end
