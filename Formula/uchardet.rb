@@ -6,9 +6,9 @@ class Uchardet < Formula
 
   bottle do
     cellar :any
-    sha256 "927127881787a7fcca21226eb1072f95467e82d452850fe87510ca9d67196ef0" => :el_capitan
-    sha256 "69444742bc7dd30b001febea95b52943b39037241622e19e331aa97af17d3d5c" => :yosemite
-    sha256 "a04a384e25bb191d827ef07694a0ed27636c2e1cc99162dd7efd30c3cad6fb6c" => :mavericks
+    sha256 "998232b6d034c090680202ca6d48a9af4924f091f3b597e4aa318f87fdf29bb8" => :el_capitan
+    sha256 "ab930a4e2c217362dc7e05940cc6449d024f18c5014847ff9428facef02316c7" => :yosemite
+    sha256 "c02f20920ac97596ab425b057275372a77c80c7d523191f2e5ab78c636d6827f" => :mavericks
   end
 
   depends_on "cmake" => :build
