@@ -1,11 +1,11 @@
 class Sshuttle < Formula
+  include Language::Python::Virtualenv
+
   desc "Proxy server that works as a poor man's VPN"
   homepage "https://github.com/sshuttle/sshuttle"
-  url "https://pypi.python.org/packages/source/s/sshuttle/sshuttle-0.78.0.tar.gz"
-  sha256 "6bd80d48f73eb04d4449a8aa636081704107cfdef05980b3b02166ff44e419a2"
+  url "https://files.pythonhosted.org/packages/48/be/c1c9ead0c38383c4b2a192de4679f09413ddc6701988ca56bd220c64ec50/sshuttle-0.78.1.tar.gz"
+  sha256 "03a71648ce476de06a075bd9a972492d494b414ae51304bf535b80ff22be2d3c"
   head "https://github.com/sshuttle/sshuttle.git"
-
-  bottle :unneeded
 
   depends_on :python if MacOS.version <= :snow_leopard
 
@@ -13,14 +13,10 @@ class Sshuttle < Formula
     # Building the docs requires installing
     # markdown & BeautifulSoup Python modules
     # so we don't.
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
-    system "#{bin}/sshuttle -h"
+    system bin/"sshuttle", "-h"
   end
 end
