@@ -14,8 +14,7 @@ class Mercurial < Formula
     sha256 "8934a8fc26c36e56f017d99ac43a0ebe9d6922f8276c1dfccd9ccb980ae05e45" => :mavericks
   end
 
-  option "with-custom-python", "Install against the python in PATH instead of "\
-                               "Homebrew's python"
+  option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"
   if build.with? "custom-python"
     depends_on :python
   else
@@ -38,7 +37,7 @@ class Mercurial < Formula
   def caveats
     return unless (opt_bin/"hg").exist?
     cacerts_configured = `#{opt_bin}/hg config web.cacerts`.strip
-    return if cacerts_configured == ""
+    return if cacerts_configured.empty?
     <<-EOS.undent
       Mercurial is configured to use a certificate bundle file as its trust
       store for TLS connections instead of using the default OpenSSL store.
