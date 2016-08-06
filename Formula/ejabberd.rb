@@ -5,9 +5,9 @@ class Ejabberd < Formula
   sha256 "b45598a6f2f1b398a19f23e3280b45eccc833d3339b1aeb6ec08ded7c19b1137"
 
   bottle do
-    sha256 "a59b0e60632058b969fdf2ca07b340141ef9fbb0a8fd06490f0a517b29664619" => :el_capitan
-    sha256 "9bd166604b9da2b7e89527925e8a774005a202747b226eb2dd2ff90745855b36" => :yosemite
-    sha256 "2a9e006589c83b92f2359de941387d43384f867af43e9bb5f36178b805984e54" => :mavericks
+    sha256 "4777eaed733a8b3f18b35bbde17de86c9e2d7e52e35cd36a001c3aaf66501f7c" => :el_capitan
+    sha256 "51d710e380a5db954eec6337c3232fd5ef814ede0f969ffb695a4ebc50b637db" => :yosemite
+    sha256 "e9dc90bbc28eb04b62e7393f5c7e8991cb8b0c7b2af23cf9be759182252feb30" => :mavericks
   end
 
   head do
