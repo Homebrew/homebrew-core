@@ -25,12 +25,12 @@ class Wxpython < Formula
     sha256 "41ec8003758d804b8c426ce654a87f2d9f4be3be40fcbcb3d5686e3ecabaddbc" => :mavericks
   end
 
+  option :universal
+
   if MacOS.version <= :snow_leopard
     depends_on :python
     depends_on FrameworkPythonRequirement
   end
-
-  option :universal
   depends_on "wxmac"
 
   def install
@@ -69,6 +69,7 @@ class Wxpython < Formula
   end
 
   test do
-    system "python -c 'import wx ; print wx.version()'"
+    output = shell_output("python -c 'import wx ; print wx.version()'")
+    assert_match version.to_s, output
   end
 end
