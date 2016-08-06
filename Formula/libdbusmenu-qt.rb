@@ -12,7 +12,7 @@ class LibdbusmenuQt < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "qt" => "with-d-bus"
+  depends_on "qt" => "with-dbus"
   depends_on "qjson"
 
   def install
