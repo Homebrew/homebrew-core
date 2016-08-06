@@ -22,6 +22,6 @@ class WCalc < Formula
   end
 
   test do
-    system "#{bin}/wcalc", "2+2"
+    assert_match "4", shell_output("#{bin}/wcalc 2+2")
   end
 end
