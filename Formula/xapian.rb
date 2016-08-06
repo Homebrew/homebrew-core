@@ -28,8 +28,7 @@ class Xapian < Formula
   deprecated_option "ruby" => "with-ruby"
 
   depends_on :python => :optional
-  depends_on "sphinx-doc" if build.with? "python" => :build
-  depends_on "php56" if build.with? "php"
+  depends_on "sphinx-doc" => :build if build.with? "python"
   depends_on :ruby => "2.1"
 
   skip_clean :la
@@ -49,7 +48,7 @@ class Xapian < Formula
           XAPIAN_CONFIG=#{bin}/xapian-config
           --without-csharp
           --without-tcl
-          SPHINX_BUILD=/usr/local/bin/sphinx-build
+          SPHINX_BUILD=#{Formula["sphinx-doc"].opt_bin}/sphinx-build
         ]
 
         if build.with? "java"
