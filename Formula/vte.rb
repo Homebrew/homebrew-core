@@ -20,11 +20,11 @@ class Vte < Formula
   depends_on :python
 
   def install
-    args = [
-      "--disable-dependency-tracking",
-      "--prefix=#{prefix}",
-      "--disable-Bsymbolic",
-      "--enable-python"
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --disable-Bsymbolic
+      --enable-python
     ]
 
     # pygtk-codegen-2.0 has been deprecated and replaced by
