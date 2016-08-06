@@ -3,8 +3,8 @@ class Multimarkdown < Formula
   homepage "http://fletcherpenney.net/multimarkdown/"
   # Use git tag instead of the tarball to get submodules
   url "https://github.com/fletcher/MultiMarkdown-5.git",
-    :tag => "5.3.0",
-    :revision => "b03f660e73abc6d5243b829a0cbe4899c86dc435"
+    :tag => "5.4.0",
+    :revision => "193c09a5362eb8a6c6433cd5d5f1d7db3efe986a"
 
   head "https://github.com/fletcher/MultiMarkdown-5.git"
 
