@@ -1,8 +1,10 @@
 class Cheat < Formula
+  include Language::Python::Virtualenv
+
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/chrisallenlane/cheat"
-  url "https://github.com/chrisallenlane/cheat/archive/2.1.25.tar.gz"
-  sha256 "3627da400caebe5a813aec4f76f4d0999d4ed80d4eff0023f6e1a2a2de016e2f"
+  url "https://github.com/chrisallenlane/cheat/archive/2.1.26.tar.gz"
+  sha256 "427c4e5c9a76b78802c1b1959668af20812e8fae8474d9258fb726f166e8f498"
   head "https://github.com/chrisallenlane/cheat.git"
 
   bottle do
@@ -25,21 +27,10 @@ class Cheat < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    virtualenv_install_with_resources
 
     bash_completion.install "cheat/autocompletion/cheat.bash"
     zsh_completion.install "cheat/autocompletion/cheat.zsh" => "_cheat"
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
