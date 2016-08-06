@@ -6,9 +6,9 @@ class Cppcheck < Formula
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
-    sha256 "f623a0b6e1b7f335e9d406f01702dba484f313fb6ff10db69fb2d9ddc8ed2e85" => :el_capitan
-    sha256 "f8e7946b521d78657d9493c86c7b35ddc66032ce5f4ba9517644712d617c2daf" => :yosemite
-    sha256 "d2a264267df2009046b9688e9a80249e74b97ebbdd5f3ae20264c3a241e063b5" => :mavericks
+    sha256 "754138e7816ebfcd2cffed7b345eb21c030073713376c21fef68e1aa58edd78a" => :el_capitan
+    sha256 "920c43b65dfd11d6c9f829cff3b6dfbd561bd8b07ee983128d4f31ab374bd5c7" => :yosemite
+    sha256 "1d5a015ee5d0c85aced3691a6d7cd38c43d51eb286ed125bd71e88b0626e067d" => :mavericks
   end
 
   option "without-rules", "Build without rules (no pcre dependency)"
