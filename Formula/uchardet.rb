@@ -1,8 +1,8 @@
 class Uchardet < Formula
   desc "Encoding detector library"
-  homepage "https://github.com/BYVoid/uchardet"
-  url "https://github.com/BYVoid/uchardet/archive/v0.0.5.tar.gz"
-  sha256 "7c5569c8ee1a129959347f5340655897e6a8f81ec3344de0012a243f868eabd1"
+  homepage "https://www.freedesktop.org/wiki/Software/uchardet/"
+  url "https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.6.tar.xz"
+  sha256 "8351328cdfbcb2432e63938721dd781eb8c11ebc56e3a89d0f84576b96002c61"
 
   bottle do
     cellar :any
@@ -21,6 +21,6 @@ class Uchardet < Formula
   end
 
   test do
-    system "#{bin}/uchardet", __FILE__
+    assert_equal "ASCII", pipe_output("#{bin}/uchardet", "Homebrew").chomp
   end
 end
