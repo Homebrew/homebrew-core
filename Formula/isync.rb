@@ -18,13 +18,20 @@ class Isync < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "berkeley-db"
   depends_on "openssl"
+  depends_on "berkeley-db" => :optional
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
-                          "--disable-silent-rules"
+
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --disable-silent-rules
+    ]
+    args << "ac_cv_berkdb4=no" if build.without? "berkeley-db"
+
+    system "./configure", *args
     system "make", "install"
   end
 
