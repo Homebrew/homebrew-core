@@ -6,9 +6,9 @@ class Hyperscan < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2b329383f8299ac45263713545c087dcc1182a8e3d665ea41500799e0c88ce90" => :el_capitan
-    sha256 "f0e8559d67e926c9afaed0ea037d70643073673f027c21817679a2ca26fd4827" => :yosemite
-    sha256 "13c9cb6d0aa29dd4039148a7ac06a6dadc9c89d72ff5b2fa42a29d1d3833fd32" => :mavericks
+    sha256 "2dfa67df172bd561c0273e59f30b02064467ddbde0f4f37ae5e000efdc0d98f5" => :el_capitan
+    sha256 "4b9ffad5a523b83dc7a6c5379d201c55becad69eec015767edfd29e205fd4429" => :yosemite
+    sha256 "712456308a7cf5216752036b9d7ae535ae814f865099ff0436689eafcbebc085" => :mavericks
   end
 
   option "with-debug", "Build with debug symbols"
