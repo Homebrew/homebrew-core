@@ -140,6 +140,7 @@
   "kubernetes-helm": "homebrew/boneyard",
   "kumofs": "homebrew/boneyard",
   "latex-mk": "homebrew/tex",
+  "libdbusmenu-qt": "homebrew/boneyard",
   "libdlna": "homebrew/boneyard",
   "libgtextutils": "homebrew/science",
   "libiomp": "homebrew/boneyard",
