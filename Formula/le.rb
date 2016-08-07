@@ -1,8 +1,8 @@
 class Le < Formula
   desc "Text editor with block and binary operations"
   homepage "https://github.com/lavv17/le"
-  url "http://lav.yar.ru/download/le/le-1.15.1.tar.xz"
-  sha256 "d9895ef82c89ae9cf30946bd43fa18b294f645e6a2bacd3ed9d39a3ccf324a4f"
+  url "http://lav.yar.ru/download/le/le-1.16.3.tar.xz"
+  sha256 "0be61306efd1e6b511c86d35c128e482e277e626ad949a56cb295489ef65d7b9"
 
   bottle do
     sha256 "d63b77a681d74c2c97314fac32c93c4881c66b3c4e05ec2e207838ddda45ac90" => :el_capitan
@@ -18,5 +18,10 @@ class Le < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    ENV["TERM"] = "xterm"
+    assert_match "Usage", shell_output("#{bin}/le --help", 1)
   end
 end
