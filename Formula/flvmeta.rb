@@ -6,9 +6,9 @@ class Flvmeta < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d33edf6ae455b22f4f0d4dff4a74de544327aca4c664b46312f2c25c02a26b5d" => :el_capitan
-    sha256 "bc6967dd66ec323eae27e2d63a7ae87850a6c3f5385ac15753e664220e31ce3b" => :yosemite
-    sha256 "ba027c8f1b18eec093938926101769676fc86bbaff1580929679e46b8fa21099" => :mavericks
+    sha256 "96ff719e9372c5540d1984a25ab9d83d7b705a73869c7290a9fb2875b7621d31" => :el_capitan
+    sha256 "adb6beea407cce7d7613b6913c325a32c35fa61bafd60f7fd128ac9dada7a90c" => :yosemite
+    sha256 "5c0e1981d636f596b82be130ecff9d722e3f5f92b1f484b649b5bb6d78200742" => :mavericks
   end
 
   depends_on "cmake" => :build
