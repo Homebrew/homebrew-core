@@ -1,8 +1,8 @@
 class AnsibleCmdb < Formula
   desc "Generates static HTML overview page from Ansible facts"
   homepage "https://github.com/fboender/ansible-cmdb"
-  url "https://github.com/fboender/ansible-cmdb/releases/download/1.14/ansible-cmdb-1.14.zip"
-  sha256 "7c787ca6473ce1b4c686438bff6c952ef8bfd725e9a78582eab54edf5fbdf6f2"
+  url "https://github.com/fboender/ansible-cmdb/releases/download/1.15/ansible-cmdb-1.15.zip"
+  sha256 "9f64a29b0bca69d0cc31ef4b89267a37a3d41186ceaaf29a2d88970e45596044"
 
   bottle do
     cellar :any_skip_relocation
@@ -26,11 +26,6 @@ class AnsibleCmdb < Formula
   end
 
   test do
-    (testpath/"hosts").write <<-EOS.undent
-[brew_test]
-brew1   dtap=dev  comment='Old database server'
-brew2   dtap=dev  comment='New database server'
-      EOS
-    system "#{bin}/ansible-cmdb", "-dt", "html_fancy", "."
+    system bin/"ansible-cmdb", "-dt", "html_fancy", "."
   end
 end
