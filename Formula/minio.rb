@@ -35,7 +35,6 @@ class Minio < Formula
   end
 
   test do
-    minio_version = DateTime.parse(version).strftime("%Y-%m-%dT%H-%M-%SZ")
-    assert_match minio_version, shell_output("#{bin}/minio version")
+    system "#{bin}/minio", "version"
   end
 end
