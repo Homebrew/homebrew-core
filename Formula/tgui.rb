@@ -3,6 +3,7 @@ class Tgui < Formula
   homepage "https://tgui.eu"
   url "https://github.com/texus/TGUI/archive/0.7.1.tar.gz"
   sha256 "48ad3ce56a11ec4e3fdc370597d05c2921833f8a0f4d6ed9fcc1a772a0cd9a1c"
+  revision 1
 
   bottle do
     cellar :any
@@ -30,7 +31,7 @@ class Tgui < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-std=c++1y", "-I#{include}",
-      "-L#{lib}", "-L#{HOMEBREW_PREFIX}/lib",
+      "-L#{lib}", "-L#{Formula["sfml"].opt_lib}",
       "-ltgui", "-lsfml-graphics", "-lsfml-system", "-lsfml-window",
       "-o", "test"
     system "./test"
