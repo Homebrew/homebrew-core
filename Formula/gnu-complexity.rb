@@ -7,9 +7,9 @@ class GnuComplexity < Formula
 
   bottle do
     cellar :any
-    sha256 "544d5ebed4cc5f67c8163c235b3395b037b7a3f1ca65a7a9b7933fd0a720372d" => :el_capitan
-    sha256 "8ea7c8980ece29c92bbd61fb0c407d636bbb92f648b2766be2d6b729fdc496f9" => :yosemite
-    sha256 "fe927c4a8849726433828cec20ac0716a543105f2038e030cdf4e4df2085adc0" => :mavericks
+    sha256 "89b7043d1f51fc6ff7a1e96f8ed23bbac73bbb7196a04851a2cf29475b0803f7" => :el_capitan
+    sha256 "35a8ac468a12565af95b82c75d6b45c9c55c27fa769244f0bd87ec69b10742b1" => :yosemite
+    sha256 "5aba079cba5a07f3e754019cd11ed767ab65cd6c4dcef33eea9e94b94bae19eb" => :mavericks
   end
 
   depends_on "autogen" => :run
