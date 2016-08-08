@@ -1,9 +1,9 @@
 class GnuComplexity < Formula
   desc "Measures complexity of C source"
   homepage "https://www.gnu.org/software/complexity"
-  url "https://ftpmirror.gnu.org/complexity/complexity-1.5.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/complexity/complexity-1.5.tar.xz"
-  sha256 "1f5194c0dc6e813ea1dc7f36bfd05f15786a8ad6e9b3ab65b53d2263a0d93102"
+  url "https://ftpmirror.gnu.org/complexity/complexity-1.10.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/complexity/complexity-1.10.tar.xz"
+  sha256 "6d378a3ef9d68938ada2610ce32f63292677d3b5c427983e8d72702167a22053"
 
   bottle do
     cellar :any
@@ -13,6 +13,10 @@ class GnuComplexity < Formula
   end
 
   depends_on "autogen" => :run
+  depends_on "gcc" if MacOS.version <= :mavericks
+
+  # error: use of undeclared identifier '__noreturn__'
+  fails_with :clang if MacOS.version <= :mavericks
 
   def install
     system "./configure", "--disable-dependency-tracking",
