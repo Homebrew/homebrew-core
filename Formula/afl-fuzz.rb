@@ -1,8 +1,8 @@
 class AflFuzz < Formula
   desc "American fuzzy lop: Security-oriented fuzzer"
   homepage "http://lcamtuf.coredump.cx/afl/"
-  url "http://lcamtuf.coredump.cx/afl/releases/afl-2.26b.tgz"
-  sha256 "504140f4f234ba12413ec446f31d2204228efa1b8b755b44e31283293489eff9"
+  url "http://lcamtuf.coredump.cx/afl/releases/afl-2.30b.tgz"
+  sha256 "5e0828ecd802916c01f5d167fccd6688fa78370754d3228bd836a77d2c518be5"
 
   bottle do
     sha256 "96b43d8f4361fcf21a79ca7d76ca22271ded74741a99eb7055a61a2ca4673400" => :el_capitan
@@ -11,13 +11,6 @@ class AflFuzz < Formula
   end
 
   def install
-    # test_build dies with "Oops, the instrumentation does not seem to be
-    # behaving correctly!" in a nested login shell.
-    # Reported to lcamtuf@coredump.cx 6th Apr 2016.
-    inreplace "Makefile" do |s|
-      s.gsub! "all: test_x86 $(PROGS) afl-as libdislocator.so test_build all_done", "all: test_x86 $(PROGS) afl-as libdislocator.so all_done"
-      s.gsub! "all_done: test_build", "all_done:"
-    end
     system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end
