@@ -4,6 +4,7 @@ class Csfml < Formula
   homepage "http://www.sfml-dev.org/"
   url "https://github.com/SFML/CSFML/archive/2.3.tar.gz"
   sha256 "ba8f5529fd264c2778844a8b1bb71ede7e902bbd6841275c344dc488ce7054cd"
+  revision 1
 
   head "https://github.com/SFML/CSFML.git"
 
@@ -33,7 +34,7 @@ class Csfml < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lcsfml-window", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lcsfml-window", "-o", "test"
     system "./test"
   end
 end
