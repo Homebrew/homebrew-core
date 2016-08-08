@@ -3,6 +3,7 @@ class MCli < Formula
   homepage "https://github.com/rgcr/m-cli"
   url "https://github.com/rgcr/m-cli/archive/v0.1.1.tar.gz"
   sha256 "66c4b158c1fdfa976a33c97069ae96c2428ca92f5a01b27430ef36930a267d53"
+  head "https://github.com/rgcr/m-cli.git"
 
   bottle :unneeded
 
