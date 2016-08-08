@@ -1,8 +1,8 @@
 class Smartmontools < Formula
   desc "SMART hard drive monitoring"
   homepage "https://www.smartmontools.org/"
-  url "https://downloads.sourceforge.net/project/smartmontools/smartmontools/6.4/smartmontools-6.4.tar.gz"
-  sha256 "eab75600c1eda9c34b13097db71138ab376f3dad8a6a4667fb4d1d081feb7a85"
+  url "https://downloads.sourceforge.net/project/smartmontools/smartmontools/6.5/smartmontools-6.5.tar.gz"
+  sha256 "89e8bb080130bc6ce148573ba5bb91bfe30236b64b1b5bbca26515d4b5c945bc"
 
   bottle do
     sha256 "7688aed939c30a6fe5390005579be0a9fa1a02ef699ea0990c708d49da2e3462" => :el_capitan
@@ -20,9 +20,8 @@ class Smartmontools < Formula
                           "--sbindir=#{bin}",
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
-                          "--enable-drivedb",
-                          "--enable-savestates",
-                          "--enable-attributelog"
+                          "--with-savestates",
+                          "--with-attributelog"
     system "make", "install"
   end
 end
