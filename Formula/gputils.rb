@@ -10,6 +10,12 @@ class Gputils < Formula
     sha256 "6d085798dce7be27385f28b97893d4bb3f44b0d02983e75865c7c6a54b3e5f5b" => :mavericks
   end
 
+  devel do
+    url "https://downloads.sourceforge.net/project/gputils/gputils/1.5.0/gputils-1.5.0_RC2.tar.bz2"
+    version "1.5.0-rc2"
+    sha256 "20301360e0e5a7e9c4cdbbb934f335731c8914f7f5a64a1395dfdaeb412d225e"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
