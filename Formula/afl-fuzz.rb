@@ -1,8 +1,8 @@
 class AflFuzz < Formula
   desc "American fuzzy lop: Security-oriented fuzzer"
   homepage "http://lcamtuf.coredump.cx/afl/"
-  url "http://lcamtuf.coredump.cx/afl/releases/afl-2.26b.tgz"
-  sha256 "504140f4f234ba12413ec446f31d2204228efa1b8b755b44e31283293489eff9"
+  url "http://lcamtuf.coredump.cx/afl/releases/afl-2.29b.tgz"
+  sha256 "adb302d3ad740233760f0612856ea15509512e7c32edb7cb4aad2e73f69a2773"
 
   bottle do
     sha256 "96b43d8f4361fcf21a79ca7d76ca22271ded74741a99eb7055a61a2ca4673400" => :el_capitan
@@ -15,7 +15,7 @@ class AflFuzz < Formula
     # behaving correctly!" in a nested login shell.
     # Reported to lcamtuf@coredump.cx 6th Apr 2016.
     inreplace "Makefile" do |s|
-      s.gsub! "all: test_x86 $(PROGS) afl-as libdislocator.so test_build all_done", "all: test_x86 $(PROGS) afl-as libdislocator.so all_done"
+      s.gsub! "all: test_x86 $(PROGS) afl-as test_build all_done", "all: test_x86 $(PROGS) afl-as all_done"
       s.gsub! "all_done: test_build", "all_done:"
     end
     system "make", "PREFIX=#{prefix}"
