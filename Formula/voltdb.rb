@@ -26,6 +26,6 @@ class Voltdb < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("voltdb --version")
+    assert_match version.to_s, shell_output("#{bin}/voltdb --version")
   end
 end
