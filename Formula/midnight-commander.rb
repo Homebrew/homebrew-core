@@ -5,6 +5,8 @@ class MidnightCommander < Formula
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mc/mc_4.8.17.orig.tar.xz"
   sha256 "0447bdddc0baa81866e66f50f9a545d29d6eebb68b0ab46c98d8fddd2bf4e44d"
 
+  conflicts_with "minio-mc", :because => "Both install a `mc` binary"
+
   head "https://github.com/MidnightCommander/mc.git"
 
   bottle do
