@@ -23,10 +23,9 @@ class Minio < Formula
       if build.head?
         system "go", "build", "-o", buildpath/"minio"
       else
-        minio_release = `git tag --points-at HEAD`
-        version = minio_release.gsub(/RELEASE\./, "")
-        minio_version = version
-        minio_commit = `git rev-parse HEAD`
+        minio_release = `git tag --points-at HEAD`.chomp
+        minio_version = minio_release.gsub(/RELEASE\./, "").chomp
+        minio_commit = `git rev-parse HEAD`.chomp
 
         system "go", "build", "-ldflags", "-X main.minioVersion=#{minio_version} -X main.minioReleaseTag=#{minio_release} -X main.minioCommitID=#{minio_commit}", "-o", buildpath/"minio"
       end
@@ -37,6 +36,6 @@ class Minio < Formula
 
   test do
     minio_version = DateTime.parse(version).strftime("%Y-%m-%dT%H-%M-%SZ")
-    assert_match minio_version, shell_output("#{bin}/minio version", "version doesn't match")
+    assert_match minio_version, shell_output("#{bin}/minio version")
   end
 end
