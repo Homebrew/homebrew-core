@@ -35,17 +35,17 @@ class Go < Formula
   end
 
   devel do
-    url "https://storage.googleapis.com/golang/go1.7rc5.src.tar.gz"
-    version "1.7rc5"
-    sha256 "206c90e797e66335fe134052568f63a493f27b86f765087add390d5fb4c596c4"
+    url "https://storage.googleapis.com/golang/go1.7rc6.src.tar.gz"
+    version "1.7rc6"
+    sha256 "a289943548b838c7ef606a37836d1db080a3cb3c6df4e76456e23609b8505d05"
 
     # Should use the last stable binary release to bootstrap.
     # Not the case here because 1.6.3 is lacking a fix for an issue which breaks
     # compile on macOS Sierra; in future this should share bootstrap with stable.
     resource "gobootstrap" do
-      url "https://storage.googleapis.com/golang/go1.7rc5.darwin-amd64.tar.gz"
-      version "1.7rc5"
-      sha256 "d9991c5e60464f75334368fa6831484f5c577de9dadfb6e799aab43e95ef5894"
+      url "https://storage.googleapis.com/golang/go1.7rc6.darwin-amd64.tar.gz"
+      version "1.7rc6"
+      sha256 "ffe440747f7c663d7fc276b167ac630f921e66674c9952c97eed26fea9c8ac58"
     end
 
     go_version = "1.7"
@@ -62,9 +62,9 @@ class Go < Formula
     # Should use the last stable binary release to bootstrap.
     # See devel for notes as to why not the case here, for now.
     resource "gobootstrap" do
-      url "https://storage.googleapis.com/golang/go1.7rc5.darwin-amd64.tar.gz"
-      version "1.7rc5"
-      sha256 "d9991c5e60464f75334368fa6831484f5c577de9dadfb6e799aab43e95ef5894"
+      url "https://storage.googleapis.com/golang/go1.7rc6.darwin-amd64.tar.gz"
+      version "1.7rc6"
+      sha256 "ffe440747f7c663d7fc276b167ac630f921e66674c9952c97eed26fea9c8ac58"
     end
 
     resource "gotools" do
