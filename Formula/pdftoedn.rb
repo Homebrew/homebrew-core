@@ -18,7 +18,7 @@ class Pdftoedn < Formula
     ENV.cxx11
 
     system "autoreconf", "-i"
-    system "./configure", "--with-openssl=#{Formula['openssl'].opt_prefix}", "--prefix=#{prefix}"
+    system "./configure", "--with-openssl=#{Formula["openssl"].opt_prefix}", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
   end
