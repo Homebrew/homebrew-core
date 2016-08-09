@@ -24,5 +24,6 @@
   "plt-racket": "racket",
   "polarssl": "mbedtls",
   "screenbrightness": "brightness",
-  "wires": "geckodriver"
+  "wires": "geckodriver",
+  "racket": "minimal-racket"
 }
