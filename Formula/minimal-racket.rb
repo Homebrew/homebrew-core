@@ -1,4 +1,4 @@
-class Racket < Formula
+class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
   url "https://mirror.racket-lang.org/installers/6.6/racket-minimal-6.6-src-builtpkgs.tgz"
