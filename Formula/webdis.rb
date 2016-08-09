@@ -1,6 +1,6 @@
 class Webdis < Formula
   desc "Redis HTTP interface with JSON output"
-  homepage "http://webd.is/"
+  homepage "https://webd.is/"
   url "https://github.com/nicolasff/webdis/archive/0.1.2.tar.gz"
   sha256 "8e46093af006e35354f6b3d58a70e3825cd0c074893be318f1858eddbe1cda86"
 
