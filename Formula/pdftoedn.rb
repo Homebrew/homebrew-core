@@ -1,12 +1,8 @@
 class Pdftoedn < Formula
   desc "Extract PDF document data and save the output in EDN format"
   homepage "https://github.com/edporras/pdftoedn"
-  url "https://github.com/edporras/pdftoedn/archive/v0.32.0.tar.gz"
-  sha256 "90406cb6954d01514dcea2fb6e857437afd3e8d067b81a2362a7ef6e383919bc"
-
-  bottle do
-    cellar :any
-  end
+  url "https://github.com/edporras/pdftoedn/archive/v0.32.1.tar.gz"
+  sha256 "7b56e404710c0d835e8b693660a6e4e98e2d37ab7329a4f67010a10c34235e85"
 
   depends_on "automake" => :build
   depends_on "autoconf" => :build
@@ -19,17 +15,15 @@ class Pdftoedn < Formula
   depends_on "rapidjson"
 
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
+    ENV.cxx11
 
     system "autoreconf", "-i"
-    system "./configure", "--with-openssl=/usr/local/opt/openssl/", "--prefix=#{prefix}"
+    system "./configure", "--with-openssl=#{Formula['openssl'].opt_prefix}", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
   end
 
   test do
-    # working on converting my ruby-based test suite but all the docs
-    # are private. Need to find a public set I can use.
-    system "#{bin}/pdftoedn", "-h"
+    system "make", "check"
   end
 end
