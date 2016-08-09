@@ -8,6 +8,13 @@ class Grafana < Formula
 
   head "https://github.com/grafana/grafana.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "4610ef56da24c154026f48324cb6d459f841851705ead4f38fc6a5a39ac855ec" => :el_capitan
+    sha256 "417e9b7f2c840160009e10e24c4fb379bd42a79ed278e1efe4540d6be702aef7" => :yosemite
+    sha256 "231e10e5444d352be0430815ce1fe28f2ac21571047bfc886e511861931a786e" => :mavericks
+  end
+
   depends_on "go" => :build
   depends_on "node" => :build
 
