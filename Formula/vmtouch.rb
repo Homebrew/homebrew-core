@@ -1,8 +1,8 @@
 class Vmtouch < Formula
   desc "Portable file system cache diagnostics and control"
   homepage "https://hoytech.com/vmtouch/"
-  url "https://github.com/hoytech/vmtouch/archive/vmtouch-1.0.2.tar.gz"
-  sha256 "48d41e5b805a0fcac46c12feeb4650e4b9def44b75d528d7c66c2f8b3a747c39"
+  url "https://github.com/hoytech/vmtouch/archive/v1.1.0.tar.gz"
+  sha256 "1ba2a12aabed977894ce3a272b2fa8ed6ddfec7a720d7686e074f9e756104796"
   head "https://github.com/hoytech/vmtouch.git"
 
   bottle do
@@ -17,6 +17,6 @@ class Vmtouch < Formula
   end
 
   test do
-    system "#{bin}/vmtouch", "#{bin}/vmtouch"
+    system bin/"vmtouch", bin/"vmtouch"
   end
 end
