@@ -1,8 +1,9 @@
 class Flvmeta < Formula
   desc "Manipulate Adobe flash video files (FLV)"
   homepage "https://www.flvmeta.com/"
-  url "https://github.com/noirotm/flvmeta/archive/v1.2.0.tar.gz"
-  sha256 "e0f51ba8c0f98a2f5f56243a242c10b40ac728d46026981877dc0b55b62966d2"
+  url "https://www.flvmeta.com/download.php?file=flvmeta-1.2.1.tar.gz"
+  sha256 "4b48afc2db8b0ff1c86861bc09a58481bc241d93b879b6f915fbf695fc4bff51"
+  head "https://github.com/noirotm/flvmeta.git"
 
   bottle do
     cellar :any_skip_relocation
