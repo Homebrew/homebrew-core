@@ -29,6 +29,6 @@ class Yacas < Formula
   end
 
   test do
-    system "#{bin}/yacas", "--version"
+    assert_match version.to_s, shell_output("#{bin}/yacas -v")
   end
 end
