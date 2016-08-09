@@ -3,27 +3,41 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://storage.googleapis.com/golang/go1.6.3.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.6.3.src.tar.gz"
-    version "1.6.3"
-    sha256 "6326aeed5f86cf18f16d6dc831405614f855e2d416a91fd3fdc334f772345b00"
+    if MacOS.version < :sierra
+      url "https://storage.googleapis.com/golang/go1.6.3.src.tar.gz"
+      mirror "https://fossies.org/linux/misc/go1.6.3.src.tar.gz"
+      version "1.6.3"
+      sha256 "6326aeed5f86cf18f16d6dc831405614f855e2d416a91fd3fdc334f772345b00"
 
-    # 1.6.3 does not build on macOS Sierra. Users should use devel instead
-    # until 1.7 is stable (due soon).
-    depends_on MaximumMacOSRequirement => :el_capitan
+      # 1.6.3 does not build on macOS Sierra.
+      depends_on MaximumMacOSRequirement => :el_capitan
 
-    # Should use the last stable binary release to bootstrap.
-    resource "gobootstrap" do
-      url "https://storage.googleapis.com/golang/go1.6.2.darwin-amd64.tar.gz"
-      version "1.6.2"
-      sha256 "6ebbafcac53bbbf8c4105fa84b63cca3d6ce04370f5a04ac2ac065782397fc26"
-    end
+      go_version = "1.6"
+      resource "gotools" do
+        url "https://go.googlesource.com/tools.git",
+            :branch => "release-branch.go#{go_version}",
+            :revision => "c887be1b2ebd11663d4bf2fbca508c449172339e"
+      end
+    else
+      url "https://storage.googleapis.com/golang/go1.7rc5.src.tar.gz"
+      version "1.7rc5"
+      sha256 "206c90e797e66335fe134052568f63a493f27b86f765087add390d5fb4c596c4"
 
-    go_version = "1.6"
-    resource "gotools" do
-      url "https://go.googlesource.com/tools.git",
-          :branch => "release-branch.go#{go_version}",
-          :revision => "c887be1b2ebd11663d4bf2fbca508c449172339e"
+      # Should use the last stable binary release to bootstrap.
+      # Not the case here because 1.6.3 is lacking a fix for an issue which breaks
+      # compile on macOS Sierra; in future this should share bootstrap with stable.
+      resource "gobootstrap" do
+        url "https://storage.googleapis.com/golang/go1.7rc5.darwin-amd64.tar.gz"
+        version "1.7rc5"
+        sha256 "d9991c5e60464f75334368fa6831484f5c577de9dadfb6e799aab43e95ef5894"
+      end
+
+      go_version = "1.7"
+      resource "gotools" do
+        url "https://go.googlesource.com/tools.git",
+             :branch => "release-branch.go#{go_version}",
+             :revision => "a84e830bb0d2811304f6e66498eb3123ca97b68e"
+      end
     end
   end
 
@@ -34,38 +48,23 @@ class Go < Formula
     sha256 "5f570b6c7aa2d7caa6c715af6dce6fa30d7fbd5acc46fac8fbc3232270956f9e" => :mavericks
   end
 
-  devel do
-    url "https://storage.googleapis.com/golang/go1.7rc5.src.tar.gz"
-    version "1.7rc5"
-    sha256 "206c90e797e66335fe134052568f63a493f27b86f765087add390d5fb4c596c4"
-
-    # Should use the last stable binary release to bootstrap.
-    # Not the case here because 1.6.3 is lacking a fix for an issue which breaks
-    # compile on macOS Sierra; in future this should share bootstrap with stable.
-    resource "gobootstrap" do
-      url "https://storage.googleapis.com/golang/go1.7rc5.darwin-amd64.tar.gz"
+  if MacOS.version < :sierra
+    devel do
+      url "https://storage.googleapis.com/golang/go1.7rc5.src.tar.gz"
       version "1.7rc5"
-      sha256 "d9991c5e60464f75334368fa6831484f5c577de9dadfb6e799aab43e95ef5894"
-    end
+      sha256 "206c90e797e66335fe134052568f63a493f27b86f765087add390d5fb4c596c4"
 
-    go_version = "1.7"
-    resource "gotools" do
-      url "https://go.googlesource.com/tools.git",
-          :branch => "release-branch.go#{go_version}",
-          :revision => "a84e830bb0d2811304f6e66498eb3123ca97b68e"
+      go_version = "1.7"
+      resource "gotools" do
+        url "https://go.googlesource.com/tools.git",
+            :branch => "release-branch.go#{go_version}",
+            :revision => "a84e830bb0d2811304f6e66498eb3123ca97b68e"
+      end
     end
   end
 
   head do
     url "https://github.com/golang/go.git"
-
-    # Should use the last stable binary release to bootstrap.
-    # See devel for notes as to why not the case here, for now.
-    resource "gobootstrap" do
-      url "https://storage.googleapis.com/golang/go1.7rc5.darwin-amd64.tar.gz"
-      version "1.7rc5"
-      sha256 "d9991c5e60464f75334368fa6831484f5c577de9dadfb6e799aab43e95ef5894"
-    end
 
     resource "gotools" do
       url "https://go.googlesource.com/tools.git"
@@ -78,6 +77,19 @@ class Go < Formula
   option "without-race", "Build without race detector"
 
   depends_on :macos => :mountain_lion
+
+  resource "gobootstrap" do
+    if MacOS.version < :sierra
+      # Should use the last stable binary release to bootstrap.
+      url "https://storage.googleapis.com/golang/go1.6.2.darwin-amd64.tar.gz"
+      version "1.6.2"
+      sha256 "6ebbafcac53bbbf8c4105fa84b63cca3d6ce04370f5a04ac2ac065782397fc26"
+    else
+      url "https://storage.googleapis.com/golang/go1.7rc5.darwin-amd64.tar.gz"
+      version "1.7rc5"
+      sha256 "d9991c5e60464f75334368fa6831484f5c577de9dadfb6e799aab43e95ef5894"
+    end
+  end
 
   def install
     (buildpath/"gobootstrap").install resource("gobootstrap")
