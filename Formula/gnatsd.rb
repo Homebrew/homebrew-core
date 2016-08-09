@@ -1,8 +1,8 @@
 class Gnatsd < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/gnatsd/archive/v0.8.1.tar.gz"
-  sha256 "d2040c47b242ccff9703bca4162ee6c6d3e7163e6af0441704680b2c19599ac0"
+  url "https://github.com/nats-io/gnatsd/archive/v0.9.2.tar.gz"
+  sha256 "307a9cc8e1cd460865c0c9278ee64120711f3169c9c5bc22e08fadd5884a5201"
   head "https://github.com/apcera/gnatsd.git"
 
   bottle do
@@ -43,7 +43,10 @@ class Gnatsd < Formula
 
   test do
     pid = fork do
-      exec "#{bin}/gnatsd --port=8085 --pid=#{testpath}/pid --log=#{testpath}/log"
+      exec bin/"gnatsd",
+           "--port=8085",
+           "--pid=#{testpath}/pid",
+           "--log=#{testpath}/log"
     end
     sleep 3
 
