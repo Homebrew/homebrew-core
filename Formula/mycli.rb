@@ -6,9 +6,9 @@ class Mycli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb5c204df0f187845a6b0855e40328ed7917b478cfc65f89b3d8fcf9b8aaa27c" => :el_capitan
-    sha256 "788cacc6752dd88e965d72aa3ce762dbbcfb7e81e73db8de1e18ba650140c709" => :yosemite
-    sha256 "1173bdeba93190f076b6df5aa98601d94d15be537dd668dbf41dda87f8b793db" => :mavericks
+    sha256 "326e6861074b6c541d0b13d487419995869b923030296a40de762359b43897aa" => :el_capitan
+    sha256 "1816b49f2acd2aa4b8044acc0b631741ea812c006f0bcb1ab7c7d1a74939e615" => :yosemite
+    sha256 "0326b74dc13b204ac10140da1296187f68442a35b7797a7ef8af0b3381986a4f" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
