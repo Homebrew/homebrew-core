@@ -24,6 +24,6 @@ class Pdftoedn < Formula
   end
 
   test do
-    system "make", "check"
+    system "#{bin}/pdftoedn", "-o", "test.edn", test_fixtures("test.pdf")
   end
 end
