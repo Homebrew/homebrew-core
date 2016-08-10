@@ -1,4 +1,6 @@
 class Pius < Formula
+  include Language::Python::Virtualenv
+
   desc "PGP individual UID signer"
   homepage "https://www.phildev.net/pius/"
   url "https://github.com/jaymzh/pius/archive/v2.2.2.tar.gz"
@@ -15,16 +17,13 @@ class Pius < Formula
   depends_on :gpg
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     # Replace hardcoded gpg path (WONTFIX):
     # https://sourceforge.net/p/pgpius/bugs/12/
     # According to the author, the next version of pius should ONLY support gpg2
     # at which point we should change this to point to gpg2.  See discussion at:
     # https://github.com/Homebrew/homebrew/pull/44756/files#r41721585
     inreplace "libpius/constants.py", %r{/usr/bin/gpg2?}, "#{HOMEBREW_PREFIX}/bin/gpg"
-    system "python", *Language::Python.setup_install_args(libexec)
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   def caveats; <<-EOS.undent
