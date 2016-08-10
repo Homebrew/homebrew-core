@@ -158,7 +158,7 @@ class Ffmpeg < Formula
     if build.with? "openjpeg"
       args << "--enable-libopenjpeg"
       args << "--disable-decoder=jpeg2000"
-      args << "--extra-cflags=" + `pkg-config --cflags libopenjpeg`.chomp
+      args << "--extra-cflags=" + `pkg-config --cflags libopenjp2`.chomp
     end
 
     # These librares are GPL-incompatible, and require ffmpeg be built with
