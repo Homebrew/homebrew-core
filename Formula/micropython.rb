@@ -2,8 +2,8 @@ class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
   url "https://github.com/micropython/micropython.git",
-    :tag => "v1.8.2",
-    :revision => "1459a8d5c9b29c78da2cf5c7cf3c37ab03b34b8e"
+    :tag => "v1.8.3",
+    :revision => "e4e4526954f8bcd88ceb21fe789963bfa710fa4f"
 
   bottle do
     cellar :any
@@ -15,17 +15,15 @@ class Micropython < Formula
   depends_on "pkg-config" => :build
   depends_on "libffi" # Requires libffi v3 closure API; OS X version is too old
 
-  def install
-    # Equivalent to upstream fix for "fatal error: 'endian.h' file not found"
-    # https://github.com/pfalcon/axtls/commit/3e1b4909a2ddd76c5797f241f2ed56ef699a7e91
-    # Should be removed at the next version bump (MicroPython > 1.8.2)
-    inreplace "lib/axtls/crypto/os_int.h", "#include <endian.h>", ""
+  # Fix build failure with errors such as "expected parameter declarator"
+  # upstream commit "mpconfigport.h: don't include stdio.h if macOS"
+  patch do
+    url "https://github.com/micropython/micropython/commit/4e36dd57.patch"
+    sha256 "7406e65d54f5a0759894d60832088e71b1d090dfc611c3f0de41dbaa19734dea"
+  end
 
+  def install
     cd "unix" do
-      # Works around undefined symbol error for "mp_thread_get_state"
-      # Reported 11 Jul 2016: https://github.com/micropython/micropython/issues/2233
-      inreplace "mpconfigport.mk", "MICROPY_PY_THREAD = 1",
-                                   "MICROPY_PY_THREAD = 0"
       system "make", "axtls"
       system "make", "install", "PREFIX=#{prefix}", "V=1"
     end
