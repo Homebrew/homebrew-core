@@ -1,26 +1,9 @@
 class Pgrouting < Formula
   desc "Provides geospatial routing for PostGIS/PostgreSQL database"
   homepage "http://www.pgrouting.org"
+  url "https://github.com/pgRouting/pgrouting/archive/pgrouting-2.2.4.tar.gz"
+  sha256 "34ccf2b1acd076ad7da92c0692a114d0b607b84771fdfd4e131246ef2c66bf84"
   head "https://github.com/pgRouting/pgrouting.git"
-
-  stable do
-    url "https://github.com/pgRouting/pgrouting/archive/pgrouting-2.2.3.tar.gz"
-    sha256 "ace0b2bfcfd468fa360867faf021d4447ebfa80d35f02cf5da549503b5dd4892"
-
-    # Fixes "use of undeclared identifier" for "ceil"
-    # Upstream commit that adds "#include <math.h>" to VRP_Solver.h
-    patch do
-      url "https://github.com/pgRouting/pgrouting/commit/3862e4cb.patch"
-      sha256 "936af1d25d3aae517de1d2cff021d8e6c5f7db98927ded5d699caf1bc535c1fb"
-    end
-
-    # Fixes "use of undeclared identifier" for "srand" and "rand"
-    # Upstream commit that adds "#include <stdlib.h>" to VRP_Solver.h
-    patch do
-      url "https://github.com/pgRouting/pgrouting/commit/ce811a03.patch"
-      sha256 "628c68f3d2348f60b3612a04868dc96797e2a357db18c41d62717fd70c3c5747"
-    end
-  end
 
   bottle do
     cellar :any
