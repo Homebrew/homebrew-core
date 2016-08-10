@@ -41,8 +41,6 @@ class Gnupg2 < Formula
               "gpg-agent --quiet --daemon sh"
     end
 
-    (var/"run").mkpath
-
     ENV.append "LDFLAGS", "-lresolv"
 
     ENV["gl_cv_absolute_stdint_h"] = "#{MacOS.sdk_path}/usr/include/stdint.h"
@@ -74,6 +72,10 @@ class Gnupg2 < Formula
 
     # Gpg-zip isn't installed by this formula.
     rm_f man1/"gpg-zip.1"
+  end
+
+  def post_install
+    (var/"run").mkpath
   end
 
   test do
