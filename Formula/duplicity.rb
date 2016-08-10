@@ -330,6 +330,23 @@ class Duplicity < Formula
   end
 
   test do
-    system bin/"duplicity", "--dry-run", "--no-encryption", testpath, "file:///#{testpath}/test"
+    Gpg.create_test_key(testpath)
+    (testpath/"test/hello.txt").write "Hello!"
+    (testpath/"command.sh").write <<-EOS.undent
+      #!/usr/bin/expect -f
+      set timeout -1
+      spawn #{bin}/duplicity #{testpath} "file://test"
+      expect -exact "Local and Remote metadata are synchronized, no sync needed."
+      expect -exact "Last full backup date: none"
+      expect -exact "GnuPG passphrase:"
+      send -- "brew\n"
+      expect -exact "Retype passphrase to confirm:"
+      send -- "brew\n"
+      expect -exact "No signatures found, switching to full backup."
+      expect eof
+    EOS
+    chmod 0755, testpath/"command.sh"
+    system "./command.sh"
+    assert_match "duplicity-full-signatures", Dir["test/*"].to_s
   end
 end
