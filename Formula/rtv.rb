@@ -1,8 +1,10 @@
 class Rtv < Formula
+  include Language::Python::Virtualenv
+
   desc "Command-line Reddit client"
   homepage "https://github.com/michael-lazar/rtv"
-  url "https://github.com/michael-lazar/rtv/archive/v1.10.0.tar.gz"
-  sha256 "2f54e0383a65b8d771f4e4b23064126695ce23bbacee7f215393eb54f0fc453c"
+  url "https://github.com/michael-lazar/rtv/archive/v1.11.0.tar.gz"
+  sha256 "3e2a486719acec838d49a8979f1422f50b37ac3381ac89547dbb41792eeea67d"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,6 +14,11 @@ class Rtv < Formula
   end
 
   depends_on :python3
+
+  resource "beautifulsoup4" do
+    url "https://files.pythonhosted.org/packages/86/ea/8e9fbce5c8405b9614f1fd304f7109d9169a3516a493ce4f7f77c39435b7/beautifulsoup4-4.5.1.tar.gz"
+    sha256 "3c9474036afda9136aac6463def733f81017bf9ef3510d25634f335b0c87f5e1"
+  end
 
   resource "decorator" do
     url "https://files.pythonhosted.org/packages/13/8a/4eed41e338e8dcc13ca41c94b142d4d20c0de684ee5065523fee406ce76f/decorator-4.0.10.tar.gz"
@@ -23,14 +30,19 @@ class Rtv < Formula
     sha256 "38f73d844532dba7b8cce170e6eb032fc07d0d04a07670e1af754bd4c91dfb3d"
   end
 
+  resource "mailcap-fix" do
+    url "https://files.pythonhosted.org/packages/8c/2a/db1c970c05e65dd8e0ab76d2d3efa3a4b86417d16bc60efc8d8ce075835f/mailcap-fix-0.1.3.tar.gz"
+    sha256 "13b33059db4f3d5cd76ed173fb892dd59625075d6ec528e896840db39fb3b436"
+  end
+
   resource "praw" do
     url "https://files.pythonhosted.org/packages/9b/90/2b41c0b374164a9b033093aea7c7f2b392c6333972f83156ab92a3bfbbc4/praw-3.5.0.zip"
     sha256 "0aa3da06d731ed5aa8994f34e46fb36006d168d597ddee216671369917fe8dc3"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
-    sha256 "63f1815788157130cee16a933b2ee184038e975f0017306d723ac326b5525b54"
+    url "https://files.pythonhosted.org/packages/8d/66/649f861f980c0a168dd4cccc4dd0ed8fa5bd6c1bed3bea9a286434632771/requests-2.11.0.tar.gz"
+    sha256 "b2ff053e93ef11ea08b0e596a1618487c4e4c5f1006d7a1706e3671c57dea385"
   end
 
   resource "six" do
@@ -39,8 +51,8 @@ class Rtv < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/21/29/e64c97013e97d42d93b3d5997234a6f17455f3744847a7c16289289f8fa6/tornado-4.3.tar.gz"
-    sha256 "c9c2d32593d16eedf2cec1b6a41893626a2649b40b21ca9c4cac4243bde2efbf"
+    url "https://files.pythonhosted.org/packages/96/5d/ff472313e8f337d5acda5d56e6ea79a43583cc8771b34c85a1f458e197c3/tornado-4.4.1.tar.gz"
+    sha256 "371d0cf3d56c47accc66116a77ad558d76eebaa8458a6b677af71ca606522146"
   end
 
   resource "update_checker" do
@@ -49,19 +61,8 @@ class Rtv < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_create(libexec, "python3")
+    virtualenv_install_with_resources
   end
 
   test do
