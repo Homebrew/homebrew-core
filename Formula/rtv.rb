@@ -7,10 +7,9 @@ class Rtv < Formula
   sha256 "3e2a486719acec838d49a8979f1422f50b37ac3381ac89547dbb41792eeea67d"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fe80af63d07695ee56ccbd68e065d98d3bec1c4891c25cea08f8315e7344dadd" => :el_capitan
-    sha256 "cfb8ba46ded388336e617be0eaf278035acb62785be0fa978b80b5055244f412" => :yosemite
-    sha256 "326f66e20d187674400db04f63b3d958d5280be25dda9e752f146634b8b35d67" => :mavericks
+    sha256 "3791f86d9613980c8fea5a2fac5867648b14f51af76b88039bde1af9f23807b0" => :el_capitan
+    sha256 "2fb9c97763c7f7569b1130a667e5c2fe6e41e08312fb86f02b7cad1180ded74e" => :yosemite
+    sha256 "cd6dbf42ad1abe58f022fed06030d6c116c3403ef8d9d53927190d7883e02e52" => :mavericks
   end
 
   depends_on :python3
