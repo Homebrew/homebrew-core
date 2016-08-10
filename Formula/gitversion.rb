@@ -25,6 +25,6 @@ class Gitversion < Formula
     system "git", "init"
     system "git", "add", "test.txt"
     system "git", "commit", "-q", "--author='Test <test@example.com>'", "--message='Test'"
-    assert_match '"FullSemVer":"0.1.0+0"', shell_output("#{bin}/gitversion -output json", 0)
+    assert_match '"FullSemVer":"0.1.0+0"', shell_output("#{bin}/gitversion -output json")
   end
 end
