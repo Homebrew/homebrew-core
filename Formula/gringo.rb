@@ -1,9 +1,9 @@
 class Gringo < Formula
   desc "Grounder to translate user-provided logic programs"
   homepage "http://potassco.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/potassco/gringo/4.5.3/gringo-4.5.3-source.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/g/gringo/gringo_4.5.3.orig.tar.gz"
-  sha256 "feb53913e697052e45c0d3a75ab9d2bb097abf6751caf452df3afa4376298825"
+  url "https://downloads.sourceforge.net/project/potassco/gringo/4.5.4/gringo-4.5.4-source.tar.gz"
+  mirror "https://mirrors.kernel.org/debian/pool/main/g/gringo/gringo_4.5.4.orig.tar.gz"
+  sha256 "81f8bbbb1b06236778028e5f1b8627ee38a712ec708724112fb08aecf9bc649a"
 
   bottle do
     cellar :any_skip_relocation
@@ -31,6 +31,6 @@ class Gringo < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/gringo --version")
+    assert_match version.to_s, shell_output("#{bin}/gringo --version")
   end
 end
