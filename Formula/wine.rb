@@ -67,7 +67,6 @@ class Wine < Formula
   depends_on "sane-backends"
   depends_on "gnutls"
   depends_on "libgsm" => :optional
-  depends_on "samba" => :optional
 
   # Patch to fix texture compression issues. Still relevant on 1.8.
   # https://bugs.winehq.org/show_bug.cgi?id=14939
