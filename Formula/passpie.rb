@@ -1,4 +1,6 @@
 class Passpie < Formula
+  include Language::Python::Virtualenv
+
   desc "Manage login credentials from the terminal"
   homepage "https://github.com/marcwebbie/passpie"
   url "https://files.pythonhosted.org/packages/f3/68/0b60f45c2604c7aabea83407085447c33ecab2991f03a43cdac11334ce38/passpie-1.5.4.tar.gz"
@@ -41,19 +43,7 @@ class Passpie < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    %w[click rstr tabulate tinydb PyYAML].each do |r|
-      resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
