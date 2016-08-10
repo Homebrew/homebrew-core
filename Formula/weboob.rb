@@ -1,4 +1,6 @@
 class Weboob < Formula
+  include Language::Python::Virtualenv
+
   desc "Web Outside of Browsers"
   homepage "http://weboob.org/"
   url "https://symlink.me/attachments/download/324/weboob-1.1.tar.gz"
@@ -41,22 +43,11 @@ class Weboob < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
-    system "#{bin}/weboob-config", "update"
-    system "#{bin}/weboob-config", "applications"
+    system bin/"weboob-config", "update"
+    system bin/"weboob-config", "applications"
   end
 end
