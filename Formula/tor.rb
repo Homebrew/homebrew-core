@@ -11,6 +11,13 @@ class Tor < Formula
     sha256 "69cd219fde5288ed696ef0c85420b52e9852e7dd15e08a1dfa2dc582ae8a258e" => :mavericks
   end
 
+  devel do
+    url "https://dist.torproject.org/tor-0.2.9.1-alpha.tar.gz"
+    mirror "https://tor.eff.org/dist/tor-0.2.9.1-alpha.tar.gz"
+    version "0.2.9.1-alpha"
+    sha256 "1a1b57af6bb47ecb62e4c60e2ceecb5609b558b1fdd87c86a91571d1601ba3f2"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "openssl"
