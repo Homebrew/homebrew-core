@@ -21,6 +21,8 @@ class Bitrise < Formula
     bitrise_go_path.install Dir["*"]
 
     cd bitrise_go_path do
+      prefix.install_metafiles
+
       system "go", "build", "-o", bin/"bitrise"
     end
   end
