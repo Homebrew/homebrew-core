@@ -3,8 +3,9 @@ require "language/go"
 class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://gortool.com"
-  url "https://github.com/buger/gor/archive/v0.14.1.tar.gz"
-  sha256 "802c253fd5218e914e707afb7f3b79baa54871160c4085b949ef3855abfb86d5"
+  url "https://github.com/buger/gor.git",
+    :tag => "v0.15.0",
+    :revision => "ecd7e3a5e508886afd15ed670d72aac5dde9e370"
   head "https://github.com/buger/gor.git"
 
   bottle do
@@ -15,29 +16,19 @@ class Gor < Formula
   end
 
   depends_on "go" => :build
-
-  go_resource "github.com/bitly/go-hostpool" do
-    url "https://github.com/bitly/go-hostpool.git",
-      :revision => "d0e59c22a56e8dadfed24f74f452cea5a52722d2"
-  end
-
-  go_resource "github.com/buger/elastigo" do
-    url "https://github.com/buger/elastigo.git",
-      :revision => "23fcfd9db0d8be2189a98fdab77a4c90fcc3a1e9"
-  end
-
   go_resource "github.com/google/gopacket" do
     url "https://github.com/google/gopacket.git",
-      :revision => "f4807986c9ee46845a35c59a382d6ccd9304b320"
+      :revision => "b1af1fa2fcae43d2eef926f31c7acb1c93c6e24f"
   end
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/buger").mkpath
-    ln_sf buildpath, buildpath/"src/github.com/buger/gor"
+    (buildpath/"src/github.com/buger/gor").install buildpath.children
     Language::Go.stage_deps resources, buildpath/"src"
-
-    system "go", "build", "-o", bin/"gor", "-ldflags", "-X main.VERSION=#{version}"
+    cd "src/github.com/buger/gor" do
+      system "go", "build", "-o", bin/"gor", "-ldflags", "-X main.VERSION=#{version}"
+      prefix.install_metafiles
+    end
   end
 
   test do
