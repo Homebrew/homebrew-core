@@ -13,16 +13,10 @@ class Lbdb < Formula
     sha256 "a82a06c8e00a7188315891f06529f460fc995db9cdb65bf59c4b1a24e3366329" => :mavericks
   end
 
-  depends_on :gpg => :optional
   depends_on "abook" => :recommended
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --libdir=#{libexec}
-    ]
-    args << "--with-gpg" if build.with? "gpg"
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--libdir=#{libexec}"
     system "make", "install"
   end
 
