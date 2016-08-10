@@ -3,6 +3,8 @@ class GitSecret < Formula
   homepage "https://sobolevn.github.io/git-secret/"
   url "https://github.com/sobolevn/git-secret/archive/v0.2.1.tar.gz"
   sha256 "6088c1a149702f6e73b0c40e952c5ece35dbeb3cf5f595e93e16306b1cea32a4"
+  revision 1
+
   head "https://github.com/sobolevn/git-secret.git"
 
   bottle do
@@ -20,7 +22,15 @@ class GitSecret < Formula
   end
 
   test do
+    Gpg.create_test_key(testpath)
     system "git", "init"
+    system "git", "config", "user.email", "testing@foo.bar"
     system "git", "secret", "init"
+    assert_match "testing@foo.bar added", shell_output("git secret tell -m")
+    (testpath/"shh.txt").write "Top Secret"
+    (testpath/".gitignore").write "shh.txt"
+    system "git", "secret", "add", "shh.txt"
+    system "git", "secret", "hide"
+    assert File.exist?("shh.txt.secret")
   end
 end
