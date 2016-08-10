@@ -1,9 +1,8 @@
 class Openvdb < Formula
   desc "Sparse volume processing toolkit"
   homepage "http://www.openvdb.org/"
-  url "https://github.com/dreamworksanimation/openvdb/archive/v3.1.0.tar.gz"
-  sha256 "b95a32f4f0195452a64870bda978999a719006a0c036b9ac985b466532d32d4b"
-  revision 1
+  url "https://github.com/dreamworksanimation/openvdb/archive/v3.2.0.tar.gz"
+  sha256 "b9c765f8715974aee0cd92ca5fd7cf6c675e72d3a4d1c6b5084fb7ae13345398"
   head "https://github.com/dreamworksanimation/openvdb.git"
 
   bottle do
@@ -80,7 +79,7 @@ class Openvdb < Formula
       args << "DOXYGEN="
     end
 
-    if build.with? "tests"
+    if build.with? "test"
       args << "CPPUNIT_INCL_DIR=#{Formula["cppunit"].opt_lib}/include"
       args << "CPPUNIT_LIB_DIR=#{Formula["cppunit"].opt_lib}/lib"
     else
@@ -98,7 +97,7 @@ class Openvdb < Formula
 
     cd "openvdb" do
       system "make", "install", *args
-      if build.with? "tests"
+      if build.with? "test"
         system "make", "vdb_test", *args
         bin.install "vdb_test"
       end
