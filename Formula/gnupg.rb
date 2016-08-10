@@ -4,6 +4,7 @@ class Gnupg < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-1.4.20.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-1.4.20.tar.bz2"
   sha256 "04988b1030fa28ddf961ca8ff6f0f8984e0cddcb1eb02859d5d8fe0fe237edcc"
+  revision 1
 
   bottle do
     sha256 "6b0fe0f18f74c998ffb1e0007c8bf9d10a133447f67f6222cb1d324b65502163" => :el_capitan
@@ -17,7 +18,8 @@ class Gnupg < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--disable-asm"
+                          "--disable-asm",
+                          "--program-suffix=1"
     system "make"
     system "make", "check"
 
@@ -25,6 +27,25 @@ class Gnupg < Formula
     # dependency order wrong
     [bin, libexec/"gnupg"].each(&:mkpath)
     system "make", "install"
+
+    # Although gpg2 support should be pretty universal these days
+    # keep vanilla `gpg` executables available, at least for now.
+    %w[gpg-zip1 gpg1 gpgsplit1 gpgv1].each do |cmd|
+      (libexec/"gpgbin").install_symlink bin/cmd => cmd.to_s.sub(/1/, "")
+    end
+  end
+
+  def caveats; <<-EOS.undent
+    All commands have been installed with the suffix '1'.
+
+    If you really need to use these commands with their normal names, you
+    can add a "gpgbin" directory to your PATH from your #{shell_profile} like:
+
+        PATH="#{opt_libexec}/gpgbin:$PATH"
+
+    Note that doing so may interfere with GPG-using formulae installed via
+    Homebrew.
+    EOS
   end
 
   test do
