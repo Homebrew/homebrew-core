@@ -7,7 +7,7 @@ class Gnupg2 < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   sha256 "e329785a4f366ba5d72c2c678a7e388b0892ac8440c2f4e6810042123c235d71"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "f16e0f7514ba2b803321ee806c4dda5d62c64511010911a1761abd9e451f07d2" => :el_capitan
@@ -40,7 +40,6 @@ class Gnupg2 < Formula
       s.gsub! "../../agent/gpg-agent --quiet --daemon sh",
               "gpg-agent --quiet --daemon sh"
     end
-    inreplace "tools/gpgkey2ssh.c", "gpg --list-keys", "gpg2 --list-keys"
 
     (var/"run").mkpath
 
@@ -69,8 +68,11 @@ class Gnupg2 < Formula
     system "make", "check"
     system "make", "install"
 
-    # Conflicts with a manpage from the 1.x formula, and
-    # gpg-zip isn't installed by this formula anyway
+    # Add symlinks from gpg2 to unversioned executables, replacing gpg 1.x.
+    bin.install_symlink "gpg2" => "gpg"
+    bin.install_symlink "gpgv2" => "gpgv"
+
+    # Gpg-zip isn't installed by this formula.
     rm_f man1/"gpg-zip.1"
   end
 
