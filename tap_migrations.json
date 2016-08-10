@@ -224,6 +224,7 @@
   "s3fs": "homebrew/fuse",
   "salt": "homebrew/science",
   "sam2p": "homebrew/boneyard",
+  "samba": "homebrew/boneyard",
   "scantailor": "homebrew/x11",
   "sedna": "homebrew/boneyard",
   "shark": "homebrew/science",
