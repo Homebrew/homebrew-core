@@ -1,11 +1,11 @@
 class Multirust < Formula
-  homepage "https://github.com/brson/multirust"
   desc "Manage multiple Rust installations"
-
+  homepage "https://github.com/brson/multirust"
   # Use the tag instead of the tarball to get submodules
   url "https://github.com/brson/multirust.git",
-    :tag => "0.8.0",
-    :revision => "8654d1c07729e961c172425088c451509557ef32"
+      :tag => "0.8.0",
+      :revision => "8654d1c07729e961c172425088c451509557ef32"
+  revision 1
 
   head "https://github.com/brson/multirust.git"
 
@@ -26,6 +26,6 @@ class Multirust < Formula
   end
 
   test do
-    system "#{bin}/multirust", "show-default"
+    system bin/"multirust", "show-default"
   end
 end
