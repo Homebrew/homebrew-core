@@ -79,6 +79,9 @@ class Gnupg2 < Formula
   end
 
   test do
-    system "#{bin}/gpgconf"
+    Gpg.create_test_key(testpath)
+    (testpath/"test.txt").write "Hello World!"
+    system bin/"gpg", "--armor", "--sign", "test.txt"
+    system bin/"gpg", "--verify", "test.txt.asc"
   end
 end
