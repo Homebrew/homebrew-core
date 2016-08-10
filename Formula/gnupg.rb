@@ -49,18 +49,19 @@ class Gnupg < Formula
   end
 
   test do
-    (testpath/"gen-key-script").write <<-EOS.undent
+    (testpath/"batchgpg").write <<-EOS.undent
       Key-Type: RSA
-      Key-Length: 4096
+      Key-Length: 2048
       Subkey-Type: RSA
-      Subkey-Length: 4096
-      Name-Real: Homebrew Test
-      Name-Email: test@example.com
-      Expire-Date: 0
+      Subkey-Length: 2048
+      Name-Real: Testing
+      Name-Email: testing@foo.bar
+      Expire-Date: 1d
+      %commit
     EOS
-    system bin/"gpg", "--batch", "--gen-key", "gen-key-script"
-    (testpath/"test.txt").write ("Hello World!")
-    system bin/"gpg", "--armor", "--sign", "test.txt"
-    system bin/"gpg", "--verify", "test.txt.asc"
+    system bin/"gpg1", "--batch", "--gen-key", "batchgpg"
+    (testpath/"test.txt").write "Hello World!"
+    system bin/"gpg1", "--armor", "--sign", "test.txt"
+    system bin/"gpg1", "--verify", "test.txt.asc"
   end
 end
