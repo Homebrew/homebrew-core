@@ -3,19 +3,12 @@ class Knot < Formula
   homepage "https://www.knot-dns.cz/"
 
   stable do
-    url "https://secure.nic.cz/files/knot-dns/knot-2.2.1.tar.xz"
-    sha256 "4b587bd8299445a29990ba89087b156ab9b6bf85cbd68846766c078e5b3481d3"
+    url "https://secure.nic.cz/files/knot-dns/knot-2.3.0.tar.xz"
+    sha256 "8abf9a6562ecf2f7f4222d16ca6c75463399870db360eda7caa40530b469533c"
 
     resource "fstrm" do
-      url "https://github.com/farsightsec/fstrm/releases/download/v0.2.0/fstrm-0.2.0.tar.gz"
-      sha256 "ad5d39957a4b334a6c7fcc94f308dc7ac75e1997cc642e9bb91a18fc0f42a98a"
-    end
-
-    # error: unknown type name 'clockid_t'
-    # fixed upstream; see https://github.com/farsightsec/fstrm/pull/21
-    resource "fstrm_clock_patch" do
-      url "https://github.com/farsightsec/fstrm/commit/c5f09123.patch"
-      sha256 "24d3ee17f3b7961eb1abd26fda386227779ab94225dd2f39ce3a4b24e980bc65"
+      url "https://github.com/farsightsec/fstrm/archive/v0.3.0.tar.gz"
+      sha256 "531ef29ed2a15dfe4993448eb4e8463c5ed8eebf1472a5608c6ac0a6f62b3a12"
     end
   end
 
@@ -52,11 +45,6 @@ class Knot < Formula
 
   def install
     resource("fstrm").stage do
-      if build.stable?
-        Pathname.pwd.install resource("fstrm_clock_patch")
-        system "/usr/bin/patch", "-p1", "-i", "c5f09123.patch"
-      end
-
       system "autoreconf", "-fvi"
       system "./configure", "--prefix=#{libexec}/fstrm"
       system "make", "install"
@@ -85,7 +73,9 @@ class Knot < Formula
 
     (buildpath/"knot.conf").write(knot_conf)
     etc.install "knot.conf"
+  end
 
+  def post_install
     (var/"knot").mkpath
   end
 
