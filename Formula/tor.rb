@@ -10,7 +10,7 @@ class Tor < Formula
     sha256 "d4fe09c14eae1b909056cc9a258fd1f5e941bf9b07d7d61dd7dc4ef87a1d2c36" => :yosemite
     sha256 "69cd219fde5288ed696ef0c85420b52e9852e7dd15e08a1dfa2dc582ae8a258e" => :mavericks
   end
-  
+
   devel do
     url "https://dist.torproject.org/tor-0.2.9.1-alpha.tar.gz"
     mirror "https://tor.eff.org/dist/tor-0.2.9.1-alpha.tar.gz"
