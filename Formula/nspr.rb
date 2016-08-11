@@ -3,6 +3,7 @@ class Nspr < Formula
   homepage "https://developer.mozilla.org/docs/Mozilla/Projects/NSPR"
   url "https://archive.mozilla.org/pub/mozilla.org/nspr/releases/v4.12/src/nspr-4.12.tar.gz"
   sha256 "e0b10a1e569153668ff8bdea6c7e491b389fab69c2f18285a1ebf7c2ea4269de"
+  revision 1
 
   bottle do
     cellar :any
@@ -10,13 +11,6 @@ class Nspr < Formula
     sha256 "92a39fd2483db74226ae083ac3bed78c573f55d57ca0ef083e2c28b367e56c0e" => :yosemite
     sha256 "03382846cbd142a72bbb3891537a50d4ef3e4e45e1cfba9e89748dd74323be60" => :mavericks
   end
-
-  keg_only <<-EOS.undent
-    Having this library symlinked makes Firefox pick it up instead of built-in,
-    so it then randomly crashes without meaningful explanation.
-
-    Please see https://bugzilla.mozilla.org/show_bug.cgi?id=1142646 for details.
-  EOS
 
   def install
     ENV.deparallelize
