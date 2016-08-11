@@ -3,7 +3,7 @@ class Luajit < Formula
   homepage "http://luajit.org/luajit.html"
   url "http://luajit.org/download/LuaJIT-2.0.4.tar.gz"
   sha256 "620fa4eb12375021bef6e4f237cbd2dd5d49e56beb414bee052c746beef1807d"
-  revision 2
+  revision 3
 
   head "http://luajit.org/git/luajit-2.0.git"
 
@@ -64,6 +64,8 @@ class Luajit < Formula
               "INSTALL_LMOD=#{HOMEBREW_PREFIX}/share/lua/${abiver}"
       s.gsub! "INSTALL_CMOD=${prefix}/${multilib}/lua/${abiver}",
               "INSTALL_CMOD=#{HOMEBREW_PREFIX}/${multilib}/lua/${abiver}"
+      s.gsub! "Libs:",
+              "Libs: -pagezero_size 10000 -image_base 100000000"
     end
 
     # Having an empty Lua dir in lib/share can mess with other Homebrew Luas.
