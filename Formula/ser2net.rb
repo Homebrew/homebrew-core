@@ -1,8 +1,8 @@
 class Ser2net < Formula
   desc "Allow network connections to serial ports"
   homepage "http://ser2net.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-2.9.1.tar.gz"
-  sha256 "fdee1e69903cf409bdc6f32403a566cbc6006aa9e2a4d6f8f12b90dfd5ca0d0e"
+  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-2.10.1.tar.gz"
+  sha256 "cee4ad8fb3531281e8761751694dfab39d681022b2363b1edeba764d397c3c99"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,12 +12,10 @@ class Ser2net < Formula
   end
 
   def install
-    ENV.deparallelize
-
     # Fix etc location
     inreplace ["ser2net.c", "ser2net.8"], "/etc/ser2net.conf", "#{etc}/ser2net.conf"
 
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make", "install"
@@ -53,5 +51,8 @@ class Ser2net < Formula
       </dict>
     </plist>
     EOS
+  end
+  test do
+    assert_match version.to_s, shell_output("#{sbin}/ser2net -v")
   end
 end
