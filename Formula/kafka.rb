@@ -1,9 +1,9 @@
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org"
-  url "http://mirrors.ibiblio.org/apache/kafka/0.10.0.0/kafka-0.10.0.0-src.tgz"
-  mirror "https://archive.apache.org/dist/kafka/0.10.0.0/kafka-0.10.0.0-src.tgz"
-  sha256 "ed2f8f83419846ff70ff2fc1cf366ac61e803d3960043075c9faecbb9dce140b"
+  url "http://mirrors.ibiblio.org/apache/kafka/0.10.0.1/kafka-0.10.0.1-src.tgz"
+  mirror "https://archive.apache.org/dist/kafka/0.10.0.1/kafka-0.10.0.1-src.tgz"
+  sha256 "ae5e58d60240d9c9b6c6090ef60bbdcc7b9d9861c6c9be86c5736a6ef74ca56e"
 
   head "https://git-wip-us.apache.org/repos/asf/kafka.git", :branch => "trunk"
 
