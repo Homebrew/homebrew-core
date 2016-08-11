@@ -11,13 +11,6 @@ class Nspr < Formula
     sha256 "03382846cbd142a72bbb3891537a50d4ef3e4e45e1cfba9e89748dd74323be60" => :mavericks
   end
 
-  keg_only <<-EOS.undent
-    Having this library symlinked makes Firefox pick it up instead of built-in,
-    so it then randomly crashes without meaningful explanation.
-
-    Please see https://bugzilla.mozilla.org/show_bug.cgi?id=1142646 for details.
-  EOS
-
   def install
     ENV.deparallelize
     cd "nspr" do
