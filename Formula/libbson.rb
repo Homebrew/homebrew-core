@@ -1,8 +1,8 @@
 class Libbson < Formula
   desc "BSON utility library"
   homepage "https://github.com/mongodb/libbson"
-  url "https://github.com/mongodb/libbson/releases/download/1.1.7/libbson-1.1.7.tar.gz"
-  sha256 "94b11f9ce0bc118b9f4dc0470ce48aaf673278f4b22517c452e1f3f675d1abe3"
+  url "https://github.com/mongodb/libbson/releases/download/1.4.0/libbson-1.4.0.tar.gz"
+  sha256 "1f4e330d40601c4462534684bbc6e868205817c8cee54be8c12d2d73bd02b751"
 
   bottle do
     cellar :any
