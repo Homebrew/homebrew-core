@@ -1,8 +1,8 @@
 class MongoC < Formula
   desc "Official C driver for MongoDB"
   homepage "https://docs.mongodb.org/ecosystem/drivers/c/"
-  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.3.5/mongo-c-driver-1.3.5.tar.gz"
-  sha256 "374d37a6d6e49fbb2ed6cab0a305ced347651ec04d57808961d03afa8caa68df"
+  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.4.0/mongo-c-driver-1.4.0.tar.gz"
+  sha256 "2bc6ea7fd8db15250910a7c72da7d959e416000bec2205be86b52d2899f6951b"
 
   bottle do
     cellar :any
@@ -18,11 +18,11 @@ class MongoC < Formula
     depends_on "libtool" => :build
   end
 
-  conflicts_with "libbson",
-                 :because => "mongo-c installs the libbson headers"
-
   depends_on "pkg-config" => :build
   depends_on "openssl" => :recommended
+
+  conflicts_with "libbson",
+                 :because => "mongo-c installs the libbson headers"
 
   def install
     args = %W[--prefix=#{prefix}]
