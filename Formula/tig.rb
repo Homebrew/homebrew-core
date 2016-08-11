@@ -1,17 +1,8 @@
 class Tig < Formula
   desc "Text interface for Git repositories"
   homepage "http://jonas.nitro.dk/tig/"
-
-  stable do
-    url "http://jonas.nitro.dk/tig/releases/tig-2.1.1.tar.gz"
-    sha256 "50c5179fd564b829b6b2cec087e66f10cf8799601de19350df0772ae77e4852f"
-
-    # Merged in HEAD; remove in next stable release
-    patch do
-      url "https://github.com/jonas/tig/commit/91912eb97da4f6907015dab41ef9bba315730854.diff"
-      sha256 "263e86b25f788eb158bdd667e112bc839debe9e3fe788cbc39cc9654b65b6c8a"
-    end
-  end
+  url "http://jonas.nitro.dk/tig/releases/tig-2.2.tar.gz"
+  sha256 "8f5213d3abb45ca9a79810b8d2a2a12d941112bc4682bcfa91f34db74942754c"
 
   bottle do
     cellar :any
