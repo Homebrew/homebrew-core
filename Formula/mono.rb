@@ -9,9 +9,9 @@ class Mono < Formula
   skip_clean "lib/mono"
 
   bottle do
-    sha256 "2a39ab2dae7395cb44ebcd02a2bd60ee64e70e27619fbd8119968bdf5e088e46" => :el_capitan
-    sha256 "1c690c6e4f39053197ac80b4e83d86e54e476df8666f2fec65635d8eb495321a" => :yosemite
-    sha256 "15f0c368986edabc7cdc581e802b48ecb7558a604ec73eb25882ce4c678bd036" => :mavericks
+    sha256 "a66f5ee144eb47657f56a417e8ddea9ffa496b92dea648fc9fb7771d8478d41d" => :el_capitan
+    sha256 "02c559d621cbffe9651f99be5c36ffb799d527992f9de59f8089c67721e1086d" => :yosemite
+    sha256 "e89db5505a780fe358af7c160b571dd0b32ef8d72e099589ff29bdfa41fef29f" => :mavericks
   end
 
   conflicts_with "czmq", :because => "both install `makecert` binaries"
