@@ -63,6 +63,7 @@ class Qscintilla2 < Formula
           system python, "configure.py", "-o", lib, "-n", include,
                            "--apidir=#{prefix}/qsci",
                            "--destdir=#{lib}/python#{version}/site-packages/PyQt4",
+                           "--stubsdir=#{lib}/python#{version}/site-packages/PyQt4",
                            "--qsci-sipdir=#{share}/sip",
                            "--pyqt-sipdir=#{HOMEBREW_PREFIX}/share/sip",
                            "--spec=#{spec}"
