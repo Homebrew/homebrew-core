@@ -6,9 +6,9 @@ class Ser2net < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c36f63357c6bd5c31622ec292ccec85f60ab26f93b5d6930ccfd9052114bc041" => :el_capitan
-    sha256 "b9a151626b6634c5c07f1c86371f49911bce18d0d8a9e9e48c5755ad7446a504" => :yosemite
-    sha256 "fdca75e5ae2d5afaa17ba6b8214cf5dfe1a52a09e5e07ec6b51eb9d67c254fd1" => :mavericks
+    sha256 "6bdf9ae6b2a0ed64555f7e024147dbaab90c13bf15b12e4c6fef0fe37c271a71" => :el_capitan
+    sha256 "21ab3a35a22130ac50086dc83e65178ee4c16ea1b1d244f09c971c7f69783c9f" => :yosemite
+    sha256 "d6688adab156497c7c3b37f5112e435a9ec27ae91af3af426ff6a1099ad541aa" => :mavericks
   end
 
   def install
