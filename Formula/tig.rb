@@ -6,10 +6,9 @@ class Tig < Formula
 
   bottle do
     cellar :any
-    revision 2
-    sha256 "b5337100fab8fd51091f78990b2115611c052eceb29ebc37d82b9fd19eb97306" => :el_capitan
-    sha256 "9b832275bee0497273da009f73620a63ceba99aa97c624827e45443a74f1fcfe" => :yosemite
-    sha256 "94eb8a861d4de55088d47e626201ebe7c1f3687db11f6a689c55181a141ff78d" => :mavericks
+    sha256 "99982b27386faa66282f3aca77570d5499d896efcc1001da3e5e6e3481d4334d" => :el_capitan
+    sha256 "7d3a5c1f20a69259c5e559431a2da506d02d1cc71a164d5289d7c0abcb6e0ff0" => :yosemite
+    sha256 "b2781db63aa8184f5bec9e8c385de224888fbdf91cc8847462a38a1ecbdf5bcd" => :mavericks
   end
 
   head do
