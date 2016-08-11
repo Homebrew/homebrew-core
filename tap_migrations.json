@@ -181,6 +181,7 @@
   "opencv": "homebrew/science",
   "openfst": "homebrew/science",
   "opengrm-ngram": "homebrew/science",
+  "openlitespeed": "homebrew/boneyard",
   "openwsman": "homebrew/boneyard",
   "orfeo": "homebrew/boneyard",
   "ori": "homebrew/fuse",
