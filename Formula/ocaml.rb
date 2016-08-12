@@ -14,12 +14,9 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
+  url "http://caml.inria.fr/pub/distrib/ocaml-4.03/ocaml-4.03.0.tar.gz"
+  sha256 "7fdf280cc6c0a2de4fc9891d0bf4633ea417046ece619f011fd44540fcfc8da2"
   head "http://caml.inria.fr/svn/ocaml/trunk", :using => :svn
-
-  stable do
-    url "http://caml.inria.fr/pub/distrib/ocaml-4.03/ocaml-4.03.0.tar.gz"
-    sha256 "7fdf280cc6c0a2de4fc9891d0bf4633ea417046ece619f011fd44540fcfc8da2"
-  end
 
   pour_bottle? do
     # The ocaml compilers embed prefix information in weird ways that the default
@@ -54,7 +51,8 @@ class Ocaml < Formula
   end
 
   test do
-    assert_match "val x : int = 1", shell_output("echo 'let x = 1 ;;' | ocaml 2>&1")
-    assert_match HOMEBREW_PREFIX.to_s, shell_output("ocamlc -where")
+    output = shell_output("echo 'let x = 1 ;;' | #{bin}/ocaml 2>&1")
+    assert_match "val x : int = 1", output
+    assert_match HOMEBREW_PREFIX.to_s, shell_output("#{bin}/ocamlc -where")
   end
 end
