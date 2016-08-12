@@ -40,6 +40,7 @@ class NetSnmp < Formula
     # https://sourceforge.net/p/net-snmp/bugs/2504/
     ln_s "darwin13.h", "include/net-snmp/system/darwin14.h"
     ln_s "darwin13.h", "include/net-snmp/system/darwin15.h"
+    ln_s "darwin13.h", "include/net-snmp/system/darwin16.h"
 
     system "./configure", *args
     system "make"
