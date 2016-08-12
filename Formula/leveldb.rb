@@ -1,8 +1,8 @@
 class Leveldb < Formula
   desc "Key-value storage library with ordered mapping"
   homepage "https://github.com/google/leveldb/"
-  url "https://github.com/google/leveldb/archive/v1.18.tar.gz"
-  sha256 "4aa1a7479bc567b95a59ac6fb79eba49f61884d6fd400f20b7af147d54c5cee5"
+  url "https://github.com/google/leveldb/archive/v1.19.tar.gz"
+  sha256 "7d7a14ae825e66aabeb156c1c3fae9f9a76d640ef6b40ede74cc73da937e5202"
 
   bottle do
     cellar :any
@@ -12,18 +12,25 @@ class Leveldb < Formula
     sha256 "0b1b668e35556b43c0c95a0482209650551ae065451f8a9163d2c053a3af65a9" => :mountain_lion
   end
 
+  option "with-test", "Verify the build with make check"
+
+  depends_on "gperftools"
   depends_on "snappy"
 
   def install
     system "make"
-    system "make", "leveldbutil"
+    system "make", "check" if build.bottle? || build.with?("test")
 
     include.install "include/leveldb"
-    bin.install "leveldbutil"
-    lib.install "libleveldb.a"
-    lib.install "libleveldb.dylib.1.18" => "libleveldb.1.18.dylib"
-    lib.install_symlink lib/"libleveldb.1.18.dylib" => "libleveldb.dylib"
-    lib.install_symlink lib/"libleveldb.1.18.dylib" => "libleveldb.1.dylib"
-    system "install_name_tool", "-id", "#{lib}/libleveldb.1.dylib", "#{lib}/libleveldb.1.18.dylib"
+    bin.install "out-static/leveldbutil"
+    lib.install "out-static/libleveldb.a"
+    lib.install "out-shared/libleveldb.dylib.1.19" => "libleveldb.1.19.dylib"
+    lib.install_symlink lib/"libleveldb.1.19.dylib" => "libleveldb.dylib"
+    lib.install_symlink lib/"libleveldb.1.19.dylib" => "libleveldb.1.dylib"
+    system "install_name_tool", "-id", "#{lib}/libleveldb.1.dylib", "#{lib}/libleveldb.1.19.dylib"
+  end
+
+  test do
+    assert_match "dump files", shell_output("#{bin}/leveldbutil 2>&1", 1)
   end
 end
