@@ -14,6 +14,13 @@ class OpenshiftCli < Formula
     sha256 "f270ff2b41dfb00201066e2730f60abc0fa1f271a91c3de931eadb90f2ce9d78" => :mavericks
   end
 
+  devel do
+    url "https://github.com/openshift/origin.git",
+      :tag => "v1.3.0-alpha.3",
+      :revision => "7998ae49782d89d17c78104d07a98d2aea704ae3"
+    version "1.3.0-alpha.3"
+  end
+
   depends_on "go" => :build
 
   def install
