@@ -1,8 +1,8 @@
 class Miller < Formula
   desc "Like sed, awk, cut, join & sort for name-indexed data such as CSV"
   homepage "https://github.com/johnkerl/miller"
-  url "https://github.com/johnkerl/miller/releases/download/v4.3.0/mlr-4.3.0.tar.gz"
-  sha256 "4a934014bc15e96481270d0537d4cec8c7147a5edf2750d9c20957bdf31699fc"
+  url "https://github.com/johnkerl/miller/releases/download/v4.4.0/mlr-4.4.0.tar.gz"
+  sha256 "d1e7845b90b8ec859bf679cc3ffe90217fbd1aec886d4e88dc9ad0826b2350cc"
 
   bottle do
     cellar :any_skip_relocation
