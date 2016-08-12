@@ -2,7 +2,7 @@ class Box2d < Formula
   desc "2D physics engine for games"
   homepage "http://www.box2d.org/"
   url "https://github.com/erincatto/Box2D/archive/v2.3.1.tar.gz"
-  sha256 "2c61505f03ef403b54cf0e510d83d6f567e37882ad79b5b2d486acbc7d5eedea"
+  sha256 "75d62738b13d2836cd56647581b6e574d4005a6e077ddefa5d727d445d649752"
   head "https://github.com/erincatto/Box2D.git"
 
   bottle do
