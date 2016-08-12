@@ -18,23 +18,23 @@ class NetSnmp < Formula
   depends_on :python => :optional
 
   def install
-    args = [
-      "--disable-debugging",
-      "--prefix=#{prefix}",
-      "--enable-ipv6",
-      "--with-defaults",
-      "--with-persistent-directory=#{var}/db/net-snmp",
-      "--with-logfile=#{var}/log/snmpd.log",
-      "--with-mib-modules=host ucd-snmp/diskio",
-      "--without-rpm",
-      "--without-kmem-usage",
-      "--disable-embedded-perl",
-      "--without-perl-modules",
+    args = %W[
+      --disable-debugging
+      --prefix=#{prefix}
+      --enable-ipv6
+      --with-defaults
+      --with-persistent-directory=#{var}/db/net-snmp
+      --with-logfile=#{var}/log/snmpd.log
+      --with-mib-modules=host ucd-snmp/diskio
+      --without-rpm
+      --without-kmem-usage
+      --disable-embedded-perl
+      --without-perl-modules
     ]
 
     if build.with? "python"
       args << "--with-python-modules"
-      ENV["PYTHONPROG"] = `which python`
+      ENV["PYTHONPROG"] = which("python")
     end
 
     # https://sourceforge.net/p/net-snmp/bugs/2504/
@@ -45,5 +45,14 @@ class NetSnmp < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+  end
+
+  def post_install
+    (var/"db/net-snmp").mkpath
+    (var/"log").mkpath
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/snmpwalk -V 2>&1")
   end
 end
