@@ -30,7 +30,7 @@ class Doxygen < Formula
   def install
     args = std_cmake_args
     args << "-Dbuild_wizard=ON" if build.with? "qt5"
-    args << "-Duse_libclang=ON -DLLVM_CONFIG=#{Formula["llvm"].opt_bin}/llvm-config" if build.with? "libclang"
+    args << "-Duse_libclang=ON -DLLVM_CONFIG=#{Formula["llvm"].opt_bin}/llvm-config" if build.with? "llvm"
 
     mkdir "build" do
       system "cmake", "..", *args
