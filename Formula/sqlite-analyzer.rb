@@ -1,9 +1,9 @@
 class SqliteAnalyzer < Formula
   desc "Analyze how space is allocated inside an SQLite file"
   homepage "https://www.sqlite.org/"
-  url "https://sqlite.org/2016/sqlite-src-3140000.zip"
-  version "3.14.0"
-  sha256 "97d5735dddfb74598a0694a0252e5b19caeac49f2fed30181598d2243b619abb"
+  url "https://sqlite.org/2016/sqlite-src-3140100.zip"
+  version "3.14.1"
+  sha256 "9411f67f383256d8d1520bac727b9e96eed5494222d2f8af76548d233b0adc74"
 
   bottle do
     cellar :any_skip_relocation
@@ -28,6 +28,6 @@ class SqliteAnalyzer < Formula
       insert into students (name, age) values ('Tim', 13);
     EOS
     system "/usr/bin/sqlite3 #{dbpath} < #{sqlpath}"
-    system "#{bin}/sqlite3_analyzer", dbpath
+    system bin/"sqlite3_analyzer", dbpath
   end
 end
