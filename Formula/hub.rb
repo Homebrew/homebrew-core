@@ -3,6 +3,8 @@ class Hub < Formula
   homepage "https://hub.github.com/"
   url "https://github.com/github/hub/archive/v2.2.4.tar.gz"
   sha256 "7951d4a172dfb6a9cbc0cbda4204dd6205eb08213257cce49026377596b43e60"
+  revision 1
+
   head "https://github.com/github/hub.git"
 
   bottle do
@@ -15,6 +17,13 @@ class Hub < Formula
   option "without-completions", "Disable bash/zsh completions"
 
   depends_on "go" => :build
+
+  # Fix "Error creating pull request: Created (HTTP 201)"
+  # Opened PR 12 Aug 2016: "CreatePullRequest: expect HTTP 201"
+  patch do
+    url "https://github.com/github/hub/pull/1228.patch"
+    sha256 "82f81155fcb436f207883fd0aabef98546bfa0032b3cd63a66eb624442091548"
+  end
 
   def install
     system "script/build", "-o", "hub"
