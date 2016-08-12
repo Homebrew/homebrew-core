@@ -1,8 +1,8 @@
 class Pgbadger < Formula
   desc "Log analyzer for PostgreSQL"
   homepage "https://dalibo.github.io/pgbadger/"
-  url "https://github.com/dalibo/pgbadger/archive/v8.1.tar.gz"
-  sha256 "db71fe98e00a6b05990a5e4624a6e2d37789201ec3d7697ff0db82ed4b027299"
+  url "https://github.com/dalibo/pgbadger/archive/v8.2.tar.gz"
+  sha256 "e4c596c021997aa2271300c57097f6e07814d3be49a96acf06b04bc35ede754e"
 
   head "https://github.com/dalibo/pgbadger.git"
 
@@ -20,8 +20,6 @@ class Pgbadger < Formula
 
     bin.install "usr/local/bin/pgbadger"
     man1.install "usr/local/share/man/man1/pgbadger.1p"
-    chmod 0755, bin+"pgbadger" # has 555 by default
-    chmod 0644, man1+"pgbadger.1p" # has 444 by default
   end
 
   def caveats; <<-EOS.undent
