@@ -1,8 +1,8 @@
 class Rocksdb < Formula
   desc "Persistent key-value store for fast storage environments"
   homepage "http://rocksdb.org"
-  url "https://github.com/facebook/rocksdb/archive/v4.5.1.tar.gz"
-  sha256 "c6a23a82352dd6bb6bd580db51beafe4c5efa382b16b722c100ce2e7d1a5e497"
+  url "https://github.com/facebook/rocksdb/archive/v4.8.tar.gz"
+  sha256 "dd129782c32adc80a1201c727a05e2f6d637c71941a4f797fb39e2ebe279415d"
 
   bottle do
     cellar :any
@@ -41,12 +41,12 @@ class Rocksdb < Formula
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-o", "db_test", "-v", "-std=c++11",
-                                "-stdlib=libc++",
-                                "-lstdc++",
-                                "-lrocksdb",
+    system ENV.cxx, "test.cpp", "-o", "db_test", "-v",
+                                "-std=c++11", "-stdlib=libc++", "-lstdc++",
                                 "-lz", "-lbz2",
-                                "-lsnappy", "-llz4"
+                                "-L#{lib}", "-lrocksdb",
+                                "-L#{Formula["snappy"].opt_lib}", "-lsnappy",
+                                "-L#{Formula["lz4"].opt_lib}", "-llz4"
     system "./db_test"
   end
 end
