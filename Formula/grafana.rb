@@ -74,7 +74,7 @@ class Grafana < Formula
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
-        <string>#{var}/share/grafana</string>
+        <string>#{var}/lib/grafana</string>
         <key>StandardErrorPath</key>
         <string>#{var}/log/grafana/grafana-stderr.log</string>
         <key>StandardOutPath</key>
