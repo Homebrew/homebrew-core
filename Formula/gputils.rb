@@ -11,9 +11,9 @@ class Gputils < Formula
   end
 
   devel do
-    url "https://downloads.sourceforge.net/project/gputils/gputils/1.5.0/gputils-1.5.0_RC2.tar.bz2"
-    version "1.5.0-rc2"
-    sha256 "20301360e0e5a7e9c4cdbbb934f335731c8914f7f5a64a1395dfdaeb412d225e"
+    url "https://downloads.sourceforge.net/project/gputils/gputils/1.5.0/gputils-1.5.0_RC5.tar.bz2"
+    version "1.5.0-rc5"
+    sha256 "793f4482a70e0e65b7152fa0183ed26ef7e8e19dff0205e5db7395b496ba1586"
   end
 
   def install
