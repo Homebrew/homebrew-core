@@ -4,7 +4,7 @@ class Gnupg < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-1.4.20.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-1.4.20.tar.bz2"
   sha256 "04988b1030fa28ddf961ca8ff6f0f8984e0cddcb1eb02859d5d8fe0fe237edcc"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "d8a2e1aa48c6b15f049184d07c1ed66195c41902f0aeaded626f01baf7ea11be" => :el_capitan
@@ -13,13 +13,19 @@ class Gnupg < Formula
   end
 
   depends_on "curl" if MacOS.version <= :mavericks
+  depends_on "libusb-compat" => :optional
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-asm",
-                          "--program-suffix=1"
+    args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+      --disable-asm
+      --program-suffix=1
+    ]
+    args << "--with-libusb=no" if build.without? "libusb-compat"
+
+    system "./configure", *args
     system "make"
     system "make", "check"
 
