@@ -9,10 +9,9 @@ class Pass < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "41f0fe499d0d20df5962ef0f51b18445eacd26705d4c4eb2e2283fc8f911a6ca" => :el_capitan
-    sha256 "a304dad35621f226856262d16fb3045f3ba424c255ff434eed27ee4543cd93ed" => :yosemite
-    sha256 "ce1f893a53205dc65cd857025a54067a36e37468948922114c46602da66f1bb4" => :mavericks
+    sha256 "b836275ace8b8e585a1ef824795f54b7a8b124228237982fbb6ee9ff12411616" => :el_capitan
+    sha256 "6ef1fee60f542dd951897b5085ac9c1f76a772a27d9b90a4097966e5b6bf7df2" => :yosemite
+    sha256 "c709c4f11aff94b6cf9ca73007013c23b4dfb1f7f45fdb0e4b4e5ea96374175e" => :mavericks
   end
 
   depends_on "pwgen"
