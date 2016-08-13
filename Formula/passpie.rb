@@ -11,9 +11,9 @@ class Passpie < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9d6bb3bd7ffd59287ca6e8f1f73cc2054aa5878eff613a5dcd15ef990be41f18" => :el_capitan
-    sha256 "1c1413eca1bdd41c58f980fd488e50d811cc59929df67d2d1cb4fd1cb6d9707e" => :yosemite
-    sha256 "f11202dd86fd4abd985bbe1f8f7c6e9aa5870c40a72388843b27944c37ca606e" => :mavericks
+    sha256 "2c50093ea44118894e21aec09c5eab2e116c552f2f7e853c6e38ac71d4974411" => :el_capitan
+    sha256 "b76f3ef05e592c7a565f762dd229d4c904e23b6d0236d2961cbc5c1d6b98699b" => :yosemite
+    sha256 "87ceac84c68ef931f577e0d78398235646e89ed796574287572e38b9731988e7" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
