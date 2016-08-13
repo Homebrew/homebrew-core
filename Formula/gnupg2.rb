@@ -69,6 +69,8 @@ class Gnupg2 < Formula
     # Add symlinks from gpg2 to unversioned executables, replacing gpg 1.x.
     bin.install_symlink "gpg2" => "gpg"
     bin.install_symlink "gpgv2" => "gpgv"
+    man1.install_symlink "gpg2.1" => "gpg.1"
+    man1.install_symlink "gpgv2.1" => "gpgv.1"
 
     # Gpg-zip isn't installed by this formula.
     rm_f man1/"gpg-zip.1"
