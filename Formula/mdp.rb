@@ -1,8 +1,8 @@
 class Mdp < Formula
   desc "Command-line based markdown presentation tool"
   homepage "https://github.com/visit1985/mdp"
-  url "https://github.com/visit1985/mdp/archive/1.0.7.tar.gz"
-  sha256 "0299f43d7de8540fd0b7f5176d33ec2c7a9838e543e86c556a78b7a801de8b6f"
+  url "https://github.com/visit1985/mdp/archive/1.0.8.tar.gz"
+  sha256 "e9a366afac877e86d2dbc8d9ca3585138b8208581079b44c94000300a8b1cf81"
   head "https://github.com/visit1985/mdp.git"
 
   bottle do
@@ -15,12 +15,10 @@ class Mdp < Formula
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
-    share.install "sample.md"
+    pkgshare.install "sample.md"
   end
 
   test do
-    # Go through two slides and quit.
-    ENV["TERM"] = "xterm"
-    pipe_output "#{bin}/mdp #{share}/sample.md", "jjq", 0
+    assert_match version.to_s, shell_output("#{bin}/mdp -v")
   end
 end
