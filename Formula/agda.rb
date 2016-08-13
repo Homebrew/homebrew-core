@@ -17,9 +17,10 @@ class Agda < Formula
   end
 
   bottle do
-    sha256 "8acc704bcf541cdf86f5f66667fceca18256309406154852710b1995edaf29fc" => :el_capitan
-    sha256 "cb96e1f74d7ae4621fd058ca8de67899f15bd638ef2c891064d84b3203e19097" => :yosemite
-    sha256 "f2d6c6377afcbc5ab2701b23c6cd6baa79c138a6563f31eb1803d5125414bbb3" => :mavericks
+    revision 1
+    sha256 "da0d064f704833f7594a2ece28d5aec82fdda17105d8059c955dd8e5f523270a" => :el_capitan
+    sha256 "4898eb5092dea5fb56a4c65cae2ff9eada1026f05901bb3056425b786dbb7d1e" => :yosemite
+    sha256 "c7a55550e0e9f4a440ceaa9a3348334a1eb792e3b9eb25e13d8dec643c06dab3" => :mavericks
   end
 
   head do
@@ -43,8 +44,7 @@ class Agda < Formula
     depends_on "cabal-install" => :build
   end
 
-  depends_on "gmp"
-  depends_on :emacs => ["21.1", :recommended]
+  depends_on :emacs => ["23.4", :recommended]
 
   def install
     # install Agda core

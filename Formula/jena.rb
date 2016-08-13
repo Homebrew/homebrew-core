@@ -14,9 +14,6 @@ class Jena < Formula
     EOS
   end
 
-  conflicts_with "samba",
-    :because => "both install `tdbbackup` and `tdbdump` binaries"
-
   def install
     rm_rf "bat" # Remove Windows scripts
 
@@ -25,7 +22,7 @@ class Jena < Formula
     libexec.install Dir["*"]
     Dir.glob("#{libexec}/bin/*") do |path|
       bin_name = File.basename(path)
-      (bin+bin_name).write shim_script(bin_name)
+      (bin/bin_name).write shim_script(bin_name)
     end
   end
 end

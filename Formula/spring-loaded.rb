@@ -1,9 +1,9 @@
 class SpringLoaded < Formula
   desc "Java agent to enable class reloading in a running JVM"
   homepage "https://github.com/spring-projects/spring-loaded"
-  url "https://repo.spring.io/simple/libs-release-local/org/springframework/springloaded/1.2.3.RELEASE/springloaded-1.2.3.RELEASE.jar"
-  version "1.2.3"
-  sha256 "c90c406c36ce077a9f76e05859d397aad7d0f427c6c395c6749cbdef697ba43f"
+  url "https://repo.spring.io/simple/libs-release-local/org/springframework/springloaded/1.2.6.RELEASE/springloaded-1.2.6.RELEASE.jar"
+  version "1.2.6"
+  sha256 "6edd6ffb3fd82c3eee95f5588465f1ab3a94fc5fff65b6e3a262f6de5323d203"
 
   bottle :unneeded
 

@@ -37,8 +37,8 @@ class Tvnamer < Formula
   test do
     raw_file = "brass.eye.s01e01.avi"
     expected_file = "Brass Eye - [01x01] - Animals.avi"
-    touch testpath/"#{raw_file}"
-    system "#{bin}/tvnamer", "-b", testpath/"#{raw_file}"
-    File.exist? testpath/"#{expected_file}"
+    touch testpath/raw_file
+    system bin/"tvnamer", "-b", testpath/raw_file
+    File.exist? testpath/expected_file
   end
 end

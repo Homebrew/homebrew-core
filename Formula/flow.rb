@@ -1,18 +1,15 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
-  # Switch back to archive tarball when possible.
-  # https://github.com/facebook/flow/issues/1981
-  url "https://github.com/facebook/flow.git",
-    :tag => "v0.28.0",
-    :revision => "e0a9b9782f6791019855cdc79ce54c560f97b5da"
+  url "https://github.com/facebook/flow/archive/v0.30.0.tar.gz"
+  sha256 "e28d84c0e43c53d46d3b0d1fcf6563f7579d8958d6b0d4b71cb6cb7e5941b4ca"
   head "https://github.com/facebook/flow.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "10e3be48ead5c466b05dbcfd18127bd96bfab07d5db911de1c4b76a3d059dfa7" => :el_capitan
-    sha256 "0ad49c02f0b0d31ff8cb15283cb6d573d1cc253e5c6d73ba58012899edac9a37" => :yosemite
-    sha256 "d5cc29bbd16a10eff51a7ff219c12911149e394ac94bb7f4dc37068b0338808a" => :mavericks
+    sha256 "12ea00619c07bc8b75bc941589a434f031f2e5b0d6173e8434ee175865d46808" => :el_capitan
+    sha256 "fb58725c821c2ee6e30058fa216aa2b14d6e44c55e08bd0d79024037da00d9eb" => :yosemite
+    sha256 "a3c5018b8144b5075944a40dabcdffdb9a61e6923fee5e440bd5b48047b482dc" => :mavericks
   end
 
   depends_on "ocaml" => :build

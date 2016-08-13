@@ -80,8 +80,7 @@ class Cairo < Formula
     glib = Formula["glib"]
     libpng = Formula["libpng"]
     pixman = Formula["pixman"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gettext.opt_include}

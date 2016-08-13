@@ -1,16 +1,15 @@
 class Envchain < Formula
   desc "Secure your credentials in environment variables"
   homepage "https://github.com/sorah/envchain"
-  url "https://github.com/sorah/envchain/archive/v0.2.0.tar.gz"
-  sha256 "2a863688d1e0bdc47ba8339f57c8b5e22f5002fd3ab58928766e45f23c6ca267"
+  url "https://github.com/sorah/envchain/archive/v1.0.1.tar.gz"
+  sha256 "09af1fe1cfba3719418f90d59c29c081e1f22b38249f0110305b657bd306e9ae"
   head "https://github.com/sorah/envchain.git"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "27fed93070f18030b9f4d4713a8b2973ddeaf4f7edf9f25326cd1cd7345fa97d" => :el_capitan
-    sha256 "261098a2972096a92f825e8a399564bf2992273ef4a1c56ee3a8341916cffcdb" => :yosemite
-    sha256 "9b4326d307d24a9a9f5656ca6d74c5dc9d4a8de8e02cfe721d4e4d0fc50f987f" => :mavericks
+    sha256 "4e34971c35ec6a716995a5e8d491970809bb5ce6c5651676f70d757b4044c834" => :el_capitan
+    sha256 "1de7c8c17e489b1f832078d3e5c403133accd187f2e666b44bb4da5d1d74f9f7" => :yosemite
+    sha256 "97f5160a1a9ec028afbaf25416de61f976ef7d74031a55c0f265d158627d4afd" => :mavericks
   end
 
   def install

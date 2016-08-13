@@ -5,24 +5,20 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.9.2.tar.gz"
-  sha256 "f02e5b39764346aa83103ef40cfd90e5aeea6958793ec64ab0eac37293b8df2f"
+  url "https://github.com/purescript/purescript/archive/v0.9.3.tar.gz"
+  sha256 "70ea9ea189300e8ce7ea89eec818a1c9e39be1e758638898b936028fc0155783"
   head "https://github.com/purescript/purescript.git"
 
   bottle do
-    sha256 "9e77153298a0c2d1cf511701cfdf3a7404eaefcd9865ea56d688dffdf1a4e8c7" => :el_capitan
-    sha256 "ddd0da77eeef694476183ea1b8302b50da47609283166ff39c2301ed72f4b800" => :yosemite
-    sha256 "bfb298f60105ec78f4bfaf904311f29135ea76b405950d5de0aa4db00be179c6" => :mavericks
+    sha256 "7493c36c9072080361e7c4e894fbc3b6207a41e28f916bbf832c45af17a9acd5" => :el_capitan
+    sha256 "0de9573c7822f266ac6ef4bfdd67c42c34dea0647bf9f7c00b1a2dea0f54c7a0" => :yosemite
+    sha256 "56219c3380d978226a1d7291352b9fba92b46d14c50414a4143ffce0235bfbd7" => :mavericks
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
-    # "ambiguous occurrence" errors for fromStrict, decodeUtf8, and encodeUtf8
-    # protlude 0.1.6 issue reported 11 Jul 2016: purescript/purescript#2225
-    inreplace "purescript.cabal", "protolude >= 0.1.5,", "protolude == 0.1.5,"
-
     install_cabal_package :using => ["alex", "happy"]
   end
 

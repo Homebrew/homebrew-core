@@ -1,19 +1,16 @@
-require "language/go"
-
 class DockerMachineDriverXhyve < Formula
   desc "Docker Machine driver for xhyve"
   homepage "https://github.com/zchee/docker-machine-driver-xhyve"
   url "https://github.com/zchee/docker-machine-driver-xhyve.git",
-    :tag => "v0.2.2",
-    :revision => "7a7e30b80a9ee444e5e67fd1839422e201a1b328"
+    :tag => "v0.2.3",
+    :revision => "45426155af2998e9cf8a5eca12158fcf4d1acfd3"
 
   head "https://github.com/zchee/docker-machine-driver-xhyve.git"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "3ac1390e5fcfc3ff7d02fbabdde3bd16af888157c02dbbb8ba962e803c675506" => :el_capitan
-    sha256 "a3b403bc9345f1a1af306c4fd16516998835b5fc5e625ca39d03f0d1fb004749" => :yosemite
+    sha256 "0c9254d6b999a82bd47939f72d4f270b934971351c8bf745a4e12b6900108c1d" => :el_capitan
+    sha256 "dd8efbfed1d526d159355ed06273540c4e4db0ce3e683e475b7985efaf3e5084" => :yosemite
   end
 
   depends_on :macos => :yosemite
@@ -29,11 +26,11 @@ class DockerMachineDriverXhyve < Formula
       if build.head?
         git_hash = `git rev-parse --short HEAD --quiet`.chomp
         git_hash = "HEAD-#{git_hash}"
-        ENV["CGO_LDFLAGS"] = "#{build_root}/vendor/build/lib9p/lib9p.a -L#{build_root}/vendor/lib9p"
-        ENV["CGO_CFLAGS"] = "-I#{build_root}/vendor/lib9p"
-        system "make", "lib9p"
       end
-      system "go", "build", "-x", "-o", bin/"docker-machine-driver-xhyve",
+      ENV["CGO_LDFLAGS"] = "#{build_root}/vendor/build/lib9p/lib9p.a -L#{build_root}/vendor/lib9p"
+      ENV["CGO_CFLAGS"] = "-I#{build_root}/vendor/lib9p"
+      system "make", "lib9p"
+      system "go", "build", "-tags", "lib9p", "-x", "-o", bin/"docker-machine-driver-xhyve",
       "-ldflags",
       "'-w -s'",
       "-ldflags",

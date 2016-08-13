@@ -1,23 +1,75 @@
 class Go < Formula
   desc "Go programming environment"
   homepage "https://golang.org"
-  url "https://storage.googleapis.com/golang/go1.6.2.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.6.2.src.tar.gz"
-  version "1.6.2"
-  sha256 "787b0b750d037016a30c6ed05a8a70a91b2e9db4bd9b1a2453aa502a63f1bccc"
 
-  head "https://github.com/golang/go.git"
+  stable do
+    url "https://storage.googleapis.com/golang/go1.6.3.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.6.3.src.tar.gz"
+    version "1.6.3"
+    sha256 "6326aeed5f86cf18f16d6dc831405614f855e2d416a91fd3fdc334f772345b00"
+
+    # 1.6.3 does not build on macOS Sierra. Users should use devel instead
+    # until 1.7 is stable (due soon).
+    depends_on MaximumMacOSRequirement => :el_capitan
+
+    # Should use the last stable binary release to bootstrap.
+    resource "gobootstrap" do
+      url "https://storage.googleapis.com/golang/go1.6.2.darwin-amd64.tar.gz"
+      version "1.6.2"
+      sha256 "6ebbafcac53bbbf8c4105fa84b63cca3d6ce04370f5a04ac2ac065782397fc26"
+    end
+
+    go_version = "1.6"
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git",
+          :branch => "release-branch.go#{go_version}",
+          :revision => "c887be1b2ebd11663d4bf2fbca508c449172339e"
+    end
+  end
 
   bottle do
-    sha256 "d5bc857fefd343383d00cf6083bc56297e35a1e202bf4414c10562c9456db362" => :el_capitan
-    sha256 "d3ff36402dc9e1319ac5ae0b38d65ded681eeacc490160d626f9fa18e4f6994f" => :yosemite
-    sha256 "0cf1ef52a5ac93b20b5f8cce1d7f2fd470fd0af9ac70d5ecea77ec7a87dee92c" => :mavericks
+    revision 1
+    sha256 "f06ee1c467cdaa7574ebfc52dad2941b65e349266e1e42ff788383c55b1db7d1" => :el_capitan
+    sha256 "1a849c88620cdaf0c8772ff1e57e3f22d2c9ca7dc2533de479334c492b7200e7" => :yosemite
+    sha256 "5f570b6c7aa2d7caa6c715af6dce6fa30d7fbd5acc46fac8fbc3232270956f9e" => :mavericks
   end
 
   devel do
-    url "https://storage.googleapis.com/golang/go1.7rc1.src.tar.gz"
-    version "1.7rc1"
-    sha256 "f26b42ea8d3de92efda5e2f7172b22d59e19676f23bbcf64412b32b4f4a5ff58"
+    url "https://storage.googleapis.com/golang/go1.7rc6.src.tar.gz"
+    version "1.7rc6"
+    sha256 "a289943548b838c7ef606a37836d1db080a3cb3c6df4e76456e23609b8505d05"
+
+    # Should use the last stable binary release to bootstrap.
+    # Not the case here because 1.6.3 is lacking a fix for an issue which breaks
+    # compile on macOS Sierra; in future this should share bootstrap with stable.
+    resource "gobootstrap" do
+      url "https://storage.googleapis.com/golang/go1.7rc6.darwin-amd64.tar.gz"
+      version "1.7rc6"
+      sha256 "ffe440747f7c663d7fc276b167ac630f921e66674c9952c97eed26fea9c8ac58"
+    end
+
+    go_version = "1.7"
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git",
+          :branch => "release-branch.go#{go_version}",
+          :revision => "a84e830bb0d2811304f6e66498eb3123ca97b68e"
+    end
+  end
+
+  head do
+    url "https://github.com/golang/go.git"
+
+    # Should use the last stable binary release to bootstrap.
+    # See devel for notes as to why not the case here, for now.
+    resource "gobootstrap" do
+      url "https://storage.googleapis.com/golang/go1.7rc6.darwin-amd64.tar.gz"
+      version "1.7rc6"
+      sha256 "ffe440747f7c663d7fc276b167ac630f921e66674c9952c97eed26fea9c8ac58"
+    end
+
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git"
+    end
   end
 
   option "without-cgo", "Build without cgo"
@@ -25,36 +77,11 @@ class Go < Formula
   option "without-vet", "vet will not be installed for you"
   option "without-race", "Build without race detector"
 
-  go_version = "1.6"
-
-  resource "gotools" do
-    url "https://go.googlesource.com/tools.git",
-    :branch => "release-branch.go#{go_version}",
-    :revision => "c887be1b2ebd11663d4bf2fbca508c449172339e"
-  end
-
-  resource "gobootstrap" do
-    if MacOS.version > :lion
-      url "https://storage.googleapis.com/golang/go1.4.2.darwin-amd64-osx10.8.tar.gz"
-      sha256 "c2f53983fc8fe5159d811081022ebc401b8111759ce008f91193abdae82cdbc9"
-    else
-      url "https://storage.googleapis.com/golang/go1.4.2.darwin-amd64-osx10.6.tar.gz"
-      sha256 "da40e85a2c9bda9d2c29755c8b57b8d5932440ba466ca366c2a667697a62da4c"
-    end
-  end
+  depends_on :macos => :mountain_lion
 
   def install
-    # GOROOT_FINAL must be overidden later on real Go install
-    ENV["GOROOT_FINAL"] = buildpath/"gobootstrap"
-
-    # build the gobootstrap toolchain Go >=1.4
     (buildpath/"gobootstrap").install resource("gobootstrap")
-    cd "#{buildpath}/gobootstrap/src" do
-      system "./make.bash", "--no-clean"
-    end
-    # This should happen after we build the test Go, just in case
-    # the bootstrap toolchain is aware of this variable too.
-    ENV["GOROOT_BOOTSTRAP"] = ENV["GOROOT_FINAL"]
+    ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
@@ -87,7 +114,9 @@ class Go < Formula
         bin.install_symlink libexec/"bin/godoc"
       end
 
-      if build.with? "vet"
+      # go vet is now part of the standard Go toolchain. Remove this block
+      # and the option once Go 1.7 is released
+      if build.with?("vet") && File.exist?("src/golang.org/x/tools/cmd/vet/")
         cd "src/golang.org/x/tools/cmd/vet/" do
           system "go", "build"
           # This is where Go puts vet natively; not in the bin.

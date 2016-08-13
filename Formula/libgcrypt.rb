@@ -1,15 +1,16 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://directory.fsf.org/wiki/Libgcrypt"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.1.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.1.tar.bz2"
-  sha256 "450d9cfcbf1611c64dbe3bd04b627b83379ef89f11406d94c8bba305e36d7a95"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.2.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.2.tar.bz2"
+  sha256 "3d35df906d6eab354504c05d749a9b021944cb29ff5f65c8ef9c3dd5f7b6689f"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "94b6b3a485de8058ead4f6d18bd383b3618f61918c5f9e34f617b019ad0f16d8" => :el_capitan
-    sha256 "86e5475d3adcca875723f6ff552759812d0a0565f66e1acdd957009b0d0ff300" => :yosemite
-    sha256 "80610d469a9165e1fcdd413c95e6b97a272e65dcf5c6d3a68afbd171b51e4246" => :mavericks
+    sha256 "506dba4480759340c8086178ad7c82a27ab0388c7ff679a1f53c742c271acffa" => :el_capitan
+    sha256 "4cc2302042335a0c2e849b200f8410e8dc5c3ee4a51fc705c1b03853d6215a92" => :yosemite
+    sha256 "d18641e490bf7c7e7b158aab67ae2e5dc84383c3e436d436864f7500bf842b2c" => :mavericks
   end
 
   option :universal
@@ -24,6 +25,12 @@ class Libgcrypt < Formula
 
   def install
     ENV.universal_binary if build.universal?
+    # Temporary hack to get libgcrypt building on macOS 10.12.
+    # Seems to be a Clang issue rather than an upstream one, so
+    # keep checking whether or not this is necessary.
+    # Should be reported to GnuPG if still an issue when near stable.
+    # https://github.com/Homebrew/homebrew-core/issues/1957
+    ENV.O1 if MacOS.version >= :sierra
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -38,12 +45,19 @@ class Libgcrypt < Formula
 
     # Parallel builds work, but only when run as separate steps
     system "make"
-    system "make", "install"
-    # Make check currently dies on El Capitan
-    # https://github.com/Homebrew/homebrew/issues/41599
+    # Slightly hideous hack to help `make check` work in
+    # normal place on >10.10 where SIP is enabled.
+    # https://github.com/Homebrew/homebrew-core/pull/3004
     # https://bugs.gnupg.org/gnupg/issue2056
-    # This check should be above make install again when fixed.
+    system "install_name_tool", "-change",
+                                lib/"libgcrypt.20.dylib",
+                                buildpath/"src/.libs/libgcrypt.20.dylib",
+                                buildpath/"tests/.libs/random"
     system "make", "check"
+    system "make", "install"
+
+    # avoid triggering mandatory rebuilds of software that hard-codes this path
+    inreplace bin/"libgcrypt-config", prefix, opt_prefix
   end
 
   test do

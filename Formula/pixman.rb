@@ -49,8 +49,7 @@ class Pixman < Formula
         return 0;
       }
     EOS
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{include}/pixman-1
       -L#{lib}
       -lpixman-1

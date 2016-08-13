@@ -1,13 +1,12 @@
 class ShibbolethSp < Formula
   desc "Shibboleth 2 Service Provider daemon"
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
-  url "https://shibboleth.net/downloads/service-provider/2.5.6/shibboleth-sp-2.5.6.tar.gz"
-  sha256 "024739a7b5190aebecac913d9445719912c6e4e401bfe256a25ca75ab4e67ad5"
+  url "https://shibboleth.net/downloads/service-provider/2.6.0/shibboleth-sp-2.6.0.tar.gz"
+  sha256 "7f23b8a28e66ae1b0fe525ca1f8b84c4566a071367f5d9a1bd71bd6b29e4d985"
 
   bottle do
-    revision 1
-    sha256 "8c59bf2a970e23c72e9c2bb3e2a84a534d184acee65e4b9ffca0dccfc16018e4" => :el_capitan
-    sha256 "ec99fed7eee7454a6ddb0640aa160fbb5c7eb0215c15a9e35eb231882a2def18" => :yosemite
+    sha256 "9f33907bb6441ff6328054daf38c29aad3a2d0192bcdc7faf5d944e81f3fbfd4" => :el_capitan
+    sha256 "2982149b3c8ef861bc61113f8adf661a4de1c770600093f86190800236d6dda4" => :yosemite
   end
 
   option "with-apache-22", "Build mod_shib_22.so instead of mod_shib_24.so"
@@ -15,11 +14,12 @@ class ShibbolethSp < Formula
   depends_on :macos => :yosemite
   depends_on "curl" => "with-openssl"
   depends_on "opensaml"
-  depends_on "xml-tooling-c" => "with-openssl"
+  depends_on "xml-tooling-c"
   depends_on "xerces-c"
   depends_on "xml-security-c"
   depends_on "log4shib"
   depends_on "boost"
+  depends_on "unixodbc"
 
   def install
     ENV.O2 # Os breaks the build

@@ -1,18 +1,22 @@
 class GnuComplexity < Formula
   desc "Measures complexity of C source"
   homepage "https://www.gnu.org/software/complexity"
-  url "https://ftpmirror.gnu.org/complexity/complexity-1.5.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/complexity/complexity-1.5.tar.xz"
-  sha256 "1f5194c0dc6e813ea1dc7f36bfd05f15786a8ad6e9b3ab65b53d2263a0d93102"
+  url "https://ftpmirror.gnu.org/complexity/complexity-1.10.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/complexity/complexity-1.10.tar.xz"
+  sha256 "6d378a3ef9d68938ada2610ce32f63292677d3b5c427983e8d72702167a22053"
 
   bottle do
     cellar :any
-    sha256 "544d5ebed4cc5f67c8163c235b3395b037b7a3f1ca65a7a9b7933fd0a720372d" => :el_capitan
-    sha256 "8ea7c8980ece29c92bbd61fb0c407d636bbb92f648b2766be2d6b729fdc496f9" => :yosemite
-    sha256 "fe927c4a8849726433828cec20ac0716a543105f2038e030cdf4e4df2085adc0" => :mavericks
+    sha256 "89b7043d1f51fc6ff7a1e96f8ed23bbac73bbb7196a04851a2cf29475b0803f7" => :el_capitan
+    sha256 "35a8ac468a12565af95b82c75d6b45c9c55c27fa769244f0bd87ec69b10742b1" => :yosemite
+    sha256 "5aba079cba5a07f3e754019cd11ed767ab65cd6c4dcef33eea9e94b94bae19eb" => :mavericks
   end
 
   depends_on "autogen" => :run
+  depends_on "gcc" if MacOS.version <= :mavericks
+
+  # error: use of undeclared identifier '__noreturn__'
+  fails_with :clang if MacOS.version <= :mavericks
 
   def install
     system "./configure", "--disable-dependency-tracking",

@@ -1,13 +1,13 @@
 class BaculaFd < Formula
   desc "Network backup solution"
   homepage "http://www.bacula.org/"
-  url "https://downloads.sourceforge.net/project/bacula/bacula/7.4.2/bacula-7.4.2.tar.gz"
-  sha256 "0c5f7fe1d35fc2aa4ffba73e977b710b955b1fe3e45ab90c67b47b279152ad67"
+  url "https://downloads.sourceforge.net/project/bacula/bacula/7.4.3/bacula-7.4.3.tar.gz"
+  sha256 "597db51997fcdb4c8bdc201f2dc22b466e69152bc2945e2222a27f4ffaeba5bc"
 
   bottle do
-    sha256 "c496a445dadc46ae620b7dd74503b888ae83052511c3b1dfcd7b7e2e70552819" => :el_capitan
-    sha256 "86a4cdcb8f7c3bb3b93a6377e4020ada2dc3cb495f9924910c396f45db5b6808" => :yosemite
-    sha256 "2865d98fd39ac5d69917fffc9afca14eccdc76b4d74f0ec85339594776df3c6c" => :mavericks
+    sha256 "c4d151638573421aebb24af923adeb5fe84bcf64ed15f336def4581e04520d20" => :el_capitan
+    sha256 "92b170b3501e97979f17ae15a40574454178112b80b6044ea79b9fcf51b73634" => :yosemite
+    sha256 "fd770a2d7ccd6f687bc7d40c046b37bbe83011b726581717fd05711366381f09" => :mavericks
   end
 
   depends_on "readline"

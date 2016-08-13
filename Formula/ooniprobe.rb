@@ -1,14 +1,14 @@
 class Ooniprobe < Formula
   desc "Network interference detection tool"
   homepage "https://ooni.torproject.org/"
-  url "https://pypi.python.org/packages/93/39/e679fd5590243112cbec0ca0d98ba6b698e5df3000d26b0735820c1c1df0/ooniprobe-1.5.1.tar.gz"
-  sha256 "42095417b084eec3a0bf3b9746885e5292f620427f0e550b9c0cd0fe34e7c790"
+  url "https://pypi.python.org/packages/b4/6f/41d2e88cb59cfcbd501a00debf6fbc30d152f928d7e69da41ddfcf369870/ooniprobe-1.6.0.tar.gz"
+  sha256 "6ec8e5d3cf19b286b6863e2d19dac4244526db9757effde3b6cfda5f725da170"
 
   bottle do
     cellar :any
-    sha256 "c4710312cdf2c66e0b404e7332c6757fd8ed201a0f9e7107e0bfed30ebb6bd06" => :el_capitan
-    sha256 "b099a545c8cda47a36fd7bbbf1f22b681d0922fb4cee675078ad5b0fe0a435cc" => :yosemite
-    sha256 "bcd1c7de8240c2ed922c7a882c7cdf346c86e8baae2fdbececb062524df7a407" => :mavericks
+    sha256 "92acbfb671dd47724e42134a1bb6c5421cdaaf2f71482a6a10c9db87f9cabd1e" => :el_capitan
+    sha256 "92d3efdacab3b896df7fa565372e3dd6832af7225d843ef662e0b601ff5fa620" => :yosemite
+    sha256 "e7e76ecbdfae71dfaf0f2e2dc7207a6d53953350074be242c801275c0272b01f" => :mavericks
   end
 
   depends_on "geoip"
@@ -143,10 +143,8 @@ class Ooniprobe < Formula
     # namespace package hint
     touch libexec/"vendor/lib/python2.7/site-packages/zope/__init__.py"
 
-    inreplace "requirements.txt" do |s|
-      # provided by libdnet
-      s.gsub! "pydumbnet", ""
-    end
+    # provided by libdnet
+    inreplace "requirements.txt", "pydumbnet", ""
 
     # force a distutils install
     inreplace "setup.py", "def run(", "def norun("
@@ -163,17 +161,59 @@ class Ooniprobe < Formula
 
     man1.install Dir["data/*.1"]
     (share/"ooni").install Dir["data/*"]
-    (var/"lib/ooni").mkpath
   end
 
   def post_install
+    require "open3"
+
+    (var/"lib/ooni").mkpath
     system bin/"ooniresources"
-    system bin/"oonideckgen", "-o", "#{HOMEBREW_PREFIX}/share/ooni/decks/"
+    Open3.popen3("#{bin}/oonideckgen", "-o",
+                 "#{HOMEBREW_PREFIX}/share/ooni/decks/") do |_, stdout, _|
+      current_deck = stdout.read.split("\n")[-1].split(" ")[-1]
+      ln_s current_deck, "#{HOMEBREW_PREFIX}/share/ooni/decks/current.deck"
+    end
   end
 
   def caveats; <<-EOS.undent
-    Decks are installed to #{HOMEBREW_PREFIX}/share/ooni.
+    Decks are installed to #{HOMEBREW_PREFIX}/share/ooni/decks/.
     EOS
+  end
+
+  plist_options :startup => "true", :manual => "ooniprobe -i #{HOMEBREW_PREFIX}/share/ooni/decks/current.deck"
+
+  def plist; <<-EOS.undent
+   <?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+   <plist version="1.0">
+   <dict>
+     <key>Label</key>
+       <string>#{plist_name}</string>
+     <key>Program</key>
+       <string>#{opt_bin}/ooniprobe</string>
+     <key>ProgramArguments</key>
+     <array>
+       <string>-i</string>
+       <string>#{opt_share}/ooni/decks/current.deck</string>
+     </array>
+     <key>RunAtLoad</key>
+       <false/>
+     <key>KeepAlive</key>
+       <false/>
+     <key>StandardErrorPath</key>
+       <string>/dev/null</string>
+     <key>StandardOutPath</key>
+       <string>/dev/null</string>
+     <key>StartCalendarInterval</key>
+     <dict>
+       <key>Hour</key>
+       <integer>00</integer>
+       <key>Minute</key>
+       <integer>00</integer>
+     </dict>
+   </dict>
+   </plist>
+   EOS
   end
 
   test do

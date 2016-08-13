@@ -39,8 +39,7 @@ class Libpeas < Formula
     glib = Formula["glib"]
     gobject_introspection = Formula["gobject-introspection"]
     libffi = Formula["libffi"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include

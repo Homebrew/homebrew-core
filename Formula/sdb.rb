@@ -1,14 +1,14 @@
 class Sdb < Formula
   desc "Ondisk/memory hashtable based on CDB."
   homepage "https://github.com/radare/sdb"
-  url "http://www.radare.org/get/sdb-0.10.1.tar.gz"
-  sha256 "dc17ce4bc6c2a5f2e63a404c3444d7ce4992c735e0ab04c93eb03ef8d965b3fa"
+  url "http://www.radare.org/get/sdb-0.10.4.tar.gz"
+  sha256 "124e9ca05308100876bd1faf3f71c062be1236846600729d4aa9029f41a08a11"
 
   bottle do
     cellar :any
-    sha256 "a4d2903fb39d96ee2348ac1f5ee1fd09eab76cedbb47ffa2c76e66b03bfa4d58" => :el_capitan
-    sha256 "bf924a465696ccb15322d4075f420d7d4cd2b710d13832bcd9cc287b80d1326f" => :yosemite
-    sha256 "59f1108403e7a9f469235fe212feeef064735a712024496a1ed8b432eb130316" => :mavericks
+    sha256 "4db46d19a461fc1e520bda253576cb239c3211830d1dce726d2b885221c48c39" => :el_capitan
+    sha256 "852756f342805573e86ca7bcf0616e403fae60860742a586ea6a792178ece176" => :yosemite
+    sha256 "55ff889faef6918a5fd7c33e9a12c29367c9115889668cfd91e4e754873386af" => :mavericks
   end
 
   depends_on "pkg-config" => :build

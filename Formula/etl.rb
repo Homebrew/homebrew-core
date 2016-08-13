@@ -27,8 +27,7 @@ class Etl < Formula
         return 6 - rv;
       }
     EOS
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{include}
       -lpthread
     ]

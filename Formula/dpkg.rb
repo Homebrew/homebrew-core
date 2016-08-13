@@ -1,15 +1,14 @@
 class Dpkg < Formula
   desc "Debian package management system"
   homepage "https://wiki.debian.org/Teams/Dpkg"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.4.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.4.tar.xz"
-  sha256 "fe89243868888ce715bf45861f26264f767d4e4dbd0d6f1a26ce60bbbbf106da"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.9.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.9.tar.xz"
+  sha256 "86ac4af917e9e75eb9b6c947a0a11439d1de32f72237413f7ddab17f77082093"
 
   bottle do
-    revision 1
-    sha256 "e6ba155240fe365ee05567909c86096bb4ffa4162bbba8a07ecc5c7e22916250" => :el_capitan
-    sha256 "cb856a812621215882eb2c96a371bf4786e7b3a2997c49a7aeba19ec64f9563d" => :yosemite
-    sha256 "80f3d962fee89e0ae81d304d6d2b159052df6afd83b8d49507b61df62d12a52b" => :mavericks
+    sha256 "cada0260bc04079190511a516518d6309332dc75f197e582c13420d91370b3d1" => :el_capitan
+    sha256 "605791b7e30c8f2c26eb0e107af0a5945eb831809e1d1a596c18c915fe6bd2e7" => :yosemite
+    sha256 "82679e30cabe16be16c5dc81be7b551a7de27372c837cb5f74e35b431457c88d" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -39,14 +38,19 @@ class Dpkg < Formula
     system "make"
     system "make", "install"
 
-    bin.install Dir["#{libexec}/bin/*"]
-    man.install Dir["#{libexec}/share/man/*"]
-    (lib/"pkgconfig").install_symlink Dir["#{libexec}/lib/pkgconfig/*.pc"]
-    bin.env_script_all_files(libexec+"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.install Dir[libexec/"bin/*"]
+    man.install Dir[libexec/"share/man/*"]
+    (lib/"pkgconfig").install_symlink Dir[libexec/"lib/pkgconfig/*.pc"]
+    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
 
     (buildpath/"dummy").write "Vendor: dummy\n"
     (etc/"dpkg/origins").install "dummy"
     (etc/"dpkg/origins").install_symlink "dummy" => "default"
+  end
+
+  def post_install
+    (var/"lib/dpkg").mkpath
+    (var/"log").mkpath
   end
 
   def caveats; <<-EOS.undent

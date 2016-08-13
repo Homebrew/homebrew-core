@@ -4,18 +4,18 @@ class Yaz < Formula
   url "http://ftp.indexdata.dk/pub/yaz/yaz-5.16.0.tar.gz"
   sha256 "46708320152c1475f6a5ee6f29903caa76121c2440123051546c1b3403c78686"
 
-  head do
-    url "https://github.com/indexdata/yaz.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
-
   bottle do
     cellar :any
     sha256 "20027255c45c35bfe555491c4eb142baef9e04cedf591389a7b220f0d0d3d540" => :el_capitan
     sha256 "fead54929afc14c84dda24e8360c1281af45f91aa48884b7c6584460bb8df6fe" => :yosemite
     sha256 "2ef8e7ec3a9db92bc26e00539da2a35aeed4c5b64a476cc1d27d6c7a814f7242" => :mavericks
+  end
+
+  head do
+    url "https://github.com/indexdata/yaz.git"
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
   end
 
   option :universal

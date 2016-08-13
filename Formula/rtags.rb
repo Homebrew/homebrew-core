@@ -2,19 +2,19 @@ class Rtags < Formula
   desc "ctags-like source code cross-referencer with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
   url "https://github.com/Andersbakken/rtags.git",
-      :tag => "v2.2",
-      :revision => "925a188e4038fa6e4a7c8ea4d30d682609c46578"
+      :tag => "v2.3",
+      :revision => "da75268b1caa973402ab17e501718da7fc748b34"
 
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
-    sha256 "7eba56cbea17e32c329164835d782d120a3aacacbe8d1cdf0e5761a52bf7f6e3" => :el_capitan
-    sha256 "f344da9acdca6ffd14e18eff1cd2b6f1bb446b25c182328cc27c4832b46d8854" => :yosemite
-    sha256 "fc16449d0ae6e8a1104833ef97839d82d9f3fab840e9e4bd069fab41bc77e36b" => :mavericks
+    sha256 "92ddceb4c7186da6627fc1b607f573cd36fe661b90ece0c5833ff18811c5462b" => :el_capitan
+    sha256 "568f12abc4ef51856ebfa3b33373a7003b568ac6447f37ab747a38aac242946f" => :yosemite
+    sha256 "2989f3179d501a2617a0ed37e1ed4f89aff0372e687f6724b526539bb329d3c2" => :mavericks
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" => "with-clang"
+  depends_on "llvm"
   depends_on "openssl"
 
   def install

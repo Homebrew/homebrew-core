@@ -20,7 +20,7 @@ class Ssdeep < Formula
   test do
     expected = <<-EOS.undent
       ssdeep,1.1--blocksize:hash:hash,filename
-      192:15Jsxlk/azhE79EEfpm0sfQ+CfQoDfpw3RtU:15JsPz+7OEBCYLYYB7,"/usr/local/Cellar/ssdeep/2.13/include/fuzzy.h"
+      192:15Jsxlk/azhE79EEfpm0sfQ+CfQoDfpw3RtU:15JsPz+7OEBCYLYYB7,"#{include}/fuzzy.h"
     EOS
     assert_equal expected, shell_output("#{bin}/ssdeep #{include}/fuzzy.h")
   end

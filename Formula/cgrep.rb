@@ -5,14 +5,14 @@ class Cgrep < Formula
 
   desc "Context-aware grep for source code"
   homepage "https://github.com/awgn/cgrep"
-  url "https://hackage.haskell.org/package/cgrep-6.6.15/cgrep-6.6.15.tar.gz"
-  sha256 "f58a557fecdc7066ec60653e7c902b8baedcf4f44a81f890265374b6dab9affa"
+  url "https://hackage.haskell.org/package/cgrep-6.6.16/cgrep-6.6.16.tar.gz"
+  sha256 "7161e331f409ee95abfab14f720ad300ce4c9bd37a9fae74de6643c0f30b134b"
   head "https://github.com/awgn/cgrep.git"
 
   bottle do
-    sha256 "1317722acff1a6cd85f28e6fd053ae970a737aa83adcbf1385a4cd02a03629ee" => :el_capitan
-    sha256 "c77f375e2aa5672a3c2d1a09fbced92ec61030010bbe7a0a92ddbebaec69c122" => :yosemite
-    sha256 "5b6562ffc2f147e4e5ce913a78cc94378119e01b2f4bd9f9ef295caaf0859b18" => :mavericks
+    sha256 "98d4ba0d26067ecec668a5e473f647cab473f64ebd4e2bf4c4188825258aae74" => :el_capitan
+    sha256 "e9798fce89cacdbd455abce2671577cbc1499fb5dc27910b3f446dfe96c8b6cb" => :yosemite
+    sha256 "b31b3a173ef35d52dc04228605d3f457f68cdb964926110afcd3b163da7292e6" => :mavericks
   end
 
   depends_on "ghc" => :build

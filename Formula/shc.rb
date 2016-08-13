@@ -1,34 +1,30 @@
 class Shc < Formula
   desc "Shell Script Compiler"
   homepage "https://neurobin.github.io/shc"
-  url "https://github.com/neurobin/shc/archive/3.9.3a.tar.gz"
-  version "3.9.3a"
-  sha256 "76b3693cbf9db027e13c9f72d789d8197614ee872e421609a708ddb915bbc9d8"
-
+  url "https://github.com/neurobin/shc/archive/3.9.3.tar.gz"
+  sha256 "b7120f66177a35af7dc42763a55e7ade3a80043c0188739e57bcc648a5ac4bb3"
   head "https://github.com/neurobin/shc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cacc738baf6282ee5f8e65c306f47787fd9a817a2e75f38f91c93640ff6d48f6" => :el_capitan
-    sha256 "bbd21d92cd05f24b27b0f5f122565e1ebdc6e61856ea18b293b5438bf3a24aed" => :yosemite
-    sha256 "8e78fd63f9e46f1bcdbef8c94f1cebaffec264065e38cca1bfd7003d2d3fd057" => :mavericks
+    sha256 "918944db57ab256090519ccc01c438d8c155c845ecbe17a229f26aa4f89b73e6" => :el_capitan
+    sha256 "76553475bbd0e302f140ce18bf768a882c2b1dbf47b4b30670767cf021405783" => :yosemite
+    sha256 "7d24f1d903daaf3bda4cfa84f97fca6e5cbdf8e630d0b235671a625062053507" => :mavericks
   end
 
   def install
-    # Fix install scripts' permissions.
-    # submitted upstream: https://github.com/neurobin/shc/pull/8
-    chmod 0755, ["configure", "config/install-sh"]
-
     system "./configure"
     system "make", "install", "prefix=#{prefix}"
+    pkgshare.install "test"
   end
 
   test do
     (testpath/"test.sh").write <<-EOS.undent
       #!/bin/sh
+      echo hello
       exit 0
     EOS
-    system "#{bin}/shc", "-f", "test.sh", "-o", "test"
-    system "./test"
+    system bin/"shc", "-f", "test.sh", "-o", "test"
+    assert_equal "hello", shell_output("./test").chomp
   end
 end

@@ -12,37 +12,47 @@ class NetSnmp < Formula
     sha256 "f2c4102f61ee8d6ad151bdbe6da97a5fc5127e84e7939f5e1672f81414a28873" => :mountain_lion
   end
 
+  keg_only :provided_by_osx
+
   depends_on "openssl"
   depends_on :python => :optional
 
-  keg_only :provided_by_osx
-
   def install
-    args = [
-      "--disable-debugging",
-      "--prefix=#{prefix}",
-      "--enable-ipv6",
-      "--with-defaults",
-      "--with-persistent-directory=#{var}/db/net-snmp",
-      "--with-logfile=#{var}/log/snmpd.log",
-      "--with-mib-modules=host ucd-snmp/diskio",
-      "--without-rpm",
-      "--without-kmem-usage",
-      "--disable-embedded-perl",
-      "--without-perl-modules"
+    args = %W[
+      --disable-debugging
+      --prefix=#{prefix}
+      --enable-ipv6
+      --with-defaults
+      --with-persistent-directory=#{var}/db/net-snmp
+      --with-logfile=#{var}/log/snmpd.log
+      --with-mib-modules=host ucd-snmp/diskio
+      --without-rpm
+      --without-kmem-usage
+      --disable-embedded-perl
+      --without-perl-modules
     ]
 
     if build.with? "python"
       args << "--with-python-modules"
-      ENV["PYTHONPROG"] = `which python`
+      ENV["PYTHONPROG"] = which("python")
     end
 
     # https://sourceforge.net/p/net-snmp/bugs/2504/
     ln_s "darwin13.h", "include/net-snmp/system/darwin14.h"
     ln_s "darwin13.h", "include/net-snmp/system/darwin15.h"
+    ln_s "darwin13.h", "include/net-snmp/system/darwin16.h"
 
     system "./configure", *args
     system "make"
     system "make", "install"
+  end
+
+  def post_install
+    (var/"db/net-snmp").mkpath
+    (var/"log").mkpath
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/snmpwalk -V 2>&1")
   end
 end

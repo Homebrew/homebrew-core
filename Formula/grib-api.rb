@@ -5,9 +5,10 @@ class GribApi < Formula
   sha256 "0068ca4149a9f991d4c86a813ac73b4e2299c6a3fd53aba9e6ab276ef6f0ff9a"
 
   bottle do
-    sha256 "9f094d8bfd27b69f6a74041317bdb768797f4a1d537ea7d48f8f70d20f485bc0" => :el_capitan
-    sha256 "e3e044737aeb3a7b91c61478b18d0eacfda406b8b845ef35c3225b2811c2fefb" => :yosemite
-    sha256 "3b4164b27b1a5133d324d026f3569c8d613a60a39171d6a22643a57b3182f64f" => :mavericks
+    revision 1
+    sha256 "036c3b51c4fd1b395621a203f6371e49e5556fd4f5d57406387d177d694f6f93" => :el_capitan
+    sha256 "99812f0ed49d23691574e0ca6848e9b4565576c252df94d92a402e1830729359" => :yosemite
+    sha256 "fa86bc7113fe94511e8c7d126e8ba34b0523feff0b71c35ca023e6c20e327ab4" => :mavericks
   end
 
   option "with-static", "Build static instead of shared library."
@@ -15,7 +16,6 @@ class GribApi < Formula
   depends_on :fortran
   depends_on "cmake" => :build
   depends_on "jasper" => :recommended
-  depends_on "openjpeg" => :optional
   depends_on "libpng" => :optional
 
   # Fixes build errors in Lion

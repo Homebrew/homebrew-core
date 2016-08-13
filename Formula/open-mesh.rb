@@ -68,8 +68,12 @@ class OpenMesh < Formula
     }
 
     EOS
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[ -I#{include} -L#{lib} -lOpenMeshCore -lOpenMeshTools]
+    flags = %W[
+      -I#{include}
+      -L#{lib}
+      -lOpenMeshCore
+      -lOpenMeshTools
+    ]
     system ENV.cxx, "test.cpp", "-o", "test", *flags
     system "./test"
   end

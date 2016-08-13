@@ -1,14 +1,14 @@
 class AnsibleCmdb < Formula
   desc "Generates static HTML overview page from Ansible facts"
   homepage "https://github.com/fboender/ansible-cmdb"
-  url "https://github.com/fboender/ansible-cmdb/releases/download/1.14/ansible-cmdb-1.14.zip"
-  sha256 "7c787ca6473ce1b4c686438bff6c952ef8bfd725e9a78582eab54edf5fbdf6f2"
+  url "https://github.com/fboender/ansible-cmdb/releases/download/1.15/ansible-cmdb-1.15.zip"
+  sha256 "9f64a29b0bca69d0cc31ef4b89267a37a3d41186ceaaf29a2d88970e45596044"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "23fa2a32d2d8da2b922a565a7c093782c4fea29d6066015af9f1f0802c216707" => :el_capitan
-    sha256 "691be204497994bc77895b81a1985aeaf633ced0820af7866f70cf287d1a4de9" => :yosemite
-    sha256 "dbcb663956cf96e6ab49fba865cafac24a559f714ee2d66a9b083ed28de40cba" => :mavericks
+    sha256 "c2b001c49879c6cb8efffdaeabf80d530c5b66d4bd188feaeba1cf05003f5f6b" => :el_capitan
+    sha256 "23aef8682e8dbb5277df2c32eb0a2538ce5ea1bbc6ecbe84feca050a03e78fbe" => :yosemite
+    sha256 "a24c9752029f2397983a739b8dd6c3a1f7f7aff05131c9cbb869ef37dcf4117b" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -26,11 +26,6 @@ class AnsibleCmdb < Formula
   end
 
   test do
-    (testpath/"hosts").write <<-EOS.undent
-[brew_test]
-brew1   dtap=dev  comment='Old database server'
-brew2   dtap=dev  comment='New database server'
-      EOS
-    system "#{bin}/ansible-cmdb", "-dt", "html_fancy", "."
+    system bin/"ansible-cmdb", "-dt", "html_fancy", "."
   end
 end

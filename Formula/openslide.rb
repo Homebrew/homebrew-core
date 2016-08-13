@@ -3,14 +3,13 @@ class Openslide < Formula
   homepage "http://openslide.org/"
   url "https://github.com/openslide/openslide/releases/download/v3.4.1/openslide-3.4.1.tar.xz"
   sha256 "9938034dba7f48fadc90a2cdf8cfe94c5613b04098d1348a5ff19da95b990564"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "4e89ce9fd3cd519ab1c8552603fabfd3fe9be55d65ac04a59e747e45c6749412" => :el_capitan
-    sha256 "f28b235cdd86e2f47b389529ed796fef5d3020cc90dd8d0fb3f56d3e050b58d7" => :yosemite
-    sha256 "f5a08897f2e045b179e6058b2c721d4ef61e0304fd09f9145e33d9fb11f1d0ca" => :mavericks
-    sha256 "a5ff82effc4d0b4a5efd81b7e9e61772fff9b908244d481f366954177e84ad2d" => :mountain_lion
+    sha256 "b1491ddac157cb5ffbde3957616767a013faef8fa11028a80d79fc4632c2e2bb" => :el_capitan
+    sha256 "ee965b0a44f4deab55d24bc49b2f3e1e08d9f3da95d66d067a1503b3c1ea3801" => :yosemite
+    sha256 "4d822c1a8160f6b54224bb26e74fc4639bef2f27e6a9fbee824c2364c7a3bc00" => :mavericks
   end
 
   depends_on "pkg-config" => :build

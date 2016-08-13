@@ -1,14 +1,14 @@
 class Bazel < Formula
   desc "Google's own build tool"
-  homepage "http://www.bazel.io/"
-  url "https://github.com/bazelbuild/bazel/archive/0.3.0.tar.gz"
-  sha256 "d2309c29781dc4ede79eb652776517ca3c1dff29b58849dc80bdb86031cce3ad"
+  homepage "https://www.bazel.io/"
+  url "https://github.com/bazelbuild/bazel/archive/0.3.1.tar.gz"
+  sha256 "52beafc9d78fc315115226f31425e21df1714d96c7dfcdeeb02306e2fe028dd8"
   head "https://github.com/bazelbuild/bazel.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d51899dc3a99c1c5a965006aacabf4a935dfb4d145b1d66df724fc0a35f8807d" => :el_capitan
-    sha256 "b2f7b4b77be9111ea8b4b4a9a5058b2e0c2bc015acdb06e72634a7babb6cb583" => :yosemite
+    sha256 "fda77dc7aa1722d9586ec0a4148357ba89436d641c278e7a93da2486ba059059" => :el_capitan
+    sha256 "0fcea9e375d29bda7c7e291172cd59d235512952a377f469e684315c109f6dfb" => :yosemite
   end
 
   depends_on :java => "1.8+"
@@ -16,11 +16,15 @@ class Bazel < Formula
 
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
+    # Force Bazel ./compile.sh to put its temporary files in the buildpath
+    ENV["BAZEL_WRKDIR"] = buildpath/"work"
 
     system "./compile.sh"
-    system "./output/bazel", "build", "scripts:bash_completion"
+    system "./output/bazel", "--output_user_root", buildpath/"output_user_root",
+           "build", "scripts:bash_completion"
 
-    bin.install "output/bazel" => "bazel"
+    bin.install "scripts/packages/bazel.sh" => "bazel"
+    bin.install "output/bazel" => "bazel-real"
     bash_completion.install "bazel-bin/scripts/bazel-complete.bash"
     zsh_completion.install "scripts/zsh_completion/_bazel"
   end
@@ -44,7 +48,7 @@ class Bazel < Formula
       )
     EOS
 
-    system "#{bin}/bazel", "build", "//:bazel-test"
+    system bin/"bazel", "build", "//:bazel-test"
     system "bazel-bin/bazel-test"
   end
 end

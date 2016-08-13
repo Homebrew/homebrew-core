@@ -7,11 +7,12 @@ class Gnupg2 < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   sha256 "e329785a4f366ba5d72c2c678a7e388b0892ac8440c2f4e6810042123c235d71"
+  revision 1
 
   bottle do
-    sha256 "d06e6713dde77b49fa895cec8854db0a1b46204a3575fafa6f42c7f2c09530bb" => :el_capitan
-    sha256 "bc2beec0300741372063e594a71798a473157ba8badf89b19ce4ddb0c1f61ba9" => :yosemite
-    sha256 "8f201dc9bb87776c5736b284d6cf54c149b71affa3ebf44c4a5ce12ed5aace7a" => :mavericks
+    sha256 "f16e0f7514ba2b803321ee806c4dda5d62c64511010911a1761abd9e451f07d2" => :el_capitan
+    sha256 "7f5d15cc5e0dda33ee40ca26f4b0899f0594b4f81c9aa18b59bd26a344a48411" => :yosemite
+    sha256 "37a92b8463347227b40aee55bd28381deef1353ad5193e6ddff60861db8497eb" => :mavericks
   end
 
   depends_on "libgpg-error"

@@ -3,19 +3,19 @@ class Pgtap < Formula
   homepage "http://pgtap.org/"
   url "http://api.pgxn.org/dist/pgtap/0.96.0/pgtap-0.96.0.zip"
   sha256 "84ad5e2212555077393d74b4628b9cbd141b1f382e7b7f39662ffe64e3fa2521"
+  revision 1
+
   head "https://github.com/theory/pgtap.git"
 
   bottle do
     cellar :any
-    sha256 "6704c4b67bbac51ddf4d24a9c0f569729ff86806780832b94ab8a20cc54a45cb" => :el_capitan
-    sha256 "f71e5b9c78dc0e5fe95b0c35acba676022fc98d44e9ae31df14e373ceaa0a90a" => :yosemite
-    sha256 "bbe1dc9d175131b2c6ceba5c397ce8f04eccc04e0ccf7b5cece8ea44214d712e" => :mavericks
+    sha256 "cdc7061668561266d6e4f3af7b1edeabced55a4b916fb05a01839783e8b8c016" => :el_capitan
+    sha256 "adeffa3e59f69e34e637815eeed7e52277550bfb41b4303c0ae0f62b28d35a31" => :yosemite
+    sha256 "2da98046f27fc92f0a652004557609132fb8aa50a18e994d0071aac736eaac3f" => :mavericks
   end
 
   # Not :postgresql, because we need to install into its share directory.
   depends_on "postgresql"
-
-  conflicts_with "mytop", :because => "both install `perllocal.pod`"
 
   resource "Test::Harness" do
     url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.36.tar.gz"

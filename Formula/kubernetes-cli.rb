@@ -1,15 +1,15 @@
 class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "http://kubernetes.io/"
-  url "https://github.com/kubernetes/kubernetes/archive/v1.3.0.tar.gz"
-  sha256 "77fbc5db607daa723e7b6576644d25e98924439954523808cf7ad2c992566398"
+  url "https://github.com/kubernetes/kubernetes/archive/v1.3.4.tar.gz"
+  sha256 "19b2ebbc3976bb97883dc40aaf14ded7863d4098922e99a1dad873d5435fe21e"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "43c56949efa157d52d661fe58274fb9dd424a16d9afba18164268349bc2630ce" => :el_capitan
-    sha256 "1e1bbc70659eb347b15d40d820c558b6a394dd42de808a3ae385f2a49b5bcf3d" => :yosemite
-    sha256 "494f9a50ea488232072cd056cdaaaa0879bb1f604cba060e06207d7694b9cac4" => :mavericks
+    sha256 "83fbd8b8f73fa2935d580c38af0028d4ec765baa9580a0506fd0180691537e54" => :el_capitan
+    sha256 "be7312f14a7193db29e51b3d053ca7499d4905aa6f6e69a56782ab976d835b56" => :yosemite
+    sha256 "9d44dc86b807b24a5603be7bcbc6adb5b1a646d23cead03a887a3137c6970abf" => :mavericks
   end
 
   devel do

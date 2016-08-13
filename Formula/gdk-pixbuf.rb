@@ -32,6 +32,18 @@ class GdkPixbuf < Formula
     sha256 "c38cbf14bee68a15a12edb55a5fa39e36a8dc3d82b4160e9cefea921eda6a13d"
   end
 
+  # gdk-pixbuf has an internal version number separate from the overall
+  # version number that specifies the location of its module and cache
+  # files, this will need to be updated if that internal version number
+  # is ever changed (as evidenced by the location no longer existing)
+  def gdk_so_ver
+    "2.0"
+  end
+
+  def gdk_module_ver
+    "2.10.0"
+  end
+
   def install
     ENV.universal_binary if build.universal?
     ENV.append_to_cflags "-DGDK_PIXBUF_LIBDIR=\\\"#{HOMEBREW_PREFIX}/lib\\\""
@@ -54,33 +66,33 @@ class GdkPixbuf < Formula
 
     # Other packages should use the top-level modules directory
     # rather than dumping their files into the gdk-pixbuf keg.
-    inreplace lib/"pkgconfig/gdk-pixbuf-2.0.pc" do |s|
+    inreplace lib/"pkgconfig/gdk-pixbuf-#{gdk_so_ver}.pc" do |s|
       libv = s.get_make_var "gdk_pixbuf_binary_version"
       s.change_make_var! "gdk_pixbuf_binarydir",
-        HOMEBREW_PREFIX/"lib/gdk-pixbuf-2.0"/libv
+        HOMEBREW_PREFIX/"lib/gdk-pixbuf-#{gdk_so_ver}"/libv
     end
 
     # Remove the cache. We will regenerate it in post_install
-    (lib/"gdk-pixbuf-2.0/2.10.0/loaders.cache").unlink
+    (lib/"gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders.cache").unlink
   end
 
   def post_install
     # Change the version directory below with any future update
-    if build.with?("relocations")
-      ENV["GDK_PIXBUF_MODULE_FILE"]="#{lib}/gdk-pixbuf-2.0/2.10.0/loaders.cache"
-      ENV["GDK_PIXBUF_MODULEDIR"]="#{HOMEBREW_PREFIX}/lib/gdk-pixbuf-2.0/2.10.0/loaders"
+    if build.with?("relocations") || HOMEBREW_PREFIX.to_s != "/usr/local"
+      ENV["GDK_PIXBUF_MODULE_FILE"]="#{lib}/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders.cache"
+      ENV["GDK_PIXBUF_MODULEDIR"]="#{HOMEBREW_PREFIX}/lib/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders"
     end
     system "#{bin}/gdk-pixbuf-query-loaders", "--update-cache"
   end
 
   def caveats; <<-EOS.undent
     Programs that require this module need to set the environment variable
-      export GDK_PIXBUF_MODULE_FILE="#{lib}/gdk-pixbuf-2.0/2.10.0/loaders.cache"
-      export GDK_PIXBUF_MODULEDIR="#{HOMEBREW_PREFIX}/lib/gdk-pixbuf-2.0/2.10.0/loaders"
+      export GDK_PIXBUF_MODULE_FILE="#{lib}/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders.cache"
+      export GDK_PIXBUF_MODULEDIR="#{HOMEBREW_PREFIX}/lib/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders"
     If you need to manually update the query loader cache, set these variables then run
       #{bin}/gdk-pixbuf-query-loaders --update-cache
     EOS
-  end if build.with?("relocations")
+  end if build.with?("relocations") || HOMEBREW_PREFIX.to_s != "/usr/local"
 
   test do
     system bin/"gdk-pixbuf-csource", test_fixtures("test.png")

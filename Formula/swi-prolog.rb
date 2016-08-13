@@ -11,8 +11,8 @@ class SwiProlog < Formula
   end
 
   devel do
-    url "http://www.swi-prolog.org/download/devel/src/swipl-7.3.21.tar.gz"
-    sha256 "a439fada1f5f2291ec51d500abedd10f0e0112e295fea2cffd6dd8f2ae274859"
+    url "http://www.swi-prolog.org/download/devel/src/swipl-7.3.24.tar.gz"
+    sha256 "4fd337d0817373c7c8d59cce5324e068be316d28dc3e81877075cd51168dd7cd"
   end
 
   head do

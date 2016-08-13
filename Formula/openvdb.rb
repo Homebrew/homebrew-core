@@ -1,15 +1,14 @@
 class Openvdb < Formula
   desc "Sparse volume processing toolkit"
   homepage "http://www.openvdb.org/"
-  url "https://github.com/dreamworksanimation/openvdb/archive/v3.1.0.tar.gz"
-  sha256 "b95a32f4f0195452a64870bda978999a719006a0c036b9ac985b466532d32d4b"
-  revision 1
+  url "https://github.com/dreamworksanimation/openvdb/archive/v3.2.0.tar.gz"
+  sha256 "b9c765f8715974aee0cd92ca5fd7cf6c675e72d3a4d1c6b5084fb7ae13345398"
   head "https://github.com/dreamworksanimation/openvdb.git"
 
   bottle do
-    sha256 "d60e3a904697fd6d4722a888ee929ffa42ca44da0fc3d82d2935bc81c6612283" => :el_capitan
-    sha256 "67dbc7e057b55d08585a3f0f86933d23d5fa8d66d42b791adbf63b6428a3ad75" => :yosemite
-    sha256 "a280aa60b2f6d752b488b88694dd30074149ef5a909edf5154be0980023f0f64" => :mavericks
+    sha256 "94a284f7e3247e313c1e2be481d1dcf2e680789a325ab54f05b35e0d650382d1" => :el_capitan
+    sha256 "5c50cca8555c45fb08cc60715d35ab2278536928075ef97937cd1c92a16c1af6" => :yosemite
+    sha256 "9c59fdd29ab1525b397815f246e7836b967fc678f1ac349fdebf908452f59ac3" => :mavericks
   end
 
   option "with-viewer", "Installs the command-line tool to view OpenVDB files"
@@ -80,7 +79,7 @@ class Openvdb < Formula
       args << "DOXYGEN="
     end
 
-    if build.with? "tests"
+    if build.with? "test"
       args << "CPPUNIT_INCL_DIR=#{Formula["cppunit"].opt_lib}/include"
       args << "CPPUNIT_LIB_DIR=#{Formula["cppunit"].opt_lib}/lib"
     else
@@ -98,7 +97,7 @@ class Openvdb < Formula
 
     cd "openvdb" do
       system "make", "install", *args
-      if build.with? "tests"
+      if build.with? "test"
         system "make", "vdb_test", *args
         bin.install "vdb_test"
       end

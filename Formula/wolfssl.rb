@@ -1,16 +1,15 @@
 class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com/wolfSSL/Home.html"
-  url "https://github.com/wolfSSL/wolfssl/archive/v3.9.0.tar.gz"
-  sha256 "9d461209f663391d4c0349c23466556782c13964b9626fef694f2d420a176658"
+  url "https://github.com/wolfSSL/wolfssl/archive/v3.9.8.tar.gz"
+  sha256 "8b5b6e36521800103332855705c8fd6451b94801d375671054ad24e045f5268f"
   head "https://github.com/wolfSSL/wolfssl.git"
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "95313d86eb3b52bd95b60e82330831dcf8e746487a6c5089cfeb4cc9e38e9999" => :el_capitan
-    sha256 "12fbbfb36905d713f725da5c0fbd98fceac4c6deb92c537015eac0aa225ef722" => :yosemite
-    sha256 "2464f16049276e889952be50add8b0b479c5eea8cb91f0181ae468451f47ddd9" => :mavericks
+    sha256 "f648321e39322f078c3ee4a501c28e29c146e5e999a912353b557eab85365a29" => :el_capitan
+    sha256 "b69e9edf0da7b7152b7c795ea210a3ba62e10a75b179ae261685feee414deebe" => :yosemite
+    sha256 "087ef1ca022b11f67b97396e6d0cb9585d22c3841a8faf46a2c24a6716f0c404" => :mavericks
   end
 
   option "without-test", "Skip compile-time tests"
@@ -49,11 +48,11 @@ class Wolfssl < Formula
       --enable-chacha
       --enable-crl
       --enable-crl-monitor
+      --enable-curve25519
       --enable-dtls
       --enable-dh
       --enable-ecc
       --enable-eccencrypt
-      --enable-ecc25519
       --enable-ed25519
       --enable-filesystem
       --enable-hc128

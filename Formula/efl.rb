@@ -15,13 +15,11 @@ class Efl < Formula
 
   depends_on "doxygen" => :build if build.with? "docs"
   depends_on "pkg-config" => :build
-  depends_on :x11 => :optional
   depends_on "openssl"
   depends_on "freetype"
   depends_on "fontconfig"
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on "webp" => :optional
   depends_on "luajit"
   depends_on "fribidi"
   depends_on "giflib"
@@ -31,18 +29,24 @@ class Efl < Formula
   depends_on "dbus"
   depends_on "pulseaudio"
   depends_on "bullet"
+  depends_on :x11 => :optional
+  depends_on "webp" => :optional
 
   needs :cxx11
 
   def install
     ENV.cxx11
-    args = ["--disable-dependency-tracking",
-            "--disable-silent-rules",
-            "--enable-cocoa",
-            "--enable-i-really-know-what-i-am-doing-and-that-this-will-probably-break-things-and-i-will-fix-them-myself-and-send-patches-aba", # There's currently (1.14) no clean profile for Mac OS, so we need to force passing configure
-            "--prefix=#{prefix}",
-           ]
+
+    args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --enable-cocoa
+      --prefix=#{prefix}
+    ]
     args << "--with-x11=none" if build.without? "x11"
+    # There's currently (1.14) no clean profile for Mac OS, so we need to force
+    # passing configure.
+    args << "--enable-i-really-know-what-i-am-doing-and-that-this-will-probably-break-things-and-i-will-fix-them-myself-and-send-patches-aba"
 
     system "./configure", *args
     system "make", "install"
@@ -50,6 +54,6 @@ class Efl < Formula
   end
 
   test do
-    system "#{bin}/edje_cc", "-V"
+    system bin/"edje_cc", "-V"
   end
 end

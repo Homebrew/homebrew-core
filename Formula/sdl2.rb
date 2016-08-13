@@ -41,8 +41,11 @@ class Sdl2 < Formula
     system "./autogen.sh" if build.head? || build.devel?
 
     args = %W[--prefix=#{prefix}]
+
     # LLVM-based compilers choke on the assembly code packaged with SDL.
-    args << "--disable-assembly" if ENV.compiler == :llvm || (ENV.compiler == :clang && MacOS.clang_build_version < 421)
+    if ENV.compiler == :llvm || (ENV.compiler == :clang && DevelopmentTools.clang_build_version < 421)
+      args << "--disable-assembly"
+    end
     args << "--without-x"
     args << "--disable-haptic" << "--disable-joystick" if MacOS.version <= :snow_leopard
 
@@ -51,6 +54,6 @@ class Sdl2 < Formula
   end
 
   test do
-    system "#{bin}/sdl2-config", "--version"
+    system bin/"sdl2-config", "--version"
   end
 end

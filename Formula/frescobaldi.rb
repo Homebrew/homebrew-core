@@ -1,14 +1,13 @@
 class Frescobaldi < Formula
   desc "LilyPond sheet music text editor"
   homepage "http://frescobaldi.org/"
-  url "https://github.com/wbsoft/frescobaldi/releases/download/v2.18.1/frescobaldi-2.18.1.tar.gz"
-  sha256 "475bbb9aeed8009fdb7b0c53e4da78ce7a204b548d0af6d909b699c99e61d4c1"
+  url "https://github.com/wbsoft/frescobaldi/releases/download/v2.19.0/frescobaldi-2.19.0.tar.gz"
+  sha256 "b426bd53d54fdc4dfc16fcfbff957fdccfa319d6ac63614de81f6ada5044d3e6"
 
   bottle do
-    sha256 "6fdac72c8203c0585515a1bba8f36faea8b394a8852b258b7f630273c818b9e9" => :el_capitan
-    sha256 "2b11cbd21fef365684ec0be8543a557fbc943ce9832b5c2b7b5204a081de74aa" => :yosemite
-    sha256 "c592d71f41e66f3f5115c8eac982344fa903eff02a7e3a011852a5ee3e39d968" => :mavericks
-    sha256 "cc6e9b3a940690ae225a157f4a0d95aec4db46f0ccf78442a99ae941f7a358a0" => :mountain_lion
+    sha256 "870a7b212350aae4690c78229ffaae0142bc1562123dd854a5354ff9b26b3793" => :el_capitan
+    sha256 "26e48b5718d55f9422aa8f42d5f762801f059f5b255dc29d57670eca24f26357" => :yosemite
+    sha256 "28d163ba9f0a8fede7c15b8454ae124bdc012558099ede1f09d3e01a7b0d2726" => :mavericks
   end
 
   option "with-lilypond", "Install Lilypond from Homebrew/tex"
@@ -23,13 +22,13 @@ class Frescobaldi < Formula
   depends_on "pyqt"
 
   resource "python-poppler-qt4" do
-    url "https://github.com/wbsoft/python-poppler-qt4/archive/v0.18.1.tar.gz"
-    sha256 "c6903c4b6ab71730ae2a1da9fb95830a83da82185b5ef6b8184b16c0cae908ba"
+    url "https://github.com/wbsoft/python-poppler-qt4/archive/v0.24.0.tar.gz"
+    sha256 "164297bcb03dc0cd943342915bf49e678db13957ebc2f1f3bd988f04145fb236"
   end
 
   resource "python-ly" do
-    url "https://pypi.python.org/packages/source/p/python-ly/python-ly-0.9.2.tar.gz"
-    sha256 "a231b8f8977966afff70a840fb5baa1d3d263d5a9565ca9a5b28c398307952af"
+    url "https://files.pythonhosted.org/packages/57/4f/889579244947368f28eda66b782331b1e75f83fd72e63f9ece93cd7a18f9/python-ly-0.9.4.tar.gz"
+    sha256 "c2f87999260af3c9ea00c9997dae1e596fac40f45905d8b7e24e0f441112d63c"
   end
 
   def install

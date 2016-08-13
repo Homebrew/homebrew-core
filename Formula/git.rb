@@ -1,15 +1,15 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.9.1.tar.xz"
-  sha256 "e8fe60bc72c1c979feb43740b3c74fea7f8ffbe7712b71cd9734ddb9c89282a2"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.9.2.tar.xz"
+  sha256 "f8f546648f77f246f1302e3ec4037c81db25af1f02931597148c5bf61fac2db5"
 
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "43cc3a1342c3e2237852ddaa4d1f3ecee4320a8c50eb0c7a82a0b1d2ce00b034" => :el_capitan
-    sha256 "33200f93ba549831a81bdb6ef3e3ad0b7919f50ea5bf1ccc3f4406cc4f0570ab" => :yosemite
-    sha256 "9da21d7d16e9c89f3d61e4cdd83a6dad2d8b75a1adf124f126c3bcdced219aa2" => :mavericks
+    sha256 "98aa5ac5634365c768013c3007d88e4dbbfcef607fb5fd8df82024b7e5320fc9" => :el_capitan
+    sha256 "5b5460409196083456cf657f6a8ea9661bc3079feb06a106e0d80ef546e00e56" => :yosemite
+    sha256 "e0bc597031a6f45a83ade135a64db4ed9283759c93da3ee297f169c0d64553c9" => :mavericks
   end
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
@@ -32,13 +32,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.9.1.tar.xz"
-    sha256 "67421138a9319cc72b0ec8295c2428daf25449eb4f76f727e0464990370afea1"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.9.2.tar.xz"
+    sha256 "6dddb003184f2ab68aa6b54e02e1e55c82c774fe6e74602e9dbefdf06826fb1c"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.9.1.tar.xz"
-    sha256 "17bd0ac02f6923e509238be066a0dd79081c420ba94ee5cecb79ef829c6631ed"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.9.2.tar.xz"
+    sha256 "4c5c516ee4c0412b9475739e2125a257f6022e7c7bd006827c376fe70d47c323"
   end
 
   def install
@@ -157,8 +157,10 @@ class Git < Formula
   end
 
   test do
-    HOMEBREW_REPOSITORY.cd do
-      assert_equal "bin/brew", `#{bin}/git ls-files -- bin`.strip
-    end
+    system bin/"git", "init"
+    %w[haunted house].each { |f| touch testpath/f }
+    system bin/"git", "add", "haunted", "house"
+    system bin/"git", "commit", "-a", "-m", "Initial Commit"
+    assert_equal "haunted\nhouse", shell_output("#{bin}/git ls-files").strip
   end
 end

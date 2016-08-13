@@ -13,6 +13,6 @@ class Xtitle < Formula
   end
 
   test do
-    assert_equal "#{version}", shell_output("#{bin}/xtitle -V").chomp
+    assert_match version.to_s, shell_output("#{bin}/xtitle --version")
   end
 end

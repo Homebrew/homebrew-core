@@ -3,14 +3,14 @@ class Luajit < Formula
   homepage "http://luajit.org/luajit.html"
   url "http://luajit.org/download/LuaJIT-2.0.4.tar.gz"
   sha256 "620fa4eb12375021bef6e4f237cbd2dd5d49e56beb414bee052c746beef1807d"
-  revision 2
+  revision 3
 
   head "http://luajit.org/git/luajit-2.0.git"
 
   bottle do
-    sha256 "bcbaa0927b7d477abbb2637d9123f503875b1d4cfef7f94d28d1aad017b99688" => :el_capitan
-    sha256 "f5fe1202211a883040feafba6a8c54befb5efa095aa635e319fe7df057e5a1e3" => :yosemite
-    sha256 "06454e65ba92df5be021f2e2b37d7b7bd3c4a3f99f4b1659c317ddc6227842cd" => :mavericks
+    sha256 "38f869762b310ed4b62150517b7aac477230e3d86a2dbd4863859cb3f463bcbd" => :el_capitan
+    sha256 "faa9c576ca33772c05060c680b6db988f8cde56b0a7c857b29bf4f0e53b23e14" => :yosemite
+    sha256 "be43da3326342c34c0bb36b6f697154a13b9b86a854a320e7dc2f656f475e463" => :mavericks
   end
 
   devel do
@@ -64,6 +64,8 @@ class Luajit < Formula
               "INSTALL_LMOD=#{HOMEBREW_PREFIX}/share/lua/${abiver}"
       s.gsub! "INSTALL_CMOD=${prefix}/${multilib}/lua/${abiver}",
               "INSTALL_CMOD=#{HOMEBREW_PREFIX}/${multilib}/lua/${abiver}"
+      s.gsub! "Libs:",
+              "Libs: -pagezero_size 10000 -image_base 100000000"
     end
 
     # Having an empty Lua dir in lib/share can mess with other Homebrew Luas.

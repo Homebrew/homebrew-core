@@ -3,15 +3,15 @@ class Collectd < Formula
   homepage "https://collectd.org/"
 
   stable do
-    url "https://collectd.org/files/collectd-5.5.1.tar.bz2"
-    mirror "http://pkgs.fedoraproject.org/repo/pkgs/collectd/collectd-5.5.1.tar.bz2/fd24b947cef9351ce3e2d6d2a0762e18/collectd-5.5.1.tar.bz2"
-    sha256 "f9c5d526e1f0429a7db1ccd90bdf9e23923a2fd43b7285cfda8f0341e5c0bc3f"
+    url "https://collectd.org/files/collectd-5.5.2.tar.bz2"
+    mirror "http://pkgs.fedoraproject.org/repo/pkgs/collectd/collectd-5.5.2.tar.bz2/40b83343f72089e0330f53965f1140bd/collectd-5.5.2.tar.bz2"
+    sha256 "017f3a4062187e594d8ab6af685655fb82a8a942dc574668e68242bdb8ba820f"
   end
 
   bottle do
-    sha256 "2d0ea64e88be3e27d28e8419c88eda50180d82b4070c4a819bfa54fecad3030d" => :el_capitan
-    sha256 "40e0865b2e465387ead14eedb6ae5f639a60a00e0aaa36380ef9f23966772d4a" => :yosemite
-    sha256 "2626142f0ec513f28faac27c1c81af720a6da37980b994d918fef7ed08da3b16" => :mavericks
+    sha256 "c900ddfddd81a599628c62953aaff0aa1b9de38e6f2e239d0c4d702cccb76103" => :el_capitan
+    sha256 "44cfb6fca258823ba87f153991bed68ea1b7618381048982cef9745ce739db6a" => :yosemite
+    sha256 "da6ca2835f8eafb1515300e46a871bd008d1446e390cdae5bb65f2c2030eb33d" => :mavericks
   end
 
   head do
@@ -59,6 +59,8 @@ class Collectd < Formula
     system "./configure", *args
     system "make", "install"
   end
+
+  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/collectd -f -C #{HOMEBREW_PREFIX}/etc/collectd.conf"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

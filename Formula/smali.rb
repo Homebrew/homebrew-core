@@ -1,14 +1,14 @@
 class Smali < Formula
   desc "Assembler/disassembler for Android's Java VM implementation"
   homepage "https://github.com/JesusFreke/smali"
-  url "https://bitbucket.org/JesusFreke/smali/downloads/smali-2.1.2.jar"
-  sha256 "9e587778c0329a509c82d8e78ea3e694e17106c788a4f53507920e51e50a8b83"
+  url "https://bitbucket.org/JesusFreke/smali/downloads/smali-2.1.3.jar"
+  sha256 "9b63186344a095d9bbffb27b7100ddfe933432f2b8f90f649a1e5e8cc26bb355"
 
   bottle :unneeded
 
   resource "baksmali-jar" do
-    url "https://bitbucket.org/JesusFreke/smali/downloads/baksmali-2.1.2.jar"
-    sha256 "cf1c5884f27b9774ad92fe8ffd629bf362d554d56d6db414cd6c69d9c9068265"
+    url "https://bitbucket.org/JesusFreke/smali/downloads/baksmali-2.1.3.jar"
+    sha256 "01ec5e42ccd197658314967e86e311a695bc86b2ace32fc4ad95e34d3595750a"
   end
 
   resource "baksmali" do
@@ -25,20 +25,15 @@ class Smali < Formula
     resource("baksmali-jar").stage do
       libexec.install "baksmali-#{version}.jar" => "baksmali.jar"
     end
-    libexec.install resource("smali"), resource("baksmali"), "smali-#{version}.jar" => "smali.jar"
 
-    inreplace "#{libexec}/smali" do |s|
-      s.gsub! /^libdir=.*$/, "libdir=\"#{libexec}\""
+    libexec.install "smali-#{version}.jar" => "smali.jar"
+
+    %w[smali baksmali].each do |r|
+      libexec.install resource(r)
+      inreplace libexec/r, /^libdir=.*$/, "libdir=\"#{libexec}\""
+      chmod 0755, libexec/r
+      bin.install_symlink libexec/r
     end
-    inreplace "#{libexec}/baksmali" do |s|
-      s.gsub! /^libdir=.*$/, "libdir=\"#{libexec}\""
-    end
-
-    chmod 0755, "#{libexec}/smali"
-    chmod 0755, "#{libexec}/baksmali"
-
-    bin.install_symlink libexec/"smali"
-    bin.install_symlink libexec/"baksmali"
   end
 
   test do
@@ -57,8 +52,8 @@ class Smali < Formula
     .end method
     EOS
 
-    system "#{bin}/smali", "-o", "classes.dex", "input.smali"
-    system "#{bin}/baksmali", "-o", pwd, "classes.dex"
+    system bin/"smali", "-o", "classes.dex", "input.smali"
+    system bin/"baksmali", "-o", pwd, "classes.dex"
     assert_match "Hello World!", File.read("HelloWorld.smali")
   end
 end

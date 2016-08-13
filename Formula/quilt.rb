@@ -22,18 +22,18 @@ class Quilt < Formula
                           "--with-sed=#{HOMEBREW_PREFIX}/bin/gsed",
                           "--without-getopt"
     system "make"
-    system "make", "install", "emacsdir=#{share}/emacs/site-lisp/quilt"
+    system "make", "install", "emacsdir=#{elisp}"
   end
 
   test do
-    mkdir "patches"
+    (testpath/"patches").mkpath
     (testpath/"test.txt").write "Hello, World!"
-    system "#{bin}/quilt", "new", "test.patch"
-    system "#{bin}/quilt", "add", "test.txt"
+    system bin/"quilt", "new", "test.patch"
+    system bin/"quilt", "add", "test.txt"
     rm "test.txt"
     (testpath/"test.txt").write "Hi!"
-    system "#{bin}/quilt", "refresh"
-    assert_match /-Hello, World!/, File.read("patches/test.patch")
-    assert_match /\+Hi!/, File.read("patches/test.patch")
+    system bin/"quilt", "refresh"
+    assert_match(/-Hello, World!/, File.read("patches/test.patch"))
+    assert_match(/\+Hi!/, File.read("patches/test.patch"))
   end
 end

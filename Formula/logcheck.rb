@@ -24,7 +24,8 @@ class Logcheck < Formula
   end
 
   test do
-    cp HOMEBREW_REPOSITORY/"README.md", testpath
-    system "#{sbin}/logtail", "-f", "README.md"
+    (testpath/"README").write "Boaty McBoatface"
+    output = shell_output("#{sbin}/logtail -f #{testpath}/README")
+    assert_match "Boaty McBoatface", output
   end
 end

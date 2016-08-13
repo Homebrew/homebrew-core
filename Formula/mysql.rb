@@ -1,13 +1,13 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.13.tar.gz"
-  sha256 "2a768682c37dfbca286912bd137f1a526075ac1f00a6a46da8b6fe63f6fcfa37"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.14.tar.gz"
+  sha256 "239359b618a26f452855d3327452c582bb76ac675909cbce7df01c66f8823843"
 
   bottle do
-    sha256 "071ef959bbcacd87cf2e1f605f169bd0bf3a1c7df091a3b83e0f67931e187804" => :el_capitan
-    sha256 "db5937fc10d3aa7423bf5acc1d9c97517d6544a18369c38d975fd218a9dd9081" => :yosemite
-    sha256 "d25f2e5b6b45825679115c2edd7420f9b0a5b61f5ffd8c59e99b5c6bda244a84" => :mavericks
+    sha256 "515db52e8fcfa9619d1b2a8810e42db31b24946a226d05f67442404c696ccaf0" => :el_capitan
+    sha256 "1f2870a85a7e6a3c6927bffab7776e15dba7d207bcc35e7f817fc1c0de117cc2" => :yosemite
+    sha256 "f30eae3ea04f131e2f01ede628a20a6df00655b6f5f67720f0cea5075d7872ce" => :mavericks
   end
 
   option "with-test", "Build with unit tests"

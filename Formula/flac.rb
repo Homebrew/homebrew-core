@@ -48,7 +48,7 @@ class Flac < Formula
       --enable-static
     ]
 
-    args << "--disable-asm-optimizations" if build.universal? || Hardware.is_32_bit?
+    args << "--disable-asm-optimizations" if build.universal? || Hardware::CPU.is_32_bit?
     args << "--without-ogg" if build.without? "libogg"
 
     system "./autogen.sh" if build.head?
@@ -57,9 +57,7 @@ class Flac < Formula
     ENV["OBJ_FORMAT"] = "macho"
 
     # adds universal flags to the generated libtool script
-    inreplace "libtool" do |s|
-      s.gsub! ":$verstring\"", ":$verstring -arch #{Hardware::CPU.arch_32_bit} -arch #{Hardware::CPU.arch_64_bit}\""
-    end
+    inreplace "libtool", ":$verstring\"", ":$verstring -arch #{Hardware::CPU.arch_32_bit} -arch #{Hardware::CPU.arch_64_bit}\""
 
     system "make", "install"
   end

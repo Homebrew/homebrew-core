@@ -1,15 +1,17 @@
 # Make sure that you also bump botocore
 class Awscli < Formula
+  include Language::Python::Virtualenv
+
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://files.pythonhosted.org/packages/49/63/ad95ceb876bd289ecf7df301d73f310dcd7972444045b0bbbb3a6aeb1509/awscli-1.10.47.tar.gz"
-  sha256 "176ec3e5783ed3e9291da5e9b6fc100cb4550b843bb0bb7201e780e4174cbf70"
+  url "https://files.pythonhosted.org/packages/8b/38/c3cb424d6117c1f096496ba6f26dd05635b6c5660ee4acef00369641f007/awscli-1.10.56.tar.gz"
+  sha256 "adbc8812e75f0be53c4a414aeb181be6838befcd2869427074e116cf0cc6f7a2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "437ca00fc64b030be44155645d893edfc8f8e1490dacdc6051d08846bbefd77b" => :el_capitan
-    sha256 "04a7f7da6d7d11833c2b78f12d4e89d35c4571bd660586686f58c559e720198a" => :yosemite
-    sha256 "1134cd2469d15ca315e9d0e68b204d98999900cb58b1db547a7ee4483dd4b853" => :mavericks
+    sha256 "af2fe5634c9d6bc9fee26de6606721dbd68b71de406997551af01f8e6d4f2c0d" => :el_capitan
+    sha256 "094900bb39dfac48aca4ed2a7bdeb7f34d442216266e230e495d2077010075fc" => :yosemite
+    sha256 "20c87c0187077fef22aa12d13f4ea06b96206e7464b202f92202b3d6c2d91c52" => :mavericks
   end
 
   head do
@@ -33,8 +35,8 @@ class Awscli < Formula
   depends_on :python if MacOS.version <= :lion
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/82/a2/15499d05a2c9a2e7b89904d2ff6906589eeaa4533f99a4aa478400a06fcd/botocore-1.4.37.tar.gz"
-    sha256 "20dc1a0bf37019cac33e0f76d04a2831f2786cbee17f54da0e32a93caf86ef49"
+    url "https://files.pythonhosted.org/packages/df/2b/c0dec83c2bccb9d0f1c3cc33dc4bd0752b76a2e4d30fb46061063cf3d7ea/botocore-1.4.46.tar.gz"
+    sha256 "844dbd090b4127678c25342635485c87d86bca4a4f8a7c2295d715f7c830700c"
   end
 
   resource "colorama" do
@@ -73,8 +75,8 @@ class Awscli < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/6e/12/5d0ea478e6d261857a461af921b78f3bc6f92c479ffe57076f4fc9a362ab/s3transfer-0.0.1.tar.gz"
-    sha256 "2bb9ed8db58af94dfa78f75f554d646dfe4b4741fc87f63a20c2bfb3f70f4355"
+    url "https://files.pythonhosted.org/packages/27/58/c3c67734ac87ef83fdffb6e1167531d584111232ad5e13b5514831a5de35/s3transfer-0.1.1.tar.gz"
+    sha256 "6b9131b704819b0e559a97eec373ff6cc8a9b258e4c8f58ad339650b5019f00f"
   end
 
   resource "six" do
@@ -83,24 +85,13 @@ class Awscli < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    virtualenv_install_with_resources
 
     # Install zsh completion
     zsh_completion.install "bin/aws_zsh_completer.sh" => "_aws"
 
     # Install the examples
     pkgshare.install "awscli/examples"
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   def caveats; <<-EOS.undent

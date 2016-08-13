@@ -1,14 +1,15 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.1.1.tar.bz2"
-  sha256 "a5bca50a90a37b983eaa17c483a387189175f37ca678ae7e51d43e7610b4b3b4"
+  url "https://ffmpeg.org/releases/ffmpeg-3.1.2.tar.bz2"
+  sha256 "62eb8d810b93c1ffc23739c0824a91eabfe5e7be81fab34ce740736a110b70f7"
+
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "a6f05c702bb1edfb8ab5d32b57da7d91d92bb4a3aceeb09a7cf18ee7e683e8eb" => :el_capitan
-    sha256 "dfcc5912fb849c4ed218f161f09379f87e538f1b74403b91e92f92eda562da13" => :yosemite
-    sha256 "9efc53d98c426500cebd86c81cdc8af86747eb07c12d67b415c17900ed7bbde4" => :mavericks
+    sha256 "1489a9a34835d041ffe6da6ce253b7b202b6a3bd4dd7e9aad8e61a0c085265dd" => :el_capitan
+    sha256 "6c3c9d51b26eb5bdb1e61bbd713902b8313032ec9d5e16b3512f9af23f16620b" => :yosemite
+    sha256 "24e11e16f578621a22f96c8b7f4e7369f2f1d5e49b2ccc798082cc7a67e5ee88" => :mavericks
   end
 
   option "without-x264", "Disable H.264 encoder"
@@ -77,9 +78,17 @@ class Ffmpeg < Formula
   depends_on "libbs2b" => :optional
   depends_on "rubberband" => :optional
   depends_on "zimg" => :optional
-  depends_on "openh264" => :optional
   depends_on "xz" => :optional
   depends_on "libebur128" => :optional
+
+  depends_on "nasm" => :build if build.with? "openh264"
+
+  # Remove when ffmpeg has support for openh264 1.6.0
+  # See https://github.com/cisco/openh264/issues/2505
+  resource "openh264-1.5.0" do
+    url "https://github.com/cisco/openh264/archive/v1.5.0.tar.gz"
+    sha256 "98077bd5d113c183ce02b678733b0cada2cf36750370579534c4d70f0b6c27b5"
+  end
 
   def install
     args = %W[
@@ -94,6 +103,15 @@ class Ffmpeg < Formula
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
     ]
+
+    if build.with? "openh264"
+      resource("openh264-1.5.0").stage do
+        system "make", "install-shared", "PREFIX=#{libexec}/openh264-1.5.0"
+        chmod 0444, libexec/"openh264-1.5.0/lib/libopenh264.dylib"
+      end
+      ENV.prepend_path "PKG_CONFIG_PATH", libexec/"openh264-1.5.0/lib/pkgconfig"
+      args << "--enable-libopenh264"
+    end
 
     args << "--enable-opencl" if MacOS.version > :lion
 
@@ -129,7 +147,6 @@ class Ffmpeg < Formula
     args << "--enable-librubberband" if build.with? "rubberband"
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
-    args << "--enable-libopenh264" if build.with? "openh264"
     args << "--enable-libebur128" if build.with? "libebur128"
 
     if build.with? "xz"
@@ -141,7 +158,7 @@ class Ffmpeg < Formula
     if build.with? "openjpeg"
       args << "--enable-libopenjpeg"
       args << "--disable-decoder=jpeg2000"
-      args << "--extra-cflags=" + `pkg-config --cflags libopenjpeg`.chomp
+      args << "--extra-cflags=" + `pkg-config --cflags libopenjp2`.chomp
     end
 
     # These librares are GPL-incompatible, and require ffmpeg be built with
@@ -162,7 +179,7 @@ class Ffmpeg < Formula
 
     # For 32-bit compilation under gcc 4.2, see:
     # https://trac.macports.org/ticket/20938#comment:22
-    ENV.append_to_cflags "-mdynamic-no-pic" if Hardware.is_32_bit? && Hardware::CPU.intel? && ENV.compiler == :clang
+    ENV.append_to_cflags "-mdynamic-no-pic" if Hardware::CPU.is_32_bit? && Hardware::CPU.intel? && ENV.compiler == :clang
 
     system "./configure", *args
 

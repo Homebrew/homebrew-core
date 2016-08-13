@@ -6,9 +6,10 @@ class Isync < Formula
 
   bottle do
     cellar :any
-    sha256 "b236f25f8fb6f2285fb6775deba1e61b89df904fc2fc933f2546bb69d0bb9ec6" => :el_capitan
-    sha256 "a4406974110a2f4ea3aaa81f0232c00f8aa9b572fab8709f1e16c7dc2d6ab6f6" => :yosemite
-    sha256 "3be99741095c146ef4bf44732cf3850aa62bf23a8676d6289bb11b988ac328fd" => :mavericks
+    revision 1
+    sha256 "38fb0d21a245178886acb1262f57ddde284adbf889039baf3401bf2028d7cba7" => :el_capitan
+    sha256 "074b9295e7ac9773eafac5bdc20e32d42d8023ffccd275235d0cb72ff09574cf" => :yosemite
+    sha256 "147097d617448be4d6796bf189a05200c1afd738ad64fe05aa40c61db10b5194" => :mavericks
   end
 
   head do
@@ -18,13 +19,20 @@ class Isync < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "berkeley-db"
   depends_on "openssl"
+  depends_on "berkeley-db" => :optional
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
-                          "--disable-silent-rules"
+
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --disable-silent-rules
+    ]
+    args << "ac_cv_berkdb4=no" if build.without? "berkeley-db"
+
+    system "./configure", *args
     system "make", "install"
   end
 

@@ -69,8 +69,7 @@ class Synfig < Formula
     mlt = Formula["mlt"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{cairo.opt_include}/cairo
       -I#{etl.opt_include}
       -I#{fontconfig.opt_include}

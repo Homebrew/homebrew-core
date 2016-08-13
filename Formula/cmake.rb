@@ -1,27 +1,16 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  revision 1
+  url "https://cmake.org/files/v3.6/cmake-3.6.1.tar.gz"
+  sha256 "28ee98ec40427d41a45673847db7a905b59ce9243bb866eaf59dce0f58aaef11"
 
   head "https://cmake.org/cmake.git"
 
-  stable do
-    url "https://cmake.org/files/v3.6/cmake-3.6.0.tar.gz"
-    sha256 "fd05ed40cc40ef9ef99fac7b0ece2e0b871858a82feade48546f5d2940147670"
-
-    # This patch fixes an incompatibility with hdf5
-    # See https://gitlab.kitware.com/cmake/cmake/issues/16190
-    patch do
-      url "https://gitlab.kitware.com/cmake/cmake/merge_requests/34.patch"
-      sha256 "6d47140ebb65c045d9eee2c363aa22e53973a54b9bcdc11ef7b622c97419999f"
-    end
-  end
-
   bottle do
     cellar :any_skip_relocation
-    sha256 "2c8974f149405a62d1a2bfd4485b7b92f3acb6f48beb811fe230c8d2a1b700b0" => :el_capitan
-    sha256 "d8c83599b942ca895d4a16caea33ca5317dfa073570de22e25fc8dbcf4596dd4" => :yosemite
-    sha256 "d2a94d6ef92d762b377011b29d6b28f8da77e20eead1a896c6f61bcc1c06898a" => :mavericks
+    sha256 "c2dd35936fd86bf1a17173e874dc8a1eb0bcc3a540b445473c7eaea0d62e7fac" => :el_capitan
+    sha256 "4666f51505837370e477d7762f4d6439a4f3637f945cccf6bc2542feb11ba9e8" => :yosemite
+    sha256 "3908d65e9ff688489bb23ce1b9d13330eda6b57a73dc34402742a637f649dd6a" => :mavericks
   end
 
   option "without-docs", "Don't build man pages"
@@ -31,7 +20,7 @@ class Cmake < Formula
 
   # The `with-qt` GUI option was removed due to circular dependencies if
   # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
-  # For the GUI application please instead use brew install caskroom/cask/cmake.
+  # For the GUI application please instead use `brew cask install cmake`.
 
   def install
     args = %W[
@@ -45,7 +34,7 @@ class Cmake < Formula
       --system-bzip2
     ]
 
-    # https://github.com/Homebrew/homebrew/issues/45989
+    # https://github.com/Homebrew/legacy-homebrew/issues/45989
     if MacOS.version <= :lion
       args << "--no-system-curl"
     else
@@ -69,11 +58,11 @@ class Cmake < Formula
       end
     end
 
-    (share/"emacs/site-lisp/cmake").install "Auxiliary/cmake-mode.el"
+    elisp.install "Auxiliary/cmake-mode.el"
   end
 
   test do
     (testpath/"CMakeLists.txt").write("find_package(Ruby)")
-    system "#{bin}/cmake", "."
+    system bin/"cmake", "."
   end
 end

@@ -1,13 +1,13 @@
 class Menhir < Formula
   desc "LR(1) parser generator for the OCaml programming language"
   homepage "http://cristal.inria.fr/~fpottier/menhir"
-  url "http://cristal.inria.fr/~fpottier/menhir/menhir-20160504.tar.gz"
-  sha256 "5fcd7cd38eef7ec78eee12cfaa9d22cbec6ba85f8d42e45b86215a89a496b20d"
+  url "http://cristal.inria.fr/~fpottier/menhir/menhir-20160526.tar.gz"
+  sha256 "dac27e31b360331cbac92d6cafb917e52058cb5bb8301337c3c626a161c7dec4"
 
   bottle do
-    sha256 "76ad73cc2d4f0b2a7729b5057d2a27c3e10e1aedfd95779af435419bab9062fa" => :el_capitan
-    sha256 "8ec208a2b6f43b83aee96e2218c865e97315d7a01023aef694980e5a887579d5" => :yosemite
-    sha256 "822dd6fcc7ea291329b7f20e2894013929f0e64230ce47e6e36dc13ee70e8dbb" => :mavericks
+    sha256 "0c38fe3f3442c0c51e5160ef56e5b593a4fe7a7e4e72039c67090276e805f10d" => :el_capitan
+    sha256 "6c2b4758235e372c85acaa6e92d4673a78c243978691f969c32cec20099838d2" => :yosemite
+    sha256 "e7bc0427e337e519750c89410f235f05198ca8996cc40bbefc5f46e64fc71355" => :mavericks
   end
 
   depends_on "ocaml"

@@ -4,13 +4,13 @@ class Gpgme < Formula
   url "https://gnupg.org/ftp/gcrypt/gpgme/gpgme-1.6.0.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gpgme/gpgme-1.6.0.tar.bz2"
   sha256 "b09de4197ac280b102080e09eaec6211d081efff1963bf7821cf8f4f9916099d"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "81b2d72d94b9eaceeefb68939fa9f390fea9f1253cb81af5201e3ced06232a22" => :el_capitan
-    sha256 "73a8ec1c22d57bec7f1bb129f32b1597831f67a9b1a1763588f938f9a65e3fde" => :yosemite
-    sha256 "9541c704ace2a3ca7abdcf4325a28377bff3845998fa4fd61c464f642e88e3e4" => :mavericks
-    sha256 "6a28a7847a908c2ca93e88255acab792007bb7dbb4387ff897498d74f43650d5" => :mountain_lion
+    sha256 "d909ec33dd574c20f2d5b24bb90588ee811a9c3c9cdc6bb11827b17af73458d2" => :el_capitan
+    sha256 "f9976c4883fca4da0343dded00f144c4a2bfe5d814981e2bd42e000c31bbd181" => :yosemite
+    sha256 "c304e956d73cca79685225902ec6989de8d9feb54d63b60e8999e290ea23c55a" => :mavericks
   end
 
   depends_on "gnupg2"
@@ -36,8 +36,10 @@ class Gpgme < Formula
                           "--prefix=#{prefix}",
                           "--enable-static"
     system "make"
-    system "make", "check"
     system "make", "install"
+
+    # avoid triggering mandatory rebuilds of software that hard-codes this path
+    inreplace bin/"gpgme-config", prefix, opt_prefix
   end
 
   test do

@@ -1,15 +1,15 @@
 class Passpie < Formula
   desc "Manage login credentials from the terminal"
   homepage "https://github.com/marcwebbie/passpie"
-  url "https://files.pythonhosted.org/packages/1d/06/77b6cc4f85e971a4e5031d0bcb591650c171d2531076fc0581346abe730e/passpie-1.5.3.tar.gz"
-  sha256 "2e9921f08cb6a7c21e3f95b8943d6e6a67d2d747fae38a194d0c5b4fa77b295b"
+  url "https://files.pythonhosted.org/packages/f3/68/0b60f45c2604c7aabea83407085447c33ecab2991f03a43cdac11334ce38/passpie-1.5.4.tar.gz"
+  sha256 "3d58faca452dad5ddbb6000af16b0ef3c6591eae61423c87b64252faf1106e3c"
   head "https://github.com/marcwebbie/passpie.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b4e2f7a7bab9f484b391be3b56b29d7a8ddfc77ee37f53cf671853a0fd6f7af9" => :el_capitan
-    sha256 "f51e21a1896e2baacb4a206b347f293554b60959c050e380b230c9f2529b6dad" => :yosemite
-    sha256 "8e893d5dfd7e1d708a5681c06f3af8bbf9dba39ad1d62326abd6ce0e6ed53425" => :mavericks
+    sha256 "9d6bb3bd7ffd59287ca6e8f1f73cc2054aa5878eff613a5dcd15ef990be41f18" => :el_capitan
+    sha256 "1c1413eca1bdd41c58f980fd488e50d811cc59929df67d2d1cb4fd1cb6d9707e" => :yosemite
+    sha256 "f11202dd86fd4abd985bbe1f8f7c6e9aa5870c40a72388843b27944c37ca606e" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -58,5 +58,7 @@ class Passpie < Formula
 
   test do
     system bin/"passpie", "-D", "passpiedb", "init", "--force", "--passphrase", "s3cr3t"
+    system bin/"passpie", "-D", "passpiedb", "add", "foo@bar", "--random"
+    system bin/"passpie", "-D", "passpiedb", "copy", "--passphrase", "s3cr3t", "foo@bar", "--to", "stdout"
   end
 end

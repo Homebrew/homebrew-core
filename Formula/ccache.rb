@@ -1,13 +1,13 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.samba.org/"
-  url "https://www.samba.org/ftp/ccache/ccache-3.2.6.tar.bz2"
-  sha256 "a4c59c2fe1fcbd3aba5b183f7841aff1b94ff7435cc29f1d8bbe7fc21d38e0cb"
+  url "https://www.samba.org/ftp/ccache/ccache-3.2.7.tar.bz2"
+  sha256 "872d5f1e1d0fa85a5f5a81b058ef4a2868b1d6e0fdd6945e9cc8a85097d5e657"
 
   bottle do
-    sha256 "673d1457dac20930714c0f42c921a3e07a95b83a028cbd4f241eaacdcc8b77b4" => :el_capitan
-    sha256 "e6a28e2adebd8c52f23b48a18d31e44fab6545a42bef6a15ce1527760d01d758" => :yosemite
-    sha256 "a9654b12e5cfb9bcda537072988400af63332048a1b9ac59aed3f9e61b240554" => :mavericks
+    sha256 "e12640906b63e773e80d5bb149f6589ec85f25b44500e521c4c1a86253a1b225" => :el_capitan
+    sha256 "b807e7b1f55058996b6c1d5e121b117a0121c66678083da8a2ec1d947c9b2d30" => :yosemite
+    sha256 "c5934c7e4d1f199d052395c07661dad8cf7cc6f2a265dd01d2ad1e09237ce46c" => :mavericks
   end
 
   head do

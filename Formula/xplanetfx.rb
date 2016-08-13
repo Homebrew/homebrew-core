@@ -1,15 +1,15 @@
 class Xplanetfx < Formula
   desc "Configure, run or daemonize xplanet for HQ Earth wallpapers"
   homepage "http://mein-neues-blog.de/xplanetFX/"
-  url "http://repository.mein-neues-blog.de:9000/archive/xplanetfx-2.6.9_all.tar.gz"
-  version "2.6.9"
-  sha256 "a739f58bad5656be9c947b184661aa95941488add2bca181b294f2d5429989a1"
+  url "http://repository.mein-neues-blog.de:9000/archive/xplanetfx-2.6.12_all.tar.gz"
+  version "2.6.12"
+  sha256 "bae39af674fc89b3fbe07ba6271bbf0a1c2ff64bbf63f4b04ff3d6f0bcc4380c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d4b531e39c9dc8a384155129fc23f8d7370c2e32618c774c75f47b44d5b06e7" => :el_capitan
-    sha256 "79421111e8b5ec8ddb4229c374c072a96882aa4b50301613e8c90d4e0a6068c2" => :yosemite
-    sha256 "2471ac12a443dcc6fc75cd0a3fc6587446d916ec33bb42587f04c6c548480199" => :mavericks
+    sha256 "a705f96d9dbb1d179a8df93c60fac8a134d8270403a20b730501692d59ca737e" => :el_capitan
+    sha256 "da2d1f07a54aa76a853221024ad64ea599b1b7f57ed46cc0fb88538af44b75b8" => :yosemite
+    sha256 "58d9b7fafb5ea11f87275502ec817784ba3c93e0ee1c9aceb646f7a349ca5ae4" => :mavericks
   end
 
   option "without-gui", "Build to run xplanetFX from the command-line only"

@@ -43,9 +43,9 @@ class Wine < Formula
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.14.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.14.tar.bz2"
-    sha256 "7fbe961caf171d95e1ae109e361f3a9e7cb9f6c9321775e961be2bc12892c52c"
+    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.16.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.16.tar.bz2"
+    sha256 "e120d6673aada93935c6661b75c2edc835a45a8e658b80934c36434b56940f04"
   end
 
   # note that all wine dependencies should declare a --universal option in their formula,
@@ -67,7 +67,6 @@ class Wine < Formula
   depends_on "sane-backends"
   depends_on "gnutls"
   depends_on "libgsm" => :optional
-  depends_on "samba" => :optional
 
   # Patch to fix texture compression issues. Still relevant on 1.8.
   # https://bugs.winehq.org/show_bug.cgi?id=14939
@@ -77,7 +76,7 @@ class Wine < Formula
   end
 
   # This option is currently disabled because Apple clang currently doesn't
-  # support a required feature: http://reviews.llvm.org/D1623
+  # support a required feature: https://reviews.llvm.org/D1623
   # It builds fine with GCC, however.
   # option "with-win64",
   #        "Build with win64 emulator (won't run 32-bit binaries.)"
@@ -133,7 +132,7 @@ class Wine < Formula
     args << "--enable-win64" if build.with? "win64"
 
     # 64-bit builds of mpg123 are incompatible with 32-bit builds of Wine
-    args << "--without-mpg123" if Hardware.is_64_bit?
+    args << "--without-mpg123" if Hardware::CPU.is_64_bit?
 
     args << "--without-x" if build.without? "x11"
 

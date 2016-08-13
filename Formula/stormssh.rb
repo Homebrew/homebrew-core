@@ -1,16 +1,18 @@
 class Stormssh < Formula
   desc "Command-line tool to manage your ssh connections"
   homepage "https://github.com/emre/storm"
-  url "https://pypi.python.org/packages/source/s/stormssh/stormssh-0.6.7.tar.gz"
-  sha256 "9a68f77a23db68294fc65b0d7613b0e62de991c5b5925c1d544a4c8e26b14606"
+  url "https://pypi.python.org/packages/07/b9/1ed919b9924003ea9abff0ff61116de5e5bac0675b9106fa6efbed10d030/stormssh-0.6.9.tar.gz"
+  sha256 "e896597b902d1191bae1f6a9b248d3374258f8775e9726cff1ba2300ad664c8a"
   head "https://github.com/emre/storm.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "da73534dd5e915049415874196ed8edeb92f49c6f78eb8f0257a916c1a97bbe2" => :el_capitan
-    sha256 "c624c01a1d18fa70ad1da3d7de1efc9942ee18c5f64c29373150f9faad534056" => :yosemite
-    sha256 "297400513bf1d37eaeb1ed90c764bf2ee0d6a21fd3afcfad846eaceeed057b11" => :mavericks
+    sha256 "f2a8c7b99647b5b7e0e578329c126842670610ca667c28609afbd40bec032409" => :el_capitan
+    sha256 "1f15fa5349824fb2de682b577d7b1a8208008d64050c1c6189ef8abac108cc97" => :yosemite
+    sha256 "902cb6751c1af1c04a23419f3bff6ad2f34a36690c44059526142f886a93b6dd" => :mavericks
   end
+
+  depends_on :python if MacOS.version <= :snow_leopard
 
   conflicts_with "storm", :because => "both install 'storm' binary"
 

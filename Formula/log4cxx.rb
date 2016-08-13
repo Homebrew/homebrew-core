@@ -12,12 +12,12 @@ class Log4cxx < Formula
     sha256 "6b07acbb1e77d8d7edc7e111f57250b9d05c9b9c8aa6f1363f919940695aa1f9" => :mountain_lion
   end
 
+  option :universal
+  option :cxx11
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-
-  option :universal
-  option :cxx11
 
   fails_with :llvm do
     build 2334

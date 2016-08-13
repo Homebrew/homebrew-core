@@ -1,15 +1,15 @@
 class Gringo < Formula
   desc "Grounder to translate user-provided logic programs"
   homepage "http://potassco.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/potassco/gringo/4.5.3/gringo-4.5.3-source.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/g/gringo/gringo_4.5.3.orig.tar.gz"
-  sha256 "feb53913e697052e45c0d3a75ab9d2bb097abf6751caf452df3afa4376298825"
+  url "https://downloads.sourceforge.net/project/potassco/gringo/4.5.4/gringo-4.5.4-source.tar.gz"
+  mirror "https://mirrors.kernel.org/debian/pool/main/g/gringo/gringo_4.5.4.orig.tar.gz"
+  sha256 "81f8bbbb1b06236778028e5f1b8627ee38a712ec708724112fb08aecf9bc649a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7413d94e07e8eec626478ce76b447ddf831d1f2df4ae4b91d70dc82c3b433025" => :el_capitan
-    sha256 "c71569ae85dac1aea9e0570ef43401063f66dc9a855bc9a4fa804bf381bc5ad3" => :yosemite
-    sha256 "68d7c04b3a00fc02b87f4db25d39fbfe53b340f28fae1dfc38566d37aa7b5d89" => :mavericks
+    sha256 "441c81748e551106a923ccd61298f98c8b5e46cba684fc2e0031a4fe11f1d0ae" => :el_capitan
+    sha256 "e9b5ee97a0a0b8c14a66d6359936259b7edc96c2013531c250903a03df65bfb0" => :yosemite
+    sha256 "7215d8a23fe6052bd67e4ce8b5537da6e16236f07fe387bd7b29fa5f9ee35ca9" => :mavericks
   end
 
   depends_on "re2c" => :build
@@ -31,6 +31,6 @@ class Gringo < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/gringo --version")
+    assert_match version.to_s, shell_output("#{bin}/gringo --version")
   end
 end

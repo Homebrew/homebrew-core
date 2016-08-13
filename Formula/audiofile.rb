@@ -1,7 +1,7 @@
 class Audiofile < Formula
   desc "Reads and writes many common audio file formats"
-  homepage "http://www.68k.org/~michael/audiofile/"
-  url "http://audiofile.68k.org/audiofile-0.3.6.tar.gz"
+  homepage "https://audiofile.68k.org/"
+  url "https://audiofile.68k.org/audiofile-0.3.6.tar.gz"
   sha256 "cdc60df19ab08bfe55344395739bb08f50fc15c92da3962fac334d3bff116965"
 
   bottle do

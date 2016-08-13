@@ -1,16 +1,16 @@
 class GitFixup < Formula
   desc "Alias for git commit --fixup <ref>"
   homepage "https://github.com/keis/git-fixup"
-  url "https://github.com/keis/git-fixup/archive/v1.1.0.tar.gz"
-  sha256 "6e166709a18a0417776592493b82dc87f38766295825cfa68ce41adbf608c78e"
+  url "https://github.com/keis/git-fixup/archive/v1.1.1.tar.gz"
+  sha256 "1843caf40fb54bfd746f966fc04fac68613fe8ec2f18b2af99f9d32a40ea0809"
 
   head "https://github.com/keis/git-fixup.git", :branch => "master"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2abea2c18d5dca1574cb31306064ebc5051ffe305ec509ff9e0c1653ea8b739e" => :el_capitan
-    sha256 "fde4a33d694d5d4de7c0d57d7c5ff5743c096ac5f8ce2c615af50ad53fd56c0b" => :yosemite
-    sha256 "3691cee4d3208c1bf6e0af364ddde4a3e4ba552fc5364d37cef1cca74d81e664" => :mavericks
+    sha256 "0145c568d255c20a0f728d14152aad8a83a0ceb25e9f833d016efc57d19191c8" => :el_capitan
+    sha256 "077bcf80be63e6da3bdd7699f6b82549d99014210ff8e015e5319234d8a9e75a" => :yosemite
+    sha256 "f0c6934dbd1317abae4ef8c0e1440d624dbc7025f06eb1006d654c0c2925cc5b" => :mavericks
   end
 
   def install

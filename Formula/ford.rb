@@ -1,16 +1,15 @@
 class Ford < Formula
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/cmacmackin/ford/"
-  url "https://pypi.python.org/packages/85/11/7a70d720fcceddad67001dfa36bbc202d6172ba0b17e7d955db88516a33a/FORD-4.6.2.tar.gz"
-  sha256 "48062d658c712e22e459d9a2460f7fd584013289a24d13e0fc011bdbe05c99b4"
-
+  url "https://files.pythonhosted.org/packages/d2/0a/db879742b03ffd136b0c18704697d5df9af779e0d2321412f46a48f424e4/FORD-5.0.4.tar.gz"
+  sha256 "a6ec4eac90a3baa2ed59435bf9e94f6f1a40f49881ac6e642d23471767a52db6"
   head "https://github.com/cmacmackin/ford.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d8671a9f6a080cddbadedf94d856d15eef6e27148ceab2dc8786e404c7c8af07" => :el_capitan
-    sha256 "56a17d5091a0ed3f37c08770ce5a683546154a34defd156bd9ff65e56da7dda3" => :yosemite
-    sha256 "60c7f77dc9eda0ab42debe1dd662603697cdec79df6009e2a964877c387e7c70" => :mavericks
+    sha256 "02c6c73955daf738ef03e2afb8a11b8da366305d8a7b49e7640b65aff0dce0a9" => :el_capitan
+    sha256 "acc66051b0c87da1791696365a7ddb3fda45e33d6f6de541013fcf87b92c7e91" => :yosemite
+    sha256 "40bb0a5df542b7dc349218131aae179fc653eb2841938765bcbc59b0b4cfa56a" => :mavericks
   end
 
   option "without-lxml", "Do not install lxml to improve the speed of search  database generation"
@@ -18,57 +17,61 @@ class Ford < Formula
   depends_on "graphviz"
   depends_on :python if MacOS.version <= :snow_leopard
 
-  resource "lxml" do
-    url "https://pypi.python.org/packages/11/1b/fe6904151b37a0d6da6e60c13583945f8ce3eae8ebd0ec763ce546358947/lxml-3.6.0.tar.gz"
-    sha256 "9c74ca28a7f0c30dca8872281b3c47705e21217c8bc63912d95c9e2a7cac6bdf"
-  end
-
   resource "beautifulsoup4" do
-    url "https://pypi.python.org/packages/26/79/ef9a8bcbec5abc4c618a80737b44b56f1cb393b40238574078c5002b97ce/beautifulsoup4-4.4.1.tar.gz"
-    sha256 "87d4013d0625d4789a4f56b8d79a04d5ce6db1152bb65f1d39744f7709a366b4"
+    url "https://files.pythonhosted.org/packages/28/fa/69128a30854bcae479a9a09737e489b6e6e6b7d2cf5898ddf7b2f49bf143/beautifulsoup4-4.5.0.tar.gz"
+    sha256 "8e084c88b7664692e43576f121adb902e749ce0354e2becfb0f5220dcc20c9e5"
   end
 
   resource "graphviz" do
-    url "https://pypi.python.org/packages/3d/6d/406cec4d782d3cd6cb02d90bb17fbd364cab4a2a96d8ad0b5ccb46fd7442/graphviz-0.4.10.zip"
+    url "https://files.pythonhosted.org/packages/3d/6d/406cec4d782d3cd6cb02d90bb17fbd364cab4a2a96d8ad0b5ccb46fd7442/graphviz-0.4.10.zip"
     sha256 "61e9f7126f5efdd11fb9269d4622277fbf8ed92046b73f3e78529e3be6a95f15"
   end
 
   resource "Jinja2" do
-    url "https://pypi.python.org/packages/f2/2f/0b98b06a345a761bec91a079ccae392d282690c2d8272e708f4d10829e22/Jinja2-2.8.tar.gz"
+    url "https://files.pythonhosted.org/packages/f2/2f/0b98b06a345a761bec91a079ccae392d282690c2d8272e708f4d10829e22/Jinja2-2.8.tar.gz"
     sha256 "bc1ff2ff88dbfacefde4ddde471d1417d3b304e8df103a7a9437d47269201bf4"
   end
 
+  resource "lxml" do
+    url "https://files.pythonhosted.org/packages/09/f3/c41293bc181b8c727cc485339dc57af653dae6d17d4c8dbf0cbac53cb4aa/lxml-3.6.1.tar.gz"
+    sha256 "3eefcfbc548f8df38063b26c9686554268c1eb736e52cd230ff148aa550239d1"
+  end
+
   resource "Markdown" do
-    url "https://pypi.python.org/packages/9b/53/4492f2888408a2462fd7f364028b6c708f3ecaa52a028587d7dd729f40b4/Markdown-2.6.6.tar.gz"
+    url "https://files.pythonhosted.org/packages/9b/53/4492f2888408a2462fd7f364028b6c708f3ecaa52a028587d7dd729f40b4/Markdown-2.6.6.tar.gz"
     sha256 "9a292bb40d6d29abac8024887bcfc1159d7a32dc1d6f1f6e8d6d8e293666c504"
   end
 
   resource "markdown-include" do
-    url "https://pypi.python.org/packages/ef/44/eb6e9b4fa1110b719abb876c9b6dd8b46af886a94536ec4e9117fe5e7b97/markdown-include-0.5.1.tar.gz"
+    url "https://files.pythonhosted.org/packages/ef/44/eb6e9b4fa1110b719abb876c9b6dd8b46af886a94536ec4e9117fe5e7b97/markdown-include-0.5.1.tar.gz"
     sha256 "72a45461b589489a088753893bc95c5fa5909936186485f4ed55caa57d10250f"
   end
 
   resource "MarkupSafe" do
-    url "https://pypi.python.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"
+    url "https://files.pythonhosted.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"
     sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
   end
 
+  resource "md-environ" do
+    url "https://files.pythonhosted.org/packages/68/a9/86666edbf0d3929d5b3be3347c153881139aa1e28af38f6496edcc034003/md-environ-0.1.0.tar.gz"
+    sha256 "fe3c2a255af523d6f522831c699336cd71f9d543714067d93206ed35836f1793"
+  end
+
   resource "Pygments" do
-    url "https://pypi.python.org/packages/b8/67/ab177979be1c81bc99c8d0592ef22d547e70bb4c6815c383286ed5dec504/Pygments-2.1.3.tar.gz"
+    url "https://files.pythonhosted.org/packages/b8/67/ab177979be1c81bc99c8d0592ef22d547e70bb4c6815c383286ed5dec504/Pygments-2.1.3.tar.gz"
     sha256 "88e4c8a91b2af5962bfa5ea2447ec6dd357018e86e94c7d14bd8cacbc5b55d81"
   end
 
   resource "toposort" do
-    url "https://pypi.python.org/packages/f6/f7/875e23067652488ae40603336fdd63510a1e1853672b5b829a78452fd31c/toposort-1.4.tar.gz"
+    url "https://files.pythonhosted.org/packages/f6/f7/875e23067652488ae40603336fdd63510a1e1853672b5b829a78452fd31c/toposort-1.4.tar.gz"
     sha256 "c190b9d9a9e53ae2835f4d524130147af601fbd63677d19381c65067a80fa903"
   end
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    deps = %w[beautifulsoup4 graphviz Jinja2 Markdown markdown-include MarkupSafe Pygments toposort]
-    deps << "lxml" if build.with? "lxml"
+    deps = (build.with? "lxml") ? resources : resources - [resource("lxml")]
     deps.each do |r|
-      resource(r).stage do
+      r.stage do
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end

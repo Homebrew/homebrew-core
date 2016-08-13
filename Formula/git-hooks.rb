@@ -20,9 +20,8 @@ class GitHooks < Formula
   end
 
   test do
-    HOMEBREW_REPOSITORY.cd do
-      output = shell_output("git hooks").strip
-      assert_match(/Listing User, Project, and Global hooks/, output)
-    end
+    system "git", "init"
+    output = shell_output("git hooks").strip
+    assert_match "Listing User, Project, and Global hooks", output
   end
 end

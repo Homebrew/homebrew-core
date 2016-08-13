@@ -1,14 +1,13 @@
 class Gource < Formula
   desc "Version Control Visualization Tool"
   homepage "https://github.com/acaudwell/Gource"
-  url "https://github.com/acaudwell/Gource/releases/download/gource-0.43/gource-0.43.tar.gz"
-  sha256 "85a40ac8e4f5c277764216465c248d6b76589ceac012541c4cc03883a24abde4"
-  revision 3
+  url "https://github.com/acaudwell/Gource/releases/download/gource-0.44/gource-0.44.tar.gz"
+  sha256 "2604ca4442305ffdc5bb1a7bac07e223d59c846f93567be067e8dfe2f42f097c"
 
   bottle do
-    sha256 "cb581cb4c8afafd98dc4fd96f3c87a26ad57519d5ab65267de14b3da5790934a" => :el_capitan
-    sha256 "d47030c8dc55a2721257b26cfa2de90f2efa5b3e7d0f3d9ae92c0a1a183846af" => :yosemite
-    sha256 "f65a495853061d4515445d1a07d2931a06ce0bb9e6782743d63763d00c2dd878" => :mavericks
+    sha256 "5870be68c62621907fb0f3f04dfc0f93cf9c99f12d715e36a85cbd8fcd6abd0e" => :el_capitan
+    sha256 "35ce40b076a186bceadd909edc82ce007d83372ed65832c473ea91174dd077b7" => :yosemite
+    sha256 "1f33484c86e75e1be2ba4447f19c98645f5483119c4dba101e76213b425746ab" => :mavericks
   end
 
   head do
@@ -26,6 +25,7 @@ class Gource < Formula
   depends_on "freetype"
   depends_on "glew"
   depends_on "jpeg"
+  depends_on "libpng"
   depends_on "pcre"
   depends_on "sdl2"
   depends_on "sdl2_image"

@@ -3,19 +3,18 @@ class Newt < Formula
   homepage "https://fedorahosted.org/newt/"
   url "https://fedorahosted.org/releases/n/e/newt/newt-0.52.18.tar.gz"
   sha256 "771b0e634ede56ae6a6acd910728bb5832ac13ddb0d1d27919d2498dab70c91e"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "0e47676dc127c77710bf3ed146edb3f7a22d96c113cc9b7322779dc94987eccc" => :el_capitan
-    sha256 "33403d77594cecec7efb68b21a3a55b0c2510cd3c97d8aa5f252015632c5962b" => :yosemite
-    sha256 "d1a3b95da1718bae9461c958cc05b739f94ee4ec0e5d08f7a8001cd29aa82dc8" => :mavericks
-    sha256 "ace3c7f7beacda4039b3d147687214a01f6006a6d53eadbb245825a2cea402ad" => :mountain_lion
+    sha256 "87bfa0e43bd4bfecdedc8995fbd509bb7a7b4f94ea932f203ae95fd037a91eb3" => :el_capitan
+    sha256 "9df1357a08367454f2588dbe414ebce74352cdd230262ee7d08ab4ec169b3019" => :yosemite
+    sha256 "44f755d2e9f16c715366b80b2c1fe65b73c42b486453e71c45c2702e32e61e10" => :mavericks
   end
 
   depends_on "gettext"
   depends_on "popt"
   depends_on "s-lang"
-  depends_on :python => :optional
 
   # build dylibs with -dynamiclib; version libraries
   # Patch via MacPorts
@@ -26,7 +25,6 @@ class Newt < Formula
 
   def install
     args = ["--prefix=#{prefix}", "--without-tcl"]
-    args << "--without-python" if build.without? "python"
 
     inreplace "Makefile.in" do |s|
       # name libraries correctly
@@ -43,5 +41,19 @@ class Newt < Formula
 
     system "./configure", *args
     system "make", "install"
+  end
+
+  test do
+    ENV["TERM"] = "xterm"
+    system "python", "-c", "import snack"
+    (testpath/"test.c").write <<-EOS.undent
+      #import <newt.h>
+      int main() {
+        newtInit();
+        newtFinished();
+      }
+    EOS
+    system ENV.cc, testpath/"test.c", "-o", testpath/"newt_test", "-lnewt"
+    system testpath/"newt_test"
   end
 end

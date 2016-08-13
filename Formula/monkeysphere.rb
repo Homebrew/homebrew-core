@@ -4,13 +4,15 @@ class Monkeysphere < Formula
   url "http://archive.monkeysphere.info/debian/pool/monkeysphere/m/monkeysphere/monkeysphere_0.38.orig.tar.gz"
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/monkeysphere/monkeysphere_0.38.orig.tar.gz"
   sha256 "6951821d11ad646e6e7651d677bfab8f800fbc52703a0ab9942d03cd13959073"
+  revision 1
+
   head "git://git.monkeysphere.info/monkeysphere"
 
   bottle do
     cellar :any
-    sha256 "8e94310d13f141d26613bbd1078a920f250ba9b310dd93ab2b7730b9ec43b32c" => :el_capitan
-    sha256 "c3ae95c977747b070785c0fe4780190b1a687b4ae214a25f35eb91acb14a3f80" => :yosemite
-    sha256 "c2ec9f9dfe93bd5934ae60357cb142f4c37c20662faef32956b51afafbc00846" => :mavericks
+    sha256 "57cae3fb443156493dc11a94df356fa89f35ca860d4dc3eae26a63c640c0d41d" => :el_capitan
+    sha256 "df552a96f3eed85b8cc0b3e0afc06989cdf3f961daf328d8733f7f0460adbbf7" => :yosemite
+    sha256 "ea8547fb15ade2e724337e828dbbd12db90c5d95e2c9d45a88f22eeef278b505" => :mavericks
   end
 
   depends_on "gnu-sed" => :build

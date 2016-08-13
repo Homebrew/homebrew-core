@@ -8,9 +8,10 @@ class Websocketd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c1aae82fc721119bea2b9c4eeeffcca73e1b95b35f7ed18aa845bedd0d49217f" => :el_capitan
-    sha256 "ede9acb8e57e5da83bfe01a9ef75aaecfa38ca594eca150c8d885ea9d3a5acd5" => :yosemite
-    sha256 "f362300b0088de2ff7f918d80aa3bcdc3afb65eb3b6e8fe7c96ec815a16a9ba4" => :mavericks
+    revision 1
+    sha256 "560f7a2a5455bbd31f0f30f3beba292543bfb1e7fae6a1ab5d0b2c1b3ebe6904" => :el_capitan
+    sha256 "1b525264a32863baf094ec1e6e2a9b932b79aa51135cd20b26c086a970294d48" => :yosemite
+    sha256 "db7d13cd8b3888f830f2c2c566a045dce4ad3cfb18c193472c5f19fe26d1700d" => :mavericks
   end
 
   depends_on "go" => :build
@@ -26,15 +27,14 @@ class Websocketd < Formula
   end
 
   def install
-    ENV["GOBIN"] = bin
     ENV["GOPATH"] = buildpath
-    ENV["GOHOME"] = buildpath
 
     mkdir_p buildpath/"src/github.com/joewalnes/"
     ln_sf buildpath, buildpath/"src/github.com/joewalnes/websocketd"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    system "go", "build", "-ldflags", "-X main.version #{version}", "-o", bin/"websocketd", "main.go", "config.go", "help.go", "version.go"
+    system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"websocketd",
+                          "main.go", "config.go", "help.go", "version.go"
     man1.install "release/websocketd.man" => "websocketd.1"
   end
 

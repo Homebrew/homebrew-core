@@ -1,27 +1,14 @@
 class Gd < Formula
   desc "Graphics library to dynamically manipulate images"
   homepage "https://libgd.github.io/"
-
-  stable do
-    url "https://github.com/libgd/libgd/releases/download/gd-2.2.2/libgd-2.2.2.tar.xz"
-    sha256 "489f756ce07f0c034b1a794f4d34fdb4d829256112cb3c36feb40bb56b79218c"
-
-    # OS X linker restricts the revision field to 8 bits: libgd/libgd#214.
-    # Same as https://github.com/libgd/libgd/commit/502e4cd8, but recommended by
-    # upstream for patching the release tarball; already fixed in HEAD.
-    patch do
-      url "https://gitweb.gentoo.org/repo/gentoo.git/plain/media-libs/gd/files/gd-2.2.2-osx-libtool.patch?id=ede657b970d1deee8305dbefaf5651c37aea115c"
-      sha256 "8af30e9f8da6ca7ed28ee766e87b66d8ccf034745851760fb4fc8e9bc4907f14"
-    end
-  end
-
-  revision 2
+  url "https://github.com/libgd/libgd/releases/download/gd-2.2.3/libgd-2.2.3.tar.xz"
+  sha256 "746b6cbd6769a22ff3ba6f5756f3512a769bd4cdf4695dff17f4867f25fa7d3c"
 
   bottle do
     cellar :any
-    sha256 "8fb168b590224eac35af6095d72d61244b0ba6054f1c1cbd607998d70dae2b11" => :el_capitan
-    sha256 "a43bbe94a10d35acf4e170d090af804e4249682b9c9b21df78620220cf28bcd7" => :yosemite
-    sha256 "34747194136d5c68f08d50e296b09ab5c78b971c09b2dd3e28e219c49e969016" => :mavericks
+    sha256 "29776f468bbff2cac3cec5cf9045521a4f5f3b4109a97491f6ded9cf7723a513" => :el_capitan
+    sha256 "eb416148f999b18da74eb0810cc5156e7d2ab4d92b269f7c110f603665c9815b" => :yosemite
+    sha256 "b0646d10f7bf588bb6c0d148ea79b602574cfff82164b3a82fd2baba80415ca2" => :mavericks
   end
 
   head do

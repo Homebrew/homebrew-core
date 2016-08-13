@@ -1,18 +1,19 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=trafficserver/trafficserver-6.1.1.tar.bz2"
-  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-6.1.1.tar.bz2"
-  sha256 "67ddd7fc79e4435f353b2aa8937a7b205f217ca15beba3adb5213a92f9527d8b"
+  url "https://www.apache.org/dyn/closer.cgi?path=trafficserver/trafficserver-6.2.0.tar.bz2"
+  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-6.2.0.tar.bz2"
+  sha256 "bd5e8c178d02957b89a81d1e428ee50bcca0831a6917f32408915c56f486fd85"
 
   bottle do
-    sha256 "c8fa833d763a36c2f80112b062bae83c8a91873a5296cacd9894c6134f8170a6" => :el_capitan
-    sha256 "f3205d51a3cca216b838cd41e4e455d0c3efb082672651eaccc1a84149afeb67" => :yosemite
-    sha256 "80b1e7d13bae8b827599000a718ec659a559f494b379aa0d250a99eb1a60e6a4" => :mavericks
+    sha256 "401991b905cf77bac76c1ef305c51e9ed8fad52c9b96510dffb6a2a45f178852" => :el_capitan
+    sha256 "02b6debf85db785a781649d4533c3d1e8f05c076e21fb6000e3d9828fd0269d4" => :yosemite
+    sha256 "86015b548eb9c33df0d90033e187fd765f6da5a98d2123bff7282562ad08a996" => :mavericks
   end
 
   head do
     url "https://github.com/apache/trafficserver.git"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool"  => :build
@@ -33,13 +34,14 @@ class Trafficserver < Formula
 
   def install
     ENV.cxx11
-    # Needed for correct ./configure detections.
-    ENV.enable_warnings
-    # Needed for OpenSSL headers on Lion.
-    ENV.append_to_cflags "-Wno-deprecated-declarations"
 
-    (var/"log/trafficserver").mkpath
-    (var/"trafficserver").mkpath
+    # Needed for correct ./configure detections
+    ENV.enable_warnings
+
+    # Needed for OpenSSL headers
+    if MacOS.version <= :lion
+      ENV.append_to_cflags "-Wno-deprecated-declarations"
+    end
 
     args = %W[
       --prefix=#{prefix}
@@ -65,11 +67,18 @@ class Trafficserver < Formula
       inreplace "plugins/experimental/Makefile", " mysql_remap", ""
     end
 
+    inreplace "lib/perl/Makefile",
+      "Makefile.PL INSTALLDIRS=$(INSTALLDIRS)",
+      "Makefile.PL INSTALLDIRS=$(INSTALLDIRS) INSTALLSITEMAN3DIR=#{man3}"
+
     system "make" if build.head?
     system "make", "install"
   end
 
   def post_install
+    (var/"log/trafficserver").mkpath
+    (var/"trafficserver").mkpath
+
     config = etc/"trafficserver/records.config"
     return unless File.exist?(config)
     return if File.read(config).include?("proxy.config.admin.user_id STRING #{ENV["USER"]}")
@@ -78,6 +87,7 @@ class Trafficserver < Formula
   end
 
   test do
-    assert_match "Apache Traffic Server is not running.", shell_output("#{bin}/trafficserver status").chomp
+    output = shell_output("#{bin}/trafficserver status")
+    assert_match "Apache Traffic Server is not running", output
   end
 end

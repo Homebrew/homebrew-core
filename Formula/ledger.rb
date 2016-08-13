@@ -3,13 +3,14 @@ class Ledger < Formula
   homepage "http://ledger-cli.org"
   url "https://github.com/ledger/ledger/archive/v3.1.1.tar.gz"
   sha256 "90f06561ab692b192d46d67bc106158da9c6c6813cc3848b503243a9dfd8548a"
+  revision 2
+
   head "https://github.com/ledger/ledger.git"
-  revision 1
 
   bottle do
-    sha256 "a009cd705baad8407ccc6b56a3acecda01160f0eb27c7554ca30e6faec236c01" => :el_capitan
-    sha256 "073b143a8bb57cd4af2910f68869930232913b521e7f7d59446e350e306b2e5f" => :yosemite
-    sha256 "b56d36146f09a1e9b7c23511ca7075d2d8b0760b5171aedad17a3e4cca51cef7" => :mavericks
+    sha256 "1bddc195a2c4ef372d49514909b7bbd64854df93f001b83afa84308473865a0c" => :el_capitan
+    sha256 "d4b22fcc93fdc38bab12ea3599879ff1115fbc6ecbc635ec96873c37504e9aa7" => :yosemite
+    sha256 "3f37ce737a1eee0c8bb538620b0e9d8d7141512bc2e878ba84aaad807b50644f" => :mavericks
   end
 
   deprecated_option "debug" => "with-debug"
@@ -48,10 +49,10 @@ class Ledger < Formula
     system "./acprep", flavor, "make", "doc", *args
     system "./acprep", flavor, "make", "install", *args
 
-    (pkgshare+"examples").install Dir["test/input/*.dat"]
-    (pkgshare).install "contrib"
-    (pkgshare).install "python/demo.py" if build.with? "python"
-    (share/"emacs/site-lisp/ledger").install Dir["lisp/*.el", "lisp/*.elc"]
+    (pkgshare/"examples").install Dir["test/input/*.dat"]
+    pkgshare.install "contrib"
+    pkgshare.install "python/demo.py" if build.with? "python"
+    elisp.install Dir["lisp/*.el", "lisp/*.elc"]
   end
 
   test do
@@ -64,8 +65,6 @@ class Ledger < Formula
     assert_equal "          $-2,500.00  Equity", balance.read.chomp
     assert_equal 0, $?.exitstatus
 
-    if build.with? "python"
-      system "python", "#{pkgshare}/demo.py"
-    end
+    system "python", pkgshare/"demo.py" if build.with? "python"
   end
 end

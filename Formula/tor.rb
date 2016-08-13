@@ -1,38 +1,21 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-
-  stable do
-    url "https://dist.torproject.org/tor-0.2.7.6.tar.gz"
-    mirror "https://tor.eff.org/dist/tor-0.2.7.6.tar.gz"
-    sha256 "493a8679f904503048114aca6467faef56861206bab8283d858f37141d95105d"
-
-    # autotools only needed as long as the patch below is applied;
-    # remove them when the patch goes away
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-
-    # Fixes build on 10.12
-    # https://trac.torproject.org/projects/tor/ticket/17819
-    # Applied upstream, will be in the next release.
-    patch do
-      url "https://trac.torproject.org/projects/tor/raw-attachment/ticket/17819/pthread.diff"
-      sha256 "9eb64548f0c1efae28535dcfa4ed19824eccaea1cee62607adb480b99217697b"
-    end
-  end
+  url "https://dist.torproject.org/tor-0.2.8.6.tar.gz"
+  mirror "https://tor.eff.org/dist/tor-0.2.8.6.tar.gz"
+  sha256 "3dc9fc02f7cd22ed5fce707e0d9b26a72b1bd0976766a804cb13078d32e3ab5a"
 
   bottle do
-    revision 1
-    sha256 "6b8355ab0fc0768cc9ae1c17b043355850c83fb297425986e25774cec4d07bc7" => :el_capitan
-    sha256 "b34b44ebbbc84d785cb9c9fab6a19006cb2b85160ab45b62ed8d7eef807ac409" => :yosemite
-    sha256 "64564813dde75909e57a7a3790694022168104a9c29423822f503c54347c1fa1" => :mavericks
+    sha256 "61d4930d118f6ffa5c2ce5b81a68f8a6e76df42dd732a3b2edabe9f7403b6150" => :el_capitan
+    sha256 "d4fe09c14eae1b909056cc9a258fd1f5e941bf9b07d7d61dd7dc4ef87a1d2c36" => :yosemite
+    sha256 "69cd219fde5288ed696ef0c85420b52e9852e7dd15e08a1dfa2dc582ae8a258e" => :mavericks
   end
 
   devel do
-    url "https://dist.torproject.org/tor-0.2.8.5-rc.tar.gz"
-    mirror "https://tor.eff.org/dist/tor-0.2.8.5-rc.tar.gz"
-    version "0.2.8.5-rc"
-    sha256 "715c15230f1160c170c61286b02620a1d99a8476dd9c4f80a2e66779be63780a"
+    url "https://dist.torproject.org/tor-0.2.9.1-alpha.tar.gz"
+    mirror "https://tor.eff.org/dist/tor-0.2.9.1-alpha.tar.gz"
+    version "0.2.9.1-alpha"
+    sha256 "1a1b57af6bb47ecb62e4c60e2ceecb5609b558b1fdd87c86a91571d1601ba3f2"
   end
 
   depends_on "pkg-config" => :build
@@ -65,7 +48,7 @@ class Tor < Formula
     EOS
   end
 
-  plist_options :manual => "tor start"
+  plist_options :manual => "tor"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

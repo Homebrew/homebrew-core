@@ -1,13 +1,13 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-1.3.5.tar.gz"
-  sha256 "93a23c44eb431da46c9458f95a66e29c9b98e37515d44b6be09e75b35ec94ac8"
+  url "https://libvirt.org/sources/libvirt-2.1.0.tar.xz"
+  sha256 "1a799562337472ab00f76aa30a53d54c623c96633070ec53286c9cc2a456316b"
 
   bottle do
-    sha256 "b8eca973a86ff46830181f18d318295991f561fd3b672b8c874cff7e8e8ae2de" => :el_capitan
-    sha256 "0a63f4aecf98011d75d5486d4bde3cfcec4c8056849f85b795c020ca56caa278" => :yosemite
-    sha256 "2959093b516c41b971414157d11b0e0033677d13cbb306d0d64c329f423e6b6b" => :mavericks
+    sha256 "49b0bbb4918ab1b29fbb12deb0d57ee9115bb069c47f52dd5676e915c4361e42" => :el_capitan
+    sha256 "d8068db824e0090c657caf952b6d8cb3a5ca95f92cc7c032405cf25f00b0f1b4" => :yosemite
+    sha256 "852894798a30c9712d8608b5975cb8f1f01a101bef156f17024f75a98a136d35" => :mavericks
   end
 
   option "without-libvirtd", "Build only the virsh client and development libraries"
@@ -29,18 +29,20 @@ class Libvirt < Formula
   end
 
   def install
-    args = ["--prefix=#{prefix}",
-            "--localstatedir=#{var}",
-            "--mandir=#{man}",
-            "--sysconfdir=#{etc}",
-            "--with-esx",
-            "--with-init-script=none",
-            "--with-remote",
-            "--with-test",
-            "--with-vbox",
-            "--with-vmware",
-            "--with-yajl",
-            "--without-qemu"]
+    args = %W[
+      --prefix=#{prefix}
+      --localstatedir=#{var}
+      --mandir=#{man}
+      --sysconfdir=#{etc}
+      --with-esx
+      --with-init-script=none
+      --with-remote
+      --with-test
+      --with-vbox
+      --with-vmware
+      --with-yajl
+      --without-qemu
+    ]
 
     args << "--without-libvirtd" if build.without? "libvirtd"
 
@@ -61,5 +63,10 @@ class Libvirt < Formula
         s.gsub! "/var/", "#{HOMEBREW_PREFIX}/var/"
       end
     end
+  end
+
+  test do
+    output = shell_output("#{bin}/virsh -v")
+    assert_match version.to_s, output
   end
 end

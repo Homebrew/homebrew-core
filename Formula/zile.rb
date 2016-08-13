@@ -1,5 +1,5 @@
 class Zile < Formula
-  desc "Zile Is Lossy Emacs (ZILE)"
+  desc "Text editor development kit"
   homepage "https://www.gnu.org/software/zile/"
   url "https://ftpmirror.gnu.org/zile/zile-2.4.11.tar.gz"
   mirror "https://ftp.gnu.org/gnu/zile/zile-2.4.11.tar.gz"
@@ -32,5 +32,9 @@ class Zile < Formula
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/zile --version")
   end
 end

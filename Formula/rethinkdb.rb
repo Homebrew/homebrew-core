@@ -20,6 +20,13 @@ class Rethinkdb < Formula
     cause "RethinkDB uses C++0x"
   end
 
+  # Fixes "'availability.h' file not found"
+  # Reported 1 Aug 2016: "Fix the build on case-sensitive macOS file systems"
+  patch do
+    url "https://github.com/rethinkdb/rethinkdb/pull/6024.patch"
+    sha256 "b9bdea085117368f69b34bd9076a303a0e4b3922149e9513691c887c23d12ee3"
+  end
+
   def install
     args = ["--prefix=#{prefix}"]
 

@@ -2,13 +2,13 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "http://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.6.tar.gz"
-  sha256 "358a4779e6813bd06f07db0cf0f0fe531401ed0c6ed958973d404416c3d537fa"
+  url "http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.2.tar.gz"
+  sha256 "5f87d778e5d62822d60e38fa9621c1c5648fc559d198ba314bd9d89cbf67d9e3"
 
   bottle do
-    sha256 "e20fddd926faeb3d6d0d45bd74f803208fc5e39d31a1f7032d8bbd2fe0a173fb" => :el_capitan
-    sha256 "e420e8207283bc89f0775ac64dd091c21b83a3f3bda2083bf8f887fbc0a70c94" => :yosemite
-    sha256 "107d7cd49afec0f536dee079327946dfb42a23bda4f590efff00bef39313d47d" => :mavericks
+    sha256 "43d8ccfe8b909d0b43e527d9bdf8e60f994c0a089227ed0a35fc2a7b5dd2af17" => :el_capitan
+    sha256 "ea0eac442ba35ddc4a71278de1a9990900ba3c458bc204d962927aa48a634151" => :yosemite
+    sha256 "43e46ae47533d703806f9423f89d946520b242871d9ca0b0093bf0352c6a208e" => :mavericks
   end
 
   head do

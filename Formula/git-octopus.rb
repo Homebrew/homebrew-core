@@ -1,14 +1,14 @@
 class GitOctopus < Formula
-  desc "Extends git-merge with branch naming patterns"
+  desc "The continuous merge workflow"
   homepage "https://github.com/lesfurets/git-octopus"
-  url "https://github.com/lesfurets/git-octopus/archive/v1.2.1.tar.gz"
-  sha256 "eb289838aa9acbb9c81bed23dbd98aeada5e7ab5bbd914fdd7a5d4a92b53891d"
+  url "https://github.com/lesfurets/git-octopus/archive/v1.3.tar.gz"
+  sha256 "f4d150c840189053fd327a5141361369b6ed80d57a6bbdd84e9d035777c87b0a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aac9cf0672d53ceb8afc7b12dd716b4e60e6be60968e3e1107334f8e4bebefff" => :el_capitan
-    sha256 "4752688d5d0cf4c2d6c848ef329ecda42fc20e4ad5f35b58089d306d823a277a" => :yosemite
-    sha256 "0171f6434810012312ba6df32f26485dd55fc0f4a60dbf68a4b4ccbc04afae58" => :mavericks
+    sha256 "e2d7d62cced676ad6201170d71bb219514c6761e4753b35ca73f959eb4604937" => :el_capitan
+    sha256 "85ca8acf1dbe1c83b879982472895b41e19c00ff435ac7729b3b18a8a5af4c1e" => :yosemite
+    sha256 "ae0533d3543c79194a482c66a41c768bfa94a6253789ca98f259e6c4c7e965e2" => :mavericks
   end
 
   def install

@@ -1,22 +1,18 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.14/source/mariadb-10.1.14.tar.gz"
-  sha256 "18e71974a059a268a3f28281599607344d548714ade823d575576121f76ada13"
+  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.16/source/mariadb-10.1.16.tar.gz"
+  sha256 "67cb35c62cc5d4cf48d7b614c0c7a9245a762ca23d4e588e15c616c102e64393"
 
   bottle do
-    sha256 "7d1ec840153e4921f2db498afba1809aa117ea51ca154fc43b384704f88fb773" => :el_capitan
-    sha256 "2b82f99cb3e318906b358157f76e2474ec2b68386f5d6fb4738d666bf75c406b" => :yosemite
-    sha256 "fa09ca1ec1a6557099eafe2b0955a78ec4841a795194400b321914f84aab99fe" => :mavericks
+    sha256 "b5291f4e95755087fee15592fa1f871eba2ba9f717f1d3ce751602fae67f3bc4" => :el_capitan
+    sha256 "611e7bd02d48877461cf5f020eccdb023c4934f31817af86c359eed079e17162" => :yosemite
+    sha256 "6e0f2009a0456a8612ba99eaa170c9ee155c11449905a0c947c448d719cea424" => :mavericks
   end
 
   devel do
     url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.2.1/source/mariadb-10.2.1.tar.gz"
     sha256 "90b7a17f3372c92c12dff084b37fcca8c4cf8106f4dcabd35fadc8efbaa348a2"
-
-    # upstream fix for compilation error
-    # https://jira.mariadb.org/browse/MDEV-10322
-    patch :DATA
   end
 
   option :universal
@@ -42,6 +38,10 @@ class Mariadb < Formula
   conflicts_with "mytop", :because => "both install `mytop` binaries"
   conflicts_with "mariadb-connector-c",
     :because => "both install plugins"
+
+  # upstream fix for compilation error
+  # https://jira.mariadb.org/browse/MDEV-10322
+  patch :DATA
 
   def install
     # Don't hard-code the libtool path. See:

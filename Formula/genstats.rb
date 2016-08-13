@@ -15,18 +15,18 @@ class Genstats < Formula
 
   def install
     # Tried to make this a patch.  Applying the patch hunk would
-    # fail, even though I used "git diff | pbcopy".  Tried messing
+    # fail, even though I used "git diff | pbcopy". Tried messing
     # with whitespace, # lines, etc.  Ugh.
-    inreplace "br.cpp" do |s|
-      s.gsub! /if \(_XOPEN_VERSION >= 600\)/, "if (_XOPEN_VERSION >= 600) && !__APPLE__"
-    end
+    inreplace "br.cpp", /if \(_XOPEN_VERSION >= 600\)/,
+                        "if (_XOPEN_VERSION >= 600) && !__APPLE__"
 
     system "make"
-    bin.install("genstats")
-    man.install("genstats.1")
+    bin.install "genstats"
+    man.install "genstats.1"
   end
 
   test do
-    system "#{bin}/genstats -h | grep folkert@vanheusden.com"
+    output = shell_output("#{bin}/genstats -h", 1)
+    assert_match "folkert@vanheusden.com", output
   end
 end

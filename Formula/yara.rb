@@ -1,25 +1,15 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://github.com/VirusTotal/yara/"
+  url "https://github.com/VirusTotal/yara/archive/v3.5.0.tar.gz"
+  sha256 "ff2ee440515684c272df52febc8b73e730ca99ce194c24bd3cb43bec2b4c47f2"
   head "https://github.com/VirusTotal/yara.git"
-
-  stable do
-    url "https://github.com/VirusTotal/yara/archive/v3.4.0.tar.gz"
-    sha256 "528571ff721364229f34f6d1ff0eedc3cd5a2a75bb94727dc6578c6efe3d618b"
-
-    # fixes a variable redefinition error with clang (fixed in HEAD)
-    patch do
-      url "https://github.com/VirusTotal/yara/pull/261.diff"
-      sha256 "6b5c135b577a71ca1c1a5f0a15e512f5157b13dfbd08710f9679fb4cd0b47dba"
-    end
-  end
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "3794f28f0cec51b052105d03fa163724778d797ce00ca4ab912db8d9f0e6f0d0" => :el_capitan
-    sha256 "6f12300a6296b73c9a3630c46e7f7a95b7b180fb13754ce1b9e32d14b1bd8c6c" => :yosemite
-    sha256 "e7709cb0b1c47bbab784790c1ffb1929ec63dc05ee1c8864ba7b53ac60aad759" => :mavericks
+    sha256 "2bb2c72c4d24ff8f44ff94b5bd1c182a61df697f5721beaef84d56fe4e3245e1" => :el_capitan
+    sha256 "1505de971068a09ffcbd0923a1c865a33fe9cd1a24f55b1f6aa6efe6d0df5f10" => :yosemite
+    sha256 "5829e88154d05e1e3f9030399431b81c1dba3f11f3f0a5c08ee28d6236116854" => :mavericks
   end
 
   depends_on "libtool" => :build
@@ -29,18 +19,11 @@ class Yara < Formula
   depends_on "openssl"
 
   def install
-    # Use of "inline" requires gnu89 semantics
-    ENV.append "CFLAGS", "-std=gnu89" if ENV.compiler == :clang
-
     system "./bootstrap.sh"
     system "./configure", "--disable-silent-rules",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
-
-    cd "yara-python" do
-      system "python", *Language::Python.setup_install_args(prefix)
-    end
   end
 
   test do

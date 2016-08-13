@@ -8,9 +8,10 @@ class MidnightCommander < Formula
   head "https://github.com/MidnightCommander/mc.git"
 
   bottle do
-    sha256 "c83232919ef7d0fabd5a6264c5f32f4dd229925b00e2e453218c383ebbe47a6e" => :el_capitan
-    sha256 "9b2472d105b8035dfec599472f33e4557bf0f29cfc3773d2f54045d18be1e105" => :yosemite
-    sha256 "50c3e2e79bd010a44987e8246a0456714da542caf27e1cd641d984f7f5751d04" => :mavericks
+    revision 1
+    sha256 "645437aeeac3ee18c74bdc580550c9a6ef93411adebcd068f1c4061ef2a5a643" => :el_capitan
+    sha256 "b7efc5f7d40b2d76a701add5f5dff35b8e6718f09fe749eb72d6258e5616ed0c" => :yosemite
+    sha256 "2b6b3fee4eb893e62900a048b080dfafa2a1f029a04b4cb251d9f35487d52bb9" => :mavericks
   end
 
   option "without-nls", "Build without Native Language Support"
@@ -20,6 +21,8 @@ class MidnightCommander < Formula
   depends_on "openssl"
   depends_on "s-lang"
   depends_on "libssh2"
+
+  conflicts_with "minio-mc", :because => "Both install a `mc` binary"
 
   def install
     args = %W[

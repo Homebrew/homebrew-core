@@ -36,8 +36,7 @@ class Libspectre < Formula
         return 0;
       }
     EOS
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{include}
       -L#{lib}
       -lspectre

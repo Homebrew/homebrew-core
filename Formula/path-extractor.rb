@@ -1,5 +1,3 @@
-require "language/go"
-
 class PathExtractor < Formula
   desc "unix filter which outputs the filepaths found in stdin"
   homepage "https://github.com/edi9999/path-extractor"

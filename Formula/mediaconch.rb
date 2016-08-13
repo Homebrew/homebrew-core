@@ -1,15 +1,15 @@
 class Mediaconch < Formula
   desc "Conformance checker and technical metadata reporter"
   homepage "https://mediaarea.net/MediaConch"
-  url "https://mediaarea.net/download/binary/mediaconch/16.06/MediaConch_CLI_16.06_GNU_FromSource.tar.bz2"
-  version "16.06"
-  sha256 "cdd6c9199ed6833ae982a28474cdf41c9d60c4c45794d056935b963077f36196"
+  url "https://mediaarea.net/download/binary/mediaconch/16.07/MediaConch_CLI_16.07_GNU_FromSource.tar.bz2"
+  version "16.07"
+  sha256 "8f321af4edc5f241f7e55d7e234db64f4c2c5a263a685d509e682bc72850b447"
 
   bottle do
     cellar :any
-    sha256 "3d9c0e00ef440397e1c9c6a7c4033de492558b71c55fd40f12d63395c2ca89bf" => :el_capitan
-    sha256 "794fbd15131e961a1e1238cdaafc5ca434383471bebb0340aa5c52a806b530e6" => :yosemite
-    sha256 "24d44de245cd039c0553b7a2ff62c38d769a839b5afd405324ab109e6f6f00a3" => :mavericks
+    sha256 "6f7eeac5390cde40959e47bbd2f25238580bc47e3872f97adba3b70f0f346196" => :el_capitan
+    sha256 "9fe3c7793e334eda819eb19fe0f253719371a424256a39f259e9ed7937c33c1e" => :yosemite
+    sha256 "f6d6c44acbe8260fa718dca8abfaea7327a3d97a650769c88ee0a27a05267ac9" => :mavericks
   end
 
   depends_on "pkg-config" => :build

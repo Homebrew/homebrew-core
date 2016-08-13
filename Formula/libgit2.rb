@@ -52,8 +52,7 @@ class Libgit2 < Formula
       }
     EOS
     libssh2 = Formula["libssh2"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{include}
       -I#{libssh2.opt_include}
       -L#{lib}

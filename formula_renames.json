@@ -1,7 +1,7 @@
 {
   "app-engine-java-sdk": "app-engine-java",
   "beanstalk": "beanstalkd",
-  "letsencrypt": "certbot",
+  "commonmark": "cmark",
   "cppformat": "fmt",
   "crystal": "autocode",
   "cv": "progress",
@@ -15,6 +15,7 @@
   "hamsterdb": "upscaledb",
   "heroku-toolbelt": "heroku",
   "kotlin-compiler": "kotlin",
+  "letsencrypt": "certbot",
   "libcppa": "caf",
   "mpich2": "mpich",
   "nimrod": "nim",
@@ -22,6 +23,7 @@
   "offline-imap": "offlineimap",
   "plt-racket": "racket",
   "polarssl": "mbedtls",
+  "racket": "minimal-racket",
   "screenbrightness": "brightness",
   "wires": "geckodriver"
 }

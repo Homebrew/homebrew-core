@@ -1,36 +1,47 @@
 class Rtv < Formula
+  include Language::Python::Virtualenv
+
   desc "Command-line Reddit client"
   homepage "https://github.com/michael-lazar/rtv"
-  url "https://github.com/michael-lazar/rtv/archive/v1.9.1.tar.gz"
-  sha256 "66307483708a6dc77bf6f3c289221c8ccba4743e2f592448239c01b4989b3927"
+  url "https://github.com/michael-lazar/rtv/archive/v1.11.0.tar.gz"
+  sha256 "3e2a486719acec838d49a8979f1422f50b37ac3381ac89547dbb41792eeea67d"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5720f9a54499cc6fa50df9355036aeba4e032489d35c222a946966b4b5f5ba78" => :el_capitan
-    sha256 "f86627aa57e0b92d93f9e96480d69caf09ebd62890e261b00c1bf3c6a27b15dd" => :yosemite
-    sha256 "b5ac28d5bc385429367d25cbf72ae824930d69adee40368d976a8915633a2d95" => :mavericks
+    sha256 "3791f86d9613980c8fea5a2fac5867648b14f51af76b88039bde1af9f23807b0" => :el_capitan
+    sha256 "2fb9c97763c7f7569b1130a667e5c2fe6e41e08312fb86f02b7cad1180ded74e" => :yosemite
+    sha256 "cd6dbf42ad1abe58f022fed06030d6c116c3403ef8d9d53927190d7883e02e52" => :mavericks
   end
 
   depends_on :python3
+
+  resource "beautifulsoup4" do
+    url "https://files.pythonhosted.org/packages/86/ea/8e9fbce5c8405b9614f1fd304f7109d9169a3516a493ce4f7f77c39435b7/beautifulsoup4-4.5.1.tar.gz"
+    sha256 "3c9474036afda9136aac6463def733f81017bf9ef3510d25634f335b0c87f5e1"
+  end
 
   resource "decorator" do
     url "https://files.pythonhosted.org/packages/13/8a/4eed41e338e8dcc13ca41c94b142d4d20c0de684ee5065523fee406ce76f/decorator-4.0.10.tar.gz"
     sha256 "9c6e98edcb33499881b86ede07d9968c81ab7c769e28e9af24075f0a5379f070"
   end
 
-  resource "update_checker" do
-    url "https://files.pythonhosted.org/packages/ae/06/84e8872337ff2c94a417eef571ac727b1cf2c98355462f7ca239d9eba987/update_checker-0.11.tar.gz"
-    sha256 "681bc7c26cffd1564eb6f0f3170d975a31c2a9f2224a32f80fe954232b86f173"
+  resource "kitchen" do
+    url "https://files.pythonhosted.org/packages/d7/17/75c460f30b8f964bd5c1ce54e0280ea3ec8830a7c73a35d5036974245b2f/kitchen-1.2.4.tar.gz"
+    sha256 "38f73d844532dba7b8cce170e6eb032fc07d0d04a07670e1af754bd4c91dfb3d"
   end
 
-  resource "requests" do
-    url "https://files.pythonhosted.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
-    sha256 "63f1815788157130cee16a933b2ee184038e975f0017306d723ac326b5525b54"
+  resource "mailcap-fix" do
+    url "https://files.pythonhosted.org/packages/8c/2a/db1c970c05e65dd8e0ab76d2d3efa3a4b86417d16bc60efc8d8ce075835f/mailcap-fix-0.1.3.tar.gz"
+    sha256 "13b33059db4f3d5cd76ed173fb892dd59625075d6ec528e896840db39fb3b436"
   end
 
   resource "praw" do
-    url "https://files.pythonhosted.org/packages/3c/ca/8b47a272a639dc5d115f0d6a993a6f97d05bc01773868ae96259fe0d1d5a/praw-3.4.0.tar.gz"
-    sha256 "22a5dc3ef47007248752d517a637ff4f4b8acddfea31f589fe5a6e23c9f99ffe"
+    url "https://files.pythonhosted.org/packages/9b/90/2b41c0b374164a9b033093aea7c7f2b392c6333972f83156ab92a3bfbbc4/praw-3.5.0.zip"
+    sha256 "0aa3da06d731ed5aa8994f34e46fb36006d168d597ddee216671369917fe8dc3"
+  end
+
+  resource "requests" do
+    url "https://files.pythonhosted.org/packages/8d/66/649f861f980c0a168dd4cccc4dd0ed8fa5bd6c1bed3bea9a286434632771/requests-2.11.0.tar.gz"
+    sha256 "b2ff053e93ef11ea08b0e596a1618487c4e4c5f1006d7a1706e3671c57dea385"
   end
 
   resource "six" do
@@ -39,28 +50,18 @@ class Rtv < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/21/29/e64c97013e97d42d93b3d5997234a6f17455f3744847a7c16289289f8fa6/tornado-4.3.tar.gz"
-    sha256 "c9c2d32593d16eedf2cec1b6a41893626a2649b40b21ca9c4cac4243bde2efbf"
+    url "https://files.pythonhosted.org/packages/96/5d/ff472313e8f337d5acda5d56e6ea79a43583cc8771b34c85a1f458e197c3/tornado-4.4.1.tar.gz"
+    sha256 "371d0cf3d56c47accc66116a77ad558d76eebaa8458a6b677af71ca606522146"
   end
 
-  resource "kitchen" do
-    url "https://files.pythonhosted.org/packages/d7/17/75c460f30b8f964bd5c1ce54e0280ea3ec8830a7c73a35d5036974245b2f/kitchen-1.2.4.tar.gz"
-    sha256 "38f73d844532dba7b8cce170e6eb032fc07d0d04a07670e1af754bd4c91dfb3d"
+  resource "update_checker" do
+    url "https://files.pythonhosted.org/packages/ae/06/84e8872337ff2c94a417eef571ac727b1cf2c98355462f7ca239d9eba987/update_checker-0.11.tar.gz"
+    sha256 "681bc7c26cffd1564eb6f0f3170d975a31c2a9f2224a32f80fe954232b86f173"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python3.5/site-packages"
-    %w[update_checker decorator tornado praw six requests kitchen].each do |r|
-      resource(r).stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python3.5/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_create(libexec, "python3")
+    virtualenv_install_with_resources
   end
 
   test do

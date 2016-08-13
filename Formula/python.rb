@@ -18,6 +18,13 @@ class Python < Formula
   option "with-tcl-tk", "Use Homebrew's Tk instead of OS X Tk (has optional Cocoa and threads support)"
   option "with-poll", "Enable select.poll, which is not fully implemented on OS X (https://bugs.python.org/issue5154)"
 
+  # sphinx-doc depends on python, but on 10.6 or earlier python is fulfilled by
+  # brew, which would lead to circular dependency.
+  if MacOS.version > :snow_leopard
+    option "with-sphinx-doc", "Build HTML documentation"
+    depends_on "sphinx-doc" => [:build, :optional]
+  end
+
   deprecated_option "quicktest" => "with-quicktest"
   deprecated_option "with-brewed-tk" => "with-tcl-tk"
 
@@ -197,6 +204,13 @@ class Python < Formula
     (libexec/"setuptools").install resource("setuptools")
     (libexec/"pip").install resource("pip")
     (libexec/"wheel").install resource("wheel")
+
+    if MacOS.version > :snow_leopard && build.with?("sphinx-doc")
+      cd "Doc" do
+        system "make", "html"
+        doc.install Dir["build/html/*"]
+      end
+    end
   end
 
   def post_install

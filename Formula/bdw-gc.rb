@@ -1,15 +1,13 @@
 class BdwGc < Formula
   desc "Garbage collector for C and C++"
   homepage "http://www.hboehm.info/gc/"
-  url "http://www.hboehm.info/gc/gc_source/gc-7.4.2.tar.gz"
-  sha256 "63320ad7c45460e4a40e03f5aa4c6893783f21a16416c3282b994f933312afa2"
+  url "http://www.hboehm.info/gc/gc_source/gc-7.6.0.tar.gz"
+  sha256 "a14a28b1129be90e55cd6f71127ffc5594e1091d5d54131528c24cd0c03b7d90"
 
   bottle do
-    revision 2
-    sha256 "ba0257546369cd1879d66d3f1302194ae39767ccb5b012a20d16fdf5595b4326" => :el_capitan
-    sha256 "bb654d5b6952c8b22ce74d0081f900f3fd8628bb79105ba1b1ddc672fea6b067" => :yosemite
-    sha256 "ebbedf4fe84fbc6ccf621c7da954623443f1bc7596ca8c95efe72d4cba353d25" => :mavericks
-    sha256 "e5725f4c6b23ce7dc75e3e8fff51cd1f9f90858bad20d1ce00cf33499edf8f6b" => :mountain_lion
+    sha256 "939e43625f304cc5d315f28147db4323da910e7ade2efddea01fade0c56faf48" => :el_capitan
+    sha256 "a49e8aaa7f869a5c7dec0d4e38bb02f6be7e82a45341953f3e761716e3836ef2" => :yosemite
+    sha256 "392bb21f15af6c0ea2a9edfe0641362672e9d7ce8d9fee121e6a64e6081f79b0" => :mavericks
   end
 
   head do

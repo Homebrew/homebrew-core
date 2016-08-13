@@ -34,7 +34,7 @@ class Libvpx < Formula
 
     # configure misdetects 32-bit 10.6
     # https://code.google.com/p/webm/issues/detail?id=401
-    if MacOS.version == "10.6" && Hardware.is_32_bit?
+    if MacOS.version == "10.6" && Hardware::CPU.is_32_bit?
       args << "--target=x86-darwin10-gcc"
     end
 

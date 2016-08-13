@@ -46,8 +46,7 @@ class GeocodeGlib < Formula
     EOS
     gettext = Formula["gettext"]
     glib = Formula["glib"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
+    flags = %W[
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include

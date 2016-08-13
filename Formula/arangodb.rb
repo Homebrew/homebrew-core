@@ -1,16 +1,16 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database."
   homepage "https://www.arangodb.com/"
-  url "https://www.arangodb.com/repositories/Source/ArangoDB-3.0.2.tar.gz"
-  sha256 "04c00d58d7e63137ccb7d0a73112aa01e34e08c98b3c82c62ef7987f0d214ac2"
+  url "https://www.arangodb.com/repositories/Source/ArangoDB-3.0.4.tar.gz"
+  sha256 "7c0d977a1fb72389e5dd90a791b27a3b4ac07e7d0e849a910d9c786fdc9d5c93"
   head "https://github.com/arangodb/arangodb.git", :branch => "unstable"
 
   bottle do
-    sha256 "358382598b83897515c32c3182b24fea99842d721d626ccef9cf169a8dbb1639" => :el_capitan
-    sha256 "db166984be2d166206ee348b3d6741093b8bec5b45ac9f456cbb300d4d6c0e02" => :yosemite
-    sha256 "57139fadef3855ef14bed71c2f9c5f37a2f991f35163cf6b810020fa0e077d13" => :mavericks
+    sha256 "a6addb72ea7bab4c28bc1d95f878efa827539386807ffaf783f1ed06b7d6f63f" => :el_capitan
+    sha256 "591c9ba528b58ccdb78efabe0a21cf341723fdb209520e6ad633b3d405256dd9" => :yosemite
   end
 
+  depends_on :macos => :yosemite
   depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on "openssl"
@@ -62,6 +62,7 @@ class Arangodb < Formula
         -DHOMEBREW=ON
         -DUSE_OPTIMIZE_FOR_ARCHITECTURE=OFF
         -DASM_OPTIMIZATIONS=OFF
+        -DCMAKE_INSTALL_DATADIR=#{share}
         -DETCDIR=#{etc}
         -DVARDIR=#{var}
       ]
@@ -71,11 +72,22 @@ class Arangodb < Formula
       end
 
       system "cmake", "..", *args
-      system "make", "V=1", "Verbose=1", "VERBOSE=1", "install"
+      system "make", "install"
+
+      %w[arangod arango-dfdb arangosh foxx-manager].each do |f|
+        inreplace etc/"arangodb3/#{f}.conf", pkgshare, opt_pkgshare
+      end
     end
   end
 
   def post_install
+    oldpath_prefix = "#{HOMEBREW_PREFIX}/Cellar/arangodb/3.0."
+    oldpath_regexp = /#{Regexp.escape(oldpath_prefix)}[12]/
+
+    %w[arangod arango-dfdb arangosh foxx-manager].each do |f|
+      inreplace etc/"arangodb3/#{f}.conf", oldpath_regexp, opt_prefix, false
+    end
+
     (var/"lib/arangodb3").mkpath
     (var/"log/arangodb3").mkpath
 

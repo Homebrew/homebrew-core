@@ -1,21 +1,21 @@
 class Creduce < Formula
   desc "Reduce a C/C++ program while keeping a property of interest"
   homepage "https://embed.cs.utah.edu/creduce/"
-  url "https://github.com/csmith-project/creduce/archive/creduce-2.3.0.tar.gz"
-  sha256 "47a42751aab8b51bc10d8df62f359bdc1b4a644f16feb85b9f7325f0c5bce4a3"
-  revision 2
+  url "https://embed.cs.utah.edu/creduce/creduce-2.5.0.tar.gz"
+  sha256 "2dcd784e1d27df60f4ea1d92c4c556c02da4152db353d544dce8b7813fa443e4"
+  revision 1
+
   head "https://github.com/csmith-project/creduce.git"
 
   bottle do
-    revision 1
-    sha256 "6070b901245a2cfa692c3f1746d4fc73fd21c9a15bd89ba05c4a3af022623032" => :el_capitan
-    sha256 "9e36fb530f52ca85deb0501ba36c8024d0f0b33988d86292268a2b7f875933ed" => :yosemite
-    sha256 "a56a7dce5b49cb531698ab81a9f3ba594ef3d729895d65602c6fc53a4655a726" => :mavericks
+    sha256 "c2dc3598abd1857c71c7c02c38945d0d78a4c1f249162e603d332683e35c2222" => :el_capitan
+    sha256 "138868e54e14ba9afa8095e71c8b116b3a33e351d175fc0cdeff079a42ce007c" => :yosemite
+    sha256 "710460f6d639171d170f7ae3b835fa3ff708f56c1105c000086913571896659d" => :mavericks
   end
 
   depends_on "astyle"
   depends_on "delta"
-  depends_on "llvm" => ["with-clang", "with-libcxx"]
+  depends_on "llvm"
 
   depends_on :macos => :mavericks
 
@@ -26,9 +26,9 @@ class Creduce < Formula
   end
 
   resource "Exporter::Lite" do
-    url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.06.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/N/NE/NEILB/Exporter-Lite-0.06.tar.gz"
-    sha256 "f252562176c48cdc29c543d31ba3e0eed71042e9ad2b20f9f6283bd2e29e8f4c"
+    url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.08.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/N/NE/NEILB/Exporter-Lite-0.08.tar.gz"
+    sha256 "c05b3909af4cb86f36495e94a599d23ebab42be7a18efd0d141fc1586309dac2"
   end
 
   resource "File::Which" do
@@ -44,9 +44,9 @@ class Creduce < Formula
   end
 
   resource "Regexp::Common" do
-    url "https://cpan.metacpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2013031301.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/A/AB/ABIGAIL/Regexp-Common-2013031301.tar.gz"
-    sha256 "729a8198d264aa64ecbb233ff990507f97fbb66bda746b95f3286f50f5f25c84"
+    url "https://cpan.metacpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2016060101.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/A/AB/ABIGAIL/Regexp-Common-2016060101.tar.gz"
+    sha256 "8d052550e1ddc222f498104f4ce3d56d953e7640b55805c59493060ae6f06815"
   end
 
   resource "Sys::CPU" do
@@ -56,7 +56,7 @@ class Creduce < Formula
   end
 
   def install
-    ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
     resources.each do |r|
       r.stage do
@@ -73,11 +73,11 @@ class Creduce < Formula
     system "make"
     system "make", "install"
 
-    (bin+"creduce").write_env_script("#{libexec}/creduce", :PERL5LIB => ENV["PERL5LIB"])
+    (bin/"creduce").write_env_script("#{libexec}/creduce", :PERL5LIB => ENV["PERL5LIB"])
   end
 
   test do
-    (testpath/"test1.c").write(<<-EOS.undent)
+    (testpath/"test1.c").write <<-EOS.undent
       #include <stdio.h>
 
       int main() {
@@ -87,7 +87,7 @@ class Creduce < Formula
       }
 
     EOS
-    (testpath/"test1.sh").write(<<-EOS.undent)
+    (testpath/"test1.sh").write <<-EOS.undent
       #!/usr/bin/env bash
 
       clang -Weverything "$(dirname "${BASH_SOURCE[0]}")"/test1.c 2>&1 | \

@@ -2,14 +2,14 @@ class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
   # *** Vim should be updated no more than once every 7 days ***
-  url "https://github.com/vim/vim/archive/v7.4.1993.tar.gz"
-  sha256 "96a68ea57f7e326771a114fbc081fc716fbd9cf6f526fdf21c3ce9718c8c2425"
+  url "https://github.com/vim/vim/archive/v7.4.2196.tar.gz"
+  sha256 "8a7d38fed55e622a52a6f866d65397ae0f07dcf2aeaf53d006fc4dc4da6bb877"
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "0e53b07f9e627e27c7270e29fe48fb394822f2fdb8cd21988eebfa3cc85592e0" => :el_capitan
-    sha256 "209d3262572b56f68ed94ba9939e3c72ecb071342cf3771d73f0a73aa40c456a" => :yosemite
-    sha256 "4fba69fb759668c8e7266fc9f72fb5e9e69f41bc78836273b0a765e1988a7784" => :mavericks
+    sha256 "e1b1e124d4659483d6015e037261817eff7db686fac0543c37d9d72154a592d7" => :el_capitan
+    sha256 "112d92c93de72d33bdfa373f624ffbf708cd6328a984b94e5782969997ad2e54" => :yosemite
+    sha256 "74787c45cbe222f083889d421018ce35233b0950062576de581719ac9e81ddea" => :mavericks
   end
 
   deprecated_option "disable-nls" => "without-nls"
@@ -55,7 +55,7 @@ class Vim < Formula
     # vim doesn't require any Python package, unset PYTHONPATH.
     ENV.delete("PYTHONPATH")
 
-    if build.with?("python") && which("python").to_s == "/usr/bin/python" && !MacOS.clt_installed?
+    if build.with?("python") && which("python").to_s == "/usr/bin/python" && !MacOS::CLT.installed?
       # break -syslibpath jail
       ln_s "/System/Library/Frameworks", buildpath
       ENV.append "LDFLAGS", "-F#{buildpath}/Frameworks"

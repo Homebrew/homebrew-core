@@ -8,10 +8,10 @@ class Libav < Formula
   head "https://git.libav.org/libav.git"
 
   bottle do
-    revision 1
-    sha256 "3223c7dd692ab5f842161c25bd000dc7e35e4dbd115075e689f24761917c3b28" => :el_capitan
-    sha256 "918a06af5462bb2854099ff9df522f03d86d2913961305a0ea250cae48058f95" => :yosemite
-    sha256 "4d67498870e513e072c2ccbbf43f23657bb90dc6c2871d52221902823bcfbf40" => :mavericks
+    revision 2
+    sha256 "f41e5ed8a78b009840ec98856232e96e00678ca6fde3574fe1a719a1404b2476" => :el_capitan
+    sha256 "00b6a0a42c76720a045c0f3b54da9174c5883fb661450dd0db1af43ce85cdaca" => :yosemite
+    sha256 "d56f9c532f3debf0ade3e58a676c330c3041643b9a8871ca6ef8e6c517e95a18" => :mavericks
   end
 
   option "without-faac", "Disable AAC encoder via faac"
@@ -21,7 +21,6 @@ class Libav < Formula
 
   option "with-opencore-amr", "Enable AMR-NB de/encoding and AMR-WB decoding " \
     "via libopencore-amrnb and libopencore-amrwb"
-  option "with-openjpeg", "Enable JPEG 2000 de/encoding via OpenJPEG"
   option "with-openssl", "Enable SSL support"
   option "with-rtmpdump", "Enable RTMP protocol support"
   option "with-schroedinger", "Enable Dirac video format"
@@ -52,7 +51,6 @@ class Libav < Formula
   depends_on "libvorbis" => :optional
   depends_on "libvpx" => :optional
   depends_on "opencore-amr" => :optional
-  depends_on "openjpeg" => :optional
   depends_on "opus" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "schroedinger" => :optional
@@ -91,7 +89,6 @@ class Libav < Formula
     args << "--enable-libmp3lame" if build.with? "lame"
     args << "--enable-libopencore-amrnb" if build.with? "opencore-amr"
     args << "--enable-libopencore-amrwb" if build.with? "opencore-amr"
-    args << "--enable-libopenjpeg" if build.with? "openjpeg"
     args << "--enable-libopus" if build.with? "opus"
     args << "--enable-librtmp" if build.with? "rtmpdump"
     args << "--enable-libschroedinger" if build.with? "schroedinger"

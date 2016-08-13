@@ -1,24 +1,14 @@
 class Tig < Formula
   desc "Text interface for Git repositories"
   homepage "http://jonas.nitro.dk/tig/"
-
-  stable do
-    url "http://jonas.nitro.dk/tig/releases/tig-2.1.1.tar.gz"
-    sha256 "50c5179fd564b829b6b2cec087e66f10cf8799601de19350df0772ae77e4852f"
-
-    # Merged in HEAD; remove in next stable release
-    patch do
-      url "https://github.com/jonas/tig/commit/91912eb97da4f6907015dab41ef9bba315730854.diff"
-      sha256 "263e86b25f788eb158bdd667e112bc839debe9e3fe788cbc39cc9654b65b6c8a"
-    end
-  end
+  url "http://jonas.nitro.dk/tig/releases/tig-2.2.tar.gz"
+  sha256 "8f5213d3abb45ca9a79810b8d2a2a12d941112bc4682bcfa91f34db74942754c"
 
   bottle do
     cellar :any
-    revision 2
-    sha256 "b5337100fab8fd51091f78990b2115611c052eceb29ebc37d82b9fd19eb97306" => :el_capitan
-    sha256 "9b832275bee0497273da009f73620a63ceba99aa97c624827e45443a74f1fcfe" => :yosemite
-    sha256 "94eb8a861d4de55088d47e626201ebe7c1f3687db11f6a689c55181a141ff78d" => :mavericks
+    sha256 "99982b27386faa66282f3aca77570d5499d896efcc1001da3e5e6e3481d4334d" => :el_capitan
+    sha256 "7d3a5c1f20a69259c5e559431a2da506d02d1cc71a164d5289d7c0abcb6e0ff0" => :yosemite
+    sha256 "b2781db63aa8184f5bec9e8c385de224888fbdf91cc8847462a38a1ecbdf5bcd" => :mavericks
   end
 
   head do

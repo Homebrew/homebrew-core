@@ -6,9 +6,10 @@ class Byobu < Formula
 
   bottle do
     cellar :any_skip_relocation
+    revision 1
     sha256 "adaaa0950a8233b6dd62ec9636941767e73a4232890e5ce0ce6c70fac3a7898c" => :el_capitan
     sha256 "4978224763c5c36224bc4f48f99be02b8d3f0e13b3e91adfd2c50ca7db169b59" => :yosemite
-    sha256 "d864896fa727c88277960bc64ba64c2d97598ab477320cd3eceb751f393f5380" => :mavericks
+    sha256 "73f1a3052b8401ae4b2aacc413b5e9fe15eda85efb83c1f3d25b89859eba24fe" => :mavericks
   end
 
   head do
@@ -23,7 +24,7 @@ class Byobu < Formula
   depends_on "coreutils"
   depends_on "gnu-sed" # fails with BSD sed
   depends_on "tmux"
-  depends_on "newt" => "with-python"
+  depends_on "newt"
 
   def install
     if build.head?

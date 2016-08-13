@@ -1,5 +1,3 @@
-require "language/go"
-
 class Noti < Formula
   desc "Trigger notifications when a process completes"
   homepage "https://github.com/variadico/noti"

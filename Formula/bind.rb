@@ -1,16 +1,16 @@
 class Bind < Formula
   desc "Implementation of the DNS protocols"
   homepage "https://www.isc.org/downloads/bind/"
-  url "https://ftp.isc.org/isc/bind9/9.10.4-P1/bind-9.10.4-P1.tar.gz"
-  mirror "https://fossies.org/linux/misc/dns/bind9/9.10.4-P1/bind-9.10.4-P1.tar.gz"
-  version "9.10.4-P1"
-  sha256 "7c3b7d1afe48a6bbead8f11f6971fb09eb57fa257dc32a088fcc20a0218131a2"
+  url "https://ftp.isc.org/isc/bind9/9.10.4-P2/bind-9.10.4-P2.tar.gz"
+  mirror "https://fossies.org/linux/misc/dns/bind9/9.10.4-P2/bind-9.10.4-P2.tar.gz"
+  version "9.10.4-P2"
+  sha256 "b35b8af8fe030196d03b3e487f5ecd0c0836b5e124abc7a3ecd184740b444423"
   head "https://source.isc.org/git/bind9.git"
 
   bottle do
-    sha256 "b0b6940924f9045107b88c35126ecd09bfe7de89a25b78e6353546085d9ed509" => :el_capitan
-    sha256 "c277d292a72842fda1759e9a75f46b226bce6ef7c6ec591b0283569f1abcca6d" => :yosemite
-    sha256 "b98d25595233de8e8e6962e50ecfd28d0147042340f2083aafd03b3ae537d693" => :mavericks
+    sha256 "fdb9707599ac8947b001c50f57cb6511038f08957c82bd3462244f65092f162a" => :el_capitan
+    sha256 "8ae9c19e4eca8e97f962ff72fd22014048946bbff621c6003d6510b6c9a1c9ee" => :yosemite
+    sha256 "41d461eefb76affb6b50f9d338b5c9d32d9fa97762d9faca56edb335a6205f23" => :mavericks
   end
 
   depends_on "openssl"
@@ -39,7 +39,7 @@ class Bind < Formula
   end
 
   def post_install
-    (var+"log/named").mkpath
+    (var/"log/named").mkpath
 
     # Create initial configuration/zone/ca files.
     # (Mirrors Apple system install from 10.8)

@@ -1,8 +1,8 @@
 class Plantuml < Formula
   desc "Draw UML diagrams"
   homepage "http://plantuml.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/plantuml/plantuml.8041.jar"
-  sha256 "8964b8ea316e37492d9a4533a57338c46f629cdd920d48ddae53e2b62f5b6c8d"
+  url "https://downloads.sourceforge.net/project/plantuml/plantuml.8046.jar"
+  sha256 "136997cd0d5c40b71b5cf9f45b5f1e93d3dbfa6c67b57a3679a628183c6f236e"
 
   bottle :unneeded
 
@@ -11,13 +11,13 @@ class Plantuml < Formula
   def install
     jar = "plantuml.#{version}.jar"
     prefix.install jar
-    (bin+"plantuml").write <<-EOS.undent
+    (bin/"plantuml").write <<-EOS.undent
       #!/bin/bash
       GRAPHVIZ_DOT="#{Formula["graphviz"].opt_bin}/dot" exec java -jar #{prefix}/#{jar} "$@"
     EOS
   end
 
   test do
-    system "#{bin}/plantuml", "-testdot"
+    system bin/"plantuml", "-testdot"
   end
 end

@@ -6,11 +6,13 @@ class Jrnl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "d39c2cddcdb82f8cf149007e394d99ef5375c476c0b2042d506ee42b4db5aa86" => :el_capitan
-    sha256 "ff4480428569daf2f93a5d7695ccf7c530797cf5d25b42f9ead70b6764549be9" => :yosemite
-    sha256 "34e9c83cd58485a32877f7ceb7612cb38e7633732bd753850f52d502d7fd0f22" => :mavericks
+    revision 2
+    sha256 "c7cbd9c2eeaa34510b936fa44e58da8239475e96582a4efdd2d5d57cd170432a" => :el_capitan
+    sha256 "157caf5eecbc9feaead712675e575c8c2414ee2fdc54fe062cd849cc83033aeb" => :yosemite
+    sha256 "2d7764d897c93c87ad3bc36595118e0adef3e275912c5126b5c63574c689a624" => :mavericks
   end
+
+  include Language::Python::Virtualenv
 
   depends_on :python if MacOS.version <= :snow_leopard
 
@@ -50,18 +52,7 @@ class Jrnl < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

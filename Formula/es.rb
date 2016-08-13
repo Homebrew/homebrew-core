@@ -1,14 +1,15 @@
 class Es < Formula
   desc "Extensible shell with first class functions, lexical scoping, and more"
   homepage "https://wryun.github.io/es-shell/"
-  url "https://github.com/downloads/wryun/es-shell/es-0.9.tar.gz"
-  sha256 "c4ab446642284924449c3d0a90c678fa7891aacd429ffdb3744899c44a298cfb"
+  url "https://github.com/wryun/es-shell/releases/download/v0.9.1/es-0.9.1.tar.gz"
+  sha256 "b0b41fce99b122a173a06b899a4d92e5bd3cc48b227b2736159f596a58fff4ba"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b8588bd88d1e96f8a7093934ebd004c0890334899892137014a6cdcd641c2720" => :el_capitan
-    sha256 "8d03d2211e286a2481f7f3876324c5db14a886c3b95585e873ecd99412928b41" => :yosemite
-    sha256 "83d459a0d8b05ffd742b950053ce1ae1b9f4f0cc2fd1a5375fcd690a8aa9d5e5" => :mavericks
+    sha256 "53f0c0654ddecc62b99135fb96722b6467593248d884c1506ea93681367c611d" => :el_capitan
+    sha256 "bceadf8a0ef4d3231d149f30cc53d2c7fe686cd8fdd0dafe83ceaabc35151d5e" => :yosemite
+    sha256 "14f203383d01f581bdb63e7240ff57d1174553467314351d49ea41d3052148f9" => :mavericks
   end
 
   option "with-readline", "Use readline instead of libedit"
@@ -18,8 +19,14 @@ class Es < Formula
   conflicts_with "kes", :because => "both install 'es' binary"
 
   def install
-    args = ["--prefix=#{prefix}"]
-    args << "--with-readline" if build.with? "readline"
+    args = %W[--prefix=#{prefix}]
+
+    if build.with? "readline"
+      args << "--with-readline"
+    else
+      args << "--with-editline"
+    end
+
     system "./configure", *args
     system "make"
 

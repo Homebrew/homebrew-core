@@ -1,14 +1,15 @@
 class Flvmeta < Formula
   desc "Manipulate Adobe flash video files (FLV)"
-  homepage "http://www.flvmeta.com"
-  url "https://github.com/noirotm/flvmeta/archive/v1.1.2.tar.gz"
-  sha256 "ee98c61e08b997b96d9ca4ea20ee9cff2047d8875d09c743d97b1b1cc7b28d13"
+  homepage "https://www.flvmeta.com/"
+  url "https://www.flvmeta.com/download.php?file=flvmeta-1.2.1.tar.gz"
+  sha256 "4b48afc2db8b0ff1c86861bc09a58481bc241d93b879b6f915fbf695fc4bff51"
+  head "https://github.com/noirotm/flvmeta.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d33edf6ae455b22f4f0d4dff4a74de544327aca4c664b46312f2c25c02a26b5d" => :el_capitan
-    sha256 "bc6967dd66ec323eae27e2d63a7ae87850a6c3f5385ac15753e664220e31ce3b" => :yosemite
-    sha256 "ba027c8f1b18eec093938926101769676fc86bbaff1580929679e46b8fa21099" => :mavericks
+    sha256 "e38ef52c18acdf32d1a61e2604220eeff05b3ca1eb8ca8b215f20371b7b09f37" => :el_capitan
+    sha256 "54e7dc4be603332324c5a0833fa03b982c315696b07321295886d1bc3232448f" => :yosemite
+    sha256 "d50606001ee39c8fed3f928b38652e437fd3b8bb1fa97306114b93088fc98b0b" => :mavericks
   end
 
   depends_on "cmake" => :build
@@ -19,6 +20,6 @@ class Flvmeta < Formula
   end
 
   test do
-    system "#{bin}/flvmeta", "-V"
+    system bin/"flvmeta", "-V"
   end
 end

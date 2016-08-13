@@ -14,9 +14,10 @@ class Gpac < Formula
   head "https://github.com/gpac/gpac.git"
 
   bottle do
-    sha256 "5ab71b9b1701e246030da34e1bbd0d918a08406826ae8d3708a6f42b0c6c83aa" => :el_capitan
-    sha256 "d27a205b21cdca024940fa59d151c8f108490a9e9c03db6df266e780f709b9ea" => :yosemite
-    sha256 "0a7de80b027dcce38a6cadde54e9f1b89629633020de5a31405541d76ce2e00b" => :mavericks
+    revision 1
+    sha256 "3c1ebe6435a0ca2daba610c89db1156e7296413942833184f6303bc72d38c98f" => :el_capitan
+    sha256 "89488b011f9080924e2bc2e4c02c8aed633ab3bb7b1d7418b01e94c9e3136fc6" => :yosemite
+    sha256 "831e4b7c778f7adb373d94b82a01f2aec35d02e1363f3389d67148481a7ecca4" => :mavericks
   end
 
   depends_on "openssl"
@@ -31,7 +32,6 @@ class Gpac < Formula
   depends_on "sdl" => :optional
   depends_on "theora" => :optional
   depends_on "ffmpeg" => :optional
-  depends_on "openjpeg" => :optional
 
   def install
     args = ["--disable-wx",

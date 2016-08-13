@@ -1,5 +1,3 @@
-require "language/go"
-
 class Emp < Formula
   desc "CLI for Empire."
   homepage "https://github.com/remind101/empire"

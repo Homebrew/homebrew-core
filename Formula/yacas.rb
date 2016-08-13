@@ -15,10 +15,11 @@ class Yacas < Formula
   option "with-server", "Build the network server version"
 
   def install
-    args = ["--disable-silent-rules",
-            "--disable-dependency-tracking",
-            "--prefix=#{prefix}"
-           ]
+    args = %W[
+      --disable-silent-rules
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+    ]
 
     args << "--enable-server" if build.with? "server"
 
@@ -28,6 +29,6 @@ class Yacas < Formula
   end
 
   test do
-    system "#{bin}/yacas", "--version"
+    assert_match version.to_s, shell_output("#{bin}/yacas -v")
   end
 end

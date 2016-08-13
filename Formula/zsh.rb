@@ -1,15 +1,23 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "http://www.zsh.org/"
-  url "https://downloads.sourceforge.net/project/zsh/zsh/5.2/zsh-5.2.tar.gz"
-  mirror "http://www.zsh.org/pub/zsh-5.2.tar.gz"
-  sha256 "fa924c534c6633c219dcffdcd7da9399dabfb63347f88ce6ddcd5bb441215937"
+
+  stable do
+    url "https://downloads.sourceforge.net/project/zsh/zsh/5.2/zsh-5.2.tar.gz"
+    mirror "http://www.zsh.org/pub/zsh-5.2.tar.gz"
+    sha256 "fa924c534c6633c219dcffdcd7da9399dabfb63347f88ce6ddcd5bb441215937"
+
+    # We cannot build HTML doc on HEAD, because yodl which is required for
+    # building zsh.texi is not available.
+    option "with-texi2html", "Build HTML documentation"
+    depends_on "texi2html" => [:build, :optional]
+  end
 
   bottle do
-    revision 1
-    sha256 "9280222796df420ebd732dae9b7a3b31db131c094ba57da97d10c8c77761ef98" => :el_capitan
-    sha256 "dc37a7a9b7b5ea54b94efb127f1c72262665ed1886054f32bb7770ee98f43d2a" => :yosemite
-    sha256 "4fc05803a2894bf578be48e5c2451ffa1fc0531a0e9fd202821166a51db0a248" => :mavericks
+    revision 2
+    sha256 "d2a5534eb4d0fb4d25893346e927477041311a8ba0c31cecd80d26a3d67f6369" => :el_capitan
+    sha256 "15b7426bd8e6dc59ff31109504d8fbbd4fffb7bcdd9182fa63de76dcf369b7f4" => :yosemite
+    sha256 "1f13f3fa8948cb99b9b91763b1343c41f6b3bcf01c9a7e0b77c4cac2af9ea466" => :mavericks
   end
 
   head do
@@ -61,6 +69,7 @@ class Zsh < Formula
     else
       system "make", "install"
       system "make", "install.info"
+      system "make", "install.html" if build.with? "texi2html"
     end
   end
 

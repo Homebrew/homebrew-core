@@ -1,26 +1,15 @@
 class Mtr < Formula
   desc "'traceroute' and 'ping' in a single tool"
   homepage "https://www.bitwizard.nl/mtr/"
+  url "https://github.com/traviscross/mtr/archive/v0.87.tar.gz"
+  sha256 "ac177953e7c834d5326fc52d63377b6d0b42d05db8017556390629b87e44e183"
   head "https://github.com/traviscross/mtr.git"
-
-  stable do
-    url "https://github.com/traviscross/mtr/archive/v0.86.tar.gz"
-    sha256 "7912f049f9506748913e2866068b7f95b11a4e0a855322120b456c46ac9eb763"
-
-    # Fix an issue where default shell colors were overridden by mtr.
-    # https://github.com/Homebrew/homebrew/issues/43862
-    patch do
-      url "https://github.com/traviscross/mtr/commit/63a1f1493bfbaf7e55eb7e20b3791fc8b14cf92d.patch"
-      sha256 "67d682b29fca49d703f48bb2844e1c0e4b4635d0645d139a13352d9575336194"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "fba272c1219a2386b034110dc129fa484597e7865b544d979386e0bfa0bc7f2e" => :el_capitan
-    sha256 "96c3b22edc936bb9b7053a1920f34a524fdc3a6d99d32f5c6313a903d6b3ff1f" => :yosemite
-    sha256 "3fb9172a95469e6ee38faeee2e67682f75dd79a6e222426674751846fee5f0a9" => :mavericks
+    sha256 "72fcba3d0131ff90e068ad0076738b95f20d096553cc519eb6107d94b58a2513" => :el_capitan
+    sha256 "8a95636a767153b0bf2a6b00136f450d86bbcf6558ca6a4b5b561b2ce86843d7" => :yosemite
+    sha256 "7dfd1382e2334613185fef1f749b15a30206c62c2aaeded8c6c8f74007b68ec6" => :mavericks
   end
 
   depends_on "automake" => :build
@@ -47,5 +36,10 @@ class Mtr < Formula
     mtr requires root privileges so you will need to run `sudo mtr`.
     You should be certain that you trust any software you grant root privileges.
     EOS
+  end
+
+  test do
+    output = shell_output("#{sbin}/mtr --help 2>&1", 1)
+    assert_equal "mtr: unable to get raw sockets.", output.chomp
   end
 end

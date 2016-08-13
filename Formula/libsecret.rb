@@ -65,6 +65,7 @@ class Libsecret < Formula
       int main()
       {
           example_get_schema();
+          return 0;
       }
     EOS
 

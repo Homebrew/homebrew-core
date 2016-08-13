@@ -1,6 +1,7 @@
 class Python3 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
+  revision 1
 
   head "https://hg.python.org/cpython", :using => :hg
 
@@ -10,9 +11,9 @@ class Python3 < Formula
   end
 
   bottle do
-    sha256 "708bde2d223b19ef066796cc678f0498526f183992bcdf97d4945e76124b4945" => :el_capitan
-    sha256 "70559493f96e55d9c789ce496942b9dbcdacc34842b5df562d591c040d61d9f0" => :yosemite
-    sha256 "743e03b7090ffbf3b444b86babfd3c0bd739f4e89cb9aa15447fe8d55f1d8cc1" => :mavericks
+    sha256 "4ef705dcdb2d9ebb7b6e5bc7801aac392eafd183d8ee169b0a810b0a52c6cd43" => :el_capitan
+    sha256 "133985061a1e9865d0d8e017eb0db8fd206b2ad861d3d2d14e28cdd83295835c" => :yosemite
+    sha256 "a00c55006f496abe35eb1cc17384fd1a304724776c4dc85d18e4d6b4006654a4" => :mavericks
   end
 
   devel do
@@ -23,6 +24,7 @@ class Python3 < Formula
   option :universal
   option "with-tcl-tk", "Use Homebrew's Tk instead of OS X Tk (has optional Cocoa and threads support)"
   option "with-quicktest", "Run `make quicktest` after the build"
+  option "with-sphinx-doc", "Build HTML documentation"
 
   deprecated_option "quicktest" => "with-quicktest"
   deprecated_option "with-brewed-tk" => "with-tcl-tk"
@@ -35,6 +37,7 @@ class Python3 < Formula
   depends_on "xz" => :recommended # for the lzma module added in 3.3
   depends_on "homebrew/dupes/tcl-tk" => :optional
   depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
+  depends_on "sphinx-doc" => [:build, :optional]
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5"
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5"
@@ -63,6 +66,14 @@ class Python3 < Formula
   # so we have to stop python from searching for frameworks and linking against
   # X11.
   patch :DATA if build.with? "tcl-tk"
+
+  # Patch for pyport.h macro issue
+  # https://bugs.python.org/issue10910
+  # https://trac.macports.org/ticket/44288
+  patch do
+    url "https://bugs.python.org/file30805/issue10910-workaround.txt"
+    sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
+  end
 
   def lib_cellar
     prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}"
@@ -208,6 +219,13 @@ class Python3 < Formula
 
     %w[setuptools pip wheel].each do |r|
       (libexec/r).install resource(r)
+    end
+
+    if build.with? "sphinx-doc"
+      cd "Doc" do
+        system "make", "html"
+        doc.install Dir["build/html/*"]
+      end
     end
   end
 

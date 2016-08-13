@@ -31,7 +31,7 @@ class Gettext < Formula
                           "--with-included-libcroco",
                           "--with-included-libunistring",
                           "--with-emacs",
-                          "--with-lispdir=#{share}/emacs/site-lisp/gettext",
+                          "--with-lispdir=#{elisp}",
                           "--disable-java",
                           "--disable-csharp",
                           # Don't use VCS systems to create these archives
@@ -44,6 +44,6 @@ class Gettext < Formula
   end
 
   test do
-    system "#{bin}/gettext", "test"
+    system bin/"gettext", "test"
   end
 end

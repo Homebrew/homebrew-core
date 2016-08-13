@@ -1,8 +1,8 @@
 class Hive < Formula
   desc "Hadoop-based data summarization, query, and analysis"
   homepage "https://hive.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=hive/hive-2.0.1/apache-hive-2.0.1-bin.tar.gz"
-  sha256 "776eebe99fe283040ed07cf3daa73b5741488a2fb910f619909ed662f27fd12b"
+  url "https://www.apache.org/dyn/closer.cgi?path=hive/hive-2.1.0/apache-hive-2.1.0-bin.tar.gz"
+  sha256 "ef5a2c2c4942adc3e0c5cd63510a05628fde9f14b57b8c3b509447e88c735a7a"
 
   bottle :unneeded
 
@@ -29,7 +29,7 @@ class Hive < Formula
   end
 
   test do
-    system "#{bin}/schematool", "-initSchema", "-dbType", "derby"
+    system bin/"schematool", "-initSchema", "-dbType", "derby"
     assert_match "Hive #{version}", shell_output("#{bin}/hive --version")
   end
 end

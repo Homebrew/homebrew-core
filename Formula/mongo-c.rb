@@ -1,14 +1,14 @@
 class MongoC < Formula
   desc "Official C driver for MongoDB"
   homepage "https://docs.mongodb.org/ecosystem/drivers/c/"
-  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.3.5/mongo-c-driver-1.3.5.tar.gz"
-  sha256 "374d37a6d6e49fbb2ed6cab0a305ced347651ec04d57808961d03afa8caa68df"
+  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.4.0/mongo-c-driver-1.4.0.tar.gz"
+  sha256 "2bc6ea7fd8db15250910a7c72da7d959e416000bec2205be86b52d2899f6951b"
 
   bottle do
     cellar :any
-    sha256 "957985e1b8116c14580130080e8e64be76752ba78740a567358d690ef31271c6" => :el_capitan
-    sha256 "e7e839c0e58f4b011d8faeffd46600f907269de88b8c16d0e846a4a30f2334f6" => :yosemite
-    sha256 "572b100658a0957ab4ec74bd120e0572779049593647c320c5db89ada431dd21" => :mavericks
+    sha256 "93b8f9fe091383967c0bd85bb4d8e53df1029a7868d1648d1c62ff91e9a0275a" => :el_capitan
+    sha256 "af2803233a8d09903469d6233f9a9803ebe9c82ad5ed1d264490c0bee081104e" => :yosemite
+    sha256 "738ad530888a91340fc7216310fd929bc869f54f21dbe005d268775ebf8df538" => :mavericks
   end
 
   head do
@@ -18,11 +18,11 @@ class MongoC < Formula
     depends_on "libtool" => :build
   end
 
-  conflicts_with "libbson",
-                 :because => "mongo-c installs the libbson headers"
-
   depends_on "pkg-config" => :build
   depends_on "openssl" => :recommended
+
+  conflicts_with "libbson",
+                 :because => "mongo-c installs the libbson headers"
 
   def install
     args = %W[--prefix=#{prefix}]

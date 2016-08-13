@@ -25,13 +25,13 @@ class Wxpython < Formula
     sha256 "41ec8003758d804b8c426ce654a87f2d9f4be3be40fcbcb3d5686e3ecabaddbc" => :mavericks
   end
 
+  option :universal
+
   if MacOS.version <= :snow_leopard
     depends_on :python
     depends_on FrameworkPythonRequirement
   end
   depends_on "wxmac"
-
-  option :universal
 
   def install
     ENV["WXWIN"] = buildpath
@@ -46,7 +46,7 @@ class Wxpython < Formula
     # set it to use wxPython's prefix instead
     # See #47187.
     inreplace %w[wxPython/config.py wxPython/wx/build/config.py],
-      "WXPREFIX +", "'#{prefix.to_s}' +"
+      "WXPREFIX +", "'#{prefix}' +"
 
     args = [
       "WXPORT=osx_cocoa",
@@ -60,11 +60,16 @@ class Wxpython < Formula
       # OpenGL and stuff
       "BUILD_GLCANVAS=1",
       "BUILD_GIZMOS=1",
-      "BUILD_STC=1"
+      "BUILD_STC=1",
     ]
 
     cd "wxPython" do
       system "python", "setup.py", "install", "--prefix=#{prefix}", *args
     end
+  end
+
+  test do
+    output = shell_output("python -c 'import wx ; print wx.version()'")
+    assert_match version.to_s, output
   end
 end

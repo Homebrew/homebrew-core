@@ -1,16 +1,15 @@
 class Sip < Formula
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
-  url "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.18/sip-4.18.tar.gz"
-  sha256 "f1dc5c81c07a9ad97edcd4a0af964a41e420024ba7ca165afd2b351efd249cb6"
-
+  url "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.18.1/sip-4.18.1.tar.gz"
+  sha256 "9bce7a2dbf7f105bf68ad1bab58eebc0ce33087ec40396da756463f086ffa290"
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "53bc937d3dcbcee545f9eb1326b15a8d2770cf09891be230e020187daec2c81c" => :el_capitan
-    sha256 "3cec68a975b1dca7d6893009d8f73c8da4579a62ada8a5019aa527c580eddfdb" => :yosemite
-    sha256 "df0cdfacabba8e9758329590d1493ba4f1b632b829d5e1f9ca3c6477ba2f6f28" => :mavericks
+    sha256 "56e2cabd2647da8eeb721fd9bc2497cdc7bc4aca90d99586b41d054d81a42576" => :el_capitan
+    sha256 "da4b678d431920aa75cccc52a7ca26cafed9ac47fe6dfe88089f08302bbd2e72" => :yosemite
+    sha256 "5d2674fe2cf968d94214198a5bc4381c3a7b5ca699a388efdcf7e72c3bfb176c" => :mavericks
   end
 
   option "without-python", "Build without python2 support"
@@ -25,7 +24,7 @@ class Sip < Formula
     if build.head?
       # Link the Mercurial repository into the download directory so
       # build.py can use it to figure out a version number.
-      ln_s cached_download + ".hg", ".hg"
+      ln_s cached_download/".hg", ".hg"
       # build.py doesn't run with python3
       system "python", "build.py", "prepare"
     end
@@ -45,11 +44,12 @@ class Sip < Formula
   end
 
   def post_install
-    mkdir_p "#{HOMEBREW_PREFIX}/share/sip"
+    (HOMEBREW_PREFIX/"share/sip").mkpath
   end
 
-  def caveats
-    "The sip-dir for Python is #{HOMEBREW_PREFIX}/share/sip."
+  def caveats; <<-EOS.undent
+    The sip-dir for Python is #{HOMEBREW_PREFIX}/share/sip.
+  EOS
   end
 
   test do
@@ -95,7 +95,7 @@ class Sip < Formula
     EOS
     system ENV.cxx, "-shared", "-Wl,-install_name,#{testpath}/libtest.dylib",
                     "-o", "libtest.dylib", "test.cpp"
-    system "#{bin}/sip", "-b", "test.build", "-c", ".", "test.sip"
+    system bin/"sip", "-b", "test.build", "-c", ".", "test.sip"
     Language::Python.each_python(build) do |python, version|
       ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
       system python, "generate.py"

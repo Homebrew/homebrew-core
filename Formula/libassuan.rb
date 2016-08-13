@@ -1,15 +1,16 @@
 class Libassuan < Formula
   desc "Assuan IPC Library"
   homepage "https://www.gnupg.org/related_software/libassuan/"
-  url "https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.4.2.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libassuan/libassuan-2.4.2.tar.bz2"
-  sha256 "bb06dc81380b74bf1b64d5849be5c0409a336f3b4c45f20ac688e86d1b5bcb20"
+  url "https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.4.3.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libassuan/libassuan-2.4.3.tar.bz2"
+  sha256 "22843a3bdb256f59be49842abf24da76700354293a066d82ade8134bb5aa2b71"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f16eadc3c931b76eaebd8a99d84dadf0221d961b8d2086a47c4a01294667eaea" => :el_capitan
-    sha256 "c32b2a92af1b9b9dbd19f0fef2357e178ab5fbd6d0ef5f65873db9f620e52b8b" => :yosemite
-    sha256 "30fb2a811710def13ce920ce6a1edd8eccc0814ef8b6d442b33fdb47ea48c5a3" => :mavericks
+    sha256 "4c657d8c083e8f5835b98eb850a520d2bb9b597afda9229c501fe7cf4e2a1f58" => :el_capitan
+    sha256 "9fa0afe044cd12b0cf6509db7c25e90f222e1c41297da41da89524ba0440f1cd" => :yosemite
+    sha256 "725c600d3790054cb27290f63256a35d7ab07ea40a05e34c2a8ca4a65b6411ea" => :mavericks
   end
 
   depends_on "libgpg-error"
@@ -20,9 +21,12 @@ class Libassuan < Formula
                           "--prefix=#{prefix}",
                           "--enable-static"
     system "make", "install"
+
+    # avoid triggering mandatory rebuilds of software that hard-codes this path
+    inreplace bin/"libassuan-config", prefix, opt_prefix
   end
 
   test do
-    system "#{bin}/libassuan-config", "--version"
+    system bin/"libassuan-config", "--version"
   end
 end

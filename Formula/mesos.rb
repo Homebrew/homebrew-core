@@ -1,14 +1,14 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=mesos/0.28.1/mesos-0.28.1.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/0.28.1/mesos-0.28.1.tar.gz"
-  sha256 "0995d4979085503d6c47149ac9f241c1107eb01af58683bb41a7ddbab4530c6a"
+  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.0.0/mesos-1.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/1.0.0/mesos-1.0.0.tar.gz"
+  sha256 "dabca5b60604fd672aaa34e4178bb42c6513eab59a07a98ece1e057eb34c28b2"
 
   bottle do
-    sha256 "573959e78d890804de03934e94d0099fb8abc155866e8b6d7b4d1bb87ca592aa" => :el_capitan
-    sha256 "37eb6c6c704469a5644ee090faef496b064313f497841fbe6c84124941a43a25" => :yosemite
-    sha256 "971e2202fd625ed91d1a2a5fc40bb1202868e469f8f2424c00531db10cc8b158" => :mavericks
+    sha256 "8a4d45b766546eb80be55bb65c50b66a6d1e3b0f655646b222e5252384330b0f" => :el_capitan
+    sha256 "3ba5bc60511694dc4cdebbacc8f409fd4dc17ba12961bc78eccc2d1d3dfc7ade" => :yosemite
+    sha256 "2b0aab36735f07c2db20b45b8b381003d93898213c41ff6ed071cdd26da54346" => :mavericks
   end
 
   depends_on :java => "1.7+"
@@ -75,7 +75,11 @@ class Mesos < Formula
       os.environ["LDFLAGS"] = "@LIBS@"
       \\0
     EOS
-    inreplace "src/python/native/setup.py.in",
+    inreplace "src/python/executor/setup.py.in",
+              "import ext_modules",
+              native_patch
+
+    inreplace "src/python/scheduler/setup.py.in",
               "import ext_modules",
               native_patch
 
@@ -110,8 +114,12 @@ class Mesos < Formula
     system "make"
     system "make", "install"
 
+    # The native Python modules `executor` and `scheduler` (see below) fail to
+    # link to Subversion libraries if Homebrew isn't installed in `/usr/local`.
+    ENV.append_to_cflags "-L#{Formula["subversion"].opt_lib}"
+
     system "./configure", "--enable-python", *args
-    ["native", "interface", "cli", ""].each do |p|
+    ["native", "interface", "executor", "scheduler", "cli", ""].each do |p|
       cd "src/python/#{p}" do
         system "python", *Language::Python.setup_install_args(prefix)
       end
@@ -142,8 +150,8 @@ class Mesos < Formula
       exec "#{sbin}/mesos-master", "--ip=127.0.0.1",
                                    "--registry=in_memory"
     end
-    slave = fork do
-      exec "#{sbin}/mesos-slave", "--master=127.0.0.1:5050",
+    agent = fork do
+      exec "#{sbin}/mesos-agent", "--master=127.0.0.1:5050",
                                   "--work_dir=#{testpath}"
     end
     Timeout.timeout(15) do
@@ -153,7 +161,7 @@ class Mesos < Formula
                              "--command=touch\s#{testpath}/executed"
     end
     Process.kill("TERM", master)
-    Process.kill("TERM", slave)
+    Process.kill("TERM", agent)
     assert File.exist?("#{testpath}/executed")
     system "python", "-c", "import mesos.native"
   end

@@ -1,15 +1,17 @@
 class Cheat < Formula
+  include Language::Python::Virtualenv
+
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/chrisallenlane/cheat"
-  url "https://github.com/chrisallenlane/cheat/archive/2.1.25.tar.gz"
-  sha256 "3627da400caebe5a813aec4f76f4d0999d4ed80d4eff0023f6e1a2a2de016e2f"
+  url "https://github.com/chrisallenlane/cheat/archive/2.1.26.tar.gz"
+  sha256 "427c4e5c9a76b78802c1b1959668af20812e8fae8474d9258fb726f166e8f498"
   head "https://github.com/chrisallenlane/cheat.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9837962b7701531cb48670dedd9e8468deb1439f63ad5c1e6b6e31bd4522075d" => :el_capitan
-    sha256 "f796ed1abd758afd365f4eab473169d051a0e97a58662f57b1459f729138c0dc" => :yosemite
-    sha256 "5539d5048c4d371ead16e7783d591220ca33728cdcead2e661aeb55022b6eee0" => :mavericks
+    sha256 "84bd2ebdbbf37b72e41eeedbdc558321d2508f202adc006ad94f82f5b1e32094" => :el_capitan
+    sha256 "6e60a0e4bd0211e5a9b6d5c1b2f58d2a21cb4dbd5bc0586c678162c4285477e9" => :yosemite
+    sha256 "8c5796ed54ee16c81fabec5d2d3e71724dc307b06261ac26ef2edec9182c99b4" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -25,21 +27,10 @@ class Cheat < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    virtualenv_install_with_resources
 
     bash_completion.install "cheat/autocompletion/cheat.bash"
     zsh_completion.install "cheat/autocompletion/cheat.zsh" => "_cheat"
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

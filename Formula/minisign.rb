@@ -1,15 +1,14 @@
 class Minisign < Formula
   desc "Sign files & verify signatures. Works with signify in OpenBSD."
   homepage "https://jedisct1.github.io/minisign/"
-  url "https://github.com/jedisct1/minisign/archive/0.6.tar.gz"
-  sha256 "f2267a07bece923d4d174ccacccc56eff9c05b28c4d971e601de896355442f09"
-  revision 1
+  url "https://github.com/jedisct1/minisign/archive/0.7.tar.gz"
+  sha256 "0c9f25ae647b6ba38cf7e6aea1da4e8fb20e1bc64ef0c679da737a38c8ad43ef"
 
   bottle do
     cellar :any
-    sha256 "27bb5e1323dc41c2aef2d50296140084099cc4d1ee312945e639ff1e73d80fbc" => :el_capitan
-    sha256 "798b1e19d4c6ec78109fb01b7a23081f9859d8a38da2cf09fd683b5ad527dd81" => :yosemite
-    sha256 "41d91f7e5acdde7c04534e7c7e896f9ca4586f0ef57a7bf77e5df7c25d374222" => :mavericks
+    sha256 "eda1ddf370982493aaa039c6056d0228041ff7a8784f2098e9133904a451d381" => :el_capitan
+    sha256 "f211d75128d691038180fc8a6acd2eed6880f67a769f643aa94f88ef26c6967f" => :yosemite
+    sha256 "352fc012382f22172b487831387f4a8159db1df819953165b56ae55506289fda" => :mavericks
   end
 
   depends_on "libsodium"
@@ -40,7 +39,7 @@ class Minisign < Formula
 
     system "./keygen.sh"
     assert File.exist?("minisign.pub")
-    assert File.exist?("minisign.key")
+    assert File.exist?(".minisign/minisign.key")
 
     (testpath/"signing.sh").write <<-EOS.undent
       #!/usr/bin/expect -f

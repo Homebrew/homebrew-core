@@ -27,7 +27,7 @@ class Doxymacs < Formula
 
     system "./bootstrap" if build.head?
     system "./configure", "--prefix=#{prefix}",
-                          "--with-lispdir=#{share}/emacs/site-lisp/doxymacs",
+                          "--with-lispdir=#{elisp}",
                           "--disable-debug",
                           "--disable-dependency-tracking"
     system "make", "install"
@@ -35,10 +35,11 @@ class Doxymacs < Formula
 
   test do
     (testpath/"test.el").write <<-EOS.undent
-      (add-to-list 'load-path "#{share}/emacs/site-lisp/doxymacs")
+      (add-to-list 'load-path "#{elisp}")
       (load "doxymacs")
       (print doxymacs-version)
     EOS
-    assert_equal "\"#{version}\"", shell_output("emacs -Q --batch -l #{testpath}/test.el").strip
+    output = shell_output("emacs -Q --batch -l #{testpath}/test.el").strip
+    assert_equal "\"#{version}\"", output
   end
 end

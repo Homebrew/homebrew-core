@@ -3,13 +3,13 @@ class Mpv < Formula
   homepage "https://mpv.io"
   url "https://github.com/mpv-player/mpv/archive/v0.18.1.tar.gz"
   sha256 "e413d57fec4ad43b9f9b848f38d13fb921313fc9a4a64bf1e906c8d0f7a46329"
+  revision 1
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    revision 1
-    sha256 "031c195541d3ea51f8b5032a6d2fdc8065e036e542e1317cd01d5ca0ffcf1b6a" => :el_capitan
-    sha256 "f794fe2ea44783c77579b8aa651b94939419929f2f87b46af31a97b2e6483119" => :yosemite
-    sha256 "95f7fb3e9afdc606fc0199cbe60f81e20987af7c7dd071c4dcfb66a620fea168" => :mavericks
+    sha256 "d30aacf2585cb4cfc477f16799515e805a046ba30584e1598e23b60d2f827255" => :el_capitan
+    sha256 "77c92fd993ada850661558fd42b55d681066873ef8094edb17e46c57cf5e1ff1" => :yosemite
+    sha256 "718099dcc2ea35286d9369f721e14684a0668e1c55159210d36fd36c4420191d" => :mavericks
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."

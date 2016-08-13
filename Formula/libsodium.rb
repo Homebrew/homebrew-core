@@ -1,14 +1,14 @@
 class Libsodium < Formula
   desc "NaCl networking and cryptography library"
   homepage "https://github.com/jedisct1/libsodium/"
-  url "https://github.com/jedisct1/libsodium/releases/download/1.0.10/libsodium-1.0.10.tar.gz"
-  sha256 "71b786a96dd03693672b0ca3eb77f4fb08430df307051c0d45df5353d22bc4be"
+  url "https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gz"
+  sha256 "a14549db3c49f6ae2170cbbf4664bd48ace50681045e8dbea7c8d9fb96f9c765"
 
   bottle do
     cellar :any
-    sha256 "99a1a14dbfa6cb2769a5c52add74cb39d65c263f62adebe94419c6a57f7f9ee9" => :el_capitan
-    sha256 "d113f4d59d9cac3de12c19bae21a6cc80a8e9df8079fabe73317e92fad63b257" => :yosemite
-    sha256 "ad5ba36b6891a728a1ae72197e3942810e7dbcacfb9bb93bb63dfbeaf04d7eae" => :mavericks
+    sha256 "4737a478ca227bc156890cafae1df4c200591bc217866f38ebdf0f02360790e2" => :el_capitan
+    sha256 "9e9925521bf75dd77192596713a16b3bae27037e2bca6886a0b805ddc90c2cca" => :yosemite
+    sha256 "dc0d77998561c0eaee3d3bf934d9479f6cbfad2b47cc1bbf5b28de4d59575e1d" => :mavericks
   end
 
   head do
@@ -42,7 +42,8 @@ class Libsodium < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lsodium", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}",
+                   "-lsodium", "-o", "test"
     system "./test"
   end
 end

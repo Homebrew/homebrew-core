@@ -1,6 +1,6 @@
 class Cmigemo < Formula
   desc "Migemo is a tool that supports Japanese incremental search with Romaji"
-  homepage "http://www.kaoriya.net/software/cmigemo"
+  homepage "https://www.kaoriya.net/software/cmigemo"
   head "https://github.com/koron/cmigemo.git"
 
   stable do
@@ -16,7 +16,6 @@ class Cmigemo < Formula
     sha256 "4ab378bb5f5d2462a6043d9226aade8b87974b52a7fec8a24e3814f93ac936f6" => :yosemite
     sha256 "f4b8738e34c2b8b7d8489c70a6e15e1634e9d2b0f20b2180be4dd6d43eca6c4a" => :mavericks
   end
-
 
   depends_on "nkf" => :build
 

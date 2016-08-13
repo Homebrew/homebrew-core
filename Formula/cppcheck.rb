@@ -1,23 +1,24 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/1.74.tar.gz"
-  sha256 "a7f9657bf458190ea1c994b95333d31d09420198ad8cd010c05d2194cc547fa0"
+  url "https://github.com/danmar/cppcheck/archive/1.75.tar.gz"
+  sha256 "d3732dba3fb4dee075009e2422cd9b48bbd095249994ec60550aee43026030e5"
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
-    sha256 "f623a0b6e1b7f335e9d406f01702dba484f313fb6ff10db69fb2d9ddc8ed2e85" => :el_capitan
-    sha256 "f8e7946b521d78657d9493c86c7b35ddc66032ce5f4ba9517644712d617c2daf" => :yosemite
-    sha256 "d2a264267df2009046b9688e9a80249e74b97ebbdd5f3ae20264c3a241e063b5" => :mavericks
+    sha256 "754138e7816ebfcd2cffed7b345eb21c030073713376c21fef68e1aa58edd78a" => :el_capitan
+    sha256 "920c43b65dfd11d6c9f829cff3b6dfbd561bd8b07ee983128d4f31ab374bd5c7" => :yosemite
+    sha256 "1d5a015ee5d0c85aced3691a6d7cd38c43d51eb286ed125bd71e88b0626e067d" => :mavericks
   end
 
   option "without-rules", "Build without rules (no pcre dependency)"
-  option "with-gui", "Build the cppcheck gui (requires Qt)"
+  option "with-qt5", "Build the cppcheck GUI (requires Qt)"
 
   deprecated_option "no-rules" => "without-rules"
+  deprecated_option "with-gui" => "with-qt5"
 
   depends_on "pcre" if build.with? "rules"
-  depends_on "qt" if build.with? "gui"
+  depends_on "qt5" => :optional
 
   needs :cxx11
 
@@ -39,10 +40,12 @@ class Cppcheck < Formula
     # Move the python addons to the cppcheck pkgshare folder
     (pkgshare/"addons").install Dir.glob(bin/"*.py")
 
-    if build.with? "gui"
+    if build.with? "qt5"
       cd "gui" do
         if build.with? "rules"
-          system "qmake", "HAVE_RULES=yes"
+          system "qmake", "HAVE_RULES=yes",
+                          "INCLUDEPATH+=#{Formula["pcre"].opt_include}",
+                          "LIBS+=-L#{Formula["pcre"].opt_lib}"
         else
           system "qmake", "HAVE_RULES=no"
         end

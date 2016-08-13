@@ -1,16 +1,15 @@
 class Hydra < Formula
   desc "Network logon cracker which supports many services"
   homepage "https://www.thc.org/thc-hydra/"
-  url "https://www.thc.org/releases/hydra-8.1.tar.gz"
-  sha256 "e4bc2fd11f97a8d985a38a31785c86d38cc60383e47a8f4a5c436351e5135f19"
+  url "https://www.thc.org/releases/hydra-8.3.tar.gz"
+  sha256 "b94ee47254e01a8c18be38eae8b953bfe4f734db60cafd1054b3316419b1687d"
   head "https://github.com/vanhauser-thc/thc-hydra.git"
-  revision 1
 
   bottle do
     cellar :any
-    sha256 "13e14223d88e3b3357952d1f4096e1f336f00c642ac01c42840b59d1a41e1bb3" => :el_capitan
-    sha256 "e2276f9b274e3a5a8f76b3e2a44d99e3accc2eb6b8c07cec7ffe7ee5b76675af" => :yosemite
-    sha256 "26048c21e5dbac4796ebc0f23b4e7e77b21df35e002fe5a46bfe21c92da2498e" => :mavericks
+    sha256 "70d37b703909c8c29c72f5526992c674f4d872d5c9da232fecd76747d130cb50" => :el_capitan
+    sha256 "913ec3343a2a1dd162f65e7152467e50712add4a71888252e3e709f516afd3f0" => :yosemite
+    sha256 "f0be884560663a1bb4dcd885a0b5193098b608478c0e3de153f8149e9c074d38" => :mavericks
   end
 
   depends_on "pkg-config" => :build

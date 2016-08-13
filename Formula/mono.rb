@@ -1,17 +1,17 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "http://www.mono-project.com/"
-  url "http://download.mono-project.com/sources/mono/mono-4.4.1.0.tar.bz2"
-  sha256 "165e7686b5cbb1ab671b4cb2069207999c3d70044002190b6ec84bb1fdf62b4a"
+  url "https://download.mono-project.com/sources/mono/mono-4.4.2.11.tar.bz2"
+  sha256 "900c2cc25ee55adeec04e1ae889316efc127c82cc0c392f928421f19f8f5b633"
 
   # xbuild requires the .exe files inside the runtime directories to
   # be executable
   skip_clean "lib/mono"
 
   bottle do
-    sha256 "2a39ab2dae7395cb44ebcd02a2bd60ee64e70e27619fbd8119968bdf5e088e46" => :el_capitan
-    sha256 "1c690c6e4f39053197ac80b4e83d86e54e476df8666f2fec65635d8eb495321a" => :yosemite
-    sha256 "15f0c368986edabc7cdc581e802b48ecb7558a604ec73eb25882ce4c678bd036" => :mavericks
+    sha256 "a66f5ee144eb47657f56a417e8ddea9ffa496b92dea648fc9fb7771d8478d41d" => :el_capitan
+    sha256 "02c559d621cbffe9651f99be5c36ffb799d527992f9de59f8089c67721e1086d" => :yosemite
+    sha256 "e89db5505a780fe358af7c160b571dd0b32ef8d72e099589ff29bdfa41fef29f" => :mavericks
   end
 
   conflicts_with "czmq", :because => "both install `makecert` binaries"
@@ -23,8 +23,8 @@ class Mono < Formula
   depends_on "pkg-config" => :build
 
   resource "fsharp" do
-    url "https://github.com/fsharp/fsharp.git", :tag => "4.0.1.1",
-                                                :revision => "849e3061fd7db397f07c7bd0c08e5df19f2b712a"
+    url "https://github.com/fsharp/fsharp.git", :tag => "4.0.1.10",
+                                                :revision => "d654e56bbc09bd6c1da5bd1f07abc1d9d347b6c3"
   end
 
   link_overwrite "bin/fsharpi"
@@ -34,7 +34,6 @@ class Mono < Formula
   link_overwrite "lib/mono"
   link_overwrite "lib/cli"
 
-  conflicts_with "disco", :because => "both install `disco` binaries"
   conflicts_with "xsd", :because => "both install `xsd` binaries"
 
   def install

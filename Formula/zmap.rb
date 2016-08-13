@@ -25,7 +25,7 @@ class Zmap < Formula
   depends_on "mongo-c" => :optional
 
   def install
-    inreplace ["conf/zmap.conf", "src/zmap.c", "src/zopt.ggo.in" ], "/etc", etc
+    inreplace ["conf/zmap.conf", "src/zmap.c", "src/zopt.ggo.in"], "/etc", etc
 
     args = std_cmake_args
     args << "-DENABLE_DEVELOPMENT=OFF"
