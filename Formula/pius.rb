@@ -11,9 +11,9 @@ class Pius < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f5f4db30f6c40930fe3dd6201d8df39994b3724def34249b83a5b1f0023485fc" => :el_capitan
-    sha256 "6d8c4471d5151e23493ccca5b3b9ea5306fa059802d6576cbce1468fcca65a05" => :yosemite
-    sha256 "c89c9802be880c3e400a68eb92341495ac7169e14af285166eb7a985f8473fc5" => :mavericks
+    sha256 "47a73a40992522c5834b81bc8f6888db64b2ae381e6e2287fa1e1fac366347b7" => :el_capitan
+    sha256 "8d9e44165fa23aa04484118977188186ff0becd0fbf6cbd498ea88121322ac15" => :yosemite
+    sha256 "8879e7d0fc7970e838091dfaed8b1d36676528cc185cdda4908c63858b8b124b" => :mavericks
   end
 
   depends_on :gpg => :run
