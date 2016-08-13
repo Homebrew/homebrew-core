@@ -12,6 +12,12 @@ class Nomad < Formula
     sha256 "00fbadc79e816afa0d237d36bd6542abb35b55586099e02e1df3f557b9544eb5" => :mavericks
   end
 
+  devel do
+    url "https://github.com/hashicorp/nomad/archive/v0.4.1-rc1.tar.gz"
+    version "0.4.1-rc1"
+    sha256 "b9883930003283c0dbc0027b273ce5ae745055c542d2fe514befcd4d555d89cb"
+  end
+
   depends_on "go" => :build
 
   def install
