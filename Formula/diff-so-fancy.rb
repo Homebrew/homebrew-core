@@ -1,14 +1,16 @@
+require "language/node"
+
 class DiffSoFancy < Formula
   desc "Good-lookin' diffs with diff-highlight and more"
   homepage "https://github.com/so-fancy/diff-so-fancy"
-  url "https://github.com/so-fancy/diff-so-fancy/archive/v0.11.1.tar.gz"
-  sha256 "6a9212d3d21af50987604c5930fd9ae899bf59bbcc873185525c81e860a455de"
+  url "https://registry.npmjs.org/diff-so-fancy/-/diff-so-fancy-0.11.1.tgz"
+  sha256 "c2824f4661d706ef9af7317fc253c123bc8f5d88f83732d880c4504309ae7a0f"
 
-  bottle :unneeded
+  depends_on "node" => :build
 
   def install
-    prefix.install Dir["third_party", "diff-so-fancy"]
-    bin.install_symlink prefix/"diff-so-fancy"
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    bin.install_symlink Dir[libexec/"bin/*"]
   end
 
   test do
