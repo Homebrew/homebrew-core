@@ -93,6 +93,7 @@ class Global < Formula
         assert_match "test.c", shell_output("#{bin}/global -d c2func")
         assert_match "test.c", shell_output("#{bin}/global -r c2func")
         assert_match "test.py", shell_output("#{bin}/global -d pyfunc")
+        assert_match "test.py", shell_output("#{bin}/global -d py2func")
         assert_match "test.py", shell_output("#{bin}/global -r py2func")
       else
         # Everything is a symbol in this case
