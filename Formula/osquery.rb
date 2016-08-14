@@ -9,9 +9,9 @@ class Osquery < Formula
 
   bottle do
     cellar :any
-    sha256 "582fefc0ef0eaf755c4c10894989ab7e468450082f18f427e6a411aa8ee3d597" => :el_capitan
-    sha256 "6848b258e7ba30d89c7d1ea2c35e740b7ffa7dd7924e320a1ef44693d99e4ccc" => :yosemite
-    sha256 "859401e7146a586a7b3a92f6b715194013585c3430d600ec9a55792d5c1bd8ee" => :mavericks
+    sha256 "c9d27c9246b920cece491980b4dbb29ebcd8f0d04c1711902277ca272b4b9bf7" => :el_capitan
+    sha256 "ed0c66f821195d35c646eac8a3ca038a6b9cde67bea129bae993a1e752016c51" => :yosemite
+    sha256 "78e52d3386bb3643f687bb1690fba3103d1b7cefe5602959b1621e55cbb99156" => :mavericks
   end
 
   # osquery only supports OS X 10.9 and above. Do not remove this.
