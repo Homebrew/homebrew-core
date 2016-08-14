@@ -8,9 +8,9 @@ class Hub < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2e0ba7030f69c32617cb985dc07eb02152af0ca97536f213038a078b08e33cf2" => :el_capitan
-    sha256 "d069a6a449e43010b5180951b862dc4fd430f6ac9293afc18e1d5cce2d98cb9d" => :yosemite
-    sha256 "481ed5b14848cd0cbea654e807eeefeda9f7a6978e2544ab49951ef195aeab69" => :mavericks
+    sha256 "546ade95cc6351c4e70eeb2ef5ccbcae36d9bd751ca000f313070893a405a819" => :el_capitan
+    sha256 "642dfcd6c6cde344a2cf98f820e4d3bf9c95120b2a88508503c674bf8c23eaa7" => :yosemite
+    sha256 "576dd3fd69abf000eb1e3eefa64a98a25eed69bef14b372b2de554c9f4b08b3e" => :mavericks
   end
 
   option "without-completions", "Disable bash/zsh completions"
