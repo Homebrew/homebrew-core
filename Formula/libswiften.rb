@@ -10,10 +10,9 @@ class Libswiften < Formula
   patch :DATA
 
   bottle do
-    revision 1
-    sha256 "6d3d8a4097fbd44527cf5a004bdcd8eb50a40b55a30f42ec478bbe64a0ea608b" => :el_capitan
-    sha256 "11b961dd62d3550b9189d1a42cc4ff99baad95b545c876719ec8852ab27125dc" => :yosemite
-    sha256 "d7c505b62c124c409804a6428e9896249fea174bdbd55406c2e3629ea68f71bd" => :mavericks
+    sha256 "e9bf41171f626c71350d0db7f13857b56c57f63248a229fe0ac4ed09c42dcfcf" => :el_capitan
+    sha256 "162f1c07d37888abd2c2f616f3bc512209ed5575444f5f17b555b974e0461939" => :yosemite
+    sha256 "0cd2296d234b0c59bcd9dc5e0ebf78f7439ac7c91e415efad693976d01666338" => :mavericks
   end
 
   depends_on "scons" => :build
