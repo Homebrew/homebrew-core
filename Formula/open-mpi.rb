@@ -1,9 +1,8 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://www.open-mpi.org/software/ompi/v1.10/downloads/openmpi-1.10.2.tar.bz2"
-  sha256 "8846e7e69a203db8f50af90fa037f0ba47e3f32e4c9ccdae2db22898fd4d1f59"
-  revision 1
+  url "https://www.open-mpi.org/software/ompi/v1.10/downloads/openmpi-1.10.3.tar.bz2"
+  sha256 "7484bb664312082fd12edc2445b42362089b53b17fb5fce12efd4fe452cc254d"
 
   bottle do
     sha256 "9b815d259c57b232084c2c340bf94d249b2c8cd04ea44e49daa220c83519563d" => :el_capitan
@@ -24,12 +23,12 @@ class OpenMpi < Formula
   option "with-mpi-thread-multiple", "Enable MPI_THREAD_MULTIPLE"
   option :cxx11
 
+  depends_on :fortran => :recommended
+  depends_on :java => :optional
+  depends_on "libevent"
+
   conflicts_with "mpich", :because => "both install mpi__ compiler wrappers"
   conflicts_with "lcdf-typetools", :because => "both install same set of binaries."
-
-  depends_on :fortran => :recommended
-  depends_on "libevent"
-  depends_on :java => :optional
 
   def install
     ENV.cxx11 if build.cxx11?
