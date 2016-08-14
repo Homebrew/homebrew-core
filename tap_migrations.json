@@ -140,6 +140,7 @@
   "kdiff3": "caskroom/cask",
   "kernagic": "homebrew/gui",
   "kismet": "homebrew/boneyard",
+  "kjell": "homebrew/boneyard",
   "klavaro": "homebrew/gui",
   "kubernetes-helm": "homebrew/boneyard",
   "kumofs": "homebrew/boneyard",
