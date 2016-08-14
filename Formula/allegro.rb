@@ -1,8 +1,8 @@
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
   homepage "http://liballeg.org/"
-  url "http://download.gna.org/allegro/allegro/5.2.0/allegro-5.2.0.tar.gz"
-  sha256 "af5a69cd423d05189e92952633f9c0dd0ff3a061d91fbce62fb32c4bd87f9fd7"
+  url "http://download.gna.org/allegro/allegro/5.2.1.1/allegro-5.2.1.1.tar.gz"
+  sha256 "b5d9df303bc6d72d54260c24505889acd995049b75463b46344e797a58a44a71"
   head "https://github.com/liballeg/allegro5.git", :branch => "master"
 
   bottle do
@@ -18,6 +18,7 @@ class Allegro < Formula
   depends_on "flac" => :recommended
   depends_on "physfs" => :recommended
   depends_on "libogg" => :recommended
+  depends_on "opusfile" => :recommended
   depends_on "theora" => :recommended
   depends_on "dumb" => :optional
 
