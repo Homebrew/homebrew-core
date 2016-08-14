@@ -29,6 +29,7 @@
   "chktex": "homebrew/tex",
   "clam": "homebrew/boneyard",
   "clang-omp": "homebrew/boneyard",
+  "class-dump": "homebrew/boneyard",
   "clay": "homebrew/boneyard",
   "cloudfoundry-cli": "pivotal/tap",
   "clusterit": "homebrew/x11",
