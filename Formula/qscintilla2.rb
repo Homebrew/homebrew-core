@@ -32,9 +32,6 @@ class Qscintilla2 < Formula
   end
 
   def install
-    # Make sure Qt5 is found even if not linked
-    ENV.prepend_path "PATH", Formula["qt5"].bin
-
     spec = ENV.compiler == :clang && MacOS.version >= :mavericks ? "macx-clang" : "macx-g++"
     args = %W[-config release -spec #{spec}]
 
@@ -66,7 +63,6 @@ class Qscintilla2 < Formula
           system python, "configure.py", "-o", lib, "-n", include,
                            "--apidir=#{prefix}/qsci",
                            "--destdir=#{lib}/python#{version}/site-packages/PyQt5",
-                           "--stubsdir=#{lib}/python#{version}/site-packages/PyQt5",
                            "--qsci-sipdir=#{share}/sip",
                            "--pyqt=PyQt5",
                            "--pyqt-sipdir=#{Formula["pyqt5"].opt_share}/sip/Qt5",
