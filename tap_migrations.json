@@ -5,6 +5,7 @@
   "aplus": "homebrew/boneyard",
   "apple-gcc42": "homebrew/dupes",
   "appswitch": "homebrew/binary",
+  "apt-cacher-ng": "homebrew/boneyard",
   "archivemount": "homebrew/fuse",
   "arpon": "homebrew/boneyard",
   "asm6": "homebrew/boneyard",
