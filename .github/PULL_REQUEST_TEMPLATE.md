@@ -1,6 +1,6 @@
-- [ ] Have you followed the guidelines in our [Contributing](https://github.com/Homebrew/homebrew-core/blob/master/CONTRIBUTING.md) document?
-- [ ] Have you checked to ensure there aren't other open [Pull Requests](https://github.com/Homebrew/homebrew-core/pulls) for the same formula update/change?
-- [ ] Have you built your formula locally prior to submission with `brew install <formula>` (where `<formula>` is the name of the formula you're submitting)?
-- [ ] Does your submission pass `brew audit --new-formula <formula>` (after doing `brew install <formula>`)?
+- [ ] Have you followed the [guidelines for contributing](https://github.com/Homebrew/homebrew-core/blob/master/CONTRIBUTING.md)?
+- [ ] Have you checked that there aren't other open [pull requests](https://github.com/Homebrew/homebrew-core/pulls) for the same formula update/change?
+- [ ] Have you built your formula locally with `brew install --build-from-source <formula>`, where `<formula>` is the name of the formula you're submitting?
+- [ ] Does your build pass `brew audit --strict <formula>` (after doing `brew install <formula>`)?
 
 -----
