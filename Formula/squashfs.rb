@@ -20,7 +20,7 @@ class Squashfs < Formula
   # Also clang fixes, extra endianness knowledge and a bundle of other OS X fixes.
   # Originally from https://github.com/plougher/squashfs-tools/pull/3
   patch do
-    url "https://raw.githubusercontent.com/DomT4/scripts/master/Homebrew_Resources/Squashfs/squashfs.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/05ae0eb1/squashfs/squashfs-osx-bundle.diff"
     sha256 "276763d01ec675793ddb0ae293fbe82cbf96235ade0258d767b6a225a84bc75f"
   end
 
