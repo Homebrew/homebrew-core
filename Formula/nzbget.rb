@@ -1,9 +1,8 @@
 class Nzbget < Formula
   desc "Binary newsgrabber for nzb files"
   homepage "http://nzbget.net/"
-  url "https://github.com/nzbget/nzbget/releases/download/v16.4/nzbget-16.4-src.tar.gz"
-  sha256 "8e9e3ee75d2d08a8e438b2809f504a627a9334ed239579a540b75fa97bff4d0f"
-
+  url "https://github.com/nzbget/nzbget/releases/download/v17.0/nzbget-17.0-src.tar.gz"
+  sha256 "795c830344dcc8751a2234a8344190b3f3e48e1ce92dcff02ee0af95a5fa46ae"
   head "https://github.com/nzbget/nzbget.git"
 
   bottle do
@@ -15,8 +14,14 @@ class Nzbget < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
+  depends_on "gcc" if MacOS.version <= :mavericks
 
   needs :cxx11
+
+  fails_with :clang do
+    build 600
+    cause "No compiler with C++14 support was found"
+  end
 
   fails_with :clang do
     build 500
@@ -29,6 +34,11 @@ class Nzbget < Formula
   def install
     ENV.cxx11
 
+    # Fix "ncurses library not found"
+    # Reported 14 Aug 2016: https://github.com/nzbget/nzbget/issues/264
+    ENV["ncurses_CFLAGS"] = "-I/usr/include"
+    ENV["ncurses_LIBS"] = "-L/usr/lib -lncurses"
+
     # Tell configure to use OpenSSL
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
@@ -37,6 +47,12 @@ class Nzbget < Formula
     ENV.j1
     system "make", "install"
     pkgshare.install_symlink "nzbget.conf" => "webui/nzbget.conf"
+
+    # Set upstream's recommended values for file systems without
+    # sparse-file support (e.g., HFS+); see Homebrew/homebrew-core#972
+    inreplace "nzbget.conf", "DirectWrite=yes", "DirectWrite=no"
+    inreplace "nzbget.conf", "ArticleCache=0", "ArticleCache=700"
+
     etc.install "nzbget.conf"
   end
 
@@ -66,6 +82,7 @@ class Nzbget < Formula
   end
 
   test do
+    (testpath/"downloads/dst").mkpath
     # Start nzbget as a server in daemon-mode
     system "#{bin}/nzbget", "-D"
     # Query server for version information
