@@ -1,9 +1,8 @@
 class Hub < Formula
   desc "Add GitHub support to git on the command-line"
   homepage "https://hub.github.com/"
-  url "https://github.com/github/hub/archive/v2.2.4.tar.gz"
-  sha256 "7951d4a172dfb6a9cbc0cbda4204dd6205eb08213257cce49026377596b43e60"
-  revision 1
+  url "https://github.com/github/hub/archive/v2.2.5.tar.gz"
+  sha256 "653cb1efed6d39348f630472b68f79b11704f52fdd7aebd82f7a6dbe18c32c59"
 
   head "https://github.com/github/hub.git"
 
@@ -17,13 +16,6 @@ class Hub < Formula
   option "without-completions", "Disable bash/zsh completions"
 
   depends_on "go" => :build
-
-  # Fix "Error creating pull request: Created (HTTP 201)"
-  # Opened PR 12 Aug 2016: "CreatePullRequest: expect HTTP 201"
-  patch do
-    url "https://github.com/github/hub/pull/1228.patch"
-    sha256 "82f81155fcb436f207883fd0aabef98546bfa0032b3cd63a66eb624442091548"
-  end
 
   def install
     system "script/build", "-o", "hub"
