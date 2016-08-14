@@ -1,10 +1,23 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://downloads.sourceforge.net/project/boost/boost/1.61.0/boost_1_61_0.tar.bz2"
-  sha256 "a547bd06c2fd9a71ba1d169d9cf0339da7ebf4753849a8f7d6fdb8feee99b640"
+  revision 1
 
   head "https://github.com/boostorg/boost.git"
+
+  stable do
+    url "https://downloads.sourceforge.net/project/boost/boost/1.61.0/boost_1_61_0.tar.bz2"
+    sha256 "a547bd06c2fd9a71ba1d169d9cf0339da7ebf4753849a8f7d6fdb8feee99b640"
+
+    # Remove for > 1.61.0
+    # Upstream commit "Fix build issues when optional_fwd.hpp is used before
+    # including boost/config.hpp" from PR boostorg/optional#19
+    # See https://svn.boost.org/trac/boost/ticket/12179
+    patch :p2 do
+      url "https://github.com/boostorg/optional/commit/844ca6a0.patch"
+      sha256 "1ef54ca1dcd12d809e2a01b558113fcd734d992402d2ec78c387298ef29cc887"
+    end
+  end
 
   bottle do
     cellar :any
