@@ -16,7 +16,6 @@ class Qscintilla2 < Formula
   option "with-plugin", "Build the Qt Designer plugin"
   option "without-python", "Skip building the Python bindings"
 
-  depends_on "qt5"
   depends_on :python3 => :recommended
   depends_on :python => :optional
 
@@ -29,6 +28,8 @@ class Qscintilla2 < Formula
   elsif build.with?("python3")
     depends_on "sip" => "with-python3"
     depends_on "pyqt5"
+  else
+    depends_on "qt5"
   end
 
   def install
