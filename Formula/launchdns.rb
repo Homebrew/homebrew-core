@@ -2,10 +2,8 @@ class Launchdns < Formula
   desc "Mini DNS server designed solely to route queries to localhost"
   homepage "https://github.com/josh/launchdns"
   url "https://github.com/josh/launchdns/archive/v1.0.3.tar.gz"
-  head "https://github.com/josh/launchdns.git"
   sha256 "c34bab9b4f5c0441d76fefb1ee16cb0279ab435e92986021c7d1d18ee408a5dd"
-
-  depends_on :macos => :yosemite
+  head "https://github.com/josh/launchdns.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,22 +12,19 @@ class Launchdns < Formula
     sha256 "7df1ba7afd33fb76de28051fc835e4c8aed32dcd8c8530189d7db021be5b8600" => :yosemite
   end
 
+  depends_on :macos => :yosemite
+
   def install
     ENV["PREFIX"] = prefix
     system "./configure", "--with-launch-h", "--with-launch-h-activate-socket"
     system "make", "install"
 
-    (prefix+"etc/resolver/dev").write("nameserver 127.0.0.1\nport 55353\n")
-  end
-
-  test do
-    assert_no_match /without socket activation/, shell_output("#{bin}/launchdns --version")
-    system "#{bin}/launchdns", "-p0", "-t1"
+    (prefix/"etc/resolver/dev").write("nameserver 127.0.0.1\nport 55353\n")
   end
 
   def caveats; <<-EOS.undent
-      To have *.dev resolved to 127.0.0.1:
-          sudo ln -s #{HOMEBREW_PREFIX}/etc/resolver /etc
+    To have *.dev resolved to 127.0.0.1:
+      sudo ln -s #{HOMEBREW_PREFIX}/etc/resolver /etc
     EOS
   end
 
@@ -67,5 +62,11 @@ class Launchdns < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    output = shell_output("#{bin}/launchdns --version")
+    assert_no_match(/without socket activation/, output)
+    system bin/"launchdns", "-p0", "-t1"
   end
 end
