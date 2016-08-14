@@ -7,9 +7,9 @@ class Nzbget < Formula
 
   bottle do
     cellar :any
-    sha256 "c69d482944ac626ae8869913f21f343e2a6fbd40c2043d35a9b5470e2ff03da2" => :el_capitan
-    sha256 "724965734679a54c8c8c829a725dd69b8225c203b2b1575954ccedaa0e45f5d7" => :yosemite
-    sha256 "0336f67f14a4de0a37983d8acc001b72a66892a5d77b79e2dd1f9b77f489bf04" => :mavericks
+    sha256 "9c0a0a872d1ebb7919b9d6f951fcc39a8f197a77e381680519cc71522abadac0" => :el_capitan
+    sha256 "4d45b535af040b967aa412d139065bb6d51ff78924ace4cac7957841c8ddd3bf" => :yosemite
+    sha256 "ecc197dc0fa28fa8349a5d6ec09d02866c4e6b015665f661d66f52b4af61f4c6" => :mavericks
   end
 
   depends_on "pkg-config" => :build
