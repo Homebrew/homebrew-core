@@ -17,7 +17,7 @@ class Flex < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--disable-shared",
+                          "--enable-shared",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
