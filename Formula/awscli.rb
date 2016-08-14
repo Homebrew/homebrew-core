@@ -87,29 +87,23 @@ class Awscli < Formula
   def install
     virtualenv_install_with_resources
 
-    # Install zsh completion
-    zsh_completion.install "bin/aws_zsh_completer.sh" => "_aws"
-
-    # Install the examples
     pkgshare.install "awscli/examples"
+
+    bash_completion.install "bin/aws_bash_completer"
+    zsh_completion.install "bin/aws_zsh_completer.sh" => "_aws"
   end
 
   def caveats; <<-EOS.undent
     The "examples" directory has been installed to:
       #{HOMEBREW_PREFIX}/share/awscli/examples
 
-    Add the following to ~/.bashrc to enable bash completion:
-      complete -C aws_completer aws
-
-    Add the following to ~/.zshrc to enable zsh completion:
-      source #{HOMEBREW_PREFIX}/share/zsh/site-functions/_aws
-
-    Before using awscli, you need to tell it about your AWS credentials.
-    The easiest way to do this is to run:
+    Before using aws-cli, you need to tell it about your AWS credentials.
+    The quickest way to do this is to run:
       aws configure
 
     More information:
       https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
+      https://pypi.python.org/pypi/awscli#getting-started
     EOS
   end
 
