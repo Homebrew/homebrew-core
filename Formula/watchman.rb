@@ -12,6 +12,12 @@ class Watchman < Formula
     sha256 "255eff7231fe294a077d25d135da27f7ced524aefb86de852446cfc69ca7585b" => :mavericks
   end
 
+  devel do
+    url "https://github.com/facebook/watchman/archive/v4.6.0-rc2.tar.gz"
+    version "4.6.0-rc2"
+    sha256 "2b8cae97615cfa83178fdf0cc1e320a6b4c9277b07217f2c642ae240cc39be19"
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "autoconf" => :build
   depends_on "automake" => :build
