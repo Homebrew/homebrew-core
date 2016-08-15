@@ -18,6 +18,12 @@ class Fping < Formula
     depends_on "automake" => :build
   end
 
+  head do
+    url "https://github.com/schweikert/fping.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
