@@ -1,9 +1,8 @@
 class Mpv < Formula
   desc "Free, open source, and cross-platform media player"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.18.1.tar.gz"
-  sha256 "e413d57fec4ad43b9f9b848f38d13fb921313fc9a4a64bf1e906c8d0f7a46329"
-  revision 1
+  url "https://github.com/mpv-player/mpv/archive/v0.19.0.tar.gz"
+  sha256 "3df5811942cd1d71f48eb4720092fdafec11885bf6dd6d1d3e6413f32e5d67e2"
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
@@ -38,8 +37,8 @@ class Mpv < Formula
   depends_on :macos => :mountain_lion
 
   resource "waf" do
-    url "https://waf.io/waf-1.9.1"
-    sha256 "8c71b0372a4bea1c02e2ff5e1aa52484ab9d2e81076538be2cda4e85498d7021"
+    url "https://waf.io/waf-1.9.2"
+    sha256 "7abb4fbe61d12b8ef6a3163653536da7ee31709299d8f17400d71a43247cea81"
   end
 
   resource "docutils" do
