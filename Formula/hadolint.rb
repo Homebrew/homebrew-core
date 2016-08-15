@@ -7,6 +7,7 @@ class Hadolint < Formula
   homepage "http://hadolint.lukasmartinelli.ch/"
   url "https://github.com/lukasmartinelli/hadolint/archive/v1.0.tar.gz"
   sha256 "9bdf9039877402f914f1f7127cc82bec43128508f199e31a5edd4b6f4555b840"
+  revision 1
 
   bottle do
     sha256 "2e516c0655c320852eba081edafc0e9c48a2504460a0e55c0aaaa3e813db9a45" => :el_capitan
