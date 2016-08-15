@@ -15,6 +15,10 @@ class Mariadb < Formula
     sha256 "90b7a17f3372c92c12dff084b37fcca8c4cf8106f4dcabd35fadc8efbaa348a2"
   end
 
+  # upstream fix for compilation error
+  # https://jira.mariadb.org/browse/MDEV-10322
+  patch :DATA
+
   option :universal
   option "with-test", "Keep test when installing"
   option "with-bench", "Keep benchmark app when installing"
