@@ -16,6 +16,7 @@ class Qscintilla2 < Formula
   option "with-plugin", "Build the Qt Designer plugin"
   option "without-python", "Skip building the Python bindings"
 
+  depends_on "qt5"
   depends_on :python3 => :recommended
   depends_on :python => :optional
 
@@ -28,8 +29,6 @@ class Qscintilla2 < Formula
   elsif build.with?("python3")
     depends_on "sip" => "with-python3"
     depends_on "pyqt5"
-  else
-    depends_on "qt5"
   end
 
   def install
@@ -42,11 +41,14 @@ class Qscintilla2 < Formula
         s.gsub! "$$[QT_INSTALL_HEADERS]", include
         s.gsub! "$$[QT_INSTALL_TRANSLATIONS]", prefix/"trans"
         s.gsub! "$$[QT_INSTALL_DATA]", prefix/"data"
+        s.gsub! "$$[QT_HOST_DATA]", prefix/"data"
+        s.gsub! "TARGET = qscintilla2", "TARGET = qscintilla2_qt5"
       end
 
       inreplace "features/qscintilla2.prf" do |s|
         s.gsub! "$$[QT_INSTALL_LIBS]", lib
         s.gsub! "$$[QT_INSTALL_HEADERS]", include
+        s.gsub! "LIBS += -lqscintilla2", "LIBS += -lqscintilla2_qt5"
       end
 
       system "qmake", "qscintilla.pro", *args
@@ -64,7 +66,10 @@ class Qscintilla2 < Formula
           system python, "configure.py", "-o", lib, "-n", include,
                            "--apidir=#{prefix}/qsci",
                            "--destdir=#{lib}/python#{version}/site-packages/PyQt5",
+                           "--stubsdir=#{lib}/python#{version}/site-packages/PyQt5",
                            "--qsci-sipdir=#{share}/sip",
+                           "--qsci-incdir=#{include}",
+                           "--qsci-libdir=#{lib}",
                            "--pyqt=PyQt5",
                            "--pyqt-sipdir=#{Formula["pyqt5"].opt_share}/sip/Qt5",
                            "--sip-incdir=#{Formula["sip"].opt_include}",
