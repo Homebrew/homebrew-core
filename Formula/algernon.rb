@@ -13,8 +13,8 @@ class Algernon < Formula
     sha256 "189478d8da0f8c7746cbf457206a14736fc83ff0b63f6aebabda4c39ebc72fab" => :mavericks
   end
 
-  depends_on "go" => :build
   depends_on "readline"
+  depends_on "go" => :build
 
   # List of Go dependencies and hashes.
   # Generated using: https://github.com/samertm/homebrew-go-resources
