@@ -3,27 +3,23 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://storage.googleapis.com/golang/go1.6.3.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.6.3.src.tar.gz"
-    version "1.6.3"
-    sha256 "6326aeed5f86cf18f16d6dc831405614f855e2d416a91fd3fdc334f772345b00"
-
-    # 1.6.3 does not build on macOS Sierra. Users should use devel instead
-    # until 1.7 is stable (due soon).
-    depends_on MaximumMacOSRequirement => :el_capitan
+    url "https://storage.googleapis.com/golang/go1.7.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.7.src.tar.gz"
+    version "1.7"
+    sha256 "72680c16ba0891fcf2ccf46d0f809e4ecf47bbf889f5d884ccb54c5e9a17e1c0"
 
     # Should use the last stable binary release to bootstrap.
     resource "gobootstrap" do
-      url "https://storage.googleapis.com/golang/go1.6.2.darwin-amd64.tar.gz"
-      version "1.6.2"
-      sha256 "6ebbafcac53bbbf8c4105fa84b63cca3d6ce04370f5a04ac2ac065782397fc26"
+      url "https://storage.googleapis.com/golang/go1.6.3.darwin-amd64.tar.gz"
+      version "1.6.3"
+      sha256 "2cd8c824d485a7e73522287278981a528e8f9cb8d3dea41719e29e1bd31ca70a"
     end
 
-    go_version = "1.6"
+    go_version = "1.7"
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
           :branch => "release-branch.go#{go_version}",
-          :revision => "c887be1b2ebd11663d4bf2fbca508c449172339e"
+          :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
     end
   end
 
@@ -35,9 +31,9 @@ class Go < Formula
   end
 
   devel do
-    url "https://storage.googleapis.com/golang/go1.7rc6.src.tar.gz"
-    version "1.7rc6"
-    sha256 "a289943548b838c7ef606a37836d1db080a3cb3c6df4e76456e23609b8505d05"
+    url "https://storage.googleapis.com/golang/go1.7.src.tar.gz"
+    version "1.7"
+    sha256 "72680c16ba0891fcf2ccf46d0f809e4ecf47bbf889f5d884ccb54c5e9a17e1c0"
 
     # Should use the last stable binary release to bootstrap.
     # Not the case here because 1.6.3 is lacking a fix for an issue which breaks
@@ -52,7 +48,7 @@ class Go < Formula
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
           :branch => "release-branch.go#{go_version}",
-          :revision => "a84e830bb0d2811304f6e66498eb3123ca97b68e"
+          :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
     end
   end
 
@@ -74,7 +70,6 @@ class Go < Formula
 
   option "without-cgo", "Build without cgo"
   option "without-godoc", "godoc will not be installed for you"
-  option "without-vet", "vet will not be installed for you"
   option "without-race", "Build without race detector"
 
   depends_on :macos => :mountain_lion
@@ -101,7 +96,7 @@ class Go < Formula
       system "#{bin}/go", "install", "-race", "std"
     end
 
-    if build.with?("godoc") || build.with?("vet")
+    if build.with?("godoc")
       ENV.prepend_path "PATH", bin
       ENV["GOPATH"] = buildpath
       (buildpath/"src/golang.org/x/tools").install resource("gotools")
@@ -112,16 +107,6 @@ class Go < Formula
           (libexec/"bin").install "godoc"
         end
         bin.install_symlink libexec/"bin/godoc"
-      end
-
-      # go vet is now part of the standard Go toolchain. Remove this block
-      # and the option once Go 1.7 is released
-      if build.with?("vet") && File.exist?("src/golang.org/x/tools/cmd/vet/")
-        cd "src/golang.org/x/tools/cmd/vet/" do
-          system "go", "build"
-          # This is where Go puts vet natively; not in the bin.
-          (libexec/"pkg/tool/darwin_amd64/").install "vet"
-        end
       end
     end
   end
@@ -155,9 +140,5 @@ class Go < Formula
       assert File.executable?(libexec/"bin/godoc")
     end
 
-    if build.with? "vet"
-      assert File.exist?(libexec/"pkg/tool/darwin_amd64/vet")
-      assert File.executable?(libexec/"pkg/tool/darwin_amd64/vet")
-    end
   end
 end
