@@ -163,7 +163,7 @@ class Ffmpeg < Formula
 
     # These librares are GPL-incompatible, and require ffmpeg be built with
     # the "--enable-nonfree" flag, which produces unredistributable libraries
-    if %w[faac fdk-aac openssl].any? { |f| build.with? f }
+    if %w[faac fdk-aac openssl rtmpdump].any? { |f| build.with? f }
       args << "--enable-nonfree"
     end
 
