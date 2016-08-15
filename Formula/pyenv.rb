@@ -10,23 +10,21 @@ class Pyenv < Formula
         else
           -1
         end
+      elsif DATETIME_VERSIONS =~ other
+        1
       else
-        if DATETIME_VERSIONS =~ other
-          1
-        else
-          super
-        end
+        super
       end
     end
   end
 
-  PYENV_VERSION = "1.0.0"
+  pyenv_version = "1.0.0"
   desc "Python version management"
   homepage "https://github.com/yyuu/pyenv"
-  url "https://github.com/yyuu/pyenv/archive/v#{PYENV_VERSION}.tar.gz"
+  url "https://github.com/yyuu/pyenv/archive/v#{pyenv_version}.tar.gz"
   sha256 "93216b9998cd1a3a09b8cc205a17de9a27b06788660749d36192c6a5ca346b4a"
   head "https://github.com/yyuu/pyenv.git"
-  version Pyenv::Version.new(PYENV_VERSION)
+  version Pyenv::Version.new(pyenv_version)
 
   bottle :unneeded
 
