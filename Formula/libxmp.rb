@@ -27,35 +27,24 @@ class Libxmp < Formula
     system "autoconf" if build.head?
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
-
     pkgshare.install resource("demo_mods")
   end
 
   test do
-    test_mod = "#{pkgshare}/give-me-an-om.mod"
     (testpath/"libxmp_test.c").write <<-EOS.undent
       #include <stdio.h>
       #include "xmp.h"
-
-      int main(int argc, char** argv)
-      {
-          char* mod = argv[1];
+      int main() {
           xmp_context context;
           struct xmp_module_info mi;
-
           context = xmp_create_context();
-          if (xmp_load_module(context, mod) != 0) {
-              puts("libxmp failed to open module!");
+          if (xmp_load_module(context, "#{pkgshare}/give-me-an-om.mod") != 0)
               return 1;
-          }
-
           xmp_get_module_info(context, &mi);
-          puts(mi.mod->name);
-          return 0;
+          printf("%s", mi.mod->name);
       }
     EOS
-
-    system ENV.cc, "libxmp_test.c", "-lxmp", "-o", "libxmp_test"
-    assert_equal "give me an om", shell_output("\"#{testpath}/libxmp_test\" #{test_mod}").chomp
+    system ENV.cc, "libxmp_test.c", "-L#{lib}", "-lxmp", "-o", "libxmp_test"
+    assert_equal "give me an om", shell_output("./libxmp_test")
   end
 end
