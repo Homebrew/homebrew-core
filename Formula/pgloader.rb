@@ -1,8 +1,8 @@
 class Pgloader < Formula
   desc "Data loading tool for PostgreSQL"
   homepage "https://github.com/dimitri/pgloader"
-  url "https://github.com/dimitri/pgloader/archive/v3.2.2.tar.gz"
-  sha256 "5fe5c115e277a9dd616b1077f89bffdf978bc6983ce62d99af9a218142c39e40"
+  url "https://github.com/dimitri/pgloader/archive/v3.3.0.50.tar.gz"
+  sha256 "c2803c3f7ef642f9cfad0acb849bd154e636e1168866d909eee9bbd7047874d9"
   head "https://github.com/dimitri/pgloader.git"
   revision 1
 
@@ -12,13 +12,13 @@ class Pgloader < Formula
     sha256 "8fbdf3a61ecaf31d45dcb43d898e0f7ae628f787adeda7bc0eb6eaaff3953064" => :mavericks
   end
 
+  depends_on "buildapp" => :build
   depends_on "sbcl"
   depends_on "freetds"
-  depends_on "buildapp" => :build
   depends_on :postgresql => :recommended
 
   # Resource stanzas are generated automatically by quicklisp-roundup.
-  # See: https://github.com/benesch/quicklisp-homebrew-roundup
+  # See https://github.com/benesch/quicklisp-homebrew-roundup
 
   resource "alexandria" do
     url "https://beta.quicklisp.org/archive/alexandria/2015-05-05/alexandria-20150505-git.tgz"
@@ -306,8 +306,8 @@ class Pgloader < Formula
   end
 
   def install
-    resources.each do |resource|
-      resource.stage buildpath/"lib"/resource.name
+    resources.each do |r|
+      r.stage buildpath/"lib"/r.name
     end
 
     ENV["CL_SOURCE_REGISTRY"] = "#{buildpath}/lib//:#{buildpath}//"
@@ -322,12 +322,12 @@ class Pgloader < Formula
     require "timeout"
 
     socket_dir = Pathname.new(socket_dir)
-    mkdir_p socket_dir
+    socket_dir.mkpath
 
-    postgres_command = [
-      "postgres",
-      "--listen_addresses=",
-      "--unix_socket_directories=#{socket_dir}"
+    postgres_command = %W[
+      postgres
+      --listen_addresses=
+      --unix_socket_directories=#{socket_dir}
     ]
 
     IO.popen(postgres_command * " ") do |postgres|
@@ -371,12 +371,12 @@ class Pgloader < Formula
       CA,Canada
     EOS
 
-    system "initdb"
+    system bin/"initdb"
 
     launch_postgres(ENV["PGHOST"]) do
-      system "createdb"
-      system "pgloader", testpath/"test.load"
-      assert_equal "6", shell_output("psql -Atc 'SELECT COUNT(*) FROM csv'").strip
+      system bin/"createdb"
+      system bin/"pgloader", "test.load"
+      assert_equal "6", shell_output("#{bin}/psql -Atc 'SELECT COUNT(*) FROM csv'").strip
     end
   end
 end
