@@ -1,8 +1,8 @@
 class AbiComplianceChecker < Formula
   desc "Check binary and source compatibility for C/C++"
   homepage "http://ispras.linuxbase.org/index.php/ABI_compliance_checker"
-  url "https://github.com/lvc/abi-compliance-checker/archive/1.99.22.tar.gz"
-  sha256 "da8d9c4f1d35d1ee355263b7f1b59c869e02fcb7cb764a695f8c730ce3dd5c2c"
+  url "https://github.com/lvc/abi-compliance-checker/archive/1.99.23.tar.gz"
+  sha256 "5d1a66e12b654798a09bdc087bb523bb38dd52bc6a212d604c18b547eb1ca2b2"
 
   bottle do
     cellar :any_skip_relocation
