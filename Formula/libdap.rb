@@ -18,6 +18,14 @@ class Libdap < Formula
     depends_on "libtool" => :build
   end
 
+  head do
+    url "https://github.com/OPENDAP/libdap4.git"
+
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
+  end
+
   option "without-test", "Skip build-time tests (Not recommended)"
 
   depends_on "pkg-config" => :build
