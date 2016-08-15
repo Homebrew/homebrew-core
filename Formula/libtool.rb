@@ -39,5 +39,14 @@ class Libtool < Formula
 
   test do
     system "#{bin}/glibtool", "execute", "/usr/bin/true"
+    (testpath/"hello.c").write <<-EOS
+      #include <stdio.h>
+      int main() { puts("Hello, world!"); return 0; }
+    EOS
+    system bin/"glibtool", "--mode=compile", "--tag=CC",
+      ENV.cc, "-c", "hello.c", "-o", "hello.o"
+    system bin/"glibtool", "--mode=link", "--tag=CC",
+      ENV.cc, "hello.o", "-o", "hello"
+    assert_match "Hello, world!", shell_output("./hello")
   end
 end
