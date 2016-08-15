@@ -1,8 +1,8 @@
 class GstValidate < Formula
   desc "Tools to validate GstElements from GStreamer"
   homepage "https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-validate/html/"
-  url "https://gstreamer.freedesktop.org/src/gst-validate/gst-validate-1.8.2.tar.xz"
-  sha256 "33c5b585c5ca1659fe6c09fdf02e45d8132c0d386b405bf527b14ab481a0bafe"
+  url "https://gstreamer.freedesktop.org/src/gst-validate/gst-validate-1.9.1.tar.xz"
+  sha256 "f0a7bc19d7fbe62e30fefa66bfbe04d1babd20f3d79cec3db17642aba84089b8"
 
   bottle do
     sha256 "c659a921830e558aa6111416c71efc2e59060c193c306b9a25d396ce18e43d92" => :el_capitan
