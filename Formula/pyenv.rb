@@ -20,11 +20,11 @@ class Pyenv < Formula
     end
   end
 
-  PYENV_VERSION = "20160726"
+  PYENV_VERSION = "1.0.0"
   desc "Python version management"
   homepage "https://github.com/yyuu/pyenv"
   url "https://github.com/yyuu/pyenv/archive/v#{PYENV_VERSION}.tar.gz"
-  sha256 "297040445f25912bea030be91b7d46c65eedbdf60655c2aae6226e88ed9b1346"
+  sha256 "93216b9998cd1a3a09b8cc205a17de9a27b06788660749d36192c6a5ca346b4a"
   head "https://github.com/yyuu/pyenv.git"
   version Pyenv::Version.new(PYENV_VERSION)
 
