@@ -28,7 +28,8 @@ class Gnuplot < Formula
   deprecated_option "with-x" => "with-x11"
   deprecated_option "pdf" => "with-pdflib-lite"
   deprecated_option "wx" => "with-wxmac"
-  deprecated_option "qt" => "with-qt"
+  deprecated_option "qt" => "with-qt5"
+  deprecated_option "with-qt" => "with-qt5"
   deprecated_option "cairo" => "with-cairo"
   deprecated_option "nolua" => "without-lua"
   deprecated_option "tests" => "with-test"
@@ -47,7 +48,7 @@ class Gnuplot < Formula
   depends_on "webp"
   depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
   depends_on "pdflib-lite" => :optional
-  depends_on "qt" => :optional
+  depends_on "qt5" => :optional
   depends_on "wxmac" => :optional
   depends_on :tex => :optional
   depends_on :x11 => :optional
@@ -63,7 +64,6 @@ class Gnuplot < Formula
 
     # Help configure find libraries
     pdflib = Formula["pdflib-lite"].opt_prefix
-    gd = Formula["gd"].opt_prefix
 
     args = %W[
       --disable-dependency-tracking
