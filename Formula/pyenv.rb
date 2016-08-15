@@ -18,13 +18,12 @@ class Pyenv < Formula
     end
   end
 
-  pyenv_version = "1.0.0"
   desc "Python version management"
   homepage "https://github.com/yyuu/pyenv"
-  url "https://github.com/yyuu/pyenv/archive/v#{pyenv_version}.tar.gz"
+  url "https://github.com/yyuu/pyenv/archive/v1.0.0.tar.gz"
   sha256 "93216b9998cd1a3a09b8cc205a17de9a27b06788660749d36192c6a5ca346b4a"
   head "https://github.com/yyuu/pyenv.git"
-  version Pyenv::Version.new(pyenv_version)
+  version Pyenv::Version.new("1.0.0")
 
   bottle :unneeded
 
