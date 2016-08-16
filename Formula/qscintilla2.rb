@@ -43,13 +43,11 @@ class Qscintilla2 < Formula
         s.gsub! "$$[QT_INSTALL_TRANSLATIONS]", prefix/"trans"
         s.gsub! "$$[QT_INSTALL_DATA]", prefix/"data"
         s.gsub! "$$[QT_HOST_DATA]", prefix/"data"
-        #s.gsub! "TARGET = qscintilla2", "TARGET = qscintilla2-qt5"
       end
 
       inreplace "features/qscintilla2.prf" do |s|
         s.gsub! "$$[QT_INSTALL_LIBS]", lib
         s.gsub! "$$[QT_INSTALL_HEADERS]", include
-        #s.gsub! "LIBS += -lqscintilla2", "LIBS += -lqscintilla2-qt5"
       end
 
       system "qmake", "qscintilla.pro", *args
@@ -88,7 +86,6 @@ class Qscintilla2 < Formula
         inreplace "designer.pro" do |s|
           s.sub! "$$[QT_INSTALL_PLUGINS]", "#{lib}/qt5/plugins"
           s.sub! "$$[QT_INSTALL_LIBS]", lib
-          #s.sub! "TARGET = qscintillaplugin", "TARGET = qscintillaplugin-qt5"
         end
         system "qmake", "designer.pro", *args
         system "make"
