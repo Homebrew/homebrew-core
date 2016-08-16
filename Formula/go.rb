@@ -70,7 +70,6 @@ class Go < Formula
 
   option "without-cgo", "Build without cgo"
   option "without-godoc", "godoc will not be installed for you"
-  option "without-vet", "vet will not be installed for you"
   option "without-race", "Build without race detector"
 
   depends_on :macos => :mountain_lion
@@ -97,7 +96,7 @@ class Go < Formula
       system "#{bin}/go", "install", "-race", "std"
     end
 
-    if build.with?("godoc") || build.with?("vet")
+    if build.with?("godoc")
       ENV.prepend_path "PATH", bin
       ENV["GOPATH"] = buildpath
       (buildpath/"src/golang.org/x/tools").install resource("gotools")
@@ -109,7 +108,6 @@ class Go < Formula
         end
         bin.install_symlink libexec/"bin/godoc"
       end
-
     end
   end
 
