@@ -3,7 +3,7 @@ class Godep < Formula
   homepage "https://godoc.org/github.com/tools/godep"
   url "https://github.com/tools/godep/archive/v74.tar.gz"
   sha256 "e68c7766c06c59327a4189fb929d390e1cc7a0c4910e33cada54cf40f40ca546"
-  revision 1
+  revision 2
 
   head "https://github.com/tools/godep.git"
 
