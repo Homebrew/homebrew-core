@@ -3,18 +3,9 @@ require "language/go"
 class SSearch < Formula
   desc "Web search from the terminal"
   homepage "https://github.com/zquestz/s"
+  url "https://github.com/zquestz/s/archive/v0.5.6.tar.gz"
+  sha256 "259dd724e7c76019c25d0eed5c5d01f69368508d3967cdb84c995d18476185ba"
   head "https://github.com/zquestz/s.git"
-
-  stable do
-    url "https://github.com/zquestz/s/archive/v0.5.5.tar.gz"
-    sha256 "d8d8e5cd201a90deb5ec785edb1c7242b68cea83392e5c82fb52b99368578c4d"
-
-    # gvt vendoring; remove for > 0.5.5
-    patch do
-      url "https://github.com/zquestz/s/commit/c9e18505.patch"
-      sha256 "86a250ccf05d42d90b37c41651dae97b6a86bfc9b187c7d156c1e624aa57748a"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
