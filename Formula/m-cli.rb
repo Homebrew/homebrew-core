@@ -1,8 +1,8 @@
 class MCli < Formula
   desc "Swiss Army Knife for Mac OS X"
   homepage "https://github.com/rgcr/m-cli"
-  url "https://github.com/rgcr/m-cli/archive/v0.1.4.tar.gz"
-  sha256 "96e26ab3f0adae3cd3023947013f399de64e73e5d29d3035d9c1f7afa00ab017"
+  url "https://github.com/rgcr/m-cli/archive/v0.1.6.tar.gz"
+  sha256 "c77811380c250bbe4ca9333b1f8b26099ae697c40c9f80f85c9ec45c04cfbc34"
   head "https://github.com/rgcr/m-cli.git"
 
   bottle :unneeded
@@ -21,6 +21,7 @@ class MCli < Formula
     bin.install_symlink "#{prefix}/m" => "m"
     bash_completion.install prefix/"completion/bash/m"
     zsh_completion.install prefix/"completion/zsh/_m"
+    fish_completion.install prefix/"completion/fish/m.fish"
   end
 
   test do
