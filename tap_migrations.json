@@ -78,6 +78,7 @@
   "freeglut": "homebrew/x11",
   "freerdp": "homebrew/x11",
   "fsv": "homebrew/boneyard",
+  "fugu": "homebrew/boneyard",
   "fuse-zip": "homebrew/fuse",
   "fuse4x": "homebrew/fuse",
   "fuse4x-kext": "homebrew/fuse",
