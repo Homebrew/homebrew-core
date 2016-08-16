@@ -1,9 +1,9 @@
 class Jpegoptim < Formula
   desc "Utility to optimize JPEG files"
   homepage "https://github.com/tjko/jpegoptim"
-  url "https://github.com/tjko/jpegoptim/archive/RELEASE.1.4.3.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/j/jpegoptim/jpegoptim_1.4.3.orig.tar.gz"
-  sha256 "f892f5917c8dd8259d319df204e4bc13806b90389041ca7a4a24d8a5c25c7013"
+  url "https://github.com/tjko/jpegoptim/archive/RELEASE.1.4.4.tar.gz"
+  mirror "https://mirrors.kernel.org/debian/pool/main/j/jpegoptim/jpegoptim_1.4.4.orig.tar.gz"
+  sha256 "bc6b018ae8c3eb12d07596693d54243e214780a2a2303a6578747d3671f45da3"
   head "https://github.com/tjko/jpegoptim.git"
 
   bottle do
@@ -27,6 +27,6 @@ class Jpegoptim < Formula
 
   test do
     source = test_fixtures("test.jpg")
-    assert_match(/OK/, shell_output("#{bin}/jpegoptim --noaction #{source}"))
+    assert_match "OK", shell_output("#{bin}/jpegoptim --noaction #{source}")
   end
 end
