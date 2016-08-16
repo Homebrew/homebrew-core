@@ -9,9 +9,9 @@ class SSearch < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7d3af52f97d3a7d5a6de84862871f3ed3d8daf17b0724a74d18eb36e70d56672" => :el_capitan
-    sha256 "c4dadd872915c59f94fb6d92b3007dc8ea18f715335acb528483c6ead54c6732" => :yosemite
-    sha256 "0e80bd4d0f743206a2920daf59fe58070312bf421805ab281caac672af22c54e" => :mavericks
+    sha256 "658e3935d2c6e914915658173937f97e394d1d98ca6dd250fa90c44ed18a2c08" => :el_capitan
+    sha256 "e63dbaa27b6130a90c095a80020ff92eb4775e9e3bc6b34a6df784fb4eee6a95" => :yosemite
+    sha256 "9618a7a43b833541e8293c8234c672a7c8753627adbf0d5bed01629f096185bf" => :mavericks
   end
 
   depends_on "go" => :build
