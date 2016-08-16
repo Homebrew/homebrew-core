@@ -1,5 +1,5 @@
 class Gstreamer < Formula
-  desc "GStreamer is a development framework for multimedia applications"
+  desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.8.2.tar.xz"
   sha256 "9dbebe079c2ab2004ef7f2649fa317cabea1feb4fb5605c24d40744b90918341"
