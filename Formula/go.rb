@@ -9,10 +9,11 @@ class Go < Formula
     sha256 "72680c16ba0891fcf2ccf46d0f809e4ecf47bbf889f5d884ccb54c5e9a17e1c0"
 
     # Should use the last stable binary release to bootstrap.
+    # More explicitly, leave this at 1.7 when 1.7.1 is released.
     resource "gobootstrap" do
-      url "https://storage.googleapis.com/golang/go1.6.3.darwin-amd64.tar.gz"
-      version "1.6.3"
-      sha256 "2cd8c824d485a7e73522287278981a528e8f9cb8d3dea41719e29e1bd31ca70a"
+      url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
+      version "1.7"
+      sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
     end
 
     go_version = "1.7"
@@ -30,37 +31,15 @@ class Go < Formula
     sha256 "5f570b6c7aa2d7caa6c715af6dce6fa30d7fbd5acc46fac8fbc3232270956f9e" => :mavericks
   end
 
-  devel do
-    url "https://storage.googleapis.com/golang/go1.7.src.tar.gz"
-    version "1.7"
-    sha256 "72680c16ba0891fcf2ccf46d0f809e4ecf47bbf889f5d884ccb54c5e9a17e1c0"
-
-    # Should use the last stable binary release to bootstrap.
-    # Not the case here because 1.6.3 is lacking a fix for an issue which breaks
-    # compile on macOS Sierra; in future this should share bootstrap with stable.
-    resource "gobootstrap" do
-      url "https://storage.googleapis.com/golang/go1.7rc6.darwin-amd64.tar.gz"
-      version "1.7rc6"
-      sha256 "ffe440747f7c663d7fc276b167ac630f921e66674c9952c97eed26fea9c8ac58"
-    end
-
-    go_version = "1.7"
-    resource "gotools" do
-      url "https://go.googlesource.com/tools.git",
-          :branch => "release-branch.go#{go_version}",
-          :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
-    end
-  end
-
   head do
     url "https://github.com/golang/go.git"
 
     # Should use the last stable binary release to bootstrap.
-    # See devel for notes as to why not the case here, for now.
+    # More explicitly, leave this at 1.7 when 1.7.1 is released.
     resource "gobootstrap" do
-      url "https://storage.googleapis.com/golang/go1.7rc6.darwin-amd64.tar.gz"
-      version "1.7rc6"
-      sha256 "ffe440747f7c663d7fc276b167ac630f921e66674c9952c97eed26fea9c8ac58"
+      url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
+      version "1.7"
+      sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
     end
 
     resource "gotools" do
@@ -132,13 +111,12 @@ class Go < Formula
     EOS
     # Run go fmt check for no errors then run the program.
     # This is a a bare minimum of go working as it uses fmt, build, and run.
-    system "#{bin}/go", "fmt", "hello.go"
+    system bin/"go", "fmt", "hello.go"
     assert_equal "Hello World\n", shell_output("#{bin}/go run hello.go")
 
     if build.with? "godoc"
       assert File.exist?(libexec/"bin/godoc")
       assert File.executable?(libexec/"bin/godoc")
     end
-
   end
 end
