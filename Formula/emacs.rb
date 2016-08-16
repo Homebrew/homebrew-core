@@ -19,6 +19,7 @@ class Emacs < Formula
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "jpeg" => :linked
   end
 
   head do
@@ -26,6 +27,7 @@ class Emacs < Formula
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "jpeg" => :linked
   end
 
   option "with-cocoa", "Build a Cocoa version of emacs"
