@@ -13,6 +13,8 @@ class Smlnj < Formula
     sha256 "ae8daf8491c3b2d6d2b12ce101fba322791591065b69129ff734325a1a1be063" => :mountain_lion
   end
 
+  depends_on :macos => :yosemite
+
   resource "cm" do
     url "http://smlnj.cs.uchicago.edu/dist/working/110.79/cm.tgz"
     sha256 "bf558d31be2935f974cad65e25d7b2dc1320cb1d7dd5f0726d8e87b961388f9c"
