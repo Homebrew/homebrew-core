@@ -21,6 +21,13 @@ class Mercurial < Formula
     depends_on "python"
   end
 
+  option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"
+  if build.with? "custom-python"
+    depends_on :python
+  else
+    depends_on "python"
+  end
+
   def install
     ENV.minimal_optimization if MacOS.version <= :snow_leopard
 
