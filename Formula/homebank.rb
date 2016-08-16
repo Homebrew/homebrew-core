@@ -19,6 +19,11 @@ class Homebank < Formula
   depends_on "freetype"
   depends_on "fontconfig"
   depends_on "libofx" => :optional
+  depends_on "atk" => :linked
+  depends_on "cairo" => :linked
+  depends_on "gdk-pixbuf" => :linked
+  depends_on "glib" => :linked
+  depends_on "pango" => :linked
 
   def install
     args = ["--disable-dependency-tracking",
