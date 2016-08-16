@@ -1,8 +1,8 @@
 class Gollum < Formula
   desc "n:m message multiplexer written in Go"
   homepage "https://github.com/trivago/gollum"
-  url "https://github.com/trivago/gollum/archive/v0.4.3.tar.gz"
-  sha256 "be2a615af23dd8c716014eeddb590e6246225378b4a034682ef2a01838d318f2"
+  url "https://github.com/trivago/gollum/archive/v0.4.4.tar.gz"
+  sha256 "54e69fcf5f07b2ff543415218faafa85dd83b095a1dbf0188f4c995d6b5a87cf"
   head "https://github.com/trivago/gollum.git"
 
   bottle do
@@ -16,9 +16,10 @@ class Gollum < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/trivago/gollum").install Dir["*"]
+    (buildpath/"src/github.com/trivago/gollum").install buildpath.children
     cd "src/github.com/trivago/gollum" do
       system "go", "build", "-o", bin/"gollum"
+      prefix.install_metafiles
     end
   end
 
