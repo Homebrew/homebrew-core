@@ -15,6 +15,14 @@ class Qjackctl < Formula
   depends_on "autoconf" => :build
   depends_on "qt5"
   depends_on "jack"
+  depends_on "portaudio" => :linked
+
+  # Fixes varaible length array error with LLVM/Clang
+  # Reported upstream: https://github.com/rncbc/qjackctl/issues/17
+  patch do
+    url "https://github.com/rncbc/qjackctl/commit/e92de08f7fd7c62ff1fb4f0330583f321a2a9aae.patch"
+    sha256 "cbb7cc72e0086b8e6df24c8c3a462dc0e9297f095573adb7a3cf98502a1902d4"
+  end
 
   # Fixes varaible length array error with LLVM/Clang
   # Reported upstream: https://github.com/rncbc/qjackctl/issues/17
