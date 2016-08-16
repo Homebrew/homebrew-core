@@ -8,6 +8,14 @@ class Python3 < Formula
   stable do
     url "https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz"
     sha256 "0010f56100b9b74259ebcd5d4b295a32324b58b517403a10d1a2aa7cb22bca40"
+
+    # Patch for pyport.h macro issue
+    # https://bugs.python.org/issue10910
+    # https://trac.macports.org/ticket/44288
+    patch do
+      url "https://bugs.python.org/file30805/issue10910-workaround.txt"
+      sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
+    end
   end
 
   bottle do
@@ -17,8 +25,8 @@ class Python3 < Formula
   end
 
   devel do
-    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0a3.tar.xz"
-    sha256 "2cd0611c3456a83737d99d8ffd36d4094b3d44c29dd3a4185f1146be502a8321"
+    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0a4.tar.xz"
+    sha256 "63acec349d20de412682f64c013f7c3374c695430b44e1c0ef12076da1d7fd2c"
   end
 
   option :universal
@@ -43,8 +51,8 @@ class Python3 < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5"
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/9f/7c/0a33c528164f1b7ff8cf0684cf88c2e733c8ae0119ceca4a3955c7fc059d/setuptools-23.1.0.tar.gz"
-    sha256 "4e269d36ba2313e6236f384b36eb97b3433cf99a16b94c74cca7eee2b311f2be"
+    url "https://files.pythonhosted.org/packages/9f/32/81c324675725d78e7f6da777483a3453611a427db0145dfb878940469692/setuptools-25.2.0.tar.gz"
+    sha256 "b2757ddac2c41173140b111e246d200768f6dd314110e1e40661d0ecf9b4d6a6"
   end
 
   resource "pip" do
@@ -66,14 +74,6 @@ class Python3 < Formula
   # so we have to stop python from searching for frameworks and linking against
   # X11.
   patch :DATA if build.with? "tcl-tk"
-
-  # Patch for pyport.h macro issue
-  # https://bugs.python.org/issue10910
-  # https://trac.macports.org/ticket/44288
-  patch do
-    url "https://bugs.python.org/file30805/issue10910-workaround.txt"
-    sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
-  end
 
   def lib_cellar
     prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}"
