@@ -13,11 +13,11 @@ class Dscanner < Formula
 
   test do
     (testpath/"test.d").write <<-EOS.undent
-    import std.stdio;
-    void main(string[] args)
-    {
-       writeln("Hello World");
-    }
+      import std.stdio;
+      void main(string[] args)
+      {
+        writeln("Hello World");
+      }
     EOS
 
     assert_match(/20/, shell_output("#{bin}/dscanner --tokenCount test.d"))
