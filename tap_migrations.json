@@ -87,6 +87,7 @@
   "gcsfuse": "homebrew/fuse",
   "gdal-grass": "homebrew/boneyard",
   "geda-gaf": "homebrew/science",
+  "gedit": "caskroom/cask",
   "geeqie": "homebrew/gui",
   "geomview": "homebrew/x11",
   "ggobi": "homebrew/science",
