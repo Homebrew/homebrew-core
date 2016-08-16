@@ -11,8 +11,6 @@ class Duplicity < Formula
     sha256 "36429a1ae8be8b06ecdd069cea5d25986601df90839e0224422efbf45439cb33" => :mavericks
   end
 
-  option :universal
-
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "librsync"
   depends_on "openssl"
@@ -309,8 +307,6 @@ class Duplicity < Formula
 
   def install
     ENV["PYTHONPATH"] = libexec/"lib/python2.7/site-packages"
-    ENV.universal_binary if build.universal?
-
     vendor_site_packages = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
     resources.each do |r|
