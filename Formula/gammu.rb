@@ -1,9 +1,9 @@
 class Gammu < Formula
   desc "Command-line utility to control a phone"
   homepage "https://wammu.eu/gammu/"
-  url "https://dl.cihar.com/gammu/releases/gammu-1.37.3.tar.xz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/g/gammu/gammu_1.37.3.orig.tar.xz"
-  sha256 "63fcb78e94e1c8cff199cada3f64c694f49c1e9fe2c3f17495dc01a5e8e03a84"
+  url "https://dl.cihar.com/gammu/releases/gammu-1.37.4.tar.xz"
+  mirror "https://mirrors.kernel.org/debian/pool/main/g/gammu/gammu_1.37.4.orig.tar.xz"
+  sha256 "ee345d9e1a06fd055bca8a4b418778a9568178a2c34082e820f86851c535f869"
   head "https://github.com/gammu/gammu.git"
 
   bottle do
@@ -14,7 +14,6 @@ class Gammu < Formula
 
   depends_on "cmake" => :build
   depends_on "glib" => :recommended
-  depends_on "gettext" => :optional
   depends_on "openssl"
 
   def install
