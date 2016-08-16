@@ -1,8 +1,8 @@
 class KitchenSync < Formula
   desc "Fast efficiently sync database without dumping & reloading"
   homepage "https://github.com/willbryant/kitchen_sync"
-  url "https://github.com/willbryant/kitchen_sync/archive/0.53.tar.gz"
-  sha256 "47489b0e2de1147069e9af7d48206839e1fedabf4446581587476654f5ab709d"
+  url "https://github.com/willbryant/kitchen_sync/archive/0.54.tar.gz"
+  sha256 "edc2539e80965be64a62db7d44e7914bba465fc3853ebb04f93a9f0c817dc693"
   head "https://github.com/willbryant/kitchen_sync.git"
 
   bottle do
@@ -29,6 +29,7 @@ class KitchenSync < Formula
   end
 
   test do
-    shell_output "#{bin}/ks 2>&1", 1
+    output = shell_output("#{bin}/ks --from a://b/ --to c://d/ 2>&1")
+    assert_match "Finished Kitchen Syncing", output
   end
 end
