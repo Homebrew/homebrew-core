@@ -9,9 +9,9 @@ class Glide < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "270ba9b495ba14409fab440b4cc45c9ae4793ad2fa77e59c7f838dc9a0f34700" => :el_capitan
-    sha256 "de848bffe9a1f512a7a9c067ef13309c01e6bb9ee2a8f40ea888547613ac8cc9" => :yosemite
-    sha256 "7e393a090ea6dc107fde98fd3d1e6da914269589efbaae3c26fbfb20ff2d50eb" => :mavericks
+    sha256 "5cebce9a6e81e7437bfd49ffd3b3f52a3c48f553b47799ef23e05484088e02c0" => :el_capitan
+    sha256 "d506965814408a048221407f6887232c3f56b46ce26afc20f381c15980b514f3" => :yosemite
+    sha256 "0d9df029068f96c13c5d64a4b5e0141f18e675c9b637e5f93a7a335194b4965f" => :mavericks
   end
 
   depends_on "go"
