@@ -5,6 +5,7 @@ class Gdm < Formula
   homepage "https://github.com/sparrc/gdm"
   url "https://github.com/sparrc/gdm/archive/1.3.tar.gz"
   sha256 "e545378699a557e6dffedb1c25f54ea4f1bf93c1c825ec693f81f391569c8529"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -34,9 +35,9 @@ class Gdm < Formula
   end
 
   test do
-    ENV["GOPATH"] = testpath
-    assert_match "#{version}", shell_output("#{bin}/gdm version")
-    assert_match "#{testpath}", shell_output("gdm save")
-    system "gdm", "restore"
+    ENV["GOPATH"] = testpath.realpath
+    assert_match version.to_s, shell_output("#{bin}/gdm version")
+    assert_match testpath.realpath.to_s, shell_output("#{bin}/gdm save")
+    system bin/"gdm", "restore"
   end
 end
