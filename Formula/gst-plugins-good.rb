@@ -15,6 +15,22 @@ class GstPluginsGood < Formula
     sha256 "36dd3543041e31326566df1cad981c9288e7f4b3d4459980f971b6f025988091" => :mavericks
   end
 
+  devel do
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.9.1.tar.xz"
+    sha256 "ee79071c8ec28e2f237ca20ff42f16e2e96c0671377d612c918e7309fa953764"
+
+    depends_on "check" => :optional
+    depends_on "gst-plugins-base" => :devel
+
+    # gstosxaudiodeviceprovider.h is missing from the tarball
+    # https://bugzilla.gnome.org/show_bug.cgi?id=766163
+    # https://github.com/GStreamer/gst-plugins-bad/commit/43487482e5c5ec71867acb887d50b8c3f813cd63
+    resource "gstosxaudiodeviceprovider_h" do
+      url "https://raw.githubusercontent.com/GStreamer/gst-plugins-good/1.9.1/sys/osxaudio/gstosxaudiodeviceprovider.h"
+      sha256 "1a072eb0bbd603f0b89294e463531b772654b7e3842e5c5b66e4aba50656886b"
+    end
+  end
+
   head do
     url "https://anongit.freedesktop.org/git/gstreamer/gst-plugins-good.git"
 
@@ -74,7 +90,11 @@ class GstPluginsGood < Formula
     # Upstream says it hasn't "been actively tested in a long time";
     # successor is glimagesink (in gst-plugins-bad).
     # https://bugzilla.gnome.org/show_bug.cgi?id=756918
-    args << "--disable-osx_video" if MacOS.version == :snow_leopard
+    if MacOS.version == :snow_leopard
+      args << "--disable-osx_video"
+    elsif build.devel?
+      resource("gstosxaudiodeviceprovider_h").stage buildpath/"sys/osxaudio"
+    end
 
     if build.head?
       ENV["NOCONFIGURE"] = "yes"

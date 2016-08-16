@@ -10,6 +10,13 @@ class GstPluginsUgly < Formula
     sha256 "fe5e6102fadea604a9663df3a96703137055d226d385181004e1ce71f4403332" => :mavericks
   end
 
+  devel do
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.9.1.tar.xz"
+    sha256 "541b2cc3f36b2c19f2afe9dcac1802109e6b092109ac1e09bc9b5c29cf608abc"
+
+    depends_on "gst-plugins-base" => :devel
+  end
+
   head do
     url "https://anongit.freedesktop.org/git/gstreamer/gst-plugins-ugly.git"
 

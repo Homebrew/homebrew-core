@@ -10,6 +10,14 @@ class GstEditingServices < Formula
     sha256 "8a2b903f27d6265665c5f0a12fedd87f9efb34cb41c347097cc37f10ca5f9175" => :mavericks
   end
 
+  devel do
+    url "https://gstreamer.freedesktop.org/src/gst-editing-services/gstreamer-editing-services-1.9.1.tar.xz"
+    sha256 "a56eb7d8010448eca2767b790138ae9c860a7e9aee490463c4745645a5e3bb78"
+
+    depends_on "gstreamer" => :devel
+    depends_on "gst-plugins-base" => :devel
+  end
+
   depends_on "gstreamer"
   depends_on "gst-plugins-base"
 

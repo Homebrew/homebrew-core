@@ -10,6 +10,13 @@ class GstLibav < Formula
     sha256 "d7f0ce837f63e3eef73e092aa3d38e38b39d080ab277d87ed9d853f02b7b0a01" => :mavericks
   end
 
+  devel do
+    url "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.9.1.tar.xz"
+    sha256 "4047f00f89893bb7df9051d0cc6eaba3025f916ae2c621a721764cecaf709021"
+
+    depends_on "gst-plugins-base" => :devel
+  end
+
   head do
     url "https://anongit.freedesktop.org/git/gstreamer/gst-libav.git"
 
