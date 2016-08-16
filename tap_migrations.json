@@ -103,6 +103,7 @@
   "gptfdisk": "homebrew/boneyard",
   "grace": "homebrew/x11",
   "grads": "homebrew/binary",
+  "graphviz": "caskroom/cask",
   "grass": "homebrew/boneyard",
   "graylog2-server": "homebrew/boneyard",
   "gromacs": "homebrew/science",
