@@ -7,9 +7,9 @@ class Gpm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a154116f76d46e8937df820ff8f36b2600ffa80f32bf0b37fca2204318306efe" => :el_capitan
-    sha256 "953434734f58fedf6224bc78310842ea7b49570274eee4d9f7365d2dc0876014" => :yosemite
-    sha256 "e3e4f39ffb4e13bdc4d3dcb96a44a9862f983213e21130969e8b4aafa7b0c9dd" => :mavericks
+    sha256 "ba26a6b34e92b4333d636ae3d9e54d726f6bd3bbabdabbfbdd9c3fec569e10fe" => :el_capitan
+    sha256 "0ed200c92c086eebf306065403c6a18db6e55e6d2764904cbd53f442f3043179" => :yosemite
+    sha256 "87cf43901daa271a5d27fbea5e6f103c15e287318152f02f0ef14bd77d51cb63" => :mavericks
   end
 
   depends_on "go"
