@@ -8,14 +8,6 @@ class Go < Formula
     version "1.7"
     sha256 "72680c16ba0891fcf2ccf46d0f809e4ecf47bbf889f5d884ccb54c5e9a17e1c0"
 
-    # Should use the last stable binary release to bootstrap.
-    # More explicitly, leave this at 1.7 when 1.7.1 is released.
-    resource "gobootstrap" do
-      url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
-      version "1.7"
-      sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
-    end
-
     go_version = "1.7"
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
@@ -34,14 +26,6 @@ class Go < Formula
   head do
     url "https://github.com/golang/go.git"
 
-    # Should use the last stable binary release to bootstrap.
-    # More explicitly, leave this at 1.7 when 1.7.1 is released.
-    resource "gobootstrap" do
-      url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
-      version "1.7"
-      sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
-    end
-
     resource "gotools" do
       url "https://go.googlesource.com/tools.git"
     end
@@ -52,6 +36,14 @@ class Go < Formula
   option "without-race", "Build without race detector"
 
   depends_on :macos => :mountain_lion
+
+  # Should use the last stable binary release to bootstrap.
+  # More explicitly, leave this at 1.7 when 1.7.1 is released.
+  resource "gobootstrap" do
+    url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
+    version "1.7"
+    sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+  end
 
   def install
     (buildpath/"gobootstrap").install resource("gobootstrap")
