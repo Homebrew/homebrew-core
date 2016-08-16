@@ -1,9 +1,9 @@
 class Chromedriver < Formula
   desc "Tool for automated testing of webapps across many browsers"
   homepage "https://sites.google.com/a/chromium.org/chromedriver/"
-  url "https://chromedriver.storage.googleapis.com/2.23/chromedriver_mac32.zip"
+  url "https://chromedriver.storage.googleapis.com/2.23/chromedriver_mac64.zip"
   version "2.23"
-  sha256 "ea2a182066395dceb43d0bbbf5122193de8509e69af9649e0cbde708b2412568"
+  sha256 "47a8caec6ce251f2dbaa9005e4dc783cb1fa6c09ecd76afafa41eab540a32e86"
 
   bottle :unneeded
 
