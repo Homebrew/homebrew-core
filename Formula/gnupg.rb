@@ -45,6 +45,10 @@ class Gnupg < Formula
     This formula does not install either `gpg` or `gpgv` executables into
     into the PATH.
 
+    If you simply require `gpg` and `gpgv` executables without explicitly
+    needing GnuPG 1.x we recommend:
+      brew install gnupg2
+
     If you really need to use these tools without the "1" suffix you can
     add a "gpgbin" directory to your PATH from your #{shell_profile} like:
 
@@ -52,10 +56,6 @@ class Gnupg < Formula
 
     Note that doing so may interfere with GPG-using formulae installed via
     Homebrew.
-
-    If you simply require vanilla `gpg` and `gpgv` executables without
-    explicitly needing GnuPG 1.x we recommend:
-      brew install gnupg2
     EOS
   end
 
