@@ -3,7 +3,7 @@ class Godep < Formula
   homepage "https://godoc.org/github.com/tools/godep"
   url "https://github.com/tools/godep/archive/v74.tar.gz"
   sha256 "e68c7766c06c59327a4189fb929d390e1cc7a0c4910e33cada54cf40f40ca546"
-  revision 1
+  revision 2
 
   head "https://github.com/tools/godep.git"
 
@@ -23,16 +23,20 @@ class Godep < Formula
   end
 
   test do
-    ENV["GO15VENDOREXPERIMENT"] = "0"
     ENV["GOPATH"] = testpath.realpath
-    (testpath/"Godeps.json").write <<-EOS.undent
+    (testpath/"Godeps/Godeps.json").write <<-EOS.undent
       {
         "ImportPath": "github.com/tools/godep",
-        "GoVersion": "go1.6",
-        "Deps": []
+        "GoVersion": "go1.7",
+        "Deps": [
+          {
+            "ImportPath": "go.googlesource.com/tools",
+            "Rev": "3fe2afc9e626f32e91aff6eddb78b14743446865"
+          }
+        ]
       }
     EOS
-    (testpath/"src/foo/bar/Godeps").install "Godeps.json"
-    cd("src/foo/bar") { system bin/"godep", "path" }
+    system bin/"godep", "restore"
+    assert File.exist?("src/go.googlesource.com/tools/README")
   end
 end
