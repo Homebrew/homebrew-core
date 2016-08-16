@@ -6,10 +6,8 @@ class Mg < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "5ed12a2bdce7b76ff2f336a0dcc1ec1be95cf8194cd253600d6edde4de51ac36" => :el_capitan
-    sha256 "1feeace7595726f96687dc2ee0bf2836ac9aaba982d39306f32703047340827d" => :yosemite
-    sha256 "f199621c41a7f6af908017610eac17f5d81da652ceeab148560afb96c8ba9ccc" => :mavericks
+    sha256 "20bba78b053638d1e05c80a678f4107aa928760c0caab7b3b8a112b6ec624afa" => :el_capitan
+    sha256 "b75b2d2ce24746207c5d0253745a992ae6e6a83f190a32ba5fd4aedd08028bb5" => :yosemite
   end
 
   depends_on :macos => :yosemite # older versions don't support fstatat(2)
