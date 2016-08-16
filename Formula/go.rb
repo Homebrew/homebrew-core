@@ -8,7 +8,7 @@ class Go < Formula
     version "1.7"
     sha256 "72680c16ba0891fcf2ccf46d0f809e4ecf47bbf889f5d884ccb54c5e9a17e1c0"
 
-    go_version = "1.7"
+    go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
           :branch => "release-branch.go#{go_version}",
@@ -59,15 +59,15 @@ class Go < Formula
     (buildpath/"pkg/obj").rmtree
     rm_rf "gobootstrap" # Bootstrap not required beyond compile.
     libexec.install Dir["*"]
-    bin.install_symlink Dir["#{libexec}/bin/go*"]
+    bin.install_symlink Dir[libexec/"bin/go*"]
 
     # Race detector only supported on amd64 platforms.
     # https://golang.org/doc/articles/race_detector.html
     if MacOS.prefer_64_bit? && build.with?("race")
-      system "#{bin}/go", "install", "-race", "std"
+      system bin/"go", "install", "-race", "std"
     end
 
-    if build.with?("godoc")
+    if build.with? "godoc"
       ENV.prepend_path "PATH", bin
       ENV["GOPATH"] = buildpath
       (buildpath/"src/golang.org/x/tools").install resource("gotools")
