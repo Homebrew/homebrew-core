@@ -17,6 +17,7 @@ class Bmon < Formula
     depends_on "automake" => :build
   end
 
+  depends_on "confuse"
   depends_on "pkg-config" => :build
   depends_on "confuse"
 
