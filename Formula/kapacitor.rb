@@ -7,8 +7,6 @@ class Kapacitor < Formula
     :tag => "v0.13.1",
     :revision => "ae7dde3aa467c46c06a5a2058a80c6125203f599"
 
-  head "https://github.com/influxdata/kapacitor.git"
-
   bottle do
     cellar :any_skip_relocation
     sha256 "fa6712543833d0695989bb9aab2d26506eb3d8eda5b23285aae72a5029307f36" => :el_capitan
@@ -16,8 +14,298 @@ class Kapacitor < Formula
     sha256 "d55e8d2a5c08ed7cad79c3ebb5d18e35798c5925434f52065fa96ab388a9c9fe" => :mavericks
   end
 
+  devel do
+    url "https://github.com/influxdata/kapacitor.git",
+      :tag => "v1.0.0-beta2",
+      :revision => "00860596e7ef4c9eb6380afd62a7be674738036f"
+
+    go_resource "github.com/peterh/liner" do
+      url "https://github.com/peterh/liner.git",
+      :revision => "82a939e738b0ee23e84ec7a12d8e216f4d95c53f"
+    end
+
+    go_resource "github.com/dgryski/go-bits" do
+      url "https://github.com/dgryski/go-bits.git",
+      :revision => "2ad8d707cc05b1815ce6ff2543bb5e8d8f9298ef"
+    end
+
+    go_resource "github.com/dgryski/go-bitstream" do
+      url "https://github.com/dgryski/go-bitstream.git",
+      :revision => "27cd5973303fde7d914860be1ea4b927a6be0c92"
+    end
+
+    go_resource "github.com/golang/snappy" do
+      url "https://github.com/golang/snappy.git",
+      :revision => "d9eb7a3d35ec988b8585d4a0068e462c27d28380"
+    end
+
+    go_resource "github.com/jwilder/encoding" do
+      url "https://github.com/jwilder/encoding.git",
+      :revision => "ac74639f65b2180a2e5eb5ff197f0c122441aed0"
+    end
+
+    go_resource "github.com/bmizerany/pat" do
+      url "https://github.com/bmizerany/pat.git",
+      :revision => "c068ca2f0aacee5ac3681d68e4d0a003b7d1fd2c"
+    end
+
+    go_resource "github.com/dgrijalva/jwt-go" do
+      url "https://github.com/dgrijalva/jwt-go.git",
+      :revision => "a2c85815a77d0f951e33ba4db5ae93629a1530af"
+    end
+
+    go_resource "github.com/rakyll/statik" do
+      url "https://github.com/rakyll/statik.git",
+      :revision => "2940084503a48359b41de178874e862c5bc3efe8"
+    end
+
+    go_resource "collectd.org" do
+      url "https://github.com/collectd/go-collectd.git",
+      :revision => "9fc824c70f713ea0f058a07b49a4c563ef2a3b98"
+    end
+
+    go_resource "github.com/paulbellamy/ratecounter" do
+      url "https://github.com/paulbellamy/ratecounter.git",
+      :revision => "5a11f585a31379765c190c033b6ad39956584447"
+    end
+
+    go_resource "github.com/shurcooL/github_flavored_markdown" do
+      url "https://github.com/shurcooL/github_flavored_markdown.git",
+      :revision => "b3921bea4a899100a4fd522dd940b819af56e437"
+    end
+
+    go_resource "github.com/shurcooL/gopherjslib" do
+      url "https://github.com/shurcooL/gopherjslib.git",
+      :revision => "f855ed7bcd82b53f720f6bf4a0c9b562e89276f6"
+    end
+
+    go_resource "golang.org/x/net" do
+      url "https://go.googlesource.com/net.git",
+      :revision => "7c71ca708c71bcbd0e6c856b01468ee07fe24557"
+    end
+
+    go_resource "github.com/gopherjs/gopherjs" do
+      url "https://github.com/gopherjs/gopherjs.git",
+      :revision => "ad712376c7b3218a7278e98928593a9959993a74"
+    end
+
+    go_resource "honnef.co/go/js/dom" do
+      url "https://github.com/dominikh/go-js-dom.git",
+      :revision => "24aa052bc5c63cfb9383bf59493ee48621ca788c"
+    end
+
+    go_resource "golang.org/x/tools" do
+      url "https://go.googlesource.com/tools.git",
+      :revision => "a2a552218a0e22e6fb22469f49ef371b492f6178"
+    end
+
+    go_resource "gopkg.in/pipe.v2" do
+      url "https://gopkg.in/pipe.v2.git",
+      :revision => "3c2ca4d525447ec8b2f606a6974f9c9f40831f26"
+    end
+
+    go_resource "github.com/shurcooL/httpfs" do
+      url "https://github.com/shurcooL/httpfs.git",
+      :revision => "f4a60bdbdd5a8f203c1ad5b6c95232f346eae1f5"
+    end
+
+    go_resource "github.com/microcosm-cc/bluemonday" do
+      url "https://github.com/microcosm-cc/bluemonday.git",
+      :revision => "4ac6f27528d0a3f2a59e0b0a6f6b3ff0bb89fe20"
+    end
+
+    go_resource "github.com/shurcooL/highlight_diff" do
+      url "https://github.com/shurcooL/highlight_diff.git",
+      :revision => "d2b0c68f5806a510c01992ecd0ca0e362eea8d56"
+    end
+
+    go_resource "github.com/shurcooL/highlight_go" do
+      url "https://github.com/shurcooL/highlight_go.git",
+      :revision => "1957344892ab030408ce1c7e0f93d56fb5ca1120"
+    end
+
+    go_resource "github.com/sourcegraph/annotate" do
+      url "https://github.com/sourcegraph/annotate.git",
+      :revision => "f4cad6c6324d3f584e1743d8b3e0e017a5f3a636"
+    end
+
+    go_resource "github.com/sourcegraph/syntaxhighlight" do
+      url "https://github.com/sourcegraph/syntaxhighlight.git",
+      :revision => "637a8b8b94eca8bb8cd559b950cc4f42629ec137"
+    end
+
+    go_resource "github.com/fsnotify/fsnotify" do
+      url "https://github.com/fsnotify/fsnotify.git",
+      :revision => "30411dbcefb7a1da7e84f75530ad3abe4011b4f8"
+    end
+
+    go_resource "github.com/kardianos/osext" do
+      url "https://github.com/kardianos/osext.git",
+      :revision => "29ae4ffbc9a6fe9fb2bc5029050ce6996ea1d3bc"
+    end
+
+    go_resource "github.com/neelance/sourcemap" do
+      url "https://github.com/neelance/sourcemap.git",
+      :revision => "8c68805598ab8d5637b1a72b5f7d381ea0f39c31"
+    end
+
+    go_resource "github.com/sergi/go-diff" do
+      url "https://github.com/sergi/go-diff.git",
+      :revision => "ec7fdbb58eb3e300c8595ad5ac74a5aa50019cc7"
+    end
+
+    go_resource "golang.org/x/sys" do
+      url "https://go.googlesource.com/sys.git",
+      :revision => "62bee037599929a6e9146f29d10dd5208c43507d"
+    end
+  end
+
+  head do
+    url "https://github.com/influxdata/kapacitor.git",
+    :version => "v1.0.0-HEAD"
+
+    go_resource "github.com/peterh/liner" do
+      url "https://github.com/peterh/liner.git",
+      :revision => "82a939e738b0ee23e84ec7a12d8e216f4d95c53f"
+    end
+
+    go_resource "github.com/dgryski/go-bits" do
+      url "https://github.com/dgryski/go-bits.git",
+      :revision => "2ad8d707cc05b1815ce6ff2543bb5e8d8f9298ef"
+    end
+
+    go_resource "github.com/dgryski/go-bitstream" do
+      url "https://github.com/dgryski/go-bitstream.git",
+      :revision => "27cd5973303fde7d914860be1ea4b927a6be0c92"
+    end
+
+    go_resource "github.com/golang/snappy" do
+      url "https://github.com/golang/snappy.git",
+      :revision => "d9eb7a3d35ec988b8585d4a0068e462c27d28380"
+    end
+
+    go_resource "github.com/jwilder/encoding" do
+      url "https://github.com/jwilder/encoding.git",
+      :revision => "ac74639f65b2180a2e5eb5ff197f0c122441aed0"
+    end
+
+    go_resource "github.com/bmizerany/pat" do
+      url "https://github.com/bmizerany/pat.git",
+      :revision => "c068ca2f0aacee5ac3681d68e4d0a003b7d1fd2c"
+    end
+
+    go_resource "github.com/dgrijalva/jwt-go" do
+      url "https://github.com/dgrijalva/jwt-go.git",
+      :revision => "a2c85815a77d0f951e33ba4db5ae93629a1530af"
+    end
+
+    go_resource "github.com/rakyll/statik" do
+      url "https://github.com/rakyll/statik.git",
+      :revision => "2940084503a48359b41de178874e862c5bc3efe8"
+    end
+
+    go_resource "collectd.org" do
+      url "https://github.com/collectd/go-collectd.git",
+      :revision => "9fc824c70f713ea0f058a07b49a4c563ef2a3b98"
+    end
+
+    go_resource "github.com/paulbellamy/ratecounter" do
+      url "https://github.com/paulbellamy/ratecounter.git",
+      :revision => "5a11f585a31379765c190c033b6ad39956584447"
+    end
+
+    go_resource "github.com/shurcooL/github_flavored_markdown" do
+      url "https://github.com/shurcooL/github_flavored_markdown.git",
+      :revision => "b3921bea4a899100a4fd522dd940b819af56e437"
+    end
+
+    go_resource "github.com/shurcooL/gopherjslib" do
+      url "https://github.com/shurcooL/gopherjslib.git",
+      :revision => "f855ed7bcd82b53f720f6bf4a0c9b562e89276f6"
+    end
+
+    go_resource "golang.org/x/net" do
+      url "https://go.googlesource.com/net.git",
+      :revision => "7c71ca708c71bcbd0e6c856b01468ee07fe24557"
+    end
+
+    go_resource "github.com/gopherjs/gopherjs" do
+      url "https://github.com/gopherjs/gopherjs.git",
+      :revision => "ad712376c7b3218a7278e98928593a9959993a74"
+    end
+
+    go_resource "honnef.co/go/js/dom" do
+      url "https://github.com/dominikh/go-js-dom.git",
+      :revision => "24aa052bc5c63cfb9383bf59493ee48621ca788c"
+    end
+
+    go_resource "golang.org/x/tools" do
+      url "https://go.googlesource.com/tools.git",
+      :revision => "a2a552218a0e22e6fb22469f49ef371b492f6178"
+    end
+
+    go_resource "gopkg.in/pipe.v2" do
+      url "https://gopkg.in/pipe.v2.git",
+      :revision => "3c2ca4d525447ec8b2f606a6974f9c9f40831f26"
+    end
+
+    go_resource "github.com/shurcooL/httpfs" do
+      url "https://github.com/shurcooL/httpfs.git",
+      :revision => "f4a60bdbdd5a8f203c1ad5b6c95232f346eae1f5"
+    end
+
+    go_resource "github.com/microcosm-cc/bluemonday" do
+      url "https://github.com/microcosm-cc/bluemonday.git",
+      :revision => "4ac6f27528d0a3f2a59e0b0a6f6b3ff0bb89fe20"
+    end
+
+    go_resource "github.com/shurcooL/highlight_diff" do
+      url "https://github.com/shurcooL/highlight_diff.git",
+      :revision => "d2b0c68f5806a510c01992ecd0ca0e362eea8d56"
+    end
+
+    go_resource "github.com/shurcooL/highlight_go" do
+      url "https://github.com/shurcooL/highlight_go.git",
+      :revision => "1957344892ab030408ce1c7e0f93d56fb5ca1120"
+    end
+
+    go_resource "github.com/sourcegraph/annotate" do
+      url "https://github.com/sourcegraph/annotate.git",
+      :revision => "f4cad6c6324d3f584e1743d8b3e0e017a5f3a636"
+    end
+
+    go_resource "github.com/sourcegraph/syntaxhighlight" do
+      url "https://github.com/sourcegraph/syntaxhighlight.git",
+      :revision => "637a8b8b94eca8bb8cd559b950cc4f42629ec137"
+    end
+
+    go_resource "github.com/fsnotify/fsnotify" do
+      url "https://github.com/fsnotify/fsnotify.git",
+      :revision => "30411dbcefb7a1da7e84f75530ad3abe4011b4f8"
+    end
+
+    go_resource "github.com/kardianos/osext" do
+      url "https://github.com/kardianos/osext.git",
+      :revision => "29ae4ffbc9a6fe9fb2bc5029050ce6996ea1d3bc"
+    end
+
+    go_resource "github.com/neelance/sourcemap" do
+      url "https://github.com/neelance/sourcemap.git",
+      :revision => "8c68805598ab8d5637b1a72b5f7d381ea0f39c31"
+    end
+
+    go_resource "github.com/sergi/go-diff" do
+      url "https://github.com/sergi/go-diff.git",
+      :revision => "ec7fdbb58eb3e300c8595ad5ac74a5aa50019cc7"
+    end
+
+    go_resource "golang.org/x/sys" do
+      url "https://go.googlesource.com/sys.git",
+      :revision => "62bee037599929a6e9146f29d10dd5208c43507d"
+    end
+  end
+
   depends_on "go" => :build
-  depends_on "influxdb"
 
   go_resource "github.com/BurntSushi/toml" do
     url "https://github.com/BurntSushi/toml.git",
@@ -128,7 +416,8 @@ class Kapacitor < Formula
     ENV["GOPATH"] = buildpath
     kapacitor_path = buildpath/"src/github.com/influxdata/kapacitor"
     kapacitor_path.install Dir["*"]
-    revision = `git rev-parse HEAD`
+    revision = `git rev-parse HEAD`.strip
+    version = `git describe --tags`.strip
 
     Language::Go.stage_deps resources, buildpath/"src"
 
@@ -195,12 +484,11 @@ class Kapacitor < Formula
       s.gsub! %r{/.*/.kapacitor/kapacitor.db}, "#{testpath}/kapacitor/kapacitor.db"
     end
 
-    pid = fork do
-      exec "#{bin}/kapacitord -config #{testpath}/config.toml"
-    end
-    sleep 2
-
     begin
+      pid = fork do
+        exec "#{bin}/kapacitord", "-config", "#{testpath}/config.toml"
+      end
+      sleep 1
       shell_output("#{bin}/kapacitor list tasks")
     ensure
       Process.kill("SIGINT", pid)
