@@ -19,6 +19,14 @@ class Yaws < Formula
     depends_on "libtool" => :build
   end
 
+  head do
+    url "https://github.com/klacke/yaws.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   option "without-yapp", "Omit yaws applications"
   option "32-bit"
 
