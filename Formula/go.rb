@@ -19,7 +19,7 @@ class Go < Formula
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
           :branch => "release-branch.go#{go_version}",
-          :revision => "c887be1b2ebd11663d4bf2fbca508c449172339e"
+          :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
     end
   end
 
@@ -48,7 +48,7 @@ class Go < Formula
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
           :branch => "release-branch.go#{go_version}",
-          :revision => "a84e830bb0d2811304f6e66498eb3123ca97b68e"
+          :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
     end
   end
 
