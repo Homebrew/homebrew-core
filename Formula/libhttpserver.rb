@@ -1,10 +1,9 @@
 class Libhttpserver < Formula
   desc "C++ library of embedded Rest HTTP server"
   homepage "https://github.com/etr/libhttpserver"
-  url "https://github.com/etr/libhttpserver/archive/v0.9.0.tar.gz"
-  sha256 "fbdc0a44e92e78e8cc03b0a595e6190d2de002610a6467dc32d703e9c5486189"
+  url "https://github.com/etr/libhttpserver/archive/v0.11.1.tar.gz"
+  sha256 "a5c3d2fb08cce842c0e9c900340260deb20b6fc4827fa0c94306aa34e50e5239"
   head "https://github.com/etr/libhttpserver.git"
-  revision 1
 
   bottle do
     cellar :any
@@ -25,10 +24,10 @@ class Libhttpserver < Formula
   def install
     ENV.universal_binary if build.universal?
 
-    args = [
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}"
+    args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
     ]
 
     system "./bootstrap"
