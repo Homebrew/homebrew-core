@@ -3,17 +3,17 @@ class Radare2 < Formula
   homepage "http://radare.org"
 
   stable do
-    url "http://www.radare.org/get/radare2-0.10.3.tar.xz"
-    sha256 "40200c9ceb42f1ef4634843249c03d9149822e690c7edfb748c88f596eb8cb93"
+    url "http://www.radare.org/get/radare2-0.10.4.tar.xz"
+    sha256 "2a79f719acb848f015b56cfc67d500d3ecf93d5e54c35b3d3f9c6c0b89d348a4"
 
     resource "bindings" do
-      url "http://www.radare.org/get/radare2-bindings-0.10.3.tar.xz"
-      sha256 "eabc7036bd84f0df1f45d54beb1644712475993a3e9bbc48ec41e5d2a25ba1f2"
+      url "http://www.radare.org/get/radare2-bindings-0.10.4.tar.xz"
+      sha256 "99e402410aa894f92941f1f1a0347152a34b393df4420330451eef37cd6f454b"
     end
 
     resource "extras" do
-      url "http://www.radare.org/get/radare2-extras-0.10.3.tar.xz"
-      sha256 "5717cc8d5da6bab6ab20a09555d6091b3ffbb50c03dd47c2a89cf1b5566ddd2d"
+      url "http://www.radare.org/get/radare2-extras-0.10.4.tar.xz"
+      sha256 "ccd2e6ff9fecb1a550f6a67dc88a75d539d9cdd8310c858b8fea8ad6535eeaf5"
     end
   end
 
