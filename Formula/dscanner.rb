@@ -21,6 +21,6 @@ class Dscanner < Formula
       }
     EOS
 
-    assert_match(/20/, shell_output("#{bin}/dscanner --tokenCount test.d"))
+    assert_match(/test.d:\t28\ntotal:\t28\n/, shell_output("#{bin}/dscanner --tokenCount test.d"))
   end
 end
