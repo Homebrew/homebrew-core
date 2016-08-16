@@ -8,8 +8,6 @@ class Go < Formula
     version "1.7"
     sha256 "72680c16ba0891fcf2ccf46d0f809e4ecf47bbf889f5d884ccb54c5e9a17e1c0"
 
-    depends_on MaximumMacOSRequirement => :sierra
-
     # Should use the last stable binary release to bootstrap.
     resource "gobootstrap" do
       url "https://storage.googleapis.com/golang/go1.6.2.darwin-amd64.tar.gz"
