@@ -34,10 +34,11 @@ class Boost < Formula
   option "without-static", "Disable building static library variant"
   option "with-mpi", "Build with MPI support"
   option :cxx11
+  option "with-c++14", "Build using C++14 mode"
 
   deprecated_option "with-icu" => "with-icu4c"
 
-  if build.cxx11?
+  if build.cxx11? || build.with?("c++14")
     depends_on "icu4c" => [:optional, "c++11"]
     depends_on "open-mpi" => "c++11" if build.with? "mpi"
   else
@@ -50,6 +51,13 @@ class Boost < Formula
     cause "Dropped arguments to functions when linking with boost"
   end
 
+  if build.with?("c++14")
+    fails_with :clang do
+      build 799
+      cause "Apple clang until 8.0 didn't support thread_local keyword."
+    end
+  end
+
   needs :cxx11 if build.cxx11?
 
   def install
@@ -60,6 +68,10 @@ class Boost < Formula
         is not supported.  Please use "--with-mpi" together with
         "--without-single".
       EOS
+    end
+
+    if build.cxx11? && build.with?("c++14")
+      raise "Cannot build in both C++11 and C++14 modes."
     end
 
     ENV.universal_binary if build.universal?
@@ -124,8 +136,12 @@ class Boost < Formula
 
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
     # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    if build.cxx11?
-      args << "cxxflags=-std=c++11"
+    if build.cxx11? || build.with?("c++14")
+      if build.cxx11?
+        args << "cxxflags=-std=c++11"
+      else
+        args << "cxxflags=-std=c++14"
+      end
       if ENV.compiler == :clang
         args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
       end
