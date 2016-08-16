@@ -10,9 +10,9 @@ class Go < Formula
 
     # Should use the last stable binary release to bootstrap.
     resource "gobootstrap" do
-      url "https://storage.googleapis.com/golang/go1.6.2.darwin-amd64.tar.gz"
-      version "1.6.2"
-      sha256 "6ebbafcac53bbbf8c4105fa84b63cca3d6ce04370f5a04ac2ac065782397fc26"
+      url "https://storage.googleapis.com/golang/go1.6.3.darwin-amd64.tar.gz"
+      version "1.6.3"
+      sha256 "2cd8c824d485a7e73522287278981a528e8f9cb8d3dea41719e29e1bd31ca70a"
     end
 
     go_version = "1.7"
