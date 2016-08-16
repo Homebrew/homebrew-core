@@ -17,6 +17,11 @@ class ShairportSync < Formula
     sha256 "a25e85386b3c0e32de1e01350d835e11414a42b87a136953d2d09e4ed45e1209"
   end
 
+  devel do
+    url "https://github.com/mikebrady/shairport-sync/archive/2.8.4.4.tar.gz"
+    sha256 "a25e85386b3c0e32de1e01350d835e11414a42b87a136953d2d09e4ed45e1209"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
