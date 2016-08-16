@@ -27,7 +27,7 @@ class KubernetesCli < Formula
 
     dir = "_output/local/bin/darwin/#{arch}"
     bin.install "#{dir}/kubectl"
-    (bash_completion/"kubectl").write Utils.popen_read("#{bin}/kubectl completion bash")
+    (bash_completion/"kubectl").write "source <(kubectl completion bash)"
   end
 
   test do
