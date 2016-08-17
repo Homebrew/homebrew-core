@@ -14,7 +14,6 @@ class Libcanberra < Formula
     sha256 "10c6f3c931a349848b6436d10893e9b1bc5051658f125f6b67ddc1f9319396a0" => :mavericks
   end
 
-
   head do
     url "git://git.0pointer.de/libcanberra"
 
