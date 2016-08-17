@@ -15,9 +15,12 @@ class Plantuml < Formula
       #!/bin/bash
       GRAPHVIZ_DOT="#{Formula["graphviz"].opt_bin}/dot" exec java -jar #{prefix}/#{jar} "$@"
     EOS
+    system "ln" " -s" " #{prefix}/#{jar}" " #{prefix}/bin/plantuml.jar"
+    system "chmod" " +x" " #{prefix}/bin/plantuml.jar"
   end
 
   test do
     system bin/"plantuml", "-testdot"
+    system "java" "-jar" "bin/plantuml.jar" "-testdot"
   end
 end
