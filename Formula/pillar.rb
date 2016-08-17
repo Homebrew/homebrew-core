@@ -6,9 +6,9 @@ class Pillar < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1515564663541917b83a77cad63a8e85d129295c58fe6e94a4dad8084e17182a" => :el_capitan
-    sha256 "bfc2ef8aa748e93e40d3cdcb10bc5bdc8528de93692594c0a4414855e97ebde6" => :yosemite
-    sha256 "ce43d94788d256a37410dd2b8b8635e57f0bedab12f681e99a2dd369d65fa001" => :mavericks
+    sha256 "0a9fca317e464bb8298c58bb21da39c93c7a128114f58a4ab3cd4f936efce46b" => :el_capitan
+    sha256 "62c49f179045cc5a25190111ce406865f81cba454930b85912ba89ae8b59a2a0" => :yosemite
+    sha256 "8c1ce70b45f766db666edffdc151c88e6b8c3a7cb4d7016d8aaf9e9466e1141b" => :mavericks
   end
 
   depends_on :java
