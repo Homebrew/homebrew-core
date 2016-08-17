@@ -20,7 +20,7 @@ class Pygtksourceview < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--disable-docs"  # attempts to download chunk.xsl on demand (and sometimes fails)
+                          "--disable-docs" # attempts to download chunk.xsl on demand (and sometimes fails)
     system "make", "install"
   end
 
