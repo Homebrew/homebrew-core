@@ -9,11 +9,9 @@ class TranslateToolkit < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "e86ad0efba358703d00a920fe61313de3fbf56b73aa8102656e2d0b8fd762db5" => :el_capitan
-    sha256 "ee17dc35e2f0f862ac5c011f9cd0cd0022f7a4c62de0353e20eeaf9480006f49" => :yosemite
-    sha256 "ae6ed22058dfd558efa42f5779f97b05fd5575bb3cfd06dff61e60c49f374337" => :mavericks
-    sha256 "31459fd05ccb213ded2ff0c048e25590913778211c9eda9b980ba8248150baaa" => :mountain_lion
+    sha256 "edf462681a76fa0c57b30259e5b403da4c4c9d9d37416653c083b6cd4c2bc873" => :el_capitan
+    sha256 "6592587cad1508205717c75108d3ddb46512062f51b593c8a73ffcc01f5dd3ba" => :yosemite
+    sha256 "d7012e9f5f530c82557db988fe6266d108d52ad426e0e832182852815f96aabe" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
