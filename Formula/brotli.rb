@@ -1,8 +1,8 @@
 class Brotli < Formula
   desc "Generic-purpose lossless compression algorithm by Google."
   homepage "https://github.com/google/brotli"
-  url "https://github.com/google/brotli/releases/download/v0.4.0/Brotli-0.4.0.tar.gz"
-  sha256 "d6a06624eece91f54e4b22b8088ce0090565c7d3f121386dc007b6d2723397ac"
+  url "https://github.com/google/brotli/archive/v0.5.2.tar.gz"
+  sha256 "2b7b1183682a17d8a9b83170fccdbec270c9e56baf8c0082f5d9c4528412d343"
   head "https://github.com/google/brotli.git"
 
   bottle do
@@ -12,13 +12,15 @@ class Brotli < Formula
     sha256 "62905194568ea45d2a85499d12b06d4c2d713a71c8d5b6d70c0fa5a25cd26aa0" => :mavericks
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "cmake" => :build
 
-  conflicts_with "bro", :because => "Both install a `bro` binary"
+  conflicts_with "bro", because: "Both install a `bro` binary"
 
   def install
-    system "make", "-C", "tools"
-    bin.install "tools/bro" => "bro"
+    system "cmake", ".", *std_cmake_args
+    system "make", "VERBOSE=1"
+    system "ctest", "-V"
+    system "make", "install"
   end
 
   test do
