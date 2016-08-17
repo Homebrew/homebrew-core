@@ -17,6 +17,8 @@ class Tbb < Formula
   # requires malloc features first introduced in Lion
   # https://github.com/Homebrew/homebrew/issues/32274
   depends_on :macos => :lion
+  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "swig" => :build
 
   def install
     # Intel sets varying O levels on each compile command.
@@ -32,6 +34,11 @@ class Tbb < Formula
     system "make", *args
     lib.install Dir["build/BUILDPREFIX_release/*.dylib"]
     include.install "include/tbb"
+
+    cd "python" do
+      ENV["TBBROOT"] = prefix
+      system "python", *Language::Python.setup_install_args(prefix)
+    end
   end
 
   test do
