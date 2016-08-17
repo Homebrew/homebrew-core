@@ -22,7 +22,6 @@ class S6 < Formula
     sha256 "cb4adf9531421b2321c3b1d0a50e388a21f1c1e7bdb38caaa4a7e8158fc0ce72" => :mavericks
   end
 
-
   head do
     url "git://git.skarnet.org/s6"
 
