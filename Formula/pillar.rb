@@ -1,8 +1,8 @@
 class Pillar < Formula
   desc "Manage migrations for Cassandra data stores"
   homepage "https://github.com/comeara/pillar"
-  url "https://github.com/comeara/pillar/archive/v2.1.1.tar.gz"
-  sha256 "5ed988911ae1e0d72531fec9a8834c4350879e68810a9703733ab650f19e77f8"
+  url "https://github.com/comeara/pillar/archive/v2.3.0.tar.gz"
+  sha256 "f1bb1f2913b10529263b5cf738dd171b14aff70e97a3c9f654c6fb49c91ef16f"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,13 +16,14 @@ class Pillar < Formula
 
   def install
     ENV.java_cache
-    system "sbt", "assembly"
 
     inreplace "src/main/bash/pillar" do |s|
-      s.gsub! "/usr/java/default", "`/usr/libexec/java_home`"
+      s.gsub! "$JAVA ", "`/usr/libexec/java_home`/bin/java "
       s.gsub! "${PILLAR_ROOT}/lib/pillar.jar", "#{libexec}/pillar-assembly-#{version}.jar"
       s.gsub! "${PILLAR_ROOT}/conf", "#{etc}/pillar-log4j.properties"
     end
+
+    system "sbt", "assembly"
 
     bin.install "src/main/bash/pillar"
     etc.install "src/main/resources/pillar-log4j.properties"
