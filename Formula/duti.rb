@@ -1,6 +1,6 @@
 class Duti < Formula
   desc "Select default apps for documents and URL schemes on OS X"
-  homepage "http://duti.org/"
+  homepage "https://github.com/moretension/duti/"
   url "https://github.com/moretension/duti/archive/duti-1.5.3.tar.gz"
   sha256 "0e71b7398e01aedf9dde0ffe7fd5389cfe82aafae38c078240780e12a445b9fa"
   head "https://github.com/moretension/duti.git"
