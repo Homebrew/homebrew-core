@@ -3,8 +3,8 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.10.0-src.tar.gz"
-    sha256 "a4015aacf4f6d8a8239253c4da46e7abaa8584f8214d1828d2ff0a8f56176869"
+    url "https://static.rust-lang.org/dist/rustc-1.11.0-src.tar.gz"
+    sha256 "3685034a78e70637bdfa3117619f759f2481002fd9abbc78cc0f737c9974de6a"
 
     resource "cargo" do
       # git required because of submodules
