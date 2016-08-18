@@ -33,6 +33,6 @@ class CloudWatch < Formula
   end
 
   test do
-    assert_match /w.x.y.z/, shell_output("#{bin}/mon-version")
+    assert_match "w.x.y.z", shell_output("#{bin}/mon-version")
   end
 end
