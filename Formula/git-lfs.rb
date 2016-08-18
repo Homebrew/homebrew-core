@@ -1,8 +1,8 @@
 class GitLfs < Formula
   desc "Git extension for versioning large files"
   homepage "https://github.com/github/git-lfs"
-  url "https://github.com/github/git-lfs/archive/v1.3.1.tar.gz"
-  sha256 "eab3ae0a423106c3256228550eccbca871f9adc9c1b8f8075dbe5c48e0ca804f"
+  url "https://github.com/github/git-lfs/archive/v1.4.0.tar.gz"
+  sha256 "0c357091d634a35ca539245eca488fc84a08c1524fbd2f96e4b085911001e8b2"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,6 +16,17 @@ class GitLfs < Formula
   def install
     system "./script/bootstrap"
     bin.install "bin/git-lfs"
+  end
+
+  def caveats; <<-EOS.undent
+    Update your git config to finish installation:
+
+      # Update global git config (~/.gitconfig)
+      $ git lfs install
+
+      # Update system git config (/etc/gitconfig)
+      $ git lfs install --system
+    EOS
   end
 
   test do
