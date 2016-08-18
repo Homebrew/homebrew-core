@@ -1,8 +1,8 @@
 class Peg < Formula
   desc "Program to perform pattern matching on text"
   homepage "http://piumarta.com/software/peg/"
-  url "http://piumarta.com/software/peg/peg-0.1.15.tar.gz"
-  sha256 "b6736ca15e5eb9154596e620ebad94a4705c7e597fc97b11219a90fc171faef2"
+  url "http://piumarta.com/software/peg/peg-0.1.18.tar.gz"
+  sha256 "20193bdd673fc7487a38937e297fff08aa73751b633a086ac28c3b34890f9084"
 
   bottle do
     cellar :any_skip_relocation
