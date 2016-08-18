@@ -16,6 +16,7 @@ class S6 < Formula
       sha256 "8a3605a6db73183baa376bf2130e8b7eb75a5b5347c7f9144e520fe86bcb1142"
     end
   end
+
   bottle do
     sha256 "afeaac9d3fca98e1db531cc56ed13e6e48eacc9bbeb383afb184c586edbd07ce" => :el_capitan
     sha256 "e5bcfd0232cf4ab55110bd3f3ec842edc4fa3a5db462c2900f61332268b9da16" => :yosemite
