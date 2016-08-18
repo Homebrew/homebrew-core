@@ -57,7 +57,7 @@ class Libressl < Formula
     end
 
     # LibreSSL install a default pem - We prefer to use OS X for consistency.
-    rm_f %W[ #{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default ]
+    rm_f %W[#{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default]
     (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
   end
 
