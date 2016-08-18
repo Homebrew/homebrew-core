@@ -42,7 +42,7 @@ class Gnupg < Formula
 
   def caveats; <<-EOS.undent
     This formula does not install either `gpg` or `gpgv` executables into
-    into the PATH.
+    the PATH.
 
     If you simply require `gpg` and `gpgv` executables without explicitly
     needing GnuPG 1.x we recommend:
