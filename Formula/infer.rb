@@ -1,8 +1,8 @@
 class Infer < Formula
   desc "Static analyzer for Java, C and Objective-C"
   homepage "http://fbinfer.com/"
-  url "https://github.com/facebook/infer/releases/download/v0.8.1/infer-osx-v0.8.1.tar.xz"
-  sha256 "0cd33936966fcb4761251279aa737ca07352fb8a8e864697a1d2cc5735c56ae7"
+  url "https://github.com/facebook/infer/releases/download/v0.9.2/infer-osx-v0.9.2.tar.xz"
+  sha256 "3935f8be25982a023aba306b66804d73a7316ab833296277c1ec6c3694bfc7c7"
 
   bottle do
     cellar :any
@@ -29,14 +29,12 @@ class Infer < Formula
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
 
-    system "opam", "init", "--no-setup"
-    system "opam", "update"
+    # Some of the libraries installed by ./build-infer.sh do not
+    # support parallel builds, eg OCaml itself. ./build-infer.sh
+    # builds in its own parallelization logic to mitigate that.
+    ENV.deparallelize
 
-    system "opam", "install", "ocamlfind"
-    system "opam", "install", "sawja>=1.5.1"
-    system "opam", "install", "atdgen>=1.6.0"
-    system "opam", "install", "extlib>=1.5.4"
-    system "opam", "install", "oUnit>=2.0.0"
+    ENV["INFER_CONFIGURE_OPTS"] = "--prefix=#{prefix} --disable-ocaml-annot --disable-ocaml-binannot"
 
     target_platform = if build.without?("clang")
       "java"
@@ -45,13 +43,9 @@ class Infer < Formula
     else
       "all"
     end
+
     system "./build-infer.sh", target_platform, "--yes"
-
-    rm "infer/tests/.inferconfig"
-    libexec.install "facebook-clang-plugins" if build.with?("clang")
-    libexec.install "infer"
-
-    bin.install_symlink libexec/"infer/bin/infer"
+    system "opam", "config", "exec", "--switch=infer-4.02.3", "--", "make", "install"
   end
 
   test do
