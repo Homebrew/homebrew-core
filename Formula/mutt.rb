@@ -11,9 +11,9 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.6.2.tar.gz"
-  mirror "ftp://ftp.mutt.org/pub/mutt/mutt-1.6.2.tar.gz"
-  sha256 "c5d02ef06486cdf04f9eeb9e9d7994890d8dfa7f47e7bfeb53a2a67da2ac1d8e"
+  url "ftp://ftp.mutt.org/pub/mutt/mutt-1.7.0.tar.gz"
+  mirror "http://mirror.meerval.net/pub/mutt/mutt-1.7.0.tar.gz"
+  sha256 "1d3e987433d8c92ef88a604f4dcefdb35a86ce73f3eff0157e2e491e5b55b345"
 
   bottle do
     sha256 "26f5169d2dbfe81a21d06e0a751e7a0b0293ace894235bee289a5c99fd319694" => :el_capitan
@@ -29,9 +29,6 @@ class Mutt < Formula
     end
   end
 
-  conflicts_with "tin",
-    :because => "both install mmdf.5 and mbox.5 man pages"
-
   option "with-debug", "Build with debug option enabled"
   option "with-s-lang", "Build against slang instead of ncurses"
   option "with-confirm-attachment-patch", "Apply confirm attachment patch"
@@ -45,6 +42,9 @@ class Mutt < Formula
   depends_on "gpgme" => :optional
   depends_on "libidn" => :optional
   depends_on "s-lang" => :optional
+
+  conflicts_with "tin",
+    :because => "both install mmdf.5 and mbox.5 man pages"
 
   if build.with? "confirm-attachment-patch"
     patch do
@@ -68,6 +68,7 @@ class Mutt < Formula
       --enable-pop
       --enable-hcache
       --with-tokyocabinet
+      --enable-sidebar
     ]
 
     # This is just a trick to keep 'make install' from trying
