@@ -32,4 +32,3 @@ class Omniorb < Formula
     system "#{bin}/omniidl", "-h"
   end
 end
-
