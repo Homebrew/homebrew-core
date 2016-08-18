@@ -32,7 +32,7 @@ class Shiboken < Formula
         # Building the tests also runs them.
         args << "-DBUILD_TESTS=ON"
         if python == "python3" && Formula["python3"].installed?
-          python_framework = (Formula["python3"].opt_prefix)/"Frameworks/Python.framework/Versions/#{version}"
+          python_framework = Formula["python3"].opt_prefix/"Frameworks/Python.framework/Versions/#{version}"
           args << "-DPYTHON3_INCLUDE_DIR:PATH=#{python_framework}/Headers"
           args << "-DPYTHON3_LIBRARY:FILEPATH=#{python_framework}/lib/libpython#{version}.dylib"
         end

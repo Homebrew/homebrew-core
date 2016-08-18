@@ -30,7 +30,7 @@ class JenkinsJobBuilder < Formula
 
   resource "pbr" do
     url "https://pypi.python.org/packages/source/p/pbr/pbr-0.11.1.tar.gz"
-     sha256 "701ab2922c29ca6004e3a4aab968728f33224968de9b51e432be2ee3340c2309"
+    sha256 "701ab2922c29ca6004e3a4aab968728f33224968de9b51e432be2ee3340c2309"
   end
 
   resource "six" do

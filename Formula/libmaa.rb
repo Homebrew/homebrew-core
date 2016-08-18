@@ -22,4 +22,3 @@ class Libmaa < Formula
     system "make", "install"
   end
 end
-

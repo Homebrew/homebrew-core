@@ -31,8 +31,7 @@ class Autotrace < Formula
     args = ["--disable-debug",
             "--disable-dependency-tracking",
             "--prefix=#{prefix}",
-            "--mandir=#{man}",
-           ]
+            "--mandir=#{man}"]
 
     args << "--without-magick" if build.without? "imagemagick"
 

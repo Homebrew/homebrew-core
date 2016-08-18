@@ -17,7 +17,6 @@ class VampPluginSdk < Formula
     sha256 "86a5d017be8bccf01f43b6e99fb2f441bde4dc6edff36837d58467926563e4f7" => :mavericks
   end
 
-
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "libsndfile"

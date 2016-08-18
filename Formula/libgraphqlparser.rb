@@ -47,7 +47,7 @@ class Libgraphqlparser < Formula
                 { "kind"=>"Name", "loc"=>{ "start"=>3, "end"=>7 }, "value"=>"user" },
                 "arguments"=>nil,
                 "directives"=>nil,
-                "selectionSet"=>nil, }], }, }], }
+                "selectionSet"=>nil }] } }] }
 
     test_ast = Utils::JSON.load pipe_output("#{libexec}/dump_json_ast", sample_query)
     assert_equal sample_ast, test_ast

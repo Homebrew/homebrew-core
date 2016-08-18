@@ -65,7 +65,7 @@ class Netpbm < Formula
   end
 
   test do
-    system ("#{bin}/pngtopam #{test_fixtures("test.png")} -alphapam >> test.pam")
+    system "#{bin}/pngtopam #{test_fixtures("test.png")} -alphapam >> test.pam"
     system "#{bin}/pamdice", "test.pam", "-outstem", "#{testpath}/testing"
     assert File.exist?("testing_0_0.")
   end

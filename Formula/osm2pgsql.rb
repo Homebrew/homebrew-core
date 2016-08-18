@@ -28,7 +28,7 @@ class Osm2pgsql < Formula
       "--with-proj=#{Formula["proj"].opt_prefix}",
       "--with-boost=#{Formula["boost"].opt_prefix}",
       "--with-zlib=/usr",
-      "--with-bzip2=/usr"
+      "--with-bzip2=/usr",
     ]
     puts args
     if build.with? "protobuf-c"

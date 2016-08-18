@@ -28,6 +28,6 @@ class Rtf2latex2e < Formula
     }
     EOF
     system "#{bin}/rtf2latex2e", "-n", "test.rtf"
-    system %q(cat test.tex | grep '\textbf{hello} world')
+    system "cat test.tex | grep '\textbf{hello} world'"
   end
 end

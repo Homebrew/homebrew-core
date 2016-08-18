@@ -79,11 +79,10 @@ class Openssl < Formula
       system "make"
       system "make", "test" if build.with?("test")
 
-      if build.universal?
-        cp "include/openssl/opensslconf.h", dir
-        cp Dir["*.?.?.?.dylib", "*.a", "apps/openssl"], dir
-        cp Dir["engines/**/*.dylib"], "#{dir}/engines"
-      end
+      next unless build.universal?
+      cp "include/openssl/opensslconf.h", dir
+      cp Dir["*.?.?.?.dylib", "*.a", "apps/openssl"], dir
+      cp Dir["engines/**/*.dylib"], "#{dir}/engines"
     end
 
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"

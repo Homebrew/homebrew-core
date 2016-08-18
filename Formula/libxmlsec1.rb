@@ -26,8 +26,7 @@ class Libxmlsec1 < Formula
     args = ["--disable-dependency-tracking",
             "--prefix=#{prefix}",
             "--disable-crypto-dl",
-            "--disable-apps-crypto-dl"
-           ]
+            "--disable-apps-crypto-dl"]
 
     args << "--with-openssl=#{Formula["openssl"].opt_prefix}" if build.with? "openssl"
     args << "--with-libxml=#{Formula["libxml2"].opt_prefix}" if build.with? "libxml2"

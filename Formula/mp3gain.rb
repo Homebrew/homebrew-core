@@ -17,4 +17,3 @@ class Mp3gain < Formula
     bin.install "mp3gain"
   end
 end
-

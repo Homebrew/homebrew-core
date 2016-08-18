@@ -29,7 +29,7 @@ class Lhasa < Formula
       %w[
         31002d6c68302d0400000004000000f59413532002836255050000865a060001666f6f0
         50050a4810700511400f5010000666f6f0a00
-      ].join
+      ].join,
     ].pack("H*")
 
     pipe_output("#{bin}/lha x -", data)

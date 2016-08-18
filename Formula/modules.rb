@@ -22,7 +22,8 @@ class Modules < Formula
       --prefix=#{prefix}
       --datarootdir=#{share}
       --disable-versioning
-      CPPFLAGS=-DUSE_INTERP_ERRORLINE]
+      CPPFLAGS=-DUSE_INTERP_ERRORLINE
+    ]
     args << "--without-x" if build.without? "x11"
     system "./configure", *args
     system "make", "install"

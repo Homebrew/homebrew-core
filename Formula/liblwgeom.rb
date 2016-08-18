@@ -54,7 +54,7 @@ class Liblwgeom < Formula
       "--without-libiconv-prefix",
       "--without-libintl-prefix",
       "--without-raster", # this ensures gdal is not required
-      "--without-topology"
+      "--without-topology",
     ]
 
     if build.head?

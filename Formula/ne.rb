@@ -20,7 +20,7 @@ class Ne < Formula
     ENV["TERM"] = "xterm"
     (testpath/"test.txt").write("This is a test document.\n")
     (testpath/"test_ne").write("GotoLine 2\nInsertString line 2\nExit\n")
-    system "script", "-q", "/dev/null", "#{bin}/ne", "--macro", "#{(testpath/"test_ne")}", "#{(testpath/"test.txt")}"
+    system "script", "-q", "/dev/null", "#{bin}/ne", "--macro", ((testpath/"test_ne")).to_s, ((testpath/"test.txt")).to_s
     assert_equal "This is a test document.\nline 2", File.read("#{testpath}/test.txt")
   end
 end

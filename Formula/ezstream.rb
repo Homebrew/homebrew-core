@@ -27,7 +27,7 @@ class Ezstream < Formula
   end
 
   test do
-    (testpath/"test.m3u").write "#{test_fixtures("test.mp3")}"
+    (testpath/"test.m3u").write test_fixtures("test.mp3").to_s
     system bin/"ezstream", "-s", testpath/"test.m3u"
   end
 end

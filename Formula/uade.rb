@@ -15,7 +15,6 @@ class Uade < Formula
     sha256 "807b7f5cb5a83348c778003d781d715cec73d37da537e0b11b8138c93aad4938" => :mavericks
   end
 
-
   head "git://zakalwe.fi/uade"
 
   depends_on "pkg-config" => :build

@@ -15,6 +15,6 @@ class GoogleSqlTool < Formula
       "SQL_SH_DIR=\"#{libexec}\""
 
     libexec.install ["google_sql.sh", "google_sql.jar"]
-    bin.install_symlink libexec+("google_sql.sh") => "google_sql"
+    bin.install_symlink libexec+"google_sql.sh" => "google_sql"
   end
 end

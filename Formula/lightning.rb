@@ -19,7 +19,7 @@ class Lightning < Formula
     args = [
       "--disable-dependency-tracking",
       "--disable-silent-rules",
-      "--prefix=#{prefix}"
+      "--prefix=#{prefix}",
     ]
     args << "--disable-disassembler" if build.without? "binutils"
 

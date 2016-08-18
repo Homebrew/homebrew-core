@@ -39,8 +39,7 @@ class Ffmbc < Formula
             "--disable-shared",
             "--enable-gpl",
             "--enable-nonfree",
-            "--cc=#{ENV.cc}",
-           ]
+            "--cc=#{ENV.cc}"]
 
     args << "--enable-libx264" if build.with? "x264"
     args << "--enable-libfaac" if build.with? "faac"

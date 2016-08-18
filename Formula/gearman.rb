@@ -45,7 +45,7 @@ class Gearman < Formula
       "--disable-dependency-tracking",
       "--disable-libdrizzle",
       "--with-boost=#{Formula["boost"].opt_prefix}",
-      "--with-sqlite3"
+      "--with-sqlite3",
     ]
 
     if build.with? "cyassl"

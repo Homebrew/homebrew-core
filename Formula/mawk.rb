@@ -25,6 +25,6 @@ class Mawk < Formula
   test do
     version=`mawk '/version/ { print $2 }' #{prefix}/README`
     assert_equal 0, $?.exitstatus
-    assert_equal version, "#{version}"
+    assert_equal version, version.to_s
   end
 end

@@ -21,7 +21,7 @@ class Soci < Formula
   option "with-pg", "Enable PostgreSQL support."
 
   def translate(a)
-    if a == "pg" then "postgresql" else a end
+    a == "pg" ? "postgresql" : a
   end
 
   fails_with :clang do

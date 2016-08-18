@@ -18,7 +18,7 @@ class Lesspipe < Formula
 
   def install
     if build.with? "syntax-highlighting"
-      inreplace "configure", %q($ifsyntax = "\L$ifsyntax";), %q($ifsyntax = "\Ly";)
+      inreplace "configure", '$ifsyntax = "\L$ifsyntax";', '$ifsyntax = "\Ly";'
     end
 
     system "./configure", "--prefix=#{prefix}", "--yes"

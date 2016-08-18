@@ -21,4 +21,3 @@ class Xmltoman < Formula
     (share+"xmltoman").install %w[xmltoman.xsl xmltoman.dtd xmltoman.css]
   end
 end
-

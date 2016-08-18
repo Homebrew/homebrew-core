@@ -14,7 +14,7 @@ class Brotli < Formula
 
   depends_on "cmake" => :build
 
-  conflicts_with "bro", because: "Both install a `bro` binary"
+  conflicts_with "bro", :because => "Both install a `bro` binary"
 
   def install
     system "cmake", ".", *std_cmake_args
