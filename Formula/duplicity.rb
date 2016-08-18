@@ -29,9 +29,9 @@ class Duplicity < Formula
 
   # must be installed early
   resource "pytz" do
-      url "https://files.pythonhosted.org/packages/f7/c7/08e54702c74baf9d8f92d0bc331ecabf6d66a56f6d36370f0a672fc6a535/pytz-2016.6.1.tar.bz2"
-      sha256 "b5aff44126cf828537581e534cc94299b223b945a2bb3b5434d37bf8c7f3a10c"
-    end
+    url "https://files.pythonhosted.org/packages/f7/c7/08e54702c74baf9d8f92d0bc331ecabf6d66a56f6d36370f0a672fc6a535/pytz-2016.6.1.tar.bz2"
+    sha256 "b5aff44126cf828537581e534cc94299b223b945a2bb3b5434d37bf8c7f3a10c"
+  end
 
   resource "Babel" do
     url "https://files.pythonhosted.org/packages/6e/96/ba2a2462ed25ca0e651fb7b66e7080f5315f91425a07ea5b34d7c870c114/Babel-2.3.4.tar.gz"
@@ -310,7 +310,8 @@ class Duplicity < Formula
 
   def install
     virtualenv_install_with_resources
-    inreplace Dir[bin/"*"], %r(#!/usr/bin/env python.*), "#!#{libexec}/bin/python"
+    inreplace Dir[bin/"*"], %r{^#!/usr/bin/env python.*$},
+                            "#!#{libexec}/bin/python"
     man1.install Dir[libexec/"share/man/man1/*"]
   end
 
