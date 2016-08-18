@@ -1,9 +1,29 @@
 class Pyenv < Formula
+  class Version < ::Version
+    # versions with datetime (e.g. v0.4.0-20140110.1, v20140614) is obsolete.
+    # those versions should be considered as older than ordinally versions (e.g. 1.0.0)
+    DATETIME_VERSIONS = /\A(?:0\.[1-4]\.\d+-)?201[3-6]\d{4}(?:\.\d+)?\z/
+    def <=>(other)
+      if DATETIME_VERSIONS =~ self
+        if DATETIME_VERSIONS =~ other
+          super
+        else
+          -1
+        end
+      elsif DATETIME_VERSIONS =~ other
+        1
+      else
+        super
+      end
+    end
+  end
+
   desc "Python version management"
   homepage "https://github.com/yyuu/pyenv"
-  url "https://github.com/yyuu/pyenv/archive/v20160726.tar.gz"
-  sha256 "297040445f25912bea030be91b7d46c65eedbdf60655c2aae6226e88ed9b1346"
+  url "https://github.com/yyuu/pyenv/archive/v1.0.0.tar.gz"
+  sha256 "93216b9998cd1a3a09b8cc205a17de9a27b06788660749d36192c6a5ca346b4a"
   head "https://github.com/yyuu/pyenv.git"
+  version Pyenv::Version.new("1.0.0")
 
   bottle :unneeded
 
