@@ -7,9 +7,9 @@ class Flatcc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7dc5c3a71134c23a9e401dc4411ea161c7e9e766ecd263ae5ce0fc09f8f623ba" => :el_capitan
-    sha256 "0c5645b370f0b76f98395b6ebd1ebabe28e2f1e6b004f89aac48c43436a0c3f0" => :yosemite
-    sha256 "5dae21daa84fa0afed9e5e740361b58300f602e6cdecd3d21c9578d6fd71759c" => :mavericks
+    sha256 "ca840e6e92ef838ed0ca704341e3528d864d73233ed67a19fea41a31c7de85ff" => :el_capitan
+    sha256 "109de10f4f14367200e5feaddc5f5ee2cbf563c016eab1a3fc1de102015b8f8e" => :yosemite
+    sha256 "93eb6be33456a5b22c0895def431d0d00eb2858124674eeed6a514ed7c5ca0af" => :mavericks
   end
 
   depends_on "cmake" => :build
