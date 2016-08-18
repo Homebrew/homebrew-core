@@ -2,7 +2,6 @@ class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://github.com/GitTools/GitVersion"
   url "https://www.nuget.org/api/v2/package/GitVersion.CommandLine/3.6.2"
-  version "3.6.2"
   sha256 "db05ebacfb76ddca26180f0c70060fbb89800e434d3d55b524785d0da37dbac8"
 
   bottle :unneeded
