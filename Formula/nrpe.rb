@@ -37,9 +37,7 @@ class Nrpe < Formula
                           "--enable-ssl",
                           "--enable-command-args"
 
-    inreplace "src/Makefile" do |s|
-      s.gsub! "$(LIBEXECDIR)", "$(SBINDIR)"
-    end
+    inreplace "src/Makefile", "$(LIBEXECDIR)", "$(SBINDIR)"
 
     system "make", "all"
     system "make", "install"

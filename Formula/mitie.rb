@@ -28,9 +28,7 @@ class Mitie < Formula
       (share/"MITIE-models").install resource("models-english")
     end
 
-    inreplace "mitielib/makefile" do |s|
-      s.gsub!(/libmitie.so/, "libmitie.dylib")
-    end
+    inreplace "mitielib/makefile", "libmitie.so", "libmitie.dylib"
     system "make", "mitielib"
     system "make"
 

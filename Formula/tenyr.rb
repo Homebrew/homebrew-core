@@ -22,9 +22,7 @@ class Tenyr < Formula
   def install
     bison = Formula["bison"].bin/"bison"
 
-    inreplace "Makefile" do |s|
-      s.gsub! "bison", bison
-    end
+    inreplace "Makefile", "bison", bison
 
     system "make"
     bin.install "tsim", "tas", "tld"

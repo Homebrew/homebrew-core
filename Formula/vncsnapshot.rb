@@ -17,9 +17,8 @@ class Vncsnapshot < Formula
 
   def install
     # From Ubuntu
-    inreplace "rfb.h" do |s|
-      s.gsub! /typedef unsigned long CARD32;/, "typedef unsigned int CARD32;"
-    end
+    inreplace "rfb.h", "typedef unsigned long CARD32;",
+                       "typedef unsigned int CARD32;"
 
     system "make"
     bin.install "vncsnapshot", "vncpasswd"

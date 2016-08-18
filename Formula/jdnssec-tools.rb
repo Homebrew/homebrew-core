@@ -17,9 +17,7 @@ class JdnssecTools < Formula
   depends_on :java
 
   def install
-    inreplace Dir["bin/*"] do |s|
-      s.gsub! /basedir=.*/, "basedir=#{libexec}"
-    end
+    inreplace Dir["bin/*"], /basedir=.*/, "basedir=#{libexec}"
     bin.install Dir["bin/*"]
     (libexec/"lib").install Dir["lib/*"]
   end
