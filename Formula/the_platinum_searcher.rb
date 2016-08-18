@@ -1,5 +1,3 @@
-require "language/go"
-
 class ThePlatinumSearcher < Formula
   desc "Multi-platform code-search similar to ack and ag"
   homepage "https://github.com/monochromegane/the_platinum_searcher"
