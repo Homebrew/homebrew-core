@@ -1,8 +1,8 @@
 class Libscrypt < Formula
   desc "Library for scrypt"
   homepage "https://lolware.net/libscrypt.html"
-  url "https://github.com/technion/libscrypt/archive/v1.20.tar.gz"
-  sha256 "6074add2170b7d00e080fe3a58d3dec76850a4f272d488f5e8cc3c4acb6d8e21"
+  url "https://github.com/technion/libscrypt/archive/v1.21.tar.gz"
+  sha256 "68e377e79745c10d489b759b970e52d819dbb80dd8ca61f8c975185df3f457d3"
 
   bottle do
     cellar :any
