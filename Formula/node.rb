@@ -11,6 +11,12 @@ class Node < Formula
     sha256 "567bd50a2a993054ace5dfd1e21ea15d46f2ee0345d9258f6d8a0b4078ad8a5e" => :mavericks
   end
 
+  devel do
+    url "https://nodejs.org/download/rc/v6.0.0-rc.1/node-v6.0.0-rc.1.tar.xz"
+    sha256 "d2ee873aa40e23c4fecd34aa6b8f6ac3091e2a8a2a016923ccd3d89eb108979f"
+    version "6.0.0-rc.1"
+  end
+
   option "with-debug", "Build with debugger hooks"
   option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
   option "without-npm", "npm will not be installed"
@@ -60,6 +66,7 @@ class Node < Formula
       resource("icu4c").stage buildpath/"deps/icu"
       args << "--with-intl=full-icu"
     end
+    args << "--tag=rc.1" << "--release-urlbase=https://nodejs.org/download/rc/" if build.devel?
 
     system "./configure", *args
     system "make", "install"
