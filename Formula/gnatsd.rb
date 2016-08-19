@@ -1,8 +1,8 @@
 class Gnatsd < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/gnatsd/archive/v0.9.2.tar.gz"
-  sha256 "307a9cc8e1cd460865c0c9278ee64120711f3169c9c5bc22e08fadd5884a5201"
+  url "https://github.com/nats-io/gnatsd/archive/v0.9.4.tar.gz"
+  sha256 "6465161c52e3e703f88cfe37182904d956234c4346f9ad6eb74903eff0190c98"
   head "https://github.com/apcera/gnatsd.git"
 
   bottle do
