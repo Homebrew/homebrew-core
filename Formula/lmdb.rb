@@ -1,10 +1,9 @@
 class Lmdb < Formula
   desc "Lightning memory-mapped database: key-value data store"
   homepage "https://symas.com/mdb-and-sqlite/"
-  url "https://github.com/LMDB/lmdb/archive/LMDB_0.9.14.tar.gz"
-  sha256 "6447d7677a991e922e3e811141869421a2b67952586aa68a26e018ea8ee3989c"
-
-  head "git://git.openldap.org/openldap.git", :branch => "mdb.master"
+  url "https://github.com/LMDB/lmdb/archive/LMDB_0.9.18.tar.gz"
+  sha256 "dd35b471d6eea84f48f2feece13d121abf59ef255308b8624a36223ffbdf9989"
+  head "https://github.com/LMDB/lmdb.git", :branch => "mdb.master"
 
   bottle do
     cellar :any
@@ -16,20 +15,17 @@ class Lmdb < Formula
   end
 
   def install
-    inreplace "libraries/liblmdb/Makefile" do |s|
-      s.gsub! ".so", ".dylib"
-      s.gsub! "$(DESTDIR)$(prefix)/man/man1", "$(DESTDIR)$(prefix)/share/man/man1"
+    cd "libraries/liblmdb" do
+      # Reported 19 Aug 2016: http://www.openldap.org/its/index.cgi?findid=8481
+      inreplace "Makefile", ".so", ".dylib"
+
+      system "make"
+      system "make", "test"
+      system "make", "install", "prefix=#{prefix}"
     end
-
-    man1.mkpath
-    bin.mkpath
-    lib.mkpath
-    include.mkpath
-
-    system "make", "-C", "libraries/liblmdb", "install", "prefix=#{prefix}"
   end
 
   test do
-    system "#{bin}/mdb_dump", "-V"
+    assert_match version.to_s, shell_output("#{bin}/mdb_dump -V")
   end
 end
