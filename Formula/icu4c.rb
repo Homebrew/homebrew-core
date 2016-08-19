@@ -5,6 +5,7 @@ class Icu4c < Formula
   mirror "https://fossies.org/linux/misc/icu4c-57_1-src.tgz"
   version "57.1"
   sha256 "ff8c67cb65949b1e7808f2359f2b80f722697048e90e7cfc382ec1fe229e9581"
+  revision 1
 
   head "https://ssl.icu-project.org/repos/icu/icu/trunk/", :using => :svn
 
