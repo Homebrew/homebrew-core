@@ -1,8 +1,8 @@
 class Gpsim < Formula
   desc "Simulator for Microchip's PIC microcontrollers"
   homepage "http://gpsim.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/gpsim/gpsim/0.28.0/gpsim-0.28.1.tar.gz"
-  sha256 "d8d41fb530630e6df31db89a0ca630038395aed4d07c48859655468ed25658ed"
+  url "https://downloads.sourceforge.net/project/gpsim/gpsim/0.29.0/gpsim-0.29.0.tar.gz"
+  sha256 "9ed078038da80dab117e803467d3df3818fa84af7a4a289aaac295913a30615d"
 
   head "svn://svn.code.sf.net/p/gpsim/code/trunk"
 
