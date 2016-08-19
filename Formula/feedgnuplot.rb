@@ -13,6 +13,6 @@ class Feedgnuplot < Formula
   end
 
   test do
-    system "seq 5 | feedgnuplot --terminal 'dumb 80,20' --exit"
+    pipe_output "feedgnuplot --terminal 'dumb 80,20' --exit", "seq 5", 0
   end
 end
