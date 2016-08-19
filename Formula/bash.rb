@@ -10,8 +10,6 @@ class Bash < Formula
     mirror "https://mirrors.kernel.org/gnu/bash/bash-4.3.tar.gz"
     mirror "https://ftp.gnu.org/gnu/bash/bash-4.3.tar.gz"
     mirror "https://gnu.cu.be/bash/bash-4.3.tar.gz"
-    mirror "https://mirror0.babylon.network/gnu/bash/bash-4.3.tar.gz"
-    mirror "https://mirror1.babylon.network/gnu/bash/bash-4.3.tar.gz"
     mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.3.tar.gz"
     sha256 "afc687a28e0e24dc21b988fa159ff9dbcf6b7caa92ade8645cc6d5605cd024d4"
     version "4.3.46"
