@@ -2,9 +2,8 @@ class DockerMachine < Formula
   desc "Create Docker hosts locally and on cloud providers"
   homepage "https://docs.docker.com/machine"
   url "https://github.com/docker/machine.git",
-    :tag => "v0.8.0",
-    :revision => "b85aac15463faf0e69f41d757291db9ab4c056f3"
-
+      :tag => "v0.8.1",
+      :revision => "41b3b253352b8b355d668f5e12b5f329f88c3482"
   head "https://github.com/docker/machine.git"
 
   bottle do
@@ -18,17 +17,13 @@ class DockerMachine < Formula
   depends_on "automake" => :build
 
   def install
-    ENV["GOBIN"] = bin
     ENV["GOPATH"] = buildpath
-    ENV["GOHOME"] = buildpath
-
-    path = buildpath/"src/github.com/docker/machine"
-    path.install Dir["*"]
-
-    cd path do
+    (buildpath/"src/github.com/docker/machine").install buildpath.children
+    cd "src/github.com/docker/machine" do
       system "make", "build"
       bin.install Dir["bin/*"]
       bash_completion.install Dir["contrib/completion/bash/*.bash"]
+      prefix.install_metafiles
     end
   end
 
