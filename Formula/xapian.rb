@@ -30,6 +30,17 @@ class Xapian < Formula
     end
   end
 
+  devel do
+    url "http://oligarchy.co.uk/xapian/1.3.5/xapian-core-1.3.5.tar.xz"
+    sha256 "3ad99ff4e91a4ff997fd576377e7c8f0134ceb3695c49e8f7d78ebf3c19b70ad"
+    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/x/xapian-core/xapian-core_1.3.5.orig.tar.xz"
+
+    resource "bindings" do
+      url "http://oligarchy.co.uk/xapian/1.3.5/xapian-bindings-1.3.5.tar.xz"
+      sha256 "4b5b9089d39b2a725651349127f64d24fe66db46572bdd92f39b8483bca400c3"
+    end
+  end
+
   option "with-java", "Java bindings"
   option "with-php", "PHP bindings"
   option "with-ruby", "Ruby bindings"
