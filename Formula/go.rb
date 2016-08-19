@@ -45,6 +45,8 @@ class Go < Formula
   end
 
   def install
+    ENV.permit_weak_imports
+
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
