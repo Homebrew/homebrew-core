@@ -43,6 +43,22 @@ class Libmarisa < Formula
     sha256 "35cb5c33083e9780aed45cfddd45ebe6aea28ae1eb2a2014f5f02a48cdbc60a9"
   end
 
+  head do
+    url "https://github.com/s-yata/marisa-trie.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
+  # Fixes TestEntry(): 212: Assertion `entry.ptr() == NULL' failed.
+  # Same method as upstream used for the `r_key.ptr() == NULL' bug
+  # Upstream PR opened 7th May 2016
+  patch do
+    url "https://github.com/s-yata/marisa-trie/pull/9.patch"
+    sha256 "35cb5c33083e9780aed45cfddd45ebe6aea28ae1eb2a2014f5f02a48cdbc60a9"
+  end
+
   def install
     system "autoreconf", "-fvi" if build.head?
     system "./configure", "--prefix=#{prefix}"
