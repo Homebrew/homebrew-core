@@ -11,6 +11,6 @@ class Feedgnuplot < Formula
   end
 
   test do
-    system "#{bin}/feedgnuplot", "--version"
+    system "seq 5 | feedgnuplot --terminal 'dumb 80,20' --exit"
   end
 end
