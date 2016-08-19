@@ -16,10 +16,11 @@ class Convox < Formula
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/convox/rack").install Dir["*"]
-    system "go", "build", "-ldflags=-X main.Version=#{version}", "-o", "#{bin}/convox", "-v", "github.com/convox/rack/cmd/convox"
+    system "go", "build", "-ldflags=-X main.Version=#{version}",
+           "-o", bin/"convox", "-v", "github.com/convox/rack/cmd/convox"
   end
 
   test do
-    system "#{bin}/convox"
+    system bin/"convox"
   end
 end
