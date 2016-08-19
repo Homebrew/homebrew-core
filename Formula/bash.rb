@@ -68,8 +68,6 @@ class Bash < Formula
         mirror "https://mirrors.kernel.org/gnu/bash/bash-4.3-patches/bash43-#{p}"
         mirror "https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-#{p}"
         mirror "https://gnu.cu.be/bash/bash-4.3-patches/bash43-#{p}"
-        mirror "https://mirror0.babylon.network/gnu/bash/bash-4.3-patches/bash43-#{p}"
-        mirror "https://mirror1.babylon.network/gnu/bash/bash-4.3-patches/bash43-#{p}"
         mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.3-patches/bash43-#{p}"
         sha256 checksum
       end
