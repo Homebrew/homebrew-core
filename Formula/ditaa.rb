@@ -6,9 +6,9 @@ class Ditaa < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b5b3b93c92efa5c50f7bfae9e625fbdd29098f768c695ff41e1cec32bdb28f3a" => :el_capitan
-    sha256 "e0495f37f6c612a5684c5ac6a64f91617da90775ff6b0f61dbffdb7ead374a93" => :yosemite
-    sha256 "2d4a0abeb8a7a5802555697c1cefddadf2e5c996b902a062dc6543d5968a8f3e" => :mavericks
+    sha256 "71a0106395863005e9a00897db143d494017e691a2db7b47ed43c8a46bf3bbd5" => :el_capitan
+    sha256 "664937870a0cbd75a0cbbfd7b1d24d9d8f3284fa9ace3968105d5f62910ab359" => :yosemite
+    sha256 "966d0dfe96517d50de02c8c8c2d603084c105dc3ae837fe43e61c8481d42b3f8" => :mavericks
   end
 
   depends_on :ant => :build
