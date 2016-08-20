@@ -4,7 +4,7 @@ class Mpich < Formula
   url "https://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz"
   mirror "https://fossies.org/linux/misc/mpich-3.2.tar.gz"
   sha256 "0778679a6b693d7b7caff37ff9d2856dc2bfc51318bf8373859bfa74253da3dc"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "8501467dfca007ec11c89c761b5bfe36d362621cd23526e97416d759dadb35bc" => :el_capitan
@@ -26,6 +26,13 @@ class Mpich < Formula
   conflicts_with "open-mpi", :because => "both install mpi__ compiler wrappers"
 
   def install
+    # Fix segfault; remove for next mpich releaase > 3.2
+    if build.stable? && ENV.compiler == :clang
+      inreplace "src/include/mpiimpl.h",
+        "} MPID_Request ATTRIBUTE((__aligned__(32)));",
+        "} ATTRIBUTE((__aligned__(32))) MPID_Request;"
+    end
+
     if build.head?
       # ensure that the consistent set of autotools built by homebrew is used to
       # build MPICH, otherwise very bizarre build errors can occur
