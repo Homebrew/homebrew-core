@@ -1,3 +1,22 @@
+class CodesignRequirement < Requirement
+  include FileUtils
+  fatal true
+
+  satisfy(:build_env => false) do
+    mktemp do
+      cp "/usr/bin/false", "radare2_check"
+      quiet_system "/usr/bin/codesign", "-f", "-s", "org.radare.radare2", "--dryrun", "radare2_check"
+    end
+  end
+
+  def message
+    <<-EOS.undent
+      org.radare.radare2 identity must be available to build with automated signing.
+      See: https://github.com/radare/radare2/blob/master/doc/osx.md
+    EOS
+  end
+end
+
 class Radare2 < Formula
   desc "Reverse engineering framework"
   homepage "http://radare.org"
@@ -35,6 +54,8 @@ class Radare2 < Formula
     end
   end
 
+  option "with-code-signing", "Codesign executables to provide unprivileged process attachment"
+
   depends_on "pkg-config" => :build
   depends_on "valabind" => :build
   depends_on "swig" => :build
@@ -46,10 +67,18 @@ class Radare2 < Formula
   depends_on "openssl"
   depends_on "yara"
 
+  depends_on CodesignRequirement if build.with? "code-signing"
+
   def install
     # Build Radare2 before bindings, otherwise compile = nope.
     system "./configure", "--prefix=#{prefix}", "--with-openssl"
     system "make", "CS_PATCHES=0"
+    if build.with? "code-signing"
+      # Brew changes the HOME directory which breaks codesign
+      home = `eval printf "~$USER"`
+      system "make", "HOME=#{home}", "-C", "binr/radare2", "osxsign"
+      system "make", "HOME=#{home}", "-C", "binr/radare2", "osx-sign-libs"
+    end
     system "make", "install"
 
     resource("extras").stage do
