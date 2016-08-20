@@ -1,6 +1,6 @@
 class Minisat < Formula
   desc "Boolean satisfiability (SAT) problem solver"
-  homepage "http://minisat.se"
+  homepage "http://minisat.se/Main.html"
   url "https://github.com/niklasso/minisat/archive/releases/2.2.0.tar.gz"
   sha256 "3ed44da999744c0a1be269df23c3ed8731cdb83c44a4f3aa29b3d6859bb2a4da"
 
