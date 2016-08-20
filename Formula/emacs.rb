@@ -42,6 +42,8 @@ class Emacs < Formula
   depends_on "librsvg" => :recommended
   depends_on "imagemagick" => :optional
   depends_on "mailutils" => :optional
+  # Remove this option and the --with-file-notification=gfile line below once
+  # Emacs 25 is stable (#4048)
   depends_on "glib" => :optional
 
   def install
@@ -54,7 +56,7 @@ class Emacs < Formula
       --without-x
     ]
 
-    args << "--with-file-notification=gfile" if build.with? "glib"
+    args << "--with-file-notification=gfile" if build.stable? && build.with?("glib")
 
     if build.with? "libxml2"
       args << "--with-xml2"
