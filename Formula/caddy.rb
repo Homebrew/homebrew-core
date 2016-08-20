@@ -9,9 +9,9 @@ class Caddy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e937a02255c4fae64ad55a368ec4927d3543dbc73dce6adcd3eb96c66a3fb393" => :el_capitan
-    sha256 "f8d4ef9de9dc9c8f44f4120e255297747653a620bcd7329cbc31cd21d132d76f" => :yosemite
-    sha256 "6639b2b51ab661a6970281effc3f21dc73c056f09fdbc4979d558191a3e9f7a9" => :mavericks
+    sha256 "dc82434201964fc484d0b650949dbef54a048c3e41dd0ebc32a7b6a032a84e1d" => :el_capitan
+    sha256 "d7f4ade61380d076b7a0f723fc4a72b1269e4c2f0a72688dc7ec0ccb649f4969" => :yosemite
+    sha256 "dcb3e1f8a75f5212015157974be0b765381698e2cb4270acdf36303e4a3940fc" => :mavericks
   end
 
   depends_on "go" => :build
