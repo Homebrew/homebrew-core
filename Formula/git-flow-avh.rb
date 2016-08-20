@@ -14,9 +14,9 @@ class GitFlowAvh < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ebb6167d9e3554e12823de72166c26ff8e66918c1acdab3aa2f6a50001555397" => :el_capitan
-    sha256 "740023d130705c5041622355d14b4e9d94d7715199be43af7c85b8d4441062e2" => :yosemite
-    sha256 "672b121971cf383b4affb5cd4e1fa482a35c4e574f0d22635fef036f1bae312f" => :mavericks
+    sha256 "e5ab7eb651c686fe232a5290f876bb8ef6fa2709c6fc97824e0d917ec3237ba6" => :el_capitan
+    sha256 "6797fda1e035ee79a34615be08479332f084ae039ea91d0201d444a0c02ae7f0" => :yosemite
+    sha256 "6797fda1e035ee79a34615be08479332f084ae039ea91d0201d444a0c02ae7f0" => :mavericks
   end
 
   head do
