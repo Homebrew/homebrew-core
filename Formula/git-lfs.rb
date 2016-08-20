@@ -21,10 +21,10 @@ class GitLfs < Formula
   def caveats; <<-EOS.undent
     Update your git config to finish installation:
 
-      # Update global git config (~/.gitconfig)
+      # Update global git config
       $ git lfs install
 
-      # Update system git config (/etc/gitconfig)
+      # Update system git config
       $ git lfs install --system
     EOS
   end
