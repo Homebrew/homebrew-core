@@ -11,8 +11,13 @@ class Cpmtools < Formula
     sha256 "b810122c220af6b36ab9316deec811adca68313d4371f8a0121239c40b94a015" => :mavericks
   end
 
+  depends_on "libdsk" => :optional
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    args = %W[--prefix=#{prefix}]
+    args << "--with-libdsk" if build.with? "libdsk"
+
+    system "./configure", *args
 
     bin.mkpath
     man1.mkpath
