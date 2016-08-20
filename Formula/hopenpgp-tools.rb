@@ -9,6 +9,12 @@ class HopenpgpTools < Formula
   sha256 "6bcc067bfc2b54c0c47ea7169f3741ec8f64abee9bd8c398191a0b35520fa39c"
   head "git://anonscm.debian.org/users/clint/hopenpgp-tools.git"
 
+  bottle do
+    sha256 "4792c7efbf889bc1bd0320eb676c00b308226fca00dc04b6d61c97fa08e18271" => :el_capitan
+    sha256 "40447318e21f020af89fd7e42390052295d4d5cd4bcbf269d9d1bf3c01edf361" => :yosemite
+    sha256 "719d72366d7a6eb5ead4db7bab3e38af72ab65b6690a2f5a68dc6344d2a69b53" => :mavericks
+  end
+
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
   depends_on "nettle"
