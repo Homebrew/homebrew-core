@@ -3,8 +3,8 @@ class GitFlowAvh < Formula
   homepage "https://github.com/petervanderdoes/gitflow-avh"
 
   stable do
-    url "https://github.com/petervanderdoes/gitflow-avh/archive/1.10.0.tar.gz"
-    sha256 "e9c25a500eec3ea6e537a811ed9063e567c5e310caa3ffb274950b744ffcb25a"
+    url "https://github.com/petervanderdoes/gitflow-avh/archive/1.10.1.tar.gz"
+    sha256 "40f0ceec8f8001e3f8e282e43d02b307cb4914c158e18f74cd0bd8209fb63ad9"
 
     resource "completion" do
       url "https://github.com/petervanderdoes/git-flow-completion/archive/0.5.2.tar.gz"
@@ -29,7 +29,7 @@ class GitFlowAvh < Formula
 
   depends_on "gnu-getopt"
 
-  conflicts_with "git-flow"
+  conflicts_with "git-flow", :because => "Both install `git-flow` binaries and completions"
 
   def install
     system "make", "prefix=#{libexec}", "install"
