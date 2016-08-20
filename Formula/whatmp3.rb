@@ -5,8 +5,6 @@ class Whatmp3 < Formula
   sha256 "a8b688e2e5873e3bf527fc44e8f3966227b432cf59593062dd58493df65de3b0"
   head "https://github.com/RecursiveForest/whatmp3.git"
 
-  bottle :unneeded
-
   depends_on :python3
   depends_on "flac"
   depends_on "mktorrent" => :recommended
