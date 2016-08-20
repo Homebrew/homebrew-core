@@ -5,8 +5,8 @@ class Rsdns < Formula
   sha256 "060bea37a85c9debe59bb23c8a4326e97ced04fe3de15689e34123c978dffb99"
   head "https://github.com/linickx/rsdns.git"
 
-  depends_on "jq"
   bottle :unneeded
+  depends_on "jq"
 
   # This package is essentially a web of shell script that all expect their
   # friends to be in some particular location. Fixing that upstream to be more
