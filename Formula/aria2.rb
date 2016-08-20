@@ -1,8 +1,8 @@
 class Aria2 < Formula
   desc "Download with resuming and segmented downloading"
   homepage "https://aria2.github.io/"
-  url "https://github.com/aria2/aria2/releases/download/release-1.25.0/aria2-1.25.0.tar.xz"
-  sha256 "ff89eb4c76cfc816a6f5abc7dfd416cc3f339e7d02c761f822fa965a18cf0d35"
+  url "https://github.com/aria2/aria2/releases/download/release-1.26.0/aria2-1.26.0.tar.xz"
+  sha256 "c828f3375e9ab251239747fbbbf747e5027339080b9fdec29ac746a0b8c6088d"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,6 +17,8 @@ class Aria2 < Formula
   needs :cxx11
 
   def install
+    ENV.cxx11
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -38,6 +40,6 @@ class Aria2 < Formula
 
   test do
     system "#{bin}/aria2c", "http://brew.sh"
-    assert File.exist? "index.html"
+    assert File.exist?("index.html"), "Failed to create index.html!"
   end
 end
