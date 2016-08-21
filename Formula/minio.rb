@@ -2,9 +2,9 @@ class Minio < Formula
   desc "object storage server compatible with Amazon S3"
   homepage "https://github.com/minio/minio"
   url "https://github.com/minio/minio.git",
-    :tag => "RELEASE.2016-07-13T21-46-05Z",
-    :revision => "3f27734c22212f224037a223439a425e6d2b653a"
-  version "20160713214605"
+    :tag => "RELEASE.2016-08-21T02-44-47Z",
+    :revision => "975eb319730c8db093b4744bf9e012356d61eef2"
+  version "20160821024447"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,11 +25,16 @@ class Minio < Formula
       if build.head?
         system "go", "build", "-o", buildpath/"minio"
       else
-        minio_release = `git tag --points-at HEAD`.chomp
-        minio_version = minio_release.gsub(/RELEASE\./, "").chomp
-        minio_commit = `git rev-parse HEAD`.chomp
+        release = `git tag --points-at HEAD`.chomp
+        version = release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)\-(\d+)\-(\d+)Z/, 'T\1:\2:\3Z')
+        commit = `git rev-parse HEAD`.chomp
+        proj = "github.com/minio/minio/"
 
-        system "go", "build", "-ldflags", "-X main.minioVersion=#{minio_version} -X main.minioReleaseTag=#{minio_release} -X main.minioCommitID=#{minio_commit}", "-o", buildpath/"minio"
+        system "go", "build", "-o", buildpath/"minio", "-ldflags", <<-EOS.undent
+            -X #{proj}/cmd.Version=#{version}
+            -X #{proj}/cmd.ReleaseTag=#{release}
+            -X #{proj}/cmd.CommitID=#{commit}
+            EOS
       end
     end
 
