@@ -278,6 +278,7 @@
   "ttytter": "homebrew/boneyard",
   "tuntap": "caskroom/cask",
   "tup": "homebrew/fuse",
+  "txt2man": "homebrew/boneyard",
   "ucspi-tools": "homebrew/boneyard",
   "uim": "homebrew/x11",
   "ume": "homebrew/games",
