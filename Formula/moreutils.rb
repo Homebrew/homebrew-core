@@ -17,8 +17,8 @@ class Moreutils < Formula
 
   depends_on "docbook-xsl" => :build
 
-  conflicts_with "parallel", :because => "Both install a 'parallel' executable."
-  conflicts_with "task-spooler", :because => "Both install a 'ts' executable."
+  conflicts_with "parallel", :because => "Both install a `parallel` executable."
+  conflicts_with "task-spooler", :because => "Both install a `ts` executable."
 
   resource "Time::Duration" do
     url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Time-Duration-1.20.tar.gz"
