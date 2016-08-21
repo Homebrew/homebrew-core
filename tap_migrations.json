@@ -222,6 +222,7 @@
   "qrupdate": "homebrew/science",
   "quassel": "caskroom/cask",
   "rdesktop": "homebrew/x11",
+  "rfcdiff": "homebrew/boneyard",
   "rocket": "homebrew/boneyard",
   "rofs-filtered": "homebrew/fuse",
   "rtorrent": "homebrew/boneyard",
