@@ -7,7 +7,7 @@ class HopenpgpTools < Formula
   homepage "https://hackage.haskell.org/package/hopenpgp-tools"
   url "https://hackage.haskell.org/package/hopenpgp-tools/hopenpgp-tools-0.19.2.tar.gz"
   sha256 "6bcc067bfc2b54c0c47ea7169f3741ec8f64abee9bd8c398191a0b35520fa39c"
-  head "git://anonscm.debian.org/users/clint/hopenpgp-tools.git"
+  head "https://anonscm.debian.org/git/users/clint/hopenpgp-tools.git"
 
   bottle do
     sha256 "4792c7efbf889bc1bd0320eb676c00b308226fca00dc04b6d61c97fa08e18271" => :el_capitan
@@ -17,8 +17,8 @@ class HopenpgpTools < Formula
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
-  depends_on "nettle"
   depends_on "pkg-config" => :build
+  depends_on "nettle"
 
   resource "homebrew-key.gpg" do
     url "https://gist.githubusercontent.com/zmwangx/be307671d11cd78985bd3a96182f15ea/raw/c7e803814efc4ca96cc9a56632aa542ea4ccf5b3/homebrew-key.gpg"
