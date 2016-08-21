@@ -1,10 +1,11 @@
 class MinioMc < Formula
   desc "ls, cp, mkdir, diff and rsync for filesystems and object storage"
   homepage "https://github.com/minio/mc"
-  url "https://github.com/minio/mc/archive/RELEASE.2016-07-13T21-46-05Z.tar.gz"
-  version "20160713214605"
-  sha256 "611444a66ea3d2cc8fbb821147bcd3995c1956ef2aa9d62cd35f6d07f3f972cf"
   head "https://github.com/minio/mc.git"
+  url "https://github.com/minio/mc.git",
+    :tag => "RELEASE.2016-08-21T03-02-49Z",
+    :revision => "768be74f74578137951f65874cfc2e454b64aca0"
+  version "20160821030249"
 
   bottle do
     cellar :any_skip_relocation
@@ -24,8 +25,18 @@ class MinioMc < Formula
     clipath.install Dir["*"]
 
     cd clipath do
-      system "go", "build", "-o", bin/"mc"
+      if build.head?
+        system "go", "build", "-o", buildpath/"mc"
+      else
+        minio_release = `git tag --points-at HEAD`.chomp
+        minio_version = minio_release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)\-(\d+)\-(\d+)Z/, 'T\1:\2:\3Z')
+        minio_commit = `git rev-parse HEAD`.chomp
+
+        system "go", "build", "-ldflags", "-X github.com/minio/mc/cmd.Version=#{minio_version} -X github.com/minio/mc/cmd.ReleaseTag=#{minio_release} -X github.com/minio/mc/cmd.CommitID=#{minio_commit}", "-o", buildpath/"mc"
+      end
     end
+
+    bin.install buildpath/"mc"
   end
 
   test do
