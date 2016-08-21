@@ -8,9 +8,9 @@ class Charm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2f89fa2ab05754e0a813caef93ed739af18e96976fa2faaa83f5d4a8dc1ff39a" => :el_capitan
-    sha256 "290e13e5e9d0cb573b4bb2cd1d974b570145e9eb7fbe4988417f590df6c28622" => :yosemite
-    sha256 "0d0ec0323002d52cd1a148225d3876dc36f04e5ca40ed0b324ce888fb05d06f8" => :mavericks
+    sha256 "e7f01c37208e2dc35b2a9a7dcbf086377b46bde57a9cae94c5be4709c3967dd8" => :el_capitan
+    sha256 "f6d6bc949aea78726fd9d6157e2e56fba441ee81589b542d09aa441e80c71f5a" => :yosemite
+    sha256 "fe0839f66c66e73911f44ec0eb3cf0bcbe3f10000162a80c3db8ee3519044c61" => :mavericks
   end
 
   depends_on "go" => :build
