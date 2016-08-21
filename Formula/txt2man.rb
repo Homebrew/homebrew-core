@@ -1,8 +1,8 @@
 class Txt2man < Formula
   desc "Convert flat ASCII text to man page format"
   homepage "https://github.com/mvertes/txt2man"
-  url "https://github.com/mvertes/txt2man/archive/txt2man-1.5.6.tar.gz"
-  sha256 "df9d972c6930576328b779e64aed6d3e0106118e5a4069172f06db290f32586a"
+  url "https://github.com/mvertes/txt2man/archive/txt2man-1.6.0.tar.gz"
+  sha256 "f6939e333a12e1ecceccaa547b58f4bf901a580cd2d8f822f8c292934c920c99"
   head "https://github.com/mvertes/txt2man.git"
 
   bottle do
@@ -13,10 +13,12 @@ class Txt2man < Formula
   end
 
   depends_on "gawk"
+  depends_on "coreutils"
 
   def install
-    inreplace "Makefile", "$(prefix)/man/man1", man1
+    ENV.prepend_path "PATH", Formula["coreutils"].opt_libexec/"gnubin"
     system "make", "install", "prefix=#{prefix}"
+    bin.env_script_all_files(libexec/"bin", :PATH => "#{HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH")
   end
 
   test do
@@ -43,7 +45,7 @@ class Txt2man < Formula
     assert_match(/\\fBmain\ \\fP\-\ do\ stuff\n/, File.read("main.3").lines.to_a[4])
 
     # bookman
-    system "#{bin}/bookman", "-t", "Test", "-o", "test", Dir["#{man1}/*"]
+    system "#{bin}/bookman", "-t", "Test", "-o", "test", *Dir["#{man1}/*"]
     assert File.exist?("test")
   end
 end
