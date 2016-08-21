@@ -11,8 +11,8 @@ class Pybind11 < Formula
     sha256 "f4cbd0f51b870b69fe7889eb99497a97e1ae1f307340b7b8c88b4cd9fa1bcd6f" => :mavericks
   end
 
-  depends_on "python3"
   depends_on "cmake" => :build
+  depends_on :python3
 
   def install
     system "cmake", ".", *std_cmake_args
