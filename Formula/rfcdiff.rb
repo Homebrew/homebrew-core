@@ -1,8 +1,8 @@
 class Rfcdiff < Formula
   desc "Compare RFC Internet Draft versions"
   homepage "https://tools.ietf.org/tools/rfcdiff/"
-  url "https://tools.ietf.org/tools/rfcdiff/rfcdiff-1.42.tgz"
-  sha256 "1ff5f34a007e9219725d9e3d40767aec5e895d9f890085bec554d0e2a4150634"
+  url "https://tools.ietf.org/tools/rfcdiff/rfcdiff-1.45.tgz"
+  sha256 "82e449b7ee887074302b2050e41fc60d4b3bbec8c20e05ce2d7fab81b332771e"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +15,7 @@ class Rfcdiff < Formula
   depends_on "wdiff"
   depends_on "gawk" => :recommended
   depends_on "txt2man" => :build
+  depends_on "gnu-sed" => :build
 
   resource "rfc42" do
     url "https://tools.ietf.org/rfc/rfc42.txt"
@@ -27,6 +28,8 @@ class Rfcdiff < Formula
   end
 
   def install
+    ENV.prepend_path "PATH", "#{Formula["gnu-sed"].opt_libexec}/gnubin"
+
     # replace hard-coded paths
     inreplace "Makefile.common", "/usr/share/man/man1", man1
 
@@ -41,9 +44,7 @@ class Rfcdiff < Formula
   end
 
   test do
-    rfcs = %w[rfc42 rfc43]
-    rfcs.each { |name| resource(name).stage name }
-
-    system "#{bin}/rfcdiff", *rfcs
+    testpath.install resource("rfc42"), resource("rfc43")
+    system "#{bin}/rfcdiff", "rfc42.txt", "rfc43.txt"
   end
 end
