@@ -15,9 +15,9 @@ class Osm2pgsql < Formula
   end
 
   bottle do
-    sha256 "7f388ee56a6bf0d685434823d238ebbd8ca01e74320c862892e61e21b24b9a08" => :el_capitan
-    sha256 "17c80db14f36b5831b03a4026d3d970ae29c782344c11c5fbec9cf19716a3e6d" => :yosemite
-    sha256 "ef2655f802ca66c3cb137d80be9fcbe9fae64743c0f67c0b0e3944faddbc8913" => :mavericks
+    sha256 "b465872486185424901fbdf771d4bc5d6e0a443429991b19583fbb81d5e112d8" => :el_capitan
+    sha256 "41bfe9b7ffb6d3ae68666526916e2bc2813ac48b435c71a99b17c08b4961715c" => :yosemite
+    sha256 "5c8730f1b37bef49f57aea9c913c64bc410da5122d1fc02ab48693322e26908c" => :mavericks
   end
 
   depends_on "cmake" => :build
