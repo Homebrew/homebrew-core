@@ -1,9 +1,9 @@
 class Re2 < Formula
   desc "Alternative to backtracking PCRE-style regular expression engines"
   homepage "https://github.com/google/re2"
-  url "https://github.com/google/re2/archive/2016-07-01.tar.gz"
-  version "20160701"
-  sha256 "06c8c99c7c7b4bb869e088c007d4162b4f302ab55671880333d01eff63997626"
+  url "https://github.com/google/re2/archive/2016-08-01.tar.gz"
+  version "20160801"
+  sha256 "7d0197f8da12da29220f8364c172785e26abb3210cd48264cc39c712fba8ee1a"
   head "https://github.com/google/re2.git"
 
   bottle do
@@ -13,7 +13,17 @@ class Re2 < Formula
     sha256 "091c858f09f468f04b964f5b8986a85c0e4eb2b0c458502e96382a81b330e0f7" => :mavericks
   end
 
+  needs :cxx11
+
+  # https://github.com/google/re2/issues/102
+  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70932
+  fails_with :gcc => "6" do
+    cause "error: field 'next_' has incomplete type 'std::atomic<re2::DFA::State*> []'"
+  end
+
   def install
+    ENV.cxx11
+
     system "make", "install", "prefix=#{prefix}"
     system "install_name_tool", "-id", "#{lib}/libre2.0.dylib", "#{lib}/libre2.0.0.0.dylib"
     lib.install_symlink "libre2.0.0.0.dylib" => "libre2.0.dylib"
@@ -30,8 +40,8 @@ class Re2 < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lre2",
-           testpath/"test.cpp", "-o", "test"
+    system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}", "-lre2",
+           "test.cpp", "-o", "test"
     system "./test"
   end
 end
