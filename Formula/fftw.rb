@@ -1,9 +1,8 @@
 class Fftw < Formula
   desc "C routines to compute the Discrete Fourier Transform"
   homepage "http://www.fftw.org"
-  url "http://www.fftw.org/fftw-3.3.4.tar.gz"
-  sha256 "8f0cde90929bc05587c3368d2f15cd0530a60b8a9912a8e2979a72dbe5af0982"
-  revision 1
+  url "http://www.fftw.org/fftw-3.3.5.tar.gz"
+  sha256 "8ecfe1b04732ec3f5b7d279fdb8efcad536d555f9d1e8fabd027037d45ea8bcf"
 
   bottle do
     cellar :any
@@ -30,6 +29,7 @@ class Fftw < Formula
             "--disable-dependency-tracking"]
     simd_args = ["--enable-sse2"]
     simd_args << "--enable-avx" if ENV.compiler == :clang && Hardware::CPU.avx? && !build.bottle?
+    simd_args << "--enable-avx2" if ENV.compiler == :clang && Hardware::CPU.avx2? && !build.bottle?
 
     args << "--disable-fortran" if build.without? "fortran"
     args << "--enable-mpi" if build.with? "mpi"
@@ -38,7 +38,7 @@ class Fftw < Formula
     ENV.universal_binary if build.universal?
 
     # single precision
-    # enable-sse2 and enable-avx works for both single and double precision
+    # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
     system "./configure", "--enable-single", *(args + simd_args)
     system "make", "install"
 
@@ -46,7 +46,7 @@ class Fftw < Formula
     system "make", "clean"
 
     # double precision
-    # enable-sse2 and enable-avx works for both single and double precision
+    # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
     system "./configure", *(args + simd_args)
     system "make", "install"
 
