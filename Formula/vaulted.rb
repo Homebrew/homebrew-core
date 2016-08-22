@@ -17,7 +17,6 @@ class Vaulted < Formula
 
   depends_on "go" => :build
 
-  # Install Go dependencies
   go_resource "github.com/aws/aws-sdk-go" do
     url "https://github.com/aws/aws-sdk-go.git",
     :revision => "94673f7d41219ea3e94e4b1edc01315f14268f72"
@@ -64,15 +63,12 @@ class Vaulted < Formula
     ln_s buildpath, "src/github.com/miquella/vaulted"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    # Build
     system "go", "build", "-o", bin/"vaulted", "github.com/miquella/vaulted"
-
-    # Install man pages
     man1.install Dir["man/vaulted*.1"]
   end
 
   test do
-    mkdir_p ".local/share/vaulted"
+    (testpath/".local/share/vaulted").mkpath
     touch(".local/share/vaulted/test_vault")
     output = IO.popen(["#{bin}/vaulted", "ls"], &:read)
     output == "test_vault\n"
