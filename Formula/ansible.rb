@@ -17,6 +17,7 @@ class Ansible < Formula
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libyaml"
   depends_on "openssl"
+  depends_on "gnu-tar"
 
   #
   # ansible (core dependencies)
