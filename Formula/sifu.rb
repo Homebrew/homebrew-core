@@ -14,6 +14,6 @@ class Sifu < Formula
   end
 
   test do
-    system "sifu", "--help"
+    system "#{bin}/sifu", "--help"
   end
 end
