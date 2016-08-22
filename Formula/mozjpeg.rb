@@ -9,7 +9,7 @@ class Mozjpeg < Formula
   # See https://github.com/libjpeg-turbo/libjpeg-turbo/pull/20
   # and https://github.com/mozilla/mozjpeg/issues/202 for info.
   patch do
-    url "https://patch-diff.githubusercontent.com/raw/libjpeg-turbo/libjpeg-turbo/pull/20.diff"
+    url "https://github.com/libjpeg-turbo/libjpeg-turbo/pull/20.patch"
     sha256 "d29a4b48fff3d3f22d1281f4125ff2bdf84eb25819facd724a8096ae04e6cd94"
   end
 
