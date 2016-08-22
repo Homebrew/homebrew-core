@@ -30,8 +30,13 @@ class MinioMc < Formula
         minio_release = `git tag --points-at HEAD`.chomp
         minio_version = minio_release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)\-(\d+)\-(\d+)Z/, 'T\1:\2:\3Z')
         minio_commit = `git rev-parse HEAD`.chomp
+        proj = "github.com/minio/mc"
 
-        system "go", "build", "-ldflags", "-X github.com/minio/mc/cmd.Version=#{minio_version} -X github.com/minio/mc/cmd.ReleaseTag=#{minio_release} -X github.com/minio/mc/cmd.CommitID=#{minio_commit}", "-o", buildpath/"mc"
+        system "go", "build", "-o", buildpath/"mc", "-ldflags", <<-EOS.undent
+          -X #{proj}/cmd.Version=#{minio_version}
+          -X #{proj}/cmd.ReleaseTag=#{minio_release}
+          -X #{proj}/cmd.CommitID=#{minio_commit}
+        EOS
       end
     end
 
