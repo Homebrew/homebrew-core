@@ -10,10 +10,7 @@ class Sifu < Formula
     rm_f Dir["*.bat"]
     libexec.install Dir["*"]
 
-    (bin/"sifu").write <<-EOS.undent
-      #!/bin/sh
-      exec "#{libexec}/sifu" "$@"
-    EOS
+    bin.write_exec_script libexec/"sifu"
   end
 
   test do
