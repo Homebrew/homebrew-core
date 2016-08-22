@@ -1,4 +1,4 @@
-class Geode < Formula
+class ApacheGeode < Formula
   desc "In-memory Data Grid for fast transactional data processing"
   homepage "https://geode.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=incubator/geode/1.0.0-incubating.M3/apache-geode-1.0.0-incubating.M3.tar.gz"
