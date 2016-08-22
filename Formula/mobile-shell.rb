@@ -41,6 +41,7 @@ class MobileShell < Formula
 
   test do
     ENV["TERM"] = "xterm"
-    system "#{bin}/mosh-client", "-c"
+    ENV["LC_ALL"] = "en_US.UTF-8"
+    system bin/"mosh", "--local", "127.0.0.1", "true"
   end
 end
