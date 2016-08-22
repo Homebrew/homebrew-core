@@ -4,6 +4,7 @@ class Kafka < Formula
   url "http://mirrors.ibiblio.org/apache/kafka/0.10.0.1/kafka_2.11-0.10.0.1.tgz"
   mirror "https://archive.apache.org/dist/kafka/0.10.0.1/kafka_2.11-0.10.0.1.tgz"
   sha256 "2d73625aeddd827c9e92eefb3c727a78455725fbca4361c221eaa05ae1fab02d"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
