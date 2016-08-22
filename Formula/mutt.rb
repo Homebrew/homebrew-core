@@ -3,10 +3,9 @@
 # not kept up-to-date when new versions of mutt (occasionally) come
 # out.
 #
-# To reduce Homebrew's maintenance burden, new patches are not being
-# accepted for this formula. We would be very happy to see members of
-# the mutt community maintain a more comprehesive tap with better
-# support for patches.
+# To reduce Homebrew's maintenance burden, patches are not accepted
+# for this formula. The NeoMutt project has a Homebrew tap for their
+# patched version of Mutt: https://github.com/neomutt/homebrew-neomutt
 
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
@@ -31,7 +30,6 @@ class Mutt < Formula
 
   option "with-debug", "Build with debug option enabled"
   option "with-s-lang", "Build against slang instead of ncurses"
-  option "with-confirm-attachment-patch", "Apply confirm attachment patch"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -44,13 +42,6 @@ class Mutt < Formula
 
   conflicts_with "tin",
     :because => "both install mmdf.5 and mbox.5 man pages"
-
-  if build.with? "confirm-attachment-patch"
-    patch do
-      url "https://gist.githubusercontent.com/tlvince/5741641/raw/c926ca307dc97727c2bd88a84dcb0d7ac3bb4bf5/mutt-attach.patch"
-      sha256 "da2c9e54a5426019b84837faef18cc51e174108f07dc7ec15968ca732880cb14"
-    end
-  end
 
   def install
     user_admin = Etc.getgrnam("admin").mem.include?(ENV["USER"])
