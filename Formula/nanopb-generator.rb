@@ -1,8 +1,8 @@
 class NanopbGenerator < Formula
   desc "ANSI C library for encoding and decoding Protocol Buffer messages"
   homepage "https://koti.kapsi.fi/jpa/nanopb/docs/index.html"
-  url "https://koti.kapsi.fi/~jpa/nanopb/download/nanopb-0.3.5.tar.gz"
-  sha256 "3dd539671403d578425f15c6b4b6ba7390ee9a20369b969637ef1d18487e150e"
+  url "https://koti.kapsi.fi/~jpa/nanopb/download/nanopb-0.3.6.tar.gz"
+  sha256 "3e6d5d4971dc11845261ddca7e1c67b96eabf95e839327c7d8ed6f07412edab7"
 
   bottle do
     cellar :any_skip_relocation
@@ -37,6 +37,8 @@ class NanopbGenerator < Formula
 
   test do
     (testpath/"test.proto").write <<-PROTO.undent
+      syntax = "proto2";
+
       message Test {
         required string test_field = 1;
       }
