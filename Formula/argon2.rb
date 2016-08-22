@@ -1,8 +1,9 @@
 class Argon2 < Formula
   desc "Password hashing library and CLI utility"
   homepage "https://github.com/P-H-C/phc-winner-argon2"
-  url "https://github.com/P-H-C/phc-winner-argon2/archive/20160406.tar.gz"
-  sha256 "fbfbea50ebdaddd2b945ee877c8e47b7863c080ee2238603ed6918a84952dc3c"
+  url "https://github.com/P-H-C/phc-winner-argon2/archive/20160821.tar.gz"
+  sha256 "f81456ae31337a13a1a1b8ffe994d71ace741833a97a75f0c1a76259639bf3b8"
+  head "https://github.com/P-H-C/phc-winner-argon2.git"
 
   bottle do
     cellar :any
@@ -13,13 +14,16 @@ class Argon2 < Formula
 
   def install
     system "make"
-    include.install "include/argon2.h"
-    lib.install "libargon2.dylib"
+    system "make", "test"
     bin.install "argon2"
+    lib.install "libargon2.dylib", "libargon2.a"
+    include.install "include/argon2.h"
+    man1.install "man/argon2.1"
+    doc.install "argon2-specs.pdf"
   end
 
   test do
-    assert_equal "$argon2i$v=19$m=65536,t=2,p=4$c29tZXNhbHQ$LY26Xe109v98jqoS57OD9ZBwh1CAQavxHyHx1IQ2g/A\n",
-      pipe_output("echo -n password | #{bin}/argon2 somesalt -t 2 -m 16 -p 4 | grep Encoded | awk '{print $2}'")
+    output = pipe_output("#{bin}/argon2 somesalt -t 2 -m 16 -p 4", "password")
+    assert_match "c29tZXNhbHQ$IMit9qkFULCMA/ViizL57cnTLOa5DiVM9eMwpAvPw", output
   end
 end
