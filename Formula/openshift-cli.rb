@@ -27,12 +27,11 @@ class OpenshiftCli < Formula
     # this is necessary to avoid having the version marked as dirty
     (buildpath/".git/info/exclude").atomic_write "/.brew_home"
 
-    system "make", "all", "WHAT=cmd/openshift", "GOFLAGS=-v", "OS_OUTPUT_GOPATH=1"
+    system "make", "all", "WHAT=cmd/oc", "GOFLAGS=-v", "OS_OUTPUT_GOPATH=1"
 
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
-    bin.install "_output/local/bin/darwin/#{arch}/openshift"
-    bin.install_symlink "openshift" => "oc"
-    bin.install_symlink "openshift" => "oadm"
+    bin.install "_output/local/bin/darwin/#{arch}/oc"
+    bin.install_symlink "oc" => "oadm"
 
     bash_completion.install Dir["contrib/completions/bash/*"]
   end
@@ -40,6 +39,5 @@ class OpenshiftCli < Formula
   test do
     assert_match /^oc v#{version}$/, shell_output("#{bin}/oc version")
     assert_match /^oadm v#{version}$/, shell_output("#{bin}/oadm version")
-    assert_match /^openshift v#{version}$/, shell_output("#{bin}/openshift version")
   end
 end
