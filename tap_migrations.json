@@ -38,6 +38,7 @@
   "comparepdf": "homebrew/boneyard",
   "cowpatty": "homebrew/boneyard",
   "csync": "homebrew/boneyard",
+  "curaengine": "caskroom/cask",
   "curlftpfs": "homebrew/x11",
   "cvc4": "homebrew/boneyard",
   "cwm": "homebrew/x11",
