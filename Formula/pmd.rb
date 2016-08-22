@@ -1,8 +1,8 @@
 class Pmd < Formula
   desc "Source code analyzer for Java, JavaScript, and more"
   homepage "https://pmd.github.io"
-  url "https://github.com/pmd/pmd/releases/download/pmd_releases/5.5.0/pmd-src-5.5.0.zip"
-  sha256 "825d9061754cef30fc1b4584f509c7dd8a7b023a2c6ec264bf7b82bb0615c0b4"
+  url "https://github.com/pmd/pmd/releases/download/pmd_releases/5.5.1/pmd-src-5.5.1.zip"
+  sha256 "e28ec42e32a004442eb785e925268e5a80addfe4d22da9774be3d1f8306a30e1"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,6 +13,9 @@ class Pmd < Formula
 
   depends_on :java => "1.8+"
   depends_on "maven" => :build
+
+  # Fix doclint errors; see https://sourceforge.net/p/pmd/bugs/1516/
+  patch :DATA
 
   def install
     java_user_home = buildpath/"java_user_home"
@@ -78,3 +81,17 @@ class Pmd < Formula
       "rulesets/java/basic.xml", "-f", "textcolor", "-l", "java"
   end
 end
+
+__END__
+diff --git a/pom.xml b/pom.xml
+index 66bd239..8fb40c5 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -277,6 +277,7 @@
+         <pmd.dogfood.ruleset>${config.basedir}/src/main/resources/rulesets/internal/dogfood.xml</pmd.dogfood.ruleset>
+         <checkstyle.configLocation>${config.basedir}/etc/checkstyle-config.xml</checkstyle.configLocation>
+         <checkstyle.suppressionsFile>${config.basedir}/etc/checkstyle-suppressions.xml</checkstyle.suppressionsFile>
++        <additionalparam>-Xdoclint:none</additionalparam>
+     </properties>
+ 
+     <build>
