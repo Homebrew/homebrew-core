@@ -5,10 +5,9 @@ class GribApi < Formula
   sha256 "55cbb4fdcb4ee1be6a27cece9ae7e26070beb8ab6cb7e77773db3fb0d4272462"
 
   bottle do
-    revision 1
-    sha256 "036c3b51c4fd1b395621a203f6371e49e5556fd4f5d57406387d177d694f6f93" => :el_capitan
-    sha256 "99812f0ed49d23691574e0ca6848e9b4565576c252df94d92a402e1830729359" => :yosemite
-    sha256 "fa86bc7113fe94511e8c7d126e8ba34b0523feff0b71c35ca023e6c20e327ab4" => :mavericks
+    sha256 "8385d6d75a6b8a0c727d227990a4f30425242b07926111eb47306b4edb792b75" => :el_capitan
+    sha256 "6b9c42c18630c12889ebcf112b77d145e4126d20e64416746cecd66db395d5ec" => :yosemite
+    sha256 "eceae2f4b4841aa46e55b85750aad88b81efb44c1be5aa25736f799dd8f8d6be" => :mavericks
   end
 
   option "with-static", "Build static instead of shared library."
