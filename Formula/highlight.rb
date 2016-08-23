@@ -1,8 +1,8 @@
 class Highlight < Formula
   desc "Convert source code to formatted text with syntax highlighting"
   homepage "http://www.andre-simon.de/doku/highlight/en/highlight.html"
-  url "http://www.andre-simon.de/zip/highlight-3.30.tar.bz2"
-  sha256 "e8d93ce0c77066b337e4ca302ab3888e4eaff22d60d406d16146461b17cb2217"
+  url "http://www.andre-simon.de/zip/highlight-3.31.tar.bz2"
+  sha256 "c78cdce3c8133736c3bc2f931d34cb69c09e043c9ce681251e26a9f9b19c4c6d"
 
   head "svn://svn.code.sf.net/p/syntaxhighlight/code/highlight/"
 
