@@ -11,9 +11,9 @@ class Ccat < Formula
     sha256 "04342b5be5ffffaa696799b006b592cad530b0fcd510514ad9c72bc70c5865ba" => :mavericks
   end
 
-  conflicts_with "ccrypt", :because => "both install `ccat` binaries"
-
   depends_on "go" => :build
+
+  conflicts_with "ccrypt", :because => "both install `ccat` binaries"
 
   def install
     system "./script/build"
