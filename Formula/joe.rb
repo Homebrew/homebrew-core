@@ -1,8 +1,8 @@
 class Joe < Formula
   desc "Joe's Own Editor (JOE)"
   homepage "http://joe-editor.sourceforge.net/index.html"
-  url "https://downloads.sourceforge.net/project/joe-editor/JOE%20sources/joe-4.0/joe-4.0.tar.gz"
-  sha256 "c556adff77fd97bf1b86198de6cb82e0b92cda18579c4fef6c83b608d2ed2915"
+  url "https://downloads.sourceforge.net/project/joe-editor/JOE%20sources/joe-4.2/joe-4.2.tar.gz"
+  sha256 "bc5da64bc5683ab7b2962a33214b3537ea17ff6528a3c60ba170359e31e86974"
 
   bottle do
     sha256 "26d743b8a2a4d5774b6bf6f205b6b30dd8fe44411f894d0bd7d6d09acad615e5" => :el_capitan
@@ -17,6 +17,6 @@ class Joe < Formula
   end
 
   test do
-    system "#{bin}/stringify"
+    assert_match "Joe's Own Editor v#{version}", shell_output("TERM=tty #{bin}/joe -help")
   end
 end
