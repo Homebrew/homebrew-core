@@ -19,12 +19,12 @@ class Byobu < Formula
     depends_on "autoconf" => :build
   end
 
-  conflicts_with "ctail", :because => "both install `ctail` binaries"
-
   depends_on "coreutils"
   depends_on "gnu-sed" # fails with BSD sed
   depends_on "tmux"
   depends_on "newt"
+
+  conflicts_with "ctail", :because => "both install `ctail` binaries"
 
   def install
     if build.head?
