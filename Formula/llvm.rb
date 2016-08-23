@@ -361,7 +361,7 @@ class Llvm < Formula
 
     # Testing Command Line Tools
     if MacOS::CLT.installed?
-      libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS.clang_version}*"].last { |f| File.directory? f }
+      libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{DevelopmentTools.clang_version}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",
               "-I/Library/Developer/CommandLineTools/usr/include/c++/v1",
@@ -379,7 +379,7 @@ class Llvm < Formula
 
     # Testing Xcode
     if MacOS::Xcode.installed?
-      libclangxc = Dir["#{MacOS::Xcode.toolchain_path}/usr/lib/clang/#{MacOS.clang_version}*"].last { |f| File.directory? f }
+      libclangxc = Dir["#{MacOS::Xcode.toolchain_path}/usr/lib/clang/#{DevelopmentTools.clang_version}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",
               "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
