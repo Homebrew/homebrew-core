@@ -81,13 +81,13 @@ class Bash < Formula
   end
 
   devel do
-    url "https://ftpmirror.gnu.org/bash/bash-4.4-beta2.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-4.4-beta2.tar.gz"
-    mirror "https://mirrors.kernel.org/gnu/bash/bash-4.4-beta2.tar.gz"
-    mirror "https://ftp.gnu.org/gnu/bash/bash-4.4-beta2.tar.gz"
-    mirror "https://gnu.cu.be/bash/bash-4.4-beta2.tar.gz"
-    mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.4-beta2.tar.gz"
-    sha256 "3a8c4aa40f9ba6c311f4f6a637ae290c0148b828617b0a263a416ba923111f51"
+    url "https://ftpmirror.gnu.org/bash/bash-4.4-rc2.tar.gz"
+    mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-4.4-rc2.tar.gz"
+    mirror "https://mirrors.kernel.org/gnu/bash/bash-4.4-rc2.tar.gz"
+    mirror "https://ftp.gnu.org/gnu/bash/bash-4.4-rc2.tar.gz"
+    mirror "https://gnu.cu.be/bash/bash-4.4-rc2.tar.gz"
+    mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.4-rc2.tar.gz"
+    sha256 "199ec0166d50a765eec74dc258b006b06cf6b59901d7ff40510c82aae37ad994"
   end
 
   depends_on "readline"
