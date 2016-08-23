@@ -5,8 +5,6 @@ class Supersonic < Formula
   sha256 "1592dfd2dc73f0b97298e0d25e51528dc9a94e9e7f4ab525569f63db0442d769"
   revision 1
 
-  depends_on "gflags" => :linked
-
   if MacOS.version < :mavericks
     depends_on "protobuf" => "c++11"
     depends_on "boost" => "c++11"
@@ -17,6 +15,7 @@ class Supersonic < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glog"
+  depends_on "gflags"
 
   needs :cxx11
 
