@@ -1,8 +1,8 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://www.open-mpi.org/software/ompi/v1.10/downloads/openmpi-1.10.3.tar.bz2"
-  sha256 "7484bb664312082fd12edc2445b42362089b53b17fb5fce12efd4fe452cc254d"
+  url "https://www.open-mpi.org/software/ompi/v2.0/downloads/openmpi-2.0.0.tar.bz2"
+  sha256 "08b64cf8e3e5f50a50b4e5655f2b83b54653787bd549b72607d9312be44c18e0"
 
   bottle do
     sha256 "9c16c39c8f018b2388d18ea22ca896a852304d319768561968af3ea9fa6162fd" => :el_capitan
@@ -22,6 +22,7 @@ class OpenMpi < Formula
 
   option "with-mpi-thread-multiple", "Enable MPI_THREAD_MULTIPLE"
   option :cxx11
+  option "with-cxx-bindings", "Enable C++ MPI bindings (deprecated as of MPI-3.0)"
 
   depends_on :fortran => :recommended
   depends_on :java => :optional
@@ -45,6 +46,7 @@ class OpenMpi < Formula
     args << "--disable-mpi-fortran" if build.without? "fortran"
     args << "--enable-mpi-thread-multiple" if build.with? "mpi-thread-multiple"
     args << "--enable-mpi-java" if build.with? "java"
+    args << "--enable-mpi-cxx" if build.with? "cxx-bindings"
 
     system "./autogen.pl" if build.head?
     system "./configure", *args
@@ -56,12 +58,6 @@ class OpenMpi < Formula
     # (Fortran header) in `lib` that need to be moved to `include`.
     if build.with? "fortran"
       include.install Dir["#{lib}/*.mod"]
-    end
-
-    if build.stable?
-      # Move vtsetup.jar from bin to libexec.
-      libexec.install bin/"vtsetup.jar"
-      inreplace bin/"vtsetup", "$bindir/vtsetup.jar", "$prefix/libexec/vtsetup.jar"
     end
   end
 
