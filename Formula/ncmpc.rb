@@ -1,8 +1,8 @@
 class Ncmpc < Formula
   desc "Curses Music Player Daemon (MPD) client"
   homepage "https://mpd.wikia.com/wiki/Client:Ncmpc"
-  url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.24.tar.gz"
-  sha256 "1e995c3d1ba20fd235dcb319e16a244c04c52c0792564b2091487035827eeb7a"
+  url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.25.tar.gz"
+  sha256 "5b00237be90367aff98b2b70df88b6d6d4b566291d870053be106b137dcc0fd9"
 
   bottle do
     sha256 "83911b3c3d4bb8c91a3f2e436882dced0e7b8a7733449f2ac2cfc0b6bc3512d2" => :el_capitan
