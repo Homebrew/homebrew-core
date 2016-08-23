@@ -1,5 +1,5 @@
 class Gqview < Formula
-  desc "GQview image browser"
+  desc "Image browser"
   homepage "http://gqview.sourceforge.net"
   url "https://downloads.sourceforge.net/project/gqview/gqview/2.0.4/gqview-2.0.4.tar.gz"
   sha256 "97e3b7ce5f17a315c56d6eefd7b3a60b40cc3d18858ca194c7e7262acce383cb"

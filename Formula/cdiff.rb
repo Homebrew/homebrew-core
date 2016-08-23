@@ -7,8 +7,9 @@ class Cdiff < Formula
 
   bottle :unneeded
 
-  conflicts_with "colordiff", :because => "both install `cdiff` binaries"
   depends_on :python if MacOS.version <= :snow_leopard
+
+  conflicts_with "colordiff", :because => "both install `cdiff` binaries"
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"

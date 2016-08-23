@@ -1,4 +1,6 @@
 class CharmTools < Formula
+  include Language::Python::Virtualenv
+
   desc "Tools for authoring and maintaining juju charms"
   homepage "https://github.com/juju/charm-tools"
   url "https://github.com/juju/charm-tools/releases/download/v2.1.2/charm-tools-2.1.2.tar.gz"
@@ -11,8 +13,6 @@ class CharmTools < Formula
     sha256 "f34780f31601ae254867fb92c423a3cb1332f12e4de1134fa2dc474deaf1aefd" => :yosemite
     sha256 "5c80786313b50153e6c76ff3bac4e7f947fcc07e5ee9c9f64d51aab5ec23237d" => :mavericks
   end
-
-  include Language::Python::Virtualenv
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libyaml"

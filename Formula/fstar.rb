@@ -4,8 +4,10 @@ class Fstar < Formula
   url "https://github.com/FStarLang/FStar.git",
     :tag => "v0.9.2.0",
     :revision => "2a8ce0b3dfbfb9703079aace0d73f2479f0d0ce2"
-  head "https://github.com/FStarLang/FStar.git"
+
   revision 1
+
+  head "https://github.com/FStarLang/FStar.git"
 
   bottle do
     cellar :any_skip_relocation
