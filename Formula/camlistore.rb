@@ -12,11 +12,11 @@ class Camlistore < Formula
     sha256 "00e43ede2522c4d4469eb0e01229b3706525b054cd7afe3e97f21fd23d9ab6a2" => :mavericks
   end
 
-  conflicts_with "hello", :because => "both install `hello` binaries"
-
   depends_on "pkg-config" => :build
   depends_on "go" => :build
   depends_on "sqlite"
+
+  conflicts_with "hello", :because => "both install `hello` binaries"
 
   def install
     system "go", "run", "make.go"
