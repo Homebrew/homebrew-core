@@ -1,8 +1,8 @@
 class Deis < Formula
   desc "Deploy and manage applications on your own servers"
   homepage "http://deis.io"
-  url "https://github.com/deis/deis/archive/v1.13.2.tar.gz"
-  sha256 "3e583cc0af91fa617b1b732acd38beb8c094cfcd511af19ebac949533c981e2b"
+  url "https://github.com/deis/deis/archive/v1.13.3.tar.gz"
+  sha256 "a5b28a7b94e430c4dc3cf3f39459b7c99fc0b80569e14e3defa2194d046316fd"
 
   bottle do
     cellar :any_skip_relocation
