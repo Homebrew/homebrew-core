@@ -12,10 +12,10 @@ class GribApi < Formula
 
   option "with-static", "Build static instead of shared library."
 
-  depends_on :fortran
   depends_on "cmake" => :build
   depends_on "jasper" => :recommended
   depends_on "libpng" => :optional
+  depends_on :fortran
 
   # Fixes build errors in Lion
   # https://software.ecmwf.int/wiki/plugins/viewsource/viewpagesrc.action?pageId=12648475
@@ -25,7 +25,12 @@ class GribApi < Formula
     mkdir "build" do
       args = std_cmake_args
       args << "-DBUILD_SHARED_LIBS=OFF" if build.with? "static"
-      args << "-DPNG_PNG_INCLUDE_DIR=#{Formula["libpng"].opt_include}" << "-DENABLE_PNG=ON" if build.with? "libpng"
+
+      if build.with? "libpng"
+        args << "-DPNG_PNG_INCLUDE_DIR=#{Formula["libpng"].opt_include}"
+        args << "-DENABLE_PNG=ON"
+      end
+
       system "cmake", "..", *args
       system "make", "install"
     end
@@ -33,8 +38,8 @@ class GribApi < Formula
 
   test do
     grib_samples_path = shell_output("#{bin}/grib_info -t").strip
-    system "#{bin}/grib_ls", "#{grib_samples_path}/GRIB1.tmpl"
-    system "#{bin}/grib_ls", "#{grib_samples_path}/GRIB2.tmpl"
+    system bin/"grib_ls", grib_samples_path/"GRIB1.tmpl"
+    system bin/"grib_ls", grib_samples_path/"GRIB2.tmpl"
   end
 end
 
