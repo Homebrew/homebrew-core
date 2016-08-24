@@ -47,11 +47,6 @@ class Llvm < Formula
       sha256 "77d7f3784c88096d785bd705fa1bab7031ce184cd91ba8a7008abf55264eeecc"
     end
 
-    resource "libcxxabi" do
-      url "http://llvm.org/releases/3.8.1/libcxxabi-3.8.1.src.tar.xz"
-      sha256 "e1b55f7be3fad746bdd3025f43e42d429fb6194aac5919c2be17c4a06314dae1"
-    end
-
     resource "libunwind" do
       url "http://llvm.org/releases/3.8.1/libunwind-3.8.1.src.tar.xz"
       sha256 "21e58ce09a5982255ecf86b86359179ddb0be4f8f284a95be14201df90e48453"
@@ -103,10 +98,6 @@ class Llvm < Formula
       url "http://llvm.org/git/libcxx.git"
     end
 
-    resource "libcxxabi" do
-      url "http://llvm.org/git/libcxxabi.git"
-    end
-
     resource "libunwind" do
       url "http://llvm.org/git/libunwind.git"
     end
@@ -133,11 +124,7 @@ class Llvm < Formula
   option :universal
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
   option "without-libcxx", "Do not build libc++ standard library"
-  option "with-libcxxabi", "Build libc++abi standard library"
   option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
-  # From TODO.TXT file in libcxxabi: CMake always link to /usr/lib/libc++abi.dylib on OS X.
-  # Building libcxxabi results in an additional @rpath in libc++.1.0.dylib that Homebrew can not "fix".
-  # As a result, library does not work when invoked as usual.
   option "without-libunwind", "Do not build libunwind library"
   option "without-lld", "Do not build LLD linker"
   option "with-lldb", "Build LLDB debugger"
@@ -187,11 +174,9 @@ class Llvm < Formula
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx?
+    (buildpath/"projects/libunwind").install resource("libunwind") if build.with? "libunwind"
     (buildpath/"tools/lld").install resource("lld") if build.with? "lld"
     (buildpath/"tools/polly").install resource("polly") if build.with? "polly"
-    ["libcxxabi", "libunwind"].each do |r|
-      (buildpath/"projects"/r).install resource(r) if build.with? r
-    end
 
     if build.with? "lldb"
       if build.with? "python"
@@ -247,7 +232,6 @@ class Llvm < Formula
     args << "-DLLVM_ENABLE_RTTI=ON" if build.with? "rtti"
     args << "-DLLVM_INSTALL_UTILS=ON" if build.with? "utils"
     args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
-    args << "-DLLVM_ENABLE_LIBCXXABI=ON" if build.with? "libcxxabi"
 
     if build.with?("lldb") && build.with?("python")
       args << "-DLLDB_RELOCATABLE_PYTHON=ON"
@@ -269,10 +253,6 @@ class Llvm < Formula
     if build.with? "polly"
       args << "-DWITH_POLLY=ON"
       args << "-DLINK_POLLY_INTO_TOOLS=ON"
-    end
-
-    if build.with?("libunwind") && build.with?("libcxxabi")
-      args << "-DLIBCXXABI_USE_LLVM_UNWINDER=ON"
     end
 
     mktemp do
