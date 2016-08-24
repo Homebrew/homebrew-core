@@ -79,7 +79,7 @@ class Gnuplot < Formula
       args << "--without-cairo" if build.without? "cairo"
     end
 
-    if build.with? "qt"
+    if build.with? "qt5"
       args << "--with-qt"
     else
       args << "--with-qt=no"
