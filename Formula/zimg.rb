@@ -1,8 +1,8 @@
 class Zimg < Formula
   desc "Scaling, colorspace conversion, and dithering library"
   homepage "https://github.com/sekrit-twc/zimg"
-  url "https://github.com/sekrit-twc/zimg/archive/release-2.1.tar.gz"
-  sha256 "09093bbb4d73865362e1e346762a6efdc9acc3d2cab6a2ebf5f00ba5d90b17c3"
+  url "https://github.com/sekrit-twc/zimg/archive/release-2.2.tar.gz"
+  sha256 "573ef25858623d90158f829d1fa66d4ef429a005034cae7a9dc3e9d250b9abf7"
 
   bottle do
     cellar :any
@@ -11,11 +11,27 @@ class Zimg < Formula
     sha256 "8300801f5849075c3251b3a0dfc5cdfad7b886894eda23fbb89a9d0fa2269d69" => :mavericks
   end
 
+  depends_on :macos => :yosemite
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "gcc" if DevelopmentTools.clang_build_version < 703
+
+  needs :cxx11
+
+  fails_with :clang do
+    build 602
+    cause "incomplete C++11 support"
+  end
+
+  fails_with :clang do
+    build 700
+    cause "incomplete C++11 support"
+  end
 
   def install
+    ENV.cxx11
+
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
