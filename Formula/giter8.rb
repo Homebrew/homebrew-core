@@ -4,6 +4,13 @@ class Giter8 < Formula
   url "https://github.com/foundweekends/giter8/archive/v0.7.1.tar.gz"
   sha256 "181357720f14b49cf132210a04fe3ad470d51731030394a8a723c1c49aced42c"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "26447426ee86cb6d21c1c81a9b9a0b3e6bf0502c3a4b0947536b018a7a74a2fe" => :el_capitan
+    sha256 "b5570215fb623a043b60583d1b0919a4cf5850bfc7e3fb0f7a22fa18f2a2be97" => :yosemite
+    sha256 "56430765ef7a29fe7929e17b4a4da636f514920c5b92349009b9d784e8ad723c" => :mavericks
+  end
+
   depends_on :java => "1.6+"
 
   resource "conscript" do
