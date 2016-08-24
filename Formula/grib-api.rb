@@ -38,8 +38,8 @@ class GribApi < Formula
 
   test do
     grib_samples_path = shell_output("#{bin}/grib_info -t").strip
-    system bin/"grib_ls", grib_samples_path/"GRIB1.tmpl"
-    system bin/"grib_ls", grib_samples_path/"GRIB2.tmpl"
+    system bin/"grib_ls", "#{grib_samples_path}/GRIB1.tmpl"
+    system bin/"grib_ls", "#{grib_samples_path}/GRIB2.tmpl"
   end
 end
 
