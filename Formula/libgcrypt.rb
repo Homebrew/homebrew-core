@@ -33,6 +33,7 @@ class Libgcrypt < Formula
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--enable-static",
                           "--prefix=#{prefix}",
                           "--disable-asm",
                           "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}"
