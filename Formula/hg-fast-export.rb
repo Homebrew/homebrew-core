@@ -15,6 +15,6 @@ class HgFastExport < Formula
   end
 
   test do
-    system bin/"hg-reset.sh", "--help"
+    system bin/"hg-fast-export.sh", "--help"
   end
 end
