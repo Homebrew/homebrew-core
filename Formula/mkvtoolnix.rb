@@ -1,9 +1,8 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
-  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-9.3.1.tar.xz"
-  sha256 "f3695761bf0a5fdcd6144cfb0a624094c10c9d66d43a340ebb917b7c6a8b39a2"
-  revision 1
+  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-9.4.0.tar.xz"
+  sha256 "af633768ac3ca193070c76c93bbf496b41e451d1652e1d3d6fd4c20361e56265"
 
   bottle do
     sha256 "fcd6de3848574a16b8c5e6b0ab242b71069b3ab6ee8933779dc2374b2fc4bc78" => :el_capitan
@@ -26,7 +25,6 @@ class Mkvtoolnix < Formula
   depends_on "libvorbis"
   depends_on "flac" => :recommended
   depends_on "libmagic" => :recommended
-  depends_on "lzo" => :optional
   depends_on "qt5" => :optional
   depends_on "gettext" => :optional
 
@@ -72,6 +70,9 @@ class Mkvtoolnix < Formula
     else
       args << "--disable-qt"
     end
+
+    args << "--without-flac" if build.without? "flac"
+    args << "--disable-magic" if build.without? "libmagic"
 
     system "./autogen.sh" if build.head?
 
