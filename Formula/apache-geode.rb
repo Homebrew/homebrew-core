@@ -1,9 +1,9 @@
-class Geode < Formula
+class ApacheGeode < Formula
   desc "In-memory Data Grid for fast transactional data processing"
   homepage "https://geode.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=incubator/geode/1.0.0-incubating.M2/apache-geode-1.0.0-incubating.M2.tar.gz"
-  version "1.0.0-incubating.M2"
-  sha256 "8447912c6d893008dd03917722d01abff4853861ce3f34c2bc95b60c51675cea"
+  url "https://www.apache.org/dyn/closer.cgi?path=incubator/geode/1.0.0-incubating.M3/apache-geode-1.0.0-incubating.M3.tar.gz"
+  version "1.0.0-incubating.M3"
+  sha256 "294f4da36efd5c967c6dce94c719fbdaee4cca3ddcfcea4069bc44288f9b8eb4"
 
   bottle :unneeded
 
