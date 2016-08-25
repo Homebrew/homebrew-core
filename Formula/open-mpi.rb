@@ -20,6 +20,7 @@ class OpenMpi < Formula
   option "with-mpi-thread-multiple", "Enable MPI_THREAD_MULTIPLE"
   option "with-cxx-bindings", "Enable C++ MPI bindings (deprecated as of MPI-3.0)"
   option :cxx11
+  option "with-cxx-bindings", "Enable C++ MPI bindings (deprecated as of MPI-3.0)"
 
   deprecated_option "disable-fortran" => "without-fortran"
   deprecated_option "enable-mpi-thread-multiple" => "with-mpi-thread-multiple"
