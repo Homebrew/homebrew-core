@@ -24,9 +24,9 @@ class Watch < Formula
     sha256 "f4e6ab66a65524de9fcca757afd95d1178f21ef87be1b04f56beec25e8cb191f" => :mavericks
   end
 
+  depends_on "autoconf" => :build
   conflicts_with "visionmedia-watch"
 
-  depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
