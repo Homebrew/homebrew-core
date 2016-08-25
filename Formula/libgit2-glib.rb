@@ -1,8 +1,8 @@
 class Libgit2Glib < Formula
   desc "Glib wrapper library around libgit2 git access library"
   homepage "https://github.com/GNOME/libgit2-glib"
-  url "https://download.gnome.org/sources/libgit2-glib/0.24/libgit2-glib-0.24.2.tar.xz"
-  sha256 "6150cffaa93400e553c4d9cf73c3209f0e5889d4511ba5794bcdd174d9d1e349"
+  url "https://download.gnome.org/sources/libgit2-glib/0.24/libgit2-glib-0.24.3.tar.xz"
+  sha256 "0c4f781d293a57758a81d67e22964e78389f7a4e860ac37c86788a763a625969"
 
   bottle do
     sha256 "d5f2c4ac5b9b5d661bfe588e73b5296bd03c95c75de29441454dd105a43e0de0" => :el_capitan
