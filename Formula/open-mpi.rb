@@ -17,12 +17,12 @@ class OpenMpi < Formula
     depends_on "libtool" => :build
   end
 
-  deprecated_option "disable-fortran" => "without-fortran"
-  deprecated_option "enable-mpi-thread-multiple" => "with-mpi-thread-multiple"
-
   option "with-mpi-thread-multiple", "Enable MPI_THREAD_MULTIPLE"
   option "with-cxx-bindings", "Enable C++ MPI bindings (deprecated as of MPI-3.0)"
   option :cxx11
+
+  deprecated_option "disable-fortran" => "without-fortran"
+  deprecated_option "enable-mpi-thread-multiple" => "with-mpi-thread-multiple"
 
   depends_on :fortran => :recommended
   depends_on :java => :optional
@@ -79,9 +79,9 @@ class OpenMpi < Formula
         return 0;
       }
     EOS
-    system "#{bin}/mpicc", "hello.c", "-o", "hello"
+    system bin/"mpicc", "hello.c", "-o", "hello"
     system "./hello"
-    system "#{bin}/mpirun", "-np", "4", "./hello"
+    system bin/"mpirun", "-np", "4", "./hello"
     (testpath/"hellof.f90").write <<-EOS.undent
       program hello
       include 'mpif.h'
@@ -93,8 +93,8 @@ class OpenMpi < Formula
       call MPI_FINALIZE(ierror)
       end
     EOS
-    system "#{bin}/mpif90", "hellof.f90", "-o", "hellof"
+    system bin/"mpif90", "hellof.f90", "-o", "hellof"
     system "./hellof"
-    system "#{bin}/mpirun", "-np", "4", "./hellof"
+    system bin/"mpirun", "-np", "4", "./hellof"
   end
 end
