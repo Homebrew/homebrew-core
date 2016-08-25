@@ -7,10 +7,9 @@ class Rapidjson < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "173bf62f8508a599f7524d8148d73fda3cbbd3ccff93e899359e4b0d889d2469" => :el_capitan
-    sha256 "6557b78fa261a98c758bbffeb186c6e6219438f320793d7d7b02c75cccd049cc" => :yosemite
-    sha256 "9a7dc86016ecb62a3583000542c3a394b72d7cc34d10c149ecbd66d73fd35aed" => :mavericks
+    sha256 "d0b949a9bd043535e2ff3e032b45b26de0083d319bc094db7ccc1edfea6cbdb3" => :el_capitan
+    sha256 "252ec61e7d5cba129a888bb566d4f2b61bd1bd2886de637f48afa638e6764007" => :yosemite
+    sha256 "806e4c788a675bbb0cff3cc9af68f8cdf46ac3d5bf49a47a94b331cc67ca0f4d" => :mavericks
   end
 
   option "without-docs", "Don't build documentation"
