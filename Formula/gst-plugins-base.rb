@@ -3,6 +3,7 @@ class GstPluginsBase < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.8.3.tar.xz"
   sha256 "114871d4d63606b4af424a8433cd923e4ff66896b244bb7ac97b9da47f71e79e"
+  revision 1
 
   bottle do
     sha256 "dfd0c8607e2d6a9d8787213f7744c8e85eecfd38b15e650a39db5bbff348f5d5" => :el_capitan
@@ -23,15 +24,15 @@ class GstPluginsBase < Formula
   depends_on "gstreamer"
 
   # The set of optional dependencies is based on the intersection of
-  # gst-plugins-base-0.10.35/REQUIREMENTS and Homebrew formulae
+  # https://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/REQUIREMENTS
+  # and Homebrew formulae
   depends_on "gobject-introspection"
-  depends_on "orc" => :optional
-  depends_on "gtk+" => :optional
+  depends_on "orc" => :recommended
   depends_on "libogg" => :optional
+  depends_on "opus" => :optional
   depends_on "pango" => :optional
   depends_on "theora" => :optional
   depends_on "libvorbis" => :optional
-  depends_on "opus" => :optional
 
   def install
     # gnome-vfs turned off due to lack of formula for it.
