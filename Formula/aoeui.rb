@@ -1,9 +1,9 @@
 class Aoeui < Formula
   desc "Lightweight text editor optimized for Dvorak and QWERTY keyboards"
-  homepage "https://aoeui.googlecode.com/"
-  url "https://aoeui.googlecode.com/files/aoeui-1.6.tgz"
-  sha256 "0655c3ca945b75b1204c5f25722ac0a07e89dd44bbf33aca068e918e9ef2a825"
-  head "http://aoeui.googlecode.com/svn/trunk/"
+  homepage "https://github.com/pklausler/aoeui"
+  url "https://github.com/pklausler/aoeui/raw/03ff419acb2d6669ea48b5640398c44528f662eb/aoeui-1.7.tgz"
+  sha256 "f4c067ad2c3b95ad130411195dd53ea49300e8e3496ecf0deceff20350c7670d"
+  head "https://github.com/pklausler/aoeui.git"
 
   bottle do
     cellar :any_skip_relocation
