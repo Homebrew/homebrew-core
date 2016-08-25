@@ -8,9 +8,9 @@ class Rclone < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "25135434f23792013f7e5926bb82db7766e793cb259fa7381f61c59f87e57e14" => :el_capitan
-    sha256 "32c5f7e2d3cd939a6a5334fd00936b4fb71c8f96495605cd4a899dc532ac5d6d" => :yosemite
-    sha256 "aa125fecdd72cc8144ef9febf935093c291df45138fecd5ccb2d62a16e05c37c" => :mavericks
+    sha256 "59453b327439c6a65c178537d55dec1724cc8961d14cce2cbc3001fe904e5e36" => :el_capitan
+    sha256 "b779fe7793bd40100c803a8a787c1e6b7ccf0cfa1ebe3ef381bd69086a155393" => :yosemite
+    sha256 "3f08a41d8636c525b6e88e1d7330104ea85140b106aa13ce2f918e71d7031863" => :mavericks
   end
 
   depends_on "go" => :build
