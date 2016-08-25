@@ -3,8 +3,8 @@ require "language/go"
 class Rclone < Formula
   desc "rsync for cloud storage"
   homepage "http://rclone.org"
-  url "https://github.com/ncw/rclone/archive/v1.32.tar.gz"
-  sha256 "9b29478188f183a33252e00a2bb63eb21d6f9dc415fbdaa0865a31a524147466"
+  url "https://github.com/ncw/rclone/archive/v1.33.tar.gz"
+  sha256 "c1f947b9fa624bb70da151327d3b7e4652746ae56a2e66772a0808f2061efde3"
 
   bottle do
     cellar :any_skip_relocation
@@ -118,6 +118,41 @@ class Rclone < Formula
   go_resource "github.com/google/go-querystring" do
     url "https://github.com/google/go-querystring.git",
       :revision => "9235644dd9e52eeae6fa48efd539fdc351a0af53"
+  end
+
+  go_resource "bazil.org/fuse" do
+    url "https://github.com/bazil/fuse.git",
+      :revision => "371fbbdaa8987b715bdd21d6adc4c9b20155f748"
+  end
+
+  go_resource "github.com/ogier/pflag" do
+    url "https://github.com/ogier/pflag.git",
+      :revision => "45c278ab3607870051a2ea9040bb85fcb8557481"
+  end
+
+  go_resource "github.com/rfjakob/eme" do
+    url "https://github.com/rfjakob/eme.git",
+      :revision => "601d0e278ceda9aa2085a61c9265f6e690ef5255"
+  end
+
+  go_resource "github.com/spf13/cobra" do
+    url "https://github.com/spf13/cobra.git",
+      :revision => "37c3f8060359192150945916cbc2d72bce804b4d"
+  end
+
+  go_resource "github.com/cpuguy83/go-md2man" do
+    url "https://github.com/cpuguy83/go-md2man.git",
+      :revision => "2724a9c9051aa62e9cca11304e7dd518e9e41599"
+  end
+
+  go_resource "github.com/russross/blackfriday" do
+    url "https://github.com/russross/blackfriday.git",
+      :revision => "93622da34e54fb6529bfb7c57e710f37a8d9cbd8"
+  end
+
+  go_resource "github.com/shurcooL/sanitized_anchor_name" do
+    url "https://github.com/shurcooL/sanitized_anchor_name.git",
+      :revision => "10ef21a441db47d8b13ebcc5fd2310f636973c77"
   end
 
   def install
