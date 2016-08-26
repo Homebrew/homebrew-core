@@ -3,8 +3,8 @@ require "language/go"
 class Kcptun < Formula
   desc "Extremely simple & fast UDP tunnel based on KCP protocol"
   homepage "https://github.com/xtaci/kcptun"
-  url "https://github.com/xtaci/kcptun/archive/v20160811.tar.gz"
-  sha256 "6453f7db63a871a24a4a92e1848d71c5828e1cdaf7a018ef434714ea5c705111"
+  url "https://github.com/xtaci/kcptun/archive/v20160823.tar.gz"
+  sha256 "09f3266472f318af9d30f67bea69aab9985ff62569973dfeb58413ee066d9d48"
   head "https://github.com/xtaci/kcptun.git"
 
   depends_on "go" => :build
