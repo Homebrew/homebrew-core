@@ -1,8 +1,8 @@
 class Kyua < Formula
   desc "Testing framework for infrastructure software"
   homepage "https://github.com/jmmv/kyua"
-  url "https://github.com/jmmv/kyua/releases/download/kyua-0.11/kyua-0.11.tar.gz"
-  sha256 "2b8b64a458b642df75086eeb73e8073d105b8d9cff04c9b1a905b68bc8502560"
+  url "https://github.com/jmmv/kyua/releases/download/kyua-0.13/kyua-0.13.tar.gz"
+  sha256 "db6e5d341d5cf7e49e50aa361243e19087a00ba33742b0855d2685c0b8e721d6"
 
   bottle do
     sha256 "c64ff3815d5a237ee32ca2c3fa46ed9508b055dc6ab33e814f484e7dd0e04578" => :el_capitan
