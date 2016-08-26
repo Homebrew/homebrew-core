@@ -2,9 +2,8 @@ class Osh < Formula
   desc "Two ports of /bin/sh from V6 UNIX (circa 1975)"
   homepage "http://v6shell.org"
   url "http://v6shell.org/src/osh-4.2.1.tar.gz"
-  # TODO: fix this when epochs exist
-  version "20160515"
   sha256 "2e2855c58b88d96146accbdc60f39a5745dea571b620b5f38ebf3e43d9b0ca74"
+  version_scheme 1
   head "https://github.com/JNeitzel/v6shell.git"
 
   bottle do
@@ -32,11 +31,11 @@ class Osh < Formula
   end
 
   test do
-    assert_match /Homebrew!/, shell_output("#{bin}/osh -c 'echo Homebrew!'").strip
+    assert_match "brew!", shell_output("#{bin}/osh -c 'echo brew!'").strip
 
     if build.with? "examples"
       ENV.prepend_path "PATH", libexec
-      assert_match /1 3 5 7 9 11 13 15 17 19/, shell_output("#{libexec}/counts").strip
+      assert_match "1 3 5 7 9 11 13 15 17 19", shell_output("#{libexec}/counts").strip
     end
   end
 end
