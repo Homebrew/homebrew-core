@@ -27,7 +27,15 @@ class KubernetesCli < Formula
 
     dir = "_output/local/bin/darwin/#{arch}"
     bin.install "#{dir}/kubectl"
+
     (bash_completion/"kubectl").write Utils.popen_read("#{bin}/kubectl completion bash")
+    (zsh_completion/"_kubectl").write Utils.popen_read("#{bin}/kubectl completion zsh")
+  end
+
+  def caveats; <<-EOS.undent
+    Add the following to ~/.zshrc to enable zsh completion:
+      source #{HOMEBREW_PREFIX}/share/zsh/site-functions/_kubectl
+    EOS
   end
 
   test do
