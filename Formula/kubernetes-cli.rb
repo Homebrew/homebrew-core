@@ -13,21 +13,30 @@ class KubernetesCli < Formula
   end
 
   devel do
-    url "https://github.com/kubernetes/kubernetes/archive/v1.4.0-alpha.0.tar.gz"
-    sha256 "7530fabf418fccf7bef08281efa9a51d86921726c8efac4f0e63ba1e87d83482"
-    version "1.4.0-alpha.0"
+    # building from the tag lets it pick up the correct version info
+    url "https://github.com/kubernetes/kubernetes.git",
+        :tag => "v1.4.0-alpha.3",
+        :revision => "b44b716965db2d54c8c7dfcdbcb1d54792ab8559"
+    version "1.4.0-alpha.3"
   end
 
   depends_on "go" => :build
 
   def install
+    if build.stable?
+      system "make", "all", "WHAT=cmd/kubectl", "GOFLAGS=-v"
+    else
+      # avoids needing to vendor github.com/jteeuwen/go-bindata
+      rm "./test/e2e/framework/gobindata_util.go"
+
+      ENV.deparallelize { system "make", "generated_files" }
+      system "make", "kubectl", "GOFLAGS=-v"
+    end
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
+    bin.install "_output/local/bin/darwin/#{arch}/kubectl"
 
-    system "make", "all", "WHAT=cmd/kubectl", "GOFLAGS=-v"
-
-    dir = "_output/local/bin/darwin/#{arch}"
-    bin.install "#{dir}/kubectl"
-    (bash_completion/"kubectl").write Utils.popen_read("#{bin}/kubectl completion bash")
+    output = Utils.popen_read("#{bin}/kubectl completion bash")
+    (bash_completion/"kubectl").write output
   end
 
   test do
