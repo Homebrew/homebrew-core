@@ -4,7 +4,7 @@ Core formulae for the Homebrew package manager.
 ## Update Bug
 If Homebrew was updated on Aug 10-11th 2016 and `brew update` always says `Already up-to-date.` you need to run:
 ```bash
-cd $(brew --repo); git fetch; git reset --hard origin/master; brew update
+cd $(brew --repo) && git fetch && git reset --hard origin/master && brew update
 ```
 
 ## How do I install these formulae?
