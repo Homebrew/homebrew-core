@@ -25,13 +25,13 @@ class Watch < Formula
   end
 
   depends_on "autoconf" => :build
-  conflicts_with "visionmedia-watch"
-
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
 
   depends_on "gettext"
+
+  conflicts_with "visionmedia-watch"
 
   def install
     # Prevents undefined symbol errors for _libintl_gettext, etc.
