@@ -17,8 +17,8 @@ class Kcptun < Formula
     url "https://github.com/golang/snappy.git"
   end
 
-  go_resource "github.com/hashicorp/yamux" do
-    url "https://github.com/hashicorp/yamux.git"
+  go_resource "github.com/xtaci/yamux" do
+    url "https://github.com/xtaci/yamux.git"
   end
 
   go_resource "github.com/urfave/cli" do
