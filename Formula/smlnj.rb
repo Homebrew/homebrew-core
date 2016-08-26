@@ -3,7 +3,7 @@ class Smlnj < Formula
   homepage "http://www.smlnj.org/"
   url "http://smlnj.cs.uchicago.edu/dist/working/110.80/config.tgz"
   version "110.80"
-  sha256 "80aa874c2140a007ed4148028f3bc78abb2275662adaee6e34fdef99fea5980f"
+  sha256 "fd2120ebae607b71778914700385a70b38596e13c350e489c483058693217b03"
 
   bottle do
     revision 1
@@ -25,7 +25,7 @@ class Smlnj < Formula
 
   resource "runtime" do
     url "http://smlnj.cs.uchicago.edu/dist/working/110.80/runtime.tgz"
-    sha256 "68aa66e22eaa94a45c1e1e6dd536fa42598de8b207ed6b53ac2945c6dbb54aef"
+    sha256 "6e13a544bd346e6b4103d51300290eb2f056983c903aa658db3b1489a8ab9d45"
   end
 
   resource "system" do
