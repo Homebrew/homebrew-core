@@ -7,9 +7,9 @@ class Jlog < Formula
 
   bottle do
     cellar :any
-    sha256 "2b7a0ccbe25602cd4ec2c6d440dbf60445073ef84d0056f9a677ef21aa6e50e9" => :el_capitan
-    sha256 "3786dbbb412a0236208a87981cad1d78e5b5baad43571b8c41f3daf2d31d6157" => :yosemite
-    sha256 "7260e90e8cf8255c2ec82ae04e7eeee5a69046222c58172229275f2ea9dee432" => :mavericks
+    sha256 "fa40ea85d78880abdcf6e681cc096e4451fe0df9b9604aba8e6f192ed99c059d" => :el_capitan
+    sha256 "448b83d9948d2d8a256ca68147c75b878479ab787331c17d78b7556e1d3d8412" => :yosemite
+    sha256 "dcc0c22a4e0670a373411409d0bd478f46754e32ac87928a211b4a2f1b1802d3" => :mavericks
   end
 
   depends_on "automake" => :build
