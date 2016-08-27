@@ -19,6 +19,10 @@ class Pyenv < Formula
     %w[pyenv-install pyenv-uninstall python-build].each do |cmd|
       bin.install_symlink "#{prefix}/plugins/python-build/bin/#{cmd}"
     end
+    
+    bash_completion.install "#{prefix}/completions/pyenv.bash"
+    zsh_completion.install "#{prefix}/completions/pyenv.zsh"
+    fish_completion.install "#{prefix}/completions/pyenv.fish"
   end
 
   def caveats; <<-EOS.undent
