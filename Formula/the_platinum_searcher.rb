@@ -1,8 +1,8 @@
 class ThePlatinumSearcher < Formula
   desc "Multi-platform code-search similar to ack and ag"
   homepage "https://github.com/monochromegane/the_platinum_searcher"
-  url "https://github.com/monochromegane/the_platinum_searcher/archive/v2.1.3.tar.gz"
-  sha256 "b12f259fcb51ff9d9770b3c3693fa31fd4f9aaac140ed09fe4617c53a6329771"
+  url "https://github.com/monochromegane/the_platinum_searcher/archive/v2.1.4.tar.gz"
+  sha256 "92448712e2d5e6e5a6ec19c0a145d268ec0a96dea115237250c1ad4aaa8f81f7"
   head "https://github.com/monochromegane/the_platinum_searcher.git"
 
   bottle do
@@ -18,11 +18,11 @@ class ThePlatinumSearcher < Formula
   def install
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/github.com/monochromegane/the_platinum_searcher"
-    dir.install Dir["*"]
-    ln_s buildpath/"src", dir
+    dir.install buildpath.children
     cd dir do
       system "godep", "restore"
-      system "go", "build", "-o", bin/"pt", "cmd/pt/main.go"
+      system "go", "build", "-o", bin/"pt", ".../pt"
+      prefix.install_metafiles
     end
   end
 
