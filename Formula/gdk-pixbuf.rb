@@ -77,12 +77,14 @@ class GdkPixbuf < Formula
   end
 
   def post_install
-    # Change the version directory below with any future update
-    if build.with?("relocations") || HOMEBREW_PREFIX.to_s != "/usr/local"
-      ENV["GDK_PIXBUF_MODULE_FILE"]="#{lib}/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders.cache"
-      ENV["GDK_PIXBUF_MODULEDIR"]="#{HOMEBREW_PREFIX}/lib/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders"
-    end
+    # loaders.cache should be placed into Keg-specific lib directory
+    module_file = "#{lib}/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders.cache"
+    module_dir = "#{HOMEBREW_PREFIX}/lib/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders"
+    ENV["GDK_PIXBUF_MODULE_FILE"] = module_file
+    ENV["GDK_PIXBUF_MODULEDIR"] = module_dir
     system "#{bin}/gdk-pixbuf-query-loaders", "--update-cache"
+    # Link newly created module_file into global gdk-pixbuf directory
+    system "ln", "-sf", module_file, "#{HOMEBREW_PREFIX}/lib/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/"
   end
 
   def caveats; <<-EOS.undent
