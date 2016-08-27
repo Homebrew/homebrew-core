@@ -1,8 +1,8 @@
 class Pgbadger < Formula
   desc "Log analyzer for PostgreSQL"
   homepage "https://dalibo.github.io/pgbadger/"
-  url "https://github.com/dalibo/pgbadger/archive/v8.2.tar.gz"
-  sha256 "e4c596c021997aa2271300c57097f6e07814d3be49a96acf06b04bc35ede754e"
+  url "https://github.com/dalibo/pgbadger/archive/v8.3.tar.gz"
+  sha256 "a560bfb1da490325e922b291d5204bdb20c4f4a2456f77d610989d13ad1e3a4d"
 
   head "https://github.com/dalibo/pgbadger.git"
 
