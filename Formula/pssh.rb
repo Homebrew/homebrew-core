@@ -11,20 +11,20 @@ class Pssh < Formula
     sha256 "62595390d018a9a953928cf6adf8e9299b92f00c3846d74757a18437abbc5f27" => :mavericks
   end
 
-  conflicts_with "putty", :because => "both install `pscp` binaries"
-
   depends_on :python if MacOS.version <= :snow_leopard
 
+  conflicts_with "putty", :because => "both install `pscp` binaries"
+
   def install
-    ENV["PYTHONPATH"] = lib+"python2.7/site-packages"
+    ENV["PYTHONPATH"] = lib/"python2.7/site-packages"
 
-    system "python", "setup.py", "install",
-      "--prefix=#{prefix}", "--install-data=#{share}"
+    system "python", "setup.py", "install", "--prefix=#{prefix}",
+                                 "--install-data=#{share}"
 
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
-    system "#{bin}/pssh", "--version"
+    system bin/"pssh", "--version"
   end
 end
