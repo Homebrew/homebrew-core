@@ -1,7 +1,7 @@
 class Memcacheq < Formula
   desc "Queue service for memcache"
   homepage "http://memcachedb.org/memcacheq"
-  url "https://memcacheq.googlecode.com/files/memcacheq-0.2.0.tar.gz"
+  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/memcacheq/memcacheq-0.2.0.tar.gz"
   sha256 "b314c46e1fb80d33d185742afe3b9a4fadee5575155cb1a63292ac2f28393046"
 
   bottle do
