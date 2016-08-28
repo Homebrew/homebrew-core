@@ -83,7 +83,7 @@ class Protobuf < Formula
   # Upstream's autogen script fetches this for devel/head if not present
   # but does no integrity verification & mandates being online to install.
   resource "gmock" do
-    url "https://googlemock.googlecode.com/files/gmock-1.7.0.zip"
+    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/googlemock/gmock-1.7.0.zip"
     mirror "https://dl.bintray.com/homebrew/mirror/gmock-1.7.0.zip"
     sha256 "26fcbb5925b74ad5fc8c26b0495dfc96353f4d553492eb97e85a8a6d2f43095b"
   end

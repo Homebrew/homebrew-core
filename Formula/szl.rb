@@ -1,7 +1,7 @@
 class Szl < Formula
   desc "Compiler and runtime for the Sawzall language"
-  homepage "https://code.google.com/p/szl/"
-  url "https://szl.googlecode.com/files/szl-1.0.tar.gz"
+  homepage "https://code.google.com/archive/p/szl/"
+  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/szl/szl-1.0.tar.gz"
   sha256 "af5c647276fd0dea658eae6016957b7ad09ac68efe13ae2a3c867043b5889f87"
   revision 7
 
@@ -22,9 +22,9 @@ class Szl < Formula
 
   # 10.9 and clang fixes
   # Include reported upstream in:
-  # https://code.google.com/p/szl/issues/detail?id=28
+  # https://code.google.com/archive/p/szl/issues/detail?id=28
   # Clang issue reported upstream in:
-  # https://code.google.com/p/szl/issues/detail?id=34
+  # https://code.google.com/archive/p/szl/issues/detail?id=34
   patch :DATA
 
   def install

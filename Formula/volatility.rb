@@ -23,7 +23,7 @@ class Volatility < Formula
   end
 
   resource "distorm3" do
-    url "https://distorm.googlecode.com/files/distorm3.zip"
+    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/distorm/distorm3.zip"
     sha256 "d311d232e108def8acac0d4f6514e7bc070e37d7aa123ab9a9a05b9322321582"
   end
 

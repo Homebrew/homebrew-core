@@ -1,6 +1,6 @@
 class Snappy < Formula
   desc "Compression/decompression library aiming for high speed"
-  homepage "https://code.google.com/p/snappy/"
+  homepage "https://code.google.com/archive/p/snappy/"
   url "https://github.com/google/snappy/releases/download/1.1.3/snappy-1.1.3.tar.gz"
   sha256 "2f1e82adf0868c9e26a5a7a3115111b6da7e432ddbac268a7ca2fae2a247eef3"
 
