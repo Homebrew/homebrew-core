@@ -48,6 +48,7 @@
   "ddd": "homebrew/x11",
   "denyhosts": "homebrew/boneyard",
   "dgtal": "homebrew/science",
+  "dircproxy": "homebrew/boneyard",
   "disco": "homebrew/boneyard",
   "discodex": "homebrew/boneyard",
   "djmount": "homebrew/fuse",
