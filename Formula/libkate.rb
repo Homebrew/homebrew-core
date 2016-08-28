@@ -1,7 +1,7 @@
 class Libkate < Formula
   desc "Overlay codec for multiplexed audio/video in Ogg"
-  homepage "https://code.google.com/p/libkate/"
-  url "https://libkate.googlecode.com/files/libkate-0.4.1.tar.gz"
+  homepage "https://code.google.com/archive/p/libkate/"
+  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/libkate/libkate-0.4.1.tar.gz"
   mirror "https://mirrors.kernel.org/debian/pool/main/libk/libkate/libkate_0.4.1.orig.tar.gz"
   sha256 "c40e81d5866c3d4bf744e76ce0068d8f388f0e25f7e258ce0c8e76d7adc87b68"
   revision 1
@@ -40,6 +40,6 @@ class Libkate < Formula
   end
 
   test do
-    system "#{bin}/katedec", "-V"
+    system bin/"katedec", "-V"
   end
 end
