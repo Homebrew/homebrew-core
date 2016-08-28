@@ -1,9 +1,8 @@
 class GitMultipush < Formula
   desc "Push a branch to multiple remotes in one command"
-  homepage "https://code.google.com/p/git-multipush/"
-  url "https://git-multipush.googlecode.com/files/git-multipush-2.3.tar.bz2"
+  homepage "https://github.com/gavinbeatty/git-multipush"
+  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/git-multipush/git-multipush-2.3.tar.bz2"
   sha256 "1f3b51e84310673045c3240048b44dd415a8a70568f365b6b48e7970afdafb67"
-
   head "https://github.com/gavinbeatty/git-multipush.git"
 
   bottle do
@@ -32,6 +31,6 @@ class GitMultipush < Formula
   test do
     # git-multipush will error even on --version if not in a repo
     system "git", "init"
-    assert_match version.to_s, shell_output("git-multipush --version")
+    assert_match version.to_s, shell_output("#{bin}/git-multipush --version")
   end
 end
