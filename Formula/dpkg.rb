@@ -1,9 +1,9 @@
 class Dpkg < Formula
   desc "Debian package management system"
   homepage "https://wiki.debian.org/Teams/Dpkg"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.9.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.9.tar.xz"
-  sha256 "86ac4af917e9e75eb9b6c947a0a11439d1de32f72237413f7ddab17f77082093"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.10.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.10.tar.xz"
+  sha256 "025524da41ba18b183ff11e388eb8686f7cc58ee835ed7d48bd159c46a8b6dc5"
 
   bottle do
     sha256 "cada0260bc04079190511a516518d6309332dc75f197e582c13420d91370b3d1" => :el_capitan
@@ -62,10 +62,7 @@ class Dpkg < Formula
   test do
     # Do not remove the empty line from the end of the control file
     # All deb control files MUST end with an empty line
-    (testpath/"test/data/homebrew.txt").write <<-EOS.undent
-      Homebrew was here.
-    EOS
-
+    (testpath/"test/data/homebrew.txt").write "brew"
     (testpath/"test/DEBIAN/control").write <<-EOS.undent
       Package: test
       Version: 1.40.99
