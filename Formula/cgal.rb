@@ -11,17 +11,20 @@ class Cgal < Formula
     sha256 "ba56ab4ee49f038a1cadf7dd8e3c03b0ecd1cd1a531d608ae360adfb03d0410a" => :mavericks
   end
 
-  deprecated_option "imaging" => "with-imaging"
-
   option :cxx11
-  option "with-imaging", "Build ImageIO and QT compoments of CGAL"
-  option "with-eigen3", "Build with Eigen3 support"
+  option "with-qt5", "Build ImageIO and QT5 compoments of CGAL"
+  option "with-eigen", "Build with Eigen3 support"
   option "with-lapack", "Build with LAPACK support"
+
+  deprecated_option "imaging" => "with-qt5"
+  deprecated_option "with-imaging" => "with-qt5"
+  deprecated_option "with-eigen3" => "with-eigen"
 
   depends_on "cmake" => :build
   depends_on "mpfr"
-  depends_on "qt5" if build.with? "imaging"
-  depends_on "eigen" if build.with? "eigen3"
+
+  depends_on "qt5" => :optional
+  depends_on "eigen" => :optional
 
   if build.cxx11?
     depends_on "boost" => "c++11"
@@ -33,21 +36,31 @@ class Cgal < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
-    args = ["-DCMAKE_INSTALL_PREFIX=#{prefix}",
-            "-DCMAKE_BUILD_TYPE=Release",
-            "-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON",
-            "-DCMAKE_INSTALL_NAME_DIR=#{HOMEBREW_PREFIX}/lib"]
-    if build.without? "imaging"
-      args << "-DWITH_CGAL_Qt3=OFF" << "-DWITH_CGAL_Qt4=OFF" << "-DWITH_CGAL_ImageIO=OFF"
+
+    args = std_cmake_args + %W[
+      -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
+      -DCMAKE_INSTALL_NAME_DIR=#{HOMEBREW_PREFIX}/lib
+    ]
+
+    if build.without? "qt5"
+      args << "-DWITH_CGAL_Qt5=OFF" << "-DWITH_CGAL_ImageIO=OFF"
+    else
+      args << "-DWITH_CGAL_Qt5=ON" << "-DWITH_CGAL_ImageIO=ON"
     end
-    if build.with? "eigen3"
+
+    if build.with? "eigen"
       args << "-DWITH_Eigen3=ON"
+    else
+      args << "-DWITH_Eigen3=OFF"
     end
+
     if build.with? "lapack"
       args << "-DWITH_LAPACK=ON"
+    else
+      args << "-DWITH_LAPACK=OFF"
     end
-    args << "."
-    system "cmake", *args
+
+    system "cmake", ".", *args
     system "make", "install"
   end
 
