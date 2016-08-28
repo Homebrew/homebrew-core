@@ -3,8 +3,8 @@ require "language/go"
 class Todolist < Formula
   desc "Very fast, simple task manager for the command-line, based upon GTD."
   homepage "http://todolist.site"
-  url "https://github.com/gammons/todolist/archive/0.2.0.tar.gz"
-  sha256 "13882bbbbcb86e05d6729f5bab2507de3aeabc1b4b4b34008480ee7549212c86"
+  url "https://github.com/gammons/todolist/archive/0.3.0.tar.gz"
+  sha256 "3ec300a8f900c6c75d21a7178df73778b7572b8936fe0b2a73317941d6e8fa04"
 
   bottle do
     cellar :any_skip_relocation
