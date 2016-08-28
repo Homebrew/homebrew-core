@@ -23,7 +23,7 @@ class Somagic < Formula
 
   def caveats; <<-EOS.undent
       Before running somagic-capture you must extract the official firmware from the CD.
-      See https://code.google.com/archive/p/easycap-somagic-linux/wiki/GettingStarted#Extracting_firmware for details.
+      See https://code.google.com/archive/p/easycap-somagic-linux/wikis/GettingStarted.wiki for details.
     EOS
   end
 end
