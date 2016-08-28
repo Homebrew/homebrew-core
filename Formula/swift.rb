@@ -77,7 +77,7 @@ class Swift < Formula
         "--lldb-use-system-debugserver",
         "--install-prefix=#{prefix}",
         "--darwin-deployment-version-osx=#{MacOS.version}",
-        "--build-jobs=#{ENV.make_jobs}"
+        "--jobs=#{ENV.make_jobs}"
     end
     bin.install "#{build}/swift-macosx-x86_64/bin/swift",
                 "#{build}/swift-macosx-x86_64/bin/swift-autolink-extract",
