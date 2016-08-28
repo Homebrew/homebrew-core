@@ -22,6 +22,21 @@ class Vasm < Formula
   option "with-mot", "Enable Motorola syntax (binary vasmCPU_mot)"
   option "with-oldstyle", "Enable oldstyle (8-bit) syntax (binary vasmCPU_oldstyle)"
 
+  # These defaults come from Frank Wille, vasm upstream.
+  def cpu_syntax
+    { "6502"    => ["oldstyle"],
+      "6800"    => ["oldstyle"],
+      "arm"     => ["std"],
+      "c16x"    => ["std"],
+      "jagrisc" => ["madmac"],
+      "m68k"    => ["mot"],
+      "ppc"     => ["std"],
+      "tr3200"  => ["std"],
+      "vidcore" => ["std"],
+      "x86"     => ["std"],
+      "z80"     => ["oldstyle"] }
+  end
+
   def cpu_options
     opts = %w[6502 6800 arm c16x jagrisc m68k ppc tr3200 vidcore x86 z80].select { |c| build.with? c }
     opts.empty? ? ["m68k"] : opts
@@ -29,7 +44,7 @@ class Vasm < Formula
 
   def syntax_options
     opts = %w[std madmac mot oldstyle].select { |s| build.with? s }
-    opts.empty? ? ["std"] : opts
+    opts.empty? ? cpu_options.flat_map { |cpu| cpu_syntax[cpu] } : opts
   end
 
   def install
