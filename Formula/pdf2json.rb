@@ -1,7 +1,7 @@
 class Pdf2json < Formula
   desc "PDF to JSON and XML converter"
-  homepage "https://code.google.com/p/pdf2json/"
-  url "https://pdf2json.googlecode.com/files/pdf2json-0.68.tar.gz"
+  homepage "https://github.com/flexpaper/pdf2json"
+  url "https://github.com/flexpaper/pdf2json/releases/download/v0.68/pdf2json-0.68.tar.gz"
   sha256 "34907954b2029a51a0b372b9db86d6c5112e4a1648201352e514ca5606050673"
 
   bottle do
