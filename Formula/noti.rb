@@ -1,8 +1,8 @@
 class Noti < Formula
   desc "Trigger notifications when a process completes"
   homepage "https://github.com/variadico/noti"
-  url "https://github.com/variadico/noti/archive/v2.2.0.tar.gz"
-  sha256 "3acb1cb0c352e6387b172867e5187f9241b66f9104d95c93ad8dc9a908937626"
+  url "https://github.com/variadico/noti/archive/v2.2.1.tar.gz"
+  sha256 "8b4dc3efbf4c00e67c0d6f300e45c4acda4afe01f8f532d4828d7efca69ca619"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,6 +22,7 @@ class Noti < Formula
     cd "src/github.com/variadico/noti/cmd/noti" do
       system "go", "build"
       bin.install "noti"
+      prefix.install_metafiles
     end
   end
 
