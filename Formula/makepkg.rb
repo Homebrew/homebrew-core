@@ -39,7 +39,7 @@ class Makepkg < Formula
 
   test do
     (testpath/"PKGBUILD").write <<-EOS.undent
-      source=(https://androidnetworktester.googlecode.com/files/10kb.txt)
+      source=(https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/androidnetworktester/10kb.txt)
       pkgrel=0
       pkgver=0
     EOS
