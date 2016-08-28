@@ -4,10 +4,10 @@ class Cmigemo < Formula
   head "https://github.com/koron/cmigemo.git"
 
   stable do
-    url "https://cmigemo.googlecode.com/files/cmigemo-default-src-20110227.zip"
+    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/cmigemo/cmigemo-default-src-20110227.zip"
     sha256 "4aa759b2e055ef3c3fbeb9e92f7f0aacc1fd1f8602fdd2f122719793ee14414c"
 
-    # Patch per discussion at: https://github.com/Homebrew/homebrew/pull/7005
+    # Patch per discussion at: https://github.com/Homebrew/legacy-homebrew/pull/7005
     patch :DATA
   end
   bottle do
