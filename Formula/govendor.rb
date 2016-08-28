@@ -7,9 +7,9 @@ class Govendor < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a9b538021eae35eabc09d5660454a9f838344d18a77ce32b0b378ad5074429a8" => :el_capitan
-    sha256 "a0e647d88f7a1ac1e030acb2ebf05641ba3f874c5d8f03d4ba1bed3611f4d7a1" => :yosemite
-    sha256 "d6e56e0aff8ac0e2201c1be1d86d8fbe87087dad196777aaf7baf10174bce23d" => :mavericks
+    sha256 "9ebc07d73bb652cd3f317590f6fd80390c9ebaa7782feeb91b2db862f4690cd0" => :el_capitan
+    sha256 "071d01a95afb054d27b457d905ceb653e66c2a4a843b57e238b35d94424d5ae0" => :yosemite
+    sha256 "42836a9f50859d81cdec06d96ec63775936d6175c9f024f5d9d74d7bc92e1812" => :mavericks
   end
 
   depends_on "go"
