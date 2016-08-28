@@ -28,6 +28,7 @@
   "cdf": "homebrew/boneyard",
   "cdimgtools": "homebrew/boneyard",
   "celt": "homebrew/boneyard",
+  "cfitsio": "homebrew/science",
   "chktex": "homebrew/tex",
   "clam": "homebrew/boneyard",
   "clang-omp": "homebrew/boneyard",
