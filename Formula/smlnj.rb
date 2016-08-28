@@ -136,10 +136,10 @@ class Smlnj < Formula
     inreplace root/"base/runtime/objs/mk.x86-darwin", "/usr/bin/as", "as"
 
     # Orrrr, don't mess with our PATH. Superenv carefully sets that up.
-    inreplace root/"base/runtime/config/gen-posix-names.sh",
-      "PATH=/bin:/usr/bin", "# do not hardcode the path"
-    inreplace root/"base/runtime/config/gen-posix-names.sh",
-      "/usr/include", "#{MacOS.sdk_path}/usr/include" unless MacOS::CLT.installed?
+    inreplace root/"base/runtime/config/gen-posix-names.sh" do |s|
+      s.gsub! "PATH=/bin:/usr/bin", "# do not hardcode the path"
+      s.gsub! "/usr/include", "#{MacOS.sdk_path}/usr/include" unless MacOS::CLT.installed?
+    end
 
     cd root do
       system "config/install.sh"
