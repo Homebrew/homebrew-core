@@ -5,9 +5,9 @@ class Sfcgal < Formula
   sha256 "7ed35439fc197e73790f4c3d1c1750acdc3044968769239b2185a7a845845df3"
 
   bottle do
-    sha256 "cddb259f1fdc03ba213c56757485efee012acf10c96f39af7387ee40b4901f8e" => :el_capitan
-    sha256 "65c06ed4853d2179793da87bebd78c3b025cb8b2437e41dd40f247f9a322a656" => :yosemite
-    sha256 "6512802b7da2f59d1a449dda91d15537be24814bee913ca73c68ccd7082f1d9e" => :mavericks
+    sha256 "b6f6107ae1a8ca39310c8b7dc8f8df8a32bc8a21e16a8dd1e86009f216209216" => :el_capitan
+    sha256 "2498c8ab7f8a325cc0ee257d49577135efe4dfeae302afc98c1f246b94034025" => :yosemite
+    sha256 "a7782f9b49f4aeabf88786d13cfa409af9c406056ac55e28d2e45826c9175878" => :mavericks
   end
 
   option :cxx11
