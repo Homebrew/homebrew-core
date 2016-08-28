@@ -9,9 +9,9 @@ class Concurrencykit < Formula
 
   bottle do
     cellar :any
-    sha256 "de655fd0b4affb14f53d1f793ab8f783548cb18edda6874cc94fd5c077dd514a" => :el_capitan
-    sha256 "1aff7b9466a5c1fb28f34166fa1eec8d0bab57d2c0908bdf8437dc114d5283f0" => :yosemite
-    sha256 "c9edc8f8f8599f6cba80aaa94a4f30c7c3e4def915bf34e18ec2927f0d5f4072" => :mavericks
+    sha256 "77f8ad1f44e7f018e17040ffa144e8cc279ec39e9db47e348a84d0631d638d83" => :el_capitan
+    sha256 "c981b82030b838517ca87d261cf160eb141ba91fcede5b68583c4a1b26c4b864" => :yosemite
+    sha256 "a45619fb3062e79e786b16839de5ebd6b8abe33e004092309d535b17cb90ea2e" => :mavericks
   end
 
   def install
