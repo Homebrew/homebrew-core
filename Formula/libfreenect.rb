@@ -1,8 +1,8 @@
 class Libfreenect < Formula
   desc "Drivers and libraries for the Xbox Kinect device"
   homepage "https://openkinect.org/"
-  url "https://github.com/OpenKinect/libfreenect/archive/v0.5.4.tar.gz"
-  sha256 "de85e38ce195b693b4528880a843456c1d2c219b036bd1aa8dd36d11f58e5bc3"
+  url "https://github.com/OpenKinect/libfreenect/archive/v0.5.5.tar.gz"
+  sha256 "0d7fd69da254f3624848a31c3041dcb8b714a84110b5b6bbb59498c4ffdeafde"
   head "https://github.com/OpenKinect/libfreenect.git"
 
   bottle do
@@ -16,12 +16,6 @@ class Libfreenect < Formula
 
   depends_on "cmake" => :build
   depends_on "libusb"
-
-  # PR 27 Aug 2016 "Fix clang build error 'ambiguous call to abs'"
-  patch do
-    url "https://github.com/OpenKinect/libfreenect/pull/480.patch"
-    sha256 "32df40e2348027a4315fcd641b7384836334f8208bca85856ebc7033884df226"
-  end
 
   def install
     args = std_cmake_args
