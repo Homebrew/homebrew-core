@@ -3,6 +3,7 @@ class Postgis < Formula
   homepage "http://postgis.net"
   url "http://download.osgeo.org/postgis/source/postgis-2.2.2.tar.gz"
   sha256 "40232391f8f66a6dc740ebb26088e568c8ccb663666998616c71c3bdaeed4163"
+  revision 1
 
   bottle do
     cellar :any
@@ -35,7 +36,7 @@ class Postgis < Formula
   # For GeoJSON and raster handling
   depends_on "json-c"
   depends_on "gdal" => :recommended
-  depends_on "pcre" => :build if build.with? "gdal"
+  depends_on "pcre" if build.with? "gdal"
 
   # For advanced 2D/3D functions
   depends_on "sfcgal" => :recommended
