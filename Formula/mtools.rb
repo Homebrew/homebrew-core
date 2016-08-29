@@ -13,9 +13,9 @@ class Mtools < Formula
     sha256 "559d465879ac7d26d84522e4315447695354d9be98a5930cb05b27a8ecf9555a" => :mountain_lion
   end
 
-  conflicts_with "multimarkdown", :because => "both install `mmd` binaries"
-
   depends_on :x11 => :optional
+
+  conflicts_with "multimarkdown", :because => "both install `mmd` binaries"
 
   def install
     args = %W[
