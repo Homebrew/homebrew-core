@@ -1,9 +1,17 @@
 class Googler < Formula
   desc "Google Search and News from the command-line"
   homepage "https://github.com/jarun/googler"
-  url "https://github.com/jarun/googler/archive/v2.6.tar.gz"
-  sha256 "76cef768c69c44623031b80ad29ab7eaa52bb7c8b265cc230d64c1c5ca2baadb"
   head "https://github.com/jarun/googler.git"
+
+  stable do
+    url "https://github.com/jarun/googler/archive/v2.7.tar.gz"
+    sha256 "ca9f3f2e7b475c458be8bb61f7b7b170d0d174c18c4afa8292e815dd9d5531a4"
+
+    patch do
+      url "https://github.com/jarun/googler/commit/6152bd34.patch"
+      sha256 "ca16a5ed65aceeba8f079b0fbb0371d0755c30c5e43139ba1a659b2730944788"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +23,7 @@ class Googler < Formula
   depends_on :python3
 
   def install
+    system "make", "disable-self-upgrade"
     system "make", "install", "PREFIX=#{prefix}"
     bash_completion.install "auto-completion/bash/googler-completion.bash"
     fish_completion.install "auto-completion/fish/googler.fish"
@@ -23,6 +32,6 @@ class Googler < Formula
 
   test do
     ENV["PYTHONIOENCODING"] = "utf-8"
-    assert_match /Homebrew/, shell_output("#{bin}/googler --noprompt Homebrew")
+    assert_match "Homebrew", shell_output("#{bin}/googler --noprompt Homebrew")
   end
 end
