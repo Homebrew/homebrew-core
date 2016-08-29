@@ -1,7 +1,7 @@
 class Ecl < Formula
   desc "Embeddable Common Lisp"
   homepage "https://common-lisp.net/project/ecl/"
-  url "https://common-lisp.net/project/ecl/files/release/16.1.2/ecl-16.1.2.tgz"
+  url "https://common-lisp.net/project/ecl/static/files/release/ecl-16.1.2.tgz"
   sha256 "2d482b1a0a4fbd5d881434517032279d808cb6405e22dd91ef6d733534464b99"
 
   head "https://gitlab.com/embeddable-common-lisp/ecl.git"
