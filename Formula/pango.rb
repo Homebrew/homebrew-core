@@ -1,8 +1,8 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "http://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.1.tar.xz"
-  sha256 "e27af54172c72b3ac6be53c9a4c67053e16c905e02addcf3a603ceb2005c1a40"
+  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.2.tar.xz"
+  sha256 "90582a02bc89318d205814fc097f2e9dd164d26da5f27c53ea42d583b34c3cd1"
 
   bottle do
     sha256 "36326c6d7abc459041dfbb0e0aecda5b82af131758f5d2f3219bb44b7fd13a8f" => :el_capitan
