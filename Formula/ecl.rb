@@ -16,7 +16,6 @@ class Ecl < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--enable-unicode=yes",
                           "--enable-threads=yes",
                           "--with-system-gmp=yes"
     system "make"
