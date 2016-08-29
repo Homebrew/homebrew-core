@@ -59,37 +59,53 @@ class Swift < Formula
 
   def install
     workspace = buildpath.parent
-    build = workspace/"build"
+    build_dir = workspace/"build"
 
     ln_sf buildpath, "#{workspace}/swift"
     resources.each { |r| r.stage("#{workspace}/#{r.name}") }
 
-    mkdir build do
-      system "#{buildpath}/utils/build-script",
-        "-R",
-        "--build-subdir=",
-        "--no-llvm-assertions",
-        "--no-swift-assertions",
-        "--no-swift-stdlib-assertions",
-        "--",
-        "--workspace=#{workspace}",
-        "--build-args=-j#{ENV.make_jobs}",
-        "--lldb-use-system-debugserver",
-        "--install-prefix=#{prefix}",
-        "--darwin-deployment-version-osx=#{MacOS.version}",
-        "--jobs=#{ENV.make_jobs}"
+    mkdir build_dir do
+      if build.head?
+        system "#{buildpath}/utils/build-script",
+          "-R",
+          "--build-subdir=",
+          "--no-llvm-assertions",
+          "--no-swift-assertions",
+          "--no-swift-stdlib-assertions",
+          "--",
+          "--workspace=#{workspace}",
+          "--build-args=-j#{ENV.make_jobs}",
+          "--lldb-use-system-debugserver",
+          "--install-prefix=#{prefix}",
+          "--darwin-deployment-version-osx=#{MacOS.version}"
+          "--jobs=#{ENV.make_jobs}" # argument changed 
+	  else
+        system "#{buildpath}/utils/build-script",
+          "-R",
+          "--build-subdir=",
+          "--no-llvm-assertions",
+          "--no-swift-assertions",
+          "--no-swift-stdlib-assertions",
+          "--",
+          "--workspace=#{workspace}",
+          "--build-args=-j#{ENV.make_jobs}",
+          "--lldb-use-system-debugserver",
+          "--install-prefix=#{prefix}",
+          "--darwin-deployment-version-osx=#{MacOS.version}"
+          "--build-jobs=#{ENV.make_jobs}"
+	  end
     end
-    bin.install "#{build}/swift-macosx-x86_64/bin/swift",
-                "#{build}/swift-macosx-x86_64/bin/swift-autolink-extract",
-                "#{build}/swift-macosx-x86_64/bin/swift-compress",
-                "#{build}/swift-macosx-x86_64/bin/swift-demangle",
-                "#{build}/swift-macosx-x86_64/bin/swift-ide-test",
-                "#{build}/swift-macosx-x86_64/bin/swift-llvm-opt",
-                "#{build}/swift-macosx-x86_64/bin/swiftc",
-                "#{build}/swift-macosx-x86_64/bin/sil-extract",
-                "#{build}/swift-macosx-x86_64/bin/sil-opt"
-    (lib/"swift").install "#{build}/swift-macosx-x86_64/lib/swift/macosx/",
-                          "#{build}/swift-macosx-x86_64/lib/swift/shims/"
+    bin.install "#{build_dir}/swift-macosx-x86_64/bin/swift",
+                "#{build_dir}/swift-macosx-x86_64/bin/swift-autolink-extract",
+                "#{build_dir}/swift-macosx-x86_64/bin/swift-compress",
+                "#{build_dir}/swift-macosx-x86_64/bin/swift-demangle",
+                "#{build_dir}/swift-macosx-x86_64/bin/swift-ide-test",
+                "#{build_dir}/swift-macosx-x86_64/bin/swift-llvm-opt",
+                "#{build_dir}/swift-macosx-x86_64/bin/swiftc",
+                "#{build_dir}/swift-macosx-x86_64/bin/sil-extract",
+                "#{build_dir}/swift-macosx-x86_64/bin/sil-opt"
+    (lib/"swift").install "#{build_dir}/swift-macosx-x86_64/lib/swift/macosx/",
+                          "#{build_dir}/swift-macosx-x86_64/lib/swift/shims/"
   end
 
   test do
