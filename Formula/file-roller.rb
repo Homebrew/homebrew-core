@@ -53,6 +53,6 @@ class FileRoller < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/file-roller --version 2>&1")
+    system bin/"file-roller", "--help"
   end
 end
