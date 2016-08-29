@@ -3,7 +3,7 @@ class AprUtil < Formula
   homepage "https://apr.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-util-1.5.4.tar.bz2"
   sha256 "a6cf327189ca0df2fb9d5633d7326c460fe2b61684745fd7963e79a6dd0dc82e"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "554fcbcfe8247cbb3fea43679eaaf085b9dc8d5d39476db7c5e4b1fa6957316c" => :el_capitan
@@ -49,9 +49,12 @@ class AprUtil < Formula
     system "make"
     system "make", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # No need for this to point to the versioned path.
+    inreplace libexec/"bin/apu-1-config", libexec, opt_libexec
   end
 
   test do
-    system "#{bin}/apu-1-config", "--link-libtool", "--libs"
+    assert_match opt_libexec.to_s, shell_output("#{bin}/apu-1-config --prefix")
   end
 end
