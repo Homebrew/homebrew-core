@@ -5,14 +5,14 @@ class S3cmd < Formula
   sha256 "4675794f84d8744ee3d35873d180f41c7b2116895ccbe2738a9bc552e1cf214e"
   head "https://github.com/s3tools/s3cmd.git"
 
-  depends_on :python if MacOS.version <= :snow_leopard
-
   bottle do
     cellar :any_skip_relocation
     sha256 "e3e3af32a6792e1a465b0f6b36370d9f922fb77ff4d8ef985aa18a4dc7e119d0" => :el_capitan
     sha256 "5d3ca9b0e3ce3eb11c2ac58d4e3aab0e3ffe5720f73592ae7e367231d2baf55e" => :yosemite
     sha256 "785afccd60cede060711520dd71dc41ca9298dc8091e55f0dc80eb7ee6a2f6dc" => :mavericks
   end
+
+  depends_on :python if MacOS.version <= :snow_leopard
 
   resource "six" do
     url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
