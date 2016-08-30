@@ -74,7 +74,11 @@ class GstPluginsGood < Formula
     # Upstream says it hasn't "been actively tested in a long time";
     # successor is glimagesink (in gst-plugins-bad).
     # https://bugzilla.gnome.org/show_bug.cgi?id=756918
-    args << "--disable-osx_video" if MacOS.version == :snow_leopard
+    # Also, it fails to build on macOS Sierra.
+    # https://bugzilla.gnome.org/show_bug.cgi?id=770526
+    if MacOS.version == :snow_leopard or MacOS.version == :sierra
+      args << "--disable-osx_video"
+    end
 
     if build.head?
       ENV["NOCONFIGURE"] = "yes"
