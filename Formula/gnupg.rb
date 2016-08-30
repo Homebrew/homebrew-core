@@ -33,6 +33,9 @@ class Gnupg < Formula
     [bin, libexec/"gnupg"].each(&:mkpath)
     system "make", "install"
 
+    # https://lists.gnupg.org/pipermail/gnupg-devel/2016-August/031533.html
+    inreplace bin/"gpg-zip1", "GPG=gpg", "GPG=gpg1"
+
     # Although gpg2 support should be pretty universal these days
     # keep vanilla `gpg` executables available, at least for now.
     %w[gpg-zip1 gpg1 gpgsplit1 gpgv1].each do |cmd|
