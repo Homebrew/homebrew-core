@@ -55,7 +55,9 @@ class GstPluginsBad < Formula
     # upstream does not support Apple video for older SDKs
     # error: use of undeclared identifier 'AVQueuedSampleBufferRenderingStatusFailed'
     # https://github.com/Homebrew/legacy-homebrew/pull/35284
-    if MacOS.version <= :mavericks
+    # applemedia plugin fails to build on Sierra
+    # https://bugzilla.gnome.org/show_bug.cgi?id=770587
+    if MacOS.version <= :mavericks or MacOS.version == :sierra
       args << "--disable-apple_media"
     end
 
