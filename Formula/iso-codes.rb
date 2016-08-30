@@ -1,8 +1,8 @@
 class IsoCodes < Formula
   desc "Provides lists of various ISO standards"
   homepage "https://pkg-isocodes.alioth.debian.org/"
-  url "https://pkg-isocodes.alioth.debian.org/downloads/iso-codes-3.69.tar.xz"
-  sha256 "3f285d3c13f4dccfbdb9e432f172403ac1a54ab432616f10556eb18c23a1c0b2"
+  url "https://pkg-isocodes.alioth.debian.org/downloads/iso-codes-3.70.tar.xz"
+  sha256 "41e2fbaec2ed57e767b94f175d0dcd31b627aeb23b75cd604605a6fb6109d61f"
   head "https://anonscm.debian.org/git/pkg-isocodes/iso-codes.git"
 
   bottle do
