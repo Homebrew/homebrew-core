@@ -168,6 +168,7 @@
   "memo": "homebrew/boneyard",
   "mesalib-glw": "homebrew/x11",
   "mess": "homebrew/games",
+  "metabase": "caskroom/cask",
   "metalua": "homebrew/boneyard",
   "miredo": "homebrew/boneyard",
   "morse": "homebrew/x11",
