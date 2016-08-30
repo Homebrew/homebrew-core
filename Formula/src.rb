@@ -16,9 +16,9 @@ class Src < Formula
     depends_on "asciidoc" => :build
   end
 
-  conflicts_with "srclib", :because => "both install a 'src' binary"
-
   depends_on "rcs"
+
+  conflicts_with "srclib", :because => "both install a `src` binary"
 
   def install
     # OSX doesn't provide a /usr/bin/python2. Upstream has been notified but
