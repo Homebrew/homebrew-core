@@ -12,8 +12,6 @@ class Wslay < Formula
     sha256 "410634e15d5ce6f680ccd5d96b97fc2226aad9530aebe42690d3ceb4d7011e69" => :mavericks
   end
 
-  option "without-docs", "Don't generate or install documentation"
-
   head do
     url "https://github.com/tatsuhiro-t/wslay.git"
 
@@ -21,6 +19,8 @@ class Wslay < Formula
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
   end
+
+  option "without-docs", "Don't generate or install documentation"
 
   depends_on "sphinx-doc" => :build if build.with? "docs"
   depends_on "cunit" => :build
