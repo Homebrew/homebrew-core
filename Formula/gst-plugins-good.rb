@@ -76,7 +76,7 @@ class GstPluginsGood < Formula
     # https://bugzilla.gnome.org/show_bug.cgi?id=756918
     # Also, it fails to build on macOS Sierra.
     # https://bugzilla.gnome.org/show_bug.cgi?id=770526
-    if MacOS.version == :snow_leopard or MacOS.version == :sierra
+    if MacOS.version == :snow_leopard || MacOS.version == :sierra
       args << "--disable-osx_video"
     end
 
