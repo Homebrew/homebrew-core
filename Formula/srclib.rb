@@ -15,10 +15,10 @@ class Srclib < Formula
     sha256 "2e8c68f8948ae220448400680108083931ca78273fd1f320b084879d14a567bb" => :mavericks
   end
 
-  conflicts_with "src", :because => "both install a 'src' binary"
-
   depends_on :hg => :build
   depends_on "go" => :build
+
+  conflicts_with "src", :because => "both install a `src` binary"
 
   go_resource "code.google.com/p/rog-go" do
     url "https://code.google.com/p/rog-go",
