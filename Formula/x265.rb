@@ -1,9 +1,8 @@
 class X265 < Formula
   desc "H.265/HEVC encoder"
   homepage "http://x265.org"
-  url "https://bitbucket.org/multicoreware/x265/downloads/x265_1.9.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/x/x265/x265_1.9.orig.tar.gz"
-  sha256 "3e4654133ed957a98708fdb4cb9a154d9e80922b84e26e43fc462a101c5b15c8"
+  url "https://bitbucket.org/multicoreware/x265/downloads/x265_2.0.tar.gz"
+  sha256 "5a7f6797bee33310c690be5d9a6c63125f36663ac3478e98ac6b6142a70bce1f"
 
   head "https://bitbucket.org/multicoreware/x265", :using => :hg
 
