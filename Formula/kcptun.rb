@@ -45,6 +45,10 @@ class Kcptun < Formula
     url "https://github.com/golang/net.git"
   end
 
+  go_resource "github.com/pkg/errors" do
+    url "https://github.com/pkg/errors.git"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
     mkdir_p buildpath/"src/github.com/xtaci"
@@ -85,7 +89,7 @@ class Kcptun < Formula
 
   end
 
-  plist_options :manual => "#{bin}/kcptun_client -c #{etc}/kcptun_client.json"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/kcptun/bin/kcptun_client -c #{HOMEBREW_PREFIX}/etc/kcptun_client.json"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -96,7 +100,7 @@ class Kcptun < Formula
         <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
-          <string>#{bin}/kcptun_client</string>
+          <string>#{opt_bin}/kcptun_client</string>
           <string>-c</string>
           <string>#{etc}/kcptun_client.json</string>
         </array>
