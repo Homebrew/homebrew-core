@@ -3,8 +3,8 @@ require "language/go"
 class Kcptun < Formula
   desc "Extremely simple & fast UDP tunnel based on KCP protocol"
   homepage "https://github.com/xtaci/kcptun"
-  url "https://github.com/xtaci/kcptun/archive/v20160823.tar.gz"
-  sha256 "09f3266472f318af9d30f67bea69aab9985ff62569973dfeb58413ee066d9d48"
+  url "https://github.com/xtaci/kcptun/archive/v20160830.tar.gz"
+  sha256 "921b888ce19a3229a2c6518aa21e762c74453f6648421daeb387b4aa2d6d5ecc"
   head "https://github.com/xtaci/kcptun.git"
 
   depends_on "go" => :build
@@ -55,35 +55,37 @@ class Kcptun < Formula
       "-o", "kcptun_client", "github.com/xtaci/kcptun/client"
     bin.install "kcptun_client"
 
-    (buildpath/"kcptun.sh").write <<-EOS.undent
-      #!/bin/sh
-
-      local_addr=":12948"
-      remote_addr="vps:29900"
-      key="it's a secret"
-      crypt="aes"
-      mode="fast2"
-      conn=1
-      mtu=1350
-      sndwnd=128
-      rcvwnd=1024
-      nocomp=""
-      datashard=10
-      parityshard=3
-      dscp=0
-
+    (buildpath/"kcptun_client.json").write <<-EOS.undent
+{
+    "localaddr": ":12948",
+    "remoteaddr": "vps:29900",
+    "key": "ahufr6qedR",
+    "crypt": "salsa20",
+    "mode": "fast2",
+    "conn": 1,
+    "autoexpire": 60,
+    "mtu": 1350,
+    "sndwnd": 128,
+    "rcvwnd": 1024,
+    "datashard": 70,
+    "parityshard": 30,
+    "dscp": 46,
+    "nocomp": false,
+    "acknodelay": false,
+    "nodelay": 0,
+    "interval": 40,
+    "resend": 0,
+    "nc": 0,
+    "sockbuf": 4194304,
+    "keepalive": 10
+}
     EOS
 
-    etc.install "kcptun.sh"
+    etc.install "kcptun_client.json"
 
-    (bin/"kcptun").write <<-EOS.undent
-      #!/bin/sh
-      source #{etc}/kcptun.sh
-      #{bin}/kcptun_client -l ${local_addr} -r ${remote_addr} --key ${key} --crypt ${crypt} --mtu ${mtu} --sndwnd ${sndwnd} --rcvwnd ${rcvwnd} --mode ${mode}${nocomp}
-    EOS
   end
 
-  plist_options :manual => "kcptun"
+  plist_options :manual => "#{bin}/kcptun_client -c #{etc}/kcptun_client.json"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -94,7 +96,9 @@ class Kcptun < Formula
         <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
-          <string>#{opt_bin}/kcptun</string>
+          <string>#{bin}/kcptun_client</string>
+          <string>-c</string>
+          <string>#{etc}/kcptun_client.json</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
