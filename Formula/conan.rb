@@ -1,8 +1,8 @@
 class Conan < Formula
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://github.com/conan-io/conan"
-  url "https://pypi.python.org/packages/3f/f5/10b4285b87b8378d0f56a5290d62b56ebc060cd9e0693a080e45c02fc209/conan-0.11.0.tar.gz"
-  sha256 "e82d8bc1dd5560d976c19a85adba61601f6e77a60645d92d2b69000459b8acbd"
+  url "https://pypi.python.org/packages/3a/52/155e89125cf3e02ae1667d89a878e132e7644b42d0ef270b1bb85df23c55/conan-0.11.1.tar.gz"
+  sha256 "ac2f8cf19f6cea60b63ae8568ceafdbb92d446a6fc5be539f31641af2f274f7e"
 
   bottle do
     cellar :any
@@ -37,11 +37,6 @@ class Conan < Formula
   resource "cffi" do
     url "https://pypi.python.org/packages/b6/98/11feff87072e2e640fb8320712b781eccdef05d588618915236b32289d5a/cffi-1.6.0.tar.gz"
     sha256 "a7f75c4ef2362c0a0e54657add0a6c509fecbfa3b3807bc0925f5cb1c9f927db"
-  end
-
-  resource "cfgparse" do
-    url "https://pypi.python.org/packages/a0/37/0f455f3830855c635af9f7dd23d317315712bfbc5daf63abfd18d96fa613/cfgparse-1.3.zip"
-    sha256 "adc830323e4d9872af1a81364dd18e958b5550c3cc2d1f05929ec2634147f2f9"
   end
 
   resource "colorama" do
@@ -105,8 +100,8 @@ class Conan < Formula
   end
 
   resource "pycparser" do
-    url "https://pypi.python.org/packages/18/e2/32e2457514b32ded24f2ebecfca3866ce08203e8cfeec18f9535f14ef374/pycparser-2.10.tar.gz"
-    sha256 "957d98b661c0b64b580ab6f94b125e09b6714154ee51de40bca16d3f0076b86c"
+    url "https://pypi.python.org/packages/6d/31/666614af3db0acf377876d48688c5d334b6e493b96d21aa7d332169bee50/pycparser-2.14.tar.gz"
+    sha256 "7959b4a74abdc27b312fed1c21e6caf9309ce0b29ea86b591fd2e99ecdf27f73"
   end
 
   resource "PyJWT" do
@@ -125,8 +120,8 @@ class Conan < Formula
   end
 
   resource "requests" do
-    url "https://pypi.python.org/packages/0a/00/8cc925deac3a87046a4148d7846b571cf433515872b5430de4cd9dea83cb/requests-2.7.0.tar.gz"
-    sha256 "398a3db6d61899d25fd4a06c6ca12051b0ce171d705decd7ed5511517b4bb93d"
+    url "https://pypi.python.org/packages/2e/ad/e627446492cc374c284e82381215dcd9a0a87c4f6e90e9789afefe6da0ad/requests-2.11.1.tar.gz"
+    sha256 "5acf980358283faba0b897c73959cecf8b841205bb4b2ad3ef545f46eae1a133"
   end
 
   resource "six" do
