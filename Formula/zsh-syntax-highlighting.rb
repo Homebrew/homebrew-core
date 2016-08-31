@@ -13,6 +13,14 @@ class ZshSyntaxHighlighting < Formula
   end
 
   def install
+    inreplace "Makefile" do |s|
+      # Fix for `brew install --git zsh-syntax-highlighting`.
+      # Without this, the git repository with no HEAD would cause
+      # `git rev-parse` to fail and abort the installation.
+      s.gsub! "git rev-parse HEAD",
+        "git rev-parse --verify HEAD 2> /dev/null || cat .revision-hash"
+    end
+
     system "make", "install", "PREFIX=#{prefix}"
   end
 
