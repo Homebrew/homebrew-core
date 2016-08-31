@@ -1,8 +1,8 @@
 class Libgraphqlparser < Formula
   desc "GraphQL query parser in C++ with C and C++ APIs"
   homepage "https://github.com/graphql/libgraphqlparser"
-  url "https://github.com/graphql/libgraphqlparser/archive/v0.4.1.tar.gz"
-  sha256 "2ed66fd38b6e8a4a39c646fe713b5893d3d6b076dcd34be28a356cb3cb879595"
+  url "https://github.com/graphql/libgraphqlparser/archive/v0.5.0.tar.gz"
+  sha256 "c20ee39bd8f519f874de3d1bc9dc65fb6430606d80badf34e070cc8a2225b62b"
 
   bottle do
     cellar :any
