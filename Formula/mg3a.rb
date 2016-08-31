@@ -11,13 +11,13 @@ class Mg3a < Formula
     sha256 "3fc9a38486fd70ee78932f17c920e01c29b4baca64e2b727eca5783d7630e569" => :mavericks
   end
 
-  conflicts_with "mg", :because => "both install `mg`"
-
   option "with-c-mode", "Include the original C mode"
   option "with-clike-mode", "Include the C mode that also handles Perl and Java"
   option "with-python-mode", "Include the Python mode"
   option "with-most", "Include c-like and python modes, user modes and user macros"
   option "with-all", "Include all fancy stuff"
+
+  conflicts_with "mg", :because => "both install `mg`"
 
   def install
     if build.with?("all")
