@@ -86,7 +86,6 @@ class Kcptun < Formula
     EOS
 
     etc.install "kcptun_client.json"
-
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/kcptun/bin/kcptun_client -c #{HOMEBREW_PREFIX}/etc/kcptun_client.json"
