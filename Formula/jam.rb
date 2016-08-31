@@ -17,4 +17,23 @@ class Jam < Formula
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LOCATE_TARGET=bin"
     bin.install "bin/jam", "bin/mkjambase"
   end
+
+  test do
+    (testpath/"Jamfile").write <<-EOS.undent
+      Main jamtest : jamtest.c ;
+    EOS
+
+    (testpath/"jamtest.c").write <<-EOS.undent
+      #include <stdio.h>
+
+      int main(void)
+      {
+          printf("Jam Test\\n");
+          return 0;
+      }
+    EOS
+
+    assert_match /Cc jamtest.o/, shell_output(bin/"jam").strip
+    assert_equal "Jam Test", shell_output("./jamtest").strip
+  end
 end
