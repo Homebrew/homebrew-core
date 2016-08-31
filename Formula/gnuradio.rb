@@ -3,6 +3,7 @@ class Gnuradio < Formula
   homepage "https://gnuradio.squarespace.com/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.9.1.tar.gz"
   sha256 "9c06f0f1ec14113203e0486fd526dd46ecef216dfe42f12d78d9b781b1ef967e"
+  revision 1
 
   bottle do
     sha256 "c9fdb8e1a9d96dafe29dd828038bcedc5e03b21612f6cf81843c85238dac9204" => :el_capitan
@@ -151,11 +152,7 @@ class Gnuradio < Formula
       system "make", "install"
     end
 
-    # Remove useless data files installed in #{bin}
-    delete_files = %w[ctrlport-monitorc ctrlport-monitoro perf-monitorxc perf-monitorxo]
-    delete_files.each { |f| rm "#{bin}/gr-#{f}" }
-
-    bin.install Dir[libexec/"bin/*"]
+    rm bin.children.reject(&:executable?)
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 

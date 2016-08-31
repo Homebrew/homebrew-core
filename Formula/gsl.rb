@@ -1,12 +1,9 @@
-# Please don't update me to the 2.x branch yet until issues discussed in
-# https://github.com/Homebrew/homebrew/issues/45812 are resolved.
-# If you want 2.x now, file a PR in homebrew/versions. Thanks!
 class Gsl < Formula
   desc "Numerical library for C and C++"
   homepage "https://www.gnu.org/software/gsl/"
-  url "https://ftpmirror.gnu.org/gsl/gsl-1.16.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/gsl/gsl-1.16.tar.gz"
-  sha256 "73bc2f51b90d2a780e6d266d43e487b3dbd78945dd0b04b14ca5980fe28d2f53"
+  url "https://ftpmirror.gnu.org/gsl/gsl-2.2.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/gsl/gsl-2.2.tar.gz"
+  sha256 "4de40a9a79ea42a127928b095d066993cb845812d657434e29e987240113d8df"
 
   bottle do
     cellar :any
