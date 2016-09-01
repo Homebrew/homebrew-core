@@ -3,8 +3,8 @@ class AwsShell < Formula
   homepage "https://github.com/awslabs/aws-shell"
 
   stable do
-    url "https://pypi.python.org/packages/source/a/aws-shell/aws-shell-0.1.0.tar.gz"
-    sha256 "2d89e3c51e6cf7da74c8bca8b8a986cc8edcad27ccd6c15678cd84b970f63a16"
+    url "https://pypi.python.org/packages/3f/d1/0f5bdb9833f2a57095bc133fa603de8e8931f6ca44653bd56afda8148e0f/aws-shell-0.1.1.tar.gz"
+    sha256 "653f085d966b4ed3b3581b7bb85f6f0bb1e8a3bfd852a3333596082a5ba689df"
 
     resource "awscli" do
       url "https://pypi.python.org/packages/source/a/awscli/awscli-1.10.1.tar.gz"
