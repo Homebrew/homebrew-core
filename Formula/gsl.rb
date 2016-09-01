@@ -1,9 +1,9 @@
 class Gsl < Formula
   desc "Numerical library for C and C++"
   homepage "https://www.gnu.org/software/gsl/"
-  url "https://ftpmirror.gnu.org/gsl/gsl-2.2.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/gsl/gsl-2.2.tar.gz"
-  sha256 "4de40a9a79ea42a127928b095d066993cb845812d657434e29e987240113d8df"
+  url "https://ftpmirror.gnu.org/gsl/gsl-2.2.1.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/gsl/gsl-2.2.1.tar.gz"
+  sha256 "13d23dc7b0824e1405f3f7e7d0776deee9b8f62c62860bf66e7852d402b8b024"
 
   bottle do
     cellar :any
