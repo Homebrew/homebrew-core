@@ -8,6 +8,13 @@ class Gron < Formula
 
   head "https://github.com/tomnomnom/gron.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "9fd296a377a1eb6068048bc21d052a909d63f6590c47e885e661304ba28789ed" => :el_capitan
+    sha256 "1991ed00dd8190d9e91e4d4c8ae9475ce9483938ba112fb1f1a38ad5ed237330" => :yosemite
+    sha256 "c4ba3c1466673fdfae3a93d4bc9e4008a6146dcef13c6fbdbf8e3a67dce6cf65" => :mavericks
+  end
+
   depends_on "go" => :build
 
   go_resource "github.com/fatih/color" do
