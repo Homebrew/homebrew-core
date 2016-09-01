@@ -18,9 +18,14 @@ class Peco < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/peco/peco").install buildpath.children
     cd "src/github.com/peco/peco" do
-      system "glide", "install"
-      system "go", "build", "-o", bin/"peco", "cmd/peco/peco.go"
-      prefix.install_metafiles
+      # default $GLIDE_HOME doesn't work
+      Dir.mktmpdir do |tmpdir|
+        ENV["GLIDE_HOME"] = tmpdir
+
+        system "glide", "install"
+        system "go", "build", "-o", bin/"peco", "cmd/peco/peco.go"
+        prefix.install_metafiles
+      end
     end
   end
 
