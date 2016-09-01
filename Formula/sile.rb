@@ -1,8 +1,8 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "http://www.sile-typesetter.org/"
-  url "https://github.com/simoncozens/sile/releases/download/v0.9.3/sile-0.9.3.tar.bz2"
-  sha256 "30dfce5dca517280f3c41c34d52e7983080f880f22aca6ddca471d541a2d3f49"
+  url "https://github.com/simoncozens/sile/releases/download/v0.9.4/sile-0.9.4.tar.bz2"
+  sha256 "1c696679e5243d0448705db86227eec57a000846f02a964f882b7978c46954d5"
 
   head do
     url "https://github.com/simoncozens/sile.git"
@@ -17,8 +17,8 @@ class Sile < Formula
   depends_on "harfbuzz"
   depends_on "fontconfig"
   depends_on "libpng"
-  depends_on "freetype"
   depends_on "lua"
+  depends_on "icu4c"
 
   depends_on "lpeg" => :lua
   depends_on "luaexpat" => :lua
