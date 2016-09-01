@@ -10,8 +10,6 @@ class LcdfTypetools < Formula
     sha256 "07c5729e83fcfd149cacac02fd432f500e87cee4a645e15dd53677a3798eeeef" => :mavericks
   end
 
-  conflicts_with "open-mpi", :because => "both install same set of binaries."
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
