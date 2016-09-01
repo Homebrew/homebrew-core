@@ -16,6 +16,7 @@ class Peco < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GLIDE_HOME"] = buildpath/"glide_home"
     (buildpath/"src/github.com/peco/peco").install buildpath.children
     cd "src/github.com/peco/peco" do
       system "glide", "install"
