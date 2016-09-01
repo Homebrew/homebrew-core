@@ -19,9 +19,9 @@ class AdrTools < Formula
       s.gsub! "cmd=$(dirname $0)/adr-$1", "cmd=$adr_bin_dir/adr-$1"
     end
 
-    prefix.install Dir["src/*.md"]      # Places the base templates in `prefix`
-    prefix.install Dir["src/config.sh"] # Places the config in `prefix`
-    bin.install Dir["src/*"]            # Copies the rest of the commands to `prefix/bin`
+    prefix.install Dir["src/*.md"] # Places the base templates in `prefix`
+    prefix.install "src/config.sh" # Places the config in `prefix`
+    bin.install Dir["src/*"]       # Copies the rest of the commands to `prefix/bin`
   end
 
   test do
