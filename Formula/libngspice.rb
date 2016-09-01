@@ -19,22 +19,11 @@ class Libngspice < Formula
     patch :DATA
   end
 
-  option "without-cider", "Build without CIDER numerical device simulator"
-  option "without-xspice", "Build without XSPICE extensions"
-
   def install
     system "./autogen.sh" if build.head?
-
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --with-ngshared
-    ]
-    args << "--enable-cider" if build.with? "cider"
-    args << "--enable-xspice" if build.with? "xspice"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--disable-debug",
+      "--disable-dependency-tracking", "--with-ngshared", "--enable-cider",
+      "--enable-xspice"
     system "make", "install"
 
     # To avoid rerunning autogen.sh for stable builds, work around the
