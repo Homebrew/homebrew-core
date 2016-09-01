@@ -19,12 +19,13 @@ class AdrTools < Formula
       s.gsub! "cmd=$(dirname $0)/adr-$1", "cmd=$adr_bin_dir/adr-$1"
     end
 
-    prefix.install Dir["src/*.md"]
-    prefix.install Dir["src/config.sh"]
-    bin.install Dir["src/*"]
+    prefix.install Dir["src/*.md"]      # Places the base templates in `prefix`
+    prefix.install Dir["src/config.sh"] # Places the config in `prefix`
+    bin.install Dir["src/*"]            # Copies the rest of the commands to `prefix/bin`
   end
 
   test do
-    system "true"
+    assert_match(/Run 'adr help COMMAND' for help on a specific command./,
+                 pipe_output("#{bin}/adr help"))
   end
 end
