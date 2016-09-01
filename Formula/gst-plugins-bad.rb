@@ -42,6 +42,7 @@ class GstPluginsBad < Formula
   depends_on "schroedinger" => :optional
   depends_on "sound-touch" => :optional
   depends_on "srtp" => :optional
+  depends_on "libvo-aacenc" => :optional
 
   def install
     args = %W[
