@@ -21,7 +21,7 @@ class AdrTools < Formula
 
     prefix.install Dir["src/*.md"]
     prefix.install Dir["src/config.sh"]
-    bin.install Dir["src/*"] - Dir["src/*.md"] - Dir["src/config.sh"]
+    bin.install Dir["src/*"]
   end
 
   test do
