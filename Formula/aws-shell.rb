@@ -89,9 +89,9 @@ class AwsShell < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "27087f0726c934e16c3ece2e61aba839527c1ca12a9b34c2619635296b1ae38f" => :el_capitan
-    sha256 "cb59ba879e047933abedaf07776a3ce0df0ddcbdf9f6c081dc7df02a8074bd30" => :yosemite
-    sha256 "af0a15d42c5e6fb0476041bf56657cd841536dcd1feb42de5f5ca01272cdd81b" => :mavericks
+    sha256 "823b42cd34e333d78f304d31e6cfa943fc7516a3b5312a1f8db0c9588c4b5acb" => :el_capitan
+    sha256 "5959d47987ad840f984e7810bd16d7337c1b83a89b008c1f82a42bf08c60bc39" => :yosemite
+    sha256 "346a99f1f94562dfa2ee348d9b4a6c565dc643bf83498742e592e0606ad3fb98" => :mavericks
   end
 
   head do
