@@ -129,7 +129,7 @@ class Llvm < Formula
   option "without-lld", "Do not build LLD linker"
   option "with-lldb", "Build LLDB debugger"
   option "with-python", "Build bindings against custom Python"
-  option "without-rtti", "Build without C++ RTTI"
+  option "without-rtti", "Build without C++ RTTI or exception handling"
   option "without-utils", "Do not install utility binaries"
   option "without-polly", "Do not build Polly optimizer"
   option "with-test", "Build LLVM unit tests"
@@ -211,7 +211,6 @@ class Llvm < Formula
 
     args = %w[
       -DLLVM_OPTIMIZED_TABLEGEN=ON
-      -DLLVM_ENABLE_EH=ON
     ]
     args << "-DLLVM_TARGETS_TO_BUILD=#{build.with?("all-targets") ? "all" : "AMDGPU;ARM;NVPTX;X86"}"
     args << "-DLIBOMP_ARCH=x86_64"
@@ -229,7 +228,11 @@ class Llvm < Formula
       args << "-DLLVM_BUILD_TESTS=ON"
       args << "-DLLVM_ABI_BREAKING_CHECKS=WITH_ASSERTS"
     end
-    args << "-DLLVM_ENABLE_RTTI=ON" if build.with? "rtti"
+
+    if build.with? "rtti"
+      args << "-DLLVM_ENABLE_RTTI=ON"
+      args << "-DLLVM_ENABLE_EH=ON"
+    end
     args << "-DLLVM_INSTALL_UTILS=ON" if build.with? "utils"
     args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
 
