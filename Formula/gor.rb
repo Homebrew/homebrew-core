@@ -1,11 +1,9 @@
-require "language/go"
-
 class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://gortool.com"
   url "https://github.com/buger/gor.git",
-    :tag => "v0.15.0",
-    :revision => "ecd7e3a5e508886afd15ed670d72aac5dde9e370"
+    :tag => "v0.15.1",
+    :revision => "967c380dc3ca1a96c6cbabd6296b0656a6546016"
   head "https://github.com/buger/gor.git"
 
   bottle do
@@ -16,15 +14,10 @@ class Gor < Formula
   end
 
   depends_on "go" => :build
-  go_resource "github.com/google/gopacket" do
-    url "https://github.com/google/gopacket.git",
-      :revision => "b1af1fa2fcae43d2eef926f31c7acb1c93c6e24f"
-  end
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/buger/gor").install buildpath.children
-    Language::Go.stage_deps resources, buildpath/"src"
     cd "src/github.com/buger/gor" do
       system "go", "build", "-o", bin/"gor", "-ldflags", "-X main.VERSION=#{version}"
       prefix.install_metafiles
