@@ -29,6 +29,9 @@ class Weechat < Formula
   depends_on "curl" => :optional
 
   def install
+    # Get around res_init() errors on 10.11
+    ENV.append "LDFLAGS", "-lresolv"
+
     args = std_cmake_args
     if build.with? "debug"
       args -= %w[-DCMAKE_BUILD_TYPE=Release]
