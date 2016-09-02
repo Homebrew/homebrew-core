@@ -96,8 +96,10 @@ class Erlang < Formula
     end
 
     system "./configure", *args
+    # Install is not thread-safe; can try to create folder twice and fail
+    # Reported 8 Sep 2016 https://bugs.erlang.org/browse/ERL-250
+    ENV.deparallelize
     system "make"
-    ENV.j1 # Install is not thread-safe; can try to create folder twice and fail
     system "make", "install"
 
     if build.with? "docs"
