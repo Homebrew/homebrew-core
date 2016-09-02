@@ -1,9 +1,9 @@
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "http://wiki.qemu.org"
-  url "http://wiki.qemu-project.org/download/qemu-2.6.0.tar.bz2"
-  mirror "http://ftp.osuosl.org/pub/blfs/conglomeration/qemu/qemu-2.6.0.tar.bz2"
-  sha256 "c9ac4a651b273233d21b8bec32e30507cb9cce7900841febc330956a1a8434ec"
+  url "http://wiki.qemu-project.org/download/qemu-2.6.1.tar.bz2"
+  mirror "http://ftp.osuosl.org/pub/blfs/conglomeration/qemu/qemu-2.6.1.tar.bz2"
+  sha256 "4942fd1b6ee31f2f55ffc2201dd7397e6b9c55a2ef332e6d660c730d268e08d1"
 
   head "git://git.qemu-project.org/qemu.git"
 
@@ -66,7 +66,7 @@ class Qemu < Formula
   end
 
   test do
-    system "#{bin}/qemu-system-i386", "--version"
+    assert_match version.to_s, shell_output("#{bin}/qemu-system-i386 --version")
     resource("armtest").stage testpath
     assert_match "file format: raw", shell_output("#{bin}/qemu-img info arm_root.img")
   end
