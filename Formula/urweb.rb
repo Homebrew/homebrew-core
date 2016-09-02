@@ -1,13 +1,13 @@
 class Urweb < Formula
   desc "Ur/Web programming language"
   homepage "http://www.impredicative.com/ur/"
-  url "http://www.impredicative.com/ur/urweb-20160621.tgz"
-  sha256 "c5e487b11d44ab9945c04c305e644215282a60fcb2776d4939d79748a1497522"
+  url "http://www.impredicative.com/ur/urweb-20160805.tgz"
+  sha256 "e946f37bf390156e526d5e2198ad5c3497c6e52eb814f76ddd580d6315e25ca3"
 
   bottle do
-    sha256 "de2f38ae993329e757a3a595d4af95e13bea9c3502ebb25fb613df006dfa6a69" => :el_capitan
-    sha256 "f76d92fbe09cd5fefc6ebc2cdbe97b431c26d21a5a2eee331f0eea5cac283c81" => :yosemite
-    sha256 "71014e3a1755d68557ba8dfc2b7228dde65b00b40d505f24c000a61118f8991f" => :mavericks
+    sha256 "0bd4ed70d7d4c5ba6bf1e52a0ad15368cfb8f54a94ba886c6b9f87c3c5a238a9" => :el_capitan
+    sha256 "a5ec0848da0171407e7979eed6f7213b8f9e492ca215b595b59540bd2866a13a" => :yosemite
+    sha256 "7c53d5d03f727ea1a8cd9db4de7763f15f3efd0fc4f26ef493cca399516f64f9" => :mavericks
   end
 
   depends_on "autoconf" => :build

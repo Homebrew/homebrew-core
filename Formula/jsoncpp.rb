@@ -1,15 +1,15 @@
 class Jsoncpp < Formula
   desc "Library for interacting with JSON"
   homepage "https://github.com/open-source-parsers/jsoncpp"
-  url "https://github.com/open-source-parsers/jsoncpp/archive/1.7.4.tar.gz"
-  sha256 "10dcd0677e80727e572a1e462193e51a5fde3e023b99e144b2ee1a469835f769"
+  url "https://github.com/open-source-parsers/jsoncpp/archive/1.7.5.tar.gz"
+  sha256 "4338c6cab8af8dee6cdfd54e6218bd0533785f552c6162bb083f8dd28bf8fbbe"
   head "https://github.com/open-source-parsers/jsoncpp.git"
 
   bottle do
     cellar :any
-    sha256 "da2352b84b5685a648e30d99194c2601f151a1f2a668ab6d85498977c22971cf" => :el_capitan
-    sha256 "33ca9d623e31790bab4773a2169a5f30f9c2e2994fd2ec668ab37887d36f3f80" => :yosemite
-    sha256 "bdd8af9fc8a439b0a8d831174cd7f916233461cc295f0e5b9e0878e19a03b6af" => :mavericks
+    sha256 "550124ad1dc43daa44425c9ab06f50a83cc6c9845ec1f2d9d06cbb680fa3aa73" => :el_capitan
+    sha256 "6d021772ab9b0ff7590951ed26e83c6cbfe9839eb05b9753c476f07a6ff7ca8a" => :yosemite
+    sha256 "cb6297d83e2898ae496f98450a05cb1c29b25b3ca7a1e35dfbb95837758acb81" => :mavericks
   end
 
   option :universal

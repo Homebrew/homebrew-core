@@ -20,4 +20,8 @@ class OathToolkit < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    assert_equal "328482", shell_output("oathtool 00").chomp
+  end
 end

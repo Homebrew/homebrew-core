@@ -1,16 +1,16 @@
 class Re2 < Formula
   desc "Alternative to backtracking PCRE-style regular expression engines"
   homepage "https://github.com/google/re2"
-  url "https://github.com/google/re2/archive/2016-08-01.tar.gz"
-  version "20160801"
-  sha256 "7d0197f8da12da29220f8364c172785e26abb3210cd48264cc39c712fba8ee1a"
+  url "https://github.com/google/re2/archive/2016-09-01.tar.gz"
+  version "20160901"
+  sha256 "4f5833331c5d6e3bc0465984cff6f75ed9360e1ea1db670716161b98564cda2a"
   head "https://github.com/google/re2.git"
 
   bottle do
     cellar :any
-    sha256 "d8dcda697625fdb8f2c71aa60d7f37024158f7f5c7dc3f6a127f10f44d1b3968" => :el_capitan
-    sha256 "72ff8f36352deca47d2b35011244b385e02326fa492581703815f0d7eefb5d65" => :yosemite
-    sha256 "51aaca52a0dca8c8ce9127e6b21083f674538a47f65391f22aa63df30eafca23" => :mavericks
+    sha256 "e985cf93476de797b6c2dd643c141f35f2bfa800952c98ac56578939ae738fa4" => :el_capitan
+    sha256 "48a2b946c7646ef1ceeea4ffaf719fbd353626cf03a1012f356ad91506ff8c1f" => :yosemite
+    sha256 "b7652eee1b647fa5ddb68fbae9f34729ec0b0242c86ff28d1ab093822c782874" => :mavericks
   end
 
   needs :cxx11

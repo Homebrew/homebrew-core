@@ -6,6 +6,10 @@ class GstPluginsGood < Formula
     url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.8.3.tar.xz"
     sha256 "a1d6579ba203a7734927c24b90bf6590d846c5a5fcec01a48201018c8ad2827a"
 
+    # Fix build on Sierra. https://bugzilla.gnome.org/show_bug.cgi?id=770526
+    # Unlike upstream commit, don't touch Makefile.am.
+    patch :DATA
+
     depends_on "check" => :optional
   end
 
@@ -74,9 +78,7 @@ class GstPluginsGood < Formula
     # Upstream says it hasn't "been actively tested in a long time";
     # successor is glimagesink (in gst-plugins-bad).
     # https://bugzilla.gnome.org/show_bug.cgi?id=756918
-    # Also, it fails to build on macOS Sierra.
-    # https://bugzilla.gnome.org/show_bug.cgi?id=770526
-    if MacOS.version == :snow_leopard || MacOS.version == :sierra
+    if MacOS.version == :snow_leopard
       args << "--disable-osx_video"
     end
 
@@ -96,3 +98,29 @@ class GstPluginsGood < Formula
     assert_match version.to_s, output
   end
 end
+
+__END__
+diff --git a/sys/osxvideo/cocoawindow.h b/sys/osxvideo/cocoawindow.h
+index 9355d3c..816f1bb 100644
+--- a/sys/osxvideo/cocoawindow.h
++++ b/sys/osxvideo/cocoawindow.h
+@@ -27,7 +27,6 @@
+  */
+ 
+ #import <Cocoa/Cocoa.h>
+-#import <QuickTime/QuickTime.h>
+ #import <glib.h>
+ #import <gst/video/navigation.h>
+ 
+diff --git a/sys/osxvideo/osxvideosink.h b/sys/osxvideo/osxvideosink.h
+index 2bf5d25..d467b0e 100644
+--- a/sys/osxvideo/osxvideosink.h
++++ b/sys/osxvideo/osxvideosink.h
+@@ -35,7 +35,6 @@
+ #include <objc/runtime.h>
+ #include <Cocoa/Cocoa.h>
+ 
+-#include <QuickTime/QuickTime.h>
+ #import "cocoawindow.h"
+ 
+ GST_DEBUG_CATEGORY_EXTERN (gst_debug_osx_video_sink);

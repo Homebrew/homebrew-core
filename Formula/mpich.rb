@@ -12,6 +12,11 @@ class Mpich < Formula
     sha256 "571304993a32789b664cff83cfaced5b5b6b157ef52c3e9cc3fd723eee735361" => :mavericks
   end
 
+  devel do
+    url "https://www.mpich.org/static/downloads/3.3a1/mpich-3.3a1.tar.gz"
+    sha256 "0bb1c70e7b7d110fdb781e753b8995e48d3ff8667ee8f65738c375f3516bdcbf"
+  end
+
   head do
     url "git://git.mpich.org/mpich.git"
 

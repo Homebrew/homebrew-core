@@ -3,12 +3,13 @@ class Upscaledb < Formula
   homepage "https://upscaledb.com/"
   url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
   sha256 "7d0d1ace47847a0f95a9138637fcaaf78b897ef682053e405e2c0865ecfd253e"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "e895c09364de3873adaf0e9f83be26e15ff3794cf90a1f51a3cc8a154892bfa1" => :el_capitan
-    sha256 "8cb5f00f0685408c0d17044c4073357c90b0f458ca263e43e71b7a3d95938a24" => :yosemite
-    sha256 "f6da669995d949ae8f20200c09325296832ba1993ae2712f7111951a3017f740" => :mavericks
+    sha256 "d8322ce8813961401564433e3ed97cc72694070ed412671c211137786706163e" => :el_capitan
+    sha256 "329d234c158b8852ad313f64318d0d38a93f9ec327212cbbb051ac8ceb8ff692" => :yosemite
+    sha256 "19a22e621fc58be547b8fa3937f372155b8d4bd0c4ab7a3d9c5f6b8f1c302cfb" => :mavericks
   end
 
   head do
@@ -29,8 +30,8 @@ class Upscaledb < Formula
   depends_on "protobuf" if build.with? "remote"
 
   resource "libuv" do
-    url "https://github.com/libuv/libuv/archive/v0.10.36.tar.gz"
-    sha256 "421087044cab642f038c190f180d96d6a1157be89adb4630881930495b8f5228"
+    url "https://github.com/libuv/libuv/archive/v0.10.37.tar.gz"
+    sha256 "4c12bed4936dc16a20117adfc5bc18889fa73be8b6b083993862628469a1e931"
   end
 
   fails_with :clang do
