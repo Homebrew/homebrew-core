@@ -6,25 +6,8 @@ class CrystalLang < Formula
   head "https://github.com/crystal-lang/crystal.git"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.18.7.tar.gz"
-    sha256 "72b33fd4bd903a9f0957c74c2f95429e8c0f94c04df86396711b5560f540805d"
-
-    # LLVM 3.8 support patches begin.
-    patch do
-      url "https://github.com/crystal-lang/crystal/commit/53f1977c8c.patch"
-      sha256 "a89ba25a5e7469c225680a58e87d4342a2709477dce61215803d9422cf8d0860"
-    end
-
-    patch do
-      url "https://github.com/crystal-lang/crystal/commit/19ddb4c3a.patch"
-      sha256 "f98b92d9003d2fa69fe36e218329cc616198e4a6283ba81b7c27e84d9d4afac0"
-    end
-
-    patch do
-      url "https://github.com/crystal-lang/crystal/commit/63ca4950e4.patch"
-      sha256 "bb0cbb466673f7f04996326c875c8c7f9a0335e31a3bfab1576358fdf8a697f1"
-    end
-    # LLVM 3.8 support patches end.
+    url "https://github.com/crystal-lang/crystal/archive/0.19.0.tar.gz"
+    sha256 "4d7d9770891bd8bd835251e2654316412a3f44074db0adeca28357c0993eb2d8"
   end
 
   bottle do
@@ -44,14 +27,14 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.18.6/crystal-0.18.6-1-darwin-x86_64.tar.gz"
-    version "0.18.6"
-    sha256 "ce4e282edbf35542cee2cc95a1feb070612716200f142f712707c17cf4175c48"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.18.7/crystal-0.18.7-1-darwin-x86_64.tar.gz"
+    version "0.18.7"
+    sha256 "4b2806ff4f3073f2c13d9a3ca3700e2cbc0e4e4060a9af02f49e9c9131bc464e"
   end
 
   resource "shards" do
-    url "https://github.com/ysbaddaden/shards/archive/v0.6.3.tar.gz"
-    sha256 "5245aebb21af0a5682123732e4f4d476e7aa6910252fb3ffe4be60ee8df03ac2"
+    url "https://github.com/ysbaddaden/shards/archive/v0.6.4.tar.gz"
+    sha256 "5972f1b40bb3253319f564dee513229f82b0dcb8eea1502ae7dc483a9c6da5a0"
   end
 
   def install
