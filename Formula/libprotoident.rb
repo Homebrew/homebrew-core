@@ -1,8 +1,8 @@
 class Libprotoident < Formula
   desc "Performs application layer protocol identification for flows"
   homepage "http://research.wand.net.nz/software/libprotoident.php"
-  url "http://research.wand.net.nz/software/libprotoident/libprotoident-2.0.7.tar.gz"
-  sha256 "5063497274e546b01b0606c8906a292cbe1e2ba8d6f3b6cd25de16a91fef635e"
+  url "http://research.wand.net.nz/software/libprotoident/libprotoident-2.0.9.tar.gz"
+  sha256 "da8c68e6e792285346c5a5c9fa64d03536662c4a11b192fb05ea6cc013d1dfe6"
 
   bottle do
     cellar :any
@@ -12,8 +12,8 @@ class Libprotoident < Formula
     sha256 "7a9c3dfc6052466f4be61cca44996ef98654f9c40d7da26e3e96be4ae17730d3" => :mavericks
   end
 
+  depends_on "libtrace"
   depends_on "libflowmanager"
-  depends_on "libwandevent"
 
   def install
     system "./configure", "--disable-dependency-tracking",
