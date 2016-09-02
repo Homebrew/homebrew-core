@@ -68,7 +68,6 @@ class Pdns < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/pdns_server</string>
-        <string>--config-dir=/usr/local/etc/</string>
       </array>
       <key>EnvironmentVariables</key>
       <key>KeepAlive</key>
