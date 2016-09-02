@@ -9,8 +9,8 @@ class Bfg < Formula
   depends_on :java => "1.7+"
 
   def install
-    libexec.install "bfg-1.12.12.jar"
-    bin.write_jar_script libexec/"bfg-1.12.12.jar", "bfg"
+    libexec.install "bfg-1.12.13.jar"
+    bin.write_jar_script libexec/"bfg-1.12.13.jar", "bfg"
   end
 
   test do
