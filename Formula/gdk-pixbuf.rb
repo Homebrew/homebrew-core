@@ -84,7 +84,7 @@ class GdkPixbuf < Formula
     ENV["GDK_PIXBUF_MODULEDIR"] = module_dir
     system "#{bin}/gdk-pixbuf-query-loaders", "--update-cache"
     # Link newly created module_file into global gdk-pixbuf directory
-    system "ln", "-sf", module_file, "#{HOMEBREW_PREFIX}/lib/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/"
+    ln_sf module_file, "#{HOMEBREW_PREFIX}/lib/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/"
   end
 
   def caveats; <<-EOS.undent
