@@ -1,13 +1,13 @@
 class GtkGnutella < Formula
   desc "Share files in a peer-to-peer (P2P) network"
   homepage "http://gtk-gnutella.sourceforge.net/en/?page=news"
-  url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.1.9/gtk-gnutella-1.1.9.tar.bz2"
-  sha256 "3b2e913969834a57edd93d22733646037b2a141172d5d4a240f5d6a9f56b6aff"
+  url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.1.10/gtk-gnutella-1.1.10.tar.bz2"
+  sha256 "95e2a030124e7cc05e19e351eebc16f40f4520381b7bb306e8b940ed4e2e6409"
 
   bottle do
-    sha256 "39fc56e5cc07dab27ce43cbb2a76b739fce8dc77cf6b1b1ad11e43c8440fd3ee" => :el_capitan
-    sha256 "b27528d9c646f6fb7dcb41a18be6373869c1b01d759395a9500caabd817b84cf" => :yosemite
-    sha256 "a3eaf5073eec90b317502964b01dbf0a22d41b228045ca02714ccc24c59b9ccf" => :mavericks
+    sha256 "412d316f823e2dacdcd5165b7db70f2a308fa1d3fe849860acb264d2afbe8b27" => :el_capitan
+    sha256 "9177734b37dc0874f2b6cb8cb4839be9bce2545da8f8dcfe8719924ebcc365e5" => :yosemite
+    sha256 "227d5319c74e58b2bfdea1ba95ad768f7a4ef728c1bfbc8f9af728000c9c0d86" => :mavericks
   end
 
   depends_on "pkg-config" => :build
