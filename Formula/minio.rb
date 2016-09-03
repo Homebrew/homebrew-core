@@ -41,8 +41,13 @@ class Minio < Formula
     bin.install buildpath/"minio"
   end
 
-  def configdir() etc/"minio" end	  
-  def datadir() var/"minio" end
+  def configdir
+    etc/"minio"
+  end
+
+  def datadir
+    var/"minio"
+  end
 
   def post_install
     # Make sure the datadir exists
