@@ -21,6 +21,7 @@
   "bindfs": "homebrew/fuse",
   "bochs": "homebrew/x11",
   "boost149": "homebrew/versions",
+  "box2d": "homebrew/boneyard",
   "cantera": "homebrew/science",
   "cardpeek": "homebrew/gui",
   "catdoc": "homebrew/boneyard",
