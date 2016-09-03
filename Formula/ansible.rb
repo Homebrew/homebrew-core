@@ -536,5 +536,9 @@ class Ansible < Formula
     EOF
     (testpath/"hosts.ini").write "localhost ansible_connection=local\n"
     system bin/"ansible-playbook", testpath/"playbook.yml", "-i", testpath/"hosts.ini"
+
+    # Ensure requests[security] is activated
+    script = "import requests as r; r.get('https://mozilla-modern.badssl.com')"
+    system libexec/"bin/python", "-c", script
   end
 end
