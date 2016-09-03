@@ -3,12 +3,13 @@ class Tgui < Formula
   homepage "https://tgui.eu"
   url "https://github.com/texus/TGUI/archive/0.7.1.tar.gz"
   sha256 "48ad3ce56a11ec4e3fdc370597d05c2921833f8a0f4d6ed9fcc1a772a0cd9a1c"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "fe0fa45f51adddf54945fe8297f80a1aaa8ace18cc596eb944ceb706e63ef591" => :el_capitan
-    sha256 "cfa08d1293f85a7fa416a349da7aac6a901d0ba94ac5b381c19fb1fa79c67099" => :yosemite
-    sha256 "7bd2d0c3da652852bdfbb928a293a22b85e85f6de3718507150a62d81e3c558c" => :mavericks
+    sha256 "7f23b1539f15402f31a753e73227595c2022a46783bdd1f486263b7238e70ac0" => :el_capitan
+    sha256 "1a9bfb60a3766835e974a775a2e559c20a0b4231b5486f971235aea0aca37d67" => :yosemite
+    sha256 "0ebb747dc89fdd3a1e14e83fe7ff55a9b6025a33f09e30ebe73a5be040f43eeb" => :mavericks
   end
 
   depends_on "cmake" => :build
@@ -30,7 +31,7 @@ class Tgui < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-std=c++1y", "-I#{include}",
-      "-L#{lib}", "-L#{HOMEBREW_PREFIX}/lib",
+      "-L#{lib}", "-L#{Formula["sfml"].opt_lib}",
       "-ltgui", "-lsfml-graphics", "-lsfml-system", "-lsfml-window",
       "-o", "test"
     system "./test"

@@ -5,9 +5,10 @@ class Postgresql < Formula
   sha256 "cf5e571164ad66028ecd7dd8819e3765470d45bcd440d258b686be7e69c76ed0"
 
   bottle do
-    sha256 "35b58b633e8babf25c08b2c29763d4f90d29bbd3de02a599e6a190fc1f038c03" => :el_capitan
-    sha256 "0cdbe520b5519be1852d348c67a755bd7108e8b4ae659e07b65e7dc2c5ebe3d2" => :yosemite
-    sha256 "5ece29bc0919d1f67dde503c606f8a164d0f05ac02d9f1ae3777036db474bb27" => :mavericks
+    rebuild 1
+    sha256 "4817d42e9cad63ece2e612f3b8f16931b1cfcf014e024d1f23e87ac815721eed" => :el_capitan
+    sha256 "a1deb24ef12f78a8e95114542823eda19ecbab38db1c8d72dd383f5f91a0ec6f" => :yosemite
+    sha256 "8dea71ddee4c7c05f9a4321bf60dbfdc88df1c53c6c12031593855c928bc2c53" => :mavericks
   end
 
   devel do
@@ -104,6 +105,7 @@ class Postgresql < Formula
   end
 
   def post_install
+    (var/"log").mkpath
     (var/"postgres").mkpath
     unless File.exist? "#{var}/postgres/PG_VERSION"
       system "#{bin}/initdb", "#{var}/postgres"
@@ -142,15 +144,13 @@ class Postgresql < Formula
         <string>#{opt_bin}/postgres</string>
         <string>-D</string>
         <string>#{var}/postgres</string>
-        <string>-r</string>
-        <string>#{var}/postgres/server.log</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
       <key>WorkingDirectory</key>
       <string>#{HOMEBREW_PREFIX}</string>
       <key>StandardErrorPath</key>
-      <string>#{var}/postgres/server.log</string>
+      <string>#{var}/log/postgres.log</string>
     </dict>
     </plist>
     EOS

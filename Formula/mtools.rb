@@ -1,16 +1,15 @@
 class Mtools < Formula
   desc "Tools for manipulating MSDOS files"
   homepage "https://www.gnu.org/software/mtools/"
-  url "https://ftpmirror.gnu.org/mtools/mtools-4.0.17.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/mtools/mtools-4.0.17.tar.gz"
-  sha256 "8fff9d6a09c700ee0a65b45f2436b96acb32e3c551acb3ff04275d51534cf7da"
+  url "https://ftpmirror.gnu.org/mtools/mtools-4.0.18.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/mtools/mtools-4.0.18.tar.gz"
+  sha256 "30d408d039b4cedcd04fbf824c89b0ff85dcbb6f71f13d2d8d65abb3f58cacc3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7584a56e3ce2975cc91ef802c23763c67e0d34ce3239612471d546fdb20d2b88" => :el_capitan
-    sha256 "cac73cd7c693d22fc8472259f58d85c99f790950d3a7b30643af4541441d60e4" => :yosemite
-    sha256 "e3d237ea8239d815b8bd2ad5b3e0e0904e06b606d13d5c1f1a9c99ed4c2764d7" => :mavericks
-    sha256 "559d465879ac7d26d84522e4315447695354d9be98a5930cb05b27a8ecf9555a" => :mountain_lion
+    sha256 "5d0f845ba2f37a4f3a6c30522889d5ad574e1cede8884d1d38757fb9993a8c58" => :el_capitan
+    sha256 "fab1e3ca4c7446687ab6001bfee835f15c452bc2fe6278581ba6491f05b72ff5" => :yosemite
+    sha256 "2415b06b3cc473180cf59e0bd13a4b373ea38996afea75fc24a3f6d71f8bea38" => :mavericks
   end
 
   conflicts_with "multimarkdown", :because => "both install `mmd` binaries"
@@ -18,6 +17,14 @@ class Mtools < Formula
   depends_on :x11 => :optional
 
   def install
+    # Prevents errors such as "mainloop.c:89:15: error: expected ')'"
+    # Upstream issue https://lists.gnu.org/archive/html/info-mtools/2014-02/msg00000.html
+    if ENV.cc == "clang"
+      inreplace "sysincludes.h",
+        "#  define UNUSED(x) x __attribute__ ((unused));x",
+        "#  define UNUSED(x) x"
+    end
+
     args = %W[
       LIBS=-liconv
       --disable-debug

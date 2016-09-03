@@ -3,13 +3,13 @@ class Khard < Formula
 
   desc "Console carddav client."
   homepage "https://github.com/scheibler/khard/"
-  url "https://files.pythonhosted.org/packages/f6/2c/d3c4356cf1d6414b1b17bc2668a39896e07bf3e21364c2744751625ebf55/khard-0.11.1.tar.gz"
-  sha256 "9fb5ef1947efe832974b54cab0ba2cf9f9bfb650297ece6b2b6b54cbb9ab7853"
+  url "https://files.pythonhosted.org/packages/ad/a0/687c7f03b5e7b982e791c8b250eb24ed55b62b23461f9f7111c2ab938733/khard-0.11.2.tar.gz"
+  sha256 "d242e368c13bb5e5b9ee15450c2c752b4e64df203643be36504c155a46327a1d"
 
   bottle do
-    sha256 "2dd638e5ccc8dec9ff71a8403475f30933f54dc0f61b57e18c6c423329e43f04" => :el_capitan
-    sha256 "df0291b53a5179521fb6149785168e8ae3878b909ce7eaa635833199102fcb67" => :yosemite
-    sha256 "510ee2119f857d9e01281b0690df2f1bc53bbe229b8804be2a5c7fa38bd2168b" => :mavericks
+    sha256 "dbdf3c46ba9622f9a58dc76ed45f230d4c6b00b1dad43ec1eeb0774e18d9fb61" => :el_capitan
+    sha256 "7b5ca36c81f3199465963f58566497d96e368c47df20680139fff7c185ae3aeb" => :yosemite
+    sha256 "79044cc6fd180c89e03cd0ab837a3a101a853308c6fb80faca94d96e48d3425c" => :mavericks
   end
 
   depends_on :python3

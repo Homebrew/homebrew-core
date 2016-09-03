@@ -1,16 +1,15 @@
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "http://wiki.qemu.org"
-  url "http://wiki.qemu-project.org/download/qemu-2.6.1.tar.bz2"
-  mirror "http://ftp.osuosl.org/pub/blfs/conglomeration/qemu/qemu-2.6.1.tar.bz2"
-  sha256 "4942fd1b6ee31f2f55ffc2201dd7397e6b9c55a2ef332e6d660c730d268e08d1"
+  url "http://wiki.qemu-project.org/download/qemu-2.7.0.tar.bz2"
+  sha256 "326e739506ba690daf69fc17bd3913a6c313d9928d743bd8eddb82f403f81e53"
 
   head "git://git.qemu-project.org/qemu.git"
 
   bottle do
-    sha256 "e3802bf39c41adfdc58e877d25fecda661cd5737873c86aeb3037243be2b0bf5" => :el_capitan
-    sha256 "6b0fb1d54be15893b8118846e77da2a67332c16d4522d6b68262fc022a13b356" => :yosemite
-    sha256 "cd32e67207fa57fe7d378b916a71363c68b0473a2a3c53effd353d673376c43d" => :mavericks
+    sha256 "ee10bda4f0f8fd9e3fda7747e239b3a736bb409b683392b61936a6fd7484874d" => :el_capitan
+    sha256 "2cba8f0c87c9e18fe4dcf1f7cce3ab6b386e94fbe4c966081f5353689b667ccb" => :yosemite
+    sha256 "f58b50c5106fa15e8792410b14e0c7f675358cde30c2340fc2da86b64bb3e921" => :mavericks
   end
 
   depends_on "pkg-config" => :build
