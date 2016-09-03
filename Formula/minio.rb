@@ -41,6 +41,43 @@ class Minio < Formula
     bin.install buildpath/"minio"
   end
 
+  def configdir() etc/"minio" end	  
+  def datadir() var/"minio" end
+
+  def post_install
+    # Make sure the datadir exists
+    datadir.mkpath
+    configdir.mkpath
+  end
+
+  plist_options :manual => "minio server"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+   <plist version="1.0">
+    <dict>
+      <key>KeepAlive</key>
+      <true/>
+      <key>Label</key>
+      <string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{opt_bin}/minio</string>
+        <string>server</string>
+        <string>--config-dir=#{configdir}</string>
+        <string>--address ":9000"</string>
+        <string>#{datadir}</string>
+      </array>
+      <key>RunAtLoad</key>
+      <true/>
+      <key>WorkingDirectory</key>
+      <string>#{datadir}</string>
+    </dict>
+    </plist>
+    EOS
+  end
+
   test do
     system "#{bin}/minio", "version"
   end
