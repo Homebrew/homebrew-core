@@ -3,8 +3,8 @@ class Subliminal < Formula
 
   desc "Library to search and download subtitles"
   homepage "https://subliminal.readthedocs.org"
-  url "https://files.pythonhosted.org/packages/73/6b/67915e2d78fc4fa254667a80b65cf49b8a4e46c033bd65062a4cfd451fc8/subliminal-2.0.4.tar.gz"
-  sha256 "abcfb2e1692c4b336dafb65c87f5f6d94ce3928f228dadb9d9847e9e2c51bd60"
+  url "https://files.pythonhosted.org/packages/f0/84/8cddb13aa4142e85546cd7c0d0546d2c1a25f0876000a3ec37151dfd8eb9/subliminal-2.0.5.tar.gz"
+  sha256 "147aa54f54de62d6fcafa213bb9ea89319600c133dab1a5532ff7126352bfbb7"
   head "https://github.com/Diaoul/subliminal.git"
 
   bottle do
@@ -112,8 +112,8 @@ class Subliminal < Formula
 
   test do
     (testpath/".config").mkpath
-    system "#{bin}/subliminal", "download", "-l", "en",
-           "The.Big.Bang.Theory.S05E18.HDTV.x264-LOL.mp4"
+    system bin/"subliminal", "download", "-l", "en",
+               "The.Big.Bang.Theory.S05E18.HDTV.x264-LOL.mp4"
     assert File.exist?("The.Big.Bang.Theory.S05E18.HDTV.x264-LOL.en.srt")
   end
 end
