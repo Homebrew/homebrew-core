@@ -1,8 +1,10 @@
 class Lftp < Formula
   desc "Sophisticated file transfer program"
   homepage "https://lftp.yar.ru/"
-  url "https://lftp.yar.ru/ftp/lftp-4.6.5.tar.xz"
-  sha256 "1fd0920a1791ce0e9e39ffce77ae6619e5dc665f16e9380bafbfc69411eeb71e"
+  # Can't get 4.7.x to build on OS X/macOS. Pull requests welcome!
+  # https://github.com/Homebrew/homebrew-core/pull/1509
+  url "https://lftp.yar.ru/ftp/lftp-4.6.6.tar.xz"
+  sha256 "d6215e9bff744f29383fb11c61262b7545b2b5a551e1011e85f428669506d05c"
 
   bottle do
     sha256 "f341d62601963f968e46907f88e1e96d21154deb2b60d97bd3bac27a37816575" => :el_capitan
@@ -22,6 +24,6 @@ class Lftp < Formula
   end
 
   test do
-    system "#{bin}/lftp", "-c", "open ftp://mirrors.kernel.org; ls"
+    system bin/"lftp", "-c", "open ftp://mirrors.kernel.org; ls"
   end
 end
