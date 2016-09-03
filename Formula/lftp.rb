@@ -7,9 +7,9 @@ class Lftp < Formula
   sha256 "d6215e9bff744f29383fb11c61262b7545b2b5a551e1011e85f428669506d05c"
 
   bottle do
-    sha256 "f341d62601963f968e46907f88e1e96d21154deb2b60d97bd3bac27a37816575" => :el_capitan
-    sha256 "182979ca79b7ea9d9e70e9fefab990d5d238da709ce0e17edf5ec7166b976fb1" => :yosemite
-    sha256 "dc44f63a8f1767af2b4ed2008c199377eabd117339f01ee17bb73aa844cf3dee" => :mavericks
+    sha256 "3ccbe19f080a4b4956a2f4e56a2c9d1faa49a58801765e20bc0dd494a6cfa6af" => :el_capitan
+    sha256 "df2056435819a12a1c49f5402e49ab1d3ad3da4de8d751f788d0f6844d4ac63b" => :yosemite
+    sha256 "586dddd1efa0af036d051f9105e1c3ae838c198ced3b572f5c9e14d349fbbcd0" => :mavericks
   end
 
   depends_on "pkg-config" => :build
