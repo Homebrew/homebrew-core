@@ -6,10 +6,9 @@ class Mawk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "140cb2b2b1054fa25390ebe43e26de53482be5587a401b9137b2a7d1011a6281" => :el_capitan
-    sha256 "d513669dc87cf81fc1526d1784191f613837b871bde25e2a3eaaa0b7f0d991ad" => :yosemite
-    sha256 "e116bc17922da25b037f2b5cf15f93cf0f8f535efe5fc3435cf337af10f553e7" => :mavericks
-    sha256 "3d38eee059da9baa8aa70feb54b9e1eeaff8023b80bea0dfcd482039ee971476" => :mountain_lion
+    sha256 "a4d717ff92ddbddbd1dd85a817d84309466e620ca3c7a13279eaaf8a81700909" => :el_capitan
+    sha256 "8e5157976cb4dfdd2da2ffb3a7367a881fe95967fe33d36e7489ed4a933e0a84" => :yosemite
+    sha256 "ee73fb357d5cdc4c3f1e01c91f3efd2bf0397f6b00e3e265a1cb565f6d251256" => :mavericks
   end
 
   def install
