@@ -1,8 +1,8 @@
 class Mawk < Formula
   desc "Interpreter for the AWK Programming Language"
   homepage "http://invisible-island.net/mawk/"
-  url "ftp://invisible-island.net/mawk/mawk-1.3.4-20141027.tgz"
-  sha256 "a88f50c1a0800ae6d2cedb0672b15bd32cc57e482715ca7c1471fb398e89767a"
+  url "ftp://invisible-island.net/mawk/mawk-1.3.4-20160615.tgz"
+  sha256 "230a2a2c707e184eb7e56681b993862ab0c4ed2165a893df4e96fac61e7813ac"
 
   bottle do
     cellar :any_skip_relocation
