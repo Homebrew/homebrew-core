@@ -1,7 +1,7 @@
 class GstPluginsBad < Formula
   desc "GStreamer plugins less supported, not fully tested"
   homepage "https://gstreamer.freedesktop.org/"
-  revision 1
+  revision 2
 
   stable do
     url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.8.3.tar.xz"
@@ -31,6 +31,7 @@ class GstPluginsBad < Formula
   depends_on "gst-plugins-base"
   depends_on "openssl"
 
+  depends_on "jpeg" => :recommended
   depends_on "orc" => :recommended
   depends_on "dirac" => :optional
   depends_on "faac" => :optional
