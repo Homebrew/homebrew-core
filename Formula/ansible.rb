@@ -1,4 +1,6 @@
 class Ansible < Formula
+  include Language::Python::Virtualenv
+
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.1.1.0.tar.gz"
@@ -21,11 +23,6 @@ class Ansible < Formula
   #
   # ansible (core dependencies)
   #
-  resource "setuptools" do
-    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-20.8.1.tar.gz"
-    sha256 "f49be4963e2d985bf12768f46cbfe4b016787f2c0ed1f8f62c3d2bc0362586da"
-  end
-
   resource "Jinja2" do
     url "https://pypi.python.org/packages/source/J/Jinja2/Jinja2-2.8.tar.gz"
     sha256 "bc1ff2ff88dbfacefde4ddde471d1417d3b304e8df103a7a9437d47269201bf4"
@@ -225,6 +222,12 @@ class Ansible < Formula
     sha256 "12dff9afa9c6cd6e2a39960d3cd4b46b2b98768cdc6646833c66b20799c1c58e"
   end
 
+  # setup_requires for debtcollector
+  resource "pytz" do
+    url "https://pypi.python.org/packages/source/p/pytz/pytz-2016.3.tar.bz2"
+    sha256 "c193dfa167ac32c8cb96f26cbcd92972591b22bda0bac3effdbdb04de6cc55d6"
+  end
+
   resource "debtcollector" do
     url "https://pypi.python.org/packages/source/d/debtcollector/debtcollector-1.3.0.tar.gz"
     sha256 "9a65cf09239eab75b961ef609b3176ed2487bedcfa0a465331661824e1c8db8f"
@@ -349,11 +352,6 @@ class Ansible < Formula
   resource "python-novaclient" do
     url "https://pypi.python.org/packages/source/p/python-novaclient/python-novaclient-2.27.0.tar.gz"
     sha256 "d1279d5c2857cf8c56cb953639b36225bc1fec7fa30ee632940823506a7638ef"
-  end
-
-  resource "pytz" do
-    url "https://pypi.python.org/packages/source/p/pytz/pytz-2016.3.tar.bz2"
-    sha256 "c193dfa167ac32c8cb96f26cbcd92972591b22bda0bac3effdbdb04de6cc55d6"
   end
 
   resource "rackspace-auth-openstack" do
@@ -559,39 +557,15 @@ class Ansible < Formula
   end
 
   def install
-    vendor_site_packages = libexec/"vendor/lib/python2.7/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
-    ENV.delete "SDKROOT"
-
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    # ndg is a namespace package
-    touch vendor_site_packages/"ndg/__init__.py"
-
     inreplace "lib/ansible/constants.py" do |s|
       s.gsub! "/usr/share/ansible", pkgshare
       s.gsub! "/etc/ansible", etc/"ansible"
     end
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
+    virtualenv_install_with_resources
     man1.install Dir["docs/man/man1/*.1"]
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
-  def caveats; <<-EOS.undent
-    Homebrew writes wrapper scripts that set PYTHONPATH in ansible's
-    execution environment, which is inherited by Python scripts invoked
-    by ansible. If this causes problems, you can modify your playbooks
-    to invoke python with -E, which causes python to ignore PYTHONPATH.
-    EOS
-  end
 
   test do
     ENV["ANSIBLE_REMOTE_TEMP"] = testpath/"tmp"
