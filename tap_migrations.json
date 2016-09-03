@@ -98,6 +98,7 @@
   "git-encrypt": "homebrew/boneyard",
   "git-flow-clone": "homebrew/boneyard",
   "git-latexdiff": "homebrew/tex",
+  "git-stree": "homebrew/boneyard",
   "gitfs": "homebrew/fuse",
   "gle": "homebrew/x11",
   "gnunet": "homebrew/boneyard",
