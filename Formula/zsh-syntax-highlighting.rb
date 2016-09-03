@@ -4,7 +4,6 @@ class ZshSyntaxHighlighting < Formula
   url "https://github.com/zsh-users/zsh-syntax-highlighting.git",
     :tag => "0.4.1",
     :revision => "c19ee583138ebab416b0d2efafbad7dc9f3f7c4f"
-  sha256 "971b9c1e881a8d60442e40003c9e4c98bd1d5243a32fdf386a217c4cd7815197"
   head "https://github.com/zsh-users/zsh-syntax-highlighting.git"
 
   bottle do
