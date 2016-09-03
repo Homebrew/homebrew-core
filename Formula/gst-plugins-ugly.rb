@@ -3,6 +3,7 @@ class GstPluginsUgly < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.8.3.tar.xz"
   sha256 "6fa2599fdd072d31fbaf50c34af406e2be944a010b1f4eab67a5fe32a0310693"
+  revision 1
 
   bottle do
     sha256 "b6ecf35ea61cac83275d43f10479459a4b2679aae4f09a52579c65001a39cf98" => :el_capitan
@@ -24,9 +25,9 @@ class GstPluginsUgly < Formula
 
   # The set of optional dependencies is based on the intersection of
   # gst-plugins-ugly-0.10.17/REQUIREMENTS and Homebrew formulae
+  depends_on "jpeg" => :recommended
   depends_on "dirac" => :optional
   depends_on "mad" => :optional
-  depends_on "jpeg" => :optional
   depends_on "libvorbis" => :optional
   depends_on "cdparanoia" => :optional
   depends_on "lame" => :optional
