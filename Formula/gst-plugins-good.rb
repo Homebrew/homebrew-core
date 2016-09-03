@@ -1,6 +1,7 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
+  revision 1
 
   stable do
     url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.8.3.tar.xz"
@@ -38,12 +39,12 @@ class GstPluginsGood < Formula
   # Dependencies based on the intersection of
   # https://cgit.freedesktop.org/gstreamer/gst-plugins-good/tree/REQUIREMENTS
   # and Homebrew formulae.
+  depends_on "jpeg" => :recommended
   depends_on "orc" => :recommended
   depends_on "gdk-pixbuf" => :optional
   depends_on "aalib" => :optional
   depends_on "cairo" => :optional
   depends_on "flac" => [:optional, "with-libogg"]
-  depends_on "jpeg" => :optional
   depends_on "libcaca" => :optional
   depends_on "libdv" => :optional
   depends_on "libpng" => :optional
