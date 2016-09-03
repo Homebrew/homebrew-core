@@ -5,6 +5,11 @@ class Folly < Formula
   sha256 "f4ebc1dead0aec769fc220baa95a18486ccf92e9b3b0d6d05480097ae640405b"
   head "https://github.com/facebook/folly.git"
 
+  bottle do
+    cellar :any
+    sha256 "e8a14cfcf03117a3756c91b791bf982c1ba3b98e942a22846f694b5432ddb187" => :el_capitan
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
