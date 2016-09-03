@@ -3,17 +3,22 @@ class Valabind < Formula
   homepage "http://radare.org/"
   url "http://www.radare.org/get/valabind-0.10.0.tar.gz"
   sha256 "35517455b4869138328513aa24518b46debca67cf969f227336af264b8811c19"
-  revision 1
+  revision 2
 
   head "https://github.com/radare/valabind.git"
 
-  bottle do
-    cellar :any
-    sha256 "41b55e5323f21bf0c8482d1a38bf71c06e1cf27728f157fa4a918a1895d47749" => :el_capitan
-    sha256 "758b949e314db82f2a1d66d22ff05628733a816913ad7baeaed44158e18372a0" => :yosemite
-    sha256 "92a9c255be4f890f40db24b26e261c1df320cd74dbada405d2cd2fc2ac177078" => :mavericks
+  # Fixes incompatibility with BSD sed in valabind 0.10.0.
+  patch do
+    url "https://github.com/radare/valabind/pull/38.patch"
+    sha256 "ed3573e43799e6635b951d68062c39947383afbf4f2bac2613a21e871b537100"
   end
 
+  bottle do
+    cellar :any
+  end
+
+  depends_on "gettext" => :linked
+  depends_on "glib" => :linked
   depends_on "pkg-config" => :build
   depends_on "swig" => :run
   depends_on "vala"
