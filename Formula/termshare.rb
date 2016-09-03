@@ -17,12 +17,10 @@ class Termshare < Formula
   end
 
   depends_on "go" => :build
-  depends_on :hg => :build
 
-  go_resource "code.google.com/p/go.net" do
-    url "https://code.google.com/p/go.net",
-    :using => :hg,
-    :revision => "937a34c9de13"
+  go_resource "golang.org/x/net" do
+    url "https://go.googlesource.com/net.git",
+    :revision => "7553b97266dcbbf78298bd1a2b12d9c9aaae5f40"
   end
 
   go_resource "github.com/heroku/hk" do
@@ -42,18 +40,20 @@ class Termshare < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-
     path = buildpath/"src/github.com/progrium/termshare"
     path.install Dir["*"]
     Language::Go.stage_deps resources, buildpath/"src"
 
     cd path do
-      system "go", "build", "-o", "termshare"
-      bin.install "termshare"
+      # https://github.com/progrium/termshare/issues/9
+      inreplace "termshare.go", "code.google.com/p/go.net/websocket",
+                                "golang.org/x/net/websocket"
+      system "go", "build", "-o", bin/"termshare"
+      prefix.install_metafiles
     end
   end
 
   test do
-    system "#{bin}/termshare", "-v"
+    assert_match version.to_s, shell_output("#{bin}/termshare -v")
   end
 end
