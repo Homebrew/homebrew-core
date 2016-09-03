@@ -1,6 +1,8 @@
 class Mailhog < Formula
   desc "Web and API based SMTP testing tool"
   homepage "https://github.com/mailhog/MailHog"
+  revision 1
+
   head "https://github.com/mailhog/MailHog.git"
 
   stable do
