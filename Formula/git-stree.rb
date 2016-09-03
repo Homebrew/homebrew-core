@@ -1,9 +1,9 @@
 class GitStree < Formula
   desc "Git subtree helper command"
   homepage "https://github.com/tdd/git-stree"
-  head "https://github.com/tdd/git-stree.git"
   url "https://github.com/tdd/git-stree/archive/0.4.5.tar.gz"
   sha256 "5504ac90871c73c92c21f5cd84b0bf956c521b237749e2b2dd699dbe0c096af8"
+  head "https://github.com/tdd/git-stree.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,6 +16,14 @@ class GitStree < Formula
   def install
     bin.install "git-stree"
     bash_completion.install "git-stree-completion.bash" => "git-stree"
+  end
+
+  def caveats; <<-EOS.undent
+    THIS PROJECT IS DEPRECATED
+
+      Maintenance of git stree has stopped in favor of another third-party project: `git-subrepo`.
+      Please check the homepage for more information.
+    EOS
   end
 
   test do
