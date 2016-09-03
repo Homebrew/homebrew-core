@@ -4,8 +4,8 @@ class Acmetool < Formula
   desc "Automatic certificate acquisition tool for ACME (Let's Encrypt)"
   homepage "https://github.com/hlandau/acme"
   url "https://github.com/hlandau/acme.git",
-      :tag => "v0.0.57",
-      :revision => "3463e55a6b4c5f91b08fc909091184159a9f1679"
+      :tag => "v0.0.58",
+      :revision => "a4d55ea51a8782633d7ca477d24c5da9a5c6147b"
 
   bottle do
     sha256 "98d9ee797583ffaf9930271449e7477b9b2d270930268b0e97a6888de278f008" => :el_capitan
@@ -27,7 +27,7 @@ class Acmetool < Formula
 
   go_resource "github.com/coreos/go-systemd" do
     url "https://github.com/coreos/go-systemd.git",
-        :revision => "fa8411dcbcbad22b8542b0433914ef68b123f989"
+        :revision => "43e4800a6165b4e02bb2a36673c54b230d6f7b26"
   end
 
   go_resource "github.com/hlandau/buildinfo" do
@@ -37,7 +37,7 @@ class Acmetool < Formula
 
   go_resource "github.com/hlandau/dexlogconfig" do
     url "https://github.com/hlandau/dexlogconfig.git",
-        :revision => "6a5c36427a2898a4dfd91e2913804b58e5efe2bc"
+        :revision => "055e2e35f21ef605ada9e9af4e36597678678bf1"
   end
 
   go_resource "github.com/hlandau/goutils" do
@@ -62,7 +62,7 @@ class Acmetool < Formula
 
   go_resource "github.com/mattn/go-isatty" do
     url "https://github.com/mattn/go-isatty.git",
-        :revision => "56b76bdf51f7708750eac80fa38b952bb9f32639"
+        :revision => "66b8e73f3f5cda9f96b69efd03dd3d7fc4a5cdb8"
   end
 
   go_resource "github.com/mitchellh/go-wordwrap" do
@@ -92,17 +92,17 @@ class Acmetool < Formula
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "7a1054f3ac58191481dc500077c6b060f5d6c7e5"
+        :revision => "9e590154d2353f3f5e1b24da7275686040dcf491"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "7c62cfdcccc65f87b0120ec841012ba816fc1aec"
+        :revision => "1358eff22f0dd0c54fc521042cc607f6ff4b531a"
   end
 
   go_resource "gopkg.in/alecthomas/kingpin.v2" do
     url "https://gopkg.in/alecthomas/kingpin.v2.git",
-        :revision => "e5900212cbf65b181d3d8e08308ef06a01d117cf"
+        :revision => "e9044be3ab2a8e11d4e1f418d12f0790d57e8d70"
   end
 
   go_resource "gopkg.in/cheggaaa/pb.v1" do
@@ -127,17 +127,17 @@ class Acmetool < Formula
 
   go_resource "gopkg.in/hlandau/svcutils.v1" do
     url "https://gopkg.in/hlandau/svcutils.v1.git",
-        :revision => "09c5458e23bda3b8e4d925fd587bd44fbdb5950e"
+        :revision => "88dbd6d288dcde4c17ea6048d9f3da23f263571c"
   end
 
   go_resource "gopkg.in/square/go-jose.v1" do
     url "https://gopkg.in/square/go-jose.v1.git",
-        :revision => "e3f973b66b91445ec816dd7411ad1b6495a5a2fc"
+        :revision => "139276ceb5afbf13e636c44e9382f0ca75c12ba3"
   end
 
   go_resource "gopkg.in/tylerb/graceful.v1" do
     url "https://gopkg.in/tylerb/graceful.v1.git",
-        :revision => "c838c13b2beeea4f4f54496da96a3a6ae567c37a"
+        :revision => "50a48b6e73fcc75b45e22c05b79629a67c79e938"
   end
 
   go_resource "gopkg.in/yaml.v2" do
@@ -152,7 +152,7 @@ class Acmetool < Formula
     ln_sf buildpath, buildpath/"src/github.com/hlandau/acme"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    cd "src/github.com/hlandau/acme/cmd/acmetool" do
+    cd "cmd/acmetool" do
       # https://github.com/hlandau/acme/blob/master/_doc/PACKAGING-PATHS.md
       ldflags = %W[
         -X github.com/hlandau/acme/storage.RecommendedPath=#{var}/lib/acmetool
