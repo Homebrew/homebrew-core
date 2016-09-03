@@ -5,7 +5,6 @@ class Folly < Formula
   sha256 "f4ebc1dead0aec769fc220baa95a18486ccf92e9b3b0d6d05480097ae640405b"
   head "https://github.com/facebook/folly.git"
 
-  depends_on :macos => :mavericks
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -20,6 +19,9 @@ class Folly < Formula
   depends_on "lz4"
   depends_on "jemalloc"
   depends_on "openssl"
+
+  # https://github.com/facebook/folly/issues/451
+  depends_on :macos => :el_capitan
 
   needs :cxx11
 
