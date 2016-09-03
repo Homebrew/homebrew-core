@@ -1,7 +1,7 @@
 class ZshSyntaxHighlighting < Formula
   desc "Fish shell like syntax highlighting for zsh"
   homepage "https://github.com/zsh-users/zsh-syntax-highlighting"
-  url "https://github.com/zsh-users/zsh-syntax-highlighting/archive/0.4.1.tar.gz"
+  url "https://github.com/zsh-users/zsh-syntax-highlighting.git", tag: "0.4.1"
   sha256 "971b9c1e881a8d60442e40003c9e4c98bd1d5243a32fdf386a217c4cd7815197"
   head "https://github.com/zsh-users/zsh-syntax-highlighting.git"
 
@@ -13,14 +13,6 @@ class ZshSyntaxHighlighting < Formula
   end
 
   def install
-    inreplace "Makefile" do |s|
-      # Fix for `brew install --git zsh-syntax-highlighting`.
-      # Without this, the git repository with no HEAD would cause
-      # `git rev-parse` to fail and abort the installation.
-      s.gsub! "git rev-parse HEAD",
-        "git rev-parse --verify HEAD 2> /dev/null || cat .revision-hash"
-    end
-
     system "make", "install", "PREFIX=#{prefix}"
   end
 
