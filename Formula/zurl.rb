@@ -1,8 +1,8 @@
 class Zurl < Formula
   desc "HTTP and WebSocket client worker with ZeroMQ interface"
   homepage "https://github.com/fanout/zurl"
-  url "https://dl.bintray.com/fanout/source/zurl-1.5.1.tar.bz2"
-  sha256 "945fccc160ea655249e7dd3706a5db096bab6d1d08fc6e290e53a9635f07c7d4"
+  url "https://dl.bintray.com/fanout/source/zurl-1.6.0.tar.bz2"
+  sha256 "eb30ff825f407311357b1ffb3ea220957fa932b3d61d2937f3e334e4ea346dd5"
 
   bottle do
     cellar :any
@@ -21,9 +21,17 @@ class Zurl < Formula
     sha256 "2dafa322670a94e20283aba2a44b92134d425bd326419b68ad4db8d0831a26ec"
   end
 
+  stable do
+    patch do
+      url "https://github.com/fanout/zurl/commit/de3c0f27cc30e9815f2f28160578a2928118ffd0.diff"
+      sha256 "a6930cdc5e399867a1abb53efd2857249f7ae7f801e7ab1106c63667e6f56fa6"
+    end
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}", "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     system "make"
+    system "make", "check"
     system "make", "install"
   end
 
