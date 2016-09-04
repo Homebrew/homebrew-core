@@ -32,7 +32,7 @@ class Collectd < Formula
   depends_on "pkg-config" => :build
   depends_on "protobuf-c" => :optional
   depends_on :java => :optional
-  depends_on "openssl"
+  depends_on "net-snmp"
 
   fails_with :clang do
     build 318
