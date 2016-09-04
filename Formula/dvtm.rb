@@ -10,9 +10,11 @@ class Dvtm < Formula
     sha256 "3707849011fc54151fa110c66578ea3ad33d9cb6047d59ee10dc0e3a217ee0b4" => :yosemite
     sha256 "88bffcbc907f9ffa900331acf5f994af07f5c1787c328ac56c72935813f57b92" => :mavericks
   end
-
-  # https://github.com/martanne/dvtm/issues/19
-  depends_on MaximumMacOSRequirement => :yosemite
+  
+  patch do
+    url "https://raw.githubusercontent.com/pvtmert/formula-patches/master/dvtm/patch-vt.h-compat.patch"
+    sha256 "98565ce8f6b010ce88a2bc032155aca8d860e68e5a642253e49c4d77b7f68543"
+  end
 
   def install
     ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
