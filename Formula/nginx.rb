@@ -43,6 +43,10 @@ class Nginx < Formula
     openssl = Formula["openssl"]
     libressl = Formula["libressl"]
 
+    if build.head?
+      openssl = Formula["openssl@1.1"]
+    end
+
     if build.with? "libressl"
       cc_opt = "-I#{pcre.include} -I#{libressl.include}"
       ld_opt = "-L#{pcre.lib} -L#{libressl.lib}"
