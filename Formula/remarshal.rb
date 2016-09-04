@@ -9,10 +9,9 @@ class Remarshal < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "563123bd9e48d5a4538ac9ddae982cf7de3d21a1ba1115924cd2abac9d89918b" => :el_capitan
-    sha256 "bf5b2278463be82a2a80469d35227bebbd84afb3df0c8347b85f28ab549df880" => :yosemite
-    sha256 "bcdb49a223f602545591b3fd71014d4ecaa81d3032f1e046df71194672375072" => :mavericks
-    sha256 "090b55a57566e88c45bd0d85adcf3eaad853a3d9603fcece459357f1ae163880" => :mountain_lion
+    sha256 "18bdb665c453752f578f9cabcf147395f2e8ac3665a4180ea5670d7f674bc8bb" => :el_capitan
+    sha256 "7e40d76cbb74f12dc6e38c7465e02c30962ca60dd32c97443f0e669501ea10b1" => :yosemite
+    sha256 "7441f7b5f5b2fd8d6eccd1316039110f65b6cd9e37c191bdb8566c3af16f2641" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
