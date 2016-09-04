@@ -1,8 +1,8 @@
 class Dtach < Formula
   desc "Emulates the detach feature of screen"
   homepage "http://dtach.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/dtach/dtach/0.8/dtach-0.8.tar.gz"
-  sha256 "16614ebddf8ab2811d3dc0e7f329c7de88929ac6a9632d4cb4aef7fe11b8f2a9"
+  url "https://downloads.sourceforge.net/project/dtach/dtach/0.9/dtach-0.9.tar.gz"
+  sha256 "32e9fd6923c553c443fab4ec9c1f95d83fa47b771e6e1dafb018c567291492f3"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,5 +21,9 @@ class Dtach < Formula
     system "make"
     bin.install "dtach"
     man1.install gzip("dtach.1")
+  end
+
+  test do
+    system bin/"dtach", "--help"
   end
 end
