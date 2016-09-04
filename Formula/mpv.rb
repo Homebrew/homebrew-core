@@ -14,6 +14,7 @@ class Mpv < Formula
   option "with-bundle", "Enable compilation of the .app bundle."
 
   depends_on "pkg-config" => :build
+  depends_on "docutils" => :build
   depends_on :python3
 
   depends_on "libass"
@@ -41,25 +42,11 @@ class Mpv < Formula
     sha256 "7abb4fbe61d12b8ef6a3163653536da7ee31709299d8f17400d71a43247cea81"
   end
 
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/37/38/ceda70135b9144d84884ae2fc5886c6baac4edea39550f28bcd144c1234d/docutils-0.12.tar.gz"
-    sha256 "c7db717810ab6965f66c8cf0398a98c9d8df982da39b4cd7f162911eb89596fa"
-  end
-
   def install
     # LANG is unset by default on osx and causes issues when calling getlocale
     # or getdefaultlocale in docutils. Force the default c/posix locale since
     # that's good enough for building the manpage.
     ENV["LC_ALL"] = "C"
-
-    version = Language::Python.major_minor_version("python3")
-    ENV.prepend_create_path "PKG_CONFIG_PATH", Pathname.new(`python3-config --prefix`.chomp)/"lib/pkgconfig"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{version}/site-packages"
-    ENV.prepend_create_path "PATH", libexec/"bin"
-    resource("docutils").stage do
-      system "python3", *Language::Python.setup_install_args(libexec)
-    end
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
     args = %W[
       --prefix=#{prefix}
