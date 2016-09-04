@@ -1,8 +1,9 @@
 class Zimg < Formula
   desc "Scaling, colorspace conversion, and dithering library"
   homepage "https://github.com/sekrit-twc/zimg"
-  url "https://github.com/sekrit-twc/zimg/archive/release-2.1.tar.gz"
-  sha256 "09093bbb4d73865362e1e346762a6efdc9acc3d2cab6a2ebf5f00ba5d90b17c3"
+  url "https://github.com/sekrit-twc/zimg/archive/release-2.2.1.tar.gz"
+  sha256 "0ac3004f7612f91e2eda1aaaf170c2ceef4f90f881647b8e248f36b0e6954f54"
+  head "https://github.com/sekrit-twc/zimg.git"
 
   bottle do
     cellar :any
@@ -15,7 +16,21 @@ class Zimg < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  needs :cxx11 if MacOS.version < :mavericks
+
   def install
+    ENV.cxx11 if MacOS.version < :mavericks
+
+    # Fixes "error: use of undeclared identifier '_mm256_cvtph_ps'"
+    # https://reviews.llvm.org/rL254528
+    if MacOS.version < :el_capitan
+      (buildpath/"brew_include/immintrin.h").write <<-EOS.undent
+        #include <x86intrin.h>
+        #include_next <immintrin.h>
+      EOS
+      ENV.prepend "CPPFLAGS", "-I#{buildpath}/brew_include"
+    end
+
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
