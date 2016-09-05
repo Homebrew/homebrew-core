@@ -1,8 +1,8 @@
 class Depqbf < Formula
   desc "Solver for quantified boolean formulae (QBF)"
   homepage "https://lonsing.github.io/depqbf/"
-  url "https://github.com/lonsing/depqbf/archive/version-4.01.tar.gz"
-  sha256 "0246022128890d24b926a9bd17a9d4aa89b179dc05a0fedee33fa282c0ceba5b"
+  url "https://github.com/lonsing/depqbf/archive/version-5.0.tar.gz"
+  sha256 "9a4c9a60246e1c00128ae687f201b6dd309ece1e7601a6aa042a6317206f5dc7"
   head "https://github.com/lonsing/depqbf.git"
 
   bottle do
@@ -14,9 +14,16 @@ class Depqbf < Formula
   end
 
   def install
+    # Fixes "ld: unknown option: -soname"
+    # Reported 5 Sep 2016 https://github.com/lonsing/depqbf/issues/8
+    inreplace "makefile" do |s|
+      s.gsub! "-Wl,-soname,libqdpll.so.$(MAJOR)", ""
+      s.gsub! ".so.$(VERSION)", ".$(VERSION).dylib"
+    end
+
     system "make"
     bin.install "depqbf"
-    lib.install "libqdpll.1.0.dylib"
+    lib.install "libqdpll.a", "libqdpll.1.0.dylib"
   end
 
   test do
