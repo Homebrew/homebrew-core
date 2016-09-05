@@ -18,7 +18,7 @@ class ApacheZeppelin < Formula
       ENV["ZEPPELIN_LOG_DIR"] = "logs"
       ENV["ZEPPELIN_PID_DIR"] = "pid"
       ENV["ZEPPELIN_CONF_DIR"] = "#{testpath}/conf"
-      conf=testpath/"conf"
+      conf = testpath/"conf"
       conf.mkdir
       (conf/"zeppelin-env.sh").write <<-EOF.undent
         export ZEPPELIN_WAR_TEMPDIR="#{testpath}/webapps"
@@ -28,9 +28,7 @@ class ApacheZeppelin < Formula
       ln_s "#{libexec}/conf/shiro.ini", conf
       system "#{bin}/zeppelin-daemon.sh", "start"
       begin
-        # Wait a bit that the webserver starts
         sleep 10
-        # Check notebook r has several paragraphs
         json_text = shell_output("curl -s http://localhost:9999/api/notebook/r")
         assert_operator Utils::JSON.load(json_text)["body"]["paragraphs"].length, :>=, 1
       ensure
