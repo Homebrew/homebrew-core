@@ -20,9 +20,9 @@ class ApacheZeppelin < Formula
       ENV["ZEPPELIN_CONF_DIR"] = "#{testpath}/conf"
       conf=testpath/"conf"
       conf.mkdir
-      (conf/"zeppelin-env.sh").write <<-EOF
-      export ZEPPELIN_WAR_TEMPDIR="#{testpath}/webapps"
-      export ZEPPELIN_PORT=9999
+      (conf/"zeppelin-env.sh").write <<-EOF.undent
+        export ZEPPELIN_WAR_TEMPDIR="#{testpath}/webapps"
+        export ZEPPELIN_PORT=9999
       EOF
       ln_s "#{libexec}/conf/log4j.properties", conf
       ln_s "#{libexec}/conf/shiro.ini", conf
@@ -33,7 +33,7 @@ class ApacheZeppelin < Formula
         sleep 10
         # Check notebook r has several paragraphs
         json_text = shell_output("curl http://localhost:9999/api/notebook/r")
-        assert_operator Utils::JSON.load(json_text)["body"]["paragraphs"].length, :>=,1
+        assert_operator Utils::JSON.load(json_text)["body"]["paragraphs"].length, :>=, 1
         success = true
       ensure
         system "#{bin}/zeppelin-daemon.sh", "stop"
