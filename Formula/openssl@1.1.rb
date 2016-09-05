@@ -34,6 +34,9 @@ class OpensslAT11 < Formula
   end
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
+  # SSLv3 & zlib are off by default with 1.1.0 but this may not
+  # be obvious to everyone, so explicitly state it for now to
+  # help debug inevitable breakage.
   def configure_args; %W[
     --prefix=#{prefix}
     --openssldir=#{openssldir}
