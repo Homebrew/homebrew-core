@@ -40,7 +40,6 @@ class OpensslAT11 < Formula
     no-ssl3
     no-ssl3-method
     no-zlib
-    enable-cms
   ]
   end
 
