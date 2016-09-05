@@ -37,6 +37,9 @@ class OpensslAT11 < Formula
   def configure_args; %W[
     --prefix=#{prefix}
     --openssldir=#{openssldir}
+    no-ssl3
+    no-ssl3-method
+    no-zlib
   ]
   end
 
