@@ -32,7 +32,7 @@ class ApacheZeppelin < Formula
         # Wait a bit that the webserver starts
         sleep 10
         # Check notebook r has several paragraphs
-        json_text = shell_output("curl http://localhost:9999/api/notebook/r")
+        json_text = shell_output("curl -s http://localhost:9999/api/notebook/r")
         assert_operator Utils::JSON.load(json_text)["body"]["paragraphs"].length, :>=, 1
         success = true
       ensure
