@@ -32,6 +32,6 @@ class Gotags < Formula
       }
     EOS
 
-    assert_match (/^Bar.*test.go.*$/), shell_output("#{bin}/gotags #{testpath}/test.go")
+    assert_match /^Bar.*test.go.*$/, shell_output("#{bin}/gotags #{testpath}/test.go")
   end
 end

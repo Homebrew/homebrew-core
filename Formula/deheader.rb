@@ -1,16 +1,16 @@
 class Deheader < Formula
   desc "Analyze C/C++ files for unnecessary headers"
   homepage "http://www.catb.org/~esr/deheader"
-  url "http://www.catb.org/~esr/deheader/deheader-1.3.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/deheader/deheader_1.3.orig.tar.gz"
-  sha256 "652c07bf1c7d5da7cf71c9889de11609c8cb2bd0c13122ad424f2c25da9e2e3b"
+  url "http://www.catb.org/~esr/deheader/deheader-1.4.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/deheader/deheader_1.4.orig.tar.gz"
+  sha256 "ee42443cda39d2827a2cee551412d54cd740f0ef0d43b6b53c9ae38bc19887e5"
   head "https://gitlab.com/esr/deheader.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9e778a60a99a3d5e87639e9ad48180288fd005e5c76859f62eb9efe04135892f" => :el_capitan
-    sha256 "aef1aba1409357470bda97772407f1c3cf0221384aaa573a232fd31cf9d321bd" => :yosemite
-    sha256 "041b73d0dc1f097d3cb5f43f5af4a647d8a926a28e331d9271341e59e5bb8d96" => :mavericks
+    sha256 "f38d104c5934262c97c51c45493dd8c0bba2b3147f3451102f4fb1d47bf0f49d" => :el_capitan
+    sha256 "3235073d6a98c5fe8001563c2d09ddce3de7808fe8c5618cc60f71be1491423a" => :yosemite
+    sha256 "3235073d6a98c5fe8001563c2d09ddce3de7808fe8c5618cc60f71be1491423a" => :mavericks
   end
 
   depends_on "xmlto" => :build

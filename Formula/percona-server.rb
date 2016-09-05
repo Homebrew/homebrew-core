@@ -1,13 +1,13 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.13-6/source/tarball/percona-server-5.7.13-6.tar.gz"
-  sha256 "ce6867394d43c6814300ebe26310544bb504e0f558c8a3b8278ea6aa838fd645"
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.14-7/source/tarball/percona-server-5.7.14-7.tar.gz"
+  sha256 "b204ffac56bfc8cf092acca3ce73d63b00450b59f554acd1daeb5a573eec2c1d"
 
   bottle do
-    sha256 "6dbcc518bb675c4db526464df7096db469b904e4fa0e87b6eb573dd2fff5adc1" => :el_capitan
-    sha256 "427e03afef11ce1e289bcbdecf63bb4b8ccda32d39cfa68ecc56c1cf89e49d73" => :yosemite
-    sha256 "34b3d23d4e0aa97f95ee7c9a9ff4f55d04772e7f1b4072d7d70fd30a29d716cd" => :mavericks
+    sha256 "97f8be4a8a2dde3956076b716fe85befa1ec0e28865ec1991f791132677efe81" => :el_capitan
+    sha256 "2494b5f19cb1e45fa7ae377f1586fa6465ed7773cac741f308ff6d6b16b23f4e" => :yosemite
+    sha256 "e77d870f147a8a1951af2ea57db8d28c792b378a940ac062623db7f846839ee6" => :mavericks
   end
 
   option :universal

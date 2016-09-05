@@ -12,9 +12,7 @@ class Automysqlbackup < Formula
       s.gsub! "/etc", etc
       s.gsub! "/var", var
     end
-    inreplace "automysqlbackup.conf" do |s|
-      s.gsub! "/var", var
-    end
+    inreplace "automysqlbackup.conf", "/var", var
 
     conf_path = (etc/"automysqlbackup")
     conf_path.install "automysqlbackup.conf" unless (conf_path/"automysqlbackup.conf").exist?

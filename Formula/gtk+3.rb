@@ -5,9 +5,10 @@ class Gtkx3 < Formula
   sha256 "3f8016563a96b1cfef4ac9e795647f6316deb2978ff939b19e4e4f8f936fa4b2"
 
   bottle do
-    sha256 "f345d391726697573ab8cf0a9c3474976c8454c71f7700010a564c04a07aa634" => :el_capitan
-    sha256 "81ce6ee9a9277fb4d62f05b9fbf68a7cf8637f18425798ec472e97acaff09040" => :yosemite
-    sha256 "1194c59970bf267da7088d5ad4c3d01a643b0bfd8b22a0b11dd7e165224d1901" => :mavericks
+    rebuild 1
+    sha256 "613732062b8f8bcb43af6bc468e3b764c84b551bc6cd282f11502a650c737d67" => :el_capitan
+    sha256 "cd8ee7e7a4460c8a55eb59aed794104209109541de443d83573f76a31ac8f455" => :yosemite
+    sha256 "5e4d2544955f3783316804c7962e7f30fece7a1a9cd92ea5a2b595c204ce55ac" => :mavericks
   end
 
   option :universal
@@ -23,15 +24,6 @@ class Gtkx3 < Formula
   depends_on "hicolor-icon-theme"
   depends_on "gsettings-desktop-schemas" => :recommended
   depends_on "jasper" => :optional
-
-  # Replace a keyword not supported by Snow Leopard's Objective-C compiler.
-  # https://bugzilla.gnome.org/show_bug.cgi?id=756770
-  if MacOS.version <= :snow_leopard
-    patch do
-      url "https://bugzilla.gnome.org/attachment.cgi?id=313599&format=raw"
-      sha256 "a090b19d3c15364914917d9893be292225e8b8a016f2833a5b8354f079475a73"
-    end
-  end
 
   # Fixes detection of CUPS 2.x by the configure script
   # https://bugzilla.gnome.org/show_bug.cgi?id=767766
@@ -58,6 +50,9 @@ class Gtkx3 < Formula
     ]
 
     args << "--enable-quartz-relocation" if build.with?("quartz-relocation")
+
+    # TODO: Remove when it fails. See https://git.gnome.org/browse/gtk+/commit/?id=74bd3f3810133d44f333aa5f8d02ae3de19a6834
+    inreplace "gdk/quartz/gdkeventloop-quartz.c", "g_string_appendi", "g_string_append"
 
     system "./configure", *args
     # necessary to avoid gtk-update-icon-cache not being found during make install

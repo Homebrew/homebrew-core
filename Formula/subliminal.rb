@@ -1,23 +1,20 @@
 class Subliminal < Formula
+  include Language::Python::Virtualenv
+
   desc "Library to search and download subtitles"
   homepage "https://subliminal.readthedocs.org"
-  url "https://pypi.python.org/packages/9b/2c/9989ef7e6a89e067784a257b2ba536db82959b338d5a952c86b2774938c9/subliminal-2.0.3.tar.gz"
-  sha256 "d06cfedab43aa8eec27d2dc89efcd8a5a759ada7087dea95a21999e169d9d8e2"
+  url "https://files.pythonhosted.org/packages/f0/84/8cddb13aa4142e85546cd7c0d0546d2c1a25f0876000a3ec37151dfd8eb9/subliminal-2.0.5.tar.gz"
+  sha256 "147aa54f54de62d6fcafa213bb9ea89319600c133dab1a5532ff7126352bfbb7"
   head "https://github.com/Diaoul/subliminal.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef7ac60ad9056e086d7a0512dbf4f40e42e7197c5549891918d189d782fb82c3" => :el_capitan
-    sha256 "6340a48272874178da09a29b0f32802a32f2ba8bd899a414c29c6a7e686b0fab" => :yosemite
-    sha256 "714397c3a9f37f216190cf444811a7fbd10cc912758ee690ce9789523738e0af" => :mavericks
+    sha256 "a5fbb77e9512eeb8e062e66bb58400f2e0a85e10a067e9715a0894aa401e21a8" => :el_capitan
+    sha256 "93cb7e138aa5755bdd190e5d00b60de83187ad0b1876da9ebc22b9f4839d77d2" => :yosemite
+    sha256 "3160c050cb0c9aca25632b20afa9344a9f8dfc645aea44b4f8288a3c00e20d31" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
-
-  resource "pip" do
-    url "https://pypi.python.org/packages/e7/a8/7556133689add8d1a54c0b14aeff0acb03c64707ce100ecd53934da1aa13/pip-8.1.2.tar.gz"
-    sha256 "4d24b03ffa67638a3fa931c09fd9e0273ffa904e95ebebe7d4b1a54c93d7b732"
-  end
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/bd/66/0a7f48a0f3fb1d3a4072bceb5bbd78b1a6de4d801fb7135578e7c7b1f563/appdirs-1.4.0.tar.gz"
@@ -30,8 +27,8 @@ class Subliminal < Formula
   end
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/26/79/ef9a8bcbec5abc4c618a80737b44b56f1cb393b40238574078c5002b97ce/beautifulsoup4-4.4.1.tar.gz"
-    sha256 "87d4013d0625d4789a4f56b8d79a04d5ce6db1152bb65f1d39744f7709a366b4"
+    url "https://files.pythonhosted.org/packages/86/ea/8e9fbce5c8405b9614f1fd304f7109d9169a3516a493ce4f7f77c39435b7/beautifulsoup4-4.5.1.tar.gz"
+    sha256 "3c9474036afda9136aac6463def733f81017bf9ef3510d25634f335b0c87f5e1"
   end
 
   resource "chardet" do
@@ -45,8 +42,8 @@ class Subliminal < Formula
   end
 
   resource "dogpile.cache" do
-    url "https://files.pythonhosted.org/packages/f6/a0/6f2142c58c6588d17c734265b103ae1cd0741e1681dd9483a63f22033375/dogpile.cache-0.6.1.tar.gz"
-    sha256 "69b52dc56bb52d974e9e9fb2764e1311abcd1fd625de07b4e5c05550ac9b40c0"
+    url "https://files.pythonhosted.org/packages/9d/a9/ba70aadc6170841a1c6145e9039d4b1c2a4ef8c44cd0ca9b09ab79be9120/dogpile.cache-0.6.2.tar.gz"
+    sha256 "73793471af07af6dc5b3ee015abfaca4220caaa34c615537f5ab007ed150726d"
   end
 
   resource "enzyme" do
@@ -80,8 +77,8 @@ class Subliminal < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/f4/7d/7c0c85e9c64a75dde11bc9d3e1adc4e09a42ce7cdb873baffa1598118709/pytz-2016.4.tar.bz2"
-    sha256 "ee7c751544e35a7b7fb5e3fb25a49dade37d51e70a93e5107f10575d7102c311"
+    url "https://files.pythonhosted.org/packages/f7/c7/08e54702c74baf9d8f92d0bc331ecabf6d66a56f6d36370f0a672fc6a535/pytz-2016.6.1.tar.bz2"
+    sha256 "b5aff44126cf828537581e534cc94299b223b945a2bb3b5434d37bf8c7f3a10c"
   end
 
   resource "rarfile" do
@@ -90,13 +87,13 @@ class Subliminal < Formula
   end
 
   resource "rebulk" do
-    url "https://files.pythonhosted.org/packages/77/df/06b4d2ddc94d8618cd6da533e42c090cbf4aa90bd046a5b0224a53282e9d/rebulk-0.7.2.tar.gz"
-    sha256 "ee4c75819c6d0eeedb531fb22c214e50f303ccc4703f27db1f993cd082ed5a20"
+    url "https://files.pythonhosted.org/packages/4d/71/44e0ca08d29265185963bf39a5566746ef1a7e663b5e155bd67a9e4fbd5c/rebulk-0.7.3.tar.gz"
+    sha256 "1ee0f672be5cfeed793d294c1cfc078c254fb0966af59191e4f6a0785b3b1697"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
-    sha256 "63f1815788157130cee16a933b2ee184038e975f0017306d723ac326b5525b54"
+    url "https://files.pythonhosted.org/packages/2e/ad/e627446492cc374c284e82381215dcd9a0a87c4f6e90e9789afefe6da0ad/requests-2.11.1.tar.gz"
+    sha256 "5acf980358283faba0b897c73959cecf8b841205bb4b2ad3ef545f46eae1a133"
   end
 
   resource "six" do
@@ -105,38 +102,18 @@ class Subliminal < Formula
   end
 
   resource "stevedore" do
-    url "https://files.pythonhosted.org/packages/ae/e7/aef03849b8b838779880fa997465f24e0c7d4762ccfe4199752d282e8993/stevedore-1.15.0.tar.gz"
-    sha256 "b048b7976754ad55d7cbc7407b17cbfd945dbb4c5ecc333d3c2142d506fc90e1"
-  end
-
-  # not required by install_requires but provides additional UI when available
-  resource "colorlog" do
-    url "https://pypi.python.org/packages/source/c/colorlog/colorlog-2.6.0.tar.gz"
-    sha256 "0f03ae0128a1ac2e22ec6a6617efbd36ab00d4b2e1c49c497e11854cf24f1fe9"
+    url "https://files.pythonhosted.org/packages/98/33/2c8003cb4294d1729bfb6cdf4bbfe74b968403b2df0a80ee876bebf20488/stevedore-1.17.1.tar.gz"
+    sha256 "79414e27ece996b2e81161c1ec91536f2b15645d5f6bd28128724486e1c4b8e3"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    # dogpile is a namespace package and .pth files aren't read from our
-    # vendor site-packages
-    touch libexec/"vendor/lib/python2.7/site-packages/dogpile/__init__.py"
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
     (testpath/".config").mkpath
-    system "#{bin}/subliminal", "download", "-l", "en",
-           "The.Big.Bang.Theory.S05E18.HDTV.x264-LOL.mp4"
+    system bin/"subliminal", "download", "-l", "en",
+               "The.Big.Bang.Theory.S05E18.HDTV.x264-LOL.mp4"
     assert File.exist?("The.Big.Bang.Theory.S05E18.HDTV.x264-LOL.en.srt")
   end
 end

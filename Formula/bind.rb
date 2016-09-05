@@ -8,9 +8,10 @@ class Bind < Formula
   head "https://source.isc.org/git/bind9.git"
 
   bottle do
-    sha256 "fdb9707599ac8947b001c50f57cb6511038f08957c82bd3462244f65092f162a" => :el_capitan
-    sha256 "8ae9c19e4eca8e97f962ff72fd22014048946bbff621c6003d6510b6c9a1c9ee" => :yosemite
-    sha256 "41d461eefb76affb6b50f9d338b5c9d32d9fa97762d9faca56edb335a6205f23" => :mavericks
+    rebuild 1
+    sha256 "10134f5cd7bc0e624488940913e82f38d845bf395ed822d97d678731ead5b9b2" => :el_capitan
+    sha256 "cecf420ad46afde38c5052be2c6b4283af3b013d5467c95f377af12631acc018" => :yosemite
+    sha256 "718c67cce4fa804890ef830f4eb7124151ce785b120cf843cf83dbc5ccec1b25" => :mavericks
   end
 
   depends_on "openssl"
@@ -20,6 +21,9 @@ class Bind < Formula
     ENV.libxml2
     # libxml2 appends one inc dir to CPPFLAGS but bind ignores CPPFLAGS
     ENV.append "CFLAGS", ENV.cppflags
+
+    # enable DNSSEC signature chasing in dig
+    ENV["STD_CDEFINES"] = "-DDIG_SIGCHASE=1"
 
     json = build.with?("json-c") ? "yes" : "no"
     system "./configure", "--prefix=#{prefix}",

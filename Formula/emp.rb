@@ -1,14 +1,14 @@
 class Emp < Formula
   desc "CLI for Empire."
   homepage "https://github.com/remind101/empire"
-  url "https://github.com/remind101/empire/archive/v0.10.1.tar.gz"
-  sha256 "b1cd7ee7cb3608075071c56e83d0e3ee9faea2a98b0d406f26be9e245d8f8b2d"
+  url "https://github.com/remind101/empire/archive/v0.11.0.tar.gz"
+  sha256 "b091b07a7f6ed15a432201fed379de4b7aec0d481b9f9323ac060683b7dacf21"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c37f3533f55d6d82b4cf2ddbee5bd157cc5c16f336a97f65559c137c67f52c31" => :el_capitan
-    sha256 "4b4b77212f95f811575352e813bf662e928a69684c18964bf17ca5cf2c6966b0" => :yosemite
-    sha256 "f7f483893edd5495dbfb9dce1749b3d1568adf1ce2a12e4e771ca5cb6d6a92ab" => :mavericks
+    sha256 "8d21d95eb949b7aca853943ee4227aa26c3b8325fd48ad1277a8a30f7dcd13af" => :el_capitan
+    sha256 "00637bd97dda4c10484accdb9056e378a015ec89a1b0dcf2d4cb541d42d8f106" => :yosemite
+    sha256 "b65f09cab767d30c51eebf8f1994c89b73e78228ee63f0f1d35ddad9b778e2c9" => :mavericks
   end
 
   depends_on "go" => :build

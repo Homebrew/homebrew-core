@@ -1,16 +1,15 @@
 class Libfreenect < Formula
   desc "Drivers and libraries for the Xbox Kinect device"
   homepage "https://openkinect.org/"
-  url "https://github.com/OpenKinect/libfreenect/archive/v0.5.3.tar.gz"
-  sha256 "9eeba91c4419c1809b5b5ea3bce59c270d8fd6f5b9e8ac3dd2a909a998c0e102"
-
+  url "https://github.com/OpenKinect/libfreenect/archive/v0.5.5.tar.gz"
+  sha256 "0d7fd69da254f3624848a31c3041dcb8b714a84110b5b6bbb59498c4ffdeafde"
   head "https://github.com/OpenKinect/libfreenect.git"
 
   bottle do
     cellar :any
-    sha256 "967c297b1f854e88fd7b4660a5e6ab16c3d2cecfaf927f5ae69943e5bf43798b" => :el_capitan
-    sha256 "6a137ed0771e4509af69abf597a8d232495c00756aa34f8d7278b2faee40f41a" => :yosemite
-    sha256 "cfdde7367e5409cf2f9e38f1c0f095d3be643f3adf4e20e20c9bf458d6eca8c2" => :mavericks
+    sha256 "cb74a0b8ef6efafe3dabb008958e3c7a8b1704a6e1930b50bef61f164c6d2207" => :el_capitan
+    sha256 "bb3ee8b4cd9ef4c57432f89a070b0b85e32ff0d8971715eb1de07041ecbd0f10" => :yosemite
+    sha256 "f714532e1b21365063746846544a340dac70cf0c5cc877a207dd17284ee100b7" => :mavericks
   end
 
   option :universal

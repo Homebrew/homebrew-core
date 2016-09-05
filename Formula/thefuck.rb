@@ -1,24 +1,17 @@
 class Thefuck < Formula
+  include Language::Python::Virtualenv
+
   desc "Programatically correct mistyped console commands"
   homepage "https://github.com/nvbn/thefuck"
+  url "https://files.pythonhosted.org/packages/60/79/be88fab918f5b1004174d51c3bdcdf69768d9f5d66a148c6214b1a1ddb13/thefuck-3.11.tar.gz"
+  sha256 "a7a7145699b3f6a5054f9bdb2979a74f63869803eb72125325c68991ea9a966b"
   head "https://github.com/nvbn/thefuck.git"
-
-  stable do
-    url "https://files.pythonhosted.org/packages/9d/32/a7db90523d5d2814942bb30b9002a2ef0b76e6955de94c9584cb3e303b6c/thefuck-3.10.tar.gz"
-    sha256 "123358ba63b8053e78dc687215d0f703d1c346d8bd14c805487b6a3e2a7a1488"
-
-    # Fixes "ImportError: No module named pip"
-    patch do
-      url "https://github.com/nvbn/thefuck/commit/965c05bf.patch"
-      sha256 "398004ca224f3528f6f6584ff683ee831295d780d86c016920a7d88271431887"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "57eea367ddd6055b84916760e484f61d320191fadd1711e2b14b143f1830bbf7" => :el_capitan
-    sha256 "e63986f27e4f3c5e5b2bc91b66dd92191ba33076d3957a43b6e35c29a577fca5" => :yosemite
-    sha256 "074dbfe6f59f839f73305a02d4641d2fb3bd805bfcfe523c08804d91f6756cb1" => :mavericks
+    sha256 "76b8b3a739db3d716d983fd30ce15c3ccb2056cc1d52fea2f15c4a9c8f8fd7ec" => :el_capitan
+    sha256 "cf3be90c176ee71167389e325f0de3663a82567572fe528971733e3165ff304d" => :yosemite
+    sha256 "3690744f57178d0e2e945b3039d0ce937aa774533909509d9ffc59461d69a9e8" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -43,30 +36,13 @@ class Thefuck < Formula
     sha256 "86197ae5978f216d33bfff4383d5cc0b80f079d09cf45a2a406d1abb5d0299f0"
   end
 
-  # needs a recent setuptools
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9f/7c/0a33c528164f1b7ff8cf0684cf88c2e733c8ae0119ceca4a3955c7fc059d/setuptools-23.1.0.tar.gz"
-    sha256 "4e269d36ba2313e6236f384b36eb97b3433cf99a16b94c74cca7eee2b311f2be"
-  end
-
   resource "six" do
     url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    %w[colorama decorator pathlib2 psutil setuptools six].each do |r|
-      resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   def caveats; <<-EOS.undent

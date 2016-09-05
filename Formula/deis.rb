@@ -1,14 +1,14 @@
 class Deis < Formula
   desc "Deploy and manage applications on your own servers"
   homepage "http://deis.io"
-  url "https://github.com/deis/deis/archive/v1.13.2.tar.gz"
-  sha256 "3e583cc0af91fa617b1b732acd38beb8c094cfcd511af19ebac949533c981e2b"
+  url "https://github.com/deis/deis/archive/v1.13.3.tar.gz"
+  sha256 "a5b28a7b94e430c4dc3cf3f39459b7c99fc0b80569e14e3defa2194d046316fd"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "90c269eb5b26a5624dd123e45cb7ba204dd714ea03963047956dbc2464d74423" => :el_capitan
-    sha256 "50747120100fc68b0361a91918a33e90afe032275e5f7185633ce3ad6902fb80" => :yosemite
-    sha256 "100c0a9d3b26e49477c78e38f8bec0a5f921cd74f4fbc6410fec0d5039b37d20" => :mavericks
+    sha256 "310cfc77e1edddab84270547c87c567958cb44d25437dfd4793f0a461b5b7de5" => :el_capitan
+    sha256 "be5c1307443b5fbf5a9cbeb027af3c1960f09b0318bc589850299afd5694b52e" => :yosemite
+    sha256 "e7550c86cdbf3618cb89445067aff24733c0786817760ed87b1c38268fc1b808" => :mavericks
   end
 
   depends_on "go" => :build

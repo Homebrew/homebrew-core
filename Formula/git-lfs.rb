@@ -1,14 +1,14 @@
 class GitLfs < Formula
   desc "Git extension for versioning large files"
   homepage "https://github.com/github/git-lfs"
-  url "https://github.com/github/git-lfs/archive/v1.3.1.tar.gz"
-  sha256 "eab3ae0a423106c3256228550eccbca871f9adc9c1b8f8075dbe5c48e0ca804f"
+  url "https://github.com/github/git-lfs/archive/v1.4.1.tar.gz"
+  sha256 "5c2b6640d965a0ed334c6a7e4a5e327c7543234d3f2a2c7879d5b9731ef82c4b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "78cfa903a746fa4d86f8940ca6ca1795b71e4cc74922c2b2a0ada04130c1d783" => :el_capitan
-    sha256 "ee5afe70f5628dc7b42f556d4b37fb06920f57f99d0e64a7f0c00316fbcc5922" => :yosemite
-    sha256 "f35f8310f923a61bcc6c3798d7edadc784533ee9801f1d251a53c3545e215e94" => :mavericks
+    sha256 "aa45170d657b4cec16d9aa793f0958db3b47b11cf9bc07fa2aaf31fccdc5324e" => :el_capitan
+    sha256 "519300efced3a82e219edc4a23aacf486212e2e0303ef29642e26bc7b656bfb9" => :yosemite
+    sha256 "b70269206360e38015f46b7838270921da2266f4358cba98c0ac7949ffa43d36" => :mavericks
   end
 
   depends_on "go" => :build
@@ -16,6 +16,17 @@ class GitLfs < Formula
   def install
     system "./script/bootstrap"
     bin.install "bin/git-lfs"
+  end
+
+  def caveats; <<-EOS.undent
+    Update your git config to finish installation:
+
+      # Update global git config
+      $ git lfs install
+
+      # Update system git config
+      $ git lfs install --system
+    EOS
   end
 
   test do

@@ -26,15 +26,15 @@ class Veraxx < Formula
     sha256 "134732acaf3a6e7eba85988118d943f0fa6b7f0850f65131fff89823ad30ff1d"
   end
 
- resource "lua" do
-   url "https://github.com/LuaDist/lua/archive/5.2.3.tar.gz"
-   sha256 "c8aa2c74e8f31861cea8f030ece6b6cb18974477bd1e9e1db4c01aee8f18f5b6"
- end
+  resource "lua" do
+    url "https://github.com/LuaDist/lua/archive/5.2.3.tar.gz"
+    sha256 "c8aa2c74e8f31861cea8f030ece6b6cb18974477bd1e9e1db4c01aee8f18f5b6"
+  end
 
- resource "luabind" do
-   url "https://github.com/verateam/luabind/archive/vera-1.3.0.tar.gz"
-   sha256 "7d93908b7d978e44ebe5dfad6624e6daa033f284a5f24013f37cac162a18f71a"
- end
+  resource "luabind" do
+    url "https://github.com/verateam/luabind/archive/vera-1.3.0.tar.gz"
+    sha256 "7d93908b7d978e44ebe5dfad6624e6daa033f284a5f24013f37cac162a18f71a"
+  end
 
   def install
     resource("boost").stage do

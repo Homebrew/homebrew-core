@@ -1,14 +1,14 @@
 class Peg < Formula
   desc "Program to perform pattern matching on text"
   homepage "http://piumarta.com/software/peg/"
-  url "http://piumarta.com/software/peg/peg-0.1.15.tar.gz"
-  sha256 "b6736ca15e5eb9154596e620ebad94a4705c7e597fc97b11219a90fc171faef2"
+  url "http://piumarta.com/software/peg/peg-0.1.18.tar.gz"
+  sha256 "20193bdd673fc7487a38937e297fff08aa73751b633a086ac28c3b34890f9084"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b9cd7035c2fbe976a10b5488b4cf036fadfb3fe221107cee67ca049c3e662510" => :el_capitan
-    sha256 "62c8a46b9d297ccf1084b4267bfd857418c319d772fe65fe6e38de94e14fc402" => :yosemite
-    sha256 "6ff03f8a899d66a74b7b5dcb10fdbf02db64bd3acbff08eb89ea21805381b473" => :mavericks
+    sha256 "44d0ab83d1bc3ee71294d328dc70dd14206b8d8ddf05a195f2cdf354d746d5dc" => :el_capitan
+    sha256 "9abe69e43c8e2672aa7b5b26df5c80976c2d0365b5d85d672e8948cebe88646f" => :yosemite
+    sha256 "bbe71ecc8acb17bdf2538f41ae56472bc104a69e310cfd533565507c3468c53c" => :mavericks
   end
 
   def install

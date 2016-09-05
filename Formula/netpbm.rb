@@ -65,8 +65,9 @@ class Netpbm < Formula
   end
 
   test do
-    system ("#{bin}/pngtopam #{test_fixtures("test.png")} -alphapam >> test.pam")
-    system "#{bin}/pamdice", "test.pam", "-outstem", "#{testpath}/testing"
+    fwrite = Utils.popen_read("#{bin}/pngtopam #{test_fixtures("test.png")} -alphapam")
+    (testpath/"test.pam").write fwrite
+    system "#{bin}/pamdice", "test.pam", "-outstem", testpath/"testing"
     assert File.exist?("testing_0_0.")
   end
 end

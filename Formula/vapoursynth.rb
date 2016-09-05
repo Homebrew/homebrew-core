@@ -1,14 +1,14 @@
 class Vapoursynth < Formula
   desc "Video processing framework with simplicity in mind"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R32.tar.gz"
-  sha256 "e9560f64ba298c2ef9e6e3d88f63ea0ab88e14bbd0e9feee9c621b9224e408c8"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R33.1.tar.gz"
+  sha256 "8c448e67bccbb56af96ed0e6ba65f0ec60bc33482efd0534f5b4614fb8920494"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
-    sha256 "4a8fa4f491cdd0beabdc0837a665cf51421cf4ec203771fe8c7038143c6388da" => :el_capitan
-    sha256 "d5030759c34088ac4da714c0545a5b28217166d07b5a6927a2c18c0f23b04b1c" => :yosemite
-    sha256 "cb5c60a1268b8279277f8bda700195fb34a493f59fd57088de44d71937ccd44d" => :mavericks
+    sha256 "3c7f28c274b0ba202f0f2a455c689621fa847d04af3ca5f1ada3fa7480f4cf19" => :el_capitan
+    sha256 "e452d48c3a5fae1d64ac1ef210bbf779c13df47126573f142fa2481ad2c5ac9c" => :yosemite
+    sha256 "8a019dc33d5697b8a57248be2996ac255fc4d21e3ba7c90c956f7806bf0b570f" => :mavericks
   end
 
   needs :cxx11

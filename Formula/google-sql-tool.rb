@@ -10,11 +10,14 @@ class GoogleSqlTool < Formula
   def install
     # Patch script to find jar
     chmod 0755, "google_sql.sh"
-    inreplace "google_sql.sh",
-      'SQL_SH_DIR="$(cd $(dirname $0); pwd)"',
-      "SQL_SH_DIR=\"#{libexec}\""
+    inreplace "google_sql.sh", 'SQL_SH_DIR="$(cd $(dirname $0); pwd)"',
+                               "SQL_SH_DIR=\"#{libexec}\""
 
-    libexec.install ["google_sql.sh", "google_sql.jar"]
-    bin.install_symlink libexec+("google_sql.sh") => "google_sql"
+    libexec.install %w[google_sql.sh google_sql.jar]
+    bin.install_symlink libexec/"google_sql.sh" => "google_sql"
+  end
+
+  test do
+    assert_match "Release 10", shell_output("#{bin}/google_sql --version")
   end
 end

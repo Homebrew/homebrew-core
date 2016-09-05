@@ -1,14 +1,14 @@
 class Tcpkali < Formula
   desc "High performance TCP and WebSocket load generator and sink"
   homepage "https://github.com/machinezone/tcpkali"
-  url "https://github.com/machinezone/tcpkali/releases/download/v0.8/tcpkali-0.8.tar.gz"
-  sha256 "c3580d106385360bfde08491dffbc25f2d968eb13007f676a04b47d1ca871795"
+  url "https://github.com/machinezone/tcpkali/releases/download/v0.9/tcpkali-0.9.tar.gz"
+  sha256 "4acb38bd1a2421f247afbd07e67d47aaa8bb848f92e7badd2cd581022406d855"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d8d1ef4e650647919f4f38e690fb918474be00a45da85f93d001ae914eb5870" => :el_capitan
-    sha256 "6bd81cef0a0671a3baddaeef3600d78d2db6ecf66e41bdb68d34068a0913ff4b" => :yosemite
-    sha256 "573d2ddb670aacbd2379136d96d7ee80822786ddc9100409d8006df32bae229b" => :mavericks
+    sha256 "2ebc6fd13a75a2b95bde049906d1cd3af1b406f256ad7490a113538d5228892d" => :el_capitan
+    sha256 "d37c5e39ec28c5f9a73e3ae023418f0009e9a4c59a82dffc4fd936259db75853" => :yosemite
+    sha256 "7dbf2ecc4c3b259693ff338cb6f8db6f4025afde3cc93bcf36ad8419c5ade959" => :mavericks
   end
 
   def install

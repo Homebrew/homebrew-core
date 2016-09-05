@@ -1,14 +1,14 @@
 class Node < Formula
   desc "Platform built on the V8 JavaScript runtime to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.3.1/node-v6.3.1.tar.xz"
-  sha256 "6fe584814b70d5e715be23f54545490609cdf1693372c2cdf47c76c798b02a1b"
+  url "https://nodejs.org/dist/v6.5.0/node-v6.5.0.tar.xz"
+  sha256 "ddf2056a9164c723db707b6c016f9e617f17166298dc88c5a7cb1d7d5ddb1290"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "bd0d4b112d8c44d2f2592afab0da5eeaf01d31035465fd6b1da367bd5c4b3cfd" => :el_capitan
-    sha256 "e3db961bc55a5618b96d5ae80a072406e49773d6a4a70c0e71d12321ee2b10dc" => :yosemite
-    sha256 "1bf7efdf5888341e42e34110cd400b65eaa22380f3913b480d8ff25a590fe034" => :mavericks
+    sha256 "db1da1b3b61d17ad56becb0ec252438dbbce376b9ee5e1137da75d8a986e9db7" => :el_capitan
+    sha256 "627d2cef13d34548d945d908c75d96ee1e6cd537fe5c526df1c807d0f36e675b" => :yosemite
+    sha256 "7bd58ce346e530b65cd2759b3cfdc126bcbf90dff1cf38357aaef8e5029edfa0" => :mavericks
   end
 
   option "with-debug", "Build with debugger hooks"

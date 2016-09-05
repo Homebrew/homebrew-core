@@ -1,117 +1,98 @@
 class Khal < Formula
+  include Language::Python::Virtualenv
+
   desc "CLI calendar application."
-  homepage "https://github.com/geier/khal"
-  url "https://pypi.python.org/packages/11/41/e1610f6575ac33e0f3783f15a60dff4d107cb2efdefe01b422486c91d823/khal-0.8.2.tar.gz"
-  sha256 "f2ff3cf58ea4de55b42e6f3cd61818be1ebaf86fabb7f7d5c11b762d07a40c46"
+  homepage "https://lostpackets.de/khal/"
+  url "https://files.pythonhosted.org/packages/7b/96/7c0bbc58d057d9ab8fb2ee426c4c9ccd413a136046ed228bd8aa77a804e3/khal-0.8.3.tar.gz"
+  sha256 "1ec6940a9fbd207c41428b103bac1d1555129b9b4eca2b843c544bd48ac63ee3"
+  head "https://github.com/pimutils/khal.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ad6b60be7bb0e8b45cbc96f2e5d601566017103c8279a9fbeb9d3da0179c791a" => :el_capitan
-    sha256 "4c056a14e35f33b07210e9331db1b2e88d51a9000f9b1b4583471214282e8e8e" => :yosemite
-    sha256 "f947c49410c32281d73ef49b9cf68b3906611642148826acbed6da26838bb9d9" => :mavericks
+    sha256 "9b4b5c675c9e7c560ae2baf2ff0644764b9af59e13a2768770c57a557d03a884" => :el_capitan
+    sha256 "e3641bc06a7c6ed591d994a2445afb064214eed16a0cd98e8d9ced07e5be9ec5" => :yosemite
+    sha256 "8fd717d544c7e018dd12bec661d7169e301e6bbfa9ffc9bb33acd35e975e2dda" => :mavericks
   end
 
   depends_on :python3
 
-  resource "pkginfo" do
-    url "https://pypi.python.org/packages/source/p/pkginfo/pkginfo-1.2.1.tar.gz"
-    sha256 "ad3f6dfe8a831f96a7b56a588ca874137ca102cc6b79fc9b0a1c3b7ab7320f3c"
-  end
-
-  resource "icalendar" do
-    url "https://pypi.python.org/packages/source/i/icalendar/icalendar-3.9.0.tar.gz"
-    sha256 "93d0b94eab23d08f62962542309916a9681f16de3d5eca1c75497f30f1b07792"
-  end
-
-  resource "urwid" do
-    url "https://pypi.python.org/packages/source/u/urwid/urwid-1.3.0.tar.gz"
-    sha256 "29f04fad3bf0a79c5491f7ebec2d50fa086e9d16359896c9204c6a92bc07aba2"
-  end
-
-  resource "pyxdg" do
-    url "https://pypi.python.org/packages/source/p/pyxdg/pyxdg-0.25.tar.gz"
-    sha256 "81e883e0b9517d624e8b0499eb267b82a815c0b7146d5269f364988ae031279d"
-  end
-
-  resource "pytz" do
-    url "https://pypi.python.org/packages/source/p/pytz/pytz-2015.4.tar.gz"
-    sha256 "c4ee70cb407f9284517ac368f121cf0796a7134b961e53d9daf1aaae8f44fb90"
-  end
-
-  resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
-  end
-
-  resource "python-dateutil" do
-    url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.4.2.tar.gz"
-    sha256 "3e95445c1db500a344079a47b171c45ef18f57d188dffdb0e4165c71bea8eb3d"
+  resource "atomicwrites" do
+    url "https://files.pythonhosted.org/packages/a1/e1/2d9bc76838e6e6667fde5814aa25d7feb93d6fa471bf6816daac2596e8b2/atomicwrites-1.1.5.tar.gz"
+    sha256 "240831ea22da9ab882b551b31d4225591e5e447a68c5e188db5b89ca1d487585"
   end
 
   resource "click" do
-    url "https://pypi.python.org/packages/source/c/click/click-6.3.tar.gz"
-    sha256 "b720d9faabe193287b71e3c26082b0f249501288e153b7e7cfce3bb87ac8cc1c"
+    url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"
+    sha256 "cc6a19da8ebff6e7074f731447ef7e112bd23adf3de5c597cf9989f2fd8defe9"
   end
 
-  resource "click_threading" do
-    url "https://pypi.python.org/packages/source/c/click-threading/click-threading-0.1.2.tar.gz"
-    sha256 "85045457e02f16fba3110dc6b16e980bf3e65433808da2b550dd513206d9b94a"
+  resource "click-log" do
+    url "https://files.pythonhosted.org/packages/18/c6/ce0c132a90b5f5f52cce68292c8f0bee55b73994148bda0540f773922571/click-log-0.1.4.tar.gz"
+    sha256 "dc6275b7d8f87512a22d9806ccc845f474825edd82ad37925a36ba156c887570"
   end
 
-  resource "click_log" do
-    url "https://pypi.python.org/packages/source/c/click-log/click-log-0.1.3.tar.gz"
-    sha256 "fd8dc8d65947ce6d6ee8ab3101fb0bb9015b9070730ada3f73ec761beb0ead4d"
+  resource "click-threading" do
+    url "https://files.pythonhosted.org/packages/72/a5/0d72a73e085d8943c82dee5a0713ae1237f8cd59a0586fa87ecebb5320fe/click-threading-0.4.0.tar.gz"
+    sha256 "1823fac05f6b7705ab15956512a06d1b634beb4bbf99e115cab4fc4f6d1436d3"
   end
 
   resource "configobj" do
-    url "https://pypi.python.org/packages/source/c/configobj/configobj-5.0.6.tar.gz"
+    url "https://files.pythonhosted.org/packages/64/61/079eb60459c44929e684fa7d9e2fdca403f67d64dd9dbac27296be2e0fab/configobj-5.0.6.tar.gz"
     sha256 "a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902"
   end
 
-  resource "tzlocal" do
-    url "https://pypi.python.org/packages/source/t/tzlocal/tzlocal-1.1.3.tar.gz"
-    sha256 "1950d112ed1b717683280d54f1e7a4533564d479127162cbf247bd0fb3708983"
+  resource "icalendar" do
+    url "https://files.pythonhosted.org/packages/3f/40/a479fd8d450e06ab0965227b3231ac3c4479dbaf424fdbdd1045809dc434/icalendar-3.10.tar.gz"
+    sha256 "472f01da00e1e28eaf0cf03cc872c4cbce22dab50629ea9e72470761c6b45505"
   end
 
-  resource "vdirsyncer" do
-    url "https://pypi.python.org/packages/source/v/vdirsyncer/vdirsyncer-0.9.3.tar.gz"
-    sha256 "8ca2941bb99c5b67f0f9e7cae3dd65fcbd64b8969515c68d44e6f3cd9cfc50f2"
+  resource "python-dateutil" do
+    url "https://files.pythonhosted.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
+    sha256 "1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed"
+  end
+
+  resource "pytz" do
+    url "https://files.pythonhosted.org/packages/f7/c7/08e54702c74baf9d8f92d0bc331ecabf6d66a56f6d36370f0a672fc6a535/pytz-2016.6.1.tar.bz2"
+    sha256 "b5aff44126cf828537581e534cc94299b223b945a2bb3b5434d37bf8c7f3a10c"
+  end
+
+  resource "pyxdg" do
+    url "https://files.pythonhosted.org/packages/26/28/ee953bd2c030ae5a9e9a0ff68e5912bd90ee50ae766871151cd2572ca570/pyxdg-0.25.tar.gz"
+    sha256 "81e883e0b9517d624e8b0499eb267b82a815c0b7146d5269f364988ae031279d"
   end
 
   resource "requests" do
-    url "https://pypi.python.org/packages/source/r/requests/requests-2.9.1.tar.gz"
-    sha256 "c577815dd00f1394203fc44eb979724b098f88264a9ef898ee45b8e5e9cf587f"
+    url "https://files.pythonhosted.org/packages/2e/ad/e627446492cc374c284e82381215dcd9a0a87c4f6e90e9789afefe6da0ad/requests-2.11.1.tar.gz"
+    sha256 "5acf980358283faba0b897c73959cecf8b841205bb4b2ad3ef545f46eae1a133"
   end
 
   resource "requests-toolbelt" do
-    url "https://pypi.python.org/packages/source/r/requests-toolbelt/requests-toolbelt-0.6.0.tar.gz"
-    sha256 "cc4e9c0ef810d6dfd165ca680330b65a4cf8a3f08f5f08ecd50a0253a08e541f"
+    url "https://files.pythonhosted.org/packages/59/78/1d391d30ebf74079a8e4de6ab66fdca5362903ef2df64496f4697e9bb626/requests-toolbelt-0.7.0.tar.gz"
+    sha256 "33899d4a559c3f0f5e9fbc115d337c4236febdc083755a160a4132d92fc3c91a"
   end
 
-  resource "lxml" do
-    url "https://pypi.python.org/packages/source/l/lxml/lxml-3.5.0.tar.gz"
-    sha256 "349f93e3a4b09cc59418854ab8013d027d246757c51744bf20069bc89016f578"
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
-  resource "atomicwrites" do
-    url "https://pypi.python.org/packages/source/a/atomicwrites/atomicwrites-0.1.9.tar.gz"
-    sha256 "7cdfcee8c064bc0ba30b0444ba0919ebafccf5b0b1916c8cde07e410042c4023"
+  resource "tzlocal" do
+    url "https://files.pythonhosted.org/packages/a0/41/c722d033d62f1b3aa01ed55b9ca03d049e72bba1c08c60150a327ba80add/tzlocal-1.2.2.tar.gz"
+    sha256 "cbbaa4e9d25c36386f12af9febe315139fdd39317b91abcb42d782a5e93e525d"
+  end
+
+  resource "urwid" do
+    url "https://files.pythonhosted.org/packages/85/5d/9317d75b7488c335b86bd9559ca03a2a023ed3413d0e8bfe18bea76f24be/urwid-1.3.1.tar.gz"
+    sha256 "cfcec03e36de25a1073e2e35c2c7b0cc6969b85745715c3a025a31d9786896a1"
+  end
+
+  resource "vdirsyncer" do
+    url "https://files.pythonhosted.org/packages/63/c0/8f2305a3a4cf0ed0b30b430f90064139fed5ea6081a99798c27e62c0ed93/vdirsyncer-0.12.1.tar.gz"
+    sha256 "3fbba82d5c687238698799799521978bffe72f87b911a267a9c1933b10bd7df8"
   end
 
   def install
-    version = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{version}/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{version}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_create(libexec, "python3")
+    virtualenv_install_with_resources
   end
 
   test do

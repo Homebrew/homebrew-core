@@ -14,10 +14,9 @@ class FbClient < Formula
     sha256 "2d16d3c1edfb3544a3eb0ff9e4ddc8ccc93c4532d7adab83dc6f21dcae8706bf" => :mountain_lion
   end
 
-  conflicts_with "findbugs",
-    :because => "findbugs and fb-client both install a `fb` binary"
-
   depends_on "pkg-config" => :build
+
+  conflicts_with "findbugs", :because => "findbugs and fb-client both install a `fb` binary"
 
   def install
     system "make", "PREFIX=#{prefix}", "install"

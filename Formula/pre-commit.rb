@@ -1,14 +1,16 @@
 class PreCommit < Formula
+  include Language::Python::Virtualenv
+
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v0.8.2.tar.gz"
-  sha256 "6300e15ff6fa08dd331d3207ce384885dc093bee0be6d4dacb05dc5c4809d362"
+  url "https://github.com/pre-commit/pre-commit/archive/v0.9.0.tar.gz"
+  sha256 "c9a3f6541f1ea3cc668855fbdd7d9eac9513c6542956c051b1e944d6d21550a6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9efcebe0921d8980659e2f5375d7d334b02bf9c049adf1838c23051a96f704e0" => :el_capitan
-    sha256 "b260e165e95b0a90b019df01a93dcc92186768153a37ca05a6dfd2c3992e0a9b" => :yosemite
-    sha256 "5d134033ab71027768ddf57a489fe316941626063ef66ea7bf8ba753c40fde22" => :mavericks
+    sha256 "c2885d3c595056f78b8ac5efebcaf798aa5ef2fdcf509869db0856471855bff8" => :el_capitan
+    sha256 "aaf6186fe455f6bdb12044c71a8fc33695df93d045d9707c0f14a327109ee824" => :yosemite
+    sha256 "06fee93a57ddefc4400478db01b96cf68dc2ee9d122b2ca35eeab9df4c20d885" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -49,31 +51,17 @@ class PreCommit < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/75/5e/b84feba55e20f8da46ead76f14a3943c8cb722d40360702b2365b91dec00/PyYAML-3.11.tar.gz"
-    sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
+    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
+    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/5c/79/5dae7494b9f5ed061cff9a8ab8d6e1f02db352f3facf907d9eb614fb80e9/virtualenv-15.0.2.tar.gz"
-    sha256 "fab40f32d9ad298fba04a260f3073505a16d52539a84843cf8c8369d4fd17167"
+    url "https://files.pythonhosted.org/packages/8b/2c/c0d3e47709d0458816167002e1aa3d64d03bdeb2a9d57c5bd18448fd24cd/virtualenv-15.0.3.tar.gz"
+    sha256 "6d9c760d3fc5fa0894b0f99b9de82a4647e1164f0b700a7f99055034bf548b1d"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    # fix aspy.yaml (because namespace .pth isn't processed)
-    touch libexec/"vendor/lib/python2.7/site-packages/aspy/__init__.py"
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

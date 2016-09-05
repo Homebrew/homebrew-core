@@ -1,14 +1,14 @@
 class AmazonEcsCli < Formula
   desc "CLI for Amazon ECS to manage clusters and tasks for development."
   homepage "https://aws.amazon.com/ecs"
-  url "https://github.com/aws/amazon-ecs-cli/archive/v0.4.2.tar.gz"
-  sha256 "51d5dd27a28df46af00d1de586f8237ffa0dec0b6314bd18ff0c6ed09ffe3a54"
+  url "https://github.com/aws/amazon-ecs-cli/archive/v0.4.3.tar.gz"
+  sha256 "b92c68f1e552ad4edf02089ed27e2e8675eb7316022f3466bc142cc83515bc24"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5a4db20b71b48fc07aeaaddc0f74d72165c39935c6da9157fc801ae45ce9f352" => :el_capitan
-    sha256 "b17399338df1528699ffb438f0d6f9ae705ed2704e78f99d157bd0220489e054" => :yosemite
-    sha256 "207cc2c960bce4a55b9c40c604b6c1a45ab5d41127c6d2cf640aded584994c7a" => :mavericks
+    sha256 "1ee1950e23a56d69b9e7daf485705dc89af95507aa92cbdc708a0353a84a1d97" => :el_capitan
+    sha256 "4f279ffd7972603e0da1c8860fc6a581c1e4da5967d68403ea9c07f50052bd0c" => :yosemite
+    sha256 "a9c695c1f569b9d43a77f9e15833e1a7df25fa832d094b3a76e34b5ff1fcc48c" => :mavericks
   end
 
   depends_on "go" => :build
@@ -20,6 +20,7 @@ class AmazonEcsCli < Formula
       system "make", "build"
       system "make", "test"
       bin.install "bin/local/ecs-cli"
+      prefix.install_metafiles
     end
   end
 

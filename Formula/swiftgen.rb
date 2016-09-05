@@ -1,14 +1,14 @@
 class Swiftgen < Formula
   desc "Collection of Swift tools to generate Swift code"
   homepage "https://github.com/AliSoftware/SwiftGen"
-  url "https://github.com/AliSoftware/SwiftGen/archive/2.0.0.tar.gz"
-  sha256 "dcf2a1d0fbcc57e96771be62474bbb4af6f5090e061b8ea3b63f4c5e682e529e"
+  url "https://github.com/AliSoftware/SwiftGen/archive/3.0.0.tar.gz"
+  sha256 "e95a6102d49013dc729363057d6fed4d670f87a73b9b023b4a7711d3dd10f8fc"
   head "https://github.com/AliSoftware/SwiftGen.git"
 
   bottle do
     cellar :any
-    sha256 "c64e714e3dc1367d72fd22e9867a1782fa1cff60944150e99efc0c7f6dea0636" => :el_capitan
-    sha256 "b1abc22ac4d4e306a80df7aba47f70225faa8a4e81ac1d69e09754f194bb2f83" => :yosemite
+    sha256 "4fbbfcc9b10ad825cfabb09b479686ccd374ac3a3fd1038532434fbbe5aabbe6" => :el_capitan
+    sha256 "84dea0c4d8a0594f6aae49c7a8f0bc0fe7f8ba131cbdcff4239413cbf7724452" => :yosemite
   end
 
   depends_on :xcode => "7.0"

@@ -1,5 +1,3 @@
-require "language/go"
-
 class Gowsdl < Formula
   desc "WSDL2Go code generation as well as its SOAP proxy"
   homepage "https://github.com/hooklift/gowsdl"
@@ -21,7 +19,6 @@ class Gowsdl < Formula
     ln_s buildpath, buildpath/"src/github.com/hooklift/gowsdl"
 
     ENV["GOPATH"] = buildpath
-    Language::Go.stage_deps resources, buildpath/"src"
 
     system "make", "build"
     bin.install "build/gowsdl"

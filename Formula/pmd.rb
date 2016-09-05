@@ -1,18 +1,21 @@
 class Pmd < Formula
   desc "Source code analyzer for Java, JavaScript, and more"
   homepage "https://pmd.github.io"
-  url "https://github.com/pmd/pmd/releases/download/pmd_releases/5.5.0/pmd-src-5.5.0.zip"
-  sha256 "825d9061754cef30fc1b4584f509c7dd8a7b023a2c6ec264bf7b82bb0615c0b4"
+  url "https://github.com/pmd/pmd/releases/download/pmd_releases/5.5.1/pmd-src-5.5.1.zip"
+  sha256 "e28ec42e32a004442eb785e925268e5a80addfe4d22da9774be3d1f8306a30e1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e435c8772056568a0abc550b87b658ac74281df5154b9e6c117900f725992438" => :el_capitan
-    sha256 "bd2f53df48102dbd9c340135a48189c5cf3c5278a99747b651cad0a8c25aa1e0" => :yosemite
-    sha256 "f75e243cc2d91b5437fdedd4096c3b1673c2aa389fe86e57120fd6bd79569bdb" => :mavericks
+    sha256 "b3bd65c2a56305abb00584bc7b0c39da2c2c14364173df33e75b39d5b8b9ce92" => :el_capitan
+    sha256 "95bc677f00c175ac1080dcaf0583d3d636674b070020a7a9b64bf19aa23acb74" => :yosemite
+    sha256 "c667db1c2b048b940b1770b06d0f23055a4d1d34968492ffd34c0493b0e91c64" => :mavericks
   end
 
   depends_on :java => "1.8+"
   depends_on "maven" => :build
+
+  # Fix doclint errors; see https://sourceforge.net/p/pmd/bugs/1516/
+  patch :DATA
 
   def install
     java_user_home = buildpath/"java_user_home"
@@ -78,3 +81,17 @@ class Pmd < Formula
       "rulesets/java/basic.xml", "-f", "textcolor", "-l", "java"
   end
 end
+
+__END__
+diff --git a/pom.xml b/pom.xml
+index 66bd239..8fb40c5 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -277,6 +277,7 @@
+         <pmd.dogfood.ruleset>${config.basedir}/src/main/resources/rulesets/internal/dogfood.xml</pmd.dogfood.ruleset>
+         <checkstyle.configLocation>${config.basedir}/etc/checkstyle-config.xml</checkstyle.configLocation>
+         <checkstyle.suppressionsFile>${config.basedir}/etc/checkstyle-suppressions.xml</checkstyle.suppressionsFile>
++        <additionalparam>-Xdoclint:none</additionalparam>
+     </properties>
+
+     <build>

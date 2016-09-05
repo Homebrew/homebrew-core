@@ -1,13 +1,13 @@
 class Mosquitto < Formula
-  desc "Message broker implementing MQ telemetry transport protocol"
+  desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-1.4.9.tar.gz"
-  sha256 "1df3ae07de40b80a74cd37a7b026895c544cdd3b42c9e0719ae91623aa98c58b"
+  url "https://mosquitto.org/files/source/mosquitto-1.4.10.tar.gz"
+  sha256 "437648d68a4a781dd8d913814cd5451f59ab4a5fcf84cccaf7c36e6a07459770"
 
   bottle do
-    sha256 "3250b5755af67f16608c58c5a144941fbaf2197c379d42cbbd9138c5c93e0b05" => :el_capitan
-    sha256 "89cc0756dc7f2f4245d88a11654f4099d573feb774471d9b527852d875834251" => :yosemite
-    sha256 "b661e2e1b7aabb6be068dd39b97cbe349632161ec0f9d95e9c73ff821cf1239a" => :mavericks
+    sha256 "f8280108975c87e1500129e747f6bffbae0b2801d0361b298d2cd2da6b23966f" => :el_capitan
+    sha256 "9ee968068aa301fad671fb753aeebd16402b246af42c1615a8fb0fde9c29194c" => :yosemite
+    sha256 "03ed2ccbe913b4df166683c8285770a8ef6dbb7e1445f1ab09263f882e1e0ac1" => :mavericks
   end
 
   depends_on "pkg-config" => :build

@@ -8,17 +8,26 @@ class Python3 < Formula
   stable do
     url "https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz"
     sha256 "0010f56100b9b74259ebcd5d4b295a32324b58b517403a10d1a2aa7cb22bca40"
+
+    # Patch for pyport.h macro issue
+    # https://bugs.python.org/issue10910
+    # https://trac.macports.org/ticket/44288
+    patch do
+      url "https://bugs.python.org/file30805/issue10910-workaround.txt"
+      sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
+    end
   end
 
   bottle do
-    sha256 "4ef705dcdb2d9ebb7b6e5bc7801aac392eafd183d8ee169b0a810b0a52c6cd43" => :el_capitan
-    sha256 "133985061a1e9865d0d8e017eb0db8fd206b2ad861d3d2d14e28cdd83295835c" => :yosemite
-    sha256 "a00c55006f496abe35eb1cc17384fd1a304724776c4dc85d18e4d6b4006654a4" => :mavericks
+    revision 1
+    sha256 "e0e96cd514640e006a4c42689dc144972a3aeff55fb269b7e4e79e7df2ce9432" => :el_capitan
+    sha256 "5c1e133c5a731b4e1ef6c3d0b7fb3c5c120945549d5901e8e6e4fe81c1670333" => :yosemite
+    sha256 "a74bac7701fbabf89449607d01dff8c0f22b0008bb4d7571e7ee0ddc86f69923" => :mavericks
   end
 
   devel do
-    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0a3.tar.xz"
-    sha256 "2cd0611c3456a83737d99d8ffd36d4094b3d44c29dd3a4185f1146be502a8321"
+    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0a4.tar.xz"
+    sha256 "63acec349d20de412682f64c013f7c3374c695430b44e1c0ef12076da1d7fd2c"
   end
 
   option :universal
@@ -43,8 +52,8 @@ class Python3 < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5"
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/9f/7c/0a33c528164f1b7ff8cf0684cf88c2e733c8ae0119ceca4a3955c7fc059d/setuptools-23.1.0.tar.gz"
-    sha256 "4e269d36ba2313e6236f384b36eb97b3433cf99a16b94c74cca7eee2b311f2be"
+    url "https://files.pythonhosted.org/packages/9f/32/81c324675725d78e7f6da777483a3453611a427db0145dfb878940469692/setuptools-25.2.0.tar.gz"
+    sha256 "b2757ddac2c41173140b111e246d200768f6dd314110e1e40661d0ecf9b4d6a6"
   end
 
   resource "pip" do
@@ -66,14 +75,6 @@ class Python3 < Formula
   # so we have to stop python from searching for frameworks and linking against
   # X11.
   patch :DATA if build.with? "tcl-tk"
-
-  # Patch for pyport.h macro issue
-  # https://bugs.python.org/issue10910
-  # https://trac.macports.org/ticket/44288
-  patch do
-    url "https://bugs.python.org/file30805/issue10910-workaround.txt"
-    sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
-  end
 
   def lib_cellar
     prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}"
@@ -113,6 +114,8 @@ class Python3 < Formula
   end
 
   def install
+    ENV.permit_weak_imports
+
     # Unset these so that installing pip and setuptools puts them where we want
     # and not into some other Python the user has installed.
     ENV["PYTHONHOME"] = nil
@@ -296,7 +299,7 @@ class Python3 < Formula
   end
 
   def xy
-    version.to_s.slice(/(3.\d)/) || "3.6"
+    version.to_s.slice(/(3\.\d)/) || "3.6"
   end
 
   def sitecustomize

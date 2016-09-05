@@ -3,13 +3,14 @@ class Rtv < Formula
 
   desc "Command-line Reddit client"
   homepage "https://github.com/michael-lazar/rtv"
-  url "https://github.com/michael-lazar/rtv/archive/v1.11.0.tar.gz"
-  sha256 "3e2a486719acec838d49a8979f1422f50b37ac3381ac89547dbb41792eeea67d"
+  url "https://files.pythonhosted.org/packages/49/a0/4d9320a267ff965084dcc02e1b0ec92da4f253a8e01f60ef3f302668295a/rtv-1.12.0.tar.gz"
+  sha256 "996221b555f8955b394229d0bd7fc695a5bb75d2a688272ac31ed501e168da69"
+  head "https://github.com/michael-lazar/rtv.git"
 
   bottle do
-    sha256 "3791f86d9613980c8fea5a2fac5867648b14f51af76b88039bde1af9f23807b0" => :el_capitan
-    sha256 "2fb9c97763c7f7569b1130a667e5c2fe6e41e08312fb86f02b7cad1180ded74e" => :yosemite
-    sha256 "cd6dbf42ad1abe58f022fed06030d6c116c3403ef8d9d53927190d7883e02e52" => :mavericks
+    sha256 "ddb8cae3f9fb367890144b8e181ee23cb21869a8f11bd67cde1df637c8f60d28" => :el_capitan
+    sha256 "b074e6f8d6a471b3d5a3a2bd2c53f184e04a4bf359bc9db5cbfa14dd55e28f36" => :yosemite
+    sha256 "9926438d17393dc1943c9f6776c0391cff00b6a6744f3e6985416e3b272c6962" => :mavericks
   end
 
   depends_on :python3
@@ -40,18 +41,13 @@ class Rtv < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/8d/66/649f861f980c0a168dd4cccc4dd0ed8fa5bd6c1bed3bea9a286434632771/requests-2.11.0.tar.gz"
-    sha256 "b2ff053e93ef11ea08b0e596a1618487c4e4c5f1006d7a1706e3671c57dea385"
+    url "https://files.pythonhosted.org/packages/2e/ad/e627446492cc374c284e82381215dcd9a0a87c4f6e90e9789afefe6da0ad/requests-2.11.1.tar.gz"
+    sha256 "5acf980358283faba0b897c73959cecf8b841205bb4b2ad3ef545f46eae1a133"
   end
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
-  end
-
-  resource "tornado" do
-    url "https://files.pythonhosted.org/packages/96/5d/ff472313e8f337d5acda5d56e6ea79a43583cc8771b34c85a1f458e197c3/tornado-4.4.1.tar.gz"
-    sha256 "371d0cf3d56c47accc66116a77ad558d76eebaa8458a6b677af71ca606522146"
   end
 
   resource "update_checker" do

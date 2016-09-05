@@ -31,9 +31,7 @@ class Logrotate < Formula
     man5.install "logrotate.conf.5"
 
     mv "examples/logrotate-default", "logrotate.conf"
-    inreplace "logrotate.conf" do |s|
-      s.gsub! "/etc/logrotate.d", "#{etc}/logrotate.d"
-    end
+    inreplace "logrotate.conf", "/etc/logrotate.d", "#{etc}/logrotate.d"
 
     etc.install "logrotate.conf"
     (etc/"logrotate.d").mkpath

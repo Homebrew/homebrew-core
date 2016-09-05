@@ -3,12 +3,13 @@ class Postgis < Formula
   homepage "http://postgis.net"
   url "http://download.osgeo.org/postgis/source/postgis-2.2.2.tar.gz"
   sha256 "40232391f8f66a6dc740ebb26088e568c8ccb663666998616c71c3bdaeed4163"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "9799b754e98612772b178ca134b41100d8014cd0c752a24b1afca0f0d91b5ec8" => :el_capitan
-    sha256 "6552bf607bec50cbf5d904d2cf7cb5e912ef06f213d42125ddee62b6182d62aa" => :yosemite
-    sha256 "a56959ae06795ffbd99ff02de82bea10ea89fe40c38c09b1f903dc749b884df0" => :mavericks
+    sha256 "07f10667e89114a0c440fe7e4c544b41ab38d56f13979b477609791fa8a9614b" => :el_capitan
+    sha256 "201d35dabffb528f3c4b671835f8e9ba4fe6c047e8a72d90ecc2a8959490f0f0" => :yosemite
+    sha256 "d25153959ff9390bcf5886b0679c513406117ec95128b30774decbe1aee423e9" => :mavericks
   end
 
   head do
@@ -35,7 +36,7 @@ class Postgis < Formula
   # For GeoJSON and raster handling
   depends_on "json-c"
   depends_on "gdal" => :recommended
-  depends_on "pcre" => :build if build.with? "gdal"
+  depends_on "pcre" if build.with? "gdal"
 
   # For advanced 2D/3D functions
   depends_on "sfcgal" => :recommended

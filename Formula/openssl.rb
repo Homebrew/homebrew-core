@@ -1,3 +1,6 @@
+# This formula tracks 1.0.2 branch of OpenSSL, not the 1.1.0 branch. Due to
+# significant breaking API changes in 1.1.0 other formulae will be migrated
+# across slowly, so core will ship `openssl` & `openssl@1.1` for foreseeable.
 class Openssl < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
@@ -8,6 +11,7 @@ class Openssl < Formula
   revision 1
 
   bottle do
+    sha256 "b88203d2d56f4209ca0214c95d309a8f452a3534b08dd92c3495fa57fec02a18" => :sierra
     sha256 "55728391c10d1c33c069ef5bf3e5ca77334605ab6c1c7810b6eedc91337807c2" => :el_capitan
     sha256 "a3bc912aae8f79ed28d885dce49f582737a6e528b9d707eee208ed3b6ea41f5d" => :yosemite
     sha256 "4d332b0effca483c6b896548f818ba7043d61e3ec071d1a611a64809ae8610b1" => :mavericks
@@ -79,11 +83,10 @@ class Openssl < Formula
       system "make"
       system "make", "test" if build.with?("test")
 
-      if build.universal?
-        cp "include/openssl/opensslconf.h", dir
-        cp Dir["*.?.?.?.dylib", "*.a", "apps/openssl"], dir
-        cp Dir["engines/**/*.dylib"], "#{dir}/engines"
-      end
+      next unless build.universal?
+      cp "include/openssl/opensslconf.h", dir
+      cp Dir["*.?.?.?.dylib", "*.a", "apps/openssl"], dir
+      cp Dir["engines/**/*.dylib"], "#{dir}/engines"
     end
 
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"

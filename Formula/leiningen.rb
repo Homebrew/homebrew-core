@@ -1,20 +1,20 @@
 class Leiningen < Formula
   desc "Build tool for Clojure"
   homepage "https://github.com/technomancy/leiningen"
+  url "https://github.com/technomancy/leiningen/archive/2.7.0.tar.gz"
+  sha256 "db2069e9a87c72c7f83934e3068dc4b28c688115f7869056c4150392abc54c3d"
   head "https://github.com/technomancy/leiningen.git"
-  url "https://github.com/technomancy/leiningen/archive/2.6.1.tar.gz"
-  sha256 "9e6a6c7b6e032921a37d5be8fcdc2c0288d3698f759e22bdd29de4eb327ebeab"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b3797e0c27675a8cc668be08f2205a44040be57e4b0c8d2a2b817df8789f8745" => :el_capitan
-    sha256 "6bd2b13f7bef3d2cc37a0079bc6eed62097f2229fe06836506eb4230868b698d" => :yosemite
-    sha256 "341eedf47e78589d201f6d6f95fcf2e60e3e47ac914a4bea35c573f58fd103dd" => :mavericks
+    sha256 "d058125ea615a7aeaf44515069e56176dd0cec6f51e59d8487c4b0e18e1245ea" => :el_capitan
+    sha256 "03b41705ff2d50650fd3bafa4bd19323b9cbecfef19a5c033bae069db6f36500" => :yosemite
+    sha256 "03b41705ff2d50650fd3bafa4bd19323b9cbecfef19a5c033bae069db6f36500" => :mavericks
   end
 
   resource "jar" do
-    url "https://github.com/technomancy/leiningen/releases/download/2.6.1/leiningen-2.6.1-standalone.zip", :using => :nounzip
-    sha256 "d70078fba85d5f405d042a6d7bad3a1e5b4aafae565c2d581feb999e95ae6394"
+    url "https://github.com/technomancy/leiningen/releases/download/2.7.0/leiningen-2.7.0-standalone.zip", :using => :nounzip
+    sha256 "b0a53fd9fa73e9d87c04ef25ba1ca174b0c062b803108648d7157176ccde7435"
   end
 
   def install

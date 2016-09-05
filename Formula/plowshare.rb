@@ -1,14 +1,14 @@
 class Plowshare < Formula
   desc "Download/upload tool for popular file sharing websites"
   homepage "https://github.com/mcrapet/plowshare"
-  url "https://github.com/mcrapet/plowshare/archive/v2.1.4.tar.gz"
-  sha256 "d6bb484fe63a8e9219a3f284a9ad21e260e2fc21aa004eedfcac86fb65e8c13e"
+  url "https://github.com/mcrapet/plowshare/archive/v2.1.5.tar.gz"
+  sha256 "31a1d379b738b007ff000107b03562bf73ed5f05d7fa1ebef50082f0799a59ce"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fe1496232d6c45a79a81454e82b2dd21d3790978d60c836d3edc189bf5f2d880" => :el_capitan
-    sha256 "a2f3b29825642936b27bc25023632bdb3123801fea2e78cb4118753c6e055781" => :yosemite
-    sha256 "53f41fc14ff8b13ba52912e3f9b104adfaafee29d701563eff83a8578da62387" => :mavericks
+    sha256 "07e78e6164a68596314546a4a47251e378c1081cbdf12b9ea2756820ebdd317c" => :el_capitan
+    sha256 "dd48bc1601b784affe7911585f1ff9ee02dc16c2202fd94c20d26e157beb4d98" => :yosemite
+    sha256 "dd48bc1601b784affe7911585f1ff9ee02dc16c2202fd94c20d26e157beb4d98" => :mavericks
   end
 
   depends_on "aview"

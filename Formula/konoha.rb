@@ -3,11 +3,12 @@ class Konoha < Formula
   homepage "https://github.com/konoha-project/konoha3"
   url "https://github.com/konoha-project/konoha3/archive/v0.1.tar.gz"
   sha256 "e7d222808029515fe229b0ce1c4e84d0a35b59fce8603124a8df1aeba06114d3"
+  revision 1
 
   bottle do
-    sha256 "85ae184ec6d34407588f31830e5669ee0a69be8d36ce2d9ef7074eb01b8831bf" => :el_capitan
-    sha256 "0be611a0289cff989e4da04177788c91345a579a187833710967d6f0bd8d11c3" => :yosemite
-    sha256 "e35edb76cab240a9c35e8727027d745cf7835099fa68c6622159b00d50736802" => :mavericks
+    sha256 "e20a113826505f2ad7fe738d8c12e5278e67fbc4d86d456b387d6b647c71b35f" => :el_capitan
+    sha256 "5fbde423de599dac2f3b9af5f5e07bcc0015704f1beeb86847ebfacf9a84b7fc" => :yosemite
+    sha256 "7e730887010cb06350e57693fb6d1bae74212a5820b055af3104d698d85d103a" => :mavericks
   end
 
   head do

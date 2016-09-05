@@ -1,15 +1,14 @@
 class Openvpn < Formula
   desc "SSL VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/index.php/download/community-downloads.html"
-  url "https://swupdate.openvpn.org/community/releases/openvpn-2.3.11.tar.xz"
-  mirror "http://build.openvpn.net/downloads/releases/openvpn-2.3.11.tar.xz"
-  sha256 "0f5f1ca1dc5743fa166d93dd4ec952f014b5f33bafd88f0ea34b455cae1434a7"
-  revision 1
+  url "https://swupdate.openvpn.org/community/releases/openvpn-2.3.12.tar.xz"
+  mirror "http://build.openvpn.net/downloads/releases/openvpn-2.3.12.tar.xz"
+  sha256 "13b963414e2430215981868c77b9795d93653ee535a2d73576f7bb2c28200abc"
 
   bottle do
     cellar :any
-    sha256 "5e34cbef3c6ea1ce67e78c40778e566450c050387678fd799accaa3f6df73c2d" => :el_capitan
-    sha256 "5f353c8a6ae36b9e51731fcde9b2656482dbe7e482b4a508df62db803a8d72b1" => :yosemite
+    sha256 "c66732035b0fc481820a38220d5257066f6fdee39aa082dc1c69f220273569c3" => :el_capitan
+    sha256 "f870ffa632cb8e27e96719ab14eece9d5d4bd7363464e599083a30fec2d5810e" => :yosemite
   end
 
   # Requires tuntap for < 10.10
@@ -89,6 +88,6 @@ class Openvpn < Formula
   end
 
   test do
-    system "#{sbin}/openvpn", "--show-ciphers"
+    system sbin/"openvpn", "--show-ciphers"
   end
 end

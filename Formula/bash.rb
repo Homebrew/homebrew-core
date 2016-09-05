@@ -10,8 +10,6 @@ class Bash < Formula
     mirror "https://mirrors.kernel.org/gnu/bash/bash-4.3.tar.gz"
     mirror "https://ftp.gnu.org/gnu/bash/bash-4.3.tar.gz"
     mirror "https://gnu.cu.be/bash/bash-4.3.tar.gz"
-    mirror "https://mirror0.babylon.network/gnu/bash/bash-4.3.tar.gz"
-    mirror "https://mirror1.babylon.network/gnu/bash/bash-4.3.tar.gz"
     mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.3.tar.gz"
     sha256 "afc687a28e0e24dc21b988fa159ff9dbcf6b7caa92ade8645cc6d5605cd024d4"
     version "4.3.46"
@@ -70,8 +68,6 @@ class Bash < Formula
         mirror "https://mirrors.kernel.org/gnu/bash/bash-4.3-patches/bash43-#{p}"
         mirror "https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-#{p}"
         mirror "https://gnu.cu.be/bash/bash-4.3-patches/bash43-#{p}"
-        mirror "https://mirror0.babylon.network/gnu/bash/bash-4.3-patches/bash43-#{p}"
-        mirror "https://mirror1.babylon.network/gnu/bash/bash-4.3-patches/bash43-#{p}"
         mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.3-patches/bash43-#{p}"
         sha256 checksum
       end
@@ -85,15 +81,13 @@ class Bash < Formula
   end
 
   devel do
-    url "https://ftpmirror.gnu.org/bash/bash-4.4-rc1.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-4.4-rc1.tar.gz"
-    mirror "https://mirrors.kernel.org/gnu/bash/bash-4.4-rc1.tar.gz"
-    mirror "https://ftp.gnu.org/gnu/bash/bash-4.4-rc1.tar.gz"
-    mirror "https://gnu.cu.be/bash/bash-4.4-rc1.tar.gz"
-    mirror "https://mirror0.babylon.network/gnu/bash/bash-4.4-rc1.tar.gz"
-    mirror "https://mirror1.babylon.network/gnu/bash/bash-4.4-rc1.tar.gz"
-    mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.4-rc1.tar.gz"
-    sha256 "54838ce0e9db6a8920d4c9f6563fd74dac45d3d3c14c8df4cf7ceb68a91e244b"
+    url "https://ftpmirror.gnu.org/bash/bash-4.4-rc2.tar.gz"
+    mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-4.4-rc2.tar.gz"
+    mirror "https://mirrors.kernel.org/gnu/bash/bash-4.4-rc2.tar.gz"
+    mirror "https://ftp.gnu.org/gnu/bash/bash-4.4-rc2.tar.gz"
+    mirror "https://gnu.cu.be/bash/bash-4.4-rc2.tar.gz"
+    mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.4-rc2.tar.gz"
+    sha256 "199ec0166d50a765eec74dc258b006b06cf6b59901d7ff40510c82aae37ad994"
   end
 
   depends_on "readline"

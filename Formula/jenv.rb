@@ -10,7 +10,7 @@ class Jenv < Formula
   def install
     libexec.install Dir["*"]
     bin.write_exec_script libexec/"bin/jenv"
-   end
+  end
 
   def caveats; <<-EOS.undent
      To use Homebrew's directories rather than ~/.jenv add to your profile:

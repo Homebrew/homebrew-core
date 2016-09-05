@@ -34,13 +34,10 @@ class Sleepwatcher < Formula
     (prefix + "etc/sleepwatcher").install Dir["config/rc.*"]
 
     # Write the launchd scripts
-    inreplace Dir["config/*.plist"] do |s|
-      s.gsub! "/usr/local/sbin", HOMEBREW_PREFIX/"sbin"
-    end
+    inreplace Dir["config/*.plist"], "/usr/local/sbin", HOMEBREW_PREFIX/"sbin"
 
-    inreplace "config/de.bernhard-baehr.sleepwatcher-20compatibility.plist" do |s|
-      s.gsub! "/etc", (etc + "sleepwatcher")
-    end
+    inreplace "config/de.bernhard-baehr.sleepwatcher-20compatibility.plist",
+      "/etc", etc/"sleepwatcher"
 
     prefix.install Dir["config/*.plist"]
   end

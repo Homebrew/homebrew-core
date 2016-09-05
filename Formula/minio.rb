@@ -2,15 +2,15 @@ class Minio < Formula
   desc "object storage server compatible with Amazon S3"
   homepage "https://github.com/minio/minio"
   url "https://github.com/minio/minio.git",
-    :tag => "RELEASE.2016-07-13T21-46-05Z",
-    :revision => "3f27734c22212f224037a223439a425e6d2b653a"
-  version "20160713214605"
+    :tag => "RELEASE.2016-08-21T02-44-47Z",
+    :revision => "975eb319730c8db093b4744bf9e012356d61eef2"
+  version "20160821024447"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "358078c885c875d5c3ea5e0e00b68c49325ce310fb8fc2db65d75819c84ae732" => :el_capitan
-    sha256 "508a636d0fba7a1b82177b1c8d6a2c8c395e296e38abd6dafd663101cc853d7b" => :yosemite
-    sha256 "e1f7a59413d1b4b0988011a04400dd0ee9fb07ba4b0d60c71ffae4ff249f13aa" => :mavericks
+    sha256 "cacc25741e6358a9c0c2bcf366d920397bc19f0496f73af79204a3aa8d1cec36" => :el_capitan
+    sha256 "1a3ce21135037e729005d3954cd9e77bba933e321779d67ba5ea1b3e87d6b71a" => :yosemite
+    sha256 "b9e6290b23324fef659a1c04740e845bba66f8f8da7af1b9617602238e16e4ef" => :mavericks
   end
 
   depends_on "go" => :build
@@ -25,11 +25,16 @@ class Minio < Formula
       if build.head?
         system "go", "build", "-o", buildpath/"minio"
       else
-        minio_release = `git tag --points-at HEAD`.chomp
-        minio_version = minio_release.gsub(/RELEASE\./, "").chomp
-        minio_commit = `git rev-parse HEAD`.chomp
+        release = `git tag --points-at HEAD`.chomp
+        version = release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)\-(\d+)\-(\d+)Z/, 'T\1:\2:\3Z')
+        commit = `git rev-parse HEAD`.chomp
+        proj = "github.com/minio/minio/"
 
-        system "go", "build", "-ldflags", "-X main.minioVersion=#{minio_version} -X main.minioReleaseTag=#{minio_release} -X main.minioCommitID=#{minio_commit}", "-o", buildpath/"minio"
+        system "go", "build", "-o", buildpath/"minio", "-ldflags", <<-EOS.undent
+            -X #{proj}/cmd.Version=#{version}
+            -X #{proj}/cmd.ReleaseTag=#{release}
+            -X #{proj}/cmd.CommitID=#{commit}
+            EOS
       end
     end
 

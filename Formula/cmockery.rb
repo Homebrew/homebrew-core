@@ -1,7 +1,7 @@
 class Cmockery < Formula
   desc "Unit testing and mocking library for C"
-  homepage "https://code.google.com/p/cmockery/"
-  url "https://cmockery.googlecode.com/files/cmockery-0.1.2.tar.gz"
+  homepage "https://github.com/google/cmockery"
+  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/cmockery/cmockery-0.1.2.tar.gz"
   sha256 "b9e04bfbeb45ceee9b6107aa5db671c53683a992082ed2828295e83dc84a8486"
 
   bottle do
@@ -23,7 +23,6 @@ class Cmockery < Formula
 end
 
 __END__
-
 diff -uNr cmockery-0.1.2.orig/src/cmockery.c cmockery-0.1.2/src/cmockery.c
 --- cmockery-0.1.2.orig/src/cmockery.c	2008-08-29 19:55:53.000000000 -0600
 +++ cmockery-0.1.2/src/cmockery.c	2009-05-31 15:29:25.000000000 -0600

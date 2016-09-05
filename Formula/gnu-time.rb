@@ -25,7 +25,7 @@ class GnuTime < Formula
     args = [
       "--prefix=#{prefix}",
       "--mandir=#{man}",
-      "--info=#{info}"
+      "--info=#{info}",
     ]
 
     args << "--program-prefix=g" if build.without? "default-names"

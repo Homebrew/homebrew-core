@@ -1,19 +1,17 @@
 class Saltstack < Formula
+  include Language::Python::Virtualenv
+
   desc "Dynamic infrastructure communication bus"
   homepage "http://www.saltstack.org"
-  # please use sdists published as release downloads
-  # (URLs starting with https://github.com/saltstack/salt/releases/download)
-  # github tag archives will report wrong version number
-  # https://github.com/Homebrew/homebrew/issues/43493
-  url "https://github.com/saltstack/salt/releases/download/v2016.3.1/salt-2016.3.1.tar.gz"
-  sha256 "e6bdba4693116430c2af57497eb63399e3a139ac0a7016fa0870b49fbe987f75"
+  url "https://files.pythonhosted.org/packages/1d/75/b969c2495ae6ccbf8b76f6a121027f3ee8cfab9d9a1086e9ccf07d10deae/salt-2016.3.3.tar.gz"
+  sha256 "5906038594f1b9b3ac41714774fbd78f0af80d2f3ffe1c1bf20308032d7d52b6"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "bab66ba40f5a4f01b434d7d20e9fe018660410d13e7fef50cc2e2296e3e46e6e" => :el_capitan
-    sha256 "f945b87e3f9941aa36ddb224aa742c3eafd4a7953d14a30bf907219163f6a24f" => :yosemite
-    sha256 "670ca89bf321b2602cc8a197c7268ab47aa768afb9dcded8796b242e81a39d36" => :mavericks
+    sha256 "2e6a1bd9a2a9e291a100437209eaa5e2295c44d3f3b1b724b5f1d10b7c871dba" => :el_capitan
+    sha256 "28de29e0eadbe4aba2307860337cb43f161d7f42aac590e9307ff8f94dfa52ad" => :yosemite
+    sha256 "aeb6a3ebfe71e1ba3d83012158849ae704f557e9aebfc6a34f4337354dddb3d2" => :mavericks
   end
 
   depends_on "swig" => :build
@@ -22,34 +20,14 @@ class Saltstack < Formula
   depends_on "libyaml"
   depends_on "openssl" # For M2Crypto
 
-  resource "backports_abc" do
-    url "https://files.pythonhosted.org/packages/f5/d0/1d02695c0dd4f0cf01a35c03087c22338a4f72e24e2865791ebdb7a45eac/backports_abc-0.4.tar.gz"
-    sha256 "8b3e4092ba3d541c7a2f9b7d0d9c0275b21c6a01c53a61c731eba6686939d0a5"
-  end
-
-  resource "backports.ssl_match_hostname" do
-    url "https://files.pythonhosted.org/packages/76/21/2dc61178a2038a5cb35d14b61467c6ac632791ed05131dda72c20e7b9e23/backports.ssl_match_hostname-3.5.0.1.tar.gz"
-    sha256 "502ad98707319f4a51fa2ca1c677bd659008d27ded9f6380c79e8932e38dcdf2"
-  end
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/5c/f8/f6c54727c74579c6bbe5926f5deb9677c5810a33e11da58d1a4e2d09d041/certifi-2016.2.28.tar.gz"
-    sha256 "5e8eccf95924658c97b990b50552addb64f55e1e3dfe4880456ac1f287dc79d0"
-  end
-
-  resource "futures" do
-    url "https://files.pythonhosted.org/packages/55/db/97c1ca37edab586a1ae03d6892b6633d8eaa23b23ac40c7e5bbc55423c78/futures-3.0.5.tar.gz"
-    sha256 "0542525145d5afc984c88f914a0c85c77527f65946617edb5274f72406f981df"
-  end
-
   resource "Jinja2" do
     url "https://files.pythonhosted.org/packages/f2/2f/0b98b06a345a761bec91a079ccae392d282690c2d8272e708f4d10829e22/Jinja2-2.8.tar.gz"
     sha256 "bc1ff2ff88dbfacefde4ddde471d1417d3b304e8df103a7a9437d47269201bf4"
   end
 
   resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/58/75/362faac80a1bc2742b4b696dc350518312043d568bfd2687a9270f18da88/M2Crypto-0.24.0.tar.gz"
-    sha256 "80a56441a1d2c0cf27e725be7554c92598b938fc8767ee2c71fdbc2fdc055ee8"
+    url "https://files.pythonhosted.org/packages/9c/58/7e8d8c04995a422c3744929721941c400af0a2a8b8633f129d92f313cfb8/M2Crypto-0.25.1.tar.gz"
+    sha256 "ac303a1881307a51c85ee8b1d87844d9866ee823b4fdbc52f7e79187c2d9acef"
   end
 
   resource "MarkupSafe" do
@@ -57,9 +35,34 @@ class Saltstack < Formula
     sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
   end
 
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/75/5e/b84feba55e20f8da46ead76f14a3943c8cb722d40360702b2365b91dec00/PyYAML-3.11.tar.gz"
+    sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
+  end
+
+  resource "backports.ssl_match_hostname" do
+    url "https://files.pythonhosted.org/packages/76/21/2dc61178a2038a5cb35d14b61467c6ac632791ed05131dda72c20e7b9e23/backports.ssl_match_hostname-3.5.0.1.tar.gz"
+    sha256 "502ad98707319f4a51fa2ca1c677bd659008d27ded9f6380c79e8932e38dcdf2"
+  end
+
+  resource "backports_abc" do
+    url "https://files.pythonhosted.org/packages/f5/d0/1d02695c0dd4f0cf01a35c03087c22338a4f72e24e2865791ebdb7a45eac/backports_abc-0.4.tar.gz"
+    sha256 "8b3e4092ba3d541c7a2f9b7d0d9c0275b21c6a01c53a61c731eba6686939d0a5"
+  end
+
+  resource "certifi" do
+    url "https://files.pythonhosted.org/packages/41/bf/88a3269c7c95fc94a2c581c4b1b3d3ec21af7a268d6a3a4e54578adccfd6/certifi-2016.8.8.tar.gz"
+    sha256 "99864ed602d8a9d212e339b15ffa438895002eda7b7db20dca5309dac9605ae9"
+  end
+
+  resource "futures" do
+    url "https://files.pythonhosted.org/packages/55/db/97c1ca37edab586a1ae03d6892b6633d8eaa23b23ac40c7e5bbc55423c78/futures-3.0.5.tar.gz"
+    sha256 "0542525145d5afc984c88f914a0c85c77527f65946617edb5274f72406f981df"
+  end
+
   resource "msgpack-python" do
-    url "https://files.pythonhosted.org/packages/a3/fb/bcf568236ade99903ef3e3e186e2d9252adbf000b378de596058fb9df847/msgpack-python-0.4.7.tar.gz"
-    sha256 "5e001229a54180a02dcdd59db23c9978351af55b1290c27bc549e381f43acd6b"
+    url "https://files.pythonhosted.org/packages/21/27/8a1d82041c7a2a51fcc73675875a5f9ea06c2663e02fcfeb708be1d081a0/msgpack-python-0.4.8.tar.gz"
+    sha256 "1a2b19df0f03519ec7f19f826afb935b202d8979b0856c6fb3dc28955799f886"
   end
 
   resource "pycrypto" do
@@ -67,19 +70,14 @@ class Saltstack < Formula
     sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
   end
 
-  resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/75/5e/b84feba55e20f8da46ead76f14a3943c8cb722d40360702b2365b91dec00/PyYAML-3.11.tar.gz"
-    sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
-  end
-
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/69/d8/5366d3ecb3907ea079483c38a7aa6c8902a44ca322ba2eece0d587707e2e/pyzmq-15.2.0.tar.gz"
-    sha256 "2dafa322670a94e20283aba2a44b92134d425bd326419b68ad4db8d0831a26ec"
+    url "https://files.pythonhosted.org/packages/ab/3a/5826efd93ebbbdc33203f70c6ceebab1b58ac6cb1e1ab131cc6b990b4cfa/pyzmq-15.4.0.tar.gz"
+    sha256 "9d1d69da7ee78dce8721a1617c7938ded1cd1df76a6c1abf19acebb1a5ccc2bf"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
-    sha256 "63f1815788157130cee16a933b2ee184038e975f0017306d723ac326b5525b54"
+    url "https://files.pythonhosted.org/packages/2e/ad/e627446492cc374c284e82381215dcd9a0a87c4f6e90e9789afefe6da0ad/requests-2.11.1.tar.gz"
+    sha256 "5acf980358283faba0b897c73959cecf8b841205bb4b2ad3ef545f46eae1a133"
   end
 
   resource "singledispatch" do
@@ -93,31 +91,23 @@ class Saltstack < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/21/29/e64c97013e97d42d93b3d5997234a6f17455f3744847a7c16289289f8fa6/tornado-4.3.tar.gz"
-    sha256 "c9c2d32593d16eedf2cec1b6a41893626a2649b40b21ca9c4cac4243bde2efbf"
+    url "https://files.pythonhosted.org/packages/96/5d/ff472313e8f337d5acda5d56e6ea79a43583cc8771b34c85a1f458e197c3/tornado-4.4.1.tar.gz"
+    sha256 "371d0cf3d56c47accc66116a77ad558d76eebaa8458a6b677af71ca606522146"
+  end
+
+  def resources
+    super - [resource("M2Crypto")]
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-
-    resources.each do |r|
-      r.stage do
-        # M2Crypto always has to be done individually as we have to inreplace OpenSSL path
-        inreplace "setup.py", "self.openssl = '/usr'", "self.openssl = '#{Formula["openssl"].opt_prefix}'" if r.name == "M2Crypto"
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
+    venv = virtualenv_install_with_resources
+    resource("M2Crypto").stage do
+      inreplace "setup.py", "self.openssl = '/usr'",
+                            "self.openssl = '#{Formula["openssl"].opt_prefix}'"
+      venv.pip_install Pathname.pwd
     end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-    man1.install Dir["doc/man/*.1"]
-    man7.install Dir["doc/man/*.7"]
-
-    # Install sample configuration files
-    (etc/"saltstack").install Dir["conf/*"]
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    prefix.install libexec/"share" # man pages
+    (etc/"saltstack").install (buildpath/"conf").children # sample config files
   end
 
   def caveats; <<-EOS.undent
@@ -127,9 +117,6 @@ class Saltstack < Formula
   end
 
   test do
-    ENV.prepend_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    system "python", "-c", "import M2Crypto"
-
     assert_match version.to_s, shell_output("#{bin}/salt --version")
   end
 end

@@ -1,10 +1,9 @@
 class GameMusicEmu < Formula
   desc "Videogame music file emulator collection"
-  homepage "https://code.google.com/p/game-music-emu/"
-  url "https://game-music-emu.googlecode.com/files/game-music-emu-0.6.0.tar.bz2"
+  homepage "https://bitbucket.org/mpyne/game-music-emu"
+  url "https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-0.6.0.tar.bz2"
   sha256 "506e81d0c61e1a26d503fbf5351503e0b31f9fbb374cb1f09979758b46a24987"
-
-  head "http://game-music-emu.googlecode.com/svn/trunk/"
+  head "https://bitbucket.org/mpyne/game-music-emu.git"
 
   bottle do
     cellar :any
@@ -41,7 +40,6 @@ class GameMusicEmu < Formula
 
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}",
                    "-lgme", "-o", "test", *ENV.cflags.to_s.split
-
     system "./test"
   end
 end

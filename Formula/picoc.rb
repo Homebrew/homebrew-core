@@ -1,7 +1,7 @@
 class Picoc < Formula
   desc "C interpreter for scripting"
-  homepage "https://code.google.com/p/picoc/"
-  url "https://picoc.googlecode.com/files/picoc-2.1.tar.bz2"
+  homepage "https://github.com/zsaleeba/picoc"
+  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/picoc/picoc-2.1.tar.bz2"
   sha256 "bfed355fab810b337ccfa9e3215679d0b9886c00d9cb5e691f7e7363fd388b7e"
 
   bottle do
@@ -14,5 +14,16 @@ class Picoc < Formula
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags} -DUNIX_HOST"
     bin.install "picoc"
+  end
+
+  test do
+    (testpath/"brew.c").write <<-EOS.undent
+      #include <stdio.h>
+      int main(void) {
+        printf("Homebrew\n");
+        return 0;
+      }
+    EOS
+    assert_match "Homebrew", shell_output("#{bin}/picoc brew.c")
   end
 end

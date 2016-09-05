@@ -7,18 +7,16 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      :tag => "v0.6.0-rebuild",
-      :revision => "d2d0aa07d079836c9a5bd258479b019ca00eb6b8"
+      :tag => "v0.6.1",
+      :revision => "182ba68a9589d4cef95234134aaa498a686e3de3"
   head "https://github.com/hashicorp/vault.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9468465da2abefb10d5fae81c8bd2bb91f07e8074bc3b4cb67f65099b5540e70" => :el_capitan
-    sha256 "55f4996c2801100f9ab896a628ef3cd42f08fe166a87a461424ba78abe2dbbec" => :yosemite
-    sha256 "91c4e8315f40988ad94a0797488bf668b79289a0190357c8d5b0737a96003c8f" => :mavericks
+    sha256 "1c993a1eb4daea265bcf45a110f83d74fd32fe1b31cfb14ba7adb814a0bc2ff3" => :el_capitan
+    sha256 "8bdab2103c4b2aad9f6b11ee315c20cde6d4129afaa2ef49e8506b4a87301ed2" => :yosemite
+    sha256 "4f29ee4754dbb55812f684f724e4ee6d0e8e4ebb5e547d209f6f41bbb8681ce0" => :mavericks
   end
-
-  option "with-test", "Run tests after compilation"
 
   depends_on "go" => :build
 
@@ -29,7 +27,7 @@ class Vault < Formula
 
   go_resource "github.com/mitchellh/gox" do
     url "https://github.com/mitchellh/gox.git",
-    :revision => "6e9ee79eab7bb1b84155379b3f94ff9a87b344e4"
+    :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
   end
 
   def install
@@ -48,8 +46,8 @@ class Vault < Formula
 
     cd "src/github.com/hashicorp/vault" do
       system "make", "dev"
-      system "make", "test" if build.bottle? || build.with?("test")
       bin.install "bin/vault"
+      prefix.install_metafiles
     end
   end
 

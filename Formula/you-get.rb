@@ -3,14 +3,14 @@ class YouGet < Formula
 
   desc "Dumb downloader that scrapes the web"
   homepage "https://you-get.org/"
-  url "https://files.pythonhosted.org/packages/93/bd/f7a81c7b73d3a7bac9f254ec11854c70ab2f5c22dcdbefbe01573faee014/you-get-0.4.523.tar.gz"
-  sha256 "01e51b48665a7b3de97394c9ad8e34e510664ffdada6b4f1fcf1651977e8347f"
+  url "https://files.pythonhosted.org/packages/10/71/fc855ecf52cae5cf2844a3fcc13091fd90f94566bd1d95e4456eef893544/you-get-0.4.536.tar.gz"
+  sha256 "6d731e1316f58435a291ad07bc572da7d77129fd211d6e1796d6d55e45f84537"
   head "https://github.com/soimort/you-get.git", :branch => "develop"
 
   bottle do
-    sha256 "95e8a067a9266c2bce3addb1c7f41a874f5623f1280943756eb60caa0fda019e" => :el_capitan
-    sha256 "955a72c1b6361c3412604757e3e4c8c18f1e9ff425b393f60df0058982aa507a" => :yosemite
-    sha256 "a42c716010a95cb3ea85b7f58626df1c720ea15c282ce600bd7cfcc5960abe83" => :mavericks
+    sha256 "f703f05dce8bfdef7b135524d112f672d0244ee473dd3a4cd07c94e4b0b47418" => :el_capitan
+    sha256 "a3deb9a51333f9d5b7d8e6c855c1128a6556ac8aff1166293488079905f161bb" => :yosemite
+    sha256 "4be88f87138bcaadcf85fe5cc9a7b475e548630b3a5e96884fbfb6a64f1d109b" => :mavericks
   end
 
   depends_on :python3

@@ -1,33 +1,31 @@
 class Libtess2 < Formula
   desc "Refactored version of GLU tesselator"
-  homepage "https://code.google.com/p/libtess2/"
-  url "https://libtess2.googlecode.com/files/libtess2-1.0.zip"
-  sha256 "1938805e1859cbc4459797920743def39fd04154fe60da2ee3ee2198143b96bb"
+  homepage "https://github.com/memononen/libtess2"
+  url "https://github.com/memononen/libtess2/archive/v1.0.1.tar.gz"
+  sha256 "2d01fb831736d04a9dd2c27cbe8d951f15c860724cd65a229fa9685fafce00fa"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "335bfae9b72f2ba530893c493cc7c4f7738901cb087cc1624b03b0f113e5652d" => :el_capitan
-    sha256 "925affe887bcd5388e30e116a7f91da95b3149f4fb2a17ee149f0abf00cbddc9" => :yosemite
-    sha256 "fa438ed6e594c08dc226ca93ecc56d4f164f11576328dabcffdd3539a971ffd6" => :mavericks
-    sha256 "04ffb8fe1e64575384adb1066c3b0556f75be08e65a194b93b0a1a6f8972fa13" => :mountain_lion
+    sha256 "3eff3e41e6ca76c0e2716615793015781b52e44a851c30b15b38ac769dfebbc6" => :el_capitan
+    sha256 "193dbb1598352e0d24501bb5c5a8a52236e2e6675d4473e357a46a7b4c644b9e" => :yosemite
+    sha256 "b6cbf42008dcc423a8c9026e8f9dbec777dde7d375dbebd2817fc5b9393f1f85" => :mavericks
   end
 
-  depends_on "cmake" => :build
+  depends_on "premake" => :build
+
+  # Move to official build system upstream rather than hacking our
+  # own CMake script indefinitely.
+  patch do
+    url "https://github.com/memononen/libtess2/commit/a43504d78a.patch"
+    sha256 "2b05d81ae67e121b578d1fceeea32a318628c63de4522aeba341e66a8b02f5b3"
+  end
 
   def install
-    # creating CMakeLists.txt, since the original source doesn't have one
-    (buildpath/"CMakeLists.txt").write <<-EOS.undent
-      cmake_minimum_required(VERSION 2.6)
-      project(libtess)
-      file(GLOB SRCS "Source/*.cpp" "Source/*.c" "Source/*.h" "Source/*.hpp")
-      include_directories("Include")
-      add_library(tess2 ${SRCS} ${SRCS_INCL})
-    EOS
-
-    system "cmake", ".", *std_cmake_args
-    system "make"
-    lib.install "libtess2.a"
+    system "premake4", "--file=premake4.lua", "gmake"
+    cd "Build" do
+      system "make", "tess2"
+      lib.install "libtess2.a"
+    end
     include.install "Include/tesselator.h"
   end
 end

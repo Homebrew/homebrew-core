@@ -1,8 +1,8 @@
 class AmmoniteRepl < Formula
   desc "Ammonite is a cleanroom re-implementation of the Scala REPL"
   homepage "https://lihaoyi.github.io/Ammonite/#Ammonite-REPL"
-  url "https://github.com/lihaoyi/Ammonite/releases/download/0.7.0/0.7.0", :using => :nounzip
-  sha256 "bcd86bee82b63f11bd4ae8b3c72b90401f3183b09f586326aeb6743f4c78f918"
+  url "https://github.com/lihaoyi/Ammonite/releases/download/0.7.6/0.7.6", :using => :nounzip
+  sha256 "2e048f5bceaa56ad0ce8c5af32b12761d6a64669b7aafb59cdc4bb4c18b02a16"
 
   bottle :unneeded
 
@@ -13,8 +13,8 @@ class AmmoniteRepl < Formula
   end
 
   test do
-    ENV.java_cache
+    ENV["_JAVA_OPTIONS"] = "-Duser.home=#{testpath}"
     output = shell_output("#{bin}/amm -c 'print(\"hello world!\")'")
-    assert_equal "hello world!", output
+    assert_equal "hello world!", output.lines.last
   end
 end

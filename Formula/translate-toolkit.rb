@@ -1,85 +1,41 @@
 class TranslateToolkit < Formula
+  include Language::Python::Virtualenv
+
   desc "Toolkit for localization engineers"
   homepage "http://toolkit.translatehouse.org/"
-  url "https://github.com/translate/translate/releases/download/1.12.0/translate-toolkit-1.12.0.tar.bz2"
-  sha256 "11e332f2a29d8644364b4ca79b4ac079df328626ec8c27ac0e8cc454696719ca"
+  url "https://github.com/translate/translate/releases/download/1.13.0/translate-toolkit-1.13.0.tar.bz2"
+  sha256 "dcbbf49058e4196a06e988d9dc1e762321ab0d057c4be035b84e3c11353fc2f8"
   head "https://github.com/translate/translate.git"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "e86ad0efba358703d00a920fe61313de3fbf56b73aa8102656e2d0b8fd762db5" => :el_capitan
-    sha256 "ee17dc35e2f0f862ac5c011f9cd0cd0022f7a4c62de0353e20eeaf9480006f49" => :yosemite
-    sha256 "ae6ed22058dfd558efa42f5779f97b05fd5575bb3cfd06dff61e60c49f374337" => :mavericks
-    sha256 "31459fd05ccb213ded2ff0c048e25590913778211c9eda9b980ba8248150baaa" => :mountain_lion
+    sha256 "edf462681a76fa0c57b30259e5b403da4c4c9d9d37416653c083b6cd4c2bc873" => :el_capitan
+    sha256 "6592587cad1508205717c75108d3ddb46512062f51b593c8a73ffcc01f5dd3ba" => :yosemite
+    sha256 "d7012e9f5f530c82557db988fe6266d108d52ad426e0e832182852815f96aabe" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  resource "lxml" do
-    url "https://pypi.python.org/packages/source/l/lxml/lxml-2.0.tar.gz"
-    sha256 "062e6dbebcbe738eaa6e6298fe38b1ddf355dbe67a9f76c67a79fcef67468c5b"
+  resource "argparse" do
+    url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
+    sha256 "62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4"
   end
 
-  resource "pylev" do
-    url "https://pypi.python.org/packages/source/p/python-Levenshtein/python-Levenshtein-0.10.2.tar.gz"
-    sha256 "49a3b3c3210157e2070eb46c0713e64f409efc8c9a7520632ddf16f8a9508bed"
-  end
-
-  resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.8.0.tar.gz"
-    sha256 "047bbbba41bac37c444c75ddfdf0573dd6e2f1fbd824e6247bb26fa7d8fa3830"
-  end
-
-  resource "diffmatch" do
-    url "https://pypi.python.org/packages/source/d/diff-match-patch/diff-match-patch-20121119.tar.gz"
+  resource "diff-match-patch" do
+    url "https://files.pythonhosted.org/packages/22/82/46eaeab04805b4fac17630b59f30c4f2c8860988bcefd730ff4f1992908b/diff-match-patch-20121119.tar.gz"
     sha256 "9dba5611fbf27893347349fd51cc1911cb403682a7163373adacc565d11e2e4c"
   end
 
-  resource "beautifulsoup4" do
-    url "https://pypi.python.org/packages/source/b/beautifulsoup4/beautifulsoup4-4.3.2.tar.gz"
-    sha256 "a2b29bd048ca2fe54a046b29770964738872a9747003a371344a93eedf7ad58e"
-  end
-
-  resource "iniparse" do
-    url "https://pypi.python.org/packages/source/i/iniparse/iniparse-0.3.1.tar.gz"
-    sha256 "b6b31f6c920af95168bb29e68b45c284ebf2c9928b87a509312cf5cf7215fb20"
-  end
-
-  resource "vobject" do
-    url "https://pypi.python.org/packages/source/v/vobject/vobject-0.6.6.tar.gz"
-    sha256 "99c02897946257bd036acbbf37888cf5e7ecb832f98d68cbf9c6e8b4a591bd86"
-  end
-
-  resource "cherrypy" do
-    url "https://pypi.python.org/packages/source/C/CherryPy/CherryPy-3.2.4.tar.gz"
-    sha256 "abd73a449936740e99d3a05eb89b9381dc188ef696904f585463bc28079f1288"
-  end
-
-  resource "pytest" do
-    url "https://pypi.python.org/packages/source/p/pytest/pytest-2.2.0.zip"
-    sha256 "3ab48f714edc7e72525caf370f239b46e493d9dec229384ecb52f9135932506d"
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    virtualenv_install_with_resources
+  end
 
-    res = %w[six lxml pylev diffmatch beautifulsoup4 iniparse vobject cherrypy pytest]
-    res.each do |r|
-      resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    # install_data tries to install to /Library because translate-toolkit's
-    # heuristic for extracting a relative site-packages path fails with Apple's
-    # layout
-    inreplace "setup.py", /^sitepackages =.+/, "sitepackages = 'lib/python2.7/site-packages'"
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+  test do
+    system bin/"pretranslate", "-h"
   end
 end

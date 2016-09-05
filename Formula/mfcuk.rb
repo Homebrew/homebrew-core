@@ -1,7 +1,7 @@
 class Mfcuk < Formula
   desc "MiFare Classic Universal toolKit"
-  homepage "https://code.google.com/p/mfcuk/"
-  url "https://mfcuk.googlecode.com/files/mfcuk-0.3.8.tar.gz"
+  homepage "https://github.com/nfc-tools/mfcuk"
+  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mfcuk/mfcuk-0.3.8.tar.gz"
   sha256 "977595765b4b46e4f47817e9500703aaf5c1bcad39cb02661f862f9d83f13a55"
 
   bottle do

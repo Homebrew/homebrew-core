@@ -1,4 +1,6 @@
 class Certbot < Formula
+  include Language::Python::Virtualenv
+
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
   url "https://github.com/certbot/certbot/archive/v0.8.1.tar.gz"
@@ -6,9 +8,10 @@ class Certbot < Formula
 
   bottle do
     cellar :any
-    sha256 "ddcbf0032cf40b8139b92f183d4f185dd8df7cbb323649d84ce03cf16f04aea0" => :el_capitan
-    sha256 "3ad6aae83c67d9b0e712491246be8e6c70d503b4bae99151559f347cdc50217e" => :yosemite
-    sha256 "584f3dc277e7bfefe8c9c44f758f09b0e204e371fc72330d8abcc593c2ace3d7" => :mavericks
+    rebuild 1
+    sha256 "43e9ff2c55269a0cdacea57c94ea30d4a7d2e7309d064b893c63b73df462532b" => :el_capitan
+    sha256 "4a3a8210e7d109fdd41408db7debc92069085c6f598ce9faed5ba96b8d5faab6" => :yosemite
+    sha256 "715b3d0c6131871c85b9a59f3ff365743ab253ff4b4288f6b2843642292d9b7e" => :mavericks
   end
 
   depends_on "augeas"
@@ -154,36 +157,16 @@ class Certbot < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+    virtualenv_install_with_resources
+
+    # Shipped with certbot, not external resources.
+    %w[acme certbot-apache certbot-nginx].each do |r|
+      cd r do
+        system "python", *Language::Python.setup_install_args(libexec)
       end
     end
 
-    # Namespace packages and .pth files aren't processed from PYTHONPATH.
-    touch libexec/"vendor/lib/python2.7/site-packages/zope/__init__.py"
-    touch libexec/"vendor/lib/python2.7/site-packages/ndg/__init__.py"
-
-    cd "acme" do
-      system "python", *Language::Python.setup_install_args(libexec)
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    cd "certbot-apache" do
-      system "python", *Language::Python.setup_install_args(libexec)
-    end
-
-    cd "certbot-nginx" do
-      system "python", *Language::Python.setup_install_args(libexec)
-    end
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
     pkgshare.install "examples"
-
     # Keep the old name around temporarily for compatibility
     # so that people's scripts don't suddenly bork.
     bin.install_symlink bin/"certbot" => "letsencrypt"

@@ -1,20 +1,26 @@
 class Latexml < Formula
   desc "LaTeX to XML/HTML/MathML Converter"
   homepage "http://dlmf.nist.gov/LaTeXML"
-  url "https://github.com/brucemiller/LaTeXML/archive/v0.8.1.tar.gz"
-  sha256 "2ba1a580258ff5c7e3d9c2b40fd15cb4c92e388e5cd6b6127e8fbf9b1b9c63ce"
+  url "http://dlmf.nist.gov/LaTeXML/releases/LaTeXML-0.8.2.tar.gz"
+  sha256 "3d41a3012760d31d721b569d8c1b430cde1df2b68fcc3c66f41ec640965caabf"
+  head "https://github.com/brucemiller/LaTeXML.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ebef5edcdc7b8b992e547fcc57a0af84c9154391d21e9b63b1d8a4bfd90dcb18" => :el_capitan
-    sha256 "7b10c703cc3a89062210570d74ec27976d33a185b1a089e44ff438e7962d7d8d" => :yosemite
-    sha256 "916998851d7466e0b86d389b8385a9d4113f1da8105102c42e3f7fece8f31533" => :mavericks
+    sha256 "5ae3ca257610559471ea0e1bbc9d5ff8f122790564a8e7027841e5b2356b6f8f" => :el_capitan
+    sha256 "5205887f374d4bd15905f5f13b4c661c5a6cb2725fc631836cff0668e34085b5" => :yosemite
+    sha256 "884426eb041a9fa05ba6ebc64c64f4ce76f7c10cab3c5c1b98bcce201831c9d2" => :mavericks
   end
 
   resource "Image::Size" do
     url "https://cpan.metacpan.org/authors/id/R/RJ/RJRAY/Image-Size-3.300.tar.gz"
     mirror "http://search.cpan.org/CPAN/authors/id/R/RJ/RJRAY/Image-Size-3.300.tar.gz"
     sha256 "53c9b1f86531cde060ee63709d1fda73cabc0cf2d581d29b22b014781b9f026b"
+  end
+
+  resource "Text::Unidecode" do
+    url "http://search.cpan.org/CPAN/authors/id/S/SB/SBURKE/Text-Unidecode-1.27.tar.gz"
+    sha256 "11876a90f0ce858d31203e80d62900383bb642ed8a470c67539b607f2a772d02"
   end
 
   def install
@@ -46,6 +52,6 @@ class Latexml < Formula
     \\end{document}
     EOS
     assert_match %r{<title>LaTeXML Homebrew Test</title>},
-      shell_output("#{bin}/latexml --quiet #{testpath}/test.tex 2>/dev/null")
+      shell_output("#{bin}/latexml --quiet #{testpath}/test.tex")
   end
 end

@@ -5,12 +5,13 @@ class Gdm < Formula
   homepage "https://github.com/sparrc/gdm"
   url "https://github.com/sparrc/gdm/archive/1.3.tar.gz"
   sha256 "e545378699a557e6dffedb1c25f54ea4f1bf93c1c825ec693f81f391569c8529"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aba6293bdbb344d907821d55946f322c265f86fbc30ea09a6e013f37085371dc" => :el_capitan
-    sha256 "64659933d888ce34a9e84376c2d941c65dd4a369c07a1f9bb28a821e2512a8ab" => :yosemite
-    sha256 "86f810b913f609316854d7254e55b9969bc058fb5fa6dc9fb88b05d2434be726" => :mavericks
+    sha256 "f001589cc8c409c1467d283bdb84f9c47728642f15a41eb303f82893a79e38d0" => :el_capitan
+    sha256 "18be3e8bb793367d43425f4278958c7f301c78b7093bb8d47c9fc14b5aa3b7e3" => :yosemite
+    sha256 "c090c98afe08e42e164aa61a0e9034c48d279b2e96ea2197ab7f7b9239a86e96" => :mavericks
   end
 
   depends_on "go"
@@ -34,9 +35,9 @@ class Gdm < Formula
   end
 
   test do
-    ENV["GOPATH"] = testpath
-    assert_match "#{version}", shell_output("#{bin}/gdm version")
-    assert_match "#{testpath}", shell_output("gdm save")
-    system "gdm", "restore"
+    ENV["GOPATH"] = testpath.realpath
+    assert_match version.to_s, shell_output("#{bin}/gdm version")
+    assert_match testpath.realpath.to_s, shell_output("#{bin}/gdm save")
+    system bin/"gdm", "restore"
   end
 end

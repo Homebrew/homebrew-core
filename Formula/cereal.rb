@@ -1,33 +1,35 @@
 class Cereal < Formula
   desc "C++11 library for serialization"
   homepage "https://uscilab.github.io/cereal/"
-  url "https://github.com/USCiLab/cereal/archive/v1.1.2.tar.gz"
-  sha256 "45607d0de1d29e84d03bf8eecf221eb2912005b63f02314fbade9fbabfd37b8d"
-
+  url "https://github.com/USCiLab/cereal/archive/v1.2.1.tar.gz"
+  sha256 "7d321c22ea1280b47ddb06f3e9702fcdbb2910ff2f3df0a2554804210714434e"
   head "https://github.com/USCiLab/cereal.git", :branch => "develop"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "6f845cc133b95ef4ba7cf90412a26033aa643dba905bbdf859c453d0438b5773" => :el_capitan
-    sha256 "08c130ea94d5b20e3314f93deda318f1b2d6177d2be9a490167adb2b021dec81" => :yosemite
-    sha256 "f0504c9cc90d6358fdc10d1f075463905d7e581d80e5a45e374976e7bc797b63" => :mavericks
-    sha256 "00ef7732975fb675326d0dc1f1a8732b995626075cb5f0a3f2740f28c3fcdda6" => :mountain_lion
-  end
+  bottle :unneeded
 
   option "with-test", "Build and run the test suite"
 
   deprecated_option "with-tests" => "with-test"
 
-  depends_on "cmake" => :build if build.with? "tests"
+  if build.with? "test"
+    depends_on "cmake" => :build
+    depends_on "boost" => :build
+  end
+
+  # error: chosen constructor is explicit in copy-initialization
+  # Reported 3 Sep 2016: https://github.com/USCiLab/cereal/issues/339
+  depends_on :macos => :yosemite
 
   needs :cxx11
 
   def install
-    ENV.cxx11
     if build.with? "test"
-      system "cmake", ".", *std_cmake_args
-      system "make"
-      system "make", "test"
+      ENV.cxx11
+      mkdir "build" do
+        system "cmake", "..", *std_cmake_args
+        system "make"
+        system "make", "test"
+      end
     end
     include.install "include/cereal"
   end

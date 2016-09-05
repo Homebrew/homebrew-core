@@ -3,6 +3,7 @@ class Meson < Formula
   homepage "http://mesonbuild.com/"
   url "https://github.com/mesonbuild/meson/releases/download/0.33.0/meson-0.33.0.tar.gz"
   sha256 "c3a5bfe863b3a041469bccee9ad5b4fd7c8d451d633381fe40102731cec5b294"
+  head "https://github.com/mesonbuild/meson.git"
 
   bottle do
     cellar :any_skip_relocation

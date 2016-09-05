@@ -3,13 +3,13 @@ class Apr < Formula
   homepage "https://apr.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-1.5.2.tar.bz2"
   sha256 "7d03ed29c22a7152be45b8e50431063736df9e1daa1ddf93f6a547ba7a28f67a"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "b9165ea319ea97f7321921f72c373327eae74d8f7ad64ebaffe516baf3c3565b" => :el_capitan
-    sha256 "61c2e06504d6581cc3066ee71b990ca96a85429245f453e844e9d5c4e22d3f9b" => :yosemite
-    sha256 "ec000b6b752afcd8423f9cabd22920add92d79836d376f07a5630eca8a3a9ee0" => :mavericks
+    sha256 "8a9f56c07ce43d3d4ab964da863625187e06be4fea8e99a488cbf0ec9832f532" => :el_capitan
+    sha256 "08595cd95ac27346c4411ddabae93a388950237f02a37f3b8d371361d51d507f" => :yosemite
+    sha256 "627e691c080851b854abc3affcf7d53c32c33fb7bb3bc00646f877b670f7b498" => :mavericks
   end
 
   keg_only :provided_by_osx, "Apple's CLT package contains apr."
@@ -27,9 +27,12 @@ class Apr < Formula
     system "./configure", "--prefix=#{libexec}"
     system "make", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # No need for this to point to the versioned path.
+    inreplace libexec/"bin/apr-1-config", libexec, opt_libexec
   end
 
   test do
-    system bin/"apr-1-config", "--link-libtool", "--libs"
+    assert_match opt_libexec.to_s, shell_output("#{bin}/apr-1-config --prefix")
   end
 end

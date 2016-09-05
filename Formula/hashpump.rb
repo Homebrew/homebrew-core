@@ -21,8 +21,8 @@ class Hashpump < Formula
 
   # Remove on next release
   patch do
-    url "https://patch-diff.githubusercontent.com/raw/bwall/HashPump/pull/14.diff"
-    sha256 "47236fed281000726942740002e44ef8bb90b05f55b2e7deeb183d9f708906c1"
+    url "https://github.com/bwall/HashPump/pull/14.patch"
+    sha256 "8bc991cf7d4a4696e8de8127aac77606d3ea55ceff93dc5cd88b31562f45827c"
   end
 
   def install

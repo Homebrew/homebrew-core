@@ -56,4 +56,3 @@ class Uptimed < Formula
     system "#{bin}/uprecords"
   end
 end
-

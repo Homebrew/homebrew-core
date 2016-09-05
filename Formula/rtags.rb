@@ -22,7 +22,7 @@ class Rtags < Formula
     ENV.append("LDFLAGS", "-lc++abi")
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", "-DRTAGS_NO_BUILD_CLANG=ON", *std_cmake_args
       system "make"
       system "make", "install"
     end

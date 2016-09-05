@@ -1,14 +1,13 @@
 class Kyua < Formula
   desc "Testing framework for infrastructure software"
   homepage "https://github.com/jmmv/kyua"
-  url "https://github.com/jmmv/kyua/releases/download/kyua-0.11/kyua-0.11.tar.gz"
-  sha256 "2b8b64a458b642df75086eeb73e8073d105b8d9cff04c9b1a905b68bc8502560"
+  url "https://github.com/jmmv/kyua/releases/download/kyua-0.13/kyua-0.13.tar.gz"
+  sha256 "db6e5d341d5cf7e49e50aa361243e19087a00ba33742b0855d2685c0b8e721d6"
 
   bottle do
-    sha256 "c64ff3815d5a237ee32ca2c3fa46ed9508b055dc6ab33e814f484e7dd0e04578" => :el_capitan
-    sha256 "3d2bbb23c7b1b7599cc55e5f6de9474f3e6fedfb73e993da0345e8502bc7c3e6" => :yosemite
-    sha256 "854b21751c3e76ad484b693d19c58745b7e666de234f067b9f40814e984a9332" => :mavericks
-    sha256 "76c4f08417963cda929dbbf017c4617c89b336b78a74004f4b8baa95e150738d" => :mountain_lion
+    sha256 "54e4d600f7ec3707314d53931d3b0dc2f50881318cdb2802c87248674e8ec5ff" => :el_capitan
+    sha256 "2efeeacae19937d45b8ce03434e4377a9d60791bdac8ecb0b9e5eb3e248912d6" => :yosemite
+    sha256 "c0eb883fe1104012ad0e2520b155bc49863ee7426af9bf280d7d012664f232cc" => :mavericks
   end
 
   depends_on "atf"

@@ -1,14 +1,14 @@
 class Zurl < Formula
   desc "HTTP and WebSocket client worker with ZeroMQ interface"
   homepage "https://github.com/fanout/zurl"
-  url "https://dl.bintray.com/fanout/source/zurl-1.5.1.tar.bz2"
-  sha256 "945fccc160ea655249e7dd3706a5db096bab6d1d08fc6e290e53a9635f07c7d4"
+  url "https://dl.bintray.com/fanout/source/zurl-1.6.0.tar.bz2"
+  sha256 "eb30ff825f407311357b1ffb3ea220957fa932b3d61d2937f3e334e4ea346dd5"
 
   bottle do
     cellar :any
-    sha256 "c9d48e5eff5ff9cc57cd99eecadea25047216c9bc3510f813bd5324525f0b866" => :el_capitan
-    sha256 "9d5b6ce92eb76bde188915070d383a98812274140f20c9315b89f7af7f737f69" => :yosemite
-    sha256 "a2bb8f6471dbc757b8a46e0a60e743a7a3e43f5b8ca4f3128eb8c6902922e243" => :mavericks
+    sha256 "b35d05ae25650d67461d7c9cb95a95f170a10e22a62c4179f1b331bb88b40005" => :el_capitan
+    sha256 "85d1e54cadcef1f206d7a1749c24d59f41941db64a693ac3a729b1478f3e7041" => :yosemite
+    sha256 "c04e8b13ff3984009f88400a8eb6e44fc738ea537eec6fb9c92e77a39d16969d" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -21,9 +21,17 @@ class Zurl < Formula
     sha256 "2dafa322670a94e20283aba2a44b92134d425bd326419b68ad4db8d0831a26ec"
   end
 
+  stable do
+    patch do
+      url "https://github.com/fanout/zurl/commit/de3c0f27cc30e9815f2f28160578a2928118ffd0.diff"
+      sha256 "a6930cdc5e399867a1abb53efd2857249f7ae7f801e7ab1106c63667e6f56fa6"
+    end
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}", "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     system "make"
+    system "make", "check"
     system "make", "install"
   end
 

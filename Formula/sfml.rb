@@ -2,16 +2,15 @@ class Sfml < Formula
   # Don't update SFML until there's a corresponding CSFML release
   desc "Multi-media library with bindings for multiple languages"
   homepage "http://www.sfml-dev.org/"
-  url "http://www.sfml-dev.org/files/SFML-2.3.2-sources.zip"
-  sha256 "03fe79943c48222037f1126a581b12c95a4dd53168881907964695c5ec3dc395"
+  url "http://www.sfml-dev.org/files/SFML-2.4.0-sources.zip"
+  sha256 "868a1a1e43a7ee40c1a90efcbcea061b6f0a6ed129075d9a8f19c8c69e644b0f"
   head "https://github.com/SFML/SFML.git"
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "ad7dd2e41bfa6f64a26126b984195e1c82ddfc8f0b0565e48e01bc2e0f78bc34" => :el_capitan
-    sha256 "dce3b6fd761739d01aecbce2a06f5cea8739d8a1336e8ce61079aecd56004851" => :yosemite
-    sha256 "1ae3b7fbe5965b1d5e4e8ed08e3184aaac57cc547dbb78e9d5e7b64dc8589a00" => :mavericks
+    sha256 "e1bc85c3f1c4f7342f36fcdcc710b20e8e04f33148cb04881cc9212bfca53416" => :el_capitan
+    sha256 "24f77359cd2e01ca9311594217722b83228e8fa0f45dfb86d385ccf00fd16947" => :yosemite
+    sha256 "c548482a327731074d32195e214297ec99e8940632f62bb46b16cce6dd4e0ec4" => :mavericks
   end
 
   depends_on "cmake" => :build

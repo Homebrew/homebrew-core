@@ -1,21 +1,21 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://dist.torproject.org/tor-0.2.8.6.tar.gz"
-  mirror "https://tor.eff.org/dist/tor-0.2.8.6.tar.gz"
-  sha256 "3dc9fc02f7cd22ed5fce707e0d9b26a72b1bd0976766a804cb13078d32e3ab5a"
+  url "https://dist.torproject.org/tor-0.2.8.7.tar.gz"
+  mirror "https://tor.eff.org/dist/tor-0.2.8.7.tar.gz"
+  sha256 "ae44e2b699e82db7ff318432fd558dfa941ad154e4055f16d208514951742fc6"
 
   bottle do
-    sha256 "61d4930d118f6ffa5c2ce5b81a68f8a6e76df42dd732a3b2edabe9f7403b6150" => :el_capitan
-    sha256 "d4fe09c14eae1b909056cc9a258fd1f5e941bf9b07d7d61dd7dc4ef87a1d2c36" => :yosemite
-    sha256 "69cd219fde5288ed696ef0c85420b52e9852e7dd15e08a1dfa2dc582ae8a258e" => :mavericks
+    sha256 "b843a3e96a0c7222d98989770f4516d35cbae6e2c5038a56c430cd69d1bd6044" => :el_capitan
+    sha256 "3557e5d503dff2764b118ba5e5461918886a3d418161eb9ee8360e08869bab82" => :yosemite
+    sha256 "fd22b9bc52efa6579abfd0cd0ba3b7901064bf73a990ed1923033f5a497a1308" => :mavericks
   end
 
   devel do
-    url "https://dist.torproject.org/tor-0.2.9.1-alpha.tar.gz"
-    mirror "https://tor.eff.org/dist/tor-0.2.9.1-alpha.tar.gz"
-    version "0.2.9.1-alpha"
-    sha256 "1a1b57af6bb47ecb62e4c60e2ceecb5609b558b1fdd87c86a91571d1601ba3f2"
+    url "https://dist.torproject.org/tor-0.2.9.2-alpha.tar.gz"
+    mirror "https://tor.eff.org/dist/tor-0.2.9.2-alpha.tar.gz"
+    version "0.2.9.2-alpha"
+    sha256 "dd93cf6b8531acf68152adbfa2f693cebd1b3254bc6190c920a99cc587944922"
   end
 
   depends_on "pkg-config" => :build

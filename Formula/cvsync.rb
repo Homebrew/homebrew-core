@@ -38,6 +38,6 @@ class Cvsync < Formula
   end
 
   test do
-    assert_match "#{version}", shell_output("#{bin}/cvsync -h 2>&1", 1)
+    assert_match version.to_s, shell_output("#{bin}/cvsync -h 2>&1", 1)
   end
 end

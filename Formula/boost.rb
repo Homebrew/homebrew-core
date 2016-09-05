@@ -1,16 +1,29 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://downloads.sourceforge.net/project/boost/boost/1.61.0/boost_1_61_0.tar.bz2"
-  sha256 "a547bd06c2fd9a71ba1d169d9cf0339da7ebf4753849a8f7d6fdb8feee99b640"
+  revision 1
 
   head "https://github.com/boostorg/boost.git"
 
+  stable do
+    url "https://downloads.sourceforge.net/project/boost/boost/1.61.0/boost_1_61_0.tar.bz2"
+    sha256 "a547bd06c2fd9a71ba1d169d9cf0339da7ebf4753849a8f7d6fdb8feee99b640"
+
+    # Remove for > 1.61.0
+    # Upstream commit "Fix build issues when optional_fwd.hpp is used before
+    # including boost/config.hpp" from PR boostorg/optional#19
+    # See https://svn.boost.org/trac/boost/ticket/12179
+    patch :p2 do
+      url "https://github.com/boostorg/optional/commit/844ca6a0.patch"
+      sha256 "1ef54ca1dcd12d809e2a01b558113fcd734d992402d2ec78c387298ef29cc887"
+    end
+  end
+
   bottle do
     cellar :any
-    sha256 "cf0a3e673995d242dc3169b3a13e17dd3757cedbdc9083f5ac3ee13e7edba3e4" => :el_capitan
-    sha256 "66e93754c6dc599c01b5637552627631cec725a2b244f6b45fafb63632a65cbb" => :yosemite
-    sha256 "c47d422d5f47456651a650e4c2d3e234ecc64a8d293d4a32f44521bab6a9da64" => :mavericks
+    sha256 "0c06f4558c5f98e5615cb9a33b66ab912e702ad50a2e1051ae80171b0bda9aa3" => :el_capitan
+    sha256 "508bfe58b3ba391690be77da7a47a34f2cf0b489cc2590c69c746d7919fa12c1" => :yosemite
+    sha256 "92db134e4a77c4cc0566261b09b96886b30f6c1bf81d65b120dffd6937e99f58" => :mavericks
   end
 
   env :userpaths

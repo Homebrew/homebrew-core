@@ -43,9 +43,8 @@ class Tinyproxy < Formula
 
     # Fix broken XML lint
     # See: https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=154624
-    inreplace ["docs/man5/Makefile", "docs/man8/Makefile"] do |s|
-      s.gsub! "-f manpage", "-f manpage \\\n  -L"
-    end
+    inreplace %w[docs/man5/Makefile docs/man8/Makefile"], "-f manpage",
+                                                          "-f manpage \\\n  -L"
 
     system "make", "install"
   end

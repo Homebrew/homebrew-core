@@ -1,16 +1,14 @@
 class Fftw < Formula
   desc "C routines to compute the Discrete Fourier Transform"
   homepage "http://www.fftw.org"
-  url "http://www.fftw.org/fftw-3.3.4.tar.gz"
-  sha256 "8f0cde90929bc05587c3368d2f15cd0530a60b8a9912a8e2979a72dbe5af0982"
-  revision 1
+  url "http://www.fftw.org/fftw-3.3.5.tar.gz"
+  sha256 "8ecfe1b04732ec3f5b7d279fdb8efcad536d555f9d1e8fabd027037d45ea8bcf"
 
   bottle do
     cellar :any
-    sha256 "92f9c2aea12100ba53084c5fe886418c348ab744fd47b60a9cee9c922044942b" => :el_capitan
-    sha256 "14ba3f3d52df54d350a009ff1e65859095b99b31da996c52155bb3f2420716ad" => :yosemite
-    sha256 "e32ceb93872580935d6e63878717ce35c964a21fdd0a6a93b29715f6aafb6811" => :mavericks
-    sha256 "bb29553043cc4db9c38e0290215fb216facb5ae09a4c3dadf3b19a41df161764" => :mountain_lion
+    sha256 "8961b3780e24d67c520deccf222aa12ce95f41eba1b6d7a7181e83bda9e4a99e" => :el_capitan
+    sha256 "d7358e5c3e9426c245425ab0d4fe29659d7bdb41158bedb43ab0c2433b165c69" => :yosemite
+    sha256 "f31992664fb2c54ae917c6e31a44e4a798b4ff062fbc66e50fcf7f56c418c791" => :mavericks
   end
 
   option "with-fortran", "Enable Fortran bindings"
@@ -27,10 +25,10 @@ class Fftw < Formula
             "--disable-debug",
             "--prefix=#{prefix}",
             "--enable-threads",
-            "--disable-dependency-tracking",
-           ]
+            "--disable-dependency-tracking"]
     simd_args = ["--enable-sse2"]
     simd_args << "--enable-avx" if ENV.compiler == :clang && Hardware::CPU.avx? && !build.bottle?
+    simd_args << "--enable-avx2" if ENV.compiler == :clang && Hardware::CPU.avx2? && !build.bottle?
 
     args << "--disable-fortran" if build.without? "fortran"
     args << "--enable-mpi" if build.with? "mpi"
@@ -39,7 +37,7 @@ class Fftw < Formula
     ENV.universal_binary if build.universal?
 
     # single precision
-    # enable-sse2 and enable-avx works for both single and double precision
+    # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
     system "./configure", "--enable-single", *(args + simd_args)
     system "make", "install"
 
@@ -47,7 +45,7 @@ class Fftw < Formula
     system "make", "clean"
 
     # double precision
-    # enable-sse2 and enable-avx works for both single and double precision
+    # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
     system "./configure", *(args + simd_args)
     system "make", "install"
 

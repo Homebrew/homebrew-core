@@ -37,7 +37,7 @@ class Libgxps < Formula
       "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--enable-man",
-      "--prefix=#{prefix}"
+      "--prefix=#{prefix}",
     ]
 
     args << "--without-libjpeg" if build.without? "libjpeg"
@@ -56,7 +56,7 @@ class Libgxps < Formula
   test do
     mkdir_p [
       (testpath/"Documents/1/Pages/_rels/"),
-      (testpath/"_rels/")
+      (testpath/"_rels/"),
     ]
 
     (testpath/"FixedDocumentSequence.fdseq").write <<-EOS.undent
@@ -80,7 +80,7 @@ class Libgxps < Formula
     [
       "_rels/FixedDocumentSequence.fdseq.rels",
       "Documents/1/_rels/FixedDocument.fdoc.rels",
-      "Documents/1/Pages/_rels/1.fpage.rels"
+      "Documents/1/Pages/_rels/1.fpage.rels",
     ].each do |f|
       (testpath/f).write <<-EOS.undent
         <Relationships />

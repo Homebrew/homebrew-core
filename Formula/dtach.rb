@@ -1,14 +1,14 @@
 class Dtach < Formula
   desc "Emulates the detach feature of screen"
   homepage "http://dtach.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/dtach/dtach/0.8/dtach-0.8.tar.gz"
-  sha256 "16614ebddf8ab2811d3dc0e7f329c7de88929ac6a9632d4cb4aef7fe11b8f2a9"
+  url "https://downloads.sourceforge.net/project/dtach/dtach/0.9/dtach-0.9.tar.gz"
+  sha256 "32e9fd6923c553c443fab4ec9c1f95d83fa47b771e6e1dafb018c567291492f3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dadab3b4c573d323fe3bba6f00533209429648c24aff85a4ca9cd5a97c891c88" => :el_capitan
-    sha256 "7543ba893449b3be18d23307edcdb54a30b7a9964c13194eb089af809c563408" => :yosemite
-    sha256 "725973145d09ccba58459afc0624f25df1a54daf47e8099a1e5ec1fb9a1af916" => :mavericks
+    sha256 "bf26c7f68f65ae257c878e2008683d496a8c7542b3048e057bc3d588d779e16a" => :el_capitan
+    sha256 "fe8735b33ebb6f2fd2ea1e7c3542981833e8cad8c16fb6d9fbb5ac0f2ce493b8" => :yosemite
+    sha256 "bd984d95c0e21eda63bbb210acd381fb44e019a335ebff85a66fca89db5f11ae" => :mavericks
   end
 
   def install
@@ -21,5 +21,9 @@ class Dtach < Formula
     system "make"
     bin.install "dtach"
     man1.install gzip("dtach.1")
+  end
+
+  test do
+    system bin/"dtach", "--help"
   end
 end

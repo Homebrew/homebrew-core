@@ -1,15 +1,14 @@
 class Mpv < Formula
   desc "Free, open source, and cross-platform media player"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.18.1.tar.gz"
-  sha256 "e413d57fec4ad43b9f9b848f38d13fb921313fc9a4a64bf1e906c8d0f7a46329"
-  revision 1
+  url "https://github.com/mpv-player/mpv/archive/v0.20.0.tar.gz"
+  sha256 "fe6ec9d2ded5ce84b963f54b812d579d04f944f4a737f3ae639c4d5d9e842b56"
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    sha256 "d30aacf2585cb4cfc477f16799515e805a046ba30584e1598e23b60d2f827255" => :el_capitan
-    sha256 "77c92fd993ada850661558fd42b55d681066873ef8094edb17e46c57cf5e1ff1" => :yosemite
-    sha256 "718099dcc2ea35286d9369f721e14684a0668e1c55159210d36fd36c4420191d" => :mavericks
+    sha256 "4977b9931bad60e5d5053f1af0ecb8f68ba3118a3626e126086ba24d95d3b7b9" => :el_capitan
+    sha256 "b6fb5e178d3fbf73c0e3c516af182410531aeaee258c3791163d51290591ac1e" => :yosemite
+    sha256 "3f8935058046a493be054db4cd506b33f16bc1f9cbfb73b2bb3e2fae4220ea6a" => :mavericks
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
@@ -38,8 +37,8 @@ class Mpv < Formula
   depends_on :macos => :mountain_lion
 
   resource "waf" do
-    url "https://waf.io/waf-1.9.1"
-    sha256 "8c71b0372a4bea1c02e2ff5e1aa52484ab9d2e81076538be2cda4e85498d7021"
+    url "https://waf.io/waf-1.9.2"
+    sha256 "7abb4fbe61d12b8ef6a3163653536da7ee31709299d8f17400d71a43247cea81"
   end
 
   resource "docutils" do

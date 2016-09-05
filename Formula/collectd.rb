@@ -9,9 +9,10 @@ class Collectd < Formula
   end
 
   bottle do
-    sha256 "c900ddfddd81a599628c62953aaff0aa1b9de38e6f2e239d0c4d702cccb76103" => :el_capitan
-    sha256 "44cfb6fca258823ba87f153991bed68ea1b7618381048982cef9745ce739db6a" => :yosemite
-    sha256 "da6ca2835f8eafb1515300e46a871bd008d1446e390cdae5bb65f2c2030eb33d" => :mavericks
+    rebuild 1
+    sha256 "cfced0545b0bc05c4deb2374b02c563903e3c4384dddd74219643cdb6e8acbc0" => :el_capitan
+    sha256 "f926c835d90985c337735803007249796f3a7c60cc3a7fb92d1f212538860443" => :yosemite
+    sha256 "a56a8f9b63d324d8c52a03790144f2121970e06768d6e89c4f0f5d23cf69c84e" => :mavericks
   end
 
   head do
@@ -32,7 +33,7 @@ class Collectd < Formula
   depends_on "pkg-config" => :build
   depends_on "protobuf-c" => :optional
   depends_on :java => :optional
-  depends_on "openssl"
+  depends_on "net-snmp"
 
   fails_with :clang do
     build 318

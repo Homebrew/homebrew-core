@@ -2,33 +2,28 @@ class DockerMachine < Formula
   desc "Create Docker hosts locally and on cloud providers"
   homepage "https://docs.docker.com/machine"
   url "https://github.com/docker/machine.git",
-    :tag => "v0.8.0",
-    :revision => "b85aac15463faf0e69f41d757291db9ab4c056f3"
-
+      :tag => "v0.8.1",
+      :revision => "41b3b253352b8b355d668f5e12b5f329f88c3482"
   head "https://github.com/docker/machine.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "55b289e28b0dd64878328583aabab37b5e288d1a5f0d0ffff5df82fb6770670e" => :el_capitan
-    sha256 "5a789eafe89f6431fa9250a3664618332c003ed96dc92d571845d35245ced3dd" => :yosemite
-    sha256 "8ade6d05a2e293ec09b04475f1f0e41bbe7ab76bac8ae6c8219289daf3a60a9a" => :mavericks
+    sha256 "6076fc037a2a038567c95692dffe50075bacbc1914457dd71aa5471bda16b601" => :el_capitan
+    sha256 "d2f8bb096fdab17e49b2794e6fcf9d618a5a2bda34362f4b0439f2ac7af1da2d" => :yosemite
+    sha256 "a67a2f3cc2c89ea8cb3efde4a3269a65ce397481ee85be9317a33b21a3c9c7c7" => :mavericks
   end
 
   depends_on "go" => :build
   depends_on "automake" => :build
 
   def install
-    ENV["GOBIN"] = bin
     ENV["GOPATH"] = buildpath
-    ENV["GOHOME"] = buildpath
-
-    path = buildpath/"src/github.com/docker/machine"
-    path.install Dir["*"]
-
-    cd path do
+    (buildpath/"src/github.com/docker/machine").install buildpath.children
+    cd "src/github.com/docker/machine" do
       system "make", "build"
       bin.install Dir["bin/*"]
       bash_completion.install Dir["contrib/completion/bash/*.bash"]
+      prefix.install_metafiles
     end
   end
 

@@ -1,33 +1,42 @@
 class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "http://kubernetes.io/"
-  url "https://github.com/kubernetes/kubernetes/archive/v1.3.4.tar.gz"
-  sha256 "19b2ebbc3976bb97883dc40aaf14ded7863d4098922e99a1dad873d5435fe21e"
+  url "https://github.com/kubernetes/kubernetes/archive/v1.3.6.tar.gz"
+  sha256 "8a2aa2dbbbb05229d6bdc27be88e59faaade7c6d1013977a838a65be134eef87"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "83fbd8b8f73fa2935d580c38af0028d4ec765baa9580a0506fd0180691537e54" => :el_capitan
-    sha256 "be7312f14a7193db29e51b3d053ca7499d4905aa6f6e69a56782ab976d835b56" => :yosemite
-    sha256 "9d44dc86b807b24a5603be7bcbc6adb5b1a646d23cead03a887a3137c6970abf" => :mavericks
+    sha256 "be187031e42e63be7426f7e407bfabeec89c86cbbb452086130696529e6b9486" => :el_capitan
+    sha256 "c718526ed5978f14c6fb7c0a5928f8eed73823545830d3e0457100a1ec84b4cb" => :yosemite
+    sha256 "5ac3302edc31a3dae7e05fea8d75d911e99f40c4651621b00b48282f7b62c221" => :mavericks
   end
 
   devel do
-    url "https://github.com/kubernetes/kubernetes/archive/v1.4.0-alpha.0.tar.gz"
-    sha256 "7530fabf418fccf7bef08281efa9a51d86921726c8efac4f0e63ba1e87d83482"
-    version "1.4.0-alpha.0"
+    # building from the tag lets it pick up the correct version info
+    url "https://github.com/kubernetes/kubernetes.git",
+        :tag => "v1.4.0-alpha.3",
+        :revision => "b44b716965db2d54c8c7dfcdbcb1d54792ab8559"
+    version "1.4.0-alpha.3"
   end
 
   depends_on "go" => :build
 
   def install
+    if build.stable?
+      system "make", "all", "WHAT=cmd/kubectl", "GOFLAGS=-v"
+    else
+      # avoids needing to vendor github.com/jteeuwen/go-bindata
+      rm "./test/e2e/framework/gobindata_util.go"
+
+      ENV.deparallelize { system "make", "generated_files" }
+      system "make", "kubectl", "GOFLAGS=-v"
+    end
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
+    bin.install "_output/local/bin/darwin/#{arch}/kubectl"
 
-    system "make", "all", "WHAT=cmd/kubectl", "GOFLAGS=-v"
-
-    dir = "_output/local/bin/darwin/#{arch}"
-    bin.install "#{dir}/kubectl"
-    (bash_completion/"kubectl").write Utils.popen_read("#{bin}/kubectl completion bash")
+    output = Utils.popen_read("#{bin}/kubectl completion bash")
+    (bash_completion/"kubectl").write output
   end
 
   test do

@@ -3,11 +3,12 @@ class Gnuradio < Formula
   homepage "https://gnuradio.squarespace.com/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.9.1.tar.gz"
   sha256 "9c06f0f1ec14113203e0486fd526dd46ecef216dfe42f12d78d9b781b1ef967e"
+  revision 1
 
   bottle do
-    sha256 "c9fdb8e1a9d96dafe29dd828038bcedc5e03b21612f6cf81843c85238dac9204" => :el_capitan
-    sha256 "2ae7c146eba77b93fb3c4bde743fc166779f09e3d8f61ae1ff55717fc19d137a" => :yosemite
-    sha256 "d5e243974f0089fc503133939c7275019c89d9107ff3eb7406eb4a00a0eae3e7" => :mavericks
+    sha256 "797e74b20a6961700b52e5feb9a093c59518fa39b944915cfc70fe252dba6a73" => :el_capitan
+    sha256 "411c8103f3e067b21f79496da3ad8ab2dbe14843201df321c369ca0ee983c5e0" => :yosemite
+    sha256 "e36bdf0ca95c518c0c214c2e9db558bd91f4b26fa357aecbcaa0227cc0c0eb35" => :mavericks
   end
 
   # These python extension modules were linked directly to a Python
@@ -151,11 +152,7 @@ class Gnuradio < Formula
       system "make", "install"
     end
 
-    # Remove useless data files installed in #{bin}
-    delete_files = %w[ctrlport-monitorc ctrlport-monitoro perf-monitorxc perf-monitorxo]
-    delete_files.each { |f| rm "#{bin}/gr-#{f}" }
-
-    bin.install Dir[libexec/"bin/*"]
+    rm bin.children.reject(&:executable?)
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 

@@ -1,7 +1,9 @@
- require "formula"
+class Sispmctl < Formula
+  desc "Control Gembird SIS-PM programmable power outlet strips"
+  homepage "http://sispmctl.sourceforge.net/"
+  url "https://downloads.sourceforge.net/project/sispmctl/sispmctl/sispmctl-3.1/sispmctl-3.1.tar.gz"
+  sha256 "e9a99cc81ef0a93f3484e5093efd14d93cc967221fcd22c151f0bea32eb91da7"
 
- class Sispmctl < Formula
-   desc "Control Gembird SIS-PM programmable power outlet strips"
   bottle do
     cellar :any
     sha256 "a83e61cd8748b55173148cd71ee71852c257502a633674c01d78c473188ae4c3" => :el_capitan
@@ -9,15 +11,11 @@
     sha256 "5ce113e27ad2d3cfeeae7317a6614a45659288107910dc63fef605342f0e7d54" => :mavericks
   end
 
-   homepage "http://sispmctl.sourceforge.net/"
-   url "https://downloads.sourceforge.net/project/sispmctl/sispmctl/sispmctl-3.1/sispmctl-3.1.tar.gz"
-   sha256 "e9a99cc81ef0a93f3484e5093efd14d93cc967221fcd22c151f0bea32eb91da7"
+  depends_on "libusb-compat"
 
-   depends_on "libusb-compat"
-
-   def install
-     system "./configure", "--disable-dependency-tracking",
-                           "--prefix=#{prefix}"
-     system "make", "install"
-   end
- end
+  def install
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
+    system "make", "install"
+  end
+end

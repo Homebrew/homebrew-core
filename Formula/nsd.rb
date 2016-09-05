@@ -5,9 +5,10 @@ class Nsd < Formula
   sha256 "c7712fd05eb0ab97040738e01d9369d02b89c0a7fa0943fd5bfc43b2111a92df"
 
   bottle do
-    sha256 "112f45f505bacc2f7cc5f05ccb09e770edbfcfdfac03271ab113b2f1de03a701" => :el_capitan
-    sha256 "c75e1a7e2fd1351bc037186c35805028998fb095622f8b32fedc47c909972607" => :yosemite
-    sha256 "153423b3437b9add7033183bf72329d0c1554d7397bae605b66960bb632ff2e0" => :mavericks
+    rebuild 1
+    sha256 "cd71e6b0744d7c621fc661a4b90508d8ae7183525ddec132514f0056a4851a6d" => :el_capitan
+    sha256 "aa19b165478511defe721c85ae3776650593e08e17338f17ebeea35ad824ce33" => :yosemite
+    sha256 "06fac55fa2c9e80a821a5ef047889e6bf080701a8f6e4cdb459e4f34a7fa24c1" => :mavericks
   end
 
   option "with-root-server", "Allow NSD to run as a root name server"
@@ -21,6 +22,7 @@ class Nsd < Formula
   def install
     args = %W[
       --prefix=#{prefix}
+      --sysconfdir=#{etc}
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-ssl=#{Formula["openssl"].opt_prefix}
     ]

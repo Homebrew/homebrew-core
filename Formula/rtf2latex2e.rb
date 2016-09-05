@@ -17,7 +17,7 @@ class Rtf2latex2e < Formula
 
   def caveats; <<-EOS.undent
     Configuration files have been installed to:
-      #{share}/rtf2latex2e
+      #{opt_pkgshare}
     EOS
   end
 
@@ -27,7 +27,7 @@ class Rtf2latex2e < Formula
     {\b hello} world
     }
     EOF
-    system "#{bin}/rtf2latex2e", "-n", "test.rtf"
-    system %q(cat test.tex | grep '\textbf{hello} world')
+    system bin/"rtf2latex2e", "-n", "test.rtf"
+    assert_match "textbf{hello} world", File.read("test.tex")
   end
 end

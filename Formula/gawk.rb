@@ -1,15 +1,14 @@
 class Gawk < Formula
   desc "GNU awk utility"
   homepage "https://www.gnu.org/software/gawk/"
-  url "https://ftpmirror.gnu.org/gawk/gawk-4.1.3.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gawk/gawk-4.1.3.tar.xz"
-  sha256 "e3cf55e91e31ea2845f8338bedd91e40671fc30e4d82ea147d220e687abda625"
-  revision 1
+  url "https://ftpmirror.gnu.org/gawk/gawk-4.1.4.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gawk/gawk-4.1.4.tar.xz"
+  sha256 "53e184e2d0f90def9207860531802456322be091c7b48f23fdc79cda65adc266"
 
   bottle do
-    sha256 "008ea93aab404959ba414514fc77aaecf627aee2f6d70ccdfd5281dee60d73a8" => :el_capitan
-    sha256 "2bee2d5abfdbff06063bf07fb314ce3313d0b1eb797cfe921e08dc56e72a7e7f" => :yosemite
-    sha256 "a6e562c18ebb1c9f82df368ca14ff720869956784f304e7a548be9e28343cc3c" => :mavericks
+    sha256 "02651beb7f8ac06f197e69f8508fb97c90c82980172d35da023c5d34fb9b0ff6" => :el_capitan
+    sha256 "2ef527c9f399a504de1c72706dc0123c47d8ce91892840346928a739d81cd93f" => :yosemite
+    sha256 "73bf29a5c50d0a9a2062f7d80a24c0a097f74f9fd8c139b26e4c1f8004e33603" => :mavericks
   end
 
   fails_with :llvm do

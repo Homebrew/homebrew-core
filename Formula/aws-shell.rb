@@ -3,22 +3,22 @@ class AwsShell < Formula
   homepage "https://github.com/awslabs/aws-shell"
 
   stable do
-    url "https://pypi.python.org/packages/source/a/aws-shell/aws-shell-0.1.0.tar.gz"
-    sha256 "2d89e3c51e6cf7da74c8bca8b8a986cc8edcad27ccd6c15678cd84b970f63a16"
+    url "https://pypi.python.org/packages/3f/d1/0f5bdb9833f2a57095bc133fa603de8e8931f6ca44653bd56afda8148e0f/aws-shell-0.1.1.tar.gz"
+    sha256 "653f085d966b4ed3b3581b7bb85f6f0bb1e8a3bfd852a3333596082a5ba689df"
 
     resource "awscli" do
-      url "https://pypi.python.org/packages/source/a/awscli/awscli-1.10.1.tar.gz"
-      sha256 "6b738f7fc6af7ab9c759b7efb5decde71970990061b2df169b14bec89c452c95"
+      url "https://pypi.python.org/packages/8e/24/747a4920001486e25c0d014acf42cae95d1bdde0aef6575f8c7e4e02fb6b/awscli-1.10.60.tar.gz"
+      sha256 "555a7fa397e1ff2125da7e5a6eb30ec1f0e919121b1ebb426726d72da1d8da34"
     end
 
     resource "boto3" do
-      url "https://pypi.python.org/packages/source/b/boto3/boto3-1.2.1.tar.gz"
-      sha256 "6a642af0a5cce1bfee4b1a829bdfbb3a7e9feffb8175426c8726465b8d2e4fae"
+      url "https://pypi.python.org/packages/37/1a/e271b2937c05c1da265415103725e0610fb96871a2d7ddf68b999ac5db8f/boto3-1.4.0.tar.gz#md5=4b5454e8d29dede99092616023828a21"
+      sha256 "c365144fb98d022ad6f6cdeb1abf8a4849f1a135e3c4ef78ef5053982ed914b3"
     end
 
     resource "botocore" do
-      url "https://pypi.python.org/packages/source/b/botocore/botocore-1.3.23.tar.gz"
-      sha256 "d2e067bdb3e9b5c26821efc8517a9ced4f9d5f4cd30de14585ed1fe0eb552a02"
+      url "https://pypi.python.org/packages/c6/fe/66127b8c686384653512f49bf02d546dfb2aac7ef1f034d9c9021c33356a/botocore-1.4.50.tar.gz"
+      sha256 "83b02699c272ff412dbb7796c97a3fec6ee696a85e65576c932172938c6dfdae"
     end
 
     resource "colorama" do
@@ -47,8 +47,8 @@ class AwsShell < Formula
     end
 
     resource "prompt_toolkit" do
-      url "https://pypi.python.org/packages/source/p/prompt_toolkit/prompt_toolkit-0.52.tar.gz"
-      sha256 "35b8a34df8dea4cba92222dc1b8700c30ed7a8ba47cf3bc583768c5571a30902"
+      url "https://pypi.python.org/packages/dd/55/2fb4883d2b21d072204fd21ca5e6040faa253135554590d0b67380669176/prompt_toolkit-1.0.7.tar.gz"
+      sha256 "ef0b8188179fe7d052161ed274b43e18f5a680ff84d01462293b327e1668d2ef"
     end
 
     resource "pyasn1" do
@@ -57,8 +57,8 @@ class AwsShell < Formula
     end
 
     resource "Pygments" do
-      url "https://pypi.python.org/packages/source/P/Pygments/Pygments-2.1.tar.gz"
-      sha256 "13a0ef5fafd7b16cf995bc28fe7aab0780dab1b2fda0fc89e033709af8b8a47b"
+      url "https://pypi.python.org/packages/b8/67/ab177979be1c81bc99c8d0592ef22d547e70bb4c6815c383286ed5dec504/Pygments-2.1.3.tar.gz"
+      sha256 "88e4c8a91b2af5962bfa5ea2447ec6dd357018e86e94c7d14bd8cacbc5b55d81"
     end
 
     resource "python-dateutil" do
@@ -77,8 +77,8 @@ class AwsShell < Formula
     end
 
     resource "s3transfer" do
-      url "https://pypi.python.org/packages/source/s/s3transfer/s3transfer-0.0.1.tar.gz"
-      sha256 "2bb9ed8db58af94dfa78f75f554d646dfe4b4741fc87f63a20c2bfb3f70f4355"
+      url "https://pypi.python.org/packages/d4/6e/1e9014fa7d3e8cd1f0c717321cea628606f61d24991c8945eb464ae4b325/s3transfer-0.1.3.tar.gz"
+      sha256 "af2e541ac584a1e88d3bca9529ae784d2b25e5d448685e0ee64f4c0e1e017ed2"
     end
 
     resource "wcwidth" do
@@ -89,9 +89,9 @@ class AwsShell < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "27087f0726c934e16c3ece2e61aba839527c1ca12a9b34c2619635296b1ae38f" => :el_capitan
-    sha256 "cb59ba879e047933abedaf07776a3ce0df0ddcbdf9f6c081dc7df02a8074bd30" => :yosemite
-    sha256 "af0a15d42c5e6fb0476041bf56657cd841536dcd1feb42de5f5ca01272cdd81b" => :mavericks
+    sha256 "823b42cd34e333d78f304d31e6cfa943fc7516a3b5312a1f8db0c9588c4b5acb" => :el_capitan
+    sha256 "5959d47987ad840f984e7810bd16d7337c1b83a89b008c1f82a42bf08c60bc39" => :yosemite
+    sha256 "346a99f1f94562dfa2ee348d9b4a6c565dc643bf83498742e592e0606ad3fb98" => :mavericks
   end
 
   head do

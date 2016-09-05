@@ -5,7 +5,6 @@ class Dbus < Formula
   url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.8.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.8.orig.tar.gz"
   sha256 "baf3d22baa26d3bdd9edc587736cd5562196ce67996d65b82103bedbe1f0c014"
-  head "https://anongit.freedesktop.org/git/dbus/dbus.git"
 
   bottle do
     sha256 "df858961c007d3f1bf7d2bc03856b4f1981b9c260837516da523e9d8162a3e46" => :el_capitan
@@ -14,9 +13,17 @@ class Dbus < Formula
   end
 
   devel do
-    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.2.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.2.orig.tar.gz"
-    sha256 "5abc4c57686fa82669ad0039830788f9b03fdc4fff487f0ccf6c9d56ba2645c9"
+    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.4.tar.gz"
+    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.4.orig.tar.gz"
+    sha256 "474de2afde8087adbd26b3fc5cbf6ec45559763c75b21981169a9a1fbac256c9"
+  end
+
+  head do
+    url "https://anongit.freedesktop.org/git/dbus/dbus.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
@@ -30,6 +37,7 @@ class Dbus < Formula
     # Fix the TMPDIR to one D-Bus doesn't reject due to odd symbols
     ENV["TMPDIR"] = "/tmp"
 
+    system "./autogen.sh", "--no-configure" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",

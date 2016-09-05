@@ -1,9 +1,8 @@
 class AndroidNdk < Formula
   desc "Android native-code language toolset"
   homepage "https://developer.android.com/ndk/index.html"
-  url "https://dl.google.com/android/repository/android-ndk-r12-darwin-x86_64.zip"
-  version "r12"
-  sha256 "fe10b64a65f3e818b852862975ea7b5896295cd1301d1acdbeb1294d9592fb19"
+  url "https://dl.google.com/android/repository/android-ndk-r12b-darwin-x86_64.zip"
+  sha256 "2bdef9143a2c7680fcb7c9fd54fe85013d591f106aea43831eba5e13e10db77e"
 
   bottle :unneeded
 
@@ -45,5 +44,11 @@ class AndroidNdk < Formula
     For more documentation on Android NDK, please check:
       #{prefix}/docs
     EOS
+  end
+
+  test do
+    (testpath/"test.c").write("int main() { return 0; }")
+    cc = Utils.popen_read("#{bin}/ndk-which gcc").strip
+    system cc, "-c", "test.c", "-o", "test"
   end
 end

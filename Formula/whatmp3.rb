@@ -1,13 +1,18 @@
 class Whatmp3 < Formula
   desc "Small script to create mp3 torrents out of FLACs"
   homepage "https://github.com/RecursiveForest/whatmp3"
-  url "https://github.com/RecursiveForest/whatmp3/archive/v3.6.tar.gz"
-  sha256 "a1f5ef28e2511aa47f4658f71a8a3afe3dda96e7dd6a1cf9d124daead0fed5fa"
+  url "https://github.com/RecursiveForest/whatmp3/archive/v3.7.tar.gz"
+  sha256 "a8b688e2e5873e3bf527fc44e8f3966227b432cf59593062dd58493df65de3b0"
   head "https://github.com/RecursiveForest/whatmp3.git"
 
-  bottle :unneeded
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "86c84dbc0ce4a709418896ba50776dfe0465ee0f03110736988eb9babfff3e04" => :el_capitan
+    sha256 "3fccae200f82415da7e94c69be6fc6262e078d90526e62e60d602847bfdfd0df" => :yosemite
+    sha256 "3fccae200f82415da7e94c69be6fc6262e078d90526e62e60d602847bfdfd0df" => :mavericks
+  end
 
-  depends_on "python"
+  depends_on :python3
   depends_on "flac"
   depends_on "mktorrent" => :recommended
   depends_on "lame" => :recommended
@@ -18,7 +23,8 @@ class Whatmp3 < Formula
   depends_on "sox" => :optional
 
   def install
-    bin.install "whatmp3"
+    inreplace "whatmp3.py", "#!/usr/bin/env python", "#!/usr/bin/env python3"
+    system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do

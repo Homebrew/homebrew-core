@@ -1,14 +1,14 @@
 class AnsibleCmdb < Formula
   desc "Generates static HTML overview page from Ansible facts"
   homepage "https://github.com/fboender/ansible-cmdb"
-  url "https://github.com/fboender/ansible-cmdb/releases/download/1.15/ansible-cmdb-1.15.zip"
-  sha256 "9f64a29b0bca69d0cc31ef4b89267a37a3d41186ceaaf29a2d88970e45596044"
+  url "https://github.com/fboender/ansible-cmdb/releases/download/1.16/ansible-cmdb-1.16.zip"
+  sha256 "4839b19577ffc07b2d47cc8a73ef82ead28836a575cb2293042171041fe1c96c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c2b001c49879c6cb8efffdaeabf80d530c5b66d4bd188feaeba1cf05003f5f6b" => :el_capitan
-    sha256 "23aef8682e8dbb5277df2c32eb0a2538ce5ea1bbc6ecbe84feca050a03e78fbe" => :yosemite
-    sha256 "a24c9752029f2397983a739b8dd6c3a1f7f7aff05131c9cbb869ef37dcf4117b" => :mavericks
+    sha256 "42647ac67f2b0174df05cc1e2c4cf655264a7d65da5c6576265209c39815bc65" => :el_capitan
+    sha256 "69ceac2289853d06e4cbd19ad8a1026ecc77b1921e22a559a61fc450ba9a33a9" => :yosemite
+    sha256 "69ceac2289853d06e4cbd19ad8a1026ecc77b1921e22a559a61fc450ba9a33a9" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

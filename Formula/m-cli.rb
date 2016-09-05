@@ -1,8 +1,8 @@
 class MCli < Formula
   desc "Swiss Army Knife for Mac OS X"
   homepage "https://github.com/rgcr/m-cli"
-  url "https://github.com/rgcr/m-cli/archive/v0.1.4.tar.gz"
-  sha256 "96e26ab3f0adae3cd3023947013f399de64e73e5d29d3035d9c1f7afa00ab017"
+  url "https://github.com/rgcr/m-cli/archive/v0.1.8.tar.gz"
+  sha256 "1982992625a14cefc2af480656a9e672ab071b7172b4859fd21cdcb07294cc8a"
   head "https://github.com/rgcr/m-cli.git"
 
   bottle :unneeded
@@ -21,12 +21,13 @@ class MCli < Formula
     bin.install_symlink "#{prefix}/m" => "m"
     bash_completion.install prefix/"completion/bash/m"
     zsh_completion.install prefix/"completion/zsh/_m"
+    fish_completion.install prefix/"completion/fish/m.fish"
   end
 
   test do
     output = pipe_output("#{bin}/m help 2>&1")
     assert_no_match /.*No such file or directory.*/, output
     assert_no_match /.*command not found.*/, output
-    assert_match /.*Swiss Army Knife for Mac OS X.*/, output
+    assert_match /.*Swiss Army Knife for macOS.*/, output
   end
 end

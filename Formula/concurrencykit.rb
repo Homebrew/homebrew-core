@@ -1,17 +1,17 @@
 class Concurrencykit < Formula
   desc "Aid design and implementation of concurrent systems"
   homepage "http://concurrencykit.org"
-  url "http://concurrencykit.org/releases/ck-0.5.1.tar.gz"
-  mirror "https://github.com/concurrencykit/ck/archive/0.5.1.tar.gz"
-  sha256 "efeebda38d68a7c194a4632e842987f03be58f2f910f0745a56f0ae7d9a1dac5"
+  url "http://concurrencykit.org/releases/ck-0.5.2.tar.gz"
+  mirror "https://github.com/concurrencykit/ck/archive/0.5.2.tar.gz"
+  sha256 "5cf44b33f9279c653ec9b2b085d628c86336e4da18897be449f074283e5c5b3a"
 
   head "https://github.com/concurrencykit/ck.git"
 
   bottle do
     cellar :any
-    sha256 "de655fd0b4affb14f53d1f793ab8f783548cb18edda6874cc94fd5c077dd514a" => :el_capitan
-    sha256 "1aff7b9466a5c1fb28f34166fa1eec8d0bab57d2c0908bdf8437dc114d5283f0" => :yosemite
-    sha256 "c9edc8f8f8599f6cba80aaa94a4f30c7c3e4def915bf34e18ec2927f0d5f4072" => :mavericks
+    sha256 "77f8ad1f44e7f018e17040ffa144e8cc279ec39e9db47e348a84d0631d638d83" => :el_capitan
+    sha256 "c981b82030b838517ca87d261cf160eb141ba91fcede5b68583c4a1b26c4b864" => :yosemite
+    sha256 "a45619fb3062e79e786b16839de5ebd6b8abe33e004092309d535b17cb90ea2e" => :mavericks
   end
 
   def install

@@ -1,9 +1,8 @@
 class Datomic < Formula
   desc "Database separating transactions, storage and queries"
   homepage "http://www.datomic.com/"
-  url "https://my.datomic.com/downloads/free/0.9.5390"
-  version "0.9.5390"
-  sha256 "747d6c77e390b661f29c65ad62bf9dd6a406e6a2aa2cde55e627215fa14bdd79"
+  url "https://my.datomic.com/downloads/free/0.9.5394"
+  sha256 "494f88272974de4fbfdcd0de9df3d6853fd1a5683a80d344d524ca97232fb6b3"
 
   bottle :unneeded
 

@@ -1,14 +1,14 @@
 class Rocksdb < Formula
   desc "Persistent key-value store for fast storage environments"
   homepage "http://rocksdb.org"
-  url "https://github.com/facebook/rocksdb/archive/v4.5.1.tar.gz"
-  sha256 "c6a23a82352dd6bb6bd580db51beafe4c5efa382b16b722c100ce2e7d1a5e497"
+  url "https://github.com/facebook/rocksdb/archive/v4.9.tar.gz"
+  sha256 "7c96c7e7facc11c15f57c608a3b256af79283accb5988d7b2f4f810e29c68c0b"
 
   bottle do
     cellar :any
-    sha256 "38b429e820dfd245e976e0ffaff64f1e03ac34d3823c8711fe8d2ef9efde8eab" => :el_capitan
-    sha256 "c9eb8cc6b8a9de18abc275ff64d6ea8ef778afb76e4f8bcf925f5763e89b51d1" => :yosemite
-    sha256 "f203eb0a7d99c81584292e2ce317f5121d0771d18803e1c1154dbb0a9d034e90" => :mavericks
+    sha256 "0ed1658ca1eb9f3c256192b9eeb7a227bcffa6b5de5d05eefa49f80b20820919" => :el_capitan
+    sha256 "7d0ce20065fce6fe3f3acff398853f19cb24ab463728f0277fc404a20c15023d" => :yosemite
+    sha256 "975a16f79fbc94a8ec5977d167d90be82c8779ad015824423de1fac856e5fd93" => :mavericks
   end
 
   option "with-lite", "Build mobile/non-flash optimized lite version"
@@ -41,12 +41,12 @@ class Rocksdb < Formula
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-o", "db_test", "-v", "-std=c++11",
-                                "-stdlib=libc++",
-                                "-lstdc++",
-                                "-lrocksdb",
+    system ENV.cxx, "test.cpp", "-o", "db_test", "-v",
+                                "-std=c++11", "-stdlib=libc++", "-lstdc++",
                                 "-lz", "-lbz2",
-                                "-lsnappy", "-llz4"
+                                "-L#{lib}", "-lrocksdb",
+                                "-L#{Formula["snappy"].opt_lib}", "-lsnappy",
+                                "-L#{Formula["lz4"].opt_lib}", "-llz4"
     system "./db_test"
   end
 end

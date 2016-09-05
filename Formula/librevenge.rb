@@ -15,7 +15,6 @@ class Librevenge < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
 
-
   def install
     system "./configure", "--without-docs",
                           "--disable-dependency-tracking",

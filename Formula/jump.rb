@@ -1,9 +1,7 @@
-require "language/go"
-
 class Jump < Formula
   desc "Quick and fuzzy directory jumper."
   homepage "https://github.com/gsamokovarov/jump"
-  url "https://codeload.github.com/gsamokovarov/jump/tar.gz/v0.7.1"
+  url "https://github.com/gsamokovarov/jump/archive/v0.7.1.tar.gz"
   sha256 "ac8cb3e59079e3683f76349ca2da47ddbcc53e68950eb4713e935324ad60614d"
   head "https://github.com/gsamokovarov/jump.git"
 
@@ -20,7 +18,6 @@ class Jump < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/gsamokovarov").mkpath
     ln_s buildpath, buildpath/"src/github.com/gsamokovarov/jump"
-    Language::Go.stage_deps resources, buildpath/"src"
 
     system "go", "build", "-o", "#{bin}/jump"
     man1.install "man/jump.1"

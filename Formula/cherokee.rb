@@ -18,7 +18,6 @@ class Cherokee < Formula
     sha256 "ef4d94b51cc425dd704d0007cf9980024035406cb00345158fd84b1901c04437" => :mavericks
   end
 
-
   head do
     url "https://github.com/cherokee/webserver.git"
 

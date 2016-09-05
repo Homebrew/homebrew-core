@@ -1,16 +1,16 @@
 class Pgbadger < Formula
   desc "Log analyzer for PostgreSQL"
   homepage "https://dalibo.github.io/pgbadger/"
-  url "https://github.com/dalibo/pgbadger/archive/v8.2.tar.gz"
-  sha256 "e4c596c021997aa2271300c57097f6e07814d3be49a96acf06b04bc35ede754e"
+  url "https://github.com/dalibo/pgbadger/archive/v9.0.tar.gz"
+  sha256 "67ad3f016d60c33fc4fc92d42a27ea58d9b841b65f09a3d9e0a9a868ed462bbc"
 
   head "https://github.com/dalibo/pgbadger.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "80dddbcc393ef42d336fee644345de03a364c01e8901f8ee078e8d932509de7e" => :el_capitan
-    sha256 "39756e619f5671942cc279fffdcbac5ba43facb15c08da9e5afebfe5291890a1" => :yosemite
-    sha256 "d057b3c13e60b5abc2c78564800f638341a46608d5e43f9ae36d8b71e0eed6a5" => :mavericks
+    sha256 "f8480d4772d55018ea41d9b1975b34dceee74276c9bcac33a2ed2be1a309b872" => :el_capitan
+    sha256 "8325aefb876b3eed969e41b3dc7b5869ef9b042dd08762081006c6fff08020a0" => :yosemite
+    sha256 "224ef7a780e9f624ea3f256b2554e5125b288a62ec92b68923213fadb8d186b8" => :mavericks
   end
 
   def install

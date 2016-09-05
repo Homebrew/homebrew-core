@@ -1,5 +1,5 @@
 class Jed < Formula
-  desc "JED is a powerful editor for programmers"
+  desc "Powerful editor for programmers"
   homepage "http://www.jedsoft.org/jed/"
   url "http://www.jedsoft.org/releases/jed/jed-0.99-19.tar.gz"
   mirror "https://mirrors.kernel.org/debian/pool/main/j/jed/jed_0.99.19.orig.tar.gz"

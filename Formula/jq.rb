@@ -3,13 +3,13 @@ class Jq < Formula
   homepage "https://stedolan.github.io/jq/"
   url "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-1.5.tar.gz"
   sha256 "c4d2bfec6436341113419debf479d833692cc5cdab7eb0326b5a4d4fbe9f493c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "468a0a375aa532141ca7bb0eed2efab41db2e3dae84355aedb8886512d24c704" => :el_capitan
-    sha256 "2b8562c46727d448b6d4eb6c034ac1ad6ee5e42430dfdff3f59596421bb32b72" => :yosemite
-    sha256 "66971fb13cdad99dd2b672025b3c9dff80b060602aacb5b73db67600df8ba2bf" => :mavericks
+    sha256 "16fd34adec21188f7e13655cde69289acf0a87f4241395357f1c4d47f492eda1" => :el_capitan
+    sha256 "8fbfede40ab806d8a93c1551a00af4aa46f7289d47fbb96836c58197f33e13a5" => :yosemite
+    sha256 "b55d226db14edc9ada42ecfd00ae64497702c616247fc8d5d7c35c01d25b26e5" => :mavericks
   end
 
   head do

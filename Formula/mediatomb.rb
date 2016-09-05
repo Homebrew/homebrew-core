@@ -19,11 +19,9 @@ class Mediatomb < Formula
   depends_on "spidermonkey" => :recommended
   depends_on "sqlite" => :recommended
   depends_on "taglib" => :recommended
-
   depends_on "ffmpeg" => :optional
   depends_on "ffmpegthumbnailer" => :optional
   depends_on "id3lib" => :optional
-  depends_on "lastfmlib" => :optional
   depends_on "mysql" => :optional
 
   # This is for libav 0.7 support. See:
@@ -98,7 +96,7 @@ class Mediatomb < Formula
     sleep 2
 
     begin
-      assert_match /file is part of MediaTomb/, shell_output("curl 127.0.0.1:49153")
+      assert_match "file is part of MediaTomb", shell_output("curl 127.0.0.1:49153")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)

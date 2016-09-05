@@ -19,6 +19,6 @@ class Ipsumdump < Formula
   end
 
   test do
-    system "#{bin}/ipsumdump", "-c", "-r", "#{test_fixtures("test.pcap")}"
+    system "#{bin}/ipsumdump", "-c", "-r", test_fixtures("test.pcap").to_s
   end
 end

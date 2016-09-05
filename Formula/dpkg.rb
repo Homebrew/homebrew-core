@@ -1,14 +1,14 @@
 class Dpkg < Formula
   desc "Debian package management system"
   homepage "https://wiki.debian.org/Teams/Dpkg"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.9.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.9.tar.xz"
-  sha256 "86ac4af917e9e75eb9b6c947a0a11439d1de32f72237413f7ddab17f77082093"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.10.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.10.tar.xz"
+  sha256 "025524da41ba18b183ff11e388eb8686f7cc58ee835ed7d48bd159c46a8b6dc5"
 
   bottle do
-    sha256 "cada0260bc04079190511a516518d6309332dc75f197e582c13420d91370b3d1" => :el_capitan
-    sha256 "605791b7e30c8f2c26eb0e107af0a5945eb831809e1d1a596c18c915fe6bd2e7" => :yosemite
-    sha256 "82679e30cabe16be16c5dc81be7b551a7de27372c837cb5f74e35b431457c88d" => :mavericks
+    sha256 "1e13b24cd8b0ebcdc18974b2324d66e6b5c7e7984be8610ef098dacb8e592c3e" => :el_capitan
+    sha256 "2d4703e267cc69a932dc5c7849111a8504bae13f363fc34d469d43f47699c900" => :yosemite
+    sha256 "c859b1f92594ee0aa612bb3cd9a1a33fb9f7579ca0c23951d0bd0832a1080463" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -62,10 +62,7 @@ class Dpkg < Formula
   test do
     # Do not remove the empty line from the end of the control file
     # All deb control files MUST end with an empty line
-    (testpath/"test/data/homebrew.txt").write <<-EOS.undent
-      Homebrew was here.
-    EOS
-
+    (testpath/"test/data/homebrew.txt").write "brew"
     (testpath/"test/DEBIAN/control").write <<-EOS.undent
       Package: test
       Version: 1.40.99

@@ -1,15 +1,16 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://www.threadingbuildingblocks.org/"
-  url "https://www.threadingbuildingblocks.org/sites/default/files/software_releases/source/tbb44_20160128oss_src_0.tgz"
-  version "4.4-20160128"
-  sha256 "8d256bf13aef1b0726483af9f955918f04e3de4ebbf6908aa1b0c94cbe784ad7"
+  url "https://www.threadingbuildingblocks.org/sites/default/files/software_releases/source/tbb44_20160526oss_src_0.tgz"
+  version "4.4-20160526"
+  sha256 "7bafdcc3bca3aa1acc03da4735aefd6a4ddf2eceec983202319d0a911da1f0d1"
 
   bottle do
     cellar :any
-    sha256 "0cf0e393e5a6e1a48fae36e5c3f90bfd23030c9ba190280c1f7eb58ee3890199" => :el_capitan
-    sha256 "e1c15f6313b69d6b214d4dbe6e8d79b53179f3ec649ac51dcb775a2eabccadfb" => :yosemite
-    sha256 "33d6f509064574263767772e3563a1466e4a9c2208b94ae74ef51f1bae694b32" => :mavericks
+    rebuild 1
+    sha256 "e005a2ed49deb9f4594cf99e0294f964da1cc4af14e4035d04b499c55a8ad628" => :el_capitan
+    sha256 "9b956c24106f29433ff5b3e8ea3f94d2e1b5b800a1eb32d697fdf60e8978768b" => :yosemite
+    sha256 "0dd424959052ce80bf4a5f6a37254f15009ca9d450d8c799145fff55efc5268d" => :mavericks
   end
 
   option :cxx11
@@ -17,6 +18,8 @@ class Tbb < Formula
   # requires malloc features first introduced in Lion
   # https://github.com/Homebrew/homebrew/issues/32274
   depends_on :macos => :lion
+  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "swig" => :build
 
   def install
     # Intel sets varying O levels on each compile command.
@@ -32,6 +35,11 @@ class Tbb < Formula
     system "make", *args
     lib.install Dir["build/BUILDPREFIX_release/*.dylib"]
     include.install "include/tbb"
+
+    cd "python" do
+      ENV["TBBROOT"] = prefix
+      system "python", *Language::Python.setup_install_args(prefix)
+    end
   end
 
   test do

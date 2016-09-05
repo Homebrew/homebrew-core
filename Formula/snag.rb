@@ -1,5 +1,3 @@
-require "language/go"
-
 class Snag < Formula
   desc "Automatic build tool for all your needs"
   homepage "https://github.com/Tonkpils/snag"

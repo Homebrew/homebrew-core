@@ -18,7 +18,6 @@ class Xmltoman < Formula
 
     man1.install %w[xmltoman.1 xmlmantohtml.1]
     bin.install %w[xmltoman xmlmantohtml]
-    (share+"xmltoman").install %w[xmltoman.xsl xmltoman.dtd xmltoman.css]
+    pkgshare.install %w[xmltoman.xsl xmltoman.dtd xmltoman.css]
   end
 end
-

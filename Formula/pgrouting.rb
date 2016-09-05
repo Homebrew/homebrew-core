@@ -12,6 +12,12 @@ class Pgrouting < Formula
     sha256 "5590580dca418a3df909e11fd074dff56eb25b54dae81d28b348d58b0c5bf48e" => :mavericks
   end
 
+  devel do
+    url "https://github.com/pgRouting/pgrouting/archive/pgrouting-2.3.0-alpha.tar.gz"
+    version "2.3.0-alpha"
+    sha256 "8ef18bfec0c6b0b8d3d933a95b49a3276e0b1dabd419f66cae187711bc9e6256"
+  end
+
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "cgal"

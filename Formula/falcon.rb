@@ -32,7 +32,8 @@ class Falcon < Formula
       -DFALCON_LIB_DIR=#{lib}
       -DFALCON_MAN_DIR=#{man1}
       -DFALCON_WITH_INTERNAL_PCRE=OFF
-      -DFALCON_WITH_MANPAGES=ON]
+      -DFALCON_WITH_MANPAGES=ON
+    ]
 
     if build.with? "editline"
       args << "-DFALCON_WITH_EDITLINE=ON"

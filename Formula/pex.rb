@@ -24,6 +24,6 @@ class Pex < Formula
   end
 
   test do
-    assert_match /share\/pex\/packages/, `pex --repo`.strip
+    assert_match "share/pex/packages", shell_output("#{bin}/pex --repo").strip
   end
 end

@@ -9,9 +9,10 @@ class OpenshiftCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1ba0e421382d5a6bd3598ad670dacd2561503c7f0ea0c437e300b87ac700556d" => :el_capitan
-    sha256 "2fd372f087f7d96214105607d0c4e96f0239b680fc9300d4900c50ba0eb6cf7c" => :yosemite
-    sha256 "d16d54280b939e44f304aa2d701f29f6057699a82a7ef6c12a10e23baf25d201" => :mavericks
+    rebuild 1
+    sha256 "d20ef7c33fc7abf164220b9d750dff98b576c37c17da5783fc320dc13e4bd1f0" => :el_capitan
+    sha256 "b076f18b911f07739b5d77394e511eb16df43a78eb1074f350a5c08da930889e" => :yosemite
+    sha256 "561edbcedb37887ccb241c6e415a11c827e44fb99657e73ad7d30857f35fa577" => :mavericks
   end
 
   devel do
@@ -19,6 +20,8 @@ class OpenshiftCli < Formula
       :tag => "v1.3.0-alpha.3",
       :revision => "7998ae49782d89d17c78104d07a98d2aea704ae3"
     version "1.3.0-alpha.3"
+
+    depends_on "socat"
   end
 
   depends_on "go" => :build
@@ -27,12 +30,11 @@ class OpenshiftCli < Formula
     # this is necessary to avoid having the version marked as dirty
     (buildpath/".git/info/exclude").atomic_write "/.brew_home"
 
-    system "make", "all", "WHAT=cmd/openshift", "GOFLAGS=-v", "OS_OUTPUT_GOPATH=1"
+    system "make", "all", "WHAT=cmd/oc", "GOFLAGS=-v", "OS_OUTPUT_GOPATH=1"
 
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
-    bin.install "_output/local/bin/darwin/#{arch}/openshift"
-    bin.install_symlink "openshift" => "oc"
-    bin.install_symlink "openshift" => "oadm"
+    bin.install "_output/local/bin/darwin/#{arch}/oc"
+    bin.install_symlink "oc" => "oadm"
 
     bash_completion.install Dir["contrib/completions/bash/*"]
   end
@@ -40,6 +42,5 @@ class OpenshiftCli < Formula
   test do
     assert_match /^oc v#{version}$/, shell_output("#{bin}/oc version")
     assert_match /^oadm v#{version}$/, shell_output("#{bin}/oadm version")
-    assert_match /^openshift v#{version}$/, shell_output("#{bin}/openshift version")
   end
 end

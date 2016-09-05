@@ -1,15 +1,17 @@
 class ZshSyntaxHighlighting < Formula
   desc "Fish shell like syntax highlighting for zsh"
   homepage "https://github.com/zsh-users/zsh-syntax-highlighting"
-  url "https://github.com/zsh-users/zsh-syntax-highlighting/archive/0.4.1.tar.gz"
-  sha256 "971b9c1e881a8d60442e40003c9e4c98bd1d5243a32fdf386a217c4cd7815197"
+  url "https://github.com/zsh-users/zsh-syntax-highlighting.git",
+    :tag => "0.4.1",
+    :revision => "c19ee583138ebab416b0d2efafbad7dc9f3f7c4f"
   head "https://github.com/zsh-users/zsh-syntax-highlighting.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "96a78e71b1863e90d393aa4e5d4f4c9632a9fccd5502026c8a5d38692804305a" => :el_capitan
-    sha256 "51d52d71796737c9386386cd614830bb4b786316413fdba6ee21425bc1e15f74" => :yosemite
-    sha256 "2c7a792630e51a3283f9dc4f5785f1d8a812cfa0bd78a3d26c4e0ac473391302" => :mavericks
+    rebuild 1
+    sha256 "daafc718f3fcc4907818a77895f9b02a0666638bfad8e4a3e7b781c0c4e99078" => :el_capitan
+    sha256 "d0a908723170b786cb7e1fea2f3441cd6bda43e4a3d7c0f6c96125807514672f" => :yosemite
+    sha256 "d0a908723170b786cb7e1fea2f3441cd6bda43e4a3d7c0f6c96125807514672f" => :mavericks
   end
 
   def install

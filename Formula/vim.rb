@@ -2,14 +2,14 @@ class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
   # *** Vim should be updated no more than once every 7 days ***
-  url "https://github.com/vim/vim/archive/v7.4.2196.tar.gz"
-  sha256 "8a7d38fed55e622a52a6f866d65397ae0f07dcf2aeaf53d006fc4dc4da6bb877"
+  url "https://github.com/vim/vim/archive/v7.4.2290.tar.gz"
+  sha256 "eb3d309aa8959dd87255d23094f8bb1211b012f3f1dce3712601ee1c03978dcb"
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "e1b1e124d4659483d6015e037261817eff7db686fac0543c37d9d72154a592d7" => :el_capitan
-    sha256 "112d92c93de72d33bdfa373f624ffbf708cd6328a984b94e5782969997ad2e54" => :yosemite
-    sha256 "74787c45cbe222f083889d421018ce35233b0950062576de581719ac9e81ddea" => :mavericks
+    sha256 "6746a5f4dc369863b68227e0dada35d64afcd801060ee2cb39ddbcbc69510f47" => :el_capitan
+    sha256 "82e2079bf59f64d1cf028b22491d5b235970d46c5b7b4163fbcb0b954c7d9387" => :yosemite
+    sha256 "862ec09e30fe1b1f43eb07e0664d06b350f1c75c55d8e9a45d3b8a3c1bef2743" => :mavericks
   end
 
   deprecated_option "disable-nls" => "without-nls"
@@ -105,7 +105,7 @@ class Vim < Formula
     # If stripping the binaries is enabled, vim will segfault with
     # statically-linked interpreters like ruby
     # https://github.com/vim/vim/issues/114
-    system "make", "install", "prefix=#{prefix}", "STRIP=true"
+    system "make", "install", "prefix=#{prefix}", "STRIP=#{which "true"}"
     bin.install_symlink "vim" => "vi" if build.with? "override-system-vi"
   end
 

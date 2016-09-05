@@ -1,14 +1,14 @@
 class Hyperscan < Formula
   desc "High-performance regular expression matching library"
   homepage "https://01.org/hyperscan"
-  url "https://github.com/01org/hyperscan/archive/v4.2.0.tar.gz"
-  sha256 "d06d8f31a62e5d2903a8ccf07696e02cadf4de2024dc3b558d410d913c81dbef"
+  url "https://github.com/01org/hyperscan/archive/v4.3.1.tar.gz"
+  sha256 "a7bce1287c06d53d1fb34266d024331a92ee24cbb2a7a75061b4ae50a30bae97"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2dfa67df172bd561c0273e59f30b02064467ddbde0f4f37ae5e000efdc0d98f5" => :el_capitan
-    sha256 "4b9ffad5a523b83dc7a6c5379d201c55becad69eec015767edfd29e205fd4429" => :yosemite
-    sha256 "712456308a7cf5216752036b9d7ae535ae814f865099ff0436689eafcbebc085" => :mavericks
+    sha256 "98c09016eae2cd8ac7b757efd97dc13b25577d993b5c2a33892ba07060d38834" => :el_capitan
+    sha256 "51a0f38350e24d8c45e39504c604e2af3b4cbfa8d3db339864cc84cf19366edb" => :yosemite
+    sha256 "10d6c0f07c56d706c8c568963e937fa96bdcd7d2117cadb64046210c8b1235ab" => :mavericks
   end
 
   option "with-debug", "Build with debug symbols"
@@ -17,11 +17,6 @@ class Hyperscan < Formula
   depends_on "boost" => :build
   depends_on "ragel" => :build
   depends_on "cmake" => :build
-
-  # workaround for freebsd/clang/libc++ build issues
-  # https://github.com/01org/hyperscan/issues/27
-  # https://github.com/01org/hyperscan/commit/e9cfbae68f69b06bb4fdcd2abd7c1ee5afec0262
-  patch :DATA
 
   def install
     mkdir "build" do
@@ -58,31 +53,3 @@ class Hyperscan < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/src/parser/ComponentRepeat.cpp b/src/parser/ComponentRepeat.cpp
-index ff02703..74aa590 100644
---- a/src/parser/ComponentRepeat.cpp
-+++ b/src/parser/ComponentRepeat.cpp
-@@ -184,7 +184,7 @@ void ComponentRepeat::notePositions(GlushkovBuildState &bs) {
-
- vector<PositionInfo> ComponentRepeat::first() const {
-     if (!m_max) {
--        return {};
-+        return vector<PositionInfo>();
-     }
-
-     assert(!m_firsts.empty()); // notePositions should already have run
-diff --git a/src/rose/rose_build_misc.cpp b/src/rose/rose_build_misc.cpp
-index b16e3a6..1977f92 100644
---- a/src/rose/rose_build_misc.cpp
-+++ b/src/rose/rose_build_misc.cpp
-@@ -880,7 +880,7 @@ namespace {
- class OutfixAllReports : public boost::static_visitor<set<ReportID>> {
- public:
-     set<ReportID> operator()(const boost::blank &) const {
--        return {};
-+        return set<ReportID>();
-     }
-
-     template<class T>

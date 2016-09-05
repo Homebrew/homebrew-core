@@ -28,11 +28,12 @@ class Autotrace < Formula
   end
 
   def install
-    args = ["--disable-debug",
-            "--disable-dependency-tracking",
-            "--prefix=#{prefix}",
-            "--mandir=#{man}",
-           ]
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --mandir=#{man}
+    ]
 
     args << "--without-magick" if build.without? "imagemagick"
 

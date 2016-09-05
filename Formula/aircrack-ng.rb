@@ -37,6 +37,10 @@ class AircrackNg < Formula
     Run `airodump-ng-oui-update` install or update the Airodump-ng OUI file.
     EOS
   end
+
+  test do
+    system "#{bin}/aircrack-ng", "--help"
+  end
 end
 
 __END__

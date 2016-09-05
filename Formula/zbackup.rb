@@ -29,6 +29,22 @@ class Zbackup < Formula
   end
 
   def install
+    # Avoid collision with protobuf 3.x CHECK macro
+    inreplace [
+      "backup_creator.cc",
+      "check.hh",
+      "chunk_id.cc",
+      "chunk_storage.cc",
+      "compression.cc",
+      "encrypted_file.cc",
+      "encryption.cc",
+      "encryption_key.cc",
+      "mt.cc",
+      "tests/bundle/test_bundle.cc",
+      "tests/encrypted_file/test_encrypted_file.cc",
+      "unbuffered_file.cc",
+    ],
+    /\bCHECK\b/, "ZBCHECK"
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end

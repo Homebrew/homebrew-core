@@ -1,15 +1,15 @@
 class Citus < Formula
   desc "PostgreSQL-based distributed RDBMS"
   homepage "https://www.citusdata.com"
-  url "https://github.com/citusdata/citus/archive/v5.1.1.tar.gz"
-  sha256 "4c7e1f18a2d919c86b292b137b6f113fc868e64ff1d09a519a2bd5b870365389"
+  url "https://github.com/citusdata/citus/archive/v5.2.0.tar.gz"
+  sha256 "d6c086f3f0edd18c6be3093bbcad819bce82f806fca362859a174e17489227f5"
 
   head "https://github.com/citusdata/citus.git"
 
   bottle do
-    sha256 "bb8b3fba00eb45ae15601ebba7ba37473b008f9aadc6e5415cb435763d72d9e1" => :el_capitan
-    sha256 "be143c0fce998109ceeda5cf1959b8e79722d843e2dcedbd79b7f359a9294ecd" => :yosemite
-    sha256 "f05dab8a33f80461bfe47497bff04c40238f318d4768404c61ce06afc46c547c" => :mavericks
+    sha256 "e939c3fc0f6632ad39c1718f3a259bfb2c0f75839f13fdb1b848734e194153d3" => :el_capitan
+    sha256 "587e7347e3273e3cfb3c66ab8950ffb3252f31e836785e8618edaf37afd791c8" => :yosemite
+    sha256 "3d7b03ea62caf87450ebee7b69b0d29a941e74346d1e33b61dc72f19ebdd53a3" => :mavericks
   end
 
   depends_on "postgresql"

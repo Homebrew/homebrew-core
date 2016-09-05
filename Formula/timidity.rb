@@ -29,8 +29,7 @@ class Timidity < Formula
     args = ["--disable-debug",
             "--disable-dependency-tracking",
             "--prefix=#{prefix}",
-            "--mandir=#{man}"
-           ]
+            "--mandir=#{man}"]
 
     formats = []
     formats << "darwin" if build.with? "darwin"

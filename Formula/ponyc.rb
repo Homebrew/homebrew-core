@@ -1,17 +1,14 @@
 class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "http://www.ponylang.org"
-  url "https://github.com/ponylang/ponyc.git",
-    :revision => "5f061fa201b47dc6a767d3bbe8a8999ada66993e"
-  # 0.2.2 tag requested in https://github.com/ponylang/ponyc/issues/1029
-  version "0.2.2-alpha2"
-  revision 1
+  url "https://github.com/ponylang/ponyc/archive/0.3.0.tar.gz"
+  sha256 "4b0fa26dd194663f648f8782af79e420bc962281f280233cadecbd9b6cad195f"
 
   bottle do
     cellar :any
-    sha256 "59a03fc7a83f5c97262e9a70f383b3105f6d03062aac9ceac4729a6e3a19e7d3" => :el_capitan
-    sha256 "c3527fecac254cd94a2f6d42f9418fbd80ca9bf41f46a4d807141516e9f849f9" => :yosemite
-    sha256 "38b605078fd9cbc5010995b41327c9161d4b309b0c1696890abf572543f36a63" => :mavericks
+    sha256 "bfc29426072e15b0c1c18be1a8a5acdde5fd3a4ed2a7fedba793d0a6c888d2a0" => :el_capitan
+    sha256 "3676d9710ec391755c58b4b059a208567a8a5d52c645a68a2fb0c21474f1053a" => :yosemite
+    sha256 "524c99172115fc0a62bd138cfe75489b1b3fd55ebfe055f3dd11df4eb477245a" => :mavericks
   end
 
   depends_on "llvm"

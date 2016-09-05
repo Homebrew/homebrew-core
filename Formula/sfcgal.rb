@@ -1,22 +1,32 @@
 class Sfcgal < Formula
   desc "C++ wrapper library around CGAL"
   homepage "http://sfcgal.org/"
-  url "https://github.com/Oslandia/SFCGAL/archive/v1.2.2.tar.gz"
-  sha256 "dae7de4c7e1b4ef2a51c55f7d201a6d8049b518caac14f4033fd2d43f14eb031"
+  url "https://github.com/Oslandia/SFCGAL/archive/v1.3.0.tar.gz"
+  sha256 "7ed35439fc197e73790f4c3d1c1750acdc3044968769239b2185a7a845845df3"
+  revision 1
 
   bottle do
-    sha256 "cddb259f1fdc03ba213c56757485efee012acf10c96f39af7387ee40b4901f8e" => :el_capitan
-    sha256 "65c06ed4853d2179793da87bebd78c3b025cb8b2437e41dd40f247f9a322a656" => :yosemite
-    sha256 "6512802b7da2f59d1a449dda91d15537be24814bee913ca73c68ccd7082f1d9e" => :mavericks
+    sha256 "2a854bff305f9c31c98ec96dbb84b99609fed5f3db89d93dbb82cd5133f550b9" => :el_capitan
+    sha256 "3c9e06176d0d24d0039761fe8e03dbe3d2008b443d15ca7e943d575e142c571e" => :yosemite
+    sha256 "6b6eb54eff2cc0ec85ee50632cf678193651c42391a488701f342685527ce23f" => :mavericks
   end
 
+  option :cxx11
+
   depends_on "cmake" => :build
-  depends_on "boost"
-  depends_on "cgal"
-  depends_on "gmp"
   depends_on "mpfr"
+  if build.cxx11?
+    depends_on "boost" => "c++11"
+    depends_on "cgal" => "c++11"
+    depends_on "gmp"   => "c++11"
+  else
+    depends_on "boost"
+    depends_on "cgal"
+    depends_on "gmp"
+  end
 
   def install
+    ENV.cxx11 if build.cxx11?
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end

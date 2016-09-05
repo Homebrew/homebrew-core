@@ -1,4 +1,6 @@
 class Alot < Formula
+  include Language::Python::Virtualenv
+
   desc "Text mode MUA using notmuch mail"
   homepage "https://github.com/pazz/alot"
   url "https://github.com/pazz/alot/archive/0.3.7.tar.gz"
@@ -58,8 +60,6 @@ class Alot < Formula
     url "https://pypi.python.org/packages/source/p/python-magic/python-magic-0.4.11.tar.gz"
     sha256 "89021e288d6efd22cde2842349d79939b9664efdbf99f5790c9862a67759ea94"
   end
-
-  include Language::Python::Virtualenv
 
   def install
     virtualenv_install_with_resources

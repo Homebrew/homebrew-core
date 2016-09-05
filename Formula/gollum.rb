@@ -1,24 +1,25 @@
 class Gollum < Formula
   desc "n:m message multiplexer written in Go"
   homepage "https://github.com/trivago/gollum"
-  url "https://github.com/trivago/gollum/archive/v0.4.3.tar.gz"
-  sha256 "be2a615af23dd8c716014eeddb590e6246225378b4a034682ef2a01838d318f2"
+  url "https://github.com/trivago/gollum/archive/v0.4.4.tar.gz"
+  sha256 "54e69fcf5f07b2ff543415218faafa85dd83b095a1dbf0188f4c995d6b5a87cf"
   head "https://github.com/trivago/gollum.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8ee6567c2ee3dc897bc5a8b35b075ce89c054336c5149cb19509b6ac16b16c71" => :el_capitan
-    sha256 "852268489c1f12c0a65d3305336459ec16013adafdcc2fd3ab2ff6d1944691b3" => :yosemite
-    sha256 "a79cd3bafdfc7c2d265714e6e58e395f3fe2122f74db2220ca90f1cadea16983" => :mavericks
+    sha256 "80d400f2b90777eeb9ccc7d74584d10dc17227935866efc5125d4e5630953a93" => :el_capitan
+    sha256 "e6879f0937f32ba566ac7be3ce5a37c767588971d13bafa27e71c381d2c51f57" => :yosemite
+    sha256 "aa3dcde3d7cbea3df1738ebcce89f08c8dcce01ec5fe1693c4192c085604660b" => :mavericks
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/trivago/gollum").install Dir["*"]
+    (buildpath/"src/github.com/trivago/gollum").install buildpath.children
     cd "src/github.com/trivago/gollum" do
       system "go", "build", "-o", bin/"gollum"
+      prefix.install_metafiles
     end
   end
 
