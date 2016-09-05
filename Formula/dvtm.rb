@@ -27,3 +27,4 @@ class Dvtm < Formula
     assert_match(/^dvtm-#{version}/, result)
   end
 end
+
