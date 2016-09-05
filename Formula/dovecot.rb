@@ -5,6 +5,12 @@ class Dovecot < Formula
   mirror "https://fossies.org/linux/misc/dovecot-2.2.25.tar.gz"
   sha256 "d8d9f32c846397f7c22749a84c5cf6f59c55ff7ded3dc9f07749a255182f9667"
 
+  bottle do
+    sha256 "6ce8e803e9928bbaa63f5e1a5bc86e035138b02fd5b8c9337eab860ed1344fb8" => :el_capitan
+    sha256 "a7edbef68eff6834c88719ff4c86c576e7267214b813f2ec7c0ca102a2ca46f4" => :yosemite
+    sha256 "9cc3b02b610622cf9fffa4c882b0731e1d9e3e4e08fc62ba788463f23dd61858" => :mavericks
+  end
+
   option "with-pam", "Build with PAM support"
   option "with-pigeonhole", "Add Sieve addon for Dovecot mailserver"
   option "with-pigeonhole-unfinished-features", "Build unfinished new Sieve addon features/extensions"
