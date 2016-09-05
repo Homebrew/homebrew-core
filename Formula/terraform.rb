@@ -3,20 +3,9 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
+  url "https://github.com/hashicorp/terraform/archive/v0.7.3.tar.gz"
+  sha256 "dbbb755236af0ebd98ea892f12b0780731bab650583db3626129b9ec399352ce"
   head "https://github.com/hashicorp/terraform.git"
-
-  stable do
-    url "https://github.com/hashicorp/terraform/archive/v0.7.2.tar.gz"
-    sha256 "ccea0fe6948ef801ecd3f000202534e735766bc489f976bec9722fb5daa62a67"
-
-    # so that we don't have to build from the tag
-    # https://github.com/hashicorp/terraform/pull/8481
-    # https://github.com/hashicorp/terraform/issues/8489
-    patch do
-      url "https://github.com/hashicorp/terraform/commit/010f0287.patch"
-      sha256 "f0986afc0ce934315d3aa1e406dddfe598ff4e1df3ca8c65887c59669bef076e"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
