@@ -27,18 +27,15 @@ class ApacheZeppelin < Formula
       ln_s "#{libexec}/conf/log4j.properties", conf
       ln_s "#{libexec}/conf/shiro.ini", conf
       system "#{bin}/zeppelin-daemon.sh", "start"
-      success = false
       begin
         # Wait a bit that the webserver starts
         sleep 10
         # Check notebook r has several paragraphs
         json_text = shell_output("curl -s http://localhost:9999/api/notebook/r")
         assert_operator Utils::JSON.load(json_text)["body"]["paragraphs"].length, :>=, 1
-        success = true
       ensure
         system "#{bin}/zeppelin-daemon.sh", "stop"
       end
-      assert_equal success, true
     end
   end
 end
