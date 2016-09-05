@@ -28,9 +28,8 @@ class Nginx < Formula
   deprecated_option "with-spdy" => "with-http2"
 
   depends_on "pcre"
+  depends_on "openssl"
   depends_on "passenger" => :optional
-  depends_on "openssl" => :recommended
-  depends_on "libressl" => :optional
 
   def install
     # Changes default port to 8080
@@ -41,19 +40,13 @@ class Nginx < Formula
 
     pcre = Formula["pcre"]
     openssl = Formula["openssl"]
-    libressl = Formula["libressl"]
 
     if build.head?
       openssl = Formula["openssl@1.1"]
     end
 
-    if build.with? "libressl"
-      cc_opt = "-I#{pcre.include} -I#{libressl.include}"
-      ld_opt = "-L#{pcre.lib} -L#{libressl.lib}"
-    else
-      cc_opt = "-I#{pcre.include} -I#{openssl.include}"
-      ld_opt = "-L#{pcre.lib} -L#{openssl.lib}"
-    end
+    cc_opt = "-I#{pcre.include} -I#{openssl.include}"
+    ld_opt = "-L#{pcre.lib} -L#{openssl.lib}"
 
     args = %W[
       --prefix=#{prefix}
