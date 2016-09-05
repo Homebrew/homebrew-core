@@ -12,7 +12,7 @@ class Dvtm < Formula
   end
   
   patch do
-    url "https://raw.githubusercontent.com/pvtmert/formula-patches/master/dvtm/patch-vt.h-compat.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/dvtm/patch-vt.h-compat.patch"
     sha256 "98565ce8f6b010ce88a2bc032155aca8d860e68e5a642253e49c4d77b7f68543"
   end
 
