@@ -7,6 +7,13 @@ class Wego < Formula
   sha256 "d63d79520b385c4ed921c7decc37a0b85c40af66600f8a5733514e04d3048075"
   head "https://github.com/schachmat/wego.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "ccdba75878ffe9b62b49265f6f4b375da80f44e6c5b7c5a40294501fda8903b1" => :el_capitan
+    sha256 "97e7c2edfa9b1a312a0f4f4bce9553b1c8e884409aca3f7acfed2dc99fcef05d" => :yosemite
+    sha256 "6bc11cdcd939b5361704f1575f297a152da2e3de79e94392c33cf5e22ec40715" => :mavericks
+  end
+
   depends_on "go" => :build
 
   go_resource "github.com/mattn/go-colorable" do
