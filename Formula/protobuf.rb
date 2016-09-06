@@ -3,12 +3,12 @@ class Protobuf < Formula
   homepage "https://github.com/google/protobuf/"
 
   stable do
-    url "https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.bz2"
-    sha256 "ee445612d544d885ae240ffbcbf9267faa9f593b7b101f21d58beceb92661910"
+    url "https://github.com/google/protobuf/archive/v3.0.0.tar.gz"
+    sha256 "f5b3563f118f1d3d6e001705fa7082e8fc3bda50038ac3dff787650795734146"
 
-    # Fixes the unexpected identifier error when compiling software against protobuf:
-    # https://github.com/google/protobuf/issues/549
-    patch :p1, :DATA
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   bottle do
@@ -16,16 +16,6 @@ class Protobuf < Formula
     sha256 "b1a6c4508ec66e706929e3e34a5b57b3c881c5ac1e3d0fc7c4b3598f97902c7f" => :el_capitan
     sha256 "5c21d50d1d3ca2dc2906bba174bfb4ec0d55c0f16bac5541abf3180e68f885c2" => :yosemite
     sha256 "6f6a30044450bb3e2d420fea3435d0c84594b197ea0d3a54bca473e3b4c855b5" => :mavericks
-  end
-
-  devel do
-    url "https://github.com/google/protobuf/archive/v3.0.0-beta-4.tar.gz"
-    sha256 "132ba7654ee45f5cbbd33fa8f2c9efa25f2193640e42098029bfa993a8360a9c"
-    version "3.0.0-beta-4"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   head do
