@@ -42,8 +42,10 @@ class Minio < Formula
   end
 
   def post_install
-    exec "mkdir -p var/minio"
-    exec "mkdir -p etc/minio"
+    configdir = "etc/minio"
+    datadir = "var/minio"
+    configdir.mkpath
+    datadir.mkpath
   end
 
   plist_options :manual => "minio server"
