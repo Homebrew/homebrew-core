@@ -1,9 +1,9 @@
 class Doxygen < Formula
   desc "Generate documentation for several programming languages"
   homepage "http://www.doxygen.org/"
-  url "https://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.11.src.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.8.11/doxygen-1.8.11.src.tar.gz"
-  sha256 "65d08b46e48bd97186aef562dc366681045b119e00f83c5b61d05d37ea154049"
+  url "https://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.12.src.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.8.12/doxygen-1.8.12.src.tar.gz"
+  sha256 "792d4091cbdf228549ff2033dd71ff7ea5029c6b436317cc5ec866e71302df6c"
   head "https://github.com/doxygen/doxygen.git"
 
   bottle do
