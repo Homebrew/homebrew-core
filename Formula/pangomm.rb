@@ -6,9 +6,9 @@ class Pangomm < Formula
 
   bottle do
     cellar :any
-    sha256 "28f90ac633e8c04bc56baecdb51533c9beab764d75cb1a30942bae52456cb765" => :el_capitan
-    sha256 "7c245439d0aab5db98cf0d7b6ba86fb791148d34ab2d526bb4c655602d2e9c3c" => :yosemite
-    sha256 "4642e18a4c8d8ce9ef2124247d7f37f687da114d7c71232a52ce648c7d832d47" => :mavericks
+    sha256 "7565443483138210e191d3fe044c04d55755057b4c3d53187baf2857c966f0a5" => :el_capitan
+    sha256 "09d9b38d15273c02968cb4330159c8cfa0b9e06701f69b7495c12f64f7f370b8" => :yosemite
+    sha256 "1d2a6f8d96059a189be9d39e6d20fd5a8a7a14293cc64c71eab506522ff5c1e5" => :mavericks
   end
 
   depends_on "pkg-config" => :build
