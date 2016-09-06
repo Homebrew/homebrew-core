@@ -7,10 +7,9 @@ class Amap < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "5e45a4191eb3b768574f8c823f5a4d927366d50b4fd435abd0508d978797e58b" => :el_capitan
-    sha256 "62650b87327fa3555e78842b22a9e306865db0779e14c705624ebbaf163cc0b2" => :yosemite
-    sha256 "24b1d262f00a3f8c32910766ed1bc1002fb9a16902d62b31927e1912b47b2149" => :mavericks
+    sha256 "c90c8fb7641960727299f576812dd38d88f836f9d3b99a21fdf652d2032acb52" => :el_capitan
+    sha256 "0ab42765f948fe016bc38c8d6005e66a86e93b4e93b073615baaf0fa0f0e95dc" => :yosemite
+    sha256 "18d4464b634e7aec9fefc45079dd97d0867b956ee71f189dc7f0393e77f7dba7" => :mavericks
   end
 
   depends_on "openssl"
