@@ -42,10 +42,10 @@ class Minio < Formula
   end
 
   def post_install
-    configdir = "etc/minio"
-    datadir = "var/minio"
-    configdir.mkpath
+    datadir = var/"minio".freeze
+    configdir = etc/"minio".freeze
     datadir.mkpath
+    configdir.mkpath
   end
 
   plist_options :manual => "minio server"
