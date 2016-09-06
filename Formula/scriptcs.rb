@@ -6,9 +6,9 @@ class Scriptcs < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bc27569acd1d41bc9e73a355c89bbf3bbcf8a37bbbb67ae8cf07e49d78927cad" => :el_capitan
-    sha256 "73c42a45b854ae25ef1ec2556f5488e2d4b48fecb48b223a7b7a96dfec5c04cf" => :yosemite
-    sha256 "096478d971450938f5c2333bc7ce93709c2c3456642477b8bc284093ce610e5a" => :mavericks
+    sha256 "0d37ffc1b70e089876f26fa6682a5d4a90bb4e148f0be4ccc824abca8575546c" => :el_capitan
+    sha256 "910ba1adb86a5529cfa18f666b7e2498c1cfb7b73af1497e190ee34301ef5546" => :yosemite
+    sha256 "9526293747a6e8c1cd5162390cb3a5d67047b8a7372adad452eafa0c954aea10" => :mavericks
   end
 
   depends_on "mono" => :recommended
