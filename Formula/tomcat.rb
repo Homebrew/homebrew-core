@@ -3,31 +3,33 @@ class Tomcat < Formula
   homepage "https://tomcat.apache.org/"
 
   stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.5.4/bin/apache-tomcat-8.5.4.tar.gz"
-    mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.4/bin/apache-tomcat-8.5.4.tar.gz"
-    sha256 "155cf7f09e13c63b8301ddc8c37d90be64bc3d5e9ddf163c4f10a6406a49a191"
+    url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.5.5/bin/apache-tomcat-8.5.5.tar.gz"
+    mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.5/bin/apache-tomcat-8.5.5.tar.gz"
+    sha256 "123ba0c010267d54caf984872d3cb449ae29bbd956fa17467185e0c2b3ecae45"
 
     depends_on :java => "1.7+"
 
     resource "fulldocs" do
-      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-8/v8.5.4/bin/apache-tomcat-8.5.4-fulldocs.tar.gz"
-      mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.4/bin/apache-tomcat-8.5.4-fulldocs.tar.gz"
-      version "8.5.4"
-      sha256 "3971b2c802860e3eb7902136cb421c953bb87c42fb510b0dcf65d604129453d2"
+      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-8/v8.5.5/bin/apache-tomcat-8.5.5-fulldocs.tar.gz"
+      mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.5/bin/apache-tomcat-8.5.5-fulldocs.tar.gz"
+      version "8.5.5"
+      sha256 "b87154992b2ecfe3f6d5c113898efee0aec557214ecbd64a38dd5ba2945cb42b"
     end
   end
 
   devel do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.0.M9/bin/apache-tomcat-9.0.0.M9.tar.gz"
-    version "9.0.0.M9"
-    sha256 "aaeaebf271dd5c92c9aba808fb2efd1e32bc8cad01d13214fa0f3b594dece7fc"
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.0.M10/bin/apache-tomcat-9.0.0.M10.tar.gz"
+    mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.0.M10/bin/apache-tomcat-9.0.0.M10.tar.gz"
+    version "9.0.0.M10"
+    sha256 "09bf22df9a5bf7b7b901da751681fb6ad55194f27ac7360e4f79cb9f3ec7775c"
 
     depends_on :java => "1.8+"
 
     resource "fulldocs" do
-      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.0.M9/bin/apache-tomcat-9.0.0.M9-fulldocs.tar.gz"
-      version "9.0.0.M9"
-      sha256 "745e17f9715f4dc5ecefccf74135b4614efe859f334dafec94a5fb456b0ec43f"
+      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.0.M10/bin/apache-tomcat-9.0.0.M10-fulldocs.tar.gz"
+      mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.0.M10/bin/apache-tomcat-9.0.0.M10-fulldocs.tar.gz"
+      version "9.0.0.M10"
+      sha256 "fa33c02ed8c2b7400c7adaf6b180a3d05dccd196565bda42280a6f0aacc69046"
     end
   end
 
