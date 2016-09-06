@@ -41,12 +41,9 @@ class Minio < Formula
     bin.install buildpath/"minio"
   end
 
-  DATADIR = "var/minio".freeze
-  CONFIGDIR = "etc/minio".freeze
-
   def post_install
-    DATADIR.mkpath
-    CONFIGDIR.mkpath
+    DATADIR.mkpath = "var/minio".freeze
+    CONFIGDIR.mkpath = "etc/minio".freeze
   end
 
   plist_options :manual => "minio server"
