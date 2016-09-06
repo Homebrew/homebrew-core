@@ -5,37 +5,23 @@ class Varnish < Formula
   sha256 "4a6ea08e30b62fbf25f884a65f0d8af42e9cc9d25bf70f45ae4417c4f1c99017"
 
   bottle do
-    sha256 "0eda704c372f73437ee8b29d3d4183f69672e074ceceadae56b630d9f86499e8" => :el_capitan
-    sha256 "aaf399bcddbaec19f164834f6a514a573f9a6016048805729693ff199267ad06" => :yosemite
-    sha256 "b5fda8068aa76e6f580c334ada855796d911a6223150c782696c014968abed51" => :mavericks
+    rebuild 1
+    sha256 "ad41b596be38cc6fd5dcaef1b8108ad6ebb8cdded562f0fa59c81daa9cff0c93" => :el_capitan
+    sha256 "1c5b01ad96283950662fecb65254274a6c8481f4d130e1f1dbac1af821abec4a" => :yosemite
+    sha256 "270560b2d7bf43f660c9b126b68ce8df6f2226f93a472615d1c29e186d84da0a" => :mavericks
   end
 
   depends_on "pkg-config" => :build
+  depends_on "docutils" => :build
   depends_on "pcre"
 
-  resource "docutils" do
-    url "https://pypi.python.org/packages/source/d/docutils/docutils-0.11.tar.gz"
-    sha256 "9af4166adf364447289c5c697bb83c52f1d6f57e77849abcccd6a4a18a5e7ec9"
-  end
-
   def install
-    ENV.prepend_create_path "PYTHONPATH", buildpath+"lib/python2.7/site-packages"
-    resource("docutils").stage do
-      system "python", "setup.py", "install", "--prefix=#{buildpath}"
-    end
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--localstatedir=#{var}",
-                          "--with-rst2man=#{buildpath}/bin/rst2man.py",
-                          "--with-rst2html=#{buildpath}/bin/rst2html.py"
+                          "--localstatedir=#{var}"
     system "make", "install"
     (etc+"varnish").install "etc/example.vcl" => "default.vcl"
     (var+"varnish").mkpath
-  end
-
-  test do
-    system "#{opt_sbin}/varnishd", "-V"
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/varnishd -n #{HOMEBREW_PREFIX}/var/varnish -f #{HOMEBREW_PREFIX}/etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080"
@@ -74,5 +60,9 @@ class Varnish < Formula
       </dict>
       </plist>
     EOS
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{sbin}/varnishd -V 2>&1")
   end
 end

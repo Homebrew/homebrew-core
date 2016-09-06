@@ -8,6 +8,7 @@ class Mpfr < Formula
 
   bottle do
     cellar :any
+    sha256 "9f1856ec555fafa3b69359231592abbe207cf0b8059f7ae9a2d21e9daff73445" => :sierra
     sha256 "06b1521d06eeec85bf2052fd416f19f7624901641596617e39b8c433540d990f" => :el_capitan
     sha256 "2695bf9b6090c817144b0650a9eb332fdc22efa37265fefd7ea2c55d4f62732b" => :yosemite
     sha256 "47dc6d25a9ba43dd2e710849d7d2dbfffc6de3ded02554ea973cd26797a2b31d" => :mavericks
