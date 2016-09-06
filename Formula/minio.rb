@@ -42,8 +42,8 @@ class Minio < Formula
   end
 
   def post_install
-    DATADIR.mkpath = "var/minio".freeze
-    CONFIGDIR.mkpath = "etc/minio".freeze
+    datadir.mkpath = "var/minio"
+    configdir.mkpath = "etc/minio"
   end
 
   plist_options :manual => "minio server"
@@ -61,14 +61,14 @@ class Minio < Formula
       <array>
         <string>#{opt_bin}/minio</string>
         <string>server</string>
-        <string>--config-dir=#{CONFIGDIR}</string>
+        <string>--config-dir=#{configdir}</string>
         <string>--address :9000</string>
-        <string>#{DATADIR}</string>
+        <string>#{datadir}</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
       <key>WorkingDirectory</key>
-      <string>#{DATADIR}</string>
+      <string>#{datadir}</string>
     </dict>
     </plist>
     EOS
