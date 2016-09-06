@@ -7,7 +7,8 @@ class Autoconf < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 4
+    rebuild 4
+    sha256 "a76fca79a00f733c1c9f75600b906de4755dd3fbb595b1b55ded1347ac141607" => :sierra
     sha256 "ded69c7dac4bc8747e52dca37d6d561e55e3162649d3805572db0dc2f940a4b8" => :el_capitan
     sha256 "daf70656aa9ff8b2fb612324222aa6b5e900e2705c9f555198bcd8cd798d7dd0" => :yosemite
     sha256 "d153b3318754731ff5e91b45b2518c75880993fa9d1f312a03696e2c1de0c9d5" => :mavericks
