@@ -3,8 +3,9 @@ class Botan < Formula
   homepage "https://botan.randombit.net/"
 
   stable do
-    url "https://botan.randombit.net/releases/Botan-1.10.12.tgz"
-    sha256 "affc3a79919577943f896e64d3e4a4dcc4970c5bf80cc98c7f3a3144745eac27"
+    url "https://botan.randombit.net/releases/Botan-1.10.13.tgz"
+    sha256 "23ec973d4b4a4fe04f490d409e08ac5638afe3aa09acd7f520daaff38ba19b90"
+
     # upstream ticket: https://bugs.randombit.net/show_bug.cgi?id=267
     patch :DATA
   end
@@ -17,8 +18,8 @@ class Botan < Formula
   end
 
   devel do
-    url "https://botan.randombit.net/releases/Botan-1.11.30.tgz"
-    sha256 "8daf3adc8eb3b046ab4678beca5aef07af900c7781ddc88b10d1d966de66a125"
+    url "https://botan.randombit.net/releases/Botan-1.11.31.tgz"
+    sha256 "0e751c9182c84f961e90be51f086b1ec254155c3d056cbb37eebff5f5e39ddee"
   end
 
   option "with-debug", "Enable debug build of Botan"
@@ -54,11 +55,12 @@ class Botan < Formula
 
   test do
     # stable version doesn't have `botan` executable
-    if !File.exist? bin/"botan"
+    if stable?
       assert_match "lcrypto", shell_output("#{bin}/botan-config-1.10 --libs")
     else
-      assert_match /\A-----BEGIN PRIVATE KEY-----/,
-       shell_output("#{bin}/botan keygen")
+      (testpath/"test.txt").write "Homebrew"
+      (testpath/"testout.txt").write Utils.popen_read("#{bin}/botan base64_enc test.txt")
+      assert_match "Homebrew", shell_output("#{bin}/botan base64_dec testout.txt")
     end
   end
 end
