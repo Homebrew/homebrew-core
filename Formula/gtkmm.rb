@@ -6,9 +6,9 @@ class Gtkmm < Formula
 
   bottle do
     cellar :any
-    sha256 "b700d9e2d3389f371e59fe39bd0bd1c537badd5356e51448d55c32e036b7f26b" => :el_capitan
-    sha256 "1a48acc2f862ac672410ace2a25aea1f79557be26c47db254cd860e619b35746" => :yosemite
-    sha256 "e8c600eec1f8a6062f2623a696700a3deb5a72d710b6287f5ce052b13da15432" => :mavericks
+    sha256 "52e16536cb24b6714de19939b7d81e7458af9e3bf2fc186784615234ee61f3d5" => :el_capitan
+    sha256 "96d116f0764c6cc537a3ec4b068422714e1e491f732239166f6ee6ed210e4607" => :yosemite
+    sha256 "e6e38009b081330074bed4a673bb63bab16ca84a56e348b42944cf44d29e4b71" => :mavericks
   end
 
   depends_on "pkg-config" => :build
