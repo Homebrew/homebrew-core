@@ -65,7 +65,7 @@ class Minio < Formula
         <string>#{opt_bin}/minio</string>
         <string>server</string>
         <string>--config-dir=#{CONFIGDIR}</string>
-        <string>--address ":9000"</string>
+        <string>--address :9000</string>
         <string>#{DATADIR}</string>
       </array>
       <key>RunAtLoad</key>
