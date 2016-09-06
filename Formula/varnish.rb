@@ -11,24 +11,13 @@ class Varnish < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "docutils" => :build
   depends_on "pcre"
 
-  resource "docutils" do
-    url "https://pypi.python.org/packages/source/d/docutils/docutils-0.11.tar.gz"
-    sha256 "9af4166adf364447289c5c697bb83c52f1d6f57e77849abcccd6a4a18a5e7ec9"
-  end
-
   def install
-    ENV.prepend_create_path "PYTHONPATH", buildpath+"lib/python2.7/site-packages"
-    resource("docutils").stage do
-      system "python", "setup.py", "install", "--prefix=#{buildpath}"
-    end
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--localstatedir=#{var}",
-                          "--with-rst2man=#{buildpath}/bin/rst2man.py",
-                          "--with-rst2html=#{buildpath}/bin/rst2html.py"
+                          "--localstatedir=#{var}"
     system "make", "install"
     (etc+"varnish").install "etc/example.vcl" => "default.vcl"
     (var+"varnish").mkpath
