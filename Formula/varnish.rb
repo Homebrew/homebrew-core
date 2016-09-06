@@ -23,10 +23,6 @@ class Varnish < Formula
     (var+"varnish").mkpath
   end
 
-  test do
-    system "#{opt_sbin}/varnishd", "-V"
-  end
-
   plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/varnishd -n #{HOMEBREW_PREFIX}/var/varnish -f #{HOMEBREW_PREFIX}/etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080"
 
   def plist; <<-EOS.undent
@@ -63,5 +59,9 @@ class Varnish < Formula
       </dict>
       </plist>
     EOS
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{sbin}/varnishd -V 2>&1")
   end
 end
