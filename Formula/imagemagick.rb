@@ -7,6 +7,7 @@ class Imagemagick < Formula
   url "https://dl.bintray.com/homebrew/mirror/imagemagick-6.9.5-9.tar.xz"
   mirror "https://www.imagemagick.org/download/ImageMagick-6.9.5-9.tar.xz"
   sha256 "9c4f300daae165a6bcf46779876f9361a958076f8cd59fa203d84c70ba5bc183"
+  revision 1
   head "http://git.imagemagick.org/repos/ImageMagick.git"
 
   bottle do
@@ -18,12 +19,12 @@ class Imagemagick < Formula
 
   option "with-fftw", "Compile with FFTW support"
   option "with-hdri", "Compile with HDRI support"
+  option "with-opencl", "Compile with OpenCL support"
   option "with-openmp", "Compile with OpenMP support"
   option "with-perl", "Compile with PerlMagick"
   option "with-quantum-depth-8", "Compile with a quantum depth of 8 bit"
   option "with-quantum-depth-16", "Compile with a quantum depth of 16 bit"
   option "with-quantum-depth-32", "Compile with a quantum depth of 32 bit"
-  option "without-opencl", "Disable OpenCL"
   option "without-magick-plus-plus", "disable build/install of Magick++"
   option "without-modules", "Disable support for dynamically loadable modules"
   option "without-threads", "Disable threads support"
@@ -76,6 +77,12 @@ class Imagemagick < Formula
       args << "--with-modules"
     end
 
+    if build.with? "opencl"
+      args << "--enable-opencl"
+    else
+      args << "--disable-opencl"
+    end
+
     if build.with? "openmp"
       args << "--enable-openmp"
     else
@@ -94,7 +101,6 @@ class Imagemagick < Formula
       args << "--without-openjp2"
     end
 
-    args << "--disable-opencl" if build.without? "opencl"
     args << "--without-gslib" if build.without? "ghostscript"
     args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
     args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
