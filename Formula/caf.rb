@@ -2,10 +2,9 @@ class Caf < Formula
   # Renamed from libccpa
   desc "Implementation of the Actor Model for C++"
   homepage "https://actor-framework.org/"
-  url "https://github.com/actor-framework/actor-framework/archive/0.14.5.tar.gz"
-  sha256 "afc4bc928ecd7d017768e5c85b7300196aa5b70ef11d97e11b21a1ae28ce9d3f"
-  head "https://github.com/actor-framework/actor-framework.git",
-    :branch => "develop"
+  url "https://github.com/actor-framework/actor-framework/archive/0.15.0.tar.gz"
+  sha256 "db0e03e5cdcf53db9af6499ce418340cbc6412acc240c88ad352524db69b0c79"
+  head "https://github.com/actor-framework/actor-framework.git", :branch => "develop"
 
   bottle do
     cellar :any
@@ -38,17 +37,17 @@ class Caf < Formula
       #include <iostream>
       #include <caf/all.hpp>
       using namespace caf;
-      int main() {
-        scoped_actor self;
+      void caf_main(actor_system& system) {
+        scoped_actor self{system};
         self->spawn([] {
           std::cout << "test" << std::endl;
         });
         self->await_all_other_actors_done();
-        return 0;
       }
+      CAF_MAIN()
     EOS
-    system ENV.cxx, "-std=c++11", "-stdlib=libc++", "test.cpp",
-      "-lcaf_core", "-o", "test"
+    ENV.cxx11
+    system *(ENV.cxx.split + %W[test.cpp -L#{lib} -lcaf_core -o test])
     system "./test"
   end
 end
