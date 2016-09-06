@@ -68,7 +68,7 @@ class Minio < Formula
       <key>RunAtLoad</key>
       <true/>
       <key>WorkingDirectory</key>
-      <string>#{datadir}</string>
+      <string>var/minio</string>
     </dict>
     </plist>
     EOS
