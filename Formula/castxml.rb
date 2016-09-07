@@ -5,6 +5,7 @@ class Castxml < Formula
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/c/castxml/castxml_0.1+git20160706.orig.tar.xz"
   version "0.1+git20160706"
   sha256 "28e7df5f9cc4de6222339d135a7b1583ae0c20aa0d18e47fa202939b81a7dada"
+  revision 1
 
   head "https://github.com/CastXML/castxml.git"
 
