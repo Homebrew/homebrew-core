@@ -12,9 +12,9 @@ class Botan < Formula
 
   bottle do
     cellar :any
-    sha256 "b7d45a848fead326d2e0a1dfbcacfd3c73bf0ad4b2ab62611cf78912db4053a7" => :el_capitan
-    sha256 "8dad1bfd83f841d095102056e3b4b769041b4abcb7bd126528f75259cd24f5ff" => :yosemite
-    sha256 "521e1f6578e799f5738c28bfd635cba3f210d777d019a240092bbf912ef83699" => :mavericks
+    sha256 "21599053348caae11ed972522334247733ea85776ca5c8d309bcf1aea39d28fa" => :el_capitan
+    sha256 "70592ff415e7e30c7a50c2aa46a8b4a0357150c5f98fb1fa11bba5ea48ee978b" => :yosemite
+    sha256 "da4e989fedc710e3e65cb6ec387b9fd865740cc1878f660f371522ba255b307f" => :mavericks
   end
 
   devel do
