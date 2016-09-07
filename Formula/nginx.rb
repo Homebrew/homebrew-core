@@ -52,8 +52,8 @@ class Nginx < Formula
     pcre = Formula["pcre"]
     openssl = build.head? ? Formula["openssl@1.1"] : Formula["openssl"]
 
-    cc_opt = "-I#{pcre.include} -I#{openssl.include}"
-    ld_opt = "-L#{pcre.lib} -L#{openssl.lib}"
+    cc_opt = "-I#{pcre.opt_include} -I#{openssl.opt_include}"
+    ld_opt = "-L#{pcre.opt_lib} -L#{openssl.opt_lib}"
 
     args = %W[
       --prefix=#{prefix}
@@ -98,12 +98,12 @@ class Nginx < Formula
     else
       man8.install "man/nginx.8"
     end
-
-    (etc/"nginx/servers").mkpath
-    (var/"run/nginx").mkpath
   end
 
   def post_install
+    (etc/"nginx/servers").mkpath
+    (var/"run/nginx").mkpath
+
     # nginx's docroot is #{prefix}/html, this isn't useful, so we symlink it
     # to #{HOMEBREW_PREFIX}/var/www. The reason we symlink instead of patching
     # is so the user can redirect it easily to something else if they choose.
@@ -200,6 +200,6 @@ class Nginx < Formula
         }
       }
     EOS
-    system "#{bin}/nginx", "-t", "-c", testpath/"nginx.conf"
+    system bin/"nginx", "-t", "-c", testpath/"nginx.conf"
   end
 end
