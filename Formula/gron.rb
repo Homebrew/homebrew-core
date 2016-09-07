@@ -3,8 +3,8 @@ require "language/go"
 class Gron < Formula
   desc "Make JSON greppable"
   homepage "https://github.com/tomnomnom/gron"
-  url "https://github.com/tomnomnom/gron/archive/v0.3.2.tar.gz"
-  sha256 "e93b31a2cd9c0b1404bad4f796e5df88f943585824f084b181ef0898f77b8da7"
+  url "https://github.com/tomnomnom/gron/archive/v0.3.4.tar.gz"
+  sha256 "a7e5089b9cef7140eab50effbc97a72a2dd65321f83f2a7624dbdcab3378fbb7"
 
   head "https://github.com/tomnomnom/gron.git"
 
@@ -35,6 +35,11 @@ class Gron < Formula
   go_resource "github.com/nwidger/jsoncolor" do
     url "https://github.com/nwidger/jsoncolor.git",
     :revision => "f344a1ffbe51794516e9cf2c4d58b203863d3070"
+  end
+
+  go_resource "github.com/pkg/errors" do
+    url "https://github.com/pkg/errors.git",
+    :revision => "17b591df37844cde689f4d5813e5cea0927d8dd2"
   end
 
   def install
