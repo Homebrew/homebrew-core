@@ -1,5 +1,5 @@
 class Mpv < Formula
-  desc "Free, open source, and cross-platform media player"
+  desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
   url "https://github.com/mpv-player/mpv/archive/v0.20.0.tar.gz"
   sha256 "fe6ec9d2ded5ce84b963f54b812d579d04f944f4a737f3ae639c4d5d9e842b56"
