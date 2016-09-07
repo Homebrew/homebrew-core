@@ -1,4 +1,4 @@
-If Homebrew was updated on Aug 10-11th 2016 and `brew update` always says `Already up-to-date.` you need to run: `cd $(brew --repo) && git fetch && git reset --hard origin/master && brew update`.
+If Homebrew was updated on Aug 10-11th 2016 and `brew update` always says `Already up-to-date.` you need to run: `cd "$(brew --repo)" && git fetch && git reset --hard origin/master && brew update`.
 
 # Please follow the general troubleshooting steps first:
 
