@@ -32,6 +32,20 @@ class SpoofMac < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
+  def caveats; <<-EOS.undent
+    Although spoof-mac can run without root, you must be root to change the MAC.
+
+    The launchdaemon is set to randomize en0.
+    You can find the interfaces available by running:
+        "spoof-mac list"
+
+    If you wish to change interface randomized at startup change the plist line:
+        <string>en0</string>
+    to e.g.:
+        <string>en1</string>
+    EOS
+  end
+
   plist_options :startup => true, :manual => "spoof-mac"
 
   def plist; <<-EOS.undent
@@ -55,20 +69,6 @@ class SpoofMac < Formula
         <string>/dev/null</string>
       </dict>
     </plist>
-    EOS
-  end
-
-  def caveats; <<-EOS.undent
-    Although spoof-mac can run without root, you must be root to change the MAC.
-
-    The launchdaemon is set to randomize en0.
-    You can find the interfaces available by running:
-        "spoof-mac list"
-
-    If you wish to change interface randomized at startup change the plist line:
-        <string>en0</string>
-    to e.g.:
-        <string>en1</string>
     EOS
   end
 
