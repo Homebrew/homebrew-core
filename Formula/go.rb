@@ -1,12 +1,12 @@
 class Go < Formula
-  desc "Go programming environment"
+  desc "The Go programming language"
   homepage "https://golang.org"
 
   stable do
-    url "https://storage.googleapis.com/golang/go1.7.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.7.src.tar.gz"
-    version "1.7"
-    sha256 "72680c16ba0891fcf2ccf46d0f809e4ecf47bbf889f5d884ccb54c5e9a17e1c0"
+    url "https://storage.googleapis.com/golang/go1.7.1.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.7.1.src.tar.gz"
+    version "1.7.1"
+    sha256 "2b843f133b81b7995f26d0cb64bbdbb9d0704b90c44df45f844d28881ad442d3"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
