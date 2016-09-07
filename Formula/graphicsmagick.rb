@@ -1,8 +1,8 @@
 class Graphicsmagick < Formula
   desc "Image processing tools collection"
   homepage "http://www.graphicsmagick.org/"
-  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.24/GraphicsMagick-1.3.24.tar.bz2"
-  sha256 "b060a4076308f93c25d52c903ad9a07e71b402dcb2a5c62356384865c129dff2"
+  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.25/GraphicsMagick-1.3.25.tar.xz"
+  sha256 "d64bfa52d2e0730eff9ce3ed51d4fc78dbb68e2adaa317b2bb3c56e6ee61ac9f"
 
   head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
 
@@ -19,21 +19,18 @@ class Graphicsmagick < Formula
   option "without-svg", "Compile without svg support"
   option "with-perl", "Build PerlMagick; provides the Graphics::Magick module"
 
-  depends_on "libtool" => :run
-
   depends_on "pkg-config" => :build
-
+  depends_on "libtool" => :run
   depends_on "jpeg" => :recommended
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "freetype" => :recommended
-
-  depends_on :x11 => :optional
   depends_on "little-cms2" => :optional
   depends_on "jasper" => :optional
   depends_on "libwmf" => :optional
   depends_on "ghostscript" => :optional
   depends_on "webp" => :optional
+  depends_on :x11 => :optional
 
   fails_with :llvm do
     build 2335
@@ -58,6 +55,7 @@ class Graphicsmagick < Formula
       --enable-shared
       --disable-static
       --with-modules
+      --without-lzma
       --disable-openmp
       --with-quantum-depth=#{quantum_depth}
     ]
@@ -98,6 +96,7 @@ class Graphicsmagick < Formula
   end
 
   test do
-    system "#{bin}/gm", "identify", test_fixtures("test.png")
+    fixture = test_fixtures("test.png")
+    assert_match "PNG 8x8+0+0", shell_output("#{bin}/gm identify #{fixture}")
   end
 end
