@@ -4,6 +4,7 @@ class CrystalLang < Formula
   url "https://github.com/crystal-lang/crystal/archive/0.19.4.tar.gz"
   sha256 "e239afa449744e0381823531f6af66407ba1f4b78767bd67a9bb09d9fcc6b9e4"
   head "https://github.com/crystal-lang/crystal.git"
+  revision 1
 
   bottle do
     sha256 "b891e7a9c01906be5b6d51adc374c1882e036ae443b95abb1a8f27b072762fde" => :sierra
