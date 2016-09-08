@@ -5,8 +5,8 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20160808/git-annex-6.20160808.tar.gz"
-  sha256 "c729decece3dfc05366879b72328b5ebe4a86e77a32f634fcfa4dbebbb8799fd"
+  url "https://hackage.haskell.org/package/git-annex-6.20160907/git-annex-6.20160907.tar.gz"
+  sha256 "6714156245c35647d7ac4b9b0c786c74584aa5ecef2fc0aa32044a3a6e722ef7"
   head "git://git-annex.branchable.com/"
 
   bottle do
@@ -27,14 +27,12 @@ class GitAnnex < Formula
   depends_on "gnutls"
   depends_on "quvi"
 
-  # Fixes CI timeout by providing a more specific hint for Solver
-  # Reported 9 Aug 2016: "git-annex.cabal: persistent ==2.2.4.1"
-  patch do
-    url "https://github.com/joeyh/git-annex/pull/56.patch"
-    sha256 "62ad81e3019f5c639708c679783e3f93e20996db1dc3577553ce90ab55fac9cf"
-  end
-
   def install
+    # Fixes CI timeout by providing a more specific hint for Solver
+    # Reported 9 Aug 2016: https://github.com/joeyh/git-annex/pull/56
+    # Can be removed once prowdsponsor/esqueleto#137 is resolved
+    inreplace "git-annex.cabal", "persistent (< 2.5)", "persistent (== 2.2.4.1)"
+
     install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
       # this can be made the default behavior again once git-union-merge builds properly when bottling
       if build.with? "git-union-merge"
