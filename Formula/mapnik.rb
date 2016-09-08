@@ -1,9 +1,8 @@
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "http://www.mapnik.org/"
-  url "https://github.com/mapnik/mapnik/archive/v3.0.9.tar.gz"
-  sha256 "f0242606096e2c4ca2cd0caac1ff0fd5f8054a38b5f288ba38b0e397b5b311b2"
-  revision 1
+  url "https://github.com/mapnik/mapnik/releases/download/v3.0.12/mapnik-v3.0.12.tar.bz2"
+  sha256 "66a3d620c3ce543c91ea5b42a25079aca9a2a90f6079a2ce2a8714398fa57d6d"
 
   head "https://github.com/mapnik/mapnik.git"
 
@@ -83,5 +82,9 @@ class Mapnik < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    assert_equal prefix.to_s, shell_output("#{bin}/mapnik-config --prefix").chomp
   end
 end
