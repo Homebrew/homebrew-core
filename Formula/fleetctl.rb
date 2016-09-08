@@ -7,9 +7,9 @@ class Fleetctl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e588b72b8f5cb8424a9051b3cf605dcb135009a5c497f68d2837594da981153e" => :el_capitan
-    sha256 "9205a4f52701c711087ce698af69bd995f719c342b2ba9675cad12779a85cf67" => :yosemite
-    sha256 "e5fbdaff63cb5908702c76f8dcffd08d2811f5cb5432b1bf8931af9eabaab84e" => :mavericks
+    sha256 "9972537338178f9cf3b1a16d947cd2ca77b3226688c18bdc43e8b269e139bde2" => :el_capitan
+    sha256 "945e9eb7fc85dcbbf11840f9085dfcb01834af14bfc45be0a4f480205f6077a1" => :yosemite
+    sha256 "11d48264d9e7987defd5f06462601261a6b861e666597d49db90ef4977529cf7" => :mavericks
   end
 
   depends_on "go" => :build
