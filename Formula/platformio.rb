@@ -1,8 +1,8 @@
 class Platformio < Formula
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
   homepage "http://platformio.org"
-  url "https://pypi.python.org/packages/6e/09/204d1e5638e50897093ca2b2d9f58ccf268ef486c527bda5cf2f9348eb19/platformio-2.11.2.tar.gz"
-  sha256 "28d0911f6898d2d5ecad4457634c2a01d3fd7c476e8afa4635a7d507dec08073"
+  url "https://pypi.python.org/packages/a6/16/c7c818eeeb02b16b071eac5d31377a3367183e88775b4c586496e3ecee6b/platformio-3.0.0.tar.gz"
+  sha256 "f6e08b7680597b0d3524a0688b294f28dadc566e02dea303aa759cb2ae6c33b1"
 
   bottle do
     cellar :any_skip_relocation
@@ -42,6 +42,11 @@ class Platformio < Formula
     url "https://pypi.python.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
     sha256 "63f1815788157130cee16a933b2ee184038e975f0017306d723ac326b5525b54"
   end
+  
+  resource "semantic_version" do
+    url "https://pypi.python.org/packages/8e/0e/33052dd97ab9d07dae8ddffcfb2740efe58c46d72efbc060cf6da250439f/semantic_version-2.5.0.tar.gz"
+    sha256 "3baad35dcb074a49419539cea6a33b484706b6c2dd03f05b67763eba4c1bb65c"
+  end  
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
