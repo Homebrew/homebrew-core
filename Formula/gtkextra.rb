@@ -6,9 +6,9 @@ class Gtkextra < Formula
 
   bottle do
     cellar :any
-    sha256 "449307366e46d2469cc288ce8e1e5ef2c503a6bc041ba15a053da82325ef9198" => :el_capitan
-    sha256 "469ece3a0105502f94476e622732a2c7bc8d6bd6d43450038b0000af99aee859" => :yosemite
-    sha256 "c6e281521f79d1cd1a216f7b74c7cbe6ce7b4397e52f0aec83e8f7146cb3cb6f" => :mavericks
+    sha256 "bcb577865af3ce917408a9b25e17953fc8f107a7e446ac6e221bff0c1549e216" => :el_capitan
+    sha256 "2bee4db5d9e80ccd2997f935beedd3d868c4057f53aa8784499fc228f32485d4" => :yosemite
+    sha256 "440737abcdf0ef3ffd9b348e239603b53fb37c26066a1e33d4a1ca1a6360c286" => :mavericks
   end
 
   depends_on "gtk+"
