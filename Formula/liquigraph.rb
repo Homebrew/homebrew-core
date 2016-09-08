@@ -38,7 +38,7 @@ class Liquigraph < Formula
               <query>MATCH (n:Sentence {text:'Hello monde!'}) SET n.text='Hello world!' RETURN n</query>
           </changeset>
       </changelog>
-      EOS
+    EOS
     assert_match(/UnknownHostException: #{failing_hostname}/,
       shell_output("#{bin}/liquigraph -c #{changelog.realpath} -g jdbc:neo4j:http://#{failing_hostname}:7474/ 2>&1", 1))
   end
