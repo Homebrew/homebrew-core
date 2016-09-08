@@ -30,6 +30,7 @@ class NetSnmp < Formula
       --without-kmem-usage
       --disable-embedded-perl
       --without-perl-modules
+      --with-openssl=#{Formula["openssl"].opt_prefix}
     ]
 
     if build.with? "python"
