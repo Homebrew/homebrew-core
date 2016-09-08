@@ -6,6 +6,7 @@ class Rsdns < Formula
   head "https://github.com/linickx/rsdns.git"
 
   bottle :unneeded
+
   depends_on "jq"
 
   # This package is essentially a web of shell script that all expect their
@@ -18,12 +19,6 @@ class Rsdns < Formula
     libexec.install Dir["rsdns-*.sh"]
     lib.install "lib/auth.sh", "lib/func.sh"
     bin.install "rsdns"
-  end
-
-  def caveats
-    <<-EOS.undent
-      Rackspace Cloud credentials can be saved in ~/.rsdns_config. See #{prefix}/README.md for info.
-    EOS
   end
 
   test do
