@@ -22,6 +22,7 @@ class Pango < Formula
   option :universal
 
   depends_on "pkg-config" => :build
+  depends_on :x11 => :optional
   depends_on "glib"
   depends_on "cairo"
   depends_on "harfbuzz"
@@ -43,9 +44,14 @@ class Pango < Formula
       --enable-man
       --with-html-dir=#{share}/doc
       --enable-introspection=yes
-      --without-xft
       --enable-static
     ]
+
+    if build.with? "x11"
+      args << "--with-xft"
+    else
+      args << "--without-xft"
+    end
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
