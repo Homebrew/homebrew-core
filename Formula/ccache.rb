@@ -1,8 +1,8 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.samba.org/"
-  url "https://www.samba.org/ftp/ccache/ccache-3.3.tar.xz"
-  sha256 "d88e6f5f62f9ce5eeee673972a5731f76e22a5c708cfbc264ecd25a93fffba07"
+  url "https://www.samba.org/ftp/ccache/ccache-3.3.1.tar.xz"
+  sha256 "c6d87a49cc6d7639636d289ed9a5f560bc2acf7ab698fe8ee14e9c9f15ba41c6"
 
   bottle do
     sha256 "4f539e9dd445b7fdf136c170e9a369156c688a6448664a0cf94d98c3d8452987" => :el_capitan
