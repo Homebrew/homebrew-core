@@ -3,6 +3,7 @@ class Fontconfig < Formula
   homepage "https://wiki.freedesktop.org/www/Software/fontconfig/"
   url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.1.tar.bz2"
   sha256 "b449a3e10c47e1d1c7a6ec6e2016cca73d3bd68fbbd4f0ae5cc6b573f7d6c7f3"
+  revision 1
 
   # The bottle tooling is too lenient and thinks fontconfig
   # is relocatable, but it has hardcoded paths in the executables.
