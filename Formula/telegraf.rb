@@ -6,17 +6,27 @@ class Telegraf < Formula
 
   stable do
     url "https://github.com/influxdata/telegraf.git",
-      :tag => "0.13.1",
-      :revision => "e10392343043fb03846699200cf32952a0eb8bc8"
+      :tag => "1.0.0",
+      :revision => "59ab7931ecd883689933edf215a7004488941856"
 
-    go_resource "github.com/gobwas/glob" do
-      url "https://github.com/gobwas/glob.git",
-      :revision => "d877f6352135181470c40c73ebb81aefa22115fa"
+    go_resource "github.com/aerospike/aerospike-client-go" do
+      url "https://github.com/aerospike/aerospike-client-go.git",
+      :revision => "45863b7fd8640dc12f7fdd397104d97e1986f25a"
     end
 
-    go_resource "github.com/shirou/gopsutil" do
-      url "https://github.com/shirou/gopsutil.git",
-      :revision => "83c6e72cbdef6e8ada934549abf700ff0ba96776"
+    go_resource "github.com/nats-io/nats" do
+      url "https://github.com/nats-io/nats.git",
+      :revision => "b13fc9d12b0b123ebc374e6b808c6228ae4234a3"
+    end
+
+    go_resource "github.com/nats-io/nuid" do
+      url "https://github.com/nats-io/nuid.git",
+      :revision => "4f84f5f3b2786224e336af2e13dba0a0a80b76fa"
+    end
+
+    go_resource "github.com/sparrc/aerospike-client-go" do
+      url "https://github.com/sparrc/aerospike-client-go.git",
+      :revision => "d4bb42d2c2d39dae68e054116f4538af189e05d5"
     end
   end
 
@@ -28,53 +38,22 @@ class Telegraf < Formula
     sha256 "9ca4a7846733a09a712231aa584787889c0a9bd5122ae27f9b0294cc426d911f" => :mavericks
   end
 
-  devel do
-    url "https://github.com/influxdata/telegraf.git",
-      :tag => "1.0.0-beta2",
-      :revision => "2beef212315787086402dec185f1590b9b130bf4"
-
-    go_resource "github.com/hashicorp/consul" do
-      url "https://github.com/hashicorp/consul.git",
-      :revision => "5aa90455ce78d4d41578bafc86305e6e6b28d7d2"
-    end
-
-    go_resource "github.com/gobwas/glob" do
-      url "https://github.com/gobwas/glob.git",
-      :revision => "49571a1557cd20e6a2410adc6421f85b66c730b5"
-    end
-
-    go_resource "github.com/shirou/gopsutil" do
-      url "https://github.com/shirou/gopsutil.git",
-      :revision => "586bb697f3ec9f8ec08ffefe18f521a64534037c"
-    end
-
-    go_resource "github.com/vjeantet/grok" do
-      url "https://github.com/vjeantet/grok.git",
-      :revision => "83bfdfdfd1a8146795b28e547a8e3c8b28a466c2"
-    end
-  end
-
   head do
     url "https://github.com/influxdata/telegraf.git"
 
-    go_resource "github.com/hashicorp/consul" do
-      url "https://github.com/hashicorp/consul.git",
-      :revision => "5aa90455ce78d4d41578bafc86305e6e6b28d7d2"
+    go_resource "github.com/aerospike/aerospike-client-go" do
+      url "https://github.com/aerospike/aerospike-client-go.git",
+      :revision => "7f3a312c3b2a60ac083ec6da296091c52c795c63"
     end
 
-    go_resource "github.com/gobwas/glob" do
-      url "https://github.com/gobwas/glob.git",
-      :revision => "49571a1557cd20e6a2410adc6421f85b66c730b5"
+    go_resource "github.com/nats-io/nats" do
+      url "https://github.com/nats-io/nats.git",
+      :revision => "ea8b4fd12ebb823073c0004b9f09ac8748f4f165"
     end
 
-    go_resource "github.com/shirou/gopsutil" do
-      url "https://github.com/shirou/gopsutil.git",
-      :revision => "586bb697f3ec9f8ec08ffefe18f521a64534037c"
-    end
-
-    go_resource "github.com/vjeantet/grok" do
-      url "https://github.com/vjeantet/grok.git",
-      :revision => "83bfdfdfd1a8146795b28e547a8e3c8b28a466c2"
+    go_resource "github.com/nats-io/nuid" do
+      url "https://github.com/nats-io/nuid.git",
+      :revision => "a5152d67cf63cbfb5d992a395458722a45194715"
     end
   end
 
@@ -170,6 +149,11 @@ class Telegraf < Formula
     :revision => "1fca743146605a172a266e1654e01e5cd5669bee"
   end
 
+  go_resource "github.com/gobwas/glob" do
+    url "https://github.com/gobwas/glob.git",
+    :revision => "49571a1557cd20e6a2410adc6421f85b66c730b5"
+  end
+
   go_resource "github.com/golang/protobuf" do
     url "https://github.com/golang/protobuf.git",
     :revision => "552c7b9542c194800fd493123b3798ef0a832032"
@@ -200,6 +184,11 @@ class Telegraf < Formula
     :revision => "e80d13ce29ede4452c43dea11e79b9bc8a15b478"
   end
 
+  go_resource "github.com/hashicorp/consul" do
+    url "https://github.com/hashicorp/consul.git",
+    :revision => "5aa90455ce78d4d41578bafc86305e6e6b28d7d2"
+  end
+
   go_resource "github.com/hpcloud/tail" do
     url "https://github.com/hpcloud/tail.git",
     :revision => "b2940955ab8b26e19d43a43c4da0475dd81bdb56"
@@ -218,6 +207,16 @@ class Telegraf < Formula
   go_resource "github.com/influxdata/toml" do
     url "https://github.com/influxdata/toml.git",
     :revision => "af4df43894b16e3fd2b788d01bd27ad0776ef2d0"
+  end
+
+  go_resource "github.com/kardianos/osext" do
+    url "https://github.com/kardianos/osext.git",
+    :revision => "29ae4ffbc9a6fe9fb2bc5029050ce6996ea1d3bc"
+  end
+
+  go_resource "github.com/kardianos/service" do
+    url "https://github.com/kardianos/service.git",
+    :revision => "5e335590050d6d00f3aa270217d288dda1c94d0a"
   end
 
   go_resource "github.com/klauspost/crc32" do
@@ -250,19 +249,14 @@ class Telegraf < Formula
     :revision => "6b638e95a32d0c1131db0e7fe83775cbea4a0d0b"
   end
 
-  go_resource "github.com/nats-io/nats" do
-    url "https://github.com/nats-io/nats.git",
-    :revision => "b13fc9d12b0b123ebc374e6b808c6228ae4234a3"
-  end
-
-  go_resource "github.com/nats-io/nuid" do
-    url "https://github.com/nats-io/nuid.git",
-    :revision => "4f84f5f3b2786224e336af2e13dba0a0a80b76fa"
-  end
-
   go_resource "github.com/nsqio/go-nsq" do
     url "https://github.com/nsqio/go-nsq.git",
     :revision => "0b80d6f05e15ca1930e0c5e1d540ed627e299980"
+  end
+
+  go_resource "github.com/opencontainers/runc" do
+    url "https://github.com/opencontainers/runc.git",
+    :revision => "89ab7f2ccc1e45ddf6485eaa802c35dcf321dfc8"
   end
 
   go_resource "github.com/prometheus/client_golang" do
@@ -290,9 +284,14 @@ class Telegraf < Formula
     :revision => "218e9c81c0dd8b3b18172b2bbfad92cc7d6db55f"
   end
 
+  go_resource "github.com/shirou/gopsutil" do
+    url "https://github.com/shirou/gopsutil.git",
+    :revision => "4d0c402af66c78735c5ccf820dc2ca7de5e4ff08"
+  end
+
   go_resource "github.com/soniah/gosnmp" do
     url "https://github.com/soniah/gosnmp.git",
-    :revision => "b1b4f885b12c5dcbd021c5cee1c904110de6db7d"
+    :revision => "eb32571c2410868d85849ad67d1e51d01273eb84"
   end
 
   go_resource "github.com/streadway/amqp" do
@@ -305,6 +304,11 @@ class Telegraf < Formula
     :revision => "1f4a1643a57e798696635ea4c126e9127adb7d3c"
   end
 
+  go_resource "github.com/vjeantet/grok" do
+    url "https://github.com/vjeantet/grok.git",
+    :revision => "83bfdfdfd1a8146795b28e547a8e3c8b28a466c2"
+  end
+
   go_resource "github.com/wvanbergen/kafka" do
     url "https://github.com/wvanbergen/kafka.git",
     :revision => "46f9a1cf3f670edec492029fadded9c2d9e18866"
@@ -313,6 +317,11 @@ class Telegraf < Formula
   go_resource "github.com/wvanbergen/kazoo-go" do
     url "https://github.com/wvanbergen/kazoo-go.git",
     :revision => "0f768712ae6f76454f987c3356177e138df258f8"
+  end
+
+  go_resource "github.com/yuin/gopher-lua" do
+    url "https://github.com/yuin/gopher-lua.git",
+    :revision => "bf3808abd44b1e55143a2d7f08571aaa80db1808"
   end
 
   go_resource "github.com/zensqlmonitor/go-mssqldb" do
