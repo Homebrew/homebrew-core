@@ -25,7 +25,7 @@ class NetSnmp < Formula
       --with-defaults
       --with-persistent-directory=#{var}/db/net-snmp
       --with-logfile=#{var}/log/snmpd.log
-      --with-mib-modules=host ucd-snmp/diskio
+      --with-mib-modules=host\ ucd-snmp/diskio
       --without-rpm
       --without-kmem-usage
       --disable-embedded-perl
