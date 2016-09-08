@@ -1,6 +1,8 @@
 class SaneBackends < Formula
   desc "Backends for scanner access"
   homepage "http://www.sane-project.org/"
+  revision 1
+
   head "https://anonscm.debian.org/cgit/sane/sane-backends.git"
 
   stable do
@@ -28,6 +30,7 @@ class SaneBackends < Formula
   depends_on "libtiff"
   depends_on "libusb-compat"
   depends_on "openssl"
+  depends_on "net-snmp"
 
   def install
     ENV.universal_binary if build.universal?
