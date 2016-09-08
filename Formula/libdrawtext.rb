@@ -3,6 +3,7 @@ class Libdrawtext < Formula
   homepage "http://nuclear.mutantstargoat.com/sw/libdrawtext/"
   url "https://github.com/jtsiomb/libdrawtext/archive/release_0.4.tar.gz"
   sha256 "e9460eb489e0ef6d1496afed2dae2e41c94005c85737ff53a8c09d51b6f93074"
+  revision 1
   head "https://github.com/jtsiomb/libdrawtext.git"
 
   bottle do
