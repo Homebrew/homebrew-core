@@ -8,6 +8,7 @@ class Mercurial < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "08a7b1da5591b635591c396be1e82a9ebb01287e62ed20cfe23a7eb469999bc6" => :sierra
     sha256 "7caf435412d9afedb8d3a0466ff42352ca48e9406416875204399bef083fc57f" => :el_capitan
     sha256 "905f27516720fbbf6f9668ef1be96c51a54822c8f0485e1e106a8832646ce8d5" => :yosemite
     sha256 "08f93cc3f6aaa7f46f42a3475c91eb07e634019fb397f7cb886c4f917a116d9e" => :mavericks
