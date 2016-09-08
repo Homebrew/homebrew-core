@@ -2,6 +2,7 @@ class Minizip < Formula
   desc "C library for zip/unzip via zLib"
   homepage "http://www.winimage.com/zLibDll/minizip.html"
   url "http://zlib.net/zlib-1.2.8.tar.gz"
+  version "1.1" # version for minizip, not zlib
   sha256 "36658cb768a54c1d4dec43c3116c27ed893e88b02ecfcb44f2166f9c0b7f2a0d"
   bottle do
     cellar :any
@@ -9,8 +10,6 @@ class Minizip < Formula
     sha256 "df494b791137984171c79c63bbfe5ab941309f62a5e12757442d7eb5c53e620c" => :yosemite
     sha256 "c03fd8e43919572a7b4ed71ad160f07e9ccbabc81e3a1f9dfb7b27b540f25bf1" => :mavericks
   end
-
-  version "1.1" # version for minizip, not zlib
 
   option :universal
 

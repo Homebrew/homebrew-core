@@ -1,9 +1,9 @@
 class Sickbeard < Formula
   desc "PVR application to search and manage TV shows"
   homepage "http://www.sickbeard.com/"
-  head "https://github.com/midgetspy/Sick-Beard.git"
   url "https://github.com/midgetspy/Sick-Beard/archive/build-507.tar.gz"
   sha256 "eaf95ac78e065f6dd8128098158b38674479b721d95d937fe7adb892932e9101"
+  head "https://github.com/midgetspy/Sick-Beard.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -35,7 +35,11 @@ class Sickbeard < Formula
     resource("Markdown").stage { system "python", *install_args }
     resource("Cheetah").stage { system "python", *install_args }
 
-    (bin+"sickbeard").write(startup_script)
+    (bin/"sickbeard").write(startup_script)
+  end
+
+  def caveats
+    "SickBeard defaults to port 8081."
   end
 
   plist_options :manual => "sickbeard"
@@ -70,9 +74,5 @@ class Sickbeard < Formula
            "--datadir=#{etc}/sickbeard"\
            "$@"
     EOS
-  end
-
-  def caveats
-    "SickBeard defaults to port 8081."
   end
 end

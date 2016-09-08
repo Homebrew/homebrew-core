@@ -12,7 +12,7 @@ class Yamdi < Formula
   end
 
   def install
-    system "#{ENV.cc} #{ENV.cflags} yamdi.c -o yamdi"
+    system ENV.cc, ENV.cflags, "yamdi.c", "-o", "yamdi"
     bin.install "yamdi"
     man1.install "man1/yamdi.1"
   end

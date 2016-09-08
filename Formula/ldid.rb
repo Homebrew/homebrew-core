@@ -17,7 +17,7 @@ class Ldid < Formula
   depends_on "openssl"
 
   def install
-    inreplace "./make.sh", /^.*\/Applications\/Xcode-5.1.1.app.*/, ""
+    inreplace "./make.sh", %r{^.*\/Applications\/Xcode-5.1.1.app.*}, ""
     system "./make.sh"
     bin.install "ldid"
   end

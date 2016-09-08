@@ -11,10 +11,10 @@ class Mpfi < Formula
     sha256 "d9aaac81a9898a308063e9c2b3154a320f2ea2eb2c5c02bdf33b09a8227606c7" => :mavericks
   end
 
+  option "32-bit"
+
   depends_on "gmp"
   depends_on "mpfr"
-
-  option "32-bit"
 
   def install
     ENV.m32 if build.build_32_bit?

@@ -2,8 +2,8 @@ class Srmio < Formula
   desc "C library to access the PowerControl of a SRM bike power meter"
   homepage "http://www.zuto.de/project/srmio/"
   url "http://www.zuto.de/project/files/srmio/srmio-0.1.1~git1.tar.gz"
-  sha256 "00b3772202034aaada94f1f1c79a1072fac1f69d10ef0afcb751cce74e5ccd31"
   version "0.1.1~git1"
+  sha256 "00b3772202034aaada94f1f1c79a1072fac1f69d10ef0afcb751cce74e5ccd31"
 
   bottle do
     cellar :any

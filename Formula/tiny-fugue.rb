@@ -12,11 +12,11 @@ class TinyFugue < Formula
     sha256 "0d7db7bf7a3744de5cb572c013da516e98b5d6ed911a2f3bf4e0a028a160fd04" => :mavericks
   end
 
-  conflicts_with "tee-clc", :because => "both install a `tf` binary"
-
   depends_on "libnet"
   depends_on "openssl"
   depends_on "pcre"
+
+  conflicts_with "tee-clc", :because => "both install a `tf` binary"
 
   # pcre deprecated pcre_info. Switch to HB pcre-8.31 and pcre_fullinfo.
   # Not reported upstream; project is in stasis since 2007.

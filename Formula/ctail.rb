@@ -12,11 +12,11 @@ class Ctail < Formula
     sha256 "dfab40d65950327c679bde97a335779526c58e99f5679f32f95e517a7249e332" => :mountain_lion
   end
 
-  conflicts_with "byobu", :because => "both install `ctail` binaries"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
+  conflicts_with "byobu", :because => "both install `ctail` binaries"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-debug"

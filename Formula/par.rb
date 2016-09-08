@@ -15,7 +15,7 @@ class Par < Formula
 
   conflicts_with "rancid", :because => "both install `par` binaries"
 
-  # A patch by Jérôme Pouiller that adds support for multibyte
+  # A patch by @jerome-pouiller that adds support for multibyte
   # charsets (like UTF-8), plus Debian packaging.
   patch do
     url "http://sysmic.org/dl/par/par-1.52-i18n.4.patch"

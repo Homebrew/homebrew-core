@@ -22,7 +22,6 @@ class Ranger < Formula
         "#!/usr/bin/python", "#!#{PythonRequirement.new.which_python}"
     end
 
-
     man1.install "doc/ranger.1"
     libexec.install "ranger.py", "ranger"
     bin.install_symlink libexec+"ranger.py" => "ranger"

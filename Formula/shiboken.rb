@@ -15,13 +15,13 @@ class Shiboken < Formula
     sha256 "81a1a53a3abdc3b21f5716f30ca1e3be063821f746e7e390ab51e97d45de29c6" => :mountain_lion
   end
 
-  depends_on "cmake" => :build
-  depends_on "qt"
-
   # don't use depends_on :python because then bottles install Homebrew's python
   option "without-python", "Build without python 2 support"
+
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on "cmake" => :build
   depends_on :python3 => :optional
+  depends_on "qt"
 
   def install
     # As of 1.1.1 the install fails unless you do an out of tree build and put

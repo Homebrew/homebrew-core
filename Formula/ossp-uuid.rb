@@ -29,8 +29,8 @@ class OsspUuid < Formula
     # default, but uuid.pc.in does not use it
     inreplace "uuid.pc.in" do |s|
       s.gsub! /^(exec_prefix)=\$\{prefix\}$/, '\1=@\1@'
-      s.gsub! /^(includedir)=\$\{prefix\}\/include$/, '\1=@\1@'
-      s.gsub! /^(libdir)=\$\{exec_prefix\}\/lib$/, '\1=@\1@'
+      s.gsub! %r{^(includedir)=\$\{prefix\}\/include$}, '\1=@\1@'
+      s.gsub! %r{^(libdir)=\$\{exec_prefix\}\/lib$}, '\1=@\1@'
     end
 
     system "./configure", "--prefix=#{prefix}",
