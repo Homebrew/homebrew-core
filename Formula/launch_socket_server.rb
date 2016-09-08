@@ -10,6 +10,7 @@ class LaunchSocketServer < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c41218460d421b9cbed6740f00ac0e1cd3a2d1a5fd91a58ba58f354e77faba55" => :sierra
     sha256 "393c5e9e891e553aa69f0233ac5966b014df4e63beda2a567e8c59bf34a167f8" => :el_capitan
     sha256 "97464d0f611bcc2bd568d1a12c96c4bec49e6f12b43528f44a08eccb6dd27f03" => :yosemite
   end
