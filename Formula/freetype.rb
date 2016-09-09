@@ -11,6 +11,7 @@ class Freetype < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "a4a7d7666fb2e74f2e4e77c01ecfd3a6b517a708332c3430a70094841a8d9bbc" => :sierra
     sha256 "125b0a1b01353c1181aa3520cca321baf6c1867efbdeb26ef9b515b6c432bab2" => :el_capitan
     sha256 "cb9535e367ef3dd3d3dae797be726989908dcaae60bc1e41cb9125ff345c7675" => :yosemite
     sha256 "8dbeb926c57a5c9bdfaabca06cedbbf4f07a2011b064b99ea8b2fdb60ae8fa97" => :mavericks
