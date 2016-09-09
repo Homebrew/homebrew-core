@@ -17,9 +17,9 @@ class Watch < Formula
   end
 
   bottle do
-    sha256 "3bcef103b4c05c5bee8a1f77f02f2ea7e9fb5c7496681677245bd8abcce7fdb5" => :el_capitan
-    sha256 "fa4fc04f62518328ec879c595156a115ec14dde46be23c4b9dd79da9a378f74e" => :yosemite
-    sha256 "f4e6ab66a65524de9fcca757afd95d1178f21ef87be1b04f56beec25e8cb191f" => :mavericks
+    sha256 "926d0be8053cf015dc06cf8fb4e6107902c2015acc8b69f1a77100034e078cfd" => :el_capitan
+    sha256 "31b517c67875cbb8ca8bd8126af66561a8df0f61bee955ffdeac3eeb6021ec12" => :yosemite
+    sha256 "fdedabfbc86a57b936be2ca1377c8749a6bce801baf74ef4444e7c75b9b6e0f0" => :mavericks
   end
 
   depends_on "autoconf" => :build
