@@ -8,10 +8,9 @@ class Oauth2Proxy < Formula
   head "https://github.com/bitly/oauth2_proxy.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "98d6783ca3f454f8945ee7c7883fbcfdaaec905b214574d69877e73377de6808" => :el_capitan
-    sha256 "62eb8eb999d08ef5fcbf2fc29880fe8a630dd96d68065d88ed3753f046914b86" => :yosemite
-    sha256 "3da19e1f136c42d9cac3c0a7b3807b113f4c66323fd5b073bd3459749d630907" => :mavericks
+    sha256 "982baa090eaedfacbbf82ac94721ecd8c466fba96987638bfc94c7e898f65224" => :el_capitan
+    sha256 "078a955570fd82bbaa4003e5869b5b5368f06e567d5ff3edef0ede524e4741e7" => :yosemite
+    sha256 "6d8ad6797411db753926c7cfe5df394034cbdf9d574df71c0d35ce8e5febe261" => :mavericks
   end
 
   depends_on "go" => :build
