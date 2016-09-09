@@ -20,7 +20,7 @@ class GitlabCiMultiRunner < Formula
 
   go_resource "github.com/jteeuwen/go-bindata" do
     url "https://github.com/jteeuwen/go-bindata.git",
-      :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
+        :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
   end
 
   resource "prebuilt-x86_64.tar.xz" do
