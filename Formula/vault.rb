@@ -22,12 +22,12 @@ class Vault < Formula
 
   go_resource "github.com/mitchellh/iochan" do
     url "https://github.com/mitchellh/iochan.git",
-    :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
+        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
   end
 
   go_resource "github.com/mitchellh/gox" do
     url "https://github.com/mitchellh/gox.git",
-    :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
+        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
   end
 
   def install
