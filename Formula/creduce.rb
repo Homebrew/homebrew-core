@@ -14,6 +14,16 @@ class Creduce < Formula
     sha256 "710460f6d639171d170f7ae3b835fa3ff708f56c1105c000086913571896659d" => :mavericks
   end
 
+  # changes from upstream to fix compilation with LLVM 3.9
+  patch do
+    url "https://github.com/csmith-project/creduce/commit/377e4f93790690edcd0cde057bb96300aca22858.diff"
+    sha256 "1bf6201132dd41953f4c7d454a8f383f432e5a3f2fac416d681bc5e8e8065e18"
+  end
+  patch do
+    url "https://github.com/csmith-project/creduce/commit/d09b8f69419d6c65c7b32675962c9aee813713b5.diff"
+    sha256 "995fcb3c5c7aef60ce34ece07a5d225f0bf7886539479988d8b8a6cc0c52de90"
+  end
+
   depends_on "astyle"
   depends_on "delta"
   depends_on "llvm"
