@@ -1,8 +1,8 @@
 class Fwup < Formula
   desc "Configurable embedded Linux firmware update creator and runner"
   homepage "https://github.com/fhunleth/fwup"
-  url "https://github.com/fhunleth/fwup/releases/download/v0.8.2/fwup-0.8.2.tar.gz"
-  sha256 "465428537c13b5ab914f072474d98c742011030e1920d9322aae9716dbb58c35"
+  url "https://github.com/fhunleth/fwup/releases/download/v0.9.0/fwup-0.9.0.tar.gz"
+  sha256 "e0e4aa3dfdbf9cb7ae867e16374eada94cc7a0ed479748d19a4bdecc7092af44"
 
   bottle do
     cellar :any
