@@ -7,23 +7,23 @@ class Imagemagick < Formula
   url "https://dl.bintray.com/homebrew/mirror/imagemagick-6.9.5-9.tar.xz"
   mirror "https://www.imagemagick.org/download/ImageMagick-6.9.5-9.tar.xz"
   sha256 "9c4f300daae165a6bcf46779876f9361a958076f8cd59fa203d84c70ba5bc183"
-  revision 1
   head "http://git.imagemagick.org/repos/ImageMagick.git"
 
   bottle do
-    sha256 "3086186024db27f26369e910945f5cfa4eccd9f1e826379344202be44a19a271" => :el_capitan
-    sha256 "78100ba9077972d70fcfc5e3656b58edd6081f6c10f5777cee6215e70486c71b" => :yosemite
-    sha256 "9545fdd7cf38ae6cdfd65efca52aff03a3668f8c2cba4219466d6d3a284639ea" => :mavericks
+    sha256 "1e7ddaaaf975662068d2994f73d73d581abe2f88bba81ea58f1b05f63675ee87" => :sierra
+    sha256 "b1f5954052f7683d88c20928e948b5589be203650daa05470601333a440ea128" => :el_capitan
+    sha256 "8d70dd436e7d1d04cf9bb909a2fb08e94c4f074a3429c486cb8dd5454a7f9f37" => :yosemite
+    sha256 "391e5fb39d034106d776465e35544840c3f5b9c29a3bbd53cac541b9d3fbb08e" => :mavericks
   end
 
   option "with-fftw", "Compile with FFTW support"
   option "with-hdri", "Compile with HDRI support"
-  option "with-opencl", "Compile with OpenCL support"
   option "with-openmp", "Compile with OpenMP support"
   option "with-perl", "Compile with PerlMagick"
   option "with-quantum-depth-8", "Compile with a quantum depth of 8 bit"
   option "with-quantum-depth-16", "Compile with a quantum depth of 16 bit"
   option "with-quantum-depth-32", "Compile with a quantum depth of 32 bit"
+  option "without-opencl", "Disable OpenCL"
   option "without-magick-plus-plus", "disable build/install of Magick++"
   option "without-modules", "Disable support for dynamically loadable modules"
   option "without-threads", "Disable threads support"
@@ -76,12 +76,6 @@ class Imagemagick < Formula
       args << "--with-modules"
     end
 
-    if build.with? "opencl"
-      args << "--enable-opencl"
-    else
-      args << "--disable-opencl"
-    end
-
     if build.with? "openmp"
       args << "--enable-openmp"
     else
@@ -100,6 +94,7 @@ class Imagemagick < Formula
       args << "--without-openjp2"
     end
 
+    args << "--disable-opencl" if build.without? "opencl"
     args << "--without-gslib" if build.without? "ghostscript"
     args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
     args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
@@ -138,11 +133,6 @@ class Imagemagick < Formula
   end
 
   test do
-    assert_match "PNG", shell_output("#{bin}/identify #{test_fixtures("test.png")}")
-    # Check support for recommended features and delegates.
-    features = shell_output("#{bin}/convert -version")
-    %W[Modules freetype jpeg png tiff].each do |feature|
-      assert_match feature, features
-    end
+    system "#{bin}/identify", test_fixtures("test.png")
   end
 end
