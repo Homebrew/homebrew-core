@@ -1,35 +1,27 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/google/protobuf/"
+  url "https://github.com/google/protobuf/archive/v3.0.0.tar.gz"
+  sha256 "f5b3563f118f1d3d6e001705fa7082e8fc3bda50038ac3dff787650795734146"
+  head "https://github.com/google/protobuf.git"
 
-  stable do
-    url "https://github.com/google/protobuf/archive/v3.0.0.tar.gz"
-    sha256 "f5b3563f118f1d3d6e001705fa7082e8fc3bda50038ac3dff787650795734146"
-  end
   bottle do
     sha256 "ea5d70a32022b6ad4e4255b9d323721a7727b54a373dc1d3053b569e4980c946" => :el_capitan
     sha256 "4618f814722cd1121cd4ba67e3644120edf1097e05b0c32c6c780030c4c29684" => :yosemite
     sha256 "19ef74e26f10d160b8e9fb582f34f18116a60e41f2eabf17ecfb1fffae77fa65" => :mavericks
   end
 
-
-  head do
-    url "https://github.com/google/protobuf.git"
-  end
-
   # this will double the build time approximately if enabled
   option "with-test", "Run build-time check"
-  deprecated_option "with-check" => "with-test"
-
+  option "without-python", "Build without python support"
   option :universal
   option :cxx11
 
-  option "without-python", "Build without python support"
+  deprecated_option "with-check" => "with-test"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
 
   fails_with :llvm do
@@ -125,17 +117,16 @@ class Protobuf < Formula
   end
 
   test do
-    testdata =
-      <<-EOS.undent
-        syntax = "proto3";
-        package test;
-        message TestCase {
-          string name = 4;
-        }
-        message Test {
-          repeated TestCase case = 1;
-        }
-        EOS
+    testdata = <<-EOS.undent
+      syntax = "proto3";
+      package test;
+      message TestCase {
+        string name = 4;
+      }
+      message Test {
+        repeated TestCase case = 1;
+      }
+    EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
     system "python", "-c", "import google.protobuf" if build.with? "python"
