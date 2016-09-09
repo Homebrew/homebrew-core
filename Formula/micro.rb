@@ -95,6 +95,6 @@ class Micro < Formula
   end
 
   test do
-    system "#{bin}/micro", "-version"
+    assert_match version.to_s, shell_output("#{bin}/micro -version")
   end
 end
