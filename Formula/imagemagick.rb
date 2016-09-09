@@ -7,7 +7,7 @@ class Imagemagick < Formula
   url "https://dl.bintray.com/homebrew/mirror/imagemagick-6.9.5-9.tar.xz"
   mirror "https://www.imagemagick.org/download/ImageMagick-6.9.5-9.tar.xz"
   sha256 "9c4f300daae165a6bcf46779876f9361a958076f8cd59fa203d84c70ba5bc183"
-  revision 1
+  revision 2
   head "http://git.imagemagick.org/repos/ImageMagick.git"
 
   bottle do
