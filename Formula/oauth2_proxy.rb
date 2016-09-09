@@ -20,22 +20,22 @@ class Oauth2Proxy < Formula
 
   go_resource "github.com/BurntSushi/toml" do
     url "https://github.com/BurntSushi/toml.git",
-      :revision => "056c9bc7be7190eaa7715723883caffa5f8fa3e4"
+        :revision => "056c9bc7be7190eaa7715723883caffa5f8fa3e4"
   end
 
   go_resource "github.com/bitly/go-simplejson" do
     url "https://github.com/bitly/go-simplejson.git",
-      :revision => "18db6e68d8fd9cbf2e8ebe4c81a78b96fd9bf05a"
+        :revision => "18db6e68d8fd9cbf2e8ebe4c81a78b96fd9bf05a"
   end
 
   go_resource "github.com/mreiferson/go-options" do
     url "https://github.com/mreiferson/go-options.git",
-      :revision => "7c174072188d0cfbe6f01bb457626abb22bdff52"
+        :revision => "7c174072188d0cfbe6f01bb457626abb22bdff52"
   end
 
   go_resource "gopkg.in/fsnotify.v1" do
     url "https://gopkg.in/fsnotify.v1.git",
-      :revision => "96c060f6a6b7e0d6f75fddd10efeaca3e5d1bcb0"
+        :revision => "96c060f6a6b7e0d6f75fddd10efeaca3e5d1bcb0"
   end
 
   def install
