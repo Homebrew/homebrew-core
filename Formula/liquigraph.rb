@@ -27,7 +27,7 @@ class Liquigraph < Formula
 
   test do
     failing_hostname = "verrryyyy_unlikely_host"
-    changelog = (testpath/"changelog")
+    changelog = testpath/"changelog"
     changelog.write <<-EOS.undent
       <?xml version="1.0" encoding="UTF-8"?>
       <changelog>
@@ -39,7 +39,9 @@ class Liquigraph < Formula
           </changeset>
       </changelog>
     EOS
-    assert_match(/UnknownHostException: #{failing_hostname}/,
-      shell_output("#{bin}/liquigraph -c #{changelog.realpath} -g jdbc:neo4j:http://#{failing_hostname}:7474/ 2>&1", 1))
+
+    jdbc = "jdbc:neo4j:http://#{failing_hostname}:7474/"
+    output = shell_output("#{bin}/liquigraph -c #{changelog.realpath} -g #{jdbc} 2>&1", 1)
+    assert_match "UnknownHostException: #{failing_hostname}", output
   end
 end
