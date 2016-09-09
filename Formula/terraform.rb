@@ -28,7 +28,8 @@ class Terraform < Formula
   end
 
   go_resource "golang.org/x/tools" do
-    url "https://go.googlesource.com/tools.git", :revision => "977844c7af2aa555048a19d28e9fe6c392e7b8e9"
+    url "https://go.googlesource.com/tools.git",
+        :revision => "977844c7af2aa555048a19d28e9fe6c392e7b8e9"
   end
 
   def install
