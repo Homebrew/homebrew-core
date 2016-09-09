@@ -26,5 +26,6 @@
   "polarssl": "mbedtls",
   "racket": "minimal-racket",
   "screenbrightness": "brightness",
+  "sonar": "sonarqube",
   "wires": "geckodriver"
 }
