@@ -34,6 +34,9 @@ class Freetype < Formula
     system "./configure", "--prefix=#{prefix}", "--without-harfbuzz"
     system "make"
     system "make", "install"
+
+    inreplace [bin/"freetype-config", lib/"pkgconfig/freetype2.pc"],
+      prefix, opt_prefix
   end
 
   test do
