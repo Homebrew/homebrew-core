@@ -3,14 +3,14 @@ class Supersonic < Formula
   homepage "https://code.google.com/archive/p/supersonic/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/supersonic/supersonic-0.9.4.tar.gz"
   sha256 "1592dfd2dc73f0b97298e0d25e51528dc9a94e9e7f4ab525569f63db0442d769"
+  revision 1
+
   bottle do
     cellar :any
     sha256 "79b1fb6b0617d3168d169672d44dd117a0c830d653301839c1a124aef94e0e0b" => :el_capitan
     sha256 "fc7f7bbf4b75321a15292b820c358603bbd9b877aa75e411d33115793f9a9505" => :yosemite
     sha256 "397b9708b0cbe73fbda6e92b737174c75ae9f63ab89025fe0c7760ea890547ef" => :mavericks
   end
-
-  revision 1
 
   if MacOS.version < :mavericks
     depends_on "protobuf" => "c++11"
