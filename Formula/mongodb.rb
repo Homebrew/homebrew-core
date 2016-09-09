@@ -7,6 +7,7 @@ class Mongodb < Formula
   sha256 "25f8817762b784ce870edbeaef14141c7561eb6d7c14cd3197370c2f9790061b"
 
   bottle do
+    sha256 "2226f31b0a1314d7961a2cd64e0e82d4b1aedf42fc7768bc311073b183f7e6d2" => :sierra
     sha256 "4aeeddfe6d1ebcebc5c2e900c8f1d89204eb0c7462f3f4effa8cf26880218d2d" => :el_capitan
     sha256 "c8c39ea2e6d53b35924398604c203c9fba5a07c0c5754c080315fc87c9a57532" => :yosemite
     sha256 "7001fce4f27bda699bb151e0b4ba9bfc370a39344e69bbabfa8da166653c1e4d" => :mavericks
