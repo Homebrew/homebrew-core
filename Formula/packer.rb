@@ -20,17 +20,17 @@ class Packer < Formula
 
   go_resource "github.com/mitchellh/gox" do
     url "https://github.com/mitchellh/gox.git",
-      :revision => "6e9ee79eab7bb1b84155379b3f94ff9a87b344e4"
+        :revision => "6e9ee79eab7bb1b84155379b3f94ff9a87b344e4"
   end
 
   go_resource "github.com/mitchellh/iochan" do
     url "https://github.com/mitchellh/iochan.git",
-      :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
+        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
   end
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-      :revision => "8b3828f1c8f7c67e5ebb863a4c632937778eaaae"
+        :revision => "8b3828f1c8f7c67e5ebb863a4c632937778eaaae"
   end
 
   def install
