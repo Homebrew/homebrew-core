@@ -19,7 +19,7 @@ class Wiki < Formula
 
   go_resource "github.com/mattn/go-colorable" do
     url "https://github.com/mattn/go-colorable.git",
-      :revision => "40e4aedc8fabf8c23e040057540867186712faa5"
+        :revision => "40e4aedc8fabf8c23e040057540867186712faa5"
   end
 
   def install
