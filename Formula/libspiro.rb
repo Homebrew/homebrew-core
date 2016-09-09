@@ -7,11 +7,9 @@ class Libspiro < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "b74aa7a260b965d0910c86eff34bb29268efe56d2050063ad21e5261b7767697" => :el_capitan
-    sha256 "bc389fbed945d055b3acac18eeee82d36e4d5174be1b5e42e9759ed09a74dde1" => :yosemite
-    sha256 "b7b9bc066871be5999c7c49fa400a3eafa985aefcf1362dd19370981c686db5a" => :mavericks
-    sha256 "49ffd6343c706612bfb641a756e31944ee7b712dd25198413150bfd383d907fd" => :mountain_lion
+    sha256 "ba2ac132368792d5715eb39a7b0e452fba5a222977ec30b9c5ff09728acfd0e0" => :el_capitan
+    sha256 "408083484eb78518514bd2613f019bd03ac94e791b8302721187eeaf5c775479" => :yosemite
+    sha256 "7bbae215d77ea9b5977f066b2fa646821933f5ed4cbc972e4c50fc5a1708725e" => :mavericks
   end
 
   head do
