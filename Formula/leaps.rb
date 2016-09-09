@@ -20,7 +20,7 @@ class Leaps < Formula
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-      :revision => "db8e4de5b2d6653f66aea53094624468caad15d2"
+        :revision => "db8e4de5b2d6653f66aea53094624468caad15d2"
   end
 
   def install
