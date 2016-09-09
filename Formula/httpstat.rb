@@ -11,6 +11,6 @@ class Httpstat < Formula
   end
 
   test do
-    assert_match "HTTP/1.1", shell_output("#{bin}/httpstat https://github.com")
+    assert_match "HTTP", shell_output("#{bin}/httpstat https://github.com")
   end
 end
