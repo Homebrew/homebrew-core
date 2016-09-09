@@ -192,7 +192,7 @@ class Srclib < Formula
   # For test
   resource "srclib-sample" do
     url "https://github.com/sourcegraph/srclib-sample.git",
-      :revision => "e753b113784bf383f627394e86e4936629a3b588"
+        :revision => "e753b113784bf383f627394e86e4936629a3b588"
   end
 
   test do
