@@ -3,6 +3,7 @@ class Szl < Formula
   homepage "https://code.google.com/archive/p/szl/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/szl/szl-1.0.tar.gz"
   sha256 "af5c647276fd0dea658eae6016957b7ad09ac68efe13ae2a3c867043b5889f87"
+  revision 8
 
   bottle do
     cellar :any
@@ -10,7 +11,6 @@ class Szl < Formula
     sha256 "32fbf94eab483b16311c9d12640d51aeafd7c28898d53437b40ff5759d192f98" => :yosemite
     sha256 "44060a3952401c38c46b7d4cdb22d975cff21b1bbf999a651f45034ab74f7f6f" => :mavericks
   end
-  revision 8
 
   depends_on :macos => :mavericks
 
