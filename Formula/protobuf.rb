@@ -6,6 +6,12 @@ class Protobuf < Formula
     url "https://github.com/google/protobuf/archive/v3.0.0.tar.gz"
     sha256 "f5b3563f118f1d3d6e001705fa7082e8fc3bda50038ac3dff787650795734146"
   end
+  bottle do
+    sha256 "ea5d70a32022b6ad4e4255b9d323721a7727b54a373dc1d3053b569e4980c946" => :el_capitan
+    sha256 "4618f814722cd1121cd4ba67e3644120edf1097e05b0c32c6c780030c4c29684" => :yosemite
+    sha256 "19ef74e26f10d160b8e9fb582f34f18116a60e41f2eabf17ecfb1fffae77fa65" => :mavericks
+  end
+
 
   head do
     url "https://github.com/google/protobuf.git"
