@@ -6,9 +6,9 @@ class OsmPbf < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a1bd80de2eccb7b01f0b2c73e735e02a14d1cc0168a2615bd2825a5413aeeba3" => :el_capitan
-    sha256 "c102e66477bbbb75dfd91e0349659f59781002246a57775f2d7cab5fbf7cae27" => :yosemite
-    sha256 "6a9a5fb19889732dbe9d9837e38d417be53277a44df6b8fb2191c8f9f4872b70" => :mavericks
+    sha256 "23a03eeded0fc71a344fc9503b2bd555c0b0d9642a2057381d7d8e58d55a08cf" => :el_capitan
+    sha256 "a43e77aec14db2368d6bf3d20907e385ce873ba9e752727f91b457b5b89ad6e2" => :yosemite
+    sha256 "ac087d56376dbff9345ddab92b8c17aa3e9318dbd109d7b243e0ec19efeaa4bd" => :mavericks
   end
   revision 1
 
