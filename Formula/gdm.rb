@@ -3,9 +3,9 @@ require "language/go"
 class Gdm < Formula
   desc "Go Dependency Manager (gdm)"
   homepage "https://github.com/sparrc/gdm"
-  url "https://github.com/sparrc/gdm/archive/1.3.tar.gz"
-  sha256 "e545378699a557e6dffedb1c25f54ea4f1bf93c1c825ec693f81f391569c8529"
-  revision 1
+  url "https://github.com/sparrc/gdm/archive/1.4.tar.gz"
+  sha256 "2ac8800319d922fe2816e57f30e23ddd9a11ce2e93294c533318b9f081debde4"
+  head "https://github.com/sparrc/gdm.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +18,7 @@ class Gdm < Formula
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-    :revision => "6f233b96dfbc53e33b302e31b88814cf74697ff6"
+        :revision => "6f233b96dfbc53e33b302e31b88814cf74697ff6"
   end
 
   def install
