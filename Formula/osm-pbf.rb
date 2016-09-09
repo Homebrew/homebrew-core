@@ -10,6 +10,7 @@ class OsmPbf < Formula
     sha256 "c102e66477bbbb75dfd91e0349659f59781002246a57775f2d7cab5fbf7cae27" => :yosemite
     sha256 "6a9a5fb19889732dbe9d9837e38d417be53277a44df6b8fb2191c8f9f4872b70" => :mavericks
   end
+  revision 1
 
   depends_on "protobuf"
 
