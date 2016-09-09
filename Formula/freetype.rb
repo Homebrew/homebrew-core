@@ -10,11 +10,9 @@ class Freetype < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "a4a7d7666fb2e74f2e4e77c01ecfd3a6b517a708332c3430a70094841a8d9bbc" => :sierra
-    sha256 "125b0a1b01353c1181aa3520cca321baf6c1867efbdeb26ef9b515b6c432bab2" => :el_capitan
-    sha256 "cb9535e367ef3dd3d3dae797be726989908dcaae60bc1e41cb9125ff345c7675" => :yosemite
-    sha256 "8dbeb926c57a5c9bdfaabca06cedbbf4f07a2011b064b99ea8b2fdb60ae8fa97" => :mavericks
+    sha256 "0c98beda51c7d5a42f317598a2fbb65391278f6bb72f038512033392a681b25e" => :el_capitan
+    sha256 "f29056e7f47435120efd7fedfce5483e083dcf52fa587569a99d2afba3fb11c2" => :yosemite
+    sha256 "470c71da601ed6b1fd95445492040e5a56f30135d1602d3617f4da89539f1b6b" => :mavericks
   end
 
   keg_only :provided_pre_mountain_lion
