@@ -1,8 +1,8 @@
 class Voms < Formula
   desc "Virtual organization membership service"
   homepage "https://github.com/italiangrid/voms"
-  url "https://github.com/italiangrid/voms-clients/archive/v3.0.6.tar.gz"
-  sha256 "0faad42ca34ab6492d8db391a6ba31fed52bc79936d9e6f95ff736f92767b39a"
+  url "https://github.com/italiangrid/voms-clients/archive/v3.0.7.tar.gz"
+  sha256 "24cc29f4dc93f048e1cda9003ab8004e5d0ebc245d0139a058e6224bc2ca6ba7"
 
   bottle do
     cellar :any_skip_relocation
