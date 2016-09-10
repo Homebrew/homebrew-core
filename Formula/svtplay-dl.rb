@@ -1,8 +1,8 @@
 class SvtplayDl < Formula
   desc "Download videos from http://svtplay.se"
   homepage "https://svtplay-dl.se"
-  url "https://pypi.python.org/packages/32/dd/e471f2713624dbd24d13934401db62388f2365081977026beb70dc363197/svtplay-dl-1.3.tar.gz"
-  sha256 "a3ce202a09fff8814f30f9dad61566a7488a711fa02c3f4abedaa4308b0c598f"
+  url "https://pypi.python.org/packages/a0/a0/56996a5ec98d5d28b37d8c80bde33db2905286df1aed0a3ad2b1b6d53a97/svtplay-dl-1.4.tar.gz"
+  sha256 "dc8561d337f5e38cbc41633ac6e916ceb5a9b63a1771e166f569ad8a271b798b"
 
   bottle do
     cellar :any
