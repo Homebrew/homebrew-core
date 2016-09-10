@@ -11,6 +11,14 @@ class Ykclient < Formula
     sha256 "c051e1c30bc2cb34907e5d91e1addb572d2bfa2011c75e13c167712d93fefb47" => :mavericks
   end
 
+  head do
+    url "https://github.com/Yubico/yubico-c-client.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   option :universal
 
   depends_on "pkg-config" => :build
@@ -18,9 +26,13 @@ class Ykclient < Formula
 
   def install
     ENV.universal_binary if build.universal?
+    # https://github.com/Yubico/yubico-c-client/issues/38
+    ENV.deparallelize if build.head?
 
+    system "autoreconf", "-iv" if build.head?
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
+    system "make", "check"
   end
 
   test do
