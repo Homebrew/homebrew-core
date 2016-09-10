@@ -22,7 +22,8 @@ class Tmux < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "c7deb6acadd39da0789b02c11f83780d1b0328cdcc70f89be268a059bab72fd0" => :sierra
     sha256 "627aef14033e462ffd4694dcc052eca01d8e3b13e6db5bad9717643c9e342ff1" => :el_capitan
     sha256 "e566bb8605da1ee8aa001730c2a17f2082b39e2a949cce3502b3100a6c621878" => :yosemite
     sha256 "caa0bdef33a828985dc507fa1206a3cafe8677e55a4df2ecf8434e37693afd71" => :mavericks
