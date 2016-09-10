@@ -24,6 +24,6 @@ class Ykclient < Formula
   end
 
   test do
-    system "#{bin}/ykclient", "--version"
+    assert_equal version.to_s, shell_output("#{bin}/ykclient --version").chomp
   end
 end
