@@ -7,6 +7,7 @@ class Freetype < Formula
 
   bottle do
     cellar :any
+    sha256 "6cdebad1d3a4e6bdda41235dc69e77770ab98570d003af074f9bf2d6656d3e19" => :sierra
     sha256 "0c98beda51c7d5a42f317598a2fbb65391278f6bb72f038512033392a681b25e" => :el_capitan
     sha256 "f29056e7f47435120efd7fedfce5483e083dcf52fa587569a99d2afba3fb11c2" => :yosemite
     sha256 "470c71da601ed6b1fd95445492040e5a56f30135d1602d3617f4da89539f1b6b" => :mavericks
