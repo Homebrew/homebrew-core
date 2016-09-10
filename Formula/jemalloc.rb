@@ -12,8 +12,24 @@ class Jemalloc < Formula
     sha256 "fb154c600464d8fce9dd41b9494246721d02a87a528fcb097276708c9f7de72f" => :mavericks
   end
 
+  # https://github.com/jemalloc/jemalloc/issues/420
+  # Should be in the next release, but please check.
+  if MacOS.version >= :sierra
+    patch do
+      url "https://github.com/jemalloc/jemalloc/commit/4abaee5d13.patch"
+      sha256 "05c754089098c4275b460b90d1f4b94e32a2c819496187e5378e460c9398a65f"
+    end
+
+    patch do
+      url "https://github.com/jemalloc/jemalloc/commit/19c9a3e828.patch"
+      sha256 "b736dab20d2688d4b21b4ba4755fd19b68145b2d9ae299a1ae154e8553d9261d"
+    end
+  end
+
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}", "--with-jemalloc-prefix="
+    system "make"
+    system "make", "check"
     system "make", "install"
   end
 
