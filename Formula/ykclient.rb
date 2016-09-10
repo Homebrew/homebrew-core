@@ -6,9 +6,10 @@ class Ykclient < Formula
 
   bottle do
     cellar :any
-    sha256 "3ad851c0204662921e24aab8b473ba543cc63f84514e7d8eb65ea68a4a617a69" => :el_capitan
-    sha256 "81b3de37e608406d52a02d5c56fcb2fa621af641e90e4985f4804d53dd41ef6e" => :yosemite
-    sha256 "c051e1c30bc2cb34907e5d91e1addb572d2bfa2011c75e13c167712d93fefb47" => :mavericks
+    rebuild 1
+    sha256 "1175f6f20146f23d7e650147ce0fc0963d71b3efb294402c649e05a29def3f41" => :el_capitan
+    sha256 "fb7c3d237a80f3c5f3c8274c014bdd00318cff4aba499a7936f11c857c5d2e14" => :yosemite
+    sha256 "96ee6e8f265432b340e3b1512b2ce102dbd64a948c37a53779cded0bb92ac5cf" => :mavericks
   end
 
   head do
