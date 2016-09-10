@@ -12,6 +12,7 @@ class Imagemagick < Formula
 
   bottle do
     rebuild 1
+    sha256 "7f1ec22c4f3b4c2009428dad10871895e5f8075d393c4d2551b691bfa6947119" => :sierra
     sha256 "5eb7338070689b2dde5b4de8ddc7b55d1cbc7ee8792870b8e1d8b6f2309601c2" => :el_capitan
     sha256 "fa331f258fe8101458c51b87a76a04843887ba422690e0f8266b4081a087a423" => :yosemite
     sha256 "2fedf1adfdb40822b48100d0b6c22d8bc172578a5665c0ce98db1dade9833f00" => :mavericks
