@@ -1,8 +1,8 @@
 class ShadowsocksLibev < Formula
   desc "Libev port of shadowsocks"
   homepage "https://github.com/shadowsocks/shadowsocks-libev"
-  url "https://github.com/shadowsocks/shadowsocks-libev/archive/v2.5.0.tar.gz"
-  sha256 "6841e0efa1c01caef5a827f463ee304dc9e48fb4751cc9256316df5ab4490ae0"
+  url "https://github.com/shadowsocks/shadowsocks-libev/archive/v2.5.1.tar.gz"
+  sha256 "06e14558ce370409a3648ba425594e2f9786fbeaa42680885d0fcaf5376fb55c"
   head "https://github.com/shadowsocks/shadowsocks-libev.git"
 
   bottle do
@@ -15,6 +15,7 @@ class ShadowsocksLibev < Formula
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
   depends_on "openssl"
+  depends_on "pcre"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
