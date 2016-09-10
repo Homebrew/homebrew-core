@@ -6,7 +6,8 @@ class Lame < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "687dd6b97e6c8d385b55eb4ace546b52bb584a7c56516f97a144ff99e29abdc3" => :sierra
     sha256 "fc7884b76f15e5feebef087b4597e1f142b9aed83274e989c1ca959edb294454" => :el_capitan
     sha256 "064e13206ca4f731d919f89adb480b4a83116a4374f5aa6d205528838364ca7b" => :yosemite
     sha256 "43ee3550ab5ce2c5e9b4e8adfedc197b5ffbf252320d46de97cd6a7133ddd16f" => :mavericks
