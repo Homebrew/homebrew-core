@@ -1,4 +1,6 @@
 class SvtplayDl < Formula
+  include Language::Python::Virtualenv
+
   desc "Download videos from http://svtplay.se"
   homepage "https://svtplay-dl.se"
   url "https://pypi.python.org/packages/a0/a0/56996a5ec98d5d28b37d8c80bde33db2905286df1aed0a3ad2b1b6d53a97/svtplay-dl-1.4.tar.gz"
@@ -12,6 +14,7 @@ class SvtplayDl < Formula
   end
 
   depends_on "rtmpdump"
+  depends_on "openssl"
 
   # for request security
   resource "cffi" do
@@ -77,22 +80,7 @@ class SvtplayDl < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    # ndg is a namespace package and .pth files aren't read from our
-    # vendor site-packages
-    touch libexec/"vendor/lib/python2.7/site-packages/ndg/__init__.py"
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   def caveats; <<-EOS.undent
@@ -102,6 +90,6 @@ class SvtplayDl < Formula
   end
 
   test do
-    system "#{bin}/svtplay-dl", "-g", "http://tv.aftonbladet.se/abtv/articles/121638"
+    system bin/"svtplay-dl", "-g", "http://tv.aftonbladet.se/abtv/articles/121638"
   end
 end
