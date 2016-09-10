@@ -1,9 +1,6 @@
 class Freetype < Formula
   desc "Software library to render fonts"
   homepage "https://www.freetype.org/"
-  # Note: when bumping freetype's version, you must also bump revisions of
-  # formula with "full path" references to freetype in their pkgconfig.
-  # See https://github.com/Homebrew/legacy-homebrew/pull/44587
   url "https://downloads.sf.net/project/freetype/freetype2/2.7/freetype-2.7.tar.bz2"
   mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.7.tar.bz2"
   sha256 "d6a451f5b754857d2aa3964fd4473f8bc5c64e879b24516d780fb26bec7f7d48"
@@ -39,7 +36,7 @@ class Freetype < Formula
   end
 
   test do
-    system "#{bin}/freetype-config", "--cflags", "--libs", "--ftversion",
-      "--exec-prefix", "--prefix"
+    system bin/"freetype-config", "--cflags", "--libs", "--ftversion",
+                                  "--exec-prefix", "--prefix"
   end
 end
