@@ -10,7 +10,8 @@ class Pango < Formula
     sha256 "861f6ad2e6c8c06b7072a238dca831cbf5a09eb9125a015150f3d522dbe7d7a7" => :yosemite
     sha256 "1e9be870617caba7603eb1b8953eed684a863035ae2becabe0dd86b9f96a540a" => :mavericks
   end
-
+  
+  # upstream bug report - https://bugzilla.gnome.org/show_bug.cgi?id=770729
   patch :p1, :DATA
 
   head do
