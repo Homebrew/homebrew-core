@@ -9,6 +9,7 @@ class Fontconfig < Formula
   # is relocatable, but it has hardcoded paths in the executables.
   bottle do
     cellar :any
+    sha256 "731c2a5c33f638022c7f915dda1eb634857d78acdb516820b4ce5dc6b8da87f6" => :sierra
     sha256 "48bd2e66df68bf40257db0c2af87acd834d187e007d63a7332cb273ca1ebb495" => :el_capitan
     sha256 "ff7170125a03a512372cedef7584f0734966bbefcda59383e69001f846c5e708" => :yosemite
     sha256 "e83ac5fafe24b49700b0bf15c63d076a95da2ef525760a3f3ca162e26325b953" => :mavericks
