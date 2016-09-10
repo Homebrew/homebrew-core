@@ -1,9 +1,9 @@
 class Hadoop < Formula
   desc "Framework for distributed processing of large data sets"
   homepage "https://hadoop.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz"
-  mirror "https://archive.apache.org/dist/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz"
-  sha256 "49ad740f85d27fa39e744eb9e3b1d9442ae63d62720f0aabdae7aa9a718b03f7"
+  url "https://www.apache.org/dyn/closer.cgi?path=hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz"
+  mirror "https://archive.apache.org/dist/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz"
+  sha256 "d489df3808244b906eb38f4d081ba49e50c4603db03efd5e594a1e98b09259c2"
 
   bottle :unneeded
 
