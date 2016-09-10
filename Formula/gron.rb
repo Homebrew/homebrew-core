@@ -3,9 +3,8 @@ require "language/go"
 class Gron < Formula
   desc "Make JSON greppable"
   homepage "https://github.com/tomnomnom/gron"
-  url "https://github.com/tomnomnom/gron/archive/v0.3.4.tar.gz"
-  sha256 "a7e5089b9cef7140eab50effbc97a72a2dd65321f83f2a7624dbdcab3378fbb7"
-
+  url "https://github.com/tomnomnom/gron/archive/v0.3.6.tar.gz"
+  sha256 "b627efa5bcc6157386a5732aad6a0cc890342dc4c662e837b6d62fd527a4d5f4"
   head "https://github.com/tomnomnom/gron.git"
 
   bottle do
@@ -43,11 +42,10 @@ class Gron < Formula
   end
 
   def install
-    mkdir_p buildpath/"src/github.com/tomnomnom/"
-    ln_s buildpath, buildpath/"src/github.com/tomnomnom/gron"
     ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/tomnomnom").mkpath
+    ln_s buildpath, buildpath/"src/github.com/tomnomnom/gron"
     Language::Go.stage_deps resources, buildpath/"src"
-
     system "go", "build", "-o", bin/"gron"
   end
 
