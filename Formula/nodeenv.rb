@@ -1,8 +1,10 @@
 class Nodeenv < Formula
+  include Language::Python::Virtualenv
+
   desc "Node.js virtual environment builder"
   homepage "https://github.com/ekalinin/nodeenv"
-  url "https://pypi.python.org/packages/source/n/nodeenv/nodeenv-0.13.6.tar.gz"
-  sha256 "feaafb0486d776360ef939bd85ba34cff9b623013b13280d1e3770d381ee2b7f"
+  url "https://files.pythonhosted.org/packages/fa/62/f3dc0d7b596f7187585520bca14c050909de88866e8f793338de907538cf/nodeenv-1.0.0.tar.gz"
+  sha256 "def2a6d927bef8d17c1776edbd5bbc8b7a5f0eee159af53b9924d559fc8d3202"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,22 +14,17 @@ class Nodeenv < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
     system bin/"nodeenv", "--node=0.10.40", "--prebuilt", "env-0.10.40-prebuilt"
     # Dropping into the virtualenv itself requires sourcing activate which
-    # isn't easy to deal with. This ensures corrent Node installed & functional.
+    # isn't easy to deal with. This ensures current Node installed & functional.
     ENV.prepend_path "PATH", testpath/"env-0.10.40-prebuilt/bin"
 
-    path = testpath/"test.js"
-    path.write "console.log('hello');"
-    assert_match /hello/, shell_output("node #{path}")
-    assert_match /v0.10.40/, shell_output("node -v")
+    (testpath/"test.js").write "console.log('hello');"
+    assert_match "hello", shell_output("node test.js")
+    assert_match "v0.10.40", shell_output("node -v")
   end
 end
