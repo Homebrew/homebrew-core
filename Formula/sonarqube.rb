@@ -1,12 +1,12 @@
-class Sonar < Formula
+class Sonarqube < Formula
   desc "Manage code quality"
   homepage "http://www.sonarqube.org/"
   url "https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.0.zip"
   sha256 "2256e0b44629632d9528911c8d5916ce246c7abe2be65a6a59a94dee504d62a6"
 
-  depends_on :java => "1.8+"
-
   bottle :unneeded
+
+  depends_on :java => "1.8+"
 
   def install
     # Delete native bin directories for other systems
