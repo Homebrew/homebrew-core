@@ -1,42 +1,42 @@
 class SvtplayDl < Formula
   desc "Download videos from http://svtplay.se"
   homepage "https://svtplay-dl.se"
-  url "https://pypi.python.org/packages/d0/1d/64a5b6dd832e76b3dcb6b55fd389f402b2288dfee821d769b0857d3d0dcf/svtplay-dl-1.1.tar.gz"
-  sha256 "bf2d0ea75a7c381cc28be74e3851efdf4716a5f8bca8791c35d997a0b45d5e0d"
+  url "https://pypi.python.org/packages/32/dd/e471f2713624dbd24d13934401db62388f2365081977026beb70dc363197/svtplay-dl-1.3.tar.gz"
+  sha256 "a3ce202a09fff8814f30f9dad61566a7488a711fa02c3f4abedaa4308b0c598f"
 
   bottle do
     cellar :any
-    sha256 "abd1fbccfb87595e716a55d4bde64ad69a5ebdc21155915448de66ca5270b422" => :el_capitan
-    sha256 "9f671c8bede5528c3c4d8833e1b433d117a728ec92e2f76735bf611ecfe2ac1f" => :yosemite
-    sha256 "55c50a6378d39316264bb6bab982cd418f15d0b5c5d73ea887955433385c4af4" => :mavericks
+    sha256 "25c377aa21de6fe9f1e4453261694645e1430e16ff07d10b6a3a463e8b93762c" => :el_capitan
+    sha256 "101770ef3ddd9811d6b44bb4d4474df43d78edd589209e7255657498ab4e65d7" => :yosemite
+    sha256 "27dd48dbb0227baa9e745f141163339df0b0ba6056a425577a733dd183a3e42a" => :mavericks
   end
 
   depends_on "rtmpdump"
 
   # for request security
   resource "cffi" do
-    url "https://pypi.python.org/packages/source/c/cffi/cffi-1.5.2.tar.gz"
-    sha256 "da9bde99872e46f7bb5cff40a9b1cc08406765efafb583c704de108b6cb821dd"
+    url "https://pypi.python.org/packages/83/3c/00b553fd05ae32f27b3637f705c413c4ce71290aa9b4c4764df694e906d9/cffi-1.7.0.tar.gz"
+    sha256 "6ed5dd6afd8361f34819c68aaebf9e8fc12b5a5893f91f50c9e50c8886bb60df"
   end
 
   resource "cryptography" do
-    url "https://pypi.python.org/packages/source/c/cryptography/cryptography-1.2.3.tar.gz"
-    sha256 "8eb11c77dd8e73f48df6b2f7a7e16173fe0fe8fdfe266232832e88477e08454e"
+    url "https://pypi.python.org/packages/6e/96/b8dab146e8be98061dae07e127f80cffa3061ab0e8da0d3d42f3308c6e91/cryptography-1.5.tar.gz"
+    sha256 "52f47ec9a57676043f88e3ca133638790b6b71e56e8890d9d7f3ae4fcd75fa24"
   end
 
   resource "enum34" do
-    url "https://pypi.python.org/packages/source/e/enum34/enum34-1.1.2.tar.gz"
-    sha256 "2475d7fcddf5951e92ff546972758802de5260bf409319a9f1934e6bbc8b1dc7"
+    url "https://pypi.python.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
+    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
   end
 
   resource "idna" do
-    url "https://pypi.python.org/packages/source/i/idna/idna-2.0.tar.gz"
-    sha256 "16199aad938b290f5be1057c0e1efc6546229391c23cea61ca940c115f7d3d3b"
+    url "https://pypi.python.org/packages/fb/84/8c27516fbaa8147acd2e431086b473c453c428e24e8fb99a1d89ce381851/idna-2.1.tar.gz"
+    sha256 "ed36f281aebf3cd0797f163bb165d84c31507cedd15928b095b1675e2d04c676"
   end
 
   resource "ndg-httpsclient" do
-    url "https://pypi.python.org/packages/source/n/ndg-httpsclient/ndg_httpsclient-0.4.0.tar.gz"
-    sha256 "e8c155fdebd9c4bcb0810b4ed01ae1987554b1ee034dd7532d7b8fdae38a6274"
+    url "https://pypi.python.org/packages/a2/a7/ad1c1c48e35dc7545dab1a9c5513f49d5fa3b5015627200d2be27576c2a0/ndg_httpsclient-0.4.2.tar.gz"
+    sha256 "580987ef194334c50389e0d7de885fccf15605c13c6eecaabd8d6c43768eb8ac"
   end
 
   resource "pyasn1" do
@@ -50,8 +50,8 @@ class SvtplayDl < Formula
   end
 
   resource "requests" do
-    url "https://pypi.python.org/packages/source/r/requests/requests-2.9.1.tar.gz"
-    sha256 "c577815dd00f1394203fc44eb979724b098f88264a9ef898ee45b8e5e9cf587f"
+    url "https://pypi.python.org/packages/2e/ad/e627446492cc374c284e82381215dcd9a0a87c4f6e90e9789afefe6da0ad/requests-2.11.1.tar.gz"
+    sha256 "5acf980358283faba0b897c73959cecf8b841205bb4b2ad3ef545f46eae1a133"
   end
 
   resource "six" do

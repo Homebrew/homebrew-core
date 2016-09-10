@@ -1,11 +1,16 @@
 class Nginx < Formula
   desc "HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server"
   homepage "https://nginx.org/"
-  url "https://nginx.org/download/nginx-1.10.1.tar.gz"
-  sha256 "1fd35846566485e03c0e318989561c135c598323ff349c503a6c14826487a801"
-  head "http://hg.nginx.org/nginx/", :using => :hg
+
+  stable do
+    url "https://nginx.org/download/nginx-1.10.1.tar.gz"
+    sha256 "1fd35846566485e03c0e318989561c135c598323ff349c503a6c14826487a801"
+
+    depends_on "openssl"
+  end
 
   bottle do
+    sha256 "7f6f051cf7331c6d003dbfee5863bbf47a3a321d7508f4f5d439e97991c5f59b" => :sierra
     sha256 "2b67c86454cc67bdeb2a637d9872ae471a810d8a2dae40b6a0c1dad7b253d30d" => :el_capitan
     sha256 "6ac0a3e07cad5efb31185998f6cd6754de6d799396ffd872814593ba3430fdb3" => :yosemite
     sha256 "c2f67c6b720a2f2c790338e0d30103acf36c757c068bbed8cc4c79734fd3779e" => :mavericks
@@ -14,6 +19,14 @@ class Nginx < Formula
   devel do
     url "https://nginx.org/download/nginx-1.11.3.tar.gz"
     sha256 "4a667f40f9f3917069db1dea1f2d5baa612f1fa19378aadf71502e846a424610"
+
+    depends_on "openssl"
+  end
+
+  head do
+    url "http://hg.nginx.org/nginx/", :using => :hg
+
+    depends_on "openssl@1.1"
   end
 
   # Before submitting more options to this formula please check they aren't
@@ -29,8 +42,6 @@ class Nginx < Formula
 
   depends_on "pcre"
   depends_on "passenger" => :optional
-  depends_on "openssl" => :recommended
-  depends_on "libressl" => :optional
 
   def install
     # Changes default port to 8080
@@ -40,16 +51,10 @@ class Nginx < Formula
     end
 
     pcre = Formula["pcre"]
-    openssl = Formula["openssl"]
-    libressl = Formula["libressl"]
+    openssl = build.head? ? Formula["openssl@1.1"] : Formula["openssl"]
 
-    if build.with? "libressl"
-      cc_opt = "-I#{pcre.include} -I#{libressl.include}"
-      ld_opt = "-L#{pcre.lib} -L#{libressl.lib}"
-    else
-      cc_opt = "-I#{pcre.include} -I#{openssl.include}"
-      ld_opt = "-L#{pcre.lib} -L#{openssl.lib}"
-    end
+    cc_opt = "-I#{pcre.opt_include} -I#{openssl.opt_include}"
+    ld_opt = "-L#{pcre.opt_lib} -L#{openssl.opt_lib}"
 
     args = %W[
       --prefix=#{prefix}
@@ -94,12 +99,12 @@ class Nginx < Formula
     else
       man8.install "man/nginx.8"
     end
-
-    (etc/"nginx/servers").mkpath
-    (var/"run/nginx").mkpath
   end
 
   def post_install
+    (etc/"nginx/servers").mkpath
+    (var/"run/nginx").mkpath
+
     # nginx's docroot is #{prefix}/html, this isn't useful, so we symlink it
     # to #{HOMEBREW_PREFIX}/var/www. The reason we symlink instead of patching
     # is so the user can redirect it easily to something else if they choose.
@@ -196,6 +201,6 @@ class Nginx < Formula
         }
       }
     EOS
-    system "#{bin}/nginx", "-t", "-c", testpath/"nginx.conf"
+    system bin/"nginx", "-t", "-c", testpath/"nginx.conf"
   end
 end

@@ -1,13 +1,13 @@
 class Libgit2Glib < Formula
   desc "Glib wrapper library around libgit2 git access library"
   homepage "https://github.com/GNOME/libgit2-glib"
-  url "https://download.gnome.org/sources/libgit2-glib/0.24/libgit2-glib-0.24.3.tar.xz"
-  sha256 "0c4f781d293a57758a81d67e22964e78389f7a4e860ac37c86788a763a625969"
+  url "https://download.gnome.org/sources/libgit2-glib/0.24/libgit2-glib-0.24.4.tar.xz"
+  sha256 "3a211f756f250042f352b3070e7314a048c88e785dba9d118b851253a7c60220"
 
   bottle do
-    sha256 "cfa01d9f5c9a2d950b8a1e56a9c447e4928f688ba5cfe3d99eeca03bae50f087" => :el_capitan
-    sha256 "801c28e332d26b05a842ed3fda1a75e9241dc9f5a315f60cc9af348a5c396f35" => :yosemite
-    sha256 "663e32fc42661de2d385028f09fbac0d59899f8084f3982288de09440f6700da" => :mavericks
+    sha256 "d8a4f949c2161670d734295533552dc97db5d10875a07295f4e632d7954ff1e6" => :el_capitan
+    sha256 "01ffb7381c126ded635eab180c730bfec0b9abb79367eff03e08a11b33410d81" => :yosemite
+    sha256 "0052a481cad9b325f51261f86fca667e0f88f11176b6b0042989364fa1d376c8" => :mavericks
   end
 
   head do

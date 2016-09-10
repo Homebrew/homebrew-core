@@ -1,15 +1,11 @@
 class Rainbarf < Formula
   desc "CPU/RAM/battery stats chart bar for tmux (and GNU screen)"
   homepage "https://github.com/creaktive/rainbarf"
-  url "https://github.com/creaktive/rainbarf/archive/v1.2.tar.gz"
-  sha256 "0ed48afe52890ccd92c21cc9f1533ecd3b936fbff93d4a4a4d39868388671d80"
+  url "https://github.com/creaktive/rainbarf/archive/v1.3.tar.gz"
+  sha256 "e2491e9f40f2822a416305a56e47228bd6bfc1688314ad5d8d8c702d4e79c578"
+  head "https://github.com/creaktive/rainbarf.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "39b5a8eabc041a4b2123993451aa4ebe9693ab89849dd19c9fb7104a8db44aaa" => :el_capitan
-    sha256 "98b92bee77eca904745cbb5538a0a9515bc4d1d41aff8d4011d542a674bd69fe" => :yosemite
-    sha256 "98e96f814661e0bd2702eaeef51261ed9c6d1ad06a24f7123107ec22a6f2fc28" => :mavericks
-  end
+  bottle :unneeded
 
   def install
     system "pod2man", "rainbarf", "rainbarf.1"
@@ -18,6 +14,8 @@ class Rainbarf < Formula
   end
 
   test do
-    system "#{bin}/rainbarf"
+    # Avoid "Use of uninitialized value $battery" and sandbox violation
+    # Reported 5 Sep 2016 https://github.com/creaktive/rainbarf/issues/30
+    assert_match version.to_s, shell_output("#{bin}/rainbarf --help", 1)
   end
 end

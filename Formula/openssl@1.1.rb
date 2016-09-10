@@ -6,6 +6,7 @@ class OpensslAT11 < Formula
   sha256 "f5c69ff9ac1472c80b868efc1c1c0d8dcfc746d29ebe563de2365dd56dbd8c82"
 
   bottle do
+    sha256 "5d3b2fe3749721827d5563c5178cc82680658354acf02447fc989992a597d2ce" => :sierra
     sha256 "697e4bbcbe24a7fc4a66e36fb2ddc0f19a54e786f14e02d320fa4d9e3697d3fa" => :el_capitan
     sha256 "e1b0864c68ac6779734566d0d82b3d95e1511788f8dda27d8854e66653eba481" => :yosemite
     sha256 "99853edea67ec33f933cb2ba5eb255adfec637ff320af632d0e54e066786e1d3" => :mavericks
@@ -34,13 +35,15 @@ class OpensslAT11 < Formula
   end
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
+  # SSLv3 & zlib are off by default with 1.1.0 but this may not
+  # be obvious to everyone, so explicitly state it for now to
+  # help debug inevitable breakage.
   def configure_args; %W[
     --prefix=#{prefix}
     --openssldir=#{openssldir}
     no-ssl3
     no-ssl3-method
     no-zlib
-    enable-cms
   ]
   end
 

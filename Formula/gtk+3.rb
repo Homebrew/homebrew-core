@@ -1,14 +1,14 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "http://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.20/gtk+-3.20.6.tar.xz"
-  sha256 "3f8016563a96b1cfef4ac9e795647f6316deb2978ff939b19e4e4f8f936fa4b2"
+  url "https://download.gnome.org/sources/gtk+/3.20/gtk+-3.20.9.tar.xz"
+  sha256 "83a609ba2f3424b5509e73967c49c67833af466d6f91081b24ee5c64fce6ac17"
 
   bottle do
-    rebuild 1
-    sha256 "613732062b8f8bcb43af6bc468e3b764c84b551bc6cd282f11502a650c737d67" => :el_capitan
-    sha256 "cd8ee7e7a4460c8a55eb59aed794104209109541de443d83573f76a31ac8f455" => :yosemite
-    sha256 "5e4d2544955f3783316804c7962e7f30fece7a1a9cd92ea5a2b595c204ce55ac" => :mavericks
+    sha256 "845e8ffbba026568d58f2d1c1c5633be9c999acd0fb873013d07979b4fb732b7" => :sierra
+    sha256 "0725ecf53991ca4edbeeff32000aed2c7cb1be53553db1e9dc23c3ba90051efd" => :el_capitan
+    sha256 "bdab115ec793cdc543a7d9936f2689f2992a4a54e5e61728bff0c3d8413e7a7d" => :yosemite
+    sha256 "d73e0948f345c6ebdb95b20fadd3a673fd60fca34a51ae69cc7bd1f8ac5a25fe" => :mavericks
   end
 
   option :universal
@@ -24,16 +24,6 @@ class Gtkx3 < Formula
   depends_on "hicolor-icon-theme"
   depends_on "gsettings-desktop-schemas" => :recommended
   depends_on "jasper" => :optional
-
-  # Fixes detection of CUPS 2.x by the configure script
-  # https://bugzilla.gnome.org/show_bug.cgi?id=767766
-  # Merged upstream, should be in the next release.
-  if MacOS.version >= :sierra
-    patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a1fccbb34751eabe52366b8bb68bcf56ae74517c/gtk%2B3/cups.patch"
-      sha256 "c1e8eb7ebf0fc75365bf76f1db11ac4ff347b9a568529b3051adaecca0573c81"
-    end
-  end
 
   def install
     ENV.universal_binary if build.universal?

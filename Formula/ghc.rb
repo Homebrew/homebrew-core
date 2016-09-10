@@ -6,7 +6,8 @@ class Ghc < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "e254aa7b16e741e5d89893a7df1213a2bd6981419b9b7ce522276b4de5c9744c" => :sierra
     sha256 "210f5b5e8d223cc58689289e651fc6f2a3a9276e08a97eb8b9e2ea73e37718c5" => :el_capitan
     sha256 "854bec85cc5fb00ea0b9dd22d260294f4d2927fcee962d2c3b6804765f012f52" => :yosemite
     sha256 "d7ac762642463f397ec2edb5cde43b6f573293474fd989ac7f49aaa1e0d8f25e" => :mavericks

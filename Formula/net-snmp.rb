@@ -5,11 +5,11 @@ class NetSnmp < Formula
   sha256 "12ef89613c7707dc96d13335f153c1921efc9d61d3708ef09f3fc4a7014fb4f0"
 
   bottle do
-    revision 2
-    sha256 "ba8f07af2296c2390fd6308eb3fd06850c1c70686bf1cb58738856bc3ed3c748" => :el_capitan
-    sha256 "92956eecd7dcaa9743527af24d68d52c772555c3f512f10d773aa6083a1e3290" => :yosemite
-    sha256 "3c045453d9c666ec873b90477b1efe10d5c8583994b65666e3d445eb2e5670c8" => :mavericks
-    sha256 "f2c4102f61ee8d6ad151bdbe6da97a5fc5127e84e7939f5e1672f81414a28873" => :mountain_lion
+    rebuild 3
+    sha256 "02542e6f3fd23d1833059c86563c961fc24a230a013e0887d3a2d50b42eb2887" => :sierra
+    sha256 "e3209635fdbb10b65e4c405c94e0ac05010be95bde728875fca399209ddee114" => :el_capitan
+    sha256 "1c11e18b727f83f3a736df297d492952867d7de129608b584555edf7c0d7aec6" => :yosemite
+    sha256 "ae16cd409d8bfac5bfc80135ad3d9ba1439b95c963e3e9ded30c4dc379c3ac33" => :mavericks
   end
 
   keg_only :provided_by_osx
@@ -25,11 +25,12 @@ class NetSnmp < Formula
       --with-defaults
       --with-persistent-directory=#{var}/db/net-snmp
       --with-logfile=#{var}/log/snmpd.log
-      --with-mib-modules=host ucd-snmp/diskio
+      --with-mib-modules=host\ ucd-snmp/diskio
       --without-rpm
       --without-kmem-usage
       --disable-embedded-perl
       --without-perl-modules
+      --with-openssl=#{Formula["openssl"].opt_prefix}
     ]
 
     if build.with? "python"

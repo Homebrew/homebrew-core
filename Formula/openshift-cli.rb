@@ -17,9 +17,9 @@ class OpenshiftCli < Formula
 
   devel do
     url "https://github.com/openshift/origin.git",
-      :tag => "v1.3.0-alpha.3",
-      :revision => "7998ae49782d89d17c78104d07a98d2aea704ae3"
-    version "1.3.0-alpha.3"
+      :tag => "v1.3.0-rc1",
+      :revision => "884520c98e75d0f96e679959b28caf17f0e7fa29"
+    version "1.3.0-rc1"
 
     depends_on "socat"
   end

@@ -6,9 +6,10 @@ class Peco < Formula
   head "https://github.com/peco/peco.git"
 
   bottle do
-    sha256 "a792f1c37977a4011ba7f656a60d16434473a7ee8d18f661e75f6ad10dfa9bc8" => :el_capitan
-    sha256 "6468459ed66044ff730875d1b09cb518faba8e96d2adb3d81d71cf5b121e1625" => :yosemite
-    sha256 "b69e050fa202829bb5d48579ecc1eb82c1602853f67e052974c8ac61e2ad9104" => :mavericks
+    rebuild 1
+    sha256 "a80123b65c81e70755903fb0a109b06ce5e0d2ad619b4bab969c911365cf92c6" => :el_capitan
+    sha256 "938603872016a305e2fe9ccb650768af638938a5536e0db598d7c54580158dd5" => :yosemite
+    sha256 "ec28524af8e8d33b4fcb16ca060600ce58d529f4b64b526affe350d886e2f1d3" => :mavericks
   end
 
   depends_on "glide" => :build
@@ -16,6 +17,7 @@ class Peco < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GLIDE_HOME"] = buildpath/"glide_home"
     (buildpath/"src/github.com/peco/peco").install buildpath.children
     cd "src/github.com/peco/peco" do
       system "glide", "install"

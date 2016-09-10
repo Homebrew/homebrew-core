@@ -6,15 +6,15 @@ class Postgresql < Formula
 
   bottle do
     rebuild 1
+    sha256 "fa725a3e3daab0d4492f80af6e702807fa9c26572f8b7eccc91c8ecb10a1dbc3" => :sierra
     sha256 "4817d42e9cad63ece2e612f3b8f16931b1cfcf014e024d1f23e87ac815721eed" => :el_capitan
     sha256 "a1deb24ef12f78a8e95114542823eda19ecbab38db1c8d72dd383f5f91a0ec6f" => :yosemite
     sha256 "8dea71ddee4c7c05f9a4321bf60dbfdc88df1c53c6c12031593855c928bc2c53" => :mavericks
   end
 
   devel do
-    url "https://ftp.postgresql.org/pub/source/v9.6beta4/postgresql-9.6beta4.tar.gz"
-    version "9.6beta4"
-    sha256 "6fb1bdade1754f3f29626e8e4cbf3f269e107e0d496ed07e8b693175afc44562"
+    url "https://ftp.postgresql.org/pub/source/v9.6rc1/postgresql-9.6rc1.tar.gz"
+    sha256 "a202c0bfba27f4dd612c01a4a4f6de1f5b42ada27471f8cb6a59df150cfe71c9"
   end
 
   option "32-bit"

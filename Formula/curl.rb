@@ -1,14 +1,15 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.haxx.se/"
-  url "https://curl.haxx.se/download/curl-7.50.1.tar.bz2"
-  sha256 "3c12c5f54ccaa1d40abc65d672107dcc75d3e1fcb38c267484334280096e5156"
+  url "https://curl.haxx.se/download/curl-7.50.2.tar.bz2"
+  sha256 "0c72105df4e9575d68bcf43aea1751056c1d29b1040df6194a49c5ac08f8e233"
 
   bottle do
     cellar :any
-    sha256 "b6ee94c7e795bde538eaac6c5753ecf29716fed4317b2a0f98f209f78c08a618" => :el_capitan
-    sha256 "cba9987b3b59cb8a7b82a305ebe567d01ab26556c6d1f709b43fb49991afeff9" => :yosemite
-    sha256 "30daa9d72cab7a751c84d857d19bfa8e8befcb93b94bb0449de73f2859a45e5c" => :mavericks
+    sha256 "a6ac43b2784751829846a90d1aff5f81f97e610d98459d6c06538c79b4fb63d3" => :sierra
+    sha256 "7f50eb29e123d907712ddad0c5687eeb0c6e4764ee425aa685a4d5d23034cf4a" => :el_capitan
+    sha256 "22aa76cad125659ac9e039cab8635aac6748deb41fed7a0197cb5395de0d8991" => :yosemite
+    sha256 "52324a7594019df072f438fe959a053ccf3b0c088dcbe57dda7f617ed718088c" => :mavericks
   end
 
   keg_only :provided_by_osx

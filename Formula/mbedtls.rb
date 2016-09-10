@@ -29,10 +29,11 @@ class Mbedtls < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e7017361efd47700212fc87e609bedd7a1cb00ed448ea7131048cb47e5d8681a" => :el_capitan
-    sha256 "7a7364b2aaeb02b9542f10f5ebb1907b31e692301aa61b40d8bf0aa617d63bc9" => :yosemite
-    sha256 "aa40b81cecc451a28e4599404f113f9591101cc5f6ab66d975e0de8c0c43d912" => :mavericks
+    cellar :any
+    rebuild 1
+    sha256 "56b22d0573e5f5c3d741f3474ce244c0c6b2ed090191510960df7e0f26fc108c" => :el_capitan
+    sha256 "0a93583a7e6e0d8f88329af3f284a37d7c388a9d0daae158f60125b67f36b234" => :yosemite
+    sha256 "187ff5694bdcec466cab8bd88b516d61e9d5b742a53214946dd534083738e300" => :mavericks
   end
 
   depends_on "cmake" => :build
@@ -47,7 +48,7 @@ class Mbedtls < Formula
       s.gsub! "//#define MBEDTLS_THREADING_C", "#define MBEDTLS_THREADING_C"
     end
 
-    system "cmake", *std_cmake_args
+    system "cmake", "-DUSE_SHARED_MBEDTLS_LIBRARY=On", *std_cmake_args
     system "make"
     system "make", "install"
 

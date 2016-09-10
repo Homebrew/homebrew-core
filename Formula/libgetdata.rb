@@ -1,14 +1,14 @@
 class Libgetdata < Formula
   desc "Reference implementation of the Dirfile Standards"
   homepage "http://getdata.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/getdata/getdata/0.9.3/getdata-0.9.3.tar.xz"
-  sha256 "1b3766c18f01cf097bff213bef4ba1f6c0913527d9dd2a217bd1a9647fe07b35"
+  url "https://downloads.sourceforge.net/project/getdata/getdata/0.9.4/getdata-0.9.4.tar.xz"
+  sha256 "4a26598f6051cf9a5f8c68fd2440584769265533a89e03690eceecae91a2334e"
 
   bottle do
     cellar :any
-    sha256 "ed19136a77b5c6cad977bdbf5bb5124d0b16515bc6906bc5b8d410cd5636c58a" => :el_capitan
-    sha256 "11a7ef0416a4df76d1408872961e8d96e9d40c2c6d814c45eddd0d80464c78df" => :yosemite
-    sha256 "f3181c8aab9763b649c26462b420839aed5c2241c60502a48842da8ed06c0926" => :mavericks
+    sha256 "d6116c4022879f1dc303bf31b9be3a5a7d7845e5fdd1d5d68047914578eaf22b" => :el_capitan
+    sha256 "8593fb78389ccfce38166737d9f45f20b2794994faaa0e93f8262547884d79d6" => :yosemite
+    sha256 "ba874af6ad662404f9840cf26a0bf11a78c600be4942fda0b2024340cc90ac4d" => :mavericks
   end
 
   option "with-fortran", "Build Fortran 77 bindings"

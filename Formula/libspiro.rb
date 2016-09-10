@@ -1,16 +1,15 @@
 class Libspiro < Formula
   desc "Library to simplify the drawing of curves"
   homepage "https://github.com/fontforge/libspiro"
-  url "https://downloads.sourceforge.net/project/libspiro/libspiro/20071029/libspiro_src-20071029.tar.bz2"
-  sha256 "1efeb1527bd48f8787281e8be1d0e8ff2e584d4c1994a0bc2f6859be2ffad4cf"
+  url "https://github.com/fontforge/libspiro/releases/download/0.5.20150702/libspiro-0.5.20150702.tar.gz"
+  sha256 "db1a48659ed3df05521829855b367ab27035c25db2d6a51b868c733b5abf9f7c"
+  version_scheme 1
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "b74aa7a260b965d0910c86eff34bb29268efe56d2050063ad21e5261b7767697" => :el_capitan
-    sha256 "bc389fbed945d055b3acac18eeee82d36e4d5174be1b5e42e9759ed09a74dde1" => :yosemite
-    sha256 "b7b9bc066871be5999c7c49fa400a3eafa985aefcf1362dd19370981c686db5a" => :mavericks
-    sha256 "49ffd6343c706612bfb641a756e31944ee7b712dd25198413150bfd383d907fd" => :mountain_lion
+    sha256 "ba2ac132368792d5715eb39a7b0e452fba5a222977ec30b9c5ff09728acfd0e0" => :el_capitan
+    sha256 "408083484eb78518514bd2613f019bd03ac94e791b8302721187eeaf5c775479" => :yosemite
+    sha256 "7bbae215d77ea9b5977f066b2fa646821933f5ed4cbc972e4c50fc5a1708725e" => :mavericks
   end
 
   head do
@@ -29,5 +28,32 @@ class Libspiro < Formula
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <spiroentrypoints.h>
+      #include <bezctx.h>
+
+      void moveto(bezctx *bc, double x, double y, int open) {}
+      void lineto(bezctx *bc, double x, double y) {}
+      void quadto(bezctx *bc, double x1, double y1, double x2, double y2) {}
+      void curveto(bezctx *bc, double x1, double y1, double x2, double y2, double x3, double t3) {}
+      void markknot(bezctx *bc, int knot) {}
+
+      int main() {
+        int done;
+        bezctx bc = {moveto, lineto, quadto, curveto, markknot};
+        spiro_cp path[] = {
+          {-100, 0, SPIRO_G4}, {0, 100, SPIRO_G4},
+          {100, 0, SPIRO_G4}, {0, -100, SPIRO_G4}
+        };
+
+        SpiroCPsToBezier1(path, sizeof(path)/sizeof(spiro_cp), 1, &bc, &done);
+        return done == 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lspiro", "-o", "test"
+    system "./test"
   end
 end

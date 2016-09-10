@@ -1,13 +1,13 @@
 class Gitg < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
-  url "https://download.gnome.org/sources/gitg/3.20/gitg-3.20.1.tar.xz"
-  sha256 "104420bcdd765fa2196a7b146ba1e0fa82a5686ed5ba9af40e31e88e601aa585"
+  url "https://download.gnome.org/sources/gitg/3.20/gitg-3.20.2.tar.xz"
+  sha256 "76cb421bbc5c1e57d4f58f9e63c7b77ed229cadc96c7de4296db60c46ee7d71b"
 
   bottle do
-    sha256 "97d3ba5dba74be435381bdcf8813a81d6ae52c8bdbb66fc903045f3cf08d99ad" => :el_capitan
-    sha256 "105441904cd1dcd3fad0d3614b0da321a43accc73e1b61e08693d1d31a02d2f3" => :yosemite
-    sha256 "77ad5922dcd60467be6bcd6323f682e23a38f22a912f43cc35d712677ba7efb2" => :mavericks
+    sha256 "ea9d472f80ac33025c64aae2d813fe34949f9fb8eb132e88b1815c265c15c883" => :el_capitan
+    sha256 "07cf70b19a77203d22a3953ed6ae2f91ccf20d6d4fc37cc47cb81717f4a5d806" => :yosemite
+    sha256 "4c0d9c4f42e1260df7f3dcc475c12db813fe864c1d4c4e6959f888d6da037870" => :mavericks
   end
 
   depends_on "pkg-config" => :build

@@ -69,17 +69,17 @@ class Algernon < Formula
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-      :revision => "5bcd134fee4dd1475da17714aac19c0aa0142e2f"
+        :revision => "5bcd134fee4dd1475da17714aac19c0aa0142e2f"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-      :revision => "c4c3ea71919de159c9e246d7be66deb7f0a39a58"
+        :revision => "c4c3ea71919de159c9e246d7be66deb7f0a39a58"
   end
 
   go_resource "golang.org/x/sys" do
     url "https://go.googlesource.com/sys.git",
-      :revision => "076b546753157f758b316e59bcb51e6807c04057"
+        :revision => "076b546753157f758b316e59bcb51e6807c04057"
   end
 
   def install

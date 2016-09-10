@@ -3,15 +3,15 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://mercurial-scm.org/release/mercurial-3.9.tar.gz"
-  sha256 "834f25dcff44994198fb8a7ba161a6e24204dbd63c8e6270577e06e6cedbdabc"
-  revision 1
+  url "https://mercurial-scm.org/release/mercurial-3.9.1.tar.gz"
+  sha256 "625e4fc7e85ec2278c2828bdc547fce74091b3bbe4d9eeeba2d61af51195df74"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f32d90b3412192134bf5e48c07e50130aaef677af2a2b3004c28e29ff713d37" => :el_capitan
-    sha256 "c0c0f949b11df8b62e8c3cbba6b17809a497df40e3bdcf7b8e44de35a0178442" => :yosemite
-    sha256 "ce8763d3a99538bc6bb5097e2d4f1894e54c31d6fe0a21b9ab31b0cdd14f19a3" => :mavericks
+    sha256 "08a7b1da5591b635591c396be1e82a9ebb01287e62ed20cfe23a7eb469999bc6" => :sierra
+    sha256 "7caf435412d9afedb8d3a0466ff42352ca48e9406416875204399bef083fc57f" => :el_capitan
+    sha256 "905f27516720fbbf6f9668ef1be96c51a54822c8f0485e1e106a8832646ce8d5" => :yosemite
+    sha256 "08f93cc3f6aaa7f46f42a3475c91eb07e634019fb397f7cb886c4f917a116d9e" => :mavericks
   end
 
   option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"

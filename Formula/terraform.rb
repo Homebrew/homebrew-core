@@ -3,15 +3,15 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.7.1.tar.gz"
-  sha256 "b6a6b5553755ebbf5362e8104eea801234c127831f5c12792a55fbbc8792ef1d"
+  url "https://github.com/hashicorp/terraform/archive/v0.7.3.tar.gz"
+  sha256 "dbbb755236af0ebd98ea892f12b0780731bab650583db3626129b9ec399352ce"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9f0e4d7336f6ebca000fc5a98cfe49ef819e5d70f797083b04172e6d26c46378" => :el_capitan
-    sha256 "1152b3771ff6b6976d758df9ff3bf8e44320d692955c27c357964db71296b911" => :yosemite
-    sha256 "b00d8a313c32ea91952acbea5c7820b8790f3ef58c688ad690e3b88b9fce801b" => :mavericks
+    sha256 "86e5d9046c2fb3d61d6da690890284098e4e93fc696debcca69c6f12e8fb25dc" => :el_capitan
+    sha256 "413255c2c05b6e9db6abc1a8551be51942adef314eafcdc8742b0ad0aec480df" => :yosemite
+    sha256 "345117ece6408a1696cfe128bee2010cfeaf67e274f7661d74b52387d2c30598" => :mavericks
   end
 
   depends_on "go" => :build
@@ -28,7 +28,8 @@ class Terraform < Formula
   end
 
   go_resource "golang.org/x/tools" do
-    url "https://go.googlesource.com/tools.git", :revision => "977844c7af2aa555048a19d28e9fe6c392e7b8e9"
+    url "https://go.googlesource.com/tools.git",
+        :revision => "977844c7af2aa555048a19d28e9fe6c392e7b8e9"
   end
 
   def install
@@ -47,7 +48,7 @@ class Terraform < Formula
     end
 
     cd "src/golang.org/x/tools/cmd/stringer" do
-      system "go", "build"
+      ENV.deparallelize { system "go", "build" }
       buildpath.install "stringer"
     end
 

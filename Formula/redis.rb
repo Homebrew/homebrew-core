@@ -7,6 +7,7 @@ class Redis < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "24cc251b428679a5786e9ffd7a225e93bf35679fdf5dc6be479600ea3229bfde" => :sierra
     sha256 "aa9597cf1c64ad6e29611cb7308a8087de29e629bdaa7694493cc24603001cab" => :el_capitan
     sha256 "6128c1cdd1b70bd8353f38d563a5b408cf34f15250c80cec02209f48ef6571d2" => :yosemite
     sha256 "745783c971c50f087bd29c1d48fdc2656c9a9a05182b6abc3342f0ef8218049e" => :mavericks

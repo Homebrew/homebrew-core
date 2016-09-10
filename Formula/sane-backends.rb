@@ -1,6 +1,8 @@
 class SaneBackends < Formula
   desc "Backends for scanner access"
   homepage "http://www.sane-project.org/"
+  revision 1
+
   head "https://anonscm.debian.org/cgit/sane/sane-backends.git"
 
   stable do
@@ -17,9 +19,10 @@ class SaneBackends < Formula
   end
 
   bottle do
-    sha256 "c364f8df292faa1eee687c1fb5a5dafff7268848c152a633d5b8a859fb992162" => :el_capitan
-    sha256 "35efb94cba3d127913248037e2096641d050fda4bf268fcb41fc38c5f55c026f" => :yosemite
-    sha256 "939b4e1c1547ba0ccd218b09bbe3e763bc03e9b4471d9bed7ee3179c90d0e94f" => :mavericks
+    sha256 "9ae23943f94606cef5b487b13316de6315b1902649c4b727a1e2fcb3b7cff6f0" => :sierra
+    sha256 "69f378b3f6de3b875e1a1faa732f1ed42a7c76e79f47f0e4b642691f3a166140" => :el_capitan
+    sha256 "3eb8383ea5af581ae71a5179432c0d654f2001922f7cbd747d2e5e15165eaf2f" => :yosemite
+    sha256 "37f8e076bdddbdc868076456c308d21fbbef40ab647297f69bf5ca4b88a07688" => :mavericks
   end
 
   option :universal
@@ -28,6 +31,7 @@ class SaneBackends < Formula
   depends_on "libtiff"
   depends_on "libusb-compat"
   depends_on "openssl"
+  depends_on "net-snmp"
 
   def install
     ENV.universal_binary if build.universal?

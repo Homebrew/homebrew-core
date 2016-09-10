@@ -5,15 +5,14 @@ class Darcs < Formula
 
   desc "Distributed version control system that tracks changes, via Haskell"
   homepage "http://darcs.net/"
-  url "https://hackage.haskell.org/package/darcs-2.12.0/darcs-2.12.0.tar.gz"
-  sha256 "17318d1b49ca4b1aa00a4bffc2ab30a448e7440ce1945eed9bf382d77582308d"
+  url "https://hackage.haskell.org/package/darcs-2.12.2/darcs-2.12.2.tar.gz"
+  sha256 "20b2eb292854c89036bae74330e71f1f3b253a369610916ddcc44f0d49f38bdd"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "8d744eaa804cf2e9ce405fcd3ab29db59ef9f6286556cc6220fcd63c0e3182a3" => :el_capitan
-    sha256 "d160df6cfb19fcced554784555e317689591156a1b5298cab20d03bb6f378f6e" => :yosemite
-    sha256 "c37bcbefd62e023c1c9f5b07c91c4f34a3ad346945bdcc5b758b1eeea4cefeec" => :mavericks
+    sha256 "81ca8d26e8fc3da1c38974f959caf1f869d30f10c32972c53ffa87cf8f68ecc9" => :el_capitan
+    sha256 "44e258f918e16f65b6670c0f350b8efd933533bfb6c6669cb5a7a22b0d354f19" => :yosemite
+    sha256 "75efc3d25ecb688b9ded8cecc712ac2d85cd2dfef0bb98f99425bb8262d88c6f" => :mavericks
   end
 
   depends_on "ghc" => :build
@@ -21,14 +20,6 @@ class Darcs < Formula
   depends_on "gmp"
 
   def install
-    # GHC 8 compat
-    # Fixes the build error:
-    #   checking whether to use -liconv...
-    #   dist/dist-sandbox-296ea86f/setup/setup.hs:149:15-41: Irrefutable pattern
-    #   failed for pattern Just lib
-    # Reported 26 May 2016: http://bugs.darcs.net/issue2498
-    (buildpath/"cabal.config").write("allow-newer: base\n")
-
     install_cabal_package
   end
 

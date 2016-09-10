@@ -1,14 +1,14 @@
 class Libvpx < Formula
   desc "VP8 video codec"
   homepage "https://www.webmproject.org/code/"
-  url "https://github.com/webmproject/libvpx/archive/v1.5.0.tar.gz"
-  sha256 "f199b03b67042e8d94a3ae8bc841fb82b6a8430bdf3965aeeaafe8245bcfa699"
+  url "https://github.com/webmproject/libvpx/archive/v1.6.0.tar.gz"
+  sha256 "e2fc00c9f60c76f91a1cde16a2356e33a45b76a5a5a1370df65fd57052a4994a"
   head "https://chromium.googlesource.com/webm/libvpx", :using => :git
 
   bottle do
-    sha256 "662f6f2cb3fab1a9fa74ecd100a9266d86d10a60e179a11b0c80594f4bd7e347" => :el_capitan
-    sha256 "0209b85c32d4c08e23db9afa56bd4c9c0535ebbd1af1f36488b6e34ec1d6e8a1" => :yosemite
-    sha256 "423d1ecee05d00a68d04e390d368c0a03f1597a28d02793cdad3c1219abf4a03" => :mavericks
+    sha256 "4027dc0598de4c1d78bb1a917f90a892dcb41fa0806db41b57205d3e20d2424c" => :el_capitan
+    sha256 "3e13f428741842f512cb0cad523fd5816c7b4badae49d1af5a2698ef24077ef7" => :yosemite
+    sha256 "44e4a3450e6af4894c51924fd01c04efceb3d9c42bc4064d414c5d4979c24eef" => :mavericks
   end
 
   option "with-gcov", "Enable code coverage"

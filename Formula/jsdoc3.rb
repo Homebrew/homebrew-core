@@ -3,15 +3,15 @@ require "language/node"
 class Jsdoc3 < Formula
   desc "API documentation generator for JavaScript"
   homepage "http://usejsdoc.org/"
-  url "https://registry.npmjs.org/jsdoc/-/jsdoc-3.4.0.tgz"
-  sha256 "5c6955f86b67a5ecc5eaf71d7dd064f5b4ab94170f66caa27845f5594eb5cc56"
+  url "https://registry.npmjs.org/jsdoc/-/jsdoc-3.4.1.tgz"
+  sha256 "44819ae4e92b8a1f38b131c57fb3b2b350746ec6c04c5be2e60fed5a9d373af7"
   head "https://github.com/jsdoc3/jsdoc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b153f7f1756d030ec0c828263105e48439d36c03d10c18829ed930930c147d66" => :el_capitan
-    sha256 "e4cd5aee8f5e9451c4ad669669be37eda5f9c2a0c6ea0016638c93e72aa33af4" => :yosemite
-    sha256 "addfa44f0f0b6a77fd345a6ebc1b0737c23567cc17ec81216584402b4d73e4b7" => :mavericks
+    sha256 "601e03f9cbfe83dfbae0b63b6fa4a2a0d8ded62a8b3f019a2852e47fd957b79f" => :el_capitan
+    sha256 "adceb946ab836b50f6316963275309abb54c3be6b7eb9e1aac7c964b068a66f8" => :yosemite
+    sha256 "9c71b6167ef567af5d40f301539f1789f483f761821868e75eb01d3d2927d470" => :mavericks
   end
 
   depends_on "node"
