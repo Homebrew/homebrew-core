@@ -75,6 +75,7 @@ class Bash < Formula
   end
 
   bottle do
+    sha256 "afc8d35182c477f6d7dfdb5c6cb66280f4e365f957458eb0e14b94d84d5f1249" => :sierra
     sha256 "d2b6fc817178545e78be78a4eadf69a9d40b559b5246f4d850de0f69a0f3c79e" => :el_capitan
     sha256 "2cbb5cf87a3da713347934fd1c64ad33a4c4bf293e72bec482ec32ffed73f52e" => :yosemite
     sha256 "d8e78e912e10db0bf717c5958da825e5f01b2c80a80a41cb8cd2dbc14c0a2242" => :mavericks
