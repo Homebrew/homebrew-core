@@ -10,7 +10,8 @@ class Giflib < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "ec490b9508f82db67963575a91a8079ea0a3f05a65aae0ac12e0efe6005f56e1" => :sierra
     sha256 "2abbeb99b0dec772fa020ec4cecd0df512813a223ab3e32bc760180367af4138" => :el_capitan
     sha256 "3180706f4a94e7ede8c66299474ada34165b2947c262316186e424b1b9d25aba" => :yosemite
     sha256 "74316a4dd9b94ca052b6f784c9764764d0b24dd8dc1f3f29b5681a374989979a" => :mavericks
