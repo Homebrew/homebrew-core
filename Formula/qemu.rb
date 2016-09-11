@@ -49,14 +49,15 @@ class Qemu < Formula
       --disable-guest-agent
     ]
 
-    # Cocoa and SDL UIs cannot both be enabled at once.
-    if build.with? "sdl"
-      args << "--enable-sdl" << "--disable-cocoa"
+    # Cocoa and SDL/GTK+ UIs cannot both be enabled at once.
+    if build.with?("sdl") || build.with?("gtk+")
+      args << "--disable-cocoa"
     else
-      args << "--enable-cocoa" << "--disable-sdl"
+      args << "--enable-cocoa"
     end
 
     args << (build.with?("vde") ? "--enable-vde" : "--disable-vde")
+    args << (build.with?("sdl") ? "--enable-sdl" : "--disable-sdl")
     args << (build.with?("gtk+") ? "--enable-gtk" : "--disable-gtk")
     args << (build.with?("libssh2") ? "--enable-libssh2" : "--disable-libssh2")
 
