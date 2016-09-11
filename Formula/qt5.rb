@@ -53,7 +53,7 @@ class Qt5 < Formula
   option "with-docs", "Build documentation"
   option "with-examples", "Build examples"
   option "with-oci", "Build with Oracle OCI plugin"
-
+  option "with-qtwebkit", "Build with QtWebkit module"
   option "without-webengine", "Build without QtWebEngine module"
 
   deprecated_option "qtdbus" => "with-dbus"
@@ -70,6 +70,12 @@ class Qt5 < Formula
   depends_on :xcode => :build
 
   depends_on OracleHomeVarRequirement if build.with? "oci"
+
+  resource "qt-webkit" do
+    # http://lists.qt-project.org/pipermail/development/2016-March/025358.html
+    url "https://download.qt.io/community_releases/5.6/5.6.1/qtwebkit-opensource-src-5.6.1.tar.gz"
+    sha256 "f5ba5afc5846fc755575dd04081a90a9536f920e312f18f6fb1f5a0c33f477b0"
+  end
 
   def install
     args = %W[
@@ -109,6 +115,11 @@ class Qt5 < Formula
     end
 
     args << "-skip" << "qtwebengine" if build.without? "webengine"
+
+    if build.with? "qtwebkit"
+      (buildpath/"qtwebkit").install resource("qt-webkit")
+      inreplace ".gitmodules", /.*status = obsolete\n((\s*)project = WebKit\.pro)/, "\\1\n\\2initrepo = true"
+    end
 
     system "./configure", *args
     system "make"
