@@ -7,6 +7,7 @@ class Gnupg < Formula
 
   bottle do
     rebuild 1
+    sha256 "969a47bf31fd6c3832bf42201165037a121570f60497c7ba40042080a994db9d" => :sierra
     sha256 "09ced5d5d38c4c517123e82f7c533ef55b1888498a0f355d70b24636dbe452e7" => :el_capitan
     sha256 "87b9e6e02558be92528772c762db0f7e2dc8b9d275dd23d7a498210535109bce" => :yosemite
     sha256 "f1521ac3df05904c32bdd52173f44d129e565edabdd935515519a087498575c4" => :mavericks
