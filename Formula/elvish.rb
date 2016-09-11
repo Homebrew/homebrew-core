@@ -7,6 +7,13 @@ class Elvish < Formula
   sha256 "83d463667055f38367302921e8d87c274ae71fc777f6ffb176dad96e875378e8"
   head "https://github.com/elves/elvish.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6fb11ca99a3e97bd042b7b560a7579795c49c2186578e6eef12c81b3560af3aa" => :el_capitan
+    sha256 "0c11cb7e7a4adab892b2aaa94639aac35e9be7a48bba45e69e6354c3da470b49" => :yosemite
+    sha256 "c252a2f6485139885943487e40baf406609943f26959b85037aa1cc8b8f7b959" => :mavericks
+  end
+
   depends_on "go" => :build
 
   go_resource "github.com/elves/getopt" do
