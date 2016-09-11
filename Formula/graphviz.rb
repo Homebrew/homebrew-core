@@ -6,7 +6,8 @@ class Graphviz < Formula
   sha256 "81aa238d9d4a010afa73a9d2a704fc3221c731e1e06577c2ab3496bdef67859e"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "d09daeb9766359bead2bef8b9f3cc83eda78a381e4c607e2552f06516624bc9f" => :sierra
     sha256 "cf69eac548a5c02aacc966706fc4a922176059414fbe453680aae4552fc019dc" => :el_capitan
     sha256 "6817a366691db684f2910dfbc7e20253915f82848ae09ef474a50ac67bf10582" => :yosemite
     sha256 "4361c01b46dc6061694e5f5a58c326efedad66ddeb7e1b063e53ff5ebb995d8a" => :mavericks
