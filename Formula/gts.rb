@@ -6,6 +6,7 @@ class Gts < Formula
 
   bottle do
     cellar :any
+    sha256 "00e18cd7e72fe3d9c2dbb4610d1bb6c2a7653b8831bd3b4b15dd8c2736ee62db" => :sierra
     sha256 "c958735937a398843e9a2b2cc1a1b9bc5305834de4257f1715a12dcc84b25f75" => :el_capitan
     sha256 "1c6b31293f1db0384813fc935d0e9649e41fd46440363caf32da363d27328fd7" => :yosemite
     sha256 "b6e2ce541c5b4b46076843076c6842723a896afa36619cfab8155194795c9817" => :mavericks
