@@ -6,8 +6,9 @@ class Automake < Formula
   sha256 "9908c75aabd49d13661d6dcb1bc382252d22cc77bf733a2d55e87f2aa2db8636"
 
   bottle do
-    cellar :any
-    revision 2
+    cellar :any_skip_relocation
+    rebuild 2
+    sha256 "d5af56f4ded965d47d571de0b07f3b2da35b2a8cfeebc8b7dcc9f93e1ec90dd2" => :sierra
     sha256 "70a763221d2bb9baaf630f2170224c915ca96a9966fbb1d86781c8743740bb7b" => :el_capitan
     sha256 "d8e4773130e25ff576a0c7d18b4d010b1e03eba90b0074e1ac749fdf3bc13e26" => :yosemite
     sha256 "69c1635672fa682a40949572e64fe3495055e97ad2c105dd46fb2e447d0d65a8" => :mavericks
