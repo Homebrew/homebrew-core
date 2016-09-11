@@ -1,7 +1,7 @@
 class Fping < Formula
   desc "Scriptable ping program for checking if multiple hosts are up"
-  homepage "http://fping.org/"
-  url "http://fping.org/dist/fping-3.13.tar.gz"
+  homepage "https://fping.org/"
+  url "https://fping.org/dist/fping-3.13.tar.gz"
   mirror "https://mirrors.kernel.org/debian/pool/main/f/fping/fping_3.13.orig.tar.gz"
   sha256 "4bb28efd1cb3d1240ae551dadc20daa852b1ba71bafe32e49ca629c1848e5720"
 
