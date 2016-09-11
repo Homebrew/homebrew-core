@@ -1,10 +1,10 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
-  homepage "http://www.zsh.org/"
+  homepage "https://www.zsh.org/"
 
   stable do
     url "https://downloads.sourceforge.net/project/zsh/zsh/5.2/zsh-5.2.tar.gz"
-    mirror "http://www.zsh.org/pub/zsh-5.2.tar.gz"
+    mirror "https://www.zsh.org/pub/zsh-5.2.tar.gz"
     sha256 "fa924c534c6633c219dcffdcd7da9399dabfb63347f88ce6ddcd5bb441215937"
 
     # We cannot build HTML doc on HEAD, because yodl which is required for
