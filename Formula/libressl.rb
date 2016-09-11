@@ -3,6 +3,7 @@ class Libressl < Formula
   homepage "http://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
   url "http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.2.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.4.2.tar.gz"
   sha256 "5f87d778e5d62822d60e38fa9621c1c5648fc559d198ba314bd9d89cbf67d9e3"
 
   bottle do
