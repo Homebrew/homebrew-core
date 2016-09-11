@@ -7,6 +7,7 @@ class Mpv < Formula
 
   bottle do
     rebuild 1
+    sha256 "7860cc7b7ca8b8e308d46b242baff6a5d85641e35e654ccfe6e62dfb560d3979" => :sierra
     sha256 "89cda2b8a94622ab29c52ba903ad84164a5ac5c0d212e9ebe22e23f0093b568d" => :el_capitan
     sha256 "556f02d539e927f559e33ceb25436b930bebcfd775e7203062d405e806ae6db9" => :yosemite
     sha256 "96173d039e1ae0329d24a628c8775b02f2c7791190015c650b021d611046d1b7" => :mavericks
