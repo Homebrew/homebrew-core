@@ -34,7 +34,7 @@ class MysqlCluster < Formula
 
   fails_with :clang do
     build 500
-    cause "http://article.gmane.org/gmane.comp.db.mysql.cluster/2085"
+    cause "https://article.gmane.org/gmane.comp.db.mysql.cluster/2085"
   end
 
   def install
