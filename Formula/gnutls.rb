@@ -40,7 +40,7 @@ class Gnutls < Formula
 
     if build.with? "guile"
       args << "--enable-guile"
-      args << "--with-guile-site-dir=no"
+      args << "--with-guile-site-dir=#{share}/guile/site"
     end
 
     system "./configure", *args
