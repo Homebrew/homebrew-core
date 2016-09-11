@@ -4,6 +4,11 @@ class Hashcat < Formula
   url "https://hashcat.net/files/hashcat-3.10.tar.gz"
   sha256 "3b555e5f7b35ab6a4558bc460f28d80b32f5a211bf9e08d6a1ba1bad5203e3e9"
 
+  bottle do
+    sha256 "8b949ce43ea720d7556ab6bea03193c9b7d680e5139fe813192330d2b9b6138a" => :el_capitan
+    sha256 "779e7022d29291278cff532258596b74586a134d64819869854d3f5cb333ee50" => :yosemite
+  end
+
   depends_on "gnu-sed" => :build
 
   # Upstream could not fix OpenCL issue on Mavericks.
