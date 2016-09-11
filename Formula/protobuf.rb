@@ -6,6 +6,7 @@ class Protobuf < Formula
   head "https://github.com/google/protobuf.git"
 
   bottle do
+    sha256 "12622b355f2f487ce7bad94d23fda69f1137a59f61a61d9b2839b64033f42334" => :sierra
     sha256 "6e4be33dfd56f5a1434bd0922e5b488031cfc5d6ce599812034d3c1b855c4fe1" => :el_capitan
     sha256 "a465fe01de58cb9c69d7643a446906fb055d21965e2f2aa3d44358ed38ce2c95" => :yosemite
     sha256 "c3658cb510da1f506c400620877174e972ed2b99b99d47a63754c6ef4556094b" => :mavericks
