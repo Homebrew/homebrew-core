@@ -20,6 +20,14 @@ class Ykclient < Formula
     depends_on "libtool" => :build
   end
 
+  head do
+    url "https://github.com/Yubico/yubico-c-client.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   option :universal
 
   depends_on "pkg-config" => :build
