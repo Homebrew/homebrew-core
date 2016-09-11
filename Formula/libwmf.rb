@@ -6,7 +6,8 @@ class Libwmf < Formula
   revision 1
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "3b826d150b7a971d650454d6a82ad09ee2e1c9b9d1b19dda16d5d6e5023f4691" => :sierra
     sha256 "a062ace9cbca36cd99122a6389b80a431326de7ef362dc860c74b500ed35e64c" => :el_capitan
     sha256 "70682294445c1eb98008ffb13264be37f793c507aada2cdc108fcd8cd94ac97d" => :yosemite
     sha256 "b39df9b3664b7c4e747e1c931628d8bf11b5ad43ecfda5986399e12fdacb1508" => :mavericks
