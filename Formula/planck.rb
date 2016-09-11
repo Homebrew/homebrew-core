@@ -22,6 +22,6 @@ class Planck < Formula
   end
 
   test do
-    system "#{bin}/planck", "-e", "(- 1 1)"
+    assert_equal "0", shell_output("#{bin}/planck -e '(- 1 1)'").chomp
   end
 end
