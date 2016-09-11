@@ -8,6 +8,7 @@ class Openjpeg < Formula
 
   bottle do
     cellar :any
+    sha256 "122ab9fabda5d8fea4e04d36a4cf9868f3fdae78352e5a4cf9017a81eb7be0ec" => :sierra
     sha256 "2a9fa62441976f313c8bf85cd5f60bcdf0f4c1e61226bd7567cbf6277fa803f6" => :el_capitan
     sha256 "1dc66731ba58e187466506222f2959263e3940e003c013c1ccdf8d4d05895c65" => :yosemite
     sha256 "a1d280c45e2204cfd6236d465671fcfc0256ea971aefa1b6e0f3f65ffe7ad073" => :mavericks
