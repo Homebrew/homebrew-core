@@ -1,8 +1,8 @@
 class FormatUdf < Formula
   desc "Bash script to format a block device to UDF"
   homepage "https://github.com/JElchison/format-udf"
-  url "https://github.com/JElchison/format-udf/archive/1.4.0.tar.gz"
-  sha256 "41f259471fce19b8b716ff73498cd9e6864ffebc3855ffb5be5d763f5397d765"
+  url "https://github.com/JElchison/format-udf/archive/1.4.1.tar.gz"
+  sha256 "ed17380185e7fe7f08ac5ad9c6c2bcf63026b924ca57fc8ab5ac1a36bb45a992"
 
   bottle :unneeded
 
