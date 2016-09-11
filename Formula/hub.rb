@@ -8,6 +8,7 @@ class Hub < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8ae441e39a1e21cd385233f9f4222fcb5f61b30c4e77a1cdb638e0dcf5e3f918" => :sierra
     sha256 "55f17ae15b11ebff7ff57a934475f0fd7b9e9cf2619db8a93190575da12f5552" => :el_capitan
     sha256 "d79daee351b63fd6a1280d91f27c9420c7a5f5d15adf5cbb199e75fcecb455fa" => :yosemite
     sha256 "82d6b6d0fb1c26bb3e2057c12cb826ab151c83114dd173c5058566aa5f6eda11" => :mavericks
