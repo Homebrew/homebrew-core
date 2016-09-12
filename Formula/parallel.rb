@@ -8,6 +8,7 @@ class Parallel < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "dfbd47a069df6fec320b56ce0246280a1338af106dfa7fe407801e5e07ad6af2" => :sierra
     sha256 "9b28e16fc1227835d55209cce6a21d4cd6e681316571463a5554481c43367b49" => :el_capitan
     sha256 "dfbd47a069df6fec320b56ce0246280a1338af106dfa7fe407801e5e07ad6af2" => :yosemite
     sha256 "dfbd47a069df6fec320b56ce0246280a1338af106dfa7fe407801e5e07ad6af2" => :mavericks
