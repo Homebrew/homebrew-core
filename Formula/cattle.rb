@@ -9,10 +9,9 @@ class Cattle < Formula
   head "https://github.com/andreabolognani/cattle.git"
 
   bottle do
-    sha256 "556dfc01fb018724e71f891bb7f6694330772a9f7d266483a2f51b18038744a9" => :el_capitan
-    sha256 "b646d326fa499931ae7ef731fa6fce4232239fce1d7f5b217b109ceafd784153" => :yosemite
-    sha256 "4778f55a4ac08e5bf3f9402a37a5c6d97747ee16425325fa3a7fcda69034429d" => :mavericks
-    sha256 "798aa25810d5dbfa2526cf0edf9117798b311c6ae6ce42b3a05c0bc90d087125" => :mountain_lion
+    sha256 "724e4f89fb7b7ea2f2f31594d036e5a8a4932d78374e1f08ab91b7d0ed2e37dc" => :el_capitan
+    sha256 "7c507fd0f0e3c175ad6c3ac6656e61195512cb88d25412ca7332748ac6872d25" => :yosemite
+    sha256 "93bea5bb1f99a9ec84a3ddc2bbe752cc9fd7627b6f099ac54fadc3150405749b" => :mavericks
   end
 
   depends_on "gtk-doc" => :build
