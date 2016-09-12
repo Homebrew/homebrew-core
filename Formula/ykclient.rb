@@ -27,8 +27,6 @@ class Ykclient < Formula
 
   def install
     ENV.universal_binary if build.universal?
-    # https://github.com/Yubico/yubico-c-client/issues/38
-    ENV.deparallelize if build.head?
 
     system "autoreconf", "-iv" if build.head?
     system "./configure", "--prefix=#{prefix}"
