@@ -18,4 +18,23 @@ class Ftjam < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    (testpath/"Jamfile").write <<-EOS.undent
+      Main ftjamtest : ftjamtest.c ;
+    EOS
+
+    (testpath/"ftjamtest.c").write <<-EOS.undent
+      #include <stdio.h>
+
+      int main(void)
+      {
+          printf("FtJam Test\\n");
+          return 0;
+      }
+    EOS
+
+    assert_match "Cc ftjamtest.o", shell_output(bin/"jam")
+    assert_equal "FtJam Test\n", shell_output("./ftjamtest")
+  end
 end
