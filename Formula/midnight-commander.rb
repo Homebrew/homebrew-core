@@ -8,7 +8,8 @@ class MidnightCommander < Formula
   head "https://github.com/MidnightCommander/mc.git"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "e43fedc65c05ea7c79de7e861370f3f69ede6b721db29dbc77bd50b5a8e64f57" => :sierra
     sha256 "645437aeeac3ee18c74bdc580550c9a6ef93411adebcd068f1c4061ef2a5a643" => :el_capitan
     sha256 "b7efc5f7d40b2d76a701add5f5dff35b8e6718f09fe749eb72d6258e5616ed0c" => :yosemite
     sha256 "2b6b3fee4eb893e62900a048b080dfafa2a1f029a04b4cb251d9f35487d52bb9" => :mavericks
