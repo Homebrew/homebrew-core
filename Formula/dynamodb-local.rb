@@ -67,4 +67,8 @@ class DynamodbLocal < Formula
     </plist>
     EOS
   end
+
+  test do
+    system "#{bin}/dynamodb-local", "-help"
+  end
 end
