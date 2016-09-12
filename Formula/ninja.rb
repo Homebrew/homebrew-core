@@ -7,6 +7,7 @@ class Ninja < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "633ea0f32cbd5e8a87e9884c309aa0c76d6407468013315520e64de136ab8c0e" => :sierra
     sha256 "bb3550493e570f24379007bfd6012eef1aaf82c739662f02aef0c907031326dc" => :el_capitan
     sha256 "6beefb141b4e39c64a9a42c59acef74c4010b31f67f0696d2e62fa454a959ae9" => :yosemite
     sha256 "3d9341568fbf3d01b5b851d9697623f818d86c425bdbfa7b69db1474fd611d5c" => :mavericks
