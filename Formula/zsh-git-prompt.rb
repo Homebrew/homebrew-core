@@ -19,7 +19,7 @@ class ZshGitPrompt < Formula
 
   test do
     system "git", "init"
-    assert_equal "(%{\e[01;35m%}master%{\e[00m%}|%{…%G%}%{\e[00m%}%{\e[00m%})",
-      shell_output("zsh -c '. #{opt_prefix}/zshrc.sh && git_super_status'").chomp
+    zsh_command = ". #{opt_prefix}/zshrc.sh && git_super_status"
+    assert_match "master", shell_output("zsh -c '#{zsh_command}'")
   end
 end
