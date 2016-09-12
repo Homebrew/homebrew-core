@@ -31,7 +31,7 @@ class Guile < Formula
     depends_on "gettext" => :build
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => :run # guile-config is a wrapper around pkg-config.
   depends_on "libtool" => :run
   depends_on "libffi"
   depends_on "libunistring"
