@@ -14,15 +14,16 @@ class VertX < Formula
 
   test do
     (testpath/"HelloWorld.java").write <<-EOS.undent
-    import io.vertx.core.AbstractVerticle;
-    public class HelloWorld extends AbstractVerticle {
-      public void start() {
-        System.out.println("Hello World!");
-        vertx.close();
-        System.exit(0);
+      import io.vertx.core.AbstractVerticle;
+      public class HelloWorld extends AbstractVerticle {
+        public void start() {
+          System.out.println("Hello World!");
+          vertx.close();
+          System.exit(0);
+        }
       }
-    }
     EOS
-    system "#{bin}/vertx", "run", "HelloWorld.java"
+    output = shell_output("#{bin}/vertx run HelloWorld.java")
+    assert_equal "Hello World!\n", output
   end
 end
