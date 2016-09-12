@@ -7,9 +7,9 @@ class Wireshark < Formula
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
-    sha256 "0a9f98451f8ba2d167c9e75692794e4eced5181ae61cf8db349e371ff0061bc2" => :el_capitan
-    sha256 "2f6c421f4f9e8aff005d0cf0dbfc3c68b2114189b85fda10d7461b151ac1fa9d" => :yosemite
-    sha256 "54e3add2e9631aa400bca0f06a9952dc16d620a2db3a21f1bb450e94c3f8f493" => :mavericks
+    sha256 "5e77ac492f7146ebff283f0b961acb9de635b2e7d6efe99dfc2cd4e93c5fbb74" => :el_capitan
+    sha256 "58a167ab8fbfac9ff1bb00308f69126e81a521d8f323fd32ebd40fab854edb92" => :yosemite
+    sha256 "3eddd00e09ebc603032ae4732b469bf4cee45bf3c90c99aa11292e989a6b7d7e" => :mavericks
   end
 
   option "with-gtk+3", "Build the wireshark command with gtk+3"
