@@ -1,10 +1,9 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.0.5.tar.bz2"
-  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.0.5.tar.bz2"
-  sha256 "0ce0241330828973f5b4efee422a3760cab8ce0b41e7721c4b9fd185be1bb10b"
-
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.2.0.tar.bz2"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.2.0.tar.bz2"
+  sha256 "a6847e741efcba6cb9d92d464d4219917bee3ad0b8f5b0f80d4388ad2f3f1104"
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
@@ -37,8 +36,8 @@ class Wireshark < Formula
   depends_on "gnome-icon-theme" if build.with? "gtk+3"
 
   resource "libpcap" do
-    url "http://www.tcpdump.org/release/libpcap-1.7.4.tar.gz"
-    sha256 "7ad3112187e88328b85e46dce7a9b949632af18ee74d97ffc3f2b41fe7f448b0"
+    url "http://www.tcpdump.org/release/libpcap-1.8.0.tar.gz"
+    sha256 "f47b51533f9f060afb304010ea5cbf51d032707333bca70c36351d255754659c"
   end
 
   def install
@@ -68,7 +67,7 @@ class Wireshark < Formula
 
     if build.with?("gtk+3") || build.with?("gtk+")
       args << "-DBUILD_wireshark_gtk=ON"
-      args << "-DENABLE_GTK3=" + ((build.with? "gtk+3") ? "ON" : "OFF")
+      args << "-DENABLE_GTK3=" + (build.with?("gtk+3") ? "ON" : "OFF")
       args << "-DENABLE_PORTAUDIO=ON" if build.with? "portaudio"
     else
       args << "-DBUILD_wireshark_gtk=OFF"
