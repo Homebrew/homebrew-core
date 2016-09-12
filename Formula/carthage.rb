@@ -9,6 +9,7 @@ class Carthage < Formula
 
   bottle do
     cellar :any
+    sha256 "703c724276c9718c43b36bb82be5ca80c406335046f27ea21309660bb6ea1a8f" => :sierra
     sha256 "1b8e4debf39fa7e5aff2244bcb61cb42f215ad4bc0f86f55db3e87ddc87d08b5" => :el_capitan
   end
 
