@@ -7,7 +7,8 @@ class Lynx < Formula
   revision 1
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "bea7cf10aa6df403d9c421ef1e91d7af9b07bb2c2c41b71a36e975ca6d4b9bc2" => :sierra
     sha256 "1b0f14f892c930a2140a853edd308edc7545b0e2baa1637e77b925209476fe96" => :el_capitan
     sha256 "41ddd45e917af411f20cebf679459490cb412a1f94b662a7f1e9f8cc9f9f394f" => :mavericks
     sha256 "a12c691f38002046a7a71c84df76f0f70e95c92a879663e50793dde1611c4834" => :mountain_lion
