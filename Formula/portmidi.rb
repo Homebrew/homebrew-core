@@ -6,7 +6,8 @@ class Portmidi < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "0753ebe02a1713ebc6d090cec9be0bb3c01cf4fec430aa6eabe63b483f954e7f" => :sierra
     sha256 "5320b13b677108342e5153f86f3472a5dc988cd616e804bbe20ea19a237602b0" => :el_capitan
     sha256 "091871a9be11e7af35cd455bb55e8020ce911ac768ac0569fa489d7b34fd715e" => :yosemite
     sha256 "c950ba2eed6221f1734ab05fe44c263eedbabd7510bec2de3333c61984bfb87c" => :mavericks
