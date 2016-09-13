@@ -6,6 +6,12 @@ class Shyaml < Formula
   url "https://files.pythonhosted.org/packages/67/70/1133a5817bc62ff4e7ceee59edb95d127092db9385cc7cda5fcac93c494a/shyaml-0.4.1.tar.gz"
   sha256 "a1535c25bf0058563e03ea8cbad8c4dc755ed231e6a9f3f584982994f19eae59"
 
+  bottle do
+    sha256 "e90c127080c7b5d63ff8e1c0939502070ca5a69f02ac437432942c80b0bec97c" => :el_capitan
+    sha256 "05f1e275abab2520255b419a85353ca07fcce797e4ba53de01d98a8f35acface" => :yosemite
+    sha256 "3e06b5bf4687abd85598096d0977f43b49d78ba74ebad4aeb3fefc8eb85e23dd" => :mavericks
+  end
+
   depends_on :python3
 
   resource "PyYAML" do
