@@ -5,7 +5,8 @@ class Flex < Formula
   sha256 "2c7a412c1640e094cb058d9b2fe39d450186e09574bebb7aa28f783e3799103f"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "ef2445631f180459f022f25e199a1d1ef3aff14adf597ff089c86d15c19adc45" => :sierra
     sha256 "b9f97a19146f3086b4084e83c91c30329b3536fc3032687de724f8408c2e2e3b" => :el_capitan
     sha256 "36715dd9edb6e16caf33e1d5e6b87447da1bd40fb49325e18d7269bc162bad81" => :yosemite
     sha256 "0a322eea192fb9b68e869d180c9c7c0ec099d72c574505c8af1ba5485a601e95" => :mavericks
