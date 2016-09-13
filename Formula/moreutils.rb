@@ -8,6 +8,7 @@ class Moreutils < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ae130c5fa715e6c9cf338201f5318f58bfa98910b67b26bcf4f68a247dc36083" => :sierra
     sha256 "b9865588c4d434d5e35d19cdf2b39b36031d6b6cd77835e182fd5e76fa7cba48" => :el_capitan
     sha256 "b39209ebca05c0aa733dbf01c615be42db78f9438431e82df52f7f3914c9788a" => :yosemite
     sha256 "512b618f6a652f673485616677c6207a8645a3dcfe98b619787e58c3cb5a5811" => :mavericks
