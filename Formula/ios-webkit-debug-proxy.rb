@@ -1,8 +1,8 @@
 class IosWebkitDebugProxy < Formula
   desc "DevTools proxy for iOS devices"
   homepage "https://github.com/google/ios-webkit-debug-proxy"
-  url "https://github.com/google/ios-webkit-debug-proxy/archive/1.6.tar.gz"
-  sha256 "92f45cfb26acf51e86c37f00a00292f7ac78cc4abe8cf094c3eb176d7e7c603d"
+  url "https://github.com/google/ios-webkit-debug-proxy/archive/1.7.tar.gz"
+  sha256 "e4f86d926a93b25672d4337af9c3549896125c7f345bb1d98eb3dca7da12c123"
 
   bottle do
     cellar :any
@@ -22,8 +22,7 @@ class IosWebkitDebugProxy < Formula
 
   def install
     system "./autogen.sh"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
 end
