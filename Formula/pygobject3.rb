@@ -7,6 +7,7 @@ class Pygobject3 < Formula
 
   bottle do
     cellar :any
+    sha256 "a692ad183982ec8bb0474b1c1505d9db1e23ecb9d3d5eaa71c97a6953ae158ab" => :sierra
     sha256 "548357d70cfa8b7392e118d447cda25a89e9aa4ba49ee6f7b8f60fb119b84a3d" => :el_capitan
     sha256 "ac9f149c4d46f9530123fad0132ac7e1edf146d1d4806ba8a7673753f846ebc5" => :yosemite
     sha256 "84ef031a8bfb645bc51f4bc327695271121f382981e88dd90f33d8e8ed56ef61" => :mavericks
