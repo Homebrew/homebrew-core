@@ -6,6 +6,7 @@ class Libgit2 < Formula
   head "https://github.com/libgit2/libgit2.git"
 
   bottle do
+    sha256 "5edc114bf73497bfcbf99604396ab221164f0b697286710dce9c47bab17deb84" => :sierra
     sha256 "e0163bb10778e218f79d9b2f6e23684c21718dc32ff83b02987537b2c220d590" => :el_capitan
     sha256 "5a4960a681598dfd3c9ba0973c5cdcb338dc1ba28a7794972f423f3428c15265" => :yosemite
     sha256 "b570c202f7a2438b98cbcda66ba36c57026e47623d74ca5ba4cb728b7660e9a5" => :mavericks
