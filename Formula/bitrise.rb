@@ -1,8 +1,8 @@
 class Bitrise < Formula
   desc "Command-line automation tool"
   homepage "https://github.com/bitrise-io/bitrise"
-  url "https://github.com/bitrise-io/bitrise/archive/1.3.7.tar.gz"
-  sha256 "5695c81f795ec46ee1dfa7fd8a895a1bb8dfe087748a9da7b4b2c8d877323a45"
+  url "https://github.com/bitrise-io/bitrise/archive/1.4.0.tar.gz"
+  sha256 "4d36c9f2045d1d9971a69a29434318ba2b9f8244b7e7efc46e51d6bbcc97803d"
 
   bottle do
     cellar :any_skip_relocation
@@ -30,7 +30,7 @@ class Bitrise < Formula
 
   test do
     (testpath/"bitrise.yml").write <<-EOS.undent
-      format_version: 1.1.0
+      format_version: 1.3.0
       default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
       workflows:
         test_wf:
@@ -40,9 +40,7 @@ class Bitrise < Formula
               - content: printf 'Test - OK' > brew.test.file
     EOS
 
-    # setup
     system "#{bin}/bitrise", "setup"
-    # run the defined test_wf workflow
     system "#{bin}/bitrise", "run", "test_wf"
     assert_equal "Test - OK", (testpath/"brew.test.file").read.chomp
   end
