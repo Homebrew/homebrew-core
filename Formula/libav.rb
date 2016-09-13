@@ -8,7 +8,8 @@ class Libav < Formula
   head "https://git.libav.org/libav.git"
 
   bottle do
-    revision 2
+    rebuild 2
+    sha256 "b3b916804a42c996598c33627ab166a681c92af4ba677fd86687396acc558d7d" => :sierra
     sha256 "f41e5ed8a78b009840ec98856232e96e00678ca6fde3574fe1a719a1404b2476" => :el_capitan
     sha256 "00b6a0a42c76720a045c0f3b54da9174c5883fb661450dd0db1af43ce85cdaca" => :yosemite
     sha256 "d56f9c532f3debf0ade3e58a676c330c3041643b9a8871ca6ef8e6c517e95a18" => :mavericks
