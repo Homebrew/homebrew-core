@@ -41,8 +41,7 @@ class Chromedriver < Formula
 
   test do
     driver = fork do
-      exec bin/"chromedriver",
-             "--port=9999", "--log-path=#{testpath}/cd.log"
+      exec bin/"chromedriver", "--port=9999", "--log-path=#{testpath}/cd.log"
     end
     sleep 5
     Process.kill("TERM", driver)
