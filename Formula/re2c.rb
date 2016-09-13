@@ -6,6 +6,7 @@ class Re2c < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bdda8bd3568148abe05396fc5805442e07648ffe1348d2a391979bfa6515a405" => :sierra
     sha256 "9a548a61d9336f1496572cdeb0e878bdbafb5b37c15e7228a2484964fff9337c" => :el_capitan
     sha256 "04878ac4a2996470f040650a7c5f5890df785c97f392c82193c0250d5e9efea9" => :yosemite
     sha256 "0a20c12bf55cf36c11a3dc65a9a7dafd3028af79e560ab674556f0ee7e2c37df" => :mavericks
