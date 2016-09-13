@@ -69,6 +69,6 @@ class DynamodbLocal < Formula
   end
 
   test do
-    system "#{bin}/dynamodb-local", "-help"
+    system bin/"dynamodb-local", "-help"
   end
 end
