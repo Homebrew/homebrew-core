@@ -6,6 +6,7 @@ class Freetds < Formula
   sha256 "3a91ce6321ac3c951281ce908f3eae40a0b6d1101b3322cac0602f62c006cb6c"
 
   bottle do
+    sha256 "f3e951cbb4127f3efdad5ff64ae0ba4566002e15eb0a682e4a444a07db9e3f5f" => :sierra
     sha256 "934404b4fbc59469df94f6ed71887fc75a7c69556c64cad024d478be3de85e7c" => :el_capitan
     sha256 "b753cb2b0a6e4a09f27e2852cc60bfc8ee90c5e5e48c5c466ae87df6190bcb57" => :yosemite
     sha256 "ba3bf56066734fab273678717176ee5b8dc4d98883e1a962f51b8e13d0a145ab" => :mavericks
