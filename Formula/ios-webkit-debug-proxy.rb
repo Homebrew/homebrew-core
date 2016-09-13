@@ -6,9 +6,9 @@ class IosWebkitDebugProxy < Formula
 
   bottle do
     cellar :any
-    sha256 "ad0cb097b702ac15618c4b6ad81b0d02d350013ca365229c8c0cc7260a308402" => :el_capitan
-    sha256 "b9ac8ff4b0c66a04d58b2296b1dec143e5a4805886455d38a9efed43e1a5e506" => :yosemite
-    sha256 "ec74a95576867e353ef224a3423282b67a07d05679cb267c4aa368992e547c49" => :mavericks
+    sha256 "76982a9dd1b3bfb2d78cd03f93097a214d9e440df5398e66d1280671843071d3" => :el_capitan
+    sha256 "22b7d35ec8b79186a6c9ed8be21d1d77d4e45ab3833c8feca68dbc0994197937" => :yosemite
+    sha256 "54b86fcdc7fc1d6a3edcb80b252503b4b682603a3089e8deecfdbf532562fb27" => :mavericks
   end
 
   depends_on :macos => :lion
