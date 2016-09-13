@@ -5,6 +5,7 @@ class Siege < Formula
   sha256 "7efb81f9547bef0e693bdd51348a205ad691e1d72c36041f4608099ba0326c47"
 
   bottle do
+    sha256 "727ee17ca64eb752916cf8318d0cda9a56b094d358b46b04b33d66872373f843" => :sierra
     sha256 "787e7394cc038b1a06d164faebbb0b02a37f32757abbf80da223d46b0f0091e5" => :el_capitan
     sha256 "932fce124172f3b1e25bfcbe673feffccf1a86ea97f00564ecaeb01f4950d3bb" => :yosemite
     sha256 "6575d3bc644e7acecbeab9b7c8fed77c7c523a709e9b2184501b2d40c7eb8d5f" => :mavericks
