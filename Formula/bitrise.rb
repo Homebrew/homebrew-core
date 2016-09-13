@@ -40,9 +40,7 @@ class Bitrise < Formula
               - content: printf 'Test - OK' > brew.test.file
     EOS
 
-    # setup
     system "#{bin}/bitrise", "setup"
-    # run the defined test_wf workflow
     system "#{bin}/bitrise", "run", "test_wf"
     assert_equal "Test - OK", (testpath/"brew.test.file").read.chomp
   end
