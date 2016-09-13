@@ -72,6 +72,14 @@ class Tesseract < Formula
   end
 
   def install
+    if build.head?
+      # ld: symbol(s) not found for _clSetKernelArg and other symbols
+      # Regression caused by https://github.com/tesseract-ocr/tesseract/commit/b1c921b
+      # Reported 13 Sep 2016 https://github.com/tesseract-ocr/tesseract/issues/426
+      inreplace "api/Makefile.am", "$(GENERIC_LIBRARY_VERSION) -no-undefined",
+                                   "$(GENERIC_LIBRARY_VERSION)"
+    end
+
     if build.with? "training-tools"
       icu4c = Formula["icu4c"]
       ENV.append "CFLAGS", "-I#{icu4c.opt_include}"
