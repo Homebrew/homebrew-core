@@ -17,10 +17,10 @@ class Nginx < Formula
   end
 
   devel do
-    url "https://nginx.org/download/nginx-1.11.3.tar.gz"
-    sha256 "4a667f40f9f3917069db1dea1f2d5baa612f1fa19378aadf71502e846a424610"
+    url "https://nginx.org/download/nginx-1.11.4.tar.gz"
+    sha256 "06221c1f43f643bc6bfe5b2c26d19e09f2588d5cde6c65bdb77dfcce7c026b3b"
 
-    depends_on "openssl"
+    depends_on "openssl@1.1"
   end
 
   head do
@@ -51,7 +51,7 @@ class Nginx < Formula
     end
 
     pcre = Formula["pcre"]
-    openssl = build.head? ? Formula["openssl@1.1"] : Formula["openssl"]
+    openssl = build.stable? ? Formula["openssl"] : Formula["openssl@1.1"]
 
     cc_opt = "-I#{pcre.opt_include} -I#{openssl.opt_include}"
     ld_opt = "-L#{pcre.opt_lib} -L#{openssl.opt_lib}"
