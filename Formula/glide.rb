@@ -28,8 +28,7 @@ class Glide < Formula
   end
 
   test do
-    version = pipe_output("#{bin}/glide --version")
-    assert_match version.to_s, version
+    assert_match version.to_s, shell_output("#{bin}/glide --version")
     system bin/"glide", "create", "--non-interactive", "--skip-import"
     assert File.exist?("glide.yaml")
   end
