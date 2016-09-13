@@ -1,9 +1,9 @@
 class DynamodbLocal < Formula
   desc "Client-side database and server imitating DynamoDB"
   homepage "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.html"
-  url "https://dynamodb-local.s3.amazonaws.com/dynamodb_local_2016-03-01.tar.gz"
-  version "2016-03-01"
-  sha256 "c102d30a2f3d420fc9a4784fd7544bccdf3bc8782203ef63e3f92942c4493c93"
+  url "https://dynamodb-local.s3.amazonaws.com/dynamodb_local_2016-05-17.tar.gz"
+  version "2016-05-17"
+  sha256 "832d474316c9d092de8c24885e69c9be9e22b9807e7383e0de6f247e44601a90"
 
   bottle :unneeded
 
@@ -66,5 +66,9 @@ class DynamodbLocal < Formula
     </dict>
     </plist>
     EOS
+  end
+
+  test do
+    system bin/"dynamodb-local", "-help"
   end
 end
