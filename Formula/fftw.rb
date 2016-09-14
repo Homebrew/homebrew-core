@@ -6,6 +6,7 @@ class Fftw < Formula
 
   bottle do
     cellar :any
+    sha256 "6732254af0d37777ffd9ae7a4dc16d672def6656cdd85c4d8f1e96a53571e123" => :sierra
     sha256 "8961b3780e24d67c520deccf222aa12ce95f41eba1b6d7a7181e83bda9e4a99e" => :el_capitan
     sha256 "d7358e5c3e9426c245425ab0d4fe29659d7bdb41158bedb43ab0c2433b165c69" => :yosemite
     sha256 "f31992664fb2c54ae917c6e31a44e4a798b4ff062fbc66e50fcf7f56c418c791" => :mavericks
