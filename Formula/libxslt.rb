@@ -1,10 +1,9 @@
 class Libxslt < Formula
   desc "C XSLT library for GNOME"
   homepage "http://xmlsoft.org/XSLT/"
-  url "http://xmlsoft.org/sources/libxslt-1.1.28.tar.gz"
-  mirror "ftp://xmlsoft.org/libxml2/libxslt-1.1.28.tar.gz"
-  sha256 "5fc7151a57b89c03d7b825df5a0fae0a8d5f05674c0e7cf2937ecec4d54a028c"
-  revision 1
+  url "http://xmlsoft.org/sources/libxslt-1.1.29.tar.gz"
+  mirror "ftp://xmlsoft.org/libxml2/libxslt-1.1.29.tar.gz"
+  sha256 "b5976e3857837e7617b29f2249ebb5eeac34e249208d31f1fbf7a6ba7a4090ce"
 
   bottle do
     rebuild 1
@@ -39,6 +38,7 @@ class Libxslt < Formula
     inreplace "configure", /PYTHON_LIBS=.*/, 'PYTHON_LIBS="-undefined dynamic_lookup"'
 
     system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--with-libxml-prefix=#{Formula["libxml2"].opt_prefix}"
     system "make"
@@ -51,6 +51,7 @@ class Libxslt < Formula
     EOS
   end
 end
+
 __END__
 diff --git a/autogen.sh b/autogen.sh
 index 0eeadd3..5e85821 100755
