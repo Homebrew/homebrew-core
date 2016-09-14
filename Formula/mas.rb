@@ -7,7 +7,7 @@ class Mas < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f1ccc1b60caf0caa4edea27277c80c9d3dca8040e728487714ff4ffd4d2cd8d" => :el_capitan
+    sha256 "7c6d5cd11f167ae0a52a0970d68a342bc69924214575f81460849e28d034a412" => :el_capitan
   end
 
   depends_on :xcode => ["7.3", :build]
