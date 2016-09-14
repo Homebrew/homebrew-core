@@ -3,6 +3,7 @@ class Curl < Formula
   homepage "https://curl.haxx.se/"
   url "https://curl.haxx.se/download/curl-7.50.2.tar.bz2"
   sha256 "0c72105df4e9575d68bcf43aea1751056c1d29b1040df6194a49c5ac08f8e233"
+  revision 1
 
   bottle do
     cellar :any
@@ -31,10 +32,10 @@ class Curl < Formula
   # HTTP/2 support requires OpenSSL 1.0.2+ or LibreSSL 2.1.3+ for ALPN Support
   # which is currently not supported by Secure Transport (DarwinSSL).
   if MacOS.version < :mountain_lion || (build.with?("nghttp2") && build.without?("libressl"))
-    depends_on "openssl"
+    depends_on "openssl@1.1"
   else
     option "with-openssl", "Build with OpenSSL instead of Secure Transport"
-    depends_on "openssl" => :optional
+    depends_on "openssl@1.1" => :optional
   end
 
   depends_on "pkg-config" => :build
@@ -71,9 +72,9 @@ class Curl < Formula
       args << "--with-ssl=#{Formula["libressl"].opt_prefix}"
       args << "--with-ca-bundle=#{etc}/libressl/cert.pem"
     elsif MacOS.version < :mountain_lion || build.with?("openssl") || build.with?("nghttp2")
-      ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["openssl"].opt_lib}/pkgconfig"
-      args << "--with-ssl=#{Formula["openssl"].opt_prefix}"
-      args << "--with-ca-bundle=#{etc}/openssl/cert.pem"
+      ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["openssl@1.1"].opt_lib}/pkgconfig"
+      args << "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
+      args << "--with-ca-bundle=#{etc}/openssl@1.1/cert.pem"
     else
       args << "--with-darwinssl"
     end
