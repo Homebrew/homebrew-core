@@ -1,9 +1,9 @@
 class Mfterm < Formula
   desc "Terminal for working with Mifare Classic 1-4k Tags"
   homepage "https://github.com/4ZM/mfterm"
-  url "https://github.com/4ZM/mfterm/archive/v1.0.6.tar.gz"
-  version "1.0.6"
-  sha256 "19adfe858cfa5c672aa543b1c6b439384597cb21f880ed74c9b26e5164006221"
+  url "https://github.com/4ZM/mfterm/releases/download/v1.0.7/mfterm-1.0.7.tar.gz"
+  version "1.0.7"
+  sha256 "b6bb74a7ec1f12314dee42973eb5f458055b66b1b41316ae0c5380292b86b248"
 
   head do
     url "https://github.com/4ZM/mfterm.git"
