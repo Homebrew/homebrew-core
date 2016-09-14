@@ -9,6 +9,7 @@ class ZshSyntaxHighlighting < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "d0a908723170b786cb7e1fea2f3441cd6bda43e4a3d7c0f6c96125807514672f" => :sierra
     sha256 "daafc718f3fcc4907818a77895f9b02a0666638bfad8e4a3e7b781c0c4e99078" => :el_capitan
     sha256 "d0a908723170b786cb7e1fea2f3441cd6bda43e4a3d7c0f6c96125807514672f" => :yosemite
     sha256 "d0a908723170b786cb7e1fea2f3441cd6bda43e4a3d7c0f6c96125807514672f" => :mavericks
