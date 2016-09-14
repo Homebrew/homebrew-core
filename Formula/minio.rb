@@ -2,9 +2,9 @@ class Minio < Formula
   desc "object storage server compatible with Amazon S3"
   homepage "https://github.com/minio/minio"
   url "https://github.com/minio/minio.git",
-    :tag => "RELEASE.2016-08-21T02-44-47Z",
-    :revision => "975eb319730c8db093b4744bf9e012356d61eef2"
-  version "20160821024447"
+    :tag => "RELEASE.2016-09-11T17-42-18Z",
+    :revision => "85e2d886bcb005d49f3876d6849a2b5a55e03cd3"
+  version "20160911174218"
 
   bottle do
     cellar :any_skip_relocation
@@ -31,9 +31,9 @@ class Minio < Formula
         proj = "github.com/minio/minio/"
 
         system "go", "build", "-o", buildpath/"minio", "-ldflags", <<-EOS.undent
-            -X #{proj}/cmd.Version=#{version}
-            -X #{proj}/cmd.ReleaseTag=#{release}
-            -X #{proj}/cmd.CommitID=#{commit}
+            -X #{proj}cmd.Version=#{version}
+            -X #{proj}cmd.ReleaseTag=#{release}
+            -X #{proj}cmd.CommitID=#{commit}
             EOS
       end
     end
