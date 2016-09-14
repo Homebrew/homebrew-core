@@ -36,6 +36,36 @@ class Rtags < Formula
     end
   end
 
+  plist_options :manual => "#{HOMEBREW_PREFIX}/bin/rdm --verbose --inactivity-timeout=300 --log-file=#{HOMEBREW_PREFIX}/var/log/rtags.log"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+      <key>Label</key>
+      <string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{bin}/rdm</string>
+        <string>--verbose</string>
+        <string>--launchd</string>
+        <string>--inactivity-timeout=300</string>
+        <string>--log-file=#{var}/log/rtags.log</string>
+      </array>
+      <key>Sockets</key>
+      <dict>
+        <key>Listener</key>
+        <dict>
+          <key>SockPathName</key>
+          <string>#{ENV["HOME"]}/.rdm</string>
+        </dict>
+      </dict>
+    </dict>
+    </plist>
+    EOS
+  end
+
   test do
     mkpath testpath/"src"
     (testpath/"src/foo.c").write <<-EOS.undent
