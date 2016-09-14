@@ -7,7 +7,6 @@ class ZshGitPrompt < Formula
   bottle :unneeded
 
   def install
-    inreplace "README.md", "path/to", opt_prefix
     prefix.install Dir["*.{sh,py}"]
   end
 
