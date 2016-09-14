@@ -7,7 +7,8 @@ class Gperftools < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "0ff12c9b0f6ae1649717b57c1b9f18e69052fe957e99f719b99dff8a66b8f917" => :sierra
     sha256 "35a478cc1f30e79b07099318b24d82fbdcbb53bc52cdd09688c55ba3f8e12d72" => :el_capitan
     sha256 "86f429aa714330a0b550397e306f691340e4beaa5dd3def7d62a3cb42b5200de" => :yosemite
     sha256 "8b50e2171af61bf38094d6173d5c39d34c42559440c94ca27fae750e8012cb17" => :mavericks
