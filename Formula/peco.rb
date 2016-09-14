@@ -6,10 +6,11 @@ class Peco < Formula
   head "https://github.com/peco/peco.git"
 
   bottle do
-    rebuild 1
-    sha256 "a80123b65c81e70755903fb0a109b06ce5e0d2ad619b4bab969c911365cf92c6" => :el_capitan
-    sha256 "938603872016a305e2fe9ccb650768af638938a5536e0db598d7c54580158dd5" => :yosemite
-    sha256 "ec28524af8e8d33b4fcb16ca060600ce58d529f4b64b526affe350d886e2f1d3" => :mavericks
+    cellar :any_skip_relocation
+    rebuild 2
+    sha256 "d3e993c831c62cf75ba0f15285aaf2af4f09f89f68b262b0b5d28276888669df" => :el_capitan
+    sha256 "b29c6d5e2039014db0daae5385611e479015a5ecfb3d49c9ad359b6c0e86be61" => :yosemite
+    sha256 "29d22eaa232bc401ca8532f65f5267187b781a8210f338385439dc295fba8075" => :mavericks
   end
 
   depends_on "glide" => :build
