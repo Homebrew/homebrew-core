@@ -13,10 +13,6 @@ class Libxslt < Formula
     sha256 "39820c2f81926fc1aee8854553d3c390c644db068847ceae77c805d65e2303a2" => :mavericks
   end
 
-  keg_only :provided_by_osx
-
-  depends_on "libxml2"
-
   head do
     url "https://git.gnome.org/browse/libxslt.git"
 
@@ -27,6 +23,10 @@ class Libxslt < Formula
     # https://bugzilla.gnome.org/show_bug.cgi?id=743148
     patch :DATA
   end
+
+  keg_only :provided_by_osx
+
+  depends_on "libxml2"
 
   def install
     if build.head?
@@ -49,6 +49,10 @@ class Libxslt < Formula
     To allow the nokogiri gem to link against this libxslt run:
       gem install nokogiri -- --with-xslt-dir=#{opt_prefix}
     EOS
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/xslt-config --version")
   end
 end
 
