@@ -3,8 +3,8 @@ require "language/go"
 class Gx < Formula
   desc "The language-agnostic, universal package manager"
   homepage "https://github.com/whyrusleeping/gx"
-  url "https://github.com/whyrusleeping/gx/archive/v0.9.0.tar.gz"
-  sha256 "887802342e408b7dd61cbdb629586e399742cd4beac22c7b13faa79d85659ea7"
+  url "https://github.com/whyrusleeping/gx/archive/v0.9.1.tar.gz"
+  sha256 "ba01c0f45f2591ee8b0f4bd561aa95df93415881ff0ffb380a1774afe41302c7"
   head "https://github.com/whyrusleeping/gx.git"
 
   bottle do
@@ -23,17 +23,17 @@ class Gx < Formula
 
   go_resource "github.com/codegangsta/cli" do
     url "https://github.com/codegangsta/cli.git",
-        :revision => "05fe449c81eb7305a34e9253c321c960a1c5e057"
+        :revision => "61f519fe5e57c2518c03627b194899a105838eba"
   end
 
   go_resource "github.com/ipfs/go-ipfs-api" do
     url "https://github.com/ipfs/go-ipfs-api.git",
-        :revision => "49d8bc426f918f3d5c0cc721e61e820c2f94943c"
+        :revision => "591ed9cdb542b0db25818cfab701d3772863e9ba"
   end
 
   go_resource "github.com/ipfs/go-ipfs" do
     url "https://github.com/ipfs/go-ipfs.git",
-        :revision => "8830aae9bcef257b11401b7c9e834a3aa107386a"
+        :revision => "85da76a4eea9098d5874c168c728591d1d2f58a1"
   end
 
   go_resource "github.com/jbenet/go-base58" do
@@ -93,7 +93,7 @@ class Gx < Formula
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "b35ccbc95a0eaae49fb65c5d627cb7149ed8d1ab"
+        :revision => "119f50887f8fe324fe2386421c27a11af014b64e"
   end
 
   def install
