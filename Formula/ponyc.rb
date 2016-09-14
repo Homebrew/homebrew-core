@@ -1,8 +1,8 @@
 class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "http://www.ponylang.org"
-  url "https://github.com/ponylang/ponyc/archive/0.3.0.tar.gz"
-  sha256 "4b0fa26dd194663f648f8782af79e420bc962281f280233cadecbd9b6cad195f"
+  url "https://github.com/ponylang/ponyc/archive/0.3.1.tar.gz"
+  sha256 "1af638d69571776366cfcd4d0af4aa9913a4d83084b8949769290fa144a06a8c"
 
   bottle do
     cellar :any
@@ -18,6 +18,7 @@ class Ponyc < Formula
 
   def install
     ENV.cxx11
+    ENV.append "CFLAGS", "-I#{Formula["llvm"].opt_lib}/clang/#{Formula["llvm"].version}/include"
     ENV["LLVM_CONFIG"]="#{Formula["llvm"].opt_bin}/llvm-config"
     system "make", "config=release", "destdir=#{prefix}", "install", "verbose=1"
   end
