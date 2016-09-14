@@ -1,9 +1,8 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-4.0.1.tar.bz2"
-  sha256 "472db541307c8ca83a846d260ecfc854fd8e879c1bb2ce5683a8df5d21e860b0"
-  revision 1
+  url "https://downloads.powerdns.com/releases/pdns-recursor-4.0.3.tar.bz2"
+  sha256 "ae9813a64d13d9ebe4b44e89e8e4e44fc438693b6ce4c3a98e4cab1af22d9627"
 
   bottle do
     sha256 "6d1db92d6832f010a0e4e4f466a2fa3003320acbbffaf4bf3345f74f2ea706a3" => :el_capitan
@@ -15,7 +14,7 @@ class Pdnsrec < Formula
   depends_on "boost"
   depends_on "openssl"
   depends_on "lua"
-  depends_on "gcc" if MacOS.version <= :mavericks
+  depends_on "gcc" if DevelopmentTools.clang_build_version <= 600
 
   needs :cxx11
 
@@ -24,15 +23,21 @@ class Pdnsrec < Formula
     cause "incomplete C++11 support"
   end
 
-  # boost 1.61.0 compat
-  # upstream commit "fix type"; remove for > 4.0.1
+  # Remove for > 4.0.3
+  # Upstream commit "rec: Fix Lua-enabled compilation on OS X and FreeBSD"
   patch :p2 do
-    url "https://github.com/PowerDNS/pdns/commit/33f13fde.patch"
-    sha256 "f7944b9fd573619bdeb20bc211b3eb5fd4f129cb0e691ece686d213ebf6e5393"
+    url "https://github.com/PowerDNS/pdns/commit/546d1fb.patch"
+    sha256 "9a7711596aebaf3eceaf8abcf723df12aa9c22583e6bb177b4eb0f90c8bb2ec3"
   end
 
   def install
     ENV.cxx11
+
+    # Remove for > 4.0.3; using inreplace avoids Autotools dependencies
+    # Upstream PR "Fall back to SystemV ucontexts on boost >= 1.61"
+    # See https://github.com/PowerDNS/pdns/commit/fbf562c
+    inreplace "configure", "boost/context/detail/fcontext.hpp",
+                           "boost/context/fcontext.hpp"
 
     args = %W[
       --prefix=#{prefix}
