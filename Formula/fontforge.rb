@@ -6,6 +6,7 @@ class Fontforge < Formula
   head "https://github.com/fontforge/fontforge.git"
 
   bottle do
+    sha256 "74daacbb3416e84d8593fdaf2d0123ca4ef660bcbdcb5dda3792ac087cf07666" => :sierra
     sha256 "fd97cefd808fc0f07ac61e6ea624f074c9be5f2fb11f5a45468912fe5991ca36" => :el_capitan
     sha256 "e2dd2a2c7ce89b74b4bc2902da0ff93615b62b31bda5303a4f9bdf4447c2f05e" => :yosemite
     sha256 "6f1a9f1a0a15a2f84f0dce5c73e80e4265efd05e4bfa570f3c5e78da2211bbc6" => :mavericks
