@@ -218,7 +218,7 @@ class Python3 < Formula
     # some third-party software packages depend on them
     inreplace Dir.glob(frameworks/"Python.framework/Versions/#{xy}/lib/python#{xy}/config-#{xy}*/Makefile") do |s|
       s.change_make_var! "LINKFORSHARED",
-                         "-u _PyMac_Error #{opt_prefix}/Frameworks/Python.framework/Versions/#{xy}/Python"
+                         "#{opt_prefix}/Frameworks/Python.framework/Versions/#{xy}/Python"
     end
 
     %w[setuptools pip wheel].each do |r|
