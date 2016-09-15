@@ -33,9 +33,6 @@ class Libspatialite < Formula
   option "without-libxml2", "Disable support for xml parsing (parsing needed by spatialite-gui)"
   option "without-liblwgeom", "Build without additional sanitization/segmentation routines provided by PostGIS 2.0+ library"
   option "without-geopackage", "Build without OGC GeoPackage support"
-  option "without-test", "Do not run `make check` prior to installing"
-
-  deprecated_option "without-check" => "without-test"
 
   depends_on "pkg-config" => :build
   depends_on "proj"
@@ -82,7 +79,7 @@ class Libspatialite < Formula
     args << "--enable-geopackage=no" if build.without? "geopackage"
 
     system "./configure", *args
-    system "make", "check" if build.with? "test"
+    system "make", "check"
     system "make", "install"
   end
 
