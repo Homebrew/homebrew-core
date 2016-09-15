@@ -41,6 +41,7 @@ class Gdb < Formula
 
   def install
     args = [
+      "--enable-tui",
       "--prefix=#{prefix}",
       "--disable-debug",
       "--disable-dependency-tracking",
