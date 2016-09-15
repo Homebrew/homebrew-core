@@ -9,9 +9,9 @@ class Scour < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6df26a6cada65c8e2c47f5ee4bfdf4ce2d75f2efdfeeb7904ed96f7392abcbbd" => :el_capitan
-    sha256 "dc0f121ffd8c4b925231f1f0d82eed71ab4d99bb25030d37732995e17fe411ae" => :yosemite
-    sha256 "4fc3ba5d18eef21375d17e9eac9fa2b57ff40abeba0ef31127fb3b39236d42e5" => :mavericks
+    sha256 "5356058903cf2bf00d40faed108eeda659e15e650299c7b66061d6d96d401563" => :el_capitan
+    sha256 "67139e0349e79d1627362c91f7e993bf966565ee20babae4964d4cb1db8a485d" => :yosemite
+    sha256 "842f1b4f78abb257bb70a08245a60628da52bf18c656e98151ed56db2291eda6" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
