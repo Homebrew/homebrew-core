@@ -1,5 +1,5 @@
 class Cake < Formula
-  desc "'C# Make' is a build automation system with a C# DSL."
+  desc "Cross platform build automation system with a C# DSL."
   homepage "http://cakebuild.net/"
   url "https://github.com/cake-build/cake/releases/download/v0.16.0/Cake-bin-net45-v0.16.0.zip"
   sha256 "51a42afd3ad62766fc3f4d206dce6653e66cf0351e4b5626c30f42ff4df1a7ee"
@@ -21,9 +21,7 @@ class Cake < Formula
   end
 
   test do
-    test_str = "Hello Homebrew"
     (testpath/"build.cake").write <<-EOS.undent
-
       var target = Argument ("target", "info");
 
       Task("info").Does(() =>
@@ -32,9 +30,7 @@ class Cake < Formula
       });
 
       RunTarget ("info");
-
     EOS
-
-    assert_match test_str, shell_output("#{bin}/cake ./build.cake").strip
+    assert_match "Hello Homebrew\n", shell_output("#{bin}/cake build.cake")
   end
 end
