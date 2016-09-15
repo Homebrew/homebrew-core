@@ -5,8 +5,8 @@ class HopenpgpTools < Formula
 
   desc "Command-line tools for OpenPGP-related operations"
   homepage "https://hackage.haskell.org/package/hopenpgp-tools"
-  url "https://hackage.haskell.org/package/hopenpgp-tools/hopenpgp-tools-0.19.2.tar.gz"
-  sha256 "6bcc067bfc2b54c0c47ea7169f3741ec8f64abee9bd8c398191a0b35520fa39c"
+  url "https://hackage.haskell.org/package/hopenpgp-tools/hopenpgp-tools-0.19.3.tar.gz"
+  sha256 "4f1b7ce4fa6f1efa39fd0388204d24d82b9293e8cf1087b2790013a350bbd26f"
   head "https://anonscm.debian.org/git/users/clint/hopenpgp-tools.git"
 
   bottle do
@@ -32,8 +32,8 @@ class HopenpgpTools < Formula
   test do
     ENV["TERM"] = "dumb"
     resource("homebrew-key.gpg").stage do
-      assert_match "Homebrew <security@brew.sh>",
-                   shell_output("#{bin}/hokey lint <homebrew-key.gpg 2>/dev/null")
+      linter_output = shell_output("#{bin}/hokey lint <homebrew-key.gpg 2>/dev/null")
+      assert_match "Homebrew <security@brew.sh>", linter_output
     end
   end
 end
