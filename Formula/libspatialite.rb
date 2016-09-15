@@ -79,7 +79,6 @@ class Libspatialite < Formula
     args << "--enable-geopackage=no" if build.without? "geopackage"
 
     system "./configure", *args
-    system "make", "check"
     system "make", "install"
   end
 
