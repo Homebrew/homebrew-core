@@ -1,8 +1,8 @@
 class Libstrophe < Formula
   desc "XMPP library for C"
   homepage "http://strophe.im/libstrophe/"
-  url "https://github.com/strophe/libstrophe/archive/0.8.8.tar.gz"
-  sha256 "08f4a85ef419a8bdf08b6afa8f7b2a0e5e180fdc9c16cede81af672ec10e21e7"
+  url "https://github.com/strophe/libstrophe/archive/0.9.0.tar.gz"
+  sha256 "769f328255cbe0dd6c1b3a70b5a99a3b5788264a0acd0e0ac03836022921110b"
   head "https://github.com/strophe/libstrophe.git"
 
   bottle do
@@ -20,9 +20,6 @@ class Libstrophe < Formula
   depends_on "check"
 
   def install
-    # see https://github.com/strophe/libstrophe/issues/28
-    ENV.deparallelize
-
     system "./bootstrap.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
