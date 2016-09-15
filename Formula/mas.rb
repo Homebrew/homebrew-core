@@ -1,8 +1,8 @@
 class Mas < Formula
   desc "Mac App Store command-line interface"
   homepage "https://github.com/argon/mas"
-  url "https://github.com/argon/mas/archive/v1.2.2.tar.gz"
-  sha256 "977ca87aa7fb95bb1b1d7434632780d49d4c27b73ce247fd7d3d1eaed69a7ca5"
+  url "https://github.com/argon/mas/archive/v1.3.0.tar.gz"
+  sha256 "1f7375a312efa9a4ce749da13617a7675ba95d1b3e1e6863cd7f31e56a4c9079"
   head "https://github.com/argon/mas.git"
 
   bottle do
