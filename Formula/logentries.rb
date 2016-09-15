@@ -1,8 +1,8 @@
 class Logentries < Formula
   desc "Utility for access to logentries logging infrastructure"
   homepage "https://logentries.com/doc/agent/"
-  url "https://github.com/logentries/le/archive/v1.4.38.tar.gz"
-  sha256 "1053c37f1e7cfc741af31be0475c211f44e4f3d58bebc145c5f4ab0344dfd3c3"
+  url "https://github.com/logentries/le/archive/v1.4.40.tar.gz"
+  sha256 "65c14106596ac40870f5a7829e9bb61e9ac6e389a03ca3dcbeb5a944e342f7fd"
   head "https://github.com/logentries/le.git"
 
   bottle do
