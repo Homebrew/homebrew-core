@@ -36,6 +36,14 @@ class Fontconfig < Formula
     satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
   end
 
+  head do
+    url "https://anongit.freedesktop.org/git/fontconfig", :using => :git
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   keg_only :provided_pre_mountain_lion
 
   option :universal
@@ -45,6 +53,7 @@ class Fontconfig < Formula
 
   def install
     ENV.universal_binary if build.universal?
+    system "autoreconf", "-iv" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-static",
