@@ -1,8 +1,10 @@
 class Scour < Formula
+  include Language::Python::Virtualenv
+
   desc "SVG file scrubber"
   homepage "https://www.codedread.com/scour/"
-  url "https://github.com/scour-project/scour/archive/v0.34.tar.gz"
-  sha256 "5bf12de7acab8958531fc6b84641bbb656cc85b1517d7b28bcfa54eb84f133be"
+  url "https://files.pythonhosted.org/packages/cd/3e/b914c3264766621992b0a381ccd3e7342d64640dc560f6aa411cc9594265/scour-0.35.tar.gz"
+  sha256 "7b33a0fc7ed578e7d1fcf4f68eb4c38cd080c243ea57537840062d37cd0d3c8e"
   head "https://github.com/scour-project/scour.git"
 
   bottle do
@@ -15,21 +17,12 @@ class Scour < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resource("six").stage do
-      system "python", *Language::Python.setup_install_args(libexec/"vendor")
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
