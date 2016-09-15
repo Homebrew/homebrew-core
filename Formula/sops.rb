@@ -9,9 +9,9 @@ class Sops < Formula
 
   bottle do
     cellar :any
-    sha256 "49f0886bb3d08f33d486ff96f9866a481b53c1b406aa21888897eefdd8a89fe2" => :el_capitan
-    sha256 "918b98fc99668c7f8f8641807391fb27f2807b02bdda7ec3983048643db05c96" => :yosemite
-    sha256 "b815b520c0b8458146b839d365ecc5017ccb0a80fdb64aad93f6b734f7b82915" => :mavericks
+    sha256 "14506bfebac13b4816cbfd4db88e88db3862b170c266161c9ecf2b8ba2232cf3" => :el_capitan
+    sha256 "a315c1b4f41d5c7f6aaa833991dcc22c662dfdfc039369aa2b612648f016d361" => :yosemite
+    sha256 "2e34954c20bc5b1137073990ef472d8574e979deb399112533a14558952a3e22" => :mavericks
   end
 
   depends_on "pkg-config" => :build
