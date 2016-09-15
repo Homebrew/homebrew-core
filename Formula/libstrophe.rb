@@ -7,9 +7,9 @@ class Libstrophe < Formula
 
   bottle do
     cellar :any
-    sha256 "a67aa03ee2d0643b652be84252e5d33f62d7a315ff2d581dcbbb1c938c7ca9a3" => :el_capitan
-    sha256 "73c638c2bf7572e9ff6a87b8cbe99349c25544606aba13706f6719b3cbe66d07" => :yosemite
-    sha256 "1e874fe49c1b35f613ba86d28b53783bdf2c55d67cdd838e23d86f278657dd42" => :mavericks
+    sha256 "3b2dc1fd615c7702ca0fc35c0985d5718ebd9a406d51cbd413faf5d253d91c9c" => :el_capitan
+    sha256 "8cfb1bd728ada80d245b2380e406984df2889802f262513048e0de3600a0bdd6" => :yosemite
+    sha256 "052b9756034f0975b9662458e9180d76a47cd28cf5db11eb38368137243b2b2d" => :mavericks
   end
 
   depends_on "autoconf" => :build
