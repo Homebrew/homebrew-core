@@ -5,6 +5,7 @@ class Libvirt < Formula
   sha256 "e315a8d66aeeb0e7b6459e20b8abae16a23764c3f5d24c7d9462465d26791699"
 
   bottle do
+    sha256 "d298d7651ddeb7ff8859a510b27de9f9fc2808c3d9832e08814a5f5cf0840adc" => :sierra
     sha256 "2d20f265b9f75b40ed2a61a1d9d8ad4c5e5a33ecde5920500797fbe56b164c1f" => :el_capitan
     sha256 "b7f7238c68c5eaf9fafbb679e0e5d24f753860308195ea92f8f98c5c8ae41918" => :yosemite
     sha256 "93d261b3ad4a4ac27bf67ad0f31c681ca6311d05c038d8b30e0999264f7a2410" => :mavericks
