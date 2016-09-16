@@ -5,8 +5,11 @@ class HaskellStack < Formula
 
   desc "The Haskell Tool Stack"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/archive/v1.2.0.tar.gz"
-  sha256 "48f866168e81956807fac00f15dc0c9f38a390bba4de5ba53db220e3f25db983"
+  url "https://github.com/commercialhaskell/stack/releases/download/v1.2.0/stack-1.2.0-sdist-0.tar.gz"
+  version "1.2.0"
+  sha256 "872d29a37fe9d834c023911a4f59b3bee11e1f87b3cf741a0db89dd7f6e4ed64"
+  revision 1
+
   head "https://github.com/commercialhaskell/stack.git"
 
   bottle do
