@@ -2,9 +2,8 @@ class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
   # the latest commit on the stable branch
-  url "https://git.videolan.org/git/x264.git", :revision => "fd2c324731c2199e502ded9eff723d29c6eafe0b"
-  version "r2668"
-
+  url "https://git.videolan.org/git/x264.git", :revision => "a5e06b9a435852f0125de4ecb198ad47340483fa"
+  version "r2699"
   head "https://git.videolan.org/git/x264.git"
 
   bottle do
@@ -17,21 +16,17 @@ class X264 < Formula
 
   devel do
     # the latest commit on the master branch
-    url "https://git.videolan.org/git/x264.git", :revision => "3b70645597bea052d2398005bc723212aeea6875"
-    version "r2694"
+    url "https://git.videolan.org/git/x264.git", :revision => "3f5ed56d4105f68c01b86f94f41bb9bbefa3433b"
+    version "r2705"
   end
 
   option "with-10-bit", "Build a 10-bit x264 (default: 8-bit)"
-  option "with-mp4=", "Select mp4 output: none (default), l-smash or gpac"
+  option "with-l-smash", "Build CLI with l-smash mp4 output"
 
   depends_on "yasm" => :build
+  depends_on "l-smash" => :optional
 
   deprecated_option "10-bit" => "with-10-bit"
-
-  case ARGV.value "with-mp4"
-  when "l-smash" then depends_on "l-smash"
-  when "gpac" then depends_on "gpac"
-  end
 
   def install
     args = %W[
@@ -40,11 +35,7 @@ class X264 < Formula
       --enable-static
       --enable-strip
     ]
-    if Formula["l-smash"].installed?
-      args << "--disable-gpac"
-    elsif Formula["gpac"].installed?
-      args << "--disable-lsmash"
-    end
+    args << "--disable-lsmash" if build.without? "l-smash"
     args << "--bit-depth=10" if build.with? "10-bit"
 
     system "./configure", *args
