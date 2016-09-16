@@ -31,6 +31,7 @@ class Mbedtls < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "79bffe06f7f166c3b809357f7d3bc886e8c94d003d30145564db875e911b1ff4" => :sierra
     sha256 "56b22d0573e5f5c3d741f3474ce244c0c6b2ed090191510960df7e0f26fc108c" => :el_capitan
     sha256 "0a93583a7e6e0d8f88329af3f284a37d7c388a9d0daae158f60125b67f36b234" => :yosemite
     sha256 "187ff5694bdcec466cab8bd88b516d61e9d5b742a53214946dd534083738e300" => :mavericks
