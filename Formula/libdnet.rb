@@ -6,7 +6,8 @@ class Libdnet < Formula
 
   bottle do
     cellar :any
-    revision 2
+    rebuild 2
+    sha256 "bfd53f9a4303380ecab6902b181f82a4f229650663443889e1183f4b865d8761" => :sierra
     sha256 "dc34f5bfbe3385420d7fd482029a3acc3c8328ee145a4fe2fc806f6de22e77f4" => :el_capitan
     sha256 "09996ef2a4fce855bd5302996000f5ab49fd28d3e6bf6f0d82d3f11d495baef1" => :yosemite
     sha256 "1b425f04354f60b2c9de0b6e031d50f626d3cda0dc50c892b163107a6eecacb9" => :mavericks
