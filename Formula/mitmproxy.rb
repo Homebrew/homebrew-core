@@ -7,6 +7,7 @@ class Mitmproxy < Formula
 
   bottle do
     cellar :any
+    sha256 "68bd2c04e8ec3c03aeae475ab8ade20aacbc9c651562cd5462fbe147c769ef3f" => :sierra
     sha256 "e90d6243103cd8eec0c100ecd065c3ef2b84b75802bb81dc00821677859e5c5f" => :el_capitan
     sha256 "04072d6670530e6142e497cfc684e48142b9296f3116d36a4397fc8a1fde0d4c" => :yosemite
     sha256 "40e38f4e5c156dcbff58f23bd4c9c1ea5d766300f1e904aeb03672cff85824ba" => :mavericks
