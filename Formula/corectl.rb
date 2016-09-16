@@ -1,8 +1,8 @@
 class Corectl < Formula
   desc "CoreOS over OS X made very simple"
   homepage "https://github.com/TheNewNormal/corectl"
-  url "https://github.com/TheNewNormal/corectl/archive/v0.7.15.tar.gz"
-  sha256 "c574ab77948691ad73d7c9ae7f61a6e33cb2ace2e3382580eb7cf548887ea8d4"
+  url "https://github.com/TheNewNormal/corectl/archive/v0.7.17.tar.gz"
+  sha256 "915ae2988dc57bcf7f28e0ed6c2971ae6f83879daaadbb98bef3bad0b50039e4"
   head "https://github.com/TheNewNormal/corectl.git", :branch => "golang"
 
   bottle do
@@ -14,6 +14,7 @@ class Corectl < Formula
   depends_on "go" => :build
   depends_on "godep" => :build
   depends_on "ocaml" => :build
+  depends_on "aspcud" => :build
   depends_on "opam" => :build
   depends_on :macos => :yosemite
 
@@ -33,10 +34,7 @@ class Corectl < Formula
 
     cd path do
       system "opam", "init", "--no-setup"
-      qcow_format_revision = build.head? ? "master" : "96db516d97b1c3ef2c7bccdac8fb6cfdcb667a04"
-      system "opam", "pin", "add", "qcow-format",
-        "https://github.com/mirage/ocaml-qcow.git##{qcow_format_revision}"
-      system "opam", "install", "uri", "qcow-format", "ocamlfind"
+      system "opam", "install", "uri", "ocamlfind", "qcow-format"
 
       system "make", "tarball", *args
 
