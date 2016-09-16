@@ -40,6 +40,9 @@ class Valgrind < Formula
   depends_on "libtool" => :build
 
   depends_on :macos => :snow_leopard
+  # See currently supported platforms: http://valgrind.org/info/platforms.html
+  # Also dev comment: https://bugs.kde.org/show_bug.cgi?id=366138#c5
+  depends_on MaximumMacOSRequirement => :el_capitan
 
   # Valgrind needs vcpreload_core-*-darwin.so to have execute permissions.
   # See #2150 for more information.
