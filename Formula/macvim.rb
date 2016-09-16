@@ -8,6 +8,7 @@ class Macvim < Formula
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
+    sha256 "1ad53a0626f12676862c9be75f63a4975ac8595d720ca711d22b72403a2577aa" => :sierra
     sha256 "99f179ed14c44c4ab41c8b994819cc9d50c8b4e340a43fb1c86e3e2f52ff7f6a" => :el_capitan
     sha256 "ede647f6402c85c7fc5c9524e2258085ab548d2e035e6467a24514d1e9178659" => :yosemite
     sha256 "b560c1e58d726d78e0ac70c9a99915f6457c9ff461626392b123e43494937b3e" => :mavericks
