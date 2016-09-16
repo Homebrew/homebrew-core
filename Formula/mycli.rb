@@ -6,6 +6,7 @@ class Mycli < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1483fd03ac596339762fd046087ea7018b49d7389070dd4fd3239cafa43a1578" => :sierra
     sha256 "326e6861074b6c541d0b13d487419995869b923030296a40de762359b43897aa" => :el_capitan
     sha256 "1816b49f2acd2aa4b8044acc0b631741ea812c006f0bcb1ab7c7d1a74939e615" => :yosemite
     sha256 "0326b74dc13b204ac10140da1296187f68442a35b7797a7ef8af0b3381986a4f" => :mavericks
