@@ -8,6 +8,7 @@ class Links < Formula
 
   bottle do
     cellar :any
+    sha256 "9b47581bba7ce7e119756d20997642f6b48404387b159c517f94cc829c10903e" => :sierra
     sha256 "72f73ee61f9b16ae1e8bbe1306900a1fb17cfd49576f166bb88ab574ec8b0925" => :el_capitan
     sha256 "490a0aa8d1116268d3a431d9c1442dc9a2bd94fb00a74f0cab3767622ea119ac" => :yosemite
     sha256 "65ed8437744babda1c9653b7944b5e77b1147d235424948c1c98309b15c9ccc8" => :mavericks
