@@ -1,8 +1,13 @@
 class Sdcv < Formula
   desc "StarDict Console Version"
-  homepage "http://sdcv.sourceforge.net/"
-  url "http://svn.code.sf.net/p/sdcv/code/trunk", :revision => "76"
+  homepage "https://dushistov.github.io/sdcv/"
+  # Requested a tag 16 Sep 2016 https://github.com/Dushistov/sdcv/issues/10
+  url "https://github.com/Dushistov/sdcv.git",
+      :revision => "c347ae7da9b7969e00696b18035d9a7d200e43e3"
   version "0.5-2013-09-10"
+  revision 1
+
+  head "https://github.com/Dushistov/sdcv.git"
 
   bottle do
     sha256 "4d90fd23226a42bad21b652dc061feaf17d9340d35800e9806c00fa39161ae05" => :el_capitan
@@ -25,5 +30,9 @@ class Sdcv < Formula
       system "make", "lang"
       system "make", "install"
     end
+  end
+
+  test do
+    system bin/"sdcv", "-h"
   end
 end
