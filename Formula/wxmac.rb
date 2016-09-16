@@ -1,7 +1,7 @@
 class Wxmac < Formula
   desc "wxWidgets, a cross-platform C++ GUI toolkit (for OS X)"
   homepage "https://www.wxwidgets.org"
-  revision 2
+  revision 3
 
   head "https://github.com/wxWidgets/wxWidgets.git"
 
@@ -21,13 +21,17 @@ class Wxmac < Formula
     # Theoretically the above linked patch should still be needed, but it isn't.
     # Try to find out why.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/bbf499584062c25390deaef0eb9cd849fc56dac5/wxmac/patch-yosemite.diff"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/bbf4995/wxmac/patch-yosemite.diff"
       sha256 "02ab6d044ceab85127cad11f2eba2164e7f3fe5c95d6a863e8231a57d1f87d6f"
     end
 
-    # Fails to find QuickTime headers; fixed in 3.1.0 and newer.
-    # https://github.com/Homebrew/homebrew-core/issues/1957
-    depends_on MaximumMacOSRequirement => :el_capitan
+    # Remove uncenessary <QuickTime/QuickTime.h> includes
+    # Fixes building against Xcode 8 with macOS 10.12 SDK
+    # http://trac.wxwidgets.org/changeset/f6a2d1caef5c6d412c84aa900cb0d3990b350938/git-wxWidgets
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/bbf4995/wxmac/patch-quicktime-removal.diff"
+      sha256 "ebddf09877b053a6fafbf61ac52e4a7b511489dc8437110f80f00d5d2b5ff885"
+    end
   end
 
   bottle do
