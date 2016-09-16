@@ -20,7 +20,10 @@ class Wxmac < Formula
     # Please keep an eye on http://trac.wxwidgets.org/ticket/16329 as well
     # Theoretically the above linked patch should still be needed, but it isn't.
     # Try to find out why.
-    patch :DATA
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/bbf499584062c25390deaef0eb9cd849fc56dac5/wxmac/patch-yosemite.diff"
+      sha256 "02ab6d044ceab85127cad11f2eba2164e7f3fe5c95d6a863e8231a57d1f87d6f"
+    end
 
     # Fails to find QuickTime headers; fixed in 3.1.0 and newer.
     # https://github.com/Homebrew/homebrew-core/issues/1957
@@ -129,65 +132,3 @@ class Wxmac < Formula
     system bin/"wx-config", "--libs"
   end
 end
-
-__END__
-
-diff --git a/include/wx/defs.h b/include/wx/defs.h
-index 397ddd7..d128083 100644
---- a/include/wx/defs.h
-+++ b/include/wx/defs.h
-@@ -3169,12 +3169,20 @@ DECLARE_WXCOCOA_OBJC_CLASS(UIImage);
- DECLARE_WXCOCOA_OBJC_CLASS(UIEvent);
- DECLARE_WXCOCOA_OBJC_CLASS(NSSet);
- DECLARE_WXCOCOA_OBJC_CLASS(EAGLContext);
-+DECLARE_WXCOCOA_OBJC_CLASS(UIWebView);
- 
- typedef WX_UIWindow WXWindow;
- typedef WX_UIView WXWidget;
- typedef WX_EAGLContext WXGLContext;
- typedef WX_NSString* WXGLPixelFormat;
- 
-+typedef WX_UIWebView OSXWebViewPtr;
-+
-+#endif
-+
-+#if wxOSX_USE_COCOA_OR_CARBON
-+DECLARE_WXCOCOA_OBJC_CLASS(WebView);
-+typedef WX_WebView OSXWebViewPtr;
- #endif
- 
- #endif /* __WXMAC__ */
-diff --git a/include/wx/html/webkit.h b/include/wx/html/webkit.h
-index 8700367..f805099 100644
---- a/include/wx/html/webkit.h
-+++ b/include/wx/html/webkit.h
-@@ -18,7 +18,6 @@
- #endif
- 
- #include "wx/control.h"
--DECLARE_WXCOCOA_OBJC_CLASS(WebView); 
- 
- // ----------------------------------------------------------------------------
- // Web Kit Control
-@@ -107,7 +106,7 @@ private:
-     wxString m_currentURL;
-     wxString m_pageTitle;
- 
--    WX_WebView m_webView;
-+    OSXWebViewPtr m_webView;
- 
-     // we may use this later to setup our own mouse events,
-     // so leave it in for now.
-diff --git a/include/wx/osx/webview_webkit.h b/include/wx/osx/webview_webkit.h
-index 803f8b0..438e532 100644
---- a/include/wx/osx/webview_webkit.h
-+++ b/include/wx/osx/webview_webkit.h
-@@ -158,7 +158,7 @@ private:
-     wxWindowID m_windowID;
-     wxString m_pageTitle;
- 
--    wxObjCID m_webView;
-+    OSXWebViewPtr m_webView;
- 
-     // we may use this later to setup our own mouse events,
-     // so leave it in for now.
