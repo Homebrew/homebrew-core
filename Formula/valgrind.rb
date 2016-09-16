@@ -1,6 +1,7 @@
 class Valgrind < Formula
   desc "Dynamic analysis tools (memory, debug, profiling)"
   homepage "http://www.valgrind.org/"
+  revision 1
 
   stable do
     url "http://valgrind.org/downloads/valgrind-3.11.0.tar.bz2"
@@ -10,8 +11,8 @@ class Valgrind < Formula
     # https://bugs.kde.org/show_bug.cgi?id=354883
     # https://github.com/liquid-mirror/valgrind/commit/8f0b10fdc795f6011c17a7d80a0d65c36fcb8619.diff
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/86ecccf/valgrind/10.11_assertion.diff"
-      sha256 "7e12fdb0f44cc0bfa8e721afce8218487405088c198d31b800f4741f32178e5c"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/cc0e461/valgrind/10.11_assertion.diff"
+      sha256 "c4b73d50069f59ad2bcbddd5934b7068318bb2ba31f702ca21fb42d558addff4"
     end
   end
 
