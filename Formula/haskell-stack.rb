@@ -11,9 +11,9 @@ class HaskellStack < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e8e2343689c99d85bb1c930d83cbafc8ca7be4fc64faaeb844771a1511a0ff3d" => :el_capitan
-    sha256 "fe0aa6086ec90d711ebf0cd0169f5a3dc76f6f1a8c81b357ba6c81d0a22a86af" => :yosemite
-    sha256 "06a004b35c817fc17b0496aa06a886d5d1a69e9436bb9e8aa5e039f3148212c2" => :mavericks
+    sha256 "7718cf647ff1a01974a3fd3822b427a7a3b394888b26ff34a1b34132e426618c" => :el_capitan
+    sha256 "c50e4f828934a2acca302ff5f675ea82e1de4ed32f3df450ffdbc3ce0f23f4b6" => :yosemite
+    sha256 "88a6e11cbc4cf4ea98ef81113cd0bee64edd630abec8a37e4cc89d8480764ba9" => :mavericks
   end
 
   option "without-bootstrap", "Don't bootstrap a stage 2 stack"
