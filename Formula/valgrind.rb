@@ -2,6 +2,7 @@ class Valgrind < Formula
   desc "Dynamic analysis tools (memory, debug, profiling)"
   homepage "http://www.valgrind.org/"
   revision 1
+  head "svn://svn.valgrind.org/valgrind/trunk"
 
   stable do
     url "http://valgrind.org/downloads/valgrind-3.11.0.tar.bz2"
@@ -14,6 +15,14 @@ class Valgrind < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/cc0e461/valgrind/10.11_assertion.diff"
       sha256 "c4b73d50069f59ad2bcbddd5934b7068318bb2ba31f702ca21fb42d558addff4"
     end
+
+    # Add support for Xcode 8 (svn r15949)
+    # https://bugs.kde.org/show_bug.cgi?id=366138#c5
+    # https://github.com/liquid-mirror/valgrind/commit/16ff0e684bd44acc2e6d3a369876fe0c331e641d
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/b42540f/valgrind/xcode-8.diff"
+      sha256 "1191a728fa6df5de3520be57238a265815156d48062cdd12d2d6517fbdc8443f"
+    end
   end
 
   bottle do
@@ -22,13 +31,13 @@ class Valgrind < Formula
     sha256 "13b4586d3781bc50bcc2cd14ed05d19333ef85b91ef4b2b21b4c1438dba163b5" => :mavericks
   end
 
-  head do
-    url "svn://svn.valgrind.org/valgrind/trunk"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  # These should normally be head-only deps, but we're patching stable's
+  # configure.ac for Xcode 8 compatibility, so we always have to run
+  # autogen.sh. Restore head-only status when the next stable release comes
+  # out.
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   depends_on :macos => :snow_leopard
 
@@ -47,7 +56,9 @@ class Valgrind < Formula
       args << "--enable-only32bit"
     end
 
-    system "./autogen.sh" if build.head?
+    # Always run autogen.sh due to us patching stable's configure.ac.
+    # Restore "if build.head?" when the next stable release comes out.
+    system "./autogen.sh"
 
     # Look for headers in the SDK on Xcode-only systems: https://bugs.kde.org/show_bug.cgi?id=295084
     unless MacOS::CLT.installed?
