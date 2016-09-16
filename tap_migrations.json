@@ -322,6 +322,7 @@
   "xsp": "homebrew/boneyard",
   "xspringies": "homebrew/x11",
   "xulrunner": "homebrew/boneyard",
+  "yap": "homebrew/boneyard",
   "yarp": "homebrew/x11",
   "ydict": "homebrew/boneyard"
 }
