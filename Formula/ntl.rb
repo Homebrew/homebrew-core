@@ -23,4 +23,29 @@ class Ntl < Formula
       system "make", "install"
     end
   end
+
+  test do
+    (testpath/"square.cc").write <<-EOS.undent
+      #include <iostream>
+      #include <NTL/ZZ.h>
+
+      int main()
+      {
+          NTL::ZZ a;
+          std::cin >> a;
+          std::cout << NTL::power(a, 2);
+          return 0;
+      }
+    EOS
+    gmp = Formula["gmp"]
+    flags = %W[
+      -I#{include}
+      -L#{gmp.opt_lib}
+      -L#{lib}
+      -lgmp
+      -lntl
+    ]
+    system ENV.cxx, "square.cc", "-o", "square", *flags
+    assert_equal "4611686018427387904", pipe_output("./square", "2147483648")
+  end
 end
