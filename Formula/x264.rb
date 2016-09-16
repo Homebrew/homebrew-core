@@ -8,6 +8,7 @@ class X264 < Formula
 
   bottle do
     cellar :any
+    sha256 "48bbe37f3d559cf62baa2da53c6beaf62dc586e425851c8f9325213a81653ebd" => :sierra
     sha256 "749cf0abb596388079ccfc482060b61d40b381234c3f55f70664a21b87750b7d" => :el_capitan
     sha256 "25ae640bda892a1da820d7f8ab195fc441f439fb78fe9015bdbfa3dbbf5ad1d9" => :yosemite
     sha256 "ad6ba164deab0b1bd7cd19677c83d994522228e262fe3026aca321540da49e5c" => :mavericks
