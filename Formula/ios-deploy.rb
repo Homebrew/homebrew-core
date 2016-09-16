@@ -1,8 +1,8 @@
 class IosDeploy < Formula
   desc "Install and debug iPhone apps from the command-line"
   homepage "https://github.com/phonegap/ios-deploy"
-  url "https://github.com/phonegap/ios-deploy/archive/1.8.7.tar.gz"
-  sha256 "01048c98221fa11fbd1e4af1798c15ba5b8bf8ef17f07572650410f5dfa9f1e2"
+  url "https://github.com/phonegap/ios-deploy/archive/1.9.0.tar.gz"
+  sha256 "750dd02bc32414832ed7c1de39919651ee3166d467f546573dea045c76d64a91"
   head "https://github.com/phonegap/ios-deploy.git"
 
   bottle do
