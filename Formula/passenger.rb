@@ -18,9 +18,23 @@ class Passenger < Formula
   depends_on "openssl"
   depends_on :macos => :lion
 
+  # macOS Sierra ships the APR libraries & headers, but has removed the
+  # apr-1-config & apu-1-config executables which are used to find
+  # those elements. We may need to adopt a broader solution if this problem
+  # expands, but currently subversion & passenger are the only breakage as a result.
+  if MacOS.version >= :sierra
+    depends_on "apr-util" => :build
+    depends_on "apr" => :build
+  end
+
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
+
+    if MacOS.version >= :sierra
+      ENV["APU_CONFIG"] = Formula["apr-util"].opt_bin/"apu-1-config"
+      ENV["APR_CONFIG"] = Formula["apr"].opt_bin/"apr-1-config"
+    end
 
     rake "apache2" if build.with? "apache2-module"
     rake "nginx"
