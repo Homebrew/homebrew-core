@@ -4,6 +4,7 @@
 class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
+  revision 1
   head "https://github.com/erlang/otp.git"
 
   stable do
@@ -34,7 +35,7 @@ class Erlang < Formula
   depends_on "openssl"
   depends_on "fop" => :optional # enables building PDF docs
   depends_on :java => :optional
-  depends_on "wxmac" => :recommended # for GUI apps like observer
+  depends_on "wxmac" => :optional # for GUI apps like observer
 
   fails_with :llvm
 
