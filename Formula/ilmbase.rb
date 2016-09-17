@@ -6,10 +6,10 @@ class Ilmbase < Formula
   sha256 "ecf815b60695555c1fbc73679e84c7c9902f4e8faa6e8000d2f905b8b86cedc7"
 
   bottle do
-    revision 1
-    sha256 "1d4bcd7e058e1b629bcd608d063d64266253e2e671084c2f54df69061b1bd439" => :el_capitan
-    sha256 "c660a7b84cf84a03a17c3bf5cd1b86dd1e0357cb9e2d854665f4d538786c8014" => :yosemite
-    sha256 "db95cf0582acc259b987fe194eb50cc760b25d733b9ff195c25448e21e21e039" => :mavericks
+    rebuild 2
+    sha256 "486b1207a66286e6a1bd4aebeef5a249c0cae6daf4c28265b4c4dfef422dce65" => :sierra
+    sha256 "4153f054e5c819ce35ccf70c6142b5d7059e84c9c0b446a9c83d8f590d7434c7" => :el_capitan
+    sha256 "2bfd8bef08f89e6c84d6f9da5f5b3db38b787d33a3c6e6bb9751a9c43bbea2de" => :yosemite
   end
 
   option :universal
