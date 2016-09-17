@@ -28,22 +28,22 @@ class Scala < Formula
   end
 
   devel do
-    url "http://www.scala-lang.org/files/archive/scala-2.12.0-M5.tgz"
-    sha256 "fd260bd1d2fb7ba1e8003d40a463959a4111a3e4a25194e8d9e54e23cb39dd08"
-    version "2.12.0-M5"
+    url "http://www.scala-lang.org/files/archive/scala-2.12.0-RC1.tgz"
+    sha256 "ac4f05a75306b241a60a57dfabd8c5adec15435f0f380688ee5eb1caaa600192"
+    version "2.12.0-RC1"
 
     depends_on :java => "1.8+"
 
     resource "docs" do
-      url "http://www.scala-lang.org/files/archive/scala-docs-2.12.0-M5.zip"
-      sha256 "025d4db9755ffe0afc7254a105f95ca0ea6a77385d5c9b51a441aa8f34aefa5e"
-      version "2.12.0-M5"
+      url "http://www.scala-lang.org/files/archive/scala-docs-2.12.0-RC1.zip"
+      sha256 "4c1deb463b5d9e4ec0915b90557cc9e856609262f2cbeaeb6f248ae2054ea41d"
+      version "2.12.0-RC1"
     end
 
     resource "src" do
-      url "https://github.com/scala/scala/archive/v2.12.0-M5.tar.gz"
-      sha256 "b5c88d2534ff8d164bc5fa38380040337bceaac90436c3f512eafb849acd5e95"
-      version "2.12.0-M5"
+      url "https://github.com/scala/scala/archive/v2.12.0-RC1.tar.gz"
+      sha256 "55219e9d25c28a7c3966c6333b06c7d718be89bc5f8310b2428d47c9f38be851"
+      version "2.12.0-RC1"
     end
   end
 
