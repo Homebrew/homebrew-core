@@ -7,7 +7,8 @@ class Gtkglext < Formula
 
   bottle do
     cellar :any
-    revision 2
+    rebuild 2
+    sha256 "41ac321a45828aaa92df4a2ab421817a36271489d07326215246fe398843e2e2" => :sierra
     sha256 "1685253493988d61a703aa506dcc8a543da32f5b23a27b4562b4604595e54dbe" => :el_capitan
     sha256 "0b2d6bfe3dca8660885a0bdb6f34a607d61511c8608af37adbc0e4878211d521" => :yosemite
     sha256 "6b0f3ff71e5581715fcf7b0834ee1ffe79d29f26c7d1687405ffbf8fc3c25442" => :mavericks
