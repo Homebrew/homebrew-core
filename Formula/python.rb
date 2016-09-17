@@ -68,6 +68,15 @@ class Python < Formula
     sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
   end
 
+  # Patch for compiling universal binaries on macOS 10.12
+  # https://bugs.python.org/issue27806
+  if MacOS.version >= :sierra && build.universal?
+    patch do
+      url "https://hg.python.org/cpython/raw-rev/4030300fcb18"
+      sha256 "e0625b20675d892abc3e0e9a58a4627b94e6ded017f352f55b7c91e214fbd248"
+    end
+  end
+
   def lib_cellar
     prefix/"Frameworks/Python.framework/Versions/2.7/lib/python2.7"
   end
