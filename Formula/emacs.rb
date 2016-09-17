@@ -1,9 +1,9 @@
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
-  url "https://ftpmirror.gnu.org/emacs/emacs-24.5.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz"
-  sha256 "dd47d71dd2a526cf6b47cb49af793ec2e26af69a0951cc40e43ae290eacfc34e"
+  url "https://ftpmirror.gnu.org/emacs/emacs-25.1.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/emacs/emacs-25.1.tar.xz"
+  sha256 "19f2798ee3bc26c95dca3303e7ab141e7ad65d6ea2b6945eeba4dbea7df48f33"
 
   bottle do
     rebuild 3
@@ -11,15 +11,6 @@ class Emacs < Formula
     sha256 "7efa8afcc662120bee21e692e6721a956cb3088f91a6f73fd64252f9679bfc21" => :el_capitan
     sha256 "77bbc9a112c6107fbcbcbf0112012831235082c6425070a5b092bf25ef84d565" => :yosemite
     sha256 "f1539cddd0392906fbfdf99e8f20fc07620daaeceac86fa2f98b701cc4f25a3a" => :mavericks
-  end
-
-  devel do
-    url "http://alpha.gnu.org/gnu/emacs/pretest/emacs-25.1-rc2.tar.xz"
-    version "25.1-rc2"
-    sha256 "5bd45f03bdff90f9d7add7224917fc828ed89716e952b3db8eb98242b7dfcec1"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   head do
@@ -43,9 +34,6 @@ class Emacs < Formula
   depends_on "librsvg" => :recommended
   depends_on "imagemagick" => :optional
   depends_on "mailutils" => :optional
-  # Remove this option and the --with-file-notification=gfile line below once
-  # Emacs 25 is stable (#4048)
-  depends_on "glib" => :optional
 
   def install
     args = %W[
@@ -56,8 +44,6 @@ class Emacs < Formula
       --prefix=#{prefix}
       --without-x
     ]
-
-    args << "--with-file-notification=gfile" if build.stable? && build.with?("glib")
 
     if build.with? "libxml2"
       args << "--with-xml2"
@@ -79,7 +65,7 @@ class Emacs < Formula
 
     args << "--with-rsvg" if build.with? "librsvg"
     args << "--with-imagemagick" if build.with? "imagemagick"
-    args << "--without-popmail" if build.with? "mailutils"
+    args << "--without-pop" if build.with? "mailutils"
 
     system "./autogen.sh" if build.head? || build.devel?
 
@@ -94,13 +80,6 @@ class Emacs < Formula
     system "make", "install"
 
     if build.with? "cocoa"
-      # Remove when 25.1 is released
-      if build.stable?
-        chmod 0644, %w[nextstep/Emacs.app/Contents/PkgInfo
-                       nextstep/Emacs.app/Contents/Resources/Credits.html
-                       nextstep/Emacs.app/Contents/Resources/document.icns
-                       nextstep/Emacs.app/Contents/Resources/Emacs.icns]
-      end
       prefix.install "nextstep/Emacs.app"
 
       # Replace the symlink with one that avoids starting Cocoa.
