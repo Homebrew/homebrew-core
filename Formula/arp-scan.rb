@@ -5,7 +5,8 @@ class ArpScan < Formula
   sha256 "ce908ac71c48e85dddf6dd4fe5151d13c7528b1f49717a98b2a2535bd797d892"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "70a15f93ba09a4201352165594b2d69d3537fb55ba7c0180619470c2235bb851" => :sierra
     sha256 "f0fdab57a9d16dc270b9bedba6c5cca5e99e2b5319268261a320dda86fa5da54" => :el_capitan
     sha256 "4a26a7bb3c586122b4aad81c17bf8427bc820ec4a4353573ffedf79087000232" => :yosemite
     sha256 "e0570d20ec6c79c1a43c9925eb5c09d7ab9589fbe9d2ce1579927800ac6c53d5" => :mavericks
