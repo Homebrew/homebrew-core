@@ -6,7 +6,8 @@ class Veraxx < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "3a261328afd43c8c38f33802ced93557c58ae8903dab90e0ca4546004003447f" => :sierra
     sha256 "76dcb0b9340b8fc9413fc848dff27e8805d7b2a9c63d5128fc83ce5bd3bd1cd5" => :el_capitan
     sha256 "a2620392e9204964ecd0ec0bc6b90268d27e5e2a28ef304aff3d3719ed058b80" => :yosemite
     sha256 "05d5ff89c4ce8aa8054a94d234824fff41cd9f16e029022096c1d99301c9e572" => :mavericks
