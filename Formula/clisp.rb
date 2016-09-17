@@ -4,6 +4,7 @@ class Clisp < Formula
   url "https://ftpmirror.gnu.org/clisp/release/2.49/clisp-2.49.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/clisp/release/2.49/clisp-2.49.tar.bz2"
   sha256 "8132ff353afaa70e6b19367a25ae3d5a43627279c25647c220641fed00f8e890"
+  revision 1
 
   bottle do
     rebuild 1
