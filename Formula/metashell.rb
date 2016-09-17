@@ -1,8 +1,8 @@
 class Metashell < Formula
   desc "Metaprogramming shell for C++ templates"
-  homepage "https://github.com/sabel83/metashell"
-  url "https://github.com/sabel83/metashell/archive/v2.1.0.tar.gz"
-  sha256 "64d3680a536a254de8556a9792c5d35e6709f2f347d7187614271123d87246ee"
+  homepage "http://metashell.org"
+  url "https://github.com/r0mai/metashell/archive/v3.0.0-rc1.tar.gz"
+  sha256 "bf788174279a11abdb8a84482482496255c73feabf4ba5c2b090f6a38acdb1b8"
 
   bottle do
     sha256 "fff1e495ddfda97b8826fa67333a1acf5847e6e6b0fcd4d8eb12332ea714e8f0" => :el_capitan
@@ -15,13 +15,6 @@ class Metashell < Formula
 
   needs :cxx11
 
-  # This patch is required because Mountain Lion uses an old compiler which breaks
-  # compiling some Templight code. The patch comments out unused parts of Templight,
-  # so patched version is functionally equivalent. This error should be fixed in
-  # the next release of Metashell.
-  # https://github.com/sabel83/metashell/issues/28
-  patch :DATA if MacOS.version == :mountain_lion
-
   def install
     ENV.cxx11
 
@@ -33,8 +26,6 @@ class Metashell < Formula
       system "make", "libclang_static"
       system "make", "templight"
     end
-
-    system "tools/clang_default_path --gcc=clang > lib/core/extra_sysinclude.hpp"
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
@@ -50,25 +41,3 @@ class Metashell < Formula
     assert_match /const int/, shell_output("cat #{testpath}/test.hpp | #{bin}/metashell -H")
   end
 end
-
-__END__
-diff --git a/3rd/templight/llvm/tools/clang/tools/templight/TemplightDebugger.cpp b/3rd/templight/llvm/tools/clang/tools/templight/TemplightDebugger.cpp
-index 7a5a2d3..c60d7de 100644
---- a/3rd/templight/llvm/tools/clang/tools/templight/TemplightDebugger.cpp
-+++ b/3rd/templight/llvm/tools/clang/tools/templight/TemplightDebugger.cpp
-@@ -672,6 +672,7 @@ public:
-   };
-
-   void processInputs() {
-+#if 0
-     std::string user_in;
-     while(true) {
-       llvm::outs() << "(tdb) ";
-@@ -958,6 +959,7 @@ public:
-       }
-
-     };
-+#endif
-   };
-
-   void printRawEntry(const TemplateDebuggerEntry &Entry) {
