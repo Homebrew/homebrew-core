@@ -10,6 +10,7 @@ class Lua51 < Formula
 
   bottle do
     cellar :any
+    sha256 "450656c0c5da3c9b6c429891bf6f3e38478e740e0334c00a9435a4ddf9fdca22" => :sierra
     sha256 "52a35adb5c9531f2092b0daca56f1dee6f3f0ce65d78fbc91571c28a2a737176" => :el_capitan
     sha256 "10e42166a4f4b6758a3b3183a32aaac246270af6a859cf92694661acccfb4d70" => :yosemite
     sha256 "821a3e39854354505c4751ce8605b20f56e441c43b1d8464fe37e5301122e9c2" => :mavericks
