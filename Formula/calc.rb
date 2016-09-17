@@ -3,6 +3,7 @@ class Calc < Formula
   homepage "http://www.isthe.com/chongo/tech/comp/calc/"
   url "http://www.isthe.com/chongo/src/calc/calc-2.12.5.0.tar.bz2"
   sha256 "a0e7b47af38330f188970998c8e5039134dadf6f2e3f2c00d7efdae272a4338d"
+  revision 1
 
   bottle do
     sha256 "67aa247e5c16ab119cba97f911672ca7a24c3fc1ab5d30a14c6c15d56cc53f94" => :sierra
