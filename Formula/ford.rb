@@ -3,8 +3,8 @@ class Ford < Formula
 
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/cmacmackin/ford/"
-  url "https://files.pythonhosted.org/packages/a5/38/7d87f437adde4a2e1540e1ce6b3c2830a1038afb5ee30a78af10eb2aab33/FORD-5.0.5.tar.gz"
-  sha256 "b7c55ef3d4b8ddd4541e82eb5f9f0527d513c26ed66fca0d05b20db70c9795c0"
+  url "https://github.com/cmacmackin/ford/archive/v5.0.6.tar.gz"
+  sha256 "18d46dc4c6fec57ae0124b412d4db23a37d07a3849f41fa5bf4fb66deaed9615"
   head "https://github.com/cmacmackin/ford.git"
 
   bottle do
@@ -74,6 +74,8 @@ class Ford < Formula
     deps = (build.with? "lxml") ? resources : resources - [resource("lxml")]
     venv.pip_install deps
     venv.pip_install_and_link buildpath
+    doc.install "2008standard.pdf", "2003standard.pdf"
+    pkgshare.install "example-project-file.md"
   end
 
   test do
