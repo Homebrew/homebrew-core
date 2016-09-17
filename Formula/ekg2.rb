@@ -3,7 +3,7 @@ class Ekg2 < Formula
   homepage "http://en.ekg2.org"
   url "http://pl.ekg2.org/ekg2-0.3.1.tar.gz"
   sha256 "6ad360f8ca788d4f5baff226200f56922031ceda1ce0814e650fa4d877099c63"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "d87b6ce447833ba00f1e4408c686a5704916dcf0633b24eb2cf6c5e885aee177" => :sierra
