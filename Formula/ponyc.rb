@@ -17,6 +17,7 @@ class Ponyc < Formula
   needs :cxx11
 
   def install
+    ENV.prepend "CFLAGS", "-I#{Formula["llvm"].opt_lib}/clang/#{Formula["llvm"].version}/include"
     ENV.cxx11
     ENV["LLVM_CONFIG"]="#{Formula["llvm"].opt_bin}/llvm-config"
     system "make", "config=release", "destdir=#{prefix}", "install", "verbose=1"
