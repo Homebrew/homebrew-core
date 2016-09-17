@@ -3,6 +3,7 @@ class Dwarf < Formula
   homepage "https://code.google.com/p/dwarf-ng/"
   url "https://github.com/elboza/dwarf-ng/archive/dwarf-0.3.1.tar.gz"
   sha256 "921667018e0edb057d695cdb6b7ed3bd8922a4050506252c21fffe4f7e77be2e"
+  revision 1
 
   bottle do
     cellar :any
