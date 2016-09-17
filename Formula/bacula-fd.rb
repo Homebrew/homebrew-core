@@ -3,6 +3,7 @@ class BaculaFd < Formula
   homepage "http://www.bacula.org/"
   url "https://downloads.sourceforge.net/project/bacula/bacula/7.4.4/bacula-7.4.4.tar.gz"
   sha256 "01a53d4501b17aeea0c25f0b63e49b4586ac221107834a6c471c43bc602c4c47"
+  revision 1
 
   bottle do
     sha256 "23688a72a054d90ebc3a25923200c4afc86a9458b4d6c559462ca33cf73ba357" => :sierra
