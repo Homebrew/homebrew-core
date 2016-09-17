@@ -5,6 +5,7 @@ class GtkVnc < Formula
   sha256 "9559348805e64d130dae569fee466930175dbe150d2649bb868b5c095f130433"
 
   bottle do
+    sha256 "e6295f47c9b7b509cd8d8014770d1830ccf3948517b48a725f1ffa7cd309cfcd" => :sierra
     sha256 "8989a4351aebfdb2510e8f3ab8b3048e14781c09ae63cb4cc3fd1c10ed5da054" => :el_capitan
     sha256 "221d067174aaee6f1f2875b143c905db8677da91e31e251c706649da9951816e" => :yosemite
   end
