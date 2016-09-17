@@ -5,6 +5,7 @@ class Enchant < Formula
   sha256 "2fac9e7be7e9424b2c5570d8affe568db39f7572c10ed48d4e13cddf03f7097f"
 
   bottle do
+    sha256 "22fe912e6addc1433750e5da08691be6ec4c721ac91e150b7d5a64b7637d3c19" => :sierra
     sha256 "bbe368cbefd64aed845d98198d6f49fd533bc058b62290414865cca1ffdcc8cd" => :el_capitan
     sha256 "0315d7b75f8bcae0196e76c192cb514d723fd79df6f043c7ac13b3289d018b14" => :yosemite
     sha256 "622f8b9b8f008eab4d689c6b39c00887c803fb49b5ec461b7fe520737f179427" => :mavericks
