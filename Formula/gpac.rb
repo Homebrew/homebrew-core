@@ -14,7 +14,8 @@ class Gpac < Formula
   head "https://github.com/gpac/gpac.git"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "30c49c6bfe3dc199eeef5929b43cb5e59eda7139a41ebb7ed62f7755e75ceebc" => :sierra
     sha256 "3c1ebe6435a0ca2daba610c89db1156e7296413942833184f6303bc72d38c98f" => :el_capitan
     sha256 "89488b011f9080924e2bc2e4c02c8aed633ab3bb7b1d7418b01e94c9e3136fc6" => :yosemite
     sha256 "831e4b7c778f7adb373d94b82a01f2aec35d02e1363f3389d67148481a7ecca4" => :mavericks
