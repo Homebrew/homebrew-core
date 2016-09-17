@@ -6,7 +6,8 @@ class Libexif < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "2d8c0924448d966dcbb963ab8e67ee0c24bfaa1ff45d77a2e7f6a705e547ee4f" => :sierra
     sha256 "5990278735f835e2ab004ceac83616a3a71f6ae96c6f5eb0c0f1aa2af0452fb6" => :el_capitan
     sha256 "cebb385c6f48fafa10b8731daec8ce38d8ee34ff7d3afc131edd553a2249662f" => :yosemite
     sha256 "791e4c2073051f5e93fee0f30d1888f39b2873eacbfadbc4b3dd6328b80dfb51" => :mavericks
