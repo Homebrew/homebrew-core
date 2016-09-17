@@ -1,9 +1,8 @@
 class Efl < Formula
-  desc "Libraries for the Enlightenment window manager"
+  desc "Enlightenment Foundation Libraries"
   homepage "https://www.enlightenment.org"
-  url "https://download.enlightenment.org/rel/libs/efl/efl-1.14.2.tar.gz"
-  sha256 "e5699d8183c1540fe45dddaf692254632f9131335e97a09cc313e866a150b42c"
-  revision 2
+  url "https://download.enlightenment.org/rel/libs/efl/efl-1.18.1.tar.xz"
+  sha256 "0c6bd150d8e838f849effd462d91d86255e3aaade47a6077d0aa80d2b8e9d222"
 
   bottle do
     sha256 "edf518f51d6ee54d5d4c8dbaa8ea4a3f1c775c2df6abbdc1636a41f8360af8ea" => :sierra
@@ -16,6 +15,7 @@ class Efl < Formula
 
   depends_on "doxygen" => :build if build.with? "docs"
   depends_on "pkg-config" => :build
+  depends_on "gettext" => :build
   depends_on "openssl"
   depends_on "freetype"
   depends_on "fontconfig"
@@ -30,8 +30,13 @@ class Efl < Formula
   depends_on "dbus"
   depends_on "pulseaudio"
   depends_on "bullet"
-  depends_on :x11 => :optional
+  depends_on "libsndfile"
+  depends_on "libspectre"
+  depends_on "libraw"
+  depends_on "librsvg"
+  depends_on "poppler"
   depends_on "webp" => :optional
+  depends_on "glib" => :optional
 
   needs :cxx11
 
@@ -39,15 +44,10 @@ class Efl < Formula
     ENV.cxx11
 
     args = %W[
+      --disable-cxx-bindings
       --disable-dependency-tracking
-      --disable-silent-rules
-      --enable-cocoa
       --prefix=#{prefix}
     ]
-    args << "--with-x11=none" if build.without? "x11"
-    # There's currently (1.14) no clean profile for Mac OS, so we need to force
-    # passing configure.
-    args << "--enable-i-really-know-what-i-am-doing-and-that-this-will-probably-break-things-and-i-will-fix-them-myself-and-send-patches-aba"
 
     system "./configure", *args
     system "make", "install"
@@ -56,5 +56,7 @@ class Efl < Formula
 
   test do
     system bin/"edje_cc", "-V"
+    system bin/"eolian_gen", "-h"
+    system bin/"eet", "-V"
   end
 end
