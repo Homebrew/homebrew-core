@@ -7,6 +7,7 @@ class Mas < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "05c79cb39d5ae962a0a0f547ad36d88d62d355a69936e8bd88a9ce5b6a1daf77" => :sierra
     sha256 "360664b0d88c79c1e917df02bdb749bc1cdc9337075059944c49bb8f451baf71" => :el_capitan
   end
 
