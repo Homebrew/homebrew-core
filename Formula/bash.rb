@@ -8,6 +8,8 @@ class Bash < Formula
   mirror "https://gnu.cu.be/bash/bash-4.4.tar.gz"
   mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.4.tar.gz"
   sha256 "d86b3392c1202e8ff5a423b302e6284db7f8f435ea9f39b5b1b20fd3ac36dfcb"
+  revision 1
+
   head "http://git.savannah.gnu.org/r/bash.git"
 
   bottle do
