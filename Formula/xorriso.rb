@@ -1,9 +1,9 @@
 class Xorriso < Formula
   desc "ISO9660+RR manipulation tool"
   homepage "https://www.gnu.org/software/xorriso/"
-  url "https://ftpmirror.gnu.org/xorriso/xorriso-1.4.4.tar.gz"
-  mirror "https://www.gnu.org/software/xorriso/xorriso-1.4.4.tar.gz"
-  sha256 "f9b954133324281e8dca6e2a3f0b101be02c3d353587bdc520d033c57743fbc7"
+  url "https://ftpmirror.gnu.org/xorriso/xorriso-1.4.6.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/xorriso/xorriso-1.4.6.tar.gz"
+  sha256 "526f728c7eee6f8c4b69fbf391789e6c80806197c2861cf5922cf7cfe1035784"
 
   bottle do
     cellar :any_skip_relocation
