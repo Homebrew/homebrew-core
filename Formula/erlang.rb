@@ -4,6 +4,8 @@
 class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
+  revision 1
+
   head "https://github.com/erlang/otp.git"
 
   stable do
@@ -50,6 +52,14 @@ class Erlang < Formula
   end
 
   def install
+    # Fixes "dyld: Symbol not found: _clock_gettime"
+    # Reported 17 Sep 2016 https://bugs.erlang.org/browse/ERL-256
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      ENV["erl_cv_clock_gettime_monotonic_default_resolution"] = "no"
+      ENV["erl_cv_clock_gettime_monotonic_try_find_pthread_compatible"] = "no"
+      ENV["erl_cv_clock_gettime_wall_default_resolution"] = "no"
+    end
+
     # Unset these so that building wx, kernel, compiler and
     # other modules doesn't fail with an unintelligable error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
