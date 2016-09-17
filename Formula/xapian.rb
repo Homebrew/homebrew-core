@@ -14,6 +14,7 @@ class Xapian < Formula
 
   bottle do
     cellar :any
+    sha256 "6823c442511377fc5e214106fc037a818e3524ee89600135c58c32d4cbcff248" => :sierra
     sha256 "08232fd96069f4d80cf947a22d40a729bb9a65169e0c60eb59091041da987722" => :el_capitan
     sha256 "a076ee6fbab9f6eb3171171d9d54d68f2b6ffcabf88016d028b16bc68cfeafdf" => :yosemite
     sha256 "f881021eee674478fbd70179414d27e502a1de2751e8d4454f933551052b06fb" => :mavericks
