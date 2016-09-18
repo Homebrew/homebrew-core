@@ -1,12 +1,10 @@
 class GitTown < Formula
   desc "High-level command-line interface for Git"
   homepage "http://www.git-town.com"
-  url "https://github.com/Originate/git-town/archive/v1.0.0.tar.gz"
-  sha256 "cd095968daf7f9abdd2a2703f5c3b2384137ff088d388d87dbcb2366a881272f"
+  url "https://github.com/Originate/git-town/archive/v2.0.0.tar.gz"
+  sha256 "65d2d87a6cec570ecf5bd9927be53b7cfb3495829e094a2defa3df23f9e8d68c"
 
   bottle :unneeded
-
-  conflicts_with "git-extras", because: "git-town also ships a git-sync binary"
 
   def install
     libexec.install Dir["src/*"]
@@ -15,6 +13,10 @@ class GitTown < Formula
   end
 
   def caveats; <<-EOS.undent
+    To setup git aliases to remove the `town-` prefix run:
+      `git town alias true`
+    in your terminal.
+
     To install the Fish shell autocompletions run:
       `git town install-fish-autocompletion`
     in your terminal.
