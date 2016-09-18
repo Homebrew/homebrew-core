@@ -4,7 +4,7 @@ class Tarantool < Formula
   url "https://tarantool.org/dist/1.6/tarantool-1.6.8.653.tar.gz"
   version "1.6.8-653"
   sha256 "1c7f210dfadb8660db6ddc4bb680cd167f37e93d3747d57989850eef7f17933e"
-  head "https://github.com/tarantool/tarantool.git", :branch => "1.7", :shallow => false
+  head "https://github.com/tarantool/tarantool.git", branch: "1.7", shallow: false
 
   bottle do
     sha256 "47f9dbb5080b9fad24d8e4bc34d5c5e6decb386e7050aafceb47f1ba2162bfe0" => :el_capitan

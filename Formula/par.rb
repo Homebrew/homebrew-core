@@ -13,7 +13,7 @@ class Par < Formula
     sha256 "3d666b815997eda86ee0f96e71ba6fca3193432c5a01affb59918f22408c8dc6" => :mavericks
   end
 
-  conflicts_with "rancid", :because => "both install `par` binaries"
+  conflicts_with "rancid", because: "both install `par` binaries"
 
   # A patch by Jérôme Pouiller that adds support for multibyte
   # charsets (like UTF-8), plus Debian packaging.

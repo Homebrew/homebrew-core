@@ -15,8 +15,8 @@ class Guile < Formula
 
   devel do
     url "http://git.savannah.gnu.org/r/guile.git",
-        :tag => "v2.1.2",
-        :revision => "d236022eb0d285af3d462de9e99a212eba459df2"
+        tag: "v2.1.2",
+        revision: "d236022eb0d285af3d462de9e99a212eba459df2"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

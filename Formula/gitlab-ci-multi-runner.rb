@@ -4,8 +4,8 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-      :tag => "v1.5.3",
-      :revision => "fb49c4781e5040539d3faec87a2a63675d2c9f00"
+      tag: "v1.5.3",
+      revision: "fb49c4781e5040539d3faec87a2a63675d2c9f00"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
@@ -21,12 +21,12 @@ class GitlabCiMultiRunner < Formula
 
   go_resource "github.com/jteeuwen/go-bindata" do
     url "https://github.com/jteeuwen/go-bindata.git",
-        :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
+        revision: "a0ff2567cfb70903282db057e799fd826784d41d"
   end
 
   resource "prebuilt-x86_64.tar.xz" do
     url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.5.3/docker/prebuilt-x86_64.tar.xz",
-        :using => :nounzip
+        using: :nounzip
     version "1.5.3"
     sha256 "a2fffed1076e98a7122309923796449719f8b6640e1aa469c1269864dbd70c81"
   end
