@@ -3,6 +3,7 @@ class Lldpd < Formula
   homepage "https://vincentbernat.github.io/lldpd/"
   url "https://media.luffy.cx/files/lldpd/lldpd-0.9.4.tar.gz"
   sha256 "eb1f5beff2ff5c13c5e0342b5b9da815ed4a63866262445e1168a79ee65c9079"
+  revision 1
 
   bottle do
     sha256 "6eba3a01311e86ffdf6e4ce91f5ace48ac12759ef88afe9469538f552b8edfe7" => :sierra
