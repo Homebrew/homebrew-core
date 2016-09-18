@@ -20,8 +20,6 @@ class Multitail < Formula
   end
 
   test do
-    ENV["TERM"] = "xterm"
-    assert_match "multitail #{version}",
-      shell_output("#{bin}/multitail -h 2>&1", 1)
+    assert_match version.to_s, shell_output("#{bin}/multitail -h 2>&1", 1)
   end
 end
