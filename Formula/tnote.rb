@@ -22,8 +22,7 @@ class Tnote < Formula
   end
 
   test do
-    ENV["TERM"] = "xterm"
-    ENV["EDITOR"] = `which cat`.chomp
-    system "#{bin}/tnote", "--nocol", "-a", "test"
+    ENV["EDITOR"] = "/bin/cat"
+    system bin/"tnote", "--nocol", "-a", "test"
   end
 end
