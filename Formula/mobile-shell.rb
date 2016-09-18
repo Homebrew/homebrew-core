@@ -42,7 +42,6 @@ class MobileShell < Formula
   end
 
   test do
-    ENV["TERM"] = "xterm"
-    system "#{bin}/mosh-client", "-c"
+    system bin/"mosh-client", "-c"
   end
 end
