@@ -1,8 +1,8 @@
 class Kpcli < Formula
   desc "command-line interface to KeePass database files"
   homepage "http://kpcli.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.0.pl"
-  sha256 "947b7b0485215f72e14bb8936c847abb583253c597f58234650922270259049c"
+  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.1.pl"
+  sha256 "f1f07704a30d0eae126717d5dae0d24ccced43c316454e4a7b868fe0a239a21a"
 
   bottle do
     cellar :any
@@ -34,8 +34,8 @@ class Kpcli < Formula
   end
 
   resource "Term::Readline::Gnu" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.28.tar.gz"
-    sha256 "0d140df5155579cfdc833fee30f4a70401244333d93ead94ec64022e2d705517"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.34.tar.gz"
+    sha256 "a965fd0601bea84cb65e0c5e6a1eb3469fe2d99772be235faccbc49c57edf6cd"
   end
 
   resource "Data::Password" do
@@ -54,8 +54,8 @@ class Kpcli < Formula
   end
 
   resource "Capture::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.34.tar.gz"
-    sha256 "ee69e315817d78e7630e6083cda369ea9a100a2763396f36dcb172adb3f4f1a9"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.44.tar.gz"
+    sha256 "3ad2bb950a112c282a90018e91e60ddc4c4d2d351de2869d46a8c3db5b611160"
   end
 
   def install
@@ -89,7 +89,7 @@ class Kpcli < Formula
       system "make", "install"
     end
 
-    libexec.install "kpcli-3.0.pl" => "kpcli"
+    libexec.install "kpcli-#{version}.pl" => "kpcli"
     chmod 0755, libexec/"kpcli"
     (bin/"kpcli").write_env_script("#{libexec}/kpcli", PERL5LIB: ENV["PERL5LIB"])
   end
