@@ -3,6 +3,7 @@ class Hh < Formula
   homepage "https://github.com/dvorka/hstr"
   url "https://github.com/dvorka/hstr/releases/download/1.19/hh-1.19-src.tgz"
   sha256 "b67cb5e2515948fd0fb402b732630a51885be5dfe58cbf914c22ea444129a647"
+  revision 1
 
   bottle do
     cellar :any
