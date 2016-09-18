@@ -17,7 +17,6 @@ class Bvi < Formula
   end
 
   test do
-    ENV["TERM"] = "xterm"
     system "#{bin}/bvi", "-c", "q"
   end
 end
