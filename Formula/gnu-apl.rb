@@ -4,6 +4,7 @@ class GnuApl < Formula
   url "https://ftpmirror.gnu.org/apl/apl-1.6.tar.gz"
   mirror "https://ftp.gnu.org/gnu/apl/apl-1.6.tar.gz"
   sha256 "5e0da83048d81fd99330186f65309661f8070de2472851a8e639b3b7f7e7ff14"
+  revision 1
 
   bottle do
     sha256 "b45f6c238a742d5444347703fb8166fc09e49235456bb11660cfdf851bdfd030" => :sierra
