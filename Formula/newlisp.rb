@@ -3,6 +3,7 @@ class Newlisp < Formula
   homepage "http://www.newlisp.org/"
   url "http://www.newlisp.org/downloads/newlisp-10.7.0.tgz"
   sha256 "c4963bf32d67eef7e4957f7118632a0c40350fd0e28064bce095865b383137bb"
+  revision 1
 
   bottle do
     sha256 "1bf8f92ec1462698a7a7f3f1fdf97bfa6e9fd60840a411bea179c1994bafb7eb" => :sierra
