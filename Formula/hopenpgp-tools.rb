@@ -31,7 +31,6 @@ class HopenpgpTools < Formula
   end
 
   test do
-    ENV["TERM"] = "dumb"
     resource("homebrew-key.gpg").stage do
       linter_output = shell_output("#{bin}/hokey lint <homebrew-key.gpg 2>/dev/null")
       assert_match "Homebrew <security@brew.sh>", linter_output
