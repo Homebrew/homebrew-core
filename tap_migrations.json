@@ -234,6 +234,7 @@
   "rfcdiff": "homebrew/boneyard",
   "rocket": "homebrew/boneyard",
   "rofs-filtered": "homebrew/fuse",
+  "rsense": "homebrew/boneyard",
   "rtorrent": "homebrew/boneyard",
   "rubber": "homebrew/tex",
   "rxvt-unicode": "homebrew/x11",
