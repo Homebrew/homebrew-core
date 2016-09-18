@@ -4,6 +4,7 @@ class GnuUnits < Formula
   url "https://ftpmirror.gnu.org/units/units-2.13.tar.gz"
   mirror "https://ftp.gnu.org/gnu/units/units-2.13.tar.gz"
   sha256 "0ba5403111f8e5ea22be7d51ab74c8ccb576dc30ddfbf18a46cb51f9139790ab"
+  revision 1
 
   bottle do
     sha256 "66934e9cc51bc341484bd1f8a6380292ddcd1a0a776b92517e726bbf06a860f1" => :sierra
