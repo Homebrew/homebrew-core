@@ -3,6 +3,7 @@ class Hunspell < Formula
   homepage "https://hunspell.github.io"
   url "https://github.com/hunspell/hunspell/archive/v1.4.1.tar.gz"
   sha256 "c4476aff0ced52eec334eae1e8d3fdaaebdd90f5ecd0b57cf2a92a6fd220d1bb"
+  revision 1
 
   bottle do
     sha256 "8c091cc3800b27685a50f9453b720181fe0007449ff4977c1cd02a50cbe3adbd" => :sierra
