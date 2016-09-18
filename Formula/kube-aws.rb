@@ -11,10 +11,10 @@ class KubeAws < Formula
 
   def install
     executable = "bin/kube-aws"
-    ENV["GOPATH_VENDOR"]="#{Dir.pwd}/_gopath-vendor"
-    ENV["GOPATH_KUBE_AWS"]="#{Dir.pwd}/_gopath-kube-aws"
-    ENV["KUBE_AWS_DIR"]="#{ENV["GOPATH_KUBE_AWS"]}/src/github.com/coreos/coreos-kubernetes/multi-node/aws"
-    ENV["GOPATH"]="#{ENV["GOPATH_VENDOR"]}:#{ENV["GOPATH_KUBE_AWS"]}"
+    ENV["GOPATH_VENDOR"] = "#{Dir.pwd}/_gopath-vendor"
+    ENV["GOPATH_KUBE_AWS"] = "#{Dir.pwd}/_gopath-kube-aws"
+    ENV["KUBE_AWS_DIR"] = "#{ENV["GOPATH_KUBE_AWS"]}/src/github.com/coreos/coreos-kubernetes/multi-node/aws"
+    ENV["GOPATH"] = "#{ENV["GOPATH_VENDOR"]}:#{ENV["GOPATH_KUBE_AWS"]}"
 
     Dir.chdir "#{Dir.pwd}/multi-node/aws/"
 
