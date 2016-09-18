@@ -20,7 +20,6 @@ class Le < Formula
   end
 
   test do
-    ENV["TERM"] = "xterm"
     assert_match "Usage", shell_output("#{bin}/le --help", 1)
   end
 end
