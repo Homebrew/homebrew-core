@@ -14,7 +14,6 @@ class Browser < Formula
   end
 
   test do
-    ENV["TERM"] = "xterm"
     system "#{bin}/browser"
   end
 end
