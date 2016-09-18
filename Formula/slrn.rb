@@ -34,6 +34,6 @@ class Slrn < Formula
 
   test do
     ENV["TERM"] = "xterm"
-    system bin/"slrn", "--show-config"
+    assert_match version.to_s, shell_output("#{bin}/slrn --show-config")
   end
 end
