@@ -54,7 +54,7 @@ class Newt < Formula
         newtFinished();
       }
     EOS
-    system ENV.cc, testpath/"test.c", "-o", testpath/"newt_test", "-lnewt"
-    system testpath/"newt_test"
+    system ENV.cc, "test.c", "-o", "test", "-lnewt"
+    system "./test"
   end
 end
