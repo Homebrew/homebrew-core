@@ -22,7 +22,19 @@ class DiffSoFancy < Formula
   end
 
   test do
-    ENV["TERM"] = "xterm"
-    system bin/"diff-so-fancy"
+    diff = <<-EOS.undent
+      diff --git a/hello.c b/hello.c
+      index 8c15c31..0a9c78f 100644
+      --- a/hello.c
+      +++ b/hello.c
+      @@ -1,5 +1,5 @@
+       #include <stdio.h>
+
+       int main(int argc, char **argv) {
+      -    printf("Hello, world!\n");
+      +    printf("Hello, Homebrew!\n");
+       }
+    EOS
+    assert_match "modified: hello.c", pipe_output(bin/"diff-so-fancy", diff, 0)
   end
 end
