@@ -4,7 +4,7 @@ class PkgConfig < Formula
   url "https://pkgconfig.freedesktop.org/releases/pkg-config-0.29.1.tar.gz"
   mirror "https://fossies.org/linux/misc/pkg-config-0.29.1.tar.gz"
   sha256 "beb43c9e064555469bd4390dcfd8030b1536e0aa103f08d7abf7ae8cac0cb001"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "236a2aa2b7f414ac36279cf5b11b9f64429c5224d8e765224a6315061f39bbaa" => :sierra
