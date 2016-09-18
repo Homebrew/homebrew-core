@@ -18,6 +18,7 @@ class Monetdb < Formula
   homepage "https://www.monetdb.org/"
   url "https://www.monetdb.org/downloads/sources/Jun2016-SP1/MonetDB-11.23.7.zip"
   sha256 "97115a045b3339a534b5e7efd6045dfbc1bdb7a704aeee4200a1336a559f48df"
+  revision 1
 
   bottle do
     sha256 "fbe074bb30c5a80b3fb375cf3ce826f57aa13ecbfe6186e8d35053e5c85f880d" => :el_capitan
