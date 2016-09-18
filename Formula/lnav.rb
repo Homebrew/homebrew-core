@@ -3,6 +3,7 @@ class Lnav < Formula
   homepage "http://lnav.org"
   url "https://github.com/tstack/lnav/releases/download/v0.8.1/lnav-0.8.1.tar.gz"
   sha256 "db942abccdb5327d7594ca9e32e0b44802790fad8577bdbed44f81220fd62153"
+  revision 1
 
   bottle do
     rebuild 1
