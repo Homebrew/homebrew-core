@@ -6,7 +6,7 @@ class GitTown < Formula
 
   bottle :unneeded
 
-  conflicts_with "git-extras", :because => "git-town also ships a git-sync binary"
+  conflicts_with "git-extras", because: "git-town also ships a git-sync binary"
 
   def install
     libexec.install Dir["src/*"]

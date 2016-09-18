@@ -18,7 +18,7 @@ class ProofGeneral < Formula
     sha256 "5f3f943cc6c7c5f5ff344a01b25054a62877f090f382b1c84917906cfea367bc"
   end
 
-  depends_on :emacs => "22.3"
+  depends_on emacs: "22.3"
 
   def install
     ENV.j1 # Otherwise lisp compilation can result in 0-byte files

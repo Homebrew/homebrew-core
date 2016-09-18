@@ -9,7 +9,7 @@ class Macosvpn < Formula
     sha256 "c2d16daa3ef23c14f2db4320b4a9c1450ad7aa30563c330e7119a4584847edac" => :el_capitan
   end
 
-  depends_on :xcode => ["7.3", :build]
+  depends_on xcode: ["7.3", :build]
 
   def install
     xcodebuild

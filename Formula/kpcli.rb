@@ -91,7 +91,7 @@ class Kpcli < Formula
 
     libexec.install "kpcli-3.0.pl" => "kpcli"
     chmod 0755, libexec/"kpcli"
-    (bin/"kpcli").write_env_script("#{libexec}/kpcli", :PERL5LIB => ENV["PERL5LIB"])
+    (bin/"kpcli").write_env_script("#{libexec}/kpcli", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do
