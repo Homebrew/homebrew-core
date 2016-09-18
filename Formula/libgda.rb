@@ -3,6 +3,7 @@ class Libgda < Formula
   homepage "http://www.gnome-db.org/"
   url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.4.tar.xz"
   sha256 "2cee38dd583ccbaa5bdf6c01ca5f88cc08758b9b144938a51a478eb2684b765e"
+  revision 2
 
   bottle do
     sha256 "0a9f4fb1b91db3bdf11063960b618339e3a26ebdbea5e8eef730b79ea701f6c7" => :sierra
@@ -11,8 +12,6 @@ class Libgda < Formula
     sha256 "89a345a4eff5729024d6ba8b9425c3fa8408f2349d0205d095e9c5e26e55094d" => :mavericks
     sha256 "cf2ce1122dfe0f754f811a901114bfa5e4918368ec1acfb915038c2ec84c5215" => :mountain_lion
   end
-
-  revision 1
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
