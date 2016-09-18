@@ -16,6 +16,12 @@ class Rust < Formula
       url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2015-09-17/cargo-nightly-x86_64-apple-darwin.tar.gz"
       sha256 "02ba744f8d29bad84c5e698c0f316f9e428962b974877f7f582cd198fdd807a8"
     end
+
+    # Currently rust stable won't build on Sierra according to our
+    # knowledge. Before we update to a version that works or otherwise patch
+    # the current version, let's disable it on Sierra to stop folks from
+    # wasting hours and hours trying to build it.
+    depends_on MaximumMacOSRequirement => :el_capitan
   end
 
   bottle do
