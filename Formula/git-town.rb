@@ -12,17 +12,6 @@ class GitTown < Formula
     man1.install Dir["man/man1/*"]
   end
 
-  def caveats; <<-EOS.undent
-    To setup git aliases to remove the `town-` prefix run:
-      `git town alias true`
-    in your terminal.
-
-    To install the Fish shell autocompletions run:
-      `git town install-fish-autocompletion`
-    in your terminal.
-  EOS
-  end
-
   test do
     system "git", "init"
     touch "testing.txt"
