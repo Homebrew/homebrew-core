@@ -1,8 +1,8 @@
 class ProofGeneral < Formula
   desc "Emacs-based generic interface for theorem provers"
   homepage "https://proofgeneral.github.io"
-  url "http://proofgeneral.inf.ed.ac.uk/releases/ProofGeneral-4.2.tgz"
-  sha256 "3567b68077798396ccd55c501b7ea7bd2c4d6300e4c74ff609dc19837d050b27"
+  url "https://github.com/ProofGeneral/PG/archive/v4.4.tar.gz"
+  sha256 "1ba236d81768a87afa0287f49d4b2223097bc61d180468cbd997d46ab6132e7e"
   head "https://github.com/ProofGeneral/PG.git"
 
   bottle do
@@ -12,16 +12,11 @@ class ProofGeneral < Formula
     sha256 "68322027aa1049620ce494deab095e5cf7cb4710f3f71b3ab1a03ebd06752a0f" => :mavericks
   end
 
-  devel do
-    url "http://proofgeneral.inf.ed.ac.uk/releases/ProofGeneral-4.3pre150930.tgz"
-    version "4.3pre150930"
-    sha256 "5f3f943cc6c7c5f5ff344a01b25054a62877f090f382b1c84917906cfea367bc"
-  end
-
+  depends_on "texi2html" => :build
   depends_on emacs: "22.3"
 
   def install
-    ENV.j1 # Otherwise lisp compilation can result in 0-byte files
+    ENV.deparallelize # Otherwise lisp compilation can result in 0-byte files
 
     args = %W[
       PREFIX=#{prefix}
@@ -31,28 +26,19 @@ class ProofGeneral < Formula
       EMACS=#{which "emacs"}
     ]
 
-    cd (build.head? ? "." : "ProofGeneral") do
-      # http://proofgeneral.inf.ed.ac.uk/trac/ticket/458
-      # remove in next stable release
-      inreplace "Makefile", "(setq byte-compile-error-on-warn t)", "" if build.stable?
-      # remove files compiled by emacs 24.2
-      system "make", "clean"
-      system "make", "install", *args
+    system "make", "install", *args
 
-      man1.install "doc/proofgeneral.1"
-      if build.head?
-        cd "doc" do
-          system "make", "info", "html"
-        end
-      end
-      info.install "doc/ProofGeneral.info", "doc/PG-adapting.info"
-      doc.install "doc/ProofGeneral", "doc/PG-adapting"
+    cd "doc" do
+      system "make", "info", "html"
     end
+    man1.install "doc/proofgeneral.1"
+    info.install "doc/ProofGeneral.info", "doc/PG-adapting.info"
+    doc.install "doc/ProofGeneral", "doc/PG-adapting"
   end
 
   def caveats; <<-EOS.undent
     HTML documentation is available in: #{HOMEBREW_PREFIX}/share/doc/proof-general
-  EOS
+    EOS
   end
 
   test do
