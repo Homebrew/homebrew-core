@@ -18,9 +18,21 @@ class Ne < Formula
 
   test do
     ENV["TERM"] = "xterm"
-    (testpath/"test.txt").write("This is a test document.\n")
-    (testpath/"test_ne").write("GotoLine 2\nInsertString line 2\nExit\n")
-    system "script", "-q", "/dev/null", "#{bin}/ne", "--macro", ((testpath/"test_ne")).to_s, ((testpath/"test.txt")).to_s
-    assert_equal "This is a test document.\nline 2", File.read("#{testpath}/test.txt")
+    document = testpath/"test.txt"
+    macros = testpath/"macros"
+    document.write <<-EOS.undent
+      This is a test document.
+    EOS
+    macros.write <<-EOS.undent
+      GotoLine 2
+      InsertString line 2
+      InsertLine
+      Exit
+    EOS
+    system "script", "-q", "/dev/null", bin/"ne", "--macro", macros, document
+    assert_equal <<-EOS.undent, document.read
+      This is a test document.
+      line 2
+    EOS
   end
 end
