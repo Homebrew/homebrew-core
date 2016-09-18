@@ -3,7 +3,7 @@ class AprUtil < Formula
   homepage "https://apr.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-util-1.5.4.tar.bz2"
   sha256 "a6cf327189ca0df2fb9d5633d7326c460fe2b61684745fd7963e79a6dd0dc82e"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "befef73518b6503d4e6d24c8b7de4f9c30c985dedb85251cf580ccf53378c7ad" => :sierra
