@@ -26,7 +26,6 @@ class Sngrep < Formula
   end
 
   test do
-    ENV["TERM"] = "xterm"
     pipe_output("#{bin}/sngrep -I #{test_fixtures("test.pcap")}", "Q\n", 0)
   end
 end
