@@ -146,8 +146,7 @@ class Pwntools < Formula
   end
 
   test do
-    ENV["TERM"] = "xterm"
     assert_equal "686f6d6562726577696e7374616c6c636f6d706c657465",
-      shell_output("#{bin}/hex homebrewinstallcomplete").strip
+                 shell_output("#{bin}/hex homebrewinstallcomplete").strip
   end
 end
