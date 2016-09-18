@@ -3,6 +3,7 @@ class Libqalculate < Formula
   homepage "http://qalculate.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/qalculate/libqalculate/libqalculate-0.9.7/libqalculate-0.9.7.tar.gz"
   sha256 "9a6d97ce3339d104358294242c3ecd5e312446721e93499ff70acc1604607955"
+  revision 1
 
   bottle do
     revision 1
