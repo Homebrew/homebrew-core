@@ -5,7 +5,7 @@ class Sdcv < Formula
   url "https://github.com/Dushistov/sdcv.git",
       :revision => "c347ae7da9b7969e00696b18035d9a7d200e43e3"
   version "0.5-2013-09-10"
-  revision 1
+  revision 2
 
   head "https://github.com/Dushistov/sdcv.git"
 
