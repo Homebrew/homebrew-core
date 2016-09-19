@@ -1,8 +1,9 @@
 class Qwt < Formula
-  desc "Qt Widgets for Technical Applications (v5.1)"
+  desc "Qt Widgets for Technical Applications"
   homepage "http://qwt.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.3/qwt-6.1.3.tar.bz2"
   sha256 "f3ecd34e72a9a2b08422fb6c8e909ca76f4ce5fa77acad7a2883b701f4309733"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class Qwt < Formula
   option "with-qwtmathml", "Build the qwtmathml library"
   option "without-plugin", "Skip building the Qt Designer plugin"
 
-  depends_on "qt"
+  depends_on "qt5"
 
   # Update designer plugin linking back to qwt framework/lib after install
   # See: https://sourceforge.net/p/qwt/patches/45/
@@ -26,15 +27,15 @@ class Qwt < Formula
       s.gsub! /^\s*QWT_INSTALL_PREFIX\s*=(.*)$/, "QWT_INSTALL_PREFIX=#{prefix}"
       s.sub! /\+(=\s*QwtDesigner)/, "-\\1" if build.without? "plugin"
 
-      # Install Qt plugin in `lib/qt4/plugins/designer`, not `plugins/designer`.
+      # Install Qt plugin in `lib/qt5/plugins/designer`, not `plugins/designer`.
       s.sub! %r{(= \$\$\{QWT_INSTALL_PREFIX\})/(plugins/designer)$},
-             "\\1/lib/qt4/\\2"
+             "\\1/lib/qt5/\\2"
     end
 
     args = ["-config", "release", "-spec"]
     # On Mavericks we want to target libc++, this requires a unsupported/macx-clang-libc++ flag
     if ENV.compiler == :clang && MacOS.version >= :mavericks
-      args << "unsupported/macx-clang-libc++"
+      args << "macx-clang"
     else
       args << "macx-g++"
     end
@@ -44,7 +45,7 @@ class Qwt < Formula
       prefix.install "textengines/mathml/qtmmlwidget-license"
     end
 
-    system "qmake", *args
+    system Formula["qt5"].bin/"qmake", *args
     system "make"
     system "make", "install"
   end
@@ -73,10 +74,10 @@ class Qwt < Formula
     EOS
     system ENV.cxx, "test.cpp", "-o", "out",
       "-framework", "qwt", "-framework", "QtCore",
-      "-F#{lib}", "-F#{Formula["qt"].opt_lib}",
+      "-F#{lib}", "-F#{Formula["qt5"].opt_lib}",
       "-I#{lib}/qwt.framework/Headers",
-      "-I#{Formula["qt"].opt_lib}/QtCore.framework/Headers",
-      "-I#{Formula["qt"].opt_lib}/QtGui.framework/Headers"
+      "-I#{Formula["qt5"].opt_lib}/QtCore.framework/Versions/5/Headers",
+      "-I#{Formula["qt5"].opt_lib}/QtGui.framework/Versions/5/Headers"
     system "./out"
   end
 end
