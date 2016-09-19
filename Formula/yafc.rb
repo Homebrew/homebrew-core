@@ -3,6 +3,7 @@ class Yafc < Formula
   homepage "http://www.yafc-ftp.com/"
   url "http://www.yafc-ftp.com/downloads/yafc-1.3.7.tar.xz"
   sha256 "4b3ebf62423f21bdaa2449b66d15e8d0bb04215472cb63a31d473c3c3912c1e0"
+  revision 1
 
   bottle do
     sha256 "7665d10fc6dd4cc6b7bced9145af75f6f9403b48b80b8579bbd0035cb13d6495" => :el_capitan
