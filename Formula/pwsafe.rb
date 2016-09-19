@@ -3,7 +3,7 @@ class Pwsafe < Formula
   homepage "http://nsd.dyndns.org/pwsafe/"
   url "http://nsd.dyndns.org/pwsafe/releases/pwsafe-0.2.0.tar.gz"
   sha256 "61e91dc5114fe014a49afabd574eda5ff49b36c81a6d492c03fcb10ba6af47b7"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
