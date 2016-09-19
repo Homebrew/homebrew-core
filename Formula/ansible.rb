@@ -30,11 +30,13 @@ class Ansible < Formula
   #   shade (OpenStack)
   #   pywinrm (Windows)
   #   kerberos (Windows)
+  #   xmltodict (Windows)
   #   boto (AWS)
   #   boto3 (AWS)
   #   apache-libcloud (Google GCE)
   #   python-keyczar (Accelerated Mode)
   #   passlib (htpasswd core module)
+  #   zabbix-api (Zabbix extras module)
 
   ### setup_requires dependencies
   resource "pbr" do
