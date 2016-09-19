@@ -3,6 +3,7 @@ class Socat < Formula
   homepage "http://www.dest-unreach.org/socat/"
   url "http://www.dest-unreach.org/socat/download/socat-1.7.3.1.tar.gz"
   sha256 "a8cb07b12bcd04c98f4ffc1c68b79547f5dd4e23ddccb132940f6d55565c7f79"
+  revision 1
 
   bottle do
     cellar :any
