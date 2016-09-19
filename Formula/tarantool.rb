@@ -1,10 +1,10 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server."
   homepage "https://tarantool.org/"
-  url "https://tarantool.org/dist/1.6/tarantool-1.6.8.653.tar.gz"
-  version "1.6.8-653"
-  sha256 "1c7f210dfadb8660db6ddc4bb680cd167f37e93d3747d57989850eef7f17933e"
-  head "https://github.com/tarantool/tarantool.git", branch: "1.7", shallow: false
+  url "http://download.tarantool.org/tarantool/1.7/src/tarantool-1.7.1.401.tar.gz"
+  version "1.7.1-401"
+  sha256 "615a92e481fdd6231a4581d2f1d2f9b22e7bcb9936bbfd19da12a323a7c91fe2"
+  head "https://github.com/tarantool/tarantool.git", branch: "1.8", shallow: false
 
   bottle do
     sha256 "47f9dbb5080b9fad24d8e4bc34d5c5e6decb386e7050aafceb47f1ba2162bfe0" => :el_capitan
@@ -18,6 +18,15 @@ class Tarantool < Formula
 
   def install
     args = std_cmake_args
+
+    # Fix "dyld: lazy symbol binding failed: Symbol not found: _clock_gettime"
+    # Reported 19 Sep 2016 https://github.com/tarantool/tarantool/issues/1777
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      args << "-DHAVE_CLOCK_GETTIME:INTERNAL=0"
+      inreplace "src/trivia/util.h", "#ifndef HAVE_CLOCK_GETTIME",
+                                     "#ifdef UNDEFINED_GIBBERISH"
+    end
+
     args << "-DCMAKE_INSTALL_MANDIR=#{doc}"
     args << "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}"
     args << "-DCMAKE_INSTALL_LOCALSTATEDIR=#{var}"
