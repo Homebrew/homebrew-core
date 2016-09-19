@@ -1,8 +1,8 @@
 class Takt < Formula
   desc "text-based music programming language"
   homepage "http://takt.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/takt/takt-0.309-src.tar.gz"
-  sha256 "44fca667d610fba15deb441dd44e5b87dabbe5619d7fa8a13f5c8c1f054dd509"
+  url "https://downloads.sourceforge.net/project/takt/takt-0.310-src.tar.gz"
+  sha256 "eb2947eb49ef84b6b3644f9cf6f1ea204283016c4abcd1f7c57b24b896cc638f"
 
   bottle do
     sha256 "0669543315f8ab5da5eadacdd131c76c4b20a11502fd086db0b052664eb334b2" => :el_capitan
