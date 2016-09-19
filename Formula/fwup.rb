@@ -6,9 +6,9 @@ class Fwup < Formula
 
   bottle do
     cellar :any
-    sha256 "25bc2fdb8090f0cebcf0374cd85f8b8ea220ee1792f7f6b214265abc28b6f5ff" => :el_capitan
-    sha256 "f014b3a540cdb05037e3ed8efd2b12f864302c400cbc23fd745c6a4cc026a93d" => :yosemite
-    sha256 "89488d53335a51e0a906f035e3cc081f21eb9cb78b9e965ebfe113252eee8d6c" => :mavericks
+    sha256 "e791699a5cd225967ecc02d10b9407897fcdfe4e08b6e4ca9e4160f64ae95deb" => :sierra
+    sha256 "f950ccceadf3be9e531437c3558fe19ddd6c098bdd3e86858c0378cc323b1202" => :el_capitan
+    sha256 "877a2b13ce3b3006b3f1e9a136368a71dde2f01b3f633a8265f1cd6289a6a43c" => :yosemite
   end
 
   depends_on "pkg-config" => :build
