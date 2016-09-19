@@ -4,6 +4,12 @@ class Byteman < Formula
   url "https://downloads.jboss.org/byteman/3.0.5/byteman-download-3.0.5-bin.zip"
   sha256 "c7b90b63346d4a0f648c55e12c21110fb173fb9ae8471727fd44906591fa8c26"
 
+  devel do
+    url "http://downloads.jboss.org/byteman/4.0.0-ALPHA/byteman-download-4.0.0-ALPHA-bin.zip"
+    sha256 "1658fb2913b706ec29d23ecd7559de7643225f0e723dab8772374ea01ceafdf6"
+    version "4.0.0-ALPHA"
+  end
+
   bottle :unneeded
   depends_on java: "1.6+"
 
