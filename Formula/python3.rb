@@ -1,7 +1,7 @@
 class Python3 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  revision 1
+  revision 2
 
   head "https://hg.python.org/cpython", :using => :hg
 
