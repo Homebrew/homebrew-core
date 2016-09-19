@@ -5,10 +5,9 @@ class Takt < Formula
   sha256 "eb2947eb49ef84b6b3644f9cf6f1ea204283016c4abcd1f7c57b24b896cc638f"
 
   bottle do
-    sha256 "0669543315f8ab5da5eadacdd131c76c4b20a11502fd086db0b052664eb334b2" => :el_capitan
-    sha256 "3dbf255bf638d233a4c4eda5823bc3f4fa4d5fd6985ea25022edafef6864ce1d" => :yosemite
-    sha256 "3b95c5b824c3616c6278d02718f511013aa6f1f921d04de62c5e674fae27aa1a" => :mavericks
-    sha256 "12faf048c8ce38aa97ca1cd3e95aad70c8430315ecfd76a1c11208a0874ce87c" => :mountain_lion
+    sha256 "52bf9d849eeaced86b6dd6986f702c81a947e1bb0a7a8d0f4bef71340a7c4595" => :sierra
+    sha256 "385063726c0a6a5a962ea3312c7172c37c2ef71f6a84cc662a0c18341285068f" => :el_capitan
+    sha256 "adaf06a7467e3ccf50f36c427bf436c2e3352dec2b83934f1e2031bdff798d70" => :yosemite
   end
 
   depends_on "readline"
