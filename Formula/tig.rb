@@ -3,6 +3,7 @@ class Tig < Formula
   homepage "http://jonas.nitro.dk/tig/"
   url "http://jonas.nitro.dk/tig/releases/tig-2.2.tar.gz"
   sha256 "8f5213d3abb45ca9a79810b8d2a2a12d941112bc4682bcfa91f34db74942754c"
+  revision 1
 
   bottle do
     cellar :any
