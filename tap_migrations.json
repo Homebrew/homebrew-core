@@ -154,6 +154,7 @@
   "kumofs": "homebrew/boneyard",
   "lastfmlib": "homebrew/boneyard",
   "latex-mk": "homebrew/tex",
+  "lftp": "homebrew/boneyard",
   "libdbusmenu-qt": "homebrew/boneyard",
   "libdlna": "homebrew/boneyard",
   "libgtextutils": "homebrew/science",
