@@ -20,6 +20,30 @@ class Direnv < Formula
     system "make", "install", "DESTDIR=#{prefix}"
   end
 
+  def caveats; <<-EOS.undent
+    For direnv to work properly it needs to be hooked into the shell.
+    Each shell has its own extension mechanism:
+
+    Bash
+      Add the following line at the end of the "~/.bashrc" file:
+        eval "$(direnv hook bash)"
+      Make sure it appears even after rvm, git-prompt and other shell extensions
+      that manipulate the prompt.
+
+    Zsh
+      Add the following line at the end of the "~/.zshrc" file:
+        eval "$(direnv hook zsh)"
+
+    Fish
+      Add the following line at the end of the "~/.config/fish/config.fish" file:
+        eval (direnv hook fish)
+
+    Tcsh
+      Add the following line at the end of the "~/.cshrc" file:
+        eval `direnv hook tcsh`
+    EOS
+  end
+
   test do
     system bin/"direnv", "status"
   end
