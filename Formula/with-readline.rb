@@ -3,6 +3,7 @@ class WithReadline < Formula
   homepage "http://www.greenend.org.uk/rjk/sw/withreadline.html"
   url "http://www.greenend.org.uk/rjk/sw/with-readline-0.1.1.tar.gz"
   sha256 "d12c71eb57ef1dbe35e7bd7a1cc470a4cb309c63644116dbd9c88762eb31b55d"
+  revision 1
 
   bottle do
     cellar :any
