@@ -49,6 +49,7 @@ class Openconnect < Formula
     ]
 
     system "./configure", *args
+    system "make"
     system "make", "install"
   end
 
