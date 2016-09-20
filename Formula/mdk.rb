@@ -18,6 +18,7 @@ class Mdk < Formula
   depends_on "glib"
   depends_on "flex"
   depends_on "guile"
+  depends_on "readline"
 
   def install
     system "./configure", "--disable-debug",
