@@ -28,7 +28,10 @@ class Maven < Formula
     end
   end
 
-  conflicts_with "mvnvm", because: "also installs a 'mvn' executable"
+  conflicts_with "maven30", :because => "maven is newer versions of this formula"
+  conflicts_with "maven31", :because => "maven is newer versions of this formula"
+  conflicts_with "maven32", :because => "maven is newer versions of this formula"
+  conflicts_with "mvnvm", :because => "also ships a mvn binary"
 
   test do
     (testpath/"pom.xml").write <<-EOS.undent
