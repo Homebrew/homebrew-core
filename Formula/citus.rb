@@ -13,6 +13,7 @@ class Citus < Formula
   end
 
   depends_on "postgresql"
+  depends_on "readline"
 
   def install
     ENV["PG_CONFIG"] = Formula["postgresql"].opt_bin/"pg_config"
