@@ -18,7 +18,7 @@ Second, read the [Troubleshooting Checklist](https://github.com/Homebrew/brew/bl
 **If you don’t read these it will take us far longer to help you with your problem.**
 
 ## Contributing
-Read [CONTRIBUTING.md](/.github/CONTRIBUTING.md).
+Read [CONTRIBUTING.md](/CONTRIBUTING.md).
 
 Creating new formulae, updating existing ones, and fixing build issues is easier than you think!
 
