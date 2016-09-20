@@ -4,7 +4,7 @@ class GnuSmalltalk < Formula
   url "https://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"
   mirror "https://ftp.gnu.org/gnu/smalltalk/smalltalk-3.2.5.tar.xz"
   sha256 "819a15f7ba8a1b55f5f60b9c9a58badd6f6153b3f987b70e7b167e7755d65acc"
-  revision 3
+  revision 4
 
   head "https://github.com/bonzini/smalltalk.git"
 
@@ -47,6 +47,11 @@ class GnuSmalltalk < Formula
 
   def install
     ENV.m32 unless MacOS.prefer_64_bit?
+
+    # Fix build failure "Symbol not found: _clock_gettime"
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      ENV["ac_cv_search_clock_gettime"] = "no"
+    end
 
     args = %W[
       --disable-debug
