@@ -3,6 +3,7 @@ class Takt < Formula
   homepage "http://takt.sourceforge.net"
   url "https://downloads.sourceforge.net/project/takt/takt-0.310-src.tar.gz"
   sha256 "eb2947eb49ef84b6b3644f9cf6f1ea204283016c4abcd1f7c57b24b896cc638f"
+  revision 1
 
   bottle do
     sha256 "52bf9d849eeaced86b6dd6986f702c81a947e1bb0a7a8d0f4bef71340a7c4595" => :sierra
