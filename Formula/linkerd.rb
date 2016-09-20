@@ -8,19 +8,17 @@ class Linkerd < Formula
   depends_on java: "1.8+"
 
   def install
-    # Replacing disco folder path
     inreplace "config/linkerd.yaml", "disco", libexec/"disco"
 
-    # Installing and symlinking
     libexec.install "disco", "linkerd-#{version}-exec"
-    share.install "docs"
-    pkgshare.install "config/linkerd.yaml"
     bin.install_symlink libexec/"linkerd-#{version}-exec" => "linkerd"
 
-    # Configuring etc folder
-    mv "config", "linkerd"
-    etc.install "linkerd"
+    etc.install "config" => "linkerd"
     libexec.install_symlink etc/"linkerd" => "config"
+
+    share.install "docs"
+    pkgshare.mkpath
+    cp etc/"linkerd/linkerd.yaml", pkgshare/"default.yaml"
   end
 
   def caveats; <<-EOS.undent
@@ -61,22 +59,26 @@ class Linkerd < Formula
   end
 
   test do
-    begin
-      system "echo 'It works!' > #{testpath}/index.html"
-      system "pushd #{testpath}; python -m SimpleHTTPServer 9999 > #{testpath}/simple-http-server.log 2>&1 &"
-      system "linkerd #{pkgshare}/linkerd.yaml > #{testpath}/linkerd.logs 2>&1 &"
+    system "echo 'It works!' > #{testpath}/index.html"
+    cd testpath
 
-      sleep 5
-
-      system "curl -s -H 'Host: web' http://localhost:4140/ > #{testpath}/result_web &"
-      system "curl -s -I -H 'Host: foo' http://localhost:4140/ > #{testpath}/result_foo &"
-
-      sleep 2
-    ensure
-      system "ps -ef | grep -E 'SimpleHTTPServer|linkerd' | grep -v -E 'grep|brew' | awk '{print $2}' | xargs kill -9"
+    simple_http_pid = fork do
+      exec "python -m SimpleHTTPServer 9999"
+    end
+    linkerd_pid = fork do
+      exec "linkerd #{pkgshare}/default.yaml"
     end
 
-    assert_match /It works!/, IO.read("#{testpath}/result_web")
-    assert_match /Bad Gateway/, IO.read("#{testpath}/result_foo")
+    sleep 5
+
+    begin
+      assert_match /It works!/, shell_output("curl -s -H 'Host: web' http://localhost:4140")
+      assert_match /Bad Gateway/, shell_output("curl -s -I -H 'Host: foo' http://localhost:4140")
+    ensure
+      Process.kill("TERM", linkerd_pid)
+      Process.wait(linkerd_pid)
+      Process.kill("TERM", simple_http_pid)
+      Process.wait(simple_http_pid)
+    end
   end
 end
