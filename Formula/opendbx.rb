@@ -11,6 +11,7 @@ class Opendbx < Formula
     sha256 "2ea5595a73cc1317ab7d760e75cb428d3c5440c490a0ba4b001b8a6e84ce785c" => :mountain_lion
   end
 
+  depends_on "readline"
   depends_on "sqlite"
 
   def install
