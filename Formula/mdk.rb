@@ -11,13 +11,13 @@ class Mdk < Formula
     sha256 "eaab34ff8d2d73e08da0c3596fbee2eadc68cc269c1fe7b425b49f703348dcfa" => :mavericks
   end
 
+  depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gtk+"
   depends_on "libglade"
   depends_on "glib"
   depends_on "flex"
   depends_on "guile"
-  depends_on "intltool" => :build
-  depends_on "pkg-config" => :build
 
   def install
     system "./configure", "--disable-debug",
