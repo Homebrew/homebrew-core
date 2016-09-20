@@ -4,6 +4,7 @@ class Guile < Formula
   url "https://ftpmirror.gnu.org/guile/guile-2.0.12.tar.xz"
   mirror "https://ftp.gnu.org/gnu/guile/guile-2.0.12.tar.xz"
   sha256 "de8187736f9b260f2fa776ed39b52cb74dd389ccf7039c042f0606270196b7e9"
+  revision 1
 
   bottle do
     sha256 "b50ac92adfa31f38c1270229282151977afe437c746c35e4978ce57bcedbc8bf" => :sierra
