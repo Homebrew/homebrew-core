@@ -3,8 +3,8 @@ class Khard < Formula
 
   desc "Console carddav client."
   homepage "https://github.com/scheibler/khard/"
-  url "https://files.pythonhosted.org/packages/ad/a0/687c7f03b5e7b982e791c8b250eb24ed55b62b23461f9f7111c2ab938733/khard-0.11.2.tar.gz"
-  sha256 "d242e368c13bb5e5b9ee15450c2c752b4e64df203643be36504c155a46327a1d"
+  url "https://files.pythonhosted.org/packages/eb/9c/0d68645e0347afc2c8ef214cf4ad5b7404978296ccf0bdca5ffe3fa0bfea/khard-0.11.3.tar.gz"
+  sha256 "d6133f5622694dfdb73348604afaa78d20ba7a72178075e76afd045e309cc6ec"
 
   bottle do
     sha256 "dbdf3c46ba9622f9a58dc76ed45f230d4c6b00b1dad43ec1eeb0774e18d9fb61" => :el_capitan
@@ -39,9 +39,10 @@ class Khard < Formula
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
+  # pinned to 0.9.2 due to https://github.com/eventable/vobject/issues/39
   resource "vobject" do
-    url "https://files.pythonhosted.org/packages/d2/07/937bcefd85b1e34c9eda82135a20cd9707b1b393c0aa6703f1d90af18a33/vobject-0.9.3.tar.gz"
-    sha256 "10b150b87ee5fffefd3aa1ea12f31aab45a7b7d010d1ce6816afaff8db726520"
+    url "https://files.pythonhosted.org/packages/5a/fd/65094c081741aa12a482dfd4685cc0402de1c38d28cdcf64628ebd046c34/vobject-0.9.2.tar.gz"
+    sha256 "8b310c21a4d58e13aeb7e60fd846a1748e1c9c3374f3e2acc96f728c3ae5d6e1"
   end
 
   def install
