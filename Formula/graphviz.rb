@@ -17,12 +17,9 @@ class Graphviz < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "d09daeb9766359bead2bef8b9f3cc83eda78a381e4c607e2552f06516624bc9f" => :sierra
-    sha256 "cf69eac548a5c02aacc966706fc4a922176059414fbe453680aae4552fc019dc" => :el_capitan
-    sha256 "6817a366691db684f2910dfbc7e20253915f82848ae09ef474a50ac67bf10582" => :yosemite
-    sha256 "4361c01b46dc6061694e5f5a58c326efedad66ddeb7e1b063e53ff5ebb995d8a" => :mavericks
-    sha256 "a8d9c8d59af854970bfffa16dc62cb584383887053a4ded39cfbbfdabac624bc" => :mountain_lion
+    sha256 "8cdecc90167e47c11153a8cde909f4387b96abee37a6e59cd7024112ba4709cc" => :sierra
+    sha256 "c36aa173c45aecedee2aa2c6b410e8b609a4fcab1a81c948a705388e7265a7b3" => :el_capitan
+    sha256 "655323ee62b7328acb15e46f2d099103f6a774895b909b9a51011f5254688cfb" => :yosemite
   end
 
   head do
