@@ -1,10 +1,8 @@
 class Httping < Formula
   desc "Ping-like tool for HTTP requests"
   homepage "https://www.vanheusden.com/httping/"
-  url "https://www.vanheusden.com/httping/httping-2.4.tgz"
-  sha256 "dab59f02b08bfbbc978c005bb16d2db6fe21e1fc841fde96af3d497ddfc82084"
-  revision 1
-
+  url "https://www.vanheusden.com/httping/httping-2.5.tgz"
+  sha256 "3e895a0a6d7bd79de25a255a1376d4da88eb09c34efdd0476ab5a907e75bfaf8"
   head "https://github.com/flok99/httping.git"
 
   bottle do
