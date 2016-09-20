@@ -1,8 +1,8 @@
 class Gupnp < Formula
   desc "Framework for creating UPnP devices and control points"
   homepage "https://wiki.gnome.org/Projects/GUPnP"
-  url "https://download.gnome.org/sources/gupnp/0.20/gupnp-0.20.18.tar.xz"
-  sha256 "c5e0e11061f8d0ff9c8dccc196f39c45a49c0153c9a72abf6290ab34d1cbb021"
+  url "https://download.gnome.org/sources/gupnp/1.0/gupnp-1.0.0.tar.xz"
+  sha256 "7dfa10d997e9010bff3b1f7a4fdb59879806951bbaa366a5ca5d577be9181a5c"
 
   bottle do
     sha256 "d001100930682f16f02be41260e241eb36293917cd04e2ebf51ebdf17565e8f3" => :el_capitan
@@ -26,13 +26,6 @@ class Gupnp < Formula
   depends_on "glib"
   depends_on "libsoup"
   depends_on "gssdp"
-
-  # REVIEW: if patch was applied in the next release
-  # https://github.com/GNOME/gupnp/pull/1
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/51584eb/gupnp/patch-osx-uuid.diff"
-    sha256 "9cca169cc830c331ac4246e0e87f5c0b47a85b045c4a0de7cd4999d89d2ab5ce"
-  end
 
   def install
     args = %W[
