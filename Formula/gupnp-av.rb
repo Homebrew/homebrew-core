@@ -1,8 +1,8 @@
 class GupnpAv < Formula
   desc "Library to help implement UPnP A/V profiles"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gupnp-av/0.12/gupnp-av-0.12.7.tar.xz"
-  sha256 "35e775bc4f7801d65dcb710905a6b8420ce751a239b5651e6d830615dc906ea8"
+  url "https://download.gnome.org/sources/gupnp-av/0.12/gupnp-av-0.12.8.tar.xz"
+  sha256 "759bc7d46aff894c282d17f508d9b5be82de96aa74b10cb6b0fc6c5e07cc273c"
 
   bottle do
     sha256 "6c2dfd8e634fb28765e324ef5fe91c6ed7ec36d76f9f01335bbabd0c447f473a" => :el_capitan
@@ -17,6 +17,8 @@ class GupnpAv < Formula
   depends_on "gupnp"
 
   def install
+    ENV["ax_cv_check_cflags__Wl___no_as_needed"] = "no"
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
