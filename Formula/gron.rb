@@ -3,8 +3,8 @@ require "language/go"
 class Gron < Formula
   desc "Make JSON greppable"
   homepage "https://github.com/tomnomnom/gron"
-  url "https://github.com/tomnomnom/gron/archive/v0.3.6.tar.gz"
-  sha256 "b627efa5bcc6157386a5732aad6a0cc890342dc4c662e837b6d62fd527a4d5f4"
+  url "https://github.com/tomnomnom/gron/archive/v0.3.7.tar.gz"
+  sha256 "742a78338fe14657b4f0ef5cc4e76d948fcb7fa4005156e98f81f0fee7474717"
   head "https://github.com/tomnomnom/gron.git"
 
   bottle do
