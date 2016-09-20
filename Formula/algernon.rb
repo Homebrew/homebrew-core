@@ -51,7 +51,7 @@ class Algernon < Formula
     github.com/xyproto/permissions2 6a884b2c2914bfbc42c391ae5dd683a6331ef358
     github.com/xyproto/permissionsql d517b172d4846d40dce3870244009df6326c6bcb
     github.com/xyproto/pinterface 21f55042b599a5de383bcd9e9c839e920d33eeb6
-    github.com/xyproto/pongo2 3789aabbe5087474a02f4879c0b0045fd5d90d96
+    github.com/xyproto/pongo2 031f49e97c4634c47b463e01320bb062e88aa9dc
     github.com/xyproto/recwatch eec3775073f11929973b0d06507a682f8061babb
     github.com/xyproto/simplebolt 349c7ad35b3b6e29a47f39ee122281911a067ff7
     github.com/xyproto/simplemaria 80759a73a6b576479bbf2baf955f7a46e04cb5b5
