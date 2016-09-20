@@ -35,6 +35,8 @@ class Clisp < Formula
     # set it in CFLAGS won't work.
     ENV["CC"] = "#{ENV.cc} -m#{MacOS.prefer_64_bit? ? 64 : 32}"
 
+    inreplace "src/makemake.in", "${datarootdir}/emacs/site-lisp", elisp
+
     system "./configure", "--prefix=#{prefix}",
                           "--with-readline=yes"
 
