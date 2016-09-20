@@ -165,6 +165,8 @@ class PostgresXc < Formula
     EOS
   end
 
+  plist_options startup: true
+
   # Override Formula#plist_name
   def plist_name(extra = nil)
     extra ? super()+"-"+extra : super()+"-gtm"
