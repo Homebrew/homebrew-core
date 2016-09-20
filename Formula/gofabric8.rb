@@ -6,28 +6,15 @@ class Gofabric8 < Formula
 
   depends_on "go" => :build
 
-  GOVENDOR_PATH = "src/github.com/fabric8io/gofabric8".freeze
-
   def install
     ENV["GOPATH"] = buildpath
     files = Dir["*"]
-    mkdir_p buildpath/GOVENDOR_PATH
-    mv files, buildpath/GOVENDOR_PATH
-    cd GOVENDOR_PATH
+    mkdir_p buildpath/"src/github.com/fabric8io/gofabric8"
+    mv files, buildpath/"src/github.com/fabric8io/gofabric8"
+    cd "src/github.com/fabric8io/gofabric8"
     system "make", "install", "REV=homebrew"
     cd buildpath
     bin.install "bin/gofabric8"
-  end
-
-  def caveats; <<-EOS.undent
-    gofabric8 can use any Kubernetes or OpenShift installations
-    available on the path, or as specificed with `--server`.
-
-    If you don't have an installation, you can install Kubernetes:
-      brew cask install minikube
-    Or OpenShift:
-      brew cask install minishift
-    EOS
   end
 
   test do
