@@ -1,6 +1,7 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "http://graphviz.org/"
+  revision 1
 
   stable do
     url "http://graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.38.0.tar.gz"
