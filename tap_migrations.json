@@ -214,6 +214,7 @@
   "pebble-sdk": "pebble/pebble-sdk",
   "peervpn": "homebrew/boneyard",
   "pgplot": "homebrew/x11",
+  "pgtap": "homebrew/boneyard",
   "phash": "homebrew/boneyard",
   "pixie": "homebrew/x11",
   "pjsip": "homebrew/boneyard",
