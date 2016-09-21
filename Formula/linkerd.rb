@@ -13,6 +13,9 @@ class Linkerd < Formula
     libexec.install "linkerd-#{version}-exec"
     bin.install_symlink libexec/"linkerd-#{version}-exec" => "linkerd"
 
+    pkgshare.mkpath
+    cp buildpath/"config/linkerd.yaml", pkgshare/"default.yaml"
+
     etc.install "config" => "linkerd"
     etc.install "disco" => "linkerd/disco"
     libexec.install_symlink etc/"linkerd" => "config"
@@ -22,10 +25,7 @@ class Linkerd < Formula
   end
 
   def post_install
-    pkgshare.mkpath
     (var/"log/linkerd").mkpath
-
-    cp etc/"linkerd/linkerd.yaml", pkgshare/"default.yaml"
   end
 
   def caveats; <<-EOS.undent
