@@ -1,28 +1,34 @@
 class Linkerd < Formula
   desc "Drop-in RPC proxy designed for microservices"
   homepage "http://linkerd.io/"
-  url "https://github.com/BuoyantIO/linkerd/releases/download/0.7.5/linkerd-0.7.5.tgz"
-  sha256 "6f18f77b6dac019e24ccfb6adec74d6b13430be79af05f504461b39db85ebdca"
+  url "https://github.com/BuoyantIO/linkerd/releases/download/0.8.0/linkerd-0.8.0.tgz"
+  sha256 "452a495c8a3aeb761a986a75badda42fff45c000ad8d2367fc282f1cb6b736a0"
 
   bottle :unneeded
   depends_on java: "1.8+"
 
   def install
-    inreplace "config/linkerd.yaml", "disco", libexec/"disco"
+    inreplace "config/linkerd.yaml", "disco", etc/"linkerd/disco"
 
-    libexec.install "disco", "linkerd-#{version}-exec"
+    libexec.install "linkerd-#{version}-exec"
     bin.install_symlink libexec/"linkerd-#{version}-exec" => "linkerd"
 
     etc.install "config" => "linkerd"
+    etc.install "disco" => "linkerd/disco"
     libexec.install_symlink etc/"linkerd" => "config"
+    libexec.install_symlink etc/"linkerd/disco" => "disco"
 
     share.install "docs"
+  end
+
+  def post_install
     pkgshare.mkpath
+    (var/"log/linkerd").mkpath
+
     cp etc/"linkerd/linkerd.yaml", pkgshare/"default.yaml"
   end
 
   def caveats; <<-EOS.undent
-    Data:    #{libexec}/disco
     Docs:    #{share}/docs
     Logs:    #{var}/log/linkerd
     Config:  #{etc}/linkerd
