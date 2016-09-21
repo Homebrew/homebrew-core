@@ -1,8 +1,8 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://repo.varnish-cache.org/source/varnish-4.1.0.tar.gz"
-  sha256 "4a6ea08e30b62fbf25f884a65f0d8af42e9cc9d25bf70f45ae4417c4f1c99017"
+  url "https://repo.varnish-cache.org/source/varnish-4.1.3.tar.gz"
+  sha256 "9f9469b9fda2a578da2a9d282c71c34eeb5c42eda7f8d8728284d92282108429"
 
   bottle do
     rebuild 1
