@@ -437,8 +437,8 @@ class Ansible < Formula
   end
 
   resource "pywinrm" do
-    url "https://pypi.python.org/packages/source/p/pywinrm/pywinrm-0.1.1.tar.gz"
-    sha256 "0230d7e574a5375e8a0b46001a2bce2440aba2b866629342be0360859f8d514d"
+    url "https://github.com/diyan/pywinrm/archive/v0.2.1.tar.gz"
+    sha256 "b919767eb2598944c6437629de6f5da3b79374d6d409c7b99a167f376f1c6c75"
   end
 
   resource "rackspace-auth-openstack" do
