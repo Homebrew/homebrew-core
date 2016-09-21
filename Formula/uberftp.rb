@@ -1,6 +1,6 @@
 class Uberftp < Formula
   desc "Interactive GridFTP client"
-  homepage "http://dims.ncsa.illinois.edu/set/uberftp/"
+  homepage "https://github.com/JasonAlt/UberFTP"
   url "https://github.com/JasonAlt/UberFTP/archive/Version_2_8.tar.gz"
   sha256 "8a397d6ef02bb714bb0cbdb259819fc2311f5d36231783cd520d606c97759c2a"
 
