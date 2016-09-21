@@ -68,6 +68,11 @@ class Python < Formula
     sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
   end
 
+  patch do
+    url "https://bugs.python.org/file44699/issue27806_v3.patch"
+    sha256 "fff60cbdb9ff344cd84ea776ea16e940147419c303ab378fb5c7fb3e9053ef0a"
+  end
+
   def lib_cellar
     prefix/"Frameworks/Python.framework/Versions/2.7/lib/python2.7"
   end
