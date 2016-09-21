@@ -11,6 +11,11 @@ class Plplot < Formula
     sha256 "b779762659e485d6c9cad54206b1e72f2db5e82950b19a356439e9ce3ef79138" => :mountain_lion
   end
 
+  patch do
+    url "https://raw.githubusercontent.com/tschoonj/formula-patches/plplot/plplot/cmake-3.6.patch"
+    sha256 "50b17ff7c80f24288f9eaeca256be0d9dd449e1f59cb933f442c8ecf812f999f"
+  end
+
   option "with-java"
 
   depends_on "cmake" => :build
