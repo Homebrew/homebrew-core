@@ -1,9 +1,8 @@
 class Opencsg < Formula
   desc "The CSG rendering library"
   homepage "http://www.opencsg.org"
-  url "http://www.opencsg.org/OpenCSG-1.4.0.tar.gz"
-  sha256 "ecb46be54cfb8a338d2a9b62dec90ec8da6c769078c076f58147d4a6ba1c878d"
-  revision 1
+  url "http://www.opencsg.org/OpenCSG-1.4.2.tar.gz"
+  sha256 "d952ec5d3a2e46a30019c210963fcddff66813efc9c29603b72f9553adff4afb"
 
   bottle do
     cellar :any
@@ -15,13 +14,10 @@ class Opencsg < Formula
   depends_on "qt5" => :build
   depends_on "glew"
 
-  # This patch adds support for specifying INSTALLDIR
-  # It has been submitted upstream and accepted 20160709, through private email
-  # (as that's how submissions are done)
-  # Should be in the next release (> 1.4.0)
+  # This patch disabling building examples
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/814a29d3ce4c6e7e919cd2fcd64bf45d421e821b/opencsg/patch-build.diff"
-    sha256 "9d710cf6c2d5495ca5ba51c0319785cefc21477c85fa3aacb9ccd3473fee54f3"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/990b9bb/opencsg/disable-examples.diff"
+    sha256 "12cc799a6352eda4a18706eeefea059d14e23605a627dc12ed2a809f65328d69"
   end
 
   def install
