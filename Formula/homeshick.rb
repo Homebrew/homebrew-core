@@ -30,7 +30,7 @@ class Homeshick < Formula
       `export HOMESHICK_DIR=#{opt_prefix}`
       and
       `source "#{opt_prefix}/homeshick.sh"`
-      in your $HOME/.bash_rc
+      in your $HOME/.bashrc
     EOS
     if build.with? "fish"
       s += <<-EOS.undent
