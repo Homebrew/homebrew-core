@@ -136,6 +136,7 @@ class Conan < Formula
   end
 
   test do
-    system "#{bin}/conan", "install", "OpenSSL/1.0.2h@lasote/stable", "--build", "OpenSSL"
+    system bin/"conan", "install", "zlib/1.2.8@lasote/stable", "--build"
+    assert_predicate testpath/".conan/data/zlib/1.2.8", :exist?
   end
 end
