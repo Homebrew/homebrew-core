@@ -1,9 +1,9 @@
 class Zpaq < Formula
   desc "Incremental, journaling command-line archiver"
   homepage "http://mattmahoney.net/dc/zpaq.html"
-  url "http://mattmahoney.net/dc/zpaq714.zip"
-  version "7.14"
-  sha256 "7ebd2ecf6b7699cb1c9e02d3045698a71f684f83f48ebc18bad1a7e075b1b5f6"
+  url "http://mattmahoney.net/dc/zpaq715.zip"
+  version "7.15"
+  sha256 "e85ec2529eb0ba22ceaeabd461e55357ef099b80f61c14f377b429ea3d49d418"
   head "https://github.com/zpaq/zpaq.git"
 
   bottle do
@@ -19,9 +19,6 @@ class Zpaq < Formula
   end
 
   def install
-    # Reported 6 Aug 2016 to mattmahoneyfl (at) gmail (dot) com
-    # OS X `install` command doesn't have `-t`
-    inreplace "Makefile", /(install -m.* )-t (.*) (.*)(\r)/, "\\1 \\3 \\2\\4"
     system "make"
     system "make", "check"
     system "make", "install", "PREFIX=#{prefix}"
