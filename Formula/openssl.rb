@@ -4,11 +4,10 @@
 class Openssl < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.0.2h.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2h.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2h.tar.gz"
-  sha256 "1d4007e53aad94a5b2002fe045ee7bb0b3d98f1a47f8b2bc851dcd1c74332919"
-  revision 1
+  url "https://www.openssl.org/source/openssl-1.0.2i.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2i.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2i.tar.gz"
+  sha256 "9287487d11c9545b6efb287cdb70535d4e9b284dd10d51441d9b9963d000de6f"
 
   bottle do
     sha256 "b88203d2d56f4209ca0214c95d309a8f452a3534b08dd92c3495fa57fec02a18" => :sierra
