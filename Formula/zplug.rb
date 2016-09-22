@@ -1,8 +1,8 @@
 class Zplug < Formula
   desc "The next-generation plugin manager for zsh"
   homepage "https://zplug.sh/"
-  url "https://github.com/zplug/zplug/archive/2.2.2.tar.gz"
-  sha256 "4264f22db77f075bbcfc64dde08e68e563ed1af6b47d249f966c21ddde3e5941"
+  url "https://github.com/zplug/zplug/archive/2.2.3.tar.gz"
+  sha256 "530b7d1a6be39e54bda8ee8286dc46380154c7f440cff3c9645f25e38bdbe35a"
   head "https://github.com/zplug/zplug.git"
 
   bottle :unneeded
