@@ -1,4 +1,6 @@
 class Conan < Formula
+  include Language::Python::Virtualenv
+
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://github.com/conan-io/conan"
   url "https://pypi.python.org/packages/9a/48/0028e0281563dfe327e594d5f2d18fa79e0bae3d8b3a73e56334dc19a9c6/conan-0.12.0.tar.gz"
@@ -130,20 +132,7 @@ class Conan < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    touch libexec/"vendor/lib/python2.7/site-packages/ndg/__init__.py"
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
