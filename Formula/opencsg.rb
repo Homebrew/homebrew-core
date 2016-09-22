@@ -3,7 +3,10 @@ class Opencsg < Formula
   homepage "http://www.opencsg.org"
   url "http://www.opencsg.org/OpenCSG-1.4.1.tar.gz"
   sha256 "48182c8233e6f89cd6752679bde44ef6cc9eda4c06f4db845ec7de2cae2bb07a"
-  revision 1
+
+  bottle do
+    cellar :any
+  end
 
   depends_on "qt5" => :build
   depends_on "glew"
