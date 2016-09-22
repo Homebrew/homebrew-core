@@ -7,18 +7,17 @@ class Elasticsearch < Formula
   devel do
     url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.0-beta1.tar.gz"
     sha256 "4ff6680b2d053c74835db77dcb03e02340555cd70cae8bb73d3b1f94ddf0147d"
-    version "5.0.0-beta1"
   end
 
   head do
     url "https://github.com/elasticsearch/elasticsearch.git"
-    depends_on java: "1.8"
+    depends_on :java => "1.8"
     depends_on "gradle" => :build
   end
 
   bottle :unneeded
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
@@ -104,7 +103,7 @@ class Elasticsearch < Formula
     s
   end
 
-  plist_options manual: "elasticsearch"
+  plist_options :manual => "elasticsearch"
 
   def plist; <<-EOS.undent
       <?xml version="1.0" encoding="UTF-8"?>
