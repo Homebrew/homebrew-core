@@ -19,6 +19,8 @@ class Aspell < Formula
     version "0.60.7-20110707"
   end
 
+  option "with-all-langs", "Install all available dictionaries"
+
   option "with-lang-af", "Install af dictionary"
   resource "af" do
     url "https://ftpmirror.gnu.org/aspell/dict/af/aspell-af-0.50-0.tar.bz2"
@@ -656,7 +658,6 @@ class Aspell < Formula
     sha256 "3fa255cd0b20e6229a53df972fd3c5ed8481db11cfd0347dd3da629bbb7a6796"
   end
 
-  option "with-all-langs", "Install all available dictionaries"
   deprecated_option "all" => "with-all-langs"
 
   fails_with :llvm do
