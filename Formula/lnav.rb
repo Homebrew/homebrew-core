@@ -23,6 +23,9 @@ class Lnav < Formula
   depends_on "curl" => ["with-libssh2", :optional]
 
   def install
+    # Fix errors such as "use of undeclared identifier 'sqlite3_value_subtype'"
+    ENV.delete("SDKROOT")
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
