@@ -1,9 +1,8 @@
 class Cmocka < Formula
   desc "Unit testing framework for C"
   homepage "https://cmocka.org/"
-  url "https://cmocka.org/files/1.0/cmocka-1.0.1.tar.xz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/c/cmocka/cmocka_1.0.1.orig.tar.xz"
-  sha256 "b36050d7a1224296803d216cba1a9d4c58c31bf308b2d6d6649d61aa5a36753b"
+  url "https://cmocka.org/files/1.1/cmocka-1.1.0.tar.xz"
+  sha256 "e960d3bf1be618634a4b924f18bb4d6f20a825c109a8ad6d1af03913ba421330"
 
   bottle do
     cellar :any
@@ -16,8 +15,13 @@ class Cmocka < Formula
   depends_on "cmake" => :build
 
   def install
+    args = std_cmake_args
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      args << "-DHAVE_CLOCK_GETTIME:INTERNAL=0"
+    end
+
     mkdir "build" do
-      system "cmake", "..", "-DUNIT_TESTING=On", *std_cmake_args
+      system "cmake", "..", "-DUNIT_TESTING=On", *args
       system "make"
       system "make", "install"
     end
