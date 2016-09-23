@@ -20,7 +20,7 @@ class Opencsg < Formula
     sha256 "12cc799a6352eda4a18706eeefea059d14e23605a627dc12ed2a809f65328d69"
   end
 
-def install
+  def install
     system "qmake", "-r", "INSTALLDIR=#{prefix}",
       "INCLUDEPATH+=#{Formula["glew"].opt_include}",
       "LIBS+=-L#{Formula["glew"].opt_lib} -lGLEW"
