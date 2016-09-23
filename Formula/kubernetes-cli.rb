@@ -1,8 +1,8 @@
 class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "http://kubernetes.io/"
-  url "https://github.com/kubernetes/kubernetes/archive/v1.3.6.tar.gz"
-  sha256 "8a2aa2dbbbb05229d6bdc27be88e59faaade7c6d1013977a838a65be134eef87"
+  url "https://github.com/kubernetes/kubernetes/archive/v1.3.7.tar.gz"
+  sha256 "40a655b5ae1734acfda157088a20853aaf87945508edf73497bec5fa26352a9b"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
