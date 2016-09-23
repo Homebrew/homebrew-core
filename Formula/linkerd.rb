@@ -65,14 +65,13 @@ class Linkerd < Formula
   end
 
   test do
-    system "echo 'It works!' > #{testpath}/index.html"
-    cd testpath
+    (testpath/"index.html").write "It works!"
 
     simple_http_pid = fork do
       exec "python -m SimpleHTTPServer 9999"
     end
     linkerd_pid = fork do
-      exec "linkerd #{pkgshare}/default.yaml"
+      exec "#{bin}/linkerd #{pkgshare}/default.yaml"
     end
 
     sleep 5
