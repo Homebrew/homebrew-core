@@ -21,12 +21,12 @@ class Shapelib < Formula
                    "PREFIX=#{prefix}"
 
     lib.mkpath
-    system ENV.cc, *%W[-dynamiclib -Wl,-all_load
-                       -Wl,-install_name,#{dylib}
-                       -Wl,-headerpad_max_install_names
-                       -Wl,-compatibility_version,#{version}
-                       -o #{dylib}
-                       shpopen.o shptree.o dbfopen.o safileio.o]
+    system ENV.cc, "-dynamiclib", "-Wl,-all_load",
+                   "-Wl,-install_name,#{dylib}",
+                   "-Wl,-headerpad_max_install_names",
+                   "-Wl,-compatibility_version,#{version}",
+                   "-o", dylib.to_s, "shpopen.o", "shptree.o",
+                   "dbfopen.o", "safileio.o"
 
     include.install "shapefil.h"
     bin.install %w[shpcreate shpadd shpdump shprewind dbfcreate dbfadd dbfdump shptreedump]
