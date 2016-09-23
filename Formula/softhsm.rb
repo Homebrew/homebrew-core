@@ -24,7 +24,9 @@ class Softhsm < Formula
   test do
     (testpath/"softhsm2.conf").write("directories.tokendir = #{testpath}")
     ENV["SOFTHSM2_CONF"] = "#{testpath}/softhsm2.conf"
-    system *%W[#{bin}/softhsm2-util --init-token --slot 0 --label testing --so-pin 1234 --pin 1234]
-    system *%W[#{bin}/softhsm2-util --show-slots]
+    system "#{bin}/softhsm2-util", "--init-token", "--slot", "0",
+                                   "--label", "testing", "--so-pin", "1234",
+                                   "--pin", "1234"
+    system "#{bin}/softhsm2-util", "--show-slots"
   end
 end
