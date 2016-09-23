@@ -26,7 +26,8 @@ class Tbb < Formula
     # Intel sets varying O levels on each compile command.
     ENV.no_optimization
 
-    args = %W[tbb_build_prefix=BUILDPREFIX]
+    compiler = ENV.compiler == :clang ? "clang" : "gcc"
+    args = %W[tbb_build_prefix=BUILDPREFIX compiler=#{compiler}]
 
     if build.cxx11?
       ENV.cxx11
