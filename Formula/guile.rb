@@ -19,6 +19,13 @@ class Guile < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build
+
+    # Fix "error: address argument to atomic operation must be a pointer to
+    # _Atomic type ('gl_uint32_t *' (aka 'unsigned int *') invalid)"
+    patch do
+      url "https://raw.githubusercontent.com/ilovezfs/formula-patches/d2798a4/guile/guile-atomic-type.patch"
+      sha256 "6cec784aa446e4485c79d75ed71c59d04d622293c858cd3d5d5edfe4b5e001ac"
+    end
   end
 
   head do
