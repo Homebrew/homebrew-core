@@ -20,6 +20,7 @@ class Slowhttptest < Formula
   end
 
   test do
-    system "#{bin}/slowhttptest", *%w[-u https://google.com -p 1 -r 1 -l 1 -i 1]
+    system "#{bin}/slowhttptest", "-u", "https://google.com",
+                                  "-p", "1", "-r", "1", "-l", "1", "-i", "1"
   end
 end
