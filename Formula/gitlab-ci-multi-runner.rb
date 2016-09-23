@@ -43,8 +43,10 @@ class GitlabCiMultiRunner < Formula
 
     cd dir do
       resource("prebuilt-x86_64.tar.xz").stage do
-        system *%W[go-bindata -pkg docker -nocompress -nomemcopy -nometadata
-                   -o #{dir}/executors/docker/bindata.go prebuilt-x86_64.tar.xz]
+        system "go-bindata", "-pkg", "docker", "-nocompress", "-nomemcopy",
+                             "-nometadata", "-o",
+                             "#{dir}/executors/docker/bindata.go",
+                             "prebuilt-x86_64.tar.xz"
       end
 
       proj = "gitlab.com/gitlab-org/gitlab-ci-multi-runner"
