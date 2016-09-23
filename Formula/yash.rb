@@ -1,8 +1,8 @@
 class Yash < Formula
   desc "Yet another shell: a POSIX-compliant command-line shell"
   homepage "https://yash.osdn.jp/"
-  url "http://dl.osdn.jp/yash/62651/yash-2.37.tar.gz"
-  sha256 "b976692de245ad3fb17bf87eb8b2e4c9bba4537e3820d488624c868e7408faaa"
+  url "http://dl.osdn.jp/yash/66471/yash-2.43.tar.xz"
+  sha256 "eb75a2c3323514ed95f7c992336ca804e3a38c2ef316cfac76ce295b366b0283"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,16 +12,17 @@ class Yash < Formula
     sha256 "93538457f7f06a70634be8d1242bae4adb99ff3aac2518ae14b903fd987755ca" => :mountain_lion
   end
 
+  depends_on "gettext"
+
   def install
     system "sh", "./configure",
             "--prefix=#{prefix}",
-            "--enable-alias",
             "--enable-array",
             "--enable-dirstack",
             "--enable-help",
             "--enable-history",
             "--enable-lineedit",
-            "--disable-nls",
+            "--enable-nls",
             "--enable-printf",
             "--enable-socket",
             "--enable-test",
