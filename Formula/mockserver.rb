@@ -33,11 +33,11 @@ class Mockserver < Formula
     end
 
     loop do
-      Utils.popen_read("curl", "-s", "http://localhost:" + port.to_s + "/status", "-X", "PUT")
-      break if $?.exitstatus == 0
+      Utils.popen_read("curl", "-s", "http://localhost:#{port}/status", "-X", "PUT")
+      break if $?.exitstatus.zero?
     end
 
-    system "curl", "-s", "http://localhost:" + port.to_s + "/stop", "-X", "PUT"
+    system "curl", "-s", "http://localhost:#{port}/stop", "-X", "PUT"
 
     Process.wait(mockserver)
   end
