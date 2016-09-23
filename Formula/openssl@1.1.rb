@@ -4,6 +4,7 @@ class OpensslAT11 < Formula
   url "https://www.openssl.org/source/openssl-1.1.0a.tar.gz"
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0a.tar.gz"
   sha256 "c2e696e34296cde2c9ec5dcdad9e4f042cd703932591d395c389de488302442b"
+  revision 1
   version_scheme 1
 
   bottle do
