@@ -11,25 +11,23 @@ class KubeAws < Formula
 
   def install
     executable = "bin/kube-aws"
-    ENV["GOPATH_VENDOR"] = "#{Dir.pwd}/_gopath-vendor"
-    ENV["GOPATH_KUBE_AWS"] = "#{Dir.pwd}/_gopath-kube-aws"
+    ENV["GOPATH_VENDOR"] = "#{buildpath}/_gopath-vendor"
+    ENV["GOPATH_KUBE_AWS"] = "#{buildpath}/_gopath-kube-aws"
     ENV["KUBE_AWS_DIR"] = "#{ENV["GOPATH_KUBE_AWS"]}/src/github.com/coreos/coreos-kubernetes/multi-node/aws"
     ENV["GOPATH"] = "#{ENV["GOPATH_VENDOR"]}:#{ENV["GOPATH_KUBE_AWS"]}"
 
-    Dir.chdir "#{Dir.pwd}/multi-node/aws/"
+    cd "#{buildpath}/multi-node/aws/" do
+      mkdir_p ENV["GOPATH_VENDOR"]
+      mkdir_p File.dirname(ENV["KUBE_AWS_DIR"])
 
-    rm_rf [ENV["GOPATH_VENDOR"], ENV["GOPATH_KUBE_AWS"]]
+      ln_s "#{Dir.pwd}/vendor", "#{ENV["GOPATH_VENDOR"]}/src"
+      ln_s Dir.pwd.to_s, ENV["KUBE_AWS_DIR"]
 
-    mkdir_p ENV["GOPATH_VENDOR"]
-    mkdir_p File.dirname(ENV["KUBE_AWS_DIR"])
+      system "go", "generate", "./pkg/config"
+      system "go", "build", "-ldflags", "-X github.com/coreos/coreos-kubernetes/multi-node/aws/pkg/cluster.VERSION=#{version}", "-a", "-tags", "netgo", "-installsuffix", "netgo", "-o", executable, "./cmd/kube-aws"
 
-    ln "#{Dir.pwd}/vendor", "#{ENV["GOPATH_VENDOR"]}/src"
-    ln Dir.pwd.to_s, (ENV["KUBE_AWS_DIR"]).to_s
-
-    system "go", "generate", "./pkg/config"
-    system "go", "build", "-ldflags", "-X github.com/coreos/coreos-kubernetes/multi-node/aws/pkg/cluster.VERSION=#{version}", "-a", "-tags", "netgo", "-installsuffix", "netgo", "-o", executable.to_s, "./cmd/kube-aws"
-
-    bin.install "#{Dir.pwd}/#{executable}" => "kube-aws"
+      bin.install executable => "kube-aws"
+    end
   end
 
   test do
