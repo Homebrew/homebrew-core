@@ -14,7 +14,8 @@ class Gcovr < Formula
 
   test do
     (testpath/"example.c").write "int main() { return 0; }"
-    system *%W[cc -fprofile-arcs -ftest-coverage -fPIC -O0 -o example example.c]
+    system "cc", "-fprofile-arcs", "-ftest-coverage", "-fPIC", "-O0", "-o",
+                 "example", "example.c"
     assert_match "Code Coverage Report", shell_output("#{bin}/gcovr -r .")
   end
 end
