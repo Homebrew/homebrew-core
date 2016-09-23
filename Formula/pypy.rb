@@ -64,11 +64,13 @@ class Pypy < Formula
       package_args = %w[--archive-name pypy --targetdir . --nostrip]
       package_args << "--without-gdbm" if build.without? "gdbm"
       system python, "package.py", *package_args
-      system(*%W[tar -C #{libexec} --strip-components 1 -xzf pypy.tar.bz2])
+      system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xzf", "pypy.tar.bz2"
     end
 
     (libexec/"lib").install libexec/"bin/libpypy-c.dylib"
-    system(*%W[install_name_tool -change @rpath/libpypy-c.dylib #{libexec}/lib/libpypy-c.dylib #{libexec}/bin/pypy])
+    system "install_name_tool", "-change", "@rpath/libpypy-c.dylib",
+                                "#{libexec}/lib/libpypy-c.dylib",
+                                "#{libexec}/bin/pypy"
 
     # The PyPy binary install instructions suggest installing somewhere
     # (like /opt) and symlinking in binaries as needed. Specifically,
