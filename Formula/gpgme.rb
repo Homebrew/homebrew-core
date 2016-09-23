@@ -1,10 +1,9 @@
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
-  url "https://gnupg.org/ftp/gcrypt/gpgme/gpgme-1.6.0.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gpgme/gpgme-1.6.0.tar.bz2"
-  sha256 "b09de4197ac280b102080e09eaec6211d081efff1963bf7821cf8f4f9916099d"
-  revision 1
+  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.7.0.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gpgme/gpgme-1.7.0.tar.bz2"
+  sha256 "71f55fed0f2b3eaf7a606e59772aa645ce3ffff322d361ce359951b3f755cc48"
 
   bottle do
     cellar :any
@@ -29,11 +28,13 @@ class Gpgme < Formula
   def install
     # Check these inreplaces with each release.
     # At some point GnuPG will pull the trigger on moving to GPG2 by default.
-    inreplace "tests/gpg/Makefile.in", "GPG = gpg", "GPG = gpg2"
-    inreplace "src/gpgme-config.in", "@GPG@", "#{Formula["gnupg2"].opt_prefix}/bin/gpg2"
-    inreplace "src/gpgme-config.in", "@GPGSM@", "#{Formula["gnupg2"].opt_prefix}/bin/gpgsm"
+    inreplace "src/gpgme-config.in" do |s|
+      s.gsub! "@GPG@", "#{Formula["gnupg2"].opt_prefix}/bin/gpg"
+      s.gsub! "@GPGSM@", "#{Formula["gnupg2"].opt_prefix}/bin/gpgsm"
+    end
 
     system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--enable-static"
     system "make"
@@ -44,6 +45,7 @@ class Gpgme < Formula
   end
 
   test do
-    assert_equal "#{Formula["gnupg2"].opt_prefix}/bin/gpg2", shell_output("#{bin}/gpgme-config --get-gpg").strip
+    output = shell_output("#{bin}/gpgme-config --get-gpg").strip
+    assert_equal "#{Formula["gnupg2"].opt_prefix}/bin/gpg", output
   end
 end
