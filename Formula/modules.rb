@@ -38,7 +38,7 @@ class Modules < Formula
   end
 
   test do
-    system *%W[#{prefix}/Modules/bin/modulecmd --version]
+    system "#{prefix}/Modules/bin/modulecmd", "--version"
     system "zsh", "-c", "source #{prefix}/Modules/init/zsh; module"
   end
 end
