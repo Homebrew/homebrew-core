@@ -62,8 +62,8 @@ class Ibex < Formula
               "LIBS := -L#{lib} -libex -lprim -lClp -lCoinUtils -lm"
     end
 
-    system "make", *%w[ctc01 ctc02 symb01 solver01 solver02]
-    system "make", "-C", "slam", *%w[slam1 slam2 slam3]
+    system "make", "ctc01", "ctc02", "symb01", "solver01", "solver02"
+    system "make", "-C", "slam", "slam1", "slam2", "slam3"
     %w[ctc01 ctc02 symb01].each { |a| system "./#{a}" }
     %w[solver01 solver02].each { |a| system "./#{a}", "c3D.bch", "1e-05", "10" }
     %w[slam1 slam2 slam3].each { |a| system "./slam/#{a}" }
