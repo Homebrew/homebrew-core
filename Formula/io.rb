@@ -65,7 +65,7 @@ class Io < Formula
       system "cmake", "..", *std_cmake_args
       system "make"
       output = `./_build/binaries/io ../libs/iovm/tests/correctness/run.io`
-      if $?.exitstatus != 0
+      if $?.exitstatus.nonzero?
         opoo "Test suite not 100% successful:\n#{output}"
       else
         ohai "Test suite ran successfully:\n#{output}"
