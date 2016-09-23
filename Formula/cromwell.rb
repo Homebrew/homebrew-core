@@ -1,8 +1,8 @@
 class Cromwell < Formula
   desc "Workflow Execution Engine using Workflow Description Language"
   homepage "https://github.com/broadinstitute/cromwell"
-  url "https://github.com/broadinstitute/cromwell/releases/download/0.19.3/cromwell-0.19.3.jar"
-  sha256 "982f86f061b6391ffe2a05ebab193289e760b169cde1362e5cb420e1ebb2392f"
+  url "https://github.com/broadinstitute/cromwell/releases/download/0.21/cromwell-0.21.jar"
+  sha256 "355e824f2588755557f6c101a566bda7fc579c0f1d2ac66fd685d5f713df5d37"
 
   head do
     url "https://github.com/broadinstitute/cromwell.git"
