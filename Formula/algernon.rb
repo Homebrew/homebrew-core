@@ -30,7 +30,8 @@ class Algernon < Formula
   test do
     begin
       pid = fork do
-        exec *%W[#{bin}/algernon -s -q --httponly --boltdb my.db --addr :45678]
+        exec "#{bin}/algernon", "-s", "-q", "--httponly", "--boltdb", "my.db",
+                                "--addr", ":45678"
       end
       sleep(1)
       output = shell_output("curl -sIm3 -o- http://localhost:45678")
