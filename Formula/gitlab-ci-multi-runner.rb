@@ -4,8 +4,8 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-      tag: "v1.5.3",
-      revision: "fb49c4781e5040539d3faec87a2a63675d2c9f00"
+      tag: "v1.6.0",
+      revision: "01b3ea12f848f6ca3d29b32bd3a4fb30a443d7f4"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
@@ -25,10 +25,10 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.5.3/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.6.0/docker/prebuilt-x86_64.tar.xz",
         using: :nounzip
-    version "1.5.3"
-    sha256 "a2fffed1076e98a7122309923796449719f8b6640e1aa469c1269864dbd70c81"
+    version "1.6.0"
+    sha256 "0dcdfb57bd4a6ed2f3d84848e44ae03f24a7428b21147f16cab7b47c6f14ecf9"
   end
 
   def install
