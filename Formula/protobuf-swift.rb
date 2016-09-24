@@ -18,6 +18,10 @@ class ProtobufSwift < Formula
   depends_on "protobuf"
 
   def install
+    system "protoc", "-Iplugin/compiler",
+                     "plugin/compiler/google/protobuf/descriptor.proto",
+                     "plugin/compiler/google/protobuf/swift-descriptor.proto",
+                     "--cpp_out=plugin/compiler"
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make"
