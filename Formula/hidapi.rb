@@ -3,6 +3,7 @@ class Hidapi < Formula
   homepage "https://github.com/signal11/hidapi"
   url "https://github.com/signal11/hidapi/archive/hidapi-0.8.0-rc1.tar.gz"
   sha256 "3c147200bf48a04c1e927cd81589c5ddceff61e6dac137a605f6ac9793f4af61"
+  head "https://github.com/signal11/hidapi.git"
 
   # This patch addresses a bug discovered in the HidApi IOHidManager back-end
   # that is being used with Macs.
