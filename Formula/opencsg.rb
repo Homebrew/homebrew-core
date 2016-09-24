@@ -16,7 +16,7 @@ class Opencsg < Formula
 
   # This patch disabling building examples
   patch do
-    url "https://raw.githubusercontent.com/openscad/formula-patches/d6fea2cf509a6feca48f498c167bce4970b16356/opencsg/patch-build.diff"
+    url "https://raw.githubusercontent.com/openscad/formula-patches/4e9b9aabcc89dff597f14ba64542e87d750bced6/opencsg/disable-examples.diff"
     sha256 "12cc799a6352eda4a18706eeefea059d14e23605a627dc12ed2a809f65328d69"
   end
 
