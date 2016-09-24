@@ -1,9 +1,8 @@
 class Quantlib < Formula
   desc "Library for quantitative finance"
   homepage "http://quantlib.org/"
-  url "https://downloads.sourceforge.net/project/quantlib/QuantLib/1.7/QuantLib-1.7.tar.gz"
-  mirror "https://distfiles.macports.org/QuantLib/QuantLib-1.7.tar.gz"
-  sha256 "4b6f595bcac4fa319f0dc1211ab93df461a6266c70b2fc479aaccc746eb18c9b"
+  url "https://downloads.sourceforge.net/project/quantlib/QuantLib/1.8.1/QuantLib-1.8.1.tar.gz"
+  sha256 "27d14d5e49b8a21d20f03da69a05584af50e6a3dbe47dad5b9f2c61ad3460bed"
 
   bottle do
     cellar :any
@@ -14,20 +13,13 @@ class Quantlib < Formula
 
   head do
     url "https://github.com/lballabio/quantlib.git"
+
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
   end
 
   option :cxx11
-
-  # fix for quantlib 1.7 linking conflicts with the boost thread library
-  # this patch must be removed when quantlib 1.8 is released, because quantlib maintainers fixed the bug
-  # (see https://github.com/lballabio/QuantLib/commit/d1909593d9f36c6703966460fb48773792facd7e)
-  patch :p0 do
-    url "https://gist.githubusercontent.com/enricodetoma/7d7b137b69726815f070/raw/aa952c28854df8bf3e95069ba1beb3ec76924644/patch-FRA"
-    sha256 "cd5814785b3850bfd88559e94331ac3ae907868c36bfa23dbba41e2ef87cd9d9"
-  end
 
   if build.cxx11?
     depends_on "boost" => "c++11"
@@ -37,14 +29,15 @@ class Quantlib < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
-    if build.head?
-      Dir.chdir "QuantLib"
-      system "./autogen.sh"
+    (buildpath/"QuantLib").install buildpath.children if build.stable?
+    cd "QuantLib" do
+      system "./autogen.sh" if build.head?
+      system "./configure", "--disable-dependency-tracking",
+                            "--prefix=#{prefix}",
+                            "--with-lispdir=#{elisp}"
+      system "make", "install"
+      prefix.install_metafiles
     end
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-lispdir=#{elisp}"
-    system "make", "install"
   end
 
   test do
