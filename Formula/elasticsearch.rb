@@ -5,9 +5,8 @@ class Elasticsearch < Formula
   sha256 "3ae01140ae7bcbb91436feef381fbed774e36ef6d1e8e6a3153640db82acf4c9"
 
   devel do
-    url "https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/5.0.0-alpha5/elasticsearch-5.0.0-alpha5.tar.gz"
-    sha256 "4ec8fa57310affa9e0510aa18fb98c8b08f7e7d6f591d29c3e1fffe88d411813"
-    version "5.0.0-alpha5"
+    url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.0-beta1.tar.gz"
+    sha256 "4ff6680b2d053c74835db77dcb03e02340555cd70cae8bb73d3b1f94ddf0147d"
   end
 
   head do
