@@ -15,7 +15,7 @@ class Pick < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
-    system "make", "check"
+    system "make check || (cat test-suite.log && exit 1)"
     system "make", "install"
   end
 
