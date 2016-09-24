@@ -6,18 +6,11 @@ class Gdub < Formula
 
   bottle :unneeded
 
-  depends_on "gradle"
-
   def install
     bin.install "bin/gw"
   end
 
   test do
-    ENV.java_cache
-
-    system "gradle", "init"
-    cd "gradle" do
-      system bin/"gw", "tasks"
-    end
+    assert_match "No gradlew set up for this project", pipe_output("#{bin}/gw 2>&1")
   end
 end
