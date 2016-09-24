@@ -39,7 +39,7 @@ class Xapian < Formula
   deprecated_option "php" => "with-php"
   deprecated_option "ruby" => "with-ruby"
 
-  depends_on python: :optional
+  depends_on :python => :optional
 
   skip_clean :la
 

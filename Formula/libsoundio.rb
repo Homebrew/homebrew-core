@@ -11,7 +11,7 @@ class Libsoundio < Formula
   end
 
   # fatal error: 'stdatomic.h' file not found
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
 
   depends_on "cmake" => :build
 

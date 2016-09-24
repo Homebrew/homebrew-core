@@ -3,7 +3,7 @@ class Sip < Formula
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
   url "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.18.1/sip-4.18.1.tar.gz"
   sha256 "9bce7a2dbf7f105bf68ad1bab58eebc0ce33087ec40396da756463f086ffa290"
-  head "https://www.riverbankcomputing.com/hg/sip", using: :hg
+  head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
@@ -14,8 +14,8 @@ class Sip < Formula
   end
 
   option "without-python", "Build without python2 support"
-  depends_on python: :recommended if MacOS.version <= :snow_leopard
-  depends_on python3: :optional
+  depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on :python3 => :optional
 
   def install
     if build.without?("python3") && build.without?("python")

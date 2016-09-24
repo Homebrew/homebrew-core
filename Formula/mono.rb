@@ -27,13 +27,13 @@ class Mono < Formula
   depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
 
-  conflicts_with "xsd", because: "both install `xsd` binaries"
-  conflicts_with "czmq", because: "both install `makecert` binaries"
+  conflicts_with "xsd", :because => "both install `xsd` binaries"
+  conflicts_with "czmq", :because => "both install `makecert` binaries"
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        tag: "4.0.1.10",
-        revision: "d654e56bbc09bd6c1da5bd1f07abc1d9d347b6c3"
+        :tag => "4.0.1.10",
+        :revision => "d654e56bbc09bd6c1da5bd1f07abc1d9d347b6c3"
   end
 
   def install

@@ -10,7 +10,7 @@ class Le < Formula
     sha256 "e8afe5fcbb5b40311216d0026b2b74caef69ea2289ae971ad29664290a10d8b7" => :mavericks
   end
 
-  conflicts_with "logentries", because: "both install a le binary"
+  conflicts_with "logentries", :because => "both install a le binary"
 
   def install
     ENV.j1

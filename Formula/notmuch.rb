@@ -18,9 +18,9 @@ class Notmuch < Formula
   depends_on "gmime"
   depends_on "talloc"
   depends_on "xapian"
-  depends_on emacs: ["21.1", :optional]
-  depends_on python3: :optional
-  depends_on ruby: ["1.9", :optional]
+  depends_on :emacs => ["21.1", :optional]
+  depends_on :python3 => :optional
+  depends_on :ruby => ["1.9", :optional]
 
   # Requires zlib >= 1.2.5.2
   resource "zlib" do

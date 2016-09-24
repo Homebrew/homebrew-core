@@ -6,7 +6,7 @@ class JsdocToolkit < Formula
 
   bottle :unneeded
 
-  conflicts_with "jsdoc3", because: "both install jsdoc"
+  conflicts_with "jsdoc3", :because => "both install jsdoc"
 
   def install
     system "/bin/echo '#!/bin/ksh\nJSDOCDIR=\"#{libexec}/jsdoc-toolkit\"' > jsdoc"

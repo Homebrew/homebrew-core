@@ -15,7 +15,7 @@ class Stormssh < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  conflicts_with "storm", because: "both install 'storm' binary"
+  conflicts_with "storm", :because => "both install 'storm' binary"
 
   resource "pycrypto" do
     url "https://pypi.python.org/packages/source/p/pycrypto/pycrypto-2.6.1.tar.gz"
@@ -77,7 +77,7 @@ class Stormssh < Formula
     system "python", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

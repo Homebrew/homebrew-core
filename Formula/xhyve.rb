@@ -12,7 +12,7 @@ class Xhyve < Formula
     sha256 "4b7fe0a81da6d1a6777a42c41d3465d7777047a1ec9581fcfdef949e13d68010" => :yosemite
   end
 
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
 
   def install
     args = []

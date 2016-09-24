@@ -182,7 +182,7 @@ class Couchdb < Formula
     EOS
   end
 
-  plist_options manual: "couchdb"
+  plist_options :manual => "couchdb"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

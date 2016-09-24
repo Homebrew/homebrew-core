@@ -13,7 +13,7 @@ class SwaggerCodegen < Formula
     sha256 "01614863b7c91a94b27ecccda0bf6617244c53d43cf641a4148bdead33031a33" => :mavericks
   end
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
   depends_on "maven" => :build
 
   def install

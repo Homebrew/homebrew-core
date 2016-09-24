@@ -18,8 +18,8 @@ class Plplot < Formula
   depends_on "pango"
   depends_on "libtool" => :run
   depends_on "freetype"
-  depends_on x11: :optional
-  depends_on fortran: :optional
+  depends_on :x11 => :optional
+  depends_on :fortran => :optional
 
   def install
     args = std_cmake_args

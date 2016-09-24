@@ -15,7 +15,7 @@ class IrcdHybrid < Formula
 
   depends_on "openssl"
 
-  conflicts_with "ircd-irc2", because: "both install an `ircd` binary"
+  conflicts_with "ircd-irc2", :because => "both install an `ircd` binary"
 
   def install
     ENV.j1 # build system trips over itself
@@ -35,7 +35,7 @@ class IrcdHybrid < Formula
     EOS
   end
 
-  plist_options manual: "ircd"
+  plist_options :manual => "ircd"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

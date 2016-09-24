@@ -13,7 +13,7 @@ class ProofGeneral < Formula
   end
 
   depends_on "texi2html" => :build
-  depends_on emacs: "22.3"
+  depends_on :emacs => "22.3"
 
   def install
     ENV.deparallelize # Otherwise lisp compilation can result in 0-byte files

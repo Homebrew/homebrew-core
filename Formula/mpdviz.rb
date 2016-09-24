@@ -18,22 +18,22 @@ class Mpdviz < Formula
 
   go_resource "github.com/lucy/go-fftw" do
     url "https://github.com/lucy/go-fftw.git",
-        revision: "37bfa0d3053b133f7067e9524611a7a963294124"
+        :revision => "37bfa0d3053b133f7067e9524611a7a963294124"
   end
 
   go_resource "github.com/lucy/pflag" do
     url "https://github.com/lucy/pflag.git",
-        revision: "20db95b725d76759ba16e25ae6ae2ec67bf45216"
+        :revision => "20db95b725d76759ba16e25ae6ae2ec67bf45216"
   end
 
   go_resource "github.com/lucy/termbox-go" do
     url "https://github.com/lucy/termbox-go.git",
-        revision: "a09edf97f26bd0a461d4660b5322236ecf9d4397"
+        :revision => "a09edf97f26bd0a461d4660b5322236ecf9d4397"
   end
 
   go_resource "github.com/mattn/go-runewidth" do
     url "https://github.com/mattn/go-runewidth.git",
-        revision: "36f63b8223e701c16f36010094fb6e84ffbaf8e0"
+        :revision => "36f63b8223e701c16f36010094fb6e84ffbaf8e0"
   end
 
   def install

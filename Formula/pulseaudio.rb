@@ -34,7 +34,7 @@ class Pulseaudio < Formula
   depends_on "libsoxr"
   depends_on "openssl"
 
-  depends_on x11: :optional
+  depends_on :x11 => :optional
   depends_on "glib" => :optional
   depends_on "gconf" => :optional
   depends_on "dbus" => :optional

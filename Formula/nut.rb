@@ -38,7 +38,7 @@ class Nut < Formula
   depends_on "libtool" => :build
   depends_on "gd" if build.with? "cgi"
 
-  conflicts_with "rhino", because: "both install `rhino` binaries"
+  conflicts_with "rhino", :because => "both install `rhino` binaries"
 
   def install
     if build.head?

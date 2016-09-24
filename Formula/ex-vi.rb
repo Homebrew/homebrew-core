@@ -11,7 +11,7 @@ class ExVi < Formula
   end
 
   conflicts_with "vim",
-    because: "ex-vi and vim both install bin/ex and bin/view"
+    :because => "ex-vi and vim both install bin/ex and bin/view"
 
   def install
     system "make", "install", "INSTALL=/usr/bin/install",

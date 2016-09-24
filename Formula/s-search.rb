@@ -18,7 +18,7 @@ class SSearch < Formula
 
   go_resource "github.com/FiloSottile/gvt" do
     url "https://github.com/FiloSottile/gvt.git",
-        revision: "945672cd8cb7d1fe502c627952ebf6fcb1f883f1"
+        :revision => "945672cd8cb7d1fe502c627952ebf6fcb1f883f1"
   end
 
   def install

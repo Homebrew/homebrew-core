@@ -20,7 +20,7 @@ class Links < Formula
   depends_on "libtiff" => :optional
   depends_on "jpeg" => :optional
   depends_on "librsvg" => :optional
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   def install
     args = %W[

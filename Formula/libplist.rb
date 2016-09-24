@@ -25,7 +25,7 @@ class Libplist < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libxml2"
-  depends_on python: :optional
+  depends_on :python => :optional
 
   resource "cython" do
     url "https://pypi.python.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz#md5=890b494a12951f1d6228c416a5789554"

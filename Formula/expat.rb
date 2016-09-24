@@ -4,7 +4,7 @@ class Expat < Formula
   url "https://downloads.sourceforge.net/project/expat/expat/2.2.0/expat-2.2.0.tar.bz2"
   mirror "https://fossies.org/linux/www/expat-2.2.0.tar.bz2"
   sha256 "d9e50ff2d19b3538bd2127902a89987474e1a4db8e43a66a4d1a712ab9a504ff"
-  head ":pserver:anonymous:@expat.cvs.sourceforge.net:/cvsroot/expat", using: :cvs
+  head ":pserver:anonymous:@expat.cvs.sourceforge.net:/cvsroot/expat", :using => :cvs
 
   bottle do
     cellar :any

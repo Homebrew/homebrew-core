@@ -24,7 +24,7 @@ class Cntlm < Formula
     "Edit #{etc}/cntlm.conf to configure Cntlm"
   end
 
-  plist_options startup: true
+  plist_options :startup => true
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

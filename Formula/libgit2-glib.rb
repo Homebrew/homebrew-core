@@ -26,7 +26,7 @@ class Libgit2Glib < Formula
   depends_on "gobject-introspection"
   depends_on "glib"
   depends_on "vala" => :optional
-  depends_on python: :optional
+  depends_on :python => :optional
 
   def install
     args = %W[

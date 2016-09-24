@@ -15,7 +15,7 @@ class Scrollkeeper < Formula
   depends_on "docbook"
 
   conflicts_with "rarian",
-    because: "scrollkeeper and rarian install the same binaries."
+    :because => "scrollkeeper and rarian install the same binaries."
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

@@ -11,7 +11,7 @@ class Points2grid < Formula
     sha256 "0e57a93ae8dde68b2e1e9d8d41a4085de4c0dc29a8ba10ceac638f3896f463e9" => :mavericks
   end
 
-  depends_on macos: :mavericks
+  depends_on :macos => :mavericks
 
   depends_on "cmake" => :build
   depends_on "boost"

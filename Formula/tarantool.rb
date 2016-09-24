@@ -6,7 +6,7 @@ class Tarantool < Formula
   sha256 "e07913d3416fcf855071e7b82eed0c5bcdb81a6e587fa2d900a9755ed5bb220c"
   revision 1
 
-  head "https://github.com/tarantool/tarantool.git", branch: "1.7", shallow: false
+  head "https://github.com/tarantool/tarantool.git", :branch => "1.7", :shallow => false
 
   bottle do
     sha256 "e95710842bc9dff872bdfdf4bcd0d3439cca0bec3b5ebbdd98fd75d951286bb2" => :sierra

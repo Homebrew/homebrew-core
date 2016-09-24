@@ -2,9 +2,9 @@ class Camlistore < Formula
   desc "Content-addressable multi-layer indexed storage"
   homepage "https://camlistore.org"
   url "https://github.com/camlistore/camlistore.git",
-      tag: "0.9",
-      revision: "7b78c50007780643798adf3fee4c84f3a10154c9"
-  head "https://camlistore.googlesource.com/camlistore", using: :git
+      :tag => "0.9",
+      :revision => "7b78c50007780643798adf3fee4c84f3a10154c9"
+  head "https://camlistore.googlesource.com/camlistore", :using => :git
 
   bottle do
     sha256 "62564ebc8af7078716c921f5e8b6dd1b6570d731ffc12a008facc8a927c6d0d3" => :el_capitan
@@ -16,7 +16,7 @@ class Camlistore < Formula
   depends_on "go" => :build
   depends_on "sqlite"
 
-  conflicts_with "hello", because: "both install `hello` binaries"
+  conflicts_with "hello", :because => "both install `hello` binaries"
 
   def install
     system "go", "run", "make.go"

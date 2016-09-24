@@ -11,7 +11,7 @@ class Chuck < Formula
     sha256 "cdaf6db6aa64715c6fa3aee979fa233a9fb9a2ff9d5d17650d0e3cc70290fcb0" => :mavericks
   end
 
-  depends_on xcode: :build
+  depends_on :xcode => :build
 
   def install
     system "make", "-C", "src", "osx"

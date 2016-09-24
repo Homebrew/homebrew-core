@@ -1,7 +1,7 @@
 class Libmongoclient < Formula
   desc "C and C++ driver for MongoDB"
   homepage "https://www.mongodb.org"
-  head "https://github.com/mongodb/mongo-cxx-driver.git", branch: "26compat"
+  head "https://github.com/mongodb/mongo-cxx-driver.git", :branch => "26compat"
 
   stable do
     url "https://github.com/mongodb/mongo-cxx-driver/archive/legacy-0.0-26compat-2.6.11.tar.gz"

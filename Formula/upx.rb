@@ -4,7 +4,7 @@ class Upx < Formula
   url "http://upx.sourceforge.net/download/upx-3.91-src.tar.bz2"
   mirror "https://fossies.org/linux/privat/upx-3.91-src.tar.bz2"
   sha256 "527ce757429841f51675352b1f9f6fc8ad97b18002080d7bf8672c466d8c6a3c"
-  head "https://www.pysol.org:4443/hg/upx.hg", using: :hg
+  head "https://www.pysol.org:4443/hg/upx.hg", :using => :hg
   revision 1
 
   bottle do

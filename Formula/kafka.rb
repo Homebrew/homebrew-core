@@ -15,7 +15,7 @@ class Kafka < Formula
   end
 
   depends_on "zookeeper"
-  depends_on java: "1.8+"
+  depends_on :java => "1.8+"
 
   # Related to https://issues.apache.org/jira/browse/KAFKA-2034
   # Since Kafka does not currently set the source or target compability version inside build.gradle
@@ -52,7 +52,7 @@ class Kafka < Formula
     (var+"log/kafka").mkpath
   end
 
-  plist_options manual: "zookeeper-server-start #{HOMEBREW_PREFIX}/etc/kafka/zookeeper.properties; kafka-server-start #{HOMEBREW_PREFIX}/etc/kafka/server.properties"
+  plist_options :manual => "zookeeper-server-start #{HOMEBREW_PREFIX}/etc/kafka/zookeeper.properties; kafka-server-start #{HOMEBREW_PREFIX}/etc/kafka/server.properties"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

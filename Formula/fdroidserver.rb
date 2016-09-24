@@ -11,7 +11,7 @@ class Fdroidserver < Formula
     sha256 "b82b7afb81d63e8a734111d9ebf86079cdcd9c60903c03f0057b281709af7aef" => :mavericks
   end
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "freetype"
   depends_on "jpeg"
@@ -82,7 +82,7 @@ class Fdroidserver < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", *Language::Python.setup_install_args(libexec)
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   def caveats; <<-EOS.undent

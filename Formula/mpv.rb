@@ -35,9 +35,9 @@ class Mpv < Formula
   depends_on "libaacs" => :optional
   depends_on "vapoursynth" => :optional
   depends_on "uchardet" => :optional
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
-  depends_on macos: :mountain_lion
+  depends_on :macos => :mountain_lion
 
   resource "waf" do
     url "https://waf.io/waf-1.9.2"

@@ -11,7 +11,7 @@ class Ditaa < Formula
     sha256 "966d0dfe96517d50de02c8c8c2d603084c105dc3ae837fe43e61c8481d42b3f8" => :mavericks
   end
 
-  depends_on ant: :build
+  depends_on :ant => :build
   depends_on :java
 
   def install

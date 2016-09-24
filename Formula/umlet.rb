@@ -6,7 +6,7 @@ class Umlet < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.6+"
+  depends_on :java => "1.6+"
 
   def install
     rm Dir["*.{desktop,exe}"]

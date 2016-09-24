@@ -10,10 +10,10 @@ class ChooseGui < Formula
     sha256 "fd41325edc44dde3a61c52e310b0faa35314ce9c331b04673f55b6ebd5da28ba" => :yosemite
   end
 
-  depends_on macos: :yosemite
-  depends_on xcode: :build
+  depends_on :macos => :yosemite
+  depends_on :xcode => :build
 
-  conflicts_with "choose", because: "both install a `choose` binary"
+  conflicts_with "choose", :because => "both install a `choose` binary"
 
   def install
     xcodebuild "SDKROOT=", "SYMROOT=build"

@@ -7,8 +7,8 @@ class Riak < Formula
 
   bottle :unneeded
 
-  depends_on macos: :mountain_lion
-  depends_on arch: :x86_64
+  depends_on :macos => :mountain_lion
+  depends_on :arch => :x86_64
 
   def install
     logdir = var + "log/riak"

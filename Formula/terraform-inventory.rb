@@ -18,7 +18,7 @@ class TerraformInventory < Formula
 
   go_resource "github.com/stretchr/testify" do
     url "https://github.com/stretchr/testify.git",
-        revision: "f390dcf405f7b83c997eac1b06768bb9f44dec18"
+        :revision => "f390dcf405f7b83c997eac1b06768bb9f44dec18"
   end
 
   def install

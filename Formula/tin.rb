@@ -16,7 +16,7 @@ class Tin < Formula
     sha256 "d53ee03850988c96162f2a30a24f63a6976612f04fc049fd1e0c17d0d4567083"
   end
 
-  conflicts_with "mutt", because: "both install mmdf.5 and mbox.5 man pages"
+  conflicts_with "mutt", :because => "both install mmdf.5 and mbox.5 man pages"
 
   def install
     ENV.enable_warnings

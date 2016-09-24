@@ -16,8 +16,8 @@ class KubernetesCli < Formula
   devel do
     # building from the tag lets it pick up the correct version info
     url "https://github.com/kubernetes/kubernetes.git",
-        tag: "v1.4.0-alpha.3",
-        revision: "b44b716965db2d54c8c7dfcdbcb1d54792ab8559"
+        :tag => "v1.4.0-alpha.3",
+        :revision => "b44b716965db2d54c8c7dfcdbcb1d54792ab8559"
     version "1.4.0-alpha.3"
   end
 

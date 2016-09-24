@@ -5,7 +5,7 @@ class Jxrlib < Formula
   version "1.1"
   sha256 "a79e27801ab19af936beb9ece36f1c6c1914c3baf25597fd270709dc4520a190"
 
-  head "https://git01.codeplex.com/jxrlib", using: :git
+  head "https://git01.codeplex.com/jxrlib", :using => :git
 
   bottle do
     cellar :any_skip_relocation

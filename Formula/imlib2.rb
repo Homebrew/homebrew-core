@@ -20,7 +20,7 @@ class Imlib2 < Formula
   depends_on "giflib" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "libid3tag" => :optional
-  depends_on x11: :recommended
+  depends_on :x11 => :recommended
 
   def install
     args = %W[

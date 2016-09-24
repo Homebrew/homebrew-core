@@ -18,9 +18,9 @@ class V8 < Formula
 
   # not building on Snow Leopard:
   # https://github.com/Homebrew/homebrew/issues/21426
-  depends_on macos: :lion
+  depends_on :macos => :lion
 
-  depends_on python: :build # gyp doesn't run under 2.6 or lower
+  depends_on :python => :build # gyp doesn't run under 2.6 or lower
   depends_on "readline" => :optional
   depends_on "icu4c" => :optional
 
@@ -30,42 +30,42 @@ class V8 < Formula
   # Note that we don't require the "test" DEPS because we don't run the tests.
   resource "gyp" do
     url "https://chromium.googlesource.com/external/gyp.git",
-        revision: "4ec6c4e3a94bd04a6da2858163d40b2429b8aad1"
+        :revision => "4ec6c4e3a94bd04a6da2858163d40b2429b8aad1"
   end
 
   resource "icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "c291cde264469b20ca969ce8832088acb21e0c48"
+        :revision => "c291cde264469b20ca969ce8832088acb21e0c48"
   end
 
   resource "buildtools" do
     url "https://chromium.googlesource.com/chromium/buildtools.git",
-        revision: "80b5126f91be4eb359248d28696746ef09d5be67"
+        :revision => "80b5126f91be4eb359248d28696746ef09d5be67"
   end
 
   resource "common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-        revision: "c8c8665c2deaf1cc749d9f8e153256d4f67bf1b8"
+        :revision => "c8c8665c2deaf1cc749d9f8e153256d4f67bf1b8"
   end
 
   resource "swarming_client" do
     url "https://chromium.googlesource.com/external/swarming.client.git",
-        revision: "df6e95e7669883c8fe9ef956c69a544154701a49"
+        :revision => "df6e95e7669883c8fe9ef956c69a544154701a49"
   end
 
   resource "gtest" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-        revision: "6f8a66431cb592dad629028a50b3dd418a408c87"
+        :revision => "6f8a66431cb592dad629028a50b3dd418a408c87"
   end
 
   resource "gmock" do
     url "https://chromium.googlesource.com/external/googlemock.git",
-        revision: "0421b6f358139f02e102c9c332ce19a33faf75be"
+        :revision => "0421b6f358139f02e102c9c332ce19a33faf75be"
   end
 
   resource "clang" do
     url "https://chromium.googlesource.com/chromium/src/tools/clang.git",
-        revision: "faee82e064e04e5cbf60cc7327e7a81d2a4557ad"
+        :revision => "faee82e064e04e5cbf60cc7327e7a81d2a4557ad"
   end
 
   def install

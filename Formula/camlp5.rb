@@ -20,7 +20,7 @@ class Camlp5 < Formula
   option "with-doc", "Install the html and info documentation"
 
   depends_on "ocaml"
-  depends_on tex: [:build, :optional]
+  depends_on :tex => [:build, :optional]
   depends_on "ghostscript" => :build if build.with?("tex")
   depends_on "gnu-sed" => :build if build.with?("doc") || build.with?("tex")
 

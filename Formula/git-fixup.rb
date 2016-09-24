@@ -4,7 +4,7 @@ class GitFixup < Formula
   url "https://github.com/keis/git-fixup/archive/v1.1.1.tar.gz"
   sha256 "1843caf40fb54bfd746f966fc04fac68613fe8ec2f18b2af99f9d32a40ea0809"
 
-  head "https://github.com/keis/git-fixup.git", branch: "master"
+  head "https://github.com/keis/git-fixup.git", :branch => "master"
 
   bottle do
     cellar :any_skip_relocation

@@ -100,7 +100,7 @@ class Mpd < Formula
     (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"
   end
 
-  plist_options manual: "mpd"
+  plist_options :manual => "mpd"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

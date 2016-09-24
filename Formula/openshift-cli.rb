@@ -2,8 +2,8 @@ class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
   url "https://github.com/openshift/origin.git",
-    tag: "v1.2.1",
-    revision: "5e723f67f1e36d387a8a7faa6aa8a7f40cc9ca46"
+    :tag => "v1.2.1",
+    :revision => "5e723f67f1e36d387a8a7faa6aa8a7f40cc9ca46"
 
   head "https://github.com/openshift/origin.git"
 
@@ -17,8 +17,8 @@ class OpenshiftCli < Formula
 
   devel do
     url "https://github.com/openshift/origin.git",
-      tag: "v1.3.0-rc1",
-      revision: "884520c98e75d0f96e679959b28caf17f0e7fa29"
+      :tag => "v1.3.0-rc1",
+      :revision => "884520c98e75d0f96e679959b28caf17f0e7fa29"
     version "1.3.0-rc1"
 
     depends_on "socat"

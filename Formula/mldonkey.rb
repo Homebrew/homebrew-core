@@ -3,7 +3,7 @@ class Mldonkey < Formula
   homepage "http://mldonkey.sourceforge.net/Main_Page"
   revision 1
 
-  head "https://github.com/ygrek/mldonkey.git", branch: "next"
+  head "https://github.com/ygrek/mldonkey.git", :branch => "next"
 
   stable do
     url "https://downloads.sourceforge.net/project/mldonkey/mldonkey/3.1.5/mldonkey-3.1.5.tar.bz2"

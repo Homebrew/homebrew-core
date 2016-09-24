@@ -76,7 +76,7 @@ class Sslmate < Formula
     system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
 
-    env = { PERL5LIB: ENV["PERL5LIB"] }
+    env = { :PERL5LIB => ENV["PERL5LIB"] }
     if MacOS.version <= :snow_leopard
       env[:PATH] = "#{Formula["perl"].bin}:#{Formula["curl"].bin}:$PATH"
     end

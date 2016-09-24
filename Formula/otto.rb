@@ -4,8 +4,8 @@ class Otto < Formula
   desc "Development and deployment system designed as the successor to Vagrant"
   homepage "https://ottoproject.io"
   url "https://github.com/hashicorp/otto.git",
-      tag: "v0.2.0",
-      revision: "d3d825bb135a2fa27a604e82e40f60151a5e2118"
+      :tag => "v0.2.0",
+      :revision => "d3d825bb135a2fa27a604e82e40f60151a5e2118"
   revision 1
 
   head "https://github.com/hashicorp/otto.git"
@@ -58,18 +58,18 @@ class Otto < Formula
   ]
   otto_deps.each_slice(2) do |x, y|
     go_resource x do
-      url "https://#{x}.git", revision: y
+      url "https://#{x}.git", :revision => y
     end
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        revision: "803f01ea27e23d998825ec085f0d153cac01c828"
+        :revision => "803f01ea27e23d998825ec085f0d153cac01c828"
   end
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        revision: "4ad533583d0194672e7d3bc6fb8b67c8e905d853"
+        :revision => "4ad533583d0194672e7d3bc6fb8b67c8e905d853"
   end
 
   def install

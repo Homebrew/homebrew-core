@@ -53,7 +53,7 @@ class Ddclient < Formula
     EOS
   end
 
-  plist_options startup: true
+  plist_options :startup => true
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

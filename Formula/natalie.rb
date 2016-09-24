@@ -11,7 +11,7 @@ class Natalie < Formula
     sha256 "49c77d43fca5c3e76dfc00d5d8c4465cb2e98772415a3372b747b9f73b3eeff6" => :yosemite
   end
 
-  depends_on xcode: "7.0"
+  depends_on :xcode => "7.0"
 
   def install
     mv "natalie.swift", "natalie-script.swift"

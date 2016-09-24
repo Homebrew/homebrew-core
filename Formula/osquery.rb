@@ -3,8 +3,8 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-    tag: "1.7.3",
-    revision: "6901aa644a9bcc0667207008db71471abf756b82"
+    :tag => "1.7.3",
+    :revision => "6901aa644a9bcc0667207008db71471abf756b82"
   revision 3
 
   bottle do
@@ -16,7 +16,7 @@ class Osquery < Formula
   end
 
   # osquery only supports OS X 10.9 and above. Do not remove this.
-  depends_on macos: :mavericks
+  depends_on :macos => :mavericks
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
@@ -73,7 +73,7 @@ class Osquery < Formula
     system "make", "install"
   end
 
-  plist_options startup: true, manual: "osqueryd"
+  plist_options :startup => true, :manual => "osqueryd"
 
   test do
     (testpath/"test.cpp").write <<-EOS.undent

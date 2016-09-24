@@ -4,7 +4,7 @@ class Git < Formula
   url "https://www.kernel.org/pub/software/scm/git/git-2.10.0.tar.xz"
   sha256 "c73364ac00ae85ffc6cfb12ca2700bb0edf30f63262be97be4039be594ff29e7"
 
-  head "https://github.com/git/git.git", shallow: false
+  head "https://github.com/git/git.git", :shallow => false
 
   bottle do
     sha256 "50caece160035cd468aad456281d9e745cfc6871d4ef044953f6a2dab9ec2abd" => :sierra

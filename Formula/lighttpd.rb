@@ -108,7 +108,7 @@ class Lighttpd < Formula
     system "#{bin}/lighttpd", "-t", "-f", config_path+"lighttpd.conf"
   end
 
-  plist_options manual: "lighttpd -f #{HOMEBREW_PREFIX}/etc/lighttpd/lighttpd.conf"
+  plist_options :manual => "lighttpd -f #{HOMEBREW_PREFIX}/etc/lighttpd/lighttpd.conf"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

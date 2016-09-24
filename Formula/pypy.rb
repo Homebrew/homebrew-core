@@ -16,7 +16,7 @@ class Pypy < Formula
                               "perform the translation (adds 30-60 minutes " \
                               "to build)"
 
-  depends_on arch: :x86_64
+  depends_on :arch => :x86_64
   depends_on "pkg-config" => :build
   depends_on "gdbm" => :recommended
   depends_on "sqlite" => :recommended

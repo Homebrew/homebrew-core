@@ -31,7 +31,7 @@ class Cdrtools < Formula
   depends_on "smake" => :build
 
   conflicts_with "dvdrtools",
-    because: "both dvdrtools and cdrtools install binaries by the same name"
+    :because => "both dvdrtools and cdrtools install binaries by the same name"
 
   def install
     # Speed-up the build by skipping the compilation of the profiled libraries.

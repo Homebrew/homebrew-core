@@ -3,7 +3,7 @@ class Libvpx < Formula
   homepage "https://www.webmproject.org/code/"
   url "https://github.com/webmproject/libvpx/archive/v1.6.0.tar.gz"
   sha256 "e2fc00c9f60c76f91a1cde16a2356e33a45b76a5a5a1370df65fd57052a4994a"
-  head "https://chromium.googlesource.com/webm/libvpx", using: :git
+  head "https://chromium.googlesource.com/webm/libvpx", :using => :git
 
   bottle do
     sha256 "47a0e17e27fb345630f5bad78aeb7bf88699a96f8d78a62c84c0be7e9e165cc7" => :sierra

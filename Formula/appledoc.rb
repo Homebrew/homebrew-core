@@ -12,8 +12,8 @@ class Appledoc < Formula
     sha256 "dede0bad06c61e56350c5fc812e1c507d3b2e0b73b6d062eedfe8e47f39b74fb" => :mavericks
   end
 
-  depends_on xcode: :build
-  depends_on macos: :lion
+  depends_on :xcode => :build
+  depends_on :macos => :lion
 
   def install
     xcodebuild "-project", "appledoc.xcodeproj",

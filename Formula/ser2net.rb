@@ -27,7 +27,7 @@ class Ser2net < Formula
     EOS
   end
 
-  plist_options manual: "ser2net -p 12345"
+  plist_options :manual => "ser2net -p 12345"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

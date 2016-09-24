@@ -7,9 +7,9 @@ class AppEnginePython < Formula
   bottle :unneeded
 
   conflicts_with "app-engine-go-32",
-    because: "both install the same binaries"
+    :because => "both install the same binaries"
   conflicts_with "app-engine-go-64",
-    because: "both install the same binaries"
+    :because => "both install the same binaries"
 
   def install
     pkgshare.install Dir["*"]

@@ -25,12 +25,12 @@ class OpenMpi < Formula
   deprecated_option "disable-fortran" => "without-fortran"
   deprecated_option "enable-mpi-thread-multiple" => "with-mpi-thread-multiple"
 
-  depends_on fortran: :recommended
-  depends_on java: :optional
+  depends_on :fortran => :recommended
+  depends_on :java => :optional
   depends_on "libevent"
 
-  conflicts_with "mpich", because: "both install mpi__ compiler wrappers"
-  conflicts_with "lcdf-typetools", because: "both install same set of binaries."
+  conflicts_with "mpich", :because => "both install mpi__ compiler wrappers"
+  conflicts_with "lcdf-typetools", :because => "both install same set of binaries."
 
   def install
     ENV.cxx11 if build.cxx11?

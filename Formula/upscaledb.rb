@@ -26,7 +26,7 @@ class Upscaledb < Formula
   depends_on "boost"
   depends_on "gnutls"
   depends_on "openssl"
-  depends_on java: :recommended
+  depends_on :java => :recommended
   depends_on "protobuf" if build.with? "remote"
 
   resource "libuv" do

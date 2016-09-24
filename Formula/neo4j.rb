@@ -7,7 +7,7 @@ class Neo4j < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.8+"
+  depends_on :java => "1.8+"
 
   def install
     ENV["NEO4J_HOME"] = libexec
@@ -19,7 +19,7 @@ class Neo4j < Formula
 
     # Symlink binaries
     bin.install Dir["#{libexec}/bin/neo4j{,-shell,-import,-shared.sh,-admin}"]
-    bin.env_script_all_files(libexec/"bin", NEO4J_HOME: ENV["NEO4J_HOME"])
+    bin.env_script_all_files(libexec/"bin", :NEO4J_HOME => ENV["NEO4J_HOME"])
 
     # Adjust UDC props
     # Suppress the empty, focus-stealing java gui.

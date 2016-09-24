@@ -19,7 +19,7 @@ class Liblunar < Formula
   depends_on "glib"
   depends_on "gettext"
   depends_on "vala" => :optional
-  depends_on python: :optional
+  depends_on :python => :optional
   depends_on "pygobject" if build.with? "python"
 
   def install

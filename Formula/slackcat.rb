@@ -17,32 +17,32 @@ class Slackcat < Formula
 
   go_resource "github.com/bluele/slack" do
     url "https://github.com/bluele/slack.git",
-        revision: "ffdcd19858d03d5ebabba5bead2b5dfb18b2c73f"
+        :revision => "ffdcd19858d03d5ebabba5bead2b5dfb18b2c73f"
   end
 
   go_resource "github.com/codegangsta/cli" do
     url "https://github.com/codegangsta/cli.git",
-        revision: "1efa31f08b9333f1bd4882d61f9d668a70cd902e"
+        :revision => "1efa31f08b9333f1bd4882d61f9d668a70cd902e"
   end
 
   go_resource "github.com/fatih/color" do
     url "https://github.com/fatih/color.git",
-        revision: "87d4004f2ab62d0d255e0a38f1680aa534549fe3"
+        :revision => "87d4004f2ab62d0d255e0a38f1680aa534549fe3"
   end
 
   go_resource "github.com/mattn/go-colorable" do
     url "https://github.com/mattn/go-colorable.git",
-        revision: "9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59"
+        :revision => "9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59"
   end
 
   go_resource "github.com/mattn/go-isatty" do
     url "https://github.com/mattn/go-isatty.git",
-        revision: "56b76bdf51f7708750eac80fa38b952bb9f32639"
+        :revision => "56b76bdf51f7708750eac80fa38b952bb9f32639"
   end
 
   go_resource "github.com/skratchdot/open-golang" do
     url "https://github.com/skratchdot/open-golang.git",
-        revision: "75fb7ed4208cf72d323d7d02fd1a5964a7a9073c"
+        :revision => "75fb7ed4208cf72d323d7d02fd1a5964a7a9073c"
   end
 
   def install

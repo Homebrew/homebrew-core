@@ -13,7 +13,7 @@ class Rancid < Formula
     sha256 "d1933933b5d1c6af784af00697791a9ed8e5fa56c3b6fc4ae6ef8b7656dafef2" => :mavericks
   end
 
-  conflicts_with "par", because: "both install `par` binaries"
+  conflicts_with "par", :because => "both install `par` binaries"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--exec-prefix=#{prefix}", "--mandir=#{man}"

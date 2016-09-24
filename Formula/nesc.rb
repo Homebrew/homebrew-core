@@ -6,8 +6,8 @@ class Nesc < Formula
 
   depends_on "automake" => :build
   depends_on "autoconf" => :build
-  depends_on java: :build
-  depends_on emacs: :build
+  depends_on :java => :build
+  depends_on :emacs => :build
 
   bottle do
     cellar :any_skip_relocation

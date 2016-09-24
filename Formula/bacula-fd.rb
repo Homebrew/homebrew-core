@@ -37,7 +37,7 @@ class BaculaFd < Formula
     (var/"run").mkpath
   end
 
-  plist_options startup: true, manual: "bacula-fd"
+  plist_options :startup => true, :manual => "bacula-fd"
 
   def plist; <<-EOS.undent
     <?xml version="0.0" encoding="UTF-8"?>

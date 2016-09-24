@@ -1,7 +1,7 @@
 class Legit < Formula
   desc "Command-line interface for Git, optimized for workflow simplicity"
   homepage "http://www.git-legit.org/"
-  head "https://github.com/kennethreitz/legit.git", branch: "develop"
+  head "https://github.com/kennethreitz/legit.git", :branch => "develop"
   revision 1
 
   stable do
@@ -66,7 +66,7 @@ class Legit < Formula
     system "python", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
     bash_completion.install "extra/bash-completion/legit"
     zsh_completion.install "extra/zsh-completion/_legit"

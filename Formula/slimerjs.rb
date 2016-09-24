@@ -10,7 +10,7 @@ class FirefoxRequirement < Requirement
     paths.find { |p| File.exist? File.expand_path(p) }
   end
 
-  satisfy(build_env: false) { FirefoxRequirement.firefox_installation }
+  satisfy(:build_env => false) { FirefoxRequirement.firefox_installation }
 
   def message
     "Firefox must be available."
@@ -32,7 +32,7 @@ class Slimerjs < Formula
   bottle :unneeded
 
   # Min supported OS X version by Firefox is 10.6.
-  depends_on macos: :leopard
+  depends_on :macos => :leopard
   depends_on FirefoxRequirement
 
   def install

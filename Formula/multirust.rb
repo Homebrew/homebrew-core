@@ -3,8 +3,8 @@ class Multirust < Formula
   homepage "https://github.com/brson/multirust"
   # Use the tag instead of the tarball to get submodules
   url "https://github.com/brson/multirust.git",
-      tag: "0.8.0",
-      revision: "8654d1c07729e961c172425088c451509557ef32"
+      :tag => "0.8.0",
+      :revision => "8654d1c07729e961c172425088c451509557ef32"
   revision 1
 
   head "https://github.com/brson/multirust.git"
@@ -16,9 +16,9 @@ class Multirust < Formula
     sha256 "26ad5ec92fbf20e556bffd4a73fdd7ce968db17c9078f626c497a91897fad4c7" => :mavericks
   end
 
-  depends_on gpg: [:recommended, :run]
+  depends_on :gpg => [:recommended, :run]
 
-  conflicts_with "rust", because: "both install rustc, rustdoc, cargo, rust-lldb, rust-gdb"
+  conflicts_with "rust", :because => "both install rustc, rustdoc, cargo, rust-lldb, rust-gdb"
 
   def install
     system "./build.sh"

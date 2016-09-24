@@ -47,8 +47,8 @@ class Diffoscope < Formula
     system "python3", *Language::Python.setup_install_args(libexec)
     bin.install Dir[libexec/"bin/*"]
     libarchive = Formula["libarchive"].opt_lib/"libarchive.dylib"
-    bin.env_script_all_files(libexec+"bin", PYTHONPATH: ENV["PYTHONPATH"],
-                                            LIBARCHIVE: libarchive)
+    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"],
+                                            :LIBARCHIVE => libarchive)
   end
 
   test do

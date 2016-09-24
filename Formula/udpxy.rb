@@ -22,7 +22,7 @@ class Udpxy < Formula
     system "make", "install", "DESTDIR=#{prefix}", "PREFIX=''"
   end
 
-  plist_options manual: "udpxy -p 4022"
+  plist_options :manual => "udpxy -p 4022"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

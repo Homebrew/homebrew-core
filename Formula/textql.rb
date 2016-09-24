@@ -17,7 +17,7 @@ class Textql < Formula
 
   go_resource "github.com/mattn/go-sqlite3" do
     url "https://github.com/mattn/go-sqlite3.git",
-        revision: "8897bf145272af4dd0305518cfb725a5b6d0541c"
+        :revision => "8897bf145272af4dd0305518cfb725a5b6d0541c"
   end
 
   def install

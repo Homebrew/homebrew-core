@@ -22,7 +22,7 @@ class NatsStreamingServer < Formula
     system "go", "build", "-v", "-o", bin/"nats-streaming-server", buildfile
   end
 
-  plist_options manual: "nats-streaming-server"
+  plist_options :manual => "nats-streaming-server"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

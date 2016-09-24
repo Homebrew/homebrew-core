@@ -19,7 +19,7 @@ class Cairo < Formula
   end
 
   head do
-    url "https://anongit.freedesktop.org/git/cairo", using: :git
+    url "https://anongit.freedesktop.org/git/cairo", :using => :git
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
@@ -30,7 +30,7 @@ class Cairo < Formula
   option :universal
 
   depends_on "pkg-config" => :build
-  depends_on x11: :optional if MacOS.version > :leopard
+  depends_on :x11 => :optional if MacOS.version > :leopard
   depends_on "freetype"
   depends_on "fontconfig"
   depends_on "libpng"

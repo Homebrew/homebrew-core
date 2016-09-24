@@ -3,7 +3,7 @@ class Sdcv < Formula
   homepage "https://dushistov.github.io/sdcv/"
   # Requested a tag 16 Sep 2016 https://github.com/Dushistov/sdcv/issues/10
   url "https://github.com/Dushistov/sdcv.git",
-      revision: "c347ae7da9b7969e00696b18035d9a7d200e43e3"
+      :revision => "c347ae7da9b7969e00696b18035d9a7d200e43e3"
   version "0.5-2013-09-10"
   revision 1
 

@@ -6,7 +6,7 @@ class Jsonschema2pojo < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.6+"
+  depends_on :java => "1.6+"
 
   def install
     libexec.install %W[jsonschema2pojo-cli-#{version}.jar lib]

@@ -12,7 +12,7 @@ class Squid < Formula
   end
 
   head do
-    url "lp:squid", using: :bzr
+    url "lp:squid", :using => :bzr
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -52,7 +52,7 @@ class Squid < Formula
     system "make", "install"
   end
 
-  plist_options manual: "squid"
+  plist_options :manual => "squid"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

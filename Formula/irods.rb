@@ -13,15 +13,15 @@ class Irods < Formula
     sha256 "6b0aa76607c2fec9b0007a6ad4fdca8ab53e7615edc01e3dccd35facbea9bb39" => :mountain_lion
   end
 
-  conflicts_with "sleuthkit", because: "both install `ils`"
+  conflicts_with "sleuthkit", :because => "both install `ils`"
 
   option "with-osxfuse", "Install iRODS FUSE client"
 
-  depends_on osxfuse: :optional
+  depends_on :osxfuse => :optional
   depends_on "openssl"
 
   conflicts_with "renameutils",
-    because: "both install `icp` and `imv` binaries"
+    :because => "both install `icp` and `imv` binaries"
 
   def install
     cd "iRODS" do

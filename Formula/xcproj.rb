@@ -14,7 +14,7 @@ class Xcproj < Formula
     sha256 "64c9bef0c410c6494f0677e34023b75657be4b35e85e13468e9c0cb20c377c09" => :mavericks
   end
 
-  depends_on macos: :mountain_lion
+  depends_on :macos => :mountain_lion
   depends_on :xcode
 
   def install

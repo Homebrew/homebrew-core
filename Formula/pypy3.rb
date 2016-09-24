@@ -13,7 +13,7 @@ class Pypy3 < Formula
     sha256 "71d8d4319969feb8969e62a4ed4592e7779058c1cb7bcf9c3d506ea39d135ebf" => :mountain_lion
   end
 
-  depends_on arch: :x86_64
+  depends_on :arch => :x86_64
   depends_on "pkg-config" => :build
   depends_on "openssl"
 

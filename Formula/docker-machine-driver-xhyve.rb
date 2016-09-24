@@ -2,8 +2,8 @@ class DockerMachineDriverXhyve < Formula
   desc "Docker Machine driver for xhyve"
   homepage "https://github.com/zchee/docker-machine-driver-xhyve"
   url "https://github.com/zchee/docker-machine-driver-xhyve.git",
-    tag: "v0.2.3",
-    revision: "45426155af2998e9cf8a5eca12158fcf4d1acfd3"
+    :tag => "v0.2.3",
+    :revision => "45426155af2998e9cf8a5eca12158fcf4d1acfd3"
 
   head "https://github.com/zchee/docker-machine-driver-xhyve.git"
 
@@ -14,7 +14,7 @@ class DockerMachineDriverXhyve < Formula
     sha256 "dd8efbfed1d526d159355ed06273540c4e4db0ce3e683e475b7985efaf3e5084" => :yosemite
   end
 
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
   depends_on "go" => :build
   depends_on "docker-machine" => :recommended
 

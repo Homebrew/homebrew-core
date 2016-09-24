@@ -23,7 +23,7 @@ class Protobuf < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on python: :recommended if MacOS.version <= :snow_leopard
+  depends_on :python => :recommended if MacOS.version <= :snow_leopard
 
   fails_with :llvm do
     build 2334

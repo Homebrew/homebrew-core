@@ -22,7 +22,7 @@ class AescryptPacketizer < Formula
 
   option "with-default-names", "Build with the binaries named as expected upstream"
 
-  depends_on xcode: :build
+  depends_on :xcode => :build
 
   def install
     if build.head?

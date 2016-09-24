@@ -13,7 +13,7 @@ class Viennacl < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on macos: :snow_leopard
+  depends_on :macos => :snow_leopard
 
   def install
     system "cmake", ".", *std_cmake_args

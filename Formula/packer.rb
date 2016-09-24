@@ -4,8 +4,8 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/mitchellh/packer.git",
-      tag: "v0.10.2",
-      revision: "fb1c968d573f2a6b65af1d0b14a892d730dd7778"
+      :tag => "v0.10.2",
+      :revision => "fb1c968d573f2a6b65af1d0b14a892d730dd7778"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,22 +14,22 @@ class Packer < Formula
     sha256 "8c9ba1723e40fa621f06358fa0dd90e5fa3ff07fbe801126e214db15c5dac611" => :yosemite
   end
 
-  depends_on hg: :build
+  depends_on :hg => :build
   depends_on "go" => :build
 
   go_resource "github.com/mitchellh/gox" do
     url "https://github.com/mitchellh/gox.git",
-        revision: "c9740af9c6574448fd48eb30a71f964014c7a837"
+        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
   end
 
   go_resource "github.com/mitchellh/iochan" do
     url "https://github.com/mitchellh/iochan.git",
-        revision: "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
+        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
   end
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        revision: "3f4088edb48e8a4e3c66a5f8e7b2a78615fcb83f"
+        :revision => "3f4088edb48e8a4e3c66a5f8e7b2a78615fcb83f"
   end
 
   def install

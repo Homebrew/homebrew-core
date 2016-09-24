@@ -19,8 +19,8 @@ class Openhmd < Formula
     depends_on "libtool" => :build
   end
 
-  conflicts_with "cspice", because: "both install `simple` binaries"
-  conflicts_with "libftdi0", because: "both install `simple` binaries"
+  conflicts_with "cspice", :because => "both install `simple` binaries"
+  conflicts_with "libftdi0", :because => "both install `simple` binaries"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build

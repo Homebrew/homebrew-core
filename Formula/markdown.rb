@@ -12,8 +12,8 @@ class Markdown < Formula
     sha256 "66fffda1a29fd9e2dcddcb52fb9606f21d897bf4680583626b612a95d27b1e04" => :mavericks
   end
 
-  conflicts_with "discount", because: "both install `markdown` binaries"
-  conflicts_with "multimarkdown", because: "both install `markdown` binaries"
+  conflicts_with "discount", :because => "both install `markdown` binaries"
+  conflicts_with "multimarkdown", :because => "both install `markdown` binaries"
 
   def install
     bin.install "Markdown.pl" => "markdown"

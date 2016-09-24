@@ -14,8 +14,8 @@ class Discount < Formula
   option "with-fenced-code", "Enable Pandoc-style fenced code blocks."
   option "with-shared", "Install shared library"
 
-  conflicts_with "markdown", because: "both install `markdown` binaries"
-  conflicts_with "multimarkdown", because: "both install `markdown` binaries"
+  conflicts_with "markdown", :because => "both install `markdown` binaries"
+  conflicts_with "multimarkdown", :because => "both install `markdown` binaries"
 
   def install
     args = %W[

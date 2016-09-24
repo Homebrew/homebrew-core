@@ -14,8 +14,8 @@ class Wry < Formula
     sha256 "62d8ccef8fe23dbc90b9f36d4693922a7884f69ad9276e1dd2e094a67c1fbbf2" => :lion
   end
 
-  depends_on macos: :lion
-  depends_on xcode: :build
+  depends_on :macos => :lion
+  depends_on :xcode => :build
 
   def install
     xcodebuild "-target", "wry", "-configuration", "Release", "SYMROOT=build", "OBJROOT=objroot"

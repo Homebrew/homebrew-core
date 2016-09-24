@@ -12,7 +12,7 @@ class Trash < Formula
     sha256 "f74b3d47c9208cb0ccee9d017b146052df8748f3bc4a2bb4525a1d6c5e55909a" => :mavericks
   end
 
-  conflicts_with "osxutils", because: "both install a trash binary"
+  conflicts_with "osxutils", :because => "both install a trash binary"
 
   def install
     system "make"

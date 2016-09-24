@@ -34,7 +34,7 @@ class Xplanet < Formula
   depends_on "cspice" => :optional
 
   depends_on "freetype"
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   def install
     args = %W[

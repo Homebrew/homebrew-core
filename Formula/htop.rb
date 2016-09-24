@@ -23,7 +23,7 @@ class Htop < Formula
 
   depends_on "homebrew/dupes/ncurses" => :optional
 
-  conflicts_with "htop-osx", because: "both install an `htop` binary"
+  conflicts_with "htop-osx", :because => "both install an `htop` binary"
 
   def install
     system "./autogen.sh" if build.head?

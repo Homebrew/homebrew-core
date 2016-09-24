@@ -13,7 +13,7 @@ class GtkVnc < Formula
   # Fails with Xcode 7.1 or older
   # error: use of undeclared identifier 'MAP_ANONYMOUS'
   # Upstream bug: https://bugzilla.gnome.org/show_bug.cgi?id=602371
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
 
   depends_on "gettext" => :build
   depends_on "intltool" => :build

@@ -18,7 +18,7 @@ class Ghc < Formula
   deprecated_option "tests" => "with-test"
   deprecated_option "with-tests" => "with-test"
 
-  depends_on macos: :lion
+  depends_on :macos => :lion
   depends_on "sphinx-doc" => :build if build.with? "docs"
 
   resource "gmp" do

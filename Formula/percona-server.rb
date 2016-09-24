@@ -23,14 +23,14 @@ class PerconaServer < Formula
   depends_on "openssl"
 
   conflicts_with "mysql-connector-c",
-    because: "both install `mysql_config`"
+    :because => "both install `mysql_config`"
 
   conflicts_with "mariadb", "mysql", "mysql-cluster",
-    because: "percona, mariadb, and mysql install the same binaries."
+    :because => "percona, mariadb, and mysql install the same binaries."
   conflicts_with "mysql-connector-c",
-    because: "both install MySQL client libraries"
+    :because => "both install MySQL client libraries"
   conflicts_with "mariadb-connector-c",
-    because: "both install plugins"
+    :because => "both install plugins"
 
   fails_with :llvm do
     build 2334
@@ -153,7 +153,7 @@ class PerconaServer < Formula
     EOS
   end
 
-  plist_options manual: "mysql.server start"
+  plist_options :manual => "mysql.server start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -17,7 +17,7 @@ class Ibex < Formula
   option "without-ensta-robotics", "Don't build the Contractors for robotics (SLAM) plugin"
   option "without-param-estim", "Don't build the Parameter Estimation (enhanced Q-intersection algorithm) plugin"
 
-  depends_on java: ["1.8+", :optional]
+  depends_on :java => ["1.8+", :optional]
   depends_on "bison" => :build
   depends_on "flex" => :build
   depends_on "pkg-config" => :build

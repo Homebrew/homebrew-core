@@ -5,7 +5,7 @@ class Fastd < Formula
   sha256 "714ff09d7bd75f79783f744f6f8c5af2fe456c8cf876feaa704c205a73e043c9"
   revision 1
 
-  head "https://git.universe-factory.net/fastd/", using: :git
+  head "https://git.universe-factory.net/fastd/", :using => :git
 
   bottle do
     cellar :any
@@ -21,7 +21,7 @@ class Fastd < Formula
   depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "openssl" => :optional
-  depends_on tuntap: :optional
+  depends_on :tuntap => :optional
 
   def install
     args = std_cmake_args

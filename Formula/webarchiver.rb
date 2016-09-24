@@ -13,7 +13,7 @@ class Webarchiver < Formula
     sha256 "404f9ffdf69b13cd1e89a51c331b4f8478400944eaf109a5d6f380dcf97bbddb" => :mavericks
   end
 
-  depends_on xcode: ["6.0.1", :build]
+  depends_on :xcode => ["6.0.1", :build]
 
   def install
     xcodebuild

@@ -23,7 +23,7 @@ class Ghostscript < Formula
 
   head do
     # Can't use shallow clone. Doing so = fatal errors.
-    url "git://git.ghostscript.com/ghostpdl.git", shallow: false
+    url "git://git.ghostscript.com/ghostpdl.git", :shallow => false
 
     resource "djvu" do
       url "git://git.code.sf.net/p/djvu/gsdjvu-git"
@@ -41,7 +41,7 @@ class Ghostscript < Formula
   depends_on "pkg-config" => :build
   depends_on "little-cms2"
   depends_on "djvulibre" if build.with? "djvu"
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   # https://sourceforge.net/projects/gs-fonts/
   resource "fonts" do

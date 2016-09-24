@@ -2,8 +2,8 @@ class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
   url "https://github.com/syncthing/syncthing.git",
-      tag: "v0.14.7",
-      revision: "5f01afb7eacb652129ba9047cbcdca2fa824da90"
+      :tag => "v0.14.7",
+      :revision => "5f01afb7eacb652129ba9047cbcdca2fa824da90"
 
   head "https://github.com/syncthing/syncthing.git"
 
@@ -26,7 +26,7 @@ class Syncthing < Formula
     bin.install "syncthing"
   end
 
-  plist_options manual: "syncthing"
+  plist_options :manual => "syncthing"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

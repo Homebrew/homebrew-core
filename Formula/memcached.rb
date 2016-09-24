@@ -21,7 +21,7 @@ class Memcached < Formula
   deprecated_option "enable-sasl" => "with-sasl"
   deprecated_option "enable-sasl-pwdb" => "with-sasl-pwdb"
 
-  conflicts_with "mysql-cluster", because: "both install `bin/memcached`"
+  conflicts_with "mysql-cluster", :because => "both install `bin/memcached`"
 
   def install
     args = ["--prefix=#{prefix}", "--disable-coverage"]
@@ -32,7 +32,7 @@ class Memcached < Formula
     system "make", "install"
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/memcached/bin/memcached"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/memcached/bin/memcached"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -68,9 +68,9 @@ class S6 < Formula
     system "make", "install"
 
     # Some S6 tools expect execline binaries to be on the path
-    bin.env_script_all_files(libexec/"bin", PATH: "#{libexec}/execline:$PATH")
-    sbin.env_script_all_files(libexec/"sbin", PATH: "#{libexec}/execline:$PATH")
-    (bin/"execlineb").write_env_script libexec/"execline/execlineb", PATH: "#{libexec}/execline:$PATH"
+    bin.env_script_all_files(libexec/"bin", :PATH => "#{libexec}/execline:$PATH")
+    sbin.env_script_all_files(libexec/"sbin", :PATH => "#{libexec}/execline:$PATH")
+    (bin/"execlineb").write_env_script libexec/"execline/execlineb", :PATH => "#{libexec}/execline:$PATH"
   end
 
   test do

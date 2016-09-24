@@ -29,7 +29,7 @@ class Babl < Formula
     fails_with :gcc_4_0
     fails_with :gcc
     ("4.3".."5.1").each do |n|
-      fails_with gcc: n
+      fails_with :gcc => n
     end
   end
 

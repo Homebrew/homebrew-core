@@ -28,7 +28,7 @@ class Corkscrew < Formula
     require "webrick/httpproxy"
 
     pid = fork do
-      proxy = WEBrick::HTTPProxyServer.new Port: 8080
+      proxy = WEBrick::HTTPProxyServer.new :Port => 8080
       proxy.start
     end
 

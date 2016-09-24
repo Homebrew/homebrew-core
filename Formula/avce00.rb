@@ -12,7 +12,7 @@ class Avce00 < Formula
     sha256 "4f114d3d8872cbf9e2df2c2ed2d4962b65b39efc568faf78eb5b2f47552a39da" => :mountain_lion
   end
 
-  conflicts_with "gdal", because: "both install a cpl_conv.h header"
+  conflicts_with "gdal", :because => "both install a cpl_conv.h header"
 
   def install
     system "make", "CC=#{ENV.cc}"

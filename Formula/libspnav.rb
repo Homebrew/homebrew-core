@@ -14,7 +14,7 @@ class Libspnav < Formula
 
   option "with-x11", "Enable support for sending mouse events through the x11 protocol"
 
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   def install
     args = %W[

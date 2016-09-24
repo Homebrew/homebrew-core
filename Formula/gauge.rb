@@ -19,7 +19,7 @@ class Gauge < Formula
 
   go_resource "github.com/getgauge/gauge_screenshot" do
     url "https://github.com/getgauge/gauge_screenshot.git",
-        revision: "d04c2acc873b408211df8408f0217d4eafd327fe"
+        :revision => "d04c2acc873b408211df8408f0217d4eafd327fe"
   end
 
   def install

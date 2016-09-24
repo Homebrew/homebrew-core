@@ -14,7 +14,7 @@ class Casperjs < Formula
   end
 
   # For embedded Phantomjs
-  depends_on macos: :snow_leopard
+  depends_on :macos => :snow_leopard
   depends_on "phantomjs"
 
   def install

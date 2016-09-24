@@ -21,7 +21,7 @@ class Leptonica < Formula
   depends_on "pkg-config" => :build
 
   conflicts_with "osxutils",
-    because: "both leptonica and osxutils ship a `fileinfo` executable."
+    :because => "both leptonica and osxutils ship a `fileinfo` executable."
 
   def install
     args = %W[

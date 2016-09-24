@@ -12,7 +12,7 @@ class Ii < Formula
     sha256 "5be7e1ba2e3dddf0d8700366c2ebee273c6c570fc4d6e20655d0bd9219478e9b" => :mavericks
   end
 
-  head "http://git.suckless.org/ii", using: :git
+  head "http://git.suckless.org/ii", :using => :git
 
   def install
     inreplace "config.mk" do |s|
