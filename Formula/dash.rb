@@ -1,8 +1,8 @@
 class Dash < Formula
   desc "POSIX-compliant descendant of NetBSD's ash (the Almquist SHell)"
   homepage "http://gondor.apana.org.au/~herbert/dash/"
-  url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.9.tar.gz"
-  sha256 "92793b14c017d79297001556389442aeb9e3c1cc559fd178c979169b1a47629c"
+  url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.9.1.tar.gz"
+  sha256 "5ecd5bea72a93ed10eb15a1be9951dd51b52e5da1d4a7ae020efd9826b49e659"
 
   bottle do
     cellar :any_skip_relocation
