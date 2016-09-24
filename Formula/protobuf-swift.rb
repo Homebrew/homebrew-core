@@ -1,9 +1,8 @@
 class ProtobufSwift < Formula
   desc "Implementation of Protocol Buffers in Apple Swift."
   homepage "https://github.com/alexeyxo/protobuf-swift"
-  url "https://github.com/alexeyxo/protobuf-swift/archive/3.0.3.tar.gz"
-  sha256 "8b95bc8fad66b058f342ea489d37c2c607d2cfde6d005365f0f30fe503dc4ad1"
-  revision 1
+  url "https://github.com/alexeyxo/protobuf-swift/archive/3.0.4.tar.gz"
+  sha256 "1193b3b98fc95cc6e179487516a4973028920dd53340276cd099b67aa1d78217"
 
   bottle do
     cellar :any
@@ -19,10 +18,6 @@ class ProtobufSwift < Formula
   depends_on "protobuf"
 
   def install
-    system "protoc", "-Iplugin/compiler",
-                     "plugin/compiler/google/protobuf/descriptor.proto",
-                     "plugin/compiler/google/protobuf/swift-descriptor.proto",
-                     "--cpp_out=plugin/compiler"
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make"
