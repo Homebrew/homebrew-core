@@ -3,7 +3,7 @@ class NanopbGenerator < Formula
   homepage "https://koti.kapsi.fi/jpa/nanopb/docs/index.html"
   url "https://koti.kapsi.fi/~jpa/nanopb/download/nanopb-0.3.6.tar.gz"
   sha256 "3e6d5d4971dc11845261ddca7e1c67b96eabf95e839327c7d8ed6f07412edab7"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
