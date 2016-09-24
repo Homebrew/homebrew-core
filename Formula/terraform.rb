@@ -23,13 +23,13 @@ class Terraform < Formula
 
   terraform_deps.each_slice(2) do |x, y|
     go_resource x do
-      url "https://#{x}.git", revision: y
+      url "https://#{x}.git", :revision => y
     end
   end
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        revision: "977844c7af2aa555048a19d28e9fe6c392e7b8e9"
+        :revision => "977844c7af2aa555048a19d28e9fe6c392e7b8e9"
   end
 
   def install

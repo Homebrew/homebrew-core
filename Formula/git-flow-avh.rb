@@ -20,16 +20,16 @@ class GitFlowAvh < Formula
   end
 
   head do
-    url "https://github.com/petervanderdoes/gitflow-avh.git", branch: "develop"
+    url "https://github.com/petervanderdoes/gitflow-avh.git", :branch => "develop"
 
     resource "completion" do
-      url "https://github.com/petervanderdoes/git-flow-completion.git", branch: "develop"
+      url "https://github.com/petervanderdoes/git-flow-completion.git", :branch => "develop"
     end
   end
 
   depends_on "gnu-getopt"
 
-  conflicts_with "git-flow", because: "Both install `git-flow` binaries and completions"
+  conflicts_with "git-flow", :because => "Both install `git-flow` binaries and completions"
 
   def install
     system "make", "prefix=#{libexec}", "install"

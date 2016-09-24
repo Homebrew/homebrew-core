@@ -12,7 +12,7 @@ class Libgroove < Formula
     sha256 "6034bb8923952e2b914d5649e7c2e5bb4b0eccbe3503096744d244f1866e0358" => :mavericks
   end
 
-  depends_on macos: :mavericks
+  depends_on :macos => :mavericks
   depends_on "cmake" => :build
   depends_on "ffmpeg" => "with-libvorbis"
   depends_on "chromaprint"

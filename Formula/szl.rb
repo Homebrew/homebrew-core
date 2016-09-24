@@ -12,7 +12,7 @@ class Szl < Formula
     sha256 "44060a3952401c38c46b7d4cdb22d975cff21b1bbf999a651f45034ab74f7f6f" => :mavericks
   end
 
-  depends_on macos: :mavericks
+  depends_on :macos => :mavericks
 
   depends_on "binutils" # For objdump
   depends_on "icu4c"

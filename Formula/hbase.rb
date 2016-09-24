@@ -11,11 +11,11 @@ class Hbase < Formula
     sha256 "f6f10e6ccd23fc9f9586f570aca9c27fbb6500ae9156d63ad905ecda0eb9073e" => :mavericks
   end
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
   depends_on "hadoop" => :optional
   depends_on "lzo" => :recommended
   depends_on "ant" => :build if build.with? "lzo"
-  depends_on arch: :x86_64 if build.with? "lzo"
+  depends_on :arch => :x86_64 if build.with? "lzo"
   # 64 bit is required because of three things:
   # the lzo jar has a native extension
   # building native extensions requires a version of java that matches the architecture
@@ -107,7 +107,7 @@ class Hbase < Formula
     (var/"run/hbase").mkpath
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/hbase/bin/start-hbase.sh"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/hbase/bin/start-hbase.sh"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

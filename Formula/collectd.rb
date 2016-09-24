@@ -31,7 +31,7 @@ class Collectd < Formula
 
   depends_on "pkg-config" => :build
   depends_on "protobuf-c" => :optional
-  depends_on java: :optional
+  depends_on :java => :optional
   depends_on "net-snmp"
 
   fails_with :clang do
@@ -60,7 +60,7 @@ class Collectd < Formula
     system "make", "install"
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/sbin/collectd -f -C #{HOMEBREW_PREFIX}/etc/collectd.conf"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/collectd -f -C #{HOMEBREW_PREFIX}/etc/collectd.conf"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

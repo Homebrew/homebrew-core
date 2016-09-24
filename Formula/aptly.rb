@@ -18,22 +18,22 @@ class Aptly < Formula
 
   go_resource "github.com/daviddengcn/go-colortext" do
     url "https://github.com/daviddengcn/go-colortext.git",
-        revision: "511bcaf42ccd42c38aba7427b6673277bf19e2a1"
+        :revision => "511bcaf42ccd42c38aba7427b6673277bf19e2a1"
   end
 
   go_resource "github.com/hashicorp/go-version" do
     url "https://github.com/hashicorp/go-version.git",
-        revision: "0181db47023708a38c2d20d2fe25a5fa034d5743"
+        :revision => "0181db47023708a38c2d20d2fe25a5fa034d5743"
   end
 
   go_resource "github.com/mattn/gover" do
     url "https://github.com/mattn/gover.git",
-        revision: "715629d6b57a2104c5221dc72514cfddc992e1de"
+        :revision => "715629d6b57a2104c5221dc72514cfddc992e1de"
   end
 
   go_resource "github.com/mattn/gom" do
     url "https://github.com/mattn/gom.git",
-        revision: "393e714d663c35e121a47fec32964c44a630219b"
+        :revision => "393e714d663c35e121a47fec32964c44a630219b"
   end
 
   def install

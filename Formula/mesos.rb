@@ -11,9 +11,9 @@ class Mesos < Formula
     sha256 "6a94003af55afa369e40b3996f1b4bfce9a2ca9b8ee1d874d34d61b52a3b88e7" => :yosemite
   end
 
-  depends_on java: "1.7+"
-  depends_on macos: :mountain_lion
-  depends_on apr: :build
+  depends_on :java => "1.7+"
+  depends_on :macos => :mountain_lion
+  depends_on :apr => :build
   depends_on "maven" => :build
   depends_on "subversion"
 

@@ -1,7 +1,7 @@
 class Fizsh < Formula
   desc "Fish-like front end for ZSH"
   homepage "https://github.com/zsh-users/fizsh"
-  head "https://github.com/zsh-users/fizsh", using: :git
+  head "https://github.com/zsh-users/fizsh", :using => :git
 
   stable do
     url "https://downloads.sourceforge.net/project/fizsh/fizsh-1.0.8.tar.gz"

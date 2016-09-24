@@ -1,7 +1,7 @@
 class HbaseLZORequirement < Requirement
   fatal true
 
-  satisfy(build_env: false) { Tab.for_name("hbase").with?("lzo") }
+  satisfy(:build_env => false) { Tab.for_name("hbase").with?("lzo") }
 
   def message; <<-EOS.undent
     hbase must not have disabled lzo compression to use it in opentsdb:
@@ -28,7 +28,7 @@ class Opentsdb < Formula
   depends_on "hbase"
   depends_on "lzo" => :recommended
   depends_on HbaseLZORequirement if build.with?("lzo")
-  depends_on java: "1.6+"
+  depends_on :java => "1.6+"
   depends_on "gnuplot" => :optional
 
   def install
@@ -55,8 +55,8 @@ class Opentsdb < Formula
     end
 
     env = {
-      HBASE_HOME: Formula["hbase"].opt_libexec,
-      COMPRESSION: (build.with?("lzo") ? "LZO" : "NONE"),
+      :HBASE_HOME => Formula["hbase"].opt_libexec,
+      :COMPRESSION => (build.with?("lzo") ? "LZO" : "NONE"),
     }
     env = Language::Java.java_home_env.merge(env)
     create_table = pkgshare/"tools/create_table_with_env.sh"
@@ -92,7 +92,7 @@ class Opentsdb < Formula
     end
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/opentsdb/bin/start-tsdb.sh"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/opentsdb/bin/start-tsdb.sh"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

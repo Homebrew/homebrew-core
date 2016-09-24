@@ -14,8 +14,8 @@ class Planck < Formula
   end
 
   depends_on "leiningen" => :build
-  depends_on xcode: :build
-  depends_on macos: :mavericks
+  depends_on :xcode => :build
+  depends_on :macos => :mavericks
 
   def install
     system "./script/build-sandbox"

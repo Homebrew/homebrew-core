@@ -14,7 +14,7 @@ class GitSecret < Formula
     sha256 "f6a410b125f8bed9125e6fe2c6fb741353725860c023665e272e8d57e28be245" => :mavericks
   end
 
-  depends_on gpg: :recommended
+  depends_on :gpg => :recommended
 
   def install
     system "make", "build"

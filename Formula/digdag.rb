@@ -6,7 +6,7 @@ class Digdag < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.8+"
+  depends_on :java => "1.8+"
 
   def install
     libexec.install "digdag-#{version}.jar" => "digdag.jar"

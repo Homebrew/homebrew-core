@@ -26,13 +26,13 @@ class Folly < Formula
   depends_on "openssl"
 
   # https://github.com/facebook/folly/issues/451
-  depends_on macos: :el_capitan
+  depends_on :macos => :el_capitan
 
   needs :cxx11
 
   # Known issue upstream. They're working on it:
   # https://github.com/facebook/folly/pull/445
-  fails_with gcc: "6"
+  fails_with :gcc => "6"
 
   def install
     ENV.cxx11

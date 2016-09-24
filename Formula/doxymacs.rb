@@ -18,7 +18,7 @@ class Doxymacs < Formula
     depends_on "automake" => :build
   end
 
-  depends_on emacs: "20.7.1"
+  depends_on :emacs => "20.7.1"
   depends_on "doxygen"
 
   def install

@@ -11,7 +11,7 @@ class AwsSnsCli < Formula
   depends_on :java
 
   def install
-    env = Language::Java.java_home_env.merge(AWS_SNS_HOME: libexec)
+    env = Language::Java.java_home_env.merge(:AWS_SNS_HOME => libexec)
     rm Dir["bin/*.cmd"] # Remove Windows versions
     chmod 0755, Dir["bin/*"]
     libexec.install Dir["*"]

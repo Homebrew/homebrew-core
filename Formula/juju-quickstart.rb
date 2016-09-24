@@ -18,7 +18,7 @@ class JujuQuickstart < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python2.7/site-packages"
     system "python", "setup.py", "install", "--prefix=#{libexec}"
     bin.install Dir[libexec/"bin/juju-quickstart"]
-    bin.env_script_all_files(libexec+"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

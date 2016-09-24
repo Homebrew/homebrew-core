@@ -3,7 +3,7 @@ class SagittariusScheme < Formula
   homepage "https://bitbucket.org/ktakashi/sagittarius-scheme/wiki/Home"
   url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.7.5.tar.gz"
   sha256 "1f51978587d525017d5562148ca966de7de373f129fb6515f479b386ff26e5e6"
-  head "https://bitbucket.org/ktakashi/sagittarius-scheme", using: :hg
+  head "https://bitbucket.org/ktakashi/sagittarius-scheme", :using => :hg
 
   bottle do
     cellar :any

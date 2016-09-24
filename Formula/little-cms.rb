@@ -16,7 +16,7 @@ class LittleCms < Formula
 
   option :universal
 
-  depends_on python: :optional
+  depends_on :python => :optional
   depends_on "jpeg" => :recommended
   depends_on "libtiff" => :recommended
 

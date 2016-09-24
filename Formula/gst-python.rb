@@ -12,7 +12,7 @@ class GstPython < Formula
 
   option "without-python", "Build without python 2 support"
 
-  depends_on python3: :optional
+  depends_on :python3 => :optional
   depends_on "gst-plugins-base"
 
   if build.with? "python"

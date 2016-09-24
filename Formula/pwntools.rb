@@ -17,7 +17,7 @@ class Pwntools < Formula
   depends_on "binutils" => :recommended
   depends_on "openssl"
 
-  conflicts_with "moreutils", because: "Both install `errno` binaries"
+  conflicts_with "moreutils", :because => "Both install `errno` binaries"
 
   # Don't bump this beyond 2.1
   # error: could not create '/Library/Python/2.7/site-packages/capstone': Operation not permitted

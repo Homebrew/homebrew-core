@@ -16,8 +16,8 @@ class Sysbench < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "openssl"
-  depends_on postgresql: :optional
-  depends_on mysql: :recommended
+  depends_on :postgresql => :optional
+  depends_on :mysql => :recommended
 
   def install
     inreplace "configure.ac", "AC_PROG_LIBTOOL", "AC_PROG_RANLIB"

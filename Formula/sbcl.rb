@@ -100,7 +100,7 @@ class Sbcl < Formula
     system "sh", "install.sh"
 
     if build.with? "sources"
-      bin.env_script_all_files(libexec/"bin", SBCL_SOURCE_ROOT: pkgshare/"src")
+      bin.env_script_all_files(libexec/"bin", :SBCL_SOURCE_ROOT => pkgshare/"src")
       pkgshare.install %w[contrib src]
 
       (lib/"sbcl/sbclrc").write <<-EOS.undent

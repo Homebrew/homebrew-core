@@ -12,7 +12,7 @@ class ImessageRuby < Formula
     sha256 "7b546ccf5cf13a7d474c635a57eebc8e74ff61ea6c7c3cdfefffe4c78737ab47" => :mavericks
   end
 
-  depends_on macos: :mavericks
+  depends_on :macos => :mavericks
 
   def install
     rake "standalone:install", "prefix=#{prefix}"

@@ -12,7 +12,7 @@ class X11vnc < Formula
     sha256 "104e7c7dfd642f901e9f8be417b77540242c1ef2bf8e8aba6bee64e5d9f2a215" => :mountain_lion
   end
 
-  depends_on x11: :optional
+  depends_on :x11 => :optional
   depends_on "openssl"
   depends_on "jpeg"
 

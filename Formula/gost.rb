@@ -17,32 +17,32 @@ class Gost < Formula
 
   go_resource "golang.org/x/oauth2" do
     url "https://go.googlesource.com/oauth2.git",
-        revision: "8434495902bd0900797016affe4ca35c55babb3f"
+        :revision => "8434495902bd0900797016affe4ca35c55babb3f"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        revision: "35ec611a141ee705590b9eb64d673f9e6dfeb1ac"
+        :revision => "35ec611a141ee705590b9eb64d673f9e6dfeb1ac"
   end
 
   go_resource "github.com/atotto/clipboard" do
     url "https://github.com/atotto/clipboard.git",
-        revision: "bb272b845f1112e10117e3e45ce39f690c0001ad"
+        :revision => "bb272b845f1112e10117e3e45ce39f690c0001ad"
   end
 
   go_resource "github.com/docopt/docopt.go" do
     url "https://github.com/docopt/docopt.go.git",
-        revision: "784ddc588536785e7299f7272f39101f7faccc3f"
+        :revision => "784ddc588536785e7299f7272f39101f7faccc3f"
   end
 
   go_resource "github.com/google/go-github" do
     url "https://github.com/google/go-github.git",
-        revision: "842c551fdeae14c97c04ef490f601ae4d849a00c"
+        :revision => "842c551fdeae14c97c04ef490f601ae4d849a00c"
   end
 
   go_resource "github.com/google/go-querystring" do
     url "https://github.com/google/go-querystring.git",
-        revision: "9235644dd9e52eeae6fa48efd539fdc351a0af53"
+        :revision => "9235644dd9e52eeae6fa48efd539fdc351a0af53"
   end
 
   def install

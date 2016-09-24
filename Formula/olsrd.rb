@@ -23,7 +23,7 @@ class Olsrd < Formula
     system "make", "install_all", *args
   end
 
-  plist_options startup: true, manual: "olsrd -f #{HOMEBREW_PREFIX}/etc/olsrd.conf"
+  plist_options :startup => true, :manual => "olsrd -f #{HOMEBREW_PREFIX}/etc/olsrd.conf"
 
   def startup_plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

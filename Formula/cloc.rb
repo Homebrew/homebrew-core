@@ -40,7 +40,7 @@ class Cloc < Formula
 
     system "make", "-C", "Unix", "prefix=#{libexec}", "install"
     bin.install libexec/"bin/cloc"
-    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
     man1.install libexec/"share/man/man1/cloc.1"
   end
 

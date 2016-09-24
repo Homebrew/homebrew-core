@@ -37,7 +37,7 @@ class Fontforge < Formula
 
   resource "gnulib" do
     url "git://git.savannah.gnu.org/gnulib.git",
-        revision: "29ea6d6fe2a699a32edbe29f44fe72e0c253fcee"
+        :revision => "29ea6d6fe2a699a32edbe29f44fe72e0c253fcee"
   end
 
   fails_with :llvm do

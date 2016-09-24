@@ -16,8 +16,8 @@ class Portmidi < Formula
   option "with-java", "Build Java-based app and bindings."
 
   depends_on "cmake" => :build
-  depends_on python: :optional
-  depends_on java: :optional
+  depends_on :python => :optional
+  depends_on :java => :optional
 
   # Avoid that the Makefile.osx builds the java app and fails because: fatal error: 'jni.h' file not found
   # Since 217 the Makefile.osx includes pm_common/CMakeLists.txt wich builds the Java app

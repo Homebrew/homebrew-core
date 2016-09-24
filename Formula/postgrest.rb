@@ -21,7 +21,7 @@ class Postgrest < Formula
   depends_on "postgresql"
 
   def install
-    install_cabal_package using: ["happy"]
+    install_cabal_package :using => ["happy"]
   end
 
   test do

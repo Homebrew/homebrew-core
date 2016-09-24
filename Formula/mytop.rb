@@ -17,7 +17,7 @@ class Mytop < Formula
   depends_on :mysql
   depends_on "openssl"
 
-  conflicts_with "mariadb", because: "both install `mytop` binaries"
+  conflicts_with "mariadb", :because => "both install `mytop` binaries"
 
   resource "List::Util" do
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.45.tar.gz"
@@ -68,7 +68,7 @@ class Mytop < Formula
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
     system "make", "test", "install"
     share.install prefix/"man"
-    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
 
   test do

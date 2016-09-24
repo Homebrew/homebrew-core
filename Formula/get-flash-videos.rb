@@ -58,7 +58,7 @@ class GetFlashVideos < Formula
     (lib/"perl5").install "blib/lib/FlashVideo"
 
     bin.install "bin/get_flash_videos"
-    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
     chmod 0755, libexec/"bin/get_flash_videos"
 
     man1.install "blib/man1/get_flash_videos.1"

@@ -10,17 +10,17 @@ class Llnode < Formula
     sha256 "e761fdb6dc583cead747bcce0907d023ac800c18f0d754397187e3018f513874" => :yosemite
   end
 
-  depends_on macos: :yosemite
-  depends_on python: :build
+  depends_on :macos => :yosemite
+  depends_on :python => :build
 
   resource "gyp" do
     url "https://chromium.googlesource.com/external/gyp.git",
-        revision: "db72e9fcf55ba9d8089f0bc7e447180f8972b5c0"
+        :revision => "db72e9fcf55ba9d8089f0bc7e447180f8972b5c0"
   end
 
   resource "lldb" do
     url "https://github.com/llvm-mirror/lldb.git",
-        revision: "839b868e2993dcffc7fea898a1167f1cec097a82"
+        :revision => "839b868e2993dcffc7fea898a1167f1cec097a82"
   end
 
   def install

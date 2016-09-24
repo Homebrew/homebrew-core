@@ -12,7 +12,7 @@ class Voldemort < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
 
   def install
     ENV.java_cache
@@ -23,8 +23,8 @@ class Voldemort < Formula
     pkgshare.install "config" => "config-examples"
     (etc/"voldemort").mkpath
     env = {
-      VOLDEMORT_HOME: libexec,
-      VOLDEMORT_CONFIG_DIR: etc/"voldemort",
+      :VOLDEMORT_HOME => libexec,
+      :VOLDEMORT_CONFIG_DIR => etc/"voldemort",
     }
     bin.env_script_all_files(libexec/"bin", env)
   end

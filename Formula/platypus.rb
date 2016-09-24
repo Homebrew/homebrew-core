@@ -12,7 +12,7 @@ class Platypus < Formula
     sha256 "db54229624888569c9a9e5356e1a91ee141b96a257cab6f3230880938faf6d7f" => :yosemite
   end
 
-  depends_on xcode: ["7.0", :build]
+  depends_on :xcode => ["7.0", :build]
 
   def install
     xcodebuild "SYMROOT=build", "DSTROOT=#{buildpath}",

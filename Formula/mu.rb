@@ -23,7 +23,7 @@ class Mu < Formula
   depends_on "glib"
   depends_on "gmime"
   depends_on "xapian"
-  depends_on emacs: ["23", :optional]
+  depends_on :emacs => ["23", :optional]
 
   def install
     # Explicitly tell the build not to include emacs support as the version

@@ -11,7 +11,7 @@ class Cclive < Formula
     sha256 "74168fac20d931d1b6e2c702ac5818188288271100c9e3f15245b63a1e27d9bc" => :mavericks
   end
 
-  conflicts_with "clozure-cl", because: "both install a ccl binary"
+  conflicts_with "clozure-cl", :because => "both install a ccl binary"
 
   depends_on "pkg-config" => :build
   depends_on "quvi"

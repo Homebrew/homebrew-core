@@ -14,7 +14,7 @@ class Hashcat < Formula
   # Upstream could not fix OpenCL issue on Mavericks.
   # https://github.com/hashcat/hashcat/issues/366
   # https://github.com/Homebrew/homebrew-core/pull/4395
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
 
   def install
     system "make", "install", "CC=#{ENV.cc}", "PREFIX=#{prefix}"

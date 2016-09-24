@@ -6,7 +6,7 @@ class Perl < Formula
   sha256 "a9a37c0860380ecd7b23aa06d61c20fc5bc6d95198029f3684c44a9d7e2952f2"
   revision 1
 
-  head "https://perl5.git.perl.org/perl.git", branch: "blead"
+  head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   bottle do
     sha256 "318daffb06729e7b46543310d568020dac45de0f420ec76e327ab762fd1c8f02" => :sierra

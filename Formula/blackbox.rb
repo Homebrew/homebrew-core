@@ -7,7 +7,7 @@ class Blackbox < Formula
 
   bottle :unneeded
 
-  depends_on gpg: :run
+  depends_on :gpg => :run
 
   def install
     libexec.install Dir["bin/*"]

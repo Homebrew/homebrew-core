@@ -12,10 +12,10 @@ class Osxutils < Formula
     sha256 "91808d79c75537c563ee9a36b45e21703fcc4377d6c6ea7e7215f5ad9b0aa605" => :mavericks
   end
 
-  conflicts_with "trash", because: "both install a trash binary"
+  conflicts_with "trash", :because => "both install a trash binary"
   conflicts_with "leptonica",
-    because: "both leptonica and osxutils ship a `fileinfo` executable."
-  conflicts_with "wiki", because: "both install `wiki` binaries"
+    :because => "both leptonica and osxutils ship a `fileinfo` executable."
+  conflicts_with "wiki", :because => "both install `wiki` binaries"
 
   def install
     system "make"

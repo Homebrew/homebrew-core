@@ -1,7 +1,7 @@
 class Camlp5TransitionalModeRequirement < Requirement
   fatal true
 
-  satisfy(build_env: false) { !Tab.for_name("camlp5").with?("strict") }
+  satisfy(:build_env => false) { !Tab.for_name("camlp5").with?("strict") }
 
   def message; <<-EOS.undent
     camlp5 must be compiled in transitional mode (instead of --strict mode):
@@ -16,7 +16,7 @@ class Coq < Formula
   url "https://coq.inria.fr/distrib/8.5pl2/files/coq-8.5pl2.tar.gz"
   version "8.5pl2"
   sha256 "83239d1251bf6c54a9ca5045d738e469019b93ca601756bf982aab0654e4de73"
-  head "git://scm.gforge.inria.fr/coq/coq.git", branch: "trunk"
+  head "git://scm.gforge.inria.fr/coq/coq.git", :branch => "trunk"
 
   bottle do
     sha256 "774e14c3f3755fe94d20fc3c410b54239f3365b1e3961ec7a3066e59c87a3666" => :sierra

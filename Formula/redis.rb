@@ -3,7 +3,7 @@ class Redis < Formula
   homepage "http://redis.io/"
   url "http://download.redis.io/releases/redis-3.2.3.tar.gz"
   sha256 "674e9c38472e96491b7d4f7b42c38b71b5acbca945856e209cb428fbc6135f15"
-  head "https://github.com/antirez/redis.git", branch: "unstable"
+  head "https://github.com/antirez/redis.git", :branch => "unstable"
 
   bottle do
     cellar :any_skip_relocation
@@ -46,7 +46,7 @@ class Redis < Formula
     etc.install "sentinel.conf" => "redis-sentinel.conf"
   end
 
-  plist_options manual: "redis-server #{HOMEBREW_PREFIX}/etc/redis.conf"
+  plist_options :manual => "redis-server #{HOMEBREW_PREFIX}/etc/redis.conf"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

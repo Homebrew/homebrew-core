@@ -24,7 +24,7 @@ class Nghttp2 < Formula
   option "without-docs", "Don't build man pages"
   option "with-python3", "Build python3 bindings"
 
-  depends_on python3: :optional
+  depends_on :python3 => :optional
   depends_on "sphinx-doc" => :build if build.with? "docs"
   depends_on "libxml2" if MacOS.version <= :lion
   depends_on "pkg-config" => :build

@@ -19,7 +19,7 @@ class Gource < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   depends_on "pkg-config" => :build
   depends_on "glm" => :build
@@ -32,7 +32,7 @@ class Gource < Formula
   depends_on "sdl2_image"
 
   # boost failing on lion
-  depends_on macos: :mountain_lion
+  depends_on :macos => :mountain_lion
 
   if MacOS.version < :mavericks
     depends_on "boost" => "c++11"

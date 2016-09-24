@@ -39,7 +39,7 @@ class Xplanetfx < Formula
       ENV.prepend_create_path "PYTHONPATH", "#{HOMEBREW_PREFIX}/lib/python2.7/site-packages/gtk-2.0"
       ENV.prepend_create_path "GDK_PIXBUF_MODULEDIR", "#{HOMEBREW_PREFIX}/lib/gdk-pixbuf-2.0/2.10.0/loaders"
     end
-    bin.env_script_all_files(libexec+"bin", PATH: "#{path}:$PATH", PYTHONPATH: ENV["PYTHONPATH"], GDK_PIXBUF_MODULEDIR: ENV["GDK_PIXBUF_MODULEDIR"])
+    bin.env_script_all_files(libexec+"bin", :PATH => "#{path}:$PATH", :PYTHONPATH => ENV["PYTHONPATH"], :GDK_PIXBUF_MODULEDIR => ENV["GDK_PIXBUF_MODULEDIR"])
   end
 
   def post_install

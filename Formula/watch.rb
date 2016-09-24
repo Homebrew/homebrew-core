@@ -5,8 +5,8 @@ class Watch < Formula
 
   stable do
     url "https://gitlab.com/procps-ng/procps.git",
-      tag: "v3.3.12",
-      revision: "e0784ddaed30d095bb1d9a8ad6b5a23d10a212c4"
+      :tag => "v3.3.12",
+      :revision => "e0784ddaed30d095bb1d9a8ad6b5a23d10a212c4"
 
     # Upstream commit, which fixes missing HOST_NAME_MAX on BSD-y systems.
     # Commit subject is "watch: define HOST_NAME_MAX"

@@ -24,7 +24,7 @@ class Libspatialite < Formula
   end
 
   head do
-    url "https://www.gaia-gis.it/fossil/libspatialite", using: :fossil
+    url "https://www.gaia-gis.it/fossil/libspatialite", :using => :fossil
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

@@ -16,7 +16,7 @@ class Pius < Formula
     sha256 "8879e7d0fc7970e838091dfaed8b1d36676528cc185cdda4908c63858b8b124b" => :mavericks
   end
 
-  depends_on gpg: :run
+  depends_on :gpg => :run
 
   def install
     # Replace hardcoded gpg path (WONTFIX)

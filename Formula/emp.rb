@@ -26,7 +26,7 @@ class Emp < Formula
     require "webrick"
     require "utils/json"
 
-    server = WEBrick::HTTPServer.new Port: 8035
+    server = WEBrick::HTTPServer.new :Port => 8035
     server.mount_proc "/apps/foo/releases" do |_req, res|
       resp = {
         "created_at" => "2015-10-12T0:00:00.00000000-00:00",

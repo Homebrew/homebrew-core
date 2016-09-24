@@ -29,7 +29,7 @@ class Zookeeper < Formula
 
   deprecated_option "perl" => "with-perl"
 
-  depends_on python: :optional
+  depends_on :python => :optional
 
   def shim_script(target)
     <<-EOS.undent
@@ -126,7 +126,7 @@ class Zookeeper < Formula
     (etc/"zookeeper").install ["conf/zoo.cfg", "conf/zoo_sample.cfg"]
   end
 
-  plist_options manual: "zkServer start"
+  plist_options :manual => "zkServer start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

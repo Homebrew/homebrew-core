@@ -68,7 +68,7 @@ class Tinyproxy < Formula
     end
   end
 
-  plist_options manual: "tinyproxy"
+  plist_options :manual => "tinyproxy"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

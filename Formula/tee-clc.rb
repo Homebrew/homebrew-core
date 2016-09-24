@@ -6,7 +6,7 @@ class TeeClc < Formula
 
   bottle :unneeded
 
-  conflicts_with "tiny-fugue", because: "both install a `tf` binary"
+  conflicts_with "tiny-fugue", :because => "both install a `tf` binary"
 
   def install
     libexec.install "tf", "lib"

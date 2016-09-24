@@ -4,7 +4,7 @@ class Lfe < Formula
   url "https://github.com/rvirding/lfe/archive/v1.0.tar.gz"
   sha256 "a335f593faf96fadbe9d049c5be5d331ba19628bd5dd41cedcbc62bb7c597fe7"
 
-  head "https://github.com/rvirding/lfe.git", branch: "develop"
+  head "https://github.com/rvirding/lfe.git", :branch => "develop"
 
   bottle do
     sha256 "8a6adf72bf5d51ec031aeccfeef5b3f07a829a959ef238f0a01e4d2cee3fb0b8" => :el_capitan

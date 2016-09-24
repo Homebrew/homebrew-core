@@ -6,7 +6,7 @@ class Hive < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
   depends_on "hadoop"
 
   def install
@@ -16,7 +16,7 @@ class Hive < Formula
     Pathname.glob("#{libexec}/bin/*") do |file|
       next if file.directory?
       (bin/file.basename).write_env_script file,
-        Language::Java.java_home_env("1.7+").merge(HIVE_HOME: libexec)
+        Language::Java.java_home_env("1.7+").merge(:HIVE_HOME => libexec)
     end
   end
 

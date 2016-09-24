@@ -14,7 +14,7 @@ class Putty < Formula
     sha256 "066385a68e8c73e006f886930a267899eb02da47b8802b17c8f9cfe1263a45b6" => :mavericks
   end
 
-  conflicts_with "pssh", because: "both install `pscp` binaries"
+  conflicts_with "pssh", :because => "both install `pscp` binaries"
 
   head do
     url "git://git.tartarus.org/simon/putty.git"

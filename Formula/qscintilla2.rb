@@ -16,8 +16,8 @@ class Qscintilla2 < Formula
   option "without-python3", "Do not build Python3 bindings"
 
   depends_on "qt5"
-  depends_on python3: :recommended
-  depends_on python: :optional
+  depends_on :python3 => :recommended
+  depends_on :python => :optional
 
   if build.with?("python") && build.with?("python3")
     depends_on "sip" => "with-python3"

@@ -4,7 +4,7 @@ class Fossil < Formula
   url "https://www.fossil-scm.org/download/fossil-src-1.35.tar.gz"
   sha256 "c1f92f925a87c9872cb40d166f56ba08b90edbab01a8546ff37025836136ba1d"
 
-  head "https://www.fossil-scm.org/", using: :fossil
+  head "https://www.fossil-scm.org/", :using => :fossil
 
   bottle do
     cellar :any
@@ -17,7 +17,7 @@ class Fossil < Formula
   option "without-tcl", "Build without the tcl-th1 command bridge"
 
   depends_on "openssl"
-  depends_on osxfuse: :optional
+  depends_on :osxfuse => :optional
 
   def install
     args = [

@@ -37,7 +37,7 @@ class Riemann < Formula
     EOS
   end
 
-  plist_options manual: "riemann"
+  plist_options :manual => "riemann"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

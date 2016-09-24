@@ -13,7 +13,7 @@ class Blucat < Formula
   end
 
   depends_on "ant" => :build
-  depends_on java: "1.6+"
+  depends_on :java => "1.6+"
 
   def install
     system "ant"

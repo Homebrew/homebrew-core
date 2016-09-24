@@ -37,8 +37,8 @@ class NanopbGenerator < Formula
 
     libexec.install "nanopb_generator.py", "protoc-gen-nanopb", "proto"
 
-    (bin/"protoc-gen-nanopb").write_env_script libexec/"protoc-gen-nanopb", PYTHONPATH: ENV["PYTHONPATH"]
-    (bin/"nanopb_generator").write_env_script libexec/"nanopb_generator.py", PYTHONPATH: ENV["PYTHONPATH"]
+    (bin/"protoc-gen-nanopb").write_env_script libexec/"protoc-gen-nanopb", :PYTHONPATH => ENV["PYTHONPATH"]
+    (bin/"nanopb_generator").write_env_script libexec/"nanopb_generator.py", :PYTHONPATH => ENV["PYTHONPATH"]
   end
 
   test do

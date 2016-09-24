@@ -13,7 +13,7 @@ class Enchant < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on python: :optional
+  depends_on :python => :optional
   depends_on "glib"
   depends_on "aspell"
 

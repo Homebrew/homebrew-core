@@ -23,7 +23,7 @@ class Namebench < Formula
                      "--install-data=#{libexec}/lib/python2.7/site-packages"
 
     bin.install "namebench.py" => "namebench"
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

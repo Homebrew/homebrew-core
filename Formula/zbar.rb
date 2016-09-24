@@ -12,7 +12,7 @@ class Zbar < Formula
     sha256 "39865fe54a7bd3f0153e19729d0b958bd3ac5a5bac5d39a50194b39db2503317" => :mavericks
   end
 
-  depends_on x11: :optional
+  depends_on :x11 => :optional
   depends_on "pkg-config" => :build
   depends_on "jpeg"
   depends_on "imagemagick"

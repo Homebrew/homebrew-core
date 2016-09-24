@@ -15,7 +15,7 @@ class Afflib < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "expat" => :optional
-  depends_on osxfuse: :optional
+  depends_on :osxfuse => :optional
   depends_on "openssl"
 
   # This patch fixes a bug reported upstream over there

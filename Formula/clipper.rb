@@ -19,7 +19,7 @@ class Clipper < Formula
     bin.install "clipper"
   end
 
-  plist_options manual: "clipper"
+  plist_options :manual => "clipper"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -6,7 +6,7 @@ class CfrDecompiler < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.6+"
+  depends_on :java => "1.6+"
 
   def install
     jar_version = version.to_s.tr(".", "_")

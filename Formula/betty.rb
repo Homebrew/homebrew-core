@@ -6,7 +6,7 @@ class Betty < Formula
 
   bottle :unneeded
 
-  depends_on ruby: "1.9"
+  depends_on :ruby => "1.9"
 
   def install
     libexec.install "lib", "main.rb" => "betty"

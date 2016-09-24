@@ -3,14 +3,14 @@ class Arangodb < Formula
   homepage "https://www.arangodb.com/"
   url "https://www.arangodb.com/repositories/Source/ArangoDB-3.0.5.tar.gz"
   sha256 "c9219c9dc5cc35a0e2dfab8420f9fd0cdd7143669f0776a08907164a20e03a4e"
-  head "https://github.com/arangodb/arangodb.git", branch: "unstable"
+  head "https://github.com/arangodb/arangodb.git", :branch => "unstable"
 
   bottle do
     sha256 "e8fa7b1e5c7bf3d9d18b830c8ed9e365c4d0fc5704a2732f208b5113a4d3b5ca" => :el_capitan
     sha256 "1ca08be2a4f88515e2f2ee765703a963a0c9df44a50d5cc9f4787ce0822f27e7" => :yosemite
   end
 
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
   depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on "openssl"
@@ -114,7 +114,7 @@ class Arangodb < Formula
     s
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/arangodb/sbin/arangod"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/arangodb/sbin/arangod"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -3,7 +3,7 @@ class Keepassc < Formula
   homepage "https://raymontag.github.com/keepassc/"
   url "https://github.com/raymontag/keepassc/archive/1.7.0.tar.gz"
   sha256 "218537f6a16f70d907d22a23d1a4dec952d7622c65fae65f03c9ee98e64938dd"
-  head "https://github.com/raymontag/keepassc.git", branch: "development"
+  head "https://github.com/raymontag/keepassc.git", :branch => "development"
   revision 1
 
   bottle do
@@ -41,7 +41,7 @@ class Keepassc < Formula
     man1.install Dir["*.1"]
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec+"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

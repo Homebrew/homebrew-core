@@ -38,7 +38,7 @@ class Sickbeard < Formula
     (bin+"sickbeard").write(startup_script)
   end
 
-  plist_options manual: "sickbeard"
+  plist_options :manual => "sickbeard"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

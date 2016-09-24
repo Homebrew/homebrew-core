@@ -27,7 +27,7 @@ class Knot < Formula
   end
 
   # due to AT_REMOVEDIR
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
 
   depends_on "automake" => :build
   depends_on "autoconf" => :build
@@ -102,7 +102,7 @@ class Knot < Formula
     EOS
   end
 
-  plist_options startup: true
+  plist_options :startup => true
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

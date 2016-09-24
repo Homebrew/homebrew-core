@@ -4,7 +4,7 @@ class Fastbit < Formula
   url "https://codeforge.lbl.gov/frs/download.php/416/fastbit-2.0.2.tar.gz"
   sha256 "a9d6254fcc32da6b91bf00285c7820869950bed25d74c993da49e1336fd381b4"
   head "https://codeforge.lbl.gov/anonscm/fastbit/trunk",
-       using: :svn
+       :using => :svn
 
   bottle do
     cellar :any
@@ -17,7 +17,7 @@ class Fastbit < Formula
   depends_on :java
   needs :cxx11
 
-  conflicts_with "iniparser", because: "Both install `include/dictionary.h`"
+  conflicts_with "iniparser", :because => "Both install `include/dictionary.h`"
 
   def install
     ENV.cxx11

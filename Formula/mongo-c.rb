@@ -22,7 +22,7 @@ class MongoC < Formula
   depends_on "openssl" => :recommended
 
   conflicts_with "libbson",
-                 because: "mongo-c installs the libbson headers"
+                 :because => "mongo-c installs the libbson headers"
 
   def install
     args = %W[--prefix=#{prefix}]

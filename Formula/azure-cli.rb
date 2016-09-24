@@ -7,7 +7,7 @@ class AzureCli < Formula
   version "0.10.4"
   sha256 "44328b91adf4230250c81831e9f4f2638357b969a633ebcdc818d4420e16d4df"
 
-  head "https://github.com/azure/azure-xplat-cli.git", branch: "dev"
+  head "https://github.com/azure/azure-xplat-cli.git", :branch => "dev"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +18,7 @@ class AzureCli < Formula
   end
 
   depends_on "node"
-  depends_on python: :build
+  depends_on :python => :build
 
   def install
     rm_rf "bin/windows"

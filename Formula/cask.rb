@@ -7,7 +7,7 @@ class Cask < Formula
 
   bottle :unneeded
 
-  depends_on emacs: ["24", :run]
+  depends_on :emacs => ["24", :run]
 
   def install
     bin.install "bin/cask"

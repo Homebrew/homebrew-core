@@ -3,7 +3,7 @@ class Inspircd < Formula
   homepage "http://www.inspircd.org"
   url "https://github.com/inspircd/inspircd/archive/v2.0.23.tar.gz"
   sha256 "522b31fc80e8fd90b66837bf50f8a941233709d5b1fc9c0b3c47a413fb69f162"
-  head "https://github.com/inspircd/inspircd.git", branch: "insp20"
+  head "https://github.com/inspircd/inspircd.git", :branch => "insp20"
 
   bottle do
     sha256 "399ef38bf73da815b8474922013136e85045f1e8d060fb8e01ecf9eb2b84c9d4" => :el_capitan
@@ -19,7 +19,7 @@ class Inspircd < Formula
   depends_on "pkg-config" => :build
   depends_on "geoip" => :optional
   depends_on "gnutls" => :optional
-  depends_on mysql: :optional
+  depends_on :mysql => :optional
   depends_on "openssl" => :optional
   depends_on "pcre" => :optional
   depends_on "postgresql" => :optional

@@ -47,7 +47,7 @@ class Bibclean < Formula
     system "make", "install"
 
     ENV.prepend_path "PATH", pkgshare
-    bin.env_script_all_files(pkgshare, PATH: ENV["PATH"])
+    bin.env_script_all_files(pkgshare, :PATH => ENV["PATH"])
   end
 
   test do

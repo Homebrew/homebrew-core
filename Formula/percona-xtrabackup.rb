@@ -15,7 +15,7 @@ class PerconaXtrabackup < Formula
 
   depends_on "cmake" => :build
   depends_on "sphinx-doc" => :build if build.with? "docs"
-  depends_on mysql: :recommended
+  depends_on :mysql => :recommended
   depends_on "libev"
   depends_on "libgcrypt"
   depends_on "openssl"
@@ -70,7 +70,7 @@ class PerconaXtrabackup < Formula
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make", "install"
       end
-      bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
+      bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
     end
   end
 

@@ -27,7 +27,7 @@ class Jack < Formula
   # Change pThread header include from CarbonCore
   patch :p0, :DATA if MacOS.version >= :mountain_lion
 
-  plist_options manual: "jackd -d coreaudio"
+  plist_options :manual => "jackd -d coreaudio"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

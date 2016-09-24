@@ -18,17 +18,17 @@ class Wego < Formula
 
   go_resource "github.com/mattn/go-colorable" do
     url "https://github.com/mattn/go-colorable.git",
-        revision: "ed8eb9e318d7a84ce5915b495b7d35e0cfe7b5a8"
+        :revision => "ed8eb9e318d7a84ce5915b495b7d35e0cfe7b5a8"
   end
 
   go_resource "github.com/mattn/go-runewidth" do
     url "https://github.com/mattn/go-runewidth.git",
-        revision: "d6bea18f789704b5f83375793155289da36a3c7f"
+        :revision => "d6bea18f789704b5f83375793155289da36a3c7f"
   end
 
   go_resource "github.com/schachmat/ingo" do
     url "https://github.com/schachmat/ingo.git",
-        revision: "b1887f863beaeb31b3924e839dfed3cf3a981ea8"
+        :revision => "b1887f863beaeb31b3924e839dfed3cf3a981ea8"
   end
 
   def install

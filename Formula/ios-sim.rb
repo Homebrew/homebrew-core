@@ -13,7 +13,7 @@ class IosSim < Formula
     sha256 "2182681c195d4a616f9a3975ea986de04d7d5b4c434844e503b83e4b18cd035c" => :mountain_lion
   end
 
-  depends_on macos: :mountain_lion
+  depends_on :macos => :mountain_lion
 
   def install
     rake "install", "prefix=#{prefix}"

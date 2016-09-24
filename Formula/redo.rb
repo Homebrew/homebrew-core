@@ -11,7 +11,7 @@ class Redo < Formula
   end
 
   resource "docs" do
-    url "https://github.com/apenwarr/redo.git", branch: "man"
+    url "https://github.com/apenwarr/redo.git", :branch => "man"
   end
 
   def install

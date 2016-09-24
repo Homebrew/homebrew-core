@@ -7,7 +7,7 @@ class ElixirBuild < Formula
 
   bottle :unneeded
 
-  conflicts_with "narwhal", because: "both install `json` binaries"
+  conflicts_with "narwhal", :because => "both install `json` binaries"
 
   def install
     ENV["PREFIX"] = prefix

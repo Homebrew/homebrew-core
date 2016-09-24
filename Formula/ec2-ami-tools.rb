@@ -9,7 +9,7 @@ class Ec2AmiTools < Formula
   depends_on :java
 
   def install
-    env = Language::Java.java_home_env.merge(EC2_AMITOOL_HOME: libexec)
+    env = Language::Java.java_home_env.merge(:EC2_AMITOOL_HOME => libexec)
     rm Dir["bin/*.cmd"] # Remove Windows versions
     libexec.install Dir["*"]
     Pathname.glob("#{libexec}/bin/*") do |file|

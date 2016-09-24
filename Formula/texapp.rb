@@ -30,7 +30,7 @@ class Texapp < Formula
         system "make"
         system "make", "install"
       end
-      bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
+      bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
       chmod 0755, libexec/"bin/texapp"
     end
   end

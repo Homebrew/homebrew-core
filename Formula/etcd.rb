@@ -24,7 +24,7 @@ class Etcd < Formula
     bin.install "bin/etcdctl"
   end
 
-  plist_options manual: "etcd"
+  plist_options :manual => "etcd"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

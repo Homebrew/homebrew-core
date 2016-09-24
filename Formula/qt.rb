@@ -6,7 +6,7 @@ class Qt < Formula
   sha256 "e2882295097e47fe089f8ac741a95fef47e0a73a3f3cdf21b56990638f626ea0"
   revision 2
 
-  head "https://code.qt.io/qt/qt.git", branch: "4.8"
+  head "https://code.qt.io/qt/qt.git", :branch => "4.8"
 
   bottle do
     sha256 "f6dc9df6f78e1d8c12ebf961c8a9196885a1ee732eed098b2cbe8320f2d9a7a8" => :el_capitan
@@ -40,7 +40,7 @@ class Qt < Formula
 
   resource "test-project" do
     url "https://gist.github.com/tdsmith/f55e7e69ae174b5b5a03.git",
-        revision: "6f565390395a0259fa85fdd3a4f1968ebcd1cc7d"
+        :revision => "6f565390395a0259fa85fdd3a4f1968ebcd1cc7d"
   end
 
   def install

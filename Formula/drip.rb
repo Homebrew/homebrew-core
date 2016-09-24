@@ -11,7 +11,7 @@ class Drip < Formula
     sha256 "69207c24aa1f8e6ba406e6cc3f811cd7000ee14c713cc32b49d72f2c76a702bc" => :mavericks
   end
 
-  depends_on java: "1.5+"
+  depends_on :java => "1.5+"
 
   def install
     system "make"

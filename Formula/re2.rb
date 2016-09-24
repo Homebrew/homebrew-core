@@ -17,7 +17,7 @@ class Re2 < Formula
 
   # https://github.com/google/re2/issues/102
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70932
-  fails_with gcc: "6" do
+  fails_with :gcc => "6" do
     cause "error: field 'next_' has incomplete type 'std::atomic<re2::DFA::State*> []'"
   end
 

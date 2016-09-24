@@ -15,7 +15,7 @@ class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "http://www.rpm5.org/"
   url "http://rpm5.org/files/rpm/rpm-5.4/rpm-5.4.15-0.20140824.src.rpm",
-      using: RpmDownloadStrategy
+      :using => RpmDownloadStrategy
   version "5.4.15"
   sha256 "d4ae5e9ed5df8ab9931b660f491418d20ab5c4d72eb17ed9055b80b71ef6c4ee"
 

@@ -2,10 +2,10 @@ class Dub < Formula
   desc "Build tool for D projects"
   homepage "https://code.dlang.org/about"
   url "https://github.com/dlang/dub.git",
-      tag: "v1.0.0",
-      revision: "b59af2b8befb4fad4157d8c9cc86dba707b2fc87"
+      :tag => "v1.0.0",
+      :revision => "b59af2b8befb4fad4157d8c9cc86dba707b2fc87"
 
-  head "https://github.com/dlang/dub.git", shallow: false
+  head "https://github.com/dlang/dub.git", :shallow => false
 
   bottle do
     sha256 "51a032793dc4671d6c12172ef29c38c98998dcd4b6aa501be2a5d35248b27244" => :el_capitan

@@ -12,7 +12,7 @@ class John < Formula
     sha256 "394909ad355846b561077f89a216fc87902d116dfcb970b92ff7f563a3d5ce3e" => :mavericks
   end
 
-  conflicts_with "john-jumbo", because: "both install the same binaries"
+  conflicts_with "john-jumbo", :because => "both install the same binaries"
 
   patch :DATA # Taken from MacPorts, tells john where to find runtime files
 

@@ -6,12 +6,12 @@ class Gitbucket < Formula
 
   head do
     url "https://github.com/gitbucket/gitbucket.git"
-    depends_on ant: :build
+    depends_on :ant => :build
   end
 
   bottle :unneeded
 
-  depends_on java: "1.8+"
+  depends_on :java => "1.8+"
 
   def install
     if build.head?
@@ -27,7 +27,7 @@ class Gitbucket < Formula
     EOS
   end
 
-  plist_options manual: "java -jar #{HOMEBREW_PREFIX}/opt/gitbucket/libexec/gitbucket.war"
+  plist_options :manual => "java -jar #{HOMEBREW_PREFIX}/opt/gitbucket/libexec/gitbucket.war"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

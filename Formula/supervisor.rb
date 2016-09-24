@@ -34,7 +34,7 @@ class Supervisor < Formula
     etc.install buildpath/"supervisor/skel/sample.conf" => "supervisord.ini"
   end
 
-  plist_options manual: "supervisord -c #{HOMEBREW_PREFIX}/etc/supervisord.ini"
+  plist_options :manual => "supervisord -c #{HOMEBREW_PREFIX}/etc/supervisord.ini"
 
   def plist
     <<-EOS.undent

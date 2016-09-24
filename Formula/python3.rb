@@ -3,7 +3,7 @@ class Python3 < Formula
   homepage "https://www.python.org/"
   revision 1
 
-  head "https://hg.python.org/cpython", using: :hg
+  head "https://hg.python.org/cpython", :using => :hg
 
   stable do
     url "https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz"

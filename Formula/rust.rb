@@ -8,7 +8,7 @@ class Rust < Formula
 
     resource "cargo" do
       # git required because of submodules
-      url "https://github.com/rust-lang/cargo.git", tag: "0.11.0", revision: "259324cd8f9bb6e1068a3a2b77685e90fda3e3b6"
+      url "https://github.com/rust-lang/cargo.git", :tag => "0.11.0", :revision => "259324cd8f9bb6e1068a3a2b77685e90fda3e3b6"
     end
 
     # name includes date to satisfy cache
@@ -39,13 +39,13 @@ class Rust < Formula
   depends_on "openssl"
   depends_on "libssh2"
 
-  conflicts_with "multirust", because: "both install rustc, rustdoc, cargo, rust-lldb, rust-gdb"
+  conflicts_with "multirust", :because => "both install rustc, rustdoc, cargo, rust-lldb, rust-gdb"
 
   # According to the official readme, GCC 4.7+ is required
   fails_with :gcc_4_0
   fails_with :gcc
   ("4.3".."4.6").each do |n|
-    fails_with gcc: n
+    fails_with :gcc => n
   end
 
   def install

@@ -49,7 +49,7 @@ class Tor < Formula
     EOS
   end
 
-  plist_options manual: "tor"
+  plist_options :manual => "tor"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

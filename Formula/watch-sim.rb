@@ -12,7 +12,7 @@ class WatchSim < Formula
     sha256 "b04846befdb378679cdd93bdf182784a8ed0da3957cb0b4a124576b3cd06e54c" => :mavericks
   end
 
-  depends_on xcode: "6.2"
+  depends_on :xcode => "6.2"
 
   def install
     system "make"

@@ -16,7 +16,7 @@ class Fits < Formula
   # provided jars may not be compatible with installed java,
   # but works when built from source
   depends_on "ant" => :build
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
 
   def install
     system "ant"

@@ -4,7 +4,7 @@ class SfPwgen < Formula
   url "https://bitbucket.org/anders/sf-pwgen/downloads/sf-pwgen-1.3.tar.gz"
   sha256 "0489dace9de7ad65bf545e774dbf67b6d24cecdcbd32fe5d41397140ccf3aa84"
 
-  head "https://bitbucket.org/anders/sf-pwgen", using: :hg
+  head "https://bitbucket.org/anders/sf-pwgen", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +14,7 @@ class SfPwgen < Formula
     sha256 "5b91f63b28d364f5a09b7d11db9a1b3de1958e858d51f99ed9ce7e235aa74936" => :mountain_lion
   end
 
-  depends_on macos: :mountain_lion
+  depends_on :macos => :mountain_lion
 
   def install
     system "make"

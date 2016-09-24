@@ -42,7 +42,7 @@ class Pdnsd < Formula
     EOS
   end
 
-  plist_options startup: true, manual: "sudo pdnsd"
+  plist_options :startup => true, :manual => "sudo pdnsd"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

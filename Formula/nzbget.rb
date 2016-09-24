@@ -56,7 +56,7 @@ class Nzbget < Formula
     etc.install "nzbget.conf"
   end
 
-  plist_options manual: "nzbget"
+  plist_options :manual => "nzbget"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

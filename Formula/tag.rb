@@ -12,7 +12,7 @@ class Tag < Formula
     sha256 "8aa970a198d4c14b310d0f2ba5dcb238699d44585205137061a21d0e7690d629" => :mavericks
   end
 
-  depends_on macos: :mavericks
+  depends_on :macos => :mavericks
 
   def install
     system "make"

@@ -6,7 +6,7 @@ class WrkTrello < Formula
 
   bottle :unneeded
 
-  conflicts_with "wrk", because: "both install `wrk` binaries"
+  conflicts_with "wrk", :because => "both install `wrk` binaries"
 
   def script; <<-EOS.undent
     #!/bin/sh

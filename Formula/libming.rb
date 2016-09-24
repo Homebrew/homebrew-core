@@ -19,7 +19,7 @@ class Libming < Formula
 
   depends_on "libpng"
   depends_on "freetype"
-  depends_on python: :optional
+  depends_on :python => :optional
   depends_on "giflib" => :optional
 
   # Helps us find libgif.dylib, not libungif.dylib which is retired.

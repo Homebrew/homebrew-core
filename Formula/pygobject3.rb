@@ -19,7 +19,7 @@ class Pygobject3 < Formula
   depends_on "pkg-config" => :build
   depends_on "libffi" => :optional
   depends_on "glib"
-  depends_on python3: :optional
+  depends_on :python3 => :optional
   depends_on "py2cairo" if build.with? "python"
   depends_on "py3cairo" if build.with? "python3"
   depends_on "gobject-introspection"

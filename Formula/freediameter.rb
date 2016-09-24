@@ -5,7 +5,7 @@ class Freediameter < Formula
   sha256 "0601a7f559af6596dff8e18f5c9b17bc66de50d8e05640aa64a3403a841cb228"
   revision 3
 
-  head "http://www.freediameter.net/hg/freeDiameter", using: :hg
+  head "http://www.freediameter.net/hg/freeDiameter", :using => :hg
 
   bottle do
     sha256 "aa6f29018beafbe23e475334ed5be3718ba428e88b0741ef199d66cdaa988d08" => :el_capitan
@@ -60,7 +60,7 @@ class Freediameter < Formula
     EOS
   end
 
-  plist_options startup: true
+  plist_options :startup => true
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

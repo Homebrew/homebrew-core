@@ -6,7 +6,7 @@ class Rtmpdump < Formula
   version "2.4+20151223"
   sha256 "5c032f5c8cc2937eb55a81a94effdfed3b0a0304b6376147b86f951e225e3ab5"
 
-  head "git://git.ffmpeg.org/rtmpdump", shallow: false
+  head "git://git.ffmpeg.org/rtmpdump", :shallow => false
 
   bottle do
     cellar :any
@@ -16,7 +16,7 @@ class Rtmpdump < Formula
     sha256 "f4c8dbdf3f8a04626a7975abf96eccd5e494a3f6a795b2035c6d418bfbe8079d" => :mavericks
   end
 
-  conflicts_with "flvstreamer", because: "both install 'rtmpsrv', 'rtmpsuck' and 'streams' binary"
+  conflicts_with "flvstreamer", :because => "both install 'rtmpsrv', 'rtmpsuck' and 'streams' binary"
 
   depends_on "openssl"
 

@@ -11,7 +11,7 @@ class Ftjam < Formula
     sha256 "554e527a1e52be6ebd9f5f1fbae4e8f648f750a179936e329238dee32b32520a" => :mavericks
   end
 
-  conflicts_with "jam", because: "both install a `jam` binary"
+  conflicts_with "jam", :because => "both install a `jam` binary"
 
   def install
     system "./configure", "--prefix=#{prefix}"

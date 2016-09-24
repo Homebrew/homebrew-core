@@ -2,8 +2,8 @@ class MinioMc < Formula
   desc "ls, cp, mkdir, diff and rsync for filesystems and object storage"
   homepage "https://github.com/minio/mc"
   url "https://github.com/minio/mc.git",
-    tag: "RELEASE.2016-08-21T03-02-49Z",
-    revision: "768be74f74578137951f65874cfc2e454b64aca0"
+    :tag => "RELEASE.2016-08-21T03-02-49Z",
+    :revision => "768be74f74578137951f65874cfc2e454b64aca0"
   version "20160821030249"
 
   bottle do
@@ -15,7 +15,7 @@ class MinioMc < Formula
 
   depends_on "go" => :build
 
-  conflicts_with "midnight-commander", because: "Both install a `mc` binary"
+  conflicts_with "midnight-commander", :because => "Both install a `mc` binary"
 
   def install
     ENV["GOPATH"] = buildpath

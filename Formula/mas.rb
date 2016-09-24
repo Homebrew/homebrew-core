@@ -11,7 +11,7 @@ class Mas < Formula
     sha256 "360664b0d88c79c1e917df02bdb749bc1cdc9337075059944c49bb8f451baf71" => :el_capitan
   end
 
-  depends_on xcode: ["7.3", :build]
+  depends_on :xcode => ["7.3", :build]
 
   def install
     ENV["GEM_HOME"] = buildpath/".gem"

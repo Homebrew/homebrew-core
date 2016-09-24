@@ -12,7 +12,7 @@ class MupdfTools < Formula
     sha256 "0dfd41dbe9c11575ce9a84449997d5291f8dca58066ac2fe4817b69178d09a6b" => :mavericks
   end
 
-  depends_on macos: :snow_leopard
+  depends_on :macos => :snow_leopard
 
   def install
     system "make", "install",

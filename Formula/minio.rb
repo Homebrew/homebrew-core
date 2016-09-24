@@ -2,8 +2,8 @@ class Minio < Formula
   desc "object storage server compatible with Amazon S3"
   homepage "https://github.com/minio/minio"
   url "https://github.com/minio/minio.git",
-    tag: "RELEASE.2016-09-11T17-42-18Z",
-    revision: "85e2d886bcb005d49f3876d6849a2b5a55e03cd3"
+    :tag => "RELEASE.2016-09-11T17-42-18Z",
+    :revision => "85e2d886bcb005d49f3876d6849a2b5a55e03cd3"
   version "20160911174218"
 
   bottle do
@@ -46,7 +46,7 @@ class Minio < Formula
     (etc/"minio").mkpath
   end
 
-  plist_options manual: "minio server"
+  plist_options :manual => "minio server"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -10,7 +10,7 @@ class Lci < Formula
     sha256 "d9c2381543f5fff02005a66d07f5c8fb925e4c2c40d87392816947c3c1b22816" => :mavericks
   end
 
-  conflicts_with "lolcode", because: "both install `lci` binaries"
+  conflicts_with "lolcode", :because => "both install `lci` binaries"
 
   def install
     system "./configure", "--prefix=#{prefix}"

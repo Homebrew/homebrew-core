@@ -27,8 +27,8 @@ class Burp < Formula
 
     resource "uthash" do
       url "https://github.com/troydhanson/uthash.git",
-          tag: "v2.0.1",
-          revision: "539b4504b052cfca54ed66b82ca99e3aed403d46"
+          :tag => "v2.0.1",
+          :revision => "539b4504b052cfca54ed66b82ca99e3aed403d46"
     end
   end
 
@@ -83,7 +83,7 @@ class Burp < Formula
     EOS
   end
 
-  plist_options startup: true
+  plist_options :startup => true
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

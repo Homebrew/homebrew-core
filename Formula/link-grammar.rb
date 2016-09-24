@@ -15,7 +15,7 @@ class LinkGrammar < Formula
   depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on ant: :build
+  depends_on :ant => :build
 
   def install
     inreplace "autogen.sh", "libtoolize", "glibtoolize"

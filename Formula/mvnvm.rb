@@ -7,7 +7,7 @@ class Mvnvm < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
 
   def install
     bin.install "mvn"
@@ -15,7 +15,7 @@ class Mvnvm < Formula
     bin.env_script_all_files(libexec/"bin", Language::Java.overridable_java_home_env("1.7+"))
   end
 
-  conflicts_with "maven", because: "also installs a 'mvn' executable"
+  conflicts_with "maven", :because => "also installs a 'mvn' executable"
 
   test do
     (testpath/"settings.xml").write <<-EOS.undent

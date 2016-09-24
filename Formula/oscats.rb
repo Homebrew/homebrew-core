@@ -15,7 +15,7 @@ class Oscats < Formula
   depends_on "pkg-config" => :build
   depends_on "gsl"
   depends_on "glib"
-  depends_on python: :optional
+  depends_on :python => :optional
   depends_on "pygobject" if build.with? "python"
 
   def install

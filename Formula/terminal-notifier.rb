@@ -15,8 +15,8 @@ class TerminalNotifier < Formula
     sha256 "87e1ddf62740069b8fc35ae4c302f46ecb7c2c0cf32ff5ec8ffd6cdd9611e53e" => :mountain_lion
   end
 
-  depends_on macos: :mountain_lion
-  depends_on xcode: :build
+  depends_on :macos => :mountain_lion
+  depends_on :xcode => :build
 
   def install
     xcodebuild "-project", "Terminal Notifier.xcodeproj",

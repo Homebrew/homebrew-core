@@ -2,8 +2,8 @@ class DockerMachine < Formula
   desc "Create Docker hosts locally and on cloud providers"
   homepage "https://docs.docker.com/machine"
   url "https://github.com/docker/machine.git",
-      tag: "v0.8.1",
-      revision: "41b3b253352b8b355d668f5e12b5f329f88c3482"
+      :tag => "v0.8.1",
+      :revision => "41b3b253352b8b355d668f5e12b5f329f88c3482"
   head "https://github.com/docker/machine.git"
 
   bottle do
@@ -30,7 +30,7 @@ class DockerMachine < Formula
     end
   end
 
-  plist_options manual: "docker-machine start"
+  plist_options :manual => "docker-machine start"
 
   def plist; <<-EOS.undent
      <?xml version="1.0" encoding="UTF-8"?>

@@ -12,7 +12,7 @@ class Irrlicht < Formula
     sha256 "4389e5f8047158f0ef3ae9c55c03f7a1584a90a0964b8ff4ea4669df3ef741d1" => :mavericks
   end
 
-  depends_on xcode: :build
+  depends_on :xcode => :build
 
   def install
     xcodebuild "-project", "source/Irrlicht/MacOSX/MacOSX.xcodeproj",

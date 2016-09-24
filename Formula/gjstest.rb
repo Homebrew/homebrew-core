@@ -13,7 +13,7 @@ class Gjstest < Formula
     sha256 "b4d5d85ff25134f8eb2c0d545915abefebef5c364e59e696b939541581472481" => :mavericks
   end
 
-  depends_on macos: :mavericks
+  depends_on :macos => :mavericks
 
   depends_on "gflags"
   depends_on "glog"

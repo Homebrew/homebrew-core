@@ -11,7 +11,7 @@ class AwsApigatewayImporter < Formula
     sha256 "edb2aa2cfa42baeda657d4b02ff7dc76e9f1386fe992da1d80d5b626427f152d" => :mavericks
   end
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
   depends_on "maven" => :build
 
   def install

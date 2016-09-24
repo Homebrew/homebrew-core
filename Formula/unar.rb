@@ -5,7 +5,7 @@ class Unar < Formula
   version "1.10.1"
   sha256 "40967014a505b7a27864c49dc3b5d30b98ae4e6d4873783b2ef9ef9215fd092b"
 
-  head "https://bitbucket.org/WAHa_06x36/theunarchiver", using: :hg
+  head "https://bitbucket.org/WAHa_06x36/theunarchiver", :using => :hg
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class Unar < Formula
     sha256 "dab9604cafaab887741e0d6511f88e7ca66ad556ee86a41f4b1896ec558d9650" => :mavericks
   end
 
-  depends_on xcode: :build
+  depends_on :xcode => :build
 
   def install
     # ZIP for 1.10.1 additionally contains a `__MACOSX` directory, preventing

@@ -4,7 +4,7 @@ class Cpprestsdk < Formula
   url "https://github.com/Microsoft/cpprestsdk/archive/v2.8.0.tar.gz"
   sha256 "3d1c38aa7ef34b3d3e9a6e84d3866554fe48c3d9d9977896d18a7cfb80d5a4ea"
 
-  head "https://github.com/Microsoft/cpprestsdk.git", branch: "development"
+  head "https://github.com/Microsoft/cpprestsdk.git", :branch => "development"
 
   bottle do
     cellar :any

@@ -11,7 +11,7 @@ class Byteman < Formula
   end
 
   bottle :unneeded
-  depends_on java: "1.6+"
+  depends_on :java => "1.6+"
 
   def install
     rm_rf Dir["bin/*.bat"]
@@ -19,7 +19,7 @@ class Byteman < Formula
     libexec.install ["bin", "lib", "contrib"]
     pkgshare.install ["sample"]
 
-    env = Language::Java.java_home_env("1.6+").merge(BYTEMAN_HOME: libexec)
+    env = Language::Java.java_home_env("1.6+").merge(:BYTEMAN_HOME => libexec)
     Pathname.glob("#{libexec}/bin/*") do |file|
       target = bin/File.basename(file, File.extname(file))
       # Drop the .sh from the scripts

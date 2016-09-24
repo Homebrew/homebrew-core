@@ -27,9 +27,9 @@ class Mpich < Formula
   end
   deprecated_option "disable-fortran" => "without-fortran"
 
-  depends_on fortran: :recommended
+  depends_on :fortran => :recommended
 
-  conflicts_with "open-mpi", because: "both install mpi__ compiler wrappers"
+  conflicts_with "open-mpi", :because => "both install mpi__ compiler wrappers"
 
   def install
     # Fix segfault; remove for next mpich releaase > 3.2

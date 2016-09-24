@@ -11,7 +11,7 @@ class GmailBackup < Formula
     libexec.install Dir["*"]
 
     ENV.prepend_path "PYTHONPATH", libexec
-    bin.env_script_all_files(libexec, PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec, :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

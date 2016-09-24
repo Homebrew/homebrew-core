@@ -13,7 +13,7 @@ class TaskSpooler < Formula
   end
 
   conflicts_with "moreutils",
-    because: "both install a 'ts' executable."
+    :because => "both install a 'ts' executable."
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

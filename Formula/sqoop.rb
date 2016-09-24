@@ -7,7 +7,7 @@ class Sqoop < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.6+"
+  depends_on :java => "1.6+"
   depends_on "hadoop"
   depends_on "hbase"
   depends_on "hive"

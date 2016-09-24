@@ -22,7 +22,7 @@ class Opencolorio < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "little-cms2"
-  depends_on python: :optional
+  depends_on :python => :optional
 
   # Fix build with libc++
   patch do

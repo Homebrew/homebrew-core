@@ -14,8 +14,8 @@ class ChromeCli < Formula
     sha256 "ccdfa38c03563f671508958ec1be43ef47fa368e3bb7c78743964a809409acba" => :mountain_lion
   end
 
-  depends_on xcode: :build
-  depends_on macos: :mountain_lion
+  depends_on :xcode => :build
+  depends_on :macos => :mountain_lion
 
   def install
     # Release builds

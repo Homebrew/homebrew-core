@@ -12,7 +12,7 @@ class ScmManager < Formula
     sha256 "10f94fa5dafdb40dbcf6a7744a98b2433e294af16e7712a572de49daaed031e0" => :mavericks
   end
 
-  depends_on java: "1.6+"
+  depends_on :java => "1.6+"
 
   resource "client" do
     url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/clients/scm-cli-client/1.47/scm-cli-client-1.47-jar-with-dependencies.jar"
@@ -45,7 +45,7 @@ class ScmManager < Formula
     chmod 0755, scm_cli_client
   end
 
-  plist_options manual: "scm-server start"
+  plist_options :manual => "scm-server start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

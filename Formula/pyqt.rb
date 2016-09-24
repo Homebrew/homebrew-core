@@ -12,7 +12,7 @@ class Pyqt < Formula
   end
 
   option "without-python", "Build without python 2 support"
-  depends_on python3: :optional
+  depends_on :python3 => :optional
 
   if build.without?("python3") && build.without?("python")
     odie "pyqt: --with-python3 must be specified when using --without-python"

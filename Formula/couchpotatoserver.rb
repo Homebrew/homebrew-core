@@ -17,7 +17,7 @@ class Couchpotatoserver < Formula
     "CouchPotatoServer defaults to port 5050."
   end
 
-  plist_options manual: "couchpotatoserver"
+  plist_options :manual => "couchpotatoserver"
 
   def plist; <<-EOS.undent
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">

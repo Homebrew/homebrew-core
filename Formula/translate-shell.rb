@@ -3,7 +3,7 @@ class TranslateShell < Formula
   homepage "https://www.soimort.org/translate-shell"
   url "https://github.com/soimort/translate-shell/archive/v0.9.4.tar.gz"
   sha256 "bfc04124d2fde7924e6b5c3a11fdce7fbd2fdb1819c0b78c3fd0a7d36e330164"
-  head "https://github.com/soimort/translate-shell.git", branch: "develop"
+  head "https://github.com/soimort/translate-shell.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation

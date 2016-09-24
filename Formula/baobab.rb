@@ -14,7 +14,7 @@ class Baobab < Formula
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "libxml2" => ["with-python", :build]
-  depends_on python: :build if MacOS.version <= :snow_leopard
+  depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "vala" => :build
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"

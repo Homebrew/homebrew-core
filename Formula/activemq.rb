@@ -6,7 +6,7 @@ class Activemq < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.6+"
+  depends_on :java => "1.6+"
 
   def install
     rm_rf Dir["bin/linux-x86-*"]
@@ -14,7 +14,7 @@ class Activemq < Formula
     (bin/"activemq").write_env_script libexec/"bin/activemq", Language::Java.java_home_env("1.6+")
   end
 
-  plist_options manual: "activemq start"
+  plist_options :manual => "activemq start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

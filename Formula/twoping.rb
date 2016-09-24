@@ -18,10 +18,10 @@ class Twoping < Formula
     man1.install "doc/2ping.1"
     man1.install_symlink "2ping.1" => "2ping6.1"
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
-  plist_options manual: "2ping --listen", startup: true
+  plist_options :manual => "2ping --listen", :startup => true
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -12,13 +12,13 @@ class Elasticsearch < Formula
 
   head do
     url "https://github.com/elasticsearch/elasticsearch.git"
-    depends_on java: "1.8"
+    depends_on :java => "1.8"
     depends_on "gradle" => :build
   end
 
   bottle :unneeded
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
@@ -104,7 +104,7 @@ class Elasticsearch < Formula
     s
   end
 
-  plist_options manual: "elasticsearch"
+  plist_options :manual => "elasticsearch"
 
   def plist; <<-EOS.undent
       <?xml version="1.0" encoding="UTF-8"?>

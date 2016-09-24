@@ -15,7 +15,7 @@ class Blueutil < Formula
     sha256 "fd1e25a79407536f93b4ae5552d30826eef3573aeb44fdd6cb31989bf31ec0d8" => :mountain_lion
   end
 
-  depends_on xcode: :build
+  depends_on :xcode => :build
 
   def install
     # Set to build with SDK=macosx10.6, but it doesn't actually need 10.6

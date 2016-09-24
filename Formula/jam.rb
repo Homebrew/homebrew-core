@@ -11,7 +11,7 @@ class Jam < Formula
     sha256 "83ef7ba772948a5e06481cd0a32c54f09139d2693d880223b72ee27deb4d7e37" => :mavericks
   end
 
-  conflicts_with "ftjam", because: "both install a `jam` binary"
+  conflicts_with "ftjam", :because => "both install a `jam` binary"
 
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LOCATE_TARGET=bin"

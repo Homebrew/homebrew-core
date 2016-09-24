@@ -3,7 +3,7 @@ class Abcl < Formula
   homepage "http://abcl.org"
   url "http://abcl.org/releases/1.3.3/abcl-src-1.3.3.tar.gz"
   sha256 "2186e3670bc9778472f5589109a79f13f0e487444e0602b6fcdc96b7c68f7d0f"
-  head "http://abcl.org/svn/trunk/abcl/", using: :svn
+  head "http://abcl.org/svn/trunk/abcl/", :using => :svn
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +14,7 @@ class Abcl < Formula
   end
 
   depends_on "ant"
-  depends_on java: "1.5+"
+  depends_on :java => "1.5+"
   depends_on "rlwrap" => :recommended
 
   def install

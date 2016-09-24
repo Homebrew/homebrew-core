@@ -44,7 +44,7 @@ class DynamodbLocal < Formula
     EOS
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/bin/dynamodb-local"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/bin/dynamodb-local"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

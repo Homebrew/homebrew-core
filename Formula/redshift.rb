@@ -50,7 +50,7 @@ class Redshift < Formula
     EOS
   end
 
-  plist_options manual: "redshift"
+  plist_options :manual => "redshift"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

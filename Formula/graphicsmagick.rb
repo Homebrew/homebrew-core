@@ -4,7 +4,7 @@ class Graphicsmagick < Formula
   url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.25/GraphicsMagick-1.3.25.tar.xz"
   sha256 "d64bfa52d2e0730eff9ce3ed51d4fc78dbb68e2adaa317b2bb3c56e6ee61ac9f"
 
-  head "http://hg.code.sf.net/p/graphicsmagick/code", using: :hg
+  head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
 
   bottle do
     sha256 "aadcff3e84a492354073cb59d107b6371c01c0863ce947d03b48a5960914286b" => :sierra
@@ -31,7 +31,7 @@ class Graphicsmagick < Formula
   depends_on "libwmf" => :optional
   depends_on "ghostscript" => :optional
   depends_on "webp" => :optional
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   fails_with :llvm do
     build 2335

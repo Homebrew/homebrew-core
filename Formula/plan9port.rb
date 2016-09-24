@@ -12,7 +12,7 @@ class Plan9port < Formula
     sha256 "ef0059997655128f6b41faa1023b37a071ff9976f4c94d3b3bd706be65177aa1" => :mavericks
   end
 
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   def install
     ENV["PLAN9_TARGET"] = libexec

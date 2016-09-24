@@ -11,7 +11,7 @@ class Chromedriver < Formula
     bin.install "chromedriver"
   end
 
-  plist_options manual: "chromedriver"
+  plist_options :manual => "chromedriver"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -62,7 +62,7 @@ class Ino < Formula
 
     rm Dir["#{lib}/python2.7/site-packages/*.pth"]
 
-    bin.env_script_all_files(libexec+"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

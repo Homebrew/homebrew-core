@@ -21,7 +21,7 @@ class GnuApl < Formula
 
   # GNU Readline is required; libedit won't work.
   depends_on "readline"
-  depends_on macos: :mavericks
+  depends_on :macos => :mavericks
 
   def install
     # Fix "LApack.cc:21:10: fatal error: 'malloc.h' file not found"

@@ -6,7 +6,7 @@ class Selecta < Formula
 
   bottle :unneeded
 
-  depends_on ruby: "1.9"
+  depends_on :ruby => "1.9"
 
   def install
     bin.install "selecta"

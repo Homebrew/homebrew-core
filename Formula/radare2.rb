@@ -2,7 +2,7 @@ class CodesignRequirement < Requirement
   include FileUtils
   fatal true
 
-  satisfy(build_env: false) do
+  satisfy(:build_env => false) do
     mktemp do
       cp "/usr/bin/false", "radare2_check"
       quiet_system "/usr/bin/codesign", "-f", "-s", "org.radare.radare2", "--dryrun", "radare2_check"

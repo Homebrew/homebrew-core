@@ -5,7 +5,7 @@ class Pass < Formula
   sha256 "337a39767e6a8e69b2bcc549f27ff3915efacea57e5334c6068fcb72331d7315"
   revision 1
 
-  head "https://git.zx2c4.com/password-store", using: :git
+  head "https://git.zx2c4.com/password-store", :using => :git
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +18,7 @@ class Pass < Formula
   depends_on "pwgen"
   depends_on "tree"
   depends_on "gnu-getopt"
-  depends_on gpg: :run
+  depends_on :gpg => :run
 
   def install
     system "make", "PREFIX=#{prefix}", "install"

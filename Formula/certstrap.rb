@@ -2,8 +2,8 @@ class Certstrap < Formula
   desc "Tools to bootstrap CAs, certificate requests, and signed certificates"
   homepage "https://github.com/square/certstrap"
   url "https://github.com/square/certstrap.git",
-    tag: "v1.0.1",
-    revision: "c66ef6751a6e5a900c6d96cbdd0e3ee9b18792d8"
+    :tag => "v1.0.1",
+    :revision => "c66ef6751a6e5a900c6d96cbdd0e3ee9b18792d8"
 
   bottle do
     cellar :any_skip_relocation

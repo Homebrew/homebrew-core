@@ -44,18 +44,18 @@ class Agda < Formula
     depends_on "cabal-install" => :build
   end
 
-  depends_on emacs: ["23.4", :recommended]
+  depends_on :emacs => ["23.4", :recommended]
 
   def install
     # install Agda core
-    install_cabal_package using: ["alex", "happy", "cpphs"]
+    install_cabal_package :using => ["alex", "happy", "cpphs"]
 
     if build.with? "stdlib"
       resource("stdlib").stage lib/"agda"
 
       # generate the standard library's bytecode
       cd lib/"agda" do
-        cabal_sandbox home: buildpath, keep_lib: true do
+        cabal_sandbox :home => buildpath, :keep_lib => true do
           cabal_install "--only-dependencies"
           cabal_install
           system "GenerateEverything"

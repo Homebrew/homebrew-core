@@ -18,12 +18,12 @@ class Td < Formula
 
   go_resource "github.com/codegangsta/cli" do
     url "https://github.com/codegangsta/cli.git",
-        revision: "bca61c476e3c752594983e4c9bcd5f62fb09f157"
+        :revision => "bca61c476e3c752594983e4c9bcd5f62fb09f157"
   end
 
   go_resource "github.com/daviddengcn/go-colortext" do
     url "https://github.com/daviddengcn/go-colortext.git",
-        revision: "3b18c8575a432453d41fdafb340099fff5bba2f7"
+        :revision => "3b18c8575a432453d41fdafb340099fff5bba2f7"
   end
 
   def install

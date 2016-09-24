@@ -14,8 +14,8 @@ class Z3 < Formula
   end
 
   option "without-python", "Build without python 2 support"
-  depends_on python: :recommended if MacOS.version <= :snow_leopard
-  depends_on python3: :optional
+  depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on :python3 => :optional
 
   def install
     if build.without?("python3") && build.without?("python")

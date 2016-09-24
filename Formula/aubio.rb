@@ -4,7 +4,7 @@ class Aubio < Formula
   url "https://aubio.org/pub/aubio-0.4.2.tar.bz2"
   sha256 "1cc58e0fed2b9468305b198ad06b889f228b797a082c2ede716dc30fcb4f8f1f"
 
-  head "https://github.com/piem/aubio.git", branch: "develop"
+  head "https://github.com/piem/aubio.git", :branch => "develop"
 
   bottle do
     cellar :any
@@ -16,9 +16,9 @@ class Aubio < Formula
 
   option :universal
 
-  depends_on macos: :lion
+  depends_on :macos => :lion
 
-  depends_on python: :optional
+  depends_on :python => :optional
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
 
@@ -45,7 +45,7 @@ class Aubio < Formula
     if build.with? "python"
       cd "python" do
         system "python", *Language::Python.setup_install_args(prefix)
-        bin.env_script_all_files(libexec+"bin", PYTHONPATH: ENV["PYTHONPATH"])
+        bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
       end
     end
   end
