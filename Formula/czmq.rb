@@ -26,7 +26,7 @@ class Czmq < Formula
   depends_on "pkg-config" => :build
   depends_on "libsodium" => :recommended
 
-  conflicts_with "mono", because: "both install `makecert` binaries"
+  conflicts_with "mono", :because => "both install `makecert` binaries"
 
   if build.without? "libsodium"
     depends_on "zeromq" => "without-libsodium"

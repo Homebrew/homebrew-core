@@ -40,7 +40,7 @@ class Imagemagick < Formula
   depends_on "libtiff" => :recommended
   depends_on "freetype" => :recommended
 
-  depends_on x11: :optional
+  depends_on :x11 => :optional
   depends_on "fontconfig" => :optional
   depends_on "little-cms" => :optional
   depends_on "little-cms2" => :optional
@@ -53,7 +53,7 @@ class Imagemagick < Formula
   depends_on "openjpeg" => :optional
   depends_on "fftw" => :optional
   depends_on "pango" => :optional
-  depends_on perl: ["5.5", :optional]
+  depends_on :perl => ["5.5", :optional]
 
   needs :openmp if build.with? "openmp"
 

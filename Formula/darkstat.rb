@@ -13,7 +13,7 @@ class Darkstat < Formula
   end
 
   head do
-    url "https://www.unix4lyfe.org/git/darkstat", using: :git
+    url "https://www.unix4lyfe.org/git/darkstat", :using => :git
     depends_on "automake" => :build
     depends_on "autoconf" => :build
   end

@@ -6,7 +6,7 @@ class Gradle < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
 
   def install
     libexec.install %w[bin lib]

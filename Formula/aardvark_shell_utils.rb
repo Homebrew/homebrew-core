@@ -11,7 +11,7 @@ class AardvarkShellUtils < Formula
     sha256 "e8e8b6fd4ee85d8a6ae267fbd20160c1aeddeb6c8e302793b12a807131ef4b27" => :mavericks
   end
 
-  conflicts_with "coreutils", because: "both install `realpath` binaries"
+  conflicts_with "coreutils", :because => "both install `realpath` binaries"
 
   def install
     system "./configure", "--disable-debug",

@@ -3,7 +3,7 @@ class Sdl2Mixer < Formula
   homepage "https://www.libsdl.org/projects/SDL_mixer/"
   url "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.1.tar.gz"
   sha256 "5a24f62a610249d744cbd8d28ee399d8905db7222bf3bdbc8a8b4a76e597695f"
-  head "https://hg.libsdl.org/SDL_mixer", using: :hg
+  head "https://hg.libsdl.org/SDL_mixer", :using => :hg
 
   bottle do
     cellar :any

@@ -1,7 +1,7 @@
 class FreeimageHttpDownloadStrategy < CurlDownloadStrategy
   def stage
     # need to convert newlines or patch chokes
-    quiet_safe_system "/usr/bin/unzip", { quiet_flag: "-qq" }, "-aa", cached_location
+    quiet_safe_system "/usr/bin/unzip", { :quiet_flag => "-qq" }, "-aa", cached_location
     chdir
   end
 end
@@ -10,7 +10,7 @@ class Freeimage < Formula
   desc "Library for FreeImage, a dependency-free graphics library"
   homepage "https://sourceforge.net/projects/freeimage"
   url "https://downloads.sourceforge.net/project/freeimage/Source%20Distribution/3.17.0/FreeImage3170.zip",
-    using: FreeimageHttpDownloadStrategy
+    :using => FreeimageHttpDownloadStrategy
   version "3.17.0"
   sha256 "fbfc65e39b3d4e2cb108c4ffa8c41fd02c07d4d436c594fff8dab1a6d5297f89"
 

@@ -3,7 +3,7 @@ class Nim < Formula
   homepage "http://nim-lang.org/"
   url "http://nim-lang.org/download/nim-0.14.2.tar.xz"
   sha256 "8f8d38d70ed57164795fc55e19de4c11488fcd31dbe42094e44a92a23e3f5e92"
-  head "https://github.com/nim-lang/Nim.git", branch: "devel"
+  head "https://github.com/nim-lang/Nim.git", :branch => "devel"
 
   bottle do
     cellar :any

@@ -20,12 +20,12 @@ class Cig < Formula
 
   go_resource "github.com/kr/fs" do
     url "https://github.com/kr/fs.git",
-        revision: "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
+        :revision => "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
   end
 
   go_resource "golang.org/x/tools" do
     url "https://github.com/golang/tools.git",
-        revision: "473fd854f8276c0b22f17fb458aa8f1a0e2cf5f5"
+        :revision => "473fd854f8276c0b22f17fb458aa8f1a0e2cf5f5"
   end
 
   def install

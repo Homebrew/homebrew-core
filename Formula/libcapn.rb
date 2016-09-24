@@ -9,7 +9,7 @@ class Libcapn < Formula
 
     resource "jansson" do
       url "https://github.com/akheron/jansson.git",
-        revision: "8f067962f6442bda65f0a8909f589f2616a42c5a"
+        :revision => "8f067962f6442bda65f0a8909f589f2616a42c5a"
     end
   end
 

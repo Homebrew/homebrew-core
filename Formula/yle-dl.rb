@@ -45,7 +45,7 @@ class YleDl < Formula
     # change shebang to plain python (python2 is not guaranteed to exist)
     inreplace bin/"yle-dl", "#!/usr/bin/env python2", "#!/usr/bin/env python"
 
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   def caveats; <<-EOS.undent

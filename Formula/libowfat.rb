@@ -3,7 +3,7 @@ class Libowfat < Formula
   homepage "https://www.fefe.de/libowfat/"
   url "https://dl.fefe.de/libowfat-0.29.tar.bz2"
   sha256 "4badbdeed6bef4337f1edd6b86fb7154c5592509c272dcdc09c693161cbc6427"
-  head ":pserver:cvs:@cvs.fefe.de:/cvs", using: :cvs
+  head ":pserver:cvs:@cvs.fefe.de:/cvs", :using => :cvs
 
   bottle do
     cellar :any_skip_relocation

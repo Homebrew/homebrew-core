@@ -12,7 +12,7 @@ class Jmxtrans < Formula
     sha256 "c57be793f849944d5fdb0a98ca089dacc61afb9a99ab3e353ef67aa1ff605d9f" => :mavericks
   end
 
-  depends_on java: "1.6+"
+  depends_on :java => "1.6+"
   depends_on "maven" => :build
 
   def install

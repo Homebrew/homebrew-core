@@ -12,7 +12,7 @@ class Voltdb < Formula
     sha256 "de7b5adf80d177bde762b71d1044a901b2b68b0b22ec328f73137b99fc885248" => :mavericks
   end
 
-  depends_on ant: :build
+  depends_on :ant => :build
 
   def install
     system "ant"

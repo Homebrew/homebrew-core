@@ -15,7 +15,7 @@ class Wdiff < Formula
 
   depends_on "gettext" => :optional
 
-  conflicts_with "montage", because: "Both install an mdiff executable"
+  conflicts_with "montage", :because => "Both install an mdiff executable"
 
   def install
     system "./configure", "--disable-dependency-tracking",

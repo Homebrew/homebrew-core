@@ -6,7 +6,7 @@ class Rhino < Formula
 
   bottle :unneeded
 
-  conflicts_with "nut", because: "both install `rhino` binaries"
+  conflicts_with "nut", :because => "both install `rhino` binaries"
 
   def install
     rhino_jar = "rhino-#{version}.jar"

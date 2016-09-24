@@ -21,7 +21,7 @@ class Yasm < Formula
     depends_on "gettext"
   end
 
-  depends_on python: :optional
+  depends_on :python => :optional
 
   resource "cython" do
     url "https://files.pythonhosted.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz"

@@ -15,7 +15,7 @@ class Sdl < Formula
   end
 
   head do
-    url "https://hg.libsdl.org/SDL", branch: "SDL-1.2", using: :hg
+    url "https://hg.libsdl.org/SDL", :branch => "SDL-1.2", :using => :hg
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -29,7 +29,7 @@ class Sdl < Formula
   deprecated_option "with-x11-driver" => "with-x11"
   deprecated_option "with-tests" => "with-test"
 
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   if build.with? "x11"
     depends_on "autoconf" => :build

@@ -10,7 +10,7 @@ class Dshb < Formula
     sha256 "94085328f6ef593ca0d00923fabfe43586c1c4b51eaf555ce9c7db9d7db1f486" => :yosemite
   end
 
-  depends_on xcode: ["7.0", :build]
+  depends_on :xcode => ["7.0", :build]
 
   def install
     system "make", "release"

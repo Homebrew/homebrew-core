@@ -11,7 +11,7 @@ class Qd < Formula
     sha256 "35c7acae6a87c02301cde8c5d76b59bb696d9c3dd04970948c5fdbe3c1c6776e" => :mavericks
   end
 
-  depends_on fortran: :recommended
+  depends_on :fortran => :recommended
 
   def install
     args = ["--disable-dependency-tracking", "--enable-shared", "--prefix=#{prefix}"]

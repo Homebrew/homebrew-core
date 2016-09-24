@@ -21,9 +21,9 @@ class GitExtras < Formula
   end
 
   conflicts_with "git-town",
-    because: "git-extras also ships a git-sync binary"
+    :because => "git-extras also ships a git-sync binary"
   conflicts_with "git-utils",
-    because: "both install a `git-pull-request` script"
+    :because => "both install a `git-pull-request` script"
 
   def install
     system "make", "PREFIX=#{prefix}", "install"

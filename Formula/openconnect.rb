@@ -12,7 +12,7 @@ class Openconnect < Formula
   end
 
   head do
-    url "git://git.infradead.org/users/dwmw2/openconnect.git", shallow: false
+    url "git://git.infradead.org/users/dwmw2/openconnect.git", :shallow => false
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

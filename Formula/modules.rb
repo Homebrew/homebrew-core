@@ -10,7 +10,7 @@ class Modules < Formula
     sha256 "d46c87889814f42b07e22b634061a899baac9a49191cb049c8eb3c91ad3650bc" => :mavericks
   end
 
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   def install
     # -DUSE_INTERP_ERRORLINE fixes

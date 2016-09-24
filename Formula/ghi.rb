@@ -7,7 +7,7 @@ class Ghi < Formula
 
   bottle :unneeded
 
-  depends_on ruby: "1.8"
+  depends_on :ruby => "1.8"
   depends_on "pygments.rb" => :ruby
 
   def install

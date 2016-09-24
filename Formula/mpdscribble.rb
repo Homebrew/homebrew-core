@@ -25,7 +25,7 @@ class Mpdscribble < Formula
     EOS
   end
 
-  plist_options manual: "mpdscribble"
+  plist_options :manual => "mpdscribble"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -2,11 +2,11 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      tag: "v0.7.0",
-      revision: "a189091a3530051285c12c726ca28ea55e015336"
+      :tag => "v0.7.0",
+      :revision => "a189091a3530051285c12c726ca28ea55e015336"
 
   head "https://github.com/hashicorp/consul.git",
-       shallow: false
+       :shallow => false
 
   bottle do
     cellar :any_skip_relocation
@@ -44,7 +44,7 @@ class Consul < Formula
     EOS
   end
 
-  plist_options manual: "consul agent -dev -advertise 127.0.0.1"
+  plist_options :manual => "consul agent -dev -advertise 127.0.0.1"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

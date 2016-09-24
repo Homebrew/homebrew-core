@@ -30,7 +30,7 @@ class Itstool < Formula
     system "make", "install"
 
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
     pkgshare.install_symlink libexec/"share/itstool/its"
     man1.install_symlink libexec/"share/man/man1/itstool.1"
   end

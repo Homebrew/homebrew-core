@@ -16,7 +16,7 @@ class Passenger < Formula
 
   depends_on "pcre"
   depends_on "openssl"
-  depends_on macos: :lion
+  depends_on :macos => :lion
 
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046
@@ -39,7 +39,7 @@ class Passenger < Formula
       "passenger.gemspec", "build", "bin", "doc", "man", "dev", "src",
       "resources", "buildout"]
     libexec.mkpath
-    cp_r necessary_files, libexec, preserve: true
+    cp_r necessary_files, libexec, :preserve => true
 
     # Allow Homebrew to create symlinks for the Phusion Passenger commands.
     bin.install_symlink Dir["#{libexec}/bin/*"]

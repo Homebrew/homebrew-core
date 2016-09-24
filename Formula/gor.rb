@@ -2,8 +2,8 @@ class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://gortool.com"
   url "https://github.com/buger/gor.git",
-    tag: "v0.15.1",
-    revision: "967c380dc3ca1a96c6cbabd6296b0656a6546016"
+    :tag => "v0.15.1",
+    :revision => "967c380dc3ca1a96c6cbabd6296b0656a6546016"
   head "https://github.com/buger/gor.git"
 
   bottle do

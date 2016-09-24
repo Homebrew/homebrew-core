@@ -13,7 +13,7 @@ class Dlite < Formula
 
   # DLite depends on the Hypervisor framework which only works on
   # OS X versions 10.10 (Yosemite) or newer
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
   depends_on "go" => :build
 
   def install

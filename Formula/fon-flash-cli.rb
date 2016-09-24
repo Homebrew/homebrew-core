@@ -13,7 +13,7 @@ class FonFlashCli < Formula
   end
 
   # requires at least the 10.11 SDK
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
 
   def install
     cd "fon-flash" do

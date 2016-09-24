@@ -17,10 +17,10 @@ class AndroidSdk < Formula
   end
 
   depends_on :java
-  depends_on macos: :mountain_lion
+  depends_on :macos => :mountain_lion
 
   conflicts_with "android-platform-tools",
-    because: "The Android Platform-Tools need to be installed as part of the SDK."
+    :because => "The Android Platform-Tools need to be installed as part of the SDK."
 
   resource "completion" do
     url "https://android.googlesource.com/platform/sdk/+/7859e2e738542baf96c15e6c8b50bbdb410131b0/bash_completion/adb.bash?format=TEXT"

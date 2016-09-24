@@ -11,7 +11,7 @@ class Pdftohtml < Formula
     sha256 "9dc35272d91c790627d21a93ca058c038ab660b9a6e619f35758a10c02e7dea9" => :mavericks
   end
 
-  conflicts_with "poppler", because: "both install `pdftohtml` binaries"
+  conflicts_with "poppler", :because => "both install `pdftohtml` binaries"
 
   def install
     system "make"

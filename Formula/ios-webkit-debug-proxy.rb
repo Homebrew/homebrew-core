@@ -11,7 +11,7 @@ class IosWebkitDebugProxy < Formula
     sha256 "54b86fcdc7fc1d6a3edcb80b252503b4b682603a3089e8deecfdbf532562fb27" => :mavericks
   end
 
-  depends_on macos: :lion
+  depends_on :macos => :lion
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

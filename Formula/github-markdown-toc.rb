@@ -17,17 +17,17 @@ class GithubMarkdownToc < Formula
 
   go_resource "github.com/alecthomas/template" do
     url "https://github.com/alecthomas/template.git",
-        revision: "14fd436dd20c3cc65242a9f396b61bfc8a3926fc"
+        :revision => "14fd436dd20c3cc65242a9f396b61bfc8a3926fc"
   end
 
   go_resource "github.com/alecthomas/units" do
     url "https://github.com/alecthomas/units.git",
-        revision: "2efee857e7cfd4f3d0138cc3cbb1b4966962b93a"
+        :revision => "2efee857e7cfd4f3d0138cc3cbb1b4966962b93a"
   end
 
   go_resource "gopkg.in/alecthomas/kingpin.v2" do
     url "https://github.com/alecthomas/kingpin.git",
-        revision: "v2.1.11"
+        :revision => "v2.1.11"
   end
 
   def install

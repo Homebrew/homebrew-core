@@ -39,12 +39,12 @@ class Wellington < Formula
 
   go_resource "github.com/kr/fs" do
     url "https://github.com/kr/fs.git",
-        revision: "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
+        :revision => "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
   end
 
   go_resource "golang.org/x/tools" do
     url "https://github.com/golang/tools.git",
-        revision: "ea5101579e09ace53571c8a5bae6ebb896f8d5e4"
+        :revision => "ea5101579e09ace53571c8a5bae6ebb896f8d5e4"
   end
 
   def install

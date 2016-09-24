@@ -111,7 +111,7 @@ class DockerCompose < Formula
     zsh_completion.install "contrib/completion/zsh/_docker-compose"
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

@@ -15,7 +15,7 @@ class Beanstalkd < Formula
     system "make", "install", "PREFIX=#{prefix}"
   end
 
-  plist_options manual: "beanstalkd"
+  plist_options :manual => "beanstalkd"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -19,7 +19,7 @@ class Libepoxy < Formula
   depends_on "automake" => :build
   depends_on "autoconf" => :build
   depends_on "libtool" => :build
-  depends_on python: :build if MacOS.version <= :snow_leopard
+  depends_on :python => :build if MacOS.version <= :snow_leopard
 
   resource "xorg-macros" do
     url "https://xorg.freedesktop.org/releases/individual/util/util-macros-1.19.0.tar.bz2"

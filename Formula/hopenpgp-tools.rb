@@ -26,7 +26,7 @@ class HopenpgpTools < Formula
   end
 
   def install
-    install_cabal_package using: ["alex", "happy"]
+    install_cabal_package :using => ["alex", "happy"]
   end
 
   test do

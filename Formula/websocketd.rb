@@ -18,12 +18,12 @@ class Websocketd < Formula
 
   go_resource "github.com/joewalnes/websocketd" do
     url "https://github.com/joewalnes/websocketd.git",
-        revision: "709c49912b0d8575e9e9d4035aa0b07183bd879e"
+        :revision => "709c49912b0d8575e9e9d4035aa0b07183bd879e"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        revision: "30db96677b74e24b967e23f911eb3364fc61a011"
+        :revision => "30db96677b74e24b967e23f911eb3364fc61a011"
   end
 
   def install

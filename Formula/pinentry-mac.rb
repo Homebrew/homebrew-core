@@ -16,7 +16,7 @@ class PinentryMac < Formula
     sha256 "0d6eb6b84a6389e208d4ec055d5f10f84b48bad94d00e9599b9aafb3dfaf71d8" => :mountain_lion
   end
 
-  depends_on xcode: :build
+  depends_on :xcode => :build
 
   def install
     system "make"

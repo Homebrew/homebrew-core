@@ -39,7 +39,7 @@ class Valgrind < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  depends_on macos: :snow_leopard
+  depends_on :macos => :snow_leopard
   # See currently supported platforms: http://valgrind.org/info/platforms.html
   # Also dev comment: https://bugs.kde.org/show_bug.cgi?id=366138#c5
   depends_on MaximumMacOSRequirement => :el_capitan

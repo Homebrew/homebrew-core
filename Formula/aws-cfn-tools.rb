@@ -11,7 +11,7 @@ class AwsCfnTools < Formula
   depends_on :java
 
   def install
-    env = Language::Java.java_home_env.merge(AWS_CLOUDFORMATION_HOME: libexec)
+    env = Language::Java.java_home_env.merge(:AWS_CLOUDFORMATION_HOME => libexec)
     rm Dir["bin/*.cmd"] # Remove Windows versions
     libexec.install Dir["*"]
     Pathname.glob("#{libexec}/bin/*") do |file|

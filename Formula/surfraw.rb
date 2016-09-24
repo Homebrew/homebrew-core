@@ -14,7 +14,7 @@ class Surfraw < Formula
   end
 
   head do
-    url "https://anonscm.debian.org/git/surfraw/surfraw.git", shallow: false
+    url "https://anonscm.debian.org/git/surfraw/surfraw.git", :shallow => false
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

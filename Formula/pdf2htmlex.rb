@@ -14,7 +14,7 @@ class Pdf2htmlex < Formula
     sha256 "4e382071a0f7653e174eb16cdaa4150c71d081fc6d0e08251fc1cba3f2bd34ac" => :mavericks
   end
 
-  depends_on macos: :lion
+  depends_on :macos => :lion
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "poppler"
@@ -35,7 +35,7 @@ class Pdf2htmlex < Formula
   # Pdf2htmlex use an outdated, customised Fontforge installation.
   # See https://github.com/coolwanglu/pdf2htmlEX/wiki/Building
   resource "fontforge" do
-    url "https://github.com/coolwanglu/fontforge.git", branch: "pdf2htmlEX"
+    url "https://github.com/coolwanglu/fontforge.git", :branch => "pdf2htmlEX"
   end
 
   # And failures

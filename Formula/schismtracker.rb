@@ -3,7 +3,7 @@ class Schismtracker < Formula
   homepage "http://schismtracker.org/"
   url "https://bitbucket.org/Storlek/schismtracker/get/20120105.tar.bz2"
   sha256 "736163682c476c2f1afca9b3ebf2a1f5d1a0420dc2da12f2d8cfe6d1b3de379b"
-  head "https://bitbucket.org/Storlek/schismtracker", using: :hg
+  head "https://bitbucket.org/Storlek/schismtracker", :using => :hg
 
   bottle do
     cellar :any

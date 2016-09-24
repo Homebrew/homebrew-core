@@ -31,7 +31,7 @@ class Solr < Formula
     end
   end
 
-  plist_options manual: "solr start"
+  plist_options :manual => "solr start"
 
   def plist; <<-EOS.undent
       <?xml version="1.0" encoding="UTF-8"?>

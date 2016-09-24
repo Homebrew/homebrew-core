@@ -14,7 +14,7 @@ class Jbigkit < Formula
   end
 
   head "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit",
-       using: :git
+       :using => :git
 
   option :universal
   option "with-test", "Verify the library during install"

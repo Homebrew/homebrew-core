@@ -33,7 +33,7 @@ class GitAnnex < Formula
     # Can be removed once prowdsponsor/esqueleto#137 is resolved
     inreplace "git-annex.cabal", "persistent (< 2.5)", "persistent (== 2.2.4.1)"
 
-    install_cabal_package using: ["alex", "happy", "c2hs"], flags: ["s3", "webapp"] do
+    install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
       # this can be made the default behavior again once git-union-merge builds properly when bottling
       if build.with? "git-union-merge"
         system "make", "git-union-merge", "PREFIX=#{prefix}"

@@ -25,7 +25,7 @@ class Mkvtomp4 < Formula
     system "python", "setup.py", "install", "--prefix=#{prefix}"
 
     bin.install "mkvtomp4.py" => "mkvtomp4"
-    bin.env_script_all_files(libexec+"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

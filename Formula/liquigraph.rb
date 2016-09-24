@@ -13,7 +13,7 @@ class Liquigraph < Formula
   end
 
   depends_on "maven" => :build
-  depends_on java: "1.8+"
+  depends_on :java => "1.8+"
 
   def install
     ENV.java_cache

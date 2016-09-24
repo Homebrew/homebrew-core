@@ -25,7 +25,7 @@ class Mal4s < Formula
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
   depends_on "freetype"
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   if MacOS.version < :mavericks
     depends_on "boost" => "c++11"

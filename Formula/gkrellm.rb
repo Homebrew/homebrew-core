@@ -1,7 +1,7 @@
 class Gkrellm < Formula
   desc "Extensible GTK system monitoring application"
   homepage "https://billw2.github.io/gkrellm/gkrellm.html"
-  head "http://git.srcbox.net/gkrellm", using: :git
+  head "http://git.srcbox.net/gkrellm", :using => :git
 
   stable do
     url "https://billw2.github.io/gkrellm/gkrellm-2.3.5.tar.bz2"

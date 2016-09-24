@@ -57,7 +57,7 @@ class Wine < Formula
 
   # Wine will build both the Mac and the X11 driver by default, and you can switch
   # between them. But if you really want to build without X11, you can.
-  depends_on x11: :recommended
+  depends_on :x11 => :recommended
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "jpeg"
@@ -83,12 +83,12 @@ class Wine < Formula
   #        "Build with win64 emulator (won't run 32-bit binaries.)"
 
   resource "gecko" do
-    url "https://downloads.sourceforge.net/wine/wine_gecko-2.40-x86.msi", using: :nounzip
+    url "https://downloads.sourceforge.net/wine/wine_gecko-2.40-x86.msi", :using => :nounzip
     sha256 "1a29d17435a52b7663cea6f30a0771f74097962b07031947719bb7b46057d302"
   end
 
   resource "mono" do
-    url "https://downloads.sourceforge.net/wine/wine-mono-4.5.6.msi", using: :nounzip
+    url "https://downloads.sourceforge.net/wine/wine-mono-4.5.6.msi", :using => :nounzip
     sha256 "ac681f737f83742d786706529eb85f4bc8d6bdddd8dcdfa9e2e336b71973bc25"
   end
 

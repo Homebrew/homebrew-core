@@ -11,7 +11,7 @@ class SdlRtf < Formula
     sha256 "9d077d10fc0102738e3c7d445cf2c8290150f98b4fb92e1b72bb3e5857dc3b3e" => :mavericks
   end
 
-  head "https://hg.libsdl.org/SDL_rtf", using: :hg
+  head "https://hg.libsdl.org/SDL_rtf", :using => :hg
 
   depends_on "sdl"
 

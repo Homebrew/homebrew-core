@@ -2,8 +2,8 @@ class Moreutils < Formula
   desc "Collection of tools that nobody wrote when UNIX was young"
   homepage "https://joeyh.name/code/moreutils/"
   url "git://git.kitenet.net/moreutils",
-      tag: "0.60",
-      revision: "1173bd9f10d731485f3b63f1c7ff55eb9c58a605"
+      :tag => "0.60",
+      :revision => "1173bd9f10d731485f3b63f1c7ff55eb9c58a605"
   head "git://git.joeyh.name/moreutils"
 
   bottle do
@@ -18,9 +18,9 @@ class Moreutils < Formula
 
   depends_on "docbook-xsl" => :build
 
-  conflicts_with "parallel", because: "Both install a `parallel` executable."
-  conflicts_with "pwntools", because: "Both install an `errno` executable."
-  conflicts_with "task-spooler", because: "Both install a `ts` executable."
+  conflicts_with "parallel", :because => "Both install a `parallel` executable."
+  conflicts_with "pwntools", :because => "Both install an `errno` executable."
+  conflicts_with "task-spooler", :because => "Both install a `ts` executable."
 
   resource "Time::Duration" do
     url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Time-Duration-1.20.tar.gz"
@@ -57,7 +57,7 @@ class Moreutils < Formula
     system "make", "all"
     system "make", "check"
     system "make", "install", "PREFIX=#{prefix}"
-    bin.env_script_all_files(libexec+"bin", PERL5LIB: ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec+"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
 
   test do

@@ -7,7 +7,7 @@ class Ffind < Formula
   bottle :unneeded
 
   conflicts_with "sleuthkit",
-    because: "both install a 'ffind' executable."
+    :because => "both install a 'ffind' executable."
 
   def install
     bin.install "ffind"

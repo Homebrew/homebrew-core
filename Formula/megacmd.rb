@@ -20,17 +20,17 @@ class Megacmd < Formula
 
   go_resource "github.com/t3rm1n4l/go-humanize" do
     url "https://github.com/t3rm1n4l/go-humanize.git",
-        revision: "e7ed15be05eb554fbaa83ac9b335556d6390fb9f"
+        :revision => "e7ed15be05eb554fbaa83ac9b335556d6390fb9f"
   end
 
   go_resource "github.com/t3rm1n4l/go-mega" do
     url "https://github.com/t3rm1n4l/go-mega.git",
-        revision: "551abb8f1c87053be3f24282d198a6614c0ca14f"
+        :revision => "551abb8f1c87053be3f24282d198a6614c0ca14f"
   end
 
   go_resource "github.com/t3rm1n4l/megacmd" do
     url "https://github.com/t3rm1n4l/megacmd.git",
-        revision: "d7f3f3a2427cc52b71cad90b26889e2a33fc3565"
+        :revision => "d7f3f3a2427cc52b71cad90b26889e2a33fc3565"
   end
 
   def install

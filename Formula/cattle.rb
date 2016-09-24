@@ -4,8 +4,8 @@ class Cattle < Formula
   # Source archive tarball results in "./ChangeLog: No such file or directory"
   # Reported 12 Sep 2016 https://github.com/andreabolognani/cattle/issues/4
   url "https://github.com/andreabolognani/cattle.git",
-      tag: "cattle-1.2.1",
-      revision: "338a34f7abc35334afd378f305c6e1fb0d0abd7d"
+      :tag => "cattle-1.2.1",
+      :revision => "338a34f7abc35334afd378f305c6e1fb0d0abd7d"
   head "https://github.com/andreabolognani/cattle.git"
 
   bottle do

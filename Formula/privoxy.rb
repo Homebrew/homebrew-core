@@ -32,7 +32,7 @@ class Privoxy < Formula
     system "make", "install"
   end
 
-  plist_options manual: "privoxy #{HOMEBREW_PREFIX}/etc/privoxy/config"
+  plist_options :manual => "privoxy #{HOMEBREW_PREFIX}/etc/privoxy/config"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

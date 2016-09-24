@@ -55,7 +55,7 @@ class Libevent < Formula
   end
 
   conflicts_with "pincaster",
-    because: "both install `event_rpcgen.py` binaries"
+    :because => "both install `event_rpcgen.py` binaries"
 
   def install
     ENV.universal_binary if build.universal?

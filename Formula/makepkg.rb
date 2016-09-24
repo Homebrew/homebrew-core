@@ -2,8 +2,8 @@ class Makepkg < Formula
   desc "Compile and build packages suitable for installation with pacman"
   homepage "https://wiki.archlinux.org/index.php/makepkg"
   url "https://projects.archlinux.org/git/pacman.git",
-      tag: "v5.0.1",
-      revision: "f38de43eb68f1d9c577b4378310640c1eaa93338"
+      :tag => "v5.0.1",
+      :revision => "f38de43eb68f1d9c577b4378310640c1eaa93338"
   head "https://projects.archlinux.org/git/pacman.git"
 
   bottle do
@@ -14,7 +14,7 @@ class Makepkg < Formula
   # libalpm now calls fstatat, which is only available for >= 10.10
   # Regression due to https://git.archlinux.org/pacman.git/commit/?id=16718a21
   # Reported 19 Jun 2016: https://bugs.archlinux.org/task/49771
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
 
   depends_on "automake" => :build
   depends_on "autoconf" => :build

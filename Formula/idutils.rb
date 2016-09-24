@@ -12,7 +12,7 @@ class Idutils < Formula
     sha256 "4625ef2ac2f7b2c87010880a0c31044ef850da4faded85c957b8ae23eeb7ab85" => :mavericks
   end
 
-  conflicts_with "coreutils", because: "both install `gid` and `gid.1`"
+  conflicts_with "coreutils", :because => "both install `gid` and `gid.1`"
 
   def install
     # Work around unremovable, nested dirs bug that affects lots of

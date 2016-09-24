@@ -37,12 +37,12 @@ class Mariadb < Formula
   depends_on "openssl"
 
   conflicts_with "mysql", "mysql-cluster", "percona-server",
-    because: "mariadb, mysql, and percona install the same binaries."
+    :because => "mariadb, mysql, and percona install the same binaries."
   conflicts_with "mysql-connector-c",
-    because: "both install MySQL client libraries"
-  conflicts_with "mytop", because: "both install `mytop` binaries"
+    :because => "both install MySQL client libraries"
+  conflicts_with "mytop", :because => "both install `mytop` binaries"
   conflicts_with "mariadb-connector-c",
-    because: "both install plugins"
+    :because => "both install plugins"
 
   def install
     # Don't hard-code the libtool path. See:
@@ -171,7 +171,7 @@ class Mariadb < Formula
     EOS
   end
 
-  plist_options manual: "mysql.server start"
+  plist_options :manual => "mysql.server start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

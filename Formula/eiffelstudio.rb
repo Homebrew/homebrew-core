@@ -29,7 +29,7 @@ class Eiffelstudio < Formula
     system "./make_images", ise_platform
     prefix.install Dir["Eiffel_16.05/*"]
     bin.mkpath
-    env = { ISE_EIFFEL: prefix, ISE_PLATFORM: ise_platform }
+    env = { :ISE_EIFFEL => prefix, :ISE_PLATFORM => ise_platform }
     (bin/"ec").write_env_script(prefix/"studio/spec/#{ise_platform}/bin/ec", env)
     (bin/"ecb").write_env_script(prefix/"studio/spec/#{ise_platform}/bin/ecb", env)
     (bin/"estudio").write_env_script(prefix/"studio/spec/#{ise_platform}/bin/estudio", env)

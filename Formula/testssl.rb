@@ -13,7 +13,7 @@ class Testssl < Formula
   def install
     ENV.prepend_create_path "PATH", Formula["openssl"].opt_prefix.to_s
     bin.install "testssl.sh"
-    bin.env_script_all_files(libexec+"bin", PATH: ENV["PATH"])
+    bin.env_script_all_files(libexec+"bin", :PATH => ENV["PATH"])
   end
 
   test do

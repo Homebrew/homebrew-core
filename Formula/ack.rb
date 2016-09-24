@@ -5,7 +5,7 @@ class Ack < Formula
   version "2.14"
   sha256 "1d203cfbc52ce8f49e3992be1cd3e4d7d5dfb7daa3739e8628aa9858ccc5b9df"
 
-  head "https://github.com/petdance/ack2.git", branch: "dev"
+  head "https://github.com/petdance/ack2.git", :branch => "dev"
 
   devel do
     url "https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/ack-2.15_01.tar.gz"
@@ -40,7 +40,7 @@ class Ack < Formula
       libexec.install "ack"
       chmod 0755, libexec/"ack"
       (libexec/"lib").install "blib/lib/App"
-      (bin/"ack").write_env_script("#{libexec}/ack", PERL5LIB: ENV["PERL5LIB"])
+      (bin/"ack").write_env_script("#{libexec}/ack", :PERL5LIB => ENV["PERL5LIB"])
       man1.install "blib/man1/ack.1"
     end
   end

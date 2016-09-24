@@ -17,12 +17,12 @@ class Vegeta < Formula
 
   go_resource "github.com/streadway/quantile" do
     url "https://github.com/streadway/quantile.git",
-        revision: "b0c588724d25ae13f5afb3d90efec0edc636432b"
+        :revision => "b0c588724d25ae13f5afb3d90efec0edc636432b"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        revision: "6250b412798208e6c90b03b7c4f226de5aa299e2"
+        :revision => "6250b412798208e6c90b03b7c4f226de5aa299e2"
   end
 
   def install

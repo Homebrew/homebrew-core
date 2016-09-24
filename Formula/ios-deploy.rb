@@ -11,8 +11,8 @@ class IosDeploy < Formula
     sha256 "6349ec96d53235201ac3fffff6a89f211289ad1ea03e4bc3899d189fa84e63fc" => :yosemite
   end
 
-  depends_on xcode: :build
-  depends_on macos: :yosemite
+  depends_on :xcode => :build
+  depends_on :macos => :yosemite
 
   def install
     xcodebuild "-configuration", "Release", "SYMROOT=build"

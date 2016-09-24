@@ -17,12 +17,12 @@ class ApacheBrooklynCli < Formula
 
   go_resource "github.com/codegangsta/cli" do
     url "https://github.com/codegangsta/cli.git",
-        revision: "5db74198dee1cfe60cf06a611d03a420361baad6"
+        :revision => "5db74198dee1cfe60cf06a611d03a420361baad6"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://github.com/golang/crypto.git",
-        revision: "1f22c0103821b9390939b6776727195525381532"
+        :revision => "1f22c0103821b9390939b6776727195525381532"
   end
 
   def install

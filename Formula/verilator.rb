@@ -11,7 +11,7 @@ class Verilator < Formula
   end
 
   head do
-    url "http://git.veripool.org/git/verilator", using: :git
+    url "http://git.veripool.org/git/verilator", :using => :git
     depends_on "automake" => :build
     depends_on "autoconf" => :build
   end

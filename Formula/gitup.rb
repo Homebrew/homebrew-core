@@ -2,8 +2,8 @@ class Gitup < Formula
   desc "Update multiple git repositories at once"
   homepage "https://github.com/earwig/git-repo-updater"
   url "https://github.com/earwig/git-repo-updater.git",
-    revision: "10494e677bba19622acfa3fc62093a06451c8562",
-    tag: "v0.3"
+    :revision => "10494e677bba19622acfa3fc62093a06451c8562",
+    :tag => "v0.3"
   revision 1
 
   bottle do
@@ -47,7 +47,7 @@ class Gitup < Formula
     system "python", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

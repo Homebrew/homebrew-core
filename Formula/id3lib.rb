@@ -19,7 +19,7 @@ class Id3lib < Formula
   end
 
   head ":pserver:anonymous:@id3lib.cvs.sourceforge.net:/cvsroot/id3lib",
-    using: :cvs, module: "id3lib-devel"
+    :using => :cvs, :module => "id3lib-devel"
 
   bottle do
     cellar :any

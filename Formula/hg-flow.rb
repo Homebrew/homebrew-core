@@ -3,7 +3,7 @@ class HgFlow < Formula
   homepage "https://bitbucket.org/yujiewu/hgflow"
   url "https://bitbucket.org/yujiewu/hgflow/downloads/hgflow-v0.9.8.1.tar.bz2"
   sha256 "aa49cf68ea8e0002be9ca6478daa7392d89113e985631316cab75e87d62d211c"
-  head "https://bitbucket.org/yujiewu/hgflow", using: :hg, branch: "develop"
+  head "https://bitbucket.org/yujiewu/hgflow", :using => :hg, :branch => "develop"
 
   bottle :unneeded
 

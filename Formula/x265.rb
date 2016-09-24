@@ -4,7 +4,7 @@ class X265 < Formula
   url "https://bitbucket.org/multicoreware/x265/downloads/x265_2.0.tar.gz"
   sha256 "5a7f6797bee33310c690be5d9a6c63125f36663ac3478e98ac6b6142a70bce1f"
 
-  head "https://bitbucket.org/multicoreware/x265", using: :hg
+  head "https://bitbucket.org/multicoreware/x265", :using => :hg
 
   bottle do
     cellar :any
@@ -20,7 +20,7 @@ class X265 < Formula
 
   depends_on "yasm" => :build
   depends_on "cmake" => :build
-  depends_on macos: :lion
+  depends_on :macos => :lion
 
   def install
     args = std_cmake_args

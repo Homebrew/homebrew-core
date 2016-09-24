@@ -8,7 +8,7 @@ class Artifactory < Formula
 
   option "with-low-heap", "Run artifactory with low Java memory options. Useful for development machines. Do not use in production."
 
-  depends_on java: "1.8+"
+  depends_on :java => "1.8+"
 
   def install
     # Remove Windows binaries
@@ -43,7 +43,7 @@ class Artifactory < Formula
     libexec.install_symlink data => "data"
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/artifactory/libexec/bin/artifactory.sh"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/artifactory/libexec/bin/artifactory.sh"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

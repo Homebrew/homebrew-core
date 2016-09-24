@@ -19,8 +19,8 @@ class Libgetdata < Formula
   deprecated_option "lzma" => "with-xz"
   deprecated_option "zzip" => "with-libzzip"
 
-  depends_on fortran: :optional
-  depends_on perl: ["5.3", :optional]
+  depends_on :fortran => :optional
+  depends_on :perl => ["5.3", :optional]
   depends_on "xz" => :optional
   depends_on "libzzip" => :optional
 

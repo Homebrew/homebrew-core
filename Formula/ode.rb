@@ -3,7 +3,7 @@ class Ode < Formula
   homepage "http://www.ode.org/"
   url "https://bitbucket.org/odedevs/ode/downloads/ode-0.14.tar.gz"
   sha256 "1072fc98d9d00262a0d6136e7b9ff7f5d953bbdb23b646f426909d28c0b4f6db"
-  head "https://bitbucket.org/odedevs/ode/", using: :hg
+  head "https://bitbucket.org/odedevs/ode/", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
@@ -25,7 +25,7 @@ class Ode < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   def install
     args = ["--prefix=#{prefix}"]

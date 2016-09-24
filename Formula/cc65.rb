@@ -14,7 +14,7 @@ class Cc65 < Formula
     sha256 "8f56a19db5bfa9d606e7f636c3780a7e29206e0f9b845365f91550f58e46d2b4" => :mavericks
   end
 
-  conflicts_with "grc", because: "both install `grc` binaries"
+  conflicts_with "grc", :because => "both install `grc` binaries"
 
   def install
     ENV.deparallelize

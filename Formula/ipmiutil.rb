@@ -19,7 +19,7 @@ class Ipmiutil < Formula
   # https://sourceforge.net/p/ipmiutil/mailman/message/33373858/
   patch :DATA
 
-  conflicts_with "renameutils", because: "both install `icmd` binaries"
+  conflicts_with "renameutils", :because => "both install `icmd` binaries"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

@@ -13,8 +13,8 @@ class Avian < Formula
     sha256 "20dd7125d138e05021b473d026190d8f4652e807afcfe057614e5c2e66ce0ed1" => :mavericks
   end
 
-  depends_on macos: :lion
-  depends_on java: "1.7+"
+  depends_on :macos => :lion
+  depends_on :java => "1.7+"
 
   def install
     system "make", "use-clang=true"

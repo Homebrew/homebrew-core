@@ -7,14 +7,14 @@ class Bigdata < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
 
   def install
     libexec.install "bigdata-bundled.jar"
     bin.write_jar_script libexec/"bigdata-bundled.jar", "bigdata"
   end
 
-  plist_options startup: "true", manual: "bigdata start"
+  plist_options :startup => "true", :manual => "bigdata start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

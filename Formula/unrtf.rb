@@ -5,7 +5,7 @@ class Unrtf < Formula
   mirror "https://ftp.gnu.org/gnu/unrtf/unrtf-0.21.9.tar.gz"
   sha256 "22a37826f96d754e335fb69f8036c068c00dd01ee9edd9461a36df0085fb8ddd"
 
-  head "http://hg.savannah.gnu.org/hgweb/unrtf/", using: :hg
+  head "http://hg.savannah.gnu.org/hgweb/unrtf/", :using => :hg
 
   bottle do
     sha256 "2d658e54c0f66ae90764c8588fa7181c68d69d505336747b9bd5e496ba7b99d6" => :el_capitan

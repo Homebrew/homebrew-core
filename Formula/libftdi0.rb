@@ -13,8 +13,8 @@ class Libftdi0 < Formula
     sha256 "29d786dcb87e4251c4cbd25c0d5e215eb248b74304f175054b31cbd6a464c071" => :mavericks
   end
 
-  conflicts_with "cspice", because: "both install `simple` binaries"
-  conflicts_with "openhmd", because: "both install `simple` binaries"
+  conflicts_with "cspice", :because => "both install `simple` binaries"
+  conflicts_with "openhmd", :because => "both install `simple` binaries"
 
   depends_on "libusb-compat"
 

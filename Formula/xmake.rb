@@ -16,7 +16,7 @@ class Xmake < Formula
     system "./install", "output"
     pkgshare.install Dir["xmake/*"]
     bin.install "output/share/xmake/xmake"
-    bin.env_script_all_files(libexec, XMAKE_PROGRAM_DIR: pkgshare)
+    bin.env_script_all_files(libexec, :XMAKE_PROGRAM_DIR => pkgshare)
   end
 
   test do

@@ -14,7 +14,7 @@ class Libstfl < Formula
   option "without-perl", "Build without Perl support"
   option "without-python", "Build without Python 2 support"
 
-  depends_on ruby: ["1.8", :recommended]
+  depends_on :ruby => ["1.8", :recommended]
   depends_on "swig" => :build if build.with?("python") || build.with?("ruby") || build.with?("perl")
 
   def install

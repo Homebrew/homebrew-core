@@ -98,39 +98,39 @@ class AwsShell < Formula
     url "https://github.com/awslabs/aws-shell.git"
 
     resource "awscli" do
-      url "https://github.com/aws/aws-cli.git", branch: "develop"
+      url "https://github.com/aws/aws-cli.git", :branch => "develop"
     end
 
     resource "boto3" do
-      url "https://github.com/boto/boto3.git", branch: "develop"
+      url "https://github.com/boto/boto3.git", :branch => "develop"
     end
 
     resource "botocore" do
-      url "https://github.com/boto/botocore.git", branch: "develop"
+      url "https://github.com/boto/botocore.git", :branch => "develop"
     end
 
     resource "colorama" do
       url "https://github.com/tartley/colorama.git",
-      tag: "v0.3.3",
-      revision: "5906b2604223f3a3bdf4497244fc8861b89dbda6"
+      :tag => "v0.3.3",
+      :revision => "5906b2604223f3a3bdf4497244fc8861b89dbda6"
     end
 
     resource "configobj" do
-      url "https://github.com/DiffSK/configobj.git", branch: "release"
+      url "https://github.com/DiffSK/configobj.git", :branch => "release"
     end
 
     resource "docutils" do
-      url "https://github.com/chevah/docutils.git", branch: "docutils-0.12-chevah"
+      url "https://github.com/chevah/docutils.git", :branch => "docutils-0.12-chevah"
     end
 
     resource "jmespath" do
-      url "https://github.com/boto/jmespath.git", branch: "develop"
+      url "https://github.com/boto/jmespath.git", :branch => "develop"
     end
 
     resource "python-dateutil" do
       url "https://github.com/dateutil/dateutil.git",
-      tag: "2.4.2",
-      revision: "248106da8e5f4023210d7a18d30b176577916b4f"
+      :tag => "2.4.2",
+      :revision => "248106da8e5f4023210d7a18d30b176577916b4f"
     end
 
     resource "rsa" do
@@ -138,7 +138,7 @@ class AwsShell < Formula
     end
 
     resource "s3transfer" do
-      url "https://github.com/boto/s3transfer.git", branch: "develop"
+      url "https://github.com/boto/s3transfer.git", :branch => "develop"
     end
 
     resource "wcwidth" do
@@ -162,7 +162,7 @@ class AwsShell < Formula
 
     system "python", *Language::Python.setup_install_args(libexec)
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec+"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

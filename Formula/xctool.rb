@@ -12,7 +12,7 @@ class Xctool < Formula
     sha256 "d035eebe4a7203b1ed2db3d59c3f4a6f418cad5e3cfd872355d0fa561c568b02" => :mavericks
   end
 
-  depends_on xcode: "6.0"
+  depends_on :xcode => "6.0"
 
   def install
     system "./scripts/build.sh", "XT_INSTALL_ROOT=#{libexec}", "-IDECustomDerivedDataLocation=#{buildpath}"

@@ -12,7 +12,7 @@ class Corelocationcli < Formula
     sha256 "e0a967b5f84f3b1d4bc799265f3692faab41ccf7f673749624051a8d87516389" => :mountain_lion
   end
 
-  depends_on xcode: :build
+  depends_on :xcode => :build
 
   def install
     xcodebuild "-project", "CoreLocationCLI.xcodeproj", "SYMROOT=build", "-sdk", "macosx#{MacOS.version}"

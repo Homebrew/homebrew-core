@@ -38,7 +38,7 @@ class Vapoursynth < Formula
     resource("Cython").stage do
       system "python3", *Language::Python.setup_install_args(libexec)
     end
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
     ENV.prepend_create_path "PATH", libexec/"bin"
 

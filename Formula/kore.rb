@@ -12,7 +12,7 @@ class Kore < Formula
 
   # src/pool.c:151:6: error: use of undeclared identifier 'MAP_ANONYMOUS'
   # Reported 4 Aug 2016: https://github.com/jorisvink/kore/issues/140
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
 
   depends_on "openssl"
   depends_on "postgresql" => :optional

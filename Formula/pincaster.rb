@@ -14,7 +14,7 @@ class Pincaster < Formula
 
   depends_on "openssl"
 
-  conflicts_with "libevent", because: "Pincaster embeds libevent"
+  conflicts_with "libevent", :because => "Pincaster embeds libevent"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--with-yajl=embedded"
@@ -29,7 +29,7 @@ class Pincaster < Formula
     (var/"db/pincaster/").mkpath
   end
 
-  plist_options manual: "pincaster #{HOMEBREW_PREFIX}/etc/pincaster.conf"
+  plist_options :manual => "pincaster #{HOMEBREW_PREFIX}/etc/pincaster.conf"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

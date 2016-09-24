@@ -26,7 +26,7 @@ class SyncthingInotify < Formula
     end
   end
 
-  plist_options manual: "syncthing-inotify"
+  plist_options :manual => "syncthing-inotify"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

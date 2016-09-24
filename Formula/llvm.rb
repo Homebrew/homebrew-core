@@ -2,7 +2,7 @@ class CodesignRequirement < Requirement
   include FileUtils
   fatal true
 
-  satisfy(build_env: false) do
+  satisfy(:build_env => false) do
     mktemp do
       cp "/usr/bin/false", "llvm_check"
       quiet_system "/usr/bin/codesign", "-f", "-s", "lldb_codesign", "--dryrun", "llvm_check"
@@ -145,7 +145,7 @@ class Llvm < Formula
   if MacOS.version <= :snow_leopard
     depends_on :python
   else
-    depends_on python: :optional
+    depends_on :python => :optional
   end
   depends_on "cmake" => :build
 
@@ -160,7 +160,7 @@ class Llvm < Formula
   fails_with :gcc_4_0
   fails_with :gcc
   ("4.3".."4.6").each do |n|
-    fails_with gcc: n
+    fails_with :gcc => n
   end
 
   def build_libcxx?

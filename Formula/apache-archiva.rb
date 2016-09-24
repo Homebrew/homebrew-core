@@ -6,7 +6,7 @@ class ApacheArchiva < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
 
   def install
     libexec.install Dir["*"]
@@ -22,7 +22,7 @@ class ApacheArchiva < Formula
     cp_r libexec/"conf", var/"archiva"
   end
 
-  plist_options manual: "ARCHIVA_BASE=#{HOMEBREW_PREFIX}/var/archiva #{HOMEBREW_PREFIX}/opt/apache-archiva/bin/archiva console"
+  plist_options :manual => "ARCHIVA_BASE=#{HOMEBREW_PREFIX}/var/archiva #{HOMEBREW_PREFIX}/opt/apache-archiva/bin/archiva console"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

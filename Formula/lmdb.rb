@@ -3,7 +3,7 @@ class Lmdb < Formula
   homepage "https://symas.com/mdb-and-sqlite/"
   url "https://github.com/LMDB/lmdb/archive/LMDB_0.9.18.tar.gz"
   sha256 "dd35b471d6eea84f48f2feece13d121abf59ef255308b8624a36223ffbdf9989"
-  head "https://github.com/LMDB/lmdb.git", branch: "mdb.master"
+  head "https://github.com/LMDB/lmdb.git", :branch => "mdb.master"
 
   bottle do
     cellar :any

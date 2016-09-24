@@ -15,7 +15,7 @@ class Codemod < Formula
     (libexec/"lib/python2.7/site-packages").mkpath
     system "python", *Language::Python.setup_install_args(libexec)
     bin.install libexec/"bin/codemod.py" => "codemod"
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

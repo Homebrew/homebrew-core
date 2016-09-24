@@ -13,7 +13,7 @@ class Povray < Formula
 
   deprecated_option "use-openexr" => "with-openexr"
 
-  depends_on macos: :lion
+  depends_on :macos => :lion
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libpng"

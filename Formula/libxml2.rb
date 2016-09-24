@@ -25,7 +25,7 @@ class Libxml2 < Formula
 
   option :universal
 
-  depends_on python: :optional
+  depends_on :python => :optional
 
   fails_with :llvm do
     build 2326

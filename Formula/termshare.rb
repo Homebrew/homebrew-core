@@ -21,22 +21,22 @@ class Termshare < Formula
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        revision: "7553b97266dcbbf78298bd1a2b12d9c9aaae5f40"
+        :revision => "7553b97266dcbbf78298bd1a2b12d9c9aaae5f40"
   end
 
   go_resource "github.com/heroku/hk" do
     url "https://github.com/heroku/hk.git",
-        revision: "406190e9c93802fb0a49b5c09611790aee05c491"
+        :revision => "406190e9c93802fb0a49b5c09611790aee05c491"
   end
 
   go_resource "github.com/kr/pty" do
     url "https://github.com/kr/pty.git",
-        revision: "f7ee69f31298ecbe5d2b349c711e2547a617d398"
+        :revision => "f7ee69f31298ecbe5d2b349c711e2547a617d398"
   end
 
   go_resource "github.com/nu7hatch/gouuid" do
     url "https://github.com/nu7hatch/gouuid.git",
-        revision: "179d4d0c4d8d407a32af483c2354df1d2c91e6c3"
+        :revision => "179d4d0c4d8d407a32af483c2354df1d2c91e6c3"
   end
 
   def install

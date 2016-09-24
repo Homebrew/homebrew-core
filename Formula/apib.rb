@@ -15,7 +15,7 @@ class Apib < Formula
     sha256 "c538b9389b1849704720383f03fb2fe4eaf145ecd01d7dca5fd08d95e0e961ba" => :mountain_lion
   end
 
-  depends_on apr: :build
+  depends_on :apr => :build
   depends_on "openssl"
 
   def install

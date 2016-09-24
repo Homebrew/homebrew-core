@@ -34,7 +34,7 @@ class GnuCobol < Formula
   depends_on "gcc"
 
   conflicts_with "open-cobol",
-    because: "both install `cob-config`, `cobc` and `cobcrun` binaries"
+    :because => "both install `cob-config`, `cobc` and `cobcrun` binaries"
 
   def install
     # both environment variables are needed to be set

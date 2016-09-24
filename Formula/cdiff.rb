@@ -9,13 +9,13 @@ class Cdiff < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  conflicts_with "colordiff", because: "both install `cdiff` binaries"
+  conflicts_with "colordiff", :because => "both install `cdiff` binaries"
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", *Language::Python.setup_install_args(libexec)
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

@@ -15,7 +15,7 @@ class Cayley < Formula
   option "without-samples", "Don't install sample data"
 
   depends_on "bazaar" => :build
-  depends_on hg: :build
+  depends_on :hg => :build
   depends_on "go" => :build
   depends_on "godep" => :build
 
@@ -48,7 +48,7 @@ class Cayley < Formula
     end
   end
 
-  plist_options manual: "cayley http --assets=#{HOMEBREW_PREFIX}/share/cayley/assets --config=#{HOMEBREW_PREFIX}/etc/cayley.conf"
+  plist_options :manual => "cayley http --assets=#{HOMEBREW_PREFIX}/share/cayley/assets --config=#{HOMEBREW_PREFIX}/etc/cayley.conf"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

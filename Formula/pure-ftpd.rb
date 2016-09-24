@@ -17,8 +17,8 @@ class PureFtpd < Formula
 
   depends_on "libsodium"
   depends_on "openssl"
-  depends_on postgresql: :optional
-  depends_on mysql: :optional
+  depends_on :postgresql => :optional
+  depends_on :mysql => :optional
 
   def install
     args = %W[
@@ -40,7 +40,7 @@ class PureFtpd < Formula
     system "make", "install"
   end
 
-  plist_options manual: "pure-ftpd"
+  plist_options :manual => "pure-ftpd"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

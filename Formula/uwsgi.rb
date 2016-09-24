@@ -134,7 +134,7 @@ class Uwsgi < Formula
     bin.install "uwsgi"
   end
 
-  plist_options manual: "uwsgi"
+  plist_options :manual => "uwsgi"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

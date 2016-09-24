@@ -29,7 +29,7 @@ class Launch < Formula
     sha256 "66516ede076656bf3603fb80b499965f7a8715eead23d56ff38de33077bf816b" => :mavericks
   end
 
-  depends_on xcode: :build
+  depends_on :xcode => :build
 
   def install
     rm_rf "launch" # We'll build it ourself, thanks.

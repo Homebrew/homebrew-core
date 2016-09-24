@@ -13,7 +13,7 @@ class Ldns < Formula
     sha256 "17d5d97bafecaad3fdd635b1e765d4d9470a195aceb27ed2214fad8332f69aff" => :mountain_lion
   end
 
-  depends_on python: :optional
+  depends_on :python => :optional
   depends_on "openssl"
   depends_on "swig" => :build if build.with? "python"
 

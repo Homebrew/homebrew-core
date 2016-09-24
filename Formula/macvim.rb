@@ -18,7 +18,7 @@ class Macvim < Formula
 
   deprecated_option "override-system-vim" => "with-override-system-vim"
 
-  depends_on xcode: :build
+  depends_on :xcode => :build
   depends_on "cscope" => :recommended
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
@@ -27,8 +27,8 @@ class Macvim < Formula
     option "with-custom-python", "Build with a custom Python 2 instead of the Homebrew version."
   end
 
-  depends_on python: :recommended
-  depends_on python3: :optional
+  depends_on :python => :recommended
+  depends_on :python3 => :optional
 
   # Help us! We'd like to use superenv in these environments, too
   env :std if MacOS.version <= :snow_leopard

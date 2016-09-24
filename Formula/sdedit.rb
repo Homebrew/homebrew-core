@@ -6,7 +6,7 @@ class Sdedit < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.5+"
+  depends_on :java => "1.5+"
 
   def install
     libexec.install "sdedit-#{version}.jar"

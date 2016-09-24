@@ -18,27 +18,27 @@ class Gron < Formula
 
   go_resource "github.com/fatih/color" do
     url "https://github.com/fatih/color.git",
-        revision: "87d4004f2ab62d0d255e0a38f1680aa534549fe3"
+        :revision => "87d4004f2ab62d0d255e0a38f1680aa534549fe3"
   end
 
   go_resource "github.com/mattn/go-colorable" do
     url "https://github.com/mattn/go-colorable.git",
-        revision: "ed8eb9e318d7a84ce5915b495b7d35e0cfe7b5a8"
+        :revision => "ed8eb9e318d7a84ce5915b495b7d35e0cfe7b5a8"
   end
 
   go_resource "github.com/mattn/go-isatty" do
     url "https://github.com/mattn/go-isatty.git",
-        revision: "3a115632dcd687f9c8cd01679c83a06a0e21c1f3"
+        :revision => "3a115632dcd687f9c8cd01679c83a06a0e21c1f3"
   end
 
   go_resource "github.com/nwidger/jsoncolor" do
     url "https://github.com/nwidger/jsoncolor.git",
-        revision: "f344a1ffbe51794516e9cf2c4d58b203863d3070"
+        :revision => "f344a1ffbe51794516e9cf2c4d58b203863d3070"
   end
 
   go_resource "github.com/pkg/errors" do
     url "https://github.com/pkg/errors.git",
-        revision: "17b591df37844cde689f4d5813e5cea0927d8dd2"
+        :revision => "17b591df37844cde689f4d5813e5cea0927d8dd2"
   end
 
   def install

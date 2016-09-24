@@ -12,7 +12,7 @@ class TalkFilters < Formula
     sha256 "10bb0f88a6d8c6fc726677611fd115e71d9df1dcfc80e13ecab36fe1da9ee6f8" => :mountain_lion
   end
 
-  conflicts_with "muttils", because: "both install `wrap` binaries"
+  conflicts_with "muttils", :because => "both install `wrap` binaries"
 
   def install
     system "./configure", "--disable-debug",

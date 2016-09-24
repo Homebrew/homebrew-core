@@ -16,7 +16,7 @@ class Src < Formula
     depends_on "asciidoc" => :build
   end
 
-  conflicts_with "srclib", because: "both install a 'src' binary"
+  conflicts_with "srclib", :because => "both install a 'src' binary"
 
   depends_on "rcs"
 

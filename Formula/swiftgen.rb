@@ -11,7 +11,7 @@ class Swiftgen < Formula
     sha256 "84dea0c4d8a0594f6aae49c7a8f0bc0fe7f8ba131cbdcff4239413cbf7724452" => :yosemite
   end
 
-  depends_on xcode: "7.0"
+  depends_on :xcode => "7.0"
 
   def install
     rake "install[#{bin},#{lib},#{pkgshare}/templates]"

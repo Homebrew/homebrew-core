@@ -22,7 +22,7 @@ class Ledger < Formula
   depends_on "cmake" => :build
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on python: :recommended if MacOS.version <= :snow_leopard
+  depends_on :python => :recommended if MacOS.version <= :snow_leopard
 
   boost_opts = []
   boost_opts << "c++11" if MacOS.version < "10.9"

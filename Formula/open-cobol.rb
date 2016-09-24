@@ -14,7 +14,7 @@ class OpenCobol < Formula
   depends_on "berkeley-db"
 
   conflicts_with "gnu-cobol",
-    because: "both install `cob-config`, `cobc` and `cobcrun` binaries"
+    :because => "both install `cob-config`, `cobc` and `cobcrun` binaries"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

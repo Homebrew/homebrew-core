@@ -19,7 +19,7 @@ class Hledger < Formula
   depends_on "cabal-install" => :build
 
   def install
-    install_cabal_package using: ["happy"]
+    install_cabal_package :using => ["happy"]
   end
 
   test do

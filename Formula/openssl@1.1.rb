@@ -23,15 +23,15 @@ class OpensslAT11 < Formula
   # https://github.com/openssl/openssl/blob/4b16fa791d3ad8/README.PERL
   # The MacOS ML tag is same hack as the way we handle most :python deps.
   if build.with? "test"
-    depends_on perl: "5.14" if MacOS.version <= :mountain_lion
+    depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
   else
-    depends_on perl: "5.10"
+    depends_on :perl => "5.10"
   end
 
   def arch_args
     {
-      x86_64: %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
-      i386: %w[darwin-i386-cc],
+      :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
+      :i386 => %w[darwin-i386-cc],
     }
   end
 

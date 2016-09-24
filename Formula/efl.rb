@@ -29,7 +29,7 @@ class Efl < Formula
   depends_on "dbus"
   depends_on "pulseaudio"
   depends_on "bullet"
-  depends_on x11: :optional
+  depends_on :x11 => :optional
   depends_on "webp" => :optional
 
   needs :cxx11

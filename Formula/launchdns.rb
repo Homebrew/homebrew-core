@@ -13,7 +13,7 @@ class Launchdns < Formula
     sha256 "7df1ba7afd33fb76de28051fc835e4c8aed32dcd8c8530189d7db021be5b8600" => :yosemite
   end
 
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
 
   def install
     ENV["PREFIX"] = prefix
@@ -29,7 +29,7 @@ class Launchdns < Formula
     EOS
   end
 
-  plist_options manual: "launchdns"
+  plist_options :manual => "launchdns"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

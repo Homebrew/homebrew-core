@@ -16,13 +16,13 @@ class LaunchSocketServer < Formula
   end
 
   depends_on "go" => :build
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
 
-  plist_options startup: true
+  plist_options :startup => true
 
   def plist
     <<-EOS.undent

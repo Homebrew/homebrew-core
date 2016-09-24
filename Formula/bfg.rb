@@ -6,7 +6,7 @@ class Bfg < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
 
   def install
     libexec.install "bfg-1.12.13.jar"

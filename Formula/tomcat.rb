@@ -7,7 +7,7 @@ class Tomcat < Formula
     mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.5/bin/apache-tomcat-8.5.5.tar.gz"
     sha256 "123ba0c010267d54caf984872d3cb449ae29bbd956fa17467185e0c2b3ecae45"
 
-    depends_on java: "1.7+"
+    depends_on :java => "1.7+"
 
     resource "fulldocs" do
       url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-8/v8.5.5/bin/apache-tomcat-8.5.5-fulldocs.tar.gz"
@@ -23,7 +23,7 @@ class Tomcat < Formula
     version "9.0.0.M10"
     sha256 "09bf22df9a5bf7b7b901da751681fb6ad55194f27ac7360e4f79cb9f3ec7775c"
 
-    depends_on java: "1.8+"
+    depends_on :java => "1.8+"
 
     resource "fulldocs" do
       url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.0.M10/bin/apache-tomcat-9.0.0.M10-fulldocs.tar.gz"

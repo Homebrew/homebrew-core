@@ -25,14 +25,14 @@ class Emscripten < Formula
   end
 
   head do
-    url "https://github.com/kripken/emscripten.git", branch: "incoming"
+    url "https://github.com/kripken/emscripten.git", :branch => "incoming"
 
     resource "fastcomp" do
-      url "https://github.com/kripken/emscripten-fastcomp.git", branch: "incoming"
+      url "https://github.com/kripken/emscripten-fastcomp.git", :branch => "incoming"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/kripken/emscripten-fastcomp-clang.git", branch: "incoming"
+      url "https://github.com/kripken/emscripten-fastcomp-clang.git", :branch => "incoming"
     end
   end
 

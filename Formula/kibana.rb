@@ -4,8 +4,8 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-    tag: "v4.5.1",
-    revision: "addb28966a74b61791ceda352cd5b8b1200f2b2a"
+    :tag => "v4.5.1",
+    :revision => "addb28966a74b61791ceda352cd5b8b1200f2b2a"
 
   head "https://github.com/elastic/kibana.git"
 
@@ -18,8 +18,8 @@ class Kibana < Formula
 
   devel do
     url "https://github.com/elastic/kibana.git",
-      tag: "v5.0.0-alpha3",
-      revision: "b6190c95064a7c48c390c4566e82b5a562ca744f"
+      :tag => "v5.0.0-alpha3",
+      :revision => "b6190c95064a7c48c390c4566e82b5a562ca744f"
     version "5.0.0-alpha3"
   end
 
@@ -88,7 +88,7 @@ class Kibana < Formula
     EOS
   end
 
-  plist_options manual: "kibana"
+  plist_options :manual => "kibana"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -6,7 +6,7 @@ class Sonarqube < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.8+"
+  depends_on :java => "1.8+"
 
   def install
     # Delete native bin directories for other systems
@@ -29,7 +29,7 @@ class Sonarqube < Formula
     end
   end
 
-  plist_options manual: "sonar console"
+  plist_options :manual => "sonar console"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

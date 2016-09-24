@@ -42,7 +42,7 @@ class Mailhog < Formula
     end
   end
 
-  plist_options manual: "MailHog"
+  plist_options :manual => "MailHog"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -23,7 +23,7 @@ class Ngspice < Formula
 
   deprecated_option "with-x" => "with-x11"
 
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   def install
     system "./autogen.sh" if build.head?

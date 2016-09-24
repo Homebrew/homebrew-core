@@ -12,17 +12,17 @@ class Logentries < Formula
     sha256 "01edb0fe82fade9c94c86f93e0ab284d6eda959d007eb747908819e395df1bee" => :mavericks
   end
 
-  conflicts_with "le", because: "both install a le binary"
+  conflicts_with "le", :because => "both install a le binary"
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
-  plist_options manual: "le monitor"
+  plist_options :manual => "le monitor"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -15,7 +15,7 @@ class Gtkx < Formula
   end
 
   head do
-    url "https://git.gnome.org/browse/gtk+.git", branch: "gtk-2-24"
+    url "https://git.gnome.org/browse/gtk+.git", :branch => "gtk-2-24"
 
     depends_on "automake" => :build
     depends_on "autoconf" => :build

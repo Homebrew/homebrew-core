@@ -2,7 +2,7 @@ class MozGitTools < Formula
   desc "Tools for working with Git at Mozilla"
   homepage "https://github.com/mozilla/moz-git-tools"
   url "https://github.com/mozilla/moz-git-tools.git",
-    tag: "v0.1", revision: "cfe890e6f81745c8b093b20a3dc22d28f9fc0032"
+    :tag => "v0.1", :revision => "cfe890e6f81745c8b093b20a3dc22d28f9fc0032"
   head "https://github.com/mozilla/moz-git-tools.git"
 
   bottle do

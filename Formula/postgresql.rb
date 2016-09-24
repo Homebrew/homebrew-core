@@ -31,13 +31,13 @@ class Postgresql < Formula
   depends_on "libxml2" if MacOS.version <= :leopard # Leopard libxml is too old
 
   option "with-python", "Enable PL/Python2"
-  depends_on python: :optional
+  depends_on :python => :optional
 
   option "with-python3", "Enable PL/Python3 (incompatible with --with-python)"
-  depends_on python3: :optional
+  depends_on :python3 => :optional
 
   conflicts_with "postgres-xc",
-    because: "postgresql and postgres-xc install the same binaries."
+    :because => "postgresql and postgres-xc install the same binaries."
 
   fails_with :clang do
     build 211
@@ -128,7 +128,7 @@ class Postgresql < Formula
     EOS
   end
 
-  plist_options manual: "postgres -D #{HOMEBREW_PREFIX}/var/postgres"
+  plist_options :manual => "postgres -D #{HOMEBREW_PREFIX}/var/postgres"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

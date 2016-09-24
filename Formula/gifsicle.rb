@@ -21,11 +21,11 @@ class Gifsicle < Formula
   end
 
   conflicts_with "giflossy",
-    because: "both install an `gifsicle` binary"
+    :because => "both install an `gifsicle` binary"
 
   option "with-x11", "Install gifview"
 
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   def install
     args = %W[

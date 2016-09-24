@@ -11,7 +11,7 @@ class Ndiff < Formula
     sha256 "7451587f9747af6e7ffd0e5dbacd337a72cd9b7f3c45a1240c2033e0731d5d46" => :mavericks
   end
 
-  conflicts_with "nmap", because: "both install `ndiff` binaries"
+  conflicts_with "nmap", :because => "both install `ndiff` binaries"
 
   def install
     ENV.j1

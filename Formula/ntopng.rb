@@ -10,7 +10,7 @@ class Ntopng < Formula
     resource "nDPI" do
       # tip of 1.8-stable branch; four commits beyond the 1.8 tag
       url "https://github.com/ntop/nDPI.git",
-        revision: "6fb81f146e2542cfbf7fab7d53678339c7747b35"
+        :revision => "6fb81f146e2542cfbf7fab7d53678339c7747b35"
     end
   end
 
@@ -21,10 +21,10 @@ class Ntopng < Formula
   end
 
   head do
-    url "https://github.com/ntop/ntopng.git", branch: "dev"
+    url "https://github.com/ntop/ntopng.git", :branch => "dev"
 
     resource "nDPI" do
-      url "https://github.com/ntop/nDPI.git", branch: "dev"
+      url "https://github.com/ntop/nDPI.git", :branch => "dev"
     end
   end
 

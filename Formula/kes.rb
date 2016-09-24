@@ -16,7 +16,7 @@ class Kes < Formula
 
   depends_on "readline"
 
-  conflicts_with "es", because: "both install 'es' binary"
+  conflicts_with "es", :because => "both install 'es' binary"
 
   def install
     system "./configure", "--prefix=#{prefix}",

@@ -5,8 +5,8 @@ class Phantomjs < Formula
 
   stable do
     url "https://github.com/ariya/phantomjs.git",
-        tag: "2.1.1",
-        revision: "d9cda3dcd26b0e463533c5cc96e39c0f39fc32c1"
+        :tag => "2.1.1",
+        :revision => "d9cda3dcd26b0e463533c5cc96e39c0f39fc32c1"
 
     # Fixes build.py for non-standard Homebrew prefixes.  Applied
     # upstream, can be removed in next release.
@@ -26,7 +26,7 @@ class Phantomjs < Formula
   end
 
   depends_on MinimumMacOSRequirement => :lion
-  depends_on xcode: :build
+  depends_on :xcode => :build
   depends_on "openssl"
 
   def install

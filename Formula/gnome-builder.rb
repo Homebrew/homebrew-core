@@ -25,7 +25,7 @@ class GnomeBuilder < Formula
   depends_on "vala" => :recommended
   depends_on "devhelp" => :recommended
   depends_on "ctags" => :recommended
-  depends_on python3: :optional
+  depends_on :python3 => :optional
   depends_on "pygobject3" if build.with? "python3"
 
   needs :cxx11

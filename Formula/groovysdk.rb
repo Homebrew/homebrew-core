@@ -6,7 +6,7 @@ class Groovysdk < Formula
 
   bottle :unneeded
 
-  conflicts_with "groovy", because: "both install the same binaries"
+  conflicts_with "groovy", :because => "both install the same binaries"
 
   def install
     ENV["GROOVY_HOME"] = libexec
@@ -17,7 +17,7 @@ class Groovysdk < Formula
     prefix.install_metafiles
     bin.install Dir["bin/*"]
     libexec.install %w[conf lib embeddable src doc]
-    bin.env_script_all_files(libexec+"bin", GROOVY_HOME: ENV["GROOVY_HOME"])
+    bin.env_script_all_files(libexec+"bin", :GROOVY_HOME => ENV["GROOVY_HOME"])
   end
 
   test do

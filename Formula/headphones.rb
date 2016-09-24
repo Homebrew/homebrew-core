@@ -49,7 +49,7 @@ class Headphones < Formula
   EOS
   end
 
-  plist_options manual: "headphones"
+  plist_options :manual => "headphones"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

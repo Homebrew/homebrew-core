@@ -13,8 +13,8 @@ class Ice < Formula
   option "with-java", "Build Ice for Java and the IceGrid Admin app"
 
   depends_on "mcpp"
-  depends_on java: ["1.7+", :optional]
-  depends_on macos: :mavericks
+  depends_on :java => ["1.7+", :optional]
+  depends_on :macos => :mavericks
 
   resource "berkeley-db" do
     url "https://zeroc.com/download/homebrew/db-5.3.28.NC.brew.tar.gz"

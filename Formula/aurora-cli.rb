@@ -11,7 +11,7 @@ class AuroraCli < Formula
     sha256 "9b45a0ba82e22ff2e272c80977d047a16b5164edb0efc198ffc90ede170c5444" => :mavericks
   end
 
-  depends_on java: "1.8+"
+  depends_on :java => "1.8+"
   depends_on :python if MacOS.version <= :snow_leopard
 
   def install

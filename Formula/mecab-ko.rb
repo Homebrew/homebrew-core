@@ -13,7 +13,7 @@ class MecabKo < Formula
     sha256 "5193bbfc4308dc54ce44f1a9c46f89040e3c8bd0a2d389afd44ef240e98f6838" => :mountain_lion
   end
 
-  conflicts_with "mecab", becasue: "both install mecab binaries"
+  conflicts_with "mecab", :becasue => "both install mecab binaries"
 
   def install
     system "./configure", "--disable-dependency-tracking",

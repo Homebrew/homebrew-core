@@ -85,7 +85,7 @@ class Volatility < Formula
     system "python", "setup.py", "install", "--prefix=#{prefix}",
                "--single-version-externally-managed", "--record=installed.txt"
 
-    bin.env_script_all_files(libexec+"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

@@ -2,8 +2,8 @@ class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
   url "https://github.com/JukkaL/mypy.git",
-      tag: "v0.4.4",
-      revision: "3935fe0efc68318e2a3a08a98c2097c527a8d8d4"
+      :tag => "v0.4.4",
+      :revision => "3935fe0efc68318e2a3a08a98c2097c527a8d8d4"
   head "https://github.com/JukkaL/mypy.git"
 
   bottle do
@@ -41,7 +41,7 @@ class Mypy < Formula
     system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

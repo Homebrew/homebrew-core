@@ -58,7 +58,7 @@ class Imapsync < Formula
     system "pod2man", "imapsync", "imapsync.1"
     bin.install "imapsync"
     man1.install "imapsync.1"
-    bin.env_script_all_files(libexec+"bin", PERL5LIB: ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec+"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
 
   test do

@@ -14,7 +14,7 @@ class Imagesnap < Formula
     sha256 "72aaab7f5666295a48f2050a842ae9e04c6696507df68eed87559ace303c2dae" => :lion
   end
 
-  depends_on xcode: :build
+  depends_on :xcode => :build
 
   def install
     xcodebuild "-project", "ImageSnap.xcodeproj", "SYMROOT=build", "-sdk", "macosx#{MacOS.version}"

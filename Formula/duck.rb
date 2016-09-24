@@ -13,8 +13,8 @@ class Duck < Formula
     sha256 "6aaab98af32f261163510703ea45f15aeedc38fb81af648952a294ddf96c438a" => :mavericks
   end
 
-  depends_on java: ["1.8+", :build]
-  depends_on xcode: :build
+  depends_on :java => ["1.8+", :build]
+  depends_on :xcode => :build
   depends_on "ant" => :build
 
   def install

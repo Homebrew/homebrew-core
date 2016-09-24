@@ -14,7 +14,7 @@ class Lsh < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on x11: :optional # For libXau library
+  depends_on :x11 => :optional # For libXau library
   depends_on "nettle"
   depends_on "gmp"
 

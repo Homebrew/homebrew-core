@@ -13,7 +13,7 @@ class Aggregate < Formula
     sha256 "169598a0d41382215ba51ed0c377c98857804e82fb1658414dd04ee94ddbb993" => :mavericks
   end
 
-  conflicts_with "crush-tools", because: "both install an `aggregate` binary"
+  conflicts_with "crush-tools", :because => "both install an `aggregate` binary"
 
   def install
     bin.mkpath

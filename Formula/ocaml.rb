@@ -16,7 +16,7 @@ class Ocaml < Formula
   homepage "https://ocaml.org/"
   url "http://caml.inria.fr/pub/distrib/ocaml-4.03/ocaml-4.03.0.tar.gz"
   sha256 "7fdf280cc6c0a2de4fc9891d0bf4633ea417046ece619f011fd44540fcfc8da2"
-  head "http://caml.inria.fr/svn/ocaml/trunk", using: :svn
+  head "http://caml.inria.fr/svn/ocaml/trunk", :using => :svn
 
   pour_bottle? do
     # The ocaml compilers embed prefix information in weird ways that the default
@@ -36,7 +36,7 @@ class Ocaml < Formula
   option "with-x11", "Install with the Graphics module"
   option "with-flambda", "Install with flambda support"
 
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   def install
     ENV.deparallelize # Builds are not parallel-safe, esp. with many cores

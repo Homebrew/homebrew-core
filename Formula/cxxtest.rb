@@ -23,7 +23,7 @@ class Cxxtest < Formula
       system "python", *Language::Python.setup_install_args(prefix)
     end
 
-    bin.env_script_all_files(libexec+"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
     include.install "cxxtest"
     doc.install Dir["doc/*"]

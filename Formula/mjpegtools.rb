@@ -12,7 +12,7 @@ class Mjpegtools < Formula
     sha256 "3477b7df54eaef29d1502fb505eb5f55b2da05ab40cb529460d10523a1b5ab93" => :mavericks
   end
 
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   depends_on "pkg-config" => :build
   depends_on "jpeg"

@@ -19,7 +19,7 @@ class Jed < Formula
   end
 
   depends_on "s-lang"
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   def install
     if build.head?

@@ -8,7 +8,7 @@ class ClozureCl < Formula
 
   bottle :unneeded
 
-  conflicts_with "cclive", because: "both install a ccl binary"
+  conflicts_with "cclive", :because => "both install a ccl binary"
 
   def install
     if build.head?
@@ -26,7 +26,7 @@ class ClozureCl < Formula
 
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/scripts/ccl{,64}"]
-    bin.env_script_all_files(libexec/"bin", CCL_DEFAULT_DIRECTORY: libexec)
+    bin.env_script_all_files(libexec/"bin", :CCL_DEFAULT_DIRECTORY => libexec)
   end
 
   test do

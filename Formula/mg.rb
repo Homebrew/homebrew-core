@@ -10,9 +10,9 @@ class Mg < Formula
     sha256 "b75b2d2ce24746207c5d0253745a992ae6e6a83f190a32ba5fd4aedd08028bb5" => :yosemite
   end
 
-  depends_on macos: :yosemite # older versions don't support fstatat(2)
+  depends_on :macos => :yosemite # older versions don't support fstatat(2)
 
-  conflicts_with "mg3a", because: "both install `mg` binaries"
+  conflicts_with "mg3a", :because => "both install `mg` binaries"
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "MANDIR=#{man}"

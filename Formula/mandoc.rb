@@ -4,7 +4,7 @@ class Mandoc < Formula
   url "http://mdocml.bsd.lv/snapshots/mdocml-1.13.3.tar.gz"
   sha256 "23ccab4800d50bf4c327979af5d4aa1a6a2dc490789cb67c4c3ac1bd40b8cad8"
 
-  head "anoncvs@mdocml.bsd.lv:/cvs", module: "mdocml", using: :cvs
+  head "anoncvs@mdocml.bsd.lv:/cvs", :module => "mdocml", :using => :cvs
 
   bottle do
     sha256 "86aeb9459638f425f5e40c33732b641f90942cd0ff66f37c81ea611b25eb0a10" => :el_capitan

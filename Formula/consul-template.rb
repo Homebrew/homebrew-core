@@ -4,8 +4,8 @@ class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
   url "https://github.com/hashicorp/consul-template.git",
-      tag: "v0.15.0",
-      revision: "6dc5d0f9c4cbc62828c91a923482c2341d36acb3"
+      :tag => "v0.15.0",
+      :revision => "6dc5d0f9c4cbc62828c91a923482c2341d36acb3"
   head "https://github.com/hashicorp/consul-template.git"
 
   bottle do
@@ -18,8 +18,8 @@ class ConsulTemplate < Formula
 
   devel do
     url "https://github.com/hashicorp/consul-template.git",
-        tag: "v0.16.0-rc1",
-        revision: "95065346ba9a95564536f2154dfb054c18cc5cc3"
+        :tag => "v0.16.0-rc1",
+        :revision => "95065346ba9a95564536f2154dfb054c18cc5cc3"
     version "0.16.0-rc1"
   end
 
@@ -27,13 +27,13 @@ class ConsulTemplate < Formula
 
   go_resource "github.com/mitchellh/gox" do
     url "https://github.com/mitchellh/gox.git",
-        revision: "6e9ee79eab7bb1b84155379b3f94ff9a87b344e4"
+        :revision => "6e9ee79eab7bb1b84155379b3f94ff9a87b344e4"
   end
 
   # gox dependency
   go_resource "github.com/mitchellh/iochan" do
     url "https://github.com/mitchellh/iochan.git",
-        revision: "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
+        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
   end
 
   def install

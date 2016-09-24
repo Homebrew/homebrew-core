@@ -17,7 +17,7 @@ class Spidermonkey < Formula
     sha256 "a48533ba8f2e0edbb635d5b7270740c8f86c3800e71489ed02cbf9869c874748" => :mavericks
   end
 
-  conflicts_with "narwhal", because: "both install a js binary"
+  conflicts_with "narwhal", :because => "both install a js binary"
 
   depends_on "readline"
   depends_on "nspr"

@@ -17,8 +17,8 @@ class Fftw < Formula
   option "with-mpi", "Enable MPI parallel transforms"
   option "with-openmp", "Enable OpenMP parallel transforms"
 
-  depends_on fortran: :optional
-  depends_on mpi: [:cc, :optional]
+  depends_on :fortran => :optional
+  depends_on :mpi => [:cc, :optional]
   needs :openmp if build.with? "openmp"
 
   def install

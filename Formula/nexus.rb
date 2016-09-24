@@ -17,7 +17,7 @@ class Nexus < Formula
     bin.install_symlink libexec/"bin/nexus"
   end
 
-  plist_options manual: "nexus start"
+  plist_options :manual => "nexus start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -13,7 +13,7 @@ class Par < Formula
     sha256 "cb1042ef12ead6645653775571ebe84798b707194922030563ff4056687954e3" => :yosemite
   end
 
-  conflicts_with "rancid", because: "both install `par` binaries"
+  conflicts_with "rancid", :because => "both install `par` binaries"
 
   # Patch to add support for multibyte charsets (like UTF-8), plus Debian
   # packaging.

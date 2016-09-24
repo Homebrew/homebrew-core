@@ -12,7 +12,7 @@ class Gnuplot < Formula
   end
 
   head do
-    url ":pserver:anonymous:@gnuplot.cvs.sourceforge.net:/cvsroot/gnuplot", using: :cvs
+    url ":pserver:anonymous:@gnuplot.cvs.sourceforge.net:/cvsroot/gnuplot", :using => :cvs
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -51,8 +51,8 @@ class Gnuplot < Formula
   depends_on "pdflib-lite" => :optional
   depends_on "qt5" => :optional
   depends_on "wxmac" => :optional
-  depends_on tex: :optional
-  depends_on x11: :optional
+  depends_on :tex => :optional
+  depends_on :x11 => :optional
 
   def install
     if build.with? "aquaterm"

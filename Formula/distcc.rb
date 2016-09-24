@@ -1,6 +1,6 @@
 class PythonWithoutPPCRequirement < Requirement
   fatal true
-  satisfy(build_env: false) { !archs_for_command("python").ppc? }
+  satisfy(:build_env => false) { !archs_for_command("python").ppc? }
 
   def message
     "This software will not compile if your default Python is built with PPC support."

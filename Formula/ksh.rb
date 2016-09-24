@@ -3,7 +3,7 @@ class Ksh < Formula
   desc "ksh93, the KornShell"
   homepage "http://www.kornshell.com"
   url "https://opensource.apple.com/source/ksh/ksh-23/ast-ksh.2012-08-01.tgz",
-    using: :nounzip
+    :using => :nounzip
   mirror "https://www.mirrorservice.org/pub/pkgsrc/distfiles/ast-ksh.2012-08-01.tgz"
   version "93u+" # Versioning scheme: + means "+ patches", - means "beta/alpha".
   sha256 "e6192cfa52a6a9fd20618cbaf3fa81f0cc9fd83525500757e83017275e962851"

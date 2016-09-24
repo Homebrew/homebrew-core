@@ -6,7 +6,7 @@ class PerconaToolkit < Formula
   sha256 "62f6bab6ed4a57259b86a5ccbcc5ced8d37f22d06ed18a0508314a7d1c7e19f5"
   revision 1
 
-  head "lp:percona-toolkit", using: :bzr
+  head "lp:percona-toolkit", :using => :bzr
 
   bottle :disable, "To use the user's database of choice."
 
@@ -37,7 +37,7 @@ class PerconaToolkit < Formula
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
     system "make", "test", "install"
     share.install prefix/"man"
-    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
 
   test do

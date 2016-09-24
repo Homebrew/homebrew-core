@@ -37,7 +37,7 @@ class Pgbouncer < Formula
     EOS
   end
 
-  plist_options manual: "pgbouncer -q #{HOMEBREW_PREFIX}/etc/pgbouncer.ini"
+  plist_options :manual => "pgbouncer -q #{HOMEBREW_PREFIX}/etc/pgbouncer.ini"
 
   def plist; <<-EOS.undent
       <?xml version="1.0" encoding="UTF-8"?>

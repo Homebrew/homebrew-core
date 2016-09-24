@@ -22,7 +22,7 @@ class Fish < Formula
   end
 
   head do
-    url "https://github.com/fish-shell/fish-shell.git", shallow: false
+    url "https://github.com/fish-shell/fish-shell.git", :shallow => false
 
     depends_on "autoconf" => :build
     depends_on "doxygen" => :build

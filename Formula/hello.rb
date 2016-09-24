@@ -12,7 +12,7 @@ class Hello < Formula
     sha256 "c3468e676f2c9cb511e537774424299342ffd52740e252e515bddae6d9e79df3" => :mountain_lion
   end
 
-  conflicts_with "camlistore", because: "both install `hello` binaries"
+  conflicts_with "camlistore", :because => "both install `hello` binaries"
 
   def install
     system "./configure", "--disable-debug",

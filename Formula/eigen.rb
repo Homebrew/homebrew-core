@@ -3,7 +3,7 @@ class Eigen < Formula
   homepage "https://eigen.tuxfamily.org/"
   url "https://bitbucket.org/eigen/eigen/get/3.2.9.tar.bz2"
   sha256 "4d1e036ec1ed4f4805d5c6752b76072d67538889f4003fadf2f6e00a825845ff"
-  head "https://bitbucket.org/eigen/eigen", using: :hg
+  head "https://bitbucket.org/eigen/eigen", :using => :hg
 
   bottle do
     cellar :any_skip_relocation

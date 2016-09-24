@@ -13,7 +13,7 @@ class MobileShell < Formula
   end
 
   head do
-    url "https://github.com/mobile-shell/mosh.git", shallow: false
+    url "https://github.com/mobile-shell/mosh.git", :shallow => false
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -25,7 +25,7 @@ class MobileShell < Formula
 
   depends_on "pkg-config" => :build
   depends_on "protobuf"
-  depends_on perl: "5.14" if MacOS.version <= :mountain_lion
+  depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
 
   def install
     # teach mosh to locate mosh-client without referring

@@ -11,7 +11,7 @@ class Clipsafe < Formula
     sha256 "7ffe9cabd07551eba27db6bd00927a6653d71ebf8631186dc6b6876daa08a66b" => :mavericks
   end
 
-  depends_on macos: :mountain_lion
+  depends_on :macos => :mountain_lion
 
   resource "Crypt::Twofish" do
     url "https://cpan.metacpan.org/authors/id/A/AM/AMS/Crypt-Twofish-2.17.tar.gz"
@@ -53,7 +53,7 @@ class Clipsafe < Formula
     end
 
     bin.install "clipsafe"
-    bin.env_script_all_files(libexec+"bin", PERL5LIB: ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec+"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
 
   test do

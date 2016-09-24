@@ -17,7 +17,7 @@ class Libraw < Formula
 
   resource "librawtestfile" do
     url "https://www.rawsamples.ch/raws/nikon/d1/RAW_NIKON_D1.NEF",
-      using: :nounzip
+      :using => :nounzip
     sha256 "7886d8b0e1257897faa7404b98fe1086ee2d95606531b6285aed83a0939b768f"
   end
 

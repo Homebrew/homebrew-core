@@ -10,7 +10,7 @@ class Taylor < Formula
     sha256 "892f7e3145820f4ac482bef208b7a96435dfae38efe7bb2e1723b27a244c19cb" => :el_capitan
   end
 
-  depends_on xcode: ["7.3"]
+  depends_on :xcode => ["7.3"]
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "MAKE_SYMLINKS=no"

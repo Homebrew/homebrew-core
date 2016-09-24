@@ -13,7 +13,7 @@ class Vcprompt < Formula
   end
 
   head do
-    url "https://bitbucket.org/gward/vcprompt", using: :hg
+    url "https://bitbucket.org/gward/vcprompt", :using => :hg
     depends_on "autoconf" => :build
   end
 

@@ -61,7 +61,7 @@ class Rabbitmq < Formula
     EOS
   end
 
-  plist_options manual: "rabbitmq-server"
+  plist_options :manual => "rabbitmq-server"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

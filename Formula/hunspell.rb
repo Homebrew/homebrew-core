@@ -13,7 +13,7 @@ class Hunspell < Formula
 
   depends_on "readline"
 
-  conflicts_with "freeling", because: "both install 'analyze' binary"
+  conflicts_with "freeling", :because => "both install 'analyze' binary"
 
   # hunspell does not prepend $HOME to all USEROODIRs
   # https://github.com/hunspell/hunspell/issues/32

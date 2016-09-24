@@ -20,7 +20,7 @@ class Node < Formula
   deprecated_option "enable-debug" => "with-debug"
   deprecated_option "with-icu4c" => "with-full-icu"
 
-  depends_on python: :build if MacOS.version <= :snow_leopard
+  depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "openssl" => :optional
 
@@ -30,7 +30,7 @@ class Node < Formula
   fails_with :gcc_4_0
   fails_with :gcc
   ("4.3".."4.7").each do |n|
-    fails_with gcc: n
+    fails_with :gcc => n
   end
 
   # We track major/minor from upstream Node releases.

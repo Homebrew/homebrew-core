@@ -29,7 +29,7 @@ class Theharvester < Formula
 
     libexec.install Dir["*"]
     (libexec/"theHarvester.py").chmod 0755
-    (bin/"theharvester").write_env_script("#{libexec}/theHarvester.py", PYTHONPATH: ENV["PYTHONPATH"])
+    (bin/"theharvester").write_env_script("#{libexec}/theHarvester.py", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

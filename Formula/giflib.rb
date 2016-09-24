@@ -20,7 +20,7 @@ class Giflib < Formula
 
   option :universal
 
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   def install
     ENV.universal_binary if build.universal?

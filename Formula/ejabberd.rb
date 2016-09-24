@@ -62,7 +62,7 @@ class Ejabberd < Formula
     EOS
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/sbin/ejabberdctl start"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/ejabberdctl start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

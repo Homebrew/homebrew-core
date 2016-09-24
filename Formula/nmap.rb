@@ -3,7 +3,7 @@ class Nmap < Formula
   homepage "https://nmap.org/"
   url "https://nmap.org/dist/nmap-7.12.tar.bz2"
   sha256 "63df082a87c95a189865d37304357405160fc6333addcf5b84204c95e0539b04"
-  head "https://guest:@svn.nmap.org/nmap/", using: :svn
+  head "https://guest:@svn.nmap.org/nmap/", :using => :svn
 
   bottle do
     sha256 "eb56ae006d639d6b524ec8fa9c47cb5166e3cd119f107a835d1a12b575f52e4d" => :sierra
@@ -17,7 +17,7 @@ class Nmap < Formula
   depends_on "openssl"
   depends_on "pygtk" => :optional
 
-  conflicts_with "ndiff", because: "both install `ndiff` binaries"
+  conflicts_with "ndiff", :because => "both install `ndiff` binaries"
 
   fails_with :llvm do
     build 2334

@@ -17,22 +17,22 @@ class Sift < Formula
 
   go_resource "github.com/svent/go-flags" do
     url "https://github.com/svent/go-flags.git",
-        revision: "4bcbad344f0318adaf7aabc16929701459009aa3"
+        :revision => "4bcbad344f0318adaf7aabc16929701459009aa3"
   end
 
   go_resource "github.com/svent/go-nbreader" do
     url "https://github.com/svent/go-nbreader.git",
-        revision: "7cef48da76dca6a496faa7fe63e39ed665cbd219"
+        :revision => "7cef48da76dca6a496faa7fe63e39ed665cbd219"
   end
 
   go_resource "github.com/svent/sift" do
     url "https://github.com/svent/sift.git",
-        revision: "2d175c4137cad933fa40e0af69020bd658ef5fb3"
+        :revision => "2d175c4137cad933fa40e0af69020bd658ef5fb3"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        revision: "1f22c0103821b9390939b6776727195525381532"
+        :revision => "1f22c0103821b9390939b6776727195525381532"
   end
 
   def install

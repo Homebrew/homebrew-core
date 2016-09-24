@@ -3,7 +3,7 @@ class Portaudio < Formula
   homepage "http://www.portaudio.com"
   url "http://www.portaudio.com/archives/pa_stable_v19_20140130.tgz"
   sha256 "8fe024a5f0681e112c6979808f684c3516061cc51d3acc0b726af98fc96c8d57"
-  head "https://subversion.assembla.com/svn/portaudio/portaudio/trunk/", using: :svn
+  head "https://subversion.assembla.com/svn/portaudio/portaudio/trunk/", :using => :svn
 
   bottle do
     cellar :any

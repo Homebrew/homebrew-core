@@ -12,7 +12,7 @@ class Rethinkdb < Formula
     sha256 "dfa15869b955c42614200ff00987f8a4e9a50e1aabf9ee9738f43a617bf6cdac" => :mavericks
   end
 
-  depends_on macos: :lion
+  depends_on :macos => :lion
   depends_on "boost" => :build
   depends_on "openssl"
 
@@ -46,7 +46,7 @@ class Rethinkdb < Formula
     etc.install "packaging/assets/config/default.conf.sample" => "rethinkdb.conf"
   end
 
-  plist_options manual: "rethinkdb"
+  plist_options :manual => "rethinkdb"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

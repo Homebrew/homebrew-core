@@ -20,12 +20,12 @@ class Ganglia < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on apr: :build
+  depends_on :apr => :build
   depends_on "confuse"
   depends_on "pcre"
   depends_on "rrdtool"
 
-  conflicts_with "coreutils", because: "both install `gstat` binaries"
+  conflicts_with "coreutils", :because => "both install `gstat` binaries"
 
   def install
     if build.head?

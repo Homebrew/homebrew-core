@@ -16,7 +16,7 @@ class HtopOsx < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  conflicts_with "htop", because: "both install an `htop` binary"
+  conflicts_with "htop", :because => "both install an `htop` binary"
 
   def install
     # Otherwise htop will segfault when resizing the terminal

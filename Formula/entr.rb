@@ -13,8 +13,8 @@ class Entr < Formula
   end
 
   head do
-    url "https://bitbucket.org/eradman/entr", using: :hg
-    depends_on hg: :build
+    url "https://bitbucket.org/eradman/entr", :using => :hg
+    depends_on :hg => :build
   end
 
   def install

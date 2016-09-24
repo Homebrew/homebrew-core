@@ -12,7 +12,7 @@ class Sbt < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.6+"
+  depends_on :java => "1.6+"
 
   def install
     inreplace "bin/sbt" do |s|

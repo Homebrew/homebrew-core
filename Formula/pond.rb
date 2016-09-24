@@ -28,32 +28,32 @@ class Pond < Formula
 
   go_resource "github.com/agl/ed25519" do
     url "https://github.com/agl/ed25519.git",
-        revision: "278e1ec8e8a6e017cd07577924d6766039146ced"
+        :revision => "278e1ec8e8a6e017cd07577924d6766039146ced"
   end
 
   go_resource "github.com/agl/pond" do
     url "https://github.com/agl/pond.git",
-        revision: "bce6e0dc61803c23699c749e29a83f81da3c41b2"
+        :revision => "bce6e0dc61803c23699c749e29a83f81da3c41b2"
   end
 
   go_resource "github.com/golang/protobuf" do
     url "https://github.com/golang/protobuf.git",
-        revision: "68415e7123da32b07eab49c96d2c4d6158360e9b"
+        :revision => "68415e7123da32b07eab49c96d2c4d6158360e9b"
   end
 
   go_resource "github.com/agl/go-gtk" do
     url "https://github.com/agl/go-gtk.git",
-        revision: "91c1edb38c241d73129e6b098ca1c9fa83abfc15"
+        :revision => "91c1edb38c241d73129e6b098ca1c9fa83abfc15"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        revision: "7b85b097bf7527677d54d3220065e966a0e3b613"
+        :revision => "7b85b097bf7527677d54d3220065e966a0e3b613"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        revision: "72b0708b72ac7a531f8e89f370e6214aad23ee2e"
+        :revision => "72b0708b72ac7a531f8e89f370e6214aad23ee2e"
   end
 
   def install

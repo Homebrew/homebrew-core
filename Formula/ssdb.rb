@@ -50,7 +50,7 @@ class Ssdb < Formula
     etc.install "ssdb_slave.conf"
   end
 
-  plist_options manual: "ssdb-server #{HOMEBREW_PREFIX}/etc/ssdb.conf"
+  plist_options :manual => "ssdb-server #{HOMEBREW_PREFIX}/etc/ssdb.conf"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -19,27 +19,27 @@ class Dockward < Formula
 
   go_resource "github.com/Sirupsen/logrus" do
     url "https://github.com/Sirupsen/logrus.git",
-        revision: "a26f43589d737684363ff856c5a0f9f24b946510"
+        :revision => "a26f43589d737684363ff856c5a0f9f24b946510"
   end
 
   go_resource "github.com/docker/engine-api" do
     url "https://github.com/docker/engine-api.git",
-        revision: "fba5dc8922bbc5098a0da24704c04ae3c4bf8b4a"
+        :revision => "fba5dc8922bbc5098a0da24704c04ae3c4bf8b4a"
   end
 
   go_resource "github.com/docker/go-connections" do
     url "https://github.com/docker/go-connections.git",
-        revision: "f549a9393d05688dff0992ef3efd8bbe6c628aeb"
+        :revision => "f549a9393d05688dff0992ef3efd8bbe6c628aeb"
   end
 
   go_resource "github.com/docker/go-units" do
     url "https://github.com/docker/go-units.git",
-        revision: "5d2041e26a699eaca682e2ea41c8f891e1060444"
+        :revision => "5d2041e26a699eaca682e2ea41c8f891e1060444"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        revision: "042ba42fa6633b34205efc66ba5719cd3afd8d38"
+        :revision => "042ba42fa6633b34205efc66ba5719cd3afd8d38"
   end
 
   def install

@@ -11,7 +11,7 @@ class Mat < Formula
     sha256 "53c46830d2c77a24e2096e8aa6e30fdc1a2510957573b8578d8316dfeab1b635" => :mavericks
   end
 
-  depends_on python: :optional
+  depends_on :python => :optional
   depends_on "coreutils"
   depends_on "poppler"
   depends_on "pygobject3"
@@ -66,7 +66,7 @@ class Mat < Formula
     rm bin/"mat-gui"
     man1.install Dir["*.1"]
 
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   def caveats; <<-EOS.undent

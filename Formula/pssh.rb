@@ -13,7 +13,7 @@ class Pssh < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  conflicts_with "putty", because: "both install `pscp` binaries"
+  conflicts_with "putty", :because => "both install `pscp` binaries"
 
   def install
     ENV["PYTHONPATH"] = lib/"python2.7/site-packages"
@@ -21,7 +21,7 @@ class Pssh < Formula
     system "python", "setup.py", "install", "--prefix=#{prefix}",
                                  "--install-data=#{share}"
 
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

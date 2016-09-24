@@ -12,9 +12,9 @@ class Rem < Formula
     sha256 "3c858e09bce1941b84ca3e5d77163cac4e3b7efcd6a1afcc72354a450c8ee495" => :mountain_lion
   end
 
-  depends_on xcode: :build
+  depends_on :xcode => :build
 
-  conflicts_with "remind", because: "both install `rem` binaries"
+  conflicts_with "remind", :because => "both install `rem` binaries"
 
   def install
     xcodebuild

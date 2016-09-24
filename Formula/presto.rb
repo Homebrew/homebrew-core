@@ -6,7 +6,7 @@ class Presto < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.8+"
+  depends_on :java => "1.8+"
 
   resource "presto-cli" do
     url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.150/presto-cli-0.150-executable.jar"
@@ -67,7 +67,7 @@ class Presto < Formula
     EOS
   end
 
-  plist_options manual: "presto-server run"
+  plist_options :manual => "presto-server run"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -1,7 +1,7 @@
 class Rubberband < Formula
   desc "audio time stretcher tool and library"
   homepage "http://breakfastquay.com/rubberband/"
-  head "https://bitbucket.org/breakfastquay/rubberband/", using: :hg
+  head "https://bitbucket.org/breakfastquay/rubberband/", :using => :hg
 
   stable do
     url "http://code.breakfastquay.com/attachments/download/34/rubberband-1.8.1.tar.bz2"

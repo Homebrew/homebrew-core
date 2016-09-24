@@ -19,7 +19,7 @@ class OpenBabel < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on python: :optional
+  depends_on :python => :optional
   depends_on "wxmac" => :optional
   depends_on "cairo" => :optional
   depends_on "eigen"

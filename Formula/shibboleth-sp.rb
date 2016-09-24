@@ -11,7 +11,7 @@ class ShibbolethSp < Formula
 
   option "with-apache-22", "Build mod_shib_22.so instead of mod_shib_24.so"
 
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
   depends_on "curl" => "with-openssl"
   depends_on "opensaml"
   depends_on "xml-tooling-c"
@@ -43,7 +43,7 @@ class ShibbolethSp < Formula
     system "make", "install"
   end
 
-  plist_options startup: true, manual: "shibd"
+  plist_options :startup => true, :manual => "shibd"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

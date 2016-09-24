@@ -12,7 +12,7 @@ class Dvdrtools < Formula
   end
 
   conflicts_with "cdrtools",
-    because: "both cdrtools and dvdrtools install binaries by the same name"
+    :because => "both cdrtools and dvdrtools install binaries by the same name"
 
   # Below three patches via MacPorts.
   patch :p0 do

@@ -10,7 +10,7 @@ class Ghq < Formula
 
     go_resource "github.com/codegangsta/cli" do
       url "https://github.com/codegangsta/cli.git",
-          revision: "aca5b047ed14d17224157c3434ea93bf6cdaadee"
+          :revision => "aca5b047ed14d17224157c3434ea93bf6cdaadee"
     end
   end
 
@@ -27,7 +27,7 @@ class Ghq < Formula
 
     go_resource "github.com/codegangsta/cli" do
       url "https://github.com/codegangsta/cli.git",
-          revision: "1efa31f08b9333f1bd4882d61f9d668a70cd902e"
+          :revision => "1efa31f08b9333f1bd4882d61f9d668a70cd902e"
     end
   end
 
@@ -37,17 +37,17 @@ class Ghq < Formula
 
   go_resource "github.com/mitchellh/go-homedir" do
     url "https://github.com/mitchellh/go-homedir.git",
-        revision: "981ab348d865cf048eb7d17e78ac7192632d8415"
+        :revision => "981ab348d865cf048eb7d17e78ac7192632d8415"
   end
 
   go_resource "github.com/motemen/go-colorine" do
     url "https://github.com/motemen/go-colorine.git",
-        revision: "49ff36b8fa42db28092361cd20dcefd0b03b1472"
+        :revision => "49ff36b8fa42db28092361cd20dcefd0b03b1472"
   end
 
   go_resource "github.com/daviddengcn/go-colortext" do
     url "https://github.com/daviddengcn/go-colortext.git",
-        revision: "3b18c8575a432453d41fdafb340099fff5bba2f7"
+        :revision => "3b18c8575a432453d41fdafb340099fff5bba2f7"
   end
 
   def install

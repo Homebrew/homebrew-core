@@ -12,7 +12,7 @@ class TinyFugue < Formula
     sha256 "0d7db7bf7a3744de5cb572c013da516e98b5d6ed911a2f3bf4e0a028a160fd04" => :mavericks
   end
 
-  conflicts_with "tee-clc", because: "both install a `tf` binary"
+  conflicts_with "tee-clc", :because => "both install a `tf` binary"
 
   depends_on "libnet"
   depends_on "openssl"

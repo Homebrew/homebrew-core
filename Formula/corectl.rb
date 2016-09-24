@@ -3,7 +3,7 @@ class Corectl < Formula
   homepage "https://github.com/TheNewNormal/corectl"
   url "https://github.com/TheNewNormal/corectl/archive/v0.7.17.tar.gz"
   sha256 "915ae2988dc57bcf7f28e0ed6c2971ae6f83879daaadbb98bef3bad0b50039e4"
-  head "https://github.com/TheNewNormal/corectl.git", branch: "golang"
+  head "https://github.com/TheNewNormal/corectl.git", :branch => "golang"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +16,7 @@ class Corectl < Formula
   depends_on "ocaml" => :build
   depends_on "aspcud" => :build
   depends_on "opam" => :build
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
 
   def install
     ENV["GOPATH"] = buildpath

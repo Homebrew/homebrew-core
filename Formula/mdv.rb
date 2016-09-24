@@ -41,7 +41,7 @@ class Mdv < Formula
     (libexec/"bin").install %w[mdv.py docopt.py tabulate.py ansi_tables.json]
 
     bin.install_symlink "mdv.py" => "mdv"
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

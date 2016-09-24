@@ -13,7 +13,7 @@ class Screenresolution < Formula
   end
 
   # Uses CGDisplayModeRef type, introduced in 10.6
-  depends_on macos: :snow_leopard
+  depends_on :macos => :snow_leopard
 
   def install
     system "make", "CC=#{ENV.cc}"

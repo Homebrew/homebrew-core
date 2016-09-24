@@ -43,7 +43,7 @@ class Boost < Formula
     depends_on "open-mpi" => "c++11" if build.with? "mpi"
   else
     depends_on "icu4c" => :optional
-    depends_on mpi: [:cc, :cxx, :optional]
+    depends_on :mpi => [:cc, :cxx, :optional]
   end
 
   fails_with :llvm do

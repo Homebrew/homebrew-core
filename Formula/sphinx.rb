@@ -21,13 +21,13 @@ class Sphinx < Formula
   deprecated_option "id64" => "with-id64"
 
   depends_on "re2" => :optional
-  depends_on mysql: :optional
-  depends_on postgresql: :optional
+  depends_on :mysql => :optional
+  depends_on :postgresql => :optional
   depends_on "openssl" if build.with? "mysql"
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
-        revision: "9b58e92c965cd7e3208247ace3cc00d173397f3c"
+        :revision => "9b58e92c965cd7e3208247ace3cc00d173397f3c"
   end
 
   fails_with :llvm do

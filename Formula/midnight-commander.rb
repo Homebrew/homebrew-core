@@ -23,7 +23,7 @@ class MidnightCommander < Formula
   depends_on "s-lang"
   depends_on "libssh2"
 
-  conflicts_with "minio-mc", because: "Both install a `mc` binary"
+  conflicts_with "minio-mc", :because => "Both install a `mc` binary"
 
   def install
     args = %W[

@@ -29,7 +29,7 @@ class SpoofMac < Formula
 
     system "python", *Language::Python.setup_install_args(libexec)
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   def caveats; <<-EOS.undent
@@ -46,7 +46,7 @@ class SpoofMac < Formula
     EOS
   end
 
-  plist_options startup: true, manual: "spoof-mac"
+  plist_options :startup => true, :manual => "spoof-mac"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -3,7 +3,7 @@ class Clog < Formula
   homepage "https://taskwarrior.org/docs/clog/"
   url "https://tasktools.org/download/clog-1.3.0.tar.gz"
   sha256 "fed44a8d398790ab0cf426c1b006e7246e20f3fcd56c0ec4132d24b05d5d2018"
-  head "https://git.tasktools.org/scm/ut/clog.git", branch: "1.4.0", shallow: false
+  head "https://git.tasktools.org/scm/ut/clog.git", :branch => "1.4.0", :shallow => false
 
   bottle do
     cellar :any_skip_relocation

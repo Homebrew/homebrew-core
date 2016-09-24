@@ -4,7 +4,7 @@ class Caf < Formula
   homepage "https://actor-framework.org/"
   url "https://github.com/actor-framework/actor-framework/archive/0.15.0.tar.gz"
   sha256 "db0e03e5cdcf53db9af6499ce418340cbc6412acc240c88ad352524db69b0c79"
-  head "https://github.com/actor-framework/actor-framework.git", branch: "develop"
+  head "https://github.com/actor-framework/actor-framework.git", :branch => "develop"
 
   bottle do
     cellar :any

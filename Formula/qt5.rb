@@ -1,6 +1,6 @@
 class OracleHomeVarRequirement < Requirement
   fatal true
-  satisfy(build_env: false) { ENV["ORACLE_HOME"] }
+  satisfy(:build_env => false) { ENV["ORACLE_HOME"] }
 
   def message; <<-EOS.undent
       To use --with-oci you have to set the ORACLE_HOME environment variable.
@@ -18,7 +18,7 @@ class Qt5 < Formula
   mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.6/5.6.1-1/single/qt-everywhere-opensource-src-5.6.1-1.tar.xz"
   sha256 "ce08a7eb54661705f55fb283d895a089b267c688fabe017062bd71b9231736db"
 
-  head "https://code.qt.io/qt/qt5.git", branch: "5.6", shallow: false
+  head "https://code.qt.io/qt/qt5.git", :branch => "5.6", :shallow => false
 
   bottle do
     sha256 "2aaa410f2ab2fbbddbc8c3438e43bc9f4271774c794bcae8f935fb6b1b5a82ed" => :el_capitan
@@ -62,12 +62,12 @@ class Qt5 < Formula
   # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
   # configuration and thus untested in practice. Builds on OS X 10.7 have been
   # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
-  depends_on macos: :mountain_lion
+  depends_on :macos => :mountain_lion
 
   depends_on "dbus" => :optional
-  depends_on mysql: :optional
-  depends_on postgresql: :optional
-  depends_on xcode: :build
+  depends_on :mysql => :optional
+  depends_on :postgresql => :optional
+  depends_on :xcode => :build
 
   depends_on OracleHomeVarRequirement if build.with? "oci"
 

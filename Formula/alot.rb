@@ -5,7 +5,7 @@ class Alot < Formula
   homepage "https://github.com/pazz/alot"
   url "https://github.com/pazz/alot/archive/0.3.7.tar.gz"
   sha256 "fd2d4121ba109224560919e84e320b09526891fbc0038afcea26a3f1284dad26"
-  head "https://github.com/pazz/alot.git", branch: "testing"
+  head "https://github.com/pazz/alot.git", :branch => "testing"
 
   bottle do
     cellar :any

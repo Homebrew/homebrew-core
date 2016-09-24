@@ -21,7 +21,7 @@ class Gnatsd < Formula
     system "go", "build", "-o", bin/"gnatsd", "main.go"
   end
 
-  plist_options manual: "gnatsd"
+  plist_options :manual => "gnatsd"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

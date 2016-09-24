@@ -11,7 +11,7 @@ class ZanataClient < Formula
     sha256 "7ff54b8ca01393f2c85e30c595572c04fcc903838ede194325914b183e9f9c00" => :mavericks
   end
 
-  depends_on java: "1.8+"
+  depends_on :java => "1.8+"
 
   def install
     libexec.install Dir["*"]

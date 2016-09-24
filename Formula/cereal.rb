@@ -3,7 +3,7 @@ class Cereal < Formula
   homepage "https://uscilab.github.io/cereal/"
   url "https://github.com/USCiLab/cereal/archive/v1.2.1.tar.gz"
   sha256 "7d321c22ea1280b47ddb06f3e9702fcdbb2910ff2f3df0a2554804210714434e"
-  head "https://github.com/USCiLab/cereal.git", branch: "develop"
+  head "https://github.com/USCiLab/cereal.git", :branch => "develop"
 
   bottle :unneeded
 
@@ -18,7 +18,7 @@ class Cereal < Formula
 
   # error: chosen constructor is explicit in copy-initialization
   # Reported 3 Sep 2016: https://github.com/USCiLab/cereal/issues/339
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
 
   needs :cxx11
 

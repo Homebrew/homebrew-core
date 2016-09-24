@@ -6,10 +6,10 @@ class Findbugs < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
 
   conflicts_with "fb-client",
-    because: "findbugs and fb-client both install a `fb` binary"
+    :because => "findbugs and fb-client both install a `fb` binary"
 
   def install
     # Remove windows files

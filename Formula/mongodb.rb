@@ -18,15 +18,15 @@ class Mongodb < Formula
 
   depends_on "boost" => :optional
   depends_on "go" => :build
-  depends_on macos: :mountain_lion
+  depends_on :macos => :mountain_lion
   depends_on "scons" => :build
   depends_on "openssl" => :recommended
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
-        tag: "r3.2.9",
-        revision: "4a4e7d30773b28cf66f75e45bc289a5d3ca49ddd",
-        shallow: false
+        :tag => "r3.2.9",
+        :revision => "4a4e7d30773b28cf66f75e45bc289a5d3ca49ddd",
+        :shallow => false
   end
 
   needs :cxx11
@@ -98,7 +98,7 @@ class Mongodb < Formula
     EOS
   end
 
-  plist_options manual: "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
+  plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

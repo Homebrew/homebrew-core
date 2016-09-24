@@ -47,7 +47,7 @@ class Apollo < Formula
     EOS
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/var/apollo/bin/apollo-broker run"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/var/apollo/bin/apollo-broker run"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

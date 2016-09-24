@@ -11,8 +11,8 @@ class PcapDnsproxy < Formula
     sha256 "5c5116f0dce4f632b089393a5dc2981c947e9f5ac0c1a91aa6d708a01cf4123b" => :yosemite
   end
 
-  depends_on macos: :yosemite
-  depends_on xcode: :build
+  depends_on :macos => :yosemite
+  depends_on :xcode => :build
 
   def install
     xcodebuild "-project", "./Source/Pcap_DNSProxy.xcodeproj", "-target", "Pcap_DNSProxy", "-configuration", "Release", "SYMROOT=build"
@@ -20,7 +20,7 @@ class PcapDnsproxy < Formula
     (etc/"pcap_DNSproxy").install Dir["Source/ExampleConfig/*.{ini,txt}"]
   end
 
-  plist_options startup: true, manual: "sudo #{HOMEBREW_PREFIX}/opt/pcap_dnsproxy/bin/Pcap_DNSProxy -c #{HOMEBREW_PREFIX}/etc/pcap_dnsproxy/"
+  plist_options :startup => true, :manual => "sudo #{HOMEBREW_PREFIX}/opt/pcap_dnsproxy/bin/Pcap_DNSProxy -c #{HOMEBREW_PREFIX}/etc/pcap_dnsproxy/"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

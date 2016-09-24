@@ -6,7 +6,7 @@ class Embulk < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
 
   def install
     # Execute through /bin/bash to be compatible with OS X 10.9.

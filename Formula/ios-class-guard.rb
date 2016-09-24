@@ -12,8 +12,8 @@ class IosClassGuard < Formula
     sha256 "4eddde784c843628cb8bcb8c971142683c5a17373058f5bda62356b432dec00a" => :mavericks
   end
 
-  depends_on macos: :mavericks
-  depends_on xcode: :build
+  depends_on :macos => :mavericks
+  depends_on :xcode => :build
 
   def install
     xcodebuild "-workspace", "ios-class-guard.xcworkspace", "-scheme", "ios-class-guard", "-configuration", "Release", "SYMROOT=build", "PREFIX=#{prefix}", "ONLY_ACTIVE_ARCH=YES"

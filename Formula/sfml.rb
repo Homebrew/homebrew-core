@@ -23,7 +23,7 @@ class Sfml < Formula
   depends_on "openal-soft" => :optional
 
   # https://github.com/Homebrew/homebrew/issues/40301
-  depends_on macos: :lion
+  depends_on :macos => :lion
 
   def install
     args = std_cmake_args

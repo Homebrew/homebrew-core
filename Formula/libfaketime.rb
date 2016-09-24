@@ -12,7 +12,7 @@ class Libfaketime < Formula
     sha256 "4b7477042b15dd475fc16de06df07e9cc3a983033d6d21ac6029dfc1ddfb1925" => :mountain_lion
   end
 
-  depends_on macos: :lion
+  depends_on :macos => :lion
 
   fails_with :llvm do
     build 2336

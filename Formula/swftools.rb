@@ -21,7 +21,7 @@ class Swftools < Formula
   depends_on "fftw" => :optional
 
   resource "xpdf" do
-    url "ftp://ftp.foolabs.com/pub/xpdf/xpdf-3.04.tar.gz", using: :nounzip
+    url "ftp://ftp.foolabs.com/pub/xpdf/xpdf-3.04.tar.gz", :using => :nounzip
     sha256 "11390c74733abcb262aaca4db68710f13ffffd42bfe2a0861a5dfc912b2977e5"
   end
 

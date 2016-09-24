@@ -12,7 +12,7 @@ class Gosu < Formula
     sha256 "89b53c0e632bfcc9a5385e0ac583c026fe39a2ed91a971233e2d45d235196584" => :mavericks
   end
 
-  depends_on java: "1.8+"
+  depends_on :java => "1.8+"
   depends_on "maven" => :build
 
   skip_clean "libexec/ext"

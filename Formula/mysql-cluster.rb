@@ -23,14 +23,14 @@ class MysqlCluster < Formula
   deprecated_option "enable-local-infile" => "with-local-infile"
   deprecated_option "enable-debug" => "with-debug"
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
   depends_on "cmake" => :build
   depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
 
-  conflicts_with "memcached", because: "both install `bin/memcached`"
+  conflicts_with "memcached", :because => "both install `bin/memcached`"
   conflicts_with "mysql", "mariadb", "percona-server",
-    because: "mysql, mariadb, and percona install the same binaries."
+    :because => "mysql, mariadb, and percona install the same binaries."
 
   fails_with :clang do
     build 500

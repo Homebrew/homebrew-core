@@ -31,10 +31,10 @@ class Ldc < Formula
   end
 
   head do
-    url "https://github.com/ldc-developers/ldc.git", shallow: false
+    url "https://github.com/ldc-developers/ldc.git", :shallow => false
 
     resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc.git", shallow: false, branch: "ltsmaster"
+      url "https://github.com/ldc-developers/ldc.git", :shallow => false, :branch => "ltsmaster"
     end
   end
 

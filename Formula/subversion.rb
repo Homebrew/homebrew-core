@@ -32,7 +32,7 @@ class Subversion < Formula
     depends_on "apr-util"
     depends_on "apr"
   else
-    depends_on apr: :build
+    depends_on :apr => :build
   end
 
   resource "serf" do
@@ -42,7 +42,7 @@ class Subversion < Formula
 
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on "sqlite"
-  depends_on python: :optional
+  depends_on :python => :optional
 
   # Bindings require swig
   depends_on "swig" if build.with?("perl") || build.with?("python") || build.with?("ruby")
@@ -53,7 +53,7 @@ class Subversion < Formula
 
   # Other optional dependencies
   depends_on "gpg-agent" => :optional
-  depends_on java: :optional
+  depends_on :java => :optional
 
   # Fix #23993 by stripping flags swig can't handle from SWIG_CPPFLAGS
   # Prevent "-arch ppc" from being pulled in from Perl's $Config{ccflags}

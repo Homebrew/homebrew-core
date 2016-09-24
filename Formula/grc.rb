@@ -8,7 +8,7 @@ class Grc < Formula
 
   bottle :unneeded
 
-  conflicts_with "cc65", because: "both install `grc` binaries"
+  conflicts_with "cc65", :because => "both install `grc` binaries"
 
   def install
     inreplace ["grc", "grc.1"], "/etc", etc

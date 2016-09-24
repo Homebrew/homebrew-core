@@ -17,7 +17,7 @@ class Mg3a < Formula
   option "with-most", "Include c-like and python modes, user modes and user macros"
   option "with-all", "Include all fancy stuff"
 
-  conflicts_with "mg", because: "both install `mg`"
+  conflicts_with "mg", :because => "both install `mg`"
 
   def install
     if build.with?("all")

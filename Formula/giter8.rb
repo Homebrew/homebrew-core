@@ -11,11 +11,11 @@ class Giter8 < Formula
     sha256 "56430765ef7a29fe7929e17b4a4da636f514920c5b92349009b9d784e8ad723c" => :mavericks
   end
 
-  depends_on java: "1.6+"
+  depends_on :java => "1.6+"
 
   resource "conscript" do
     url "https://github.com/foundweekends/conscript.git",
-        revision: "f7ee8b5bc3b00592adbd09c878b6649b624f141c"
+        :revision => "f7ee8b5bc3b00592adbd09c878b6649b624f141c"
   end
 
   resource "launcher" do

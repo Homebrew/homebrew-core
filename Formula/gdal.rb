@@ -74,7 +74,7 @@ class Gdal < Formula
     depends_on "json-c"
   end
 
-  depends_on java: ["1.7+", :optional, :build]
+  depends_on :java => ["1.7+", :optional, :build]
 
   if build.with? "swig-java"
     depends_on "ant" => :build
@@ -82,9 +82,9 @@ class Gdal < Formula
   end
 
   option "without-python", "Build without python2 support"
-  depends_on python: :optional if MacOS.version <= :snow_leopard
-  depends_on python3: :optional
-  depends_on fortran: :build if build.with?("python") || build.with?("python3")
+  depends_on :python => :optional if MacOS.version <= :snow_leopard
+  depends_on :python3 => :optional
+  depends_on :fortran => :build if build.with?("python") || build.with?("python3")
 
   # Extra linking libraries in configure test of armadillo may throw warning
   # see: https://trac.osgeo.org/gdal/ticket/5455
@@ -105,7 +105,7 @@ class Gdal < Formula
   resource "libkml" do
     # Until 1.3 is stable, use master branch
     url "https://github.com/google/libkml.git",
-        revision: "9b50572641f671194e523ad21d0171ea6537426e"
+        :revision => "9b50572641f671194e523ad21d0171ea6537426e"
     version "1.3-dev"
   end
 

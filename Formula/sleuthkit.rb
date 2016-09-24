@@ -3,7 +3,7 @@ class Sleuthkit < Formula
   homepage "http://www.sleuthkit.org/"
   url "https://github.com/sleuthkit/sleuthkit/archive/sleuthkit-4.3.0.tar.gz"
   sha256 "64a57a44955e91300e1ae69b34e8702afda0fb5bd72e2116429875c9f5f28980"
-  head "https://github.com/sleuthkit/sleuthkit.git", branch: "develop"
+  head "https://github.com/sleuthkit/sleuthkit.git", :branch => "develop"
 
   bottle do
     cellar :any
@@ -13,14 +13,14 @@ class Sleuthkit < Formula
     sha256 "c6045be0a652903ab303584e521aaae53a7fdb82af2b008408017749a22beacb" => :mavericks
   end
 
-  conflicts_with "irods", because: "both install `ils`"
+  conflicts_with "irods", :because => "both install `ils`"
 
   option "with-jni", "Build Sleuthkit with JNI bindings"
   option "with-debug", "Build debug version"
 
   if build.with? "jni"
     depends_on :java
-    depends_on ant: :build
+    depends_on :ant => :build
   end
 
   depends_on "autoconf" => :build
@@ -30,7 +30,7 @@ class Sleuthkit < Formula
   depends_on "libewf" => :optional
 
   conflicts_with "ffind",
-    because: "both install a 'ffind' executable."
+    :because => "both install a 'ffind' executable."
 
   def install
     ENV.append_to_cflags "-DNDEBUG" if build.without? "debug"

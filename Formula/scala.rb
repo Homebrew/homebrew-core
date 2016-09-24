@@ -6,7 +6,7 @@ class Scala < Formula
     url "https://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz"
     sha256 "87fc86a19d9725edb5fd9866c5ee9424cdb2cd86b767f1bb7d47313e8e391ace"
 
-    depends_on java: "1.6+"
+    depends_on :java => "1.6+"
 
     resource "docs" do
       url "https://downloads.lightbend.com/scala/2.11.8/scala-docs-2.11.8.zip"
@@ -32,7 +32,7 @@ class Scala < Formula
     sha256 "ac4f05a75306b241a60a57dfabd8c5adec15435f0f380688ee5eb1caaa600192"
     version "2.12.0-RC1"
 
-    depends_on java: "1.8+"
+    depends_on :java => "1.8+"
 
     resource "docs" do
       url "http://www.scala-lang.org/files/archive/scala-docs-2.12.0-RC1.zip"

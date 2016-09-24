@@ -17,7 +17,7 @@ class Silk < Formula
   depends_on "glib"
   depends_on "libfixbuf"
   depends_on "yaf"
-  depends_on python: :optional
+  depends_on :python => :optional
 
   def install
     args = %W[

@@ -12,7 +12,7 @@ class Sslyze < Formula
     sha256 "0fab1f496b3f52e7637e0ed8ef23d8b435b925150ca15b85899c95cf61084e8b" => :mavericks
   end
 
-  depends_on arch: :x86_64
+  depends_on :arch => :x86_64
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "nassl" do

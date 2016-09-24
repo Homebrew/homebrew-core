@@ -9,7 +9,7 @@ class Ld64 < Formula
   sha256 "02bd46af0809eaa415d096d7d41c3e8e7d80f7d8d181840866fb87f036b4e089"
 
   resource "makefile" do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3b073fca/ld64/Makefile-97", using: :nounzip
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3b073fca/ld64/Makefile-97", :using => :nounzip
     sha256 "48e3475bd73f9501d17b7d334d3bf319f5664f2d5ab9d13378e37c2519ae2a3a"
   end
 

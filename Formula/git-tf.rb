@@ -5,7 +5,7 @@ class GitTf < Formula
   sha256 "91fd12e7db19600cc908e59b82104dbfbb0dbfba6fd698804a8330d6103aae74"
 
   head do
-    url "https://git01.codeplex.com/gittf", using: :git
+    url "https://git01.codeplex.com/gittf", :using => :git
     depends_on "maven" => :build
   end
 

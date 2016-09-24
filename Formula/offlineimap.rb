@@ -26,7 +26,7 @@ class Offlineimap < Formula
     libexec.install "bin/offlineimap" => "offlineimap.py"
     libexec.install "offlineimap"
     (bin/"offlineimap").write_env_script(libexec/"offlineimap.py",
-      PYTHONPATH: ENV["PYTHONPATH"])
+      :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   def caveats; <<-EOS.undent
@@ -39,7 +39,7 @@ class Offlineimap < Formula
     EOS
   end
 
-  plist_options manual: "offlineimap"
+  plist_options :manual => "offlineimap"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

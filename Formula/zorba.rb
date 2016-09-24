@@ -13,13 +13,13 @@ class Zorba < Formula
   option "with-big-integer", "Use 64 bit precision instead of arbitrary precision for performance"
   option "with-ssl-verification", "Enable SSL peer certificate verification"
 
-  depends_on macos: :mavericks
+  depends_on :macos => :mavericks
   depends_on "cmake" => :build
   depends_on "flex"
   depends_on "icu4c"
   depends_on "xerces-c"
 
-  conflicts_with "xqilla", because: "Both supply xqc.h"
+  conflicts_with "xqilla", :because => "Both supply xqc.h"
 
   needs :cxx11
 

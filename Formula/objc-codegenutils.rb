@@ -13,8 +13,8 @@ class ObjcCodegenutils < Formula
 
   head "https://github.com/square/objc-codegenutils.git"
 
-  depends_on macos: :mountain_lion
-  depends_on xcode: :build
+  depends_on :macos => :mountain_lion
+  depends_on :xcode => :build
 
   def install
     xcodebuild "-project", "codegenutils.xcodeproj", "-target", "assetgen", "-configuration", "Release", "SYMROOT=build", "OBJROOT=build"

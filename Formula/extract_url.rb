@@ -74,7 +74,7 @@ class ExtractUrl < Formula
 
     libexec.install "extract_url.pl"
     chmod 0755, libexec/"extract_url.pl"
-    (bin/"extract_url").write_env_script("#{libexec}/extract_url.pl", PERL5LIB: ENV["PERL5LIB"])
+    (bin/"extract_url").write_env_script("#{libexec}/extract_url.pl", :PERL5LIB => ENV["PERL5LIB"])
     man1.install "extract_url.1"
   end
 

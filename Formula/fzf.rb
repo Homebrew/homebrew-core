@@ -18,12 +18,12 @@ class Fzf < Formula
 
   go_resource "github.com/junegunn/go-shellwords" do
     url "https://github.com/junegunn/go-shellwords.git",
-        revision: "35d512af75e283aae4ca1fc3d44b159ed66189a4"
+        :revision => "35d512af75e283aae4ca1fc3d44b159ed66189a4"
   end
 
   go_resource "github.com/junegunn/go-runewidth" do
     url "https://github.com/junegunn/go-runewidth.git",
-        revision: "63c378b851290989b19ca955468386485f118c65"
+        :revision => "63c378b851290989b19ca955468386485f118c65"
   end
 
   def install

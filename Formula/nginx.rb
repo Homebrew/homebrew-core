@@ -24,7 +24,7 @@ class Nginx < Formula
   end
 
   head do
-    url "http://hg.nginx.org/nginx/", using: :hg
+    url "http://hg.nginx.org/nginx/", :using => :hg
 
     depends_on "openssl@1.1"
   end
@@ -150,7 +150,7 @@ class Nginx < Formula
     s
   end
 
-  plist_options manual: "nginx"
+  plist_options :manual => "nginx"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

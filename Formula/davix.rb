@@ -2,8 +2,8 @@ class Davix < Formula
   desc "Library and tools for advanced file I/O with HTTP-based protocols"
   homepage "https://dmc.web.cern.ch/projects/davix/home"
   url "https://github.com/cern-it-sdc-id/davix.git",
-    revision: "fdfb0def157e19d674d3b7018c3c41fcc38106d7",
-    tag: "R_0_6_4"
+    :revision => "fdfb0def157e19d674d3b7018c3c41fcc38106d7",
+    :tag => "R_0_6_4"
   version "0.6.4"
 
   head "https://github.com/cern-it-sdc-id/davix.git"

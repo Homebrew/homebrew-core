@@ -3,7 +3,7 @@ class Txr < Formula
   homepage "http://www.nongnu.org/txr/"
   url "http://www.kylheku.com/cgit/txr/snapshot/txr-133.tar.bz2"
   sha256 "3e2e598f71a60835f1ecbf3b80fbf8f9e9ef235c5ca204f1492bbf64a227cb90"
-  head "http://www.kylheku.com/git/txr", using: :git
+  head "http://www.kylheku.com/git/txr", :using => :git
 
   bottle do
     cellar :any_skip_relocation

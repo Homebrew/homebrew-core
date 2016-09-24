@@ -3,7 +3,7 @@ class Ncp < Formula
   homepage "https://www.fefe.de/ncp/"
   url "https://dl.fefe.de/ncp-1.2.4.tar.bz2"
   sha256 "6cfa72edd5f7717bf7a4a93ccc74c4abd89892360e2e0bb095a73c24b9359b88"
-  head ":pserver:cvs:@cvs.fefe.de:/cvs", using: :cvs
+  head ":pserver:cvs:@cvs.fefe.de:/cvs", :using => :cvs
 
   bottle do
     cellar :any_skip_relocation

@@ -11,7 +11,7 @@ class Cromwell < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.8+"
+  depends_on :java => "1.8+"
   depends_on "akka"
 
   def install

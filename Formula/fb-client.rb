@@ -4,7 +4,7 @@ class FbClient < Formula
   url "https://paste.xinu.at/data/client/fb-1.5.0.tar.gz"
   sha256 "205514e7ae6d2ce687c05a5f581248d0f06c29c4e8e004f768ba0b54a39ed2f3"
 
-  head "https://git.server-speed.net/users/flo/fb", using: :git
+  head "https://git.server-speed.net/users/flo/fb", :using => :git
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +16,7 @@ class FbClient < Formula
 
   depends_on "pkg-config" => :build
 
-  conflicts_with "findbugs", because: "findbugs and fb-client both install a `fb` binary"
+  conflicts_with "findbugs", :because => "findbugs and fb-client both install a `fb` binary"
 
   def install
     system "make", "PREFIX=#{prefix}", "install"

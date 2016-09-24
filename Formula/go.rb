@@ -11,8 +11,8 @@ class Go < Formula
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
-          branch: "release-branch.go#{go_version}",
-          revision: "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
+          :branch => "release-branch.go#{go_version}",
+          :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
     end
   end
 
@@ -35,7 +35,7 @@ class Go < Formula
   option "without-godoc", "godoc will not be installed for you"
   option "without-race", "Build without race detector"
 
-  depends_on macos: :mountain_lion
+  depends_on :macos => :mountain_lion
 
   # Should use the last stable binary release to bootstrap.
   # More explicitly, leave this at 1.7 when 1.7.1 is released.

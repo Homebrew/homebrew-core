@@ -17,15 +17,15 @@ class PostgresXc < Formula
   deprecated_option "no-perl" => "without-perl"
   deprecated_option "enable-dtrace" => "with-dtrace"
 
-  depends_on arch: :x86_64
+  depends_on :arch => :x86_64
   depends_on "openssl"
   depends_on "readline"
   depends_on "libxml2" if MacOS.version <= :leopard # Leopard libxml is too old
   depends_on "ossp-uuid" => :recommended
-  depends_on python: :optional
+  depends_on :python => :optional
 
   conflicts_with "postgresql",
-    because: "postgres-xc and postgresql install the same binaries."
+    :because => "postgres-xc and postgresql install the same binaries."
 
   fails_with :clang do
     build 211
@@ -165,7 +165,7 @@ class PostgresXc < Formula
     EOS
   end
 
-  plist_options startup: true
+  plist_options :startup => true
 
   # Override Formula#plist_name
   def plist_name(extra = nil)

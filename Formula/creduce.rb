@@ -17,7 +17,7 @@ class Creduce < Formula
   depends_on "delta"
   depends_on "llvm"
 
-  depends_on macos: :mavericks
+  depends_on :macos => :mavericks
 
   resource "Benchmark::Timer" do
     url "https://cpan.metacpan.org/authors/id/D/DC/DCOPPIT/Benchmark-Timer-0.7107.tar.gz"
@@ -73,7 +73,7 @@ class Creduce < Formula
     system "make"
     system "make", "install"
 
-    (bin/"creduce").write_env_script("#{libexec}/creduce", PERL5LIB: ENV["PERL5LIB"])
+    (bin/"creduce").write_env_script("#{libexec}/creduce", :PERL5LIB => ENV["PERL5LIB"])
   end
 
   test do

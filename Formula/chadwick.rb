@@ -26,9 +26,9 @@ class Chadwick < Formula
     date_xml_slug = date_xml.delete "/"
 
     # game_id and attributes for the retrosheet "team file"
-    attr = { game_id: "ATL#{date_xml_slug}0", home: "ATL", home_name: "Braves",
-             home_city: "Atlanta", visitor: "NYN", visitor_name: "Mets",
-             visitor_city: "New York" }
+    attr = { :game_id => "ATL#{date_xml_slug}0", :home => "ATL", :home_name => "Braves",
+             :home_city => "Atlanta", :visitor => "NYN", :visitor_name => "Mets",
+             :visitor_city => "New York" }
 
     # retrosheet "event file" name, chadwick's xml name?, our value
     attr_map_info = [
@@ -43,9 +43,9 @@ class Chadwick < Formula
     ]
 
     # expected (computed) score related data in chadwick's output
-    exp_linescore = { away_runs: "1", away_hits: "1", away_errors: "0",
-                      home_runs: "0", home_hits: "3", home_errors: "0" }
-    exp_ing_ln_score = { away: ["0", "0", "1"], home: ["0", "0", "0"] }
+    exp_linescore = { :away_runs => "1", :away_hits => "1", :away_errors => "0",
+                      :home_runs => "0", :home_hits => "3", :home_errors => "0" }
+    exp_ing_ln_score = { :away => ["0", "0", "1"], :home => ["0", "0", "0"] }
     exp_innings_cnt = exp_ing_ln_score.values[0].size
     exp_tmplayers_cnt = 9 # expected player count for each team
 

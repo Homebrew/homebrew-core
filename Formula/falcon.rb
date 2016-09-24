@@ -24,7 +24,7 @@ class Falcon < Formula
   depends_on "pcre"
 
   conflicts_with "sdl",
-    because: "Falcon optionally depends on SDL and then the build breaks. Fix it!"
+    :because => "Falcon optionally depends on SDL and then the build breaks. Fix it!"
 
   def install
     args = std_cmake_args + %W[

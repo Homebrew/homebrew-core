@@ -13,7 +13,7 @@ class LibreadlineJava < Formula
   end
 
   depends_on "readline"
-  depends_on java: "1.6+"
+  depends_on :java => "1.6+"
 
   # Fix "non-void function should return a value"-Error
   # https://sourceforge.net/tracker/?func=detail&atid=453822&aid=3566332&group_id=48669

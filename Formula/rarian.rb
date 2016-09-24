@@ -12,7 +12,7 @@ class Rarian < Formula
   end
 
   conflicts_with "scrollkeeper",
-    because: "rarian and scrollkeeper install the same binaries."
+    :because => "rarian and scrollkeeper install the same binaries."
 
   def install
     system "./configure", "--disable-dependency-tracking",

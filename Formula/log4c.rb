@@ -4,7 +4,7 @@ class Log4c < Formula
   url "https://downloads.sourceforge.net/project/log4c/log4c/1.2.4/log4c-1.2.4.tar.gz"
   sha256 "5991020192f52cc40fa852fbf6bbf5bd5db5d5d00aa9905c67f6f0eadeed48ea"
 
-  head ":pserver:anonymous:@log4c.cvs.sourceforge.net:/cvsroot/log4c", using: :cvs
+  head ":pserver:anonymous:@log4c.cvs.sourceforge.net:/cvsroot/log4c", :using => :cvs
 
   bottle do
     sha256 "2334e58e3ae201b28362707d2b64701e2e1378695e915baad886956e4edea50a" => :el_capitan

@@ -13,8 +13,8 @@ class Libzdb < Formula
   end
 
   depends_on "openssl"
-  depends_on postgresql: :recommended
-  depends_on mysql: :recommended
+  depends_on :postgresql => :recommended
+  depends_on :mysql => :recommended
   depends_on "sqlite" => :recommended
 
   def install

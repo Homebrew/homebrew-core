@@ -2,7 +2,7 @@ class Zsh5Requirement < Requirement
   default_formula "zsh"
   fatal true
 
-  satisfy build_env: false do
+  satisfy :build_env => false do
     begin
       `zsh --version`[/zsh (\d)/, 1] == "5"
     rescue
@@ -18,7 +18,7 @@ end
 class Zpython < Formula
   desc "Embeds a Python interpreter into zsh"
   homepage "https://bitbucket.org/ZyX_I/zsh"
-  head "https://bitbucket.org/ZyX_I/zsh.git", branch: "zpython"
+  head "https://bitbucket.org/ZyX_I/zsh.git", :branch => "zpython"
 
   stable do
     url "https://downloads.sourceforge.net/project/zsh/zsh/5.0.5/zsh-5.0.5.tar.bz2"

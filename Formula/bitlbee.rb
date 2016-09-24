@@ -55,7 +55,7 @@ class Bitlbee < Formula
     (var/"bitlbee/lib").mkpath
   end
 
-  plist_options manual: "bitlbee -D"
+  plist_options :manual => "bitlbee -D"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

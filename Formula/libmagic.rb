@@ -14,7 +14,7 @@ class Libmagic < Formula
 
   option :universal
 
-  depends_on python: :optional
+  depends_on :python => :optional
 
   def install
     ENV.universal_binary if build.universal?

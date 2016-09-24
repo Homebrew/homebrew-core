@@ -22,7 +22,7 @@ class Luciddb < Formula
     end
   end
 
-  plist_options manual: "lucidDbServer"
+  plist_options :manual => "lucidDbServer"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

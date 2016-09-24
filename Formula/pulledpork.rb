@@ -40,7 +40,7 @@ class Pulledpork < Formula
 
     chmod 0755, "pulledpork.pl"
     bin.install "pulledpork.pl"
-    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
     doc.install Dir["doc/*"]
     (etc/"pulledpork").install Dir["etc/*"]
   end

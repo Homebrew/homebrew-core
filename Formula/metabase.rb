@@ -14,7 +14,7 @@ class Metabase < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
 
   def install
     if build.head?
@@ -27,7 +27,7 @@ class Metabase < Formula
     bin.write_jar_script libexec/"metabase.jar", "metabase"
   end
 
-  plist_options startup: true, manual: "metabase"
+  plist_options :startup => true, :manual => "metabase"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -15,8 +15,8 @@ class Pyqt5 < Formula
 
   deprecated_option "enable-debug" => "with-debug"
 
-  depends_on python3: :recommended
-  depends_on python: :optional
+  depends_on :python3 => :recommended
+  depends_on :python => :optional
   depends_on "qt5"
 
   if build.with? "python3"

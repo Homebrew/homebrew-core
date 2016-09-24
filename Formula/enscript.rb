@@ -18,7 +18,7 @@ class Enscript < Formula
 
   depends_on "gettext"
 
-  conflicts_with "cspice", because: "both install `states` binaries"
+  conflicts_with "cspice", :because => "both install `states` binaries"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

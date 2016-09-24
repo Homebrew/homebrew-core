@@ -26,7 +26,7 @@ class Dovecot < Formula
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
-      revision: "3b1f4c2ac4b924bb429f929d9decd3f50662a6e0"
+      :revision => "3b1f4c2ac4b924bb429f929d9decd3f50662a6e0"
   end
 
   def install
@@ -80,7 +80,7 @@ class Dovecot < Formula
     EOS
   end
 
-  plist_options startup: true
+  plist_options :startup => true
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

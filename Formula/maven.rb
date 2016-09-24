@@ -28,7 +28,7 @@ class Maven < Formula
     end
   end
 
-  conflicts_with "mvnvm", because: "also installs a 'mvn' executable"
+  conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
 
   test do
     (testpath/"pom.xml").write <<-EOS.undent

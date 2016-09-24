@@ -10,7 +10,7 @@ class ZeroInstall < Formula
   # but those haven't made it into a stable release yet.
   # There's also a build fix for Ocaml 4.03.0 not in latest release.
   url "https://github.com/0install/0install.git",
-      revision: "5ec4a9f55ba8e38b60cceeef5da982847395928c"
+      :revision => "5ec4a9f55ba8e38b60cceeef5da982847395928c"
   version "2.11"
 
   bottle do
@@ -26,7 +26,7 @@ class ZeroInstall < Formula
   depends_on "opam" => :build
   depends_on "camlp4" => :build
   depends_on "gtk+" => :optional
-  depends_on gpg: :run
+  depends_on :gpg => :run
 
   resource "easy-format" do # [required by yojson]
     url "https://github.com/mjambon/easy-format/archive/v1.2.0.tar.gz"

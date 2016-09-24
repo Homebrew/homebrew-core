@@ -3,7 +3,7 @@ class Minizinc < Formula
   homepage "http://www.minizinc.org"
   url "https://github.com/MiniZinc/libminizinc/archive/2.0.13.tar.gz"
   sha256 "0b94f56553d162c6888d5eb336342df27cb605e0c18b01c7f2a54ee7e31dcd46"
-  head "https://github.com/MiniZinc/libminizinc.git", branch: "develop"
+  head "https://github.com/MiniZinc/libminizinc.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +12,7 @@ class Minizinc < Formula
     sha256 "2b48f64eabd1c4e88c71dc2c45d50fa7a6ba9fa90fc5e620de6baf2555e51ea6" => :mavericks
   end
 
-  depends_on arch: :x86_64
+  depends_on :arch => :x86_64
   depends_on "cmake" => :build
 
   def install

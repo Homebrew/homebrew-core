@@ -35,7 +35,7 @@ class GstPluginsGood < Formula
   depends_on "gst-plugins-base"
   depends_on "libsoup"
 
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   # Dependencies based on the intersection of
   # https://cgit.freedesktop.org/gstreamer/gst-plugins-good/tree/REQUIREMENTS

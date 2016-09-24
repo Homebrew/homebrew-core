@@ -12,7 +12,7 @@ class Blitz < Formula
   end
 
   head do
-    url "http://blitz.hg.sourceforge.net:8000/hgroot/blitz/blitz", using: :hg
+    url "http://blitz.hg.sourceforge.net:8000/hgroot/blitz/blitz", :using => :hg
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

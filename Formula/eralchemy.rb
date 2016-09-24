@@ -16,7 +16,7 @@ class Eralchemy < Formula
   depends_on "pkg-config" => :build
   depends_on "graphviz"
   depends_on "openssl"
-  depends_on postgresql: :optional
+  depends_on :postgresql => :optional
 
   resource "pygraphviz" do
     url "https://pypi.python.org/packages/source/p/pygraphviz/pygraphviz-1.3.1.tar.gz"
@@ -55,7 +55,7 @@ class Eralchemy < Formula
     system "python", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

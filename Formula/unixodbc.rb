@@ -16,7 +16,7 @@ class Unixodbc < Formula
 
   option :universal
 
-  conflicts_with "virtuoso", because: "Both install `isql` binaries."
+  conflicts_with "virtuoso", :because => "Both install `isql` binaries."
 
   def install
     ENV.universal_binary if build.universal?

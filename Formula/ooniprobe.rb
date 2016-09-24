@@ -157,7 +157,7 @@ class Ooniprobe < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", *Language::Python.setup_install_args(libexec)
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
     man1.install Dir["data/*.1"]
     (share/"ooni").install Dir["data/*"]
@@ -180,7 +180,7 @@ class Ooniprobe < Formula
     EOS
   end
 
-  plist_options startup: "true", manual: "ooniprobe -i #{HOMEBREW_PREFIX}/share/ooni/decks/current.deck"
+  plist_options :startup => "true", :manual => "ooniprobe -i #{HOMEBREW_PREFIX}/share/ooni/decks/current.deck"
 
   def plist; <<-EOS.undent
    <?xml version="1.0" encoding="UTF-8"?>

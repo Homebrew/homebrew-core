@@ -22,7 +22,7 @@ class Konoha < Formula
   deprecated_option "tests" => "with-test"
 
   depends_on "cmake" => :build
-  depends_on mpi: [:cc, :cxx]
+  depends_on :mpi => [:cc, :cxx]
   depends_on "pcre"
   depends_on "json-c"
   depends_on "sqlite"

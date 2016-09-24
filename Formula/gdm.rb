@@ -18,7 +18,7 @@ class Gdm < Formula
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        revision: "6f233b96dfbc53e33b302e31b88814cf74697ff6"
+        :revision => "6f233b96dfbc53e33b302e31b88814cf74697ff6"
   end
 
   def install

@@ -13,8 +13,8 @@ class ClosureCompiler < Formula
     sha256 "8c51e1b3b4a2af7650d5b0fe1c67577fa8b457c7656db85572a55e342f0fc044" => :mavericks
   end
 
-  depends_on ant: :build
-  depends_on java: "1.7+"
+  depends_on :ant => :build
+  depends_on :java => "1.7+"
 
   def install
     system "ant", "clean"

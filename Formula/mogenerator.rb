@@ -12,8 +12,8 @@ class Mogenerator < Formula
     sha256 "621065a5fec651c0f3a4ef46ab8b5064d74f6cb4b9c2357a809f2cef6281d216" => :yosemite
   end
 
-  depends_on xcode: :build
-  depends_on macos: :yosemite
+  depends_on :xcode => :build
+  depends_on :macos => :yosemite
 
   def install
     xcodebuild "-target", "mogenerator", "-configuration", "Release", "SYMROOT=symroot", "OBJROOT=objroot"

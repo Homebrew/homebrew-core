@@ -11,7 +11,7 @@ class Scheme48 < Formula
     sha256 "6ae24159bb6e2485465135ba60d60291be7681dfc9662e42f176bb9f9d4a6f00" => :mavericks
   end
 
-  conflicts_with "scsh", because: "both install include/scheme48.h"
+  conflicts_with "scsh", :because => "both install include/scheme48.h"
 
   def install
     ENV.O0 if ENV.compiler == :clang

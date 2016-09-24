@@ -36,11 +36,11 @@ class Swift < Formula
     end
 
     resource "clang" do
-      url "https://github.com/apple/swift-clang.git", branch: "stable"
+      url "https://github.com/apple/swift-clang.git", :branch => "stable"
     end
 
     resource "llvm" do
-      url "https://github.com/apple/swift-llvm.git", branch: "stable"
+      url "https://github.com/apple/swift-llvm.git", :branch => "stable"
     end
   end
 
@@ -48,13 +48,13 @@ class Swift < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on xcode: ["7.0", :build]
+  depends_on :xcode => ["7.0", :build]
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
   fails_with :gcc
   ("4.3".."4.6").each do |n|
-    fails_with gcc: n
+    fails_with :gcc => n
   end
 
   def install

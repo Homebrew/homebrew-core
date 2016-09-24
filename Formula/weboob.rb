@@ -19,7 +19,7 @@ class Weboob < Formula
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libyaml"
   depends_on "pyqt"
-  depends_on gpg: :run
+  depends_on :gpg => :run
 
   resource "termcolor" do
     url "https://pypi.python.org/packages/source/t/termcolor/termcolor-1.1.0.tar.gz"

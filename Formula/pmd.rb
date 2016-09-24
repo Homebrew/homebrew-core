@@ -11,7 +11,7 @@ class Pmd < Formula
     sha256 "c667db1c2b048b940b1770b06d0f23055a4d1d34968492ffd34c0493b0e91c64" => :mavericks
   end
 
-  depends_on java: "1.8+"
+  depends_on :java => "1.8+"
   depends_on "maven" => :build
 
   # Fix doclint errors; see https://sourceforge.net/p/pmd/bugs/1516/

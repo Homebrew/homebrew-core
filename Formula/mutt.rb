@@ -22,10 +22,10 @@ class Mutt < Formula
   end
 
   head do
-    url "https://dev.mutt.org/hg/mutt#default", using: :hg
+    url "https://dev.mutt.org/hg/mutt#default", :using => :hg
 
     resource "html" do
-      url "https://dev.mutt.org/doc/manual.html", using: :nounzip
+      url "https://dev.mutt.org/doc/manual.html", :using => :nounzip
     end
   end
 
@@ -42,7 +42,7 @@ class Mutt < Formula
   depends_on "s-lang" => :optional
 
   conflicts_with "tin",
-    because: "both install mmdf.5 and mbox.5 man pages"
+    :because => "both install mmdf.5 and mbox.5 man pages"
 
   def install
     user_admin = Etc.getgrnam("admin").mem.include?(ENV["USER"])

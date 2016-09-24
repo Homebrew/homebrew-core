@@ -12,7 +12,7 @@ class Ccrypt < Formula
     sha256 "34eb45bc81353931dccf4b978857091073212a6a19dfde4d0e11479fb6a18ca8" => :mountain_lion
   end
 
-  conflicts_with "ccat", because: "both install `ccat` binaries"
+  conflicts_with "ccat", :because => "both install `ccat` binaries"
 
   fails_with :clang do
     build 318

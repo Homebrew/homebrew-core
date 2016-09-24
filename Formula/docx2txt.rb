@@ -12,7 +12,7 @@ class Docx2txt < Formula
   end
 
   resource "sample_doc" do
-    url "https://calibre-ebook.com/downloads/demos/demo.docx", using: :nounzip
+    url "https://calibre-ebook.com/downloads/demos/demo.docx", :using => :nounzip
     sha256 "269329fc7ae54b3f289b3ac52efde387edc2e566ef9a48d637e841022c7e0eab"
   end
 

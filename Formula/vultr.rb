@@ -20,17 +20,17 @@ class Vultr < Formula
 
   go_resource "github.com/kr/fs" do
     url "https://github.com/kr/fs.git",
-        revision: "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
+        :revision => "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
   end
 
   go_resource "golang.org/x/tools" do
     url "https://github.com/golang/tools.git",
-        revision: "fbb6674a7495706ad1ba2d7cca18ca9d804ccdca"
+        :revision => "fbb6674a7495706ad1ba2d7cca18ca9d804ccdca"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://github.com/golang/crypto.git",
-        revision: "91ab96ae987aef3e74ab78b3aaf026109d206148"
+        :revision => "91ab96ae987aef3e74ab78b3aaf026109d206148"
   end
 
   def install

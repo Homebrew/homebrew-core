@@ -12,7 +12,7 @@ class Nu < Formula
     sha256 "c6075aa6a0ea3a36067295f9e9e16fca5ec0d4c79db5f7c5fde19e774a24f69e" => :mavericks
   end
 
-  depends_on macos: :lion
+  depends_on :macos => :lion
   depends_on "pcre"
 
   fails_with :llvm do
