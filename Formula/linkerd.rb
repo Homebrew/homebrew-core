@@ -28,13 +28,6 @@ class Linkerd < Formula
     (var/"log/linkerd").mkpath
   end
 
-  def caveats; <<-EOS.undent
-    Docs:    #{share}/docs
-    Logs:    #{var}/log/linkerd
-    Config:  #{etc}/linkerd
-    EOS
-  end
-
   plist_options manual: "linkerd #{HOMEBREW_PREFIX}/etc/linkerd/linkerd.yaml"
 
   def plist; <<-EOS.undent
