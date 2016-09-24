@@ -1,9 +1,8 @@
 class Bmake < Formula
   desc "Portable version of NetBSD make(1)"
   homepage "http://www.crufty.net/help/sjg/bmake.html"
-  url "http://www.crufty.net/ftp/pub/sjg/bmake-20150606.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/b/bmake/bmake_20150606.orig.tar.gz"
-  sha256 "c3147540fd5f64d5f2c1c7cd5d65d64d69bc5573e02707774d8eee349f043946"
+  url "http://www.crufty.net/ftp/pub/sjg/bmake-20160818.tar.gz"
+  sha256 "d64b23e3e4013b6d4ea590b05251874ffa9d841299b4e5344a6edf45ea7e1141"
 
   bottle do
     sha256 "25e8cf1c38ece0c9dc4f55cb65dc61812ef74ab18af60f92f5aae0fa5a0e3517" => :el_capitan
@@ -19,7 +18,6 @@ class Bmake < Formula
 
     # -DWITHOUT_PROG_LINK means "don't symlink as bmake-VERSION."
     args = ["--prefix=#{prefix}", "-DWITHOUT_PROG_LINK", "--install"]
-
     system "sh", "boot-strap", *args
 
     man1.install "bmake.1"
