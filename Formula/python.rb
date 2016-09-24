@@ -68,9 +68,9 @@ class Python < Formula
     sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
   end
 
-  # Patch for compiling universal binaries on macOS 10.12
+  # Patch for building universal binaries on macOS 10.12 and 10.11 with Xcode 8
   # https://bugs.python.org/issue27806
-  if MacOS.version >= :sierra && build.universal?
+  if build.universal? && DevelopmentTools.clang_build_version >= 800
     patch do
       url "https://hg.python.org/cpython/raw-rev/4030300fcb18"
       sha256 "e0625b20675d892abc3e0e9a58a4627b94e6ded017f352f55b7c91e214fbd248"
