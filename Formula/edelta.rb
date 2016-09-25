@@ -6,6 +6,7 @@ class Edelta < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "39e5f835be6891765b654f606739ae06ef75b277096ac2a34ad9bb982adb111c" => :sierra
     sha256 "7c890297f4a4f314e88076aebc631b65eed230ab41279e7c96e0166738bad435" => :el_capitan
     sha256 "899ebc5dcf01081e885bef90c53ea6ccf9763562b8fc9e778dd4cac9d2ee4c83" => :yosemite
     sha256 "cb69b6278bf6ffe5430d33718db74cc35ea7982e48775c1d9723f514a6fc6e82" => :mavericks
