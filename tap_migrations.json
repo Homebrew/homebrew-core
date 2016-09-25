@@ -1,4 +1,5 @@
 {
+  "aalib": "homebrew/boneyard",
   "adobe-air-sdk": "homebrew/binary",
   "afuse": "homebrew/fuse",
   "aimage": "homebrew/boneyard",
