@@ -7,6 +7,7 @@ class Libstatgrab < Formula
 
   bottle do
     cellar :any
+    sha256 "00a91b891f940b01a5ca5d341fb6c9248da6c87312b9ecefbd0aae9cc49b62c3" => :sierra
     sha256 "5cb49282a895e5b5229a59eedaae8a7ce7517ff6d56dc4837ddbd1601b72eaa9" => :el_capitan
     sha256 "a2175221c61a952b2ed4590c1b5496dcb10d4e9547db4bba8ac69968c2c2a586" => :yosemite
     sha256 "611bd2051960ea32dcc1a814ec93638bd2feb83e76141b715cb47b28d1cc0c92" => :mavericks
