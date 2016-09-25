@@ -7,11 +7,9 @@ class Libyaml < Formula
 
   bottle do
     cellar :any
-    sha256 "e70b72f2e3e07f352421b27d28fd40a1aff6f35327b5ffb2f8b9a9907098a78b" => :sierra
-    sha256 "557b32dbf6e6798972e6f9594a91cca044f90f92f410e0eb3ebcbee199f781aa" => :el_capitan
-    sha256 "f3c705e4f5790e6340f9c673100a855b16b4603821d711dedf7b2b07e30dfe18" => :yosemite
-    sha256 "dcf99044b9c72eb2c1a1017fdbd9020e48f26dc3d9bd7d88aa497b98fdbccd96" => :mavericks
-    sha256 "7339f312e5b9011acd518b2bee0008439be8bbd697fe4f4944ea3a2137a41652" => :mountain_lion
+    sha256 "697f644d61983bd75f1ff5e7d4cccce26cc9a81cb8c78c066931dfc7c0dc94ba" => :sierra
+    sha256 "ad9d3bee24a05281ecccd88dba5ac246cf27b99f32161b3572c109993c75238e" => :el_capitan
+    sha256 "3a7788655c3c8f3b7ad73521928277ca5433789e134f437534702145171b1104" => :yosemite
   end
 
   option :universal
