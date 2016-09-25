@@ -7,6 +7,7 @@ class Unac < Formula
 
   bottle do
     cellar :any
+    sha256 "b97f2799eafd917f8fe1cc47c39634bc91a19ca452ce11ec8fd5edf37ea1dba3" => :sierra
     sha256 "6c9d63dde182a55e237e63cfa4ab625164ce275e343fd88003483227bd7439bc" => :el_capitan
     sha256 "0db9b14eae2c3db5d2d268deb4a3369557a13d35dd216f4ea50aa0776eb56fb3" => :yosemite
     sha256 "1fd7af2c4ef86426dc63f80a14076a37ebabced46a572caf1b0e9fe760ab64c1" => :mavericks
