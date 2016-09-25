@@ -1,8 +1,8 @@
 class Libass < Formula
   desc "Subtitle renderer for the ASS/SSA subtitle format"
   homepage "https://github.com/libass/libass"
-  url "https://github.com/libass/libass/releases/download/0.13.2/libass-0.13.2.tar.gz"
-  sha256 "8baccf663553b62977b1c017d18b3879835da0ef79dc4d3b708f2566762f1d5e"
+  url "https://github.com/libass/libass/releases/download/0.13.3/libass-0.13.3.tar.gz"
+  sha256 "86c8c45d14e4fd23b5aa45c72d9366c46b4e28087da306e04d52252e04a87d0a"
 
   bottle do
     cellar :any
@@ -37,5 +37,33 @@ class Libass < Formula
     system "autoreconf", "-i" if build.head?
     system "./configure", *args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include "ass/ass.h"
+      int main() {
+        ASS_Library *library;
+        ASS_Renderer *renderer;
+        library = ass_library_init();
+        if (library) {
+          renderer = ass_renderer_init(library);
+          if (renderer) {
+            ass_renderer_done(renderer);
+            ass_library_done(library);
+            return 0;
+          }
+          else {
+            ass_library_done(library);
+            return 1;
+          }
+        }
+        else {
+          return 1;
+        }
+      }
+    EOS
+    system ENV.cc, "test.cpp", "-I#{include}", "-L#{lib}", "-lass", "-o", "test"
+    system "./test"
   end
 end
