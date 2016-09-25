@@ -6,7 +6,8 @@ class Librcsc < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "c8b9dc2887f771f07b33bb70cec9ab62b4cee067f8b3a2d7ae57296428881031" => :sierra
     sha256 "c2093c232c857c15bea5dd6c1c6df14aa4b00ed0c6eb3ab7e4d0d3f8c72b54c6" => :el_capitan
     sha256 "c339890cbed4a1ca1b0a14d4375ece92ccee44a1f29023e1f633e9a9e0d6b6d5" => :yosemite
     sha256 "db8f74fadedc34da92c2109c1bbb90971c494e104c6041f1c8429def7f14dbc9" => :mavericks
