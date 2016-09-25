@@ -8,7 +8,8 @@ class Dvorak7min < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "052c259da37d2e9576fdf1809ce526dd54cedd362bbe747f02fa088e6568983b" => :sierra
     sha256 "d4bf1a053028f0712193e33911c2af3fb4f0a71b37480969b5c03b798d4930ae" => :el_capitan
     sha256 "42cad6dbf3f41053e5ba7509657dcf7e02c6211412efb246eaaa9de853a09d35" => :yosemite
     sha256 "096700b282a6130a3948e3fc8535584cea129865aaaef81f5d89fac3a39d61c1" => :mavericks
