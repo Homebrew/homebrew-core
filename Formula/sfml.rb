@@ -8,6 +8,7 @@ class Sfml < Formula
 
   bottle do
     cellar :any
+    sha256 "b83fe3c6b78f844492f6e8db14d60665fb06e92a6609593048ec337a7570f4aa" => :sierra
     sha256 "e1bc85c3f1c4f7342f36fcdcc710b20e8e04f33148cb04881cc9212bfca53416" => :el_capitan
     sha256 "24f77359cd2e01ca9311594217722b83228e8fa0f45dfb86d385ccf00fd16947" => :yosemite
     sha256 "c548482a327731074d32195e214297ec99e8940632f62bb46b16cce6dd4e0ec4" => :mavericks
