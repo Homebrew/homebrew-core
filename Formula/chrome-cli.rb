@@ -7,7 +7,8 @@ class ChromeCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 4
+    rebuild 4
+    sha256 "203479f2f1fc35640bdabe89ee6fa038a1e59dfc7a8abec1db79b74c63d0253a" => :sierra
     sha256 "9bfb2379f8697da91606ea8b6e7c63240e6d20b184d5cdf72c4c7e63a959be16" => :el_capitan
     sha256 "05deec5813a4979652a645737a7ed7868878934f77ee5c4cc27140e11811b2d1" => :yosemite
     sha256 "4b40b52e047b6b8db966a75155d94d5c42d293c5b8058d1e887eb294e96129c9" => :mavericks
