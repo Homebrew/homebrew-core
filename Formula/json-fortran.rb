@@ -7,6 +7,7 @@ class JsonFortran < Formula
 
   bottle do
     cellar :any
+    sha256 "995d9ab4db5ba7a9634b919e3c4bd6e60dc1efd2384d528d6ff5985c60d2fcda" => :sierra
     sha256 "6738483fbb04ec4bea770db3e9f231194bedba78e401c20111a63eacef2455ba" => :el_capitan
     sha256 "65961cdc44202dc9d9325b2c2907883af723f87c38820e6c97f0c92a9a1d9f2c" => :yosemite
     sha256 "1d48998ff778721ee8202c1511c48b427e561858fc7b66998ad17c7563dfdd1d" => :mavericks
