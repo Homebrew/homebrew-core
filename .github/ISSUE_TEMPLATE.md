@@ -10,7 +10,9 @@ _You can erase any parts of this template not applicable to your Issue._
 
 ### Bug reports:
 
-Please replace this line with a brief summary of your issue **AND** if reporting a build issue include the link from:
+Please replace this section with a summary of your issue. Always include **exact commands that resulted in errors**, **exact error messages**, and ideally full transcripts of such commands.
+
+ If reporting a build issue, please also include the link from:
 
 `brew gist-logs <formula>`
 (where `<formula>` is the name of the formula that failed to build).
