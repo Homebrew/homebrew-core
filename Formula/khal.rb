@@ -8,6 +8,7 @@ class Khal < Formula
   head "https://github.com/pimutils/khal.git"
 
   bottle do
+    sha256 "f77ee585438ef4cc277b81205a55c5010bf19cf197a5f3a8d057262c6e24cc01" => :sierra
     sha256 "9b4b5c675c9e7c560ae2baf2ff0644764b9af59e13a2768770c57a557d03a884" => :el_capitan
     sha256 "e3641bc06a7c6ed591d994a2445afb064214eed16a0cd98e8d9ced07e5be9ec5" => :yosemite
     sha256 "8fd717d544c7e018dd12bec661d7169e301e6bbfa9ffc9bb33acd35e975e2dda" => :mavericks
