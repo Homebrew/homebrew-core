@@ -6,6 +6,7 @@ class Mpck < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fbdc8fda90c022cff2e3289b13926c503f83198b3c04abacc8ee5c310bbe7dda" => :sierra
     sha256 "06b69481ecd910bf2c1daff65dd7d952a8759dd90e3d76f646f82ac79812d216" => :el_capitan
     sha256 "e158ae142375591d361c6204ccc08072a29b52cee927726f9c30b063b51a0664" => :yosemite
     sha256 "fcbf3745544824e2569004626c6a307800ef55aa2fcd667d278eaa5c34340452" => :mavericks
