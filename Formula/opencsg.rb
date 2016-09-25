@@ -24,7 +24,6 @@ class Opencsg < Formula
     system "qmake", "-r", "INSTALLDIR=#{prefix}",
       "INCLUDEPATH+=#{Formula["glew"].opt_include}",
       "LIBS+=-L#{Formula["glew"].opt_lib} -lGLEW"
-    system "cat", "src/Makefile"
     system "make", "install"
   end
 
