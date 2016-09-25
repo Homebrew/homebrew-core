@@ -6,6 +6,7 @@ class Gmime < Formula
 
   bottle do
     cellar :any
+    sha256 "cb981e780b4171bd0547071cd3774fd853a1c59fbcaad68d2a5264e9be8a3917" => :sierra
     sha256 "848440f6eaec305993135ee8708b81ad5ae2cfa9cfb5f7e6fcc8f4d077e9eda0" => :el_capitan
     sha256 "445348c5634172858befc936961626d1bc45ee6e6119f11b764032efc1b96687" => :yosemite
     sha256 "be33acb8e9285f2d17a0895fb7c85b0938c517708e81ea3de34a86065f0c49cd" => :mavericks
