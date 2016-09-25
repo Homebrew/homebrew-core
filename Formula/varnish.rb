@@ -1,8 +1,8 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://repo.varnish-cache.org/source/varnish-4.1.3.tar.gz"
-  sha256 "9f9469b9fda2a578da2a9d282c71c34eeb5c42eda7f8d8728284d92282108429"
+  url "https://repo.varnish-cache.org/source/varnish-5.0.0.tar.gz"
+  sha256 "5101ad72b29d288a07e2e5ded4c2abe850b70ff000c13ceb1764625e83823f4a"
 
   bottle do
     sha256 "2a48fb81ee71fc5292fee45a38ff822217a9906771a5a993b3ea608ff25a7ca8" => :sierra
@@ -23,7 +23,7 @@ class Varnish < Formula
     (var+"varnish").mkpath
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/varnishd -n #{HOMEBREW_PREFIX}/var/varnish -f #{HOMEBREW_PREFIX}/etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/varnishd -n #{HOMEBREW_PREFIX}/var/varnish -f #{HOMEBREW_PREFIX}/etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080 -F"
 
   def plist; <<-EOS.undent
       <?xml version="1.0" encoding="UTF-8"?>
@@ -45,6 +45,7 @@ class Varnish < Formula
           <string>127.0.0.1:2000</string>
           <string>-a</string>
           <string>0.0.0.0:8080</string>
+          <string>-F</string>
         </array>
         <key>KeepAlive</key>
         <true/>
