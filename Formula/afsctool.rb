@@ -7,6 +7,7 @@ class Afsctool < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9b956b7c54385c3001e49f03672054b660e03f06b7831d0825f2bd613daa7cf8" => :sierra
     sha256 "f53e528302f21b5232f0cf0ba85107c9881059aab97dd6db0c8e3b4338dd6f13" => :el_capitan
     sha256 "b00e2da9028fbbd4fc1c1e5db0bcec7612f66ec7bd0799a3368efd2f6c9b6a60" => :yosemite
     sha256 "166e38496d45481d0031930b19c33b853f3a48816b12acafd66620d0e707412f" => :mavericks
