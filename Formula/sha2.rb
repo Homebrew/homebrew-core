@@ -6,7 +6,8 @@ class Sha2 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 3
+    rebuild 3
+    sha256 "133588f831b1848abef49c88fd7587052990ad4b7133dc300a5c6aed806b1801" => :sierra
     sha256 "84ce281185ba415257d8507e9b16ba8dc3189ec8b8414d21a6421d5979a025d2" => :el_capitan
     sha256 "da63b7e9be95c91bcdc3290e3c6caee12016c5d59960144ea26f8c6438dfe680" => :yosemite
     sha256 "34650fbb427aa57f452acc23a338696756792907bd7e127d7b495a7fd7e4573a" => :mavericks
