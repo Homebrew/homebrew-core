@@ -6,6 +6,7 @@ class Dwarf < Formula
 
   bottle do
     cellar :any
+    sha256 "824a09f4e084baabdced14df9a141808178c8efed15731e609d9f0ca6f294e17" => :sierra
     sha256 "1de548e03ead9fae3ed90a9826a8dc27e74abf4087b9505f12d3869f96e14c16" => :el_capitan
     sha256 "058eff696c55b7d3b4964fa5694acf2216cdf18ba95258abd4b0e60336ae46d3" => :yosemite
     sha256 "5088e1a29d6f99ead2a5586ad1f5d39c6e84fe52d20af9e8ee27ae662d509901" => :mavericks
