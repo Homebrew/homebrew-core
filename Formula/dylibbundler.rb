@@ -7,7 +7,8 @@ class Dylibbundler < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "3d3297c9884ca982ce3a2ef9d31a53a1f96390268d0d9b378e3a954e0ad74996" => :sierra
     sha256 "5dff018e62a9787871e45f4ae976358cfc3f7f85972a0aa0d4e039f97d4b8e0f" => :el_capitan
     sha256 "eee9c829e932d8d25ded1e249bbf372ebfa0c9911dd3adc11a642184ecb6a6b7" => :yosemite
     sha256 "49c1600c49ff7b10bdae8dc7351496680a9a4fb434ce6cd7393d10008506393e" => :mavericks
