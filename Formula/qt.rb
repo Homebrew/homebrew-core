@@ -31,9 +31,9 @@ class Qt < Formula
   depends_on "postgresql" => :optional
 
   # Qt4 is dead upstream. We backported a build fix for 10.11 but do not
-  # intend to keep rescuing it forever, including for macOS 10.12. Homebrew will
-  # be migrating to Qt5 as widely as possible, which remains supported upstream.
-  depends_on MaximumMacOSRequirement => :el_capitan
+  # intend to keep rescuing it forever. Homebrew will be migrating to Qt5
+  # as widely as possible, which remains supported upstream.
+  depends_on MaximumMacOSRequirement => :sierra
 
   deprecated_option "qtdbus" => "with-dbus"
   deprecated_option "with-d-bus" => "with-dbus"
@@ -68,6 +68,10 @@ class Qt < Formula
         args << "unsupported/macx-clang"
       end
     end
+
+    # Phonon is broken on macOS 10.12+ and Xcode 8+ due to QTKit.framework
+    # being removed.
+    args << "-no-phonon" if MacOS.version >= :sierra || MacOS::Xcode.version >= "8.0"
 
     args << "-openssl-linked"
     args << "-I" << Formula["openssl"].opt_include
@@ -138,6 +142,8 @@ class Qt < Formula
     Qt Designer no longer picks up changes to the QT_PLUGIN_PATH environment
     variable as it was tweaked to search for plug-ins provided by formulae in
       #{HOMEBREW_PREFIX}/lib/qt4/plugins
+
+    Phonon is not supported on macOS Sierra.
     EOS
   end
 
