@@ -1,10 +1,9 @@
 class Agedu < Formula
   desc "Unix utility for tracking down wasted disk space"
   homepage "http://www.chiark.greenend.org.uk/~sgtatham/agedu/"
-  url "http://www.chiark.greenend.org.uk/~sgtatham/agedu/agedu-20160302.a05fca7.tar.gz"
-  version "20160302"
-  sha256 "2de59dab2c79d119faefb0c34fad26ec07e209d739538f2eaac96ed0f5473c5a"
-
+  url "http://www.chiark.greenend.org.uk/~sgtatham/agedu/agedu-20160920.853cea9.tar.gz"
+  version "20160920"
+  sha256 "9c52eefe4932a4c07a30a79dbf2089982443817002ab9eabb478063113df5e18"
   head "git://git.tartarus.org/simon/agedu.git"
 
   bottle do
@@ -20,13 +19,12 @@ class Agedu < Formula
 
   def install
     system "./mkauto.sh"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/agedu", "-s", "."
+    system bin/"agedu", "-s", "."
     assert (testpath/"agedu.dat").exist?
   end
 end
