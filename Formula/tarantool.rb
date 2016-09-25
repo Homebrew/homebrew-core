@@ -4,7 +4,7 @@ class Tarantool < Formula
   url "http://download.tarantool.org/tarantool/1.6/src/tarantool-1.6.8.772.tar.gz"
   version "1.6.8-772"
   sha256 "e07913d3416fcf855071e7b82eed0c5bcdb81a6e587fa2d900a9755ed5bb220c"
-  revision 1
+  revision 2
 
   head "https://github.com/tarantool/tarantool.git", :branch => "1.7", :shallow => false
 
