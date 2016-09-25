@@ -8,6 +8,7 @@ class Shyaml < Formula
   head "https://github.com/0k/shyaml.git"
 
   bottle do
+    sha256 "de00b0f0d7459469b0e907c40d45d5a69b2da174bff5ba7d274aa71951747a9e" => :sierra
     sha256 "e90c127080c7b5d63ff8e1c0939502070ca5a69f02ac437432942c80b0bec97c" => :el_capitan
     sha256 "05f1e275abab2520255b419a85353ca07fcce797e4ba53de01d98a8f35acface" => :yosemite
     sha256 "3e06b5bf4687abd85598096d0977f43b49d78ba74ebad4aeb3fefc8eb85e23dd" => :mavericks
