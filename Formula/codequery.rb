@@ -1,9 +1,9 @@
 class Codequery < Formula
-  desc "Index, query, or search C, C++, Java, Python, Ruby, or Go code"
+  desc "Index, query, or search C, C++, Java, Python, Ruby, Go and Javascript code"
   homepage "https://github.com/ruben2020/codequery"
-  url "https://github.com/ruben2020/codequery/archive/v0.16.0.tar.gz"
-  sha256 "4896435a8aa35dbdca43cba769aece9731f647ac9422a92c3209c2955d2e7101"
-  revision 2
+  url "https://github.com/ruben2020/codequery/archive/v0.17.0.tar.gz"
+  sha256 "c9ba9c84dd5a1716b5d6e5d04c2d40c180af9430a0739a777d64c65f9c8f510f"
+  revision 1
 
   bottle do
     cellar :any
