@@ -9,7 +9,8 @@ class ChibiScheme < Formula
   end
 
   bottle do
-    revision 2
+    rebuild 2
+    sha256 "094b459f06e4ef4a6285e65f79a2e980965010bbc1e26b5e7b02489c04ca43cc" => :sierra
     sha256 "6427ba91b6fd3e63591d9b1f9c4cd173a53dfbef21acfdf1e41612c07ad4a18f" => :el_capitan
     sha256 "a999ce57390290ecc5452be6bda5f6fb415e565b46eb6806650649a85edce99d" => :yosemite
     sha256 "f29383f76167d2998917a0cfe97e362a7780a1e0288fa17d7132099a41291102" => :mavericks
