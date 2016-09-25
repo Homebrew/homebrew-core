@@ -1,6 +1,7 @@
 {
   "adobe-air-sdk": "homebrew/binary",
   "afuse": "homebrew/fuse",
+  "aget": "homebrew/boneyard",
   "aimage": "homebrew/boneyard",
   "aplus": "homebrew/boneyard",
   "apple-gcc42": "homebrew/dupes",
