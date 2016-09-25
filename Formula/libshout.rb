@@ -6,7 +6,8 @@ class Libshout < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "a0b6a84beac7d8285e5388e3eec38578c49616573348549d48157ebe9a3f8771" => :sierra
     sha256 "d698606ddbd579700df1525f9fd7987b0aa6c9e8228e2a9a7346e606bee68f6e" => :el_capitan
     sha256 "12a8329306b2794cd473988bea8a6e18835f2985ede2716e561a1bae6fcd09cc" => :yosemite
     sha256 "6dc1b7d3505a42146d57a5f99901d4d3d35127efcad7babcf6b3c0c969864e5d" => :mavericks
