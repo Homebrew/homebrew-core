@@ -7,10 +7,9 @@ class GitImerge < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "9b7742de26a901cf873a9829c443443f3f06a3ada26aaa3d56e7b800b8f481fa" => :el_capitan
-    sha256 "f4e97a9cab7626785cf3c60a64746d187e89dec23e2f3cb1de29c5f8ae2a8b47" => :yosemite
-    sha256 "33ef64eb73b8748c18a0760ced72ddef026bd08b9fc06910f13565d0954826e2" => :mavericks
+    sha256 "fe6030bcaafa0b35d8137182f2b7fef2ff2d45f27a2b5d73aa251c88c70aa9d3" => :sierra
+    sha256 "fe6030bcaafa0b35d8137182f2b7fef2ff2d45f27a2b5d73aa251c88c70aa9d3" => :el_capitan
+    sha256 "fe6030bcaafa0b35d8137182f2b7fef2ff2d45f27a2b5d73aa251c88c70aa9d3" => :yosemite
   end
 
   def install
