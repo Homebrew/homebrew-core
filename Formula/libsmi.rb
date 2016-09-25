@@ -6,7 +6,8 @@ class Libsmi < Formula
   sha256 "f048a5270f41bc88b0c3b0a8fe70ca4d716a46b531a0ecaaa87c462f49d74849"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "8a77bfffacfce5c323970f1ae870e62ba577964f743721e62583b4713001bc20" => :sierra
     sha256 "27cffaf7b38a36a1da50661a3a7a243fd9aaecaa73e4a91a462155a553a17f52" => :el_capitan
     sha256 "6d30614b5a664f046bb3777b0bf0c04fbadb2203edffc9275d34ab3d50e3dc6d" => :yosemite
     sha256 "468714d42c8aa845d2c53de783b43753d99fcca7ee5f0b8fd4726fbdb1a0299c" => :mavericks
