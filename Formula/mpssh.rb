@@ -7,6 +7,7 @@ class Mpssh < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "90d758a0f7accf0b63755c3de8100a880b500e732fc8924123ab2a1c7ce688f8" => :sierra
     sha256 "e5ac485861dfca0be2bb1ca2eb5826b5ca5977c0d2abb12dc58de011c18046f1" => :el_capitan
     sha256 "2b91c9a9dbae19e99b8b8735bb3292cc056dcf8e06472c0b2d354f64896a4186" => :yosemite
     sha256 "60d489a872cb7ed8855c0f95913af4fffe3082b6bee8669b0080c3d30d73249d" => :mavericks
