@@ -6,6 +6,7 @@ class Pngpaste < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "263e84687d3da619b7349b1295638675719531822dece2b5e1e55a82930900dd" => :sierra
     sha256 "bfb5fd80a48aa24949ef9551f12144afeef8cbc54a04db47476754681dbcac2d" => :el_capitan
     sha256 "e134f7bca93ef8e51d1729c145b060f688999f6d3eeda051f836831c6774c2ef" => :yosemite
     sha256 "eeea5b97cd20b83f7d01fa73d9b8bc98f776dc122769cc682312981dde54b07e" => :mavericks
