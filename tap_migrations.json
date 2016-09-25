@@ -14,6 +14,7 @@
   "authexec": "homebrew/boneyard",
   "avfs": "homebrew/fuse",
   "avidemux": "caskroom/cask",
+  "aview": "homebrew/boneyard",
   "aws-iam-tools": "homebrew/boneyard",
   "awsenv": "Luzifer/tools",
   "bbcp": "homebrew/head-only",
