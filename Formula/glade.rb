@@ -5,6 +5,7 @@ class Glade < Formula
   sha256 "82d96dca5dec40ee34e2f41d49c13b4ea50da8f32a3a49ca2da802ff14dc18fe"
 
   bottle do
+    sha256 "fc210f3175ad1fd91fff015cf53f7161d32064c7a43529c16f2c434f46443bb5" => :sierra
     sha256 "e75ebf47b26357a1fc17e3e1ac4a979624461b47d68c186870886826d33aba86" => :el_capitan
     sha256 "7b680faa1fd3c7c1d24d3dba3721c395e14f1f28674bf60bbee5626a17e7a7dd" => :yosemite
     sha256 "28f89cd2e1f2738af4893d41bd31a1884e1e1959522a1dc161a4dc702ce59be4" => :mavericks
