@@ -14,6 +14,7 @@ class Knot < Formula
 
   bottle do
     cellar :any
+    sha256 "77cc161f3dae9ecc6fe26c630cc55140b3bd5a6662f91024c9df0d849029a121" => :sierra
     sha256 "2be2cec90a8d07c9e1d598ebc6008e47a6ba202948199c14c88df85fdd0cc3cf" => :el_capitan
     sha256 "b5095005256769812335ec46099ddebc74fd5167d459327a62181077f8bd4363" => :yosemite
   end
