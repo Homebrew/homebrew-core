@@ -5,6 +5,7 @@ class Msitools < Formula
   sha256 "152eb4149cb44f178af93d17bbe0921b5312f30fb4780e5be113b35747b5cd2e"
 
   bottle do
+    sha256 "b6d20524f967e781504f34af82fe65a8e2ca74a7b40fd197df718df400633b9a" => :sierra
     sha256 "c0a9e628107fe923c63cc2e61cc11be97d5316d94cafb4452cbceea123ba81e4" => :el_capitan
     sha256 "cdca1a71f773df3e0f9b011c96d0bc7f111802ef59fc23911cb311fcb1c5bbfc" => :yosemite
     sha256 "49b08369397ee127391c04899faec0cfe667c655e31578f7b1138c08eb016982" => :mavericks
