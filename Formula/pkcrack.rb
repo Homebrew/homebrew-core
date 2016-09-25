@@ -6,6 +6,7 @@ class Pkcrack < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "236e7c924ceac4e5a17a899bf3d9a02bb1163dbda0fb6780807d9ac7424ad958" => :sierra
     sha256 "5dc65bf90050f7d0beac9bde10c4dbfefd1a24d75dfa3216578989f2c96e71c1" => :el_capitan
     sha256 "2c71cc20dc2a45a4f4e1077e0036fd524b286dec849af21e36564f4cbe58a2e3" => :yosemite
     sha256 "23f8583cbd6a9caa16e924e87589c268950e5c648777cc5afbebe7b3f40833f8" => :mavericks
