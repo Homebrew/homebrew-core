@@ -6,6 +6,7 @@ class ChooseGui < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5968418e6ee9717884d32f98e840cf02549165a9efc8f42e32549e3ae800c4cd" => :sierra
     sha256 "100c28baee98417c8ce7041956c4a62fe9126b6b36a0f3e186b33500b6b1f2fb" => :el_capitan
     sha256 "fd41325edc44dde3a61c52e310b0faa35314ce9c331b04673f55b6ebd5da28ba" => :yosemite
   end
