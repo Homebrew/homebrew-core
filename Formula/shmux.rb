@@ -6,6 +6,7 @@ class Shmux < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4567e06552f5e4f489f7d5de2814c83ba4a82b8d9bbbcba266fab5bd1f1ded71" => :sierra
     sha256 "87424e1fd8b33691a0b87b35deb8c74a09308264bf8da87a933880491a62cd78" => :el_capitan
     sha256 "c12d7d72b94ac69fe7fa5db7247228a555c2071cce5ebb84c7bc9046fef55bb4" => :yosemite
     sha256 "88a7a017cc820f2508bb12796dbfd84f35f3c1b6a64a1867e7e89861b2420418" => :mavericks
