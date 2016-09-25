@@ -6,7 +6,8 @@ class Advancecomp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "d0cfc85d5c61404a3298fa872698f80c284db509296c23719b15e517f81128bd" => :sierra
     sha256 "b920a8b98b6b79b0531d03b72180e6dde7664da504f4943bcb237703347de1bd" => :el_capitan
     sha256 "4c53c032983006823c7e119fd3f7516a9a9321bdd9d165a7ef0abaabc5b669cb" => :yosemite
     sha256 "119316cdf32ce8129a09e786a31bd6c21d3b153eadd6cd55e098f78b6f1ed884" => :mavericks
