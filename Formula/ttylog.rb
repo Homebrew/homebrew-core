@@ -6,7 +6,8 @@ class Ttylog < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "14f6db9530f81f45f45c9347b9de949438b0f2d789a1a1da02717eabf3861d92" => :sierra
     sha256 "b29b2a11f90578f51027ec61d698e47945815c8c4442f3b3094d2791d3a20961" => :el_capitan
     sha256 "e366c88f54d1c419aeb6b7382ddefd5ff1e796bb8d2aed7b993f7c914a053f12" => :yosemite
     sha256 "52bae78a4d014b5a4f22b1b1d3e6e767e97d1954ade3b79e50d420569b6ded1e" => :mavericks
