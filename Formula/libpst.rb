@@ -6,6 +6,7 @@ class Libpst < Formula
 
   bottle do
     cellar :any
+    sha256 "b18ba28a201905f6039e2ac7b275ba8975626fb14060c7e62a43cd4d8c48c930" => :sierra
     sha256 "85e5b6e462c43360ba320bfd0ff8f1df5651071d084204f83c28390a42ee3e8e" => :el_capitan
     sha256 "8c8a952ce7f839a074bd7948ba90b14598d3e3979e821d9122fb612ddd059d04" => :yosemite
     sha256 "2fcd9b451d14f8cec5960acc2ac1fa22f9b6f7ce943ab694ece78f52f5a29161" => :mavericks
