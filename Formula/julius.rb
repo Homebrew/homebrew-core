@@ -6,6 +6,7 @@ class Julius < Formula
 
   bottle do
     cellar :any
+    sha256 "1951aa8bcb7dd03c77dee80c0bcc402c72147e9ebb9442701fdf1b51594036ad" => :sierra
     sha256 "c11e98646dcdc34f2da621298cbef01429d91c81f8f44068518c0599ee4ff144" => :el_capitan
     sha256 "42b7494d1a3f3d74cef3363a329c93df0cfb5903399193892c5834a7d482c394" => :yosemite
     sha256 "e4cdb2839882a69a95e9136e232e616e8e4ee20766dbb7ed480cde333ba50527" => :mavericks
