@@ -8,7 +8,8 @@ class Acme < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 2
+    rebuild 2
+    sha256 "a551c65f11021ede47269b1a29b09c601063267501134daa8213674a62c97615" => :sierra
     sha256 "84f0ba7e45580d5a28a9a0dd9d7a25a6e67a9bdc7407c5b91cf64b8b9cf0a165" => :el_capitan
     sha256 "1e7c7805ac21061637cd1ce964f976c6f68b9259e892ffc77ee71f2aa280f879" => :yosemite
     sha256 "022ef1a9526002dda47023b47c2af6227ee40f33b33b0ed232ae105fcf982911" => :mavericks
