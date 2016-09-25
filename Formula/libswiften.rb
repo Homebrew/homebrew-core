@@ -10,6 +10,7 @@ class Libswiften < Formula
   patch :DATA
 
   bottle do
+    sha256 "d7a96ec5a0f396486acf810c88efec48beff0778e770084a980d09773029ffd7" => :sierra
     sha256 "e9bf41171f626c71350d0db7f13857b56c57f63248a229fe0ac4ed09c42dcfcf" => :el_capitan
     sha256 "162f1c07d37888abd2c2f616f3bc512209ed5575444f5f17b555b974e0461939" => :yosemite
     sha256 "0cd2296d234b0c59bcd9dc5e0ebf78f7439ac7c91e415efad693976d01666338" => :mavericks
