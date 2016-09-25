@@ -7,6 +7,7 @@ class Adns < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e8d4a8b103566634b8049823a0b450347ea93bb725a34b105fbc7ce1f5a1af6c" => :sierra
     sha256 "b2534e08973313ece99276f31d01384fff14568a078949614ea2d67189e4c0b1" => :el_capitan
     sha256 "9b9728bd1f4d0c491ab8b2a2343cc0bd8f9817e60944e3dcca01915cf5b9d55c" => :yosemite
     sha256 "5d0c4286ace0fa748e02052a865f36bc16fc2e57787701c47240c06567a2fd13" => :mavericks
