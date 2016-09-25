@@ -7,7 +7,8 @@ class Librtlsdr < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "bfeabfcc68c270b5dc4ef8829e466cf406c87e9068cc4a1985eebdc849e2c79c" => :sierra
     sha256 "63a2184d097f6da5f72eec471ed24f498efe3699834e45a25ba6b55c47b57df5" => :el_capitan
     sha256 "d9e6bf3b47b6600d9fb3251cdcb0c7d89dcb9d292609453808303944df2f8981" => :yosemite
     sha256 "3c7027468e4ae312373a62d166a2860be9e27711663fb5f0e52b6e3a3ddc5c6d" => :mavericks
