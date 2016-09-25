@@ -10,6 +10,7 @@ class Uade < Formula
     patch :DATA
   end
   bottle do
+    sha256 "432a5f95b33416c9bfc29ef4d81ea6d4fab2a568c71c00a9bda034985ed1276b" => :sierra
     sha256 "59ddaa5a6d841f436a5d297330ff62b613e446785ad17666c8fb4157d3a7c8db" => :el_capitan
     sha256 "454945f35580b0b2bc8f0c7ddeecfae091634f54ee3a367eb14acce7251e5779" => :yosemite
     sha256 "807b7f5cb5a83348c778003d781d715cec73d37da537e0b11b8138c93aad4938" => :mavericks
