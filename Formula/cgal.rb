@@ -1,8 +1,8 @@
 class Cgal < Formula
   desc "CGAL: Computational Geometry Algorithm Library"
   homepage "https://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/releases/CGAL-4.8.1/CGAL-4.8.1.tar.xz"
-  sha256 "fa2036e0a53cc54eee3dffe4763028e9aec831672c8259fa376d3c29e8f781b0"
+  url "https://github.com/CGAL/cgal/releases/download/releases/CGAL-4.9/CGAL-4.9.tar.xz"
+  sha256 "63ac5df71f912f34f2f0f2e54a303578df51f4ec2627db593a65407d791f9039"
 
   bottle do
     cellar :any
