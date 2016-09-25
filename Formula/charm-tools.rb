@@ -8,7 +8,8 @@ class CharmTools < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "3ec84b54d75bd60d8c957912e8a13be1d5ef7fe008a6f486880aada62824be5a" => :sierra
     sha256 "ca750413f4324fa1a3ad19893c7575a75afddc4e1587c9d3c0133e827d5f6ed8" => :el_capitan
     sha256 "f34780f31601ae254867fb92c423a3cb1332f12e4de1134fa2dc474deaf1aefd" => :yosemite
     sha256 "5c80786313b50153e6c76ff3bac4e7f947fcc07e5ee9c9f64d51aab5ec23237d" => :mavericks
