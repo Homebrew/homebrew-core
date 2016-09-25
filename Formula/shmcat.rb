@@ -6,6 +6,7 @@ class Shmcat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0afdc7913d9c167b5aebc523987feb1d6e0c36c329d58b015f9983d5d55af5be" => :sierra
     sha256 "5dc052ed656a11bcfb22c612bb7081926ca2d7af79fc818bcac158c223215087" => :el_capitan
     sha256 "ab506697c27345d9efe49e21f9631fb1bfc1834cbb7cf2179f698b5f9a71e73a" => :yosemite
     sha256 "32c8493fa69cc202fc49dfde49c0288236666246d42dd3a6e3d6d0c87e6205a1" => :mavericks
