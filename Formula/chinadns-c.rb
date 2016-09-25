@@ -6,6 +6,7 @@ class ChinadnsC < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fa51351f3cdfb63fa672d2011c08ac8a1f9a260bcfaacb13e4657f39e721b96f" => :sierra
     sha256 "a620bce8421a9773233c51886c6845995569a1fda80e252efa86f6271c1d274c" => :el_capitan
     sha256 "329351a4f82e4f871cbc2b384902b0c84040bd1df222970d67be7513bbead207" => :yosemite
     sha256 "4266825a8ecbb6a84d459b41465fe9318a918b171880ac8ddfd8bdf3e37573d1" => :mavericks
