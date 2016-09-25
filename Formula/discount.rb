@@ -34,4 +34,10 @@ class Discount < Formula
     include.mkpath
     system "make", "install.everything"
   end
+
+  test do
+    markdown = "[Homebrew](http://brew.sh)"
+    html = "<p><a href=\"http://brew.sh\">Homebrew</a></p>"
+    assert_equal html, pipe_output(bin/"markdown", markdown, 0).chomp
+  end
 end
