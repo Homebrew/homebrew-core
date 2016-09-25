@@ -6,6 +6,7 @@ class Glbinding < Formula
 
   bottle do
     cellar :any
+    sha256 "68452e05178ce9dd90cc47aa62e5c2508ff8ffbbc3ed5054e20b65130f370231" => :sierra
     sha256 "a41937f898840ca580188b002308a6e13696e1e659feda33493f0c6c4cf9287f" => :el_capitan
     sha256 "773e5ce2e1012af403b58e0db3f4cc0f7b98d111eaea9cab528057d27c5c7c35" => :yosemite
     sha256 "97b4e0dc61be2fdd33928db4b2ed51250f38b4cab55310819715ef6f9f324530" => :mavericks
