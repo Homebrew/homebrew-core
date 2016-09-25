@@ -25,7 +25,7 @@ Creating new formulae, updating existing ones, and fixing build issues is easier
 Try `brew edit $FORMULA` and see how you fare.
 
 ## Documentation
-`brew help`, `man brew`, [Homebrew/brew's README](https://github.com/Homebrew/brew#homebrew) or check [Homebrew's documentation](https://github.com/Homebrew/brew/tree/master/share/doc/homebrew#readme).
+`brew help`, `man brew`, [Homebrew/brew's README](https://github.com/Homebrew/brew#homebrew) or check [Homebrew's documentation](https://github.com/Homebrew/brew/tree/master/docs#readme).
 
 ## License
 Code is under the [BSD 2 Clause (NetBSD) license](https://github.com/Homebrew/homebrew-core/blob/master/LICENSE.txt).
