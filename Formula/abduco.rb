@@ -7,6 +7,7 @@ class Abduco < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9367a86666aad4d14cecf2d7c20f897d3eb92d5cd913af43081d80b9452e19fd" => :sierra
     sha256 "62b4673f4fba1d3c5b201b972e220a2736ec053e0c83b1369bb4e5641a71f8e4" => :el_capitan
     sha256 "17338a1f1f2cace2bfb40c79d746ad60c6604555e8fb34476ec4ef9a2f68234e" => :yosemite
     sha256 "1f48e0d684ba7b41768b5aa770df9c8ee716a3132d3c8043b4f7ff970c925ac5" => :mavericks
