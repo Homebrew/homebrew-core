@@ -6,6 +6,7 @@ class Unarj < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "44c4722b1e3d30d987bcbd9fc9ccd7015c54d087bedb7da030e50cc84d0a52e6" => :sierra
     sha256 "7bdcd771f852f59915623dae370c8f807cbf20f242dad60d62afa1dc683cdf4a" => :el_capitan
     sha256 "95794638930505f1d4a23553571d62de07dd3f62da7687ef571c6f7e893bba42" => :yosemite
     sha256 "d81c8d0e7799847d65e8059eee61bb29f9e33ea3ea501465dee0cc7c68f425ff" => :mavericks
