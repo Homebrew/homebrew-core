@@ -1,8 +1,8 @@
 class GitImerge < Formula
   desc "Incremental merge for git"
   homepage "https://github.com/mhagger/git-imerge"
-  url "https://github.com/mhagger/git-imerge/archive/0.7.0.tar.gz"
-  sha256 "0688fe4c13c65c6fa90989c57c04fafe34114889d2d100b6e62538e8f2b0dc02"
+  url "https://github.com/mhagger/git-imerge/archive/v1.0.0.tar.gz"
+  sha256 "2ef3a49a6d54c4248ef2541efc3c860824fc8295a7226760f24f0bb2c5dd41f2"
 
   head "https://github.com/mhagger/git-imerge.git"
 
