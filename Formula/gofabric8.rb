@@ -4,6 +4,13 @@ class Gofabric8 < Formula
   url "https://github.com/fabric8io/gofabric8/archive/v0.4.72.tar.gz"
   sha256 "0c082072fc9731fc939b6d4b6719adf20e0e69ff780d613337e1832ab9e8a1db"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "cdde1f0c4aa384079019275992e3668dcd99f476e9351ee4d6d3842e0feddc96" => :sierra
+    sha256 "21713624cd81338006ece77271b5b3f907827925eb2a25a4cd9ee8db11c90775" => :el_capitan
+    sha256 "cb407cec9ce4c68abd03a7c03b05bbcbe170d7fc8c02f47cb1f4a663772deee9" => :yosemite
+  end
+
   depends_on "go" => :build
 
   def install
