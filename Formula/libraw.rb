@@ -6,6 +6,7 @@ class Libraw < Formula
 
   bottle do
     cellar :any
+    sha256 "5aa5edf18067808c49d9558e09561e46471b6379a2585d6a679d3eed5a3c017a" => :sierra
     sha256 "69f893329b5740b50b5c9c1f06dc56ad5626d1d8ffb44cb1d2c6f8bf823e3dc7" => :el_capitan
     sha256 "431a9035a872fc91a52eccb1a4d382223065ac0bbfbd2d8b3b2ec5bef5d5de78" => :yosemite
     sha256 "664d0bc81586f6a1e68b441fbd5e2754f9ebf915630fb3ccb7142c054514f3f6" => :mavericks
