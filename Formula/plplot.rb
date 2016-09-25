@@ -5,6 +5,7 @@ class Plplot < Formula
   sha256 "289dff828c440121e57b70538b3f0fb4056dc47159bc1819ea444321f2ff1c4c"
 
   bottle do
+    sha256 "7aa599004d76405dda00f854cfff576b8414864011b6be37059591ae1ae1808c" => :sierra
     sha256 "1a0ebd2560517328652cce3600af9c715da25aa461cb21a621c2dbb9904f0c16" => :el_capitan
     sha256 "81eb90e08ac42f6f5ea9f41159baf2cbf95f93f6f1390ddd1b12f00bb415e079" => :yosemite
     sha256 "7e4c364b66c61d7f35cb6a5417ee5ef1d06fe7a30d78b8d237a36b4beaa458f8" => :mavericks
