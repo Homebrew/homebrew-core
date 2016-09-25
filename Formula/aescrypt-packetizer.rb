@@ -6,7 +6,8 @@ class AescryptPacketizer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "0594c56dba96d29e03bf1e1455be6bfe04f01fefd41abde0cc4442e3fee27eec" => :sierra
     sha256 "05a0796ee03ed56290803d95fb9454f684135e0131f1bbe88fc598d0475c4fee" => :el_capitan
     sha256 "8b0d92ccb6e13b80fda4ebdde82fd92bb7cdf9d2b1b990e0b39fe072fbe83d62" => :yosemite
     sha256 "c6beb469c3cc5b9b6ce40036430a4e41538409457483d86f3dd3b8ce1e5032b9" => :mavericks
