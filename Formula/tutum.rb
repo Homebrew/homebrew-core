@@ -6,6 +6,7 @@ class Tutum < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1c340c145ee611e8115009dcb8a0ee282802fde861f5e566030aa5f9385f12d2" => :sierra
     sha256 "59d67147fbcbe56b851f158dda7551f2539ca0a97176f4fbdfb2699458806d5a" => :el_capitan
     sha256 "47976d0e8099d0b4f35e809aaf1187656116e6ba1914bb9c22a9f220c08a493f" => :yosemite
     sha256 "160d6e3eaeea07efd2f629c92e90754bfe112122b01fb1e7a2312bf4dc0d19d0" => :mavericks
