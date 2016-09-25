@@ -8,7 +8,8 @@ class Kes < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "a7c6ba082991d0f69346d2a7803cb2269e0cd4c01feaf82121144182a48cc0e7" => :sierra
     sha256 "815f563b2241d50bccb124ce4e8ad8b96ed73ec1445463248063387f0d7846aa" => :el_capitan
     sha256 "1c3cbda6f56cedc9998f90db05a0081773d950e27fde2f8b90ad487c9b338c19" => :yosemite
     sha256 "0a44427107749d609577253273d6b7b5b4f81b06ad29660b0d5802d5e5f71f40" => :mavericks
