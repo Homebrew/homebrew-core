@@ -8,6 +8,7 @@ class GithubMarkdownToc < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "947ccfaccb7328b9ebd8b3cab77e2ab0ca73f84d7f0025c3521fcea445c355fb" => :sierra
     sha256 "69fa10cb92f8674bd610b29fad0708ae30248c7ec1635bbd419cdd6f80f3273b" => :el_capitan
     sha256 "b68351ec94b8aa3ef4ab146acc4397a10737d684a4776642a3c0e8cf07c00deb" => :yosemite
     sha256 "7439b7dd49932ada1b2fc943ff6093a856760c7420048f1f780740fedaca88e2" => :mavericks
