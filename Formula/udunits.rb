@@ -5,7 +5,8 @@ class Udunits < Formula
   sha256 "f10a02014bc6a200d50d8719997bb3a6b3d364de688469d2f7d599688dd9d195"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "09b2ef0d819ef277cb223c8da187968dbdfef05664bb3d9082b10eab517aa921" => :sierra
     sha256 "c003427289ee6b0354219f394b028531f401a80fe385887dc5fdd5f4d3c7c55a" => :el_capitan
     sha256 "81dd936309a2e580e45f2adc9b36974669e03bb9b975b97f67435ac1aa49ba6f" => :yosemite
     sha256 "05dfd1ad2d4dbca918c4d5980594c1689dcf62063e3c06da0c7175599fad4976" => :mavericks
