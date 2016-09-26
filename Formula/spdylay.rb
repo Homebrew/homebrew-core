@@ -1,8 +1,8 @@
 class Spdylay < Formula
   desc "Experimental implementation of SPDY protocol versions 2, 3, and 3.1"
   homepage "https://github.com/tatsuhiro-t/spdylay"
-  url "https://github.com/tatsuhiro-t/spdylay/archive/v1.3.2.tar.gz"
-  sha256 "24f22378ffce6bd6e7e5ec69d44f3139ee102b1af59c39cddb5e6eadaf2484f8"
+  url "https://github.com/tatsuhiro-t/spdylay/archive/v1.4.0.tar.gz"
+  sha256 "31ed26253943b9d898b936945a1c68c48c3e0974b146cef7382320a97d8f0fa0"
 
   bottle do
     cellar :any
@@ -22,6 +22,10 @@ class Spdylay < Formula
   depends_on "openssl"
 
   def install
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      ENV["ac_cv_search_clock_gettime"] = "no"
+    end
+
     if MacOS.version > :lion
       Formula["libxml2"].stable.stage { (buildpath/"m4").install "libxml.m4" }
     end
