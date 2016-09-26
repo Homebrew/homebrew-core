@@ -7,6 +7,7 @@ class Laszip < Formula
 
   bottle do
     cellar :any
+    sha256 "9b3799014035a92909269d87f3756d98c83922c708c2ae0b2ac8f2c0ccc6f20e" => :sierra
     sha256 "3544d8dd1e7db052d685ecc588803dd8723172df160619d7451afe6ede7b884e" => :el_capitan
     sha256 "e757a001cce1bacae92297fedb006cd40a91e20035e84e071664d89a55862af5" => :yosemite
     sha256 "7691838134d631d123cfba57a05ab17213517442457454c0967b372d5cb7f0c3" => :mavericks
