@@ -1,9 +1,9 @@
 class ArgyllCms < Formula
   desc "ICC compatible color management system"
   homepage "http://www.argyllcms.com/"
-  url "http://www.argyllcms.com/Argyll_V1.8.3_src.zip"
-  version "1.8.3"
-  sha256 "60494176785f6c2e4e4daefb9452d83859880449040b2a843ed81de3bd0c558e"
+  url "http://www.argyllcms.com/Argyll_V1.9.0_src.zip"
+  version "1.9.0"
+  sha256 "93adb00665505a1859573c7f286d991c1c07cae2883b65d67a258892c731880e"
 
   bottle do
     cellar :any
@@ -19,10 +19,6 @@ class ArgyllCms < Formula
 
   conflicts_with "num-utils", :because => "both install `average` binaries"
 
-  # Fix build on case-sensitive filesystems.
-  # Submitted to graeme@argyllcms.com on 23rd Feb 2016.
-  patch :DATA
-
   def install
     system "sh", "makeall.sh"
     system "./makeinstall.sh"
@@ -36,18 +32,3 @@ class ArgyllCms < Formula
     %w[test.ti1.ps test.ti1.ti1 test.ti1.ti2].each { |f| File.exist? f }
   end
 end
-
-__END__
-diff --git a/spectro/dispwin.c b/spectro/dispwin.c
-index fffbaee..18343db 100755
---- a/spectro/dispwin.c
-+++ b/spectro/dispwin.c
-@@ -113,7 +113,7 @@ typedef float CGFloat;
- #endif
- #endif	/* !NSINTEGER_DEFINED */
-
--#include <IOKit/Graphics/IOGraphicsLib.h>
-+#include <IOKit/graphics/IOGraphicsLib.h>
-
- #if __MAC_OS_X_VERSION_MAX_ALLOWED <= 1060
- /* This wasn't declared in 10.6, although it is needed */
