@@ -7,6 +7,7 @@ class Snag < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "692ce892c40f38cb39e77b464efa531b27004a9bbaf0096fb5876b570086cf82" => :sierra
     sha256 "18a6d589a0b416ee502a8dacd6f919959d25cc08d9bbaad152fdade4c72634dc" => :el_capitan
     sha256 "00edba081c3a56f6cda3a4fc5bb1125d8ce93a8239c3cae89346b1893df12025" => :yosemite
     sha256 "df63529c6ec2ff4f38f0fb7900687b9362ce710a13013d4bac4bb9cdea5190da" => :mavericks
