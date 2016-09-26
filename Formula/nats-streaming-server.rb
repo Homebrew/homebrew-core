@@ -6,10 +6,10 @@ class NatsStreamingServer < Formula
   head "https://github.com/nats-io/nats-streaming-server.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0b2428afbf8d52bbeedb6fb87277df0a6cca05887b85ed55d09ea361b85d3095" => :el_capitan
-    sha256 "fbe77a3a8c7ff7d2a04f27cb9fc048c26ff1188c3c6b038a8d92ccc65ca729a6" => :yosemite
-    sha256 "8b98ed9cf49e01e79c9ddd5fc1fdbdcacfda16a90a628a901c34aecbb4385004" => :mavericks
+    rebuild 1
+    sha256 "43bb8652845c068444b390a2339e3c1bc5949fd19899c1f9f76085aa7e90561f" => :sierra
+    sha256 "e8e42e93e44d00c57c9781bf2e7f391e9b3402611c93252cf80fe7bfd84ecaaf" => :el_capitan
+    sha256 "2f34398e19153838ef55330ecfcc7b1882a27f5381b43754023896f0cb51e929" => :yosemite
   end
 
   depends_on "go" => :build
