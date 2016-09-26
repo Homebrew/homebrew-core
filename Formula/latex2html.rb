@@ -6,6 +6,7 @@ class Latex2html < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b5a1b1918a65865150653a20c13c778a49d39d4e12faf0af69b2c3215a135ee7" => :sierra
     sha256 "c8ec8e21b79f4de23cc8d6731671cf5f45e4ea6d9df29039cd372732fda93c87" => :el_capitan
     sha256 "c34c5a1c756cde2bb4e81f322a1317ec776a613d25d78ee9cdb2611a99396cbd" => :yosemite
     sha256 "792094083d7168f6e80d1528cc930bd657d57407b47b289cd38e256d9c739a3c" => :mavericks
