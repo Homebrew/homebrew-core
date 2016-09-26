@@ -5,8 +5,8 @@ class Wellington < Formula
   homepage "https://github.com/wellington/wellington"
 
   stable do
-    url "https://github.com/wellington/wellington/archive/v0.9.3.tar.gz"
-    sha256 "108e5626dad9494a1de7d6241a2f96c6fa5bd774133a00c301d42abd1089f3e2"
+    url "https://github.com/wellington/wellington/archive/v1.0.3.tar.gz"
+    sha256 "d3d49a53bc6d206a751585d4cf14fc895d02ea21cb1ef3c508e032db192d3001"
   end
 
   bottle do
@@ -15,12 +15,6 @@ class Wellington < Formula
     sha256 "3656e211a96b653dbb5d32a8e4f51a6b68bd3ee95019aad8cd0f4d512352da38" => :el_capitan
     sha256 "8fcca3d1cc4f4ae6f2821b4b215c58ab6c7d88178b5c4cffe7adc72e86da38c5" => :yosemite
     sha256 "2ef26afb326f22102249daee8c795fb467ce9716a2aae306efd23efc65020df3" => :mavericks
-  end
-
-  devel do
-    url "https://github.com/wellington/wellington/archive/v1.0.0-beta1.tar.gz"
-    sha256 "6ea2a260ba7146a6bd87f42ab22082dfd84eb5aa52adae0629cbe71395cf56de"
-    version "1.0.0-beta1"
   end
 
   needs :cxx11
