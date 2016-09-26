@@ -10,6 +10,7 @@ class Vaulted < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "74eba9bf6d42b7a673362d81052f408e43bff17051794c8ff8412830d5da4594" => :sierra
     sha256 "638baea47f16f89d191e606d529da9034a3e20f65a74cb2ce540191b2d41bda0" => :el_capitan
     sha256 "f369956a6fcebda28ba3361ae9ce763205c93ab254c51d46a5f448f45c426c7b" => :yosemite
     sha256 "2a5c41c018ba2e196e0176ff95eea07539a651c9fb86782f8f219d94d21c1343" => :mavericks
