@@ -6,6 +6,7 @@ class Apg < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "501a5f98cc6de3e4a0a6727db6133e477b8c1ce32b78efc38c6b9e711b55d9a1" => :sierra
     sha256 "3192b54701707ca69212ab7830f6814f81f96854e06b32e46c9413bd2a6f4cfb" => :el_capitan
     sha256 "834bb84d2209ae2ff3b663567ef2142d7ed513826b648e7c7246a4e8cf243f33" => :yosemite
     sha256 "3005aebd42cef1af15dad861bea49202928f9d2bd672a2ebfae0afffc8ddf291" => :mavericks
