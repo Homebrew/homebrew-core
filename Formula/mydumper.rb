@@ -6,6 +6,7 @@ class Mydumper < Formula
 
   bottle do
     cellar :any
+    sha256 "29b94d510931602a7b0f26eabc3f256b59b79af7d0fff2c42024c8912b60d1af" => :sierra
     sha256 "8dcd810f09fe2e8acaa447db3ed5557c7f15d49cb1f448b366d2bd9ab0bc13a1" => :el_capitan
     sha256 "884224a200374ef892c40f844ef4f85bc33345a1ccd7387575deac52d2de8387" => :yosemite
     sha256 "a2faa115d33c1029d49eb1dd684bc52b069d9df9bc6efb59bd21bd50cd8a4491" => :mavericks
