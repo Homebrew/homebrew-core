@@ -6,6 +6,7 @@ class Vc4asm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4bd42528fdebb2ae1b334f37fb36d0763b740692fc87e05000f03e82b4a953d2" => :sierra
     sha256 "d3e5bf0d350fe121f98dc5f9382a540246a35aa6ba329738ff6d328537521311" => :el_capitan
     sha256 "0f859510fcf092ac9aea3edf1a3bdca06fb33fbac058a6c6b07c4fe8485cf756" => :yosemite
     sha256 "17e23f6685049ca463e555f56947f2694fd14d45ac3e5be7cc82475cae251ca9" => :mavericks
