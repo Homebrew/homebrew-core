@@ -14,9 +14,10 @@ class Boot2docker < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "40ee29e8a44e50bdacdbe81e9bcebb6b9ed01dc7045d5c7178a1e4d97ba3f8e6" => :el_capitan
-    sha256 "abb90647cee5070ec8f627ccf5c1742f4178af44aa457269c397cc0a0bcf7fe3" => :yosemite
-    sha256 "df535640233157d16e153391019bd2dc2ed3448be77dbf77dde4586b071cd407" => :mavericks
+    rebuild 1
+    sha256 "dfb9853a87594fde5243295f959f70625db43b0fa4ebd95f1d43e8e8981488ce" => :sierra
+    sha256 "557a4c650af0733d298eb68cdd10d192944841e1cea57a9ac2abb1346b79c88f" => :el_capitan
+    sha256 "d994acb53e60099a0cfab0f3261adbda070add67eff32ea05754d3975c14891d" => :yosemite
   end
 
   depends_on "docker" => :recommended
