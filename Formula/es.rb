@@ -7,6 +7,7 @@ class Es < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7fa9e3a21662d59d5505fda8945435f71331647d6efdae0ce7112bd507af3398" => :sierra
     sha256 "53f0c0654ddecc62b99135fb96722b6467593248d884c1506ea93681367c611d" => :el_capitan
     sha256 "bceadf8a0ef4d3231d149f30cc53d2c7fe686cd8fdd0dafe83ceaabc35151d5e" => :yosemite
     sha256 "14f203383d01f581bdb63e7240ff57d1174553467314351d49ea41d3052148f9" => :mavericks
