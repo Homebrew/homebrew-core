@@ -5,6 +5,7 @@ class MysqlCluster < Formula
   sha256 "c577817a9c378f0e968b7d851c03e37a0101a4713c9f1ad762ac739f17d359bc"
 
   bottle do
+    sha256 "c68a39b06aa8d0ffaaa0a59888f63d6cc7840ea084d6f4b904734ad749aee371" => :sierra
     sha256 "102ee4654331a073ee7d53142e74d2be148d12898825b3f5064a405ff59ba88c" => :el_capitan
     sha256 "ea873f00bef200c76c4a214f5a07c75bc60023c27b900e9fa554478711194f0a" => :yosemite
     sha256 "d44cd4807b7dcdb32c58bab30e258310baa2f2fc1f510254f1fdccc150f75bb9" => :mavericks
