@@ -9,6 +9,7 @@ class Unyaffs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "79cc4c6edc7c20887a6427cbcdd8c256849d61b47314888825d569863f9b44c1" => :sierra
     sha256 "e33a63724b42277e86a91f37261892c4bca734f8362307c94dbf1a0f410a59c1" => :el_capitan
     sha256 "484cdbf34b9a81e2e127115ed78b80efc0355efcaba53d6797dcc2c431f4bcf1" => :yosemite
     sha256 "b0b9f241a1d576c3ad54fe16e4e20d2b545622ea8b7b30b668672214ecc03591" => :mavericks
