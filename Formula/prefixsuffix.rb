@@ -5,6 +5,7 @@ class Prefixsuffix < Formula
   sha256 "fc3202bddf2ebbb93ffd31fc2a079cfc05957e4bf219535f26e6d8784d859e9b"
 
   bottle do
+    sha256 "cf1ee40aeaa52ad6fe92570c1f914d98275a3d9c2bbc6f93ca1ea9f061c0f973" => :sierra
     sha256 "1143a29769e566e030bec8f3bf7a3f24a9c7fc69638511b6964571cc255b696f" => :el_capitan
     sha256 "544f17fbc8873abb8725d469f2cb076245d93527008f805f7b29416b6b20a82f" => :yosemite
     sha256 "eb984287bf98618cf61cf5e9ed85103077aaf4a36c8309fdcb6c9ecb736b4272" => :mavericks
