@@ -30,7 +30,7 @@ class MobileShell < Formula
     # Fix for 'dyld: lazy symbol binding failed: Symbol not found: _clock_gettime' issue
     # Reported 26 Sep 2016 https://github.com/Homebrew/homebrew-core/issues/5220
     if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      inreplace "src/util/timestamp.cc", "#if HAVE_CLOCK_GETTIME", "#if UNDEFINED_GIBBERISH"
+      ENV["ac_cv_search_clock_gettime"] = "no"
     end
 
     # teach mosh to locate mosh-client without referring
