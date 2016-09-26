@@ -1,9 +1,9 @@
 class MobileShell < Formula
   desc "Remote terminal application"
-  homepage "https://mosh.mit.edu/"
-  url "https://mosh.mit.edu/mosh-1.2.6.tar.gz"
+  homepage "https://mosh.org"
+  url "https://mosh.org/mosh-1.2.6.tar.gz"
   sha256 "7e82b7fbfcc698c70f5843bb960dadb8e7bd7ac1d4d2151c9d979372ea850e85"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "3e26f2296b1c2eec67b836ea1dc43ad5ca1f0190c6a7949b4d92052e04de79c7" => :sierra
@@ -27,6 +27,12 @@ class MobileShell < Formula
   depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
 
   def install
+    # Fix for 'dyld: lazy symbol binding failed: Symbol not found: _clock_gettime' issue
+    # Reported 26 Sep 2016 https://github.com/mobile-shell/mosh/issues/807
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      ENV["ac_cv_search_clock_gettime"] = "no"
+    end
+
     # teach mosh to locate mosh-client without referring
     # PATH to support launching outside shell e.g. via launcher
     inreplace "scripts/mosh.pl", "'mosh-client", "\'#{bin}/mosh-client"
