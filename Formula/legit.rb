@@ -1,19 +1,11 @@
 class Legit < Formula
+  include Language::Python::Virtualenv
+
   desc "Command-line interface for Git, optimized for workflow simplicity"
   homepage "http://www.git-legit.org/"
+  url "https://github.com/kennethreitz/legit/archive/v0.2.1.tar.gz"
+  sha256 "3b30e47262f3a727cc7aeb7e4842d82e9e2f9cc29145a361c097d7cc372a9a66"
   head "https://github.com/kennethreitz/legit.git", :branch => "develop"
-  revision 1
-
-  stable do
-    url "https://github.com/kennethreitz/legit/archive/v0.2.0.tar.gz"
-    sha256 "dce86a16d9c95e2a7d93be75f1fc17c67d3cd2a137819fa498e179bf21daf39e"
-
-    # Merged in HEAD; remove in next stable release
-    patch do
-      url "https://github.com/kennethreitz/legit/commit/610faf46b7b340e5233187c75cd83f7c1bf1999e.diff"
-      sha256 "7958433a5d594b8a982825ef4af1050f6f00b8bfb79fbed7e099be844403a3cd"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
@@ -26,48 +18,38 @@ class Legit < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  resource "clint" do
-    url "https://pypi.python.org/packages/source/c/clint/clint-0.4.1.tar.gz"
-    sha256 "3a9e7ba7ceaa10276bcfe85110a04633813344406ec6181063cd79210b2804a8"
-  end
-
   resource "args" do
-    url "https://pypi.python.org/packages/source/a/args/args-0.1.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/e5/1c/b701b3f4bd8d3667df8342f311b3efaeab86078a840fb826bd204118cc6b/args-0.1.0.tar.gz"
     sha256 "a785b8d837625e9b61c39108532d95b85274acd679693b71ebb5156848fcf814"
   end
 
-  resource "GitPython" do
-    url "https://pypi.python.org/packages/source/G/GitPython/GitPython-1.0.1.tar.gz"
-    sha256 "9c88c17bbcae2a445ff64024ef13526224f70e35e38c33416be5ceb56ca7f760"
+  resource "clint" do
+    url "https://files.pythonhosted.org/packages/3d/b4/41ecb1516f1ba728f39ee7062b9dac1352d39823f513bb6f9e8aeb86e26d/clint-0.5.1.tar.gz"
+    sha256 "05224c32b1075563d0b16d0015faaf9da43aa214e4a2140e51f08789e7a4c5aa"
   end
 
   resource "gitdb" do
-    url "https://pypi.python.org/packages/source/g/gitdb/gitdb-0.6.4.tar.gz"
+    url "https://files.pythonhosted.org/packages/e3/95/7e5d7261feb46c0539ac5e451be340ddd64d78c5118f2d893b052c76fe8c/gitdb-0.6.4.tar.gz"
     sha256 "a3ebbc27be035a2e874ed904df516e35f4a29a778a764385de09de9e0f139658"
   end
 
-  resource "smmap" do
-    url "https://pypi.python.org/packages/source/s/smmap/smmap-0.9.0.tar.gz"
-    sha256 "0e2b62b497bd5f0afebc002eda4d90df9d209c30ef257e8673c90a6b5c119d62"
+  resource "GitPython" do
+    url "https://files.pythonhosted.org/packages/cb/a0/9b063d09bbc847b98df115571041287d7e38ff1b45ed1c91534d15057cf6/GitPython-2.0.8.tar.gz"
+    sha256 "7c03d1130f903aafba6ae5b89ccf8eb433a995cd3120cbb781370e53fc4eb222"
   end
 
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.9.0.tar.gz"
-    sha256 "e24052411fc4fbd1f672635537c3fc2330d9481b18c0317695b46259512c91d5"
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+  end
+
+  resource "smmap" do
+    url "https://files.pythonhosted.org/packages/bc/aa/b744b3761fff1b10579df996a2d2e87f124ae07b8336e37edc89cc502f86/smmap-0.9.0.tar.gz"
+    sha256 "0e2b62b497bd5f0afebc002eda4d90df9d209c30ef257e8673c90a6b5c119d62"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage { system "python", *Language::Python.setup_install_args(libexec/"vendor") }
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-
+    virtualenv_install_with_resources
     bash_completion.install "extra/bash-completion/legit"
     zsh_completion.install "extra/zsh-completion/_legit"
     man1.install "extra/man/legit.1"
