@@ -26,7 +26,7 @@ class Aacgain < Formula
   test do
     # aacgain modifies files in-place
     # See: https://github.com/Homebrew/homebrew/pull/37080
-    cp test_fixtures("test.mp3"), "test.mp3"
-    system "#{bin}/aacgain", "test.mp3"
+    cp test_fixtures("test.m4a"), "test.m4a"
+    system bin/"aacgain", "test.m4a"
   end
 end
