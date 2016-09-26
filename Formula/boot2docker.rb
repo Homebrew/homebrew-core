@@ -1,3 +1,5 @@
+require "language/go"
+
 class Boot2docker < Formula
   desc "Lightweight Linux for Docker"
   homepage "https://github.com/boot2docker/boot2docker-cli"
@@ -20,13 +22,29 @@ class Boot2docker < Formula
   depends_on "docker" => :recommended
   depends_on "go" => :build
 
+  go_resource "github.com/BurntSushi/toml" do
+    url "https://github.com/BurntSushi/toml.git",
+        :tag => "v0.2.0",
+        :revision => "bbd5bb678321a0d6e58f1099321dfa73391c1b6f"
+  end
+
+  go_resource "github.com/ogier/pflag" do
+    url "https://github.com/ogier/pflag.git",
+        :tag => "v0.0.1",
+        :revision => "32a05c62658bd1d7c7e75cbc8195de5d585fde0f"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/github.com/boot2docker/boot2docker-cli"
     dir.install Dir[buildpath/"*"]
+    Language::Go.stage_deps resources, buildpath/"src"
 
     cd dir do
-      system "go", "get", "-d"
+      # Fix for Go 1.7 argument style preference.
+      inreplace "Makefile",
+                "-X main.Version $(VERSION) -X main.GitSHA $(GITSHA1)",
+                "-X main.Version=$(VERSION) -X main.GitSHA=$(GITSHA1)"
       system "make", "goinstall"
     end
 
