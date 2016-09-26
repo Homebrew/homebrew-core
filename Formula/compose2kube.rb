@@ -11,12 +11,12 @@ class Compose2kube < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/kelseyhightower/compose2kube").install buildpath.children
     cd "src/github.com/kelseyhightower/compose2kube" do
-      system "go", "build", "-o", bin/  "compose2kube"
+      system "go", "build", "-o", bin/"compose2kube"
       prefix.install_metafiles
     end
   end
 
   test do
-    system "false"
+    system bin/"compose2kube", "-h"
   end
 end
