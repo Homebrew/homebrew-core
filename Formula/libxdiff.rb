@@ -6,7 +6,8 @@ class Libxdiff < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "4a29b90dc48e4ce505bb50e575cc91107df8d93a90fe49ab4ec02df6118158ec" => :sierra
     sha256 "55d89877bd5457b7a5b77cf68187f544ff413228ec17a701e7879644ae528f35" => :el_capitan
     sha256 "6269c8d291cea44aceda9bd8e1e93a061e64d76852e47b781ae49aee28f0c31c" => :yosemite
     sha256 "eb1a482e6da44ad722af99334618ddb17da926f4c88a8c85361e04ce0e59bb54" => :mavericks
