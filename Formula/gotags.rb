@@ -8,6 +8,7 @@ class Gotags < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e18d6c1bed87116106b8aad916712faf73dfe033e5f8a568e58447892446f3d7" => :sierra
     sha256 "c3d45ab0288282b15e76d962064860c10fad509a68d58dcc339beee17f277609" => :el_capitan
     sha256 "72d7d85afb135baca77daaff911ae71cb87bd4b5a63df3e7c509e809745ea272" => :yosemite
     sha256 "c3d177bdf195516994e4179334d54897d74aef7e57b702d4e34224636b8a468e" => :mavericks
