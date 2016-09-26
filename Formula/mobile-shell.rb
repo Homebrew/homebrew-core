@@ -29,6 +29,7 @@ class MobileShell < Formula
   def install
     # Fix for 'dyld: lazy symbol binding failed: Symbol not found: _clock_gettime' issue
     # Reported 26 Sep 2016 https://github.com/Homebrew/homebrew-core/issues/5220
+    # Reported 26 Sept 2016 https://github.com/mobile-shell/mosh/issues/807
     if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
       ENV["ac_cv_search_clock_gettime"] = "no"
     end
