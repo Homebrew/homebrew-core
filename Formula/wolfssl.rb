@@ -1,8 +1,9 @@
 class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com/wolfSSL/Home.html"
-  url "https://github.com/wolfSSL/wolfssl/archive/v3.9.8.tar.gz"
-  sha256 "8b5b6e36521800103332855705c8fd6451b94801d375671054ad24e045f5268f"
+  url "https://github.com/wolfSSL/wolfssl/archive/v3.9.10-stable.tar.gz"
+  version "3.9.10"
+  sha256 "8024a67c8b3880fc139e84af83a618538f2f83163b25e5f3e628e16f1a5a5220"
   head "https://github.com/wolfSSL/wolfssl.git"
 
   bottle do
