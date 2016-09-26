@@ -9,6 +9,7 @@ class Sops < Formula
 
   bottle do
     cellar :any
+    sha256 "e088165ec84dd3fc5ce81e4d0069c543ec2a1de5d4b68ecea11325d526ca33e6" => :sierra
     sha256 "14506bfebac13b4816cbfd4db88e88db3862b170c266161c9ecf2b8ba2232cf3" => :el_capitan
     sha256 "a315c1b4f41d5c7f6aaa833991dcc22c662dfdfc039369aa2b612648f016d361" => :yosemite
     sha256 "2e34954c20bc5b1137073990ef472d8574e979deb399112533a14558952a3e22" => :mavericks
