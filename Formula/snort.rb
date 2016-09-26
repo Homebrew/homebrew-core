@@ -6,6 +6,7 @@ class Snort < Formula
 
   bottle do
     cellar :any
+    sha256 "d6e0d7b077ab1bd0d5a157290cf5b02959341263adb570a46a8d284547420a12" => :sierra
     sha256 "a9d181fa99b247f0393f80eb6c95144d69148479baf3b91133f48f6f347a558c" => :el_capitan
     sha256 "32c6242acec71ab2a9ae4723e7ca70779c91070441f5d2d2a073b6fac83e2385" => :yosemite
     sha256 "9118f3787b7fd32a4750ceae0bdc5923e911bed9515b7587fb527f9459e2c84b" => :mavericks
