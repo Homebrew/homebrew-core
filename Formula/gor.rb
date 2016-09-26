@@ -8,6 +8,7 @@ class Gor < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "91081c290396a2d8d52fa9f76b075af47764df3774f3a1d9a8cebdb111f0b665" => :sierra
     sha256 "664cff81e41321a473a087aa0ca465fa8df7ddc6844c468c3445fe9fb76cb6e5" => :el_capitan
     sha256 "07bfff5c49bdcd69bc145369d306a7b538b58586b4d6347639b92531b3074644" => :yosemite
     sha256 "aebc9f938167cc563d674b7acaf0110cb359d854fb98689135ae9fd09be0648d" => :mavericks
