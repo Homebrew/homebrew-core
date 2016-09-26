@@ -6,6 +6,7 @@ class Webkitgtk < Formula
   revision 1
 
   bottle do
+    sha256 "f6ef3a38294ecba2b9b36543e643301187147f7761484702409ab8466c70ca05" => :sierra
     sha256 "259c9237a79f0c596ec790b91dc18230beeac86d18ee3880c14afab504e5e6f3" => :el_capitan
     sha256 "8d2f2e10bae4bc951e7592283bd40cd82199636e9eee1661906dee5274439bc6" => :yosemite
     sha256 "0a2d7e830a634126fa1b434ffca328cbab76f03889304effe574d292ef0f646e" => :mavericks
