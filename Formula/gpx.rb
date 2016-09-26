@@ -7,6 +7,7 @@ class Gpx < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e51f98467745f27e906fa4d1152cb7fe7e73c2606872f2c9eba8d54fa250a32e" => :sierra
     sha256 "29621a041a78876e963bdd922c6ea5203f102dbbcd87038d3ade22eca6bafb29" => :el_capitan
     sha256 "451eab6ecaf8a42858ae0d71cfa141bc14fd3d0608285bc1a677422fcc8a662e" => :yosemite
     sha256 "d1fdd06431d4efa1043c364c34d1e2f1fd0d904aa58047829ec0beda4aa47340" => :mavericks
