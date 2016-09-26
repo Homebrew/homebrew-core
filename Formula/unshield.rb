@@ -6,6 +6,7 @@ class Unshield < Formula
 
   bottle do
     cellar :any
+    sha256 "ba6bf0f4336db7dc0a4786c914641dbd5cbb7e8a78372fca8fb44d234971b9bb" => :sierra
     sha256 "3483cb438e816f4a88d9c0f166a73aa40c042e96b49955a9280d42b5d8f65f47" => :el_capitan
     sha256 "9e143d03e6017dd8aa55696e3d5e8f0f0c2e25c6d5fefb496d6fa3cf113e10aa" => :yosemite
     sha256 "804098ab7f9c7ecac5d8749d7b13d542b07dd3551170da17568a073710740ac6" => :mavericks
