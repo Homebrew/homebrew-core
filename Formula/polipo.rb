@@ -7,7 +7,8 @@ class Polipo < Formula
   head "git://git.wifi.pps.jussieu.fr/polipo"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "d30101dd7753f59f84a8962f07772a1e18ec8007096b815c3cae117a59fbb2e0" => :sierra
     sha256 "54142753c1ad2f0bbb0b7d3acd62c12dd6f5e33f059f27432a739e01a351f1a7" => :el_capitan
     sha256 "ce6453203feafa737212242a0ea9d2faa118e5880775e115682901e59fad5891" => :yosemite
     sha256 "74930c6406c860315088f3bde52332fb3708a60f5aabeeff1497a3cbbdf10a73" => :mavericks
