@@ -26,7 +26,8 @@ class Nailgun < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 2
+    rebuild 2
+    sha256 "4d0e4d7cbad1880f6e9d314d448f90f423d6c2c45c268a6cf99b36d103504c58" => :sierra
     sha256 "02cf71ea505409aedd24b227d67b91a24dc1c2db040185424081ecfdb07f3382" => :el_capitan
     sha256 "958b5a30b72b237139cfd7723025f5d9f50f6b6a318fad22c3297f84a48c34eb" => :yosemite
     sha256 "395c49abe28e79d6171f616b2f0cacc317a95aa09123bdee3eae4df4f3249cff" => :mavericks
