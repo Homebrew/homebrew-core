@@ -15,6 +15,12 @@ class Castxml < Formula
     sha256 "df8baff500313f946a09a64bd1bb4a56d909ad4cce7d1c1eb1dcf637215b5183" => :yosemite
   end
 
+  # changes from upstream to fix compilation with LLVM 3.9
+  patch do
+    url "https://github.com/CastXML/CastXML/commit/e1ee6852c79eddafa2ce1f134c097decd27aaa69.patch"
+    sha256 "d47f4566bda6f8592c120052aeec404de371dc27b0ef15d5c337c34f87976901"
+  end
+
   depends_on "cmake" => :build
   depends_on "llvm"
 
