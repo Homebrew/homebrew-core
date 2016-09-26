@@ -15,6 +15,12 @@ class Purescript < Formula
     sha256 "56219c3380d978226a1d7291352b9fba92b46d14c50414a4143ffce0235bfbd7" => :mavericks
   end
 
+  devel do
+    url "https://github.com/purescript/purescript/archive/v0.10.0-rc.1.tar.gz"
+    version "0.10.0-rc1"
+    sha256 "bd0cbcedad882dc66fec5d71b8870d3efdb31bcbe82d682e405454b1f3b2a9e9"
+  end
+
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
