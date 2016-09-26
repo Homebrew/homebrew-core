@@ -6,6 +6,7 @@ class Gphoto2 < Formula
 
   bottle do
     cellar :any
+    sha256 "7c73e23569faab407e1250a0a72d502bafc455e19dc7ee83f219e7a573e32788" => :sierra
     sha256 "b027c976521875f6cbe21186f1b61acb24e5dd21488cf5523275f0878db9789b" => :el_capitan
     sha256 "267da7eb4d18b6655464da8a70efc1b9a759e08460c31e0d45d3c85424068e91" => :yosemite
     sha256 "12e5c0d1d69f9385377a3e8522b73c6227f877789ab05a0527006cc5b872f2f9" => :mavericks
