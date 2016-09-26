@@ -3,7 +3,7 @@ class Vim < Formula
   homepage "http://www.vim.org/"
   # *** Vim should be updated no more than once every 7 days ***
   url "https://github.com/vim/vim/archive/v8.0.0013.tar.gz"
-  sha256 '46b509cd0c4d085cfec60b2e8d30daca568908c4d7dbcaa2af586ed897cc8d4b'
+  sha256 "46b509cd0c4d085cfec60b2e8d30daca568908c4d7dbcaa2af586ed897cc8d4b"
   head "https://github.com/vim/vim.git"
 
   bottle do
