@@ -6,6 +6,7 @@ class ApacheForrest < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9d5b65be3ab328e2861e47e842530cba5d393e7ac2e6a09af0f2f4731fb0e34e" => :sierra
     sha256 "615ab5a39fcc19a110ebab166c05a614149374e65c5f9a7a4522fa400b8d4118" => :el_capitan
     sha256 "cd0e4ceeb9e01118fe69bee3f80ccff63a951e01bf76c87146185ae6fe474c09" => :yosemite
     sha256 "a0e06c41204932f1427e38d47b3c4442dea7f7c3312f959faf1b725d35d85a52" => :mavericks
