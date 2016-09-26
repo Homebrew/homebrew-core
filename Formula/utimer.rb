@@ -5,6 +5,7 @@ class Utimer < Formula
   sha256 "07a9d28e15155a10b7e6b22af05c84c878d95be782b6b0afaadec2f7884aa0f7"
 
   bottle do
+    sha256 "83857df76553031baf373cf3c8d0124d5d7424bd9d42b2860e7fec530e6e91ca" => :sierra
     sha256 "d7a0ec14fe3d04b314cb0c6c9e5d70b6f72d2de02e4e3227039919551eb118a6" => :el_capitan
     sha256 "6009a679cfedeecb55dbdf0e952bc2b09a7c292f8aba5d6e861072139e2a8a23" => :yosemite
     sha256 "a1841baa5d50002615efb07d07d5049e5965c06099e120f71654eec83dd4f1a3" => :mavericks
