@@ -7,6 +7,7 @@ class Libxc < Formula
 
   bottle do
     cellar :any
+    sha256 "9946ee821225893e5e4b8ef9b453d1df61472934bf415a8ddc47ccf1eb842ec3" => :sierra
     sha256 "b3b385ead0069356959d76135b9aa72d6cb492172c06a232720adadf243f9eeb" => :el_capitan
     sha256 "909e86fd8eccf2b7c356d3c4d17179cbaa3e9663846a27381d0268c1c9c00975" => :yosemite
     sha256 "993e4eb1dbe2c4f7cd1b73b46db0413bca8dc1128df6aab4f2d8cacef09d8e5f" => :mavericks
