@@ -7,6 +7,7 @@ class Ponysay < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4209ab259798a33086ee4af39fd260b1ed7f6ac3dc9a8b2b44cb9935129f17a5" => :sierra
     sha256 "69e2eb767ee25491e2a30893478bfdeff72023369ad4d9999f4b274e11b732f3" => :el_capitan
     sha256 "157fe5f14e1be281708d2c59987331484c40bd4d49d82c208bb7220503ba113a" => :yosemite
     sha256 "6c8ec0c8031407d5035f6cb7355deed95e6443c7200276ea5419ac31f2db4082" => :mavericks
