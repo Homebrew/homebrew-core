@@ -6,6 +6,7 @@ class Sispmctl < Formula
 
   bottle do
     cellar :any
+    sha256 "4aae3c4b94d58d9b0cee1e8ad3eeed2583e7c247711a764dde0485b89687d9b2" => :sierra
     sha256 "a83e61cd8748b55173148cd71ee71852c257502a633674c01d78c473188ae4c3" => :el_capitan
     sha256 "a3bf8d25e2c4fddb14edf0c77ad4ecbf7773445ee833fed4106efcae03cbe529" => :yosemite
     sha256 "5ce113e27ad2d3cfeeae7317a6614a45659288107910dc63fef605342f0e7d54" => :mavericks
