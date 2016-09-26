@@ -24,9 +24,9 @@ class Purescript < Formula
   end
 
   bottle do
-    sha256 "7493c36c9072080361e7c4e894fbc3b6207a41e28f916bbf832c45af17a9acd5" => :el_capitan
-    sha256 "0de9573c7822f266ac6ef4bfdd67c42c34dea0647bf9f7c00b1a2dea0f54c7a0" => :yosemite
-    sha256 "56219c3380d978226a1d7291352b9fba92b46d14c50414a4143ffce0235bfbd7" => :mavericks
+    sha256 "28f48f10dba3d9065a7bcd4d245b7aef7a502796d630d05a339b3e1bfd82c3b0" => :sierra
+    sha256 "a3d910d2e6496c498f464df931ca6385fb245c9b9a9f6b6a5a7b2272176e8910" => :el_capitan
+    sha256 "ceef5225bc63048357300290ca28dfdaff4f35861ffb35045b14cb9b28d37d88" => :yosemite
   end
 
   devel do
