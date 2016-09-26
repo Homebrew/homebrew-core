@@ -7,6 +7,7 @@ class Vbindiff < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6afdf87c94325cb9a0907bfda78033c28e2c3973a6cc564d0159ff6237f609c7" => :sierra
     sha256 "73f69ac6f7cea7a406c3bf755b9780d7cd87cc46f2916b8224a34e521af6f58c" => :el_capitan
     sha256 "e9eaffa8b280ec31a05a937f3bb6ec4921e96a8655172c5f282ead0a97f806ce" => :yosemite
     sha256 "fbdb102612ca9137b4c89b3dcfa3e624fd5e4bacdd0783f763a35cb050615f02" => :mavericks
