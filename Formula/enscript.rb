@@ -8,7 +8,8 @@ class Enscript < Formula
   head "git://git.savannah.gnu.org/enscript.git"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "dea5f069c92bd1b5d2e3c1f0440d8ed5281d9ee44225e28295a1f682ff43a934" => :sierra
     sha256 "e55d3f93f7a4eb89d8007d9c0c49d6b7f52778191f2601da648afff0098a6663" => :el_capitan
     sha256 "d1c1bfc90a9e140a3d257d976729fc9b6e55118a10364ce1e3dc3dd26388edc9" => :yosemite
     sha256 "f2be9be9caeff58dbec3c9abf3ff5554865e6a3ee4db91d156edce8ddf5e666e" => :mavericks
