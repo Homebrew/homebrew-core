@@ -5,6 +5,7 @@ class Ktoblzcheck < Formula
   sha256 "0f4e66d3a880355b1afc88870d224755e078dfaf192242d9c6acb8853f5bcf58"
 
   bottle do
+    sha256 "d176f6ea34fbda13e6ce060bb39d091919593840bef7db54eb4fa7996fcbdef1" => :sierra
     sha256 "2bb0e477b065ae93362a88b4e4174ec11012f922daaac023821e11b990f9d3d3" => :el_capitan
     sha256 "fdae7050c9000d7793a336a9baa3f3903922d385fe9cf8d0c61ca5c08f595520" => :yosemite
     sha256 "7a9fda64f86b9762bb98e48299a0d35884f6d1163f8ed8647db9764ad9b76a9c" => :mavericks
