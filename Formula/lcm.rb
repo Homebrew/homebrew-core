@@ -5,9 +5,11 @@ class Lcm < Formula
   sha256 "3fd7c736cf218549dfc1bff1830000ad96f3d8a8d78d166904323b1df573ade1"
 
   bottle do
-    sha256 "f497b00f04c3ae210117ffdca9c7ceb45cfe2e758f6e9010a0925448bc60ce85" => :el_capitan
-    sha256 "55c51b12f9715324bc904873a8aa499a7e9abe0e3d36bc26efc7105766853221" => :yosemite
-    sha256 "b9c5b23777fa2b1d824022c3fb039fbabcd2aa3c46cb02ea61d9998fd506bd35" => :mavericks
+    cellar :any
+    rebuild 1
+    sha256 "9dcbc09da69140c343224fa1851d4c03c90908254d882aad467e189e95cbd610" => :sierra
+    sha256 "58d75c428869f70200220e5948468805f61a4190ca775e1f693c42cce72edc9f" => :el_capitan
+    sha256 "41819c23b58c30b04c44864f2b820f0aa47b8805d78b39b5c6a023588c0cb1fb" => :yosemite
   end
 
   head do
