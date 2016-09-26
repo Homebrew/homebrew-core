@@ -6,6 +6,7 @@ class Somagic < Formula
 
   bottle do
     cellar :any
+    sha256 "377ecbdc01ebaab2acf1101aa00bbf5554e7d56b1b630baa28ef70d9deb10811" => :sierra
     sha256 "ed8a82423daaabaca0a7ab203edc68b3c0a1a1d617eb24d46486dfa974e9eb4f" => :el_capitan
     sha256 "9c87f9d7a694509b446ce726cedcb731c0185b589a1cdfa96c0346f883a75e5d" => :yosemite
     sha256 "0684417c6e1f1b498d10c5d24171217fb2e70ed0c8f9bacdd7365e8be8af20fc" => :mavericks
