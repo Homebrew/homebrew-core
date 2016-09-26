@@ -6,6 +6,7 @@ class Libtess2 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "14aca1077e6ddb6e531620a30d9792d1f2f8b0ff87d253d820ef2ee3f451d433" => :sierra
     sha256 "3eff3e41e6ca76c0e2716615793015781b52e44a851c30b15b38ac769dfebbc6" => :el_capitan
     sha256 "193dbb1598352e0d24501bb5c5a8a52236e2e6675d4473e357a46a7b4c644b9e" => :yosemite
     sha256 "b6cbf42008dcc423a8c9026e8f9dbec777dde7d375dbebd2817fc5b9393f1f85" => :mavericks
