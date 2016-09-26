@@ -7,7 +7,8 @@ class Lcab < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "083ec44a56a13291165fcb5fbe4cbe71b7fff20314373cda085a8c954ce0a3a3" => :sierra
     sha256 "7a6d3c838ed1ac609c130954379432cfab8558f8898117360ae7a70fbc28b743" => :el_capitan
     sha256 "1f17ca05d8365b47b6cd9949e985a99bedf1dc6b4cb0dcf88715e02e584433d8" => :yosemite
     sha256 "56f01c24e8814d4a719597bb364c1c94d38e45f57ae216d349aa05056c67e78a" => :mavericks
