@@ -7,6 +7,7 @@ class Slowhttptest < Formula
 
   bottle do
     cellar :any
+    sha256 "3d196594ae9da5c8852b2010d6c6e581896f973e06d7f5f2bd48a9ae36b63141" => :sierra
     sha256 "34cf5108ef284fcc23d91d0ee83358623935ffce718f0783912e7b5af05eab8e" => :el_capitan
     sha256 "bb7b09c1ac0489afab54737925d869bb67d2754bdec08969879be4d8ed2ee4aa" => :yosemite
     sha256 "45bad60bd26ee4d81a0888658bbc86890331b76a2e8fa071f63e4da8062599fe" => :mavericks
