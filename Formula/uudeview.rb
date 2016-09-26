@@ -6,6 +6,7 @@ class Uudeview < Formula
   revision 1
 
   bottle do
+    sha256 "a8ab0219be6aa4d27c2d2cf782fdd6729c927b6e241c1a19c277c508dfaf9504" => :sierra
     sha256 "fa6bcd2362f84742db9e89d4e474a4359d06d9829db2a54223597b5ab662053c" => :el_capitan
     sha256 "2692468b933a114f9f2cdebdb566ace98a5d33694fa6133e5024df5e4022a63f" => :yosemite
     sha256 "632df808fdc10ec4f8dbc18c028b51f6c28152fe0cc00c4b2a19a723f0b0499b" => :mavericks
