@@ -12,20 +12,13 @@ class Alac < Formula
     sha256 "20cca431ce69d7eb2e5d894ebbfffdbc633eef2b3447be6d0afdb7c25cac8c0e" => :mavericks
   end
 
-  resource "sample" do
-    url "http://download.wavetlan.com/SVV/Media/HTTP/AAC/iTunes/iTunes_test4_AAC-LC_v4_Stereo_VBR_128kbps_44100Hz.m4a"
-    sha256 "c2b36e40aa48348837515172874db83c344bfe3fd9108956fb12c488be8e17d9"
-  end
-
   def install
     system "make", "CFLAGS=#{ENV.cflags}", "CC=#{ENV.cc}"
     bin.install "alac"
   end
 
   test do
-    resource("sample").stage do
-      assert_equal "file type: mp4a\n",
-        shell_output("#{bin}/alac -t iTunes_test4_AAC-LC_v4_Stereo_VBR_128kbps_44100Hz.m4a", 100)
-    end
+    sample = test_fixtures("test.m4a")
+    assert_equal "file type: mp4a\n", shell_output("#{bin}/alac -t #{sample}", 100)
   end
 end
