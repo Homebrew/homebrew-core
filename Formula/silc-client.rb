@@ -4,6 +4,7 @@ class SilcClient < Formula
   url "https://downloads.sourceforge.net/project/silc/silc/client/sources/silc-client-1.1.11.tar.gz"
   sha256 "8cedf2f3c15322296afe094de60504bc27e349f1942713a2f322c7ef6ad5089e"
   bottle do
+    sha256 "7a3aa8b794ed44a6e676405a70ac84277c4b38e2ac871d5ac4aca347ec0da280" => :sierra
     sha256 "d70e8301090bb4cda87c269ed2c310c972003f0ecbac1134639225044b02843d" => :el_capitan
     sha256 "53479f39d855351579b0511907cd9d3f68504e0443ed3d1ffa4fa1e7c8caf3c9" => :yosemite
     sha256 "6b7f1d475ae6a2b2e6c480a3cf99f25ec1e02c2d5c71349f2814240263844785" => :mavericks
