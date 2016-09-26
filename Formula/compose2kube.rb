@@ -17,6 +17,6 @@ class Compose2kube < Formula
   end
 
   test do
-    system "#{bin}/compose2kube", "-h"
+    assert_match version.to_s, shell_output("#{bin}/compose2kube -h 2>&1", 2)
   end
 end
