@@ -17,6 +17,6 @@ class Compose2kube < Formula
   end
 
   test do
-    system bin/"compose2kube", "-h"
+    system "#{bin}/compose2kube", "-h"
   end
 end
