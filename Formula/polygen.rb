@@ -6,6 +6,7 @@ class Polygen < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "666868da85029fddf8df0d35a8c85cab920d65909755141ce5c046144d83e00e" => :sierra
     sha256 "06ac686d9d0cd5f8a4f55b0be7c1183b4836ed9c2b4661146edd9b467967577a" => :el_capitan
     sha256 "2531dde7c318582b59adcfed715ebc557dcbbb4b0f03b4f8852d93604c5ce07d" => :yosemite
     sha256 "c2f7980dc650c264620eb972a41fb887ad1beb36491191584ed1ac9242bdcec5" => :mavericks
