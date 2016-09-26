@@ -4,7 +4,8 @@ class Boot2docker < Formula
   # Boot2docker and docker are generally updated at the same time.
   # Please update the version of docker too
   url "https://github.com/boot2docker/boot2docker-cli.git",
-    :tag => "v1.8.0", :revision => "9a2606673efcfa282fb64a5a5c9e1b2f89d86fb4"
+      :tag => "v1.8.0",
+      :revision => "9a2606673efcfa282fb64a5a5c9e1b2f89d86fb4"
   revision 1
 
   head "https://github.com/boot2docker/boot2docker-cli.git"
@@ -20,10 +21,11 @@ class Boot2docker < Formula
   depends_on "go" => :build
 
   def install
-    (buildpath + "src/github.com/boot2docker/boot2docker-cli").install Dir[buildpath/"*"]
+    ENV["GOPATH"] = buildpath
+    dir = buildpath/"src/github.com/boot2docker/boot2docker-cli"
+    dir.install Dir[buildpath/"*"]
 
-    cd "src/github.com/boot2docker/boot2docker-cli" do
-      ENV["GOPATH"] = buildpath
+    cd dir do
       system "go", "get", "-d"
       system "make", "goinstall"
     end
@@ -31,10 +33,10 @@ class Boot2docker < Formula
     bin.install "bin/boot2docker-cli" => "boot2docker"
   end
 
-  def caveats; <<-EOF.undent
-      Rebuild the VM after an upgrade with:
-        boot2docker destroy && boot2docker upgrade
-    EOF
+  def caveats; <<-EOS.undent
+    Rebuild the VM after an upgrade with:
+      boot2docker destroy && boot2docker upgrade
+  EOS
   end
 
   def plist; <<-EOS.undent
@@ -57,6 +59,6 @@ class Boot2docker < Formula
   end
 
   test do
-    system "#{bin}/boot2docker", "version"
+    system bin/"boot2docker", "version"
   end
 end
