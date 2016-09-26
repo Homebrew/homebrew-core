@@ -8,6 +8,7 @@ class Slackcat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8cfc1e7ac3351cd84f8ce9aafef3512484dd26b71a26e624f9a550cf1b6b0685" => :sierra
     sha256 "16b2f127d5f0d9d3c1cd7ebebe85d8681ad244a2f666d857451b932f72d1b99a" => :el_capitan
     sha256 "544aaa7b4a26cfd750090bfb3dcb56ccbf7f1b4528074905f361774f62fd0d60" => :yosemite
     sha256 "1e3b19cc013cd9b6deed44b66b84968354cb49ac889672eb9ad34df8828b988c" => :mavericks
