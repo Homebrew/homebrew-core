@@ -6,6 +6,7 @@ class Codec2 < Formula
 
   bottle do
     cellar :any
+    sha256 "ebc1dfbe27cba68d3dc83ebcfcbe595f536075a1a0af9a43d0ffb6c99d8846a8" => :sierra
     sha256 "0a385047266db01ce5ee29c112454efd18c5036f8bdca96ec018a5fb1c10064a" => :el_capitan
     sha256 "9cfba02811b48abea043b61e8594e6bc810b6b378aceeb3ba6f51b9a0bb6e966" => :yosemite
     sha256 "3763c18aa7cb38b36a9b8770acae0b222f114b7cabd7035736fefa833536f614" => :mavericks
