@@ -5,6 +5,7 @@ class Le < Formula
   sha256 "0be61306efd1e6b511c86d35c128e482e277e626ad949a56cb295489ef65d7b9"
 
   bottle do
+    sha256 "34f40cb44d65d5673e8fd6e7eb89ee895f918d54085cba1f0801d8ef140c2483" => :sierra
     sha256 "a1c7c17792d36b71d8d638df984e7583e873ada961e3a9f95adf43c83005b00d" => :el_capitan
     sha256 "36884568ab31a33098a472994adb9d2a5950fc713a1aeed9dae1ba5ff3fad81d" => :yosemite
     sha256 "e8afe5fcbb5b40311216d0026b2b74caef69ea2289ae971ad29664290a10d8b7" => :mavericks
