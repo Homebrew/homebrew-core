@@ -7,7 +7,8 @@ class Eg < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "3db2d5fbfd6b6b2cf268cc08bdd3469333083c57ae666c43ed8349db70becb17" => :sierra
     sha256 "e7d8afd59c28e7b0b1c41adddf33a81612beb702dafcc361b6419f8ceb557849" => :el_capitan
     sha256 "a76496f35cb02e8c6a71a821e408ddc7c771810a594c2f42359802f4e8833a2b" => :yosemite
     sha256 "2197c470b87aa65d756c2e574477bfaaf4ce755427d1fa7bb56d948292237eb6" => :mavericks
