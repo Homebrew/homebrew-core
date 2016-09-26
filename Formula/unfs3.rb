@@ -6,6 +6,7 @@ class Unfs3 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "39efb568edcd8eb1898deb664c1f016baed60b60cb9d6031743da32b6f615cd3" => :sierra
     sha256 "b1387de21ce9672d5caea47ff223fdbca37e0ed08137a252ae14c7c80dea36e1" => :el_capitan
     sha256 "8daaa9ce7c48d3a0efbf72dac2e7cdb429aa7aa8475b64837eaa4f5159b2a4d8" => :yosemite
     sha256 "43e89011e0472b5a7aea6583f930d05d18a449474617f5d11b10b10b52badc66" => :mavericks
