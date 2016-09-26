@@ -5,6 +5,7 @@ class Gtkspell3 < Formula
   sha256 "13f2e6d3e2554cc24253ef592074b28c117db33b7a4465c98c69a3e0a4fa3cc2"
 
   bottle do
+    sha256 "2485ef850a39072ed1848a6f6426750963913f80f4785dac2d13cd2937d9d1af" => :sierra
     sha256 "a308614008162f5bb8e93e1cbe88394e4f39185fc5616075d46bcce4390ebe0d" => :el_capitan
     sha256 "68bb9cc7e7772731552b06a0496e79754658eedab6f81b6609a4c1d1a23f9b1b" => :yosemite
     sha256 "d1d6fbec19ca11ddaebf3d445dbaf04d98981650a08043d0e369fba2f44a9160" => :mavericks
