@@ -6,7 +6,8 @@ class Ncrack < Formula
   revision 1
 
   bottle do
-    revision 2
+    rebuild 2
+    sha256 "ce28c99cbc61ca885f0b2ca87d290022d4ea76fe53653ec80773e14900bb2583" => :sierra
     sha256 "d45494a77a6fdb47ab7b262a9872a650646ac8ddbaf51bd27c51e2f47fdc2c78" => :el_capitan
     sha256 "ba283e5523dba87de24ca49fd6aeddd52b25de66313d13ba5105ade949a1b598" => :mavericks
   end
