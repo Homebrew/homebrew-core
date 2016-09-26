@@ -8,7 +8,8 @@ class Lcrack < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "8e5fb5b2ad952ea17bc314a9ae49ce4baf736868448e833600c394b60d326846" => :sierra
     sha256 "2bd1de3426e4bd4ebfc6fb6026dc9a9fd046a5d9345459700a2361b7fe53f49c" => :el_capitan
     sha256 "443e64bdb0307e12f4ef990abea7941239784cb7c9798929880a7973f86cf5bc" => :yosemite
     sha256 "7ce0dcf84e40ecf7bffc05b068f8c5109d055e654fba8a8c918cbfada447e19e" => :mavericks
