@@ -6,6 +6,7 @@ class Libu2fHost < Formula
 
   bottle do
     cellar :any
+    sha256 "518360dca7f96c4a05a8b677dc03196b4a513386456a001970d5e292ddc95f95" => :sierra
     sha256 "33457975094b80d0ac9e9cf60eccdeb5e2170a9eba4c674eb407790c47cc18b4" => :el_capitan
     sha256 "e8cc07fa0e0b54804e92e49cb077d4eb0f95eb449abd4364c1acf90a94b609ce" => :yosemite
     sha256 "5c3c790e88e08cabe8ab23d0e32765e961ada219c3c5185d6d7d2bd0c10c3a85" => :mavericks
