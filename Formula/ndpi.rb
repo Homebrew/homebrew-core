@@ -1,8 +1,8 @@
 class Ndpi < Formula
   desc "Deep Packet Inspection (DPI) library"
   homepage "http://www.ntop.org/products/ndpi/"
-  url "https://downloads.sourceforge.net/project/ntop/nDPI/nDPI-1.8.tgz"
-  sha256 "f490137a7387b69d0d55e990f2150b86d7b5eaae870e5326e8c2f18c17412443"
+  url "https://github.com/ntop/nDPI/archive/1.8.tar.gz"
+  sha256 "cea26a7f280301cc3a0e714b560d48b57ae2cf6453b71eb647ceb3fccecb5ba2"
 
   bottle do
     cellar :any
@@ -25,6 +25,6 @@ class Ndpi < Formula
   end
 
   test do
-    system "#{bin}/ndpiReader", "-i", test_fixtures("test.pcap")
+    system bin/"ndpiReader", "-i", test_fixtures("test.pcap")
   end
 end
