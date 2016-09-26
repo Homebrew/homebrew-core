@@ -5,6 +5,7 @@ class Antiword < Formula
   sha256 "8e2c000fcbc6d641b0e6ff95e13c846da3ff31097801e86702124a206888f5ac"
 
   bottle do
+    sha256 "6456be83a3f867a0df1121b7c7b6c413d94d1e38bc920c9c5fda73851265fb2e" => :sierra
     sha256 "ffc3b61781ffb2ae04537e34b28a19a4fe33683c534dd2d1504d2ec8d5ef4bef" => :el_capitan
     sha256 "1397c95409d671da764658460eba612b2564d4a0403bfffa667510e05f2fb08a" => :yosemite
     sha256 "4f4938378ed4cad59dc61d652ec8d33b0410f85dd99ac825f1f86eeeedb07402" => :mavericks
