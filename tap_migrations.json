@@ -1,5 +1,6 @@
 {
   "adobe-air-sdk": "homebrew/binary",
+  "aeskeyfind": "homebrew/boneyard",
   "afuse": "homebrew/fuse",
   "aget": "homebrew/boneyard",
   "aimage": "homebrew/boneyard",
