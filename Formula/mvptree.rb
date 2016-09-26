@@ -6,7 +6,8 @@ class Mvptree < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "b8719298ad63a89f6d3aad4dd8d613aef88618f0ba98ada1215f7c93e331baea" => :sierra
     sha256 "aba4177b187d549958f160ba5f6699f0532396a43b593a9a7bef456e68ae939b" => :el_capitan
     sha256 "6e96d7c146df25acc913aefdd421202d978d77c70cfc75d2f8da5cb59c078c8a" => :mavericks
   end
