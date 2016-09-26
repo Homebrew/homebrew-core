@@ -9,6 +9,7 @@ class Uni2ascii < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "298ca15b89643dfa4946d485105fed7baa6934556c63d2bf97a3b7af0984c325" => :sierra
     sha256 "3cc5e96fa9c49edb0b06d60af238f4a4803feefe22bbf5924698649e8c4db5fb" => :el_capitan
     sha256 "0200efd85e37c8c6e2582f82ff8fbb050bba07d31a1bf3720837f5d30da6a54b" => :yosemite
     sha256 "b58b9d744048c9e2cc81e75d46c94926d14b2c25a613a05cd0835882221ade7c" => :mavericks
