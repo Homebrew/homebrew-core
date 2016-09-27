@@ -6,7 +6,8 @@ class Libbpg < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "e30bd8450fd8ff39c2947bf62b1595644a64c70061f4d677f88d01360598f5f2" => :sierra
     sha256 "f5d2349fa1e247411ed624baf5730782fed1e72643cf2e96ce49c4dac50c7764" => :el_capitan
     sha256 "7c4cde5957cfb855aa52edbb3fcf0f489d1803e42060dd8ff7cb042fe84c05f0" => :yosemite
     sha256 "93a4d03c32d1fe837f35a94d9c0f524684ddb29e02a5b507e4817e5b1cddabda" => :mavericks
