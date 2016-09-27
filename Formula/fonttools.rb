@@ -1,8 +1,8 @@
 class Fonttools < Formula
   desc "Library for manipulating fonts"
   homepage "https://github.com/behdad/fonttools"
-  url "https://github.com/behdad/fonttools/archive/3.0.tar.gz"
-  sha256 "3bc9141d608603faac3f800482feec78a550d0a94c29ff3850471dbe4ad9e941"
+  url "https://github.com/behdad/fonttools/archive/3.1.1.tar.gz"
+  sha256 "09c5bfef68402ab841d3e8af37247d15174905b06b5b5a816f5cdaf1da999990"
   head "https://github.com/behdad/fonttools.git"
 
   bottle do
