@@ -3,7 +3,7 @@ class Libgeotiff < Formula
   homepage "https://geotiff.osgeo.org/"
   url "http://download.osgeo.org/geotiff/libgeotiff/libgeotiff-1.4.1.tar.gz"
   sha256 "acfc76ee19b3d41bb9c7e8b780ca55d413893a96c09f3b27bdb9b2573b41fd23"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "760d372105af89279f6af8f368cec92e9f21e8c5b4b253851ca9614f9b0b1ca4" => :sierra
