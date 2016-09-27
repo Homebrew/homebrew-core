@@ -7,7 +7,8 @@ class PureFtpd < Formula
 
   bottle do
     cellar :any
-    revision 2
+    rebuild 2
+    sha256 "63aa01e41750ace02f46a44c4526229cf9ded7e6837f8885e28a6bf58943618c" => :sierra
     sha256 "86d1097a53f790ed8c25dd50034d1839c63edd70d9075ffad0938db2e9c40de7" => :el_capitan
     sha256 "f97ab54d8932b289e91467fb04c158b092d33e97ca35d51f1099fa4b12991f77" => :yosemite
     sha256 "054b8d5193b19c5d296766f1b3046673400416080773bc1a559a7d8f99607d2a" => :mavericks
