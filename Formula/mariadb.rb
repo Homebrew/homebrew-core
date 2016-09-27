@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.17/source/mariadb-10.1.17.tar.gz"
-  sha256 "4ca45ac5e34418761868115ebc8c068d511fed08e283b2cac52559d63ba4aab5"
+  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.18/source/mariadb-10.1.18.tar.gz"
+  sha256 "d7336907e9ff44496d6453f92526b25bd253638a64a051ca879f953499873b73"
 
   bottle do
     sha256 "770fdd503441836a6f716f098621f9575ef4e30aeb3eb3020dfc294cdfd08903" => :sierra
@@ -12,12 +12,8 @@ class Mariadb < Formula
   end
 
   devel do
-    url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.2.1/source/mariadb-10.2.1.tar.gz"
-    sha256 "90b7a17f3372c92c12dff084b37fcca8c4cf8106f4dcabd35fadc8efbaa348a2"
-
-    # upstream fix for compilation error
-    # https://jira.mariadb.org/browse/MDEV-10322
-    patch :DATA
+    url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.2.2/source/mariadb-10.2.2.tar.gz"
+    sha256 "55cf9e357ae4511fc1330e7cb8a15746d99b3a7875b6da9bcf1acfb1aa6f893a"
   end
 
   option :universal
@@ -65,10 +61,6 @@ class Mariadb < Formula
 
     # -DINSTALL_* are relative to prefix
     args = %W[
-      .
-      -DCMAKE_INSTALL_PREFIX=#{prefix}
-      -DCMAKE_FIND_FRAMEWORK=LAST
-      -DCMAKE_VERBOSE_MAKEFILE=ON
       -DMYSQL_DATADIR=#{var}/mysql
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_MANDIR=share/man
@@ -108,7 +100,7 @@ class Mariadb < Formula
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
 
-    system "cmake", *args
+    system "cmake", ".", *std_cmake_args, *args
     system "make"
     system "make", "install"
 
@@ -207,17 +199,3 @@ class Mariadb < Formula
     end
   end
 end
-__END__
-diff --git a/storage/connect/jdbconn.cpp b/storage/connect/jdbconn.cpp
-index 9b47927..7c0582d 100644
---- a/storage/connect/jdbconn.cpp
-+++ b/storage/connect/jdbconn.cpp
-@@ -270,7 +270,7 @@ PQRYRES JDBCColumns(PGLOBAL g, char *db, char *table, char *colpat,
- 		return NULL;
-
- 	// Colpat cannot be null or empty for some drivers
--	cap->Pat = (colpat && *colpat) ? colpat : "%";
-+	cap->Pat = (colpat && *colpat) ? colpat : PlugDup(g, "%");
-
- 	/************************************************************************/
- 	/*  Now get the results into blocks.                                    */
