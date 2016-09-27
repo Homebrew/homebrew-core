@@ -6,6 +6,7 @@ class Convmv < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f8e666ff7d48df2400bc48d670bbaced3d51b177142bff09e42ff1270a2a81c1" => :sierra
     sha256 "ba37232c28cd67ad8b553b79b9e4caccaf9571eb05658bf4ac287be2e490094e" => :el_capitan
     sha256 "0293e2f79297e7be509804444fe9ec437ae12f38a2aafab226b27fc2c41da1fe" => :yosemite
     sha256 "14eb563118272c69d38b71a972976a0736757c529741c154ba311c1d9082313a" => :mavericks
