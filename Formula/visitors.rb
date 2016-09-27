@@ -6,7 +6,8 @@ class Visitors < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "703c1a15a3e29b870f2a37b335a321b258a7e248c665e8d3647bcc61754adcd7" => :sierra
     sha256 "60d139c48a4d3c8b457462530893ff11c681e512cf707ba6819a783eb17d3c4c" => :el_capitan
     sha256 "2d0a3e1a40e08ae6b4892731b0cd1f3a495e8eba42476630b7863fc057e85df3" => :yosemite
     sha256 "c94f334e326f511b486e4b63b5e62ee7a59121ea5d790a8e5854ff4b57abb5e6" => :mavericks
