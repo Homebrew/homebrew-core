@@ -6,6 +6,7 @@ class Nsd < Formula
 
   bottle do
     rebuild 1
+    sha256 "86f39990c7c37eb468c8097f5b521ec3efec2df26981ca14e182fdc4f5108565" => :sierra
     sha256 "cd71e6b0744d7c621fc661a4b90508d8ae7183525ddec132514f0056a4851a6d" => :el_capitan
     sha256 "aa19b165478511defe721c85ae3776650593e08e17338f17ebeea35ad824ce33" => :yosemite
     sha256 "06fac55fa2c9e80a821a5ef047889e6bf080701a8f6e4cdb459e4f34a7fa24c1" => :mavericks
