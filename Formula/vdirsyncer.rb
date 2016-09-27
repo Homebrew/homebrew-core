@@ -8,6 +8,7 @@ class Vdirsyncer < Formula
   head "https://github.com/pimutils/vdirsyncer"
 
   bottle do
+    sha256 "730e5f59ea02215554cc8fbcc5a87f90512efe8ffc926f2ebca310ac474814b9" => :sierra
     sha256 "61b9625dc55bc54ea481f6c839c0029624dbaa65ba694c8cfbd627869a5e9131" => :el_capitan
     sha256 "990a4736379e5966168dfd5bfe44ec74d356f7159c66709dc816e6c68020473b" => :yosemite
     sha256 "7c6b1b46e9ac0b2e047d0efdd23776d5be9acef2bbb820dac7e187210c732482" => :mavericks
