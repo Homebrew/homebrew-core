@@ -6,6 +6,7 @@ class Virtualpg < Formula
 
   bottle do
     cellar :any
+    sha256 "a5e8e5a7114fe2e01f5599bf9cb57c86ffb76018cc17209804b857dc640bf404" => :sierra
     sha256 "e4ef5b53bbe9ee135d5fc2bb4c3a3d48f5f3eabfdb595c4847c65ff280a70032" => :el_capitan
     sha256 "ff726d86b7c7124bc2af33a47918e7c7bd07932c20d524e7cb60cb611a617ab7" => :yosemite
     sha256 "7388a7be8131848917364ecc747eff89b8818eb90d6eb13d364753042097d8bf" => :mavericks
