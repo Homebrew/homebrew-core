@@ -6,6 +6,7 @@ class Viewvc < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3b1359403616f260acd861ef0603fd30f296c8e7e5277d865ed20ed1fb67cb9d" => :sierra
     sha256 "389820a6f60d0977413ac7aebbf3bbacd2661cc105865813e5cf50c1f9f02020" => :el_capitan
     sha256 "06d3611ba9c051f0e5d51859c739c77a1bb2c6beb054008ca2a63db1c2f3a1f1" => :yosemite
     sha256 "8d76afcfed4be03aee5c35b83a389dd4174fc6dbc528386c1e9ba3dd4a7a575d" => :mavericks
