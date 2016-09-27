@@ -7,6 +7,7 @@ class Gstreamermm < Formula
 
   bottle do
     cellar :any
+    sha256 "47c358ebd6a0f903cd62ccc9e53a12b8a9235453eb312fb94470718cd5f32927" => :sierra
     sha256 "467de3a6c47ebf36d74be7a1f0f921ad9b67087d8de3213cdbb929c5ec679106" => :el_capitan
     sha256 "96d32cde0a48c4a2a78ed0f9bdcab529eefc82b1c807d87f86f571b252a73dad" => :yosemite
     sha256 "cfb073d82bfdfdd8f485b70021ba0571528e2004bf7a6716ca03f9fd6d5490eb" => :mavericks
