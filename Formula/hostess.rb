@@ -8,12 +8,14 @@ class Hostess < Formula
   depends_on "go" => :build
 
   def install
-    (buildpath + "src/github.com/cbednarski/hostess").install Dir[buildpath/"*"]
-    cd "src/github.com/cbednarski/hostess/cmd/hostess" do
-      ENV["GOPATH"] = buildpath
+    ENV["GOPATH"] = buildpath
+    dir = buildpath/"src/github.com/cbednarski/hostess"
+    dir.install buildpath.children
+
+    cd dir/"cmd/hostess" do
       system "go", "install"
     end
-    bin.install "bin/hostess" => "hostess"
+    bin.install "bin/hostess"
   end
 
   test do
