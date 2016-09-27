@@ -6,6 +6,7 @@ class Grt < Formula
 
   bottle do
     cellar :any
+    sha256 "8c31e85370522a4db436657f0f5501f0fd20befc31b969a0c0db6c33ed12aed7" => :sierra
     sha256 "f48b42fd6f856239fb1f004a700aec5a85c129dc0a4a2b5955ce6a9a9721b231" => :el_capitan
     sha256 "aa26978c7029c36ab7d20a0e092968132e96255087f4155a1739db6dfcb9c170" => :yosemite
     sha256 "a3170758b555fe767a6c9b75940cdd3b22fe17740c7902bc4058ab7bd01d575f" => :mavericks
