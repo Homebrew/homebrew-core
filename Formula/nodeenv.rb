@@ -8,6 +8,7 @@ class Nodeenv < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "764265ae83ad6ca81d5281527f839bdf876b65f97f0a5585be155abbcf988006" => :sierra
     sha256 "44cf589f3f2047c0a7dba6cd5a50527476a0c9c7e7dfaacad566ef4ae8bdf43d" => :el_capitan
     sha256 "aee1642ff5cd25cece25bf799aa0aaa76df411d76fec12ac47fe210761537078" => :yosemite
     sha256 "9858124809d2f47681ad3ca501f94807a75fbb3b073f972c16541abc9088e509" => :mavericks
