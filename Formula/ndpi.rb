@@ -6,9 +6,10 @@ class Ndpi < Formula
 
   bottle do
     cellar :any
-    sha256 "8aa12f9a224a380a958ffca3484ed6115512d534a73e9e1c4ea12454884f2c38" => :el_capitan
-    sha256 "7bc4d4b6b2c7c9a28fdc1755d4a66f67768200fd8e9dfd5bc161d799199fb534" => :yosemite
-    sha256 "fd2762a77e68415e14c3fb8a1da10801c38e1cdf1f0bbe0780c0e57f54862df5" => :mavericks
+    rebuild 1
+    sha256 "78dbdb1b80893d2f923a08ba73606f58b574e89556ead5376eed055eac5c1b0d" => :sierra
+    sha256 "9cb6f2b80b5429b9e4b7a5d7639ceb49a834a8771088b34253bb687c1cb61ed0" => :el_capitan
+    sha256 "556bf60eea0740addddc211f2bf7a4627b91da6ec1412d43a9054c2d1d243d71" => :yosemite
   end
 
   depends_on "autoconf" => :build
