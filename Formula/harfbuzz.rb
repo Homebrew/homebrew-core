@@ -1,8 +1,8 @@
 class Harfbuzz < Formula
   desc "OpenType text shaping engine"
   homepage "https://wiki.freedesktop.org/www/Software/HarfBuzz/"
-  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.3.0.tar.bz2"
-  sha256 "b04be31633efee2cae1d62d46434587302554fa837224845a62565ec68a0334d"
+  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.3.1.tar.bz2"
+  sha256 "a242206dd119d5e6cc1b2253c116abbae03f9d930cb60b515fb0d248decf89a1"
 
   bottle do
     sha256 "2bdda9f4de1a3753d68995a363b0e6e7497562c2cead9f4c047e25ffdd089f50" => :sierra
@@ -35,6 +35,9 @@ class Harfbuzz < Formula
     url "https://github.com/behdad/harfbuzz/raw/fc0daafab0336b847ac14682e581a8838f36a0bf/test/shaping/fonts/sha1sum/270b89df543a7e48e206a2d830c0e10e5265c630.ttf"
     sha256 "9535d35dab9e002963eef56757c46881f6b3d3b27db24eefcc80929781856c77"
   end
+
+  # use of undeclared identifier 'kCTVersionNumber10_10'
+  patch :DATA
 
   def install
     ENV.universal_binary if build.universal?
@@ -80,3 +83,26 @@ class Harfbuzz < Formula
     end
   end
 end
+
+__END__
+diff --git a/src/hb-coretext.cc b/src/hb-coretext.cc
+index ee7f91c..02742a2 100644
+--- a/src/hb-coretext.cc
++++ b/src/hb-coretext.cc
+@@ -152,13 +152,15 @@ create_ct_font (CGFontRef cg_font, CGFloat font_size)
+    * operating system versions. Except for the emoji font, where _not_
+    * reconfiguring the cascade list causes CoreText crashes. For details, see
+    * crbug.com/549610 */
+-  if (&CTGetCoreTextVersion != NULL && CTGetCoreTextVersion() < kCTVersionNumber10_10) {
++#ifndef kCTVersionNumber10_10
++  if (&CTGetCoreTextVersion != NULL) {
+     CFStringRef fontName = CTFontCopyPostScriptName (ct_font);
+     bool isEmojiFont = CFStringCompare (fontName, CFSTR("AppleColorEmoji"), 0) == kCFCompareEqualTo;
+     CFRelease (fontName);
+     if (!isEmojiFont)
+       return ct_font;
+   }
++#endif
+ 
+   CFURLRef original_url = (CFURLRef)CTFontCopyAttribute(ct_font, kCTFontURLAttribute);
+ 
