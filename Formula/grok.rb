@@ -17,6 +17,8 @@ class Grok < Formula
   depends_on "tokyo-cabinet"
 
   def install
+    # Race condition in generating grok_capture_xdr.h
+    ENV.deparallelize
     system "make", "grok"
     system "make", "install", "PREFIX=#{prefix}"
   end
