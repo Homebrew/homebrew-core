@@ -9,7 +9,8 @@ class Gsasl < Formula
 
   bottle do
     cellar :any
-    revision 2
+    rebuild 2
+    sha256 "f37b1e2171acd1ed587c75827854750f2be04302147fb3fc05672c3e3cfe42f0" => :sierra
     sha256 "8dbca0c2938ab3b5077fe7ed572437a0f724e479a7f102d9c40f959b1483f09d" => :el_capitan
     sha256 "afc44c1161ffa2ae09bee4a82c25e626562d950ae092356fba204789e4b4752e" => :yosemite
     sha256 "df498ac7247b3f54bdc9720249fa4a1cee72bf8c5011d06889d8ecdebaff1aaa" => :mavericks
