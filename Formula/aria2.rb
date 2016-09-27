@@ -6,6 +6,7 @@ class Aria2 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a93693514d5d9bd0fa82243f509de5f65b4a833e4d5b873f04f3d7e68963c411" => :sierra
     sha256 "b4678ad64b289d436e12d9863b2bd4b12ebdcf6821e1db52650da293578ee7c3" => :el_capitan
     sha256 "b73b02f655a5de46d70f7576a7c3abfc167feadcebee2cf41a168c44c7ba3b08" => :yosemite
     sha256 "3d7a7a9d5131db45170cb8a4450043dcae180d5169e825d1e2d5b88a163e3c0f" => :mavericks
