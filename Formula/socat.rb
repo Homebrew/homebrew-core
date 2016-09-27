@@ -29,6 +29,6 @@ class Socat < Formula
 
   test do
     output = pipe_output("#{bin}/socat - tcp:www.google.com:80", "GET / HTTP/1.0\r\n\r\n")
-    assert_match "HTTP/1.0", output
+    assert_match "HTTP/1.0", output.lines.first
   end
 end
