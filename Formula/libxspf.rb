@@ -6,7 +6,8 @@ class Libxspf < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "01b4b201155cf88910c1e4d7fb9427b61e88cf5c7f873ddf41536b07767aa148" => :sierra
     sha256 "27d7c2323b047e0def2aab711991484845b75b647ad2cedb4e5fac40f5589cb8" => :el_capitan
     sha256 "1d87baedae1c21d2df5bdd91c35be294b7c570e83c5c83fcdf284bce9a985c27" => :yosemite
     sha256 "9f85ead926bf875a18a91db004a04d6aa814c4766a3ab22c3ffa1a0c5371b836" => :mavericks
