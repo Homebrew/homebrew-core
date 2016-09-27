@@ -12,15 +12,14 @@ class Plplot < Formula
     sha256 "b779762659e485d6c9cad54206b1e72f2db5e82950b19a356439e9ce3ef79138" => :mountain_lion
   end
 
-  option "with-java"
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "pango"
-  depends_on "libtool" => :run
   depends_on "freetype"
+  depends_on "libtool" => :run
   depends_on :x11 => :optional
   depends_on :fortran => :optional
+  depends_on :java => :optional
 
   # Patches taken upstream
   # https://sourceforge.net/p/plplot/plplot/ci/11c496bebb2d23f86812c753e60e7a5b8bbfb0a0/
@@ -36,10 +35,18 @@ class Plplot < Formula
     args << "-DENABLE_java=OFF" if build.without? "java"
     args << "-DPLD_xwin=OFF" if build.without? "x11"
     args << "-DENABLE_f95=OFF" if build.without? "fortran"
-    args << "-DENABLE_ada=OFF" << "-DENABLE_d=OFF" << "-DENABLE_qt=OFF" \
-         << "-DENABLE_lua=OFF" << "-DENABLE_tk=OFF" << "-DENABLE_python=OFF" \
-         << "-DENABLE_tcl=OFF" << "-DPLD_xcairo=OFF" << "-DPLD_wxwidgets=OFF" \
-         << "-DENABLE_wxwidgets=OFF"
+    args += %w[
+      -DENABLE_ada=OFF
+      -DENABLE_d=OFF
+      -DENABLE_qt=OFF
+      -DENABLE_lua=OFF
+      -DENABLE_tk=OFF
+      -DENABLE_python=OFF
+      -DENABLE_tcl=OFF
+      -DPLD_xcairo=OFF
+      -DPLD_wxwidgets=OFF
+      -DENABLE_wxwidgets=OFF
+    ]
 
     mkdir "plplot-build" do
       system "cmake", "..", *args
