@@ -1,8 +1,8 @@
 class Gjs < Formula
   desc "Javascript Bindings for GNOME"
   homepage "https://wiki.gnome.org/Projects/Gjs"
-  url "https://download.gnome.org/sources/gjs/1.44/gjs-1.44.0.tar.xz"
-  sha256 "88c960f6ad47a6931d123f5d6317d13704f58572f68a4391913a254ff27dce80"
+  url "https://download.gnome.org/sources/gjs/1.46/gjs-1.46.0.tar.xz"
+  sha256 "2283591fa70785443793e1d7db66071b36052d707075f229baeb468d8dd25ad4"
 
   bottle do
     rebuild 1
