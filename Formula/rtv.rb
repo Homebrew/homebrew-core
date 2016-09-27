@@ -3,8 +3,8 @@ class Rtv < Formula
 
   desc "Command-line Reddit client"
   homepage "https://github.com/michael-lazar/rtv"
-  url "https://files.pythonhosted.org/packages/49/a0/4d9320a267ff965084dcc02e1b0ec92da4f253a8e01f60ef3f302668295a/rtv-1.12.0.tar.gz"
-  sha256 "996221b555f8955b394229d0bd7fc695a5bb75d2a688272ac31ed501e168da69"
+  url "https://files.pythonhosted.org/packages/d6/55/fd4553adc0050b4da3bff9bd0c57bcee3d56da23100b58e2c2570e533ab2/rtv-1.12.1.tar.gz"
+  sha256 "784ce662e96c81280d8c6daf67d3ff437c3eedd5ed9825c6b38a0a5677497a86"
   head "https://github.com/michael-lazar/rtv.git"
 
   bottle do
@@ -31,8 +31,8 @@ class Rtv < Formula
   end
 
   resource "mailcap-fix" do
-    url "https://files.pythonhosted.org/packages/8c/2a/db1c970c05e65dd8e0ab76d2d3efa3a4b86417d16bc60efc8d8ce075835f/mailcap-fix-0.1.3.tar.gz"
-    sha256 "13b33059db4f3d5cd76ed173fb892dd59625075d6ec528e896840db39fb3b436"
+    url "https://files.pythonhosted.org/packages/2e/44/79b536cf6659c8a93ac3aa988726c0dbfc84fa35ac40910795ec83dcbe0e/mailcap-fix-0.2.0.tar.gz"
+    sha256 "0fc57a701801cd31c45a8f0a661144085b4b0c56b8990c74f9af02af1d0feb60"
   end
 
   resource "praw" do
