@@ -5,6 +5,7 @@ class GstPython < Formula
   sha256 "149e7b9c2c361832bc765d39bce004d1ffe1b330c09c42dc902ca48867e804ce"
 
   bottle do
+    sha256 "d2d9d2a237e7bd5066e68f3ea6df093b24cc3243843d0617c794d1679e06cc1e" => :sierra
     sha256 "3c72b68dd7532e979adb3142dfa3ba4890929206a57c79f67a045f02ce28420e" => :el_capitan
     sha256 "fab0fee62ff6767febb48a14c652f5a66229c23d730d7565eba4e177b2db215e" => :yosemite
     sha256 "da74c98301daf282b9cbd1de8cbe2cf69911ca09820779bbc23cbe8b08dccc67" => :mavericks
