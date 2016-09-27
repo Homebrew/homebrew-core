@@ -3,8 +3,8 @@ class Pyinvoke < Formula
 
   desc "Pythonic task management & command execution"
   homepage "http://pyinvoke.org/"
-  url "https://github.com/pyinvoke/invoke/archive/0.12.2.tar.gz"
-  sha256 "dfc9892a0731456c785bd9d515fe761767729d32155cfd77bd0f042bd6228187"
+  url "https://github.com/pyinvoke/invoke/archive/0.13.0.tar.gz"
+  sha256 "4942aa901618f99afa70271d7b15fd018da0f174178fbca4048354c785e7736a"
 
   head "https://github.com/pyinvoke/invoke.git"
 
@@ -19,7 +19,7 @@ class Pyinvoke < Formula
       from invoke import run, task
 
       @task
-      def clean(extra=''):
+      def clean(ctx, extra=''):
           patterns = ['foo']
           if extra:
               patterns.append(extra)
