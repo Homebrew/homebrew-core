@@ -6,7 +6,8 @@ class Lft < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "964236af15c9950f84619a41604710b276627a5e19f4f4754b976f5b2463a898" => :sierra
     sha256 "cfa83b34c664b238e135577faca0ac0f3c04b135b8e437b3cfdb7243bd7bdf35" => :el_capitan
     sha256 "d4fb11ed0b1045a9b055526c812b76edf5f876e6c4fb7f581c2ed59915165eb9" => :yosemite
     sha256 "a16749d274db27785fb60ce5371e292d324224cf184b7cdba7129bc6088d0a34" => :mavericks
