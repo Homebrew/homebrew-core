@@ -7,6 +7,7 @@ class Pyexiv2 < Formula
 
   bottle do
     cellar :any
+    sha256 "bde650f330a8e897f2a47fd20d27b2903a1530dd7fb3bf52e8118d74a596c00e" => :sierra
     sha256 "2ed37d8bcc496b353b99a139209a2665c0e414505eb0ee4c5e36d2acbcb54aa9" => :el_capitan
     sha256 "26b9f2b36d116de1d5b3e6813dd279436e31324e79fbb605f02779ebc2095fe9" => :yosemite
     sha256 "fe553c6754fe6676f677e32e9a60b65a36e36d52ac9149a68d511556a4179a98" => :mavericks
