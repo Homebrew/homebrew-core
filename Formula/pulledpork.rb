@@ -9,6 +9,7 @@ class Pulledpork < Formula
 
   bottle do
     cellar :any
+    sha256 "5f6932d9bb05288c7cb44a5f520ceb6f40b2b0bbad1a530c1f685d17d3dab176" => :sierra
     sha256 "1ed9d60f5b61b10dcbaee64a412880d18f4a8b383a970058ae8fcddabf70d97f" => :el_capitan
     sha256 "df5100e17ef491d1cf9a01b472af6793b557c11e634aa03e070550a43e632ca6" => :yosemite
     sha256 "df4b7616a783b56d557e86c65a376be78dbc3df8075f9589a5b255888dce3aad" => :mavericks
