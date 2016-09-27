@@ -12,15 +12,6 @@ class Plplot < Formula
     sha256 "b779762659e485d6c9cad54206b1e72f2db5e82950b19a356439e9ce3ef79138" => :mountain_lion
   end
 
-  # Patches taken upstream
-  # https://sourceforge.net/p/plplot/plplot/ci/11c496bebb2d23f86812c753e60e7a5b8bbfb0a0/
-  # https://sourceforge.net/p/plplot/plplot/ci/cac0198537a260fcb413f7d97301979c2dfaa31c/
-  # Remove when next release is made available
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/plplot/cmake-3.6.patch"
-    sha256 "50b17ff7c80f24288f9eaeca256be0d9dd449e1f59cb933f442c8ecf812f999f"
-  end
-
   option "with-java"
 
   depends_on "cmake" => :build
@@ -30,6 +21,15 @@ class Plplot < Formula
   depends_on "freetype"
   depends_on :x11 => :optional
   depends_on :fortran => :optional
+
+  # Patches taken upstream
+  # https://sourceforge.net/p/plplot/plplot/ci/11c496bebb2d23f86812c753e60e7a5b8bbfb0a0/
+  # https://sourceforge.net/p/plplot/plplot/ci/cac0198537a260fcb413f7d97301979c2dfaa31c/
+  # Remove when next release is made available
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9d49869e/plplot/cmake-3.6.patch"
+    sha256 "50b17ff7c80f24288f9eaeca256be0d9dd449e1f59cb933f442c8ecf812f999f"
+  end
 
   def install
     args = std_cmake_args
