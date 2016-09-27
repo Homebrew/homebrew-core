@@ -5,6 +5,7 @@ class Nickle < Formula
   sha256 "a35e7ac9a3aa41625034db5c809effc208edd2af6a4adf3f4776fe60d9911166"
 
   bottle do
+    sha256 "4da54c90a2fd5ae249b51822d78b98d48a87bea56f96e45b3de60d016ea74fc4" => :sierra
     sha256 "8800a7c9508372d13a9d72e75c0db9d5aade8b1cb919b369da65574831b7f086" => :el_capitan
     sha256 "bd50768f3a76f35e0343eb44ece0e7c756782dbecfc408a7519ee8202a396907" => :yosemite
     sha256 "d153d5db01c1b232a472958310d0529ad1e845b1bbfc785f025523e21a5bffa9" => :mavericks
