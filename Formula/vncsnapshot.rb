@@ -6,6 +6,7 @@ class Vncsnapshot < Formula
 
   bottle do
     cellar :any
+    sha256 "04d13b44f374f5c7008cc3b77fff32096dba662a6654a0afb8763e099030b3fb" => :sierra
     sha256 "2ac624dd5c2267341ea88187403020edef2256537bb76274e4a5e986df20ffd8" => :el_capitan
     sha256 "ccee01d747b767efa54eff88f366c26c996b8d0757b15a3beb57bb632f56f8b9" => :yosemite
     sha256 "fe6c35f85c2832241fa87595b1c55456a192a4620910fbc83d62447f00aaeaad" => :mavericks
