@@ -5,6 +5,7 @@ class Newlisp < Formula
   sha256 "c4963bf32d67eef7e4957f7118632a0c40350fd0e28064bce095865b383137bb"
 
   bottle do
+    sha256 "1bf8f92ec1462698a7a7f3f1fdf97bfa6e9fd60840a411bea179c1994bafb7eb" => :sierra
     sha256 "8bc10b849d0a5452a2cf6de53cd7eb6d3df97ca4369e8a3eb28eff82953ca2bb" => :el_capitan
     sha256 "29cf459d873290b0876cb798cb06dfe1df51db10da9f6300e04f1e9d7d7aecb8" => :yosemite
     sha256 "dbacba90228024041cbe50efc63959cdaa94c3ca0d30267bcedcd1769dc4c597" => :mavericks
