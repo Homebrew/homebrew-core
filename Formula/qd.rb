@@ -6,6 +6,7 @@ class Qd < Formula
 
   bottle do
     cellar :any
+    sha256 "a1354aeb2b037bd7c201f454e15beb266990355b617309fcf383bea6ac3f67b2" => :sierra
     sha256 "02f2e11cae957f20fee46218a559368ac2c44cfdf6edd042c7430c3f5e3c5227" => :el_capitan
     sha256 "bd53e8612f09d48ffcfd9d981717e94ae5c617c08c0e2b0e8250ea085a75dd57" => :yosemite
     sha256 "35c7acae6a87c02301cde8c5d76b59bb696d9c3dd04970948c5fdbe3c1c6776e" => :mavericks
