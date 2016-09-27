@@ -5,6 +5,7 @@ class Sshguard < Formula
   sha256 "5ce784bc25dc9801fbfadc4117669ee02397526c420170ae1145ada96df8cd59"
 
   bottle do
+    sha256 "eafc23ae542d22103ed6750185e78d48c75c9db7d16b2d528c0e55f9b3cd0be4" => :sierra
     sha256 "52954aab894544db55b011b98fe5fe1b3e32c54e933198d8dfe56da5a8245ae6" => :el_capitan
     sha256 "84e797a7ec7778b8fc449f8da2501cd463da83b54899c6a7907275363b7241a4" => :yosemite
     sha256 "f4b03d720b38fefe394c2b4e87247080edf3e0b82cbf4e623d3f44c48dd00300" => :mavericks
