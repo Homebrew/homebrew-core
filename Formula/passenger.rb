@@ -7,9 +7,10 @@ class Passenger < Formula
 
   bottle do
     cellar :any
-    sha256 "34642c92122a04e0104717b2a119282585d87adc3ffe21c68eb33a6160359f6d" => :el_capitan
-    sha256 "6a84ccba2d8225cfebd9836c901147062702566182a5619e8e27a6edf7bc8834" => :yosemite
-    sha256 "0a6ab46cc7feff3a865e7542d24d1893ff9ebe9ffd1f4c3e2e6c5816db2ae6bf" => :mavericks
+    rebuild 1
+    sha256 "b8378337f02b1999c0b5c3405c38ae70955c231f40451ae6e7a8f59f8e61a8c6" => :sierra
+    sha256 "58a9719049a21cc39d108a8ca8d2628203df0a372912249ddf021d85d66fff54" => :el_capitan
+    sha256 "c91893004fd2d0312db156a45409b02bf0cfe92a495cb6d3ac4902025108e077" => :yosemite
   end
 
   option "without-apache2-module", "Disable Apache2 module"
