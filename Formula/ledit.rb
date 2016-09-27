@@ -6,6 +6,7 @@ class Ledit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "39ec89e6a2bd3e584fbf04344e5d001d1554d3baffc16e52487faf2ccf788748" => :sierra
     sha256 "5046bdcbf4e86ff4d8f5788366b88b50bf4d327a1dfd96b51da14bb48eaba9ef" => :el_capitan
     sha256 "7ea1c26486320fc35269fa7bf2a1dd577f504a04ac3dca3278c568224661e99e" => :yosemite
     sha256 "a5d80c1e40de9d3d8ab06ca88e412fc3d5e105d99f2439ef62b063eed3efb4e5" => :mavericks
