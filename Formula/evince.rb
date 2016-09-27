@@ -6,6 +6,7 @@ class Evince < Formula
   revision 1
 
   bottle do
+    sha256 "0743774b888e97dd8be9ce2737bcf8b04f55f48cdc606b1593883e7a7d041915" => :sierra
     sha256 "fa5d7a4becdd0da9fe9b864c8fa4b0f67e6949497deb8dd5abd86d92f7ca8107" => :el_capitan
     sha256 "f8b73e52c589d8c1e19bbd9f4edff0fccb471196304e6bf4c87d08a064904978" => :yosemite
     sha256 "7987ea6935e9850ce2a4ad72ff6d06269e6cfb966cb0a2e19129ba1ce6ff3993" => :mavericks
