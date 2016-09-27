@@ -6,6 +6,7 @@ class EvasGenericLoaders < Formula
 
   bottle do
     cellar :any
+    sha256 "f9078186ad53e14970a78fe6dbd1a0f6688c9d72cda3e54b3feb042f45812b8f" => :sierra
     sha256 "8b840c0ff34d7e4d0ac146942d1d925637ac5ee990bdb59c7174c87f230620ed" => :el_capitan
     sha256 "bc91362fca88ae3b17bea974eb22ba8d262c9456668e7c3dec6a8f8169f162d1" => :yosemite
     sha256 "8c6f8dc36b315c1d1f9a2151b419e7786de781634fdc0cdd9c749d026c260394" => :mavericks
