@@ -5,6 +5,7 @@ class GribApi < Formula
   sha256 "55cbb4fdcb4ee1be6a27cece9ae7e26070beb8ab6cb7e77773db3fb0d4272462"
 
   bottle do
+    sha256 "0426ca81bf84c562373f5a3359276724d9b06a3c021412b3f3cd1a7df7a08496" => :sierra
     sha256 "8385d6d75a6b8a0c727d227990a4f30425242b07926111eb47306b4edb792b75" => :el_capitan
     sha256 "6b9c42c18630c12889ebcf112b77d145e4126d20e64416746cecd66db395d5ec" => :yosemite
     sha256 "eceae2f4b4841aa46e55b85750aad88b81efb44c1be5aa25736f799dd8f8d6be" => :mavericks
