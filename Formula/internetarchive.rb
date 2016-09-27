@@ -1,10 +1,12 @@
 require "utils/json"
 
 class Internetarchive < Formula
+  include Language::Python::Virtualenv
+
   desc "Python wrapper for the various Internet Archive APIs"
   homepage "https://github.com/jjjake/internetarchive"
-  url "https://pypi.python.org/packages/source/i/internetarchive/internetarchive-1.0.2.tar.gz"
-  sha256 "a0c90218950d894d7549d3af6c2f6adf5915c72dc2213ff74a90f25ab1598ad9"
+  url "https://pypi.python.org/packages/3e/e3/fd6d8c7dafef90d7be5ec6216fd0b352d130f4accee7598cc6a10e85e141/internetarchive-1.0.10.tar.gz"
+  sha256 "a376762c7335db422f7a6691ed037bca5567f293ea244a12f2910e25ff9a550d"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,76 +15,19 @@ class Internetarchive < Formula
     sha256 "905133146b5145deb2af74d47dc19737580e9ab870a76d0f6f919a1d861d894b" => :mavericks
   end
 
-  resource "PyYAML" do
-    url "https://pypi.python.org/packages/source/P/PyYAML/PyYAML-3.11.tar.gz"
-    sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
-  end
-
   resource "args" do
-    url "https://pypi.python.org/packages/source/a/args/args-0.1.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/e5/1c/b701b3f4bd8d3667df8342f311b3efaeab86078a840fb826bd204118cc6b/args-0.1.0.tar.gz"
     sha256 "a785b8d837625e9b61c39108532d95b85274acd679693b71ebb5156848fcf814"
   end
 
   resource "clint" do
-    url "https://pypi.python.org/packages/source/c/clint/clint-0.5.1.tar.gz"
+    url "https://files.pythonhosted.org/packages/3d/b4/41ecb1516f1ba728f39ee7062b9dac1352d39823f513bb6f9e8aeb86e26d/clint-0.5.1.tar.gz"
     sha256 "05224c32b1075563d0b16d0015faaf9da43aa214e4a2140e51f08789e7a4c5aa"
   end
 
-  resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
-  end
-
   resource "docopt" do
-    url "https://pypi.python.org/packages/source/d/docopt/docopt-0.6.2.tar.gz"
+    url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
     sha256 "49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
-  end
-
-  resource "requests" do
-    url "https://pypi.python.org/packages/source/r/requests/requests-2.9.1.tar.gz"
-    sha256 "c577815dd00f1394203fc44eb979724b098f88264a9ef898ee45b8e5e9cf587f"
-  end
-
-  resource "py" do
-    url "https://pypi.python.org/packages/source/p/py/py-1.4.31.tar.gz"
-    sha256 "a6501963c725fc2554dabfece8ae9a8fb5e149c0ac0a42fd2b02c5c1c57fc114"
-  end
-
-  resource "pytest" do
-    url "https://pypi.python.org/packages/source/p/pytest/pytest-2.9.0.tar.gz"
-    sha256 "6fad53ccbf0903c69db93d67b83df520818b06c7597ed8a8407bc5fdffd5e40e"
-  end
-
-  resource "ujson" do
-    url "https://pypi.python.org/packages/source/u/ujson/ujson-1.35.tar.gz"
-    sha256 "f66073e5506e91d204ab0c614a148d5aa938bdbf104751be66f8ad7a222f5f86"
-  end
-
-  resource "Cython" do
-    url "https://pypi.python.org/packages/source/C/Cython/Cython-0.23.4.tar.gz"
-    sha256 "fec42fecee35d6cc02887f1eef4e4952c97402ed2800bfe41bbd9ed1a0730d8e"
-  end
-
-  resource "greenlet" do
-    url "https://pypi.python.org/packages/source/g/greenlet/greenlet-0.4.9.tar.gz"
-    sha256 "79f9b8bbbb1c599c66aed5e643e8b53bae697cae46e0acfc4ee461df48a90012"
-  end
-
-  # For "speedups": https://pypi.python.org/pypi/internetarchive, Installation
-
-  resource "ujson" do
-    url "https://pypi.python.org/packages/source/u/ujson/ujson-1.34.tar.gz"
-    sha256 "3d09807685ecf2eed3b68985aca4f7ad619eadfae9054d1e23a20c54ea861102"
-  end
-
-  resource "gevent" do
-    url "https://pypi.python.org/packages/source/g/gevent/gevent-1.1.0.tar.gz"
-    sha256 "34f7a5eca1326affe149eaa5467220d89002facd338028d2340868015407ae75"
-  end
-
-  resource "schema" do
-    url "https://pypi.python.org/packages/source/s/schema/schema-0.4.0.tar.gz"
-    sha256 "63f3ed23f3c383203bdac0c9a4c1fa823a507c3bfcd555954367a20a1c294973"
   end
 
   resource "jsonpatch" do
@@ -90,22 +35,36 @@ class Internetarchive < Formula
     sha256 "43d725fb21d31740b4af177d482d9ae53fe23daccb13b2b7da2113fe80b3191e"
   end
 
+  resource "jsonpointer" do
+    url "https://files.pythonhosted.org/packages/f6/36/6bdd302303e8bc7c25102dbc1eabb3e3d97f57b0f8f414f4da7ea7ab9dd8/jsonpointer-1.10.tar.gz"
+    sha256 "9fa5dcac35eefd53e25d6cd4c310d963c9f0b897641772cd6e5e7b89df7ee0b1"
+  end
+
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
+    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+  end
+
+  resource "requests" do
+    url "https://files.pythonhosted.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
+    sha256 "63f1815788157130cee16a933b2ee184038e975f0017306d723ac326b5525b54"
+  end
+
+  resource "schema" do
+    url "https://files.pythonhosted.org/packages/b0/41/68972daad372fff3a2381e0416ff704faf524b2974e01d1c4fc997b4fb39/schema-0.4.0.tar.gz"
+    sha256 "63f3ed23f3c383203bdac0c9a4c1fa823a507c3bfcd555954367a20a1c294973"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+  end
+
   def install
     # Required with Apple clang 7.0.0+/LLVM clang 3.6.0+ for gevent < 1.1.
     ENV.append "CFLAGS", "-std=gnu99" if ENV.compiler == :clang
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
