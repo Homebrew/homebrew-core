@@ -9,6 +9,7 @@ class Aptly < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "83d120b4f5f3b48b47a6100cc4abc284b4f43b5feb5344abdfc0230e9452cec8" => :sierra
     sha256 "76d08ae0643257baf4f6af5a60022251306f56bbafd24004f6ca415ebbaa2134" => :el_capitan
     sha256 "559e5c4c7fc0435597615fc6cd01a987ad66abe0ba7e49ff0284b1df46894374" => :yosemite
     sha256 "d53b704d71fd7f06425c48345b190125889ea5a8768d2b2a538c41d1b8c0e542" => :mavericks
