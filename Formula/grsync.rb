@@ -6,7 +6,8 @@ class Grsync < Formula
   revision 1
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "0fa146b8797b174d33d492a2955381a2f54dc1807fc1167ed6cf6e29d4be78c2" => :sierra
     sha256 "ea12e9e95d04f06c892915a476919f991af95b39e5653fae76d4026cb50906a1" => :el_capitan
     sha256 "39e1387923c5a9f9d591bb5e8f6d3ed9fa1dedc94c521285e7948a272597549e" => :yosemite
     sha256 "6ec80e0362bff0bac9976c1ca2088d5152273e926b1a6cb3a331e8435c8d4c0c" => :mavericks
