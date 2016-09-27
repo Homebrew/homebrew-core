@@ -22,4 +22,8 @@ class Grok < Formula
     system "make", "grok"
     system "make", "install", "PREFIX=#{prefix}"
   end
+
+  test do
+    system bin/"grok", "-h"
+  end
 end
