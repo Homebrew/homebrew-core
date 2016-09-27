@@ -6,6 +6,7 @@ class Netcat6 < Formula
   sha256 "db7462839dd135ff1215911157b666df8512df6f7343a075b2f9a2ef46fe5412"
 
   bottle do
+    sha256 "134b64d2bca03d774a1375c9898504b5aba30de50dff543ca37033b7334fcaa5" => :sierra
     sha256 "75fd93f36d745618b9c87a1f635a100db7fc2c3d659ecf39e77a282bf0efdb1b" => :el_capitan
     sha256 "7020abcd43b4b1714a43e42f468895c6c02ad2a8a214bc36761b6b5f615cd127" => :yosemite
     sha256 "7b1d4a701e8fadedea4e5cc89d7cbcb5bf476476557975a71a681850c50bf872" => :mavericks
