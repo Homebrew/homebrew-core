@@ -7,6 +7,7 @@ class Autotrace < Formula
 
   bottle do
     cellar :any
+    sha256 "519c8f834523db2e08bd31bae0a1537b4bf46184fa207132cd80a4823c0a24cb" => :sierra
     sha256 "73ec2093a38b49bda566f1287b3608f8361789577ec73dc8199428335d30c23f" => :el_capitan
     sha256 "e7127e4e07d276a681a49f33c3d856e1748c7bd31a520e2913b19ddafc916eaf" => :yosemite
     sha256 "995bc9a9485d627a66a55b80c8572886642b7e96793b4278a5f1cd3434c92d36" => :mavericks
