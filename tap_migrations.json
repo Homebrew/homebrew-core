@@ -27,6 +27,7 @@
   "cantera": "homebrew/science",
   "cardpeek": "homebrew/gui",
   "catdoc": "homebrew/boneyard",
+  "caudec": "homebrew/boneyard",
   "cdf": "homebrew/boneyard",
   "cdimgtools": "homebrew/boneyard",
   "celt": "homebrew/boneyard",
