@@ -64,7 +64,8 @@ class Libressl < Formula
 
   def caveats; <<-EOS.undent
     A CA file has been bootstrapped using certificates from the SystemRoots
-    keychain. To add additional certificates, place .pem files in
+    keychain. To add additional certificates (e.g. the certificates added in
+    the System keychain), place .pem files in
       #{etc}/libressl/certs
 
     and run
