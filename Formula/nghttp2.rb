@@ -21,6 +21,7 @@ class Nghttp2 < Formula
   option "with-examples", "Compile and install example programs"
   option "without-docs", "Don't build man pages"
   option "with-python3", "Build python3 bindings"
+  option "with-debug", "Emit verbose HTTP/2 debugging output"
 
   depends_on :python3 => :optional
   depends_on "sphinx-doc" => :build if build.with? "docs"
