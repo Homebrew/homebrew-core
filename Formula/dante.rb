@@ -7,7 +7,8 @@ class Dante < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "5430dd125d58a0d237c29eeb4bc34ad2de63d3d958737b3166bfa4b6475a87e7" => :sierra
     sha256 "317f720310f59b8c3c8b12e5b971829e7c2f8513832bc1782ec01c8d598e529d" => :el_capitan
     sha256 "610a391e6e28955b31a4f7a288ad446103e745a938c3d68f3082ff5fe1863574" => :yosemite
     sha256 "66d48707c1e9d1fd7a891a145c4848812f5563c38357434d8dccb195b5bd7b8a" => :mavericks
