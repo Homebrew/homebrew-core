@@ -7,6 +7,7 @@ class Bitlbee < Formula
   head "https://github.com/bitlbee/bitlbee.git"
 
   bottle do
+    sha256 "777b51738cea502198c6195e97b1710c2bf5718e46b45fe33910dea0db3ac82b" => :sierra
     sha256 "2ae0ff3d810ba31cca377a3803dc3275e7efca34c129a35c8cf0aa3321aa4dba" => :el_capitan
     sha256 "bb342d82cd1e019a98735f8d533e199e45c878fa727f7914dae7b90b022571c4" => :yosemite
     sha256 "31e194c41873e9b98a00e0496156c3111720b6eba0d7a1a6f728752fee2950d5" => :mavericks
