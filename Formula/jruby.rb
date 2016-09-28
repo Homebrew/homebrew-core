@@ -27,6 +27,6 @@ class Jruby < Formula
   end
 
   test do
-    system "#{bin}/jruby", "-e", "puts 'hello'"
+    assert_equal "hello\n", shell_output("#{bin}/jruby -e \"puts 'hello'\"")
   end
 end
