@@ -6,10 +6,9 @@ class Ekg2 < Formula
   revision 2
 
   bottle do
-    sha256 "d87b6ce447833ba00f1e4408c686a5704916dcf0633b24eb2cf6c5e885aee177" => :sierra
-    sha256 "be4e7a4617040be1f74dc1f16e0acb4792e5ac8b046a6a6a2c0e78a514d851ca" => :el_capitan
-    sha256 "a5525ed827252440db82d1c55480afc7cc0c7a0b45add9dfe2659b96a50e6140" => :yosemite
-    sha256 "ee1dca223f03cbe33e3e7361db7440b5c11d6c1a5f0f8e9c88f880c69d89e63a" => :mavericks
+    sha256 "77d62ccb6a0ff4e9126850aa1c5287e583cc5f643f6fbe2505199e694de7a337" => :sierra
+    sha256 "34a9b94c6161be85b1b42a57395528982965357cffd7f4771456c01309fb402e" => :el_capitan
+    sha256 "dafaf67dca8fefd62b5e76ec03c8d71a85542d04157e53e0ceb915475a2c5067" => :yosemite
   end
 
   depends_on "pkg-config" => :build
