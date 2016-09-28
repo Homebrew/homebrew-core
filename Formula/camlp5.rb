@@ -9,6 +9,7 @@ class Camlp5 < Formula
   head "https://gforge.inria.fr/anonscm/git/camlp5/camlp5.git"
 
   bottle do
+    sha256 "c3b0de27509d520db27d7ff2835b091fedee0568b0cb0b5d926ae2828377750c" => :sierra
     sha256 "9f38f3084632691b7b45bd26245a5f824b65f8058b9a343a0b27e07e23264168" => :el_capitan
     sha256 "3f142db90e8ba6d095249d1c741b6869c751c38a5a1a07daf0beeebf422b28d0" => :yosemite
     sha256 "19c58865719d70228380b7107377dbf4519b3a982612c5702fa7592c943fd864" => :mavericks
