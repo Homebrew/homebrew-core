@@ -5,6 +5,7 @@ class Devhelp < Formula
   sha256 "a23375c2e2b2ef6240994bc2327fcacfd42403af6d872d0cba2e16dd45ca1f1d"
 
   bottle do
+    sha256 "e999f76766f1295f883047354d2ad4aeea0de699773844c48872bc7a0c16b615" => :sierra
     sha256 "20c195d75481de422ec0e65b7efa3f6817cc6a603c0f37b9b4c90212df912552" => :el_capitan
     sha256 "383468387249e03b2fedaadb308835fa3425b1c27fd9db4cc1ac39c688bb5adf" => :yosemite
     sha256 "f33332669eb47d404ea73fbc99fe89e5d33f5044cc8b93acee84f274dc343a32" => :mavericks
