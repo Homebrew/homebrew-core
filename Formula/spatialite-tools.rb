@@ -3,6 +3,7 @@ class SpatialiteTools < Formula
   homepage "https://www.gaia-gis.it/fossil/spatialite-tools/index"
   url "https://www.gaia-gis.it/gaia-sins/spatialite-tools-sources/spatialite-tools-4.3.0.tar.gz"
   sha256 "f739859bc04f38735591be2f75009b98a2359033675ae310dffc3114a17ccf89"
+  revision 1
 
   bottle do
     cellar :any
