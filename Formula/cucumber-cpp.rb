@@ -7,6 +7,7 @@ class CucumberCpp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9286f8466f9dfe9b12283f619b42684613635d02976d65f1413c30988428eef7" => :sierra
     sha256 "91368b3bf33064c048ba322f6bf50325a96a51954ccfed3547993df214f49589" => :el_capitan
     sha256 "ff6e6139ce7845ec9f6c3ef4379562d4e0976fda3e37c4ac3ccab6cb2a971979" => :yosemite
     sha256 "0584217a82ab5d88b71a628b69918eb4cb274d1f568f56a43dc2dc18b3f144bf" => :mavericks
