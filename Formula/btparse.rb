@@ -6,6 +6,7 @@ class Btparse < Formula
 
   bottle do
     cellar :any
+    sha256 "02d9860c4b80590a96b5053cc9b6bfc7646fd204cef602c766665a53382ed116" => :sierra
     sha256 "52b3216a39c5eab22adf83c51843c18789e680bf9bca531a29c2e76c01d00371" => :el_capitan
     sha256 "a8488a0a2601b386d3f53d736d776d7a119d2910841959354cff91b9dec9d59f" => :yosemite
     sha256 "987a65ea6cbd04b6cb70d3f9f64791a1a69d5c69d446c6c712f463957435d0fb" => :mavericks
