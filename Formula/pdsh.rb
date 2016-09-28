@@ -9,10 +9,9 @@ class Pdsh < Formula
   head "https://github.com/grondo/pdsh.git"
 
   bottle do
-    revision 1
-    sha256 "a1646861fa1ab99188ba0de4f34ecccb2ca83ed903ba3a35fd2cc3d401f4bf68" => :el_capitan
-    sha256 "0dff88e9e6a412c89c40f9665ff00d254dd87faedba40abd8921fcfd0f6c49c8" => :yosemite
-    sha256 "2460e8f10a6b489856425c7b212221dab8b12afa1940ffc8741f69a21a5436c5" => :mavericks
+    sha256 "0ae68818c7d5215a7a037c44681c514bd676d3db5d47fa5ea909321afb0c2d6a" => :sierra
+    sha256 "3cc2ef3a642a9a8edb6a859aa55f7f767a6a1d3e6f6fd16fb79f0f597ae78c18" => :el_capitan
+    sha256 "141ace11fbd043f0e29e53362d0bcb37647342795d1d88f631a5822f035f3d43" => :yosemite
   end
 
   option "without-dshgroups", "This option should be specified to load genders module first"
