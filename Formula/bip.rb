@@ -8,7 +8,8 @@ class Bip < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "3969772516fb97300a437ddfb7e05a6cbffbc461d717b965ba6c378457c97873" => :sierra
     sha256 "6668137d523c526718e63487b073d1460be5aad406e0b1e97d03ecf4c151c644" => :el_capitan
     sha256 "7c7f8f20b05207af532ef998b6d967fe09096f91c2d43705538bfe15d56af3bf" => :yosemite
     sha256 "38aa273de07d7ef1057bd253993b19fe359d235a1985230d079cafd549301445" => :mavericks
