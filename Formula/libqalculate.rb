@@ -6,10 +6,9 @@ class Libqalculate < Formula
   revision 1
 
   bottle do
-    revision 1
-    sha256 "3648fa3685e511542c27b16de71363a997c440039fd9725f0232ba0bf6fed8bf" => :el_capitan
-    sha256 "892594672e9173081e77f59c912921f1cc326bedb3afc46ead16b5f4c5448bc9" => :yosemite
-    sha256 "069cb2261cd9a7f098c3784924ddf405c8ee3d6f02d22fc36ed9fff5f2557eb1" => :mavericks
+    sha256 "8e6dfe4e45213d687961fbc44b77e6900233f7bc9e44449c391cf512a8ab73f6" => :sierra
+    sha256 "369f1490d60045930bbe3d7b62a6e07233aa2589817e6de4c96bcccbb86b0404" => :el_capitan
+    sha256 "4b6de765ce80651675e070e1fb2793cc730b05bf9ba5f6bd5f4ec97476441407" => :yosemite
   end
 
   depends_on "pkg-config" => :build
