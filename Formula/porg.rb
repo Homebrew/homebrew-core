@@ -12,9 +12,7 @@ class Porg < Formula
   def install
     args = %W[--disable-silent-rules --prefix=#{prefix}]
 
-    if build.without? "grop"
-      args << "--disable-grop"
-    end
+    args << "--disable-grop" if build.without? "grop"
 
     system "./configure", *args
     system "make", "install"
