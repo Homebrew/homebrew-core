@@ -5,10 +5,11 @@ class GnomeDocUtils < Formula
   sha256 "cb0639ffa9550b6ddf3b62f3b1add92fb92ab4690d351f2353cffe668be8c4a6"
 
   bottle do
-    sha256 "af3e3f95408f13b01e72264323368a9556dc345dbb2b306d736f9b895358b2e9" => :el_capitan
-    sha256 "747018c8a51d92be291e2e6a8e843a77b9d298c0f06f5795673d259a756294d7" => :yosemite
-    sha256 "9d20b2f1c18ce7fbec8bfdff70c721394474caad1daef5d49733ed27362b9de2" => :mavericks
-    sha256 "db7e01f8a1cd568210dc884bc2a54c17c55157d2bab5fa3661b1bde99a824cd8" => :mountain_lion
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "dd60bea34848049cef5c065cfd329428fbd1aca0375e65a5c50ef424a8cd8205" => :sierra
+    sha256 "dd60bea34848049cef5c065cfd329428fbd1aca0375e65a5c50ef424a8cd8205" => :el_capitan
+    sha256 "dd60bea34848049cef5c065cfd329428fbd1aca0375e65a5c50ef424a8cd8205" => :yosemite
   end
 
   depends_on "pkg-config" => :build
