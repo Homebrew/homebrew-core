@@ -5,6 +5,8 @@ class YouGet < Formula
   homepage "https://you-get.org/"
   url "https://files.pythonhosted.org/packages/01/65/3830393a7abb7f744fd2a85324859aa67d9979a4fa0cbdba4d2ec192d038/you-get-0.4.555.tar.gz"
   sha256 "a90f26c8059240803b1c0a9ed9816af3f1831b9d8ffb9be572a0f5fb4f6eee4d"
+  revision 1
+
   head "https://github.com/soimort/you-get.git", :branch => "develop"
 
   bottle do
