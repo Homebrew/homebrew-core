@@ -6,7 +6,8 @@ class Recode < Formula
   sha256 "72c3c0abcfe2887b83a8f27853a9df75d7e94a9ebacb152892cc4f25108e2144"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "15572a6826a49109bd64fd9b50eace8259a7563f9e6ffdbf5112ed742a256c79" => :sierra
     sha256 "1aaa7262ed6614a56e2bc17ac4b518903b62eb582d6aeab45f7845b38dee224e" => :el_capitan
     sha256 "8518f350264f5cdadfb26c49487f82f9c159307f26d10230daf415d1495607f4" => :yosemite
     sha256 "81fb3b36d647c6dd83f9fb65bf657b73b65d551a16dcd7e9552ff70f5a1394dc" => :mavericks
