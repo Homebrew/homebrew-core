@@ -9,11 +9,9 @@ class Kes < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "a7c6ba082991d0f69346d2a7803cb2269e0cd4c01feaf82121144182a48cc0e7" => :sierra
-    sha256 "815f563b2241d50bccb124ce4e8ad8b96ed73ec1445463248063387f0d7846aa" => :el_capitan
-    sha256 "1c3cbda6f56cedc9998f90db05a0081773d950e27fde2f8b90ad487c9b338c19" => :yosemite
-    sha256 "0a44427107749d609577253273d6b7b5b4f81b06ad29660b0d5802d5e5f71f40" => :mavericks
+    sha256 "f5e4439f7bcdd3f86df61f83c0e186fe916cb69c39dd1ad36e6086ab89d1016a" => :sierra
+    sha256 "d97ae9006c6669d0fbd2b5df363b4014f90f436419b4a432cf8166b65903dfd1" => :el_capitan
+    sha256 "833b3f0ebb8c1dcd8f0efefa76f04a1938964bb40c5c30081108b565f1a0e066" => :yosemite
   end
 
   depends_on "readline"
