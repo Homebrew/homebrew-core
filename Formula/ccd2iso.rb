@@ -6,6 +6,7 @@ class Ccd2iso < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c855496f0265a8f806228cddc1c15d5a1d6e7186f4bb43c0a317a6256d8e8e85" => :sierra
     sha256 "e74b2779ef3d832bc899422285c2d03ea33aa6ab979ca835914343999b444671" => :el_capitan
     sha256 "020f198fa4476dc640fa14e8efa7ad04985143e7007c45610b890bdc7db47599" => :yosemite
     sha256 "46facd34e7bbf203fe76dcd6e99bcf066eb245992aef01f1d703a9ce7a69cac3" => :mavericks
