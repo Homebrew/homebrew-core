@@ -18,6 +18,7 @@ class Liblwgeom < Formula
 
   bottle do
     cellar :any
+    sha256 "5373984aa4c342f727e11f2001ec453b5c43b30bab4698c94cb36f48a0879e6b" => :sierra
     sha256 "a12e1bb07f3b6288118f52b7e711aa0cb54c4edab8be537de26762d1b617471e" => :el_capitan
     sha256 "b902de2302683c968a3a375d16cd87814570c233e055a69de37e2842bbbcc5ab" => :yosemite
     sha256 "4b53028a2954665d46d15dc6d77e4a535c74d6ee446f95539e856e7c573ad4e2" => :mavericks
