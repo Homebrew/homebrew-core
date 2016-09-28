@@ -8,10 +8,9 @@ class Ldapvi < Formula
 
   bottle do
     cellar :any
-    sha256 "530d6a536d07cb5af83835ed9308988dd8e0fc07cf53fe7dccbfb1c557ec2e92" => :sierra
-    sha256 "efc90cde1d76b43698de01768181ecccc206b72f12337a05ae21274fc9b9aec2" => :el_capitan
-    sha256 "bbb587e4cb2968d9618fd0957318a35780c2b3fa8ceb4476b42619d93076b917" => :yosemite
-    sha256 "8e500b3edbf436ae22ad5ed1078af35e9e9315b199e529c54a00b371199d7039" => :mavericks
+    sha256 "715fa62d9a31e3d64eb7be63847bfcb6430baf14513374afeb3861a9c736c27e" => :sierra
+    sha256 "bc0b47872ac179d5797a0431e268708b0fa5e6a444cfbcbefb9c5b565d44c6a6" => :el_capitan
+    sha256 "0226ff922a186c3ea5b7342b0caad554316332006db0b797f2ac0eb3cda2c5e8" => :yosemite
   end
 
   depends_on "pkg-config" => :build
