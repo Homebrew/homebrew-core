@@ -7,10 +7,9 @@ class Gqlplus < Formula
 
   bottle do
     cellar :any
-    sha256 "06a235847ab08c8c89f587896f0c2e8c32cd4b406c929f4125facf6a4c558e9d" => :sierra
-    sha256 "6a8b5da1b7a2a112de1df19024a3391d4b59f4620ea709d4643ee9cdb5ec4ee7" => :el_capitan
-    sha256 "3126ca284b757d5dd0795895e2253f8b41b08d6f5616e5e20eaed11b18452a43" => :yosemite
-    sha256 "dcd4f4950702fea5fb85a3dab05909c2362bbf9d21d3ddd481efd1e67436c3f0" => :mavericks
+    sha256 "b2f33f3ffc90c73e030608a4f244a5f6589fc07107e3ed71bfed134575680e33" => :sierra
+    sha256 "ed88c481e0874760c39f3bf469d76487376d7f4b007863883113721a451a3057" => :el_capitan
+    sha256 "947f55e662848bedc30652c51adf55960a8da7c9db3ff3e5940eee19767f2b1c" => :yosemite
   end
 
   depends_on "readline"
