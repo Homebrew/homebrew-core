@@ -8,6 +8,7 @@ class CppNetlib < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "39556f9094c27ba5891ce4efd189f291bf5e4e68d98bd80d9d94a68d809e3341" => :sierra
     sha256 "1823d6f6dfb79ef8a658ed867ca81f0ba21cd60954633c76585fcba1393954ef" => :el_capitan
     sha256 "7ab5e0a4dedba2954579394c98211b79680fe55acf8151a3a4ceb49971f27d25" => :yosemite
     sha256 "0bf00fa7b6f4fc414349b1ae221cd1aede049055b2c68734d9772fb95b73e535" => :mavericks
