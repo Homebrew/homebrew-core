@@ -6,6 +6,7 @@ class Mcpp < Formula
 
   bottle do
     cellar :any
+    sha256 "ebd1e9d469ec6c3e20e7868a3f663ac7bcdd73ff06d499c7f182c62ef6c021f8" => :sierra
     sha256 "8e7b73fc35ad65d1e0e090f17ae0f08f407d468cd60a57320be89ce35b3f49cc" => :el_capitan
     sha256 "baf154075e31906d4905c52b3967d7df6937260d3c942f53e19b558b7e114356" => :yosemite
     sha256 "9a46caf80476b1f59d0c1e51e59bf3ac6bdc6f1f81b8ca9a2940acb587a3bc21" => :mavericks
