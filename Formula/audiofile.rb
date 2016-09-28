@@ -6,6 +6,7 @@ class Audiofile < Formula
 
   bottle do
     cellar :any
+    sha256 "6b450a6826130391d9cd353cc246ad9f5fa4874c5434516d3d8a681d147c5552" => :sierra
     sha256 "6fb50402d26b8122f6eb424bd0cb359a903451321f331e5a2f0fa19fc24759e2" => :el_capitan
     sha256 "0b7f9bd2023f2b52e4b3f7c03ddd822b0866874325adacfa10b582740e070cdc" => :yosemite
     sha256 "a03ebac03c59a9a65482cfa420b54f6be76bfae546ceaa1e70340ef0d02d42a7" => :mavericks
