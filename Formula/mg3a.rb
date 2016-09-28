@@ -21,7 +21,7 @@ class Mg3a < Formula
 
   def install
     if build.with?("all")
-      mg3aopts = "-DALL" if build.with?("all")
+      mg3aopts = %w[-DALL]
     else
       mg3aopts = %w[-DDIRED -DPREFIXREGION -DUSER_MODES -DUSER_MACROS]
       mg3aopts << "-DLANGMODE_C" if build.with?("c-mode")
