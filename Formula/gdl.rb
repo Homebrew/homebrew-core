@@ -5,6 +5,7 @@ class Gdl < Formula
   sha256 "53d3a3bb9b9be25b3a40c644fdbbb57a5a63ee1f5f839c2266d1cd9779360e8b"
 
   bottle do
+    sha256 "5996baf77ec24c5e2136cf1aaf450c557579a4eaeb3d46cac1233b18a7ac4671" => :sierra
     sha256 "8f796750e169e08e9a1584757d371dfe705ad6bc17ce3dc0c4f8e7af5e8de7fb" => :el_capitan
     sha256 "28dc25f2b69b485b7cb2c3d221b2462a33ffb912b45d81ab4c88a1b141ff1fdf" => :yosemite
     sha256 "73d01a80f88808f2131dcf53f52a46dc263d24e3a4cd69c9df53be2265f3069c" => :mavericks
