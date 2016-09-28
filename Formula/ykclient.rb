@@ -7,6 +7,7 @@ class Ykclient < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "dae78aa836f872c6e8767c2e8ea2c295a16161329ea4fa3b27a1dd1d31b66153" => :sierra
     sha256 "1175f6f20146f23d7e650147ce0fc0963d71b3efb294402c649e05a29def3f41" => :el_capitan
     sha256 "fb7c3d237a80f3c5f3c8274c014bdd00318cff4aba499a7936f11c857c5d2e14" => :yosemite
     sha256 "96ee6e8f265432b340e3b1512b2ce102dbd64a948c37a53779cded0bb92ac5cf" => :mavericks
