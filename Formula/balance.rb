@@ -6,6 +6,7 @@ class Balance < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "02b241cd5085873f6f2e78c99c01b1be6c89a3a2ff9fc12e17600035096dc44e" => :sierra
     sha256 "c6af3ec64f795a6ba24400e83b3ab3753564a57f8546f0137368860bd2605421" => :el_capitan
     sha256 "07f517fc19b99e5d52f6a90576ccd718650bd6a291d7c808f0d8b8193bce7779" => :yosemite
     sha256 "ee916620a28cde87c90824125bf418b61eea80bc99e3aa32936e39af8acf0432" => :mavericks
