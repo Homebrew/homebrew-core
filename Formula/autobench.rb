@@ -6,6 +6,7 @@ class Autobench < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "daecaaf9c3a733c7667c5414371ba948896b0c0eb47dfd1b1ce876921c829390" => :sierra
     sha256 "37bb6f40825953f9ba176522bc64d74a6375304d7963331aee937417e339964f" => :el_capitan
     sha256 "9884556bd5f7ab7c29a0aa199328cbe609e04437b1ddce4703214ba65f15d40a" => :yosemite
     sha256 "d31d3625f06d036af97b6cc80d62856b9d3eecadb4ed9fe7a0cb9b96f8d9f9a0" => :mavericks
