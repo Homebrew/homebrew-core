@@ -14,11 +14,10 @@ end
 class Qt5 < Formula
   desc "Version 5 of the Qt framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.6/5.6.1-1/single/qt-everywhere-opensource-src-5.6.1-1.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.6/5.6.1-1/single/qt-everywhere-opensource-src-5.6.1-1.tar.xz"
-  sha256 "ce08a7eb54661705f55fb283d895a089b267c688fabe017062bd71b9231736db"
+  url "http://download.qt.io/official_releases/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.gz"
+  sha256 "4661905915d6265243e17fe59852930a229cf5b054ce5af5f48b34da9112ab5f"
 
-  head "https://code.qt.io/qt/qt5.git", :branch => "5.6", :shallow => false
+  head "https://code.qt.io/qt/qt5.git", :branch => "dev", :shallow => false
 
   bottle do
     sha256 "2aaa410f2ab2fbbddbc8c3438e43bc9f4271774c794bcae8f935fb6b1b5a82ed" => :el_capitan
@@ -43,9 +42,11 @@ class Qt5 < Formula
   # by logic introduced in <https://codereview.qt-project.org/#/c/156610/> and
   # corrected in <https://codereview.qt-project.org/#/c/161001/>.
   # Should land in either 5.6.2 and/or 5.7.1.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6ffd0e250d374193613a51beda8830dda9b67e56/qt5/QTBUG-54110.patch"
-    sha256 "2cf77b820f46f0c404284882b4a4a97bf005b680062842cdc53e107a821deeda"
+  unless build.head?
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6ffd0e250d374193613a51beda8830dda9b67e56/qt5/QTBUG-54110.patch"
+      sha256 "2cf77b820f46f0c404284882b4a4a97bf005b680062842cdc53e107a821deeda"
+    end
   end
 
   keg_only "Qt 5 conflicts Qt 4"
