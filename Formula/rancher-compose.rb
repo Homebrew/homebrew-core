@@ -6,9 +6,9 @@ class RancherCompose < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3c830b4d3507082ca229e0003d7b0708fb64923b2216e40af2c1a1c3467e9a89" => :el_capitan
-    sha256 "f477711ca47c9f469d1b6974171ae190252951b0b0ced8aa57e3df8b00e93d19" => :yosemite
-    sha256 "758715db6f78ab8ed6692b7a43b6bf938fc228fdba92e5a32bae94d813ac524d" => :mavericks
+    sha256 "3dd91cd8c2d4f030eef61a892f4496da968314cb5e00b861976635098e087ffe" => :sierra
+    sha256 "bd245ce7453d356e838dcf758fd6163dfb056c7a7a52a586c91ce2321180e3ce" => :el_capitan
+    sha256 "46b7df3b44ee8454497ddce5deae61985d8ba2d514db82e8ebe3d3743fdce3ca" => :yosemite
   end
 
   depends_on "go" => :build
