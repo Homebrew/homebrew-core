@@ -5,6 +5,7 @@ class BibTool < Formula
   sha256 "d05832a97da4c48a234b898a95d96701406a52fd6e3edc528ff50e658a0cef60"
 
   bottle do
+    sha256 "e2f697e35138926838a1cfcedd5713d50ef105853626b6d59d52750554513888" => :sierra
     sha256 "a0f1504c980af8016e92124eac94c05b4a33df308ef7cc0dee6ba5b11a540e9e" => :el_capitan
     sha256 "cb454e3ce3e9f27d5faa5e7a9fa95b119cbdf829080d54258298430e86d9c6c8" => :yosemite
     sha256 "5c244fd6224433bdd81b1613e4edb5bad3519f2ff8336ad2b02efccb43da13ee" => :mavericks
