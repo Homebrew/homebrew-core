@@ -8,6 +8,7 @@ class Cpprestsdk < Formula
 
   bottle do
     cellar :any
+    sha256 "4127b8ac208e7ed4df261b5c66329beabbe424716c76ed6a3bc56e5c042e790e" => :sierra
     sha256 "aaf11100fd9698a5776a4cd9a5f73610e927d87135c40a1824007cc16d3d9cab" => :el_capitan
     sha256 "1ac888c82773474dd4c43dd7f637d60ff180a50797c4d33acd02ab773a4f05d2" => :yosemite
     sha256 "afd80c1df6c5cb0497006a277d94fd344e6831a99c0545a96a7e05979888e16e" => :mavericks
