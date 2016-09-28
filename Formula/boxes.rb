@@ -6,7 +6,8 @@ class Boxes < Formula
   head "https://github.com/ascii-boxes/boxes.git"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "21b2548489c34f7a11ac4f445e9129fbc42696a6dba5b50b20aeec99a570fef2" => :sierra
     sha256 "d5a5b256a1ef58a8d9c3d69c57c27bb8dd5c5e40e8979f877f83278ff38fd950" => :el_capitan
     sha256 "ee8b2795856fafcfaad79356325d7e1cf6aaa02359cb9adf162df2028243f429" => :yosemite
     sha256 "4d82f6e37b1e18d48a2198ca4301d901e4a6b55681ed8f0b65dddeee1148221e" => :mavericks
