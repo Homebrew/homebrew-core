@@ -5,6 +5,8 @@ class Shyaml < Formula
   homepage "https://github.com/0k/shyaml"
   url "https://files.pythonhosted.org/packages/67/70/1133a5817bc62ff4e7ceee59edb95d127092db9385cc7cda5fcac93c494a/shyaml-0.4.1.tar.gz"
   sha256 "a1535c25bf0058563e03ea8cbad8c4dc755ed231e6a9f3f584982994f19eae59"
+  revision 1
+
   head "https://github.com/0k/shyaml.git"
 
   bottle do
