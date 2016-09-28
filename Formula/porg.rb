@@ -10,7 +10,7 @@ class Porg < Formula
   depends_on "gtkmm3" if build.with? "grop"
 
   def install
-    args = ["--disable-silent-rules", "--prefix=#{prefix}"]
+    args = %W[--disable-silent-rules --prefix=#{prefix}]
 
     if build.without? "grop"
       args << "--disable-grop"
