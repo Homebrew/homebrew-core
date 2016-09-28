@@ -6,6 +6,7 @@ class Jerasure < Formula
 
   bottle do
     cellar :any
+    sha256 "4ffe803f61f99ad40d7e9541f41680aa074632ff35faac680a88d44b5bcf2bcc" => :sierra
     sha256 "f9b3b18ac272a9a3c96d4fdef5b78c3dca4719b4493b7c1e5171bfa7e5d1731b" => :el_capitan
     sha256 "4bbf04ae52e868a4b356eb242bb98ede4c2efb744dd32c979b7658cf64a8dfb6" => :yosemite
     sha256 "8f9b0282b6db808f94a915b83e937ae2e1413a2e5b49e72f2196235f0cff2962" => :mavericks
