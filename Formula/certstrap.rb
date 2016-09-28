@@ -7,6 +7,7 @@ class Certstrap < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "46889a81451253666a9e53824da5bd423141dbfd20a72b7e8aa93fd85775b5b9" => :sierra
     sha256 "5772fab8033d5550b1abac449ba0f41a2cf15ce5ed4de6d85857a8c86accef5a" => :el_capitan
     sha256 "d6cba517c38934484bdd754a3934ceccffb759ca5e87f19ca120a0d00d84ec85" => :yosemite
     sha256 "d0070d92e962492cf582f371b6ec803a1ee9b8ae4a05172b3e06b242155704da" => :mavericks
