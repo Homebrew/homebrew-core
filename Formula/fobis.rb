@@ -1,8 +1,10 @@
 class Fobis < Formula
+  include Language::Python::Virtualenv
+
   desc "KISS build tool for automaticaly building modern Fortran projects."
   homepage "https://github.com/szaghi/FoBiS"
-  url "https://pypi.python.org/packages/source/F/FoBiS.py/FoBiS.py-1.9.0.tar.gz"
-  sha256 "2ea24aabee4bfeddca90782f816a60f1d5f844d9941822c1dce5f6b05cab9cda"
+  url "https://files.pythonhosted.org/packages/e1/46/a1f93037bc1e56abf3acfadd04b8c41ba083a2a396b8a2d1113ea8382abc/FoBiS.py-2.1.0.tar.gz"
+  sha256 "a95e5c960e19bf0dcdab49049c528ee7a54353408ce63a5ced03cd4e3ae42bae"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,35 +20,20 @@ class Fobis < Formula
   depends_on "graphviz" => :recommended
 
   resource "pygooglechart" do
-    url "https://pypi.python.org/packages/source/p/pygooglechart/pygooglechart-0.4.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/95/88/54f91552de1e1b0085c02b96671acfba6e351915de3a12a398533fc82e20/pygooglechart-0.4.0.tar.gz"
     sha256 "018d4dd800eea8e0e42a4b3af2a3d5d6b2a2b39e366071b7f270e9628b5f6454"
   end
 
   resource "graphviz" do
-    url "https://pypi.python.org/packages/source/g/graphviz/graphviz-0.4.8.zip"
-    sha256 "71d56c61af9b4ff5e1e64a89b46872aa27c598bab8b0e9083f0fd3213cfc28b0"
+    url "https://files.pythonhosted.org/packages/3a/ef/4be504e14ef8c96503aeb774937b1539aa2c6982e1edffd655ac3b7f2041/graphviz-0.5.1.zip"
+    sha256 "d8f8f369a5c109d3fc971bbc1860b6848515d210aee8f5019c460351dbb00a50"
   end
 
   def install
-    if build.with? "pygooglechart"
-      ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-      resource("pygooglechart").stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    if build.with? "graphviz"
-      ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-      resource("graphviz").stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    venv = virtualenv_create(libexec)
+    venv.pip_install "pygooglechart" if build.with? "pygooglechart"
+    venv.pip_install "graphviz" if build.with? "graphviz"
+    venv.pip_install_and_link buildpath
   end
 
   test do
