@@ -6,10 +6,9 @@ class Nickle < Formula
   revision 1
 
   bottle do
-    sha256 "4da54c90a2fd5ae249b51822d78b98d48a87bea56f96e45b3de60d016ea74fc4" => :sierra
-    sha256 "8800a7c9508372d13a9d72e75c0db9d5aade8b1cb919b369da65574831b7f086" => :el_capitan
-    sha256 "bd50768f3a76f35e0343eb44ece0e7c756782dbecfc408a7519ee8202a396907" => :yosemite
-    sha256 "d153d5db01c1b232a472958310d0529ad1e845b1bbfc785f025523e21a5bffa9" => :mavericks
+    sha256 "a2d3f5a56b899ed3e54dfd62c3b3aff91a9e0f1b071be4edd558b56a969b009d" => :sierra
+    sha256 "aa3bb8a61763ebeaac001e02b7fb21c5733ccf0c2fbeea02908959d2fec03b5c" => :el_capitan
+    sha256 "889ae51c6ba498cdfe72556ef59b4d3e640d848c77d1fa69dfcbddf01441fefe" => :yosemite
   end
 
   depends_on "readline"
