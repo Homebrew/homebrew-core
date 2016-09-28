@@ -5,6 +5,7 @@ class Minizip < Formula
   sha256 "36658cb768a54c1d4dec43c3116c27ed893e88b02ecfcb44f2166f9c0b7f2a0d"
   bottle do
     cellar :any
+    sha256 "76fe6c2aa28272b4f7befa312615fd4e2f7632282cc78a37b46fa53df1714990" => :sierra
     sha256 "a8bc9c34837f19f570b0b79e202bd45dd94345f3caf605ec0cf4eb1a6f6b2bfd" => :el_capitan
     sha256 "df494b791137984171c79c63bbfe5ab941309f62a5e12757442d7eb5c53e620c" => :yosemite
     sha256 "c03fd8e43919572a7b4ed71ad160f07e9ccbabc81e3a1f9dfb7b27b540f25bf1" => :mavericks
