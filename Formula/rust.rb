@@ -1,14 +1,13 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
-  revision 1
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.11.0-src.tar.gz"
-    sha256 "3685034a78e70637bdfa3117619f759f2481002fd9abbc78cc0f737c9974de6a"
+    url "https://static.rust-lang.org/dist/rustc-1.12.0-src.tar.gz"
+    sha256 "ac5907d6fa96c19bd5901d8d99383fb8755127571ead3d4070cce9c1fb5f337a"
 
     resource "cargo" do
-      url "https://github.com/rust-lang/cargo.git", :revision => "6b98d1f8abf5b33c1ca2771d3f5f3bafc3407b93"
+      url "https://github.com/rust-lang/cargo.git", :revision => "109cb7c33d426044d141457049bd0fffaca1327c"
     end
   end
 
