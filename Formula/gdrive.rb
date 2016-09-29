@@ -7,6 +7,7 @@ class Gdrive < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "739ce50308d1f159b009ab60251c137f56aeccb1620a89972ef9b995daf1a757" => :sierra
     sha256 "4cb0399839f4d61561537a5e3e824fd4b158de9976fec00a3eaf5af2d75263a0" => :el_capitan
     sha256 "a735d01325571d987ef32720a536928faad92a692b2f9008a769b07c6dac5931" => :yosemite
     sha256 "cac347dada281fd7e1b31bd08b0fcf05f0cadfd2e16f603590505bd0f6592064" => :mavericks
