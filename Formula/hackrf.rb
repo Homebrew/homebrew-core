@@ -7,6 +7,7 @@ class Hackrf < Formula
 
   bottle do
     cellar :any
+    sha256 "f496bec0cd122e8d92fd74336196e4dab89c48e8dc6cccd86e3b9177f72936f6" => :sierra
     sha256 "7b0ed880b6f137fa9c8564654a1a63458c1b60f3108a4a8636dbae90eb392051" => :el_capitan
     sha256 "c7bdd9df9292a54c7596dbd491f2139c730b34c53292fe1821b8aec7acd64555" => :yosemite
     sha256 "fe5b6d365bce6c478514eb60db4523d16b4fa04c2863d407aa50f7ca4d77833e" => :mavericks
