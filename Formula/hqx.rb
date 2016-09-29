@@ -7,6 +7,7 @@ class Hqx < Formula
 
   bottle do
     cellar :any
+    sha256 "1c7bb9de8f99fd227a2bcb82cad930e4643fe166a34bc49192ba0a563511ccd2" => :sierra
     sha256 "cea2aaffc8d25b52b4665c5af495489a5971ed125ce5595a83f94396ef8696dd" => :el_capitan
     sha256 "6ea1e409d4a9482c249dd9c17bfef20b7f34924ad96027dff47e8317615102be" => :yosemite
     sha256 "f0b02dadd6f2a3effec4865f4b042621e375e65ba016fec7658ecf8cfd11758a" => :mavericks
