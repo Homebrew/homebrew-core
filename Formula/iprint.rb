@@ -8,7 +8,8 @@ class Iprint < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 2
+    rebuild 2
+    sha256 "3fc40e5d2ee26c7b8709bf61e651ec3506561b98fcbf6ca52b8d353dd4be356d" => :sierra
     sha256 "caa018741bb84409295f4fec33bcf427df199e717abf1323c9325d44238548ff" => :el_capitan
     sha256 "eb0a1df1375a29fd3a88cddbe844820c9650b4ee14406245ee5d93ad41e48586" => :yosemite
     sha256 "dfc0ad66122de0187db789cdafde75a367dc02748eede381567ca8f8a9208bde" => :mavericks
