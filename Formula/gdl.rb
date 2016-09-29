@@ -5,10 +5,9 @@ class Gdl < Formula
   sha256 "cc5b360e1392292186924f0f9a8efc0f4db7e6e56dc7042037466b5cc839660c"
 
   bottle do
-    sha256 "5996baf77ec24c5e2136cf1aaf450c557579a4eaeb3d46cac1233b18a7ac4671" => :sierra
-    sha256 "8f796750e169e08e9a1584757d371dfe705ad6bc17ce3dc0c4f8e7af5e8de7fb" => :el_capitan
-    sha256 "28dc25f2b69b485b7cb2c3d221b2462a33ffb912b45d81ab4c88a1b141ff1fdf" => :yosemite
-    sha256 "73d01a80f88808f2131dcf53f52a46dc263d24e3a4cd69c9df53be2265f3069c" => :mavericks
+    sha256 "4bdf77d9f10c16879ec6b1dc67040c526a05bb6ab262e4cb00d363509599af33" => :sierra
+    sha256 "e3869391f2fc13d9354f4f8744d140c9d5415fad9121a5effeeb2c8609518b30" => :el_capitan
+    sha256 "6f4885ff8ef490c46e49eee7415133c494c7e1a77585ce2c0a818f9aaa0982e5" => :yosemite
   end
 
   depends_on "pkg-config" => :build
