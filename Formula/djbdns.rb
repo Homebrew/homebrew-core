@@ -5,7 +5,8 @@ class Djbdns < Formula
   sha256 "3ccd826a02f3cde39be088e1fc6aed9fd57756b8f970de5dc99fcd2d92536b48"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "e8bea4161d14a3b2d0b26bbf7d28cbcfe8ce7fd1192622310f1af94f0b94130a" => :sierra
     sha256 "5b35c66da0a07837375fe7c580674f842aad4ef91a4a0cc43bf10abca58a7ea4" => :el_capitan
     sha256 "6a1fda941f1a1bc403157b9e9a0610bcc1a8b3b73b5ef92c1d4bab39cc11619d" => :yosemite
     sha256 "5d42a7eb3f0e33ba6de7022957b3fcbe23d8e81dc623dfd3c67c9b33bd236932" => :mavericks
