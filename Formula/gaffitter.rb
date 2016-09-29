@@ -6,6 +6,7 @@ class Gaffitter < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9e2fbfd84ae7779882cbf3cd5d9a19fd9f27e6d986bd9c953df9a6e5687e242d" => :sierra
     sha256 "1ca49d04fb786415d210d04e59c9e7ab74ada5ed6e2d429eb5793a3f34ba3562" => :el_capitan
     sha256 "66332311c91a27aaf93d9bfa9d8d7c7c373aad98eb80ff53efebd3b9a0c51ff7" => :yosemite
     sha256 "be06c31a5074d00dbf23ef22f515a8f42855aebdf0f9ee1a592c0a2581ff8279" => :mavericks
