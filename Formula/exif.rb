@@ -32,4 +32,10 @@ class Exif < Formula
     system "./configure", *args
     system "make", "install"
   end
+
+  test do
+    test_image = test_fixtures("test.jpg")
+    assert_match "The data supplied does not seem to contain EXIF data.",
+                 shell_output("#{bin}/exif #{test_image} 2>&1", 1)
+  end
 end
