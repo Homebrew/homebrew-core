@@ -6,6 +6,7 @@ class Getxbook < Formula
 
   bottle do
     cellar :any
+    sha256 "16cdf74891b198e58f17345425ad29bc678c0164acb223872a618f0929a934f0" => :sierra
     sha256 "36c96e48b025d7b483dab3d9bc7283d677885e1db23ad5c3c8947e49c34ccdb5" => :el_capitan
     sha256 "b0b609d26eb1faeba89e929f6f6099297d14957d22653720adb61fbed9e492da" => :yosemite
     sha256 "00f0f25a3d3440b0c7f98b2881c0750c9e568cfa685de2f89dbc43f58e667fce" => :mavericks
