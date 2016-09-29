@@ -5,10 +5,11 @@ class Fetchmail < Formula
   sha256 "79b4c54cdbaf02c1a9a691d9948fcb1a77a1591a813e904283a8b614b757e850"
 
   bottle do
-    sha256 "7527f2bd88d8f4f93e54db8fe9b1931134da93cf3447bc275cf6ebe34089102a" => :el_capitan
-    sha256 "13a9cb7b808e291f19f74416fa6338af53c22f4716418431dc912be596c97423" => :yosemite
-    sha256 "c4ef27662612bf6061fc4d522e9f6adb239c64c78de20123cd62637cc1a2a63e" => :mavericks
-    sha256 "4d7184ba429454fc400e82392d119a656b1a6310b23bb2d278e69d8580ddb5e9" => :mountain_lion
+    cellar :any
+    rebuild 1
+    sha256 "63692fabb3746b739ce3b81f2d1ce964ca4e74613ea63f307e734f90dbcea513" => :sierra
+    sha256 "663d68d69a865daa6311f70ed2412abe79affa23b8fd76b44eaca5d9735fba36" => :el_capitan
+    sha256 "44c0f861ca7a8bf1af2bd5c1007a48e397bba3c8dfeb7c3a3cc5299dd1cb7c66" => :yosemite
   end
 
   depends_on "openssl"
