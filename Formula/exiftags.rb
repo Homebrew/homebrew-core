@@ -20,6 +20,8 @@ class Exiftags < Formula
   end
 
   test do
-    system "#{bin}/exiftags", test_fixtures("test.jpg")
+    test_image = test_fixtures("test.jpg")
+    assert_match "couldn't find Exif data",
+                 shell_output("#{bin}/exiftags #{test_image} 2>&1", 1)
   end
 end
