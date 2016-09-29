@@ -6,6 +6,7 @@ class Dssim < Formula
 
   bottle do
     cellar :any
+    sha256 "140f682a13b7fc63fa094dde9df6088a377e8317d30e0f208ffb0513e2baed26" => :sierra
     sha256 "46ff2909894a5d0ec443a84e16b87e6fe746bd53c816091002dde0da15581222" => :el_capitan
     sha256 "b5e6df645abb73ab9b1227d87039397f6acc56c63f422bebc13d7e29a0c9d56f" => :yosemite
     sha256 "51756e74240d03c87a79ff0e14e494d249701d4069ea336b529b47a179c469d3" => :mavericks
