@@ -3,6 +3,7 @@ class Libgda < Formula
   homepage "http://www.gnome-db.org/"
   url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.4.tar.xz"
   sha256 "2cee38dd583ccbaa5bdf6c01ca5f88cc08758b9b144938a51a478eb2684b765e"
+  revision 1
 
   bottle do
     sha256 "0a9f4fb1b91db3bdf11063960b618339e3a26ebdbea5e8eef730b79ea701f6c7" => :sierra
