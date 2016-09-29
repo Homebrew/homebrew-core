@@ -6,6 +6,7 @@ class Doublecpp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "748af7fb63392453cc4b648cea20786173202f5c891b45765dbf374e4ac2c2d5" => :sierra
     sha256 "208aa405fce2959b47f705ab8ba9104e8eadec3e8e709bddd3117ef7b074bedf" => :el_capitan
     sha256 "54f99b448e61043c5152441c309ea849b1d04fbde12ab67e023aee074dc206ee" => :yosemite
     sha256 "cfd2231b9a8ecb53216905392c8e1aaa6841ea912f18dc6059d9ebfa1fa5f118" => :mavericks
