@@ -1,9 +1,9 @@
 class CAres < Formula
   desc "Asynchronous DNS library"
   homepage "https://c-ares.haxx.se/"
-  url "https://c-ares.haxx.se/download/c-ares-1.11.0.tar.gz"
-  mirror "https://launchpad.net/ubuntu/+archive/primary/+files/c-ares_1.11.0.orig.tar.gz"
-  sha256 "b3612e6617d9682928a1d50c1040de4db6519f977f0b25d40cf1b632900b3efd"
+  url "https://c-ares.haxx.se/download/c-ares-1.12.0.tar.gz"
+  mirror "https://launchpad.net/ubuntu/+archive/primary/+files/c-ares_1.12.0.orig.tar.gz"
+  sha256 "8692f9403cdcdf936130e045c84021665118ee9bfea905d1a76f04d4e6f365fb"
 
   bottle do
     cellar :any
