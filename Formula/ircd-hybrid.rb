@@ -5,6 +5,7 @@ class IrcdHybrid < Formula
   sha256 "8dcbd45a049dd4da03045bfa4833527555fdfdfce4e4637ee8b63abe6ae13405"
 
   bottle do
+    sha256 "77e8811016bf351abb6c6f2d810ddfc63e102de65935e14a2055334ff4f4b1b4" => :sierra
     sha256 "ba2c91d06c5a60b39c2101de3a51859ece7ce2d1a51505932e62b13d7c25f714" => :el_capitan
     sha256 "c910cc2c4abe4b2fcd98443c6d900499fe7fcda57a7069261b73af282d3fa543" => :yosemite
     sha256 "a6780c66f7fc1e44ed01a6de14f33886e0a679d9512bd5b8920ac770a7a9869c" => :mavericks
