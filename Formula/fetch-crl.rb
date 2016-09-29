@@ -7,6 +7,7 @@ class FetchCrl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7ed398ad5ea34cb512017c110a07ee60b861a599c81a943e45ab844345f115bf" => :sierra
     sha256 "1ad6f73ea90d63550a76a966db784dcfb5bfaf38af908d8faa8b1a6b1e0fb05f" => :el_capitan
     sha256 "5484c79338f4d5132c26ea4ca10e43bdac7d4e900b448a39d3013590d9ada724" => :yosemite
     sha256 "909169de64f2a03cb1fa0bc5a5ff4128e92dffba0d896c5897a13cb39b428307" => :mavericks
