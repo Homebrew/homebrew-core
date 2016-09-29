@@ -28,7 +28,7 @@ class GitArchiveAll < Formula
     system "git", "add", "homebrew"
     system "git", "commit", "--message", "brewing"
 
-    assert_equal "#{testpath}/homebrew => archive/homebrew",
+    assert_equal "#{testpath.realpath}/homebrew => archive/homebrew",
                  shell_output("#{bin}/git-archive-all --dry-run ./archive", 0).chomp
   end
 end
