@@ -5,6 +5,7 @@ class Libgdata < Formula
   sha256 "8740e071ecb2ae0d2a4b9f180d2ae5fdf9dc4c41e7ff9dc7e057f62442800827"
 
   bottle do
+    sha256 "f95a388ffd9a804a93d1c7a5c47ece6a21aa170561555a7da214480510e36e65" => :sierra
     sha256 "51394eee6a100a80d94e271fc65f40450e7dfde73ced8043b053e7acdf64f379" => :el_capitan
     sha256 "9e57590b09a1daf62ecc2aae202cb1fd2640183a14e82abf8a07ca7ae3de702a" => :yosemite
     sha256 "1902582821eb789e05f8727f86ddea95c79181b1576c544fc83b595d3872fc8c" => :mavericks
