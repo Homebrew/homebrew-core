@@ -5,6 +5,7 @@ class Libdbi < Formula
   sha256 "dafb6cdca524c628df832b6dd0bf8fabceb103248edb21762c02d3068fca4503"
 
   bottle do
+    sha256 "56bc34833d44be61b26fda170fd8c2eea6242d6cfc780869d9456dcee6fb9e41" => :sierra
     sha256 "80593f395134244612e570445f7dafaede45632025f25a079d2978ea8ceced93" => :el_capitan
     sha256 "fdc8341304e7a5b08f8baa86019c0b75d9bea99b7461f1eafc32f906a446b49a" => :yosemite
     sha256 "105af923e45a1deb810224f39ecd138442943dfef193636414bf1394982c01ea" => :mavericks
