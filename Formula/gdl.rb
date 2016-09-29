@@ -1,8 +1,8 @@
 class Gdl < Formula
   desc "GNOME Docking Library provides docking features for GTK+ 3"
   homepage "https://developer.gnome.org/gdl/"
-  url "https://download.gnome.org/sources/gdl/3.20/gdl-3.20.0.tar.xz"
-  sha256 "53d3a3bb9b9be25b3a40c644fdbbb57a5a63ee1f5f839c2266d1cd9779360e8b"
+  url "https://download.gnome.org/sources/gdl/3.22/gdl-3.22.0.tar.xz"
+  sha256 "cc5b360e1392292186924f0f9a8efc0f4db7e6e56dc7042037466b5cc839660c"
 
   bottle do
     sha256 "5996baf77ec24c5e2136cf1aaf450c557579a4eaeb3d46cac1233b18a7ac4671" => :sierra
