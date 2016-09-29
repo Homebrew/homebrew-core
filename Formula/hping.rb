@@ -8,6 +8,7 @@ class Hping < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e6b7a8ef4527b282da33e75fc9484dee752f365b34498849fd251146948f0e80" => :sierra
     sha256 "9644e041cb830ebd121c224cef3727e20c5bf4dcca918fd91135d74e10eb2123" => :el_capitan
     sha256 "95f5fabc90cdd2e8ca9b10189f69a2057019b35ac1f6cb2e7e4afa7bea1221d5" => :yosemite
     sha256 "3e8641cad09db531d4ee6b3686748627177d53234ad6b5df92abebf3c1a94ae7" => :mavericks
