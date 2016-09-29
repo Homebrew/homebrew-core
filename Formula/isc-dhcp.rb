@@ -5,6 +5,7 @@ class IscDhcp < Formula
   sha256 "553c4945b09b1c1b904c4780f34f72aaefa2fc8c6556715de0bc9d4e3d255ede"
 
   bottle do
+    sha256 "10877ec83313e8d6ca609910a7c14f4742d5d181bc26e3ccb3e7087429685d7c" => :sierra
     sha256 "a822cb1bafbf175f2c85e7089c1c5e52d2239f3d8467fc913733d193999dce28" => :el_capitan
     sha256 "3d4c4e8254772daf4d797967690f5fd062273b581dfd05b5b062b7741dbecf17" => :yosemite
     sha256 "6a7ef92897aa1a6f2d5ad736ee03d710c9efb3111eb6fde7705507cc29c18933" => :mavericks
