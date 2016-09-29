@@ -17,7 +17,9 @@ class Diffoscope < Formula
   depends_on :python3
 
   patch do
-    url "https://anonscm.debian.org/cgit/reproducible/diffoscope.git/patch/?id=261be7"
+    # Patch for legacy diff(1)
+    # https://anonscm.debian.org/cgit/reproducible/diffoscope.git/patch/?id=261be7
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ebbff7b/diffoscope/patch-legacy-diff.diff"
     sha256 "aeaffa34a774e05477c9ef78df35174b006670b2963b9064c9c4c13484825b0b"
   end
 
