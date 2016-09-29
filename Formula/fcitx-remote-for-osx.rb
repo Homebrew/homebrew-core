@@ -6,6 +6,7 @@ class FcitxRemoteForOsx < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "138ca03de1639465bb99bdac40a33fc57d21a53c53b25791493c8cbbd6675eab" => :sierra
     sha256 "5dd74e46ad011a623dedf189e7e63c7ae5b037e60f728b5aac9389bf20628d63" => :el_capitan
     sha256 "1a400d131adec21aea258c11c83038ac72ee6fe6cd0bc237af0f3238d5459984" => :yosemite
     sha256 "7e64b4eb71352b65cb227017068c2a9ec22708a9ca612228cfafd8208b3e1fe9" => :mavericks
