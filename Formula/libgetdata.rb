@@ -6,6 +6,7 @@ class Libgetdata < Formula
 
   bottle do
     cellar :any
+    sha256 "ab52207909d2fcd396832033025e92919ac9cee48ea8130237f5754d708763d3" => :sierra
     sha256 "d6116c4022879f1dc303bf31b9be3a5a7d7845e5fdd1d5d68047914578eaf22b" => :el_capitan
     sha256 "8593fb78389ccfce38166737d9f45f20b2794994faaa0e93f8262547884d79d6" => :yosemite
     sha256 "ba874af6ad662404f9840cf26a0bf11a78c600be4942fda0b2024340cc90ac4d" => :mavericks
