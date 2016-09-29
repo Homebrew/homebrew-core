@@ -5,6 +5,7 @@ class Libgweather < Formula
   sha256 "81eb829fab6375cc9a4d448ae0f790e48f9720e91eb74678b22264cfbc8938d0"
 
   bottle do
+    sha256 "3d9010f144e6ea66b00c5d4b492e7e8a67435f0b2b2dd5bbac25490eac088e54" => :sierra
     sha256 "b6bddc8ca66e33ca7ff10d57038d37b0eb674bcdf0ddffb5581a50cd1db19465" => :el_capitan
     sha256 "29ca26ee32e81a2c12c1c7b52cd1695bad1e20e8702bbdb123651ff8430a4ff5" => :yosemite
     sha256 "e8325e2c5d6b2c90dfd28ea294a95220ce62577a1b97f7234ed037a6702bbc79" => :mavericks
