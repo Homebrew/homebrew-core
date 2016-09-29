@@ -6,6 +6,7 @@ class Flickcurl < Formula
 
   bottle do
     cellar :any
+    sha256 "ddffd36ee6ab7c4cfd0edba1be9aa488ed38d1ee66a99c2e2445bf4d21cd0c00" => :sierra
     sha256 "01886ddb800167eed18495d780baa81bac793243a54d452ad9a34a06e876e4d2" => :el_capitan
     sha256 "64c7a8f7d2bcc90063f926724fd1bd9277f783f3aca3c83e53684222f3d1d1c3" => :yosemite
     sha256 "e6950b0011dce7207b3ae5c7d42a7cce71c6d6c6a35461d2f8a5423be6415184" => :mavericks
