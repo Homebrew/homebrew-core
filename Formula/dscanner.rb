@@ -5,6 +5,7 @@ class Dscanner < Formula
   sha256 "2b5578ca98ad6805a1f1494dfbf90c8f491da20bfe5103ca0c8ac73d781558fe"
 
   bottle do
+    sha256 "21462544cf3d662d79ad62fac0d27a6d6346404a4c7a58f1d0e3df86962a17b4" => :sierra
     sha256 "e4109d118bfc3ea842bf3d2aa9588dec4e5be8350557f644727b752ec261cd32" => :el_capitan
     sha256 "5f8b2e4fb9df04ba43eaba0c1f7fe53c3cee1bf71c4f23f0fcd7871c7269ba4a" => :yosemite
     sha256 "93916657176868ebab187de76075da38ef1f62e7fcf126670c297d1413c172af" => :mavericks
