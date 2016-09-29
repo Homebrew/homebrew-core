@@ -6,6 +6,7 @@ class Dbxml < Formula
 
   bottle do
     cellar :any
+    sha256 "48b8f8c88a9321d4e3293e03c06c16a08ee83a0c0c4b237cf8aedcfd7bf59ea0" => :sierra
     sha256 "fb36c58d1ccfcbd8a64aff8f6296ada9379ade8413382b70275b6209216aed64" => :el_capitan
     sha256 "2c1f4a931b7ffdf2a3a5d0a0aaf1be9434b4483549d47eda7868ee2fa4456837" => :yosemite
     sha256 "c6975e34ad3640650a9da0f08e99f9f763ec47bc3532c28466233e10eaeccaa1" => :mavericks
