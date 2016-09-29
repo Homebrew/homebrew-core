@@ -7,10 +7,9 @@ class CAres < Formula
 
   bottle do
     cellar :any
-    sha256 "7c2d51b897fb2089ddccd555274282a60014521e877aae34c48bb0ef376a2d26" => :sierra
-    sha256 "0f9c9324a68f35e41fb6acabf0df83fab845d4622825fde85fa96975c2c2cd2e" => :el_capitan
-    sha256 "af089ddc82ae2a69301e9a0dd56d42124503f5326dc8ea69eff3a0e6e6cc360c" => :yosemite
-    sha256 "174c21f00441ee9e3127138a62c8b0efd0333e8b0cf45dae92e87d294c742535" => :mavericks
+    sha256 "afee9065946f9b593df473247fbc0cea9e91da1c485a614ecfc2252f21fdad03" => :sierra
+    sha256 "fecf1cd2f00321ded561d42f75ccdfaca4051daa23455a617dd347db8f4b493c" => :el_capitan
+    sha256 "a31122fc87f53891cc925fe3371276a7f922234afabc0cc2ae861066b4f1a3a6" => :yosemite
   end
 
   head do
