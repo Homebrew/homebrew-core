@@ -6,7 +6,8 @@ class Ddate < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "61be1f5fc044574ede464807fba1e092bc165932a909a357f5cd71b0cbfd4726" => :sierra
     sha256 "fe87fe60ad1e8cbff1ebbcefd8be0f6f8ec87013a91e6385adbde0aebd45edea" => :el_capitan
     sha256 "ad575dd84b5d2ac8395c9cd11c4ef811f28f105eb81510369bb33078164ec2e9" => :yosemite
     sha256 "6d1dd4a9a1cc787cbd79add910fd80181dc5efc24712b9e84a7c37ce8de46d12" => :mavericks
