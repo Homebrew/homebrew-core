@@ -3,6 +3,7 @@ class Zabbix < Formula
   homepage "https://www.zabbix.com/"
   url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.0.1/zabbix-3.0.1.tar.gz"
   sha256 "e91a8497bf635b96340988e2d9ca1bb3fac06e657b6596fa903c417a6c6b110b"
+  revision 1
 
   bottle do
     sha256 "5b143b61a45cc0e19843ce052b8db18a959f1f5759b775c4061628f31ffa1b5b" => :sierra

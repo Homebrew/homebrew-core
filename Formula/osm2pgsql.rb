@@ -1,6 +1,7 @@
 class Osm2pgsql < Formula
   desc "OpenStreetMap data to PostgreSQL converter"
   homepage "https://wiki.openstreetmap.org/wiki/Osm2pgsql"
+  revision 1
   head "https://github.com/openstreetmap/osm2pgsql.git"
   revision 1
 

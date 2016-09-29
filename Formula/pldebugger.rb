@@ -5,7 +5,7 @@ class Pldebugger < Formula
       :tag => "REL-9_5_0",
       :revision => "85d7b3b2821301e182d5974d9e6f353d7a241eff"
   version "1.0" # See default_version field in pldbgapi.control
-  revision 1
+  revision 2
   head "https://git.postgresql.org/git/pldebugger.git"
 
   bottle do

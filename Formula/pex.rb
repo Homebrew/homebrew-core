@@ -3,6 +3,7 @@ class Pex < Formula
   homepage "https://github.com/petere/pex"
   url "https://github.com/petere/pex/archive/1.20140409.tar.gz"
   sha256 "5047946a2f83e00de4096cd2c3b1546bc07be431d758f97764a36b32b8f0ae57"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
