@@ -8,10 +8,9 @@ class Openjpeg < Formula
 
   bottle do
     cellar :any
-    sha256 "122ab9fabda5d8fea4e04d36a4cf9868f3fdae78352e5a4cf9017a81eb7be0ec" => :sierra
-    sha256 "2a9fa62441976f313c8bf85cd5f60bcdf0f4c1e61226bd7567cbf6277fa803f6" => :el_capitan
-    sha256 "1dc66731ba58e187466506222f2959263e3940e003c013c1ccdf8d4d05895c65" => :yosemite
-    sha256 "a1d280c45e2204cfd6236d465671fcfc0256ea971aefa1b6e0f3f65ffe7ad073" => :mavericks
+    sha256 "4e27fbf3c861435a3413a9ce6a32dd2336b666fb046278eb72711176cb10ecad" => :sierra
+    sha256 "7d4ac6ba6dceae7f22d1f477abc8e4c3039324382d7029df71bd8f380f4e94d3" => :el_capitan
+    sha256 "6e5766dd0f55d5cee1406ad8919ffc89fe3a701a2a4dd2cdd836abb34d753ae6" => :yosemite
   end
 
   option "without-doxygen", "Do not build HTML documentation."
