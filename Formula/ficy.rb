@@ -8,7 +8,8 @@ class Ficy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "033e9e6d4384f813c16549ea6f6f31758e3f721084cf37e2cc45997f1c252242" => :sierra
     sha256 "16c55392bb663480719ea585e7897851b8c3af789fdeed93e610b978d1167b2f" => :el_capitan
     sha256 "e549c781d232c77be4628f2ad48f4511a226f0bd4f81b930629336af490f20aa" => :yosemite
     sha256 "ceaaa6fe572fec4e2d14701e62696616f728b8f1dd29eae787afe19bdfdf70e6" => :mavericks
