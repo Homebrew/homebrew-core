@@ -6,6 +6,7 @@ class Liberasurecode < Formula
 
   bottle do
     cellar :any
+    sha256 "1dc03033d0359d6abeb0c183d38778f5f0f1280ff2423185783099c616ed7540" => :sierra
     sha256 "824ffcb696c9951aa380b6f5806a72573726b7026e0a051e7e6da8abcd542fc5" => :el_capitan
     sha256 "57683d16fd2dba4def2a9b6edd012aa35697dacd839ae1921b2ee4998dba1965" => :yosemite
     sha256 "f6b2d2aa09eb404e323634ae08aa413e7ca8db7a860cb2af43f58e4a3cd1a624" => :mavericks
