@@ -5,6 +5,7 @@ class Gxml < Formula
   sha256 "fb255f09eefce063a94c3e9b46dbd9d87aca48ee443adf749ea0ced0ddaaf833"
 
   bottle do
+    sha256 "9327903fa62ed9bd4164b99dbb6949c5ce1dfbebf1f15d9d48b5f947d228273e" => :sierra
     sha256 "4114add97335434a435451824cd470ee2d958b991ad76be4b100afb5173a0b84" => :el_capitan
     sha256 "d6fabfe3e414d468938b5a2fbb93dabd7693be318daf98cfd7ff1baf69175836" => :yosemite
     sha256 "e2e1625a88c4d8c1a275f9b1f1735ee407da98c84ce85234c07843de07f317e6" => :mavericks
