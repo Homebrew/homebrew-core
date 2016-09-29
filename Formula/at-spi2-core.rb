@@ -5,10 +5,9 @@ class AtSpi2Core < Formula
   sha256 "415ea3af21318308798e098be8b3a17b2f0cf2fe16cecde5ad840cf4e0f2c80a"
 
   bottle do
-    sha256 "d070616da4fbb93abf713dc77bf15138b84b8cb016e39acab9a54e8a881207aa" => :sierra
-    sha256 "40a55aa9e0cef4001e7d719bfbb0de996f672dbc8fd958edef4be36ee618d337" => :el_capitan
-    sha256 "44f8249e62c62e673d829576302c77b7822101225f3a0af00df056ba4840c443" => :yosemite
-    sha256 "25c2ca95b2d510864ca2b5dd1559172723e94379818d5ded683fad3de9b30119" => :mavericks
+    sha256 "1b9abdcda5a9b11617bbc5f045a141460839138139e10485ad097d4a5b882afc" => :sierra
+    sha256 "12c6825b2f9fcb778f5b559b204fa70a8ef8a53577d6a4d1b1f57a75f36a959c" => :el_capitan
+    sha256 "528bba390a281c19fdd115ee7bcd917fae80696f461acf31e70fe8b6a0ca57cc" => :yosemite
   end
 
   depends_on "pkg-config" => :build
