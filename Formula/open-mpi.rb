@@ -3,6 +3,11 @@ class OpenMpi < Formula
   homepage "https://www.open-mpi.org/"
   url "https://www.open-mpi.org/software/ompi/v2.0/downloads/openmpi-2.0.1.tar.bz2"
   sha256 "fed74f4ae619b7ebcc18150bb5bdb65e273e14a8c094e78a3fea0df59b9ff8ff"
+  revision 1
+  patch do
+    url "https://github.com/open-mpi/ompi/pull/2135.patch"
+    sha256 "1f277afc08ab85aa194b96af1b40639088159a344afa600dba816e0fa3896ae8"
+  end
 
   bottle do
     sha256 "b2542fee9f047c5a559ebb30836ee50bacc11165848af346d15a6c5a80a669da" => :sierra
