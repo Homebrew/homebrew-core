@@ -3,18 +3,19 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.11.0-src.tar.gz"
-    sha256 "3685034a78e70637bdfa3117619f759f2481002fd9abbc78cc0f737c9974de6a"
+    url "https://static.rust-lang.org/dist/rustc-1.12.0-src.tar.gz"
+    sha256 "ac5907d6fa96c19bd5901d8d99383fb8755127571ead3d4070cce9c1fb5f337a"
 
     resource "cargo" do
-      # git required because of submodules
-      url "https://github.com/rust-lang/cargo.git", :tag => "0.11.0", :revision => "259324cd8f9bb6e1068a3a2b77685e90fda3e3b6"
+      url "https://github.com/rust-lang/cargo.git", :tag => "0.13.0", :revision => "109cb7c33d426044d141457049bd0fffaca1327c"
     end
+  end
 
-    # name includes date to satisfy cache
-    resource "cargo-nightly-2015-09-17" do
-      url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2015-09-17/cargo-nightly-x86_64-apple-darwin.tar.gz"
-      sha256 "02ba744f8d29bad84c5e698c0f316f9e428962b974877f7f582cd198fdd807a8"
+  head do
+    url "https://github.com/rust-lang/rust.git"
+
+    resource "cargo" do
+      url "https://github.com/rust-lang/cargo.git"
     end
   end
 
@@ -22,13 +23,6 @@ class Rust < Formula
     sha256 "e78b655e38815c01f0a366807d2ad6f57ded26c84d9b574b91d77072118b55c1" => :el_capitan
     sha256 "59516069f1bb877240fcd01edcd21d4b5c61636f5be3c10ccebc017d7f923420" => :yosemite
     sha256 "3667beb9555b8d6e93427c98a4b7bf3a461265e6c83e983da2607b07743a1a61" => :mavericks
-  end
-
-  head do
-    url "https://github.com/rust-lang/rust.git"
-    resource "cargo" do
-      url "https://github.com/rust-lang/cargo.git"
-    end
   end
 
   option "with-llvm", "Build with brewed LLVM. By default, Rust's LLVM will be used."
@@ -63,16 +57,6 @@ class Rust < Formula
     system "make", "install"
 
     resource("cargo").stage do
-      cargo_stage_path = pwd
-
-      if build.stable?
-        resource("cargo-nightly-2015-09-17").stage do
-          system "./install.sh", "--prefix=#{cargo_stage_path}/target/snapshot/cargo"
-          # satisfy make target to skip download
-          touch "#{cargo_stage_path}/target/snapshot/cargo/bin/cargo"
-        end
-      end
-
       system "./configure", "--prefix=#{prefix}", "--local-rust-root=#{prefix}", "--enable-optimize"
       system "make"
       system "make", "install"
