@@ -9,6 +9,7 @@ class GitNow < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ffde5161accdd2bab777e610302f858e1bf9e17f0ee1a41fb4e7b33a0d9f5eb4" => :sierra
     sha256 "7126e867e543659b9750041412e737407fb94f9dbb38fea1edf16cec8027aa64" => :el_capitan
     sha256 "748cd8691ad94b407f892ffa7f8e12c183b7326208efd9ac6dafbe1b8fda9565" => :yosemite
     sha256 "c19eda078da8974bde40ee07eac5701e9295d56bd59a6d18ea21c3d337b50e02" => :mavericks
