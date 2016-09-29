@@ -4,6 +4,14 @@ class OpenMpi < Formula
   url "https://www.open-mpi.org/software/ompi/v2.0/downloads/openmpi-2.0.1.tar.bz2"
   sha256 "fed74f4ae619b7ebcc18150bb5bdb65e273e14a8c094e78a3fea0df59b9ff8ff"
 
+  # Patch Open MPI in order to fallback to oob/tcp when a Unix socket path
+  # is too long, and instead of silently truncating the path.
+  # This frequently occurs on OSX when both $TMPDIR and hostname are "long"
+  patch do
+    url "https://github.com/open-mpi/ompi/pull/2135.patch"
+    sha256 "35005a892ec1321fa7b6f427967e15e7a83cce0421043a3f42653675be9a24bd"
+  end
+
   bottle do
     sha256 "b2542fee9f047c5a559ebb30836ee50bacc11165848af346d15a6c5a80a669da" => :sierra
     sha256 "ae42aeebda77ce68836d690f6859f662da0a325236f539c6fb433475bfd56e8e" => :el_capitan
