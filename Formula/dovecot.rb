@@ -6,6 +6,7 @@ class Dovecot < Formula
   sha256 "d8d9f32c846397f7c22749a84c5cf6f59c55ff7ded3dc9f07749a255182f9667"
 
   bottle do
+    sha256 "05fb3a42c5c96625358f9265c1381b4a69f9c76ea21b4a03e0b4de14493daf53" => :sierra
     sha256 "0edf46eeaeb7fa6b7b0e20c57754a007a17ca62826398770f684a69224dc0be2" => :el_capitan
     sha256 "32d3eb3fdd200372572aadfd32a3f451ed86ae0eae1fab51e7037ef3388dab0d" => :yosemite
     sha256 "34ca4bf636bec3fcf5109da84193cb8496300d9c85edac2595da62d118d8618f" => :mavericks
