@@ -6,7 +6,8 @@ class Harbour < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "815dacae2d2ac3d7e9c16d158a42e3bc500758f6d30fc5d0eedec8ae88b1bf26" => :sierra
     sha256 "21c3269b41d9b8ea334949334febed047c7ffd4fc9ca7e0686ba6a472929a2b8" => :el_capitan
     sha256 "5677878ce808eb51cf130212724d1959def64d45c6812cb99ec0ceef100ea4f8" => :yosemite
     sha256 "ed55f20628aa2c34adccb0530a9b8f477572bc8acc0d9ff3d5374fe68384c753" => :mavericks
