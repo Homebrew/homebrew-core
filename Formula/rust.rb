@@ -7,7 +7,7 @@ class Rust < Formula
     sha256 "ac5907d6fa96c19bd5901d8d99383fb8755127571ead3d4070cce9c1fb5f337a"
 
     resource "cargo" do
-      url "https://github.com/rust-lang/cargo.git", :revision => "109cb7c33d426044d141457049bd0fffaca1327c"
+      url "https://github.com/rust-lang/cargo.git", :tag => "0.13.0", :revision => "109cb7c33d426044d141457049bd0fffaca1327c"
     end
   end
 
