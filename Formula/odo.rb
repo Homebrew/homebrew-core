@@ -6,6 +6,7 @@ class Odo < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "378a9ce90af46da22729f0aa62aa203ef5949ffa94c483fe17b86c3c43b0be3b" => :sierra
     sha256 "1b9571088ea3f397a58858946763b557b45bdffe71bfea346468c1ff8660b2f7" => :el_capitan
     sha256 "066649031770814fe0991dc595f123a145f5c786e5efdc6142c4be7b11eb86be" => :yosemite
     sha256 "eda3760bca97cc11d11dadc2aabcbb76fef5c47022900e5c628eda1f46cf4adc" => :mavericks
