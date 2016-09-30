@@ -5,7 +5,8 @@ class OpenOcd < Formula
   sha256 "837042ac9a156b9363cbffa1fcdaf463bfb83a49331addf52e63119642b5f443"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "ed551ed30eb2f91892831aa250b44213c191c280db8a97022ed83355848d9ce2" => :sierra
     sha256 "7b486a00de7c5587902482eddbca668b28cf2a0f4834990eb72f347aa82de3f9" => :el_capitan
     sha256 "5f100f62924464a31d2a5d3ad83c8305a5b9c0e0bf7c2afe05f06340f075f318" => :yosemite
     sha256 "64c7f397c5e0b7af7d91089a386a3a0c0c600987db7a25f55658bfe394af9d7b" => :mavericks
