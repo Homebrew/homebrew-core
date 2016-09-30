@@ -7,6 +7,7 @@ class Libmill < Formula
 
   bottle do
     cellar :any
+    sha256 "c391e988ecbd227890f32afb7e2c969ff473b43ed28398f8aa4a25168c5c8fed" => :sierra
     sha256 "7d0c594cbb2d1294cdb415b26d6afd85f66f2716b158a6d718e8993a4894ff69" => :el_capitan
     sha256 "68395224fbe9d4ed023268f1950108fe9ffcdfeb932c8ec3e54320b7d5081850" => :yosemite
     sha256 "ef669e48e37ea368df93ef9ae1b25af55c16ae1da4ef42b77626c5d3a1aa12e5" => :mavericks
