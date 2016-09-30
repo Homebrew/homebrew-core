@@ -7,6 +7,7 @@ class PcapDnsproxy < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "08c17b4ddfc4e9ed62eb71de8048536f772acb408b0bf474762916835d08e75b" => :sierra
     sha256 "c7865caea7f412ecf3df6ab321d3b6fda7cf3440eb9d6719dc919a2c909289f0" => :el_capitan
     sha256 "5c5116f0dce4f632b089393a5dc2981c947e9f5ac0c1a91aa6d708a01cf4123b" => :yosemite
   end
