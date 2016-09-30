@@ -8,6 +8,7 @@ class Mdv < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1a0e190e7c95e09723024c9239c77aa7cc3b8aca39c71d61de19f98e939c9273" => :sierra
     sha256 "95f4afb24259a3131f3248b33ab2797ecea78158c6e20c201225d71266324232" => :el_capitan
     sha256 "69d1d3de00b7d27fc5de556a61f178ff3d5fcbbfef50afd621eadd8595c43928" => :yosemite
     sha256 "73a5c302f5685123fbd48d14dae77c3f17ac57f970786f944b819e5dfad7f2e9" => :mavericks
