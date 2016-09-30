@@ -6,6 +6,7 @@ class MinimalRacket < Formula
   sha256 "f0666dbf0c7fc446f103b0c16eed508225addb09596f9c44a87b9d546422b1e9"
 
   bottle do
+    sha256 "b90d78d65e3fb07b115a38b5d00706915863123c827601a3d58c973cb5c05f9f" => :sierra
     sha256 "939710efd3662a6dacecec89d3097eeb38b5d880abc6100e542ea804057e0de4" => :el_capitan
     sha256 "75813d0858f9d7a6f71a31e7e73e8ee0df6a0d5e794f288a948377fd44d20a14" => :yosemite
     sha256 "cc3c79837045ed6bc4a7991e5e5a8a024ea0c449a4b841f71394f3c4347cdcc0" => :mavericks
