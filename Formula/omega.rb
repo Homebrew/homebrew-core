@@ -5,7 +5,8 @@ class Omega < Formula
   sha256 "528feb8021a52ab06c7833cb9ebacefdb782f036e99e7ed5342046c3a82380c2"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "fee55591a27a11e2df35ba303166ef2e73243bef6e0b52bebcb57cf040131046" => :sierra
     sha256 "68372f77905f65f4b00b8268bea8e2d17e3cfa042b0900de2f8ae58a1b0e55c2" => :el_capitan
     sha256 "24f80ac193fc2f73440e60ff2be3aa8cdcfae9b4134223417b117d7cfb741c00" => :mavericks
   end
