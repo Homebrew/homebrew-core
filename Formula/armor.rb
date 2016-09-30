@@ -18,6 +18,6 @@ class Armor < Formula
   end
 
   test do
-    system "armor", "-v"
+    assert_match version.to_s, shell_output("#{bin}/armor -v")
   end
 end
