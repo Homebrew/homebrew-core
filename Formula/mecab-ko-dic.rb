@@ -6,6 +6,7 @@ class MecabKoDic < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "68715d65e93b56fa18f70579b515b4e69128777e89c069da9af9ab6dd689bc9e" => :sierra
     sha256 "51c5a40a0aad7906cbd83265fbecbc4de3a4f116abceebf9fdb02d17c75f5f69" => :el_capitan
     sha256 "92be006bcc8552fdaddf82d21b9f8f528af010128febc721a5a5ba262eca99ce" => :yosemite
     sha256 "0c958bf826cd358431f144dfb3d2d3da08c67cda59efe1d2998b54a401678515" => :mavericks
