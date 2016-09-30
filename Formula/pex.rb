@@ -6,6 +6,7 @@ class Pex < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "93915a607fc3767fccf51c87585b04020f0a20106b690f906050966759f0caef" => :sierra
     sha256 "e70109b6072294b61cbce99ac20daf8a1a522712a1b4f446b698b5291ffca2df" => :el_capitan
     sha256 "afeae97bf3099f85d4a2c3a0ec499fb7b0d596e45ddf90185d8b84d195353c0d" => :yosemite
     sha256 "6280d3f74d9e845da7a274d47e509572192d7dcdc4e7e63230be0fc21d21875b" => :mavericks
