@@ -5,6 +5,7 @@ class Metashell < Formula
   sha256 "64d3680a536a254de8556a9792c5d35e6709f2f347d7187614271123d87246ee"
 
   bottle do
+    sha256 "e108fd2b8bd5c36a936b7fb1e84ad0c9296d400e615481ca1679b69e011948a6" => :sierra
     sha256 "fff1e495ddfda97b8826fa67333a1acf5847e6e6b0fcd4d8eb12332ea714e8f0" => :el_capitan
     sha256 "889f85d4601b30dd3b2eed8c64a3dbb0554600c0f624e6b8fbfff533922a9e79" => :yosemite
     sha256 "3f134dccf6bff48ab61cfdb312b03a3318591e6e41396f0b98795e9423f31421" => :mavericks
