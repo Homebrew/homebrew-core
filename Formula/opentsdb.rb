@@ -20,6 +20,7 @@ class Opentsdb < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "09f6ea9bccb2eac33e34762460faf3360e53b037007d2e3bffde6d2dcb792034" => :sierra
     sha256 "050fc28675d4b62c7143ff6f6748fc6361305c2701e3d3a3babec64a3078130f" => :el_capitan
     sha256 "b15a3370a281f2a26cb3dbd531d9bf165fe7796d895912aa5caedd6d7ab4b926" => :yosemite
     sha256 "890ed2fd269e9fd20825e592f2a2d3cc91269669418b93389c56eded33d4b226" => :mavericks
