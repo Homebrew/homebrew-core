@@ -6,6 +6,7 @@ class Pdf2json < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9a692a971b1e57a0948a1dc0664043d982df1b70cef8a8f39a70f84359bedffd" => :sierra
     sha256 "01a63a2a56b0209884b0edf4d4857cbea4316f2a475dc17a8e390b36536b5d0a" => :el_capitan
     sha256 "c82fefb4779c474d6a6b5eaa0e6fd6a9ccf7bd7e3962b5943367e15e6cbbdea1" => :yosemite
     sha256 "79fb8c9376d0dcc0ec6d9100912f533d9b7301ab9c6a2b90d2564701eaacaa4a" => :mavericks
