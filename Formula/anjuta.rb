@@ -3,6 +3,7 @@ class Anjuta < Formula
   homepage "http://anjuta.org"
   url "https://download.gnome.org/sources/anjuta/3.22/anjuta-3.22.0.tar.xz"
   sha256 "4face1c063a5a6687a6cfc6f1f700ba15f13664633c05caa2fbf50317608dd03"
+  revision 1
 
   bottle do
     sha256 "00288874e22c7b239218e567444eeb6aa2610fd461c5b5bf6ee3c78cf05b4d74" => :sierra
