@@ -6,6 +6,7 @@ class Qprint < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f26387daf3d025dd45843784dd90fb3bf77609bdf0eb870f1b66782c89571950" => :sierra
     sha256 "9660443356a1f9571b39ea496349482e17f7c0d06829dd06945ca7680291c0bf" => :el_capitan
     sha256 "92470bcb0bd97c4d13181969ebeb0339faa85338ad139bf4a5ac19550635f5c1" => :yosemite
     sha256 "fbf2eadbf60b30557e3741e28545070bb377602aa8f1c1c49b5f65375381a2c4" => :mavericks
