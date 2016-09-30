@@ -5,6 +5,7 @@ class PerconaXtrabackup < Formula
   sha256 "e3ec54eb468482503bccdd1619136e798798086042e9eb7c6daa2fb9b78783a3"
 
   bottle do
+    sha256 "a5fb5e87d082fe05196154b2acdb2c5f9960038819628a087d03d32d48cddd50" => :sierra
     sha256 "79fd5cdb7b84795494caf58949bddf8abbbb05eff009d1e56ee31c577ae24a5d" => :el_capitan
     sha256 "c7f56675e64d5f222ab33cb071c5edba7ca384332ecb8f7933566eb55b0261c8" => :yosemite
     sha256 "6618802f70e5491736d5a436b74c74f2bf58db9375feee35ec274cb1f8acbba7" => :mavericks
