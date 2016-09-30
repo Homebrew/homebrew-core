@@ -6,6 +6,7 @@ class Mlogger < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "dea257055319fd6917e3ff739afdd2059e85a7c3adfa67aa745dd1d481420a0b" => :sierra
     sha256 "a91ebd8db66c32179a41a6ba9fd595353c19773922ca5a82537926ca17502064" => :el_capitan
     sha256 "876a19cf8c72d8d14e08989d7ace12faac1cb9dad3b7406f37c9fe6370b98924" => :yosemite
     sha256 "3b0249322e3cd31e38b1e040c2fa4bc1aa6500461e7582f06d7260dcce77187a" => :mavericks
