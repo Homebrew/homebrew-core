@@ -1,8 +1,8 @@
 class Tcpkali < Formula
   desc "High performance TCP and WebSocket load generator and sink"
   homepage "https://github.com/machinezone/tcpkali"
-  url "https://github.com/machinezone/tcpkali/releases/download/v0.9/tcpkali-0.9.tar.gz"
-  sha256 "4acb38bd1a2421f247afbd07e67d47aaa8bb848f92e7badd2cd581022406d855"
+  url "https://github.com/machinezone/tcpkali/releases/download/v1.0/tcpkali-1.0.tar.gz"
+  sha256 "ac0a7fe686824a8296494d7f7d4bf0dda5e4b6f9320d7ec7f3398e631bd325ad"
 
   bottle do
     cellar :any_skip_relocation
