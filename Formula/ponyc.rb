@@ -17,6 +17,15 @@ class Ponyc < Formula
   depends_on "pcre2"
   needs :cxx11
 
+  # https://github.com/ponylang/ponyc/issues/1274
+  # https://github.com/Homebrew/homebrew-core/issues/5346
+  pour_bottle? do
+    reason <<-EOS.undent
+      The bottle requires Xcode/CLT 8.0 or later to work properly.
+    EOS
+    satisfy { DevelopmentTools.clang_build_version >= 800 }
+  end
+
   def install
     ENV.cxx11
     ENV["LLVM_CONFIG"]="#{Formula["llvm"].opt_bin}/llvm-config"
