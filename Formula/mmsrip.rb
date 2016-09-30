@@ -13,12 +13,12 @@ class Mmsrip < Formula
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}", "--mandir=#{man}"
     system "make"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/mmsrip", "-v"
+    assert_match version.to_s, shell_output("#{bin}/mmsrip --version 2>&1")
   end
 end
