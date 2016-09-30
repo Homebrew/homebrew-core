@@ -8,6 +8,7 @@ class Oauth2Proxy < Formula
   head "https://github.com/bitly/oauth2_proxy.git"
 
   bottle do
+    sha256 "6eb329e21c7cb6dccad6d03ac8d7260a3ff2ebc4f322d5ae5d8c390bbf697622" => :sierra
     sha256 "982baa090eaedfacbbf82ac94721ecd8c466fba96987638bfc94c7e898f65224" => :el_capitan
     sha256 "078a955570fd82bbaa4003e5869b5b5368f06e567d5ff3edef0ede524e4741e7" => :yosemite
     sha256 "6d8ad6797411db753926c7cfe5df394034cbdf9d574df71c0d35ce8e5febe261" => :mavericks
