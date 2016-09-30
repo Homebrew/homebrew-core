@@ -1,8 +1,8 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.44/vte-0.44.1.tar.xz"
-  sha256 "712dd548339f600fd7e221d12b2670a13a4361b2cd23ba0e057e76cc19fe5d4e"
+  url "https://download.gnome.org/sources/vte/0.46/vte-0.46.0.tar.xz"
+  sha256 "5f7122e7860eb2470d310fc63df91d3ee32bab233729c2dc181a0cbc9b3249d7"
 
   bottle do
     sha256 "c099a9d1635bec6624122be08407ab05eed84517914b3a6fbf6f597d4a58fe5b" => :sierra
@@ -18,6 +18,7 @@ class Vte3 < Formula
   depends_on "gnutls"
   depends_on "vala"
   depends_on "gobject-introspection"
+  depends_on "pcre2"
 
   def install
     args = [
