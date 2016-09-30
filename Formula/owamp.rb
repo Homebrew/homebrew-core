@@ -6,7 +6,8 @@ class Owamp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "afdeaab138caa02c535fd9d2b847c5b5b24273beef19271fc60415de16d0681f" => :sierra
     sha256 "6f86a33c176ba1394560b7707466c088930f13db102b7adc159e80e889fdc5cf" => :el_capitan
     sha256 "fce4cc5bf0a9b5355779fb45637651f6a78bb8d3dd93bdc3ff2826b7866617fd" => :yosemite
     sha256 "6c6b6f1f143b929b892c6556db3b06299835326a72c5180c482b2630e62dc543" => :mavericks
