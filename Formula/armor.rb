@@ -23,7 +23,7 @@ class Armor < Formula
       pid = fork do
         exec "#{bin}/armor"
       end
-      sleep(1)
+      sleep 1
       output = shell_output("curl -sI http://localhost:8080")
       assert_match /200 OK/m, output
     ensure
