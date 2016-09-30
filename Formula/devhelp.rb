@@ -1,8 +1,8 @@
 class Devhelp < Formula
   desc "API documentation browser for GTK+ and GNOME"
   homepage "https://wiki.gnome.org/Apps/Devhelp"
-  url "https://download.gnome.org/sources/devhelp/3.20/devhelp-3.20.0.tar.xz"
-  sha256 "a23375c2e2b2ef6240994bc2327fcacfd42403af6d872d0cba2e16dd45ca1f1d"
+  url "https://download.gnome.org/sources/devhelp/3.22/devhelp-3.22.0.tar.xz"
+  sha256 "59cae02e12d238cc5fc3f049d779895ba89701426d9173f5b534d4ab90c5ffb0"
 
   bottle do
     sha256 "e999f76766f1295f883047354d2ad4aeea0de699773844c48872bc7a0c16b615" => :sierra
