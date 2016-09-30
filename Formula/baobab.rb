@@ -5,10 +5,9 @@ class Baobab < Formula
   sha256 "796e784886d5bdf2e9d8ac94d74d5f94e055f4285ef54dc16552fb9c9b9c3e99"
 
   bottle do
-    sha256 "9fbcf149add8e5367b74ef5f1b4eb1dd1c4dd43daad3736a2540172720d2cfa3" => :sierra
-    sha256 "2c8716685d745afb1ac24ba61d96d9a08a4e8dd2fe0b5412a6ccdb1f744cd7f5" => :el_capitan
-    sha256 "c9194f003ce07fc6688622580f3f9efdbaba76da8c8af5ebdf633e9542996cf1" => :yosemite
-    sha256 "9611904e45132e879e2828134ec704beccfb57ce6cf2c80d099acba96261022a" => :mavericks
+    sha256 "5acff5f090ec3f72ed8c69cb4af7b7a12bf65705cebbc991f7603792ce9a7b66" => :sierra
+    sha256 "633c2b902158aaf5d0cac1b8a82ccaf6ecb70d01e47d9fee45d42f78d925a19b" => :el_capitan
+    sha256 "f3a996bf3fe194d20d133b928ddfbfa52e063199280dee590b88afa09a3b7558" => :yosemite
   end
 
   depends_on "pkg-config" => :build
