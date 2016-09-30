@@ -6,6 +6,7 @@ class Pdksh < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ec63445bd17d5b7fc1a5ab06621b0ab1793345e068bc0b27b3e3640f01405517" => :sierra
     sha256 "771aeac10fe7c544b54a38b39cdbf9c082645e1992b8ace7ff1d6112a2ed1542" => :el_capitan
     sha256 "f1f4aab0c6110d5b30050fc0ed5e4660a4adf5e2364d0622b1872795b39b1417" => :yosemite
     sha256 "fa0b42b6f6aea018b537301b38151d6a3e20f8b8d694c5f768bab1d0d64a5b35" => :mavericks
