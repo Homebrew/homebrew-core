@@ -7,6 +7,7 @@ class Osh < Formula
   head "https://github.com/JNeitzel/v6shell.git"
 
   bottle do
+    sha256 "2d9100016e9bb2bf46e6994aa67e5261774ff81511d469f767dec05704872f77" => :sierra
     sha256 "e371b522d0b2f148107c8f953bab3922cee37fb0bdd02bf6e8a19ee00b403686" => :el_capitan
     sha256 "6e27a22cef6d23446e030e8a56d5da060a0993f228b7d311a51c7871570ed8df" => :yosemite
     sha256 "a6e827d127e48ceeecaadc3bc2efb5775ea57d470f1a7100dd2140341e479612" => :mavericks
