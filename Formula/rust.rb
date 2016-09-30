@@ -10,12 +10,6 @@ class Rust < Formula
       # git required because of submodules
       url "https://github.com/rust-lang/cargo.git", :tag => "0.13.0", :revision => "109cb7c33d426044d141457049bd0fffaca1327c"
     end
-
-    # name includes date to satisfy cache
-    resource "cargo-nightly-2015-09-17" do
-      url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2015-09-17/cargo-nightly-x86_64-apple-darwin.tar.gz"
-      sha256 "02ba744f8d29bad84c5e698c0f316f9e428962b974877f7f582cd198fdd807a8"
-    end
   end
 
   bottle do
@@ -63,16 +57,6 @@ class Rust < Formula
     system "make", "install"
 
     resource("cargo").stage do
-      cargo_stage_path = pwd
-
-      if build.stable?
-        resource("cargo-nightly-2015-09-17").stage do
-          system "./install.sh", "--prefix=#{cargo_stage_path}/target/snapshot/cargo"
-          # satisfy make target to skip download
-          touch "#{cargo_stage_path}/target/snapshot/cargo/bin/cargo"
-        end
-      end
-
       system "./configure", "--prefix=#{prefix}", "--local-rust-root=#{prefix}", "--enable-optimize"
       system "make"
       system "make", "install"
