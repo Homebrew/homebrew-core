@@ -1,8 +1,8 @@
 class Gssdp < Formula
   desc "GUPnP library for resource discovery and announcement over SSDP"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gssdp/0.14/gssdp-0.14.16.tar.xz"
-  sha256 "54520bfb230b9c8c938eba88d87df44e04749682c95fb8aa381d13441345c5b2"
+  url "https://download.gnome.org/sources/gssdp/1.0/gssdp-1.0.0.tar.xz"
+  sha256 "1b1df551df5ff4d856d064f785753a2eabccb89c358bae9f23f4b88c5c984173"
 
   bottle do
     sha256 "fc40fe391f342580a72035ed6f99e2bab7c0673f87dc6d75ba3a72b8ae80b6c2" => :sierra
