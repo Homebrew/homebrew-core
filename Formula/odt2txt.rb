@@ -11,7 +11,8 @@ class Odt2txt < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "edc9d0dea4ed3ff090ca5fd592735f49bf173b1872ae7e0c49d0682ca51e3c08" => :sierra
     sha256 "01006c2d30c3b5a108f82b0e24684d8abc93ca88b4b62b385867eb34a70c100a" => :el_capitan
     sha256 "dd54432a555e848fdb86e99cc4ad26b41e50ba52f045cd56056e630e6d83ac9b" => :yosemite
     sha256 "a24f4fdd461b5d25014b52abcfa4dcaba0504d60fba396582aa677af381349c3" => :mavericks
