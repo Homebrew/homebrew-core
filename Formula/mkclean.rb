@@ -6,6 +6,7 @@ class Mkclean < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3a8eb240bf72923753f39652fb68ba47c02481e307d914173550e8bd4516e767" => :sierra
     sha256 "f8628b1bfb08d1624faa2037d199592bc6209759322bcfc53eb5649ad304e4bd" => :el_capitan
     sha256 "cefecf33d4cb9fa15d582b0d03c26cf3a14228d02832ddbf3187d5c4ffd4a4c2" => :yosemite
     sha256 "51b53b0e49a5fe451c6bd3589e780e51ac23c637493c8804233057cb79b9d40d" => :mavericks
