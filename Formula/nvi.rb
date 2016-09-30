@@ -8,6 +8,7 @@ class Nvi < Formula
 
   bottle do
     cellar :any
+    sha256 "0007956c286d70e71a6cf044e686e09ec56688d28f02ea4aabc41e80861349eb" => :sierra
     sha256 "c4f15ed7ef7d6ca867cccf614823d03a0ffebfd1c303ae2625f64645b4b36b62" => :el_capitan
     sha256 "2b6a728e143b8dbd0584d403e5c7b5138130a09177bd658ba3dc95f999420ddd" => :yosemite
     sha256 "b86a3fc268f0b698e8218505bc257256d36c79f215e19fbaa72c8970995c402e" => :mavericks
