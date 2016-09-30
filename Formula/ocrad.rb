@@ -7,6 +7,7 @@ class Ocrad < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "035cc08529d27d2469c77adbe414ed30f4ca674efcb268c58a47d0d270b721fa" => :sierra
     sha256 "9acb5576ee58fe3d968649659c9f374277d145a2050ce62ecd70d6d675645efb" => :el_capitan
     sha256 "99dba4fcc35dcea80dcf70e783832a57578f36406aa9a465398cf511ff2bae6e" => :yosemite
     sha256 "ee28a84a3c13a281f601f92920201a00af54509201f62ffb9d84d0e554001c7d" => :mavericks
