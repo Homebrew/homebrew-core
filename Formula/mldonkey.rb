@@ -35,6 +35,7 @@ class Mldonkey < Formula
   end
 
   bottle do
+    sha256 "be4ea8383b99d4ab1d7ffa47279704cff3fe9e9549fcb9b9bb05643819cc866f" => :sierra
     sha256 "d6ec1942b514679463a5076ed0a0cdc6e966b0561c08d349a72d5306e71a2e6b" => :el_capitan
     sha256 "3026f405909a52a923fe38e81690dcbe44efa8daa36d15af84d4be410ac451bc" => :yosemite
     sha256 "0d11e1995f0e83158017201f92ac787f59e336e70f444c78cb839fa0cd3e0ce4" => :mavericks
