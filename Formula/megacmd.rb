@@ -11,6 +11,7 @@ class Megacmd < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "687bd1592022813007d5e538bcc80286bdcace57e3a5bb90dc544d78e764ba79" => :sierra
     sha256 "5fcd5e53a5daeebc80de7db5007493609d441894a92eaeca5fee7d1eab60577d" => :el_capitan
     sha256 "30517310990db7dfc62be36b1142e8094a1d80f49e0d52cf32e22091e03fb44b" => :yosemite
     sha256 "f04e476d5ece8703aef3e9db7d12bc7b1825222e70060ee20b4980b74f63e52e" => :mavericks
