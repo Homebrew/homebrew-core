@@ -3,21 +3,8 @@ class Tmux < Formula
   homepage "https://tmux.github.io/"
 
   stable do
-    url "https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz"
-    sha256 "bc28541b64f99929fe8e3ae7a02291263f3c97730781201824c0f05d7c8e19e4"
-
-    patch do
-      # required for the following unicode patch
-      url "https://github.com/tmux/tmux/commit/d303e5.patch"
-      sha256 "a3ae96b209254de9dc1f10207cc0da250f7d5ec771f2b5f5593c687e21028f67"
-    end
-
-    patch do
-      # workaround for bug in system unicode library reporting negative width
-      # for some valid characters
-      url "https://github.com/tmux/tmux/commit/23fdbc.patch"
-      sha256 "7ec4e7f325f836de5948c3f3b03bec6031d60a17927a5f50fdb2e13842e90c3e"
-    end
+    url "https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz"
+    sha256 "55313e132f0f42de7e020bf6323a1939ee02ab79c48634aa07475db41573852b"
   end
 
   bottle do
