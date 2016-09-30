@@ -1,9 +1,8 @@
 class FreeradiusServer < Formula
   desc "High-performance and highly configurable RADIUS server"
   homepage "https://freeradius.org/"
-  url "ftp://ftp.freeradius.org/pub/freeradius/freeradius-server-3.0.11.tar.bz2"
-  mirror "http://ftp.cc.uoc.gr/mirrors/ftp.freeradius.org/freeradius-server-3.0.11.tar.bz2"
-  sha256 "2b6109b61fc93e9fcdd3dd8a91c3abbf0ce8232244d1d214d71a4e5b7faadb80"
+  url "ftp://ftp.freeradius.org/pub/freeradius/freeradius-server-3.0.12.tar.bz2"
+  sha256 "fe4e1f52cc2873f6aee2b12b0f03236978e4632f2acf298f834686b240c4183d"
   head "https://github.com/FreeRADIUS/freeradius-server.git"
 
   bottle do
