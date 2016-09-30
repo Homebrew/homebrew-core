@@ -158,10 +158,16 @@ class Python < Formula
       args << "--enable-universalsdk=/" << "--with-universal-archs=intel"
     end
 
-    # Allow sqlite3 module to load extensions:
-    # https://docs.python.org/library/sqlite3.html#f1
     if build.with? "sqlite"
-      inreplace("setup.py", 'sqlite_defines.append(("SQLITE_OMIT_LOAD_EXTENSION", "1"))', "")
+      inreplace "setup.py" do |s|
+        s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
+        s.gsub! "for d_ in inc_dirs + sqlite_inc_paths:",
+                "for d_ in ['#{Formula["sqlite"].opt_include}']:"
+
+        # Allow sqlite3 module to load extensions:
+        # https://docs.python.org/library/sqlite3.html#f1
+        s.gsub! 'sqlite_defines.append(("SQLITE_OMIT_LOAD_EXTENSION", "1"))', ""
+      end
     end
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
