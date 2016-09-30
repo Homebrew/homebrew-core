@@ -6,6 +6,7 @@ class Libmwaw < Formula
 
   bottle do
     cellar :any
+    sha256 "b8b47792eb97894d3048097da401391c07db8424d9cd90cc18fb7e8b39e1b5ab" => :sierra
     sha256 "0496f833b2205e5a6c4f84482b9f1ecae59745a6efdcbb2b30f75f5c959a921e" => :el_capitan
     sha256 "5431a412a8cc01b35d23c2743ea6449fa2d7e081c56837fb7d5f8d9db911f4ac" => :yosemite
     sha256 "ac4a80c75b3617b86cc72fecc7db1559edfd5717b1493ccdcd24d676c4e2b987" => :mavericks
