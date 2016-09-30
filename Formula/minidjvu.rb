@@ -5,9 +5,11 @@ class Minidjvu < Formula
   sha256 "e9c892e0272ee4e560eaa2dbd16b40719b9797a1fa2749efeb6622f388dfb74a"
 
   bottle do
-    sha256 "7a111b89510411f32b36b5d2e0d5240a4f4dacd7bb51c933e9feb9c5a57b86d5" => :el_capitan
-    sha256 "25cff5a239d0ac3c9d72b2454c933de31328f34f35b23aa79dab7b369e33ed73" => :yosemite
-    sha256 "fbe435923a587d89e3dc4ece4d9fd72bd6bff0deb6333169e448bade93201e5c" => :mavericks
+    cellar :any
+    rebuild 1
+    sha256 "29966954c6c7ff78b48f41a31574369ed58fd9b52cea613891726e8cc444bffe" => :sierra
+    sha256 "fd6b121a06139dc071c2f7fdcf4731d5becc93350ed92f760c0b11631a985d16" => :el_capitan
+    sha256 "c008144fc38184c5a438ed120b5cd1a009d07b4a8cf759bfa58955b4b34f6e85" => :yosemite
   end
 
   depends_on "autoconf" => :build
