@@ -6,6 +6,7 @@ class Mobiledevice < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "53f8b0184fc5c88f112c380da96e3d86744242c32c6f8abeaf670a8d65e3a74c" => :sierra
     sha256 "27f7b9fa9c4f1e34711c75bef34a06925ca50933987d1f925587a356492f7046" => :el_capitan
     sha256 "110dd69008feb20cbe6343169dfcc278d209e9430d59d44ab0bf6ce7eb920362" => :yosemite
     sha256 "18d5472c4b517413472be3b97ff66217d55690773ef952933e652dc8a57133bf" => :mavericks
