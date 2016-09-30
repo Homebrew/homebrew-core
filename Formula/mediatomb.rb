@@ -6,7 +6,8 @@ class Mediatomb < Formula
   revision 2
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "8eb40e0276320c6765b7dbc208afe1c53a06ed13ff5e410e16aee57c366bede7" => :sierra
     sha256 "06cb4aaff088fc91d9500b10640d2b1632f8c88c95277f9cface991a06801ad6" => :el_capitan
     sha256 "089217abe05ea91a8dc1df796974495f87b8bcde7b4d80a93b1129e12cfc344d" => :yosemite
     sha256 "7022f700071652e20eb3d93b3d0b0a9d5f4cf1485cd350d85116fcbdea1ac104" => :mavericks
