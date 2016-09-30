@@ -6,7 +6,8 @@ class Libnice < Formula
 
   bottle do
     cellar :any
-    revision 2
+    rebuild 2
+    sha256 "f035fdea703f771e432e09bad2202fccffad4ddc45ed83d6773a1e62bd71237f" => :sierra
     sha256 "fbad262bc1c5ebea09031d33d1c67efedee1a24b3b6fe36f18b1f74a86ad1304" => :el_capitan
     sha256 "d2fae18378a7d83f0e4f0068f07afa6cdc54a8a25f2aa84990cf1a5a18e9788f" => :yosemite
     sha256 "9d0b9a844dbeeb8d5ef58710d0dac485af94a9dc010edc585a9e73464a12e596" => :mavericks
