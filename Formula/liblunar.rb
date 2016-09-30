@@ -5,7 +5,8 @@ class Liblunar < Formula
   sha256 "c24a7cd3ccbf7ab739d752a437f1879f62b975b95abcf9eb9e1dd623982bc167"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "79b9281fa40694eeac3076ef886c8c6c8c3d2a118c538a59b9cb925cbd5775c6" => :sierra
     sha256 "df420ea75e5e22b18dcd1fd49eac3478cd8bae3ec6e3b40d02afe7e253e0354b" => :el_capitan
     sha256 "0964777ae7bbc24c64cab3a1197b5dfa123a08d7e320b4829b9f0a3d1a3cb6be" => :yosemite
     sha256 "9c4abb431abb5c60d1a9beba72f8139255f64d19a02e1994345531c948c72c3d" => :mavericks
