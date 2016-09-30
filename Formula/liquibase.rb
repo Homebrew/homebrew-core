@@ -1,8 +1,8 @@
 class Liquibase < Formula
   desc "Library for database change tracking"
   homepage "http://liquibase.org"
-  url "https://github.com/liquibase/liquibase/releases/download/liquibase-parent-3.5.2/liquibase-3.5.2-bin.tar.gz"
-  sha256 "15b0284e29a2661440d1c577478ec18eda2bafd3f90c583ce0a200ec3971beba"
+  url "https://github.com/liquibase/liquibase/releases/download/liquibase-parent-3.5.1/liquibase-3.5.1-bin.tar.gz"
+  sha256 "b99870efec8c779b4e279a8b0c730273f837d4b6dffd037176737ecc0641ab6b"
 
   bottle :unneeded
 
