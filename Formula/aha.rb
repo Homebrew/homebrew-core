@@ -1,8 +1,8 @@
 class Aha < Formula
   desc "ANSI HTML adapter"
   homepage "https://github.com/theZiz/aha"
-  url "https://github.com/theZiz/aha/archive/0.4.9.tar.gz"
-  sha256 "9aefb7d7838e2061672813482d062ac4c32c932f7f8f0928766ba0152fec3d77"
+  url "https://github.com/theZiz/aha/archive/0.4.10.tar.gz"
+  sha256 "bbfb55940cbd8c4cbf8eccededf30a9e3861feda2b9c50d76f55d384080641aa"
   head "https://github.com/theZiz/aha.git"
 
   bottle do
