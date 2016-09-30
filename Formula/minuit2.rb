@@ -6,7 +6,8 @@ class Minuit2 < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "00867c4037d0110f2adf23a623aa918a95c9345be197ecdc0a9aa0d9da9f04e0" => :sierra
     sha256 "7457852262758583daca3f23ac3e6fa312fe0a3fd84f0b20da2081967124a0fc" => :el_capitan
     sha256 "32ff2d05e0a85b28513789e1f625e654f2141b80202f506ad0f7721caab95ddd" => :yosemite
     sha256 "e2b2aba706d32238723ee7aaba7e4c536d68a6979b01c67e944bb34039653f40" => :mavericks
