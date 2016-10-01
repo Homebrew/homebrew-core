@@ -6,10 +6,9 @@ class GsettingsDesktopSchemas < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ff66a60ec389eb26aea4dc7487497b9c18977a4623aa83fa84ca74e418d9b04d" => :sierra
-    sha256 "092011db325353661a9f4c2473341e0202b3d634e03fc978ef7a53a9b3799c09" => :el_capitan
-    sha256 "7917278eb4a79cc63e11e68aee8fa67cb559a853efa63dd5ed69ae588436f6e4" => :yosemite
-    sha256 "003a8e6824bddb40d5abfab5026d6ce030b93d8a4a75bd8b8e7d3f9577a14e3c" => :mavericks
+    sha256 "fde7cebb7ab94874c1d4af67d68e69f5927663c5d7f66751d5ec3a5624f263a4" => :sierra
+    sha256 "fde7cebb7ab94874c1d4af67d68e69f5927663c5d7f66751d5ec3a5624f263a4" => :el_capitan
+    sha256 "fde7cebb7ab94874c1d4af67d68e69f5927663c5d7f66751d5ec3a5624f263a4" => :yosemite
   end
 
   depends_on "pkg-config" => :build
