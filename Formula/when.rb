@@ -8,6 +8,7 @@ class When < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f7ed7b34c5d51139d447e0c02e3ca15986db8fcd279e9902dad3d23938d74c3a" => :sierra
     sha256 "9e2fc9c54fdf0984a9f4bfde45441f45be9b1a491197527a68608e8619923dee" => :el_capitan
     sha256 "d9c2db7f27a06e70583b88c17c299616b0b0b154874148b827ef97bde9e841ec" => :yosemite
     sha256 "d9e387024317d27260e29bcf3ea6cf08eec55b0dba291f0d9328f1b9e2353233" => :mavericks
