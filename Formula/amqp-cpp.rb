@@ -1,30 +1,33 @@
 class AmqpCpp < Formula
   desc "C++ library for communicating with a RabbitMQ message broker"
   homepage "https://github.com/CopernicaMarketingSoftware/AMQP-CPP"
+  head "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git"
 
   stable do
-    url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git", revision: "ed2ffd3f03f2bba11f8af68c69ec96ab40a5c4b7"
-    version "2.6.1"
-  end
-
-  head do
-    url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git", branch: "master"
+    url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v2.6.2.tar.gz"
+    sha256 "1a60d900a8e32b55b39229f2ea00070156b99c0a1336450d531038e6241a4d8b"
   end
 
   needs :cxx11
 
   depends_on "cmake" => :build
-  # Boost required by examples
-  depends_on "boost" => :build
 
   def install
     ENV.cxx11
-    system "cmake", "-DBUILD_SHARED=ON", "-DCMAKE_MACOSX_RPATH=1", "-DCMAKE_INSTALL_PREFIX=#{prefix}"
+    system "cmake", "-DBUILD_SHARED=ON", "-DCMAKE_MACOSX_RPATH=1", *std_cmake_args
     system "make"
     system "make", "install"
   end
 
   test do
-    # TODO: use examples as test
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <amqpcpp.h>
+      int main()
+      {
+        return 0;
+      }
+      EOS
+    system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-o", "test", "-lc++", "-lamqp-cpp"
+    system "./test"
   end
 end
