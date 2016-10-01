@@ -7,7 +7,7 @@ class Quilt < Formula
   head "http://git.savannah.gnu.org/r/quilt.git"
 
   bottle do
-    revision 1
+    rebuild 1
     sha256 "d375ad1ff5cfc9e7097e8641278661ae25d85f07edd8b220e41934a97431466c" => :el_capitan
     sha256 "8f4e75281279df9d503c160a83dda1611483bada421115ec2c5af82ec0a3b9b2" => :yosemite
     sha256 "1d69453caf8f13e9ecd5a3310e872b3fdd562bd89b6b6335ce9874f613b59ff2" => :mavericks
