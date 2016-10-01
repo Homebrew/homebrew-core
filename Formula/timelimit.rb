@@ -6,6 +6,7 @@ class Timelimit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f9363f55156c70c4e8727131ff7cb12191034b76cc3c5e65d70028a8b66fc871" => :sierra
     sha256 "90494e903f7305d6e1c5392ba75a1c41685d37287dfe92a446eded91f039262f" => :el_capitan
     sha256 "68028554a85b4b6f30bcfb3fbe0328ecf367c49fdbe8342e16e26fdb07f23465" => :yosemite
     sha256 "274c9d6ccab028ef9f8177537fd880f733e21676321b8c8d7e95306f3b454a22" => :mavericks
