@@ -5,7 +5,8 @@ class Scheme48 < Formula
   sha256 "9c4921a90e95daee067cd2e9cc0ffe09e118f4da01c0c0198e577c4f47759df4"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "e9751df2e3cfd1a007d74d541ca494a439645e3006ad354ddf65b0abfb370864" => :sierra
     sha256 "af2ced8a13fdad5478f745c698b09071e71d84daca01c6e3e3c35961b06cbea4" => :el_capitan
     sha256 "475d12c64562fc2498fcd8d9a8bab76d4f290444e43fcf04c40c745a7f6c6923" => :yosemite
     sha256 "6ae24159bb6e2485465135ba60d60291be7681dfc9662e42f176bb9f9d4a6f00" => :mavericks
