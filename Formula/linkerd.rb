@@ -29,7 +29,7 @@ class Linkerd < Formula
     (var/"log/linkerd").mkpath
   end
 
-  plist_options manual: "linkerd #{HOMEBREW_PREFIX}/etc/linkerd/linkerd.yaml"
+  plist_options :manual => "linkerd #{HOMEBREW_PREFIX}/etc/linkerd/linkerd.yaml"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
