@@ -6,6 +6,7 @@ class TokyoDystopia < Formula
 
   bottle do
     cellar :any
+    sha256 "0a7da80cf5e8892112986d9a51e8cd3804da2a7436b8a03b472f561b06c35890" => :sierra
     sha256 "2a9e21b6f57781adb9e3dc673f2e466b817d4a00860b45fa49ded534d4cb0ed4" => :el_capitan
     sha256 "6fa4ed94aace1e4c3b2a9962f31055883325255f8175c63aa08f079a4974eb6e" => :yosemite
     sha256 "231960b2f9d41cc1ee48a66812b1f0fa5977613e39ddd1a62c22a46e21b3feaf" => :mavericks
