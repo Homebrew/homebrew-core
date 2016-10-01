@@ -95,3 +95,4 @@ index 1b9b90d..cadb1a2 100644
  #define ACE_LACKS_CLOCK_MONOTONIC
  #define ACE_LACKS_CLOCK_REALTIME
 +#endif
+
