@@ -1,8 +1,8 @@
 class ClutterGtk < Formula
   desc "GTK+ integration library for Clutter"
   homepage "https://wiki.gnome.org/Projects/Clutter"
-  url "https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.0.tar.xz"
-  sha256 "742ef9d68ece36cbb1b2e1a4a6fbdad932f6645360be7e6de75abbb140dfbf1d"
+  url "https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.2.tar.xz"
+  sha256 "da27d486325490ad3f65d2abf9413aeb8b4a8f7b559e4b2f73567a5344a26b94"
 
   bottle do
     sha256 "511f2583872ea32f10a9a91b51a287a95448e697da755317a10867259abadbb9" => :sierra
