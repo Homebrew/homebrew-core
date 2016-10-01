@@ -7,6 +7,7 @@ class Rdup < Formula
 
   bottle do
     cellar :any
+    sha256 "43582c3cc5fb02bb50a73d71963045fa27cc38d03eed2e1e57d915a7f5c162cc" => :sierra
     sha256 "c9afd06e3d3cfb9628c9618723d1913916f2563d2b18159cffe2b2586ce0c508" => :el_capitan
     sha256 "0b83116666ac22439d46a6d92f6d75eb3dd7f231021dbc441c2388b4bd076e00" => :yosemite
     sha256 "ddfd0b0a7116c618739caffb054a0b149e17c7bf517c512ccb1543c3e7784275" => :mavericks
