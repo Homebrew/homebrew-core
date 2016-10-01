@@ -8,6 +8,7 @@ class Wiki < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "47bf79617a9159b39ca3341bfd9faf2bcc215d920c6fac175049e15ce7452b4b" => :sierra
     sha256 "97f41b03a165bc89869253240e906e0075ec936069a08ecd483c516bb987e3ce" => :el_capitan
     sha256 "36d2954d46a09d460740d16771792ed832b3b81770a5b28a86b28f3e2bd65a53" => :yosemite
     sha256 "271812a50a0455e1947006624f0442f084c69ab387cc858d41be26a4cce195f0" => :mavericks
