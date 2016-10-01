@@ -7,6 +7,7 @@ class Stress < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1a18d667f7804579758079e3a3f94683a64687120b5f4b77cf25a63f3f8cec39" => :sierra
     sha256 "b4635c185bfba65271d74aaff155161d2df388be303d135315066260e9699c5e" => :el_capitan
     sha256 "845f44585d0a3749c163300029f832125950d37af4a5b53c0b20fb143e6db014" => :yosemite
     sha256 "6741dc72df4a43cfe2c947d9e50d08df1e35029025ff2436d5a20a01117f4fb6" => :mavericks
