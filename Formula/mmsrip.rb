@@ -6,9 +6,10 @@ class Mmsrip < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1a960cf06f0de2c60642c759ac411d477cceab2e5e61a38a6632be0bfd329643" => :el_capitan
-    sha256 "19c1e0c00c04c87607ef472ac7c8b4cad26e39fc81403391133ef56235ad456d" => :yosemite
-    sha256 "d20d0cfa504c27353b2f57cb3b30df288ce65ebb9ea54da80a0141cb9913de62" => :mavericks
+    rebuild 1
+    sha256 "b4578327661828737b3aa71615806ba6e2781d7c0815a12815023242ac80e598" => :sierra
+    sha256 "cf0bc6b407f4861b174eddf55ae5da45330d37abc428013ca19f173d36a96d2a" => :el_capitan
+    sha256 "07f4c9d5a84bb52e3c799ebe7c395a4939c0c7ac5dff0fb46e2ce84abd9b5417" => :yosemite
   end
 
   def install
