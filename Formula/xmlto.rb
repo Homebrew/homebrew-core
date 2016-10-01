@@ -6,6 +6,7 @@ class Xmlto < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "55b1bf9e049e2e70ea31baa5a1e64d48ef98cab1de1b13b99f5cf2b446b741d2" => :sierra
     sha256 "25c7921f993a9cc8c4b9e2bd8a4e6f1a90b7f755f747b55f391ed063f123f64d" => :el_capitan
     sha256 "add17a1f3fd3569e3a8ed9e970f5d9397bdf1cca185c47b50af4f56492f8afff" => :yosemite
     sha256 "afd12ae6c79db17692175c1da036fbcf3df0c33592c0c6d7a686ce37f2443838" => :mavericks
