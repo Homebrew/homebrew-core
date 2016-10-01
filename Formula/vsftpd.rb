@@ -7,7 +7,8 @@ class Vsftpd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "7d98e1f2c4526539ec13519876f6c726e66b8093f3d1290325bb1c0762e70959" => :sierra
     sha256 "3227e7afcd2af84901a16d675bd1a7566002c4eacffa2313d89fbc3b7e594f76" => :el_capitan
     sha256 "aba9772d903374b3d3de5ce8c96a5f02badbc7676735c5ee42571ad0170dbb7f" => :yosemite
     sha256 "3bd82ae896d375342b6444f3c6be2eb5987df5da5084ee3c5f8dc073e001a5c2" => :mavericks
