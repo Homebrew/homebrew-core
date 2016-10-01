@@ -6,6 +6,7 @@ class Vstr < Formula
 
   bottle do
     cellar :any
+    sha256 "07e2b05d9908a847c72950532d3ed12771c856365c8747c8c5917da9a5ea4413" => :sierra
     sha256 "d2d5b14e9ac589c782307e058e06815ad2408bbcf418ac721d3fac3be8b832a7" => :el_capitan
     sha256 "0d4176307ea18472c9da9a765bcb033e6256ae361d2e32b758b205a56dd7e38a" => :yosemite
     sha256 "5fc509c660fc38b3484a093ce0894ee2e9c3ea3cccc43222071c4d8139975d8d" => :mavericks
