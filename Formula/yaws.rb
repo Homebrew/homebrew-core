@@ -6,6 +6,7 @@ class Yaws < Formula
 
   bottle do
     rebuild 1
+    sha256 "4726b73647fd72506616403e164851ea3713df88db93868f308fb20ea52cf3e6" => :sierra
     sha256 "81def8e721a0002e565065f69b2ae46ad4a7b2c52d644d95cff6c7c55237808d" => :el_capitan
     sha256 "009bcd0dc46019343ab543607e427d899fc814129ee8428735cae958a88778c1" => :yosemite
     sha256 "b49589e1fe5bd673e3ca035ff2626fe7055d4326d7cf61911a314aaa9cdc8074" => :mavericks
