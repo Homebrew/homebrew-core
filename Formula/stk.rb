@@ -6,7 +6,8 @@ class Stk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "fb9f9ccc2be022a9dedda6fa46ef27bee10455a164d42c11e1e03202f769c805" => :sierra
     sha256 "8d8b488cd816e06005998c7ecf1d76a1fee75698a567073d0dc654ce64b51647" => :el_capitan
     sha256 "3549b42faa4640d337110a5f5a44841790b1764cee11acb2145ffa638b3570a2" => :yosemite
     sha256 "b1195d0437e7ab54130a2c49aaf2ab77f4b587b08e0bbb4513c1898f4db0c010" => :mavericks
