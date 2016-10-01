@@ -7,6 +7,7 @@ class StormpathCli < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a680da33000f579fb996fc7be5e09c67cb622e99e366f8efbb0224e104b3fdea" => :sierra
     sha256 "51bff254a1a5c6ca2427f881aa1064a86be641c4812faeb5e03cf2424c9409f1" => :el_capitan
     sha256 "c649bd0aeb2da1553c0c3be998c07a36b159ad44d7182b91a16b4ab2cb636787" => :yosemite
     sha256 "7756541509cfcc0df6433c4aeb4abacc74f8fbd009cef9e91081bcb60694abe7" => :mavericks
