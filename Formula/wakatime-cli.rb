@@ -6,6 +6,7 @@ class WakatimeCli < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f48b185cd7bc761201d941e85e8c8cb0dd5097090517091c0d51340e490dd35f" => :sierra
     sha256 "8ef3926a7ac3531c132a98d5a8af730b7092b21d5e124bd9e75d4e3163b6483b" => :el_capitan
     sha256 "c600037b7da15c50cdfa6362d32cfbd369878a9601ffb2b085f526089a7558c2" => :yosemite
     sha256 "ed449f66b2fd822792a50905227e177a5ca2d1db77b90455e52344a650d051c9" => :mavericks
