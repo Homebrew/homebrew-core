@@ -7,6 +7,7 @@ class WlaDx < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1f55a4e132ec1fb82ad09334af83dbf08d1c30ad2ba828392c42fc54f5899cc7" => :sierra
     sha256 "80c729c545582ba83294b3a4cadd23ef378f4e71daa49220812ab149aa66f49b" => :el_capitan
     sha256 "4c192ebb6538da0313496f6927a52f7a64782dbeedbf454b0004e203ddb2109e" => :yosemite
     sha256 "2b8cf1da40e1ce9fedbbf41277ee44955fa99712d46c2fb8d6140c8452b74445" => :mavericks
