@@ -6,7 +6,7 @@ class Zile < Formula
   sha256 "1fd27bbddc61491b1fbb29a345d0d344734aa9e80cfa07b02892eedf831fa9cc"
 
   bottle do
-    revision 1
+    rebuild 1
     sha256 "bedcc322bf58b7699ff03d88b6d203e493ed30fd14ac9309ed4e4d0c7416cedc" => :el_capitan
     sha256 "94b919340c46ed2f2be1604fc955c519818e2424927b12d8f13bb8a8140fd8af" => :yosemite
     sha256 "8230e74d3104b830c1b100dd5050f548b79dc3a51631349293812826a047d14b" => :mavericks
