@@ -15,6 +15,7 @@ class Wrangler < Formula
   end
 
   bottle do
+    sha256 "89663c4a49437fdd27f2446d829e1ef7c9ae4452280f8d087d71c3a89e5c319f" => :sierra
     sha256 "dfa0d430822b57df1c044ab395d347c81311346aaa102e4097e05c7c42f38b32" => :el_capitan
     sha256 "45df8699e1ba28596cfe6395a321b56213aa5cfd6545ea0a5bafcce39e9574dd" => :yosemite
     sha256 "6296e18bc0641ba1b20becdb16f4aabc500069999a2a23c487cd98d8309855c2" => :mavericks
