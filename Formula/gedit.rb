@@ -1,8 +1,8 @@
 class Gedit < Formula
   desc "The GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/3.20/gedit-3.20.2.tar.xz"
-  sha256 "32a1276a71a0d4a5af4e20a87bc273170ba8e075fc1ca7f51c8d3a6c150463f8"
+  url "https://download.gnome.org/sources/gedit/3.22/gedit-3.22.0.tar.xz"
+  sha256 "063b5a0b5dcc8f540f6e8c3ea1c22cf8a3a19edffc25315a1b6bc51d462b3f45"
 
   bottle do
     sha256 "e03c089fa4cc4eb64dee71f49301f59d1b5e047e079e513cf890fc1deeb323a9" => :sierra
@@ -17,7 +17,7 @@ class Gedit < Formula
   depends_on "gtk+3"
   depends_on "gtk-mac-integration"
   depends_on "gobject-introspection"
-  depends_on "enchant"
+  depends_on "gspell"
   depends_on "iso-codes"
   depends_on "libxml2"
   depends_on "libpeas"
@@ -31,8 +31,7 @@ class Gedit < Formula
                           "--prefix=#{prefix}",
                           "--disable-updater",
                           "--disable-schemas-compile",
-                          "--disable-python",
-                          "--disable-spell" # Expects gspell < 1.0.
+                          "--disable-python"
     system "make", "install"
   end
 
