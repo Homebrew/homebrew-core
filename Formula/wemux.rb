@@ -8,7 +8,8 @@ class Wemux < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "8f4b4487c79752dd628e4dcbadf862520da5a6d4be677114528425b65e5f130c" => :sierra
     sha256 "882a3d58408b8a3f1d8d8701f23d96e2b73ea2a4cfe3ae60d6c9fa10d62a0681" => :el_capitan
     sha256 "413d8099b66ae483fdedfecc79bcff2116d9ea579a23c5c4d3b4c24ec68db6cb" => :yosemite
     sha256 "37be489fca544a7add785cfa20c419e3a313c2a8b3e1ba8ee611c1f7a1677467" => :mavericks
