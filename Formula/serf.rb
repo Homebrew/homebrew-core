@@ -11,6 +11,7 @@ class Serf < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fcc9dfe253765e3eaed1107832fd62df4d7543f34277daf28dc9973f8f735597" => :sierra
     sha256 "007baecf7627b4135ddc6808ab3f7a40586b1235627cebee4d62cc0af9aee5eb" => :el_capitan
     sha256 "694a32fb05387ec3c3ee5b9698ee6569aca9954cbdf58e6e5ab1d4693a4f4aa8" => :yosemite
     sha256 "7bf755b79e60cc24da1002d2412d3579b3053d15d0cd8aed79277070f453c3ce" => :mavericks
