@@ -8,6 +8,7 @@ class Rp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "93aea19e1b6c6511e309f87003f173485a36e2b870734b6162e0bc43ae5f2a70" => :sierra
     sha256 "1ed1c49f3495c6da683908c34d17f345c5f3bde2a5112674bbd41f6a92da1ab2" => :el_capitan
     sha256 "e85fa182a3b46f8a3cd5a6d3a27359d4981fb1cab0ca5c2d3a1a9c471af1a77c" => :yosemite
     sha256 "398c2c7776b0da352930a13a9339cd66b4e74c773313eb347740cfd2ea8ccf24" => :mavericks
