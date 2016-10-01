@@ -1,8 +1,8 @@
 class GobjectIntrospection < Formula
   desc "Generate introspection data for GObject libraries"
   homepage "https://live.gnome.org/GObjectIntrospection"
-  url "https://download.gnome.org/sources/gobject-introspection/1.48/gobject-introspection-1.48.0.tar.xz"
-  sha256 "fa275aaccdbfc91ec0bc9a6fd0562051acdba731e7d584b64a277fec60e75877"
+  url "https://download.gnome.org/sources/gobject-introspection/1.50/gobject-introspection-1.50.0.tar.xz"
+  sha256 "1c6597c666f543c70ef3d7c893ab052968afae620efdc080c36657f4226337c5"
 
   bottle do
     sha256 "a761110e7da384ef2759aed67c87dadddedd265fc69a11ed28190ba886bddec4" => :sierra
