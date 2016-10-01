@@ -5,7 +5,8 @@ class Sword < Formula
   sha256 "995da8cf5a207c1f09809bf4b9db0bd7d267da5fcdb9d6666c9b313edd9d213d"
 
   bottle do
-    revision 2
+    rebuild 2
+    sha256 "b756aef908089e6ad20e9c905d6c01c32d33a7139fd26b735bdd8259b390b465" => :sierra
     sha256 "7b9581c869aa590288ad5b076b2547bcfe4edcb869550fc2c97497bcbb83e7ec" => :el_capitan
     sha256 "1c5b77b0a2d5441cd9a51a72c65d8c64b64840072b70eb34a4c0231e7fe35c48" => :yosemite
     sha256 "dc3bd07b3621d61ab58c1f1ca9796d7b1af05e3fccee3f8181cb5c743642df29" => :mavericks
