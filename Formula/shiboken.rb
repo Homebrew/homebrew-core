@@ -8,7 +8,7 @@ class Shiboken < Formula
   head "https://github.com/PySide/Shiboken.git"
 
   bottle do
-    revision 2
+    rebuild 2
     sha256 "70c2218fd33120644707710aca6cb12a68272b85afdc694a4a3fe28eb5135f8f" => :el_capitan
     sha256 "f0f159f81858e514afd5cfc55f9c05a40ad5155baffc788974f4e632bfd97726" => :yosemite
     sha256 "a1306b5980598839dfba0ba4ea23251fafebc87307bfb3c2ebcc5d006c63c9cb" => :mavericks
