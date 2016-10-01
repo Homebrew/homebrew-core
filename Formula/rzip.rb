@@ -6,6 +6,7 @@ class Rzip < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "89a5e7ab518070df7c3f5091a18a412b72910b58a191222e915b1ed9db6ba570" => :sierra
     sha256 "4eedb0ca975a72a4591d1e386d1ae01a546fb8401ea4f0b05c0fa71809e159db" => :el_capitan
     sha256 "170150a7704b270df0a1cce7f1cfde689e245f9a9f628b5f0415df5ceae89e19" => :yosemite
     sha256 "f86aa1c100b7144b04c43a06b475e11f18d88982ed0d5ea90b1da0c3cc813720" => :mavericks
