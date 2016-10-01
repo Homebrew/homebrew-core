@@ -6,6 +6,7 @@ class Streamripper < Formula
 
   bottle do
     cellar :any
+    sha256 "3f055510dc825aa663f35c91aa5f4e5a57baacd69c00f0c428df4a98ad9b6a7e" => :sierra
     sha256 "eff1bb37cd652e9b3194e2fda3c682bda9da12f413a11c4e5e337c9bc849b2ea" => :el_capitan
     sha256 "3465e96b5f17000df88a85729674f911097ab9f1b0170a0c3c89f4892dba6fbb" => :yosemite
     sha256 "a92b924639b9210e83cae1e63baa8f9b45ab4ec38816e19e32ad6fbae420a510" => :mavericks
