@@ -8,7 +8,8 @@ class Ry < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "2703cd68ac926b7bd8dac25c93054993706d32a4c9857b450eb19f88bdf81530" => :sierra
     sha256 "5b324970a3a3c806029241e1c5c453c900f16b3aec8e32bedc5d1a6abb5670c7" => :el_capitan
     sha256 "7b8c7549875ff9a303735ffae235f520fd85af5796953ab92949d2ec7d69ecc6" => :yosemite
     sha256 "c94e0176f99aaefcdc84ef95c081aa348177662e1b7f20d429a5c56a5b98ef40" => :mavericks
