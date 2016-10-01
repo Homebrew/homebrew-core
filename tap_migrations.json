@@ -142,6 +142,7 @@
   "itsol": "homebrew/science",
   "iulib": "homebrew/boneyard",
   "jing": "homebrew/boneyard",
+  "jless": "homebrew/boneyard",
   "jscoverage": "homebrew/boneyard",
   "jsl": "homebrew/binary",
   "jstalk": "homebrew/boneyard",
