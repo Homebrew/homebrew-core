@@ -8,6 +8,7 @@ class Zmap < Formula
 
   bottle do
     cellar :any
+    sha256 "d4321a08eaba4f41401f2a7ce90c1e4822e4dfd43732bb975d1ee242ec5e115a" => :sierra
     sha256 "1ca4f466dc62cdce9b88a0a6ac7beec710748ba3c22415424deb3c864237a3a5" => :el_capitan
     sha256 "4bec1849985c6754abe0facfb20a0d847470bc6f66623e98104176b45932d42a" => :yosemite
     sha256 "e543e77553615624b232d1feac4dbe20c3eb24d0403f6e679c9a704ce21da33b" => :mavericks
