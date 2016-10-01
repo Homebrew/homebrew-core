@@ -6,6 +6,7 @@ class Scriptcs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "64c32017fe14dbd9710dc21d74309dba2085583cdd8a9442b067aed72edaffa2" => :sierra
     sha256 "0d37ffc1b70e089876f26fa6682a5d4a90bb4e148f0be4ccc824abca8575546c" => :el_capitan
     sha256 "910ba1adb86a5529cfa18f666b7e2498c1cfb7b73af1497e190ee34301ef5546" => :yosemite
     sha256 "9526293747a6e8c1cd5162390cb3a5d67047b8a7372adad452eafa0c954aea10" => :mavericks
