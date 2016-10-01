@@ -7,6 +7,7 @@ class Timewarrior < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c697c5a15e3b126af5ce256f03890e8a697174617b289de9397afc46aa00cafa" => :sierra
     sha256 "a109c481c8bc856e7b57c6d27561d1df3ab2d9435b4841119a5daae293ee25ac" => :el_capitan
     sha256 "d8fee526dd540031a9923ecc20174ac0c4d46113ab11548d74110ce4c11e27da" => :yosemite
     sha256 "eddc5acf58ca77536d58803b1cea70a5527dee135b8a89394cb50a78c9d3ed89" => :mavericks
