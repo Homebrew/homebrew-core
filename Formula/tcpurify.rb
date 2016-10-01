@@ -6,6 +6,7 @@ class Tcpurify < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "84aa38e09d2fa55470ab3e1b7c1415f1c8999ce8b879774dbeb96d2e6b7ce450" => :sierra
     sha256 "175a4e03bb937459b72331165f08b2b144550d5c11fb7a8cb64df59685edb228" => :el_capitan
     sha256 "ed4bf4f1b14c45a444ef388ec522150956e9163980d276b6f413637a03295c49" => :yosemite
     sha256 "77e9351ead0693badafecbbe91f05f197dd0c6f5419c33d2a91f8ffdc32fa498" => :mavericks
