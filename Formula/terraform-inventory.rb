@@ -9,6 +9,7 @@ class TerraformInventory < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6c423700ad3cb2a27295cbbca5de08a5a47b3f42a7c9cc53abfe9c3d1061b6b3" => :sierra
     sha256 "d876b7acee1bfaaeaaf284bfd8518195b10005f7de504c8aaf39be3164b93dac" => :el_capitan
     sha256 "77b4cfd96088f6019ad5bd0f0faf6757d1fb8c34ea3b327490ff33fde03538c1" => :yosemite
     sha256 "19fed440ba3c95ef85fcd529f151131136fa684c9a091d17177ac8f74426e7d5" => :mavericks
