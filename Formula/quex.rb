@@ -8,6 +8,7 @@ class Quex < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e269d48f0459894ab68821851adc6e8cec9ef0f0f131a54a9725bc9ddd15d88e" => :sierra
     sha256 "dfcc7a5dad70e0fad0a1fd3f6cd78dbd988da4d13274b73c7aefba1eee4ec0b7" => :el_capitan
     sha256 "b76f2ca4cb65bbb94014e9194db70331a45f6243d778b8bfdf6962589a5d001a" => :yosemite
     sha256 "2610201d79df9356f5ae7af217b5d1cc32827b9096e081105fbf59415cc03815" => :mavericks
