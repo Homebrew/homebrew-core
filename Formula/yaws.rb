@@ -5,7 +5,7 @@ class Yaws < Formula
   sha256 "450a4b2b2750a6feb34238c0b38bc9801de80b228188a22d85dccbb4b4e049f6"
 
   bottle do
-    revision 1
+    rebuild 1
     sha256 "81def8e721a0002e565065f69b2ae46ad4a7b2c52d644d95cff6c7c55237808d" => :el_capitan
     sha256 "009bcd0dc46019343ab543607e427d899fc814129ee8428735cae958a88778c1" => :yosemite
     sha256 "b49589e1fe5bd673e3ca035ff2626fe7055d4326d7cf61911a314aaa9cdc8074" => :mavericks
