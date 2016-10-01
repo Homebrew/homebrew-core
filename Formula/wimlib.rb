@@ -1,8 +1,8 @@
 class Wimlib < Formula
   desc "Library to create, extract, and modify Windows Imaging files"
   homepage "https://wimlib.net/"
-  url "https://wimlib.net/downloads/wimlib-1.9.2.tar.gz"
-  sha256 "067cf78e6083a585d7dffd8ded059ba9584c3d530afcddf40b7219bc9adfd94f"
+  url "https://wimlib.net/downloads/wimlib-1.10.0.tar.gz"
+  sha256 "989b1b02f246c480dec10469374f4235d15a3d5e5ae054452405305af5007f55"
 
   bottle do
     cellar :any
