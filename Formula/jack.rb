@@ -12,7 +12,7 @@ class Jack < Formula
   sha256 "eb42df6065576f08feeeb60cb9355dce4eb53874534ad71534d7aa31bae561d6"
 
   bottle do
-    revision 2
+    rebuild 2
     sha256 "b4c1720c1e79b3d9a71cc79906175b90f6e30a8c2704c94e3c941d288b5453cc" => :el_capitan
     sha256 "9e793fc1460c67e5209365cdf524face6f66cb1da5ae706da36a6e6c616cfe16" => :yosemite
     sha256 "bed1d9c87b983abeb5ae57de0402707c6426c2426efee7be3c63c08948a5c5ec" => :mavericks
