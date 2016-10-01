@@ -6,6 +6,7 @@ class Runit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "96c9f9a556f96b8d35330775f105da390f60c332b655d292ba81c91d62d37725" => :sierra
     sha256 "aad8b537d84c9219b6d836aefe02e549f55f4f55183c6bf668efc3d68070f8f7" => :el_capitan
     sha256 "6558d24d895cd976cd9f23d7bf76ae2de40040017be2577061d6de9fbd35d1f3" => :yosemite
     sha256 "1bed0d534c4880367cf119707f17a38bf0cc4fb0b3b15409b7306e3eb4a6b219" => :mavericks
