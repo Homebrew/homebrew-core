@@ -1,8 +1,8 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "http://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.20/gtk+-3.20.9.tar.xz"
-  sha256 "83a609ba2f3424b5509e73967c49c67833af466d6f91081b24ee5c64fce6ac17"
+  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.1.tar.xz"
+  sha256 "127c8c5cfc32681f9ab3cb542eb0d5c16c1c02faba68bf8fcac9a3cf278ef471"
 
   bottle do
     sha256 "845e8ffbba026568d58f2d1c1c5633be9c999acd0fb873013d07979b4fb732b7" => :sierra
@@ -40,9 +40,6 @@ class Gtkx3 < Formula
     ]
 
     args << "--enable-quartz-relocation" if build.with?("quartz-relocation")
-
-    # TODO: Remove when it fails. See https://git.gnome.org/browse/gtk+/commit/?id=74bd3f3810133d44f333aa5f8d02ae3de19a6834
-    inreplace "gdk/quartz/gdkeventloop-quartz.c", "g_string_appendi", "g_string_append"
 
     system "./configure", *args
     # necessary to avoid gtk-update-icon-cache not being found during make install

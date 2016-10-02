@@ -1,8 +1,8 @@
 class Gtkmm3 < Formula
   desc "C++ interfaces for GTK+ and GNOME"
   homepage "http://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/gtkmm/3.20/gtkmm-3.20.1.tar.xz"
-  sha256 "051de1b8756ca6ec61f26264338cfc3060af936fd70bf4558bfe1e115418c612"
+  url "https://download.gnome.org/sources/gtkmm/3.22/gtkmm-3.22.0.tar.xz"
+  sha256 "05da4d4b628fb20c8384630ddf478a3b5562952b2d6181fe28d58f6cbc0514f5"
 
   bottle do
     cellar :any
@@ -17,11 +17,18 @@ class Gtkmm3 < Formula
   depends_on "pangomm"
   depends_on "atkmm"
 
+  # circumvent a bug in gtk+3
+  # bug report opened at https://bugzilla.gnome.org/show_bug.cgi?id=772281
+  patch do
+    url "https://raw.githubusercontent.com/tschoonj/formula-patches/8711b6ce08f6d9af764a0ec987b85f45c5c00af6/gtkmm3/gtk_clipboard_get_selection.patch"
+    sha256 "0849da0516850eeffdab22941aa5d30cca40d4a7775683665e044b84d5ca0d85"
+  end
+
   needs :cxx11
 
   def install
     ENV.cxx11
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
 
