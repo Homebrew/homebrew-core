@@ -4,7 +4,7 @@ class Modd < Formula
   desc "Flexible tool for responding to filesystem changes"
   homepage "https://github.com/cortesi/modd"
   url "https://github.com/cortesi/modd/archive/v0.3.tar.gz"
-  sha256 "8fbadab6dfea3e5512f7162adbf93c1a4b94fd07d42c5686aa647fb15ee0e85f"
+  sha256 "41d9e18e286f9de1b5919573cbf66bbcf0bf7e60b01bfe1d9608aabffba70ed4"
   head "https://github.com/cortesi/modd.git"
 
   depends_on "go" => :build
