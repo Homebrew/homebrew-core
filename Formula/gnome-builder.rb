@@ -29,13 +29,13 @@ class GnomeBuilder < Formula
   depends_on :python3 => :optional
   depends_on "pygobject3" if build.with? "python3"
 
+  needs :cxx11
+
   # bug report opened at https://bugzilla.gnome.org/show_bug.cgi?id=772279
   patch do
-    url "https://raw.githubusercontent.com/tschoonj/formula-patches/gnome-builder/gnome-builder/pipe2.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b9bf03be1/gnome-builder/pipe2.patch"
     sha256 "9e5ac0f1ab8dd5931a28e2d43a6a4f3610d0160e135e322709aa57dc22a1d83f"
   end
-
-  needs :cxx11
 
   def install
     ENV.cxx11
