@@ -16,17 +16,18 @@ class Gtkmm3 < Formula
   depends_on "pangomm"
   depends_on "atkmm"
 
+  needs :cxx11
+
   # circumvent a bug in gtk+3
   # bug report opened at https://bugzilla.gnome.org/show_bug.cgi?id=772281
   patch do
-    url "https://raw.githubusercontent.com/tschoonj/formula-patches/8711b6ce08f6d9af764a0ec987b85f45c5c00af6/gtkmm3/gtk_clipboard_get_selection.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/60d3df52/gtkmm3/gtk_clipboard_get_selection.patch"
     sha256 "0849da0516850eeffdab22941aa5d30cca40d4a7775683665e044b84d5ca0d85"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
+
     system "./configure", "--disable-silent-rules", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
