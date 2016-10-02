@@ -22,7 +22,7 @@ class Yconalyzer < Formula
     system "make", "install"
   end
 
-  # Fix build issues issue on OS X 10.9/clang
+  # Fix build issues issue on macOS 10.9/clang
   # Patch reported to upstream - https://sourceforge.net/p/yconalyzer/bugs/3/
   patch :p0, :DATA
 end

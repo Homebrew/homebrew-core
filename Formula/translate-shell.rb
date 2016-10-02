@@ -24,7 +24,7 @@ class TranslateShell < Formula
   end
 
   def caveats; <<-EOS.undent
-    By default, text-to-speech functionality is provided by OS X's builtin
+    By default, text-to-speech functionality is provided by macOS's builtin
     `say' command. This functionality may be improved in certain cases by
     installing one of mplayer, mpv, or mpg123, all of which are available
     through `brew install'.

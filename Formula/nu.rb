@@ -57,7 +57,7 @@ EOS
     Nu.framework was installed to:
       #{frameworks}/Nu.framework
 
-    You may want to symlink this Framework to a standard OS X location,
+    You may want to symlink this Framework to a standard macOS location,
     such as:
       ln -s "#{frameworks}/Nu.framework" /Library/Frameworks
   EOS

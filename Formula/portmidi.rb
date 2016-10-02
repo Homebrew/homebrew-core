@@ -80,7 +80,7 @@ index e171047..b010c35 100644
 -target_link_libraries(pmjni ${JNI_EXTRA_LIBS})
 -set_target_properties(pmjni PROPERTIES EXECUTABLE_EXTENSION "jnilib")
 -
- # install the libraries (Linux and Mac OS X command line)
+ # install the libraries (Linux and macOS command line)
  if(UNIX)
 -  INSTALL(TARGETS portmidi-static pmjni
 +  INSTALL(TARGETS portmidi-static

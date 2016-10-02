@@ -44,7 +44,7 @@ index f4b3e8c..748cad0 100644
  libs = [ARGUMENTS.get('BOOSTLIB', 'boost_python'), 'exiv2']
  env.Append(LIBS=libs)
 
-+# Link against Python framework on OS X
++# Link against Python framework on macOS
 +if env['PLATFORM'] == 'darwin':
 +	env['FRAMEWORKS'] += ['Python']
 +

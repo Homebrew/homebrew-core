@@ -28,7 +28,7 @@ class Mu < Formula
 
   def install
     # Explicitly tell the build not to include emacs support as the version
-    # shipped by default with Mac OS X is too old.
+    # shipped by default with macOS is too old.
     ENV["EMACS"] = "no" if build.without? "emacs"
 
     system "autoreconf", "-ivf"

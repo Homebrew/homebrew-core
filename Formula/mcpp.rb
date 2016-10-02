@@ -12,7 +12,7 @@ class Mcpp < Formula
     sha256 "9a46caf80476b1f59d0c1e51e59bf3ac6bdc6f1f81b8ca9a2940acb587a3bc21" => :mavericks
   end
 
-  # stpcpy is a macro on OS X; trying to define it as an extern is invalid.
+  # stpcpy is a macro on macOS; trying to define it as an extern is invalid.
   # Patch from ZeroC fixing EOL comment parsing
   # https://forums.zeroc.com/forum/bug-reports/5445-mishap-in-slice-compilers?t=5309
   patch :DATA

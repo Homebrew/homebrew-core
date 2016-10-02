@@ -26,7 +26,7 @@ class Qt5 < Formula
     sha256 "73d33dd2563c39542844c276a7bd43463f2974fde141e7afeb3057168adbe606" => :mavericks
   end
 
-  # Restore `.pc` files for framework-based build of Qt 5 on OS X. This
+  # Restore `.pc` files for framework-based build of Qt 5 on macOS. This
   # partially reverts <https://codereview.qt-project.org/#/c/140954/> merged
   # between the 5.5.1 and 5.6.0 releases. (Remove this as soon as feasible!)
   #
@@ -59,8 +59,8 @@ class Qt5 < Formula
   deprecated_option "qtdbus" => "with-dbus"
   deprecated_option "with-d-bus" => "with-dbus"
 
-  # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
-  # configuration and thus untested in practice. Builds on OS X 10.7 have been
+  # macOS 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
+  # configuration and thus untested in practice. Builds on macOS 10.7 have been
   # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
   depends_on :macos => :mountain_lion
 

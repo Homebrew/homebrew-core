@@ -20,7 +20,7 @@ class Jruby < Formula
       rm "irb" # irb is an identical copy of jirb
     end
 
-    # Only keep the OS X native libraries
+    # Only keep the macOS native libraries
     rm_rf Dir["lib/jni/*"] - ["lib/jni/Darwin"]
     libexec.install Dir["*"]
     bin.install_symlink Dir["#{libexec}/bin/*"]

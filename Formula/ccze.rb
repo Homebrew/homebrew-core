@@ -18,7 +18,7 @@ class Ccze < Formula
   def install
     # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=823334
     inreplace "src/ccze-compat.c", "#if HAVE_SUBOPTARg", "#if HAVE_SUBOPTARG"
-    # Allegedly from Debian & fixes compiler errors on old OS X releases.
+    # Allegedly from Debian & fixes compiler errors on old macOS releases.
     # https://github.com/Homebrew/legacy-homebrew/pull/20636
     inreplace "src/Makefile.in", "-Wreturn-type -Wswitch -Wmulticharacter",
                                  "-Wreturn-type -Wswitch"

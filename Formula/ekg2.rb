@@ -16,7 +16,7 @@ class Ekg2 < Formula
   depends_on "libgadu" => :optional
   depends_on "openssl"
 
-  # Fix the build on OS X 10.9+
+  # Fix the build on macOS 10.9+
   # http://bugs.ekg2.org/issues/152
   patch :DATA
 

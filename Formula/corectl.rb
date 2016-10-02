@@ -1,5 +1,5 @@
 class Corectl < Formula
-  desc "CoreOS over OS X made very simple"
+  desc "CoreOS over macOS made very simple"
   homepage "https://github.com/TheNewNormal/corectl"
   url "https://github.com/TheNewNormal/corectl/archive/v0.7.17.tar.gz"
   sha256 "915ae2988dc57bcf7f28e0ed6c2971ae6f83879daaadbb98bef3bad0b50039e4"

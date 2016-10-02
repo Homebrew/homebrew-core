@@ -39,7 +39,7 @@ index 2b26d6d..4001db1 100644
  # Checks for libraries. (not perfect yet)
  AC_SEARCH_LIBS([pthread_self], [pthread])
 -AC_SEARCH_LIBS([alGetError], [openal32 openal])
-+# Use Mac OS X frameworks
++# Use macOS frameworks
 +LIBS="$LIBS -framework IOKit -framework OpenAL"
 
  ################################################################################

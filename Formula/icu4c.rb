@@ -16,7 +16,7 @@ class Icu4c < Formula
     sha256 "cadba844e31de5cf9a1f9d05dc8671662cfb52610c7ce92f1fef6e3617dee2ea" => :mavericks
   end
 
-  keg_only :provided_by_osx, "OS X provides libicucore.dylib (but nothing else)."
+  keg_only :provided_by_osx, "macOS provides libicucore.dylib (but nothing else)."
 
   option :universal
   option :cxx11

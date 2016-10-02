@@ -43,7 +43,7 @@ class Cmake < Formula
     end
 
     if build.with? "docs"
-      # There is an existing issue around OS X & Python locale setting
+      # There is an existing issue around macOS & Python locale setting
       # See https://bugs.python.org/issue18378#msg215215 for explanation
       ENV["LC_ALL"] = "en_US.UTF-8"
       args << "--sphinx-man" << "--sphinx-build=#{Formula["sphinx-doc"].opt_bin}/sphinx-build"

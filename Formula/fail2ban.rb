@@ -46,8 +46,8 @@ class Fail2ban < Formula
 
         * #{etc}/fail2ban/jail.conf
 
-      The Fail2Ban wiki has two pages with instructions for MacOS X Server that
-      describes how to set up the Jails for the standard MacOS X Server
+      The Fail2Ban wiki has two pages with instructions for MacmacOS Server that
+      describes how to set up the Jails for the standard MacmacOS Server
       services for the respective releases.
 
         10.4: http://www.fail2ban.org/wiki/index.php/HOWTO_Mac_OS_X_Server_(10.4)

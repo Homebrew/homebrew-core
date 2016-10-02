@@ -13,7 +13,7 @@ class Sfk < Formula
 
   def install
     # Using the standard ./configure && make install method does not work with sfk as of this version
-    # As per the build instructions for OS X, this is all you need to do to build sfk
+    # As per the build instructions for macOS, this is all you need to do to build sfk
     system ENV.cxx, "-DMAC_OS_X", "sfk.cpp", "sfkext.cpp", "-o", "sfk"
 
     # The sfk binary is all you need. There are no man pages or share files

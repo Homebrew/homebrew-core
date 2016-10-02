@@ -1,5 +1,5 @@
 class Dshb < Formula
-  desc "OS X system monitor in Swift"
+  desc "macOS system monitor in Swift"
   homepage "https://github.com/beltex/dshb"
   url "https://github.com/beltex/dshb/releases/download/v0.1.0/dshb-0.1.0-source.zip"
   sha256 "efed42a2be0dbc6de3b22b314b582b1d6517922b72e08e063f3d1d3810a782f9"

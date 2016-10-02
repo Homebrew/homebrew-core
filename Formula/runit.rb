@@ -15,7 +15,7 @@ class Runit < Formula
   def install
     # Runit untars to 'admin/runit-VERSION'
     cd "runit-#{version}" do
-      # Per the installation doc on OS X, we need to make a couple changes.
+      # Per the installation doc on macOS, we need to make a couple changes.
       system "echo 'cc -Xlinker -x' >src/conf-ld"
       inreplace "src/Makefile", / -static/, ""
 

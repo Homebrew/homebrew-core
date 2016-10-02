@@ -13,7 +13,7 @@ class Fmdiff < Formula
     sha256 "59d9c9d8a8759531a2f715619cfb2bce404fc7378235cf416ea5a426eb8d967f" => :yosemite
   end
 
-  # Needs FileMerge.app, which has been part of Xcode since Xcode 4 (OS X 10.7)
+  # Needs FileMerge.app, which has been part of Xcode since Xcode 4 (macOS 10.7)
   # Prior to that it was included in the Developer Tools package.
   # "make" has logic for checking both possibilities.
   depends_on :xcode if MacOS.version >= :lion

@@ -23,7 +23,7 @@ class Makensis < Formula
   depends_on "scons" => :build
 
   # scons appears to have no builtin way to override the compiler selection,
-  # and the only options supported on OS X are 'gcc' and 'g++'.
+  # and the only options supported on macOS are 'gcc' and 'g++'.
   # Use the right compiler by forcibly altering the scons config to set these
   patch :DATA
 

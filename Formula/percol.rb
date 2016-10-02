@@ -42,7 +42,7 @@ class Percol < Formula
 
   test do
     (testpath/"textfile").write <<-EOS.undent
-      Homebrew, the missing package manager for OS X.
+      Homebrew, the missing package manager for macOS.
     EOS
     (testpath/"expect-script").write <<-EOS.undent
       spawn #{bin}/percol --query=Homebrew textfile

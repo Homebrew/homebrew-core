@@ -34,7 +34,7 @@ class Ghostscript < Formula
     depends_on "libtool" => :build
   end
 
-  patch :DATA # Uncomment OS X-specific make vars
+  patch :DATA # Uncomment macOS-specific make vars
 
   option "with-djvu", "Build drivers for DjVU file format"
 
@@ -102,7 +102,7 @@ index ae2d7d8..4f4daed 100644
 @@ -64,12 +64,12 @@ GS_SONAME_MAJOR_MINOR=$(GS_SONAME_BASE)$(GS_SOEXT)$(SO_LIB_VERSION_SEPARATOR)$(G
  
  
- # MacOS X
+ # MacmacOS
 -#GS_SOEXT=dylib
 -#GS_SONAME=$(GS_SONAME_BASE).$(GS_SOEXT)
 -#GS_SONAME_MAJOR=$(GS_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_SOEXT)

@@ -55,7 +55,7 @@ class Log4cxx < Formula
     system "./autogen.sh"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          # Docs won't install on OS X
+                          # Docs won't install on macOS
                           "--disable-doxygen"
     system "make", "install"
   end

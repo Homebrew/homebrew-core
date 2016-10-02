@@ -1,5 +1,5 @@
 class Archey < Formula
-  desc "Graphical system information display for OS X"
+  desc "Graphical system information display for macOS"
   homepage "https://obihann.github.io/archey-osx/"
   url "https://github.com/obihann/archey-osx/archive/1.6.0.tar.gz"
   sha256 "0f0ffcf8c5f07610b98f0351dcb38bb8419001f40906d5dc4bfd28ef12dbd0f8"
@@ -12,6 +12,6 @@ class Archey < Formula
   end
 
   test do
-    assert_match "Archey OS X 1", shell_output("#{bin}/archey --help")
+    assert_match "Archey macOS 1", shell_output("#{bin}/archey --help")
   end
 end

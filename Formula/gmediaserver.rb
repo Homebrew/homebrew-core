@@ -19,7 +19,7 @@ class Gmediaserver < Formula
   depends_on "taglib" => :optional
 
   # Patching gmediaserver because sigwaitinfo is not available on
-  # OS X Snow Leopard, using sigwait instead.
+  # macOS Snow Leopard, using sigwait instead.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/c68985023c/gmediaserver/sigwait.diff"
     sha256 "28078d44158f3750462d529d26148c80fe45879ba679ad02839fd652c9af1a42"

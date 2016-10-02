@@ -11,7 +11,7 @@ class Reaver < Formula
     sha256 "036092600e415ebba4bc372cff4b7645783e9285c1af56990b0f064db61a0ca4" => :mavericks
   end
 
-  # Adds general support for Mac OS X in reaver:
+  # Adds general support for macOS in reaver:
   # https://code.google.com/archive/p/reaver-wps/issues/detail?id=245
   patch do
     url "https://gist.githubusercontent.com/syndicut/6134996/raw/16f1b4336c104375ff93a88858809eced53c1171/reaver-osx.diff"

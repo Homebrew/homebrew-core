@@ -13,7 +13,7 @@ class OpenalSoft < Formula
     sha256 "819886eab2909ebcff2edb16c39ede1800ec987e193b0fdfce8d4047636fff17" => :mavericks
   end
 
-  keg_only :provided_by_osx, "OS X provides OpenAL.framework."
+  keg_only :provided_by_osx, "macOS provides OpenAL.framework."
 
   option :universal
 

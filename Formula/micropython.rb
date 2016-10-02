@@ -14,7 +14,7 @@ class Micropython < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libffi" # Requires libffi v3 closure API; OS X version is too old
+  depends_on "libffi" # Requires libffi v3 closure API; macOS version is too old
 
   def install
     cd "unix" do

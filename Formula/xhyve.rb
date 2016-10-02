@@ -1,5 +1,5 @@
 class Xhyve < Formula
-  desc "xhyve, lightweight OS X virtualization solution based on FreeBSD's bhyve"
+  desc "xhyve, lightweight macOS virtualization solution based on FreeBSD's bhyve"
   homepage "https://github.com/mist64/xhyve"
   url "https://github.com/mist64/xhyve/archive/v0.2.0.tar.gz"
   sha256 "32c390529a73c8eb33dbc1aede7baab5100c314f726cac14627d2204ad9d3b3c"

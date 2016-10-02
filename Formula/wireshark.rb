@@ -124,7 +124,7 @@ class Wireshark < Formula
 
   def caveats; <<-EOS.undent
     If your list of available capture interfaces is empty
-    (default OS X behavior), try installing ChmodBPF from homebrew cask:
+    (default macOS behavior), try installing ChmodBPF from homebrew cask:
 
       brew cask install wireshark-chmodbpf
 

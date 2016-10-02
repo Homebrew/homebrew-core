@@ -201,5 +201,5 @@ index e0d4c9f..4477d7b 100644
  macosx:
 -	$(MAKE) all MYCFLAGS=-DLUA_USE_LINUX MYLIBS="-lreadline"
 +	$(MAKE) all MYCFLAGS="MYCFLAGS_VAL" MYLIBS="-lreadline"
- # use this on Mac OS X 10.3-
+ # use this on macOS 10.3-
  #	$(MAKE) all MYCFLAGS=-DLUA_USE_MACOSX

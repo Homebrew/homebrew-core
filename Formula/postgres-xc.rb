@@ -75,7 +75,7 @@ class PostgresXc < Formula
 
     system "./configure", *args
 
-    # Building the documentation looks for Jade or OpenJade, neither of which exist on OS X
+    # Building the documentation looks for Jade or OpenJade, neither of which exist on macOS
     # or are supplied by Homebrew at this point in time. Disable for now, since error fatal.
     inreplace "GNUmakefile", "recurse,install-world,doc-xc src", "recurse,install-world,src"
     system "make", "install-world"
@@ -310,7 +310,7 @@ __END__
 --- a/src/pl/plpython/Makefile	2011-09-23 08:03:52.000000000 +1000
 +++ b/src/pl/plpython/Makefile	2011-10-26 21:43:40.000000000 +1100
 @@ -24,8 +24,6 @@
- # Darwin (OS X) has its own ideas about how to do this.
+ # Darwin (macOS) has its own ideas about how to do this.
  ifeq ($(PORTNAME), darwin)
  shared_libpython = yes
 -override python_libspec = -framework Python

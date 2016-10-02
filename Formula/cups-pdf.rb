@@ -24,7 +24,7 @@ class CupsPdf < Formula
   end
 
   def caveats; <<-EOF.undent
-    In order to use cups-pdf with the Mac OS X printing system change the file
+    In order to use cups-pdf with the macOS printing system change the file
     permissions, symlink the necessary files to their System location and
     have cupsd re-read its configuration using:
 

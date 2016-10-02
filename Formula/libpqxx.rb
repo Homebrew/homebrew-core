@@ -26,7 +26,7 @@ class Libpqxx < Formula
   #     to determine how to use it properly; we don't want to see those errors
   #     in the configure phase output.
   # (2) Patched configure on darwin to fix incorrect assumption
-  #     that true and false always live in /bin; on OS X they live in /usr/bin.
+  #     that true and false always live in /bin; on macOS they live in /usr/bin.
   patch :DATA
 
   def install

@@ -46,7 +46,7 @@ class Polipo < Formula
         <array>
           <string>#{opt_bin}/polipo</string>
         </array>
-        <!-- Set `ulimit -n 65536`. The default OS X limit is 256, that's
+        <!-- Set `ulimit -n 65536`. The default macOS limit is 256, that's
              not enough for Polipo (displays 'too many files open' errors).
              It seems like you have no reason to lower this limit
              (and unlikely will want to raise it). -->

@@ -1,5 +1,5 @@
 class Platypus < Formula
-  desc "Create OS X applications from {Perl,Ruby,sh,Python} scripts"
+  desc "Create macOS applications from {Perl,Ruby,sh,Python} scripts"
   homepage "http://sveinbjorn.org/platypus"
   url "http://sveinbjorn.org/files/software/platypus/platypus5.1.src.zip"
   version "5.1"

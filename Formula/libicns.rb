@@ -1,5 +1,5 @@
 class Libicns < Formula
-  desc "Library for manipulation of the OS X .icns resource format"
+  desc "Library for manipulation of the macOS .icns resource format"
   homepage "http://icns.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/icns/libicns-0.8.1.tar.gz"
   mirror "https://mirrors.kernel.org/debian/pool/main/libi/libicns/libicns_0.8.1.orig.tar.gz"

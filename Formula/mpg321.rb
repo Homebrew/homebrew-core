@@ -55,7 +55,7 @@ __END__
  #define IFVERB if(options.opt & MPG321_VERBOSE_PLAY)
  
 +/* The following defines are needed to emulate the Linux interface on
-+ * BSD-based systems like FreeBSD and OS X */
++ * BSD-based systems like FreeBSD and macOS */
 +#if !defined(IPV6_ADD_MEMBERSHIP) && defined(IPV6_JOIN_GROUP)
 +#define IPV6_ADD_MEMBERSHIP IPV6_JOIN_GROUP
 +#define IPV6_DROP_MEMBERSHIP IPV6_LEAVE_GROUP

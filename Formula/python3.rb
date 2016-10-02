@@ -30,7 +30,7 @@ class Python3 < Formula
   end
 
   option :universal
-  option "with-tcl-tk", "Use Homebrew's Tk instead of OS X Tk (has optional Cocoa and threads support)"
+  option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
   option "with-quicktest", "Run `make quicktest` after the build"
   option "with-sphinx-doc", "Build HTML documentation"
 
@@ -362,7 +362,7 @@ class Python3 < Formula
     # Tk warning only for 10.6
     tk_caveats = <<-EOS.undent
 
-      Apple's Tcl/Tk is not recommended for use with Python on Mac OS X 10.6.
+      Apple's Tcl/Tk is not recommended for use with Python on macOS 10.6.
       For more information see: https://www.python.org/download/mac/tcltk/
     EOS
 

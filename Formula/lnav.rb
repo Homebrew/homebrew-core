@@ -33,7 +33,7 @@ class Lnav < Formula
       --with-readline=#{Formula["readline"].opt_prefix}
     ]
 
-    # OS X ships with libcurl by default, albeit without sftp support. If we
+    # macOS ships with libcurl by default, albeit without sftp support. If we
     # want lnav to use the keg-only curl formula that we specify as a
     # dependency, we need to pass in the path.
     args << "--with-libcurl=#{Formula["curl"].opt_lib}" if build.with? "curl"

@@ -12,7 +12,7 @@ class PcscLite < Formula
   end
 
   keg_only :provided_by_osx,
-    "pcsc-lite interferes with detection of OS X's PCSC.framework."
+    "pcsc-lite interferes with detection of macOS's PCSC.framework."
 
   def install
     system "./configure", "--disable-dependency-tracking",

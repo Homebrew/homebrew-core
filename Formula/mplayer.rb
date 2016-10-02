@@ -37,7 +37,7 @@ class Mplayer < Formula
     # It turns out that ENV.O1 fixes link errors with llvm.
     ENV.O1 if ENV.compiler == :llvm
 
-    # we disable cdparanoia because homebrew's version is hacked to work on OS X
+    # we disable cdparanoia because homebrew's version is hacked to work on macOS
     # and mplayer doesn't expect the hacks we apply. So it chokes. Only relevant
     # if you have cdparanoia installed.
     # Specify our compiler to stop ffmpeg from defaulting to gcc.

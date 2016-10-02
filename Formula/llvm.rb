@@ -40,7 +40,7 @@ class Llvm < Formula
       sha256 "0df011dae14d8700499dfc961602ee0a9572fef926202ade5dcdfe7858411e5c"
     end
 
-    # Only required to build & run Compiler-RT tests on OS X, optional otherwise.
+    # Only required to build & run Compiler-RT tests on macOS, optional otherwise.
     # http://clang.llvm.org/get_started.html
     resource "libcxx" do
       url "http://llvm.org/releases/3.8.1/libcxx-3.8.1.src.tar.xz"

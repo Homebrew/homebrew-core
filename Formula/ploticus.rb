@@ -16,7 +16,7 @@ class Ploticus < Formula
   depends_on "libpng"
 
   def install
-    # Use alternate name because "pl" conflicts with OS X "pl" utility
+    # Use alternate name because "pl" conflicts with macOS "pl" utility
     args=["INSTALLBIN=#{bin}",
           "EXE=ploticus"]
     inreplace "src/pl.h", /#define\s+PREFABS_DIR\s+""/, "#define PREFABS_DIR \"#{pkgshare}\""

@@ -15,7 +15,7 @@ class Osquery < Formula
     sha256 "045dd6eac94dc30c76280d3bc887a1ce24e7f4e52e6ebb2ff316add2ae6bdc3d" => :mavericks
   end
 
-  # osquery only supports OS X 10.9 and above. Do not remove this.
+  # osquery only supports macOS 10.9 and above. Do not remove this.
   depends_on :macos => :mavericks
 
   depends_on "cmake" => :build

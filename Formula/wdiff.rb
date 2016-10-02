@@ -27,12 +27,12 @@ class Wdiff < Formula
 
   test do
     a = testpath/"a.txt"
-    a.write "The missing package manager for OS X"
+    a.write "The missing package manager for macOS"
 
     b = testpath/"b.txt"
-    b.write "The package manager for OS X"
+    b.write "The package manager for macOS"
 
     output = shell_output("#{bin}/wdiff #{a} #{b}", 1)
-    assert_equal "The [-missing-] package manager for OS X", output
+    assert_equal "The [-missing-] package manager for macOS", output
   end
 end

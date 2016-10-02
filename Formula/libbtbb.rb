@@ -19,7 +19,7 @@ class Libbtbb < Formula
   depends_on "cmake" => :build
   depends_on :python if MacOS.version <= :snow_leopard
 
-  # Requires headers OS X doesn't supply.
+  # Requires headers macOS doesn't supply.
   resource "libpcap" do
     url "http://www.tcpdump.org/release/libpcap-1.7.4.tar.gz"
     sha256 "7ad3112187e88328b85e46dce7a9b949632af18ee74d97ffc3f2b41fe7f448b0"
