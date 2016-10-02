@@ -1,8 +1,8 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/archive/20160404.tar.gz"
-  sha256 "1cc5646fccba2e5af8f1b6c1d0d6d7b6082d9546aefed2348d6c0ed948324796"
+  url "https://github.com/fontforge/fontforge/archive/20161001.tar.gz"
+  sha256 "103af2a6c8799390f20790e44064ea4f9ec6795255b7a065b3f9a352c2723c40"
   head "https://github.com/fontforge/fontforge.git"
 
   bottle do
@@ -56,10 +56,6 @@ class Fontforge < Formula
       oldflags = s.get_make_var "libfontforgeexe_la_LDFLAGS"
       s.change_make_var! "libfontforgeexe_la_LDFLAGS", "#{python_libs} #{oldflags}"
     end
-
-    # Disable Homebrew detection
-    # https://github.com/fontforge/fontforge/issues/2425
-    inreplace "configure.ac", 'test "y$HOMEBREW_BREW_FILE" != "y"', "false"
 
     args = %W[
       --prefix=#{prefix}
