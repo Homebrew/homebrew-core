@@ -7,9 +7,9 @@ class Ace < Formula
 
   bottle do
     cellar :any
-    sha256 "0b53c1e14820be00af7115e9afefa09a380803589597038d962bb8ab16b79331" => :el_capitan
-    sha256 "d3e7e45197f7d7643d675ff84057df769947f6c0a9185388d23b2a28375760f0" => :yosemite
-    sha256 "72f21357797c350fe547a7978f402e564cf328c3662a0e321d1ec293f4899139" => :mavericks
+    sha256 "d3fb63e3d1e4408283e7547dfd409bdba157e2d3e62ba1b3066ed3ed10533576" => :sierra
+    sha256 "316275bf43b05b13a96a7a30105dc3c64cc34bf8d437e77238e3922ceddacb5b" => :el_capitan
+    sha256 "b865dc9968a6a29cc1c9e1f87a4a08560bdd8ee2e59db53732e3e4a7ea8f94f7" => :yosemite
   end
 
   # this patch backports new files for macOS Sierra and possibility to compile with Xcode 8 on El Capitan
