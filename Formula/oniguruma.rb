@@ -7,10 +7,9 @@ class Oniguruma < Formula
 
   bottle do
     cellar :any
-    sha256 "8b869f01524a047aefa59d984f9d7a09bb629bf2fe1af964540d4e335ce0166a" => :sierra
-    sha256 "94fc0d6205348bb2462b3786f917547068a86c8ee8d48462297e2a666d69ad7e" => :el_capitan
-    sha256 "775764a099ba44167efdb9ad76e6d082c772100a3c92e060ec6dd0102ceb2e04" => :yosemite
-    sha256 "3714187af50dfaa7106796167bb604a73f84a69e9daef725a4df1f2b06fec992" => :mavericks
+    sha256 "620670d61e2993fbb63800d4e65e7f156cab027e3a912095aa49fc9798a6f488" => :sierra
+    sha256 "0d7a3a4871c1c3a5e329ba69714211ab041c1091dd2aecbfa9e0ac6e54317d58" => :el_capitan
+    sha256 "c3a78f861d993e7504dadf47f2b6820f935272210ce49457661d165468d9a102" => :yosemite
   end
 
   # Fix wrong usage of UChar instead of OnigUChar in oniguruma.h
