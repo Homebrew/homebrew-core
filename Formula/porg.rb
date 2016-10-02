@@ -10,7 +10,7 @@ class Porg < Formula
   depends_on "gtkmm3" => :recommended
 
   def install
-    args = %W[--disable-silent-rules --prefix=#{prefix}]
+    args = %W[--disable-silent-rules --prefix=#{prefix} --with-porg-logdir=#{var}/log/porg]
 
     args << "--disable-grop" if build.without? "gtkmm3"
 
