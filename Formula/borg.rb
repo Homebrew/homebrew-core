@@ -6,6 +6,13 @@ class Borg < Formula
   url "https://github.com/crufter/borg/archive/v0.0.1.tar.gz"
   sha256 "4ee3028a3d6034bcf6f92396f2a7abc9ae562652f886551c33a91cb0fbae835d"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "788af2a35baa8684d87c08af155e9f8e4337be8e17791037e6427bceff8c9e16" => :sierra
+    sha256 "45ed751aded7f2473187e7c834c8f0504903907352200bb2df7484f7ccba276d" => :el_capitan
+    sha256 "d94dd0f87690d6c0615832eee18d6141ee29973ecfcf114d5d4f5003d24547d9" => :yosemite
+  end
+
   depends_on "go" => :build
 
   go_resource "github.com/juju/gnuflag" do
