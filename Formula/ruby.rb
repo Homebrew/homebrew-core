@@ -208,6 +208,7 @@ class Ruby < Formula
   test do
     hello_text = shell_output("#{bin}/ruby#{program_suffix} -e 'puts :hello'")
     assert_equal "hello\n", hello_text
-    system "#{bin}/gem#{program_suffix}", "list", "--local"
+    ENV["GEM_HOME"] = testpath
+    system "#{bin}/gem#{program_suffix}", "install", "json"
   end
 end
