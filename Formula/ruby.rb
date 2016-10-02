@@ -1,7 +1,7 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  revision 1
+  revision 2
 
   stable do
     url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.bz2"
@@ -54,6 +54,9 @@ class Ruby < Formula
   end
 
   def install
+    # otherwise `gem` command breaks
+    ENV.delete("SDKROOT")
+
     system "autoconf" if build.head?
 
     args = %W[
