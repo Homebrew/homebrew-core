@@ -40,7 +40,7 @@ class Ghc < Formula
   end
 
   # https://www.haskell.org/ghc/download_ghc_8_0_1#macosx_x86_64
-  # "This is a distribution for macOS, 10.7 or later."
+  # "This is a distribution for Mac OS X, 10.7 or later."
   resource "binary" do
     url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-x86_64-apple-darwin.tar.xz"
     sha256 "06ec33056b927da5e68055147f165f873088f6812fe0c642c4c78c9a449fbc42"

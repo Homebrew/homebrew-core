@@ -37,7 +37,7 @@ class Macvim < Formula
     # MacVim doesn't have or require any Python package, so unset PYTHONPATH
     ENV.delete("PYTHONPATH")
 
-    # If building for macOS 10.7 or up, make sure that CC is set to "clang"
+    # If building for OS X 10.7 or up, make sure that CC is set to "clang"
     ENV.clang if MacOS.version >= :lion
 
     args = %W[
@@ -72,7 +72,7 @@ class Macvim < Formula
     elsif build.with? "python"
       ENV.prepend "LDFLAGS", `python-config --ldflags`.chomp
 
-      # Needed for <= macOS 10.9.2 with Xcode 5.1
+      # Needed for <= OS X 10.9.2 with Xcode 5.1
       ENV.prepend "CFLAGS", `python-config --cflags`.chomp.gsub(/-mno-fused-madd /, "")
 
       framework_script = <<-EOS.undent

@@ -12,6 +12,6 @@ class Archey < Formula
   end
 
   test do
-    assert_match "Archey macOS 1", shell_output("#{bin}/archey --help")
+    assert_match "Archey OS X 1", shell_output("#{bin}/archey --help")
   end
 end

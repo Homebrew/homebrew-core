@@ -31,7 +31,7 @@ class Slimerjs < Formula
 
   bottle :unneeded
 
-  # Min supported macOS version by Firefox is 10.6.
+  # Min supported OS X version by Firefox is 10.6.
   depends_on :macos => :leopard
   depends_on FirefoxRequirement
 

@@ -44,7 +44,7 @@ class Libdap < Formula
       --with-included-regex
     ]
 
-    # Let's try removing this for macOS > 10.6; old note follows:
+    # Let's try removing this for OS X > 10.6; old note follows:
     # __Always pass the curl prefix!__
     # Otherwise, configure will fall back to pkg-config and on Leopard
     # and Snow Leopard, the libcurl.pc file that ships with the system

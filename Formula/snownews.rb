@@ -29,7 +29,7 @@ class Snownews < Formula
 
     system "./configure", *args
     # Must supply -lz because snownews configure relies on "xml2-config --libs" for
-    # it, which doesn't work on macOS prior to 10.11
+    # it, which doesn't work on OS X prior to 10.11
     system "make", "install", "EXTRA_LDFLAGS=#{ENV.ldflags} -L#{Formula["openssl"].opt_lib} -lz", "CC=#{ENV.cc}"
   end
 end

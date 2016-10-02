@@ -27,7 +27,7 @@ class Cloc < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
-    # These are shipped as standard with macOS/macOS' default Perl, but
+    # These are shipped as standard with OS X/macOS' default Perl, but
     # because upstream has chosen to use "#!/usr/bin/env perl" cloc will
     # use whichever Perl is in the PATH, which isn't guaranteed to include
     # these modules. Vendor them to be safe.

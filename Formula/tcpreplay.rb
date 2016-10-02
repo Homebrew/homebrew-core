@@ -28,7 +28,7 @@ class Tcpreplay < Formula
       # Allows the CLT to be used if Xcode's not available
       # Reported 11 Jul 2016: https://github.com/appneta/tcpreplay/issues/254
       inreplace "configure" do |s|
-        s.gsub! /^.*Could not figure out the location of a macOS SDK.*$/,
+        s.gsub! /^.*Could not figure out the location of a Mac OS X SDK.*$/,
                 "MACOSX_SDK_PATH=\"\""
         s.gsub! " -isysroot $MACOSX_SDK_PATH", ""
       end

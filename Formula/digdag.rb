@@ -11,7 +11,7 @@ class Digdag < Formula
   def install
     libexec.install "digdag-#{version}.jar" => "digdag.jar"
 
-    # Create a wrapper script to support macOS 10.9.
+    # Create a wrapper script to support OS X 10.9.
     (bin/"digdag").write <<-EOS.undent
       #!/bin/bash
       exec /bin/bash "#{libexec}/digdag.jar" "$@"

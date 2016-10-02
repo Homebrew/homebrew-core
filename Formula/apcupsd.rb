@@ -60,7 +60,7 @@ class Apcupsd < Formula
 
     if MacOS.version >= :el_capitan
       s += <<-EOS.undent
-        Note: On macOS El Capitan and above, the kernel extension currently
+        Note: On OS X El Capitan and above, the kernel extension currently
         does not work as expected.
 
         You will have to unplug and plug the USB cable back in after each

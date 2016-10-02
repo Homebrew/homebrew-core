@@ -49,7 +49,7 @@ class Derby < Formula
   end
 
   test do
-    assert_match /OS name:         macOS/, shell_output("#{bin}/sysinfo")
+    assert_match /OS name:         Mac OS X/, shell_output("#{bin}/sysinfo")
 
     pid = fork do
       exec "#{bin}/startNetworkServer"

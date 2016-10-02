@@ -47,7 +47,7 @@ class Mandoc < Formula
       "MANM_EQN=eqn",
       "MANM_TBL=tbl",
 
-      "OSNAME='macOS #{MacOS.version}'", # Bottom corner signature line.
+      "OSNAME='Mac OS X #{MacOS.version}'", # Bottom corner signature line.
 
       # Not quite sure what to do here. The default ("/usr/share", etc.) needs
       # sudoer privileges, or will error. So just brew's manpages for now?

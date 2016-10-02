@@ -52,7 +52,7 @@ class Perl < Formula
     system "./Configure", *args
     system "make"
 
-    # macOS El Capitan's SIP feature prevents DYLD_LIBRARY_PATH from being
+    # OS X El Capitan's SIP feature prevents DYLD_LIBRARY_PATH from being
     # passed to child processes, which causes the make test step to fail.
     # https://rt.perl.org/Ticket/Display.html?id=126706
     # https://github.com/Homebrew/legacy-homebrew/issues/41716

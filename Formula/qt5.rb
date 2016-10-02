@@ -59,8 +59,8 @@ class Qt5 < Formula
   deprecated_option "qtdbus" => "with-dbus"
   deprecated_option "with-d-bus" => "with-dbus"
 
-  # macOS 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
-  # configuration and thus untested in practice. Builds on macOS 10.7 have been
+  # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
+  # configuration and thus untested in practice. Builds on OS X 10.7 have been
   # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
   depends_on :macos => :mountain_lion
 

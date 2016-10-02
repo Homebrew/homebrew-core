@@ -7,7 +7,7 @@ class Libmongoclient < Formula
     url "https://github.com/mongodb/mongo-cxx-driver/archive/legacy-0.0-26compat-2.6.11.tar.gz"
     sha256 "b73ffaab09dca318cf286d607fb8b8aa8ace0ab08cef77637d58d33d1c449f2c"
 
-    # Adds recognition for macOS 10.11.
+    # Adds recognition for OS X 10.11.
     patch do
       url "https://github.com/mongodb/mongo-cxx-driver/commit/3fe5139.diff"
       sha256 "3ba04f8b4155ef9f06b91c077a89ae863d06959dec30d787551e30f41680c7a5"

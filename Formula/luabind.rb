@@ -38,7 +38,7 @@ class Luabind < Formula
     sha256 "00476ab7d918cc118e83ced427bac48de81ae8c2d3445d6f77e556b5d8bded5f"
   end
 
-  # include C header that is not pulled in automatically on macOS 10.9 anymore
+  # include C header that is not pulled in automatically on OS X 10.9 anymore
   # submitted https://github.com/luabind/luabind/pull/20
   if MacOS.version >= :mavericks
     patch do
