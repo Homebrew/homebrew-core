@@ -7,6 +7,13 @@ class Modd < Formula
   sha256 "41d9e18e286f9de1b5919573cbf66bbcf0bf7e60b01bfe1d9608aabffba70ed4"
   head "https://github.com/cortesi/modd.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "0281f9cfc64de2f7d1160772163db8c3f778f8279e7a806ae80371f9dd863c3d" => :sierra
+    sha256 "a828d6554f370950328513e5196f2e1778630a14dd91fb60ba71d977ad199f9a" => :el_capitan
+    sha256 "49722bf8de3b711a914dffcf56fed69f1900ed4e179a7d415f8c132fe305aabb" => :yosemite
+  end
+
   depends_on "go" => :build
 
   go_resource "github.com/GeertJohan/go.rice" do
