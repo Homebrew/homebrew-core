@@ -6,10 +6,9 @@ class Noti < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8df2d0230ae15425b49c14d3f84772114f7392e355ea2e0af7ed80564a8ebfc7" => :sierra
-    sha256 "a1a6a536e0bed405afa38ed991a384022dc78145b0592207afc9b81d98f851e9" => :el_capitan
-    sha256 "39e250fd963f55f25a6433226ac956e6d59dd070b4ac112f94e38b3937a877ec" => :yosemite
-    sha256 "cae07c7c8a9e506974879cd37c1e146924bfdf527bb29ed51205f28fd33a22f9" => :mavericks
+    sha256 "b2235124fdb74efaf90e05d1ddb24e753a84f19e9487d1c5d2bad6c2f43b3e33" => :sierra
+    sha256 "cbe77e9f1f35d5772b3de5aa5346e1e0e2dfa663b0fa6ad59a3b44c4c4346b2b" => :el_capitan
+    sha256 "442e1e8e1dddc90855de682fa2a68f3236f94dc4934c6cc4c0a3336b0fc633b9" => :yosemite
   end
 
   depends_on "go" => :build
