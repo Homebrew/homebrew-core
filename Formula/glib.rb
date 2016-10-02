@@ -54,7 +54,7 @@ class Glib < Formula
     end
   end
 
-  # Reverts GNotification support on OS X.
+  # Reverts GNotification support on macOS.
   # This only supports OS X 10.9, and the reverted commits removed the
   # ability to build glib on older versions of OS X.
   # https://bugzilla.gnome.org/show_bug.cgi?id=747146

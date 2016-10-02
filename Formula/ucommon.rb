@@ -16,7 +16,7 @@ class Ucommon < Formula
   depends_on "gnutls"
 
   def install
-    # Replace the ldd with OS X's otool. This is unlikely to be merged upstream.
+    # Replace the ldd with macOS's otool. This is unlikely to be merged upstream.
     # Emailed upstream (dyfet at gnu dot org) querying this on 25/11/14.
     # It generates a very minor runtime error without the inreplace, so...
     inreplace "commoncpp-config.in", "ldd /bin/sh", "otool -L /bin/sh"

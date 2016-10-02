@@ -54,7 +54,7 @@ class BerkeleyDb < Formula
         assert(db.open(NULL, "test.db", NULL, DB_BTREE, DB_CREATE, 0) == 0);
 
         const char *project = "Homebrew";
-        const char *stored_description = "The missing package manager for OS X";
+        const char *stored_description = "The missing package manager for macOS";
         Dbt key(const_cast<char *>(project), strlen(project) + 1);
         Dbt stored_data(const_cast<char *>(stored_description), strlen(stored_description) + 1);
         assert(db.put(NULL, &key, &stored_data, DB_NOOVERWRITE) == 0);
