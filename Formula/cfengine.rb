@@ -22,6 +22,11 @@ class Cfengine < Formula
   end
 
   def install
+    # Fix "typedef redefinition with different types"
+    if DevelopmentTools.clang_build_version >= 800
+      ENV["ac_cv_type_clockid_t"] = "yes"
+    end
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-workdir=#{var}/cfengine",
