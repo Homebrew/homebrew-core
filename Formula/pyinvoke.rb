@@ -5,7 +5,6 @@ class Pyinvoke < Formula
   homepage "http://pyinvoke.org/"
   url "https://github.com/pyinvoke/invoke/archive/0.13.0.tar.gz"
   sha256 "4942aa901618f99afa70271d7b15fd018da0f174178fbca4048354c785e7736a"
-
   head "https://github.com/pyinvoke/invoke.git"
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -26,8 +25,8 @@ class Pyinvoke < Formula
           for pattern in patterns:
               run("rm -rf {}".format(pattern))
     EOS
-    mkdir_p testpath/"foo"/"bar"
-    mkdir_p testpath/"baz"
+    (testpath/"foo"/"bar").mkpath
+    (testpath/"baz").mkpath
     system bin/"invoke", "clean"
     assert !File.exist?(testpath/"foo"), "\"pyinvoke clean\" should have deleted \"foo\""
     assert File.exist?(testpath/"baz"), "pyinvoke should have left \"baz\""
