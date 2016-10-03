@@ -1,10 +1,8 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
-  url "https://projects.unbit.it/downloads/uwsgi-2.0.11.2.tar.gz"
-  sha256 "0b889b0b4d2dd3f6625df28cb0b86ec44a68d074ede2d0dfad0b91e88914885c"
-  revision 2
-
+  url "https://projects.unbit.it/downloads/uwsgi-2.0.14.tar.gz"
+  sha256 "21b3d1ef926d835ff23576193a2c60d4c896d8e21567850cf0677a4764122887"
   head "https://github.com/unbit/uwsgi.git"
 
   bottle do
@@ -45,11 +43,14 @@ class Uwsgi < Formula
   depends_on "zeromq" => :optional
   depends_on "yajl" if build.without? "jansson"
 
-  def install
-    # "no such file or directory: '... libpython2.7.a'"
-    # Reported 23 Jun 2016: https://github.com/unbit/uwsgi/issues/1299
-    ENV.delete("SDKROOT")
+  # "no such file or directory: '... libpython2.7.a'"
+  # Reported 23 Jun 2016: https://github.com/unbit/uwsgi/issues/1299
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/726bff4/uwsgi/libpython-tbd-xcode-sdk.diff"
+    sha256 "d71c879774b32424b5a9051ff47d3ae6e005412e9214675d806857ec906f9336"
+  end
 
+  def install
     ENV.append %w[CFLAGS LDFLAGS], "-arch #{MacOS.preferred_arch}"
     openssl = Formula["openssl"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
@@ -57,11 +58,6 @@ class Uwsgi < Formula
 
     json = build.with?("jansson") ? "jansson" : "yajl"
     yaml = build.with?("libyaml") ? "libyaml" : "embedded"
-
-    # Fix build on case-sensitive filesystems
-    # https://github.com/Homebrew/homebrew/issues/45560
-    # https://github.com/unbit/uwsgi/pull/1128
-    inreplace "plugins/alarm_speech/uwsgiplugin.py", "'-framework appkit'", "'-framework AppKit'"
 
     (buildpath/"buildconf/brew.ini").write <<-EOS.undent
       [uwsgi]
