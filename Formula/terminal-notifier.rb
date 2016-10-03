@@ -29,6 +29,6 @@ class TerminalNotifier < Formula
   end
 
   test do
-    system "#{bin}/terminal-notifier", "-help" if MacOS.version < :yosemite
+    assert_match version.to_s, pipe_output("#{bin}/terminal-notifier -help")
   end
 end
