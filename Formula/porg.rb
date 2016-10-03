@@ -19,6 +19,8 @@ class Porg < Formula
   end
 
   test do
-    system "porg", "--version"
+    `porg -lp foo-1.0 'echo "hello world" > #{testpath}/foo.log'`
+
+    $?.success? && `porg -a` =~ /foo/
   end
 end
