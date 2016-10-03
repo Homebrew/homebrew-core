@@ -9,9 +9,9 @@ class Castxml < Formula
   head "https://github.com/CastXML/castxml.git"
 
   bottle do
-    sha256 "bc1065e80602883cb30031cd013cc0236042c91adc256b12dbc9d47bfcc9fa10" => :el_capitan
-    sha256 "3f0477a1c2d122dcf7a2dfc5751c8f694fb2f17a5e12a6fc423176c444823de4" => :yosemite
-    sha256 "92b2257dcb668e4ea0a1bfaf0720c9b04d79276138397b93424455efca3968cc" => :mavericks
+    sha256 "3ef2c6ffd4953012eb945c3742be3306e4221ad5edc44410b40b47d12a64aec9" => :sierra
+    sha256 "5022fdb1cdac50659adb2a2c6438216ecb246f8b6254b672890f005c1bb0a0cb" => :el_capitan
+    sha256 "df8baff500313f946a09a64bd1bb4a56d909ad4cce7d1c1eb1dcf637215b5183" => :yosemite
   end
 
   depends_on "cmake" => :build
