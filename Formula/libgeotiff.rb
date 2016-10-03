@@ -6,11 +6,9 @@ class Libgeotiff < Formula
   revision 2
 
   bottle do
-    sha256 "760d372105af89279f6af8f368cec92e9f21e8c5b4b253851ca9614f9b0b1ca4" => :sierra
-    sha256 "2d90f23486794745cbf3880b8327f6c9b8d1ee5b3952b599d372e139e3fa386a" => :el_capitan
-    sha256 "cc50df08d046654c4dcdb71dca892522ddbe7f4d08bf76db875843b5278f8c72" => :yosemite
-    sha256 "a06efe08c1bd6a4c8c2e17d8081bafb2c6fd7e6a46083d7ff3228f98d3dca7e3" => :mavericks
-    sha256 "07efe6adec3e35b7e3d05af18e62a407041d84a96fa91a64757aa1e0b4696fd6" => :mountain_lion
+    sha256 "e132dbc428f2ab5fb85099983b1558954f6bcf71e9acf2c65beb02b4c9cda198" => :sierra
+    sha256 "56bef37d2a51e3af48a53c43d6610618c8f75040cb53e7716f3e02e8b15fceea" => :el_capitan
+    sha256 "2b1d937bf755a56f048fdf7ea221485e5acd104e595433b8f02e90baf6db979a" => :yosemite
   end
 
   depends_on "libtiff"
