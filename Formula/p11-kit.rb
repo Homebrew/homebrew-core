@@ -18,6 +18,11 @@ class P11Kit < Formula
     sha256 "ba726ea8303c97467a33fca50ee79b7b35212964be808ecf9b145e9042fdfaf0"
   end
 
+  devel do
+    url "https://p11-glue.freedesktop.org/releases/p11-kit-0.23.2.tar.gz"
+    sha256 "ba726ea8303c97467a33fca50ee79b7b35212964be808ecf9b145e9042fdfaf0"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "libffi"
 
