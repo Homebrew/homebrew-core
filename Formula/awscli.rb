@@ -5,6 +5,8 @@ class Awscli < Formula
   homepage "https://aws.amazon.com/cli/"
   url "https://github.com/aws/aws-cli/archive/1.11.0.tar.gz"
   sha256 "a50d005447fa8db2a2d90e5b84c27396134206ec14f6606ea0d8f1c1694540bf"
+  revision 1
+
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
@@ -20,14 +22,12 @@ class Awscli < Formula
   depends_on :python if MacOS.version <= :lion
 
   def install
-    virtualenv_create(libexec)
-    bin_before = Dir[libexec/"bin/*"].to_set
+    venv = virtualenv_create(libexec)
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
-    bin_after = Dir[libexec/"bin/*"].to_set
-    bin_to_link = (bin_after - bin_before).to_a
-    bin.install_symlink(bin_to_link)
 
+    system libexec/"bin/pip", "uninstall", "-y", "awscli"
+    venv.pip_install_and_link buildpath
     pkgshare.install "awscli/examples"
 
     bash_completion.install "bin/aws_bash_completer"
