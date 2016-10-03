@@ -38,6 +38,24 @@ class Folly < Formula
     ENV.cxx11
 
     cd "folly" do
+      # Workaround for "no matching function for call to 'clock_gettime'"
+      # See upstream PR from 2 Oct 2016 facebook/folly#488
+      if DevelopmentTools.clang_build_version >= 800
+        inreplace ["Benchmark.cpp", "Benchmark.h"] do |s|
+          s.gsub! "detail::DEFAULT_CLOCK_ID",
+                  "(clockid_t)detail::DEFAULT_CLOCK_ID"
+          s.gsub! "clock_gettime(CLOCK_REALTIME",
+                  "clock_gettime((clockid_t)CLOCK_REALTIME", false
+        end
+      end
+
+      # Fix "candidate function not viable: no known conversion from
+      # 'folly::detail::Clock' to 'clockid_t' for 1st argument"
+      # See upstream PR mentioned above
+      if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+        inreplace "portability/Time.h", "typedef uint8_t clockid_t;", ""
+      end
+
       # Build system relies on pkg-config but gflags removed
       # the .pc files so now folly cannot find without flags.
       ENV["GFLAGS_CFLAGS"] = Formula["gflags"].opt_include
