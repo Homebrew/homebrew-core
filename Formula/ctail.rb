@@ -3,6 +3,7 @@ class Ctail < Formula
   homepage "https://github.com/pquerna/ctail"
   url "https://github.com/pquerna/ctail/archive/ctail-0.1.0.tar.gz"
   sha256 "864efb235a5d076167277c9f7812ad5678b477ff9a2e927549ffc19ed95fa911"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,15 +13,21 @@ class Ctail < Formula
     sha256 "dfab40d65950327c679bde97a335779526c58e99f5679f32f95e517a7249e332" => :mountain_lion
   end
 
-  conflicts_with "byobu", :because => "both install `ctail` binaries"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "apr" => :build
+  depends_on "apr-util" => :build
+
+  conflicts_with "byobu", :because => "both install `ctail` binaries"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-debug"
+    system "./configure", "--prefix=#{prefix}", "--disable-debug", "--with-apr=#{Formula["apr"].bin}", "--with-apr-util=#{Formula["apr-util"].bin}"
     system "make", "LIBTOOL=glibtool --tag=CC"
     system "make", "install"
+  end
+
+  test do
+    system "ctail", "-h"
   end
 end
