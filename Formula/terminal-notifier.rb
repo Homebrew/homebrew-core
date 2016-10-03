@@ -7,11 +7,9 @@ class TerminalNotifier < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "85467783430a7ecdfa46e6cbbcd23dc929dfe5cf1ebe257655cf6673083d5f07" => :sierra
-    sha256 "3a71be6835b7612696fa22235edf1643ecb9722e4b4c4dff0cdd426cf42f9fc7" => :el_capitan
-    sha256 "748aefaf06e506a51274395f600fff007d6dde927f0bc1911f3b83cc8e854928" => :yosemite
-    sha256 "6609dfdb1840dfff23420a39220ba5e2eade7841b66ab167c3924c5be4f05248" => :mavericks
-    sha256 "87e1ddf62740069b8fc35ae4c302f46ecb7c2c0cf32ff5ec8ffd6cdd9611e53e" => :mountain_lion
+    sha256 "6b1654ff0e5b46b1fa6ff1e45688223d2e7c8c734d4b554a781d0b9be7fa5b59" => :sierra
+    sha256 "5a1ddedfd70f41a1f4a04dc71637fc5f880318a6a66a8a22dcbb74338c6a2fba" => :el_capitan
+    sha256 "fc8ffe7cd0c3a2e2503faab421d2504a25f37ace78367f549ffd1f72257aba36" => :yosemite
   end
 
   depends_on :macos => :mountain_lion
