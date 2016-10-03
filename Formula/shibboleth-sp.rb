@@ -21,6 +21,9 @@ class ShibbolethSp < Formula
   depends_on "boost"
   depends_on "unixodbc"
 
+  depends_on "apr-util" => :build
+  depends_on "apr" => :build
+
   def install
     ENV.O2 # Os breaks the build
     args = %W[
@@ -41,6 +44,18 @@ class ShibbolethSp < Formula
     end
     system "./configure", *args
     system "make", "install"
+  end
+
+  def caveats
+    mod = (build.with? "apache-22")? "mod_shib_22.so" : "mod_shib_24.so"
+    <<-EOS.undent
+      You must manually edit httpd.conf to include
+      LoadModule mod_shib #{lib}/shibboleth/#{mod}
+      You must also manually configure
+        #{etc}/shibboleth/shibboleth2.xml
+      as per your own requirements. For more information please see
+        https://wiki.shibboleth.net/confluence/display/EDS10/3.1+Configuring+the+Service+Provider
+    EOS
   end
 
   plist_options :startup => true, :manual => "shibd"
@@ -66,18 +81,6 @@ class ShibbolethSp < Formula
       <true/>
     </dict>
     </plist>
-    EOS
-  end
-
-  def caveats
-    mod = (build.with? "apache-22")? "mod_shib_22.so" : "mod_shib_24.so"
-    <<-EOS.undent
-      You must manually edit httpd.conf to include
-      LoadModule mod_shib #{lib}/shibboleth/#{mod}
-      You must also manually configure
-        #{etc}/shibboleth/shibboleth2.xml
-      as per your own requirements. For more information please see
-        https://wiki.shibboleth.net/confluence/display/EDS10/3.1+Configuring+the+Service+Provider
     EOS
   end
 
