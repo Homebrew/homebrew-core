@@ -1,9 +1,8 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.17.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mc/mc_4.8.17.orig.tar.xz"
-  sha256 "0447bdddc0baa81866e66f50f9a545d29d6eebb68b0ab46c98d8fddd2bf4e44d"
+  url "https://www.midnight-commander.org/downloads/mc-4.8.18.tar.xz"
+  sha256 "f7636815c987c1719c4f5de2dcd156a0e7d097b1d10e4466d2bdead343d5bece"
 
   head "https://github.com/MidnightCommander/mc.git"
 
