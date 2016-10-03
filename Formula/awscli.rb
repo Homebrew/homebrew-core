@@ -24,7 +24,6 @@ class Awscli < Formula
     venv = virtualenv_create(libexec)
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
-
     system libexec/"bin/pip", "uninstall", "-y", "awscli"
     venv.pip_install_and_link buildpath
     pkgshare.install "awscli/examples"
