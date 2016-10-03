@@ -3,6 +3,7 @@ class GdkPixbuf < Formula
   homepage "http://gtk.org"
   url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.0.tar.xz"
   sha256 "85ab52ce9f2c26327141b3dcf21cca3da6a3f8de84b95fa1e727d8871a23245c"
+  revision 1
 
   bottle do
     sha256 "0be36333f1249185fa702ef3cc1397d41577b8b79bab7f30413397e6f30ffa59" => :sierra
