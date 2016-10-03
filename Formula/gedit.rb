@@ -13,6 +13,12 @@ class Gedit < Formula
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
+  depends_on "atk"
+  depends_on "cairo"
+  depends_on "gdk-pixbuf"
+  depends_on "gettext"
+  depends_on "glib"
+  depends_on "pango"
   depends_on "gtk+3"
   depends_on "gtk-mac-integration"
   depends_on "gobject-introspection"
