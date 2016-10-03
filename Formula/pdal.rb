@@ -3,6 +3,8 @@ class Pdal < Formula
   homepage "http://www.pdal.io/"
   url "https://github.com/PDAL/PDAL/archive/1.1.0.tar.gz"
   sha256 "70e0c84035b3fdc75c4eb72dde62a7a2138171d249f2a607170f79d5cafe589d"
+  revision 1
+
   head "https://github.com/PDAL/PDAL.git"
 
   bottle do
@@ -17,9 +19,9 @@ class Pdal < Formula
   depends_on "laszip" => :optional
 
   if MacOS.version < :mavericks
-    depends_on "boost" => "c++11"
+    depends_on "boost@1.61" => "c++11"
   else
-    depends_on "boost"
+    depends_on "boost@1.61"
   end
 
   def install

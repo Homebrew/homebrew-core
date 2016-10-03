@@ -3,7 +3,7 @@ class Liblas < Formula
   homepage "http://liblas.org"
   url "http://download.osgeo.org/liblas/libLAS-1.8.0.tar.bz2"
   sha256 "17310082845e45e5c4cece78af98ee93aa5d992bf6d4ba9a6e9f477228738d7a"
-  revision 1
+  revision 2
 
   head "https://github.com/libLAS/libLAS.git"
 
@@ -20,7 +20,7 @@ class Liblas < Formula
   depends_on "cmake" => :build
   depends_on "libgeotiff"
   depends_on "gdal"
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "laszip" => :optional
 
   def install

@@ -3,6 +3,8 @@ class VowpalWabbit < Formula
   homepage "https://github.com/JohnLangford/vowpal_wabbit"
   url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.2.1.tar.gz"
   sha256 "884eaa4b126f8247c980082dc1959db0206b75bab4fee06bbb54936800a8e5e2"
+  revision 1
+
   head "https://github.com/JohnLangford/vowpal_wabbit.git"
 
   bottle do
@@ -14,9 +16,9 @@ class VowpalWabbit < Formula
   end
 
   if MacOS.version < :mavericks
-    depends_on "boost" => "c++11"
+    depends_on "boost@1.61" => "c++11"
   else
-    depends_on "boost"
+    depends_on "boost@1.61"
   end
 
   depends_on "autoconf" => :build

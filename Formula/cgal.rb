@@ -3,6 +3,7 @@ class Cgal < Formula
   homepage "https://www.cgal.org/"
   url "https://github.com/CGAL/cgal/releases/download/releases/CGAL-4.9/CGAL-4.9.tar.xz"
   sha256 "63ac5df71f912f34f2f0f2e54a303578df51f4ec2627db593a65407d791f9039"
+  revision 1
 
   bottle do
     cellar :any
@@ -27,10 +28,10 @@ class Cgal < Formula
   depends_on "eigen" => :optional
 
   if build.cxx11?
-    depends_on "boost" => "c++11"
+    depends_on "boost@1.61" => "c++11"
     depends_on "gmp"   => "c++11"
   else
-    depends_on "boost"
+    depends_on "boost@1.61"
     depends_on "gmp"
   end
 

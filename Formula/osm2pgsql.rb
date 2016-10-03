@@ -1,6 +1,8 @@
 class Osm2pgsql < Formula
   desc "OpenStreetMap data to PostgreSQL converter"
   homepage "https://wiki.openstreetmap.org/wiki/Osm2pgsql"
+  revision 1
+
   head "https://github.com/openstreetmap/osm2pgsql.git"
   revision 1
 
@@ -23,7 +25,7 @@ class Osm2pgsql < Formula
 
   depends_on "cmake" => :build
   depends_on :postgresql
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "geos"
   depends_on "proj"
   depends_on "lua" => :recommended

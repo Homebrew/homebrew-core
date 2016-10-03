@@ -1,6 +1,7 @@
 {
   "app-engine-java-sdk": "app-engine-java",
   "beanstalk": "beanstalkd",
+  "boost": "boost@1.61",
   "commonmark": "cmark",
   "cppformat": "fmt",
   "crystal": "autocode",

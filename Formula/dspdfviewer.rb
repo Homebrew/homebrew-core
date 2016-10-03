@@ -3,6 +3,8 @@ class Dspdfviewer < Formula
   homepage "http://dspdfviewer.danny-edel.de"
   url "https://github.com/dannyedel/dspdfviewer/archive/v1.15.tar.gz"
   sha256 "19986053ac4a60e086a9edd78281f1e422a64efef29e3c6604386419e9420686"
+  revision 1
+
   head "https://github.com/dannyedel/dspdfviewer.git"
 
   bottle do
@@ -14,7 +16,7 @@ class Dspdfviewer < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "poppler" => "with-qt5"
 
   def install

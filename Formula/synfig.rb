@@ -3,7 +3,7 @@ class Synfig < Formula
   homepage "http://synfig.org"
   url "https://downloads.sourceforge.net/project/synfig/releases/1.0/source/synfig-1.0.tar.gz"
   sha256 "1f2f9b209d49dff838049e9817b0458ac6987e912a56c061aa2f9c2faeb40720"
-  revision 2
+  revision 3
 
   head "git://synfig.git.sourceforge.net/gitroot/synfig/synfig"
 
@@ -24,7 +24,7 @@ class Synfig < Formula
   depends_on "freetype"
   depends_on "cairo"
   depends_on "pango"
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "openexr"
   depends_on "mlt"
   depends_on "libtool" => :run

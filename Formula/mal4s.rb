@@ -3,7 +3,7 @@ class Mal4s < Formula
   homepage "https://github.com/secure411dotorg/mal4s/"
   url "https://service.dissectcyber.com/mal4s/mal4s-1.2.8.tar.gz"
   sha256 "1c40ca9d11d113278c4fbd5c7ec9ce0edc78d6c8bd1aa7d85fb6b9473e60f0f1"
-  revision 5
+  revision 6
 
   head "https://github.com/secure411dotorg/mal4s.git"
 
@@ -29,9 +29,9 @@ class Mal4s < Formula
   depends_on :x11 => :optional
 
   if MacOS.version < :mavericks
-    depends_on "boost" => "c++11"
+    depends_on "boost@1.61" => "c++11"
   else
-    depends_on "boost"
+    depends_on "boost@1.61"
   end
 
   needs :cxx11

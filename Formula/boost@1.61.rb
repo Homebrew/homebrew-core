@@ -1,8 +1,6 @@
-class Boost < Formula
+class BoostAT161 < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  revision 1
-
   head "https://github.com/boostorg/boost.git"
 
   stable do

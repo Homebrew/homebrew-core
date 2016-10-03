@@ -19,7 +19,7 @@ class Osquery < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "rocksdb"
   depends_on "thrift"
   depends_on "yara"

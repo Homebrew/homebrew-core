@@ -3,8 +3,9 @@ class SimpleAmqpClient < Formula
   homepage "https://github.com/alanxz/SimpleAmqpClient"
   url "https://github.com/alanxz/SimpleAmqpClient/archive/v2.4.0.tar.gz"
   sha256 "5735ccccd638b2e2c275ca254f2f947bdfe34511247a32822985c3c25239e06e"
+  revision 2
+
   head "https://github.com/alanxz/SimpleAmqpClient.git"
-  revision 1
 
   bottle do
     cellar :any
@@ -18,7 +19,7 @@ class SimpleAmqpClient < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "rabbitmq-c"
-  depends_on "boost"
+  depends_on "boost@1.61"
 
   def install
     system "cmake", ".", *std_cmake_args

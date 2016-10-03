@@ -3,6 +3,7 @@ class Pdnsrec < Formula
   homepage "https://www.powerdns.com/recursor.html"
   url "https://downloads.powerdns.com/releases/pdns-recursor-4.0.3.tar.bz2"
   sha256 "ae9813a64d13d9ebe4b44e89e8e4e44fc438693b6ce4c3a98e4cab1af22d9627"
+  revision 1
 
   bottle do
     sha256 "f044aeacd64def9fa7f2bb0bd2c6dd601c324e3f030038a2f7914785552b3fbd" => :sierra
@@ -12,7 +13,7 @@ class Pdnsrec < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "openssl"
   depends_on "lua"
   depends_on "gcc" if DevelopmentTools.clang_build_version <= 600

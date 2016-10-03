@@ -3,7 +3,7 @@ class Supersonic < Formula
   homepage "https://code.google.com/archive/p/supersonic/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/supersonic/supersonic-0.9.4.tar.gz"
   sha256 "1592dfd2dc73f0b97298e0d25e51528dc9a94e9e7f4ab525569f63db0442d769"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -14,10 +14,10 @@ class Supersonic < Formula
 
   if MacOS.version < :mavericks
     depends_on "protobuf" => "c++11"
-    depends_on "boost" => "c++11"
+    depends_on "boost@1.61" => "c++11"
   else
     depends_on "protobuf"
-    depends_on "boost"
+    depends_on "boost@1.61"
   end
 
   depends_on "pkg-config" => :build

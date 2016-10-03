@@ -3,6 +3,7 @@ class Plustache < Formula
   homepage "https://github.com/mrtazz/plustache"
   url "https://github.com/mrtazz/plustache/archive/v0.3.0.tar.gz"
   sha256 "ceb56d6cab81b8ed2d812e4a546036a46dd28685512255e3f52553ba70a15fc8"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class Plustache < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "boost"
+  depends_on "boost@1.61"
 
   def install
     system "autoreconf", "--force", "--install"

@@ -3,7 +3,7 @@ class Gnuradio < Formula
   homepage "https://gnuradio.squarespace.com/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.9.1.tar.gz"
   sha256 "9c06f0f1ec14113203e0486fd526dd46ecef216dfe42f12d78d9b781b1ef967e"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "797e74b20a6961700b52e5feb9a093c59518fa39b944915cfc70fe252dba6a73" => :el_capitan
@@ -27,7 +27,7 @@ class Gnuradio < Formula
   depends_on "pkg-config" => :build
 
   depends_on :python if MacOS.version <= :snow_leopard
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "cppunit"
   depends_on "fftw"
   depends_on "gsl"

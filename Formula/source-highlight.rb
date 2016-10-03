@@ -5,7 +5,7 @@ class SourceHighlight < Formula
   mirror "https://ftp.gnu.org/gnu/src-highlite/source-highlight-3.1.8.tar.gz"
   mirror "http://mirror.anl.gov/pub/gnu/src-highlite/source-highlight-3.1.8.tar.gz"
   sha256 "01336a7ea1d1ccc374201f7b81ffa94d0aecb33afc7d6903ebf9fbf33a55ada3"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "e616cc32b0ef7272e3ec41f28a013f61d07f67b32ff4f2eced6d5fe9454f6098" => :sierra
@@ -14,7 +14,7 @@ class SourceHighlight < Formula
     sha256 "ddd81b0888585673246ca764061a8a712da48858144953e76f9a94486a8e2058" => :mavericks
   end
 
-  depends_on "boost"
+  depends_on "boost@1.61"
 
   def install
     system "./configure", "--disable-dependency-tracking",

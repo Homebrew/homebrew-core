@@ -3,7 +3,7 @@ class BulkExtractor < Formula
   homepage "https://github.com/simsong/bulk_extractor/wiki"
   url "http://digitalcorpora.org/downloads/bulk_extractor/bulk_extractor-1.5.5.tar.gz"
   sha256 "297a57808c12b81b8e0d82222cf57245ad988804ab467eb0a70cf8669594e8ed"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class BulkExtractor < Formula
   end
 
   depends_on "afflib" => :optional
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "exiv2" => :optional
   depends_on "libewf" => :optional
   depends_on "openssl"

@@ -3,6 +3,7 @@ class Gearman < Formula
   homepage "http://gearman.org/"
   url "https://launchpad.net/gearmand/1.2/1.1.12/+download/gearmand-1.1.12.tar.gz"
   sha256 "973d7a3523141a84c7b757c6f243febbc89a3631e919b532c056c814d8738acb"
+  revision 1
 
   bottle do
     rebuild 3
@@ -20,7 +21,7 @@ class Gearman < Formula
   patch :DATA
 
   depends_on "pkg-config" => :build
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "libevent"
   depends_on "libpqxx" if build.with? "postgresql"
   depends_on :mysql => :optional

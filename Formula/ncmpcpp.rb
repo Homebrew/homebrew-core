@@ -3,7 +3,7 @@ class Ncmpcpp < Formula
   homepage "https://rybczak.net/ncmpcpp/"
   url "https://ncmpcpp.rybczak.net/stable/ncmpcpp-0.7.4.tar.bz2"
   sha256 "d70425f1dfab074a12a206ddd8f37f663bce2bbdc0a20f7ecf290ebe051f1e63"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -34,10 +34,10 @@ class Ncmpcpp < Formula
   depends_on "fftw" if build.with? "visualizer"
 
   if MacOS.version < :mavericks
-    depends_on "boost" => "c++11"
+    depends_on "boost@1.61" => "c++11"
     depends_on "taglib" => "c++11"
   else
-    depends_on "boost"
+    depends_on "boost@1.61"
     depends_on "taglib"
   end
 

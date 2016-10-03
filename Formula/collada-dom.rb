@@ -1,6 +1,8 @@
 class ColladaDom < Formula
   desc "C++ library for loading and saving COLLADA data"
   homepage "https://www.khronos.org/collada/wiki/Portal:COLLADA_DOM"
+  revision 1
+
   head "https://github.com/rdiankov/collada-dom.git"
 
   stable do
@@ -27,7 +29,7 @@ class ColladaDom < Formula
 
   depends_on "cmake" => :build
   depends_on "pcre"
-  depends_on "boost"
+  depends_on "boost@1.61"
 
   def install
     system "cmake", ".", *std_cmake_args

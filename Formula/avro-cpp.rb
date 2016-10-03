@@ -3,6 +3,7 @@ class AvroCpp < Formula
   homepage "https://avro.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=avro/avro-1.8.1/cpp/avro-cpp-1.8.1.tar.gz"
   sha256 "6559755ac525e908e42a2aa43444576cba91e522fe989088ee7f70c169bcc403"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,7 +15,7 @@ class AvroCpp < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "boost"
+  depends_on "boost@1.61"
 
   def install
     # Avoid deprecated macros removed in Boost 1.59.

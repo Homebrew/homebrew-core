@@ -3,6 +3,8 @@ class Openvdb < Formula
   homepage "http://www.openvdb.org/"
   url "https://github.com/dreamworksanimation/openvdb/archive/v3.2.0.tar.gz"
   sha256 "b9c765f8715974aee0cd92ca5fd7cf6c675e72d3a4d1c6b5084fb7ae13345398"
+  revision 1
+
   head "https://github.com/dreamworksanimation/openvdb.git"
 
   bottle do
@@ -24,9 +26,9 @@ class Openvdb < Formula
   depends_on "jemalloc" => :recommended
 
   if MacOS.version < :mavericks
-    depends_on "boost" => "c++11"
+    depends_on "boost@1.61" => "c++11"
   else
-    depends_on "boost"
+    depends_on "boost@1.61"
   end
 
   depends_on "homebrew/versions/glfw3" if build.with? "viewer"

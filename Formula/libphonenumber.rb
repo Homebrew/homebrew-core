@@ -3,6 +3,7 @@ class Libphonenumber < Formula
   homepage "https://github.com/googlei18n/libphonenumber"
   url "https://github.com/googlei18n/libphonenumber/archive/libphonenumber-7.7.1.tar.gz"
   sha256 "5c964d4c86fbcebb5a06858647f36cd5c537e2f198d4e30ea29b8cce40d80668"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class Libphonenumber < Formula
   depends_on :java => "1.7+"
   depends_on "icu4c"
   depends_on "protobuf"
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "re2"
 
   resource "gtest" do

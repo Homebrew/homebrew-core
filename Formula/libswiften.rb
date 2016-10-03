@@ -3,7 +3,7 @@ class Libswiften < Formula
   homepage "https://swift.im/swiften"
   url "https://swift.im/downloads/releases/swift-3.0/swift-3.0.tar.gz"
   sha256 "8aa490431190294e62a9fc18b69ccc63dd0f561858d7d0b05c9c65f4d6ba5397"
-  revision 1
+  revision 2
 
   # Patch to fix build error of dynamic library with Apple's Secure Transport API
   # Fixed upstream: https://swift.im/git/swift/commit/?id=1d545a4a7fb877f021508094b88c1f17b30d8b4e
@@ -17,7 +17,7 @@ class Libswiften < Formula
   end
 
   depends_on "scons" => :build
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "libidn"
   depends_on "lua" => :recommended
 

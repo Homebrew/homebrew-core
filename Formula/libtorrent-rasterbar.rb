@@ -3,6 +3,7 @@ class LibtorrentRasterbar < Formula
   homepage "http://www.libtorrent.org/"
   url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1/libtorrent-rasterbar-1.1.0.tar.gz"
   sha256 "2713df7da4aec5263ac11b6626ea966f368a5a8081103fd8f2f2ed97b5cd731d"
+  revision 1
 
   bottle do
     cellar :any
@@ -23,7 +24,7 @@ class LibtorrentRasterbar < Formula
   depends_on "openssl"
   depends_on :python => :optional
   depends_on "geoip" => :optional
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "boost-python" if build.with? "python"
 
   def install

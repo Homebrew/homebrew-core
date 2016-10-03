@@ -3,6 +3,7 @@ class Cpprestsdk < Formula
   homepage "https://github.com/Microsoft/cpprestsdk"
   url "https://github.com/Microsoft/cpprestsdk/archive/v2.8.0.tar.gz"
   sha256 "3d1c38aa7ef34b3d3e9a6e84d3866554fe48c3d9d9977896d18a7cfb80d5a4ea"
+  revision 1
 
   head "https://github.com/Microsoft/cpprestsdk.git", :branch => "development"
 
@@ -14,7 +15,7 @@ class Cpprestsdk < Formula
     sha256 "afd80c1df6c5cb0497006a277d94fd344e6831a99c0545a96a7e05979888e16e" => :mavericks
   end
 
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "openssl"
   depends_on "cmake" => :build
 

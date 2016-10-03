@@ -3,6 +3,7 @@ class Pdns < Formula
   homepage "https://www.powerdns.com"
   url "https://downloads.powerdns.com/releases/pdns-4.0.1.tar.bz2"
   sha256 "d191eed4a6664430e85969f49835c59e810ecbb7b3eb506e64c6b2734091edd7"
+  revision 1
 
   bottle do
     rebuild 1
@@ -26,7 +27,7 @@ class Pdns < Formula
   deprecated_option "pgsql" => "with-pgsql"
 
   depends_on "pkg-config" => :build
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "lua"
   depends_on "openssl"
   depends_on "sqlite"

@@ -3,6 +3,7 @@ class Ompl < Formula
   homepage "http://ompl.kavrakilab.org"
   url "https://bitbucket.org/ompl/ompl/downloads/ompl-1.1.0-Source.tar.gz"
   sha256 "4d141ad3aa322c65ee7ecfa90017a44a8114955316e159b635fae5b5e7db74f8"
+  revision 1
 
   bottle do
     sha256 "4a90bb34ebda949327b8873faf73cebc22b2de9e603b0f0b8fbc023935cb46f2" => :sierra
@@ -12,7 +13,7 @@ class Ompl < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "eigen" => :optional
   depends_on "ode" => :optional
 

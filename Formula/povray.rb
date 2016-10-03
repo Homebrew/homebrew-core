@@ -3,7 +3,7 @@ class Povray < Formula
   homepage "http://www.povray.org/"
   url "https://github.com/POV-Ray/povray/archive/v3.7.0.0.tar.gz"
   sha256 "bf68861d648e3acafbd1d83a25016a0c68547b257e4fa79fb36eb5f08d665f27"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "76ae74882db19c67853e976d6944d458942a673cc2bde706921b134805859668" => :sierra
@@ -18,7 +18,7 @@ class Povray < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libpng"
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "jpeg"
   depends_on "libtiff"
   depends_on "openexr" => :optional

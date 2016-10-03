@@ -3,6 +3,7 @@ class Quantlib < Formula
   homepage "http://quantlib.org/"
   url "https://downloads.sourceforge.net/project/quantlib/QuantLib/1.8.1/QuantLib-1.8.1.tar.gz"
   sha256 "27d14d5e49b8a21d20f03da69a05584af50e6a3dbe47dad5b9f2c61ad3460bed"
+  revision 1
 
   bottle do
     cellar :any
@@ -22,9 +23,9 @@ class Quantlib < Formula
   option :cxx11
 
   if build.cxx11?
-    depends_on "boost" => "c++11"
+    depends_on "boost@1.61" => "c++11"
   else
-    depends_on "boost"
+    depends_on "boost@1.61"
   end
 
   def install

@@ -3,7 +3,7 @@ class Sfcgal < Formula
   homepage "http://sfcgal.org/"
   url "https://github.com/Oslandia/SFCGAL/archive/v1.3.0.tar.gz"
   sha256 "7ed35439fc197e73790f4c3d1c1750acdc3044968769239b2185a7a845845df3"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "e951bd5d493db1062b4cba7d82f12cb901080405f5baf82d20b741eb1eb53c6c" => :sierra
@@ -16,11 +16,11 @@ class Sfcgal < Formula
   depends_on "cmake" => :build
   depends_on "mpfr"
   if build.cxx11?
-    depends_on "boost" => "c++11"
+    depends_on "boost@1.61" => "c++11"
     depends_on "cgal" => "c++11"
     depends_on "gmp"   => "c++11"
   else
-    depends_on "boost"
+    depends_on "boost@1.61"
     depends_on "cgal"
     depends_on "gmp"
   end

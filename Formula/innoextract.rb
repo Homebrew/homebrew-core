@@ -3,6 +3,8 @@ class Innoextract < Formula
   homepage "https://constexpr.org/innoextract/"
   url "https://constexpr.org/innoextract/files/innoextract-1.6.tar.gz"
   sha256 "66463f145fffd4d5883c6b3e2f7b2c2837d6f07095810114e514233a88c1033e"
+  revision 1
+
   head "https://github.com/dscharrer/innoextract.git"
 
   bottle do
@@ -14,7 +16,7 @@ class Innoextract < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "xz"
 
   def install

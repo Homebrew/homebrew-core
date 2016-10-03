@@ -3,6 +3,8 @@ class Mapnik < Formula
   homepage "http://www.mapnik.org/"
   url "https://github.com/mapnik/mapnik/releases/download/v3.0.12/mapnik-v3.0.12.tar.bz2"
   sha256 "66a3d620c3ce543c91ea5b42a25079aca9a2a90f6079a2ce2a8714398fa57d6d"
+  revision 1
+
   head "https://github.com/mapnik/mapnik.git"
   revision 1
 
@@ -27,9 +29,9 @@ class Mapnik < Formula
   depends_on "cairo" => :optional
 
   if MacOS.version < :mavericks
-    depends_on "boost" => "c++11"
+    depends_on "boost@1.61" => "c++11"
   else
-    depends_on "boost"
+    depends_on "boost@1.61"
   end
 
   needs :cxx11

@@ -3,6 +3,7 @@ class Nghttp2 < Formula
   homepage "https://nghttp2.org/"
   url "https://github.com/nghttp2/nghttp2/releases/download/v1.15.0/nghttp2-1.15.0.tar.xz"
   sha256 "317afbef79eec624577d006ea7111cf978d2c88e999a6f336c83b99f924b5e4a"
+  revision 1
 
   bottle do
     sha256 "a6e7ef94226b0f2a52657f1713b95df76979f3d72e569b23bb487a4919811776" => :sierra
@@ -31,7 +32,7 @@ class Nghttp2 < Formula
   depends_on "openssl"
   depends_on "libevent"
   depends_on "jansson"
-  depends_on "boost"
+  depends_on "boost@1.61"
   depends_on "spdylay"
   depends_on "jemalloc" => :recommended
 
