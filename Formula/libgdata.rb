@@ -69,6 +69,11 @@ class Libgdata < Formula
       -lsoup-2.4
       -lxml2
     ]
+    if MacOS::CLT.installed?
+      flags << "-I/usr/include/libxml2"
+    else
+      flags << "-I#{MacOS.sdk_path}/usr/include/libxml2"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
