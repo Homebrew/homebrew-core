@@ -1,8 +1,8 @@
 class Fdupes < Formula
   desc "Identify or delete duplicate files"
   homepage "https://github.com/adrianlopezroche/fdupes"
-  url "https://github.com/adrianlopezroche/fdupes/archive/fdupes-1.51.tar.gz"
-  sha256 "761e16d4ecfef7302c62fe7ef1e181cd34f5c6ce5377dcad96e3ed44fb364986"
+  url "https://github.com/adrianlopezroche/fdupes/archive/v1.6.1.tar.gz"
+  sha256 "9d6b6fdb0b8419815b4df3bdfd0aebc135b8276c90bbbe78ebe6af0b88ba49ea"
 
   bottle do
     cellar :any_skip_relocation
