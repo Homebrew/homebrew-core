@@ -1,8 +1,8 @@
 class Mogenerator < Formula
   desc "Generate Objective-C code for Core Data custom classes"
   homepage "https://rentzsch.github.io/mogenerator/"
-  url "https://github.com/rentzsch/mogenerator/archive/1.30.1.tar.gz"
-  sha256 "44ee6c61209a53a78914cd9545263bc685f8b3ea061adeeb9fdeeeb68f94fb52"
+  url "https://github.com/rentzsch/mogenerator/archive/1.31.tar.gz"
+  sha256 "219186cbd37a299e91c2b036b6dfd9f25ddb971857368edcb0f3e1c7fada7e2a"
 
   head "https://github.com/rentzsch/mogenerator.git"
 
