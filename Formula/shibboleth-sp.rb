@@ -11,7 +11,9 @@ class ShibbolethSp < Formula
 
   option "with-apache-22", "Build mod_shib_22.so instead of mod_shib_24.so"
 
-  depends_on :macos => :yosemite
+  depends_on macos: :yosemite
+  depends_on "apr"
+  depends_on "apr-util"
   depends_on "curl" => "with-openssl"
   depends_on "opensaml"
   depends_on "xml-tooling-c"
@@ -43,7 +45,19 @@ class ShibbolethSp < Formula
     system "make", "install"
   end
 
-  plist_options :startup => true, :manual => "shibd"
+  def caveats
+    mod = (build.with? "apache-22")? "mod_shib_22.so" : "mod_shib_24.so"
+    <<-EOS.undent
+      You must manually edit httpd.conf to include
+      LoadModule mod_shib #{lib}/shibboleth/#{mod}
+      You must also manually configure
+        #{etc}/shibboleth/shibboleth2.xml
+      as per your own requirements. For more information please see
+        https://wiki.shibboleth.net/confluence/display/EDS10/3.1+Configuring+the+Service+Provider
+    EOS
+  end
+
+  plist_options startup: true, manual: "shibd"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -66,18 +80,6 @@ class ShibbolethSp < Formula
       <true/>
     </dict>
     </plist>
-    EOS
-  end
-
-  def caveats
-    mod = (build.with? "apache-22")? "mod_shib_22.so" : "mod_shib_24.so"
-    <<-EOS.undent
-      You must manually edit httpd.conf to include
-      LoadModule mod_shib #{lib}/shibboleth/#{mod}
-      You must also manually configure
-        #{etc}/shibboleth/shibboleth2.xml
-      as per your own requirements. For more information please see
-        https://wiki.shibboleth.net/confluence/display/EDS10/3.1+Configuring+the+Service+Provider
     EOS
   end
 
