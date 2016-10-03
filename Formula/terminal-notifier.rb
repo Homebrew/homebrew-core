@@ -1,10 +1,10 @@
 class TerminalNotifier < Formula
   desc "Send OS X User Notifications from the command-line"
-  homepage "https://github.com/alloy/terminal-notifier"
-  url "https://github.com/alloy/terminal-notifier/archive/1.6.3.tar.gz"
+  homepage "https://github.com/julienXX/terminal-notifier"
+  url "https://github.com/julienXX/terminal-notifier/archive/1.7.0.tar.gz"
   sha256 "d71243e194d290e873eb5c5f30904e1d9406246d089e7d4d48ca275a8abfe275"
 
-  head "https://github.com/alloy/terminal-notifier.git"
+  head "https://github.com/julienXX/terminal-notifier.git"
 
   bottle do
     cellar :any_skip_relocation
