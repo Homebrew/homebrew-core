@@ -1,14 +1,42 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.1.4.tar.bz2"
-  sha256 "7c99df75a4dc12d22c0f1ed11d0acf98cac1f8b5fe7a7434344b167f810bcbfa"
-  head "https://github.com/FFmpeg/FFmpeg.git"
+
+  stable do
+    url "https://ffmpeg.org/releases/ffmpeg-3.1.4.tar.bz2"
+    sha256 "7c99df75a4dc12d22c0f1ed11d0acf98cac1f8b5fe7a7434344b167f810bcbfa"
+
+    option "with-sdl", "Enable FFplay media player"
+    option "with-openh264", "Enable OpenH264 library"
+    deprecated_option "with-ffplay" => "with-sdl"
+
+    depends_on "sdl" => :optional
+    depends_on "nasm" => :build if build.with? "openh264"
+
+    # Remove when ffmpeg has support for openh264 1.6.0
+    # See https://github.com/cisco/openh264/issues/2505
+    # Master now has support, but not the 3.1.x branch
+    resource "openh264-1.5.0" do
+      url "https://github.com/cisco/openh264/archive/v1.5.0.tar.gz"
+      sha256 "98077bd5d113c183ce02b678733b0cada2cf36750370579534c4d70f0b6c27b5"
+    end
+  end
 
   bottle do
     sha256 "72394f281e42f49816f19a1fe842963ce710be992d9cdafb0b147782ea0a1af1" => :sierra
     sha256 "7c9200710f18df67ddb475436fc312ee4a6c2b0ab6f758c373c28873f84cc89b" => :el_capitan
     sha256 "cc0b73f7ba46f677e4e93e4c274c701895a28e14e97fa335dfea280285ad8df3" => :yosemite
+  end
+
+  head do
+    url "https://github.com/FFmpeg/FFmpeg.git"
+
+    # Support for SDL1 has been removed from master
+    option "with-sdl2", "Enable FFplay media player"
+    deprecated_option "with-ffplay" => "with-sdl2"
+
+    depends_on "sdl2" => :optional
+    depends_on "openh264" => :optional
   end
 
   option "without-x264", "Disable H.264 encoder"
@@ -23,7 +51,6 @@ class Ffmpeg < Formula
   option "with-openssl", "Enable SSL support"
   option "with-libssh", "Enable SFTP protocol via libssh"
   option "with-schroedinger", "Enable Dirac video format"
-  option "with-ffplay", "Enable FFplay media player"
   option "with-tools", "Enable additional FFmpeg tools"
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
   option "with-libvidstab", "Enable vid.stab support for video stabilization"
@@ -34,7 +61,6 @@ class Ffmpeg < Formula
   option "with-snappy", "Enable Snappy library"
   option "with-rubberband", "Enable rubberband library"
   option "with-zimg", "Enable z.lib zimg library"
-  option "with-openh264", "Enable OpenH264 library"
   option "with-xz", "Enable decoding of LZMA-compressed TIFF files"
   option "with-libebur128", "Enable using libebur128 for EBU R128 loudness measurement"
 
@@ -58,7 +84,6 @@ class Ffmpeg < Formula
   depends_on "opencore-amr" => :optional
   depends_on "libass" => :optional
   depends_on "openjpeg" => :optional
-  depends_on "sdl" if build.with? "ffplay"
   depends_on "snappy" => :optional
   depends_on "speex" => :optional
   depends_on "schroedinger" => :optional
@@ -79,15 +104,6 @@ class Ffmpeg < Formula
   depends_on "zimg" => :optional
   depends_on "xz" => :optional
   depends_on "libebur128" => :optional
-
-  depends_on "nasm" => :build if build.with? "openh264"
-
-  # Remove when ffmpeg has support for openh264 1.6.0
-  # See https://github.com/cisco/openh264/issues/2505
-  resource "openh264-1.5.0" do
-    url "https://github.com/cisco/openh264/archive/v1.5.0.tar.gz"
-    sha256 "98077bd5d113c183ce02b678733b0cada2cf36750370579534c4d70f0b6c27b5"
-  end
 
   def install
     # Fixes "dyld: lazy symbol binding failed: Symbol not found: _clock_gettime"
@@ -110,11 +126,12 @@ class Ffmpeg < Formula
     ]
 
     if build.with? "openh264"
-      resource("openh264-1.5.0").stage do
-        system "make", "install-shared", "PREFIX=#{libexec}/openh264-1.5.0"
-        chmod 0444, libexec/"openh264-1.5.0/lib/libopenh264.dylib"
+      if build.stable?
+        resource("openh264-1.5.0").stage do
+          system "make", "install-shared", "PREFIX=#{libexec}/openh264-1.5.0"
+        end
+        ENV.prepend_path "PKG_CONFIG_PATH", libexec/"openh264-1.5.0/lib/pkgconfig"
       end
-      ENV.prepend_path "PKG_CONFIG_PATH", libexec/"openh264-1.5.0/lib/pkgconfig"
       args << "--enable-libopenh264"
     end
 
