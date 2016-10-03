@@ -1,8 +1,8 @@
 class Gsoap < Formula
   desc "SOAP stub and skeleton compiler for C and C++"
-  homepage "https://www.cs.fsu.edu/~engelen/soap.html"
-  url "https://downloads.sourceforge.net/project/gsoap2/gSOAP/gsoap_2.8.28.zip"
-  sha256 "453b36d97a98b35c2829284219dd09a4d60f073a5b77c658c403961c54cfa328"
+  homepage "https://www.genivia.com/products.html"
+  url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.36.zip"
+  sha256 "20f70db768062e094ec3749073bfc4103cacaac8cab2cdbd624634ae496eef21"
 
   bottle do
     sha256 "0f12a3f2fec76aff29c79b5e7f42ab7059e600cd7c09ccefa1708a04dbb241dc" => :el_capitan
@@ -13,15 +13,12 @@ class Gsoap < Formula
   depends_on "openssl"
 
   def install
+    # Contacted upstream by email and been told this should be fixed by 2.8.37,
+    # it is due to the compilation of symbol2.c and soapcpp2_yacc.h not being
+    # ordered correctly in parallel.
     ENV.deparallelize
-
-    # macOS defines "TCP_FASTOPE" in netinet/tcp.h but doesn't
-    # seems to recognise or accept "SOL_TCP". IPPROTO_TCP is equivalent, apparently.
-    # https://github.com/Homebrew/homebrew/issues/44018#issuecomment-145231029
-    inreplace "gsoap/stdsoap2.c", "SOL_TCP", "IPPROTO_TCP"
-    inreplace "gsoap/stdsoap2.cpp", "SOL_TCP", "IPPROTO_TCP"
-
     system "./configure", "--prefix=#{prefix}"
+    system "make"
     system "make", "install"
   end
 
