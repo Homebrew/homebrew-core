@@ -1,8 +1,8 @@
 class GnomeThemesStandard < Formula
   desc "Default themes for the GNOME desktop environment"
   homepage "https://git.gnome.org/browse/gnome-themes-standard/"
-  url "https://download.gnome.org/sources/gnome-themes-standard/3.20/gnome-themes-standard-3.20.2.tar.xz"
-  sha256 "9d0d9c4b2c9f9008301c3c1878ebb95859a735b7fd4a6a518802b9637e4a7915"
+  url "https://download.gnome.org/sources/gnome-themes-standard/3.22/gnome-themes-standard-3.22.1.tar.xz"
+  sha256 "90f6f4e79eaa42e424fa35144cdbcb5db93db56e73200ac045742ba320febb54"
 
   bottle do
     cellar :any
