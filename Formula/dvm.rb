@@ -11,21 +11,26 @@ class Dvm < Formula
     sha256 "ddb8a34197f47b6b53e5fe8d599d8678cea60a63e33edd96b86b0a9646fe51cf" => :mavericks
   end
 
+  depends_on "glide" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["PATH"] = "#{ENV["PATH"]}:#{buildpath}/bin"
+    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+    ENV.append_path "PATH", buildpath/"bin"
 
-    dvmpath = buildpath/"src/github.com/getcarina/dvm"
-    dvmpath.install Dir["{*,.git}"]
+    dir = buildpath/"src/github.com/getcarina/dvm"
+    dir.install buildpath.children
 
-    cd dvmpath do
-      system "make", "VERSION=#{version}", "COMMIT=65c380cf2079fa5387ca49c7b5552ae4e2ec3b77", "UPGRADE_DISABLED=true"
+    cd dir do
+      # `depends_on "glide"` already has this covered
+      inreplace "Makefile", %r{^.*go get github.com/Masterminds/glide.*$\n}, ""
 
+      system "make", "VERSION=#{version}", "UPGRADE_DISABLED=true"
       prefix.install "dvm.sh"
       prefix.install "bash_completion"
       (prefix/"dvm-helper").install "dvm-helper/dvm-helper"
+      prefix.install_metafiles
     end
   end
 
