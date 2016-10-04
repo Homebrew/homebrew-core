@@ -1,8 +1,8 @@
 class Dvm < Formula
   desc "Docker Version Manager"
   homepage "https://github.com/getcarina/dvm"
-  url "https://github.com/getcarina/dvm/archive/0.6.3.tar.gz"
-  sha256 "09089036d881a6f3544198d93be82e5861cbc5f8682bfa3466e4d099923eb493"
+  url "https://github.com/getcarina/dvm/archive/0.6.4.tar.gz"
+  sha256 "7ff3bc5271432b7f5da535cd04228bf212dd2965ed15998837d660452094ff0e"
 
   bottle do
     cellar :any_skip_relocation
