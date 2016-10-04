@@ -12,26 +12,15 @@ class KubernetesCli < Formula
     sha256 "808c93e78b84f743877690d72aee24a61415af5fc1cc4c7bbd6c7b60fa66b735" => :yosemite
   end
 
-  devel do
-    # building from the tag lets it pick up the correct version info
-    url "https://github.com/kubernetes/kubernetes.git",
-        :tag => "v1.4.0-alpha.3",
-        :revision => "b44b716965db2d54c8c7dfcdbcb1d54792ab8559"
-    version "1.4.0-alpha.3"
-  end
-
   depends_on "go" => :build
 
   def install
-    if build.stable?
-      system "make", "all", "WHAT=cmd/kubectl", "GOFLAGS=-v"
-    else
-      # avoids needing to vendor github.com/jteeuwen/go-bindata
-      rm "./test/e2e/framework/gobindata_util.go"
+    # avoids needing to vendor github.com/jteeuwen/go-bindata
+    rm "./test/e2e/framework/gobindata_util.go"
 
-      ENV.deparallelize { system "make", "generated_files" }
-      system "make", "kubectl", "GOFLAGS=-v"
-    end
+    ENV.deparallelize { system "make", "generated_files" }
+    system "make", "kubectl", "GOFLAGS=-v"
+
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
     bin.install "_output/local/bin/darwin/#{arch}/kubectl"
 
