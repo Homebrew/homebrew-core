@@ -33,9 +33,14 @@ class Freetds < Formula
 
   depends_on "pkg-config" => :build
   depends_on "unixodbc" => :optional
+  depends_on "libiodbc" => :optional
   depends_on "openssl" => :recommended
 
   def install
+    if build.with?("unixodbc") && build.with?("libiodbc")
+      odie "freetds: --without-libiodbc must be specified when using --with-unixodbc"
+    end
+
     args = %W[
       --prefix=#{prefix}
       --with-tdsver=7.3
@@ -48,6 +53,10 @@ class Freetds < Formula
 
     if build.with? "unixodbc"
       args << "--with-unixodbc=#{Formula["unixodbc"].opt_prefix}"
+    end
+
+    if build.with? "libiodbc"
+      args << "--with-libiodbc=#{Formula["libiodbc"].opt_prefix}"
     end
 
     # Translate formula's "--with" options to configuration script's "--enable"
