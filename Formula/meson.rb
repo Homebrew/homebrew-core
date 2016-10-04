@@ -8,11 +8,9 @@ class Meson < Formula
   head "https://github.com/mesonbuild/meson.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "78fdb388a133aebdc3a30cbb297539a46830963148c57dfb6054e53991d53fe7" => :sierra
-    sha256 "47f37b582826aacd39b3000523b8fdfea87d5f35aa58ac6ce96fdfcd41cc1dcd" => :el_capitan
-    sha256 "2c9de47261bdaf0f10fd995caa3e5bbf7da14876e7295096ccab9f8212047f68" => :yosemite
-    sha256 "2c9de47261bdaf0f10fd995caa3e5bbf7da14876e7295096ccab9f8212047f68" => :mavericks
+    sha256 "62def1bceba26bc2f05b561a1165173a19ba9c217484e1b6d22bd4d8352fe3f5" => :sierra
+    sha256 "5fc4d819c174040c6047485b53e93761fd2947188c9d5963d0c434159f7581c2" => :el_capitan
+    sha256 "d7626da017c4d43675e4ffaad03361691164e55b27ea3e0ecab1eb58aa76d4a4" => :yosemite
   end
 
   depends_on :python3
