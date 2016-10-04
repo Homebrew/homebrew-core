@@ -1,8 +1,10 @@
 class Meson < Formula
+  include Language::Python::Virtualenv
+
   desc "Fast and user friendly build system"
   homepage "http://mesonbuild.com/"
-  url "https://github.com/mesonbuild/meson/releases/download/0.34.0/meson-0.34.0.tar.gz"
-  sha256 "e8cdc1847c615c53bd845163a46785e88c4c093b941ba4cb5cac76854769011f"
+  url "https://github.com/mesonbuild/meson/releases/download/0.35.0/meson-0.35.0.tar.gz"
+  sha256 "6e30bad3f819bf3930745a5b7da0abc4c3a767908b531d66a06177d0fae6ef00"
   head "https://github.com/mesonbuild/meson.git"
 
   bottle do
@@ -17,12 +19,8 @@ class Meson < Formula
   depends_on "ninja"
 
   def install
-    version = Language::Python.major_minor_version("python3")
-    ENV["PYTHONPATH"] = lib+"python#{version}/site-packages"
-
-    system "python3", *Language::Python.setup_install_args(prefix)
-
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_create(libexec, "python3")
+    virtualenv_install_with_resources
   end
 
   test do
