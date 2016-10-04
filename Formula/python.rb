@@ -198,16 +198,18 @@ class Python < Formula
     end
 
     system "make"
-
-    ENV.deparallelize # installs must be serialized
-    # Tell Python not to install into /Applications
-    system "make", "install", "PYTHONAPPSDIR=#{prefix}"
-    # Demos and Tools
-    system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
-    system "make", "quicktest" if build.with? "quicktest"
+    if build.with?("quicktest") || build.bottle?
+      system "make", "quicktest", "TESTPYTHONOPTS=-s", "TESTOPTS=-j#{ENV.make_jobs} -w"
+    end
 
     # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
     (lib/"pkgconfig").install_symlink Dir["#{frameworks}/Python.framework/Versions/Current/lib/pkgconfig/*"]
+
+    ENV.deparallelize do
+      # Tell Python not to install into /Applications
+      system "make", "install", "PYTHONAPPSDIR=#{prefix}"
+      system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
+    end
 
     # Fixes setting Python build flags for certain software
     # See: https://github.com/Homebrew/homebrew/pull/20182
