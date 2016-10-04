@@ -3,6 +3,7 @@ class Openconnect < Formula
   homepage "http://www.infradead.org/openconnect.html"
   url "ftp://ftp.infradead.org/pub/openconnect/openconnect-7.07.tar.gz"
   sha256 "f3ecfcd487dcd916748db38b4138c1e72c86347d6328b11dfe1d0af2821b8366"
+  revision 1
 
   bottle do
     sha256 "cbe08c848c2965016b4a01113781f033498e529a3ddbf86ca9c4528f34838cf9" => :sierra
@@ -18,12 +19,12 @@ class Openconnect < Formula
     depends_on "libtool" => :build
   end
 
-  # No longer compiles against OpenSSL 1.0.2 - It chooses the system OpenSSL instead.
-  # https://lists.infradead.org/pipermail/openconnect-devel/2015-February/002757.html
+  option "with-gnutls", "Use GnuTLS instead of OpenSSL"
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "gnutls"
+  depends_on "openssl" if build.without? "gnutls"
+  depends_on "gnutls" => :optional
   depends_on "oath-toolkit" => :optional
   depends_on "stoken" => :optional
 
