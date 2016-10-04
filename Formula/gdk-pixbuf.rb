@@ -3,7 +3,7 @@ class GdkPixbuf < Formula
   homepage "http://gtk.org"
   url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.0.tar.xz"
   sha256 "85ab52ce9f2c26327141b3dcf21cca3da6a3f8de84b95fa1e727d8871a23245c"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "a88ca77b912c1929c13109649c09581da885a1e8c928c9be14d6133924787363" => :sierra
@@ -20,6 +20,7 @@ class GdkPixbuf < Formula
   depends_on "libtiff"
   depends_on "libpng"
   depends_on "gobject-introspection"
+  depends_on "shared-mime-info"
 
   # 'loaders.cache' must be writable by other packages
   skip_clean "lib/gdk-pixbuf-2.0"
