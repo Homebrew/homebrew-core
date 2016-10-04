@@ -12,12 +12,24 @@ class Zstd < Formula
     sha256 "d0acff7aaa610d58ead02729ad5ec2a447c764da12c2ffce79af8ee1c9effcbe" => :mavericks
   end
 
+  option "without-pzstd", "Build without parallel (de-)compression tool"
+
   def install
     system "make", "install", "PREFIX=#{prefix}/"
+
+    if build.with? "pzstd"
+      system "make", "-C", "contrib/pzstd/", "PREFIX=#{prefix}/"
+      bin.install "contrib/pzstd/pzstd"
+    end
   end
 
   test do
     assert_equal "hello\n",
       pipe_output("#{bin}/zstd | #{bin}/zstd -d", "hello\n", 0)
+
+    if build.with? "pzstd"
+      assert_equal "hello\n",
+        pipe_output("#{bin}/pzstd | #{bin}/pzstd -d", "hello\n", 0)
+    end
   end
 end
