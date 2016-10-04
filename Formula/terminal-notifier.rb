@@ -1,8 +1,8 @@
 class TerminalNotifier < Formula
   desc "Send OS X User Notifications from the command-line"
   homepage "https://github.com/julienXX/terminal-notifier"
-  url "https://github.com/julienXX/terminal-notifier/archive/1.7.0.tar.gz"
-  sha256 "cc70666e75b0e85ff43973d6d1212a8ebc7ef3cdf20d09be7a76eb7f1c9923d7"
+  url "https://github.com/julienXX/terminal-notifier/archive/1.7.1.tar.gz"
+  sha256 "6a322a01641d37ca11ed325452bcfce0b312c7bde65cd5afbb53236f1f6b51df"
   head "https://github.com/julienXX/terminal-notifier.git"
 
   bottle do
