@@ -3,6 +3,7 @@ class SharedMimeInfo < Formula
   homepage "https://wiki.freedesktop.org/www/Software/shared-mime-info"
   url "https://freedesktop.org/~hadess/shared-mime-info-1.7.tar.xz"
   sha256 "eacc781cfebaa2074e43cf9521dc7ab4391ace8a4712902b2841669c83144d2e"
+  revision 1
 
   bottle do
     cellar :any
@@ -37,6 +38,10 @@ class SharedMimeInfo < Formula
       system "./configure", *args
     end
     system "make", "install"
+  end
+
+  def post_install
+    system bin/"update-mime-database", HOMEBREW_PREFIX/"share/mime"
   end
 
   test do
