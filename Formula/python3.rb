@@ -1,7 +1,7 @@
 class Python3 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  revision 2
+  revision 3
 
   head "https://hg.python.org/cpython", :using => :hg
 
@@ -205,6 +205,17 @@ class Python3 < Formula
     # Any .app get a " 3" attached, so it does not conflict with python 2.x.
     Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 3.app") }
 
+    # Prevent third-party packages from building against fragile Cellar paths
+    inreplace Dir[lib_cellar/"**/_sysconfigdata_m_darwin_darwin.py",
+                  lib_cellar/"config*/Makefile",
+                  frameworks/"Python.framework/Versions/3*/lib/pkgconfig/python-3.?.pc"],
+              prefix, opt_prefix
+
+    # Help third-party packages find the Python framework
+    inreplace Dir[lib_cellar/"config*/Makefile"],
+              /^LINKFORSHARED=(.*)PYTHONFRAMEWORKDIR(.*)/,
+              "LINKFORSHARED=\\1PYTHONFRAMEWORKINSTALLDIR\\2"
+
     # A fix, because python and python3 both want to install Python.framework
     # and therefore we can't link both into HOMEBREW_PREFIX/Frameworks
     # https://github.com/Homebrew/homebrew/issues/15943
@@ -219,13 +230,6 @@ class Python3 < Formula
 
     # Remove the site-packages that Python created in its Cellar.
     site_packages_cellar.rmtree
-
-    # These makevars are available through distutils.sysconfig at runtime and
-    # some third-party software packages depend on them
-    inreplace Dir.glob(frameworks/"Python.framework/Versions/#{xy}/lib/python#{xy}/config-#{xy}*/Makefile") do |s|
-      s.change_make_var! "LINKFORSHARED",
-                         "#{opt_prefix}/Frameworks/Python.framework/Versions/#{xy}/Python"
-    end
 
     %w[setuptools pip wheel].each do |r|
       (libexec/r).install resource(r)
