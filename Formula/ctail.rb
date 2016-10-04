@@ -16,18 +16,22 @@ class Ctail < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "apr" => :build
-  depends_on "apr-util" => :build
+  depends_on "apr"
+  depends_on "apr-util"
 
   conflicts_with "byobu", :because => "both install `ctail` binaries"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-debug", "--with-apr=#{Formula["apr"].bin}", "--with-apr-util=#{Formula["apr-util"].bin}"
+    system "./configure",
+        "--prefix=#{prefix}",
+        "--disable-debug",
+        "--with-apr=#{Formula["apr"].opt_bin}",
+        "--with-apr-util=#{Formula["apr-util"].opt_bin}"
     system "make", "LIBTOOL=glibtool --tag=CC"
     system "make", "install"
   end
 
   test do
-    system "ctail", "-h"
+    system "#{bin}/ctail", "-h"
   end
 end
