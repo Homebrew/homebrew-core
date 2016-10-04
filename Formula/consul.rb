@@ -20,6 +20,11 @@ class Consul < Formula
 
   depends_on "go" => :build
 
+  resource "web-ui" do
+    url "https://releases.hashicorp.com/consul/0.7.0/consul_0.7.0_web_ui.zip"
+    sha256 "42212089c228a73a0881a5835079c8df58a4f31b5060a3b4ffd4c2497abe3aa8"
+  end
+
   def install
     contents = Dir["{*,.git,.gitignore}"]
     gopath = buildpath/"gopath"
