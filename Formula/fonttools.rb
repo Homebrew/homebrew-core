@@ -1,4 +1,7 @@
 class Fonttools < Formula
+  include Language::Python::Virtualenv
+
+
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
   url "https://pypi.python.org/packages/d6/c4/688022e14fe8b8e899b40fd8eddece9f3e35b409267220432ac5f01e52c4/fonttools-3.1.2.zip"
@@ -20,12 +23,11 @@ class Fonttools < Formula
   depends_on "pygtk" => :optional
 
   def install
+    virtualenv_install_with_resources
+
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages/FontTools"
 
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    system "python", "setup.py", "test"
   end
 
   test do
