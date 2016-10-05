@@ -1,8 +1,8 @@
 class Irrlicht < Formula
   desc "Realtime 3D engine"
   homepage "http://irrlicht.sourceforge.net/"
-  url "https://downloads.sourceforge.net/irrlicht/irrlicht-1.8.3.zip"
-  sha256 "9e7be44277bf2004d73580a8585e7bd3c9ce9a3c801691e4f4aed030ac68931c"
+  url "https://downloads.sourceforge.net/project/irrlicht/Irrlicht%20SDK/1.8/1.8.4/irrlicht-1.8.4.zip"
+  sha256 "f42b280bc608e545b820206fe2a999c55f290de5c7509a02bdbeeccc1bf9e433"
   head "https://irrlicht.svn.sourceforge.net/svnroot/irrlicht/trunk"
 
   bottle do
@@ -15,6 +15,10 @@ class Irrlicht < Formula
   depends_on :xcode => :build
 
   def install
+    inreplace "source/Irrlicht/MacOSX/CIrrDeviceMacOSX.mm",
+      "[NSApp setDelegate:(id<NSFileManagerDelegate>)",
+      "[NSApp setDelegate:(id<NSApplicationDelegate>)"
+
     xcodebuild "-project", "source/Irrlicht/MacOSX/MacOSX.xcodeproj",
                "-configuration", "Release",
                "-target", "libIrrlicht.a",
