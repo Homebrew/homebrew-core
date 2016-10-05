@@ -1,9 +1,11 @@
 class Fonttools < Formula
+  include Language::Python::Virtualenv
+
   desc "Library for manipulating fonts"
-  homepage "https://github.com/behdad/fonttools"
-  url "https://github.com/behdad/fonttools/archive/3.0.tar.gz"
-  sha256 "3bc9141d608603faac3f800482feec78a550d0a94c29ff3850471dbe4ad9e941"
-  head "https://github.com/behdad/fonttools.git"
+  homepage "https://github.com/fonttools/fonttools"
+  url "https://pypi.python.org/packages/d6/c4/688022e14fe8b8e899b40fd8eddece9f3e35b409267220432ac5f01e52c4/fonttools-3.1.2.zip"
+  sha256 "1e36cdaf52f93414f4ba9848e043630058b59f1ef4f1900bb1dd948f8e7ec55a"
+  head "https://github.com/fonttools/fonttools.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,12 +22,9 @@ class Fonttools < Formula
   depends_on "pygtk" => :optional
 
   def install
+    virtualenv_install_with_resources
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages/FontTools"
-
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    system "python", "setup.py", "test"
   end
 
   test do
