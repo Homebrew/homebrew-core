@@ -15,7 +15,9 @@ class KubernetesCli < Formula
   depends_on "go" => :build
 
   def install
-    # avoids needing to vendor github.com/jteeuwen/go-bindata
+    # Patch needed to avoid vendor dependency on github.com/jteeuwen/go-bindata
+    # Build will otherwise fail with missing dep
+    # Raised in https://github.com/kubernetes/kubernetes/issues/34067
     rm "./test/e2e/framework/gobindata_util.go"
 
     ENV.deparallelize { system "make", "generated_files" }
