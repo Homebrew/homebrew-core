@@ -40,6 +40,17 @@ class Ffmpeg < Formula
     depends_on "openh264" => :optional
   end
 
+  head do
+    url "https://github.com/FFmpeg/FFmpeg.git"
+
+    # Support for SDL1 has been removed from master
+    option "with-sdl2", "Enable FFplay media player"
+    deprecated_option "with-ffplay" => "with-sdl2"
+
+    depends_on "sdl2" => :optional
+    depends_on "openh264" => :optional
+  end
+
   option "without-x264", "Disable H.264 encoder"
   option "without-lame", "Disable MP3 encoder"
   option "without-xvid", "Disable Xvid MPEG-4 video encoder"
