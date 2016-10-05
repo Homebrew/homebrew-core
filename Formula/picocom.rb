@@ -1,8 +1,8 @@
 class Picocom < Formula
   desc "Minimal dump-terminal emulation program"
   homepage "https://github.com/npat-efault/picocom"
-  url "https://github.com/npat-efault/picocom/archive/2.1.tar.gz"
-  sha256 "6b152fc5f816eaef6b86336a4cec7cf1496b7c712061e5aea5a36f143a0b09ed"
+  url "https://github.com/npat-efault/picocom/archive/2.2.tar.gz"
+  sha256 "3e3904158d675541f0fcfdcd1f671b38445338f536080f5de8d6674b5f33d4ce"
 
   bottle do
     cellar :any_skip_relocation
