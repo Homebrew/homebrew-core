@@ -6,6 +6,7 @@ class Fuseki < Formula
   sha256 "8f0cfa13d9a94df9dfb5a424177a0d3d9873b605e0ae610ba6e5f3d30f06f9bf"
 
   bottle :unneeded
+  plist_options :manual => true
 
   def install
     # Remove windows files
