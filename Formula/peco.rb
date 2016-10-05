@@ -1,8 +1,8 @@
 class Peco < Formula
   desc "Simplistic interactive filtering tool"
   homepage "https://github.com/peco/peco"
-  url "https://github.com/peco/peco/archive/v0.4.2.tar.gz"
-  sha256 "66dd72033653e41f26a2e9524ccc04650ebccb9af42daa00b106fc9e1436ddef"
+  url "https://github.com/peco/peco/archive/v0.4.3.tar.gz"
+  sha256 "1f54da670c65b60575564913684ae7598e2d0cce26b5f539719d911ee121633c"
   head "https://github.com/peco/peco.git"
 
   bottle do
@@ -19,7 +19,7 @@ class Peco < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = buildpath/"glide_home"
+    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     (buildpath/"src/github.com/peco/peco").install buildpath.children
     cd "src/github.com/peco/peco" do
       system "glide", "install"
