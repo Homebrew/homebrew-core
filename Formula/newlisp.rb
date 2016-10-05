@@ -3,11 +3,12 @@ class Newlisp < Formula
   homepage "http://www.newlisp.org/"
   url "http://www.newlisp.org/downloads/newlisp-10.7.0.tgz"
   sha256 "c4963bf32d67eef7e4957f7118632a0c40350fd0e28064bce095865b383137bb"
+  revision 1
 
   bottle do
-    sha256 "8bc10b849d0a5452a2cf6de53cd7eb6d3df97ca4369e8a3eb28eff82953ca2bb" => :el_capitan
-    sha256 "29cf459d873290b0876cb798cb06dfe1df51db10da9f6300e04f1e9d7d7aecb8" => :yosemite
-    sha256 "dbacba90228024041cbe50efc63959cdaa94c3ca0d30267bcedcd1769dc4c597" => :mavericks
+    sha256 "76637be4fb4ba87141134cab1dc708d53b4220aa96879b762f253544157cc2f1" => :sierra
+    sha256 "59a068766a6432ef25bde0496a0d70be73af1c4c6d1ae603f56a59732b2598e2" => :el_capitan
+    sha256 "360987ebd0f108b6241edb15f4acbb85efa4a80585424154068ea8567e3fad01" => :yosemite
   end
 
   depends_on "readline" => :recommended

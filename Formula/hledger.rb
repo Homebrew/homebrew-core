@@ -10,6 +10,7 @@ class Hledger < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bdb098173abbf4a05a7534c16af1f06ae386098f3f701e8ea955441b585f7497" => :sierra
     sha256 "902c3bccc2735fea965609d09399443b55d93f25e43d43f618295e0e1964f4df" => :el_capitan
     sha256 "9ee7e6741316b518f0981203e86db9324cb93ed2f686d1a875907aebfa7d46fb" => :yosemite
     sha256 "b408fb08725ff8fa70c00d11af345ad2511de32a046fbc378b1676b046d13be8" => :mavericks

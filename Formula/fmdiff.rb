@@ -6,10 +6,11 @@ class Fmdiff < Formula
   head "https://github.com/brunodefraine/fmscripts.git"
 
   bottle do
-    revision 1
-    sha256 "ba9108d500e3cf771c1f1b0430d7fe92c3e5743265dc001c1dbd70d260fbbd7a" => :el_capitan
-    sha256 "11aa1ef52e2f54cc99f5ad2587d204bc83e9f08aa5eb2823f2831376e8b53846" => :yosemite
-    sha256 "9905051e6b7fea4e23e0c9a1adedae94e6a52c0f471a955a532320849fd8ae18" => :mavericks
+    cellar :any_skip_relocation
+    rebuild 2
+    sha256 "59d9c9d8a8759531a2f715619cfb2bce404fc7378235cf416ea5a426eb8d967f" => :sierra
+    sha256 "59d9c9d8a8759531a2f715619cfb2bce404fc7378235cf416ea5a426eb8d967f" => :el_capitan
+    sha256 "59d9c9d8a8759531a2f715619cfb2bce404fc7378235cf416ea5a426eb8d967f" => :yosemite
   end
 
   # Needs FileMerge.app, which has been part of Xcode since Xcode 4 (OS X 10.7)

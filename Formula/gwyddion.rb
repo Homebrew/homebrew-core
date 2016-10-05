@@ -5,6 +5,7 @@ class Gwyddion < Formula
   sha256 "2ac1bd2042d8ee0088de89435fc113ccc8028433c910a7509a93ffdc4a4ab66b"
 
   bottle do
+    sha256 "74bb051af0695bec0432c22327ec0dc46b0d1993e37c5a13b6d0dee3f5b951b8" => :sierra
     sha256 "ed3618203bebcedcbab831528b4c80c982923d2c077ad00fe2c7a3f94563020b" => :el_capitan
     sha256 "2c50f35fa337402bcd0b37d6544f6475148f290ecc950c35c1059006c12bd4e5" => :yosemite
     sha256 "7d9a350c4c785379f236b8158f9ba04d56ee4b94ba8ebb6c067c108fe32940b9" => :mavericks

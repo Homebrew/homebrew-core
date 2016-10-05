@@ -5,6 +5,7 @@ class Zxcc < Formula
   sha256 "6095119a31a610de84ff8f049d17421dd912c6fd2df18373e5f0a3bc796eb4bf"
 
   bottle do
+    sha256 "79aa0631d52d2d69ae554319db0027ffd59f2baa3d1c35473925f72a5c1965e3" => :sierra
     sha256 "11bd1697b8a6b5a3a77ce417d35ad7e1da9e6df18a36ebccfa18a47ce470d3cb" => :el_capitan
     sha256 "824c8a2511a55f9fc00b7058247e3e76d9579c14d20f2d17b5e57aaf1388671f" => :yosemite
     sha256 "94203911967d0818075168a3734fb1f756e5ba0ecddac30e50dac36319d38f44" => :mavericks

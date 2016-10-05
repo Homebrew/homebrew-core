@@ -6,6 +6,7 @@ class Ctl < Formula
   revision 1
 
   bottle do
+    sha256 "3f8e680a2ffe275cf0b719c3d092d9d38d068bb90def12bb84021a1c95205e52" => :sierra
     sha256 "c66847b6d0da88f917d5c701b0faeb91678f9622718fa09734973bef46a2599f" => :el_capitan
     sha256 "d04f2f46eaa9b3fa1d6e67e0493e8b206f873c6211874962b8ef06865bbf5c71" => :yosemite
     sha256 "59a4e155666ed1854a2b38204d750ddc0af75ebd988367b1629be4a9f00a6c1f" => :mavericks

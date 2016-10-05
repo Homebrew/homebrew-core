@@ -7,6 +7,7 @@ class Rapidjson < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9fbe96e76e21457931a5e2fff343833b84941e2387ab02212946ad71665c3f6f" => :sierra
     sha256 "d0b949a9bd043535e2ff3e032b45b26de0083d319bc094db7ccc1edfea6cbdb3" => :el_capitan
     sha256 "252ec61e7d5cba129a888bb566d4f2b61bd1bd2886de637f48afa638e6764007" => :yosemite
     sha256 "806e4c788a675bbb0cff3cc9af68f8cdf46ac3d5bf49a47a94b331cc67ca0f4d" => :mavericks

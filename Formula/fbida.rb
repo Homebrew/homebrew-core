@@ -6,6 +6,7 @@ class Fbida < Formula
 
   bottle do
     cellar :any
+    sha256 "f507c343f4e168984d3e67a9e1afaf41ef54c19a632c351e4782181886a1680d" => :sierra
     sha256 "80b7410d476eb78c600e0371affe1e358048735ca46e31f135819ceca9c066d7" => :el_capitan
     sha256 "9d5593851f4e1a378e96219288893de00fb3aaf3b8e454362d8d4c3568bcb694" => :yosemite
     sha256 "f0c80275d3c79df13d562c200fe2cc53474c9893ceff33686196efd0cc5dd286" => :mavericks

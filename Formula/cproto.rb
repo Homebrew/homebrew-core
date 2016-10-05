@@ -7,6 +7,7 @@ class Cproto < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4dcee9160c276855b7bd94235dc15e4d153c161b4f81f8a1e041fda8da5b4cc7" => :sierra
     sha256 "21d0972269ad52cd7098b921f2500bb8bf827fabe1e0718c24fdfd2d844b7f7e" => :el_capitan
     sha256 "4bd2276c002322ce4d28030d60c0858e1efd4311e0f9de5460917cc5b70bc362" => :yosemite
     sha256 "a73eaa28daa6281fc987fb22b2bb50bd9962f4a4d4857e7371b8edf605822ca7" => :mavericks

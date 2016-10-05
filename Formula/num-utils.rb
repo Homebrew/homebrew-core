@@ -7,6 +7,7 @@ class NumUtils < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "37c24f625dae12d9db8592de4dc9003d4ce267a7a0bb6076e156f54d8ec990d1" => :sierra
     sha256 "f2021913b67fe8ece09b204aa2715a4c8067121908695cee830b363a52a987eb" => :el_capitan
     sha256 "41a55ac6c46aca45473ca365443fb1fd2d77fdb6e4540edbe849d723d31ba0e0" => :yosemite
     sha256 "188ff1f94691f8bf5099ec1012d4732be8fa385bf738671f86780376dd2597b9" => :mavericks

@@ -7,9 +7,11 @@ class Camlistore < Formula
   head "https://camlistore.googlesource.com/camlistore", :using => :git
 
   bottle do
-    sha256 "62564ebc8af7078716c921f5e8b6dd1b6570d731ffc12a008facc8a927c6d0d3" => :el_capitan
-    sha256 "e36f8753cd172aed1cb7c538739b7cb20bae6add3b54d9bcf09a6973fa0c7e21" => :yosemite
-    sha256 "00e43ede2522c4d4469eb0e01229b3706525b054cd7afe3e97f21fd23d9ab6a2" => :mavericks
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "4b3f55fa627f93bce045e1512945b39f5e2b49295d4a0b6097488b2d462f7a93" => :sierra
+    sha256 "6af3ede34fb4ffff477b344e8d2c974df5b714d48c51ff01606eb81743083431" => :el_capitan
+    sha256 "04e30799c15004110922c231e3ae28f533d73af21c6e7f4831c6845442746169" => :yosemite
   end
 
   depends_on "pkg-config" => :build

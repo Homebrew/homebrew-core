@@ -6,6 +6,7 @@ class Daq < Formula
 
   bottle do
     cellar :any
+    sha256 "f0be58035bc6f4764567cf186673035818e6025d027695795f959fdfc88c7806" => :sierra
     sha256 "9c2720bd46954e9f2631801d8f8283974436a82827f01c9e954e319f0b9f7e88" => :el_capitan
     sha256 "02d198f42f56471feaf127824230d7ea752490b3c7f5a34f8b50ff0a85062f01" => :yosemite
     sha256 "8ce4fbbbb9f6189f6ee51d3223a81ebc7ea76069353bd284822989d6ccc364a5" => :mavericks

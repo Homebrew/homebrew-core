@@ -1,13 +1,13 @@
 class Devhelp < Formula
   desc "API documentation browser for GTK+ and GNOME"
   homepage "https://wiki.gnome.org/Apps/Devhelp"
-  url "https://download.gnome.org/sources/devhelp/3.20/devhelp-3.20.0.tar.xz"
-  sha256 "a23375c2e2b2ef6240994bc2327fcacfd42403af6d872d0cba2e16dd45ca1f1d"
+  url "https://download.gnome.org/sources/devhelp/3.22/devhelp-3.22.0.tar.xz"
+  sha256 "59cae02e12d238cc5fc3f049d779895ba89701426d9173f5b534d4ab90c5ffb0"
 
   bottle do
-    sha256 "20c195d75481de422ec0e65b7efa3f6817cc6a603c0f37b9b4c90212df912552" => :el_capitan
-    sha256 "383468387249e03b2fedaadb308835fa3425b1c27fd9db4cc1ac39c688bb5adf" => :yosemite
-    sha256 "f33332669eb47d404ea73fbc99fe89e5d33f5044cc8b93acee84f274dc343a32" => :mavericks
+    sha256 "92f3c878dfaa3ce20cd2c29c9a5a8ccb128c0c2ab2f3440355a1fbbe441f97f0" => :sierra
+    sha256 "b375e414ba006a49497ac7cbda0dd94f5647a2e0d5fb1043e18f43d225694171" => :el_capitan
+    sha256 "54e284e4ee6e6ea75b75762fda2e095cc37846b64fc39b54c579afe479b906c1" => :yosemite
   end
 
   depends_on "pkg-config" => :build

@@ -1,15 +1,13 @@
 class Gjs < Formula
   desc "Javascript Bindings for GNOME"
   homepage "https://wiki.gnome.org/Projects/Gjs"
-  url "https://download.gnome.org/sources/gjs/1.44/gjs-1.44.0.tar.xz"
-  sha256 "88c960f6ad47a6931d123f5d6317d13704f58572f68a4391913a254ff27dce80"
+  url "https://download.gnome.org/sources/gjs/1.46/gjs-1.46.0.tar.xz"
+  sha256 "2283591fa70785443793e1d7db66071b36052d707075f229baeb468d8dd25ad4"
 
   bottle do
-    rebuild 1
-    sha256 "30f082820778381fa8e26598edc220330eddc83a6805698fca88e1e1608ba61e" => :sierra
-    sha256 "fb613d40633ad455a5a057d8ea196b6fd602bfd3c5920bb917783f413f0982d0" => :el_capitan
-    sha256 "dfcf484bc4ccbf5d3e6db92247d963712609d7d8d821b8046843899368f9aef1" => :yosemite
-    sha256 "dab6d6305eb3d8046b7f87659b5c3207bb309787a7f58d64a9c018fab78f6437" => :mavericks
+    sha256 "9a90cec9628aa4c648a3071eb43e0291c30bee3ad1f53b3907e8358395ef9e80" => :sierra
+    sha256 "ef052db92391f3ccd9016f8f90b6b29ac2336884f2334d20e35e74eb9f6f6704" => :el_capitan
+    sha256 "0c625e0ea598dcfc143f710de929683cac1aeded17d425b7dba63263a51ba14c" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -47,6 +45,7 @@ class Gjs < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--without-dbus-tests",
                           "--prefix=#{prefix}"
     system "make", "install"
   end

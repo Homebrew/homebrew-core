@@ -12,14 +12,15 @@ class Burp < Formula
 
   bottle do
     cellar :any
+    sha256 "f069164dc6c908f87c975526fd7821b4b9be2514a3b8c5884b844a400556c615" => :sierra
     sha256 "2342aea1a1ac623c8154c1d64a7b583eae62a6177136173d73adada6fd58380e" => :el_capitan
     sha256 "a892287dbaf7a4d5557a471b16d6ce09a5dc0faab004635bc0c90b79d07e92b3" => :yosemite
     sha256 "d3b8cc95839835dd9ba9574444d5cf7394d398376fe2a06fcd3ba9a00b395476" => :mavericks
   end
 
   devel do
-    url "https://github.com/grke/burp/archive/2.0.46.tar.gz"
-    sha256 "b77cedd97bf1696bcbf378b30b3b55f9d63a1df9f471cba9bb8802efa33930af"
+    url "https://github.com/grke/burp/archive/2.0.48.tar.gz"
+    sha256 "62c8304afc30f764eb16c6f0794e593d3ad24850261d1a3b705156bded16116a"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

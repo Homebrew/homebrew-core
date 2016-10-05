@@ -6,6 +6,7 @@ class Rem < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "326f7a21f696b7614a55a5edeb57e08482ff7b4c72506bcecff5deaa0552828e" => :sierra
     sha256 "c9892df4f6aa5d58097e4cc4d62388ccbb1e0c02604b1139cfe829d47d992442" => :el_capitan
     sha256 "d9a6303ff3935923ba53d093e95387caaf24460a4cd7fb7d330fa5c3988b551c" => :yosemite
     sha256 "bf65e89ec4ca486b95f04c1c737627b2e0091af8a5c137795e521b96664d75e2" => :mavericks

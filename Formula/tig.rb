@@ -3,13 +3,13 @@ class Tig < Formula
   homepage "http://jonas.nitro.dk/tig/"
   url "http://jonas.nitro.dk/tig/releases/tig-2.2.tar.gz"
   sha256 "8f5213d3abb45ca9a79810b8d2a2a12d941112bc4682bcfa91f34db74942754c"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "7993e1b035d361ec63997c890bb5a3b28c73e23b773439fae25c44b71f9bda5a" => :sierra
-    sha256 "99982b27386faa66282f3aca77570d5499d896efcc1001da3e5e6e3481d4334d" => :el_capitan
-    sha256 "7d3a5c1f20a69259c5e559431a2da506d02d1cc71a164d5289d7c0abcb6e0ff0" => :yosemite
-    sha256 "b2781db63aa8184f5bec9e8c385de224888fbdf91cc8847462a38a1ecbdf5bcd" => :mavericks
+    sha256 "f359f1fc63abc08d9e9cf21814a8bdf41c0c0d75257be28cb36f5920a4a4f54b" => :sierra
+    sha256 "777f473b9b0bbd8554c0bf138d52511d33ec1d28c0c041098a4a8f52fc816b41" => :el_capitan
+    sha256 "e126cee0ef1cec3d6bd933f596c64ace6e0dadb0633d154e8bd921237bb93170" => :yosemite
   end
 
   head do

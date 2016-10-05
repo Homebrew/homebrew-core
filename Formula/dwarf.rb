@@ -3,13 +3,13 @@ class Dwarf < Formula
   homepage "https://code.google.com/p/dwarf-ng/"
   url "https://github.com/elboza/dwarf-ng/archive/dwarf-0.3.1.tar.gz"
   sha256 "921667018e0edb057d695cdb6b7ed3bd8922a4050506252c21fffe4f7e77be2e"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "824a09f4e084baabdced14df9a141808178c8efed15731e609d9f0ca6f294e17" => :sierra
-    sha256 "1de548e03ead9fae3ed90a9826a8dc27e74abf4087b9505f12d3869f96e14c16" => :el_capitan
-    sha256 "058eff696c55b7d3b4964fa5694acf2216cdf18ba95258abd4b0e60336ae46d3" => :yosemite
-    sha256 "5088e1a29d6f99ead2a5586ad1f5d39c6e84fe52d20af9e8ee27ae662d509901" => :mavericks
+    sha256 "1d89b27dfdfdc133e6987891427957b1cced0aa2a8a27fa51c3b91a0cfe5e5a4" => :sierra
+    sha256 "a75413f26540b97f2ec50506923483718a48af536dc6aeda91ba7512ed84a55a" => :el_capitan
+    sha256 "2edfda127ec9276342162f4ba44e44a18c623c981992a310d1a2ae6267a7b10a" => :yosemite
   end
 
   depends_on "automake" => :build

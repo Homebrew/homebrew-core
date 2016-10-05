@@ -3,13 +3,13 @@ class WithReadline < Formula
   homepage "http://www.greenend.org.uk/rjk/sw/withreadline.html"
   url "http://www.greenend.org.uk/rjk/sw/with-readline-0.1.1.tar.gz"
   sha256 "d12c71eb57ef1dbe35e7bd7a1cc470a4cb309c63644116dbd9c88762eb31b55d"
+  revision 1
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "848877aac84004600d25c5b0ae87c12c2165a8fbc4c31c75bb82c225e5b4a833" => :el_capitan
-    sha256 "b597b2c5fdebc55699be29bb356926244bd8f7ea9c7eca02ba0ca41c319c70de" => :yosemite
-    sha256 "81fe9d0d8e723821ee68a47110ace135b6d865756f00364f758f6ac0d03eb1f2" => :mavericks
+    sha256 "2f1e93e551ea44fbd5594fe734e8dd68d0cd741747a770bf2725be05bd00db04" => :sierra
+    sha256 "692f55b5ea8d97d2f19edea8c5ab6041b5efb3242aedb43feee0e5956e1e590b" => :el_capitan
+    sha256 "05cd5dac85256b656838e839a81cd5abdc22caa3d916e7316f7ce517d17f6059" => :yosemite
   end
 
   option :universal

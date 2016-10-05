@@ -3,13 +3,12 @@ class PostgresXc < Formula
   homepage "http://postgres-xc.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/postgres-xc/Version_1.0/pgxc-v1.0.4.tar.gz"
   sha256 "b467cbb7d562a8545645182958efd1608799ed4e04a9c3906211878d477b29c1"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "ca97470213d7b062b3f5c7d591324d38d813e142fdcb3d06b15b4acb4bf0de5a" => :sierra
-    sha256 "636beaed9fb5a7c632fa8d8185689d9747300cf59938e30240b0be8f492e746c" => :el_capitan
-    sha256 "10ad7c4fc4aea8d963a2020a52e51ba5d386ad6bb987156acd19c7d1ec211751" => :yosemite
-    sha256 "ebc0406afc7906bf6c3a7e8557a51254a37057eeb4db73b049fb5b9232f2709b" => :mavericks
+    sha256 "418558755d398997f321396c3ce2094db847c3de2013156ec95d20e41329646e" => :sierra
+    sha256 "f2b8ce9c188a6e149e77c59fab04683c77e74099dcbc361543cbb752024ba7d3" => :el_capitan
+    sha256 "2558f7b016d6222c637d9393978d0dc49124ce62045f024a22c6f90676ab808c" => :yosemite
   end
 
   option "with-dtrace", "Build with DTrace support"

@@ -4,11 +4,12 @@ class Mdk < Formula
   url "https://ftpmirror.gnu.org/mdk/v1.2.9/mdk-1.2.9.tar.gz"
   mirror "https://ftp.gnu.org/gnu/mdk/v1.2.9/mdk-1.2.9.tar.gz"
   sha256 "6c265ddd7436925208513b155e7955e5a88c158cddda72c32714ccf5f3e74430"
+  revision 1
 
   bottle do
-    sha256 "9e3290fb263592ecfcd5f11b4015536c40f676a2c31987c954f568b43c0998bd" => :el_capitan
-    sha256 "95c93e5625b975cc85854467782a18116bde17e19fc94ae11e6dce6bdae0a44f" => :yosemite
-    sha256 "eaab34ff8d2d73e08da0c3596fbee2eadc68cc269c1fe7b425b49f703348dcfa" => :mavericks
+    sha256 "9ba8df4910f272cdce34416cffb4d9b5ea27ab17a18c15a7a03b78e2c82bdde5" => :sierra
+    sha256 "ec7f02653ee96c042c3699337c480cd986d6aef25c158cf4f5051dba53a4c586" => :el_capitan
+    sha256 "9c51160fede51db605a8cf475dfc74b1733304ab2e8179c79a6973f73ec27669" => :yosemite
   end
 
   depends_on "intltool" => :build

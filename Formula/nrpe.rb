@@ -7,7 +7,8 @@ class Nrpe < Formula
 
   bottle do
     cellar :any
-    revision 2
+    rebuild 2
+    sha256 "7f1020ec90004decbe2f902bbf3aa31cc994ee073da054c5aa3713f61b785a4d" => :sierra
     sha256 "a2af86f9a4eae43266f84f9cf62544657a2508272249a9f39a3dd62b06642b0c" => :el_capitan
     sha256 "7e5975244c0a97fc01bbd5aaabd73f768f7cc831bed026394b59e0d7ebf32cdf" => :yosemite
     sha256 "59df072ab20b615e4c26198be439796f4415816af5be7cd661a3d115d7f73705" => :mavericks

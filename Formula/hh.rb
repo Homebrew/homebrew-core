@@ -3,12 +3,13 @@ class Hh < Formula
   homepage "https://github.com/dvorka/hstr"
   url "https://github.com/dvorka/hstr/releases/download/1.19/hh-1.19-src.tgz"
   sha256 "b67cb5e2515948fd0fb402b732630a51885be5dfe58cbf914c22ea444129a647"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "b241ad9ec87ae46d2e125fa939294a6aea603fc857aeea030526954290bfee18" => :el_capitan
-    sha256 "f737693414e21b5ab9c434be4ffd5923fb4ccc153c4039ba2a65dea4f1010a95" => :yosemite
-    sha256 "b87d487cb1a2d951d9b38c651dda2cc6f3161e183a2174d033f220c0b9bb2cda" => :mavericks
+    sha256 "19610c8ddce3e6f00bd274dd668f6e026b8449c72be593b5e1b59f5250b35c42" => :sierra
+    sha256 "ec9c8e76d52b0293efe225d3ac9312e2edec14e7c9c84c6b8140fec8300f806b" => :el_capitan
+    sha256 "ee3ece1e2ce9794d6e68f5f2a5749753e1fe4f4512de50b0397e4865ccbe81d1" => :yosemite
   end
 
   head do

@@ -1,14 +1,14 @@
 class Anjuta < Formula
   desc "GNOME Integrated Development Environment"
   homepage "http://anjuta.org"
-  url "https://download.gnome.org/sources/anjuta/3.20/anjuta-3.20.0.tar.xz"
-  sha256 "a676c587a28f784ec2096775460cd29fafc3f0216c53e0821641bcd9126b6935"
+  url "https://download.gnome.org/sources/anjuta/3.22/anjuta-3.22.0.tar.xz"
+  sha256 "4face1c063a5a6687a6cfc6f1f700ba15f13664633c05caa2fbf50317608dd03"
+  revision 1
 
   bottle do
-    sha256 "23a7b8a8cdf72eefaabd7702eb9dc249589852583716ff37afd38a2225942b79" => :sierra
-    sha256 "45c434c27df740e3dd52a198a4f126c6dad780575d5fd12b8b58b25fc262fa88" => :el_capitan
-    sha256 "bb3f2a1096b58a082d17b8e0d6e7ff502cc543d1d12e45017602050f5368fc16" => :yosemite
-    sha256 "934b867228aad67b706d7ccb2a30d9c1c0035af99e65bf73f821e34c8e6bea55" => :mavericks
+    sha256 "c6f1b338a629a838e963a8050878da7ca5bd4f8c0203075622d74e3a4648626f" => :sierra
+    sha256 "2f259a1f027616c3c90f167490fed28103eb97221b610ff36dc5e60bd23af498" => :el_capitan
+    sha256 "7e72b0c0dba8490d4b3ff159a80ef4594bd2f06876b7e311b35d7d1a7fe8a510" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

@@ -3,12 +3,13 @@ class Mdbtools < Formula
   homepage "https://github.com/brianb/mdbtools/"
   url "https://github.com/brianb/mdbtools/archive/0.7.1.tar.gz"
   sha256 "dcf310dc7b07e7ad2f9f6be16047dc81312cfe1ab1bd94d0fa739c8059af0b16"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "ace9fa300968cb2360af0cf376498f4f4d175f02c4cf35e0f35d3d5f62a681fb" => :el_capitan
-    sha256 "6474bb245d7674e68588fc10dac8bf3325a0e3e262f417c8b5deb5151a8fd6e0" => :yosemite
-    sha256 "2df4eb2b58bb483016b86c35691587e168ea610c3381f7a4e7abe89b31507a9f" => :mavericks
+    sha256 "e161be6807c2bda9ad9fd70549e3f94b5f953d5c8ef70a1261f6b09ec6ac9e45" => :sierra
+    sha256 "2cb35611ad74402c45bb691d5c37943552b7494ebcdfdc31fd3a68a16c2a2b0c" => :el_capitan
+    sha256 "7e43a2716347e3f89782134b53ca5bf240fd1ebd91025393737fc17b9e09aa21" => :yosemite
   end
 
   option "with-man-pages", "Build manual pages"

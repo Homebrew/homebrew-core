@@ -5,11 +5,12 @@ class Khard < Formula
   homepage "https://github.com/scheibler/khard/"
   url "https://files.pythonhosted.org/packages/eb/9c/0d68645e0347afc2c8ef214cf4ad5b7404978296ccf0bdca5ffe3fa0bfea/khard-0.11.3.tar.gz"
   sha256 "d6133f5622694dfdb73348604afaa78d20ba7a72178075e76afd045e309cc6ec"
+  revision 1
 
   bottle do
-    sha256 "cf2d158892c07cc257a536c55e3c838d8fa6e15f92fd66c090573f39c728ef40" => :sierra
-    sha256 "7f51c3da2c47304458c391d8b561b30bd8a5faaed1466e05ff30191f7f8d776e" => :el_capitan
-    sha256 "7ca5cb5711908de434502c7210cdb7133c7e54d30ffe5e9b21b751c0acfd3b1a" => :yosemite
+    sha256 "7acd401b32d325302978b531efd917bfc599780c8c364756c88c2f6df0e6bc97" => :sierra
+    sha256 "38a51d48932e75da7ad2be06e0fdab602d59f1f6a38760837369fef3c6843dad" => :el_capitan
+    sha256 "6a0500c99f4b1b97b8b69626e5c1bd933ff8c41fd02051f64a9fe36dccdb5330" => :yosemite
   end
 
   depends_on :python3

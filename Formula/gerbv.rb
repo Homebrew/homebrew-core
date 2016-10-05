@@ -7,6 +7,7 @@ class Gerbv < Formula
   revision 1
 
   bottle do
+    sha256 "a69031681f05aedd2c22b9f0aa8b0c00d4f647eec5dced1bcdd5d39becad429f" => :sierra
     sha256 "b828ca8be50c14e4e74df39d991f3e85b5f49972e5abd2928fe1f34f7b02f93a" => :el_capitan
     sha256 "1cbe69c65340619dfbf311db69087f114c1958c93e3a4b4a1e91b2e8485bd679" => :yosemite
     sha256 "0f6b404bb3a7334413c40f05f42d23d8c4e962c3030287937cf5a0586dcb2c9c" => :mavericks

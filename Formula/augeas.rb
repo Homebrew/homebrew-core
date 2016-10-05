@@ -3,11 +3,12 @@ class Augeas < Formula
   homepage "http://augeas.net"
   url "http://download.augeas.net/augeas-1.6.0.tar.gz"
   sha256 "8ba0d9bf059e7ef52118826d1285f097b399fc7a56756ce28e053da0b3ab69b5"
+  revision 1
 
   bottle do
-    sha256 "5dd9f81009041411b1f84c3ace8c3680aa02ee0644fefaa9484ed9261a04d49b" => :sierra
-    sha256 "76602a331faa9ff0d86792707c5048651428674ad9d55cac81735aa90d66a601" => :el_capitan
-    sha256 "e1403283257616daf8ea431bc27749e0c2ae3eba062f4e0a466336d793d0bccb" => :yosemite
+    sha256 "25d35a088046e227f3ad7757b23a7c1c245bbc60626b1da63f4435fb85a6669f" => :sierra
+    sha256 "7500d3d74c5dc96fdaad93b80fd2f31558cd7ad266ba5d7c194212851760830f" => :el_capitan
+    sha256 "fb10a29e31b580bc469b593cc79e364ef2340e30118e0d49da15812a7b7dda4a" => :yosemite
   end
 
   head do

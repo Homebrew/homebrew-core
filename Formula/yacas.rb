@@ -5,7 +5,8 @@ class Yacas < Formula
   sha256 "18482f22d6a8336e9ebfda3bec045da70db2da68ae02f32987928a3c67284233"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "95808542ccd26e5286a42411c0f848bebd63ece8315d4ac92742639bee5eb049" => :sierra
     sha256 "700fa65e0279625861a0f7166c3e213c807ed7ea46b5f10d5ba6be920aa76a64" => :el_capitan
     sha256 "c143a1764ec3dd64563e78e75c09b11d519124a10c97614bd5c6fbc99bab058b" => :yosemite
     sha256 "52c5071ec1f10c3181d11be1cd54d345fef5cdcbd4dcd6ef1d2cd71a8cff1d85" => :mavericks

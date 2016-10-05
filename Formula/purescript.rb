@@ -5,34 +5,14 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  revision 1
-
+  url "https://github.com/purescript/purescript/archive/v0.10.1.tar.gz"
+  sha256 "bd2ef929d9182920df395bbe5935d124ea62a4f4163d328549629da9bfdbb273"
   head "https://github.com/purescript/purescript.git"
 
-  stable do
-    url "https://github.com/purescript/purescript/archive/v0.9.3.tar.gz"
-    sha256 "70ea9ea189300e8ce7ea89eec818a1c9e39be1e758638898b936028fc0155783"
-
-    # Remove when 0.10.0 is released; fix "Variable not in scope" errors
-    # Adds compatibility with optparse-applicative 0.13.0.0
-    # Upstream PR was https://github.com/purescript/purescript/pull/2278
-    # Same as upstream commit https://github.com/purescript/purescript/commit/bdbf4e2
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7a5ebb6/purescript/purescript-optparse-applicative.patch"
-      sha256 "22967efbda6cca1dcae6898d848160bff57112e229fc2a87642f5180089b5feb"
-    end
-  end
-
   bottle do
-    sha256 "28f48f10dba3d9065a7bcd4d245b7aef7a502796d630d05a339b3e1bfd82c3b0" => :sierra
-    sha256 "a3d910d2e6496c498f464df931ca6385fb245c9b9a9f6b6a5a7b2272176e8910" => :el_capitan
-    sha256 "ceef5225bc63048357300290ca28dfdaff4f35861ffb35045b14cb9b28d37d88" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/purescript/purescript/archive/v0.10.0-rc.1.tar.gz"
-    version "0.10.0-rc1"
-    sha256 "bd0cbcedad882dc66fec5d71b8870d3efdb31bcbe82d682e405454b1f3b2a9e9"
+    sha256 "81e6dda0abc029599046c5134c75191407534a4d94221e819c4d1166a133d57d" => :sierra
+    sha256 "a417b2751aa49709496578d89a726f5b0c4cdb37a3329c470cb2122adb21004d" => :el_capitan
+    sha256 "86171e3bdcfcf470afc0de150845a94abbc2de8c858f1d34e1342f6c79bc6112" => :yosemite
   end
 
   depends_on "ghc" => :build

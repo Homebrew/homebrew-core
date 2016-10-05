@@ -7,6 +7,7 @@ class Wdiff < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "aaeab2c70d214deb69451922276ea6d5450b78784cdea803c9cd1220a47998ed" => :sierra
     sha256 "2e3e40ebdb98e11d783fd5e8e9f5c7c553ae06c739b47a4cf3aa3c4c9483cdf2" => :el_capitan
     sha256 "1e34ac95a5aa21146f93c5bd0d7d1b22c48941101dc684d019d6d9700da90e8f" => :yosemite
     sha256 "6cf8260aaa5f0da951bf405f3ed05e1660f8ca7d585c11324319b0c1e6371d56" => :mavericks

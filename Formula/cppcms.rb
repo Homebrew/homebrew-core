@@ -6,6 +6,7 @@ class Cppcms < Formula
 
   bottle do
     cellar :any
+    sha256 "7d669ab4f36bd0bf880235fb5842a8ffbbe655ca8d9d6cd511e8c57a6764632a" => :sierra
     sha256 "3715285e50f8fe247c3d3dd2e543f92e994366ff1578e250dbcca5d8b38851b1" => :el_capitan
     sha256 "6fec4bca41a688f32b5a8b7cef4de2585b14d59ddedc5967a967917e8727dea0" => :yosemite
     sha256 "fe7c1581986e533596f9d12e4f199ecb1af9a15438d80911829af6365f4d3d05" => :mavericks

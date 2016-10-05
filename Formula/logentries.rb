@@ -7,6 +7,7 @@ class Logentries < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "497fb9fde20d96acb77019d983c0c2a8d0b53956c41102bda41d3c9d3104ae10" => :sierra
     sha256 "a7e9da0109b525f9d3ab9143c4ded9edad0a023da1517262e08920a1ab0fd817" => :el_capitan
     sha256 "477138f1ee0fa5a123b12886edf0e8a81e7bcfb725949976855eaa50c1304e8d" => :yosemite
     sha256 "01edb0fe82fade9c94c86f93e0ab284d6eda959d007eb747908819e395df1bee" => :mavericks

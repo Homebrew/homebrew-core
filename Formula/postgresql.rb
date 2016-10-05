@@ -3,13 +3,12 @@ class Postgresql < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v9.5.4/postgresql-9.5.4.tar.bz2"
   sha256 "cf5e571164ad66028ecd7dd8819e3765470d45bcd440d258b686be7e69c76ed0"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "fa725a3e3daab0d4492f80af6e702807fa9c26572f8b7eccc91c8ecb10a1dbc3" => :sierra
-    sha256 "4817d42e9cad63ece2e612f3b8f16931b1cfcf014e024d1f23e87ac815721eed" => :el_capitan
-    sha256 "a1deb24ef12f78a8e95114542823eda19ecbab38db1c8d72dd383f5f91a0ec6f" => :yosemite
-    sha256 "8dea71ddee4c7c05f9a4321bf60dbfdc88df1c53c6c12031593855c928bc2c53" => :mavericks
+    sha256 "2c360204c8420cb5d970a7bf453936d7a1163ec061082f14fea1fd7f80422084" => :sierra
+    sha256 "51565747e6ff1c767397a9904e82b6e387cdbb0ce38aea9da7137587710ee76a" => :el_capitan
+    sha256 "3bc3271ca1ec75712eb91797c4a6a702b0a96a911097bd8ca038a29838d396bb" => :yosemite
   end
 
   devel do

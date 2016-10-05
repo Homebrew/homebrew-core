@@ -6,6 +6,7 @@ class Waon < Formula
 
   bottle do
     cellar :any
+    sha256 "d7fd9859544bf3ccb739942f0db00928469356f4d82ab7848cdba2ae5c5e99e9" => :sierra
     sha256 "6f09559eaf287022f280991b44b5f4e86435fafda167c97a78239602183a3758" => :el_capitan
     sha256 "a16c4df918f59a71396d7c4a5806bafe4bda4a89d3aeb2a52d8dfd41ce6c0432" => :yosemite
     sha256 "7469ec9aa8f549c1294ddb362f8ec2473466c5b027007f3c14fb49984353d813" => :mavericks

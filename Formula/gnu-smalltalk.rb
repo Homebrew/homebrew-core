@@ -4,14 +4,14 @@ class GnuSmalltalk < Formula
   url "https://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"
   mirror "https://ftp.gnu.org/gnu/smalltalk/smalltalk-3.2.5.tar.xz"
   sha256 "819a15f7ba8a1b55f5f60b9c9a58badd6f6153b3f987b70e7b167e7755d65acc"
-  revision 4
+  revision 5
 
   head "https://github.com/bonzini/smalltalk.git"
 
   bottle do
-    sha256 "52c3a5ab8c5e78293097303c65e2ca95bad732182cfc0f8f7cc488f2494c67c6" => :sierra
-    sha256 "2579e19c6afa9cb09eae1bf83b2ce1439632aad01ea4fc6cea7a09a57b71108b" => :el_capitan
-    sha256 "3b7c9be326446b3b72d70a40a5f5736a85b304244f2af2cbc01f85750f9d48c2" => :yosemite
+    sha256 "45c067640a3cd5e8453664e637f25e7e3205ebe4dfd5dcb609ea89a508dc14cf" => :sierra
+    sha256 "7190b107e1211615b45a7168bd0a4b3fdf194f11764285e30ed90b22bfacc659" => :el_capitan
+    sha256 "7f879a4dd647c3d3324154060aa4bbe62fb0b45d9b44cefceab8ffb2bdc1f49f" => :yosemite
   end
 
   devel do

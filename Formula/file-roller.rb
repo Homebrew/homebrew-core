@@ -1,13 +1,13 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/3.20/file-roller-3.20.2.tar.xz"
-  sha256 "93188a7ac9285cb85551c327082aeaeb51ac39a9722cb96b0e29d5ec2ae353c6"
+  url "https://download.gnome.org/sources/file-roller/3.22/file-roller-3.22.0.tar.xz"
+  sha256 "5065b71d43deb3dc3c7af6efa3f3b1188a63bfafb213be86af1d262b1dc11d42"
 
   bottle do
-    sha256 "c3a021b0f45d4a9f15ba04761fa9789bbec8b47ae2ee5501316003ce5a756451" => :el_capitan
-    sha256 "3c85ae1f3273a240c1ac4963b41f4807db644523e6df0a444c33e8a18d4b5549" => :yosemite
-    sha256 "7955d920d08916cb076e4e26d75f475d2e6b93f7d225ba435a377cba562e4046" => :mavericks
+    sha256 "1bb4af0d45b2e3d286cab35a6eb72b44765fb25df1f072e007f25927af91fcfb" => :sierra
+    sha256 "64fe1b9e7790965a7bf1d2f405683f9a8a222fff489e2ab1bf31617a1b7797d5" => :el_capitan
+    sha256 "57efc17c63af25c1fbef8a9407e5c984d2435e96cba17af940c5aae8b8c8d7cb" => :yosemite
   end
 
   depends_on "pkg-config" => :build

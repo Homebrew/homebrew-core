@@ -3,14 +3,13 @@ class LibreadlineJava < Formula
   homepage "http://java-readline.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/java-readline/java-readline/0.8.0/libreadline-java-0.8.0-src.tar.gz"
   sha256 "cdcfd9910bfe2dca4cd08b2462ec05efee7395e9b9c3efcb51e85fa70548c890"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "ac4feb9c01fbbf3c3f749e79103eb19c20a5c40f6a19f007cc80e73b7c318634" => :sierra
-    sha256 "60c87ccb25de4a8f74ab8c556bd20f1d8dea166a0a294b411cc921dbb441b8ed" => :el_capitan
-    sha256 "ff9a64314f4462ca7ce6001128468dc10764713d2f335eb942d61e4b846c7ce0" => :yosemite
-    sha256 "f5bb381d7cb58817f7626dfbdd6e07c027e78e3df232c003cdfc4a2889906f43" => :mavericks
+    sha256 "f608ae47b39418b975f21b435749c64b414325f9933cf70fee257888f6a58934" => :sierra
+    sha256 "eb99d1a6ae9817c90e228bd145450819417758007baf1ef78c763a05c4a0ac82" => :el_capitan
+    sha256 "21a487377ac0dae6c47753dd25d3f850b10fcc7ccde8f6a726b4f730bb05a3da" => :yosemite
   end
 
   depends_on "readline"

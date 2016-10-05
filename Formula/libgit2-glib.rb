@@ -3,12 +3,12 @@ class Libgit2Glib < Formula
   homepage "https://github.com/GNOME/libgit2-glib"
   url "https://download.gnome.org/sources/libgit2-glib/0.24/libgit2-glib-0.24.4.tar.xz"
   sha256 "3a211f756f250042f352b3070e7314a048c88e785dba9d118b851253a7c60220"
+  revision 1
 
   bottle do
-    sha256 "66f959a587df5f21335bfec738f9ca72e9bb5d0e670f0e3f50c87a7e4de758b9" => :sierra
-    sha256 "d8a4f949c2161670d734295533552dc97db5d10875a07295f4e632d7954ff1e6" => :el_capitan
-    sha256 "01ffb7381c126ded635eab180c730bfec0b9abb79367eff03e08a11b33410d81" => :yosemite
-    sha256 "0052a481cad9b325f51261f86fca667e0f88f11176b6b0042989364fa1d376c8" => :mavericks
+    sha256 "5bdad256a9562f73998e774adfc365fa16b3ed3a7d04f426906e44ccd95e34f2" => :sierra
+    sha256 "641b3e4494b86f6ead4fedd260b6ff7e1477ed253d1e3e1870e4e07e26457e98" => :el_capitan
+    sha256 "dd438cd28d5a7e398dad1b25795cb73d7df383abe91e569987996bcba59b6a5d" => :yosemite
   end
 
   head do

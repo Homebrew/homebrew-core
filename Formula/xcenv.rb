@@ -7,6 +7,7 @@ class Xcenv < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8bdcf774eebbfa075bf539c44ee4469a8d3d7b0f326c475ec8654d61a2647429" => :sierra
     sha256 "cea5afaa85e626275f25897176165839ce8b62e83e6858a6d2733e5aa2a08b4e" => :el_capitan
     sha256 "82c0673fec7ade22f064e2d8f67739b4e1c86c4b86cfe0d89bf8561b82978565" => :yosemite
     sha256 "82c0673fec7ade22f064e2d8f67739b4e1c86c4b86cfe0d89bf8561b82978565" => :mavericks

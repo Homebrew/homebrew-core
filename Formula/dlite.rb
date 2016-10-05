@@ -7,6 +7,7 @@ class Dlite < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8d7de9236c90172bc846a4a9c5ff1fbe0286c1616572c52e3bab2043476603a6" => :sierra
     sha256 "cab7bd9704df6b1f162a7d258ba3807a9d00cef93395b9fe4b4837a635969692" => :el_capitan
     sha256 "d1244ccccc75ab8747a86c01aceeb25fee219617d9d4a2c3a3c6cd0bad45c0ee" => :yosemite
   end

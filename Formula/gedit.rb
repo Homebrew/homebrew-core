@@ -1,23 +1,28 @@
 class Gedit < Formula
   desc "The GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/3.20/gedit-3.20.2.tar.xz"
-  sha256 "32a1276a71a0d4a5af4e20a87bc273170ba8e075fc1ca7f51c8d3a6c150463f8"
+  url "https://download.gnome.org/sources/gedit/3.22/gedit-3.22.0.tar.xz"
+  sha256 "063b5a0b5dcc8f540f6e8c3ea1c22cf8a3a19edffc25315a1b6bc51d462b3f45"
 
   bottle do
-    sha256 "e03c089fa4cc4eb64dee71f49301f59d1b5e047e079e513cf890fc1deeb323a9" => :sierra
-    sha256 "f82d3eda571bfd09c0f25f35ecbfe5ec3f27495c698caa9a0f099a20055dcb73" => :el_capitan
-    sha256 "dfb0ecca21a09bf5ce5d2eadb9b619731a4cdd68e5caf4f274e2f58a8cfdebe7" => :yosemite
-    sha256 "421dd30ffd44155452dc99db471e9d92f38d67b99b5e83dfc98e3e121f7883b9" => :mavericks
+    sha256 "86f0fb0000fca3d5cdf78df96bcf9d12671fdccc7609cde5390b0196477e3496" => :sierra
+    sha256 "2034d1d4cdd38ecf3455b6b6567536a882d76d02a6548f4a9db752837b1b532a" => :el_capitan
+    sha256 "bdd65dec12abb7b3808e5802ec3a9793ab44186803618cdfb7907bd4f2d289f8" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
+  depends_on "atk"
+  depends_on "cairo"
+  depends_on "gdk-pixbuf"
+  depends_on "gettext"
+  depends_on "glib"
+  depends_on "pango"
   depends_on "gtk+3"
   depends_on "gtk-mac-integration"
   depends_on "gobject-introspection"
-  depends_on "enchant"
+  depends_on "gspell"
   depends_on "iso-codes"
   depends_on "libxml2"
   depends_on "libpeas"
@@ -31,8 +36,7 @@ class Gedit < Formula
                           "--prefix=#{prefix}",
                           "--disable-updater",
                           "--disable-schemas-compile",
-                          "--disable-python",
-                          "--disable-spell" # Expects gspell < 1.0.
+                          "--disable-python"
     system "make", "install"
   end
 

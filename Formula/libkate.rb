@@ -7,11 +7,11 @@ class Libkate < Formula
   revision 1
 
   bottle do
-    revision 2
-    sha256 "5fcb9aa4ebc30da75238c93bcdde964cc47e48a33363e3d2d0d9f75e4c42335e" => :el_capitan
-    sha256 "28c10dfb283d2396e16da62f758be0e68ea0494285cccd29fe0468ee532b57db" => :yosemite
-    sha256 "82c09456664ea36ddff9bf368c658c662a1dd356f7a742dcf6670a89c793d68d" => :mavericks
-    sha256 "d54d60d1803d08abf706e0ac0bd699b30ec90031cc52e56da07fd8ee3246a855" => :mountain_lion
+    cellar :any
+    rebuild 3
+    sha256 "e7b6c1288455b12044889d768b4593a7a08beac5c4c2534f24565adb58f4a9b5" => :sierra
+    sha256 "244a27eb03227b1455bea4ffd9f8a73ccd660389c44e9719d62bba1a4247bdf6" => :el_capitan
+    sha256 "473e0de088ba513006bb5212fd9ca21390d848c9cd5e33a7951ee3cba24220ac" => :yosemite
   end
 
   option "with-docs", "Build documentation"

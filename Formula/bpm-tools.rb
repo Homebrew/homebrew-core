@@ -7,6 +7,7 @@ class BpmTools < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "de818373ff7067c15db709ba64f11df8bacaf02935754859ff6c14ba4defcde9" => :sierra
     sha256 "0348970a3f89990ed97a15e10dff48f07b853d01d32a640a98e6c835d78f09d7" => :el_capitan
     sha256 "d6bcb8fe9273b0640c2272bd9f4255797eec40a7369362600a62473c3cfd1c27" => :yosemite
     sha256 "702aa6266adb11c4aada4711f32a45e93cd2bff67e62c9d420ecd748d7d80ead" => :mavericks

@@ -4,12 +4,12 @@ class GnuApl < Formula
   url "https://ftpmirror.gnu.org/apl/apl-1.6.tar.gz"
   mirror "https://ftp.gnu.org/gnu/apl/apl-1.6.tar.gz"
   sha256 "5e0da83048d81fd99330186f65309661f8070de2472851a8e639b3b7f7e7ff14"
+  revision 1
 
   bottle do
-    sha256 "b45f6c238a742d5444347703fb8166fc09e49235456bb11660cfdf851bdfd030" => :sierra
-    sha256 "cc3944f693826f8d81cbe4218c02f5c2228ee1388acd9243e80a38d700cb0bc5" => :el_capitan
-    sha256 "afba303d682ed0f666658e0200b25e2deafb2eb36a16014249efb23ed12893a6" => :yosemite
-    sha256 "1714ec1b2b3b31c7d3468c0ee74f6f6c74e1e08c89fff94099020ff8d7c023aa" => :mavericks
+    sha256 "7c5aebad3061ad6713b08465b6db4534937eabe655f85af52d1d20066811ebdf" => :sierra
+    sha256 "25d163f1cf8adac585f914640b6281ef530876a60812864699bf0b349d3a58af" => :el_capitan
+    sha256 "6164637b1f3b76040e031c5cb53444d1e48d5a007f5ffcc0270d9ad7d75679be" => :yosemite
   end
 
   head do

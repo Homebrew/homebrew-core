@@ -5,6 +5,7 @@ class Cogl < Formula
   sha256 "39a718cdb64ea45225a7e94f88dddec1869ab37a21b339ad058a9d898782c00d"
 
   bottle do
+    sha256 "59fcc7da30bf5df62481f5a469bfa2cbcd652b6e433efed593d966c32e2bbd48" => :sierra
     sha256 "8b453f9b6f993a5e160266768b5fbdde47cdc5c21a3ab0474ff7c0992f1e762b" => :el_capitan
     sha256 "0375322c23427755b7a3c2ca43778c6d1da2792a109cc0c9a58806078214440d" => :yosemite
     sha256 "732b19cd457e124d4a89d6ddd6a6ed7ed8d14da2586d9a6908ccc95ad3bbaa9b" => :mavericks

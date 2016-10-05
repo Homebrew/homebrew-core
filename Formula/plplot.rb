@@ -12,25 +12,41 @@ class Plplot < Formula
     sha256 "b779762659e485d6c9cad54206b1e72f2db5e82950b19a356439e9ce3ef79138" => :mountain_lion
   end
 
-  option "with-java"
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "pango"
-  depends_on "libtool" => :run
   depends_on "freetype"
+  depends_on "libtool" => :run
   depends_on :x11 => :optional
   depends_on :fortran => :optional
+  depends_on :java => :optional
+
+  # Patches taken upstream
+  # https://sourceforge.net/p/plplot/plplot/ci/11c496bebb2d23f86812c753e60e7a5b8bbfb0a0/
+  # https://sourceforge.net/p/plplot/plplot/ci/cac0198537a260fcb413f7d97301979c2dfaa31c/
+  # Remove when next release is made available
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9d49869e/plplot/cmake-3.6.patch"
+    sha256 "50b17ff7c80f24288f9eaeca256be0d9dd449e1f59cb933f442c8ecf812f999f"
+  end
 
   def install
     args = std_cmake_args
     args << "-DENABLE_java=OFF" if build.without? "java"
     args << "-DPLD_xwin=OFF" if build.without? "x11"
     args << "-DENABLE_f95=OFF" if build.without? "fortran"
-    args << "-DENABLE_ada=OFF" << "-DENABLE_d=OFF" << "-DENABLE_qt=OFF" \
-         << "-DENABLE_lua=OFF" << "-DENABLE_tk=OFF" << "-DENABLE_python=OFF" \
-         << "-DENABLE_tcl=OFF" << "-DPLD_xcairo=OFF" << "-DPLD_wxwidgets=OFF" \
-         << "-DENABLE_wxwidgets=OFF"
+    args += %w[
+      -DENABLE_ada=OFF
+      -DENABLE_d=OFF
+      -DENABLE_qt=OFF
+      -DENABLE_lua=OFF
+      -DENABLE_tk=OFF
+      -DENABLE_python=OFF
+      -DENABLE_tcl=OFF
+      -DPLD_xcairo=OFF
+      -DPLD_wxwidgets=OFF
+      -DENABLE_wxwidgets=OFF
+    ]
 
     mkdir "plplot-build" do
       system "cmake", "..", *args

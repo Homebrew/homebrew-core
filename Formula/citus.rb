@@ -3,14 +3,14 @@ class Citus < Formula
   homepage "https://www.citusdata.com"
   url "https://github.com/citusdata/citus/archive/v5.2.1.tar.gz"
   sha256 "5014839eb7f20b1bd338e482340faedbd8162979992a6475d5dfea516dd0657c"
+  revision 1
 
   head "https://github.com/citusdata/citus.git"
 
   bottle do
-    sha256 "b51d4a8560ce4c8b26d83071e79ec8399ca6856bd9b5b30ff9bd422a2b4398dc" => :sierra
-    sha256 "3340925d455fafcc9f1f03a22649d2733f992c1409b3ac2e238f1b0e1991d687" => :el_capitan
-    sha256 "2b40b992fdff0c717c738df980ad4e267dd4615848e0092b4d8ae15c47c19433" => :yosemite
-    sha256 "f9f3a96b4cd30c6d47995e306f18775e1324094ae0c74c99273fd6d3a36b5c53" => :mavericks
+    sha256 "248d1bfa9264e8ae94b8a32bc473cfd8e0ef974c9d5f9ef43feda5cfdfba062d" => :sierra
+    sha256 "36359a493cc1ffc4abdf0908fb9760544fb2562b180d79eb3e5fbf2f08967659" => :el_capitan
+    sha256 "9a393831dad5bf98b08414d17f4779ca6759fbe77246f02e50d0b88d92cd3e11" => :yosemite
   end
 
   depends_on "postgresql"

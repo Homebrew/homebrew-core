@@ -5,13 +5,14 @@ class Khal < Formula
   homepage "https://lostpackets.de/khal/"
   url "https://files.pythonhosted.org/packages/7b/96/7c0bbc58d057d9ab8fb2ee426c4c9ccd413a136046ed228bd8aa77a804e3/khal-0.8.3.tar.gz"
   sha256 "1ec6940a9fbd207c41428b103bac1d1555129b9b4eca2b843c544bd48ac63ee3"
+  revision 1
+
   head "https://github.com/pimutils/khal.git"
 
   bottle do
-    sha256 "f77ee585438ef4cc277b81205a55c5010bf19cf197a5f3a8d057262c6e24cc01" => :sierra
-    sha256 "9b4b5c675c9e7c560ae2baf2ff0644764b9af59e13a2768770c57a557d03a884" => :el_capitan
-    sha256 "e3641bc06a7c6ed591d994a2445afb064214eed16a0cd98e8d9ced07e5be9ec5" => :yosemite
-    sha256 "8fd717d544c7e018dd12bec661d7169e301e6bbfa9ffc9bb33acd35e975e2dda" => :mavericks
+    sha256 "6884cba5ffe6ddd9262eae2567940e9e6b89c85d893647aa53b930933714a1f3" => :sierra
+    sha256 "415cb9c8af29bde339fcac14b54953ff5ed03363af155ee737380aef03e9335e" => :el_capitan
+    sha256 "d37998ca94d896c89f8b12a0c3da5fa9af9ddfbf4d2eb2bbfdb8068fa8971d7f" => :yosemite
   end
 
   depends_on :python3

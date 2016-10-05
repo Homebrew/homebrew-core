@@ -9,6 +9,7 @@ class FuzzyFind < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "feefa3913b9b1df2d8b283fdd55abd1de9ee924633d8e157142cce4980572ffb" => :sierra
     sha256 "7db1b187adfcb7ce37842891ffca5eec3ca25bed5441944cbeb1e08bc6d52a66" => :el_capitan
     sha256 "1b447f73c929866935af122bec4c15390f0001f049a0c737880fcfd4d7bafdb2" => :yosemite
     sha256 "75aa5bedb0bd3e2869f24f1363b02ddf88f7612549c97b8f93f5d7aae0e42e63" => :mavericks

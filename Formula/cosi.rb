@@ -8,6 +8,7 @@ class Cosi < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b387fbd7aa15c4348e56fd1e28adbabee656cd142c979ea556e2d5e8dc56d4b1" => :sierra
     sha256 "e73fd1b11e66d3931c91d6504b9958d44059aa4f3bbc547ed6cc8bdbc3717c6e" => :el_capitan
     sha256 "2953f8c62a93c976bf450d9605cab850d6d442e9e1885f3a455243942e59f6dd" => :yosemite
     sha256 "73d73bd817f6700c751a9065133ea460115ee5e5dbbff89d0655137bee30ef1f" => :mavericks

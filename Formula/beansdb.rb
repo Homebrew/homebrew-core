@@ -6,6 +6,7 @@ class Beansdb < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "000333f77bcfef10426cf21619fbed7fd7591a90cd8a7e22a4f718adc2d92b51" => :sierra
     sha256 "7e11d8312ac811580ef8f1032196cac355907c2cfefa59613c9d7172451e1d21" => :el_capitan
     sha256 "3eadda79ce458bb9e5f58c15688a237c8a504538ab28209c53c30a0447791662" => :yosemite
     sha256 "a6f26d8e3aafc48c6be59c466e4a868ccaa1694b0a8b94220f145d2cf4359fee" => :mavericks

@@ -6,7 +6,8 @@ class Monotone < Formula
   revision 1
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "43c1c8d4e74515141d33d3035ab6fc69cf15c948e6f833ca8d5d60e4f6348c2a" => :sierra
     sha256 "fa3f3da7abae328d91c2c8da3aaedd3dfd955ba76ab30bab7edbd592654e9e01" => :el_capitan
     sha256 "9ec274bfec3311fb327dbf699b28c77166422920e8cff252c8d8beecd98c9a4a" => :mavericks
   end

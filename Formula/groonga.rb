@@ -1,13 +1,13 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "http://groonga.org/"
-  url "http://packages.groonga.org/source/groonga/groonga-6.0.8.tar.gz"
-  sha256 "b9e862ad6e027f72bb1e49f5cfda77c731296f46244bd0973d48f6ade637b716"
+  url "http://packages.groonga.org/source/groonga/groonga-6.0.9.tar.gz"
+  sha256 "b892382e9c5804a42b8754a4ac406ebffd4ceec66543023c4ffed5e88b70f3d8"
 
   bottle do
-    sha256 "343df0670072b420b6ceecdecdfb32ba2a3212bfe33a66a713017e49973b369c" => :el_capitan
-    sha256 "81c65682457c90a06065157a5873cb1b1550ea5a005b5545467dd68a8edb53e1" => :yosemite
-    sha256 "a609d1a678369a406e147945cf6531865554434fb265849efe451a33397def6d" => :mavericks
+    sha256 "754b89b0d7814eacb441b8f5e28809c87b01d8a44153644a6744434648f4b48f" => :sierra
+    sha256 "b5bd80fb2ff45bbc19be0cdb28bc62caabeb8beed9424a472a8ec4c931abec34" => :el_capitan
+    sha256 "18df5a3b1595aaa422b5f88d1e32083bf52077fc15bb7487e0fc82171e34bab5" => :yosemite
   end
 
   head do

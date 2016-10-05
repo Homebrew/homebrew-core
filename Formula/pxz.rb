@@ -8,6 +8,7 @@ class Pxz < Formula
 
   bottle do
     cellar :any
+    sha256 "9e1f3354927dc20d1c1bdfea578f2f608ec038852f62fae18c05b70a92642a15" => :sierra
     sha256 "fb94fe085e695c7a097701bdac07cb406ff1ea59a9d220f82f2f458a0a860325" => :el_capitan
     sha256 "443b2e618e2977c3abc54eb50b43e4ab8ac727878914425ba24d9789be737c16" => :yosemite
     sha256 "164217b1098d7a3231eb6bee4c80d5e224a7f2afcd9d2a42773d513481f476eb" => :mavericks

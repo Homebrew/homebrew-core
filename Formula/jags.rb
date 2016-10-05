@@ -6,6 +6,7 @@ class Jags < Formula
 
   bottle do
     cellar :any
+    sha256 "970d19cdeacd18ba4fe09348cdff25dec0c6307c7f7e6493ab4d17b17e4b5b5b" => :sierra
     sha256 "3a097289424b68d96d21eebaba46c72919d14fd69d696ce2bd879d309dd3a662" => :el_capitan
     sha256 "998b753d66f973ac321b95c73a630ff325e5543f911ad2c66b782bb6d36fa63e" => :yosemite
     sha256 "07da5d6b1faff0492d3e808d08529b1466dada956ce0454fbe89b522e3dfda9f" => :mavericks

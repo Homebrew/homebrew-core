@@ -7,7 +7,7 @@ class Valkyrie < Formula
   head "svn://svn.valgrind.org/valkyrie/trunk"
 
   bottle do
-    revision 1
+    rebuild 1
     sha256 "df2b8f3092c6417bfec6f7e94814a92febc364b6fecb2fa8723946f40827a1c1" => :el_capitan
     sha256 "7992f813d519d4e70a4f1c140e664f5ffa47fea263433a1af2a0368a22754a24" => :yosemite
     sha256 "f06323976b965095fb5bfe1c637ed42d175cdd2b4d1dedde3252788ba61b4bfa" => :mavericks

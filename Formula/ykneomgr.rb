@@ -6,6 +6,7 @@ class Ykneomgr < Formula
 
   bottle do
     cellar :any
+    sha256 "bd8c3ef8fc604446ee754af14e96c91e087f8b50419c4048bd2ea441dd6b9db2" => :sierra
     sha256 "56a5439c432c82b45b9722f22157b7194ed5604d0e67ab4189a9a07f2abf0325" => :el_capitan
     sha256 "cd80f8068e58d2c4982198eb398a85e816f772306efd7263e10a38d680c67190" => :yosemite
     sha256 "8c9a67b67b45f981fec4f6fa3a8a512e2d39055866b8c3df941fc16bcbf5c4c0" => :mavericks

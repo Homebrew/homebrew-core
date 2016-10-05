@@ -4,14 +4,14 @@ class Tarantool < Formula
   url "http://download.tarantool.org/tarantool/1.6/src/tarantool-1.6.8.772.tar.gz"
   version "1.6.8-772"
   sha256 "e07913d3416fcf855071e7b82eed0c5bcdb81a6e587fa2d900a9755ed5bb220c"
-  revision 1
+  revision 2
 
   head "https://github.com/tarantool/tarantool.git", :branch => "1.7", :shallow => false
 
   bottle do
-    sha256 "e95710842bc9dff872bdfdf4bcd0d3439cca0bec3b5ebbdd98fd75d951286bb2" => :sierra
-    sha256 "71bb96e38e05e172932138181acf030143fc4e23972b715f29a783886053f74e" => :el_capitan
-    sha256 "dff1ae94c8d850560bce81f0358adbe705d0030e0b9461e6e4a2fbfd638b4827" => :yosemite
+    sha256 "06452c73ff96c97c21bc874059a9fbe71a2a3b030325f618500a8e83700dd10d" => :sierra
+    sha256 "bf47282a6990eaa65fcea8f05c75dcbde904c87c33cc9dc7a0ab54917e0e257b" => :el_capitan
+    sha256 "580b317f6916c9b52c9dc05d351e5655837e27ba228420ccdb0a8f7780fdeaae" => :yosemite
   end
 
   depends_on "cmake" => :build

@@ -9,6 +9,7 @@ class Texmath < Formula
   sha256 "33f8c3d78f2f46246b64cecab47e27f1f4e587f05b2375e94a8a43dfce446c90"
 
   bottle do
+    sha256 "dda894ff61d48c60bd66f1a60355af69a47b90affd709007a5a856cde81c759d" => :sierra
     sha256 "8deb83cbcd5b7dedc49297beba5937ce64b7de22373456f4fc9988425b916aab" => :el_capitan
     sha256 "2936a412081903c52110ea81f230cb251ff36b99e3d41fad331a4145484e8bc2" => :yosemite
     sha256 "2a8b07ff8b7d4cdee9050beb5d6ba8c0ed73e428aa0d6fd3d9e8eec262fa891e" => :mavericks

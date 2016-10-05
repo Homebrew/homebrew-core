@@ -7,7 +7,8 @@ class Libowfat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 2
+    rebuild 2
+    sha256 "07d058c654a42d34821399ff800dfa22e928a64bcba4f465443197fe4168e97a" => :sierra
     sha256 "b8f9b6f14ef4ca9e703ef458659604738f2f6b11899fb9546d8764dde47de4c0" => :el_capitan
     sha256 "f84024088302c6452f32f2398d0c39a59ee7f2a2eda117e516608e0299763dda" => :yosemite
     sha256 "a05b57c64730e4780012a06b61224a63e492173e3d6fa191516e408e9578a105" => :mavericks

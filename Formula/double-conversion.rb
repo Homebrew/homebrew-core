@@ -8,7 +8,8 @@ class DoubleConversion < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 2
+    rebuild 2
+    sha256 "a314b7d76922e889a1dc0414b24d399a275459d2c3916e16921c74713593000b" => :sierra
     sha256 "727930169ce2bde673b86c5ae242c6641cf1a593902f5e7821981009dd4a2306" => :el_capitan
     sha256 "ffcf11a69c596f04cfb936cbc33a489f9f994b8fdaf66901f23e88a5638a4477" => :yosemite
     sha256 "648a9a7dcebe2abca8848a11c4647c0d3c85c6c49181100859277d24b8b71f62" => :mavericks

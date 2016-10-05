@@ -7,6 +7,7 @@ class Libcello < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "834e9f4144abadb68fca552b795ff1366870e4e141fde759b721dff600038483" => :sierra
     sha256 "54cfca99a424590796858d57fd1226c763abdf519715b7f7435b812ab504eed6" => :el_capitan
     sha256 "58f80b859bc0d3f40f4de5f1bf39168dd5560a98471c999f76d0416cca5a29fb" => :yosemite
     sha256 "28188bd3d10965c1a9e57d4ca3c652642ddb931a5bf0967fd6141b4dc12e2fc6" => :mavericks

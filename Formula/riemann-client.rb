@@ -1,25 +1,15 @@
 class RiemannClient < Formula
   desc "C client library for the Riemann monitoring system"
   homepage "https://github.com/algernon/riemann-c-client"
+  url "https://github.com/algernon/riemann-c-client/archive/riemann-c-client-1.9.1.tar.gz"
+  sha256 "6c8279362384e0ee01cb84a12f645bf7229c7d61f565158fe4ecc82c36ce8dc0"
   head "https://github.com/algernon/riemann-c-client.git"
-
-  stable do
-    url "https://github.com/algernon/riemann-c-client/archive/riemann-c-client-1.9.0.tar.gz"
-    sha256 "9584e8f1f442684a0f9607059874cfe1a1632c3fa5de2997b303ab8859048a3b"
-
-    # Fixes "<inline asm>:1:1: error: unknown directive .symver ..."
-    # Applies upstream commit "HAVE_VERSIONING: use #if not #ifdef"
-    patch do
-      url "https://github.com/algernon/riemann-c-client/commit/e6b49e68.patch"
-      sha256 "7c0949e0719eea014ffb69f03f355b242f0d388907c18af4df90f8a4e3b8d60e"
-    end
-  end
 
   bottle do
     cellar :any
-    sha256 "d5ef5bcbdfb6db354cee483b5386d1e5d4822a49ba2d8c3d6bb01cdde395d638" => :el_capitan
-    sha256 "05b20629c12c4f811681c9fb9ab7dba9d03e7e0bd165a929fd6051e72b2bea46" => :yosemite
-    sha256 "b77b10a8d20c8abe43987de0459ea75b22b7afe3e5e9a71986e00378f7c3e3c8" => :mavericks
+    sha256 "9856af75fe69543e8e364c86a2be2ebd044e9b3de30c32e0fb7d6274199a0b5b" => :sierra
+    sha256 "062a6545b63ecc33a9331509630443d77904132297c8beae3642aba6d2ba1b87" => :el_capitan
+    sha256 "5e17f7589983a2f2e6e58516f7b6151032744d423b222502a23e572e6566b0f1" => :yosemite
   end
 
   depends_on "autoconf" => :build

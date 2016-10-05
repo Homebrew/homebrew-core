@@ -6,6 +6,7 @@ class Bcpp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6d10a515f6173652ea39d12ff248fedc71bf6985d2d1121ce55d3c86d7e597ff" => :sierra
     sha256 "e9cbefdb72acc228f8e31afc7d6dabf3dcc1fac321aa88cd0834687afd15c9d1" => :el_capitan
     sha256 "55695704fc182a79be6761a720b18c0be3f416ef2602ea0048c8f2a00422bfa9" => :yosemite
     sha256 "5a8b1bf857e52ca6b30c4ef31547b23d807364075aec50a47c7ce16fdfc8b59d" => :mavericks

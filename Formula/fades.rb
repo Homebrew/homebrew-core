@@ -8,6 +8,7 @@ class Fades < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2b5adfda71f1a43bdac76eaa9358854d64a446b31d1f045c0bb3723626f56f5b" => :sierra
     sha256 "03c99b08cf910903a08e1fdb45c8e359b419e32d5dceaa924a4731b8a9299b8d" => :el_capitan
     sha256 "b1de3519ca9423da3344d84afcfcb9fd7d8a9ea8e65064a075d8df77da3a8d93" => :yosemite
     sha256 "2bc897cf9b5d4c54261fff90e0fd519010de4784b8024538cc7bcd71158c2781" => :mavericks

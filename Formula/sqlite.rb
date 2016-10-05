@@ -4,13 +4,13 @@ class Sqlite < Formula
   url "https://sqlite.org/2016/sqlite-autoconf-3140200.tar.gz"
   version "3.14.2"
   sha256 "644f0c127f7d0cbe8765b9bbdf9ed09d6a2f2b9dfba48ddfd8ca0a42fdb5b3fc"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "972e922aa0560e64354c8b396776a5225f3f3a41b64a025455bce0a1d0ae494a" => :sierra
-    sha256 "bc22542758c9d698f6025f30094c7326a920c20db58b9905c2efcb05d89eacf1" => :el_capitan
-    sha256 "6c30517ec543b99173249f1cb9a94dc49981f5f8ec32b60cec3d02751641b988" => :yosemite
-    sha256 "9a6e57ad9f6fb38e599c38c636bb453d565a2d51ce1e2160821f7e01bfd27535" => :mavericks
+    sha256 "b15dbe0b9470e5505ec3c39dbb096a6fb392d284d022afd18d80771da9539c2a" => :sierra
+    sha256 "bf4c96ec623cc2c1675691bb0f3e7e6c3fde38d013b63850bf2d196fb55fbd1b" => :el_capitan
+    sha256 "14bbc09f0df1619edfd665fc2bb617427fb626949df7a911358e22260db21484" => :yosemite
   end
 
   keg_only :provided_by_osx, "OS X provides an older sqlite3."

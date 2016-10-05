@@ -6,6 +6,7 @@ class Ipsumdump < Formula
   head "https://github.com/kohler/ipsumdump.git"
 
   bottle do
+    sha256 "4d8e9c2df9d9a7c1858f1a4152b68a8069c10e420af72758d7912b409680423a" => :sierra
     sha256 "62031b89c4e974ff3f921fe0537f4d1bba6e492701488c84ba21c90fbfdb5139" => :el_capitan
     sha256 "dd85d17c5ad0c0c54faee81f640f5089756b17f4ee94d257cb6990159eaa0489" => :yosemite
     sha256 "470b7134576942b195a5643d5d59f7f6aba90ac0e61be7bbff57b2f47b6bf87c" => :mavericks

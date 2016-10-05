@@ -1,15 +1,15 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://www.threadingbuildingblocks.org/"
-  url "https://www.threadingbuildingblocks.org/sites/default/files/software_releases/source/tbb2017_20160722oss_src.tgz"
-  version "4.4-20160722"
-  sha256 "fd5fb4c4e0bf6025eb45d12bd7a474821c8e1b45dbf39fe50a256aa4c7ae190d"
+  url "https://www.threadingbuildingblocks.org/sites/default/files/software_releases/source/tbb2017_20160916oss_src.tgz"
+  version "4.4-20160916"
+  sha256 "600c67f1c5a730e411b3bf2e792cfe5808f40c4f0354a9b613827fff0ef27fc4"
 
   bottle do
     cellar :any
-    sha256 "949e72923602c999949d3c2a0ca6f9bf3ef2b740c80806f9f669862e6755ec69" => :sierra
-    sha256 "b89dc28b6443c6fbf673e164abae48b083eadd9525f6144777f9b94b72ea0e99" => :el_capitan
-    sha256 "31e01f0b99a112d99e69d0aa6aa2e0b1f2b261c5d856577ee0f75d7d475bee05" => :yosemite
+    sha256 "73c1cd36c36438422b4ef200d8928c2d22145bc17ec6b2548039d80ab6107dfe" => :sierra
+    sha256 "6cb9dd98e549c62298aeadfca71acdaf487b03fcce9f51ad3955714b5017a79a" => :el_capitan
+    sha256 "ede1550b833c4e2f9aad3d3d33edb07bbfea2dac58d0ef8237b5386c12cca11a" => :yosemite
   end
 
   option :cxx11

@@ -4,12 +4,12 @@ class Gawk < Formula
   url "https://ftpmirror.gnu.org/gawk/gawk-4.1.4.tar.xz"
   mirror "https://ftp.gnu.org/gnu/gawk/gawk-4.1.4.tar.xz"
   sha256 "53e184e2d0f90def9207860531802456322be091c7b48f23fdc79cda65adc266"
+  revision 1
 
   bottle do
-    sha256 "6525b7d9b5bb4f828971ecf9f229c7eb7e978fa4b296c69a8877b23954050ffb" => :sierra
-    sha256 "02651beb7f8ac06f197e69f8508fb97c90c82980172d35da023c5d34fb9b0ff6" => :el_capitan
-    sha256 "2ef527c9f399a504de1c72706dc0123c47d8ce91892840346928a739d81cd93f" => :yosemite
-    sha256 "73bf29a5c50d0a9a2062f7d80a24c0a097f74f9fd8c139b26e4c1f8004e33603" => :mavericks
+    sha256 "370e7a490801595a484c347da99d8b6dce58d63f8581962cd6d16552e5a4992f" => :sierra
+    sha256 "71d2f6ec3359647298cc0867b88653078ba933b09b139dcd00d76fe763ccb1bb" => :el_capitan
+    sha256 "bc8bd37d3761403f22bf3937097c67d8e76e914c90abfa577fd7e17af337057a" => :yosemite
   end
 
   fails_with :llvm do

@@ -8,6 +8,7 @@ class Minio < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0f77765b5ed9d83666fdb6c15de6e96d6d397a174388debd5c70244201cce741" => :sierra
     sha256 "d236098663cc6b4a4016855e1f5ce21608b42e1a4d33aa24e4c9963de7bd0d14" => :el_capitan
     sha256 "a1f3a72ebd68b63b6ef658b218f7d67031d3d9ed8c95c142764bf777b3cd0ddc" => :yosemite
     sha256 "51ae709a683eb435d915377745f66d28c0ae1ca3b1d8e4f28f7b014908baf323" => :mavericks

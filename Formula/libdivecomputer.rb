@@ -7,6 +7,7 @@ class Libdivecomputer < Formula
 
   bottle do
     cellar :any
+    sha256 "6fc75308490219d24aafde94f13027e7db3546eb317925ededb0c7b1abae0624" => :sierra
     sha256 "1c9d15bd10811fbb7eccc9c8e718eec6e3b6ee389c586b7dbf9da56323f8f292" => :el_capitan
     sha256 "cad333cf7353aaebb2e32a7d68e2711df4326d65cc7fd44df9b7e50794e361c9" => :yosemite
     sha256 "a0418e0213a4f14612b9d37560a50cdd316ba7fc56da88000ceca4fe37733e18" => :mavericks

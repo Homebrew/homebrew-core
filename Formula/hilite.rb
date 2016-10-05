@@ -6,6 +6,7 @@ class Hilite < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b4bab9fd50310b7401d2605b9a9cdad0a8d7069e5b477d5f53fef61847bea624" => :sierra
     sha256 "2c407d12952089ade6602be85acda46eceb3127e32ba2068c0034df8a486e989" => :el_capitan
     sha256 "1eea4240f83568d245aa55801949cd9deb4663fc26df75569e029cc1c4c14112" => :yosemite
     sha256 "d004176bb8c9df0a165c05863d594e007831cc6b9ce4219ec3639b4ba1069895" => :mavericks

@@ -5,6 +5,7 @@ class GstValidate < Formula
   sha256 "4525a4fb5b85b8a49674e00d652bee9ac62c56241c148abbff23efa50a224e34"
 
   bottle do
+    sha256 "c9599931fcbf3629e832985ecf2dd0b575bfb8aadfd1c538eef3e5431b42044e" => :sierra
     sha256 "aed55a8af38365d479f619310d8b37ff6905ff405c26347b762d50a86ac9eadd" => :el_capitan
     sha256 "be7b23fb25023e0b00d9739fd2604b48c585e97f6daebb1728bb893e93be6079" => :yosemite
     sha256 "d98717452ac0117a136dbc5b6f46916d6415286cb8b9c0d6a484836b86c9977a" => :mavericks

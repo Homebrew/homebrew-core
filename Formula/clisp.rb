@@ -4,12 +4,12 @@ class Clisp < Formula
   url "https://ftpmirror.gnu.org/clisp/release/2.49/clisp-2.49.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/clisp/release/2.49/clisp-2.49.tar.bz2"
   sha256 "8132ff353afaa70e6b19367a25ae3d5a43627279c25647c220641fed00f8e890"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "95f69318c63bcd1e6dc7be27441d5250b647b0362f84de224cade9fc017de3d9" => :sierra
-    sha256 "30772a480313ed0f2a196002f35f53a48ffc7d6697139320a7b166f4e7c5b18a" => :el_capitan
-    sha256 "a2c177ee30d6748c6d5d0bf395ed7f9bd248d7da2291eabe2f3a72179ba52a75" => :yosemite
+    sha256 "dd77ffe7a77e9bdb8cc57a11d923108c4967229feb214e511a5a1866a1f7ec50" => :sierra
+    sha256 "c4503ba2f9fcc24cb8415179db6a7437bfa8e1cab25b619fcb7be8e2770e9fe6" => :el_capitan
+    sha256 "7335dec5039d4bf0f56cf75521834d93caca2f36fcf45e42fe489964fa7d0c49" => :yosemite
   end
 
   depends_on "libsigsegv"

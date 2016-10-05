@@ -6,7 +6,8 @@ class Libpqxx < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "4510d02d679143af2c19b7982fa977b9b35da5e5dacf073d1e7cecab8730a54f" => :sierra
     sha256 "5bda2a641ddb2774efa2355612181d6cbdaae5dd665eeac656ff4d42b90cfbdb" => :el_capitan
     sha256 "7e3ee6966db26936ca065024fbf5ef1476317c8ffdeaafe4f43e6d6252ca6061" => :yosemite
     sha256 "e93fe321d641627928110a05d2f985b4b3f08a6a015c9e9846a3aaf25286555a" => :mavericks

@@ -7,6 +7,7 @@ class Lepton < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6713be0e881459057b561cbfd6902d167dc9601be856b8715e9abd6ffc02b605" => :sierra
     sha256 "a6a1a47dd2f80fe66d5dfbde97b91ba93d054f6934ba2a950ede603e405e6eed" => :el_capitan
     sha256 "700264c93fab4bba78cf62ac3a77ea60099cd38399f00d6972f8093b89dd8404" => :yosemite
     sha256 "fc7f77f9ed19af975e747b8eb8e39b6187f12ed226e2b1c15553a8c0e470bdff" => :mavericks

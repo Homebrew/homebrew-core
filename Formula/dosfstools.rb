@@ -16,6 +16,7 @@ class Dosfstools < Formula
   end
   bottle do
     cellar :any_skip_relocation
+    sha256 "9977fa27a16cab4772e9ab528053df05247718b40c4fe0029b1f044174e03a21" => :sierra
     sha256 "80ff9e3d9a13ee9b4af60f0ec099755bf9cc5f08927e8f5e5ed9e9deb15f8de5" => :el_capitan
     sha256 "1272b2a6cd3264e5d69da30e6f74add66ca7f6f9eb2eb30af7ba738c41233fb5" => :yosemite
     sha256 "fc128348728cfb7b634e5d286dc69aa954aee9dc79cb6dec0c27de31ebc1c264" => :mavericks

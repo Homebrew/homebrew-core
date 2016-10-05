@@ -7,6 +7,7 @@ class Crfxx < Formula
 
   bottle do
     cellar :any
+    sha256 "9627d1eb0f7b476cbacd9bc7afcd0e73d898dbfaeab2c6a371a87110a64e0e6c" => :sierra
     sha256 "b7444b7e7f651de0b52380cf30f6dfef6c8bd6a3a6c5c35b443445fc0a167ea4" => :el_capitan
     sha256 "b9e568fb68ed439cccd55328c9cb75b8add196cd6c34698acaabeb47192bc16f" => :yosemite
     sha256 "75934a3f7d521f848653533c6e597478e942d720117e195477b836f0976c0b6d" => :mavericks

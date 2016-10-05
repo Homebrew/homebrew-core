@@ -6,6 +6,7 @@ class I2util < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "562e2d9021ff8044ca05a63c31d6560e5071ffc62f34ff1046cf195118b3471a" => :sierra
     sha256 "44f87d48502ae3e34ebfc0882aa689a70e8c92d398247c5a53e2f4b7d7652b39" => :el_capitan
     sha256 "ad1821b2637c75638de2ecd2bd3127a0c8300fe4fbd72c18ae648a131b97b6f7" => :yosemite
     sha256 "b9a22dff1f4a26be02712d17de832a23fc3dbe5eee75ab62b72ffb5b18ecbd99" => :mavericks

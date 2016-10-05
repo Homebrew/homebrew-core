@@ -8,6 +8,7 @@ class Monkeysphere < Formula
 
   bottle do
     cellar :any
+    sha256 "76170e317e70f7027278463203c695e7e61b1a2a7f841296f94cd82392c2feca" => :sierra
     sha256 "8d057775a9b16a205550233f48f24134edee51b2684042778fa0848b4195e9a1" => :el_capitan
     sha256 "5d7bb88c89986665c4661d75ae3ac4c014ff3da2870fd51a4f788fb33d1b17a3" => :yosemite
     sha256 "d408b3a9b1cdc46fca399e29d0dd7c1e0c2a81e3c9e02b07460acf8c36b3abe9" => :mavericks

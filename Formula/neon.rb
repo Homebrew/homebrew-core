@@ -6,6 +6,7 @@ class Neon < Formula
 
   bottle do
     cellar :any
+    sha256 "a7bb63ecfbe1b307fd6065411ffd106eec4f33ebf629259beae891e5f8ce2892" => :sierra
     sha256 "b971936d607e7bbc701218a731af78fa7582efa23372740a71254639fc97ed9e" => :el_capitan
     sha256 "08693500c96c18dbf0def5fe5a56dc22fbad1166116eceae5ea460b735a24bf3" => :yosemite
     sha256 "32799a0de60650c9d1aa19b68c9d972b0f596dcfd2c979634fc35c8e98665ed3" => :mavericks

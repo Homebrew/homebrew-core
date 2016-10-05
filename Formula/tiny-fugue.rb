@@ -6,7 +6,8 @@ class TinyFugue < Formula
   sha256 "3750a114cf947b1e3d71cecbe258cb830c39f3186c369e368d4662de9c50d989"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "f4df3ef186829f13f9f4d5512faf3e65e01eaf14aefd42b0f6895aded918fe79" => :sierra
     sha256 "8b87d1b3de3a1ed16b2c587897c1716b00d011d152476ecdaa922a1406f2846a" => :el_capitan
     sha256 "fbc2ca2d91d2a3bb3df752a98306f7f7f04756870019eb7f72df06a68efa632e" => :yosemite
     sha256 "0d7db7bf7a3744de5cb572c013da516e98b5d6ed911a2f3bf4e0a028a160fd04" => :mavericks

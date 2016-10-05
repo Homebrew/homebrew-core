@@ -1,15 +1,14 @@
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "http://www.freetds.org/"
-  url "ftp://ftp.freetds.org/pub/freetds/stable/freetds-1.00.9.tar.bz2"
-  mirror "https://fossies.org/linux/privat/freetds-1.00.9.tar.bz2"
-  sha256 "3a91ce6321ac3c951281ce908f3eae40a0b6d1101b3322cac0602f62c006cb6c"
+  url "ftp://ftp.freetds.org/pub/freetds/stable/freetds-1.00.15.tar.gz"
+  mirror "https://fossies.org/linux/privat/freetds-1.00.15.tar.gz"
+  sha256 "310be6a9396a3de7a420f58219afacc13fb4f774ee6c70c06da903262db06ec2"
 
   bottle do
-    sha256 "f3e951cbb4127f3efdad5ff64ae0ba4566002e15eb0a682e4a444a07db9e3f5f" => :sierra
-    sha256 "934404b4fbc59469df94f6ed71887fc75a7c69556c64cad024d478be3de85e7c" => :el_capitan
-    sha256 "b753cb2b0a6e4a09f27e2852cc60bfc8ee90c5e5e48c5c466ae87df6190bcb57" => :yosemite
-    sha256 "ba3bf56066734fab273678717176ee5b8dc4d98883e1a962f51b8e13d0a145ab" => :mavericks
+    sha256 "8504714793c26361e045fe9d4a8640eb9f26399c8f188927b771e2c20066b29a" => :sierra
+    sha256 "500e02460d3b18e869d4bdb182ddfecdeeb5efc218db4a1da7d8ad3424743028" => :el_capitan
+    sha256 "fd457df31dac76810fde87d45e42b0ba9723841ace49510d56059367ba3b1802" => :yosemite
   end
 
   head do
@@ -34,9 +33,14 @@ class Freetds < Formula
 
   depends_on "pkg-config" => :build
   depends_on "unixodbc" => :optional
+  depends_on "libiodbc" => :optional
   depends_on "openssl" => :recommended
 
   def install
+    if build.with?("unixodbc") && build.with?("libiodbc")
+      odie "freetds: --without-libiodbc must be specified when using --with-unixodbc"
+    end
+
     args = %W[
       --prefix=#{prefix}
       --with-tdsver=7.3
@@ -49,6 +53,10 @@ class Freetds < Formula
 
     if build.with? "unixodbc"
       args << "--with-unixodbc=#{Formula["unixodbc"].opt_prefix}"
+    end
+
+    if build.with? "libiodbc"
+      args << "--with-libiodbc=#{Formula["libiodbc"].opt_prefix}"
     end
 
     # Translate formula's "--with" options to configuration script's "--enable"

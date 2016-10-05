@@ -6,9 +6,11 @@ class Pygtkglext < Formula
   revision 1
 
   bottle do
-    sha256 "f7300b52df0a015cc86269908b6c23887eb11a7700b40ebd6e2671c2565fb3a2" => :el_capitan
-    sha256 "abbda3f7a801b6b620e9ca77c009b3e3ff3dd2898d8969a8e8148161e38190be" => :yosemite
-    sha256 "afe62336baf3fb7ad52dfe7cd181419a30224dbeb126d77b186fa1600812e81a" => :mavericks
+    cellar :any
+    rebuild 1
+    sha256 "557cc993d510558dfd85151ed544c64c92f4e7727d616cdf9f7f9a7b8807215c" => :sierra
+    sha256 "a03c4c40feba00df99f0a879198b8c3155cfd25a8a7459c9be5389097be156d3" => :el_capitan
+    sha256 "4fde85f03529fbf7480bf31a78904660121e565e7758d03e1d48cf878dfe4f7b" => :yosemite
   end
 
   depends_on "pkg-config" => :build

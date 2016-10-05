@@ -4,12 +4,12 @@ class GnuUnits < Formula
   url "https://ftpmirror.gnu.org/units/units-2.13.tar.gz"
   mirror "https://ftp.gnu.org/gnu/units/units-2.13.tar.gz"
   sha256 "0ba5403111f8e5ea22be7d51ab74c8ccb576dc30ddfbf18a46cb51f9139790ab"
+  revision 1
 
   bottle do
-    sha256 "66934e9cc51bc341484bd1f8a6380292ddcd1a0a776b92517e726bbf06a860f1" => :sierra
-    sha256 "76982a809c64af4f45e97cc450cd717b4a12fef538c78ba362bf45b0e49877cb" => :el_capitan
-    sha256 "ad75ca96d61f7f09dd95c831b6b468e04c4912e9834bebea17a02162758e0f9b" => :yosemite
-    sha256 "89fe5cd2960513e836909fae964b0e787d8b9747711cc1cee79fc30be2332fcd" => :mavericks
+    sha256 "699fbab4137b66d9ace24f214ba3cd0aa63182a40118b372452fb82ba33f249b" => :sierra
+    sha256 "892045f56500951d7c109c20a103cb05ed37859bffdcf0fea959c269731e49d5" => :el_capitan
+    sha256 "0e634f131a2985299248f35a7bffc4b4854e4cd5c704e295c9fb7bed80d63279" => :yosemite
   end
 
   deprecated_option "default-names" => "with-default-names"

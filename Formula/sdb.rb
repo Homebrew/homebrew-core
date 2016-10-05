@@ -6,6 +6,7 @@ class Sdb < Formula
 
   bottle do
     cellar :any
+    sha256 "4fd2562bc47d9ef56a2626ed9d604e2cdebe35301527dfb7b42ae541880c3602" => :sierra
     sha256 "4db46d19a461fc1e520bda253576cb239c3211830d1dce726d2b885221c48c39" => :el_capitan
     sha256 "852756f342805573e86ca7bcf0616e403fae60860742a586ea6a792178ece176" => :yosemite
     sha256 "55ff889faef6918a5fd7c33e9a12c29367c9115889668cfd91e4e754873386af" => :mavericks

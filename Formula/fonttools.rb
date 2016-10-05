@@ -7,7 +7,8 @@ class Fonttools < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "684979aedb42ed576575e2eea0aa42d3669a3242d9025be1a0c1263fae097226" => :sierra
     sha256 "d2aca5663043850875bd16bb04af383eaee14b4b205c8595fbda20ae0867429e" => :el_capitan
     sha256 "2639039f72920032e0dc6ce6faf15b837487c8561936412c437497c23bd248d0" => :yosemite
     sha256 "eaa0a7decad7e731eae45b93364d18bdadbfadcf39f9a14a6f4e78d55f0b757f" => :mavericks

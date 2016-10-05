@@ -4,17 +4,15 @@ class Spidermonkey < Formula
   url "https://archive.mozilla.org/pub/mozilla.org/js/js185-1.0.0.tar.gz"
   version "1.8.5"
   sha256 "5d12f7e1f5b4a99436685d97b9b7b75f094d33580227aa998c406bbae6f2a687"
-  revision 1
+  revision 2
 
   head "https://hg.mozilla.org/tracemonkey/archive/tip.tar.gz"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "185eec5a1a150456e698d157e981db9f7a55cdf2221e090d999fdc6989f03393" => :sierra
-    sha256 "7a5c888484415d2de3d0b1e980a0895578f1d5df816863dc553ef499b488c203" => :el_capitan
-    sha256 "3770ceced1be2ef3de507894ed98548c72ecd469e49176f6cf1f8e7c890a8d84" => :yosemite
-    sha256 "a48533ba8f2e0edbb635d5b7270740c8f86c3800e71489ed02cbf9869c874748" => :mavericks
+    sha256 "62193341691f6f35a1d844409c587b431aa7540b70c02d90451e2cb3623788de" => :sierra
+    sha256 "5e7789a8ba4e3259364bd3ae827037ba83bf3a076633799bf8f5869b885db399" => :el_capitan
+    sha256 "38d1b7f54b5dbdd4a0e28e3a1077aed2ada42a9266cfaddeda6a08d761a2d8b2" => :yosemite
   end
 
   conflicts_with "narwhal", :because => "both install a js binary"

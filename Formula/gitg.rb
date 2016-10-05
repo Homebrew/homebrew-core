@@ -1,14 +1,13 @@
 class Gitg < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
-  url "https://download.gnome.org/sources/gitg/3.20/gitg-3.20.3.tar.xz"
-  sha256 "4b0802360cdf1341b27a73458930768d139143b568b9153e93378f32f7ba6669"
+  url "https://download.gnome.org/sources/gitg/3.22/gitg-3.22.0.tar.xz"
+  sha256 "ba6895f85c18748294075980a5e03e0936ad4e84534dbb0d8f9e29aa874ddeaf"
 
   bottle do
-    sha256 "a9d0e52124a9f2dc92e88af5d4322dad5e0b5962660a08631a31be842f5a7794" => :sierra
-    sha256 "20c7f14353ab590070bd9d20a509df7b15d0fe7d11e074d7e6a3639ae1264a0d" => :el_capitan
-    sha256 "7d9e441d23c713494046d2a9598513c9bf84ef42cf64c58605c6fc55df995770" => :yosemite
-    sha256 "f39cfb7978573bc2e1407d4c71f4fd5919bc79233752eb49736884badb580646" => :mavericks
+    sha256 "a1b08247409aa919f893ef16fb1001c8ac84d0a109c4234d34fcb4017e2c1269" => :sierra
+    sha256 "0e08648a797dbc4c661a3adcc2d0fcfbc07544cf9d0f8a9355449bc0f3dc457e" => :el_capitan
+    sha256 "34577c96439c46031678098d5da44f9345c64cc76285a75892b5fd2fe458b2bd" => :yosemite
   end
 
   depends_on "pkg-config" => :build

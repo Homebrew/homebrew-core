@@ -1,15 +1,14 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/archive/20160404.tar.gz"
-  sha256 "1cc5646fccba2e5af8f1b6c1d0d6d7b6082d9546aefed2348d6c0ed948324796"
+  url "https://github.com/fontforge/fontforge/archive/20161001.tar.gz"
+  sha256 "103af2a6c8799390f20790e44064ea4f9ec6795255b7a065b3f9a352c2723c40"
   head "https://github.com/fontforge/fontforge.git"
 
   bottle do
-    sha256 "74daacbb3416e84d8593fdaf2d0123ca4ef660bcbdcb5dda3792ac087cf07666" => :sierra
-    sha256 "fd97cefd808fc0f07ac61e6ea624f074c9be5f2fb11f5a45468912fe5991ca36" => :el_capitan
-    sha256 "e2dd2a2c7ce89b74b4bc2902da0ff93615b62b31bda5303a4f9bdf4447c2f05e" => :yosemite
-    sha256 "6f1a9f1a0a15a2f84f0dce5c73e80e4265efd05e4bfa570f3c5e78da2211bbc6" => :mavericks
+    sha256 "aeeb0031067149f9795f9aac5bf3b623ab53557345509086de1124cd941b0ad8" => :sierra
+    sha256 "e25c8e3ca59b9cc7ee4ece35b46d2bc95757aab7d8d800b4af4afe2b7a6dd5ed" => :el_capitan
+    sha256 "e5e8e6a5522841bccf8dc4fbfd4953b35e5375320785474ddd0dc7aa066b1fcb" => :yosemite
   end
 
   option "with-giflib", "Build with GIF support"
@@ -56,10 +55,6 @@ class Fontforge < Formula
       oldflags = s.get_make_var "libfontforgeexe_la_LDFLAGS"
       s.change_make_var! "libfontforgeexe_la_LDFLAGS", "#{python_libs} #{oldflags}"
     end
-
-    # Disable Homebrew detection
-    # https://github.com/fontforge/fontforge/issues/2425
-    inreplace "configure.ac", 'test "y$HOMEBREW_BREW_FILE" != "y"', "false"
 
     args = %W[
       --prefix=#{prefix}

@@ -3,13 +3,12 @@ class Rlwrap < Formula
   homepage "http://utopia.knoware.nl/~hlub/rlwrap/"
   url "http://utopia.knoware.nl/~hlub/rlwrap/rlwrap-0.42.tar.gz"
   sha256 "5a70d8469db9d0a6630628f2d5d2972ad16c092400b7fbbdf699693ec0f87e44"
+  revision 1
 
   bottle do
-    sha256 "1b87eb33a5d8791a1430a61c4c7706f76cf620d9244dc6b19e31b170cb68d33a" => :sierra
-    sha256 "b76aed0e35f4c22e3085da3d9132ff1771d5ea044ad9f51d586d990b5592a9c4" => :el_capitan
-    sha256 "d340e6e7c9c56c25f2bb9904213c0161697135423e4479562cb54bfed6fa6718" => :yosemite
-    sha256 "036303739cbfd4ee484244dd57d7a383b8e75898f4a9b58cc29d90bc172a3800" => :mavericks
-    sha256 "7eb3a13529d70e7229546b346d364af496f53c7f6985f81a1bd8298ed92fd0dc" => :mountain_lion
+    sha256 "53859da22797c6c4b51754b538dc4be18866f492bbcd14c66228ee1f7d11a93b" => :sierra
+    sha256 "1361a917ac884c5d9f2755ec08b33f5ce57e68687a5f19458a2c0854dbdc6da7" => :el_capitan
+    sha256 "48b56717c9b66c9c56e288b5e9dca32b5c3f6a256c5b3057f68f46b920788e59" => :yosemite
   end
 
   depends_on "readline"

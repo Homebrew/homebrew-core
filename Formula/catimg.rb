@@ -7,6 +7,7 @@ class Catimg < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "004d77ed58956a5c7f85038a9cf6aed7b78c8da5ccfe8ec1edc78feb5f316a53" => :sierra
     sha256 "19de4732fcede883809385808503dcf14594a7a8a439d709d0d8cffa98e2c646" => :el_capitan
     sha256 "19e3d77b6b033a0623245a9d7cf8cd7d2a79d8cbf8a52200da9af1a91bbec0dc" => :yosemite
     sha256 "9ca32408359ad0d0fdc1b0649e3901decf92351d6944a241861976636113ed73" => :mavericks

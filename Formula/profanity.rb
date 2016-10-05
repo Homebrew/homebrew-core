@@ -3,15 +3,14 @@ class Profanity < Formula
   homepage "http://www.profanity.im/"
   url "http://www.profanity.im/profanity-0.4.7.tar.gz"
   sha256 "b02c4e029fe84941050ccab6c8cdf5f15df23de5d1384b4d1ec66da6faee11dd"
-  revision 2
+  revision 3
 
   head "https://github.com/boothj5/profanity.git"
 
   bottle do
-    sha256 "ba20918546e3fa26fd2f22338d5647a96bec401d1d61631516080fc5f1176ed6" => :sierra
-    sha256 "e42d99f8e15de670c0d5d0d3bd90cc946759c6d55697ecf0f20928f8ac63c062" => :el_capitan
-    sha256 "01807fbbe872b9921ca8c9af55fc0843ae57bbdeeed565ed929f254523d6f758" => :yosemite
-    sha256 "f1e8e071263d364cf86b0adcaf475ef3dabb2cd6eededa8aa1f7e7d4e6fe0c2b" => :mavericks
+    sha256 "f822fb49ab3e57dc2c0e155ea23f93c0d8f8e230a5b6e7f41401368ef9cde23d" => :sierra
+    sha256 "266839844245169363cbe2f8a4e09023adef02d529ded253aa5bf30c8607a473" => :el_capitan
+    sha256 "17ceae0ada23ce3686e534ad7a3644348105805dc1f3da570cb6c08b749a41a9" => :yosemite
   end
 
   depends_on "autoconf" => :build

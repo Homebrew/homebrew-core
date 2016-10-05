@@ -1,14 +1,14 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "http://www.pdal.io/"
-  url "https://github.com/PDAL/PDAL/archive/1.1.0.tar.gz"
-  sha256 "70e0c84035b3fdc75c4eb72dde62a7a2138171d249f2a607170f79d5cafe589d"
+  url "https://github.com/PDAL/PDAL/archive/1.3.0.tar.gz"
+  sha256 "48d48b1fc2a2ce2cf6fba5b28f2455b94a1ccc33148ee0a3c79a4dc041641557"
   head "https://github.com/PDAL/PDAL.git"
 
   bottle do
-    sha256 "21dc2f8487f310e9ccafbb625639c2fb795ff915b5ace70272c1f101760d05da" => :el_capitan
-    sha256 "7b7d7a29d450d3e6f4a8abce3b3ac24900419d753e3b64726d4991fe6e0219b7" => :yosemite
-    sha256 "cd3a166ed19422b0cc9eba5de4e37031cc8c1cfe29973373c54d48e72e2f68b2" => :mavericks
+    sha256 "5f3124558a1e2ed3d8cbd8125ca2ac338ea622a566a03eb030c088b9f7f14ba1" => :sierra
+    sha256 "4a63751d73e54b40f6ce16028f9ca136292720ae2f0873a346abcddad055416a" => :el_capitan
+    sha256 "f1f7829dc4cb65be993aed5255f1ed69d53d1928c7cc3b9e396d83fdd8404557" => :yosemite
   end
 
   depends_on "cmake" => :build

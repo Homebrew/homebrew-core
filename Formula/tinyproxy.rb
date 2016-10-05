@@ -6,7 +6,8 @@ class Tinyproxy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 2
+    rebuild 2
+    sha256 "73ad83b43d81259d0251e5c33a3f35a8200059f01421084054472b5ad96a1240" => :sierra
     sha256 "004c6319701e7529b252e1860321cf14369a74029a6f05523662365ff1292f1b" => :el_capitan
     sha256 "b68a1b323a20f689b96e7405f2c491c66849fa011beb450dcf417be491557da4" => :yosemite
     sha256 "7bba647101259e9299a8a61177fcba2966b056091e9b1a28a43207e612a0bcfc" => :mavericks

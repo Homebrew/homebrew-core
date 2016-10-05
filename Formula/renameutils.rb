@@ -3,13 +3,13 @@ class Renameutils < Formula
   homepage "http://www.nongnu.org/renameutils/"
   url "https://download.savannah.gnu.org/releases/renameutils/renameutils-0.12.0.tar.gz"
   sha256 "cbd2f002027ccf5a923135c3f529c6d17fabbca7d85506a394ca37694a9eb4a3"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "c84559395b8c2f8e189b65cf369735543730d187d8bfa8339f42b48cb6c671c7" => :el_capitan
-    sha256 "cd3327f073ba1c67da113906854727e806829a9dc4f9abaaa516ab80c2981571" => :yosemite
-    sha256 "3f0ffe1f0d2d66032657e1281b796d6f71cdac36b9a0ae7ad1e8ef5df267d3de" => :mavericks
-    sha256 "6ac784f69ad72c25a17eafbd85fc7e66fa5285c834f1adb08f3943fa1d4ed48c" => :mountain_lion
+    sha256 "56f37984343df2fc7a632a447c8c008dbd1d775c71a1b190b9c2bd2296862b77" => :sierra
+    sha256 "69c7381af949af84d3e7cd61cbec789e3d790c154fb3cb9916b1e74730a5fbce" => :el_capitan
+    sha256 "3854a97491ab39937687fd00623e4786205163f87522e901bbd7cca6e054b574" => :yosemite
   end
 
   depends_on "readline" # Use instead of system libedit

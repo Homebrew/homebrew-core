@@ -7,6 +7,7 @@ class Argon2 < Formula
 
   bottle do
     cellar :any
+    sha256 "9af790d3daab25c0e0056e34ca9737b4916ccda2074d0fca809b5963fda1e9e3" => :sierra
     sha256 "4980070e3d6a5b6b0232417058e12f03fc55d73ae1d59d6ed19ea9862abc757f" => :el_capitan
     sha256 "a4d1adc7ff93a7bcee2e7f40b270941524a12801b07a2c90fe9f4f7584f9fdf3" => :yosemite
     sha256 "a1c80507bc2f361c5a6384a44d8f9cbfdc506277a681d23c6e75e3bc4a1c6f8b" => :mavericks

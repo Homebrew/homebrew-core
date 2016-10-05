@@ -6,6 +6,7 @@ class X11vnc < Formula
 
   bottle do
     cellar :any
+    sha256 "077e8a99c5097641b24d5d8e4c8b75076e81bc8b07876fff4a53d4b9d67d8831" => :sierra
     sha256 "5b215e4baff20b8120706c2698766fc7a84033e0502949691ed66e12f984bdf0" => :el_capitan
     sha256 "a32bb68e7b1ebb96de7acd8ce4d602038fed7ae0d7e6c6adca294fc688f2a8ad" => :yosemite
     sha256 "6e92c88b0c90fbda1ffc73f62c7ef2482b42b544595232b02caa54a6ab7c7021" => :mavericks

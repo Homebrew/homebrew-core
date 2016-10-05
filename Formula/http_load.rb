@@ -7,6 +7,7 @@ class HttpLoad < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "066db733e2ca22f30545f7131ad2833b3c16559a769fb2ce18686336066d6466" => :sierra
     sha256 "b7afff0a015534e8db9ba4e957014225bbf446c97378769a193da2e3753b14bc" => :el_capitan
     sha256 "6a38746183341a185ac3f7da57afc365707c2647ebaa0dc1d836b670b9bae35e" => :yosemite
     sha256 "0ba139d6c0adc4b5843bbbf3ce677ad58335029e7d4de0a18201bff0082e1e19" => :mavericks

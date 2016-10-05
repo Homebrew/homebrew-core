@@ -14,6 +14,7 @@ class Libcapn < Formula
   end
 
   bottle do
+    sha256 "2a7e5dbc8969be74fd4e7d86ae6b8d639583ccd2de8fef81895775de584206f6" => :sierra
     sha256 "1ea44f9bd53e6729a874c0b55a4031e0ff806ae967ab20267d0b0ec87219ceda" => :el_capitan
     sha256 "e046c34011f734511cbaa38f5defeec5da3ed3ad3d2f7c11e8c5eddc92e8e596" => :yosemite
     sha256 "a9405089ccb42d828415d5ce60a9da5c6d39c28d89d599244317c37634a6e580" => :mavericks

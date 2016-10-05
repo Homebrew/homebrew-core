@@ -6,18 +6,17 @@ class Mpv < Formula
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    rebuild 1
-    sha256 "7860cc7b7ca8b8e308d46b242baff6a5d85641e35e654ccfe6e62dfb560d3979" => :sierra
-    sha256 "89cda2b8a94622ab29c52ba903ad84164a5ac5c0d212e9ebe22e23f0093b568d" => :el_capitan
-    sha256 "556f02d539e927f559e33ceb25436b930bebcfd775e7203062d405e806ae6db9" => :yosemite
-    sha256 "96173d039e1ae0329d24a628c8775b02f2c7791190015c650b021d611046d1b7" => :mavericks
+    rebuild 2
+    sha256 "24dd905156f1044a79e16a248d6eff6e1a5ffb67f4d5b6c37b61ff653a6aecaf" => :sierra
+    sha256 "f241f756ab0644fb277ab0725c69d62721bed17d6d2ee4bc298c4ed8a9bb5ca4" => :el_capitan
+    sha256 "78a0b0e6ba9af8d641fca571cf9e38b3c7f4dad3ab4087eb64a38bf90d47f02f" => :yosemite
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
 
   depends_on "pkg-config" => :build
   depends_on "docutils" => :build
-  depends_on :python3
+  depends_on :python3 => :build
 
   depends_on "libass"
   depends_on "ffmpeg"

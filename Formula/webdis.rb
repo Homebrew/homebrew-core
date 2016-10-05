@@ -6,6 +6,7 @@ class Webdis < Formula
 
   bottle do
     cellar :any
+    sha256 "17a9d8bb8fcc4f155d45b2a178fd9e23dade1375e8845579389fbbe5ed002e21" => :sierra
     sha256 "39585b1ba1b3a8e34c2a2d08e6e347284fd3dceca217c83638dfb9fa8e684550" => :el_capitan
     sha256 "053f0bf229a602f8fae49b654545826d4c95c5c020f50edd71bfc083a4152d93" => :yosemite
     sha256 "93d36ebff19cbe0c7d50075a3c3c85d3542c105713728808c84bf0d5fa81828f" => :mavericks

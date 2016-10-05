@@ -29,6 +29,8 @@ class Exiftool < Formula
   end
 
   test do
-    system bin/"exiftool"
+    test_image = test_fixtures("test.jpg")
+    assert_match %r{MIME Type\s+: image/jpeg},
+                 shell_output("#{bin}/exiftool #{test_image}")
   end
 end

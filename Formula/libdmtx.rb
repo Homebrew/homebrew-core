@@ -6,7 +6,8 @@ class Libdmtx < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "ff67a8026fd8853489878fd980ec7d01a60b5b1bfa74ac45408fcf2ef8580bd8" => :sierra
     sha256 "5517994e8a97229ac3ba665b5a13cb622f6bf09097c84d86cf85c72b1e1f4a37" => :el_capitan
     sha256 "ecb61e93fa9c7698011856693ac7b5335008cbda9807cc5852f0b47dcf1188d8" => :yosemite
     sha256 "c6c2c336211aca2d6fc9c1a71ed4028d99ce2e0f3f50b34e6b916068557c7c18" => :mavericks

@@ -8,13 +8,14 @@ class Bash < Formula
   mirror "https://gnu.cu.be/bash/bash-4.4.tar.gz"
   mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.4.tar.gz"
   sha256 "d86b3392c1202e8ff5a423b302e6284db7f8f435ea9f39b5b1b20fd3ac36dfcb"
+  revision 1
+
   head "http://git.savannah.gnu.org/r/bash.git"
 
   bottle do
-    sha256 "e159b9d75a2ffd7f86e64f4ad81d438a119f3612b38722731ff41315bceee543" => :sierra
-    sha256 "4b51fb9dbe589e53418090dac749a1d4d8bec79908f5df3e6dfeef7b321788b7" => :el_capitan
-    sha256 "74b413cdd85866d8b7dbc2ff6bdb4f97c94168fdf8e4a121ba94c1ba581f0193" => :yosemite
-    sha256 "3b74c03785baaaec7e4d4ca8312443eb710fa57fca94898ae9a854ded97c7836" => :mavericks
+    sha256 "a2f73335f36d0a35970b1ee2b41e4a6b939ffd9df2a3ee9e9ebb942765d10002" => :sierra
+    sha256 "9f11130718619dd0523760d714c8ac349fd62cc0b11dc70671ff132e7fc94ef5" => :el_capitan
+    sha256 "af85e62012466dbb9ec9e08fe59acb03aff35f2d41844d2871c80bbd5a9e6ac3" => :yosemite
   end
 
   depends_on "readline"

@@ -6,6 +6,7 @@ class Cmockery < Formula
 
   bottle do
     cellar :any
+    sha256 "f3b1c3d5c96ea9e30dc008e557239e972a18e65b3dd1ee8a593a0eb6e11d7858" => :sierra
     sha256 "6cc440503b2fce7def7d584aacf8e9142ad430de799b466f609f57fd9beb4ede" => :el_capitan
     sha256 "a6ac86af8d5b7f5964a480cc91bfbdaf260c59eae2c4b79663ebab2dfdb7d062" => :yosemite
     sha256 "673662bebae6bc4e43b60137ebad7141af0eeecffa41f4e7c61065b0f2262d25" => :mavericks
