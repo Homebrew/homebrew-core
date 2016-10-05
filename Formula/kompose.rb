@@ -14,4 +14,3 @@ class Kompose < Formula
     system "#{bin}/kompose", "--version"
   end
 end
-
