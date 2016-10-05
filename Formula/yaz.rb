@@ -1,8 +1,8 @@
 class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/yaz"
-  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.16.0.tar.gz"
-  sha256 "46708320152c1475f6a5ee6f29903caa76121c2440123051546c1b3403c78686"
+  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.17.0.tar.gz"
+  sha256 "9b735f0f6bc11856bf4d26ef3b9f2a2b92225d29d37f2e0b66ca9ecbd40965a0"
 
   bottle do
     cellar :any
@@ -26,6 +26,8 @@ class Yaz < Formula
 
   def install
     ENV.universal_binary if build.universal?
+
+    inreplace "src/malloc_info.c", "<malloc.h>", "<malloc/malloc.h>"
 
     system "./buildconf.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
