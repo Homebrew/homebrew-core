@@ -53,7 +53,7 @@ class Qt5 < Formula
   # using IOBluetooth will fail to build.
   # This patch also fix the missing symbol in cups backend of qtwebengine
   patch do
-    url "http://localhost/qt5-bluetooth-cups-mac-10.1x.patch"
+    url "https://gist.githubusercontent.com/steve3d/b246f2eb35e5b9f89d1dcaa3470da59d/raw/75ba606df18d2a4901ff12b5ddd78c41a1711509/qt5-bluetooth-cups-mac-10.1x.patch"
     sha256 "b5d219682ce33e5b5c1784689edd0f31879b107713b7060f69930f76fd11eb8d"
   end
 
@@ -83,7 +83,7 @@ class Qt5 < Formula
   resource "qt-webkit" do
     # http://lists.qt-project.org/pipermail/development/2016-March/025358.html
     url "https://download.qt.io/community_releases/5.7/5.7.0/qtwebkit-opensource-src-5.7.0.tar.xz"
-    sha256 "f5ba5afc5846fc755575dd04081a90a9536f920e312f18f6fb1f5a0c33f477b0"
+    sha256 "c7a3253cbf8e6035c54c3b08d8a9457bd82efbce71d4b363c8f753fd07bd34df"
   end
 
   def install
