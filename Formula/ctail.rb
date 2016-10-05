@@ -16,8 +16,7 @@ class Ctail < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "apr"
-  depends_on "apr-util"
+  depends_on :apr
 
   conflicts_with "byobu", :because => "both install `ctail` binaries"
 
