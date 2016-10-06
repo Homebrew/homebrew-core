@@ -64,6 +64,7 @@ class Qt5 < Formula
   option "with-oci", "Build with Oracle OCI plugin"
   option "with-qtwebkit", "Build with QtWebkit module"
   option "without-webengine", "Build without QtWebEngine module"
+  option "without-plugins", "Build without using gif/jpeg/sql plugins"
 
   deprecated_option "qtdbus" => "with-dbus"
   deprecated_option "with-d-bus" => "with-dbus"
@@ -106,8 +107,19 @@ class Qt5 < Formula
 
     args << "-nomake" << "examples" if build.without? "examples"
 
-    args << "-plugin-sql-mysql" if build.with? "mysql"
-    args << "-plugin-sql-psql" if build.with? "postgresql"
+    if build.without? "plugins"
+      use_plugin = "qt"
+      args << "-qt-sql-sqlite"
+      inreplace "qtbase/configure" do |s|
+        s.gsub! "CFG_JPEG=plugin", "CFG_JPEG=yes"
+        s.gsub! "CFG_GIF=plugin", "CFG_GIF=yes"
+      end
+    else
+       use_plugin = "plugin"
+    end
+
+    args << "-#{use_plugin}-sql-mysql" if build.with? "mysql"
+    args << "-#{use_plugin}-sql-psql" if build.with? "postgresql"
 
     # Both mysql and postgresql require openssl libs to link
     if build.with? "mysql" or build.with? "postgresql"
@@ -129,7 +141,7 @@ class Qt5 < Formula
     if build.with? "oci"
       args << "-I#{ENV["ORACLE_HOME"]}/sdk/include"
       args << "-L#{ENV["ORACLE_HOME"]}"
-      args << "-plugin-sql-oci"
+      args << "-#{use_plugin}-sql-oci"
     end
 
     args << "-skip" << "qtwebengine" if build.without? "webengine"
