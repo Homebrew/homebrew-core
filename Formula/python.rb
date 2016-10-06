@@ -19,6 +19,7 @@ class Python < Formula
   option "with-quicktest", "Run `make quicktest` after the build (for devs; may fail)"
   option "with-tcl-tk", "Use Homebrew's Tk instead of OS X Tk (has optional Cocoa and threads support)"
   option "with-poll", "Enable select.poll, which is not fully implemented on OS X (https://bugs.python.org/issue5154)"
+  option "without-getentropy", "Disable linkage against getentropy system call"
 
   # sphinx-doc depends on python, but on 10.6 or earlier python is fulfilled by
   # brew, which would lead to circular dependency.
@@ -195,6 +196,13 @@ class Python < Formula
     # https://bugs.python.org/issue5154
     if build.without? "poll"
       inreplace "pyconfig.h", /.*?(HAVE_POLL[_A-Z]*).*/, '#undef \1'
+    end
+
+    # Mac OS 10.12 has introduced getentropy system call. Python will now detect and weakly link to it.
+    # You may wish to disable this feature if you'd like to distribute compiled Python code (eg. from PyInstaller)
+    # to older versions of Mac OS.
+    if build.without? "getentropy"
+      inreplace "pyconfig.h", /.*?(HAVE_GETENTROPY).*/, '#undef \1'
     end
 
     system "make"
