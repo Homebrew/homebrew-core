@@ -2,6 +2,7 @@ class Osm2pgsql < Formula
   desc "OpenStreetMap data to PostgreSQL converter"
   homepage "https://wiki.openstreetmap.org/wiki/Osm2pgsql"
   head "https://github.com/openstreetmap/osm2pgsql.git"
+  revision 1
 
   stable do
     url "https://github.com/openstreetmap/osm2pgsql/archive/0.90.1.tar.gz"
@@ -15,10 +16,9 @@ class Osm2pgsql < Formula
   end
 
   bottle do
-    sha256 "e87b4376ea16842630b0d6d1e42c80056f4fe708b19ada343207a35b5ec800dc" => :sierra
-    sha256 "b465872486185424901fbdf771d4bc5d6e0a443429991b19583fbb81d5e112d8" => :el_capitan
-    sha256 "41bfe9b7ffb6d3ae68666526916e2bc2813ac48b435c71a99b17c08b4961715c" => :yosemite
-    sha256 "5c8730f1b37bef49f57aea9c913c64bc410da5122d1fc02ab48693322e26908c" => :mavericks
+    sha256 "688902dca61326f203860831c3c36fa6b9b6e4acb2141a4fc4bedb7a7e660127" => :sierra
+    sha256 "1219f80127ffe660debc850f147532bd2c3ba4590dc6c11041c80ee21aedeaa7" => :el_capitan
+    sha256 "70e049aaaa347412004d7bcb4a06bde2406d7984de128fa9d6a85ffd916f3cdc" => :yosemite
   end
 
   depends_on "cmake" => :build

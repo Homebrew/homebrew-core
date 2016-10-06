@@ -1,14 +1,13 @@
 class ClutterGtk < Formula
   desc "GTK+ integration library for Clutter"
   homepage "https://wiki.gnome.org/Projects/Clutter"
-  url "https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.0.tar.xz"
-  sha256 "742ef9d68ece36cbb1b2e1a4a6fbdad932f6645360be7e6de75abbb140dfbf1d"
+  url "https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.2.tar.xz"
+  sha256 "da27d486325490ad3f65d2abf9413aeb8b4a8f7b559e4b2f73567a5344a26b94"
 
   bottle do
-    sha256 "511f2583872ea32f10a9a91b51a287a95448e697da755317a10867259abadbb9" => :sierra
-    sha256 "1491c366ff7686c09ffd8d23491e1689c716e6df820ef81bd20a5ca9f685e788" => :el_capitan
-    sha256 "d12a6bdf9a4f12aadb2603031b23a35e94da32bdfe1c612868f60d6edd14d377" => :yosemite
-    sha256 "e0a49758f14433e41493183cc8a0f4106ec2f42435a11a8f64ef1c6f576255cf" => :mavericks
+    sha256 "1d2a5f05a4df6167bf6a84f3bc09cf4be38b227ebe39a69c41a951a303356022" => :sierra
+    sha256 "6d8dfc08f45ca9acd13eae05db400d71b4a4b5cb0340b60edefa4f90b8113629" => :el_capitan
+    sha256 "d63dbbb10bad2cb8d844523eb4e09a848f01596cbfeda179fc479336791d50cb" => :yosemite
   end
 
   depends_on "pkg-config" => :build

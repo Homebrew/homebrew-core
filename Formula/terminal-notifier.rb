@@ -1,18 +1,15 @@
 class TerminalNotifier < Formula
   desc "Send macOS User Notifications from the command-line"
-  homepage "https://github.com/alloy/terminal-notifier"
-  url "https://github.com/alloy/terminal-notifier/archive/1.6.3.tar.gz"
-  sha256 "d71243e194d290e873eb5c5f30904e1d9406246d089e7d4d48ca275a8abfe275"
-
-  head "https://github.com/alloy/terminal-notifier.git"
+  homepage "https://github.com/julienXX/terminal-notifier"
+  url "https://github.com/julienXX/terminal-notifier/archive/1.7.1.tar.gz"
+  sha256 "6a322a01641d37ca11ed325452bcfce0b312c7bde65cd5afbb53236f1f6b51df"
+  head "https://github.com/julienXX/terminal-notifier.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "85467783430a7ecdfa46e6cbbcd23dc929dfe5cf1ebe257655cf6673083d5f07" => :sierra
-    sha256 "3a71be6835b7612696fa22235edf1643ecb9722e4b4c4dff0cdd426cf42f9fc7" => :el_capitan
-    sha256 "748aefaf06e506a51274395f600fff007d6dde927f0bc1911f3b83cc8e854928" => :yosemite
-    sha256 "6609dfdb1840dfff23420a39220ba5e2eade7841b66ab167c3924c5be4f05248" => :mavericks
-    sha256 "87e1ddf62740069b8fc35ae4c302f46ecb7c2c0cf32ff5ec8ffd6cdd9611e53e" => :mountain_lion
+    sha256 "b4dd06d3c8f082fe3c8246e784661e86fdb7986cdaa9fe65638ba472ef8f43f4" => :sierra
+    sha256 "7fad6587bf48c9956c1b0c3ec691a549a34a829850069809b2e3af91710ee5a8" => :el_capitan
+    sha256 "2eddadf3bcd3edbfd962325bf5eb4be41f2a3bef8e1305ed48a922c9fe02d027" => :yosemite
   end
 
   depends_on :macos => :mountain_lion
@@ -30,6 +27,6 @@ class TerminalNotifier < Formula
   end
 
   test do
-    system "#{bin}/terminal-notifier", "-help" if MacOS.version < :yosemite
+    assert_match version.to_s, pipe_output("#{bin}/terminal-notifier -help")
   end
 end

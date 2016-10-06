@@ -8,15 +8,13 @@
 class Jack < Formula
   desc "Jack Audio Connection Kit (JACK)"
   homepage "http://jackaudio.org"
-  url "http://jackaudio.org/downloads/jack-audio-connection-kit-0.124.1.tar.gz"
-  sha256 "eb42df6065576f08feeeb60cb9355dce4eb53874534ad71534d7aa31bae561d6"
+  url "http://jackaudio.org/downloads/jack-audio-connection-kit-0.125.0.tar.gz"
+  sha256 "3517b5bff82139a76b2b66fe2fd9a3b34b6e594c184f95a988524c575b11d444"
 
   bottle do
-    rebuild 2
-    sha256 "b4c1720c1e79b3d9a71cc79906175b90f6e30a8c2704c94e3c941d288b5453cc" => :el_capitan
-    sha256 "9e793fc1460c67e5209365cdf524face6f66cb1da5ae706da36a6e6c616cfe16" => :yosemite
-    sha256 "bed1d9c87b983abeb5ae57de0402707c6426c2426efee7be3c63c08948a5c5ec" => :mavericks
-    sha256 "56f0c03a6293b616fbc5505d55b2a6ee20f8946f5789bdff005696892129017d" => :mountain_lion
+    sha256 "09037cc758f7fbb1906e9f57722143ac6fad688dafc8a3737b23ee6cf60f3277" => :sierra
+    sha256 "538c6769165c651170287b466aadd693622430a4b3df917277faa4dcef9e36a9" => :el_capitan
+    sha256 "e605e6c982263cf1e058ac67c130273caec43aec75371b907ad3a04ec5e212d8" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -24,8 +22,16 @@ class Jack < Formula
   depends_on "libsndfile"
   depends_on "libsamplerate"
 
-  # Change pThread header include from CarbonCore
-  patch :p0, :DATA if MacOS.version >= :mountain_lion
+  def install
+    # Makefile hardcodes Carbon header location
+    inreplace Dir["drivers/coreaudio/Makefile.{am,in}"],
+      "/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h",
+      "#{MacOS.sdk_path}/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h"
+
+    ENV["LINKFLAGS"] = ENV.ldflags
+    system "./configure", "--prefix=#{prefix}"
+    system "make", "install"
+  end
 
   plist_options :manual => "jackd -d coreaudio"
 
@@ -53,27 +59,7 @@ class Jack < Formula
     EOS
   end
 
-  def install
-    # Makefile hardcodes Carbon header location
-    inreplace Dir["drivers/coreaudio/Makefile.{am,in}"],
-      "/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h",
-      "#{MacOS.sdk_path}/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h"
-
-    ENV["LINKFLAGS"] = ENV.ldflags
-    system "./configure", "--prefix=#{prefix}"
-    system "make", "install"
+  test do
+    assert_match version.to_s, shell_output("#{bin}/jackd --version")
   end
 end
-
-__END__
---- config/os/macosx/pThreadUtilities.h
-+++ config/os/macosx/pThreadUtilities.h
-@@ -66,7 +66,7 @@
- #define __PTHREADUTILITIES_H__
- 
- #import "pthread.h"
--#import <CoreServices/../Frameworks/CarbonCore.framework/Headers/MacTypes.h>
-+#import <MacTypes.h>
- 
- #define THREAD_SET_PRIORITY      0
- #define THREAD_SCHEDULED_PRIORITY    1

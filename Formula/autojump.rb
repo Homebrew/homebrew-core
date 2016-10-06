@@ -1,15 +1,15 @@
 class Autojump < Formula
   desc "Shell extension to jump to frequently used directories"
   homepage "https://github.com/wting/autojump"
-  url "https://github.com/wting/autojump/archive/release-v22.4.1.tar.gz"
-  sha256 "4756132c992e3da82bb3e2b3cbc449168f85355f63e1d3fb6c1f43d36d1690c6"
+  url "https://github.com/wting/autojump/archive/release-v22.5.0.tar.gz"
+  sha256 "8da11ff82dabfc9d0ea10f453ed90d601fbf1a212f9e8ad42965a87986045101"
   head "https://github.com/wting/autojump.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "274b5bb680afeb031e1abfabc7d79060f4779e85014f715708f9e273ebab0813" => :sierra
-    sha256 "274b5bb680afeb031e1abfabc7d79060f4779e85014f715708f9e273ebab0813" => :el_capitan
-    sha256 "274b5bb680afeb031e1abfabc7d79060f4779e85014f715708f9e273ebab0813" => :yosemite
+    sha256 "3cafdacb41c2e300682dfbc74ee28fe069d09a380a8e4bd7a6458cd6373200c5" => :sierra
+    sha256 "3cafdacb41c2e300682dfbc74ee28fe069d09a380a8e4bd7a6458cd6373200c5" => :el_capitan
+    sha256 "3cafdacb41c2e300682dfbc74ee28fe069d09a380a8e4bd7a6458cd6373200c5" => :yosemite
   end
 
   def install

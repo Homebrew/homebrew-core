@@ -3,11 +3,12 @@ class GdkPixbuf < Formula
   homepage "http://gtk.org"
   url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.0.tar.xz"
   sha256 "85ab52ce9f2c26327141b3dcf21cca3da6a3f8de84b95fa1e727d8871a23245c"
+  revision 2
 
   bottle do
-    sha256 "0be36333f1249185fa702ef3cc1397d41577b8b79bab7f30413397e6f30ffa59" => :sierra
-    sha256 "6f928b3e97c33a3f8cc28ad066aa6ae12982bf09e997bb158f5584613ddb7d49" => :el_capitan
-    sha256 "d094979d066bfec5ab032f393ee2c9f13a8dc10eae5b3797b2b21ccb40057e3f" => :yosemite
+    sha256 "8e48081047bc6a572a1ce04ca52d1cbb73091ee300961ffaf84d9fb2d0817eb0" => :sierra
+    sha256 "df2edeed86a88e0d57730a0fb7a045c62201af2d40ac538d6568f8f20aa34789" => :el_capitan
+    sha256 "e15e0dcd787c220f32c3b049953439a26dc93207c5bb734c9421c276d67fc6f5" => :yosemite
   end
 
   option :universal
@@ -19,6 +20,7 @@ class GdkPixbuf < Formula
   depends_on "libtiff"
   depends_on "libpng"
   depends_on "gobject-introspection"
+  depends_on "shared-mime-info"
 
   # 'loaders.cache' must be writable by other packages
   skip_clean "lib/gdk-pixbuf-2.0"

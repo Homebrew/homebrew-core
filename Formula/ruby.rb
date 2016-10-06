@@ -1,7 +1,7 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  revision 1
+  revision 2
 
   stable do
     url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.bz2"
@@ -19,9 +19,9 @@ class Ruby < Formula
   end
 
   bottle do
-    sha256 "66c4f6c269dda1d64cc13fe8141e992e77baac34b3a485d92d667d7618c8f889" => :sierra
-    sha256 "c431f7651c0479bcc5965e9ba07117b1a3afcd062a3104d9d1dfd21a2f6c1da1" => :el_capitan
-    sha256 "0809da9d721a8b14478bde70c1355d1953225bd17c27c3514663012fdab9a46a" => :yosemite
+    sha256 "2cb8d433b4948881c2e3f3f2a62c529fbd84ea6e67c69724d8e59320aa54560c" => :sierra
+    sha256 "e16cbadb53777409d930b2732eda252ec186a4076032dce80de273bf8f8ff06c" => :el_capitan
+    sha256 "2d4fd2558c00fb558c79165cf5af3e3ec94686a46b653cf200c08946dd202418" => :yosemite
   end
 
   devel do
@@ -54,6 +54,9 @@ class Ruby < Formula
   end
 
   def install
+    # otherwise `gem` command breaks
+    ENV.delete("SDKROOT")
+
     system "autoconf" if build.head?
 
     args = %W[
@@ -205,6 +208,7 @@ class Ruby < Formula
   test do
     hello_text = shell_output("#{bin}/ruby#{program_suffix} -e 'puts :hello'")
     assert_equal "hello\n", hello_text
-    system "#{bin}/gem#{program_suffix}", "list", "--local"
+    ENV["GEM_HOME"] = testpath
+    system "#{bin}/gem#{program_suffix}", "install", "json"
   end
 end
