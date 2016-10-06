@@ -3,7 +3,7 @@ class Openconnect < Formula
   homepage "http://www.infradead.org/openconnect.html"
   url "ftp://ftp.infradead.org/pub/openconnect/openconnect-7.07.tar.gz"
   sha256 "f3ecfcd487dcd916748db38b4138c1e72c86347d6328b11dfe1d0af2821b8366"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "f53757bf0e0347afd992613a68ed3d8a96e5c0e4fc71a034774cce6a9d5e7ed9" => :sierra
@@ -18,12 +18,14 @@ class Openconnect < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-gnutls", "Use GnuTLS instead of OpenSSL"
+  # Use of GnuTLS is currently preferred as this results in a complete feature
+  # set, i.e. DTLS MTU detection.
+  option "with-openssl", "Use OpenSSL instead of GnuTLS"
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "openssl" if build.without? "gnutls"
-  depends_on "gnutls" => :optional
+  depends_on "gnutls" if build.without? "openssl"
+  depends_on "openssl" => :optional
   depends_on "oath-toolkit" => :optional
   depends_on "stoken" => :optional
 
