@@ -1,8 +1,8 @@
 class Chapel < Formula
   desc "Emerging programming language designed for parallel computing"
   homepage "http://chapel.cray.com/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.13.1/chapel-1.13.1.tar.gz"
-  sha256 "9745c313548df610da2a6a3e920526baba92f11737c38fbeffd4de7bef5c011f"
+  url "https://github.com/chapel-lang/chapel/releases/download/1.14.0/chapel-1.14.0.tar.gz"
+  sha256 "9fbb3f4b446b4fd3b45572bd852964fe33de8eaeb3bac9b5c06b868181ba4059"
   head "https://github.com/chapel-lang/chapel.git"
 
   bottle do
@@ -22,6 +22,8 @@ class Chapel < Formula
     cd libexec do
       system "make"
       system "make", "chpldoc"
+      system "make", "test-venv"
+      system "make", "-C", "third-party", "clean"
     end
 
     prefix.install_metafiles
