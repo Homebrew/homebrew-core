@@ -6,8 +6,8 @@ class Influxdb < Formula
 
   stable do
     url "https://github.com/influxdata/influxdb.git",
-      :tag => "v1.0.0",
-      :revision => "37992377a55fbc138b2c01edd4deffed64b53989"
+      :tag => "v1.0.1",
+      :revision => "8b354f72951f50b130894dddee2e05149a1801d8"
 
     go_resource "github.com/dgrijalva/jwt-go" do
       url "https://github.com/dgrijalva/jwt-go.git",
