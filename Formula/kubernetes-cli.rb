@@ -20,9 +20,7 @@ class KubernetesCli < Formula
     # Raised in https://github.com/kubernetes/kubernetes/issues/34067
     rm "./test/e2e/framework/gobindata_util.go"
 
-    # Avoid race conditions in file generation step
-    ENV.deparallelize { system "make", "generated_files" }
-    system "make", "kubectl", "GOFLAGS=-v"
+    system "make", "all", "WHAT=cmd/kubectl", "GOFLAGS=-v"
 
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
     bin.install "_output/local/bin/darwin/#{arch}/kubectl"
