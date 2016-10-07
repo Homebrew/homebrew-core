@@ -4,14 +4,8 @@ class Bazel < Formula
   head "https://github.com/bazelbuild/bazel.git"
 
   stable do
-    url "https://github.com/bazelbuild/bazel/archive/0.3.1.tar.gz"
-    sha256 "52beafc9d78fc315115226f31425e21df1714d96c7dfcdeeb02306e2fe028dd8"
-
-    # Fix build on macOS 10.12 Sierra
-    patch do
-      url "https://github.com/bazelbuild/bazel/commit/fefd2329f4812bcb513294fdf417fc726a86ddfd.diff"
-      sha256 "73455ede4acb9e40923838cb66750a5baacc6b6f8eaaeed72df02dbca38bbe73"
-    end
+    url "https://github.com/bazelbuild/bazel/archive/0.3.2.tar.gz"
+    sha256 "9692ac3318a40e8a0530f68bbfc473ae5f6a4a5c0fe08d2f88612ca4d40ba54a"
   end
 
   bottle do
