@@ -7,10 +7,9 @@ class Freeling < Formula
 
   bottle do
     cellar :any
-    sha256 "10d5823ec2acac27a65a49857b7084e3f6db0e79a763d2214011012aeda67c84" => :sierra
-    sha256 "92ef9c219a1df42508231a2e49663a4c77095554db88d67d549728493560b2c7" => :el_capitan
-    sha256 "8f8a8a8998c9ff388ca331db262424f0c6944bb47942ae83993edc91535a8f6e" => :yosemite
-    sha256 "f63297a21fb3a1391c71f9db6140622639e039d3c09128e4b91c9fb86947a4e2" => :mavericks
+    sha256 "7e903f31687e99d9b3d76408d608d604fb414d1248b57e7a3dbd8865de49db2e" => :sierra
+    sha256 "b446bb0c148285eace2423c8dae76fb6e3e2cc5ce261d684faff1590b9905866" => :el_capitan
+    sha256 "06f7598a0d56a71af51e59bbac0dffc901911e1431c9702708d820ecdaaf7f0a" => :yosemite
   end
 
   depends_on "autoconf" => :build
