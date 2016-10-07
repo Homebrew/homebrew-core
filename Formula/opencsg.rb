@@ -1,8 +1,8 @@
 class Opencsg < Formula
   desc "The CSG rendering library"
   homepage "http://www.opencsg.org"
-  url "http://www.opencsg.org/OpenCSG-1.4.1.tar.gz"
-  sha256 "48182c8233e6f89cd6752679bde44ef6cc9eda4c06f4db845ec7de2cae2bb07a"
+  url "http://www.opencsg.org/OpenCSG-1.4.2.tar.gz"
+  sha256 "d952ec5d3a2e46a30019c210963fcddff66813efc9c29603b72f9553adff4afb"
 
   bottle do
     cellar :any
