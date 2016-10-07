@@ -6,12 +6,27 @@ class Influxdb < Formula
 
   stable do
     url "https://github.com/influxdata/influxdb.git",
-      :tag => "v1.0.0",
-      :revision => "37992377a55fbc138b2c01edd4deffed64b53989"
+        :tag => "v1.0.2",
+        :revision => "ff307047057b7797418998a4ed709b0c0f346324"
 
     go_resource "github.com/dgrijalva/jwt-go" do
       url "https://github.com/dgrijalva/jwt-go.git",
           :revision => "9b486c879bab3fde556ce8c27d9a2bb05d5b2c60"
+    end
+
+    go_resource "github.com/gogo/protobuf" do
+      url "https://github.com/gogo/protobuf.git",
+          :revision => "6abcf94fd4c97dcb423fdafd42fe9f96ca7e421b"
+    end
+
+    go_resource "github.com/influxdata/usage-client" do
+      url "https://github.com/influxdata/usage-client.git",
+          :revision => "475977e68d79883d9c8d67131c84e4241523f452"
+    end
+
+    go_resource "github.com/jwilder/encoding" do
+      url "https://github.com/jwilder/encoding.git",
+          :revision => "ac74639f65b2180a2e5eb5ff197f0c122441aed0"
     end
   end
 
@@ -29,6 +44,21 @@ class Influxdb < Formula
     go_resource "github.com/dgrijalva/jwt-go" do
       url "https://github.com/dgrijalva/jwt-go.git",
           :revision => "63734eae1ef55eaac06fdc0f312615f2e321e273"
+    end
+
+    go_resource "github.com/gogo/protobuf" do
+      url "https://github.com/gogo/protobuf.git",
+          :revision => "0394392b81058a7f972029451f06e528bb18ba50"
+    end
+
+    go_resource "github.com/influxdata/usage-client" do
+      url "https://github.com/influxdata/usage-client.git",
+          :revision => "6d3895376368aa52a3a81d2a16e90f0f52371967"
+    end
+
+    go_resource "github.com/jwilder/encoding" do
+      url "https://github.com/jwilder/encoding.git",
+          :revision => "4dada27c33277820fe35c7ee71ed34fbc9477d00"
     end
   end
 
@@ -69,24 +99,9 @@ class Influxdb < Formula
         :revision => "7d46cd22db7004f0cceb6f7975824b560cf0e486"
   end
 
-  go_resource "github.com/gogo/protobuf" do
-    url "https://github.com/gogo/protobuf.git",
-        :revision => "6abcf94fd4c97dcb423fdafd42fe9f96ca7e421b"
-  end
-
   go_resource "github.com/golang/snappy" do
     url "https://github.com/golang/snappy.git",
         :revision => "d9eb7a3d35ec988b8585d4a0068e462c27d28380"
-  end
-
-  go_resource "github.com/influxdata/usage-client" do
-    url "https://github.com/influxdata/usage-client.git",
-        :revision => "475977e68d79883d9c8d67131c84e4241523f452"
-  end
-
-  go_resource "github.com/jwilder/encoding" do
-    url "https://github.com/jwilder/encoding.git",
-        :revision => "ac74639f65b2180a2e5eb5ff197f0c122441aed0"
   end
 
   go_resource "github.com/kimor79/gollectd" do
