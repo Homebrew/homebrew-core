@@ -2,8 +2,8 @@ class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
   url "https://github.com/influxdata/kapacitor.git",
-    :tag => "v1.0.1",
-    :revision => "04f1ab3116b6bab27cbf63cb0e6b918fc77c7320"
+    :tag => "v1.0.2",
+    :revision => "1011dba109bf3d83366c87873ec285c7f9140d34"
 
   head "https://github.com/influxdata/kapacitor.git"
 
