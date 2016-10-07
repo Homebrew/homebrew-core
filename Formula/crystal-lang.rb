@@ -1,8 +1,8 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  url "https://github.com/crystal-lang/crystal/archive/0.19.3.tar.gz"
-  sha256 "72954087131bd648735bc397cfd585204087a4b8ab7f927f0a054741381ea01f"
+  url "https://github.com/crystal-lang/crystal/archive/0.19.4.tar.gz"
+  sha256 "e239afa449744e0381823531f6af66407ba1f4b78767bd67a9bb09d9fcc6b9e4"
   head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
@@ -22,9 +22,9 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.19.2/crystal-0.19.2-1-darwin-x86_64.tar.gz"
-    version "0.19.2"
-    sha256 "d5254e3e2d1e5fc851831a57573429876e5c9f86b2db066a2c74c392ae9080a2"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.19.3/crystal-0.19.3-1-darwin-x86_64.tar.gz"
+    version "0.19.3"
+    sha256 "2c9aebfefe2aca46eeda1e5a3fd6a91e3177af8f324ea23ebf8b5cad3c87ad2d"
   end
 
   resource "shards" do
@@ -41,7 +41,7 @@ class CrystalLang < Formula
       ENV["CRYSTAL_CONFIG_VERSION"] = version
     end
 
-    ENV["CRYSTAL_CONFIG_PATH"] = prefix/"src:libs"
+    ENV["CRYSTAL_CONFIG_PATH"] = prefix/"src:libs:lib"
     ENV.append_path "PATH", "boot/bin"
 
     if build.with? "release"
