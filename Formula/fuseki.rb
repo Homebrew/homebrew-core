@@ -6,14 +6,11 @@ class Fuseki < Formula
   sha256 "8f0cfa13d9a94df9dfb5a424177a0d3d9873b605e0ae610ba6e5f3d30f06f9bf"
 
   bottle :unneeded
-  plist_options :manual => true
+  plist_options :manual => "fuseki start"
 
   def install
     # Remove windows files
     rm_f "fuseki-server.bat"
-
-    # Remove init.d script to avoid confusion
-    rm "fuseki"
 
     # Write the installation path into the wrapper shell script
     inreplace "fuseki-server" do |s|
@@ -22,7 +19,7 @@ class Fuseki < Formula
     end
 
     # Install and symlink wrapper binaries into place
-    libexec.install "fuseki-server"
+    libexec.install "fuseki-server", "fuseki"
     bins = ["s-delete", "s-get", "s-head", "s-post", "s-put", "s-query", "s-update", "s-update-form"]
     chmod 0755, bins
     libexec.install bins
