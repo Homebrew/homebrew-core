@@ -3,9 +3,8 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://github.com/conan-io/conan"
-  url "https://pypi.python.org/packages/b1/32/56b5bc39cd0a7eb6892368c580dee5c5c7c3f978e0addab420b30ca449da/conan-0.13.1.tar.gz"
-  sha256 "fcbf3645cae315df7b4326ccef3589b563f46a5808ba2d7e96a2777524dd9f4b"
-  revision 1
+  url "https://files.pythonhosted.org/packages/37/37/722a941cb36ccdc83db38a0e7022ce63be038a76141c20e9c790b261908c/conan-0.13.2.tar.gz"
+  sha256 "faa961b846f5fab11c17f694b9cc2440d540603f808dd027cb890a8418c51727"
 
   bottle do
     cellar :any
@@ -14,7 +13,7 @@ class Conan < Formula
     sha256 "100c4dad43bc6bee1c6cb76082640bf712573ceadec52214fa9cb6cf5152ea6a" => :yosemite
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on :python if MacOS.version <= :snow_leopard
   depends_on "openssl"
 
   resource "backport_ipaddress" do
