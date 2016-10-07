@@ -5,13 +5,13 @@ class OsrmBackend < Formula
   sha256 "6393745fe8250ad0387b1fe3f4a2218cf692528acb55a4e0198ba5fbe1c81231"
 
   depends_on "cmake" => :build
+  depends_on "node" => :build
   depends_on "boost"
   depends_on "cmake"
   depends_on "libzip"
   depends_on "libstxxl"
   depends_on "libxml2"
   depends_on "lua51"
-  depends_on "luajit"
   depends_on "luabind"
   depends_on "tbb"
   depends_on "ccache"
@@ -25,6 +25,7 @@ class OsrmBackend < Formula
   end
 
   test do
-    system "false"
+    system "npm install"
+    system "npm test"
   end
 end
