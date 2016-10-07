@@ -15,6 +15,7 @@ class Weechat < Formula
 
   option "with-perl", "Build the perl module"
   option "with-ruby", "Build the ruby module"
+  option "with-tcl", "Build the tcl module"
   option "with-curl", "Build with brewed curl"
   option "with-debug", "Build with debug information"
 
@@ -39,6 +40,7 @@ class Weechat < Formula
     args << "-DENABLE_LUA=OFF" if build.without? "lua"
     args << "-DENABLE_PERL=OFF" if build.without? "perl"
     args << "-DENABLE_RUBY=OFF" if build.without? "ruby"
+    args << "-DENABLE_TCL=OFF" if build.without? "tcl"
     args << "-DENABLE_ASPELL=OFF" if build.without? "aspell"
     args << "-DENABLE_GUILE=OFF" if build.without? "guile"
     args << "-DENABLE_PYTHON=OFF" if build.without? "python"
