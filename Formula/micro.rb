@@ -4,8 +4,8 @@ class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
   url "https://github.com/zyedidia/micro.git",
-    :tag => "v1.0.3",
-    :revision => "5e82fc467314b07988c39eba5f0be6d1717605f7"
+    :tag => "v1.1.0",
+    :revision => "6acda994e4536a873d9ff70682c1ac9896154426"
   head "https://github.com/zyedidia/micro.git"
 
   bottle do
@@ -17,6 +17,11 @@ class Micro < Formula
   end
 
   depends_on "go" => :build
+
+  go_resource "github.com/blang/semver" do
+    url "https://github.com/blang/semver.git",
+        :revision => "60ec3488bfea7cca02b021d106d9911120d25fe9"
+  end
 
   go_resource "github.com/gdamore/encoding" do
     url "https://github.com/gdamore/encoding.git",
@@ -58,11 +63,6 @@ class Micro < Formula
         :revision => "ec7fdbb58eb3e300c8595ad5ac74a5aa50019cc7"
   end
 
-  go_resource "github.com/yosuke-furukawa/json5" do
-    url "https://github.com/yosuke-furukawa/json5.git",
-        :revision => "07fdad7a3c55f2098b172ea58890470c07f7d392"
-  end
-
   go_resource "github.com/yuin/gopher-lua" do
     url "https://github.com/yuin/gopher-lua.git",
         :revision => "6a1397dfb6f8e7af08496129dd96f5f62c148f47"
@@ -78,9 +78,14 @@ class Micro < Formula
         :revision => "7cf5a078d22fc41b27fbda73685c88a3f2c6fe28"
   end
 
+  go_resource "github.com/zyedidia/json5" do
+    url "https://github.com/zyedidia/json5.git",
+        :revision => "2518f8beebde6814f2d30d566260480d2ded2f76"
+  end
+
   go_resource "github.com/zyedidia/tcell" do
     url "https://github.com/zyedidia/tcell.git",
-        :revision => "66ed19afb88b4adad8e1374b5718a76497a994d3"
+        :revision => "2cdfb9030fb6b921fb1c8679219f881fd0824947"
   end
 
   go_resource "golang.org/x/text" do
