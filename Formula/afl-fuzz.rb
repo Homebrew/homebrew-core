@@ -1,8 +1,8 @@
 class AflFuzz < Formula
   desc "American fuzzy lop: Security-oriented fuzzer"
   homepage "http://lcamtuf.coredump.cx/afl/"
-  url "http://lcamtuf.coredump.cx/afl/releases/afl-2.33b.tgz"
-  sha256 "7dcdb5c783d5cd10ade1a86942e605f69286383a61eb66235cc1a72b4eff24d5"
+  url "http://lcamtuf.coredump.cx/afl/releases/afl-2.35b.tgz"
+  sha256 "596167527ad7a69cf06dc8143a051eb8b2ee04f159447a3086f6e60ae460bcea"
 
   bottle do
     sha256 "0abf5e554ebcb0aa167bc504626321b95d69be3f31caeac0a6b49520aeec8910" => :sierra
