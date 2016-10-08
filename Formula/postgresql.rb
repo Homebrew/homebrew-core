@@ -5,15 +5,12 @@ class Postgresql < Formula
   sha256 "cf5e571164ad66028ecd7dd8819e3765470d45bcd440d258b686be7e69c76ed0"
   revision 1
 
+  head "https://github.com/postgres/postgres.git"
+
   bottle do
     sha256 "2c360204c8420cb5d970a7bf453936d7a1163ec061082f14fea1fd7f80422084" => :sierra
     sha256 "51565747e6ff1c767397a9904e82b6e387cdbb0ce38aea9da7137587710ee76a" => :el_capitan
     sha256 "3bc3271ca1ec75712eb91797c4a6a702b0a96a911097bd8ca038a29838d396bb" => :yosemite
-  end
-
-  devel do
-    url "https://ftp.postgresql.org/pub/source/v9.6rc1/postgresql-9.6rc1.tar.gz"
-    sha256 "a202c0bfba27f4dd612c01a4a4f6de1f5b42ada27471f8cb6a59df150cfe71c9"
   end
 
   option "32-bit"

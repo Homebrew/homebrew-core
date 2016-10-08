@@ -3,12 +3,12 @@ class Openconnect < Formula
   homepage "http://www.infradead.org/openconnect.html"
   url "ftp://ftp.infradead.org/pub/openconnect/openconnect-7.07.tar.gz"
   sha256 "f3ecfcd487dcd916748db38b4138c1e72c86347d6328b11dfe1d0af2821b8366"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "f53757bf0e0347afd992613a68ed3d8a96e5c0e4fc71a034774cce6a9d5e7ed9" => :sierra
-    sha256 "5e2c2b5542d489fac52294c16aecc31f7ce4b0479a9e7e3adbe4406ab60891f1" => :el_capitan
-    sha256 "41ea64f23f6eb4b4cbf06d52172938c6e80e7ff62cad4fc619db8e808b27aa78" => :yosemite
+    sha256 "266cc4b4de7651d73c938e5e4a4cf4b530f50cc6490e19f28bb7905c493b8e28" => :sierra
+    sha256 "f3e140dd2008d6e4cfeec620de32d918a0ba2d0056c34595796297ab8f917c6a" => :el_capitan
+    sha256 "e66d0122a808b3335f3731ba01086011dd1ff86368ded4ed1a09b9a5ec91c888" => :yosemite
   end
 
   head do
@@ -18,12 +18,14 @@ class Openconnect < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-gnutls", "Use GnuTLS instead of OpenSSL"
+  # Use of GnuTLS is currently preferred as this results in a complete feature
+  # set, i.e. DTLS MTU detection.
+  option "with-openssl", "Use OpenSSL instead of GnuTLS"
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "openssl" if build.without? "gnutls"
-  depends_on "gnutls" => :optional
+  depends_on "gnutls" if build.without? "openssl"
+  depends_on "openssl" => :optional
   depends_on "oath-toolkit" => :optional
   depends_on "stoken" => :optional
 

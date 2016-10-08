@@ -4,19 +4,23 @@ class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
   url "https://github.com/zyedidia/micro.git",
-    :tag => "v1.0.3",
-    :revision => "5e82fc467314b07988c39eba5f0be6d1717605f7"
+    :tag => "v1.1.0",
+    :revision => "6acda994e4536a873d9ff70682c1ac9896154426"
   head "https://github.com/zyedidia/micro.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2eaffb3248b83cfaa4739e6cde2a580cefd06a565d8f940fd92338792acba575" => :sierra
-    sha256 "4d8e226a79103f8cfaf74b09b6daa5783f0f0353aeec8f88e04e368dd018ab8b" => :el_capitan
-    sha256 "8b0883b31661526b62b2027aaf851fbbc62d99e62a04102033d4f56224c0107c" => :yosemite
-    sha256 "160e6c982d092aa4533cc1e2425863eb703c1e0ef862e68a552d7f7e48381dc1" => :mavericks
+    sha256 "d64364688de924de03f0fcd9af47ac13907cf4459b9bbbff1d8e5498bc05352c" => :sierra
+    sha256 "bcaf65d4cdcd224a975551272cddd21a7be350e824d6cc430535f7902a4576c8" => :el_capitan
+    sha256 "0926bd06a55d1040efb14a55b64219d9e1601d2b9e5a5fe65d76c01bc073f580" => :yosemite
   end
 
   depends_on "go" => :build
+
+  go_resource "github.com/blang/semver" do
+    url "https://github.com/blang/semver.git",
+        :revision => "60ec3488bfea7cca02b021d106d9911120d25fe9"
+  end
 
   go_resource "github.com/gdamore/encoding" do
     url "https://github.com/gdamore/encoding.git",
@@ -58,11 +62,6 @@ class Micro < Formula
         :revision => "ec7fdbb58eb3e300c8595ad5ac74a5aa50019cc7"
   end
 
-  go_resource "github.com/yosuke-furukawa/json5" do
-    url "https://github.com/yosuke-furukawa/json5.git",
-        :revision => "07fdad7a3c55f2098b172ea58890470c07f7d392"
-  end
-
   go_resource "github.com/yuin/gopher-lua" do
     url "https://github.com/yuin/gopher-lua.git",
         :revision => "6a1397dfb6f8e7af08496129dd96f5f62c148f47"
@@ -78,9 +77,14 @@ class Micro < Formula
         :revision => "7cf5a078d22fc41b27fbda73685c88a3f2c6fe28"
   end
 
+  go_resource "github.com/zyedidia/json5" do
+    url "https://github.com/zyedidia/json5.git",
+        :revision => "2518f8beebde6814f2d30d566260480d2ded2f76"
+  end
+
   go_resource "github.com/zyedidia/tcell" do
     url "https://github.com/zyedidia/tcell.git",
-        :revision => "66ed19afb88b4adad8e1374b5718a76497a994d3"
+        :revision => "2cdfb9030fb6b921fb1c8679219f881fd0824947"
   end
 
   go_resource "golang.org/x/text" do
