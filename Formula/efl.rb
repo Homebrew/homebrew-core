@@ -5,10 +5,9 @@ class Efl < Formula
   sha256 "0c6bd150d8e838f849effd462d91d86255e3aaade47a6077d0aa80d2b8e9d222"
 
   bottle do
-    sha256 "edf518f51d6ee54d5d4c8dbaa8ea4a3f1c775c2df6abbdc1636a41f8360af8ea" => :sierra
-    sha256 "a8e51818234a137bc021469bf37a52c84608d4e399420b71ff360682c8a7a8ae" => :el_capitan
-    sha256 "a8fe89f450fc0328f84a442b138a93ebbdd516d03ccfe333e3c21fa080befd7f" => :yosemite
-    sha256 "4d1e000d79e426ffaf82e1b4603239b2c629c8eab5549b29d403a2b88eca24f5" => :mavericks
+    sha256 "fe5856e42d8e14cbc63b37214315e9d2ac68bf239bf4ed088ffccff088222cfc" => :sierra
+    sha256 "f72a6c0775cc646a22baa5c19f49eb88258de9dd9fb02ffc7d86df0f5b180de1" => :el_capitan
+    sha256 "2c8dd2fe10fe1a194ab3e6b9d50c4d038722036c00c15291c389f22cda2f37a9" => :yosemite
   end
 
   option "with-docs", "Install development libraries/headers and HTML docs"
