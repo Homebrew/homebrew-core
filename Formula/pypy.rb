@@ -1,9 +1,21 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "http://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.4.1-src.tar.bz2"
-  sha256 "45dbc50c81498f6f1067201b8fc887074b43b84ee32cc47f15e7db17571e9352"
   head "https://bitbucket.org/pypy/pypy", :using => :hg
+
+  stable do
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.4.1-src.tar.bz2"
+    sha256 "45dbc50c81498f6f1067201b8fc887074b43b84ee32cc47f15e7db17571e9352"
+
+    patch do
+      # patch for Xcode 8 clock_gettime issue
+      # remove when next release is out
+      # https://bitbucket.org/pypy/pypy/issues/2407/#comment-31210382
+      # https://bitbucket.org/pypy/pypy/commits/91b44e61f628
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/05b5cf6/pypy/patch-clock_gettime.diff"
+      sha256 "f9ae7918620740238e404e73007da06cb9bf16c21ed698f91e02432086ec4432"
+    end
+  end
 
   bottle do
     cellar :any
