@@ -5,6 +5,13 @@ class Hana < Formula
   sha256 "a422ef36e38598c5c9135fdb67d8049b5b96c70a3b7ea3839e5ec6cbcb6e4457"
   head "https://github.com/boostorg/hana.git", :branch => "develop"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "45519a9fa2e2150570e23aca82adb53ef242e13e358b968f94caa8fc8bde4628" => :sierra
+    sha256 "45519a9fa2e2150570e23aca82adb53ef242e13e358b968f94caa8fc8bde4628" => :el_capitan
+    sha256 "45519a9fa2e2150570e23aca82adb53ef242e13e358b968f94caa8fc8bde4628" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on :macos => :yosemite
 
