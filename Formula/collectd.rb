@@ -24,6 +24,7 @@ class Collectd < Formula
   end
 
   option "with-java", "Enable Java support"
+  option "with-python", "Enable Python support"
   option "with-protobuf-c", "Enable write_riemann via protobuf-c support"
   option "with-debug", "Enable debug support"
 
@@ -33,6 +34,7 @@ class Collectd < Formula
   depends_on "pkg-config" => :build
   depends_on "protobuf-c" => :optional
   depends_on :java => :optional
+  depends_on :python => :optional
   depends_on "net-snmp"
 
   fails_with :clang do
@@ -53,6 +55,7 @@ class Collectd < Formula
 
     args << "--disable-embedded-perl" if MacOS.version <= :leopard
     args << "--disable-java" if build.without? "java"
+    args << "--enable-python" if build.with? "python"
     args << "--enable-write_riemann" if build.with? "protobuf-c"
     args << "--enable-debug" if build.with? "debug"
 
