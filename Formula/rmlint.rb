@@ -7,9 +7,10 @@ class Rmlint < Formula
   depends_on "glib" => :run
   depends_on "scons" => :build        # build system
   depends_on "gettext" => :build      # support for localization
+  depends_on "pkg-config" => :build   # manage compile and link flags for libraries
   depends_on "sphinx-doc" => :build   # manpage/documentation generation - Build manpage from docs/rmlint.1.rst
-  depends_on "libelf" => :optional    # Find non-stripped binaries
-  depends_on "json-glib" => :optional # Support for reading json caches
+  depends_on "libelf" => :optional    # find non-stripped binaries
+  depends_on "json-glib" => :optional # support for reading json caches
 
   def install
     scons "config"
