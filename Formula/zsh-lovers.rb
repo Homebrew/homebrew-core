@@ -10,4 +10,8 @@ class ZshLovers < Formula
   def install
     man1.install "zsh-lovers.1"
   end
+
+  test do
+    system "man", "zsh-lovers"
+  end
 end
