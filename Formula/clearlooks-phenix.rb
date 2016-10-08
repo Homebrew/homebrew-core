@@ -1,8 +1,8 @@
 class ClearlooksPhenix < Formula
   desc "GTK+3 port of the Clearlooks Theme"
   homepage "https://github.com/jpfleury/clearlooks-phenix"
-  url "https://github.com/jpfleury/clearlooks-phenix/archive/7.0.tar.gz"
-  sha256 "7f46b24e679a5c8bd63c356f905fa755e473cf606658e926c487416d899f99a8"
+  url "https://github.com/jpfleury/clearlooks-phenix/archive/7.0.1.tar.gz"
+  sha256 "2a9b21400f9960422e31dc4dabb4f320a16b76776a9574f0986bb00e97d357f4"
   head "https://github.com/jpfleury/clearlooks-phenix.git"
 
   bottle :unneeded
