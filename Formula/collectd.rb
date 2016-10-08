@@ -3,9 +3,9 @@ class Collectd < Formula
   homepage "https://collectd.org/"
 
   stable do
-    url "https://collectd.org/files/collectd-5.6.0.tar.bz2"
+    url "https://collectd.org/files/collectd-5.6.1.tar.bz2"
     mirror "http://pkgs.fedoraproject.org/repo/pkgs/collectd/collectd-5.5.2.tar.bz2/40b83343f72089e0330f53965f1140bd/collectd-5.5.2.tar.bz2"
-    sha256 "f0ffbbd91fac3682bd324a74b9b4c9eabe781394b303b5cfd457c4cfbe748623"
+    sha256 "c30ff644f91407b4dc2d99787b99cc45ec00e538bd1cc269429d3c5e8a4aee2c"
   end
 
   bottle do
