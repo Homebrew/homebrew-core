@@ -5,11 +5,9 @@ class Libosinfo < Formula
   sha256 "f7b425ecde5197d200820eb44401c5033771a5d114bd6390230de768aad0396b"
 
   bottle do
-    rebuild 1
-    sha256 "00fe850fb9db3736e5a4736612e204e7869c5b98f802c3f6140779fb0632c665" => :sierra
-    sha256 "279c60fff51a6465eb1468ff404f12d500ab51e2a9670d55bdc29984f26dd680" => :el_capitan
-    sha256 "3b163b7d2a6ac30966d0431484c98129ab06198c9041204f544284014dfcce62" => :yosemite
-    sha256 "7542db03c1cc84cec8eeb09dac6c33d0a6d1a9ef6f0b7a798768d1324a16790b" => :mavericks
+    sha256 "8333caf213bde3c6d468db1511061277d0424e255fadd000508d86613479c18e" => :sierra
+    sha256 "6a8d53d43ab4b9889780e5393f0d332a0276d1ff3790032830b42e7b394d09dc" => :el_capitan
+    sha256 "78fa165080b4feed8020fa47d5c13e0a601aa74ea63673f7213fc2197a4be248" => :yosemite
   end
 
   depends_on "intltool" => :build
