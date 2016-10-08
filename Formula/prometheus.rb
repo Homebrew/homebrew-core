@@ -6,10 +6,9 @@ class Prometheus < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0be70a917b07ec467fd5718c0f8910735efd11355cd4b390473288eabeda80a6" => :sierra
-    sha256 "604829efcd779b5a7bea9048d10854a7cff2ba9637a33ee8a4ef0d6aa3a9e70f" => :el_capitan
-    sha256 "92efcedfbd70357a124ddd90a5903af4224c5bdc3dfd026af9e56e3e8526ce45" => :yosemite
-    sha256 "aca7a6225e5bacbbd72e0897248a397200f4c9983cf8f4e0e856e3194c1da4e3" => :mavericks
+    sha256 "a3f04d4230e710ab524913d95fab34c1920bcf87fa8975e28ffb0952c01596c2" => :sierra
+    sha256 "4319ffb9fe887e1ec3dcc5d841cff135e820268496ca2f083e3adb4629c8b8c2" => :el_capitan
+    sha256 "1bf6bb86e93331641c4477b2163e13fea3e54b922f191db1b8a85a127cf6ca3f" => :yosemite
   end
 
   depends_on "go" => :build
