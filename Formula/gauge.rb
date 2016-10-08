@@ -25,6 +25,7 @@ class Gauge < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GOROOT"] = Formula["go"].opt_libexec
 
     # Avoid executing `go get`
     inreplace "build/make.go", /\tgetGaugeScreenshot\(\)\n/, ""
