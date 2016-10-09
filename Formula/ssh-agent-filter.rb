@@ -19,7 +19,22 @@ class SshAgentFilter < Formula
   end
 
   test do
-    system "#{bin}/ssh-agent-filter", "-V"
+    (testpath/"test.sh").write <<-EOS.undent
+      mydir=$(pwd)
+      cd $(mktemp -d)
+      ssh-keygen -q -N '' -f keyA
+      ssh-keygen -q -N '' -f keyB
+      eval $(ssh-agent)
+      pid=$SSH_AGENT_PID
+      ssh-add keyA
+      ssh-add keyB
+      sha1=$(ssh-add -l | awk '/keyA/{print $2}')
+      eval $(ssh-agent-filter -c keyA)
+      sha2=$(ssh-add -l | awk '{print $2}')
+      kill $SSH_AGENT_PID $pid 
+      test "$sha1" == "$sha2"
+    EOS
+    system "sh", "test.sh"
   end
 end
 __END__
