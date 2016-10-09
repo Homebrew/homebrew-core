@@ -4,9 +4,9 @@ class Hesiod < Formula
   url "https://github.com/achernya/hesiod/archive/hesiod-3.2.1.tar.gz"
   sha256 "813ccb091ad15d516a323bb8c7693597eec2ef616f36b73a8db78ff0b856ad63"
 
-  depends_on "automake"
-  depends_on "autoconf"
-  depends_on "libtool"
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
+  depends_on "libtool" => :build
   depends_on "libidn"
 
   def install
