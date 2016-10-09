@@ -36,8 +36,7 @@ class SshAgentFilter < Formula
       ssh-keygen -q -N '' -t ed25519 -C keyB -f keyB
       eval $(ssh-agent)
       pid=$SSH_AGENT_PID
-      ssh-add keyA
-      ssh-add keyB
+      ssh-add keyA keyB
       sha1=$(ssh-add -l | awk '/keyA/{print $2}')
       eval $(ssh-agent-filter -c keyA)
       sha2=$(ssh-add -l | awk '{print $2}')
