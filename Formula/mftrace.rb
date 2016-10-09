@@ -13,11 +13,17 @@ class Mftrace < Formula
     sha256 "7ced74b4d12ecf0fc13c65dd329ae081a3c53300c6efc4d9783e8f069b4fa442" => :mountain_lion
   end
 
+  head do
+    url "https://github.com/hanwen/mftrace.git"
+    depends_on "autoconf" => :build
+  end
+
   depends_on "potrace"
   depends_on "t1utils"
   depends_on "fontforge" => [:recommended, :run]
 
   def install
+    system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
