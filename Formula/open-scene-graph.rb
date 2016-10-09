@@ -17,7 +17,9 @@ class OpenSceneGraph < Formula
 
   option :cxx11
   option "with-docs", "Build the documentation with Doxygen and Graphviz"
+
   deprecated_option "docs" => "with-docs"
+  deprecated_option "with-qt" => "with-qt5"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -34,7 +36,6 @@ class OpenSceneGraph < Formula
   depends_on "gnuplot" => :optional
   depends_on "ffmpeg" => :optional
   depends_on "qt5" => :optional
-  depends_on "qt" => :optional
 
   # patch necessary to ensure support for gtkglext-quartz
   # filed as an issue to the developers https://github.com/openscenegraph/osg/issues/34
@@ -71,8 +72,6 @@ class OpenSceneGraph < Formula
 
     if build.with? "qt5"
       args << "-DCMAKE_PREFIX_PATH=#{Formula["qt5"].opt_prefix}"
-    elsif build.with? "qt"
-      args << "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_prefix}"
     end
 
     mkdir "build" do
