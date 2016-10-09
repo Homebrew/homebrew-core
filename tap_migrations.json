@@ -238,6 +238,7 @@
   "qrupdate": "homebrew/science",
   "quassel": "caskroom/cask",
   "rbenv-readline": "homebrew/boneyard",
+  "rcssserver": "homebrew/boneyard",
   "rdesktop": "homebrew/x11",
   "rfcdiff": "homebrew/boneyard",
   "rocket": "homebrew/boneyard",
