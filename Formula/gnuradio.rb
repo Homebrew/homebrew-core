@@ -20,7 +20,7 @@ class Gnuradio < Formula
     sha256 "9e1c612f0f4063d387d85517cc420f050f49c7903d36fab45b72e8d828549e3c"
   end
 
-  option "without-python", "Build without python support"
+  option "with-python", "Build with python support"
   option "with-documentation", "Build with documentation"
   option :universal
 
