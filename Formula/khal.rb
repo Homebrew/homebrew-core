@@ -9,9 +9,9 @@ class Khal < Formula
   head "https://github.com/pimutils/khal.git"
 
   bottle do
-    sha256 "6884cba5ffe6ddd9262eae2567940e9e6b89c85d893647aa53b930933714a1f3" => :sierra
-    sha256 "415cb9c8af29bde339fcac14b54953ff5ed03363af155ee737380aef03e9335e" => :el_capitan
-    sha256 "d37998ca94d896c89f8b12a0c3da5fa9af9ddfbf4d2eb2bbfdb8068fa8971d7f" => :yosemite
+    sha256 "a62f418792653aa571cab3d1f5493bf7224cedc3f9ab68161daff85baf6c86ae" => :sierra
+    sha256 "ccf6eb80ab996a0959ee1ffce2d4cc336907778edf654571ea2644832d624204" => :el_capitan
+    sha256 "af5e78c680edec47c7d9054d7b36f0a35736bf96e5f211838b90404a8d51d5cc" => :yosemite
   end
 
   depends_on :python3
