@@ -16,6 +16,11 @@ class Libewf < Formula
     sha256 "69b9412398fd45616d47b132dca1ee158bf5f05655f9875ba9592c5e6e639817" => :mountain_lion
   end
 
+  devel do
+    url "https://github.com/libyal/libewf/releases/download/20160424/libewf-experimental-20160424.tar.gz"
+    sha256 "613467112f52fe960ce0121dd1ade8eb7887d3fcfc761aa728d2f1aa9f135116"
+  end
+
   head do
     url "https://github.com/libyal/libewf.git"
     depends_on "automake" => :build
@@ -32,7 +37,9 @@ class Libewf < Formula
       system "./synclibs.sh"
       system "./autogen.sh"
     end
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 
