@@ -1,9 +1,8 @@
 class Gstreamermm < Formula
   desc "GStreamer C++ bindings"
   homepage "https://gstreamer.freedesktop.org/bindings/cplusplus.html"
-  url "https://download.gnome.org/sources/gstreamermm/1.4/gstreamermm-1.4.3.tar.xz"
-  sha256 "f1c11ee1cf7537d77de7f8d486e09c5140cc4bb78882849718cd88959a55462e"
-  revision 1
+  url "https://download.gnome.org/sources/gstreamermm/1.8/gstreamermm-1.8.0.tar.xz"
+  sha256 "3ee3c1457ea2c32c1e17b784faa828f414ba27a9731532bf26d137a2ad999a44"
 
   bottle do
     cellar :any
@@ -19,6 +18,13 @@ class Gstreamermm < Formula
   depends_on "gst-plugins-base"
 
   needs :cxx11
+
+  # Compilation error due to missing header
+  # Upstream issue 9 Oct 2016 https://bugzilla.gnome.org/show_bug.cgi?id=772645
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/10887881c9f2859ca90ee8e781f0d10dae02b7a5/gstreamermm/caps.h.patch"
+    sha256 "1ec6f9c977c1fc5282c491b5d3867df35e31f00ddf696adf7a9185f47da86627"
+  end
 
   def install
     ENV.cxx11
