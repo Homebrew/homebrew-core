@@ -13,15 +13,28 @@ class Fpc < Formula
   end
 
   resource "bootstrap" do
-    url "https://downloads.sourceforge.net/project/freepascal/Bootstrap/2.6.4/universal-macosx-10.5-ppcuniversal.tar.bz2"
-    sha256 "e7243e83e6a04de147ebab7530754ec92cd1fbabbc9b6b00a3f90a796312f3e9"
+    if MacOS.version < :sierra
+      url "https://downloads.sourceforge.net/project/freepascal/Bootstrap/2.6.4/universal-macosx-10.5-ppcuniversal.tar.bz2"
+      sha256 "e7243e83e6a04de147ebab7530754ec92cd1fbabbc9b6b00a3f90a796312f3e9"
+    else
+      url "https://homebrew.bintray.com/bottles/fpc-3.0.0.el_capitan.bottle.1.tar.gz"
+      sha256 "c059c97043807fe5cb02ad09d4000782e131db3081788753735375079f5a9acd"
+    end
   end
 
   def install
-    fpc_bootstrap = buildpath/"bootstrap"
-    resource("bootstrap").stage { fpc_bootstrap.install Dir["*"] }
+    if MacOS.version == :el_capitan || MacOS.version == :yosemite
+      ENV["MACOSX_DEPLOYMENT_TARGET"] = "10.9"
+    end
 
-    fpc_compiler = fpc_bootstrap/"ppcuniversal"
+    (buildpath/"bootstrap").install resource("bootstrap")
+
+    fpc_compiler = if MacOS.version < :sierra
+      buildpath/"bootstrap/ppcuniversal"
+    else
+      buildpath/"bootstrap/3.0.0/bin/fpc"
+    end
+
     system "make", "build", "PP=#{fpc_compiler}"
     system "make", "install", "PP=#{fpc_compiler}", "PREFIX=#{prefix}"
 
