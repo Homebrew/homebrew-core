@@ -18,15 +18,13 @@ class SshAgentFilter < Formula
   patch do
     # https://github.com/tiwe-de/ssh-agent-filter/pull/6
     url "https://patch-diff.githubusercontent.com/raw/tiwe-de/ssh-agent-filter/pull/6.diff"
-    sha256 "e64c93daed3a0b696dd5325a60a8a5d65a267c28607e29b886eb8901ec6e7da7"
+    sha256 "5bd81db7cbfaf04e681f343ef6742061eaf6c9ead7d30c3fe6bf98eb8690c32f"
   end
 
   patch :DATA
 
   def install
-    system "mkdir", "-p", "#{prefix}/bin"
-    system "mkdir", "-p", "#{prefix}/man/man1"
-    system "make", "install", "PREFIX=#{prefix}"
+   system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
