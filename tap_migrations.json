@@ -79,6 +79,7 @@
   "evas-generic-loaders": "homebrew/boneyard",
   "ext2fuse": "homebrew/fuse",
   "ext4fuse": "homebrew/fuse",
+  "ezlupdate": "homebrew/boneyard",
   "fceux": "homebrew/games",
   "feh": "homebrew/x11",
   "ffts": "homebrew/boneyard",
