@@ -10,10 +10,8 @@ class Vapoursynth < Formula
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
-    sha256 "39a5933621f0656e858ba8352088f819bd9b4f4a048936caae682f39a19b0da7" => :sierra
-    sha256 "3c7f28c274b0ba202f0f2a455c689621fa847d04af3ca5f1ada3fa7480f4cf19" => :el_capitan
-    sha256 "e452d48c3a5fae1d64ac1ef210bbf779c13df47126573f142fa2481ad2c5ac9c" => :yosemite
-    sha256 "8a019dc33d5697b8a57248be2996ac255fc4d21e3ba7c90c956f7806bf0b570f" => :mavericks
+    sha256 "17dc89e8795e08b1c58f7c1e08e53e35d02317e0942faa6d792704ac4eb8f2e2" => :sierra
+    sha256 "90102da063f6d7f9c1dba45c8fc59cf646e4f17a6034c199d16da507db37357d" => :el_capitan
   end
 
   depends_on "autoconf" => :build
