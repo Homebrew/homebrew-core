@@ -85,6 +85,7 @@
   "fox": "homebrew/x11",
   "freeglut": "homebrew/x11",
   "freerdp": "homebrew/x11",
+  "frescobaldi": "homebrew/boneyard",
   "fsv": "homebrew/boneyard",
   "fugu": "homebrew/boneyard",
   "fuse-zip": "homebrew/fuse",
