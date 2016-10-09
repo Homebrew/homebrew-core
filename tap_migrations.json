@@ -306,6 +306,7 @@
   "upnp-router-control": "homebrew/gui",
   "ushare": "homebrew/boneyard",
   "validns": "homebrew/boneyard",
+  "valkyrie": "homebrew/boneyard",
   "vcodex": "homebrew/boneyard",
   "viewglob": "homebrew/boneyard",
   "visualnetkit": "homebrew/boneyard",
