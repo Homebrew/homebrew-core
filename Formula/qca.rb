@@ -24,11 +24,11 @@ class Qca < Formula
   option "with-api-docs", "Build API documentation"
 
   deprecated_option "with-gnupg" => "with-gpg2"
+  deprecated_option "with-qt" => "with-qt5"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "qt" => :recommended
-  depends_on "qt5" => :optional
+  depends_on "qt5" => :recommended
 
   # Plugins (QCA needs at least one plugin to do anything useful)
   depends_on "openssl" # qca-ossl
