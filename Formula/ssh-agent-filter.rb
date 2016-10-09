@@ -8,6 +8,13 @@ class SshAgentFilter < Formula
   depends_on "boost"
   depends_on "nettle"
 
+  patch do
+    # upstream didn't want this because realpath isn't included in coreutils for Debian wheezy.
+    # see https://github.com/tiwe-de/ssh-agent-filter/pull/5
+    url "https://patch-diff.githubusercontent.com/raw/tiwe-de/ssh-agent-filter/pull/5.diff"
+    sha256 "85cc828a96735bdafcf29eb6291ca91bac846579bcef7308536e0c875d6c81d7"
+  end
+
   patch :DATA
 
   def install
@@ -38,21 +45,7 @@ class SshAgentFilter < Formula
   end
 end
 __END__
-Fix afssh https://github.com/tiwe-de/ssh-agent-filter/pull/5#issuecomment-242216945
 Fix man page generation due to missing perl Locale::gettext
-diff --git a/afssh b/afssh
-index c482aea..6c2fbdf 100755
---- a/afssh
-+++ b/afssh
-@@ -52,7 +52,7 @@ fi
- declare -a agent_filter_args
- 
- if [ -x "${BASH_SOURCE%/*}/ssh-agent-filter" ]; then
--	SAF=$(readlink -f "${BASH_SOURCE%/*}/ssh-agent-filter")
-+	SAF=$(realpath "${BASH_SOURCE%/*}/ssh-agent-filter")
- else
- 	SAF=$(which ssh-agent-filter)
- fi
 diff --git a/Makefile b/Makefile
 index b2e05ec..30b3e9f 100644
 --- a/Makefile
