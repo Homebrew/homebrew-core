@@ -15,6 +15,12 @@ class SshAgentFilter < Formula
     sha256 "85cc828a96735bdafcf29eb6291ca91bac846579bcef7308536e0c875d6c81d7"
   end
 
+  patch do
+    # https://github.com/tiwe-de/ssh-agent-filter/pull/6
+    url "https://patch-diff.githubusercontent.com/raw/tiwe-de/ssh-agent-filter/pull/6.diff"
+    sha256 "e64c93daed3a0b696dd5325a60a8a5d65a267c28607e29b886eb8901ec6e7da7"
+  end
+
   patch :DATA
 
   def install
