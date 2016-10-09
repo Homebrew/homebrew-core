@@ -5,7 +5,6 @@ class Khal < Formula
   homepage "https://lostpackets.de/khal/"
   url "https://pypi.python.org/packages/66/7c/6c4f2f9ca092bfb60c1328324e2533858af6a5b89a32c168836cfe9dcbba/khal-0.8.4.tar.gz"
   sha256 "2e5c41eadf83c8f175dc05816571e747da921b025e4acc6b287c109b6e237e0f"
-  revision 1
 
   head "https://github.com/pimutils/khal.git"
 
