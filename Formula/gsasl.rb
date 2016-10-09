@@ -5,8 +5,6 @@ class Gsasl < Formula
   mirror "https://ftp.gnu.org/gsasl/gsasl-1.8.0.tar.gz"
   sha256 "310262d1ded082d1ceefc52d6dad265c1decae8d84e12b5947d9b1dd193191e5"
 
-  depends_on "libntlm" => :optional
-
   bottle do
     cellar :any
     rebuild 2
@@ -16,6 +14,8 @@ class Gsasl < Formula
     sha256 "df498ac7247b3f54bdc9720249fa4a1cee72bf8c5011d06889d8ecdebaff1aaa" => :mavericks
     sha256 "5585b8bddf849b2b4b3f67da253c97556bfa526b8345006595cdefddf3385dd5" => :mountain_lion
   end
+
+  depends_on "libntlm" => :optional
 
   def install
     system "./configure", "--disable-dependency-tracking",
