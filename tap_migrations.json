@@ -14,6 +14,7 @@
   "atari++": "homebrew/x11",
   "auctex": "homebrew/tex",
   "authexec": "homebrew/boneyard",
+  "automoc4": "homebrew/boneyard",
   "avfs": "homebrew/fuse",
   "avidemux": "caskroom/cask",
   "aws-iam-tools": "homebrew/boneyard",
