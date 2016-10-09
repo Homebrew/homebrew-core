@@ -22,7 +22,6 @@ class OpenalSoft < Formula
   depends_on "portaudio" => :optional
   depends_on "pulseaudio" => :optional
   depends_on "fluid-synth" => :optional
-  depends_on "qt" => :optional
 
   # llvm-gcc does not support the alignas macro
   # clang 4.2's support for alignas is incomplete
