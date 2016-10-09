@@ -269,6 +269,7 @@
   "solfege": "homebrew/boneyard",
   "sptk": "homebrew/x11",
   "sqlitebrowser": "caskroom/cask",
+  "sqliteman": "homebrew/boneyard",
   "sqsh": "homebrew/boneyard",
   "sshfs": "homebrew/fuse",
   "stormfs": "homebrew/fuse",
