@@ -240,6 +240,7 @@
   "qiv": "homebrew/boneyard",
   "qrupdate": "homebrew/science",
   "quassel": "caskroom/cask",
+  "qwtpolar": "homebrew/boneyard",
   "rbenv-readline": "homebrew/boneyard",
   "rcssserver": "homebrew/boneyard",
   "rdesktop": "homebrew/x11",
