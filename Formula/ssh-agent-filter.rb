@@ -18,11 +18,9 @@ class SshAgentFilter < Formula
   patch :DATA
 
   def install
-    ENV.deparallelize
-    system "make", "ssh-agent-filter.1"
-    man1.install "ssh-agent-filter.1"
-    bin.install "ssh-agent-filter"
-    bin.install "afssh"
+    system "mkdir", "-p", "#{prefix}/bin"
+    system "mkdir", "-p", "#{prefix}/man/man1"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
