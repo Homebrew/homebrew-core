@@ -1,9 +1,8 @@
 class Ace < Formula
   desc "ADAPTIVE Communication Environment: OO network programming in C++"
   homepage "https://www.dre.vanderbilt.edu/~schmidt/ACE.html"
-  url "http://download.dre.vanderbilt.edu/previous_versions/ACE-6.4.0.tar.bz2"
-  sha256 "6a7fd5f23f6a004bb21978767df4e36adea078cd344e45bab50266213586c001"
-  revision 1
+  url "http://download.dre.vanderbilt.edu/previous_versions/ACE-6.4.1.tar.bz2"
+  sha256 "4c74a30a1d013624a2426fd6e0a4791eca4ca8979065e52f7daebda7289dd23e"
 
   bottle do
     cellar :any
@@ -12,15 +11,9 @@ class Ace < Formula
     sha256 "b865dc9968a6a29cc1c9e1f87a4a08560bdd8ee2e59db53732e3e4a7ea8f94f7" => :yosemite
   end
 
-  # this patch backports new files for macOS Sierra and possibility to compile with Xcode 8 on El Capitan
-  patch :DATA
-
   def install
-    # Figure out the names of the header and makefile for this version
-    # of OSX and link those files to the standard names.
-    name = MacOS.cat.to_s.delete "_"
-    ln_sf "config-macosx-#{name}.h", "ace/config.h"
-    ln_sf "platform_macosx_#{name}.GNU", "include/makeinclude/platform_macros.GNU"
+    ln_sf "config-macosx.h", "ace/config.h"
+    ln_sf "platform_macosx.GNU", "include/makeinclude/platform_macros.GNU"
 
     # Set up the environment the way ACE expects during build.
     ENV["ACE_ROOT"] = buildpath
@@ -46,50 +39,3 @@ class Ace < Formula
     system "./test_callback"
   end
 end
-
-__END__
-
-diff --git a/ace/config-macosx-sierra.h b/ace/config-macosx-sierra.h
-new file mode 100644
-index 0000000..7cad7ce
---- /dev/null
-+++ b/ace/config-macosx-sierra.h
-@@ -0,0 +1,6 @@
-+#ifndef ACE_CONFIG_MACOSX_SIERRA_H
-+#define ACE_CONFIG_MACOSX_SIERRA_H
-+
-+#include "ace/config-macosx-elcapitan.h"
-+
-+#endif // ACE_CONFIG_MACOSX_SIERRA_H
-diff --git a/include/makeinclude/platform_macosx_sierra.GNU b/include/makeinclude/platform_macosx_sierra.GNU
-new file mode 100644
-index 0000000..2ed4cc3
---- /dev/null
-+++ b/include/makeinclude/platform_macosx_sierra.GNU
-@@ -0,0 +1,3 @@
-+
-+include $(ACE_ROOT)/include/makeinclude/platform_macosx_elcapitan.GNU
-+
-
-diff --git a/ace/config-macosx-leopard.h b/ace/config-macosx-leopard.h
-index 1b9b90d..cadb1a2 100644
---- a/ace/config-macosx-leopard.h
-+++ b/ace/config-macosx-leopard.h
-@@ -4,6 +4,8 @@
- #ifndef ACE_CONFIG_MACOSX_LEOPARD_H
- #define ACE_CONFIG_MACOSX_LEOPARD_H
-
-+#include <Availability.h>
-+
- #define ACE_HAS_MAC_OSX
- #define ACE_HAS_NET_IF_DL_H
-
-@@ -205,9 +207,11 @@
- #endif
-
- #define ACE_LACKS_CONDATTR_SETCLOCK
-+#if __MAC_OS_X_VERSION_MAX_ALLOWED < 101200
- #define ACE_LACKS_CLOCKID_T
- #define ACE_LACKS_CLOCK_MONOTONIC
- #define ACE_LACKS_CLOCK_REALTIME
-+#endif
