@@ -3,7 +3,6 @@ class Commandbox < Formula
   homepage "https://www.ortussolutions.com/products/commandbox"
   url "http://downloads.ortussolutions.com/ortussolutions/commandbox/3.3.0/commandbox-bin-3.3.0.zip"
   sha256 "72091365a6babbf0410db22affb1c03879195b8a18f8af4bf97e988fe68b9c02"
-  version "3.3.0"
 
   bottle :unneeded
 
