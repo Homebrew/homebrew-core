@@ -3,11 +3,11 @@ class Xapian < Formula
   homepage "https://xapian.org/"
 
   stable do
-    url "http://oligarchy.co.uk/xapian/1.2.23/xapian-core-1.2.23.tar.xz"
+    url "https://oligarchy.co.uk/xapian/1.2.23/xapian-core-1.2.23.tar.xz"
     sha256 "9783aeae4e1a6d06e5636b270db4b458a7d0804a31da158269f57fa5dc86347d"
 
     resource "bindings" do
-      url "http://oligarchy.co.uk/xapian/1.2.23/xapian-bindings-1.2.23.tar.xz"
+      url "https://oligarchy.co.uk/xapian/1.2.23/xapian-bindings-1.2.23.tar.xz"
       sha256 "19b4b56c74863c51733d8c2567272ef7f004b898cf44016711ae25bc524b2215"
     end
   end
@@ -21,12 +21,12 @@ class Xapian < Formula
   end
 
   devel do
-    url "http://oligarchy.co.uk/xapian/1.3.5/xapian-core-1.3.5.tar.xz"
+    url "https://oligarchy.co.uk/xapian/1.3.5/xapian-core-1.3.5.tar.xz"
     mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/x/xapian-core/xapian-core_1.3.5.orig.tar.xz"
     sha256 "3ad99ff4e91a4ff997fd576377e7c8f0134ceb3695c49e8f7d78ebf3c19b70ad"
 
     resource "bindings" do
-      url "http://oligarchy.co.uk/xapian/1.3.5/xapian-bindings-1.3.5.tar.xz"
+      url "https://oligarchy.co.uk/xapian/1.3.5/xapian-bindings-1.3.5.tar.xz"
       sha256 "4b5b9089d39b2a725651349127f64d24fe66db46572bdd92f39b8483bca400c3"
     end
   end
