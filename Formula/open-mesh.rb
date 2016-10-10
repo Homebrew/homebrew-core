@@ -1,8 +1,8 @@
 class OpenMesh < Formula
   desc "Generic data structure to represent and manipulate polygonal meshes"
   homepage "https://openmesh.org/"
-  url "https://www.openmesh.org/media/Releases/5.1/OpenMesh-5.1.tar.gz"
-  sha256 "643262dec62d1c2527950286739613a5b8d450943c601ecc42a817738556e6f7"
+  url "https://www.openmesh.org/media/Releases/6.2/OpenMesh-6.2.tar.gz"
+  sha256 "570b5b2d3b949050d9628367268c495e87b3dc59f18a07c8037449356fe40374"
   head "http://openmesh.org/svnrepo/OpenMesh/trunk/", :using => :svn
 
   bottle do
@@ -16,6 +16,9 @@ class OpenMesh < Formula
   depends_on "cmake" => :build
   depends_on "qt" => :optional
 
+  option "without-python", "Build without python 2 support"
+  depends_on "boost-python"
+
   def install
     mkdir "build" do
       args = std_cmake_args
@@ -25,6 +28,14 @@ class OpenMesh < Formula
       else
         args << "-DBUILD_APPS=OFF"
       end
+
+      if build.without? "python"
+        args << "-DOPENMESH_BUILD_PYTHON_BINDINGS=OFF"
+      else
+        args << "-DOPENMESH_BUILD_PYTHON_BINDINGS=ON"
+      end
+
+      inreplace "#{buildpath}/src/Python/CMakeLists.txt", "${ACG_PROJECT_LIBDIR}/python", "${ACG_PROJECT_LIBDIR}/python2.7/site-packages"
 
       system "cmake", "..", *args
       system "make", "install"
@@ -77,5 +88,6 @@ class OpenMesh < Formula
     ]
     system ENV.cxx, "test.cpp", "-o", "test", *flags
     system "./test"
+    system "python -c 'import openmesh;'"
   end
 end
