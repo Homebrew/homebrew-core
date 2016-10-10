@@ -4,7 +4,7 @@ class Pandoc < Formula
   include Language::Haskell::Cabal
 
   desc "Swiss-army knife of markup format conversion"
-  homepage "http://pandoc.org"
+  homepage "https://pandoc.org/"
   url "https://hackage.haskell.org/package/pandoc-1.17.2/pandoc-1.17.2.tar.gz"
   sha256 "81727d054dfb26de816ea59ed541ebaf60d66d440012c12ec02f9c2b02fee8ec"
   head "https://github.com/jgm/pandoc.git"
