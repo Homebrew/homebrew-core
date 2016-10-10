@@ -2,8 +2,8 @@ class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
   # *** Vim should be updated no more than once every 7 days ***
-  url "https://github.com/vim/vim/archive/v8.0.0022.tar.gz"
-  sha256 "9b414635f008865ed9464b540c09cfbf60d1a7150838bce91b6d6adfb7805a2b"
+  url "https://github.com/vim/vim/archive/v8.0.0027.tar.gz"
+  sha256 "b76593fd63ce3e2ae2e06eb5eb49cc8c35818ae5497b683ab4dbf839fe27a923"
 
   head "https://github.com/vim/vim.git"
 
