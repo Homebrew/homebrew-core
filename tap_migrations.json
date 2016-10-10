@@ -128,6 +128,7 @@
   "gtkwave": "homebrew/gui",
   "guilt": "homebrew/boneyard",
   "gv": "homebrew/x11",
+  "gwenhywfar": "homebrew/boneyard",
   "hatari": "homebrew/x11",
   "helios": "spotify/public",
   "hexchat": "homebrew/gui",
