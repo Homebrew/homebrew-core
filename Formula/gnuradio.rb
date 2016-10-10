@@ -6,9 +6,10 @@ class Gnuradio < Formula
   revision 1
 
   bottle do
-    sha256 "797e74b20a6961700b52e5feb9a093c59518fa39b944915cfc70fe252dba6a73" => :el_capitan
-    sha256 "411c8103f3e067b21f79496da3ad8ab2dbe14843201df321c369ca0ee983c5e0" => :yosemite
-    sha256 "e36bdf0ca95c518c0c214c2e9db558bd91f4b26fa357aecbcaa0227cc0c0eb35" => :mavericks
+    rebuild 1
+    sha256 "2cbc22df1411ef7090bd43cbec10dbb23ee16439ed8bb0e10a2b144455237e51" => :sierra
+    sha256 "187f22d812f4ba86af2d2f64e9473647b49aa2373d6688d7ecfb840374285749" => :el_capitan
+    sha256 "41eb9fdae72761b7a83f284f1e7613da9e3ce916e0f98f20ad3aafe417be5a4e" => :yosemite
   end
 
   # These python extension modules were linked directly to a Python
