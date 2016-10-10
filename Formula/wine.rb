@@ -8,9 +8,9 @@ class Wine < Formula
   head "git://source.winehq.org/git/wine.git"
 
   stable do
-    url "https://dl.winehq.org/wine/source/1.8/wine-1.8.3.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.8.3.tar.bz2"
-    sha256 "d7cecdf7aab93bfe950e6f83ec526681b8770788c7b2a802bfe50ff97fc17a6c"
+    url "https://dl.winehq.org/wine/source/1.8/wine-1.8.5.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.8.5.tar.bz2"
+    sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
     # Patch to fix screen-flickering issues. Still relevant on 1.8. Broken on 1.9.10.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
@@ -19,21 +19,6 @@ class Wine < Formula
       sha256 "59f1831a1b49c1b7a4c6e6af7e3f89f0bc60bec0bead645a615b251d37d232ac"
     end
 
-    # Fixes build on 10.12; included in the latest devel release already
-    # https://bugs.winehq.org/show_bug.cgi?id=40830
-    patch do
-      url "https://github.com/wine-mirror/wine/commit/cac226200d88b7454747b5ee1016f06b89ce4aa6.patch"
-      sha256 "ad5dd3aff4dd03aa6dd9e00162a52ad335dbd9ddb5a4472ad8533efb677fb479"
-    end
-
-    # Fixes a CUPS-related build failure
-    # https://bugs.winehq.org/show_bug.cgi?id=40851
-    if MacOS.version >= :sierra
-      patch do
-        url "https://bugs.winehq.org/attachment.cgi?id=54854"
-        sha256 "07da01c4141052d274dbe39d45a13568265cbdcbc9de4f6e80f4eeb08aad9ff8"
-      end
-    end
   end
 
   bottle do
