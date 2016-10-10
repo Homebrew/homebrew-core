@@ -9,9 +9,9 @@ class Ssdb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8155bfa1e0c35747998a505072afec2427e66535844a41053463612ca2fb487a" => :el_capitan
-    sha256 "a933b076c4db3cf375f4a56c4c92e7e56ac608384d24b538563e1ee2707cdc3a" => :yosemite
-    sha256 "d997f3f17d79e1485389eb4f6c86ba6a5dd60f0d690852dfd689d292877bc8f0" => :mavericks
+    sha256 "a6dc3c5379ceaa12c28f178a1cf764944b603b562148b6462cb013610cbf6362" => :sierra
+    sha256 "acad61e29adb5852a57048909b758c44d5aca5d461d47f3fc72b4f256d3766b1" => :el_capitan
+    sha256 "fbc3da05f3c16aee726b20139ef5ec434b7e807a0c5e4af73dbaae1c1f24a6a1" => :yosemite
   end
 
   depends_on "autoconf" => :build
