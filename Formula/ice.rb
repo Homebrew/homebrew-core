@@ -1,8 +1,8 @@
 class Ice < Formula
   desc "Comprehensive RPC framework"
   homepage "https://zeroc.com"
-  url "https://github.com/zeroc-ice/ice/archive/v3.6.2.tar.gz"
-  sha256 "5e9305a5eb6081c8f128d63a5546158594e9f115174fc91208f645dbe2fc02fe"
+  url "https://github.com/zeroc-ice/ice/archive/v3.6.3.tar.gz"
+  sha256 "82ff74e6d24d9fa396dbb4d9697dc183b17bc9c3f6f076fecdc05632be80a2dc"
 
   bottle do
     sha256 "ef487cbf3e812e9c3f1fefd704ced9c946e3c64cfdb252e29b8d406dafb54336" => :sierra
@@ -58,6 +58,7 @@ class Ice < Formula
     args = %W[
       prefix=#{prefix}
       USR_DIR_INSTALL=yes
+      SLICE_DIR_SYMLINK=yes
       OPTIMIZE=yes
       DB_HOME=#{libexec}
       MCPP_HOME=#{Formula["mcpp"].opt_prefix}
