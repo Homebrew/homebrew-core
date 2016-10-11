@@ -25,6 +25,6 @@ class Rmlint < Formula
   test do
     (testpath/"1.txt").write("1")
     (testpath/"2.txt").write("1")
-    system "(#{bin}/rmlint | grep '^# Duplicate(s):$') || false"
+    assert_match(/^# Duplicate(s):$/, shell_output("#{bin}/rmlint"))
   end
 end
