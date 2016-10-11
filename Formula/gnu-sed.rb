@@ -5,8 +5,6 @@ class GnuSed < Formula
   mirror "https://ftp.gnu.org/gnu/sed/sed-4.2.2.tar.bz2"
   sha256 "f048d1838da284c8bc9753e4506b85a1e0cc1ea8999d36f6995bcb9460cddbd7"
 
-  conflicts_with "ssed", :because => "both install share/info/sed.info"
-
   bottle do
     cellar :any_skip_relocation
     rebuild 2
@@ -17,9 +15,11 @@ class GnuSed < Formula
     sha256 "bc210361d787b929011afbe96bd5a78c77e35a14d953942cd278d04c640183ae" => :mountain_lion
   end
 
-  deprecated_option "default-names" => "with-default-names"
-
   option "with-default-names", "Do not prepend 'g' to the binary"
+
+  conflicts_with "ssed", :because => "both install share/info/sed.info"
+
+  deprecated_option "default-names" => "with-default-names"
 
   def install
     args = ["--prefix=#{prefix}", "--disable-dependency-tracking"]
