@@ -30,6 +30,15 @@ class Qscintilla2 < Formula
     depends_on "pyqt5"
   end
 
+  # Fix build with Xcode 8 "error: implicit instantiation of undefined template"
+  # Reported 7 Oct 2016 https://www.riverbankcomputing.com/pipermail/qscintilla/2016-October/001160.html
+  if DevelopmentTools.clang_build_version >= 800
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1b9cb39/qscintilla2/xcode-8.patch"
+      sha256 "962c15c9b7a1a8195df9fbcc283b9579e2ae8c92ff3b5cf1cf9f33ca48354e42"
+    end
+  end
+
   def install
     spec = ENV.compiler == :clang && MacOS.version >= :mavericks ? "macx-clang" : "macx-g++"
     args = %W[-config release -spec #{spec}]
