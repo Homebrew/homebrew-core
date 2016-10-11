@@ -8,10 +8,9 @@ class X265 < Formula
 
   bottle do
     cellar :any
-    sha256 "875cea552176a4aa274e2acf35abbfe9ff5d4f28bdcbd086a40cf1a7e2b578eb" => :sierra
-    sha256 "d4b0f634811f8f44d26628588b6d8bc481c1f2e25b6ac2116767d231caf58b28" => :el_capitan
-    sha256 "94309db8f594dc0ea1156351c45c3e6533a95004058075db40c15ba5d313c1f7" => :yosemite
-    sha256 "f5e6acc3c8c4ba5c2e045663dd8ee667bf997e1b8a7d32093b7539945c101ca8" => :mavericks
+    sha256 "a8baa8e1290de5c92396b14da4128a427ac03b2f46c5b3b2daf3786590c86405" => :sierra
+    sha256 "2149bd6737507fc48a8eb8cc9b664324f616a97a59f69884870c605452521881" => :el_capitan
+    sha256 "1caa3cdda0a9b3ff71d776358195e975d5f368894f83887e135f6b89bebd57f0" => :yosemite
   end
 
   option "with-16-bit", "Build a 16-bit x265 (default: 8-bit)"
