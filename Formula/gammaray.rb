@@ -6,6 +6,7 @@ class Gammaray < Formula
   head "https://github.com/KDAB/GammaRay.git"
 
   bottle do
+    sha256 "2866b5ac18b0dc7da33e960ea2cc0cf4dd4c3bdb41099ebd1d9bddd1cd580c25" => :sierra
     sha256 "be67c233328f3ceb3c78cab631a8ce8af2a1f73298b2f49e35efc30c1806bb12" => :el_capitan
     sha256 "f8b8acae0170846d48f4eda3aa34e40eee95fd120fd12b50d465a1b0c4701ea7" => :yosemite
   end
