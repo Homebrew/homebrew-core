@@ -1,9 +1,9 @@
 class OpenBabel < Formula
   desc "Chemical toolbox"
   homepage "https://openbabel.org"
-  url "https://github.com/openbabel/openbabel/archive/openbabel-2-4-0.tar.gz"
-  version "2.4.0"
-  sha256 "b210cc952ce1ecab6efaf76708d3bd179c9b0f0d73fe8bd1e0c934df7391a82a"
+  url "https://github.com/openbabel/openbabel/archive/openbabel-2-4-1.tar.gz"
+  version "2.4.1"
+  sha256 "594c7f8a83f3502381469d643f7b185882da1dd4bc2280c16502ef980af2a776"
   head "https://github.com/openbabel/openbabel.git"
 
   bottle do
