@@ -158,6 +158,13 @@ class Qt5 < Formula
     end
   end
 
+  def post_install
+    # Upstream "configure and mkspecs: Don't try to find xcrun with xcrun"
+    # http://code.qt.io/cgit/qt/qtbase.git/patch/?id=77a71c32c9d19b87f79b208929e71282e8d8b5d9
+    inreplace prefix/"mkspecs/features/mac/default_pre.prf",
+      "xcrun -find xcrun", "xcrun -find xcodebuild"
+  end
+
   def caveats; <<-EOS.undent
     We agreed to the Qt opensource license for you.
     If this is unacceptable you should uninstall.
