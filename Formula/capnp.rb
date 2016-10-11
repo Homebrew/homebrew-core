@@ -15,8 +15,22 @@ class Capnp < Formula
   needs :cxx11
   depends_on "cmake" => :build
 
+  resource "gtest" do
+    url "https://github.com/google/googletest/archive/release-1.7.0.tar.gz"
+    sha256 "f73a6546fdf9fce9ff93a5015e0333a8af3062a152a9ad6bcb772c96687016cc"
+  end
+
   def install
     ENV.cxx11
+
+    gtest = resource("gtest")
+    gtest.verify_download_integrity(gtest.fetch)
+    inreplace "src/CMakeLists.txt" do |s|
+      s.gsub! "http://googletest.googlecode.com/files/gtest-1.7.0.zip",
+              gtest.cached_download
+      s.gsub! "URL_MD5 2d6ec8ccdf5c46b05ba54a9fd1d130d7",
+              "URL_HASH SHA256=#{gtest.checksum}"
+    end
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
