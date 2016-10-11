@@ -55,7 +55,7 @@ class Guile < Formula
     cause "Segfaults during compilation"
   end
 
-  # http://debbugs.gnu.org/cgi/bugreport.cgi?bug=23870
+  # https://debbugs.gnu.org/cgi/bugreport.cgi?bug=23870
   # https://github.com/Homebrew/homebrew-core/issues/1957#issuecomment-229347476
   if MacOS.version >= :sierra
     patch do
