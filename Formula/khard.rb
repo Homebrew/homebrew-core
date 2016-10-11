@@ -5,7 +5,7 @@ class Khard < Formula
   homepage "https://github.com/scheibler/khard/"
   url "https://files.pythonhosted.org/packages/eb/9c/0d68645e0347afc2c8ef214cf4ad5b7404978296ccf0bdca5ffe3fa0bfea/khard-0.11.3.tar.gz"
   sha256 "d6133f5622694dfdb73348604afaa78d20ba7a72178075e76afd045e309cc6ec"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "7acd401b32d325302978b531efd917bfc599780c8c364756c88c2f6df0e6bc97" => :sierra
