@@ -1,8 +1,8 @@
 class GitCredentialManager < Formula
   desc "Stores Git credentials for Visual Studio Team Services"
   homepage "https://java.visualstudio.com/Docs/tools/gitcredentialmanager"
-  url "https://github.com/Microsoft/Git-Credential-Manager-for-Mac-and-Linux/releases/download/git-credential-manager-2.0.2/git-credential-manager-2.0.2.jar"
-  sha256 "eb51da17da648f36a3aa7b3b3a28250fc9da80ae080b87bafa23b54b42f3c783"
+  url "https://github.com/Microsoft/Git-Credential-Manager-for-Mac-and-Linux/releases/download/git-credential-manager-2.0.3/git-credential-manager-2.0.3.jar"
+  sha256 "ee7a11486dffbea366c79500395d9f1384fe4dd3f91b49e09e6bc2ed8ab5f65a"
 
   bottle :unneeded
 
