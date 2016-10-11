@@ -6,6 +6,7 @@ class Meson < Formula
   url "https://github.com/mesonbuild/meson/releases/download/0.35.0/meson-0.35.0.tar.gz"
   sha256 "6e30bad3f819bf3930745a5b7da0abc4c3a767908b531d66a06177d0fae6ef00"
   head "https://github.com/mesonbuild/meson.git"
+  revision 1
 
   bottle do
     sha256 "62def1bceba26bc2f05b561a1165173a19ba9c217484e1b6d22bd4d8352fe3f5" => :sierra
