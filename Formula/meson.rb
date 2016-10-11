@@ -9,9 +9,9 @@ class Meson < Formula
   revision 1
 
   bottle do
-    sha256 "62def1bceba26bc2f05b561a1165173a19ba9c217484e1b6d22bd4d8352fe3f5" => :sierra
-    sha256 "5fc4d819c174040c6047485b53e93761fd2947188c9d5963d0c434159f7581c2" => :el_capitan
-    sha256 "d7626da017c4d43675e4ffaad03361691164e55b27ea3e0ecab1eb58aa76d4a4" => :yosemite
+    sha256 "deaa7f68ec76ab735db033eb36f221773d40c8d765c8ce4f9b74cecaf9e6ebeb" => :sierra
+    sha256 "619a7f794cb82dc70a7cc9fe0f1ae9ff7554e3b377de566042f4c49cb881a125" => :el_capitan
+    sha256 "82d76b4433508510850043c4aff6ce342eb221e6ac7f1732fa02fed39b744b30" => :yosemite
   end
 
   depends_on :python3
