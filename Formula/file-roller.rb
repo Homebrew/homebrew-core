@@ -5,9 +5,9 @@ class FileRoller < Formula
   sha256 "8106791dcecbd2ab64194f4aeb5cb709a15e9e0d28e6470528c7bf56969be552"
 
   bottle do
-    sha256 "1bb4af0d45b2e3d286cab35a6eb72b44765fb25df1f072e007f25927af91fcfb" => :sierra
-    sha256 "64fe1b9e7790965a7bf1d2f405683f9a8a222fff489e2ab1bf31617a1b7797d5" => :el_capitan
-    sha256 "57efc17c63af25c1fbef8a9407e5c984d2435e96cba17af940c5aae8b8c8d7cb" => :yosemite
+    sha256 "ffaef3125371d96b231e1eb6cf0cb36aabe8e874ecc121bae47bceafd9877e21" => :sierra
+    sha256 "cf20b7712a5c21e0d4be366b12c3fb98f6f08ad472608596676faa9050c77d9a" => :el_capitan
+    sha256 "22f435f69cbe6f112cce25429b8beb5037c7837eb364c0b8a866b7c80a3a6872" => :yosemite
   end
 
   depends_on "pkg-config" => :build
