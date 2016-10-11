@@ -9,9 +9,9 @@ class Xonsh < Formula
   revision 1
 
   bottle do
-    sha256 "ccac8226487e90922c8bf699efeabeaf26a9ceef16c8657ce0f2ec6bf2af5987" => :sierra
-    sha256 "a878e9870529f5c041615b8fb5936aae8c3571445bd21f0add9a7bb38830b202" => :el_capitan
-    sha256 "3b75a585f4e26baf0b40d4789a7ad28bab12b18837f486b716c24de1ac2f8dc1" => :yosemite
+    sha256 "a34d75dadf69aecf089f0cd7da0d512e720dea21852b2b4897b9a22d5d07dcb6" => :sierra
+    sha256 "474da913366ca868e82f68358814732b5501aae2b535f70094fd531043455689" => :el_capitan
+    sha256 "7a79e9a174da863de115181872762ddb56d650cee85d750c1bb1e343cd82d5ee" => :yosemite
   end
 
   depends_on :python3
