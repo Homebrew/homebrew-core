@@ -3,7 +3,6 @@ class Codequery < Formula
   homepage "https://github.com/ruben2020/codequery"
   url "https://github.com/ruben2020/codequery/archive/v0.18.0.tar.gz"
   sha256 "1beacde7c84059c1a62d3ccf6bc7fa9c11336f9df95edc358e7e09eceec0fc42"
-  revision 1
 
   bottle do
     cellar :any
