@@ -5,6 +5,7 @@ class Pyqt5 < Formula
   sha256 "2e481a6c4c41b96ed3b33449e5f9599987c63a5c8db93313bd57a6acbf20f0e1"
 
   bottle do
+    sha256 "1abcb70dac9e0ef7340c861895a0c726f5e5ce06e9f7d098c534fceea0672c89" => :sierra
     sha256 "4815f60529eadc829c704adbfb6a01ea2daec7acae4c4f7871579d3b01bdbc63" => :el_capitan
     sha256 "ac14ff2a18458c8201415adf3dfbd872849b0fef9968e105c4ce43e72876fcbf" => :yosemite
     sha256 "111602985fb4ced414dc4722a1af8ee3d428b2e013e22bdae8d0d059570ac44c" => :mavericks
