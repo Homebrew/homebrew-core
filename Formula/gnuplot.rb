@@ -5,9 +5,9 @@ class Gnuplot < Formula
   sha256 "25f3e0bf192e01115c580f278c3725d7a569eb848786e12b455a3fda70312053"
 
   bottle do
-    sha256 "00bd1a8848555dd7b107b24791159fbe44e2bc4907b1320f1317861588e51101" => :sierra
-    sha256 "0d622d5b39e7c437e1d514335ca6f6228b1a349b33f694097f03fbec4fb7ce2f" => :el_capitan
-    sha256 "2f4996eb86d23210d2dd5c544f39be5c2be7b2601e41e1543607615366baeac9" => :yosemite
+    sha256 "248bea9c816f6da0c3723e3bd14a874fcfd6d0fe7f0283bc3b4704632f74af4c" => :sierra
+    sha256 "fa7ed60920684032ade79dd4334fd66f5675d7e36bdea07f20a4be551f82b5e6" => :el_capitan
+    sha256 "2efbe8de41120ff75e2572328db4eba6adc80519a4396b4c14ad68b415f45e3d" => :yosemite
   end
 
   head do
