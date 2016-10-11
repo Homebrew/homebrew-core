@@ -26,7 +26,7 @@ class Ironcli < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = buildpath
+    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     dir = buildpath/"src/github.com/iron-io/ironcli"
     dir.install Dir["*"]
     cd dir do
