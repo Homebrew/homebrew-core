@@ -1,8 +1,8 @@
 class Chaiscript < Formula
   desc "Easy to use embedded scripting language for C++"
   homepage "http://chaiscript.com/"
-  url "https://github.com/ChaiScript/ChaiScript/archive/v5.8.4.tar.gz"
-  sha256 "924da6211809d5c9e4d7dcae484e146bcdc5cd169b1bb057b148b3aaaa47b635"
+  url "https://github.com/ChaiScript/ChaiScript/archive/v5.8.5.tar.gz"
+  sha256 "dae4a9a2258adb79a86a567b0406913356b839e21299b698d913ece468439584"
 
   bottle do
     cellar :any_skip_relocation
