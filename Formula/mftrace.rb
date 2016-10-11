@@ -1,7 +1,8 @@
 class Mftrace < Formula
   desc "Trace TeX bitmap font to PFA, PFB, or TTF font"
   homepage "http://lilypond.org/mftrace/"
-  url "http://lilypond.org/download/sources/mftrace/mftrace-1.2.18.tar.gz"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mftrace/mftrace_1.2.18.orig.tar.gz"
+  mirror "https://mirrors.kernel.org/debian/pool/main/m/mftrace/mftrace_1.2.18.orig.tar.gz"
   sha256 "0d31065f1d35919e311d9170bbfcdacc58736e3f783311411ed1277aa09d3261"
   revision 1
 
