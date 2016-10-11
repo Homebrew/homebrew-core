@@ -5,9 +5,9 @@ class Djview4 < Formula
   sha256 "8446f3cd692238421a342f12baa365528445637bffb96899f319fe762fda7c21"
 
   bottle do
-    sha256 "0b5835bf2e00677dbe5ac47fc17f93fc7e36575c7f2b8820e80f98a83639c224" => :el_capitan
-    sha256 "12b09ccc4d3c86502407789cf187ea09622ed44988ca0ca63b42114520639898" => :yosemite
-    sha256 "864c1b3ae86440205b6f045b2fbc6db5b8e3af241ccf3f99b7f3ce9683ef66c4" => :mavericks
+    sha256 "d2672b78d0e74e619030d0ebf4b2ab0b85fd63ae394c7258177ea2f357269449" => :sierra
+    sha256 "1868bc87f83e5e480fbb057beff8fbeedfe6c0f7b05150fcef5eb2deb1b23082" => :el_capitan
+    sha256 "f15753fce1533b948848a673ba36a201872c257fbabe2e4acf82ee42fc265e49" => :yosemite
   end
 
   depends_on "autoconf" => :build
