@@ -11,11 +11,19 @@ class Pazpar2 < Formula
     sha256 "bf4f63859e37fc44570da9d0de18d0a13bb9878e105d0d4a4e24bb7a8c8b979f" => :yosemite
   end
 
+  head do
+    url "https://github.com/indexdata/pazpar2.git"
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "icu4c" => :recommended
   depends_on "yaz"
 
   def install
+    system "./buildconf.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
