@@ -6,10 +6,9 @@ class Libnfs < Formula
 
   bottle do
     cellar :any
-    sha256 "2a9c7c00a65205e0820806357b31488b0d500718a327fd9449e1ac8b2ceabd8d" => :sierra
-    sha256 "a47bed515b9a71a13231c44012314c9c40542dddbe744b9ac42d346076abab52" => :el_capitan
-    sha256 "cdad24e1d5f35cf0eaa91fdc5ca073ab2f5fa0662ab8e93aed5561500ad4f25d" => :yosemite
-    sha256 "e442efc53a552fde70d4c778cbeb1e5df7400b14a5b9d4f742b7958e7564c6c1" => :mavericks
+    sha256 "fb5bb94ad156100a9dfc77afd9507ea65762da0a198342a838ca485d48a10eab" => :sierra
+    sha256 "4906ad802609a739bc2d45237bf21e66470cce0302cfab85752417b53ae07aea" => :el_capitan
+    sha256 "4ca6f45a9d7316a4c10d1e1a650db9ba969b4e00450f425b1586b4b6250facee" => :yosemite
   end
 
   depends_on "libtool" => :build
