@@ -1,25 +1,12 @@
 class Mailhog < Formula
   desc "Web and API based SMTP testing tool"
   homepage "https://github.com/mailhog/MailHog"
-  revision 1
 
   head "https://github.com/mailhog/MailHog.git"
 
   stable do
-    url "https://github.com/mailhog/MailHog/archive/v0.2.0.tar.gz"
-    sha256 "e7aebdc9295aa3a4a15198b921e76ec9b1a490d2f3e67d4670b94d816d070f37"
-
-    # These two patches introduce the vendoring system, and fix a build
-    # issue that would be introduced by the vendoring system otherwise.
-    patch do
-      url "https://github.com/mailhog/MailHog/commit/8dfadf408a.patch"
-      sha256 "408d90ce37df218a122d2ae5d41c59fed33c4d16a075f25e9d90f046a6efc974"
-    end
-
-    patch do
-      url "https://github.com/mailhog/MailHog/commit/c68ed81a0c.patch"
-      sha256 "a34dddc0387b460a5bb6b673b05301098b37a3ed9313899c519466fcbc8f358c"
-    end
+    url "https://github.com/mailhog/MailHog/archive/v0.2.1.tar.gz"
+    sha256 "6792dfc51ae439bfec15ac202771e5eaa6053e717de581eb805b6e9c0ed01f49"
   end
 
   bottle do
