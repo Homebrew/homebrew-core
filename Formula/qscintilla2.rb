@@ -3,36 +3,45 @@ class Qscintilla2 < Formula
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
   url "https://downloads.sf.net/project/pyqt/QScintilla2/QScintilla-2.9.3/QScintilla_gpl-2.9.3.tar.gz"
   sha256 "98aab93d73b05635867c2fc757acb383b5856a0b416e3fd7659f1879996ddb7e"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "88019f0cd020fe1262fc2fd96a82004e8a907af25c0fd2c4731c788ea5a09a0c" => :el_capitan
-    sha256 "331d6955aa4a5bea0ad2587266100b4ba9fb7bcdb237cd40ad40ca1d8cba3ea5" => :yosemite
-    sha256 "a2a4e459bc424996597fdd75bd597c279e157f8818c6e106107dce516ab46c24" => :mavericks
+    rebuild 1
+    sha256 "37ba368a76e558e15042d71aaf52648692264550571144482d6f51ad21f82bc6" => :sierra
+    sha256 "37ba368a76e558e15042d71aaf52648692264550571144482d6f51ad21f82bc6" => :el_capitan
+    sha256 "2da551aecabc7799cf5bba29c6448d38560faf07301bb361bdf54426f2eb5aba" => :yosemite
   end
 
-  option "without-plugin", "Skip building the Qt Designer plugin"
-  option "without-python", "Skip building the Python bindings"
+  option "with-plugin", "Build the Qt Designer plugin"
+  option "with-python", "Build Python bindings"
+  option "without-python3", "Do not build Python3 bindings"
 
-  depends_on :python => :recommended
-  depends_on :python3 => :optional
+  depends_on "qt5"
+  depends_on :python3 => :recommended
+  depends_on :python => :optional
 
-  if build.with? "python3"
-    depends_on "pyqt" => "with-python3"
-  elsif build.with? "python"
-    depends_on "pyqt"
-  else
-    depends_on "qt"
+  if build.with?("python") && build.with?("python3")
+    depends_on "sip" => "with-python3"
+    depends_on "pyqt5" => "with-python"
+  elsif build.with?("python")
+    depends_on "sip"
+    depends_on "pyqt5" => "with-python"
+  elsif build.with?("python3")
+    depends_on "sip" => "with-python3"
+    depends_on "pyqt5"
+  end
+
+  # Fix build with Xcode 8 "error: implicit instantiation of undefined template"
+  # Reported 7 Oct 2016 https://www.riverbankcomputing.com/pipermail/qscintilla/2016-October/001160.html
+  if DevelopmentTools.clang_build_version >= 800
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1b9cb39/qscintilla2/xcode-8.patch"
+      sha256 "962c15c9b7a1a8195df9fbcc283b9579e2ae8c92ff3b5cf1cf9f33ca48354e42"
+    end
   end
 
   def install
-    # On Mavericks we want to target libc++, this requires an
-    # unsupported/macx-clang-libc++ flag.
-    if ENV.compiler == :clang && MacOS.version >= :mavericks
-      spec = "unsupported/macx-clang-libc++"
-    else
-      spec = "macx-g++"
-    end
+    spec = ENV.compiler == :clang && MacOS.version >= :mavericks ? "macx-clang" : "macx-g++"
     args = %W[-config release -spec #{spec}]
 
     cd "Qt4Qt5" do
@@ -41,6 +50,7 @@ class Qscintilla2 < Formula
         s.gsub! "$$[QT_INSTALL_HEADERS]", include
         s.gsub! "$$[QT_INSTALL_TRANSLATIONS]", prefix/"trans"
         s.gsub! "$$[QT_INSTALL_DATA]", prefix/"data"
+        s.gsub! "$$[QT_HOST_DATA]", prefix/"data"
       end
 
       inreplace "features/qscintilla2.prf" do |s|
@@ -62,9 +72,14 @@ class Qscintilla2 < Formula
           (share/"sip").mkpath
           system python, "configure.py", "-o", lib, "-n", include,
                            "--apidir=#{prefix}/qsci",
-                           "--destdir=#{lib}/python#{version}/site-packages/PyQt4",
+                           "--destdir=#{lib}/python#{version}/site-packages/PyQt5",
+                           "--stubsdir=#{lib}/python#{version}/site-packages/PyQt5",
                            "--qsci-sipdir=#{share}/sip",
-                           "--pyqt-sipdir=#{HOMEBREW_PREFIX}/share/sip",
+                           "--qsci-incdir=#{include}",
+                           "--qsci-libdir=#{lib}",
+                           "--pyqt=PyQt5",
+                           "--pyqt-sipdir=#{Formula["pyqt5"].opt_share}/sip/Qt5",
+                           "--sip-incdir=#{Formula["sip"].opt_include}",
                            "--spec=#{spec}"
           system "make"
           system "make", "install"
@@ -77,7 +92,7 @@ class Qscintilla2 < Formula
       mkpath prefix/"plugins/designer"
       cd "designer-Qt4Qt5" do
         inreplace "designer.pro" do |s|
-          s.sub! "$$[QT_INSTALL_PLUGINS]", "#{lib}/qt4/plugins"
+          s.sub! "$$[QT_INSTALL_PLUGINS]", "#{lib}/qt5/plugins"
           s.sub! "$$[QT_INSTALL_LIBS]", lib
         end
         system "qmake", "designer.pro", *args
@@ -88,9 +103,9 @@ class Qscintilla2 < Formula
   end
 
   test do
-    Pathname("test.py").write <<-EOS.undent
-      import PyQt4.Qsci
-      assert("QsciLexer" in dir(PyQt4.Qsci))
+    (testpath/"test.py").write <<-EOS.undent
+      import PyQt5.Qsci
+      assert("QsciLexer" in dir(PyQt5.Qsci))
     EOS
     Language::Python.each_python(build) do |python, _version|
       system python, "test.py"

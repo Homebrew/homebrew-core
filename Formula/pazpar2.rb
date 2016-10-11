@@ -1,15 +1,14 @@
 class Pazpar2 < Formula
   desc "Metasearching middleware webservice"
   homepage "https://www.indexdata.com/pazpar2"
-  url "http://ftp.indexdata.dk/pub/pazpar2/pazpar2-1.12.5.tar.gz"
-  sha256 "a526ac9a91f6ac4683af3e27d58adb70755d82da7ad909eb98edf68dd07062d3"
-  revision 1
+  url "http://ftp.indexdata.dk/pub/pazpar2/pazpar2-1.12.6.tar.gz"
+  sha256 "a03b6fe430d2d83b916975aa525178893156cb1fa478e86160acc2088a35d036"
 
   bottle do
     cellar :any
-    sha256 "d5af2ca75125a99354bfde6fd4102645230bbe85a4b92831291d4555759e04d6" => :el_capitan
-    sha256 "e72a4126cb415562bae2dc8c07b41fec585d521fe674910d172fb1546311fcdc" => :yosemite
-    sha256 "acb104dd12781c2d6b7e8eedcaaa7b2576a890510269b561a321fc3667e1d863" => :mavericks
+    sha256 "488901bec183bb366228050e821136722ed4f1a051ca375d17657a6ec4dfaa94" => :sierra
+    sha256 "ef8cda0a9182553453cc0a1f17c8ed279044925d52182b5f61f95b4c15c25231" => :el_capitan
+    sha256 "bf4f63859e37fc44570da9d0de18d0a13bb9878e105d0d4a4e24bb7a8c8b979f" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -20,5 +19,9 @@ class Pazpar2 < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    system "#{sbin}/pazpar2", "-V"
   end
 end

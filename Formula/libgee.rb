@@ -6,6 +6,7 @@ class Libgee < Formula
 
   bottle do
     cellar :any
+    sha256 "18bde0447e90b174a46ba29bc94070fb3d2fe5d7591e13088525fa7def4a7732" => :sierra
     sha256 "9d9c52c6ad5cd4734d90ff140ba21ef33518657235f665991026e6a93fc051f9" => :el_capitan
     sha256 "f9c73a58993bb17cbf54a8737007b06f4ed509673683f4bc423656aaa26b6313" => :yosemite
     sha256 "b720258004feb4202d63b5933f1e2a4562d62d3921ee09f1e7de153bc018c5ee" => :mavericks

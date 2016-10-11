@@ -6,7 +6,8 @@ class Libvidstab < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "b7ac4253cc77f49ab1770cd10932faa39fabb75a7a299129142fbba284deacc3" => :sierra
     sha256 "25aba597740cf9b793997d8fb1d741d97fe24948967c8d0c232ea55fa9f7839f" => :el_capitan
     sha256 "9c20b222d86c69f675ff12cdd23689009dc6c007fd5ee8db22d4195eca770ee1" => :yosemite
     sha256 "9b1e3aa9d03c9a5f3dcb0e4632ffe36ed2e1ccc131b7e5b977ea7143e33ce5af" => :mavericks

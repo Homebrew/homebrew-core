@@ -1,11 +1,12 @@
 class Pdksh < Formula
   desc "Public domain version of the Korn shell"
-  homepage "http://www.cs.mun.ca/~michael/pdksh/"
-  url "http://www.cs.mun.ca/~michael/pdksh/files/pdksh-5.2.14.tar.gz"
+  homepage "https://www.cs.mun.ca/~michael/pdksh/"
+  url "https://www.cs.mun.ca/~michael/pdksh/files/pdksh-5.2.14.tar.gz"
   sha256 "ab15bcdd50f291edc632bca351b2edce5405d4f2ce3854d3d548d721ab9bbfa6"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ec63445bd17d5b7fc1a5ab06621b0ab1793345e068bc0b27b3e3640f01405517" => :sierra
     sha256 "771aeac10fe7c544b54a38b39cdbf9c082645e1992b8ace7ff1d6112a2ed1542" => :el_capitan
     sha256 "f1f4aab0c6110d5b30050fc0ed5e4660a4adf5e2364d0622b1872795b39b1417" => :yosemite
     sha256 "fa0b42b6f6aea018b537301b38151d6a3e20f8b8d694c5f768bab1d0d64a5b35" => :mavericks
@@ -13,12 +14,12 @@ class Pdksh < Formula
   end
 
   patch :p2 do # Upstream patches
-    url "http://www.cs.mun.ca/~michael/pdksh/files/pdksh-5.2.14-patches.1"
+    url "https://www.cs.mun.ca/~michael/pdksh/files/pdksh-5.2.14-patches.1"
     sha256 "b4adfc47e4d78eb8718ee10f7ffafc218b0e9d453413456fab263985ae02d356"
   end
 
   patch :p0 do
-    url "http://www.cs.mun.ca/~michael/pdksh/files/pdksh-5.2.14-patches.2"
+    url "https://www.cs.mun.ca/~michael/pdksh/files/pdksh-5.2.14-patches.2"
     sha256 "82041113e0b3aeca57bb9b161257b43d9f8eba95fd450d2287666e77e6209afd"
   end
 

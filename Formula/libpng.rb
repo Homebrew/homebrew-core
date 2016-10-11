@@ -1,15 +1,16 @@
 class Libpng < Formula
   desc "Library for manipulating PNG images"
   homepage "http://www.libpng.org/pub/png/libpng.html"
-  url "ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng16/libpng-1.6.23.tar.xz"
-  mirror "https://dl.bintray.com/homebrew/mirror/libpng-1.6.23.tar.xz"
-  sha256 "6d921e7bdaec56e9f6594463ec1fe1981c3cd2d5fc925d3781e219b5349262f1"
+  url "ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng16/libpng-1.6.25.tar.xz"
+  mirror "https://dl.bintray.com/homebrew/mirror/libpng-1.6.25.tar.xz"
+  sha256 "09fe8d8341e8bfcfb3263100d9ac7ea2155b28dd8535f179111c1672ac8d8811"
 
   bottle do
     cellar :any
-    sha256 "3541069a9d95047d6161faa97188e91b4a909e97e53d086f16df3334aa5058e8" => :el_capitan
-    sha256 "939b1d2021184400ae922e00e1aa46e64086e38aa0528ba8a4ed914c4657b020" => :yosemite
-    sha256 "13579594cd7c3fb74da78632217ff8716ab52c485d687b9457c67f11d6daa8cf" => :mavericks
+    sha256 "dcec3ac5099600c6b52aae0ba294c26ffce38b21031d489a7ae29c4b6c26daf2" => :sierra
+    sha256 "5583f8fb37ea934656ddc4cb1d315ca02df147f43ba371ed9c7bca18c645df63" => :el_capitan
+    sha256 "cdd558a23bda106af96a709affe536491281d6386b05b88747838ae238d9341b" => :yosemite
+    sha256 "9da2cc58613f146446cca39f8dca1a72cb0adcabc787496fa4386e2dfde40ea8" => :mavericks
   end
 
   head do

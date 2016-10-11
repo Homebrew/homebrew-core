@@ -7,6 +7,7 @@ class SpoofMac < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "baa45eb53fc9e1a713ca7693351409f66c833834e7c7d0838115bcf5f38df555" => :sierra
     sha256 "6c97eaa9a82f7eadb5c1127a0dcf9b0f9f1837e36d3e9978e989471322f42b4a" => :el_capitan
     sha256 "927644491edf064dcc3145e05107737c3e571b55989ae8d539bf0b499da3685c" => :yosemite
     sha256 "f7dc1529dd2c83d8bf8667d170299aa592910bb4918174b23f6a9b7d3555084e" => :mavericks
@@ -32,6 +33,20 @@ class SpoofMac < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
+  def caveats; <<-EOS.undent
+    Although spoof-mac can run without root, you must be root to change the MAC.
+
+    The launchdaemon is set to randomize en0.
+    You can find the interfaces available by running:
+        "spoof-mac list"
+
+    If you wish to change interface randomized at startup change the plist line:
+        <string>en0</string>
+    to e.g.:
+        <string>en1</string>
+    EOS
+  end
+
   plist_options :startup => true, :manual => "spoof-mac"
 
   def plist; <<-EOS.undent
@@ -55,20 +70,6 @@ class SpoofMac < Formula
         <string>/dev/null</string>
       </dict>
     </plist>
-    EOS
-  end
-
-  def caveats; <<-EOS.undent
-    Although spoof-mac can run without root, you must be root to change the MAC.
-
-    The launchdaemon is set to randomize en0.
-    You can find the interfaces available by running:
-        "spoof-mac list"
-
-    If you wish to change interface randomized at startup change the plist line:
-        <string>en0</string>
-    to e.g.:
-        <string>en1</string>
     EOS
   end
 

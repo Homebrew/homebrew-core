@@ -16,6 +16,7 @@ class Gkrellm < Formula
   end
 
   bottle do
+    sha256 "a6024661e26bae0bafe492b249b7fe64e72801d3d50310b36abc5dd05620e7ea" => :sierra
     sha256 "1b33628604f2b3577d020a32ddf61af1dd4ae3cf7f52fc62617ea2a842e4d842" => :el_capitan
     sha256 "64e1bf668b44b8a056d3f07d0644012f5778b42654d1d656bcba595f640786c7" => :yosemite
     sha256 "f4ff4fc7fecd7ec1c057a329789546e7533c6fee7bf59b19901027c777ad9395" => :mavericks

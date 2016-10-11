@@ -1,15 +1,20 @@
 class Passpie < Formula
+  include Language::Python::Virtualenv
+
   desc "Manage login credentials from the terminal"
   homepage "https://github.com/marcwebbie/passpie"
   url "https://files.pythonhosted.org/packages/f3/68/0b60f45c2604c7aabea83407085447c33ecab2991f03a43cdac11334ce38/passpie-1.5.4.tar.gz"
   sha256 "3d58faca452dad5ddbb6000af16b0ef3c6591eae61423c87b64252faf1106e3c"
+  revision 1
+
   head "https://github.com/marcwebbie/passpie.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9d6bb3bd7ffd59287ca6e8f1f73cc2054aa5878eff613a5dcd15ef990be41f18" => :el_capitan
-    sha256 "1c1413eca1bdd41c58f980fd488e50d811cc59929df67d2d1cb4fd1cb6d9707e" => :yosemite
-    sha256 "f11202dd86fd4abd985bbe1f8f7c6e9aa5870c40a72388843b27944c37ca606e" => :mavericks
+    sha256 "5934b82850feb162b60f0a1e963c29dfd21d335382666c42c1c974161c091c23" => :sierra
+    sha256 "2c50093ea44118894e21aec09c5eab2e116c552f2f7e853c6e38ac71d4974411" => :el_capitan
+    sha256 "b76f3ef05e592c7a565f762dd229d4c904e23b6d0236d2961cbc5c1d6b98699b" => :yosemite
+    sha256 "87ceac84c68ef931f577e0d78398235646e89ed796574287572e38b9731988e7" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -41,19 +46,7 @@ class Passpie < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    %w[click rstr tabulate tinydb PyYAML].each do |r|
-      resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

@@ -7,11 +7,11 @@ class Quilt < Formula
   head "http://git.savannah.gnu.org/r/quilt.git"
 
   bottle do
-    revision 1
-    sha256 "d375ad1ff5cfc9e7097e8641278661ae25d85f07edd8b220e41934a97431466c" => :el_capitan
-    sha256 "8f4e75281279df9d503c160a83dda1611483bada421115ec2c5af82ec0a3b9b2" => :yosemite
-    sha256 "1d69453caf8f13e9ecd5a3310e872b3fdd562bd89b6b6335ce9874f613b59ff2" => :mavericks
-    sha256 "452546bfd83c8ace6c95764a19c86d6d2eecdddcd3a289135a5a50648ecd494d" => :mountain_lion
+    cellar :any_skip_relocation
+    rebuild 2
+    sha256 "34ec3c012f01a9ae624b327abea3f73132c409be577adcf1a0b4cc9ef1f149f0" => :sierra
+    sha256 "a7d57c231898a6ca038db9789e8059dc2d4498da2a75eebb7d66837dbdd4bb96" => :el_capitan
+    sha256 "a7d57c231898a6ca038db9789e8059dc2d4498da2a75eebb7d66837dbdd4bb96" => :yosemite
   end
 
   depends_on "gnu-sed"

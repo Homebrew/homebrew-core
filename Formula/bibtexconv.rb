@@ -6,6 +6,7 @@ class Bibtexconv < Formula
 
   bottle do
     cellar :any
+    sha256 "837cc801cd0c29024e198c142a6d66ba765e504a18cd36034d58bc11464f9e80" => :sierra
     sha256 "b0eae23ea87d29381f65d549fa1316382c2756b358a2c9afc86cf38b3230103f" => :el_capitan
     sha256 "b4a0e0cdfdccc456be7f2176965a3646eb8a13a1a1ab4c16726e15107fff1a11" => :yosemite
     sha256 "a0f3910b6680610f45a051dea0809fd696075e2dc7e4958f37ca013e2675eac4" => :mavericks

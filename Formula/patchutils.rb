@@ -7,7 +7,8 @@ class Patchutils < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "948da3692c5f55995ea83303063cc0a9f01387c220f262365ef0e8cc775e8a39" => :sierra
     sha256 "08689727cdf1f89cc075ec2e6e71ac456c5429067899ccb5dac12848a6c2abcd" => :el_capitan
     sha256 "df5a0b90219fe01b6934696d27782920c3e9c45152980e72a1c542006c625ae9" => :yosemite
     sha256 "84cae8e92f1e9b3f377fd6584c0811a3c3989fb898bb7596ba0d1192ae10a834" => :mavericks

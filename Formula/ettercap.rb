@@ -6,7 +6,8 @@ class Ettercap < Formula
   head "https://github.com/Ettercap/ettercap.git"
 
   bottle do
-    revision 2
+    rebuild 2
+    sha256 "4f2e62c67e6e445378dfc8647a45e988a3ec967b40bd2b1647205f34b2fa7ebd" => :sierra
     sha256 "65ea7526addde2a4a53a3148c056e12514481394e4c9e2d04f79edf0fb3b9c58" => :el_capitan
     sha256 "90cb2fbbd2d792293aad154f293f8d2c8b486b6478c3087ad8657005f3e1d1cd" => :yosemite
     sha256 "6f11280ec2f3d7e6b89663ced4fd4d0051a5e35b335108a56561dab6e8728257" => :mavericks

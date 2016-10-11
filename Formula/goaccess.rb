@@ -6,6 +6,7 @@ class Goaccess < Formula
   head "https://github.com/allinurl/goaccess.git"
 
   bottle do
+    sha256 "4ccab0916e46ccbbd14eb63704a11ebd812c6c201797bc67a8885fbd2f475bd7" => :sierra
     sha256 "175c517502b2d1373b37a2ec732048b01f6385d50c6b87d66eaad09568b5643f" => :el_capitan
     sha256 "1308e96418654e0423118e77ac9dabde20739bb25714cba5bbcb5e0ea7c28a1a" => :yosemite
     sha256 "c203423728013f2b7d47c3c439c5939bbd5f32937cf3239d07244a3f12942cc7" => :mavericks

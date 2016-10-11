@@ -1,16 +1,17 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.14.tar.xz"
-  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.4/gnutls-3.4.14.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.4/gnutls-3.4.14.tar.xz"
-  sha256 "35deddf2779b76ac11057de38bf380b8066c05de21b94263ad5b6dfa75dfbb23"
+  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.15.tar.xz"
+  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.4/gnutls-3.4.15.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.4/gnutls-3.4.15.tar.xz"
+  sha256 "eb2a013905f5f2a0cbf7bcc1d20c85a50065063ee87bd33b496c4e19815e3498"
 
   bottle do
     cellar :any
-    sha256 "8f01f4b29b22aebcca0138d69f354682056478d8e7e55e6d8eb0029098d55692" => :el_capitan
-    sha256 "16a1ad8c66569d4c0b254c6844a14429b2bb8b26e764aaf4cc1f62976593f672" => :yosemite
-    sha256 "22355e7cd7c02b7852f39f8b653e1e7498d37b9005596748ff49fb9fd7d49f42" => :mavericks
+    sha256 "b51f3a06fe00e27074aad8c65ecd86fe0fcb5df8d9b4379c9e452a812207b898" => :sierra
+    sha256 "2a18ae1b67e4d55ec3d749a06ac0471456daff44ac52156e1824d32d0d0675b2" => :el_capitan
+    sha256 "c7f30aa4ea4d054e0d788e9948fcd6ff03b353525319ff80de8063659c40ea65" => :yosemite
+    sha256 "a30400a5dd19c4830697403b0d297c8ffd10a57b122b02eb06213b1066373897" => :mavericks
   end
 
   depends_on "pkg-config" => :build
@@ -36,11 +37,7 @@ class Gnutls < Formula
       --disable-heartbeat-support
       --without-p11-kit
     ]
-
-    if build.with? "guile"
-      args << "--enable-guile"
-      args << "--with-guile-site-dir=no"
-    end
+    args << "--enable-guile" << "--with-guile-site-dir" if build.with? "guile"
 
     system "./configure", *args
     system "make", "install"

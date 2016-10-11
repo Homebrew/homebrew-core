@@ -6,7 +6,8 @@ class Ltl2ba < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "151f207ca2627b0916371b49918f3b97174f5c2bab56abab0eb11d17d604037d" => :sierra
     sha256 "45916a60bb32849e1bc3709d019dcf6ac9d140d92e6f6b65bb5ca05de5c63e3b" => :el_capitan
     sha256 "d4c93b1f70b126540dae9d77e16f7e0b42e58ff1997fce63f51820621693588d" => :yosemite
     sha256 "75c0b88b4be2658bc02feb02214f833f7b27758381924b3e3a742ee9309579f6" => :mavericks

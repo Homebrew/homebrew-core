@@ -11,49 +11,51 @@ class Termshare < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d56c348b2700fb6abca76f2aa5f9414a3aed51a54176d6beeb5cc7d70ccaf9aa" => :el_capitan
-    sha256 "bf014af5e9a131d751e4b77b15dfbc4a77c4eeda2a05f51795878d04f90c04fb" => :yosemite
-    sha256 "fc339f6cc68ee5f9a712e26a59333dd7d74fa44a666395c9c433125979318f14" => :mavericks
+    rebuild 1
+    sha256 "5d883c6747f478ab161ca648923a7397a782f437bb59d660df6a252b21f62e99" => :sierra
+    sha256 "c540732aab70ec29b60459c19bb4ee55c0584b3a63476473219a115d2ec380af" => :el_capitan
+    sha256 "c3b9c2784b02536ce97a2a3b3a205314e7ada8e727ac60b54577d933a04aa808" => :yosemite
+    sha256 "aa9131a7eae6efe7e7d3bac1e73711f7bfe52f1dd246389bdbb137c70c815310" => :mavericks
   end
 
   depends_on "go" => :build
-  depends_on :hg => :build
 
-  go_resource "code.google.com/p/go.net" do
-    url "https://code.google.com/p/go.net",
-    :using => :hg,
-    :revision => "937a34c9de13"
+  go_resource "golang.org/x/net" do
+    url "https://go.googlesource.com/net.git",
+        :revision => "7553b97266dcbbf78298bd1a2b12d9c9aaae5f40"
   end
 
   go_resource "github.com/heroku/hk" do
     url "https://github.com/heroku/hk.git",
-    :revision => "406190e9c93802fb0a49b5c09611790aee05c491"
+        :revision => "406190e9c93802fb0a49b5c09611790aee05c491"
   end
 
   go_resource "github.com/kr/pty" do
     url "https://github.com/kr/pty.git",
-    :revision => "f7ee69f31298ecbe5d2b349c711e2547a617d398"
+        :revision => "f7ee69f31298ecbe5d2b349c711e2547a617d398"
   end
 
   go_resource "github.com/nu7hatch/gouuid" do
     url "https://github.com/nu7hatch/gouuid.git",
-    :revision => "179d4d0c4d8d407a32af483c2354df1d2c91e6c3"
+        :revision => "179d4d0c4d8d407a32af483c2354df1d2c91e6c3"
   end
 
   def install
     ENV["GOPATH"] = buildpath
-
     path = buildpath/"src/github.com/progrium/termshare"
     path.install Dir["*"]
     Language::Go.stage_deps resources, buildpath/"src"
 
     cd path do
-      system "go", "build", "-o", "termshare"
-      bin.install "termshare"
+      # https://github.com/progrium/termshare/issues/9
+      inreplace "termshare.go", "code.google.com/p/go.net/websocket",
+                                "golang.org/x/net/websocket"
+      system "go", "build", "-o", bin/"termshare"
+      prefix.install_metafiles
     end
   end
 
   test do
-    system "#{bin}/termshare", "-v"
+    assert_match version.to_s, shell_output("#{bin}/termshare -v")
   end
 end

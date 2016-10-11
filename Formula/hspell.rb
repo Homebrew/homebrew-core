@@ -5,7 +5,8 @@ class Hspell < Formula
   sha256 "603c25dcbaa65d171d9065da7369cfe0dc21bda8378bade13b42eda69c8b2fe7"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "9875572a4d3bde9c4ee107eeade64bd374ba2ed50fba0cdc8b40349205675d32" => :sierra
     sha256 "1f436c171499bca023363de7841c20bafec2dcdb4e5b18bb93bbea0581696540" => :el_capitan
     sha256 "ff001fc54561695a7cd84a2ecc5b68a57d4e87e351e96515ae6a406ee3425c6e" => :yosemite
     sha256 "ec1840ba37ee546ac0ea48c75a0f20f1bbe0c7b96c663c1035136b0ae2adea75" => :mavericks

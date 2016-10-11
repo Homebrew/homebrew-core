@@ -8,7 +8,8 @@ class Libtommath < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 2
+    rebuild 2
+    sha256 "ff8b8d215c445537602f1ce68ded380035a8445c407272dc713e480605f57a9a" => :sierra
     sha256 "b0f4e06eaf98729a5a8657538f7b9b8cd6f11926f09c34489b3e0b5cfb9bb376" => :el_capitan
     sha256 "e6ed2cbd074bb7b8c2287baac219bf5a928dd84c8fc4c69d178358f3810164fe" => :yosemite
     sha256 "fbc9c911c91862cad93470cac7e03aba2183faeadb6d67d2a15a0e730efc8103" => :mavericks

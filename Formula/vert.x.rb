@@ -1,8 +1,8 @@
 class VertX < Formula
   desc "Toolkit for building reactive applications on the JVM."
   homepage "http://vertx.io/"
-  url "https://dl.bintray.com/vertx/downloads/vert.x-3.3.2-full.tar.gz"
-  sha256 "49479e82cd5444c693f24a4fb8bad1694f77a3137dc1c66d6dc1ffec0ecc3ac0"
+  url "https://dl.bintray.com/vertx/downloads/vert.x-3.3.3-full.tar.gz"
+  sha256 "9f7d374ad10726af12a203aa089e0f4e5cc68d8d1a82bb71f567d9f75005e99a"
 
   bottle :unneeded
 
@@ -14,15 +14,16 @@ class VertX < Formula
 
   test do
     (testpath/"HelloWorld.java").write <<-EOS.undent
-    import io.vertx.core.AbstractVerticle;
-    public class HelloWorld extends AbstractVerticle {
-      public void start() {
-        System.out.println("Hello World!");
-        vertx.close();
-        System.exit(0);
+      import io.vertx.core.AbstractVerticle;
+      public class HelloWorld extends AbstractVerticle {
+        public void start() {
+          System.out.println("Hello World!");
+          vertx.close();
+          System.exit(0);
+        }
       }
-    }
     EOS
-    system "#{bin}/vertx", "run", "HelloWorld.java"
+    output = shell_output("#{bin}/vertx run HelloWorld.java")
+    assert_equal "Hello World!\n", output
   end
 end

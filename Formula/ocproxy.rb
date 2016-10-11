@@ -7,6 +7,7 @@ class Ocproxy < Formula
 
   bottle do
     cellar :any
+    sha256 "17f8ccb49b3b13061d37b1b4244f92d5313d070d25877399a580dfad332e45f4" => :sierra
     sha256 "00c9d71151182359e906514712aa6cbde06f005b0a3fadd948c152c587d6f1fe" => :el_capitan
     sha256 "e4ae0c97d43496157428d5bf3bbd9d175a1f107f88d9d3bcd6a0bf7efb50ba79" => :yosemite
     sha256 "1777ecb325d1b0025b73445a9d31808ed6bd3351a6a398e7128f8ba836b33381" => :mavericks

@@ -4,7 +4,7 @@ class Libmarisa < Formula
   revision 1
 
   stable do
-    url "https://marisa-trie.googlecode.com/files/marisa-0.2.4.tar.gz"
+    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/marisa-trie/marisa-0.2.4.tar.gz"
     sha256 "67a7a4f70d3cc7b0a85eb08f10bc3eaf6763419f0c031f278c1f919121729fb3"
 
     # trie-test.cc:71: TestKey(): 115: Assertion `r_key.ptr() == NULL' failed.
@@ -22,6 +22,7 @@ class Libmarisa < Formula
 
   bottle do
     cellar :any
+    sha256 "5bcdabfe61983f0913b5a97113949f08fedeb99c993ea4b4af7e90afcdbd9da6" => :sierra
     sha256 "3af0c8f7adf4dd630e29c3d604614e09d40e2c8154cc78c7b184a9b37aad26b1" => :el_capitan
     sha256 "225b53e732cde281f00d281e7e76dcf46243badd448ef84a515b420e84746c48" => :yosemite
     sha256 "a41201761d4ac0a4659137f7064386dacab6584d8a2c61e1de914fcaaa7daf35" => :mavericks

@@ -6,6 +6,7 @@ class Cabextract < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "71efac9941b5d7f345cca0cebd739c8d235f47585651a03260ff46b8c45a815d" => :sierra
     sha256 "c0346331ea9ab80aabaf9a74e06ab2f00b0898859e129583e8509a26d2ff7270" => :el_capitan
     sha256 "e86f3dda55d8cbba0602abacbf67d09a1b733d4fe6db761938f8a3416f1cf5a8" => :yosemite
     sha256 "f71f87d6bbb877207ad984d8ad4bd68c7f50ae0305178583c968847cb57f6179" => :mavericks

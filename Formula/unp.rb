@@ -14,7 +14,7 @@ class Unp < Formula
     bin.install %w[unp ucat]
     man1.install "debian/unp.1"
     bash_completion.install "bash_completion.d/unp"
-    %w[ COPYING CHANGELOG ].each { |f| rm f }
+    %w[COPYING CHANGELOG].each { |f| rm f }
     mv "debian/README.Debian", "README"
     mv "debian/copyright", "COPYING"
     mv "debian/changelog", "ChangeLog"

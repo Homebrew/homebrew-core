@@ -5,7 +5,8 @@ class Gauche < Formula
   sha256 "7b18bcd70beaced1e004594be46c8cff95795318f6f5830dd2a8a700410fc149"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "921869e95b4c339c995150eaa98c8ea21aa243b4df010430080d4952a2977cbb" => :sierra
     sha256 "abb95196aadd8f233b04d2a14b8bbb4f0dbf3be8fa0ab089834cbc279b074daf" => :el_capitan
     sha256 "4018f9ae2b0a179ef5df0482e6734186f0069e773496f2f6092971f10a4c7b11" => :yosemite
     sha256 "e1258b3e8f0c5a61c8df484e173837e6fb3c7ecad7cd1fee277d1f8da56e98f9" => :mavericks

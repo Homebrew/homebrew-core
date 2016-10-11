@@ -1,15 +1,16 @@
 class Libstrophe < Formula
   desc "XMPP library for C"
   homepage "http://strophe.im/libstrophe/"
-  url "https://github.com/strophe/libstrophe/archive/0.8.8.tar.gz"
-  sha256 "08f4a85ef419a8bdf08b6afa8f7b2a0e5e180fdc9c16cede81af672ec10e21e7"
+  url "https://github.com/strophe/libstrophe/archive/0.9.1.tar.gz"
+  sha256 "c90493f986e5bd407132c5a3e174378c02cb80fa4eaee29875e06b4bba6afcc3"
   head "https://github.com/strophe/libstrophe.git"
 
   bottle do
     cellar :any
-    sha256 "a67aa03ee2d0643b652be84252e5d33f62d7a315ff2d581dcbbb1c938c7ca9a3" => :el_capitan
-    sha256 "73c638c2bf7572e9ff6a87b8cbe99349c25544606aba13706f6719b3cbe66d07" => :yosemite
-    sha256 "1e874fe49c1b35f613ba86d28b53783bdf2c55d67cdd838e23d86f278657dd42" => :mavericks
+    sha256 "f0de1f0155ec4b9d7c936d0c3a0c0ecae7ccf0d1306baa4df47d58d6116e75fe" => :sierra
+    sha256 "da3d292e0c9d6e642038fffb8f79b4ec7eeced72900135b7cfc7cb4dfead5dc0" => :el_capitan
+    sha256 "7ae2803a6ad206a7642b822a9ad8078beeb5bd1108bd3ef1cf46cc72094c6653" => :yosemite
+    sha256 "6a6a3d52acff666a214cfdfb5e7559b3c32903d61c12405018ba25043d9e3416" => :mavericks
   end
 
   depends_on "autoconf" => :build
@@ -20,9 +21,6 @@ class Libstrophe < Formula
   depends_on "check"
 
   def install
-    # see https://github.com/strophe/libstrophe/issues/28
-    ENV.deparallelize
-
     system "./bootstrap.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

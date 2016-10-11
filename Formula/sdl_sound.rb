@@ -7,6 +7,7 @@ class SdlSound < Formula
 
   bottle do
     cellar :any
+    sha256 "28aed65a75d7b76f72b5e18db7fb77e0fd1662b8c9db2ad5d7089aabf9cc3176" => :sierra
     sha256 "a0cf4506b9faf4729f74bf5fa0035a47d5fe68bec2d1fd8b52841d9f3f06c73c" => :el_capitan
     sha256 "9b44c60636c37d24d3344283b79f8ce292efedb035d00269f8afc0b1ba65f7c3" => :yosemite
     sha256 "e05e8e051e8dd043001714a4c95d2ef5ebbe1f0abe9d7a4e89ab9eb95ec475a9" => :mavericks

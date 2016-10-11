@@ -6,14 +6,11 @@ class Coreutils < Formula
   sha256 "31e67c057a5b32a582f26408c789e11c2e8d676593324849dcf5779296cdce87"
 
   bottle do
+    sha256 "1714a4893ba37f9fb1a908e5bd79e45594034daa3ff08d8273713030498d5c1b" => :sierra
     sha256 "3b278ce91252784e43d2f16fc813e72a7bd04e637627bf2916c9f847ef600d89" => :el_capitan
     sha256 "dadb2d672a6b412d03b2470459d0ccb229bf7aa1c587b04809e7f19a439a640e" => :yosemite
     sha256 "1b68974d496006908a2f538a6a7e35b3bee7eba2247afec4e1568b28d0d83c5c" => :mavericks
   end
-
-  conflicts_with "ganglia", :because => "both install `gstat` binaries"
-  conflicts_with "idutils", :because => "both install `gid` and `gid.1`"
-  conflicts_with "aardvark_shell_utils", :because => "both install `realpath` binaries"
 
   head do
     url "git://git.sv.gnu.org/coreutils"
@@ -28,6 +25,10 @@ class Coreutils < Formula
   end
 
   depends_on "gmp" => :optional
+
+  conflicts_with "ganglia", :because => "both install `gstat` binaries"
+  conflicts_with "idutils", :because => "both install `gid` and `gid.1`"
+  conflicts_with "aardvark_shell_utils", :because => "both install `realpath` binaries"
 
   def install
     # Work around unremovable, nested dirs bug that affects lots of

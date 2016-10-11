@@ -1,22 +1,25 @@
 class Weboob < Formula
+  include Language::Python::Virtualenv
+
   desc "Web Outside of Browsers"
   homepage "http://weboob.org/"
   url "https://symlink.me/attachments/download/324/weboob-1.1.tar.gz"
   sha256 "cbc0d8a88e402ec71a79f0cf09594fd3a969122111f5cd695f4a4ca67961661c"
+  revision 1
+
   head "https://git.symlink.me/pub/weboob/stable.git"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "de891de1a4983a14f56a46686e1296a1c9bea8868f4fbb9f6e655c4c8c288734" => :el_capitan
-    sha256 "6c301ce9314dac5f56415d186d18eb8a749094c0cfa135495555af1d16b8642c" => :yosemite
-    sha256 "5899a8cbcd70b8f0607cd438f45b4cce6a91cdc8168fc26704abbbc1866eeb1b" => :mavericks
+    sha256 "b9fb8cac12026ef91420ab1b1d6b6d0583bd34ce842e468f02882c70e0d910ad" => :el_capitan
+    sha256 "77cc15e88b0d9f28a410e79c8f29f30a66f2eb6080dbeeea3f1fb32746410780" => :yosemite
+    sha256 "3ed894d3eccc62ee18b4e73a9a2134ea74915d149ecece425a593520eaf4c1d0" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libyaml"
-  depends_on :gpg
   depends_on "pyqt"
+  depends_on :gpg => :run
 
   resource "termcolor" do
     url "https://pypi.python.org/packages/source/t/termcolor/termcolor-1.1.0.tar.gz"
@@ -39,22 +42,11 @@ class Weboob < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
-    system "#{bin}/weboob-config", "update"
-    system "#{bin}/weboob-config", "applications"
+    system bin/"weboob-config", "update"
+    system bin/"weboob-config", "applications"
   end
 end

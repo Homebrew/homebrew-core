@@ -1,16 +1,25 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "http://graphviz.org/"
-  url "http://graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.38.0.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/graphviz/graphviz_2.38.0.orig.tar.gz"
-  sha256 "81aa238d9d4a010afa73a9d2a704fc3221c731e1e06577c2ab3496bdef67859e"
+  revision 1
+
+  stable do
+    url "http://graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.38.0.tar.gz"
+    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/graphviz/graphviz_2.38.0.orig.tar.gz"
+    sha256 "81aa238d9d4a010afa73a9d2a704fc3221c731e1e06577c2ab3496bdef67859e"
+
+    # https://github.com/ellson/graphviz/commit/f97c86e
+    # Support either version of ghostcript's error prefixes
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6a6a1a3/graphviz/patch-gvloadimage_gs.c.diff"
+      sha256 "bcc0758dd9e0ac17bd1cde63a55a613124814002b470ac4a7a0c421c83a253ab"
+    end
+  end
 
   bottle do
-    revision 1
-    sha256 "cf69eac548a5c02aacc966706fc4a922176059414fbe453680aae4552fc019dc" => :el_capitan
-    sha256 "6817a366691db684f2910dfbc7e20253915f82848ae09ef474a50ac67bf10582" => :yosemite
-    sha256 "4361c01b46dc6061694e5f5a58c326efedad66ddeb7e1b063e53ff5ebb995d8a" => :mavericks
-    sha256 "a8d9c8d59af854970bfffa16dc62cb584383887053a4ded39cfbbfdabac624bc" => :mountain_lion
+    sha256 "8cdecc90167e47c11153a8cde909f4387b96abee37a6e59cd7024112ba4709cc" => :sierra
+    sha256 "c36aa173c45aecedee2aa2c6b410e8b609a4fcab1a81c948a705388e7265a7b3" => :el_capitan
+    sha256 "655323ee62b7328acb15e46f2d099103f6a774895b909b9a51011f5254688cfb" => :yosemite
   end
 
   head do

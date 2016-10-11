@@ -7,7 +7,8 @@ class Pth < Formula
 
   bottle do
     cellar :any
-    revision 2
+    rebuild 2
+    sha256 "583d6ae1681974c7461650151253c5a302f33fb16dae74b5546a4a693cec71d1" => :sierra
     sha256 "bac7f73c061797768be28e21bec2e7773cfd70ff7c3f46eafd464b9632d5eae4" => :el_capitan
     sha256 "7b31c6d65a97c722e661feb4c73a59a9025f1eac6b297ff181931bbdbc894ff3" => :yosemite
     sha256 "4271f5c483e95641caa088059669dad1ab6d95774ff66eecae2af1c5c0ddaf0a" => :mavericks

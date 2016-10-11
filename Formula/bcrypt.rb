@@ -6,6 +6,7 @@ class Bcrypt < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "913cfce96b6de1fce20ee1ff771ef22e3663f3da6c7529d7efc3a43b0e1d92b8" => :sierra
     sha256 "d674203ce681f17519eee1ce7a3258615b2de5a8a12460d7de284af09028d7da" => :el_capitan
     sha256 "dbd530bd84a1e92120aacf07f60e3b6131c92421702ab8b9f9e02d3b72a00ad6" => :yosemite
     sha256 "2a0a662d778677d75222745b30e6c5e825078855d303cf853609f50b1ceca4a6" => :mavericks

@@ -1,23 +1,16 @@
 class AflFuzz < Formula
   desc "American fuzzy lop: Security-oriented fuzzer"
   homepage "http://lcamtuf.coredump.cx/afl/"
-  url "http://lcamtuf.coredump.cx/afl/releases/afl-2.22b.tgz"
-  sha256 "9f5ef39927626fe107153ee0c886b0ac3cd16903d0261ca53f64e83e8404a18d"
+  url "http://lcamtuf.coredump.cx/afl/releases/afl-2.35b.tgz"
+  sha256 "596167527ad7a69cf06dc8143a051eb8b2ee04f159447a3086f6e60ae460bcea"
 
   bottle do
-    sha256 "d4d3b71d4254158694361419d91602b1f85b3d36dde092607b54cf203fb14bd1" => :el_capitan
-    sha256 "8f12f72c2ce71f927302d16c591c4620c207c5987e600ff89ff83531a5d3f069" => :yosemite
-    sha256 "532e797a074ad32e96080e3e0bfe14e45250e94106355abe47763963c69ee19a" => :mavericks
+    sha256 "de7f8ee88685eb4899824843cb8eacccac8459e749ef4b115c9a53489d701d1b" => :sierra
+    sha256 "04baa7806593fe17b6c7eb2dd331a860b470cb36998bc8cf573938eea1249cac" => :el_capitan
+    sha256 "cde9aacd6994924208d6f8b0918bf34f06ca7dbfd58847a80d0a5d10b45dcaa3" => :yosemite
   end
 
   def install
-    # test_build dies with "Oops, the instrumentation does not seem to be
-    # behaving correctly!" in a nested login shell.
-    # Reported to lcamtuf@coredump.cx 6th Apr 2016.
-    inreplace "Makefile" do |s|
-      s.gsub! "all: test_x86 $(PROGS) afl-as test_build all_done", "all: test_x86 $(PROGS) afl-as all_done"
-      s.gsub! "all_done: test_build", "all_done:"
-    end
     system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end

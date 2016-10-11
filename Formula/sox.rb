@@ -6,6 +6,7 @@ class Sox < Formula
 
   bottle do
     cellar :any
+    sha256 "141d5fa372dc613b99eca761856c61a9b0c6631f06a97d524725e23d9398f389" => :sierra
     sha256 "7c843e5b55d1375f61177452469d8667d135bdbb0331a17e049f67341ad54d48" => :el_capitan
     sha256 "a561041089c0f0ac9eb49df48127ae3bd9769907d92c51443d49edf4da372f26" => :yosemite
     sha256 "c618f6714b9a14fc52cbb6a474a5a11e1e8feb0b45c0238fdb86b51ed7b1c227" => :mavericks

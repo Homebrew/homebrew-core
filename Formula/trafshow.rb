@@ -8,7 +8,8 @@ class Trafshow < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "40014d16cb46e8039510616cad3eedbfcb67c4804e43fe4ad4b5e2a72c1a44a3" => :sierra
     sha256 "f2f8e1186255da073184663a41ef7204fd940ea0a536968a1adf4023dfd795b2" => :el_capitan
     sha256 "625b0432b1ac6577ad821ea28203bc2a67b621d58ba5758e96d112114e88e700" => :yosemite
     sha256 "11db46856f6d5fc2ebf80d3934b0c0d00d6ab61dd0e9663bc997d5d43a105747" => :mavericks

@@ -6,11 +6,12 @@ class Pygtk < Formula
   revision 1
 
   bottle do
-    revision 1
-    sha256 "63291542cf2e40ab92750275c0aeed992224d814b6a455a9d1aed39a55e8fb68" => :el_capitan
-    sha256 "1342196c0429a80d128d1369b1f46bb30a37ff345416a466ee9f4cf21d6693f0" => :yosemite
-    sha256 "6b0467bd8d5c2377b6d3ff59cef8658a33d5c5800b1d53b23abcdc94aa0f0286" => :mavericks
-    sha256 "760447005d79b08046da88b23a9af552bf1a9d039de8a38401e22ef8ed743f49" => :mountain_lion
+    cellar :any
+    rebuild 2
+    sha256 "89f5d6762155b369dae255ba2b3952cc09f43f899585ff8694370b6b151ca97e" => :sierra
+    sha256 "bfea679c1a46b35c7788a692869ddb576c2869900d25b72f6cf91e25edc409a9" => :el_capitan
+    sha256 "7b008b213a675e96a83edb7b1be8401bbc9bbeb5db9a926104897f99a8d7d61e" => :yosemite
+    sha256 "603694d87d2c6193caa164029bc441d93d45cdcd75419c8f8ed11b0902577457" => :mavericks
   end
 
   option :universal

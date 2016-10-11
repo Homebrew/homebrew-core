@@ -7,6 +7,7 @@ class ImessageRuby < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "446892e091382593a46ee69b8fb01354f1cc363a97b8a967332553a577bab8f6" => :sierra
     sha256 "0e7fd4f055a6ba4e81273a5952504ceb74b835387c144a24e61f020e55e6018e" => :el_capitan
     sha256 "1024e6cee26ed9fc8ae4ef1941edc64d0e6d16006bd2a530d5644e7c00f8a350" => :yosemite
     sha256 "7b546ccf5cf13a7d474c635a57eebc8e74ff61ea6c7c3cdfefffe4c78737ab47" => :mavericks

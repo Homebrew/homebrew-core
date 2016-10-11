@@ -6,6 +6,7 @@ class LittleCms2 < Formula
 
   bottle do
     cellar :any
+    sha256 "919b1bbdb351c10d60136e83af36f7d2637ae09bf710cc49393127d77a460005" => :sierra
     sha256 "cf9ce2f00b795f4b8e245a9a5b1650c526503e30b1eb332496bcd1c41568594f" => :el_capitan
     sha256 "57e2eaf3df51fbc1642eebc2a3c9655409948c85565dbbf91168498d21ad7d57" => :yosemite
     sha256 "966dd0d04898592c268ddd31a6cd2657a63e520d504acc7c4c6046c31fed81eb" => :mavericks

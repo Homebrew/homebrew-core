@@ -7,7 +7,8 @@ class EbookTools < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "94ee9c4e2a0dffa0fecc5669aa6d38e8355650510ab42091ed63e7fd7dcb4bac" => :sierra
     sha256 "5e8c1713c5d418a039181ca164e5a9f04691f430c2262a778627457e928104b9" => :el_capitan
     sha256 "66d084a7aed69b423d60ab2d193c73751a68a489c717178db36662f50ad9cdb3" => :yosemite
     sha256 "09c68b7cea454f3181f5df5eae0b5b9ece75e697bcc876354de8de0fc6aa9e9a" => :mavericks

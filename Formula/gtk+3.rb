@@ -1,13 +1,13 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "http://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.20/gtk+-3.20.6.tar.xz"
-  sha256 "3f8016563a96b1cfef4ac9e795647f6316deb2978ff939b19e4e4f8f936fa4b2"
+  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.1.tar.xz"
+  sha256 "127c8c5cfc32681f9ab3cb542eb0d5c16c1c02faba68bf8fcac9a3cf278ef471"
 
   bottle do
-    sha256 "f345d391726697573ab8cf0a9c3474976c8454c71f7700010a564c04a07aa634" => :el_capitan
-    sha256 "81ce6ee9a9277fb4d62f05b9fbf68a7cf8637f18425798ec472e97acaff09040" => :yosemite
-    sha256 "1194c59970bf267da7088d5ad4c3d01a643b0bfd8b22a0b11dd7e165224d1901" => :mavericks
+    sha256 "8151f76bc6ed9d4c72dfb276dc9e8d5ef16dd4d9040bdb10214f7c4421e99c9c" => :sierra
+    sha256 "e4e039200ade896de65d3efe4ef69cbfd1e48098ee04748545a085684e61cbe0" => :el_capitan
+    sha256 "8a8da4c1c214bdbf2cd469baf6d017666956ecef2a9cbdf79ceb968244bf9159" => :yosemite
   end
 
   option :universal
@@ -23,25 +23,6 @@ class Gtkx3 < Formula
   depends_on "hicolor-icon-theme"
   depends_on "gsettings-desktop-schemas" => :recommended
   depends_on "jasper" => :optional
-
-  # Replace a keyword not supported by Snow Leopard's Objective-C compiler.
-  # https://bugzilla.gnome.org/show_bug.cgi?id=756770
-  if MacOS.version <= :snow_leopard
-    patch do
-      url "https://bugzilla.gnome.org/attachment.cgi?id=313599&format=raw"
-      sha256 "a090b19d3c15364914917d9893be292225e8b8a016f2833a5b8354f079475a73"
-    end
-  end
-
-  # Fixes detection of CUPS 2.x by the configure script
-  # https://bugzilla.gnome.org/show_bug.cgi?id=767766
-  # Merged upstream, should be in the next release.
-  if MacOS.version >= :sierra
-    patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a1fccbb34751eabe52366b8bb68bcf56ae74517c/gtk%2B3/cups.patch"
-      sha256 "c1e8eb7ebf0fc75365bf76f1db11ac4ff347b9a568529b3051adaecca0573c81"
-    end
-  end
 
   def install
     ENV.universal_binary if build.universal?

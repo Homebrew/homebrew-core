@@ -8,6 +8,7 @@ class Mal4s < Formula
   head "https://github.com/secure411dotorg/mal4s.git"
 
   bottle do
+    sha256 "e19e6beb873d81cd24e3d24061db0470105d37cf0111f0fe6cff2eb54a096e7c" => :sierra
     sha256 "8741583efddc7f67fb0963455541d3e4498e7135047f51c0f3eb25dff354e76d" => :el_capitan
     sha256 "2dd5cd85b1826f075987f00cab0a670bc8d8977c01621e403e2064968827101c" => :yosemite
     sha256 "452418c4354b088b4fd9860a0c086f03cb7cb150f84792305e20f38ebaa4630e" => :mavericks

@@ -8,6 +8,7 @@ class Opam < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "812d37cab3248b2a0a3e32c214918ae28a1d389b6ec1032281fafa2466c6f27d" => :sierra
     sha256 "833e78a6f35f9a3e9374d88b558f5137ba69d0661a15b1737ba103350330b1bb" => :el_capitan
     sha256 "38d74f1eb643e7db9405a142b9067e5ae35e5b0394986abdd7b25c32fc6a9977" => :yosemite
     sha256 "c5cb841262a592cf43f152dc664e5268ab3d24da9e0a18974b376e0348fbf460" => :mavericks
@@ -24,9 +25,7 @@ class Opam < Formula
     depends_on "aspcud" => :optional
   end
 
-  if build.with? "aspcud"
-    needs :cxx11
-  end
+  needs :cxx11 if build.with? "aspcud"
 
   resource "cudf" do
     url "https://gforge.inria.fr/frs/download.php/file/33593/cudf-0.7.tar.gz"
@@ -34,7 +33,7 @@ class Opam < Formula
   end
 
   resource "extlib" do
-    url "https://ocaml-extlib.googlecode.com/files/extlib-1.5.3.tar.gz"
+    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/ocaml-extlib/extlib-1.5.3.tar.gz"
     sha256 "c095eef4202a8614ff1474d4c08c50c32d6ca82d1015387785cf03d5913ec021"
   end
 
@@ -115,6 +114,6 @@ class Opam < Formula
   end
 
   test do
-    system "#{bin}/opam", "--help"
+    system bin/"opam", "--help"
   end
 end

@@ -8,6 +8,7 @@ class Rock < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "41ded9856a5ee5c923dc04e0d68b49bae33fb779457b1039882065ae312ef120" => :sierra
     sha256 "69c9bbe1cd72a1b0249d0d1504923bbba852d5aa51a7d9742228c9fe793bd0ec" => :el_capitan
     sha256 "3f95d26a49ed30031fd77e9d0e439a6366947201dfc6fd1393ebe5e2924d13d8" => :yosemite
     sha256 "3236af05000a82c81e428244840ca8c2047ca9608b9855998aeb15a78fe1d9e5" => :mavericks

@@ -8,6 +8,7 @@ class Gprof2dot < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e750baab952a090f4586a44439063509c34a697aacb9bd37a14b360b85230e20" => :sierra
     sha256 "1f720ca7e666ea048e478974a9e379ac87be85c94b2fa7f9484c65918ebf2b6a" => :el_capitan
     sha256 "4fcdce24b6951b0132fdad5a698c610d14081ab0d394829b14e529ef8de43361" => :yosemite
     sha256 "ca2c8c0f777d7becb5ed0e6531195fc7ac307f8d0230b651e881f15c0ed9d23d" => :mavericks

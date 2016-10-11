@@ -37,15 +37,16 @@ class Wine < Formula
   end
 
   bottle do
+    sha256 "39d8f41347724bfa33cc71d5ffe7439b42258a5f5129a61624d51d778aec6f60" => :sierra
     sha256 "5f09c0c48299895929a2816ddef0c7d430d9ae36b617996be99330a24f290dc1" => :el_capitan
     sha256 "d7923a5b6f57c9410ac63f03b2769f832f69413f7db7268dc57be6968541394e" => :yosemite
     sha256 "e1594c0d42c14a01b422b3c657aa93dc066a78b8f03e9864a1a3e761bf13a583" => :mavericks
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.15.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.15.tar.bz2"
-    sha256 "cf992ac991b0e49fd0b186305021acf6e612d5df18d30e3d5808fa6f6731adda"
+    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.19.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.19.tar.bz2"
+    sha256 "b5fe29a84e712f94f4d33b5f2952b45233c13b49ba3459dcee8a50b06147a888"
   end
 
   # note that all wine dependencies should declare a --universal option in their formula,
@@ -67,7 +68,6 @@ class Wine < Formula
   depends_on "sane-backends"
   depends_on "gnutls"
   depends_on "libgsm" => :optional
-  depends_on "samba" => :optional
 
   # Patch to fix texture compression issues. Still relevant on 1.8.
   # https://bugs.winehq.org/show_bug.cgi?id=14939
@@ -133,7 +133,7 @@ class Wine < Formula
     args << "--enable-win64" if build.with? "win64"
 
     # 64-bit builds of mpg123 are incompatible with 32-bit builds of Wine
-    args << "--without-mpg123" if Hardware.is_64_bit?
+    args << "--without-mpg123" if Hardware::CPU.is_64_bit?
 
     args << "--without-x" if build.without? "x11"
 

@@ -8,6 +8,7 @@ class SuomiMalagaVoikko < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8df8a840b30c28ae1628142944da2297ba5d6ab98bf26deeb2d556e7953041a7" => :sierra
     sha256 "6856ce6fab78f195362ebd7ebd51eb630528407856b031550df616b09d641f81" => :el_capitan
     sha256 "58e0c9c5f3577c7dc3b529a5547bd5c396164de856c9f14f91dd899d9e28e6d3" => :yosemite
     sha256 "f6517988b130926540d936cbf3b415b1ff2f5803d72d88c0672225e4aa410c46" => :mavericks

@@ -1,15 +1,18 @@
 class Ford < Formula
+  include Language::Python::Virtualenv
+
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/cmacmackin/ford/"
-  url "https://files.pythonhosted.org/packages/d2/0a/db879742b03ffd136b0c18704697d5df9af779e0d2321412f46a48f424e4/FORD-5.0.4.tar.gz"
-  sha256 "a6ec4eac90a3baa2ed59435bf9e94f6f1a40f49881ac6e642d23471767a52db6"
+  url "https://github.com/cmacmackin/ford/archive/v5.0.6.tar.gz"
+  sha256 "18d46dc4c6fec57ae0124b412d4db23a37d07a3849f41fa5bf4fb66deaed9615"
   head "https://github.com/cmacmackin/ford.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "02c6c73955daf738ef03e2afb8a11b8da366305d8a7b49e7640b65aff0dce0a9" => :el_capitan
-    sha256 "acc66051b0c87da1791696365a7ddb3fda45e33d6f6de541013fcf87b92c7e91" => :yosemite
-    sha256 "40bb0a5df542b7dc349218131aae179fc653eb2841938765bcbc59b0b4cfa56a" => :mavericks
+    sha256 "c738a796ee8a8adfdcb8358eb93e3a87530523b6260151d82a5003a1ed8af532" => :sierra
+    sha256 "47599cea228882fef8c4efaa0e52e8135ab58d6d3c7bed9efc29a0bd72d46716" => :el_capitan
+    sha256 "af2a90e3a5af08077676bdcf241c4cf61525c90164b92c5dc137a78237cce3e3" => :yosemite
+    sha256 "2c47a80b78dfec14df17313c888c2828ace07b848859be62b459ff2d60403fcb" => :mavericks
   end
 
   option "without-lxml", "Do not install lxml to improve the speed of search  database generation"
@@ -18,13 +21,13 @@ class Ford < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/28/fa/69128a30854bcae479a9a09737e489b6e6e6b7d2cf5898ddf7b2f49bf143/beautifulsoup4-4.5.0.tar.gz"
-    sha256 "8e084c88b7664692e43576f121adb902e749ce0354e2becfb0f5220dcc20c9e5"
+    url "https://files.pythonhosted.org/packages/86/ea/8e9fbce5c8405b9614f1fd304f7109d9169a3516a493ce4f7f77c39435b7/beautifulsoup4-4.5.1.tar.gz"
+    sha256 "3c9474036afda9136aac6463def733f81017bf9ef3510d25634f335b0c87f5e1"
   end
 
   resource "graphviz" do
-    url "https://files.pythonhosted.org/packages/3d/6d/406cec4d782d3cd6cb02d90bb17fbd364cab4a2a96d8ad0b5ccb46fd7442/graphviz-0.4.10.zip"
-    sha256 "61e9f7126f5efdd11fb9269d4622277fbf8ed92046b73f3e78529e3be6a95f15"
+    url "https://files.pythonhosted.org/packages/3a/ef/4be504e14ef8c96503aeb774937b1539aa2c6982e1edffd655ac3b7f2041/graphviz-0.5.1.zip"
+    sha256 "d8f8f369a5c109d3fc971bbc1860b6848515d210aee8f5019c460351dbb00a50"
   end
 
   resource "Jinja2" do
@@ -33,8 +36,8 @@ class Ford < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/09/f3/c41293bc181b8c727cc485339dc57af653dae6d17d4c8dbf0cbac53cb4aa/lxml-3.6.1.tar.gz"
-    sha256 "3eefcfbc548f8df38063b26c9686554268c1eb736e52cd230ff148aa550239d1"
+    url "https://files.pythonhosted.org/packages/4f/3f/cf6daac551fc36cddafa1a71ed48ea5fd642e5feabd3a0d83b8c3dfd0cb4/lxml-3.6.4.tar.gz"
+    sha256 "61d5d3e00b5821e6cda099b3b4ccfea4527bf7c595e0fb3a7a760490cedd6172"
   end
 
   resource "Markdown" do
@@ -68,19 +71,12 @@ class Ford < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    venv = virtualenv_create(libexec)
     deps = (build.with? "lxml") ? resources : resources - [resource("lxml")]
-    deps.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    venv.pip_install deps
+    venv.pip_install_and_link buildpath
+    doc.install "2008standard.pdf", "2003standard.pdf"
+    pkgshare.install "example-project-file.md"
   end
 
   test do

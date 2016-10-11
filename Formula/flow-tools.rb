@@ -1,10 +1,11 @@
 class FlowTools < Formula
   desc "Collect, send, process, and generate NetFlow data reports"
-  homepage "https://code.google.com/p/flow-tools/"
-  url "https://flow-tools.googlecode.com/files/flow-tools-0.68.5.1.tar.bz2"
+  homepage "https://code.google.com/archive/p/flow-tools/"
+  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/flow-tools/flow-tools-0.68.5.1.tar.bz2"
   sha256 "80bbd3791b59198f0d20184761d96ba500386b0a71ea613c214a50aa017a1f67"
 
   bottle do
+    sha256 "47ae55656be935936a5d3aa505f510c337818bd3c9d1a7fb028044523382dd8b" => :sierra
     sha256 "2b41c1415b50e7123c5268dce7c656aba825a16c061691ee8eaf06e39d622cec" => :el_capitan
     sha256 "0d3814f50d6bc8d06c808176bc0b6f725f429b231a21eabe49fadf6729a7d27b" => :yosemite
     sha256 "dc15779397a7f60c67b20c314b4513133c0883a5eafb3e972e744b8a70ca1060" => :mavericks

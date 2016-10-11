@@ -6,6 +6,7 @@ class Podofo < Formula
 
   bottle do
     cellar :any
+    sha256 "fded580406211857ae232abb92f977b731458fb8c7fff00030b53716964916bc" => :sierra
     sha256 "48324ad3bc842e158ed203adc1b092fb78cd5807978305833137fa40f0747075" => :el_capitan
     sha256 "842429d939790291beca9559a7383764bf3f1db96451d02c61c7ad2e0a680528" => :yosemite
     sha256 "8de2d18ab47458a4751a5286840451bdec435d06a9070738ffbe29d2463001bd" => :mavericks

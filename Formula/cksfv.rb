@@ -6,6 +6,7 @@ class Cksfv < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4414da8e35f9d69a0e04e4a1942745f98b5234891a04935627248e2e6954e17d" => :sierra
     sha256 "41d81d535cfa41b4eb03709e646b0bdc36a78f99c8e15746b7eb289a98afbb97" => :el_capitan
     sha256 "9885cadccdeec56d0f665bad80655cfba3397c3ff2958c7a44af514a69bc8114" => :yosemite
     sha256 "3838548d5febbed5d9db37e8634397a589bcec766ee5ec84949a17dae9b34cdd" => :mavericks

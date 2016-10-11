@@ -3,15 +3,15 @@ class Collectd < Formula
   homepage "https://collectd.org/"
 
   stable do
-    url "https://collectd.org/files/collectd-5.5.2.tar.bz2"
+    url "https://collectd.org/files/collectd-5.6.1.tar.bz2"
     mirror "http://pkgs.fedoraproject.org/repo/pkgs/collectd/collectd-5.5.2.tar.bz2/40b83343f72089e0330f53965f1140bd/collectd-5.5.2.tar.bz2"
-    sha256 "017f3a4062187e594d8ab6af685655fb82a8a942dc574668e68242bdb8ba820f"
+    sha256 "c30ff644f91407b4dc2d99787b99cc45ec00e538bd1cc269429d3c5e8a4aee2c"
   end
 
   bottle do
-    sha256 "c900ddfddd81a599628c62953aaff0aa1b9de38e6f2e239d0c4d702cccb76103" => :el_capitan
-    sha256 "44cfb6fca258823ba87f153991bed68ea1b7618381048982cef9745ce739db6a" => :yosemite
-    sha256 "da6ca2835f8eafb1515300e46a871bd008d1446e390cdae5bb65f2c2030eb33d" => :mavericks
+    sha256 "24fa7953ab6b72d431c2104bb92361b30c28017e2f60cde8ddd5c36d3e7ae7ae" => :sierra
+    sha256 "65bdb89a4c44ca9442fb0820127b14188b36308a8ca19f7bd494d78b66a6954d" => :el_capitan
+    sha256 "172fd414dfd5a88ccbbe6383220ef89de9e129db06aabad0d19c372f25283c21" => :yosemite
   end
 
   head do
@@ -23,6 +23,7 @@ class Collectd < Formula
   end
 
   option "with-java", "Enable Java support"
+  option "with-python", "Enable Python support"
   option "with-protobuf-c", "Enable write_riemann via protobuf-c support"
   option "with-debug", "Enable debug support"
 
@@ -32,7 +33,8 @@ class Collectd < Formula
   depends_on "pkg-config" => :build
   depends_on "protobuf-c" => :optional
   depends_on :java => :optional
-  depends_on "openssl"
+  depends_on :python => :optional
+  depends_on "net-snmp"
 
   fails_with :clang do
     build 318
@@ -52,6 +54,7 @@ class Collectd < Formula
 
     args << "--disable-embedded-perl" if MacOS.version <= :leopard
     args << "--disable-java" if build.without? "java"
+    args << "--enable-python" if build.with? "python"
     args << "--enable-write_riemann" if build.with? "protobuf-c"
     args << "--enable-debug" if build.with? "debug"
 

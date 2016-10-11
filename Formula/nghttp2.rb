@@ -1,13 +1,13 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.13.0/nghttp2-1.13.0.tar.xz"
-  sha256 "9d0ef97715049cd935fa0d965e6c807249549469aa95eb4dc67c69c2557d5bb2"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.15.0/nghttp2-1.15.0.tar.xz"
+  sha256 "317afbef79eec624577d006ea7111cf978d2c88e999a6f336c83b99f924b5e4a"
 
   bottle do
-    sha256 "d6d83a888de2d5bab239c07e82b7e0a616fa7f468e1b7a36728c394864514bf0" => :el_capitan
-    sha256 "53e68aff40cf30c51c0647c2aac5eae67e65f17ceea80c9c4c5f0d0b4d98e5fe" => :yosemite
-    sha256 "8db00e45b8c58495467e6f4c14c6ed62387ff91610df967774a8726fb23a476b" => :mavericks
+    sha256 "a6e7ef94226b0f2a52657f1713b95df76979f3d72e569b23bb487a4919811776" => :sierra
+    sha256 "e9ff28814a9c850c3d0a7c58a5d1738eb82d57716230aacb0b3c455f84ea5b1e" => :el_capitan
+    sha256 "a734d9eb510f1c73fda1ec2396915a9e7c68ac5fde7a7e7753fe33364092d7a9" => :yosemite
   end
 
   head do
@@ -33,10 +33,11 @@ class Nghttp2 < Formula
   depends_on "jansson"
   depends_on "boost"
   depends_on "spdylay"
+  depends_on "jemalloc" => :recommended
 
   resource "Cython" do
-    url "https://pypi.python.org/packages/b1/51/bd5ef7dff3ae02a2c6047aa18d3d06df2fb8a40b00e938e7ea2f75544cac/Cython-0.24.tar.gz"
-    sha256 "6de44d8c482128efc12334641347a9c3e5098d807dd3c69e867fa8f84ec2a3f1"
+    url "https://pypi.python.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz"
+    sha256 "84808fda00508757928e1feadcf41c9f78e9a9b7167b6649ab0933b76f75e7b9"
   end
 
   # https://github.com/tatsuhiro-t/nghttp2/issues/125
@@ -53,12 +54,13 @@ class Nghttp2 < Formula
       --enable-app
       --with-boost=#{Formula["boost"].opt_prefix}
       --enable-asio-lib
+      --with-spdylay
+      --disable-python-bindings
     ]
 
     args << "--enable-examples" if build.with? "examples"
-    args << "--with-spdylay"
-    args << "--disable-python-bindings"
     args << "--with-xml-prefix=/usr" if MacOS.version > :lion
+    args << "--without-jemalloc" if build.without? "jemalloc"
 
     system "autoreconf", "-ivf" if build.head?
     system "./configure", *args

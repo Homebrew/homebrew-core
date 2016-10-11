@@ -7,7 +7,8 @@ class Libming < Formula
 
   bottle do
     cellar :any
-    revision 2
+    rebuild 2
+    sha256 "39edc699c3ae41daae0872c8edbf6b5364a428b9579d5ed4d2d66787347de33e" => :sierra
     sha256 "aeead83fb25e5e53f185a5bf3995503b01045abc1f6593246a1622839be7e86c" => :el_capitan
     sha256 "18eeaa97826666b7a0e056f5a954f14b849da4d5e061454cbeeea8405ac71a58" => :yosemite
     sha256 "de61c35147f75601b49728366cf0baa958429c50e2a26f1f1bb7eaf1d697259e" => :mavericks

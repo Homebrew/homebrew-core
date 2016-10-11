@@ -2,30 +2,22 @@ class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
   url "https://github.com/micropython/micropython.git",
-    :tag => "v1.8.2",
-    :revision => "1459a8d5c9b29c78da2cf5c7cf3c37ab03b34b8e"
+    :tag => "v1.8.4",
+    :revision => "3611dcc260cef08eaa497cea4e3ca17977848b6c"
 
   bottle do
     cellar :any
-    sha256 "22bb7aa6e7ad4741e8c1c38e0d5cc0ddfcce844fbf0ac339b7a689a8e776cfdb" => :el_capitan
-    sha256 "7d85b3a89e6e3c817369bfceee6758d759b71e7ae4e4e04b6182219ab470aaa2" => :yosemite
-    sha256 "6ce0f46a7376b9552827d17db92710b485ffb430a0e7e88258593605b384dd35" => :mavericks
+    sha256 "15d484420ea9077d47646c65f4dbca8aa02f892a60365136ce1a2a98c5040062" => :sierra
+    sha256 "94d7600c5c434d700005dbfd7db94482fe5f1adf577c45d54e0968e2125d0d43" => :el_capitan
+    sha256 "67e265ff6255c73294802e113b3cf51bc8d9859033297a62728a1637776be3cc" => :yosemite
+    sha256 "d4387ba44d795547b8253b9e5131c1cb700a69b50b2b9609452ac93c475b3c4a" => :mavericks
   end
 
   depends_on "pkg-config" => :build
   depends_on "libffi" # Requires libffi v3 closure API; OS X version is too old
 
   def install
-    # Equivalent to upstream fix for "fatal error: 'endian.h' file not found"
-    # https://github.com/pfalcon/axtls/commit/3e1b4909a2ddd76c5797f241f2ed56ef699a7e91
-    # Should be removed at the next version bump (MicroPython > 1.8.2)
-    inreplace "lib/axtls/crypto/os_int.h", "#include <endian.h>", ""
-
     cd "unix" do
-      # Works around undefined symbol error for "mp_thread_get_state"
-      # Reported 11 Jul 2016: https://github.com/micropython/micropython/issues/2233
-      inreplace "mpconfigport.mk", "MICROPY_PY_THREAD = 1",
-                                   "MICROPY_PY_THREAD = 0"
       system "make", "axtls"
       system "make", "install", "PREFIX=#{prefix}", "V=1"
     end

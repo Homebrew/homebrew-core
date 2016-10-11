@@ -1,14 +1,15 @@
 class PamYubico < Formula
   desc "Yubico pluggable authentication module"
   homepage "https://developers.yubico.com/yubico-pam/"
-  url "https://developers.yubico.com/yubico-pam/Releases/pam_yubico-2.21.tar.gz"
-  sha256 "c7cffa84643905f887bee0dff743e2d5873434ccc371c6065317e853ad9c7e61"
+  url "https://developers.yubico.com/yubico-pam/Releases/pam_yubico-2.23.tar.gz"
+  sha256 "bc7193ed10c8fb7a2878088af859a24a7e6a456e1728a914eb5ed47cdff0ecb8"
 
   bottle do
     cellar :any
-    sha256 "47c9f7f34c354739bc233c3e90d12d5cb11629908873e944681900360e0ba1f9" => :el_capitan
-    sha256 "d8914ea3e39c4073ee04abbf76cbf193517904965b088a0eee4093f2bff6c823" => :yosemite
-    sha256 "201530802d1f18865175e242e9595550318e4579d41e1f9619cadb4de8e9be5d" => :mavericks
+    sha256 "96f7147fccca005c066d53b1e6ba2bee6013c847b6bc0ec188d8af22e337870a" => :sierra
+    sha256 "5d9cb094345cede6f701f686f6660ae59c47b03192e85fa8701e6730ce859027" => :el_capitan
+    sha256 "93769c01776befd585bfcbd1f07992c695e5e3d65f33b8b656a04a4d1ddfb7c9" => :yosemite
+    sha256 "8b68985a95c26661f9cad4467449a60e826cbbf95e67c20a2edbbcf474cf13f6" => :mavericks
   end
 
   option :universal

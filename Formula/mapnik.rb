@@ -1,17 +1,16 @@
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "http://www.mapnik.org/"
-  url "https://github.com/mapnik/mapnik/archive/v3.0.9.tar.gz"
-  sha256 "f0242606096e2c4ca2cd0caac1ff0fd5f8054a38b5f288ba38b0e397b5b311b2"
-  revision 1
-
+  url "https://github.com/mapnik/mapnik/releases/download/v3.0.12/mapnik-v3.0.12.tar.bz2"
+  sha256 "66a3d620c3ce543c91ea5b42a25079aca9a2a90f6079a2ce2a8714398fa57d6d"
   head "https://github.com/mapnik/mapnik.git"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "c8dfc593d8922773f03499fccdcb472c0f5e37c45cccd5c8ae374b314162fa88" => :el_capitan
-    sha256 "c7f6a2d4acadd7f5ba4d0fc40695f312a8fd506e9e671ce446d7f2c27150718e" => :yosemite
-    sha256 "c914c4e1da1aac4aa24083f15a1e5454d334ea9867c50f71f37942acb5e9988b" => :mavericks
+    sha256 "c9205c3dbaed051363a587eebf767c6e36522ffb8250f9082352a6854100e8aa" => :sierra
+    sha256 "53feebc35e8cff2d4b056c54251142ec492e20f201495658ef3c46e6ab709a91" => :el_capitan
+    sha256 "b3e32ca10f69480b34cc5897754a0ec07a26a12d0c5f7d4577490f2c3234058e" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -70,8 +69,7 @@ class Mapnik < Formula
             "FREETYPE_CONFIG=#{freetype}/bin/freetype-config",
             "NIK2IMG=False",
             "CPP_TESTS=False", # too long to compile to be worth it
-            "INPUT_PLUGINS=all",
-           ]
+            "INPUT_PLUGINS=all"]
 
     if build.with? "cairo"
       args << "CAIRO=True" # cairo paths will come from pkg-config
@@ -84,5 +82,9 @@ class Mapnik < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    assert_equal prefix.to_s, shell_output("#{bin}/mapnik-config --prefix").chomp
   end
 end

@@ -1,15 +1,16 @@
 class Hub < Formula
   desc "Add GitHub support to git on the command-line"
   homepage "https://hub.github.com/"
-  url "https://github.com/github/hub/archive/v2.2.3.tar.gz"
-  sha256 "f8a43df60b2efd95c70054324e73f27c3b253ec1c4969de8ea6c514669c688ed"
+  url "https://github.com/github/hub/archive/v2.2.9.tar.gz"
+  sha256 "b3cf227e38a34a56e37b7705a60bec258cea52174d8e030b559f74af647a70d6"
+
   head "https://github.com/github/hub.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1af3676d3d03072ac50e723966c6b5e7ce0353af5dffc630e2a74a31cd66fde8" => :el_capitan
-    sha256 "6c867b547061f310896fd7efdac3e48fee470c42706bc449adc3831419381951" => :yosemite
-    sha256 "5b454506faf629af5e7f5f95e24e12c2badf374a07617c548c96bec4c71e45fb" => :mavericks
+    sha256 "6c23abd1255f04855fc1dfb8d44706337b728b5785e5b79f2319637575be93c7" => :sierra
+    sha256 "3452a355c8e4ef25714be7105d8946e01319e7760ffe97f7df3fc9dd21c89c76" => :el_capitan
+    sha256 "3f116b4c0587ab5d2a87d9d2f013ea058407ac2f9e845461d4970f36548e6be4" => :yosemite
   end
 
   option "without-completions", "Disable bash/zsh completions"

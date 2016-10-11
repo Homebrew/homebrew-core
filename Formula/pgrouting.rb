@@ -1,32 +1,22 @@
 class Pgrouting < Formula
   desc "Provides geospatial routing for PostGIS/PostgreSQL database"
   homepage "http://www.pgrouting.org"
+  url "https://github.com/pgRouting/pgrouting/archive/pgrouting-2.2.4.tar.gz"
+  sha256 "34ccf2b1acd076ad7da92c0692a114d0b607b84771fdfd4e131246ef2c66bf84"
+  revision 1
+
   head "https://github.com/pgRouting/pgrouting.git"
-
-  stable do
-    url "https://github.com/pgRouting/pgrouting/archive/pgrouting-2.2.3.tar.gz"
-    sha256 "ace0b2bfcfd468fa360867faf021d4447ebfa80d35f02cf5da549503b5dd4892"
-
-    # Fixes "use of undeclared identifier" for "ceil"
-    # Upstream commit that adds "#include <math.h>" to VRP_Solver.h
-    patch do
-      url "https://github.com/pgRouting/pgrouting/commit/3862e4cb.patch"
-      sha256 "936af1d25d3aae517de1d2cff021d8e6c5f7db98927ded5d699caf1bc535c1fb"
-    end
-
-    # Fixes "use of undeclared identifier" for "srand" and "rand"
-    # Upstream commit that adds "#include <stdlib.h>" to VRP_Solver.h
-    patch do
-      url "https://github.com/pgRouting/pgrouting/commit/ce811a03.patch"
-      sha256 "628c68f3d2348f60b3612a04868dc96797e2a357db18c41d62717fd70c3c5747"
-    end
-  end
 
   bottle do
     cellar :any
-    sha256 "3ff9bc24fb3e040c71d17983a3fe0e86fcf994d0de66fa5b8be80ecb92e1f5f7" => :el_capitan
-    sha256 "d7f61ceb885f514970408d4d94c02627765244a40bbe210058c4c4e1bb0a78d6" => :yosemite
-    sha256 "390ef2d5901a851c43c83381b2e77f0c63bab2e4ab4a9993d39b67f17ca7a6cc" => :mavericks
+    sha256 "8a511d98a83830b7e8b2c86831eac254bcbde507726c001a369f943fd5f6b778" => :sierra
+    sha256 "c71db8f54805e0278d1be93d1e7a638968d392b877be093cbc08d8db2556233c" => :el_capitan
+    sha256 "64ba007f1967c02f0383198053a02196e30b1ae9993895d5828bddfd01596bd8" => :yosemite
+  end
+
+  devel do
+    url "https://github.com/pgRouting/pgrouting/archive/pgrouting-2.3.0-rc1.tar.gz"
+    sha256 "c903d6dab0e48b987a9906eb8331e1bc18f78143d41db8888dee06d2d8c5ce4b"
   end
 
   depends_on "cmake" => :build

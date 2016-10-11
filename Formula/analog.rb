@@ -9,7 +9,8 @@ class Analog < Formula
   revision 1
 
   bottle do
-    revision 2
+    rebuild 2
+    sha256 "cb8cb25d3050dc3a08445987739c43b5fd7dad7a798342fb7538c016930a9978" => :sierra
     sha256 "097f11e7f53078e6b248e38fc326cded49b08cdbe75ab61e20ab7b2a6e770256" => :el_capitan
     sha256 "f2f29ea2dcbb9e0576c72f009d8814b0c7f84efd49d6f005085c876c85fd29b9" => :yosemite
     sha256 "c9ca1f30d5b71b7653ecbbdb4ad8d9e81e41b2e33a9dc2c8e0a92af7cd48007d" => :mavericks

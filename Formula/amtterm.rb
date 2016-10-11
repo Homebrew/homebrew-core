@@ -8,6 +8,7 @@ class Amtterm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9f96957f1275cf1884edde7f30796c7e0fc757bf516be509918fc293fa8fa034" => :sierra
     sha256 "7cea74bd49ac89a3a6eb3387749bccb08f263f837943bac72bde30f10c1320df" => :el_capitan
     sha256 "39d3fe96eceb64eb9ac76e114a3b16ee44edb461117d4c5ec05aac875f18f4c2" => :yosemite
     sha256 "35a6a905a27ca56c505aeea83538d874c1d184be55c68dae67842c6588960b3c" => :mavericks

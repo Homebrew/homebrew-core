@@ -1,4 +1,6 @@
 class Alot < Formula
+  include Language::Python::Virtualenv
+
   desc "Text mode MUA using notmuch mail"
   homepage "https://github.com/pazz/alot"
   url "https://github.com/pazz/alot/archive/0.3.7.tar.gz"
@@ -7,6 +9,7 @@ class Alot < Formula
 
   bottle do
     cellar :any
+    sha256 "b7a64dc42167e44219228b71b7234ff6ed7d8ca9c7a3a52688f78c9b369a0f90" => :sierra
     sha256 "3f181ad220a8c70237ba564d30b0da7475921d8644702fea31f88167ca71df81" => :el_capitan
     sha256 "d48c2504956c24c88a64876946efa8a5a284829839fa7165a59b9e9e2ef03550" => :yosemite
     sha256 "257b06000d6ac02a509acd7161567d753d8ad31abba99bd0a0af4cdcac39486a" => :mavericks
@@ -58,8 +61,6 @@ class Alot < Formula
     url "https://pypi.python.org/packages/source/p/python-magic/python-magic-0.4.11.tar.gz"
     sha256 "89021e288d6efd22cde2842349d79939b9664efdbf99f5790c9862a67759ea94"
   end
-
-  include Language::Python::Virtualenv
 
   def install
     virtualenv_install_with_resources

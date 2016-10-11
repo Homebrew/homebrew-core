@@ -1,13 +1,14 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "http://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.1.tar.xz"
-  sha256 "e27af54172c72b3ac6be53c9a4c67053e16c905e02addcf3a603ceb2005c1a40"
+  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.3.tar.xz"
+  sha256 "abba8b5ce728520c3a0f1535eab19eac3c14aeef7faa5aded90017ceac2711d3"
 
   bottle do
-    sha256 "36326c6d7abc459041dfbb0e0aecda5b82af131758f5d2f3219bb44b7fd13a8f" => :el_capitan
-    sha256 "611ca9423895581fd4fb5c447a83bf46c71b41daecfaab3281c479d84639f770" => :yosemite
-    sha256 "2309a2038eaba4d2501146b3fb2a11a2404d0c620e022fdcc87f39fdbd763f9b" => :mavericks
+    sha256 "e64fe3eacf55ceb1dbd50d1eb597fd42abed140b9d527aa3be9aa43f9a668b9c" => :sierra
+    sha256 "3139d621454aaaaedd9ed42dd7fc1b40124152d7db750873448aeb839ca6d59d" => :el_capitan
+    sha256 "380fff999d7a0e3931aa3c08f365071b90acb55a2d85f998aa5c9fa38cfacdfc" => :yosemite
+    sha256 "0a914c5cd46cdcf2c2b52ce1f4eda1a6820c77fbb333f5e789b26582356902a9" => :mavericks
   end
 
   head do
@@ -22,6 +23,7 @@ class Pango < Formula
   option :universal
 
   depends_on "pkg-config" => :build
+  depends_on :x11 => :optional
   depends_on "glib"
   depends_on "cairo"
   depends_on "harfbuzz"
@@ -43,9 +45,14 @@ class Pango < Formula
       --enable-man
       --with-html-dir=#{share}/doc
       --enable-introspection=yes
-      --without-xft
       --enable-static
     ]
+
+    if build.with? "x11"
+      args << "--with-xft"
+    else
+      args << "--without-xft"
+    end
 
     system "./autogen.sh" if build.head?
     system "./configure", *args

@@ -7,7 +7,8 @@ class Libxmi < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 2
+    rebuild 2
+    sha256 "d14120dd7ec249b6375da84c5dbf49631d8e8aaf7c0ee9e6c8e9c42f341cc91f" => :sierra
     sha256 "d7be88ce4d945b11adc82fe6bac6aca8a837e0206cd781e4cab82c8c1b684e20" => :el_capitan
     sha256 "b8a406a6559eb59890d519e41c824f75f1b37027e6dda108f3648d85480ba5f8" => :yosemite
     sha256 "fe1bd51baf04d248d233d92ed8c2343d49b03e09427dd6774a86cabfc21372e9" => :mavericks

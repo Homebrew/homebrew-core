@@ -7,6 +7,7 @@ class Xlslib < Formula
 
   bottle do
     cellar :any
+    sha256 "bcdef576e03aa1cad74d341f6fcc72a1e7944a54542941f96cb8ef8063c2190e" => :sierra
     sha256 "a4d5714e19c1d4e44d67bbe9cda064120dc01e9cf207771ae5ef208e76ed2cd9" => :el_capitan
     sha256 "cfd77ea71da12276124cb9cb08bb9ad51ab38b17e912d4dd8c4fec8a428714a1" => :yosemite
     sha256 "b23da4149e9db9bf4152cfc8943ac83d254796d88741592949c3928ae7988149" => :mavericks

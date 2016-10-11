@@ -7,7 +7,8 @@ class BulkExtractor < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "4bb9e136e301737efc4796114da3cab19d84a5671840eaaf59c0e9dee5e2f92a" => :sierra
     sha256 "42eaa763988659fbb7e52a16fb700439a16a229be1d828d425717b3aabf121c5" => :el_capitan
     sha256 "9fca86e7c8248902b09f05b5ed046c3a0347afcabe2afc5a72de1619d211cc41" => :yosemite
     sha256 "b4928062ab8c39d082a9dbba713f4e0e3e460d2c111af0c39981eeba3d1d7638" => :mavericks

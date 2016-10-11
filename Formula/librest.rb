@@ -5,6 +5,7 @@ class Librest < Formula
   sha256 "e7b89b200c1417073aef739e8a27ff2ab578056c27796ec74f5886a5e0dff647"
 
   bottle do
+    sha256 "da794be6ebdfde460d0e447123c45672861198afa8d651dd77cebf3df20d0c4c" => :sierra
     sha256 "493c2bf876de213bce3ec5aa739c437a0b0384ac8f8f722a23ba7987d2604879" => :el_capitan
     sha256 "8b98b39acc982309f1d15c20466a6675185100fdf9a21da6ff30ed4cc32a9946" => :yosemite
     sha256 "d2e3fbb297d83bcf4064539968f5c070443786c187c803d264ad4a30d8454a35" => :mavericks

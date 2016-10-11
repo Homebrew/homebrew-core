@@ -6,7 +6,8 @@ class Classads < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "d51471a725a552974a309b8add05ca731264f7a0fbaedee1c85b97475c204cb7" => :sierra
     sha256 "52bd3bb21e7a2491ad96f01988b802ab183c5e93d3123e9cc57b75e1a0076171" => :el_capitan
     sha256 "2ec01b2285391e8c1a696c783db281dc69c05e0f2c483792129799b8ad304d7e" => :yosemite
     sha256 "b2ba8857a9e07ece0c19ac04a78893322bb22b361e28d5eb23abfa2515e965c9" => :mavericks

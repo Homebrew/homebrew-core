@@ -6,6 +6,7 @@ class Jam < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8ac6989eec84a98b3f84b2375e6c460512256cbd7049ddd96acd8b85c327b0fa" => :sierra
     sha256 "d93effb9978322bc47d7d204e435ce7da90dd577a43b9086d6868a3118c2fb29" => :el_capitan
     sha256 "9f8bffedce727f07a14ff7a9453bf66884dce87d463de464fe2c40e30f127c60" => :yosemite
     sha256 "83ef7ba772948a5e06481cd0a32c54f09139d2693d880223b72ee27deb4d7e37" => :mavericks
@@ -16,5 +17,24 @@ class Jam < Formula
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LOCATE_TARGET=bin"
     bin.install "bin/jam", "bin/mkjambase"
+  end
+
+  test do
+    (testpath/"Jamfile").write <<-EOS.undent
+      Main jamtest : jamtest.c ;
+    EOS
+
+    (testpath/"jamtest.c").write <<-EOS.undent
+      #include <stdio.h>
+
+      int main(void)
+      {
+          printf("Jam Test\\n");
+          return 0;
+      }
+    EOS
+
+    assert_match /Cc jamtest.o/, shell_output(bin/"jam").strip
+    assert_equal "Jam Test", shell_output("./jamtest").strip
   end
 end

@@ -7,7 +7,8 @@ class Z3 < Formula
 
   bottle do
     cellar :any
-    revision 2
+    rebuild 2
+    sha256 "30e5144988b88537b7b3d63f6eb3a9b0cec3f33fbced0ec6c9eade41a48c0d10" => :sierra
     sha256 "d925dc49d327be2490db0596411337a0df192658a155699b103ba939c37b3d90" => :el_capitan
     sha256 "17eae04130182bec971555ac61ca9f088dd553d872689b04573c10bf172d68ac" => :yosemite
     sha256 "c24a8cd704b415d6de65985a5113d754fcdc3fbed98ab0e739364354a3d14770" => :mavericks

@@ -20,6 +20,8 @@ class GitTest < Formula
   end
 
   test do
+    ENV["XDG_CONFIG_HOME"] = testpath/".config"
+    ENV["GIT_CONFIG_NOSYSTEM"] = "1"
     system "git", "init"
     ln_s bin/"git-test", testpath
     cp pkgshare/"test.sh", testpath

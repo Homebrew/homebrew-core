@@ -1,15 +1,18 @@
 class YouGet < Formula
+  include Language::Python::Virtualenv
+
   desc "Dumb downloader that scrapes the web"
   homepage "https://you-get.org/"
-  url "https://github.com/soimort/you-get/archive/v0.4.486.tar.gz"
-  sha256 "22002542c079ba049a8c2797700d07d5da2e22eb38eeb46ead19c28783855ca1"
+  url "https://files.pythonhosted.org/packages/01/65/3830393a7abb7f744fd2a85324859aa67d9979a4fa0cbdba4d2ec192d038/you-get-0.4.555.tar.gz"
+  sha256 "a90f26c8059240803b1c0a9ed9816af3f1831b9d8ffb9be572a0f5fb4f6eee4d"
+  revision 2
+
   head "https://github.com/soimort/you-get.git", :branch => "develop"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b4d69de3f770f94f5ed25376cc7921739ff65c25cda4256f11cce9f71a7a65b4" => :el_capitan
-    sha256 "dd03eacedc9ddd1d89e9884698d590932379538597cf81993d66269b714c1196" => :yosemite
-    sha256 "20b17d758a0b76ecb24e15122f33127ab8d401f9023b7bcd7701d73375950076" => :mavericks
+    sha256 "94b0e9a49cd0c8445030670392c6f04f3ccc20cfbdf5b1a266771ae39c265f03" => :sierra
+    sha256 "9a9c1cd6661cc8c83938b63b9b6cbc4f6823c3189ec44f1eeaefa36d1db5d0cb" => :el_capitan
+    sha256 "1c121279de4f471509dc055fa01930ce9510e06d7373a1665be9782622e66d2f" => :yosemite
   end
 
   depends_on :python3
@@ -17,12 +20,8 @@ class YouGet < Formula
   depends_on "rtmpdump" => :optional
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_create(libexec, "python3")
+    virtualenv_install_with_resources
   end
 
   def caveats
@@ -30,6 +29,6 @@ class YouGet < Formula
   end
 
   test do
-    system "#{bin}/you-get", "--info", "https://www.youtube.com/watch?v=he2a4xK8ctk"
+    system bin/"you-get", "--info", "https://youtu.be/he2a4xK8ctk"
   end
 end

@@ -3,11 +3,12 @@ class Gnuplot < Formula
   homepage "http://www.gnuplot.info"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.4/gnuplot-5.0.4.tar.gz"
   sha256 "151cb845728bde75eb9d1561b35140114a05a7c52a52bd35b4b2b3d944e0c31e"
+  revision 1
 
   bottle do
-    sha256 "df1e0a988429e0ff3042b0da2518c035362b900ed559bf521cd8f26618ccb77c" => :el_capitan
-    sha256 "445dad79b1c027450ae93fa1f02d5215073f3eb37d0e9b7b35fd53a0b9008512" => :yosemite
-    sha256 "ca5d9c4eacd4e9e15cdb631fb9b07a6367db2ba81a8cf40da0f111bb386fb4bb" => :mavericks
+    sha256 "00bd1a8848555dd7b107b24791159fbe44e2bc4907b1320f1317861588e51101" => :sierra
+    sha256 "0d622d5b39e7c437e1d514335ca6f6228b1a349b33f694097f03fbec4fb7ce2f" => :el_capitan
+    sha256 "2f4996eb86d23210d2dd5c544f39be5c2be7b2601e41e1543607615366baeac9" => :yosemite
   end
 
   head do
@@ -28,7 +29,8 @@ class Gnuplot < Formula
   deprecated_option "with-x" => "with-x11"
   deprecated_option "pdf" => "with-pdflib-lite"
   deprecated_option "wx" => "with-wxmac"
-  deprecated_option "qt" => "with-qt"
+  deprecated_option "qt" => "with-qt5"
+  deprecated_option "with-qt" => "with-qt5"
   deprecated_option "cairo" => "with-cairo"
   deprecated_option "nolua" => "without-lua"
   deprecated_option "tests" => "with-test"
@@ -47,7 +49,7 @@ class Gnuplot < Formula
   depends_on "webp"
   depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
   depends_on "pdflib-lite" => :optional
-  depends_on "qt" => :optional
+  depends_on "qt5" => :optional
   depends_on "wxmac" => :optional
   depends_on :tex => :optional
   depends_on :x11 => :optional
@@ -63,7 +65,6 @@ class Gnuplot < Formula
 
     # Help configure find libraries
     pdflib = Formula["pdflib-lite"].opt_prefix
-    gd = Formula["gd"].opt_prefix
 
     args = %W[
       --disable-dependency-tracking
@@ -79,7 +80,7 @@ class Gnuplot < Formula
       args << "--without-cairo" if build.without? "cairo"
     end
 
-    if build.with? "qt"
+    if build.with? "qt5"
       args << "--with-qt"
     else
       args << "--with-qt=no"

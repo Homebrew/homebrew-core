@@ -1,22 +1,28 @@
 class Nzbget < Formula
   desc "Binary newsgrabber for nzb files"
   homepage "http://nzbget.net/"
-  url "https://github.com/nzbget/nzbget/releases/download/v16.4/nzbget-16.4-src.tar.gz"
-  sha256 "8e9e3ee75d2d08a8e438b2809f504a627a9334ed239579a540b75fa97bff4d0f"
-
+  url "https://github.com/nzbget/nzbget/releases/download/v17.0/nzbget-17.0-src.tar.gz"
+  sha256 "795c830344dcc8751a2234a8344190b3f3e48e1ce92dcff02ee0af95a5fa46ae"
   head "https://github.com/nzbget/nzbget.git"
 
   bottle do
     cellar :any
-    sha256 "c69d482944ac626ae8869913f21f343e2a6fbd40c2043d35a9b5470e2ff03da2" => :el_capitan
-    sha256 "724965734679a54c8c8c829a725dd69b8225c203b2b1575954ccedaa0e45f5d7" => :yosemite
-    sha256 "0336f67f14a4de0a37983d8acc001b72a66892a5d77b79e2dd1f9b77f489bf04" => :mavericks
+    sha256 "397afa20cf16157d92049ff83eaf2cbb589a6724c45db754920c0a52cec8460d" => :sierra
+    sha256 "9c0a0a872d1ebb7919b9d6f951fcc39a8f197a77e381680519cc71522abadac0" => :el_capitan
+    sha256 "4d45b535af040b967aa412d139065bb6d51ff78924ace4cac7957841c8ddd3bf" => :yosemite
+    sha256 "ecc197dc0fa28fa8349a5d6ec09d02866c4e6b015665f661d66f52b4af61f4c6" => :mavericks
   end
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
+  depends_on "gcc" if MacOS.version <= :mavericks
 
   needs :cxx11
+
+  fails_with :clang do
+    build 600
+    cause "No compiler with C++14 support was found"
+  end
 
   fails_with :clang do
     build 500
@@ -29,6 +35,11 @@ class Nzbget < Formula
   def install
     ENV.cxx11
 
+    # Fix "ncurses library not found"
+    # Reported 14 Aug 2016: https://github.com/nzbget/nzbget/issues/264
+    ENV["ncurses_CFLAGS"] = "-I/usr/include"
+    ENV["ncurses_LIBS"] = "-L/usr/lib -lncurses"
+
     # Tell configure to use OpenSSL
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
@@ -37,6 +48,12 @@ class Nzbget < Formula
     ENV.j1
     system "make", "install"
     pkgshare.install_symlink "nzbget.conf" => "webui/nzbget.conf"
+
+    # Set upstream's recommended values for file systems without
+    # sparse-file support (e.g., HFS+); see Homebrew/homebrew-core#972
+    inreplace "nzbget.conf", "DirectWrite=yes", "DirectWrite=no"
+    inreplace "nzbget.conf", "ArticleCache=0", "ArticleCache=700"
+
     etc.install "nzbget.conf"
   end
 
@@ -66,6 +83,7 @@ class Nzbget < Formula
   end
 
   test do
+    (testpath/"downloads/dst").mkpath
     # Start nzbget as a server in daemon-mode
     system "#{bin}/nzbget", "-D"
     # Query server for version information

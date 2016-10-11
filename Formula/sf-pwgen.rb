@@ -8,6 +8,7 @@ class SfPwgen < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "96efd2d1757e6999fe5f92470b6aa4bee220f631b3a4e201593bfe4f786b7c0e" => :sierra
     sha256 "28bfda5dcff489cc0b1510ccd34cb6cc19082eb9b5199cf1db504d83d6a26483" => :el_capitan
     sha256 "2a5f0b9d8c9a951820583b7e4ec115b545252cc2e247f8b35f4ecfdfa3fc4114" => :yosemite
     sha256 "71043a6853a292150f236ac1c83694c492d930ba8f504a487d636027e5ce8302" => :mavericks

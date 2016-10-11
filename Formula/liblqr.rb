@@ -9,7 +9,8 @@ class Liblqr < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "ce5899d11af881965bed731baac1ef6f35e77bf5d4daa1e0fa579e90b82e3d35" => :sierra
     sha256 "9d47668f2c1b428499931a32bcb55c957d837e677ce14215cd4d9a674eff1485" => :el_capitan
     sha256 "a0f647159bd2c17e449381c67b5e4718b3629196bbf71da999a852794899fe67" => :yosemite
     sha256 "5912e95a5c22808ee83053af73817b5514708bb0a9c9549ac2e819f20676e941" => :mavericks

@@ -18,6 +18,7 @@ class Ssreflect < Formula
   revision 1
 
   bottle do
+    sha256 "75090f0085ccce1fa2d9271dd75a984599db927658f642870fd49f1abdbc18b6" => :sierra
     sha256 "a3efc25705a07a1373605376c45f5ba4695c26c49d3c28d47209547467d7c25a" => :el_capitan
     sha256 "5f09ae1cf490a5aac9c0b7aae1d77205af29498ee65423db2836a9d7aa44119e" => :yosemite
     sha256 "70f99bcb91c8299ab2f1e7f3197c3a2579ed887170deac919390a7d8b527ce1f" => :mavericks

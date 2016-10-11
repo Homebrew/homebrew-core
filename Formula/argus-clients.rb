@@ -1,15 +1,15 @@
 class ArgusClients < Formula
   desc "Audit Record Generation and Utilization System clients"
   homepage "http://qosient.com/argus/"
-  url "http://qosient.com/argus/src/argus-clients-3.0.8.tar.gz"
-  sha256 "aee8585d50959e00070a382f3121edfaa844a0a51dc0b73edf84c0f4eb8912c9"
+  url "http://qosient.com/argus/src/argus-clients-3.0.8.2.tar.gz"
+  sha256 "32073a60ddd56ea8407a4d1b134448ff4bcdba0ee7399160c2f801a0aa913bb1"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "77e408f35d3ac39f64ecd55ed0ad5c331257321c1083bc2ee7aaff2c0e083b16" => :el_capitan
-    sha256 "6c021bea57676fed8b2f58a243c1453bee760435c6feaf41b487b35777fdfea4" => :yosemite
-    sha256 "35a73804fe589cacdf5f7ac315c686b0d7e5e4bbfff13dc96d427f1dbe125928" => :mavericks
-    sha256 "c820b241451f2b98d6757cfc752bf023d358c776f77a6ba15f476b21f36191f5" => :mountain_lion
+    sha256 "982c7d32e91f1fd551d87db458c7cd9770e46a4637b840dc1e82324c21b30087" => :sierra
+    sha256 "cdc0e038a7f7d01e8d37d2e6c432f8d589104c8c9c73d06174a8c1ae63013865" => :el_capitan
+    sha256 "7d0c81e5c0378b3faefbf893053be9492e6977e18393e0fe89d8b9e0e951d3b6" => :yosemite
   end
 
   depends_on "readline" => :recommended

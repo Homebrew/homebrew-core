@@ -7,7 +7,8 @@ class A2ps < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 2
+    rebuild 2
+    sha256 "0ef247af6b8c66048da433e494982a7b541773057780c503e65908ff0b76d6bf" => :sierra
     sha256 "95e6cd96cc753d9d632ac8aa1b9d5099d5507c5fb8fc085544803fd85a4bd7c8" => :el_capitan
     sha256 "c89521bb6b3df6a8277564f264006bde650b7d214b288f4805da856a76ec3b69" => :yosemite
     sha256 "d10db3452567e6d4a6be65f15728c40b4a62bcc374e04ff7f5d3608c294c74f4" => :mavericks

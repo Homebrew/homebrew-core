@@ -10,6 +10,7 @@ class Shellcheck < Formula
   head "https://github.com/koalaman/shellcheck.git"
 
   bottle do
+    sha256 "9b892d9bf0ec2b7ba2a5b117f1ab0fc54d2d95e9fa1f4ecbc92f44a4306aec6c" => :sierra
     sha256 "798c1d8b536aca0f25b51656e5d97bf7b15d499ccadabb81cdae6ab945d637ec" => :el_capitan
     sha256 "87e95a3d80bcd72c3f6209dbde585b080fb89d72181fe529c6286ac5d403337c" => :yosemite
     sha256 "96be49df8c50dbd78f4d32f534dfd78287946ddf1849f348426c6dcd13cef2eb" => :mavericks

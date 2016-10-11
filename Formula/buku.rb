@@ -1,14 +1,15 @@
 class Buku < Formula
   desc "Command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v2.3.tar.gz"
-  sha256 "0fe0cf1d9e62c3b492f38cd11dd47b567c82aef1ebe04e097055a6f708ec64c9"
+  url "https://github.com/jarun/Buku/archive/v2.4.tar.gz"
+  sha256 "55a0065389475b6993503e20271fcd1705a98c3c3aea8211971ffb055ae5d9fb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bdac3a433cbdbd5bab8cd5b7525fe6cb3c93c78805c749797d1459cb351f6af9" => :el_capitan
-    sha256 "168767cba9288b6908584b6bcbe061557e42aef95d65460e8f9e4e7977118501" => :yosemite
-    sha256 "e7c6898a6cce5ead15a121664262dfff5e6e7b2c97817277ed110b0905e0498e" => :mavericks
+    sha256 "5564c75609134719ffff17e651fc26c15d6eb9fd41488409b2aff1b1f7635b88" => :sierra
+    sha256 "1d3b5c36f197429e85a780c4e12144250e107949f9015dc9eab6d57673b3ea11" => :el_capitan
+    sha256 "a8ce92e315c4da9bb364557b626be10ac98c6d4d8665243e891f4838eb1ab1d2" => :yosemite
+    sha256 "a8ce92e315c4da9bb364557b626be10ac98c6d4d8665243e891f4838eb1ab1d2" => :mavericks
   end
 
   depends_on :python3

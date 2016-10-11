@@ -6,6 +6,7 @@ class Par2 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bf25adffe0240c407aa4cb09dbd00d710687087b9aa62a07ddbeab9f7be3bf2b" => :sierra
     sha256 "0ad074a40f27a29d3cde489eab4f9e74c1f5bf6fa9be3ca116d4d9e123d290d2" => :el_capitan
     sha256 "562c1b75782b0ce231416d4d27c7d9a8bc12b467f307db84102267bdfd355ef3" => :yosemite
     sha256 "9423c0e84f2dbed9f4ab1df4b94551f350c6fdd98c53d13bacb799a77b2a04a5" => :mavericks

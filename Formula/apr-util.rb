@@ -3,13 +3,12 @@ class AprUtil < Formula
   homepage "https://apr.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-util-1.5.4.tar.bz2"
   sha256 "a6cf327189ca0df2fb9d5633d7326c460fe2b61684745fd7963e79a6dd0dc82e"
-  revision 1
+  revision 4
 
   bottle do
-    sha256 "f76d6d8ac0152f599ad59d2a4b0a8683741889bad402409c4ca2c18330c6b183" => :el_capitan
-    sha256 "6b043e4bf051fce17991f3cafb4ce7d235bf52e01b76e447b5a286f85a69cde9" => :yosemite
-    sha256 "aff874c3e72a5ec31b75c066d327771bc84b0a31fedc2243e4e21a56dee78eae" => :mavericks
-    sha256 "76f24ef98aebf89eb0b3c7d7fdc31f8074120c39708d8a513575e956fe50fc07" => :mountain_lion
+    sha256 "0e82b536d5f697be09ffb1c5bb6f155d811f1a9a2567eea6d1a21dcd86359c16" => :sierra
+    sha256 "e0fe4c2939676b5568cb8ff5f4c299a0fc82ac5d1e76a522a32511d3f3d9cdbf" => :el_capitan
+    sha256 "a677dd9c3b8a10412c41b85513d2c906ac00f3a7c4196aeb092da064df851600" => :yosemite
   end
 
   keg_only :provided_by_osx, "Apple's CLT package contains apr."
@@ -50,9 +49,12 @@ class AprUtil < Formula
     system "make"
     system "make", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # No need for this to point to the versioned path.
+    inreplace libexec/"bin/apu-1-config", libexec, opt_libexec
   end
 
   test do
-    system "#{bin}/apu-1-config", "--link-libtool", "--libs"
+    assert_match opt_libexec.to_s, shell_output("#{bin}/apu-1-config --prefix")
   end
 end

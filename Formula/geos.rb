@@ -5,10 +5,12 @@ class Geos < Formula
   sha256 "49982b23bcfa64a53333dab136b82e25354edeb806e5a2e2f5b8aa98b1d0ae02"
 
   bottle do
-    revision 1
-    sha256 "8842b62a104c7b93c4123a0fcbc305a83441b74a9ef389ac291d2012dc333e38" => :el_capitan
-    sha256 "3d8c95278881d07d9de4d18b20b81382180453a7f9b6b674e137cecbd0a3e2ee" => :yosemite
-    sha256 "b94dd57f561757a9cc56fb238c95a2829e66f409ca4e6628dcc4432b6fe2dc38" => :mavericks
+    cellar :any
+    rebuild 2
+    sha256 "d52351433e01eaa27e35ac2b1015e4cc97b424a30990b5491078a67c1a35f19a" => :sierra
+    sha256 "44de97863f261ada672b34bc9d66e34331a449114d50b7c76134527e6ff0ef9e" => :el_capitan
+    sha256 "80cfa970463761a2056c1c080294c59a3b6f6fd8a84276627a38fcf74b045d26" => :yosemite
+    sha256 "8c49f91cfd332e092efb8efc3d4b6190029f648b23b47d20a1341b3882566c87" => :mavericks
   end
 
   option :universal

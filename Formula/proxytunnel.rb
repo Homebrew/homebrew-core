@@ -7,6 +7,7 @@ class Proxytunnel < Formula
 
   bottle do
     cellar :any
+    sha256 "713f4529f60bc07a7ffc751730907b7f8238395a93a33d2430e272b66aab057a" => :sierra
     sha256 "6632b143edd3bbe2f8620bec9445e78689193d05279f1bb13766d16168bf871f" => :el_capitan
     sha256 "6764d4c9ce6bd4fcf08e7b8042a93977cb5788d316b54552bc6f49348a032c09" => :yosemite
     sha256 "7a0c91840116c8a6cdc492d671f0426dbd1adcf8b20e1d7259ea3c42a3eb1d6f" => :mavericks

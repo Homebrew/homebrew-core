@@ -1,12 +1,13 @@
 class Jpeg < Formula
-  desc "JPEG image manipulation library"
+  desc "Image manipulation library"
   homepage "http://www.ijg.org"
   url "http://www.ijg.org/files/jpegsrc.v8d.tar.gz"
   sha256 "00029b1473f0f0ea72fbca3230e8cb25797fbb27e58ae2e46bb8bf5a806fe0b3"
 
   bottle do
     cellar :any
-    revision 2
+    rebuild 2
+    sha256 "85d1f6055de99c1b764c697498bb86d003f5d24b324133f036f0393b97b3e869" => :sierra
     sha256 "bbc74f8b5980065d7bf95927150c2d56806d30abea459c2b1edcbdeed2d7c458" => :el_capitan
     sha256 "75419be793eefb3decd69de8ee0444ef697aef3d0f942361437c5d967fd8ecec" => :yosemite
     sha256 "c94f5859603b34d9b3c1b021ee21cf3a41a5d92b178a41ed5c05a1e5b7d19ff5" => :mavericks

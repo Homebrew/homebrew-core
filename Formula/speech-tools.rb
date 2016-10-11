@@ -1,11 +1,12 @@
 class SpeechTools < Formula
-  desc "C++ general speech software library from the University of Edinburgh"
+  desc "C++ speech software library from the University of Edinburgh"
   homepage "http://festvox.org/docs/speech_tools-2.4.0/"
   url "http://festvox.org/packed/festival/2.4/speech_tools-2.4-release.tar.gz"
   sha256 "fbc2482c443919aa79d2e599d6a5faee4e793df55a79ef377f1dc7e8ba237010"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fdd91c9e012e6e6849c202dbeaa5fcec9ae740e915f350e5881f3ee0aafcea60" => :sierra
     sha256 "f61c67afcd6c5f54b402183cb5148cf51cad67c95ce01bb3db0df57d384cc7e3" => :el_capitan
     sha256 "48091e873f0d038ebc6e46ab3ca7c1e494d061afab3dae64e1dbd594e4afccbe" => :yosemite
     sha256 "dca2c0deebfd3bd6aeba1cfaa4f72a3cc29b90e879fd51ed38c2524d1789eaad" => :mavericks

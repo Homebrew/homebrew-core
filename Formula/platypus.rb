@@ -8,6 +8,7 @@ class Platypus < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6d4301732ceb1fe105a0d98cf105adaf312b4fb14ed84398e137068336f992ba" => :sierra
     sha256 "7f1bcf04cdef0489799810a228697d144f5516df8a6e3145b6b0cdfb51acac3b" => :el_capitan
     sha256 "db54229624888569c9a9e5356e1a91ee141b96a257cab6f3230880938faf6d7f" => :yosemite
   end

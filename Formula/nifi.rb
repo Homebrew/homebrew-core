@@ -1,8 +1,8 @@
 class Nifi < Formula
   desc "Easy to use, powerful, and reliable system to process and distribute data."
   homepage "https://nifi.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=/nifi/0.7.0/nifi-0.7.0-bin.tar.gz"
-  sha256 "69952ca3778525496bbb83e583bcfd77598b2298c4368b0399b56c6bb91a7701"
+  url "https://www.apache.org/dyn/closer.cgi?path=/nifi/1.0.0/nifi-1.0.0-bin.tar.gz"
+  sha256 "2b06f389b5e328614e0e2c7add22e6e192917a9e375aa0798835552c670923a8"
 
   bottle :unneeded
 

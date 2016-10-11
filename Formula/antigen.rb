@@ -1,26 +1,26 @@
 class Antigen < Formula
   desc "Plugin manager for zsh, inspired by oh-my-zsh and vundle."
   homepage "http://antigen.sharats.me/"
-  url "https://github.com/zsh-users/antigen/archive/v1.0.1.tar.gz"
-  sha256 "0b5ec8233a591ec6742446b9334a91ccf23020b1c0e52b4b70ae895c298071a0"
+  url "https://github.com/zsh-users/antigen/archive/v1.1.4.tar.gz"
+  sha256 "fa59baacc7e3b35dd7e39f4ff1ac49025c997cdd4e2e28713771f61a2151ce55"
   head "https://github.com/zsh-users/antigen.git"
 
   bottle :unneeded
 
   def install
-    share.install "antigen.zsh"
+    pkgshare.install "bin/antigen.zsh"
   end
 
   def caveats; <<-EOS.undent
     To activate antigen, add the following to your ~/.zshrc:
 
-      source $(brew --prefix)/share/antigen.zsh
+      source $(brew --prefix)/share/antigen/antigen.zsh
 
     EOS
   end
 
   test do
-    (testpath/".zshrc").write "source `brew --prefix`/share/antigen.zsh"
-    system "/bin/zsh", "--login", "-i", "-c", "antigen help"
+    (testpath/".zshrc").write "source `brew --prefix`/share/antigen/antigen.zsh\n"
+    system "zsh", "--login", "-i", "-c", "antigen help"
   end
 end

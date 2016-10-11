@@ -1,13 +1,13 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.samba.org/"
-  url "https://www.samba.org/ftp/ccache/ccache-3.2.7.tar.bz2"
-  sha256 "872d5f1e1d0fa85a5f5a81b058ef4a2868b1d6e0fdd6945e9cc8a85097d5e657"
+  url "https://www.samba.org/ftp/ccache/ccache-3.3.2.tar.xz"
+  sha256 "907685cb23d8f82074b8d1a9b4ebabb36914d151ac7b96a840c68c08d1a14530"
 
   bottle do
-    sha256 "e12640906b63e773e80d5bb149f6589ec85f25b44500e521c4c1a86253a1b225" => :el_capitan
-    sha256 "b807e7b1f55058996b6c1d5e121b117a0121c66678083da8a2ec1d947c9b2d30" => :yosemite
-    sha256 "c5934c7e4d1f199d052395c07661dad8cf7cc6f2a265dd01d2ad1e09237ce46c" => :mavericks
+    sha256 "1e5ec464d4213a82f180c9b0bda31a2a578075e1234cdb2a67159fc829d87dd2" => :sierra
+    sha256 "cfa5783bb8c7bd3e1e5686a20a35244ae7edcf055ad5766ffc0cf2ace0f0705e" => :el_capitan
+    sha256 "9455780c9844587c21bc8c9abca303709f6f0bff141feef47e63f744755a5eb9" => :yosemite
   end
 
   head do
@@ -16,9 +16,12 @@ class Ccache < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+    depends_on "asciidoc" => ["with-docbook-xsl", :build]
   end
 
   def install
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog" if build.head?
+
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--with-bundled-zlib"
     system "make"

@@ -1,8 +1,8 @@
 class Zplug < Formula
   desc "The next-generation plugin manager for zsh"
   homepage "https://zplug.sh/"
-  url "https://github.com/zplug/zplug/archive/2.1.0.tar.gz"
-  sha256 "fbaf44c76151d1b2340fc9cf7cf2833682acc87952de63b3c0ba73a385cd0ea1"
+  url "https://github.com/zplug/zplug/archive/2.3.1.tar.gz"
+  sha256 "7a716390cfa9024c7efee629d78df0c53410d86ff105697eef02a4ca30d56540"
   head "https://github.com/zplug/zplug.git"
 
   bottle :unneeded
@@ -13,6 +13,7 @@ class Zplug < Formula
     bin.install Dir["bin/*"]
     man1.install "doc/man/man1/zplug.1"
     prefix.install Dir["*"]
+    touch prefix/"packages.zsh"
   end
 
   def caveats; <<-EOS.undent
@@ -23,6 +24,7 @@ class Zplug < Formula
   end
 
   test do
-    shell_output("zsh -c \"source #{opt_prefix}/init.zsh && (( $+functions[zplug] ))\"")
+    ENV["ZPLUG_HOME"] = opt_prefix
+    system "zsh", "-c", "source #{opt_prefix}/init.zsh && (( $+functions[zplug] ))"
   end
 end

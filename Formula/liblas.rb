@@ -8,6 +8,7 @@ class Liblas < Formula
   head "https://github.com/libLAS/libLAS.git"
 
   bottle do
+    sha256 "80e1a3f5d9f7ede5fc6f4ddd4a7b68144fdd72a09fba7b3b49c6dd24a0241cf9" => :sierra
     sha256 "8874664ed1d3ddbd1bfd84e2f7cf60c04f940ff7b893db3f07759cacae0e68fb" => :el_capitan
     sha256 "d50ad495d6ee1081ec857374fa72fa9f0eae2f861ff41760922aa437ec45acd8" => :yosemite
     sha256 "d7d6cf27f274a7ec08dee5a4dbceb7156e2f9fab989a002ff4c6687146f042e5" => :mavericks

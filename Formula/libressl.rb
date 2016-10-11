@@ -1,14 +1,15 @@
 class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
-  homepage "http://www.libressl.org/"
+  homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.2.tar.gz"
-  sha256 "5f87d778e5d62822d60e38fa9621c1c5648fc559d198ba314bd9d89cbf67d9e3"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.3.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.4.3.tar.gz"
+  sha256 "bd5726f3e247e7a7d30ce69946d174b8fb92d999d22710c65f176c969812960e"
 
   bottle do
-    sha256 "43d8ccfe8b909d0b43e527d9bdf8e60f994c0a089227ed0a35fc2a7b5dd2af17" => :el_capitan
-    sha256 "ea0eac442ba35ddc4a71278de1a9990900ba3c458bc204d962927aa48a634151" => :yosemite
-    sha256 "43e46ae47533d703806f9423f89d946520b242871d9ca0b0093bf0352c6a208e" => :mavericks
+    sha256 "c25978a9b0fc0bdc0c16d39eedf47bfef8b8e6ab7d266d77b54cddf3772bafe2" => :sierra
+    sha256 "1b509bf33ec94496584b1c70d2094a267a961b5c00fb3f8daace7653baeffea1" => :el_capitan
+    sha256 "093e950780c7d7946d283732becb7adb4f067a0accf54c562be3117017e03139" => :yosemite
   end
 
   head do
@@ -57,12 +58,12 @@ class Libressl < Formula
     end
 
     # LibreSSL install a default pem - We prefer to use OS X for consistency.
-    rm_f %W[ #{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default ]
+    rm_f %W[#{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default]
     (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
   end
 
   def caveats; <<-EOS.undent
-    A CA file has been bootstrapped using certificates from the system
+    A CA file has been bootstrapped using certificates from the SystemRoots
     keychain. To add additional certificates, place .pem files in
       #{etc}/libressl/certs
 

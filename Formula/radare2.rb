@@ -1,26 +1,45 @@
+class CodesignRequirement < Requirement
+  include FileUtils
+  fatal true
+
+  satisfy(:build_env => false) do
+    mktemp do
+      cp "/usr/bin/false", "radare2_check"
+      quiet_system "/usr/bin/codesign", "-f", "-s", "org.radare.radare2", "--dryrun", "radare2_check"
+    end
+  end
+
+  def message
+    <<-EOS.undent
+      org.radare.radare2 identity must be available to build with automated signing.
+      See: https://github.com/radare/radare2/blob/master/doc/osx.md
+    EOS
+  end
+end
+
 class Radare2 < Formula
   desc "Reverse engineering framework"
   homepage "http://radare.org"
 
   stable do
-    url "http://www.radare.org/get/radare2-0.10.3.tar.xz"
-    sha256 "40200c9ceb42f1ef4634843249c03d9149822e690c7edfb748c88f596eb8cb93"
+    url "http://www.radare.org/get/radare2-0.10.5.tar.xz"
+    sha256 "e534e89b1ddc06b962766fab1d9a8c6957ce1eeac4b6babdd0cd3345c6d14ca5"
 
     resource "bindings" do
-      url "http://www.radare.org/get/radare2-bindings-0.10.3.tar.xz"
-      sha256 "eabc7036bd84f0df1f45d54beb1644712475993a3e9bbc48ec41e5d2a25ba1f2"
+      url "http://www.radare.org/get/radare2-bindings-0.10.5.tar.xz"
+      sha256 "04eb9a31e752d393e240a5d2e77f6313f1e5b7ccf7471e6fea2d346781173fb1"
     end
 
     resource "extras" do
-      url "http://www.radare.org/get/radare2-extras-0.10.3.tar.xz"
-      sha256 "5717cc8d5da6bab6ab20a09555d6091b3ffbb50c03dd47c2a89cf1b5566ddd2d"
+      url "http://www.radare.org/get/radare2-extras-0.10.5.tar.xz"
+      sha256 "2dd23a4ab8f787f47b22cdd0df76d7b575a80e9afaf0ee95a553deaaba65e6f6"
     end
   end
 
   bottle do
-    sha256 "2d07896ff499ba5ef7b003a4da24ac68252499c06be265ccb964e7942d91b31e" => :el_capitan
-    sha256 "6326bc1a114aab239118865467e1669c0de9137b6724b94376ab953face5f816" => :yosemite
-    sha256 "fc0d35e68a13e164bfe4e48bd8a8bc2ba1dade7ecc7d1164780b0819ce9fe239" => :mavericks
+    sha256 "9eb9eb34f22803323480de1af7ca57336cda9d51429901772b94d1d223a0d10f" => :el_capitan
+    sha256 "9795fb8f8091df0cb505767d6cb9c2f6c7b9f9a0b3d19d99778cf0c86c2bfa46" => :yosemite
+    sha256 "faef9e723a152abaf0e1e11dba293a203a1801fd7e2c8420ce59fc83ad5546c7" => :mavericks
   end
 
   head do
@@ -35,6 +54,8 @@ class Radare2 < Formula
     end
   end
 
+  option "with-code-signing", "Codesign executables to provide unprivileged process attachment"
+
   depends_on "pkg-config" => :build
   depends_on "valabind" => :build
   depends_on "swig" => :build
@@ -46,10 +67,18 @@ class Radare2 < Formula
   depends_on "openssl"
   depends_on "yara"
 
+  depends_on CodesignRequirement if build.with? "code-signing"
+
   def install
     # Build Radare2 before bindings, otherwise compile = nope.
     system "./configure", "--prefix=#{prefix}", "--with-openssl"
     system "make", "CS_PATCHES=0"
+    if build.with? "code-signing"
+      # Brew changes the HOME directory which breaks codesign
+      home = `eval printf "~$USER"`
+      system "make", "HOME=#{home}", "-C", "binr/radare2", "osxsign"
+      system "make", "HOME=#{home}", "-C", "binr/radare2", "osx-sign-libs"
+    end
     system "make", "install"
 
     resource("extras").stage do

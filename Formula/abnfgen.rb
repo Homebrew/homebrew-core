@@ -6,6 +6,7 @@ class Abnfgen < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "173a48d1e02cabc92904ad0b01842e90fc5b43411a1a00db59088b3840a1d3e3" => :sierra
     sha256 "25aa694b994374b0194f65a01afdf1911ddd366d3195a6ac6451e81f87234768" => :el_capitan
     sha256 "6020fe82950619f9ddf60265c80c2e8f2f68808618e87150d1634f5ec2c0eff8" => :yosemite
     sha256 "004aa4f75ee0e51327a69a558cb3920b6859303b1d032e32e3caabe623dc35d4" => :mavericks

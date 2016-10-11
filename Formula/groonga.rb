@@ -1,13 +1,13 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "http://groonga.org/"
-  url "http://packages.groonga.org/source/groonga/groonga-6.0.7.tar.gz"
-  sha256 "4e1e79b7e4f3a212ba3d12b5981422aca59f9f120f57da62f258e13ab09477a7"
+  url "http://packages.groonga.org/source/groonga/groonga-6.0.9.tar.gz"
+  sha256 "b892382e9c5804a42b8754a4ac406ebffd4ceec66543023c4ffed5e88b70f3d8"
 
   bottle do
-    sha256 "fca621eb469a6bbb224b08ce217cc3cd1a20d6d991de68409d62092cefef3bb5" => :el_capitan
-    sha256 "091996208277cf5e4f98b7807dfa6d30c7f726979f58668fde48d106229c2498" => :yosemite
-    sha256 "43518ec7ded76cdbb90e5d988ba98300e52f2761d914371ff4af5feb0890ad3b" => :mavericks
+    sha256 "754b89b0d7814eacb441b8f5e28809c87b01d8a44153644a6744434648f4b48f" => :sierra
+    sha256 "b5bd80fb2ff45bbc19be0cdb28bc62caabeb8beed9424a472a8ec4c931abec34" => :el_capitan
+    sha256 "18df5a3b1595aaa422b5f88d1e32083bf52077fc15bb7487e0fc82171e34bab5" => :yosemite
   end
 
   head do
@@ -17,24 +17,23 @@ class Groonga < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-benchmark", "With benchmark program for developer use"
-  option "with-suggest-plugin", "With suggest plugin for suggesting"
+  option "with-glib", "With benchmark program for developer use"
+  option "with-zeromq", "With suggest plugin for suggesting"
 
-  deprecated_option "enable-benchmark" => "with-benchmark"
+  deprecated_option "enable-benchmark" => "with-glib"
+  deprecated_option "with-benchmark" => "with-glib"
+  deprecated_option "with-suggest-plugin" => "with-zeromq"
 
   depends_on "pkg-config" => :build
   depends_on "pcre"
   depends_on "msgpack"
-  depends_on "mecab" => :optional
-  depends_on "lz4" => :optional
   depends_on "openssl"
+  depends_on "glib" => :optional
+  depends_on "lz4" => :optional
+  depends_on "mecab" => :optional
   depends_on "mecab-ipadic" if build.with? "mecab"
-  depends_on "glib" if build.with? "benchmark"
-
-  if build.with? "suggest-plugin"
-    depends_on "libevent"
-    depends_on "zeromq"
-  end
+  depends_on "zeromq" => :optional
+  depends_on "libevent" if build.with? "zeromq"
 
   resource "groonga-normalizer-mysql" do
     url "http://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.1.tar.gz"
@@ -54,14 +53,13 @@ class Groonga < Formula
       --without-libstemmer
     ]
 
-    # ZeroMQ is an optional dependency that will be auto-detected unless we disable it
-    if build.with? "suggest-plugin"
+    if build.with? "zeromq"
       args << "--enable-zeromq"
     else
       args << "--disable-zeromq"
     end
 
-    args << "--enable-benchmark" if build.with? "benchmark"
+    args << "--enable-benchmark" if build.with? "glib"
     args << "--with-mecab" if build.with? "mecab"
     args << "--with-lz4" if build.with? "lz4"
 

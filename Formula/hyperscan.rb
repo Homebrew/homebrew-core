@@ -1,15 +1,18 @@
 class Hyperscan < Formula
   desc "High-performance regular expression matching library"
   homepage "https://01.org/hyperscan"
-  url "https://github.com/01org/hyperscan/archive/v4.1.0.tar.gz"
-  sha256 "b8de3f59c2bd1a8765a5aca5dfdd062766cef67218aedf63df2c92766524b3c1"
+  url "https://github.com/01org/hyperscan/archive/v4.3.1.tar.gz"
+  sha256 "a7bce1287c06d53d1fb34266d024331a92ee24cbb2a7a75061b4ae50a30bae97"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2b329383f8299ac45263713545c087dcc1182a8e3d665ea41500799e0c88ce90" => :el_capitan
-    sha256 "f0e8559d67e926c9afaed0ea037d70643073673f027c21817679a2ca26fd4827" => :yosemite
-    sha256 "13c9cb6d0aa29dd4039148a7ac06a6dadc9c89d72ff5b2fa42a29d1d3833fd32" => :mavericks
+    sha256 "c2dc0b11011fc0cea95abf9c23e587d81cead5da9caad417b3d18129bea9affe" => :sierra
+    sha256 "98c09016eae2cd8ac7b757efd97dc13b25577d993b5c2a33892ba07060d38834" => :el_capitan
+    sha256 "51a0f38350e24d8c45e39504c604e2af3b4cbfa8d3db339864cc84cf19366edb" => :yosemite
+    sha256 "10d6c0f07c56d706c8c568963e937fa96bdcd7d2117cadb64046210c8b1235ab" => :mavericks
   end
+
+  option "with-debug", "Build with debug symbols"
 
   depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "boost" => :build
@@ -18,7 +21,21 @@ class Hyperscan < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      args = std_cmake_args
+
+      if build.with? "debug"
+        args -= %w[
+          -DCMAKE_BUILD_TYPE=Release
+          -DCMAKE_C_FLAGS_RELEASE=-DNDEBUG
+          -DCMAKE_CXX_FLAGS_RELEASE=-DNDEBUG
+        ]
+        args += %w[
+          -DCMAKE_BUILD_TYPE=Debug
+          -DDEBUG_OUTPUT=on
+        ]
+      end
+
+      system "cmake", "..", *args
       system "make", "install"
     end
   end

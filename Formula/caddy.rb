@@ -3,122 +3,137 @@ require "language/go"
 class Caddy < Formula
   desc "Alternative general-purpose HTTP/2 web server"
   homepage "https://caddyserver.com/"
-  url "https://github.com/mholt/caddy/archive/v0.9.0.tar.gz"
-  sha256 "ded8400281d5c7e3ab7765d3ee89740212e9d2b1323e111ef88f4fffc7e074b2"
+  url "https://github.com/mholt/caddy/archive/v0.9.3.tar.gz"
+  sha256 "ec2f6e708262f6474a48a3503a1fbfb6e05e050772c0639ec823edda5e467668"
   head "https://github.com/mholt/caddy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e937a02255c4fae64ad55a368ec4927d3543dbc73dce6adcd3eb96c66a3fb393" => :el_capitan
-    sha256 "f8d4ef9de9dc9c8f44f4120e255297747653a620bcd7329cbc31cd21d132d76f" => :yosemite
-    sha256 "6639b2b51ab661a6970281effc3f21dc73c056f09fdbc4979d558191a3e9f7a9" => :mavericks
+    sha256 "4809556211683d5baa1a0197cb23a2844dc40691e1fa6c0f7e47a58158325f70" => :sierra
+    sha256 "8c035eabe6c4113916c6ddd95fa143495e010aeb9a73ed4acd2450c8e501963e" => :el_capitan
+    sha256 "37b9a9ef34b540669446160421448822bb4f3cfeabccec0f1ee1a3dc85eedf6d" => :yosemite
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/BurntSushi/toml" do
-    url "https://github.com/BurntSushi/toml.git",
-    :revision => "99064174e013895bbd9b025c31100bd1d9b590ca"
+  go_resource "github.com/dsnet/compress" do
+    url "https://github.com/dsnet/compress.git",
+        :revision => "b9aab3c6a04eef14c56384b4ad065e7b73438862"
   end
 
   go_resource "github.com/dustin/go-humanize" do
     url "https://github.com/dustin/go-humanize.git",
-    :revision => "2fcb5204cdc65b4bec9fd0a87606bb0d0e3c54e8"
+        :revision => "bd88f87ad3a420f7bcf05e90566fd1ceb351fa7f"
   end
 
   go_resource "github.com/flynn/go-shlex" do
     url "https://github.com/flynn/go-shlex.git",
-    :revision => "3f9db97f856818214da2e1057f8ad84803971cff"
+        :revision => "3f9db97f856818214da2e1057f8ad84803971cff"
   end
 
   go_resource "github.com/gorilla/websocket" do
     url "https://github.com/gorilla/websocket.git",
-    :revision => "5e2e56d5dfd46884df1036f828777ee6273f2cff"
+        :revision => "2d1e4548da234d9cb742cc3628556fef86aafbac"
   end
 
   go_resource "github.com/hashicorp/go-syslog" do
     url "https://github.com/hashicorp/go-syslog.git",
-    :revision => "42a2b573b664dbf281bd48c3cc12c086b17a39ba"
+        :revision => "315de0c1920b18b942603ffdc2229e2af4803c17"
+  end
+
+  go_resource "github.com/hashicorp/golang-lru" do
+    url "https://github.com/hashicorp/golang-lru.git",
+        :revision => "0a025b7e63adc15a622f29b0b2c4c3848243bbf6"
   end
 
   go_resource "github.com/jimstudt/http-authentication" do
     url "https://github.com/jimstudt/http-authentication.git",
-    :revision => "3eca13d6893afd7ecabe15f4445f5d2872a1b012"
-  end
-
-  go_resource "github.com/miekg/dns" do
-    url "https://github.com/miekg/dns.git",
-    :revision => "5d001d020961ae1c184f9f8152fdc73810481677"
-  end
-
-  go_resource "github.com/russross/blackfriday" do
-    url "https://github.com/russross/blackfriday.git",
-    :revision => "93622da34e54fb6529bfb7c57e710f37a8d9cbd8"
-  end
-
-  go_resource "github.com/shurcooL/sanitized_anchor_name" do
-    url "https://github.com/shurcooL/sanitized_anchor_name.git",
-    :revision => "10ef21a441db47d8b13ebcc5fd2310f636973c77"
-  end
-
-  go_resource "gopkg.in/square/go-jose.v1" do
-    url "https://gopkg.in/square/go-jose.v1.git",
-    :revision => "e3f973b66b91445ec816dd7411ad1b6495a5a2fc"
-  end
-
-  go_resource "github.com/xenolf/lego" do
-    url "https://github.com/xenolf/lego.git",
-    :revision => "b12ce5e73146e74520c426895394b92dffeb3a25"
-  end
-
-  go_resource "golang.org/x/crypto" do
-    url "https://go.googlesource.com/crypto.git",
-    :revision => "911fafb28f4ee7c7bd483539a6c96190bbbccc3f"
-  end
-
-  go_resource "golang.org/x/net" do
-    url "https://go.googlesource.com/net.git",
-    :revision => "4d38db76854b199960801a1734443fd02870d7e1"
-  end
-
-  go_resource "gopkg.in/natefinch/lumberjack.v2" do
-    url "https://gopkg.in/natefinch/lumberjack.v2.git",
-    :revision => "514cbda263a734ae8caac038dadf05f8f3f9f738"
-  end
-
-  go_resource "gopkg.in/yaml.v2" do
-    url "https://gopkg.in/yaml.v2.git",
-    :revision => "a83829b6f1293c91addabc89d0571c246397bbf4"
-  end
-
-  go_resource "github.com/lucas-clemente/quic-go" do
-    url "https://github.com/lucas-clemente/quic-go.git",
-    :revision => "6ea4f4b6e386dd46e95201abcfeda4e238495061"
-  end
-
-  go_resource "github.com/aead/chacha20" do
-    url "https://github.com/aead/chacha20.git",
-    :revision => "88f11922ed7bdc7abc8ce27232ef5b3d478d96fe"
-  end
-
-  go_resource "github.com/aead/poly1305" do
-    url "https://github.com/aead/poly1305.git",
-    :revision => "ac90e6e7a3b896d689165a10a71403a0ed6906e9"
+        :revision => "3eca13d6893afd7ecabe15f4445f5d2872a1b012"
   end
 
   go_resource "github.com/lucas-clemente/aes12" do
     url "https://github.com/lucas-clemente/aes12.git",
-    :revision => "a5fc7687b08b4d6779efc82942708b72510c4f37"
+        :revision => "8ee5b5610baca43b60ecfad586b3c40d92a96e0c"
   end
 
   go_resource "github.com/lucas-clemente/fnv128a" do
     url "https://github.com/lucas-clemente/fnv128a.git",
-    :revision => "393af48d391698c6ae4219566bfbdfef67269997"
+        :revision => "393af48d391698c6ae4219566bfbdfef67269997"
+  end
+
+  go_resource "github.com/lucas-clemente/quic-go" do
+    url "https://github.com/lucas-clemente/quic-go.git",
+        :revision => "06f09e9a1e56cf94f4c3080e7fd1d6ebde8ab91c"
   end
 
   go_resource "github.com/lucas-clemente/quic-go-certificates" do
     url "https://github.com/lucas-clemente/quic-go-certificates.git",
-    :revision => "9bb36d3159787cca26dcfa15e23049615e307ef8"
+        :revision => "d2f86524cced5186554df90d92529757d22c1cb6"
+  end
+
+  go_resource "github.com/mholt/archiver" do
+    url "https://github.com/mholt/archiver.git",
+        :revision => "eb71e84c00a9158cceae5817af934a1f74aa707f"
+  end
+
+  go_resource "github.com/miekg/dns" do
+    url "https://github.com/miekg/dns.git",
+        :revision => "db96a2b759cdef4f11a34506a42eb8d1290c598e"
+  end
+
+  go_resource "github.com/naoina/go-stringutil" do
+    url "https://github.com/naoina/go-stringutil.git",
+        :revision => "6b638e95a32d0c1131db0e7fe83775cbea4a0d0b"
+  end
+
+  go_resource "github.com/naoina/toml" do
+    url "https://github.com/naoina/toml.git",
+        :revision => "751171607256bb66e64c9f0220c00662420c38e9"
+  end
+
+  go_resource "github.com/nwaples/rardecode" do
+    url "https://github.com/nwaples/rardecode.git",
+        :revision => "f94841372ddc36be531a5c3e1206238e32e93d74"
+  end
+
+  go_resource "github.com/russross/blackfriday" do
+    url "https://github.com/russross/blackfriday.git",
+        :revision => "35eb537633d9950afc8ae7bdf0edb6134584e9fc"
+  end
+
+  go_resource "github.com/shurcooL/sanitized_anchor_name" do
+    url "https://github.com/shurcooL/sanitized_anchor_name.git",
+        :revision => "1dba4b3954bc059efc3991ec364f9f9a35f597d2"
+  end
+
+  go_resource "github.com/xenolf/lego" do
+    url "https://github.com/xenolf/lego.git",
+        :revision => "f3cd0bfdeebbf2fff1893beafc156f979c3c1e41"
+  end
+
+  go_resource "golang.org/x/crypto" do
+    url "https://go.googlesource.com/crypto.git",
+        :revision => "84e98f45760e87786b7f24603b8166a6fa09811d"
+  end
+
+  go_resource "golang.org/x/net" do
+    url "https://go.googlesource.com/net.git",
+        :revision => "819f4c5391c3fa3e3f7dab092b388a396c6723a8"
+  end
+
+  go_resource "gopkg.in/natefinch/lumberjack.v2" do
+    url "https://gopkg.in/natefinch/lumberjack.v2.git",
+        :revision => "514cbda263a734ae8caac038dadf05f8f3f9f738"
+  end
+
+  go_resource "gopkg.in/square/go-jose.v1" do
+    url "https://gopkg.in/square/go-jose.v1.git",
+        :revision => "aa2e30fdd1fe9dd3394119af66451ae790d50e0d"
+  end
+
+  go_resource "gopkg.in/yaml.v2" do
+    url "https://gopkg.in/yaml.v2.git",
+        :revision => "a5b47d31c556af34a302ce5d659e6fea44d90de0"
   end
 
   def install
@@ -126,14 +141,13 @@ class Caddy < Formula
     ENV["GOOS"] = "darwin"
     ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
 
-    mkdir_p buildpath/"src/github.com/mholt/"
-    ln_s buildpath, buildpath/"src/github.com/mholt/caddy"
+    (buildpath/"src/github.com/mholt").mkpath
+    ln_s buildpath, "src/github.com/mholt/caddy"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    cd "caddy" do
-      system "go", "build", "-ldflags", "-X \"github.com/mholt/caddy/caddy/caddymain.gitTag=#{version}\"", "-o", bin/"caddy"
-    end
-    doc.install %w[README.md LICENSE.txt]
+    system "go", "build", "-ldflags",
+           "-X github.com/mholt/caddy/caddy/caddymain.gitTag=#{version}",
+           "-o", bin/"caddy", "github.com/mholt/caddy/caddy"
   end
 
   test do

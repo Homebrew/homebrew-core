@@ -7,6 +7,7 @@ class Libffi < Formula
 
   bottle do
     cellar :any
+    sha256 "aa56f6f4edc67950189bcd1e35cd824d59517f57d4e5cc1264108c24e3477118" => :sierra
     sha256 "d512d7c3258d61e088097f1f9a1fd010bd1a197e760e0b3abc08a3f767624745" => :el_capitan
     sha256 "f75c1beb848231ed3e2275c867620da91dd16be9dc7c4b88f86675ac62159323" => :yosemite
     sha256 "aa60d56351d36a45f2e7f16114fc17f9bd8fe805931f36d744c6ccb5fa5df238" => :mavericks

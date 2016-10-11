@@ -7,7 +7,8 @@ class Xrootd < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "bfd51945b51e87bb4216606888c55d0fbf56a4ac5882e8af6e17109d1ecc44bf" => :sierra
     sha256 "10019de1deb873bb5324d94ec6153dab41e537f1cdbab4eaf7c00f6de666e0d4" => :el_capitan
     sha256 "5aec9e2b8272937b9bfe807b0fe19ecbd80ee09cffb90199f4bacedafb4993c0" => :yosemite
     sha256 "dd7dc0728eb0117d8d0d544bc6ff20b460015d8e2cc6868c3ba5fd8c748716b7" => :mavericks

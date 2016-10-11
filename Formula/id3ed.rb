@@ -6,6 +6,7 @@ class Id3ed < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e930552e37599e7926efebaf0d893f888576a26bddef6a91e356cf1b5de15b9e" => :sierra
     sha256 "6448c8e19c8e0874ed5141193c7db06c443ac6c33ab2f6bbe8811098b063c0d1" => :el_capitan
     sha256 "8ca64da5c8c0cbbc7ec64af436fcf3a7ae457c8d8a8073887fc63ec4e89c98b9" => :yosemite
     sha256 "8dd4a14922e94245dd016a266aa23c7bcebb18a56e574c8179df83c2d68ff23c" => :mavericks

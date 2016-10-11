@@ -1,16 +1,15 @@
 class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
   homepage "http://tile38.com"
-  url "https://github.com/tidwall/tile38/archive/1.3.0.tar.gz"
-  sha256 "2ca54a9cc4de7ea062da36682054efc8fceb78bb5631ee6d95279ca129094c84"
-
+  url "https://github.com/tidwall/tile38/archive/1.5.0.tar.gz"
+  sha256 "bc01e997528ab4caacf94969d27e735447654db1a93a2f8073650d649733983c"
   head "https://github.com/tidwall/tile38.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "445c8591d211c0838f6bd6388159b50dd1f176db0b49ed46743d740ca2fd0c92" => :el_capitan
-    sha256 "33bdc43f75cb86d2be9a70c87aef2221c355ddae2209e92552aae45e797526f1" => :yosemite
-    sha256 "58788b124bce42ebae8cbb6ece1d0716f3cb33767c7b6c02b4d6bd1a616ce521" => :mavericks
+    sha256 "e8b4d1015cd47f3a4917818d74e8accc079162ac7e6ca7d027d78b0ec439fbe5" => :sierra
+    sha256 "9c4623e4ee40e4a66f8639574f008cde04f69d8af3c0256829d98a8333396ded" => :el_capitan
+    sha256 "0e72d154547879c9f8113a3201f4e54890987f9c3efc8ed4f469d7fe78a82b24" => :yosemite
   end
 
   depends_on "go" => :build

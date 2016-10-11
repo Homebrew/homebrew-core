@@ -5,6 +5,7 @@ class RakudoStar < Formula
   sha256 "6aa2c73da1c5c89e7495eaa0b572f07a3184b13df3e8eb6f452038c8023ffd33"
 
   bottle do
+    sha256 "04721ad21f249bc0627b3cf6c3d99315a12abbfb7e36eb4ac9e36513d43b465c" => :sierra
     sha256 "c740b4227959695513023785d528290e6dbb3f88767f41855bccbb4987285b05" => :el_capitan
     sha256 "6c4b31f795b03ff581ccad8aff5da60ec108474b8d88db40560384c6a63f5afc" => :yosemite
     sha256 "83bb7e869fa7b2dc2a6677523c351fffb14f7900167091c8fa32baaa349d542d" => :mavericks

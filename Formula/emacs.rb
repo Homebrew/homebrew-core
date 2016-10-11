@@ -1,24 +1,14 @@
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
-  url "https://ftpmirror.gnu.org/emacs/emacs-24.5.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz"
-  sha256 "dd47d71dd2a526cf6b47cb49af793ec2e26af69a0951cc40e43ae290eacfc34e"
+  url "https://ftpmirror.gnu.org/emacs/emacs-25.1.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/emacs/emacs-25.1.tar.xz"
+  sha256 "19f2798ee3bc26c95dca3303e7ab141e7ad65d6ea2b6945eeba4dbea7df48f33"
 
   bottle do
-    revision 3
-    sha256 "7efa8afcc662120bee21e692e6721a956cb3088f91a6f73fd64252f9679bfc21" => :el_capitan
-    sha256 "77bbc9a112c6107fbcbcbf0112012831235082c6425070a5b092bf25ef84d565" => :yosemite
-    sha256 "f1539cddd0392906fbfdf99e8f20fc07620daaeceac86fa2f98b701cc4f25a3a" => :mavericks
-  end
-
-  devel do
-    url "http://alpha.gnu.org/gnu/emacs/pretest/emacs-25.1-rc1.tar.xz"
-    version "25.1-rc1"
-    sha256 "c00c50e66474359d1e24baa2a0703bc64207caffc31d0808d8b4ffa4b3826133"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
+    sha256 "6022295cbbad123db684cef19029d6100e711e29c160ac9ba1bb7a38304655da" => :sierra
+    sha256 "013398eb1c8030b31423484bc0c316245cbab523c70452f200814950c98b1f44" => :el_capitan
+    sha256 "fa3f4f8f6050072e2032c7dc04d3289ec82847bb2ea507c1444bbc385f375eda" => :yosemite
   end
 
   head do
@@ -31,6 +21,7 @@ class Emacs < Formula
   option "with-cocoa", "Build a Cocoa version of emacs"
   option "with-ctags", "Don't remove the ctags executable that emacs provides"
   option "without-libxml2", "Don't build with libxml2 support"
+  option "with-modules", "Compile with dynamic modules support"
 
   deprecated_option "cocoa" => "with-cocoa"
   deprecated_option "keep-ctags" => "with-ctags"
@@ -42,7 +33,6 @@ class Emacs < Formula
   depends_on "librsvg" => :recommended
   depends_on "imagemagick" => :optional
   depends_on "mailutils" => :optional
-  depends_on "glib" => :optional
 
   def install
     args = %W[
@@ -53,8 +43,6 @@ class Emacs < Formula
       --prefix=#{prefix}
       --without-x
     ]
-
-    args << "--with-file-notification=gfile" if build.with? "glib"
 
     if build.with? "libxml2"
       args << "--with-xml2"
@@ -74,9 +62,10 @@ class Emacs < Formula
       args << "--without-gnutls"
     end
 
-    args << "--with-rsvg" if build.with? "librsvg"
     args << "--with-imagemagick" if build.with? "imagemagick"
-    args << "--without-popmail" if build.with? "mailutils"
+    args << "--with-modules" if build.with? "modules"
+    args << "--with-rsvg" if build.with? "librsvg"
+    args << "--without-pop" if build.with? "mailutils"
 
     system "./autogen.sh" if build.head? || build.devel?
 
@@ -91,13 +80,6 @@ class Emacs < Formula
     system "make", "install"
 
     if build.with? "cocoa"
-      # Remove when 25.1 is released
-      if build.stable?
-        chmod 0644, %w[nextstep/Emacs.app/Contents/PkgInfo
-                       nextstep/Emacs.app/Contents/Resources/Credits.html
-                       nextstep/Emacs.app/Contents/Resources/document.icns
-                       nextstep/Emacs.app/Contents/Resources/Emacs.icns]
-      end
       prefix.install "nextstep/Emacs.app"
 
       # Replace the symlink with one that avoids starting Cocoa.

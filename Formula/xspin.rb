@@ -7,6 +7,7 @@ class Xspin < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "493d8bfac9052ece7d96eaed9b70792d7fe41b7566de2a523dd86664e3a3debb" => :sierra
     sha256 "896d3acc7e60648410ff86b1f8e744059bb71015900360fc18b3a75537e2c13e" => :el_capitan
     sha256 "2ff10f844a1c09cc99bf8e630bde4e191a450697ab6ea286c85bfb66670db405" => :yosemite
     sha256 "a1b19b1227fc19b6ea00cfea5a49955a82d180521e8df29d68842b465e5b4b89" => :mavericks

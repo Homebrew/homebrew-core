@@ -1,4 +1,6 @@
 class CharmTools < Formula
+  include Language::Python::Virtualenv
+
   desc "Tools for authoring and maintaining juju charms"
   homepage "https://github.com/juju/charm-tools"
   url "https://github.com/juju/charm-tools/releases/download/v2.1.2/charm-tools-2.1.2.tar.gz"
@@ -6,13 +8,12 @@ class CharmTools < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "3ec84b54d75bd60d8c957912e8a13be1d5ef7fe008a6f486880aada62824be5a" => :sierra
     sha256 "ca750413f4324fa1a3ad19893c7575a75afddc4e1587c9d3c0133e827d5f6ed8" => :el_capitan
     sha256 "f34780f31601ae254867fb92c423a3cb1332f12e4de1134fa2dc474deaf1aefd" => :yosemite
     sha256 "5c80786313b50153e6c76ff3bac4e7f947fcc07e5ee9c9f64d51aab5ec23237d" => :mavericks
   end
-
-  include Language::Python::Virtualenv
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libyaml"
@@ -131,7 +132,6 @@ class CharmTools < Formula
     url "https://files.pythonhosted.org/packages/a2/a7/ad1c1c48e35dc7545dab1a9c5513f49d5fa3b5015627200d2be27576c2a0/ndg_httpsclient-0.4.2.tar.gz"
     sha256 "580987ef194334c50389e0d7de885fccf15605c13c6eecaabd8d6c43768eb8ac"
   end
-
 
   resource "oauth" do
     url "https://files.pythonhosted.org/packages/e2/10/d7d6ae26ef7686109a10b3e88d345c4ec6686d07850f4ef7baefb7eb61e1/oauth-1.0.1.tar.gz"

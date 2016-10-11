@@ -6,6 +6,7 @@ class Star < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ec7a276b68c0dc946d3320e3cd9cf923d0affdbfa72587ecccb2efa3dc7276cc" => :sierra
     sha256 "64288e33524b1d1afcc5ae7e6ff5dc1488f1793eba9452e54279054d55e93db3" => :el_capitan
     sha256 "e3b77b33bc2c8ec917ddf41a29d937de1492253c7d039f5747e44e2361cfadd4" => :yosemite
     sha256 "410f5637ccdf115373b5a08c5037cdb8c66cb113719ead191070d087eae43285" => :mavericks

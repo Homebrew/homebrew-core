@@ -4,14 +4,14 @@ class GnuSmalltalk < Formula
   url "https://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"
   mirror "https://ftp.gnu.org/gnu/smalltalk/smalltalk-3.2.5.tar.xz"
   sha256 "819a15f7ba8a1b55f5f60b9c9a58badd6f6153b3f987b70e7b167e7755d65acc"
-  revision 3
+  revision 5
 
   head "https://github.com/bonzini/smalltalk.git"
 
   bottle do
-    sha256 "bb6f1d1b564752a8feaf40be0c9dcecf116339b210a583cfd859b7d91950a9a2" => :el_capitan
-    sha256 "994b6c542d0c1a6913d0a30b9ae1429c9067faa85cdf483e8cf10a99a18d00d6" => :yosemite
-    sha256 "4e7a90fc84d973a3b94f63e7b719b48ebe1905a2016d4f8dba5508f5b6d87cb2" => :mavericks
+    sha256 "45c067640a3cd5e8453664e637f25e7e3205ebe4dfd5dcb609ea89a508dc14cf" => :sierra
+    sha256 "7190b107e1211615b45a7168bd0a4b3fdf194f11764285e30ed90b22bfacc659" => :el_capitan
+    sha256 "7f879a4dd647c3d3324154060aa4bbe62fb0b45d9b44cefceab8ffb2bdc1f49f" => :yosemite
   end
 
   devel do
@@ -47,6 +47,11 @@ class GnuSmalltalk < Formula
 
   def install
     ENV.m32 unless MacOS.prefer_64_bit?
+
+    # Fix build failure "Symbol not found: _clock_gettime"
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      ENV["ac_cv_search_clock_gettime"] = "no"
+    end
 
     args = %W[
       --disable-debug

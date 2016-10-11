@@ -10,6 +10,7 @@ class Icu4c < Formula
 
   bottle do
     cellar :any
+    sha256 "e48b889957aec71bcd3f437e13489a17ba39bdd71ff38a18d5858c48bfd404ec" => :sierra
     sha256 "c244860b11f70115cecc19a81566232de900dd2f9d049555c77db3744087ca2a" => :el_capitan
     sha256 "1a18b7c039316fee2376565085c71cb141cae0e5a9680c69b2ca0e8e6d32ce58" => :yosemite
     sha256 "cadba844e31de5cf9a1f9d05dc8671662cfb52610c7ce92f1fef6e3617dee2ea" => :mavericks

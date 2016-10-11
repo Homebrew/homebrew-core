@@ -1,15 +1,16 @@
 class Nomad < Formula
   desc "Distributed, Highly Available, Datacenter-Aware Scheduler"
   homepage "https://www.nomadproject.io"
-  url "https://github.com/hashicorp/nomad/archive/v0.4.0.tar.gz"
-  sha256 "b9098781812b93a77ffdfadecd0d3fc8fd5f73dce4b48cd76495b0124bd8cfe5"
+  url "https://github.com/hashicorp/nomad/archive/v0.4.1.tar.gz"
+  sha256 "1156ddfa6542ab865b987456cbead90edf6eadf68881a557c777ab69745c9b54"
   head "https://github.com/hashicorp/nomad.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ddf91dd519fcc203ef9282aa58e65c16efcc200229092cc958a8b0a7ca029a43" => :el_capitan
-    sha256 "042fa34aa9ff782bdabe574e5144ee31418741d2ccb0c02b63dcbd25dc76d1ec" => :yosemite
-    sha256 "00fbadc79e816afa0d237d36bd6542abb35b55586099e02e1df3f557b9544eb5" => :mavericks
+    sha256 "3e643b9026ed2ada8ac50b218ec08e375a558400b8211c8a922f268327859aa2" => :sierra
+    sha256 "8d373ebe65d9db5bfeedb09ad5b3a22ae554932b7dfc850a892c60d8838a6d42" => :el_capitan
+    sha256 "ba6a47c30fdc5f9327cbddc37151826ac43086fc0ebabc5af55edbe1d4f035c8" => :yosemite
+    sha256 "ece20f5a7cd1ade4b346f1b12e0d29f1f737deec31a6600cc5aa2d70634154ac" => :mavericks
   end
 
   depends_on "go" => :build
@@ -19,6 +20,7 @@ class Nomad < Formula
     (buildpath/"src/github.com/hashicorp/nomad").install buildpath.children
     cd "src/github.com/hashicorp/nomad" do
       system "go", "build", "-o", bin/"nomad"
+      prefix.install_metafiles
     end
   end
 

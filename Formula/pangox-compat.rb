@@ -6,6 +6,7 @@ class PangoxCompat < Formula
   revision 1
 
   bottle do
+    sha256 "a415d70637cf5d30ea91f734408d5b0be8202514cdd3fe7f641c8e2692ded2ad" => :sierra
     sha256 "206ca566f90950e25b78b5494328f2d047710f2a79986aa3a8c905f6ef47974b" => :el_capitan
     sha256 "0436736de80b61ef5f88ef01c82df32a5c9115a82b421fa610efae2fe1f7ab9d" => :yosemite
     sha256 "e819755afd6ba06780fd14adc5a20f53b3b47c26adbd1219c26a4f0ec9f5abbd" => :mavericks

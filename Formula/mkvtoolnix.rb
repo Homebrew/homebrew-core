@@ -1,14 +1,14 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
-  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-9.3.1.tar.xz"
-  sha256 "f3695761bf0a5fdcd6144cfb0a624094c10c9d66d43a340ebb917b7c6a8b39a2"
+  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-9.4.2.tar.xz"
+  sha256 "df2c3773c0e7a75d88e75906cc425f9ed7f07ce36a99854162e14202ccd42904"
   revision 1
 
   bottle do
-    sha256 "fcd6de3848574a16b8c5e6b0ab242b71069b3ab6ee8933779dc2374b2fc4bc78" => :el_capitan
-    sha256 "cdc987d0bff9db70d08a7bef44e0ed60fbe1f706f71e976e0cdd20ef71a243b0" => :yosemite
-    sha256 "970d80a3f613bb0f2c380fdc3ab0748074eb0f3c908aaa2c1128f93d31c2b25c" => :mavericks
+    sha256 "541a110e6bb6a005819307f9678e20ba7c4803dd612f28d99e5531e44e4da20d" => :sierra
+    sha256 "3ad0b1d779120c281727c471345bd8137b3ab810bb0275bae4aa37aaa2a5c038" => :el_capitan
+    sha256 "a91c632125f19fd4889569a065df78952322c963313eec0b2135c24ea6424166" => :yosemite
   end
 
   head do
@@ -26,7 +26,6 @@ class Mkvtoolnix < Formula
   depends_on "libvorbis"
   depends_on "flac" => :recommended
   depends_on "libmagic" => :recommended
-  depends_on "lzo" => :optional
   depends_on "qt5" => :optional
   depends_on "gettext" => :optional
 
@@ -72,6 +71,9 @@ class Mkvtoolnix < Formula
     else
       args << "--disable-qt"
     end
+
+    args << "--without-flac" if build.without? "flac"
+    args << "--disable-magic" if build.without? "libmagic"
 
     system "./autogen.sh" if build.head?
 

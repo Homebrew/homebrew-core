@@ -7,6 +7,7 @@ class Premake < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "281734bfd013bdcb0cd89ebef0b2efae95c3936f230c8aa1fb9de5294fa25171" => :sierra
     sha256 "68c9aa47ac6de8238a61bcd58609a2fc91c535a66bf7ab7be8aed19a1042e03f" => :el_capitan
     sha256 "288d7582575b6b3d9f8cf051a8c6df2213015437fe3d66257ab3e236f90e189a" => :yosemite
     sha256 "4ca2745c7e5628a8f830a6eccded4f4e768c17648fef673700a7ba322415b0a9" => :mavericks

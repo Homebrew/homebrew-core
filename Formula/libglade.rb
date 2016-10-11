@@ -6,7 +6,8 @@ class Libglade < Formula
   revision 1
 
   bottle do
-    revision 2
+    rebuild 2
+    sha256 "eef5c09a4d8f210e49dba22ea37ffa4f79cf7be4242878320ff83fc814a9614d" => :sierra
     sha256 "85bbc32bc66b4efed22925bd76891f65d1b83455957ddf21bb0e0670da747a0f" => :el_capitan
     sha256 "5c650d4a9eb7de60ce0b74a15825b0396a3811df14c51ea53b2d4477cf1835cc" => :yosemite
     sha256 "a9fdc34b5efc22d5193598ca045f6fd05828428c4b691bba1a18082e989b54ed" => :mavericks

@@ -47,11 +47,6 @@ class Llvm < Formula
       sha256 "77d7f3784c88096d785bd705fa1bab7031ce184cd91ba8a7008abf55264eeecc"
     end
 
-    resource "libcxxabi" do
-      url "http://llvm.org/releases/3.8.1/libcxxabi-3.8.1.src.tar.xz"
-      sha256 "e1b55f7be3fad746bdd3025f43e42d429fb6194aac5919c2be17c4a06314dae1"
-    end
-
     resource "libunwind" do
       url "http://llvm.org/releases/3.8.1/libunwind-3.8.1.src.tar.xz"
       sha256 "21e58ce09a5982255ecf86b86359179ddb0be4f8f284a95be14201df90e48453"
@@ -79,6 +74,7 @@ class Llvm < Formula
   end
 
   bottle do
+    sha256 "ce2d461a9aff5e4b91bdb76f855be312e0b2f3e8a92950ff8628a465ea9f71cb" => :sierra
     sha256 "3198e307a4360b428c953cc00408e5b80bd07b4946b96db8bbbfb03f81cb4aa2" => :el_capitan
     sha256 "1957948bbbbee09eac331b2b0bad399b04f94d8c79271ea0aee4ac99ab7e6100" => :yosemite
     sha256 "dba4556fbb273ef07dcc135a32eabb4b2eafb874ceecb9732b2ccaeded965a80" => :mavericks
@@ -101,10 +97,6 @@ class Llvm < Formula
 
     resource "libcxx" do
       url "http://llvm.org/git/libcxx.git"
-    end
-
-    resource "libcxxabi" do
-      url "http://llvm.org/git/libcxxabi.git"
     end
 
     resource "libunwind" do
@@ -133,16 +125,12 @@ class Llvm < Formula
   option :universal
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
   option "without-libcxx", "Do not build libc++ standard library"
-  option "with-libcxxabi", "Build libc++abi standard library"
   option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
-  # From TODO.TXT file in libcxxabi: CMake always link to /usr/lib/libc++abi.dylib on OS X.
-  # Building libcxxabi results in an additional @rpath in libc++.1.0.dylib that Homebrew can not "fix".
-  # As a result, library does not work when invoked as usual.
   option "without-libunwind", "Do not build libunwind library"
   option "without-lld", "Do not build LLD linker"
   option "with-lldb", "Build LLDB debugger"
   option "with-python", "Build bindings against custom Python"
-  option "without-rtti", "Build without C++ RTTI"
+  option "without-rtti", "Build without C++ RTTI or exception handling"
   option "without-utils", "Do not install utility binaries"
   option "without-polly", "Do not build Polly optimizer"
   option "with-test", "Build LLVM unit tests"
@@ -187,11 +175,9 @@ class Llvm < Formula
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx?
+    (buildpath/"projects/libunwind").install resource("libunwind") if build.with? "libunwind"
     (buildpath/"tools/lld").install resource("lld") if build.with? "lld"
     (buildpath/"tools/polly").install resource("polly") if build.with? "polly"
-    ["libcxxabi", "libunwind"].each do |r|
-      (buildpath/"projects"/r).install resource(r) if build.with? r
-    end
 
     if build.with? "lldb"
       if build.with? "python"
@@ -226,7 +212,6 @@ class Llvm < Formula
 
     args = %w[
       -DLLVM_OPTIMIZED_TABLEGEN=ON
-      -DLLVM_ENABLE_EH=ON
     ]
     args << "-DLLVM_TARGETS_TO_BUILD=#{build.with?("all-targets") ? "all" : "AMDGPU;ARM;NVPTX;X86"}"
     args << "-DLIBOMP_ARCH=x86_64"
@@ -244,10 +229,13 @@ class Llvm < Formula
       args << "-DLLVM_BUILD_TESTS=ON"
       args << "-DLLVM_ABI_BREAKING_CHECKS=WITH_ASSERTS"
     end
-    args << "-DLLVM_ENABLE_RTTI=ON" if build.with? "rtti"
+
+    if build.with? "rtti"
+      args << "-DLLVM_ENABLE_RTTI=ON"
+      args << "-DLLVM_ENABLE_EH=ON"
+    end
     args << "-DLLVM_INSTALL_UTILS=ON" if build.with? "utils"
     args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
-    args << "-DLLVM_ENABLE_LIBCXXABI=ON" if build.with? "libcxxabi"
 
     if build.with?("lldb") && build.with?("python")
       args << "-DLLDB_RELOCATABLE_PYTHON=ON"
@@ -269,10 +257,6 @@ class Llvm < Formula
     if build.with? "polly"
       args << "-DWITH_POLLY=ON"
       args << "-DLINK_POLLY_INTO_TOOLS=ON"
-    end
-
-    if build.with?("libunwind") && build.with?("libcxxabi")
-      args << "-DLIBCXXABI_USE_LLVM_UNWINDER=ON"
     end
 
     mktemp do
@@ -361,7 +345,7 @@ class Llvm < Formula
 
     # Testing Command Line Tools
     if MacOS::CLT.installed?
-      libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS.clang_version}*"].last { |f| File.directory? f }
+      libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{DevelopmentTools.clang_version}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",
               "-I/Library/Developer/CommandLineTools/usr/include/c++/v1",
@@ -379,7 +363,7 @@ class Llvm < Formula
 
     # Testing Xcode
     if MacOS::Xcode.installed?
-      libclangxc = Dir["#{MacOS::Xcode.toolchain_path}/usr/lib/clang/#{MacOS.clang_version}*"].last { |f| File.directory? f }
+      libclangxc = Dir["#{MacOS::Xcode.toolchain_path}/usr/lib/clang/#{DevelopmentTools.clang_version}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",
               "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",

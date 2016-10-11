@@ -1,15 +1,14 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/googlei18n/libphonenumber"
-  url "https://github.com/googlei18n/libphonenumber/archive/libphonenumber-7.5.1.tar.gz"
-  sha256 "42bb57b8c582920fc2d96ed1db07bc4792ec0731bc0f1f24dbc1e177f99bb77d"
-  revision 1
+  url "https://github.com/googlei18n/libphonenumber/archive/libphonenumber-7.7.2.tar.gz"
+  sha256 "5017fa93b7639674686642576f9f1caffe6279862eb9648e36e768637edb76ce"
 
   bottle do
     cellar :any
-    sha256 "da401c86d4f092071d474d7d76c7169001321119b85fd98a60863b06f68d8723" => :el_capitan
-    sha256 "a2f2ceb2a1ae6bee33dde893c95620c9a73dce524ad467939094af654fa6cae0" => :yosemite
-    sha256 "9473b515946b49c606ea47d972770dcd06f4a9a7f02ce0290e10e4bf47edd5b7" => :mavericks
+    sha256 "f7e4357ccf26abdebc771ef6d3685896ddb01d7cf3f032f5cd76f550fbbc400f" => :sierra
+    sha256 "f841249aa93f8e9ac2aec7992740588b595a4729921aeb0da8d7c6345a240cb8" => :el_capitan
+    sha256 "925b9e702d2ed3a3b213abc6c6756df99d13a719913f3e6be2b3d1a5787413d7" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -20,7 +19,7 @@ class Libphonenumber < Formula
   depends_on "re2"
 
   resource "gtest" do
-    url "https://googletest.googlecode.com/files/gtest-1.7.0.zip"
+    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/googletest/gtest-1.7.0.zip"
     sha256 "247ca18dd83f53deb1328be17e4b1be31514cedfc1e3424f672bf11fd7e0d60d"
   end
 

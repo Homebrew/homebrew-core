@@ -6,6 +6,7 @@ class Librsync < Formula
   revision 1
 
   bottle do
+    sha256 "f17fa395aecc8198c3a09d6eb483a45d0a2b091280f18b5c6576cf3c7b54557e" => :sierra
     sha256 "f9b52eb45dd0cc166e5d31e3a90cd02bd99c619a5893dd3c8129757528e410cb" => :el_capitan
     sha256 "31709e2fe6f0480a825209e7aa13602f768db43be57477738e2f7f7150213869" => :yosemite
     sha256 "bc7ada34fb6aae7fcb9a303a3daeda5861ab11e0a966425aaed2e549fd88e6b9" => :mavericks

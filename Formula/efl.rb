@@ -1,27 +1,25 @@
 class Efl < Formula
-  desc "Libraries for the Enlightenment window manager"
+  desc "Enlightenment Foundation Libraries"
   homepage "https://www.enlightenment.org"
-  url "https://download.enlightenment.org/rel/libs/efl/efl-1.14.2.tar.gz"
-  sha256 "e5699d8183c1540fe45dddaf692254632f9131335e97a09cc313e866a150b42c"
-  revision 2
+  url "https://download.enlightenment.org/rel/libs/efl/efl-1.18.1.tar.xz"
+  sha256 "0c6bd150d8e838f849effd462d91d86255e3aaade47a6077d0aa80d2b8e9d222"
 
   bottle do
-    sha256 "a8e51818234a137bc021469bf37a52c84608d4e399420b71ff360682c8a7a8ae" => :el_capitan
-    sha256 "a8fe89f450fc0328f84a442b138a93ebbdd516d03ccfe333e3c21fa080befd7f" => :yosemite
-    sha256 "4d1e000d79e426ffaf82e1b4603239b2c629c8eab5549b29d403a2b88eca24f5" => :mavericks
+    sha256 "fe5856e42d8e14cbc63b37214315e9d2ac68bf239bf4ed088ffccff088222cfc" => :sierra
+    sha256 "f72a6c0775cc646a22baa5c19f49eb88258de9dd9fb02ffc7d86df0f5b180de1" => :el_capitan
+    sha256 "2c8dd2fe10fe1a194ab3e6b9d50c4d038722036c00c15291c389f22cda2f37a9" => :yosemite
   end
 
   option "with-docs", "Install development libraries/headers and HTML docs"
 
   depends_on "doxygen" => :build if build.with? "docs"
   depends_on "pkg-config" => :build
-  depends_on :x11 => :optional
+  depends_on "gettext" => :build
   depends_on "openssl"
   depends_on "freetype"
   depends_on "fontconfig"
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on "webp" => :optional
   depends_on "luajit"
   depends_on "fribidi"
   depends_on "giflib"
@@ -31,18 +29,24 @@ class Efl < Formula
   depends_on "dbus"
   depends_on "pulseaudio"
   depends_on "bullet"
+  depends_on "libsndfile"
+  depends_on "libspectre"
+  depends_on "libraw"
+  depends_on "librsvg"
+  depends_on "poppler"
+  depends_on "webp" => :optional
+  depends_on "glib" => :optional
 
   needs :cxx11
 
   def install
     ENV.cxx11
-    args = ["--disable-dependency-tracking",
-            "--disable-silent-rules",
-            "--enable-cocoa",
-            "--enable-i-really-know-what-i-am-doing-and-that-this-will-probably-break-things-and-i-will-fix-them-myself-and-send-patches-aba", # There's currently (1.14) no clean profile for Mac OS, so we need to force passing configure
-            "--prefix=#{prefix}",
-           ]
-    args << "--with-x11=none" if build.without? "x11"
+
+    args = %W[
+      --disable-cxx-bindings
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+    ]
 
     system "./configure", *args
     system "make", "install"
@@ -50,6 +54,8 @@ class Efl < Formula
   end
 
   test do
-    system "#{bin}/edje_cc", "-V"
+    system bin/"edje_cc", "-V"
+    system bin/"eolian_gen", "-h"
+    system bin/"eet", "-V"
   end
 end

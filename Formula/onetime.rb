@@ -22,18 +22,19 @@ class Onetime < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 2
+    rebuild 2
+    sha256 "37cf417291ce11a6313bde209490f3cce0ca5f47b17579e28720568088de89fa" => :sierra
     sha256 "4d27502d9a4b8d257182dcaf99b05121033352928c3716a1ebe932a24276e73a" => :el_capitan
     sha256 "561f129baa60ba8aa08f47130a35f531fdd7ddda80c3e0636bd39c96c3d06930" => :yosemite
     sha256 "31698cc41c95bdb23f340f2641124826f8b5324a69ce338146e7c01800646fa5" => :mavericks
   end
 
   devel do
-    url "http://red-bean.com/onetime/onetime-2.0-beta12.tar.gz"
+    url "http://red-bean.com/onetime/onetime-2.0-beta13.tar.gz"
     # FIXME: I can't rememeber why the custom version was added now, but
     # we're stuck with it now as 2.0-beta(n) is "less" than 2.0.0(n).
-    version "2.0.12"
-    sha256 "c5d41a9ff13064a071a1fdeff8aa8beda21edd7674124c6e111fa74f1976f1ba"
+    version "2.0.13"
+    sha256 "573c7f3a380a9c844dce7f8fe9dcc0086a7b0614b11a56f0b740617bc3dbfe52"
   end
 
   def install
@@ -43,9 +44,9 @@ class Onetime < Formula
   test do
     system "dd", "if=/dev/random", "of=pad_data.txt", "bs=1024", "count=1"
     (testpath/"input.txt").write "INPUT"
-    system "#{bin}/onetime", "-e", "--pad=pad_data.txt", "--no-trace",
-                             "--config=.", "input.txt"
-    system "#{bin}/onetime", "-d", "--pad=pad_data.txt", "--no-trace",
-                             "--config=.", "input.txt.onetime"
+    system bin/"onetime", "-e", "--pad=pad_data.txt", "--no-trace",
+                          "--config=.", "input.txt"
+    system bin/"onetime", "-d", "--pad=pad_data.txt", "--no-trace",
+                          "--config=.", "input.txt.onetime"
   end
 end

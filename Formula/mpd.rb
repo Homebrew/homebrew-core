@@ -1,14 +1,15 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.19/mpd-0.19.17.tar.xz"
-  sha256 "487ec8ad2b1c1c193c2a7c8975a8b8fe2e4f0335bcc2e9356b2b34a0179fb2f7"
+  url "https://www.musicpd.org/download/mpd/0.19/mpd-0.19.19.tar.xz"
+  sha256 "bc856cda4136403446d53d11576f86990b61d1fe4668f6008e9eae47450d4e1d"
 
   bottle do
     cellar :any
-    sha256 "942a30333287d471ffae13ed00c317f7bf7f40ba6309e8cf92f56f9d50ebe621" => :el_capitan
-    sha256 "a1044b314b13e5367f1bce688e92a141864e0d2215838b8225be273784ff5621" => :yosemite
-    sha256 "ef6b0b59c8282e62b43f833959566971dc10eb1ed15ac17b25b42452ed34f086" => :mavericks
+    sha256 "29337ce0c35d232d46de6b78d6cad61a27c0f03f121bac14fae0bba82f13191f" => :sierra
+    sha256 "3ce1569870c265daeba4814181ee07fd7acfdaa171117962c7716ddd716d4fe3" => :el_capitan
+    sha256 "cf09a9c859ffdc44b091cd1223d930380fd621fa92c63932f3978fd2a284ac9c" => :yosemite
+    sha256 "47823fe1c016b65e6c1900c9a29bcbe1d231f6a5ed82f3b646f72c771ba1108d" => :mavericks
   end
 
   head do
@@ -132,6 +133,7 @@ class Mpd < Formula
 
     begin
       assert_match "OK MPD", shell_output("curl localhost:6600")
+      assert_match "ACK", shell_output("(sleep 1; echo playid foo) | nc localhost 6600")
     ensure
       Process.kill "SIGINT", pid
       Process.wait pid

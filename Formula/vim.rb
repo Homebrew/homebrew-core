@@ -2,14 +2,15 @@ class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
   # *** Vim should be updated no more than once every 7 days ***
-  url "https://github.com/vim/vim/archive/v7.4.2152.tar.gz"
-  sha256 "578c096ad872dafe63c6ffe1b85e2bf89f96cd350fe9615c58adda0dbc8e97ad"
+  url "https://github.com/vim/vim/archive/v8.0.0027.tar.gz"
+  sha256 "b76593fd63ce3e2ae2e06eb5eb49cc8c35818ae5497b683ab4dbf839fe27a923"
+
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "e51f8bcffd48066fe006c6d02d3e56849164839d01d475a1a3e95769a7da04e2" => :el_capitan
-    sha256 "34cce0b787711eedb93b137409e6058475700fe45c330c805da78275fcf136fa" => :yosemite
-    sha256 "ad22c0a13169b773d3fb759c335e8f4b94a6fb8ebaed8cca751ac668103b32c0" => :mavericks
+    sha256 "a0d3acadea7a67cead9a685edd348bf390c41abbfdcc4da185edee9e71420bdb" => :sierra
+    sha256 "d9830d3e4ab70ecb05a497886a9e676dc8e0d0ae3f17e92bbb816500c2962a8e" => :el_capitan
+    sha256 "a2b608ea3db6e75a87004ac5eaf1690ca83b24e4520de8d07207f555e63495ee" => :yosemite
   end
 
   deprecated_option "disable-nls" => "without-nls"
@@ -102,10 +103,13 @@ class Vim < Formula
                           "--with-compiledby=Homebrew",
                           *opts
     system "make"
+    # Parallel install could miss some symlinks
+    # https://github.com/vim/vim/issues/1031
+    ENV.deparallelize
     # If stripping the binaries is enabled, vim will segfault with
     # statically-linked interpreters like ruby
     # https://github.com/vim/vim/issues/114
-    system "make", "install", "prefix=#{prefix}", "STRIP=true"
+    system "make", "install", "prefix=#{prefix}", "STRIP=#{which "true"}"
     bin.install_symlink "vim" => "vi" if build.with? "override-system-vi"
   end
 

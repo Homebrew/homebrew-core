@@ -1,14 +1,15 @@
 class Kpcli < Formula
   desc "command-line interface to KeePass database files"
   homepage "http://kpcli.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.0.pl"
-  sha256 "947b7b0485215f72e14bb8936c847abb583253c597f58234650922270259049c"
+  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.1.pl"
+  sha256 "f1f07704a30d0eae126717d5dae0d24ccced43c316454e4a7b868fe0a239a21a"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "de865483b0c406a9d2791abec379fef639bf7cd3b25ef9712c1695a57ec4b9a7" => :el_capitan
-    sha256 "0810129acf98a2cd92bf9087ff5c035e31ec18d40c4dec57ccb23178f464480b" => :yosemite
-    sha256 "77ede4c769bfc37d3f6c1d876bcd288bd5af918cfe78222cfbd6e0d140b11360" => :mavericks
+    sha256 "56d487c750f8aceb848fe38847d4f9f93cf9aece7d1cce2c06b1375a7269f41e" => :sierra
+    sha256 "e94898161025e19fe681f2874ab8139850d28003f2d689dbc48e827457fcbbdb" => :el_capitan
+    sha256 "163ec79488cdf951eb248fc9ca45cba2c8c1f095669d54494452d2e16f931478" => :yosemite
   end
 
   depends_on "readline"
@@ -34,8 +35,8 @@ class Kpcli < Formula
   end
 
   resource "Term::Readline::Gnu" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.28.tar.gz"
-    sha256 "0d140df5155579cfdc833fee30f4a70401244333d93ead94ec64022e2d705517"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.34.tar.gz"
+    sha256 "a965fd0601bea84cb65e0c5e6a1eb3469fe2d99772be235faccbc49c57edf6cd"
   end
 
   resource "Data::Password" do
@@ -54,8 +55,8 @@ class Kpcli < Formula
   end
 
   resource "Capture::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.34.tar.gz"
-    sha256 "ee69e315817d78e7630e6083cda369ea9a100a2763396f36dcb172adb3f4f1a9"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.44.tar.gz"
+    sha256 "3ad2bb950a112c282a90018e91e60ddc4c4d2d351de2869d46a8c3db5b611160"
   end
 
   def install
@@ -89,7 +90,7 @@ class Kpcli < Formula
       system "make", "install"
     end
 
-    libexec.install "kpcli-3.0.pl" => "kpcli"
+    libexec.install "kpcli-#{version}.pl" => "kpcli"
     chmod 0755, libexec/"kpcli"
     (bin/"kpcli").write_env_script("#{libexec}/kpcli", :PERL5LIB => ENV["PERL5LIB"])
   end

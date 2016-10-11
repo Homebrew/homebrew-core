@@ -6,7 +6,8 @@ class Mpdscribble < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "4d75fda4d103bb09de6589f423a5bcae350b36710c632a4c9d26a2cc4adb31fe" => :sierra
     sha256 "68462d65b9b5e81582b923ee81ae6f02f8260d33cba36b2507d132d8ca39783e" => :el_capitan
     sha256 "1b42dbee7ea325f3a5bd3de346ecfa9904dd5bcf65a68e10ee6f34d5065001c3" => :mavericks
   end

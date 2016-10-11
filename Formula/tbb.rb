@@ -1,15 +1,15 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://www.threadingbuildingblocks.org/"
-  url "https://www.threadingbuildingblocks.org/sites/default/files/software_releases/source/tbb44_20160128oss_src_0.tgz"
-  version "4.4-20160128"
-  sha256 "8d256bf13aef1b0726483af9f955918f04e3de4ebbf6908aa1b0c94cbe784ad7"
+  url "https://www.threadingbuildingblocks.org/sites/default/files/software_releases/source/tbb2017_20160916oss_src.tgz"
+  version "4.4-20160916"
+  sha256 "600c67f1c5a730e411b3bf2e792cfe5808f40c4f0354a9b613827fff0ef27fc4"
 
   bottle do
     cellar :any
-    sha256 "0cf0e393e5a6e1a48fae36e5c3f90bfd23030c9ba190280c1f7eb58ee3890199" => :el_capitan
-    sha256 "e1c15f6313b69d6b214d4dbe6e8d79b53179f3ec649ac51dcb775a2eabccadfb" => :yosemite
-    sha256 "33d6f509064574263767772e3563a1466e4a9c2208b94ae74ef51f1bae694b32" => :mavericks
+    sha256 "73c1cd36c36438422b4ef200d8928c2d22145bc17ec6b2548039d80ab6107dfe" => :sierra
+    sha256 "6cb9dd98e549c62298aeadfca71acdaf487b03fcce9f51ad3955714b5017a79a" => :el_capitan
+    sha256 "ede1550b833c4e2f9aad3d3d33edb07bbfea2dac58d0ef8237b5386c12cca11a" => :yosemite
   end
 
   option :cxx11
@@ -17,12 +17,15 @@ class Tbb < Formula
   # requires malloc features first introduced in Lion
   # https://github.com/Homebrew/homebrew/issues/32274
   depends_on :macos => :lion
+  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "swig" => :build
 
   def install
     # Intel sets varying O levels on each compile command.
     ENV.no_optimization
 
-    args = %W[tbb_build_prefix=BUILDPREFIX]
+    compiler = ENV.compiler == :clang ? "clang" : "gcc"
+    args = %W[tbb_build_prefix=BUILDPREFIX compiler=#{compiler}]
 
     if build.cxx11?
       ENV.cxx11
@@ -32,6 +35,11 @@ class Tbb < Formula
     system "make", *args
     lib.install Dir["build/BUILDPREFIX_release/*.dylib"]
     include.install "include/tbb"
+
+    cd "python" do
+      ENV["TBBROOT"] = prefix
+      system "python", *Language::Python.setup_install_args(prefix)
+    end
   end
 
   test do

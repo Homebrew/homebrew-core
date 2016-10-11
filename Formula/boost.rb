@@ -1,16 +1,15 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://downloads.sourceforge.net/project/boost/boost/1.61.0/boost_1_61_0.tar.bz2"
-  sha256 "a547bd06c2fd9a71ba1d169d9cf0339da7ebf4753849a8f7d6fdb8feee99b640"
-
+  url "https://downloads.sourceforge.net/project/boost/boost/1.62.0/boost_1_62_0.tar.bz2"
+  sha256 "36c96b0f6155c98404091d8ceb48319a28279ca0333fba1ad8611eb90afb2ca0"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "cf0a3e673995d242dc3169b3a13e17dd3757cedbdc9083f5ac3ee13e7edba3e4" => :el_capitan
-    sha256 "66e93754c6dc599c01b5637552627631cec725a2b244f6b45fafb63632a65cbb" => :yosemite
-    sha256 "c47d422d5f47456651a650e4c2d3e234ecc64a8d293d4a32f44521bab6a9da64" => :mavericks
+    sha256 "22763fd3647255018dc31832f2513c03f36a56c3461c03e03cf5e8866cc64ce5" => :sierra
+    sha256 "5c639c9f61b56ed1d99a5b8b25d149c366543330b654c429fe939e57fae9541b" => :el_capitan
+    sha256 "527fdbeaa9f685e3de45938bf897e145292471250c6e47ea50ff1635f121b67a" => :yosemite
   end
 
   env :userpaths

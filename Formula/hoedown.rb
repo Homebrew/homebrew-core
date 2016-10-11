@@ -6,6 +6,7 @@ class Hoedown < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f940a418b3ca712a91e8b782d61618a2b1cf2c662a98f636e4df1318fbb9f508" => :sierra
     sha256 "7076f6f7c091919a3619a5a5655270d79dab42fdb6d7dfdc3f1324318ca4ec6d" => :el_capitan
     sha256 "fc37aa79feca395a49b3e15348d8156721ba1713dfb740622c57a696d1ec5e58" => :yosemite
     sha256 "9940929bd2ede20f973f29fdac888c6b664188bf29e9a1f7c8eba0eeb42e6206" => :mavericks

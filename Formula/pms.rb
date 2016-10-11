@@ -5,6 +5,7 @@ class Pms < Formula
   sha256 "96bf942b08cba10ee891a63eeccad307fd082ef3bd20be879f189e1959e775a6"
 
   bottle do
+    sha256 "8d96a7dafe25504a4bf927b94119265f6dfd0459aaaed9d1867601aa24ed8728" => :sierra
     sha256 "65b6bfe7e5eca6e7f073e4f9c3fc7c46df538c91010059781369bacbc628256b" => :el_capitan
     sha256 "4093093ca7be2f6aaee5f50d3185323df4fcea2ed389f29615a1b79fb3648be4" => :yosemite
     sha256 "2f7dd91d357ac34393e55d7de6ffca2b21a64adfa084a6b6dd5c5aa43caed170" => :mavericks

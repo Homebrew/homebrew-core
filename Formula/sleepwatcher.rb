@@ -6,6 +6,7 @@ class Sleepwatcher < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b9ebee67696518e4d79efee6e8d564de9b6ccc67fbfea07f68b264b8c6a2a80a" => :sierra
     sha256 "d1abbc5f4752f77a01b1dfbadf831f58affc245137535d030992bd5cd3b1dd9c" => :el_capitan
     sha256 "e4e3d7f9802dcf14431334c3187108c554c5315b3e34bc03dcb76e8f181158f5" => :yosemite
     sha256 "b59893325808df64d3944f9aef6c66f6420d16cba36a2a1934bb8260bc27fe2f" => :mavericks
@@ -34,13 +35,10 @@ class Sleepwatcher < Formula
     (prefix + "etc/sleepwatcher").install Dir["config/rc.*"]
 
     # Write the launchd scripts
-    inreplace Dir["config/*.plist"] do |s|
-      s.gsub! "/usr/local/sbin", HOMEBREW_PREFIX/"sbin"
-    end
+    inreplace Dir["config/*.plist"], "/usr/local/sbin", HOMEBREW_PREFIX/"sbin"
 
-    inreplace "config/de.bernhard-baehr.sleepwatcher-20compatibility.plist" do |s|
-      s.gsub! "/etc", (etc + "sleepwatcher")
-    end
+    inreplace "config/de.bernhard-baehr.sleepwatcher-20compatibility.plist",
+      "/etc", etc/"sleepwatcher"
 
     prefix.install Dir["config/*.plist"]
   end

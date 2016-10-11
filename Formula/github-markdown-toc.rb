@@ -8,6 +8,7 @@ class GithubMarkdownToc < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "947ccfaccb7328b9ebd8b3cab77e2ab0ca73f84d7f0025c3521fcea445c355fb" => :sierra
     sha256 "69fa10cb92f8674bd610b29fad0708ae30248c7ec1635bbd419cdd6f80f3273b" => :el_capitan
     sha256 "b68351ec94b8aa3ef4ab146acc4397a10737d684a4776642a3c0e8cf07c00deb" => :yosemite
     sha256 "7439b7dd49932ada1b2fc943ff6093a856760c7420048f1f780740fedaca88e2" => :mavericks
@@ -17,17 +18,17 @@ class GithubMarkdownToc < Formula
 
   go_resource "github.com/alecthomas/template" do
     url "https://github.com/alecthomas/template.git",
-      :revision => "14fd436dd20c3cc65242a9f396b61bfc8a3926fc"
+        :revision => "14fd436dd20c3cc65242a9f396b61bfc8a3926fc"
   end
 
   go_resource "github.com/alecthomas/units" do
     url "https://github.com/alecthomas/units.git",
-      :revision => "2efee857e7cfd4f3d0138cc3cbb1b4966962b93a"
+        :revision => "2efee857e7cfd4f3d0138cc3cbb1b4966962b93a"
   end
 
   go_resource "gopkg.in/alecthomas/kingpin.v2" do
     url "https://github.com/alecthomas/kingpin.git",
-      :revision => "v2.1.11"
+        :revision => "v2.1.11"
   end
 
   def install

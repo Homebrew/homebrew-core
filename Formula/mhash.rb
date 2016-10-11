@@ -6,6 +6,7 @@ class Mhash < Formula
 
   bottle do
     cellar :any
+    sha256 "f630165dd7f7a0f8e5b710e0e0af5ebca6ca0edc98cd46a01b617a3e16bff7ea" => :sierra
     sha256 "8817cea2b724d7ea00fd1efb348aa8bdb5d93ca155cb9ccf8eb316f76b42941b" => :el_capitan
     sha256 "fb03873f042a16fd2db5ae2a7eb62e970927b75a9dff92decbb3fd035a2bd41f" => :yosemite
     sha256 "eb2799dca9f7c9d020e76034361c5859a4dc7e8aecaf4f1e989901b12ef4420c" => :mavericks

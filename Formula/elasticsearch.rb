@@ -1,13 +1,12 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.5/elasticsearch-2.3.5.tar.gz"
-  sha256 "1119a8c18620b98c4b85261318663a1f26dea92a26f34dfeb7f813fb7cbb468a"
+  url "https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.1/elasticsearch-2.4.1.tar.gz"
+  sha256 "23a369ef42955c19aaaf9e34891eea3a055ed217d7fbe76da0998a7a54bbe167"
 
   devel do
-    url "https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/5.0.0-alpha4/elasticsearch-5.0.0-alpha4.tar.gz"
-    sha256 "088ca4a5bd34b3c46c910bfe8948b1bc77bbb2a06a92e6aa161f3552c0afd46c"
-    version "5.0.0-alpha4"
+    url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.0-beta1.tar.gz"
+    sha256 "4ff6680b2d053c74835db77dcb03e02340555cd70cae8bb73d3b1f94ddf0147d"
   end
 
   head do

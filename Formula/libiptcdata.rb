@@ -5,7 +5,8 @@ class Libiptcdata < Formula
   sha256 "79f63b8ce71ee45cefd34efbb66e39a22101443f4060809b8fc29c5eebdcee0e"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "d87011cbe7d98af0df3210ee1a01aaf35da267d9894b095ba031911a980d8c4e" => :sierra
     sha256 "37747abe5597a40dec5a741919eaa46bedc42472bb909b9a09c4a200e5d592d4" => :el_capitan
     sha256 "14f6b3a649e0d944768e5e3a1e4d44e1efd0389fdeaa5740993b10ee7a42c718" => :yosemite
     sha256 "e88aff2cc7949c8c05608811f894bd6816d797eeffe74f35118168168512738c" => :mavericks

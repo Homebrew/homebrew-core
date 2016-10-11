@@ -9,6 +9,7 @@ class Pup < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6c542761d7bcbb8615391bc4972dd736959b7a509a049d95dc09cfbdab18a9b7" => :sierra
     sha256 "2a9ec79a05eeadfb90a35a38a72009ea7deaa7d53e549b6bc4fd99ac99912ed3" => :el_capitan
     sha256 "6453ea102503241bc2290d193831e1f0d6cadf22d801d50eeb885a42400059d6" => :yosemite
     sha256 "9e6e6b1015033619137627ee4b1338ffece6d8f2e67e2cbebaa8a81fa67cc311" => :mavericks

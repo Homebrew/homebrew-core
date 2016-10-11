@@ -19,7 +19,6 @@ class Dshb < Formula
   end
 
   test do
-    ENV["TERM"] = "xterm"
     pipe_output("#{bin}/dshb", "q", 0)
   end
 end

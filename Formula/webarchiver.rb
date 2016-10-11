@@ -7,7 +7,8 @@ class Webarchiver < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "d62bc4e985e7fe36519af669c626f5fdd3ef56b17ddaaba5d5fdad2505c8277d" => :sierra
     sha256 "63b8f54ff998596d2fab065f616f38d0c72dee9a48ae80a06c433a78813b4b11" => :el_capitan
     sha256 "0c86758734efe96b1f6d0fc8294691ff62e4d191d97312b614511d20b0f989f3" => :yosemite
     sha256 "404f9ffdf69b13cd1e89a51c331b4f8478400944eaf109a5d6f380dcf97bbddb" => :mavericks

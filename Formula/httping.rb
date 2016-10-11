@@ -1,17 +1,15 @@
 class Httping < Formula
   desc "Ping-like tool for HTTP requests"
   homepage "https://www.vanheusden.com/httping/"
-  url "https://www.vanheusden.com/httping/httping-2.4.tgz"
-  sha256 "dab59f02b08bfbbc978c005bb16d2db6fe21e1fc841fde96af3d497ddfc82084"
-  revision 1
-
+  url "https://www.vanheusden.com/httping/httping-2.5.tgz"
+  sha256 "3e895a0a6d7bd79de25a255a1376d4da88eb09c34efdd0476ab5a907e75bfaf8"
   head "https://github.com/flok99/httping.git"
 
   bottle do
     cellar :any
-    sha256 "bee4a915ecb4ebc8b74ae05c3b51b95f94629f75ea30e4df255392904f98380c" => :el_capitan
-    sha256 "06236c9892c91124bbc3d6942a9741564eb9c0e49f3c972efe00bc55cf56bf10" => :yosemite
-    sha256 "1386f523b728db68133283449e7ea5476c842056e168440437b87039decfea22" => :mavericks
+    sha256 "b209aa24927ed620ce6a7e676c7358ca94d17ec456c8b7b49b72b1aec57c44ed" => :sierra
+    sha256 "f283d8cde06988fa6117d7cb1e008ae480851e8f4e9ba60fd8f429864499f983" => :el_capitan
+    sha256 "c4784fc08f239a6fd0f778657fe11509f445ee889f6d6b305c30c533be25f35c" => :yosemite
   end
 
   depends_on "gettext"

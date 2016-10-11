@@ -4,15 +4,14 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/mitchellh/packer.git",
-      :tag => "v0.10.1",
-      :revision => "4e5f65131b5491ab44ff8aa0626abe4a85597ac0"
+      :tag => "v0.10.2",
+      :revision => "fb1c968d573f2a6b65af1d0b14a892d730dd7778"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "31e21ee5ff24a8c51278c7a36e160d9ddbf5e6802dc390058a8f4de8dbea015d" => :el_capitan
-    sha256 "e3e7800177980a564dd4d839f4b4971766f2cf8d131d1c90d902b109efe3c2b2" => :yosemite
-    sha256 "2931abdc89cce4f51c85fc05c649af2d6839a72ef96f6d2f69e11b498d7dfca6" => :mavericks
+    sha256 "ba6e462887a2a2caa26450e71eb59bcb64280a87dd866485c024dc861d8c60b8" => :sierra
+    sha256 "b7ce3f2f0e15e6564f49a57267d2f476cd78cc4d19f857c2a4750104525f3a86" => :el_capitan
+    sha256 "8c9ba1723e40fa621f06358fa0dd90e5fa3ff07fbe801126e214db15c5dac611" => :yosemite
   end
 
   depends_on :hg => :build
@@ -20,17 +19,17 @@ class Packer < Formula
 
   go_resource "github.com/mitchellh/gox" do
     url "https://github.com/mitchellh/gox.git",
-      :revision => "6e9ee79eab7bb1b84155379b3f94ff9a87b344e4"
+        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
   end
 
   go_resource "github.com/mitchellh/iochan" do
     url "https://github.com/mitchellh/iochan.git",
-      :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
+        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
   end
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-      :revision => "8b3828f1c8f7c67e5ebb863a4c632937778eaaae"
+        :revision => "3f4088edb48e8a4e3c66a5f8e7b2a78615fcb83f"
   end
 
   def install

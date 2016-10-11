@@ -1,15 +1,16 @@
 class Fabio < Formula
-  desc "Zero-conf load balancing HTTP(S) router."
+  desc "Zero-conf load balancing HTTP(S) router"
   homepage "https://github.com/eBay/fabio"
-  url "https://github.com/eBay/fabio/archive/v1.2.tar.gz"
-  sha256 "b01f0dc0a299ffd8d9f386783646e6782701609b7ede63e060e37ccad5a50bde"
+  url "https://github.com/eBay/fabio/archive/v1.3.2.tar.gz"
+  sha256 "2f8b8451c83b6c72b6d5365e4cb1eddc3e8d45938b53f1d24f74fe8760d539ae"
   head "https://github.com/eBay/fabio.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "adf99018f03fb127768a7fafdb2a91f95a3eec745d0d1b40519d0c130ae4e6e7" => :el_capitan
-    sha256 "bf4da8915b249a46278d63fa68d2c123d4af622f72835a02b7714f09edd10022" => :yosemite
-    sha256 "6f493cd9615ed33280893b2d575c5c3cec75de0c18a0d1a6b66866afe06eecee" => :mavericks
+    sha256 "ab9a62cc29321f672022f51015605db1183699a1339df16d30bcd8944e7dfb41" => :sierra
+    sha256 "0ac98d351c614b80e2dc01a2bd23da313709ba715c43dad6f3801e416bc1e123" => :el_capitan
+    sha256 "0edc187ea6ab4064a709bad24048026f21ef49ff2e8c36a7e77764aa94b899dd" => :yosemite
+    sha256 "c46038cecf11239216443dba458864da3af8ffea5a95f9ae953d75721b9f3d93" => :mavericks
   end
 
   depends_on "go" => :build
@@ -29,9 +30,9 @@ class Fabio < Formula
     require "socket"
     require "timeout"
 
-    CONSUL_DEFAULT_PORT=8500
-    FABIO_DEFAULT_PORT=9999
-    LOCALHOST_IP="127.0.0.1".freeze
+    CONSUL_DEFAULT_PORT = 8500
+    FABIO_DEFAULT_PORT = 9999
+    LOCALHOST_IP = "127.0.0.1".freeze
 
     def port_open?(ip, port, seconds = 1)
       Timeout.timeout(seconds) do

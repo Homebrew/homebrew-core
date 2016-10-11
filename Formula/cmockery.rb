@@ -1,11 +1,12 @@
 class Cmockery < Formula
   desc "Unit testing and mocking library for C"
-  homepage "https://code.google.com/p/cmockery/"
-  url "https://cmockery.googlecode.com/files/cmockery-0.1.2.tar.gz"
+  homepage "https://github.com/google/cmockery"
+  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/cmockery/cmockery-0.1.2.tar.gz"
   sha256 "b9e04bfbeb45ceee9b6107aa5db671c53683a992082ed2828295e83dc84a8486"
 
   bottle do
     cellar :any
+    sha256 "f3b1c3d5c96ea9e30dc008e557239e972a18e65b3dd1ee8a593a0eb6e11d7858" => :sierra
     sha256 "6cc440503b2fce7def7d584aacf8e9142ad430de799b466f609f57fd9beb4ede" => :el_capitan
     sha256 "a6ac86af8d5b7f5964a480cc91bfbdaf260c59eae2c4b79663ebab2dfdb7d062" => :yosemite
     sha256 "673662bebae6bc4e43b60137ebad7141af0eeecffa41f4e7c61065b0f2262d25" => :mavericks
@@ -23,7 +24,6 @@ class Cmockery < Formula
 end
 
 __END__
-
 diff -uNr cmockery-0.1.2.orig/src/cmockery.c cmockery-0.1.2/src/cmockery.c
 --- cmockery-0.1.2.orig/src/cmockery.c	2008-08-29 19:55:53.000000000 -0600
 +++ cmockery-0.1.2/src/cmockery.c	2009-05-31 15:29:25.000000000 -0600

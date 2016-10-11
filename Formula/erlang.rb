@@ -4,19 +4,16 @@
 class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
+  # Download tarball from GitHub; it is served faster than the official tarball.
+  url "https://github.com/erlang/otp/archive/OTP-19.1.tar.gz"
+  sha256 "caf320c07bdd4c6e11831a0b0d25645a29112007077dbf11eec22437f8b041ed"
   head "https://github.com/erlang/otp.git"
-
-  stable do
-    # Download tarball from GitHub; it is served faster than the official tarball.
-    url "https://github.com/erlang/otp/archive/OTP-19.0.2.tar.gz"
-    sha256 "d0ec363d460994e63ef984c2367598990978ffe1d41bb0e0c25520a0ee1dab21"
-  end
 
   bottle do
     cellar :any
-    sha256 "37f013b91588e54d30f5300667628eeb58973ffd796805550b0b1143e1ca8ea7" => :el_capitan
-    sha256 "87df689efac86b2fe55d7e6e792e42afdfe8168a37a1cda64270ea69943564ea" => :yosemite
-    sha256 "d208f5b0bee55a701659987293e67b2603184c364e68b6418e5f5c44f40067c9" => :mavericks
+    sha256 "815c3c194f3f2568ad0ffa3f9707bf5d7d5321181f02184072023f7c1f363428" => :sierra
+    sha256 "d97c101daa894170700c426994e8a9bc60fa77d0846701bcff074c470fd81c0b" => :el_capitan
+    sha256 "45acf62bfa269cf97daaa78fdc8394f371cd9bcb96e5f5dd8eeea4f701b3cad1" => :yosemite
   end
 
   option "without-hipe", "Disable building hipe; fails on various OS X systems"
@@ -39,16 +36,24 @@ class Erlang < Formula
   fails_with :llvm
 
   resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_19.0.tar.gz"
-    sha256 "c7a3d6d85a5a2b96d844297a3fa1bee448c3dd86237734688466249fd5a1401e"
+    url "https://www.erlang.org/download/otp_doc_man_19.1.tar.gz"
+    sha256 "7200e9e5b3a229a6b3838046e1b3e64afc869265539d49d0e4853212f19c0c79"
   end
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_19.0.tar.gz"
-    sha256 "b6f7c4e964673333f6c3eea8530dd988b41339b8912ae293f6f1b429489159ff"
+    url "https://www.erlang.org/download/otp_doc_html_19.1.tar.gz"
+    sha256 "76c89aee1ac69b5107114b0065189101e3f42d53e929d8ef8f08b5c586f15930"
   end
 
   def install
+    # Fixes "dyld: Symbol not found: _clock_gettime"
+    # Reported 17 Sep 2016 https://bugs.erlang.org/browse/ERL-256
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      ENV["erl_cv_clock_gettime_monotonic_default_resolution"] = "no"
+      ENV["erl_cv_clock_gettime_monotonic_try_find_pthread_compatible"] = "no"
+      ENV["erl_cv_clock_gettime_wall_default_resolution"] = "no"
+    end
+
     # Unset these so that building wx, kernel, compiler and
     # other modules doesn't fail with an unintelligable error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
@@ -97,7 +102,6 @@ class Erlang < Formula
 
     system "./configure", *args
     system "make"
-    ENV.j1 # Install is not thread-safe; can try to create folder twice and fail
     system "make", "install"
 
     if build.with? "docs"

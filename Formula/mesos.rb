@@ -1,14 +1,14 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=mesos/0.28.1/mesos-0.28.1.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/0.28.1/mesos-0.28.1.tar.gz"
-  sha256 "0995d4979085503d6c47149ac9f241c1107eb01af58683bb41a7ddbab4530c6a"
+  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.0.1/mesos-1.0.1.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/1.0.1/mesos-1.0.1.tar.gz"
+  sha256 "e053d97192ca1dd949e07e6e34cca0f28af9767cdff5ec984769b2102017b0c1"
 
   bottle do
-    sha256 "573959e78d890804de03934e94d0099fb8abc155866e8b6d7b4d1bb87ca592aa" => :el_capitan
-    sha256 "37eb6c6c704469a5644ee090faef496b064313f497841fbe6c84124941a43a25" => :yosemite
-    sha256 "971e2202fd625ed91d1a2a5fc40bb1202868e469f8f2424c00531db10cc8b158" => :mavericks
+    sha256 "71559d903c2c5677dbf6f4fd5d8e87136f35a094f194fa112d88043a99bf63cf" => :sierra
+    sha256 "95464c86a67e1af673af595537e7af770854e59fa864f53f89ef8048d3cad54f" => :el_capitan
+    sha256 "6a94003af55afa369e40b3996f1b4bfce9a2ca9b8ee1d874d34d61b52a3b88e7" => :yosemite
   end
 
   depends_on :java => "1.7+"
@@ -17,11 +17,6 @@ class Mesos < Formula
   depends_on "maven" => :build
   depends_on "subversion"
 
-  resource "boto" do
-    url "https://pypi.python.org/packages/6f/ce/3447e2136c629ae895611d946879b43c19346c54876dea614316306b17dd/boto-2.40.0.tar.gz"
-    sha256 "e12d5fca11fcabfd0acd18f78651e0f0dba60f958a0520ff4e9b73e35cd9928f"
-  end
-
   resource "protobuf" do
     url "https://pypi.python.org/packages/source/p/protobuf/protobuf-2.6.1.tar.gz"
     sha256 "8faca1fb462ee1be58d00f5efb4ca4f64bde92187fe61fde32615bbee7b3e745"
@@ -29,27 +24,27 @@ class Mesos < Formula
 
   # build dependencies for protobuf
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.9.0.tar.gz"
-    sha256 "e24052411fc4fbd1f672635537c3fc2330d9481b18c0317695b46259512c91d5"
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   resource "python-dateutil" do
-    url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.4.0.tar.gz"
-    sha256 "439df33ce47ef1478a4f4765f3390eab0ed3ec4ae10be32f2930000c8d19f417"
+    url "https://files.pythonhosted.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
+    sha256 "1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed"
   end
 
   resource "pytz" do
-    url "https://pypi.python.org/packages/source/p/pytz/pytz-2014.10.tar.bz2"
-    sha256 "387f968fde793b142865802916561839f5591d8b4b14c941125eb0fca7e4e58d"
+    url "https://files.pythonhosted.org/packages/f7/c7/08e54702c74baf9d8f92d0bc331ecabf6d66a56f6d36370f0a672fc6a535/pytz-2016.6.1.tar.bz2"
+    sha256 "b5aff44126cf828537581e534cc94299b223b945a2bb3b5434d37bf8c7f3a10c"
   end
 
   resource "python-gflags" do
-    url "https://pypi.python.org/packages/source/p/python-gflags/python-gflags-2.0.tar.gz"
-    sha256 "0dff6360423f3ec08cbe3bfaf37b339461a54a21d13be0dd5d9c9999ce531078"
+    url "https://files.pythonhosted.org/packages/6b/1c/47996c14dc91249376f218c0f943da3b85ff7e9af9c5de05cd2600c8afb4/python-gflags-3.0.7.tar.gz"
+    sha256 "db889af55e39fa6a37125d6aa70dfdd788dbc180f9566d3053250e28877e68dc"
   end
 
   resource "google-apputils" do
-    url "https://pypi.python.org/packages/source/g/google-apputils/google-apputils-0.4.2.tar.gz"
+    url "https://files.pythonhosted.org/packages/69/66/a511c428fef8591c5adfa432a257a333e0d14184b6c5d03f1450827f7fe7/google-apputils-0.4.2.tar.gz"
     sha256 "47959d0651c32102c10ad919b8a0ffe0ae85f44b8457ddcf2bdc0358fb03dc29"
   end
 
@@ -58,13 +53,10 @@ class Mesos < Formula
   def install
     ENV.java_cache
 
-    boto_path = libexec/"boto/lib/python2.7/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", boto_path
-    resource("boto").stage do
-      system "python", *Language::Python.setup_install_args(libexec/"boto")
+    # work around to avoid `_clock_gettime` symbol not found error.
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      ENV["ac_have_clock_syscall"] = "no"
     end
-    (lib/"python2.7/site-packages").mkpath
-    (lib/"python2.7/site-packages/homebrew-mesos-boto.pth").write "#{boto_path}\n"
 
     # work around distutils abusing CC instead of using CXX
     # https://issues.apache.org/jira/browse/MESOS-799
@@ -75,7 +67,11 @@ class Mesos < Formula
       os.environ["LDFLAGS"] = "@LIBS@"
       \\0
     EOS
-    inreplace "src/python/native/setup.py.in",
+    inreplace "src/python/executor/setup.py.in",
+              "import ext_modules",
+              native_patch
+
+    inreplace "src/python/scheduler/setup.py.in",
               "import ext_modules",
               native_patch
 
@@ -110,8 +106,12 @@ class Mesos < Formula
     system "make"
     system "make", "install"
 
+    # The native Python modules `executor` and `scheduler` (see below) fail to
+    # link to Subversion libraries if Homebrew isn't installed in `/usr/local`.
+    ENV.append_to_cflags "-L#{Formula["subversion"].opt_lib}"
+
     system "./configure", "--enable-python", *args
-    ["native", "interface", "cli", ""].each do |p|
+    ["native", "interface", "executor", "scheduler", "cli", ""].each do |p|
       cd "src/python/#{p}" do
         system "python", *Language::Python.setup_install_args(prefix)
       end
@@ -142,8 +142,8 @@ class Mesos < Formula
       exec "#{sbin}/mesos-master", "--ip=127.0.0.1",
                                    "--registry=in_memory"
     end
-    slave = fork do
-      exec "#{sbin}/mesos-slave", "--master=127.0.0.1:5050",
+    agent = fork do
+      exec "#{sbin}/mesos-agent", "--master=127.0.0.1:5050",
                                   "--work_dir=#{testpath}"
     end
     Timeout.timeout(15) do
@@ -153,7 +153,7 @@ class Mesos < Formula
                              "--command=touch\s#{testpath}/executed"
     end
     Process.kill("TERM", master)
-    Process.kill("TERM", slave)
+    Process.kill("TERM", agent)
     assert File.exist?("#{testpath}/executed")
     system "python", "-c", "import mesos.native"
   end

@@ -6,7 +6,8 @@ class SpawnFcgi < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "23140d56da75279d033d123b5cc5a7d50018dd08e6c74e3ed118eac5adbac555" => :sierra
     sha256 "4e6f999ebcad8b7ce84473379b6358ec569559f9e4b772d31ef1a5b0e01fc865" => :el_capitan
     sha256 "7473e3e2cd5322b2f09011e2b5119622e145d136cd0a8d4ce7adcb255a13d83b" => :yosemite
     sha256 "a19a14cae6fbacdc5aa1a8132f5d290743ba7385c2d76903dbd172ca07b38680" => :mavericks

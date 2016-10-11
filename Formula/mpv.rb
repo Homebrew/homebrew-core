@@ -1,21 +1,22 @@
 class Mpv < Formula
-  desc "Free, open source, and cross-platform media player"
+  desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.18.1.tar.gz"
-  sha256 "e413d57fec4ad43b9f9b848f38d13fb921313fc9a4a64bf1e906c8d0f7a46329"
+  url "https://github.com/mpv-player/mpv/archive/v0.20.0.tar.gz"
+  sha256 "fe6ec9d2ded5ce84b963f54b812d579d04f944f4a737f3ae639c4d5d9e842b56"
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    revision 1
-    sha256 "031c195541d3ea51f8b5032a6d2fdc8065e036e542e1317cd01d5ca0ffcf1b6a" => :el_capitan
-    sha256 "f794fe2ea44783c77579b8aa651b94939419929f2f87b46af31a97b2e6483119" => :yosemite
-    sha256 "95f7fb3e9afdc606fc0199cbe60f81e20987af7c7dd071c4dcfb66a620fea168" => :mavericks
+    rebuild 2
+    sha256 "24dd905156f1044a79e16a248d6eff6e1a5ffb67f4d5b6c37b61ff653a6aecaf" => :sierra
+    sha256 "f241f756ab0644fb277ab0725c69d62721bed17d6d2ee4bc298c4ed8a9bb5ca4" => :el_capitan
+    sha256 "78a0b0e6ba9af8d641fca571cf9e38b3c7f4dad3ab4087eb64a38bf90d47f02f" => :yosemite
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
 
   depends_on "pkg-config" => :build
-  depends_on :python3
+  depends_on "docutils" => :build
+  depends_on :python3 => :build
 
   depends_on "libass"
   depends_on "ffmpeg"
@@ -38,13 +39,8 @@ class Mpv < Formula
   depends_on :macos => :mountain_lion
 
   resource "waf" do
-    url "https://waf.io/waf-1.9.1"
-    sha256 "8c71b0372a4bea1c02e2ff5e1aa52484ab9d2e81076538be2cda4e85498d7021"
-  end
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/37/38/ceda70135b9144d84884ae2fc5886c6baac4edea39550f28bcd144c1234d/docutils-0.12.tar.gz"
-    sha256 "c7db717810ab6965f66c8cf0398a98c9d8df982da39b4cd7f162911eb89596fa"
+    url "https://waf.io/waf-1.9.2"
+    sha256 "7abb4fbe61d12b8ef6a3163653536da7ee31709299d8f17400d71a43247cea81"
   end
 
   def install
@@ -52,15 +48,6 @@ class Mpv < Formula
     # or getdefaultlocale in docutils. Force the default c/posix locale since
     # that's good enough for building the manpage.
     ENV["LC_ALL"] = "C"
-
-    version = Language::Python.major_minor_version("python3")
-    ENV.prepend_create_path "PKG_CONFIG_PATH", Pathname.new(`python3-config --prefix`.chomp)/"lib/pkgconfig"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{version}/site-packages"
-    ENV.prepend_create_path "PATH", libexec/"bin"
-    resource("docutils").stage do
-      system "python3", *Language::Python.setup_install_args(libexec)
-    end
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
     args = %W[
       --prefix=#{prefix}

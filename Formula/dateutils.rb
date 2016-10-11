@@ -6,6 +6,7 @@ class Dateutils < Formula
   sha256 "d05af02bc60a82bdc21c0ac4779f1040f631b0a1233ed15c4f69a80d3dad23da"
 
   bottle do
+    sha256 "53ef682e35b0de87fc1ecbc451c53af71720b8a3c13717e97b61dcd00dacc4fc" => :sierra
     sha256 "d22ff96e78940bd565a619948e67654ce62ab908e180fc367f21076a2c3260f6" => :el_capitan
     sha256 "6b08e887def30de21c576885787b7c7ebf5504aca47cb19e2d35d71ca83d6f4e" => :yosemite
     sha256 "dfcdd9ce7c86087cac280c8e58db98fccf6f7204492a8a678920875dea00e1d1" => :mavericks

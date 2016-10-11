@@ -1,15 +1,16 @@
 class Gnatsd < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/gnatsd/archive/v0.8.1.tar.gz"
-  sha256 "d2040c47b242ccff9703bca4162ee6c6d3e7163e6af0441704680b2c19599ac0"
+  url "https://github.com/nats-io/gnatsd/archive/v0.9.4.tar.gz"
+  sha256 "6465161c52e3e703f88cfe37182904d956234c4346f9ad6eb74903eff0190c98"
   head "https://github.com/apcera/gnatsd.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9e8a9989c12a1e63374843af5f4183d0454bbf42d4a8e497d820e7a96d04609c" => :el_capitan
-    sha256 "3dfc10e4280a74c5fd203fdf27b110b2d9cb6ea9c1184a7f3107e0df927525e7" => :yosemite
-    sha256 "a5f81cb6646f4c7d19d035cb7f8b4de02c946200702ec38983f677ea6e89a73f" => :mavericks
+    sha256 "d660de2ec4e884e748925c1c8343d26d357131826d88cccf55a1dbc83869153c" => :sierra
+    sha256 "447407dcc51b0536b901a4b9aa006aba4b89de3b077b8fcc015a6b14b80f2838" => :el_capitan
+    sha256 "0e54745a3e0cf9f33eb62b339a6ab701ee09e6b108427a5c3f8bab38ee011def" => :yosemite
+    sha256 "78654a5731e84f66ccfa45a85ad241dbca8dd1010e80e856b8cf883ab3ba5b51" => :mavericks
   end
 
   depends_on "go" => :build
@@ -43,7 +44,10 @@ class Gnatsd < Formula
 
   test do
     pid = fork do
-      exec "#{bin}/gnatsd --port=8085 --pid=#{testpath}/pid --log=#{testpath}/log"
+      exec bin/"gnatsd",
+           "--port=8085",
+           "--pid=#{testpath}/pid",
+           "--log=#{testpath}/log"
     end
     sleep 3
 

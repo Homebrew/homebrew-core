@@ -9,7 +9,8 @@ class Cig < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "8d6219bd7d8f795608a58bf95fed5489cf8aa8266b3d06e6ff506037fa449ead" => :sierra
     sha256 "c64c5aaab66ee0853e0b3437c002dcf233fd543a019e4b411f9cf3f9555de702" => :el_capitan
     sha256 "d349ccf020a30a7db72333a4aa1a8f73bcb2b3c6f0984c7a0e88de38bc07ed4c" => :yosemite
     sha256 "b61176af3e53d2505f36ee3deafbb92a5f02f6c0841fefdcdfdd084821a95837" => :mavericks
@@ -19,11 +20,13 @@ class Cig < Formula
   depends_on "godep" => :build
 
   go_resource "github.com/kr/fs" do
-    url "https://github.com/kr/fs.git", :revision => "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
+    url "https://github.com/kr/fs.git",
+        :revision => "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
   end
 
   go_resource "golang.org/x/tools" do
-    url "https://github.com/golang/tools.git", :revision => "473fd854f8276c0b22f17fb458aa8f1a0e2cf5f5"
+    url "https://github.com/golang/tools.git",
+        :revision => "473fd854f8276c0b22f17fb458aa8f1a0e2cf5f5"
   end
 
   def install

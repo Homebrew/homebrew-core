@@ -21,6 +21,7 @@ class Qt5 < Formula
   head "https://code.qt.io/qt/qt5.git", :branch => "5.6", :shallow => false
 
   bottle do
+    sha256 "2aaa410f2ab2fbbddbc8c3438e43bc9f4271774c794bcae8f935fb6b1b5a82ed" => :sierra
     sha256 "2aaa410f2ab2fbbddbc8c3438e43bc9f4271774c794bcae8f935fb6b1b5a82ed" => :el_capitan
     sha256 "eefa531c6ebc757982b31f17935fa2220aad52caf3112e389a878dce04f40490" => :yosemite
     sha256 "73d33dd2563c39542844c276a7bd43463f2974fde141e7afeb3057168adbe606" => :mavericks
@@ -53,7 +54,7 @@ class Qt5 < Formula
   option "with-docs", "Build documentation"
   option "with-examples", "Build examples"
   option "with-oci", "Build with Oracle OCI plugin"
-
+  option "with-qtwebkit", "Build with QtWebkit module"
   option "without-webengine", "Build without QtWebEngine module"
 
   deprecated_option "qtdbus" => "with-dbus"
@@ -70,6 +71,12 @@ class Qt5 < Formula
   depends_on :xcode => :build
 
   depends_on OracleHomeVarRequirement if build.with? "oci"
+
+  resource "qt-webkit" do
+    # http://lists.qt-project.org/pipermail/development/2016-March/025358.html
+    url "https://download.qt.io/community_releases/5.6/5.6.1/qtwebkit-opensource-src-5.6.1.tar.gz"
+    sha256 "f5ba5afc5846fc755575dd04081a90a9536f920e312f18f6fb1f5a0c33f477b0"
+  end
 
   def install
     args = %W[
@@ -110,6 +117,11 @@ class Qt5 < Formula
 
     args << "-skip" << "qtwebengine" if build.without? "webengine"
 
+    if build.with? "qtwebkit"
+      (buildpath/"qtwebkit").install resource("qt-webkit")
+      inreplace ".gitmodules", /.*status = obsolete\n((\s*)project = WebKit\.pro)/, "\\1\n\\2initrepo = true"
+    end
+
     system "./configure", *args
     system "make"
     ENV.j1
@@ -145,6 +157,13 @@ class Qt5 < Formula
     Pathname.glob("#{bin}/*.app") do |app|
       mv app, libexec/"#{app.basename(".app")}-qt5.app"
     end
+  end
+
+  def post_install
+    # Upstream "configure and mkspecs: Don't try to find xcrun with xcrun"
+    # https://code.qt.io/cgit/qt/qtbase.git/patch/?id=77a71c32c9d19b87f79b208929e71282e8d8b5d9
+    inreplace prefix/"mkspecs/features/mac/default_pre.prf",
+      "xcrun -find xcrun", "xcrun -find xcodebuild"
   end
 
   def caveats; <<-EOS.undent

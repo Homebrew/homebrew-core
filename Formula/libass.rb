@@ -1,14 +1,14 @@
 class Libass < Formula
   desc "Subtitle renderer for the ASS/SSA subtitle format"
   homepage "https://github.com/libass/libass"
-  url "https://github.com/libass/libass/releases/download/0.13.2/libass-0.13.2.tar.gz"
-  sha256 "8baccf663553b62977b1c017d18b3879835da0ef79dc4d3b708f2566762f1d5e"
+  url "https://github.com/libass/libass/releases/download/0.13.4/libass-0.13.4.tar.gz"
+  sha256 "6711469df5fcc47d06e92f7383dcebcf1282591002d2356057997e8936840792"
 
   bottle do
     cellar :any
-    sha256 "42dee7014867f9f5bf6e3445cf57852787a998d135810e5ce1fb6a7ce2d248e2" => :el_capitan
-    sha256 "1f7975c1178ed0e9fe4131ed41acbbb7f4dd83571dea9a032376345ddb7dd12c" => :yosemite
-    sha256 "6e3562ebf794ba2337163f63dcdb0a69e2e5b39636d724be4bbbb2de3bd5ee41" => :mavericks
+    sha256 "832727089751a96f3f9c5396bd599efddad9c798c3ba99a3683c34f6fa9e05a2" => :sierra
+    sha256 "b05ff9d2f699916570bfa9b956816dd5881d0fcf99edf7e6f60c4d500ebbf47e" => :el_capitan
+    sha256 "c45fb01adcc54299c2dd35c4d32f1402436b7e7cfc6a3bf4f9db546e01dd0638" => :yosemite
   end
 
   head do
@@ -36,5 +36,33 @@ class Libass < Formula
     system "autoreconf", "-i" if build.head?
     system "./configure", *args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include "ass/ass.h"
+      int main() {
+        ASS_Library *library;
+        ASS_Renderer *renderer;
+        library = ass_library_init();
+        if (library) {
+          renderer = ass_renderer_init(library);
+          if (renderer) {
+            ass_renderer_done(renderer);
+            ass_library_done(library);
+            return 0;
+          }
+          else {
+            ass_library_done(library);
+            return 1;
+          }
+        }
+        else {
+          return 1;
+        }
+      }
+    EOS
+    system ENV.cc, "test.cpp", "-I#{include}", "-L#{lib}", "-lass", "-o", "test"
+    system "./test"
   end
 end

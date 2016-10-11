@@ -8,6 +8,7 @@ class ApacheBrooklynCli < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "56c26aea57882969990487f455e378229238b1e49373e3044f50255c89d2fa16" => :sierra
     sha256 "4252ac91abef5c6c0026a0db2c8afc38b30d9af649620e6bf7b7e84a47e9a402" => :el_capitan
     sha256 "c9190a11e83e3a9bdc2d200125050c384dcbf1490549bf60059240a2f1882a38" => :yosemite
     sha256 "5bd6d72b2f1a91699f990bb9e3b09d743595909407a66edfb8f9436847958077" => :mavericks
@@ -17,12 +18,12 @@ class ApacheBrooklynCli < Formula
 
   go_resource "github.com/codegangsta/cli" do
     url "https://github.com/codegangsta/cli.git",
-      :revision => "5db74198dee1cfe60cf06a611d03a420361baad6"
+        :revision => "5db74198dee1cfe60cf06a611d03a420361baad6"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://github.com/golang/crypto.git",
-      :revision => "1f22c0103821b9390939b6776727195525381532"
+        :revision => "1f22c0103821b9390939b6776727195525381532"
   end
 
   def install

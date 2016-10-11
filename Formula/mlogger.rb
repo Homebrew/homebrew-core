@@ -1,15 +1,14 @@
 class Mlogger < Formula
   desc "Log to syslog from the command-line"
   homepage "https://github.com/nbrownus/mlogger"
-  url "https://github.com/nbrownus/mlogger/archive/v1.1.2.tar.gz"
-  sha256 "4163687c80b618f3e6c307eeba86cb95097661375cf76c977e8aad1bbc48ee99"
+  url "https://github.com/nbrownus/mlogger/archive/v1.2.0.tar.gz"
+  sha256 "141bb9af13a8f0e865c8509ac810c10be4e21f14db5256ef5c7a6731b490bf32"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a91ebd8db66c32179a41a6ba9fd595353c19773922ca5a82537926ca17502064" => :el_capitan
-    sha256 "876a19cf8c72d8d14e08989d7ace12faac1cb9dad3b7406f37c9fe6370b98924" => :yosemite
-    sha256 "3b0249322e3cd31e38b1e040c2fa4bc1aa6500461e7582f06d7260dcce77187a" => :mavericks
-    sha256 "dd639c0cfb0e5715082cf744d50121b6e735065ea2216abf299b989646843f64" => :mountain_lion
+    sha256 "1f7392a3d16a2bf595487a4b35bf5c866fa00c0967629eef46f07cbf6e696ff4" => :sierra
+    sha256 "e1f78a9ef569085efcac8c41bd2a70feda85e7fcba5eb7b46a9ee5341cf8cb2d" => :el_capitan
+    sha256 "f64331a815b26047bc982340650aae806a568a10060adfc819e25d077059af2e" => :yosemite
   end
 
   def install

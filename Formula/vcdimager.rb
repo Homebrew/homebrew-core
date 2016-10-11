@@ -7,6 +7,7 @@ class Vcdimager < Formula
 
   bottle do
     cellar :any
+    sha256 "c3137de2b15a18c520a061b28c39d34b2ff22de50e9e0ef0378b21c81068a52e" => :sierra
     sha256 "a02fd743a3a115ab1e4db3e7aae336be6cbb1ae270907fe2c997852d6c544625" => :el_capitan
     sha256 "0c30fb683f0fba64520275fd8a4be12a80ebb210806954768245e3a1d77971cb" => :yosemite
     sha256 "d2f4c9b849dd63c9ec44dcd32746ed9474e5807a53dbf8c1596b2ca722bed35b" => :mavericks

@@ -6,6 +6,7 @@ class Webalizer < Formula
   sha256 "edaddb5aa41cc4a081a1500e3fa96615d4b41bc12086bcedf9938018ce79ed8d"
 
   bottle do
+    sha256 "dab2f6da9c48ff9b4841ed5e6585db534476a080f032782388cb0db2af471d3d" => :sierra
     sha256 "b49462177a945b9a9bd3d8fc9004c35b2150d1206a5967a5231a5da3f609d956" => :el_capitan
     sha256 "65ef54216360d45dc10285e8e12f1381ad273093ad4e88c3d659d91f8f4d63eb" => :yosemite
     sha256 "0910ecb43a791249be8eb075ea012868fea97d704f49a0d1ae3ec246ff169f4f" => :mavericks

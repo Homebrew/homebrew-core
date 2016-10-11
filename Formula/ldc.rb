@@ -14,9 +14,21 @@ class Ldc < Formula
   end
 
   bottle do
+    sha256 "8a9c99461462abb528f47d171931a669ee10f37854a696d0148cb3ca81bafe7a" => :sierra
     sha256 "878eb1604258ed920d02d7fc7115db2f5ed6463ac7f4f18802bd76b85d51ff24" => :el_capitan
     sha256 "a662178ed8421cdaa69fcdd28d6f3b33c2e486e38369be610821f434cf74363a" => :yosemite
     sha256 "2d80883684831b20063db020f28f58bbf3888d9e681ec25d8db0829345ceb58e" => :mavericks
+  end
+
+  devel do
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.1.0-beta2/ldc-1.1.0-beta2-src.tar.gz"
+    sha256 "36d7094c642bbfab331e1db5fbaeeb967d1e8d09f25aeaf8262fa88eb8358ca5"
+    version "1.1.0-beta2"
+
+    resource "ldc-lts" do
+      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.1/ldc-0.17.1-src.tar.gz"
+      sha256 "8f5453e4e0878110ab03190ae9313ebbb323884090e6e7db87b02e5ed6a1c8b0"
+    end
   end
 
   head do
