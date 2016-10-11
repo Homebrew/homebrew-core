@@ -4,6 +4,13 @@ class OsrmBackend < Formula
   url "https://github.com/Project-OSRM/osrm-backend/archive/v5.4.0.tar.gz"
   sha256 "6393745fe8250ad0387b1fe3f4a2218cf692528acb55a4e0198ba5fbe1c81231"
 
+  bottle do
+    cellar :any
+    sha256 "240de4eb25d7ed5b134cd609220fb3c153e0ea5794d575782b576ee4cfa5fc70" => :sierra
+    sha256 "6e3957e1ee9b403b7d62354aa4f3b67b6f91a7e34d79dba7d0e0ddf1e7f5cb80" => :el_capitan
+    sha256 "1d6b71313f01d6f38d8b84fb33a3ccf8eaa4466e7d348258b24bd4926e6858cb" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "cmake"
