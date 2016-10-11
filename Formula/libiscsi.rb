@@ -7,10 +7,9 @@ class Libiscsi < Formula
 
   bottle do
     cellar :any
-    sha256 "225bd223bdfc8071e041665f39f0c64703eff9e048f9d51c92e5794439dfe5ca" => :sierra
-    sha256 "fea641b8c29f1b3cb6d006608c1496d0863f03bb07d04a591a399bef987b639a" => :el_capitan
-    sha256 "c416aa9d67d2df5ff3bdb45ed1a5caf0a0e3722d1092f80c5d8a6ff5f7b9ad8b" => :yosemite
-    sha256 "56d4a1d0cfde3c5fe31410c60635b785ec23864f65f5ba0ede8354d205ba740b" => :mavericks
+    sha256 "5ca0c39a5aba32abddd1fdd4ffad754baa0d61380579fa1cd03c511e331a24a9" => :sierra
+    sha256 "fb4e0bf29a4500377478c42476b9cf1c20f96fd1891397ed0fad499fe5555117" => :el_capitan
+    sha256 "c89e40197b9aebd712c67d43fbe7a4e085ddb7a1b58861c6e98444271fd9e383" => :yosemite
   end
 
   option "with-noinst", "Install the noinst binaries (e.g. iscsi-test-cu)"
