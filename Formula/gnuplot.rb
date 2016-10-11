@@ -54,9 +54,11 @@ class Gnuplot < Formula
   depends_on :tex => :optional
   depends_on :x11 => :optional
 
+  needs :cxx11 if build.with? "qt5"
+
   def install
-    # Qt5 requires c++11 (and the other backends do not care) 
-    ENV.append "CXXFLAGS", "-std=c++11"
+    # Qt5 requires c++11 (and the other backends do not care)
+    ENV.cxx11 if build.with? "qt5"
 
     if build.with? "aquaterm"
       # Add "/Library/Frameworks" to the default framework search path, so that an
