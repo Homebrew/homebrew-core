@@ -6,10 +6,9 @@ class Pazpar2 < Formula
 
   bottle do
     cellar :any
-    sha256 "eb97500d2e2732215a178644afa9d1304f81ac0de2815cf4e55c98eccd74c79a" => :sierra
-    sha256 "d5af2ca75125a99354bfde6fd4102645230bbe85a4b92831291d4555759e04d6" => :el_capitan
-    sha256 "e72a4126cb415562bae2dc8c07b41fec585d521fe674910d172fb1546311fcdc" => :yosemite
-    sha256 "acb104dd12781c2d6b7e8eedcaaa7b2576a890510269b561a321fc3667e1d863" => :mavericks
+    sha256 "488901bec183bb366228050e821136722ed4f1a051ca375d17657a6ec4dfaa94" => :sierra
+    sha256 "ef8cda0a9182553453cc0a1f17c8ed279044925d52182b5f61f95b4c15c25231" => :el_capitan
+    sha256 "bf4f63859e37fc44570da9d0de18d0a13bb9878e105d0d4a4e24bb7a8c8b979f" => :yosemite
   end
 
   depends_on "pkg-config" => :build
