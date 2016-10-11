@@ -55,6 +55,9 @@ class Gnuplot < Formula
   depends_on :x11 => :optional
 
   def install
+    # Qt5 requires c++11 (and the other backends do not care) 
+    ENV.append "CXXFLAGS", "-std=c++11"
+
     if build.with? "aquaterm"
       # Add "/Library/Frameworks" to the default framework search path, so that an
       # installed AquaTerm framework can be found. Brew does not add this path
