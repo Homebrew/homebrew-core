@@ -22,7 +22,6 @@
   "bbcp": "homebrew/head-only",
   "bcwipe": "homebrew/boneyard",
   "bindfs": "homebrew/fuse",
-  "binwalk": "homebrew/boneyard",
   "bochs": "homebrew/x11",
   "boost149": "homebrew/versions",
   "box2d": "homebrew/boneyard",
