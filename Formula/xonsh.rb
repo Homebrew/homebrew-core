@@ -6,6 +6,7 @@ class Xonsh < Formula
   url "https://github.com/xonsh/xonsh/archive/0.4.7.tar.gz"
   sha256 "10732db7a635b94454232f389f1960a27736e63bb3ce7daf6dc59fda7d5f5abb"
   head "https://github.com/scopatz/xonsh.git"
+  revision 1
 
   bottle do
     sha256 "ccac8226487e90922c8bf699efeabeaf26a9ceef16c8657ce0f2ec6bf2af5987" => :sierra
