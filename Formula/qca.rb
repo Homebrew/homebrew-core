@@ -16,6 +16,7 @@ class Qca < Formula
 
   bottle do
     rebuild 3
+    sha256 "3a68f086e119e3c53efc0f7c66b80d04e057f9e1d1673e174b13bb70c9ac1a3d" => :sierra
     sha256 "62846de848b7e7c4f0b3eb5a045940c8b80554ef388d9646dd7b02b195b1a5c8" => :el_capitan
     sha256 "a2afc96b7058b81e6b640c480b621434c7b6ba5e82cc0af4e38766d7efe42251" => :yosemite
     sha256 "c948a6d95b7ff4da029eedeaca69e5b51d9227e9a7cf369daa98cfda5cf73528" => :mavericks
