@@ -7,9 +7,9 @@ class Offlineimap < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f3706bb091ba7316321c6bebba9b1fb1de9f80c9e2fea835ff82ba414af32324" => :sierra
-    sha256 "f3706bb091ba7316321c6bebba9b1fb1de9f80c9e2fea835ff82ba414af32324" => :el_capitan
-    sha256 "f3706bb091ba7316321c6bebba9b1fb1de9f80c9e2fea835ff82ba414af32324" => :yosemite
+    sha256 "cf7e47cefc7552b5aea45461f06c7a4b674bb007871bcd77babb05d51ccd78fa" => :sierra
+    sha256 "cf7e47cefc7552b5aea45461f06c7a4b674bb007871bcd77babb05d51ccd78fa" => :el_capitan
+    sha256 "cf7e47cefc7552b5aea45461f06c7a4b674bb007871bcd77babb05d51ccd78fa" => :yosemite
   end
 
   resource "six" do
