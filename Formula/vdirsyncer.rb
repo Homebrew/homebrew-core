@@ -9,9 +9,9 @@ class Vdirsyncer < Formula
   revision 1
 
   bottle do
-    sha256 "2ea0e9ff0c2d801093321eb1ef026467d5fb661352a7982b3f56ea5074676faf" => :sierra
-    sha256 "d3981a948f5b5fa0988938f194cfb51e1900a6b0b684fc63516758d0440d6c01" => :el_capitan
-    sha256 "96dc55fbe5321b36775951dc55ed3f58cc995d63ed61bcedb6d0fb50faea11ca" => :yosemite
+    sha256 "e7baed3c869bfba170c7d50742add1d07f383ae5434b98608502f768a3dd8df1" => :sierra
+    sha256 "012cd58eae42d6629706e7d31d4566e13542e7e00ead4cffcf7bb3a9b90c4143" => :el_capitan
+    sha256 "28948d7e683f13f78b4a398d7d944e76fb8e452637f7cd5441127474cc2179f1" => :yosemite
   end
 
   option "with-remotestorage", "Build with support for remote-storage"
