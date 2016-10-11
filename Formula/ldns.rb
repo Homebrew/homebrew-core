@@ -3,7 +3,7 @@ class Ldns < Formula
   homepage "https://nlnetlabs.nl/projects/ldns/"
   url "https://nlnetlabs.nl/downloads/ldns/ldns-1.6.17.tar.gz"
   sha256 "8b88e059452118e8949a2752a55ce59bc71fa5bc414103e17f5b6b06f9bcc8cd"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 4
@@ -14,9 +14,8 @@ class Ldns < Formula
     sha256 "17d5d97bafecaad3fdd635b1e765d4d9470a195aceb27ed2214fad8332f69aff" => :mountain_lion
   end
 
-  depends_on :python => :optional
+  depends_on "swig" => :build
   depends_on "openssl"
-  depends_on "swig" => :build if build.with? "python"
 
   def install
     args = %W[
@@ -24,14 +23,20 @@ class Ldns < Formula
       --with-drill
       --with-examples
       --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-pyldns
+      PYTHON_SITE_PKG=#{lib}/python2.7/site-packages
     ]
 
-    args << "--with-pyldns" if build.with? "python"
-
     system "./configure", *args
+
+    inreplace "Makefile" do |s|
+      s.change_make_var! "PYTHON_LDFLAGS", "-undefined dynamic_lookup"
+      s.gsub! /(\$\(PYTHON_LDFLAGS\).*) -no-undefined/, "\\1"
+    end
+
     system "make"
     system "make", "install"
-    system "make", "install-pyldns" if build.with? "python"
+    system "make", "install-pyldns"
     (lib/"pkgconfig").install "packaging/libldns.pc"
   end
 
