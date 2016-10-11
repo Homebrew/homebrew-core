@@ -1,8 +1,8 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/3.22/file-roller-3.22.0.tar.xz"
-  sha256 "5065b71d43deb3dc3c7af6efa3f3b1188a63bfafb213be86af1d262b1dc11d42"
+  url "https://download.gnome.org/sources/file-roller/3.22/file-roller-3.22.1.tar.xz"
+  sha256 "8106791dcecbd2ab64194f4aeb5cb709a15e9e0d28e6470528c7bf56969be552"
 
   bottle do
     sha256 "1bb4af0d45b2e3d286cab35a6eb72b44765fb25df1f072e007f25927af91fcfb" => :sierra
