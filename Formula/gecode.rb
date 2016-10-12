@@ -77,7 +77,6 @@ class Gecode < Formula
       -I#{HOMEBREW_PREFIX}/opt/qt5/include
       -I#{include}
       -lgecodedriver
-      -lgecodegist
       -lgecodesearch
       -lgecodeint
       -lgecodekernel
@@ -85,8 +84,10 @@ class Gecode < Formula
       -L#{lib}
       -o test
     ]
+    if build.with? "qt5"
+      args << "-lgecodegist"
+    end
     system ENV.cxx, "test.cpp", *args
-    assert File.exist?("test")
     assert_match "{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}", shell_output("./test")
   end
 end
