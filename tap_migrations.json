@@ -239,6 +239,7 @@
   "pyside": "homebrew/boneyard",
   "pyside-tools": "homebrew/boneyard",
   "pyxplot": "homebrew/x11",
+  "qcachegrind": "homebrew/gui",
   "qfits": "homebrew/boneyard",
   "qi": "homebrew/boneyard",
   "qiv": "homebrew/boneyard",
