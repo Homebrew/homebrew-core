@@ -18,9 +18,9 @@ class Macvim < Formula
   end
 
   bottle do
-    sha256 "b4550cc6bddb62c832cde0e72bafdb060dcb483a5cf2943e2118bb9870582491" => :sierra
-    sha256 "28cb4a797f95ee9bd8627cdbcbdf4e2953cd144f2a8f8d8046c346608d071100" => :el_capitan
-    sha256 "a13730fd60146b23b6f9214a508f945b6a6c608a389f6f567373f40adeb51692" => :yosemite
+    sha256 "8f06e3c20bf27384db2e8d87a1a559f4892e549f54da70732bc5f13caa688477" => :sierra
+    sha256 "681a06d158016615e7a62a17e820146591522b3b067b94f2b174a7a8528604cd" => :el_capitan
+    sha256 "4504ef97ffc5b6b2cddd2f976697137b021c176542ea62a5028c85c1121106e6" => :yosemite
   end
 
   option "with-override-system-vim", "Override system vim"
