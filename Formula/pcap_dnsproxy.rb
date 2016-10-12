@@ -1,8 +1,8 @@
 class PcapDnsproxy < Formula
   desc "Powerful DNS proxy designed to anti DNS spoofing"
   homepage "https://github.com/chengr28/Pcap_DNSProxy"
-  url "https://github.com/chengr28/Pcap_DNSProxy/archive/v0.4.7.0.tar.gz"
-  sha256 "48e92a3c9073047140e6b171c2b2d2bdc50af6b308ade0a131e233cfe8d12e8e"
+  url "https://github.com/chengr28/Pcap_DNSProxy/archive/v0.4.7.6.tar.gz"
+  sha256 "df213ff1523a8daf4fe3bb304aacdf2fa51125867b7d7d6f1bf0da1e54939517"
   head "https://github.com/chengr28/Pcap_DNSProxy.git"
 
   bottle do
@@ -14,8 +14,10 @@ class PcapDnsproxy < Formula
 
   depends_on :macos => :yosemite
   depends_on :xcode => :build
+  depends_on "libsodium"
 
   def install
+    (buildpath/"Source/LibSodium").install_symlink Formula["libsodium"].opt_lib/"libsodium.a" => "LibSodium_Mac.a"
     xcodebuild "-project", "./Source/Pcap_DNSProxy.xcodeproj", "-target", "Pcap_DNSProxy", "-configuration", "Release", "SYMROOT=build"
     bin.install "Source/build/Release/Pcap_DNSProxy"
     (etc/"pcap_DNSproxy").install Dir["Source/ExampleConfig/*.{ini,txt}"]
