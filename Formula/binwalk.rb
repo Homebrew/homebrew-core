@@ -3,8 +3,15 @@ class Binwalk < Formula
   homepage "http://binwalk.org/"
   url "https://github.com/devttys0/binwalk/archive/v2.1.1.tar.gz"
   sha256 "1b70a5b03489d29f60fef18008a2164974234874faab48a4f47ec53d461d284a"
+
   revision 2
   head "https://github.com/devttys0/binwalk.git"
+
+  bottle do
+    sha256 "4f9ddc6be2fbb26f534bd704186e66e89b7400d7f9b9fe512e669886d139f4c2" => :sierra
+    sha256 "abd8355bdd7728a834f2bd5ac55630d07732875a743eca377f5e810394581535" => :el_capitan
+    sha256 "f0de239941fe10da86755ddda9bcc7d3e6569d60691ebd207b9ad55d8efd979c" => :yosemite
+  end
 
   option "with-capstone", "Enable disasm options via capstone"
 
