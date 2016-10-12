@@ -1,6 +1,6 @@
 require "language/node"
 
-class Yarnpkg < Formula
+class Yarn < Formula
   desc "Javascript package manager"
   homepage "https://yarnpkg.com/"
   url "https://registry.npmjs.org/yarn/-/yarn-0.15.1.tgz"
