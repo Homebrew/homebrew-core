@@ -5,6 +5,12 @@ class Piknik < Formula
   sha256 "a682e16d937a5487eda5b0d0889ae114e228bd3c9beddd743cad40f1bad94448"
   head "https://github.com/jedisct1/piknik.git"
 
+  bottle do
+    sha256 "a5b6ec2bcfaaf4fd7d4770f989f002a3e8e5bc599bf098bbcaff8afd9356a751" => :sierra
+    sha256 "18dffa6ad73f2148f443167e1678a86b62fabf29ae2a5a97b51bea95814a0752" => :el_capitan
+    sha256 "1af1d28a88b23bd23c098e3410c26ed79ad05ac0cf42ded7831f773dee46a27a" => :yosemite
+  end
+
   depends_on "glide" => :build
   depends_on "go" => :build
 
