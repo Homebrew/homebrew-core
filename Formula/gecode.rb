@@ -29,7 +29,7 @@ class Gecode < Formula
     system "./configure", *args
     system "make", "install"
   end
-  
+
   test do
     (testpath/"test.cpp").write <<-EOS.undent
       #include <gecode/driver.hh>
@@ -54,12 +54,11 @@ class Gecode < Formula
         }
         virtual Space* copy(bool share) {
           return new Test(share, *this);
-        }  
+        }
         virtual void print(std::ostream& os) const {
           os << v << std::endl;
         }
       };
-      
       int main(int argc, char* argv[]) {
         Options opt("Test");
         opt.iterations(500);
@@ -67,23 +66,27 @@ class Gecode < Formula
         Gist::Print<Test> p("Print solution");
         opt.inspect.click(&p);
       #endif
-      
         opt.parse(argc, argv);
         Script::run<Test, DFS, Options>(opt);
         return 0;
       }
     EOS
-  
+
     args = %W[
       -std=c++11
       -I#{HOMEBREW_PREFIX}/opt/qt5/include
-      -I#{HOMEBREW_PREFIX}/include
-      -lgecodedriver -lgecodegist -lgecodesearch -lgecodeint -lgecodekernel -lgecodesupport
+      -I#{include}
+      -lgecodedriver
+      -lgecodegist
+      -lgecodesearch
+      -lgecodeint
+      -lgecodekernel
+      -lgecodesupport
       -L#{lib}
       -o test
     ]
     system ENV.cxx, "test.cpp", *args
     assert File.exist?("test")
-    system "./test | grep -q \"{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}\""
+    assert_match "{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}", shell_output("./test")
   end
 end
