@@ -3,8 +3,8 @@ require "language/node"
 class Yarnpkg < Formula
   desc "Javascript package manager"
   homepage "https://yarnpkg.com/"
-  url "https://registry.npmjs.org/yarnpkg/-/yarnpkg-0.15.1.tgz"
-  sha256 "fc93a937956678ba1657adb9cd65208223cd49eff3e2060e670cfc29c0337002"
+  url "https://registry.npmjs.org/yarn/-/yarn-0.15.1.tgz"
+  sha256 "f99fd587e84987909d5f9e918b8fe524349fdc548e5bc5c380c8f8c0a70c6b87"
   head "https://github.com/yarnpkg/yarn.git"
 
   depends_on "node"
