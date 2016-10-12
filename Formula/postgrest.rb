@@ -8,6 +8,7 @@ class Postgrest < Formula
   homepage "https://github.com/begriffs/postgrest"
   url "https://github.com/begriffs/postgrest/archive/v0.3.2.0.tar.gz"
   sha256 "1cedceb22f051d4d80a75e4ac7a875164e3ee15bd6f6edc68dfca7c9265a2481"
+  revision 1
   head "https://github.com/begriffs/postgrest.git"
 
   bottle do
