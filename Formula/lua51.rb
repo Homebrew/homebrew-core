@@ -43,7 +43,7 @@ class Lua51 < Formula
   # http://lua-users.org/wiki/LuaPowerPatches
   if build.with? "completion"
     patch do
-      url "http://luajit.org/patches/lua-5.1.4-advanced_readline.patch"
+      url "https://luajit.org/patches/lua-5.1.4-advanced_readline.patch"
       sha256 "dfd17e720d1079dcb64529af3e4fea4a4abc0115c934f365282a489d134cceb4"
     end
   end

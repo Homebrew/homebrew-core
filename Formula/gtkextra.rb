@@ -1,15 +1,14 @@
 class Gtkextra < Formula
   desc "Widgets for creating GUIs for GTK+"
   homepage "http://gtkextra.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/gtkextra/3.3/gtkextra-3.3.0.tar.gz"
-  sha256 "6ff0b81f77349a8d4675962783ae1d3f8b9d1ef13c4dba8944a54080e22453ce"
+  url "https://downloads.sourceforge.net/project/gtkextra/3.3/gtkextra-3.3.2.tar.gz"
+  sha256 "3388692306b1afc79f17f5472a194c607fa67d5a38f1b4e79eda27a27f54f1a4"
 
   bottle do
     cellar :any
-    sha256 "5c9ec6e6c8e45d3cd5eb52ba8e5b7493f9ceb0184aa6b717af963f9178b89e9d" => :sierra
-    sha256 "bcb577865af3ce917408a9b25e17953fc8f107a7e446ac6e221bff0c1549e216" => :el_capitan
-    sha256 "2bee4db5d9e80ccd2997f935beedd3d868c4057f53aa8784499fc228f32485d4" => :yosemite
-    sha256 "440737abcdf0ef3ffd9b348e239603b53fb37c26066a1e33d4a1ca1a6360c286" => :mavericks
+    sha256 "6b12cfecd5690b9bbecb25abfb0c32e67c12ac28b9a53a0d30c1b5701496f7f4" => :sierra
+    sha256 "588b8a145efbd5e0489e9cf9cbe17fc5652fba479a3572e5367854fa136fcf02" => :el_capitan
+    sha256 "57d90385f07bfd83ee52f4570f2694aa7a5594df1829213f4bda1c7fce9af763" => :yosemite
   end
 
   depends_on "gtk+"

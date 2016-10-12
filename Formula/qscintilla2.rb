@@ -6,9 +6,10 @@ class Qscintilla2 < Formula
   revision 1
 
   bottle do
-    sha256 "e5fac505a410da72bfadc180edfb0edf7434e54ef87bca4bc258d0d938e42c4e" => :el_capitan
-    sha256 "7bdeceb85326ce37a906e61a5362a27c8a81e102a3f6e61f735348ddf3ea7bbe" => :yosemite
-    sha256 "db639eed58e90ef1da3f4b44aed6feaabf6bac610e5eb9bda051c9f1fcc1c075" => :mavericks
+    rebuild 1
+    sha256 "37ba368a76e558e15042d71aaf52648692264550571144482d6f51ad21f82bc6" => :sierra
+    sha256 "37ba368a76e558e15042d71aaf52648692264550571144482d6f51ad21f82bc6" => :el_capitan
+    sha256 "2da551aecabc7799cf5bba29c6448d38560faf07301bb361bdf54426f2eb5aba" => :yosemite
   end
 
   option "with-plugin", "Build the Qt Designer plugin"
@@ -28,6 +29,15 @@ class Qscintilla2 < Formula
   elsif build.with?("python3")
     depends_on "sip" => "with-python3"
     depends_on "pyqt5"
+  end
+
+  # Fix build with Xcode 8 "error: implicit instantiation of undefined template"
+  # Reported 7 Oct 2016 https://www.riverbankcomputing.com/pipermail/qscintilla/2016-October/001160.html
+  if DevelopmentTools.clang_build_version >= 800
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1b9cb39/qscintilla2/xcode-8.patch"
+      sha256 "962c15c9b7a1a8195df9fbcc283b9579e2ae8c92ff3b5cf1cf9f33ca48354e42"
+    end
   end
 
   def install

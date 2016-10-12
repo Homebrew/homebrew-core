@@ -1,6 +1,6 @@
 class Predictionio < Formula
   desc "Source machine learning server"
-  homepage "http://predictionio.incubator.apache.org/"
+  homepage "https://predictionio.incubator.apache.org/"
   url "http://download.prediction.io/PredictionIO-0.9.6.tar.gz"
   sha256 "d64ee99f50094b36accac4deae1008372c15f2cbc6112f6a7d8094842cf57e86"
 
