@@ -15,6 +15,7 @@ class Yarnpkg < Formula
   end
 
   test do
-    system bin/"yarn", "--help"
+    (testpath/"package.json").write('{"name": "test"}')
+    system bin/"yarn", "add", "jquery"
   end
 end
