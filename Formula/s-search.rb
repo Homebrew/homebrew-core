@@ -3,23 +3,22 @@ require "language/go"
 class SSearch < Formula
   desc "Web search from the terminal"
   homepage "https://github.com/zquestz/s"
-  url "https://github.com/zquestz/s/archive/v0.5.6.tar.gz"
-  sha256 "259dd724e7c76019c25d0eed5c5d01f69368508d3967cdb84c995d18476185ba"
+  url "https://github.com/zquestz/s/archive/v0.5.7.tar.gz"
+  sha256 "5ed6fff64b32f0955794679dd2ebf96af6c367dfb4fb5eea704ea83bb14f4b1b"
   head "https://github.com/zquestz/s.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "07dbfc6a9c9c054127145914fa55da2e751c397fb57484e9c6d567dc9bf1ac9d" => :sierra
-    sha256 "658e3935d2c6e914915658173937f97e394d1d98ca6dd250fa90c44ed18a2c08" => :el_capitan
-    sha256 "e63dbaa27b6130a90c095a80020ff92eb4775e9e3bc6b34a6df784fb4eee6a95" => :yosemite
-    sha256 "9618a7a43b833541e8293c8234c672a7c8753627adbf0d5bed01629f096185bf" => :mavericks
+    sha256 "9273214fa31d1255028dc7b3246a42d78c975398f9bf3b5f96926c4ffa29c581" => :sierra
+    sha256 "2fe361adb119d55e61b300ff1fd4727ba325566391521289a6ce7fc8106f531d" => :el_capitan
+    sha256 "f30cbf7b1b101f312d126bd1cb6ac9d433b8978a90f7eae8fe413ea4aef31814" => :yosemite
   end
 
   depends_on "go" => :build
 
   go_resource "github.com/FiloSottile/gvt" do
     url "https://github.com/FiloSottile/gvt.git",
-        :revision => "945672cd8cb7d1fe502c627952ebf6fcb1f883f1"
+        :revision => "1f87bb350317842680fd7e0fdec64b4e14c79576"
   end
 
   def install

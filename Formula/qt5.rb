@@ -21,6 +21,7 @@ class Qt5 < Formula
   head "https://code.qt.io/qt/qt5.git", :branch => "5.6", :shallow => false
 
   bottle do
+    sha256 "2aaa410f2ab2fbbddbc8c3438e43bc9f4271774c794bcae8f935fb6b1b5a82ed" => :sierra
     sha256 "2aaa410f2ab2fbbddbc8c3438e43bc9f4271774c794bcae8f935fb6b1b5a82ed" => :el_capitan
     sha256 "eefa531c6ebc757982b31f17935fa2220aad52caf3112e389a878dce04f40490" => :yosemite
     sha256 "73d33dd2563c39542844c276a7bd43463f2974fde141e7afeb3057168adbe606" => :mavericks
@@ -156,6 +157,13 @@ class Qt5 < Formula
     Pathname.glob("#{bin}/*.app") do |app|
       mv app, libexec/"#{app.basename(".app")}-qt5.app"
     end
+  end
+
+  def post_install
+    # Upstream "configure and mkspecs: Don't try to find xcrun with xcrun"
+    # https://code.qt.io/cgit/qt/qtbase.git/patch/?id=77a71c32c9d19b87f79b208929e71282e8d8b5d9
+    inreplace prefix/"mkspecs/features/mac/default_pre.prf",
+      "xcrun -find xcrun", "xcrun -find xcodebuild"
   end
 
   def caveats; <<-EOS.undent

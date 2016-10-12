@@ -24,12 +24,10 @@ class Gwenhywfar < Formula
   depends_on "openssl"
   depends_on "libgcrypt"
   depends_on "gtk+" => :optional
-  depends_on "qt" => :optional
 
   def install
     guis = []
     guis << "gtk2" if build.with? "gtk+"
-    guis << "qt4" if build.with? "qt"
     guis << "cocoa" if build.with? "cocoa"
 
     system "./configure", "--disable-debug",

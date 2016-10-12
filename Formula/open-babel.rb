@@ -1,15 +1,15 @@
 class OpenBabel < Formula
   desc "Chemical toolbox"
   homepage "https://openbabel.org"
-  url "https://github.com/openbabel/openbabel/archive/openbabel-2-4-0.tar.gz"
-  version "2.4.0"
-  sha256 "b210cc952ce1ecab6efaf76708d3bd179c9b0f0d73fe8bd1e0c934df7391a82a"
+  url "https://github.com/openbabel/openbabel/archive/openbabel-2-4-1.tar.gz"
+  version "2.4.1"
+  sha256 "594c7f8a83f3502381469d643f7b185882da1dd4bc2280c16502ef980af2a776"
   head "https://github.com/openbabel/openbabel.git"
 
   bottle do
-    sha256 "3852d0fe38c854ac1f88f7e8dadaa227efcbbdbf8ac8b8dc60432ddb7f1cf201" => :sierra
-    sha256 "ced3ef914169409f24c79c27721d8f1bbafe0cfa95bc645fb2acdeae2e2b27a3" => :el_capitan
-    sha256 "0078ae5007d3d0bab51b2a032d627417bf12521fe7a52bffdb57222116e992a4" => :yosemite
+    sha256 "28bb84f75639741efbbf3a19ebffc1fc122d15fa74584440b84e265cdfd18db0" => :sierra
+    sha256 "d2ca98556d58c6268b6be3f93cfc9a00a79559d081d7713ed14bc7882212b2ef" => :el_capitan
+    sha256 "48724ff8b63ea446ea0f2095361ea93de0647eec2e220c8369b9910a11450213" => :yosemite
   end
 
   option "with-cairo", "Support PNG depiction"

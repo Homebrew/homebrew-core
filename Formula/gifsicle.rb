@@ -20,12 +20,12 @@ class Gifsicle < Formula
     depends_on "automake" => :build
   end
 
-  conflicts_with "giflossy",
-    :because => "both install an `gifsicle` binary"
-
   option "with-x11", "Install gifview"
 
   depends_on :x11 => :optional
+
+  conflicts_with "giflossy",
+    :because => "both install an `gifsicle` binary"
 
   def install
     args = %W[

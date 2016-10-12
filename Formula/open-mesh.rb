@@ -14,19 +14,10 @@ class OpenMesh < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "qt" => :optional
 
   def install
     mkdir "build" do
-      args = std_cmake_args
-
-      if build.with? "qt"
-        args << "-DBUILD_APPS=ON"
-      else
-        args << "-DBUILD_APPS=OFF"
-      end
-
-      system "cmake", "..", *args
+      system "cmake", "..", "-DBUILD_APPS=OFF", *std_cmake_args
       system "make", "install"
     end
   end

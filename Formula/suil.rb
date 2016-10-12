@@ -15,7 +15,6 @@ class Suil < Formula
   depends_on "pkg-config" => :build
   depends_on "lv2"
   depends_on "gtk+" => :recommended
-  depends_on "qt" => :optional
   depends_on :x11 => :optional
 
   def install

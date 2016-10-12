@@ -1,6 +1,6 @@
 class Glibmm < Formula
   desc "C++ interface to glib"
-  homepage "http://www.gtkmm.org/"
+  homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/glibmm/2.50/glibmm-2.50.0.tar.xz"
   sha256 "df726e3c6ef42b7621474b03b644a2e40ec4eef94a1c5a932c1e740a78f95e94"
 

@@ -1,8 +1,8 @@
 class BashGitPrompt < Formula
   desc "Informative, fancy bash prompt for Git users"
   homepage "https://github.com/magicmonty/bash-git-prompt"
-  url "https://github.com/magicmonty/bash-git-prompt/archive/2.5.1.tar.gz"
-  sha256 "c7d1b2dece41bb5518f94e3d9045eb2020b9bb9e69de3503d3e082f03b252c86"
+  url "https://github.com/magicmonty/bash-git-prompt/archive/2.6.1.tar.gz"
+  sha256 "d2e58eaaae521cbcf3758a38cbc9233ea2e24a47dd907e64cdb514f30bd7b9ed"
   head "https://github.com/magicmonty/bash-git-prompt.git"
 
   bottle :unneeded

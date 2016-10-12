@@ -3,14 +3,14 @@ class Python < Formula
   homepage "https://www.python.org"
   url "https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz"
   sha256 "d7837121dd5652a05fef807c361909d255d173280c4e1a4ded94d73d80a1f978"
-  revision 1
+  revision 2
 
   head "https://hg.python.org/cpython", :using => :hg, :branch => "2.7"
 
   bottle do
-    sha256 "082e12c8a27f4d18d15340818f4b14052916880c93b0b668d23b7a87c5ffb124" => :sierra
-    sha256 "a521afdafd08a7f09b48b9f36a76786671dbec1a5b8b2ae3a02f31286effee73" => :el_capitan
-    sha256 "09630f52c4121f47fe3ae2bb7210a0f673c74c8d4474db5fd22be0e605fb1cab" => :yosemite
+    sha256 "2ac20b04ff599f02e950431622943f2c92e70e85c097f645265adaf4dd8c6a31" => :sierra
+    sha256 "ed692ad5e13437a751dce19865989ce7e3344402aa38496db3e78ab179121197" => :el_capitan
+    sha256 "834c7ac3ce19df12cb4fb9cbb1cae0c7fbdcaf33a9141dc1c3791ab801df27f0" => :yosemite
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
@@ -198,16 +198,15 @@ class Python < Formula
     end
 
     system "make"
+    if build.with?("quicktest") || build.bottle?
+      system "make", "quicktest", "TESTPYTHONOPTS=-s", "TESTOPTS=-j#{ENV.make_jobs} -w"
+    end
 
-    ENV.deparallelize # installs must be serialized
-    # Tell Python not to install into /Applications
-    system "make", "install", "PYTHONAPPSDIR=#{prefix}"
-    # Demos and Tools
-    system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
-    system "make", "quicktest" if build.with? "quicktest"
-
-    # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
-    (lib/"pkgconfig").install_symlink Dir["#{frameworks}/Python.framework/Versions/Current/lib/pkgconfig/*"]
+    ENV.deparallelize do
+      # Tell Python not to install into /Applications
+      system "make", "install", "PYTHONAPPSDIR=#{prefix}"
+      system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
+    end
 
     # Fixes setting Python build flags for certain software
     # See: https://github.com/Homebrew/homebrew/pull/20182
@@ -216,6 +215,15 @@ class Python < Formula
       s.change_make_var! "LINKFORSHARED",
         "-u _PyMac_Error $(PYTHONFRAMEWORKINSTALLDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK)"
     end
+
+    # Prevent third-party packages from building against fragile Cellar paths
+    inreplace [lib_cellar/"_sysconfigdata.py",
+               lib_cellar/"config/Makefile",
+               frameworks/"Python.framework/Versions/Current/lib/pkgconfig/python-2.7.pc"],
+              prefix, opt_prefix
+
+    # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
+    (lib/"pkgconfig").install_symlink Dir[frameworks/"Python.framework/Versions/Current/lib/pkgconfig/*"]
 
     # Remove the site-packages that Python created in its Cellar.
     site_packages_cellar.rmtree

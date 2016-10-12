@@ -10,11 +10,11 @@ class Poppler < Formula
     sha256 "eb6915ae4a27ddd3c64fc89b7232c31153b8bd6a98de5f379132b956d5cd1150" => :yosemite
   end
 
-  option "with-qt", "Build Qt backend"
   option "with-qt5", "Build Qt5 backend"
   option "with-little-cms2", "Use color management system"
 
-  deprecated_option "with-qt4" => "with-qt"
+  deprecated_option "with-qt4" => "with-qt5"
+  deprecated_option "with-qt" => "with-qt5"
   deprecated_option "with-lcms2" => "with-little-cms2"
 
   depends_on "pkg-config" => :build
@@ -28,7 +28,6 @@ class Poppler < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openjpeg"
-  depends_on "qt" => :optional
   depends_on "qt5" => :optional
   depends_on "little-cms2" => :optional
 
@@ -50,16 +49,13 @@ class Poppler < Formula
       --enable-poppler-glib
       --disable-gtk-test
       --enable-introspection=yes
+      --disable-poppler-qt4
     ]
 
-    if build.with?("qt") && build.with?("qt5")
-      raise "poppler: --with-qt and --with-qt5 cannot be used at the same time"
-    elsif build.with? "qt"
-      args << "--enable-poppler-qt4"
-    elsif build.with? "qt5"
+    if build.with? "qt5"
       args << "--enable-poppler-qt5"
     else
-      args << "--disable-poppler-qt4" << "--disable-poppler-qt5"
+      args << "--disable-poppler-qt5"
     end
 
     args << "--enable-cms=lcms2" if build.with? "little-cms2"
