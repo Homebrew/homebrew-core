@@ -3,6 +3,8 @@ class AndroidNdk < Formula
   homepage "https://developer.android.com/ndk/index.html"
   url "https://dl.google.com/android/repository/android-ndk-r13-darwin-x86_64.zip"
   sha256 "542ec1a2ea367aaa96a85072a1fa9496505da33888971cc5f46abb80ce5de9e3"
+  version "r13"
+  version_scheme 1
 
   bottle :unneeded
 
