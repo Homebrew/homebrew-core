@@ -12,15 +12,25 @@ class Ctail < Formula
     sha256 "dfab40d65950327c679bde97a335779526c58e99f5679f32f95e517a7249e332" => :mountain_lion
   end
 
-  conflicts_with "byobu", :because => "both install `ctail` binaries"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "apr"
+  depends_on "apr-util"
+
+  conflicts_with "byobu", :because => "both install `ctail` binaries"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-debug"
+    system "./configure",
+        "--prefix=#{prefix}",
+        "--disable-debug",
+        "--with-apr=#{Formula["apr"].opt_bin}",
+        "--with-apr-util=#{Formula["apr-util"].opt_bin}"
     system "make", "LIBTOOL=glibtool --tag=CC"
     system "make", "install"
+  end
+
+  test do
+    system "#{bin}/ctail", "-h"
   end
 end
