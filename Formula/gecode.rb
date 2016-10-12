@@ -19,7 +19,7 @@ class Gecode < Formula
       --prefix=#{prefix}
       --disable-examples
     ]
-    ENV.append "CXXFLAGS", "-std=c++11"
+    ENV.cxx11
     if build.with? "qt5"
       args << "--enable-qt"
       ENV.append_path "PKG_CONFIG_PATH", "#{HOMEBREW_PREFIX}/opt/qt5/lib/pkgconfig"
@@ -28,5 +28,62 @@ class Gecode < Formula
     end
     system "./configure", *args
     system "make", "install"
+  end
+  
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <gecode/driver.hh>
+      #include <gecode/int.hh>
+      #if defined(GECODE_HAS_QT) && defined(GECODE_HAS_GIST)
+      #include <QtGui/QtGui>
+      #if QT_VERSION >= 0x050000
+      #include <QtWidgets/QtWidgets>
+      #endif
+      #endif
+      using namespace Gecode;
+      class Test : public Script {
+      public:
+        IntVarArray v;
+        Test(const Options& o) : Script(o) {
+          v = IntVarArray(*this, 10, 0, 10);
+          distinct(*this, v);
+          branch(*this, v, INT_VAR_NONE(), INT_VAL_MIN());
+        }
+        Test(bool share, Test& s) : Script(share, s) {
+          v.update(*this, share, s.v);
+        }
+        virtual Space* copy(bool share) {
+          return new Test(share, *this);
+        }  
+        virtual void print(std::ostream& os) const {
+          os << v << std::endl;
+        }
+      };
+      
+      int main(int argc, char* argv[]) {
+        Options opt("Test");
+        opt.iterations(500);
+      #if defined(GECODE_HAS_QT) && defined(GECODE_HAS_GIST)
+        Gist::Print<Test> p("Print solution");
+        opt.inspect.click(&p);
+      #endif
+      
+        opt.parse(argc, argv);
+        Script::run<Test, DFS, Options>(opt);
+        return 0;
+      }
+    EOS
+  
+    args = %W[
+      -std=c++11
+      -I#{HOMEBREW_PREFIX}/opt/qt5/include
+      -I#{HOMEBREW_PREFIX}/include
+      -lgecodedriver -lgecodegist -lgecodesearch -lgecodeint -lgecodekernel -lgecodesupport
+      -L#{lib}
+      -o test
+    ]
+    system ENV.cxx, "test.cpp", *args
+    assert File.exist?("test")
+    system "./test | grep -q \"{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}\""
   end
 end
