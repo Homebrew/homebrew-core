@@ -3,8 +3,8 @@ require "language/go"
 class GxGo < Formula
   desc "Tool to use with the gx package manager for packages written in go."
   homepage "https://github.com/whyrusleeping/gx-go"
-  url "https://github.com/whyrusleeping/gx-go/archive/v1.3.0.tar.gz"
-  sha256 "68f8330ed80e84cc3466a2954a1c49d7380971f02f43a7c72ed7b65f85e91710"
+  url "https://github.com/whyrusleeping/gx-go/archive/v1.4.0.tar.gz"
+  sha256 "d7c217cbef3e5d1b2c7fa69d2ff6729e12db396ef839704d5c86969a6e863272"
   head "https://github.com/whyrusleeping/gx-go.git"
 
   bottle do
@@ -19,32 +19,17 @@ class GxGo < Formula
 
   go_resource "github.com/codegangsta/cli" do
     url "https://github.com/codegangsta/cli.git",
-        :revision => "05fe449c81eb7305a34e9253c321c960a1c5e057"
+        :revision => "55f715e28c46073d0e217e2ce8eb46b0b45e3db6"
   end
 
   go_resource "github.com/ipfs/go-ipfs-api" do
     url "https://github.com/ipfs/go-ipfs-api.git",
-        :revision => "49d8bc426f918f3d5c0cc721e61e820c2f94943c"
+        :revision => "0ee867280b9b85f2fcd6a3aa324728fc775dae48"
   end
 
   go_resource "github.com/jbenet/go-base58" do
     url "https://github.com/jbenet/go-base58.git",
         :revision => "6237cf65f3a6f7111cd8a42be3590df99a66bc7d"
-  end
-
-  go_resource "github.com/jbenet/go-multiaddr" do
-    url "https://github.com/jbenet/go-multiaddr.git",
-        :revision => "1dd0034f7fe862dd8dc86a02602ff6f9e546f5fe"
-  end
-
-  go_resource "github.com/jbenet/go-multiaddr-net" do
-    url "https://github.com/jbenet/go-multiaddr-net.git",
-        :revision => "ff394cdaae087d110150f15418ea4585c23541c6"
-  end
-
-  go_resource "github.com/jbenet/go-multihash" do
-    url "https://github.com/jbenet/go-multihash.git",
-        :revision => "5bb8e87657d874eea0af6366dc6336c4d819e7c1"
   end
 
   go_resource "github.com/jbenet/go-os-rename" do
@@ -62,6 +47,21 @@ class GxGo < Formula
         :revision => "756f7b183b7ab78acdbbee5c7f392838ed459dda"
   end
 
+  go_resource "github.com/multiformats/go-multiaddr" do
+    url "https://github.com/multiformats/go-multiaddr.git",
+        :revision => "0de18dfd8007f3c2508a5635e5b1f1aec8231dfa"
+  end
+
+  go_resource "github.com/multiformats/go-multiaddr-net" do
+    url "https://github.com/multiformats/go-multiaddr-net.git",
+        :revision => "08107ee53b70f1516800744a64a25c248de68963"
+  end
+
+  go_resource "github.com/multiformats/go-multihash" do
+    url "https://github.com/multiformats/go-multihash.git",
+        :revision => "cb7bd6c14af4c504c8c486c36f5accd29ca1c30d"
+  end
+
   go_resource "github.com/sabhiram/go-git-ignore" do
     url "https://github.com/sabhiram/go-git-ignore.git",
         :revision => "228fcfa2a06e870a3ef238d54c45ea847f492a37"
@@ -74,7 +74,7 @@ class GxGo < Formula
 
   go_resource "github.com/whyrusleeping/gx" do
     url "https://github.com/whyrusleeping/gx.git",
-        :revision => "7769c5d1c59ddc1013e8454bdd1f5a0c834e82fa"
+        :revision => "1c51b785eb40b3c2723dcae51e7aab3b8f9a2ebb"
   end
 
   go_resource "github.com/whyrusleeping/stump" do
@@ -89,7 +89,7 @@ class GxGo < Formula
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "b35ccbc95a0eaae49fb65c5d627cb7149ed8d1ab"
+        :revision => "4cd25d65a015cc83d41bf3454e6e8d6c116d16da"
   end
 
   def install
