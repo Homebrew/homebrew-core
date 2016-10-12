@@ -20,7 +20,10 @@ class KubernetesCli < Formula
     # Raised in https://github.com/kubernetes/kubernetes/issues/34067
     rm "./test/e2e/framework/gobindata_util.go"
 
-    system "make", "all", "WHAT=cmd/kubectl", "GOFLAGS=-v"
+    # Race condition still exists in OSX Yosemite
+    # Filed issue: https://github.com/kubernetes/kubernetes/issues/34635
+    ENV.deparallelize { system "make", "generated_files" }
+    system "make", "kubectl", "GOFLAGS=-v"
 
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
     bin.install "_output/local/bin/darwin/#{arch}/kubectl"
