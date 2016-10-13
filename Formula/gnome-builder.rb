@@ -1,8 +1,8 @@
 class GnomeBuilder < Formula
   desc "IDE for GNOME"
   homepage "https://wiki.gnome.org/Apps/Builder"
-  url "https://download.gnome.org/sources/gnome-builder/3.22/gnome-builder-3.22.0.tar.xz"
-  sha256 "0caf7d917aefb3fa42aa63dbb57d635fae24889c0df1fa585ee29c095ea3dda7"
+  url "https://download.gnome.org/sources/gnome-builder/3.22/gnome-builder-3.22.1.tar.xz"
+  sha256 "9386a84b1999c0dad83791808a9918f86200e9e1dfffa550a53e04cae3423652"
 
   bottle do
     sha256 "24466989c87e1a178d7ffa393fa78e3d32ea8ce914843fbba570667f5c35b664" => :sierra
@@ -30,12 +30,6 @@ class GnomeBuilder < Formula
   depends_on "pygobject3" if build.with? "python3"
 
   needs :cxx11
-
-  # bug report opened at https://bugzilla.gnome.org/show_bug.cgi?id=772279
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b9bf03be1/gnome-builder/pipe2.patch"
-    sha256 "9e5ac0f1ab8dd5931a28e2d43a6a4f3610d0160e135e322709aa57dc22a1d83f"
-  end
 
   def install
     ENV.cxx11
