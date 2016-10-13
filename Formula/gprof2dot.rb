@@ -1,8 +1,8 @@
 class Gprof2dot < Formula
   desc "Convert the output from many profilers into a Graphviz dot graph."
   homepage "https://github.com/jrfonseca/gprof2dot"
-  url "https://pypi.python.org/packages/source/g/gprof2dot/gprof2dot-2015.02.03.tar.gz"
-  sha256 "9bdebb71a7c3daba1430de4486ef620e418a43bb051b30875d02f657f9c69d65"
+  url "https://pypi.python.org/packages/44/30/3180b70ddd51d210d59da1b23a4078090d01427d8692ed60a20480812929/gprof2dot-2016.10.12.tar.gz"
+  sha256 "5c54f15ef1881bfef33c6fded952b88f6ad9982df3baf6019d59aaa9b04fb335"
 
   head "https://github.com/jrfonseca/gprof2dot.git"
 
