@@ -3,17 +3,15 @@ class Questdb < Formula
   homepage "https://www.questdb.org"
   url "https://www.questdb.org/download/questdb-1.0.0-SNAPSHOT-20161013-1304-bin.tar.gz"
   sha256 "66f4d43868e8d0eb61606712a25f397023c82e368bbcbfda7cc007611661984b"
-  bottle :unneeded
-  depends_on :java => "1.7+"
 
-  def datadir
-    var/"questdb"
-  end
+  bottle :unneeded
+
+  depends_on :java => "1.7+"
 
   def install
     rm_rf "questdb.exe"
-    prefix.install Dir["*"]
-    bin.install_symlink "#{prefix}/questdb.sh" => "questdb"
+    libexec.install Dir["*"]
+    bin.install_symlink "#{libexec}/questdb.sh" => "questdb"
   end
 
   plist_options :manual => "questdb start"
@@ -35,13 +33,13 @@ class Questdb < Formula
           <string>#{opt_bin}/questdb</string>
           <string>start</string>
           <string>-d</string>
-          <string>#{datadir}</string>
+          <string>var/"questdb"</string>
           <string>-n</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
-        <string>#{var}</string>
+        <string>#{var}/questdb</string>
         <key>StandardErrorPath</key>
         <string>#{var}/log/questdb.log</string>
         <key>StandardOutPath</key>
@@ -57,8 +55,15 @@ class Questdb < Formula
   end
 
   test do
-    system "#{bin}/questdb", "start"
-    sleep 2
-    system "#{bin}/questdb", "stop"
+    mkdir_p testpath/"data"
+    begin
+        system "#{bin}/questdb", "start", "-d", "#{testpath}/data"
+        sleep 2
+        output = shell_output("curl -Is localhost:9000/js?q=x")
+        sleep 1
+        assert_match /questDB/, output
+    ensure
+        system "#{bin}/questdb", "stop"
+    end
   end
 end
