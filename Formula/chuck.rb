@@ -14,6 +14,9 @@ class Chuck < Formula
   depends_on :xcode => :build
 
   def install
+    # issue caused by the new macOS version, patch submitted upstream
+    # to the chuck-dev mailing list
+    inreplace "src/makefile.osx", '10\.(6|7|8|9|10|11)(\\.[0-9]+)?', MacOS.version
     system "make", "-C", "src", "osx"
     bin.install "src/chuck"
     pkgshare.install "examples"
