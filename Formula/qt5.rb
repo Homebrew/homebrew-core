@@ -14,9 +14,9 @@ end
 class Qt5 < Formula
   desc "Version 5 of the Qt framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.6/5.6.1-1/single/qt-everywhere-opensource-src-5.6.1-1.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.6/5.6.1-1/single/qt-everywhere-opensource-src-5.6.1-1.tar.xz"
-  sha256 "ce08a7eb54661705f55fb283d895a089b267c688fabe017062bd71b9231736db"
+  url "https://download.qt.io/official_releases/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.xz"
+  sha256 "a6a2632de7e44bbb790bc3b563f143702c610464a7f537d02036749041fd1800"
 
   head "https://code.qt.io/qt/qt5.git", :branch => "5.6", :shallow => false
 
@@ -49,6 +49,15 @@ class Qt5 < Formula
     sha256 "2cf77b820f46f0c404284882b4a4a97bf005b680062842cdc53e107a821deeda"
   end
 
+  # Fix build error under El Capitan/Sierra (10.11/10.12), under these version
+  # bluetooth class moved from IOBluetooth to CoreBluetooth, so anycode still
+  # using IOBluetooth will fail to build.
+  # This patch also fix the missing symbol in cups backend of qtwebengine
+  patch do
+    url "https://gist.githubusercontent.com/steve3d/b246f2eb35e5b9f89d1dcaa3470da59d/raw/75ba606df18d2a4901ff12b5ddd78c41a1711509/qt5-bluetooth-cups-mac-10.1x.patch"
+    sha256 "b5d219682ce33e5b5c1784689edd0f31879b107713b7060f69930f76fd11eb8d"
+  end
+
   keg_only "Qt 5 conflicts Qt 4"
 
   option "with-docs", "Build documentation"
@@ -56,6 +65,7 @@ class Qt5 < Formula
   option "with-oci", "Build with Oracle OCI plugin"
   option "with-qtwebkit", "Build with QtWebkit module"
   option "without-webengine", "Build without QtWebEngine module"
+  option "without-plugins", "Build without using gif/jpeg/sql plugins"
 
   deprecated_option "qtdbus" => "with-dbus"
   deprecated_option "with-d-bus" => "with-dbus"
@@ -74,8 +84,8 @@ class Qt5 < Formula
 
   resource "qt-webkit" do
     # http://lists.qt-project.org/pipermail/development/2016-March/025358.html
-    url "https://download.qt.io/community_releases/5.6/5.6.1/qtwebkit-opensource-src-5.6.1.tar.gz"
-    sha256 "f5ba5afc5846fc755575dd04081a90a9536f920e312f18f6fb1f5a0c33f477b0"
+    url "https://download.qt.io/community_releases/5.7/5.7.0/qtwebkit-opensource-src-5.7.0.tar.xz"
+    sha256 "c7a3253cbf8e6035c54c3b08d8a9457bd82efbce71d4b363c8f753fd07bd34df"
   end
 
   def install
@@ -91,12 +101,32 @@ class Qt5 < Formula
       -qt-pcre
       -nomake tests
       -no-rpath
+      -pch
+      -system-proxies
+      -optimized-tools
     ]
 
     args << "-nomake" << "examples" if build.without? "examples"
 
-    args << "-plugin-sql-mysql" if build.with? "mysql"
-    args << "-plugin-sql-psql" if build.with? "postgresql"
+    if build.without? "plugins"
+      use_plugin = "qt"
+      args << "-qt-sql-sqlite"
+      inreplace "qtbase/configure" do |s|
+        s.gsub! "CFG_JPEG=plugin", "CFG_JPEG=yes"
+        s.gsub! "CFG_GIF=plugin", "CFG_GIF=yes"
+      end
+    else
+       use_plugin = "plugin"
+    end
+
+    args << "-#{use_plugin}-sql-mysql" if build.with? "mysql"
+    args << "-#{use_plugin}-sql-psql" if build.with? "postgresql"
+
+    # Both mysql and postgresql require openssl libs to link
+    if build.with? "mysql" or build.with? "postgresql"
+      openssl_opt = Formula["openssl"].opt_prefix
+      args << "-L#{openssl_opt}/lib"
+    end
 
     if build.with? "dbus"
       dbus_opt = Formula["dbus"].opt_prefix
@@ -112,7 +142,7 @@ class Qt5 < Formula
     if build.with? "oci"
       args << "-I#{ENV["ORACLE_HOME"]}/sdk/include"
       args << "-L#{ENV["ORACLE_HOME"]}"
-      args << "-plugin-sql-oci"
+      args << "-#{use_plugin}-sql-oci"
     end
 
     args << "-skip" << "qtwebengine" if build.without? "webengine"
