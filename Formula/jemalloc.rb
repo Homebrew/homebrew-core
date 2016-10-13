@@ -3,6 +3,7 @@ class Jemalloc < Formula
   homepage "http://www.canonware.com/jemalloc/"
   url "https://github.com/jemalloc/jemalloc/releases/download/4.2.1/jemalloc-4.2.1.tar.bz2"
   sha256 "5630650d5c1caab95d2f0898de4fe5ab8519dc680b04963b38bb425ef6a42d57"
+  revision 1
   head "https://github.com/jemalloc/jemalloc.git"
 
   bottle do
@@ -16,16 +17,14 @@ class Jemalloc < Formula
 
   # https://github.com/jemalloc/jemalloc/issues/420
   # Should be in the next release, but please check.
-  if MacOS.version >= :sierra
-    patch do
-      url "https://github.com/jemalloc/jemalloc/commit/4abaee5d13.patch"
-      sha256 "05c754089098c4275b460b90d1f4b94e32a2c819496187e5378e460c9398a65f"
-    end
+  patch do
+    url "https://github.com/jemalloc/jemalloc/commit/4abaee5d13.patch"
+    sha256 "05c754089098c4275b460b90d1f4b94e32a2c819496187e5378e460c9398a65f"
+  end
 
-    patch do
-      url "https://github.com/jemalloc/jemalloc/commit/19c9a3e828.patch"
-      sha256 "b736dab20d2688d4b21b4ba4755fd19b68145b2d9ae299a1ae154e8553d9261d"
-    end
+  patch do
+    url "https://github.com/jemalloc/jemalloc/commit/19c9a3e828.patch"
+    sha256 "b736dab20d2688d4b21b4ba4755fd19b68145b2d9ae299a1ae154e8553d9261d"
   end
 
   def install
