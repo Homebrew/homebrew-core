@@ -4,7 +4,7 @@ class Yarn < Formula
   desc "Javascript package manager"
   homepage "https://yarnpkg.com/"
   url "https://yarnpkg.com/downloads/0.15.0/yarn-v0.15.0.tar.gz"
-  sha256 "93A8083BD4989D3F7C05FCF57DFE232E00A35A09E48354B9316D2BC43F74B51B"
+  sha256 "93a8083bd4989d3f7c05fcf57dfe232e00a35a09e48354b9316d2bc43f74b51b"
   head "https://github.com/yarnpkg/yarn.git"
 
   bottle do
