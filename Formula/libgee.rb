@@ -6,11 +6,9 @@ class Libgee < Formula
 
   bottle do
     cellar :any
-    sha256 "18bde0447e90b174a46ba29bc94070fb3d2fe5d7591e13088525fa7def4a7732" => :sierra
-    sha256 "9d9c52c6ad5cd4734d90ff140ba21ef33518657235f665991026e6a93fc051f9" => :el_capitan
-    sha256 "f9c73a58993bb17cbf54a8737007b06f4ed509673683f4bc423656aaa26b6313" => :yosemite
-    sha256 "b720258004feb4202d63b5933f1e2a4562d62d3921ee09f1e7de153bc018c5ee" => :mavericks
-    sha256 "1986e24106d5c6611a529d0ae82d2b57fd0098f8a120f943a78fb6bd5876c24e" => :mountain_lion
+    sha256 "1ff99c3fcc93d1445540219b4327c9b05f1ae6c59f9c0b84f660c3c78ca07c74" => :sierra
+    sha256 "16f97389ce63e4b9bbd37c7d83caf273dfb723001895d7af17dfa5fed8713172" => :el_capitan
+    sha256 "f559db2d7dabd1d6b5fc63d6e86afec93346e74b14d7eb11f02128e3fc70f8ab" => :yosemite
   end
 
   depends_on "pkg-config" => :build
