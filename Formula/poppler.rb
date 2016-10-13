@@ -53,6 +53,13 @@ class Poppler < Formula
     ]
 
     if build.with? "qt5"
+      qt5 = Formula["qt5"]
+
+      ENV["POPPLER_QT5_CFLAGS"] = "-I#{qt5.opt_include} -I#{qt5.opt_include}/QtXml -I#{qt5.opt_include}/QtWidgets -I#{qt5.opt_include}/QtGui -I#{qt5.opt_include}/QtCore"
+      ENV["POPPLER_QT5_LIBS"] = "-F#{qt5.opt_lib} -framework QtXml -framework QtWidgets -framework QtGui -framework QtCore"
+      ENV["POPPLER_QT5_TEST_CFLAGS"] = "-I#{qt5.opt_include} -I#{qt5.opt_include}/QtTest -I#{qt5.opt_include}/QtCore"
+      ENV["POPPLER_QT5_TEST_LIBS"] = "-F#{qt5.opt_lib} -framework QtTest -framework QtCore"
+
       args << "--enable-poppler-qt5"
     else
       args << "--disable-poppler-qt5"
