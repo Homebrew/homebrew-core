@@ -8,11 +8,9 @@ class Gprof2dot < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e750baab952a090f4586a44439063509c34a697aacb9bd37a14b360b85230e20" => :sierra
-    sha256 "1f720ca7e666ea048e478974a9e379ac87be85c94b2fa7f9484c65918ebf2b6a" => :el_capitan
-    sha256 "4fcdce24b6951b0132fdad5a698c610d14081ab0d394829b14e529ef8de43361" => :yosemite
-    sha256 "ca2c8c0f777d7becb5ed0e6531195fc7ac307f8d0230b651e881f15c0ed9d23d" => :mavericks
-    sha256 "706d128a70af48176f06c6cef54be2b733db9ff172e9e20410903c05f86a0e61" => :mountain_lion
+    sha256 "e685cb2d39df01e5714eb9c318e59255423603044f1aee4dc6ea066a6518b2dc" => :sierra
+    sha256 "e685cb2d39df01e5714eb9c318e59255423603044f1aee4dc6ea066a6518b2dc" => :el_capitan
+    sha256 "e685cb2d39df01e5714eb9c318e59255423603044f1aee4dc6ea066a6518b2dc" => :yosemite
   end
 
   depends_on "graphviz" => :recommended
