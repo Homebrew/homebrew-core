@@ -63,7 +63,7 @@ class Glib < Formula
   # also applied to configure and gio/Makefile.in
   if MacOS.version < :mavericks
     patch do
-      url "https://raw.githubusercontent.com/mvkorpel/formula-patches/mountain-glib-2.50.0/glib/gnotification-mountain.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a4fe61b/glib/gnotification-mountain.patch"
       sha256 "5bf6d562dd2be811d71e6f84eb43fc6c51a112db49ec0346c1b30f4f6f4a4233"
     end
   end
