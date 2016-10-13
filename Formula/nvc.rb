@@ -14,6 +14,12 @@ class Nvc < Formula
       sha256 "68cc9d23c286945a63464f9aa71d25d1e1b140e4652845c837cae3babbc45ab6"
     end
   end
+  bottle do
+    sha256 "63d766663a4aed43ba91d853abc4f6e23423c8fbcc07e6fffe1d558e886bdd57" => :sierra
+    sha256 "e21c764dae84a026ca2c69e6040303bb501022e525d49e9130331d5c95b02ca9" => :el_capitan
+    sha256 "5a5fb69e028a07bcde7c1010ea67ee51c5e8f72be81982d50f5f17f3595dd003" => :yosemite
+  end
+
 
   head do
     url "https://github.com/nickg/nvc.git"
