@@ -17,6 +17,7 @@ class Tinyproxy < Formula
 
   option "with-reverse", "Enable reverse proxying"
   option "with-transparent", "Enable transparent proxying"
+  option "with-filter", "Enable url filtering"
 
   deprecated_option "reverse" => "with-reverse"
 
@@ -39,6 +40,7 @@ class Tinyproxy < Formula
 
     args << "--enable-reverse" if build.with? "reverse"
     args << "--enable-transparent" if build.with? "transparent"
+    args << "--enable-filter" if build.with? "filter"
 
     system "./configure", *args
 
