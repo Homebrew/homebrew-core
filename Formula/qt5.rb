@@ -20,10 +20,9 @@ class Qt5 < Formula
   head "https://code.qt.io/qt/qt5.git", :branch => "5.6", :shallow => false
 
   bottle do
-    sha256 "2aaa410f2ab2fbbddbc8c3438e43bc9f4271774c794bcae8f935fb6b1b5a82ed" => :sierra
-    sha256 "2aaa410f2ab2fbbddbc8c3438e43bc9f4271774c794bcae8f935fb6b1b5a82ed" => :el_capitan
-    sha256 "eefa531c6ebc757982b31f17935fa2220aad52caf3112e389a878dce04f40490" => :yosemite
-    sha256 "73d33dd2563c39542844c276a7bd43463f2974fde141e7afeb3057168adbe606" => :mavericks
+    sha256 "3e18f74f18c81bc2d27c64edbf266b6aee90b29de7204de726801a7d65bc30bc" => :sierra
+    sha256 "db805c12e877aa51970ba710705cbd462e01ea163634c6cc6d6febac292047ee" => :el_capitan
+    sha256 "c2829138042fb9dcf07732682fbe69ab141da5a91451a3b25b8146117b330c13" => :yosemite
   end
 
   keg_only "Qt 5 conflicts Qt 4"
