@@ -1,8 +1,8 @@
 class Questdb < Formula
   desc "Time Series Database"
   homepage "https://www.questdb.org"
-  url "https://www.questdb.org/download/questdb-1.0.0-SNAPSHOT-20161013-1304-bin.tar.gz"
-  sha256 "66f4d43868e8d0eb61606712a25f397023c82e368bbcbfda7cc007611661984b"
+  url "https://www.questdb.org/download/questdb-1.0.0-bin.tar.gz"
+  sha256 "aaca8f24ef7ca0d95727f7e3f165edde42fe7fcdf23cbc3ae3bda79548fb2121"
 
   bottle :unneeded
 
@@ -57,13 +57,13 @@ class Questdb < Formula
   test do
     mkdir_p testpath/"data"
     begin
-        system "#{bin}/questdb", "start", "-d", "#{testpath}/data"
-        sleep 2
-        output = shell_output("curl -Is localhost:9000/js?q=x")
-        sleep 1
-        assert_match /questDB/, output
+      system "#{bin}/questdb", "start", "-d", "#{testpath}/data"
+      sleep 2
+      output = shell_output("curl -Is localhost:9000/js?q=x")
+      sleep 1
+      assert_match /questDB/, output
     ensure
-        system "#{bin}/questdb", "stop"
+      system "#{bin}/questdb", "stop"
     end
   end
 end
