@@ -1,5 +1,5 @@
 class Pow < Formula
-  desc "Zero-config Rack server for local apps on OS X"
+  desc "Zero-config Rack server for local apps on macOS"
   homepage "http://pow.cx/"
   url "http://get.pow.cx/versions/0.5.0.tar.gz"
   sha256 "2e5f74d7c2f44004eb722eddf37356cd09b5563fde987b4c222fa6947ce388b7"

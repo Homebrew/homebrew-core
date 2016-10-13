@@ -45,7 +45,7 @@ class Exim < Formula
     inreplace "OS/Makefile-Darwin" do |s|
       s.remove_make_var! %w[CC CFLAGS]
       # Add include and lib paths for BDB 4
-      s.gsub! "# Exim: OS-specific make file for Darwin (Mac OS X).", "INCLUDE=-I#{bdb4.include}"
+      s.gsub! "# Exim: OS-specific make file for Darwin (macOS).", "INCLUDE=-I#{bdb4.include}"
       s.gsub! "DBMLIB =", "DBMLIB=#{bdb4.lib}/libdb-4.dylib"
     end
 

@@ -15,7 +15,7 @@ class Unshield < Formula
   head do
     url "https://github.com/twogood/unshield.git"
 
-    # Fix compilation on OS X
+    # Fix compilation on macOS
     patch do
       url "https://github.com/twogood/unshield/pull/47.patch"
       sha256 "3b37bdac497a9113e576c2ddc042b978ce15758ef8158e3f495f819f92dad531"

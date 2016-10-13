@@ -13,7 +13,7 @@ class Sqlite < Formula
     sha256 "14bbc09f0df1619edfd665fc2bb617427fb626949df7a911358e22260db21484" => :yosemite
   end
 
-  keg_only :provided_by_osx, "OS X provides an older sqlite3."
+  keg_only :provided_by_osx, "macOS provides an older sqlite3."
 
   option :universal
   option "with-docs", "Install HTML documentation"

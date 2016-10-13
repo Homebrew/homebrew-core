@@ -1,5 +1,5 @@
 # This now builds a version of JACKv1 which matches the current API
-# for JACKv2. JACKv2 is not buildable on a number of Mac OS X
+# for JACKv2. JACKv2 is not buildable on a number of macOS
 # distributions, and the JACK team instead suggests installation of
 # JACKOSX, a pre-built binary form for which the source is not available.
 # If you require JACKv2, you should use that. Otherwise, this formula should

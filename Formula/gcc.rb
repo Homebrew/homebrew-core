@@ -37,7 +37,7 @@ class Gcc < Formula
     sha256 "11578960629843cf085dc82ff9855a17b4ae63a9acd74a5aeb0e7fd7921d0915" => :mavericks
   end
 
-  # GCC's Go compiler is not currently supported on Mac OS X.
+  # GCC's Go compiler is not currently supported on macOS.
   # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=46986
   option "with-java", "Build the gcj compiler"
   option "with-all-languages", "Enable all compilers and languages, except Ada"

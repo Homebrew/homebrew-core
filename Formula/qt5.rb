@@ -27,7 +27,7 @@ class Qt5 < Formula
     sha256 "73d33dd2563c39542844c276a7bd43463f2974fde141e7afeb3057168adbe606" => :mavericks
   end
 
-  # Restore `.pc` files for framework-based build of Qt 5 on OS X. This
+  # Restore `.pc` files for framework-based build of Qt 5 on macOS. This
   # partially reverts <https://codereview.qt-project.org/#/c/140954/> merged
   # between the 5.5.1 and 5.6.0 releases. (Remove this as soon as feasible!)
   #

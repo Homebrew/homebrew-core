@@ -26,7 +26,7 @@ class Aiccu < Formula
     <<-EOS.undent
       You may also wish to install tuntap:
 
-        The TunTap project provides kernel extensions for Mac OS X that allow
+        The TunTap project provides kernel extensions for macOS that allow
         creation of virtual network interfaces.
 
         http://tuntaposx.sourceforge.net/

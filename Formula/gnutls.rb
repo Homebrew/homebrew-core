@@ -42,7 +42,7 @@ class Gnutls < Formula
     system "./configure", *args
     system "make", "install"
 
-    # certtool shadows the OS X certtool utility
+    # certtool shadows the macOS certtool utility
     mv bin/"certtool", bin/"gnutls-certtool"
     mv man1/"certtool.1", man1/"gnutls-certtool.1"
   end

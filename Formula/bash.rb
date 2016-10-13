@@ -24,7 +24,7 @@ class Bash < Formula
     # When built with SSH_SOURCE_BASHRC, bash will source ~/.bashrc when
     # it's non-interactively from sshd.  This allows the user to set
     # environment variables prior to running the command (e.g. PATH).  The
-    # /bin/bash that ships with Mac OS X defines this, and without it, some
+    # /bin/bash that ships with macOS defines this, and without it, some
     # things (e.g. git+ssh) will break if the user sets their default shell to
     # Homebrew's bash instead of /bin/bash.
     ENV.append_to_cflags "-DSSH_SOURCE_BASHRC"

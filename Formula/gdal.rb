@@ -67,7 +67,7 @@ class Gdal < Formula
     depends_on "libxml2"
 
     # Vector libraries
-    depends_on "unixodbc" # OS X version is not complete enough
+    depends_on "unixodbc" # macOS version is not complete enough
     depends_on "xerces-c"
 
     # Other libraries
@@ -129,7 +129,7 @@ class Gdal < Formula
       "--with-grib",
       "--with-pam",
 
-      # Backends supported by OS X.
+      # Backends supported by macOS.
       "--with-libiconv-prefix=/usr",
       "--with-libz=/usr",
       "--with-png=#{Formula["libpng"].opt_prefix}",

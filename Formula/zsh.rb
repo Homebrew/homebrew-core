@@ -64,7 +64,7 @@ class Zsh < Formula
       "$(libdir)/$(tzsh)/$(VERSION)", "$(libdir)"
 
     if build.head?
-      # disable target install.man, because the required yodl comes neither with OS X nor Homebrew
+      # disable target install.man, because the required yodl comes neither with macOS nor Homebrew
       # also disable install.runhelp and install.info because they would also fail or have no effect
       system "make", "install.bin", "install.modules", "install.fns"
     else

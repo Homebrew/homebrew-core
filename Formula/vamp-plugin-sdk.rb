@@ -74,7 +74,7 @@ diff -r 1522e2f6d700 -r 3bfc44d26963 Makefile.in
 +	INSTALL_HOSTSDK_LIBNAME   = libvamp-hostsdk.3.6.0.dylib
 +	INSTALL_HOSTSDK_LINK_ABI  = libvamp-hostsdk.3.dylib
 +
-+# The OS X linker doesn't allow you to request static linkage when
++# The macOS linker doesn't allow you to request static linkage when
 +# linking by library search path, if the same library name is found in
 +# both static and dynamic versions. So if we install both static and
 +# dynamic, the static library will never be used. That's OK for the

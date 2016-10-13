@@ -20,7 +20,7 @@ class Libmikmod < Formula
     ENV.O2 if build.with? "debug"
     ENV.universal_binary if build.universal?
 
-    # OS X has CoreAudio, but ALSA is not for this OS nor is SAM9407 nor ULTRA.
+    # macOS has CoreAudio, but ALSA is not for this OS nor is SAM9407 nor ULTRA.
     args = %W[
       --prefix=#{prefix}
       --disable-alsa

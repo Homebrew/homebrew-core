@@ -9,7 +9,7 @@ class CdDiscid < Formula
     mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/c/cd-discid/cd-discid_1.4.orig.tar.gz"
     sha256 "ffd68cd406309e764be6af4d5cbcc309e132c13f3597c6a4570a1f218edd2c63"
 
-    # OS X fix; see https://github.com/Homebrew/homebrew/issues/46267
+    # macOS fix; see https://github.com/Homebrew/homebrew/issues/46267
     # Already fixed in upstream head; remove when bumping version to >1.4
     patch :DATA
   end

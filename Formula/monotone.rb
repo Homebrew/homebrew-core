@@ -37,7 +37,7 @@ class Monotone < Formula
     system "make", "install"
 
     # Explicitly remove the bash completion script, as it uses features
-    # specific to Bash 4, and the default on OS X is Bash 3.
+    # specific to Bash 4, and the default on macOS is Bash 3.
     # Specifically, it uses `declare -A` to declare associate arrays.
     # If this completion script is installed on Bash 3 along with
     # bash-completion, it will be auto-sourced and cause error messages

@@ -17,7 +17,7 @@ class Snownews < Formula
   depends_on "gettext" if build.with? "nls"
   depends_on "openssl"
 
-  # Fix system openssl linking error on OS X.
+  # Fix system openssl linking error on macOS.
   # Allow EXTRA_LDFLAGS to take precedence so we can link brewed openssl
   # instead of deprecated system openssl.
   # Upstream has been notified but has no public bug tracker

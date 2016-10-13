@@ -16,7 +16,7 @@ class ThcPptpBruter < Formula
   depends_on "openssl"
 
   def install
-    # The function openpty() is defined in pty.h on Linux, but in util.h on OS X.
+    # The function openpty() is defined in pty.h on Linux, but in util.h on macOS.
     # See https://groups.google.com/group/sage-devel/msg/97916255b631e3e5
     inreplace "src/pptp_bruter.c", "pty.h", "util.h"
 

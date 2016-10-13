@@ -1,5 +1,5 @@
 class HtopOsx < Formula
-  desc "Improved top (interactive process viewer) for OS X"
+  desc "Improved top (interactive process viewer) for macOS"
   homepage "https://github.com/max-horvath/htop-osx"
   url "https://github.com/max-horvath/htop-osx/archive/0.8.2.8.tar.gz"
   sha256 "3d8614a3be5f5ba76a96b22c14a456dc66242c5ef1ef8660a60bb6b766543458"
