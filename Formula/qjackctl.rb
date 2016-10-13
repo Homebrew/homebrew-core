@@ -6,11 +6,9 @@ class Qjackctl < Formula
   head "http://git.code.sf.net/p/qjackctl/code.git"
 
   bottle do
-    rebuild 1
-    sha256 "73b7c2190a0b08964a72ace5ef02176a7c827da7fc2abd7fc80b41f0e2ea84a6" => :sierra
-    sha256 "e27bb026a0a677ce7dbe4483fbf53a0bdad929da0007166790b6006cee0cf27a" => :el_capitan
-    sha256 "531fcdb68a7436858e2b891dd0edacceed7bf084b0aadba046879d44fbf03bcd" => :yosemite
-    sha256 "1b12ec7026cf50ed6b29726c60731f4bb1f22e39e62efe1569547dcb0f2b239a" => :mavericks
+    sha256 "6c7bf88956be30bf0c2598ea0382142284e82837d51c4248cc8b720d3e962740" => :sierra
+    sha256 "67ed21adb3ce0b47b7e2b64663dfc49a801ea906f8707bdd7320db8ccd3be5bf" => :el_capitan
+    sha256 "f24586ac79810807e4326555f93c0b53976d78c2fe215a13d464f01c0d3d318b" => :yosemite
   end
 
   depends_on "qt5"
