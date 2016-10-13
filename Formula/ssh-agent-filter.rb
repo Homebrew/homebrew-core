@@ -5,33 +5,34 @@ class SshAgentFilter < Formula
   sha256 "5586e40da34f4afd873d7ff30f115c4a1b9455c1b81f3c4679c995db7615b080"
 
   depends_on "help2man" => :build
+  depends_on "pandoc" => :build 
   depends_on "boost"
   depends_on "nettle"
 
   patch do
-    # upstream didn't want this because realpath isn't included in coreutils for Debian wheezy.
-    # see https://github.com/tiwe-de/ssh-agent-filter/pull/5
-    url "https://patch-diff.githubusercontent.com/raw/tiwe-de/ssh-agent-filter/pull/5.diff"
-    sha256 "307ccd6e872a3f3b999d8a4368d152dfbd3a7e43b4cff0cacbc0390c78b2976b"
-  end
-
-  patch do
     # https://github.com/tiwe-de/ssh-agent-filter/pull/6
     url "https://patch-diff.githubusercontent.com/raw/tiwe-de/ssh-agent-filter/pull/6.diff"
-    sha256 "5bd81db7cbfaf04e681f343ef6742061eaf6c9ead7d30c3fe6bf98eb8690c32f"
+    sha256 "073b6d45694b547c6067403d4f657d4dfa2819926c386ecea131a1499403dd30"
   end
 
-  patch :DATA
+  resource "Locale::gettext" do
+    url "https://cpan.metacpan.org/authors/id/P/PV/PVANDRY/gettext-1.07.tar.gz"
+    sha256 "909d47954697e7c04218f972915b787bd1244d75e3bd01620bc167d5bbc49c15"
+  end
 
   def install
+   resource("Locale::gettext").stage do
+     system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+     system "make", "install"
+   end
    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
+    gencmd = ["ssh-keygen", "-q", "-N", "", "-t" "ed25519"]
+    system *gencmd, "-C", "keyA", "-f", "keyA"
+    system *gencmd, "-C", "keyB", "-f", "keyB"
     (testpath/"test.sh").write <<-EOS.undent
-      cd $(mktemp -d)
-      ssh-keygen -q -N '' -t ed25519 -C keyA -f keyA
-      ssh-keygen -q -N '' -t ed25519 -C keyB -f keyB
       eval $(ssh-agent)
       pid=$SSH_AGENT_PID
       ssh-add keyA keyB
@@ -44,18 +45,3 @@ class SshAgentFilter < Formula
     system "sh", "test.sh"
   end
 end
-__END__
-Fix man page generation due to missing perl Locale::gettext
-diff --git a/Makefile b/Makefile
-index b2e05ec..30b3e9f 100644
---- a/Makefile
-+++ b/Makefile
-@@ -28,7 +28,7 @@ all: ssh-agent-filter.1 afssh.1 ssh-askpass-noinput.1
- 	pandoc -s -w man $< -o $@
- 
- %.1: %.help2man %
--	help2man -i $< -o $@ -N -L C.UTF-8 $(*D)/$(*F)
-+	help2man -i $< -o $@ -N $(*D)/$(*F)
- 
- ssh-agent-filter: ssh-agent-filter.o
- 
