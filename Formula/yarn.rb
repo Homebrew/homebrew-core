@@ -3,7 +3,7 @@ require "language/node"
 class Yarn < Formula
   desc "Javascript package manager"
   homepage "https://yarnpkg.com/"
-  # Note: If updating this to a newer version, please change the URL to the official 
+  # Note: If updating this to a newer version, please change the URL to the official
   # yarnpkg.com download URL:
   # url "https://yarnpkg.com/downloads/0.15.0/yarn-v0.15.0.tar.gz"
   # This was not updated yet as Yarn 0.15.1 was an npm-specific release and is not available
