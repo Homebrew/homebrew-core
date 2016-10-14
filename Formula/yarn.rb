@@ -3,8 +3,13 @@ require "language/node"
 class Yarn < Formula
   desc "Javascript package manager"
   homepage "https://yarnpkg.com/"
-  url "https://yarnpkg.com/downloads/0.15.0/yarn-v0.15.0.tar.gz"
-  sha256 "93a8083bd4989d3f7c05fcf57dfe232e00a35a09e48354b9316d2bc43f74b51b"
+  # Note: If updating this to a newer version, please change the URL to the official 
+  # yarnpkg.com download URL:
+  # url "https://yarnpkg.com/downloads/0.15.0/yarn-v0.15.0.tar.gz"
+  # This was not updated yet as Yarn 0.15.1 was an npm-specific release and is not available
+  # as a standalone tarball.
+  url "https://registry.npmjs.org/yarn/-/yarn-0.15.1.tgz"
+  sha256 "f99fd587e84987909d5f9e918b8fe524349fdc548e5bc5c380c8f8c0a70c6b87"
   head "https://github.com/yarnpkg/yarn.git"
 
   bottle do
