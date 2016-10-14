@@ -60,7 +60,6 @@ class Nginx < Formula
       --prefix=#{prefix}
       --with-http_ssl_module
       --with-pcre
-      --with-ipv6
       --sbin-path=#{bin}/nginx
       --with-cc-opt=#{cc_opt}
       --with-ld-opt=#{ld_opt}
@@ -80,6 +79,10 @@ class Nginx < Formula
     if build.with? "passenger"
       nginx_ext = `#{Formula["passenger"].opt_bin}/passenger-config --nginx-addon-dir`.chomp
       args << "--add-module=#{nginx_ext}"
+    end
+
+    if build.stable?
+      args << "--with-ipv6"
     end
 
     args << "--with-http_dav_module" if build.with? "webdav"
