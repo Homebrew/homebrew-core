@@ -64,6 +64,7 @@ class Ffmpeg < Formula
   option "with-zimg", "Enable z.lib zimg library"
   option "with-xz", "Enable decoding of LZMA-compressed TIFF files"
   option "with-libebur128", "Enable using libebur128 for EBU R128 loudness measurement"
+  option "with-libtesseract", "Enable the tesseract OCR engine"
 
   depends_on "pkg-config" => :build
 
@@ -105,6 +106,7 @@ class Ffmpeg < Formula
   depends_on "zimg" => :optional
   depends_on "xz" => :optional
   depends_on "libebur128" => :optional
+  depends_on "tesseract" => :optional
 
   def install
     # Fixes "dyld: lazy symbol binding failed: Symbol not found: _clock_gettime"
@@ -171,6 +173,7 @@ class Ffmpeg < Formula
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
     args << "--enable-libebur128" if build.with? "libebur128"
+    args << "--enable-libtesseract" if build.with? "tesseract"
 
     if build.with? "xz"
       args << "--enable-lzma"
