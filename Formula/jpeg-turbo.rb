@@ -26,14 +26,13 @@ class JpegTurbo < Formula
 
   depends_on "libtool" => :build
   depends_on "nasm" => :build
+  depends_on "java" if build.with? "java"
 
   def install
     cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
     args = %W[--disable-dependency-tracking --prefix=#{prefix} --with-jpeg8 --mandir=#{man}]
 
-    if build.with? "java"
-      args.push "--with-java"
-    end
+    args << "--with-java" if build.with? "java"
 
     system "autoreconf", "-fvi" if build.head?
     system "./configure", *args
