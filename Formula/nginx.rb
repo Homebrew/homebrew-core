@@ -81,10 +81,7 @@ class Nginx < Formula
       args << "--add-module=#{nginx_ext}"
     end
 
-    if build.stable?
-      args << "--with-ipv6"
-    end
-
+    args << "--with-ipv6" if build.stable?
     args << "--with-http_dav_module" if build.with? "webdav"
     args << "--with-debug" if build.with? "debug"
     args << "--with-http_gunzip_module" if build.with? "gunzip"
