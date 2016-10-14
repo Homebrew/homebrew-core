@@ -1,8 +1,8 @@
 class Bitrise < Formula
   desc "Command-line automation tool"
   homepage "https://github.com/bitrise-io/bitrise"
-  url "https://github.com/bitrise-io/bitrise/archive/1.4.1.tar.gz"
-  sha256 "d4a756352ff8249f04c96b0e03f7faf571d518c032ad84b3d74dbf830d119624"
+  url "https://github.com/bitrise-io/bitrise/archive/1.4.2.tar.gz"
+  sha256 "bf18d45d841aeef9d6a87b1456e59d748edab87b7ac117c1ae01afe960f976a9"
 
   bottle do
     cellar :any_skip_relocation
@@ -29,7 +29,7 @@ class Bitrise < Formula
 
   test do
     (testpath/"bitrise.yml").write <<-EOS.undent
-      format_version: 1.3.0
+      format_version: 1.3.1
       default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
       workflows:
         test_wf:
