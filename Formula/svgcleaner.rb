@@ -5,6 +5,13 @@ class Svgcleaner < Formula
   sha256 "c0a2cc56c77486700c7229538d30e77b55fc9713e5f2e8660fea86053a7789c9"
   head "https://github.com/RazrFalcon/svgcleaner.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "33034cfaeb2db6c78d3132ecb264f3689602f33779bd07369f4c644998a43103" => :sierra
+    sha256 "16529a3278175c94ea4921483c6813f22866949bddff5b87dbd605c85ca70187" => :el_capitan
+    sha256 "25af4f2b942cfbdab1ab204fb8ec487544e4da2d9b669e5bd8fe8df71693d4ef" => :yosemite
+  end
+
   depends_on "rust" => :build
 
   def install
