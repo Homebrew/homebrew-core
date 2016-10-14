@@ -3,6 +3,7 @@ class Ice < Formula
   homepage "https://zeroc.com"
   url "https://github.com/zeroc-ice/ice/archive/v3.6.3.tar.gz"
   sha256 "82ff74e6d24d9fa396dbb4d9697dc183b17bc9c3f6f076fecdc05632be80a2dc"
+  revision 1
 
   bottle do
     sha256 "ea71253379700e895b5dc6e3ef5f2eb8f6f89d7eae33e8c2910e20a1506a4b3c" => :sierra
@@ -54,8 +55,12 @@ class Ice < Formula
     ENV.delete("CPPFLAGS")
     ENV.O2
 
+    # Ensure Gradle uses a writable directory even in sandbox mode
+    ENV["GRADLE_USER_HOME"] = buildpath/".gradle"
+
     args = %W[
       prefix=#{prefix}
+      embedded_runpath_prefix=#{prefix}
       USR_DIR_INSTALL=yes
       SLICE_DIR_SYMLINK=yes
       OPTIMIZE=yes
@@ -117,5 +122,8 @@ class Ice < Formula
     system "xcrun", "clang++", "-c", "-I#{include}", "-I.", "Test.cpp"
     system "xcrun", "clang++", "-L#{lib}", "-o", "test", "Test.o", "Hello.o", "-lIce", "-lIceUtil"
     system "./test", "--Ice.InitPlugins=0"
+    system "/usr/bin/php", "-d", "extension_dir=#{lib}/php/extensions",
+                           "-d", "extension=IcePHP.dy",
+                           "-r", "extension_loaded('ice') ? exit(0) : exit(1);"
   end
 end
