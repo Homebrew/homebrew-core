@@ -7,9 +7,10 @@ class Nim < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b9d9368c55de4683c37a387b1d5efdbf98b4e70a2376911799ac3c820b120cd3" => :sierra
-    sha256 "5a3eba67354be157e9b15eecd38553b035552eae03567e693716f0f253f246e6" => :el_capitan
-    sha256 "c21fc254e7b802f2bbf1190ad121c01ea48faf97f7589012cc28c0660b18c746" => :yosemite
+    rebuild 1
+    sha256 "ee9b3cfbdde386c061e22ad3b2902b3284ab483161204c54dfafaa295126e3ba" => :sierra
+    sha256 "6d3062ded42a86b5dcea0f2c0d08aca890efe977b11d207a3056f6b3c5c04dc2" => :el_capitan
+    sha256 "54a36dc85df0aa86b8bf6295220007441332691d3a99a01977374adb0e0b8327" => :yosemite
   end
 
   def install
