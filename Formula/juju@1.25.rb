@@ -1,4 +1,4 @@
-class Juju < Formula
+class JujuAT125 < Formula
   desc "DevOps management tool"
   homepage "https://jujucharms.com/"
   url "https://launchpad.net/juju-core/1.25/1.25.6/+download/juju-core_1.25.6.tar.gz"
@@ -12,6 +12,7 @@ class Juju < Formula
   end
 
   depends_on "go" => :build
+  conflicts_with "juju@2.0", :because => "juju 1 and 2 cannot be installed simultaneously."
 
   def install
     ENV["GOPATH"] = buildpath
