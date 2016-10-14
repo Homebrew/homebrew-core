@@ -57,7 +57,9 @@ class Questdb < Formula
   test do
     mkdir_p testpath/"data"
     begin
-      system "#{bin}/questdb", "start", "-d", "#{testpath}/data"
+      fork do
+        exec "#{bin}/questdb start -d  #{testpath}/data"
+      end
       sleep 2
       output = shell_output("curl -Is localhost:9000/js?q=x")
       sleep 1
