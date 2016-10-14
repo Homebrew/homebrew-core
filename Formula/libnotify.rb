@@ -5,10 +5,9 @@ class Libnotify < Formula
   sha256 "9cb4ce315b2655860c524d46b56010874214ec27e854086c1a1d0260137efc04"
 
   bottle do
-    sha256 "7b9bbf7af44434aca82465bf7f234d4affb50daeae54c65a7758b9814e113ff5" => :sierra
-    sha256 "6c0c8e5b8b9e38ff2820b7df7aefb1510d95a5f9dcb31b37ed800da0c737f4e1" => :el_capitan
-    sha256 "c0646c9d0c3b53290875df575a3b97fb30c852a70825e048b70475ed1e9e72d5" => :yosemite
-    sha256 "e4f657ff6ecaafa2e448c86521330ba3fbc0ef3181b0608808fe32f03f4fb80c" => :mavericks
+    sha256 "7928ed78b1d0f0be06bb7ad177499f336543abea03433cc050e7d0de4be1dc35" => :sierra
+    sha256 "edd371fcf6906fa7bbec21ce9ea038ce30e5c9fde400f6deef1eb89eb01e1601" => :el_capitan
+    sha256 "e05515c53cdb39f36ff6001d2ebb2ac95dc4fc678ba80638373f71f0073d1a9a" => :yosemite
   end
 
   depends_on "pkg-config" => :build
