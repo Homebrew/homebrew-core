@@ -32,6 +32,7 @@ class AprUtil < Formula
       --prefix=#{libexec}
       --with-apr=#{Formula["apr"].opt_prefix}
       --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-crypto
     ]
 
     args << "--with-pgsql=#{Formula["postgresql"].opt_prefix}" if build.with? "postgresql"
