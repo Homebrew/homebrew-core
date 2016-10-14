@@ -20,8 +20,20 @@ class Nim < Formula
     end
     system "/bin/sh", "install.sh", prefix
 
+    system "bin/nim e install_tools.nims"
+  
+    target = prefix/"nim/bin"
+    target.install "bin/nimble"
+    target.install "dist/nimble/src/nimblepkg"
+    target.install "bin/nimgrep"
+    target.install "bin/nimsuggest"
+    
     bin.install_symlink prefix/"nim/bin/nim"
     bin.install_symlink prefix/"nim/bin/nim" => "nimrod"
+    bin.install_symlink prefix/"nim/bin/nimble"
+    bin.install_symlink prefix/"nim/bin/nimgrep"
+    bin.install_symlink prefix/"nim/bin/nimsuggest"
+
   end
 
   test do
