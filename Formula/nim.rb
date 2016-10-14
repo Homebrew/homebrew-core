@@ -20,8 +20,19 @@ class Nim < Formula
     end
     system "/bin/sh", "install.sh", prefix
 
+    system "bin/nim e install_tools.nims"
+
+    target = prefix/"nim/bin"
+    target.install "bin/nimble"
+    target.install "dist/nimble/src/nimblepkg"
+    target.install "bin/nimgrep"
+    target.install "bin/nimsuggest"
+
     bin.install_symlink prefix/"nim/bin/nim"
     bin.install_symlink prefix/"nim/bin/nim" => "nimrod"
+    bin.install_symlink prefix/"nim/bin/nimble"
+    bin.install_symlink prefix/"nim/bin/nimgrep"
+    bin.install_symlink prefix/"nim/bin/nimsuggest"
   end
 
   test do
@@ -29,5 +40,14 @@ class Nim < Formula
       echo("hello")
     EOS
     assert_equal "hello", shell_output("#{bin}/nim compile --verbosity:0 --run #{testpath}/hello.nim").chomp
+
+    (testpath/"hello.nimble").write <<-EOS.undent
+      version = "0.1.0"
+      author = "Author Name"
+      description = "A test nimble package"
+      license = "MIT"
+      requires "nim >= 0.15.0"
+    EOS
+    assert_equal "name: \"hello\"", shell_output("#{bin}/nimble dump").split("\n")[0].chomp
   end
 end
