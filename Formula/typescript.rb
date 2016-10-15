@@ -24,7 +24,7 @@ class Typescript < Formula
       var test = new Test();
       document.body.innerHTML = test.greet();
     EOS
-    
+
     system bin/"tsc", "test.ts"
     touch testpath/"test.js", :nocreate => true
   end
