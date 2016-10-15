@@ -1,17 +1,22 @@
 class Qca < Formula
   desc "Qt Cryptographic Architecture (QCA)"
   homepage "http://delta.affinix.com/qca/"
-  revision 1
   head "https://anongit.kde.org/qca.git"
 
   stable do
-    url "http://delta.affinix.com/download/qca/2.0/qca-2.1.0.tar.gz"
-    sha256 "226dcd76138c3738cdc15863607a96b3758a4c3efd3c47295939bcea4e7a9284"
+    url "https://github.com/KDE/qca/archive/v2.1.1.tar.gz"
+    sha256 "aa8ec328da163a5e20ac59146e56b17d0677789f020d0c3875c4ed5e9e82e749"
 
-    # Fixes build with Qt 5.5 by adding a missing include (already fixed in HEAD).
+    # Fix for linking CoreFoundation and removing deprecated code (already in HEAD)
     patch do
-      url "https://quickgit.kde.org/?p=qca.git&a=commitdiff&h=7207e6285e932044cd66d49d0dc484666cfb0092&o=plain"
-      sha256 "b3ab2eb010f4a16f85349e4b858d0ee17a84ba2927311b79aeeff1bb2465cd3d"
+      url "https://github.com/KDE/qca/commit/f223ce03d4b94ffbb093fc8be5adf8d968f54434.diff"
+      sha256 "75ef105b01658c3b4030b8c697338dbceddbcc654b022162b284e0fa8df582b5"
+    end
+
+    # Fix for framework installation (already in HEAD)
+    patch do
+      url "https://github.com/KDE/qca/commit/9e4bf795434304bce32626fe0f6887c10fec0824.diff"
+      sha256 "5f4e575d2c9f55090c7e3358dc27b6e22cccecaaee264d1638aabac86421c314"
     end
   end
 
@@ -47,7 +52,7 @@ class Qca < Formula
     odie "Qt dependency must be defined" if build.without?("qt") && build.without?("qt5")
 
     args = std_cmake_args
-    args << "-DQT4_BUILD=#{build.with?("qt5") ? "OFF" : "ON"}"
+    args << "-DQT4_BUILD=OFF"
     args << "-DBUILD_TESTS=OFF"
 
     # Plugins (qca-ossl, qca-cyrus-sasl, qca-logger, qca-softstore always built)
@@ -67,7 +72,7 @@ class Qca < Formula
   end
 
   test do
-    system bin/"qcatool", "--noprompt", "--newpass=",
-                          "key", "make", "rsa", "2048", "test.key"
+    system bin/"qcatool-qt5", "--noprompt", "--newpass=",
+                              "key", "make", "rsa", "2048", "test.key"
   end
 end
