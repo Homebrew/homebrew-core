@@ -5,10 +5,9 @@ class Mysql < Formula
   sha256 "43fc282f807353ff77ead21efb5f85f7f214c2a5362762a8cc370ae1c075095a"
 
   bottle do
-    sha256 "84f562c4eda4ce7ecf89f38f480f8a27f23a7500fd0a1b13daadcb16308bc00e" => :sierra
-    sha256 "378bf7d07c791ee5144a958f1395fdb8838f29b2358ee927f9bc0e3f0673f66d" => :el_capitan
-    sha256 "03df7e5ebba4674d75c6ec8c5ae68f0ea6df339595c3a5434740ce545296ccbe" => :yosemite
-    sha256 "cf205231fd0bd4177bf3a94761d4dcc6985d1eb7597592f8e4947e826acf7fd2" => :mavericks
+    sha256 "347bf9920c6f8ee4d45326202be8f1d17c7e96fa8958d06b591beecd8680c982" => :sierra
+    sha256 "db26903bbe1db44dbd431481bd486d20dea0cca8f4b422a8b34e447b1d39be98" => :el_capitan
+    sha256 "7c1d5b17b089108c01e0c5679382709cd43544c75136a563dafb98b820f278a5" => :yosemite
   end
 
   option "with-test", "Build with unit tests"
