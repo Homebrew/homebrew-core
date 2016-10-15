@@ -7,6 +7,13 @@ class Terragrunt < Formula
   sha256 "608a3216e141bb8910c1b8813879f0c30f812e40184cbc4e2a81c22c9526788b"
   head "https://github.com/gruntwork-io/terragrunt.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "c479f61b26f984a24a2bc0b31f38370b65950f90389b050bdcad18b8aea523be" => :sierra
+    sha256 "097bee4f7259e0071f8515b7de66b0671054142b4b18f2e2ba6de671457aa729" => :el_capitan
+    sha256 "9087b992a3f110ce756a2962657fd8c8fa9a805ee4ff8211f5bdbb0b3ab39ba3" => :yosemite
+  end
+
   depends_on "go" => :build
   depends_on "terraform"
 
