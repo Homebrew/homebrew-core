@@ -2,20 +2,10 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-112.tar.gz"
+  version "8.0-112"
+  sha256 "ef19a2f944f5406fc88836f64831ae49ca13b26ef7fa96c12e84892772647103"
   head "https://github.com/macvim-dev/macvim.git"
-
-  stable do
-    url "https://github.com/macvim-dev/macvim/archive/snapshot-111.tar.gz"
-    version "8.0-111"
-    sha256 "104f3a30903aa78c350889b1624551fc50caecca34bc5af1d25ca7d00145462c"
-
-    # Remove for > 8.0-111; fix "error: use of undeclared identifier"
-    # Upstream commit from 11 Oct 2016 "Fix build for Xcode 7 or earlier"
-    patch do
-      url "https://github.com/macvim-dev/macvim/commit/0f16ec9.patch"
-      sha256 "1106ad49c777986fbc6f948489c01acbe35408a5ba6ae8a301d0dc95365907f5"
-    end
-  end
 
   bottle do
     sha256 "8f06e3c20bf27384db2e8d87a1a559f4892e549f54da70732bc5f13caa688477" => :sierra
