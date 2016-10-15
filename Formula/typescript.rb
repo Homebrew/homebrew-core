@@ -26,6 +26,6 @@ class Typescript < Formula
     EOS
 
     system bin/"tsc", "test.ts"
-    touch testpath/"test.js", :nocreate => true
+    assert File.exist?("test.js"), "test.js was not generated"
   end
 end
