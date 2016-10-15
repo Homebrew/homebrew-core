@@ -1,18 +1,8 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-
-  stable do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs919/ghostscript-9.19.tar.gz"
-    sha256 "cf3c0dce67db1557a87366969945f9c5235887989c0b585e037af366dc035989"
-
-    # http://djvu.sourceforge.net/gsdjvu.html
-    # Can't get 1.8 to compile, but feel free to open PR if you can.
-    resource "djvu" do
-      url "https://downloads.sourceforge.net/project/djvu/GSDjVu/1.6/gsdjvu-1.6.tar.gz"
-      sha256 "6236b14b79345eda87cce9ba22387e166e7614cca2ca86b1c6f0d611c26005df"
-    end
-  end
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs920/ghostscript-9.20.tar.xz"
+  sha256 "3c0f3dc5df6f784850fa4ce7dcc3d6c56ef543af1fbaedd1d9f8d9f8b66de0ab"
 
   bottle do
     sha256 "70d001f1d73c2e270dc2a0d438f038150e091118dabb12a1edb36843c781e10c" => :sierra
@@ -25,10 +15,6 @@ class Ghostscript < Formula
     # Can't use shallow clone. Doing so = fatal errors.
     url "https://git.ghostscript.com/ghostpdl.git", :shallow => false
 
-    resource "djvu" do
-      url "git://git.code.sf.net/p/djvu/gsdjvu-git"
-    end
-
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -36,11 +22,8 @@ class Ghostscript < Formula
 
   patch :DATA # Uncomment macOS-specific make vars
 
-  option "with-djvu", "Build drivers for DjVU file format"
-
   depends_on "pkg-config" => :build
   depends_on "little-cms2"
-  depends_on "djvulibre" if build.with? "djvu"
   depends_on :x11 => :optional
 
   # https://sourceforge.net/projects/gs-fonts/
@@ -50,16 +33,6 @@ class Ghostscript < Formula
   end
 
   def install
-    if build.with? "djvu"
-      resource("djvu").stage do
-        inreplace "gsdjvu.mak", "$(GL", "$(DEV"
-        (buildpath+"devices").install "gdevdjvu.c"
-        (buildpath+"lib").install "ps2utf8.ps"
-        ENV["EXTRA_INIT_FILES"] = "ps2utf8.ps"
-        (buildpath/"devices/contrib.mak").open("a") { |f| f.write(File.read("gsdjvu.mak")) }
-      end
-    end
-
     args = %W[
       --prefix=#{prefix}
       --disable-cups
@@ -72,12 +45,6 @@ class Ghostscript < Formula
       system "./autogen.sh", *args
     else
       system "./configure", *args
-    end
-
-    if build.with? "djvu"
-      inreplace "Makefile" do |s|
-        s.change_make_var!("DEVICE_DEVS17", "$(DD)djvumask.dev $(DD)djvusep.dev")
-      end
     end
 
     # Install binaries and libraries
