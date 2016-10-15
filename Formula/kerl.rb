@@ -1,8 +1,8 @@
 class Kerl < Formula
   desc "Easy building and installing of Erlang/OTP instances"
   homepage "https://github.com/kerl/kerl"
-  url "https://github.com/kerl/kerl/archive/1.3.3.tar.gz"
-  sha256 "d1e66fe01ee1af0acf58c63f3efe77e5206b7957c6773dff2a8415a9c7b5a7b6"
+  url "https://github.com/kerl/kerl/archive/1.3.4.tar.gz"
+  sha256 "9b60e9e40e63ea81f43a1e43a045c2130a3a2b129d6ec74e33229dc4d9933607"
   head "https://github.com/kerl/kerl.git"
 
   bottle :unneeded
