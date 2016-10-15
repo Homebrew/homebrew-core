@@ -73,7 +73,11 @@ class Gcc < Formula
   end
 
   def version_suffix
-    version.to_s.slice(/\d/)
+    if build.head?
+      (stable.version.to_s.slice(/\d/).to_i + 1).to_s
+    else
+      version.to_s.slice(/\d/)
+    end
   end
 
   # Fix for libgccjit.so linkage on Darwin
