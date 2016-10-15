@@ -7,6 +7,13 @@ class Pyinvoke < Formula
   sha256 "4942aa901618f99afa70271d7b15fd018da0f174178fbca4048354c785e7736a"
   head "https://github.com/pyinvoke/invoke.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "20200d261ced810ae859c7408879d6c3fb92480beb06fd999e38ad59e68fac87" => :sierra
+    sha256 "2ee953c615f8a7b3fb885e4541387e86e056a4c459943b3d1f34f29f8f915aee" => :el_capitan
+    sha256 "a58ca03819c67a1cf734f0afce0b5c4b161b25ac7a069b7e501ef9ba6facd42b" => :yosemite
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   def install
