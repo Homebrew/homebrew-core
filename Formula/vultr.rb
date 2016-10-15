@@ -3,9 +3,8 @@ require "language/go"
 class Vultr < Formula
   desc "Command-line tool for Vultr"
   homepage "https://jamesclonk.github.io/vultr"
-  url "https://github.com/JamesClonk/vultr/archive/v1.9.tar.gz"
-  sha256 "c6c9e3b710692574714bb697ba4f8486da46ba2ff77f6501be8befc32c15c269"
-
+  url "https://github.com/JamesClonk/vultr/archive/v1.10.tar.gz"
+  sha256 "d794d38f1c0693601604d420b4d50695e267abb5f41aa21592ac249208092912"
   head "https://github.com/JamesClonk/vultr.git"
 
   bottle do
@@ -18,30 +17,24 @@ class Vultr < Formula
 
   depends_on "go" => :build
   depends_on "godep" => :build
+  depends_on "gdm" => :build
 
-  go_resource "github.com/kr/fs" do
-    url "https://github.com/kr/fs.git",
-        :revision => "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
+  go_resource "github.com/jawher/mow.cli" do
+    url "https://github.com/jawher/mow.cli.git",
+        :revision => "660b9261e2c80bb92e5a0eaa581596084656140e"
   end
 
-  go_resource "golang.org/x/tools" do
-    url "https://github.com/golang/tools.git",
-        :revision => "fbb6674a7495706ad1ba2d7cca18ca9d804ccdca"
-  end
-
-  go_resource "golang.org/x/crypto" do
-    url "https://github.com/golang/crypto.git",
-        :revision => "91ab96ae987aef3e74ab78b3aaf026109d206148"
+  go_resource "github.com/juju/ratelimit" do
+    url "https://github.com/juju/ratelimit.git",
+        :revision => "77ed1c8a01217656d2080ad51981f6e99adaa177"
   end
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/JamesClonk/"
-    ln_sf buildpath, buildpath/"src/github.com/JamesClonk/vultr"
+    (buildpath/"src/github.com/JamesClonk").mkpath
+    ln_s buildpath, buildpath/"src/github.com/JamesClonk/vultr"
     Language::Go.stage_deps resources, buildpath/"src"
-
-    system "godep", "go", "build", "-o", "vultr", "."
-    bin.install "vultr"
+    system "go", "build", "-o", bin/"vultr"
   end
 
   test do
