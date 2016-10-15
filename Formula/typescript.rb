@@ -7,6 +7,13 @@ class Typescript < Formula
   sha256 "3cfa9db91b68f95723a8f64db3dd3ee158b828d51d5a6eb6370dbca9e3045367"
   head "https://github.com/Microsoft/TypeScript.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "ba82f04d8ba8f19f55aa5aef6e9a78aa39f306127a2792c413e04ec8b96ac45a" => :sierra
+    sha256 "b8e8a907b2c54a341e573a01811d37bebb39d5aa046de262c5ecbd4eb9fc3691" => :el_capitan
+    sha256 "afeb59064ccc55657b9a3f09cb7afb31a0c12b842d3e2e96aa41bd681926cfe4" => :yosemite
+  end
+
   depends_on "node"
 
   def install
