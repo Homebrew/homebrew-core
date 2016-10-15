@@ -14,10 +14,51 @@ end
 class Qt5 < Formula
   desc "Version 5 of the Qt framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.6/5.6.2/single/qt-everywhere-opensource-src-5.6.2.tar.xz"
-  sha256 "83e61bfc78bba230770704e828fa4d23fe3bbfdcfa4a8f5db37ce149731d89b3"
+  head "https://code.qt.io/qt/qt5.git", :branch => "5.7", :shallow => false
 
-  head "https://code.qt.io/qt/qt5.git", :branch => "5.6", :shallow => false
+  # Remove stable patches for > 5.7.0
+  stable do
+    url "https://download.qt.io/official_releases/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.xz"
+    mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.xz"
+    sha256 "a6a2632de7e44bbb790bc3b563f143702c610464a7f537d02036749041fd1800"
+
+    # Upstream commit from 7 Jul 2016 "configure and mkspecs: Don't try to find xcrun with xcrun"
+    # http://code.qt.io/cgit/qt/qtbase.git/patch/configure?id=77a71c32c9d19b87f79b208929e71282e8d8b5d9
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/d3d0da3/qt5/xcrun-xcode-8.patch"
+      sha256 "14f5a899108e9207bd5c2128f5f628d4e2d2a5e0c2ba0a401ec7b54f5ddcf677"
+    end
+
+    # Upstream commit from 3 Oct 2016 "Fixed build with MaxOSX10.12 SDK"
+    # http://code.qt.io/cgit/qt/qtconnectivity.git/commit/?h=5.6&id=462323dba4f963844e8c9911da27a0d21e4abf43
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/04c2de3/qt5/qtconnectivity-bluetooth-fix.diff"
+      sha256 "41fd73cba0018180015c2be191d63b3c33289f19132c136f482f5c7477620931"
+    end
+
+    # Upstream commit from 4 Aug 2016 "Fixes parallel builds where they were
+    # sometimes failing on macOS with static builds."
+    # http://code.qt.io/cgit/qt/qt3d.git/commit/src/src.pro?id=db3baec236841f9390e9450772838cb7ba878069
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/b13bde3/qt5/qt3d-parallel-build-fix.patch"
+      sha256 "dacb69f4e2eac7656f6120f16c4c703b793b36b486efa43ccb182d57e83089b0"
+    end
+
+    # Upstream commit from 1 Aug 2016 "BASELINE: Update Chromium to 53.0.2785.41"
+    # http://code.qt.io/cgit/qt/qtwebengine-chromium.git/commit/chromium/base/mac/sdk_forward_declarations.h?h=53-based&id=28b1110370900897ab652cb420c371fab8857ad4
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/59db922/qt5/qtwebengine-bluetooth-fix.diff"
+      sha256 "af0bf77c10ea2be3010cee842c327018b997517784036991297eee4397354fa2"
+    end
+
+    # Equivalent to upstream commit from 4 Oct 2016 "Fix CUPS compilation error in macOS 10.12"
+    # http://code.qt.io/cgit/qt/qtwebengine-chromium.git/commit/chromium/printing/backend/print_backend_cups.cc?h=53-based&id=3bd01037ab73b3ffbf4abbf97c54443a91b2fc4d
+    # https://codereview.chromium.org/2248343002
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/34a4ad8/qt5/cups-sierra.patch"
+      sha256 "63b5f37d694d0bd1db6d586d98f3c551239dc8818588f3b90dc75dfe6e9952be"
+    end
+  end
 
   bottle do
     sha256 "3e18f74f18c81bc2d27c64edbf266b6aee90b29de7204de726801a7d65bc30bc" => :sierra
@@ -48,27 +89,23 @@ class Qt5 < Formula
 
   depends_on OracleHomeVarRequirement if build.with? "oci"
 
+  # http://lists.qt-project.org/pipermail/development/2016-March/025358.html
   resource "qt-webkit" do
-    # http://lists.qt-project.org/pipermail/development/2016-March/025358.html
-    url "https://download.qt.io/community_releases/5.6/5.6.2/qtwebkit-opensource-src-5.6.2.tar.xz"
-    sha256 "528a6b8b1c5095367b26e8ce4f3a46bb739e2e9913ff4dfc6ef58a04fcd73966"
+    url "https://download.qt.io/community_releases/5.7/5.7.0/qtwebkit-opensource-src-5.7.0.tar.xz"
+    sha256 "c7a3253cbf8e6035c54c3b08d8a9457bd82efbce71d4b363c8f753fd07bd34df"
   end
 
-  # Upstream commit from 3 Oct 2016 "Fixed build with MaxOSX10.12 SDK"
-  # http://code.qt.io/cgit/qt/qtconnectivity.git/commit/?h=5.6&id=462323dba4f963844e8c9911da27a0d21e4abf43
-  # Should be removed for > 5.6.2 or > 5.7.0
+  # Restore `.pc` files for framework-based build of Qt 5 on OS X. This
+  # partially reverts <https://codereview.qt-project.org/#/c/140954/> merged
+  # between the 5.5.1 and 5.6.0 releases. (Remove this as soon as feasible!)
+  #
+  # Core formulae known to fail without this patch (as of 2016-10-15):
+  #   * gnuplot  (with `--with-qt5` option)
+  #   * mkvtoolnix (with `--with-qt5` option, silent build failure)
+  #   * poppler    (with `--with-qt5` option)
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/04c2de3/qt5/qtconnectivity-bluetooth-fix.diff"
-    sha256 "41fd73cba0018180015c2be191d63b3c33289f19132c136f482f5c7477620931"
-  end
-
-  # Upstream commit from 1 Aug 2016 "BASELINE: Update Chromium to 53.0.2785.41"
-  # http://code.qt.io/cgit/qt/qtwebengine-chromium.git/commit/chromium/base/mac/sdk_forward_declarations.h?h=upstream-master&id=28b1110370900897ab652cb420c371fab8857ad4
-  # Remove when qtwebengine's src/3rdparty/chromium submodule points to a commit
-  # of qtwebengine-chromium with Chromium >= 53.0.2785.41
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/04c2de3/qt5/qtwebengine-bluetooth-fix.diff"
-    sha256 "218b8682d7e8a3f74618d0bd87e4797e13fc2cbfe49c21a2845e64da3fe8868a"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
+    sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
   end
 
   def install
