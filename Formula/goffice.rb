@@ -1,8 +1,8 @@
 class Goffice < Formula
   desc "Gnumeric spreadsheet program"
   homepage "https://developer.gnome.org/goffice/"
-  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.31.tar.xz"
-  sha256 "9d1fc2dcc131742348ed6e1597e2fab143cbf73e7067c5c05a3f3565266ed5a5"
+  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.32.tar.xz"
+  sha256 "02b37da9f54fb92725b973875d1d2da49b54f6486eb03648fd1ea58e4a297ac3"
 
   bottle do
     sha256 "5e60d1be09ccd79cecfad7cd4913cc985fcee51ef0a225932eacba5b1f996fe5" => :sierra
