@@ -5,12 +5,12 @@ class Sslyze < Formula
   homepage "https://github.com/nabla-c0d3/sslyze"
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/0.14.0.tar.gz"
-    sha256 "a4450cec121dfde9e52869f430197e83082752f61c02af3010ab96a8957773aa"
+    url "https://github.com/nabla-c0d3/sslyze/archive/0.14.1.tar.gz"
+    sha256 "af432ab4254dd8d2c0d3aa514bb83db3d1b3e602e8c29e1aa6a233890f0f8658"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl/archive/0.14.0.tar.gz"
-      sha256 "b268b20eb6e1c32990d85933120ea459251e7fb70838ebd677ab9003e1b0fa0c"
+      url "https://github.com/nabla-c0d3/nassl/archive/0.14.1.tar.gz"
+      sha256 "2bd2f42f4c3144c2834e96e3e0d4ad2f158ee2a8655f2ba649b7aa41c8840baa"
     end
 
     resource "openssl" do
@@ -68,13 +68,7 @@ class Sslyze < Formula
       venv.pip_install nassl_path
     end
     venv.pip_install_and_link buildpath
-    mv bin/"sslyze_cli.py", bin/"sslyze"
 
-    # Fix test_tlsv1_2_enable assertion error
-    # Reported 29 Aug 2016 https://github.com/nabla-c0d3/sslyze/issues/170
-    inreplace "tests/test_openssl_cipher_suites_plugin.py",
-      "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256",
-      "ECDHE-RSA-CHACHA20-POLY1305-OLD"
     ENV.prepend "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", "run_tests.py"
   end
