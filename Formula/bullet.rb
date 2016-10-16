@@ -1,8 +1,8 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "http://bulletphysics.org/wordpress/"
-  url "https://github.com/bulletphysics/bullet3/archive/2.83.7.tar.gz"
-  sha256 "00d1d8f206ee85ffd171643ac8e72f9f4e0bf6dbf3d4ac55f4495cb168b51243"
+  url "https://github.com/bulletphysics/bullet3/archive/2.85.1.tar.gz"
+  sha256 "6e157c0b50373bc0e860de27f06397827bb28a4205bc568ae79d76a0f919ed62"
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
@@ -27,7 +27,7 @@ class Bullet < Formula
   depends_on "cmake" => :build
 
   def install
-    args = ["-DINSTALL_EXTRA_LIBS=ON"]
+    args = ["-DINSTALL_EXTRA_LIBS=ON", "-DBUILD_UNIT_TESTS=OFF"]
 
     if build.with? "framework"
       args << "-DBUILD_SHARED_LIBS=ON" << "-DFRAMEWORK=ON"
