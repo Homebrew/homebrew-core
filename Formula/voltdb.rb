@@ -16,13 +16,18 @@ class Voltdb < Formula
   depends_on :ant => :build
   depends_on "cmake" => :build
 
-  patch :DATA
-
   def install
     system "ant"
 
     inreplace Dir["bin/*"] - ["bin/voltadmin", "bin/voltdb", "bin/rabbitmqloader", "bin/voltdeploy", "bin/voltenv"],
       %r{VOLTDB_LIB=\$VOLTDB_HOME\/lib}, "VOLTDB_LIB=$VOLTDB_HOME/lib/voltdb"
+
+    inreplace "bin/voltenv" do |s|
+      s.gsub! %r{VOLTDB_VOLTDB="\$VOLTDB_LIB"}, "VOLTDB_VOLTDB=\"$VOLTDB_BASE/voltdb\""
+
+      # Remove is voltenv installed as link check
+      s.gsub!  %r{if \[ "\$\{0\}" = "\$SOURCE" \]; then}, "if [ \"${0}\" = \"${BASH_SOURCE[0]}\" ]; then"
+    end
 
     (lib/"voltdb").install Dir["lib/*"]
     lib.install_symlink lib/"voltdb/python"
@@ -34,24 +39,3 @@ class Voltdb < Formula
   end
 end
 
-__END__
---- voltdb-voltdb-6.6/bin/voltenv.orig	2016-10-09 11:08:34.000000000 +0300
-+++ voltdb-voltdb-6.6/bin/voltenv	2016-10-09 11:09:20.000000000 +0300
-@@ -28,7 +28,7 @@
- if [ -d "$VOLTDB_BIN/../lib/voltdb" ]; then
-     VOLTDB_BASE=$(dirname "$VOLTDB_BIN")
-     VOLTDB_LIB="$VOLTDB_BASE/lib/voltdb"
--    VOLTDB_VOLTDB="$VOLTDB_LIB"
-+    VOLTDB_VOLTDB="$VOLTDB_BASE/voltdb"
- # distribution layout has libraries in separate lib and voltdb directories
- else
-     VOLTDB_BASE=$(dirname "$VOLTDB_BIN")
-@@ -115,7 +115,7 @@
- # if this script is run directly:
- # Run the target passed as the first arg on the command line
- # If no first arg, do nothing
--if [ "${0}" = "$SOURCE" ]; then
-+if [ "${0}" = "${BASH_SOURCE[0]}" ]; then
-     if [ $# -gt 1 ]; then
-         envhelp
-         exit 0
