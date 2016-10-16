@@ -14,6 +14,7 @@ class Profanity < Formula
     url "https://github.com/boothj5/profanity.git"
 
     depends_on "autoconf" => :build
+    depends_on "autoconf-archive" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
@@ -30,15 +31,7 @@ class Profanity < Formula
   depends_on "terminal-notifier" => :optional
 
   def install
-    if build.head?
-      # Prevent "configure.ac:87: error: possibly undefined macro: AC_MSG_ERROR"
-      # Regression due to https://github.com/boothj5/profanity/commit/c908f37
-      # Reported 16 Oct 2016 https://github.com/boothj5/profanity/issues/870
-      inreplace "configure.ac", /^ACX_PTHREAD.*/, "ACX_PTHREAD"
-
-      system "./bootstrap.sh"
-    end
-
+    system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-python-plugins",
