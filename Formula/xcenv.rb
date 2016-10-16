@@ -7,10 +7,9 @@ class Xcenv < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8bdcf774eebbfa075bf539c44ee4469a8d3d7b0f326c475ec8654d61a2647429" => :sierra
-    sha256 "cea5afaa85e626275f25897176165839ce8b62e83e6858a6d2733e5aa2a08b4e" => :el_capitan
-    sha256 "82c0673fec7ade22f064e2d8f67739b4e1c86c4b86cfe0d89bf8561b82978565" => :yosemite
-    sha256 "82c0673fec7ade22f064e2d8f67739b4e1c86c4b86cfe0d89bf8561b82978565" => :mavericks
+    sha256 "000e0d3d363de9398ba5655f5536cb817a6f1019f2679b4469556d86bf012a4b" => :sierra
+    sha256 "000e0d3d363de9398ba5655f5536cb817a6f1019f2679b4469556d86bf012a4b" => :el_capitan
+    sha256 "000e0d3d363de9398ba5655f5536cb817a6f1019f2679b4469556d86bf012a4b" => :yosemite
   end
 
   def install
