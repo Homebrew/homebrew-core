@@ -5,9 +5,9 @@ class GupnpAv < Formula
   sha256 "8038ef84dddbe7ad91c205bf91dddf684f072df8623f39b6555a6bb72837b85a"
 
   bottle do
-    sha256 "c450fea99ba2f8bca3dda25c50741a3cd6dc91b5ac888279ac2705c5b12a85a9" => :sierra
-    sha256 "844eeb00212c5928c0886f7e777a24ae306f03ef1f8cda940fb425c39821dfe3" => :el_capitan
-    sha256 "dc8416a36b758db5d6d5334edf19b446d99ca057d7c3f9be02dae5b9dca51058" => :yosemite
+    sha256 "87410e9f5a9aa1fb9b7d706d55762d540922f35fade1394ce8f65614e9d3a16a" => :sierra
+    sha256 "a92492fb1109fd453415e73bcf2b7ac5e99aefa3ea85f863d94b741277394a6a" => :el_capitan
+    sha256 "368db5c08311273ff6bd51c2f30afe9acfd06481c93191e76d73cce6050c128e" => :yosemite
   end
 
   depends_on "pkg-config" => :build
