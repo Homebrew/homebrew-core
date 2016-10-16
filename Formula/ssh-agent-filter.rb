@@ -10,8 +10,7 @@ class SshAgentFilter < Formula
   depends_on "nettle"
 
   patch do
-    # https://github.com/tiwe-de/ssh-agent-filter/pull/6
-    url "https://patch-diff.githubusercontent.com/raw/tiwe-de/ssh-agent-filter/pull/6.diff"
+    url "https://github.com/tiwe-de/ssh-agent-filter/pull/6.diff"
     sha256 "073b6d45694b547c6067403d4f657d4dfa2819926c386ecea131a1499403dd30"
   end
 
@@ -33,6 +32,7 @@ class SshAgentFilter < Formula
     system *gencmd, "-C", "keyA", "-f", "keyA"
     system *gencmd, "-C", "keyB", "-f", "keyB"
     (testpath/"test.sh").write <<-EOS.undent
+      set -ex
       eval $(ssh-agent)
       pid=$SSH_AGENT_PID
       ssh-add keyA keyB
