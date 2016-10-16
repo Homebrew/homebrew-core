@@ -150,6 +150,7 @@ class Caddy < Formula
            "-o", bin/"caddy", "github.com/mholt/caddy/caddy"
   end
 
+
   def post_install
     (etc/"caddy/").mkpath
     (var/"caddy").mkpath
