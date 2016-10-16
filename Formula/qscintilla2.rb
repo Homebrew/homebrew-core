@@ -3,7 +3,7 @@ class Qscintilla2 < Formula
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
   url "https://downloads.sf.net/project/pyqt/QScintilla2/QScintilla-2.9.3/QScintilla_gpl-2.9.3.tar.gz"
   sha256 "98aab93d73b05635867c2fc757acb383b5856a0b416e3fd7659f1879996ddb7e"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "ad2e8643cdfae60bc884313148c93982cb60b451cd4ef1057dcb1f8131491a83" => :sierra
