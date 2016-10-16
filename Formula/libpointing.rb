@@ -1,8 +1,8 @@
 class Libpointing < Formula
   desc "Provides direct access to HID pointing devices"
   homepage "http://libpointing.org"
-  url "https://github.com/INRIA/libpointing/releases/download/v1.0.2/libpointing-mac-1.0.2.tar.gz"
-  sha256 "4f4234581772bace7e811da1643d53922d8e29efdb52a5a6d7aaa13c937159f1"
+  url "https://github.com/INRIA/libpointing/releases/download/v1.0.3/libpointing-mac-1.0.3.tar.gz"
+  sha256 "0c0461bb7470595650fd34735283a21ba7fafe9e476887ef8e63b7b35c040e90"
 
   bottle do
     cellar :any
@@ -11,7 +11,10 @@ class Libpointing < Formula
     sha256 "438b00adce6f408749c9ab874c296b54b48df89d89b27bbc691204fb8cd9cad1" => :yosemite
   end
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end
@@ -30,7 +33,7 @@ class Libpointing < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-lpointing", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lpointing", "-o", "test"
     system "./test"
   end
 end
