@@ -1,11 +1,8 @@
 class Profanity < Formula
   desc "Console based XMPP client"
   homepage "http://www.profanity.im/"
-  url "http://www.profanity.im/profanity-0.4.7.tar.gz"
-  sha256 "b02c4e029fe84941050ccab6c8cdf5f15df23de5d1384b4d1ec66da6faee11dd"
-  revision 3
-
-  head "https://github.com/boothj5/profanity.git"
+  url "http://www.profanity.im/profanity-0.5.0.tar.gz"
+  sha256 "783be8aa6eab7192fc211f00adac136b21e580ea52d9c07128312a9609939668"
 
   bottle do
     sha256 "f822fb49ab3e57dc2c0e155ea23f93c0d8f8e230a5b6e7f41401368ef9cde23d" => :sierra
@@ -13,8 +10,14 @@ class Profanity < Formula
     sha256 "17ceae0ada23ce3686e534ad7a3644348105805dc1f3da570cb6c08b749a41a9" => :yosemite
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  head do
+    url "https://github.com/boothj5/profanity.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "ossp-uuid"
   depends_on "libstrophe"
@@ -27,9 +30,18 @@ class Profanity < Formula
   depends_on "terminal-notifier" => :optional
 
   def install
-    system "./bootstrap.sh"
+    if build.head?
+      # Prevent "configure.ac:87: error: possibly undefined macro: AC_MSG_ERROR"
+      # Regression due to https://github.com/boothj5/profanity/commit/c908f37
+      # Reported 16 Oct 2016 https://github.com/boothj5/profanity/issues/870
+      inreplace "configure.ac", /^ACX_PTHREAD.*/, "ACX_PTHREAD"
+
+      system "./bootstrap.sh"
+    end
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--disable-python-plugins",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
