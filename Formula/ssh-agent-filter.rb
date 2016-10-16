@@ -6,6 +6,7 @@ class SshAgentFilter < Formula
 
   depends_on "help2man" => :build
   depends_on "pandoc" => :build 
+  depends_on "gettext" => :build 
   depends_on "boost"
   depends_on "nettle"
 
