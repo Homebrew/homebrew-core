@@ -23,10 +23,10 @@ class Voltdb < Formula
       %r{VOLTDB_LIB=\$VOLTDB_HOME\/lib}, "VOLTDB_LIB=$VOLTDB_HOME/lib/voltdb"
 
     inreplace "bin/voltenv" do |s|
-      s.gsub! %r{VOLTDB_VOLTDB="\$VOLTDB_LIB"}, "VOLTDB_VOLTDB=\"$VOLTDB_BASE/voltdb\""
+      s.gsub! /VOLTDB_VOLTDB="\$VOLTDB_LIB"/, "VOLTDB_VOLTDB=\"$VOLTDB_BASE/voltdb\""
 
-      # Remove is voltenv installed as link check
-      s.gsub!  %r{if \[ "\$\{0\}" = "\$SOURCE" \]; then}, "if [ \"${0}\" = \"${BASH_SOURCE[0]}\" ]; then"
+      # Remove voltenv installed as link check
+      s.gsub! /if \[ "\$\{0\}" = "\$SOURCE" \]; then/, "if [ \"${0}\" = \"${BASH_SOURCE[0]}\" ]; then"
     end
 
     (lib/"voltdb").install Dir["lib/*"]
@@ -38,4 +38,3 @@ class Voltdb < Formula
     assert_match version.to_s, shell_output("#{bin}/voltdb --version")
   end
 end
-
