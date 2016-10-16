@@ -5,12 +5,12 @@ class Sslyze < Formula
   homepage "https://github.com/nabla-c0d3/sslyze"
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/0.14.0.tar.gz"
-    sha256 "a4450cec121dfde9e52869f430197e83082752f61c02af3010ab96a8957773aa"
+    url "https://github.com/nabla-c0d3/sslyze/archive/0.14.1.tar.gz"
+    sha256 "af432ab4254dd8d2c0d3aa514bb83db3d1b3e602e8c29e1aa6a233890f0f8658"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl/archive/0.14.0.tar.gz"
-      sha256 "b268b20eb6e1c32990d85933120ea459251e7fb70838ebd677ab9003e1b0fa0c"
+      url "https://github.com/nabla-c0d3/nassl/archive/0.14.1.tar.gz"
+      sha256 "2bd2f42f4c3144c2834e96e3e0d4ad2f158ee2a8655f2ba649b7aa41c8840baa"
     end
 
     resource "openssl" do
@@ -21,9 +21,9 @@ class Sslyze < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "309240b841786862dfaea4f3fd026541807e9b6afc05e4e99f01abee2f453c1c" => :sierra
-    sha256 "8628558f0114cf3329859a056a8fc619de5388732b57553157041f363c563e32" => :el_capitan
-    sha256 "95f5f3bd69bbf9cb1a4780da906fd2cd11d2d467633080c9ddcaa5976edbed48" => :yosemite
+    sha256 "f0501231f0fc35869cb5d3afbf719e3fa9f958cbaeb02bb5b85addedccd7b714" => :sierra
+    sha256 "d50977c1e8fd9a4579f3eb84344ade34fead60111b6afa44e9edbee2e69dacbc" => :el_capitan
+    sha256 "a8ed3344bfb5c5a31e7fa38a7888ce9f3aa197e0dcd650b61aebfab925f6c093" => :yosemite
   end
 
   head do
@@ -68,13 +68,7 @@ class Sslyze < Formula
       venv.pip_install nassl_path
     end
     venv.pip_install_and_link buildpath
-    mv bin/"sslyze_cli.py", bin/"sslyze"
 
-    # Fix test_tlsv1_2_enable assertion error
-    # Reported 29 Aug 2016 https://github.com/nabla-c0d3/sslyze/issues/170
-    inreplace "tests/test_openssl_cipher_suites_plugin.py",
-      "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256",
-      "ECDHE-RSA-CHACHA20-POLY1305-OLD"
     ENV.prepend "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", "run_tests.py"
   end

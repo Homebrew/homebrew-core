@@ -3,11 +3,12 @@ class Ice < Formula
   homepage "https://zeroc.com"
   url "https://github.com/zeroc-ice/ice/archive/v3.6.3.tar.gz"
   sha256 "82ff74e6d24d9fa396dbb4d9697dc183b17bc9c3f6f076fecdc05632be80a2dc"
+  revision 1
 
   bottle do
-    sha256 "ea71253379700e895b5dc6e3ef5f2eb8f6f89d7eae33e8c2910e20a1506a4b3c" => :sierra
-    sha256 "9269652e3d4ec5b7fc4a384ac669b39aa89a4d8b94a54aaefef4275d29473fb2" => :el_capitan
-    sha256 "faec66447e4db030881c3ae814407e9db76e5fc5c3d9d145e10941cc04631738" => :yosemite
+    sha256 "f77f68326d23a4fe732f7ddc771e766959902ebbe490a1712d21a9b4da666d7e" => :sierra
+    sha256 "a766b8562df95b2215cdc349027eb271711a52d22d8433f12d01a945fc79067b" => :el_capitan
+    sha256 "0731860bd7cebc7585dba29ea8c90497c198257adb69bddf9333798bb1d219c4" => :yosemite
   end
 
   option "with-java", "Build Ice for Java and the IceGrid Admin app"
@@ -54,8 +55,12 @@ class Ice < Formula
     ENV.delete("CPPFLAGS")
     ENV.O2
 
+    # Ensure Gradle uses a writable directory even in sandbox mode
+    ENV["GRADLE_USER_HOME"] = buildpath/".gradle"
+
     args = %W[
       prefix=#{prefix}
+      embedded_runpath_prefix=#{prefix}
       USR_DIR_INSTALL=yes
       SLICE_DIR_SYMLINK=yes
       OPTIMIZE=yes
@@ -117,5 +122,8 @@ class Ice < Formula
     system "xcrun", "clang++", "-c", "-I#{include}", "-I.", "Test.cpp"
     system "xcrun", "clang++", "-L#{lib}", "-o", "test", "Test.o", "Hello.o", "-lIce", "-lIceUtil"
     system "./test", "--Ice.InitPlugins=0"
+    system "/usr/bin/php", "-d", "extension_dir=#{lib}/php/extensions",
+                           "-d", "extension=IcePHP.dy",
+                           "-r", "extension_loaded('ice') ? exit(0) : exit(1);"
   end
 end

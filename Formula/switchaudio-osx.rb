@@ -1,5 +1,5 @@
 class SwitchaudioOsx < Formula
-  desc "Change OS X audio source from the command-line"
+  desc "Change macOS audio source from the command-line"
   homepage "https://github.com/deweller/switchaudio-osx/"
   url "https://github.com/deweller/switchaudio-osx/archive/1.0.0.tar.gz"
   sha256 "c00389837ffd02b1bb672624fec7b75434e2d72d55574afd7183758b419ed6a3"

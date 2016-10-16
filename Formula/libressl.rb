@@ -57,14 +57,15 @@ class Libressl < Formula
       $?.success?
     end
 
-    # LibreSSL install a default pem - We prefer to use OS X for consistency.
+    # LibreSSL install a default pem - We prefer to use macOS for consistency.
     rm_f %W[#{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default]
     (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
   end
 
   def caveats; <<-EOS.undent
     A CA file has been bootstrapped using certificates from the SystemRoots
-    keychain. To add additional certificates, place .pem files in
+    keychain. To add additional certificates (e.g. the certificates added in
+    the System keychain), place .pem files in
       #{etc}/libressl/certs
 
     and run

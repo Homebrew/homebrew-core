@@ -16,7 +16,7 @@ class Erlang < Formula
     sha256 "45acf62bfa269cf97daaa78fdc8394f371cd9bcb96e5f5dd8eeea4f701b3cad1" => :yosemite
   end
 
-  option "without-hipe", "Disable building hipe; fails on various OS X systems"
+  option "without-hipe", "Disable building hipe; fails on various macOS systems"
   option "with-native-libs", "Enable native library compilation"
   option "with-dirty-schedulers", "Enable experimental dirty schedulers"
   option "with-java", "Build jinterface application"
@@ -86,7 +86,7 @@ class Erlang < Formula
     end
 
     if build.without? "hipe"
-      # HIPE doesn't strike me as that reliable on OS X
+      # HIPE doesn't strike me as that reliable on macOS
       # https://syntatic.wordpress.com/2008/06/12/macports-erlang-bus-error-due-to-mac-os-x-1053-update/
       # https://www.erlang.org/pipermail/erlang-patches/2008-September/000293.html
       args << "--disable-hipe"

@@ -1,5 +1,5 @@
 class Launch < Formula
-  desc "Command-line launcher for OS X, in the spirit of `open`"
+  desc "Command-line launcher for macOS, in the spirit of `open`"
   homepage "https://sabi.net/nriley/software/#launch"
   url "https://sabi.net/nriley/software/launch-1.2.3.tar.gz"
   sha256 "b4bedaa61f7138f9167e7313e077ffbfc0716a60d4937f94aaedf3f46406bc38"

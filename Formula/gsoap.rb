@@ -15,7 +15,7 @@ class Gsoap < Formula
   def install
     ENV.deparallelize
 
-    # OS X defines "TCP_FASTOPE" in netinet/tcp.h but doesn't
+    # macOS defines "TCP_FASTOPE" in netinet/tcp.h but doesn't
     # seems to recognise or accept "SOL_TCP". IPPROTO_TCP is equivalent, apparently.
     # https://github.com/Homebrew/homebrew/issues/44018#issuecomment-145231029
     inreplace "gsoap/stdsoap2.c", "SOL_TCP", "IPPROTO_TCP"

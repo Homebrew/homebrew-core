@@ -60,7 +60,6 @@ class Nginx < Formula
       --prefix=#{prefix}
       --with-http_ssl_module
       --with-pcre
-      --with-ipv6
       --sbin-path=#{bin}/nginx
       --with-cc-opt=#{cc_opt}
       --with-ld-opt=#{ld_opt}
@@ -82,6 +81,7 @@ class Nginx < Formula
       args << "--add-module=#{nginx_ext}"
     end
 
+    args << "--with-ipv6" if build.stable?
     args << "--with-http_dav_module" if build.with? "webdav"
     args << "--with-debug" if build.with? "debug"
     args << "--with-http_gunzip_module" if build.with? "gunzip"

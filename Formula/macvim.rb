@@ -1,26 +1,16 @@
 # Reference: https://github.com/macvim-dev/macvim/wiki/building
 class Macvim < Formula
-  desc "GUI for vim, made for OS X"
+  desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-112.tar.gz"
+  version "8.0-112"
+  sha256 "ef19a2f944f5406fc88836f64831ae49ca13b26ef7fa96c12e84892772647103"
   head "https://github.com/macvim-dev/macvim.git"
 
-  stable do
-    url "https://github.com/macvim-dev/macvim/archive/snapshot-111.tar.gz"
-    version "8.0-111"
-    sha256 "104f3a30903aa78c350889b1624551fc50caecca34bc5af1d25ca7d00145462c"
-
-    # Remove for > 8.0-111; fix "error: use of undeclared identifier"
-    # Upstream commit from 11 Oct 2016 "Fix build for Xcode 7 or earlier"
-    patch do
-      url "https://github.com/macvim-dev/macvim/commit/0f16ec9.patch"
-      sha256 "1106ad49c777986fbc6f948489c01acbe35408a5ba6ae8a301d0dc95365907f5"
-    end
-  end
-
   bottle do
-    sha256 "8f06e3c20bf27384db2e8d87a1a559f4892e549f54da70732bc5f13caa688477" => :sierra
-    sha256 "681a06d158016615e7a62a17e820146591522b3b067b94f2b174a7a8528604cd" => :el_capitan
-    sha256 "4504ef97ffc5b6b2cddd2f976697137b021c176542ea62a5028c85c1121106e6" => :yosemite
+    sha256 "73a317b39548334952e261f19737f8b91e65cd54e34e5875b0cb66a116647692" => :sierra
+    sha256 "cc1f175454442a9e53606ef74c7aa8a2e88f3f360bd7023cff219f44e814d60b" => :el_capitan
+    sha256 "9e7a974aa02f15d3846f9959e0567c9f9cbd466b65f07fa8ce5cd25f5b7910ed" => :yosemite
   end
 
   option "with-override-system-vim", "Override system vim"

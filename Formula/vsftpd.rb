@@ -16,7 +16,7 @@ class Vsftpd < Formula
 
   depends_on "openssl" => :optional
 
-  # Patch to remove UTMPX dependency, locate OS X's PAM library, and
+  # Patch to remove UTMPX dependency, locate macOS's PAM library, and
   # remove incompatible LDFLAGS. (reported to developer via email)
   patch :DATA
 
@@ -75,7 +75,7 @@ index b988be6..68d4a34 100755
    locate_library /usr/lib/libpam.sl && echo "-lpam";
    # AIX ends shared libraries with .a
    locate_library /usr/lib/libpam.a && echo "-lpam";
-+  # Mac OS X / Darwin shared libraries with .dylib
++  # macOS / Darwin shared libraries with .dylib
 +  locate_library /usr/lib/libpam.dylib && echo "-lpam";
  else
    locate_library /lib/libcrypt.so && echo "-lcrypt";
