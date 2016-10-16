@@ -1,8 +1,8 @@
 class Aria2 < Formula
   desc "Download with resuming and segmented downloading"
   homepage "https://aria2.github.io/"
-  url "https://github.com/aria2/aria2/releases/download/release-1.27.1/aria2-1.27.1.tar.xz"
-  sha256 "c09627ef31602cfdfa7c9925a6c3b05fe7d2097d83f42dcfdef68664bd106f08"
+  url "https://github.com/aria2/aria2/releases/download/release-1.28.0/aria2-1.28.0.tar.xz"
+  sha256 "e0a125a557b9aacf23468374f63215e9b1d6165c990bd8ecb0603cdc1d5d72f0"
 
   bottle do
     cellar :any_skip_relocation
