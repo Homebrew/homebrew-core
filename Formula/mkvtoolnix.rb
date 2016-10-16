@@ -64,10 +64,6 @@ class Mkvtoolnix < Formula
     if build.with?("qt5")
       qt5 = Formula["qt5"]
 
-      ENV["QT_CFLAGS"] = "-I#{qt5.opt_include} -I#{qt5.opt_include}/QtNetwork -I#{qt5.opt_include}/QtWidgets -I#{qt5.opt_include}/QtGui -I#{qt5.opt_include}/QtCore"
-      ENV["QT_LIBS"] = "-F#{qt5.opt_lib} -framework QtNetwork -framework QtWidgets -framework QtGui -framework QtCore"
-
-      args << "--without-qt-pkg-config"
       args << "--with-moc=#{qt5.opt_bin}/moc"
       args << "--with-uic=#{qt5.opt_bin}/uic"
       args << "--with-rcc=#{qt5.opt_bin}/rcc"
