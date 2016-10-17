@@ -65,6 +65,7 @@
   "drush": "homebrew/php",
   "dsniff": "homebrew/boneyard",
   "dupx": "homebrew/boneyard",
+  "dwarf": "homebrew/boneyard",
   "dwm": "homebrew/x11",
   "dzen2": "homebrew/x11",
   "easy-tag": "homebrew/gui",
