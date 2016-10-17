@@ -38,8 +38,10 @@ class Poppler < Formula
     sha256 "e752b0d88a7aba54574152143e7bf76436a7ef51977c55d6bd9a48dccde3a7de"
   end
 
+  needs :cxx11 if build.with?("qt5") || MacOS.version < :mavericks
+
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
+    ENV.cxx11 if build.with?("qt5") || MacOS.version < :mavericks
     ENV["LIBOPENJPEG_CFLAGS"] = "-I#{Formula["openjpeg"].opt_include}/openjpeg-2.1"
 
     args = %W[
