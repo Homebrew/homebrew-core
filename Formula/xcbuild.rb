@@ -10,8 +10,8 @@ class Xcbuild < Formula
   depends_on "pkg-config"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
-    bin.install_symlink "#{prefix}/usr/bin/xcbuild"
+    system "make", "install", "cmake_flags=-DCMAKE_INSTALL_PREFIX=#{bin}"
+    #bin.install_symlink "#{bin}/usr/bin/xcbuild"
   end
 
   test do
