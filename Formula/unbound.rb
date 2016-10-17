@@ -30,12 +30,14 @@ class Unbound < Formula
 
       args << "--with-pyunbound"
       args << "--with-pythonmodule"
+      args << "PYTHON_SITE_PKG=#{lib}/python2.7/site-packages"
     end
 
     args << "--with-libexpat=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
     system "./configure", *args
 
     inreplace "doc/example.conf", 'username: "unbound"', 'username: "@@HOMEBREW-UNBOUND-USER@@"'
+    system "make"
     system "make", "install"
   end
 
