@@ -19,10 +19,13 @@ class Voltdb < Formula
   def install
     system "ant"
 
+    # Edit VOLTDB_LIB variable in bash scripts to match homebrew's folder structure. Python scripts work without
+    # changes and are excluded here.
     inreplace Dir["bin/*"] - ["bin/voltadmin", "bin/voltdb", "bin/rabbitmqloader", "bin/voltdeploy", "bin/voltenv"],
       %r{VOLTDB_LIB=\$VOLTDB_HOME\/lib}, "VOLTDB_LIB=$VOLTDB_HOME/lib/voltdb"
 
     inreplace "bin/voltenv" do |s|
+      # voltenv location detection is different than in other bash scripts. 
       s.gsub! /VOLTDB_VOLTDB="\$VOLTDB_LIB"/, "VOLTDB_VOLTDB=\"$VOLTDB_BASE/voltdb\""
 
       # Remove voltenv installed as link check
