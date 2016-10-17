@@ -1,8 +1,8 @@
 class SyncthingInotify < Formula
   desc "File watcher intended for use with Syncthing"
   homepage "https://github.com/syncthing/syncthing-inotify"
-  url "https://github.com/syncthing/syncthing-inotify/archive/v0.8.3.tar.gz"
-  sha256 "2c8ac5152056ec2f106f00f62458db478c3e8cefa11c9f6aadfeb86eccdcb811"
+  url "https://github.com/syncthing/syncthing-inotify/archive/v0.8.4.tar.gz"
+  sha256 "c8215c8bc8a52a043ae3bcba6ff94ef572159ca5d7808b44deeb31eb3b2ce295"
   head "https://github.com/syncthing/syncthing-inotify.git"
 
   bottle do
