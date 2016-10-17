@@ -14,6 +14,9 @@ class Unbound < Formula
   depends_on "openssl"
   depends_on "libevent"
 
+  depends_on :python => :optional
+  depends_on "swig" if build.with?("python")
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -21,6 +24,14 @@ class Unbound < Formula
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-ssl=#{Formula["openssl"].opt_prefix}
     ]
+
+    if build.with? "python"
+      ENV.prepend "LDFLAGS", `python-config --ldflags`.chomp
+
+      args << "--with-pyunbound"
+      args << "--with-pythonmodule"
+    end
+
     args << "--with-libexpat=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
     system "./configure", *args
 
