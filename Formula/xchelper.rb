@@ -1,7 +1,5 @@
 class Xchelper < Formula
-  desc "xchelper helps you stay in Xcode and off the command line. Build your Swift code on Linux with Xcode
-Archive your project and upload to S3 for automatic deployment with Xcode Server
-Keep the Xcode references to Swift dependency sources updated so that you don't have to keep change them when your dependencies update."
+  desc "Build your Swift code on Linux with Xcode. Archive and upload to S3."
   homepage "https://github.com/saltzmanjoelh/XcodeHelper"
   url "https://github.com/saltzmanjoelh/XcodeHelper/archive/master.tar.gz"
   version "1.0.10"
@@ -11,7 +9,7 @@ Keep the Xcode references to Swift dependency sources updated so that you don't 
     system "swift", "build", "--configuration", "release"
     bin.install "./.build/release/xchelper"
   end
-  
+
   def uninstall
     system "swift", "build", "--configuration", "release"
     bin.install "./.build/release/xchelper"
