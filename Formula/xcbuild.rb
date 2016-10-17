@@ -10,7 +10,6 @@ class Xcbuild < Formula
   depends_on "pkg-config"
 
   def install
-    system "make"
     system "make", "install", "PREFIX=#{prefix}"
     bin.install_symlink "#{prefix}/usr/bin/xcbuild"
   end
