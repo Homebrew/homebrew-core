@@ -1,9 +1,21 @@
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
   homepage "http://liballeg.org/"
-  url "http://download.gna.org/allegro/allegro/5.2.1.1/allegro-5.2.1.1.tar.gz"
-  sha256 "b5d9df303bc6d72d54260c24505889acd995049b75463b46344e797a58a44a71"
+  revision 1
+
   head "https://github.com/liballeg/allegro5.git", :branch => "master"
+
+  stable do
+    url "http://download.gna.org/allegro/allegro/5.2.1.1/allegro-5.2.1.1.tar.gz"
+    sha256 "b5d9df303bc6d72d54260c24505889acd995049b75463b46344e797a58a44a71"
+
+    # Fix compilation on 10.12
+    # https://github.com/liballeg/allegro5/pull/682
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/2daef1c/allegro/patch-allegro-10.12.diff"
+      sha256 "f2879676a370749319b8247ab7437b8060c9d9dc2f58f45db0d782419fe37adf"
+    end
+  end
 
   bottle do
     cellar :any
