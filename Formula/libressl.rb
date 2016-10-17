@@ -12,6 +12,13 @@ class Libressl < Formula
     sha256 "093e950780c7d7946d283732becb7adb4f067a0accf54c562be3117017e03139" => :yosemite
   end
 
+  devel do
+    url "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.5.0.tar.gz"
+    mirror "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.5.0.tar.gz"
+    version "2.5.0-beta1"
+    sha256 "8652bf6b55ab51fb37b686a3f604a2643e0e8fde2c56e6a936027d12afda6eae"
+  end
+
   head do
     url "https://github.com/libressl-portable/portable.git"
 
