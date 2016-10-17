@@ -26,6 +26,7 @@ class Voltdb < Formula
       s.gsub! /VOLTDB_VOLTDB="\$VOLTDB_LIB"/, "VOLTDB_VOLTDB=\"$VOLTDB_BASE/voltdb\""
 
       # Remove voltenv installed as link check
+      # Upstream PR https://github.com/VoltDB/voltdb/pull/3973
       s.gsub! /if \[ "\$\{0\}" = "\$SOURCE" \]; then/, "if [ \"${0}\" = \"${BASH_SOURCE[0]}\" ]; then"
     end
 
