@@ -1,15 +1,15 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/ldc-developers/ldc/releases/download/v1.0.0/ldc-1.0.0-src.tar.gz"
     sha256 "3740ee6d5871e953aeb03b11f9d8c951286a55884892b51981bfe579b8fe571d"
 
     resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.1/ldc-0.17.1-src.tar.gz"
-      sha256 "8f5453e4e0878110ab03190ae9313ebbb323884090e6e7db87b02e5ed6a1c8b0"
+      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.2/ldc-0.17.2-src.tar.gz"
+      sha256 "8498f0de1376d7830f3cf96472b874609363a00d6098d588aac5f6eae6365758"
     end
   end
 
@@ -21,13 +21,13 @@ class Ldc < Formula
   end
 
   devel do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.1.0-beta2/ldc-1.1.0-beta2-src.tar.gz"
-    sha256 "36d7094c642bbfab331e1db5fbaeeb967d1e8d09f25aeaf8262fa88eb8358ca5"
-    version "1.1.0-beta2"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.1.0-beta3/ldc-1.1.0-beta3-src.tar.gz"
+    sha256 "cf4aeb393eada610aa3bad18c3ae6a5de94250eaa968fe2d1b0a6afdf8ea54f6"
+    version "1.1.0-beta3"
 
     resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.1/ldc-0.17.1-src.tar.gz"
-      sha256 "8f5453e4e0878110ab03190ae9313ebbb323884090e6e7db87b02e5ed6a1c8b0"
+      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.2/ldc-0.17.2-src.tar.gz"
+      sha256 "8498f0de1376d7830f3cf96472b874609363a00d6098d588aac5f6eae6365758"
     end
   end
 
