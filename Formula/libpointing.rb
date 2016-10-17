@@ -6,9 +6,9 @@ class Libpointing < Formula
 
   bottle do
     cellar :any
-    sha256 "079457c310c4f84832e1c64c25a1067de993b87b7fab4eafb6202549ee2a4940" => :sierra
-    sha256 "079457c310c4f84832e1c64c25a1067de993b87b7fab4eafb6202549ee2a4940" => :el_capitan
-    sha256 "438b00adce6f408749c9ab874c296b54b48df89d89b27bbc691204fb8cd9cad1" => :yosemite
+    sha256 "2fa16b6c03d0e36f59ce686ab327cc949d0970b9d79e8f3e6c0f4bf7069e5756" => :sierra
+    sha256 "2fa16b6c03d0e36f59ce686ab327cc949d0970b9d79e8f3e6c0f4bf7069e5756" => :el_capitan
+    sha256 "a69e8fb6eb703b0f190cc10e2dc121d94d33be4b5499e43d740fbf4ba60535c0" => :yosemite
   end
 
   needs :cxx11
