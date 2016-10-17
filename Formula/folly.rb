@@ -1,10 +1,8 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2016.09.05.00.tar.gz"
-  sha256 "79e931af5d9610fee80ea81af82fcaed35b4d58a529e504c1326e62448e780ae"
-  revision 1
-
+  url "https://github.com/facebook/folly/archive/v2016.10.17.00.tar.gz"
+  sha256 "0f83685016d020111ba54ddc48c0cf33e1e0b9b35cee5ae82d5f2cbc5f6b0e82"
   head "https://github.com/facebook/folly.git"
 
   bottle do
@@ -41,21 +39,19 @@ class Folly < Formula
     ENV.cxx11
 
     cd "folly" do
-      # Workaround for "no matching function for call to 'clock_gettime'"
-      # See upstream PR from 2 Oct 2016 facebook/folly#488
-      if DevelopmentTools.clang_build_version >= 800
-        inreplace ["Benchmark.cpp", "Benchmark.h"] do |s|
-          s.gsub! "detail::DEFAULT_CLOCK_ID",
-                  "(clockid_t)detail::DEFAULT_CLOCK_ID"
-          s.gsub! "clock_gettime(CLOCK_REALTIME",
-                  "clock_gettime((clockid_t)CLOCK_REALTIME", false
-        end
-      end
-
-      # Fix "candidate function not viable: no known conversion from
-      # 'folly::detail::Clock' to 'clockid_t' for 1st argument"
-      # See upstream PR mentioned above
       if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+        # Workaround for "no matching function for call to 'clock_gettime'"
+        # See upstream PR from 2 Oct 2016 facebook/folly#488
+        inreplace ["Benchmark.cpp", "Benchmark.h"] do |s|
+          s.gsub! "clock_gettime(CLOCK_REALTIME",
+                  "clock_gettime((clockid_t)CLOCK_REALTIME"
+          s.gsub! "clock_getres(CLOCK_REALTIME",
+                  "clock_getres((clockid_t)CLOCK_REALTIME", false
+        end
+
+        # Fix "candidate function not viable: no known conversion from
+        # 'folly::detail::Clock' to 'clockid_t' for 1st argument"
+        # See upstream PR mentioned above
         inreplace "portability/Time.h", "typedef uint8_t clockid_t;", ""
       end
 
