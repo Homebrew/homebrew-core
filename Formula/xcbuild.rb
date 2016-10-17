@@ -7,7 +7,6 @@ class Xcbuild < Formula
   depends_on "ninja" => :recommended
   depends_on "cmake"
   depends_on "libpng"
-  depends_on "libxml2"
   depends_on "pkg-config"
 
   def install
