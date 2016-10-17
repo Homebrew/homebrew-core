@@ -3,6 +3,7 @@ class Fdupes < Formula
   homepage "https://github.com/adrianlopezroche/fdupes"
   url "https://github.com/adrianlopezroche/fdupes/archive/v1.6.1.tar.gz"
   sha256 "9d6b6fdb0b8419815b4df3bdfd0aebc135b8276c90bbbe78ebe6af0b88ba49ea"
+  version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
