@@ -27,6 +27,12 @@ class Gnutls < Formula
   end
 
   def install
+    # Fix "dyld: lazy symbol binding failed: Symbol not found: _getentropy"
+    # Reported 18 Oct 2016 https://gitlab.com/gnutls/gnutls/issues/142
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "configure", "getentropy(0, 0);", "undefinedgibberish(0, 0);"
+    end
+
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
