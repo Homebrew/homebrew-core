@@ -1,8 +1,8 @@
 class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/yaz"
-  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.17.0.tar.gz"
-  sha256 "9b735f0f6bc11856bf4d26ef3b9f2a2b92225d29d37f2e0b66ca9ecbd40965a0"
+  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.18.0.tar.gz"
+  sha256 "b37ebbfc5b88ddb4fc5d8aefca345b48acac196211d35b11f292aafe636f660c"
 
   bottle do
     cellar :any
@@ -25,10 +25,6 @@ class Yaz < Formula
 
   def install
     ENV.universal_binary if build.universal?
-
-    # Fix "malloc_info.c:15:10: fatal error: 'malloc.h' file not found"
-    # Reported 5 Oct 2016 https://github.com/indexdata/yaz/issues/13
-    inreplace "src/malloc_info.c", "<malloc.h>", "<malloc/malloc.h>"
 
     system "./buildconf.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
