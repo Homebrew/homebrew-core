@@ -1,8 +1,10 @@
 class DockerCompose < Formula
+  include Language::Python::Virtualenv
+
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://github.com/docker/compose/archive/1.8.0.tar.gz"
-  sha256 "a93d702086fdc95f79d20462ddaf7cd174e3d8053b79fe3c565f0ace76a16750"
+  url "https://files.pythonhosted.org/packages/b3/cb/094bf998a02fa396c4ff728191c553370b390babb80dc318a16e7461597a/docker-compose-1.8.1.tar.gz"
+  sha256 "1c72725a0a5cd41f56021cb51c6cba86932fb5b4155378ce883500d2644efc84"
   head "https://github.com/docker/compose.git"
 
   bottle do
@@ -21,11 +23,6 @@ class DockerCompose < Formula
   depends_on "docker" => :recommended
   depends_on "docker-machine" => :recommended
 
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9c/25/fa63da717a694ecf3bdb27f438450f535cdcabd77a955b5b05113f1abd11/setuptools-25.1.1.tar.gz"
-    sha256 "eac02ddb04d1c7af94542f65d34e56c69c2be843688126d3a38916a3b1a999a0"
-  end
-
   resource "backports.ssl_match_hostname" do
     url "https://files.pythonhosted.org/packages/76/21/2dc61178a2038a5cb35d14b61467c6ac632791ed05131dda72c20e7b9e23/backports.ssl_match_hostname-3.5.0.1.tar.gz"
     sha256 "502ad98707319f4a51fa2ca1c677bd659008d27ded9f6380c79e8932e38dcdf2"
@@ -37,8 +34,13 @@ class DockerCompose < Formula
   end
 
   resource "docker-py" do
-    url "https://files.pythonhosted.org/packages/d7/32/1e6be8c9ebc7d02fe74cb1a050008bc9d7e2eb9219f5d5e257648166e275/docker-py-1.9.0.tar.gz"
-    sha256 "6dc6b914a745786d97817bf35bfc1559834c08517c119f846acdfda9cc7f6d7e"
+    url "https://files.pythonhosted.org/packages/bd/54/c0abfa577ecd46e43d6c89489aa99d0787ff3fd83b01bc8d8f3534bc3d5b/docker-py-1.10.4.tar.gz"
+    sha256 "157c487329f2a4c7d70a7d355c0ccc3acb0a540170a17ccfc13f24411ba09b14"
+  end
+
+  resource "docker-pycreds" do
+    url "https://files.pythonhosted.org/packages/95/2e/3c99b8707a397153bc78870eb140c580628d7897276960da25d8a83c4719/docker-pycreds-0.2.1.tar.gz"
+    sha256 "93833a2cf280b7d8abbe1b8121530413250c6cd4ffed2c1cf085f335262f7348"
   end
 
   resource "dockerpty" do
@@ -62,8 +64,8 @@ class DockerCompose < Formula
   end
 
   resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/cd/c5/bd44885274379121507870d4abfe7ba908326cf7bfd50a48d9d6ae091c0d/ipaddress-1.0.16.tar.gz"
-    sha256 "5a3182b322a706525c46282ca6f064d27a02cffbd449f9f47416f1dc96aa71b0"
+    url "https://files.pythonhosted.org/packages/bb/26/3b64955ff73f9e3155079b9ed31812afdfa5333b5c76387454d651ef593a/ipaddress-1.0.17.tar.gz"
+    sha256 "3a21c5a15f433710aaa26f1ae174b615973a25182006ae7f9c26de151cd51716"
   end
 
   resource "jsonschema" do
@@ -72,8 +74,8 @@ class DockerCompose < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/75/5e/b84feba55e20f8da46ead76f14a3943c8cb722d40360702b2365b91dec00/PyYAML-3.11.tar.gz"
-    sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
+    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
+    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
   end
 
   resource "requests" do
@@ -87,8 +89,8 @@ class DockerCompose < Formula
   end
 
   resource "texttable" do
-    url "https://files.pythonhosted.org/packages/f5/5e/47cbc50187ca719a39ce4838182c6126487ca62ddd299bc34cafb94260fe/texttable-0.8.4.tar.gz"
-    sha256 "8587b61cb6c6022d0eb79e56e59825df4353f0f33099b4ae3bcfe8d41bd1702e"
+    url "https://files.pythonhosted.org/packages/92/3e/7d05feb005057009c323ff5edcb3800fb5d53435a649207192e710d8c175/texttable-0.8.5.tar.gz"
+    sha256 "c2b554b0c20c866f061cf08a315354278590b312ee178199a29bfde7a944f986"
   end
 
   resource "websocket-client" do
@@ -97,24 +99,14 @@ class DockerCompose < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    system "./script/build/write-git-sha" if build.head?
+    virtualenv_install_with_resources
 
     bash_completion.install "contrib/completion/bash/docker-compose"
     zsh_completion.install "contrib/completion/zsh/_docker-compose"
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
-    assert_match version.to_s, shell_output(bin/"docker-compose --version")
+    system bin/"docker-compose", "--help"
   end
 end
