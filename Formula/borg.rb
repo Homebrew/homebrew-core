@@ -2,7 +2,7 @@ require "language/go"
 
 class Borg < Formula
   desc "Terminal based search engine for bash commands"
-  homepage "http://ok-b.org"
+  homepage "https://ok-b.org/"
   url "https://github.com/crufter/borg/archive/v0.0.2.tar.gz"
   sha256 "e1b24f34a5b391e910af5aa903a376106c6328389b0accadbca231822ca1ff32"
 
