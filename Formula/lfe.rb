@@ -1,9 +1,8 @@
 class Lfe < Formula
   desc "Concurrent Lisp for the Erlang VM"
   homepage "http://lfe.io/"
-  url "https://github.com/rvirding/lfe/archive/v1.0.tar.gz"
-  sha256 "a335f593faf96fadbe9d049c5be5d331ba19628bd5dd41cedcbc62bb7c597fe7"
-
+  url "https://github.com/rvirding/lfe/archive/v1.2.0.tar.gz"
+  sha256 "0abc6e95e3ccb3eff2bc323418e6a095fbdeee7750e12f9f76c67c69d6558e17"
   head "https://github.com/rvirding/lfe.git", :branch => "develop"
 
   bottle do
@@ -14,12 +13,23 @@ class Lfe < Formula
   end
 
   depends_on "erlang"
-  depends_on "rebar"
+
+  # Prevents build failure "Error in process <0.49.0> with exit value ..."
+  # Reported 18 Oct 2016 in PR "Fix parallelized builds"
+  patch do
+    url "https://github.com/rvirding/lfe/pull/292.patch"
+    sha256 "966db8bc444273f3a790c7eaa0b35c7c8d0a407d5c2c3039674f1c4d9ab5a758"
+  end
 
   def install
-    system "rebar", "compile"
-    bin.install Dir["bin/*"]
-    prefix.install "ebin"
+    system "make"
+    system "make", "MANINSTDIR=#{man}", "install-man"
+    system "make", "emacs"
+    libexec.install "bin", "ebin"
+    bin.install_symlink (libexec/"bin").children
+    doc.install Dir["doc/*.txt"]
+    pkgshare.install "dev", "examples", "test"
+    elisp.install Dir["emacs/*.elc"]
   end
 
   test do
