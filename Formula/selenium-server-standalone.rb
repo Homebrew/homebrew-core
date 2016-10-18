@@ -4,11 +4,6 @@ class SeleniumServerStandalone < Formula
   url "https://selenium-release.storage.googleapis.com/3.0/selenium-server-standalone-3.0.0.jar"
   sha256 "b4f6d2401e88170355f409d4cc70dd2cbcebdd8bd0f730f18581558c283533a1"
 
-  devel do
-    url "https://selenium-release.storage.googleapis.com/3.0-beta4/selenium-server-standalone-3.0.0-beta4.jar"
-    sha256 "7ed927c83d953a05b84794f6e1fb2b699c3c26b04e2379027f72930c679cd76a"
-  end
-
   bottle :unneeded
 
   def install
