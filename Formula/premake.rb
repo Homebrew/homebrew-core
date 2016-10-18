@@ -2,7 +2,9 @@ class Premake < Formula
   desc "Write once, build anywhere Lua-based build system"
   homepage "https://premake.github.io/"
   url "https://downloads.sourceforge.net/project/premake/Premake/4.4/premake-4.4-beta5-src.zip"
+  version "4.4-beta5"
   sha256 "0fa1ed02c5229d931e87995123cdb11d44fcc8bd99bba8e8bb1bbc0aaa798161"
+  version_scheme 1
   head "https://github.com/premake/premake-core.git"
 
   bottle do
@@ -14,8 +16,9 @@ class Premake < Formula
   end
 
   devel do
-    url "https://github.com/premake/premake-core/releases/download/v5.0.0-alpha9/premake-5.0.0-alpha9-src.zip"
-    sha256 "6a71a47c3da137d72bfca9774a2c74476ace111a423aa02f2e6a6be394c5838a"
+    url "https://github.com/premake/premake-core/releases/download/v5.0.0-alpha10/premake-5.0.0-alpha10-src.zip"
+    version "5.0.0-alpha10"
+    sha256 "15a955bf469857c9b8f81b428debf833c47ca98887477164e21568100875045f"
   end
 
   def install
