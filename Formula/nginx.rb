@@ -10,10 +10,9 @@ class Nginx < Formula
   end
 
   bottle do
-    sha256 "7f6f051cf7331c6d003dbfee5863bbf47a3a321d7508f4f5d439e97991c5f59b" => :sierra
-    sha256 "2b67c86454cc67bdeb2a637d9872ae471a810d8a2dae40b6a0c1dad7b253d30d" => :el_capitan
-    sha256 "6ac0a3e07cad5efb31185998f6cd6754de6d799396ffd872814593ba3430fdb3" => :yosemite
-    sha256 "c2f67c6b720a2f2c790338e0d30103acf36c757c068bbed8cc4c79734fd3779e" => :mavericks
+    sha256 "6ad8f2ef5b5658dd01112ad4cfe0cbca6426ef96b370636a7b6065cc5f678c06" => :sierra
+    sha256 "81bd80fc827af7ba9a8a0388cc01a5733e1404d7fc9baf3c20216c439b6e76d4" => :el_capitan
+    sha256 "06c9b731a69611b6fd9a2084b9c2b05848b35ae3fc5395954fdfe77444c42c21" => :yosemite
   end
 
   devel do
