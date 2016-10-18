@@ -120,6 +120,7 @@ class Mono < Formula
             <SchemaVersion>2.0</SchemaVersion>
             <ProjectGuid>{B6AB4EF3-8F60-41A1-AB0C-851A6DEB169E}</ProjectGuid>
             <OutputType>Exe</OutputType>
+            <DefineConstants>TRACE</DefineConstants>
             <FSharpTargetsPath>$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\v$(VisualStudioVersion)\\FSharp\\Microsoft.FSharp.Targets</FSharpTargetsPath>
           </PropertyGroup>
           <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
