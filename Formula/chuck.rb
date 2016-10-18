@@ -13,6 +13,7 @@ class Chuck < Formula
 
   depends_on :xcode => :build
 
+  # patch used to include new OSX version in the version check
   patch :DATA
 
   def install
