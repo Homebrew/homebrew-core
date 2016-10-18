@@ -8,9 +8,9 @@ class Rtv < Formula
   head "https://github.com/michael-lazar/rtv.git"
 
   bottle do
-    sha256 "839af0d6cadf47c5b41d43fc00b3169bdc6d91db6b4c31df10b742915db4795c" => :sierra
-    sha256 "3695f65e405773dd115d059dcc08998b2b2f9798967eecfb9a8be5b4a4c4be74" => :el_capitan
-    sha256 "68f2545a2d131092f670f84d77333ab78e17239e07c0c51e289270262ffe03f8" => :yosemite
+    sha256 "ef5eecff61ea3e10439824ed8a581ec6344bfade401a8082a82fcdb1cd80a5ef" => :sierra
+    sha256 "f1968d66fc0dd95d91fbaacfde8c1fc24a517732fffe188dafa81d87b3b27d25" => :el_capitan
+    sha256 "442175117d3ea4c28e95d846c9603670aed260530a7a5390b63dbcf9a338d054" => :yosemite
   end
 
   depends_on :python3
