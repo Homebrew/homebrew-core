@@ -1,8 +1,8 @@
 class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "http://homebank.free.fr"
-  url "http://homebank.free.fr/public/homebank-5.0.9.tar.gz"
-  sha256 "d0bc763e94da0cba544495b07070e79faecf1d5de0cfb092d126482525e062b7"
+  url "http://homebank.free.fr/public/homebank-5.1.tar.gz"
+  sha256 "5b689aecaf9abddd8fbcee043f9815e26ad98f585d63a1db8d4469493c32e7d9"
 
   bottle do
     sha256 "e87951e96143a12682fb91565d3d9112c495e5e91320209a7c3394480755e266" => :sierra
@@ -19,6 +19,7 @@ class Homebank < Formula
   depends_on "hicolor-icon-theme"
   depends_on "freetype"
   depends_on "fontconfig"
+  depends_on "libsoup"
   depends_on "libofx" => :optional
 
   def install
