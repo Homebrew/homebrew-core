@@ -5,7 +5,6 @@ class Passpie < Formula
   homepage "https://github.com/marcwebbie/passpie"
   url "https://files.pythonhosted.org/packages/14/b9/1ab7e80d03ac286602fbd9c6467e2dfc4e67394470e59622111514f223cd/passpie-1.5.5.tar.gz"
   sha256 "d6d707c54bf338f229b7c82df81cf3a196f52e718b4ec6530bbbe7f4624290af"
-  revision 1
 
   head "https://github.com/marcwebbie/passpie.git"
 
