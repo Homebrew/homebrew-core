@@ -3,10 +3,10 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://storage.googleapis.com/golang/go1.7.1.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.7.1.src.tar.gz"
-    version "1.7.1"
-    sha256 "2b843f133b81b7995f26d0cb64bbdbb9d0704b90c44df45f844d28881ad442d3"
+    url "https://storage.googleapis.com/golang/go1.7.2.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.7.2.src.tar.gz"
+    version "1.7.2"
+    sha256 "ce4f331352313ad7ba9db5daf6f7f81581f3ca9c862d272ae02ee5a3cb294023"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
