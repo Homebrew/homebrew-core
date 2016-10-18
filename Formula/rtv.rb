@@ -3,10 +3,8 @@ class Rtv < Formula
 
   desc "Command-line Reddit client"
   homepage "https://github.com/michael-lazar/rtv"
-  url "https://files.pythonhosted.org/packages/d6/55/fd4553adc0050b4da3bff9bd0c57bcee3d56da23100b58e2c2570e533ab2/rtv-1.12.1.tar.gz"
-  sha256 "784ce662e96c81280d8c6daf67d3ff437c3eedd5ed9825c6b38a0a5677497a86"
-  revision 2
-
+  url "https://github.com/michael-lazar/rtv/archive/v1.13.0.tar.gz"
+  sha256 "801f8674599d4a4abb5593d3d5ac957a748d3daf06f962538a0ae717db117abd"
   head "https://github.com/michael-lazar/rtv.git"
 
   bottle do
@@ -58,7 +56,6 @@ class Rtv < Formula
   end
 
   def install
-    virtualenv_create(libexec, "python3")
     virtualenv_install_with_resources
   end
 
