@@ -3,10 +3,9 @@ class Meson < Formula
 
   desc "Fast and user friendly build system"
   homepage "http://mesonbuild.com/"
-  url "https://github.com/mesonbuild/meson/releases/download/0.35.0/meson-0.35.0.tar.gz"
-  sha256 "6e30bad3f819bf3930745a5b7da0abc4c3a767908b531d66a06177d0fae6ef00"
+  url "https://github.com/mesonbuild/meson/releases/download/0.35.1/meson-0.35.1.tar.gz"
+  sha256 "b47edb53bd7554cb7890a32399fdf6402e8079379393893ab3dec8fffcbfba2c"
   head "https://github.com/mesonbuild/meson.git"
-  revision 1
 
   bottle do
     sha256 "deaa7f68ec76ab735db033eb36f221773d40c8d765c8ce4f9b74cecaf9e6ebeb" => :sierra
