@@ -6,9 +6,9 @@ class Zile < Formula
   sha256 "c795f369ea432219c21bf59ffc9322fd5f221217021a8fbaa6f9fed91778ac0e"
 
   bottle do
-    sha256 "8a1abde98fa079e54148bfab7a4c0311be435d14bd96794501a5fbc6330d9906" => :sierra
-    sha256 "7e9bea8f381836735410d87d0c66f879df347c895cdea89e34ead9ec09097976" => :el_capitan
-    sha256 "6314085b7f33206b28706e6682f27948a1b2b516d3002fc67bcd4947576880fe" => :yosemite
+    sha256 "f7dc25c97ab09bcccf37413dc7014e0a3204384574b02ffdb99cf2b418edd691" => :sierra
+    sha256 "cab5ad88b8f8a1a00b82516100a86bd3e60edf3e06971d283fa6b2454197adad" => :el_capitan
+    sha256 "42f3ec505b358369d9c6058602605ef4da80266813ce577916673264a7a608b5" => :yosemite
   end
 
   # https://github.com/mistydemeo/tigerbrew/issues/215
