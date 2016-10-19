@@ -1,8 +1,8 @@
 class Poco < Formula
   desc "C++ class libraries for building network and internet-based applications"
   homepage "https://pocoproject.org/"
-  url "https://pocoproject.org/releases/poco-1.7.5/poco-1.7.5-all.tar.gz"
-  sha256 "74fb9f9810ea200b8ff744d222626ec5c10613f9121f2ab7cd70e0e24cb30f38"
+  url "https://pocoproject.org/releases/poco-1.7.6/poco-1.7.6-all.tar.gz"
+  sha256 "e32825f8cd7a0dc907b7b22c8fb3df33442619cc21819e557134e4e2f5cc4e2d"
   head "https://github.com/pocoproject/poco.git", :branch => "develop"
 
   bottle do
@@ -22,6 +22,23 @@ class Poco < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
+
+    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      %W[
+        Foundation/include/Poco/Clock.h
+        Foundation/src/Clock.cpp
+        Foundation/src/Event_POSIX.cpp
+        Foundation/src/Semaphore_POSIX.cpp
+        Foundation/src/Mutex_POSIX.cpp
+        Foundation/src/Timestamp.cpp
+      ].each do |f|
+        inreplace f do |s|
+          s.gsub! "CLOCK_MONOTONIC", "UNDEFINED_GIBBERISH", false
+          s.gsub! "CLOCK_REALTIME", "UNDEFINED_GIBBERISH2", false
+        end
+      end
+    end
 
     args = std_cmake_args
     args << "-DENABLE_DATA_MYSQL=OFF" << "-DENABLE_DATA_ODBC=OFF"
