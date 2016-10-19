@@ -75,7 +75,7 @@ index b988be6..68d4a34 100755
    locate_library /usr/lib/libpam.sl && echo "-lpam";
    # AIX ends shared libraries with .a
    locate_library /usr/lib/libpam.a && echo "-lpam";
-+  # macOS / Darwin shared libraries with .dylib
++  # Mac OS X / Darwin shared libraries with .dylib
 +  locate_library /usr/lib/libpam.dylib && echo "-lpam";
  else
    locate_library /lib/libcrypt.so && echo "-lcrypt";

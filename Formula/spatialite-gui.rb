@@ -42,7 +42,7 @@ end
 __END__
 For some strange reason, wxWidgets does not take the required steps to register
 programs as GUI apps like other toolkits do. This necessitates the creation of
-an app bundle on macOS.
+an app bundle on OS X.
 
 This clever hack sidesteps the headache of packing simple programs into app
 bundles:
