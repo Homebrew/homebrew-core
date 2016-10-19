@@ -64,6 +64,12 @@ class Qscintilla2 < Formula
       system "make", "install"
     end
 
+    # create symlinks to lib*-qt5.dylib because some configure scripts expect it
+    Pathname.glob("#{lib}/*.dylib") do |file|
+      newfile = File.dirname(file)+"/"+File.basename(file, ".dylib")+"-qt5.dylib"
+      ln_s file, newfile
+    end
+
     # Add qscintilla2 features search path, since it is not installed in Qt keg's mkspecs/features/
     ENV["QMAKEFEATURES"] = prefix/"data/mkspecs/features"
 
