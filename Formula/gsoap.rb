@@ -13,8 +13,11 @@ class Gsoap < Formula
   depends_on "openssl"
 
   def install
+    # Contacted upstream by email on October 12th 2016 about this, it is due to the
+    # compilation of symbol2.c and soapcpp2_yacc.h not being ordered correctly in parallel.
     ENV.deparallelize
     system "./configure", "--prefix=#{prefix}"
+    system "make"
     system "make", "install"
   end
 
