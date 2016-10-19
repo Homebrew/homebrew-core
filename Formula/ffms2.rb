@@ -7,10 +7,9 @@ class Ffms2 < Formula
 
   bottle do
     cellar :any
-    sha256 "a3c9b9bc9d3ecfba5dc08ede08a96772d1431148956817c9fe04ee9fb838f1c6" => :sierra
-    sha256 "265169583ade2f063b8fd1cb86533652bf61629f48b0b7960afe7bccdc9686f2" => :el_capitan
-    sha256 "551433ae260b3476b395cd5b0ea867cfbdb24eb522b728548acfb584a25cd664" => :yosemite
-    sha256 "d739243fd8e0a29949eb70dccb0de80d48876c501d6a74e3b0c2e0c4b9110fd0" => :mavericks
+    sha256 "44fe8152389302c40f8bae3b61871ec118e33ccdf52fd58d1051882c841a3a75" => :sierra
+    sha256 "c82bf5a6b23a8b60edce118b8fffa947226024be2fac1ccbc36881149be8d14a" => :el_capitan
+    sha256 "ccc6ffb553c748f94df62088b699245ca8972056cc592bb3abfd353abfffe61e" => :yosemite
   end
 
   head do
