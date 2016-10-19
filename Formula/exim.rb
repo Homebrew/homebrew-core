@@ -1,9 +1,9 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "http://ftp.exim.org/pub/exim/exim4/exim-4.86.2.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/exim/exim4/exim-4.86.2.tar.bz2"
-  sha256 "7756deafd0583776e091f2efcba9b36203e668cf420d8876f314980803636eb3"
+  url "http://ftp.exim.org/pub/exim/exim4/exim-4.87.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/exim/exim4/exim-4.87.tar.bz2"
+  sha256 "74691e0dff4d1b5d387e9c33c86f96a8f6d2adbc781c0dec9d2061a847b07dc9"
 
   bottle do
     sha256 "9386715ff3734f8efa535cfd0e4766a248cd2cc48b71cde72292001a1fc208a8" => :el_capitan
@@ -89,5 +89,9 @@ class Exim < Formula
       exim_ctl start
     Don't forget to run it as root to be able to bind port 25.
     EOS
+  end
+
+  test do
+    assert_match "Mail Transfer Agent", shell_output("#{bin}/exim --help 2>&1", 1)
   end
 end
