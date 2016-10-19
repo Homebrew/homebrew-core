@@ -3,8 +3,8 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-reference-eb.html"
-  url "https://pypi.python.org/packages/27/19/bbcea1cf6146d7ecba02ac1cec5e11b8d574a92b3b49c8f0aaab5863cee5/awsebcli-3.8.1.tar.gz"
-  sha256 "9bd5a6cd1068858596f987b1bc5392a9781e1d975661241c5e494594759d2d5c"
+  url "https://files.pythonhosted.org/packages/1a/45/8b841c3d996f743f6a53f6cd1d2efdc5b6d757561df6f44e9bd7c50a619b/awsebcli-3.8.3.tar.gz"
+  sha256 "35cc565a9d7ff8a2402e8fc2b86a9af0979ad1231b646b0871f7aed8c285bba4"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,24 +15,14 @@ class AwsElasticbeanstalk < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/32/3c/e853a68b703f347f5ed86585c2dd2828a83252e1216c1201fa6f81270578/setuptools-26.1.1.tar.gz"
-    sha256 "475ce28993d7cb75335942525b9fac79f7431a7f6e8a0079c0f2680641379481"
-  end
-
-  resource "backports.ssl_match_hostname" do
-    url "https://files.pythonhosted.org/packages/76/21/2dc61178a2038a5cb35d14b61467c6ac632791ed05131dda72c20e7b9e23/backports.ssl_match_hostname-3.5.0.1.tar.gz"
-    sha256 "502ad98707319f4a51fa2ca1c677bd659008d27ded9f6380c79e8932e38dcdf2"
-  end
-
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/0f/56/2ff802d1a91ea50f7597328d6048aa3995b329b284c05d464aa24d6d5635/blessed-1.9.5.tar.gz"
     sha256 "b93b5c7600814638c0913c8325608327a24e3731977d9a4f003ecf37b08ca6e5"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/55/9d/9f118d87220121bf3028317853236b1d2e6e27ba4600bf67a8bbf17a2bfe/botocore-1.4.49.tar.gz"
-    sha256 "c7804efb622f340593ae49cc552481f2820de2088199a0010d469cf0dfb94731"
+    url "https://files.pythonhosted.org/packages/60/2d/479d822e36918446ed3c094022e0b341bc6bf187fc07c19efb8fbf5b0e30/botocore-1.4.64.tar.gz"
+    sha256 "1906185fd3ff225e14bc433f328402157ccd82bfcab6cf37daf3d136ce96fb56"
   end
 
   resource "cement" do
@@ -101,8 +91,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "texttable" do
-    url "https://files.pythonhosted.org/packages/f5/5e/47cbc50187ca719a39ce4838182c6126487ca62ddd299bc34cafb94260fe/texttable-0.8.4.tar.gz"
-    sha256 "8587b61cb6c6022d0eb79e56e59825df4353f0f33099b4ae3bcfe8d41bd1702e"
+    url "https://files.pythonhosted.org/packages/92/3e/7d05feb005057009c323ff5edcb3800fb5d53435a649207192e710d8c175/texttable-0.8.5.tar.gz"
+    sha256 "c2b554b0c20c866f061cf08a315354278590b312ee178199a29bfde7a944f986"
   end
 
   resource "wcwidth" do
