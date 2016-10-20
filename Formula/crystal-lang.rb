@@ -7,9 +7,9 @@ class CrystalLang < Formula
   revision 1
 
   bottle do
-    sha256 "b891e7a9c01906be5b6d51adc374c1882e036ae443b95abb1a8f27b072762fde" => :sierra
-    sha256 "928c541573faaeb82030d2fcbee7f4b5865b54cd0cb4f080adab00035394d9f5" => :el_capitan
-    sha256 "0faca697844e5ef7bbcf9d750ed27c448e224363c7150ebebc77c73f01099e07" => :yosemite
+    sha256 "b570dcde6496464362a19e2fb15379b7d1c1ad0f93bfd8bac9d587393912d887" => :sierra
+    sha256 "b86cac1fe2230791ed3de32db48d0e7729b08ed647699e240c0ceef496fe0510" => :el_capitan
+    sha256 "8077a0a4a922112ec2438dbb99fc01931c14222a1c33a66218ad28d91036cab7" => :yosemite
   end
 
   # changes from upstream to fix compilation with LLVM 3.9
