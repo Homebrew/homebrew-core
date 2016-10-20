@@ -71,6 +71,7 @@ class Ncmpcpp < Formula
   end
 
   test do
+    ENV.delete("LC_CTYPE")
     assert_match version.to_s, shell_output("#{bin}/ncmpcpp --version")
   end
 end
