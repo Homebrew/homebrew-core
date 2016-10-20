@@ -13,10 +13,9 @@ class EmacsClangCompleteAsync < Formula
   end
 
   bottle do
-    sha256 "f687621434cde6196cae86145e93bafed9338e2ad688e4f735c6ace2b3fa7e4a" => :sierra
-    sha256 "1bb00c471767e0cf5f4308ee93cd9a983e125a553e871803132de4c265d5e097" => :el_capitan
-    sha256 "561dc57692f71d0ed1fd64568e8b2a8dadd95dc4e90c8f2ffd43aa2e9a363ff6" => :yosemite
-    sha256 "71eb2c1de91d5704d933ee259dbdaeb43be717ebcb7ec18d3dfc5c43db220f3e" => :mavericks
+    sha256 "0255c8398339fe0382ee7c42c5ebc4900ebcdd2fe9c33d9b8e26aa80bc31ef70" => :sierra
+    sha256 "0cb9c1647dbd3d904942000d48df978d2f7fa2c97d83a296a031492b791d3ecc" => :el_capitan
+    sha256 "1f876df4d7ac08883b365dbbf03e8a4ea905bfbd98aff14d85441f4e51e762eb" => :yosemite
   end
 
   option "with-elisp", "Include Emacs lisp package"
