@@ -8,10 +8,10 @@ class Creduce < Formula
   head "https://github.com/csmith-project/creduce.git"
 
   bottle do
-    sha256 "7ecc215de083f00b02a2f351cca4c74aeec591512a2e59f728eec3797b83e39e" => :sierra
-    sha256 "c2dc3598abd1857c71c7c02c38945d0d78a4c1f249162e603d332683e35c2222" => :el_capitan
-    sha256 "138868e54e14ba9afa8095e71c8b116b3a33e351d175fc0cdeff079a42ce007c" => :yosemite
-    sha256 "710460f6d639171d170f7ae3b835fa3ff708f56c1105c000086913571896659d" => :mavericks
+    cellar :any
+    sha256 "ba94a03e5249b8f66db588b7dfea3c67c03fff1a841f3d82b62f1e6d3dd094b7" => :sierra
+    sha256 "02dfc1b1598e7de131e1ab6d7f9353f05e329af78fb8d172310562996a7c86d4" => :el_capitan
+    sha256 "37f3e7a6e2102138714ceaecd749ee0ddac6bf1d9cb4c5586201e0c840c03951" => :yosemite
   end
 
   # changes from upstream to fix compilation with LLVM 3.9
