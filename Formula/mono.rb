@@ -32,8 +32,8 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag => "4.0.1.13",
-        :revision => "4194b3bbb506a18f48e0f7e39e2c3fb0d7c8b566"
+        :tag => "4.0.1.15",
+        :revision => "5f39cb34c682ce867d8334bb584d83bb7ecc1c10"
   end
 
   def install
@@ -120,7 +120,6 @@ class Mono < Formula
             <SchemaVersion>2.0</SchemaVersion>
             <ProjectGuid>{B6AB4EF3-8F60-41A1-AB0C-851A6DEB169E}</ProjectGuid>
             <OutputType>Exe</OutputType>
-            <DefineConstants>TRACE</DefineConstants>
             <FSharpTargetsPath>$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\v$(VisualStudioVersion)\\FSharp\\Microsoft.FSharp.Targets</FSharpTargetsPath>
           </PropertyGroup>
           <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
