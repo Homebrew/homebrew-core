@@ -10,9 +10,10 @@ class Castxml < Formula
   head "https://github.com/CastXML/castxml.git"
 
   bottle do
-    sha256 "3ef2c6ffd4953012eb945c3742be3306e4221ad5edc44410b40b47d12a64aec9" => :sierra
-    sha256 "5022fdb1cdac50659adb2a2c6438216ecb246f8b6254b672890f005c1bb0a0cb" => :el_capitan
-    sha256 "df8baff500313f946a09a64bd1bb4a56d909ad4cce7d1c1eb1dcf637215b5183" => :yosemite
+    cellar :any
+    sha256 "e13a2cd6f5bb23eb1dec5a6452567d08c2ca1a30615bf65d71ea4b7b2293c02a" => :sierra
+    sha256 "bfedb038898e36cd58de455a3c9a98995e1250e38343a9c302c4b9ab18675920" => :el_capitan
+    sha256 "c7877bb1dfbdc2473c911fbee1bb601acb9e566bc0b2d36039f4a88cf81ff7c3" => :yosemite
   end
 
   # changes from upstream to fix compilation with LLVM 3.9
