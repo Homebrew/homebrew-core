@@ -12,6 +12,12 @@ class CrystalLang < Formula
     sha256 "0faca697844e5ef7bbcf9d750ed27c448e224363c7150ebebc77c73f01099e07" => :yosemite
   end
 
+  # changes from upstream to fix compilation with LLVM 3.9
+  patch do
+    url "https://github.com/crystal-lang/crystal/pull/3439.diff"
+    sha256 "ee55985315881461f1fd2fb7ccc36b547d5defb23a91b022c760d84abe328fd9"
+  end
+
   option "without-release", "Do not build the compiler in release mode"
   option "without-shards", "Do not include `shards` dependency manager"
 
