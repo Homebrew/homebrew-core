@@ -1,8 +1,8 @@
 class Buku < Formula
   desc "Command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v2.4.tar.gz"
-  sha256 "55a0065389475b6993503e20271fcd1705a98c3c3aea8211971ffb055ae5d9fb"
+  url "https://github.com/jarun/Buku/archive/v2.5.tar.gz"
+  sha256 "27dd770837110db8348446436aca3c7ed16b2884b4064aad0deb58d4ad4a69d4"
 
   bottle do
     cellar :any_skip_relocation
