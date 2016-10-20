@@ -6,6 +6,11 @@ class Io < Formula
 
   head "https://github.com/stevedekorte/io.git"
 
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/io/io.patch"
+    sha256 "62489be25589fff7e25c0f82775a36950d36c1ff691a07cb2ba85efc497e62dd"
+  end
+
   bottle do
     sha256 "741314b5c2629688c17eabca50e0a623a9318a44d94568d4d0cf53e86560c2b2" => :el_capitan
     sha256 "e34facca9debca217eaab84e55c036fe1bbd30a34a18bac927dc4a435947604b" => :yosemite
