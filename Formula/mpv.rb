@@ -3,6 +3,7 @@ class Mpv < Formula
   homepage "https://mpv.io"
   url "https://github.com/mpv-player/mpv/archive/v0.21.0.tar.gz"
   sha256 "d05f8ece859c500ef1649cdfea911ec1529df1898b8fda3e217766dc28dc9bd3"
+  revision 1
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
@@ -37,11 +38,6 @@ class Mpv < Formula
 
   depends_on :macos => :mountain_lion
 
-  resource "waf" do
-    url "https://waf.io/waf-1.9.2"
-    sha256 "7abb4fbe61d12b8ef6a3163653536da7ee31709299d8f17400d71a43247cea81"
-  end
-
   def install
     # LANG is unset by default on osx and causes issues when calling getlocale
     # or getdefaultlocale in docutils. Force the default c/posix locale since
@@ -60,8 +56,7 @@ class Mpv < Formula
     ]
     args << "--enable-libarchive" if build.with? "libarchive"
 
-    waf = resource("waf")
-    buildpath.install waf.files("waf-#{waf.version}" => "waf")
+    system "./bootstrap.py"
     system "python3", "waf", "configure", *args
     system "python3", "waf", "install"
 
