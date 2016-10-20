@@ -1,14 +1,20 @@
 class Fly < Formula
-  desc "Concourse fly cli"
+  desc "Command line interface to Concourse"
   homepage "https://concourse.ci"
-  url "https://github.com/concourse/concourse/releases/download/v2.3.1/fly_darwin_amd64"
-  version "2.3.1"
-  sha256 "4940c41cddc94887a2a838e3c4259e5d6ff4448550d2a680621518c14a648039"
+  url "https://github.com/concourse/concourse.git",
+    :tag => "v2.3.1",
+    :revision => "0fc7e2f6d46412ea70c8a9d81671c66d27276e44"
 
   bottle :unneeded
+  
+  depends_on "go"
 
   def install
-    bin.install "fly_darwin_amd64" => "fly"
+    cd "src/github.com/concourse/fly" do
+      ENV["GOPATH"] = buildpath
+      system "go", "build", "-o", "fly"
+      bin.install "fly"
+    end
   end
 
   test do
