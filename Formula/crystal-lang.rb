@@ -1,21 +1,26 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  url "https://github.com/crystal-lang/crystal/archive/0.19.4.tar.gz"
-  sha256 "e239afa449744e0381823531f6af66407ba1f4b78767bd67a9bb09d9fcc6b9e4"
-  head "https://github.com/crystal-lang/crystal.git"
   revision 1
+  head "https://github.com/crystal-lang/crystal.git"
+
+  stable do
+    url "https://github.com/crystal-lang/crystal/archive/0.19.4.tar.gz"
+    sha256 "e239afa449744e0381823531f6af66407ba1f4b78767bd67a9bb09d9fcc6b9e4"
+
+    # Remove for > 0.19.4
+    # changes already merged upstream to fix compilation with LLVM 3.9
+    # https://github.com/crystal-lang/crystal/pull/3439
+    patch do
+      url "https://github.com/crystal-lang/crystal/commit/13b11d7.patch"
+      sha256 "d981515791c48ae7fce0e906b0eec934fd622987a87f0614b3c91c71b0966b66"
+    end
+  end
 
   bottle do
     sha256 "b570dcde6496464362a19e2fb15379b7d1c1ad0f93bfd8bac9d587393912d887" => :sierra
     sha256 "b86cac1fe2230791ed3de32db48d0e7729b08ed647699e240c0ceef496fe0510" => :el_capitan
     sha256 "8077a0a4a922112ec2438dbb99fc01931c14222a1c33a66218ad28d91036cab7" => :yosemite
-  end
-
-  # changes from upstream to fix compilation with LLVM 3.9
-  patch do
-    url "https://github.com/crystal-lang/crystal/pull/3439.diff"
-    sha256 "ee55985315881461f1fd2fb7ccc36b547d5defb23a91b022c760d84abe328fd9"
   end
 
   option "without-release", "Do not build the compiler in release mode"
