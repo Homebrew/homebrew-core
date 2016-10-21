@@ -16,6 +16,26 @@ class Wdc < Formula
   end
 
   test do
-    system "true"
-  end
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <webdav/client.hpp>
+      #include <cassert>
+      #include <string>
+      #include <memory>
+      #include <map>
+      int main(int argc, char *argv[]) {
+        std::map<std::string, std::string> options =
+        {
+          {"webdav_hostname", "https://webdav.example.com"},
+          {"webdav_login",    "webdav_login"},
+          {"webdav_password", "webdav_password"}
+        };
+        std::shared_ptr<WebDAV::Client> client(WebDAV::Client::Init(options));
+        auto check_connection = client->check();
+        assert(!check_connection);
+      }
+    EOS
+     
+    system ENV.cc, "test.cpp", "-L#{lib}", "-lwebdavclient", "-lpugixml", "-lcurl", "-lssl", "-lcrypto",  "-lstdc++", "-std=c++11", "-o", "test"
+    system "./test"
+  end 
 end
