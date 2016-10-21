@@ -5,7 +5,7 @@ class Packer < Formula
   homepage "https://packer.io"
   url "https://github.com/mitchellh/packer.git",
       :tag => "v0.10.2",
-      :revision => "fb1c968d573f2a6b65af1d0b14a892d730dd7778"
+      :revision => "9e8a3fa3eab8263f3f976bdac51832fa4cf0e39f"
 
   bottle do
     cellar :any_skip_relocation
