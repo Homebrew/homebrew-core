@@ -59,7 +59,10 @@ class Ffmbc < Formula
     # ffmbc's lib and bin names conflict with ffmpeg and libav
     # This formula will only install the commandline tools
     mv "ffprobe", "ffprobe-bc"
+    mv "doc/ffprobe.1", "doc/ffprobe-bc.1"
     bin.install "ffmbc", "ffprobe-bc"
+    man.mkpath
+    man1.install "doc/ffmbc.1", "doc/ffprobe-bc.1"
   end
 
   def caveats
