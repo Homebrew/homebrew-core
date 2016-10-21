@@ -11,6 +11,7 @@ class AuroraCli < Formula
     sha256 "9b45a0ba82e22ff2e272c80977d047a16b5164edb0efc198ffc90ede170c5444" => :mavericks
   end
 
+  # Support for OSX Sierra. https://github.com/apache/aurora/commit/b272b880.patch
   patch :DATA if MacOS.version >= :sierra
   depends_on :python if MacOS.version <= :snow_leopard
 
