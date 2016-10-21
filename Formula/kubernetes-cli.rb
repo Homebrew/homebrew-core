@@ -12,6 +12,12 @@ class KubernetesCli < Formula
     sha256 "dccdacf5c86d6d95d0028b62db543dd6ec286c2d02b6791fce665cb7bf7d0b26" => :yosemite
   end
 
+  devel do
+    url "https://github.com/kubernetes/kubernetes/archive/v1.5.0-alpha.1.tar.gz"
+    sha256 "4b05aa319c394e085c219ab8f7b2170ee137da2f726da51d8acda450e67ceb00"
+    version "1.5.0-alpha.1"
+  end
+
   depends_on "go" => :build
 
   def install
