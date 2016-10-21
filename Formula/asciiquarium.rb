@@ -3,6 +3,7 @@ class Asciiquarium < Formula
   homepage "http://robobunny.com/projects/asciiquarium/html/"
   url "http://www.robobunny.com/projects/asciiquarium/asciiquarium_1.1.tar.gz"
   sha256 "1b08c6613525e75e87546f4e8984ab3b33f1e922080268c749f1777d56c9d361"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -34,6 +35,11 @@ class Asciiquarium < Formula
         system "make", "install"
       end
     end
+
+    # Disable dynamic selection of perl which may cause segfault when an
+    # incompatible perl is picked up.
+    # https://github.com/Homebrew/homebrew-core/issues/4936
+    inreplace "asciiquarium", "#!/usr/bin/env perl", "#!/usr/bin/perl"
 
     chmod 0755, "asciiquarium"
     bin.install "asciiquarium"
