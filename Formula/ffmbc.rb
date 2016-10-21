@@ -4,7 +4,7 @@ class Ffmbc < Formula
   url "https://drive.google.com/uc?export=download&id=0B0jxxycBojSwTEgtbjRZMXBJREU"
   version "0.7.2"
   sha256 "caaae2570c747077142db34ce33262af0b6d0a505ffbed5c4bdebce685d72e42"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "24383a80737cee608cd028ba9e9906c7d854e7709eacbb0c794d0df59e95bfaf" => :sierra
@@ -59,7 +59,10 @@ class Ffmbc < Formula
     # ffmbc's lib and bin names conflict with ffmpeg and libav
     # This formula will only install the commandline tools
     mv "ffprobe", "ffprobe-bc"
+    mv "doc/ffprobe.1", "doc/ffprobe-bc.1"
     bin.install "ffmbc", "ffprobe-bc"
+    man.mkpath
+    man1.install "doc/ffmbc.1", "doc/ffprobe-bc.1"
   end
 
   def caveats
