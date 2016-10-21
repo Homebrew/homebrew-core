@@ -74,7 +74,6 @@ class Wxmac < Formula
   depends_on "libtiff"
 
   def install
-    # need to set with-macosx-version-min to avoid configure defaulting to 10.5
     args = [
       "--disable-debug",
       "--prefix=#{prefix}",
@@ -104,6 +103,7 @@ class Wxmac < Formula
       "--enable-dataviewctrl",
       "--with-expat",
       "--disable-precomp-headers",
+      # need to set with-macosx-version-min to avoid configure defaulting to 10.5
       "--with-macosx-version-min=#{MacOS.version}",
       # This is the default option, but be explicit
       "--disable-monolithic",
