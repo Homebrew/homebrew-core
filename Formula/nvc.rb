@@ -20,7 +20,6 @@ class Nvc < Formula
     sha256 "5a5fb69e028a07bcde7c1010ea67ee51c5e8f72be81982d50f5f17f3595dd003" => :yosemite
   end
 
-
   head do
     url "https://github.com/nickg/nvc.git"
 
