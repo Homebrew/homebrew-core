@@ -69,7 +69,7 @@ class Kibana < Formula
     inreplace "#{bin}/kibana", %r{/node/bin/node}, "/libexec/node/bin/node"
 
     cd prefix do
-      inreplace "config/kibana.yml", %(/var/run/kibana.pid), var/"run/kibana.pid"
+      inreplace "config/kibana.yml", "/var/run/kibana.pid", var/"run/kibana.pid"
       (etc/"kibana").install Dir["config/*"]
       rm_rf "config"
     end
