@@ -1,8 +1,8 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "http://pushpin.org"
-  url "https://dl.bintray.com/fanout/source/pushpin-1.12.0.tar.bz2"
-  sha256 "362fb8df65b13560525d5ed22f817b595529728ae0fe612ec2a5c9e4cd8aea8b"
+  url "https://dl.bintray.com/fanout/source/pushpin-1.13.0.tar.bz2"
+  sha256 "96303bb11a9d0634e3c1b7871492109c10a40bbf289e7d6f7560e879a2785091"
 
   head "https://github.com/fanout/pushpin.git"
 
