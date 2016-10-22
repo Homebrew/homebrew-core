@@ -21,7 +21,7 @@ class Jsoncpp < Formula
   def install
     ENV.cxx11
 
-    cmake_args = std_cmake_args + %W[
+    cmake_args = std_cmake_args + %w[
       -DBUILD_STATIC_LIBS=ON
       -DBUILD_SHARED_LIBS=ON
       -DJSONCPP_WITH_CMAKE_PACKAGE=ON
