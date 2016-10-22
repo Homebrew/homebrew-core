@@ -5,10 +5,9 @@ class GlibNetworking < Formula
   sha256 "3f1a442f3c2a734946983532ce59ed49120319fdb10c938447c373d5e5286bee"
 
   bottle do
-    sha256 "8d9f25c6ad40d0461faf185e2d82a6b54d2b8df4ef485ebdc6f00129f9302c71" => :sierra
-    sha256 "c290a6c479db1ab06585a95f96201bb145e6c5679b8f06f0843a04b35fe596d7" => :el_capitan
-    sha256 "6bae1d8857a518859b0ca169be84764521b6fe8df293a221a91450702c8a987f" => :yosemite
-    sha256 "511c7ebff04d868ad0fc7518d286e7e675bca018db2fd34bb7c73e76ce31e748" => :mavericks
+    sha256 "f67d5db99ec583b6b5424cffc8a297735702fcfeecb0db80c81bd0bebb4d8cff" => :sierra
+    sha256 "8abcb1f2b6ce564f5cee634b2dd709292fbf08bfd57c5c4703892ac83cc2d44f" => :el_capitan
+    sha256 "b099f5acc9784e2512e3ba302e9eff7df8dbf8da457d15c74e50cbf15fd233fe" => :yosemite
   end
 
   depends_on "pkg-config" => :build
