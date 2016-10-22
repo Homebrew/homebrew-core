@@ -1,13 +1,8 @@
 class Msktutil < Formula
   desc "Active Directory keytab management"
   homepage "https://sourceforge.net/projects/msktutil/"
-  url "https://downloads.sourceforge.net/project/msktutil/msktutil-0.5.1.tar.bz2"
-  sha256 "ec02f7f19aa5600c5d20f327beaef88ee70211841dc01fa42eb258ae840ae6f0"
-
-  devel do
-    url "https://downloads.sourceforge.net/project/msktutil/msktutil-1.0rc2.tar.bz2"
-    sha256 "07884a98fd86dfb704dc6302a56fcf2ccb3d8a34fb95dcb00e5e86428d91103b"
-  end
+  url "https://downloads.sourceforge.net/project/msktutil/msktutil-1.0.tar.bz2"
+  sha256 "6e59d4bf41b8c75d573037c19ed29567a55f67ae5fe8c81e037b4f8c7327b642"
 
   bottle do
     cellar :any_skip_relocation
