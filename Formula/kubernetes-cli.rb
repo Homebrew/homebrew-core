@@ -18,6 +18,12 @@ class KubernetesCli < Formula
     version "1.5.0-alpha.1"
   end
 
+  devel do
+    url "https://github.com/kubernetes/kubernetes/archive/v1.5.0-alpha.1.tar.gz"
+    sha256 "4b05aa319c394e085c219ab8f7b2170ee137da2f726da51d8acda450e67ceb00"
+    version "1.5.0-alpha.1"
+  end
+
   depends_on "go" => :build
 
   def install
