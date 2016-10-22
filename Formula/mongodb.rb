@@ -39,7 +39,7 @@ class Mongodb < Formula
     Language::Go.stage_deps resources, buildpath/"src"
 
     cd "src/github.com/mongodb/mongo-tools" do
-      args = %W[]
+      args = %w[]
 
       if build.with? "openssl"
         args << "ssl"
