@@ -4,8 +4,8 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/mitchellh/packer.git",
-      :tag => "v0.10.2",
-      :revision => "fb1c968d573f2a6b65af1d0b14a892d730dd7778"
+      :tag => "v0.11.0",
+      :revision => "59efd2b81202611ef29c8b44734c52ac68ff906f"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,6 +16,7 @@ class Packer < Formula
 
   depends_on :hg => :build
   depends_on "go" => :build
+  depends_on "govendor" => :build
 
   go_resource "github.com/mitchellh/gox" do
     url "https://github.com/mitchellh/gox.git",
@@ -29,7 +30,7 @@ class Packer < Formula
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :revision => "3f4088edb48e8a4e3c66a5f8e7b2a78615fcb83f"
+        :revision => "c6efba04dd0d931bb11cd7f556285fa3c9305398"
   end
 
   def install
@@ -43,7 +44,6 @@ class Packer < Formula
     packerpath = buildpath/"src/github.com/mitchellh/packer"
     packerpath.install Dir["{*,.git}"]
     Language::Go.stage_deps resources, buildpath/"src"
-    (buildpath/"bin").mkpath
 
     cd "src/github.com/mitchellh/gox" do
       system "go", "build"
@@ -60,11 +60,14 @@ class Packer < Formula
       inreplace "Makefile" do |s|
         s.gsub! "go get github.com/mitchellh/gox", ""
         s.gsub! "go get golang.org/x/tools/cmd/stringer", ""
+        s.gsub! "go get github.com/kardianos/govendor", ""
       end
 
-      system "make", "bin"
-      bin.install Dir["bin/*"]
+      (buildpath/"bin").mkpath
+      system "make", "releasebin"
+      bin.install buildpath/"bin/packer"
       zsh_completion.install "contrib/zsh-completion/_packer"
+      prefix.install_metafiles
     end
   end
 
