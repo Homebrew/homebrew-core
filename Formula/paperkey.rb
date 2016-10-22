@@ -1,8 +1,8 @@
 class Paperkey < Formula
   desc "Extract just secret information out of OpenPGP secret keys"
   homepage "http://www.jabberwocky.com/software/paperkey/"
-  url "http://www.jabberwocky.com/software/paperkey/paperkey-1.3.tar.gz"
-  sha256 "5b57d7522336fb65c4c398eec27bf44ec0aaa35926157b79a76423231792cbfb"
+  url "http://www.jabberwocky.com/software/paperkey/paperkey-1.4.tar.gz"
+  sha256 "e12bb0ec835127d12a922a8d60b3dfdb3ca8ee60bb5b4d15ae4cea85bbcf336f"
 
   bottle do
     cellar :any_skip_relocation
