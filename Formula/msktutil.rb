@@ -6,10 +6,9 @@ class Msktutil < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "fca13319f0fd70ef806359e27093471ce1b96fdfcc7323a09376be0559797a28" => :sierra
-    sha256 "c4705552a9bd29dac8f579b3d78c373a69a2609f0b72371308c8eb70a78d7ed9" => :el_capitan
-    sha256 "0508df72823bc5ac407a6e817e49e973bd3c1230c02c0957bbb5da9b3e65117f" => :yosemite
+    sha256 "3bf390f92696706f4f6241230024c9bdb13c78c05c9f81faffc356cbcb4ed443" => :sierra
+    sha256 "190a11fe9d63b99fe2982a79d83bd7ba59f4c7ef104ce860eb9ae48acb56335b" => :el_capitan
+    sha256 "c88bffcb5bacc334333d1bf614005ce65acb4d40e8c73f249313762e017ee8bb" => :yosemite
   end
 
   def install
