@@ -4,6 +4,12 @@ class Jumanpp < Formula
   url "http://lotus.kuee.kyoto-u.ac.jp/nl-resource/jumanpp/jumanpp-1.01.tar.xz"
   sha256 "0d587416a3eb7123638f9c1e30a649b72dfb483448839168dcb48be572c5919a"
 
+  bottle do
+    sha256 "0d7b87ef8e8e2321c4e6ae7adc54421be07ed062387bd251d2d52103496eb66d" => :sierra
+    sha256 "78ca20518d546df4bdc16c759a304b85b94e0f3a21d081446f2c122d76bc3121" => :el_capitan
+    sha256 "522b6b6a9bade9082d131a0be2c852d9cb80aa99635265e87e54b98b91769b33" => :yosemite
+  end
+
   depends_on "boost"
   depends_on "boost-build"
   depends_on "gperftools"
