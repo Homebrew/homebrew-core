@@ -140,7 +140,7 @@ class Imagemagick < Formula
     assert_match "PNG", shell_output("#{bin}/identify #{test_fixtures("test.png")}")
     # Check support for recommended features and delegates.
     features = shell_output("#{bin}/convert -version")
-    %W[Modules freetype jpeg png tiff].each do |feature|
+    %w[Modules freetype jpeg png tiff].each do |feature|
       assert_match feature, features
     end
   end
