@@ -1,11 +1,13 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  revision 2
 
   stable do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.0.0/ldc-1.0.0-src.tar.gz"
-    sha256 "3740ee6d5871e953aeb03b11f9d8c951286a55884892b51981bfe579b8fe571d"
+    # for the sake of LLVM 3.9 compatibility
+    url "https://github.com/ldc-developers/ldc.git",
+        :branch => "release-1.0.1",
+        :revision => "3461e00f3531f855f9fc6e92515d7affb8201827"
+    version "1.0.1-alpha1"
 
     resource "ldc-lts" do
       url "https://github.com/ldc-developers/ldc/releases/download/v0.17.2/ldc-0.17.2-src.tar.gz"
