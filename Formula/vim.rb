@@ -72,7 +72,7 @@ class Vim < Formula
       # only compile with either python or python3 support, but not both
       # (if vim74 is compiled with +python3/dyn, the Python[3] library lookup segfaults
       # in other words, a command like ":py3 import sys" leads to a SEGV)
-      opts -= %W[--enable-pythoninterp]
+      opts -= %w[--enable-pythoninterp]
     end
 
     opts << "--disable-nls" if build.without? "nls"

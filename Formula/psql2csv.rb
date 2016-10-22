@@ -14,7 +14,7 @@ class Psql2csv < Formula
 
   test do
     expected = "COPY (SELECT 1) TO STDOUT WITH (FORMAT csv, ENCODING 'UTF8', HEADER true)"
-    output = shell_output(%(#{bin}/psql2csv --dry-run "SELECT 1")).strip
+    output = shell_output(%Q(#{bin}/psql2csv --dry-run "SELECT 1")).strip
     assert_equal expected, output
   end
 end

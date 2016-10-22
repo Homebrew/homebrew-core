@@ -24,7 +24,7 @@ class Poco < Formula
 
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
     if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      %W[
+      %w[
         Foundation/include/Poco/Clock.h
         Foundation/src/Clock.cpp
         Foundation/src/Event_POSIX.cpp

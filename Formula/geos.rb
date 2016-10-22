@@ -29,8 +29,8 @@ class Geos < Formula
 
     # https://trac.osgeo.org/geos/ticket/771
     inreplace "configure" do |s|
-      s.gsub! /PYTHON_CPPFLAGS=.*/, %(PYTHON_CPPFLAGS="#{`python-config --includes`.strip}")
-      s.gsub! /PYTHON_LDFLAGS=.*/, %(PYTHON_LDFLAGS="-Wl,-undefined,dynamic_lookup")
+      s.gsub! /PYTHON_CPPFLAGS=.*/, %Q(PYTHON_CPPFLAGS="#{`python-config --includes`.strip}")
+      s.gsub! /PYTHON_LDFLAGS=.*/, 'PYTHON_LDFLAGS="-Wl,-undefined,dynamic_lookup"'
     end
 
     args = [
