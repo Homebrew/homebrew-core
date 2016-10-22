@@ -3,7 +3,7 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
 
   stable do
-    url "http://ffmpeg.org/releases/ffmpeg-3.1.5.tar.bz2"
+    url "https://ffmpeg.org/releases/ffmpeg-3.1.5.tar.bz2"
     sha256 "2400882a2c7795c74f0abebc28d267f2796510fb69ba324b0e9f16cc8dbb0d2b"
 
     option "with-sdl", "Enable FFplay media player"
