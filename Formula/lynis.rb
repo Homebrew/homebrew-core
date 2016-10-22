@@ -15,15 +15,15 @@ class Lynis < Formula
   def install
     inreplace "lynis" do |s|
       s.gsub! 'tINCLUDE_TARGETS="/usr/local/include/lynis /usr/local/lynis/include /usr/share/lynis/include ./include"',
-        %(tINCLUDE_TARGETS="#{include}")
+        %Q(tINCLUDE_TARGETS="#{include}")
       s.gsub! 'tPLUGIN_TARGETS="/usr/local/lynis/plugins /usr/local/share/lynis/plugins /usr/share/lynis/plugins /etc/lynis/plugins ./plugins"',
-        %(tPLUGIN_TARGETS="#{prefix}/plugins")
+        %Q(tPLUGIN_TARGETS="#{prefix}/plugins")
       s.gsub! 'tDB_TARGETS="/usr/local/share/lynis/db /usr/local/lynis/db /usr/share/lynis/db ./db"',
-        %(tDB_TARGETS="#{prefix}/db")
+        %Q(tDB_TARGETS="#{prefix}/db")
     end
     inreplace "include/functions" do |s|
       s.gsub! 'tPROFILE_TARGETS="/usr/local/etc/lynis /etc/lynis /usr/local/lynis ."',
-        %(tPROFILE_TARGETS="#{prefix}")
+        %Q(tPROFILE_TARGETS="#{prefix}")
     end
 
     prefix.install "db", "include", "plugins", "default.prf"
