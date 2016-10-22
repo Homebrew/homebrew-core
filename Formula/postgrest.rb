@@ -35,7 +35,7 @@ class Postgrest < Formula
       "--auth=trust", "--username=#{pg_user}"
 
     system "#{pg_bin}/pg_ctl", "-D", testpath/test_db, "-l",
-      testpath/"#{test_db}.log", "-w", "-o", %("-p #{pg_port}"), "start"
+      testpath/"#{test_db}.log", "-w", "-o", %Q("-p #{pg_port}"), "start"
 
     begin
       system "#{pg_bin}/createdb", "-w", "-p", pg_port, "-U", pg_user, test_db
