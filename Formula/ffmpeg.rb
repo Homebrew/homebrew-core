@@ -3,8 +3,8 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
 
   stable do
-    url "https://ffmpeg.org/releases/ffmpeg-3.1.4.tar.bz2"
-    sha256 "7c99df75a4dc12d22c0f1ed11d0acf98cac1f8b5fe7a7434344b167f810bcbfa"
+    url "http://ffmpeg.org/releases/ffmpeg-3.1.5.tar.bz2"
+    sha256 "2400882a2c7795c74f0abebc28d267f2796510fb69ba324b0e9f16cc8dbb0d2b"
 
     option "with-sdl", "Enable FFplay media player"
     option "with-openh264", "Enable OpenH264 library"
