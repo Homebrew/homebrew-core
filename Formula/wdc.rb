@@ -2,7 +2,7 @@ class Wdc < Formula
   desc "WebDAV Client provides easy and convenient to work with WebDAV-servers."
   homepage "https://designerror.github.io/webdav-client-cpp"
   url "https://github.com/designerror/webdav-client-cpp/archive/v1.0.0.tar.gz"
-  sha256 "938aa52ae96595d0370f4d6d13beb7b70bbea56434aecd6259e7ead2dd6f9050"
+  sha256 "649a75a7fe3219dff014bf8d98f593f18d3c17b638753aa78741ee493519413d"
 
   depends_on "cmake" => :build
   depends_on "curl"
