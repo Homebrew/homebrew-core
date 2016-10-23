@@ -19,7 +19,7 @@ class Mitmproxy < Formula
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "openssl"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on :python
   depends_on "protobuf" => :optional
 
   resource "Flask" do
