@@ -1,8 +1,8 @@
 class Mvtools < Formula
   desc "Filters for motion estimation and compensation"
   homepage "https://github.com/dubhater/vapoursynth-mvtools"
-  url "https://github.com/dubhater/vapoursynth-mvtools/archive/v16.tar.gz"
-  sha256 "22232d5684bf144408ed0e463e2475a90d7ea9e9c7f3c13b92f60452037b07b3"
+  url "https://github.com/dubhater/vapoursynth-mvtools/archive/v17.tar.gz"
+  sha256 "739656d8ea3fb864b72e3e3d167dc1f7fdb8feff4e396cdf9414b367621ca011"
   head "https://github.com/dubhater/vapoursynth-mvtools.git"
 
   bottle do
@@ -20,6 +20,7 @@ class Mvtools < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on :macos => :el_capitan # due to zimg
 
   def install
     system "./autogen.sh"
