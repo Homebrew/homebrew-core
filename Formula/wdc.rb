@@ -17,7 +17,6 @@ class Wdc < Formula
   test do
     (testpath/"test.cpp").write <<-EOS.undent
       #include <webdav/client.hpp>
-	  #include <iostream>
       #include <cassert>
       #include <string>
       #include <memory>
@@ -32,7 +31,6 @@ class Wdc < Formula
         std::shared_ptr<WebDAV::Client> client(WebDAV::Client::Init(options));
         auto check_connection = client->check();
         assert(!check_connection);
-	std::cout << "successfully";
       }
     EOS
     system ENV.cc,  "test.cpp", "-L#{lib}", "-lwebdavclient", "-lpthread",
