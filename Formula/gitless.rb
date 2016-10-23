@@ -6,6 +6,13 @@ class Gitless < Formula
   url "https://github.com/sdg-mit/gitless/archive/v0.8.4.tar.gz"
   sha256 "ecde4887eb20109a0345a1bfee420140522f981deff335d552908a00952853c8"
 
+  bottle do
+    cellar :any
+    sha256 "bd1545c968545a16a7e31ccfa25831ff0876b16211b55bf9ddb3d0bda64ee09c" => :sierra
+    sha256 "2c2bc83a6dbd36d8a633bea71c0ce3d788bd94eb5a2285b48ba6f16329968757" => :el_capitan
+    sha256 "25bf5005b47da1e75fb3757d213d1e77d6ec3f129de2d1ab3446c2b3a6ae6d1e" => :yosemite
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libgit2"
 
