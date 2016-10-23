@@ -19,6 +19,8 @@ class Log4cxx < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  depends_on "apr-util"
+
   fails_with :llvm do
     build 2334
     cause "Fails with 'collect2: ld terminated with signal 11 [Segmentation fault]'"
