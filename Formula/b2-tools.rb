@@ -3,8 +3,8 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v0.6.6.tar.gz"
-  sha256 "a43948ffd2d47edb85b9899f5acafd39350b57e989c10820affd2824ccaf043c"
+  url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v0.6.8.tar.gz"
+  sha256 "ccfb22b0203a27ed170bd65f3dfd655c963b6838d0b3569efb78ea8ec8e79a9f"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +15,18 @@ class B2Tools < Formula
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
+
+  conflicts_with "boost-build", :because => "both install `b2` binaries"
+
+  resource "funcsigs" do
+    url "https://files.pythonhosted.org/packages/94/4a/db842e7a0545de1cdb0439bb80e6e42dfe82aaeaadd4072f2263a4fbed23/funcsigs-1.0.2.tar.gz"
+    sha256 "a7bb0f2cf3a3fd1ab2732cb49eba4252c2af4240442415b4abce3b87022a8f50"
+  end
+
+  resource "fury" do
+    url "https://github.com/ppolewicz/logfury/archive/0.1.2.tar.gz"
+    sha256 "07464a8c1673a6012fee0e7b70b9b12941ede4210ed53e8dcda40433e2ef70fa"
+  end
 
   resource "futures" do
     url "https://files.pythonhosted.org/packages/55/db/97c1ca37edab586a1ae03d6892b6633d8eaa23b23ac40c7e5bbc55423c78/futures-3.0.5.tar.gz"
