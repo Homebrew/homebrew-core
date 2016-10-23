@@ -49,6 +49,12 @@ class Gitless < Formula
   end
 
   test do
-    system "#{bin}/gl", "--help"
+    system bin/"gl", "init"
+    system "git", "config", "user.name", "Gitless Install"
+    system "git", "config", "user.email", "Gitless@Install"
+    %w[haunted house].each { |f| touch testpath/f }
+    system bin/"gl", "track", "haunted", "house"
+    system bin/"gl", "commit", "-m", "Initial Commit"
+    assert_equal "haunted\nhouse", shell_output("git ls-files").strip
   end
 end
