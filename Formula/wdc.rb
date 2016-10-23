@@ -32,7 +32,7 @@ class Wdc < Formula
         std::shared_ptr<WebDAV::Client> client(WebDAV::Client::Init(options));
         auto check_connection = client->check();
         assert(!check_connection);
-		std::cout << "successfully";
+	std::cout << "successfully";
       }
     EOS
     system ENV.cc,  "test.cpp", "-L#{lib}", "-lwebdavclient", "-lpthread",
