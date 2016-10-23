@@ -73,6 +73,7 @@ class Qwt < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-o", "out",
+      "-std=c++11",
       "-framework", "qwt", "-framework", "QtCore",
       "-F#{lib}", "-F#{Formula["qt5"].opt_lib}",
       "-I#{lib}/qwt.framework/Headers",
