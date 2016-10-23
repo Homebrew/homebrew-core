@@ -279,6 +279,7 @@
   "smartsim": "homebrew/gui",
   "soccerwindow2": "homebrew/boneyard",
   "solfege": "homebrew/boneyard",
+  "sonar-runner": "homebrew/boneyard",
   "sptk": "homebrew/x11",
   "sqlitebrowser": "caskroom/cask",
   "sqliteman": "homebrew/boneyard",
