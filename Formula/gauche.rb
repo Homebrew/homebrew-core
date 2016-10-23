@@ -1,8 +1,8 @@
 class Gauche < Formula
-  desc "R5RS Scheme implementation, developed to be a handy script interpreter"
+  desc "R7RS Scheme implementation, developed to be a handy script interpreter"
   homepage "https://practical-scheme.net/gauche/"
-  url "https://downloads.sourceforge.net/gauche/Gauche/Gauche-0.9.4.tgz"
-  sha256 "7b18bcd70beaced1e004594be46c8cff95795318f6f5830dd2a8a700410fc149"
+  url "https://downloads.sourceforge.net/gauche/Gauche/Gauche-0.9.5.tgz"
+  sha256 "4c8a53213de112708bbda5fa9648c21497d43ebf809ed5b32b15f21266b4e73c"
 
   bottle do
     rebuild 1
