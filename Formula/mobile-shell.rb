@@ -18,7 +18,7 @@ class MobileShell < Formula
     depends_on "automake" => :build
   end
 
-  option "without-test", "Run build-time tests"
+  option "with-test", "Run build-time tests"
 
   deprecated_option "without-check" => "without-test"
 
