@@ -1,4 +1,4 @@
-class StashCli < Formula
+class AtlassianCli < Formula
   desc "Command-line interface clients for Atlassian products"
   homepage "https://bobswift.atlassian.net/wiki/pages/viewpage.action?pageId=1966101"
   url "https://bobswift.atlassian.net/wiki/download/attachments/16285777/atlassian-cli-5.7.0-distribution.zip"
