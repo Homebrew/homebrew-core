@@ -5,12 +5,9 @@ class Gauche < Formula
   sha256 "4c8a53213de112708bbda5fa9648c21497d43ebf809ed5b32b15f21266b4e73c"
 
   bottle do
-    rebuild 1
-    sha256 "921869e95b4c339c995150eaa98c8ea21aa243b4df010430080d4952a2977cbb" => :sierra
-    sha256 "abb95196aadd8f233b04d2a14b8bbb4f0dbf3be8fa0ab089834cbc279b074daf" => :el_capitan
-    sha256 "4018f9ae2b0a179ef5df0482e6734186f0069e773496f2f6092971f10a4c7b11" => :yosemite
-    sha256 "e1258b3e8f0c5a61c8df484e173837e6fb3c7ecad7cd1fee277d1f8da56e98f9" => :mavericks
-    sha256 "ffd47c0dcb63a508ae95adfc1e9c7825e75dd40fa10e46c68fcb8bd9b00637d5" => :mountain_lion
+    sha256 "0bfbcbb0f5066b939712e3eed33f0ed221f1e6ba096aca95bc6ad1d69b92c74d" => :sierra
+    sha256 "2959fc3962fe83ac5d66f522d0be8b5abb7d86f43594c47b0ea34bf9c4db7e5d" => :el_capitan
+    sha256 "31baa1ce9e676f98f708b9d2ec84fdeab7ca8a61a7153c90fefc120fd298b66c" => :yosemite
   end
 
   def install
