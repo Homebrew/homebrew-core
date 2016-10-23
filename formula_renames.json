@@ -27,5 +27,6 @@
   "racket": "minimal-racket",
   "screenbrightness": "brightness",
   "sonar": "sonarqube",
+  "stash-cli": "atlassian-cli",
   "wires": "geckodriver"
 }
