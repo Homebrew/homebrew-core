@@ -1,10 +1,19 @@
 class Io < Formula
   desc "Small prototype-based programming language"
   homepage "http://iolanguage.com/"
-  url "https://github.com/stevedekorte/io/archive/2015.11.11.tar.gz"
-  sha256 "00d7be0b69ad04891dd5f6c77604049229b08164d0c3f5877bfab130475403d3"
 
   head "https://github.com/stevedekorte/io.git"
+
+  stable do
+    url "https://github.com/stevedekorte/io/archive/2015.11.11.tar.gz"
+    sha256 "00d7be0b69ad04891dd5f6c77604049229b08164d0c3f5877bfab130475403d3"
+    
+    # Fix build on Sierra. Already merged upstream.
+    patch do
+      url "https://github.com/stevedekorte/io/commit/db4d9c2.patch"
+      sha256 "25245bcfcde145ee5c0d142bee5be3017622173b98a04b26c2169ff738b5914d"
+    end
+  end
 
   bottle do
     sha256 "741314b5c2629688c17eabca50e0a623a9318a44d94568d4d0cf53e86560c2b2" => :el_capitan
