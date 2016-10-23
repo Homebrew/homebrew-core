@@ -3,8 +3,8 @@ require "language/go"
 class Sift < Formula
   desc "Fast and powerful open source alternative to grep"
   homepage "https://sift-tool.org"
-  url "https://github.com/svent/sift/archive/v0.8.0.tar.gz"
-  sha256 "8686e560771392dde526b12b684015c5b1ca52089119011342f8073513c40751"
+  url "https://github.com/svent/sift/archive/v0.9.0.tar.gz"
+  sha256 "bbbd5c472c36b78896cd7ae673749d3943621a6d5523d47973ed2fc6800ae4c8"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,26 +25,23 @@ class Sift < Formula
         :revision => "7cef48da76dca6a496faa7fe63e39ed665cbd219"
   end
 
-  go_resource "github.com/svent/sift" do
-    url "https://github.com/svent/sift.git",
-        :revision => "2d175c4137cad933fa40e0af69020bd658ef5fb3"
-  end
-
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "1f22c0103821b9390939b6776727195525381532"
+        :revision => "3c0d69f1777220f1a1d2ec373cb94a282f03eb42"
   end
 
   def install
     ENV["GOPATH"] = buildpath
-
+    (buildpath/"src/github.com/svent/sift").install buildpath.children
     Language::Go.stage_deps resources, buildpath/"src"
-
-    system "go", "build", "-o", bin/"sift"
+    cd "src/github.com/svent/sift" do
+      system "go", "build", "-o", bin/"sift"
+      prefix.install_metafiles
+    end
   end
 
   test do
-    (testpath/"test.txt").write "where is foo"
-    assert_match(/where is foo/, shell_output("#{bin/"sift"} foo #{testpath}"))
+    (testpath/"test.txt").write("where is foo\n")
+    assert_match "where is foo", shell_output("#{bin}/sift foo #{testpath}")
   end
 end
