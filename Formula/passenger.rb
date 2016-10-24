@@ -4,6 +4,7 @@ class Passenger < Formula
   url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.30.tar.gz"
   sha256 "f367e0c1d808d7356c3749222194a72ea03efe61a3bf1b682bd05d47f087b4e3"
   head "https://github.com/phusion/passenger.git"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,7 +17,7 @@ class Passenger < Formula
   option "without-apache2-module", "Disable Apache2 module"
 
   depends_on "pcre"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on :macos => :lion
 
   # macOS Sierra ships the APR libraries & headers, but has removed the
@@ -29,6 +30,16 @@ class Passenger < Formula
   end
 
   def install
+    inreplace "src/ruby_supportlib/phusion_passenger.rb",
+      "PREFERRED_NGINX_VERSION = '1.10.1'",
+      "PREFERRED_NGINX_VERSION = '1.10.2'"
+    inreplace "src/ruby_supportlib/phusion_passenger/platform_info/openssl.rb" do |s|
+      s.gsub! "-I/usr/local/opt/openssl/include", "-I#{Formula["openssl@1.1"].opt_include}"
+      s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{Formula["openssl@1.1"].opt_lib}"
+    end
+    inreplace "src/ruby_supportlib/phusion_passenger/config/nginx_engine_compiler.rb",
+      "http://nginx.org",
+      "https://nginx.org"
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
 
