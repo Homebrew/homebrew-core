@@ -11,8 +11,11 @@ class AuroraCli < Formula
     sha256 "9b45a0ba82e22ff2e272c80977d047a16b5164edb0efc198ffc90ede170c5444" => :mavericks
   end
 
-  # Support for OSX Sierra. https://github.com/apache/aurora/commit/b272b880.patch
-  patch :DATA if MacOS.version >= :sierra
+  # Update binary_util OS map for OSX Sierra.
+  patch do
+    url "https://github.com/thinker0/aurora/commit/a92876a1.patch"
+    sha256 "b846045b2916c9d82a149bda06d98a2dabdbac435c16ba2943a90344bf55f344"
+  end
   depends_on :python if MacOS.version <= :snow_leopard
 
   def install
@@ -36,18 +39,3 @@ class AuroraCli < Formula
     system "#{bin}/aurora_admin", "get_cluster_config", "devcluster"
   end
 end
-
-__END__
-diff --git a/pants.ini b/pants.ini
-index 6ed4186..70db14b 100644
---- a/pants.ini
-+++ b/pants.ini
-@@ -12,7 +12,7 @@
- # limitations under the License.
-
- [GLOBAL]
--pants_version: 1.1.0-rc7
-+pants_version: 1.2.0rc1
-
- plugins: [
-     'pantsbuild.pants.contrib.python.checks==%(pants_version)s',
