@@ -1,27 +1,20 @@
 class Valgrind < Formula
   desc "Dynamic analysis tools (memory, debug, profiling)"
   homepage "http://www.valgrind.org/"
-  revision 1
-  head "svn://svn.valgrind.org/valgrind/trunk"
 
   stable do
-    url "http://valgrind.org/downloads/valgrind-3.11.0.tar.bz2"
-    sha256 "6c396271a8c1ddd5a6fb9abe714ea1e8a86fce85b30ab26b4266aeb4c2413b42"
+    url "http://valgrind.org/downloads/valgrind-3.12.0.tar.bz2"
+    sha256 "67ca4395b2527247780f36148b084f5743a68ab0c850cb43e4a5b4b012cf76a1"
 
-    # Fix tst->os_state.pthread - magic_delta assertion failure on OSX 10.11
-    # https://bugs.kde.org/show_bug.cgi?id=354883
-    # https://github.com/liquid-mirror/valgrind/commit/8f0b10fdc795f6011c17a7d80a0d65c36fcb8619.diff
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/cc0e461/valgrind/10.11_assertion.diff"
-      sha256 "c4b73d50069f59ad2bcbddd5934b7068318bb2ba31f702ca21fb42d558addff4"
-    end
-
-    # Add support for Xcode 8 (svn r15949)
-    # https://bugs.kde.org/show_bug.cgi?id=366138#c5
-    # https://github.com/liquid-mirror/valgrind/commit/16ff0e684bd44acc2e6d3a369876fe0c331e641d
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/b42540f/valgrind/xcode-8.diff"
-      sha256 "1191a728fa6df5de3520be57238a265815156d48062cdd12d2d6517fbdc8443f"
+    # SVN r16103:
+    # "bzero is non-POSIX (deprecated), accordingly __bzero template required
+    # for all macOS versions. n-i-bz."
+    #
+    # Fixes build on macOS 10.12 (at least). Otherwise we would get undefined
+    # symbols error for __bzero.
+    patch :p0 do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/54d59bf/valgrind/bzero.diff"
+      sha256 "48de4054dba20c27ef6089d3ea7832e48dcbbb5368ac4316394b8be55ffe93a2"
     end
   end
 
@@ -31,17 +24,17 @@ class Valgrind < Formula
     sha256 "13b4586d3781bc50bcc2cd14ed05d19333ef85b91ef4b2b21b4c1438dba163b5" => :mavericks
   end
 
-  # These should normally be head-only deps, but we're patching stable's
-  # configure.ac for Xcode 8 compatibility, so we always have to run
-  # autogen.sh. Restore head-only status when the next stable release comes
-  # out.
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  head do
+    url "svn://svn.valgrind.org/valgrind/trunk"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
 
   depends_on :macos => :snow_leopard
-  # See currently supported platforms: http://valgrind.org/info/platforms.html
-  # Also dev comment: https://bugs.kde.org/show_bug.cgi?id=366138#c5
+  # https://bugs.kde.org/show_bug.cgi?id=365327#c2
+  # https://github.com/Homebrew/homebrew-core/pull/6231#issuecomment-255779374
   depends_on MaximumMacOSRequirement => :el_capitan
 
   # Valgrind needs vcpreload_core-*-darwin.so to have execute permissions.
@@ -59,9 +52,7 @@ class Valgrind < Formula
       args << "--enable-only32bit"
     end
 
-    # Always run autogen.sh due to us patching stable's configure.ac.
-    # Restore "if build.head?" when the next stable release comes out.
-    system "./autogen.sh"
+    system "./autogen.sh" if build.head?
 
     # Look for headers in the SDK on Xcode-only systems: https://bugs.kde.org/show_bug.cgi?id=295084
     unless MacOS::CLT.installed?
