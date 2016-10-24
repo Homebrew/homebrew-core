@@ -16,6 +16,10 @@ class Nim < Formula
   def install
     if build.head?
       system "/bin/sh", "bootstrap.sh"
+
+      # Grab the tools source (only included in point releases)
+      system "git", "clone", "https://github.com/nim-lang/nimsuggest.git", "dist/nimsuggest"
+      system "git", "clone", "https://github.com/nim-lang/nimble.git", "dist/nimble"
     else
       system "/bin/sh", "build.sh"
     end
@@ -24,20 +28,16 @@ class Nim < Formula
     bin.install_symlink prefix/"nim/bin/nim"
     bin.install_symlink prefix/"nim/bin/nim" => "nimrod"
 
-    # Building tools only for non-head branch
-    if !build.head?
-      system "bin/nim e install_tools.nims"
-
-      target = prefix/"nim/bin"
-      target.install "bin/nimble"
-      target.install "dist/nimble/src/nimblepkg"
-      target.install "bin/nimgrep"
-      target.install "bin/nimsuggest"
-
-      bin.install_symlink prefix/"nim/bin/nimble"
-      bin.install_symlink prefix/"nim/bin/nimgrep"
-      bin.install_symlink prefix/"nim/bin/nimsuggest"
-    end
+    # build and install the tools
+    system "bin/nim", "e", "install_tools.nims"
+    target = prefix/"nim/bin"
+    target.install "dist/nimble/src/nimblepkg"
+    target.install "bin/nimsuggest"
+    target.install "bin/nimble"
+    target.install "bin/nimgrep"
+    bin.install_symlink prefix/"nim/bin/nimsuggest"
+    bin.install_symlink target/"nimble"
+    bin.install_symlink target/"nimgrep"
   end
 
   test do
