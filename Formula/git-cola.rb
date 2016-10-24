@@ -14,14 +14,15 @@ class GitCola < Formula
 
   option "with-docs", "Build manpages and HTML docs"
 
-  depends_on "pyqt"
+  depends_on "pyqt5"
+  depends_on :python3
   depends_on "sphinx-doc" => :build if build.with? "docs"
 
   def install
-    system "make", "prefix=#{prefix}", "install"
+    system "make", "PYTHON=python3", "prefix=#{prefix}", "install"
 
     if build.with? "docs"
-      system "make", "install-doc", "prefix=#{prefix}",
+      system "make", "install-doc", "PYTHON=python3", "prefix=#{prefix}",
              "SPHINXBUILD=#{Formula["sphinx-doc"].opt_bin}/sphinx-build"
     end
   end
