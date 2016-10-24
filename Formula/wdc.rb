@@ -33,10 +33,9 @@ class Wdc < Formula
       }
     EOS
     system ENV.cc,  "test.cpp", "-L#{lib}", "-L/usr/local/lib",
-                    "-L/usr/local/lib64", "-lwebdavclient",
-                    "-lpthread", "-lpugixml", "-lm", "-lcurl",
-                    "-lssl", "-lcrypto", "-lstdc++", "-std=c++11",
-                    "-o", "test"
+                    "-lwebdavclient", "-lpthread", "-lpugixml",
+                    "-lm", "-lcurl", "-lssl", "-lcrypto",
+                    "-lstdc++", "-std=c++11", "-o", "test"
     system "./test"
   end
 end
