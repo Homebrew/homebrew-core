@@ -1,8 +1,8 @@
 class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
-  url "https://libsdl.org/release/SDL2-2.0.4.tar.gz"
-  sha256 "da55e540bf6331824153805d58b590a29c39d2d506c6d02fa409aedeab21174b"
+  url "https://libsdl.org/release/SDL2-2.0.5.tar.gz"
+  sha256 "442038cf55965969f2ff06d976031813de643af9c9edc9e331bd761c242e8785"
 
   bottle do
     cellar :any
