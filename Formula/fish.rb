@@ -21,6 +21,14 @@ class Fish < Formula
     sha256 "19fe34be078746b38b4b8bcf0f384c80963a6437587844116645ee1679e444bd" => :mavericks
   end
 
+  devel do
+    url "https://github.com/fish-shell/fish-shell/releases/download/2.4b1/fish-2.4b1.tar.gz"
+    sha256 "36139e09064f7904d8b7de4603789c41c1a9bf425280494468948de61572cbbd"
+
+    depends_on "autoconf" => :build
+    depends_on "doxygen" => :build
+  end
+
   head do
     url "https://github.com/fish-shell/fish-shell.git", :shallow => false
 
