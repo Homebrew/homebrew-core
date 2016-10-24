@@ -4,8 +4,8 @@ class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
   url "https://github.com/zyedidia/micro.git",
-    :tag => "v1.1.1",
-    :revision => "b09093f78c1632a7a55225d2b5692f7dcc329a67"
+    :tag => "v1.1.2",
+    :revision => "c04a4ba6045058190072543e644a022aa7aa3956"
   head "https://github.com/zyedidia/micro.git"
 
   bottle do
@@ -49,7 +49,7 @@ class Micro < Formula
 
   go_resource "github.com/mattn/go-runewidth" do
     url "https://github.com/mattn/go-runewidth.git",
-        :revision => "d6bea18f789704b5f83375793155289da36a3c7f"
+        :revision => "737072b4e32b7a5018b4a7125da8d12de90e8045"
   end
 
   go_resource "github.com/mitchellh/go-homedir" do
@@ -59,17 +59,17 @@ class Micro < Formula
 
   go_resource "github.com/sergi/go-diff" do
     url "https://github.com/sergi/go-diff.git",
-        :revision => "ec7fdbb58eb3e300c8595ad5ac74a5aa50019cc7"
+        :revision => "1d28411638c1e67fe1930830df207bef72496ae9"
   end
 
   go_resource "github.com/yuin/gopher-lua" do
     url "https://github.com/yuin/gopher-lua.git",
-        :revision => "6a1397dfb6f8e7af08496129dd96f5f62c148f47"
+        :revision => "d0d5dd3565a9f3c86ff5bc42a0b1cc9e5bfcf55e"
   end
 
   go_resource "github.com/zyedidia/clipboard" do
     url "https://github.com/zyedidia/clipboard.git",
-        :revision => "72497670a7bd47eb648153f55bea83852546abe0"
+        :revision => "7b4ccc9435f89956bfa9466c3c42717df272e3bd"
   end
 
   go_resource "github.com/zyedidia/glob" do
@@ -84,12 +84,12 @@ class Micro < Formula
 
   go_resource "github.com/zyedidia/tcell" do
     url "https://github.com/zyedidia/tcell.git",
-        :revision => "2cdfb9030fb6b921fb1c8679219f881fd0824947"
+        :revision => "f03d5b8b2730cb2578c427d120a5692ca54fb67b"
   end
 
   go_resource "golang.org/x/text" do
     url "https://go.googlesource.com/text.git",
-        :revision => "ceefd2213ed29504fff30155163c8f59827734f3"
+        :revision => "5a42fa2464759cbb7ee0af9de00b54d69f09a29c"
   end
 
   def install
@@ -97,13 +97,8 @@ class Micro < Formula
     mkdir_p buildpath/"src/github.com/zyedidia"
     ln_s buildpath, buildpath/"src/github.com/zyedidia/micro"
     Language::Go.stage_deps resources, buildpath/"src"
-    hash = `git rev-parse --short HEAD`.chomp
-    date = `go run tools/build-date.go`.chomp
-    system "go", "build", "-o", bin/"micro", "-ldflags", <<-EOS.undent, "./cmd/micro"
-      -X main.Version=#{version}
-      -X main.CommitHash=#{hash}
-      -X 'main.CompileDate=#{date}'
-    EOS
+    system "make", "build"
+    bin.install "micro"
   end
 
   test do
