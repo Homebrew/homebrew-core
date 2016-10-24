@@ -22,7 +22,7 @@ class Wdc < Formula
     Description: Modern and convenient C++ WebDAV Client library
     Version: 1.0.0
     Libs: -L${libdir} -lwebdavclient
-    Libs.private: -lpthread -lpugixml  -lm -lcurl -lssl -lcrypto
+    Libs.private: -lpthread -lpugixml -lm -lcurl -lssl -lcrypto
     Cflags: -I${includedir}
     EOS
   end
