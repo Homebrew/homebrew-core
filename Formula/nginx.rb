@@ -1,13 +1,10 @@
 class Nginx < Formula
   desc "HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server"
   homepage "https://nginx.org/"
-
-  stable do
-    url "https://nginx.org/download/nginx-1.10.2.tar.gz"
-    sha256 "1045ac4987a396e2fa5d0011daf8987b612dd2f05181b67507da68cbe7d765c2"
-
-    depends_on "openssl"
-  end
+  url "https://nginx.org/download/nginx-1.10.2.tar.gz"
+  sha256 "1045ac4987a396e2fa5d0011daf8987b612dd2f05181b67507da68cbe7d765c2"
+  revision 1
+  head "http://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
     sha256 "6ad8f2ef5b5658dd01112ad4cfe0cbca6426ef96b370636a7b6065cc5f678c06" => :sierra
@@ -18,14 +15,6 @@ class Nginx < Formula
   devel do
     url "https://nginx.org/download/nginx-1.11.5.tar.gz"
     sha256 "223f8a2345a75f891098cf26ccdf208b293350388f51ce69083674c9432db6f6"
-
-    depends_on "openssl@1.1"
-  end
-
-  head do
-    url "http://hg.nginx.org/nginx/", :using => :hg
-
-    depends_on "openssl@1.1"
   end
 
   # Before submitting more options to this formula please check they aren't
@@ -40,6 +29,7 @@ class Nginx < Formula
   deprecated_option "with-spdy" => "with-http2"
 
   depends_on "pcre"
+  depends_on "openssl@1.1"
   depends_on "passenger" => :optional
 
   def install
@@ -50,7 +40,7 @@ class Nginx < Formula
     end
 
     pcre = Formula["pcre"]
-    openssl = build.stable? ? Formula["openssl"] : Formula["openssl@1.1"]
+    openssl = Formula["openssl@1.1"]
 
     cc_opt = "-I#{pcre.opt_include} -I#{openssl.opt_include}"
     ld_opt = "-L#{pcre.opt_lib} -L#{openssl.opt_lib}"
