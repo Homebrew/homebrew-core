@@ -6,9 +6,9 @@ class AuroraCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0183b82944db056e0b61f367611076d23db7c772d5f37a4d86b3c423d02306da" => :el_capitan
-    sha256 "6bc5f013f7182fab96d21fb228d96de52ca3c3329f542efec2929babf50d1cfb" => :yosemite
-    sha256 "9b45a0ba82e22ff2e272c80977d047a16b5164edb0efc198ffc90ede170c5444" => :mavericks
+    sha256 "96f4818d2b60d039b5b329de3a0c535abe9d357cf2568ce5e6a03331f381831f" => :sierra
+    sha256 "a040d213930834e440fee818c7608aa915cb95781cf33426355ac929c92947f5" => :el_capitan
+    sha256 "f81dbf4693ca54388d6c1e1d21baab81c128240d7b82e97e9669641112c27fda" => :yosemite
   end
 
   # Update binary_util OS map for OSX Sierra.
