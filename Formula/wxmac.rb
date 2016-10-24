@@ -1,7 +1,7 @@
 class Wxmac < Formula
   desc "wxWidgets, a cross-platform C++ GUI toolkit (for macOS)"
   homepage "https://www.wxwidgets.org"
-  revision 3
+  revision 4
 
   head "https://github.com/wxWidgets/wxWidgets.git"
 
@@ -75,7 +75,6 @@ class Wxmac < Formula
 
   def install
     args = [
-      "--disable-debug",
       "--prefix=#{prefix}",
       "--enable-unicode",
       "--enable-std_string",
