@@ -9,10 +9,10 @@ class Weboob < Formula
   head "https://git.symlink.me/pub/weboob/stable.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b9fb8cac12026ef91420ab1b1d6b6d0583bd34ce842e468f02882c70e0d910ad" => :el_capitan
-    sha256 "77cc15e88b0d9f28a410e79c8f29f30a66f2eb6080dbeeea3f1fb32746410780" => :yosemite
-    sha256 "3ed894d3eccc62ee18b4e73a9a2134ea74915d149ecece425a593520eaf4c1d0" => :mavericks
+    cellar :any
+    sha256 "e6f5e2b71675be9a72878e215b6fb1580812c186beb9c79e82f76c42c5313553" => :sierra
+    sha256 "4255cec46b5b13ef3a1f10c0fcc5aeb0914e26d285c8c5f766c0a0ade45b2333" => :el_capitan
+    sha256 "efc32ddd784885400c295ce6b75e753575c0ad558a7283fd02cb2ecc58baeb38" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
