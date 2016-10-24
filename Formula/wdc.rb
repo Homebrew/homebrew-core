@@ -32,8 +32,8 @@ class Wdc < Formula
         assert(!check_connection);
       }
     EOS
-    system ENV.cc,  "test.cpp", "-L#{lib}", "-L#{HOMEBREW_PREFIX}/lib",
-                    "-L#{HOMEBREW_PREFIX}/lib64", "-lwebdavclient",
+    system ENV.cc,  "test.cpp", "-L#{lib}", "-L/usr/local/lib",
+                    "-L/usr/local/lib64", "-lwebdavclient",
                     "-lpthread", "-lpugixml", "-lm", "-lcurl",
                     "-lssl", "-lcrypto", "-lstdc++", "-std=c++11",
                     "-o", "test"
