@@ -5,7 +5,6 @@ class Wdc < Formula
   sha256 "649a75a7fe3219dff014bf8d98f593f18d3c17b638753aa78741ee493519413d"
 
   depends_on "cmake" => :build
-  depends_on "curl"
   depends_on "openssl"
   depends_on "pugixml"
 
