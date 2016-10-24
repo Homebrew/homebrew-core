@@ -13,6 +13,20 @@ class Wdc < Formula
     system "make", "install"
   end
 
+  def pc_file; <<-EOS.undent
+    prefix=#{HOMEBREW_PREFIX}
+    exec_prefix=${prefix}
+    libdir=${exec_prefix}/lib
+    includedir=${exec_prefix}/include
+    Name: wdc
+    Description: Modern and convenient C++ WebDAV Client library
+    Version: 1.0.0
+    Libs: -L${libdir} -lwebdavclient
+    Libs.private: -lpthread -lpugixml  -lm -lcurl -lssl -lcrypto
+    Cflags: -I${includedir}
+    EOS
+  end
+
   test do
     (testpath/"test.cpp").write <<-EOS.undent
       #include <webdav/client.hpp>
