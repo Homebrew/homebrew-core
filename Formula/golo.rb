@@ -6,9 +6,9 @@ class Golo < Formula
   head "https://github.com/eclipse/golo-lang.git"
 
   devel do
-    url "https://bintray.com/artifact/download/golo-lang/downloads/golo-3.2.0-M4.zip"
-    sha256 "e5494b8b0b32439c16f6bd008338610dd761c10c13f8c1de9c83667ecd4cc6ba"
-    version "3.2.0-M4"
+    url "https://bintray.com/artifact/download/golo-lang/downloads/golo-3.2.0-M5.zip"
+    sha256 "12259beb7c5a0954f2193f581a0c11ec63ff4a573ffeb35efba4b6389d36fad7"
+    version "3.2.0-M5"
   end
   bottle :unneeded
 
