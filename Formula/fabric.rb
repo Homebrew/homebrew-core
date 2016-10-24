@@ -1,8 +1,8 @@
 class Fabric < Formula
   desc "Library and command-line tool for SSH"
   homepage "http://www.fabfile.org"
-  url "https://github.com/fabric/fabric/archive/1.11.1.tar.gz"
-  sha256 "b84e635e2ddd98119aabfffb99e8ec022d0533d7bfd68e7c491b5ac02f394cef"
+  url "https://github.com/fabric/fabric/archive/1.12.0.tar.gz"
+  sha256 "c58d51963b77b0e55aa7ebd800b86217851a40d8abf3247a2a0c358a226344ff"
   head "https://github.com/fabric/fabric.git"
 
   bottle do
@@ -21,8 +21,8 @@ class Fabric < Formula
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/b8/60/f83c7f27d15560c731fb7f39f308b5d056785a0cbb0b5c87ee3767b0db4c/paramiko-1.17.1.tar.gz"
-    sha256 "d67df9bd32e63d9a68900a7cad520c74b6f23d631417c662c265e80f7ad61ca7"
+    url "https://files.pythonhosted.org/packages/0c/ea/3581ba57d152fab6e3e928363d498848c7a50ab43b32bb81867bd803b9ba/paramiko-1.17.2.tar.gz"
+    sha256 "d436971492bf11fb9807c08f41d4115a82bd592a844971737a6a8e8900c4677c"
   end
 
   resource "pycrypto" do
