@@ -46,11 +46,13 @@ class Fabric < Formula
 
   test do
     (testpath/"fabfile.py").write <<-EOS.undent
+      from fabric.api import task, puts, env
+      @task
       def hello():
-        print("Hello world!")
+        puts("fabric " + env.version)
     EOS
     expected = <<-EOS.undent
-      Hello world!
+      fabric #{version}
 
       Done.
     EOS
