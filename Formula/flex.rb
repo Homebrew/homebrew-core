@@ -1,8 +1,8 @@
 class Flex < Formula
   desc "Fast Lexical Analyzer, generates Scanners (tokenizers)"
   homepage "http://flex.sourceforge.net"
-  url "https://github.com/westes/flex/releases/download/v2.6.1/flex-2.6.1.tar.xz"
-  sha256 "2c7a412c1640e094cb058d9b2fe39d450186e09574bebb7aa28f783e3799103f"
+  url "https://github.com/westes/flex/releases/download/v2.6.2/flex-2.6.2.tar.gz"
+  sha256 "9a01437a1155c799b7dc2508620564ef806ba66250c36bf5f9034b1c207cb2c9"
 
   bottle do
     rebuild 1
@@ -14,6 +14,7 @@ class Flex < Formula
 
   keg_only :provided_by_osx, "Some formulae require a newer version of flex."
 
+  depends_on "help2man" => :build
   depends_on "gettext"
 
   def install
