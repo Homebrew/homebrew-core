@@ -7,9 +7,9 @@ class ShairportSync < Formula
 
   bottle do
     cellar :any
-    sha256 "80d1b7c943952fd4633647dc035be8a7e130f73e7fbcd2cef9ea2e847a10f500" => :el_capitan
-    sha256 "2153ee8053718e023fa1321235a583674b40a24ebcd72cbd6599c342095a47ba" => :yosemite
-    sha256 "b36d3dff2c4b471edc53731daea183c057b7bec10fe39ae348be0f3849b2f2dd" => :mavericks
+    sha256 "8612b9e2c786c0a8c0ef8e54b728d28e59ce0bb10e2b16f2d5ba812d85f21503" => :sierra
+    sha256 "09eda0a3e96817e6ed5296fca323dc2ee9acfae4e149eaa950f9ea0b64fe6d05" => :el_capitan
+    sha256 "3d3c5332e755d80b1173f9a27d442846a56aa285d597bcc1dd60bda9e971afdc" => :yosemite
   end
 
   depends_on "pkg-config" => :build
