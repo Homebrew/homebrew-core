@@ -6,9 +6,10 @@ class Nspr < Formula
 
   bottle do
     cellar :any
-    sha256 "5b972362ade2eda9ef35e0ba88e0b8a1403f0bc61096c58972cbae3c4efae752" => :sierra
-    sha256 "e7c3d3cc5084a1c347620dd0a06124f3cf66a5258836e0e1dfe3ef8a1bccb57b" => :el_capitan
-    sha256 "2874f8346247f57822e8d4214b5ab01fd05ba079fd29714656761fc1764405a0" => :yosemite
+    rebuild 1
+    sha256 "5fbf42c7e328e0cd53a68e5c576dfc6ba255cc4df370c408962f25a3e838f433" => :sierra
+    sha256 "d6782a241ae842311ef76eef2d3e348e17a1299d81efd8e03ffb5f602b741877" => :el_capitan
+    sha256 "15ad0805bc563287c0cab50080cc34ba07543ec37c3ac91c490dbc25397df141" => :yosemite
   end
 
   def install
