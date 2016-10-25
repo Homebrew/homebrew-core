@@ -5,9 +5,10 @@ class IscDhcp < Formula
   sha256 "eb95936bf15d2393c55dd505bc527d1d4408289cec5a9fa8abb99f7577e7f954"
 
   bottle do
-    sha256 "3aa4babc44be486d64c65ceab7d295e91834348968605377d35db3333b74c757" => :sierra
-    sha256 "55edacc3bb6e713fcbe98201425c1f40b82b2f25cefc68d4cf414196956d7d70" => :el_capitan
-    sha256 "a0e29380b45566d70ad7e542cf9b5ff0c0179a55bda2e1a0477e817a0446bcc8" => :yosemite
+    rebuild 1
+    sha256 "489df9326cdc8aded9bad6e1a1015d36dfc5c02721a16e14478497da28d29198" => :sierra
+    sha256 "7b877c026db736dd1c624c88c75dec7cb1acc6a2f6eeddf3fb1f246713231384" => :el_capitan
+    sha256 "56bbd9937ce4ee4b76e405c34565048fa55e2b0b7965004508b2d482a0e7881d" => :yosemite
   end
 
   def install
