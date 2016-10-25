@@ -290,6 +290,7 @@
   "stormfs": "homebrew/fuse",
   "sundials": "homebrew/science",
   "swatchbooker": "homebrew/boneyard",
+  "swift": "homebrew/boneyard",
   "sxiv": "homebrew/x11",
   "synfigstudio": "homebrew/boneyard",
   "syslog-ng": "homebrew/boneyard",
