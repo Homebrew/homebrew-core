@@ -11,6 +11,7 @@ class Wdc < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+    (lib+"pkgconfig/libwebdavclient.pc").write pc_file
   end
 
   def pc_file; <<-EOS.undent
@@ -18,7 +19,7 @@ class Wdc < Formula
     exec_prefix=${prefix}
     libdir=${exec_prefix}/lib
     includedir=${exec_prefix}/include
-    Name: wdc
+    Name: libwebdavclient
     Description: Modern and convenient C++ WebDAV Client library
     Version: 1.0.0
     Libs: -L${libdir} -lwebdavclient
