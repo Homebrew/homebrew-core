@@ -7,9 +7,9 @@ class Scw < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dc479e8c440c9bf5ebe83032f2eff5bddcad390ad31aa64f876aef2f6c88bc71" => :sierra
-    sha256 "dba9eda78980c8a5812360ae2826ead7a6ae0d1573239720a54437044d38f313" => :el_capitan
-    sha256 "4f987ff3b1cdbfb20d5f8585aa4588e96725437c931a1568c158441064f1f566" => :yosemite
+    sha256 "1263af4844aaa27bb6c6f4c40f07eac80d56200bf4f37734e73e7c0f3c0ff599" => :sierra
+    sha256 "01381d4507ddf33833dec6fc26a9aebb43b6a0b4a5668ba88d19a5069a11c55f" => :el_capitan
+    sha256 "bcda40f69b492350f97382d9831813aa3d194a42ec5f8d73774fe8a5cb6d4acc" => :yosemite
   end
 
   depends_on "go" => :build
