@@ -5,6 +5,7 @@ class PreCommit < Formula
   homepage "http://pre-commit.com/"
   url "https://github.com/pre-commit/pre-commit/archive/v0.9.2.tar.gz"
   sha256 "45d92b70fe5f18580a1f209876f30059ce075897e3982fef8f1a75e5357f0b6d"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -36,18 +37,13 @@ class PreCommit < Formula
   end
 
   resource "nodeenv" do
-    url "https://files.pythonhosted.org/packages/4e/98/7678dda681857af016eae588f8172ea4ea687aeb3dcda6ac05899493ba4b/nodeenv-0.13.6.tar.gz"
-    sha256 "feaafb0486d776360ef939bd85ba34cff9b623013b13280d1e3770d381ee2b7f"
+    url "https://files.pythonhosted.org/packages/fa/62/f3dc0d7b596f7187585520bca14c050909de88866e8f793338de907538cf/nodeenv-1.0.0.tar.gz"
+    sha256 "def2a6d927bef8d17c1776edbd5bbc8b7a5f0eee159af53b9924d559fc8d3202"
   end
 
   resource "ordereddict" do
     url "https://files.pythonhosted.org/packages/53/25/ef88e8e45db141faa9598fbf7ad0062df8f50f881a36ed6a0073e1572126/ordereddict-1.1.tar.gz"
     sha256 "1c35b4ac206cef2d24816c89f89cf289dd3d38cf7c449bb3fab7bf6d43f01b1f"
-  end
-
-  resource "pyterminalsize" do
-    url "https://files.pythonhosted.org/packages/58/7a/440407502c758313ff208b55ffeac89ae7d5b23b5baaa7aaeea178103fc1/pyterminalsize-0.1.0.tar.gz"
-    sha256 "ca49f8c92f180a278d9ca0a106d2c98436933889c9a8bc06adde86d03aea7dd3"
   end
 
   resource "PyYAML" do
