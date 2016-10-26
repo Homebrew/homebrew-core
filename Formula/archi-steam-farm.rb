@@ -1,8 +1,8 @@
 class ArchiSteamFarm < Formula
   desc "ASF is a C# application that allows you to farm steam cards"
   homepage "https://github.com/JustArchi/ArchiSteamFarm"
-  url "https://github.com/JustArchi/ArchiSteamFarm/releases/download/2.1.5.4/ASF.zip"
-  sha256 "244f2e213927ad4512036a30bff201d94db1129a9f8650e39bdbf22a0f4951f8"
+  url "https://github.com/JustArchi/ArchiSteamFarm/releases/download/2.1.6.2/ASF.zip"
+  sha256 "b7670ae84d08b2512b823bc820870b14c8810297f5f526b5b785fde8ee6b67f6"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,6 +25,6 @@ class ArchiSteamFarm < Formula
   end
 
   test do
-    assert_match "ASF V2.1.5.4", shell_output("#{bin}/asf --client")
+    assert_match "ASF V#{version}", shell_output("#{bin}/asf --client")
   end
 end
