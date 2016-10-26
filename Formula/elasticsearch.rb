@@ -11,13 +11,12 @@ class Elasticsearch < Formula
 
   head do
     url "https://github.com/elasticsearch/elasticsearch.git"
-    depends_on :java => "1.8"
     depends_on "gradle" => :build
   end
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
