@@ -17,6 +17,7 @@ class SyncthingInotify < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GOROOT"] = Formula["go"].opt_libexec
     dir = buildpath/"src/github.com/syncthing/syncthing-inotify"
     dir.install buildpath.children
     cd dir do
