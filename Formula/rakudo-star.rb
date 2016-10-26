@@ -1,8 +1,8 @@
 class RakudoStar < Formula
   desc "Perl 6 compiler"
   homepage "http://rakudo.org/"
-  url "http://rakudo.org/downloads/star/rakudo-star-2016.07.tar.gz"
-  sha256 "6aa2c73da1c5c89e7495eaa0b572f07a3184b13df3e8eb6f452038c8023ffd33"
+  url "http://rakudo.org/downloads/star/rakudo-star-2016.10.tar.gz"
+  sha256 "00fb63c1e0475213960298fac82a53906f1bfa8d431ca8c00ef278f58bf1d14b"
 
   bottle do
     sha256 "04721ad21f249bc0627b3cf6c3d99315a12abbfb7e36eb4ac9e36513d43b465c" => :sierra
@@ -13,17 +13,23 @@ class RakudoStar < Formula
 
   option "with-jvm", "Build also for jvm as an alternate backend."
 
-  conflicts_with "parrot"
-
   depends_on "gmp" => :optional
   depends_on "icu4c" => :optional
   depends_on "pcre" => :optional
   depends_on "libffi"
 
+  conflicts_with "parrot"
+
   def install
     libffi = Formula["libffi"]
     ENV.remove "CPPFLAGS", "-I#{libffi.include}"
     ENV.prepend "CPPFLAGS", "-I#{libffi.lib}/libffi-#{libffi.version}/include"
+
+    # Work around to prevent MoarVM from using clock_gettime
+    # Reported 2016-10-27: https://github.com/MoarVM/MoarVM/issues/437
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "MoarVM/src/platform/posix/time.c", "CLOCK_REALTIME", "UNDEFINED_XCODE8_HACK"
+    end
 
     ENV.j1 # An intermittent race condition causes random build failures.
 
