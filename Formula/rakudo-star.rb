@@ -13,17 +13,22 @@ class RakudoStar < Formula
 
   option "with-jvm", "Build also for jvm as an alternate backend."
 
-  conflicts_with "parrot"
-
   depends_on "gmp" => :optional
   depends_on "icu4c" => :optional
   depends_on "pcre" => :optional
   depends_on "libffi"
 
+  conflicts_with "parrot"
+
   def install
     libffi = Formula["libffi"]
     ENV.remove "CPPFLAGS", "-I#{libffi.include}"
     ENV.prepend "CPPFLAGS", "-I#{libffi.lib}/libffi-#{libffi.version}/include"
+
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      # clock_gettime is half present and causes runtime link errors
+      inreplace %w[MoarVM/src/platform/posix/time.c], "CLOCK_REALTIME", "UNDEFINED_XCODE8_HACK"
+    end
 
     ENV.j1 # An intermittent race condition causes random build failures.
 
