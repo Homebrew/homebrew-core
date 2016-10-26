@@ -3,24 +3,17 @@ class Logstash < Formula
   homepage "https://www.elastic.co/products/logstash"
 
   stable do
-    url "https://download.elastic.co/logstash/logstash/logstash-2.4.0.tar.gz"
-    sha256 "622c435c5c0f40e205fd4d9411eb409cc52992cf62dde4c7cd46e480cd8247cc"
-    depends_on :java => "1.7+"
-  end
-
-  devel do
-    url "https://download.elastic.co/logstash/logstash/logstash-5.0.0-alpha3.tar.gz"
-    sha256 "22ab6665f1049e7df18f020ba5e1f5287bffa0b53e205b178e9e3364941550d1"
-    version "5.0.0-alpha3"
-    depends_on :java => "1.8"
+    url "https://artifacts.elastic.co/downloads/logstash/logstash-5.0.0.tar.gz"
+    sha256 "b5ff5336a49540510f415479deb64566c3b2dad1ce8856dde3df3b6ca1aa8d90"
   end
 
   head do
     url "https://github.com/elastic/logstash.git"
-    depends_on :java => "1.8"
   end
 
   bottle :unneeded
+
+  depends_on :java => "1.8+"
 
   def install
     if build.head?
@@ -52,7 +45,10 @@ class Logstash < Formula
       output { stdout { codec => rubydebug } }
     EOS
 
-    output = pipe_output("#{bin}/logstash -f simple.conf", "hello world\n")
+    mkdir testpath/"data"
+    mkdir testpath/"logs"
+
+    output = pipe_output("#{bin}/logstash -f #{testpath}/simple.conf --path.data=#{testpath}/data --path.logs=#{testpath}/logs", "hello world\n")
     assert_match /hello world/, output
   end
 end
