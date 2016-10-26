@@ -1,32 +1,20 @@
 class Nginx < Formula
   desc "HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server"
   homepage "https://nginx.org/"
-
-  stable do
-    url "https://nginx.org/download/nginx-1.10.1.tar.gz"
-    sha256 "1fd35846566485e03c0e318989561c135c598323ff349c503a6c14826487a801"
-
-    depends_on "openssl"
-  end
+  url "https://nginx.org/download/nginx-1.10.2.tar.gz"
+  sha256 "1045ac4987a396e2fa5d0011daf8987b612dd2f05181b67507da68cbe7d765c2"
+  revision 1
+  head "http://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "7f6f051cf7331c6d003dbfee5863bbf47a3a321d7508f4f5d439e97991c5f59b" => :sierra
-    sha256 "2b67c86454cc67bdeb2a637d9872ae471a810d8a2dae40b6a0c1dad7b253d30d" => :el_capitan
-    sha256 "6ac0a3e07cad5efb31185998f6cd6754de6d799396ffd872814593ba3430fdb3" => :yosemite
-    sha256 "c2f67c6b720a2f2c790338e0d30103acf36c757c068bbed8cc4c79734fd3779e" => :mavericks
+    sha256 "8e8c8176dc0377276ccdbedaf61fdbbf81098e630f4af5b777877da811d21d63" => :sierra
+    sha256 "fa41824e622a07f77636c3d578df46c3d365d2006cdfb1815a051b995ea91c2a" => :el_capitan
+    sha256 "6becf4816b1c9392bc5ce71c5e157e2648e95955509663bd5f07ff68b18e6fcb" => :yosemite
   end
 
   devel do
     url "https://nginx.org/download/nginx-1.11.5.tar.gz"
     sha256 "223f8a2345a75f891098cf26ccdf208b293350388f51ce69083674c9432db6f6"
-
-    depends_on "openssl@1.1"
-  end
-
-  head do
-    url "http://hg.nginx.org/nginx/", :using => :hg
-
-    depends_on "openssl@1.1"
   end
 
   # Before submitting more options to this formula please check they aren't
@@ -41,6 +29,7 @@ class Nginx < Formula
   deprecated_option "with-spdy" => "with-http2"
 
   depends_on "pcre"
+  depends_on "openssl@1.1"
   depends_on "passenger" => :optional
 
   def install
@@ -51,7 +40,7 @@ class Nginx < Formula
     end
 
     pcre = Formula["pcre"]
-    openssl = build.stable? ? Formula["openssl"] : Formula["openssl@1.1"]
+    openssl = Formula["openssl@1.1"]
 
     cc_opt = "-I#{pcre.opt_include} -I#{openssl.opt_include}"
     ld_opt = "-L#{pcre.opt_lib} -L#{openssl.opt_lib}"

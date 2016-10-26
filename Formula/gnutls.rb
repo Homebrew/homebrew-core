@@ -1,17 +1,16 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.15.tar.xz"
-  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.4/gnutls-3.4.15.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.4/gnutls-3.4.15.tar.xz"
-  sha256 "eb2a013905f5f2a0cbf7bcc1d20c85a50065063ee87bd33b496c4e19815e3498"
+  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.16.tar.xz"
+  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.4/gnutls-3.4.16.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.4/gnutls-3.4.16.tar.xz"
+  sha256 "d99abb1b320771b58c949bab85e4b654dd1e3e9d92e2572204b7dc479d923927"
 
   bottle do
     cellar :any
-    sha256 "b51f3a06fe00e27074aad8c65ecd86fe0fcb5df8d9b4379c9e452a812207b898" => :sierra
-    sha256 "2a18ae1b67e4d55ec3d749a06ac0471456daff44ac52156e1824d32d0d0675b2" => :el_capitan
-    sha256 "c7f30aa4ea4d054e0d788e9948fcd6ff03b353525319ff80de8063659c40ea65" => :yosemite
-    sha256 "a30400a5dd19c4830697403b0d297c8ffd10a57b122b02eb06213b1066373897" => :mavericks
+    sha256 "9b4d0b7417921237ad3af173bc4a87009485097f747a1ba8772349dbd017a43d" => :sierra
+    sha256 "658060843a6cf5287cbad3156af68a0df4022d72b82b2ceb7f2d285378761196" => :el_capitan
+    sha256 "9765ebfda053f80754f5aa1ceaaca1b8b56838e02030f0e133b5e7d5a9c5ee76" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -27,6 +26,12 @@ class Gnutls < Formula
   end
 
   def install
+    # Fix "dyld: lazy symbol binding failed: Symbol not found: _getentropy"
+    # Reported 18 Oct 2016 https://gitlab.com/gnutls/gnutls/issues/142
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "configure", "getentropy(0, 0);", "undefinedgibberish(0, 0);"
+    end
+
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules

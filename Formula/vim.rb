@@ -2,15 +2,15 @@ class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
   # *** Vim should be updated no more than once every 7 days ***
-  url "https://github.com/vim/vim/archive/v8.0.0041.tar.gz"
-  sha256 "7f250288ecc7f71aab046f1414cee2426ab028e27e332f3a49c5721ded0d991a"
+  url "https://github.com/vim/vim/archive/v8.0.0046.tar.gz"
+  sha256 "a768d3b959c44c6084c1c745012766a537303c687f8869d3e877c5a25cc812f4"
 
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "da8f3cca73436a3fb6f79a60f3f80f2099a985fe503e682ea6e0c8244164a8cb" => :sierra
-    sha256 "676821c38faa5e5c178671cb64ca510525e1247f0c47419360c9b1683d9256b5" => :el_capitan
-    sha256 "cf24a4ee796317d1faaceb279036190996af3358f21cce12a78333b393e75586" => :yosemite
+    sha256 "ea9c6c51954112b697324fd5e754d370833fcb840fd4f2cb31e8cf9bf9e32504" => :sierra
+    sha256 "ff228088e86163c266b19e1da17bcf6e72e85020cdd2217553e3525bcc452591" => :el_capitan
+    sha256 "132cee40ed532ddc855e2e0821445e15256b309c236c4462bf78e7589cb94b00" => :yosemite
   end
 
   deprecated_option "disable-nls" => "without-nls"
@@ -72,7 +72,7 @@ class Vim < Formula
       # only compile with either python or python3 support, but not both
       # (if vim74 is compiled with +python3/dyn, the Python[3] library lookup segfaults
       # in other words, a command like ":py3 import sys" leads to a SEGV)
-      opts -= %W[--enable-pythoninterp]
+      opts -= %w[--enable-pythoninterp]
     end
 
     opts << "--disable-nls" if build.without? "nls"

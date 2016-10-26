@@ -5,13 +5,21 @@ class Castxml < Formula
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/c/castxml/castxml_0.1+git20160706.orig.tar.xz"
   version "0.1+git20160706"
   sha256 "28e7df5f9cc4de6222339d135a7b1583ae0c20aa0d18e47fa202939b81a7dada"
+  revision 1
 
   head "https://github.com/CastXML/castxml.git"
 
   bottle do
-    sha256 "3ef2c6ffd4953012eb945c3742be3306e4221ad5edc44410b40b47d12a64aec9" => :sierra
-    sha256 "5022fdb1cdac50659adb2a2c6438216ecb246f8b6254b672890f005c1bb0a0cb" => :el_capitan
-    sha256 "df8baff500313f946a09a64bd1bb4a56d909ad4cce7d1c1eb1dcf637215b5183" => :yosemite
+    cellar :any
+    sha256 "e13a2cd6f5bb23eb1dec5a6452567d08c2ca1a30615bf65d71ea4b7b2293c02a" => :sierra
+    sha256 "bfedb038898e36cd58de455a3c9a98995e1250e38343a9c302c4b9ab18675920" => :el_capitan
+    sha256 "c7877bb1dfbdc2473c911fbee1bb601acb9e566bc0b2d36039f4a88cf81ff7c3" => :yosemite
+  end
+
+  # changes from upstream to fix compilation with LLVM 3.9
+  patch do
+    url "https://github.com/CastXML/CastXML/commit/e1ee6852c79eddafa2ce1f134c097decd27aaa69.patch"
+    sha256 "d47f4566bda6f8592c120052aeec404de371dc27b0ef15d5c337c34f87976901"
   end
 
   depends_on "cmake" => :build

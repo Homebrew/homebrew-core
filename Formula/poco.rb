@@ -1,16 +1,15 @@
 class Poco < Formula
   desc "C++ class libraries for building network and internet-based applications"
   homepage "https://pocoproject.org/"
-  url "https://pocoproject.org/releases/poco-1.7.5/poco-1.7.5-all.tar.gz"
-  sha256 "74fb9f9810ea200b8ff744d222626ec5c10613f9121f2ab7cd70e0e24cb30f38"
+  url "https://pocoproject.org/releases/poco-1.7.6/poco-1.7.6-all.tar.gz"
+  sha256 "e32825f8cd7a0dc907b7b22c8fb3df33442619cc21819e557134e4e2f5cc4e2d"
   head "https://github.com/pocoproject/poco.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "a5a491f3c52aba7486b33beb3a3b55347e39a9855bf3e229cf9ed6f80fc053d5" => :sierra
-    sha256 "54017a5e9dbce15a06eeb0bf5d83c5f6a3851845f974858bb92d818c1e3ff420" => :el_capitan
-    sha256 "50742b5aeb644ebec65abed4f82117f1d4a2a507dc0be236b584caaccba949f6" => :yosemite
-    sha256 "f91af3ce0aecd4cdd0abec8a6df6174e063fb802264f255555d24b6d76f800b6" => :mavericks
+    sha256 "069878455ba2f13ff122b60f48f0b58b05dcfe95e66295b05da5204e6686609d" => :sierra
+    sha256 "4d7332c458dbfa0d774ea0e6782f9f01c46edc53122d1626de7e5d870f3317cb" => :el_capitan
+    sha256 "05f906e0cd61e57f95c3b019b55a826a78610ba53e11270d95bf0dfbd3e1b64c" => :yosemite
   end
 
   option :cxx11
@@ -22,6 +21,23 @@ class Poco < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
+
+    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      %w[
+        Foundation/include/Poco/Clock.h
+        Foundation/src/Clock.cpp
+        Foundation/src/Event_POSIX.cpp
+        Foundation/src/Semaphore_POSIX.cpp
+        Foundation/src/Mutex_POSIX.cpp
+        Foundation/src/Timestamp.cpp
+      ].each do |f|
+        inreplace f do |s|
+          s.gsub! "CLOCK_MONOTONIC", "UNDEFINED_GIBBERISH", false
+          s.gsub! "CLOCK_REALTIME", "UNDEFINED_GIBBERISH2", false
+        end
+      end
+    end
 
     args = std_cmake_args
     args << "-DENABLE_DATA_MYSQL=OFF" << "-DENABLE_DATA_ODBC=OFF"

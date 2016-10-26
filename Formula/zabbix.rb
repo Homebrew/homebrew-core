@@ -37,7 +37,7 @@ class Zabbix < Formula
     ]
 
     if build.with? "server-proxy"
-      args += %W[
+      args += %w[
         --enable-server
         --enable-proxy
         --enable-ipv6

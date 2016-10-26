@@ -1,13 +1,13 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "http://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-4.6.0.245.tar.bz2"
-  sha256 "2981f518cace63bfe10953fecd57c7fef040077a1ac617967dde5466062c1327"
+  url "https://download.mono-project.com/sources/mono/mono-4.6.1.5.tar.bz2"
+  sha256 "3871ee72bdfc2ea5d636ffff22cf49ae6bac7c4a4f3d687214dd8ac236bbf7c3"
 
   bottle do
-    sha256 "b721a3c65b8378ed0503e2915186e74aedbec995dc5f4447d30111d234f61509" => :sierra
-    sha256 "df749326648af9a34ad442354cacd8c6d3f9cea276b60ab34b0a081802513079" => :el_capitan
-    sha256 "96f73f36738ee077aaa566bc9e7d0d9bad818f8431d312ffd5c09eb7d9304459" => :yosemite
+    sha256 "8a28d69e45374c53f375fa2e7fa96aae8f9b8db3ea970d33cb01492e9874e3a9" => :sierra
+    sha256 "7065d9c83700493e586f09d71366e64741493102fc6338ab0cea4f8ceddf978f" => :el_capitan
+    sha256 "6899f853419e379c059f56ea7fbbb815a349deabced62c83966e9790228b0b96" => :yosemite
   end
 
   # xbuild requires the .exe files inside the runtime directories to
@@ -32,8 +32,8 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag => "4.0.1.10",
-        :revision => "d654e56bbc09bd6c1da5bd1f07abc1d9d347b6c3"
+        :tag => "4.0.1.13",
+        :revision => "4194b3bbb506a18f48e0f7e39e2c3fb0d7c8b566"
   end
 
   def install
@@ -120,6 +120,7 @@ class Mono < Formula
             <SchemaVersion>2.0</SchemaVersion>
             <ProjectGuid>{B6AB4EF3-8F60-41A1-AB0C-851A6DEB169E}</ProjectGuid>
             <OutputType>Exe</OutputType>
+            <DefineConstants>TRACE</DefineConstants>
             <FSharpTargetsPath>$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\v$(VisualStudioVersion)\\FSharp\\Microsoft.FSharp.Targets</FSharpTargetsPath>
           </PropertyGroup>
           <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />

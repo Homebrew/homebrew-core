@@ -3,20 +3,15 @@ require "language/node"
 class Yarn < Formula
   desc "Javascript package manager"
   homepage "https://yarnpkg.com/"
-  # Note: If updating this to a newer version, please change the URL to the official
-  # yarnpkg.com download URL:
-  # url "https://yarnpkg.com/downloads/0.15.0/yarn-v0.15.0.tar.gz"
-  # This was not updated yet as Yarn 0.15.1 was an npm-specific release and is not available
-  # as a standalone tarball.
-  url "https://registry.npmjs.org/yarn/-/yarn-0.15.1.tgz"
-  sha256 "f99fd587e84987909d5f9e918b8fe524349fdc548e5bc5c380c8f8c0a70c6b87"
+  url "https://yarnpkg.com/downloads/0.16.1/yarn-v0.16.1.tar.gz"
+  sha256 "73be27c34ef1dd4217fec23cdfb6b800cd995e9079d4c4764724ef98e98fec07"
   head "https://github.com/yarnpkg/yarn.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "04d5fe5e5667d77b40a882a1bdbe08625bd52e0d228af7aa925455760bafd58f" => :sierra
-    sha256 "291ad03475ea4770f357559dc9116309796bf1af83c13644cafcd00163283bce" => :el_capitan
-    sha256 "84a717ce964d4ec5cd69ae6336a79db27fa7580cee1c978e33e310e4eb8e36a3" => :yosemite
+    sha256 "01ab99abd61a20a10eb99ebcfe2d5ce2fc49671848531ab1a0f21728e9cf8a3f" => :sierra
+    sha256 "4c2f2ed16e4c529c7a77e09d8107ce4392e4e8cedff10bee76d4193c0d8ad420" => :el_capitan
+    sha256 "4842ee650f3af9e6794bfa877fd2459a55cb60909b62193c97df45e5097c8b63" => :yosemite
   end
 
   depends_on "node"

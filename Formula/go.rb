@@ -3,10 +3,10 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://storage.googleapis.com/golang/go1.7.1.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.7.1.src.tar.gz"
-    version "1.7.1"
-    sha256 "2b843f133b81b7995f26d0cb64bbdbb9d0704b90c44df45f844d28881ad442d3"
+    url "https://storage.googleapis.com/golang/go1.7.3.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.7.3.src.tar.gz"
+    version "1.7.3"
+    sha256 "79430a0027a09b0b3ad57e214c4c1acfdd7af290961dd08d322818895af1ef44"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
@@ -17,10 +17,9 @@ class Go < Formula
   end
 
   bottle do
-    sha256 "341f36ef4172b2df09cf100b873ffcbd1be9f6d39c4c1a190128443277537c30" => :sierra
-    sha256 "fdeadb70a2a12bb5fb98e8c7ebe9b9bc9fa8eb7b7ffb0282094e47d3018da4fc" => :el_capitan
-    sha256 "b172524cb48d5649cb125c34b50b780593f9a9527d714918ccd433a0bb17dc89" => :yosemite
-    sha256 "e43d9abf5a88d17647497ebfc3b728c52fc92926879d9f15b726338b0c01e745" => :mavericks
+    sha256 "225c78822090415a2e6dade491086b4277650cb2ea7b14f71afcc5288251d422" => :sierra
+    sha256 "0174cd69ed115c6c5290cdcab5d0bb1320ac189650ce866dbb65a9d8faf88c89" => :el_capitan
+    sha256 "70b606845a76a8654594bf23ecc7e6e41b5f3553580776279b1a3045fecf2c8b" => :yosemite
   end
 
   head do

@@ -1,15 +1,15 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.20.0.tar.gz"
-  sha256 "fe6ec9d2ded5ce84b963f54b812d579d04f944f4a737f3ae639c4d5d9e842b56"
+  url "https://github.com/mpv-player/mpv/archive/v0.21.0.tar.gz"
+  sha256 "d05f8ece859c500ef1649cdfea911ec1529df1898b8fda3e217766dc28dc9bd3"
+  revision 1
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    rebuild 2
-    sha256 "24dd905156f1044a79e16a248d6eff6e1a5ffb67f4d5b6c37b61ff653a6aecaf" => :sierra
-    sha256 "f241f756ab0644fb277ab0725c69d62721bed17d6d2ee4bc298c4ed8a9bb5ca4" => :el_capitan
-    sha256 "78a0b0e6ba9af8d641fca571cf9e38b3c7f4dad3ab4087eb64a38bf90d47f02f" => :yosemite
+    sha256 "3ec8078747693087cef5725fcd438324a884aeb7b5e69e87b559361c3b74858f" => :sierra
+    sha256 "e85ab51f0fb24bc3e5ffdfd69cffc6ca19f65e7e2cfee40b5cd5d2f539ead8f6" => :el_capitan
+    sha256 "b656e199209da9d88d4fc5033b2dd44a343f4453a5a5db7e3e5155a30e607f66" => :yosemite
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
@@ -38,11 +38,6 @@ class Mpv < Formula
 
   depends_on :macos => :mountain_lion
 
-  resource "waf" do
-    url "https://waf.io/waf-1.9.2"
-    sha256 "7abb4fbe61d12b8ef6a3163653536da7ee31709299d8f17400d71a43247cea81"
-  end
-
   def install
     # LANG is unset by default on osx and causes issues when calling getlocale
     # or getdefaultlocale in docutils. Force the default c/posix locale since
@@ -61,8 +56,7 @@ class Mpv < Formula
     ]
     args << "--enable-libarchive" if build.with? "libarchive"
 
-    waf = resource("waf")
-    buildpath.install waf.files("waf-#{waf.version}" => "waf")
+    system "./bootstrap.py"
     system "python3", "waf", "configure", *args
     system "python3", "waf", "install"
 

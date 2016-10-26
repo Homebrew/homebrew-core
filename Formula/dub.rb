@@ -14,6 +14,12 @@ class Dub < Formula
     sha256 "5bab5095000421e561fbf41268c615e079023b86a0d6d7ed00328ab52a7db906" => :mavericks
   end
 
+  devel do
+    url "https://github.com/dlang/dub.git",
+        :tag => "v1.1.0-beta.1",
+        :revision => "1824d16056a680fcca52d3ce87fb43d3679ff3ee"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "dmd" => :build
 

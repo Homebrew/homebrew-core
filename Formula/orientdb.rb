@@ -21,7 +21,7 @@ class Orientdb < Formula
   def install
     rm_rf Dir["{bin,benchmarks}/*.{bat,exe}"]
 
-    inreplace %W[bin/orientdb.sh bin/console.sh bin/gremlin.sh],
+    inreplace %w[bin/orientdb.sh bin/console.sh bin/gremlin.sh],
       '"YOUR_ORIENTDB_INSTALLATION_PATH"', libexec
 
     chmod 0755, Dir["bin/*"]

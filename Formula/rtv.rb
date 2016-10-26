@@ -3,16 +3,14 @@ class Rtv < Formula
 
   desc "Command-line Reddit client"
   homepage "https://github.com/michael-lazar/rtv"
-  url "https://files.pythonhosted.org/packages/d6/55/fd4553adc0050b4da3bff9bd0c57bcee3d56da23100b58e2c2570e533ab2/rtv-1.12.1.tar.gz"
-  sha256 "784ce662e96c81280d8c6daf67d3ff437c3eedd5ed9825c6b38a0a5677497a86"
-  revision 2
-
+  url "https://github.com/michael-lazar/rtv/archive/v1.13.0.tar.gz"
+  sha256 "801f8674599d4a4abb5593d3d5ac957a748d3daf06f962538a0ae717db117abd"
   head "https://github.com/michael-lazar/rtv.git"
 
   bottle do
-    sha256 "839af0d6cadf47c5b41d43fc00b3169bdc6d91db6b4c31df10b742915db4795c" => :sierra
-    sha256 "3695f65e405773dd115d059dcc08998b2b2f9798967eecfb9a8be5b4a4c4be74" => :el_capitan
-    sha256 "68f2545a2d131092f670f84d77333ab78e17239e07c0c51e289270262ffe03f8" => :yosemite
+    sha256 "ef5eecff61ea3e10439824ed8a581ec6344bfade401a8082a82fcdb1cd80a5ef" => :sierra
+    sha256 "f1968d66fc0dd95d91fbaacfde8c1fc24a517732fffe188dafa81d87b3b27d25" => :el_capitan
+    sha256 "442175117d3ea4c28e95d846c9603670aed260530a7a5390b63dbcf9a338d054" => :yosemite
   end
 
   depends_on :python3
@@ -58,7 +56,6 @@ class Rtv < Formula
   end
 
   def install
-    virtualenv_create(libexec, "python3")
     virtualenv_install_with_resources
   end
 

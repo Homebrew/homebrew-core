@@ -1,15 +1,25 @@
 class Io < Formula
   desc "Small prototype-based programming language"
   homepage "http://iolanguage.com/"
-  url "https://github.com/stevedekorte/io/archive/2015.11.11.tar.gz"
-  sha256 "00d7be0b69ad04891dd5f6c77604049229b08164d0c3f5877bfab130475403d3"
 
   head "https://github.com/stevedekorte/io.git"
 
+  stable do
+    url "https://github.com/stevedekorte/io/archive/2015.11.11.tar.gz"
+    sha256 "00d7be0b69ad04891dd5f6c77604049229b08164d0c3f5877bfab130475403d3"
+
+    # Fix build on Sierra. Already merged upstream.
+    patch do
+      url "https://github.com/stevedekorte/io/commit/db4d9c2.patch"
+      sha256 "25245bcfcde145ee5c0d142bee5be3017622173b98a04b26c2169ff738b5914d"
+    end
+  end
+
   bottle do
-    sha256 "741314b5c2629688c17eabca50e0a623a9318a44d94568d4d0cf53e86560c2b2" => :el_capitan
-    sha256 "e34facca9debca217eaab84e55c036fe1bbd30a34a18bac927dc4a435947604b" => :yosemite
-    sha256 "6c0b0d22dd8184f20c60b9d35437645314c7149b0a2e34d8c406546faf44e570" => :mavericks
+    rebuild 1
+    sha256 "be4e0bdd2b8a71e4a1162c23a01deceea1fc48d3bbf8b018e454ec436f598ef5" => :sierra
+    sha256 "846d10b607665d5d64cf1ab74f68962da808a684de194e043061f4c25be7a2f7" => :el_capitan
+    sha256 "8274549062848cdc162462a5f4f9568a14c6b136157f97a903ca9bf419ec114a" => :yosemite
   end
 
   option "without-addons", "Build without addons"

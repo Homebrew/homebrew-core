@@ -1,16 +1,16 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
   homepage "https://github.com/libuv/libuv"
-  url "https://github.com/libuv/libuv/archive/v1.9.1.tar.gz"
-  sha256 "a6ca9f0648973d1463f46b495ce546ddcbe7cce2f04b32e802a15539e46c57ad"
+  url "https://github.com/libuv/libuv/archive/v1.10.0.tar.gz"
+  sha256 "50f4ed57d65af4ab634e2cbdd90c49213020e15b4d77d3631feb633cbba9239f"
   head "https://github.com/libuv/libuv.git", :branch => "v1.x"
 
   bottle do
     cellar :any
-    sha256 "abd14bc1902fc465ac4bec515103fdcc5fe84d360cf1152331a169b7658f2d67" => :sierra
-    sha256 "68d0bcd528b8f6ee33759919f8c7f7110095a64ce6cff13ddd08d8d369220dc7" => :el_capitan
-    sha256 "c11095dcf9722f98efedfe6ba5d74b3bb2b99e34e8003f129e7fa97e8a60f391" => :yosemite
-    sha256 "31388adf64b6dcbabed5d69727a4ee7ed64de0b4cf6a5c7868992e05669990c7" => :mavericks
+    rebuild 1
+    sha256 "e2d8c642d1a099ffcaaef6adeb35c954b2d3431f5db6eedeb2c722700277a4a4" => :sierra
+    sha256 "dcdbd29ff34f2c9c6508bdb19e40de92e9e909c39a44e805ce95d4f0438a92d9" => :el_capitan
+    sha256 "6bf8bfd9b156f56f7c3f129fe3fc4cd0e98782b0c55de6332232dac2303baf9f" => :yosemite
   end
 
   option "without-docs", "Don't build and install documentation"

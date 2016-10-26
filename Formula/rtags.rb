@@ -4,14 +4,15 @@ class Rtags < Formula
   url "https://github.com/Andersbakken/rtags.git",
       :tag => "v2.3",
       :revision => "da75268b1caa973402ab17e501718da7fc748b34"
+  revision 1
 
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
-    sha256 "7c7ff92e640b983a845afc9eb562e962dcaf71088352a2b9030c94c70406dd59" => :sierra
-    sha256 "92ddceb4c7186da6627fc1b607f573cd36fe661b90ece0c5833ff18811c5462b" => :el_capitan
-    sha256 "568f12abc4ef51856ebfa3b33373a7003b568ac6447f37ab747a38aac242946f" => :yosemite
-    sha256 "2989f3179d501a2617a0ed37e1ed4f89aff0372e687f6724b526539bb329d3c2" => :mavericks
+    rebuild 1
+    sha256 "3f03bffd39241580d8855361e3bc1ce78045aae83234cad2352d84c695262089" => :sierra
+    sha256 "b7cb50df5b666ee070ab4fe7e25c20a17c05dc185384de3d34ef8c316b21a732" => :el_capitan
+    sha256 "281867ab049791b0e907b3f928696cd6c23acb568b0c5465e4e92812b560cd09" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -22,11 +23,48 @@ class Rtags < Formula
     # Homebrew llvm libc++.dylib doesn't correctly reexport libc++abi
     ENV.append("LDFLAGS", "-lc++abi")
 
+    args = std_cmake_args << "-DRTAGS_NO_BUILD_CLANG=ON"
+
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      args << "-DHAVE_CLOCK_MONOTONIC_RAW:INTERNAL=0"
+      args << "-DHAVE_CLOCK_MONOTONIC:INTERNAL=0"
+    end
+
     mkdir "build" do
-      system "cmake", "..", "-DRTAGS_NO_BUILD_CLANG=ON", *std_cmake_args
+      system "cmake", "..", *args
       system "make"
       system "make", "install"
     end
+  end
+
+  plist_options :manual => "#{HOMEBREW_PREFIX}/bin/rdm --verbose --inactivity-timeout=300 --log-file=#{HOMEBREW_PREFIX}/var/log/rtags.log"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+      <key>Label</key>
+      <string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{bin}/rdm</string>
+        <string>--verbose</string>
+        <string>--launchd</string>
+        <string>--inactivity-timeout=300</string>
+        <string>--log-file=#{var}/log/rtags.log</string>
+      </array>
+      <key>Sockets</key>
+      <dict>
+        <key>Listener</key>
+        <dict>
+          <key>SockPathName</key>
+          <string>#{ENV["HOME"]}/.rdm</string>
+        </dict>
+      </dict>
+    </dict>
+    </plist>
+    EOS
   end
 
   test do

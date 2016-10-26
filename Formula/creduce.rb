@@ -3,15 +3,25 @@ class Creduce < Formula
   homepage "https://embed.cs.utah.edu/creduce/"
   url "https://embed.cs.utah.edu/creduce/creduce-2.5.0.tar.gz"
   sha256 "2dcd784e1d27df60f4ea1d92c4c556c02da4152db353d544dce8b7813fa443e4"
-  revision 1
+  revision 2
 
   head "https://github.com/csmith-project/creduce.git"
 
   bottle do
-    sha256 "7ecc215de083f00b02a2f351cca4c74aeec591512a2e59f728eec3797b83e39e" => :sierra
-    sha256 "c2dc3598abd1857c71c7c02c38945d0d78a4c1f249162e603d332683e35c2222" => :el_capitan
-    sha256 "138868e54e14ba9afa8095e71c8b116b3a33e351d175fc0cdeff079a42ce007c" => :yosemite
-    sha256 "710460f6d639171d170f7ae3b835fa3ff708f56c1105c000086913571896659d" => :mavericks
+    cellar :any
+    sha256 "ba94a03e5249b8f66db588b7dfea3c67c03fff1a841f3d82b62f1e6d3dd094b7" => :sierra
+    sha256 "02dfc1b1598e7de131e1ab6d7f9353f05e329af78fb8d172310562996a7c86d4" => :el_capitan
+    sha256 "37f3e7a6e2102138714ceaecd749ee0ddac6bf1d9cb4c5586201e0c840c03951" => :yosemite
+  end
+
+  # changes from upstream to fix compilation with LLVM 3.9
+  patch do
+    url "https://github.com/csmith-project/creduce/commit/377e4f93790690edcd0cde057bb96300aca22858.diff"
+    sha256 "1bf6201132dd41953f4c7d454a8f383f432e5a3f2fac416d681bc5e8e8065e18"
+  end
+  patch do
+    url "https://github.com/csmith-project/creduce/commit/d09b8f69419d6c65c7b32675962c9aee813713b5.diff"
+    sha256 "995fcb3c5c7aef60ce34ece07a5d225f0bf7886539479988d8b8a6cc0c52de90"
   end
 
   depends_on "astyle"

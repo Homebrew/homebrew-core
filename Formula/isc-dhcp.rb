@@ -1,14 +1,14 @@
 class IscDhcp < Formula
   desc "Production-grade DHCP solution"
   homepage "https://www.isc.org/software/dhcp"
-  url "https://ftp.isc.org/isc/dhcp/4.3.3/dhcp-4.3.3.tar.gz"
-  sha256 "553c4945b09b1c1b904c4780f34f72aaefa2fc8c6556715de0bc9d4e3d255ede"
+  url "https://ftp.isc.org/isc/dhcp/4.3.5/dhcp-4.3.5.tar.gz"
+  sha256 "eb95936bf15d2393c55dd505bc527d1d4408289cec5a9fa8abb99f7577e7f954"
 
   bottle do
-    sha256 "10877ec83313e8d6ca609910a7c14f4742d5d181bc26e3ccb3e7087429685d7c" => :sierra
-    sha256 "a822cb1bafbf175f2c85e7089c1c5e52d2239f3d8467fc913733d193999dce28" => :el_capitan
-    sha256 "3d4c4e8254772daf4d797967690f5fd062273b581dfd05b5b062b7741dbecf17" => :yosemite
-    sha256 "6a7ef92897aa1a6f2d5ad736ee03d710c9efb3111eb6fde7705507cc29c18933" => :mavericks
+    rebuild 1
+    sha256 "489df9326cdc8aded9bad6e1a1015d36dfc5c02721a16e14478497da28d29198" => :sierra
+    sha256 "7b877c026db736dd1c624c88c75dec7cb1acc6a2f6eeddf3fb1f246713231384" => :el_capitan
+    sha256 "56bbd9937ce4ee4b76e405c34565048fa55e2b0b7965004508b2d482a0e7881d" => :yosemite
   end
 
   def install
@@ -49,7 +49,7 @@ class IscDhcp < Formula
     ENV.deparallelize { system "make", "-C", "bind" }
 
     # build everything else
-    inreplace "Makefile", "SUBDIRS = bind", "SUBDIRS = "
+    inreplace "Makefile", "SUBDIRS = ${top_srcdir}/bind", "SUBDIRS = "
     system "make"
     system "make", "install"
 

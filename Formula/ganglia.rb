@@ -35,7 +35,7 @@ class Ganglia < Formula
       system "./bootstrap"
     end
 
-    inreplace "configure", %(varstatedir="/var/lib"), %(varstatedir="#{var}/lib")
+    inreplace "configure", 'varstatedir="/var/lib"', %Q(varstatedir="#{var}/lib")
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

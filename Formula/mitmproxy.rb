@@ -8,10 +8,10 @@ class Mitmproxy < Formula
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
-    cellar :any
-    sha256 "1ad90eab331cddc233a179b80bf320be05e95864b58898d277fd5b0dac45a2c5" => :sierra
-    sha256 "b8db318cc86f4c987b98586cb4018a0eb500603cc25e00bddddc5643923bb947" => :el_capitan
-    sha256 "974c5f8260a7a0bae19cf61224236ba8c42a441d01c9e7f10a31dbf80cd335a9" => :yosemite
+    rebuild 2
+    sha256 "ea8c64f3d1ebacf93fe6c88b5cb8e8cae5be8663f2fb2c7ecfc818247b813dc4" => :sierra
+    sha256 "db2f46be576dd2370403014b6a440bd5400c1093026881ac16e2e54006db6fa8" => :el_capitan
+    sha256 "bbe5a28d4a2f28a3798a765fe8bfc08ab4cf3e858687404c12c5c5e5452fd714" => :yosemite
   end
 
   option "with-pyamf", "Enable action message format (AMF) support for python"
@@ -19,7 +19,7 @@ class Mitmproxy < Formula
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "openssl"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on :python
   depends_on "protobuf" => :optional
 
   resource "Flask" do
@@ -255,13 +255,17 @@ class Mitmproxy < Formula
     end
 
     resource("Pillow").stage do
-      inreplace "setup.py", "'brew', '--prefix'", "'#{HOMEBREW_PREFIX}/bin/brew', '--prefix'"
-      saved_sdkroot = ENV.delete "SDKROOT"
-      begin
-        venv.pip_install Pathname.pwd
-      ensure
-        ENV["SDKROOT"] = saved_sdkroot
+      inreplace "setup.py" do |s|
+        sdkprefix = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+        s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
+        s.gsub! "JPEG_ROOT = None", "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
+        s.gsub! "FREETYPE_ROOT = None", "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', '#{Formula["freetype"].opt_prefix}/include')"
       end
+
+      # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
+      ENV.delete "SDKROOT"
+      ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers" unless MacOS::CLT.installed?
+      venv.pip_install Pathname.pwd
     end
 
     res = resources.map(&:name).to_set - ["Pillow"]

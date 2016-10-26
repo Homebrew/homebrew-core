@@ -15,6 +15,8 @@ class BoostBuild < Formula
     sha256 "03d989cecd3251825466d725f6a00212979b2d41fce344380606b482eaab9b80" => :mountain_lion
   end
 
+  conflicts_with "b2-tools", :because => "both install `b2` binaries"
+
   def install
     system "./bootstrap.sh"
     system "./b2", "--prefix=#{prefix}", "install"

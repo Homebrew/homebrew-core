@@ -1,15 +1,14 @@
 class SsllabsScan < Formula
   desc "This tool is a command-line client for the SSL Labs APIs."
   homepage "https://github.com/ssllabs/ssllabs-scan/"
-  url "https://github.com/ssllabs/ssllabs-scan/archive/v1.3.0.tar.gz"
-  sha256 "ec631177900ff07e1299e116638346e4ae95c878cfd317e9e1e8dfd73ecde514"
+  url "https://github.com/ssllabs/ssllabs-scan/archive/v1.4.0.tar.gz"
+  sha256 "a7d5fad92649172ca4b190f481172b602aa1ae103d14dd1f1951ee250d382eec"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ee6c68b63a217dd1a9d2e1d9529b1858e267a7de6d517fc7e4dcf07861d831e9" => :sierra
-    sha256 "6f660edbae6c6f1118772643c7eff3f352086b02f04bf07a9a1149a5777791f2" => :el_capitan
-    sha256 "403869d861c3d5806352f34a2462af4f18f1dc55ad721ec6cc24be98c7e3af8a" => :yosemite
-    sha256 "c45c6c3e884e18ad5636b7dac8276ebc808f224c13e3c3a6f328dd9b5a083d68" => :mavericks
+    sha256 "5c8161ee0aea2d6e7a2594c5bdd75f7495cabdf837fe74400f53505f3228c522" => :sierra
+    sha256 "c6d802dc3315188634b5f59053875ce37f777083d80503959daeff6c4cc118ad" => :el_capitan
+    sha256 "d3dbcf383703972c8acf0a2f2a5264434a7e67777996afd8a3e73875a743b492" => :yosemite
   end
 
   depends_on "go" => :build

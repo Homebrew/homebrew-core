@@ -310,7 +310,7 @@ __END__
 --- a/src/pl/plpython/Makefile	2011-09-23 08:03:52.000000000 +1000
 +++ b/src/pl/plpython/Makefile	2011-10-26 21:43:40.000000000 +1100
 @@ -24,8 +24,6 @@
- # Darwin (macOS) has its own ideas about how to do this.
+ # Darwin (OS X) has its own ideas about how to do this.
  ifeq ($(PORTNAME), darwin)
  shared_libpython = yes
 -override python_libspec = -framework Python

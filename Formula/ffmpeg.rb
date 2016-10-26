@@ -3,8 +3,8 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
 
   stable do
-    url "https://ffmpeg.org/releases/ffmpeg-3.1.4.tar.bz2"
-    sha256 "7c99df75a4dc12d22c0f1ed11d0acf98cac1f8b5fe7a7434344b167f810bcbfa"
+    url "https://ffmpeg.org/releases/ffmpeg-3.1.5.tar.bz2"
+    sha256 "2400882a2c7795c74f0abebc28d267f2796510fb69ba324b0e9f16cc8dbb0d2b"
 
     option "with-sdl", "Enable FFplay media player"
     option "with-openh264", "Enable OpenH264 library"
@@ -23,10 +23,9 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "7a2846c8ff8deac59889d6c14ea5fc2f09948d90c5829c3487666474bf2d6be1" => :sierra
-    sha256 "22ed651c7e2f672987b90b8c5190b26ab6972f07facb29385c04965ab68d2041" => :el_capitan
-    sha256 "7d8705414f95856ec1335b11e97a6426c03c9937ad401ff4ba422123d45619d2" => :yosemite
+    sha256 "201c11c27d3c4d2c65593d1f95ecbc93194da5c3d0d88193313df1d81db6d69d" => :sierra
+    sha256 "5edd5871efff922e64319534ae9f3a9e82353d19c9dce3e9a28a33fb5c92c7c4" => :el_capitan
+    sha256 "4b4e684b3a89fdbc9d9c6858814da26f67004fdd06ec4a19268d1034ea9b87d0" => :yosemite
   end
 
   head do

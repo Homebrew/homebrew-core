@@ -1,30 +1,36 @@
 class P11Kit < Formula
   desc "Library to load and enumerate PKCS#11 modules"
   homepage "https://p11-glue.freedesktop.org"
-
-  stable do
-    url "https://p11-glue.freedesktop.org/releases/p11-kit-0.22.1.tar.gz"
-    sha256 "ef3a339fcf6aa0e32c8c23f79ba7191e57312be2bda8b24e6d121c2670539a5c"
-  end
+  url "https://p11-glue.freedesktop.org/releases/p11-kit-0.23.2.tar.gz"
+  sha256 "ba726ea8303c97467a33fca50ee79b7b35212964be808ecf9b145e9042fdfaf0"
+  revision 1
 
   bottle do
-    sha256 "2fc8da74d14aca3af0dd9b76e160cf8842b44223814b7c2b94e135c4f1df603f" => :sierra
-    sha256 "2c141f369e6cdc5d3d11e2e2002e346c0fc18168671125f129b411f5c9e9f185" => :el_capitan
-    sha256 "2e79ba610021a8f93be9a40656097b0ee7bde232d16230d44f5e038d98beb1ac" => :yosemite
+    sha256 "019c020bf72aee03d4ca861443045693ec97d189c08b3ae4f876f2491f1f9739" => :sierra
+    sha256 "92286d6cfd85219abeca164062639b731dbfde4c96670f1a5e14571d04b2ca31" => :el_capitan
+    sha256 "d7129f3799210816aa68fe35bd8a89766d164dfdfc608cc895595bbee4a76b84" => :yosemite
   end
 
-  devel do
-    url "https://p11-glue.freedesktop.org/releases/p11-kit-0.23.2.tar.gz"
-    sha256 "ba726ea8303c97467a33fca50ee79b7b35212964be808ecf9b145e9042fdfaf0"
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libffi"
+
+  # Remove for > 0.23.2
+  # Upstream commit from 3 Oct 2016 "Fix link of p11-kit-proxy.dylib on Mac OS X"
+  # https://bugs.freedesktop.org/show_bug.cgi?id=98022
+  # https://cgit.freedesktop.org/p11-glue/p11-kit/commit/?id=6923e8fb56692b20d24398d4746d2399490acdc1
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/5271336/p11-kit/p11-kit-proxy-so-link.patch"
+    sha256 "a05a10c22a3053c5370678997aed0c200b866f4aea8c69c82665fc47d61466f9"
+  end
 
   def install
     # https://bugs.freedesktop.org/show_bug.cgi?id=91602#c1
     ENV["FAKED_MODE"] = "1"
 
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-trust-module",
