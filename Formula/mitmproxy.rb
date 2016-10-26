@@ -3,8 +3,8 @@ class Mitmproxy < Formula
 
   desc "Intercept, modify, replay, save HTTP/S traffic"
   homepage "https://mitmproxy.org"
-  url "https://github.com/mitmproxy/mitmproxy/archive/v0.18.1.tar.gz"
-  sha256 "d2db4c69e9dedd8e2e87bfd2f301ab8b900f6305440150b8bbf694340b7645e9"
+  url "https://github.com/mitmproxy/mitmproxy/archive/v0.18.2.tar.gz"
+  sha256 "01dc931fc251ded20265ef454227c9798ba3f1d53abe7140d9c1990694b4c172"
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
@@ -38,8 +38,8 @@ class Mitmproxy < Formula
   end
 
   resource "Pillow" do
-    url "https://files.pythonhosted.org/packages/80/b5/359ac53b4986abbb5da766f809def82958bbbddf169139cdef8f0880522b/Pillow-3.4.1.tar.gz"
-    sha256 "590ecade57d9d373b9e73816b811b269693fbd231374b9f52d1bdee1c17d9b40"
+    url "https://files.pythonhosted.org/packages/46/4f/94f6165052774839b4a4af0c72071aa528d5dc8cb8bc6bb43e24a55c10cc/Pillow-3.4.2.tar.gz"
+    sha256 "0ee9975c05602e755ff5000232e0335ba30d507f6261922a658ee11b1cec36d1"
   end
 
   resource "PyYAML" do
@@ -124,8 +124,8 @@ class Mitmproxy < Formula
   end
 
   resource "h2" do
-    url "https://files.pythonhosted.org/packages/c7/e0/a34cb9d996801642f912f1b3179e0cc25c74b955939069271069b37cb017/h2-2.4.1.tar.gz"
-    sha256 "a914161895f60a16d7049386c77f2eee72af7fd49b117856033906e16110c9f4"
+    url "https://files.pythonhosted.org/packages/f7/59/3edbec0c7da126e8e474fc6ba96e88e2e4fa475b38d3506d282f85da883f/h2-2.4.2.tar.gz"
+    sha256 "e47d8e32d35e5678be7c49bbb3ce3d335dd4e22954292b6f3370a64f8b820284"
   end
 
   resource "hpack" do
@@ -165,8 +165,8 @@ class Mitmproxy < Formula
 
   # lxml<=3.6.0,>=3.5.0
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/8b/be/ed850baac891aca25c832fb8d7b9c0e7a5077a30e336d95ffc7d649aaa06/lxml-3.5.0.tar.gz"
-    sha256 "349f93e3a4b09cc59418854ab8013d027d246757c51744bf20069bc89016f578"
+    url "https://files.pythonhosted.org/packages/11/1b/fe6904151b37a0d6da6e60c13583945f8ce3eae8ebd0ec763ce546358947/lxml-3.6.0.tar.gz"
+    sha256 "9c74ca28a7f0c30dca8872281b3c47705e21217c8bc63912d95c9e2a7cac6bdf"
   end
 
   resource "passlib" do
@@ -189,9 +189,10 @@ class Mitmproxy < Formula
     sha256 "853cacd96d1f701ddd67aa03ecc05f51890135b7262e922710112f12a2ed2a7f"
   end
 
+  # required by cffi
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/6d/31/666614af3db0acf377876d48688c5d334b6e493b96d21aa7d332169bee50/pycparser-2.14.tar.gz"
-    sha256 "7959b4a74abdc27b312fed1c21e6caf9309ce0b29ea86b591fd2e99ecdf27f73"
+    url "https://files.pythonhosted.org/packages/eb/83/00c55ff5cb773a78e9e47476ac1a0cd2f0fb71b34cb6e178572eaec22984/pycparser-2.16.tar.gz"
+    sha256 "108f9ff23869ae2f8b38e481e7b4b4d4de1e32be968f29bbe303d629c34a6260"
   end
 
   resource "pyparsing" do
