@@ -17,6 +17,10 @@ class Upx < Formula
 
   depends_on "ucl"
 
+  # https://sourceforge.net/p/upx/bugs/248/
+  # https://github.com/upx/upx/issues/4
+  depends_on MaximumMacOSRequirement => :el_capitan
+
   resource "lzma" do
     url "https://downloads.sourceforge.net/project/sevenzip/LZMA%20SDK/lzma938.7z"
     sha256 "721f4f15378e836686483811d7ea1282463e3dec1932722e1010d3102c5c3b20"
