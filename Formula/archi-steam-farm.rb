@@ -25,6 +25,6 @@ class ArchiSteamFarm < Formula
   end
 
   test do
-    assert_match "ASF V2.1.6.2", shell_output("#{bin}/asf --client")
+    assert_match "ASF V#{version}", shell_output("#{bin}/asf --client")
   end
 end
