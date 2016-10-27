@@ -83,6 +83,7 @@ class Qt5 < Formula
   depends_on :macos => :mountain_lion
 
   depends_on "dbus" => :optional
+  depends_on "openssl" if build.with?("mysql") || build.with?("postgresql")
   depends_on :mysql => :optional
   depends_on :postgresql => :optional
   depends_on :xcode => :build
@@ -150,6 +151,14 @@ class Qt5 < Formula
     if build.with? "qtwebkit"
       (buildpath/"qtwebkit").install resource("qt-webkit")
       inreplace ".gitmodules", /.*status = obsolete\n((\s*)project = WebKit\.pro)/, "\\1\n\\2initrepo = true"
+    end
+
+    if build.with?("mysql") || build.with?("postgresql")
+      openssl_opt = Formula["openssl"].opt_prefix
+      args << "-L#{openssl_opt}/lib"
+      args << "-I#{openssl_opt}/include"
+      args << "-openssl-linked"
+      ENV["OPENSSL_LIBS"] = "-L#{openssl_opt}/lib -lssl -lcrypto"
     end
 
     system "./configure", *args
