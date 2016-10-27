@@ -1,8 +1,8 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "http://pushpin.org"
-  url "https://dl.bintray.com/fanout/source/pushpin-1.13.0.tar.bz2"
-  sha256 "96303bb11a9d0634e3c1b7871492109c10a40bbf289e7d6f7560e879a2785091"
+  url "https://dl.bintray.com/fanout/source/pushpin-1.13.1.tar.bz2"
+  sha256 "99422b64ea7414309d1e01325e56ec18be34d85539affd5560fd8842328e77bd"
 
   head "https://github.com/fanout/pushpin.git"
 
@@ -31,13 +31,15 @@ class Pushpin < Formula
     runfile = testpath/"test.py"
 
     cp HOMEBREW_PREFIX/"etc/pushpin/pushpin.conf", conffile
-    cp HOMEBREW_PREFIX/"etc/pushpin/routes", routesfile
 
     inreplace conffile do |s|
       s.gsub! "rundir=#{HOMEBREW_PREFIX}/var/run/pushpin", "rundir=#{testpath}/var/run/pushpin"
       s.gsub! "logdir=#{HOMEBREW_PREFIX}/var/log/pushpin", "logdir=#{testpath}/var/log/pushpin"
     end
-    inreplace routesfile, "test", "localhost:10080"
+
+    routesfile.write <<-EOS.undent
+      * localhost:10080
+    EOS
 
     runfile.write <<-EOS.undent
       import urllib2
