@@ -121,12 +121,23 @@ class Qt5 < Formula
       -qt-pcre
       -nomake tests
       -no-rpath
+      -pch
+      -system-proxies
     ]
 
     args << "-nomake" << "examples" if build.without? "examples"
+    
+    openssl_lib = Formula["openssl"].opt_lib
 
-    args << "-plugin-sql-mysql" if build.with? "mysql"
-    args << "-plugin-sql-psql" if build.with? "postgresql"
+    if build.with? "mysql"
+      args << "-plugin-sql-mysql"
+      inreplace "qtbase/configure", /(QT_LFLAGS_MYSQL_R|QT_LFLAGS_MYSQL)=\`(.*)\`/, "\\1=\`\\2 | sed \"s|-lssl|-L#{openssl_lib} -lssl|\"\`"
+    end
+
+    if build.with? "postgresql"
+      args << "-plugin-sql-psql"
+      inreplace "qtbase/configure", /QT_LFLAGS_PSQL=\`(.*)\`/, "QT_LFLAGS_PSQL=\`\\1 | sed \"s|-lssl|-L#{openssl_lib} -lssl|\"\`"
+    end
 
     if build.with? "dbus"
       dbus_opt = Formula["dbus"].opt_prefix
