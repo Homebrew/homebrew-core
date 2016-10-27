@@ -1,8 +1,8 @@
 class Dwarfutils < Formula
   desc "lib and utility to dump and produce DWARF debug info in ELF objects"
   homepage "https://www.prevanders.net/dwarf.html"
-  url "https://www.prevanders.net/libdwarf-20150507.tar.gz"
-  sha256 "29aa8d07db659d7d7af7079854cf42c09bf74d303942159cbfee82d655549870"
+  url "https://www.prevanders.net/libdwarf-20161021.tar.gz"
+  sha256 "5f64edf7cfabf516603b65d2cb30b5abba83b35db327e10599a20378c3d3c8cd"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,10 +13,20 @@ class Dwarfutils < Formula
     sha256 "110451d0c1166720bae4f113b2929822434c422fba07bfbf48e05a1031d1cdef" => :mountain_lion
   end
 
+  option "with-sanitize", "Use -fsanitize"
+
   depends_on "libelf" => :build
+  depends_on "gcc" if build.with? "sanitize"
 
   def install
-    system "./configure"
+    args = ""
+
+    if build.with? "sanitize"
+      ENV["CC"] = "#{Formula["gcc"].bin}/gcc-6"
+      args << "--enable-sanitize"
+    end
+
+    system "./configure", args
     system "make"
 
     bin.install "dwarfdump/dwarfdump"
