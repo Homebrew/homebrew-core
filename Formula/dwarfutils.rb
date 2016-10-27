@@ -6,11 +6,9 @@ class Dwarfutils < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1bd4ca55e7646461af9fd0bd33be4d2c1e5066db3132e2b57bd8fd11d742422a" => :sierra
-    sha256 "15968805e0d4452741029f99926375747e27973f5b37e322100d42b051949825" => :el_capitan
-    sha256 "90938e4decc07bb5ae51d9ed43554de01d812e5dafea3bef30b7e34e347caeb2" => :yosemite
-    sha256 "599743c3fbc31356bf02a701a7216b2cce71f54f24a6f8210f7ec5756a470fe8" => :mavericks
-    sha256 "110451d0c1166720bae4f113b2929822434c422fba07bfbf48e05a1031d1cdef" => :mountain_lion
+    sha256 "0f438c3cd34530354e60623a7b08a28400e73f0527f3f0b91c839bd9fcf78b5a" => :sierra
+    sha256 "d60842f5bfe921d6fc7eb649302262544c3ab4fda5d1699ea8e69c5cafe695f9" => :el_capitan
+    sha256 "aeeda0cfd7fc1ce9400a6c368d02a12eb42c5859e8a11a84e38e3add9879878f" => :yosemite
   end
 
   option "with-sanitize", "Use -fsanitize"
