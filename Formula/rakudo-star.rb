@@ -28,7 +28,7 @@ class RakudoStar < Formula
     # Work around to prevent MoarVM from using clock_gettime
     # Reported 2016-10-27: https://github.com/MoarVM/MoarVM/issues/437
     if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      inreplace MoarVM/src/platform/posix/time.c, "CLOCK_REALTIME", "UNDEFINED_XCODE8_HACK"
+      inreplace "MoarVM/src/platform/posix/time.c", "CLOCK_REALTIME", "UNDEFINED_XCODE8_HACK"
     end
 
     ENV.j1 # An intermittent race condition causes random build failures.
