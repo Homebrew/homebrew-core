@@ -131,13 +131,10 @@ class Qt5 < Formula
 
     if build.with? "mysql"
       args << "-plugin-sql-mysql"
-      inreplace "qtbase/configure", /(QT_LFLAGS_MYSQL_R|QT_LFLAGS_MYSQL)=\`(.*)\`/, "\\1=\`\\2 | sed \"s|-lssl|-L#{openssl_lib} -lssl|\"\`"
+      inreplace "qtbase/configure", /(QT_LFLAGS_MYSQL_R|QT_LFLAGS_MYSQL)=\`(.*)\`/, "\\1=\`\\2 | sed \"s/-lssl -lcrypto//\"\`"
     end
 
-    if build.with? "postgresql"
-      args << "-plugin-sql-psql"
-      inreplace "qtbase/configure", /QT_LFLAGS_PSQL=\`(.*)\`/, "QT_LFLAGS_PSQL=\`\\1 | sed \"s|-lssl|-L#{openssl_lib} -lssl|\"\`"
-    end
+    args << "-plugin-sql-psql" if build.with? "postgresql"
 
     if build.with? "dbus"
       dbus_opt = Formula["dbus"].opt_prefix
