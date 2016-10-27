@@ -1,8 +1,8 @@
 class Libcec < Formula
   desc "Control devices with TV remote control and HDMI cabling"
   homepage "http://libcec.pulse-eight.com/"
-  url "https://github.com/Pulse-Eight/libcec/archive/libcec-3.1.0.tar.gz"
-  sha256 "09109d21a1b03f42c9e341d12600f2e4c41038d640269fa75408e2d36126f921"
+  url "https://github.com/Pulse-Eight/libcec/archive/libcec-4.0.0.tar.gz"
+  sha256 "4c6ee8e44f2e6b28e3dfbee6c77df8d18605150ef69ab0564728b79a92a646ed"
 
   bottle do
     cellar :any
@@ -17,8 +17,8 @@ class Libcec < Formula
   needs :cxx11
 
   resource "p8-platform" do
-    url "https://github.com/Pulse-Eight/platform/archive/p8-platform-2.0.1.tar.gz"
-    sha256 "e97e45273e90571aa37732cde913b262f5f519c387083645d2557d7189c054cf"
+    url "https://github.com/Pulse-Eight/platform/archive/p8-platform-2.1.0.1.tar.gz"
+    sha256 "064f8d2c358895c7e0bea9ae956f8d46f3f057772cb97f2743a11d478a0f68a0"
   end
 
   def install
