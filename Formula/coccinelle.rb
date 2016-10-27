@@ -5,10 +5,9 @@ class Coccinelle < Formula
   sha256 "8452ed265c209dae99cbb33b67bc7912e72f8bca1e24f33f1a88ba3d7985e909"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c7ffdc23dd19c52170042169d4c2d1a63113db688edb31b46e7f808fde0c6b05" => :el_capitan
-    sha256 "6613d4b067b2454909ba9512d9ccb81028ad0b80468eb0059876f4fa477eb1f1" => :yosemite
-    sha256 "895063e8e6f23dfd401d9473b752eb6c96d7c5abdc6cc98d85d4db65d64baa88" => :mavericks
+    sha256 "0693fefe1f7978255ade853c00cf6a1e0d8c7811113ca1aa80a7cef9c12c6279" => :sierra
+    sha256 "35845252c3b5b162b63ad09fb21d286728db6a1bae6ace3e159a645123562090" => :el_capitan
+    sha256 "63733fef13eb94a22d714476ac9e59fb3765e515b79c4467a57b14338d3fa96f" => :yosemite
   end
 
   depends_on "ocaml"
