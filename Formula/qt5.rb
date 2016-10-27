@@ -125,7 +125,11 @@ class Qt5 < Formula
 
     args << "-nomake" << "examples" if build.without? "examples"
 
-    args << "-plugin-sql-mysql" if build.with? "mysql"
+    if build.with? "mysql"
+      args << "-plugin-sql-mysql"
+      inreplace "qtbase/configure", /(QT_LFLAGS_MYSQL_R|QT_LFLAGS_MYSQL)=\`(.*)\`/, "\\1=\`\\2 | sed \"s/-lssl -lcrypto//\"\`"
+    end
+
     args << "-plugin-sql-psql" if build.with? "postgresql"
 
     if build.with? "dbus"
