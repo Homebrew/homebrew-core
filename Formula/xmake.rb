@@ -1,8 +1,8 @@
 class Xmake < Formula
   desc "Make-like build utility based on Lua"
   homepage "http://xmake.io"
-  url "https://github.com/waruqi/xmake/archive/v2.0.4.tar.gz"
-  sha256 "50e59bcc37f5f4c0853a9b27a88e3830561bc056c74d6a1f81b92937f9d80f89"
+  url "https://github.com/waruqi/xmake/archive/v2.0.5.tar.gz"
+  sha256 "e3d104aaabac7e0c01b325e8bb72d2f22c4ec94158d8afb399f8c98a418b0456"
   head "https://github.com/waruqi/xmake.git"
 
   bottle do
