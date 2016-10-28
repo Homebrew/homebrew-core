@@ -32,6 +32,7 @@ class Mpv < Formula
   depends_on "libdvdnav" => :optional
   depends_on "libbluray" => :optional
   depends_on "libaacs" => :optional
+  depends_on "pulseaudio" => :optional
   depends_on "vapoursynth" => :optional
   depends_on "uchardet" => :optional
   depends_on :x11 => :optional
@@ -55,6 +56,7 @@ class Mpv < Formula
       --zshdir=#{zsh_completion}
     ]
     args << "--enable-libarchive" if build.with? "libarchive"
+    args << "--enable-pulse" if build.with? "pulseaudio"
 
     system "./bootstrap.py"
     system "python3", "waf", "configure", *args
