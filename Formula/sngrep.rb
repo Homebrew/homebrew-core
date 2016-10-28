@@ -1,8 +1,8 @@
 class Sngrep < Formula
   desc "Command-line tool for displaying SIP calls message flows"
   homepage "https://github.com/irontec/sngrep"
-  url "https://github.com/irontec/sngrep/archive/v1.4.0.tar.gz"
-  sha256 "0be686901773c2648b504137b9bae5e3c7c1373f07ae3f943753cabe3e1b3c51"
+  url "https://github.com/irontec/sngrep/archive/v1.4.1.tar.gz"
+  sha256 "8a0d29c35ceb612ccca536df31ab3e5fcc7bf957a48d11483c6bd93779be33d2"
 
   bottle do
     cellar :any_skip_relocation
