@@ -19,6 +19,6 @@ class Xml2 < Formula
   end
 
   test do
-    system "echo '<test/>' | \"#{bin}/xml2\""
+    assert_equal "/test", pipe_output("#{bin}/xml2", "<test/>", 0).chomp
   end
 end
