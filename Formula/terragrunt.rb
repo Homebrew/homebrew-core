@@ -3,8 +3,8 @@ require "language/go"
 class Terragrunt < Formula
   desc "Thin wrapper for Terraform e.g. for locking state."
   homepage "https://github.com/gruntwork-io/terragrunt"
-  url "https://github.com/gruntwork-io/terragrunt/archive/v0.1.1.tar.gz"
-  sha256 "608a3216e141bb8910c1b8813879f0c30f812e40184cbc4e2a81c22c9526788b"
+  url "https://github.com/gruntwork-io/terragrunt/archive/v0.1.3.tar.gz"
+  sha256 "e7a10b50e8b7fadfc16e0951acb23e9f77b5e7365a8b7a65480fb86997489e49"
   head "https://github.com/gruntwork-io/terragrunt.git"
 
   bottle do
