@@ -19,10 +19,9 @@ class Coq < Formula
   head "git://scm.gforge.inria.fr/coq/coq.git", :branch => "trunk"
 
   bottle do
-    sha256 "774e14c3f3755fe94d20fc3c410b54239f3365b1e3961ec7a3066e59c87a3666" => :sierra
-    sha256 "6bca59c08a4ec3b0633621332d9e66eb252c652d3efbce51f039ff8e6b7fe28f" => :el_capitan
-    sha256 "a61a407c55cde0cd9a68e2995af1af227b5dfc66060438254b3f4d76baa4dc1d" => :yosemite
-    sha256 "12444450f927ce6ebe0ff4dbbde42530edc57ee2e3a1baa5748cd987bf9750d8" => :mavericks
+    sha256 "681e28c90f1502cd76feba07a59109c93609f85662d2212d7be03f1bbab0b51e" => :sierra
+    sha256 "18dfc2a61d346728da86009796af2772a3e17d9699dee85a7fbca81b2c6a40fb" => :el_capitan
+    sha256 "27eb546323bc8ed455005e0e987b224fc0a3749a2ecb9f46a9266eb058925eab" => :yosemite
   end
 
   depends_on Camlp5TransitionalModeRequirement
