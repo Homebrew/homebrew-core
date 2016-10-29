@@ -1,9 +1,8 @@
 class Ncrack < Formula
   desc "Network authentication cracking tool"
   homepage "https://nmap.org/ncrack/"
-  url "https://nmap.org/ncrack/dist/ncrack-0.4ALPHA.tar.gz"
-  sha256 "f8bd7e0ef68559490064ec0a5f139b2b9c49aeaf9f6323e080db9ff344c87603"
-  revision 1
+  url "https://nmap.org/ncrack/dist/ncrack-0.5.tar.gz"
+  sha256 "dbad9440c861831836d47ece95aeb2bd40374a3eb03a14dea0fe1bfa73ecd4bc"
 
   bottle do
     rebuild 2
@@ -20,5 +19,9 @@ class Ncrack < Formula
                           "--prefix=#{prefix}"
     system "make"
     system "make", "install"
+  end
+
+  test do
+    assert_match("\nNcrack version 0.5 ( http://ncrack.org )\nModules: FTP, SSH, Telnet, HTTP(S), POP3(S), SMB, RDP, VNC, SIP, Redis, PostgreSQL, MySQL", shell_output(bin/"ncrack --version"))
   end
 end
