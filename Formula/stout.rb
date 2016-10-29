@@ -6,10 +6,9 @@ class Stout < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a1d9dfdf662db57af9a177ebffebb0aed586d7fb6e3c17df2eb9e7e70c7e4d7b" => :sierra
-    sha256 "9020d9cfd6ca410fec81df29a31732c6c9025958e1247fb95f93e6c5942c389e" => :el_capitan
-    sha256 "30cbc8417a496b515f41d743a883ad6821122b4ead8fe96b69d11d3cbd4a980b" => :yosemite
-    sha256 "29c3f260aa2c7ac82a26304002fda6afe78ac9e7529b4b09f3fdaed031a8e764" => :mavericks
+    sha256 "9e1e825f22facc7e04295268f3bd36417f2fffd596e5d1c2d5b71c861172c035" => :sierra
+    sha256 "aac5e3bac19e22e13d626a8d5b241659a9efd66267f970bd62ed0e394250c288" => :el_capitan
+    sha256 "48cae1a0395e12fe8919269033a0bb7b7d2aa314aa2284f2390b7a01bc2fb4a0" => :yosemite
   end
 
   depends_on "go" => :build
