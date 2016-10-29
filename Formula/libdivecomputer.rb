@@ -7,10 +7,9 @@ class Libdivecomputer < Formula
 
   bottle do
     cellar :any
-    sha256 "6fc75308490219d24aafde94f13027e7db3546eb317925ededb0c7b1abae0624" => :sierra
-    sha256 "1c9d15bd10811fbb7eccc9c8e718eec6e3b6ee389c586b7dbf9da56323f8f292" => :el_capitan
-    sha256 "cad333cf7353aaebb2e32a7d68e2711df4326d65cc7fd44df9b7e50794e361c9" => :yosemite
-    sha256 "a0418e0213a4f14612b9d37560a50cdd316ba7fc56da88000ceca4fe37733e18" => :mavericks
+    sha256 "421c9cdb2470f048f039398f4d7ed1d2cf9246ff1e45d818a1fd6694b35cc61d" => :sierra
+    sha256 "9b4dfa981e34e9cb9a7649d2937ee1825f56fe03ba36668b8d2829bc4a898860" => :el_capitan
+    sha256 "d315349ff5b91d9366eeab3fe2d68feab74f43f0dae453ed6c8eb5502215494f" => :yosemite
   end
 
   depends_on "autoconf" => :build
