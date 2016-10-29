@@ -6,6 +6,13 @@ class Neatvi < Formula
 
   head "git://repo.or.cz/neatvi.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "a085add28099e0a112efab55d61d3c339419129848181cf0ca2bf3e278807e0a" => :sierra
+    sha256 "39a2a3b6e82806ea132ae6a3242147feb497c31c04ce68f62e93c4d808ca0d22" => :el_capitan
+    sha256 "904e045bf6bd1dea374e9091882cdf25a80fe786bbee9cfa42d0221228ec01d8" => :yosemite
+  end
+
   def install
     system "make"
     bin.install "vi" => "neatvi"
