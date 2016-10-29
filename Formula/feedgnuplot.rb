@@ -6,10 +6,9 @@ class Feedgnuplot < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9d7cd15740fdb0f57cd0d27eec62e9ae9cda58aa71f4af1f4af182f233c7f0fe" => :sierra
-    sha256 "8295c04f9a173025128d3df9e62ac84fbd5bce8d811580cdd8f0a6701b59866b" => :el_capitan
-    sha256 "623969daaaa37d0fd141446a0925759a865ab8131152537d7e4918e976127d99" => :yosemite
-    sha256 "fe66e806afeee86bf0e79929b9100db42ffef94421c7ad54248a4a241ffc2695" => :mavericks
+    sha256 "3ca77c9ff696f75b5c4837c2116e61f73f2e0d5b5426b88c67e8763e1fce4a10" => :sierra
+    sha256 "6966556a04cba4ed5839675595faeceb6265034d544b7cb5123fdd676635d4ac" => :el_capitan
+    sha256 "05b365537624871e498c61c8117ab0954dba3437892e593bbde85e1b4aecf9e5" => :yosemite
   end
 
   depends_on "gnuplot"
