@@ -1,8 +1,38 @@
+require "language/haskell"
+
 class Ghc < Formula
+  include Language::Haskell::Cabal
+
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-src.tar.xz"
-  sha256 "90fb20cd8712e3c0fbeb2eac8dab6894404c21569746655b9b12ca9684c7d1d2"
+  revision 1
+
+  stable do
+    if MacOS.version >= :sierra
+      url "https://git.haskell.org/ghc.git",
+          :branch => "ghc-8.0",
+          :revision => "9448e62740ca03aeb915bf0ecf8b16e54a52798a"
+      version "8.0.1"
+
+      depends_on "autoconf" => :build
+      depends_on "automake" => :build
+      depends_on "libtool" => :build
+
+      resource "cabal" do
+        url "https://hackage.haskell.org/package/cabal-install-1.24.0.0/cabal-install-1.24.0.0.tar.gz"
+        sha256 "d840ecfd0a95a96e956b57fb2f3e9c81d9fc160e1fd0ea350b0d37d169d9e87e"
+      end
+
+      # disables haddock for hackage-security
+      resource "cabal-patch" do
+        url "https://github.com/haskell/cabal/commit/9441fe.patch"
+        sha256 "5506d46507f38c72270efc4bb301a85799a7710804e033eaef7434668a012c5e"
+      end
+    else
+      url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-src.tar.xz"
+      sha256 "90fb20cd8712e3c0fbeb2eac8dab6894404c21569746655b9b12ca9684c7d1d2"
+    end
+  end
 
   bottle do
     cellar :any
@@ -22,10 +52,10 @@ class Ghc < Formula
   depends_on "sphinx-doc" => :build if build.with? "docs"
 
   resource "gmp" do
-    url "https://ftpmirror.gnu.org/gmp/gmp-6.1.0.tar.bz2"
-    mirror "https://gmplib.org/download/gmp/gmp-6.1.0.tar.bz2"
-    mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.1.0.tar.bz2"
-    sha256 "498449a994efeba527885c10405993427995d3f86b8768d8cdf8d9dd7c6b73e8"
+    url "https://ftpmirror.gnu.org/gmp/gmp-6.1.1.tar.xz"
+    mirror "https://gmplib.org/download/gmp/gmp-6.1.1.tar.xz"
+    mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.1.1.tar.xz"
+    sha256 "d36e9c05df488ad630fff17edb50051d6432357f9ce04e34a09b3d818825e831"
   end
 
   if MacOS.version <= :lion
@@ -49,15 +79,6 @@ class Ghc < Formula
   resource "testsuite" do
     url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-testsuite.tar.xz"
     sha256 "bc57163656ece462ef61072559d491b72c5cdd694f3c39b80ac0f6b9a3dc8151"
-  end
-
-  # fix clock_gettime support on 10.12
-  # https://ghc.haskell.org/trac/ghc/ticket/12195
-  if MacOS.version >= :sierra
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9eef46168ca5daa1629082af5532fc4b521d1a8d/ghc/clock_gettime.patch"
-      sha256 "42444b381840d9d90202ff619f0070c28a753243af5d7e6b60efd227c6cf308c"
-    end
   end
 
   def install
@@ -112,7 +133,9 @@ class Ghc < Formula
     # https://mail.haskell.org/pipermail/ghc-devs/2016-April/011862.html
     # LLVM itself has already fixed the bug: llvm-mirror/llvm@ae7cf585
     # rdar://25311883 and rdar://25299678
-    args << "--with-nm=#{`xcrun --find nm-classic`.chomp}" if DevelopmentTools.clang_build_version >= 703
+    if DevelopmentTools.clang_build_version >= 703 && DevelopmentTools.clang_build_version < 800
+      args << "--with-nm=#{`xcrun --find nm-classic`.chomp}"
+    end
 
     resource("binary").stage do
       binary = buildpath/"binary"
@@ -123,6 +146,25 @@ class Ghc < Formula
       ENV.prepend_path "PATH", binary/"bin"
     end
 
+    if MacOS.version == :sierra
+      resource("cabal").stage do
+        Pathname.pwd.install resource("cabal-patch")
+        system "patch", "-p2", "-i", "9441fe.patch"
+        system "sh", "bootstrap.sh", "--sandbox", "--no-doc"
+        (buildpath/"bootstrap-tools/bin").install ".cabal-sandbox/bin/cabal"
+      end
+
+      ENV.prepend_path "PATH", buildpath/"bootstrap-tools/bin"
+
+      cabal_sandbox do
+        cabal_install "--only-dependencies", "happy", "alex"
+        cabal_install "--prefix=#{buildpath}/bootstrap-tools", "happy", "alex"
+      end
+
+      inreplace "libraries/filepath/filepath.cabal", "cabal-version:  >=1.10",
+                                                     "cabal-version:  >=1.18"
+      system "./boot"
+    end
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
 
