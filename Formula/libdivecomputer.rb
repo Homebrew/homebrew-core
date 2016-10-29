@@ -1,8 +1,8 @@
 class Libdivecomputer < Formula
   desc "Library for communication with various dive computers."
   homepage "http://www.libdivecomputer.org"
-  url "http://www.libdivecomputer.org/releases/libdivecomputer-0.4.2.tar.gz"
-  sha256 "f3c5d0229de9dd82602e309273d0eb48fb0ee07fdcfc1ff8206edb6ba5154460"
+  url "http://www.libdivecomputer.org/releases/libdivecomputer-0.5.0.tar.gz"
+  sha256 "1e0cff7f294e360e142c92c820f9f11cab505fa9385d17713d502cf2f0c5c286"
   head "git://git.code.sf.net/p/libdivecomputer/code"
 
   bottle do
