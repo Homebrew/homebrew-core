@@ -13,27 +13,42 @@ class Nim < Formula
     sha256 "54a36dc85df0aa86b8bf6295220007441332691d3a99a01977374adb0e0b8327" => :yosemite
   end
 
+  resource "nimble" do
+    url "https://github.com/nim-lang/nimble/archive/v0.7.10.tar.gz"
+    sha256 "9fc4a5eb4a294697e530fe05e6e16cc25a1515343df24270c5344adf03bd5cbb"
+  end
+
+  resource "nimsuggest" do
+    url "https://github.com/nim-lang/nimsuggest/archive/1bf26419e84fab2bbefe8e11910b16f8f6c8a758.tar.gz"
+    sha256 "87c78998f185f8541255b0999dfe4af3a1edcc59e063818efd1b6ca157d18315"
+  end
+
   def install
     if build.head?
       system "/bin/sh", "bootstrap.sh"
+
+      # Grab the tools source and put them in the dist folder
+      nimble = buildpath/"dist/nimble"
+      resource("nimble").stage { nimble.install Dir["*"] }
+      nimsuggest = buildpath/"dist/nimsuggest"
+      resource("nimsuggest").stage { nimsuggest.install Dir["*"] }
     else
       system "/bin/sh", "build.sh"
     end
     system "/bin/sh", "install.sh", prefix
 
-    system "bin/nim e install_tools.nims"
-
-    target = prefix/"nim/bin"
-    target.install "bin/nimble"
-    target.install "dist/nimble/src/nimblepkg"
-    target.install "bin/nimgrep"
-    target.install "bin/nimsuggest"
-
     bin.install_symlink prefix/"nim/bin/nim"
     bin.install_symlink prefix/"nim/bin/nim" => "nimrod"
-    bin.install_symlink prefix/"nim/bin/nimble"
-    bin.install_symlink prefix/"nim/bin/nimgrep"
+
+    system "bin/nim", "e", "install_tools.nims"
+    target = prefix/"nim/bin"
+    target.install "dist/nimble/src/nimblepkg"
+    target.install "bin/nimsuggest"
+    target.install "bin/nimble"
+    target.install "bin/nimgrep"
     bin.install_symlink prefix/"nim/bin/nimsuggest"
+    bin.install_symlink target/"nimble"
+    bin.install_symlink target/"nimgrep"
   end
 
   test do
