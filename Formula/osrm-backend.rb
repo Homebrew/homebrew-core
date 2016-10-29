@@ -1,8 +1,8 @@
 class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
-  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.4.0.tar.gz"
-  sha256 "6393745fe8250ad0387b1fe3f4a2218cf692528acb55a4e0198ba5fbe1c81231"
+  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.4.1.tar.gz"
+  sha256 "7b0a95d2061e66d12b54e088ad899aa745995b9b3bf1916960cbdf6a89fb9ee3"
 
   bottle do
     cellar :any
