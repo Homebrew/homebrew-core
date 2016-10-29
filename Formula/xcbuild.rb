@@ -11,7 +11,6 @@ class Xcbuild < Formula
 
   def install
     system "make", "install", "cmake_flags=-DCMAKE_INSTALL_PREFIX=#{bin}"
-    #bin.install_symlink "#{bin}/usr/bin/xcbuild"
   end
 
   test do
