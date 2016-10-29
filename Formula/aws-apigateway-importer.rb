@@ -3,6 +3,13 @@ class AwsApigatewayImporter < Formula
   homepage "https://github.com/awslabs/aws-apigateway-importer"
   url "https://github.com/awslabs/aws-apigateway-importer/archive/aws-apigateway-importer-1.0.1.tar.gz"
   sha256 "1aecfd348135c2e364ce5e105d91d5750472ac4cb8848679d774a2ac00024d26"
+  revision 1
+
+  # Pin aws-sdk-java-core for JSONObject compatibility
+  patch do
+    url "https://github.com/awslabs/aws-apigateway-importer/commit/660e3ce.diff"
+    sha256 "0dcfd1e03d653708726672dc6e6bf6f4b3e5d0184a75f224bf64f9bc7974b931"
+  end
 
   bottle do
     cellar :any_skip_relocation
