@@ -4,6 +4,8 @@ class Makepkg < Formula
   url "https://projects.archlinux.org/git/pacman.git",
       :tag => "v5.0.1",
       :revision => "f38de43eb68f1d9c577b4378310640c1eaa93338"
+  revision 1
+
   head "https://projects.archlinux.org/git/pacman.git"
 
   bottle do
@@ -18,7 +20,7 @@ class Makepkg < Formula
 
   depends_on "automake" => :build
   depends_on "autoconf" => :build
-  depends_on "asciidoc" => :build
+  depends_on "asciidoc" => ["with-docbook-xsl", :build]
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libarchive"
@@ -29,6 +31,8 @@ class Makepkg < Formula
   depends_on "gpgme" => :optional
 
   def install
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
