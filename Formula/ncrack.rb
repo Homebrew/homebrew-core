@@ -5,10 +5,9 @@ class Ncrack < Formula
   sha256 "dbad9440c861831836d47ece95aeb2bd40374a3eb03a14dea0fe1bfa73ecd4bc"
 
   bottle do
-    rebuild 2
-    sha256 "ce28c99cbc61ca885f0b2ca87d290022d4ea76fe53653ec80773e14900bb2583" => :sierra
-    sha256 "d45494a77a6fdb47ab7b262a9872a650646ac8ddbaf51bd27c51e2f47fdc2c78" => :el_capitan
-    sha256 "ba283e5523dba87de24ca49fd6aeddd52b25de66313d13ba5105ade949a1b598" => :mavericks
+    sha256 "7e3a16f3b37949e91338e50f2e2cd1f50da7f3b1700b8ef242ce457673d3c397" => :sierra
+    sha256 "aab525771a1fb8eee4d2aab1d9164482b62cef6664ff3f2a8034b4171207be6c" => :el_capitan
+    sha256 "dbaa016ba2cb398e4e7da7352ca889fd5f26bd91926549badd9d80227cf1f5b4" => :yosemite
   end
 
   depends_on "openssl"
