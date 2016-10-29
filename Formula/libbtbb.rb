@@ -4,6 +4,7 @@ class Libbtbb < Formula
   url "https://github.com/greatscottgadgets/libbtbb/archive/2015-10-R1.tar.gz"
   version "2015-10-R1"
   sha256 "95f493d379a53ec1134cfb36349cc9aac95d77260db4fdb557313b0dbb5c1d5a"
+  revision 1
 
   head "https://github.com/greatscottgadgets/libbtbb.git"
 
@@ -39,6 +40,7 @@ class Libbtbb < Formula
     end
 
     ENV.prepend_path "PATH", libexec/"vendor/bin"
+    ENV.append_to_cflags "-I#{libexec}/vendor/include"
     mkdir "build" do
       system "cmake", "..", *args
       system "make", "install"
