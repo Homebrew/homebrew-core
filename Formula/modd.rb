@@ -3,8 +3,8 @@ require "language/go"
 class Modd < Formula
   desc "Flexible tool for responding to filesystem changes"
   homepage "https://github.com/cortesi/modd"
-  url "https://github.com/cortesi/modd/archive/v0.3.tar.gz"
-  sha256 "41d9e18e286f9de1b5919573cbf66bbcf0bf7e60b01bfe1d9608aabffba70ed4"
+  url "https://github.com/cortesi/modd/archive/v0.4.tar.gz"
+  sha256 "3fd0c407b388703818ed580a667dec43a14c1e1c93bb196e91d0d882e5b8379d"
   head "https://github.com/cortesi/modd.git"
 
   bottle do
