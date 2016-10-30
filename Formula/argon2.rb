@@ -1,8 +1,8 @@
 class Argon2 < Formula
   desc "Password hashing library and CLI utility"
   homepage "https://github.com/P-H-C/phc-winner-argon2"
-  url "https://github.com/P-H-C/phc-winner-argon2/archive/20160821.tar.gz"
-  sha256 "f81456ae31337a13a1a1b8ffe994d71ace741833a97a75f0c1a76259639bf3b8"
+  url "https://github.com/P-H-C/phc-winner-argon2/archive/20161029.tar.gz"
+  sha256 "fe0049728b946b58b94cc6db89b34e2d050c62325d16316a534d2bedd78cd5e7"
   head "https://github.com/P-H-C/phc-winner-argon2.git"
 
   bottle do
