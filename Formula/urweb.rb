@@ -1,8 +1,8 @@
 class Urweb < Formula
   desc "Ur/Web programming language"
   homepage "http://www.impredicative.com/ur/"
-  url "http://www.impredicative.com/ur/urweb-20160805.tgz"
-  sha256 "e946f37bf390156e526d5e2198ad5c3497c6e52eb814f76ddd580d6315e25ca3"
+  url "http://www.impredicative.com/ur/urweb-20161022.tgz"
+  sha256 "7a021313b938a033aa13a33d340d3cdf0a867ee1919e9f62b34a38d294400618"
 
   bottle do
     sha256 "b42520aa61122526fef9ba7bd8de9710a74b18a784384eb86dac3d33376d4545" => :sierra
