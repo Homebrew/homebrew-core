@@ -1,9 +1,9 @@
 class Bashdb < Formula
   desc "Bash shell debugger"
   homepage "http://bashdb.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/bashdb/bashdb/4.3-0.91/bashdb-4.3-0.91.tar.bz2"
-  version "4.3-0.91"
-  sha256 "60117745813f29070a034c590c9d70153cc47f47024ae54bfecdc8cd86d9e3ea"
+  url "https://downloads.sourceforge.net/project/bashdb/bashdb/4.4-0.92/bashdb-4.4-0.92.tar.bz2"
+  version "4.4-0.92"
+  sha256 "6a8c2655e04339b954731a0cb0d9910e2878e45b2fc08fe469b93e4f2dbaaf92"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,6 +25,6 @@ class Bashdb < Formula
   end
 
   test do
-    system "#{bin}/bashdb", "--version"
+    assert_match version.to_s, pipe_output("#{bin}/bashdb --version 2>&1")
   end
 end
