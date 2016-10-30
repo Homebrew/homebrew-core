@@ -49,7 +49,6 @@ class Ffmpeg < Formula
   depends_on "x264" => :recommended
   depends_on "xvid" => :recommended
 
-  depends_on "faac" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "fontconfig" => :optional
   depends_on "freetype" => :optional
@@ -110,7 +109,6 @@ class Ffmpeg < Formula
     args << "--enable-libbs2b" if build.with? "libbs2b"
     args << "--enable-libcaca" if build.with? "libcaca"
     args << "--enable-libebur128" if build.with? "libebur128"
-    args << "--enable-libfaac" if build.with? "faac"
     args << "--enable-libfdk-aac" if build.with? "fdk-aac"
     args << "--enable-libfontconfig" if build.with? "fontconfig"
     args << "--enable-libfreetype" if build.with? "freetype"
@@ -153,7 +151,7 @@ class Ffmpeg < Formula
 
     # These librares are GPL-incompatible, and require ffmpeg be built with
     # the "--enable-nonfree" flag, which produces unredistributable libraries
-    if %w[faac fdk-aac openssl].any? { |f| build.with? f }
+    if %w[fdk-aac openssl].any? { |f| build.with? f }
       args << "--enable-nonfree"
     end
 
