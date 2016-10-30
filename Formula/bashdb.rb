@@ -7,9 +7,9 @@ class Bashdb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "acaeaec58a610b8ee53f3ef1ebbee800991b1790a50bf38f6496e4c3e07a8a40" => :el_capitan
-    sha256 "407d84f8f4e34a1f9accaf6a5cb74c50028b97009842c592b969020e5a04630e" => :yosemite
-    sha256 "f715486224a5d5625b9cc5645235e7f977fce749254dbde3254028b2700d8860" => :mavericks
+    sha256 "36ab7e6dbffac6255d2a395581da8b9db1e0490abf2bc7c939c44429211313a4" => :sierra
+    sha256 "36ab7e6dbffac6255d2a395581da8b9db1e0490abf2bc7c939c44429211313a4" => :el_capitan
+    sha256 "36ab7e6dbffac6255d2a395581da8b9db1e0490abf2bc7c939c44429211313a4" => :yosemite
   end
 
   depends_on "bash"
