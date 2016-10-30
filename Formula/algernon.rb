@@ -1,8 +1,8 @@
 class Algernon < Formula
   desc "HTTP/2 web server with built-in support for Lua and templates"
   homepage "http://algernon.roboticoverlords.org/"
-  url "https://github.com/xyproto/algernon/archive/1.2.tar.gz"
-  sha256 "25ea5b5f45c34f9450ebc1de4c2124b93f62d7dc34fcaac0a8b81339a44b5f86"
+  url "https://github.com/xyproto/algernon/archive/1.2.1.tar.gz"
+  sha256 "46577afcd255f9c4f193f2408c418e0ca5a66db9c9b4e553058fd4bef28631c1"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 
