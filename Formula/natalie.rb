@@ -14,6 +14,7 @@ class Natalie < Formula
   depends_on :xcode => ["8.0", :build]
 
   def install
+    ENV["CC"] = which(ENV.cc)
     system "swift", "build", "-c", "release", "-Xswiftc", "-static-stdlib"
     bin.install ".build/release/natalie"
     share.install "NatalieExample"
