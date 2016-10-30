@@ -5,6 +5,7 @@ class Pound < Formula
   sha256 "cdfbf5a7e8dc8fbbe0d6c1e83cd3bd3f2472160aac65684bb01ef661c626a8e4"
 
   bottle do
+    sha256 "b8ecc286bd1087162de7473a6308a8fdbc0d2aa74c3964c461f3db04e31046a4" => :sierra
     sha256 "c322d869b30e2b3b3e6ade660f1dcb85507d4bdc0db85553f76fa983c00fa661" => :el_capitan
     sha256 "aebc9ef8e97b4995923752811da180e83adcf2ef55d1809d7dc51b44a73d1b02" => :yosemite
     sha256 "74c64dba8bf19737259ad996f15bbf66bb2bcd24e71ef206ec4b0e6bf1042a70" => :mavericks

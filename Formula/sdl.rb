@@ -6,7 +6,8 @@ class Sdl < Formula
 
   bottle do
     cellar :any
-    revision 2
+    rebuild 2
+    sha256 "2534e56731bace9e14fbda11d1d42bf0975e16e82c614213494088e13e8b2f40" => :sierra
     sha256 "c9c66beaee50897468330709dc618246b298d63854309863e958e6b46ecec06a" => :el_capitan
     sha256 "ec2202243209e378fc50bb9ad1bd7c7cff0ae893f81780228113b542059e3a92" => :yosemite
     sha256 "92f71a40ad275455e0db75057fcfd29ca35abbf583de73e106ccb903541405af" => :mavericks
@@ -68,9 +69,15 @@ class Sdl < Formula
     args = %W[--prefix=#{prefix}]
     args << "--disable-nasm" unless MacOS.version >= :mountain_lion # might work with earlier, might only work with new clang
     # LLVM-based compilers choke on the assembly code packaged with SDL.
-    args << "--disable-assembly" if ENV.compiler == :llvm || (ENV.compiler == :clang && MacOS.clang_build_version < 421)
-    args << "--without-x" if build.without? "x11"
-    args << "--with-x" if build.with? "x11"
+    if ENV.compiler == :llvm || (ENV.compiler == :clang && DevelopmentTools.clang_build_version < 421)
+      args << "--disable-assembly"
+    end
+
+    if build.with? "x11"
+      args << "--with-x"
+    else
+      args << "--without-x"
+    end
 
     system "./configure", *args
     system "make", "install"
@@ -79,10 +86,10 @@ class Sdl < Formula
     libexec.install Dir["src/main/macosx/*"] if build.stable?
 
     if build.with? "test"
-      ENV.prepend_path "PATH", "#{bin}"
+      ENV.prepend_path "PATH", bin
       # This is stupid but necessary. Blurgh. Otherwise, test building fails, even
       # with various flags, prepending & pkg_config_path tinkering.
-      inreplace "#{bin}/sdl-config", "prefix=#{HOMEBREW_PREFIX}", "prefix=#{prefix}"
+      inreplace bin/"sdl-config", "prefix=#{HOMEBREW_PREFIX}", "prefix=#{prefix}"
       cd "test" do
         system "./configure"
         system "make"
@@ -96,11 +103,11 @@ class Sdl < Formula
         bin.write_exec_script Dir["#{share}/tests/*"]
       end
       # And then we undo stupid but necessary so it doesn't break all the other things.
-      inreplace "#{bin}/sdl-config", "prefix=#{prefix}", "prefix=#{HOMEBREW_PREFIX}"
+      inreplace bin/"sdl-config", "prefix=#{prefix}", "prefix=#{HOMEBREW_PREFIX}"
     end
   end
 
   test do
-    system "#{bin}/sdl-config", "--version"
+    system bin/"sdl-config", "--version"
   end
 end

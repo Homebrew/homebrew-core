@@ -1,19 +1,16 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.5.3/postgresql-9.5.3.tar.bz2"
-  sha256 "7385c01dc58acba8d7ac4e6ad42782bd7c0b59272862a3a3d5fe378d4503a0b4"
+  url "https://ftp.postgresql.org/pub/source/v9.5.4/postgresql-9.5.4.tar.bz2"
+  sha256 "cf5e571164ad66028ecd7dd8819e3765470d45bcd440d258b686be7e69c76ed0"
+  revision 1
+
+  head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "5e238fdf3e7e2c8ac74f23dfc92f50d7c4598e05f89cc3e7c7e0da26fe2542e3" => :el_capitan
-    sha256 "bc90e7b53017314e559b7110bfa1257f01457d4097eebf2690195ae5c013875b" => :yosemite
-    sha256 "eeb7a800b5b93cb9d24b82e78664645d3b899166fe0b3cf25d1e42e91cdb37bf" => :mavericks
-  end
-
-  devel do
-    url "https://ftp.postgresql.org/pub/source/v9.6beta2/postgresql-9.6beta2.tar.gz"
-    version "9.6beta2"
-    sha256 "fe4b75548ebccea7140f3285f2a4b118fa0651f18dd1f63a6c41ef9046042cb1"
+    sha256 "2c360204c8420cb5d970a7bf453936d7a1163ec061082f14fea1fd7f80422084" => :sierra
+    sha256 "51565747e6ff1c767397a9904e82b6e387cdbb0ce38aea9da7137587710ee76a" => :el_capitan
+    sha256 "3bc3271ca1ec75712eb91797c4a6a702b0a96a911097bd8ca038a29838d396bb" => :yosemite
   end
 
   option "32-bit"
@@ -104,6 +101,7 @@ class Postgresql < Formula
   end
 
   def post_install
+    (var/"log").mkpath
     (var/"postgres").mkpath
     unless File.exist? "#{var}/postgres/PG_VERSION"
       system "#{bin}/initdb", "#{var}/postgres"
@@ -126,7 +124,7 @@ class Postgresql < Formula
     EOS
   end
 
-  plist_options :manual => "postgres -D #{HOMEBREW_PREFIX}/var/postgres"
+  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgres start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -142,15 +140,13 @@ class Postgresql < Formula
         <string>#{opt_bin}/postgres</string>
         <string>-D</string>
         <string>#{var}/postgres</string>
-        <string>-r</string>
-        <string>#{var}/postgres/server.log</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
       <key>WorkingDirectory</key>
       <string>#{HOMEBREW_PREFIX}</string>
       <key>StandardErrorPath</key>
-      <string>#{var}/postgres/server.log</string>
+      <string>#{var}/log/postgres.log</string>
     </dict>
     </plist>
     EOS

@@ -1,14 +1,14 @@
 class Libmagic < Formula
   desc "Implementation of the file(1) command"
   homepage "https://www.darwinsys.com/file/"
-  url "ftp://ftp.astron.com/pub/file/file-5.28.tar.gz"
-  mirror "https://fossies.org/linux/misc/file-5.28.tar.gz"
-  sha256 "0ecb5e146b8655d1fa84159a847ee619fc102575205a0ff9c6cc60fc5ee2e012"
+  url "ftp://ftp.astron.com/pub/file/file-5.29.tar.gz"
+  mirror "https://fossies.org/linux/misc/file-5.29.tar.gz"
+  sha256 "ea661277cd39bf8f063d3a83ee875432cc3680494169f952787e002bdd3884c0"
 
   bottle do
-    sha256 "13beb0a727a18c47d10c4569772fd2077b37ed363c008faa82bc184a104c380b" => :el_capitan
-    sha256 "ab633517a9be283ce7518864086d58a49a1de0926da5f65e1bbdfb5ef1d20ffb" => :yosemite
-    sha256 "dfbcd1f3bee44e44bbeaa8638167359966e810f77cc6f81516776dbba979c68b" => :mavericks
+    sha256 "146769301626e0dd89c9a43ee792d9bb6e12141934282cdb079a97894a7fa5e9" => :sierra
+    sha256 "f34471287b07b123d823fa83b3a7367c46547544ec697b1b73bd8b9431159a4c" => :el_capitan
+    sha256 "54a619ed0c36e8003cde613d05d5ba3d823bf8e53f475e053264efb5d8b63765" => :yosemite
   end
 
   option :universal

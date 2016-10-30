@@ -1,19 +1,21 @@
 class Corectl < Formula
-  desc "CoreOS over OS X made very simple"
+  desc "CoreOS over macOS made very simple"
   homepage "https://github.com/TheNewNormal/corectl"
-  url "https://github.com/TheNewNormal/corectl/archive/v0.7.13.tar.gz"
-  sha256 "2fefce853a39b00722c2e2b50b5cde106328915e367f5c8e2e8c216a7d721e0b"
+  url "https://github.com/TheNewNormal/corectl/archive/v0.7.17.tar.gz"
+  sha256 "915ae2988dc57bcf7f28e0ed6c2971ae6f83879daaadbb98bef3bad0b50039e4"
   head "https://github.com/TheNewNormal/corectl.git", :branch => "golang"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b90ea3256110447226c42fd1d20ef7b329a807a007d14ed62180ee4f17ce537d" => :el_capitan
-    sha256 "ff07b9f225eaed736d72b2b0eb4f6f8cdf7bf668ebe372e16cca894ec809c906" => :yosemite
+    sha256 "ff2926f719d3414d2a18313fb6963104e91d5d89826194dcc8ff63c036037c71" => :sierra
+    sha256 "ea463bfffeea5970d7c46f186e9440ba28cb1e0953f620e87df5345ecf7ea6ec" => :el_capitan
+    sha256 "cc5855cdd8679d87ce81f5ebce82992b9fa290848a6ba41e29ad0bdd2ba83593" => :yosemite
   end
 
   depends_on "go" => :build
   depends_on "godep" => :build
   depends_on "ocaml" => :build
+  depends_on "aspcud" => :build
   depends_on "opam" => :build
   depends_on :macos => :yosemite
 
@@ -33,10 +35,7 @@ class Corectl < Formula
 
     cd path do
       system "opam", "init", "--no-setup"
-      qcow_format_revision = build.head? ? "master" : "96db516d97b1c3ef2c7bccdac8fb6cfdcb667a04"
-      system "opam", "pin", "add", "qcow-format",
-        "https://github.com/mirage/ocaml-qcow.git##{qcow_format_revision}"
-      system "opam", "install", "uri", "qcow-format", "ocamlfind"
+      system "opam", "install", "uri", "ocamlfind", "qcow-format"
 
       system "make", "tarball", *args
 

@@ -3,14 +3,24 @@ class Valgrind < Formula
   homepage "http://www.valgrind.org/"
 
   stable do
-    url "http://valgrind.org/downloads/valgrind-3.11.0.tar.bz2"
-    sha256 "6c396271a8c1ddd5a6fb9abe714ea1e8a86fce85b30ab26b4266aeb4c2413b42"
+    url "http://valgrind.org/downloads/valgrind-3.12.0.tar.bz2"
+    sha256 "67ca4395b2527247780f36148b084f5743a68ab0c850cb43e4a5b4b012cf76a1"
+
+    # SVN r16103:
+    # "bzero is non-POSIX (deprecated), accordingly __bzero template required
+    # for all macOS versions. n-i-bz."
+    #
+    # Fixes build on macOS 10.12 (at least). Otherwise we would get undefined
+    # symbols error for __bzero.
+    patch :p0 do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/54d59bf/valgrind/bzero.diff"
+      sha256 "48de4054dba20c27ef6089d3ea7832e48dcbbb5368ac4316394b8be55ffe93a2"
+    end
   end
 
   bottle do
-    sha256 "c747fd1c9b09ac4bc186bf5294317cd506ce1fd733b892b7df19c68e39505670" => :el_capitan
-    sha256 "d2200eebec692898c5684a837cf96832fbd877cc92ec57d1e9730e454a9e94c5" => :yosemite
-    sha256 "6bb14866f48391c2d1f44f7acd2c6fd709221f890147608b176ccfa49198a251" => :mavericks
+    sha256 "ab3ef2be621bc6b0619d2a87a263d8d7a99056101305b3f4116d4c98049bd782" => :el_capitan
+    sha256 "641cd92b8fa21863db3fadc5be6054477933eba9d2fcee6b54ed797ae5b01f63" => :yosemite
   end
 
   head do
@@ -22,6 +32,9 @@ class Valgrind < Formula
   end
 
   depends_on :macos => :snow_leopard
+  # https://bugs.kde.org/show_bug.cgi?id=365327#c2
+  # https://github.com/Homebrew/homebrew-core/pull/6231#issuecomment-255779374
+  depends_on MaximumMacOSRequirement => :el_capitan
 
   # Valgrind needs vcpreload_core-*-darwin.so to have execute permissions.
   # See #2150 for more information.

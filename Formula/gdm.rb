@@ -3,21 +3,23 @@ require "language/go"
 class Gdm < Formula
   desc "Go Dependency Manager (gdm)"
   homepage "https://github.com/sparrc/gdm"
-  url "https://github.com/sparrc/gdm/archive/1.3.tar.gz"
-  sha256 "e545378699a557e6dffedb1c25f54ea4f1bf93c1c825ec693f81f391569c8529"
+  url "https://github.com/sparrc/gdm/archive/1.4.tar.gz"
+  sha256 "2ac8800319d922fe2816e57f30e23ddd9a11ce2e93294c533318b9f081debde4"
+  head "https://github.com/sparrc/gdm.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aba6293bdbb344d907821d55946f322c265f86fbc30ea09a6e013f37085371dc" => :el_capitan
-    sha256 "64659933d888ce34a9e84376c2d941c65dd4a369c07a1f9bb28a821e2512a8ab" => :yosemite
-    sha256 "86f810b913f609316854d7254e55b9969bc058fb5fa6dc9fb88b05d2434be726" => :mavericks
+    sha256 "1271ce8ff02868997451491819027d10c362a9d6b72d10c9cbdafeb80ebbe747" => :sierra
+    sha256 "b3f081076a078f90f6a534ff30ff268c89baec38bd02ff11c9e02804755c8c33" => :el_capitan
+    sha256 "03f2d8cbcee0c4e41a00ec222f56b7d3204290b075afafe28afe6ced3458ebd8" => :yosemite
+    sha256 "a5b111a00c19c74400787394eead8b5a209f9ee64125a5365eae97fa3d78d38a" => :mavericks
   end
 
   depends_on "go"
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-    :revision => "6f233b96dfbc53e33b302e31b88814cf74697ff6"
+        :revision => "6f233b96dfbc53e33b302e31b88814cf74697ff6"
   end
 
   def install
@@ -34,9 +36,9 @@ class Gdm < Formula
   end
 
   test do
-    ENV["GOPATH"] = testpath
-    assert_match "#{version}", shell_output("#{bin}/gdm version")
-    assert_match "#{testpath}", shell_output("gdm save")
-    system "gdm", "restore"
+    ENV["GOPATH"] = testpath.realpath
+    assert_match version.to_s, shell_output("#{bin}/gdm version")
+    assert_match testpath.realpath.to_s, shell_output("#{bin}/gdm save")
+    system bin/"gdm", "restore"
   end
 end

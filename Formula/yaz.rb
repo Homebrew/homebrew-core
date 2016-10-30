@@ -1,21 +1,21 @@
 class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/yaz"
-  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.16.0.tar.gz"
-  sha256 "46708320152c1475f6a5ee6f29903caa76121c2440123051546c1b3403c78686"
+  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.18.0.tar.gz"
+  sha256 "b37ebbfc5b88ddb4fc5d8aefca345b48acac196211d35b11f292aafe636f660c"
+
+  bottle do
+    cellar :any
+    sha256 "18c84be0b7358f8a233fb17993f30511f86ae8de7b2b452f84bdfd9e9d27849d" => :sierra
+    sha256 "a36c694f84d90709e64b5c534f8e591d886562f52860aa054cd207c0c952c70f" => :el_capitan
+    sha256 "11257c309c975116b005d7c92c468e7859409f437705660c32e80bb4c7b25778" => :yosemite
+  end
 
   head do
     url "https://github.com/indexdata/yaz.git"
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
-  end
-
-  bottle do
-    cellar :any
-    sha256 "20027255c45c35bfe555491c4eb142baef9e04cedf591389a7b220f0d0d3d540" => :el_capitan
-    sha256 "fead54929afc14c84dda24e8360c1281af45f91aa48884b7c6584460bb8df6fe" => :yosemite
-    sha256 "2ef8e7ec3a9db92bc26e00539da2a35aeed4c5b64a476cc1d27d6c7a814f7242" => :mavericks
   end
 
   option :universal

@@ -1,26 +1,24 @@
 class Meson < Formula
+  include Language::Python::Virtualenv
+
   desc "Fast and user friendly build system"
   homepage "http://mesonbuild.com/"
-  url "https://github.com/mesonbuild/meson/releases/download/0.32.0/meson-0.32.0.tar.gz"
-  sha256 "2e8c06136da01607364cbcd8a719f0f60441a9a4c5f1426e88a3c6a8444331ac"
+  url "https://github.com/mesonbuild/meson/releases/download/0.35.1/meson-0.35.1.tar.gz"
+  sha256 "b47edb53bd7554cb7890a32399fdf6402e8079379393893ab3dec8fffcbfba2c"
+  head "https://github.com/mesonbuild/meson.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cffbceed57dc20e5d4efe53461d78279fe977953184ea52d1e50c13b27c2639f" => :el_capitan
-    sha256 "f93a3ab8c9065ae44a10f0e34b9d39b67dd798a6f19fb20212c1cde056d37457" => :yosemite
-    sha256 "c4404af3c4a994e8701695d5a327fb35b3d8fac88c977a44e6eed5d8fd7d9323" => :mavericks
+    sha256 "8cf2a53fe4eac6e30170cbfc5ec4641eb023227d16ff9a3370af91e80dc2dba4" => :sierra
+    sha256 "6519e09c6312b6614b49d58ab8cd84efe1a40fe4d8ee1a9184e01ff582c0b72b" => :el_capitan
+    sha256 "d51800904d6b79eabdb31acdf27a4bb7947e4fb956d58da9fd0562d9764f9371" => :yosemite
   end
 
   depends_on :python3
   depends_on "ninja"
 
   def install
-    version = Language::Python.major_minor_version("python3")
-    ENV["PYTHONPATH"] = lib+"python#{version}/site-packages"
-
-    system "python3", *Language::Python.setup_install_args(prefix)
-
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_create(libexec, "python3")
+    virtualenv_install_with_resources
   end
 
   test do

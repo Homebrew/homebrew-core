@@ -6,6 +6,7 @@ class Mdr < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ef68c4389ee92beeb6c04e1859f398d108ffcce03fe692dd5776f7e12d776672" => :sierra
     sha256 "0b522120151f1116ae7e681ff2fb129ecd26486202ca753d6b1de902f6f29334" => :el_capitan
     sha256 "7048e71ef8f9a1d5c1712dce6cb33df08029038d771789021a1b8bc1e5f4ad10" => :yosemite
     sha256 "b80b64d56e7e77e9b53dd8c308dd50450552b782a72204cb710adf2de28c4f9e" => :mavericks

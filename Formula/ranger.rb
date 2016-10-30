@@ -8,6 +8,7 @@ class Ranger < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6a894e9cb492bcbd0b172fc1a3693b0bac4e1ba641a9389dc3b0879f1d2d5ee5" => :sierra
     sha256 "82eb23ac75480e1f83087dd04e6d537c5b141e35de922729f8b83e0cdcdd45aa" => :el_capitan
     sha256 "8592a7b7af5b59932b01c685afaa53173a11efcead0526e30464467f944d649c" => :yosemite
     sha256 "cf9b172937e85e6a4bcfca8508378fcaf9aa81fdf18df0a3cab531cc3f27cc2a" => :mavericks
@@ -17,9 +18,10 @@ class Ranger < Formula
   depends_on :python if MacOS.version <= :leopard
 
   def install
-    inreplace %w[ranger.py ranger/ext/rifle.py] do |s|
-      s.gsub! "#!/usr/bin/python", "#!#{PythonRequirement.new.which_python}"
-    end if MacOS.version <= :leopard
+    if MacOS.version <= :leopard
+      inreplace %w[ranger.py ranger/ext/rifle.py],
+        "#!/usr/bin/python", "#!#{PythonRequirement.new.which_python}"
+    end
 
     man1.install "doc/ranger.1"
     libexec.install "ranger.py", "ranger"

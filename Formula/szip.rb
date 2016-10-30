@@ -1,12 +1,13 @@
 class Szip < Formula
   desc "Implementation of extended-Rice lossless compression algorithm"
-  homepage "https://www.hdfgroup.org/HDF5/release/obtain5.html#extlibs"
-  url "https://www.hdfgroup.org/ftp/lib-external/szip/2.1/src/szip-2.1.tar.gz"
+  homepage "https://support.hdfgroup.org/HDF5/release/obtain5.html#extlibs"
+  url "https://support.hdfgroup.org/ftp/lib-external/szip/2.1/src/szip-2.1.tar.gz"
   sha256 "a816d95d5662e8279625abdbea7d0e62157d7d1f028020b1075500bf483ed5ef"
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "872e29d58d95de3c92024cfa9f3ffc968a88a58a18308caac65b5ac994b73595" => :sierra
     sha256 "c2264ab5d3e0070040c9eb82ed44ff384d79d3e1c279266a1621172c44de1c0a" => :el_capitan
     sha256 "b8ad0f2ea77da1bc013fd3ea10104f3958389c76aa11fe33d4c79111a3605918" => :yosemite
     sha256 "df5cfb198d5fbdc45bf9e386ffcf25535b995ca32477afe03ca2d277443ef022" => :mavericks

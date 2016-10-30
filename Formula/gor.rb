@@ -1,43 +1,28 @@
-require "language/go"
-
 class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://gortool.com"
-  url "https://github.com/buger/gor/archive/v0.14.1.tar.gz"
-  sha256 "802c253fd5218e914e707afb7f3b79baa54871160c4085b949ef3855abfb86d5"
+  url "https://github.com/buger/gor.git",
+    :tag => "v0.15.1",
+    :revision => "967c380dc3ca1a96c6cbabd6296b0656a6546016"
   head "https://github.com/buger/gor.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "09bc8e6d7411acf4938005f0d53ab4ebbb8b7e334d03c8bc722bf392a236cf85" => :el_capitan
-    sha256 "3c790b1f23a5977c1d03a47df86e3c5bf906882283122fe3ae7fabb3d24c8406" => :yosemite
-    sha256 "a5513e92344941dcc5d683dc56b7e37897df1c4729007d38f988cfeb690fd615" => :mavericks
+    sha256 "91081c290396a2d8d52fa9f76b075af47764df3774f3a1d9a8cebdb111f0b665" => :sierra
+    sha256 "664cff81e41321a473a087aa0ca465fa8df7ddc6844c468c3445fe9fb76cb6e5" => :el_capitan
+    sha256 "07bfff5c49bdcd69bc145369d306a7b538b58586b4d6347639b92531b3074644" => :yosemite
+    sha256 "aebc9f938167cc563d674b7acaf0110cb359d854fb98689135ae9fd09be0648d" => :mavericks
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/bitly/go-hostpool" do
-    url "https://github.com/bitly/go-hostpool.git",
-      :revision => "d0e59c22a56e8dadfed24f74f452cea5a52722d2"
-  end
-
-  go_resource "github.com/buger/elastigo" do
-    url "https://github.com/buger/elastigo.git",
-      :revision => "23fcfd9db0d8be2189a98fdab77a4c90fcc3a1e9"
-  end
-
-  go_resource "github.com/google/gopacket" do
-    url "https://github.com/google/gopacket.git",
-      :revision => "f4807986c9ee46845a35c59a382d6ccd9304b320"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/buger").mkpath
-    ln_sf buildpath, buildpath/"src/github.com/buger/gor"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    system "go", "build", "-o", bin/"gor", "-ldflags", "-X main.VERSION=#{version}"
+    (buildpath/"src/github.com/buger/gor").install buildpath.children
+    cd "src/github.com/buger/gor" do
+      system "go", "build", "-o", bin/"gor", "-ldflags", "-X main.VERSION=#{version}"
+      prefix.install_metafiles
+    end
   end
 
   test do

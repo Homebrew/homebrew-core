@@ -7,7 +7,8 @@ class Mpw < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "03d033152f2da377654b0dabd823e304827fad58d08ab3c945978f61c5aba5bf" => :sierra
     sha256 "23055a80705a261f15bf1f36cce7919dda62457b06c4af1bc1137ed172aa6844" => :el_capitan
     sha256 "34b22632d5d225bcbc6b24dada0ce2b526c6739b9b0e55e9b1209f265d0a6888" => :yosemite
     sha256 "290586cc77c94562e08977227209e16b9b821cb84e068bcf748b2e0ce07bdb0f" => :mavericks

@@ -1,14 +1,14 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "http://postgis.net"
-  url "http://download.osgeo.org/postgis/source/postgis-2.2.2.tar.gz"
-  sha256 "40232391f8f66a6dc740ebb26088e568c8ccb663666998616c71c3bdaeed4163"
+  url "http://download.osgeo.org/postgis/source/postgis-2.3.0.tar.gz"
+  sha256 "0dbff06f4a196d49e5ac06ae6cc21bd5253aaa646af624c9bbf19df582d6cf55"
 
   bottle do
     cellar :any
-    sha256 "9799b754e98612772b178ca134b41100d8014cd0c752a24b1afca0f0d91b5ec8" => :el_capitan
-    sha256 "6552bf607bec50cbf5d904d2cf7cb5e912ef06f213d42125ddee62b6182d62aa" => :yosemite
-    sha256 "a56959ae06795ffbd99ff02de82bea10ea89fe40c38c09b1f903dc749b884df0" => :mavericks
+    sha256 "a3d82d9463d971744e32c4cc9573edce8b9779f44b6d97952a04f7f08fc53ee8" => :sierra
+    sha256 "5452198335564c1caaa60c5c4eae8f327069f5e7a71c389075e56e3fb56311c7" => :el_capitan
+    sha256 "dcd44048aef4ab80ca5409709326dff375be3d576873d5721b31d3d0018d0c53" => :yosemite
   end
 
   head do
@@ -35,7 +35,7 @@ class Postgis < Formula
   # For GeoJSON and raster handling
   depends_on "json-c"
   depends_on "gdal" => :recommended
-  depends_on "pcre" => :build if build.with? "gdal"
+  depends_on "pcre" if build.with? "gdal"
 
   # For advanced 2D/3D functions
   depends_on "sfcgal" => :recommended

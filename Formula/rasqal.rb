@@ -6,6 +6,7 @@ class Rasqal < Formula
 
   bottle do
     cellar :any
+    sha256 "8d57d6803a7323f9e13c45d56b3cea41f71f7dc7cab493ddf9b34d0a2a6b68f5" => :sierra
     sha256 "fa7368eb30256eb80ead76f7b551bc5980ed15ae8aa655d332a200edb073c2a3" => :el_capitan
     sha256 "c84ec1a4c837b4a30fe597c9cc728f5075764b87978c5977757e2836db3eca0b" => :yosemite
     sha256 "8bef11d9b2763b72cb5576926bd251175c2b0c4c7dec6ffc666f98720341ba27" => :mavericks

@@ -7,12 +7,13 @@ class OpenalSoft < Formula
 
   bottle do
     cellar :any
+    sha256 "7c0761d8e3bf7dab54956908b2d08a2781ef418e77db499f6b57f8193530734b" => :sierra
     sha256 "915bd92597553f3f005071fa85e08e2947fd545a4af4b5dcf514ea79320d7a99" => :el_capitan
     sha256 "643cd46bc9aa8fdf9c85aaa374d71d2dd6d18abeb674445f49d829f61dc82c4e" => :yosemite
     sha256 "819886eab2909ebcff2edb16c39ede1800ec987e193b0fdfce8d4047636fff17" => :mavericks
   end
 
-  keg_only :provided_by_osx, "OS X provides OpenAL.framework."
+  keg_only :provided_by_osx, "macOS provides OpenAL.framework."
 
   option :universal
 
@@ -21,7 +22,6 @@ class OpenalSoft < Formula
   depends_on "portaudio" => :optional
   depends_on "pulseaudio" => :optional
   depends_on "fluid-synth" => :optional
-  depends_on "qt" => :optional
 
   # llvm-gcc does not support the alignas macro
   # clang 4.2's support for alignas is incomplete

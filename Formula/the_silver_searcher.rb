@@ -1,15 +1,15 @@
 class TheSilverSearcher < Formula
   desc "Code-search similar to ack"
   homepage "https://github.com/ggreer/the_silver_searcher"
-  url "https://github.com/ggreer/the_silver_searcher/archive/0.32.0.tar.gz"
-  sha256 "c5b208572e5cfc8a3cf366e8eb337b0c673c2ffa90c1ad90dfdcbe78251ba4cc"
+  url "https://github.com/ggreer/the_silver_searcher/archive/0.33.0.tar.gz"
+  sha256 "351ab79ada811fd08f81296de10a7498ea3c46b681d73696d5a2911edbdc19db"
   head "https://github.com/ggreer/the_silver_searcher.git"
 
   bottle do
     cellar :any
-    sha256 "acfc0f9c8e62af01475d6aa60ba8821594989fd0f6a9fee32508e61b181e0ada" => :el_capitan
-    sha256 "bdfc420ce05929cab66b0d7c283e6ce68d121ae829cbfbc6c7d803215625fae0" => :yosemite
-    sha256 "c8235c0cf2b7a4a1b8f7517c72c092f8d480384684e86a33c8633caefe88eb90" => :mavericks
+    sha256 "93cf7fc6ccd17838731d2e17d2c1245181ea4f717245f1c41a12134f9c717faa" => :sierra
+    sha256 "3188f29bd255459f1b2ff50010412072eec2f9005cc377d28c555a30fe137c1d" => :el_capitan
+    sha256 "091690fe5670641952d1e2b665f1039559a0c94186e2f42790ee8f4cbdd68482" => :yosemite
   end
 
   depends_on "autoconf" => :build

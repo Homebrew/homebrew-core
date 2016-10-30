@@ -6,6 +6,7 @@ class Genstats < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "051dbb7c4f653b615b606d1fce15df9336a086e38428fcfdb2aee9f0057d8990" => :sierra
     sha256 "44502f7a2dfcb1355336db69267d6363d6e8b8767b47628b0d3099743513ed5f" => :el_capitan
     sha256 "91737ec825ed346716fddcedc4e075b195f214dfb22586a33d46f7ec5ea3a17e" => :yosemite
     sha256 "d46142a806e13029120bfb1a038805b07dc88b191aed1cd41340f5f868168f92" => :mavericks
@@ -15,18 +16,18 @@ class Genstats < Formula
 
   def install
     # Tried to make this a patch.  Applying the patch hunk would
-    # fail, even though I used "git diff | pbcopy".  Tried messing
+    # fail, even though I used "git diff | pbcopy". Tried messing
     # with whitespace, # lines, etc.  Ugh.
-    inreplace "br.cpp" do |s|
-      s.gsub! /if \(_XOPEN_VERSION >= 600\)/, "if (_XOPEN_VERSION >= 600) && !__APPLE__"
-    end
+    inreplace "br.cpp", /if \(_XOPEN_VERSION >= 600\)/,
+                        "if (_XOPEN_VERSION >= 600) && !__APPLE__"
 
     system "make"
-    bin.install("genstats")
-    man.install("genstats.1")
+    bin.install "genstats"
+    man.install "genstats.1"
   end
 
   test do
-    system "#{bin}/genstats -h | grep folkert@vanheusden.com"
+    output = shell_output("#{bin}/genstats -h", 1)
+    assert_match "folkert@vanheusden.com", output
   end
 end

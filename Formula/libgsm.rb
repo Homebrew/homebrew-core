@@ -6,7 +6,8 @@ class Libgsm < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "379e5da09c1733b6eb0cca6c33fa3332a26bb53ae09bab7739f398e644a9e7e4" => :sierra
     sha256 "d1a329a6594db0bf0d4d743bd38bda1e07e566292a32a700df6fc73f6a9739d3" => :el_capitan
     sha256 "c67758c5298dc6d36a5bb201eb42821862647aa79df0ee2824df708ac388db48" => :yosemite
     sha256 "c25d6ffc2bf063c8c824093ca83b6de17ebbca52c062c4344cddbb8b8286169c" => :mavericks

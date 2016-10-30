@@ -1,11 +1,12 @@
 class Snappy < Formula
   desc "Compression/decompression library aiming for high speed"
-  homepage "https://code.google.com/p/snappy/"
+  homepage "https://code.google.com/archive/p/snappy/"
   url "https://github.com/google/snappy/releases/download/1.1.3/snappy-1.1.3.tar.gz"
   sha256 "2f1e82adf0868c9e26a5a7a3115111b6da7e432ddbac268a7ca2fae2a247eef3"
 
   bottle do
     cellar :any
+    sha256 "cd88be1dad7f60ddbaea2ee3ad2886165108c2b944bebc83191e48e17de9820b" => :sierra
     sha256 "3afcebfc5b7d6c6b5f6bf3deaae31eb18901d6e2a678e93ce2f8b2d0def1f5a7" => :el_capitan
     sha256 "b213966add3c3acdce7f612135d9d4a0f1ef3b70ab2bd254e775b27968e14e7a" => :yosemite
     sha256 "e05b8764ffbf52ef4505471f3db46b1373d4c91be7dfb64bf29a6aff4a454f5e" => :mavericks

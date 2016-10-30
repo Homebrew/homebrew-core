@@ -7,6 +7,7 @@ class Webfs < Formula
 
   bottle do
     cellar :any
+    sha256 "cbdc088ed6befb87ecda08bf4a23a9eff3bf3d61932d98aa1f8441bb1c0fd3b5" => :sierra
     sha256 "63755af9ac88711d4eb2e80016ef541ed40a1422f2fb2de3ded5c72b362cb39e" => :el_capitan
     sha256 "51985bfb7ca68d15261a296886cf0c6b317d870bc79aadf881429101b9a11e09" => :yosemite
     sha256 "79c670478aeb8f97d702a5112fde2dab07c92145ea836c12bfdf9a1acfca4232" => :mavericks

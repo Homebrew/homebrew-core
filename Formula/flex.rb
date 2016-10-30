@@ -1,22 +1,24 @@
 class Flex < Formula
   desc "Fast Lexical Analyzer, generates Scanners (tokenizers)"
   homepage "http://flex.sourceforge.net"
-  url "https://downloads.sourceforge.net/flex/flex-2.6.0.tar.bz2"
-  sha256 "24e611ef5a4703a191012f80c1027dc9d12555183ce0ecd46f3636e587e9b8e9"
+  url "https://github.com/westes/flex/releases/download/v2.6.2/flex-2.6.2.tar.gz"
+  sha256 "9a01437a1155c799b7dc2508620564ef806ba66250c36bf5f9034b1c207cb2c9"
 
   bottle do
-    sha256 "5ff47ed93df4c58a708c88d5638180dc989e17f1ac0ef2caf13bba20d32e646a" => :el_capitan
-    sha256 "a66259c848d0afb9b825b8f3cf9a303c33e815d5ba419a1c5401342d1ff43a9f" => :yosemite
-    sha256 "b2aeeaaa2b4de481c5b4fad5e3250b5e3e878bb7dd321b5234575d2b184a86be" => :mavericks
+    sha256 "c7bcd12da4584e7d59e3801f92711820f2b9223d686326693a42da7733cd408d" => :sierra
+    sha256 "b9f443e7292fe613dca088f7c4d26bf636086bee799c0dda06d8371b6702b410" => :el_capitan
+    sha256 "637020dcd2cb5895b9da6c248e6035a3cbb91e3a310b7e71cb5f9c4ae959f149" => :yosemite
   end
 
   keg_only :provided_by_osx, "Some formulae require a newer version of flex."
 
+  depends_on "help2man" => :build
   depends_on "gettext"
 
   def install
     system "./configure", "--disable-dependency-tracking",
-                          "--disable-shared",
+                          "--disable-silent-rules",
+                          "--enable-shared",
                           "--prefix=#{prefix}"
     system "make", "install"
   end

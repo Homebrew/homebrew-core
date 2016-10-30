@@ -2,14 +2,15 @@ class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
   # *** Vim should be updated no more than once every 7 days ***
-  url "https://github.com/vim/vim/archive/v7.4.2085.tar.gz"
-  sha256 "483777e369fbd320351db7c7d827ba5cbbf60287b6028803ad3e572636298fa8"
+  url "https://github.com/vim/vim/archive/v8.0.0052.tar.gz"
+  sha256 "f2cf1d2bc77f90f6a529972f32409b56202a494345eab82a3ca64ddbe68d4627"
+
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "cb66e6c259801f8a6531abd31ccdf746161880053d20064a08a8830e08ffa5a6" => :el_capitan
-    sha256 "284f75545ff63c9ad5f5206c4ef2831785305dbf1e214388102d179ff09e6af2" => :yosemite
-    sha256 "dded7d6280ecb385200578215b896432507149f3923189d68a63c89120a7eca1" => :mavericks
+    sha256 "55031737bb40de143513ca7c2c20fd33f32a4ad111616e5f4f19caa72cdabd49" => :sierra
+    sha256 "fb8dee18c1493d391ffe58f048436ad1f990af09733c0dca920c7c42788cff60" => :el_capitan
+    sha256 "a58af8a2800709f7360251db7fa53736dc4e3e0d0c13b241a03c9c20ea35d58f" => :yosemite
   end
 
   deprecated_option "disable-nls" => "without-nls"
@@ -55,7 +56,7 @@ class Vim < Formula
     # vim doesn't require any Python package, unset PYTHONPATH.
     ENV.delete("PYTHONPATH")
 
-    if build.with?("python") && which("python").to_s == "/usr/bin/python" && !MacOS.clt_installed?
+    if build.with?("python") && which("python").to_s == "/usr/bin/python" && !MacOS::CLT.installed?
       # break -syslibpath jail
       ln_s "/System/Library/Frameworks", buildpath
       ENV.append "LDFLAGS", "-F#{buildpath}/Frameworks"
@@ -71,7 +72,7 @@ class Vim < Formula
       # only compile with either python or python3 support, but not both
       # (if vim74 is compiled with +python3/dyn, the Python[3] library lookup segfaults
       # in other words, a command like ":py3 import sys" leads to a SEGV)
-      opts -= %W[--enable-pythoninterp]
+      opts -= %w[--enable-pythoninterp]
     end
 
     opts << "--disable-nls" if build.without? "nls"
@@ -102,10 +103,13 @@ class Vim < Formula
                           "--with-compiledby=Homebrew",
                           *opts
     system "make"
+    # Parallel install could miss some symlinks
+    # https://github.com/vim/vim/issues/1031
+    ENV.deparallelize
     # If stripping the binaries is enabled, vim will segfault with
     # statically-linked interpreters like ruby
     # https://github.com/vim/vim/issues/114
-    system "make", "install", "prefix=#{prefix}", "STRIP=true"
+    system "make", "install", "prefix=#{prefix}", "STRIP=#{which "true"}"
     bin.install_symlink "vim" => "vi" if build.with? "override-system-vi"
   end
 

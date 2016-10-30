@@ -3,9 +3,11 @@ class Csmith < Formula
   homepage "https://embed.cs.utah.edu/csmith/"
   url "https://embed.cs.utah.edu/csmith/csmith-2.2.0.tar.gz"
   sha256 "62fd96d3a5228241d4f3159511ad3ff5b8c4cedb9e9a82adc935830b421c8e37"
+  head "https://github.com/csmith-project/csmith.git"
 
   bottle do
     cellar :any
+    sha256 "e7af5c8ea1d90d0cfa558ac49dc77a6ca462ca5c798be903f6740dfdc9145c69" => :sierra
     sha256 "38f7cf4e3e01431a0b2a32aa723f6862490c5f5580b389d4bad84287c1ff068e" => :el_capitan
     sha256 "66393d59fae564c88c0040f6d117d7dc5b50400614f1c0b9e235cb54053fe159" => :yosemite
     sha256 "365711b325bf93d13b6c6c6c430a7b136f4e2962ea18814213911c204db71d37" => :mavericks

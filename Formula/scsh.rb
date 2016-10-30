@@ -5,7 +5,8 @@ class Scsh < Formula
   sha256 "c4a9f7df2a0bb7a7aa3dafc918aa9e9a566d4ad33a55f0192889de172d1ddb7f"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "2f80d7fa957edf1230540c2730b62313d690c59ebd879b7b7a2645231b290bfc" => :sierra
     sha256 "637b6d2b0055ffe923f913e43efd1859124facc4e73c5315310dc3813105ea3f" => :el_capitan
     sha256 "093f70ab95855491d5a9ab8766ab11f9bee52588ccc07a30cb2e6a4fa9e81d02" => :yosemite
     sha256 "8724dac1e3adb8b2cfd881042a550477054bd7c588fc7d531bad74ff62186b34" => :mavericks

@@ -1,22 +1,21 @@
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org"
-  url "http://mirrors.ibiblio.org/apache/kafka/0.10.0.0/kafka-0.10.0.0-src.tgz"
-  mirror "https://archive.apache.org/dist/kafka/0.10.0.0/kafka-0.10.0.0-src.tgz"
-  sha256 "ed2f8f83419846ff70ff2fc1cf366ac61e803d3960043075c9faecbb9dce140b"
-
-  head "https://git-wip-us.apache.org/repos/asf/kafka.git", :branch => "trunk"
+  url "http://mirrors.ibiblio.org/apache/kafka/0.10.0.1/kafka_2.11-0.10.0.1.tgz"
+  mirror "https://archive.apache.org/dist/kafka/0.10.0.1/kafka_2.11-0.10.0.1.tgz"
+  sha256 "2d73625aeddd827c9e92eefb3c727a78455725fbca4361c221eaa05ae1fab02d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "30498aa96a9c389b480dfcf1ca8c434171aa78450091b4a4962dc0c21fb53c07" => :el_capitan
-    sha256 "1d8faddef401835986589fc13c443e2d779fefe87ff61803ff00cabf5aacf68e" => :yosemite
-    sha256 "005c78fa50a6afaa96aaf30a8e62c21fc9f922c27471a7188f085bc05818694d" => :mavericks
+    rebuild 1
+    sha256 "16b2d2ad87154ee65f7b7e90bf2344aa495e518fc41a000642bfbb37e0bc329b" => :sierra
+    sha256 "2874959d241121c73d914ea4d7b00055274d1bbeb4680d899e80243095c5d523" => :el_capitan
+    sha256 "16b2d2ad87154ee65f7b7e90bf2344aa495e518fc41a000642bfbb37e0bc329b" => :yosemite
+    sha256 "16b2d2ad87154ee65f7b7e90bf2344aa495e518fc41a000642bfbb37e0bc329b" => :mavericks
   end
 
-  depends_on "gradle"
   depends_on "zookeeper"
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8+"
 
   # Related to https://issues.apache.org/jira/browse/KAFKA-2034
   # Since Kafka does not currently set the source or target compability version inside build.gradle
@@ -29,9 +28,6 @@ class Kafka < Formula
   def install
     ENV.java_cache
 
-    system "gradle"
-    system "gradle", "jar"
-
     data = var/"lib"
     inreplace "config/server.properties",
       "log.dirs=/tmp/kafka-logs", "log.dirs=#{data}/kafka-logs"
@@ -39,16 +35,13 @@ class Kafka < Formula
     inreplace "config/zookeeper.properties",
       "dataDir=/tmp/zookeeper", "dataDir=#{data}/zookeeper"
 
-    # Workaround for conflicting slf4j-log4j12 jars (1.7.10 is preferred)
-    rm_f "core/build/dependant-libs-2.10.5/slf4j-log4j12-1.7.6.jar"
-
     # remove Windows scripts
     rm_rf "bin/windows"
 
-    libexec.install %w[clients core examples]
+    libexec.install "libs"
 
     prefix.install "bin"
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.7+"))
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8+"))
     Dir["#{bin}/*.sh"].each { |f| mv f, f.to_s.gsub(/.sh$/, "") }
 
     mv "config", "kafka"
@@ -99,26 +92,27 @@ class Kafka < Formula
 
     begin
       fork do
-        exec "#{bin}/zookeeper-server-start #{testpath}/kafka/zookeeper.properties >/dev/null"
+        exec "#{bin}/zookeeper-server-start #{testpath}/kafka/zookeeper.properties > #{logs}/test.zookeeper-server-start.log 2>&1"
       end
 
-      sleep 5
+      sleep 15
 
       fork do
-        exec "#{bin}/kafka-server-start #{testpath}/kafka/server.properties >/dev/null"
+        exec "#{bin}/kafka-server-start #{testpath}/kafka/server.properties > #{logs}/test.kafka-server-start.log 2>&1"
       end
 
-      sleep 5
+      sleep 30
 
-      @demo_pid = fork do
-        exec "#{libexec}/examples/bin/java-producer-consumer-demo.sh > #{testpath}/kafka/demo.out 2>/dev/null"
-      end
-
-      sleep 5
+      system "#{bin}/kafka-topics --zookeeper localhost:2181 --create --if-not-exists --replication-factor 1 --partitions 1 --topic test > #{testpath}/kafka/demo.out 2>/dev/null"
+      system "echo \"test message\" | #{bin}/kafka-console-producer --broker-list localhost:9092 --topic test 2>/dev/null"
+      system "#{bin}/kafka-console-consumer --zookeeper localhost:2181 --topic test --from-beginning --max-messages 1 >> #{testpath}/kafka/demo.out 2>/dev/null"
+      system "#{bin}/kafka-topics --zookeeper localhost:2181 --delete --topic test >> #{testpath}/kafka/demo.out 2>/dev/null"
     ensure
-      quiet_system "pkill", "-9", "-f", "#{testpath}/kafka/"
+      system "#{bin}/kafka-server-stop"
+      system "#{bin}/zookeeper-server-stop"
+      sleep 10
     end
 
-    assert_match "Received message: ", IO.read("#{testpath}/kafka/demo.out")
+    assert_match /test message/, IO.read("#{testpath}/kafka/demo.out")
   end
 end

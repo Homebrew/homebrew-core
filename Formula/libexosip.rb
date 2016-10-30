@@ -6,7 +6,8 @@ class Libexosip < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "c1665d6b10cabe50e94316f589ceadd23a851f989c2eff52a532df04870f7cc3" => :sierra
     sha256 "ed64379360adbbb2bd5c775891faad36bf6203df14c80a44f8a7f8352b050ae9" => :el_capitan
     sha256 "c77e33eeb31833d443251338d84044ee2ce87863fc4de36604685aaf002057e9" => :yosemite
     sha256 "f650ff7155a07782e895d7c5c6f5f85fcd8dc44e5080be6249a8cc3dad78a4a6" => :mavericks
@@ -18,7 +19,7 @@ class Libexosip < Formula
   depends_on "openssl"
 
   def install
-    # Extra linker flags are needed to build this on Mac OS X. See:
+    # Extra linker flags are needed to build this on macOS. See:
     # https://growingshoot.blogspot.com/2013/02/manually-install-osip-and-exosip-as.html
     # Upstream bug ticket: https://savannah.nongnu.org/bugs/index.php?45079
     ENV.append "LDFLAGS", "-framework CoreFoundation -framework CoreServices "\

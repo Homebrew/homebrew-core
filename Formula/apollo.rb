@@ -7,6 +7,7 @@ class Apollo < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "dfc1a0470c8680c940c16aafdf2fa062e75ca86f0f6a233ee5db1b4c6641322b" => :sierra
     sha256 "146dd562ab5633b9c0ad828454ab286c14401c12aa0be8cc43ccf3a9a384f356" => :el_capitan
     sha256 "b8a694359a6d00622a1c09b760974bad45a6d800426f74c1bd5e727cac8a6f0a" => :yosemite
     sha256 "bed6c5eee098ede0d6ad87fb12a4076dfa06149ceceb607a7633e00b3b9e2cec" => :mavericks

@@ -7,6 +7,7 @@ class Norm < Formula
 
   bottle do
     cellar :any
+    sha256 "a23a43d211bccabe0df629618f53acf41d6250d1fc85111397d769f007d30b9f" => :sierra
     sha256 "985bbdc34e0f8f16f2d377bea4c0442abb0f7cbaf67b56cb40b924bb09c394b5" => :el_capitan
     sha256 "2c165178bfce5879bb6e031b4d54f741cad2868d67b03783f89a13d15503f28d" => :yosemite
     sha256 "b5f802ff09e68b712f472f45aea9b634f6c45868bccaf708d565ff98a95b145e" => :mavericks

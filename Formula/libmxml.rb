@@ -8,6 +8,7 @@ class Libmxml < Formula
 
   bottle do
     cellar :any
+    sha256 "09996d5f7f65b41706c42092a5a55e81b387a30f932741ebc3cab7afe27d72f3" => :sierra
     sha256 "9cb1dd58ac3f4e3ec51a78bce4ca142eafb12cfc6a890fd3eef7f4613ef70aba" => :el_capitan
     sha256 "804da1287c900a1938f8360bf5df961fa85de040ea85fd0ad6490b7f30373af1" => :yosemite
     sha256 "d92c245dcf1edb8c4d218f7506748cced58a5c5a7b7cefb9632ef22958ae7abc" => :mavericks

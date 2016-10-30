@@ -13,8 +13,6 @@ class Tevent < Formula
   depends_on "pkg-config" => :build
   depends_on "talloc"
 
-  conflicts_with "samba", :because => "both install `include/tevent.h`"
-
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-rpath",

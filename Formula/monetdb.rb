@@ -16,13 +16,13 @@ end
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Jun2016/MonetDB-11.23.3.zip"
-  sha256 "f34e92b2702b8c6c50ccc35cb030b074bdf19f3eb68487968402ced07a76c63c"
+  url "https://www.monetdb.org/downloads/sources/Jun2016-SP2/MonetDB-11.23.13.zip"
+  sha256 "596beca727303b4419916faa00a5613229f0a753a839b71cde6327226e105045"
 
   bottle do
-    sha256 "9e4fe9ea41c4adb006374dde5998b0cbca7a64d4ae37b1f380a60e97a753c7ad" => :el_capitan
-    sha256 "8fa9e1325966f47d2a0533a1c4e39d40fd0f8b580a7888790e556b63a1e4d1ad" => :yosemite
-    sha256 "4d11db1121dab0e69f5003a6f235fe3204f90536ca231f6580eadab0f87138ca" => :mavericks
+    sha256 "d66d65bde17e3bc07b115653d0f68ed94089c0ebbfc1770a4e1cea4ed87279f2" => :sierra
+    sha256 "77611fda0d1254f0f517c611c8c0cbbca48b7f7adf653198970a7a888e0d87d0" => :el_capitan
+    sha256 "5983ca877dfc2c0859062f091755aceadddd92b6571594f376a2de91da6e710c" => :yosemite
   end
 
   head do
@@ -50,7 +50,7 @@ class Monetdb < Formula
   depends_on "unixodbc" => :optional # Build the ODBC driver
   depends_on "geos" => :optional # Build the GEOM module
   depends_on "gsl" => :optional
-  depends_on "cfitsio" => :optional
+  depends_on "homebrew/science/cfitsio" => :optional
   depends_on "homebrew/php/libsphinxclient" => :optional
 
   def install

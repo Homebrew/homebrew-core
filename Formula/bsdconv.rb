@@ -1,14 +1,14 @@
 class Bsdconv < Formula
   desc "Charset/encoding converter library"
   homepage "https://github.com/buganini/bsdconv"
-  url "https://github.com/buganini/bsdconv/archive/11.4.tar.gz"
-  sha256 "61919c8a7bae973794ef8b13c7e105ae4570cd832851570ca76a47c731cade6c"
+  url "https://github.com/buganini/bsdconv/archive/11.5.tar.gz"
+  sha256 "20137c6937a5785467296e12b18b1b9dff55f021bae3f3eb3eb4fa5826689692"
   head "https://github.com/buganini/bsdconv.git"
 
   bottle do
-    sha256 "631f10fd9413f137ba6978cc977fdaee18f0fd349990f9d1aef6d70b3761d885" => :el_capitan
-    sha256 "12ddfed17d5d21c304508b6d1534097b2075c5f934012c0428e037f288881d79" => :yosemite
-    sha256 "29b9fbe96e4c69dd7b24aab2d810fda568ff82500a2535b7ea484a24c5a84c22" => :mavericks
+    sha256 "9afd5dd285b98bf656bbd0e29fa3594128a312e525e079e4348b1a706e16b16a" => :sierra
+    sha256 "565a934e96be6ef7726d1c03dbd6eec63ac5ad82678192b544cfe2bff706b1b7" => :el_capitan
+    sha256 "ccb11937d94df29b9434925b9416291f9d927c2e4669fb39cad96c47912662e5" => :yosemite
   end
 
   def install

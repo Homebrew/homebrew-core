@@ -10,7 +10,8 @@ class Ksh < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 3
+    rebuild 3
+    sha256 "37a9f6c57702896fabe762fe90ebe454f04f3523aea311a28d34dc884d53736e" => :sierra
     sha256 "5148e18444c7f1a4e7b71f72982362491aa5581101296acaa6d9c2a782d620b1" => :el_capitan
     sha256 "13f85c7df7f44b68f1e5560c05b61eff8145230d94986537bdee5702c1e72e68" => :yosemite
     sha256 "7c665466fb323fc0cb6ffb87ec9fe1630d75afcd3b12864e2424677473db4924" => :mavericks

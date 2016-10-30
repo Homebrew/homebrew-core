@@ -1,13 +1,13 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.13.tar.gz"
-  sha256 "2a768682c37dfbca286912bd137f1a526075ac1f00a6a46da8b6fe63f6fcfa37"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.16.tar.gz"
+  sha256 "43fc282f807353ff77ead21efb5f85f7f214c2a5362762a8cc370ae1c075095a"
 
   bottle do
-    sha256 "071ef959bbcacd87cf2e1f605f169bd0bf3a1c7df091a3b83e0f67931e187804" => :el_capitan
-    sha256 "db5937fc10d3aa7423bf5acc1d9c97517d6544a18369c38d975fd218a9dd9081" => :yosemite
-    sha256 "d25f2e5b6b45825679115c2edd7420f9b0a5b61f5ffd8c59e99b5c6bda244a84" => :mavericks
+    sha256 "347bf9920c6f8ee4d45326202be8f1d17c7e96fa8958d06b591beecd8680c982" => :sierra
+    sha256 "db26903bbe1db44dbd431481bd486d20dea0cca8f4b422a8b34e447b1d39be98" => :el_capitan
+    sha256 "7c1d5b17b089108c01e0c5679382709cd43544c75136a563dafb98b820f278a5" => :yosemite
   end
 
   option "with-test", "Build with unit tests"
@@ -59,10 +59,6 @@ class Mysql < Formula
 
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
-      .
-      -DCMAKE_INSTALL_PREFIX=#{prefix}
-      -DCMAKE_FIND_FRAMEWORK=LAST
-      -DCMAKE_VERBOSE_MAKEFILE=ON
       -DMYSQL_DATADIR=#{datadir}
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_MANDIR=share/man
@@ -107,7 +103,7 @@ class Mysql < Formula
     # Build with debug support
     args << "-DWITH_DEBUG=1" if build.with? "debug"
 
-    system "cmake", *args
+    system "cmake", ".", *std_cmake_args, *args
     system "make"
     system "make", "install"
 

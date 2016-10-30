@@ -6,6 +6,7 @@ class Doxymacs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2fd3dc59a8c0c8fdccf8195265d320aaa7b5d67e9a81b5a085f27cc287e7370e" => :sierra
     sha256 "fb892db831aed57dbdcb2d3a81d78bd05c5b689376d4b7f14bffc56826205ce9" => :el_capitan
     sha256 "09eb19921c2ecce5bb02b185c1040caef07d18706866006bdd5fa428bf6b8560" => :yosemite
     sha256 "9efc35f7eee0ff431afbd36367676afb608498f823e6094b67d4c86d83694dd4" => :mavericks

@@ -1,8 +1,8 @@
 class Autoenv < Formula
   desc "Per-project, per-directory shell environments"
   homepage "https://github.com/kennethreitz/autoenv"
-  url "https://github.com/kennethreitz/autoenv/archive/v0.1.0.tar.gz"
-  sha256 "5e0fb3af642ee54b050b9d04f7f32fef1c6db14a6a3b6c6d05796b5681aeec90"
+  url "https://github.com/kennethreitz/autoenv/archive/v0.2.1.tar.gz"
+  sha256 "d10ee4d916a11a664453e60864294fec221c353f8ad798aa0aa6a2d2c5d5b318"
   head "https://github.com/kennethreitz/autoenv.git"
 
   bottle :unneeded

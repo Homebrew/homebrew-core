@@ -6,6 +6,7 @@ class Clasp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fec91223d62f98ad2b60ebb984eef0183112bea4b2d0c45220ed9061f191c7f8" => :sierra
     sha256 "c1c8dff2446da52ad0d87fc53f14065ef9d92e6a66d27ecd8ed3e7619b6bddea" => :el_capitan
     sha256 "1cb2579b887870f73fc216c474e841951b01ff26f120273bf536665403f65826" => :yosemite
     sha256 "06c9bce4ff95e45e4fb78351c658f2d4bbc80fadd2db581e6b9673ec383d4755" => :mavericks

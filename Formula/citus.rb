@@ -1,18 +1,20 @@
 class Citus < Formula
   desc "PostgreSQL-based distributed RDBMS"
   homepage "https://www.citusdata.com"
-  url "https://github.com/citusdata/citus/archive/v5.1.1.tar.gz"
-  sha256 "4c7e1f18a2d919c86b292b137b6f113fc868e64ff1d09a519a2bd5b870365389"
+  url "https://github.com/citusdata/citus/archive/v5.2.1.tar.gz"
+  sha256 "5014839eb7f20b1bd338e482340faedbd8162979992a6475d5dfea516dd0657c"
+  revision 1
 
   head "https://github.com/citusdata/citus.git"
 
   bottle do
-    sha256 "bb8b3fba00eb45ae15601ebba7ba37473b008f9aadc6e5415cb435763d72d9e1" => :el_capitan
-    sha256 "be143c0fce998109ceeda5cf1959b8e79722d843e2dcedbd79b7f359a9294ecd" => :yosemite
-    sha256 "f05dab8a33f80461bfe47497bff04c40238f318d4768404c61ce06afc46c547c" => :mavericks
+    sha256 "248d1bfa9264e8ae94b8a32bc473cfd8e0ef974c9d5f9ef43feda5cfdfba062d" => :sierra
+    sha256 "36359a493cc1ffc4abdf0908fb9760544fb2562b180d79eb3e5fbf2f08967659" => :el_capitan
+    sha256 "9a393831dad5bf98b08414d17f4779ca6759fbe77246f02e50d0b88d92cd3e11" => :yosemite
   end
 
   depends_on "postgresql"
+  depends_on "readline"
 
   def install
     ENV["PG_CONFIG"] = Formula["postgresql"].opt_bin/"pg_config"

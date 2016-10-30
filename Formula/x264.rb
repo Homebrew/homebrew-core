@@ -2,35 +2,31 @@ class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
   # the latest commit on the stable branch
-  url "https://git.videolan.org/git/x264.git", :revision => "fd2c324731c2199e502ded9eff723d29c6eafe0b"
-  version "r2668"
-
+  url "https://git.videolan.org/git/x264.git", :revision => "a5e06b9a435852f0125de4ecb198ad47340483fa"
+  version "r2699"
   head "https://git.videolan.org/git/x264.git"
 
   bottle do
     cellar :any
-    sha256 "8dd89dfa62eb8837f1a49450e7f6069502f49426ec4ea79357e980f534ea3e7a" => :el_capitan
-    sha256 "edc6732b61f996968cc07c591cb17a5b4358a0db400c69e881c0559f6cf41ef8" => :yosemite
-    sha256 "a64a08088aef050f6fc27f97a5bb411c9d75d94c0b9c1f0c8dfd99cdb7f1f4c9" => :mavericks
+    sha256 "48bbe37f3d559cf62baa2da53c6beaf62dc586e425851c8f9325213a81653ebd" => :sierra
+    sha256 "749cf0abb596388079ccfc482060b61d40b381234c3f55f70664a21b87750b7d" => :el_capitan
+    sha256 "25ae640bda892a1da820d7f8ab195fc441f439fb78fe9015bdbfa3dbbf5ad1d9" => :yosemite
+    sha256 "ad6ba164deab0b1bd7cd19677c83d994522228e262fe3026aca321540da49e5c" => :mavericks
   end
 
   devel do
     # the latest commit on the master branch
-    url "https://git.videolan.org/git/x264.git", :revision => "3b70645597bea052d2398005bc723212aeea6875"
-    version "r2694"
+    url "https://git.videolan.org/git/x264.git", :revision => "3f5ed56d4105f68c01b86f94f41bb9bbefa3433b"
+    version "r2705"
   end
 
   option "with-10-bit", "Build a 10-bit x264 (default: 8-bit)"
-  option "with-mp4=", "Select mp4 output: none (default), l-smash or gpac"
+  option "with-l-smash", "Build CLI with l-smash mp4 output"
 
   depends_on "yasm" => :build
+  depends_on "l-smash" => :optional
 
   deprecated_option "10-bit" => "with-10-bit"
-
-  case ARGV.value "with-mp4"
-  when "l-smash" then depends_on "l-smash"
-  when "gpac" then depends_on "gpac"
-  end
 
   def install
     args = %W[
@@ -39,11 +35,7 @@ class X264 < Formula
       --enable-static
       --enable-strip
     ]
-    if Formula["l-smash"].installed?
-      args << "--disable-gpac"
-    elsif Formula["gpac"].installed?
-      args << "--disable-lsmash"
-    end
+    args << "--disable-lsmash" if build.without? "l-smash"
     args << "--bit-depth=10" if build.with? "10-bit"
 
     system "./configure", *args

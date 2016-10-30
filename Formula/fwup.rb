@@ -1,16 +1,17 @@
 class Fwup < Formula
   desc "Configurable embedded Linux firmware update creator and runner"
   homepage "https://github.com/fhunleth/fwup"
-  url "https://github.com/fhunleth/fwup/releases/download/v0.8.0/fwup-0.8.0.tar.gz"
-  sha256 "9d249cb8b73919eec85645e31d9ba346b1d02e297d747d969c2ba5dff9d2a12a"
+  url "https://github.com/fhunleth/fwup/releases/download/v0.10.0/fwup-0.10.0.tar.gz"
+  sha256 "a02f81854d8b79fea4376c08da006f8abe8acfd60614f5a5f1f62530e7e11e3e"
 
   bottle do
     cellar :any
-    sha256 "590bfdf523902eec53518ca36a1913a32b42080b8533b588a1116d2e33197263" => :el_capitan
-    sha256 "aeb822c13562919113be2cf8b55214776a338021b6270b3f45505faf585c0fe1" => :yosemite
-    sha256 "5fe1615e422ccfe484aa81c8d7cbdd6a7cc59b86bb14d5965cac9c03a771a76c" => :mavericks
+    sha256 "c3c4b84433e771109905667a4d5e943c2c50f14221160cb557889d557641a57e" => :sierra
+    sha256 "9acdc7499a2b9fef038205fcf7d251ea053017d6d094cf6e6c76a69cabe26e3e" => :el_capitan
+    sha256 "ba275992d4a87671252afbd99012e58838954829b90709f085a6038982f2532b" => :yosemite
   end
 
+  depends_on "pkg-config" => :build
   depends_on "confuse"
   depends_on "libarchive"
   depends_on "libsodium"
@@ -21,8 +22,8 @@ class Fwup < Formula
   end
 
   test do
-    system "#{bin}/fwup", "-g"
-    assert File.exist?("fwup-key.priv")
-    assert File.exist?("fwup-key.pub")
+    system bin/"fwup", "-g"
+    assert File.exist?("fwup-key.priv"), "Failed to create fwup-key.priv!"
+    assert File.exist?("fwup-key.pub"), "Failed to create fwup-key.pub!"
   end
 end

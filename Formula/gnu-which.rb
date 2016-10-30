@@ -8,6 +8,7 @@ class GnuWhich < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ad546f7de7825dfbadcfbadd27a493d8acdb44c4a7a6855d02473ef96fb2f716" => :sierra
     sha256 "c7ed10cf7ef215ef098e2e340d1f491037080acac59a38ade51088ebc09e71c4" => :el_capitan
     sha256 "469d61be66afe0da2758838d1bde62544a661691568eaa30bc4f5abc16402efc" => :yosemite
     sha256 "b2649bbc23e1b180e3a7b9d4f88765d674696468904b246d253a7ca39106af61" => :mavericks

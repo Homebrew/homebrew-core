@@ -5,6 +5,7 @@ class ClutterGst < Formula
   sha256 "0aec0d0c6020cd19a5bb0dab1165a92748f81a9a3acdfabb0f966d5f53bc8093"
 
   bottle do
+    sha256 "10d632bb4e211442e52ef4bf02286dc9d22dbc93c8c0879c817a822258d77570" => :sierra
     sha256 "23589497f145c4cbebab2f7aa06dabc1f651179f36abbfa7dbc5e982facc37fa" => :el_capitan
     sha256 "2885b0c1cf9e0aa2dfc5594f8f63f788cb8d9195da1e39adf953a9589160d51b" => :yosemite
     sha256 "208eac2d1030241bd5ac8063c50b4019a1c0298b600225e66e5cd2e65207ee4d" => :mavericks

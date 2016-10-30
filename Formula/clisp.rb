@@ -4,12 +4,12 @@ class Clisp < Formula
   url "https://ftpmirror.gnu.org/clisp/release/2.49/clisp-2.49.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/clisp/release/2.49/clisp-2.49.tar.bz2"
   sha256 "8132ff353afaa70e6b19367a25ae3d5a43627279c25647c220641fed00f8e890"
+  revision 1
 
   bottle do
-    sha256 "68169046c3d5465c905375645b363d549812b4d543764a0eee5a7f4aeacba6cc" => :el_capitan
-    sha256 "cbd72b99874b8a53da52938f41122e741cccb1e300c2bbf3175f6cefbe48a100" => :yosemite
-    sha256 "00d23db5b9accb0072a1b14d6adf1ddfd11112c5c36faa7e68c03f2727aa3be9" => :mavericks
-    sha256 "4acc75971d4dd0a316586b38cfa53162887104a9e9a33a0ca26134a3696307e0" => :mountain_lion
+    sha256 "dd77ffe7a77e9bdb8cc57a11d923108c4967229feb214e511a5a1866a1f7ec50" => :sierra
+    sha256 "c4503ba2f9fcc24cb8415179db6a7437bfa8e1cab25b619fcb7be8e2770e9fe6" => :el_capitan
+    sha256 "7335dec5039d4bf0f56cf75521834d93caca2f36fcf45e42fe489964fa7d0c49" => :yosemite
   end
 
   depends_on "libsigsegv"
@@ -34,6 +34,10 @@ class Clisp < Formula
     # Clisp requires to select word size explicitly this way,
     # set it in CFLAGS won't work.
     ENV["CC"] = "#{ENV.cc} -m#{MacOS.prefer_64_bit? ? 64 : 32}"
+
+    # Work around "configure: error: unrecognized option: `--elispdir"
+    # Upstream issue 16 Aug 2016 https://sourceforge.net/p/clisp/bugs/680/
+    inreplace "src/makemake.in", "${datarootdir}/emacs/site-lisp", elisp
 
     system "./configure", "--prefix=#{prefix}",
                           "--with-readline=yes"

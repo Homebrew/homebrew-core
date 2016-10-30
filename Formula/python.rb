@@ -3,20 +3,29 @@ class Python < Formula
   homepage "https://www.python.org"
   url "https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz"
   sha256 "d7837121dd5652a05fef807c361909d255d173280c4e1a4ded94d73d80a1f978"
+  revision 2
+
   head "https://hg.python.org/cpython", :using => :hg, :branch => "2.7"
 
   bottle do
-    sha256 "b4779ada60f6809a6f12369a407e366a8ffc4660a29446525e23108fd5da91a9" => :el_capitan
-    sha256 "b222252c54e4407258b6c53a3402aac61b8901447414f1f5ffe0d79f568c7014" => :yosemite
-    sha256 "1ce2d4130a8924254c41e4ad5a31a549ac574d1a77593a5f7a1b3ecdbb18552b" => :mavericks
+    sha256 "2ac20b04ff599f02e950431622943f2c92e70e85c097f645265adaf4dd8c6a31" => :sierra
+    sha256 "ed692ad5e13437a751dce19865989ce7e3344402aa38496db3e78ab179121197" => :el_capitan
+    sha256 "834c7ac3ce19df12cb4fb9cbb1cae0c7fbdcaf33a9141dc1c3791ab801df27f0" => :yosemite
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
   # More details in: https://github.com/Homebrew/homebrew/pull/32368
   option :universal
   option "with-quicktest", "Run `make quicktest` after the build (for devs; may fail)"
-  option "with-tcl-tk", "Use Homebrew's Tk instead of OS X Tk (has optional Cocoa and threads support)"
-  option "with-poll", "Enable select.poll, which is not fully implemented on OS X (https://bugs.python.org/issue5154)"
+  option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
+  option "with-poll", "Enable select.poll, which is not fully implemented on macOS (https://bugs.python.org/issue5154)"
+
+  # sphinx-doc depends on python, but on 10.6 or earlier python is fulfilled by
+  # brew, which would lead to circular dependency.
+  if MacOS.version > :snow_leopard
+    option "with-sphinx-doc", "Build HTML documentation"
+    depends_on "sphinx-doc" => [:build, :optional]
+  end
 
   deprecated_option "quicktest" => "with-quicktest"
   deprecated_option "with-brewed-tk" => "with-tcl-tk"
@@ -60,6 +69,15 @@ class Python < Formula
     sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
   end
 
+  # Patch for building universal binaries on macOS 10.12 and 10.11 with Xcode 8
+  # https://bugs.python.org/issue27806
+  if build.universal? && DevelopmentTools.clang_build_version >= 800
+    patch do
+      url "https://hg.python.org/cpython/raw-rev/4030300fcb18"
+      sha256 "e0625b20675d892abc3e0e9a58a4627b94e6ded017f352f55b7c91e214fbd248"
+    end
+  end
+
   def lib_cellar
     prefix/"Frameworks/Python.framework/Versions/2.7/lib/python2.7"
   end
@@ -85,8 +103,10 @@ class Python < Formula
   end
 
   def install
+    ENV.permit_weak_imports
+
     if build.with? "poll"
-      opoo "The given option --with-poll enables a somewhat broken poll() on OS X (https://bugs.python.org/issue5154)."
+      opoo "The given option --with-poll enables a somewhat broken poll() on macOS (https://bugs.python.org/issue5154)."
     end
 
     # Unset these so that installing pip and setuptools puts them where we want
@@ -138,10 +158,16 @@ class Python < Formula
       args << "--enable-universalsdk=/" << "--with-universal-archs=intel"
     end
 
-    # Allow sqlite3 module to load extensions:
-    # https://docs.python.org/library/sqlite3.html#f1
     if build.with? "sqlite"
-      inreplace("setup.py", 'sqlite_defines.append(("SQLITE_OMIT_LOAD_EXTENSION", "1"))', "")
+      inreplace "setup.py" do |s|
+        s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
+        s.gsub! "for d_ in inc_dirs + sqlite_inc_paths:",
+                "for d_ in ['#{Formula["sqlite"].opt_include}']:"
+
+        # Allow sqlite3 module to load extensions:
+        # https://docs.python.org/library/sqlite3.html#f1
+        s.gsub! 'sqlite_defines.append(("SQLITE_OMIT_LOAD_EXTENSION", "1"))', ""
+      end
     end
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
@@ -164,7 +190,7 @@ class Python < Formula
 
     system "./configure", *args
 
-    # HAVE_POLL is "broken" on OS X. See:
+    # HAVE_POLL is "broken" on macOS. See:
     # https://trac.macports.org/ticket/18376
     # https://bugs.python.org/issue5154
     if build.without? "poll"
@@ -172,16 +198,15 @@ class Python < Formula
     end
 
     system "make"
+    if build.with?("quicktest") || build.bottle?
+      system "make", "quicktest", "TESTPYTHONOPTS=-s", "TESTOPTS=-j#{ENV.make_jobs} -w"
+    end
 
-    ENV.deparallelize # installs must be serialized
-    # Tell Python not to install into /Applications
-    system "make", "install", "PYTHONAPPSDIR=#{prefix}"
-    # Demos and Tools
-    system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
-    system "make", "quicktest" if build.with? "quicktest"
-
-    # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
-    (lib/"pkgconfig").install_symlink Dir["#{frameworks}/Python.framework/Versions/Current/lib/pkgconfig/*"]
+    ENV.deparallelize do
+      # Tell Python not to install into /Applications
+      system "make", "install", "PYTHONAPPSDIR=#{prefix}"
+      system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
+    end
 
     # Fixes setting Python build flags for certain software
     # See: https://github.com/Homebrew/homebrew/pull/20182
@@ -191,12 +216,28 @@ class Python < Formula
         "-u _PyMac_Error $(PYTHONFRAMEWORKINSTALLDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK)"
     end
 
+    # Prevent third-party packages from building against fragile Cellar paths
+    inreplace [lib_cellar/"_sysconfigdata.py",
+               lib_cellar/"config/Makefile",
+               frameworks/"Python.framework/Versions/Current/lib/pkgconfig/python-2.7.pc"],
+              prefix, opt_prefix
+
+    # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
+    (lib/"pkgconfig").install_symlink Dir[frameworks/"Python.framework/Versions/Current/lib/pkgconfig/*"]
+
     # Remove the site-packages that Python created in its Cellar.
     site_packages_cellar.rmtree
 
     (libexec/"setuptools").install resource("setuptools")
     (libexec/"pip").install resource("pip")
     (libexec/"wheel").install resource("wheel")
+
+    if MacOS.version > :snow_leopard && build.with?("sphinx-doc")
+      cd "Doc" do
+        system "make", "html"
+        doc.install Dir["build/html/*"]
+      end
+    end
   end
 
   def post_install
@@ -268,7 +309,7 @@ class Python < Formula
     <<-EOF.undent
       # This file is created by Homebrew and is executed on each python startup.
       # Don't print from here, or else python command line scripts may fail!
-      # <https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md>
+      # <https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md>
       import re
       import os
       import sys
@@ -324,7 +365,7 @@ class Python < Formula
     They will install into the site-package directory
       #{site_packages}
 
-    See: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md
+    See: https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md
     EOS
   end
 

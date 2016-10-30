@@ -1,13 +1,13 @@
 class Gupnp < Formula
   desc "Framework for creating UPnP devices and control points"
   homepage "https://wiki.gnome.org/Projects/GUPnP"
-  url "https://download.gnome.org/sources/gupnp/0.20/gupnp-0.20.18.tar.xz"
-  sha256 "c5e0e11061f8d0ff9c8dccc196f39c45a49c0153c9a72abf6290ab34d1cbb021"
+  url "https://download.gnome.org/sources/gupnp/1.0/gupnp-1.0.1.tar.xz"
+  sha256 "934584cc1b361bf251a5ac271ffb1995a3c6426ce44cb64f9c6d779f2af9a6d9"
 
   bottle do
-    sha256 "d001100930682f16f02be41260e241eb36293917cd04e2ebf51ebdf17565e8f3" => :el_capitan
-    sha256 "b4cfe76606af6c4742552451854828bf4878af685c76c7702b5fa7cf92a67c38" => :yosemite
-    sha256 "79e1a069bf64d7281e09bd21b3ffee1155aab0760e733d18d0f15a6c5fd94e8c" => :mavericks
+    sha256 "6f83d007931b5cf9e272d1338e3f1d054aa28cdba9de39464a6ccac88bff5927" => :sierra
+    sha256 "372473313c01e897c81dd9d8d59d55ac1bc025c84e9df406343d60f4133a69c9" => :el_capitan
+    sha256 "75e0f3e4997c7f3e98ab47112df8fe2afc6d57c77ca057a7e3eea3d3c7bfd64f" => :yosemite
   end
 
   head do
@@ -26,13 +26,6 @@ class Gupnp < Formula
   depends_on "glib"
   depends_on "libsoup"
   depends_on "gssdp"
-
-  # REVIEW: if patch was applied in the next release
-  # https://github.com/GNOME/gupnp/pull/1
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/51584eb/gupnp/patch-osx-uuid.diff"
-    sha256 "9cca169cc830c331ac4246e0e87f5c0b47a85b045c4a0de7cd4999d89d2ab5ce"
-  end
 
   def install
     args = %W[

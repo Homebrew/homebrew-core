@@ -27,7 +27,7 @@ class Libetonyek < Formula
       ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
       system "./configure", "--prefix=#{libexec}", "--enable-modules=no"
       system "make"
-      system "make install"
+      system "make", "install"
     end
 
     ENV["LANGTAG_CFLAGS"] = "-I#{libexec}/include"

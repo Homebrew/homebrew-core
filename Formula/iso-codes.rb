@@ -1,16 +1,16 @@
 class IsoCodes < Formula
   desc "Provides lists of various ISO standards"
   homepage "https://pkg-isocodes.alioth.debian.org/"
-  url "https://pkg-isocodes.alioth.debian.org/downloads/iso-codes-3.68.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/iso-codes/iso-codes_3.68.orig.tar.xz"
-  sha256 "5881cf7caa5adfffb14ade99138949324c28a277babe8d07dafbff521acef9d1"
+  url "https://pkg-isocodes.alioth.debian.org/downloads/iso-codes-3.70.tar.xz"
+  sha256 "41e2fbaec2ed57e767b94f175d0dcd31b627aeb23b75cd604605a6fb6109d61f"
   head "https://anonscm.debian.org/git/pkg-isocodes/iso-codes.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef21da74993d57980282de773b910ba1c5cc132169489c20eff7031561f1c269" => :el_capitan
-    sha256 "6079021c10658f3f3d03782c860209dea068f7ee9258bd42db35e42914ba0ce5" => :yosemite
-    sha256 "53cac9a91c95fdc9a066c0af51e0405f486fb1f3bc07d9cb1b8cbe5249c2ab13" => :mavericks
+    sha256 "3a24458ee3c2e50301a6a12b055bed0a32b99b2f8ae3391d9a3b84499b5043d2" => :sierra
+    sha256 "a96158544c05f0922ef214646106f4bb6d36e036dd9ce19a8b6b145fb0e2fb26" => :el_capitan
+    sha256 "3a24458ee3c2e50301a6a12b055bed0a32b99b2f8ae3391d9a3b84499b5043d2" => :yosemite
+    sha256 "3a24458ee3c2e50301a6a12b055bed0a32b99b2f8ae3391d9a3b84499b5043d2" => :mavericks
   end
 
   depends_on "gettext" => :build

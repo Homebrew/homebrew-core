@@ -1,28 +1,38 @@
 class Python3 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
+  revision 3
 
   head "https://hg.python.org/cpython", :using => :hg
 
   stable do
     url "https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz"
     sha256 "0010f56100b9b74259ebcd5d4b295a32324b58b517403a10d1a2aa7cb22bca40"
+
+    # Patch for pyport.h macro issue
+    # https://bugs.python.org/issue10910
+    # https://trac.macports.org/ticket/44288
+    patch do
+      url "https://bugs.python.org/file30805/issue10910-workaround.txt"
+      sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
+    end
   end
 
   bottle do
-    sha256 "708bde2d223b19ef066796cc678f0498526f183992bcdf97d4945e76124b4945" => :el_capitan
-    sha256 "70559493f96e55d9c789ce496942b9dbcdacc34842b5df562d591c040d61d9f0" => :yosemite
-    sha256 "743e03b7090ffbf3b444b86babfd3c0bd739f4e89cb9aa15447fe8d55f1d8cc1" => :mavericks
+    sha256 "4a43600ceb2875c13200ace82fea1a9a119973b831f5503fa57cf8db44fbb155" => :sierra
+    sha256 "301854e1a52fd577f84015eb5ef07e0e369c794b8894fb6850ae84d9391f740e" => :el_capitan
+    sha256 "075f5e63188dfcd5a13ef1f9658b26aa2d8d943fbc5c5c50e05fc973bc38f7c1" => :yosemite
   end
 
   devel do
-    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0a3.tar.xz"
-    sha256 "2cd0611c3456a83737d99d8ffd36d4094b3d44c29dd3a4185f1146be502a8321"
+    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0b2.tar.xz"
+    sha256 "3afd4544b99933275c513f7c3d3a23e183de8e209709ed8785bbd42e2c4869ea"
   end
 
   option :universal
-  option "with-tcl-tk", "Use Homebrew's Tk instead of OS X Tk (has optional Cocoa and threads support)"
+  option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
   option "with-quicktest", "Run `make quicktest` after the build"
+  option "with-sphinx-doc", "Build HTML documentation"
 
   deprecated_option "quicktest" => "with-quicktest"
   deprecated_option "with-brewed-tk" => "with-tcl-tk"
@@ -35,13 +45,14 @@ class Python3 < Formula
   depends_on "xz" => :recommended # for the lzma module added in 3.3
   depends_on "homebrew/dupes/tcl-tk" => :optional
   depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
+  depends_on "sphinx-doc" => [:build, :optional]
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5"
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5"
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/9f/7c/0a33c528164f1b7ff8cf0684cf88c2e733c8ae0119ceca4a3955c7fc059d/setuptools-23.1.0.tar.gz"
-    sha256 "4e269d36ba2313e6236f384b36eb97b3433cf99a16b94c74cca7eee2b311f2be"
+    url "https://files.pythonhosted.org/packages/9f/32/81c324675725d78e7f6da777483a3453611a427db0145dfb878940469692/setuptools-25.2.0.tar.gz"
+    sha256 "b2757ddac2c41173140b111e246d200768f6dd314110e1e40661d0ecf9b4d6a6"
   end
 
   resource "pip" do
@@ -102,6 +113,8 @@ class Python3 < Formula
   end
 
   def install
+    ENV.permit_weak_imports
+
     # Unset these so that installing pip and setuptools puts them where we want
     # and not into some other Python the user has installed.
     ENV["PYTHONHOME"] = nil
@@ -117,6 +130,7 @@ class Python3 < Formula
     ]
 
     args << "--without-gcc" if ENV.compiler == :clang
+    args << "--enable-loadable-sqlite-extensions" if build.with?("sqlite")
 
     cflags   = []
     ldflags  = []
@@ -149,8 +163,13 @@ class Python3 < Formula
       args << "--enable-universalsdk" << "--with-universal-archs=intel"
     end
 
-    # Allow sqlite3 module to load extensions: https://docs.python.org/library/sqlite3.html#f1
-    inreplace("setup.py", 'sqlite_defines.append(("SQLITE_OMIT_LOAD_EXTENSION", "1"))', "pass") if build.with? "sqlite"
+    if build.with? "sqlite"
+      inreplace "setup.py" do |s|
+        s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
+        s.gsub! "for d_ in inc_dirs + sqlite_inc_paths:",
+                "for d_ in ['#{Formula["sqlite"].opt_include}']:"
+      end
+    end
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
     # even if homebrew is not a /usr/local/lib. Try this with:
@@ -173,16 +192,29 @@ class Python3 < Formula
     system "./configure", *args
 
     system "make"
+    if build.with?("quicktest")
+      system "make", "quicktest", "TESTPYTHONOPTS=-s", "TESTOPTS=-j#{ENV.make_jobs} -w"
+    end
 
-    ENV.deparallelize # Installs must be serialized
-    # Tell Python not to install into /Applications (default for framework builds)
-    system "make", "install", "PYTHONAPPSDIR=#{prefix}"
-    # Demos and Tools
-    system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
-    system "make", "quicktest" if build.with? "quicktest"
+    ENV.deparallelize do
+      # Tell Python not to install into /Applications (default for framework builds)
+      system "make", "install", "PYTHONAPPSDIR=#{prefix}"
+      system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
+    end
 
     # Any .app get a " 3" attached, so it does not conflict with python 2.x.
     Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 3.app") }
+
+    # Prevent third-party packages from building against fragile Cellar paths
+    inreplace Dir[lib_cellar/"**/_sysconfigdata_m_darwin_darwin.py",
+                  lib_cellar/"config*/Makefile",
+                  frameworks/"Python.framework/Versions/3*/lib/pkgconfig/python-3.?.pc"],
+              prefix, opt_prefix
+
+    # Help third-party packages find the Python framework
+    inreplace Dir[lib_cellar/"config*/Makefile"],
+              /^LINKFORSHARED=(.*)PYTHONFRAMEWORKDIR(.*)/,
+              "LINKFORSHARED=\\1PYTHONFRAMEWORKINSTALLDIR\\2"
 
     # A fix, because python and python3 both want to install Python.framework
     # and therefore we can't link both into HOMEBREW_PREFIX/Frameworks
@@ -199,15 +231,15 @@ class Python3 < Formula
     # Remove the site-packages that Python created in its Cellar.
     site_packages_cellar.rmtree
 
-    # These makevars are available through distutils.sysconfig at runtime and
-    # some third-party software packages depend on them
-    inreplace Dir.glob(frameworks/"Python.framework/Versions/#{xy}/lib/python#{xy}/config-#{xy}*/Makefile") do |s|
-      s.change_make_var! "LINKFORSHARED",
-                         "-u _PyMac_Error #{opt_prefix}/Frameworks/Python.framework/Versions/#{xy}/Python"
-    end
-
     %w[setuptools pip wheel].each do |r|
       (libexec/r).install resource(r)
+    end
+
+    if build.with? "sphinx-doc"
+      cd "Doc" do
+        system "make", "html"
+        doc.install Dir["build/html/*"]
+      end
     end
   end
 
@@ -278,14 +310,14 @@ class Python3 < Formula
   end
 
   def xy
-    version.to_s.slice(/(3.\d)/) || "3.6"
+    version.to_s.slice(/(3\.\d)/) || "3.6"
   end
 
   def sitecustomize
     <<-EOF.undent
       # This file is created by Homebrew and is executed on each python startup.
       # Don't print from here, or else python command line scripts may fail!
-      # <https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md>
+      # <https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md>
       import re
       import os
       import sys
@@ -330,7 +362,7 @@ class Python3 < Formula
       They will install into the site-package directory
         #{site_packages}
 
-      See: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md
+      See: https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md
     EOS
 
     # Tk warning only for 10.6

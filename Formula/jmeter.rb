@@ -6,6 +6,7 @@ class Jmeter < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6c7eaa3992f65b8d726ec4905aa479a175d25f294eec002ed9a12a0fbe45f32b" => :sierra
     sha256 "23f10e9ac40c5c81f71b97611f1d257c64bfbb154d03222067d2859a882cad67" => :el_capitan
     sha256 "0059f8c7a7fece02cbd0440108cca171052300f0ca74364b625c76c30f2e50ff" => :yosemite
     sha256 "b7d006f86f7711ab37c8acb86546148b6ba3251a49ec38436fc7d826e4aa5f1d" => :mavericks
@@ -14,32 +15,32 @@ class Jmeter < Formula
   option "with-plugins", "add JMeterPlugins Standard, Extras, ExtrasLibs, WebDriver and Hadoop"
 
   resource "jmeterplugins-standard" do
-    url "http://jmeter-plugins.org/downloads/file/JMeterPlugins-Standard-1.4.0.zip"
+    url "https://jmeter-plugins.org/downloads/file/JMeterPlugins-Standard-1.4.0.zip"
     sha256 "3f740bb9b9a7120ed72548071cd46a5f92929e1ab196acc1b2548549090a2148"
   end
 
   resource "serveragent" do
-    url "http://jmeter-plugins.org/downloads/file/ServerAgent-2.2.1.zip"
+    url "https://jmeter-plugins.org/downloads/file/ServerAgent-2.2.1.zip"
     sha256 "2d5cfd6d579acfb89bf16b0cbce01c8817cba52ab99b3fca937776a72a8f95ec"
   end
 
   resource "jmeterplugins-extras" do
-    url "http://jmeter-plugins.org/downloads/file/JMeterPlugins-Extras-1.4.0.zip"
+    url "https://jmeter-plugins.org/downloads/file/JMeterPlugins-Extras-1.4.0.zip"
     sha256 "de35e653250882268aa24d011ec0f2afbc13e1c552fbb676c67515bc80ef3194"
   end
 
   resource "jmeterplugins-extraslibs" do
-    url "http://jmeter-plugins.org/downloads/file/JMeterPlugins-ExtrasLibs-1.4.0.zip"
+    url "https://jmeter-plugins.org/downloads/file/JMeterPlugins-ExtrasLibs-1.4.0.zip"
     sha256 "81d600a5bda6fdb362573d55c11208b2635728a2c18b7f647b9c7413c0f33ef3"
   end
 
   resource "jmeterplugins-webdriver" do
-    url "http://jmeter-plugins.org/downloads/file/JMeterPlugins-WebDriver-1.4.0.zip"
+    url "https://jmeter-plugins.org/downloads/file/JMeterPlugins-WebDriver-1.4.0.zip"
     sha256 "521c2f7d452a84099407534bd50f29fd3761aa8a5beca52966bb9731e33b03e2"
   end
 
   resource "jmeterplugins-hadoop" do
-    url "http://jmeter-plugins.org/downloads/file/JMeterPlugins-Hadoop-1.4.0.zip"
+    url "https://jmeter-plugins.org/downloads/file/JMeterPlugins-Hadoop-1.4.0.zip"
     sha256 "93030738d613748a685764fbfff0fe00ad2e161f2b72df6365294adc88db09b4"
   end
 

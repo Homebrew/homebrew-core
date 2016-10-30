@@ -1,25 +1,28 @@
 class Codequery < Formula
-  desc "Index, query, or search C, C++, Java, Python, Ruby, or Go code"
+  desc "Index, query, or search C, C++, Java, Python, Ruby, Go and Javascript code"
   homepage "https://github.com/ruben2020/codequery"
-  url "https://github.com/ruben2020/codequery/archive/v0.16.0.tar.gz"
-  sha256 "4896435a8aa35dbdca43cba769aece9731f647ac9422a92c3209c2955d2e7101"
-  revision 1
+  url "https://github.com/ruben2020/codequery/archive/v0.18.1.tar.gz"
+  sha256 "482fa737691c260e16adcc32bc3fd43ba50a309495faec6b2f3098b517e6c0e9"
 
   bottle do
     cellar :any
-    sha256 "efcc6f507735a404c8699276c140bdf776ae894aa3e636597ba83000c1e8a55d" => :el_capitan
-    sha256 "840c8bfe119700cbc567d73d597876289892a615b1c25147b1d5a879d37c9625" => :yosemite
-    sha256 "283dac43dac39b2e03699cd80157cf24d8ff30d6186a0493bafc70d13b1f013e" => :mavericks
+    sha256 "f8bfbac52963d68ed6ab81e022a8fd0c45548dac6b5cf95ef73437aafa556edf" => :sierra
+    sha256 "04df25b8ab1113897094db9d0519a1f28ce1ba9689c2597486819713464a1d53" => :el_capitan
+    sha256 "a2309154fc40df49a175b81755644b9ffceb1d7805a2ea9e22c37375c51c23bd" => :yosemite
   end
 
   depends_on "cmake" => :build
-  depends_on "qt"
+  depends_on "qt5"
   depends_on "qscintilla2"
 
   def install
+    args = std_cmake_args
+    args << "-DBUILD_QT5=ON"
+    args << "-DQT5QSCINTILLA_LIBRARY=#{Formula["qscintilla2"].opt_lib}/libqscintilla2.dylib"
+
     share.install "test"
     mkdir "build" do
-      system "cmake", "..", "-G", "Unix Makefiles", *std_cmake_args
+      system "cmake", "..", "-G", "Unix Makefiles", *args
       system "make"
       system "make", "install"
     end

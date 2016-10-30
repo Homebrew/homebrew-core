@@ -7,6 +7,7 @@ class GitStandup < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "15ba95a266e75f91c131ac4ba97c8c1f2b8eee5f84e6bf3f8ae4b6c31d4e0046" => :sierra
     sha256 "8da88a1d4e590d8e2ec6bef3f34c2f88817c89b1473cde291b8ee6c79be6cdef" => :el_capitan
     sha256 "ab3b98ecf47de06d1d5093257bf63675495a5f57d2e94e1ae53757b933736c02" => :yosemite
     sha256 "641e5f5e5dbd1761c88603a5c93d40c2b6b4c93d32ffdd1619acf6db8b14f464" => :mavericks

@@ -5,26 +5,23 @@ class Watch < Formula
 
   stable do
     url "https://gitlab.com/procps-ng/procps.git",
-      :tag => "v3.3.11",
-      :revision => "de985eced583f18df273146b110491b0f7404aab"
+      :tag => "v3.3.12",
+      :revision => "e0784ddaed30d095bb1d9a8ad6b5a23d10a212c4"
 
-    # Upstream commit, which (probably inadvertently) fixes the error
-    # "conflicting types for 'user_from_uid"
-    # Commit subject is "watch: Correctly process [m Remove lib dependency"
-    # Preexisting upstream report: https://gitlab.com/procps-ng/procps/issues/34
+    # Upstream commit, which fixes missing HOST_NAME_MAX on BSD-y systems.
+    # Commit subject is "watch: define HOST_NAME_MAX"
     patch do
-      url "https://gitlab.com/procps-ng/procps/commit/99fa7f9f.diff"
-      sha256 "7f907db30f4777746224506b120d5d402c01073fbd275e83d37259a8eb4f62b1"
+      url "https://gitlab.com/procps-ng/procps/commit/e564ddcb01c3c11537432faa9c7a7a6badb05930.diff"
+      sha256 "3a4664e154f324e93b2a8e453a12575b94aac9eb9d86831649731d0f1a7f869e"
     end
   end
 
   bottle do
-    sha256 "3bcef103b4c05c5bee8a1f77f02f2ea7e9fb5c7496681677245bd8abcce7fdb5" => :el_capitan
-    sha256 "fa4fc04f62518328ec879c595156a115ec14dde46be23c4b9dd79da9a378f74e" => :yosemite
-    sha256 "f4e6ab66a65524de9fcca757afd95d1178f21ef87be1b04f56beec25e8cb191f" => :mavericks
+    sha256 "98cf549c8b1c06199e9f8baccdc1dcc3fc3c1f9a5195a1869de991598774d806" => :sierra
+    sha256 "926d0be8053cf015dc06cf8fb4e6107902c2015acc8b69f1a77100034e078cfd" => :el_capitan
+    sha256 "31b517c67875cbb8ca8bd8126af66561a8df0f61bee955ffdeac3eeb6021ec12" => :yosemite
+    sha256 "fdedabfbc86a57b936be2ca1377c8749a6bce801baf74ef4444e7c75b9b6e0f0" => :mavericks
   end
-
-  conflicts_with "visionmedia-watch"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -32,6 +29,8 @@ class Watch < Formula
   depends_on "pkg-config" => :build
 
   depends_on "gettext"
+
+  conflicts_with "visionmedia-watch"
 
   def install
     # Prevents undefined symbol errors for _libintl_gettext, etc.
@@ -46,7 +45,6 @@ class Watch < Formula
   end
 
   test do
-    ENV["TERM"] = "xterm"
     system bin/"watch", "--errexit", "--chgexit", "--interval", "1", "date"
   end
 end

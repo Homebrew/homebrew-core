@@ -1,14 +1,15 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.com"
-  url "https://orientdb.com/download.php?file=orientdb-community-2.2.2.tar.gz"
-  sha256 "1ae672fc15638526980e132b92fe1896867fa765da79eadf5adf7cdcad946f88"
+  url "https://orientdb.com/download.php?file=orientdb-community-2.2.5.tar.gz"
+  sha256 "958d479beeabeb5658c23460bf29043a7a4b80c0d238f36e586e3b108f12bae0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2d10047d91dd4171419f57a9c3ad35b77754496a63106cf412d41baebf01903e" => :el_capitan
-    sha256 "084c2e3d596a91c63a4f5a57f6c61c3df6c2531dca1e849eeb7983e3a099c84f" => :yosemite
-    sha256 "86f94f50e2e4c6d18263f256e0dd2f70fbb099254850afa0d286a59ade8d26ef" => :mavericks
+    sha256 "1281edfb9396ca133d16f1af0faf78d5aaf6c5abe8d42f5e96e36913b4fe44db" => :sierra
+    sha256 "6ca2f994653590ac3f04ace2ddd369b0f66d5b648c5a151c5c592d7aab5ca982" => :el_capitan
+    sha256 "356a546861606b228294421816f188ed42f4a05d234ee7e1c96e4ccc8f03ade5" => :yosemite
+    sha256 "b065a2a8527b54005b7b9b65c395491700a165f56c4c22ab4523018a15816ebc" => :mavericks
   end
 
   # Fixing OrientDB init scripts
@@ -20,7 +21,7 @@ class Orientdb < Formula
   def install
     rm_rf Dir["{bin,benchmarks}/*.{bat,exe}"]
 
-    inreplace %W[bin/orientdb.sh bin/console.sh bin/gremlin.sh],
+    inreplace %w[bin/orientdb.sh bin/console.sh bin/gremlin.sh],
       '"YOUR_ORIENTDB_INSTALLATION_PATH"', libexec
 
     chmod 0755, Dir["bin/*"]
@@ -63,7 +64,7 @@ class Orientdb < Formula
     sleep 4
 
     begin
-      assert_match "OrientDB Server v.2.2.2", shell_output("curl -I localhost:2480")
+      assert_match "OrientDB Server v.2.2.5", shell_output("curl -I localhost:2480")
     ensure
       system "#{bin}/orientdb", "stop"
     end

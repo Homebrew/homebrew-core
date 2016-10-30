@@ -1,11 +1,12 @@
 class Atkmm < Formula
   desc "Official C++ interface for the ATK accessibility toolkit library"
-  homepage "http://www.gtkmm.org"
+  homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/atkmm/2.24/atkmm-2.24.2.tar.xz"
   sha256 "ff95385759e2af23828d4056356f25376cfabc41e690ac1df055371537e458bd"
 
   bottle do
     cellar :any
+    sha256 "99c33466b55c8f1b850dc129bd737f15c243b7e79782c5927fdc55d59d4df551" => :sierra
     sha256 "70c5c9652b337efe41f26d61480dad331095a6ded8cae26bc8dc0066c06adfb5" => :el_capitan
     sha256 "a7ddfcacea2a645a939c0eb7b5d2c026d9f9af9ba3e579ee66df28fbe6339879" => :yosemite
     sha256 "a39942b931ea636033cd6018ddbe25d050dbcdda5ef80f0c9d9cc81a7d9636d4" => :mavericks

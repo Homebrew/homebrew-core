@@ -1,16 +1,16 @@
 class Deheader < Formula
   desc "Analyze C/C++ files for unnecessary headers"
   homepage "http://www.catb.org/~esr/deheader"
-  url "http://www.catb.org/~esr/deheader/deheader-1.3.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/deheader/deheader_1.3.orig.tar.gz"
-  sha256 "652c07bf1c7d5da7cf71c9889de11609c8cb2bd0c13122ad424f2c25da9e2e3b"
+  url "http://www.catb.org/~esr/deheader/deheader-1.6.tar.gz",
+      :using => :nounzip
+  sha256 "3b99665c4f0dfda31d200bf2528540d6898cb846499ee91effa2e8f72aff3a60"
   head "https://gitlab.com/esr/deheader.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9e778a60a99a3d5e87639e9ad48180288fd005e5c76859f62eb9efe04135892f" => :el_capitan
-    sha256 "aef1aba1409357470bda97772407f1c3cf0221384aaa573a232fd31cf9d321bd" => :yosemite
-    sha256 "041b73d0dc1f097d3cb5f43f5af4a647d8a926a28e331d9271341e59e5bb8d96" => :mavericks
+    sha256 "2b70a9eb18042a3e93ab8fc1bf018c417d8b41f9b8efe6d818d45aed6922cf52" => :sierra
+    sha256 "2b70a9eb18042a3e93ab8fc1bf018c417d8b41f9b8efe6d818d45aed6922cf52" => :el_capitan
+    sha256 "2b70a9eb18042a3e93ab8fc1bf018c417d8b41f9b8efe6d818d45aed6922cf52" => :yosemite
   end
 
   depends_on "xmlto" => :build
@@ -18,9 +18,18 @@ class Deheader < Formula
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    system "make"
-    bin.install "deheader"
-    man1.install "deheader.1"
+    # Remove for > 1.6
+    # Fix "deheader-1.6/deheader.1: Can't create 'deheader-1.6/deheader.1'"
+    # See https://gitlab.com/esr/deheader/commit/ea5d8d4
+    system "/usr/bin/tar", "-xvqf", "deheader-1.6.tar.gz",
+                           "deheader-1.6/deheader.1"
+    system "/usr/bin/tar", "-xvf", "deheader-1.6.tar.gz", "--exclude",
+                           "deheader-1.6/deheader.1"
+    cd "deheader-1.6" do
+      system "make"
+      bin.install "deheader"
+      man1.install "deheader.1"
+    end
   end
 
   test do

@@ -3,13 +3,13 @@ require "language/go"
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.8.tar.gz"
-  sha256 "5501e0e90c9358358e9ee20d4814643e910b847827627ed7ca1a9d90d220c0a7"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.10.tar.gz"
+  sha256 "3bef44f50f302159c26194bcac9d51c81d98d57ea728f55400774850a70f5120"
 
   bottle do
-    sha256 "45558113845748b89958ccef0e76c84cbb1075d766fdf0f9f78dd37fd7f88701" => :el_capitan
-    sha256 "f827db12af8896018259db5ceb1dece2c64bcff748e404d782dbe76746e1bca0" => :yosemite
-    sha256 "e157fe2145812d6a48e400d51b95231261411c225d010cad67c940f74f4ff7aa" => :mavericks
+    sha256 "c651791d8ccdc813304e45c0375125917dc7b69a5f30dd15208ed1c612d73f54" => :sierra
+    sha256 "7dcd108cc1a7d2fd811e2cb7e47fe650efba2cd8a74d321718da6e4fca3ff825" => :el_capitan
+    sha256 "dfd3e0c5fbe8922ba5f501d8b55b450494b3ebddd3169cd3e30e85d2b77d669c" => :yosemite
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
@@ -23,8 +23,9 @@ class Mongodb < Formula
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
-      :tag => "r3.2.8",
-      :revision => "2214d4d6561574f962c1dc72fefce4fe11843023"
+        :tag => "r3.2.10",
+        :revision => "45418a84270bd822db0d6d0c37a0264efb0e86d2",
+        :shallow => false
   end
 
   needs :cxx11
@@ -38,10 +39,7 @@ class Mongodb < Formula
     Language::Go.stage_deps resources, buildpath/"src"
 
     cd "src/github.com/mongodb/mongo-tools" do
-      # https://github.com/Homebrew/homebrew/issues/40136
-      inreplace "build.sh", '-ldflags "-X github.com/mongodb/mongo-tools/common/options.Gitspec `git rev-parse HEAD` -X github.com/mongodb/mongo-tools/common/options.VersionStr $(git describe)"', ""
-
-      args = %W[]
+      args = %w[]
 
       if build.with? "openssl"
         args << "ssl"

@@ -3,13 +3,15 @@ class Libdrawtext < Formula
   homepage "http://nuclear.mutantstargoat.com/sw/libdrawtext/"
   url "https://github.com/jtsiomb/libdrawtext/archive/release_0.4.tar.gz"
   sha256 "e9460eb489e0ef6d1496afed2dae2e41c94005c85737ff53a8c09d51b6f93074"
+  revision 1
   head "https://github.com/jtsiomb/libdrawtext.git"
 
   bottle do
     cellar :any
-    sha256 "f5c51bafda51fd4eef0efccbac103b0bac2ed8fbc63598103af30fdeb909b348" => :el_capitan
-    sha256 "1a46fde01f6b2baaba7148fbbc6b985226aa22a7ba75876028c2e132c6f1cec8" => :yosemite
-    sha256 "0a966d7100b428330d3c3eeadc2cceb6d9e580943ee06a04d89afff9aff28ce3" => :mavericks
+    sha256 "b964ecf876b0e7118dbc8f6b39f0295f3f93244db5109d512258f0f036975e9b" => :sierra
+    sha256 "f0ea7bf5a4ddaa71eabcf015be0c774a707eb44c0bab20dbb87633f3fbe11941" => :el_capitan
+    sha256 "9aa0cb7f932e819bf07d4da05a5e134bb0dbce0aa07057a78af14ae03ef2423f" => :yosemite
+    sha256 "e734a70c82a43accad6adc21b747accce048efb521f04f03767ddaa16ffc53e4" => :mavericks
   end
 
   depends_on "pkg-config" => :build

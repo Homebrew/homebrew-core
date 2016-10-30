@@ -1,3 +1,5 @@
+If Homebrew was updated on Aug 10-11th 2016 and `brew update` always says `Already up-to-date.` you need to run: `cd "$(brew --repo)" && git fetch && git reset --hard origin/master && brew update`.
+
 # Please follow the general troubleshooting steps first:
 
 - [ ] Ran `brew update` and retried your prior step?
@@ -15,6 +17,6 @@ Please replace this line with a brief summary of your issue **AND** if reporting
 
 ### Formula Requests:
 
-**Please note by far the quickest way to get a new formula into Homebrew is to file a [Pull Request](https://github.com/Homebrew/homebrew-core/blob/master/.github/CONTRIBUTING.md).**
+**Please note by far the quickest way to get a new formula into Homebrew is to file a [Pull Request](https://github.com/Homebrew/homebrew-core/blob/master/CONTRIBUTING.md).**
 
 We will consider your request but it may be closed if it's something we're not actively planning to work on.

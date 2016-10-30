@@ -10,13 +10,14 @@ class Ghq < Formula
 
     go_resource "github.com/codegangsta/cli" do
       url "https://github.com/codegangsta/cli.git",
-      :revision => "aca5b047ed14d17224157c3434ea93bf6cdaadee"
+          :revision => "aca5b047ed14d17224157c3434ea93bf6cdaadee"
     end
   end
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "87b5fc1d352c8d96c10e605c92a2f56dcfb4357daa62d121b44df62e86e5426f" => :sierra
     sha256 "c44dbb258731843fde8fee860d0935ae184db1439f5de11464f70444c8db7464" => :el_capitan
     sha256 "2f59e9c8da2819b2a1d117352fc6d6e66e19a4ca4e31fa12bac955d57d7f5f17" => :yosemite
     sha256 "45bb6555ca33acfad9a9b0d8abe702dc1a2c3b07c4fd28e889acc8c952383022" => :mavericks
@@ -27,7 +28,7 @@ class Ghq < Formula
 
     go_resource "github.com/codegangsta/cli" do
       url "https://github.com/codegangsta/cli.git",
-      :revision => "1efa31f08b9333f1bd4882d61f9d668a70cd902e"
+          :revision => "1efa31f08b9333f1bd4882d61f9d668a70cd902e"
     end
   end
 
@@ -37,17 +38,17 @@ class Ghq < Formula
 
   go_resource "github.com/mitchellh/go-homedir" do
     url "https://github.com/mitchellh/go-homedir.git",
-    :revision => "981ab348d865cf048eb7d17e78ac7192632d8415"
+        :revision => "981ab348d865cf048eb7d17e78ac7192632d8415"
   end
 
   go_resource "github.com/motemen/go-colorine" do
     url "https://github.com/motemen/go-colorine.git",
-    :revision => "49ff36b8fa42db28092361cd20dcefd0b03b1472"
+        :revision => "49ff36b8fa42db28092361cd20dcefd0b03b1472"
   end
 
   go_resource "github.com/daviddengcn/go-colortext" do
     url "https://github.com/daviddengcn/go-colortext.git",
-    :revision => "3b18c8575a432453d41fdafb340099fff5bba2f7"
+        :revision => "3b18c8575a432453d41fdafb340099fff5bba2f7"
   end
 
   def install

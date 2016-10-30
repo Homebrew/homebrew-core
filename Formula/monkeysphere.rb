@@ -1,18 +1,16 @@
 class Monkeysphere < Formula
   desc "Use the OpenPGP web of trust to verify ssh connections"
   homepage "http://web.monkeysphere.info/"
-  url "http://archive.monkeysphere.info/debian/pool/monkeysphere/m/monkeysphere/monkeysphere_0.38.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/monkeysphere/monkeysphere_0.38.orig.tar.gz"
-  sha256 "6951821d11ad646e6e7651d677bfab8f800fbc52703a0ab9942d03cd13959073"
-  revision 1
-
+  url "http://archive.monkeysphere.info/debian/pool/monkeysphere/m/monkeysphere/monkeysphere_0.40.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/monkeysphere/monkeysphere_0.40.orig.tar.gz"
+  sha256 "141d49a4434c2271347c169586444cda1335eeeece3b5fe5fd71a0095483a5c1"
   head "git://git.monkeysphere.info/monkeysphere"
 
   bottle do
     cellar :any
-    sha256 "57cae3fb443156493dc11a94df356fa89f35ca860d4dc3eae26a63c640c0d41d" => :el_capitan
-    sha256 "df552a96f3eed85b8cc0b3e0afc06989cdf3f961daf328d8733f7f0460adbbf7" => :yosemite
-    sha256 "ea8547fb15ade2e724337e828dbbd12db90c5d95e2c9d45a88f22eeef278b505" => :mavericks
+    sha256 "c75b8cee8c3b46090dba8f028e4e3164964d4e87a21bfe1ea1e01f6356215185" => :sierra
+    sha256 "5fec7eadab92a7c33275603f7f7a31e754630a45da89cdc084ed002c5596f3e5" => :el_capitan
+    sha256 "4fc0342da66daed73ef4343ec7642e65dafd0a508555df0481bc0d6c89b08396" => :yosemite
   end
 
   depends_on "gnu-sed" => :build

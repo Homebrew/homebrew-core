@@ -3,12 +3,13 @@ class Freeling < Formula
   homepage "http://nlp.lsi.upc.edu/freeling/"
   url "https://github.com/TALP-UPC/FreeLing/releases/download/4.0/FreeLing-4.0.tar.gz"
   sha256 "c79d21c5af215105ba16eb69ee75b589bf7d41abce86feaa40757513e33c6ecf"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "8c8d114e2e9c46fa70a0de382f28027ec46380fa3dcd60c0599e9aca56ad9ce3" => :el_capitan
-    sha256 "0bb3b2463eaa636cae9a40dba527e3d2e0430eab15b99fee3ed28c4f3b5c6e66" => :yosemite
-    sha256 "a9dca2a834ed01f0f4ddad1df10f1b28b80e2760d45c9af272fd1c588316dff6" => :mavericks
+    sha256 "7e903f31687e99d9b3d76408d608d604fb414d1248b57e7a3dbd8865de49db2e" => :sierra
+    sha256 "b446bb0c148285eace2423c8dae76fb6e3e2cc5ce261d684faff1590b9905866" => :el_capitan
+    sha256 "06f7598a0d56a71af51e59bbac0dffc901911e1431c9702708d820ecdaaf7f0a" => :yosemite
   end
 
   depends_on "autoconf" => :build

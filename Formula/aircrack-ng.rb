@@ -10,6 +10,7 @@ class AircrackNg < Formula
 
   bottle do
     cellar :any
+    sha256 "08179af5cb5dacc803fd75d51d757009eca7bd12fc25cb59668f9d7b85ed1616" => :sierra
     sha256 "cb70cfa6efceada012445e9bf0300050207dc59572edc5e58795c9035e14dc43" => :el_capitan
     sha256 "97fd0debe4e17e143facd4fa4483d7813c3edc328acd366a72d3fda29d7a6c7b" => :yosemite
     sha256 "02efed81e48c8f70bbd1d3051e84b25815fcceb7166cb79d472f9552a4708ae2" => :mavericks
@@ -36,6 +37,10 @@ class AircrackNg < Formula
   def caveats; <<-EOS.undent
     Run `airodump-ng-oui-update` install or update the Airodump-ng OUI file.
     EOS
+  end
+
+  test do
+    system "#{bin}/aircrack-ng", "--help"
   end
 end
 

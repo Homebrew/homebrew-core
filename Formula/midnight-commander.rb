@@ -1,16 +1,15 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.17.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mc/mc_4.8.17.orig.tar.xz"
-  sha256 "0447bdddc0baa81866e66f50f9a545d29d6eebb68b0ab46c98d8fddd2bf4e44d"
-
+  url "https://www.midnight-commander.org/downloads/mc-4.8.18.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mc/mc_4.8.18.orig.tar.xz"
+  sha256 "f7636815c987c1719c4f5de2dcd156a0e7d097b1d10e4466d2bdead343d5bece"
   head "https://github.com/MidnightCommander/mc.git"
 
   bottle do
-    sha256 "c83232919ef7d0fabd5a6264c5f32f4dd229925b00e2e453218c383ebbe47a6e" => :el_capitan
-    sha256 "9b2472d105b8035dfec599472f33e4557bf0f29cfc3773d2f54045d18be1e105" => :yosemite
-    sha256 "50c3e2e79bd010a44987e8246a0456714da542caf27e1cd641d984f7f5751d04" => :mavericks
+    sha256 "17a0c9039bd8f1c862ea282a3305d91b75759a3c6200056e5e1c4ff38ba1e9ff" => :sierra
+    sha256 "7f0bc00fdfa069c8139f3aebff3621824dfa4b5f6c6b4688336162615a2bb4fa" => :el_capitan
+    sha256 "033b658071cefd0af127e1a9a88cf5bddd9bafc50b583df9f6f850f2a457d34d" => :yosemite
   end
 
   option "without-nls", "Build without Native Language Support"
@@ -20,6 +19,8 @@ class MidnightCommander < Formula
   depends_on "openssl"
   depends_on "s-lang"
   depends_on "libssh2"
+
+  conflicts_with "minio-mc", :because => "Both install a `mc` binary"
 
   def install
     args = %W[

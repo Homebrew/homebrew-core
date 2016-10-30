@@ -1,8 +1,8 @@
 class Apktool < Formula
   desc "Tool for reverse engineering 3rd party, closed, binary Android apps"
   homepage "https://github.com/iBotPeaches/Apktool"
-  url "https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.1.1.jar", :using => :nounzip
-  sha256 "48c2a23cae1f1e778f3c9d79b804823e6c175f7f243064cd61a3ea0f7b71c292"
+  url "https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.2.1.jar", :using => :nounzip
+  sha256 "c83cf428044af3eb56af0434dfbb71c216b2e736d19a5b71f77701775c6a6463"
 
   bottle :unneeded
 
@@ -18,8 +18,8 @@ class Apktool < Formula
 
   test do
     resource("sample.apk").stage do
-      system "#{bin}/apktool", "d", "robodemo-sample-1.0.1.apk"
-      system "#{bin}/apktool", "b", "robodemo-sample-1.0.1"
+      system bin/"apktool", "d", "robodemo-sample-1.0.1.apk"
+      system bin/"apktool", "b", "robodemo-sample-1.0.1"
     end
   end
 end

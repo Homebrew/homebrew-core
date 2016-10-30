@@ -6,7 +6,8 @@ class Libutf < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 2
+    rebuild 2
+    sha256 "8c651ed5e6351c24b6307da28be65e3b12ced599ef141c020588bc6883d9f1c7" => :sierra
     sha256 "4be39969572bec265a41d1ff6bc8f6d04b6d2b4f514cfd58c3362bc3434b3807" => :el_capitan
     sha256 "db18dd0a20318d3f07f2eb195cb6ec345976136d5d2eddfb71c3e426fe4c1162" => :yosemite
     sha256 "36a420b96d2d8bebc33a10edfce866c576664a8001136e4440609138b892db30" => :mavericks

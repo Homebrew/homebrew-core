@@ -5,6 +5,7 @@ class Libgtop < Formula
   sha256 "8d8ae39e700d1c8c0b3e1391ed10ca88e6fc14f49d175d516dab6e3313b4ee2a"
 
   bottle do
+    sha256 "1b6dd8bba18db9ebed44b58bbf99e3b94d207be8e3c120a40d2a44d15d2a5a50" => :sierra
     sha256 "9b8ceeb264abb5c07af3a72bcefa52c2b1adb4fc653fce58e08781e07f4a6345" => :el_capitan
     sha256 "19d041da8eb252e9b96445bdbd90bceaaa9433006c54bfb19ee1aed9f4699007" => :yosemite
     sha256 "31cc9651d4ecfb271a6186218e0b3c208321d76bf81d3d60f63d514794dcabb1" => :mavericks

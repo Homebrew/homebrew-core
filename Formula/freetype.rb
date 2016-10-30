@@ -1,18 +1,16 @@
 class Freetype < Formula
   desc "Software library to render fonts"
   homepage "https://www.freetype.org/"
-  # Note: when bumping freetype's version, you must also bump revisions of
-  # formula with "full path" references to freetype in their pkgconfig.
-  # See https://github.com/Homebrew/legacy-homebrew/pull/44587
-  url "https://downloads.sf.net/project/freetype/freetype2/2.6.5/freetype-2.6.5.tar.bz2"
-  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.6.5.tar.bz2"
-  sha256 "e20a6e1400798fd5e3d831dd821b61c35b1f9a6465d6b18a53a9df4cf441acf0"
+  url "https://downloads.sf.net/project/freetype/freetype2/2.7/freetype-2.7.tar.bz2"
+  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.7.tar.bz2"
+  sha256 "d6a451f5b754857d2aa3964fd4473f8bc5c64e879b24516d780fb26bec7f7d48"
 
   bottle do
     cellar :any
-    sha256 "9830f84e55635b445eb5422d7383ef37c76e71d4fcfd041eccd528f0580a6223" => :el_capitan
-    sha256 "53ffcde03d0c0ec7c31ae45de6ff699be97357276833c3b62ce0e2270f6d6b70" => :yosemite
-    sha256 "3fa3f187bca761465c8b02ccff5c4dbb13edfa9e342c246a1ca46959f37df513" => :mavericks
+    sha256 "6cdebad1d3a4e6bdda41235dc69e77770ab98570d003af074f9bf2d6656d3e19" => :sierra
+    sha256 "0c98beda51c7d5a42f317598a2fbb65391278f6bb72f038512033392a681b25e" => :el_capitan
+    sha256 "f29056e7f47435120efd7fedfce5483e083dcf52fa587569a99d2afba3fb11c2" => :yosemite
+    sha256 "470c71da601ed6b1fd95445492040e5a56f30135d1602d3617f4da89539f1b6b" => :mavericks
   end
 
   keg_only :provided_pre_mountain_lion
@@ -33,10 +31,13 @@ class Freetype < Formula
     system "./configure", "--prefix=#{prefix}", "--without-harfbuzz"
     system "make"
     system "make", "install"
+
+    inreplace [bin/"freetype-config", lib/"pkgconfig/freetype2.pc"],
+      prefix, opt_prefix
   end
 
   test do
-    system "#{bin}/freetype-config", "--cflags", "--libs", "--ftversion",
-      "--exec-prefix", "--prefix"
+    system bin/"freetype-config", "--cflags", "--libs", "--ftversion",
+                                  "--exec-prefix", "--prefix"
   end
 end

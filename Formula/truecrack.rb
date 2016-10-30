@@ -1,13 +1,14 @@
 class Truecrack < Formula
   desc "Brute-force password cracker for TrueCrypt"
   homepage "https://github.com/lvaccaro/truecrack"
-  url "https://truecrack.googlecode.com/files/truecrack_v35.tar.gz"
+  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/truecrack/truecrack_v35.tar.gz"
   version "3.5"
   sha256 "25bf270fa3bc3591c3d795e5a4b0842f6581f76c0b5d17c0aef260246fe726b3"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "96ecdedf66599ec83da60c5a64de37dce4aa3411bf3a575bb5d5e1b6646fd5b3" => :sierra
     sha256 "2905997955799043b8f07c7cb28854d0a0acd3a84131b92b6c49780570dd198f" => :el_capitan
     sha256 "d7d6879b7132093ebcc716ffe115dc20974c68e7e629f7f7cc3bce5030d153d3" => :yosemite
     sha256 "8357dddf047bdd2180f241edb5848e49a48083300484143a245f41e5def1888d" => :mavericks

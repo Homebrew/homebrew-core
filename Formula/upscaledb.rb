@@ -3,12 +3,13 @@ class Upscaledb < Formula
   homepage "https://upscaledb.com/"
   url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
   sha256 "7d0d1ace47847a0f95a9138637fcaaf78b897ef682053e405e2c0865ecfd253e"
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "e895c09364de3873adaf0e9f83be26e15ff3794cf90a1f51a3cc8a154892bfa1" => :el_capitan
-    sha256 "8cb5f00f0685408c0d17044c4073357c90b0f458ca263e43e71b7a3d95938a24" => :yosemite
-    sha256 "f6da669995d949ae8f20200c09325296832ba1993ae2712f7111951a3017f740" => :mavericks
+    sha256 "d71b4d4de5ad6f093172811e2111df415b0ace32b6b3e1abc7b1ba0a66265fcd" => :sierra
+    sha256 "bf4000ab48c79c23ad2c7ca280fdbe27e56cb7bf7fb914b79d38a19a7e28ba5d" => :el_capitan
+    sha256 "8799b226b4565f9a56d507e42da66088aeacedaa76edaac8b2a93cbd0904937b" => :yosemite
   end
 
   head do
@@ -29,8 +30,8 @@ class Upscaledb < Formula
   depends_on "protobuf" if build.with? "remote"
 
   resource "libuv" do
-    url "https://github.com/libuv/libuv/archive/v0.10.36.tar.gz"
-    sha256 "421087044cab642f038c190f180d96d6a1157be89adb4630881930495b8f5228"
+    url "https://github.com/libuv/libuv/archive/v0.10.37.tar.gz"
+    sha256 "4c12bed4936dc16a20117adfc5bc18889fa73be8b6b083993862628469a1e931"
   end
 
   fails_with :clang do
@@ -43,6 +44,12 @@ class Upscaledb < Formula
   end
 
   def install
+    # Fix collision with isset() in <sys/params.h>
+    # See https://github.com/Homebrew/homebrew-core/pull/4145
+    inreplace "./src/5upscaledb/upscaledb.cc",
+      "#  include \"2protobuf/protocol.h\"",
+      "#  include \"2protobuf/protocol.h\"\n#define isset(f, b)       (((f) & (b)) == (b))"
+
     system "./bootstrap.sh" if build.head?
 
     args = %W[

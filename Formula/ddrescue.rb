@@ -7,6 +7,7 @@ class Ddrescue < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2408aa74d3d6da31f292c806b217572cae8e1f36baaaa62a32fab30337f49835" => :sierra
     sha256 "aff05728f88adac5a71d75062b20fcdeafbf2713b85ee36fab5feb61b7bdb61e" => :el_capitan
     sha256 "42107fcfff8293ad3fc0d0e2720a51ebb0d3a2f760de0b8726f4f8d950765486" => :yosemite
     sha256 "d0ee3b88a28d423f6475d0046307bddfdeb210f56fb59878b6395b2a01144073" => :mavericks

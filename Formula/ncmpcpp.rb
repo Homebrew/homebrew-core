@@ -3,12 +3,13 @@ class Ncmpcpp < Formula
   homepage "https://rybczak.net/ncmpcpp/"
   url "https://ncmpcpp.rybczak.net/stable/ncmpcpp-0.7.4.tar.bz2"
   sha256 "d70425f1dfab074a12a206ddd8f37f663bce2bbdc0a20f7ecf290ebe051f1e63"
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "3357ef209a42faa042a113303e67c8099ac5d0c95cd024c21b6f2cffcc1f53a1" => :el_capitan
-    sha256 "3e47d92bb80359c937f1609707d6c3c75cbada8cf1528b42b900a14bb2909fde" => :yosemite
-    sha256 "c6e1d2e642ee783f7f44c6ed744d4039bcb72c19c60fc615d200fc392aab543b" => :mavericks
+    sha256 "12aab5a3aa5bdac55bc8244c8544a9cb406dd6c97ab6507652b0826fadbbde5f" => :sierra
+    sha256 "ab12f9e658feb9fd1392c244c65725a45ee72821e0f8b03df7b1264e5b7dc56e" => :el_capitan
+    sha256 "541e10777a7c2387b431b02968e22e92a0d5cb4723a4e6b27f1836cc2a2b390a" => :yosemite
   end
 
   head do
@@ -70,6 +71,7 @@ class Ncmpcpp < Formula
   end
 
   test do
+    ENV.delete("LC_CTYPE")
     assert_match version.to_s, shell_output("#{bin}/ncmpcpp --version")
   end
 end

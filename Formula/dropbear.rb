@@ -1,15 +1,16 @@
 class Dropbear < Formula
   desc "Small SSH server/client for POSIX-based system"
   homepage "https://matt.ucc.asn.au/dropbear/dropbear.html"
-  url "https://matt.ucc.asn.au/dropbear/releases/dropbear-2015.71.tar.bz2"
-  mirror "https://dropbear.nl/mirror/dropbear-2015.71.tar.bz2"
-  sha256 "376214169c0e187ee9f48ae1a99b3f835016ad5b98ede4bfd1cf581deba783af"
+  url "https://matt.ucc.asn.au/dropbear/releases/dropbear-2016.74.tar.bz2"
+  mirror "https://dropbear.nl/mirror/dropbear-2016.74.tar.bz2"
+  sha256 "2720ea54ed009af812701bcc290a2a601d5c107d12993e5d92c0f5f81f718891"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "65d59887e37a85f8aaa8f6e4dcbb4245cdce2ba7669a602d3b3d38c761d9f2b4" => :el_capitan
-    sha256 "00784cda726cf43d7dfe27d051d70c39ccb75199c4bd26583344133606ff74cb" => :yosemite
-    sha256 "1ab60a4f052609e42ec4682ba27251b3ef7ecd324ed018644080e87d61c4c8c0" => :mavericks
+    sha256 "06ec7a95e2d60c0898cf596a2442dd524744ba4bb309469db969da13801ec11f" => :sierra
+    sha256 "8710753a40480bd472b90a75375cfb0dc2fc8f40e2f454bbb85989256685f5a1" => :el_capitan
+    sha256 "d10e0571037b42d5ea665c63f720603b5b0e0aedec39e97c1727b9ea261e34e2" => :yosemite
+    sha256 "5d08ad835636ba85ccc5264573dcc5c2c2fb5f43a11522cbbb78600e7d63100f" => :mavericks
   end
 
   head do

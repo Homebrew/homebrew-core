@@ -4,65 +4,68 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-    :tag => "v1.3.3",
-    :revision => "6220bd5f0cdb5008ba9488fabcd556959e80dce5"
+      :tag => "v1.7.1",
+      :revision => "f896af7df9cf8a70b6413c566a4ab03055735891"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b45ac3284c46efa6e31a29be144c9515427fd058ff3406c0b219cb12d7f74000" => :el_capitan
-    sha256 "5de0a8797c284796b5a7fe2d28c58aa36c0802d59d4d8dbdb418f331c199b89f" => :yosemite
-    sha256 "d18d86b23af0d6a49091fa7b32337f54f3f05ae56db8f0bea8e4287c5e076ad0" => :mavericks
+    sha256 "75a6c23cb84a63c2da067857381f870fcfaa6cca5e7716955eed7bf18b94d4b4" => :sierra
+    sha256 "df13bd86fcaea55c75ad40423a39682f5eda9b93ee999eaf69ad64f8fb1bde3e" => :el_capitan
+    sha256 "9996bd4d0abff54e542058dafb0c0e6e7b2a7e12f13f814ccee81f9dd979a1c9" => :yosemite
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
   depends_on "docker" => :recommended
 
   go_resource "github.com/jteeuwen/go-bindata" do
     url "https://github.com/jteeuwen/go-bindata.git",
-      :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
+        :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
   end
 
-  resource "prebuilt-x86_64.tar.gz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.3.3/docker/prebuilt-x86_64.tar.gz",
-      :using => :nounzip
-    version "1.3.3"
-    sha256 "5ae536cb7598607f1a0d4c0cb7f31d83d6c19e386106ea50192933a726f33ca9"
+  resource "prebuilt-x86_64.tar.xz" do
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.7.1/docker/prebuilt-x86_64.tar.xz",
+        :using => :nounzip
+    version "1.7.1"
+    sha256 "28ea4c9bf49f1b50659541c8c09fbcccf814211230be235e52babcee61468dbd"
   end
 
   def install
-    mkdir_p buildpath/"src/gitlab.com/gitlab-org"
-    ln_sf buildpath, buildpath/"src/gitlab.com/gitlab-org/gitlab-ci-multi-runner"
-
     ENV["GOPATH"] = buildpath
-
+    dir = buildpath/"src/gitlab.com/gitlab-org/gitlab-ci-multi-runner"
+    dir.install buildpath.children
     ENV.prepend_create_path "PATH", buildpath/"bin"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    cd buildpath/"src/github.com/jteeuwen/go-bindata/go-bindata" do
+    cd "src/github.com/jteeuwen/go-bindata/go-bindata" do
       system "go", "install"
     end
 
-    resource("prebuilt-x86_64.tar.gz").stage do
-      system "go-bindata", "-pkg", "docker", "-nocompress", "-nomemcopy", "-nometadata", "-o", buildpath/"executors/docker/bindata.go", "prebuilt-x86_64.tar.gz"
-    end
+    cd dir do
+      resource("prebuilt-x86_64.tar.xz").stage do
+        system "go-bindata", "-pkg", "docker", "-nocompress", "-nomemcopy",
+                             "-nometadata", "-o",
+                             "#{dir}/executors/docker/bindata.go",
+                             "prebuilt-x86_64.tar.xz"
+      end
 
-    cd "src/gitlab.com/gitlab-org/gitlab-ci-multi-runner" do
-      commit_sha = `git rev-parse --short HEAD`
+      proj = "gitlab.com/gitlab-org/gitlab-ci-multi-runner"
+      commit = Utils.popen_read("git", "rev-parse", "--short", "HEAD").chomp
+      branch = version.to_s.split(".")[0..1].join("-") + "-stable"
+      system "go", "build", "-ldflags", <<-EOS.undent
+             -X #{proj}/common.NAME=gitlab-ci-multi-runner
+             -X #{proj}/common.VERSION=#{version}
+             -X #{proj}/common.REVISION=#{commit}
+             -X #{proj}/common.BRANCH=#{branch}
+      EOS
 
-      # Disable vendor support for go 1.5 and above
-      ENV["GO15VENDOREXPERIMENT"] = "0"
-
-      # Copy from Makefile
-      system "godep", "go", "build", "-o", "gitlab-ci-multi-runner", "-ldflags", "-X main.NAME=gitlab-ci-multi-runner -X main.VERSION=#{version} -X main.REVISION=#{commit_sha}"
       bin.install "gitlab-ci-multi-runner"
-      bin.install_symlink "#{bin}/gitlab-ci-multi-runner" => "gitlab-runner"
+      bin.install_symlink bin/"gitlab-ci-multi-runner" => "gitlab-runner"
+      prefix.install_metafiles
     end
   end
 
   test do
-    assert_match "Version:      #{version}", shell_output("#{bin}/gitlab-ci-multi-runner --version")
-    assert_match "Version:      #{version}", shell_output("#{bin}/gitlab-runner --version")
+    assert_match version.to_s, shell_output("#{bin}/gitlab-runner --version")
   end
 end

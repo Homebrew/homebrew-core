@@ -1,8 +1,8 @@
 class Activemq < Formula
   desc "Apache ActiveMQ: powerful open source messaging server"
   homepage "https://activemq.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/activemq/5.13.3/apache-activemq-5.13.3-bin.tar.gz"
-  sha256 "6ac9e617195cb071cfd55556870dd3d2ef4a9078466e0e690277553e81635568"
+  url "https://www.apache.org/dyn/closer.cgi?path=/activemq/5.14.0/apache-activemq-5.14.0-bin.tar.gz"
+  sha256 "81c623465af277dd50a141a8d9308d6ec8e1b78d9019b845873dc12d117aa9a6"
 
   bottle :unneeded
 

@@ -1,27 +1,22 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  revision 1
+  url "https://cmake.org/files/v3.6/cmake-3.6.2.tar.gz"
+  sha256 "189ae32a6ac398bb2f523ae77f70d463a6549926cde1544cd9cc7c6609f8b346"
 
   head "https://cmake.org/cmake.git"
 
-  stable do
-    url "https://cmake.org/files/v3.6/cmake-3.6.0.tar.gz"
-    sha256 "fd05ed40cc40ef9ef99fac7b0ece2e0b871858a82feade48546f5d2940147670"
-
-    # This patch fixes an incompatibility with hdf5
-    # See https://gitlab.kitware.com/cmake/cmake/issues/16190
-    patch do
-      url "https://gitlab.kitware.com/cmake/cmake/merge_requests/34.patch"
-      sha256 "6d47140ebb65c045d9eee2c363aa22e53973a54b9bcdc11ef7b622c97419999f"
-    end
-  end
-
   bottle do
     cellar :any_skip_relocation
-    sha256 "2c8974f149405a62d1a2bfd4485b7b92f3acb6f48beb811fe230c8d2a1b700b0" => :el_capitan
-    sha256 "d8c83599b942ca895d4a16caea33ca5317dfa073570de22e25fc8dbcf4596dd4" => :yosemite
-    sha256 "d2a94d6ef92d762b377011b29d6b28f8da77e20eead1a896c6f61bcc1c06898a" => :mavericks
+    sha256 "d44d2cbbb2a874811bc66fd28b946666aebf14a5c57b98b9c9284ce2590af5e5" => :sierra
+    sha256 "4fb26aa213968e98ec918227033288f51244c93ec31505c74481d165c9a26173" => :el_capitan
+    sha256 "17cdcd37313ca26d6e6fca29ed96b489c63523d74d3077ace4d5cb671b9730de" => :yosemite
+    sha256 "ce89b3f58c40a2154dc7c836340758b6d5dc3aadf0215961a2fb0200e370f3fc" => :mavericks
+  end
+
+  devel do
+    url "https://cmake.org/files/v3.7/cmake-3.7.0-rc2.tar.gz"
+    sha256 "798e7a48f42a383da767c482810afe9ed6e3f91c99cb27719fd0407b3bf1e96d"
   end
 
   option "without-docs", "Don't build man pages"
@@ -53,7 +48,7 @@ class Cmake < Formula
     end
 
     if build.with? "docs"
-      # There is an existing issue around OS X & Python locale setting
+      # There is an existing issue around macOS & Python locale setting
       # See https://bugs.python.org/issue18378#msg215215 for explanation
       ENV["LC_ALL"] = "en_US.UTF-8"
       args << "--sphinx-man" << "--sphinx-build=#{Formula["sphinx-doc"].opt_bin}/sphinx-build"

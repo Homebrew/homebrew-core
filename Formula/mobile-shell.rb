@@ -1,28 +1,14 @@
 class MobileShell < Formula
   desc "Remote terminal application"
-  homepage "https://mosh.mit.edu/"
-
-  stable do
-    url "https://mosh.mit.edu/mosh-1.2.5.tar.gz"
-    sha256 "1af809e5d747c333a852fbf7acdbf4d354dc4bbc2839e3afe5cf798190074be3"
-
-    # Upstream switched to defaulting to CommonCrypto as of
-    # https://github.com/mobile-shell/mosh/commit/0eb614809a7ea
-    depends_on "openssl"
-  end
+  homepage "https://mosh.org"
+  url "https://mosh.org/mosh-1.2.6.tar.gz"
+  sha256 "7e82b7fbfcc698c70f5843bb960dadb8e7bd7ac1d4d2151c9d979372ea850e85"
+  revision 3
 
   bottle do
-    sha256 "046b0c48cd1c573d57500e683122e3152a00556ad960938c6caa962b0c2ef460" => :el_capitan
-    sha256 "33719bc3df39cf2fdeb4589129f164f3500d2eac1e874666c747b612384545cf" => :yosemite
-    sha256 "9460c06ccef476ef1b3feed85168ea989ef4eced753cbd59ed53fd512f5c1aff" => :mavericks
-    sha256 "5a244c07094d5d3d30a95888a7bb0df6051fd81cfec7fd35ac861090f1897d6e" => :mountain_lion
-  end
-
-  devel do
-    url "https://github.com/mobile-shell/mosh/releases/download/mosh-1.2.5.95rc1/mosh-1.2.5.95rc1.tar.gz"
-    sha256 "a2697c41cfc8c92dc7a743dd101849a7a508c6986b24d6f44711d8533d18fcf5"
-
-    depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
+    sha256 "bc1a1ce96af199e577ee7eecd75688f43aaa6bddec09a7973c487f8d4233e60f" => :sierra
+    sha256 "73f0c2c60aae22d886f44421034fe1e43e2c643dba10913026d9f2935b3c0ddc" => :el_capitan
+    sha256 "0d4e77bc71d3413788995fc3029ae29df2789ef6eed7871862a823ffeee7f12d" => :yosemite
   end
 
   head do
@@ -30,17 +16,24 @@ class MobileShell < Formula
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
-    depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
   end
 
-  option "without-test", "Run build-time tests"
+  option "with-test", "Run build-time tests"
 
   deprecated_option "without-check" => "without-test"
 
   depends_on "pkg-config" => :build
   depends_on "protobuf"
+  depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
+  depends_on "tmux" => :build if build.with?("test") || build.bottle?
 
   def install
+    # Fix for 'dyld: lazy symbol binding failed: Symbol not found: _clock_gettime' issue
+    # Reported 26 Sep 2016 https://github.com/mobile-shell/mosh/issues/807
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      ENV["ac_cv_search_clock_gettime"] = "no"
+    end
+
     # teach mosh to locate mosh-client without referring
     # PATH to support launching outside shell e.g. via launcher
     inreplace "scripts/mosh.pl", "'mosh-client", "\'#{bin}/mosh-client"
@@ -55,7 +48,6 @@ class MobileShell < Formula
   end
 
   test do
-    ENV["TERM"] = "xterm"
-    system "#{bin}/mosh-client", "-c"
+    system bin/"mosh-client", "-c"
   end
 end

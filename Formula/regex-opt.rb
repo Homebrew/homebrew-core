@@ -6,6 +6,7 @@ class RegexOpt < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6450d5a7ab5cc7a19e14753aa797e3044b7f0f29dba2cc22c4db32c2706d439d" => :sierra
     sha256 "3f9bdf79820441d3a0941a8cb17b9d2c4f512b9e0fbdc36560681c3534e3615a" => :el_capitan
     sha256 "01d8af104a70bc0bcf9c9fb1b93b0e4f3a7d08aaadd367e34ec223c38a00d58c" => :yosemite
     sha256 "08ac62a2ea7522fb62f915bad274e2693b8e587e8266d705f2fa210c3405c19d" => :mavericks

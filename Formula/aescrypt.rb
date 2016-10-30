@@ -6,6 +6,7 @@ class Aescrypt < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2250bd07f689721287269dc70c504b4f08ac2a02b5550ad9f0a51dca60ed6f9a" => :sierra
     sha256 "0cd940c7c9e59104746a8f83f92a06e703e7f98195a202d20516c03b588fd63f" => :el_capitan
     sha256 "660c8a9266d7f85e699fb5bfabb82c508a66d303b2a2057c9c70a3c70fed43f6" => :yosemite
     sha256 "a0bf8895165037991bf5b33be5c995e9b68a1d05898003a0ef45adb7aa3d3da9" => :mavericks

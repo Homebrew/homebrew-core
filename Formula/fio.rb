@@ -1,15 +1,16 @@
 class Fio < Formula
   desc "I/O benchmark and stress test"
   homepage "http://freecode.com/projects/fio"
-  url "https://github.com/axboe/fio/archive/fio-2.12.tar.gz"
-  sha256 "b692f2b3bb9a63369252e4c55aa70e2ba064c16869ea81b58d2798b212636bd6"
+  url "https://github.com/axboe/fio/archive/fio-2.14.tar.gz"
+  sha256 "9fad9dd4d6304f1220023500abf07c5d20bf5e27fba95ac6edb7035939d363a5"
   head "git://git.kernel.dk/fio.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c8329406654f4e36660d6679a171bec8060f22ece7fe44d0b46c85acbc6c4b2d" => :el_capitan
-    sha256 "a021f77ccd607011fdb850020a10a53541ecdb9fede1ab120387be75973cad26" => :yosemite
-    sha256 "4bb96f6205c8289f75c25e43d6c7bf3bd400b4c002c3de11889dcc51d5d8f50a" => :mavericks
+    sha256 "8d8cb0252366907d14b87ee1b10b8b2ef0019a2ef8818ea550d0b09a822a24f7" => :sierra
+    sha256 "f4caaad6102651a917bcf0faf2f9547b7dcf36f64bb9e5ec4ff676fbf6466853" => :el_capitan
+    sha256 "32c4f08379ac6fb031e54da94397dd4f74be1e937c8703f44602660be8e66bca" => :yosemite
+    sha256 "b6ff9b7c19f2cac95bff1f75a452578788ad8f0599b981dc3dd3fd2612f77b63" => :mavericks
   end
 
   def install

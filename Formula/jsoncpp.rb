@@ -1,15 +1,15 @@
 class Jsoncpp < Formula
   desc "Library for interacting with JSON"
   homepage "https://github.com/open-source-parsers/jsoncpp"
-  url "https://github.com/open-source-parsers/jsoncpp/archive/1.7.4.tar.gz"
-  sha256 "10dcd0677e80727e572a1e462193e51a5fde3e023b99e144b2ee1a469835f769"
+  url "https://github.com/open-source-parsers/jsoncpp/archive/1.7.7.tar.gz"
+  sha256 "087640ebcf7fbcfe8e2717a0b9528fff89c52fcf69fa2a18cc2b538008098f97"
   head "https://github.com/open-source-parsers/jsoncpp.git"
 
   bottle do
     cellar :any
-    sha256 "da2352b84b5685a648e30d99194c2601f151a1f2a668ab6d85498977c22971cf" => :el_capitan
-    sha256 "33ca9d623e31790bab4773a2169a5f30f9c2e2994fd2ec668ab37887d36f3f80" => :yosemite
-    sha256 "bdd8af9fc8a439b0a8d831174cd7f916233461cc295f0e5b9e0878e19a03b6af" => :mavericks
+    sha256 "0666826b27287092e0678fe5753cf112800308a197b489db50008f3452fd5081" => :sierra
+    sha256 "3e256d37a552adf2f84ccc5f2800489816fbba196998f7d510c0a39fc17a520d" => :el_capitan
+    sha256 "c52d03c2ffafdd66719e14dca20892b6bde4d918fcd28217f1ebc9f9b721c34b" => :yosemite
   end
 
   option :universal
@@ -21,7 +21,7 @@ class Jsoncpp < Formula
   def install
     ENV.cxx11
 
-    cmake_args = std_cmake_args + %W[
+    cmake_args = std_cmake_args + %w[
       -DBUILD_STATIC_LIBS=ON
       -DBUILD_SHARED_LIBS=ON
       -DJSONCPP_WITH_CMAKE_PACKAGE=ON

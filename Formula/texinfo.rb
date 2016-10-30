@@ -1,14 +1,15 @@
 class Texinfo < Formula
   desc "Official documentation format of the GNU project"
   homepage "https://www.gnu.org/software/texinfo/"
-  url "https://ftpmirror.gnu.org/texinfo/texinfo-6.1.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/texinfo/texinfo-6.1.tar.xz"
-  sha256 "ac68394ce21b2420ba7ed7cec65d84aacf308cc88e9bf4716fcfff88286883d2"
+  url "https://ftpmirror.gnu.org/texinfo/texinfo-6.3.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/texinfo/texinfo-6.3.tar.xz"
+  sha256 "246cf3ffa54985118ec2eea2b8d0c71b92114efe6282c2ae90d65029db4cf93a"
 
   bottle do
-    sha256 "f2494484ec7313c1d30156d6b4939daa4848e271030875de3d59def35db03e50" => :el_capitan
-    sha256 "b9f97a38fd4ce96c0e08bb7415c1d2c5f1e6af8e83f600a3aeff7457cbde9da6" => :yosemite
-    sha256 "9d95f0a35e4b245925f2b2a430a28b261c1b49659468d59a544ad28947fe34ad" => :mavericks
+    sha256 "ddcd68fb9757b11e5b8ea39e22996815aaf763b05711e21e17e45ba4ea68741a" => :sierra
+    sha256 "f0fcad49893de2e4167658cf13dc6b6ef0a458e764637b63ff2ba623959e4928" => :el_capitan
+    sha256 "91d4ca04c9b42751af95b6114b477afe01221758ba152763d4177332a67399d9" => :yosemite
+    sha256 "5990ad5d13570b6991156fa2db000dfe25273614c27912d46d8802577d85fe8c" => :mavericks
   end
 
   keg_only :provided_by_osx, <<-EOS.undent

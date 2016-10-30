@@ -1,15 +1,18 @@
 class Passpie < Formula
+  include Language::Python::Virtualenv
+
   desc "Manage login credentials from the terminal"
   homepage "https://github.com/marcwebbie/passpie"
-  url "https://files.pythonhosted.org/packages/f3/68/0b60f45c2604c7aabea83407085447c33ecab2991f03a43cdac11334ce38/passpie-1.5.4.tar.gz"
-  sha256 "3d58faca452dad5ddbb6000af16b0ef3c6591eae61423c87b64252faf1106e3c"
+  url "https://files.pythonhosted.org/packages/14/b9/1ab7e80d03ac286602fbd9c6467e2dfc4e67394470e59622111514f223cd/passpie-1.5.5.tar.gz"
+  sha256 "d6d707c54bf338f229b7c82df81cf3a196f52e718b4ec6530bbbe7f4624290af"
+
   head "https://github.com/marcwebbie/passpie.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9d6bb3bd7ffd59287ca6e8f1f73cc2054aa5878eff613a5dcd15ef990be41f18" => :el_capitan
-    sha256 "1c1413eca1bdd41c58f980fd488e50d811cc59929df67d2d1cb4fd1cb6d9707e" => :yosemite
-    sha256 "f11202dd86fd4abd985bbe1f8f7c6e9aa5870c40a72388843b27944c37ca606e" => :mavericks
+    sha256 "db8c178db7bd254f55e67f0f31502847f86eba86bb80bf2373bb02eb8dada185" => :sierra
+    sha256 "7901e797484528b9a1b40fbc304d0dab8e81f562c6904dc2bcb6efc197f8888b" => :el_capitan
+    sha256 "7d873719b5e728ba6f75ad343c2bf6dedb781a954ce8ef54561df3bf123dbeb4" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -41,19 +44,7 @@ class Passpie < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    %w[click rstr tabulate tinydb PyYAML].each do |r|
-      resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

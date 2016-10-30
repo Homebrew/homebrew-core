@@ -1,15 +1,16 @@
 class Logentries < Formula
   desc "Utility for access to logentries logging infrastructure"
   homepage "https://logentries.com/doc/agent/"
-  url "https://github.com/logentries/le/archive/v1.4.27.tar.gz"
-  sha256 "218ca34395445312aeb77eb23a9bf589771da5fac9feca9b82646f57867abc2f"
+  url "https://github.com/logentries/le/archive/v1.4.40.tar.gz"
+  sha256 "65c14106596ac40870f5a7829e9bb61e9ac6e389a03ca3dcbeb5a944e342f7fd"
   head "https://github.com/logentries/le.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "369d6eff854cc45844c25a2933bec0d8adec12bcd8b72bc2034e517fa4492216" => :el_capitan
-    sha256 "0b34497db2b3c2a24cd65451a0f7ac00715916125ae4bd2fe062b49e52ca2a69" => :yosemite
-    sha256 "e069e981ac5f77d8948256be26fa66a66aae5c5876d7c447c3719152e072758c" => :mavericks
+    sha256 "497fb9fde20d96acb77019d983c0c2a8d0b53956c41102bda41d3c9d3104ae10" => :sierra
+    sha256 "a7e9da0109b525f9d3ab9143c4ded9edad0a023da1517262e08920a1ab0fd817" => :el_capitan
+    sha256 "477138f1ee0fa5a123b12886edf0e8a81e7bcfb725949976855eaa50c1304e8d" => :yosemite
+    sha256 "01edb0fe82fade9c94c86f93e0ab284d6eda959d007eb747908819e395df1bee" => :mavericks
   end
 
   conflicts_with "le", :because => "both install a le binary"

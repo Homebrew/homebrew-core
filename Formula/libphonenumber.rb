@@ -1,14 +1,14 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/googlei18n/libphonenumber"
-  url "https://github.com/googlei18n/libphonenumber/archive/libphonenumber-7.4.5.tar.gz"
-  sha256 "e131f7003aa906b295f645eddc964219af9f5288e86ea6cfdcdc878cdb25b1af"
+  url "https://github.com/googlei18n/libphonenumber/archive/libphonenumber-7.7.3.tar.gz"
+  sha256 "09a9bb00f8fe94e823e7617b2edb4e6961c41956f341b416ec4ebf681534743e"
 
   bottle do
     cellar :any
-    sha256 "c324769860dd058cbe471d1b36f10ff4f2e157f66762224255d0ce159b2d0915" => :el_capitan
-    sha256 "2057a2d06d05c4437ea570521d2d4f917af1350d6161a41f90aa4e6707e32be8" => :yosemite
-    sha256 "8cf7f634214045c6657f94403f226444d007054a043642faaa7593492ef7c177" => :mavericks
+    sha256 "350b0626de7e35b3625596c95997785d96e46091ade556d3d70c9c80641b6e47" => :sierra
+    sha256 "b07c8570ef86666d0d7d8ca32baa9445a735d2d309e11f6a17383ac88c78c4dd" => :el_capitan
+    sha256 "72d2cb3ad7685c7c39079ece5abb54f3c82eb9879bb94fafc269c0a2de3fe741" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -19,7 +19,7 @@ class Libphonenumber < Formula
   depends_on "re2"
 
   resource "gtest" do
-    url "https://googletest.googlecode.com/files/gtest-1.7.0.zip"
+    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/googletest/gtest-1.7.0.zip"
     sha256 "247ca18dd83f53deb1328be17e4b1be31514cedfc1e3424f672bf11fd7e0d60d"
   end
 
@@ -31,10 +31,11 @@ class Libphonenumber < Formula
       system "make"
     end
 
-    args = std_cmake_args
-    args << "-DGTEST_INCLUDE_DIR:PATH=#{(buildpath/"gtest/include")}"
-    args << "-DGTEST_LIB:PATH=#{buildpath/"gtest/libgtest.a"}"
-    args << "-DGTEST_SOURCE_DIR:PATH=#{buildpath/"gtest/src"}"
+    args = std_cmake_args + %W[
+      -DGTEST_INCLUDE_DIR:PATH=#{buildpath}/gtest/include
+      -DGTEST_LIB:PATH=#{buildpath}/gtest/libgtest.a
+      -DGTEST_SOURCE_DIR:PATH=#{buildpath}/gtest/src
+    ]
 
     system "cmake", "cpp", *args
     system "make", "install"

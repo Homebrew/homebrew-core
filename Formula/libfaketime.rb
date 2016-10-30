@@ -5,7 +5,7 @@ class Libfaketime < Formula
   sha256 "5e07678d440d632bef012068ca58825402da5ad25954513e785717cc539c213d"
 
   bottle do
-    revision 1
+    rebuild 1
     sha256 "1fc4204b9cf216dffc0c614e679c37682a7702b058ca00d3aed6226220997b53" => :el_capitan
     sha256 "5148ca77b62f044e604d80cd18f2a7c46c2bd44ffff2b828eea05b98154f2b17" => :yosemite
     sha256 "9beebb4e5b6fa274f6114a141d7c20f726532e851496733b60825e9c75926480" => :mavericks

@@ -6,7 +6,8 @@ class Malaga < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "18ffb6dbeb4cf6c90588f2ec95ef9afb60ac95ee2852d1d374a8e43870b33ffe" => :sierra
     sha256 "3dc2cc5ed0bfda10278cb26e02365156b7da8f85826b5286f61dec445165b327" => :el_capitan
     sha256 "86515c6fef935c0abe811d86baf10c5c6df341112d60c45ac04c01a37b096abf" => :yosemite
     sha256 "cfd527fb6022b4c1008bbfad1a6d1333b1b844bd720bc491610b8b6f9c9a1f8c" => :mavericks

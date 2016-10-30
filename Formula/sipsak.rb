@@ -7,6 +7,7 @@ class Sipsak < Formula
 
   bottle do
     cellar :any
+    sha256 "4725693dba5edcb68df030b63cb738795e96d29668bc9bf512ba8e2800ec862a" => :sierra
     sha256 "9f42a09240891ecd9aa62dea1dd75dc1c5362d2f946fefecf13ce975a6c05626" => :el_capitan
     sha256 "873d8cd50cce684ad55abbdf834157b4464c70877de9d1c37ad3c4ec9aaf6e10" => :yosemite
     sha256 "d70729739fcfe770fdfa997dc33cd04370a6cd2f6916e63adfed60473c4bfc55" => :mavericks

@@ -6,6 +6,7 @@ class Otf2bdf < Formula
 
   bottle do
     cellar :any
+    sha256 "1bc1ef42c5ffaf8faf3e5f6e58e8678d9992d5bc5ea4ed607bf6c71f35dc6165" => :sierra
     sha256 "018d348c6fb0b0a413c85bd575d93837f4bb03c654243f1c6ce9d54e417d77e9" => :el_capitan
     sha256 "751f5243a8be995963d1b4e20bea3d52823fdcbadb727d0eab20e6715277db40" => :yosemite
     sha256 "70fb9d592eaa1cbc1f3e2a448c023988ea5e86035633d387c959de8c725a98f8" => :mavericks

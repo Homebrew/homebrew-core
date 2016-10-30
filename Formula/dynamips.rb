@@ -6,6 +6,7 @@ class Dynamips < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b0dff444d30aee825fb6324fb32b78514cf6dcd4c7bdfcaf6e92d3845338faf8" => :sierra
     sha256 "4e81ee17602f6ef530e3e8e36d0f71b453ed7d790cc17a336b6f22143f7eb6a5" => :el_capitan
     sha256 "6b5cee3e5085ace5329386b70e72a357e3d3a2f980de60eaa4104a2db4e8620d" => :yosemite
     sha256 "c29879e87cb14a0ba3f6c031fa52a3864566e84930593125ec47f6a7ca02cd96" => :mavericks

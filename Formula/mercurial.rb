@@ -3,14 +3,21 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://mercurial-scm.org/release/mercurial-3.8.4.tar.gz"
-  sha256 "4b2e3ef19d34fa1d781cb7425506a05d4b6b1172bab69d6ea78874175fdf3da6"
+  url "https://mercurial-scm.org/release/mercurial-3.9.2.tar.gz"
+  sha256 "69046a427c05e83097bf0145a1e37975ae0b6ba4430456e2beca3d2fd96583cf"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5b0083c13264bef0a98ba30d231f5c65ebfa8ca2c75daad028559c73afe2aa74" => :el_capitan
-    sha256 "713df1a367af55b03e5c3a853e5a963f32d8cf33dcb8c0ddb6c388603a3d8cc3" => :yosemite
-    sha256 "b038a222b9da243d0c14b88e370f4912cd5b790b7ae1cf4bc14f0fa1c24120e2" => :mavericks
+    sha256 "a26b595ba43c550dc01b7685c43e6749ede3c3092dd7a0fc9e04c26306fc3244" => :sierra
+    sha256 "4145c6ba515903bb49b560edf20e1dbeb2c9043dcd9d4f5670732ff1af5f8c7a" => :el_capitan
+    sha256 "bbdc7da69966964f7822c041187b11742366e91cdcac238fe65011cb9f2a154e" => :yosemite
+  end
+
+  option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"
+  if build.with? "custom-python"
+    depends_on :python
+  else
+    depends_on "python"
   end
 
   def install
@@ -24,6 +31,20 @@ class Mercurial < Formula
     # install the completion scripts
     bash_completion.install "contrib/bash_completion" => "hg-completion.bash"
     zsh_completion.install "contrib/zsh_completion" => "_hg"
+  end
+
+  def caveats
+    return unless (opt_bin/"hg").exist?
+    cacerts_configured = `#{opt_bin}/hg config web.cacerts`.strip
+    return if cacerts_configured.empty?
+    <<-EOS.undent
+      Homebrew has detected that Mercurial is configured to use a certificate
+      bundle file as its trust store for TLS connections instead of using the
+      default OpenSSL store. If you have trouble connecting to remote
+      repositories, consider unsetting the `web.cacerts` property. You can
+      determine where the property is being set by running:
+        hg config --debug web.cacerts
+    EOS
   end
 
   test do

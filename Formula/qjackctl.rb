@@ -1,27 +1,28 @@
 class Qjackctl < Formula
   desc "simple Qt application to control the JACK sound server daemon"
   homepage "http://qjackctl.sourceforge.net"
-  url "https://downloads.sourceforge.net/qjackctl/qjackctl-0.4.2.tar.gz"
-  sha256 "cf1c4aff22f8410feba9122e447b1e28c8fa2c71b12cfc0551755d351f9eaf5e"
-  head "http://git.code.sf.net/p/qjackctl/code", :using => :git
+  url "https://downloads.sourceforge.net/qjackctl/qjackctl-0.4.3.tar.gz"
+  sha256 "6bfdc3452f3c48d1ce40bd4164be0caa1c716474fbd3fb408d3308dfadf79e07"
+  head "http://git.code.sf.net/p/qjackctl/code.git"
 
   bottle do
-    sha256 "881297bbb05a0367be914b6c696a1fd38b1591906dfd08077a827f6c28dda692" => :el_capitan
-    sha256 "2d86adb7ea68a8b7dd18c7f00a53aa7191c910bf0d985b931a76587e91f864ca" => :yosemite
-    sha256 "41f607f3a331eaa2c5be1aaaf3e7f173b58975e24a3d4d78aaa8f21a74d70025" => :mavericks
+    sha256 "6c7bf88956be30bf0c2598ea0382142284e82837d51c4248cc8b720d3e962740" => :sierra
+    sha256 "67ed21adb3ce0b47b7e2b64663dfc49a801ea906f8707bdd7320db8ccd3be5bf" => :el_capitan
+    sha256 "f24586ac79810807e4326555f93c0b53976d78c2fe215a13d464f01c0d3d318b" => :yosemite
   end
 
-  depends_on "autoconf" => :build
   depends_on "qt5"
   depends_on "jack"
 
   def install
-    system "./autogen.sh"
     system "./configure", "--disable-debug",
                           "--enable-qt5",
                           "--disable-dbus",
+                          "--disable-portaudio",
                           "--disable-xunique",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-jack=#{Formula["jack"].opt_prefix}",
+                          "--with-qt5=#{Formula["qt5"].opt_prefix}"
 
     system "make", "install"
     prefix.install bin/"qjackctl.app"
@@ -29,7 +30,6 @@ class Qjackctl < Formula
   end
 
   test do
-    output = shell_output("#{bin}/qjackctl --version 2>&1", 1)
-    assert_match version.to_s, output
+    assert_match version.to_s, shell_output("#{bin}/qjackctl --version 2>&1", 1)
   end
 end

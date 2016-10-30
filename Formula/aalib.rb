@@ -6,14 +6,15 @@ class Aalib < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "c3bb440617a66459f7baf954342801c575488e9312fde720b6b7bd5476ed9abe" => :sierra
     sha256 "06bd52bb36bc45e839cc6581baa11580d8ab786f83fd878e725d1b0923497c7b" => :el_capitan
     sha256 "f018850bc3f7cb622b5fd19a1b9910f5be3218b70cbf36e158f0f241ddff05ec" => :yosemite
     sha256 "45922d8c9e423b8249bfee4263d9b7c848eec19e72f553ce9271eb60795ae6ff" => :mavericks
     sha256 "b2fd6584ff2ad3afc0050e0663ad680f84c79d59958afb043681bac77e9fd2fc" => :mountain_lion
   end
 
-  # Fix malloc/stdlib issue on OS X
+  # Fix malloc/stdlib issue on macOS
   # Fix underquoted definition of AM_PATH_AALIB in aalib.m4
   patch :DATA
 

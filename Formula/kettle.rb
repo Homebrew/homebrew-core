@@ -1,8 +1,8 @@
 class Kettle < Formula
   desc "Pentaho Data Integration software"
   homepage "http://community.pentaho.com/projects/data-integration/"
-  url "https://downloads.sourceforge.net/project/pentaho/Data%20Integration/6.0/pdi-ce-6.0.1.0-386.zip"
-  sha256 "98a1877977cfba5c2ea40baf23921d418068d3ff19d5f949b85b0b036a45cb85"
+  url "https://downloads.sourceforge.net/project/pentaho/Data%20Integration/6.1/pdi-ce-6.1.0.1-196.zip"
+  sha256 "ef5076c09e8481d1ab4cfc5f7d4701437f80f2b97a3bf19dfa74821de9524495"
 
   bottle :unneeded
 
@@ -21,6 +21,8 @@ class Kettle < Formula
       (bin+"pdi#{command}").write_env_script libexec+"#{command}.sh", :BASEDIR => libexec
     end
   end
+
+  plist_options :manual => "kettle"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

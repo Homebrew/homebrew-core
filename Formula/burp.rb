@@ -1,31 +1,81 @@
 class Burp < Formula
   desc "Network backup and restore"
   homepage "http://burp.grke.org/"
-  url "https://github.com/grke/burp/archive/1.4.40.tar.gz"
-  sha256 "2e6a9a28453a11f3e36d0beefa185e72e7781a8718b55d3101144c9900752d6f"
   revision 1
-  head "https://github.com/grke/burp.git"
+
+  stable do
+    url "https://github.com/grke/burp/archive/1.4.40.tar.gz"
+    sha256 "2e6a9a28453a11f3e36d0beefa185e72e7781a8718b55d3101144c9900752d6f"
+
+    patch :DATA
+  end
 
   bottle do
     cellar :any
+    sha256 "f069164dc6c908f87c975526fd7821b4b9be2514a3b8c5884b844a400556c615" => :sierra
     sha256 "2342aea1a1ac623c8154c1d64a7b583eae62a6177136173d73adada6fd58380e" => :el_capitan
     sha256 "a892287dbaf7a4d5557a471b16d6ce09a5dc0faab004635bc0c90b79d07e92b3" => :yosemite
     sha256 "d3b8cc95839835dd9ba9574444d5cf7394d398376fe2a06fcd3ba9a00b395476" => :mavericks
   end
 
+  devel do
+    url "https://github.com/grke/burp/archive/2.0.48.tar.gz"
+    sha256 "62c8304afc30f764eb16c6f0794e593d3ad24850261d1a3b705156bded16116a"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+
+    resource "uthash" do
+      url "https://github.com/troydhanson/uthash.git",
+          :tag => "v2.0.1",
+          :revision => "539b4504b052cfca54ed66b82ca99e3aed403d46"
+    end
+  end
+
+  head do
+    url "https://github.com/grke/burp.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+
+    resource "uthash" do
+      url "https://github.com/troydhanson/uthash.git"
+    end
+  end
+
   depends_on "librsync"
   depends_on "openssl"
 
-  # patches to change directories to brew conventions in Makefile and config
-  # files
-  patch :DATA
-
   def install
+    unless build.stable?
+      resource("uthash").stage do
+        system "make", "-C", "libut"
+        (buildpath/"uthash/lib").install "libut/libut.a"
+        (buildpath/"uthash/include").install Dir["src/*"]
+      end
+
+      ENV.prepend "CPPFLAGS", "-I#{buildpath}/uthash/include"
+      ENV.prepend "LDFLAGS", "-L#{buildpath}/uthash/lib"
+
+      system "autoreconf", "-fiv"
+    end
+
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}/burp",
                           "--sbindir=#{bin}",
-                          "--localstatedir=#{var}/burp"
-    system "make", "install"
+                          "--localstatedir=#{var}"
+    if build.stable?
+      system "make", "install"
+    else
+      system "make", "install-all"
+    end
+  end
+
+  def post_install
+    (var/"run").mkpath
+    (var/"spool/burp").mkpath
   end
 
   def caveats; <<-EOS.undent
@@ -63,7 +113,7 @@ class Burp < Formula
   end
 
   test do
-    system "#{bin}/burp", "-v"
+    system bin/"burp", "-v"
   end
 end
 

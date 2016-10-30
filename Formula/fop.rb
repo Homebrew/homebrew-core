@@ -6,6 +6,7 @@ class Fop < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0fad00e377ebc241a84d27f7cc8e25250a0f57b5247895c10c47416fe4cce284" => :sierra
     sha256 "657c88e138769d842e0f48daf3abd3798194eca420a3327fa5b0b667e7dfbece" => :el_capitan
     sha256 "a3ce519cfe5f54a0823515e2e75f878373d47e8174f9d470976db9ca2f792759" => :yosemite
     sha256 "38602cef629a33f05149c3411ea6b82451deec872aa6cbe1fa8203ad2ee875fb" => :mavericks

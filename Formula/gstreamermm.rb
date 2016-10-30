@@ -1,15 +1,14 @@
 class Gstreamermm < Formula
   desc "GStreamer C++ bindings"
   homepage "https://gstreamer.freedesktop.org/bindings/cplusplus.html"
-  url "https://download.gnome.org/sources/gstreamermm/1.4/gstreamermm-1.4.3.tar.xz"
-  sha256 "f1c11ee1cf7537d77de7f8d486e09c5140cc4bb78882849718cd88959a55462e"
-  revision 1
+  url "https://download.gnome.org/sources/gstreamermm/1.8/gstreamermm-1.8.0.tar.xz"
+  sha256 "3ee3c1457ea2c32c1e17b784faa828f414ba27a9731532bf26d137a2ad999a44"
 
   bottle do
     cellar :any
-    sha256 "467de3a6c47ebf36d74be7a1f0f921ad9b67087d8de3213cdbb929c5ec679106" => :el_capitan
-    sha256 "96d32cde0a48c4a2a78ed0f9bdcab529eefc82b1c807d87f86f571b252a73dad" => :yosemite
-    sha256 "cfb073d82bfdfdd8f485b70021ba0571528e2004bf7a6716ca03f9fd6d5490eb" => :mavericks
+    sha256 "8c8a85ba30fdb18c432fdb8d3141a03643aea32d6411203851e04de2d92ca26b" => :sierra
+    sha256 "3da2522d9ba6d07d78d4758154aa4cbd11cd8be8202e505939a6d0d54625b7a1" => :el_capitan
+    sha256 "e544cbc13b7f95854d8a042bc67efc0d39807d5635a96259739f98b4d567e06c" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -18,6 +17,13 @@ class Gstreamermm < Formula
   depends_on "gst-plugins-base"
 
   needs :cxx11
+
+  # Compilation error due to missing header
+  # Upstream issue 9 Oct 2016 https://bugzilla.gnome.org/show_bug.cgi?id=772645
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/10887881c9f2859ca90ee8e781f0d10dae02b7a5/gstreamermm/caps.h.patch"
+    sha256 "1ec6f9c977c1fc5282c491b5d3867df35e31f00ddf696adf7a9185f47da86627"
+  end
 
   def install
     ENV.cxx11

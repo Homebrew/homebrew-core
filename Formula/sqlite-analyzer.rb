@@ -1,16 +1,15 @@
 class SqliteAnalyzer < Formula
   desc "Analyze how space is allocated inside an SQLite file"
   homepage "https://www.sqlite.org/"
-  url "https://www.sqlite.org/2015/sqlite-src-3080803.zip"
-  version "3.8.8.3"
-  sha256 "790ff6be164488d176b3bed7e0e0850bac1567a4011381307685d48eb69fab48"
+  url "https://www.sqlite.org/2016/sqlite-src-3150000.zip"
+  version "3.15.0"
+  sha256 "c68a7064b1932aa8c40f9b1e644ab899771530e16d514ba4a065434666d4a3a2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6bd1df738dba17cfa03dad4c5d1b4eb26479e210dbeb3c30acce0f19808881b6" => :el_capitan
-    sha256 "9eb7d3df9680d81826da6e39041d28abeba247cbb084a8690524485d34a934c7" => :yosemite
-    sha256 "5092ae2ccce00d9dbf4b8d33a318883054eafd904d55e0ba8ef6a415f7b31497" => :mavericks
-    sha256 "abaf9bc21f00454ee737716345f633383beb92bda83f45c27420eebab3d4d5b7" => :mountain_lion
+    sha256 "6e02ed49fe3ac2be94ba814d0b7ac500baa71dcd60b93eb294c563ce3d58c3a5" => :sierra
+    sha256 "62f065d3cf2eb3a82d3878656a9af1bfa7be9f926952b33eab505716e0c17852" => :el_capitan
+    sha256 "cd73d6776a26c2746bb298024078b7b450112bb124eda991369b2f08798b923e" => :yosemite
   end
 
   def install
@@ -29,6 +28,6 @@ class SqliteAnalyzer < Formula
       insert into students (name, age) values ('Tim', 13);
     EOS
     system "/usr/bin/sqlite3 #{dbpath} < #{sqlpath}"
-    system "#{bin}/sqlite3_analyzer", dbpath
+    system bin/"sqlite3_analyzer", dbpath
   end
 end

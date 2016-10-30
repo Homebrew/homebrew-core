@@ -1,13 +1,13 @@
 class Harfbuzz < Formula
   desc "OpenType text shaping engine"
   homepage "https://wiki.freedesktop.org/www/Software/HarfBuzz/"
-  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.3.0.tar.bz2"
-  sha256 "b04be31633efee2cae1d62d46434587302554fa837224845a62565ec68a0334d"
+  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.3.3.tar.bz2"
+  sha256 "2620987115a4122b47321610dccbcc18f7f121115fd7b88dc8a695c8b66cb3c9"
 
   bottle do
-    sha256 "9ea36c4b16291399d9206f5312699d22ae5aff22365c65a2c540b49ff567c412" => :el_capitan
-    sha256 "7c4620ba3edd0fafd9e73efc8738b2b8039327a9c77a4cf1dc1f2c309b7dc749" => :yosemite
-    sha256 "43be4893fe40aafce53258909b5e27746bb80fe70a038b8876294e405d237fe7" => :mavericks
+    sha256 "1df5ce2e5f15820446be2973a1fd8c44e45b333faaa4ec91767ae71b9a01e655" => :sierra
+    sha256 "bbf95dd807d983f17ba257949f244dc17b0c4a6e312a6385b54376f8d2592fa2" => :el_capitan
+    sha256 "c074a689c9e1fedb59948d24a9701a6a107e5111d72248374fc66f3d0586a42e" => :yosemite
   end
 
   head do
@@ -29,7 +29,6 @@ class Harfbuzz < Formula
   depends_on "icu4c" => :recommended
   depends_on "cairo" => :optional
   depends_on "graphite2" => :optional
-  depends_on "gettext" => :linked
 
   resource "ttf" do
     url "https://github.com/behdad/harfbuzz/raw/fc0daafab0336b847ac14682e581a8838f36a0bf/test/shaping/fonts/sha1sum/270b89df543a7e48e206a2d830c0e10e5265c630.ttf"

@@ -3,15 +3,16 @@ class SimpleTiles < Formula
   homepage "https://propublica.github.io/simple-tiles/"
   url "https://github.com/propublica/simple-tiles/archive/v0.6.0.tar.gz"
   sha256 "336fdc04c34b85270c377d880a0d4cc2ac1a9c9e5e4c3d53e0322d43c9495ac9"
-  revision 4
+  revision 5
 
   head "https://github.com/propublica/simple-tiles.git"
 
   bottle do
     cellar :any
-    sha256 "6ba9433632bb61877b12a0e10e14fa5367808954848c6351ca189237c957d02d" => :el_capitan
-    sha256 "701c8f13570a2df44acb68949de1003a187d5f21dc2c6ab4681a0812621727ee" => :yosemite
-    sha256 "54c230c2d7cfd35c7e78cb469b174b0721c313866bb99ca1ef2defcb5d0b3cf3" => :mavericks
+    sha256 "1e5649e397cd57b78c12fd06bad43568c1484be76ea5d819e9b8e6df081e1001" => :sierra
+    sha256 "a9bf8e3de3044aecab01110d5d919c15c64d0fff89c26cc3ff879ffa1a837286" => :el_capitan
+    sha256 "20fafe97446ab8a4fe137e28b24a1d664888e36258f6b2ed4b18d1f47a35bb4d" => :yosemite
+    sha256 "790dd1f5bb2e7e5fff0fcdeb8216c5dea2c0ce73ad46d0bfb770c4c0501707eb" => :mavericks
   end
 
   depends_on "pkg-config" => :build

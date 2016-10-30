@@ -1,14 +1,14 @@
 class Gdal < Formula
   desc "GDAL: Geospatial Data Abstraction Library"
   homepage "http://www.gdal.org/"
-  url "http://download.osgeo.org/gdal/1.11.3/gdal-1.11.3.tar.gz"
-  sha256 "561588bdfd9ca91919d4679a77a2b44214b158934ee8b425295ca5be33a1014d"
+  url "http://download.osgeo.org/gdal/1.11.5/gdal-1.11.5.tar.gz"
+  sha256 "49f99971182864abed9ac42de10545a92392d88f7dbcfdb11afe449a7eb754fe"
   revision 1
 
   bottle do
-    sha256 "768d5ee34e959628f630ea7f8ba1933b5936c82da5cfbae9f4eb6b90bf0bbc25" => :el_capitan
-    sha256 "eae2f587ef0dbd43b1fe2f68bced28b5a6eec92fad136eb6b2ace194e8b78efe" => :yosemite
-    sha256 "f976aaf7d52096afb4f8af340f81837e50678d1be06cee7712f9278233b5bb98" => :mavericks
+    sha256 "6729f9534bee5a76ecbfd0e93801cc0c8f84e342e8dea0a95ab024d78585a04d" => :sierra
+    sha256 "a1df118a472b5920bab2ac5952b030694e652f05b7bc9252d5baa88acc7f939a" => :el_capitan
+    sha256 "6fa4483395d41181cca179f83460615c9162b4876cbe32953f71096d9181a5e5" => :yosemite
   end
 
   head do
@@ -37,6 +37,9 @@ class Gdal < Formula
   depends_on "libgeotiff"
   depends_on "proj"
   depends_on "geos"
+  depends_on "json-c"
+  depends_on "libxml2"
+  depends_on "pcre"
 
   depends_on "sqlite" # To ensure compatibility with SpatiaLite.
   depends_on "freexl"
@@ -58,13 +61,13 @@ class Gdal < Formula
     depends_on "homebrew/science/netcdf" # Also brings in HDF5
     depends_on "jasper"
     depends_on "webp"
-    depends_on "cfitsio"
+    depends_on "homebrew/science/cfitsio"
     depends_on "epsilon"
     depends_on "libdap"
     depends_on "libxml2"
 
     # Vector libraries
-    depends_on "unixodbc" # OS X version is not complete enough
+    depends_on "unixodbc" # macOS version is not complete enough
     depends_on "xerces-c"
 
     # Other libraries
@@ -126,7 +129,7 @@ class Gdal < Formula
       "--with-grib",
       "--with-pam",
 
-      # Backends supported by OS X.
+      # Backends supported by macOS.
       "--with-libiconv-prefix=/usr",
       "--with-libz=/usr",
       "--with-png=#{Formula["libpng"].opt_prefix}",

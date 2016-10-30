@@ -1,8 +1,8 @@
 class CfrDecompiler < Formula
   desc "Yet Another Java Decompiler."
   homepage "http://www.benf.org/other/cfr/"
-  url "http://www.benf.org/other/cfr/cfr_0_115.jar"
-  sha256 "776fef3765d90a1e5d1d501c59ce7b2a8fae0a5d1d756bd5d199d087b423d926"
+  url "http://www.benf.org/other/cfr/cfr_0_118.jar"
+  sha256 "d1866821b62dac3e29552916fcb062c383d59ce5294f0e63b27d76d553c15915"
 
   bottle :unneeded
 

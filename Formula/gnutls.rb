@@ -1,16 +1,16 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.14.tar.xz"
-  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.4/gnutls-3.4.14.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.4/gnutls-3.4.14.tar.xz"
-  sha256 "35deddf2779b76ac11057de38bf380b8066c05de21b94263ad5b6dfa75dfbb23"
+  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.16.tar.xz"
+  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.4/gnutls-3.4.16.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.4/gnutls-3.4.16.tar.xz"
+  sha256 "d99abb1b320771b58c949bab85e4b654dd1e3e9d92e2572204b7dc479d923927"
 
   bottle do
     cellar :any
-    sha256 "8f01f4b29b22aebcca0138d69f354682056478d8e7e55e6d8eb0029098d55692" => :el_capitan
-    sha256 "16a1ad8c66569d4c0b254c6844a14429b2bb8b26e764aaf4cc1f62976593f672" => :yosemite
-    sha256 "22355e7cd7c02b7852f39f8b653e1e7498d37b9005596748ff49fb9fd7d49f42" => :mavericks
+    sha256 "9b4d0b7417921237ad3af173bc4a87009485097f747a1ba8772349dbd017a43d" => :sierra
+    sha256 "658060843a6cf5287cbad3156af68a0df4022d72b82b2ceb7f2d285378761196" => :el_capitan
+    sha256 "9765ebfda053f80754f5aa1ceaaca1b8b56838e02030f0e133b5e7d5a9c5ee76" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -26,6 +26,12 @@ class Gnutls < Formula
   end
 
   def install
+    # Fix "dyld: lazy symbol binding failed: Symbol not found: _getentropy"
+    # Reported 18 Oct 2016 https://gitlab.com/gnutls/gnutls/issues/142
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "configure", "getentropy(0, 0);", "undefinedgibberish(0, 0);"
+    end
+
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
@@ -36,16 +42,12 @@ class Gnutls < Formula
       --disable-heartbeat-support
       --without-p11-kit
     ]
-
-    if build.with? "guile"
-      args << "--enable-guile"
-      args << "--with-guile-site-dir=no"
-    end
+    args << "--enable-guile" << "--with-guile-site-dir" if build.with? "guile"
 
     system "./configure", *args
     system "make", "install"
 
-    # certtool shadows the OS X certtool utility
+    # certtool shadows the macOS certtool utility
     mv bin/"certtool", bin/"gnutls-certtool"
     mv man1/"certtool.1", man1/"gnutls-certtool.1"
   end

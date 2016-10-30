@@ -1,14 +1,14 @@
 class ZshNavigationTools < Formula
   desc "Zsh curses-based tools, e.g. multi-word history searcher"
   homepage "https://github.com/psprint/zsh-navigation-tools"
-  url "https://github.com/psprint/zsh-navigation-tools/archive/v2.2.1.tar.gz"
-  sha256 "3937aa4cb4a77f8c7dd161e1703db63e6d6dc18a1c4b4562ed77bb6b8b0cd144"
+  url "https://github.com/psprint/zsh-navigation-tools/archive/v2.2.7.tar.gz"
+  sha256 "ee832b81ce678a247b998675111c66aa1873d72aa33c2593a65626296ca685fc"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4ec7607ad8b05c86891d2ef92bfbf50661e6aa156bd01916b26be1ad27ffaae0" => :el_capitan
-    sha256 "5b1977fd6a3c5adaf663b6292a7bbb8edcbcd53a0377acc3422fc4d97255626b" => :yosemite
-    sha256 "db2b464f57e7125fd916ba750c3d1c9ecf4cc27febb7e3c75499696c585b3601" => :mavericks
+    sha256 "fca68610ba67c19d8516719d03ed5074a5611ba01941dcb135c87d6d561f3cb1" => :sierra
+    sha256 "fca68610ba67c19d8516719d03ed5074a5611ba01941dcb135c87d6d561f3cb1" => :el_capitan
+    sha256 "fca68610ba67c19d8516719d03ed5074a5611ba01941dcb135c87d6d561f3cb1" => :yosemite
   end
 
   def install

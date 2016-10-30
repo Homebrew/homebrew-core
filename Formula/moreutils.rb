@@ -1,25 +1,26 @@
 class Moreutils < Formula
   desc "Collection of tools that nobody wrote when UNIX was young"
   homepage "https://joeyh.name/code/moreutils/"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/moreutils/moreutils_0.59.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/moreutils/moreutils_0.59.orig.tar.gz"
-  sha256 "a48e11c3197bf79a7bfaa121423e64626e3381d9fedc91d606e9724ae498d1b4"
-
-  head "git://git.kitenet.net/moreutils"
+  url "git://git.kitenet.net/moreutils",
+      :tag => "0.60",
+      :revision => "1173bd9f10d731485f3b63f1c7ff55eb9c58a605"
+  head "git://git.joeyh.name/moreutils"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3623ce05999a7f2da723be974d612b5d95d32ce8ded63fee1f68c27cdf9bcf6e" => :el_capitan
-    sha256 "90dc561597af13125ac0e4cea4aaa0e0432469fd50bbfa0a43997973c03a71c7" => :yosemite
-    sha256 "853e7e2f98beafb8f73d2dc14b1f7fdb794f2b21c5558850f66f182b755f681f" => :mavericks
+    sha256 "ae130c5fa715e6c9cf338201f5318f58bfa98910b67b26bcf4f68a247dc36083" => :sierra
+    sha256 "b9865588c4d434d5e35d19cdf2b39b36031d6b6cd77835e182fd5e76fa7cba48" => :el_capitan
+    sha256 "b39209ebca05c0aa733dbf01c615be42db78f9438431e82df52f7f3914c9788a" => :yosemite
+    sha256 "512b618f6a652f673485616677c6207a8645a3dcfe98b619787e58c3cb5a5811" => :mavericks
   end
 
   option "without-parallel", "Build without the 'parallel' tool."
 
   depends_on "docbook-xsl" => :build
 
-  conflicts_with "parallel", :because => "Both install a 'parallel' executable."
-  conflicts_with "task-spooler", :because => "Both install a 'ts' executable."
+  conflicts_with "parallel", :because => "Both install a `parallel` executable."
+  conflicts_with "pwntools", :because => "Both install an `errno` executable."
+  conflicts_with "task-spooler", :because => "Both install a `ts` executable."
 
   resource "Time::Duration" do
     url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Time-Duration-1.20.tar.gz"

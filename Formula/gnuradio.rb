@@ -3,11 +3,13 @@ class Gnuradio < Formula
   homepage "https://gnuradio.squarespace.com/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.9.1.tar.gz"
   sha256 "9c06f0f1ec14113203e0486fd526dd46ecef216dfe42f12d78d9b781b1ef967e"
+  revision 1
 
   bottle do
-    sha256 "c9fdb8e1a9d96dafe29dd828038bcedc5e03b21612f6cf81843c85238dac9204" => :el_capitan
-    sha256 "2ae7c146eba77b93fb3c4bde743fc166779f09e3d8f61ae1ff55717fc19d137a" => :yosemite
-    sha256 "d5e243974f0089fc503133939c7275019c89d9107ff3eb7406eb4a00a0eae3e7" => :mavericks
+    rebuild 1
+    sha256 "2cbc22df1411ef7090bd43cbec10dbb23ee16439ed8bb0e10a2b144455237e51" => :sierra
+    sha256 "187f22d812f4ba86af2d2f64e9473647b49aa2373d6688d7ecfb840374285749" => :el_capitan
+    sha256 "41eb9fdae72761b7a83f284f1e7613da9e3ce916e0f98f20ad3aafe417be5a4e" => :yosemite
   end
 
   # These python extension modules were linked directly to a Python
@@ -19,7 +21,7 @@ class Gnuradio < Formula
     sha256 "9e1c612f0f4063d387d85517cc420f050f49c7903d36fab45b72e8d828549e3c"
   end
 
-  option "without-python", "Build without python support"
+  option "with-python", "Build with python support"
   option "with-documentation", "Build with documentation"
   option :universal
 
@@ -151,11 +153,7 @@ class Gnuradio < Formula
       system "make", "install"
     end
 
-    # Remove useless data files installed in #{bin}
-    delete_files = %w[ctrlport-monitorc ctrlport-monitoro perf-monitorxc perf-monitorxo]
-    delete_files.each { |f| rm "#{bin}/gr-#{f}" }
-
-    bin.install Dir[libexec/"bin/*"]
+    rm bin.children.reject(&:executable?)
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 

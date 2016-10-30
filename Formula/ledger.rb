@@ -3,13 +3,14 @@ class Ledger < Formula
   homepage "http://ledger-cli.org"
   url "https://github.com/ledger/ledger/archive/v3.1.1.tar.gz"
   sha256 "90f06561ab692b192d46d67bc106158da9c6c6813cc3848b503243a9dfd8548a"
+  revision 3
+
   head "https://github.com/ledger/ledger.git"
-  revision 1
 
   bottle do
-    sha256 "a009cd705baad8407ccc6b56a3acecda01160f0eb27c7554ca30e6faec236c01" => :el_capitan
-    sha256 "073b143a8bb57cd4af2910f68869930232913b521e7f7d59446e350e306b2e5f" => :yosemite
-    sha256 "b56d36146f09a1e9b7c23511ca7075d2d8b0760b5171aedad17a3e4cca51cef7" => :mavericks
+    sha256 "6a560d033c81506ac299e55c486cd6eab1b3233d5239a0f6992f8e07e224dc66" => :sierra
+    sha256 "dee111b3bc509cee3c099b71bf682433f64870fca23a85cc4440616c17cf0fc2" => :el_capitan
+    sha256 "9c7d090e032228b42f5e41cb40cc4314dd625e0e015df684385b23a1a2c059cc" => :yosemite
   end
 
   deprecated_option "debug" => "with-debug"

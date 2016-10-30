@@ -6,6 +6,7 @@ class Sary < Formula
 
   bottle do
     cellar :any
+    sha256 "35da6b40c316be03a8375beb5001ddff5827d8728bea5d5ee5fa86e2ab885089" => :sierra
     sha256 "aedca3dec29eb2b2aea582002e23cd1b92a92bf30e6b46f8241f3c48ac312f00" => :el_capitan
     sha256 "1ef3eadf64fd9bcaeed1f01e7b03504fdcfbbe5bb65fe7e5da5aece9b73055a3" => :yosemite
     sha256 "b41f84ca9dc8bb27eeba82e1d13008f8b56a357ede1ab1987337561347cd6d94" => :mavericks

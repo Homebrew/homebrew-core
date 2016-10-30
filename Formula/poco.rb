@@ -1,15 +1,15 @@
 class Poco < Formula
   desc "C++ class libraries for building network and internet-based applications"
-  homepage "http://pocoproject.org/"
-  url "http://pocoproject.org/releases/poco-1.7.3/poco-1.7.3-all.tar.gz"
-  sha256 "0df00e6b7e915f5a2a4b3ec3035a4dc4fc5ed328b5c3648cf8bdbd42b75aa2d5"
+  homepage "https://pocoproject.org/"
+  url "https://pocoproject.org/releases/poco-1.7.6/poco-1.7.6-all.tar.gz"
+  sha256 "e32825f8cd7a0dc907b7b22c8fb3df33442619cc21819e557134e4e2f5cc4e2d"
   head "https://github.com/pocoproject/poco.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "fb77d69a952461f1dc8b97a5a715335fac8f9dcf96ce3b63147c20aab14e020f" => :el_capitan
-    sha256 "9028068c6c3578af781a9acb8311e57aa86b7b2b1c184a616d2c61fee21e56e1" => :yosemite
-    sha256 "a799fd928197ffbd7b2b40646c7e392be149480bba5e1dd9f38d9c7837074e9b" => :mavericks
+    sha256 "069878455ba2f13ff122b60f48f0b58b05dcfe95e66295b05da5204e6686609d" => :sierra
+    sha256 "4d7332c458dbfa0d774ea0e6782f9f01c46edc53122d1626de7e5d870f3317cb" => :el_capitan
+    sha256 "05f906e0cd61e57f95c3b019b55a826a78610ba53e11270d95bf0dfbd3e1b64c" => :yosemite
   end
 
   option :cxx11
@@ -21,6 +21,23 @@ class Poco < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
+
+    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      %w[
+        Foundation/include/Poco/Clock.h
+        Foundation/src/Clock.cpp
+        Foundation/src/Event_POSIX.cpp
+        Foundation/src/Semaphore_POSIX.cpp
+        Foundation/src/Mutex_POSIX.cpp
+        Foundation/src/Timestamp.cpp
+      ].each do |f|
+        inreplace f do |s|
+          s.gsub! "CLOCK_MONOTONIC", "UNDEFINED_GIBBERISH", false
+          s.gsub! "CLOCK_REALTIME", "UNDEFINED_GIBBERISH2", false
+        end
+      end
+    end
 
     args = std_cmake_args
     args << "-DENABLE_DATA_MYSQL=OFF" << "-DENABLE_DATA_ODBC=OFF"

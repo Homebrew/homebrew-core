@@ -2,19 +2,22 @@ class Premake < Formula
   desc "Write once, build anywhere Lua-based build system"
   homepage "https://premake.github.io/"
   url "https://downloads.sourceforge.net/project/premake/Premake/4.4/premake-4.4-beta5-src.zip"
+  version "4.4-beta5"
   sha256 "0fa1ed02c5229d931e87995123cdb11d44fcc8bd99bba8e8bb1bbc0aaa798161"
+  version_scheme 1
   head "https://github.com/premake/premake-core.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "68c9aa47ac6de8238a61bcd58609a2fc91c535a66bf7ab7be8aed19a1042e03f" => :el_capitan
-    sha256 "288d7582575b6b3d9f8cf051a8c6df2213015437fe3d66257ab3e236f90e189a" => :yosemite
-    sha256 "4ca2745c7e5628a8f830a6eccded4f4e768c17648fef673700a7ba322415b0a9" => :mavericks
+    sha256 "9e5d1dd706b3b3af1c8fc5cfe42141cf2a023185f9d19bb25dc58f8aced440e2" => :sierra
+    sha256 "9e5d1dd706b3b3af1c8fc5cfe42141cf2a023185f9d19bb25dc58f8aced440e2" => :el_capitan
+    sha256 "4b1ce1c63cc3ecca7e195d4c0350fb6f823f659c36ff6c1193fd99023ed25b12" => :yosemite
   end
 
   devel do
-    url "https://github.com/premake/premake-core/releases/download/v5.0.0-alpha9/premake-5.0.0-alpha9-src.zip"
-    sha256 "6a71a47c3da137d72bfca9774a2c74476ace111a423aa02f2e6a6be394c5838a"
+    url "https://github.com/premake/premake-core/releases/download/v5.0.0-alpha10/premake-5.0.0-alpha10-src.zip"
+    version "5.0.0-alpha10"
+    sha256 "15a955bf469857c9b8f81b428debf833c47ca98887477164e21568100875045f"
   end
 
   def install

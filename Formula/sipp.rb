@@ -6,6 +6,7 @@ class Sipp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b05bdba460b40aa7317696bcabeefcdeea576cf310e6c3f191b2fe26a1c52d40" => :sierra
     sha256 "5409102b801d5a0a5bc2e79ff5707b231b09e95d0a83b73fd5a279433318d0cd" => :el_capitan
     sha256 "0e0aaca33a67a4c8b2a371f9f17e46ffb0290633fbda201788ae2f1ba002b10e" => :yosemite
     sha256 "49ecb15875bba9a9fa926527aad2f18599d3f4f66cd3b207c7bf6118ed7c4fcf" => :mavericks

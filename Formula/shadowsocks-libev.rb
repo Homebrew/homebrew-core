@@ -1,20 +1,21 @@
 class ShadowsocksLibev < Formula
   desc "Libev port of shadowsocks"
   homepage "https://github.com/shadowsocks/shadowsocks-libev"
-  url "https://github.com/shadowsocks/shadowsocks-libev/archive/v2.4.8.tar.gz"
-  sha256 "af3fc3be50fb24dfd1aed8ce34d2d13448735f6181269f54f4860438a1838472"
+  url "https://github.com/shadowsocks/shadowsocks-libev/archive/v2.5.5.tar.gz"
+  sha256 "46a72367b7301145906185f1e4136e39d6792d27643826e409ab708351b6d0dd"
   head "https://github.com/shadowsocks/shadowsocks-libev.git"
 
   bottle do
     cellar :any
-    sha256 "6644ff81772e06f298a9c6f31a430a9c991d6981401704d6876a15add56313bf" => :el_capitan
-    sha256 "4935b75d1b17961633d87698546806f2fd94d6bf9258950bb3e8ad395aa2a812" => :yosemite
-    sha256 "63ee376b55bd165d3ca8c9253a1186f296f85e13119153b89cecf6ec9ffc3b84" => :mavericks
+    sha256 "a3258c1bb24c9b5eb4156b7478f2fd5e095375da6e2dab9f568bc16a70556aa6" => :sierra
+    sha256 "bb5aa7dfb6aa7aac6ff62427ded1b101d71038054ea127ba02056547f375d986" => :el_capitan
+    sha256 "970299bc93c29f251038a24cff5732411297c70e7aa2a8c698739e0076ae1579" => :yosemite
   end
 
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
   depends_on "openssl"
+  depends_on "pcre"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"

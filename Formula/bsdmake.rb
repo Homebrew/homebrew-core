@@ -5,7 +5,8 @@ class Bsdmake < Formula
   sha256 "82a948b80c2abfc61c4aa5c1da775986418a8e8eb3dd896288cfadf2e19c4985"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "3d5b8c21cf86cd6bb9eb28d1e8cbec434b370aa15e19540e366d045ea807c8c8" => :sierra
     sha256 "b4052277ac6cf79ed579107fb73da96954c350d7bf29a124c55d87a0df8940b0" => :el_capitan
     sha256 "18d7cb56f14eb2e404cf3abb163a354f57c5e45b72991efdd6566a15fcffe90f" => :yosemite
     sha256 "5807a64aab8f81720718a4327d303d7955a09739b079aefd72a4f216519f0de7" => :mavericks
@@ -41,7 +42,7 @@ class Bsdmake < Formula
     # Use "prefix" since this is sometimes a keg-only brew
     # But first replace the X11 path if X11 is installed
     inreplace "mk/sys.mk", "@PREFIX@", MacOS::X11.prefix || prefix
-    inreplace %W[mk/bsd.README
+    inreplace %w[mk/bsd.README
                  mk/bsd.cpu.mk
                  mk/bsd.doc.mk
                  mk/bsd.obj.mk

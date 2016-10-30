@@ -1,16 +1,15 @@
 class Ffms2 < Formula
   desc "Libav/ffmpeg based source library and Avisynth plugin"
   homepage "https://github.com/FFMS/ffms2"
-  url "https://github.com/FFMS/ffms2/archive/2.22.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/f/ffms2/ffms2_2.22.orig.tar.gz"
-  sha256 "7c5202fa2e49186fb3bb815e5b12ca71f05ec09cb707ffd9465852e21a06fdad"
-  revision 1
+  url "https://github.com/FFMS/ffms2/archive/2.23.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/f/ffms2/ffms2_2.23.orig.tar.gz"
+  sha256 "b09b2aa2b1c6f87f94a0a0dd8284b3c791cbe77f0f3df57af99ddebcd15273ed"
 
   bottle do
     cellar :any
-    sha256 "265169583ade2f063b8fd1cb86533652bf61629f48b0b7960afe7bccdc9686f2" => :el_capitan
-    sha256 "551433ae260b3476b395cd5b0ea867cfbdb24eb522b728548acfb584a25cd664" => :yosemite
-    sha256 "d739243fd8e0a29949eb70dccb0de80d48876c501d6a74e3b0c2e0c4b9110fd0" => :mavericks
+    sha256 "44fe8152389302c40f8bae3b61871ec118e33ccdf52fd58d1051882c841a3a75" => :sierra
+    sha256 "c82bf5a6b23a8b60edce118b8fffa947226024be2fac1ccbc36881149be8d14a" => :el_capitan
+    sha256 "ccc6ffb553c748f94df62088b699245ca8972056cc592bb3abfd353abfffe61e" => :yosemite
   end
 
   head do

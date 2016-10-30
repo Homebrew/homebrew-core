@@ -1,14 +1,15 @@
 class IosDeploy < Formula
   desc "Install and debug iPhone apps from the command-line"
   homepage "https://github.com/phonegap/ios-deploy"
-  url "https://github.com/phonegap/ios-deploy/archive/1.8.6.tar.gz"
-  sha256 "e0c20294e43bc231292cc9f3172113e0da8f728b1ed988fb4fe883ae99b20056"
+  url "https://github.com/phonegap/ios-deploy/archive/1.9.0.tar.gz"
+  sha256 "750dd02bc32414832ed7c1de39919651ee3166d467f546573dea045c76d64a91"
   head "https://github.com/phonegap/ios-deploy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "11c48e627e609830c57c230b38716318db165c69cc1a32c8a777e9076334ee37" => :el_capitan
-    sha256 "183f932cc95c3bbfd9fba037761432a01dd85b861aec6cf4b0c7ca9bd7f8485e" => :yosemite
+    sha256 "7a60027ba461d995d795c86b010c68928912717ace6043ff404a01be9e3b8fc9" => :sierra
+    sha256 "8fcc8af17c7452a429837db7839e3d09e27704beb195962b8eb695c4d132d133" => :el_capitan
+    sha256 "6349ec96d53235201ac3fffff6a89f211289ad1ea03e4bc3899d189fa84e63fc" => :yosemite
   end
 
   depends_on :xcode => :build

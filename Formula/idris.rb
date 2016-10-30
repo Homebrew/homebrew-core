@@ -5,16 +5,14 @@ class Idris < Formula
 
   desc "Pure functional programming language with dependent types"
   homepage "http://www.idris-lang.org"
-  url "https://github.com/idris-lang/Idris-dev/archive/v0.12.tar.gz"
-  sha256 "dfc31dffd1bafd996a951cbcc551a69337f16a3fa5c2974ec872d62a38bd7c75"
-  revision 1
-
+  url "https://github.com/idris-lang/Idris-dev/archive/v0.12.3.tar.gz"
+  sha256 "c6f410cddddbc53c4779d3612be40ef4e4f1f11ce8083a811825763daf30ee4d"
   head "https://github.com/idris-lang/Idris-dev.git"
 
   bottle do
-    sha256 "a3cef862290754f51d28d481fdd3a6e8d5a4e91c40da210de7e6d45e333fb6e6" => :el_capitan
-    sha256 "3f35d78aeafc5c9bd4e09d20ab3e3b3ee649b077ecc8d70febf3de5fa38de8af" => :yosemite
-    sha256 "2e7daa523cb0d124938fe25416fedc5b081156799539dd87e6e8ef5d20138abd" => :mavericks
+    sha256 "a69b23764bb5f9a78f4fbd1791f939e86407d8ed2d01e01aabf5c6dc835feccf" => :sierra
+    sha256 "33a358eb043be6aa3ff9ca76e060f13281d72e8777874fbd22a1625fc8ccb84a" => :el_capitan
+    sha256 "304ea6fef86027134d9ae75c6563a9fb28812af60d05d04d68e0ecffd140bd6f" => :yosemite
   end
 
   depends_on "ghc" => :build
@@ -24,19 +22,7 @@ class Idris < Formula
   depends_on "gmp"
   depends_on "libffi" => :recommended
 
-  # GHC 8 compat
-  # Adapted from upstream PR: https://github.com/idris-lang/Idris-dev/pull/3226
-  # Fixes https://github.com/idris-lang/Idris-dev/issues/3193
-  # Underlying GHC 8 issue: https://ghc.haskell.org/trac/ghc/ticket/12201
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/49941f6249e5b05dfd180abb4776f9e3a3bb25d8/idris/idris-ghc8.diff"
-    sha256 "002e2b6d8392d451ecf0ddb37f181e3c87ed42ca0eee82cc4f8aba76e5e1cc11"
-  end
-
   def install
-    # GHC 8 compat for trifecta dependency; already fixed in trifecta HEAD
-    (buildpath/"cabal.config").write("allow-newer: comonad,transformers\n")
-
     args = []
     args << "-f FFI" if build.with? "libffi"
     args << "-f release" if build.stable?

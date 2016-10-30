@@ -6,6 +6,7 @@ class Ttfautohint < Formula
 
   bottle do
     cellar :any
+    sha256 "04406a2745534fb142976a17d6c00df057c941382b149fead95ec1ff012c4ddf" => :sierra
     sha256 "18fe5769eed8332423805f93571e8b7dbdc26a7b51d1912aec2b3d76d40f59b5" => :el_capitan
     sha256 "ae60250c59eb3751cc7e2c76ab319c5bef81d916bf4a81fb2428b7547177513f" => :yosemite
     sha256 "8184c3cbfbae95edd6ff56edeb0a76f2ddc3eeef38093fb9a83a39a944307359" => :mavericks
@@ -20,13 +21,10 @@ class Ttfautohint < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-qt", "Build ttfautohintGUI also"
-
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "libpng"
   depends_on "harfbuzz"
-  depends_on "qt" => :optional
 
   def install
     args = %W[
@@ -34,9 +32,8 @@ class Ttfautohint < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --without-doc
+      --without-qt
     ]
-
-    args << "--without-qt" if build.without? "qt"
 
     system "./bootstrap" if build.head?
     system "./configure", *args
@@ -44,10 +41,6 @@ class Ttfautohint < Formula
   end
 
   test do
-    if build.with? "qt"
-      system "#{bin}/ttfautohintGUI", "-V"
-    else
-      system "#{bin}/ttfautohint", "-V"
-    end
+    system "#{bin}/ttfautohint", "-V"
   end
 end

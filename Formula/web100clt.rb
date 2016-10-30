@@ -6,6 +6,7 @@ class Web100clt < Formula
   revision 1
 
   bottle do
+    sha256 "be444b693ab664de5d521242702bf91a1518cd8945d7d6db1b03126f8a2638bb" => :sierra
     sha256 "d0998cd6fb89d689aeb6f88bcd92039ad88daa3aef8b718bbcb8be6a3c4a7e39" => :el_capitan
     sha256 "e2acae1966b2897ef89dcec1610e164f4c8bee054369d2012e1619853c6674d0" => :yosemite
     sha256 "86b6d51af3d9e33db8220d8834d04aeed0241872a28aeac697b4357d2afbcc2e" => :mavericks

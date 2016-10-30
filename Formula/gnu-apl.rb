@@ -1,24 +1,15 @@
 class GnuApl < Formula
   desc "GNU implementation of the programming language APL"
   homepage "https://www.gnu.org/software/apl/"
-
-  stable do
-    url "https://ftpmirror.gnu.org/apl/apl-1.5.tar.gz"
-    mirror "https://ftp.gnu.org/gnu/apl/apl-1.5.tar.gz"
-    sha256 "013addd15cab829d3212fb787023a723e01f2e58e4836acbedbc2dc7078e8d40"
-
-    # Upstream fixes for clang build failures, the first of which is
-    # "non-ASCII characters are not allowed outside of literals and identifiers"
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/69c8268d/gnu-apl/clang-fixes.patch"
-      sha256 "1d2c3e6d97f26ea25bc1e0126a4968537e6d54044cf0a991e0477d462c0158bf"
-    end
-  end
+  url "https://ftpmirror.gnu.org/apl/apl-1.6.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/apl/apl-1.6.tar.gz"
+  sha256 "5e0da83048d81fd99330186f65309661f8070de2472851a8e639b3b7f7e7ff14"
+  revision 1
 
   bottle do
-    sha256 "fd46b7642d9bf9012dd2d8dc745131be3e1e49744892c17144bc2a1e90f81134" => :el_capitan
-    sha256 "d05a338bb83638d10d55880310ab62fb5ba2b8265fb52b87839ac7af26058128" => :yosemite
-    sha256 "c6b72b03650f7477351e66b1bed497eea6ba4a439dd131fd48cb903532e16d04" => :mavericks
+    sha256 "7c5aebad3061ad6713b08465b6db4534937eabe655f85af52d1d20066811ebdf" => :sierra
+    sha256 "25d163f1cf8adac585f914640b6281ef530876a60812864699bf0b349d3a58af" => :el_capitan
+    sha256 "6164637b1f3b76040e031c5cb53444d1e48d5a007f5ffcc0270d9ad7d75679be" => :yosemite
   end
 
   head do
@@ -34,6 +25,9 @@ class GnuApl < Formula
   depends_on :macos => :mavericks
 
   def install
+    # Fix "LApack.cc:21:10: fatal error: 'malloc.h' file not found"
+    inreplace "src/LApack.cc", "malloc.h", "malloc/malloc.h"
+
     system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -54,7 +48,7 @@ class GnuApl < Formula
     sleep 4
 
     begin
-      assert_match /Hello world/, shell_output("#{bin}/apl -s -f hello.apl")
+      assert_match "Hello world", shell_output("#{bin}/apl -s -f hello.apl")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)

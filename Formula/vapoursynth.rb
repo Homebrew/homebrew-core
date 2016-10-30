@@ -1,17 +1,16 @@
 class Vapoursynth < Formula
+  include Language::Python::Virtualenv
+
   desc "Video processing framework with simplicity in mind"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R32.tar.gz"
-  sha256 "e9560f64ba298c2ef9e6e3d88f63ea0ab88e14bbd0e9feee9c621b9224e408c8"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R35.tar.gz"
+  sha256 "762cada84d2f975ec925a1eb719dd8a2f40dfaa69d10c358b228184785f64918"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
-    sha256 "4a8fa4f491cdd0beabdc0837a665cf51421cf4ec203771fe8c7038143c6388da" => :el_capitan
-    sha256 "d5030759c34088ac4da714c0545a5b28217166d07b5a6927a2c18c0f23b04b1c" => :yosemite
-    sha256 "cb5c60a1268b8279277f8bda700195fb34a493f59fd57088de44d71937ccd44d" => :mavericks
+    sha256 "3a0e4d6faeb85fc87ade513c354d880c0f8084df0d34be95e21f3be877414a29" => :sierra
+    sha256 "7e2a1a82c0b8326f23c0912bb62d0d5b81601975e241ac5a1695c0f9e441a4fb" => :el_capitan
   end
-
-  needs :cxx11
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -20,29 +19,22 @@ class Vapoursynth < Formula
   depends_on "yasm" => :build
 
   depends_on "libass"
+  depends_on :macos => :el_capitan # due to zimg dependency
   depends_on :python3
   depends_on "tesseract"
   depends_on "zimg"
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/b1/51/bd5ef7dff3ae02a2c6047aa18d3d06df2fb8a40b00e938e7ea2f75544cac/Cython-0.24.tar.gz"
-    sha256 "6de44d8c482128efc12334641347a9c3e5098d807dd3c69e867fa8f84ec2a3f1"
+    url "https://files.pythonhosted.org/packages/2f/ae/0bb6ca970b949d97ca622641532d4a26395322172adaf645149ebef664eb/Cython-0.25.1.tar.gz"
+    sha256 "e0941455769335ec5afb17dee36dc3833b7edc2ae20a8ed5806c58215e4b6669"
   end
 
   def install
-    version = Language::Python.major_minor_version("python3")
-    py3_site_packages = libexec/"lib/python#{version}/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", py3_site_packages
-
-    resource("Cython").stage do
-      system "python3", *Language::Python.setup_install_args(libexec)
-    end
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-
-    ENV.prepend_create_path "PATH", libexec/"bin"
-
+    venv = virtualenv_create(buildpath/"cython", "python3")
+    venv.pip_install "Cython"
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-cython=#{buildpath}/cython/bin/cython"
     system "make", "install"
   end
 

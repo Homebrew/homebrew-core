@@ -3,26 +3,20 @@ class Knot < Formula
   homepage "https://www.knot-dns.cz/"
 
   stable do
-    url "https://secure.nic.cz/files/knot-dns/knot-2.2.1.tar.xz"
-    sha256 "4b587bd8299445a29990ba89087b156ab9b6bf85cbd68846766c078e5b3481d3"
+    url "https://secure.nic.cz/files/knot-dns/knot-2.3.1.tar.xz"
+    sha256 "42e4ec64dc8f017329d1753eb074a5759d6bb380e1f2a272101adccc0552f9b4"
 
     resource "fstrm" do
-      url "https://github.com/farsightsec/fstrm/releases/download/v0.2.0/fstrm-0.2.0.tar.gz"
-      sha256 "ad5d39957a4b334a6c7fcc94f308dc7ac75e1997cc642e9bb91a18fc0f42a98a"
-    end
-
-    # error: unknown type name 'clockid_t'
-    # fixed upstream; see https://github.com/farsightsec/fstrm/pull/21
-    resource "fstrm_clock_patch" do
-      url "https://github.com/farsightsec/fstrm/commit/c5f09123.patch"
-      sha256 "24d3ee17f3b7961eb1abd26fda386227779ab94225dd2f39ce3a4b24e980bc65"
+      url "https://github.com/farsightsec/fstrm/archive/v0.3.0.tar.gz"
+      sha256 "531ef29ed2a15dfe4993448eb4e8463c5ed8eebf1472a5608c6ac0a6f62b3a12"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "3583e35c5ccdfc7ab730b9a4ecce9e2c6fb21fa3844b249cdc604c2ff344c2a4" => :el_capitan
-    sha256 "d8881c9e76c9169195eba421a54ddfb92548009f1e43e01c736ad3562b70b63b" => :yosemite
+    sha256 "cc07b136985647bff43b9761539aedabd67bb10b15f60a5d6a7c6f253b5b70fc" => :sierra
+    sha256 "07de62657cf312502578b0be34f52f164aa48d4d73cf4e666b8e68901f1fa3f8" => :el_capitan
+    sha256 "a2339f4eaf493ebaf5a959d09a9175f789c19072e514dc4b671ce7c536a7a69b" => :yosemite
   end
 
   head do
@@ -52,11 +46,6 @@ class Knot < Formula
 
   def install
     resource("fstrm").stage do
-      if build.stable?
-        Pathname.pwd.install resource("fstrm_clock_patch")
-        system "/usr/bin/patch", "-p1", "-i", "c5f09123.patch"
-      end
-
       system "autoreconf", "-fvi"
       system "./configure", "--prefix=#{libexec}/fstrm"
       system "make", "install"
@@ -85,7 +74,9 @@ class Knot < Formula
 
     (buildpath/"knot.conf").write(knot_conf)
     etc.install "knot.conf"
+  end
 
+  def post_install
     (var/"knot").mkpath
   end
 

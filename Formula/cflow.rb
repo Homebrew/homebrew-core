@@ -7,6 +7,7 @@ class Cflow < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "40efaa5c5298d6aa3ca2bce884ede21d21cb59df94eee0bc121a588dcb58257b" => :sierra
     sha256 "4bde642d869a9ea7347ad91bdb87a0de3c93f3766e8b74bb6e74a763278724c3" => :el_capitan
     sha256 "ae1fcbcfbf28417dfcc4836f32446ece545e9fceee61f34617d6364a2dd106e0" => :yosemite
     sha256 "b50f226680f8b0e3acaea2e09781cd6d7b03bdf1191fe338658d9aacef448a9f" => :mavericks

@@ -1,14 +1,14 @@
 class Convox < Formula
   desc "The convox AWS PaaS CLI tool"
   homepage "https://convox.com/"
-  url "https://github.com/convox/rack/archive/20160623185456.tar.gz"
-  sha256 "0ff842a5ac3d21f8b3b7d40b36f6286e389ccebfb3befdf6786c0bf808c09e13"
+  url "https://github.com/convox/rack/archive/20161026221456.tar.gz"
+  sha256 "6df72ebda64280ef78fbd291b503f48ff015d59c152b4b3bc1b8cb77fcd7a3d5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8c1a122c7ae95116bff7daa94973ce7257476f2a3c6d53e13278b264c4bf6dfa" => :el_capitan
-    sha256 "bc5ca125f1b12d2a6e654a8b8bedcc55faa4e5d5ece78aa04f2eaa15e89c103c" => :yosemite
-    sha256 "d52fb8ff45792b9da02f2b29d723519f02bef6e96f6929fda94b06d08b9c0e43" => :mavericks
+    sha256 "8890b9e8b8c25619fd5c1f2ec04a8cf109396ba05dcc110f2839b00a7905b5cd" => :sierra
+    sha256 "8978c0ad3e1e47a1bf36c1e6d890065ea0343d5db8b1bc36fd1db59ddd16c04d" => :el_capitan
+    sha256 "41c67e100268d95315bf23dcaf9016c465d0709e8c78df4dfd6afb77857c71f6" => :yosemite
   end
 
   depends_on "go" => :build
@@ -16,10 +16,11 @@ class Convox < Formula
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/convox/rack").install Dir["*"]
-    system "go", "build", "-ldflags=-X main.Version=#{version}", "-o", "#{bin}/convox", "-v", "github.com/convox/rack/cmd/convox"
+    system "go", "build", "-ldflags=-X main.Version=#{version}",
+           "-o", bin/"convox", "-v", "github.com/convox/rack/cmd/convox"
   end
 
   test do
-    system "#{bin}/convox"
+    system bin/"convox"
   end
 end

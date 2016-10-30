@@ -1,14 +1,14 @@
 class ProtobufSwift < Formula
   desc "Implementation of Protocol Buffers in Apple Swift."
   homepage "https://github.com/alexeyxo/protobuf-swift"
-  url "https://github.com/alexeyxo/protobuf-swift/archive/2.4.3.tar.gz"
-  sha256 "d3251d923aed82ee2c9972ef3f453f522e075735092767e3851d70f45d708094"
+  url "https://github.com/alexeyxo/protobuf-swift/archive/3.0.6.tar.gz"
+  sha256 "279c24886f5a88f332db2e0f745de55b6267e697ce4ba42f7d91566b6cf11be3"
 
   bottle do
     cellar :any
-    sha256 "c43485cc403a6b9bc8e60461b0e0661bf1c7ee025225e477b125c1f4df2df1d4" => :el_capitan
-    sha256 "c1db979a35d13541f24d747b8fc0dbdbfca49122d2ac41b17fb1f52129804c0c" => :yosemite
-    sha256 "c3f4a818f9adf7205e701afeff6d81ecc9cbcb610a68219023ff93d71d735424" => :mavericks
+    sha256 "0a7d4ae9dc64460cb8a948e47109ff802198bea55f3c2506611a75b7926f16cd" => :sierra
+    sha256 "eaf517e7525e8a5968460229268c264d9c462f05caa4f09903ace835bff850a0" => :el_capitan
+    sha256 "7d3cf13a1ce4d89a4b07e40b2bf26ec115a0c6d0d9408b8a580583be8ced01f4" => :yosemite
   end
 
   depends_on "autoconf" => :build
@@ -25,14 +25,15 @@ class ProtobufSwift < Formula
 
   test do
     testdata = <<-EOS.undent
-       enum Flavor{
-         CHOCOLATE = 1;
-          VANILLA = 2;
-        }
-        message IceCreamCone {
-          optional int32 scoops = 1;
-          optional Flavor flavor = 2;
-        }
+      syntax = "proto3";
+      enum Flavor {
+        CHOCOLATE = 0;
+        VANILLA = 1;
+      }
+      message IceCreamCone {
+        int32 scoops = 1;
+        Flavor flavor = 2;
+      }
     EOS
     (testpath/"test.proto").write(testdata)
     system "protoc", "test.proto", "--swift_out=."

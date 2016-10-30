@@ -1,14 +1,14 @@
 class Global < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "https://ftpmirror.gnu.org/global/global-6.5.4.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/global/global-6.5.4.tar.gz"
-  sha256 "af16e0a686a46f759156cb685e25f345680703f43f93af1ce8d834caaf541da6"
+  url "https://ftpmirror.gnu.org/global/global-6.5.5.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/global/global-6.5.5.tar.gz"
+  sha256 "bc5b42a2c58d1570ff6b6acf7479c3e1609fe0ec8b44e5baa5290dc47148cf7b"
 
   bottle do
-    sha256 "02cbcdec74c631e5c9136748570eaaa10d492c7bfe48a2a914c0245c91a84f33" => :el_capitan
-    sha256 "1228a3bb9625f8dbc7700b7846cc5f96e3bbe369ed6f0884840c4d8dacd05980" => :yosemite
-    sha256 "37948700d06490f5b8a8fce8ca4f869e98c5e6be4c2b14bf70a28b908f971c5a" => :mavericks
+    sha256 "3a7631af0628e819fe08751c74e9de2b744cebabfcd2c5cc6d6b7fe97a3a404c" => :sierra
+    sha256 "5264d8a192de1d386deef9498dcb1fc660e5cba7675a347a9984d951f1a93e83" => :el_capitan
+    sha256 "ac78f2132504eda491cc8cb2e2919cbce501c3397970ffee3854c1eeabe50cbf" => :yosemite
   end
 
   head do
@@ -16,6 +16,9 @@ class Global < Formula
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+    ## gperf is provided by OSX Command Line Tools.
     depends_on "libtool" => :build
   end
 
@@ -30,8 +33,8 @@ class Global < Formula
   skip_clean "lib/gtags"
 
   resource "pygments" do
-    url "https://pypi.python.org/packages/source/P/Pygments/Pygments-2.1.tar.gz"
-    sha256 "13a0ef5fafd7b16cf995bc28fe7aab0780dab1b2fda0fc89e033709af8b8a47b"
+    url "https://pypi.python.org/packages/source/P/Pygments/Pygments-2.1.3.tar.gz"
+    sha256 "88e4c8a91b2af5962bfa5ea2447ec6dd357018e86e94c7d14bd8cacbc5b55d81"
   end
 
   def install
@@ -90,6 +93,7 @@ class Global < Formula
         assert_match "test.c", shell_output("#{bin}/global -d c2func")
         assert_match "test.c", shell_output("#{bin}/global -r c2func")
         assert_match "test.py", shell_output("#{bin}/global -d pyfunc")
+        assert_match "test.py", shell_output("#{bin}/global -d py2func")
         assert_match "test.py", shell_output("#{bin}/global -r py2func")
       else
         # Everything is a symbol in this case

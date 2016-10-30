@@ -1,15 +1,15 @@
 class Progress < Formula
   desc "Progress: Coreutils Progress Viewer"
   homepage "https://github.com/Xfennec/progress"
-  url "https://github.com/Xfennec/progress/archive/v0.13.tar.gz"
-  sha256 "160cb6156a0b8df32a3944f3dcecba956ae3e5579e91d53c9d7417bc4956718c"
+  url "https://github.com/Xfennec/progress/archive/v0.13.1.tar.gz"
+  sha256 "064c95e8b93893dbf4b4b8152290cbb3b0c005eda0cae500353561048c9939a5"
   head "https://github.com/Xfennec/progress.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "92fdddbc22594566e79458fa3b4a63bee3f4bcdd569b88827837e8a18d6eaf3a" => :el_capitan
-    sha256 "35741d1986bd5df66ecec5603af82aefa0f1c5728fd6481780a1b77875edc4ad" => :yosemite
-    sha256 "965f987b35a069855eb9d43068c05f284272211ebfaaf1e3197386974d6da3a6" => :mavericks
+    sha256 "c04bdc66a7781fea19a127c30ad986de002bad27f7a198bdc892871a0fed78dc" => :sierra
+    sha256 "25a02d55c08c5bc17fa3830f577bbdc7320db434a499c95e5d6822cddccafdda" => :el_capitan
+    sha256 "0227e47f3d9614b1d67422d22f15321e5dfb2a078feee89dcff30ec0bffd2adc" => :yosemite
   end
 
   def install

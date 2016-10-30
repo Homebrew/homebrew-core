@@ -9,7 +9,8 @@ class Mu < Formula
   head "https://github.com/djcb/mu.git"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "65d3162cdd56525218cef14453a998f26f100f63d255288a77620b3ef0b5d422" => :sierra
     sha256 "e0e3532baa75ecee2d71a264a8bed4725a1dc1a6ecb9b0afbcc6f225a77dd06e" => :el_capitan
     sha256 "927ba3c36a061061c679ad91319d614532dbbd7c450ec0e0172681465b8f06e3" => :yosemite
     sha256 "99553174cd38a3d19993a94c07dafab56e98f591ac5054bf6b79d1d6b13f5e02" => :mavericks
@@ -27,7 +28,7 @@ class Mu < Formula
 
   def install
     # Explicitly tell the build not to include emacs support as the version
-    # shipped by default with Mac OS X is too old.
+    # shipped by default with macOS is too old.
     ENV["EMACS"] = "no" if build.without? "emacs"
 
     system "autoreconf", "-ivf"

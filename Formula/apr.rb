@@ -3,13 +3,14 @@ class Apr < Formula
   homepage "https://apr.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-1.5.2.tar.bz2"
   sha256 "7d03ed29c22a7152be45b8e50431063736df9e1daa1ddf93f6a547ba7a28f67a"
-  revision 1
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "b9165ea319ea97f7321921f72c373327eae74d8f7ad64ebaffe516baf3c3565b" => :el_capitan
-    sha256 "61c2e06504d6581cc3066ee71b990ca96a85429245f453e844e9d5c4e22d3f9b" => :yosemite
-    sha256 "ec000b6b752afcd8423f9cabd22920add92d79836d376f07a5630eca8a3a9ee0" => :mavericks
+    sha256 "7421ebf15011c00fff76530a40fe78aca7ddec4d1c6dbf2327bc13ea22dbc361" => :sierra
+    sha256 "63628dded3e37b9768b32ca65837ef0c1adcd0aa6d065c5604315cfa6069ceda" => :el_capitan
+    sha256 "1364ce1a6a2786b9b6fcb10a2df966678383a650d99b369ee2cd811ded4afd57" => :yosemite
+    sha256 "a4e7a90d12fac10ac788be3472c3e77a12e2db1a889d7be45f521d8387df28a0" => :mavericks
   end
 
   keg_only :provided_by_osx, "Apple's CLT package contains apr."
@@ -18,6 +19,7 @@ class Apr < Formula
 
   def install
     ENV.universal_binary if build.universal?
+    ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
 
     # https://bz.apache.org/bugzilla/show_bug.cgi?id=57359
     # The internal libtool throws an enormous strop if we don't do...
@@ -27,9 +29,12 @@ class Apr < Formula
     system "./configure", "--prefix=#{libexec}"
     system "make", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # No need for this to point to the versioned path.
+    inreplace libexec/"bin/apr-1-config", libexec, opt_libexec
   end
 
   test do
-    system bin/"apr-1-config", "--link-libtool", "--libs"
+    assert_match opt_libexec.to_s, shell_output("#{bin}/apr-1-config --prefix")
   end
 end

@@ -6,7 +6,8 @@ class Sqliteodbc < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "21d2e12e8b0cd45d4d0424be01279d4d269f687934579d2d0f52adac99b7df65" => :sierra
     sha256 "b48cbcd80134a93b694b2b01366970aa1114afad86acd921b484ddee3a64c9be" => :el_capitan
     sha256 "691272b6dd92741f4f8c1f7cb435c4fade6a03271fc0694d88378238d48a0f6e" => :yosemite
     sha256 "5ff36ea537f174e4db9f44da33db0d4a21b425f346d11eedd45582d85971ffb1" => :mavericks

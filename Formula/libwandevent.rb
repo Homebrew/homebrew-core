@@ -1,11 +1,12 @@
 class Libwandevent < Formula
-  desc "Libwandevent provides an API for developing event-driven programs"
+  desc "API for developing event-driven programs"
   homepage "http://research.wand.net.nz/software/libwandevent.php"
   url "http://research.wand.net.nz/software/libwandevent/libwandevent-3.0.1.tar.gz"
   sha256 "317b2cc39f912f8e5875b9dd05658cd48ead98bf20a1d89855e5a435381bee24"
 
   bottle do
     cellar :any
+    sha256 "41c82d4b35565dc4dbb558dd63a7f5c63b97edcf0e9724eab050ffa9a1d661a9" => :sierra
     sha256 "78343d11a98d223c2e944971516c8c5213c2e88a5484c1a104be57b8e1b228e1" => :el_capitan
     sha256 "e6a07c41e838e86d5a1c39274d5d15e37d55dd7439f19a05a50818fd78f437e5" => :yosemite
     sha256 "5565d710cbaeb8110f2f50289965dc0cfc76d20ddb96138ddbbadd452b13eefc" => :mavericks

@@ -1,13 +1,14 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.12.0/nghttp2-1.12.0.tar.xz"
-  sha256 "445c24243b8132b031c2c9fc9fe99f5abadbce2db4fbdf7eb6d3beaa5797dd4b"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.16.0/nghttp2-1.16.0.tar.xz"
+  sha256 "311d53e13d1aea8991d06f7963b75dc0a853eca961e53a38b6bd3d8b1d89019d"
 
   bottle do
-    sha256 "9d75d6846e9402a9e2f4a84bd0af6f3fe49709ec070c413d5b6703b7bc46cd4e" => :el_capitan
-    sha256 "47ad32e5319dcaa7461925d3a27e8eb065a4969a932cfede0b1c395698abe28c" => :yosemite
-    sha256 "5aa502633f6e56501b80ee84b5c117829d0a55b4d83d9c521b1eaaf19dd7ca0e" => :mavericks
+    rebuild 1
+    sha256 "20ad2182e82310c39aaaa62afc904bcbeb68c706a78a67dace5529085ad1389f" => :sierra
+    sha256 "0778e0d9ec942f54dd38f36498bda7794f54e0e219bd2775ab5dcb40169e827f" => :el_capitan
+    sha256 "a96fd414c55277616cdb0c2cca05dd7e6a25dd07ff95efcd9d94406a0a6136f8" => :yosemite
   end
 
   head do
@@ -16,7 +17,6 @@ class Nghttp2 < Formula
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
-    depends_on "libxml2" # Needs xml .m4 available
   end
 
   option "with-examples", "Compile and install example programs"
@@ -33,11 +33,12 @@ class Nghttp2 < Formula
   depends_on "libevent"
   depends_on "jansson"
   depends_on "boost"
-  depends_on "spdylay" => :recommended
+  depends_on "spdylay"
+  depends_on "jemalloc" => :recommended
 
   resource "Cython" do
-    url "https://pypi.python.org/packages/b1/51/bd5ef7dff3ae02a2c6047aa18d3d06df2fb8a40b00e938e7ea2f75544cac/Cython-0.24.tar.gz"
-    sha256 "6de44d8c482128efc12334641347a9c3e5098d807dd3c69e867fa8f84ec2a3f1"
+    url "https://pypi.python.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz"
+    sha256 "84808fda00508757928e1feadcf41c9f78e9a9b7167b6649ab0933b76f75e7b9"
   end
 
   # https://github.com/tatsuhiro-t/nghttp2/issues/125
@@ -54,11 +55,13 @@ class Nghttp2 < Formula
       --enable-app
       --with-boost=#{Formula["boost"].opt_prefix}
       --enable-asio-lib
+      --with-spdylay
+      --disable-python-bindings
     ]
 
     args << "--enable-examples" if build.with? "examples"
-    args << "--with-spdylay" if build.with? "spdylay"
-    args << "--disable-python-bindings"
+    args << "--with-xml-prefix=/usr" if MacOS.version > :lion
+    args << "--without-jemalloc" if build.without? "jemalloc"
 
     system "autoreconf", "-ivf" if build.head?
     system "./configure", *args

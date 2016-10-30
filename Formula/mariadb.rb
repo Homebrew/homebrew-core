@@ -1,18 +1,18 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.16/source/mariadb-10.1.16.tar.gz"
-  sha256 "67cb35c62cc5d4cf48d7b614c0c7a9245a762ca23d4e588e15c616c102e64393"
+  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.18/source/mariadb-10.1.18.tar.gz"
+  sha256 "d7336907e9ff44496d6453f92526b25bd253638a64a051ca879f953499873b73"
 
   bottle do
-    sha256 "b5291f4e95755087fee15592fa1f871eba2ba9f717f1d3ce751602fae67f3bc4" => :el_capitan
-    sha256 "611e7bd02d48877461cf5f020eccdb023c4934f31817af86c359eed079e17162" => :yosemite
-    sha256 "6e0f2009a0456a8612ba99eaa170c9ee155c11449905a0c947c448d719cea424" => :mavericks
+    sha256 "2f8e29bdbbdef563ff9721bdc2fc11a8ecc3797607d9f2ee8dbd041cf5b44a2c" => :sierra
+    sha256 "2022c580adf22c0a3998790b352f9895a252ca1f4a406dfd614861e6ec12d005" => :el_capitan
+    sha256 "0831114ea928b1c566e1da704e5800d3c9b1f9bd38b6856cd060dd506d45da88" => :yosemite
   end
 
   devel do
-    url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.2.1/source/mariadb-10.2.1.tar.gz"
-    sha256 "90b7a17f3372c92c12dff084b37fcca8c4cf8106f4dcabd35fadc8efbaa348a2"
+    url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.2.2/source/mariadb-10.2.2.tar.gz"
+    sha256 "55cf9e357ae4511fc1330e7cb8a15746d99b3a7875b6da9bcf1acfb1aa6f893a"
   end
 
   option :universal
@@ -39,10 +39,6 @@ class Mariadb < Formula
   conflicts_with "mariadb-connector-c",
     :because => "both install plugins"
 
-  # upstream fix for compilation error
-  # https://jira.mariadb.org/browse/MDEV-10322
-  patch :DATA
-
   def install
     # Don't hard-code the libtool path. See:
     # https://github.com/Homebrew/homebrew/issues/20185
@@ -64,10 +60,6 @@ class Mariadb < Formula
 
     # -DINSTALL_* are relative to prefix
     args = %W[
-      .
-      -DCMAKE_INSTALL_PREFIX=#{prefix}
-      -DCMAKE_FIND_FRAMEWORK=LAST
-      -DCMAKE_VERBOSE_MAKEFILE=ON
       -DMYSQL_DATADIR=#{var}/mysql
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_MANDIR=share/man
@@ -81,7 +73,7 @@ class Mariadb < Formula
       -DCOMPILATION_COMMENT=Homebrew
     ]
 
-    # disable TokuDB, which is currently not supported on Mac OS X
+    # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
 
     args << "-DWITH_UNIT_TESTS=OFF" if build.without? "test"
@@ -107,7 +99,7 @@ class Mariadb < Formula
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
 
-    system "cmake", *args
+    system "cmake", ".", *std_cmake_args, *args
     system "make"
     system "make", "install"
 
@@ -140,7 +132,7 @@ class Mariadb < Formula
     libexec.mkpath
     libexec.install "#{bin}/wsrep_sst_common"
     # Fix up references to wsrep_sst_common
-    %W[
+    %w[
       wsrep_sst_mysqldump
       wsrep_sst_rsync
       wsrep_sst_xtrabackup
@@ -206,17 +198,3 @@ class Mariadb < Formula
     end
   end
 end
-__END__
-diff --git a/storage/connect/jdbconn.cpp b/storage/connect/jdbconn.cpp
-index 9b47927..7c0582d 100644
---- a/storage/connect/jdbconn.cpp
-+++ b/storage/connect/jdbconn.cpp
-@@ -270,7 +270,7 @@ PQRYRES JDBCColumns(PGLOBAL g, char *db, char *table, char *colpat,
- 		return NULL;
-
- 	// Colpat cannot be null or empty for some drivers
--	cap->Pat = (colpat && *colpat) ? colpat : "%";
-+	cap->Pat = (colpat && *colpat) ? colpat : PlugDup(g, "%");
-
- 	/************************************************************************/
- 	/*  Now get the results into blocks.                                    */

@@ -1,15 +1,42 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.1.1.tar.bz2"
-  sha256 "a5bca50a90a37b983eaa17c483a387189175f37ca678ae7e51d43e7610b4b3b4"
-  head "https://github.com/FFmpeg/FFmpeg.git"
+
+  stable do
+    url "https://ffmpeg.org/releases/ffmpeg-3.1.5.tar.bz2"
+    sha256 "2400882a2c7795c74f0abebc28d267f2796510fb69ba324b0e9f16cc8dbb0d2b"
+
+    option "with-sdl", "Enable FFplay media player"
+    option "with-openh264", "Enable OpenH264 library"
+    deprecated_option "with-ffplay" => "with-sdl"
+
+    depends_on "sdl" => :optional
+    depends_on "nasm" => :build if build.with? "openh264"
+
+    # Remove when ffmpeg has support for openh264 1.6.0
+    # See https://github.com/cisco/openh264/issues/2505
+    # Master now has support, but not the 3.1.x branch
+    resource "openh264-1.5.0" do
+      url "https://github.com/cisco/openh264/archive/v1.5.0.tar.gz"
+      sha256 "98077bd5d113c183ce02b678733b0cada2cf36750370579534c4d70f0b6c27b5"
+    end
+  end
 
   bottle do
-    revision 1
-    sha256 "d9c62b83a65367759a8885acab27553e104fad73d3b16c4e763f43cb9a2bb65b" => :el_capitan
-    sha256 "242c3f30bb3992784c373c163f41168ead5630e8a370aa97d24ddca13ed134a7" => :yosemite
-    sha256 "b0c090350f3628ee5c70c16fecddeea19332a89a4a047787333ac23b1788fa16" => :mavericks
+    sha256 "201c11c27d3c4d2c65593d1f95ecbc93194da5c3d0d88193313df1d81db6d69d" => :sierra
+    sha256 "5edd5871efff922e64319534ae9f3a9e82353d19c9dce3e9a28a33fb5c92c7c4" => :el_capitan
+    sha256 "4b4e684b3a89fdbc9d9c6858814da26f67004fdd06ec4a19268d1034ea9b87d0" => :yosemite
+  end
+
+  head do
+    url "https://github.com/FFmpeg/FFmpeg.git"
+
+    # Support for SDL1 has been removed from master
+    option "with-sdl2", "Enable FFplay media player"
+    deprecated_option "with-ffplay" => "with-sdl2"
+
+    depends_on "sdl2" => :optional
+    depends_on "openh264" => :optional
   end
 
   option "without-x264", "Disable H.264 encoder"
@@ -24,7 +51,6 @@ class Ffmpeg < Formula
   option "with-openssl", "Enable SSL support"
   option "with-libssh", "Enable SFTP protocol via libssh"
   option "with-schroedinger", "Enable Dirac video format"
-  option "with-ffplay", "Enable FFplay media player"
   option "with-tools", "Enable additional FFmpeg tools"
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
   option "with-libvidstab", "Enable vid.stab support for video stabilization"
@@ -35,9 +61,9 @@ class Ffmpeg < Formula
   option "with-snappy", "Enable Snappy library"
   option "with-rubberband", "Enable rubberband library"
   option "with-zimg", "Enable z.lib zimg library"
-  option "with-openh264", "Enable OpenH264 library"
   option "with-xz", "Enable decoding of LZMA-compressed TIFF files"
   option "with-libebur128", "Enable using libebur128 for EBU R128 loudness measurement"
+  option "with-libtesseract", "Enable the tesseract OCR engine"
 
   depends_on "pkg-config" => :build
 
@@ -59,7 +85,6 @@ class Ffmpeg < Formula
   depends_on "opencore-amr" => :optional
   depends_on "libass" => :optional
   depends_on "openjpeg" => :optional
-  depends_on "sdl" if build.with? "ffplay"
   depends_on "snappy" => :optional
   depends_on "speex" => :optional
   depends_on "schroedinger" => :optional
@@ -80,17 +105,15 @@ class Ffmpeg < Formula
   depends_on "zimg" => :optional
   depends_on "xz" => :optional
   depends_on "libebur128" => :optional
-
-  depends_on "nasm" => :build if build.with? "openh264"
-
-  # Remove when ffmpeg has support for openh264 1.6.0
-  # See https://github.com/cisco/openh264/issues/2505
-  resource "openh264-1.5.0" do
-    url "https://github.com/cisco/openh264/archive/v1.5.0.tar.gz"
-    sha256 "98077bd5d113c183ce02b678733b0cada2cf36750370579534c4d70f0b6c27b5"
-  end
+  depends_on "tesseract" => :optional
 
   def install
+    # Fixes "dyld: lazy symbol binding failed: Symbol not found: _clock_gettime"
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace %w[libavdevice/v4l2.c libavutil/time.c], "HAVE_CLOCK_GETTIME",
+                                                         "UNDEFINED_GIBBERISH"
+    end
+
     args = %W[
       --prefix=#{prefix}
       --enable-shared
@@ -105,11 +128,12 @@ class Ffmpeg < Formula
     ]
 
     if build.with? "openh264"
-      resource("openh264-1.5.0").stage do
-        system "make", "install-shared", "PREFIX=#{libexec}/openh264-1.5.0"
-        chmod 0444, libexec/"openh264-1.5.0/lib/libopenh264.dylib"
+      if build.stable?
+        resource("openh264-1.5.0").stage do
+          system "make", "install-shared", "PREFIX=#{libexec}/openh264-1.5.0"
+        end
+        ENV.prepend_path "PKG_CONFIG_PATH", libexec/"openh264-1.5.0/lib/pkgconfig"
       end
-      ENV.prepend_path "PKG_CONFIG_PATH", libexec/"openh264-1.5.0/lib/pkgconfig"
       args << "--enable-libopenh264"
     end
 
@@ -148,6 +172,7 @@ class Ffmpeg < Formula
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
     args << "--enable-libebur128" if build.with? "libebur128"
+    args << "--enable-libtesseract" if build.with? "tesseract"
 
     if build.with? "xz"
       args << "--enable-lzma"
@@ -158,7 +183,7 @@ class Ffmpeg < Formula
     if build.with? "openjpeg"
       args << "--enable-libopenjpeg"
       args << "--disable-decoder=jpeg2000"
-      args << "--extra-cflags=" + `pkg-config --cflags libopenjpeg`.chomp
+      args << "--extra-cflags=" + `pkg-config --cflags libopenjp2`.chomp
     end
 
     # These librares are GPL-incompatible, and require ffmpeg be built with
@@ -179,7 +204,7 @@ class Ffmpeg < Formula
 
     # For 32-bit compilation under gcc 4.2, see:
     # https://trac.macports.org/ticket/20938#comment:22
-    ENV.append_to_cflags "-mdynamic-no-pic" if Hardware.is_32_bit? && Hardware::CPU.intel? && ENV.compiler == :clang
+    ENV.append_to_cflags "-mdynamic-no-pic" if Hardware::CPU.is_32_bit? && Hardware::CPU.intel? && ENV.compiler == :clang
 
     system "./configure", *args
 

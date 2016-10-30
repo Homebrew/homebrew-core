@@ -1,17 +1,15 @@
 class Mg3a < Formula
-  desc "Small Emacs-like editor inspired like mg with UTF8 support"
+  desc "Small Emacs-like editor inspired by mg with UTF8 support"
   homepage "http://www.bengtl.net/files/mg3a/"
-  url "http://www.bengtl.net/files/mg3a/mg3a.160817.tar.gz"
-  sha256 "c6d65a189579e6c4ccc54b5c609690a4d1fba0b85063b14b887703950992b573"
+  url "http://www.bengtl.net/files/mg3a/mg3a.161017.tar.gz"
+  sha256 "e97951850f9755e5f754e46f5d198b9d99a5b55a2a67deb0b9159f22b4ff39be"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "db8f9acd4b18be19f033bbfb403ac9b0783d724735dc11084ace928da78f4195" => :el_capitan
-    sha256 "ddf680ef2e5f13620ce2fd290f2633b34eb8a4b193212336f45ee6d4de3b2ee5" => :yosemite
-    sha256 "3fc9a38486fd70ee78932f17c920e01c29b4baca64e2b727eca5783d7630e569" => :mavericks
+    sha256 "e257022f63f28ed08c7302fa1fd53ec1dd473280927b6cbea5a7c22e077c4ab2" => :sierra
+    sha256 "dd3e30d9e1b1cf19e3ec54414a295b155d908dd30e76c728b53e91f72b43d1c2" => :el_capitan
+    sha256 "f2f3e4ca89f9c90b57a47ecd7d5a29ab674da7bc9341fdc31b09a09bf99de372" => :yosemite
   end
-
-  conflicts_with "mg", :because => "both install `mg`"
 
   option "with-c-mode", "Include the original C mode"
   option "with-clike-mode", "Include the C mode that also handles Perl and Java"
@@ -19,9 +17,11 @@ class Mg3a < Formula
   option "with-most", "Include c-like and python modes, user modes and user macros"
   option "with-all", "Include all fancy stuff"
 
+  conflicts_with "mg", :because => "both install `mg`"
+
   def install
     if build.with?("all")
-      mg3aopts = "-DALL" if build.with?("all")
+      mg3aopts = %w[-DALL]
     else
       mg3aopts = %w[-DDIRED -DPREFIXREGION -DUSER_MODES -DUSER_MACROS]
       mg3aopts << "-DLANGMODE_C" if build.with?("c-mode")

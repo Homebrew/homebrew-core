@@ -1,15 +1,14 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.9.2.tar.xz"
-  sha256 "f8f546648f77f246f1302e3ec4037c81db25af1f02931597148c5bf61fac2db5"
-
+  url "https://www.kernel.org/pub/software/scm/git/git-2.10.2.tar.xz"
+  sha256 "94802903dd707d85ca3b9a2be35e936a54ce86375f52c6a789efe7ce7e238671"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "98aa5ac5634365c768013c3007d88e4dbbfcef607fb5fd8df82024b7e5320fc9" => :el_capitan
-    sha256 "5b5460409196083456cf657f6a8ea9661bc3079feb06a106e0d80ef546e00e56" => :yosemite
-    sha256 "e0bc597031a6f45a83ade135a64db4ed9283759c93da3ee297f169c0d64553c9" => :mavericks
+    sha256 "ff9d1b1600f268f0ec5af318562fc08bd9a503d512309dd26f7b166d98c8ecaf" => :sierra
+    sha256 "525962ccf0890c754aedbe2a623bb32d2af2b941fbdb8ac122bbaba41f48664c" => :el_capitan
+    sha256 "5c11a6d358ece56497bb67300aa082d27f04ac594bc6eafe5f6fed0437d68d33" => :yosemite
   end
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
@@ -32,13 +31,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.9.2.tar.xz"
-    sha256 "6dddb003184f2ab68aa6b54e02e1e55c82c774fe6e74602e9dbefdf06826fb1c"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.10.2.tar.xz"
+    sha256 "dd43111c3518a92a7fe64ac5cd32a5d4d77d49c67f7d89dce3e8293bc3d6b491"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.9.2.tar.xz"
-    sha256 "4c5c516ee4c0412b9475739e2125a257f6022e7c7bd006827c376fe70d47c323"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.10.2.tar.xz"
+    sha256 "83b0a317f6039ad95ef6af6a182cf659c2d053eed5d8f70b06710eb787f8aa6f"
   end
 
   def install
@@ -96,7 +95,7 @@ class Git < Formula
 
     system "make", "install", *args
 
-    # Install the OS X keychain credential helper
+    # Install the macOS keychain credential helper
     cd "contrib/credential/osxkeychain" do
       system "make", "CC=#{ENV.cc}",
                      "CFLAGS=#{ENV.cflags}",
@@ -147,7 +146,7 @@ class Git < Formula
     # If you need it, install git --with-brewed-openssl.
     rm "#{libexec}/git-core/git-imap-send" if build.without? "brewed-openssl"
 
-    # Set the OS X keychain credential helper by default
+    # Set the macOS keychain credential helper by default
     # (as Apple's CLT's git also does this).
     (buildpath/"gitconfig").write <<-EOS.undent
       [credential]

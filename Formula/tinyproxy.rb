@@ -6,7 +6,8 @@ class Tinyproxy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 2
+    rebuild 2
+    sha256 "73ad83b43d81259d0251e5c33a3f35a8200059f01421084054472b5ad96a1240" => :sierra
     sha256 "004c6319701e7529b252e1860321cf14369a74029a6f05523662365ff1292f1b" => :el_capitan
     sha256 "b68a1b323a20f689b96e7405f2c491c66849fa011beb450dcf417be491557da4" => :yosemite
     sha256 "7bba647101259e9299a8a61177fcba2966b056091e9b1a28a43207e612a0bcfc" => :mavericks
@@ -16,6 +17,7 @@ class Tinyproxy < Formula
 
   option "with-reverse", "Enable reverse proxying"
   option "with-transparent", "Enable transparent proxying"
+  option "with-filter", "Enable url filtering"
 
   deprecated_option "reverse" => "with-reverse"
 
@@ -38,14 +40,14 @@ class Tinyproxy < Formula
 
     args << "--enable-reverse" if build.with? "reverse"
     args << "--enable-transparent" if build.with? "transparent"
+    args << "--enable-filter" if build.with? "filter"
 
     system "./configure", *args
 
     # Fix broken XML lint
     # See: https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=154624
-    inreplace ["docs/man5/Makefile", "docs/man8/Makefile"] do |s|
-      s.gsub! "-f manpage", "-f manpage \\\n  -L"
-    end
+    inreplace %w[docs/man5/Makefile docs/man8/Makefile], "-f manpage",
+                                                         "-f manpage \\\n  -L"
 
     system "make", "install"
   end

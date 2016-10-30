@@ -6,7 +6,8 @@ class Libdc1394 < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "03c936f6b09101d9df8c5781ea638f68b022883740b352f656c07046b6f2e085" => :sierra
     sha256 "aca2dc5c08f1e56d834f814d63edf32e0af86f0fa27e6fdd2df2f247179cf96f" => :el_capitan
     sha256 "7ae3e7c4217d0c76b2caa3c961480d646ed0a50fabde1567cb6f10c1b2f08e18" => :yosemite
     sha256 "c5036e695691464ce2f5b6b957b08f77b8ec436475c9eb8948305f26da81af48" => :mavericks
@@ -19,7 +20,7 @@ class Libdc1394 < Formula
 
   # fix issue due to bug in OSX Firewire stack
   # libdc1394 author comments here:
-  # http://permalink.gmane.org/gmane.comp.multimedia.libdc1394.devel/517
+  # https://permalink.gmane.org/gmane.comp.multimedia.libdc1394.devel/517
   patch :DATA
 
   def install

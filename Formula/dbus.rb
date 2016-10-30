@@ -2,21 +2,28 @@ class Dbus < Formula
   # releases: even (1.10.x) = stable, odd (1.11.x) = development
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
-  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.8.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.8.orig.tar.gz"
-  sha256 "baf3d22baa26d3bdd9edc587736cd5562196ce67996d65b82103bedbe1f0c014"
-  head "https://anongit.freedesktop.org/git/dbus/dbus.git"
+  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.12.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.12.orig.tar.gz"
+  sha256 "210a79430b276eafc6406c71705e9140d25b9956d18068df98a70156dc0e475d"
 
   bottle do
-    sha256 "df858961c007d3f1bf7d2bc03856b4f1981b9c260837516da523e9d8162a3e46" => :el_capitan
-    sha256 "e3bd3fc1b0a8eee96eda8dedbb4f610ac8c8a4b303f05c0f31be6bff55d573cd" => :yosemite
-    sha256 "397cd888dcf08bd86c08e7c667663b896c65099c80ebe2901aa81050a9480541" => :mavericks
+    sha256 "8848b7e368750df3a9526f4c5d47a0649359e9e89cd9d94cb45e706402bdb66c" => :sierra
+    sha256 "153735bc649bf2b7c8e995a5fdf44947d9f1c1a0091f1e351283a9621f281298" => :el_capitan
+    sha256 "93fba26972dd5930cc211f9d76b4d16c93a120ce7b3c19c2f2be2aedbceac09c" => :yosemite
   end
 
   devel do
-    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.2.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.2.orig.tar.gz"
-    sha256 "5abc4c57686fa82669ad0039830788f9b03fdc4fff487f0ccf6c9d56ba2645c9"
+    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.4.tar.gz"
+    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.4.orig.tar.gz"
+    sha256 "474de2afde8087adbd26b3fc5cbf6ec45559763c75b21981169a9a1fbac256c9"
+  end
+
+  head do
+    url "https://anongit.freedesktop.org/git/dbus/dbus.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
@@ -30,6 +37,7 @@ class Dbus < Formula
     # Fix the TMPDIR to one D-Bus doesn't reject due to odd symbols
     ENV["TMPDIR"] = "/tmp"
 
+    system "./autogen.sh", "--no-configure" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",

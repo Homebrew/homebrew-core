@@ -6,6 +6,7 @@ class Bsdiff < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c21cd31202c096b99788346b22a3aeaddd72b397b2ae6cbd971926ba93d9f541" => :sierra
     sha256 "4b4e2e68dc5ffa9a5fc02b6c59c4d8201d8d6df8d5e6aef5bd70854ecbe917b7" => :el_capitan
     sha256 "79d0ef36a33a214595c66a70d8197a1eb148bcd3c1d1c782d28fc20f6a057d43" => :yosemite
     sha256 "26899c5d4e34ccfde4633b78a8cbbdf3036f028dfb16767fb2ac64efb2296b56" => :mavericks

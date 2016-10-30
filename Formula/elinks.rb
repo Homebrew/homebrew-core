@@ -6,7 +6,8 @@ class Elinks < Formula
   revision 2
 
   bottle do
-    revision 2
+    rebuild 2
+    sha256 "52a68836064a6f3ca484e212f4a160cfd16329767fe56cb924a8360441408485" => :sierra
     sha256 "b59da2e745cd4882f3e4e848bb4473ec97f110eb06df9c9fe442a7c39cf6e141" => :el_capitan
     sha256 "d6412d12d0adabd9da112e49baecf351b0a0307d138d22c605fa3826107107fe" => :yosemite
     sha256 "3bb5385dd074a8963bb3fc9111ea6a318d2594380cc8eda4921cb4a910393578" => :mavericks

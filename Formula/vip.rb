@@ -7,6 +7,7 @@ class Vip < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "12eec6f5294a94f2fb09c54f218470aab2fb7bad58570e8a82c789d8ba5e9639" => :sierra
     sha256 "1bf2041f43bcea1e8c503119a9b34f8849b751da767ec5b5094fd5fa8fe5f297" => :el_capitan
     sha256 "8e60ec9a240192f872f5d730ca93c9bc9e73d4644e685173554ff786b634ef7c" => :yosemite
     sha256 "96ae6a94171da559b1762970dc99b1c458ccd68c061d40248879d16bb6df8511" => :mavericks

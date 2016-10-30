@@ -3,12 +3,12 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.10.0-src.tar.gz"
-    sha256 "a4015aacf4f6d8a8239253c4da46e7abaa8584f8214d1828d2ff0a8f56176869"
+    url "https://static.rust-lang.org/dist/rustc-1.12.1-src.tar.gz"
+    sha256 "97913ae4cb255618aaacd1a534b11f343634b040b32656250d09d8d9ec02d3dc"
 
     resource "cargo" do
       # git required because of submodules
-      url "https://github.com/rust-lang/cargo.git", :tag => "0.11.0", :revision => "259324cd8f9bb6e1068a3a2b77685e90fda3e3b6"
+      url "https://github.com/rust-lang/cargo.git", :tag => "0.13.0", :revision => "109cb7c33d426044d141457049bd0fffaca1327c"
     end
 
     # name includes date to satisfy cache
@@ -19,9 +19,9 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 "b6fc2ebfed237d15269118a52810a3660c7d50a8097c6c48044e95a2fb9ead24" => :el_capitan
-    sha256 "4200756cc985257f888a02a02032588108649e4aae84e7340239b5be77a7730c" => :yosemite
-    sha256 "816521dfa0f3f10cf50a2894dcf3aeceb6edb86ec29c7733a234d834e15287e7" => :mavericks
+    sha256 "2116733d1697a58560f2ff344d91f67a156d87f443113d2404df955b170a1bc3" => :sierra
+    sha256 "ea0424f703f81d6375218f5c3f7b62e03f41e2b7eda1c62143b781056b597afc" => :el_capitan
+    sha256 "3f5beef74c547bb554791852ec09b8417af27a8b1013138d609d4200247328a2" => :yosemite
   end
 
   head do

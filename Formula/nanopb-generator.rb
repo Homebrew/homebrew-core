@@ -1,22 +1,28 @@
 class NanopbGenerator < Formula
   desc "ANSI C library for encoding and decoding Protocol Buffer messages"
   homepage "https://koti.kapsi.fi/jpa/nanopb/docs/index.html"
-  url "https://koti.kapsi.fi/~jpa/nanopb/download/nanopb-0.3.5.tar.gz"
-  sha256 "3dd539671403d578425f15c6b4b6ba7390ee9a20369b969637ef1d18487e150e"
+  url "https://koti.kapsi.fi/~jpa/nanopb/download/nanopb-0.3.6.tar.gz"
+  sha256 "3e6d5d4971dc11845261ddca7e1c67b96eabf95e839327c7d8ed6f07412edab7"
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e48c213f1af09ef52f38a874991dcd5bc6e2fe86e5404a7b272160d4a9cea5cb" => :el_capitan
-    sha256 "1390bb0c55b7b6a278588d3648b1ca6441fd2294d6f62d34e8552405710093eb" => :yosemite
-    sha256 "cf5dabc592b4c8d4b338915dcbc1bddb9a000fe0c087bd03c2f13ff0981c2edd" => :mavericks
+    sha256 "5e6f3a6e73074f87ac748ac3f12001437c5a57f5f5259c086041ff240bf823fd" => :sierra
+    sha256 "5e6f3a6e73074f87ac748ac3f12001437c5a57f5f5259c086041ff240bf823fd" => :el_capitan
+    sha256 "5e6f3a6e73074f87ac748ac3f12001437c5a57f5f5259c086041ff240bf823fd" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "protobuf"
 
   resource "protobuf-python" do
-    url "https://pypi.python.org/packages/source/p/protobuf/protobuf-2.6.0.tar.gz"
-    sha256 "b1556c5e9cca9069143b41312fd45d0d4785ca0cab682b2624195a6bc4ec296f"
+    url "https://pypi.python.org/packages/14/3e/56da1ecfa58f6da0053a523444dff9dfb8a18928c186ad529a24b0e82dec/protobuf-3.0.0.tar.gz"
+    sha256 "ecc40bc30f1183b418fe0ec0c90bc3b53fa1707c4205ee278c6b90479e5b6ff5"
+  end
+
+  resource "six" do
+    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   def install
@@ -37,6 +43,8 @@ class NanopbGenerator < Formula
 
   test do
     (testpath/"test.proto").write <<-PROTO.undent
+      syntax = "proto2";
+
       message Test {
         required string test_field = 1;
       }

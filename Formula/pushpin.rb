@@ -1,15 +1,15 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "http://pushpin.org"
-  url "https://dl.bintray.com/fanout/source/pushpin-1.11.0.tar.bz2"
-  sha256 "e1c9464f3a5c5473ace17920da0defb32973a70f30cc6b29e0852b94ff8b2995"
+  url "https://dl.bintray.com/fanout/source/pushpin-1.13.1.tar.bz2"
+  sha256 "99422b64ea7414309d1e01325e56ec18be34d85539affd5560fd8842328e77bd"
 
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
-    sha256 "4b1b453ef7ccf2d68432a4bf0784890bc3b889c86b9f324535fd02905d05d21d" => :el_capitan
-    sha256 "ef3747605a4e25e6d47c37363e359cb3d7e08df8a1fcb3a90467333b35841dbd" => :yosemite
-    sha256 "ece1b40d5fd3fc130e636a4a2ee5f09bc1b28c4db469f76fa351604ddc28028c" => :mavericks
+    sha256 "e712906d5f6102ef8cb6d4608b83dd0bca828642f4d1fcb34c68ecfe87b0052c" => :sierra
+    sha256 "fa7580a36511384381cad49f5e7a49b1098550e2901a87bacabbc6ad784c207c" => :el_capitan
+    sha256 "359e9bbddecfb05658d997901c7c21e6b0e783b8c11e22d443a7aad371500c2a" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -31,13 +31,15 @@ class Pushpin < Formula
     runfile = testpath/"test.py"
 
     cp HOMEBREW_PREFIX/"etc/pushpin/pushpin.conf", conffile
-    cp HOMEBREW_PREFIX/"etc/pushpin/routes", routesfile
 
     inreplace conffile do |s|
       s.gsub! "rundir=#{HOMEBREW_PREFIX}/var/run/pushpin", "rundir=#{testpath}/var/run/pushpin"
       s.gsub! "logdir=#{HOMEBREW_PREFIX}/var/log/pushpin", "logdir=#{testpath}/var/log/pushpin"
     end
-    inreplace routesfile, "test", "localhost:10080"
+
+    routesfile.write <<-EOS.undent
+      * localhost:10080
+    EOS
 
     runfile.write <<-EOS.undent
       import urllib2

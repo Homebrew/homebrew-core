@@ -1,8 +1,8 @@
 class SeleniumServerStandalone < Formula
   desc "Browser automation for testing purposes"
   homepage "http://seleniumhq.org/"
-  url "https://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar"
-  sha256 "1cce6d3a5ca5b2e32be18ca5107d4f21bddaa9a18700e3b117768f13040b7cf8"
+  url "https://selenium-release.storage.googleapis.com/3.0/selenium-server-standalone-3.0.1.jar"
+  sha256 "1537b6d1b259191ed51586378791bc62b38b0cb18ae5ba1433009dc365e9f26b"
 
   bottle :unneeded
 
@@ -41,5 +41,10 @@ class SeleniumServerStandalone < Formula
     </dict>
     </plist>
     EOS
+  end
+
+  test do
+    selenium_version = shell_output("unzip -p #{libexec}/selenium-server-standalone-#{version}.jar META-INF/MANIFEST.MF | sed -nEe '/Selenium-Version:/p'")
+    assert_equal "Selenium-Version: #{version}", selenium_version.strip
   end
 end

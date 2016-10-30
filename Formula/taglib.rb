@@ -1,15 +1,15 @@
 class Taglib < Formula
   desc "Audio metadata library"
   homepage "https://taglib.github.io/"
-  url "https://taglib.github.io/releases/taglib-1.11.tar.gz"
-  sha256 "ed4cabb3d970ff9a30b2620071c2b054c4347f44fc63546dbe06f97980ece288"
+  url "https://taglib.github.io/releases/taglib-1.11.1.tar.gz"
+  sha256 "b6d1a5a610aae6ff39d93de5efd0fdc787aa9e9dc1e7026fa4c961b26563526b"
   head "https://github.com/taglib/taglib.git"
 
   bottle do
     cellar :any
-    sha256 "bfcd6575c21fce26f3f49cfc43fb30b46906749d81d757e10597b6fdbaf8b512" => :el_capitan
-    sha256 "e5a9e62fc16e32b8ad3239a712bf3eab630b245ed397bd957d1b89e2a807e310" => :yosemite
-    sha256 "2e0df8adfa080dc22265478490aca953384e97d41e9421b110ef142e07d15ab2" => :mavericks
+    sha256 "a0a374439cbf94a6fb57d791abf0bc6fb974eef1cf21f66c2731d1fc83d2428d" => :sierra
+    sha256 "edaf79d2a2ec72ae32d9b46621697626a27299226a6b4d963431da8c37d3af52" => :el_capitan
+    sha256 "bfda081fd34cb47bcdfd41e814612dbdf330166e30e69867cf43fcac60e5ed1a" => :yosemite
   end
 
   option :cxx11

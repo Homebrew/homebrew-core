@@ -9,6 +9,7 @@ class Nsq < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "160e7e8b45f7989ac8d6606a58fb97022287b219197e94e3a56df7c0bf8b23b3" => :sierra
     sha256 "a47078542e18ded524af3072f7311175012611dd5f39fbfcc4b42d33e1e96ac7" => :el_capitan
     sha256 "c1de144a1b744bef456c9ac933e57d6c5dfc0779351955f23e70120cbff3d8de" => :yosemite
     sha256 "c2429649bf69d28e46d6a616c14dff1231b54791d82e8e847fd361f2907ac0d0" => :mavericks
@@ -18,57 +19,57 @@ class Nsq < Formula
 
   go_resource "github.com/BurntSushi/toml" do
     url "https://github.com/BurntSushi/toml.git",
-    :revision => "2dff11163ee667d51dcc066660925a92ce138deb"
+        :revision => "2dff11163ee667d51dcc066660925a92ce138deb"
   end
 
   go_resource "github.com/bitly/go-hostpool" do
     url "https://github.com/bitly/go-hostpool.git",
-    :revision => "58b95b10d6ca26723a7f46017b348653b825a8d6"
+        :revision => "58b95b10d6ca26723a7f46017b348653b825a8d6"
   end
 
   go_resource "github.com/nsqio/go-nsq" do
     url "https://github.com/nsqio/go-nsq.git",
-    :revision => "642a3f9935f12cb3b747294318d730f56f4c34b4"
+        :revision => "642a3f9935f12cb3b747294318d730f56f4c34b4"
   end
 
   go_resource "github.com/bitly/go-simplejson" do
     url "https://github.com/bitly/go-simplejson.git",
-    :revision => "18db6e68d8fd9cbf2e8ebe4c81a78b96fd9bf05a"
+        :revision => "18db6e68d8fd9cbf2e8ebe4c81a78b96fd9bf05a"
   end
 
   go_resource "github.com/bmizerany/perks" do
     url "https://github.com/bmizerany/perks.git",
-    :revision => "6cb9d9d729303ee2628580d9aec5db968da3a607"
+        :revision => "6cb9d9d729303ee2628580d9aec5db968da3a607"
   end
 
   go_resource "github.com/mreiferson/go-options" do
     url "https://github.com/mreiferson/go-options.git",
-    :revision => "7ae3226d3e1fa6a0548f73089c72c96c141f3b95"
+        :revision => "7ae3226d3e1fa6a0548f73089c72c96c141f3b95"
   end
 
   go_resource "github.com/mreiferson/go-snappystream" do
     url "https://github.com/mreiferson/go-snappystream.git",
-    :revision => "028eae7ab5c4c9e2d1cb4c4ca1e53259bbe7e504"
+        :revision => "028eae7ab5c4c9e2d1cb4c4ca1e53259bbe7e504"
   end
 
   go_resource "github.com/bitly/timer_metrics" do
     url "https://github.com/bitly/timer_metrics.git",
-    :revision => "afad1794bb13e2a094720aeb27c088aa64564895"
+        :revision => "afad1794bb13e2a094720aeb27c088aa64564895"
   end
 
   go_resource "github.com/blang/semver" do
     url "https://github.com/blang/semver.git",
-    :revision => "9bf7bff48b0388cb75991e58c6df7d13e982f1f2"
+        :revision => "9bf7bff48b0388cb75991e58c6df7d13e982f1f2"
   end
 
   go_resource "github.com/julienschmidt/httprouter" do
     url "https://github.com/julienschmidt/httprouter.git",
-    :revision => "6aacfd5ab513e34f7e64ea9627ab9670371b34e7"
+        :revision => "6aacfd5ab513e34f7e64ea9627ab9670371b34e7"
   end
 
   go_resource "github.com/judwhite/go-svc" do
     url "https://github.com/judwhite/go-svc.git",
-    :revision => "63c12402f579f0bdf022653c821a1aa5d7544f01"
+        :revision => "63c12402f579f0bdf022653c821a1aa5d7544f01"
   end
 
   def install

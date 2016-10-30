@@ -4,8 +4,11 @@ class Librdkafka < Formula
   url "https://github.com/edenhill/librdkafka/archive/0.9.1.tar.gz"
   sha256 "5ad57e0c9a4ec8121e19f13f05bacc41556489dfe8f46ff509af567fdee98d82"
 
+  head "https://github.com/edenhill/librdkafka.git"
+
   bottle do
     cellar :any
+    sha256 "40bc4c4295471e4c9209c28d5b1b3485717e5e310c5fb297e86558853a5178aa" => :sierra
     sha256 "dd1b9001bfd24f6cdc942fbe6c1b52e992e1e65ff1849962b2528fc8cd5773d5" => :el_capitan
     sha256 "e516c7b35fb951370b102a73ef89f07fc40884c8f92e4c449c59a6933c32d148" => :yosemite
     sha256 "a002a4f38bc21030d9c5a69dec3de560ec67ce5e976f80cbcb7cd52fbdfb22f3" => :mavericks

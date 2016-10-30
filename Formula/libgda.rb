@@ -3,15 +3,13 @@ class Libgda < Formula
   homepage "http://www.gnome-db.org/"
   url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.4.tar.xz"
   sha256 "2cee38dd583ccbaa5bdf6c01ca5f88cc08758b9b144938a51a478eb2684b765e"
+  revision 2
 
   bottle do
-    sha256 "86f2882b0231fea79c6d84adc064ca163794cfdcc904137c7e14d6130fef162b" => :el_capitan
-    sha256 "2738974d4592d4d760c64a793e9e140a74f8a93c2292c3baee3e64f6506b521d" => :yosemite
-    sha256 "89a345a4eff5729024d6ba8b9425c3fa8408f2349d0205d095e9c5e26e55094d" => :mavericks
-    sha256 "cf2ce1122dfe0f754f811a901114bfa5e4918368ec1acfb915038c2ec84c5215" => :mountain_lion
+    sha256 "e165830cedc3a0955989746145b310cc03fe96b84f18b33c4c3f2b827bdd473c" => :sierra
+    sha256 "7809bb97ebcd233a740c1e5b5cb0f291a902639a6479d5e53fdcfedd928b6582" => :el_capitan
+    sha256 "01e46f8673fcf3fad0bccdd70e9bd6fac08f0f5b7035e85318a3add4db329a9b" => :yosemite
   end
-
-  revision 1
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build

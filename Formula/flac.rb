@@ -6,6 +6,7 @@ class Flac < Formula
 
   bottle do
     cellar :any
+    sha256 "8bab1666b01a12a20bd788397963ba4d02a5d4c855813cbed754782f7dd2d32d" => :sierra
     sha256 "ba87fb6e7919f334b04745d5c075f5ae12a5374b3b7edd0514cc62d9f8ad28c8" => :el_capitan
     sha256 "b5c4e452287e0aaf9355fd8f13849450edceca1b63d2401a0aa42d9c3344c143" => :yosemite
     sha256 "a9caf29aa44208d98d4f885ba78e6d6d3bf56725748007a1cb9e0339631e807e" => :mavericks
@@ -48,7 +49,7 @@ class Flac < Formula
       --enable-static
     ]
 
-    args << "--disable-asm-optimizations" if build.universal? || Hardware.is_32_bit?
+    args << "--disable-asm-optimizations" if build.universal? || Hardware::CPU.is_32_bit?
     args << "--without-ogg" if build.without? "libogg"
 
     system "./autogen.sh" if build.head?
@@ -57,9 +58,7 @@ class Flac < Formula
     ENV["OBJ_FORMAT"] = "macho"
 
     # adds universal flags to the generated libtool script
-    inreplace "libtool" do |s|
-      s.gsub! ":$verstring\"", ":$verstring -arch #{Hardware::CPU.arch_32_bit} -arch #{Hardware::CPU.arch_64_bit}\""
-    end
+    inreplace "libtool", ":$verstring\"", ":$verstring -arch #{Hardware::CPU.arch_32_bit} -arch #{Hardware::CPU.arch_64_bit}\""
 
     system "make", "install"
   end

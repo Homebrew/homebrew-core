@@ -7,6 +7,7 @@ class Mailutils < Formula
   revision 2
 
   bottle do
+    sha256 "bdc449caa3a5fc24e634838c04580c91534f5e33513c390d2d0f1005492ecb29" => :sierra
     sha256 "c7c974534ca6db72c3516a777763c94080b3a45d867b393a048d4f681edce5d6" => :el_capitan
     sha256 "e7bc5e495d073e9a9630524c1a77408e530cc2659ff79ea63354b2b7bf168231" => :yosemite
     sha256 "1568cfc945f5ec8c06936b583aab81966bff79fc78fb064cdb8788f4c8c82dac" => :mavericks

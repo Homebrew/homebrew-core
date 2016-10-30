@@ -8,6 +8,7 @@ class Csup < Formula
 
   bottle do
     cellar :any
+    sha256 "695f24c6ae4740dcd110a6e7eb54fbd41077e18cd6dce610d34f151612bee9cb" => :sierra
     sha256 "3312ec353eb1f70aa35bac6454aee272940f192b25ab324c7317ed41483226f1" => :el_capitan
     sha256 "b034200ed85ed697a5989ab8aef518fb78024b57ef0cd1ecf7e21a9a3425f652" => :yosemite
     sha256 "ffa3d1bbc8fa67cf894b80094f2fa726772ddd602a77e32b403f0ceb8fb43c08" => :mavericks

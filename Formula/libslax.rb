@@ -5,6 +5,7 @@ class Libslax < Formula
   sha256 "59f8aace21fb7e02091da3b84de7e231d5d02af26401985b109d2b328ab3f09d"
 
   bottle do
+    sha256 "a1a28522c18d2e2ee6db483a24d05f11434526ee01a0f30de88a1fd915409c58" => :sierra
     sha256 "05dc9585d259e452b4ae116f4885a854a17f01b5dad364559f51bd4540456e67" => :el_capitan
     sha256 "c5d5205c1cf54433d4e3c37cde10488c5b6f3c78cbe00c7b903c7c4f4e42e804" => :yosemite
     sha256 "6ebe095ba980ce574312cc694c2da90a12bd6e57c3016e0f9ed9f7acc56703b8" => :mavericks

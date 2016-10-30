@@ -4,26 +4,40 @@ class HaskellStack < Formula
   include Language::Haskell::Cabal
 
   desc "The Haskell Tool Stack"
-  homepage "http://haskellstack.org"
-  url "https://github.com/commercialhaskell/stack/releases/download/v1.1.2/stack-1.1.2-sdist-2.tar.gz"
-  version "1.1.2"
-  sha256 "8197e055451437218e964ff4a53936a497a2c1ed4818c17cf290c9a59fff9424"
-  revision 3
+  homepage "https://haskellstack.org/"
+  url "https://github.com/commercialhaskell/stack/releases/download/v1.2.0/stack-1.2.0-sdist-0.tar.gz"
+  version "1.2.0"
+  sha256 "872d29a37fe9d834c023911a4f59b3bee11e1f87b3cf741a0db89dd7f6e4ed64"
+  revision 2
+
   head "https://github.com/commercialhaskell/stack.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e8e2343689c99d85bb1c930d83cbafc8ca7be4fc64faaeb844771a1511a0ff3d" => :el_capitan
-    sha256 "fe0aa6086ec90d711ebf0cd0169f5a3dc76f6f1a8c81b357ba6c81d0a22a86af" => :yosemite
-    sha256 "06a004b35c817fc17b0496aa06a886d5d1a69e9436bb9e8aa5e039f3148212c2" => :mavericks
+    sha256 "ae291ccd731aef2bea506a0b172d82321096cd2102a2f377938cea0bde8f5a0a" => :sierra
+    sha256 "ae291ccd731aef2bea506a0b172d82321096cd2102a2f377938cea0bde8f5a0a" => :el_capitan
+    sha256 "a959a9f22a4e2500e0e9b58520d2f28fec82797bde2810d6d32152b7e73d7f6b" => :yosemite
   end
 
   option "without-bootstrap", "Don't bootstrap a stage 2 stack"
+
+  # malformed mach-o: load commands size (40192) > 32768
+  depends_on MaximumMacOSRequirement => :el_capitan if build.bottle?
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
+    if MacOS.version >= :sierra
+      raise <<-EOS.undent
+        This formula does not compile on macOS Sierra due to an upstream GHC
+        incompatiblity. Please use the pre-built bottle binary instead of attempting to
+        build from source. For more details see
+          https://ghc.haskell.org/trac/ghc/ticket/12479
+          https://github.com/commercialhaskell/stack/issues/2577
+      EOS
+    end
+
     if build.with? "bootstrap"
       cabal_sandbox do
         cabal_install
@@ -37,6 +51,19 @@ class HaskellStack < Formula
       end
     else
       install_cabal_package
+    end
+
+    # Remove the unneeded rpaths so that the binary works on Sierra
+    rpaths = Utils.popen_read("otool -l #{bin}/stack").split("\n")
+    rpaths = rpaths.inject([]) do |r, e|
+      if e =~ /^ +path (.*) \(offset.*/
+        r << $~[1]
+      else
+        r
+      end
+    end
+    rpaths.each do |r|
+      system "install_name_tool", "-delete_rpath", r, bin/"stack"
     end
   end
 

@@ -1,25 +1,43 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://unbound.net/downloads/unbound-1.5.8.tar.gz"
-  sha256 "33567a20f73e288f8daa4ec021fbb30fe1824b346b34f12677ad77899ecd09be"
+  url "https://unbound.net/downloads/unbound-1.5.10.tar.gz"
+  sha256 "a39b8b4fcca2a2b35a2daa53fe35150cc3f09038dc9acede09c912fc248a9486"
 
   bottle do
     cellar :any
-    sha256 "2d1c65516c798ced266790de75c5fc109eeb9b7f8ff919a737d218baf3b7f9d2" => :el_capitan
-    sha256 "0dcf599a2eabaf8d21b6a3261454658194e67d8fc23da489e1740c7514aba96c" => :yosemite
-    sha256 "a8dfb20a0fe4fd35aef6278fccffbcd7087234ba93d32c10a65454cccd7d90b3" => :mavericks
+    sha256 "96e9154693efc3cdcad0e80c9236448218c0fe6b4b958c9e8111c24a4277c94d" => :sierra
+    sha256 "da31692ef5cf6a8fd3910e90b4eae50e4bfb261d8abfea0893bc0b921ed72637" => :el_capitan
+    sha256 "f873d5c0fac865009e8e49cd216ff0920c398327718cf47a1c667ae46f2cdb12" => :yosemite
   end
 
   depends_on "openssl"
   depends_on "libevent"
 
+  depends_on :python => :optional
+  depends_on "swig" if build.with?("python")
+
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
-                          "--with-libevent=#{Formula["libevent"].opt_prefix}",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}"
+    args = %W[
+      --prefix=#{prefix}
+      --sysconfdir=#{etc}
+      --with-libevent=#{Formula["libevent"].opt_prefix}
+      --with-ssl=#{Formula["openssl"].opt_prefix}
+    ]
+
+    if build.with? "python"
+      ENV.prepend "LDFLAGS", `python-config --ldflags`.chomp
+
+      args << "--with-pyunbound"
+      args << "--with-pythonmodule"
+      args << "PYTHON_SITE_PKG=#{lib}/python2.7/site-packages"
+    end
+
+    args << "--with-libexpat=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
+    system "./configure", *args
+
     inreplace "doc/example.conf", 'username: "unbound"', 'username: "@@HOMEBREW-UNBOUND-USER@@"'
+    system "make"
     system "make", "install"
   end
 

@@ -6,6 +6,7 @@ class Pike < Formula
   revision 3
 
   bottle do
+    sha256 "0f2a49f68021e5076182f457faaa042ce70214fb03157f60f807fb5307c13114" => :sierra
     sha256 "f39667a578587d3274fce318e92430c37755f5b42c4f608c80332d96ff630803" => :el_capitan
     sha256 "740fa259972600b23f8c7437d59c89f471f0c0a8fc0a2af2738be5f47fdb5069" => :yosemite
     sha256 "3dab476ddc379606639b5b44cddc19ec1764ac5227924a1e6b591f0961ba33b5" => :mavericks

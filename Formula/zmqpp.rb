@@ -6,6 +6,7 @@ class Zmqpp < Formula
 
   bottle do
     cellar :any
+    sha256 "b4e7722935e4ee4798e1b175308ea52a0a2c698d07fc5c32363501ee90e03d02" => :sierra
     sha256 "8485c260791953899ef966e0e65104702519310520a790e4a4237f0336df49fa" => :el_capitan
     sha256 "b685138f83319a736cac81faf480f95fd08b4634c8b19e785e611b39ebbfe39c" => :yosemite
     sha256 "9e4a0cf143c037cdc1b5c8440f09ab2b67e79edb78b3b2d638cc4cb523fe7d1b" => :mavericks

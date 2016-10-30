@@ -1,15 +1,16 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/v4.6.0.tar.gz"
-  sha256 "3a4ea5813967e984acb5bd32327926f2d431ea8a4ab7703510726ddb97d3d126"
+  url "https://github.com/facebook/watchman/archive/v4.7.0.tar.gz"
+  sha256 "77c7174c59d6be5e17382e414db4907a298ca187747c7fcb2ceb44da3962c6bf"
   head "https://github.com/facebook/watchman.git"
 
   bottle do
     cellar :any
-    sha256 "71899aab18da9c9eb1328cb456861fdff055e72c52e9870a5f86e3aadbd7cd06" => :el_capitan
-    sha256 "cda1ca8b9a8922ed7f8b02b3cc083b19824cc2445ac8811f62a22159bcc1e1f9" => :yosemite
-    sha256 "255eff7231fe294a077d25d135da27f7ced524aefb86de852446cfc69ca7585b" => :mavericks
+    sha256 "370bf84f5a349db3ecd3e72c156b95a90bddf73029c062094a848dae123e3ada" => :sierra
+    sha256 "543ee937e060a61028041ce3f8ea490602fab29b1427bed40152d47e7baa523c" => :el_capitan
+    sha256 "c9ab24b2585ec3cce5641e4a31610916dd5e1a101a0c0e7695516ff32b4e5e9d" => :yosemite
+    sha256 "ee4ec6d737f55204f2b33a3701c494b66353550532a0ec600ee81668be8d6c54" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

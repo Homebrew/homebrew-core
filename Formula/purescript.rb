@@ -5,24 +5,20 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.9.2.tar.gz"
-  sha256 "f02e5b39764346aa83103ef40cfd90e5aeea6958793ec64ab0eac37293b8df2f"
+  url "https://github.com/purescript/purescript/archive/v0.10.1.tar.gz"
+  sha256 "bd2ef929d9182920df395bbe5935d124ea62a4f4163d328549629da9bfdbb273"
   head "https://github.com/purescript/purescript.git"
 
   bottle do
-    sha256 "9e77153298a0c2d1cf511701cfdf3a7404eaefcd9865ea56d688dffdf1a4e8c7" => :el_capitan
-    sha256 "ddd0da77eeef694476183ea1b8302b50da47609283166ff39c2301ed72f4b800" => :yosemite
-    sha256 "bfb298f60105ec78f4bfaf904311f29135ea76b405950d5de0aa4db00be179c6" => :mavericks
+    sha256 "81e6dda0abc029599046c5134c75191407534a4d94221e819c4d1166a133d57d" => :sierra
+    sha256 "a417b2751aa49709496578d89a726f5b0c4cdb37a3329c470cb2122adb21004d" => :el_capitan
+    sha256 "86171e3bdcfcf470afc0de150845a94abbc2de8c858f1d34e1342f6c79bc6112" => :yosemite
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
-    # "ambiguous occurrence" errors for fromStrict, decodeUtf8, and encodeUtf8
-    # protlude 0.1.6 issue reported 11 Jul 2016: purescript/purescript#2225
-    inreplace "purescript.cabal", "protolude >= 0.1.5,", "protolude == 0.1.5,"
-
     install_cabal_package :using => ["alex", "happy"]
   end
 

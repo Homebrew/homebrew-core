@@ -6,6 +6,7 @@ class Docx2txt < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "001618f763145ba1027169c8b7f687cd1ceacd09bc5b4c7e64e61deaa2a1ec4c" => :sierra
     sha256 "c3a67138c91e968e6c2a6ff1033bca0fe8527ebdcaaa208194c073b4f75dd453" => :el_capitan
     sha256 "78154a4b95613538a9d508c521d74d0bc6b398b005de4468b4cb4e62c3208b8e" => :yosemite
     sha256 "2d9f0f37b4c6c5a37f22a4b0e7cdc6d440e842d2d3e7df433ccebf1b03cf80cd" => :mavericks

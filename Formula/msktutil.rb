@@ -1,14 +1,14 @@
 class Msktutil < Formula
-  desc "Program for interoperability with Active Directory"
-  homepage "https://code.google.com/p/msktutil/"
-  url "https://msktutil.googlecode.com/files/msktutil-0.5.1.tar.bz2"
-  sha256 "ec02f7f19aa5600c5d20f327beaef88ee70211841dc01fa42eb258ae840ae6f0"
+  desc "Active Directory keytab management"
+  homepage "https://sourceforge.net/projects/msktutil/"
+  url "https://downloads.sourceforge.net/project/msktutil/msktutil-1.0.tar.bz2"
+  sha256 "6e59d4bf41b8c75d573037c19ed29567a55f67ae5fe8c81e037b4f8c7327b642"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ed2c180be51a19de7b014a28d8f34310f87f283f03ba72cc55f9ac0a5c249e3b" => :el_capitan
-    sha256 "678a75fcba0b6c1ba926845b07bde8bff4ae96b3f069d62a3ceb853da474fe2a" => :yosemite
-    sha256 "fba7badc2d24de3a5e8e84d274a37d9007c938d877ab34fa2b91110b91eacb10" => :mavericks
+    sha256 "3bf390f92696706f4f6241230024c9bdb13c78c05c9f81faffc356cbcb4ed443" => :sierra
+    sha256 "190a11fe9d63b99fe2982a79d83bd7ba59f4c7ef104ce860eb9ae48acb56335b" => :el_capitan
+    sha256 "c88bffcb5bacc334333d1bf614005ce65acb4d40e8c73f249313762e017ee8bb" => :yosemite
   end
 
   def install
@@ -18,5 +18,9 @@ class Msktutil < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make", "install"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{sbin}/msktutil --version")
   end
 end

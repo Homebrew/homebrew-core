@@ -17,7 +17,7 @@ class Fuseki < Formula
     # Write the installation path into the wrapper shell script
     inreplace "fuseki-server" do |s|
       s.gsub!(/export FUSEKI_HOME=.+/,
-              %(export FUSEKI_HOME="#{libexec}"))
+              %Q(export FUSEKI_HOME="#{libexec}"))
     end
 
     # Install and symlink wrapper binaries into place

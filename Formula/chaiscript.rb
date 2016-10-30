@@ -1,14 +1,14 @@
 class Chaiscript < Formula
   desc "Easy to use embedded scripting language for C++"
   homepage "http://chaiscript.com/"
-  url "https://github.com/ChaiScript/ChaiScript/archive/v5.8.3.tar.gz"
-  sha256 "41f273c2c523c3456d40fae4766d165cc7ab9a764eebac7ff815929adf2c6b2a"
+  url "https://github.com/ChaiScript/ChaiScript/archive/v5.8.6.tar.gz"
+  sha256 "05943d28d22785c44d9cb825a8efad9c3a5699447d7204ef9b53b1d64a9ac492"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c66a6b2d7629127266f8c841523ce59d0af2206ab35c4c6eac0e0892eb98bc3d" => :el_capitan
-    sha256 "b5310616ab47a402874bfd2e40339fb2fb66733c39845e151ecd9a5b9232db43" => :yosemite
-    sha256 "986e1030d25606a0f9ccf69d4c592c2d57dc64affd71b90dd6ee17cdadc81dbc" => :mavericks
+    sha256 "23ab43c15675e41f22e6e40c3bbe26ae5acc42db43d7be50f9eb6f5a25c89311" => :sierra
+    sha256 "e95df6e61bc1260f0773042a82b14f6a13cc69a13b632a3a032910175b230815" => :el_capitan
+    sha256 "74ce285fe6b4a995f568f7bd89f4e7cc386d9b2202d4553ad3cf43c8091d4467" => :yosemite
   end
 
   depends_on "cmake" => :build

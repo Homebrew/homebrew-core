@@ -1,18 +1,19 @@
 class GnomeBuilder < Formula
   desc "IDE for GNOME"
   homepage "https://wiki.gnome.org/Apps/Builder"
-  url "https://download.gnome.org/sources/gnome-builder/3.20/gnome-builder-3.20.4.tar.xz"
-  sha256 "b3e69495cd0fcfd3e3a7590f52aadaae7f45393eefd47ab5581a851cdd489041"
+  url "https://download.gnome.org/sources/gnome-builder/3.22/gnome-builder-3.22.1.tar.xz"
+  sha256 "9386a84b1999c0dad83791808a9918f86200e9e1dfffa550a53e04cae3423652"
 
   bottle do
-    sha256 "f998975b2542a7b8a28a0c3c59a5a01efc025f6452bafa742021be3ad07115d6" => :el_capitan
-    sha256 "485b20e976415463b143b67c4f778e7da373a68d6053d1c1b1f4807fb8c8115e" => :yosemite
-    sha256 "bbcab43c4a10dd4bca406eae433cdbd6c459c97decdd67fa8fa8870aa5da5bd0" => :mavericks
+    sha256 "d6005187db24040f8bd9ba3d43011480761dee9ab2ae3506fb0bb7ddbd8bd5f4" => :sierra
+    sha256 "39f9e883b0e4ef2d657d9a79feaca77378125b026e80ff403ae32e447e6df09b" => :el_capitan
+    sha256 "380a504cb28146b30f3a6ba042a8734aea0cdf32d5b500a2ee64031a8cb0dfc6" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
+  depends_on "mm-common" => :build
   depends_on "libgit2-glib"
   depends_on "gtk+3"
   depends_on "libpeas"

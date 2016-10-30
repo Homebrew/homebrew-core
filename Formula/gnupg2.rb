@@ -7,12 +7,14 @@ class Gnupg2 < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   sha256 "e329785a4f366ba5d72c2c678a7e388b0892ac8440c2f4e6810042123c235d71"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "f16e0f7514ba2b803321ee806c4dda5d62c64511010911a1761abd9e451f07d2" => :el_capitan
-    sha256 "7f5d15cc5e0dda33ee40ca26f4b0899f0594b4f81c9aa18b59bd26a344a48411" => :yosemite
-    sha256 "37a92b8463347227b40aee55bd28381deef1353ad5193e6ddff60861db8497eb" => :mavericks
+    rebuild 1
+    sha256 "3350575ec52e749e3212beaf1516ad3c6257250caaed8e5f35c89b93e249c15b" => :sierra
+    sha256 "813a968d4654ac2e4e8961e787fecfbee4ea3e64f7ac88f6ee50b59f6cd99d25" => :el_capitan
+    sha256 "2c996ba3b66bf57b92a286b3cb3d90c882006c8ae284b93f4bb1aa4b57287dd8" => :yosemite
+    sha256 "8f1ae364521427e96ff479b43cd74879cecb648d39d00df816321a9f41acc561" => :mavericks
   end
 
   depends_on "libgpg-error"
@@ -40,9 +42,6 @@ class Gnupg2 < Formula
       s.gsub! "../../agent/gpg-agent --quiet --daemon sh",
               "gpg-agent --quiet --daemon sh"
     end
-    inreplace "tools/gpgkey2ssh.c", "gpg --list-keys", "gpg2 --list-keys"
-
-    (var/"run").mkpath
 
     ENV.append "LDFLAGS", "-lresolv"
 
@@ -69,12 +68,24 @@ class Gnupg2 < Formula
     system "make", "check"
     system "make", "install"
 
-    # Conflicts with a manpage from the 1.x formula, and
-    # gpg-zip isn't installed by this formula anyway
+    # Add symlinks from gpg2 to unversioned executables, replacing gpg 1.x.
+    bin.install_symlink "gpg2" => "gpg"
+    bin.install_symlink "gpgv2" => "gpgv"
+    man1.install_symlink "gpg2.1" => "gpg.1"
+    man1.install_symlink "gpgv2.1" => "gpgv.1"
+
+    # Gpg-zip isn't installed by this formula.
     rm_f man1/"gpg-zip.1"
   end
 
+  def post_install
+    (var/"run").mkpath
+  end
+
   test do
-    system "#{bin}/gpgconf"
+    Gpg.create_test_key(testpath)
+    (testpath/"test.txt").write "Hello World!"
+    system bin/"gpg", "--armor", "--sign", "test.txt"
+    system bin/"gpg", "--verify", "test.txt.asc"
   end
 end

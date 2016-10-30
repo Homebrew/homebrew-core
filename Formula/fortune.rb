@@ -6,7 +6,8 @@ class Fortune < Formula
   sha256 "1a98a6fd42ef23c8aec9e4a368afb40b6b0ddfb67b5b383ad82a7b78d8e0602a"
 
   bottle do
-    revision 2
+    rebuild 2
+    sha256 "ac140349dc3a0ce55d2299e90651492df8ccf7839f57d8b1fa6ca221a665efc7" => :sierra
     sha256 "fe681ea371ce058faeebbd459ac9b5f492b7b523652da937ed8cb7d9bbf0eaf8" => :el_capitan
     sha256 "97c35357e5becf525ddaede462e40283872d0b5d2cebfeeb7d509cb0ef06fc7c" => :yosemite
     sha256 "61792a39fce2c81cf7a47a9230884d0bc19ff7c5f84bc7264f2bc0aa705f8eb1" => :mavericks
@@ -29,7 +30,7 @@ class Fortune < Formula
       # Now change all /usr/local at once to the prefix
       s.gsub! "/usr/local", prefix
 
-      # OS X only supports POSIX regexes
+      # macOS only supports POSIX regexes
       s.change_make_var! "REGEXDEFS", "-DHAVE_REGEX_H -DPOSIX_REGEX"
       # Don't install offensive fortunes
       s.change_make_var! "OFFENSIVE", "0" if build.without? "offensive"

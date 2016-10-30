@@ -1,19 +1,22 @@
 class Zimg < Formula
   desc "Scaling, colorspace conversion, and dithering library"
   homepage "https://github.com/sekrit-twc/zimg"
-  url "https://github.com/sekrit-twc/zimg/archive/release-2.1.tar.gz"
-  sha256 "09093bbb4d73865362e1e346762a6efdc9acc3d2cab6a2ebf5f00ba5d90b17c3"
+  url "https://github.com/sekrit-twc/zimg/archive/release-2.3.tar.gz"
+  sha256 "09962385f986dbcfd8ed6160cdafc2bc57bef8c6bfb3ca3a4bcaa482f09c06fa"
+  head "https://github.com/sekrit-twc/zimg.git"
 
   bottle do
     cellar :any
-    sha256 "1451133127fe278b699906c8e7e345a7d5717fc61fe95aceec7aab7c071ecdb8" => :el_capitan
-    sha256 "a863b2c60d05fa9238ba9a07e21aab2fe9c8daab0a80d1c1247991122e8210dc" => :yosemite
-    sha256 "8300801f5849075c3251b3a0dfc5cdfad7b886894eda23fbb89a9d0fa2269d69" => :mavericks
+    sha256 "574178eca30bfc624ba7704426e8a376b608d035da2be4d26c4dc35f5376d806" => :sierra
+    sha256 "21e70256499ef4f5b1d255537d98e8d563979e8cf3ac16f8b23bdef42e70622a" => :el_capitan
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
+  # Upstream has decided not to fix https://github.com/sekrit-twc/zimg/issues/52
+  depends_on :macos => :el_capitan
 
   def install
     system "./autogen.sh"

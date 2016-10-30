@@ -6,6 +6,7 @@ class Libplist < Formula
 
   bottle do
     cellar :any
+    sha256 "17e002302e49764d8433d7103e54b6269201f1b3ad1d8c699a280edb3e23db93" => :sierra
     sha256 "44d4da500ed4448656ce335d43ff89c8df8bfc7fd7d78515e9e111e32673e645" => :el_capitan
     sha256 "c6f8dbc8fc0431d41e73c8f7da6a1292ec7d26358208540d99f775ad9af900ca" => :yosemite
     sha256 "5bfb26555e67a5a8b144ea187e32ba4b287901e4b7358e9b617aad2ddc82f9eb" => :mavericks
@@ -27,8 +28,8 @@ class Libplist < Formula
   depends_on :python => :optional
 
   resource "cython" do
-    url "http://cython.org/release/Cython-0.21.tar.gz"
-    sha256 "0cd5787fb3f1eaf8326b21bdfcb90aabd3eca7c214c5b7b503fbb82da97bbaa0"
+    url "https://pypi.python.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz#md5=890b494a12951f1d6228c416a5789554"
+    sha256 "84808fda00508757928e1feadcf41c9f78e9a9b7167b6649ab0933b76f75e7b9"
   end
 
   def install

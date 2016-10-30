@@ -1,31 +1,18 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "http://www.mono-project.com/"
-  url "http://download.mono-project.com/sources/mono/mono-4.4.1.0.tar.bz2"
-  sha256 "165e7686b5cbb1ab671b4cb2069207999c3d70044002190b6ec84bb1fdf62b4a"
+  url "https://download.mono-project.com/sources/mono/mono-4.6.1.5.tar.bz2"
+  sha256 "3871ee72bdfc2ea5d636ffff22cf49ae6bac7c4a4f3d687214dd8ac236bbf7c3"
+
+  bottle do
+    sha256 "8a28d69e45374c53f375fa2e7fa96aae8f9b8db3ea970d33cb01492e9874e3a9" => :sierra
+    sha256 "7065d9c83700493e586f09d71366e64741493102fc6338ab0cea4f8ceddf978f" => :el_capitan
+    sha256 "6899f853419e379c059f56ea7fbbb815a349deabced62c83966e9790228b0b96" => :yosemite
+  end
 
   # xbuild requires the .exe files inside the runtime directories to
   # be executable
   skip_clean "lib/mono"
-
-  bottle do
-    sha256 "2a39ab2dae7395cb44ebcd02a2bd60ee64e70e27619fbd8119968bdf5e088e46" => :el_capitan
-    sha256 "1c690c6e4f39053197ac80b4e83d86e54e476df8666f2fec65635d8eb495321a" => :yosemite
-    sha256 "15f0c368986edabc7cdc581e802b48ecb7558a604ec73eb25882ce4c678bd036" => :mavericks
-  end
-
-  conflicts_with "czmq", :because => "both install `makecert` binaries"
-
-  option "without-fsharp", "Build without support for the F# language."
-
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "pkg-config" => :build
-
-  resource "fsharp" do
-    url "https://github.com/fsharp/fsharp.git", :tag => "4.0.1.1",
-                                                :revision => "849e3061fd7db397f07c7bd0c08e5df19f2b712a"
-  end
 
   link_overwrite "bin/fsharpi"
   link_overwrite "bin/fsharpiAnyCpu"
@@ -34,8 +21,20 @@ class Mono < Formula
   link_overwrite "lib/mono"
   link_overwrite "lib/cli"
 
-  conflicts_with "disco", :because => "both install `disco` binaries"
+  option "without-fsharp", "Build without support for the F# language."
+
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
+  depends_on "pkg-config" => :build
+
   conflicts_with "xsd", :because => "both install `xsd` binaries"
+  conflicts_with "czmq", :because => "both install `makecert` binaries"
+
+  resource "fsharp" do
+    url "https://github.com/fsharp/fsharp.git",
+        :tag => "4.0.1.13",
+        :revision => "4194b3bbb506a18f48e0f7e39e2c3fb0d7c8b566"
+  end
 
   def install
     args = %W[
@@ -86,8 +85,8 @@ class Mono < Formula
          }
       }
     EOS
-    shell_output "#{bin}/mcs #{test_name}"
-    output = shell_output "#{bin}/mono hello.exe"
+    shell_output("#{bin}/mcs #{test_name}")
+    output = shell_output("#{bin}/mono hello.exe")
     assert_match test_str, output.strip
 
     # Tests that xbuild is able to execute lib/mono/*/mcs.exe
@@ -104,7 +103,7 @@ class Mono < Formula
         <Import Project="$(MSBuildBinPath)\\Microsoft.CSharp.targets" />
       </Project>
     EOS
-    system "#{bin}/xbuild", "test.csproj"
+    system bin/"xbuild", "test.csproj"
 
     if build.with? "fsharp"
       # Test that fsharpi is working
@@ -121,6 +120,7 @@ class Mono < Formula
             <SchemaVersion>2.0</SchemaVersion>
             <ProjectGuid>{B6AB4EF3-8F60-41A1-AB0C-851A6DEB169E}</ProjectGuid>
             <OutputType>Exe</OutputType>
+            <DefineConstants>TRACE</DefineConstants>
             <FSharpTargetsPath>$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\v$(VisualStudioVersion)\\FSharp\\Microsoft.FSharp.Targets</FSharpTargetsPath>
           </PropertyGroup>
           <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
@@ -138,7 +138,7 @@ class Mono < Formula
         [<EntryPoint>]
         let main _ = printfn "#{test_str}"; 0
       EOS
-      system "#{bin}/xbuild", "test.fsproj"
+      system bin/"xbuild", "test.fsproj"
     end
   end
 end

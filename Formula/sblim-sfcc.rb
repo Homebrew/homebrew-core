@@ -5,6 +5,7 @@ class SblimSfcc < Formula
   sha256 "1b8f187583bc6c6b0a63aae0165ca37892a2a3bd4bb0682cd76b56268b42c3d6"
 
   bottle do
+    sha256 "38bcd42d05b8c3852bb886a40809fdec6ffd455fcc28673f85558d63d7ef89d7" => :sierra
     sha256 "09bb716962c8e89312fc17448dbe600b27537cfec933e9792b2b988c91a10aed" => :el_capitan
     sha256 "6d2ececce1f13c1b74ee7497f6a2319408fcf14e0c48660056fafc3216f9b23b" => :yosemite
     sha256 "0a121e50395af8c870c05108a67bcc9019c754fe0ca7eb5bd5efd2638fcac416" => :mavericks

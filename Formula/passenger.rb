@@ -1,26 +1,51 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.29.tar.gz"
-  sha256 "84dd9553f305b6b87227c87a086068b42f2ba979e7af3f8acd745c99c40f10cc"
+  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.30.tar.gz"
+  sha256 "f367e0c1d808d7356c3749222194a72ea03efe61a3bf1b682bd05d47f087b4e3"
   head "https://github.com/phusion/passenger.git"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d9bc0ad202d2a0a04ad73e13c6faabbf7ca85d514095368368c8896110074dca" => :el_capitan
-    sha256 "f2eb4e142f0875947cecaa28afcbc76f977295aaf781dcd4a0758d91b3f40c94" => :yosemite
-    sha256 "1581888f6c309dbf8d9ec837e3675ace54a259b514a6d655a0b3944df8304903" => :mavericks
+    sha256 "b5a0e3f52227526028f6a8c0f89e1222a25b49aed3d1d04db59533466d6b541e" => :sierra
+    sha256 "ca5a5db79f0d9eac1639160d9e9201772e052b3e896203207a2e5c5e3461ae0d" => :el_capitan
+    sha256 "ff5ae870c56361209a6022281ac35050f085056735f6a5d6deda95b4dafde121" => :yosemite
   end
 
   option "without-apache2-module", "Disable Apache2 module"
 
   depends_on "pcre"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on :macos => :lion
 
+  # macOS Sierra ships the APR libraries & headers, but has removed the
+  # apr-1-config & apu-1-config executables which are used to find
+  # those elements. We may need to adopt a broader solution if this problem
+  # expands, but currently subversion & passenger are the only breakage as a result.
+  if MacOS.version >= :sierra
+    depends_on "apr-util" => :build
+    depends_on "apr" => :build
+  end
+
   def install
+    inreplace "src/ruby_supportlib/phusion_passenger.rb",
+      "PREFERRED_NGINX_VERSION = '1.10.1'",
+      "PREFERRED_NGINX_VERSION = '1.10.2'"
+    inreplace "src/ruby_supportlib/phusion_passenger/platform_info/openssl.rb" do |s|
+      s.gsub! "-I/usr/local/opt/openssl/include", "-I#{Formula["openssl@1.1"].opt_include}"
+      s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{Formula["openssl@1.1"].opt_lib}"
+    end
+    inreplace "src/ruby_supportlib/phusion_passenger/config/nginx_engine_compiler.rb",
+      "http://nginx.org",
+      "https://nginx.org"
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
+
+    if MacOS.version >= :sierra
+      ENV["APU_CONFIG"] = Formula["apr-util"].opt_bin/"apu-1-config"
+      ENV["APR_CONFIG"] = Formula["apr"].opt_bin/"apr-1-config"
+    end
 
     rake "apache2" if build.with? "apache2-module"
     rake "nginx"

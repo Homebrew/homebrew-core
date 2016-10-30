@@ -1,14 +1,16 @@
 class Uhd < Formula
   desc "Hardware driver for all USRP devices."
-  homepage "http://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/release_003_009_004.tar.gz"
-  sha256 "84de6e0033b9a5848d6fd7ba7050ba18fb7145c284d1d15e1207b2d9196d7f9e"
+  homepage "https://files.ettus.com/manual/"
+  url "https://github.com/EttusResearch/uhd/archive/release_003_010_000_000.tar.gz"
+  sha256 "9e018c069851fd68ba63908a9f9944763832ce657f5b357d4e6c64293ad0d2cd"
+  revision 1
+
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
-    sha256 "4180285a8cb02173674101cb62f44fe455d722109a96e88e58774a5156df7bfe" => :el_capitan
-    sha256 "1e928392be8f8307b181868a33de3c26c7f6d4487c1204391ffe8f35202dabfe" => :yosemite
-    sha256 "22ac44432b35a7a165d66a34f003c026607a086a770e14a30b2b77d2b898d613" => :mavericks
+    sha256 "0b9b665bf93de00019350d6205fab14bdd1a9211bb4bbdcb8eacb9ef1378d940" => :sierra
+    sha256 "4793081d5e45830e4cbcaa30c1e384263cc51beff1d7a72901314865e16db047" => :el_capitan
+    sha256 "83e012c2aa2a7ba34b9b2c870b13c6f08ce923e2c8e56121c8f641c070bc77f7" => :yosemite
   end
 
   option :universal
@@ -21,8 +23,8 @@ class Uhd < Formula
   depends_on "gpsd" => :optional
 
   resource "Mako" do
-    url "https://pypi.python.org/packages/source/M/Mako/Mako-1.0.2.tar.gz"
-    sha256 "2550c2e4528820db68cbcbe668add5c71ab7fa332b7eada7919044bf8697679e"
+    url "https://files.pythonhosted.org/packages/7a/ae/925434246ee90b42e8ef57d3b30a0ab7caf9a2de3e449b876c56dcb48155/Mako-1.0.4.tar.gz"
+    sha256 "fed99dbe4d0ddb27a33ee4910d8708aca9ef1fe854e668387a9ab9a90cbf9059"
   end
 
   def install

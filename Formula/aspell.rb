@@ -6,6 +6,7 @@ class Aspell < Formula
   sha256 "f52583a83a63633701c5f71db3dc40aab87b7f76b29723aeb27941eff42df6e1"
 
   bottle do
+    sha256 "19aabc91c400ab10f801600f7c7863d673cf1fe4c42f7d8a050b4fd3a97bec8b" => :sierra
     sha256 "ccc60cb56f23d7ad911ae2b564c1257ba0e5136e069b9cff6372a12bd720ce64" => :el_capitan
     sha256 "cbef227317d456df1bb54e11aa041ed28a445a95fb0b8517c1a352b01634026b" => :yosemite
     sha256 "2c254cad4de36437852bf34806f3766b90013ea52310eb4b7afcb7eb2399d970" => :mavericks
@@ -17,6 +18,8 @@ class Aspell < Formula
     sha256 "084005bd37013f17b725eca033fe19053b2ab33144e990685486746cb10416a5"
     version "0.60.7-20110707"
   end
+
+  option "with-all-langs", "Install all available dictionaries"
 
   option "with-lang-af", "Install af dictionary"
   resource "af" do
@@ -655,7 +658,6 @@ class Aspell < Formula
     sha256 "3fa255cd0b20e6229a53df972fd3c5ed8481db11cfd0347dd3da629bbb7a6796"
   end
 
-  option "with-all-langs", "Install all available dictionaries"
   deprecated_option "all" => "with-all-langs"
 
   fails_with :llvm do

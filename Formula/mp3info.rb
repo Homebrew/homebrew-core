@@ -6,7 +6,8 @@ class Mp3info < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "dd9e2ab142307a9587ca28f8ca574cf3115f380f2692f1eb1e38e24d4e5a1008" => :sierra
     sha256 "30c85d8b2afd6e6ad03e473de3bd83ef9c6c607b979570798cfc778ad887b902" => :el_capitan
   end
 

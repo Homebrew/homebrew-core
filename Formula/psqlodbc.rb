@@ -1,31 +1,43 @@
 class Psqlodbc < Formula
   desc "Official PostgreSQL ODBC driver"
   homepage "https://odbc.postgresql.org"
-  url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-09.05.0100.tar.gz"
-  sha256 "c53612db422826bfa3023ea8c75cb6c61f113a797a3323002ed645133491d1bd"
+  url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-09.05.0400.tar.gz"
+  sha256 "c9fde1c104065e81813d79eb29bb7e715d64697bdda031ff01e40e3ad59e3ad3"
 
   bottle do
     cellar :any
-    sha256 "4796f1ee0250a872f4c677a38ef19d5f707a8f869ab8131a17c81cf1a8dfd87b" => :el_capitan
-    sha256 "dfe0350fc6da092fdef7c6247eda42001e9848a4468b485fcb8e391e1ff8a10f" => :yosemite
-    sha256 "04ed0b32b3904384e211933d8ecf52759437792d0f4181296e0dd9144f702440" => :mavericks
+    sha256 "f48d82160578703f06413867130613b61fee30211316a58f79b2b275487411ea" => :sierra
+    sha256 "c9fb98f4523608e7c53fa5a82672f2fde2abdc95b985d232d046b184d3915334" => :el_capitan
+    sha256 "c685c6f293b556b118d22ac2cf1171c503a90e6f7f63c543a8358aba36990495" => :yosemite
+    sha256 "ab82542257f0eb7fffac4d405f6d1b246ac68adc1eabc1cfdbf4777e76fdce11" => :mavericks
   end
 
   head do
-    url "http://git.postgresql.org/git/psqlodbc.git"
+    url "https://git.postgresql.org/git/psqlodbc.git"
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "openssl"
-  depends_on "unixodbc"
   depends_on :postgresql
+  depends_on "unixodbc" => :recommended
+  depends_on "libiodbc" => :optional
 
   def install
+    if build.with?("libiodbc") && build.with?("unixodbc")
+      odie "psqlodbc: --without-unixodbc must be specified when using --with-libiodbc"
+    end
+
+    args = %W[
+      --prefix=#{prefix}
+    ]
+
+    args << "--with-iodbc=#{Formula["libiodbc"].opt_prefix}" if build.with?("libiodbc")
+    args << "--with-unixodbc=#{Formula["unixodbc"].opt_prefix}" if build.with?("unixodbc")
+
     system "./bootstrap" if build.head?
-    system "./configure", "--prefix=#{prefix}",
-                          "--with-unixodbc=#{Formula["unixodbc"].opt_prefix}"
+    system "./configure", *args
     system "make"
     system "make", "install"
   end

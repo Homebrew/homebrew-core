@@ -1,15 +1,15 @@
 class BoostPython < Formula
   desc "C++ library for C++/Python interoperability"
   homepage "https://www.boost.org/"
-  url "https://downloads.sourceforge.net/project/boost/boost/1.60.0/boost_1_60_0.tar.bz2"
-  sha256 "686affff989ac2488f79a97b9479efb9f2abae035b5ed4d8226de6857933fd3b"
+  url "https://downloads.sourceforge.net/project/boost/boost/1.62.0/boost_1_62_0.tar.bz2"
+  sha256 "36c96b0f6155c98404091d8ceb48319a28279ca0333fba1ad8611eb90afb2ca0"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "c3d8a80d9bb7783ef7e8b3018ed5feaaa8d1f32a306ba4b75bd3a45629f57872" => :el_capitan
-    sha256 "37e1c31ebae10162368b496fbe377b3b36fa007d1dbf14325686df717c6ce339" => :yosemite
-    sha256 "aaba8bc94797a6f4d79ad7b07c8abc23fd915aa6699eb7a6948aa189cc8e6d78" => :mavericks
+    sha256 "e0598f250daedaf5988f0fe8bcf30045958da23a9528ed0ab2c3ac7fb889d414" => :sierra
+    sha256 "b74b8eebdc5966e3c2ae88214e2d88297518eaf42389618765a72a8efccc0949" => :el_capitan
+    sha256 "0a092430336db86deb30697a751fde85f2b189486ed91310a45c33ea944c0e8a" => :yosemite
   end
 
   option :universal
@@ -100,7 +100,7 @@ class BoostPython < Formula
     Language::Python.each_python(build) do |python, _|
       pyflags = (`#{python}-config --includes`.strip +
                  `#{python}-config --ldflags`.strip).split(" ")
-      system ENV.cxx, "-shared", "hello.cpp", "-lboost_#{python}", "-o", "hello.so", *pyflags
+      system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_#{python}", "-o", "hello.so", *pyflags
       output = `#{python} -c "from __future__ import print_function; import hello; print(hello.greet())"`
       assert_match "Hello, world!", output
     end

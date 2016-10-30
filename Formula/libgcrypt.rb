@@ -1,16 +1,17 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://directory.fsf.org/wiki/Libgcrypt"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.2.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.2.tar.bz2"
-  sha256 "3d35df906d6eab354504c05d749a9b021944cb29ff5f65c8ef9c3dd5f7b6689f"
-  revision 1
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.3.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.3.tar.bz2"
+  sha256 "ddac6111077d0a1612247587be238c5294dd0ee4d76dc7ba783cc55fb0337071"
 
   bottle do
     cellar :any
-    sha256 "506dba4480759340c8086178ad7c82a27ab0388c7ff679a1f53c742c271acffa" => :el_capitan
-    sha256 "4cc2302042335a0c2e849b200f8410e8dc5c3ee4a51fc705c1b03853d6215a92" => :yosemite
-    sha256 "d18641e490bf7c7e7b158aab67ae2e5dc84383c3e436d436864f7500bf842b2c" => :mavericks
+    rebuild 1
+    sha256 "e7c80b73a6f1cc25ace8c581eaede93e069f1c5ae3c83275fb6ae3f5031d7bcd" => :sierra
+    sha256 "af9419bfc33e847b7c3e47e2c7cf44daef081e534e631001a56169aa5e538cc6" => :el_capitan
+    sha256 "6c838cfadd82115e2e5efcc1f8109e3b7a1f2f5f37d63bf00d70e72dda60689d" => :yosemite
+    sha256 "b2e8b5cc88d5041f6d4f19c7edfee8439fb1669908804ba7bd55202c8e4bcc42" => :mavericks
   end
 
   option :universal
@@ -25,9 +26,16 @@ class Libgcrypt < Formula
 
   def install
     ENV.universal_binary if build.universal?
+    # Temporary hack to get libgcrypt building on macOS 10.12.
+    # Seems to be a Clang issue rather than an upstream one, so
+    # keep checking whether or not this is necessary.
+    # Should be reported to GnuPG if still an issue when near stable.
+    # https://github.com/Homebrew/homebrew-core/issues/1957
+    ENV.O1 if MacOS.version >= :sierra
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--enable-static",
                           "--prefix=#{prefix}",
                           "--disable-asm",
                           "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}"

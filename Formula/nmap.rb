@@ -1,14 +1,14 @@
 class Nmap < Formula
   desc "Port scanning utility for large networks"
   homepage "https://nmap.org/"
-  url "https://nmap.org/dist/nmap-7.12.tar.bz2"
-  sha256 "63df082a87c95a189865d37304357405160fc6333addcf5b84204c95e0539b04"
+  url "https://nmap.org/dist/nmap-7.31.tar.bz2"
+  sha256 "cb9f4e03c0771c709cd47dc8fc6ac3421eadbdd313f0aae52276829290583842"
   head "https://guest:@svn.nmap.org/nmap/", :using => :svn
 
   bottle do
-    sha256 "1225505f7b77cafa55d300adffc2e1c5945d090a20cb18c417bead62a2eb0409" => :el_capitan
-    sha256 "a57b65e0c14e232b332b332bbaa5e3ab9b07b4b07e9e3f36dc1cc6afbb4d42f9" => :yosemite
-    sha256 "be7ba56789fa1aa900396955d2a99c1929907ca8df1a9ccd37081d5178c440de" => :mavericks
+    sha256 "575123f2d2010f2cd05988dbf3534c005efe3607d0f0fca1e083369f508348f1" => :sierra
+    sha256 "69ccdc8010781ad9e827571259ed18cc605f8271d48ed9a2910f5a48ef212fdc" => :el_capitan
+    sha256 "613e3457aabdbd74919b8d16e29fe730141c265b1050233ee778dac76aaa8973" => :yosemite
   end
 
   option "with-pygtk", "Build Zenmap GUI"

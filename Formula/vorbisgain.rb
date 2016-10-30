@@ -6,6 +6,7 @@ class Vorbisgain < Formula
 
   bottle do
     cellar :any
+    sha256 "3572efe1e0741ee5b1f3cc0499325ae59acec5f9ab44df5987bab22312d9e3af" => :sierra
     sha256 "00f7047e5d884dbf22ed036154961b41d4ad6ae8295c55043929b008ae82a9f7" => :el_capitan
     sha256 "a1315eaaaf667f7486deb2b899c422e3cc9caa8f9e771221dca12b0ecc085dc7" => :yosemite
     sha256 "7bff88a3512ff2d28846b89b89f1cfd130e5934f1f6301d36e66ccc26b896281" => :mavericks

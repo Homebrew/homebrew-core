@@ -6,7 +6,8 @@ class Veraxx < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "3a261328afd43c8c38f33802ced93557c58ae8903dab90e0ca4546004003447f" => :sierra
     sha256 "76dcb0b9340b8fc9413fc848dff27e8805d7b2a9c63d5128fc83ce5bd3bd1cd5" => :el_capitan
     sha256 "a2620392e9204964ecd0ec0bc6b90268d27e5e2a28ef304aff3d3719ed058b80" => :yosemite
     sha256 "05d5ff89c4ce8aa8054a94d234824fff41cd9f16e029022096c1d99301c9e572" => :mavericks
@@ -26,15 +27,15 @@ class Veraxx < Formula
     sha256 "134732acaf3a6e7eba85988118d943f0fa6b7f0850f65131fff89823ad30ff1d"
   end
 
- resource "lua" do
-   url "https://github.com/LuaDist/lua/archive/5.2.3.tar.gz"
-   sha256 "c8aa2c74e8f31861cea8f030ece6b6cb18974477bd1e9e1db4c01aee8f18f5b6"
- end
+  resource "lua" do
+    url "https://github.com/LuaDist/lua/archive/5.2.3.tar.gz"
+    sha256 "c8aa2c74e8f31861cea8f030ece6b6cb18974477bd1e9e1db4c01aee8f18f5b6"
+  end
 
- resource "luabind" do
-   url "https://github.com/verateam/luabind/archive/vera-1.3.0.tar.gz"
-   sha256 "7d93908b7d978e44ebe5dfad6624e6daa033f284a5f24013f37cac162a18f71a"
- end
+  resource "luabind" do
+    url "https://github.com/verateam/luabind/archive/vera-1.3.0.tar.gz"
+    sha256 "7d93908b7d978e44ebe5dfad6624e6daa033f284a5f24013f37cac162a18f71a"
+  end
 
   def install
     resource("boost").stage do

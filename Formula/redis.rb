@@ -1,22 +1,24 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "http://redis.io/"
-  url "http://download.redis.io/releases/redis-3.2.1.tar.gz"
-  sha256 "df7bfb7b527d99981eba3912ae22703764eb19adda1357818188b22fdd09d5c9"
+  url "http://download.redis.io/releases/redis-3.2.5.tar.gz"
+  sha256 "8509ceb1efd849d6b2346a72a8e926b5a4f6ed3cc7c3cd8d9f36b2e9ba085315"
   head "https://github.com/antirez/redis.git", :branch => "unstable"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c68b3747f88c22f40f3b72602b4ef02895c1b7e7e36c3f87861b693402c94bfd" => :el_capitan
-    sha256 "4458b40cd6e5e0446faccae54409c11214684da965361a7f26d4fd1dff241cb5" => :yosemite
-    sha256 "79cf7f53fb4c27fecbb02f756fe90afbe330d4f8a6ba25f2940acac2fde0f491" => :mavericks
+    sha256 "4530974aa0e3975ec649c1045d0f12181e95029f9dd1819242b91c8e75bf4a29" => :sierra
+    sha256 "9954837a3ee4d5879a05eb09ef96b97241d9fbc146f4b9fd075cdbc500c0c887" => :el_capitan
+    sha256 "ae6259f91c05dccc4ee4533f2c66f8872d0ffd15fefa9820707bd755dc902f11" => :yosemite
   end
 
   option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
 
   fails_with :llvm do
     build 2334
-    cause "Fails with \"reference out of range from _linenoise\""
+    cause <<-EOS.undent
+      Fails with "reference out of range from _linenoise"
+    EOS
   end
 
   def install
@@ -30,11 +32,11 @@ class Redis < Formula
     args << "MALLOC=jemalloc" if build.with? "jemalloc"
     system "make", "install", *args
 
-    %w[run db/redis log].each { |p| (var+p).mkpath }
+    %w[run db/redis log].each { |p| (var/p).mkpath }
 
     # Fix up default conf file to match our paths
     inreplace "redis.conf" do |s|
-      s.gsub! "/var/run/redis.pid", "#{var}/run/redis.pid"
+      s.gsub! "/var/run/redis.pid", var/"run/redis.pid"
       s.gsub! "dir ./", "dir #{var}/db/redis/"
       s.gsub! "\# bind 127.0.0.1", "bind 127.0.0.1"
     end
@@ -76,6 +78,6 @@ class Redis < Formula
   end
 
   test do
-    system "#{bin}/redis-server", "--test-memory", "2"
+    system bin/"redis-server", "--test-memory", "2"
   end
 end

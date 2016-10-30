@@ -6,7 +6,8 @@ class Jbig2dec < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "a46edad05083874510463f4638100765a4f2fb451fad2cfad4b5276cdcb632f7" => :sierra
     sha256 "38ad008992a9c273162238783b31bbcc4be8558d82c0a87b947ef0be699c437c" => :el_capitan
     sha256 "d1de5bcbceaca8669c847ec754e7d44b844ad08abdef377efdd704e768d13c86" => :yosemite
     sha256 "e42e117812549edeae1f60e1900b0692994c75ebae186f611e16528fe0521c89" => :mavericks
@@ -21,7 +22,8 @@ class Jbig2dec < Formula
   # http://bugs.ghostscript.com/show_bug.cgi?id=695890
   # Remove on next release.
   patch do
-    url "http://git.ghostscript.com/?p=jbig2dec.git;a=commitdiff_plain;h=70c7f1967f43a94f9f0d6808d6ab5700a120d2fc"
+    # Original URL: http://git.ghostscript.com/?p=jbig2dec.git;a=commitdiff_plain;h=70c7f1967f43a94f9f0d6808d6ab5700a120d2fc
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/7dc28b82/jbig2dec/bug-695890.patch"
     sha256 "5239e4eb991f198d2ba30d08011c2887599b5cead9db8b1d3eacec4b8912c2d0"
   end
 
