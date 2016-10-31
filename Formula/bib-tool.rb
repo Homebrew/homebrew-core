@@ -5,10 +5,9 @@ class BibTool < Formula
   sha256 "6db5dcecdf0d068276fc4e28e8f23975c3f53361bbe713013ca339117e34aced"
 
   bottle do
-    sha256 "e2f697e35138926838a1cfcedd5713d50ef105853626b6d59d52750554513888" => :sierra
-    sha256 "a0f1504c980af8016e92124eac94c05b4a33df308ef7cc0dee6ba5b11a540e9e" => :el_capitan
-    sha256 "cb454e3ce3e9f27d5faa5e7a9fa95b119cbdf829080d54258298430e86d9c6c8" => :yosemite
-    sha256 "5c244fd6224433bdd81b1613e4edb5bad3519f2ff8336ad2b02efccb43da13ee" => :mavericks
+    sha256 "693f5ab5a84e614123e1e28fab4ca7e9d6b3a4785bc26b21b2a1a45d98ce4a02" => :sierra
+    sha256 "1c1656cc8d8603dfeff7aa7f4297a49f8452e96b0915719ddca8003e61033bbc" => :el_capitan
+    sha256 "fee0d410d0a9d34bcc1e5acd31d9a5ea393e22c63360ed510112f08fb48040f2" => :yosemite
   end
 
   def install
