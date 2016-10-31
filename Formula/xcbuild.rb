@@ -10,7 +10,8 @@ class Xcbuild < Formula
   depends_on "pkg-config"
 
   def install
-    system "make", "install", "cmake_flags=-DCMAKE_INSTALL_PREFIX=#{bin}"
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do
