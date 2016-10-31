@@ -16,7 +16,7 @@ class Ffmpeg < Formula
   option "with-libebur128", "Enable using libebur128 for EBU R128 loudness measurement"
   option "with-libsoxr", "Enable the soxr resample library"
   option "with-libssh", "Enable SFTP protocol via libssh"
-  option "with-libtesseract", "Enable the tesseract OCR engine"
+  option "with-tesseract", "Enable the tesseract OCR engine"
   option "with-libvidstab", "Enable vid.stab support for video stabilization"
   option "with-opencore-amr", "Enable Opencore AMR NR/WB audio format"
   option "with-openh264", "Enable OpenH264 library"
@@ -40,6 +40,7 @@ class Ffmpeg < Formula
 
   deprecated_option "with-ffplay" => "with-sdl2"
   deprecated_option "with-sdl" => "with-sdl2"
+  deprecated_option "with-libtesseract" => "with-tesseract"
 
   depends_on "pkg-config" => :build
   depends_on "texi2html" => :build
