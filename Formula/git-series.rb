@@ -6,9 +6,9 @@ class GitSeries < Formula
 
   bottle do
     cellar :any
-    sha256 "2daebeea29b8dab29cec91fc882c2b2d800b893e995d68ebfa76c00f45e25590" => :sierra
-    sha256 "9e763fcdeca9dbe7e8033e19c8e58288a85ab01e9dbf887f53a87dd90f1746a3" => :el_capitan
-    sha256 "4b9788b40b76dc4811b251ef8c08b654cefeae4fde5a8ef34e64bad52b4e0010" => :yosemite
+    sha256 "2ba7be3922b6ef0e3fb615ab03ee71732139085172cb64033cec1528dc8cc423" => :sierra
+    sha256 "c6c0bcd6f2fe3f07204a568c5b9a3d258e6c78233aa718f134bda32547b8fdb0" => :el_capitan
+    sha256 "d2999d4f44f0c43d9761456500f333ea8e44d5c09bd8d48932efd47da20662e2" => :yosemite
   end
 
   depends_on "cmake" => :build
