@@ -11,16 +11,9 @@ class Dvtm < Formula
     sha256 "88bffcbc907f9ffa900331acf5f994af07f5c1787c328ac56c72935813f57b92" => :mavericks
   end
 
-  # fixes compatibility issues with elcap+ and/or xcode7+
-  # https://github.com/martanne/dvtm/issues/30
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/dvtm/patch-vt.h-compat.patch"
-    sha256 "98565ce8f6b010ce88a2bc032155aca8d860e68e5a642253e49c4d77b7f68543"
-  end
-
   def install
     ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
-    system "make", "PREFIX=#{prefix}", "LIBS=-lc -lutil -lncurses", "install"
+    system "make", "PREFIX=#{prefix}", "LIBS=-lc -lutil -lncurses -L#{HOMEBREW_PREFIX}/opt/ncurses/lib", "install"
   end
 
   test do
