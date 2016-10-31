@@ -6,10 +6,9 @@ class Dc3dd < Formula
   sha256 "c4e325e5cbdae49e3855b0849ea62fed17d553428724745cea53fe6d91fd2b7f"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fe98660fe3815dc9618ec5c9fddae3393024a4b23d03d1e3ef8f2ed5c99846da" => :el_capitan
-    sha256 "fbf2891c99d330a38018ea002653ce54bda4661c6e47d8d9398133027c95e789" => :yosemite
-    sha256 "dc413cbaaf429d0304d2c678b154a411fd631ee6556c7784587c2547f14c6a1b" => :mavericks
+    sha256 "ea20a6b8c2bff1bcf2d43b528e77144ba37e610a91a772563b72acbf75259535" => :sierra
+    sha256 "21e646934e7c069a618a0b0e8b1db82b8982efe9cdc2863ce1ad4e5892cfcd81" => :el_capitan
+    sha256 "4490bf1b4ece003cce7a89fb0ab3e1aa570543ac2c8c08d76a76060ba4546daf" => :yosemite
   end
 
   depends_on "gettext"
