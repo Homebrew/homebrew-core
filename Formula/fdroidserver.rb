@@ -7,10 +7,9 @@ class Fdroidserver < Formula
   sha256 "3de76a02d17260a5fd65b089ceaabcc578e238ffe71f205a8f6f37e705648d6e"
 
   bottle do
-    cellar :any
-    sha256 "ee2b8c9ce88c44da4949297dbf02e1d8a959626ae04ec35ac27a213fc6f14cff" => :el_capitan
-    sha256 "c022c4b821fc08ebc7bcdf0dd55f393bffff60fc8d9124d1f3bbedfda2b1b476" => :yosemite
-    sha256 "b82b7afb81d63e8a734111d9ebf86079cdcd9c60903c03f0057b281709af7aef" => :mavericks
+    sha256 "865ed32e2e747ff0a072aea1b81dcf4bea48f3b9c9e366cb4d755365175a8fb9" => :sierra
+    sha256 "063793d45d71d58dba7b3fde83782b647efabfb047590536cb809d6bec350622" => :el_capitan
+    sha256 "20c6fe3fa5c2ad4205e0a9ee3331f5191486024e77f798a98ba1a08d4fbc3552" => :yosemite
   end
 
   depends_on :python3
