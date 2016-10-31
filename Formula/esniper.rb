@@ -7,10 +7,9 @@ class Esniper < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d00cc159457e65880455bec0e26cc9ce8c6b2a7204e7e3503497aab5ad455acf" => :sierra
-    sha256 "d73b509b0e6350ec85ca5719c130b4c2aa0733a0c45748dd8dd616201babb53b" => :el_capitan
-    sha256 "bb0bd9ade19fe5ce06e90012a524692aacffa9d15940f4ea2986f429549288e3" => :yosemite
-    sha256 "fe731e40a8b00d5a5dda9628a16b9debc0b44653f822abbc2f18739e45e8147d" => :mavericks
+    sha256 "a1122b9ae8ad4fc569c9028761d04aaa2eab5baa8d08ef752168054053a6b663" => :sierra
+    sha256 "a1ebe915803835503349a836e0cf85961cad010469cfcaae5ef9dd778adcae8d" => :el_capitan
+    sha256 "1fcdf0dfcc1245addf57c16822b28e5faf94447505e46350a455b78fa7c6981d" => :yosemite
   end
 
   def install
