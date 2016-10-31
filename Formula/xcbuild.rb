@@ -12,6 +12,7 @@ class Xcbuild < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+    bin.install_symlink "#{prefix}/usr/bin/xcbuild"
   end
 
   test do
