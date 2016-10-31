@@ -1,8 +1,8 @@
 class GitSeries < Formula
   desc "Track changes to a patch series over time"
   homepage "https://github.com/git-series/git-series"
-  url "https://github.com/git-series/git-series/archive/0.8.10.tar.gz"
-  sha256 "d70c9a2105c69fdd6059c04285ddb74b3b10852d9729dd8a14681b9bf36790be"
+  url "https://github.com/git-series/git-series/archive/0.8.11.tar.gz"
+  sha256 "d884e77c03304ba77cac3845b5e51a7856d517771db72c652f53b47cbaa13890"
 
   bottle do
     cellar :any
