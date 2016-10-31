@@ -1,10 +1,10 @@
 class SfPwgen < Formula
   desc "Generate passwords using SecurityFoundation framework"
   homepage "https://bitbucket.org/anders/sf-pwgen/"
-  url "https://bitbucket.org/anders/sf-pwgen/downloads/sf-pwgen-1.3.tar.gz"
-  sha256 "0489dace9de7ad65bf545e774dbf67b6d24cecdcbd32fe5d41397140ccf3aa84"
+  url "https://github.com/anders/pwgen/archive/v1.4.tar.gz"
+  sha256 "1f4c7f514426305be2e1b893a586310d579e500e033938800afd2c98fedb84d9"
 
-  head "https://bitbucket.org/anders/sf-pwgen", :using => :hg
+  head "https://github.com/anders/pwgen.git"
 
   bottle do
     cellar :any_skip_relocation
