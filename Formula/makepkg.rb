@@ -4,11 +4,14 @@ class Makepkg < Formula
   url "https://projects.archlinux.org/git/pacman.git",
       :tag => "v5.0.1",
       :revision => "f38de43eb68f1d9c577b4378310640c1eaa93338"
+  revision 1
+
   head "https://projects.archlinux.org/git/pacman.git"
 
   bottle do
-    sha256 "0fabfa371db2dd7b98ec349e6b7a5ba1e8a2413fbef195a1d808829b21a59c4a" => :el_capitan
-    sha256 "71b87a9e173cfe65bda64ef6e14be450561aada6f4b337927e6a0d12e9a09ae7" => :yosemite
+    sha256 "d8d4be7d77ef9964f310054ea50a7c577002a4ed79fbeab7b0f76c481851c878" => :sierra
+    sha256 "e8e801eb7fd95203b695c1be269ea163a0fd5c964a9bd81d88815417957e117a" => :el_capitan
+    sha256 "cb6989f1b3b7f7bf6fbb686d514191d50684345156b4a7ef51633d17fb7e01a5" => :yosemite
   end
 
   # libalpm now calls fstatat, which is only available for >= 10.10
@@ -18,7 +21,7 @@ class Makepkg < Formula
 
   depends_on "automake" => :build
   depends_on "autoconf" => :build
-  depends_on "asciidoc" => :build
+  depends_on "asciidoc" => ["with-docbook-xsl", :build]
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libarchive"
@@ -29,6 +32,8 @@ class Makepkg < Formula
   depends_on "gpgme" => :optional
 
   def install
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
