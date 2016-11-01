@@ -47,10 +47,19 @@ class Vsftpd < Formula
       EOS
     end
 
+    s += <<-EOS.undent
+
+      vsftpd requires root privileges in most cases so you will need to run
+      `sudo vsftpd`.
+      You should be certain that you trust any software you grant root privileges.
+
+      The vsftpd.conf file must be owned by root in order to work correctly:
+        sudo chown root #{HOMEBREW_PREFIX}/etc/vsftpd.conf
+    EOS
     s
   end
 
-  plist_options :startup => true, :manual => "sudo #{HOMEBREW_PREFIX}/sbin/vsftpd #{HOMEBREW_PREFIX}/etc/vsftpd.conf"
+  plist_options :startup => true, :manual => "sudo vsftpd"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
