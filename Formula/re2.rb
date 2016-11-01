@@ -1,9 +1,9 @@
 class Re2 < Formula
   desc "Alternative to backtracking PCRE-style regular expression engines"
   homepage "https://github.com/google/re2"
-  url "https://github.com/google/re2/archive/2016-10-01.tar.gz"
-  version "20161001"
-  sha256 "11fd87507450fe2bbdcdb3971ea2e0bedd71a02f064118ef1ac60aa6ac85992d"
+  url "https://github.com/google/re2/archive/2016-11-01.tar.gz"
+  version "20161101"
+  sha256 "01ee949f03e1c4057dc533cf139f967fb1b427015769d53b9ee07757631e9669"
   head "https://github.com/google/re2.git"
 
   bottle do
@@ -14,12 +14,6 @@ class Re2 < Formula
   end
 
   needs :cxx11
-
-  # https://github.com/google/re2/issues/102
-  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70932
-  fails_with :gcc => "6" do
-    cause "error: field 'next_' has incomplete type 'std::atomic<re2::DFA::State*> []'"
-  end
 
   def install
     ENV.cxx11
