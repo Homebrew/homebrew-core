@@ -34,6 +34,8 @@ class Emscripten < Formula
     resource "fastcomp-clang" do
       url "https://github.com/kripken/emscripten-fastcomp-clang.git", :branch => "incoming"
     end
+
+    depends_on "cmake" => :build
   end
 
   needs :cxx11
@@ -60,7 +62,7 @@ class Emscripten < Formula
     (buildpath/"fastcomp").install resource("fastcomp")
     (buildpath/"fastcomp/tools/clang").install resource("fastcomp-clang")
 
-    args = [
+    configure_args = [
       "--prefix=#{libexec}/llvm",
       "--enable-optimized",
       "--enable-targets=host,js",
@@ -68,8 +70,24 @@ class Emscripten < Formula
       "--disable-bindings",
     ]
 
+    cmake_args = [
+      "-DCMAKE_INSTALL_PREFIX=#{libexec}/llvm",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DLLVM_TARGETS_TO_BUILD=X86;JSBackend",
+      "-DLLVM_INCLUDE_EXAMPLES=OFF",
+      "-DLLVM_INCLUDE_TESTS=OFF",
+      "-DCLANG_INCLUDE_EXAMPLES=OFF",
+      "-DCLANG_INCLUDE_TESTS=OFF",
+      "-DOCAMLFIND=/usr/bin/false",
+      "-DGO_EXECUTABLE=/usr/bin/false",
+    ]
+
     mkdir "fastcomp/build" do
-      system "../configure", *args
+      if build.head?
+        system "cmake", "..", *cmake_args
+      else
+        system "../configure", *configure_args
+      end
       system "make"
       system "make", "install"
     end
