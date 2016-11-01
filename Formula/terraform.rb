@@ -3,8 +3,8 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/0.7.7.tar.gz"
-  sha256 "2e63e0855bc3b7296335b54a2140d4c2425ccd9424157cf69e708f6f5a2d30a2"
+  url "https://github.com/hashicorp/terraform/archive/v0.7.8.tar.gz"
+  sha256 "1569dcb56aab6a8c35ed5a26f90408e6e31e28c07b63b963e1b7c655040f97fd"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
@@ -16,17 +16,24 @@ class Terraform < Formula
 
   depends_on "go" => :build
 
-  terraform_deps = %w[
-    github.com/mitchellh/gox c9740af9c6574448fd48eb30a71f964014c7a837
-    github.com/mitchellh/iochan 87b45ffd0e9581375c491fef3d32130bb15c5bd7
-    github.com/kisielk/errcheck 9c1292e1c962175f76516859f4a88aabd86dc495
-    github.com/kisielk/gotool 5e136deb9b893bbe6c8f23236ff4378b7a8a0dbb
-  ]
+  go_resource "github.com/mitchellh/gox" do
+    url "https://github.com/mitchellh/gox.git",
+        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
+  end
 
-  terraform_deps.each_slice(2) do |x, y|
-    go_resource x do
-      url "https://#{x}.git", :revision => y
-    end
+  go_resource "github.com/mitchellh/iochan" do
+    url "https://github.com/mitchellh/iochan.git",
+        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
+  end
+
+  go_resource "github.com/kisielk/errcheck" do
+    url "https://github.com/kisielk/errcheck.git",
+        :revision => "9c1292e1c962175f76516859f4a88aabd86dc495"
+  end
+
+  go_resource "github.com/kisielk/gotool" do
+    url "https://github.com/kisielk/gotool.git",
+        :revision => "5e136deb9b893bbe6c8f23236ff4378b7a8a0dbb"
   end
 
   go_resource "golang.org/x/tools" do
