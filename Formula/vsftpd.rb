@@ -44,11 +44,11 @@ class Vsftpd < Formula
       s += <<-EOS.undent
         vsftpd was compiled with SSL support. To use it you must generate a SSL
         certificate and set 'enable_ssl=YES' in your config file.
+
       EOS
     end
 
     s += <<-EOS.undent
-
       vsftpd requires root privileges in most cases so you will need to run
       `sudo vsftpd`.
       You should be certain that you trust any software you grant root privileges.
