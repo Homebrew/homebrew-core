@@ -32,4 +32,10 @@ class Jasper < Formula
                           "--mandir=#{man}"
     system "make", "install"
   end
+
+  test do
+    system bin/"jasper", "--input", test_fixtures("test.jpg"),
+                         "--output", "test.bmp"
+    assert_predicate testpath/"test.bmp", :exist?
+  end
 end
