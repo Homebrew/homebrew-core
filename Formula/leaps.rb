@@ -4,8 +4,8 @@ class Leaps < Formula
   desc "Collaborative web-based text editing service written in Golang"
   homepage "https://github.com/jeffail/leaps"
   url "https://github.com/Jeffail/leaps.git",
-    :tag => "v0.5.0",
-    :revision => "5cf7328a8c498041d2a887e89f22f138498f4621"
+    :tag => "v0.5.1",
+    :revision => "70524e3d02d0cf31f3d13737193a1459150781c8"
   sha256 "5f3fe0bb1a0ca75616ba2cb6cba7b11c535ac6c732e83c71f708dc074e489b1f"
 
   bottle do
