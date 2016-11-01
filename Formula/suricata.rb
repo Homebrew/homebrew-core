@@ -1,8 +1,8 @@
 class Suricata < Formula
   desc "Network IDS, IPS, and security monitoring engine"
   homepage "https://suricata-ids.org/"
-  url "https://www.openinfosecfoundation.org/download/suricata-2.0.8.tar.gz"
-  sha256 "7af6394cb81e464f5c1ac88a1444030e30940caab6e53688a6d9eb652226d1be"
+  url "https://www.openinfosecfoundation.org/download/suricata-3.1.2.tar.gz"
+  sha256 "f9e7742580849f202254e75d9fc245ba53f4d7490f47a6d30f02a7b10aacc512"
 
   bottle do
     rebuild 1
@@ -14,9 +14,9 @@ class Suricata < Formula
   end
 
   devel do
-    url "https://www.openinfosecfoundation.org/download/suricata-2.1beta4.tar.gz"
-    sha256 "12b3c98a7464ef6fb631884aa648b53a9cbb04279f754009fdc9ae2a6b605b95"
-    version "2.1beta4"
+    url "https://www.openinfosecfoundation.org/download/suricata-3.2beta1.tar.gz"
+    sha256 "fa17c3191910282bb72f8e406328083ee7727cab06cf04ecbc47a911e013f96e"
+    version "3.2beta1"
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -25,10 +25,13 @@ class Suricata < Formula
   depends_on "libnet"
   depends_on "libyaml"
   depends_on "pcre"
+  depends_on "nss"
+  depends_on "nspr"
   depends_on "geoip" => :optional
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
   depends_on "jansson" => :optional
+  depends_on "hiredis" => :optional
 
   resource "argparse" do
     url "https://pypi.python.org/packages/source/a/argparse/argparse-1.3.0.tar.gz"
@@ -82,6 +85,12 @@ class Suricata < Formula
       args << "--with-libjansson-libraries=#{jansson.opt_lib}"
     end
 
+    if build.with? "hiredis"
+      hiredis = Formula["hiredis"]
+      args << "--enable-hiredis"
+      args << "--with-libjansson-includes=#{hiredis.opt_include}"
+      args << "--with-libhiredis-libraries=#{hiredis.opt_lib}"
+    end
     system "./configure", *args
     system "make", "install-full"
 
