@@ -13,7 +13,6 @@ class Gitg < Formula
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "intltool" => :build
-  depends_on "webkitgtk"
   depends_on "gtksourceview3"
   depends_on "gobject-introspection"
   depends_on "libgit2-glib"
@@ -22,6 +21,7 @@ class Gitg < Formula
   depends_on "json-glib"
   depends_on "libsecret"
   depends_on "libpeas"
+  depends_on "libsoup"
   depends_on "gtkspell3"
   depends_on "hicolor-icon-theme"
   depends_on "gnome-icon-theme"
