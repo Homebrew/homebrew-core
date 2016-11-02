@@ -3,8 +3,8 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://mercurial-scm.org/release/mercurial-3.9.2.tar.gz"
-  sha256 "69046a427c05e83097bf0145a1e37975ae0b6ba4430456e2beca3d2fd96583cf"
+  url "https://mercurial-scm.org/release/mercurial-4.0.tar.gz"
+  sha256 "24be080745230840f214d93e9f9fb4e25510f9abbbec2e56fab18543fedc43a7"
 
   bottle do
     cellar :any_skip_relocation
