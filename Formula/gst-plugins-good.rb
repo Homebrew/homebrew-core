@@ -1,15 +1,10 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
-  revision 1
 
   stable do
-    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.8.3.tar.xz"
-    sha256 "a1d6579ba203a7734927c24b90bf6590d846c5a5fcec01a48201018c8ad2827a"
-
-    # Fix build on Sierra. https://bugzilla.gnome.org/show_bug.cgi?id=770526
-    # Unlike upstream commit, don't touch Makefile.am.
-    patch :DATA
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.10.0.tar.xz"
+    sha256 "7a03559763f5634ab1b4b2edd3e9f7442bdd4657187e20ea5e1887ae46371de2"
 
     depends_on "check" => :optional
   end
@@ -100,29 +95,3 @@ class GstPluginsGood < Formula
     assert_match version.to_s, output
   end
 end
-
-__END__
-diff --git a/sys/osxvideo/cocoawindow.h b/sys/osxvideo/cocoawindow.h
-index 9355d3c..816f1bb 100644
---- a/sys/osxvideo/cocoawindow.h
-+++ b/sys/osxvideo/cocoawindow.h
-@@ -27,7 +27,6 @@
-  */
- 
- #import <Cocoa/Cocoa.h>
--#import <QuickTime/QuickTime.h>
- #import <glib.h>
- #import <gst/video/navigation.h>
- 
-diff --git a/sys/osxvideo/osxvideosink.h b/sys/osxvideo/osxvideosink.h
-index 2bf5d25..d467b0e 100644
---- a/sys/osxvideo/osxvideosink.h
-+++ b/sys/osxvideo/osxvideosink.h
-@@ -35,7 +35,6 @@
- #include <objc/runtime.h>
- #include <Cocoa/Cocoa.h>
- 
--#include <QuickTime/QuickTime.h>
- #import "cocoawindow.h"
- 
- GST_DEBUG_CATEGORY_EXTERN (gst_debug_osx_video_sink);
