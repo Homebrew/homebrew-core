@@ -1,9 +1,8 @@
 class GstPluginsUgly < Formula
   desc "GStreamer plugins (well-supported, possibly problematic for distributors)"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.8.3.tar.xz"
-  sha256 "6fa2599fdd072d31fbaf50c34af406e2be944a010b1f4eab67a5fe32a0310693"
-  revision 1
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.10.0.tar.xz"
+  sha256 "97de8d1903abb54305732e6b8781c8c42f5cc5a2a548a8f31b38c189e81a55e0"
 
   bottle do
     sha256 "778162e3208dde9c221df916378cc4030b66bcf1db2a66070cdc3e78cb4e02f2" => :sierra
