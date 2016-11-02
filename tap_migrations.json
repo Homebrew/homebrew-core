@@ -172,6 +172,7 @@
   "libgtextutils": "homebrew/science",
   "libiomp": "homebrew/boneyard",
   "libmarisa": "homebrew/boneyard",
+  "libnice": "homebrew/boneyard",
   "libodbc++": "homebrew/boneyard",
   "libqxt": "homebrew/boneyard",
   "librets": "homebrew/boneyard",
