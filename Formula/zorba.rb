@@ -3,6 +3,7 @@ class Zorba < Formula
   homepage "http://www.zorba.io/"
   url "https://github.com/28msec/zorba/archive/3.1.tar.gz"
   sha256 "a27e8160aca5d3aa5a6525b930da7edde44f8824dd4fba39aaef3b9af2717b74"
+  revision 1
 
   bottle do
     sha256 "e63eea2da12126effd6665b24371eb14445633796b5bc54aaf208c07fc45844d" => :sierra
@@ -30,6 +31,12 @@ class Zorba < Formula
     args = std_cmake_args
     args << "-DZORBA_VERIFY_PEER_SSL_CERTIFICATE=ON" if build.with? "ssl-verification"
     args << "-DZORBA_WITH_BIG_INTEGER=ON" if build.with? "big-integer"
+
+    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
+    # usual superenv fix doesn't work since zorba doesn't use HAVE_CLOCK_GETTIME
+    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      args << "-DZORBA_HAVE_CLOCKGETTIME=OFF"
+    end
 
     mkdir "build" do
       system "cmake", "..", *args
