@@ -1,8 +1,8 @@
 class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.8.3.tar.xz"
-  sha256 "66b37762d4fdcd63bce5a2bec57e055f92420e95037361609900278c0db7c53f"
+  url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.10.0.tar.xz"
+  sha256 "1e7778fabe480185bfc4ce552f0860de1443f6618a68a86ccdd65854fed37207"
 
   bottle do
     sha256 "688ad3603b328de0d19c5dc5b28e435de3db37fb27813d041f5ee69bf0b91579" => :sierra
