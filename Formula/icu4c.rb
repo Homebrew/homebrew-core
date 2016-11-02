@@ -1,10 +1,10 @@
 class Icu4c < Formula
   desc "C/C++ and Java libraries for Unicode and globalization"
   homepage "http://site.icu-project.org/"
-  url "https://ssl.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz"
-  mirror "https://fossies.org/linux/misc/icu4c-57_1-src.tgz"
-  version "57.1"
-  sha256 "ff8c67cb65949b1e7808f2359f2b80f722697048e90e7cfc382ec1fe229e9581"
+  url "https://ssl.icu-project.org/files/icu4c/58.1/icu4c-58_1-src.tgz"
+  mirror "https://nuxi.nl/distfiles/third_party/icu4c-58_1-src.tgz"
+  version "58.1"
+  sha256 "0eb46ba3746a9c2092c8ad347a29b1a1b4941144772d13a88667a7b11ea30309"
 
   head "https://ssl.icu-project.org/repos/icu/icu/trunk/", :using => :svn
 
