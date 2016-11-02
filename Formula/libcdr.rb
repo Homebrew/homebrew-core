@@ -1,9 +1,8 @@
 class Libcdr < Formula
   desc "C++ library to parse the file format of CorelDRAW documents"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libcdr"
-  url "http://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.2.tar.bz2"
-  sha256 "d05a986dab9f960e64466072653a900d03f8257b084440d9d16599e16060581e"
-  revision 1
+  url "http://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.3.tar.xz"
+  sha256 "66e28e502abef7f6f494ce03de037d532f5e7888cfdee62c01203c8325b33f22"
 
   bottle do
     cellar :any
