@@ -18,9 +18,13 @@ class MediaInfo < Formula
 
   def install
     cd "ZenLib/Project/GNU/Library" do
-      system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}"
-      system "make"
+      args = ["--disable-debug",
+              "--disable-dependency-tracking",
+              "--enable-static",
+              "--enable-shared",
+              "--prefix=#{prefix}"]
+      system "./configure", *args
+      system "make", "install"
     end
 
     cd "MediaInfoLib/Project/GNU/Library" do
