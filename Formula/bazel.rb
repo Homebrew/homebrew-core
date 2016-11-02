@@ -7,9 +7,9 @@ class Bazel < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7407bba2c724555ee20a78ba658d537bfc3858f8e7e3e94e8a23649b4c356795" => :sierra
-    sha256 "1951bee16f4d764d4a80a7802f20336fc9e5086be3d95ea529441aaddc44c44d" => :el_capitan
-    sha256 "d60b2137ba014b5a44d62fd2649f5a356f3f2fffad35809afad89944804de79a" => :yosemite
+    sha256 "4218898e8e2a65cc318b05b2f6a3f767f6778511abae05a4a339723b92457979" => :sierra
+    sha256 "67f6bb36b71dc4183a550437b24895a83d8a682fc887e433af9623d23c9d694b" => :el_capitan
+    sha256 "dea1f568cd632c67010bcdc0bd7e0ad512f9b9334e69b4dd4ad3a21796e06968" => :yosemite
   end
 
   depends_on :java => "1.8+"
