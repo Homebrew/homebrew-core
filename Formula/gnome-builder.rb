@@ -1,8 +1,8 @@
 class GnomeBuilder < Formula
   desc "IDE for GNOME"
   homepage "https://wiki.gnome.org/Apps/Builder"
-  url "https://download.gnome.org/sources/gnome-builder/3.22/gnome-builder-3.22.1.tar.xz"
-  sha256 "9386a84b1999c0dad83791808a9918f86200e9e1dfffa550a53e04cae3423652"
+  url "https://download.gnome.org/sources/gnome-builder/3.22/gnome-builder-3.22.2.tar.xz"
+  sha256 "304dd841f35aa4acb256c3466dde91e808298152e2918a1ed86116b5f5a2c54c"
 
   bottle do
     sha256 "d6005187db24040f8bd9ba3d43011480761dee9ab2ae3506fb0bb7ddbd8bd5f4" => :sierra
@@ -22,10 +22,12 @@ class GnomeBuilder < Formula
   depends_on "gnome-icon-theme"
   depends_on "desktop-file-utils"
   depends_on "pcre"
+  depends_on "json-glib"
   depends_on "gjs" => :recommended
   depends_on "vala" => :recommended
   depends_on "devhelp" => :recommended
   depends_on "ctags" => :recommended
+  depends_on "meson" => :recommended
   depends_on :python3 => :optional
   depends_on "pygobject3" if build.with? "python3"
 
