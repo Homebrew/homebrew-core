@@ -1,8 +1,8 @@
 class GstValidate < Formula
   desc "Tools to validate GstElements from GStreamer"
   homepage "https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-validate/html/"
-  url "https://gstreamer.freedesktop.org/src/gst-validate/gst-validate-1.8.3.tar.xz"
-  sha256 "4525a4fb5b85b8a49674e00d652bee9ac62c56241c148abbff23efa50a224e34"
+  url "https://gstreamer.freedesktop.org/src/gst-validate/gst-validate-1.10.0.tar.xz"
+  sha256 "a99a5cd1dfa5d021dd0197b32b04a20348479c097ebeb1f4c36161d70048a176"
 
   bottle do
     sha256 "c9599931fcbf3629e832985ecf2dd0b575bfb8aadfd1c538eef3e5431b42044e" => :sierra
@@ -24,6 +24,7 @@ class GstValidate < Formula
   depends_on "gobject-introspection"
   depends_on "gstreamer"
   depends_on "gst-plugins-base"
+  depends_on "json-glib"
 
   def install
     inreplace "tools/gst-validate-launcher.in", "env python2", "env python"
