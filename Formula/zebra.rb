@@ -1,9 +1,8 @@
 class Zebra < Formula
   desc "Information management system"
   homepage "https://www.indexdata.com/zebra"
-  url "http://ftp.indexdata.dk/pub/zebra/idzebra-2.0.61.tar.gz"
-  sha256 "e3e5d3c50500847c4d065c93108ab9fd0222a8dbddc12565090cfdd8a885cf6f"
-  revision 1
+  url "http://ftp.indexdata.dk/pub/zebra/idzebra-2.0.62.tar.gz"
+  sha256 "f14e34509c0b7d6df98f83ff05cf81b8b82919a5a3cdcccf42125caf30f5a7f0"
 
   bottle do
     sha256 "78f3c46a4a98b6964e989ae0583e3d8b0420e4981803c2fe5fbb8feed9c4b8ea" => :sierra
@@ -30,8 +29,8 @@ class Zebra < Formula
 
   test do
     cd share/"idzebra-2.0-examples/oai-pmh/" do
-      system "zebraidx-2.0", "-c", "conf/zebra.cfg", "init"
-      system "zebraidx-2.0", "-c", "conf/zebra.cfg", "commit"
+      system bin/"zebraidx-2.0", "-c", "conf/zebra.cfg", "init"
+      system bin/"zebraidx-2.0", "-c", "conf/zebra.cfg", "commit"
     end
   end
 end
