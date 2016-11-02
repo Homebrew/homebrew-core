@@ -1,8 +1,8 @@
 class DockerSwarm < Formula
   desc "Turn a pool of Docker hosts into a single, virtual host"
   homepage "https://github.com/docker/swarm"
-  url "https://github.com/docker/swarm/archive/v1.2.4.tar.gz"
-  sha256 "ef8101033990a595ec41201fd9eb496852fd14bd25febeb7a181fd5c8bd850d3"
+  url "https://github.com/docker/swarm/archive/1.2.5.tar.gz"
+  sha256 "d3f20d94525ff9b338a0d31feaed6a9779801bcadf23ffc33e5ce4a3ad106beb"
   head "https://github.com/docker/swarm.git"
 
   bottle do
