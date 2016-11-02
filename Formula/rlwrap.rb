@@ -1,9 +1,11 @@
 class Rlwrap < Formula
   desc "Readline wrapper: adds readline support to tools that lack it"
   homepage "http://utopia.knoware.nl/~hlub/rlwrap/"
-  url "http://utopia.knoware.nl/~hlub/rlwrap/rlwrap-0.42.tar.gz"
-  sha256 "5a70d8469db9d0a6630628f2d5d2972ad16c092400b7fbbdf699693ec0f87e44"
+  url "https://github.com/hanslub42/rlwrap/archive/v0.42.tar.gz"
+  sha256 "fff56c24341f0c717cf3a8f0ebbf2cba415b1952e1591168ca69ed13638b20f3"
   revision 1
+
+  head "https://github.com/hanslub42/rlwrap.git"
 
   bottle do
     sha256 "53859da22797c6c4b51754b538dc4be18866f492bbcd14c66228ee1f7d11a93b" => :sierra
@@ -12,8 +14,12 @@ class Rlwrap < Formula
   end
 
   depends_on "readline"
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   def install
+    system "autoreconf", "-v", "-i"
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
