@@ -1,9 +1,9 @@
 class Mediaconch < Formula
   desc "Conformance checker and technical metadata reporter"
   homepage "https://mediaarea.net/MediaConch"
-  url "https://mediaarea.net/download/binary/mediaconch/16.09/MediaConch_CLI_16.09_GNU_FromSource.tar.bz2"
-  version "16.09"
-  sha256 "e85d99ffbdbd45f77b953692fb39fabc89745a4811ecc5729223b264ebf77b54"
+  url "https://mediaarea.net/download/binary/mediaconch/16.10/MediaConch_CLI_16.10_GNU_FromSource.tar.bz2"
+  version "16.10"
+  sha256 "ee9b2fc9baf9c97f7d881918c7784cea21eb91e3deb62c7474160fb2417668df"
 
   bottle do
     cellar :any
@@ -21,17 +21,25 @@ class Mediaconch < Formula
 
   def install
     cd "ZenLib/Project/GNU/Library" do
-      system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}"
-      system "make"
+      args = ["--disable-debug",
+              "--disable-dependency-tracking",
+              "--enable-shared",
+              "--enable-static",
+              "--prefix=#{prefix}",
+              # mediaconch installs libs/headers at the same paths as mediainfo
+              "--libdir=#{lib}/mediaconch",
+              "--includedir=#{include}/mediaconch"]
+      system "./configure", *args
+      system "make", "install"
     end
 
     cd "MediaInfoLib/Project/GNU/Library" do
       args = ["--disable-debug",
               "--disable-dependency-tracking",
+              "--enable-static",
+              "--enable-shared",
               "--with-libcurl",
               "--prefix=#{prefix}",
-              # mediaconch installs libs/headers at the same paths as mediainfo
               "--libdir=#{lib}/mediaconch",
               "--includedir=#{include}/mediaconch"]
       system "./configure", *args
