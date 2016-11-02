@@ -1,9 +1,9 @@
 class Webkitgtk < Formula
   desc "Full-featured Gtk+ port of the WebKit rendering engine"
   homepage "https://webkitgtk.org/"
-  url "https://webkitgtk.org/releases/webkitgtk-2.10.9.tar.xz"
-  sha256 "bbb18d741780b1b7fa284beb9a97361ac57cda2e42bad2ae2fcdbf797919e969"
-  revision 2
+  homepage "https://webkitgtk.org"
+  url "https://webkitgtk.org/releases/webkitgtk-2.14.1.tar.xz"
+  sha256 "2e2d76c328de65bed6e0e4f096b2720a366654b27fc1af0830ece90bc4b7ceb5"
 
   bottle do
     sha256 "65b6505ae9f248328b6128ce04bb1b0ba4e398560724eca1a80b415f1211f8c8" => :sierra
@@ -17,14 +17,17 @@ class Webkitgtk < Formula
   depends_on "enchant"
   depends_on "webp"
 
-  needs :cxx11
-
-  # modified version of the patch in https://bugs.webkit.org/show_bug.cgi?id=151293
-  # should be included in next version
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/webkit/webkit-2.14.1.diff"
+    sha256 "df9af608b9c5c1f19c26db5970ad6b8638fc6b7573b9510f82e4ddadf248787d"
+  end
 
   def install
+    ENV.delete "SDKROOT"
+
+    # turn introspection support OFF until we figure out how to fix it
     extra_args = %w[
+      -DENABLE_INTROSPECTION=OFF
       -DPORT=GTK
       -DENABLE_X11_TARGET=OFF
       -DENABLE_QUARTZ_TARGET=ON
@@ -36,13 +39,16 @@ class Webkitgtk < Formula
       -DENABLE_CREDENTIAL_STORAGE=OFF
       -DENABLE_GEOLOCATION=OFF
       -DENABLE_OPENGL=OFF
+      -DENABLE_GRAPHICS_CONTEXT_3D=OFF
       -DUSE_LIBNOTIFY=OFF
       -DUSE_LIBHYPHEN=OFF
       -DCMAKE_SHARED_LINKER_FLAGS=-L/path/to/nonexistent/folder
     ]
 
-    system "cmake", ".", *(std_cmake_args + extra_args)
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *(std_cmake_args + extra_args)
+      system "make", "install"
+    end
   end
 
   test do
@@ -120,18 +126,3 @@ class Webkitgtk < Formula
     assert_match version.to_s, shell_output("./test")
   end
 end
-
-__END__
-diff --git a/Source/WebKit2/Platform/IPC/unix/ConnectionUnix.cpp b/Source/WebKit2/Platform/IPC/unix/ConnectionUnix.cpp
-index 7594cac..7e39ac0 100644
---- a/Source/WebKit2/Platform/IPC/unix/ConnectionUnix.cpp
-+++ b/Source/WebKit2/Platform/IPC/unix/ConnectionUnix.cpp
-@@ -43,7 +43,7 @@
- #include <gio/gio.h>
- #endif
-
--#if defined(SOCK_SEQPACKET)
-+#if defined(SOCK_SEQPACKET) && !OS(DARWIN)
- #define SOCKET_TYPE SOCK_SEQPACKET
- #else
- #if PLATFORM(GTK)
