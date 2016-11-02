@@ -3,6 +3,7 @@ class Glade < Formula
   homepage "https://glade.gnome.org/"
   url "https://download.gnome.org/sources/glade/3.20/glade-3.20.0.tar.xz"
   sha256 "82d96dca5dec40ee34e2f41d49c13b4ea50da8f32a3a49ca2da802ff14dc18fe"
+  revision 1
 
   bottle do
     sha256 "fc210f3175ad1fd91fff015cf53f7161d32064c7a43529c16f2c434f46443bb5" => :sierra
@@ -29,7 +30,8 @@ class Glade < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--enable-gladeui"
+                          "--enable-gladeui",
+                          "--enable-introspection"
     # objective-c is needed for glade-registration.c. unfortunately build fails if -x objective-c is added to global CFLAGS.
     # Bugreport Upstream: https://bugzilla.gnome.org/show_bug.cgi?id=768032
     inreplace "src/Makefile", "-c -o glade-glade-registration.o", "-x objective-c -c -o glade-glade-registration.o"
