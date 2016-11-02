@@ -3,6 +3,7 @@ class Libphonenumber < Formula
   homepage "https://github.com/googlei18n/libphonenumber"
   url "https://github.com/googlei18n/libphonenumber/archive/libphonenumber-7.7.3.tar.gz"
   sha256 "09a9bb00f8fe94e823e7617b2edb4e6961c41956f341b416ec4ebf681534743e"
+  revision 1
 
   bottle do
     cellar :any
