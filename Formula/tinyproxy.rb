@@ -1,8 +1,8 @@
 class Tinyproxy < Formula
   desc "HTTP/HTTPS proxy for POSIX systems"
   homepage "https://www.banu.com/tinyproxy/"
-  url "https://www.banu.com/pub/tinyproxy/1.8/tinyproxy-1.8.3.tar.bz2"
-  sha256 "be559b54eb4772a703ad35239d1cb59d32f7cf8a739966742622d57df88b896e"
+  url "https://github.com/tinyproxy/tinyproxy/releases/download/1.8.4/tinyproxy-1.8.4.tar.xz"
+  sha256 "a41f4ddf0243fc517469cf444c8400e1d2edc909794acda7839f1d644e8a5000"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,12 +20,6 @@ class Tinyproxy < Formula
   option "with-filter", "Enable url filtering"
 
   deprecated_option "reverse" => "with-reverse"
-
-  # Fix linking error, via MacPorts: https://trac.macports.org/ticket/27762
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2b17ed2/tinyproxy/patch-configure.diff"
-    sha256 "414b8ae7d0944fb8d90bef708864c4634ce1576c5f89dd79539bce1f630c9c8d"
-  end
 
   def install
     args = %W[
