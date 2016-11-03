@@ -121,14 +121,11 @@ class Qt5 < Formula
       -qt-pcre
       -nomake tests
       -no-rpath
-      -pch
       -system-proxies
     ]
 
     args << "-nomake" << "examples" if build.without? "examples"
     
-    openssl_lib = Formula["openssl"].opt_lib
-
     if build.with? "mysql"
       args << "-plugin-sql-mysql"
       inreplace "qtbase/configure", /(QT_LFLAGS_MYSQL_R|QT_LFLAGS_MYSQL)=\`(.*)\`/, "\\1=\`\\2 | sed \"s/-lssl -lcrypto//\"\`"
