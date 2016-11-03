@@ -13,7 +13,16 @@ class Admesh < Formula
     sha256 "411599b23cc2285c382de174dbddfbb6f48b687ee9364de8d4a6af1596600cd6" => :mountain_lion
   end
 
+  head do
+    url "https://github.com/admesh/admesh.git"
+
+    depends_on "libtool"  => :build
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+  end
+
   def install
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
@@ -33,6 +42,6 @@ class Admesh < Formula
       ENDFACET
       ENDSOLID Untitled1
     EOS
-    system "admesh", "test.stl"
+    system "#{bin}/admesh", "test.stl"
   end
 end
