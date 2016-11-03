@@ -1,19 +1,9 @@
 class MysqlSandbox < Formula
   desc "Install one or more MySQL servers"
   homepage "http://mysqlsandbox.net"
+  url "https://github.com/datacharmer/mysql-sandbox/archive/3.2.03.tar.gz"
+  sha256 "96b428d803eab6e2d9f630bce9ba7c8f553e335b6dbbed4b091e765392a57285"
   head "https://github.com/datacharmer/mysql-sandbox.git"
-
-  stable do
-    url "https://github.com/datacharmer/mysql-sandbox/archive/3.2.02.tar.gz"
-    sha256 "47b5a54b36c767f9898c991fc3de4c7b143d650ba6105a69cd4fefdc2ae8a543"
-
-    # Fix the version
-    # Upstream commit "Fixed download parameter for make_sandbox_from_url"
-    patch do
-      url "https://github.com/datacharmer/mysql-sandbox/commit/f6a9b03.patch"
-      sha256 "811a1ff6aa49c0e679df78edd51a78f6f13f6d1b0cf5dcfb2be632aa479dd151"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
