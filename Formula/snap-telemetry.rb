@@ -13,8 +13,8 @@ class SnapTelemetry < Formula
     sha256 "8c9fcbb7b65556defd646e8fb884a54870bc1232142fb7231fa9099894c0dd82" => :yosemite
   end
 
-  depends_on "go"
-  depends_on "glide"
+  depends_on "go" => :build
+  depends_on "glide" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -28,6 +28,7 @@ class SnapTelemetry < Formula
       system "glide", "install"
       system "go", "build", "-o", "snapd", "-ldflags", "-w -X main.gitversion=#{version}"
       bin.install "snapd"
+      prefix.install_metafiles
     end
 
     snapctl = buildpath/"src/github.com/intelsdi-x/snap/cmd/snapctl"
@@ -43,11 +44,12 @@ class SnapTelemetry < Formula
 
     begin
       snapd_pid = fork do
-        exec "#{bin}/snapd -t 0 -l 1 -o /tmp"
+        exec "#{bin}/snapd -t 0 -l 1 -o #{testpath}"
       end
       sleep 5
-      assert_match(/No plugins/, shell_output("#{bin}/snapctl plugin list"))
-      assert_match(/No task/, shell_output("#{bin}/snapctl task list"))
+      assert_match("No plugins", shell_output("#{bin}/snapctl plugin list"))
+      assert_match("No task", shell_output("#{bin}/snapctl task list"))
+      assert_predicate testpath/"snapd.log", :exist?
     ensure
       Process.kill("TERM", snapd_pid)
     end
