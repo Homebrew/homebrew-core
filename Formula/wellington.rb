@@ -3,8 +3,8 @@ require "language/go"
 class Wellington < Formula
   desc "Project-focused tool to manage Sass and spriting"
   homepage "https://getwt.io/"
-  url "https://github.com/wellington/wellington/archive/v1.0.3.tar.gz"
-  sha256 "d3d49a53bc6d206a751585d4cf14fc895d02ea21cb1ef3c508e032db192d3001"
+  url "https://github.com/wellington/wellington/archive/v1.0.4.tar.gz"
+  sha256 "ef92d6c2b11fe36f66b88612e7a9cfff3ea6f81f29f4c21481d358f474a191d6"
   head "https://github.com/wellington/wellington.git"
 
   bottle do
