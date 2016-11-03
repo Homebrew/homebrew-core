@@ -8,10 +8,9 @@ class Clib < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6ca51cac3894a691d764d2c3f898c4f2886acd515b7b8329be4604da345be4c8" => :sierra
-    sha256 "49a968b7a2996481bc3481477decdb546af828fc31a3efa68bbf8088a189caef" => :el_capitan
-    sha256 "cea4541a53eb7b83e3a851ceb2a16fcccf3ba31a2d5b2e31f76a9d5c157da427" => :yosemite
-    sha256 "bc5b305a7ca4c4c16fcb135dc43090887e657d4c78497df25cef888d45fa2952" => :mavericks
+    sha256 "45ee37757c387a106c8831ef40c8848d54077638ed52116bd8af1a95897b0a0a" => :sierra
+    sha256 "932173c4c8f747c2650b3c7df1e5657cb21b86d19c70e659d90afea181ff26b9" => :el_capitan
+    sha256 "3699ab855bf189b8a6dfbdc7d73eba4bf272807fb74e02d4f382a043ef66ac35" => :yosemite
   end
 
   def install
