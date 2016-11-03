@@ -6,6 +6,13 @@ class SnapTelemetry < Formula
 
   head "https://github.com/intelsdi-x/snap.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6d3129e1941eb33b398752a50c4cabe9b5877e8d2188b0c7076559863ee72e49" => :sierra
+    sha256 "66603b621f657395f685bb9a76542f197c22971cee0d3daf34f8383d0d87d48f" => :el_capitan
+    sha256 "8c9fcbb7b65556defd646e8fb884a54870bc1232142fb7231fa9099894c0dd82" => :yosemite
+  end
+
   depends_on "go"
   depends_on "glide"
 
