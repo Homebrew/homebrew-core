@@ -3,6 +3,7 @@ class AppEngineJava < Formula
   homepage "https://cloud.google.com/appengine/docs/java/"
   url "https://storage.googleapis.com/appengine-sdks/featured/appengine-java-sdk-1.9.42.zip"
   sha256 "3003892e89fb32a51dc3e2d91658fc7ba8b31f8b0b3fc22ccbd856ed94a03424"
+  revision 1
 
   bottle :unneeded
 
@@ -11,7 +12,7 @@ class AppEngineJava < Formula
   def install
     rm Dir["bin/*.cmd"]
     libexec.install Dir["*"]
-    bin.write_exec_script %w[appcfg.sh dev_appserver.sh endpoints.sh google_sql.sh].each { |fn| libexec/"bin/#{fn}" }
+    bin.write_exec_script %w[appcfg.sh dev_appserver.sh endpoints.sh google_sql.sh].map { |fn| libexec/"bin/#{fn}" }
   end
 
   test do
