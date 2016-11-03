@@ -3,8 +3,8 @@ class Sops < Formula
 
   desc "Editor of encrypted files"
   homepage "https://github.com/mozilla/sops"
-  url "https://files.pythonhosted.org/packages/73/78/efb0e0cc6715ccbfdbd82e802c0f394bd8794d159b0998d5d60b4250b702/sops-1.14.tar.gz"
-  sha256 "3af953198e54c9564b74f35c937ec230365a74c3659c720e083422103e064a9e"
+  url "https://pypi.python.org/packages/a9/b3/45763c92831314e4c820208ed908d59205adf25f4a7f4f5d7bee86e860a9/sops-1.15.tar.gz"
+  sha256 "45fc8f55fc0c600dc51a9bbb3b615a32af201f34bfc7806c98c707ef7a2bad1d"
   head "https://github.com/mozilla/sops.git"
 
   bottle do
