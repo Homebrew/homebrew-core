@@ -1,8 +1,8 @@
 class Filebeat < Formula
-  desc "File harvester, used to fetch log files and feed them into logstash"
+  desc "File harvester to ship log files to Elasticsearch or Logstash"
   homepage "https://www.elastic.co/products/beats/filebeat"
-  url "https://github.com/elastic/beats/archive/v1.2.3.tar.gz"
-  sha256 "8eea85de415898c362144ba533062651d8891241c738799e54cc9b17040c1fc9"
+  url "https://github.com/elastic/beats/archive/v5.0.0.tar.gz"
+  sha256 "3e6b7cf2ee5f52e78ae87ef04ab9dd49977c89f86a09416586896aeaea844e34"
 
   head "https://github.com/elastic/beats.git"
 
@@ -25,12 +25,13 @@ class Filebeat < Formula
     cd gopath/"src/github.com/elastic/beats/filebeat" do
       system "make"
       libexec.install "filebeat"
-      etc.install "etc/filebeat.yml"
+
+      (etc/"filebeat").install("filebeat.yml", "filebeat.template.json", "filebeat.template-es2x.json")
     end
 
     (bin/"filebeat").write <<-EOS.undent
       #!/bin/sh
-      exec "#{libexec}/filebeat" -c "#{etc}/filebeat.yml" "$@"
+      exec #{libexec}/filebeat -path.config #{etc}/filebeat -path.home #{prefix} -path.logs #{var}/log/filebeat -path.data #{var}/filebeat $@
     EOS
   end
 
@@ -54,7 +55,7 @@ class Filebeat < Formula
   end
 
   test do
-    log_file = testpath/"log"
+    log_file = testpath/"test.log"
     touch log_file
 
     (testpath/"filebeat.yml").write <<-EOS.undent
@@ -63,17 +64,21 @@ class Filebeat < Formula
           -
             paths:
               - #{log_file}
-            scan_frequency: 0s
+            scan_frequency: 0.1s
+      filebeat.idle_timeout: 0.1s
       output:
         file:
           path: #{testpath}
     EOS
 
-    filebeat_pid = fork { exec bin/"filebeat", "-c", testpath/"filebeat.yml" }
+    (testpath/"log").mkpath
+    (testpath/"data").mkpath
+
+    filebeat_pid = fork { exec "#{bin}/filebeat -c #{testpath}/filebeat.yml -path.config #{testpath}/filebeat -path.home=#{testpath} -path.logs #{testpath}/log -path.data #{testpath}" }
     begin
-      sleep 5
+      sleep 1
       log_file.append_lines "foo bar baz"
-      sleep 10
+      sleep 5
 
       assert File.exist? testpath/"filebeat"
     ensure
