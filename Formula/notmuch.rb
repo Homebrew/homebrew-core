@@ -3,6 +3,7 @@ class Notmuch < Formula
   homepage "https://notmuchmail.org"
   url "https://notmuchmail.org/releases/notmuch-0.23.tar.gz"
   sha256 "c5e75b658ee2b58c5ac7a79e34d2449d37ddfa5c9e67a736454ec296c9a0a1b8"
+  revision 1
 
   bottle do
     cellar :any
