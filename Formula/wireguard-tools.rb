@@ -3,8 +3,8 @@ class WireguardTools < Formula
   homepage "https://www.wireguard.io/"
   # Despite the experimental tag the tools themselves are stable.
   # Please only update version when the tools have been modified/updated.
-  url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-experimental-0.0.20160722.tar.xz"
-  sha256 "0dcda97b6bb4e962f731a863df9b4291c1c453b01f4faba78be4aaa13a594242"
+  url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-experimental-0.0.20161103.tar.xz"
+  sha256 "e9d6a97002e0b63bb9572bf42037a7f5b67ccad421fec3afac684e4fc5e931ac"
   head "https://git.zx2c4.com/WireGuard", :using => :git
 
   bottle do
