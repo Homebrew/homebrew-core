@@ -18,6 +18,10 @@ class Rebar < Formula
   def install
     system "./bootstrap"
     bin.install "rebar"
+
+    bash_completion.install "priv/shell-completion/bash/rebar"
+    zsh_completion.install "priv/shell-completion/zsh/_rebar" => "_rebar"
+    fish_completion.install "priv/shell-completion/fish/rebar.fish"
   end
 
   test do
