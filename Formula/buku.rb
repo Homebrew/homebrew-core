@@ -3,9 +3,8 @@ class Buku < Formula
 
   desc "Command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v2.5.tar.gz"
-  sha256 "27dd770837110db8348446436aca3c7ed16b2884b4064aad0deb58d4ad4a69d4"
-  revision 1
+  url "https://github.com/jarun/Buku/archive/v2.6.tar.gz"
+  sha256 "ac83a2d104ca632352262613fa92a6293a84e31b00dab24fa90448e71ec6106e"
 
   bottle do
     sha256 "824e2a0f75cce19b6a78b613dc5063ecf587fa79296b91ae00b357296d368896" => :sierra
@@ -46,8 +45,8 @@ class Buku < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/eb/83/00c55ff5cb773a78e9e47476ac1a0cd2f0fb71b34cb6e178572eaec22984/pycparser-2.16.tar.gz"
-    sha256 "108f9ff23869ae2f8b38e481e7b4b4d4de1e32be968f29bbe303d629c34a6260"
+    url "https://files.pythonhosted.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
+    sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
   end
 
   resource "six" do
