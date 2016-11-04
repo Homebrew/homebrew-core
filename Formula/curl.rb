@@ -69,12 +69,16 @@ class Curl < Formula
       ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["libressl"].opt_lib}/pkgconfig"
       args << "--with-ssl=#{Formula["libressl"].opt_prefix}"
       args << "--with-ca-bundle=#{etc}/libressl/cert.pem"
+      args << "--with-ca-path=#{etc}/libressl/certs"
     elsif MacOS.version < :mountain_lion || build.with?("openssl") || build.with?("nghttp2")
       ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["openssl"].opt_lib}/pkgconfig"
       args << "--with-ssl=#{Formula["openssl"].opt_prefix}"
       args << "--with-ca-bundle=#{etc}/openssl/cert.pem"
+      args << "--with-ca-path=#{etc}/openssl/certs"
     else
       args << "--with-darwinssl"
+      args << "--without-ca-bundle"
+      args << "--without-ca-path"
     end
 
     args << (build.with?("libssh2") ? "--with-libssh2" : "--without-libssh2")
