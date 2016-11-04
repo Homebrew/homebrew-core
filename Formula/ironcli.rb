@@ -1,18 +1,8 @@
 class Ironcli < Formula
   desc "Go version of the Iron.io command-line tools"
   homepage "https://github.com/iron-io/ironcli"
-  head "https://github.com/iron-io/ironcli.git"
-
-  stable do
-    url "https://github.com/iron-io/ironcli/archive/0.1.2.tar.gz"
-    sha256 "ff4d8b87f3dec4af83e6a907b3a857e24ceb41fabd2baa4057aae496b12324e6"
-
-    # fixes the version
-    patch do
-      url "https://github.com/iron-io/ironcli/commit/1fde89f1.patch"
-      sha256 "d037582e62073ae56b751ef543361cc381334f747b4547c0ccdf93df0098dba5"
-    end
-  end
+  url "https://github.com/iron-io/ironcli/archive/0.1.3.tar.gz"
+  sha256 "7fc530da947b31ba3a60e74a065deac5a88cb1a4c34dc7835998645816894af1"
 
   bottle do
     cellar :any_skip_relocation
@@ -37,6 +27,6 @@ class Ironcli < Formula
   end
 
   test do
-    assert_equal version.to_s, shell_output("#{bin}/iron --version").chomp
+    system bin/"iron", "-help"
   end
 end
