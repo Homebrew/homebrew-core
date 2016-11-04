@@ -2,8 +2,8 @@ class GlobusToolkit < Formula
   desc "Toolkit used for building grids"
   homepage "https://www.globus.org/toolkit/"
   # Note: Stable distributions have an even minor version number (e.g. 5.0.3)
-  url "http://toolkit.globus.org/ftppub/gt6/installers/src/globus_toolkit-6.0.1443479657.tar.gz"
-  sha256 "1aebd5599af535c5978bd085c5614f0f28cbd1fd724a53072a30e74a07597cc5"
+  url "http://toolkit.globus.org/ftppub/gt6/installers/src/globus_toolkit-6.0.1477634051.tar.gz"
+  sha256 "582fda929675f7e579dd7301d253cd27d4d2f2e91ec74f052a50af52ef2d161c"
 
   bottle do
     sha256 "bac29ffc13caffc83fc7862cc5d9e259ed63134680084959afe057dc97a36f50" => :el_capitan
@@ -17,6 +17,9 @@ class GlobusToolkit < Formula
   depends_on "openssl"
   depends_on "libtool" => :run
   depends_on "pkg-config" => :build
+
+  # Fix for "error: use of undeclared identifier 'VIS_CSTYLE'"
+  patch :DATA if DevelopmentTools.clang_build_version >= 800
 
   def install
     ENV.deparallelize
@@ -36,3 +39,16 @@ class GlobusToolkit < Formula
     system "#{bin}/globusrun", "-help"
   end
 end
+
+__END__
+diff --git a/gsi_openssh/source/openbsd-compat/vis.h b/gsi_openssh/source/openbsd-compat/vis.h
+index d1286c9..4f55f9e 100644
+--- a/gsi_openssh/source/openbsd-compat/vis.h
++++ b/gsi_openssh/source/openbsd-compat/vis.h
+@@ -34,6 +34,7 @@
+
+ /* OPENBSD ORIGINAL: include/vis.h */
+
++#include_next <vis.h>
+ #include "includes.h"
+ #if !defined(HAVE_STRNVIS) || defined(BROKEN_STRNVIS)
