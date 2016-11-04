@@ -24,16 +24,19 @@ class Libtiff < Formula
   # Backports of various security/potential security fixes from Debian.
   # Already applied upstream in CVS but no new release yet.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.6-2.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.6-2.debian.tar.xz"
-    sha256 "82a0ef3f713d2a22d40b9be71fd121b9136657d313ae6b76b51430302a7b9f8b"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.6-3.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.6-3.debian.tar.xz"
+    sha256 "cc650116c1dafed9c3721302f91e5e79b670f46712ebf2b86dea989c102e5c94"
     apply "patches/01-CVE-2015-8665_and_CVE-2015-8683.patch",
           "patches/02-fix_potential_out-of-bound_writes_in_decode_functions.patch",
           "patches/03-fix_potential_out-of-bound_write_in_NeXTDecode.patch",
           "patches/04-CVE-2016-5314_CVE-2016-5316_CVE-2016-5320_CVE-2016-5875.patch",
           "patches/05-CVE-2016-6223.patch",
           "patches/06-CVE-2016-5321.patch",
-          "patches/07-CVE-2016-5323.patch"
+          "patches/07-CVE-2016-5323.patch",
+          "patches/08-CVE-2016-3623_CVE-2016-3624.patch",
+          "patches/09-CVE-2016-5652.patch",
+          "patches/10-CVE-2016-3658.patch"
   end
 
   def install
