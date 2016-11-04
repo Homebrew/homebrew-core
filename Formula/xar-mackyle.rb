@@ -17,7 +17,7 @@ class XarMackyle < Formula
   def install
     system "./configure", "--prefix=#{libexec}"
     system "make"
-    system "make", "install"
+    ENV.deparallelize { system "make", "install" }
 
     bin.install_symlink libexec/"bin/xar" => "xar-mackyle"
     man1.install_symlink libexec/"share/man/man1/xar.1" => "xar-mackyle.1"
