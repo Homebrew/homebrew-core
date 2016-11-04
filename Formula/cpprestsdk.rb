@@ -1,8 +1,8 @@
 class Cpprestsdk < Formula
   desc "C++ libraries for cloud-based client-server communication"
   homepage "https://github.com/Microsoft/cpprestsdk"
-  url "https://github.com/Microsoft/cpprestsdk/archive/v2.9.0.tar.gz"
-  sha256 "217a41c7ff2bab82c372a120cbdb350371065df464d06bba1adbeb1590736e3e"
+  url "https://github.com/Microsoft/cpprestsdk/archive/v2.9.1.tar.gz"
+  sha256 "7097889965df48ec5799d6ed3b4f95f16ca82ee3512eb31db844d9df600bc899"
 
   head "https://github.com/Microsoft/cpprestsdk.git", :branch => "development"
 
