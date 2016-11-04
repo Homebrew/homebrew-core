@@ -10,11 +10,10 @@ class Plantuml < Formula
 
   def install
     jar = "plantuml.jar"
-    mv buildpath+"plantuml.#{version}.jar", jar
-    share.install jar
+    libexec.install "plantuml.#{version}.jar" => jar
     (bin/"plantuml").write <<-EOS.undent
       #!/bin/bash
-      GRAPHVIZ_DOT="#{Formula["graphviz"].opt_bin}/dot" exec java -jar #{share}/#{jar} "$@"
+      GRAPHVIZ_DOT="#{Formula["graphviz"].opt_bin}/dot" exec java -jar #{libexec}/#{jar} "$@"
     EOS
     chmod 0555, bin/"plantuml"
   end
