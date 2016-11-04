@@ -1,8 +1,8 @@
 class Tbox < Formula
   desc "Glib-like multi-platform c library"
   homepage "http://www.tboox.org"
-  url "https://github.com/waruqi/tbox/archive/v1.5.2.tar.gz"
-  sha256 "c470a8a5b8f84d928d83af87c8f69c87ec9ecb6f89017bef93dc0d188e91a8c6"
+  url "https://github.com/waruqi/tbox/archive/v1.5.3.tar.gz"
+  sha256 "404235eacd0edc0bb18cade161005001a7af11af3d447663ef57f61fe734dead"
   head "https://github.com/waruqi/tbox.git"
 
   bottle do
@@ -15,6 +15,11 @@ class Tbox < Formula
   depends_on "xmake" => :build
 
   def install
+    # Prevents "error: pointer is missing a nullability type specifier" when the
+    # CLT is installed; needed since the command below is `xmake` not `make` so
+    # superenv won't do this automatically
+    ENV.refurbish_args
+
     system "xmake", "config", "--smallest=y", "--demo=n", "--xml=y", "--asio=y",
                               "--thread=y", "--network=y", "--charset=y"
     system "xmake", "install", "-o", prefix
