@@ -14,7 +14,8 @@ class Libosmium < Formula
 
   def install
     mkdir "build" do
-    system "cmake", *std_cmake_args, "-DINSTALL_GDALCPP=ON", "-DINSTALL_PROTOZERO=ON", "-DINSTALL_UTFCPP=ON", ".."
-    system "make", "install"
+      system "cmake", *std_cmake_args, "-DINSTALL_GDALCPP=ON", "-DINSTALL_PROTOZERO=ON", "-DINSTALL_UTFCPP=ON", ".."
+      system "make", "install"
+    end
   end
 end
