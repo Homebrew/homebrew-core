@@ -6,9 +6,9 @@ class Libetonyek < Formula
   revision 1
 
   bottle do
-    sha256 "f464e2657607f9ad9701f12a1aa820fc91d8f1f5c119913b6f0aaf50baf44bf4" => :el_capitan
-    sha256 "b37902dfeed5ef199c969d51aafef47ca88d4a4f63862e10f95aa002ef15427d" => :yosemite
-    sha256 "87b99a5d084d752b4f4d53f63f7bcbdb6908a5b21a37eb021e16f1b5c3b5e4da" => :mavericks
+    sha256 "bd8eebe1f6baa116b62e07120d2721e4b58b07afde240b1715fc7765ac8c9f97" => :sierra
+    sha256 "24dcd3c072de267a0c37b56e09018dce03f2af49577072f27bca7fcb3637c13d" => :el_capitan
+    sha256 "638cac17acdf356dd29a0e9e2d190978c1e92778287aa1f03e7daafdf7eeb83a" => :yosemite
   end
 
   depends_on "autoconf" => :build
