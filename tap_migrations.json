@@ -309,6 +309,7 @@
   "tiger-vnc": "homebrew/x11",
   "timbl": "homebrew/science",
   "tinyscheme": "homebrew/boneyard",
+  "tlassemble": "homebrew/boneyard",
   "tmap": "homebrew/boneyard",
   "tokyo-tyrant": "homebrew/boneyard",
   "trang": "homebrew/boneyard",
