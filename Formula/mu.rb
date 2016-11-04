@@ -7,6 +7,7 @@ class Mu < Formula
   url "https://github.com/djcb/mu-releases/raw/master/mu-0.9.16.tar.gz"
   sha256 "55dff47f1ec2ea5a409a882009888c4f1b2b6ef2d81ee29753a649654752ee7e"
   head "https://github.com/djcb/mu.git"
+  revision 1
 
   bottle do
     rebuild 1
