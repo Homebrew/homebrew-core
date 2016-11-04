@@ -6,9 +6,9 @@ class GlobusToolkit < Formula
   sha256 "582fda929675f7e579dd7301d253cd27d4d2f2e91ec74f052a50af52ef2d161c"
 
   bottle do
-    sha256 "bac29ffc13caffc83fc7862cc5d9e259ed63134680084959afe057dc97a36f50" => :el_capitan
-    sha256 "091e8b213a1c6338ea1edf85a87c4bbecd8535887263441ac73e28759268861a" => :yosemite
-    sha256 "3f7fed89fd07105e6ff59741c0d8d4449aebf4269d1fdb166d6b4ade077d3cdd" => :mavericks
+    sha256 "919e6d3c7664dc0ba6745b3121aec2e9ca40c4097f526b6c026cdb916dcbedac" => :sierra
+    sha256 "fc8f89ee1a07796f846360b5559b3515f2e6f8a9278c6a801176e324d3f2fae2" => :el_capitan
+    sha256 "2bdfe7e4d4479ade4f764f6ad9373904a21df72fc8d9e18713d9442c39ecb704" => :yosemite
   end
 
   option "with-test", "Test the toolkit when installing"
