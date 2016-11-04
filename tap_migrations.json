@@ -302,6 +302,7 @@
   "telepathy-mission-control": "homebrew/boneyard",
   "terminator": "homebrew/gui",
   "tetgen": "homebrew/science",
+  "tevent": "homebrew/boneyard",
   "texmacs": "homebrew/boneyard",
   "texwrapper": "homebrew/tex",
   "threadscope": "homebrew/gui",
