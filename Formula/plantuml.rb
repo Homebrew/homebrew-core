@@ -9,12 +9,14 @@ class Plantuml < Formula
   depends_on "graphviz"
 
   def install
-    jar = "plantuml.#{version}.jar"
-    prefix.install jar
+    jar = "plantuml.jar"
+    mv buildpath+"plantuml.#{version}.jar", jar
+    share.install jar
     (bin/"plantuml").write <<-EOS.undent
       #!/bin/bash
-      GRAPHVIZ_DOT="#{Formula["graphviz"].opt_bin}/dot" exec java -jar #{prefix}/#{jar} "$@"
+      GRAPHVIZ_DOT="#{Formula["graphviz"].opt_bin}/dot" exec java -jar #{share}/#{jar} "$@"
     EOS
+    chmod 0555, bin/"plantuml"
   end
 
   test do
