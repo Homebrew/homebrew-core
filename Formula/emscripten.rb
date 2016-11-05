@@ -70,9 +70,9 @@ class Emscripten < Formula
       "--disable-bindings",
     ]
 
-    cmake_args = [
+    cmake_args = std_cmake_args.reject{|s| s["CMAKE_INSTALL_PREFIX"] }
+    cmake_args += [
       "-DCMAKE_INSTALL_PREFIX=#{libexec}/llvm",
-      "-DCMAKE_BUILD_TYPE=Release",
       "-DLLVM_TARGETS_TO_BUILD=X86;JSBackend",
       "-DLLVM_INCLUDE_EXAMPLES=OFF",
       "-DLLVM_INCLUDE_TESTS=OFF",
