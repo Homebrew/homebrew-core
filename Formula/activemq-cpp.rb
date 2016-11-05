@@ -13,6 +13,7 @@ class ActivemqCpp < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
+  depends_on "apr"
 
   def install
     system "./configure", "--prefix=#{prefix}"
