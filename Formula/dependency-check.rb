@@ -32,7 +32,7 @@ class DependencyCheck < Formula
     output = shell_output("#{libexec}/bin/dependency-check --version").strip
     assert_match "Dependency-Check Core version #{version}", output
 
-    (testpath/"temp-props.properties").write "cve.startyear=2015"
+    (testpath/"temp-props.properties").write "cve.startyear=2016"
     system bin/"dependency-check", "-P", "temp-props.properties", "-f", "XML",
                "--project", "dc", "-s", libexec, "-d", testpath, "-o", testpath
     assert File.exist?(testpath/"dependency-check-report.xml")
