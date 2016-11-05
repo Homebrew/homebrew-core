@@ -13,7 +13,6 @@ class Chuck < Formula
 
   depends_on :xcode => :build
 
-
   def install
     # issue caused by the new macOS version, patch submitted upstream
     # to the chuck-dev mailing list
