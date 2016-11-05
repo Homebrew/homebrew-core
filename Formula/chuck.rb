@@ -13,10 +13,11 @@ class Chuck < Formula
 
   depends_on :xcode => :build
 
-  # patch used to include new OSX version in the version check
-  patch :DATA
 
   def install
+    # issue caused by the new macOS version, patch submitted upstream
+    # to the chuck-dev mailing list
+    inreplace "src/makefile.osx", '10\.(6|7|8|9|10|11)(\\.[0-9]+)?', MacOS.version
     system "make", "-C", "src", "osx"
     bin.install "src/chuck"
     pkgshare.install "examples"
@@ -26,18 +27,3 @@ class Chuck < Formula
     assert_match /probe \[success\]/m, shell_output("#{bin}/chuck --probe 2>&1")
   end
 end
-
-__END__
-diff --git a/src/makefile.osx b/src/makefile.osx
-index ac95278..0bc2512 100644
---- a/src/makefile.osx
-+++ b/src/makefile.osx
-@@ -1,7 +1,7 @@
- # uncomment the following to force 32-bit compilation
- # FORCE_M32=-m32
- 
--ifneq ($(shell sw_vers -productVersion | egrep '10\.(6|7|8|9|10|11)(\.[0-9]+)?'),)
-+ifneq ($(shell sw_vers -productVersion | egrep '10\.(6|7|8|9|10|11|12|13)(\.[0-9]+)?'),)
- SDK=$(shell xcodebuild -sdk macosx -version | grep '^Path:' | sed 's/Path: \(.*\)/\1/')
- ISYSROOT=-isysroot $(SDK)
- LINK_EXTRAS=-F/System/Library/PrivateFrameworks \
