@@ -54,11 +54,14 @@ class Ffmpeg < Formula
   depends_on "fontconfig" => :optional
   depends_on "freetype" => :optional
   depends_on "frei0r" => :optional
+  depends_on "game-music-emu" => :optional
   depends_on "libass" => :optional
   depends_on "libbluray" => :optional
   depends_on "libbs2b" => :optional
   depends_on "libcaca" => :optional
   depends_on "libebur128" => :optional
+  depends_on "libgsm" => :optional
+  depends_on "libmodplug" => :optional
   depends_on "libsoxr" => :optional
   depends_on "libssh" => :optional
   depends_on "libvidstab" => :optional
@@ -77,6 +80,8 @@ class Ffmpeg < Formula
   depends_on "speex" => :optional
   depends_on "tesseract" => :optional
   depends_on "theora" => :optional
+  depends_on "two-lame" => :optional
+  depends_on "wavpack" => :optional
   depends_on "webp" => :optional
   depends_on "x265" => :optional
   depends_on "xz" => :optional
@@ -107,12 +112,16 @@ class Ffmpeg < Formula
     args << "--enable-ffplay" if build.with? "sdl2"
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--enable-libass" if build.with? "libass"
+    args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"
     args << "--enable-libcaca" if build.with? "libcaca"
     args << "--enable-libebur128" if build.with? "libebur128"
     args << "--enable-libfdk-aac" if build.with? "fdk-aac"
     args << "--enable-libfontconfig" if build.with? "fontconfig"
     args << "--enable-libfreetype" if build.with? "freetype"
+    args << "--enable-libgme" if build.with? "game-music-emu"
+    args << "--enable-libgsm" if build.with? "libgsm"
+    args << "--enable-libmodplug" if build.with? "libmodplug"
     args << "--enable-libmp3lame" if build.with? "lame"
     args << "--enable-libopencore-amrnb" << "--enable-libopencore-amrwb" if build.with? "opencore-amr"
     args << "--enable-libopenh264" if build.with? "openh264"
@@ -126,9 +135,11 @@ class Ffmpeg < Formula
     args << "--enable-libssh" if build.with? "libssh"
     args << "--enable-libtesseract" if build.with? "tesseract"
     args << "--enable-libtheora" if build.with? "theora"
+    args << "--enable-libtwolame" if build.with? "two-lame"
     args << "--enable-libvidstab" if build.with? "libvidstab"
     args << "--enable-libvorbis" if build.with? "libvorbis"
     args << "--enable-libvpx" if build.with? "libvpx"
+    args << "--enable-libwavpack" if build.with? "wavpack"
     args << "--enable-libwebp" if build.with? "webp"
     args << "--enable-libx264" if build.with? "x264"
     args << "--enable-libx265" if build.with? "x265"
