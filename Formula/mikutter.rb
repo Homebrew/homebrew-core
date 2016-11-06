@@ -5,6 +5,12 @@ class Mikutter < Formula
   sha256 "143318ad39ec60c9cf83e206f1a940e9464f0fda19c61e5e13a6cf327d1db076"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
+  bottle do
+    sha256 "bb9d615537dfe5c577f94970732f81f86293ff870e81c8b3c147a555d93413e8" => :sierra
+    sha256 "1c77d12d977e0460db518169f0207a9b610ec01bc3ce22ca87ff9228b2a94208" => :el_capitan
+    sha256 "ed87b683da08b1f759b753ae458d606d2b6c315c278f11b2db54fbcc6f76f099" => :yosemite
+  end
+
   depends_on "gtk+"
   depends_on "terminal-notifier" => :recommended
   depends_on :ruby => "2.1"
