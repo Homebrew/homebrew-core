@@ -59,13 +59,14 @@ class Swift < Formula
 
   def install
     workspace = buildpath.parent
-    build = workspace/"build"
+    build_dir = workspace/"build"
 
     ln_sf buildpath, "#{workspace}/swift"
     resources.each { |r| r.stage("#{workspace}/#{r.name}") }
 
-    mkdir build do
-      system "#{buildpath}/utils/build-script",
+    mkdir build_dir do
+      args = [
+        "#{buildpath}/utils/build-script",
         "-R",
         "--build-subdir=",
         "--no-llvm-assertions",
@@ -77,19 +78,25 @@ class Swift < Formula
         "--lldb-use-system-debugserver",
         "--install-prefix=#{prefix}",
         "--darwin-deployment-version-osx=#{MacOS.version}",
-        "--build-jobs=#{ENV.make_jobs}"
+      ]
+      if build.head?
+        args << "--jobs=#{ENV.make_jobs}"
+      else
+        args << "--build-jobs=#{ENV.make_jobs}"
+      end
+      system *args
     end
-    bin.install "#{build}/swift-macosx-x86_64/bin/swift",
-                "#{build}/swift-macosx-x86_64/bin/swift-autolink-extract",
-                "#{build}/swift-macosx-x86_64/bin/swift-compress",
-                "#{build}/swift-macosx-x86_64/bin/swift-demangle",
-                "#{build}/swift-macosx-x86_64/bin/swift-ide-test",
-                "#{build}/swift-macosx-x86_64/bin/swift-llvm-opt",
-                "#{build}/swift-macosx-x86_64/bin/swiftc",
-                "#{build}/swift-macosx-x86_64/bin/sil-extract",
-                "#{build}/swift-macosx-x86_64/bin/sil-opt"
-    (lib/"swift").install "#{build}/swift-macosx-x86_64/lib/swift/macosx/",
-                          "#{build}/swift-macosx-x86_64/lib/swift/shims/"
+    bin.install "#{build_dir}/swift-macosx-x86_64/bin/swift",
+                "#{build_dir}/swift-macosx-x86_64/bin/swift-autolink-extract",
+                "#{build_dir}/swift-macosx-x86_64/bin/swift-compress",
+                "#{build_dir}/swift-macosx-x86_64/bin/swift-demangle",
+                "#{build_dir}/swift-macosx-x86_64/bin/swift-ide-test",
+                "#{build_dir}/swift-macosx-x86_64/bin/swift-llvm-opt",
+                "#{build_dir}/swift-macosx-x86_64/bin/swiftc",
+                "#{build_dir}/swift-macosx-x86_64/bin/sil-extract",
+                "#{build_dir}/swift-macosx-x86_64/bin/sil-opt"
+    (lib/"swift").install "#{build_dir}/swift-macosx-x86_64/lib/swift/macosx/",
+                          "#{build_dir}/swift-macosx-x86_64/lib/swift/shims/"
   end
 
   test do
