@@ -3,10 +3,9 @@ class Vdirsyncer < Formula
 
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
-  url "https://files.pythonhosted.org/packages/7f/0a/85dc78a0a83d7fcac59d15cb6ecd07ff81cc3fda0cc2a9e87ba23a35949e/vdirsyncer-0.13.1.tar.gz"
-  sha256 "cbaa5f303a3e585e551e6e2a0e63aa35813f193f3da8208bcda1b7c3d88d93b0"
+  url "https://pypi.python.org/packages/9a/46/c870edb9e85ff884c6d8833abac1ae86af5b4302b8615dc7dda943569356/vdirsyncer-0.14.0.tar.gz"
+  sha256 "28211a857c03ea6cdad22ca74505758a743dbb8bc224e5bcd558a73efd1370d5"
   head "https://github.com/pimutils/vdirsyncer"
-  revision 1
 
   bottle do
     sha256 "e7baed3c869bfba170c7d50742add1d07f383ae5434b98608502f768a3dd8df1" => :sierra
