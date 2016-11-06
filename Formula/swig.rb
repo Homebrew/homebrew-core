@@ -3,6 +3,7 @@ class Swig < Formula
   homepage "http://www.swig.org/"
   url "https://downloads.sourceforge.net/project/swig/swig/swig-3.0.10/swig-3.0.10.tar.gz"
   sha256 "2939aae39dec06095462f1b95ce1c958ac80d07b926e48871046d17c0094f44c"
+  revision 1
 
   bottle do
     sha256 "9a5e3c160c2ace68d8c7995744bb8375929f21d30872a5ef24a09cf5474f6cda" => :sierra
@@ -14,6 +15,13 @@ class Swig < Formula
   option :universal
 
   depends_on "pcre"
+
+  # Remove for > 3.0.10
+  # Upstream fix for build failures caused by generated SWIG code for R
+  patch do
+    url "https://github.com/swig/swig/commit/1fcbf07.patch"
+    sha256 "ceaa4e6c59f6dce2036c35612adfb752dd7957c14d5ecfd91e6b508905944833"
+  end
 
   def install
     ENV.universal_binary if build.universal?
