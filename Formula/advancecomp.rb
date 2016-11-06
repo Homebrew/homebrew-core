@@ -1,8 +1,8 @@
 class Advancecomp < Formula
   desc "Recompression utilities for .PNG, .MNG, .ZIP, and .GZ files"
   homepage "http://www.advancemame.it/comp-readme.html"
-  url "https://github.com/amadvance/advancecomp/releases/download/v1.20/advancecomp-1.20.tar.gz"
-  sha256 "590a447cfc7ab3a37ec707e13967a0046a81a888c561ebaff5415b1e946da67b"
+  url "https://github.com/amadvance/advancecomp/archive/v1.21.tar.gz"
+  sha256 "58701a27a25061cd1a8c38c24b03a3166218a397b41c3249a10cde8b96564c6e"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +13,12 @@ class Advancecomp < Formula
     sha256 "119316cdf32ce8129a09e786a31bd6c21d3b153eadd6cd55e098f78b6f1ed884" => :mavericks
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   def install
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--enable-bzip2", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
