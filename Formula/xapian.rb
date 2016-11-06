@@ -21,6 +21,7 @@ class Xapian < Formula
   deprecated_option "ruby" => "with-ruby"
 
   depends_on :python => :optional
+  depends_on "sphinx-doc" => :build if build.with?("python")
 
   skip_clean :la
 
@@ -33,34 +34,31 @@ class Xapian < Formula
     build_binds = build.with?("ruby") || build.with?("python") || build.with?("java") || build.with?("php")
 
     system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
 
     if build_binds
       resource("bindings").stage do
+        ENV["XAPIAN_CONFIG"] = bin/"xapian-config"
+
         args = %W[
           --disable-dependency-tracking
           --prefix=#{prefix}
-          XAPIAN_CONFIG=#{bin}/xapian-config
-          --without-csharp
-          --without-tcl
         ]
 
-        if build.with? "java"
-          args << "--with-java"
-        else
-          args << "--without-java"
-        end
+        args << "--with-java" if build.with? "java"
 
         if build.with? "ruby"
           ruby_site = lib/"ruby/site_ruby"
           ENV["RUBY_LIB"] = ENV["RUBY_LIB_ARCH"] = ruby_site
           args << "--with-ruby"
-        else
-          args << "--without-ruby"
         end
 
         if build.with? "python"
+          # https://github.com/xapian/xapian/pull/126
+          inreplace "python/Makefile.in", "$(PYTHON2) $(SPHINX_BUILD)", "$(SPHINX_BUILD)"
+
           # https://github.com/Homebrew/homebrew-core/issues/2422
           ENV.delete("PYTHONDONTWRITEBYTECODE")
 
@@ -69,16 +67,12 @@ class Xapian < Formula
           # configure looks for python2 and system python doesn't install one
           ENV["PYTHON"] = which "python"
           args << "--with-python"
-        else
-          args << "--without-python"
         end
 
         if build.with? "php"
           extension_dir = lib/"php/extensions"
           extension_dir.mkpath
           args << "--with-php" << "PHP_EXTENSION_DIR=#{extension_dir}"
-        else
-          args << "--without-php"
         end
 
         system "./configure", *args
