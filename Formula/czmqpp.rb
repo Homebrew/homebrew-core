@@ -3,7 +3,7 @@ class Czmqpp < Formula
   homepage "https://github.com/zeromq/czmqpp"
   url "https://github.com/zeromq/czmqpp/archive/v1.2.0.tar.gz"
   sha256 "4ed983c3cfa7c5b0f035c2868357887f5663a7fce75c55da4b0dc47f37d83e2a"
-
+  revision 1
   head "https://github.com/zeromq/czmqpp.git"
 
   bottle do
