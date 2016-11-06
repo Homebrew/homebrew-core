@@ -7,6 +7,13 @@ class TerraformProvisionerAnsible < Formula
   sha256 "5ba93ea5d6f28e156d7e4eba90cd89032f7dc6aff396a8429c903da4efa2d8b6"
   head "https://github.com/jonmorehouse/terraform-provisioner-ansible.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "a56474f71703f7d660a17ed6faf039e98ccf50d32ce82b2c92fcc907f012ad78" => :sierra
+    sha256 "2b96de2a84016f1637fd428d40fcdcf16c960e795ce9307c2fb58672be2d21c0" => :el_capitan
+    sha256 "2b9f182b17571e29b4b6767db5974e39d3b5e2e5e1bb87b83b6cf1f28f855a10" => :yosemite
+  end
+
   depends_on "go" => :build
   depends_on "terraform" => :run
 
