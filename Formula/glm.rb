@@ -1,8 +1,8 @@
 class Glm < Formula
   desc "C++ mathematics library for graphics software"
   homepage "https://glm.g-truc.net/"
-  url "https://github.com/g-truc/glm/releases/download/0.9.8.1/glm-0.9.8.1.zip"
-  sha256 "b27246788d2020c48f146ff84396a6b93001e5bea42c18f8beceaa5c452c5751"
+  url "https://github.com/g-truc/glm/releases/download/0.9.8.2/glm-0.9.8.2.zip"
+  sha256 "760cc94d5d2cd1925a4e85dbc3e3ca4195bca7331d54386e67dff721c2ef0ce5"
 
   head "https://github.com/g-truc/glm.git"
 
