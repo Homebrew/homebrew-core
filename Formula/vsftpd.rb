@@ -49,7 +49,7 @@ class Vsftpd < Formula
     end
 
     s += <<-EOS.undent
-      vsftpd requires root privileges in most cases so you will need to run
+      To use chroot, vsftpd requires root privileges, so you will need to run
       `sudo vsftpd`.
       You should be certain that you trust any software you grant root privileges.
 
