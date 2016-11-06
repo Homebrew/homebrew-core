@@ -31,6 +31,14 @@ class Jasper < Formula
     depends_on "libtool" => :build
   end
 
+  head do
+    url "https://github.com/mdadams/jasper.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   option :universal
 
   depends_on "jpeg"
