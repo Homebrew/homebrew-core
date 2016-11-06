@@ -6,10 +6,9 @@ class Asio < Formula
   head "https://github.com/chriskohlhoff/asio.git"
 
   bottle do
-    sha256 "dca912fc200522c161af85de71233cc8bf73a33c7e9aba49d00f21e62bc5a364" => :sierra
-    sha256 "fc6d65ff0bf8fe7c29bd02f2835640ff056346dd6133cceeacd81eec3b9fab75" => :el_capitan
-    sha256 "ae6bda66bc2f4412ec3d1b32ba2b0ce02e238aa1b6219d8a9ccbf45523635800" => :yosemite
-    sha256 "dd3067c8c0dfb9361f3f479686203506fb1d93586bf4ce16e91f782a01f8a371" => :mavericks
+    sha256 "d04083730696f64cd35ae80facad12694187fa7f01034a386b073e28a00c2b02" => :sierra
+    sha256 "0bf0884092e11e20b4b031da98945bfefd68f2ec132a19e159f56e433afb9a76" => :el_capitan
+    sha256 "8da6c82750bd572c5c14cb1c45953e03b9f1d0e3783ac2aca358288ee8c01dde" => :yosemite
   end
 
   devel do
