@@ -8,9 +8,9 @@ class Vdirsyncer < Formula
   head "https://github.com/pimutils/vdirsyncer"
 
   bottle do
-    sha256 "e7baed3c869bfba170c7d50742add1d07f383ae5434b98608502f768a3dd8df1" => :sierra
-    sha256 "012cd58eae42d6629706e7d31d4566e13542e7e00ead4cffcf7bb3a9b90c4143" => :el_capitan
-    sha256 "28948d7e683f13f78b4a398d7d944e76fb8e452637f7cd5441127474cc2179f1" => :yosemite
+    sha256 "394c3ab33b15b700565edcafc10d4748d06c1e5a18602039d20d0040f81e3f65" => :sierra
+    sha256 "f5fe166a5242154b9e9f14255a87e199e82634c05d17e4f26cbf52d569186de8" => :el_capitan
+    sha256 "ab26dd52a015b2206b5b4ab62ced3ca0f9677a5f1ff177c3dbcd8c01d04067e5" => :yosemite
   end
 
   option "with-remotestorage", "Build with support for remote-storage"
