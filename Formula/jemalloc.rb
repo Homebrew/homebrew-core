@@ -7,9 +7,9 @@ class Jemalloc < Formula
 
   bottle do
     cellar :any
-    sha256 "21ffd1b497cef703562aaddaacd02542904dfac565cb451914cea2f34e8f5264" => :sierra
-    sha256 "849f114cf2ce8914d0366643b454856182f8b1abf31f38701a0bbf36fee3cf92" => :el_capitan
-    sha256 "90886fb8e88457061e03693c2955163a790f223a8365584f836c924c3b92ae1f" => :yosemite
+    sha256 "10a3ed38626574621d8a49fe7f59aae9806f26faa773e5cfde401d2c508cb298" => :sierra
+    sha256 "3b0c25c283146d7d7bf616fa26247464d403e7ea8a5817bb1e54b695d0d5f11f" => :el_capitan
+    sha256 "dc613e55c929fa7116be676dc448b869ec87853e6598c162da00b5bbfe69052e" => :yosemite
   end
 
   def install
