@@ -1,13 +1,13 @@
 class Gspell < Formula
   desc "Flexible API to implement spellchecking in GTK+ applications"
   homepage "https://wiki.gnome.org/Projects/gspell"
-  url "https://download.gnome.org/sources/gspell/1.2/gspell-1.2.0.tar.xz"
-  sha256 "6aa550b91e13c0073ec0dfef21b6eef730186912392e11128216b90519a3443f"
+  url "https://download.gnome.org/sources/gspell/1.2/gspell-1.2.1.tar.xz"
+  sha256 "9f1c3e5f09693a786e8b8dfdc5f142e9c9641d8674ec687014be928073d3f1a3"
 
   bottle do
-    sha256 "88a7b3cde20ce23873f34319d4528c469318c2653c01fdf0f930fc3f05964fb1" => :sierra
-    sha256 "5b9bd923f02e86d7579d38c3ee81670d48f666250adcfe0c73384367d12439ce" => :el_capitan
-    sha256 "ba089c1c7eae12ff14f0de628f46ae08a1f5d484e75bbe3e1e3c8cfdb47e8e85" => :yosemite
+    sha256 "6cab19ff5669e3539920355d3adea13d279ce8b1bde900c2d344dbbe911e16d0" => :sierra
+    sha256 "93efbe374b451a95c7442b1eba0637909c8e1a2b24bb53c75d937fadf8494045" => :el_capitan
+    sha256 "3680b22b92f4ea2f341ed16d6149ad659fcdaee03e3df7c355e9a844bf2ffd03" => :yosemite
   end
 
   depends_on "pkg-config" => :build

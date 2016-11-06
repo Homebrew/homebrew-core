@@ -3,18 +3,23 @@ class Gtkextra < Formula
   homepage "http://gtkextra.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/gtkextra/3.3/gtkextra-3.3.2.tar.gz"
   sha256 "3388692306b1afc79f17f5472a194c607fa67d5a38f1b4e79eda27a27f54f1a4"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "6b12cfecd5690b9bbecb25abfb0c32e67c12ac28b9a53a0d30c1b5701496f7f4" => :sierra
-    sha256 "588b8a145efbd5e0489e9cf9cbe17fc5652fba479a3572e5367854fa136fcf02" => :el_capitan
-    sha256 "57d90385f07bfd83ee52f4570f2694aa7a5594df1829213f4bda1c7fce9af763" => :yosemite
+    sha256 "f53441131777e4bab1b3c40bbaa5f8508abc088a91bf06d3278f32f2a2fede96" => :sierra
+    sha256 "de2e15931a365a344bf1279bb25a4aa7cc39e1fea54454a870f319a041bfbbc0" => :el_capitan
+    sha256 "3824b1b4252d3461337f431b9aa1eb1fc585a5e0d34b61e5e9b6d6af6adbeae4" => :yosemite
   end
 
-  depends_on "gtk+"
   depends_on "pkg-config" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "gtk+"
 
   def install
+    system "autoreconf", "-i"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

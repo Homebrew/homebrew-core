@@ -7,13 +7,12 @@ class Mu < Formula
   url "https://github.com/djcb/mu-releases/raw/master/mu-0.9.16.tar.gz"
   sha256 "55dff47f1ec2ea5a409a882009888c4f1b2b6ef2d81ee29753a649654752ee7e"
   head "https://github.com/djcb/mu.git"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "65d3162cdd56525218cef14453a998f26f100f63d255288a77620b3ef0b5d422" => :sierra
-    sha256 "e0e3532baa75ecee2d71a264a8bed4725a1dc1a6ecb9b0afbcc6f225a77dd06e" => :el_capitan
-    sha256 "927ba3c36a061061c679ad91319d614532dbbd7c450ec0e0172681465b8f06e3" => :yosemite
-    sha256 "99553174cd38a3d19993a94c07dafab56e98f591ac5054bf6b79d1d6b13f5e02" => :mavericks
+    sha256 "e3635a6d29ca425c9c720a36fce436c535757b7c288d2b7edd9099630d9fbf9b" => :sierra
+    sha256 "aaff2f3b1a501a7f12adb5e61014bc8ef6c7ca70c6b0908f502609110a55e931" => :el_capitan
+    sha256 "971849ef3dee4bf59e2ec4b9fe141e2d786f65c41bfa17b474defbb705dbd011" => :yosemite
   end
 
   depends_on "autoconf" => :build

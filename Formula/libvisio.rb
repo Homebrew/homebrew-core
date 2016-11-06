@@ -1,16 +1,15 @@
 class Libvisio < Formula
   desc "Interpret and import Visio diagrams"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libvisio"
-  url "http://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.3.tar.xz"
-  sha256 "943e03b1e6c969af4c2133a6671c9630adf3aaf8d460156744a28f58c9f47cd8"
+  url "http://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.5.tar.xz"
+  sha256 "430a067903660bb1b97daf4b045e408a1bb75ca45e615cf05fb1a4da65fc5a8c"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "ae237de01eea21154d18eb861b652db51f7f8dd2c6912400b27f2e7ccb7bae9a" => :sierra
-    sha256 "a9ef7b2ac1d7873b9c879c42a7454ff752c5c2ef4e7a23606583ebda16dbd794" => :el_capitan
-    sha256 "95f0b0f81bff5bb91978bb2599869fdd435e78abda6bd56933d28fc03a11de45" => :yosemite
-    sha256 "a5e3178d3edbe400b534236897bd148daecdf5dd2e05939a4a87445927773ce7" => :mavericks
+    sha256 "6758550321b373a6f5018327056dc7cbd1a95449dfc197ad395cfcd8d2be2d2f" => :sierra
+    sha256 "d4e7de0a1de6eba7f69f12ad13713e8454290c225d94d66f29f560ee3a249baa" => :el_capitan
+    sha256 "345c4c4cd79ca0d4aa98bd9af2f21e5e445e1c1e9e6a95e9f0b9b4f941623f5a" => :yosemite
   end
 
   depends_on "pkg-config" => :build

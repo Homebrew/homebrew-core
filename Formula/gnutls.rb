@@ -42,7 +42,12 @@ class Gnutls < Formula
       --disable-heartbeat-support
       --without-p11-kit
     ]
-    args << "--enable-guile" << "--with-guile-site-dir" if build.with? "guile"
+
+    if build.with? "guile"
+      args << "--enable-guile" << "--with-guile-site-dir"
+    else
+      args << "--disable-guile"
+    end
 
     system "./configure", *args
     system "make", "install"

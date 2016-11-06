@@ -1,15 +1,15 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.haxx.se/"
-  url "https://curl.haxx.se/download/curl-7.50.3.tar.bz2"
-  sha256 "7b7347d976661d02c84a1f4d6daf40dee377efdc45b9e2c77dedb8acf140d8ec"
+  url "https://curl.haxx.se/download/curl-7.51.0.tar.bz2"
+  sha256 "7f8240048907e5030f67be0a6129bc4b333783b9cca1391026d700835a788dde"
 
   bottle do
     cellar :any
-    sha256 "638108732f8c4dacea7953c81b070d8ab8bde837e0608f0b4ca36124b7ff1055" => :sierra
-    sha256 "b425bee3c2602e9b470db43b00418805e97ab675bfdd292be194e61fca8d9f52" => :el_capitan
-    sha256 "acd850690b6578bf1f7682804734cadf5b922aa17d696ef5154b15d048712319" => :yosemite
-    sha256 "cfbb0a2c28b150d13a239b9a6acd95cdd530cf57f7e26831f966d672e88dfcc0" => :mavericks
+    rebuild 1
+    sha256 "f22103edd6d20beb57ac9f2f006f07034fd11b1daa37a213587ed42625e270a4" => :sierra
+    sha256 "a8eab505288894c1921740a656492c5548306de0f204061dfe3e3f7cf434e01c" => :el_capitan
+    sha256 "542d195a25d227a24dcf3bbbc40b99d892d101bbb1b422729ab495a1289f0dfc" => :yosemite
   end
 
   keg_only :provided_by_osx
@@ -70,12 +70,16 @@ class Curl < Formula
       ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["libressl"].opt_lib}/pkgconfig"
       args << "--with-ssl=#{Formula["libressl"].opt_prefix}"
       args << "--with-ca-bundle=#{etc}/libressl/cert.pem"
+      args << "--with-ca-path=#{etc}/libressl/certs"
     elsif MacOS.version < :mountain_lion || build.with?("openssl") || build.with?("nghttp2")
       ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["openssl"].opt_lib}/pkgconfig"
       args << "--with-ssl=#{Formula["openssl"].opt_prefix}"
       args << "--with-ca-bundle=#{etc}/openssl/cert.pem"
+      args << "--with-ca-path=#{etc}/openssl/certs"
     else
       args << "--with-darwinssl"
+      args << "--without-ca-bundle"
+      args << "--without-ca-path"
     end
 
     args << (build.with?("libssh2") ? "--with-libssh2" : "--without-libssh2")

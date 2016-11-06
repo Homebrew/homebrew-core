@@ -14,6 +14,14 @@ class Libcaca < Formula
     sha256 "511f48aa84b45eb509de89296102517bd77c25347999cf1d733bc8593c95a00b" => :mavericks
   end
 
+  head do
+    url "https://github.com/cacalabs/libcaca.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "imlib2" => :optional
   depends_on :x11 if build.with? "imlib2"
@@ -23,6 +31,8 @@ class Libcaca < Formula
   end
 
   def install
+    system "./bootstrap" if build.head?
+
     # Some people can't compile when Java is enabled. See:
     # https://github.com/Homebrew/homebrew/issues/issue/2049
 

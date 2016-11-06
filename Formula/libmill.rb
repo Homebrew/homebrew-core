@@ -1,16 +1,15 @@
 class Libmill < Formula
   desc "Go-style concurrency in C"
   homepage "http://libmill.org/"
-  url "http://libmill.org/libmill-1.16.tar.gz"
-  sha256 "e78f5d87d214f2357c092d236869a9d69c782c88510db4813f53c8d5725f23c4"
+  url "http://libmill.org/libmill-1.17.tar.gz"
+  sha256 "ada513275d8d5a2ce98cdbc47ad491bfb10f5e9a5429656e539a5889f863042d"
   head "https://github.com/sustrik/libmill.git"
 
   bottle do
     cellar :any
-    sha256 "c391e988ecbd227890f32afb7e2c969ff473b43ed28398f8aa4a25168c5c8fed" => :sierra
-    sha256 "7d0c594cbb2d1294cdb415b26d6afd85f66f2716b158a6d718e8993a4894ff69" => :el_capitan
-    sha256 "68395224fbe9d4ed023268f1950108fe9ffcdfeb932c8ec3e54320b7d5081850" => :yosemite
-    sha256 "ef669e48e37ea368df93ef9ae1b25af55c16ae1da4ef42b77626c5d3a1aa12e5" => :mavericks
+    sha256 "87f7c6a68ad1018d2a8b11eacba35a9e1414ade0f8044d40103c0c89e42c7324" => :sierra
+    sha256 "a96990618d70fd944a8b80f61ab73aa4407ef6873bfa3bf9ca4b6bad066a762f" => :el_capitan
+    sha256 "fe7866efb6ec01c4cdd85f0844b38b1218e2807343cc4e885ed21bb4aed624a3" => :yosemite
   end
 
   depends_on "autoconf" => :build

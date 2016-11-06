@@ -1,16 +1,14 @@
 class Libsamplerate < Formula
   desc "Library for sample rate conversion of audio data"
   homepage "http://www.mega-nerd.com/SRC"
-  url "http://www.mega-nerd.com/SRC/libsamplerate-0.1.8.tar.gz"
-  sha256 "93b54bdf46d5e6d2354b7034395fe329c222a966790de34520702bb9642f1c06"
+  url "http://www.mega-nerd.com/SRC/libsamplerate-0.1.9.tar.gz"
+  sha256 "0a7eb168e2f21353fb6d84da152e4512126f7dc48ccb0be80578c565413444c1"
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "a086112bf944bcc1cac7ff3f985076736bb554df50e4d7a25dfef4bdea57207b" => :sierra
-    sha256 "7cdb2a6ae9047052461037e2a48742ca8a0caf72c5bce3eca856bbf24eeffd11" => :el_capitan
-    sha256 "e50d3c4c47d61b844db05e1a37d299dbcaeec4236ebdff53ebd8e4dbedb32c29" => :yosemite
-    sha256 "02bf6dca011543e5f49c42109462a5a94d02e2803f3258c0e38033f2205dcf1a" => :mavericks
+    sha256 "69443b5047dc7e71b74ec29359b1d05e3e6c659751b73a3c2e8e0ad4dd63a6f1" => :sierra
+    sha256 "97e0ba8a07df0684580bfec1a7fc5760d1f90e9102330ced19cdb7c37c4ae0ca" => :el_capitan
+    sha256 "5f3623588a4fb9b2d886547719d0a3b68df725882d329152ee1de7c4841404ed" => :yosemite
   end
 
   depends_on "pkg-config" => :build

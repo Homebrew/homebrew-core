@@ -1,15 +1,15 @@
 class Openvpn < Formula
   desc "SSL VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/index.php/download/community-downloads.html"
-  url "https://swupdate.openvpn.org/community/releases/openvpn-2.3.12.tar.xz"
-  mirror "http://build.openvpn.net/downloads/releases/openvpn-2.3.12.tar.xz"
-  sha256 "13b963414e2430215981868c77b9795d93653ee535a2d73576f7bb2c28200abc"
+  url "https://swupdate.openvpn.org/community/releases/openvpn-2.3.13.tar.xz"
+  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.3.13.tar.xz"
+  sha256 "9cde0c8000fd32d5275adb55f8bb1d8ba429ff3de35f60a36e81f3859b7537e0"
 
   bottle do
     cellar :any
-    sha256 "3b2beb89340c32aa2844fd07141609b8f84476dc61324b3b182bfbfa5546a8e5" => :sierra
-    sha256 "c66732035b0fc481820a38220d5257066f6fdee39aa082dc1c69f220273569c3" => :el_capitan
-    sha256 "f870ffa632cb8e27e96719ab14eece9d5d4bd7363464e599083a30fec2d5810e" => :yosemite
+    sha256 "0fe4812ab0aac4851646ca5d56f99ce278849f0aa4bffd5ce998639c878b6075" => :sierra
+    sha256 "346b5be100c4853471fe7cc675e442f41338ecb71a696bafc662580e8ddef9d4" => :el_capitan
+    sha256 "78babe5014b3a3e027dad33bb49887b6912422c184d8a63be2bdf790d94d6ca5" => :yosemite
   end
 
   # Requires tuntap for < 10.10

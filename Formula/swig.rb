@@ -3,17 +3,24 @@ class Swig < Formula
   homepage "http://www.swig.org/"
   url "https://downloads.sourceforge.net/project/swig/swig/swig-3.0.10/swig-3.0.10.tar.gz"
   sha256 "2939aae39dec06095462f1b95ce1c958ac80d07b926e48871046d17c0094f44c"
+  revision 1
 
   bottle do
-    sha256 "9a5e3c160c2ace68d8c7995744bb8375929f21d30872a5ef24a09cf5474f6cda" => :sierra
-    sha256 "81cc6f9f504d1a3631869e91398c0947c7423c867a3fbfc199dc28e8519b252a" => :el_capitan
-    sha256 "b64748bfaf2d926b07ff5ccda98f4fdec22644f779169a27cee81e1946b803c0" => :yosemite
-    sha256 "46c3ab7d5a99fbffd8ab47d3ea362efd1055b42bca82e1731c383584d51d7783" => :mavericks
+    sha256 "0b5ade8c002e0f28c6e6f2d7643119138a8cc75d1363809f59e042c4fb54c6b7" => :sierra
+    sha256 "26124aad280aadec6e95bb3a797ca48980f2cdf442f712c58bc43d02ae794f0c" => :el_capitan
+    sha256 "8811ab4b431de10f0c061f80d3c549c9b475eb8f273c7c6fd1f71e11f52bfbe8" => :yosemite
   end
 
   option :universal
 
   depends_on "pcre"
+
+  # Remove for > 3.0.10
+  # Upstream fix for build failures caused by generated SWIG code for R
+  patch do
+    url "https://github.com/swig/swig/commit/1fcbf07.patch"
+    sha256 "ceaa4e6c59f6dce2036c35612adfb752dd7957c14d5ecfd91e6b508905944833"
+  end
 
   def install
     ENV.universal_binary if build.universal?

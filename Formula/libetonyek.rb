@@ -3,13 +3,16 @@ class Libetonyek < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libetonyek"
   url "http://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.6.tar.xz"
   sha256 "df54271492070fbcc6aad9f81ca89658b25dd106cc4ab6b04b067b7a43dcc078"
+  revision 1
 
   bottle do
-    sha256 "f464e2657607f9ad9701f12a1aa820fc91d8f1f5c119913b6f0aaf50baf44bf4" => :el_capitan
-    sha256 "b37902dfeed5ef199c969d51aafef47ca88d4a4f63862e10f95aa002ef15427d" => :yosemite
-    sha256 "87b99a5d084d752b4f4d53f63f7bcbdb6908a5b21a37eb021e16f1b5c3b5e4da" => :mavericks
+    sha256 "bd8eebe1f6baa116b62e07120d2721e4b58b07afde240b1715fc7765ac8c9f97" => :sierra
+    sha256 "24dcd3c072de267a0c37b56e09018dce03f2af49577072f27bca7fcb3637c13d" => :el_capitan
+    sha256 "638cac17acdf356dd29a0e9e2d190978c1e92778287aa1f03e7daafdf7eeb83a" => :yosemite
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost" => :build
   depends_on "gnu-sed" => :build
@@ -22,6 +25,13 @@ class Libetonyek < Formula
     sha256 "08e2f64bfe3f750be7391eb0af53967e164b628c59f02be4d83789eb4f036eaa"
   end
 
+  # Remove for > 0.1.6
+  # upstream commit adding support for mdds 1.2 API in configure
+  patch do
+    url "https://github.com/LibreOffice/libetonyek/commit/f6d14b3.patch"
+    sha256 "26022cb803763b83f4458517a63bfc7ad34e7f8cc0ad30175a3da7802263eeb5"
+  end
+
   def install
     resource("liblangtag").stage do
       ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
@@ -32,12 +42,14 @@ class Libetonyek < Formula
 
     ENV["LANGTAG_CFLAGS"] = "-I#{libexec}/include"
     ENV["LANGTAG_LIBS"] = "-L#{libexec}/lib -llangtag -lxml2"
+    system "autoreconf", "-v" # Remove for > 0.1.6
     system "./configure", "--without-docs",
                           "--disable-dependency-tracking",
                           "--enable-static=no",
                           "--disable-werror",
                           "--disable-tests",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-mdds=1.2"
     system "make", "install"
   end
 

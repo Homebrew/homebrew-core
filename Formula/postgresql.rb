@@ -1,16 +1,15 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.5.4/postgresql-9.5.4.tar.bz2"
-  sha256 "cf5e571164ad66028ecd7dd8819e3765470d45bcd440d258b686be7e69c76ed0"
-  revision 1
+  url "https://ftp.postgresql.org/pub/source/v9.5.5/postgresql-9.5.5.tar.bz2"
+  sha256 "02c65290be74de6604c3fed87c9fd3e6b32e949f0ab8105a75bd7ed5aa71f394"
 
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "2c360204c8420cb5d970a7bf453936d7a1163ec061082f14fea1fd7f80422084" => :sierra
-    sha256 "51565747e6ff1c767397a9904e82b6e387cdbb0ce38aea9da7137587710ee76a" => :el_capitan
-    sha256 "3bc3271ca1ec75712eb91797c4a6a702b0a96a911097bd8ca038a29838d396bb" => :yosemite
+    sha256 "339a45ac04bb079550bbca620a6a7d759e27bfa5203e7bb7f2c9f64b7c2edd59" => :sierra
+    sha256 "59fcad611ef8b50e8ac9194a6f1971b8acb3d0f0ed3a47b9af601caa88d89bdd" => :el_capitan
+    sha256 "44556ea4cb27b61cb931c796c8d5e48298a2b1bedd9830f308bf1e8b8c1cdb23" => :yosemite
   end
 
   option "32-bit"

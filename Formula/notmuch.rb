@@ -3,12 +3,13 @@ class Notmuch < Formula
   homepage "https://notmuchmail.org"
   url "https://notmuchmail.org/releases/notmuch-0.23.tar.gz"
   sha256 "c5e75b658ee2b58c5ac7a79e34d2449d37ddfa5c9e67a736454ec296c9a0a1b8"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "614766cbffb67f92020139ac55b6f8a0d091d1b75eab352abad1c32fb743722b" => :sierra
-    sha256 "c9f90b4fd8b51bfa3d4c4e4f6a7ca2c7a0dc1708dd3da1511c77e73a659548aa" => :el_capitan
-    sha256 "301aec29fa59adc8e3be59fdf5fff66a6be2636393284a763fe173ae555ad21e" => :yosemite
+    sha256 "9d7eea0d1726bee4c1db877fe98fa7183568fe9f1262864509eaf355d87ae84c" => :sierra
+    sha256 "0a3d9be8af8ecfb1357b6e63055f61f7e4b2bba40c221be8ba0f5648f9b4e295" => :el_capitan
+    sha256 "36289b9c8994f4487132a397f248fa19acd46d7253f62815d5158da8f56c40f0" => :yosemite
   end
 
   option "without-python", "Build without python support"
