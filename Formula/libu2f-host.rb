@@ -1,8 +1,8 @@
 class Libu2fHost < Formula
   desc "Host-side of the Universal 2nd Factor (U2F) protocol"
   homepage "https://developers.yubico.com/libu2f-host/"
-  url "https://developers.yubico.com/libu2f-host/Releases/libu2f-host-1.0.0.tar.xz"
-  sha256 "18c56b9b5cfea2566925bba45b25a4e20b3ef8696905d8f2a06116316e164374"
+  url "https://developers.yubico.com/libu2f-host/Releases/libu2f-host-1.1.3.tar.xz"
+  sha256 "3e00c1910de64e2c90f20c05bb468b183ffed05e13cb340442d206014752039d"
 
   bottle do
     cellar :any
