@@ -50,7 +50,7 @@ class Libosmium < Formula
     }
     EOS
 
-    system "/usr/bin/clang++", "-std=c++11", "-stdlib=libc++", "-lexpat", "-o", "libosmium_read", "test.cpp"
+    system ENV.cxx, "-std=c++11", "-stdlib=libc++", "-lexpat", "-o", "libosmium_read", "test.cpp"
     system "./libosmium_read", "test.osm"
   end
 end
