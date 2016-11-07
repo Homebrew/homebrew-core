@@ -53,7 +53,7 @@ class Vsftpd < Formula
       `sudo vsftpd`.
       You should be certain that you trust any software you grant root privileges.
 
-      The vsftpd.conf file must be owned by root in order to work correctly:
+      The vsftpd.conf file must be owned by root or vsftpd will refuse to start:
         sudo chown root #{HOMEBREW_PREFIX}/etc/vsftpd.conf
     EOS
     s
