@@ -5,18 +5,34 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  revision 1
+  revision 2
 
   stable do
-    if MacOS.version >= :sierra
-      url "https://git.haskell.org/ghc.git",
-          :branch => "ghc-8.0",
-          :revision => "9448e62740ca03aeb915bf0ecf8b16e54a52798a"
-      version "8.0.1"
+    url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-src.tar.xz"
+    sha256 "90fb20cd8712e3c0fbeb2eac8dab6894404c21569746655b9b12ca9684c7d1d2"
 
+    if MacOS.version >= :sierra
       depends_on "autoconf" => :build
       depends_on "automake" => :build
       depends_on "libtool" => :build
+
+      # fix clock_gettime support on 10.12
+      # https://ghc.haskell.org/trac/ghc/ticket/12195
+      patch do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/9eef461/ghc/clock_gettime.patch"
+        sha256 "42444b381840d9d90202ff619f0070c28a753243af5d7e6b60efd227c6cf308c"
+      end
+
+      # ghc: panic! (the 'impossible' happened)
+      # malformed mach-o: load commands size (x) > 32768
+      # "Add and use a new dynamic-library-dirs field in the ghc-pkg info"
+      # "libraries/Cabal" is not a submodule when building from the tarball, so
+      # the submodule change needed to be removed from ghc/ghc@9448e62 for the
+      # patch to apply successfully.
+      patch do
+        url "https://gist.githubusercontent.com/ilovezfs/c01cedf6dcf03d35d528e3aab244f42e/raw/1be2b95f935429553a132f0dbb7c2c25aea6c871/gistfile1.txt"
+        sha256 "2c1f39f4bb6b06bfe493cc65e22e79916b0de32f99dc0e2481dd8b0f13b3c202"
+      end
 
       resource "cabal" do
         url "https://hackage.haskell.org/package/cabal-install-1.24.0.0/cabal-install-1.24.0.0.tar.gz"
@@ -28,9 +44,12 @@ class Ghc < Formula
         url "https://github.com/haskell/cabal/commit/9441fe.patch"
         sha256 "5506d46507f38c72270efc4bb301a85799a7710804e033eaef7434668a012c5e"
       end
-    else
-      url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-src.tar.xz"
-      sha256 "90fb20cd8712e3c0fbeb2eac8dab6894404c21569746655b9b12ca9684c7d1d2"
+
+      resource "sierra-cabal" do
+        url "https://github.com/haskell/cabal.git",
+            :branch => "1.24",
+            :revision => "51ff8b66468977dcccb81d19ac2d42ee27c9ccd1"
+      end
     end
   end
 
@@ -39,6 +58,25 @@ class Ghc < Formula
     sha256 "117f42decee119a7cf0e820a85c08ad7c2036baa3b8e313c52b16b177f93a54b" => :sierra
     sha256 "6aa8aa15b55b047f3e71b68ae586db1030026f9630bc55602765d400f38dc19e" => :el_capitan
     sha256 "1388a28006fe189d1d00b94b81b5539ad670ebb906c509feb091d76e8a5dcebf" => :yosemite
+  end
+
+  head do
+    url "https://git.haskell.org/ghc.git", :branch => "ghc-8.0"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+
+    resource "cabal" do
+      url "https://hackage.haskell.org/package/cabal-install-1.24.0.0/cabal-install-1.24.0.0.tar.gz"
+      sha256 "d840ecfd0a95a96e956b57fb2f3e9c81d9fc160e1fd0ea350b0d37d169d9e87e"
+    end
+
+    # disables haddock for hackage-security
+    resource "cabal-patch" do
+      url "https://github.com/haskell/cabal/commit/9441fe.patch"
+      sha256 "5506d46507f38c72270efc4bb301a85799a7710804e033eaef7434668a012c5e"
+    end
   end
 
   option "with-test", "Verify the build using the testsuite"
@@ -80,6 +118,11 @@ class Ghc < Formula
   end
 
   def install
+    if MacOS.version >= :sierra && !build.head?
+      rm_rf "libraries/Cabal"
+      (buildpath/"libraries/Cabal").install resource("sierra-cabal")
+    end
+
     # Setting -march=native, which is what --build-from-source does, fails
     # on Skylake (and possibly other architectures as well) with the error
     # "Segmentation fault: 11" for at least the following files:
@@ -144,7 +187,7 @@ class Ghc < Formula
       ENV.prepend_path "PATH", binary/"bin"
     end
 
-    if MacOS.version == :sierra
+    if MacOS.version >= :sierra || build.head?
       resource("cabal").stage do
         Pathname.pwd.install resource("cabal-patch")
         system "patch", "-p2", "-i", "9441fe.patch"
@@ -161,8 +204,12 @@ class Ghc < Formula
 
       inreplace "libraries/filepath/filepath.cabal", "cabal-version:  >=1.10",
                                                      "cabal-version:  >=1.18"
+      inreplace "libraries/Cabal/Cabal/Distribution/Simple/Compiler.hs",
+        "GHC -> compilerVersion comp >= Version [8,0,1,20161021] []",
+        "GHC -> compilerVersion comp >= Version [8,0,0,20161021] []"
       system "./boot"
     end
+
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
 
