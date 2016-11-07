@@ -9,6 +9,7 @@ class Postgrest < Formula
   url "https://github.com/begriffs/postgrest/archive/v0.3.2.0.tar.gz"
   sha256 "1cedceb22f051d4d80a75e4ac7a875164e3ee15bd6f6edc68dfca7c9265a2481"
   head "https://github.com/begriffs/postgrest.git"
+  revision 1
 
   bottle do
     sha256 "889e4eba9ec555d6304765feb5e25cd46d55806a323e237f4fba708a55af8dad" => :sierra

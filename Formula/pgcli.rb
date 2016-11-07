@@ -3,6 +3,7 @@ class Pgcli < Formula
   homepage "http://pgcli.com/"
   url "https://files.pythonhosted.org/packages/c3/24/91f4b4c6bce71c92187aa3919ef42028f4af3b4f1485769709d37237384a/pgcli-1.1.0.tar.gz"
   sha256 "d4a2491b0fad140d4fdf63928224f7bc1a84f6fda99a791b05ecca2752b44d5a"
+  revision 1
 
   bottle do
     cellar :any
