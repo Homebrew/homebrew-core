@@ -4,6 +4,13 @@ class Libosmium < Formula
   url "https://github.com/osmcode/libosmium/archive/v2.9.0.tar.gz"
   sha256 "d4312c0cd9cca41fbf2927aee67cbb95d566540a76bb01fc643e8ba76db13419"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "f0d84143bf348a2c18b0ca01772b209a4d4dc78889ff262a41dcf1493d8ebb3f" => :sierra
+    sha256 "f0d84143bf348a2c18b0ca01772b209a4d4dc78889ff262a41dcf1493d8ebb3f" => :el_capitan
+    sha256 "f0d84143bf348a2c18b0ca01772b209a4d4dc78889ff262a41dcf1493d8ebb3f" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "boost" => :build
   depends_on "google-sparsehash" => :optional
