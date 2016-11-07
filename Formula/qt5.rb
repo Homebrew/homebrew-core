@@ -121,7 +121,6 @@ class Qt5 < Formula
       -qt-pcre
       -nomake tests
       -no-rpath
-      -system-proxies
     ]
 
     args << "-nomake" << "examples" if build.without? "examples"
