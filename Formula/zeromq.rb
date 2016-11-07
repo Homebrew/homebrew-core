@@ -1,8 +1,8 @@
 class Zeromq < Formula
   desc "High-performance, asynchronous messaging library"
   homepage "http://www.zeromq.org/"
-  url "https://github.com/zeromq/zeromq4-1/releases/download/v4.1.6/zeromq-4.1.6.tar.gz"
-  sha256 "02ebf60a43011e770799336365bcbce2eb85569e9b5f52aa0d8cc04672438a0a"
+  url "https://github.com/zeromq/libzmq/releases/download/v4.2.0/zeromq-4.2.0.tar.gz"
+  sha256 "53b83bf0ee978931f76fa9cb46ad4affea65787264a5f3d140bc743412d0c117"
 
   bottle do
     cellar :any
@@ -22,6 +22,7 @@ class Zeromq < Formula
   option :universal
   option "with-libpgm", "Build with PGM extension"
   option "with-norm", "Build with NORM extension"
+  option "with-drafts", "Build and install draft classes and methods"
 
   deprecated_option "with-pgm" => "with-libpgm"
 
@@ -48,6 +49,8 @@ class Zeromq < Formula
     end
 
     args << "--with-norm" if build.with? "norm"
+
+    args << "--enable-drafts" if build.with?("drafts") || build.head?
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
