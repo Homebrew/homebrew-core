@@ -1,8 +1,8 @@
 class Xcproj < Formula
   desc "Manipulate Xcode project files"
   homepage "https://github.com/0xced/xcproj"
-  url "https://github.com/0xced/xcproj/archive/0.1.2.tar.gz"
-  sha256 "5281fbe618eb406cc012f1fb2996662c2a7919400c1eb6fdd03f4e85f2da0bfb"
+  url "https://github.com/0xced/xcproj/archive/0.2.1.tar.gz"
+  sha256 "8c31f85d57945cd5bb306d7a0ff7912f2a0d53fa3c888657e0a69ca5d27348cb"
 
   head "https://github.com/0xced/xcproj.git"
 
