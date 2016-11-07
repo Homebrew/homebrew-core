@@ -1,9 +1,8 @@
 class Czmq < Formula
   desc "High-level C binding for ZeroMQ"
   homepage "http://czmq.zeromq.org/"
-  url "https://github.com/zeromq/czmq/releases/download/v3.0.2/czmq-3.0.2.tar.gz"
-  sha256 "8bca39ab69375fa4e981daf87b3feae85384d5b40cef6adbe9d5eb063357699a"
-  revision 3
+  url "https://github.com/zeromq/czmq/releases/download/v4.0.1/czmq-4.0.1.tar.gz"
+  sha256 "0fc7294d983df7c2d6dc9b28ad7cd970377d25b33103aa82932bdb7fa6207215"
 
   bottle do
     cellar :any
@@ -22,6 +21,7 @@ class Czmq < Formula
   end
 
   option :universal
+  option "with-drafts", "Build and install draft classes and methods"
 
   depends_on "pkg-config" => :build
   depends_on "libsodium" => :recommended
@@ -39,6 +39,7 @@ class Czmq < Formula
 
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
     args << "--with-libsodium" if build.with? "libsodium"
+    args << "--enable-drafts" if build.with?("drafts") || build.head?
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
