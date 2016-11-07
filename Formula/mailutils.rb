@@ -1,10 +1,9 @@
 class Mailutils < Formula
   desc "Swiss Army knife of email handling"
   homepage "http://mailutils.org/"
-  url "https://ftpmirror.gnu.org/mailutils/mailutils-2.2.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/mailutils/mailutils-2.2.tar.gz"
-  sha256 "97591debcd32ac1f4c4d16eaa8f21690d9dfefcb79e29bd293871d57c4a5e05d"
-  revision 2
+  url "https://ftpmirror.gnu.org/mailutils/mailutils-3.0.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/mailutils/mailutils-3.0.tar.gz"
+  sha256 "41e5a1e9b1da1efd184b4cb3ed8e88bb3013ff09f9774b15a65253ff31db2f9f"
 
   bottle do
     sha256 "bdc449caa3a5fc24e634838c04580c91534f5e33513c390d2d0f1005492ecb29" => :sierra
@@ -15,6 +14,9 @@ class Mailutils < Formula
 
   depends_on "gnutls"
   depends_on "gsasl"
+  depends_on "readline"
+
+  patch :DATA
 
   def install
     # Python breaks the build (2014-05-01)
@@ -22,10 +24,24 @@ class Mailutils < Formula
     system "./configure", "--without-python",
                           "--disable-mh",
                           "--prefix=#{prefix}"
-    system "make", "install"
+    system "make", "PYTHON_LIBS=-undefined dynamic_lookup", "install"
   end
 
   test do
     system "#{bin}/movemail", "--version"
   end
 end
+
+__END__
+diff --git a/libmailutils/sockaddr/str.c b/libmailutils/sockaddr/str.c
+index e5bd5a1..6de2647 100644
+--- a/libmailutils/sockaddr/str.c
++++ b/libmailutils/sockaddr/str.c
+@@ -25,6 +25,7 @@
+ #include <netinet/in.h>
+ #include <arpa/inet.h>
+ #include <netdb.h>
++#include <stdlib.h>
+
+ #include <mailutils/sockaddr.h>
+ #include <mailutils/errno.h>
