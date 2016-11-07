@@ -11,9 +11,9 @@ class GitAnnex < Formula
 
   bottle do
     cellar :any
-    sha256 "b9b8316e71a30188cd111c51409aebe5575423e88601cd449b5e34a729a12d8f" => :sierra
-    sha256 "b9b8316e71a30188cd111c51409aebe5575423e88601cd449b5e34a729a12d8f" => :el_capitan
-    sha256 "74cf22ed91b04871ff50dceb3f66a8089f8031539071c76e521705cf36b34f0e" => :yosemite
+    sha256 "41ab6ffd018dfe8131f42d61371976513e24c693bbbfc3b8894e85d64249aa3f" => :sierra
+    sha256 "2c6dca921b7bff703bfc6d69a7243e0876546ff5370e96f6033e8c975e823f7c" => :el_capitan
+    sha256 "ce262acdd5022c039973e50c2f79252cbe6ad7f2e0368686cf113a4784187266" => :yosemite
   end
 
   option "with-git-union-merge", "Build the git-union-merge tool"
