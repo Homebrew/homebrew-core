@@ -73,6 +73,7 @@ class Qt5 < Formula
   option "with-oci", "Build with Oracle OCI plugin"
   option "with-qtwebkit", "Build with QtWebkit module"
   option "without-webengine", "Build without QtWebEngine module"
+  option "with-openssl", "Build with OpenSSL"
 
   deprecated_option "qtdbus" => "with-dbus"
   deprecated_option "with-d-bus" => "with-dbus"
@@ -86,6 +87,7 @@ class Qt5 < Formula
   depends_on :mysql => :optional
   depends_on :postgresql => :optional
   depends_on :xcode => :build
+  depends_on "openssl" if build.with?("openssl") || build.with?("postgresql") || build.with?("mysql")
 
   depends_on OracleHomeVarRequirement if build.with? "oci"
 
@@ -125,8 +127,18 @@ class Qt5 < Formula
 
     args << "-nomake" << "examples" if build.without? "examples"
 
-    args << "-plugin-sql-mysql" if build.with? "mysql"
     args << "-plugin-sql-psql" if build.with? "postgresql"
+    if build.with? "mysql"
+      args << "-plugin-sql-mysql"
+      inreplace "qtbase/configure", /(QT_LFLAGS_MYSQL_R|QT_LFLAGS_MYSQL)=\`(.*)\`/, "\\1=\`\\2 | sed \"s/-lssl -lcrypto//\"\`"
+    end
+
+    if build.with? "openssl"
+      args << "-openssl-linked" << "-no-securetransport"
+      openssl_opt = Formula["openssl"].opt_prefix
+      args << "-I#{openssl_opt}/include"
+      ENV["OPENSSL_LIBS"] = "-L#{openssl_opt}/lib -lssl -lcrypto"
+    end
 
     if build.with? "dbus"
       dbus_opt = Formula["dbus"].opt_prefix
