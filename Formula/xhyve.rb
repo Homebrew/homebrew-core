@@ -19,6 +19,9 @@ class Xhyve < Formula
     args << "GIT_VERSION=#{version}" if build.stable?
     system "make", *args
     bin.install "build/xhyve"
+    pkgshare.install "test/"
+    pkgshare.install "xhyverun.sh"
+    man1.install "xhyve.1" if build.head?
   end
 
   test do
