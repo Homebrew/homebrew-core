@@ -1,6 +1,6 @@
 require "language/node"
 
-class CoffeeScript < Formula
+class Coffeescript < Formula
   desc "Unfancy JavaScript"
   homepage "http://coffeescript.org"
   url "https://registry.npmjs.org/coffee-script/-/coffee-script-1.11.1.tgz"
