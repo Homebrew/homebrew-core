@@ -2,8 +2,8 @@ class DockerMachineDriverXhyve < Formula
   desc "Docker Machine driver for xhyve"
   homepage "https://github.com/zchee/docker-machine-driver-xhyve"
   url "https://github.com/zchee/docker-machine-driver-xhyve.git",
-    :tag => "v0.2.3",
-    :revision => "45426155af2998e9cf8a5eca12158fcf4d1acfd3"
+    :tag => "v0.3.0",
+    :revision => "b74c23dc15666ad6d5ccdd207b87a6c44bdd584d"
 
   head "https://github.com/zchee/docker-machine-driver-xhyve.git"
 
@@ -14,29 +14,47 @@ class DockerMachineDriverXhyve < Formula
     sha256 "dd8efbfed1d526d159355ed06273540c4e4db0ce3e683e475b7985efaf3e5084" => :yosemite
   end
 
+  option "without-qcow2", "Do not support qcow2 disk image format"
+
   depends_on :macos => :yosemite
   depends_on "go" => :build
   depends_on "docker-machine" => :recommended
+  if build.with? "qcow2"
+    depends_on "opam"
+    depends_on "libev"
+  end
 
   def install
     (buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve").install Dir["{*,.git,.gitignore,.gitmodules}"]
 
     ENV["GOPATH"] = "#{buildpath}/gopath"
     build_root = buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve"
+    build_tags = "lib9p"
+
     cd build_root do
+      git_hash = `git rev-parse --short HEAD --quiet`.chomp
       if build.head?
-        git_hash = `git rev-parse --short HEAD --quiet`.chomp
         git_hash = "HEAD-#{git_hash}"
       end
-      ENV["CGO_LDFLAGS"] = "#{build_root}/vendor/build/lib9p/lib9p.a -L#{build_root}/vendor/lib9p"
-      ENV["CGO_CFLAGS"] = "-I#{build_root}/vendor/lib9p"
+
+      if build.with? "qcow2"
+        build_tags << " qcow2"
+        system "opam", "init", "--no-setup"
+        opam_dir = "#{buildpath}/.brew_home/.opam"
+        ENV["CAML_LD_LIBRARY_PATH"] = "#{opam_dir}/system/lib/stublibs:/usr/local/lib/ocaml/stublibs"
+        ENV["OPAMUTF8MSGS"] = "1"
+        ENV["PERL5LIB"] = "#{opam_dir}/system/lib/perl5"
+        ENV["OCAML_TOPLEVEL_PATH"] = "#{opam_dir}/system/lib/toplevel"
+        ENV.prepend_path "PATH", "#{opam_dir}/system/bin"
+        system "opam", "install", "-y", "uri", "qcow-format", "conf-libev"
+      end
+
+      go_ldflags = "-w -s -X 'github.com/zchee/docker-machine-driver-xhyve/xhyve.GitCommit=Homebrew#{git_hash}'"
+      ENV["GO_LDFLAGS"] = go_ldflags
+      ENV["GO_BUILD_TAGS"] = build_tags
       system "make", "lib9p"
-      system "go", "build", "-tags", "lib9p", "-x", "-o", bin/"docker-machine-driver-xhyve",
-      "-ldflags",
-      "'-w -s'",
-      "-ldflags",
-      "-X 'github.com/zchee/docker-machine-driver-xhyve/xhyve.GitCommit=Homebrew#{git_hash}'",
-      "./main.go"
+      system "make", "build"
+      bin.install "bin/docker-machine-driver-xhyve"
     end
   end
 
