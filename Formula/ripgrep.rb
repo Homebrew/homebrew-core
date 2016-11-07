@@ -7,9 +7,9 @@ class Ripgrep < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2e81abf5a9b425f9bac0be397cf8f661f6e5185b5118c7ddadea229c8ed1e179" => :sierra
-    sha256 "21ef587ff3f4b78c3a40c5debb4f473a0795626cf1d1a9fbb942dd4b88bc7acc" => :el_capitan
-    sha256 "f119ee70f91ed8edfa4ebf22fcd819083905a89114050f1f0ba8840c07e399a4" => :yosemite
+    sha256 "d6520d3c3105bcb3bdc095ac9d0ebff5769fed9b4d9f288d003c1378e3b9c518" => :sierra
+    sha256 "bbda30924d09ae3b9c9cdd3fb49ad4b9e5b7f2daa67b7b9af7acb7cd0a579be1" => :el_capitan
+    sha256 "76ae673cd5d24e9ae3a4c0c4e7c8468a85680f02dd25c8b9b43c15f694ad819c" => :yosemite
   end
 
   depends_on "rust" => :build
