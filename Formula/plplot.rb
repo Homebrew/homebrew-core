@@ -14,6 +14,7 @@ class Plplot < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "cairo"
   depends_on "pango"
   depends_on "freetype"
   depends_on "libtool" => :run
