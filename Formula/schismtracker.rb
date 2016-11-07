@@ -1,8 +1,8 @@
 class Schismtracker < Formula
   desc "Portable reimplementation of Impulse Tracker"
   homepage "http://schismtracker.org/"
-  url "https://bitbucket.org/Storlek/schismtracker/get/20120105.tar.bz2"
-  sha256 "736163682c476c2f1afca9b3ebf2a1f5d1a0420dc2da12f2d8cfe6d1b3de379b"
+  url "https://github.com/schismtracker/schismtracker/archive/20160913.tar.gz"
+  sha256 "3c2fcea458ba7b41bcc63ee786c7eef0bfe8775639a3db8fab863e12f10888e9"
   head "https://bitbucket.org/Storlek/schismtracker", :using => :hg
 
   bottle do
