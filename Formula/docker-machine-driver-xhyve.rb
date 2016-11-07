@@ -8,10 +8,9 @@ class DockerMachineDriverXhyve < Formula
   head "https://github.com/zchee/docker-machine-driver-xhyve.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f39a05dcffec9b4c0432b80ed257af219fc2170729d263d7e4896f588dfc7d6b" => :sierra
-    sha256 "0c9254d6b999a82bd47939f72d4f270b934971351c8bf745a4e12b6900108c1d" => :el_capitan
-    sha256 "dd8efbfed1d526d159355ed06273540c4e4db0ce3e683e475b7985efaf3e5084" => :yosemite
+    sha256 "f650f9a530c52b62d6aeaeca51453f2488155f9c3b9e7ee6fec8f1006f4bad3b" => :sierra
+    sha256 "4425bd727de66f57cc15f4c14d10cf764a1e968ac19022ead3f5144b3d859934" => :el_capitan
+    sha256 "6042fe21e3e6e6feb46273796d5cbe9ba307ea73e3e6c40135f23e5e820f411d" => :yosemite
   end
 
   option "without-qcow2", "Do not support qcow2 disk image format"
