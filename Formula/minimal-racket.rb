@@ -24,6 +24,8 @@ class MinimalRacket < Formula
         --prefix=#{prefix}
         --man=#{man}
         --sysconfdir=#{etc}
+        CFLAGS=-D__CUDACC__
+        CPPFLAGS=-D__CUDACC__
       ]
 
       args << "--disable-mac64" unless MacOS.prefer_64_bit?
