@@ -7,10 +7,9 @@ class Scala < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "39b0710925d388a1a5f61453702c8d4816525c21a7369b120f46c72decf0eeed" => :sierra
-    sha256 "05a10bbcce35c526dba3b475bc53ad076b7b1bb5088751eec7a962f718274308" => :el_capitan
-    sha256 "2da6cd4894a9291c2fb0a341cc84f96522291d76644e35c9f00cf710eb6cb417" => :yosemite
-    sha256 "ddd6e527a6e93c326d761c61d9811648c1eba82044ef24ded32837fa37581c16" => :mavericks
+    sha256 "9819768b2b29daaea197e67cb858e166e93bf325f145d38a450352ade9a247eb" => :sierra
+    sha256 "9819768b2b29daaea197e67cb858e166e93bf325f145d38a450352ade9a247eb" => :el_capitan
+    sha256 "9819768b2b29daaea197e67cb858e166e93bf325f145d38a450352ade9a247eb" => :yosemite
   end
 
   option "with-docs", "Also install library documentation"
