@@ -5,6 +5,7 @@ class Fdroidserver < Formula
   homepage "https://f-droid.org"
   url "https://files.pythonhosted.org/packages/18/6c/6fe6f718073024e23fb0bfaff8d0a6db596adc7d29f259edd325e93bd33c/fdroidserver-0.7.0.tar.gz"
   sha256 "3de76a02d17260a5fd65b089ceaabcc578e238ffe71f205a8f6f37e705648d6e"
+  revision 1
 
   bottle do
     sha256 "865ed32e2e747ff0a072aea1b81dcf4bea48f3b9c9e366cb4d755365175a8fb9" => :sierra
@@ -15,7 +16,7 @@ class Fdroidserver < Formula
   depends_on :python3
   depends_on "freetype"
   depends_on "jpeg"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "android-sdk" => :recommended
 
   resource "apache-libcloud" do
@@ -39,8 +40,8 @@ class Fdroidserver < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/03/1a/60984cb85cc38c4ebdfca27b32a6df6f1914959d8790f5a349608c78be61/cryptography-1.5.2.tar.gz"
-    sha256 "eb8875736734e8e870b09be43b17f40472dc189b1c422a952fa8580768204832"
+    url "https://files.pythonhosted.org/packages/6c/c5/7fc1f8384443abd2d71631ead026eb59863a58cad0149b94b89f08c8002f/cryptography-1.5.3.tar.gz"
+    sha256 "cf82ddac919b587f5e44247579b433224cc2e03332d2ea4d89aa70d7e6b64ae5"
   end
 
   resource "gitdb2" do
@@ -58,9 +59,19 @@ class Fdroidserver < Formula
     sha256 "ed36f281aebf3cd0797f163bb165d84c31507cedd15928b095b1675e2d04c676"
   end
 
+  resource "ipaddress" do
+    url "https://files.pythonhosted.org/packages/bb/26/3b64955ff73f9e3155079b9ed31812afdfa5333b5c76387454d651ef593a/ipaddress-1.0.17.tar.gz"
+    sha256 "3a21c5a15f433710aaa26f1ae174b615973a25182006ae7f9c26de151cd51716"
+  end
+
   resource "mwclient" do
     url "https://files.pythonhosted.org/packages/39/61/f743f760a720c4fd303192d12c3c8bd902543e7749a9efb1ba44b4ab0ead/mwclient-0.8.2.tar.gz"
     sha256 "e16fa5bc4fd1a2acfc5cc3897e7132500917198bd17350b543893c17abe2cbb6"
+  end
+
+  resource "ndg-httpsclient" do
+    url "https://files.pythonhosted.org/packages/a2/a7/ad1c1c48e35dc7545dab1a9c5513f49d5fa3b5015627200d2be27576c2a0/ndg_httpsclient-0.4.2.tar.gz"
+    sha256 "580987ef194334c50389e0d7de885fccf15605c13c6eecaabd8d6c43768eb8ac"
   end
 
   resource "oauthlib" do
@@ -96,6 +107,11 @@ class Fdroidserver < Formula
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
     sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+  end
+
+  resource "pyOpenSSL" do
+    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
+    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
   end
 
   resource "requests" do
