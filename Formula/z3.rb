@@ -1,8 +1,8 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
-  url "https://github.com/Z3Prover/z3/archive/z3-4.4.1.tar.gz"
-  sha256 "50967cca12c5c6e1612d0ccf8b6ebf5f99840a783d6cf5216336a2b59c37c0ce"
+  url "https://github.com/Z3Prover/z3/archive/z3-4.5.0.tar.gz"
+  sha256 "aeae1d239c5e06ac183be7dd853775b84698db1265cb2258e5918a28372d4a0c"
   head "https://github.com/Z3Prover/z3.git"
 
   bottle do
@@ -23,17 +23,8 @@ class Z3 < Formula
       odie "z3: --with-python3 must be specified when using --without-python"
     end
 
-    # This `inreplace` can be removed on next stable release.
-    inreplace "scripts/mk_util.py", "dist-packages", "site-packages" if build.stable?
-
     Language::Python.each_python(build) do |python, version|
-      # On next stable release remove the `if` condition and use
-      # the first statement in the condition below.
-      if build.head?
-        system python, "scripts/mk_make.py", "--prefix=#{prefix}", "--python", "--pypkgdir=#{lib}/python#{version}/site-packages", "--staticlib"
-      else
-        system python, "scripts/mk_make.py", "--prefix=#{prefix}", "--staticlib"
-      end
+      system python, "scripts/mk_make.py", "--prefix=#{prefix}", "--python", "--pypkgdir=#{lib}/python#{version}/site-packages", "--staticlib"
       cd "build" do
         system "make"
         system "make", "install"
