@@ -16,28 +16,27 @@ class Osmosis < Formula
 
   test do
     path = testpath/"test.osm"
-    path.write <<-EOS
-<?xml version="1.0" encoding="UTF-8"?>
-<osm version="0.6" generator="CGImap 0.5.8 (30532 thorn-05.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
-<bounds minlat="49.9363700" minlon="8.9159400" maxlat="49.9371300" maxlon="8.9173800"/>
-<node id="4140986569" visible="true" version="1" changeset="38789367" timestamp="2016-04-22T15:17:02Z" user="KartoGrapHiti" uid="57645" lat="49.9369693" lon="8.9163279">
-  <tag k="bench" v="yes"/>
-  <tag k="bin" v="yes"/>
-  <tag k="bus" v="yes"/>
-  <tag k="highway" v="bus_stop"/>
-  <tag k="name" v="Bahnhof"/>
-  <tag k="network" v="RMV"/>
-  <tag k="public_transport" v="platform"/>
-  <tag k="shelter" v="yes"/>
-  <tag k="tactile_paving" v="no"/>
-  <tag k="wheelchair" v="no"/>
-  <tag k="wheelchair:description" v="Kein Kasseler Bord"/>
-</node>
-</osm>
+    path.write <<-EOS.undent
+      <?xml version="1.0" encoding="UTF-8"?>
+      <osm version="0.6" generator="CGImap 0.5.8 (30532 thorn-05.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+      <bounds minlat="49.9363700" minlon="8.9159400" maxlat="49.9371300" maxlon="8.9173800"/>
+      <node id="4140986569" visible="true" version="1" changeset="38789367" timestamp="2016-04-22T15:17:02Z" user="KartoGrapHiti" uid="57645" lat="49.9369693" lon="8.9163279">
+        <tag k="bench" v="yes"/>
+        <tag k="bin" v="yes"/>
+        <tag k="bus" v="yes"/>
+        <tag k="highway" v="bus_stop"/>
+        <tag k="name" v="Bahnhof"/>
+        <tag k="network" v="RMV"/>
+        <tag k="public_transport" v="platform"/>
+        <tag k="shelter" v="yes"/>
+        <tag k="tactile_paving" v="no"/>
+        <tag k="wheelchair" v="no"/>
+        <tag k="wheelchair:description" v="Kein Kasseler Bord"/>
+      </node>
+      </osm>
     EOS
 
-    `#{bin}/osmosis --read-xml file="#{path}" --write-null`
-    assert_equal 0, $?.exitstatus
+    system("#{bin}/osmosis", "--read-xml", "file=#{path}", "--write-null")
   end
 end
 
