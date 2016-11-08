@@ -5,6 +5,7 @@ class Buku < Formula
   homepage "https://github.com/jarun/Buku"
   url "https://github.com/jarun/Buku/archive/v2.6.tar.gz"
   sha256 "ac83a2d104ca632352262613fa92a6293a84e31b00dab24fa90448e71ec6106e"
+  revision 1
 
   bottle do
     sha256 "2d809aacbebaa95f81bbd2a58efab7cb92471bfaa81762b25ebf4b83e99594f9" => :sierra
@@ -13,7 +14,7 @@ class Buku < Formula
   end
 
   depends_on :python3
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # beautifulsoup4
 
@@ -30,8 +31,8 @@ class Buku < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/03/1a/60984cb85cc38c4ebdfca27b32a6df6f1914959d8790f5a349608c78be61/cryptography-1.5.2.tar.gz"
-    sha256 "eb8875736734e8e870b09be43b17f40472dc189b1c422a952fa8580768204832"
+    url "https://files.pythonhosted.org/packages/6c/c5/7fc1f8384443abd2d71631ead026eb59863a58cad0149b94b89f08c8002f/cryptography-1.5.3.tar.gz"
+    sha256 "cf82ddac919b587f5e44247579b433224cc2e03332d2ea4d89aa70d7e6b64ae5"
   end
 
   resource "idna" do
