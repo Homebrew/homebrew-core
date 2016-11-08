@@ -3,6 +3,7 @@ class Liblastfm < Formula
   homepage "https://github.com/lastfm/liblastfm/"
   url "https://github.com/lastfm/liblastfm/archive/1.0.9.tar.gz"
   sha256 "5276b5fe00932479ce6fe370ba3213f3ab842d70a7d55e4bead6e26738425f7b"
+  revision 1
 
   bottle do
     sha256 "08c012245f390b452719170d2df7d986854b6ff4de0b40a3fa332f7ffc1c4dc3" => :el_capitan
@@ -13,7 +14,7 @@ class Liblastfm < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "qt"
+  depends_on "qt5"
   depends_on "fftw"
   depends_on "libsamplerate"
 
@@ -21,6 +22,15 @@ class Liblastfm < Formula
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
+      cd "tests" do
+        system "make"
+      end
+      share.install "tests"
     end
+  end
+
+  test do
+    cp_r "#{share}/tests/.", testpath
+    system "./TrackTest"
   end
 end
