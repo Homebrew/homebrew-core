@@ -22,6 +22,13 @@ class Qt5 < Formula
     mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.xz"
     sha256 "a6a2632de7e44bbb790bc3b563f143702c610464a7f537d02036749041fd1800"
 
+    # Upstream commit from 13 Sep 2016 "Fix crash on exit when using default property aliases with layouts"
+    # http://code.qt.io/cgit/qt/qtdeclarative.git/patch/?id=5149aa68eca6ede8836ec4f07a14d22d9da9b161
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/3b71525/qt5/QTBUG-51927.patch"
+      sha256 "9460c3cc5ea0f530f24cb92fc9b260a2a7b01ccbdcd0b86e3ddae719a8b53eae"
+    end
+
     # Upstream commit from 7 Jul 2016 "configure and mkspecs: Don't try to find xcrun with xcrun"
     # https://code.qt.io/cgit/qt/qtbase.git/patch/configure?id=77a71c32c9d19b87f79b208929e71282e8d8b5d9
     patch do
