@@ -6,6 +6,7 @@ class Certbot < Formula
   url "https://github.com/certbot/certbot/archive/v0.9.3.tar.gz"
   sha256 "5c40cfcf3a17624e34dcb733148bd247c4f0cee189766fe0fb6d29571d4068bb"
   head "https://github.com/certbot/certbot.git"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,8 +17,13 @@ class Certbot < Formula
 
   depends_on "augeas"
   depends_on "dialog"
-  depends_on "openssl"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "openssl@1.1"
+  depends_on :python
+
+  resource "acme" do
+    url "https://files.pythonhosted.org/packages/d4/ae/f5fb9f5f50121aad2fe43c5d8e9fe9c90701a1bf51893df89d045476647b/acme-0.9.3.tar.gz"
+    sha256 "a6eff1f955eb2e4316abd9aa2fedb6d9345e6b5b8a2d64ea0ad35e05d6124099"
+  end
 
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/0a/f3/686af8873b70028fccf67b15c78fd4e4667a3da995007afc71e786d61b0a/cffi-1.8.3.tar.gz"
@@ -35,8 +41,8 @@ class Certbot < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/03/1a/60984cb85cc38c4ebdfca27b32a6df6f1914959d8790f5a349608c78be61/cryptography-1.5.2.tar.gz"
-    sha256 "eb8875736734e8e870b09be43b17f40472dc189b1c422a952fa8580768204832"
+    url "https://files.pythonhosted.org/packages/6c/c5/7fc1f8384443abd2d71631ead026eb59863a58cad0149b94b89f08c8002f/cryptography-1.5.3.tar.gz"
+    sha256 "cf82ddac919b587f5e44247579b433224cc2e03332d2ea4d89aa70d7e6b64ae5"
   end
 
   resource "enum34" do
@@ -85,13 +91,13 @@ class Certbot < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/6d/31/666614af3db0acf377876d48688c5d334b6e493b96d21aa7d332169bee50/pycparser-2.14.tar.gz"
-    sha256 "7959b4a74abdc27b312fed1c21e6caf9309ce0b29ea86b591fd2e99ecdf27f73"
+    url "https://files.pythonhosted.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
+    sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/15/1e/79c75db50e57350a7cefb70b110255757e9abd380a50ebdc0cfd853b7450/pyOpenSSL-16.1.0.tar.gz"
-    sha256 "88f7ada2a71daf2c78a4f139b19d57551b4c8be01f53a1cb5c86c2f3bf01355f"
+    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
+    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
   end
 
   resource "pyRFC3339" do
@@ -147,13 +153,11 @@ class Certbot < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources
 
     # Shipped with certbot, not external resources.
     %w[acme certbot-apache certbot-nginx].each do |r|
-      cd r do
-        system "python", *Language::Python.setup_install_args(libexec)
-      end
+      venv.pip_install buildpath/r
     end
 
     pkgshare.install "examples"
