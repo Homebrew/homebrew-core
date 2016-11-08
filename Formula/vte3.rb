@@ -5,9 +5,9 @@ class Vte3 < Formula
   sha256 "8800cf8bc259704a12ad1853fb0eb43bfe3857af15242e6fb9f2c3fd95b3f5c6"
 
   bottle do
-    sha256 "85a119c7084f70fc9900eb4d8f029567287a987eb6112ef9decdd8d37cb6bc9b" => :sierra
-    sha256 "c526c39532cbb54f8b908bc993b44ee4a40ebae954343f3f5ebc1fb506285b2b" => :el_capitan
-    sha256 "82aeb5c9667afdda4b52471f9933d887c4f0726f82729f09fd51f20d069773a0" => :yosemite
+    sha256 "efd593cd289add64c32256000ea483e524781d4b83b1e62cfec558142eafd6aa" => :sierra
+    sha256 "a7fe72a168ede3fd42dd2022fff43bcd0554f71c213659cd1a84c328b1b40562" => :el_capitan
+    sha256 "03b95d3ae33d1e7a8d982877b9a8f73878d15aac4e7261bd4dd283b0bc67c40b" => :yosemite
   end
 
   depends_on "pkg-config" => :build
