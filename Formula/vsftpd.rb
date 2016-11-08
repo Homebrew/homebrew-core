@@ -6,12 +6,10 @@ class Vsftpd < Formula
   sha256 "9d4d2bf6e6e2884852ba4e69e157a2cecd68c5a7635d66a3a8cf8d898c955ef7"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "7d98e1f2c4526539ec13519876f6c726e66b8093f3d1290325bb1c0762e70959" => :sierra
-    sha256 "3227e7afcd2af84901a16d675bd1a7566002c4eacffa2313d89fbc3b7e594f76" => :el_capitan
-    sha256 "aba9772d903374b3d3de5ce8c96a5f02badbc7676735c5ee42571ad0170dbb7f" => :yosemite
-    sha256 "3bd82ae896d375342b6444f3c6be2eb5987df5da5084ee3c5f8dc073e001a5c2" => :mavericks
+    rebuild 2
+    sha256 "22349437bd4d75b1ffd2fddfd90f92367e0a4f478f540b9086457541883f2c3b" => :sierra
+    sha256 "108243559f3fea06d140173a3e3cb497c2f22c47d45e85ae108c088c1a1370df" => :el_capitan
+    sha256 "25a9d2e92ca7e3efda6c9882a62ad5927c0c5e450eca4d62d7829c467dd086d9" => :yosemite
   end
 
   depends_on "openssl" => :optional
