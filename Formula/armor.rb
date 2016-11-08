@@ -7,9 +7,9 @@ class Armor < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ee58cfabc7869cd8b954727caa07af5b20bdcf704696ade0dfd9f55b6c5f7c2d" => :sierra
-    sha256 "73aebc10f6bf8bd3a2e310738d27844147fd34ed7b37a6477315f2a357a1f1ca" => :el_capitan
-    sha256 "f2c4b6df5818a294463fa887777ca1b4ce8a1a4995bdebaa65863d75948dd642" => :yosemite
+    sha256 "0820a95564db9e7f69c83768e6de99423aa89d3061e63edc63fb502222ddc307" => :sierra
+    sha256 "0b227823fa6750f709f53f5bf56cf8d078cea5b80216e3738df2aa549ebde6bd" => :el_capitan
+    sha256 "706e8631b5cb789555299b1ffce33be822f4def40716bb8a8120646ad31d0810" => :yosemite
   end
 
   depends_on "go" => :build
