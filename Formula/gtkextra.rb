@@ -1,9 +1,8 @@
 class Gtkextra < Formula
   desc "Widgets for creating GUIs for GTK+"
   homepage "http://gtkextra.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/gtkextra/3.3/gtkextra-3.3.2.tar.gz"
-  sha256 "3388692306b1afc79f17f5472a194c607fa67d5a38f1b4e79eda27a27f54f1a4"
-  revision 1
+  url "https://downloads.sourceforge.net/project/gtkextra/3.3/gtkextra-3.3.3.tar.gz"
+  sha256 "7889f958ee9fb6bd564aa941891909c3af7a03b92e232c5a90bab0289407d884"
 
   bottle do
     cellar :any
