@@ -1,8 +1,8 @@
 class Wdc < Formula
   desc "WebDAV Client provides easy and convenient to work with WebDAV-servers."
   homepage "https://designerror.github.io/webdav-client-cpp"
-  url "https://github.com/designerror/webdav-client-cpp/archive/v1.0.0.tar.gz"
-  sha256 "649a75a7fe3219dff014bf8d98f593f18d3c17b638753aa78741ee493519413d"
+  url "https://github.com/designerror/webdav-client-cpp/archive/v1.0.1.tar.gz"
+  sha256 "64b01de188032cb9e09f5060965bd90ed264e7c0b4ceb62bfc036d0caec9fd82"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,21 +18,6 @@ class Wdc < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
-    (lib+"pkgconfig/libwebdavclient.pc").write pc_file
-  end
-
-  def pc_file; <<-EOS.undent
-    prefix=#{HOMEBREW_PREFIX}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${exec_prefix}/include
-    Name: libwebdavclient
-    Description: Modern and convenient C++ WebDAV Client library
-    Version: 1.0.0
-    Libs: -L${libdir} -lwebdavclient
-    Libs.private: -lpthread -lpugixml -lm -lcurl -lssl -lcrypto
-    Cflags: -I${includedir}
-    EOS
   end
 
   test do
@@ -55,7 +40,7 @@ class Wdc < Formula
       }
     EOS
     system ENV.cc,  "test.cpp", "-L#{lib}", "-L/usr/local/lib",
-                    "-lwebdavclient", "-lpthread", "-lpugixml",
+                    "-lwdc", "-lpthread", "-lpugixml",
                     "-lm", "-lcurl", "-lssl", "-lcrypto",
                     "-lstdc++", "-std=c++11", "-o", "test"
     system "./test"
