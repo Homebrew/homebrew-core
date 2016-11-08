@@ -8,9 +8,9 @@ class Pwntools < Formula
   revision 1
 
   bottle do
-    sha256 "060d65a76baaa2829f7002745e59d4c97fa4a2cad6b35d1f870800ab8e45344f" => :sierra
-    sha256 "5ebe620341c89a7bf1828ed06f8652f70b83ec4b24ae06b69affbf5b1f9e4298" => :el_capitan
-    sha256 "50b504d24fc04824b8504fdc222a73711cbd217b384f7a809d7bf0d002f19bb2" => :yosemite
+    sha256 "eb7ef53fe7a303f9315ad92690bd4a6989ce76de17d6d5a3163e24d9b7ad8f63" => :sierra
+    sha256 "30296daed88d76dcefc897105f0925df46a02a9ba22138bafc3f6b29b3349cf0" => :el_capitan
+    sha256 "5bc0f2d492c2dd408506277386841c5dad16569460c594c88c799d3659508e08" => :yosemite
   end
 
   depends_on :python
