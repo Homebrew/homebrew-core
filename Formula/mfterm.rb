@@ -4,6 +4,13 @@ class Mfterm < Formula
   url "https://github.com/4ZM/mfterm/releases/download/v1.0.7/mfterm-1.0.7.tar.gz"
   sha256 "b6bb74a7ec1f12314dee42973eb5f458055b66b1b41316ae0c5380292b86b248"
 
+  bottle do
+    cellar :any
+    sha256 "be663a931f9c81a3671c5dcb492b81a9d2f2bde40ef37bc1034f2ab6c0683cce" => :sierra
+    sha256 "8d6a975a204105fea549d800093ee986c3f585d275ad75720746482e61d80053" => :el_capitan
+    sha256 "da282f04765376dd1151dd4ae19394fe7504f5143bb5241cd538205c57d2ab3e" => :yosemite
+  end
+
   head do
     url "https://github.com/4ZM/mfterm.git"
 
