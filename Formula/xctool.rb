@@ -19,6 +19,14 @@ class Xctool < Formula
     bin.install_symlink "#{libexec}/bin/xctool"
   end
 
+  def post_install
+    # all libraries need to be signed to avoid codesign errors when
+    # injecting them into xcodebuild or Simulator.app.
+    Dir.glob("#{libexec}/lib/*.dylib") do |lib_file|
+      system "/usr/bin/codesign", "-f", "-s", "-", lib_file
+    end
+  end
+
   test do
     system "(#{bin}/xctool -help; true)"
   end
