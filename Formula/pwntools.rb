@@ -5,6 +5,7 @@ class Pwntools < Formula
   homepage "https://pwntools.com/"
   url "https://github.com/Gallopsled/pwntools/archive/3.1.1.tar.gz"
   sha256 "b484b5d5a95b52f9a946ddaa5e093be55166dbbd572634640875b2a8e2d51830"
+  revision 1
 
   bottle do
     sha256 "060d65a76baaa2829f7002745e59d4c97fa4a2cad6b35d1f870800ab8e45344f" => :sierra
@@ -13,7 +14,7 @@ class Pwntools < Formula
   end
 
   depends_on :python
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "binutils" => :recommended
 
   conflicts_with "moreutils", :because => "Both install `errno` binaries"
@@ -29,8 +30,8 @@ class Pwntools < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/03/1a/60984cb85cc38c4ebdfca27b32a6df6f1914959d8790f5a349608c78be61/cryptography-1.5.2.tar.gz"
-    sha256 "eb8875736734e8e870b09be43b17f40472dc189b1c422a952fa8580768204832"
+    url "https://files.pythonhosted.org/packages/6c/c5/7fc1f8384443abd2d71631ead026eb59863a58cad0149b94b89f08c8002f/cryptography-1.5.3.tar.gz"
+    sha256 "cf82ddac919b587f5e44247579b433224cc2e03332d2ea4d89aa70d7e6b64ae5"
   end
 
   resource "enum34" do
@@ -49,8 +50,8 @@ class Pwntools < Formula
   end
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/7a/ae/925434246ee90b42e8ef57d3b30a0ab7caf9a2de3e449b876c56dcb48155/Mako-1.0.4.tar.gz"
-    sha256 "fed99dbe4d0ddb27a33ee4910d8708aca9ef1fe854e668387a9ab9a90cbf9059"
+    url "https://files.pythonhosted.org/packages/20/ce/296b1037ed9b7803ed4e738b83ae244d2834e97e4ea24d52a6d46c12a884/Mako-1.0.5.tar.gz"
+    sha256 "e3e27cdd7abfd78337f33bd455f756c823c2d6224ad440a88f14bbd53a5ebc93"
   end
 
   resource "MarkupSafe" do
@@ -58,9 +59,14 @@ class Pwntools < Formula
     sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
   end
 
+  resource "ndg-httpsclient" do
+    url "https://files.pythonhosted.org/packages/a2/a7/ad1c1c48e35dc7545dab1a9c5513f49d5fa3b5015627200d2be27576c2a0/ndg_httpsclient-0.4.2.tar.gz"
+    sha256 "580987ef194334c50389e0d7de885fccf15605c13c6eecaabd8d6c43768eb8ac"
+  end
+
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/28/ad/4e6601d14b11bb300719a8bb6247f6ef5861467a692523c978a4e9e3981a/packaging-16.7.tar.gz"
-    sha256 "2e246cde53917a320c4edb549b6b6ed0c80e22be835047bad814687c7345011e"
+    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
+    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
   end
 
   resource "paramiko" do
@@ -74,8 +80,8 @@ class Pwntools < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/6c/49/0f784a247868e167389f6ac76b8699b2f3d6f4e8e85685dfec43e58d1ed1/psutil-4.4.2.tar.gz"
-    sha256 "1c37e6428f7fe3aeea607f9249986d9bb933bb98133c7919837fd9aac4996b07"
+    url "https://files.pythonhosted.org/packages/93/7f/347309562d30c688299727e65f4d76ef34180c406dfb6f2c7b6c8d746e13/psutil-5.0.0.zip"
+    sha256 "5411e22c63168220f4b8cc42fd05ea96f5b5e65e08b93b675ca50653aea482f8"
   end
 
   resource "py" do
@@ -89,8 +95,8 @@ class Pwntools < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/eb/83/00c55ff5cb773a78e9e47476ac1a0cd2f0fb71b34cb6e178572eaec22984/pycparser-2.16.tar.gz"
-    sha256 "108f9ff23869ae2f8b38e481e7b4b4d4de1e32be968f29bbe303d629c34a6260"
+    url "https://files.pythonhosted.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
+    sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
   end
 
   resource "pyelftools" do
@@ -103,9 +109,14 @@ class Pwntools < Formula
     sha256 "88e4c8a91b2af5962bfa5ea2447ec6dd357018e86e94c7d14bd8cacbc5b55d81"
   end
 
+  resource "pyOpenSSL" do
+    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
+    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
+  end
+
   resource "pypandoc" do
-    url "https://files.pythonhosted.org/packages/e2/aa/156253072c8fe2b4d90da455a964ed82504d11b6f816536ad11de8406fa9/pypandoc-1.2.0.zip"
-    sha256 "752a79884cc7be4df028d805a087a8af84c333fed5c7eeedf01e28e06f7eb5eb"
+    url "https://files.pythonhosted.org/packages/68/6d/4f8ff7661e13f5038bafe1e7d8c4c2a0fb83f3fbe590de16da9405af0dc7/pypandoc-1.3.3.tar.gz"
+    sha256 "a6fea20b895bfa3f5b32bec541fde3708843ff73a10877a1ad113f62a7704818"
   end
 
   resource "pyparsing" do
@@ -151,6 +162,11 @@ class Pwntools < Formula
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/8b/2c/c0d3e47709d0458816167002e1aa3d64d03bdeb2a9d57c5bd18448fd24cd/virtualenv-15.0.3.tar.gz"
     sha256 "6d9c760d3fc5fa0894b0f99b9de82a4647e1164f0b700a7f99055034bf548b1d"
+  end
+
+  resource "wheel" do
+    url "https://files.pythonhosted.org/packages/a7/37/947b4329c4a3c72093b6c8e9b4be8c7f10c32dbb78848d3a234ce01c059d/wheel-0.30.0a0.tar.gz"
+    sha256 "98f3e09b4ad7f5649a7e3d00e0e005ec1824ddcd6ec16c5086c05b1d91ada6da"
   end
 
   def install
