@@ -19,8 +19,8 @@ class Burp < Formula
   end
 
   devel do
-    url "https://github.com/grke/burp/archive/2.0.50.tar.gz"
-    sha256 "c7bfe015c0ab276ab7a4133e769bacfc41e0196137174124916590922138f349"
+    url "https://github.com/grke/burp/archive/2.0.52.tar.gz"
+    sha256 "aaa7beffd6c4549796f22afdee2e766f72a67cac181c4b44f51ea8c5b6a1aec1"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
