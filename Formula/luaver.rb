@@ -1,5 +1,5 @@
 class Luaver < Formula
-  desc "Lua Version Manager"
+  desc "Manage and switch between versions of Lua, LuaJIT, and Luarocks"
   homepage "https://github.com/DhavalKapil/luaver"
   head "https://github.com/DhavalKapil/luaver.git"
 
