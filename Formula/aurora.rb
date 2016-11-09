@@ -3,8 +3,8 @@ require "language/go"
 class Aurora < Formula
   desc "Beanstalk queue server console"
   homepage "https://xuri.me/aurora"
-  url "https://github.com/Luxurioust/aurora/archive/1.2.tar.gz"
-  sha256 "ef952527b7f3c2475dd17622aea749e727f43f7098ae20b1a9ad314b1a7293da"
+  url "https://github.com/Luxurioust/aurora/archive/1.4.tar.gz"
+  sha256 "9d605779d3a2f5d596b57a4aaf5feb41ec392c7e0bdec0ae9b1691c6e48bbbf0"
 
   depends_on "go" => :build
 
