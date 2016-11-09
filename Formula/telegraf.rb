@@ -1,8 +1,8 @@
 class Telegraf < Formula
   desc "Server-level metric gathering agent for InfluxDB"
   homepage "https://influxdata.com"
-  url "https://github.com/influxdata/telegraf/archive/1.0.1.tar.gz"
-  sha256 "12fa64354ccd5fcac1ae30e38eda18090e0f6b674b62207dccf7d8920a19a535"
+  url "https://github.com/influxdata/telegraf/archive/1.1.0.tar.gz"
+  sha256 "ffd3eb5b74c121ae57a83a8d39fb49371ccd2dec5c9e0746e487a5f41b0d45ac"
   head "https://github.com/influxdata/telegraf.git"
 
   bottle do
@@ -70,7 +70,7 @@ class Telegraf < Formula
 
   test do
     (testpath/"config.toml").write shell_output("#{bin}/telegraf -sample-config")
-    system "telegraf", "-config", testpath/"config.toml", "-test",
+    system "#{bin}/telegraf", "-config", testpath/"config.toml", "-test",
            "-input-filter", "cpu:mem"
   end
 end
