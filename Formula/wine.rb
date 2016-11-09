@@ -38,6 +38,11 @@ class Wine < Formula
     MacOS.prefer_64_bit?
   end
 
+  if MacOS.version >= :el_capitan
+    option "without-win64", "Build without 64-bit support"
+    depends_on :xcode => ["8.0", :build] if build.with? "win64"
+  end
+
   # Wine will build both the Mac and the X11 driver by default, and you can switch
   # between them. But if you really want to build without X11, you can.
   depends_on :x11 => :recommended
@@ -58,12 +63,6 @@ class Wine < Formula
     url "https://bugs.winehq.org/attachment.cgi?id=52384"
     sha256 "30766403f5064a115f61de8cacba1defddffe2dd898b59557956400470adc699"
   end
-
-  # This option is currently disabled because Apple clang currently doesn't
-  # support a required feature: https://reviews.llvm.org/D1623
-  # It builds fine with GCC, however.
-  # option "with-win64",
-  #        "Build with win64 emulator (won't run 32-bit binaries.)"
 
   resource "gecko" do
     url "https://downloads.sourceforge.net/wine/wine_gecko-2.40-x86.msi", :using => :nounzip
@@ -88,68 +87,39 @@ class Wine < Formula
   # These libraries are not specified as dependencies, or not built as 32-bit:
   # configure: libv4l, gstreamer-0.10, libcapi20, libgsm
 
-  # Wine loads many libraries lazily using dlopen calls, so it needs these paths
-  # to be searched by dyld.
-  # Including /usr/lib because wine, as of 1.3.15, tries to dlopen
-  # libncurses.5.4.dylib, and fails to find it without the fallback path.
-
-  def library_path
-    paths = %W[#{HOMEBREW_PREFIX}/lib /usr/lib]
-    paths.unshift(MacOS::X11.lib) if build.with? "x11"
-    paths.join(":")
-  end
-
-  def wine_wrapper; <<-EOS.undent
-    #!/bin/sh
-    DYLD_FALLBACK_LIBRARY_PATH="#{library_path}" "#{bin}/wine.bin" "$@"
-    EOS
-  end
-
   def install
-    ENV.m32 # Build 32-bit; Wine doesn't support 64-bit host builds on macOS.
-
     # Help configure find libxml2 in an XCode only (no CLT) installation.
     ENV.libxml2
 
-    args = ["--prefix=#{prefix}"]
-    args << "--disable-win16" if MacOS.version <= :leopard
-    args << "--enable-win64" if build.with? "win64"
+    if build.with? "win64"
+      args64 = ["--prefix=#{prefix}"]
+      args64 << "--enable-win64"
 
-    # 64-bit builds of mpg123 are incompatible with 32-bit builds of Wine
-    args << "--without-mpg123" if Hardware::CPU.is_64_bit?
+      args64 << "--without-x" if build.without? "x11"
 
-    args << "--without-x" if build.without? "x11"
+      mkdir "wine-64-build" do
+        system "../configure", *args64
 
-    system "./configure", *args
-
-    # The Mac driver uses blocks and must be compiled with an Apple compiler
-    # even if the rest of Wine is built with A GNU compiler.
-    unless ENV.compiler == :clang || ENV.compiler == :llvm || ENV.compiler == :gcc
-      system "make", "dlls/winemac.drv/Makefile"
-      inreplace "dlls/winemac.drv/Makefile" do |s|
-        # We need to use the real compiler, not the superenv shim, which will exec the
-        # configured compiler no matter what name is used to invoke it.
-        cc = s.get_make_var("CC")
-        cxx = s.get_make_var("CXX")
-        s.change_make_var! "CC", cc.sub(ENV.cc, "xcrun clang") if cc
-        s.change_make_var! "CXX", cc.sub(ENV.cxx, "xcrun clang++") if cxx
-
-        # Emulate some things that superenv would normally handle for us
-        # Pass the sysroot to support Xcode-only systems
-        cflags  = s.get_make_var("CFLAGS")
-        cflags += " --sysroot=#{MacOS.sdk_path}"
-        s.change_make_var! "CFLAGS", cflags
+        system "make", "install"
       end
     end
 
-    system "make", "install"
+    args = ["--prefix=#{prefix}"]
+
+    # 64-bit builds of mpg123 are incompatible with 32-bit builds of Wine
+    args << "--without-mpg123"
+
+    args << "--without-x" if build.without? "x11"
+    args << "--with-wine64=../wine-64-build" if build.with? "win64"
+
+    mkdir "wine-32-build" do
+      ENV.m32
+      system "../configure", *args
+
+      system "make", "install"
+    end
     (pkgshare/"gecko").install resource("gecko")
     (pkgshare/"mono").install resource("mono")
-
-    # Use a wrapper script, so rename wine to wine.bin
-    # and name our startup script wine
-    mv bin/"wine", bin/"wine.bin"
-    (bin/"wine").write(wine_wrapper)
   end
 
   def caveats
