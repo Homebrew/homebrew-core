@@ -6,6 +6,12 @@ class Twarc < Formula
   url "https://github.com/DocNow/twarc/archive/v0.8.2.tar.gz"
   sha256 "6d5151c722dc3da53151456c012b69cb0cc627667cb01323857064d5ce5ebd0f"
 
+  bottle do
+    sha256 "6e8946c79c64788c5b06b054a9e118c355fdacba3999b433706f85dd134dabca" => :sierra
+    sha256 "fdcc08b9d1557e4fe47d004f88d49aeaff4cc57aa2fd7976452697085026f024" => :el_capitan
+    sha256 "4a714b96010c09fd184dfcc6f56e464be879cc7c95ea9c0461a5fc31f3db196a" => :yosemite
+  end
+
   depends_on :python
 
   resource "funcsigs" do
