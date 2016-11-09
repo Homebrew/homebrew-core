@@ -5,6 +5,11 @@ class Treefrog < Formula
   sha256 "850744fef5254a8b2de1d949ba3490514ce1095e9a3e81da40aa8160129e14a1"
   head "https://github.com/treefrogframework/treefrog-framework.git", :branch => "master"
 
+  bottle do
+    sha256 "8d5daeb95fabb1bc5d0821cd4a29414b1cbc2d5483b094dd8d8a435172028685" => :sierra
+    sha256 "8d5daeb95fabb1bc5d0821cd4a29414b1cbc2d5483b094dd8d8a435172028685" => :el_capitan
+  end
+
   option "with-mysql", "enable --with-mysql option for Qt build"
   option "with-oci", "enable --with-oci option for Qt build"
   option "with-postgresql", "enable --with-postgresql option for Qt build"
