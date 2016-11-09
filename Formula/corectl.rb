@@ -6,10 +6,10 @@ class Corectl < Formula
   head "https://github.com/TheNewNormal/corectl.git", :branch => "golang"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ff2926f719d3414d2a18313fb6963104e91d5d89826194dcc8ff63c036037c71" => :sierra
-    sha256 "ea463bfffeea5970d7c46f186e9440ba28cb1e0953f620e87df5345ecf7ea6ec" => :el_capitan
-    sha256 "cc5855cdd8679d87ce81f5ebce82992b9fa290848a6ba41e29ad0bdd2ba83593" => :yosemite
+    cellar :any
+    sha256 "b973ccc4860167d71b4e1594d77826b89ee1e6006794731124a39c026df9430e" => :sierra
+    sha256 "e952c5d01b7e3fef095e3e4e5f70e8dd1ffaae5ba8fedba47ab6a93446b297db" => :el_capitan
+    sha256 "78f2159541ec65edad133290284d9615f8e855ee8593c530d525402c325e1fb2" => :yosemite
   end
 
   depends_on "go" => :build
