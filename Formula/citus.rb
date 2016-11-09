@@ -6,9 +6,10 @@ class Citus < Formula
   head "https://github.com/citusdata/citus.git"
 
   bottle do
-    sha256 "248d1bfa9264e8ae94b8a32bc473cfd8e0ef974c9d5f9ef43feda5cfdfba062d" => :sierra
-    sha256 "36359a493cc1ffc4abdf0908fb9760544fb2562b180d79eb3e5fbf2f08967659" => :el_capitan
-    sha256 "9a393831dad5bf98b08414d17f4779ca6759fbe77246f02e50d0b88d92cd3e11" => :yosemite
+    cellar :any
+    sha256 "976f2f0fdf5cc4d58b14f6958fd2e19016f679838d962b77b6a8450f065b755b" => :sierra
+    sha256 "aca2aa7c63b19e45809318ba1bad2957e7c98c1eacc666bdf2194d224b5173bf" => :el_capitan
+    sha256 "9793cf8b208ecb6538d7e92fc5a8c65402579174046dba8445c5f31f5fb2a995" => :yosemite
   end
 
   depends_on "postgresql"
