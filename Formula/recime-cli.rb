@@ -2,15 +2,14 @@
 require "language/go"
 
 class RecimeCli < Formula
-  desc "The Recime Command Line Tool allows you to scaffold your bot from terminal. It creates your account based on the email you have provided and lets you deploy it to Recime cloud."
+  desc "Recime command-line tool to create and publish bot."
   homepage "https://recime.ai"
   url "https://github.com/Recime/recime-cli/archive/1.0.tar.gz"
-  version "1.0"
+  version "1.0.5"
   sha256 "0655a8c84d43c30016f40781cb4043aa1b1167f932e220ddc194c1f22a213acc"
   head "https://github.com/Recime/recime-cli.git"
 
-  # depends_on "cmake" => :build
-  depends_on 'go' => :build
+  depends_on "go" => :build
 
   go_resource "github.com/mattn/go-colorable" do
     url "https://github.com/mattn/go-colorable.git",
@@ -68,9 +67,7 @@ class RecimeCli < Formula
 
     ENV["GOPATH"] = "#{buildpath}/Godeps/_workspace:#{buildpath}"
 
-
     Language::Go.stage_deps resources, buildpath/"src"
-
 
     system "go", "build", "-o", "recime-cli"
     bin.install "recime-cli"
