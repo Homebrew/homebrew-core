@@ -1,9 +1,17 @@
 class Wartremover < Formula
   desc "Flexible Scala code linting tool"
   homepage "https://github.com/puffnfresh/wartremover"
-  url "https://github.com/puffnfresh/wartremover/archive/v1.1.1.tar.gz"
-  sha256 "fe6ae5cc1e721f5757664d85d6b580aded1209186839055ecf709ba1be2d812b"
   head "https://github.com/puffnfresh/wartremover.git"
+
+  stable do
+    url "https://github.com/puffnfresh/wartremover/archive/v1.2.0.tar.gz"
+    sha256 "882994c1890139f81adbd74902bbc445b3865102441c1055acf18bb6c1675f3d"
+
+    patch do
+      url "https://github.com/puffnfresh/wartremover/commit/e914d91.patch"
+      sha256 "33d360baa204fa5720f25e96b058246619143416dd87d081ceee3774c2231baf"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
