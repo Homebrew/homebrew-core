@@ -31,7 +31,6 @@ class Liblastfm < Formula
 
   test do
     cp_r "#{share}/tests/.", testpath
-    assert_match "Totals: 3 passed, 0 failed, 0 skipped, 0 blacklisted, 0ms",
-      shell_output("./TrackTest")
+    system "./TrackTest"
   end
 end
