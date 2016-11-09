@@ -31,6 +31,7 @@ class Bitlbee < Formula
   def install
     args = %W[
       --prefix=#{prefix}
+      --plugindir=#{HOMEBREW_PREFIX}/lib/bitlbee/
       --debug=0
       --ssl=gnutls
       --pidfile=#{var}/bitlbee/run/bitlbee.pid
