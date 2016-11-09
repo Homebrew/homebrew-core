@@ -1,8 +1,8 @@
 class Msitools < Formula
   desc "Windows installer (.MSI) tool"
   homepage "https://wiki.gnome.org/msitools"
-  url "https://download.gnome.org/sources/msitools/0.94/msitools-0.94.tar.xz"
-  sha256 "152eb4149cb44f178af93d17bbe0921b5312f30fb4780e5be113b35747b5cd2e"
+  url "https://download.gnome.org/sources/msitools/0.96/msitools-0.96.tar.xz"
+  sha256 "1b3e194a94747362a2d8d9b7c512c540ccb69e4dbd1dbc2d999a8a44d0b6729e"
 
   bottle do
     sha256 "b6d20524f967e781504f34af82fe65a8e2ca74a7b40fd197df718df400633b9a" => :sierra
