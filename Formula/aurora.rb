@@ -4,7 +4,7 @@ class Aurora < Formula
   desc "Beanstalk queue server console"
   homepage "https://xuri.me/aurora"
   url "https://github.com/Luxurioust/aurora/archive/1.4.tar.gz"
-  sha256 "9d605779d3a2f5d596b57a4aaf5feb41ec392c7e0bdec0ae9b1691c6e48bbbf0"
+  sha256 "ab37905703d5265efbc9b588cbad9099e5863696d5a4f88f05f4107d5a2530e7"
 
   depends_on "go" => :build
 
