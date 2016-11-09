@@ -9,6 +9,13 @@ class RecimeCli < Formula
   sha256 "0655a8c84d43c30016f40781cb4043aa1b1167f932e220ddc194c1f22a213acc"
   head "https://github.com/Recime/recime-cli.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "eb3d2874718ddb753cd89b0307df55e7fa3176f9f6535470dd9011aaf47a64d8" => :sierra
+    sha256 "45d5547354b693df9da372e53c32bea68af4a4a0f699fee3c015dcd6b1b92853" => :el_capitan
+    sha256 "884a3252c287e2db1090389a3d2244abfffef930012f5c194db2614950b7d233" => :yosemite
+  end
+  
   depends_on "go" => :build
 
   go_resource "github.com/mattn/go-colorable" do
