@@ -375,7 +375,7 @@ class Pgloader < Formula
 
     launch_postgres(ENV["PGHOST"]) do
       system "createdb"
-      system "pgloader", testpath/"test.load"
+      system "#{bin}/pgloader", testpath/"test.load"
       assert_equal "6", shell_output("psql -Atc 'SELECT COUNT(*) FROM csv'").strip
     end
   end
