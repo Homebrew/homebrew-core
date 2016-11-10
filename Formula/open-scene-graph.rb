@@ -1,11 +1,10 @@
 class OpenSceneGraph < Formula
   desc "3D graphics toolkit"
-  homepage "http://www.openscenegraph.org/projects/osg"
-  url "http://trac.openscenegraph.org/downloads/developer_releases/OpenSceneGraph-3.4.0.zip"
-  sha256 "5c727d84755da276adf8c4a4a3a8ba9c9570fc4b4969f06f1d2e9f89b1e3040e"
-  revision 1
+  homepage "https://github.com/openscenegraph/OpenSceneGraph"
+  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.5.tar.gz"
+  sha256 "f44c96ade3a1d3c547f36504d75633bedbb9b8f6f42dac4fff75166db7d3aadf"
 
-  head "http://www.openscenegraph.org/svn/osg/OpenSceneGraph/trunk/"
+  head "https://github.com/openscenegraph/OpenSceneGraph"
 
   bottle do
     rebuild 1
