@@ -5,6 +5,8 @@ class Minimesos < Formula
   sha256 "16b198078c9384426f8849b08e92e173816c4d6626331bc6569aa5de89dffbdd"
 
   depends_on "docker"
+  
+  bottle :unneeded
 
   def install
     bin.install "bin/minimesos"
