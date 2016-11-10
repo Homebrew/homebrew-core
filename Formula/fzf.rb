@@ -3,8 +3,8 @@ require "language/go"
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/0.15.5.tar.gz"
-  sha256 "b9d3f6e56f538079ac1237c4d2ec260cbe6ad0cea1c214588187447ec3e44607"
+  url "https://github.com/junegunn/fzf/archive/0.15.7.tar.gz"
+  sha256 "33fbf720119da6395f9c23be8d871d21041e46b7325f36c2259c86128976ce15"
   head "https://github.com/junegunn/fzf.git"
 
   bottle do
@@ -16,14 +16,19 @@ class Fzf < Formula
 
   depends_on "go" => :build
 
-  go_resource "github.com/junegunn/go-shellwords" do
-    url "https://github.com/junegunn/go-shellwords.git",
-        :revision => "35d512af75e283aae4ca1fc3d44b159ed66189a4"
+  go_resource "github.com/junegunn/go-isatty" do
+    url "https://github.com/junegunn/go-isatty.git",
+        :revision => "66b8e73f3f5cda9f96b69efd03dd3d7fc4a5cdb8"
   end
 
   go_resource "github.com/junegunn/go-runewidth" do
     url "https://github.com/junegunn/go-runewidth.git",
         :revision => "63c378b851290989b19ca955468386485f118c65"
+  end
+
+  go_resource "github.com/junegunn/go-shellwords" do
+    url "https://github.com/junegunn/go-shellwords.git",
+        :revision => "35d512af75e283aae4ca1fc3d44b159ed66189a4"
   end
 
   def install
