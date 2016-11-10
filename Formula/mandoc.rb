@@ -79,7 +79,7 @@ class Mandoc < Formula
   end
 
   test do
-    system "mandoc", "-Thtml",
+    system "#{bin}/mandoc", "-Thtml",
       "-Ostyle=#{share}/examples/example.style.css",
       "#{HOMEBREW_PREFIX}/share/man/man1/brew.1"
   end
