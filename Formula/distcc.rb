@@ -10,8 +10,12 @@ end
 class Distcc < Formula
   desc "Distributed compiler client and server"
   homepage "https://code.google.com/p/distcc/"
-  url "https://distcc.googlecode.com/files/distcc-3.2rc1.tar.gz"
-  sha256 "8cf474b9e20f5f3608888c6bff1b5f804a9dfc69ae9704e3d5bdc92f0487760a"
+  stable do
+    url "https://distcc.googlecode.com/files/distcc-3.2rc1.tar.gz"
+    sha256 "8cf474b9e20f5f3608888c6bff1b5f804a9dfc69ae9704e3d5bdc92f0487760a"
+  end
+
+  head "https://github.com/distcc/distcc.git"
 
   bottle do
     sha256 "67cace8962a3046e66c71726e0800b93635e2b51d5ae95d1a4465ec6c93e3a93" => :el_capitan
@@ -21,12 +25,24 @@ class Distcc < Formula
 
   depends_on PythonWithoutPPCRequirement
 
+  depends_on "autoconf" if build.head?
+  depends_on "automake" if build.head?
+  depends_on "gcc" if build.head?
+
   def install
     # Make sure python stuff is put into the Cellar.
     # --root triggers a bug and installs into HOMEBREW_PREFIX/lib/python2.7/site-packages instead of the Cellar.
-    inreplace "Makefile.in", '--root="$$DESTDIR"', ""
 
-    system "./configure", "--prefix=#{prefix}"
+    if build.head?
+      system "./autogen.sh"
+    end
+
+    inreplace "Makefile.in", '--root="$$DESTDIR"', ""
+    args = %W[
+      --prefix=#{prefix}
+    ]
+    args << "--without-libiberty" if build.head?
+    system "./configure", *args
     system "make", "install"
     plist_path.write startup_plist
     plist_path.chmod 0644
