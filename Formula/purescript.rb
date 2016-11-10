@@ -5,9 +5,19 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.10.2.tar.gz"
-  sha256 "4b5663e2a5ebb7a2e432f951d0a5d0ddfa08f18304827ec33f609d9b3c1c3fe7"
   head "https://github.com/purescript/purescript.git"
+
+  stable do
+    url "https://github.com/purescript/purescript/archive/v0.10.2.tar.gz"
+    sha256 "4b5663e2a5ebb7a2e432f951d0a5d0ddfa08f18304827ec33f609d9b3c1c3fe7"
+
+    # Remove for > 0.10.2
+    # Upstream commit "Fix GHC 8.0.2 build"
+    patch do
+      url "https://github.com/purescript/purescript/commit/46f573a.patch"
+      sha256 "6a070c6890480613cf3876da34118aad9bb48c8cf5ca1f285adf69d4f9d99a1b"
+    end
+  end
 
   bottle do
     sha256 "c9187e4c280bc7535b6a65392bdaa438435e3b39383faf0ec5d3eb4e488780e1" => :el_capitan_or_later
