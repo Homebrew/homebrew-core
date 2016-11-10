@@ -26,15 +26,17 @@ class Mpv < Formula
   depends_on "lua" => :recommended
   depends_on "youtube-dl" => :recommended
 
-  depends_on "libarchive" => :optional
-  depends_on "libcaca" => :optional
-  depends_on "libdvdread" => :optional
-  depends_on "libdvdnav" => :optional
-  depends_on "libbluray" => :optional
+  depends_on "jack" => :optional
   depends_on "libaacs" => :optional
+  depends_on "libarchive" => :optional
+  depends_on "libbluray" => :optional
+  depends_on "libcaca" => :optional
+  depends_on "libdvdnav" => :optional
+  depends_on "libdvdread" => :optional
   depends_on "pulseaudio" => :optional
-  depends_on "vapoursynth" => :optional
+  depends_on "rubberband" => :optional
   depends_on "uchardet" => :optional
+  depends_on "vapoursynth" => :optional
   depends_on :x11 => :optional
 
   depends_on :macos => :mountain_lion
