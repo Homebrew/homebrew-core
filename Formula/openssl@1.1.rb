@@ -138,7 +138,7 @@ class OpensslAT11 < Formula
     )
 
     valid_certs = certs.select do |cert|
-      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
+      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout >/dev/null", "w") do |openssl_io|
         openssl_io.write(cert)
         openssl_io.close_write
       end
