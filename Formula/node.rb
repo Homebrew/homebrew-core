@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on the V8 JavaScript runtime to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v7.0.0/node-v7.0.0.tar.xz"
-  sha256 "e16c3c76c2d6756bbfd711189cbdaf5676049b443e6817007bb537f243ca899a"
+  url "https://nodejs.org/dist/v7.1.0/node-v7.1.0.tar.xz"
+  sha256 "55ae831a2090e3af71b8f071dc5599922e5c752a2e40d77cbfd4a39d22cf4981"
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -37,15 +37,15 @@ class Node < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.10.8.tgz"
-    sha256 "1121a75a370fd0efb320fffb7c9e4a8bcb3840d1cf2fbd585c54837b7014dd76"
+    url "https://registry.npmjs.org/npm/-/npm-3.10.9.tgz"
+    sha256 "fb0871b1aebf4b74717a72289fade356aedca83ee54e7386e38cb51874501dd6"
   end
 
   resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz"
-    mirror "https://fossies.org/linux/misc/icu4c-57_1-src.tgz"
-    version "57.1"
-    sha256 "ff8c67cb65949b1e7808f2359f2b80f722697048e90e7cfc382ec1fe229e9581"
+    url "https://ssl.icu-project.org/files/icu4c/58.1/icu4c-58_1-src.tgz"
+    mirror "https://nuxi.nl/distfiles/third_party/icu4c-58_1-src.tgz"
+    version "58.1"
+    sha256 "0eb46ba3746a9c2092c8ad347a29b1a1b4941144772d13a88667a7b11ea30309"
   end
 
   def install
