@@ -25,9 +25,9 @@ class Ruby < Formula
   end
 
   devel do
-    url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0-preview2.tar.xz"
-    version "2.4.0-beta2"
-    sha256 "6c2d25bedc50c2f19b0e349f0ffd9b9a83000d9cb6a677bf5372fb493d33e16a"
+    url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0-preview3.tar.xz"
+    version "2.4.0-beta3"
+    sha256 "b14be2b5c80bff0d6894ae2b37afdb17a968413e70236ec860f3e2d670b4c317"
   end
 
   head do
