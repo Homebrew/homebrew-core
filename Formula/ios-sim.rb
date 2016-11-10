@@ -1,8 +1,10 @@
+require "language/node"
+
 class IosSim < Formula
   desc "Command-line application launcher for the iOS Simulator"
   homepage "https://github.com/phonegap/ios-sim"
-  url "https://github.com/phonegap/ios-sim/archive/3.1.1.tar.gz"
-  sha256 "559e18f198d4c5298666fee8face0ac8d8dbce034d2c5241093bdd1d43014cb7"
+  url "https://registry.npmjs.org/ios-sim/-/ios-sim-5.0.11.tgz"
+  sha256 "5613a0c6bcd7aca45e4a25db12d348fcaca25cc7c955e9269c71c60525a68284"
   head "https://github.com/phonegap/ios-sim.git"
 
   bottle do
@@ -15,8 +17,14 @@ class IosSim < Formula
   end
 
   depends_on :macos => :mountain_lion
+  depends_on "node"
 
   def install
-    rake "install", "prefix=#{prefix}"
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    bin.install_symlink Dir["#{libexec}/bin/*"]
+  end
+
+  test do
+    system bin/"ios-sim", "--help"
   end
 end
