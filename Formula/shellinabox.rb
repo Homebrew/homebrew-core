@@ -1,8 +1,8 @@
 class Shellinabox < Formula
   desc "Export command-line tools to web based terminal emulator"
   homepage "https://github.com/shellinabox/shellinabox"
-  url "https://github.com/shellinabox/shellinabox/archive/v2.19.tar.gz"
-  sha256 "d25ba9f72f04471fc1a8a564c65ef466c4553280ff3eeb365ed9c897d05ed2da"
+  url "https://github.com/shellinabox/shellinabox/archive/v2.20.tar.gz"
+  sha256 "27a5ec6c3439f87aee238c47cc56e7357a6249e5ca9ed0f044f0057ef389d81e"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +15,7 @@ class Shellinabox < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "openssl"
 
   def install
     system "autoreconf", "-fiv"
