@@ -9,9 +9,10 @@ class Distcc < Formula
   depends_on "automake" => :build
 
   bottle do
-    sha256 "67cace8962a3046e66c71726e0800b93635e2b51d5ae95d1a4465ec6c93e3a93" => :el_capitan
-    sha256 "e2fb841415d554487d5cd7a9410862c08b99bde86d59e78d007b1eaf73173bdf" => :yosemite
-    sha256 "bf0e1b9468861414802356814229c8c1256abf22fb00bc2819644f4f6e336485" => :mavericks
+    rebuild 1
+    sha256 "7550914e05bccc38cf002ae14a2209248166149fa2720f0b8716320433d51c28" => :sierra
+    sha256 "7a457a41b795c825e315a296e6883a8b8ab749f8329d492026f4b9072571dc7b" => :el_capitan
+    sha256 "4b38fccd7d1f3ac119bc50f4252fd593a828a6564dfb98d6bc819adff332a4b5" => :yosemite
   end
 
   def install
