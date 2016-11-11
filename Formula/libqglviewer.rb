@@ -1,9 +1,8 @@
 class Libqglviewer < Formula
   desc "C++ Qt library to create OpenGL 3D viewers"
   homepage "http://www.libqglviewer.com/"
-  url "http://www.libqglviewer.com/src/libQGLViewer-2.6.3.tar.gz"
-  sha256 "be611b87bdb8ba794a4d18eaed87f22491ebe198d664359829233c4ea69f4d02"
-
+  url "http://www.libqglviewer.com/src/libQGLViewer-2.6.4.tar.gz"
+  sha256 "53daefd7981a3ff7719ee55c368226807791d916ed988dde0aa0eac89686389d"
   head "https://github.com/GillesDebunne/libQGLViewer.git"
 
   bottle do
@@ -15,7 +14,7 @@ class Libqglviewer < Formula
 
   option :universal
 
-  depends_on "qt"
+  depends_on "qt5"
 
   def install
     args = %W[
