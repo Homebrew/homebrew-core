@@ -13,7 +13,7 @@ class Corectl < Formula
   end
 
   depends_on "go" => :build
-  depends_on "libev" => :build
+  depends_on "libev"
   depends_on "ocaml" => :build
   depends_on "aspcud" => :build
   depends_on "opam" => :build
