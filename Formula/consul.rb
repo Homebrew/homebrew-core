@@ -2,8 +2,8 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag => "v0.7.0",
-      :revision => "a189091a3530051285c12c726ca28ea55e015336"
+      :tag => "v0.7.1",
+      :revision => "a9455cd4fc2809570ff1855c37d6ffc2449bd42f"
 
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
@@ -21,8 +21,8 @@ class Consul < Formula
   depends_on "go" => :build
 
   resource "web-ui" do
-    url "https://releases.hashicorp.com/consul/0.7.0/consul_0.7.0_web_ui.zip"
-    sha256 "42212089c228a73a0881a5835079c8df58a4f31b5060a3b4ffd4c2497abe3aa8"
+    url "https://releases.hashicorp.com/consul/0.7.1/consul_0.7.1_web_ui.zip"
+    sha256 "1b793c60e1af24cc470421d0411e13748f451b51d8a6ed5fcabc8d00bfb84264"
   end
 
   def install
