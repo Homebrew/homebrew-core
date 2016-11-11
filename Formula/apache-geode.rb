@@ -7,13 +7,13 @@ class ApacheGeode < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on :java => "1.8"
 
   def install
     rm_f "bin/gfsh.bat"
     bash_completion.install "bin/gfsh-completion.bash" => "gfsh"
     libexec.install Dir["*"]
-    (bin/"gfsh").write_env_script libexec/"bin/gfsh", Language::Java.java_home_env("1.8+")
+    (bin/"gfsh").write_env_script libexec/"bin/gfsh", Language::Java.java_home_env("1.8")
   end
 
   test do
