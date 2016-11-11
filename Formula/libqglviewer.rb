@@ -3,7 +3,6 @@ class Libqglviewer < Formula
   homepage "http://www.libqglviewer.com/"
   url "http://www.libqglviewer.com/src/libQGLViewer-2.6.3.tar.gz"
   sha256 "be611b87bdb8ba794a4d18eaed87f22491ebe198d664359829233c4ea69f4d02"
-
   head "https://github.com/GillesDebunne/libQGLViewer.git"
 
   bottle do
@@ -15,7 +14,7 @@ class Libqglviewer < Formula
 
   option :universal
 
-  depends_on "qt"
+  depends_on "qt5"
 
   def install
     args = %W[
