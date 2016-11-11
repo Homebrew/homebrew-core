@@ -3,7 +3,7 @@ class Tmux < Formula
   homepage "https://tmux.github.io/"
   url "https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz"
   sha256 "55313e132f0f42de7e020bf6323a1939ee02ab79c48634aa07475db41573852b"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -22,7 +22,7 @@ class Tmux < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "utf8proc"
+  depends_on "utf8proc" => :optional
 
   resource "completion" do
     url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/homebrew_1.0.0/completions/tmux"
@@ -32,11 +32,16 @@ class Tmux < Formula
   def install
     system "sh", "autogen.sh" if build.head?
 
+    args = %W[
+      --disable-Dependency-tracking
+      --prefix=#{prefix}
+      --sysconfdir=#{etc}
+    ]
+
+    args << "--enable-utf8proc" if build.with?("utf8proc")
+
     ENV.append "LDFLAGS", "-lresolv"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
-                          "--enable-utf8proc"
+    system "./configure", *args
 
     system "make", "install"
 
