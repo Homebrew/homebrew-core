@@ -29,8 +29,15 @@ class Nginx < Formula
   deprecated_option "with-spdy" => "with-http2"
 
   depends_on "pcre"
-  depends_on "openssl@1.1"
   depends_on "passenger" => :optional
+
+  # passenger uses apr, which uses openssl, so need to keep
+  # crypto library choice consistent throughout the tree.
+  if build.with? "passenger"
+    depends_on "openssl"
+  else
+    depends_on "openssl@1.1"
+  end
 
   def install
     # Changes default port to 8080
@@ -40,7 +47,12 @@ class Nginx < Formula
     end
 
     pcre = Formula["pcre"]
-    openssl = Formula["openssl@1.1"]
+
+    if build.with? "passenger"
+      openssl = Formula["openssl"]
+    else
+      openssl = Formula["openssl@1.1"]
+    end
 
     cc_opt = "-I#{pcre.opt_include} -I#{openssl.opt_include}"
     ld_opt = "-L#{pcre.opt_lib} -L#{openssl.opt_lib}"
