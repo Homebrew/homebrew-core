@@ -19,4 +19,31 @@ class Qxmpp < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.pro").write <<-EOS.undent
+      TEMPLATE     = app
+      CONFIG      += console
+      CONFIG      -= app_bundle
+      TARGET       = test
+      QT          += network
+      SOURCES     += test.cpp
+      INCLUDEPATH += #{include}
+      LIBPATH     += #{lib}
+      LIBS        += -lqxmpp
+    EOS
+
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <qxmpp/QXmppClient.h>
+      int main() {
+        QXmppClient client;
+        return 0;
+      }
+    EOS
+
+    system "#{Formula["qt5"].bin}/qmake", "test.pro"
+    system "make"
+    assert File.exist?("test"), "test output file does not exist!"
+    system "./test"
+  end
 end
