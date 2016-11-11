@@ -15,7 +15,7 @@ class Weechat < Formula
 
   option "with-perl", "Build the perl module"
   option "with-ruby", "Build the ruby module"
-  option "with-tcl", "Build the tcl module"
+  option "without-tcl", "Do not build the tcl module"
   option "with-curl", "Build with brewed curl"
   option "with-debug", "Build with debug information"
 
