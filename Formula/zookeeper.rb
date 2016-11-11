@@ -156,4 +156,11 @@ class Zookeeper < Formula
     </plist>
     EOS
   end
+
+  test do
+    output = shell_output("#{bin}/zkServer -h 2>&1")
+    assert_match "Using config: #{etc}/zookeeper/zoo.cfg", output
+    output = shell_output("ZOOCFGDIR=/tmp #{bin}/zkServer -h 2>&1")
+    assert_match "Using config: /tmp/zoo.cfg", output
+  end
 end
