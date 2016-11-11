@@ -42,6 +42,7 @@
   "cloudfoundry-cli": "pivotal/tap",
   "clusterit": "homebrew/x11",
   "cmucl": "homebrew/binary",
+  "coin": "homebrew/boneyard",
   "comparepdf": "homebrew/boneyard",
   "cowpatty": "homebrew/boneyard",
   "csync": "homebrew/boneyard",
