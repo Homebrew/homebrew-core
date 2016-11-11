@@ -3,17 +3,18 @@ class Emscripten < Formula
   homepage "https://kripken.github.io/emscripten-site/"
 
   stable do
-    url "https://github.com/kripken/emscripten/archive/1.36.13.tar.gz"
-    sha256 "5e5370384a80775eaed63f38dcbc11f38620239f21c3fd6ba3725b5c982a2736"
+    url "https://github.com/kripken/emscripten/archive/1.36.14.tar.gz"
+    sha256 "89febe6c56c36ded3a6323d40342196d961eb1a7878b32912a649734962cb5ee"
 
+    emscripten_tag = version.to_s
     resource "fastcomp" do
-      url "https://github.com/kripken/emscripten-fastcomp/archive/1.36.5.tar.gz"
-      sha256 "322501d14eb90b5590d463ef2ae1b358c07c590440d7bd21b60ea88885bc2fa0"
+      url "https://github.com/kripken/emscripten-fastcomp/archive/#{emscripten_tag}.tar.gz"
+      sha256 "3fc361151790574c7dfe4466a32dcb505abc930cf48dd941463880924228a3d5"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/kripken/emscripten-fastcomp-clang/archive/1.36.5.tar.gz"
-      sha256 "b6a35fe26efaaaaea5d3d1139e61d5754760f03bed0a4af87236767d1a56b00d"
+      url "https://github.com/kripken/emscripten-fastcomp-clang/archive/#{emscripten_tag}.tar.gz"
+      sha256 "d33574f378acde198a2407a88cfa2725d8853dee535f982ec5fac92b4180f3aa"
     end
   end
 
@@ -24,22 +25,21 @@ class Emscripten < Formula
   end
 
   head do
-    url "https://github.com/kripken/emscripten.git", :branch => "incoming"
+    url "https://github.com/kripken/emscripten.git", :branch => "master"
 
     resource "fastcomp" do
-      url "https://github.com/kripken/emscripten-fastcomp.git", :branch => "incoming"
+      url "https://github.com/kripken/emscripten-fastcomp.git", :branch => "master"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/kripken/emscripten-fastcomp-clang.git", :branch => "incoming"
+      url "https://github.com/kripken/emscripten-fastcomp-clang.git", :branch => "master"
     end
-
-    depends_on "cmake" => :build
   end
 
   needs :cxx11
 
   depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "cmake" => :build
   depends_on "node"
   depends_on "closure-compiler" => :optional
   depends_on "yuicompressor"
@@ -61,32 +61,20 @@ class Emscripten < Formula
     (buildpath/"fastcomp").install resource("fastcomp")
     (buildpath/"fastcomp/tools/clang").install resource("fastcomp-clang")
 
-    configure_args = [
-      "--prefix=#{libexec}/llvm",
-      "--enable-optimized",
-      "--enable-targets=host,js",
-      "--disable-assertions",
-      "--disable-bindings",
-    ]
-
     cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] }
-    cmake_args += [
+    cmake_args = [
+      "-DCMAKE_BUILD_TYPE=Release",
       "-DCMAKE_INSTALL_PREFIX=#{libexec}/llvm",
-      "-DLLVM_TARGETS_TO_BUILD=X86;JSBackend",
+      "-DLLVM_TARGETS_TO_BUILD='X86;JSBackend'",
       "-DLLVM_INCLUDE_EXAMPLES=OFF",
       "-DLLVM_INCLUDE_TESTS=OFF",
-      "-DCLANG_INCLUDE_EXAMPLES=OFF",
       "-DCLANG_INCLUDE_TESTS=OFF",
       "-DOCAMLFIND=/usr/bin/false",
       "-DGO_EXECUTABLE=/usr/bin/false",
     ]
 
     mkdir "fastcomp/build" do
-      if build.head?
-        system "cmake", "..", *cmake_args
-      else
-        system "../configure", *configure_args
-      end
+      system "cmake", "..", *cmake_args
       system "make"
       system "make", "install"
     end
@@ -100,6 +88,7 @@ class Emscripten < Formula
   def caveats; <<-EOS.undent
     Manually set LLVM_ROOT to
       #{opt_libexec}/llvm/bin
+    and uncomment BINARYEN_ROOT
     in ~/.emscripten after running `emcc` for the first time.
     EOS
   end
