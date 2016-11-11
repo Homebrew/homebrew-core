@@ -5,6 +5,7 @@ class Dbus < Formula
   url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.12.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.12.orig.tar.gz"
   sha256 "210a79430b276eafc6406c71705e9140d25b9956d18068df98a70156dc0e475d"
+  head "https://anongit.freedesktop.org/git/dbus/dbus.git"
 
   bottle do
     sha256 "8848b7e368750df3a9526f4c5d47a0649359e9e89cd9d94cb45e706402bdb66c" => :sierra
@@ -18,13 +19,16 @@ class Dbus < Formula
     sha256 "474de2afde8087adbd26b3fc5cbf6ec45559763c75b21981169a9a1fbac256c9"
   end
 
-  head do
-    url "https://anongit.freedesktop.org/git/dbus/dbus.git"
+  depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "xmlto" => :build
 
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  # Docbook is a dependency of xmlto, but the XML_CATALOG_FILES env-set in
+  # install() uses files created by docbook, so best to be explicit in case
+  # the install process for docbook ever stops creating those files.
+  depends_on "docbook" => :build
 
   # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
   # Homebrew pr/issue: 50219
@@ -36,13 +40,15 @@ class Dbus < Formula
   def install
     # Fix the TMPDIR to one D-Bus doesn't reject due to odd symbols
     ENV["TMPDIR"] = "/tmp"
-
-    system "./autogen.sh", "--no-configure" if build.head?
+    # Manpages won't build without a current docbook catalog. This should exist
+    # if xmlto and docbook (build dependencies of this package) are installed.
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}",
-                          "--disable-xml-docs",
+                          "--enable-xml-docs",
                           "--disable-doxygen-docs",
                           "--enable-launchd",
                           "--with-launchd-agent-dir=#{prefix}",
