@@ -25,6 +25,7 @@ class DnscryptProxy < Formula
 
   depends_on "libsodium"
   depends_on "minisign" => :recommended
+  depends_on "ldns" => :recommended
 
   def install
     system "autoreconf", "-if" if build.head?
