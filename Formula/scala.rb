@@ -2,6 +2,7 @@ class Scala < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
   url "https://downloads.lightbend.com/scala/2.12.0/scala-2.12.0.tgz"
+  mirror "https://downloads.typesafe.com/scala/2.12.0/scala-2.12.0.tgz"
   mirror "http://www.scala-lang.org/files/archive/scala-2.12.0.tgz"
   sha256 "42be98ff9754518fd5c9a942c94ffba2464667a5e95ed4917e4e95565c96bdfe"
 
