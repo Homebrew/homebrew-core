@@ -55,6 +55,13 @@ class Qt5 < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/3b71525/qt5/QTBUG-51927.patch"
       sha256 "9460c3cc5ea0f530f24cb92fc9b260a2a7b01ccbdcd0b86e3ddae719a8b53eae"
     end
+
+    # Upstream commit from 1 Jun 2016 "Add install target to mac widget examples"
+    # http://code.qt.io/cgit/qt/qtbase.git/commit/examples/widgets/mac/qmaccocoaviewcontainer/qmaccocoaviewcontainer.pro?h=5.7&id=58408ffa1b9c0b42a1719d3c8a4d4c62dec4fce6
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9635ead/qt5/widget-examples.patch"
+      sha256 "f26819135bae1456abd7323e4f40cd83dd11fc46da055a24ae24511ac988b329"
+    end
   end
 
   bottle do
@@ -107,7 +114,6 @@ class Qt5 < Formula
       -qt-freetype
       -qt-pcre
       -nomake tests
-      -nomake examples
       -no-rpath
     ]
 
