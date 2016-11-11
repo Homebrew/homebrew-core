@@ -35,11 +35,13 @@ class Gdb < Formula
   depends_on "python" => :optional
   depends_on "guile" => :optional
 
-  patch do
-    # Patch is needed to work on new 10.12 installs with SIP.
-    # See http://sourceware-org.1504.n7.nabble.com/gdb-on-macOS-10-12-quot-Sierra-quot-td415708.html
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9d3dbc2/gdb/0001-darwin-nat.c-handle-Darwin-16-aka-Sierra.patch"
-    sha256 "a71489440781ae133eeba5a3123996e55f72bd914dbfdd3af0b0700f6d0e4e08"
+  if MacOS.version >= :sierra
+    patch do
+      # Patch is needed to work on new 10.12 installs with SIP.
+      # See http://sourceware-org.1504.n7.nabble.com/gdb-on-macOS-10-12-quot-Sierra-quot-td415708.html
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9d3dbc2/gdb/0001-darwin-nat.c-handle-Darwin-16-aka-Sierra.patch"
+      sha256 "a71489440781ae133eeba5a3123996e55f72bd914dbfdd3af0b0700f6d0e4e08"
+    end
   end
 
   if build.with? "python"
