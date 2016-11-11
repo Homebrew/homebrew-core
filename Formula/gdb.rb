@@ -17,6 +17,7 @@ class Gdb < Formula
   url "https://ftpmirror.gnu.org/gdb/gdb-7.12.tar.xz"
   mirror "https://ftp.gnu.org/gnu/gdb/gdb-7.12.tar.xz"
   sha256 "834ff3c5948b30718343ea57b11cbc3235d7995c6a4f3a5cecec8c8114164f94"
+  revision 1
 
   bottle do
     sha256 "38aae1b524a1566336bcd42e1c84ec524efbc3d6980d8c63095b9c812dd8c846" => :sierra
@@ -33,6 +34,15 @@ class Gdb < Formula
   depends_on "pkg-config" => :build
   depends_on "python" => :optional
   depends_on "guile" => :optional
+
+  if MacOS.version >= :sierra
+    patch do
+      # Patch is needed to work on new 10.12 installs with SIP.
+      # See http://sourceware-org.1504.n7.nabble.com/gdb-on-macOS-10-12-quot-Sierra-quot-td415708.html
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9d3dbc2/gdb/0001-darwin-nat.c-handle-Darwin-16-aka-Sierra.patch"
+      sha256 "a71489440781ae133eeba5a3123996e55f72bd914dbfdd3af0b0700f6d0e4e08"
+    end
+  end
 
   if build.with? "python"
     depends_on UniversalBrewedPython
@@ -74,6 +84,10 @@ class Gdb < Formula
     You will need to codesign the binary. For instructions, see:
 
       https://sourceware.org/gdb/wiki/BuildingOnDarwin
+
+    On 10.12 (Sierra) or later with SIP, you need to run this:
+
+      echo "set startup-with-shell off" >> ~/.gdbinit
     EOS
   end
 
