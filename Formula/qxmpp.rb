@@ -7,9 +7,9 @@ class Qxmpp < Formula
 
   bottle do
     cellar :any
-    sha256 "b91f3326670291f566231f7ea725759e1413324b2b3ea9998700c882dfeb4483" => :el_capitan
-    sha256 "de52dfb3984ffad28bcc9f6dc79080e0f167132deaf159eec50b9fbe6328c575" => :yosemite
-    sha256 "1ed8aeb55b725d9ea9f78be16a58d72ceb1b08c81c3ccc16f00634e552bc5514" => :mavericks
+    sha256 "fd7c98825fb816fe33a419fd35003ef012201209af0ed959646653ad0bd274a6" => :sierra
+    sha256 "fd7c98825fb816fe33a419fd35003ef012201209af0ed959646653ad0bd274a6" => :el_capitan
+    sha256 "16ed47b87aa37c5a758b37598236fbb2e3bd3562f30a8c6f38376454e23d53c2" => :yosemite
   end
 
   depends_on "qt5"
