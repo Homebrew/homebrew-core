@@ -178,6 +178,7 @@
   "libmarisa": "homebrew/boneyard",
   "libnice": "homebrew/boneyard",
   "libodbc++": "homebrew/boneyard",
+  "libqglviewer": "homebrew/boneyard",
   "libqxt": "homebrew/boneyard",
   "librets": "homebrew/boneyard",
   "libspotify": "homebrew/binary",
