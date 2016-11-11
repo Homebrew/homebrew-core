@@ -1,8 +1,8 @@
 class GtkGnutella < Formula
   desc "Share files in a peer-to-peer (P2P) network"
   homepage "http://gtk-gnutella.sourceforge.net/en/?page=news"
-  url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.1.10/gtk-gnutella-1.1.10.tar.bz2"
-  sha256 "95e2a030124e7cc05e19e351eebc16f40f4520381b7bb306e8b940ed4e2e6409"
+  url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.1.11/gtk-gnutella-1.1.11.tar.bz2"
+  sha256 "e46ffa3905831828f867709aa346cd88576075bd1299ef396962ad860e2589d5"
 
   bottle do
     sha256 "0659488d3cf0641f50f490d4f44c139bf5cd1b0fb69bedc2ab760b6ef41a58d4" => :sierra
@@ -16,6 +16,11 @@ class GtkGnutella < Formula
 
   def install
     ENV.deparallelize
+
+    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "Configure", "ret = clock_gettime(CLOCK_REALTIME, &tp);",
+                             "ret = undefinedgibberish(CLOCK_REALTIME, &tp);"
+    end
 
     system "./build.sh", "--prefix=#{prefix}", "--disable-nls"
     system "make", "install"
