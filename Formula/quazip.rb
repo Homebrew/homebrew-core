@@ -15,21 +15,34 @@ class Quazip < Formula
   depends_on "qt5"
 
   def install
-    args = %W[
-      -config release
-    ]
-
-    system "qmake", "quazip.pro", *args, "PREFIX=#{prefix}", "LIBS+=-lz"
+    system "qmake", "quazip.pro", "-config", "release",
+                    "PREFIX=#{prefix}", "LIBS+=-lz"
     system "make", "install"
-
-    cd "qztest" do
-      system "qmake", *args
-      system "make"
-      (pkgshare/"test").install "qztest"
-    end
   end
 
   test do
-    system "#{pkgshare}/test/qztest"
+    (testpath/"test.pro").write <<-EOS.undent
+      TEMPLATE     = app
+      CONFIG      += console
+      CONFIG      -= app_bundle
+      TARGET       = test
+      SOURCES     += test.cpp
+      INCLUDEPATH += #{include}
+      LIBPATH     += #{lib}
+      LIBS        += -lquazip
+    EOS
+
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <quazip/quazip.h>
+      int main() {
+        QuaZip zip;
+        return 0;
+      }
+    EOS
+
+    system "#{Formula["qt5"].bin}/qmake", "test.pro"
+    system "make"
+    assert File.exist?("test"), "test output file does not exist!"
+    system "./test"
   end
 end
