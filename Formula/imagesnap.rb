@@ -20,4 +20,8 @@ class Imagesnap < Formula
     xcodebuild "-project", "ImageSnap.xcodeproj", "SYMROOT=build", "-sdk", "macosx#{MacOS.version}"
     bin.install "build/Release/imagesnap"
   end
+
+  test do
+    assert_match "imagesnap", shell_output("#{bin}/imagesnap -h")
+  end
 end
