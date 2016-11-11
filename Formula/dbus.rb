@@ -22,9 +22,12 @@ class Dbus < Formula
     url "https://anongit.freedesktop.org/git/dbus/dbus.git"
 
     depends_on "autoconf" => :build
+    depends_on "autoconf-archive" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  depends_on "xmlto" => :build
 
   # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
   # Homebrew pr/issue: 50219
@@ -37,12 +40,14 @@ class Dbus < Formula
     # Fix the TMPDIR to one D-Bus doesn't reject due to odd symbols
     ENV["TMPDIR"] = "/tmp"
 
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
     system "./autogen.sh", "--no-configure" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}",
-                          "--disable-xml-docs",
+                          "--enable-xml-docs",
                           "--disable-doxygen-docs",
                           "--enable-launchd",
                           "--with-launchd-agent-dir=#{prefix}",
