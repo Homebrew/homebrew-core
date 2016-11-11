@@ -3,6 +3,7 @@ class Qxmpp < Formula
   homepage "https://github.com/qxmpp-project/qxmpp/"
   url "https://github.com/qxmpp-project/qxmpp/archive/v0.9.3.tar.gz"
   sha256 "13f5162a1df720702c6ae15a476a4cb8ea3e57d861a992c4de9147909765e6de"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,7 +12,7 @@ class Qxmpp < Formula
     sha256 "1ed8aeb55b725d9ea9f78be16a58d72ceb1b08c81c3ccc16f00634e552bc5514" => :mavericks
   end
 
-  depends_on "qt"
+  depends_on "qt5"
 
   def install
     system "qmake", "-config", "release", "PREFIX=#{prefix}"
