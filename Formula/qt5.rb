@@ -1,19 +1,9 @@
-class OracleHomeVarRequirement < Requirement
-  fatal true
-  satisfy(:build_env => false) { ENV["ORACLE_HOME"] }
-
-  def message; <<-EOS.undent
-      To use --with-oci you have to set the ORACLE_HOME environment variable.
-      Check Oracle Instant Client documentation for more information.
-    EOS
-  end
-end
-
 # Patches for Qt5 must be at the very least submitted to Qt's Gerrit codereview
 # rather than their bug-report Jira. The latter is rarely reviewed by Qt.
 class Qt5 < Formula
   desc "Version 5 of the Qt framework"
   homepage "https://www.qt.io/"
+  revision 1
   head "https://code.qt.io/qt/qt5.git", :branch => "5.7", :shallow => false
 
   # Remove stable patches for > 5.7.0
@@ -58,6 +48,20 @@ class Qt5 < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/34a4ad8/qt5/cups-sierra.patch"
       sha256 "63b5f37d694d0bd1db6d586d98f3c551239dc8818588f3b90dc75dfe6e9952be"
     end
+
+    # Upstream commit from 13 Sep 2016 "Fix crash on exit when using default property aliases with layouts"
+    # http://code.qt.io/cgit/qt/qtdeclarative.git/patch/?id=5149aa68eca6ede8836ec4f07a14d22d9da9b161
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/3b71525/qt5/QTBUG-51927.patch"
+      sha256 "9460c3cc5ea0f530f24cb92fc9b260a2a7b01ccbdcd0b86e3ddae719a8b53eae"
+    end
+
+    # Upstream commit from 1 Jun 2016 "Add install target to mac widget examples"
+    # http://code.qt.io/cgit/qt/qtbase.git/commit/examples/widgets/mac/qmaccocoaviewcontainer/qmaccocoaviewcontainer.pro?h=5.7&id=58408ffa1b9c0b42a1719d3c8a4d4c62dec4fce6
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9635ead/qt5/widget-examples.patch"
+      sha256 "f26819135bae1456abd7323e4f40cd83dd11fc46da055a24ae24511ac988b329"
+    end
   end
 
   bottle do
@@ -68,12 +72,6 @@ class Qt5 < Formula
 
   keg_only "Qt 5 conflicts Qt 4"
 
-  option "with-docs", "Build documentation"
-  option "with-examples", "Build examples"
-  option "with-oci", "Build with Oracle OCI plugin"
-  option "with-qtwebkit", "Build with QtWebkit module"
-  option "without-webengine", "Build without QtWebEngine module"
-
   deprecated_option "qtdbus" => "with-dbus"
   deprecated_option "with-d-bus" => "with-dbus"
 
@@ -83,11 +81,7 @@ class Qt5 < Formula
   depends_on :macos => :mountain_lion
 
   depends_on "dbus" => :optional
-  depends_on :mysql => :optional
-  depends_on :postgresql => :optional
   depends_on :xcode => :build
-
-  depends_on OracleHomeVarRequirement if build.with? "oci"
 
   # http://lists.qt-project.org/pipermail/development/2016-March/025358.html
   resource "qt-webkit" do
@@ -123,15 +117,6 @@ class Qt5 < Formula
       -no-rpath
     ]
 
-    args << "-nomake" << "examples" if build.without? "examples"
-
-    if build.with? "mysql"
-      args << "-plugin-sql-mysql"
-      inreplace "qtbase/configure", /(QT_LFLAGS_MYSQL_R|QT_LFLAGS_MYSQL)=\`(.*)\`/, "\\1=\`\\2 | sed \"s/-lssl -lcrypto//\"\`"
-    end
-
-    args << "-plugin-sql-psql" if build.with? "postgresql"
-
     if build.with? "dbus"
       dbus_opt = Formula["dbus"].opt_prefix
       args << "-I#{dbus_opt}/lib/dbus-1.0/include"
@@ -143,28 +128,15 @@ class Qt5 < Formula
       args << "-no-dbus"
     end
 
-    if build.with? "oci"
-      args << "-I#{ENV["ORACLE_HOME"]}/sdk/include"
-      args << "-L#{ENV["ORACLE_HOME"]}"
-      args << "-plugin-sql-oci"
-    end
-
-    args << "-skip" << "qtwebengine" if build.without? "webengine"
-
-    if build.with? "qtwebkit"
-      (buildpath/"qtwebkit").install resource("qt-webkit")
-      inreplace ".gitmodules", /.*status = obsolete\n((\s*)project = WebKit\.pro)/, "\\1\n\\2initrepo = true"
-    end
+    (buildpath/"qtwebkit").install resource("qt-webkit")
+    inreplace ".gitmodules", /.*status = obsolete\n((\s*)project = WebKit\.pro)/, "\\1\n\\2initrepo = true"
 
     system "./configure", *args
     system "make"
     ENV.j1
     system "make", "install"
-
-    if build.with? "docs"
-      system "make", "docs"
-      system "make", "install_docs"
-    end
+    system "make", "docs"
+    system "make", "install_docs"
 
     # Some config scripts will only find Qt in a "Frameworks" folder
     frameworks.install_symlink Dir["#{lib}/*.framework"]
@@ -191,12 +163,6 @@ class Qt5 < Formula
     Pathname.glob("#{bin}/*.app") do |app|
       mv app, libexec/"#{app.basename(".app")}-qt5.app"
     end
-  end
-
-  def caveats; <<-EOS.undent
-    We agreed to the Qt opensource license for you.
-    If this is unacceptable you should uninstall.
-    EOS
   end
 
   test do
