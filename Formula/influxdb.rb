@@ -8,9 +8,9 @@ class Influxdb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d46d2c8328b32ce663b2e3447ed1a2eddf97f9a4be785da2cc648c869771d2f" => :sierra
-    sha256 "8edec35bcf5921c860e2140f17f8d286063450c6271436232a5f67b57c03a859" => :el_capitan
-    sha256 "12d7d4b39a8cf7723f7332ef92d2be009e69859fef3fea47e437341570239fdd" => :yosemite
+    sha256 "cb34bfea2822c1741b9ef39f6c8d7f50f947d7bf033ee032dbf889be8e265e6c" => :sierra
+    sha256 "86cb195c310fd497fe2bc1fb09988c5ac1a75a88ffc7194ac8e1fa5c7a389014" => :el_capitan
+    sha256 "3ad9255394767ced3bee4ffc9c39f1e3c130ebb2b28b41f099ffe715081ffe40" => :yosemite
   end
 
   depends_on "gdm" => :build
