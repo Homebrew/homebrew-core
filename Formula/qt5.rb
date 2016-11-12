@@ -133,9 +133,9 @@ class Qt5 < Formula
 
     system "./configure", *args
     system "make"
-    system "make", "docs"
     ENV.j1
     system "make", "install"
+    system "make", "docs"
     system "make", "install_docs"
 
     # Some config scripts will only find Qt in a "Frameworks" folder
