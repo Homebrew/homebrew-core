@@ -9,11 +9,9 @@ class GenerateJsonSchema < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "0915c902a8de34bfe2298d4f91040eea18762c0e3e68747ce6e32a07e135810c" => :sierra
-    sha256 "d573136e4025aa6ecdad3ca73bfc53307ef6ab212bd8307387a7ff9763db14ed" => :el_capitan
-    sha256 "ac72c27b5ae36a0c40ba48b21d590519175395bd903ca7a3c46e4af840daa449" => :yosemite
-    sha256 "8fc1b18f001ea586ce7f3e5d5c021ad76be4cb8010688a783a1c80b22e3e3167" => :mavericks
+    sha256 "626e7f140070e16e7d4060f85aa98710bf9e268df7bbfe60f9feccec4f57c86f" => :sierra
+    sha256 "99114f2be49f8d02725144ba168f38521deb75c9d8ce71344a4edc040a39aa56" => :el_capitan
+    sha256 "5cc8964c154963ea8f4859b562ea735024644bee0552af6b457fbff40ffa3917" => :yosemite
   end
 
   depends_on "node"
