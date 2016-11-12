@@ -18,7 +18,7 @@ class Dynamips < Formula
   def install
     ENV.append "CFLAGS", "-I#{Formula["libelf"].include}/libelf"
 
-    arch = Hardware.is_64_bit? ? "amd64" : "x86"
+    arch = Hardware::CPU.is_64_bit? ? "amd64" : "x86"
 
     ENV.j1
     system "cmake", ".", "-DANY_COMPILER=1", *std_cmake_args
