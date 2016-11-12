@@ -29,7 +29,7 @@ class Dbus < Formula
 
   depends_on "xmlto" => :build
 
-  # doccbook is a dependency of xmlto, but the XML_CATALOG_FILES env-set in
+  # Docbook is a dependency of xmlto, but the XML_CATALOG_FILES env-set in
   # install() uses files created by docbook, so best to be explicit in case
   # the install process for docbook ever stops creating those files.
   depends_on "docbook" => :build
