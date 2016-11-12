@@ -1,8 +1,8 @@
 class Runit < Formula
   desc "Collection of tools for managing UNIX services"
   homepage "http://smarden.org/runit"
-  url "http://smarden.org/runit/runit-2.1.1.tar.gz"
-  sha256 "ffcf2d27b32f59ac14f2d4b0772a3eb80d9342685a2042b7fbbc472c07cf2a2c"
+  url "http://smarden.org/runit/runit-2.1.2.tar.gz"
+  sha256 "6fd0160cb0cf1207de4e66754b6d39750cff14bb0aa66ab49490992c0c47ba18"
 
   bottle do
     cellar :any_skip_relocation
