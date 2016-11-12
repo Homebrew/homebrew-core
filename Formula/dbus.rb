@@ -44,7 +44,7 @@ class Dbus < Formula
   def install
     # Fix the TMPDIR to one D-Bus doesn't reject due to odd symbols
     ENV["TMPDIR"] = "/tmp"
-    
+
     # Manpages won't build without a current docbook catalog. This should exist
     # if xmlto and docbook (build dependencies of this package) are installed.
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
