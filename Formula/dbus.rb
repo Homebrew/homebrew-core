@@ -29,11 +29,6 @@ class Dbus < Formula
 
   depends_on "xmlto" => :build
 
-  # Docbook is a dependency of xmlto, but the XML_CATALOG_FILES env-set in
-  # install() uses files created by docbook, so best to be explicit in case
-  # the install process for docbook ever stops creating those files.
-  depends_on "docbook" => :build
-
   # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
   # Homebrew pr/issue: 50219
   patch do
@@ -45,8 +40,6 @@ class Dbus < Formula
     # Fix the TMPDIR to one D-Bus doesn't reject due to odd symbols
     ENV["TMPDIR"] = "/tmp"
 
-    # Manpages won't build without a current docbook catalog. This should exist
-    # if xmlto and docbook (build dependencies of this package) are installed.
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     system "./autogen.sh", "--no-configure" if build.head?
