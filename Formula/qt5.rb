@@ -58,6 +58,13 @@ class Qt5 < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/34a4ad8/qt5/cups-sierra.patch"
       sha256 "63b5f37d694d0bd1db6d586d98f3c551239dc8818588f3b90dc75dfe6e9952be"
     end
+
+    # Upstream commit from 1 Jun 2016 "Add install target to mac widget examples"
+    # http://code.qt.io/cgit/qt/qtbase.git/commit/examples/widgets/mac/qmaccocoaviewcontainer/qmaccocoaviewcontainer.pro?h=5.7&id=58408ffa1b9c0b42a1719d3c8a4d4c62dec4fce6
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9635ead/qt5/widget-examples.patch"
+      sha256 "f26819135bae1456abd7323e4f40cd83dd11fc46da055a24ae24511ac988b329"
+    end
   end
 
   bottle do
