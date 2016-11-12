@@ -1,8 +1,8 @@
 class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "http://kubernetes.io/"
-  url "https://github.com/kubernetes/kubernetes/archive/v1.4.5.tar.gz"
-  sha256 "81575dd3b3c96fdafd95e8f557d2b9a8a79ce6c1f87bc8d6e051d8be1caf9104"
+  url "https://github.com/kubernetes/kubernetes/archive/v1.4.6.tar.gz"
+  sha256 "dcbbf24ca664f55e40d539a167143f2e0ea0f3ff40e7df6e25887ca10bb2e185"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
@@ -13,9 +13,9 @@ class KubernetesCli < Formula
   end
 
   devel do
-    url "https://github.com/kubernetes/kubernetes/archive/v1.5.0-alpha.2.tar.gz"
-    sha256 "21a006a73240f1d2dd8e3e1013e27c52a85d0d20f0544b72d69f0cfc9af8d2e9"
-    version "1.5.0-alpha.2"
+    url "https://github.com/kubernetes/kubernetes/archive/v1.5.0-beta.0.tar.gz"
+    sha256 "5453d3402e13fbab163f12bd00bdf143ea982aad64900a0f6b3b3a65e182dd99"
+    version "1.5.0-beta.0"
   end
 
   depends_on "go" => :build
