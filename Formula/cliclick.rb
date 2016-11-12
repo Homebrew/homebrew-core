@@ -7,10 +7,9 @@ class Cliclick < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "982856af8887c7b5a682b71d6a7d9269de8acf6ef2d863ec4eeb6b3ec0477fe5" => :sierra
-    sha256 "77a5c1b6670bd5d97d368ef1be82529f037476384a6728ddb17c16bb6d391e68" => :el_capitan
-    sha256 "720387cff546148dce05fdd3272e0643b918b7767c8e8606e849bc46057c9ff5" => :yosemite
-    sha256 "3de7b6cb16479169db7b7dd905f41f7845665cf347d7328a1b9138f8cf0a2fc5" => :mavericks
+    sha256 "b6585dee48ebd350a1c42cca05425f46193d4ce2e911cc58936848f3a75c7a61" => :sierra
+    sha256 "a632b68221f49e4590425260482f0ba1084cfc7b9838721c4c02651edeb1ecbd" => :el_capitan
+    sha256 "6474d5b2d232dbac0512f8435a447e17ed21f1c44d36c46b6edb94d239b797e7" => :yosemite
   end
 
   def install
