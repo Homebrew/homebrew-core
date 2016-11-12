@@ -1,9 +1,9 @@
 class Mksh < Formula
   desc "MirBSD Korn Shell"
   homepage "https://www.mirbsd.org/mksh.htm"
-  url "https://www.mirbsd.org/MirOS/dist/mir/mksh/mksh-R51.tgz"
-  mirror "https://pub.allbsd.org/MirOS/dist/mir/mksh/mksh-R51.tgz"
-  sha256 "9feeaa5ff33d8199c0123675dec29785943ffc67152d58d431802bc20765dadf"
+  url "https://www.mirbsd.org/MirOS/dist/mir/mksh/mksh-R54.tgz"
+  mirror "https://pub.allbsd.org/MirOS/dist/mir/mksh/mksh-R54.tgz"
+  sha256 "8bce3837c386684aa7780f085f1a4dbd5e3e26fb5c528ee0d41ae29af7f39013"
 
   bottle do
     cellar :any_skip_relocation
@@ -28,6 +28,6 @@ class Mksh < Formula
 
   test do
     assert_equal "honk",
-      shell_output("mksh -c 'echo honk'").chomp
+      shell_output("#{bin}/mksh -c 'echo honk'").chomp
   end
 end
