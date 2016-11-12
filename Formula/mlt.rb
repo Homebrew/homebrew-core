@@ -5,10 +5,9 @@ class Mlt < Formula
   sha256 "19d53992385f767cb174d692e577c4cb988d032704dbe3df4ebe6373ed388bb9"
 
   bottle do
-    sha256 "9da4f1754f388a089af07d9f003c5589684b45cdb3f55f2933a83944f1e8d292" => :sierra
-    sha256 "37b56fd9ab3a237a6034c3cd5705881f0d09fe8eab0154b187f7de2f963463bf" => :el_capitan
-    sha256 "ac7e712edae8c1a510e8ffae58c5388b8390242090c78f820ff7aa0cf9331fea" => :yosemite
-    sha256 "492c149e06c91af7083d1a454dbf61b1f7f90129f254496db794683521ee7899" => :mavericks
+    sha256 "fdedc1c1b5433e31218fdb2c935447c250657bc06f1a8fa8a1ffc0d774e939e2" => :sierra
+    sha256 "6b15f3754d873cab13cd61f39d96c191e2427da4d81e7fadc1cefa020e079f48" => :el_capitan
+    sha256 "d602a5ffa91f6a7f61c08c0f7d418a131d5038ceb33b035ef462afdd0b328601" => :yosemite
   end
 
   depends_on "pkg-config" => :build
