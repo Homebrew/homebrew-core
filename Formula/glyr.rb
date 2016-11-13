@@ -1,8 +1,8 @@
 class Glyr < Formula
   desc "Music related metadata search engine with command-line interface and C API"
   homepage "https://github.com/sahib/glyr"
-  url "https://github.com/sahib/glyr/archive/1.0.9.tar.gz"
-  sha256 "b2be2d51ba4a8f2bf83d4af8f2491c24b5090c561b72bb3ee319995023678aed"
+  url "https://github.com/sahib/glyr/archive/1.0.10.tar.gz"
+  sha256 "77e8da60221c8d27612e4a36482069f26f8ed74a1b2768ebc373c8144ca806e8"
 
   bottle do
     cellar :any
