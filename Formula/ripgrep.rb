@@ -1,8 +1,8 @@
 class Ripgrep < Formula
   desc "Search tool like grep and The Silver Searcher."
   homepage "https://github.com/BurntSushi/ripgrep"
-  url "https://github.com/BurntSushi/ripgrep/archive/0.2.8.tar.gz"
-  sha256 "0a2a41439572feed787b4e1e3d07d03b8ee6a7dd2dc0eda969eb7d67aed91e52"
+  url "https://github.com/BurntSushi/ripgrep/archive/0.2.9.tar.gz"
+  sha256 "508d6cab8e08bc8728f8674bae0266bc236b16933edb3559ac746b3b9af9d638"
   head "https://github.com/BurntSushi/ripgrep.git"
 
   bottle do
