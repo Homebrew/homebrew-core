@@ -1,8 +1,10 @@
 class Libraw < Formula
   desc "Library for reading RAW files from digital photo cameras"
   homepage "http://www.libraw.org/"
-  url "http://www.libraw.org/data/LibRaw-0.17.1.tar.gz"
-  sha256 "e599651a4cc37e00cfc2d2b56be87c3a4e4dae2c360b680fe9ab3f93d07cdea1"
+  url "http://www.libraw.org/data/LibRaw-0.17.2.tar.gz"
+  mirror "https://fossies.org/linux/privat/LibRaw-0.17.2.tar.gz"
+  mirror "https://distfiles.macports.org/libraw/LibRaw-0.17.2.tar.gz"
+  sha256 "92b0c42c7666eca9307e5e1f97d6fefc196cf0b7ee089e22880259a76fafd15c"
 
   bottle do
     cellar :any
@@ -14,6 +16,7 @@ class Libraw < Formula
 
   depends_on "pkg-config" => :build
   depends_on "jasper"
+  depends_on "jpeg"
   depends_on "little-cms2"
 
   resource "librawtestfile" do
@@ -23,13 +26,15 @@ class Libraw < Formula
   end
 
   resource "gpl2" do
-    url "http://www.libraw.org/data/LibRaw-demosaic-pack-GPL2-0.17.0.tar.gz"
-    sha256 "3c5982772f55f0b70c3c7604bc73e8b55f1de7b040e8f144cb220ee88e8bc346"
+    url "http://www.libraw.org/data/LibRaw-demosaic-pack-GPL2-0.17.2.tar.gz"
+    mirror "https://distfiles.macports.org/libraw/LibRaw-demosaic-pack-GPL2-0.17.2.tar.gz"
+    sha256 "a2e5e9cc04fa8f3e94070110dce8a06aa3b0b2f573ed99c5fc3e327d15f014b7"
   end
 
   resource "gpl3" do
-    url "http://www.libraw.org/data/LibRaw-demosaic-pack-GPL3-0.17.0.tar.gz"
-    sha256 "deca57ed524ab4f9915060360d74c5748e6fe8065fd60ca5e969fe9f578a8a0a"
+    url "http://www.libraw.org/data/LibRaw-demosaic-pack-GPL3-0.17.2.tar.gz"
+    mirror "https://distfiles.macports.org/libraw/LibRaw-demosaic-pack-GPL3-0.17.2.tar.gz"
+    sha256 "b00cd0f54851bd3c8a66be4cacbf049e4508f1bac8ff85cb4528d8979739ed36"
   end
 
   def install
