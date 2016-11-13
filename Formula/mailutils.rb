@@ -18,10 +18,7 @@ class Mailutils < Formula
   patch :DATA
 
   def install
-    # Python breaks the build (2014-05-01)
-    # Don't want bin/mu-mh/ directory
-    system "./configure", "--without-python",
-                          "--disable-mh",
+    system "./configure", "--disable-mh",
                           "--prefix=#{prefix}"
     system "make", "PYTHON_LIBS=-undefined dynamic_lookup", "install"
   end
