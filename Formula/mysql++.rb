@@ -13,7 +13,7 @@ class Mysqlxx < Formula
     sha256 "154e219e9cac151437d47b281ca35aa35eaf3d510b04f5e9886a0257a983a760" => :mountain_lion
   end
 
-  depends_on "mysql-connector-c"
+  depends_on :mysql
 
   def install
     system "./configure", "--disable-debug",
@@ -23,5 +23,20 @@ class Mysqlxx < Formula
                           "--with-mysql-lib=#{HOMEBREW_PREFIX}/lib",
                           "--with-mysql-include=#{HOMEBREW_PREFIX}/include"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <mysql++/cmdline.h>
+      int main(int argc, char *argv[]) {
+        mysqlpp::examples::CommandLine cmdline(argc, argv);
+        if (!cmdline) {
+          return 1;
+        }
+        return 0;
+      }
+    EOS
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lmysqlpp", "-o", "test"
+    system "./test", "-u", "foo", "-p", "bar"
   end
 end
