@@ -1,20 +1,8 @@
 class Jasper < Formula
   desc "Library for manipulating JPEG-2000 images"
   homepage "https://www.ece.uvic.ca/~frodo/jasper/"
-
-  stable do
-    url "https://www.ece.uvic.ca/~frodo/jasper/software/jasper-1.900.21.tar.gz"
-    sha256 "e9c8a241f80d1cc190c308f5efc6669a98776ed27458643553abee823fadd7b3"
-
-    # Remove for > 1.900.21
-    # Fixes test failure "jpg_mkimage failed; error: cannot load image data"
-    # Upstream commit "Fixed a bug in the JPEG codec caused by an integral
-    # promotion problem."
-    patch do
-      url "https://github.com/mdadams/jasper/commit/fa6834f.patch"
-      sha256 "80ca3aaafea9986a90201d36a13b00dc9effdb6c1363c02382c9193b49dd0e7b"
-    end
-  end
+  url "https://www.ece.uvic.ca/~frodo/jasper/software/jasper-1.900.28.tar.gz"
+  sha256 "e94691dc026c8c9ac26db0fc303562e93a141a4b1c9aa9a16a40b9eb345d515b"
 
   bottle do
     cellar :any
