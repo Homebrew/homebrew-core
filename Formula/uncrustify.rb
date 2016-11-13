@@ -1,8 +1,9 @@
 class Uncrustify < Formula
   desc "Source code beautifier"
   homepage "http://uncrustify.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/uncrustify/uncrustify/uncrustify-0.63/uncrustify-0.63.tar.gz"
-  sha256 "dffbb1341a8d208e0c76b65209750e34e75b29c5a0e9a5d5a943df58bfdc2ae3"
+  url "https://github.com/uncrustify/uncrustify/archive/uncrustify-0.64.tar.gz"
+  sha256 "2a8cb3ab82ca53202d50fc2c2cec0edd11caa584def58d356c1c759b57db0b32"
+  head "https://github.com/uncrustify/uncrustify.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,18 +13,14 @@ class Uncrustify < Formula
     sha256 "7bbc100632b13c81d2ec3ab897629f49effbb5dc76f991c4abde65566742b868" => :mavericks
   end
 
-  head do
-    url "https://github.com/uncrustify/uncrustify.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
+  depends_on "cmake" => :build
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
+    doc.install (buildpath/"documentation").children
   end
 
   test do
@@ -38,7 +35,7 @@ class Uncrustify < Formula
       }
     EOS
 
-    system "#{bin}/uncrustify", "-c", "#{pkgshare}/defaults.cfg", "t.c"
+    system "#{bin}/uncrustify", "-c", "#{doc}/htdocs/default.cfg", "t.c"
     assert_equal expected, File.read("#{testpath}/t.c.uncrustify")
   end
 end
