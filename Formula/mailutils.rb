@@ -19,7 +19,8 @@ class Mailutils < Formula
 
   def install
     system "./configure", "--disable-mh",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--without-tokyocabinet"
     system "make", "PYTHON_LIBS=-undefined dynamic_lookup", "install"
   end
 
