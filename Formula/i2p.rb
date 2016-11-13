@@ -20,21 +20,6 @@ class I2p < Formula
   end
 
   test do
-    wrapper_pid = fork do
-      exec "#{bin}/i2prouter console"
-    end
-    router_pid = 0
-    sleep 5
-
-    begin
-      status = shell_output("#{bin}/i2prouter status")
-      assert_match(/I2P Service is running/, status)
-      /PID:(\d+)/ =~ status
-      router_pid = Regexp.last_match(1)
-    ensure
-      Process.kill("SIGINT", router_pid.to_i) unless router_pid.nil?
-      Process.kill("SIGINT", wrapper_pid)
-      Process.wait(wrapper_pid)
-    end
+    assert_match "I2P Service is not running.", shell_output("i2prouter status", 1)
   end
 end
