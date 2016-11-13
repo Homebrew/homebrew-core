@@ -1,8 +1,8 @@
 class Armor < Formula
   desc "Uncomplicated HTTP server, supports HTTP/2 and auto TLS"
   homepage "https://github.com/labstack/armor"
-  url "https://github.com/labstack/armor/archive/v0.2.2.tar.gz"
-  sha256 "c3caaec847e3bf8b0efa75444ca75cb42a3847791a2d05e1846c5c77b49c3fea"
+  url "https://github.com/labstack/armor/archive/v0.2.3.tar.gz"
+  sha256 "fd98ee471e44c6cb701c524818962933e71420b066a11513744d954564d423bc"
   head "https://github.com/labstack/armor.git"
 
   bottle do
