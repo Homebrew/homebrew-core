@@ -23,28 +23,24 @@ class Czmq < Formula
   option :universal
   option "with-drafts", "Build and install draft classes and methods"
 
+  depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
-  depends_on "libsodium" => :recommended
+  depends_on "xmlto" => :build
+  depends_on "zeromq"
 
   conflicts_with "mono", :because => "both install `makecert` binaries"
 
-  if build.without? "libsodium"
-    depends_on "zeromq" => "without-libsodium"
-  else
-    depends_on "zeromq"
-  end
-
   def install
     ENV.universal_binary if build.universal?
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
-    args << "--with-libsodium" if build.with? "libsodium"
-    args << "--enable-drafts" if build.with?("drafts") || build.head?
+    args << "--enable-drafts" if build.with? "drafts"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make"
-    system "(ZSYS_INTERFACE=lo0 && make check-verbose)"
+    system "make", "ZSYS_INTERFACE=lo0", "check-verbose"
     system "make", "install"
     rm Dir["#{bin}/*.gsl"]
   end
