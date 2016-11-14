@@ -26,31 +26,26 @@ class Zeromq < Formula
 
   deprecated_option "with-pgm" => "with-libpgm"
 
+  depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
+  depends_on "xmlto" => :build
   depends_on "libpgm" => :optional
   depends_on "libsodium" => :optional
   depends_on "norm" => :optional
 
   def install
     ENV.universal_binary if build.universal?
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
-    if build.with? "libpgm"
-      # Use HB libpgm-5.2 because their internal 5.1 is b0rked.
-      ENV["pgm_CFLAGS"] = `pkg-config --cflags openpgm-5.2`.chomp
-      ENV["pgm_LIBS"] = `pkg-config --libs openpgm-5.2`.chomp
-      args << "--with-pgm"
-    end
 
-    if build.with? "libsodium"
-      args << "--with-libsodium"
-    else
-      args << "--without-libsodium"
-    end
-
+    args << "--with-pgm" if build.with? "libpgm"
+    args << "--with-libsodium" if build.with? "libsodium"
     args << "--with-norm" if build.with? "norm"
+    args << "--enable-drafts" if build.with?("drafts")
 
-    args << "--enable-drafts" if build.with?("drafts") || build.head?
+    ENV["LIBUNWIND_LIBS"] = "-framework System"
+    ENV["LIBUNWIND_CFLAGS"] = "-I#{MacOS.sdk_path}/usr/include"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
