@@ -23,4 +23,13 @@ class Ircii < Formula
     ENV.deparallelize
     system "make", "install"
   end
+
+  test do
+    IO.popen("#{bin}/irc -d", "r+") do |pipe|
+      assert_match "Connecting to port 6667 of server irc.freenode.net", pipe.gets
+      pipe.puts "/quit"
+      pipe.close_write
+      pipe.close
+    end
+  end
 end
