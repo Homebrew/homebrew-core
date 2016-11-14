@@ -1,8 +1,8 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.16.0/nghttp2-1.16.0.tar.xz"
-  sha256 "311d53e13d1aea8991d06f7963b75dc0a853eca961e53a38b6bd3d8b1d89019d"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.16.1/nghttp2-1.16.1.tar.xz"
+  sha256 "226241d4869aec0c755c1650f72839a34ea31ecf31ba75586efa6c2b45a9e2d0"
 
   bottle do
     rebuild 1
