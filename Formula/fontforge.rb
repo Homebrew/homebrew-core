@@ -3,6 +3,7 @@ class Fontforge < Formula
   homepage "https://fontforge.github.io"
   url "https://github.com/fontforge/fontforge/archive/20161001.tar.gz"
   sha256 "103af2a6c8799390f20790e44064ea4f9ec6795255b7a065b3f9a352c2723c40"
+  revision 1
   head "https://github.com/fontforge/fontforge.git"
 
   bottle do
@@ -23,8 +24,6 @@ class Fontforge < Formula
   depends_on "libtool" => :run
   depends_on "gettext"
   depends_on "pango"
-  depends_on "zeromq"
-  depends_on "czmq"
   depends_on "cairo"
   depends_on "fontconfig"
   depends_on "libpng" => :recommended
