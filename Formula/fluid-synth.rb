@@ -14,6 +14,8 @@ class FluidSynth < Formula
     sha256 "83b972cf7aec57e78dc1c1a6b3e286d8b9bf2a2622e174bca42efa8576e36e5f" => :mountain_lion
   end
 
+  option :universal
+
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "glib"
@@ -21,6 +23,8 @@ class FluidSynth < Formula
   depends_on "portaudio" => :optional
 
   def install
+    ENV.universal_binary if build.universal?
+
     args = std_cmake_args
     args << "-Denable-framework=OFF" << "-DLIB_SUFFIX="
     args << "-Denable-portaudio=ON" if build.with? "portaudio"
