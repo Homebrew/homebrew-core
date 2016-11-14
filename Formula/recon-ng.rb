@@ -6,6 +6,13 @@ class ReconNg < Formula
   url "https://bitbucket.org/LaNMaSteR53/recon-ng/get/v4.8.3.tar.gz"
   sha256 "067470f032f098a711f15c3294149cd42a0861625fe356698a2619ea665f3cb0"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "9785980483bc4e2ae51b6df112ada9873ffd21c12636b81ebe29009e5e16e97d" => :sierra
+    sha256 "b268a6fc15098285c4f68eae481e741ac17fac9cf61991bdf0b6673607505cde" => :el_capitan
+    sha256 "29dc6e6e032d3924648110736f2e137f1b7b54c7f842c934be9c586234b4ff6e" => :yosemite
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   ### setup_requires dependencies
