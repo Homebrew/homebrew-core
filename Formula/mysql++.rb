@@ -16,7 +16,7 @@ class Mysqlxx < Formula
   depends_on :mysql
 
   def install
-    mysql_include_dir = %x(mysql_config --variable=pkgincludedir)
+    mysql_include_dir = `mysql_config --variable=pkgincludedir`
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
@@ -37,7 +37,7 @@ class Mysqlxx < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lmysqlpp", "-o", "test"
+    system ENV.cxx, "test.cpp", `mysql_config --include`.chomp, "-L#{lib}", "-lmysqlpp", "-o", "test"
     system "./test", "-u", "foo", "-p", "bar"
   end
 end
