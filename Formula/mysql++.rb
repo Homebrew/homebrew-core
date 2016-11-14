@@ -16,12 +16,13 @@ class Mysqlxx < Formula
   depends_on :mysql
 
   def install
+    mysql_include_dir = %x(mysql_config --variable=pkgincludedir)
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-field-limit=40",
                           "--with-mysql-lib=#{HOMEBREW_PREFIX}/lib",
-                          "--with-mysql-include=#{HOMEBREW_PREFIX}/include"
+                          "--with-mysql-include=#{mysql_include_dir}"
     system "make", "install"
   end
 
