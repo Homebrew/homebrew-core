@@ -8,9 +8,9 @@ class SvtplayDl < Formula
 
   bottle do
     cellar :any
-    sha256 "f08b5849866598fd3c07949a3ab43f2dd3bcadaf05b64494728a4da56ad1fa82" => :sierra
-    sha256 "cc2652c759d40bcd3c2db72d1fcbd36836b3ae81e7d048969273bf115e8fad78" => :el_capitan
-    sha256 "98b75bb41a2ef8c042c1297db3d08f57fe64e792c148bdb259186cc49fa352f9" => :yosemite
+    sha256 "9c8e3138fa9608b45c2c815c8144a2b1d54a029f000d1e896a0c87327eb81e6c" => :sierra
+    sha256 "e7e3acc3a067cd2bcadc57652a391472b36d5804540884660c067136a3dc4ca9" => :el_capitan
+    sha256 "f3973c57afe94ea1d99893532d7af3cfcc5a8ddc5f6c861308844024d8179363" => :yosemite
   end
 
   depends_on "rtmpdump"
