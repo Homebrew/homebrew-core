@@ -26,8 +26,6 @@ class Czmq < Formula
   depends_on "pkg-config" => :build
   depends_on "libsodium" => :recommended
 
-  conflicts_with "mono", :because => "both install `makecert` binaries"
-
   if build.without? "libsodium"
     depends_on "zeromq" => "without-libsodium"
   else
@@ -45,6 +43,12 @@ class Czmq < Formula
     system "make"
     system "(ZSYS_INTERFACE=lo0 && make check-verbose)"
     system "make", "install"
+
+    # Rename to avoid formula conflict.
+    # This change will eventually be incorporated into a future CZMQ release.
+    # See https://github.com/zeromq/czmq/issues/1038 for more details.
+    mv bin/"makecert", bin/"zmakecert"
+
     rm Dir["#{bin}/*.gsl"]
   end
 
