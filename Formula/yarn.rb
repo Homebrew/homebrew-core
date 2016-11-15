@@ -15,12 +15,13 @@ class Yarn < Formula
   depends_on "node"
 
   def install
-    cp_r '.', prefix
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    libexec.install buildpath.children
+    bin.install_symlink Dir["#{libexec}/bin/yarn"]
+    bin.install_symlink Dir["#{libexec}/bin/yarn.js"]
   end
 
   test do
     (testpath/"package.json").write('{"name": "test"}')
-    system bin/"yarn", "add", "jquery"
+    system bin/"yarn", "add", "user-home"
   end
 end
