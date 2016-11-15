@@ -5,13 +5,12 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  revision 1
+  revision 2
 
   stable do
     if MacOS.version >= :sierra
       url "https://git.haskell.org/ghc.git",
-          :branch => "ghc-8.0",
-          :revision => "9448e62740ca03aeb915bf0ecf8b16e54a52798a"
+          :revision => "ee3ff0d21fd51af269a29d371db0094397090bc8"
       version "8.0.1"
 
       depends_on "autoconf" => :build
@@ -159,8 +158,6 @@ class Ghc < Formula
         cabal_install "--prefix=#{buildpath}/bootstrap-tools", "happy", "alex"
       end
 
-      inreplace "libraries/filepath/filepath.cabal", "cabal-version:  >=1.10",
-                                                     "cabal-version:  >=1.18"
       system "./boot"
     end
     system "./configure", "--prefix=#{prefix}", *args
