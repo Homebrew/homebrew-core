@@ -41,22 +41,9 @@ class Elm < Formula
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
-  # GHC 8 compat
-  # Fixes "No instance for (Num Json.Indent) arising from the literal '2'"
-  # Reported 3 Jul 2016; PR subject "aeson-pretty: use Spaces with confIndent"
-  patch do
-    url "https://github.com/elm-lang/elm-compiler/pull/1431.patch"
-    sha256 "4f11e645b4190eb3b0cbea7c641d4b28b307b811889f3b8206f45f6e53a5575b"
-  end
-
   def install
     # elm-compiler needs to be staged in a subdirectory for the build process to succeed
     (buildpath/"elm-compiler").install Dir["*"]
-
-    # GHC 8 compat
-    # Fixes "cabal: Could not resolve dependencies"
-    # Reported 25 May 2016: https://github.com/elm-lang/elm-compiler/issues/1397
-    (buildpath/"cabal.config").write("allow-newer: base,time,transformers,HTTP,aeson-pretty\n")
 
     extras_no_reactor = ["elm-package", "elm-make", "elm-repl"]
     extras = extras_no_reactor + ["elm-reactor"]
