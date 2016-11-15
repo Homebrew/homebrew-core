@@ -1,11 +1,10 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  revision 2
 
   stable do
-    url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.bz2"
-    sha256 "4a7c5f52f205203ea0328ca8e1963a7a88cf1f7f0e246f857d595b209eac0a4d"
+    url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.2.tar.bz2"
+    sha256 "e6ce83d46819c4120c9295ff6b36b90393dd5f6bef3bb117a06d7399c11fc7c0"
 
     # Reverts an upstream commit which incorrectly tries to install headers
     # into SDKROOT, if defined
