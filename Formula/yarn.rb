@@ -1,5 +1,3 @@
-require "language/node"
-
 class Yarn < Formula
   desc "Javascript package manager"
   homepage "https://yarnpkg.com/"
@@ -17,7 +15,7 @@ class Yarn < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    cp_r '.', prefix
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
