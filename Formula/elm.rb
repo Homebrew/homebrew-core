@@ -7,27 +7,27 @@ class Elm < Formula
   homepage "http://elm-lang.org"
 
   stable do
-    url "https://github.com/elm-lang/elm-compiler/archive/0.17.1.tar.gz"
-    sha256 "3339b79696981b76a719c651bda18082f4ecc58e01d913b29b202f174665e387"
+    url "https://github.com/elm-lang/elm-compiler/archive/0.18.0.tar.gz"
+    sha256 "3ed70ab6e624c09dd251bb2f1e104752ebd3f50a062ddf92fff9cbec98d09850"
 
     resource "elm-package" do
-      url "https://github.com/elm-lang/elm-package/archive/0.17.1.tar.gz"
-      sha256 "f7f9ede1066fe55e0f9e94906fdda0e4a0f56efeb12de8481bc5f5b96b78d33d"
+      url "https://github.com/elm-lang/elm-package/archive/0.18.0.tar.gz"
+      sha256 "5cf6e1ae0a645b426c0474cc7cd3f7d1605ffa1ac5756a39a8b2268ddc7ea0e9"
     end
 
     resource "elm-make" do
-      url "https://github.com/elm-lang/elm-make/archive/0.17.1.tar.gz"
-      sha256 "918316f65fc8cac1f6fe8cffa9b86aeff3d9d9a446559db43ec7c87e1dc78d95"
+      url "https://github.com/elm-lang/elm-make/archive/0.18.0.tar.gz"
+      sha256 "00c2d40128ca86454251d6672f49455265011c02aa3552a857af3109f337dbea"
     end
 
     resource "elm-repl" do
-      url "https://github.com/elm-lang/elm-repl/archive/0.17.1.tar.gz"
-      sha256 "01621479d798f906d90c2bff77fdefe4a76b1855241efc9a3530d4febcdee61b"
+      url "https://github.com/elm-lang/elm-repl/archive/0.18.0.tar.gz"
+      sha256 "be2b05d022ffa766fe186d5ad5da14385cec41ba7a4b2c18f2e0018351c99376"
     end
 
     resource "elm-reactor" do
-      url "https://github.com/elm-lang/elm-reactor/archive/0.17.1.tar.gz"
-      sha256 "0778df7e7fad897c750c29024166234cf3b4fcebe664aa52d864e0b64691e5e0"
+      url "https://github.com/elm-lang/elm-reactor/archive/0.18.0.tar.gz"
+      sha256 "736f84a08b10df07cfd3966aa5c7802957ab35d6d74f6322d4a69a0b9d75f4fe"
     end
   end
 
@@ -56,7 +56,7 @@ class Elm < Formula
     # GHC 8 compat
     # Fixes "cabal: Could not resolve dependencies"
     # Reported 25 May 2016: https://github.com/elm-lang/elm-compiler/issues/1397
-    (buildpath/"cabal.config").write("allow-newer: base,time,transformers,HTTP\n")
+    (buildpath/"cabal.config").write("allow-newer: base,time,transformers,HTTP,aeson-pretty\n")
 
     extras_no_reactor = ["elm-package", "elm-make", "elm-repl"]
     extras = extras_no_reactor + ["elm-reactor"]
