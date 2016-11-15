@@ -1,8 +1,8 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.0.1/zabbix-3.0.1.tar.gz"
-  sha256 "e91a8497bf635b96340988e2d9ca1bb3fac06e657b6596fa903c417a6c6b110b"
+  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.2.1/zabbix-3.2.1.tar.gz"
+  sha256 "8926b96ef05cba041d05329130f40e8e1311ad201e58c75d22005eda4075c091"
 
   bottle do
     sha256 "5b143b61a45cc0e19843ce052b8db18a959f1f5759b775c4061628f31ffa1b5b" => :sierra
@@ -51,6 +51,11 @@ class Zabbix < Formula
       else
         args << "--with-postgresql=#{brewed_or_shipped("pg_config")}"
       end
+    end
+
+    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "configure", "clock_gettime(CLOCK_REALTIME, &tp);",
+                             "undefinedgibberish(CLOCK_REALTIME, &tp);"
     end
 
     system "./configure", *args
