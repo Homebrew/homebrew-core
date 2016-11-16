@@ -7,9 +7,9 @@ class Pgloader < Formula
   revision 2
 
   bottle do
-    sha256 "31d9ea383b24bb08f5bc0b89f31fa93938a8e08e7c1809ae4647dd4514136f05" => :el_capitan
-    sha256 "31e8516ba133ef1adc25a6584f3507161d3787ea8ae04f0de84edff093b09d92" => :yosemite
-    sha256 "8fbdf3a61ecaf31d45dcb43d898e0f7ae628f787adeda7bc0eb6eaaff3953064" => :mavericks
+    sha256 "3474b716df1279759a9cc1f4b49ea52dc6fbc270386d490dcefa3d3949df973d" => :sierra
+    sha256 "b6d1a4ff0f134c5832cc4249bafc03c478c2f02f32a98d526f42c9e16d2f486a" => :el_capitan
+    sha256 "693fd7db17f168790b7177ab2d5a2295b095cb03737b913e075ca76f2930c371" => :yosemite
   end
 
   depends_on "sbcl"
