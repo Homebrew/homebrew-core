@@ -6,6 +6,13 @@ class Sbjson < Formula
 
   head "https://github.com/stig/json-framework.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "aded461aca135b96288154c6fe6219d7c093a0836dafc6fdec90899256e8f8db" => :sierra
+    sha256 "ce91cd42fb178216f3fe2ef6c617f9ca91a9e981b85142a22a8cc715ab105fc3" => :el_capitan
+    sha256 "46f00ae266cdc64c839ff5ad2f8258eb42bdb7682e8e5201e9acb1f07f449611" => :yosemite
+  end
+
   depends_on :xcode => :build
 
   def install
