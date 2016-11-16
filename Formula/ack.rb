@@ -21,6 +21,7 @@ class Ack < Formula
   end
 
   def install
+    system "nosuchcommand"
     if build.stable?
       bin.install "ack-#{version}-single-file" => "ack"
       system "pod2man", "#{bin}/ack", "ack.1"
