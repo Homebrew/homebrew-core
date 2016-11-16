@@ -38,7 +38,7 @@ class Zookeeper < Formula
 
   def default_zk_env
     <<-EOS.undent
-        [ -z "$ZOOCFGDIR" ] && export ZOOCFGDIR="#{etc}/zookeeper"
+      [ -z "$ZOOCFGDIR" ] && export ZOOCFGDIR="#{etc}/zookeeper"
     EOS
   end
 
