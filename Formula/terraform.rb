@@ -15,9 +15,9 @@ class Terraform < Formula
   end
 
   devel do
-    url "https://github.com/hashicorp/terraform/archive/v0.8.0-beta1.tar.gz"
-    sha256 "c159a78c56446b3231bce9b0e176e9f25568e3f6290135acafe333199f86644a"
-    version "0.8.0-beta1"
+    url "https://github.com/hashicorp/terraform/archive/v0.8.0-beta2.tar.gz"
+    sha256 "34bdd27bd16d5eb11f643d8c34bab92fe6452097616816528bee264d625a1920"
+    version "0.8.0-beta2"
   end
 
   depends_on "go" => :build
