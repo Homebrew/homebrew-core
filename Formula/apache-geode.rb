@@ -7,6 +7,7 @@ class ApacheGeode < Formula
 
   bottle :unneeded
 
+  # Geode does not work with Java 1.9 (see https://issues.apache.org/jira/browse/GEODE-3)
   depends_on :java => "1.8"
 
   def install
