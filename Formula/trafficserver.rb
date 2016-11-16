@@ -19,16 +19,10 @@ class Trafficserver < Formula
     depends_on "libtool"  => :build
   end
 
-  option "with-spdy", "Build with SPDY protocol support"
   option "with-experimental-plugins", "Enable experimental plugins"
 
   depends_on "openssl"
   depends_on "pcre"
-
-  if build.with? "spdy"
-    depends_on "spdylay"
-    depends_on "pkg-config" => :build
-  end
 
   needs :cxx11
 
@@ -53,7 +47,6 @@ class Trafficserver < Formula
       --disable-silent-rules
     ]
 
-    args << "--enable-spdy" if build.with? "spdy"
     args << "--enable-experimental-plugins" if build.with? "experimental-plugins"
 
     system "autoreconf", "-fvi" if build.head?
