@@ -1,9 +1,9 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=trafficserver/trafficserver-6.2.0.tar.bz2"
-  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-6.2.0.tar.bz2"
-  sha256 "bd5e8c178d02957b89a81d1e428ee50bcca0831a6917f32408915c56f486fd85"
+  url "https://www.apache.org/dyn/closer.cgi?path=trafficserver/trafficserver-7.0.0.tar.bz2"
+  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-7.0.0.tar.bz2"
+  sha256 "5a7216d3c3862cd254e577bcfbd0d6820ad7a2eab588d5a820f02e2c2f23afab"
 
   bottle do
     sha256 "5247b13f8f6f91d4af88e92daca11db1a21e952c193ebc36c15bd51e0d2b85da" => :sierra
