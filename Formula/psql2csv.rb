@@ -3,6 +3,7 @@ class Psql2csv < Formula
   homepage "https://github.com/fphilipe/psql2csv"
   url "https://github.com/fphilipe/psql2csv/archive/v0.9.tar.gz"
   sha256 "80dffcb2b41de131dd6023f5f496ff5981d86877de81f154f56c169793026022"
+  revision 1
 
   bottle :unneeded
 
