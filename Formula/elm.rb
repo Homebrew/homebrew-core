@@ -51,6 +51,18 @@ class Elm < Formula
       resource(extra).stage buildpath/extra
     end
 
+    # https://github.com/elm-lang/elm-make/pull/130
+    inreplace "elm-make/elm-make.cabal", "optparse-applicative >=0.11 && <0.12,",
+                                         "optparse-applicative >=0.11 && <0.14," # 0.13.0.0 is current
+
+    # https://github.com/elm-lang/elm-package/pull/252
+    inreplace "elm-package/elm-package.cabal" do |s|
+      s.gsub! "optparse-applicative >= 0.11 && < 0.12,",
+              "optparse-applicative >= 0.11 && < 0.14," # 0.13.0.0 is current
+      s.gsub! "HTTP >= 4000.2.5 && < 4000.3,",
+              "HTTP >= 4000.2.5 && < 4000.4," # 4000.3.3 is current
+    end
+
     cabal_sandbox do
       cabal_sandbox_add_source "elm-compiler", *extras
       cabal_install "--only-dependencies", "elm-compiler", *extras
