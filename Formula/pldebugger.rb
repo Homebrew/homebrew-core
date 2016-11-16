@@ -2,10 +2,9 @@ class Pldebugger < Formula
   desc "PL/pgSQL debugger server-side code"
   homepage "https://git.postgresql.org/gitweb/"
   url "https://git.postgresql.org/git/pldebugger.git",
-      :tag => "REL-9_5_0",
-      :revision => "85d7b3b2821301e182d5974d9e6f353d7a241eff"
+      :revision => "4058a938f588397b2923247974eb22106f530ebb"
   version "1.0" # See default_version field in pldbgapi.control
-  revision 1
+  revision 2
   head "https://git.postgresql.org/git/pldebugger.git"
 
   bottle do
