@@ -1,7 +1,7 @@
 class Goenv < Formula
   desc "Go version management"
   homepage "https://github.com/syndbg/goenv"
-  url "https://github.com/syndbg/goenv/archive/20161028.tar.gz"
+  url "https://github.com/syndbg/goenv/archive/v20161028.tar.gz"
   sha256 "3f283537c2b4f64a7549a009361ac4da6115be6b2c45462b008a58f8366a8804"
   head "https://github.com/syndbg/goenv.git"
 
@@ -25,6 +25,6 @@ class Goenv < Formula
   end
 
   test do
-    shell_output("eval \"$(#{bin}/goenv init -)\" && goenv versions")
+    assert_match "Usage: goenv <command> [<args>]", shell_output("#{bin}/goenv help")
   end
 end
