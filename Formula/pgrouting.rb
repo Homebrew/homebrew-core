@@ -4,6 +4,7 @@ class Pgrouting < Formula
   url "https://github.com/pgRouting/pgrouting/archive/pgrouting-2.3.0.tar.gz"
   sha256 "cadeed30bfc57f6e77bc48a10301b26e5d71d8e86f366ed60ab5b0eaa0c45662"
   head "https://github.com/pgRouting/pgrouting.git"
+  revision 1
 
   bottle do
     cellar :any
