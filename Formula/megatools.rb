@@ -1,8 +1,8 @@
 class Megatools < Formula
   desc "Command-line client for Mega.co.nz"
   homepage "https://megatools.megous.com/"
-  url "https://megatools.megous.com/builds/megatools-1.9.97.tar.gz"
-  sha256 "3316c56ee55adef0ab113aad41ef95eb28fc15218639f69b1e04362b1c725af3"
+  url "https://megatools.megous.com/builds/megatools-1.9.98.tar.gz"
+  sha256 "9b0521a4d27dbc417fc8e12610ac1e1da729bf6d6eb5bef927ef3670b372a16f"
 
   bottle do
     cellar :any
@@ -13,6 +13,7 @@ class Megatools < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "asciidoc" => :build
   depends_on "glib"
   depends_on "glib-networking"
   depends_on "openssl"
