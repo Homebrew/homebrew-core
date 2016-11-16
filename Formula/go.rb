@@ -30,7 +30,7 @@ class Go < Formula
     end
   end
 
-  option "without-cgo", "Build without cgo"
+  option "without-cgo", "Build without cgo (also disables race detector)"
   option "without-godoc", "godoc will not be installed for you"
   option "without-race", "Build without race detector"
 
@@ -64,7 +64,7 @@ class Go < Formula
 
     # Race detector only supported on amd64 platforms.
     # https://golang.org/doc/articles/race_detector.html
-    if MacOS.prefer_64_bit? && build.with?("race")
+    if build.with?("cgo") && build.with?("race") && MacOS.prefer_64_bit?
       system bin/"go", "install", "-race", "std"
     end
 
