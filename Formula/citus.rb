@@ -4,7 +4,7 @@ class Citus < Formula
   url "https://github.com/citusdata/citus/archive/v6.0.0.tar.gz"
   sha256 "90bad0e57256ca3e72c080b58877e396216cbd46c5820a8f0ec2a0ca4d062dfb"
   head "https://github.com/citusdata/citus.git"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
