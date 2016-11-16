@@ -1,9 +1,9 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.0.1/mesos-1.0.1.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/1.0.1/mesos-1.0.1.tar.gz"
-  sha256 "e053d97192ca1dd949e07e6e34cca0f28af9767cdff5ec984769b2102017b0c1"
+  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.1.0/mesos-1.1.0.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/1.1.0/mesos-1.1.0.tar.gz"
+  sha256 "0f6d591eff78483e07bee93aed4553c69064f7870b216817a0085def3569b2c1"
 
   bottle do
     sha256 "71559d903c2c5677dbf6f4fd5d8e87136f35a094f194fa112d88043a99bf63cf" => :sierra
@@ -13,7 +13,7 @@ class Mesos < Formula
 
   depends_on :java => "1.7+"
   depends_on :macos => :mountain_lion
-  depends_on :apr => :build
+  depends_on "apr-util" => :build
   depends_on "maven" => :build
   depends_on "subversion"
 
@@ -97,7 +97,7 @@ class Mesos < Formula
     ]
 
     unless MacOS::CLT.installed?
-      args << "--with-apr=#{Formula["apr"].opt_libexec}"
+      args << "--with-apr=#{Formula["apr-util"].opt_libexec}"
     end
 
     ENV.cxx11
