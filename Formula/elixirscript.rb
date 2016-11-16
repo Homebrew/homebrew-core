@@ -3,8 +3,8 @@ require "language/node"
 class Elixirscript < Formula
   desc "Elixir to JavaScript compiler"
   homepage "https://github.com/bryanjos/elixirscript"
-  url "https://github.com/bryanjos/elixirscript/archive/v0.22.0.tar.gz"
-  sha256 "371d114e9e6be7a7d944d4e4d191b379327e1a57c888a80d00f3d9374cef57b0"
+  url "https://github.com/bryanjos/elixirscript/archive/v0.23.1.tar.gz"
+  sha256 "1669d6ef4833146f4167288b7f4a144e00aa870098c99d6bfad74e99a111836d"
 
   bottle do
     cellar :any_skip_relocation
