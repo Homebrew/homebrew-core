@@ -1,8 +1,8 @@
 class Jasper < Formula
   desc "Library for manipulating JPEG-2000 images"
   homepage "https://www.ece.uvic.ca/~frodo/jasper/"
-  url "https://www.ece.uvic.ca/~frodo/jasper/software/jasper-1.900.28.tar.gz"
-  sha256 "e94691dc026c8c9ac26db0fc303562e93a141a4b1c9aa9a16a40b9eb345d515b"
+  url "https://www.ece.uvic.ca/~frodo/jasper/software/jasper-1.900.29.tar.gz"
+  sha256 "2ae7e9d3ba189ddcd4231e7255348d3144757d5c2ff8dd853f37e0df783925c0"
 
   bottle do
     cellar :any
