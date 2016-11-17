@@ -49,15 +49,15 @@ class Orientdb < Formula
     system "#{bin}/orientdb", "start"
     sleep 3
 
-    ensure
+  ensure
       system "#{bin}/orientdb", "stop"
-    end
+
   end
 
   def caveats; <<-EOS.undent
-      The OrientDB root password was set to 'orientdb'. Follow this to reset it:
-      http://orientdb.com/docs/2.2/Server-Security.html#restoring-the-servers-user-root
-      EOS
+    The OrientDB root password was set to 'orientdb'. Follow this to reset it:
+    http://orientdb.com/docs/2.2/Server-Security.html#restoring-the-servers-user-root
+    EOS
   end
 
   test do
