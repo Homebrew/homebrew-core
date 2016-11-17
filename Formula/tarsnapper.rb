@@ -43,24 +43,10 @@ class Tarsnapper < Formula
   end
 
   test do
-    (testpath/"tarsnapper.conf").write <<-EOF.undent
-      deltas: 1d 7d 30d
-      target: /localmachine/$name-$date
-
-      jobs:
-        tarsnapper-homebrew:
-          source: #{testpath}
-    EOF
-
-    # Using "--dry-run" ensures that tarsnap doesn't create an actual backup.
-    #
-    # WARNING:
-    # The user running the tests needs to have a valid ~/.tarsnaprc setup as
-    # tarsnapper invokes tarsnap directly.
-    #
-    # Although tarsnap supports to dry-run backups without a valid tarsnap key
-    # and config (via the "--no-default-config" option), tarsnapper doesn't
-    # provide support for this.
-    system bin/"tarsnapper", "--config", testpath/"tarsnapper.conf", "make", "--dry-run"
+    # A better test would be to run "tarsnapper make --dry-run". This would
+    # force the tester and CI system to have a tarsnap.com account. Calling
+    # "--help" to verify that the python dependencies are setup correctly is
+    # the next best option: https://github.com/Homebrew/homebrew-core/pull/6956
+    system bin/"tarsnapper", "--help"
   end
 end
