@@ -28,7 +28,7 @@ class Epeg < Formula
   end
 
   test do
-    system "epeg", "--width=1",
+    system "#{bin}/epeg", "--width=1",
                    "--height=1",
                    test_fixtures("test.jpg")
     "out.jpg"
