@@ -43,10 +43,6 @@ class Tarsnapper < Formula
   end
 
   test do
-    # A better test would be to run "tarsnapper make --dry-run". This would
-    # force the tester and CI system to have a tarsnap.com account. Calling
-    # "--help" to verify that the python dependencies are setup correctly is
-    # the next best option: https://github.com/Homebrew/homebrew-core/pull/6956
-    system bin/"tarsnapper", "--help"
+    assert_match /usage: tarsnapper/, shell_output("#{bin}/tarsnapper --help")
   end
 end
