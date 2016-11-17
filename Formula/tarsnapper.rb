@@ -6,6 +6,13 @@ class Tarsnapper < Formula
   url "https://github.com/miracle2k/tarsnapper/archive/0.3.0.tar.gz"
   sha256 "519d95a91c436e8bd8379d74d9747cafffab8ee35d26d754bfe84cbbb074aa54"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "0aa2373f1ef50e24b74933296bf8a4eb308e63eed566acad8eebeab2d52167b4" => :sierra
+    sha256 "2fa8e6ec3c4b70e811777f514dd5b4e520a7736e61980b272828be0106f40ec5" => :el_capitan
+    sha256 "5e9efabb3c91e9b6e39f10b1a421ad41bf74399c224094f085fcefbe23223a93" => :yosemite
+  end
+
   depends_on "tarsnap"
 
   resource "argparse" do
