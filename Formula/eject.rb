@@ -39,13 +39,13 @@ class Eject < Formula
       </document>
     EOS
 
-    swift = <<-SWIFT.undent
+    swift = <<-EOS.undent
       // Create Views
       let view = UIView()
       view.frame = CGRect(x: 0, y: 0, width: 375, height: 667)
       view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
       view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-    SWIFT
+    EOS
 
     assert_equal swift, shell_output("#{bin}/eject --file view.xib")
   end
