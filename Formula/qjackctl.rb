@@ -1,8 +1,8 @@
 class Qjackctl < Formula
   desc "simple Qt application to control the JACK sound server daemon"
   homepage "http://qjackctl.sourceforge.net"
-  url "https://downloads.sourceforge.net/qjackctl/qjackctl-0.4.3.tar.gz"
-  sha256 "6bfdc3452f3c48d1ce40bd4164be0caa1c716474fbd3fb408d3308dfadf79e07"
+  url "https://downloads.sourceforge.net/qjackctl/qjackctl-0.4.4.tar.gz"
+  sha256 "531db2f7eca654fd8769a1281dccb54ebca57a0b2a575734d1bafc3896a46ba5"
   head "http://git.code.sf.net/p/qjackctl/code.git"
 
   bottle do
@@ -11,12 +11,15 @@ class Qjackctl < Formula
     sha256 "f24586ac79810807e4326555f93c0b53976d78c2fe215a13d464f01c0d3d318b" => :yosemite
   end
 
+  depends_on "pkg-config" => :build
   depends_on "qt5"
   depends_on "jack"
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
     system "./configure", "--disable-debug",
-                          "--enable-qt5",
                           "--disable-dbus",
                           "--disable-portaudio",
                           "--disable-xunique",
