@@ -50,8 +50,7 @@ class Orientdb < Formula
     sleep 3
 
   ensure
-      system "#{bin}/orientdb", "stop"
-
+    system "#{bin}/orientdb", "stop"
   end
 
   def caveats; <<-EOS.undent
