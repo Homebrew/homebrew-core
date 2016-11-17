@@ -105,6 +105,12 @@ class Git < Formula
       system "make", "clean"
     end
 
+    # Install the netrc credential helper
+    cd "contrib/credential/netrc" do
+      system "make", "test"
+      bin.install "git-credential-netrc"
+    end
+
     # Install git-subtree
     cd "contrib/subtree" do
       system "make", "CC=#{ENV.cc}",
