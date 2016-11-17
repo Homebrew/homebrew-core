@@ -1,9 +1,9 @@
 class Qjson < Formula
   desc "Map JSON to QVariant objects"
-  homepage "http://qjson.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/qjson/qjson/0.8.1/qjson-0.8.1.tar.bz2"
-  mirror "https://mirrors.kernel.org/debian/pool/main/q/qjson/qjson_0.8.1.orig.tar.bz2"
-  sha256 "cd4db5b956247c4991a9c3e95512da257cd2a6bd011357e363d02300afc814d9"
+  homepage "https://github.com/flavio/qjson"
+  url "https://github.com/flavio/qjson/archive/0.8.1.tar.gz"
+  sha256 "920c94166cb91b1cf11c7d2745bdbcc8c0ea82411ca7b3732ce0b00ee2d56e98"
+  revision 1
   head "https://github.com/flavio/qjson.git"
 
   bottle do
@@ -15,7 +15,7 @@ class Qjson < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "qt"
+  depends_on "qt5"
 
   def install
     system "cmake", ".", *std_cmake_args
