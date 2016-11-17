@@ -36,12 +36,17 @@ class PcapDnsproxy < Formula
         <array>
           <string>#{opt_bin}/Pcap_DNSProxy</string>
           <string>-c</string>
-          <string>#{etc}/pcap_dnsproxy/</string>
+          <string>#{etc}/pcap_DNSproxy/</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
         <key>KeepAlive</key>
         <true/>
+        <key>SoftResourceLimits</key>
+        <dict>
+          <key>NumberOfFiles</key>
+          <integer>10240</integer>
+        </dict>
       </dict>
     </plist>
     EOS
