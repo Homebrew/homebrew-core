@@ -244,6 +244,7 @@
   "pulse": "homebrew/boneyard",
   "pyenv-pip-rehash": "homebrew/boneyard",
   "pylucene": "homebrew/boneyard",
+  "pyqt": "homebrew/boneyard",
   "pyqwt": "homebrew/boneyard",
   "pyside": "homebrew/boneyard",
   "pyside-tools": "homebrew/boneyard",

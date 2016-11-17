@@ -12,17 +12,6 @@ class Gnuradio < Formula
     sha256 "41eb9fdae72761b7a83f284f1e7613da9e3ce916e0f98f20ad3aafe417be5a4e" => :yosemite
   end
 
-  # These python extension modules were linked directly to a Python
-  # framework binary.
-  # Replace -lpython with -undefined dynamic_lookup in linker flags.
-  # https://github.com/gnuradio/gnuradio/pull/604
-  patch do
-    url "https://github.com/gnuradio/gnuradio/pull/604.patch"
-    sha256 "9e1c612f0f4063d387d85517cc420f050f49c7903d36fab45b72e8d828549e3c"
-  end
-
-  option "with-python", "Build with python support"
-  option "with-documentation", "Build with documentation"
   option :universal
 
   depends_on "pkg-config" => :build
@@ -34,19 +23,9 @@ class Gnuradio < Formula
   depends_on "gsl"
   depends_on "zeromq"
 
-  if build.with? "python"
-    depends_on "swig" => :build
-    depends_on "pygtk"
-    depends_on "wxpython"
-    depends_on "qt"
-    depends_on "qwt"
-    depends_on "pyqt"
-  end
-
-  if build.with? "documentation"
-    depends_on "doxygen" => :build
-    depends_on "sphinx-doc" => :build
-  end
+  # For documentation
+  depends_on "doxygen" => :build
+  depends_on "sphinx-doc" => :build
 
   depends_on "uhd" => :recommended
   depends_on "sdl" => :recommended
@@ -140,7 +119,6 @@ class Gnuradio < Formula
     enabled_components << "gr-wavelet"
     enabled_components << "gr-video-sdl" if build.with? "sdl"
     enabled_components << "gr-uhd" if build.with? "uhd"
-    enabled_components += %w[python gr-ctrlport grc gr-utils gr-qtgui gr-wxgui] if build.with? "python"
     enabled_components += %w[doxygen sphinx] if build.with? "documentation"
 
     enabled_components.each do |c|
