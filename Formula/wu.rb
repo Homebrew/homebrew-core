@@ -4,7 +4,7 @@ class Wu < Formula
   url "https://github.com/sramsay/wu/archive/3.10.0.tar.gz"
   sha256 "0934771cdd04cb4c38b45190dbfa97fa8b3aafaf53ea75152f070c97de850223"
 
-  depends_on "go"
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -31,8 +31,6 @@ class Wu < Formula
   end
 
   test do
-    ENV["GOPATH"] = testpath.realpath
     assert_match "You must create a .condrc file in $HOME.", shell_output("#{bin}/wu -all")
-    system "false"
   end
 end
