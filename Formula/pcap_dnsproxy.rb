@@ -21,31 +21,10 @@ class PcapDnsproxy < Formula
     xcodebuild "-project", "./Source/Pcap_DNSProxy.xcodeproj", "-target", "Pcap_DNSProxy", "-configuration", "Release", "SYMROOT=build"
     bin.install "Source/build/Release/Pcap_DNSProxy"
     (etc/"pcap_DNSproxy").install Dir["Source/ExampleConfig/*.{ini,txt}"]
+    prefix.install "Source/ExampleConfig/pcap_dnsproxy.service.plist"
   end
 
-  plist_options :startup => true, :manual => "sudo #{HOMEBREW_PREFIX}/opt/pcap_dnsproxy/bin/Pcap_DNSProxy -c #{HOMEBREW_PREFIX}/etc/pcap_dnsproxy/"
-
-  def plist; <<-EOS.undent
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/Pcap_DNSProxy</string>
-          <string>-c</string>
-          <string>#{etc}/pcap_dnsproxy/</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-      </dict>
-    </plist>
-    EOS
-  end
+  plist_options :startup => true, :manual => "sudo #{HOMEBREW_PREFIX}/opt/pcap_dnsproxy/bin/Pcap_DNSProxy -c #{HOMEBREW_PREFIX}/etc/pcap_DNSproxy/"
 
   test do
     (testpath/"pcap_DNSproxy").mkpath
