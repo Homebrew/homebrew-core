@@ -14,6 +14,7 @@ end
 class Qt5 < Formula
   desc "Version 5 of the Qt framework"
   homepage "https://www.qt.io/"
+  revision 1
   head "https://code.qt.io/qt/qt5.git", :branch => "5.7", :shallow => false
 
   # Remove stable patches for > 5.7.0
@@ -72,8 +73,6 @@ class Qt5 < Formula
     sha256 "3085e765270fbae1df00a0a56df1e287234345cd5532cb54dafd991463813868" => :el_capitan
     sha256 "17bec6a0f29a0fb74c3dd8d7b8e45cb50a10b0b6860bca5f54590e04cbf7e48b" => :yosemite
   end
-
-  keg_only "Qt 5 conflicts Qt 4"
 
   option "with-docs", "Build documentation"
   option "with-examples", "Build examples"

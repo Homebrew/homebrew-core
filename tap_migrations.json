@@ -255,6 +255,7 @@
   "qiv": "homebrew/boneyard",
   "qjson": "homebrew/boneyard",
   "qrupdate": "homebrew/science",
+  "qt": "homebrew/boneyard",
   "quassel": "caskroom/cask",
   "qwtpolar": "homebrew/boneyard",
   "rbenv-readline": "homebrew/boneyard",
