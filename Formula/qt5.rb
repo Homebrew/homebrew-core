@@ -15,8 +15,6 @@ class Qt5 < Formula
     sha256 "1bbdf366e87a2fb8adb4f657a384b9dd8851149c06c23be870838abd24433991" => :yosemite
   end
 
-  keg_only "Qt 5 conflicts Qt 4"
-
   option "with-docs", "Build documentation"
   option "with-examples", "Build examples"
   option "with-qtwebkit", "Build with QtWebkit module"
