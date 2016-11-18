@@ -20,14 +20,9 @@ end
 class Slimerjs < Formula
   desc "Scriptable browser for Web developers"
   homepage "https://slimerjs.org/"
-  url "https://download.slimerjs.org/releases/0.10.1/slimerjs-0.10.1.zip"
-  sha256 "a2b796c677e9a1faab97b365e70bb3f5e1733728c70ce5e0a9c4d6b19385ae93"
+  url "https://github.com/laurentj/slimerjs/archive/0.10.1.tar.gz"
+  sha256 "940c4459821610a399b967a48d109d45cfa546ec347c109bb88330e17f3a2979"
   head "https://github.com/laurentj/slimerjs.git"
-
-  devel do
-    url "https://download.slimerjs.org/nightlies/latest-slimerjs-master/slimerjs-1.0.0-pre.zip"
-    sha256 "4fa35f42267b8a4c5f84301e20b18603c5a71e723d4838fd9a5756cc824c0355"
-  end
 
   bottle :unneeded
 
@@ -36,13 +31,9 @@ class Slimerjs < Formula
   depends_on FirefoxRequirement
 
   def install
-    if build.head?
-      cd "src" do
-        system "zip", "-r", "omni.ja", "chrome/", "components/", "modules/",
-                      "defaults/", "chrome.manifest", "-x@package_exclude.lst"
-        libexec.install %w[application.ini omni.ja slimerjs slimerjs.py]
-      end
-    else
+    cd "src" do
+      system "zip", "-r", "omni.ja", "chrome/", "components/", "modules/",
+                    "defaults/", "chrome.manifest", "-x@package_exclude.lst"
       libexec.install %w[application.ini omni.ja slimerjs slimerjs.py]
     end
     bin.install_symlink libexec/"slimerjs"
