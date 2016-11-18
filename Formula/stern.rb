@@ -7,6 +7,13 @@ class Stern < Formula
   head "https://github.com/wercker/stern",
     :shallow => false
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "80ce66cd5760263686da9d66f32d55f42343fa3001cbb93f31fba891d3cfad73" => :sierra
+    sha256 "88115c5a05403037defbf44e5177a3565504b9a2cf3c0499a8ff89528ae4ab72" => :el_capitan
+    sha256 "602e2363ccf22874d3cf6bb52fe3d2db4964e667e27d5b1972bc4a64532e6aef" => :yosemite
+  end
+
   depends_on "go" => :build
   depends_on "govendor" => :build
 
