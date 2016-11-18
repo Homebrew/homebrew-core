@@ -29,10 +29,9 @@ class Quantlib < Formula
   end
 
   def install
-   
     args = []
     if build.with? "intraday"
-        args << "--enable-intraday"
+      args << "--enable-intraday"
     end
 
     ENV.cxx11 if build.cxx11?
