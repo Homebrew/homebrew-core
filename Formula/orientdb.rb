@@ -46,6 +46,7 @@ class Orientdb < Formula
 
     ENV["ORIENTDB_ROOT_PASSWORD"] = "orientdb"
     system "#{bin}/orientdb", "stop"
+    sleep 3
     system "#{bin}/orientdb", "start"
     sleep 3
 
@@ -67,6 +68,7 @@ class Orientdb < Formula
     inreplace "#{testpath}/orientdb-server-config.xml", "</properties>", "  <entry name=\"server.database.path\" value=\"#{testpath}\" />\n    </properties>"
 
     system "#{bin}/orientdb", "stop"
+    sleep 3
     system "#{bin}/orientdb", "start"
     sleep 3
 
