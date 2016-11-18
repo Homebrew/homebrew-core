@@ -6,9 +6,9 @@ class Jasper < Formula
 
   bottle do
     cellar :any
-    sha256 "a9d75631f770979df6c63d9bca3537c45cc51db2df877371337395d35f24d802" => :sierra
-    sha256 "87bc77e7c58e3651780e455194d80cb8f594a903a5ccb626f4a231eb832a425c" => :el_capitan
-    sha256 "f6023e4467d3df12f916c71da84625ec4e4e2ee10c3d52bce52ad82c88e6eba5" => :yosemite
+    sha256 "ef1142ea83ad6a5ce3a92d64e80685c1447a87d2062bde5d456b626fb620e5d3" => :sierra
+    sha256 "d262d3b14633bff763b58871de361eacf9354d8017a76430cfb957da1fed32a4" => :el_capitan
+    sha256 "bc8e00968ac570ddecb7a78796ae245e29ef9326d8ace577ce29ba96b12f87c4" => :yosemite
   end
 
   head do
