@@ -1,8 +1,8 @@
 class GstPython < Formula
   desc "Python overrides for gobject-introspection-based pygst bindings"
   homepage "https://gstreamer.freedesktop.org/modules/gst-python.html"
-  url "https://gstreamer.freedesktop.org/src/gst-python/gst-python-1.10.0.tar.xz"
-  sha256 "de59b493e47bf0221421873f6c80811dd7ff7b1929521264d3a559bc410dc741"
+  url "https://gstreamer.freedesktop.org/src/gst-python/gst-python-1.10.1.tar.xz"
+  sha256 "5305b34af74a182fd72de0e6093eb6f206ea4d26dad53d0f564603063e80b013"
 
   bottle do
     sha256 "2a32138a13b2ce91eb8b5f79939509c3b87c6232e72609096361b40dd65b67dd" => :sierra
