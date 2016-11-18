@@ -27,6 +27,6 @@ class Pipemeter < Formula
   end
 
   test do
-    assert_match "3.00B", pipe_output("pipemeter -r 2>&1 >/dev/null", "foo", 0)
+    assert_match "3.00B", pipe_output("#{bin}/pipemeter -r 2>&1 >/dev/null", "foo", 0)
   end
 end
