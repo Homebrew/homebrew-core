@@ -1,8 +1,8 @@
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
-  url "https://gmic.eu/files/source/gmic_1.7.8.tar.gz"
-  sha256 "3a2f32d79714239cfa56ecb10799b7d73362b4e2a852444bc24866272cd041a4"
+  url "https://gmic.eu/files/source/gmic_1.7.9.tar.gz"
+  sha256 "93d8eb70780328fa207cef8555c77f7e9e5399ff7d204dfcab145809c51e34e4"
   head "https://github.com/dtschump/gmic.git"
 
   bottle do
@@ -33,9 +33,6 @@ class Gmic < Formula
     args << "-DENABLE_OPENEXR=OFF" if build.without? "openexr"
     system "cmake", *args
     system "make", "install"
-
-    # https://github.com/dtschump/gmic/issues/11
-    man1.install "man/gmic.1.gz"
   end
 
   test do
