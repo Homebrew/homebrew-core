@@ -23,6 +23,6 @@ class Stklos < Formula
   end
 
   test do
-    assert_equal "42", shell_output("stklos -e '(print (+ 41 1))'").chomp
+    assert_equal "42", shell_output("#{bin}/stklos -e '(print (+ 41 1))'").chomp
   end
 end
