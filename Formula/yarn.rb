@@ -3,8 +3,8 @@ require "language/node"
 class Yarn < Formula
   desc "Javascript package manager"
   homepage "https://yarnpkg.com/"
-  url "https://yarnpkg.com/downloads/0.17.3/yarn-v0.17.3.tar.gz"
-  sha256 "883df435f68ce47c93c2e4be27acbd4122ae52ef4d334f75104c0c5e187a9173"
+  url "https://yarnpkg.com/downloads/0.17.4/yarn-v0.17.4.tar.gz"
+  sha256 "1bcd0371f6b35ae70be663beffc34a6d63c85ab23bf338e34c489b32e369fa9a"
   head "https://github.com/yarnpkg/yarn.git"
 
   bottle do
