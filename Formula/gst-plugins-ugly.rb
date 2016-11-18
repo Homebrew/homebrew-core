@@ -1,13 +1,13 @@
 class GstPluginsUgly < Formula
   desc "GStreamer plugins (well-supported, possibly problematic for distributors)"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.10.0.tar.xz"
-  sha256 "97de8d1903abb54305732e6b8781c8c42f5cc5a2a548a8f31b38c189e81a55e0"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.10.1.tar.xz"
+  sha256 "a5ecd59fc2091eeb52368de81cc6a91c1a1c19dc5bdde85ce90e1eed5d4183c2"
 
   bottle do
-    sha256 "7c7e510ffae2c160c112979719bcc0827aeebaaafe9afa1c30625f565e655446" => :sierra
-    sha256 "6b64d5ec752e8fc027a24d67d0aa0ecd043575a462faeb31694aede41c2ea324" => :el_capitan
-    sha256 "f1d5181d99543007158cdb2d0fc11452de888fa0a32046692d10e5a91b57fc43" => :yosemite
+    sha256 "e7c69c54fac572f433c9bc5866afd59cf03b0c44c73ab5e74cc709c9b4059893" => :sierra
+    sha256 "00b177b9ad4e67a2a24eef0ef64ee3646410dc437bc5a083d455d5c0aa0520d6" => :el_capitan
+    sha256 "2801cbd5c59bb18668af972990a9ea2e556f24be27887c23452a16986fabf169" => :yosemite
   end
 
   head do

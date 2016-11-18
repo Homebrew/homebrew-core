@@ -1,20 +1,21 @@
 class SpeedtestCli < Formula
   desc "Command-line interface for https://speedtest.net bandwidth tests"
   homepage "https://github.com/sivel/speedtest-cli"
-  url "https://github.com/sivel/speedtest-cli/archive/v0.3.4.tar.gz"
-  sha256 "e50646e245ea3c80c9653a532db0dbaef72f1c439330bcc22c381074c17b719d"
+  url "https://github.com/sivel/speedtest-cli/archive/v1.0.0.tar.gz"
+  sha256 "c9692ae3ec2005f39830ef8e645f63ccf45d6797624b5a56a53bde4d2174edca"
   head "https://github.com/sivel/speedtest-cli.git"
 
   bottle :unneeded
 
   def install
-    bin.install "speedtest_cli.py" => "speedtest-cli"
-    # Previous versions of the formula used "speedtest_cli"
-    bin.install_symlink "speedtest-cli" => "speedtest_cli"
+    bin.install "speedtest.py" => "speedtest"
+    # Previous versions of the formula used "speedtest_cli" and "speedtest-cli"
+    bin.install_symlink "speedtest" => "speedtest_cli"
+    bin.install_symlink "speedtest" => "speedtest-cli"
     man1.install "speedtest-cli.1"
   end
 
   test do
-    system bin/"speedtest-cli"
+    system bin/"speedtest"
   end
 end
