@@ -38,10 +38,6 @@ class Clipper < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/clipper</string>
-        <string>--address</string>
-        <string>127.0.0.1</string>
-        <string>--port</string>
-        <string>8377</string>
       </array>
       <key>EnvironmentVariables</key>
       <dict>
