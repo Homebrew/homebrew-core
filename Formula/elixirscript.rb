@@ -8,9 +8,9 @@ class Elixirscript < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bb155f0c96c26e55fed5faa23c94e7f47c57c75031e8b82ebd89b8c91a2df66f" => :sierra
-    sha256 "a2fe9d4a767685b58b079d09f2b7e267d530e9d804cd893c4977687a9a165b6d" => :el_capitan
-    sha256 "4dc6f6b15b3f1e6eab09a7ccf00e10daac5329ac2b6891e7205ae7579f6e23a2" => :yosemite
+    sha256 "ef2877188dec7d9155c82f30c445ff9234831b3c25a746a409d82a2386811497" => :sierra
+    sha256 "b2117b476a7102b1fc7dddf8e318b127431afdca5b1de3c67c1f5a29a3775456" => :el_capitan
+    sha256 "ee87f93312270825e58757ad9471625e3dc9a6196a1ac0c159953498015c235b" => :yosemite
   end
 
   depends_on "elixir" => :build
