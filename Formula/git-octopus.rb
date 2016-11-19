@@ -1,8 +1,8 @@
 class GitOctopus < Formula
   desc "The continuous merge workflow"
   homepage "https://github.com/lesfurets/git-octopus"
-  url "https://github.com/lesfurets/git-octopus/archive/v1.3.tar.gz"
-  sha256 "f4d150c840189053fd327a5141361369b6ed80d57a6bbdd84e9d035777c87b0a"
+  url "https://github.com/lesfurets/git-octopus/archive/v1.4.tar.gz"
+  sha256 "e2800eea829c6fc74da0d3f3fcb3f7d328d1ac8fbb7b2eca8c651c0c903a50c3"
 
   bottle do
     cellar :any_skip_relocation
