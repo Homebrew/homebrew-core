@@ -1,8 +1,8 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-1.5.tar.gz"
-  sha256 "3174558556a20ae8f9ee3abbf66b7d42b657d3370322555501a707e339e10771"
+  url "https://weechat.org/files/src/weechat-1.6.tar.gz"
+  sha256 "3061e57460e0e3e4533551c45ced53b222fe0933848250d0fb7337d9aacfd853"
 
   head "https://github.com/weechat/weechat.git"
 
@@ -15,6 +15,7 @@ class Weechat < Formula
 
   option "with-perl", "Build the perl module"
   option "with-ruby", "Build the ruby module"
+  option "without-tcl", "Do not build the tcl module"
   option "with-curl", "Build with brewed curl"
   option "with-debug", "Build with debug information"
 
@@ -39,6 +40,7 @@ class Weechat < Formula
     args << "-DENABLE_LUA=OFF" if build.without? "lua"
     args << "-DENABLE_PERL=OFF" if build.without? "perl"
     args << "-DENABLE_RUBY=OFF" if build.without? "ruby"
+    args << "-DENABLE_TCL=OFF" if build.without? "tcl"
     args << "-DENABLE_ASPELL=OFF" if build.without? "aspell"
     args << "-DENABLE_GUILE=OFF" if build.without? "guile"
     args << "-DENABLE_PYTHON=OFF" if build.without? "python"
@@ -59,6 +61,6 @@ class Weechat < Formula
   end
 
   test do
-    system "weechat", "-r", "/quit"
+    system bin/"weechat", "-r", "/quit"
   end
 end
