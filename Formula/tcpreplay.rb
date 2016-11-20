@@ -1,8 +1,8 @@
 class Tcpreplay < Formula
   desc "Replay saved tcpdump files at arbitrary speeds"
   homepage "http://tcpreplay.appneta.com"
-  url "https://github.com/appneta/tcpreplay/releases/download/v4.1.1/tcpreplay-4.1.1.tar.gz"
-  sha256 "61b916ef91049cad2a9ddc8de6f5e3e3cc5d9998dbb644dc91cf3a798497ffe4"
+  url "https://github.com/appneta/tcpreplay/releases/download/v4.1.2/tcpreplay-4.1.2.tar.gz"
+  sha256 "da483347e83a9b5df0e0dbb0f822a2d37236e79dda35f4bc4e6684fa827f25ea"
 
   bottle do
     cellar :any
@@ -15,26 +15,11 @@ class Tcpreplay < Formula
   depends_on "libdnet"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --disable-debug
-      --prefix=#{prefix}
-      --enable-dynamic-link
-    ]
-
-    if MacOS::Xcode.installed?
-      args << "--with-macosx-sdk=#{MacOS.sdk.version}"
-    else
-      # Allows the CLT to be used if Xcode's not available
-      # Reported 11 Jul 2016: https://github.com/appneta/tcpreplay/issues/254
-      inreplace "configure" do |s|
-        s.gsub! /^.*Could not figure out the location of a Mac OS X SDK.*$/,
-                "MACOSX_SDK_PATH=\"\""
-        s.gsub! " -isysroot $MACOSX_SDK_PATH", ""
-      end
-    end
-
-    system "./configure", *args
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--enable-dynamic-link"
     system "make", "install"
   end
 
