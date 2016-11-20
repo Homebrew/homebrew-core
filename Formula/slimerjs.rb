@@ -17,23 +17,13 @@ class Slimerjs < Formula
   end
 
   def caveats; <<-EOS.undent
-    SlimerJS may need some configurations before using:
-      https://docs.slimerjs.org/current/installation.html
-
-    The configuration file is placed in:
+    The configuration file was installed in:
       #{libexec}/application.ini
     EOS
   end
 
   test do
-    if File.exist? "/Applications/Firefox.app/Contents/MacOS/firefox"
-      (testpath/"test.js").write <<-EOS.undent
-        console.log("hello");
-        slimer.exit();
-      EOS
-      assert_match "hello", shell_output("#{bin}/slimerjs test.js", 0)
-    else
-      assert_match "Set it with the path to Firefox", shell_output("#{bin}/slimerjs test.js", 1)
-    end
+    ENV["SLIMERJSLAUNCHER"] = "/nonexistent"
+    assert_match "Set it with the path to Firefox", shell_output("#{bin}/slimerjs test.js", 1)
   end
 end
