@@ -1,8 +1,8 @@
 class Nim < Formula
   desc "Statically typed, imperative programming language"
   homepage "http://nim-lang.org/"
-  url "http://nim-lang.org/download/nim-0.15.0.tar.xz"
-  sha256 "c514535050b2b2156147bbe6e23aafe07cd996b2afa2c81fa9a09e1cd8c669fb"
+  url "http://nim-lang.org/download/nim-0.15.2.tar.xz"
+  sha256 "905df2316262aa2cbacae067acf45fc05c2a71c8c6fde1f2a70c927ebafcfe8a"
   head "https://github.com/nim-lang/Nim.git", :branch => "devel"
 
   bottle do
@@ -64,6 +64,6 @@ class Nim < Formula
       license = "MIT"
       requires "nim >= 0.15.0"
     EOS
-    assert_equal "name: \"hello\"", shell_output("#{bin}/nimble dump").split("\n")[0].chomp
+    assert_equal "name: \"hello\"", shell_output("#{bin}/nimble dump").split("\n")[1].chomp
   end
 end
