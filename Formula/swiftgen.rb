@@ -1,17 +1,17 @@
 class Swiftgen < Formula
   desc "Collection of Swift tools to generate Swift code"
   homepage "https://github.com/AliSoftware/SwiftGen"
-  url "https://github.com/AliSoftware/SwiftGen/archive/3.0.0.tar.gz"
-  sha256 "e95a6102d49013dc729363057d6fed4d670f87a73b9b023b4a7711d3dd10f8fc"
+  url "https://github.com/AliSoftware/SwiftGen/archive/3.0.1.tar.gz"
+  sha256 "eca63a8dbb011e28cf58b11f06f846e5efb9be22c40f949d548ec9bda329291a"
   head "https://github.com/AliSoftware/SwiftGen.git"
 
   bottle do
     cellar :any
-    sha256 "4fbbfcc9b10ad825cfabb09b479686ccd374ac3a3fd1038532434fbbe5aabbe6" => :el_capitan
-    sha256 "84dea0c4d8a0594f6aae49c7a8f0bc0fe7f8ba131cbdcff4239413cbf7724452" => :yosemite
+    sha256 "1625b77bb922202dec6a7371b8ae6a42f8017fd7284ba59542ca024b6e051295" => :sierra
+    sha256 "f426532be8eb66707661ae7282cad21bb1b6d9df5c04ae38da44020faa9537ab" => :el_capitan
   end
 
-  depends_on :xcode => "7.0"
+  depends_on :xcode => "8.0"
 
   def install
     rake "install[#{bin},#{lib},#{pkgshare}/templates]"

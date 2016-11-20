@@ -4,12 +4,13 @@ class Pgrouting < Formula
   url "https://github.com/pgRouting/pgrouting/archive/pgrouting-2.3.0.tar.gz"
   sha256 "cadeed30bfc57f6e77bc48a10301b26e5d71d8e86f366ed60ab5b0eaa0c45662"
   head "https://github.com/pgRouting/pgrouting.git"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f588645d13eb72c605d736e271b89552a44da91d49820fbbd7eed42a856b9c04" => :sierra
-    sha256 "8a4e72d1ebc5cebb411837e0fe23e1a38ab7c7997f1f642134cd044db4669242" => :el_capitan
-    sha256 "28fbbaf8a23cdd85fa195054e9bde133d9cca7733f2d670335f45ac97420e6a6" => :yosemite
+    sha256 "c384f28b1c7b71fcffc1f224f1f94b1a791a92a082966d5152ccd095fef31a3d" => :sierra
+    sha256 "f37050810d98e093baee89baf99dee3966bb8acb5c2f35d7daeb76cd828c1866" => :el_capitan
+    sha256 "15324de649cd542b85eb733fa41ef2cf6c98e25a42695cb5a0b6f6ecfe93246b" => :yosemite
   end
 
   depends_on "cmake" => :build

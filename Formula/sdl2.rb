@@ -1,16 +1,14 @@
 class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
-  url "https://libsdl.org/release/SDL2-2.0.4.tar.gz"
-  sha256 "da55e540bf6331824153805d58b590a29c39d2d506c6d02fa409aedeab21174b"
+  url "https://libsdl.org/release/SDL2-2.0.5.tar.gz"
+  sha256 "442038cf55965969f2ff06d976031813de643af9c9edc9e331bd761c242e8785"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "30d399af15a544799466d291b81ac7d121fbacd7f0586539622f43afd6726a19" => :sierra
-    sha256 "748d150139dcb1d58deb2f7b7e2fa73f0c3a6cc59a48ef4bff37e97307b3e6b6" => :el_capitan
-    sha256 "2bf3ca9593760c9fae6046ef7e650b6609c9b0c992ec817b593edd3ceb13f226" => :yosemite
-    sha256 "98556d9ac1f5cf7c51deec86bc23eb773dde6454939e181ec769dcafb51b4282" => :mavericks
+    sha256 "dd9b949459f217f2cd2c432e48fee2ba8a0035ffbce6c01ce0c35018691325d0" => :sierra
+    sha256 "2bb9bcf7da27c98413d7e54df03b89e75eb5118079d4b57dd4e06019b41e3c61" => :el_capitan
+    sha256 "cc4d5280aa614e389c1b6be3bf9430dbf97712ae8af492e3adbb4c496aec4068" => :yosemite
   end
 
   head do

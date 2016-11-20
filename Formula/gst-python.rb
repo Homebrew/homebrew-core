@@ -1,14 +1,13 @@
 class GstPython < Formula
   desc "Python overrides for gobject-introspection-based pygst bindings"
   homepage "https://gstreamer.freedesktop.org/modules/gst-python.html"
-  url "https://gstreamer.freedesktop.org/src/gst-python/gst-python-1.8.3.tar.xz"
-  sha256 "149e7b9c2c361832bc765d39bce004d1ffe1b330c09c42dc902ca48867e804ce"
+  url "https://gstreamer.freedesktop.org/src/gst-python/gst-python-1.10.1.tar.xz"
+  sha256 "5305b34af74a182fd72de0e6093eb6f206ea4d26dad53d0f564603063e80b013"
 
   bottle do
-    sha256 "d2d9d2a237e7bd5066e68f3ea6df093b24cc3243843d0617c794d1679e06cc1e" => :sierra
-    sha256 "3c72b68dd7532e979adb3142dfa3ba4890929206a57c79f67a045f02ce28420e" => :el_capitan
-    sha256 "fab0fee62ff6767febb48a14c652f5a66229c23d730d7565eba4e177b2db215e" => :yosemite
-    sha256 "da74c98301daf282b9cbd1de8cbe2cf69911ca09820779bbc23cbe8b08dccc67" => :mavericks
+    sha256 "5ae84a19d583b1541f096630a0787b430099df9217b2f929144009dcfd5062e2" => :sierra
+    sha256 "09c9ed5882b2f4ca1f28cadcbc221afb1f3b1b66e739584b0380fe24d2008661" => :el_capitan
+    sha256 "d2866a9a8a8bc7a2ca8e2e96dd379cd516e3f663ffce8d4808a91297abe6453b" => :yosemite
   end
 
   option "without-python", "Build without python 2 support"

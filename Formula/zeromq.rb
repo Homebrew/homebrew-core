@@ -1,15 +1,14 @@
 class Zeromq < Formula
   desc "High-performance, asynchronous messaging library"
   homepage "http://www.zeromq.org/"
-  url "https://github.com/zeromq/zeromq4-1/releases/download/v4.1.5/zeromq-4.1.5.tar.gz"
-  sha256 "04aac57f081ffa3a2ee5ed04887be9e205df3a7ddade0027460b8042432bdbcf"
+  url "https://github.com/zeromq/libzmq/releases/download/v4.2.0/zeromq-4.2.0.tar.gz"
+  sha256 "53b83bf0ee978931f76fa9cb46ad4affea65787264a5f3d140bc743412d0c117"
 
   bottle do
     cellar :any
-    sha256 "7d2de85d31cb632d0bb9aa94292c0023e2dd9b94849cf419124cd48540aaa4f8" => :sierra
-    sha256 "8677f4e36376d84752b00a2c9801c1fe8519ee9db7b6df051c52d203f1e9575e" => :el_capitan
-    sha256 "d987614f7d62306b6a2c9f51133f5e393678d25f5c8705821b40aebe956347b2" => :yosemite
-    sha256 "306cde5d1e3fbd3defc36d3e2c88464dac3a82f0d7f0cc57c9dfffeac3e07600" => :mavericks
+    sha256 "a7fbc3c02719a8e1f828a44ad16625a75e076f2b77baf6e10b242de7950bae39" => :sierra
+    sha256 "5737a824fa12a919595ec21650f2c85abc4bc04876b3af8273db42cf459b65e6" => :el_capitan
+    sha256 "1aff88bffa74b14fb02df052d4a7bf6f0417a54d51e12803b92888d66a8c2896" => :yosemite
   end
 
   head do
@@ -23,32 +22,30 @@ class Zeromq < Formula
   option :universal
   option "with-libpgm", "Build with PGM extension"
   option "with-norm", "Build with NORM extension"
+  option "with-drafts", "Build and install draft classes and methods"
 
   deprecated_option "with-pgm" => "with-libpgm"
 
+  depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
+  depends_on "xmlto" => :build
   depends_on "libpgm" => :optional
   depends_on "libsodium" => :optional
   depends_on "norm" => :optional
 
   def install
     ENV.universal_binary if build.universal?
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
-    if build.with? "libpgm"
-      # Use HB libpgm-5.2 because their internal 5.1 is b0rked.
-      ENV["pgm_CFLAGS"] = `pkg-config --cflags openpgm-5.2`.chomp
-      ENV["pgm_LIBS"] = `pkg-config --libs openpgm-5.2`.chomp
-      args << "--with-pgm"
-    end
 
-    if build.with? "libsodium"
-      args << "--with-libsodium"
-    else
-      args << "--without-libsodium"
-    end
-
+    args << "--with-pgm" if build.with? "libpgm"
+    args << "--with-libsodium" if build.with? "libsodium"
     args << "--with-norm" if build.with? "norm"
+    args << "--enable-drafts" if build.with?("drafts")
+
+    ENV["LIBUNWIND_LIBS"] = "-framework System"
+    ENV["LIBUNWIND_CFLAGS"] = "-I#{MacOS.sdk_path}/usr/include"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args

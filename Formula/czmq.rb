@@ -1,16 +1,14 @@
 class Czmq < Formula
   desc "High-level C binding for ZeroMQ"
   homepage "http://czmq.zeromq.org/"
-  url "https://github.com/zeromq/czmq/releases/download/v3.0.2/czmq-3.0.2.tar.gz"
-  sha256 "8bca39ab69375fa4e981daf87b3feae85384d5b40cef6adbe9d5eb063357699a"
-  revision 3
+  url "https://github.com/zeromq/czmq/releases/download/v4.0.1/czmq-4.0.1.tar.gz"
+  sha256 "0fc7294d983df7c2d6dc9b28ad7cd970377d25b33103aa82932bdb7fa6207215"
 
   bottle do
     cellar :any
-    sha256 "3f61414bc6aabc62f0ae3423b167e7101955843dd81c5b92c6edb4aff9c6ece8" => :sierra
-    sha256 "9bbf6566cd74644ae22f5dd9338c1123bf3ecdf7a920dcaabf166aeb3902e3f7" => :el_capitan
-    sha256 "4a569da4e60f3b8252b4ef9a998e50153ac119108135ce832f2494b0edf7e87a" => :yosemite
-    sha256 "ae42e5b89ed47c00a3a45d9c3a4759a2f0a772c787f62b34cb024f489790efff" => :mavericks
+    sha256 "a8a996216bf15cc37a48507c1549162517f7afb30289b5fd18808015b2686596" => :sierra
+    sha256 "d649c24c131485e701c461970db241aa2c59e0a98fdd831787703943477f25fc" => :el_capitan
+    sha256 "b408b48eeb8fe5bd31277197c322f67fde275693e9b5f7ddd5ea1d8dffb03455" => :yosemite
   end
 
   head do
@@ -22,28 +20,26 @@ class Czmq < Formula
   end
 
   option :universal
+  option "with-drafts", "Build and install draft classes and methods"
 
+  depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
-  depends_on "libsodium" => :recommended
+  depends_on "xmlto" => :build
+  depends_on "zeromq"
 
   conflicts_with "mono", :because => "both install `makecert` binaries"
 
-  if build.without? "libsodium"
-    depends_on "zeromq" => "without-libsodium"
-  else
-    depends_on "zeromq"
-  end
-
   def install
     ENV.universal_binary if build.universal?
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
-    args << "--with-libsodium" if build.with? "libsodium"
+    args << "--enable-drafts" if build.with? "drafts"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make"
-    system "(ZSYS_INTERFACE=lo0 && make check-verbose)"
+    system "make", "ZSYS_INTERFACE=lo0", "check-verbose"
     system "make", "install"
     rm Dir["#{bin}/*.gsl"]
   end

@@ -1,8 +1,8 @@
 class AppEngineJava < Formula
   desc "Google App Engine for Java"
   homepage "https://cloud.google.com/appengine/docs/java/"
-  url "https://storage.googleapis.com/appengine-sdks/featured/appengine-java-sdk-1.9.42.zip"
-  sha256 "3003892e89fb32a51dc3e2d91658fc7ba8b31f8b0b3fc22ccbd856ed94a03424"
+  url "https://storage.googleapis.com/appengine-sdks/featured/appengine-java-sdk-1.9.46.zip"
+  sha256 "773cf309213559f83cf0c465d50405aa94dac849de58848d24cf25edc8c2dd4e"
 
   bottle :unneeded
 
@@ -11,7 +11,7 @@ class AppEngineJava < Formula
   def install
     rm Dir["bin/*.cmd"]
     libexec.install Dir["*"]
-    bin.write_exec_script %w[appcfg.sh dev_appserver.sh endpoints.sh google_sql.sh].each { |fn| libexec/"bin/#{fn}" }
+    bin.write_exec_script %w[appcfg.sh dev_appserver.sh endpoints.sh google_sql.sh].map { |fn| libexec/"bin/#{fn}" }
   end
 
   test do

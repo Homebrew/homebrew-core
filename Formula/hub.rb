@@ -13,6 +13,12 @@ class Hub < Formula
     sha256 "3f116b4c0587ab5d2a87d9d2f013ea058407ac2f9e845461d4970f36548e6be4" => :yosemite
   end
 
+  devel do
+    url "https://github.com/github/hub/archive/v2.3.0-pre8.tar.gz"
+    version "2.3.0-pre8"
+    sha256 "1cea4a5958f7ca72c232ede173f5e4893e007aaddf6842d48665dff6fb1d7e19"
+  end
+
   option "without-completions", "Disable bash/zsh completions"
 
   depends_on "go" => :build

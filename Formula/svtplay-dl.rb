@@ -3,18 +3,18 @@ class SvtplayDl < Formula
 
   desc "Download videos from http://svtplay.se"
   homepage "https://svtplay-dl.se"
-  url "https://pypi.python.org/packages/d8/98/1c1165b0667e3bdaa822135ec6908457fbc1679e9da7667979bf63ba95ea/svtplay-dl-1.7.tar.gz"
-  sha256 "c725822f20209544c0efaf4123d8025e0a0710d66ad0b73105e84463d82faaf1"
+  url "https://pypi.python.org/packages/48/f8/f48498c3560dee7d56ad60a6a46a2c505ba64d6d7aea949e5e379008724b/svtplay-dl-1.8.tar.gz"
+  sha256 "5d44aaabc0b7cc04c0c43fdb8cb37c9749b14be4706ba9ff5fb7d22bd09c9b7d"
 
   bottle do
     cellar :any
-    sha256 "4b819e2c640547cb56a5a6763d0912f4b78e4f1744cde9f2e62d4260d4494514" => :sierra
-    sha256 "0fcfcf1f3a98d72691793f6a21d85a196886a3e8efc8fa86d920fcbb628bea10" => :el_capitan
-    sha256 "083b167ad5ff80b05954e68c14234134a1cb036e7bc45b0015332e5d9766ad64" => :yosemite
+    sha256 "9c8e3138fa9608b45c2c815c8144a2b1d54a029f000d1e896a0c87327eb81e6c" => :sierra
+    sha256 "e7e3acc3a067cd2bcadc57652a391472b36d5804540884660c067136a3dc4ca9" => :el_capitan
+    sha256 "f3973c57afe94ea1d99893532d7af3cfcc5a8ddc5f6c861308844024d8179363" => :yosemite
   end
 
   depends_on "rtmpdump"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # for request security
   resource "cffi" do
@@ -23,8 +23,8 @@ class SvtplayDl < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/6e/96/b8dab146e8be98061dae07e127f80cffa3061ab0e8da0d3d42f3308c6e91/cryptography-1.5.tar.gz"
-    sha256 "52f47ec9a57676043f88e3ca133638790b6b71e56e8890d9d7f3ae4fcd75fa24"
+    url "https://files.pythonhosted.org/packages/6c/c5/7fc1f8384443abd2d71631ead026eb59863a58cad0149b94b89f08c8002f/cryptography-1.5.3.tar.gz"
+    sha256 "cf82ddac919b587f5e44247579b433224cc2e03332d2ea4d89aa70d7e6b64ae5"
   end
 
   resource "enum34" do
@@ -58,8 +58,8 @@ class SvtplayDl < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/15/1e/79c75db50e57350a7cefb70b110255757e9abd380a50ebdc0cfd853b7450/pyOpenSSL-16.1.0.tar.gz"
-    sha256 "88f7ada2a71daf2c78a4f139b19d57551b4c8be01f53a1cb5c86c2f3bf01355f"
+    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
+    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
   end
 
   resource "requests" do

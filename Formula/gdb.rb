@@ -17,11 +17,12 @@ class Gdb < Formula
   url "https://ftpmirror.gnu.org/gdb/gdb-7.12.tar.xz"
   mirror "https://ftp.gnu.org/gnu/gdb/gdb-7.12.tar.xz"
   sha256 "834ff3c5948b30718343ea57b11cbc3235d7995c6a4f3a5cecec8c8114164f94"
+  revision 1
 
   bottle do
-    sha256 "38aae1b524a1566336bcd42e1c84ec524efbc3d6980d8c63095b9c812dd8c846" => :sierra
-    sha256 "a970fdcb7003f578753bbbb83a920e2685bd72bc6cb376b431caacb049920b34" => :el_capitan
-    sha256 "249c3d6473a4b1fca3a0ee7f04bc7e82e2883f481e0e4661f1dd50f5ea78074b" => :yosemite
+    sha256 "cddcc8e78bbff0cabe56a2d2a57ce9045defcb3ec28d17871d014171fc582465" => :sierra
+    sha256 "6cec71a37016b259d5e07f4de0a828075bc556252635078cc70ee8870bd7c9d8" => :el_capitan
+    sha256 "79c050699683460e4a78c3055a602665b2fc8dd72f639edab61cbe6f48ae79f7" => :yosemite
   end
 
   deprecated_option "with-brewed-python" => "with-python"
@@ -33,6 +34,15 @@ class Gdb < Formula
   depends_on "pkg-config" => :build
   depends_on "python" => :optional
   depends_on "guile" => :optional
+
+  if MacOS.version >= :sierra
+    patch do
+      # Patch is needed to work on new 10.12 installs with SIP.
+      # See http://sourceware-org.1504.n7.nabble.com/gdb-on-macOS-10-12-quot-Sierra-quot-td415708.html
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9d3dbc2/gdb/0001-darwin-nat.c-handle-Darwin-16-aka-Sierra.patch"
+      sha256 "a71489440781ae133eeba5a3123996e55f72bd914dbfdd3af0b0700f6d0e4e08"
+    end
+  end
 
   if build.with? "python"
     depends_on UniversalBrewedPython
@@ -74,6 +84,10 @@ class Gdb < Formula
     You will need to codesign the binary. For instructions, see:
 
       https://sourceware.org/gdb/wiki/BuildingOnDarwin
+
+    On 10.12 (Sierra) or later with SIP, you need to run this:
+
+      echo "set startup-with-shell off" >> ~/.gdbinit
     EOS
   end
 

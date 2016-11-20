@@ -4,12 +4,12 @@ class Pgloader < Formula
   url "https://github.com/dimitri/pgloader/archive/v3.2.2.tar.gz"
   sha256 "5fe5c115e277a9dd616b1077f89bffdf978bc6983ce62d99af9a218142c39e40"
   head "https://github.com/dimitri/pgloader.git"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "31d9ea383b24bb08f5bc0b89f31fa93938a8e08e7c1809ae4647dd4514136f05" => :el_capitan
-    sha256 "31e8516ba133ef1adc25a6584f3507161d3787ea8ae04f0de84edff093b09d92" => :yosemite
-    sha256 "8fbdf3a61ecaf31d45dcb43d898e0f7ae628f787adeda7bc0eb6eaaff3953064" => :mavericks
+    sha256 "3474b716df1279759a9cc1f4b49ea52dc6fbc270386d490dcefa3d3949df973d" => :sierra
+    sha256 "b6d1a4ff0f134c5832cc4249bafc03c478c2f02f32a98d526f42c9e16d2f486a" => :el_capitan
+    sha256 "693fd7db17f168790b7177ab2d5a2295b095cb03737b913e075ca76f2930c371" => :yosemite
   end
 
   depends_on "sbcl"
@@ -375,7 +375,7 @@ class Pgloader < Formula
 
     launch_postgres(ENV["PGHOST"]) do
       system "createdb"
-      system "pgloader", testpath/"test.load"
+      system "#{bin}/pgloader", testpath/"test.load"
       assert_equal "6", shell_output("psql -Atc 'SELECT COUNT(*) FROM csv'").strip
     end
   end

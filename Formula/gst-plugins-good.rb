@@ -1,24 +1,18 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
-  revision 1
 
   stable do
-    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.8.3.tar.xz"
-    sha256 "a1d6579ba203a7734927c24b90bf6590d846c5a5fcec01a48201018c8ad2827a"
-
-    # Fix build on Sierra. https://bugzilla.gnome.org/show_bug.cgi?id=770526
-    # Unlike upstream commit, don't touch Makefile.am.
-    patch :DATA
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.10.1.tar.xz"
+    sha256 "a7642ea7e7c17fb67e94d0c17e56757b6577fa7ed244ff8c11031841d3556cc2"
 
     depends_on "check" => :optional
   end
 
   bottle do
-    sha256 "987a604513d8a895ed5bf8bab648fb55612ad796dd4d3998833cdb10c2b55633" => :sierra
-    sha256 "5e6bf6bbb342160ff6fdd31133b885a77574b201e5ffdcd69f4234e3ae493be5" => :el_capitan
-    sha256 "382137a757d26549d2a7da215e44fd71244a89e4a33b1c84c7f7182827d41b3c" => :yosemite
-    sha256 "91c6a4ef3a2801d1843e4170e39d40281cdf9c24c34363fee4fb8e3e4d8e8cea" => :mavericks
+    sha256 "c05e2da9afc76f52de3884f3ed94d2b17450a905f9a21f15ad3c6f95046e706f" => :sierra
+    sha256 "80ede50d26c07221cd97624ebe2fa65f00c68eec4b99014552d9167eac6d0a3d" => :el_capitan
+    sha256 "f8b6b11a807284b7b4f3967ecc7ccd325345d76daa586ac715e384d93c554138" => :yosemite
   end
 
   head do
@@ -100,29 +94,3 @@ class GstPluginsGood < Formula
     assert_match version.to_s, output
   end
 end
-
-__END__
-diff --git a/sys/osxvideo/cocoawindow.h b/sys/osxvideo/cocoawindow.h
-index 9355d3c..816f1bb 100644
---- a/sys/osxvideo/cocoawindow.h
-+++ b/sys/osxvideo/cocoawindow.h
-@@ -27,7 +27,6 @@
-  */
- 
- #import <Cocoa/Cocoa.h>
--#import <QuickTime/QuickTime.h>
- #import <glib.h>
- #import <gst/video/navigation.h>
- 
-diff --git a/sys/osxvideo/osxvideosink.h b/sys/osxvideo/osxvideosink.h
-index 2bf5d25..d467b0e 100644
---- a/sys/osxvideo/osxvideosink.h
-+++ b/sys/osxvideo/osxvideosink.h
-@@ -35,7 +35,6 @@
- #include <objc/runtime.h>
- #include <Cocoa/Cocoa.h>
- 
--#include <QuickTime/QuickTime.h>
- #import "cocoawindow.h"
- 
- GST_DEBUG_CATEGORY_EXTERN (gst_debug_osx_video_sink);

@@ -1,15 +1,14 @@
 class Ocamlbuild < Formula
   desc "Generic build tool for OCaml"
   homepage "https://github.com/ocaml/ocamlbuild"
-  url "https://github.com/ocaml/ocamlbuild/archive/0.9.2.tar.gz"
-  sha256 "257a3961da1aa47deb3de8da238ebe1daf13a73efef2228f97a064a90f91c6bc"
+  url "https://github.com/ocaml/ocamlbuild/archive/0.9.3.tar.gz"
+  sha256 "32e4824906888c61244909eab0d2c22d31f18fc9579873a070a4cf7947c2c0a9"
   head "https://github.com/ocaml/ocamlbuild.git"
 
   bottle do
-    sha256 "fdd70a95ba781a983589909b5a082ee6e472cee937f5f5df6fed52caea67317b" => :sierra
-    sha256 "04242e3fb56f3882605504c44ef850008c53839d4e0f742ff32ae306dd98c694" => :el_capitan
-    sha256 "d5d4c80d69a1bf90984af137ca7c1facf6e8744d3a938e7e25b4a24bc0d3a824" => :yosemite
-    sha256 "13b18cd85715e360b482fd011cb94e4132580e4ef7604b67057266a6331691b9" => :mavericks
+    sha256 "20b7271d13155a3be2da5994af1165496874a9e75782792f155cf3339998516d" => :sierra
+    sha256 "7907c94fd24eaace12b0d2d5ec3a5e852694fa6ed13b14c82144dd86d9c27b42" => :el_capitan
+    sha256 "53e1cab494063e24949e0b89b94f9ebc2b59dd0af38ef1fb3a12eddad6c79821" => :yosemite
   end
 
   depends_on "ocaml"

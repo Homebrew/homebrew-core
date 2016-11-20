@@ -5,23 +5,37 @@ class CharmTools < Formula
   homepage "https://github.com/juju/charm-tools"
   url "https://github.com/juju/charm-tools/releases/download/v2.1.2/charm-tools-2.1.2.tar.gz"
   sha256 "81ec4363df3b79556260ee51690227ea02ef288ebbfdd73a0261ae2177ad0002"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "3ec84b54d75bd60d8c957912e8a13be1d5ef7fe008a6f486880aada62824be5a" => :sierra
-    sha256 "ca750413f4324fa1a3ad19893c7575a75afddc4e1587c9d3c0133e827d5f6ed8" => :el_capitan
-    sha256 "f34780f31601ae254867fb92c423a3cb1332f12e4de1134fa2dc474deaf1aefd" => :yosemite
-    sha256 "5c80786313b50153e6c76ff3bac4e7f947fcc07e5ee9c9f64d51aab5ec23237d" => :mavericks
+    sha256 "f7fee0bca5d96e591f44906d9aaac41f9a34cb481e27ddb5e05581e1b467e43d" => :sierra
+    sha256 "2c405203fffc1bf829d456f443fc48a655fc6ec7e9813eb67438c18d6f03acf1" => :el_capitan
+    sha256 "ead9927592752ba74d0535db1b68b97ddafb314da2fb78693b4a81282d21365f" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libyaml"
   depends_on :hg
   depends_on "charm"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Additionally include ndg-httpsclient for requests[security]
+
+  resource "Cheetah" do
+    url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
+    sha256 "be308229f0c1e5e5af4f27d7ee06d90bb19e6af3059794e5fd536a6f29a9b550"
+  end
+
+  resource "Markdown" do
+    url "https://files.pythonhosted.org/packages/d4/32/642bd580c577af37b00a1eb59b0eaa996f2d11dfe394f3dd0c7a8a2de81a/Markdown-2.6.7.tar.gz"
+    sha256 "daebf24846efa7ff269cfde8c41a48bb2303920c7b2c7c5e04fa82e6282d05c0"
+  end
+
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/75/5e/b84feba55e20f8da46ead76f14a3943c8cb722d40360702b2365b91dec00/PyYAML-3.11.tar.gz"
+    sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
+  end
 
   resource "argparse" do
     url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
@@ -34,13 +48,8 @@ class CharmTools < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/83/3c/00b553fd05ae32f27b3637f705c413c4ce71290aa9b4c4764df694e906d9/cffi-1.7.0.tar.gz"
-    sha256 "6ed5dd6afd8361f34819c68aaebf9e8fc12b5a5893f91f50c9e50c8886bb60df"
-  end
-
-  resource "Cheetah" do
-    url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
-    sha256 "be308229f0c1e5e5af4f27d7ee06d90bb19e6af3059794e5fd536a6f29a9b550"
+    url "https://files.pythonhosted.org/packages/0a/f3/686af8873b70028fccf67b15c78fd4e4667a3da995007afc71e786d61b0a/cffi-1.8.3.tar.gz"
+    sha256 "c321bd46faa7847261b89c0469569530cad5a41976bb6dba8202c0159f476568"
   end
 
   resource "colander" do
@@ -49,8 +58,8 @@ class CharmTools < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/a9/5b/a383b3a778609fe8177bd51307b5ebeee369b353550675353f46cb99c6f0/cryptography-1.4.tar.gz"
-    sha256 "bb149540ed90c4b2171bf694fe6991d6331bc149ae623c8ff419324f4222d128"
+    url "https://files.pythonhosted.org/packages/6c/c5/7fc1f8384443abd2d71631ead026eb59863a58cad0149b94b89f08c8002f/cryptography-1.5.3.tar.gz"
+    sha256 "cf82ddac919b587f5e44247579b433224cc2e03332d2ea4d89aa70d7e6b64ae5"
   end
 
   resource "enum34" do
@@ -74,8 +83,8 @@ class CharmTools < Formula
   end
 
   resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/cd/c5/bd44885274379121507870d4abfe7ba908326cf7bfd50a48d9d6ae091c0d/ipaddress-1.0.16.tar.gz"
-    sha256 "5a3182b322a706525c46282ca6f064d27a02cffbd449f9f47416f1dc96aa71b0"
+    url "https://files.pythonhosted.org/packages/bb/26/3b64955ff73f9e3155079b9ed31812afdfa5333b5c76387454d651ef593a/ipaddress-1.0.17.tar.gz"
+    sha256 "3a21c5a15f433710aaa26f1ae174b615973a25182006ae7f9c26de151cd51716"
   end
 
   resource "iso8601" do
@@ -94,8 +103,8 @@ class CharmTools < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/7e/84/65816c2936cf7191bcb5b3e3dc4fb87def6f8a38be25b3a78131bbb08594/keyring-9.3.1.tar.gz"
-    sha256 "3be74f6568fcac1350b837d7e46bd3525e2e9fe2b78b3a3a87dc3b29f24a0c00"
+    url "https://files.pythonhosted.org/packages/2b/b2/ccc3d598524a179b9ebbb9887885c8e1e428bd21b892a1f83cf774b1378c/keyring-10.0.2.tar.gz"
+    sha256 "91c31fd805b3ce6343406c7c51437f7505f3e9abb6e14ccac8242ea1fc912d77"
   end
 
   resource "launchpadlib" do
@@ -121,11 +130,6 @@ class CharmTools < Formula
   resource "libcharmstore" do
     url "https://files.pythonhosted.org/packages/54/a3/823a444fd6df0c670940ab089aa466621a58d575349e3d8d84b8ea02dd83/libcharmstore-0.0.3.tar.gz"
     sha256 "1beb37a662e9e0d60bbebc65ec360f2f8333316706c6ae0c59d437a8a8d76ecc"
-  end
-
-  resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/9b/53/4492f2888408a2462fd7f364028b6c708f3ecaa52a028587d7dd729f40b4/Markdown-2.6.6.tar.gz"
-    sha256 "9a292bb40d6d29abac8024887bcfc1159d7a32dc1d6f1f6e8d6d8e293666c504"
   end
 
   resource "ndg-httpsclient" do
@@ -159,8 +163,8 @@ class CharmTools < Formula
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/c7/32/16e80b662842bd62209bc8d05ae2c42d03db4f63865fcef8f6993e301dff/pathspec-0.4.0.tar.gz"
-    sha256 "d3147deb81d4d540f7489f9e761f6d2ab001351752a75ec45741adacc7880e1c"
+    url "https://files.pythonhosted.org/packages/67/f6/ad4d6964da803ffe0ec9d513b0be6924be0f502636c17781308561f08034/pathspec-0.5.0.tar.gz"
+    sha256 "aa3a071054d4740b963c91a3127a5e0e1358351718bae2a3f731ec24fb0bdd1f"
   end
 
   resource "pbr" do
@@ -169,8 +173,8 @@ class CharmTools < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/77/f2/bccec75ca4280a9fa762a90a1b8b152a22eac5d9c726d7da1fcbfe0a20e6/pyOpenSSL-16.0.0.tar.gz"
-    sha256 "363d10ee43d062285facf4e465f4f5163f9f702f9134f0a5896f134cbb92d17d"
+    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
+    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
   end
 
   resource "pyasn1" do
@@ -179,8 +183,8 @@ class CharmTools < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/6d/31/666614af3db0acf377876d48688c5d334b6e493b96d21aa7d332169bee50/pycparser-2.14.tar.gz"
-    sha256 "7959b4a74abdc27b312fed1c21e6caf9309ce0b29ea86b591fd2e99ecdf27f73"
+    url "https://files.pythonhosted.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
+    sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
   end
 
   resource "pycrypto" do
@@ -188,14 +192,9 @@ class CharmTools < Formula
     sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
   end
 
-  resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/75/5e/b84feba55e20f8da46ead76f14a3943c8cb722d40360702b2365b91dec00/PyYAML-3.11.tar.gz"
-    sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
-  end
-
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
-    sha256 "63f1815788157130cee16a933b2ee184038e975f0017306d723ac326b5525b54"
+    url "https://files.pythonhosted.org/packages/2e/ad/e627446492cc374c284e82381215dcd9a0a87c4f6e90e9789afefe6da0ad/requests-2.11.1.tar.gz"
+    sha256 "5acf980358283faba0b897c73959cecf8b841205bb4b2ad3ef545f46eae1a133"
   end
 
   resource "ruamel.ordereddict" do
@@ -204,8 +203,8 @@ class CharmTools < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/90/3b/579031b098897b534d1a548cd854f450808ab085b95e454890390dae4b11/ruamel.yaml-0.11.14.tar.gz"
-    sha256 "c6bb9cb4e1e20266f462ed43f1a8a51e889c94abde31643af31785c36a336eab"
+    url "https://files.pythonhosted.org/packages/f1/5c/95172cdd6e9f8a014718d40382ca378db697f2a6f9a7fc1505a3f8dac400/ruamel.yaml-0.12.15.tar.gz"
+    sha256 "def928a0cf7a4859c5af528199b7a420caefff765beeff410eacf7bfc08d4198"
   end
 
   resource "six" do
@@ -224,8 +223,8 @@ class CharmTools < Formula
   end
 
   resource "theblues" do
-    url "https://files.pythonhosted.org/packages/ee/6e/de72396046de4c9d0c1c2b9b1923710c71d879d9243a118b6d5ce7a5eb4c/theblues-0.3.4.tar.gz"
-    sha256 "06567fe1a6599832e13e9bd2a2ef2f18f278bcbd678f2ac2f0bab85fe45892b8"
+    url "https://files.pythonhosted.org/packages/de/72/dde64e7f7224a641396cbf5824a6cbbb0795dbb53410c6e9b1cfe2be5788/theblues-0.3.7.tar.gz"
+    sha256 "d4e328981944b6197b6c95697a073b6406cdaa2f397c639454770de3bcda5060"
   end
 
   resource "translationstring" do
@@ -233,9 +232,14 @@ class CharmTools < Formula
     sha256 "4ee44cfa58c52ade8910ea0ebc3d2d84bdcad9fa0422405b1801ec9b9a65b72d"
   end
 
+  resource "typing" do
+    url "https://files.pythonhosted.org/packages/19/2f/b1090ace275335a9c0dde9a4623b109b7960a2b5370ae59d1eb1539afd8a/typing-3.5.2.2.tar.gz"
+    sha256 "2bce34292653af712963c877f3085250a336738e64f99048d1b8509bebc4772f"
+  end
+
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/5c/79/5dae7494b9f5ed061cff9a8ab8d6e1f02db352f3facf907d9eb614fb80e9/virtualenv-15.0.2.tar.gz"
-    sha256 "fab40f32d9ad298fba04a260f3073505a16d52539a84843cf8c8369d4fd17167"
+    url "https://files.pythonhosted.org/packages/8b/2c/c0d3e47709d0458816167002e1aa3d64d03bdeb2a9d57c5bd18448fd24cd/virtualenv-15.0.3.tar.gz"
+    sha256 "6d9c760d3fc5fa0894b0f99b9de82a4647e1164f0b700a7f99055034bf548b1d"
   end
 
   resource "wadllib" do
@@ -244,13 +248,13 @@ class CharmTools < Formula
   end
 
   resource "wsgi_intercept" do
-    url "https://files.pythonhosted.org/packages/f5/c6/ce269dd014ffc57643fe6b3ab48bd0c0db6a34cdf06add279a61612c2309/wsgi_intercept-1.3.1.tar.gz"
-    sha256 "5de354a99ca2b400ae302e423f6bb6c1d2a01767fdcc8e5589340d3e542eb97e"
+    url "https://files.pythonhosted.org/packages/b7/42/56e25f6444d6254ae24b60d0da9cd8f4652db356088de91baffc1d42c624/wsgi_intercept-1.4.1.tar.gz"
+    sha256 "a244cd7de9a06fab53d769668190d912d77e5d36aa38b6034d4413084c6f1458"
   end
 
   resource "zope.interface" do
-    url "https://files.pythonhosted.org/packages/ea/a3/38bdc8e8bd068ea5b4d21a2d80eca1547cd8509318e8d7c875f7247abe43/zope.interface-4.2.0.tar.gz"
-    sha256 "36762743940a075283e1fb22a2ec9e8231871dace2aa00599511ddc4edf0f8f9"
+    url "https://files.pythonhosted.org/packages/38/1b/d55c39f2cf442bd9fb2c59760ed058c84b57d25c680819c25f3aff741e1f/zope.interface-4.3.2.tar.gz"
+    sha256 "6a0e224a052e3ce27b3a7b1300a24747513f7a507217fcc2a4cb02eb92945cee"
   end
 
   def install

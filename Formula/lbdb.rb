@@ -1,17 +1,15 @@
 class Lbdb < Formula
   desc "Little brother's database for the mutt mail reader"
   homepage "https://www.spinnaker.de/lbdb/"
-  url "https://www.spinnaker.de/debian/lbdb_0.41.tar.xz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/l/lbdb/lbdb_0.41.tar.xz"
-  sha256 "fc9261cdc361d95e33da08762cafe57f8b73ab2598f9073986f0f9e8ad64a813"
+  url "https://www.spinnaker.de/debian/lbdb_0.42.tar.xz"
+  mirror "https://mirrors.kernel.org/debian/pool/main/l/lbdb/lbdb_0.42.tar.xz"
+  sha256 "f7b2ec9f145c77207085af35d1ff87dae3c721848d8de1e97aa328b2f85492fe"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "ea5e8fc0989f5f829e886781212abd6a4bc2d812a61a35e87c17709095f5ba59" => :sierra
-    sha256 "d336634147b6e8466b09c0e6918733381cb3f0e7d933660969c9d7ffea53d724" => :el_capitan
-    sha256 "1f7e155f77361a674442f376da2119486509f2f2802cca6ef6ea2b81b95f5339" => :yosemite
-    sha256 "d9a370f2aa20e318db463903e5e6f1aa967a718ef97346c7b3eeafd7eb699a0e" => :mavericks
+    sha256 "cbcbd8361f996f42c3ebc0ec0b48922323c3f6da4162a82e9eecb3da0689f3fd" => :sierra
+    sha256 "c3899f704b90e68f78d020046c6659b67c5f9ec0d90392003e4d98181604c1a4" => :el_capitan
+    sha256 "b742d6a7d2c728657f1c49348f2bde4ab232bab8529abaa8eead76d3e6c68414" => :yosemite
   end
 
   depends_on "abook" => :recommended

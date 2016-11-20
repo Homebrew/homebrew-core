@@ -1,31 +1,24 @@
 class Jemalloc < Formula
   desc "malloc implementation emphasizing fragmentation avoidance"
   homepage "http://www.canonware.com/jemalloc/"
-  url "https://github.com/jemalloc/jemalloc/releases/download/4.2.1/jemalloc-4.2.1.tar.bz2"
-  sha256 "5630650d5c1caab95d2f0898de4fe5ab8519dc680b04963b38bb425ef6a42d57"
-  revision 1
+  url "https://github.com/jemalloc/jemalloc/releases/download/4.3.1/jemalloc-4.3.1.tar.bz2"
+  sha256 "f7bb183ad8056941791e0f075b802e8ff10bd6e2d904e682f87c8f6a510c278b"
   head "https://github.com/jemalloc/jemalloc.git"
 
   bottle do
     cellar :any
-    sha256 "21ffd1b497cef703562aaddaacd02542904dfac565cb451914cea2f34e8f5264" => :sierra
-    sha256 "849f114cf2ce8914d0366643b454856182f8b1abf31f38701a0bbf36fee3cf92" => :el_capitan
-    sha256 "90886fb8e88457061e03693c2955163a790f223a8365584f836c924c3b92ae1f" => :yosemite
-  end
-
-  # https://github.com/jemalloc/jemalloc/issues/420
-  # Should be in the next release, but please check.
-  patch do
-    url "https://github.com/jemalloc/jemalloc/commit/4abaee5d13.patch"
-    sha256 "05c754089098c4275b460b90d1f4b94e32a2c819496187e5378e460c9398a65f"
-  end
-
-  patch do
-    url "https://github.com/jemalloc/jemalloc/commit/19c9a3e828.patch"
-    sha256 "b736dab20d2688d4b21b4ba4755fd19b68145b2d9ae299a1ae154e8553d9261d"
+    sha256 "d856fb9367ed1b8bd8edf5da64a161e77c01c617f918c6d065accfde865ebfad" => :sierra
+    sha256 "df966e457b7953b26a6dafbb85305f0d5b359e2f79bba4e9227a1c4fa5f45eb8" => :el_capitan
+    sha256 "02fe447b5597efeed4c16daa355ba7d8bbc99607a89aafba9c4a914c90f3dd3b" => :yosemite
   end
 
   def install
+    # dyld: lazy symbol binding failed: Symbol not found: _os_unfair_lock_lock
+    # Reported 6 Nov 2016 https://github.com/jemalloc/jemalloc/issues/494
+    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      ENV["je_cv_os_unfair_lock"] = "no"
+    end
+
     system "./configure", "--disable-debug", "--prefix=#{prefix}", "--with-jemalloc-prefix="
     system "make"
     system "make", "check"

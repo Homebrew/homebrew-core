@@ -5,13 +5,12 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  revision 1
+  revision 2
 
   stable do
     if MacOS.version >= :sierra
       url "https://git.haskell.org/ghc.git",
-          :branch => "ghc-8.0",
-          :revision => "9448e62740ca03aeb915bf0ecf8b16e54a52798a"
+          :revision => "ee3ff0d21fd51af269a29d371db0094397090bc8"
       version "8.0.1"
 
       depends_on "autoconf" => :build
@@ -35,10 +34,9 @@ class Ghc < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "117f42decee119a7cf0e820a85c08ad7c2036baa3b8e313c52b16b177f93a54b" => :sierra
-    sha256 "6aa8aa15b55b047f3e71b68ae586db1030026f9630bc55602765d400f38dc19e" => :el_capitan
-    sha256 "1388a28006fe189d1d00b94b81b5539ad670ebb906c509feb091d76e8a5dcebf" => :yosemite
+    sha256 "fdd521d61017c4a2068d24b3386c85266f68cbb56d5b88d392c17cb2f3bfd197" => :sierra
+    sha256 "4ba5955be4502877ab9fc7c748209d81680ada0dd127284c423f1af53553b66d" => :el_capitan
+    sha256 "b023ec943f8aae7ed0c11687c8fa277d6f23d41a4771b8b3a695cc6833c8e593" => :yosemite
   end
 
   option "with-test", "Verify the build using the testsuite"
@@ -159,8 +157,6 @@ class Ghc < Formula
         cabal_install "--prefix=#{buildpath}/bootstrap-tools", "happy", "alex"
       end
 
-      inreplace "libraries/filepath/filepath.cabal", "cabal-version:  >=1.10",
-                                                     "cabal-version:  >=1.18"
       system "./boot"
     end
     system "./configure", "--prefix=#{prefix}", *args

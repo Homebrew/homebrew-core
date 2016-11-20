@@ -1,15 +1,14 @@
 class SyncthingInotify < Formula
   desc "File watcher intended for use with Syncthing"
   homepage "https://github.com/syncthing/syncthing-inotify"
-  url "https://github.com/syncthing/syncthing-inotify/archive/v0.8.3.tar.gz"
-  sha256 "2c8ac5152056ec2f106f00f62458db478c3e8cefa11c9f6aadfeb86eccdcb811"
+  url "https://github.com/syncthing/syncthing-inotify/archive/v0.8.4.tar.gz"
+  sha256 "c8215c8bc8a52a043ae3bcba6ff94ef572159ca5d7808b44deeb31eb3b2ce295"
   head "https://github.com/syncthing/syncthing-inotify.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1ac1dcf264f1969ca962acaf0e486b356f51a791845f56f07116cd6f880f88f0" => :el_capitan
-    sha256 "dd038217ba9dbda2d7e1626e63f144ca66a36b19b6b726bc33502286b33b9755" => :yosemite
-    sha256 "960a018f4daa6174e9f8205055bbe6a41addd172fb3e4e7675ad17b9eb6ea26d" => :mavericks
+    sha256 "9abaaa025ea4448c7f0a98a2fe4dd083640cf808a98192b878bdbd32e927dd43" => :sierra
+    sha256 "dca3eabfc41811d174fedf04301c3279418342fc9cbc39d1b33765e7e185df8a" => :el_capitan
+    sha256 "b53bf4dc4265aebdb7d536562224a34ed1dfa1637a110208c344e80b0587028d" => :yosemite
   end
 
   depends_on "go" => :build
@@ -17,6 +16,7 @@ class SyncthingInotify < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GOROOT"] = Formula["go"].opt_libexec
     dir = buildpath/"src/github.com/syncthing/syncthing-inotify"
     dir.install buildpath.children
     cd dir do

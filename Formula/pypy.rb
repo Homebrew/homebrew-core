@@ -4,25 +4,15 @@ class Pypy < Formula
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   stable do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.4.1-src.tar.bz2"
-    sha256 "45dbc50c81498f6f1067201b8fc887074b43b84ee32cc47f15e7db17571e9352"
-
-    patch do
-      # patch for Xcode 8 clock_gettime issue
-      # remove when next release is out
-      # https://bitbucket.org/pypy/pypy/issues/2407/#comment-31210382
-      # https://bitbucket.org/pypy/pypy/commits/91b44e61f628
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/05b5cf6/pypy/patch-clock_gettime.diff"
-      sha256 "f9ae7918620740238e404e73007da06cb9bf16c21ed698f91e02432086ec4432"
-    end
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.6.0-src.tar.bz2"
+    sha256 "7411448045f77eb9e087afdce66fe7eafda1876c9e17aad88cf891f762b608b0"
   end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "cda4e40505b34068a30b1240397bd8523c5c9a979858b728a1c90ae35735a6be" => :sierra
-    sha256 "8e6d9fa3c2f53858cf304d2e4ae84d8cc163891dc8afbf52601c3d8ec5d05abb" => :el_capitan
-    sha256 "e08a68c23360b3c5a1157a5d1c00385b1fc4ef8c807e05a81d21782b19458b1c" => :yosemite
+    sha256 "22cece531abfd1a79cec5b3292bc5526d49b557a60c7e3bc31b895869c3d4ed7" => :sierra
+    sha256 "0451b262c8bab541b7c94bed6686d9be42920a0df0d7fffa4d40cc7ccbb5cb5e" => :el_capitan
+    sha256 "260f6386f61c6054c983a9e933d2f344a90733a2c033775b50fd522f94d0dc21" => :yosemite
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \
@@ -42,13 +32,13 @@ class Pypy < Formula
   end
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/32/3c/e853a68b703f347f5ed86585c2dd2828a83252e1216c1201fa6f81270578/setuptools-26.1.1.tar.gz"
-    sha256 "475ce28993d7cb75335942525b9fac79f7431a7f6e8a0079c0f2680641379481"
+    url "https://pypi.python.org/packages/25/4e/1b16cfe90856235a13872a6641278c862e4143887d11a12ac4905081197f/setuptools-28.8.0.tar.gz"
+    sha256 "432a1ad4044338c34c2d09b0ff75d509b9849df8cf329f4c1c7706d9c2ba3c61"
   end
 
   resource "pip" do
-    url "https://pypi.python.org/packages/e7/a8/7556133689add8d1a54c0b14aeff0acb03c64707ce100ecd53934da1aa13/pip-8.1.2.tar.gz"
-    sha256 "4d24b03ffa67638a3fa931c09fd9e0273ffa904e95ebebe7d4b1a54c93d7b732"
+    url "https://pypi.python.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz"
+    sha256 "09f243e1a7b461f654c26a725fa373211bb7ff17a9300058b205c61658ca940d"
   end
 
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391

@@ -6,10 +6,10 @@ class Clipper < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2e136469fd301629e5efb8c5cfde53a9ff62dc5da14cb9fe1ce09b215b47ae5e" => :sierra
-    sha256 "0c09f31278c101918500815d6b9c08d17806ebc40e52d04326b44a15ecce7f0c" => :el_capitan
-    sha256 "907b0645aaba9805a3184bf5fea9d470bc8ec480cd666deae0f88525522a63f1" => :yosemite
-    sha256 "ab8c85b76f636af8109d70ba27407bdec2e05a165746022375bf283411c9543f" => :mavericks
+    rebuild 1
+    sha256 "9dd51dbb7c3834c99bcd8c496dbd07831b0a180d03e5696d02606b601945029b" => :sierra
+    sha256 "d8cb0cf54d7c07e1adf527edb351e9fa47736432e99ea6dcfed9b4239d853448" => :el_capitan
+    sha256 "454c13885a8b0bff59efebf64aa7708b2428bdc6a3a94bf6adbcb9a139aba730" => :yosemite
   end
 
   depends_on "go" => :build
@@ -38,10 +38,6 @@ class Clipper < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/clipper</string>
-        <string>--address</string>
-        <string>127.0.0.1</string>
-        <string>--port</string>
-        <string>8377</string>
       </array>
       <key>EnvironmentVariables</key>
       <dict>

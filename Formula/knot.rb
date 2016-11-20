@@ -3,8 +3,8 @@ class Knot < Formula
   homepage "https://www.knot-dns.cz/"
 
   stable do
-    url "https://secure.nic.cz/files/knot-dns/knot-2.3.1.tar.xz"
-    sha256 "42e4ec64dc8f017329d1753eb074a5759d6bb380e1f2a272101adccc0552f9b4"
+    url "https://secure.nic.cz/files/knot-dns/knot-2.3.2.tar.xz"
+    sha256 "ba298157693d2b3264ff53afd397d8bb240336b36c18064515890733254700df"
 
     resource "fstrm" do
       url "https://github.com/farsightsec/fstrm/archive/v0.3.0.tar.gz"
@@ -14,9 +14,9 @@ class Knot < Formula
 
   bottle do
     cellar :any
-    sha256 "cc07b136985647bff43b9761539aedabd67bb10b15f60a5d6a7c6f253b5b70fc" => :sierra
-    sha256 "07de62657cf312502578b0be34f52f164aa48d4d73cf4e666b8e68901f1fa3f8" => :el_capitan
-    sha256 "a2339f4eaf493ebaf5a959d09a9175f789c19072e514dc4b671ce7c536a7a69b" => :yosemite
+    sha256 "c549b46df63a3d2d496bf0206893b889f699668848060ea968c293180dc1240d" => :sierra
+    sha256 "5048a84ece6f6ebf1a16f5f326840542742f998bae4cfb60a64bdfcccd2ab593" => :el_capitan
+    sha256 "72980990b75b092230941043631b677ffd7a9e15d7cb036f991ce6746153f99c" => :yosemite
   end
 
   head do

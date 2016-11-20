@@ -1,37 +1,38 @@
 class Osm2pgrouting < Formula
   desc "Import OSM data into pgRouting database"
   homepage "http://pgrouting.org/docs/tools/osm2pgrouting.html"
-  url "https://github.com/pgRouting/osm2pgrouting/archive/osm2pgrouting-2.0.0.tar.gz"
-  sha256 "607e67b85664a40a495bfa37fdc236b617c3c6b41c3aa4fd68f780ba6a629469"
+  url "https://github.com/pgRouting/osm2pgrouting/archive/v2.2.0.tar.gz"
+  sha256 "bdd3095123cf21ee2f56e5cf04b2ea7b781dea629bff909fa45ebc5dbe50f8a6"
+  revision 1
   head "https://github.com/pgRouting/osm2pgrouting.git"
 
   bottle do
     cellar :any
-    sha256 "cc4bad23a3c966466e516e1c2818145d6702c71f57d957cc17befe7bf2a983b0" => :sierra
-    sha256 "e2eeea2392b2febb64ad5beb1e974ba10f9b38012b6d41edb9111b6cc3e19911" => :el_capitan
-    sha256 "24a7fbe3a7079145f76b8e9f70c3f1fd02bd82e4324ef782950d3f98678530c8" => :yosemite
-    sha256 "6fced08cc54a523a0923a7091b735c45becc63d51ca16775b381fd455150a124" => :mavericks
+    sha256 "8ea798b06d437c03de3d6650923b1507e66c1f4375871e9a01604e1de5eb1045" => :sierra
+    sha256 "51f98a582af555b60abebabaf6aebc8792f571bb686a01c0dd340aef1a8d47b4" => :el_capitan
+    sha256 "68a2b95a5acdbd4b25d8933243ebcb0205e2ca42a6996a26be9ded2726477b31" => :yosemite
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
+  depends_on "expat"
+  depends_on "pgrouting"
+  depends_on "postgis"
   depends_on :postgresql
 
   def install
-    # Fixes the default hard-coded /usr/share which the program would be installed in.
-    # Instead we supply relative paths, and run cmake with flag -DCMAKE_INSTALL_PREFIX=#{prefix} so that
-    # we get a proper path inside prefix.
     inreplace "CMakeLists.txt" do |s|
-      s.gsub! "/usr/share/osm2pgrouting", "."
-      s.gsub! "/usr/share/bin", "bin"
+      s.gsub! "RUNTIME DESTINATION \"/usr/bin\"",
+              "RUNTIME DESTINATION \"#{bin}\""
+      s.gsub! "set (SHARE_DIR \"/usr/share/osm2pgrouting\")",
+              "set (SHARE_DIR \"#{pkgshare}\")"
     end
 
     system "cmake", ".", *std_cmake_args
-    system "make"
     system "make", "install"
   end
 
   test do
-    shell_output("#{bin}/osm2pgrouting", 1)
+    system bin/"osm2pgrouting", "--help"
   end
 end

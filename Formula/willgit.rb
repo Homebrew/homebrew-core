@@ -7,6 +7,9 @@ class Willgit < Formula
 
   bottle :unneeded
 
+  conflicts_with "git-utils",
+    :because => "both install a `git-rank-contributors` script"
+
   def install
     prefix.install "bin"
   end

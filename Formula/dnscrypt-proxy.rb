@@ -5,10 +5,10 @@ class DnscryptProxy < Formula
   sha256 "1daf77df9092491ea0b5176ec4b170f7b0645f97b62d1a50412a960656b482e3"
 
   bottle do
-    sha256 "67b062700838260b4912212c128e5c832741f2564b03f6c0bfad697363583b30" => :sierra
-    sha256 "6823eef358616722da3a931ee4af2efa77d76b99345b7bb7de98f7cfd9ac076f" => :el_capitan
-    sha256 "2342b453a35d9ae1d272f2542f3d654be3b82d1594f250d8b97293196186de6f" => :yosemite
-    sha256 "6f0e548b4ef064981611673af052fdf11132f50b7d71be6bf48728016297a876" => :mavericks
+    rebuild 1
+    sha256 "7940aba621d665eccbc3018c6a892313514ce84a540a416f19cddd962d33273d" => :sierra
+    sha256 "63d4a11824527a3d333176aa6ea93fe7e5eefcae658be41855fce86d45192115" => :el_capitan
+    sha256 "e56ea17922dcf696b4d8e3b5307abf330c0b43cbe9df81c91a3ac62890cc732e" => :yosemite
   end
 
   head do
@@ -25,6 +25,7 @@ class DnscryptProxy < Formula
 
   depends_on "libsodium"
   depends_on "minisign" => :recommended
+  depends_on "ldns" => :recommended
 
   def install
     system "autoreconf", "-if" if build.head?

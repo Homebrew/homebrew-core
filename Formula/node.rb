@@ -1,14 +1,14 @@
 class Node < Formula
   desc "Platform built on the V8 JavaScript runtime to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v7.0.0/node-v7.0.0.tar.xz"
-  sha256 "e16c3c76c2d6756bbfd711189cbdaf5676049b443e6817007bb537f243ca899a"
+  url "https://nodejs.org/dist/v7.1.0/node-v7.1.0.tar.xz"
+  sha256 "55ae831a2090e3af71b8f071dc5599922e5c752a2e40d77cbfd4a39d22cf4981"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "494ccc8ea6fa68e8ceace33ad6ced5a9efa24a964d720412cca381a036d28764" => :sierra
-    sha256 "f8bf2da4c0e453603d022ba931cd4a0175f2c7cc0adea63793996ae5f00bf9ec" => :el_capitan
-    sha256 "12595bb720032f50bb984e33342e9fc00362a263b5aa8b1fabaea2e3feae4b7e" => :yosemite
+    sha256 "1b29dc0784a1c02e37c57bb1f86d9dea0c55ce9f0a4058a27eadb5887326ee93" => :sierra
+    sha256 "2cfe0fe82899aa9af005a24ec69a7a110af09865b3523c57870f19e99f0eb234" => :el_capitan
+    sha256 "0b68c7a8d630400562e0ccfaf2a51dec1ec73780721b30017bed5fc6c3233ade" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -37,15 +37,15 @@ class Node < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.10.8.tgz"
-    sha256 "1121a75a370fd0efb320fffb7c9e4a8bcb3840d1cf2fbd585c54837b7014dd76"
+    url "https://registry.npmjs.org/npm/-/npm-3.10.9.tgz"
+    sha256 "fb0871b1aebf4b74717a72289fade356aedca83ee54e7386e38cb51874501dd6"
   end
 
   resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz"
-    mirror "https://fossies.org/linux/misc/icu4c-57_1-src.tgz"
-    version "57.1"
-    sha256 "ff8c67cb65949b1e7808f2359f2b80f722697048e90e7cfc382ec1fe229e9581"
+    url "https://ssl.icu-project.org/files/icu4c/58.1/icu4c-58_1-src.tgz"
+    mirror "https://nuxi.nl/distfiles/third_party/icu4c-58_1-src.tgz"
+    version "58.1"
+    sha256 "0eb46ba3746a9c2092c8ad347a29b1a1b4941144772d13a88667a7b11ea30309"
   end
 
   def install

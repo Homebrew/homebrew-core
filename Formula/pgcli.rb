@@ -3,13 +3,13 @@ class Pgcli < Formula
   homepage "http://pgcli.com/"
   url "https://files.pythonhosted.org/packages/c3/24/91f4b4c6bce71c92187aa3919ef42028f4af3b4f1485769709d37237384a/pgcli-1.1.0.tar.gz"
   sha256 "d4a2491b0fad140d4fdf63928224f7bc1a84f6fda99a791b05ecca2752b44d5a"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "7502581f3125bc4938b09c10d33e5bdd12d85f31c9c3aab045e00323b27c15d8" => :sierra
-    sha256 "5543710b707f44c8824872c38009b69d7390fdd7dccd491ac386a8bb45914b22" => :el_capitan
-    sha256 "b01031b595cf6a1c4945e54b72dd6adffce4dafdb5d363796a4f8c3a646a0a3e" => :yosemite
-    sha256 "df7edd6799ccda5fbdbb55c89fc91b31311902edf9a3607d684d2eebe71a2a4e" => :mavericks
+    sha256 "25efa81e4bf3852f723be3bbf873e16a39bb8c21965465b23e41d2a14deb6f2c" => :sierra
+    sha256 "acfacc689cf51d1f8de510e95a7dcc269524ce1fed0ab1f2dd676857d12d0ac1" => :el_capitan
+    sha256 "6781bf48b682a672c68cf26d3cf95fb42589cf7f0296f3f439496f7072a15831" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

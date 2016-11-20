@@ -1,18 +1,15 @@
 class OpenSceneGraph < Formula
   desc "3D graphics toolkit"
-  homepage "http://www.openscenegraph.org/projects/osg"
-  url "http://trac.openscenegraph.org/downloads/developer_releases/OpenSceneGraph-3.4.0.zip"
-  sha256 "5c727d84755da276adf8c4a4a3a8ba9c9570fc4b4969f06f1d2e9f89b1e3040e"
-  revision 1
+  homepage "https://github.com/openscenegraph/OpenSceneGraph"
+  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.5.tar.gz"
+  sha256 "f44c96ade3a1d3c547f36504d75633bedbb9b8f6f42dac4fff75166db7d3aadf"
 
-  head "http://www.openscenegraph.org/svn/osg/OpenSceneGraph/trunk/"
+  head "https://github.com/openscenegraph/OpenSceneGraph"
 
   bottle do
-    rebuild 1
-    sha256 "e0210bf841def60a869d605ff2ffa0f9e0d449d773053bd360f2b906632dcb13" => :sierra
-    sha256 "d34411461ff10b207645ac58981b71476b0e7da7d4461ea636fe2d530be5872a" => :el_capitan
-    sha256 "d85daf3e7ffa72f7fbfa2c3c9d0423689cce7f2864545775ded0899616f07c86" => :yosemite
-    sha256 "64d9990922aeff846ae9263e4f4457c6173d4b3be998150206c113490506e4ff" => :mavericks
+    sha256 "d970ff77049a0c4d02e149696e28d5c4bb833cb4f9cba14b3fd0315ea00966d0" => :sierra
+    sha256 "3d9c592b7442c985cbcf40e4d6d0f7610b8745a8896b70a2477505d16e7f7323" => :el_capitan
+    sha256 "92a14a032c8713149feecba845f2dcd99b37b1c4dc3e91d78563f8aa686f865f" => :yosemite
   end
 
   option :cxx11

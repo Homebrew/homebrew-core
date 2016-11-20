@@ -3,12 +3,13 @@ class Pgroonga < Formula
   homepage "https://pgroonga.github.io/"
   url "http://packages.groonga.org/source/pgroonga/pgroonga-1.1.4.tar.gz"
   sha256 "e1b20d9266933996c5c22598dddf8d02af343f5b86d75a526998989db1e24a1b"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d45ffceee3f9219908570b60323fd93e8663f9bee1da941784231de9afbdcfc2" => :sierra
-    sha256 "8c5c3b4376cf8baa1fea2f6c9a99a8ca598886468ebf9996a69bcbcdfef38c2a" => :el_capitan
-    sha256 "50b8e8dffb4ac244b1502b8b730b3d748bd9c8617449c2f7f3b7113fa900f84c" => :yosemite
+    sha256 "eb0ed3f401c74cd376b8dd1b02441402ab47ef2921138ed1eb14a9eb2e26f19e" => :sierra
+    sha256 "3f24a1587d0515de617b304e01411aff7ddec9b39a381621ea906f84a86f618f" => :el_capitan
+    sha256 "93607ddd01fd0e8e7bfa603dca093475cf2022dfdc43e97db8b055204f266d4f" => :yosemite
   end
 
   depends_on "pkg-config" => :build

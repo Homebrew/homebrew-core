@@ -7,13 +7,15 @@ class Natalie < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d6b094c9b081df58a849cc2a982022937c421ce90059e9fedf52e332f85ce138" => :sierra
-    sha256 "6004ebee365589110a6579a142a90b653ab876d167056614d97c249331fe4ab2" => :el_capitan
+    rebuild 1
+    sha256 "b6b0597c2bd6e6b1c5df362d846da233f91727f62914f703503dd8360ddea53e" => :sierra
+    sha256 "472b56132024812e48041b4ea4174e889f95eab70e8ff83d6182bde406865d88" => :el_capitan
   end
 
   depends_on :xcode => ["8.0", :build]
 
   def install
+    ENV["CC"] = which(ENV.cc)
     system "swift", "build", "-c", "release", "-Xswiftc", "-static-stdlib"
     bin.install ".build/release/natalie"
     share.install "NatalieExample"

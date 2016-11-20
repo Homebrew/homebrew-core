@@ -3,11 +3,13 @@ class Harfbuzz < Formula
   homepage "https://wiki.freedesktop.org/www/Software/HarfBuzz/"
   url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.3.3.tar.bz2"
   sha256 "2620987115a4122b47321610dccbcc18f7f121115fd7b88dc8a695c8b66cb3c9"
+  revision 1
 
   bottle do
-    sha256 "1df5ce2e5f15820446be2973a1fd8c44e45b333faaa4ec91767ae71b9a01e655" => :sierra
-    sha256 "bbf95dd807d983f17ba257949f244dc17b0c4a6e312a6385b54376f8d2592fa2" => :el_capitan
-    sha256 "c074a689c9e1fedb59948d24a9701a6a107e5111d72248374fc66f3d0586a42e" => :yosemite
+    rebuild 1
+    sha256 "1d3e2872366ff4b170cbcb9a825641adb3957e3d38b1b61a9eef54942fa9d070" => :sierra
+    sha256 "f5bdfb13fe973b6d0ab1ebf7fea91927997642ac0a4d8bd572f3b988e0ea62e2" => :el_capitan
+    sha256 "453c721161af7b9f9cd72f444c52d486881d2188795d93cc2b43a025c1eaa4b2" => :yosemite
   end
 
   head do
@@ -23,9 +25,9 @@ class Harfbuzz < Formula
   option "with-cairo", "Build command-line utilities that depend on Cairo"
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
-  depends_on "freetype"
-  depends_on "gobject-introspection"
+  depends_on "freetype" => :recommended
+  depends_on "glib" => :recommended
+  depends_on "gobject-introspection" => :recommended
   depends_on "icu4c" => :recommended
   depends_on "cairo" => :optional
   depends_on "graphite2" => :optional
@@ -41,18 +43,32 @@ class Harfbuzz < Formula
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --enable-introspection=yes
-      --with-freetype=yes
-      --with-glib=yes
-      --with-gobject=yes
       --with-coretext=yes
       --enable-static
     ]
 
-    if build.with? "icu4c"
-      args << "--with-icu=yes"
+    if build.with? "cairo"
+      args << "--with-cairo=yes"
     else
-      args << "--with-icu=no"
+      args << "--with-cairo=no"
+    end
+
+    if build.with? "freetype"
+      args << "--with-freetype=yes"
+    else
+      args << "--with-freetype=no"
+    end
+
+    if build.with? "glib"
+      args << "--with-glib=yes"
+    else
+      args << "--with-glib=no"
+    end
+
+    if build.with? "gobject-introspection"
+      args << "--with-gobject=yes" << "--enable-introspection=yes"
+    else
+      args << "--with-gobject=no" << "--enable-introspection=no"
     end
 
     if build.with? "graphite2"
@@ -61,10 +77,10 @@ class Harfbuzz < Formula
       args << "--with-graphite2=no"
     end
 
-    if build.with? "cairo"
-      args << "--with-cairo=yes"
+    if build.with? "icu4c"
+      args << "--with-icu=yes"
     else
-      args << "--with-cairo=no"
+      args << "--with-icu=no"
     end
 
     system "./autogen.sh" if build.head?

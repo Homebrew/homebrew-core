@@ -1,13 +1,13 @@
 class Gucharmap < Formula
   desc "GNOME Character Map, based on the Unicode Character Database"
   homepage "https://live.gnome.org/Gucharmap"
-  url "https://download.gnome.org/sources/gucharmap/9.0/gucharmap-9.0.1.tar.xz"
-  sha256 "8617ab68f2977cc3780a1f39264a48b8d9cf8824172c442fa9ca1c11d81dbd6c"
+  url "https://download.gnome.org/sources/gucharmap/9.0/gucharmap-9.0.2.tar.xz"
+  sha256 "723ea92c8e877beae3986432b8e002807c6c2d1140590dff1c5bff34bb6ed265"
 
   bottle do
-    sha256 "8266d571f17ad5e20187b3263e8281797029d7923174adffb84f82c58545a884" => :sierra
-    sha256 "06186093bec56c46d2e7fb324d9113baa6537f7f8eab15a26506a0af9a18c455" => :el_capitan
-    sha256 "b548116c6f0ae5a020dc6d6ab36cb036ee6edbc07cf29fdcbf6e02d4c32a5f84" => :yosemite
+    sha256 "58a9f1ad80737df84402e88890142d94a825c0f8de99998e097c2f720abf48bf" => :sierra
+    sha256 "51cb5eda359cd14a06fa25d5b3727aacff670e9db3fcc8a0ca21ddc7fcc8aee4" => :el_capitan
+    sha256 "a3793a89b3e82a957b03a742256887f0f796b1febc1b8d48bee031743f1c5f46" => :yosemite
   end
 
   depends_on "pkg-config" => :build

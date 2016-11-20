@@ -1,6 +1,6 @@
 class Ispell < Formula
   desc "International Ispell"
-  homepage "http://lasr.cs.ucla.edu/geoff/ispell.html"
+  homepage "https://lasr.cs.ucla.edu/geoff/ispell.html"
   url "https://www.cs.hmc.edu/~geoff/tars/ispell-3.4.00.tar.gz"
   mirror "https://mirrors.kernel.org/debian/pool/main/i/ispell/ispell_3.4.00.orig.tar.gz"
   sha256 "5dc42e458635f218032d3ae929528e5587b1e7247564f0e9f9d77d5ccab7aec2"
@@ -29,7 +29,7 @@ class Ispell < Formula
     chmod 0644, "correct.c"
     inreplace "correct.c", "getline", "getline_ispell"
 
-    system "make config.sh"
+    system "make", "config.sh"
     chmod 0644, "config.sh"
     inreplace "config.sh", "/usr/share/dict", "#{share}/dict"
 

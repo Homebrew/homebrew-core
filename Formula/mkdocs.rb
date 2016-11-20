@@ -1,102 +1,77 @@
 class Mkdocs < Formula
+  include Language::Python::Virtualenv
+
   desc "Project documentation with Markdown"
   homepage "http://www.mkdocs.org/"
-  url "https://github.com/mkdocs/mkdocs/archive/0.15.3.tar.gz"
-  sha256 "a5442ae24fd9e6f9daeefaf354c960e5dac27ff388f63e1bb324ed8a1b7edaa9"
+  url "https://github.com/mkdocs/mkdocs/archive/0.16.0.tar.gz"
+  sha256 "ff0108563ce8a33f4a0bc1f99e9817bd5cab2c9532f8a5ff272beba864066381"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b0886c97de6cfe83873690ba37b53c8b848b2cf60d3da240d405a6bce92ddb9d" => :sierra
-    sha256 "ca89c388daabee14a2ab84a104c535b27a81914f65034aed481919d2ad205eff" => :el_capitan
-    sha256 "8e77f395bade0dfe903b1f1985c8d59ababc6c1a213962a798107e05c30189de" => :yosemite
-    sha256 "66fa8c43b5629dc56777bbf8e5bf0cb9db7f1ab8337ca601975713b4a10fa269" => :mavericks
+    sha256 "e4a79d4db3f9380ffad1b91efb9f9332874835708bb08bebfe279647b1781240" => :sierra
+    sha256 "6e28a88716d65f29261d880cb7dd9029ed4ff45c52c355e5eed587918e962463" => :el_capitan
+    sha256 "e27c127ac68faa8ace392b8b5c0866e1cc2beb3668cc25613898a1c56cc57648" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  resource "tornado" do
-    url "https://pypi.python.org/packages/source/t/tornado/tornado-4.3.tar.gz"
-    sha256 "c9c2d32593d16eedf2cec1b6a41893626a2649b40b21ca9c4cac4243bde2efbf"
-  end
-
   resource "backports_abc" do
-    url "https://pypi.python.org/packages/source/b/backports_abc/backports_abc-0.4.tar.gz"
+    url "https://files.pythonhosted.org/packages/f5/d0/1d02695c0dd4f0cf01a35c03087c22338a4f72e24e2865791ebdb7a45eac/backports_abc-0.4.tar.gz"
     sha256 "8b3e4092ba3d541c7a2f9b7d0d9c0275b21c6a01c53a61c731eba6686939d0a5"
   end
 
   resource "certifi" do
-    url "https://pypi.python.org/packages/source/c/certifi/certifi-2015.11.20.1.tar.gz"
-    sha256 "30b0a7354a1b32caa8b4705d3f5fb2dadefac7ba4bf8af8a2176869f93e38f16"
-  end
-
-  resource "singledispatch" do
-    url "https://pypi.python.org/packages/source/s/singledispatch/singledispatch-3.4.0.3.tar.gz"
-    sha256 "5b06af87df13818d14f08a028e42f566640aef80805c3b50c5056b086e3c2b9c"
-  end
-
-  resource "backports.ssl-match-hostname" do
-    url "https://pypi.python.org/packages/source/b/backports.ssl_match_hostname/backports.ssl_match_hostname-3.4.0.2.tar.gz"
-    sha256 "07410e7fb09aab7bdaf5e618de66c3dac84e2e3d628352814dc4c37de321d6ae"
-  end
-
-  resource "mkdocs-bootswatch" do
-    url "https://pypi.python.org/packages/source/m/mkdocs-bootswatch/mkdocs-bootswatch-0.3.1.tar.gz"
-    sha256 "1ba4761b0739786b3fb6baeaa3fc483788e5b3ba30c4a6514019a0db6f4623d0"
-  end
-
-  resource "mkdocs-bootstrap" do
-    url "https://pypi.python.org/packages/source/m/mkdocs-bootstrap/mkdocs-bootstrap-0.1.1.tar.gz"
-    sha256 "15084a6be59393fe5ecb9f04d09e674337a69fbd1e6ec5d9328e606a6c6cab36"
-  end
-
-  resource "livereload" do
-    url "https://pypi.python.org/packages/source/l/livereload/livereload-2.4.1.tar.gz"
-    sha256 "887cc9976d72d7616fa57c82c4ef5bf5da27e2350dfd6f65d3f44e86efc51b92"
+    url "https://files.pythonhosted.org/packages/4f/75/e1bc6e363a2c76f8d7e754c27c437dbe4086414e1d6d2f6b2a3e7846f22b/certifi-2016.9.26.tar.gz"
+    sha256 "8275aef1bbeaf05c53715bfc5d8569bd1e04ca1e8e69608cc52bcaac2604eb19"
   end
 
   resource "click" do
-    url "https://pypi.python.org/packages/source/c/click/click-6.3.tar.gz"
-    sha256 "b720d9faabe193287b71e3c26082b0f249501288e153b7e7cfce3bb87ac8cc1c"
-  end
-
-  resource "PyYAML" do
-    url "https://pypi.python.org/packages/source/P/PyYAML/PyYAML-3.11.tar.gz"
-    sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
-  end
-
-  resource "Markdown" do
-    url "https://pypi.python.org/packages/source/M/Markdown/Markdown-2.6.5.tar.gz"
-    sha256 "8d94cf6273606f76753fcb1324623792b3738c7612c2b180c85cc5e88642e560"
-  end
-
-  resource "MarkupSafe" do
-    url "https://pypi.python.org/packages/source/M/MarkupSafe/MarkupSafe-0.23.tar.gz"
-    sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
+    url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"
+    sha256 "cc6a19da8ebff6e7074f731447ef7e112bd23adf3de5c597cf9989f2fd8defe9"
   end
 
   resource "Jinja2" do
-    url "https://pypi.python.org/packages/source/J/Jinja2/Jinja2-2.8.tar.gz"
+    url "https://files.pythonhosted.org/packages/f2/2f/0b98b06a345a761bec91a079ccae392d282690c2d8272e708f4d10829e22/Jinja2-2.8.tar.gz"
     sha256 "bc1ff2ff88dbfacefde4ddde471d1417d3b304e8df103a7a9437d47269201bf4"
   end
 
+  resource "livereload" do
+    url "https://files.pythonhosted.org/packages/d3/fb/fa04cd6a08cc42e1ac089220b6f42d124d01aeb0c70fbe169a73713ca636/livereload-2.4.1.tar.gz"
+    sha256 "887cc9976d72d7616fa57c82c4ef5bf5da27e2350dfd6f65d3f44e86efc51b92"
+  end
+
+  resource "Markdown" do
+    url "https://files.pythonhosted.org/packages/d4/32/642bd580c577af37b00a1eb59b0eaa996f2d11dfe394f3dd0c7a8a2de81a/Markdown-2.6.7.tar.gz"
+    sha256 "daebf24846efa7ff269cfde8c41a48bb2303920c7b2c7c5e04fa82e6282d05c0"
+  end
+
+  resource "MarkupSafe" do
+    url "https://files.pythonhosted.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"
+    sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
+  end
+
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
+    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+  end
+
+  resource "singledispatch" do
+    url "https://files.pythonhosted.org/packages/d9/e9/513ad8dc17210db12cb14f2d4d190d618fb87dd38814203ea71c87ba5b68/singledispatch-3.4.0.3.tar.gz"
+    sha256 "5b06af87df13818d14f08a028e42f566640aef80805c3b50c5056b086e3c2b9c"
+  end
+
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
+  resource "tornado" do
+    url "https://files.pythonhosted.org/packages/1e/7c/ea047f7bbd1ff22a7f69fe55e7561040e3e54d6f31da6267ef9748321f98/tornado-4.4.2.tar.gz"
+    sha256 "2898f992f898cd41eeb8d53b6df75495f2f423b6672890aadaf196ea1448edcc"
+  end
+
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

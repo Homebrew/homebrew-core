@@ -6,18 +6,19 @@ class Mitmproxy < Formula
   url "https://github.com/mitmproxy/mitmproxy/archive/v0.18.2.tar.gz"
   sha256 "01dc931fc251ded20265ef454227c9798ba3f1d53abe7140d9c1990694b4c172"
   head "https://github.com/mitmproxy/mitmproxy.git"
+  revision 1
 
   bottle do
-    sha256 "0f150a1aba0f617633010f655b03c4020fc1e33ecdced12b2f937a6271baf632" => :sierra
-    sha256 "3d2e4cd27d2b9810079fc7cc848378ef0e623327caf20d88e7500a0dbd265944" => :el_capitan
-    sha256 "57e6d62669498ca1c1a8208e1ba792b126d37eeb6fad6b50e0ede710b0390229" => :yosemite
+    sha256 "3c398eb745677a9a88c7eae328ccda61d84dfc62a69a2bf273b16a52e1e61a13" => :sierra
+    sha256 "a44b49c5f7ab1cab207e73812829c96a33b8401f66a8e3e30bad135585ed55b4" => :el_capitan
+    sha256 "f8761b0d608f3f01d946fea38def9c058f8231654827dd65d937212cd85694f5" => :yosemite
   end
 
   option "with-pyamf", "Enable action message format (AMF) support for python"
 
   depends_on "freetype"
   depends_on "jpeg"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on :python
   depends_on "protobuf" => :optional
 
@@ -103,8 +104,8 @@ class Mitmproxy < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/03/1a/60984cb85cc38c4ebdfca27b32a6df6f1914959d8790f5a349608c78be61/cryptography-1.5.2.tar.gz"
-    sha256 "eb8875736734e8e870b09be43b17f40472dc189b1c422a952fa8580768204832"
+    url "https://files.pythonhosted.org/packages/6c/c5/7fc1f8384443abd2d71631ead026eb59863a58cad0149b94b89f08c8002f/cryptography-1.5.3.tar.gz"
+    sha256 "cf82ddac919b587f5e44247579b433224cc2e03332d2ea4d89aa70d7e6b64ae5"
   end
 
   resource "cssutils" do

@@ -7,10 +7,10 @@ class Bitlbee < Formula
   head "https://github.com/bitlbee/bitlbee.git"
 
   bottle do
-    sha256 "777b51738cea502198c6195e97b1710c2bf5718e46b45fe33910dea0db3ac82b" => :sierra
-    sha256 "2ae0ff3d810ba31cca377a3803dc3275e7efca34c129a35c8cf0aa3321aa4dba" => :el_capitan
-    sha256 "bb342d82cd1e019a98735f8d533e199e45c878fa727f7914dae7b90b022571c4" => :yosemite
-    sha256 "31e194c41873e9b98a00e0496156c3111720b6eba0d7a1a6f728752fee2950d5" => :mavericks
+    rebuild 1
+    sha256 "22f5da46c5b88ef3b966d41d8432c51e5c00885f04a8c7c51544fc95e7607754" => :sierra
+    sha256 "ef4a9a2997b74d26c49c72fb31ff7a17e3dee672021affaf73329681c44cb804" => :el_capitan
+    sha256 "dbac12a0c0d7d38ab4235ad177194fec0c40a5e13301aefef729bae4b22f2db7" => :yosemite
   end
 
   option "with-pidgin", "Use finch/libpurple for all communication with instant messaging networks"
@@ -31,6 +31,7 @@ class Bitlbee < Formula
   def install
     args = %W[
       --prefix=#{prefix}
+      --plugindir=#{HOMEBREW_PREFIX}/lib/bitlbee/
       --debug=0
       --ssl=gnutls
       --pidfile=#{var}/bitlbee/run/bitlbee.pid

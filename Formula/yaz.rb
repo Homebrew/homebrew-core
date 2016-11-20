@@ -3,12 +3,13 @@ class Yaz < Formula
   homepage "https://www.indexdata.com/yaz"
   url "http://ftp.indexdata.dk/pub/yaz/yaz-5.18.0.tar.gz"
   sha256 "b37ebbfc5b88ddb4fc5d8aefca345b48acac196211d35b11f292aafe636f660c"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "18c84be0b7358f8a233fb17993f30511f86ae8de7b2b452f84bdfd9e9d27849d" => :sierra
-    sha256 "a36c694f84d90709e64b5c534f8e591d886562f52860aa054cd207c0c952c70f" => :el_capitan
-    sha256 "11257c309c975116b005d7c92c468e7859409f437705660c32e80bb4c7b25778" => :yosemite
+    sha256 "9ed7e7e74b24e38ffba2464b9935f2fb7772cf4a50694bb9eee75535b11e02ab" => :sierra
+    sha256 "e16fbc0e2585244e43bb40112fa318e99fac70e752487f66a3426bb1ba35bc98" => :el_capitan
+    sha256 "814fab512115331cefd238357df19a1e3eec9f879c6aa4d4e90b0fd2fbb8bfd8" => :yosemite
   end
 
   head do

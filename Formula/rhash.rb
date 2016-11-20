@@ -1,19 +1,16 @@
 class Rhash < Formula
   desc "Utility for computing and verifying hash sums of files"
   homepage "http://rhash.anz.ru/"
-  url "https://downloads.sourceforge.net/project/rhash/rhash/1.3.3/rhash-1.3.3-src.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/r/rhash/rhash_1.3.3.orig.tar.gz"
-  sha256 "5b520b597bd83f933d316fce1382bb90e0b0b87b559b8c9c9a197551c935315a"
-
+  url "https://downloads.sourceforge.net/project/rhash/rhash/1.3.4/rhash-1.3.4-src.tar.gz"
+  mirror "https://mirrors.kernel.org/debian/pool/main/r/rhash/rhash_1.3.4.orig.tar.gz"
+  sha256 "406662c4703bd4cb1caae26f32700951a5e12adf39f141d3f40e0b461b1e9e49"
   head "https://github.com/rhash/RHash.git"
 
   bottle do
     cellar :any
-    sha256 "6c465fee66ef4222c80a80a99567dfabc27872c3a22cc5a648d11a99129d0a05" => :sierra
-    sha256 "96daecac5b2d21ec7d40caf362868a80686b806e84afabe9b16b08cd79d82790" => :el_capitan
-    sha256 "e957f797d99c99ad3ccba26cf960a1b2bfbf6915694b44496b8c899c322856ce" => :yosemite
-    sha256 "f3a728fdbc481c60c42544e2360601e8bc8ed032b82c86a0e4f1e29949a2b653" => :mavericks
-    sha256 "4d88312b2da6202c1929e5b586ed63780009d1467bdfef2cc6ec3c615e73ab42" => :mountain_lion
+    sha256 "24d81bee8d36e3be65981ac8ffbee6bbd0f08225d61890c2bf288dd73fa8e341" => :sierra
+    sha256 "2b0a7894d2fb528879129c659a5bb50fe6c26d9c6b67ffc19d1f7462d54cf310" => :el_capitan
+    sha256 "55f45a776a493178a094e3bf3d612b5720fffc33d14446ba2aac06b5be7e8358" => :yosemite
   end
 
   # Upstream issue: https://github.com/rhash/RHash/pull/7

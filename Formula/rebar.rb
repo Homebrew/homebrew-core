@@ -7,10 +7,10 @@ class Rebar < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "70cba8ea34165d9e698a73cb701610a7938a91e977dc5261938134d680393f3e" => :sierra
-    sha256 "786e311b5c1c1e72bb36e2473fdc5a052d271150e9ed385bff855281066d339f" => :el_capitan
-    sha256 "12e12c685b444b97dcf8a2b47febb774cee580154cf3271c314d6d65a5a5b597" => :yosemite
-    sha256 "b6360c3b82dfa1bc8e64fe9bdeb1fe0a73262b2784204b8fe3d488a5ccdbc486" => :mavericks
+    rebuild 1
+    sha256 "9deae896b5a7656fdbbbcdb134f17f776b9ba3b320a007a9ea84c97f1242ea76" => :sierra
+    sha256 "dc9934c431b8435022a1b47400d04357ef1da4bc579e523c14d9e6ddf9d44715" => :el_capitan
+    sha256 "30b03e9b4d9405d3131cbc4d4303797496d264fafed8f708a7a862e73e2e99ea" => :yosemite
   end
 
   depends_on "erlang"
@@ -18,6 +18,10 @@ class Rebar < Formula
   def install
     system "./bootstrap"
     bin.install "rebar"
+
+    bash_completion.install "priv/shell-completion/bash/rebar"
+    zsh_completion.install "priv/shell-completion/zsh/_rebar" => "_rebar"
+    fish_completion.install "priv/shell-completion/fish/rebar.fish"
   end
 
   test do

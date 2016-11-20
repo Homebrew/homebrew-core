@@ -1,17 +1,16 @@
 class Quilt < Formula
   desc "Work with series of patches"
   homepage "https://savannah.nongnu.org/projects/quilt"
-  url "https://download.savannah.gnu.org/releases/quilt/quilt-0.64.tar.gz"
-  sha256 "c4bfd3282214a288e8d3e921ae4d52e73e24c4fead72b5446752adee99a7affd"
+  url "https://download.savannah.gnu.org/releases/quilt/quilt-0.65.tar.gz"
+  sha256 "f6cbc788e5cbbb381a3c6eab5b9efce67c776a8662a7795c7432fd27aa096819"
 
   head "http://git.savannah.gnu.org/r/quilt.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "34ec3c012f01a9ae624b327abea3f73132c409be577adcf1a0b4cc9ef1f149f0" => :sierra
-    sha256 "a7d57c231898a6ca038db9789e8059dc2d4498da2a75eebb7d66837dbdd4bb96" => :el_capitan
-    sha256 "a7d57c231898a6ca038db9789e8059dc2d4498da2a75eebb7d66837dbdd4bb96" => :yosemite
+    sha256 "8ea83c73d0043e442c32351e84c591a39305abd13745a5968993c43f750c046a" => :sierra
+    sha256 "8ea83c73d0043e442c32351e84c591a39305abd13745a5968993c43f750c046a" => :el_capitan
+    sha256 "8ea83c73d0043e442c32351e84c591a39305abd13745a5968993c43f750c046a" => :yosemite
   end
 
   depends_on "gnu-sed"

@@ -8,10 +8,10 @@ class Mal4s < Formula
   head "https://github.com/secure411dotorg/mal4s.git"
 
   bottle do
-    sha256 "e19e6beb873d81cd24e3d24061db0470105d37cf0111f0fe6cff2eb54a096e7c" => :sierra
-    sha256 "8741583efddc7f67fb0963455541d3e4498e7135047f51c0f3eb25dff354e76d" => :el_capitan
-    sha256 "2dd5cd85b1826f075987f00cab0a670bc8d8977c01621e403e2064968827101c" => :yosemite
-    sha256 "452418c4354b088b4fd9860a0c086f03cb7cb150f84792305e20f38ebaa4630e" => :mavericks
+    rebuild 1
+    sha256 "5c426bbeed255731e25f1b1537adfc2b85f5cb7e3ff0a7be9571e48441f64c42" => :sierra
+    sha256 "5560115b97b1534f64bd3a91ff5b5306eafe1f2082f16ed8a68af98fc150416f" => :el_capitan
+    sha256 "4a52fb4aa8e7ceaae4e6235c528f0f1b28b80b438b4543745ec9e48f0009dc88" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -52,7 +52,7 @@ class Mal4s < Formula
       pid = fork do
         exec bin/"mal4s", "-t", "2", "-o", "out", pkgshare/"sample--newns.mal4s"
       end
-      sleep 1
+      sleep 2
       assert File.exist?("out"), "Failed to output PPM stream!"
     ensure
       Process.kill("TERM", pid)

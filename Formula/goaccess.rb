@@ -1,15 +1,14 @@
 class Goaccess < Formula
   desc "Log analyzer and interactive viewer for the Apache Webserver"
   homepage "https://goaccess.io/"
-  url "http://tar.goaccess.io/goaccess-1.0.2.tar.gz"
-  sha256 "58a83e201f29f0127b89032fbd40677558a643f6141b8c8413afd1e182f104f1"
+  url "http://tar.goaccess.io/goaccess-1.1.tar.gz"
+  sha256 "8f50004f3511561c072ca907549ead564bc0bdcd8829d4a3703a62cf5b38cfa1"
   head "https://github.com/allinurl/goaccess.git"
 
   bottle do
-    sha256 "4ccab0916e46ccbbd14eb63704a11ebd812c6c201797bc67a8885fbd2f475bd7" => :sierra
-    sha256 "175c517502b2d1373b37a2ec732048b01f6385d50c6b87d66eaad09568b5643f" => :el_capitan
-    sha256 "1308e96418654e0423118e77ac9dabde20739bb25714cba5bbcb5e0ea7c28a1a" => :yosemite
-    sha256 "c203423728013f2b7d47c3c439c5939bbd5f32937cf3239d07244a3f12942cc7" => :mavericks
+    sha256 "a6bdf74a437da0f4a40f54513533b32436405ab7d216bd055d2cee324f3f6901" => :sierra
+    sha256 "bc4f94c2e756518ac67487fc3c71b65627191d2182736cb8eed1bce1c87d5a13" => :el_capitan
+    sha256 "dc73e32b34800461374d380e8ca3ed716a084ab1d7eecee1beee6b0bcbb9e84f" => :yosemite
   end
 
   option "with-geoip", "Enable IP location information using GeoIP"

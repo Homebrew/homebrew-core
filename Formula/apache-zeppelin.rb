@@ -1,8 +1,8 @@
 class ApacheZeppelin < Formula
   desc "Web-based notebook that enables interactive data analytics"
   homepage "https://zeppelin.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=zeppelin/zeppelin-0.6.1/zeppelin-0.6.1-bin-all.tgz"
-  sha256 "5185952361d1999fb3c00b8aca2c6ddc57353af5a1fd93f4f5b9dd89c7222147"
+  url "https://www.apache.org/dyn/closer.lua?path=zeppelin/zeppelin-0.6.2/zeppelin-0.6.2-bin-all.tgz"
+  sha256 "618e0216656925125d0633b194adcac800d023ac1681dd01009a67e0ffd0bf87"
   head "https://github.com/apache/zeppelin.git"
 
   bottle :unneeded
@@ -29,8 +29,8 @@ class ApacheZeppelin < Formula
       system "#{bin}/zeppelin-daemon.sh", "start"
       begin
         sleep 10
-        json_text = shell_output("curl -s http://localhost:9999/api/notebook/r")
-        assert_operator Utils::JSON.load(json_text)["body"]["paragraphs"].length, :>=, 1
+        json_text = shell_output("curl -s http://localhost:9999/api/notebook/")
+        assert_operator Utils::JSON.load(json_text)["body"].length, :>=, 1
       ensure
         system "#{bin}/zeppelin-daemon.sh", "stop"
       end

@@ -3,12 +3,13 @@ class Fontforge < Formula
   homepage "https://fontforge.github.io"
   url "https://github.com/fontforge/fontforge/archive/20161001.tar.gz"
   sha256 "103af2a6c8799390f20790e44064ea4f9ec6795255b7a065b3f9a352c2723c40"
+  revision 1
   head "https://github.com/fontforge/fontforge.git"
 
   bottle do
-    sha256 "aeeb0031067149f9795f9aac5bf3b623ab53557345509086de1124cd941b0ad8" => :sierra
-    sha256 "e25c8e3ca59b9cc7ee4ece35b46d2bc95757aab7d8d800b4af4afe2b7a6dd5ed" => :el_capitan
-    sha256 "e5e8e6a5522841bccf8dc4fbfd4953b35e5375320785474ddd0dc7aa066b1fcb" => :yosemite
+    sha256 "72e15395857641863a4a1b93555fdc6d552f03405c795a6d676a1748f76c3d09" => :sierra
+    sha256 "0b557d644c23b8d72b958f49f3fdc6ab5463a34d495774fd0123c0104c1d36f8" => :el_capitan
+    sha256 "4eec14c891a70ea9d888011770df9a6e0d754c1bd4a1fb1f63a6955228676264" => :yosemite
   end
 
   option "with-giflib", "Build with GIF support"
@@ -23,8 +24,6 @@ class Fontforge < Formula
   depends_on "libtool" => :run
   depends_on "gettext"
   depends_on "pango"
-  depends_on "zeromq"
-  depends_on "czmq"
   depends_on "cairo"
   depends_on "fontconfig"
   depends_on "libpng" => :recommended
