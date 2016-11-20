@@ -29,15 +29,12 @@ class Quantlib < Formula
   end
 
   def install
-    args = []
-    if build.with? "intraday"
-      args << "--enable-intraday"
-    end
-
     ENV.cxx11 if build.cxx11?
     (buildpath/"QuantLib").install buildpath.children if build.stable?
     cd "QuantLib" do
       system "./autogen.sh" if build.head?
+      args = []
+      args << "--enable-intraday" if build.with? "intraday"
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{prefix}",
                             "--with-lispdir=#{elisp}",
