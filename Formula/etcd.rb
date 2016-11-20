@@ -53,7 +53,6 @@ class Etcd < Formula
 
   test do
     begin
-      require "utils/json"
       test_string = "Hello from brew test!"
       etcd_pid = fork do
         exec bin/"etcd", "--force-new-cluster", "--data-dir=#{testpath}"
@@ -63,7 +62,7 @@ class Etcd < Formula
       etcd_uri = "http://127.0.0.1:2379/v2/keys/brew_test"
       system "curl", "--silent", "-L", etcd_uri, "-XPUT", "-d", "value=#{test_string}"
       curl_output = shell_output("curl --silent -L #{etcd_uri}")
-      response_hash = Utils::JSON.load(curl_output)
+      response_hash = JSON.parse(curl_output)
       assert_match(test_string, response_hash.fetch("node").fetch("value"))
     ensure
       # clean up the etcd process before we leave
