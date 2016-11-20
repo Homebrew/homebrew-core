@@ -13,6 +13,17 @@ class Planck < Formula
     sha256 "237e29161849ae72add25713a1e6ce3d3aab357f887cd4864fe10bdde266be35" => :mavericks
   end
 
+  devel do
+    url "https://github.com/mfikes/planck/archive/2.0.0-beta.2.tar.gz"
+    version "2.0.0-beta.2"
+    sha256 "3a6461d2ab869ac971e8987d356435090b271c2c5995bab9c1ca8915818fcb3b"
+    depends_on "maven" => :build
+    depends_on "cmake" => :build
+    depends_on "pkg-config" => :build
+    depends_on "libzip"
+    depends_on "icu4c"
+  end
+
   depends_on "leiningen" => :build
   depends_on :xcode => :build
   depends_on :macos => :mavericks
