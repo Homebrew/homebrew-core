@@ -7,10 +7,9 @@ class Bullet < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c40652f885e1a4c46007591a2499dc54fee0b8c720795f7d73d7dc3d880d1ac7" => :sierra
-    sha256 "76ccbd35bad9d8314034ff565faaa0554780ccb824a8e2f8e0f2c8e6d943c36f" => :el_capitan
-    sha256 "f1820f7ee747911117fc28eef8fee1d9e4cb4d776aa5f26c575edc5545a3d995" => :yosemite
-    sha256 "affa568baabe79d993fe27eaa89466d1e837002754dd407f595a9c992eef58c4" => :mavericks
+    sha256 "db8f96ee50d670a4a35200d131cd991a8e35f0129f1ab4b64d7f16a2136629f1" => :sierra
+    sha256 "c5e8d5b15d71bafbc6b344e53a89a743aefe17af922ed71f4ee198ddd3f232d0" => :el_capitan
+    sha256 "2f3b941f70527d96caab211f1f05dd1448b9efa4072f0ed576deb1113497075b" => :yosemite
   end
 
   deprecated_option "framework" => "with-framework"
