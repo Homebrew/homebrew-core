@@ -1,5 +1,3 @@
-require "utils/json"
-
 class Internetarchive < Formula
   include Language::Python::Virtualenv
 
@@ -68,7 +66,7 @@ class Internetarchive < Formula
   end
 
   test do
-    metadata = Utils::JSON.load shell_output("#{bin}/ia metadata tigerbrew")
+    metadata = JSON.parse shell_output("#{bin}/ia metadata tigerbrew")
     assert_equal metadata["metadata"]["uploader"], "mistydemeo@gmail.com"
   end
 end
