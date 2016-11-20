@@ -28,7 +28,7 @@ class AzureCli < Formula
   test do
     shell_output("#{bin}/azure telemetry --disable")
     json_text = shell_output("#{bin}/azure account env show AzureCloud --json")
-    azure_cloud = Utils::JSON.load(json_text)
+    azure_cloud = JSON.parse(json_text)
     assert_equal azure_cloud["name"], "AzureCloud"
     assert_equal azure_cloud["managementEndpointUrl"], "https://management.core.windows.net"
     assert_equal azure_cloud["resourceManagerEndpointUrl"], "https://management.azure.com/"
