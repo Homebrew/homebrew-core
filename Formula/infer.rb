@@ -47,7 +47,7 @@ class Infer < Formula
 
     system "opam", "init", "--no-setup"
     ocaml_version = File.read("build-infer.sh").match(/OCAML_VERSION=\"([0-9\.]+)\"/)[1]
-    inreplace "opamroot/compilers/#{ocaml_version}/#{ocaml_version}/#{ocaml_version}.comp",
+    inreplace "#{opamroot}/compilers/#{ocaml_version}/#{ocaml_version}/#{ocaml_version}.comp",
       '["./configure"', '["./configure" "-no-graph"'
     system "./build-infer.sh", target_platform, "--yes"
     system "opam", "config", "exec", "--switch=infer-#{ocaml_version}", "--", "make", "install"
