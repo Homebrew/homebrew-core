@@ -3,8 +3,8 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
 
   stable do
-    url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.2.tar.bz2"
-    sha256 "e6ce83d46819c4120c9295ff6b36b90393dd5f6bef3bb117a06d7399c11fc7c0"
+    url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.3.tar.bz2"
+    sha256 "882e6146ed26c6e78c02342835f5d46b86de95f0dc4e16543294bc656594cc5b"
 
     # Reverts an upstream commit which incorrectly tries to install headers
     # into SDKROOT, if defined
