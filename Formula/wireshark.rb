@@ -103,6 +103,12 @@ class Wireshark < Formula
     ENV.deparallelize # parallel install fails
     system "make", "install"
 
+    Dir.chdir "packaging/macosx" do
+      inreplace "ChmodBPF/org.wireshark.ChmodBPF.plist", "/Library/Application Support/Wireshark", opt_prefix
+      chmod 0755, "ChmodBPF/ChmodBPF"
+      prefix.install "ChmodBPF"
+    end
+
     if build.with? "qt5"
       prefix.install bin/"Wireshark.app"
       bin.install_symlink prefix/"Wireshark.app/Contents/MacOS/Wireshark"
@@ -122,17 +128,14 @@ class Wireshark < Formula
   end
 
   def caveats; <<-EOS.undent
-    If your list of available capture interfaces is empty
-    (default macOS behavior), try installing ChmodBPF from homebrew cask:
+    If you want to capture packets without root privileges, you need to create
+    an 'access_bpf' group and register ChmodBPF as a launch daemon:
+      sudo dseditgroup -o create 'access_bpf'
+      sudo dseditgroup -o edit -a "$USER" -t user 'access_bpf'
+      sudo cp #{prefix}/ChmodBPF/org.wireshark.ChmodBPF.plist /Library/LaunchDaemons/org.wireshark.ChmodBPF.plist
+      sudo launchctl load org.wireshark.ChmodBPF.plist
 
-      brew cask install wireshark-chmodbpf
-
-    This creates an 'access_bpf' group and adds a launch daemon that changes the
-    permissions of your BPF devices so that all users in that group have both
-    read and write access to those devices.
-
-    See bug report:
-      https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=3760
+    For more infomation, see #{prefix}/ChmodBPF/ChmodBPF
     EOS
   end
 
