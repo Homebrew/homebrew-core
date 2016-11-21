@@ -99,6 +99,7 @@ class Qt5 < Formula
 
   depends_on "dbus" => :optional
   depends_on :mysql => :optional
+  depends_on "pkg-config" => :build
   depends_on :postgresql => :optional
   depends_on :xcode => :build
 
@@ -136,6 +137,7 @@ class Qt5 < Formula
       -qt-pcre
       -nomake tests
       -no-rpath
+      -pkg-config
     ]
 
     args << "-nomake" << "examples" if build.without? "examples"
