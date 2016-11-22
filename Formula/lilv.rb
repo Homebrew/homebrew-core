@@ -26,5 +26,7 @@ class Lilv < Formula
   end
 
   test do
+    lv2info --version
+    lv2ls
   end
 end
