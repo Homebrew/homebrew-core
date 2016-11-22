@@ -1,24 +1,11 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  revision 1
+  url "https://github.com/crystal-lang/crystal/archive/0.20.0.tar.gz"
+  sha256 "97118becc450cdfbafd881f8e98e93d9373d71b4994f49f41dec1eaf081e8894"
   head "https://github.com/crystal-lang/crystal.git"
 
-  stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.19.4.tar.gz"
-    sha256 "e239afa449744e0381823531f6af66407ba1f4b78767bd67a9bb09d9fcc6b9e4"
-
-    # Remove for > 0.19.4
-    # changes already merged upstream to fix compilation with LLVM 3.9
-    # https://github.com/crystal-lang/crystal/pull/3439
-    patch do
-      url "https://github.com/crystal-lang/crystal/commit/13b11d7.patch"
-      sha256 "d981515791c48ae7fce0e906b0eec934fd622987a87f0614b3c91c71b0966b66"
-    end
-  end
-
   bottle do
-    rebuild 1
     sha256 "c4b0dc235c1869d886be08627f39ac16bfc0766420f211099f24db8d7aa22c06" => :sierra
     sha256 "a31e70a472ac213f39bc6365bd59048b73b615a57fadc4420829ed2e87f09fc3" => :el_capitan
     sha256 "be5f69d7050db3c477cab53ba6974b59529797392b3c32e212bb9d34c16af1b3" => :yosemite
@@ -36,14 +23,14 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.19.3/crystal-0.19.3-1-darwin-x86_64.tar.gz"
-    version "0.19.3"
-    sha256 "2c9aebfefe2aca46eeda1e5a3fd6a91e3177af8f324ea23ebf8b5cad3c87ad2d"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.19.4/crystal-0.19.4-1-darwin-x86_64.tar.gz"
+    version "0.19.4"
+    sha256 "ec9f21f29035b76b2bc32bd3d975aa057f68007191cc6aab1535effe4c1c60d5"
   end
 
   resource "shards" do
-    url "https://github.com/ysbaddaden/shards/archive/v0.6.4.tar.gz"
-    sha256 "5972f1b40bb3253319f564dee513229f82b0dcb8eea1502ae7dc483a9c6da5a0"
+    url "https://github.com/ysbaddaden/shards/archive/v0.7.0.tar.gz"
+    sha256 "2e8e20cb0dcaed7f756146954b8946bd01d98d9462740233b204647e5aa628a2"
   end
 
   def install
