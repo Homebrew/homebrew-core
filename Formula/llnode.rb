@@ -20,8 +20,17 @@ class Llnode < Formula
   end
 
   resource "lldb" do
-    url "https://github.com/llvm-mirror/lldb.git",
-        :revision => "839b868e2993dcffc7fea898a1167f1cec097a82"
+    if MacOS::Xcode.version >= "8.0"
+      # lldb 360.1
+      url "https://github.com/llvm-mirror/lldb.git",
+          :revision => "839b868e2993dcffc7fea898a1167f1cec097a82"
+    else
+      # It claims it to be lldb 350.0 for Xcode 7.3, but in fact it is based
+      # of 34.
+      # Xcode < 7.3 uses 340.4, so I assume we should be safe to go with this.
+      url "http://llvm.org/svn/llvm-project/lldb/tags/RELEASE_34/final/",
+          :using => :svn
+    end
   end
 
   def install
