@@ -29,7 +29,7 @@ class Flow < Formula
       /* @flow */
       var x: string = 123;
     EOS
-    expected = /number\nThis type is incompatible with\n.*string\n\nFound 1 error/
-    assert_match expected, shell_output("#{bin}/flow check --old-output-format #{testpath}", 2)
+    expected = /Found 1 error/
+    assert_match expected, shell_output("#{bin}/flow check #{testpath}", 2)
   end
 end
