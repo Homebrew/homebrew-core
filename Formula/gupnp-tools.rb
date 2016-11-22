@@ -1,8 +1,8 @@
 class GupnpTools < Formula
   desc "Free replacements of Intel's UPnP tools."
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gupnp-tools/0.8/gupnp-tools-0.8.12.tar.xz"
-  sha256 "658de96953608c4b1f47578ae563a7066d1f1983565daf22ad52b7b328ef97b1"
+  url "https://download.gnome.org/sources/gupnp-tools/0.8/gupnp-tools-0.8.13.tar.xz"
+  sha256 "aa3decb9d532c0e2e505adc592f431fd81c0231ded2981129e87da13712479ed"
 
   bottle do
     sha256 "496e302a41c4781331b72cf19524e547498f5ab0867138e404dd0c0ebdadb649" => :sierra
