@@ -15,25 +15,43 @@ class Afflib < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "expat" => :optional
-  depends_on :osxfuse => :optional
+  depends_on "pkg-config" => :build
+
   depends_on "openssl"
 
-  # This patch fixes a bug reported upstream over there
-  # https://github.com/simsong/AFFLIBv3/issues/4
-  patch :DATA
+  depends_on "python" => :optional
+  depends_on :osxfuse => :optional
+
+  patch do
+    url "https://github.com/sshock/AFFLIBv3/pull/13.patch"
+    sha256 "dc24b0be3c17938b5b6014ba0fcd885c5f79e758c2150e3727fbda1507cdb768"
+  end
+  patch do
+    url "https://github.com/sshock/AFFLIBv3/pull/14.patch"
+    sha256 "3a078e41bd764fd45c5833335f5650f815cbfaea5fce4dca684d270742c3b34a"
+  end
+  patch do
+    url "https://github.com/sshock/AFFLIBv3/pull/15.patch"
+    sha256 "e8028dd0ca8573c7d7e51234494782d01d85b1a167b25f12140d5ea21dccea3f"
+  end
 
   def install
-    system "./bootstrap.sh"
+    args = ["--enable-s3"]
 
-    args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
+    args << "--enable-python" if build.with? "python"
 
     if build.with? "osxfuse"
-      ENV["CPPFLAGS"] = "-I/usr/local/include/osxfuse"
+      ENV.append "CPPFLAGS", "-I/usr/local/include/osxfuse"
+      ENV.append "LDFLAGS", "-L/usr/local/lib"
       args << "--enable-fuse"
+    else
+      args << "--disable-fuse"
     end
 
-    system "./configure", *args
+    system "autoreconf -iv"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          *args
     system "make", "install"
   end
 
@@ -41,42 +59,3 @@ class Afflib < Formula
     system "#{bin}/affcat", "-v"
   end
 end
-
-__END__
-diff --git a/bootstrap.sh b/bootstrap.sh
-index 3a7af59..7510933 100755
---- a/bootstrap.sh
-+++ b/bootstrap.sh
-@@ -6,7 +6,7 @@
- echo Bootstrap script to create configure script using autoconf
- echo
- # use the installed ones first, not matter what the path says.
--export PATH=/usr/bin:/usr/sbin:/bin:$PATH
-+#export PATH=/usr/bin:/usr/sbin:/bin:$PATH
- touch NEWS README AUTHORS ChangeLog stamp-h
- aclocal
- LIBTOOLIZE=glibtoolize
-diff --git a/configure.ac b/configure.ac
-index 940353b..c530f2e 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -241,10 +241,6 @@ AC_ARG_ENABLE(fuse,
- if test "x${enable_fuse}" = "xyes" ; then
-   AC_MSG_NOTICE([FUSE requested])
-   CPPFLAGS="-D_FILE_OFFSET_BITS=64 -DFUSE_USE_VERSION=26 $CPPFLAGS"
--  if test `uname -s` = Darwin ; then
--    AC_MSG_NOTICE([FUSE IS NOT SUPPORTED ON MACOS])
--    enable_fuse=no
--  fi
-   AC_CHECK_HEADER([fuse.h],,
-     AC_MSG_NOTICE([fuse.h not found; Disabling FUSE support.])
-     enable_fuse=no)
-@@ -255,7 +251,7 @@ AFFUSE_BIN=
- if test "${enable_fuse}" = "yes"; then
-   AC_DEFINE([USE_FUSE],1,[Use FUSE to mount AFF images])
-   AFFUSE_BIN='affuse$(EXEEXT)'
--  FUSE_LIBS=-lfuse
-+  FUSE_LIBS=-losxfuse
- fi
- AC_SUBST(AFFUSE_BIN)
- AM_PROG_CC_C_O			dnl for affuse
