@@ -16,7 +16,9 @@ class Swiftformat < Formula
         "SYMROOT=build", "OBJROOT=build"
     bin.install "build/Release/swiftformat"
   end
-
+  
+  depends_on :xcode => ["8.0", :build]
+  
   test do
     swift_code = <<-eos
       struct Potato {
