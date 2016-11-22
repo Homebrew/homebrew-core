@@ -1,8 +1,8 @@
 class Advancecomp < Formula
   desc "Recompression utilities for .PNG, .MNG, .ZIP, and .GZ files"
   homepage "http://www.advancemame.it/comp-readme.html"
-  url "https://github.com/amadvance/advancecomp/archive/v1.22.tar.gz"
-  sha256 "b8c482027a5f78d9a7f871cbba19cc896ed61653d1d93034c9dbe55484952605"
+  url "https://github.com/amadvance/advancecomp/archive/v1.23.tar.gz"
+  sha256 "fe89d6ab382efc6b6be536b8d58113f36b83d82783d5215c261c14374cba800a"
 
   bottle do
     cellar :any_skip_relocation
