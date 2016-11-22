@@ -6,6 +6,8 @@ class Swiftformat < Formula
 
   head "https://github.com/nicklockwood/SwiftFormat.git", :shallow => false
 
+  depends_on :xcode => ["8.0", :build]
+
   def install
     xcodebuild "-project",
         "SwiftFormat.xcodeproj",
@@ -14,9 +16,7 @@ class Swiftformat < Formula
         "SYMROOT=build", "OBJROOT=build"
     bin.install "build/Release/swiftformat"
   end
-  
-  depends_on :xcode => ["8.0", :build]
-  
+    
   test do
     swift_code = <<-eos
       struct Potato {
