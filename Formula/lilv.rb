@@ -26,7 +26,7 @@ class Lilv < Formula
   end
 
   test do
-    lv2info --version
-    lv2ls
+    lv2info = shell_output("#{bin}/lv2info --version")
+    assert_equal lv2info.lines.first, "lv2info (lilv) 0.24.0"
   end
 end
