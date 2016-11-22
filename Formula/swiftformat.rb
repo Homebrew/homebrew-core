@@ -6,8 +6,6 @@ class Swiftformat < Formula
 
   head "https://github.com/nicklockwood/SwiftFormat.git", :shallow => false
 
-  depends_on :xcode
-
   def install
     xcodebuild "-project",
         "SwiftFormat.xcodeproj",
