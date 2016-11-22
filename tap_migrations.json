@@ -237,6 +237,7 @@
   "pixie": "homebrew/x11",
   "pjsip": "homebrew/boneyard",
   "pocl": "homebrew/science",
+  "polygen": "homebrew/boneyard",
   "powerline": "homebrew/boneyard",
   "pplatex": "homebrew/tex",
   "prooftree": "homebrew/gui",
