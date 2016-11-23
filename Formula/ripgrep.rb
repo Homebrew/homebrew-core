@@ -19,6 +19,12 @@ class Ripgrep < Formula
 
     bin.install "target/release/rg"
     man1.install "doc/rg.1"
+
+    # Completion scripts are generated in the crate's build directory, which
+    # includes a fingerprint hash. Try to locate it first
+    out_dir = Dir["target/release/build/ripgrep-*/out"].first
+    bash_completion.install "#{out_dir}/rg.bash-completion"
+    fish_completion.install "#{out_dir}/rg.fish"
   end
 
   test do
