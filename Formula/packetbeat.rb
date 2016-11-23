@@ -6,6 +6,13 @@ class Packetbeat < Formula
 
   head "https://github.com/elastic/beats.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "0fb69cb1fee6b18e4730d5192b6d8d8cc77b176966d579a2a242bd840aa677bf" => :sierra
+    sha256 "8af84527b2c08f22b4cf952586251788e5e4528eca68a78435a690284661d25c" => :el_capitan
+    sha256 "75df0ef86971ce26ac40258d6e91adc5279329259ff9b1d9ead19e2280ba8cfa" => :yosemite
+  end
+
   depends_on "go" => :build
 
   def install
