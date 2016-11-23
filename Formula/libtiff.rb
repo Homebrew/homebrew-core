@@ -1,10 +1,9 @@
 class Libtiff < Formula
   desc "TIFF library and utilities"
-  homepage "http://www.remotesensing.org/libtiff/"
-  url "http://download.osgeo.org/libtiff/tiff-4.0.6.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.6.orig.tar.gz"
-  sha256 "4d57a50907b510e3049a4bba0d7888930fdfc16ce49f1bf693e5b6247370d68c"
-  revision 3
+  homepage "http://libtiff.maptools.org/"
+  url "http://download.osgeo.org/libtiff/tiff-4.0.7.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7.orig.tar.gz"
+  sha256 "9f43a2cfb9589e5cecaa66e16bf87f814c945f22df7ba600d63aac4632c4f019"
 
   bottle do
     cellar :any
@@ -19,24 +18,6 @@ class Libtiff < Formula
 
   depends_on "jpeg"
   depends_on "xz" => :optional
-
-  # Backports of various security/potential security fixes from Debian.
-  # Already applied upstream in CVS but no new release yet.
-  patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.6-3.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.6-3.debian.tar.xz"
-    sha256 "cc650116c1dafed9c3721302f91e5e79b670f46712ebf2b86dea989c102e5c94"
-    apply "patches/01-CVE-2015-8665_and_CVE-2015-8683.patch",
-          "patches/02-fix_potential_out-of-bound_writes_in_decode_functions.patch",
-          "patches/03-fix_potential_out-of-bound_write_in_NeXTDecode.patch",
-          "patches/04-CVE-2016-5314_CVE-2016-5316_CVE-2016-5320_CVE-2016-5875.patch",
-          "patches/05-CVE-2016-6223.patch",
-          "patches/06-CVE-2016-5321.patch",
-          "patches/07-CVE-2016-5323.patch",
-          "patches/08-CVE-2016-3623_CVE-2016-3624.patch",
-          "patches/09-CVE-2016-5652.patch",
-          "patches/10-CVE-2016-3658.patch"
-  end
 
   def install
     ENV.universal_binary if build.universal?
