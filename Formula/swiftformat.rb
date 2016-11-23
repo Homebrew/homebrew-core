@@ -18,16 +18,11 @@ class Swiftformat < Formula
   end
 
   test do
-    swift_code = <<-eos
+    (testpath/"potato.swift").write <<-EOS.undent
       struct Potato {
-          let baked: Bool
+        let baked: Bool
       }
-    eos
-
-    f = File.new("#{testpath}/potato.swift", "w")
-    f.write(swift_code)
-    f.close
-
+    EOS
     system "#{bin}/swiftformat", "#{testpath}/potato.swift"
   end
 end
