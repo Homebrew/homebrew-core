@@ -1,8 +1,8 @@
 class Eject < Formula
   desc "Generate swift code from Interface Builder xibs"
   homepage "https://github.com/Raizlabs/Eject"
-  url "https://github.com/Raizlabs/Eject/archive/0.1.12.tar.gz"
-  sha256 "a4dae3d37f780d274f53ed25d9dc1a27d5245289f9b8cbaaf8be71bc9334de18"
+  url "https://github.com/Raizlabs/Eject/archive/0.1.23.tar.gz"
+  sha256 "6edd4bd393981f8e1a7b5b7b8f29b5594d17ecf7f55a3e81098a88191c02ae71"
 
   bottle do
     cellar :any
@@ -42,7 +42,6 @@ class Eject < Formula
     swift = <<-EOS.undent
       // Create Views
       let view = UIView()
-      view.frame = CGRect(x: 0, y: 0, width: 375, height: 667)
       view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
       view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
     EOS
