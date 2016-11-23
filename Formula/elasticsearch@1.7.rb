@@ -8,6 +8,9 @@ class ElasticsearchAT17 < Formula
 
   depends_on :java => "1.7+"
 
+  conflicts_with "elasticsearch", :because => "Different versions of same formula"
+  conflicts_with "elasticsearch@2.4", :because => "Different versions of same formula"
+
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
   end
@@ -98,9 +101,9 @@ class ElasticsearchAT17 < Formula
           <key>WorkingDirectory</key>
           <string>#{var}</string>
           <key>StandardErrorPath</key>
-          <string>#{var}/log/elasticsearch@1.7.log</string>
+          <string>#{var}/log/#{name}.log</string>
           <key>StandardOutPath</key>
-          <string>#{var}/log/elasticsearch@1.7.log</string>
+          <string>#{var}/log/#{name}.log</string>
         </dict>
       </plist>
     EOS
