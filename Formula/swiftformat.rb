@@ -6,6 +6,12 @@ class Swiftformat < Formula
 
   head "https://github.com/nicklockwood/SwiftFormat.git", :shallow => false
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "9a65bcb6181e67def1bfec758f176db2708b46c2cd79f5c94e0696b2180bf051" => :sierra
+    sha256 "59ffab10eef628353e40f8c5df0f5bb288ae3bcdcd81b9ec332ca09be80e4908" => :el_capitan
+  end
+
   depends_on :xcode => ["8.0", :build]
 
   def install
