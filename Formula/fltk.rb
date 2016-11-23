@@ -5,11 +5,9 @@ class Fltk < Formula
   sha256 "c8ab01c4e860d53e11d40dc28f98d2fe9c85aaf6dbb5af50fd6e66afec3dc58f"
 
   bottle do
-    rebuild 3
-    sha256 "b84a8a32ac7718099b9b41959b17d0511d0b915230aa28d29bdec5bd38222029" => :sierra
-    sha256 "4e1b9e5a401319d74b77aae46a12b2d3da3a2a8e0a50364ac9ac9aadbbf5fb50" => :el_capitan
-    sha256 "c2c1f6f6219979cb8864c2afb03ef5aed71b2df6fe232c0b8ad024b2a57d506f" => :yosemite
-    sha256 "c9891be771225c5729be4227f7da60ca7d199d90fa868c737bc7f0893f31947e" => :mavericks
+    sha256 "145440139990f28366947502ac96c89ecea165dd6e328b30495291ea55b0bd17" => :sierra
+    sha256 "8fc20e6d86ac3c9866b614365b25942cba95855ae748f284848224df9de7c90d" => :el_capitan
+    sha256 "b30e0f6d843720c277f5e2c393abb2505d2fe69c8335c152f645ce87cc91d735" => :yosemite
   end
 
   depends_on "libpng"
