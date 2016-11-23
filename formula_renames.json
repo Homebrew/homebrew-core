@@ -7,6 +7,7 @@
   "cv": "progress",
   "cyassl": "wolfssl",
   "d-bus": "dbus",
+  "elasticsearch17": "elasticsearch@1.7",
   "fig": "docker-compose",
   "geode": "apache-geode",
   "go-app-engine-32": "app-engine-go-32",
