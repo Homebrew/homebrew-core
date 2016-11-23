@@ -35,6 +35,7 @@ class Ffmpeg < Formula
   option "with-zimg", "Enable z.lib zimg library"
   option "without-lame", "Disable MP3 encoder"
   option "without-qtkit", "Disable deprecated QuickTime framework"
+  option "without-securetransport", "Disable use of SecureTransport"
   option "without-x264", "Disable H.264 encoder"
   option "without-xvid", "Disable Xvid MPEG-4 video encoder"
 
@@ -109,6 +110,7 @@ class Ffmpeg < Formula
     ]
 
     args << "--disable-indev=qtkit" if build.without? "qtkit"
+    args << "--disable-securetransport" if build.without? "securetransport"
     args << "--enable-ffplay" if build.with? "sdl2"
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--enable-libass" if build.with? "libass"
