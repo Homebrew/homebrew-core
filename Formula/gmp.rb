@@ -18,7 +18,7 @@ class Gmp < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
-    args = ["--prefix=#{prefix}", "--enable-cxx"]
+    args = ["--prefix=#{prefix}", "--enable-cxx", "--enable-fake-cpuid", "--enable-fat", "GMP_CPU_TYPE=core2"]
 
     if build.build_32_bit?
       ENV.m32
