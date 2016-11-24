@@ -1,9 +1,9 @@
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.4.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.9.4.tar.bz2"
-  sha256 "1267f9e2ab983f260623bee841e6c9cc458bf4bf776238ed5f100983f79e9299"
+  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.5.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.9.5.tar.bz2"
+  sha256 "8a4fc68aff1d18dcb4dd9e460648d24d9e98657fbed496c582929c6b3ce555e5"
 
   bottle do
     sha256 "a2f80a24261a9236accccb4d54c8cb611eca11d1f6df7fee0128ed6833663817" => :sierra
@@ -32,12 +32,7 @@ class Subversion < Formula
     depends_on "apr-util"
     depends_on "apr"
   else
-    depends_on :apr => :build
-  end
-
-  resource "serf" do
-    url "https://archive.apache.org/dist/serf/serf-1.3.8.tar.bz2"
-    sha256 "e0500be065dbbce490449837bb2ab624e46d64fc0b090474d9acaa87c82b2590"
+    depends_on "apr" => :build
   end
 
   # Always build against Homebrew versions instead of system versions for consistency.
@@ -54,6 +49,12 @@ class Subversion < Formula
   # Other optional dependencies
   depends_on "gpg-agent" => :optional
   depends_on :java => :optional
+
+  resource "serf" do
+    url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
+    mirror "https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2"
+    sha256 "549c2d21c577a8a9c0450facb5cca809f26591f048e466552240947bdf7a87cc"
+  end
 
   # Fix #23993 by stripping flags swig can't handle from SWIG_CPPFLAGS
   # Prevent "-arch ppc" from being pulled in from Perl's $Config{ccflags}
@@ -121,8 +122,9 @@ class Subversion < Formula
     # Use dep-provided other libraries
     # Don't mess with Apache modules (since we're not sudo)
     args = %W[
-      --disable-debug
       --prefix=#{prefix}
+      --disable-debug
+      --enable-optimize
       --with-zlib=/usr
       --with-sqlite=#{Formula["sqlite"].opt_prefix}
       --with-serf=#{serf_prefix}
@@ -265,7 +267,7 @@ diff --git a/configure b/configure
 index 445251b..6ff4332 100755
 --- a/configure
 +++ b/configure
-@@ -25366,6 +25366,8 @@ fi
+@@ -26153,6 +26153,8 @@ fi
  SWIG_CPPFLAGS="$CPPFLAGS"
  
    SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-no-cpp-precomp //'`
@@ -273,7 +275,7 @@ index 445251b..6ff4332 100755
 +  SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-isystem\/[^ ]* //'`
  
  
- 
+   SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-Wdate-time //'`
 diff --git a/subversion/bindings/swig/perl/native/Makefile.PL.in b/subversion/bindings/swig/perl/native/Makefile.PL.in
 index a60430b..bd9b017 100644
 --- a/subversion/bindings/swig/perl/native/Makefile.PL.in
