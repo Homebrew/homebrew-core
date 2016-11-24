@@ -24,6 +24,14 @@ class H2o < Formula
     depends_on "openssl@1.1" => :recommended
   end
 
+  devel do
+    url "https://github.com/h2o/h2o/archive/v2.1.0-beta3.tar.gz"
+    version "2.1.0-beta3"
+    sha256 "e85aa794b1d1dd074f44e1a2df6afee61175b443f8fa6413a47033c179485d2a"
+
+    depends_on "openssl@1.1" => :recommended
+  end
+
   option "with-libuv", "Build the H2O library in addition to the executable"
   option "without-mruby", "Don't build the bundled statically-linked mruby"
 
