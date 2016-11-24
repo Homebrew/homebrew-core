@@ -1,8 +1,8 @@
-class Juju < Formula
+class JujuAT125 < Formula
   desc "DevOps management tool"
   homepage "https://jujucharms.com/"
-  url "https://launchpad.net/juju-core/1.25/1.25.6/+download/juju-core_1.25.6.tar.gz"
-  sha256 "b826cbc4085fe3b3cf5413ef5dc20ece1fb69d36fa6c0dda711aeaaca19ff7fa"
+  url "https://launchpad.net/juju-core/1.25/1.25.8/+download/juju-core_1.25.8.tar.gz"
+  sha256 "7866cf4195d7fe87463bc7501cece12b4d0c3d08b8983f66cecf54f6f8b28267"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,6 +12,7 @@ class Juju < Formula
   end
 
   depends_on "go" => :build
+  conflicts_with "juju@2.0", :because => "juju 1 and 2 cannot be installed simultaneously."
 
   def install
     ENV["GOPATH"] = buildpath

@@ -17,6 +17,7 @@
   "hamsterdb": "upscaledb",
   "heroku-toolbelt": "heroku",
   "kotlin-compiler": "kotlin",
+  "juju": "juju@1.25",
   "letsencrypt": "certbot",
   "libcppa": "caf",
   "mpich2": "mpich",
