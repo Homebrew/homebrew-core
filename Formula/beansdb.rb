@@ -3,7 +3,6 @@ class Beansdb < Formula
   homepage "https://github.com/douban/beansdb"
   url "https://github.com/douban/beansdb/archive/v0.6.tar.gz"
   sha256 "b24512862f948d5191f5c43316a41f632bc386f43dcbb69b03ffffe95122a33e"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
