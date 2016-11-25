@@ -7,7 +7,8 @@ class Taylor < Formula
 
   bottle do
     cellar :any
-    sha256 "892f7e3145820f4ac482bef208b7a96435dfae38efe7bb2e1723b27a244c19cb" => :el_capitan_or_later
+    sha256 "e1a5732e18eb6d7ab3f4edaf6dd44ad1f32c9c0aadf5e6e6e1b935c67a58090e" => :sierra
+    sha256 "727ffd784c84a38377de5cc2576741a1dc96fc05786772d15bf36b7d0a77f689" => :el_capitan
   end
 
   depends_on :xcode => ["8.1"]
