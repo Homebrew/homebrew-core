@@ -1,8 +1,8 @@
 class Pugixml < Formula
   desc "Light-weight C++ XML processing library"
   homepage "http://pugixml.org"
-  url "https://github.com/zeux/pugixml/releases/download/v1.7/pugixml-1.7.tar.gz"
-  sha256 "fbe10d46f61d769f7d92a296102e4e2bd3ee16130f11c5b10a1aae590ea1f5ca"
+  url "https://github.com/zeux/pugixml/releases/download/v1.8/pugixml-1.8.tar.gz"
+  sha256 "8ef26a51c670fbe79a71e9af94df4884d5a4b00a2db38a0608a87c14113b2904"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,30 +18,9 @@ class Pugixml < Formula
 
   def install
     shared = (build.with? "shared") ? "ON" : "OFF"
-
-    args = std_cmake_args
-    args << "-DBUILD_SHARED_LIBS=#{shared}"
-
-    cd "scripts" do
-      system "cmake", ".", *args
-      system "make", "install"
-    end
-
-    (lib/"pkgconfig/pugixml.pc").write pc_file
-  end
-
-  def pc_file; <<-EOS.undent
-    prefix=#{HOMEBREW_PREFIX}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${exec_prefix}/include
-
-    Name: pugixml
-    Description: Pugixml is a light-weight C++ XML processing library
-    Version: 1.7
-    Libs: -L${libdir} -lpugixml
-    Cflags: -I${includedir}
-    EOS
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=#{shared}",
+                         "-DBUILD_PKGCONFIG=ON", *std_cmake_args
+    system "make", "install"
   end
 
   test do
@@ -63,7 +42,9 @@ class Pugixml < Formula
       <root>Hello world!</root>
     EOS
 
-    system ENV.cc, "test.cpp", "-L#{lib}", "-lpugixml", "-lstdc++", "-o", "test"
+    system ENV.cc, "test.cpp", "-o", "test", "-lstdc++",
+                               "-L#{Dir["#{lib}/pug*"].first}", "-lpugixml",
+                               "-I#{include.children.first}"
     system "./test"
   end
 end
