@@ -16,9 +16,9 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 "84fba610ee0802576eef1a25020ff7dcd1d4f080c2a667444e47394a36980df7" => :sierra
-    sha256 "19c5859847ae7c99c51da1c4e1ee3ed3600f86643b0a6d95d7a8f522a10dff1a" => :el_capitan
-    sha256 "d5a26d633ef56f2aa37b72229629db3197d779a16c82edaa0c11509e7d6669d1" => :yosemite
+    sha256 "8662c486c52e00f796f46f748a873eefb3c2aaa13dfd1cf1458d5cc79778f55c" => :sierra
+    sha256 "c26d94721c3f32091ca556e91f33f3084a6d9776430e4c65b71628b42f441023" => :el_capitan
+    sha256 "a345fb95a040d4efed196ed7b4a130a7f6049dbfc372cb1bc7d51d4d6f1b9f7e" => :yosemite
   end
 
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
