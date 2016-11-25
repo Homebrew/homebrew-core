@@ -18,6 +18,8 @@ class Vault < Formula
     sha256 "af8867dfa593c61bf441fccb3e30611364a13fcd5bfed4c297860f109ad4e560" => :yosemite
   end
 
+  option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"
+
   depends_on "go" => :build
 
   go_resource "github.com/mitchellh/iochan" do
@@ -45,7 +47,8 @@ class Vault < Formula
     end
 
     cd "src/github.com/hashicorp/vault" do
-      system "make", "dev"
+      target = build.with?("dynamic") ? "dev-dynamic" : "dev"
+      system "make", target
       bin.install "bin/vault"
       prefix.install_metafiles
     end
