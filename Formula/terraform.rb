@@ -4,7 +4,7 @@ class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
   url "https://github.com/hashicorp/terraform/archive/v0.7.13.tar.gz"
-  sha256 "86d19f7a927bbdca3fe320e5213e25a11a4ddffd0458d449b8b1c488f4fe7295"
+  sha256 "8b5a3b76a81aff962d51120d7c9fd4da03a8c57d6932053cb9887579ac23b959"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
