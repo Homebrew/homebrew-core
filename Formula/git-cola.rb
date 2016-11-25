@@ -7,10 +7,9 @@ class GitCola < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "add4de977eea09355dd42727cde11d8e97fd83039846f84a290411d57689b817" => :sierra
-    sha256 "add4de977eea09355dd42727cde11d8e97fd83039846f84a290411d57689b817" => :el_capitan
-    sha256 "add4de977eea09355dd42727cde11d8e97fd83039846f84a290411d57689b817" => :yosemite
+    sha256 "f47da470c40e571c055a135232390d4ddb74c3a119558acb0bc45ee989c8b64e" => :sierra
+    sha256 "f47da470c40e571c055a135232390d4ddb74c3a119558acb0bc45ee989c8b64e" => :el_capitan
+    sha256 "f47da470c40e571c055a135232390d4ddb74c3a119558acb0bc45ee989c8b64e" => :yosemite
   end
 
   option "with-docs", "Build manpages and HTML docs"
