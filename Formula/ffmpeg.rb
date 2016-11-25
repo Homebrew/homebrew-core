@@ -3,7 +3,17 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-3.2.tar.bz2"
   sha256 "76d6cd9f5e64463a5b9940736da8a515c990bcbbe506a722e2040916cb366d74"
+  revision 1
+
   head "https://github.com/FFmpeg/FFmpeg.git"
+
+  patch do
+    # Fix aac_adtstoasc_bsf regression.
+    # https://trac.ffmpeg.org/ticket/5973
+    # Remove when 3.2.1 is released.
+    url "https://git.videolan.org/?p=ffmpeg.git;a=commitdiff_plain;h=6e1902b"
+    sha256 "668d0291ca70f32e8f1a9b9554bd73664adce4345e0d746db47099df349f7e15"
+  end
 
   bottle do
     sha256 "84fba610ee0802576eef1a25020ff7dcd1d4f080c2a667444e47394a36980df7" => :sierra
