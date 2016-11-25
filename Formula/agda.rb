@@ -7,8 +7,8 @@ class Agda < Formula
   homepage "http://wiki.portal.chalmers.se/agda/"
 
   stable do
-    url "https://github.com/agda/agda/archive/v2.5.1.1.tar.gz"
-    sha256 "a0e23cbbcfd5a7e182d52efb9302c1c35085594fa650234806f6b0d90c7fe8d8"
+    url "https://hackage.haskell.org/package/Agda-2.5.1.2/Agda-2.5.1.2.tar.gz"
+    sha256 "fb272bd6f7d532320c669b96faa85088b37bae02d906e9a9f764bc8e8639fb5e"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib/archive/v0.12.tar.gz"
