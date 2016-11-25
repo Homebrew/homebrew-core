@@ -18,15 +18,14 @@ class Gmp < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
-    args = ["--prefix=#{prefix}", "--enable-cxx", "--enable-fake-cpuid", "--enable-fat", "GMP_CPU_TYPE=core2"]
+    args = ["--prefix=#{prefix}", "--enable-cxx"]
 
     if build.build_32_bit?
       ENV.m32
       args << "ABI=32"
     end
 
-    # https://github.com/Homebrew/homebrew/issues/20693
-    args << "--disable-assembly" if build.build_32_bit? || build.bottle?
+    args << "--enable-fake-cpuid" << "GMP_CPU_TYPE=#{Hardware.oldest_cpu}" << "--enable-fat" if build.build_32_bit? || build.bottle?
 
     system "./configure", *args
     system "make"
