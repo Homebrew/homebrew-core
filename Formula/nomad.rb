@@ -12,12 +12,15 @@ class Nomad < Formula
     sha256 "f292943027d1ee394312ec6286ef3ef944a6cdcac882b6086801d12eda7864ba" => :yosemite
   end
 
+  option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"
+
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/hashicorp/nomad").install buildpath.children
     cd "src/github.com/hashicorp/nomad" do
+      if build.with? "dynamic" then ENV["CGO_ENABLED"] = "1" end
       system "go", "build", "-o", bin/"nomad"
       prefix.install_metafiles
     end
