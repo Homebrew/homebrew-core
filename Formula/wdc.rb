@@ -16,7 +16,10 @@ class Wdc < Formula
   depends_on "pugixml"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    pugixml = Formula["pugixml"]
+    ENV.prepend "CXXFLAGS", "-I#{pugixml.opt_include.children.first}"
+    system "cmake", ".", "-DPUGIXML_INCLUDE_DIR=#{pugixml.opt_include}",
+                         "-DPUGIXML_LIBRARY=#{pugixml.opt_lib}", *std_cmake_args
     system "make", "install"
   end
 
@@ -39,10 +42,14 @@ class Wdc < Formula
         assert(!check_connection);
       }
     EOS
-    system ENV.cc,  "test.cpp", "-L#{lib}", "-L/usr/local/lib",
-                    "-lwdc", "-lpthread", "-lpugixml",
-                    "-lm", "-lcurl", "-lssl", "-lcrypto",
-                    "-lstdc++", "-std=c++11", "-o", "test"
+    pugixml = Formula["pugixml"]
+    openssl = Formula["openssl"]
+    system ENV.cc, "test.cpp", "-o", "test", "-lcurl", "-lstdc++", "-std=c++11",
+                   "-L#{lib}", "-lwdc", "-I#{include}",
+                   "-L#{openssl.opt_lib}", "-lssl", "-lcrypto",
+                   "-I#{openssl.opt_include}",
+                   "-L#{Dir["#{pugixml.opt_lib}/pug*"].first}", "-lpugixml",
+                   "-I#{pugixml.opt_include.children.first}"
     system "./test"
   end
 end
