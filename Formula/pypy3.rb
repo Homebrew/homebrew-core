@@ -1,35 +1,53 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "http://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy3-2.4.0-src.tar.bz2"
-  sha256 "d9ba207d6eecf8a0dc4414e9f4e92db1abd143e8cc6ec4a6bdcac75b29f104f3"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy3.3-v5.5.0-alpha-src.tar.bz2"
+  sha256 "d5591c34d77253e9ed57d182b6f49585b95f7c09c3e121f0e8630e5a7e75ab5f"
 
   bottle do
     cellar :any
-    rebuild 6
-    sha256 "51f611f6821fa668f3f546d759f9c1e9b8896cfc1c92ae7bfc62c4d18be67afe" => :sierra
-    sha256 "7fb0a8af405c03fda611ca3c30c9fda4da2fa727a4c37450fde428c5cb469471" => :el_capitan
-    sha256 "91733ffc891b16074fc06b0cdb3446070acf12cdf81475dca8afd2d2decbb4f0" => :yosemite
-    sha256 "fc8586a9aea45c5da1a899978cbc3d8b7a359801671caad55dd5c2255fcb538a" => :mavericks
-    sha256 "71d8d4319969feb8969e62a4ed4592e7779058c1cb7bcf9c3d506ea39d135ebf" => :mountain_lion
+    sha256 "b83b687be3ff98a42634a8960c43d2a9a11b43748be10e9f0d95a352e3110684" => :sierra
+    sha256 "71b2cdcbcbb3a111a47b9f16ff8c7fd26dc0a423f940082cd655d22b5a031fdb" => :el_capitan
+    sha256 "8cd625bbcae6a60606352d60dc1a2663571c69d55ffefde8817726fa2f182e20" => :yosemite
   end
+
+  option "without-bootstrap", "Translate Pypy with system Python instead of " \
+                              "downloading a Pypy binary distribution to " \
+                              "perform the translation (adds 30-60 minutes " \
+                              "to build)"
 
   depends_on :arch => :x86_64
   depends_on "pkg-config" => :build
+  depends_on "gdbm" => :recommended
+  depends_on "sqlite" => :recommended
   depends_on "openssl"
+  depends_on "xz" => :recommended
+
+  resource "bootstrap" do
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy-2.5.0-osx64.tar.bz2"
+    sha256 "30b392b969b54cde281b07f5c10865a7f2e11a229c46b8af384ca1d3fe8d4e6e"
+  end
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-19.4.tar.gz"
-    sha256 "214bf29933f47cf25e6faa569f710731728a07a19cae91ea64f826051f68a8cf"
+    url "https://pypi.python.org/packages/25/4e/1b16cfe90856235a13872a6641278c862e4143887d11a12ac4905081197f/setuptools-28.8.0.tar.gz"
+    sha256 "432a1ad4044338c34c2d09b0ff75d509b9849df8cf329f4c1c7706d9c2ba3c61"
   end
 
   resource "pip" do
-    url "https://pypi.python.org/packages/source/p/pip/pip-8.0.2.tar.gz"
-    sha256 "46f4bd0d8dfd51125a554568d646fe4200a3c2c6c36b9f2d06d2212148439521"
+    url "https://pypi.python.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz"
+    sha256 "09f243e1a7b461f654c26a725fa373211bb7ff17a9300058b205c61658ca940d"
   end
 
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
   fails_with :gcc
+
+  # Disable clock_gettime() use on Darwin; applied upstream.
+  # This fixes 10.11 when built using the Xcode 8 SDK.
+  # See: https://github.com/Homebrew/homebrew-core/issues/6949
+  patch do
+    url "https://bitbucket.org/pypy/pypy/commits/91e202bbd0b983c88fa9c33b9215b0f910d1f405/raw"
+    sha256 "7a5f5d1c3c0e7bd1652c4d17018d8c1328338b73858712c02c41ef563a04314c"
+  end
 
   def install
     # Having PYTHONPATH set can cause the build to fail if another
@@ -38,15 +56,31 @@ class Pypy3 < Formula
     ENV["PYTHONPATH"] = ""
     ENV["PYPY_USESSION_DIR"] = buildpath
 
-    Dir.chdir "pypy/goal" do
-      system "python", buildpath/"rpython/bin/rpython",
-             "-Ojit", "--shared", "--cc", ENV.cc, "--translation-verbose",
-             "--make-jobs", ENV.make_jobs, "targetpypystandalone.py"
-      system "install_name_tool", "-change", "libpypy-c.dylib", libexec/"lib/libpypy3-c.dylib", "pypy-c"
-      system "install_name_tool", "-id", opt_libexec/"lib/libpypy3-c.dylib", "libpypy-c.dylib"
-      (libexec/"bin").install "pypy-c" => "pypy"
-      (libexec/"lib").install "libpypy-c.dylib" => "libpypy3-c.dylib"
+    python = "python"
+    if build.with?("bootstrap") && OS.mac? && MacOS.preferred_arch == :x86_64
+      resource("bootstrap").stage buildpath/"bootstrap"
+      python = buildpath/"bootstrap/bin/pypy"
     end
+
+    cd "pypy/goal" do
+      system python, buildpath/"rpython/bin/rpython",
+             "-Ojit", "--shared", "--cc", ENV.cc, "--verbose",
+             "--make-jobs", ENV.make_jobs, "targetpypystandalone.py"
+    end
+
+    libexec.mkpath
+    cd "pypy/tool/release" do
+      package_args = %w[--archive-name pypy3 --targetdir . --nostrip]
+      package_args << "--without-gdbm" if build.without? "gdbm"
+      package_args << "--without-lzma" if build.without? "xz"
+      system python, "package.py", *package_args
+      system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xzf", "pypy3.tar.bz2"
+    end
+
+    (libexec/"lib").install libexec/"bin/libpypy-c.dylib" => "libpypy3-c.dylib"
+
+    system "install_name_tool", "-change", "@rpath/libpypy-c.dylib", libexec/"lib/libpypy3-c.dylib", "#{libexec}/bin/pypy3.3"
+    system "install_name_tool", "-id", opt_libexec/"lib/libpypy3-c.dylib", libexec/"lib/libpypy3-c.dylib"
 
     (libexec/"lib-python").install "lib-python/3"
     libexec.install %w[include lib_pypy]
@@ -55,7 +89,8 @@ class Pypy3 < Formula
     # (like /opt) and symlinking in binaries as needed. Specifically,
     # we want to avoid putting PyPy's Python.h somewhere that configure
     # scripts will find it.
-    bin.install_symlink libexec/"bin/pypy" => "pypy3"
+    bin.install_symlink libexec/"bin/pypy3"
+    bin.install_symlink libexec/"bin/pypy3.3"
     lib.install_symlink libexec/"lib/libpypy3-c.dylib"
   end
 

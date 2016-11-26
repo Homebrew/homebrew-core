@@ -6,9 +6,10 @@ class Llnode < Formula
 
   bottle do
     cellar :any
-    sha256 "65e32e4d06c6b723e72d4aba33b52951a5d63e67be62e86239d868ee91ac5b99" => :sierra
-    sha256 "f5866596527a38fef360a7ac31c13a467036ccf6ae7ff7707f5ea97d72f844b9" => :el_capitan
-    sha256 "b6f9b1259d58d339ae1c017db19324ea965022e2dc1525c5fa6841cb5d08a79b" => :yosemite
+    rebuild 1
+    sha256 "ae03daa234b94653f099e135c87a39c40ff5413792de518273edf05a42ade2df" => :sierra
+    sha256 "3404e24bed04c1c72c435af6ede163221369afadf0839a080ad1c4053a797e2d" => :el_capitan
+    sha256 "3fe3457a75d478ddfa279299baabf16875056e44447153b1e2f3015bd06852f0" => :yosemite
   end
 
   depends_on :macos => :yosemite
@@ -20,8 +21,17 @@ class Llnode < Formula
   end
 
   resource "lldb" do
-    url "https://github.com/llvm-mirror/lldb.git",
-        :revision => "839b868e2993dcffc7fea898a1167f1cec097a82"
+    if MacOS::Xcode.version >= "8.0"
+      # lldb 360.1
+      url "https://github.com/llvm-mirror/lldb.git",
+          :revision => "839b868e2993dcffc7fea898a1167f1cec097a82"
+    else
+      # It claims it to be lldb 350.0 for Xcode 7.3, but in fact it is based
+      # of 34.
+      # Xcode < 7.3 uses 340.4, so I assume we should be safe to go with this.
+      url "http://llvm.org/svn/llvm-project/lldb/tags/RELEASE_34/final/",
+          :using => :svn
+    end
   end
 
   def install

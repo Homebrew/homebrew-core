@@ -6,13 +6,22 @@ class Pypy < Formula
   stable do
     url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.6.0-src.tar.bz2"
     sha256 "7411448045f77eb9e087afdce66fe7eafda1876c9e17aad88cf891f762b608b0"
+
+    # Disable clock_gettime() use on Darwin; applied upstream.
+    # This fixes 10.11 when built using the Xcode 8 SDK.
+    # See: https://github.com/Homebrew/homebrew-core/issues/6949
+    patch do
+      url "https://bitbucket.org/pypy/pypy/commits/91e202bbd0b983c88fa9c33b9215b0f910d1f405/raw"
+      sha256 "7a5f5d1c3c0e7bd1652c4d17018d8c1328338b73858712c02c41ef563a04314c"
+    end
   end
 
   bottle do
     cellar :any
-    sha256 "22cece531abfd1a79cec5b3292bc5526d49b557a60c7e3bc31b895869c3d4ed7" => :sierra
-    sha256 "0451b262c8bab541b7c94bed6686d9be42920a0df0d7fffa4d40cc7ccbb5cb5e" => :el_capitan
-    sha256 "260f6386f61c6054c983a9e933d2f344a90733a2c033775b50fd522f94d0dc21" => :yosemite
+    rebuild 1
+    sha256 "a56e0a57985790a3b99130e00f4c729b3c2bd2a2efdfe28c17e0bb6df8abad70" => :sierra
+    sha256 "b76162bcb6c7c4e340e25a79f594a567dc8d6cc6a9549f36a3dd40419469e949" => :el_capitan
+    sha256 "67eef40ed21dca1f3c51d8cdb487651d37dd55622f6fef2c7abffb21784f3c30" => :yosemite
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \
@@ -160,6 +169,7 @@ class Pypy < Formula
 
   test do
     system bin/"pypy", "-c", "print('Hello, world!')"
+    system bin/"pypy", "-c", "import time; time.clock()"
     system scripts_folder/"pip", "list"
   end
 end

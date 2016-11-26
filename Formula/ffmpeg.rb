@@ -1,14 +1,14 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.2.tar.bz2"
-  sha256 "76d6cd9f5e64463a5b9940736da8a515c990bcbbe506a722e2040916cb366d74"
+  url "https://ffmpeg.org/releases/ffmpeg-3.2.1.tar.bz2"
+  sha256 "72abc55bea5ff5397ac82320fa5c4843a05f527d0d7912d66784c92fdfbd12fb"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "84fba610ee0802576eef1a25020ff7dcd1d4f080c2a667444e47394a36980df7" => :sierra
-    sha256 "19c5859847ae7c99c51da1c4e1ee3ed3600f86643b0a6d95d7a8f522a10dff1a" => :el_capitan
-    sha256 "d5a26d633ef56f2aa37b72229629db3197d779a16c82edaa0c11509e7d6669d1" => :yosemite
+    sha256 "38e27c9accdaef41f904d59a9a4df6ac0557c3319001bb5a8a547babb8016c5b" => :sierra
+    sha256 "861c6e39a949a6d30a65e83d1626a676905a46924ca061af4f55b41ce1212696" => :el_capitan
+    sha256 "c12f5e6f11749485985fb99f2081f0e543b6151f369a2a3ce63e1b925509a2bf" => :yosemite
   end
 
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
@@ -35,6 +35,7 @@ class Ffmpeg < Formula
   option "with-zimg", "Enable z.lib zimg library"
   option "without-lame", "Disable MP3 encoder"
   option "without-qtkit", "Disable deprecated QuickTime framework"
+  option "without-securetransport", "Disable use of SecureTransport"
   option "without-x264", "Disable H.264 encoder"
   option "without-xvid", "Disable Xvid MPEG-4 video encoder"
 
@@ -109,6 +110,7 @@ class Ffmpeg < Formula
     ]
 
     args << "--disable-indev=qtkit" if build.without? "qtkit"
+    args << "--disable-securetransport" if build.without? "securetransport"
     args << "--enable-ffplay" if build.with? "sdl2"
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--enable-libass" if build.with? "libass"

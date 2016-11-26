@@ -4,15 +4,15 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-      :tag => "v1.7.1",
-      :revision => "f896af7df9cf8a70b6413c566a4ab03055735891"
+      :tag => "v1.8.0",
+      :revision => "734bc5d95643a55f9ca298312af1bcd363731a68"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "75a6c23cb84a63c2da067857381f870fcfaa6cca5e7716955eed7bf18b94d4b4" => :sierra
-    sha256 "df13bd86fcaea55c75ad40423a39682f5eda9b93ee999eaf69ad64f8fb1bde3e" => :el_capitan
-    sha256 "9996bd4d0abff54e542058dafb0c0e6e7b2a7e12f13f814ccee81f9dd979a1c9" => :yosemite
+    sha256 "36c152b1a149de363cc4e1f385eecc628cfa5a9db9d5d6cf366131c1a45ed05c" => :sierra
+    sha256 "d4617f38f4c21c2db8249d3be827860aba5d43232b3e42b926ad5bc261f1130a" => :el_capitan
+    sha256 "1c46df42482e42c14364943a31c962dd7f304f1472bc671e4e008bf15891943f" => :yosemite
   end
 
   depends_on "go" => :build
@@ -24,10 +24,10 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.7.1/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.8.0/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "1.7.1"
-    sha256 "28ea4c9bf49f1b50659541c8c09fbcccf814211230be235e52babcee61468dbd"
+    version "1.8.0"
+    sha256 "9588eb55ade4e323bd5bfeffd3bfc119659d0c2075e18c5bb003a4d79b834839"
   end
 
   def install

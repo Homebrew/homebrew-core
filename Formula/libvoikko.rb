@@ -1,5 +1,5 @@
 class Libvoikko < Formula
-  desc "Linguistic software and and Finnish dictionary"
+  desc "Linguistic software and Finnish dictionary"
   homepage "http://voikko.puimula.org/"
   url "http://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.0.2.tar.gz"
   sha256 "0bfaaabd039024920713020671daff828434fcf4c89bce4601b94a377567f2a3"

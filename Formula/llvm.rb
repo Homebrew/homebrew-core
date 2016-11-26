@@ -140,7 +140,12 @@ class Llvm < Formula
 
   depends_on "libffi" => :recommended # http://llvm.org/docs/GettingStarted.html#requirement
   depends_on "graphviz" => :optional # for the 'dot' tool (lldb)
+
   depends_on "ocaml" => :optional
+  if build.with? "ocaml"
+    depends_on "opam" => :build
+    depends_on "pkg-config" => :build
+  end
 
   if MacOS.version <= :snow_leopard
     depends_on :python
@@ -212,6 +217,7 @@ class Llvm < Formula
 
     args = %w[
       -DLLVM_OPTIMIZED_TABLEGEN=ON
+      -DLLVM_INCLUDE_DOCS=OFF
     ]
     args << "-DLLVM_TARGETS_TO_BUILD=#{build.with?("all-targets") ? "all" : "AMDGPU;ARM;NVPTX;X86"}"
     args << "-DLIBOMP_ARCH=x86_64"
@@ -260,7 +266,17 @@ class Llvm < Formula
     end
 
     mktemp do
-      system "cmake", "-G", "Unix Makefiles", buildpath, *(std_cmake_args + args)
+      if build.with? "ocaml"
+        ENV["OPAMYES"] = "1"
+        ENV["OPAMROOT"] = Pathname.pwd/"opamroot"
+        (Pathname.pwd/"opamroot").mkpath
+        system "opam", "init", "--no-setup"
+        system "opam", "install", "ocamlfind", "ctypes"
+        system "opam", "config", "exec", "--",
+               "cmake", "-G", "Unix Makefiles", buildpath, *(std_cmake_args + args)
+      else
+        system "cmake", "-G", "Unix Makefiles", buildpath, *(std_cmake_args + args)
+      end
       system "make"
       system "make", "install"
       system "make", "install-xcode-toolchain" if build.with? "toolchain"
@@ -345,7 +361,7 @@ class Llvm < Formula
 
     # Testing Command Line Tools
     if MacOS::CLT.installed?
-      libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{DevelopmentTools.clang_version}*"].last { |f| File.directory? f }
+      libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS::CLT.version.to_i}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",
               "-I/Library/Developer/CommandLineTools/usr/include/c++/v1",
