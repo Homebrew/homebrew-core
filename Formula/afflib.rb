@@ -1,8 +1,8 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.10.tar.gz"
-  sha256 "906226df05d526b886a873367ca896f0058a6221c2e21c900411d0fc89754c2b"
+  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.11.tar.gz"
+  sha256 "931a6f3399c6397a4ac2d84664d80d7ae3e81de55f98e781ac43319cabfedeb7"
 
   bottle do
     cellar :any
@@ -12,33 +12,27 @@ class Afflib < Formula
     sha256 "ce2ec042b4841e8a336e5057830bd479a0c33369352865bd12f2b0ca097594a7" => :yosemite
   end
 
+  option "with-python", "Build with python support"
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-
   depends_on "openssl"
-
-  depends_on "python" => :optional
   depends_on :osxfuse => :optional
-
-  patch do
-    url "https://github.com/sshock/AFFLIBv3/pull/13.patch"
-    sha256 "dc24b0be3c17938b5b6014ba0fcd885c5f79e758c2150e3727fbda1507cdb768"
-  end
-  patch do
-    url "https://github.com/sshock/AFFLIBv3/pull/14.patch"
-    sha256 "3a078e41bd764fd45c5833335f5650f815cbfaea5fce4dca684d270742c3b34a"
-  end
-  patch do
-    url "https://github.com/sshock/AFFLIBv3/pull/15.patch"
-    sha256 "e8028dd0ca8573c7d7e51234494782d01d85b1a167b25f12140d5ea21dccea3f"
-  end
+  depends_on :python if build.with?("python") && MacOS.version <= :snow_leopard
 
   def install
+    ENV.prepend "LDFLAGS", "-L/usr/lib -lcurl -lexpat"
+
     args = ["--enable-s3"]
 
-    args << "--enable-python" if build.with? "python"
+    if build.with? "python"
+      inreplace "m4/acinclude.m4",
+        "PYTHON_LDFLAGS=\"-L$ac_python_libdir -lpython$ac_python_version\"",
+        "PYTHON_LDFLAGS=\"-undefined dynamic_lookup\""
+      args << "--enable-python"
+    end
 
     if build.with? "osxfuse"
       ENV.append "CPPFLAGS", "-I/usr/local/include/osxfuse"
@@ -48,7 +42,7 @@ class Afflib < Formula
       args << "--disable-fuse"
     end
 
-    system "autoreconf -iv"
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           *args
