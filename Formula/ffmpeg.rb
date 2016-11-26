@@ -1,19 +1,9 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.2.tar.bz2"
-  sha256 "76d6cd9f5e64463a5b9940736da8a515c990bcbbe506a722e2040916cb366d74"
-  revision 1
-
+  url "https://ffmpeg.org/releases/ffmpeg-3.2.1.tar.bz2"
+  sha256 "72abc55bea5ff5397ac82320fa5c4843a05f527d0d7912d66784c92fdfbd12fb"
   head "https://github.com/FFmpeg/FFmpeg.git"
-
-  patch do
-    # Fix aac_adtstoasc_bsf regression.
-    # https://trac.ffmpeg.org/ticket/5973
-    # Remove when 3.2.1 is released.
-    url "https://git.videolan.org/?p=ffmpeg.git;a=commitdiff_plain;h=6e1902b"
-    sha256 "668d0291ca70f32e8f1a9b9554bd73664adce4345e0d746db47099df349f7e15"
-  end
 
   bottle do
     sha256 "8662c486c52e00f796f46f748a873eefb3c2aaa13dfd1cf1458d5cc79778f55c" => :sierra
