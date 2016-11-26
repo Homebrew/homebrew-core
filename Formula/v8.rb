@@ -22,7 +22,7 @@ class V8 < Formula
   depends_on :macos => :lion
 
   # depot_tools/GN require Python 2.7+
-  depends_on :python => :build
+  depends_on :python if MacOS.version <= :snow_leopard
 
   needs :cxx11
 
