@@ -9,9 +9,9 @@ class Srclib < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e5a28e6c6995cd33047bf326d514fd0fd48656df2a8d2ade91f1adb9c0f65c73" => :el_capitan
-    sha256 "76de11463b863eb4e2ccc31478aacc258de1449ebd237675312864e8db596c41" => :yosemite
-    sha256 "2e8c68f8948ae220448400680108083931ca78273fd1f320b084879d14a567bb" => :mavericks
+    sha256 "9139e4e75f80bec18ffe9c09404fdfc070c82060efae6db21fd51e8098c73ee7" => :sierra
+    sha256 "ec633330429e97a2cb82dea7177937c304433c857e97d2b7c6e0ab408f5d3912" => :el_capitan
+    sha256 "adfdc037e211208e22d08f422c628bd709a7896a35a6177f7c2b303135e709ae" => :yosemite
   end
 
   depends_on "go" => :build
