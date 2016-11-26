@@ -6,10 +6,9 @@ class Afflib < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "46c9fbfab349dbda7b1c0c6471d71e896154c65a68e7b50a93ae35b5d1f8c67d" => :sierra
-    sha256 "72864322573f03f56889c9d5d06ffe9b4204d4295d47ba17e4aa195c96b75b70" => :el_capitan
-    sha256 "ce2ec042b4841e8a336e5057830bd479a0c33369352865bd12f2b0ca097594a7" => :yosemite
+    sha256 "c381e7bbdae4052f8dbf664a122ba879ba76c027fcbd43ab85e1241e5d147a01" => :sierra
+    sha256 "088a33309187a61f5b9e2c66c005d5398ec9159bcabd623a672701242a3b77a0" => :el_capitan
+    sha256 "fcde02aa5b1176477451d688bbac7fd3a0aa99e09657681a16ac37e9b2fa664e" => :yosemite
   end
 
   option "with-python", "Build with python support"
