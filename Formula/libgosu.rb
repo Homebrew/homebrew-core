@@ -4,24 +4,22 @@ class Libgosu < Formula
   url "https://github.com/gosu/gosu/archive/v0.10.7.tar.gz"
   sha256 "31aedcb570a36c344b9a3c12ea13596f994cb52a6fb8c15b8ed83058d9cabe27"
 
-  head do
-    url "https://github.com/gosu/gosu.git"
-  end
+  head "https://github.com/gosu/gosu.git"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "sdl2"
 
   def install
-    mkdir "cmake/build"
-    cd "cmake/build" do
-      system "cmake", "..", *std_cmake_args
+    mkdir "build" do
+      system "cmake", "../cmake", *std_cmake_args
       system "make", "install"
     end
   end
 
   test do
-    Pathname("test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <stdlib.h>
       #include <Gosu/Gosu.hpp>
 
       class MyWindow : public Gosu::Window
@@ -32,6 +30,11 @@ class Libgosu < Formula
           {
               setCaption(L\"Hello World!\");
           }
+
+          void update()
+          {
+              exit(0);
+          }
       };
 
       int main()
@@ -41,6 +44,7 @@ class Libgosu < Formula
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lgosu", "-I#{include}", "-std=c++11"
+    system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-lgosu", "-I#{include}", "-std=c++11"
+    system "./test"
   end
 end
