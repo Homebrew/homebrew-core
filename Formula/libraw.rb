@@ -9,9 +9,9 @@ class Libraw < Formula
 
   bottle do
     cellar :any
-    sha256 "0bbd0febe93f3b3e48defb05f1c5aec20e7ebc304ba076791a97e65a091ce509" => :sierra
-    sha256 "cf305fe8431d27c8e364260a2915e02549fc40ee4ab5c77c314df4ea5dcbcc10" => :el_capitan
-    sha256 "82f4141814a8e15a5b791a5d7cbecbb5048fb7c14935a193a756a70f8aa75d06" => :yosemite
+    sha256 "1dcedf34b8f6c108cf34c3fd491446559c65a537ea268ceb74f7b033c7d83ebb" => :sierra
+    sha256 "fe6d42cf3e3372166cee8b1bfc5b3f20cd3375e242d06ca4faf27498df27b8d8" => :el_capitan
+    sha256 "7097b4ad2a6119702969b5a671cdc42125c1ebd456198208a48299b7b0f371de" => :yosemite
   end
 
   depends_on "pkg-config" => :build
