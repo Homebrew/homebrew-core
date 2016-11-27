@@ -4,7 +4,7 @@ class Gabedit < Formula
   url "https://downloads.sourceforge.net/project/gabedit/gabedit/Gabedit248/GabeditSrc248.tar.gz"
   version "2.4.8"
   sha256 "38d6437a18280387b46fd136f2201a73b33e45abde13fa802c64806b6b64e4d3"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -19,6 +19,15 @@ class Gabedit < Formula
   depends_on "gtkglext"
 
   def install
+    opengl_headers = MacOS.sdk_path/"System/Library/Frameworks/OpenGL.framework/Headers"
+    (buildpath/"brew_include").install_symlink opengl_headers => "GL"
+
+    inreplace "CONFIG" do |s|
+      s.gsub! "-lX11", ""
+      s.gsub! "-lpangox-1.0", ""
+      s.gsub! "GTKCFLAGS =", "GTKCFLAGS = -I#{buildpath}/brew_include"
+    end
+
     args = []
     args << "OMPLIB=" << "OMPCFLAGS=" if ENV.compiler == :clang
     system "make", *args
