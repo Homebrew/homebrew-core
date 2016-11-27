@@ -1,8 +1,8 @@
 class TheSilverSearcher < Formula
   desc "Code-search similar to ack"
   homepage "https://github.com/ggreer/the_silver_searcher"
-  url "https://github.com/ggreer/the_silver_searcher/archive/0.33.0.tar.gz"
-  sha256 "351ab79ada811fd08f81296de10a7498ea3c46b681d73696d5a2911edbdc19db"
+  url "https://github.com/ggreer/the_silver_searcher/archive/1.0.1.tar.gz"
+  sha256 "a79e6b024c6c756589b0d5ffbffe65983c750a07099d28aa5036d47a9feec86b"
   head "https://github.com/ggreer/the_silver_searcher.git"
 
   bottle do
