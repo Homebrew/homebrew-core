@@ -9,9 +9,9 @@ class Vultr < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ad760f5ff85df56a96abce0224df04b60983cbbc8a0e0131c76717924e89626f" => :sierra
-    sha256 "af34a9509b998f5bc6248ac2368c766d23a2f8e29720d50f569ca1ad4df0a8fa" => :el_capitan
-    sha256 "c198a930dc7a08e8dcaac10d991b7f969c91200bd4fd0128888c7ea106db7568" => :yosemite
+    sha256 "5ae34af28c07318e5c2ff49ccf0309a87c95716650bd632d292883abfe87d49f" => :sierra
+    sha256 "9be61aef914af56459ef1467f97da2bab7ec7ccdd5338ff8f28bb3afe9e9681a" => :el_capitan
+    sha256 "8b33b925e839a4af87edbe31b43de3ef6f348a394d6a8a5214667b8ec317a430" => :yosemite
   end
 
   depends_on "go" => :build
