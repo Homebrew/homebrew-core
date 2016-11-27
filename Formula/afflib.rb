@@ -6,9 +6,9 @@ class Afflib < Formula
 
   bottle do
     cellar :any
-    sha256 "c381e7bbdae4052f8dbf664a122ba879ba76c027fcbd43ab85e1241e5d147a01" => :sierra
-    sha256 "088a33309187a61f5b9e2c66c005d5398ec9159bcabd623a672701242a3b77a0" => :el_capitan
-    sha256 "fcde02aa5b1176477451d688bbac7fd3a0aa99e09657681a16ac37e9b2fa664e" => :yosemite
+    sha256 "26f676d4afb7ef30a36b72af253aa6dc04bcafbc37682057c3e3922766ac4b55" => :sierra
+    sha256 "723ac0e170f6ec96da14869c54ca7260c50a7bf28334c88371a171a355226f75" => :el_capitan
+    sha256 "dd8f5e6ffcc205bd1ae5076d8d790ee546369cba74069f6cc3313ab028ecc456" => :yosemite
   end
 
   depends_on "autoconf" => :build
