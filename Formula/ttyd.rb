@@ -7,9 +7,9 @@ class Ttyd < Formula
 
   bottle do
     cellar :any
-    sha256 "9abc974daa6219a17503c18e53745c730686bfd8bcbba8d97836d635ca51dfb1" => :sierra
-    sha256 "7d53d3dd0c074df356a4cd9aec9a0c7720259229d5671a22857af4ce9c7b8d04" => :el_capitan
-    sha256 "bb6f94e15157cf7a07e2d8fd6656e2e23be6ae9de8b258d032590ed88dde86a9" => :yosemite
+    sha256 "be09371028dca9ef32ae17e8d01a871ef4def9db01b9120c3ced32d00580b714" => :sierra
+    sha256 "9e8955165dd5bcacae3529555fd085028dadd14a3957c7e623f96e3b0c6ff9d2" => :el_capitan
+    sha256 "8b1ce8b931d0375b067d55f5dc1ce7f137f38bc5b3dee82a79e9de6f4e705a19" => :yosemite
   end
 
   depends_on "cmake" => :build
