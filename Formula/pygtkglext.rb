@@ -3,7 +3,7 @@ class Pygtkglext < Formula
   homepage "https://projects.gnome.org/gtkglext/download.html#pygtkglext"
   url "https://download.gnome.org/sources/pygtkglext/1.1/pygtkglext-1.1.0.tar.gz"
   sha256 "9712c04c60bf6ee7d05e0c6a6672040095c2ea803a1546af6dfde562dc0178a3"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -19,6 +19,8 @@ class Pygtkglext < Formula
   depends_on "pygobject"
 
   def install
+    inreplace "gtk/gdkgl/gdkglext.override", "#include <GL/gl.h>", "#include <gl.h>"
+
     ENV["PYGTK_CODEGEN"] = "#{Formula["pygobject"].opt_bin}/pygobject-codegen-2.0"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
