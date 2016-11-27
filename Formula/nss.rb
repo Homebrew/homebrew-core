@@ -1,15 +1,14 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://developer.mozilla.org/docs/NSS"
-  url "https://archive.mozilla.org/pub/security/nss/releases/NSS_3_26_RTM/src/nss-3.26.tar.gz"
-  sha256 "91783a570ab953693eb977ce47c501f04c104cec287fa011c91bcc8970d1c564"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_27_1_RTM/src/nss-3.27.1.tar.gz"
+  sha256 "fd3637a1930cd838239a89633a7ed9a18859ae9b599043f3a18f726dc4ec2a6b"
 
   bottle do
     cellar :any
-    sha256 "7db4330722c97406505202e980b88404f40d0681ff9c45743e1f45026353e132" => :sierra
-    sha256 "ce81ad577a16bbba49cb3a321406375fc79151f6519fa6151d8d420ef87165ba" => :el_capitan
-    sha256 "590974e701f2e85d8b7758033dac2771698310d15c57b53e42d9556a52dfa7db" => :yosemite
-    sha256 "95640808178dac41720b84d1953eb2c3efb811f757a57692f83d893eef8cb25c" => :mavericks
+    sha256 "c1974794a749f4e8e2fcd52091c26977258ef3ed8a5500b6479c980e02744e8a" => :sierra
+    sha256 "68caaa522e578728a87e16f91d458972131701af42462f527e3726ded8b4404b" => :el_capitan
+    sha256 "e9e0a335e7fe5a265e08aefe87edef66bfa2123eb1d198ec2db700969b782867" => :yosemite
   end
 
   keg_only <<-EOS.undent

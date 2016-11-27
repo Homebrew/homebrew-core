@@ -3,13 +3,13 @@ class Rocksdb < Formula
   homepage "http://rocksdb.org"
   url "https://github.com/facebook/rocksdb/archive/v4.11.2.tar.gz"
   sha256 "9374be06fdfccbbdbc60de90b72b5db7040e1bc4e12532e4c67aaec8181b45be"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "df25c15c8f1a4b41ff5e5273fa8c3c21a186b9241c5cfce0226f4ef6f58e8b36" => :sierra
-    sha256 "0bfffdb6a3ad9b446a9d8936e43462adaa6c2195f70068c43785feed4bef537d" => :el_capitan
-    sha256 "c2a7a1f67add41b293cf5b059b9eef93f641f00c4c2e286b48973b887ebfbe3c" => :yosemite
+    sha256 "ea5a3318a1962c49837bc5bc05853b51040c01e84c128427211525cc7df70410" => :sierra
+    sha256 "eb0ec4b8bdeaf5e6ccd02492d52e240337293764e57b3f25d223ede81ab35dfa" => :el_capitan
+    sha256 "1c1f1af5de8312570f26a8df429e0e17b6c7183a7fc2f1e2176f3e2068bc3e99" => :yosemite
   end
 
   option "with-lite", "Build mobile/non-flash optimized lite version"
@@ -18,7 +18,7 @@ class Rocksdb < Formula
   needs :cxx11
   depends_on "snappy"
   depends_on "lz4"
-  depends_on "gflags" if build.with? "lite"
+  depends_on "gflags"
 
   def install
     ENV.cxx11

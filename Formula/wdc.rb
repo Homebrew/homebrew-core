@@ -6,9 +6,10 @@ class Wdc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5435df9fc38f858a30b3056dbe52f55b6676d5fcad2198aa28e8fb9b37a5b246" => :sierra
-    sha256 "2fef8cabcfa1915fa3faf5e1ec68bb8914b0ec45199e444607009afae9f4abd4" => :el_capitan
-    sha256 "01f130bb88f4d9bf33338fb44cd8f2f7067d36d345fa8022c9ccea00a09255d4" => :yosemite
+    rebuild 1
+    sha256 "de61e873a1a9eb37c29778ccbc7c0f8ceae61ca7b19cf98c45ec1a4569a842df" => :sierra
+    sha256 "6ede103d6893034ebd55d00f47d00056a081bfa0ca0a7dd51e06330896dbb743" => :el_capitan
+    sha256 "9bf61a23f849c5f60314ef58bdf3f988ed98618601eea67a65949e89f52593eb" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -16,7 +17,10 @@ class Wdc < Formula
   depends_on "pugixml"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    pugixml = Formula["pugixml"]
+    ENV.prepend "CXXFLAGS", "-I#{pugixml.opt_include.children.first}"
+    system "cmake", ".", "-DPUGIXML_INCLUDE_DIR=#{pugixml.opt_include}",
+                         "-DPUGIXML_LIBRARY=#{pugixml.opt_lib}", *std_cmake_args
     system "make", "install"
   end
 
@@ -39,10 +43,14 @@ class Wdc < Formula
         assert(!check_connection);
       }
     EOS
-    system ENV.cc,  "test.cpp", "-L#{lib}", "-L/usr/local/lib",
-                    "-lwdc", "-lpthread", "-lpugixml",
-                    "-lm", "-lcurl", "-lssl", "-lcrypto",
-                    "-lstdc++", "-std=c++11", "-o", "test"
+    pugixml = Formula["pugixml"]
+    openssl = Formula["openssl"]
+    system ENV.cc, "test.cpp", "-o", "test", "-lcurl", "-lstdc++", "-std=c++11",
+                   "-L#{lib}", "-lwdc", "-I#{include}",
+                   "-L#{openssl.opt_lib}", "-lssl", "-lcrypto",
+                   "-I#{openssl.opt_include}",
+                   "-L#{Dir["#{pugixml.opt_lib}/pug*"].first}", "-lpugixml",
+                   "-I#{pugixml.opt_include.children.first}"
     system "./test"
   end
 end

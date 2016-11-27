@@ -28,11 +28,11 @@ class HaskellStack < Formula
   depends_on "cabal-install" => :build
 
   def install
-    if MacOS.version >= :sierra
+    if MacOS.version >= :sierra && build.with?("bootstrap")
       raise <<-EOS.undent
-        This formula does not compile on macOS Sierra due to an upstream GHC
+        stack cannot build with bootstrap on Sierra due to an upstream GHC
         incompatiblity. Please use the pre-built bottle binary instead of attempting to
-        build from source. For more details see
+        build from source or pass --without-bootstrap. For more details see
           https://ghc.haskell.org/trac/ghc/ticket/12479
           https://github.com/commercialhaskell/stack/issues/2577
       EOS
