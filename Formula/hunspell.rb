@@ -1,9 +1,8 @@
 class Hunspell < Formula
   desc "Spell checker and morphological analyzer"
   homepage "https://hunspell.github.io"
-  url "https://github.com/hunspell/hunspell/archive/v1.4.1.tar.gz"
-  sha256 "c4476aff0ced52eec334eae1e8d3fdaaebdd90f5ecd0b57cf2a92a6fd220d1bb"
-  revision 1
+  url "https://github.com/hunspell/hunspell/archive/v1.4.2.tar.gz"
+  sha256 "b6a0b23d083e0130f8c561cca8c980814ba65740ccfa52f47159f9141089946d"
 
   bottle do
     sha256 "d4cc7d577e89e8e67312821828978a5bfa812188f674a67b29cfbc7dc7695dac" => :sierra
