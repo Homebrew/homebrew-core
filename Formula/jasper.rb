@@ -1,8 +1,8 @@
 class Jasper < Formula
   desc "Library for manipulating JPEG-2000 images"
   homepage "https://www.ece.uvic.ca/~frodo/jasper/"
-  url "https://www.ece.uvic.ca/~frodo/jasper/software/jasper-1.900.29.tar.gz"
-  sha256 "2ae7e9d3ba189ddcd4231e7255348d3144757d5c2ff8dd853f37e0df783925c0"
+  url "https://github.com/mdadams/jasper/archive/version-2.0.0.tar.gz"
+  sha256 "37fb86fbdc880e8ee566cf2ac226f0bfe259394914fad4d9e26bbe0764f8c378"
 
   bottle do
     cellar :any
@@ -11,32 +11,20 @@ class Jasper < Formula
     sha256 "bc8e00968ac570ddecb7a78796ae245e29ef9326d8ace577ce29ba96b12f87c4" => :yosemite
   end
 
-  head do
-    url "https://github.com/mdadams/jasper.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
   option :universal
 
+  depends_on "cmake" => :build
   depends_on "jpeg"
-
-  fails_with :llvm do
-    build 2326
-    cause "Undefined symbols when linking"
-  end
 
   def install
     ENV.universal_binary if build.universal?
-    system "autoreconf", "-fiv" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--enable-shared",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make"
+      system "make", "test"
+      system "make", "install"
+    end
+    man1.install (prefix/"man").children
   end
 
   test do
