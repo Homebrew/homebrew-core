@@ -1,9 +1,9 @@
 class Dex2jar < Formula
   desc "Tools to work with Android .dex and Java .class files"
   homepage "https://github.com/pxb1988/dex2jar"
-  url "https://downloads.sourceforge.net/project/dex2jar/dex2jar-2.0.zip"
-  mirror "https://bitbucket.org/pxb1988/dex2jar/downloads/dex2jar-2.0.zip"
-  sha256 "7907eb4d6e9280b6e17ddce7ee0507eae2ef161ee29f70a10dbc6944fdca75bc"
+  url "https://github.com/pxb1988/dex2jar/releases/download/2.1-nightly-26/dex-tools-2.1-20150601.060031-26.zip"
+  mirror "http://repository-dex2jar.forge.cloudbees.com/snapshot/com/googlecode/d2j/dex-tools/2.1-SNAPSHOT/dex-tools-2.1-20150915.140224-29.zip"
+  sha256 "059d4817c4279b295a778446060b6bbc98dda01fad95fec8d331736f0852d5db"
 
   bottle :unneeded
 
