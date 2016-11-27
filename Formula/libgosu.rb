@@ -6,6 +6,13 @@ class Libgosu < Formula
 
   head "https://github.com/gosu/gosu.git"
 
+  bottle do
+    cellar :any
+    sha256 "d85229625f2e42f302e92458d05f9f0bee06bfc0749b89bd522df94a0192c70c" => :sierra
+    sha256 "47d5769674bee09c63a2f684b86d8a8817a4e8fe419b0476b43afa46ae739fec" => :el_capitan
+    sha256 "429c8b41ad260fe453a0130c534fc76c6a679f3089ab162aa4f0c854b5c51808" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "sdl2"
