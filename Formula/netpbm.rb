@@ -5,6 +5,7 @@ class Netpbm < Formula
   # for versions and matching revisions
   url "http://svn.code.sf.net/p/netpbm/code/advanced", :revision => 2825
   version "10.76"
+  revision 1
   head "http://svn.code.sf.net/p/netpbm/code/trunk"
 
   bottle do

@@ -5,6 +5,7 @@ class Libraw < Formula
   mirror "https://fossies.org/linux/privat/LibRaw-0.17.2.tar.gz"
   mirror "https://distfiles.macports.org/libraw/LibRaw-0.17.2.tar.gz"
   sha256 "92b0c42c7666eca9307e5e1f97d6fefc196cf0b7ee089e22880259a76fafd15c"
+  revision 1
 
   bottle do
     cellar :any

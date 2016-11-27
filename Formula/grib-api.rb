@@ -4,7 +4,7 @@ class GribApi < Formula
   url "https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.18.0-Source.tar.gz"
   mirror "https://distfiles.macports.org/grib_api/grib_api-1.18.0-Source.tar.gz"
   sha256 "dfffeeb4df715b234907cb12d6729617bed0df0ff023337c2dd3cd20ab58199e"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "1add34660d71a4f1a32837b6270245d39d459ad8ac06fa85ed8d199ee3b857f9" => :sierra
