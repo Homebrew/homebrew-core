@@ -1,8 +1,8 @@
 class Ttfautohint < Formula
   desc "Auto-hinter for TrueType fonts"
   homepage "https://www.freetype.org/ttfautohint"
-  url "https://downloads.sourceforge.net/project/freetype/ttfautohint/1.5/ttfautohint-1.5.tar.gz"
-  sha256 "644fe721e9e7fe3390ae1f66d40c74e4459fa539d436f4e0f8635c432683efd1"
+  url "https://downloads.sourceforge.net/project/freetype/ttfautohint/1.6/ttfautohint-1.6.tar.gz"
+  sha256 "e41013f710c306538ff5b2f1b4d9a5b24bda031fb73fabcaf02a21b8edd71be5"
 
   bottle do
     cellar :any
@@ -21,10 +21,13 @@ class Ttfautohint < Formula
     depends_on "libtool" => :build
   end
 
+  option "with-qt5", "Build ttfautohintGUI also"
+
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "libpng"
   depends_on "harfbuzz"
+  depends_on "qt5" => :optional
 
   def install
     args = %W[
@@ -32,8 +35,9 @@ class Ttfautohint < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --without-doc
-      --without-qt
     ]
+
+    args << "--without-qt" if build.without? "qt5"
 
     system "./bootstrap" if build.head?
     system "./configure", *args
@@ -41,6 +45,10 @@ class Ttfautohint < Formula
   end
 
   test do
-    system "#{bin}/ttfautohint", "-V"
+    if build.with? "qt5"
+      system "#{bin}/ttfautohintGUI", "-V"
+    else
+      system "#{bin}/ttfautohint", "-V"
+    end
   end
 end
