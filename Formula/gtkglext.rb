@@ -3,7 +3,7 @@ class Gtkglext < Formula
   homepage "https://projects.gnome.org/gtkglext/"
   url "https://download.gnome.org/sources/gtkglext/1.2/gtkglext-1.2.0.tar.gz"
   sha256 "e5073f3c6b816e7fa67d359d9745a5bb5de94a628ac85f624c992925a46844f9"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -18,7 +18,6 @@ class Gtkglext < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gtk+"
-  depends_on "pangox-compat"
 
   # All these MacPorts patches have already been included upstream. A new release
   # of gtkglext for gtk+2.0 remains uncertain though.
