@@ -1,8 +1,8 @@
 class Snzip < Formula
   desc "Compression/decompression tool based on snappy"
   homepage "https://github.com/kubo/snzip"
-  url "https://bintray.com/artifact/download/kubo/generic/snzip-1.0.3.tar.gz"
-  sha256 "c83f1301cb1f1b64a25ef10e5fcfc2f6f66fa092ae833c524cad219c0ef2e990"
+  url "https://bintray.com/artifact/download/kubo/generic/snzip-1.0.4.tar.gz"
+  sha256 "a45081354715d48ed31899508ebed04a41d4b4a91dca37b79fc3b8ee0c02e25e"
 
   bottle do
     cellar :any
