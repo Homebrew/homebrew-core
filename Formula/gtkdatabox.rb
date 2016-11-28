@@ -6,10 +6,9 @@ class Gtkdatabox < Formula
 
   bottle do
     cellar :any
-    sha256 "a8bc4dfd5cb37cc5f2b92a022153e18f6e8a316ae829999663d9dfbe468529ab" => :sierra
-    sha256 "999cb4ae98d293fb666ba2f6b819dd9febb9bebb8b1ef4e2dcb2ad409666a534" => :el_capitan
-    sha256 "954c826eb6005ecda2916bafe1583b4c77b0db1f22dc3ca2c9c2151036320635" => :yosemite
-    sha256 "9f4aca58b94eac38ad5e8b08c97c11e8942691e6010cfae57e5ebfb8fc47b82e" => :mavericks
+    sha256 "f58cf9bd17de4573596172b6ea10c4b2892f75c8dd597f5c98d74e30f21aacc6" => :sierra
+    sha256 "eed0f8e816ec34ae1995e14f6596aeee02cb51f2b8f12a90715431de8847ca8f" => :el_capitan
+    sha256 "f18139540018b72756a5ed3c89cd67e4235d75aa61bd15a7b86825441f4d33cd" => :yosemite
   end
 
   depends_on "pkg-config" => :build
