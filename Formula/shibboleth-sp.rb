@@ -11,7 +11,7 @@ class ShibbolethSp < Formula
 
   option "with-apache-22", "Build mod_shib_22.so instead of mod_shib_24.so"
 
-  depends_on macos: :yosemite
+  depends_on :macos => :yosemite
   depends_on "curl" => "with-openssl"
   depends_on "opensaml"
   depends_on "xml-tooling-c"
@@ -21,10 +21,8 @@ class ShibbolethSp < Formula
   depends_on "boost"
   depends_on "unixodbc"
 
-  if MacOS.version >= :sierra
-    depends_on "apr-util" => :build
-    depends_on "apr" => :build
-  end
+  depends_on "apr-util" => :build
+  depends_on "apr" => :build
 
   def install
     ENV.O2 # Os breaks the build
@@ -60,7 +58,7 @@ class ShibbolethSp < Formula
     EOS
   end
 
-  plist_options startup: true, manual: "shibd"
+  plist_options :startup => true, :manual => "shibd"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
