@@ -1,8 +1,8 @@
 class Corelocationcli < Formula
   desc "Prints location information from CoreLocation"
   homepage "https://github.com/fulldecent/corelocationcli"
-  url "https://github.com/fulldecent/corelocationcli/archive/2.0.0.tar.gz"
-  sha256 "d256ae0a534ef15f4b9a77704ef3bd52935c310a4f6a687657d79945c5544515"
+  url "https://github.com/fulldecent/corelocationcli/archive/2.1.0.tar.gz"
+  sha256 "2bdab3ad42c0ab2fe69e61ec7b9396c9d4143bd2e79bb4dc8b904ff90bdb5534"
 
   bottle do
     cellar :any_skip_relocation
