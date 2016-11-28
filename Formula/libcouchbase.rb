@@ -1,8 +1,8 @@
 class Libcouchbase < Formula
   desc "C library for Couchbase"
   homepage "https://developer.couchbase.com/documentation/server/4.5/sdk/c/start-using-sdk.html"
-  url "https://s3.amazonaws.com/packages.couchbase.com/clients/c/libcouchbase-2.6.3.tar.gz"
-  sha256 "4010a10d8204ce4bb0b05b3cc24a727f88e303633639b3d9649d4d2ab03ebf6b"
+  url "https://s3.amazonaws.com/packages.couchbase.com/clients/c/libcouchbase-2.6.4.tar.gz"
+  sha256 "ce9d3f1d6509e47fd1d16f9a640d71c9b967d410a429ec45bcdd5e70bdb6f545"
   head "https://github.com/couchbase/libcouchbase.git"
 
   bottle do
