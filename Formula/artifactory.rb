@@ -20,10 +20,12 @@ class Artifactory < Formula
       'export ARTIFACTORY_HOME="$(cd "$(dirname "${artBinDir}")" && pwd)"',
       "export ARTIFACTORY_HOME=#{libexec}"
 
-    # Reduce memory consumption for non production use
-    inreplace "bin/artifactory.default",
-      "-server -Xms512m -Xmx2g",
-      "-Xms128m -Xmx768m" if build.with? "low-heap"
+    if build.with? "low-heap"
+      # Reduce memory consumption for non production use
+      inreplace "bin/artifactory.default",
+        "-server -Xms512m -Xmx2g",
+        "-Xms128m -Xmx768m"
+    end
 
     libexec.install Dir["*"]
 
