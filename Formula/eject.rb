@@ -6,8 +6,8 @@ class Eject < Formula
 
   bottle do
     cellar :any
-    sha256 "cf29c7c2e683c3d5fbc66b3ad9dcafc8f2b75da77b0d712ef79b6ea42925ac9d" => :sierra
-    sha256 "cc511b116e42b98f2246c19c6e815c3239b55f574a56031a64582db02bce5b58" => :el_capitan
+    sha256 "29935f7e50a2b17fbd8f8d36fd7b7f0537bf1fa90ef14d3072440a3fb804c28b" => :sierra
+    sha256 "3ebf7bc96c930a0877cded9d549e57305940a85aff0df1ad497490ef161f79fb" => :el_capitan
   end
 
   depends_on :xcode => ["8.0", :build]
