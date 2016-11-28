@@ -1,8 +1,8 @@
 class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
-  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.4.1.tar.gz"
-  sha256 "7b0a95d2061e66d12b54e088ad899aa745995b9b3bf1916960cbdf6a89fb9ee3"
+  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.4.3.tar.gz"
+  sha256 "501b9302d4ae622f04305debacd2f59941409c6345056ebb272779ac375f874d"
 
   bottle do
     cellar :any
@@ -13,7 +13,6 @@ class OsrmBackend < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "cmake"
   depends_on "libstxxl"
   depends_on "libxml2"
   depends_on "libzip"
