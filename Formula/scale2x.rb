@@ -1,9 +1,8 @@
 class Scale2x < Formula
   desc "Real-time graphics effect"
   homepage "http://scale2x.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/scale2x/scale2x/2.4/scale2x-2.4.tar.gz"
-  sha256 "83599b1627988c941ee9c7965b6f26a9fd2608cd1e0073f7262a858d0f4f7078"
-  revision 1
+  url "https://downloads.sourceforge.net/project/scale2x/scale2x/3.1/scale2x-3.1.tar.gz"
+  sha256 "afdd88b90811b00ae884eb8a97355991f39d8028dbd5c6b1d95fdccf0fc56574"
 
   bottle do
     cellar :any
