@@ -1,6 +1,6 @@
-class MongoC < Formula
-  desc "Official C driver for MongoDB"
-  homepage "https://docs.mongodb.org/ecosystem/drivers/c/"
+class MongoCDriver < Formula
+  desc "C driver for MongoDB"
+  homepage "https://github.com/mongodb/mongo-c-driver"
   url "https://github.com/mongodb/mongo-c-driver/releases/download/1.5.0/mongo-c-driver-1.5.0.tar.gz"
   sha256 "b9b7514052fe7ec40786d8fc22247890c97d2b322aa38c851bba986654164bd6"
 
@@ -20,19 +20,18 @@ class MongoC < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl" => :recommended
-
-  conflicts_with "libbson",
-                 :because => "mongo-c installs the libbson headers"
+  depends_on "libbson"
 
   def install
-    args = %W[--prefix=#{prefix}]
+    system "./autogen.sh" if build.head?
 
-    # --enable-sasl=no: https://jira.mongodb.org/browse/CDRIVER-447
-    args << "--enable-sasl=no" if MacOS.version <= :yosemite
-
-    if build.head?
-      system "./autogen.sh"
-    end
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+      --enable-man-pages
+    ]
 
     if build.with?("openssl")
       args << "--enable-ssl=yes"
@@ -42,14 +41,17 @@ class MongoC < Formula
 
     system "./configure", *args
     system "make", "install"
-    prefix.install "examples"
+    pkgshare.install "examples"
   end
 
+
   test do
-    system ENV.cc, prefix/"examples/mongoc-ping.c",
+    libbson = Formula["libbson"]
+    system ENV.cc, pkgshare/"examples/mongoc-ping.c",
            "-I#{include}/libmongoc-1.0",
-           "-I#{include}/libbson-1.0",
-           "-L#{lib}", "-lmongoc-1.0", "-lbson-1.0",
+           "-I#{libbson.include}/libbson-1.0",
+           "-L#{lib}", "-L#{libbson.lib}",
+           "-lmongoc-1.0", "-lbson-1.0",
            "-o", "test"
     assert_match "No suitable servers", shell_output("./test mongodb://0.0.0.0 2>&1", 3)
   end
