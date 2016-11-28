@@ -6,9 +6,9 @@ class Loc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f8e02aa9be7cc54fd208ad8873d5dacd05b55ea2af09404687147031cb0de4e3" => :sierra
-    sha256 "a1d436d26fb2f10f388f07185a2caa0f5cca0687f2283a5fe51f85950ad80b69" => :el_capitan
-    sha256 "cc5374a4923336da1448f7c3c9f64ddec7fbb65bcc433f133c8ca68b09cc340d" => :yosemite
+    sha256 "49ec3ef3b6b69265ba1d528c7c7faf2ab77278d3c05b8770d1ac0fb01f9d9e0f" => :sierra
+    sha256 "6966c2dc9e8cdbc2affece5a5db37e0fc7eb339f0ce7707ca4080d3c663030de" => :el_capitan
+    sha256 "348a0501c8a261faf0b83babf4227746551675036992786847ff651fa86c1d62" => :yosemite
   end
 
   depends_on "rust" => :build
