@@ -19,8 +19,6 @@ class MongoCDriver < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl" => :recommended
-  depends_on "libbson"
 
   def install
     system "./autogen.sh" if build.head?
@@ -31,28 +29,25 @@ class MongoCDriver < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --enable-man-pages
+      --with-libbson=bundled
+      --enable-ssl=darwin
     ]
-
-    if build.with?("openssl")
-      args << "--enable-ssl=yes"
-    else
-      args << "--enable-ssl=no"
-    end
 
     system "./configure", *args
     system "make", "install"
-    pkgshare.install "examples"
+    (pkgshare/"libbson").install "src/libbson/examples"
+    (pkgshare/"mongoc").install "examples"
   end
 
-
   test do
-    libbson = Formula["libbson"]
-    system ENV.cc, pkgshare/"examples/mongoc-ping.c",
-           "-I#{include}/libmongoc-1.0",
-           "-I#{libbson.include}/libbson-1.0",
-           "-L#{lib}", "-L#{libbson.lib}",
-           "-lmongoc-1.0", "-lbson-1.0",
-           "-o", "test"
+    system ENV.cc, "-o", "test", pkgshare/"libbson/examples/json-to-bson.c",
+      "-I#{include}/libbson-1.0", "-L#{lib}", "-lbson-1.0"
+    (testpath/"test.json").write('{"name": "test"}')
+    assert_match "\u0000test\u0000", shell_output("./test test.json")
+
+    system ENV.cc, "-o", "test", pkgshare/"mongoc/examples/mongoc-ping.c",
+      "-I#{include}/libmongoc-1.0", "-I#{include}/libbson-1.0",
+      "-L#{lib}", "-lmongoc-1.0", "-lbson-1.0"
     assert_match "No suitable servers", shell_output("./test mongodb://0.0.0.0 2>&1", 3)
   end
 end
