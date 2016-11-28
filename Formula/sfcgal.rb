@@ -18,7 +18,7 @@ class Sfcgal < Formula
   if build.cxx11?
     depends_on "boost" => "c++11"
     depends_on "cgal" => "c++11"
-    depends_on "gmp"   => "c++11"
+    depends_on "gmp" => "c++11"
   else
     depends_on "boost"
     depends_on "cgal"
