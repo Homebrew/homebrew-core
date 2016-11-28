@@ -1,14 +1,14 @@
 class Pugixml < Formula
   desc "Light-weight C++ XML processing library"
   homepage "http://pugixml.org"
-  url "https://github.com/zeux/pugixml/releases/download/v1.8/pugixml-1.8.tar.gz"
-  sha256 "8ef26a51c670fbe79a71e9af94df4884d5a4b00a2db38a0608a87c14113b2904"
+  url "https://github.com/zeux/pugixml/releases/download/v1.8.1/pugixml-1.8.1.tar.gz"
+  sha256 "00d974a1308e85ca0677a981adc1b2855cb060923181053fb0abf4e2f37b8f39"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9d574c83dbf98b5d622cc6256c8ef030b2e530db5ff72480fced675e6bfd0e84" => :sierra
-    sha256 "3715391781ed243b597e50a8e66484a0b704e8f3b9d4f633a7ac430358314857" => :el_capitan
-    sha256 "07956837628569f621359f07efde0b47efb4bb7d117972ba7b5e8d01ebbd40e5" => :yosemite
+    sha256 "4424c7e5154752886226e91bc8bd7a404079062d0705816533b1a86181fa95d6" => :sierra
+    sha256 "13495a332f3e2ba56148b936d42034d55373ade74af0c41f0c77feb52038ea43" => :el_capitan
+    sha256 "b2b7594b9fb20bda5ed45324ef815af60617673d6f86e066fbd988a8f82a0c16" => :yosemite
   end
 
   option "with-shared", "Build shared instead of static library"

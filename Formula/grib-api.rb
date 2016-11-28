@@ -4,12 +4,12 @@ class GribApi < Formula
   url "https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.18.0-Source.tar.gz"
   mirror "https://distfiles.macports.org/grib_api/grib_api-1.18.0-Source.tar.gz"
   sha256 "dfffeeb4df715b234907cb12d6729617bed0df0ff023337c2dd3cd20ab58199e"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "1add34660d71a4f1a32837b6270245d39d459ad8ac06fa85ed8d199ee3b857f9" => :sierra
-    sha256 "890a36a4df3ecb00bba7d73297d338381a9ccd1cecdf390f76aa66ea00ab9ffb" => :el_capitan
-    sha256 "4392fd87478b5f1f0336c230a31e9427f19aefa2ba91152be536e9c8d3f1bbef" => :yosemite
+    sha256 "84286e2624094a8682ddc6096725dd26d44f3bc3ad0a814b68807d6bbada80ac" => :sierra
+    sha256 "4e9bf4ac20520446a62fda87973dd6f4dc867422710c4ccf630d724fe1e32df5" => :el_capitan
+    sha256 "8357dc70dfa68aa672995722ca7ebda018fac061f191bd549735c7a71c34935a" => :yosemite
   end
 
   option "with-static", "Build static instead of shared library."

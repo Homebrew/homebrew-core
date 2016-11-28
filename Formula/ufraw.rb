@@ -3,12 +3,12 @@ class Ufraw < Formula
   homepage "http://ufraw.sourceforge.net"
   url "https://downloads.sourceforge.net/project/ufraw/ufraw/ufraw-0.22/ufraw-0.22.tar.gz"
   sha256 "f7abd28ce587db2a74b4c54149bd8a2523a7ddc09bedf4f923246ff0ae09a25e"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "c959fb61040278bd42857a76c7ae8d8be92ca71a08509a0523b6ff56e36af578" => :sierra
-    sha256 "a38d7b3bfc6555642af8c17673e848884f38c35bc94aa121d675daf5fa923cde" => :el_capitan
-    sha256 "8553e9e81b43de2a68fdac5ee8b6ea1ff319d0748b0d8c34d179f514d1f30e92" => :yosemite
+    sha256 "d77f0f432aa697d644d3a1458a9deeeb7802676a8ee95caa35e32f7bb8919906" => :sierra
+    sha256 "86999676fdcad5b68bb5a4de14ed2abc876b468473a61de71480d3464a2deba6" => :el_capitan
+    sha256 "dfa07415343481782b646a9b8de3d8fe2d3cbf54820be6fdaac8781c568999bd" => :yosemite
   end
 
   depends_on "pkg-config" => :build

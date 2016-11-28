@@ -5,13 +5,14 @@ class Netpbm < Formula
   # for versions and matching revisions
   url "http://svn.code.sf.net/p/netpbm/code/advanced", :revision => 2825
   version "10.76"
+  revision 1
   head "http://svn.code.sf.net/p/netpbm/code/trunk"
 
   bottle do
     cellar :any
-    sha256 "8a2d966ab4668144f3f9ebaf69b170e9efa81ce399dc6d26977b953d7be2b44f" => :sierra
-    sha256 "a592a25f28c8f150f16e73e6c72c7fa5c91feccf2948c1fe2d9e3e558b793785" => :el_capitan
-    sha256 "17a4e01fbf68d771b2a862a6279d2e61d1f9e9a683ed4c03b16eb21214ecd7f7" => :yosemite
+    sha256 "9d6d6a6d46c09a2fee162bc1b5f2350731cca011761ad75bb2473af5019ce587" => :sierra
+    sha256 "61cf0be49e94e34ca97b49eb06efeb2514fa344a84a6bb827a443aa6a7ac46eb" => :el_capitan
+    sha256 "3045f53982e66d14d4dd23ef715953054aa8dda38b9f17471824725064e13820" => :yosemite
   end
 
   option :universal
