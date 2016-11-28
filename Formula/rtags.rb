@@ -82,14 +82,14 @@ class Rtags < Formula
     rdm = fork do
       $stdout.reopen("/dev/null")
       $stderr.reopen("/dev/null")
-      exec "#{bin}/rdm", "-L", "log"
+      exec "#{bin}/rdm", "--exclude-filter=\"\"", "-L", "log"
     end
 
     begin
       sleep 1
-      pipe_output("#{bin}/rc -c", "clang -c src/foo.c", 0)
+      pipe_output("#{bin}/rc -c", "clang -c #{testpath}/src/foo.c", 0)
       sleep 1
-      assert_match "foo.c:1:6", shell_output("#{bin}/rc -f src/foo.c:5:3")
+      assert_match "foo.c:1:6", shell_output("#{bin}/rc -f #{testpath}/src/foo.c:5:3")
       system "#{bin}/rc", "-q"
     ensure
       Process.kill 9, rdm
