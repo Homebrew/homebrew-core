@@ -1,8 +1,8 @@
 class Lesspipe < Formula
   desc "Input filter for the pager less"
   homepage "https://www-zeuthen.desy.de/~friebel/unix/lesspipe.html"
-  url "https://downloads.sourceforge.net/project/lesspipe/lesspipe/1.82/lesspipe-1.82.tar.gz"
-  sha256 "3fd345b15d46cc8fb0fb1d625bf8d881b0637abc34d15df45243fd4e5a8f4241"
+  url "https://downloads.sourceforge.net/project/lesspipe/lesspipe/1.83/lesspipe-1.83.tar.gz"
+  sha256 "d616f0d51852e60fb0d0801eec9c31b10e0acc6fdfdc62ec46ef7bfd60ce675e"
 
   bottle do
     cellar :any_skip_relocation
