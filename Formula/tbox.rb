@@ -1,8 +1,8 @@
 class Tbox < Formula
   desc "Glib-like multi-platform c library"
   homepage "http://www.tboox.org"
-  url "https://github.com/waruqi/tbox/archive/v1.5.3.tar.gz"
-  sha256 "404235eacd0edc0bb18cade161005001a7af11af3d447663ef57f61fe734dead"
+  url "https://github.com/waruqi/tbox/archive/v1.6.0.tar.gz"
+  sha256 "4f17646eb6623ca4331dc9e7d1163ff6969af58070b7392bab217f194384e0c2"
   head "https://github.com/waruqi/tbox.git"
 
   bottle do
@@ -20,8 +20,8 @@ class Tbox < Formula
     # superenv won't do this automatically
     ENV.refurbish_args
 
-    system "xmake", "config", "--smallest=y", "--demo=n", "--xml=y", "--asio=y",
-                              "--thread=y", "--network=y", "--charset=y"
+    system "xmake", "config", "--charset=y", "--demo=n", "--smallest=y",
+                              "--xml=y"
     system "xmake", "install", "-o", prefix
   end
 
