@@ -3,6 +3,7 @@ class SdlMixer < Formula
   homepage "https://www.libsdl.org/projects/SDL_mixer/"
   url "https://www.libsdl.org/projects/SDL_mixer/release/SDL_mixer-1.2.12.tar.gz"
   sha256 "1644308279a975799049e4826af2cfc787cad2abb11aa14562e402521f86992a"
+  revision 1
 
   bottle do
     cellar :any
@@ -29,8 +30,18 @@ class SdlMixer < Formula
 
     ENV.universal_binary if build.universal?
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking"
+    args = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+    ]
+
+    args << "--disable-music-mod-shared" if build.with? "libmikmod"
+    args << "--disable-music-fluidsynth-shared" if build.with? "fluid-synth"
+    args << "--disable-music-ogg-shared" if build.with? "libvorbis"
+    args << "--disable-music-flac-shared" if build.with? "flac"
+    args << "--disable-music-mp3-shared" if build.with? "smpeg"
+
+    system "./configure", *args
     system "make", "install"
   end
 end
