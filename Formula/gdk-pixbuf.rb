@@ -95,14 +95,17 @@ class GdkPixbuf < Formula
     ln_sf module_file, module_dir
   end
 
-  def caveats; <<-EOS.undent
-    Programs that require this module need to set the environment variable
-      export GDK_PIXBUF_MODULE_FILE="#{module_file}"
-      export GDK_PIXBUF_MODULEDIR="#{module_dir}/loaders"
-    If you need to manually update the query loader cache, set these variables then run
-      #{bin}/gdk-pixbuf-query-loaders --update-cache
-    EOS
-  end if build.with?("relocations") || HOMEBREW_PREFIX.to_s != "/usr/local"
+  def caveats
+    if build.with?("relocations") || HOMEBREW_PREFIX.to_s != "/usr/local"
+      <<-EOS.undent
+        Programs that require this module need to set the environment variable
+          export GDK_PIXBUF_MODULE_FILE="#{module_file}"
+          export GDK_PIXBUF_MODULEDIR="#{module_dir}/loaders"
+        If you need to manually update the query loader cache, set these variables then run
+          #{bin}/gdk-pixbuf-query-loaders --update-cache
+      EOS
+    end
+  end
 
   test do
     system bin/"gdk-pixbuf-csource", test_fixtures("test.png")
