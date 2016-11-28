@@ -1,8 +1,8 @@
 class Libmongoc < Formula
   desc "Cross Platform MongoDB Client Library for C"
   homepage "http://mongoc.org/"
-  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.4.2/mongo-c-driver-1.4.2.tar.gz"
-  sha256 "9154d8f6b3261f785a19d1f81506fb911c985f26dfdc9b19082e1bc7af479afb"
+  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.5.0/mongo-c-driver-1.5.0.tar.gz"
+  sha256 "b9b7514052fe7ec40786d8fc22247890c97d2b322aa38c851bba986654164bd6"
 
   bottle do
     cellar :any
