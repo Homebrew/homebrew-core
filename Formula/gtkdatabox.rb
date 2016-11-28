@@ -1,9 +1,8 @@
 class Gtkdatabox < Formula
   desc "Widget for live display of large amounts of changing data"
   homepage "https://sourceforge.net/projects/gtkdatabox/"
-  url "https://downloads.sourceforge.net/project/gtkdatabox/gtkdatabox/0.9.2.0/gtkdatabox-0.9.2.0.tar.gz"
-  sha256 "745a6843e8f790504a86ad1b8642e1a9e595d75586215e0d2cb2f0bf0a324040"
-  revision 1
+  url "https://downloads.sourceforge.net/project/gtkdatabox/gtkdatabox/0.9.3.0/gtkdatabox-0.9.3.0.tar.gz"
+  sha256 "1f426b525c31a9ba8bf2b61084b7aef89eaed11f8d0b2a54bde467da16692ff2"
 
   bottle do
     cellar :any
@@ -19,12 +18,6 @@ class Gtkdatabox < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    # We need to re-enable deprecated features of gtk
-    # in order to build without errors
-    # Will be fixed in the next upstream release
-    inreplace "gtk/Makefile", "-DGTK_DISABLE_DEPRECATED", ""
-    inreplace "examples/Makefile", "-DGTK_DISABLE_DEPRECATED", ""
-
     system "make", "install"
   end
 
