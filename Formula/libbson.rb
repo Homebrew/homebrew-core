@@ -1,6 +1,7 @@
 class Libbson < Formula
   desc "BSON utility library"
   homepage "https://github.com/mongodb/libbson"
+  # Note: libbson and libmongoc must be kept in sync. Do not update one without updating the other.
   url "https://github.com/mongodb/libbson/releases/download/1.5.0/libbson-1.5.0.tar.gz"
   sha256 "ba49eeebedfc1e403d20abb080f3a67201b799a05f4a012eee94139ad54a6e6f"
 

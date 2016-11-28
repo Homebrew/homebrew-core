@@ -1,8 +1,10 @@
 class Libmongoc < Formula
   desc "Cross Platform MongoDB Client Library for C"
   homepage "http://mongoc.org/"
+  # Note: libbson and libmongoc must be kept in sync. Do not update one without updating the other.
   url "https://github.com/mongodb/mongo-c-driver/releases/download/1.5.0/mongo-c-driver-1.5.0.tar.gz"
   sha256 "b9b7514052fe7ec40786d8fc22247890c97d2b322aa38c851bba986654164bd6"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,13 +13,17 @@ class Libmongoc < Formula
     sha256 "720675b55e6d98db395337582757fae96ebaa0c5e317c4f58cfc93ee8c3a4410" => :yosemite
   end
 
+  depends_on "libbson"
+  depends_on "pkg-config" => :build
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--enable-man-pages",
-                          "--enable-ssl=darwin"
+                          "--enable-ssl=darwin",
+                          "--with-libbson=system"
     system "make", "install"
   end
 
@@ -32,7 +38,7 @@ class Libmongoc < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lbson-1.0", "-I#{include}/libbson-1.0", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lbson-1.0", "-I#{Formula["libbson"].opt_include}/libbson-1.0", "-o", "test"
     system "./test"
   end
 end
