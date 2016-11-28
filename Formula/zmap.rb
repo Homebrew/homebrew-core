@@ -23,7 +23,9 @@ class Zmap < Formula
   depends_on "libdnet"
   depends_on "json-c"
   depends_on "hiredis" => :optional
-  depends_on "mongo-c" => :optional
+  depends_on "mongo-c-driver" => :optional
+
+  deprecated_option "with-mongo-c" => "with-mongo-c-driver"
 
   def install
     inreplace ["conf/zmap.conf", "src/zmap.c", "src/zopt.ggo.in"], "/etc", etc
@@ -32,7 +34,7 @@ class Zmap < Formula
     args << "-DENABLE_DEVELOPMENT=OFF"
     args << "-DRESPECT_INSTALL_PREFIX_CONFIG=ON"
     args << "-DWITH_REDIS=ON" if build.with? "hiredis"
-    args << "-DWITH_MONGO=ON" if build.with? "mongo-c"
+    args << "-DWITH_MONGO=ON" if build.with? "mongo-c-driver"
 
     system "cmake", ".", *args
     system "make"
@@ -42,6 +44,6 @@ class Zmap < Formula
   test do
     system "#{sbin}/zmap", "--version"
     assert_match /redis-csv/, `#{sbin}/zmap --list-output-modules` if build.with? "hiredis"
-    assert_match /mongo/, `#{sbin}/zmap --list-output-modules` if build.with? "mongo-c"
+    assert_match /mongo/, `#{sbin}/zmap --list-output-modules` if build.with? "mongo-c-driver"
   end
 end
