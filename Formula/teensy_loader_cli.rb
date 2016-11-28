@@ -15,7 +15,7 @@ class TeensyLoaderCli < Formula
   head do
     url "https://github.com/PaulStoffregen/teensy_loader_cli.git"
 
-    depends_on "libusb-compat"  => :optional
+    depends_on "libusb-compat" => :optional
   end
 
   def install
