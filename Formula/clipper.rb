@@ -1,8 +1,8 @@
 class Clipper < Formula
   desc "Share macOS clipboard with tmux and other local and remote apps"
   homepage "https://wincent.com/products/clipper"
-  url "https://github.com/wincent/clipper/archive/0.3.tar.gz"
-  sha256 "ddadc32477744f39a0604255c68c159613809f549c3b28bedcedd23f3f93bcf0"
+  url "https://github.com/wincent/clipper/archive/0.4.tar.gz"
+  sha256 "f94d898f575a974ca9658102a876b6852b58354ca445503909aeedcb3cb9964b"
 
   bottle do
     cellar :any_skip_relocation
