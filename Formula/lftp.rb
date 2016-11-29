@@ -6,7 +6,7 @@ class Lftp < Formula
 
   depends_on "pkg-config" => :build
   depends_on "readline"
-  depends_on "openssl" => "1.0.1"
+  depends_on :openssl => "1.0"
 
   def install
     system "./configure", "--disable-dependency-tracking",
