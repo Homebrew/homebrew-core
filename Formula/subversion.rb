@@ -32,13 +32,7 @@ class Subversion < Formula
     depends_on "apr-util"
     depends_on "apr"
   else
-    depends_on :apr => :build
-  end
-
-  resource "serf" do
-    url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
-    mirror "https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2"
-    sha256 "549c2d21c577a8a9c0450facb5cca809f26591f048e466552240947bdf7a87cc"
+    depends_on "apr" => :build
   end
 
   # Always build against Homebrew versions instead of system versions for consistency.
@@ -55,6 +49,12 @@ class Subversion < Formula
   # Other optional dependencies
   depends_on "gpg-agent" => :optional
   depends_on :java => :optional
+
+  resource "serf" do
+    url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
+    mirror "https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2"
+    sha256 "549c2d21c577a8a9c0450facb5cca809f26591f048e466552240947bdf7a87cc"
+  end
 
   # Fix #23993 by stripping flags swig can't handle from SWIG_CPPFLAGS
   # Prevent "-arch ppc" from being pulled in from Perl's $Config{ccflags}
