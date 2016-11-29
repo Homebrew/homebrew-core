@@ -37,6 +37,11 @@ class Xplanet < Formula
   depends_on "freetype"
   depends_on :x11 => :optional
 
+  patch :p2 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f952f1d/xplanet/xplanet-1.3.1-ntimes.patch"
+    sha256 "3f95ba8d5886703afffdd61ac2a0cd147f8d659650e291979f26130d81b18433"
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking
