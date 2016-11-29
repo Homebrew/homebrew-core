@@ -26,6 +26,7 @@ class GitAnnex < Formula
   depends_on "libmagic"
   depends_on "gnutls"
   depends_on "quvi"
+  depends_on "xdot" => :recommended
 
   resource "esqueleto-2.4.3" do
     url "https://mirrors.ocf.berkeley.edu/debian/pool/main/h/haskell-esqueleto/haskell-esqueleto_2.4.3.orig.tar.gz"
@@ -44,6 +45,15 @@ class GitAnnex < Formula
   end
 
   def install
+    # use `xdot` instead of `dot -Tx11` to display generated maps
+    inreplace "Command/Map.hs" do |s|
+      s.gsub! "dot", "xdot"
+      # eliminate extra parameter in actual invocation
+      s.gsub! "Param \"-Tx11\",", ""
+      # change status message
+      s.gsub! "-Tx11", ""
+    end
+
     cabal_sandbox do
       (buildpath/"esqueleto-2.4.3").install resource("esqueleto-2.4.3")
       resource("esqueleto-newer-persistent-patch").stage do
