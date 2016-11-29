@@ -15,15 +15,33 @@ class AprUtil < Formula
   keg_only :provided_by_osx, "Apple's CLT package contains apr."
 
   option :universal
+  option "without-openssl@1.1", "Build with openssl instead of openssl@1.1"
 
   depends_on "apr"
-  depends_on "openssl"
   depends_on "postgresql" => :optional
   depends_on "mysql" => :optional
   depends_on "freetds" => :optional
   depends_on "unixodbc" => :optional
   depends_on "sqlite" => :optional
   depends_on "homebrew/dupes/openldap" => :optional
+
+  depends_on "openssl@1.1" => :recommended
+
+  if build.with? "openssl@1.1"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+
+    # backports openssl 1.1 support
+    patch do
+      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/a/apr-util/apr-util_1.5.4-2.debian.tar.xz"
+      mirror "https://mirrors.kernel.org/debian/pool/main/a/apr-util/apr-util_1.5.4-2.debian.tar.xz"
+      sha256 "e8f0fdf94482c43dff69a207ecbf98cec602ab45869561800ccf46a09988caff"
+      apply "patches/openssl-1.1.patch"
+    end
+  else
+    depends_on "openssl"
+  end
 
   def install
     ENV.universal_binary if build.universal?
@@ -32,7 +50,6 @@ class AprUtil < Formula
     args = %W[
       --prefix=#{libexec}
       --with-apr=#{Formula["apr"].opt_prefix}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-crypto
     ]
 
@@ -45,6 +62,13 @@ class AprUtil < Formula
       args << "--with-ldap"
       args << "--with-ldap-lib=#{Formula["openldap"].opt_lib}"
       args << "--with-ldap-include=#{Formula["openldap"].opt_include}"
+    end
+
+    if build.with? "openssl@1.1"
+      args << "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+      system "autoreconf", "-fiv"
+    else
+      args << "--with-openssl=#{Formula["openssl"].opt_prefix}"
     end
 
     system "./configure", *args
