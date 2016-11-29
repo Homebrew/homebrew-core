@@ -1,8 +1,9 @@
+# encoding: UTF-8
 class Clipper < Formula
   desc "Share macOS clipboard with tmux and other local and remote apps"
   homepage "https://wincent.com/products/clipper"
-  url "https://github.com/wincent/clipper/archive/0.3.tar.gz"
-  sha256 "ddadc32477744f39a0604255c68c159613809f549c3b28bedcedd23f3f93bcf0"
+  url "https://github.com/wincent/clipper/archive/0.4.tar.gz"
+  sha256 "f94d898f575a974ca9658102a876b6852b58354ca445503909aeedcb3cb9964b"
 
   bottle do
     cellar :any_skip_relocation
@@ -47,5 +48,26 @@ class Clipper < Formula
     </dict>
     </plist>
     EOS
+  end
+
+  test do
+    TEST_DATA = "a simple string! to test clipper, with söme spéciål characters!! 🐎\n".freeze
+
+    cmd = [opt_bin/"clipper", "-a", testpath/"clipper.sock", "-l", testpath/"clipper.log"].freeze
+    ohai cmd.join " "
+
+    require "open3"
+    Open3.popen3({ "LANG" => "en_US.UTF-8" }, *cmd) do |_, _, _, clipper|
+      sleep 0.5 # Give it a moment to launch and create its socket.
+      begin
+        sock = UNIXSocket.new testpath/"clipper.sock"
+        assert_equal TEST_DATA.bytesize, sock.sendmsg(TEST_DATA)
+        sock.close
+        sleep 0.5
+        assert_equal TEST_DATA, `LANG=en_US.UTF-8 pbpaste`
+      ensure
+        Process.kill "TERM", clipper.pid
+      end
+    end
   end
 end
