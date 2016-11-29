@@ -7,9 +7,9 @@ class Buku < Formula
   sha256 "9ebc95a665e56460d91b9d98711f1eba722b14a14a058e2ef330b117b79943fe"
 
   bottle do
-    sha256 "4ef900f3e72970f988912de8a21d214c63bcdcc5a1ac80abb03c9506e470584e" => :sierra
-    sha256 "805c1d00f759d1edd43a2ce84502f7a19c6d9cf66da56caa7f4a189208524f57" => :el_capitan
-    sha256 "8aaaa375254a5e92349cd502e43160938e414587210b3d01ea0f1414c67d7bf1" => :yosemite
+    sha256 "308525c2ea7b01e7d441a0b6a2f6efd0b549f358faf635b0363e85550ccf10ee" => :sierra
+    sha256 "97b3cb2b0830a6467b3e7caa579a67088e03ae900db027bfdcf5bd9c61905a7a" => :el_capitan
+    sha256 "a9951ee2309fc50e8134e1b778c62c3a31c282589ed9f885a571a15a1b198ec9" => :yosemite
   end
 
   depends_on :python3
