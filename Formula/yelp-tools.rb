@@ -20,11 +20,9 @@ class YelpTools < Formula
   depends_on "libxslt" => :build
   depends_on "pkg-config" => :build
 
-  yelp_tools_version = version
-
   resource "yelp-xsl" do
-    url "https://download.gnome.org/sources/yelp-xsl/3.18/yelp-xsl-#{yelp_tools_version}.tar.xz"
-    sha256 "893620857b72b3b43ee3b462281240b7ca4d80292f469552827f0597bf60d2b2"
+    url "https://download.gnome.org/sources/yelp-xsl/3.20/yelp-xsl-3.20.1.tar.xz"
+    sha256 "dc61849e5dca473573d32e28c6c4e3cf9c1b6afe241f8c26e29539c415f97ba0"
   end
 
   def install
