@@ -1,8 +1,8 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.14-7/source/tarball/percona-server-5.7.14-7.tar.gz"
-  sha256 "b204ffac56bfc8cf092acca3ce73d63b00450b59f554acd1daeb5a573eec2c1d"
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.16-10/source/tarball/percona-server-5.7.16-10.tar.gz"
+  sha256 "1e88233d4bc5fd9a6910f2cc01ad5aca7d751f036cdba5a1c9954e1e25300347"
 
   bottle do
     sha256 "2931e0ee93052e3589ac53dc0e2634187fc80e90b8fb98b98d9d0ff9ec8e6050" => :sierra
