@@ -18,13 +18,14 @@ class Fish < Formula
     url "https://github.com/fish-shell/fish-shell.git", :shallow => false
 
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "doxygen" => :build
   end
 
   depends_on "pcre2"
 
   def install
-    system "autoconf" if build.head?
+    system "autoreconf", "--no-recursive" if build.head?
 
     # In Homebrew's 'superenv' sed's path will be incompatible, so
     # the correct path is passed into configure here.
