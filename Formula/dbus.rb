@@ -2,9 +2,9 @@ class Dbus < Formula
   # releases: even (1.10.x) = stable, odd (1.11.x) = development
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
-  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.12.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.12.orig.tar.gz"
-  sha256 "210a79430b276eafc6406c71705e9140d25b9956d18068df98a70156dc0e475d"
+  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.14.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.14.orig.tar.gz"
+  sha256 "23238f70353e38ce5ca183ebc9525c0d97ac00ef640ad29cf794782af6e6a083"
 
   bottle do
     rebuild 1
