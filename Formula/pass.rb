@@ -2,6 +2,7 @@ class Pass < Formula
   desc "Password manager"
   homepage "https://www.passwordstore.org/"
   url "https://git.zx2c4.com/password-store/snapshot/password-store-1.6.5.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/password-store/password-store_1.6.5.orig.tar.xz"
   sha256 "337a39767e6a8e69b2bcc549f27ff3915efacea57e5334c6068fcb72331d7315"
   revision 1
 
@@ -22,6 +23,8 @@ class Pass < Formula
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
+
+    elisp.install "contrib/emacs/password-store.el"
     pkgshare.install "contrib"
     zsh_completion.install "src/completion/pass.zsh-completion" => "_pass"
     bash_completion.install "src/completion/pass.bash-completion" => "password-store"
