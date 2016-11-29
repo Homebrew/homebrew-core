@@ -1,9 +1,9 @@
 class SqliteAnalyzer < Formula
   desc "Analyze how space is allocated inside an SQLite file"
   homepage "https://www.sqlite.org/"
-  url "https://www.sqlite.org/2016/sqlite-src-3150100.zip"
-  version "3.15.1"
-  sha256 "423a73936931c5148a4812ee7d82534ec7d998576ea1b4e1573af91ec15a4b01"
+  url "https://www.sqlite.org/2016/sqlite-src-3150200.zip"
+  version "3.15.2"
+  sha256 "38a1e867b5b1a58ba3731a63ffe69a2271d79bd0723d21c5a9a71e4cb7452a83"
 
   bottle do
     cellar :any_skip_relocation
