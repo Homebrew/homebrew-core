@@ -3,8 +3,8 @@ class Mdv < Formula
 
   desc "Styled terminal markdown viewer"
   homepage "https://github.com/axiros/terminal_markdown_viewer"
-  url "https://files.pythonhosted.org/packages/c8/94/931f2b9bae37acbe8de987884fc7a8a8981de6efc3ef9276d23b967f6c15/mdv-1.4.1.tar.gz"
-  sha256 "8792cd42c24445007b7eb6ad3ab28483ab6e47f2d6a5fe408e69b62bc83a567a"
+  url "https://github.com/axiros/terminal_markdown_viewer/archive/1.6.0.tar.gz"
+  sha256 "20ad41366e0944f627ccc85d91ddc3b72d53cab1501c4930ff24ae30abc64831"
 
   bottle do
     sha256 "454220cd1377ac315ee5ca5ed484f8e150d261bc50f1153e925d03f418f01b89" => :sierra
@@ -12,7 +12,7 @@ class Mdv < Formula
     sha256 "dbbead980818a33d58c2e4f1ac4f0834c10aa8a8b483692457f0e40ff0291070" => :yosemite
   end
 
-  depends_on :python
+  depends_on :python if MacOS.version <= :snow_leopard
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
