@@ -5,9 +5,9 @@ class GstEditingServices < Formula
   sha256 "db159aeb9df5959f7b246d4b6fcbc8d01cec2ced6d539d00c608458a245fa743"
 
   bottle do
-    sha256 "44317235a95ba598c3a271fb7caed5903b5028de7d182d590bac4cc2375c3e45" => :sierra
-    sha256 "0fde9c89668bf0b8eb9946c16bd515e6accfc5abb4611648226b409cca53b33a" => :el_capitan
-    sha256 "5c3eec0a16620a1e4e8e338591c8f25dd0a08078b20a1e075b701765a06d08d6" => :yosemite
+    sha256 "0a406fa3daa4cd8ea821bd68f253542ee83d52cd25e491ac36ff208aeba969e7" => :sierra
+    sha256 "b7ce48cca7c914fb360921cae01e026b80ce78aba2f00853a34aa228c9d3d4cd" => :el_capitan
+    sha256 "a09af15d47c117d0a1105153c9a67678f66d5687c763ace068c7027e5e90b190" => :yosemite
   end
 
   depends_on "gstreamer"
