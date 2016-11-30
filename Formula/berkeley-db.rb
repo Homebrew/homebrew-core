@@ -16,7 +16,7 @@ class BerkeleyDb < Formula
   option "without-sql", "Build without SQL support."
   option "without-dbm", "Build without dbm interface."
 
-  depends_on :java => [:recommended, :build]
+  depends_on :java => [:optional, :build]
 
   def install
     # BerkeleyDB dislikes parallel builds
