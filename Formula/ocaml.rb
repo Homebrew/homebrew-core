@@ -14,8 +14,8 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "http://caml.inria.fr/pub/distrib/ocaml-4.03/ocaml-4.03.0.tar.gz"
-  sha256 "7fdf280cc6c0a2de4fc9891d0bf4633ea417046ece619f011fd44540fcfc8da2"
+  url "http://caml.inria.fr/pub/distrib/ocaml-4.04/ocaml-4.04.0.tar.xz"
+  sha256 "64ed6dad2316d5dff7440cea89f0f0abe07ce508b9104d1bfadf3782e79856b4"
   head "http://caml.inria.fr/svn/ocaml/trunk", :using => :svn
 
   pour_bottle? do
