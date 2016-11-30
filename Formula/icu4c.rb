@@ -35,6 +35,8 @@ class Icu4c < Formula
   end
 
   test do
+    # CI dependancy
+    ENV["LANG"] = "en_US.UTF-8"
     system "#{bin}/gendict", "--uchars", "/usr/share/dict/words", "dict"
   end
 end
