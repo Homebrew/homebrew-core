@@ -1,9 +1,8 @@
 class Moc < Formula
   desc "Terminal-based music player"
   homepage "https://moc.daper.net"
-  url "http://ftp.daper.net/pub/soft/moc/stable/moc-2.5.1.tar.bz2"
-  sha256 "1b419c75a92a85ff4ee7670c65d660c86fef32032c65e89e868b988f80fac4f2"
-  head "svn://daper.net/moc/trunk"
+  url "http://ftp.daper.net/pub/soft/moc/stable/moc-2.5.2.tar.bz2"
+  sha256 "f3a68115602a4788b7cfa9bbe9397a9d5e24c68cb61a57695d1c2c3ecf49db08"
 
   bottle do
     sha256 "6a61f09a91ff078af9cc894163e3e4a46c38c2e65cd0cb51a4f0e2d8462e09fa" => :sierra
@@ -14,17 +13,22 @@ class Moc < Formula
 
   devel do
     url "http://ftp.daper.net/pub/soft/moc/unstable/moc-2.6-alpha2.tar.xz"
-    version "2.6-alpha2"
     sha256 "0a3a4fb11227ec58025f7177a3212aca9c9955226a2983939e8db662af13434b"
 
     depends_on "popt"
   end
 
+  head do
+    url "svn://daper.net/moc/trunk"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+    depends_on "popt"
+  end
+
   option "with-ncurses", "Build with wide character support."
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "gettext" => :build
   depends_on "pkg-config" => :build
   depends_on "libtool" => :run
   depends_on "berkeley-db"
@@ -42,7 +46,7 @@ class Moc < Formula
   depends_on "homebrew/dupes/ncurses" => :optional
 
   def install
-    system "autoreconf", "-fvi"
+    system "autoreconf", "-fvi" if build.head?
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "install"
   end
