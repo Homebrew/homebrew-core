@@ -1,9 +1,20 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
-  url "https://github.com/facebook/flow/archive/v0.36.0.tar.gz"
-  sha256 "064792468e9b811fbc8d030de18b5b296b6214b2429e6c40876a64262e65fb16"
+  revision 1
   head "https://github.com/facebook/flow.git"
+
+  stable do
+    url "https://github.com/facebook/flow/archive/v0.36.0.tar.gz"
+    sha256 "064792468e9b811fbc8d030de18b5b296b6214b2429e6c40876a64262e65fb16"
+
+    # OCaml 4.04.0 compatibility
+    # Upstream commit from 22 Nov 2016 "Remove unused modules"
+    patch do
+      url "https://github.com/facebook/flow/commit/2edc619.patch"
+      sha256 "6cc507f72850e1ef921e7db2e9ac5a036851f23eca00c00a14c9bfbb77b5eb1c"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
