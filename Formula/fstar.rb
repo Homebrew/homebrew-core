@@ -4,7 +4,7 @@ class Fstar < Formula
   url "https://github.com/FStarLang/FStar.git",
       :tag => "v0.9.2.0",
       :revision => "2a8ce0b3dfbfb9703079aace0d73f2479f0d0ce2"
-  revision 2
+  revision 3
   head "https://github.com/FStarLang/FStar.git"
 
   bottle do
@@ -31,7 +31,7 @@ class Fstar < Formula
     system "opam", "init", "--no-setup"
 
     if build.stable?
-      system "opam", "install", "batteries=2.5.2", "zarith=1.3", "yojson=1.1.6"
+      system "opam", "install", "batteries=2.5.3", "zarith=1.3", "yojson=1.1.6"
     else
       system "opam", "install", "batteries", "zarith", "yojson"
     end
