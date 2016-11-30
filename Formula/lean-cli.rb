@@ -7,9 +7,9 @@ class LeanCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8dbb1ebfe9d2cd608982caba859299c8958ae7b20396752c69c1dd3e8108e78b" => :sierra
-    sha256 "967fe018d8b1c1a4c2194205397c7ad6a34b82336b08aa8a1418509a3a615747" => :el_capitan
-    sha256 "c6181f20cc1ab0c90db8b037a85faff48081d585fcc7bba032695b585046b219" => :yosemite
+    sha256 "8e71a76bc049322036de96698a95b13aa599d94dece1c307623bbeb4dd92bd24" => :sierra
+    sha256 "f4c149c42e0f4e99ef038b309670a2f8fd00349cd264e06627444ed696645a3b" => :el_capitan
+    sha256 "47f21c287b0652ce97634a17259c29941f1618af163d9f75ab0710d2b28c8aa1" => :yosemite
   end
 
   depends_on "go" => :build
