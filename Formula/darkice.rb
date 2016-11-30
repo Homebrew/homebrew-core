@@ -3,6 +3,7 @@ class Darkice < Formula
   homepage "http://www.darkice.org/"
   url "https://downloads.sourceforge.net/project/darkice/darkice/1.3/darkice-1.3.tar.gz"
   sha256 "2c0d0faaa627c0273b2ce8b38775a73ef97e34ef866862a398f660ad8f6e9de6"
+  revision 1
 
   bottle do
     cellar :any
