@@ -6,10 +6,9 @@ class Qjson < Formula
 
   bottle do
     cellar :any
-    revision 2
-    sha256 "4d47edace9872cd7cb267ca6e77c7f7d55400918cbdc57d45e4ee5d12087f4da" => :el_capitan
-    sha256 "a505ef97e0a0a3e05013ef1aa641af1104dedb363ff75c7d23b2c3dee5299649" => :yosemite
-    sha256 "2563c0f4d42e92136279434e9e73201b3117993d2eaa949359dab9c148d71710" => :mavericks
+    sha256 "cd843f07c21db43f1d38a1651b371a53ccd4c44975c08d56db0d6a4284c9d587" => :sierra
+    sha256 "89d3c3cc1ce2d45b37a6c8001c047b46135111419c27e27377a0158fd0685ebf" => :el_capitan
+    sha256 "4cabfd9f2086b49b21bac869d061b0bd467f8cbef378f16f23c4b3019f655c05" => :yosemite
   end
 
   depends_on "cmake" => :build
