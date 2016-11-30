@@ -6,10 +6,7 @@ class Orientdb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1281edfb9396ca133d16f1af0faf78d5aaf6c5abe8d42f5e96e36913b4fe44db" => :sierra
-    sha256 "6ca2f994653590ac3f04ace2ddd369b0f66d5b648c5a151c5c592d7aab5ca982" => :el_capitan
-    sha256 "356a546861606b228294421816f188ed42f4a05d234ee7e1c96e4ccc8f03ade5" => :yosemite
-    sha256 "b065a2a8527b54005b7b9b65c395491700a165f56c4c22ab4523018a15816ebc" => :mavericks
+    sha256 "4468d55ad311b318a9b36cf468194797da0314f583433a3ad196e219fb5750a2" => :sierra
   end
 
   def install
@@ -67,15 +64,8 @@ class Orientdb < Formula
     cp "#{libexec}/config/orientdb-server-config.xml", testpath
     inreplace "#{testpath}/orientdb-server-config.xml", "</properties>", "  <entry name=\"server.database.path\" value=\"#{testpath}\" />\n    </properties>"
 
-    system "#{bin}/orientdb", "stop"
-    sleep 3
-    system "#{bin}/orientdb", "start"
-    sleep 3
-
     begin
-      assert_match "OK", shell_output("#{bin}/orientdb-console \"connect remote:localhost root orientdb ; disconnect;\"")
-    ensure
-      system "#{bin}/orientdb", "stop"
+      assert_match /OrientDB console v.2.2.13/, pipe_output("#{bin}/orientdb-console \"exit;\"")
     end
   end
 end
