@@ -1,10 +1,9 @@
 class GribApi < Formula
   desc "Encode and decode grib messages (editions 1 and 2)"
   homepage "https://software.ecmwf.int/wiki/display/GRIB/Home"
-  url "https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.18.0-Source.tar.gz"
-  mirror "https://distfiles.macports.org/grib_api/grib_api-1.18.0-Source.tar.gz"
-  sha256 "dfffeeb4df715b234907cb12d6729617bed0df0ff023337c2dd3cd20ab58199e"
-  revision 2
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/grib-api/grib-api_1.19.0.orig.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/grib-api/grib-api_1.19.0.orig.tar.xz"
+  sha256 "c234a0a6d551a79ac77eae86b5effaa82c96dfc16ba6a8e7570067d83f1f6326"
 
   bottle do
     sha256 "84286e2624094a8682ddc6096725dd26d44f3bc3ad0a814b68807d6bbada80ac" => :sierra
