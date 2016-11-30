@@ -1,8 +1,8 @@
 class AwsSdkCpp < Formula
   desc "AWS SDK for C++"
   homepage "https://github.com/aws/aws-sdk-cpp"
-  url "https://github.com/aws/aws-sdk-cpp/archive/1.0.34.tar.gz"
-  sha256 "8e864bac594fa9519fb8638dcc538708e5ae1bf32d3e4aa3ce4655c8c60f26a8"
+  url "https://github.com/aws/aws-sdk-cpp/archive/1.0.35.tar.gz"
+  sha256 "8d6246700f228db2d9d7ddb91ca2cd5ee18a5b4830b4b9e33d09c8029d04cb78"
   head "https://github.com/aws/aws-sdk-cpp.git"
 
   bottle do
