@@ -6,6 +6,13 @@ class Dnsviz < Formula
   url "https://github.com/dnsviz/dnsviz/releases/download/v0.6.5/dnsviz-0.6.5.tar.gz"
   sha256 "4598476625b2cd81224bc908d6fb98086c9568460d2074e35320fd651dadb269"
 
+  bottle do
+    cellar :any
+    sha256 "e486d56e500db4febc5f7cad6df8902ea11fd92005af6fbd65fe8081d4d18ebb" => :sierra
+    sha256 "ce9fede29ae9f9e820f8b62c728cf58ee6e8a2c197a79a17adf5fbc303f8e472" => :el_capitan
+    sha256 "bccaec7bbb2e21b295bb685647df707752d706f87d2ad1aededce7bf91009c99" => :yosemite
+  end
+
   depends_on "pkg-config" => :build
   depends_on "graphviz"
   depends_on "openssl"
