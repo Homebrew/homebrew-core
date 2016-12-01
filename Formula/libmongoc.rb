@@ -11,6 +11,9 @@ class Libmongoc < Formula
     sha256 "720675b55e6d98db395337582757fae96ebaa0c5e317c4f58cfc93ee8c3a4410" => :yosemite
   end
 
+  conflicts_with "libbson",
+                 :because => "libmongoc comes with a bundled libbson"
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
