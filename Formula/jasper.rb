@@ -1,8 +1,8 @@
 class Jasper < Formula
   desc "Library for manipulating JPEG-2000 images"
   homepage "https://www.ece.uvic.ca/~frodo/jasper/"
-  url "https://github.com/mdadams/jasper/archive/version-2.0.0.tar.gz"
-  sha256 "37fb86fbdc880e8ee566cf2ac226f0bfe259394914fad4d9e26bbe0764f8c378"
+  url "https://github.com/mdadams/jasper/archive/version-2.0.2.tar.gz"
+  sha256 "e6eb28c6c5dfe5730d26e1908f9be68f48f39461acd3c686544837de14103a4c"
 
   bottle do
     sha256 "362a325e069e0929def99a97ffad3d7dad2ede225e5c21120c451904df14c12d" => :sierra
@@ -17,13 +17,24 @@ class Jasper < Formula
 
   def install
     ENV.universal_binary if build.universal?
+
+    # Fix OpenGL support
+    # Upstream issue "Build fails to find and link system GLUT on macOS"
+    # Reported 1 Dec 2016 https://github.com/mdadams/jasper/issues/100
+    ["CMakeLists.txt", "src/appl/jiv.c"].each do |f|
+      inreplace f, "GL/glut.h", "glut.h"
+    end
+    inreplace "src/appl/CMakeLists.txt",
+      "add_executable(jiv jiv.c)",
+      "add_executable(jiv jiv.c)\n\tinclude_directories(${GLUT_INCLUDE_DIR})"
+
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      glut_lib = "#{MacOS.sdk_path}/System/Library/Frameworks/GLUT.framework"
+      system "cmake", "..", "-DGLUT_glut_LIBRARY=#{glut_lib}", *std_cmake_args
       system "make"
       system "make", "test"
       system "make", "install"
     end
-    man1.install (prefix/"man").children
   end
 
   test do
