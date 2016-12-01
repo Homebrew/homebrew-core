@@ -56,6 +56,8 @@ class Osquery < Formula
   end
 
   def install
+    ENV.permit_weak_imports
+
     # Link dynamically against brew-installed libraries.
     ENV["BUILD_LINK_SHARED"] = "1"
 
