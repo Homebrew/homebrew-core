@@ -20,6 +20,7 @@
   "juju": "juju@1.25",
   "letsencrypt": "certbot",
   "libcppa": "caf",
+  "libmongoclient": "mongo-cxx-driver",
   "mongo-c": "mongo-c-driver",
   "mpich2": "mpich",
   "nimrod": "nim",
