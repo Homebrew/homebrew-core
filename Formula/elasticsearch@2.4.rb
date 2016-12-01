@@ -1,35 +1,20 @@
-class Elasticsearch < Formula
+class ElasticsearchAT24 < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.2.tar.gz"
-  sha256 "bbe761788570d344801cb91a8ba700465deb10601751007da791743e9308cb83"
-
-  head do
-    url "https://github.com/elasticsearch/elasticsearch.git"
-    depends_on "gradle" => :build
-  end
+  url "https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.2/elasticsearch-2.4.2.tar.gz"
+  sha256 "7741a2e78f5f155c5005ba891f9b6e57a4e45178cb540beed101d30517cbe22f"
 
   bottle :unneeded
+  depends_on :java => "1.7+"
 
-  depends_on :java => "1.8+"
-
+  conflicts_with "elasticsearch", :because => "Different versions of same formula"
   conflicts_with "elasticsearch@1.7", :because => "Different versions of same formula"
-  conflicts_with "elasticsearch@2.4", :because => "Different versions of same formula"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
   end
 
   def install
-    if build.head?
-      # Build the package from source
-      system "gradle", "clean", ":distribution:tar:assemble"
-      # Extract the package to the tar directory
-      mkdir "tar"
-      cd "tar"
-      system "tar", "--strip-components=1", "-xf", Dir["../distribution/tar/build/distributions/elasticsearch-*.tar.gz"].first
-    end
-
     # Remove Windows files
     rm_f Dir["bin/*.bat"]
     rm_f Dir["bin/*.exe"]
@@ -49,10 +34,10 @@ class Elasticsearch < Formula
 
     inreplace "#{libexec}/bin/elasticsearch.in.sh" do |s|
       # Configure ES_HOME
-      s.sub!(%r{#\!/bin/bash\n}, "#!/bin/bash\n\nES_HOME=#{libexec}")
+      s.sub!(%r{#\!/bin/sh\n}, "#!/bin/sh\n\nES_HOME=#{libexec}")
     end
 
-    inreplace "#{libexec}/bin/elasticsearch-plugin" do |s|
+    inreplace "#{libexec}/bin/plugin" do |s|
       # Add the proper ES_CLASSPATH configuration
       s.sub!(/SCRIPT="\$0"/, %Q(SCRIPT="$0"\nES_CLASSPATH=#{libexec}/lib))
       # Replace paths to use libexec instead of lib
@@ -61,11 +46,10 @@ class Elasticsearch < Formula
 
     # Move config files into etc
     (etc/"elasticsearch").install Dir[libexec/"config/*"]
-    (etc/"elasticsearch/scripts").mkdir unless File.exist?(etc/"elasticsearch/scripts")
+    (etc/"elasticsearch/scripts").mkpath
     (libexec/"config").rmtree
 
     bin.write_exec_script Dir[libexec/"bin/elasticsearch"]
-    bin.write_exec_script Dir[libexec/"bin/elasticsearch-plugin"]
   end
 
   def post_install
@@ -76,21 +60,13 @@ class Elasticsearch < Formula
     (libexec/"plugins").mkdir
   end
 
-  def caveats
-    s = <<-EOS.undent
-      Data:    #{var}/elasticsearch/#{cluster_name}/
-      Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
-      Plugins: #{libexec}/plugins/
-      Config:  #{etc}/elasticsearch/
+  def caveats; <<-EOS.undent
+    Data:    #{var}/elasticsearch/#{cluster_name}/
+    Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
+    Plugins: #{libexec}/plugins/
+    Config:  #{etc}/elasticsearch/
+    plugin script: #{libexec}/bin/plugin
     EOS
-
-    if stable?
-      s += <<-EOS.undent
-        plugin script: #{libexec}/bin/plugin
-      EOS
-    end
-
-    s
   end
 
   plist_options :manual => "elasticsearch"
@@ -116,19 +92,20 @@ class Elasticsearch < Formula
           <key>WorkingDirectory</key>
           <string>#{var}</string>
           <key>StandardErrorPath</key>
-          <string>#{var}/log/elasticsearch.log</string>
+          <string>#{var}/log/#{name}.log</string>
           <key>StandardOutPath</key>
-          <string>#{var}/log/elasticsearch.log</string>
+          <string>#{var}/log/#{name}.log</string>
         </dict>
       </plist>
     EOS
   end
 
   test do
-    system "#{libexec}/bin/elasticsearch-plugin", "list"
+    system "#{libexec}/bin/plugin", "list"
     pid = "#{testpath}/pid"
     begin
-      system "#{bin}/elasticsearch", "-d", "-p", pid, "-Epath.data=#{testpath}/data"
+      mkdir testpath/"config"
+      system "#{bin}/elasticsearch", "-d", "-p", pid, "--path.home", testpath
       sleep 10
       system "curl", "-XGET", "localhost:9200/"
     ensure
