@@ -1,8 +1,8 @@
 class Vmtouch < Formula
   desc "Portable file system cache diagnostics and control"
   homepage "https://hoytech.com/vmtouch/"
-  url "https://github.com/hoytech/vmtouch/archive/v1.1.0.tar.gz"
-  sha256 "1ba2a12aabed977894ce3a272b2fa8ed6ddfec7a720d7686e074f9e756104796"
+  url "https://github.com/hoytech/vmtouch/archive/v1.2.0.tar.gz"
+  sha256 "154034dec5ef550dcb7ff5a359ee1b7a9421f586f47237e3bc2617efa148b5fd"
   head "https://github.com/hoytech/vmtouch.git"
 
   bottle do
