@@ -37,6 +37,8 @@ class Xplanet < Formula
   depends_on "freetype"
   depends_on :x11 => :optional
 
+  # patches bug in 1.3.1 with flag -num_times=2 (1.3.2 will contain fix, when released)
+  # https://sourceforge.net/p/xplanet/code/208/tree/trunk/src/libdisplay/DisplayOutput.cpp?diff=5056482efd48f8457fc7910a:207
   patch :p2 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/f952f1d/xplanet/xplanet-1.3.1-ntimes.patch"
     sha256 "3f95ba8d5886703afffdd61ac2a0cd147f8d659650e291979f26130d81b18433"
