@@ -323,6 +323,7 @@
   "trang": "homebrew/boneyard",
   "transmission-remote-gtk": "homebrew/gui",
   "treeline": "homebrew/boneyard",
+  "ttylog": "homebrew/boneyard",
   "ttytter": "homebrew/boneyard",
   "tuntap": "caskroom/cask",
   "tup": "homebrew/fuse",
