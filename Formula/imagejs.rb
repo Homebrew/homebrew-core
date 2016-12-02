@@ -7,11 +7,9 @@ class Imagejs < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9df7eba8305feb25b5ce50dacb9e9fddb81958c911d84922f40763988b8e04ac" => :sierra
-    sha256 "5a7a78dde1c1d658cc34a2a4e0f997cd1c4e242cc877779ea5c4cbd7c74265d2" => :el_capitan
-    sha256 "128e1bdbbfbed86c41eff7487fbf65bcea8a17367b8b91077989a56878ab1dcb" => :yosemite
-    sha256 "374bd224d00aaa4f11921d81444afc6dbcb23d6df6368c8594886f4172b773eb" => :mavericks
-    sha256 "a78dcf76d4df78103aab79d4b35441f7709f31bec5ea8bcd268cac4e780f6037" => :mountain_lion
+    sha256 "7e56845664f1d00cb460effbc723aa6a4df38e34e3a654f9c9e9485037f086ff" => :sierra
+    sha256 "9f98ec026ce971a312606d06acbdeabcc38c842e6f4fdbd1d7631a76e3f3307d" => :el_capitan
+    sha256 "47dc7fa5f0b5706b0c952522b897652758ccedcb7169bcd25e551204bb19da27" => :yosemite
   end
 
   def install
