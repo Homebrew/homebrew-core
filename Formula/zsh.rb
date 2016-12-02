@@ -27,9 +27,21 @@ class Zsh < Formula
     sha256 "d140366f62354011a7de99949e847ae44d6aa70f2b51e1722028844e4fa0b252" => :yosemite
   end
 
+  devel do
+    url "http://www.zsh.org/pub/development/zsh-5.2-test-1.tar.gz"
+    version "5.2-test-1"
+    sha256 "50b18b837562e748ca2bc3054f167b71df4482d2da8263ef502acb5d21f23259"
+
+    option "with-texi2html", "Build HTML documentation"
+    option "with-unicode9", "Build with Unicode 9 character width support"
+    depends_on "texi2html" => [:build, :optional]
+  end
+
   head do
     url "git://git.code.sf.net/p/zsh/code"
     depends_on "autoconf" => :build
+
+    option "with-unicode9", "Build with Unicode 9 character width support"
   end
 
   option "without-etcdir", "Disable the reading of Zsh rc files in /etc"
@@ -56,6 +68,8 @@ class Zsh < Formula
       --enable-zsh-secure-free
       --with-tcsetpgrp
     ]
+
+    args << "--enable-unicode9" if build.with? "unicode9"
 
     if build.without? "etcdir"
       args << "--disable-etcdir"
