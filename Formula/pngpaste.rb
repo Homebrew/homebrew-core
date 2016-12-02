@@ -1,8 +1,8 @@
 class Pngpaste < Formula
   desc "Paste PNG into files"
   homepage "https://github.com/jcsalterego/pngpaste"
-  url "https://github.com/jcsalterego/pngpaste/archive/0.2.1.tar.gz"
-  sha256 "0fee49ae467b4db58da687089e1729a911f2c0d5c1583a4a0dcb59aba95da519"
+  url "https://github.com/jcsalterego/pngpaste/archive/1.0.1.tar.gz"
+  sha256 "9e23c62d8a7b10aac9293f215bed8f9e88a7042837130b00ca1b8a27f7c86c9e"
 
   bottle do
     cellar :any_skip_relocation
