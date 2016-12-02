@@ -1,8 +1,8 @@
 class Ttylog < Formula
   desc "Serial port logger: print everything from a serial device"
   homepage "http://ttylog.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ttylog/ttylog/0.25/ttylog-0.25.tar.gz"
-  sha256 "80d0134ae4e29b650fff661169a6e667d22338465720ee768b2776f68aac8614"
+  url "https://downloads.sourceforge.net/project/ttylog/ttylog/0.29/ttylog-0.29.tar.gz"
+  sha256 "cefd4729af285a212b09d57d25817df731c7ab1fd9dc54a8dc8bf8a1a0a4948d"
 
   bottle do
     cellar :any_skip_relocation
