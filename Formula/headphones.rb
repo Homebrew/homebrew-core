@@ -7,10 +7,9 @@ class Headphones < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "466f60c31faacc75f571024a38c6848b6dfd0b1df4b3542f47ce7ad0d60c164c" => :sierra
-    sha256 "66580fb1be0cc42040dbc101b0a79e67aaf21bd9abd51609d56c44e32df6f44c" => :el_capitan
-    sha256 "44e240a8fcc6ee7d65e7ab242cf4225a11e81668711473e65fb25adf5525e461" => :yosemite
-    sha256 "a51c67470df2d7b42d1f26b9d861553bbe62c5bd20598bc3d29260b946da8f70" => :mavericks
+    sha256 "913f1f0ea6600b6aa4bb6f4f9fcfd6c5447f072334b024faf40da2d7ed6b0600" => :sierra
+    sha256 "fb9288d3885ac6ee18b6ee3292d7fe886f8b5d538b4876f3bdd32309e3643431" => :el_capitan
+    sha256 "be688187ebdfd25f221b227a9aa6df3e8015788f564bdfdc524cd99834540d80" => :yosemite
   end
 
   resource "Markdown" do
