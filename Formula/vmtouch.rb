@@ -7,10 +7,9 @@ class Vmtouch < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2bb68ec68e92c117cec3b59be96a5a543ff3699b6bbdfdc6b7590f2239bfe2ee" => :sierra
-    sha256 "0984801787ebb646b91afc30bf10de9b1e04e6e7d55cfd32540472dda82477d1" => :el_capitan
-    sha256 "63ea198ce8bc64061a850437ccd453e5be840a66ddd3ffe9eb183d6dbce02910" => :yosemite
-    sha256 "48edbb4ff5867ce1b488bb934a2bd4b00f8f7e2fb13ad5803b8ad0163f61ffd7" => :mavericks
+    sha256 "ba9345723812a60b3e78d7d60b303d11ad2d7225e92654e702ecad6fa80d93ec" => :sierra
+    sha256 "7c73faba33612e335fe6ccf32a8b913fe7ce5ada7c56017b578c2c629aef355b" => :el_capitan
+    sha256 "aa548bc9c6dca0bd023bc08b63dd5f83cfb1d89e2573b9d84c8173a1fec02be7" => :yosemite
   end
 
   def install
