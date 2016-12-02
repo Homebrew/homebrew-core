@@ -3,6 +3,7 @@ class Glbinding < Formula
   homepage "https://github.com/cginternals/glbinding"
   url "https://github.com/cginternals/glbinding/archive/v2.1.1.tar.gz"
   sha256 "253671f2b730a6efa55de92a704938bb0f1761d151f3f8e87c043c51d46ea1e4"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,15 +13,17 @@ class Glbinding < Formula
     sha256 "97b4e0dc61be2fdd33928db4b2ed51250f38b4cab55310819715ef6f9f324530" => :mavericks
   end
 
-  option "with-glfw3", "Enable tools that display OpenGL information for your system"
+  option "with-glfw", "Enable tools that display OpenGL information for your system"
 
   depends_on "cmake" => :build
-  depends_on "homebrew/versions/glfw3" => :optional
+  depends_on "glfw" => :optional
   needs :cxx11
 
   def install
     ENV.cxx11
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args
+    args << "-DGLFW_LIBRARY_RELEASE=" if build.without? "glfw"
+    system "cmake", ".", *args
     system "cmake", "--build", ".", "--target", "install"
   end
 
