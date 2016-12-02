@@ -19,17 +19,18 @@ class Gmp < Formula
   def install
     ENV.cxx11 if build.cxx11?
     args = ["--prefix=#{prefix}", "--enable-cxx"]
+    ENV["GMP_CPU_TYPE"] = Hardware.oldest_cpu
 
     if build.build_32_bit?
       ENV.m32
       args << "ABI=32"
     end
 
-    args << "--enable-fake-cpuid" << "GMP_CPU_TYPE=#{Hardware.oldest_cpu}" << "--enable-fat" if build.build_32_bit? || build.bottle?
+    args << "--enable-fake-cpuid" << "--enable-fat" if build.build_32_bit? || build.bottle?
 
     system "./configure", *args
     system "make"
-    system "make", "check", "GMP_CPU_TYPE=#{Hardware.oldest_cpu}"
+    system "make", "check"
     system "make", "install"
   end
 
