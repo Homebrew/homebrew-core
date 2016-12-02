@@ -1,8 +1,8 @@
 class Imagejs < Formula
   desc "Tool to hide JavaScript inside valid image files"
   homepage "https://jklmnn.de/imagejs/"
-  url "https://github.com/jklmnn/imagejs/archive/0.7.1.tar.gz"
-  sha256 "d1a1368ce72a1a7d18d053f82bf19c7af14861588a459f3bf69f2b50a335633f"
+  url "https://github.com/jklmnn/imagejs/archive/0.7.2.tar.gz"
+  sha256 "ba75c7ea549c4afbcb2a516565ba0b762b5fc38a03a48e5b94bec78bac7dab07"
   head "https://github.com/jklmnn/imagejs.git"
 
   bottle do
