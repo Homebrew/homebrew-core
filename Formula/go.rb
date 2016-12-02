@@ -22,8 +22,18 @@ class Go < Formula
     sha256 "5d7d8e26f7c96470be2cdf23fd10d83bd97a2ae3c4095aff0c6c253cbee84e68" => :yosemite
   end
 
+  devel do
+    url "https://storage.googleapis.com/golang/go1.8beta1.src.tar.gz"
+    version "1.8beta1"
+    sha256 "7204232743f85a2ebb31dbbb8ea0d792eeb89357bb2ff0ef3ed62e192fdd60e4"
+
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git"
+    end
+  end
+
   head do
-    url "https://github.com/golang/go.git"
+    url "https://go.googlesource.com/go.git"
 
     resource "gotools" do
       url "https://go.googlesource.com/tools.git"
