@@ -3,7 +3,7 @@ class Innotop < Formula
   homepage "https://github.com/innotop/innotop/"
   url "https://github.com/innotop/innotop/archive/v1.11.1.tar.gz"
   sha256 "c93a4fb496ce1749aaaf0a70f0899ed1fa1aa5cd231208b6b3424285c77dc1b7"
-  revision 1
+  revision 2
 
   head "https://github.com/innotop/innotop.git"
 
@@ -19,18 +19,35 @@ class Innotop < Formula
   depends_on "openssl"
 
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.035.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.035.tar.gz"
-    sha256 "b7eca365ea16bcf4c96c2fc0221304ff9c4995e7a551886837804a8f66b61937"
+    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
+    sha256 "4777de11c464b515db9da95c08c225900d0594b65ba3256982dc21f9f9379040"
+  end
+
+  resource "DBI" do
+    url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.636.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/T/TI/TIMB/DBI-1.636.tar.gz"
+    sha256 "8f7ddce97c04b4b7a000e65e5d05f679c964d62c8b02c94c1a7d815bb2dd676c"
+  end
+
+  resource "TermReadKey" do
+    url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.37.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/J/JS/JSTOWE/TermReadKey-2.37.tar.gz"
+    sha256 "4a9383cf2e0e0194668fe2bd546e894ffad41d556b41d2f2f577c8db682db241"
   end
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-    resource("DBD::mysql").stage do
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-      system "make"
-      system "make", "install"
+    resources.each do |r|
+      r.stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "make", "install"
+      end
     end
+
+    # Disable dynamic selection of perl which may cause segfault when an
+    # incompatible perl is picked up.
+    inreplace "innotop", "#!/usr/bin/env perl", "#!/usr/bin/perl"
 
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
     system "make", "install"
