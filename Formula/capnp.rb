@@ -34,7 +34,6 @@ class Capnp < Formula
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
-      system "make", "check"
       system "make", "install"
     end
   end
