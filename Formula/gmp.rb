@@ -29,7 +29,7 @@ class Gmp < Formula
 
     system "./configure", *args
     system "make"
-    system "make", "check"
+    system "make", "check", "GMP_CPU_TYPE=#{Hardware.oldest_cpu}"
     system "make", "install"
   end
 
