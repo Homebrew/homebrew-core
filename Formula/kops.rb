@@ -16,6 +16,7 @@ class Kops < Formula
   depends_on "kubernetes-cli"
 
   def install
+    ENV["VERSION"] = version unless build.head?
     ENV["GOPATH"] = buildpath
     kopspath = buildpath/"src/k8s.io/kops"
     kopspath.install Dir["*"]
