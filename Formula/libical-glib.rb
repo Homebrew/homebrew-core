@@ -3,6 +3,7 @@ class LibicalGlib < Formula
   homepage "https://wiki.gnome.org/Projects/libical-glib"
   url "https://download.gnome.org/sources/libical-glib/1.0/libical-glib-1.0.4.tar.xz"
   sha256 "3e47c7c19a403e77a598cfa8fc82c8e9ea0b3625e2f28bdcec096aeba37fb0cd"
+  revision 1
 
   bottle do
     sha256 "4730ba10128951d74d36aa4b98b667ed4b85697f12c73ef5b9083a4eb4d579ac" => :sierra
