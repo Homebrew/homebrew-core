@@ -4,6 +4,7 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.5.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.9.5.tar.bz2"
   sha256 "8a4fc68aff1d18dcb4dd9e460648d24d9e98657fbed496c582929c6b3ce555e5"
+  revision 1
 
   bottle do
     sha256 "c94de8b8fd132839a839a7a42770a94b3fe99a59ac40c4073b3e2cbc2e8af000" => :sierra
@@ -22,17 +23,8 @@ class Subversion < Formula
   option "with-gpg-agent", "Build with support for GPG Agent"
 
   depends_on "pkg-config" => :build
-
-  # macOS Sierra ships the APR libraries & headers, but has removed the
-  # apr-1-config & apu-1-config executables which serf demands to find
-  # those elements. We may need to adopt a broader solution if this problem
-  # expands, but currently subversion is the only breakage as a result.
-  if MacOS.version >= :sierra
-    depends_on "apr-util"
-    depends_on "apr"
-  else
-    depends_on "apr" => :build
-  end
+  depends_on "apr-util"
+  depends_on "apr"
 
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on "sqlite"
@@ -88,15 +80,13 @@ class Subversion < Formula
       ENV.universal_binary if build.universal?
 
       # scons ignores our compiler and flags unless explicitly passed
-      args = %W[PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
-                CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
-                OPENSSL=#{Formula["openssl"].opt_prefix}]
-
-      if MacOS.version >= :sierra || !MacOS::CLT.installed?
-        args << "APR=#{Formula["apr"].opt_prefix}"
-        args << "APU=#{Formula["apr-util"].opt_prefix}"
-      end
-
+      args = %W[
+        PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
+        CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
+        OPENSSL=#{Formula["openssl"].opt_prefix}
+        APR=#{Formula["apr"].opt_prefix}
+        APU=#{Formula["apr-util"].opt_prefix}
+      ]
       scons(*args)
       scons "install"
     end
@@ -126,6 +116,9 @@ class Subversion < Formula
       --enable-optimize
       --with-zlib=/usr
       --with-sqlite=#{Formula["sqlite"].opt_prefix}
+      --with-apr=#{Formula["apr"].opt_prefix}
+      --with-apr-util=#{Formula["apr-util"].opt_prefix}
+      --with-apxs=no
       --with-serf=#{serf_prefix}
       --disable-mod-activation
       --disable-nls
@@ -135,15 +128,6 @@ class Subversion < Formula
 
     args << "--enable-javahl" << "--without-jikes" if build.with? "java"
     args << "--without-gpg-agent" if build.without? "gpg-agent"
-
-    if MacOS::CLT.installed? && MacOS.version < :sierra
-      args << "--with-apr=/usr"
-      args << "--with-apr-util=/usr"
-    else
-      args << "--with-apr=#{Formula["apr"].opt_prefix}"
-      args << "--with-apr-util=#{Formula["apr-util"].opt_prefix}"
-      args << "--with-apxs=no"
-    end
 
     if build.with? "ruby"
       args << "--with-ruby-sitedir=#{lib}/ruby"
