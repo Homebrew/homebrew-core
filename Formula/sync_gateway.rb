@@ -2,9 +2,8 @@ class SyncGateway < Formula
   desc "Make Couchbase Server a replication endpoint for Couchbase Lite"
   homepage "http://docs.couchbase.com/sync-gateway"
   url "https://github.com/couchbase/sync_gateway.git",
-      :tag => "1.2.1",
-      :revision => "26c202a800226ce599cbaf9b2fcc4576a924d45e"
-
+      :tag => "1.3.1",
+      :revision => "660b1c92fadce1a9c7e692dfe7c5b741772d1dd2"
   head "https://github.com/couchbase/sync_gateway.git"
 
   bottle do
@@ -16,10 +15,44 @@ class SyncGateway < Formula
   end
 
   depends_on "go" => :build
+  depends_on :gpg => :build
+
+  resource "depot_tools" do
+    url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
+        :revision => "935b93fb9bf367510eece7db8ee3e383b101c36d"
+  end
 
   def install
-    system "make", "buildit"
-    bin.install "bin/sync_gateway"
+    # Cache the vendored Go dependencies gathered by depot_tools' `repo` command
+    repo_cache = HOMEBREW_CACHE/"repo_cache/#{name}/.repo"
+    repo_cache.mkpath
+
+    # Remove for > 1.3.1
+    # Backports from HEAD the upgrade from Git protocol to https
+    # See https://github.com/couchbase/sync_gateway/commit/1cf0399
+    inreplace "manifest/default.xml", "git://", "https://" unless build.head?
+
+    (buildpath/"depot_tools").install resource("depot_tools")
+    ENV.prepend_path "PATH", buildpath/"depot_tools"
+
+    (buildpath/"build").install_symlink repo_cache
+    cp Dir["*.sh"], "build"
+
+    git_commit = `git rev-parse HEAD`.chomp
+    manifest = buildpath/"new-manifest.xml"
+    manifest.write Utils.popen_read "python", "rewrite-manifest.sh",
+                                    "--manifest-url",
+                                    "file://#{buildpath}/manifest/default.xml",
+                                    "--project-name", "sync_gateway",
+                                    "--set-revision", git_commit
+    cd "build" do
+      mkdir "godeps"
+      system "repo", "init", "-u", stable.url, "-m", "manifest/default.xml"
+      cp manifest, ".repo/manifest.xml"
+      system "repo", "sync"
+      system "sh", "build.sh", "-v"
+      mv "godeps/bin", prefix
+    end
   end
 
   test do
