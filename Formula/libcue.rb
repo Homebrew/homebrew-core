@@ -1,8 +1,8 @@
 class Libcue < Formula
   desc "Cue sheet parser library for C"
   homepage "https://github.com/lipnitsk/libcue"
-  url "https://github.com/lipnitsk/libcue/archive/v1.4.0.tar.gz"
-  sha256 "c3c46d58cebf15b3fe07e6f649014694d338ddd880e941bfb1fd3cedae66c62f"
+  url "https://github.com/lipnitsk/libcue/archive/v2.1.0.tar.gz"
+  sha256 "288ddd01e5f9e8f901d0c205d31507e4bdffd2540fa86073f2fe82de066d2abb"
 
   bottle do
     cellar :any
@@ -13,15 +13,23 @@ class Libcue < Formula
     sha256 "f61624f74ef918f2b90bdfc9157f7a08829153dd2655ad73126e0a0ddd60127d" => :mavericks
   end
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
 
   def install
-    inreplace "autogen.sh", "libtoolize", "glibtoolize"
-    system "./autogen.sh"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "cmake", ".", *std_cmake_args
+    system "make"
+    (pkgshare/"tests").mkpath
+    cp_r "t/.", pkgshare/"tests"
+    system "make", "test"
     system "make", "install"
+  end
+
+  test do
+    cp_r (pkgshare/"tests").children, testpath
+    Dir["*.c"].each do |f|
+      system ENV.cc, f, "-o", "test", "-L#{lib}", "-lcue", "-I#{include}"
+      system "./test"
+      rm "test"
+    end
   end
 end
