@@ -7,9 +7,9 @@ class Mediaconch < Formula
 
   bottle do
     cellar :any
-    sha256 "0980c55b293ad3b00feb0dcd67ca244a52a6c2e6957e6c3b017cf1d487e6a7d6" => :sierra
-    sha256 "305694c42f2ce6040210e293c341a19c05c9d37313dee6b492d370404c80e539" => :el_capitan
-    sha256 "1423d7e4aa5f9eb15e4ee88e674c3fe59bb410c913c3becfc292710f06f0b094" => :yosemite
+    sha256 "a9236ec559a39fb9a6f252db634f9de10400e2f15ab0e4c34db0575957e98ee0" => :sierra
+    sha256 "e96f16ad5b3e59dbca2767a4b1bc350ad521ef80aae3cd8e762aa0b7ff3d2a32" => :el_capitan
+    sha256 "28974866420751a400c9cb9e11138230369496fe3b621326f029012557748e31" => :yosemite
   end
 
   depends_on "pkg-config" => :build
