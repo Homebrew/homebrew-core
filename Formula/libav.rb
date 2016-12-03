@@ -1,11 +1,9 @@
 class Libav < Formula
   desc "Audio and video processing tools"
   homepage "https://libav.org/"
-  url "https://libav.org/releases/libav-11.4.tar.xz"
-  sha256 "0b7dabc2605f3a254ee410bb4b1a857945696aab495fe21b34c3b6544ff5d525"
-  revision 2
-
-  head "https://git.libav.org/libav.git"
+  url "https://libav.org/releases/libav-11.7.tar.xz"
+  sha256 "8c9a75c89c6df58dd5e3f6f735d1ba5448680e23013fd66a51b50b4f49913c46"
+  head "https://github.com/libav/libav.git"
 
   bottle do
     rebuild 2
@@ -15,6 +13,9 @@ class Libav < Formula
     sha256 "d56f9c532f3debf0ade3e58a676c330c3041643b9a8871ca6ef8e6c517e95a18" => :mavericks
   end
 
+  keg_only "Conflicts with ffmpeg, which also installs libavcodec.dylib, etc."
+
+  option "without-shared", "Don't build the shared libraries"
   option "without-faac", "Disable AAC encoder via faac"
   option "without-lame", "Disable MP3 encoder via libmp3lame"
   option "without-x264", "Disable H.264 encoder via x264"
@@ -60,17 +61,9 @@ class Libav < Formula
   depends_on "speex" => :optional
   depends_on "theora" => :optional
 
-  # Fixes the use of a removed identifier in libvpx;
-  # will be fixed in the next release.
-  patch do
-    url "https://github.com/libav/libav/commit/4d05e9392f84702e3c833efa86e84c7f1cf5f612.patch"
-    sha256 "78f02e231f3931a6630ec4293994fc6933c6a1c3d1dd501989155236843c47f9"
-  end
-
   def install
     args = [
       "--disable-debug",
-      "--disable-shared",
       "--disable-indev=jack",
       "--prefix=#{prefix}",
       "--enable-gpl",
@@ -81,6 +74,12 @@ class Libav < Formula
       "--host-cflags=#{ENV.cflags}",
       "--host-ldflags=#{ENV.ldflags}",
     ]
+
+    if build.with? "shared"
+      args << "--enable-shared"
+    else
+      args << "--disable-shared"
+    end
 
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--enable-gnutls" if build.with? "gnutls"
@@ -104,21 +103,13 @@ class Libav < Formula
     args << "--enable-openssl" if build.with? "openssl"
 
     system "./configure", *args
-
-    system "make"
-
-    bin.install "avconv", "avprobe"
-    man1.install "doc/avconv.1", "doc/avprobe.1"
-    if build.with? "sdl"
-      bin.install "avplay"
-      man1.install "doc/avplay.1"
-    end
+    system "make", "install"
   end
 
   test do
     # Create an example mp4 file
-    system "#{bin}/avconv", "-y", "-filter_complex",
-        "testsrc=rate=1:duration=1", "#{testpath}/video.mp4"
+    args = %w[-y -filter_complex testsrc=rate=1:duration=1 video.mp4]
+    system bin/"avconv", *args
     assert (testpath/"video.mp4").exist?
   end
 end
