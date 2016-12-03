@@ -97,10 +97,6 @@ class Zsh < Formula
   def caveats; <<-EOS.undent
     In order to use this build of zsh as your login shell,
     it must be added to /etc/shells.
-    Add the following to your zshrc to access the online help:
-      unalias run-help
-      autoload run-help
-      HELPDIR=#{HOMEBREW_PREFIX}/share/zsh/help
     EOS
   end
 
