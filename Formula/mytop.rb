@@ -5,7 +5,7 @@ class Mytop < Formula
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/mytop/mytop_1.9.1.orig.tar.gz"
   sha256 "179d79459d0013ab9cea2040a41c49a79822162d6e64a7a85f84cdc44828145e"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -21,21 +21,21 @@ class Mytop < Formula
   conflicts_with "mariadb", :because => "both install `mytop` binaries"
 
   resource "List::Util" do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.45.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.45.tar.gz"
-    sha256 "9e175535913af22d003ce1ef896d98d9bb6fc1d551782a3b512c066da5bd27dd"
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.46.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.46.tar.gz"
+    sha256 "30662b1261364adb317e9a5bd686273d3dd731e3fda1b8e894802aa52e0052e7"
   end
 
   resource "Config::IniFiles" do
-    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/Config-IniFiles-2.93.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/Config-IniFiles-2.93.tar.gz"
-    sha256 "2fc79e5616c176b97f49f3d57b8d8068695639209ff9de7aa7f28a550d0478e4"
+    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/Config-IniFiles-2.94.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/Config-IniFiles-2.94.tar.gz"
+    sha256 "d6d38a416da79de874c5f1825221f22e972ad500b6527d190cc6e9ebc45194b4"
   end
 
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.035.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.035.tar.gz"
-    sha256 "b7eca365ea16bcf4c96c2fc0221304ff9c4995e7a551886837804a8f66b61937"
+    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
+    sha256 "4777de11c464b515db9da95c08c225900d0594b65ba3256982dc21f9f9379040"
   end
 
   # Pick up some patches from Debian to improve functionality & fix
