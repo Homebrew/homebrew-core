@@ -1,8 +1,8 @@
 class Lfe < Formula
   desc "Concurrent Lisp for the Erlang VM"
   homepage "http://lfe.io/"
-  url "https://github.com/rvirding/lfe/archive/v1.2.0.tar.gz"
-  sha256 "0abc6e95e3ccb3eff2bc323418e6a095fbdeee7750e12f9f76c67c69d6558e17"
+  url "https://github.com/rvirding/lfe/archive/v1.2.1.tar.gz"
+  sha256 "1967c6d3f604ea3ba5013b021426d8a28f45eee47fd208109ef116af2e74ab23"
   head "https://github.com/rvirding/lfe.git", :branch => "develop"
 
   bottle do
@@ -12,13 +12,6 @@ class Lfe < Formula
   end
 
   depends_on "erlang"
-
-  # Prevents build failure "Error in process <0.49.0> with exit value ..."
-  # Reported 18 Oct 2016 in PR "Fix parallelized builds"
-  patch do
-    url "https://github.com/rvirding/lfe/pull/292.patch"
-    sha256 "966db8bc444273f3a790c7eaa0b35c7c8d0a407d5c2c3039674f1c4d9ab5a758"
-  end
 
   def install
     system "make"
