@@ -6,11 +6,9 @@ class Libcue < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "1364a393179776e3deedce880702d4c9ce425eb3b9ab84e016809c1e234e9749" => :sierra
-    sha256 "420574b32e8adcca07f13a7727b4f2d3391b91566aa7fad63b452cd11fc881ad" => :el_capitan
-    sha256 "1734b330e87a099d8a0c472af86e3f1c1babfabb3d29240a74e54e98932c91af" => :yosemite
-    sha256 "f61624f74ef918f2b90bdfc9157f7a08829153dd2655ad73126e0a0ddd60127d" => :mavericks
+    sha256 "36aa09e84bcd5c561ebe75d4357e1f5c4702bdec20b706ad97ed09b5aabf15f5" => :sierra
+    sha256 "82b0f3b0ae9f85046e495fc4405e93128a4d4118fcbb46dff8941d76d8c35335" => :el_capitan
+    sha256 "73393d9546784ef457fc2659918c5b46e2f3cdbe61707d2a8cf2a997ec2e5246" => :yosemite
   end
 
   depends_on "cmake" => :build
