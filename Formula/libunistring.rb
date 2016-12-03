@@ -7,11 +7,9 @@ class Libunistring < Formula
 
   bottle do
     cellar :any
-    sha256 "aa0b21d3084db39b2bd6047909008372c6fe00d1f7c60adb875fb10aae10e686" => :sierra
-    sha256 "e40c7dd30dc0815c41ef694014d4954744b515a99a03ac762cd4fac85611a3e6" => :el_capitan
-    sha256 "b89e4c0269f9915f3014fc5597b1feb9c87b3677c22c627003b155a803e32394" => :yosemite
-    sha256 "3029d050b300143e45a867b4043e124212c5917920ef70552e2b557620ae89fc" => :mavericks
-    sha256 "4dce7f8c3549d66c9c15503aa5aa408cfd77c67ad8704901e1dd1197431687de" => :mountain_lion
+    sha256 "d82c6b7c72707aa04eb00bd3e6a4a995ef830b41b02271111ee6006585eaca80" => :sierra
+    sha256 "c80c64fdd7d05bf0e387b3286238e1740e7989098ba6bde403151a1c14d57812" => :el_capitan
+    sha256 "e2143b25bf7bdc85ddb00b065cf1f72c665d77a6737563cd81a88420bc72e51f" => :yosemite
   end
 
   def install
