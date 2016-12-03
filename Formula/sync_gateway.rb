@@ -8,10 +8,9 @@ class SyncGateway < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ec6f97bbc7d3afeef7bc7274d93a2a89e4d51fd04eb64882295537aa46f407c6" => :sierra
-    sha256 "d2885b854b63c1acf88918a29122bbd26383f80001e9f5f6cace389d189df24e" => :el_capitan
-    sha256 "ee84b69ab0eeedc05fce8b24879414c539d31418aba1ad32a4e59bf8ccd73e9d" => :yosemite
-    sha256 "a49e6035c48b7117c3b3f672cc50b928878f9c0b04a6529d02dabd0397c5c0ff" => :mavericks
+    sha256 "6146d1292fb02687ed738bbd8bf5e265d1b55462caf15914d056202236cecf16" => :sierra
+    sha256 "d9db8238a572c9b27cfa9b986c7ee06af922da0fad68882d177e270d6f2b5637" => :el_capitan
+    sha256 "35a9b9ff4fe60cc0504cac69ba38b16031ca76eb4fe63938f1a2f5379c34baa5" => :yosemite
   end
 
   depends_on "go" => :build
