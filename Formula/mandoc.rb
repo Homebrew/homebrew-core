@@ -1,8 +1,8 @@
 class Mandoc < Formula
   desc "The mandoc UNIX manpage compiler toolset"
   homepage "http://mdocml.bsd.lv"
-  url "http://mdocml.bsd.lv/snapshots/mdocml-1.13.3.tar.gz"
-  sha256 "23ccab4800d50bf4c327979af5d4aa1a6a2dc490789cb67c4c3ac1bd40b8cad8"
+  url "http://mdocml.bsd.lv/snapshots/mdocml-1.13.4.tar.gz"
+  sha256 "0a55c1addb188071d6f784599303656b8465e98ec6b2f4f264e12fb96d79e0ef"
 
   head "anoncvs@mdocml.bsd.lv:/cvs", :module => "mdocml", :using => :cvs
 
