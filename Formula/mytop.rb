@@ -9,10 +9,9 @@ class Mytop < Formula
 
   bottle do
     cellar :any
-    sha256 "97141d4fee3c92c39263f48273cd459042d539c14c684bb89110f85eb7e58d18" => :sierra
-    sha256 "672c4f9115cc23baca9522bb4bca10908a3f45d527d176710d2bfa9c79e40758" => :el_capitan
-    sha256 "cf55483653ab53f64f6cd287a5b88e090f0f413229626f33f4f7533aa4580864" => :yosemite
-    sha256 "76f9ef9fb495f66d596dcec0f8ba9b2d2e43349432b164dddf6a2dde09e2632b" => :mavericks
+    sha256 "e49071ca46a5f8203d24ea318afab37b6a387f5669b69cca670a0b053e1c7611" => :sierra
+    sha256 "4fca8e6d7cf86993af8dcded0b4ce5bc0b4a3fb63ec2359c42d0513019ec03e0" => :el_capitan
+    sha256 "869b2a25dd9cd7fdeadce32336e8c8ff0d90545a78fedbd6c9a870c0910b2521" => :yosemite
   end
 
   depends_on :mysql
