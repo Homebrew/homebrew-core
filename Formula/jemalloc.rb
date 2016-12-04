@@ -1,8 +1,8 @@
 class Jemalloc < Formula
   desc "malloc implementation emphasizing fragmentation avoidance"
   homepage "http://www.canonware.com/jemalloc/"
-  url "https://github.com/jemalloc/jemalloc/releases/download/4.3.1/jemalloc-4.3.1.tar.bz2"
-  sha256 "f7bb183ad8056941791e0f075b802e8ff10bd6e2d904e682f87c8f6a510c278b"
+  url "https://github.com/jemalloc/jemalloc/releases/download/4.4.0/jemalloc-4.4.0.tar.bz2"
+  sha256 "a7aea63e9718d2f1adf81d87e3df3cb1b58deb86fc77bad5d702c4c59687b033"
   head "https://github.com/jemalloc/jemalloc.git"
 
   bottle do
@@ -13,12 +13,6 @@ class Jemalloc < Formula
   end
 
   def install
-    # dyld: lazy symbol binding failed: Symbol not found: _os_unfair_lock_lock
-    # Reported 6 Nov 2016 https://github.com/jemalloc/jemalloc/issues/494
-    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      ENV["je_cv_os_unfair_lock"] = "no"
-    end
-
     system "./configure", "--disable-debug", "--prefix=#{prefix}", "--with-jemalloc-prefix="
     system "make"
     system "make", "check"
