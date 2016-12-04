@@ -12,6 +12,7 @@
   "elasticsearch17": "elasticsearch@1.7",
   "elasticsearch24": "elasticsearch@2.4",
   "fig": "docker-compose",
+  "gcc46": "gcc@4.6",
   "gcc48": "gcc@4.8",
   "gcc49": "gcc@4.9",
   "geode": "apache-geode",
