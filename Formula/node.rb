@@ -1,5 +1,5 @@
 class Node < Formula
-  desc "Platform built on the V8 JavaScript runtime to build network applications"
+  desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v7.2.0/node-v7.2.0.tar.xz"
   sha256 "486d4db7ef659521ad2fafefca877638da07bef61e2aee090207ff52149294fb"
@@ -24,9 +24,14 @@ class Node < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl" => :optional
 
+  conflicts_with "node@0.10", :because => "Differing versions of the same formulae."
+  conflicts_with "node@0.12", :because => "Differing versions of the same formulae."
+  conflicts_with "node@4", :because => "Differing versions of the same formulae."
+  conflicts_with "node@5", :because => "Differing versions of the same formulae."
+  conflicts_with "node@6", :because => "Differing versions of the same formulae."
+
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
-  fails_with :llvm
   fails_with :gcc_4_0
   fails_with :gcc
   ("4.3".."4.7").each do |n|
