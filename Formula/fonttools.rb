@@ -3,8 +3,8 @@ class Fonttools < Formula
 
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
-  url "https://pypi.python.org/packages/d6/c4/688022e14fe8b8e899b40fd8eddece9f3e35b409267220432ac5f01e52c4/fonttools-3.1.2.zip"
-  sha256 "1e36cdaf52f93414f4ba9848e043630058b59f1ef4f1900bb1dd948f8e7ec55a"
+  url "https://github.com/fonttools/fonttools/releases/download/3.2.3/fonttools-3.2.3.zip"
+  sha256 "884939969e8a207648d7d85a4bc9b0c113857c689f1c1a9c5ffdd374f822d046"
   head "https://github.com/fonttools/fonttools.git"
 
   bottle do
@@ -21,8 +21,6 @@ class Fonttools < Formula
 
   def install
     virtualenv_install_with_resources
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages/FontTools"
-    system "python", "setup.py", "test"
   end
 
   test do
