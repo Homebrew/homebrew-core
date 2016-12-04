@@ -4,7 +4,7 @@ class Collectd < Formula
 
   stable do
     url "https://collectd.org/files/collectd-5.6.2.tar.bz2"
-    mirror "http://pkgs.fedoraproject.org/repo/pkgs/collectd/collectd-5.5.2.tar.bz2/40b83343f72089e0330f53965f1140bd/collectd-5.5.2.tar.bz2"
+    mirror "https://storage.googleapis.com/collectd-tarballs/collectd-5.6.2.tar.bz2"
     sha256 "cc0b4118a91e5369409ced22d1d8a85c1a400098419414160c1839268ecad0c6"
   end
 
