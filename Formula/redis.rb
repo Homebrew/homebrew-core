@@ -12,6 +12,12 @@ class Redis < Formula
     sha256 "ae6259f91c05dccc4ee4533f2c66f8872d0ffd15fefa9820707bd755dc902f11" => :yosemite
   end
 
+  devel do
+    url "https://github.com/antirez/redis/archive/4.0-rc1.tar.gz"
+    sha256 "4a7f8daafd5ca6d65a077d0bb8d4b6cc4ba5a2e6da2281fd45acebd327db941c"
+    version "4.0RC1"
+  end
+
   option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
 
   fails_with :llvm do
