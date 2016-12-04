@@ -29,6 +29,7 @@
   "mysql56": "mysql@5.6",
   "nimrod": "nim",
   "node010": "node@0.10",
+  "node012": "node@0.12",
   "objective-caml": "ocaml",
   "offline-imap": "offlineimap",
   "plt-racket": "racket",
