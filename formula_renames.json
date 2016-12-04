@@ -11,6 +11,7 @@
   "elasticsearch24": "elasticsearch@2.4",
   "fig": "docker-compose",
   "geode": "apache-geode",
+  "glfw3": "glfw",
   "go-app-engine-32": "app-engine-go-32",
   "go-app-engine-64": "app-engine-go-64",
   "google-app-engine": "app-engine-python",
