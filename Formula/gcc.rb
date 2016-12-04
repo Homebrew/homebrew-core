@@ -132,8 +132,11 @@ class Gcc < Formula
       # files prior to comparison during bootstrap (broken by Xcode 6.3).
       "--with-build-config=bootstrap-debug",
       "--disable-werror",
-      "--with-pkgversion=Homebrew #{name} #{pkg_version} #{build.used_options*" "}".strip,
-      "--with-bugurl=https://github.com/Homebrew/homebrew/issues",
+      "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
+      "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",
+      # Even when suffixes are appended, the info pages conflict when
+      # install-info is run.
+      "MAKEINFO=missing",
     ]
 
     # "Building GCC with plugin support requires a host that supports
@@ -182,13 +185,8 @@ class Gcc < Formula
 
     # Handle conflicts between GCC formulae and avoid interfering
     # with system compilers.
-    # Since GCC 4.8 libffi stuff are no longer shipped.
     # Rename man7.
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
-    # Even when suffixes are appended, the info pages conflict when
-    # install-info is run. TODO fix this.
-    info.rmtree
-    # Since GCC 4.9 java properties are properly sandboxed.
   end
 
   def add_suffix(file, suffix)
