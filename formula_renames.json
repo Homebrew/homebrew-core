@@ -16,6 +16,7 @@
   "gcc47": "gcc@4.7",
   "gcc48": "gcc@4.8",
   "gcc49": "gcc@4.9",
+  "gcc5": "gcc@5",
   "geode": "apache-geode",
   "glfw3": "glfw",
   "gmp4": "gmp@4",
