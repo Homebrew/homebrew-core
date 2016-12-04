@@ -1,15 +1,9 @@
-class Node < Formula
+class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v7.2.0/node-v7.2.0.tar.xz"
-  sha256 "486d4db7ef659521ad2fafefca877638da07bef61e2aee090207ff52149294fb"
-  head "https://github.com/nodejs/node.git"
-
-  bottle do
-    sha256 "bd0d149adc2e13ddab28bddd733ae5ce1053eb950407220860b04d73616abfa3" => :sierra
-    sha256 "ce798f34fad3f908e8451a7b1cebf41c5e07f422917d1673375671953315d6cf" => :el_capitan
-    sha256 "5580b25e7e09fdcbcc1eed1c7c09cad7748c9d27ed997aeb1d78cfe41c0b5774" => :yosemite
-  end
+  url "https://nodejs.org/dist/v6.9.1/node-v6.9.1.tar.xz"
+  sha256 "0bdd8d1305777cc8cd206129ea494d6c6ce56001868dd80147aff531d6df0729"
+  head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   option "with-debug", "Build with debugger hooks"
   option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
@@ -17,18 +11,15 @@ class Node < Formula
   option "without-completion", "npm bash completion will not be installed"
   option "with-full-icu", "Build with full-icu (all locales) instead of small-icu (English only)"
 
-  deprecated_option "enable-debug" => "with-debug"
-  deprecated_option "with-icu4c" => "with-full-icu"
-
   depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "openssl" => :optional
 
+  conflicts_with "node", :because => "Differing versions of the same formula"
   conflicts_with "node@0.10", :because => "Differing versions of the same formulae."
   conflicts_with "node@0.12", :because => "Differing versions of the same formulae."
   conflicts_with "node@4", :because => "Differing versions of the same formulae."
   conflicts_with "node@5", :because => "Differing versions of the same formulae."
-  conflicts_with "node@6", :because => "Differing versions of the same formulae."
 
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
@@ -42,15 +33,15 @@ class Node < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.10.9.tgz"
-    sha256 "fb0871b1aebf4b74717a72289fade356aedca83ee54e7386e38cb51874501dd6"
+    url "https://registry.npmjs.org/npm/-/npm-3.10.8.tgz"
+    sha256 "1121a75a370fd0efb320fffb7c9e4a8bcb3840d1cf2fbd585c54837b7014dd76"
   end
 
   resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/58.1/icu4c-58_1-src.tgz"
-    mirror "https://nuxi.nl/distfiles/third_party/icu4c-58_1-src.tgz"
-    version "58.1"
-    sha256 "0eb46ba3746a9c2092c8ad347a29b1a1b4941144772d13a88667a7b11ea30309"
+    url "https://ssl.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz"
+    mirror "https://fossies.org/linux/misc/icu4c-57_1-src.tgz"
+    version "57.1"
+    sha256 "ff8c67cb65949b1e7808f2359f2b80f722697048e90e7cfc382ec1fe229e9581"
   end
 
   def install
@@ -59,7 +50,6 @@ class Node < Formula
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
     args << "--shared-openssl" if build.with? "openssl"
-    args << "--tag=head" if build.head?
 
     if build.with? "full-icu"
       resource("icu4c").stage buildpath/"deps/icu"
@@ -175,7 +165,6 @@ class Node < Formula
       assert (HOMEBREW_PREFIX/"bin/npm").exist?, "npm must exist"
       assert (HOMEBREW_PREFIX/"bin/npm").executable?, "npm must be executable"
       system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "npm@latest"
-      system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "bignum" unless head?
     end
   end
 end
