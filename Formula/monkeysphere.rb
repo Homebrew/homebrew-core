@@ -1,9 +1,9 @@
 class Monkeysphere < Formula
   desc "Use the OpenPGP web of trust to verify ssh connections"
   homepage "http://web.monkeysphere.info/"
-  url "http://archive.monkeysphere.info/debian/pool/monkeysphere/m/monkeysphere/monkeysphere_0.40.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/monkeysphere/monkeysphere_0.40.orig.tar.gz"
-  sha256 "141d49a4434c2271347c169586444cda1335eeeece3b5fe5fd71a0095483a5c1"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/monkeysphere/monkeysphere_0.41.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/monkeysphere/monkeysphere_0.41.orig.tar.gz"
+  sha256 "911a2f1622ddb81151b0f41cf569ccf2154d10a09b2f446dbe98fac7279fe74b"
   head "git://git.monkeysphere.info/monkeysphere"
 
   bottle do
