@@ -5,6 +5,12 @@ class NodeAT010 < Formula
   sha256 "365a93d9acc076a0d93f087d269f376abeebccad599a9dab72f2f6ed96c8ae6e"
   head "https://github.com/nodejs/node.git", :branch => "v0.10-staging"
 
+  bottle do
+    sha256 "8583f18bb7737fd02230f6abfc04f9fb79a135e7ec9e6c72327d8e75aba5052f" => :sierra
+    sha256 "73dbaf96f21f3392aee5b24366c3a72d08146fb10c0556ba7d0a11857570155c" => :el_capitan
+    sha256 "3873679aeb79256b23fbf7282222020ef5353989f8c44c2feeaed24c3a206100" => :yosemite
+  end
+
   deprecated_option "enable-debug" => "with-debug"
 
   option "with-debug", "Build with debugger hooks"
