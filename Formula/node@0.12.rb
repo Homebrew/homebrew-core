@@ -5,6 +5,12 @@ class NodeAT012 < Formula
   sha256 "e2e82229200ef973e033d6dae910d789ab440e913f8c4c6225bf5e6e4a446420"
   head "https://github.com/nodejs/node.git", :branch => "v0.12-staging"
 
+  bottle do
+    sha256 "189db61cfe4116cd9903eb432621127b26e527bcecf21245142153b57a8c8045" => :sierra
+    sha256 "ecc2704661de6e76744e597c461e35742dfc5214f7f8e7ae16352ef5e9a3db02" => :el_capitan
+    sha256 "11eb7d47eac3f09c6130550d95cd57879a02143b000fbf4c900d42d60d796268" => :yosemite
+  end
+
   option "with-debug", "Build with debugger hooks"
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
