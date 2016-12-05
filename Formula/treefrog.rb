@@ -6,8 +6,8 @@ class Treefrog < Formula
   head "https://github.com/treefrogframework/treefrog-framework.git", :branch => "master"
 
   bottle do
-    sha256 "8d5daeb95fabb1bc5d0821cd4a29414b1cbc2d5483b094dd8d8a435172028685" => :sierra
-    sha256 "8d5daeb95fabb1bc5d0821cd4a29414b1cbc2d5483b094dd8d8a435172028685" => :el_capitan
+    sha256 "b507eb26410abc89061e1f2e0210f74ebe9825887e39306ccb433c4b8388fe55" => :sierra
+    sha256 "b507eb26410abc89061e1f2e0210f74ebe9825887e39306ccb433c4b8388fe55" => :el_capitan
   end
 
   option "with-mysql", "enable --with-mysql option for Qt build"
