@@ -1,14 +1,3 @@
-class OracleHomeVarRequirement < Requirement
-  fatal true
-  satisfy(:build_env => false) { ENV["ORACLE_HOME"] }
-
-  def message; <<-EOS.undent
-      To use --with-oci you have to set the ORACLE_HOME environment variable.
-      Check Oracle Instant Client documentation for more information.
-    EOS
-  end
-end
-
 # Patches for Qt5 must be at the very least submitted to Qt's Gerrit codereview
 # rather than their bug-report Jira. The latter is rarely reviewed by Qt.
 class Qt5 < Formula
@@ -85,9 +74,7 @@ class Qt5 < Formula
 
   option "with-docs", "Build documentation"
   option "with-examples", "Build examples"
-  option "with-oci", "Build with Oracle OCI plugin"
   option "with-qtwebkit", "Build with QtWebkit module"
-  option "without-webengine", "Build without QtWebEngine module"
 
   deprecated_option "qtdbus" => "with-dbus"
   deprecated_option "with-d-bus" => "with-dbus"
@@ -102,8 +89,6 @@ class Qt5 < Formula
   depends_on "pkg-config" => :build
   depends_on :postgresql => :optional
   depends_on :xcode => :build
-
-  depends_on OracleHomeVarRequirement if build.with? "oci"
 
   # http://lists.qt-project.org/pipermail/development/2016-March/025358.html
   resource "qt-webkit" do
@@ -159,14 +144,6 @@ class Qt5 < Formula
     else
       args << "-no-dbus"
     end
-
-    if build.with? "oci"
-      args << "-I#{ENV["ORACLE_HOME"]}/sdk/include"
-      args << "-L#{ENV["ORACLE_HOME"]}"
-      args << "-plugin-sql-oci"
-    end
-
-    args << "-skip" << "qtwebengine" if build.without? "webengine"
 
     if build.with? "qtwebkit"
       (buildpath/"qtwebkit").install resource("qt-webkit")
