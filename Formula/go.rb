@@ -1,6 +1,7 @@
 class Go < Formula
   desc "The Go programming language"
   homepage "https://golang.org"
+  revision 1
 
   stable do
     url "https://storage.googleapis.com/golang/go1.7.4.src.tar.gz"
@@ -63,7 +64,7 @@ class Go < Formula
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
       ENV["GOOS"]         = "darwin"
-      ENV["CGO_ENABLED"]  = build.with?("cgo") ? "1" : "0"
+      ENV["CGO_ENABLED"]  = "0" if build.without?("cgo")
       system "./make.bash", "--no-clean"
     end
 
@@ -120,6 +121,11 @@ class Go < Formula
     if build.with? "godoc"
       assert File.exist?(libexec/"bin/godoc")
       assert File.executable?(libexec/"bin/godoc")
+    end
+
+    if build.with? "cgo"
+      ENV["GOOS"] = "freebsd"
+      system bin/"go", "build", "hello.go"
     end
   end
 end
