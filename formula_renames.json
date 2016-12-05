@@ -41,5 +41,6 @@
   "screenbrightness": "brightness",
   "sonar": "sonarqube",
   "stash-cli": "atlassian-cli",
+  "tomcat6": "tomcat@6",
   "wires": "geckodriver"
 }
