@@ -1,8 +1,8 @@
 class Jasper < Formula
   desc "Library for manipulating JPEG-2000 images"
   homepage "https://www.ece.uvic.ca/~frodo/jasper/"
-  url "https://github.com/mdadams/jasper/archive/version-2.0.3.tar.gz"
-  sha256 "220811235350a17ad134358549fb5163c415e6527f8e37ac3b94980bd8301ccc"
+  url "https://github.com/mdadams/jasper/archive/version-2.0.4.tar.gz"
+  sha256 "659a17d9754a2c4786c20ce65bf26309892740e781a512c5da5720a66b372d74"
 
   bottle do
     sha256 "7bc1f6db8ed45196f8dca79af2d380022d7802e5b8fe258272cb07049d400a75" => :sierra
