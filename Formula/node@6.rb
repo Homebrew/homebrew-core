@@ -5,6 +5,12 @@ class NodeAT6 < Formula
   sha256 "0bdd8d1305777cc8cd206129ea494d6c6ce56001868dd80147aff531d6df0729"
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
+  bottle do
+    sha256 "3270826585a14ace0232e38fcd0593eb82c92310e4dc80fe5e2ae9690c50d04e" => :sierra
+    sha256 "f0b0af00e32d775cf5356e8002cb46494a101ef36878ea4890b54682848a6634" => :el_capitan
+    sha256 "45543e414d0718f36c8c5482e09d746041133173b8922493a5df3e9f5855066e" => :yosemite
+  end
+
   option "with-debug", "Build with debugger hooks"
   option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
   option "without-npm", "npm will not be installed"
