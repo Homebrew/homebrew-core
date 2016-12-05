@@ -3,8 +3,8 @@ require "language/node"
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases."
   homepage "http://grafana.org"
-  url "https://github.com/grafana/grafana/archive/v3.1.1.tar.gz"
-  sha256 "77bff57f02e507fb998d6d2492798801db4cb10c82c1378e32bd1dde963dba3d"
+  url "https://github.com/grafana/grafana/archive/v4.0.1.tar.gz"
+  sha256 "17a07d5912d928bf5f63e81b5d0f366063c4dc3e84705ace2003149a5357a3e5"
 
   head "https://github.com/grafana/grafana.git"
 
@@ -117,7 +117,7 @@ class Grafana < Formula
     listening = Timeout.timeout(5) do
       li = false
       r.each do |l|
-        if l =~ /Listen/
+        if l =~ /Initializing HTTP Server/
           li = true
           break
         end
