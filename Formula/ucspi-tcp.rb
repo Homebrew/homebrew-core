@@ -3,6 +3,7 @@ class UcspiTcp < Formula
   homepage "https://cr.yp.to/ucspi-tcp.html"
   url "https://cr.yp.to/ucspi-tcp/ucspi-tcp-0.88.tar.gz"
   sha256 "4a0615cab74886f5b4f7e8fd32933a07b955536a3476d74ea087a3ea66a23e9c"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
