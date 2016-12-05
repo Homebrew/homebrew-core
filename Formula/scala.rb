@@ -17,7 +17,7 @@ class Scala < Formula
   option "with-docs", "Also install library documentation"
   option "with-src", "Also install sources for IDE support"
 
-  depends_on java: "1.8+"
+  depends_on :java => "1.8+"
 
   resource "docs" do
     url "https://downloads.lightbend.com/scala/2.12.1/scala-docs-2.12.1.txz"
