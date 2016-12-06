@@ -28,6 +28,7 @@
   "letsencrypt": "certbot",
   "libcppa": "caf",
   "libmongoclient": "mongo-cxx-driver",
+  "libmpc08": "libmpc@0.8",
   "mongo-c": "mongo-c-driver",
   "mpich2": "mpich",
   "mysql55": "mysql@5.5",
