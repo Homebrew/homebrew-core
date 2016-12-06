@@ -1,6 +1,7 @@
 {
   "app-engine-java-sdk": "app-engine-java",
   "beanstalk": "beanstalkd",
+  "cloog-ppl015": "cloog@0.15",
   "commonmark": "cmark",
   "cppformat": "fmt",
   "crystal": "autocode",
