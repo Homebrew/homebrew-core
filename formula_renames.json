@@ -43,6 +43,7 @@
   "objective-caml": "ocaml",
   "offline-imap": "offlineimap",
   "plt-racket": "racket",
+  "ppl011": "ppl@0.11",
   "polarssl": "mbedtls",
   "qt55": "qt@5.5",
   "racket": "minimal-racket",
