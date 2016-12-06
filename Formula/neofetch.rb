@@ -7,9 +7,9 @@ class Neofetch < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a72df966e14761f62349c46036ef147d4d3365477155b5c0cf6ff4f48693cc2d" => :sierra
-    sha256 "a72df966e14761f62349c46036ef147d4d3365477155b5c0cf6ff4f48693cc2d" => :el_capitan
-    sha256 "a72df966e14761f62349c46036ef147d4d3365477155b5c0cf6ff4f48693cc2d" => :yosemite
+    sha256 "585b875470f199c83fb6992d4d07ffb61616a19632db4a9267d4b4caabaaf6e8" => :sierra
+    sha256 "585b875470f199c83fb6992d4d07ffb61616a19632db4a9267d4b4caabaaf6e8" => :el_capitan
+    sha256 "585b875470f199c83fb6992d4d07ffb61616a19632db4a9267d4b4caabaaf6e8" => :yosemite
   end
 
   depends_on "screenresolution" => :recommended
