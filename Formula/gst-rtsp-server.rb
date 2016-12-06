@@ -4,6 +4,12 @@ class GstRtspServer < Formula
   url "https://gstreamer.freedesktop.org/src/gst-rtsp-server/gst-rtsp-server-1.10.2.tar.xz"
   sha256 "822dd6f754fea2bbf3369a7c388372f49b74668fb57943c1888675e544b07235"
 
+  bottle do
+    sha256 "380360474051414dd8fa98056b65b37a238457cffdf453939f395e6b1c8057d3" => :sierra
+    sha256 "53dea0556dc1dc6e6324a736ee40580c2dc671ed7424734bfeae52204693e165" => :el_capitan
+    sha256 "52ff8d5fc2be57ddc3752145ef31ae53677df7d7e83bb048758da0b86158d838" => :yosemite
+  end
+
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
