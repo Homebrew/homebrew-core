@@ -84,6 +84,10 @@ class Vim < Formula
       opts << "--without-x"
     end
 
+    if build.with? "lua"
+      opts << "--enable-luainterp"
+    end
+
     if build.with? "luajit"
       opts << "--with-luajit"
       opts << "--enable-luainterp"
