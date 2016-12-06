@@ -10,9 +10,9 @@ class PandocCrossref < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "67900e8d27ab55437f56788e7cbe2a063132e7ee3972aa6740cfb86959711ed6" => :sierra
-    sha256 "3c2df28ae93d800f88c49d058060d5bcb4b26cc7f20a4d11f73fc3968e207e73" => :el_capitan
-    sha256 "cdbfe9aeb3b9eb7826e4fe56b94d7e3ac14249562dcb1ac5d48fe5bbb8a0bba9" => :yosemite
+    sha256 "da222315b8f7b9e0cc68a7215a54eaf2377f428d0db69a3b72e4c98027c789e9" => :sierra
+    sha256 "f5ced83ebce430a8870a6106f1947480124a49891bad0af5cdebc1143c49c8d4" => :el_capitan
+    sha256 "0ff5b3b70750f81d8ad96dd3d0d8de5c4afbab60b54a6c38bd1cf0c428c42a89" => :yosemite
   end
 
   depends_on "ghc" => :build
