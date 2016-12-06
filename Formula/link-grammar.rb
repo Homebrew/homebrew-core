@@ -1,8 +1,8 @@
 class LinkGrammar < Formula
   desc "Carnegie Mellon University's link grammar parser"
   homepage "http://www.abisource.com/projects/link-grammar/"
-  url "http://www.abisource.com/downloads/link-grammar/5.3.3/link-grammar-5.3.3.tar.gz"
-  sha256 "832e1aa61d5eafbb7d3f4429847125067dcb6a3ece8c55ee8ffb1cd8c8db57d4"
+  url "http://www.abisource.com/downloads/link-grammar/5.3.13/link-grammar-5.3.13.tar.gz"
+  sha256 "a0f1665e046d6e40dfab305d3eab728ede2c509dd798c12154c52590bd81e3ca"
 
   bottle do
     sha256 "f6e69a200b473a60a6bafe8abe02862b9e114f10a4277badf63b03f2a818fbab" => :sierra
@@ -19,6 +19,10 @@ class LinkGrammar < Formula
   depends_on :ant => :build
 
   def install
+    ENV["PYTHON_LIBS"] = "-undefined dynamic_lookup"
+    inreplace "bindings/python/Makefile.am",
+      "$(PYTHON2_LDFLAGS) -module -no-undefined",
+      "$(PYTHON2_LDFLAGS) -module"
     inreplace "autogen.sh", "libtoolize", "glibtoolize"
     system "./autogen.sh", "--no-configure"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
