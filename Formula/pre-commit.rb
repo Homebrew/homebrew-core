@@ -3,8 +3,8 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v0.9.3.tar.gz"
-  sha256 "5bf1c6a5d4364c272f6b73a6a364cd3d6afb96688bdf17b9839dc039d129e660"
+  url "https://github.com/pre-commit/pre-commit/archive/v0.9.4.tar.gz"
+  sha256 "d03023a57180d548c821e59ff2449564f98442e2bb8f9579cc5f3a689996505e"
 
   bottle do
     cellar :any_skip_relocation
@@ -51,8 +51,8 @@ class PreCommit < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/8b/2c/c0d3e47709d0458816167002e1aa3d64d03bdeb2a9d57c5bd18448fd24cd/virtualenv-15.0.3.tar.gz"
-    sha256 "6d9c760d3fc5fa0894b0f99b9de82a4647e1164f0b700a7f99055034bf548b1d"
+    url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
+    sha256 "02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a"
   end
 
   def install
