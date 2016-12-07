@@ -1,8 +1,8 @@
 class Javarepl < Formula
   desc "Read Eval Print Loop (REPL) for Java"
   homepage "https://github.com/albertlatacz/java-repl"
-  url "https://github.com/albertlatacz/java-repl/releases/download/423/javarepl-423.jar"
-  sha256 "24b89daf955b6bad61c8955ae4f8a5447514c5e92b216d9eff3e0b1f54abf0e3"
+  url "https://github.com/albertlatacz/java-repl/releases/download/425/javarepl-425.jar"
+  sha256 "eba8991d57ce9722fd94e4fa2dae2fc25b372887b3b6ad2db170f7cf215b8049"
 
   bottle :unneeded
 
