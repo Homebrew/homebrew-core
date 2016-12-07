@@ -23,7 +23,8 @@ class Mawk < Formula
   end
 
   test do
-    version = shell_output("#{bin}/mawk '/version/ { print $2 }' #{prefix}/README")
-    assert_equal version, version.to_s
+    mawk_expr = '/^mawk / {printf("%s-%s", $2, $3)}'
+    ver_out = shell_output("#{bin}/mawk -W version 2>&1 | #{bin}/mawk '#{mawk_expr}'")
+    assert_equal version.to_s, ver_out
   end
 end
