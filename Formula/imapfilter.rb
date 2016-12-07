@@ -5,9 +5,9 @@ class Imapfilter < Formula
   sha256 "6079c0244bf3bd29903b43315c72bd73c7c764b64cc99369bbd9b85618215341"
 
   bottle do
-    sha256 "0a2518958c1ea6df24ab3a4f7248118cb50d28e8d35d414586391c77bc18de7f" => :sierra
-    sha256 "75a379e2fc7e1821235ed67da955d1ff0e2fc177359a75129aaf62161b6d307a" => :el_capitan
-    sha256 "4c40f47fa1ca823396dcd833472f99f42b43d1f9438bb9f4037ff2c99fd9509f" => :yosemite
+    sha256 "2a4716c913d90c0fabe0bf91f762f785c00c106855e050163c320ace3c51b52e" => :sierra
+    sha256 "76b93973e164d52d577ec3df79370ab2ad9bb27929f4ea8665aea7c2eb8a2b66" => :el_capitan
+    sha256 "0b33040e44013e2d39620bc4dbe0fea3ea9b817d398950d1f488ff87e49c50ca" => :yosemite
   end
 
   depends_on "lua"
