@@ -1,9 +1,8 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/JohnLangford/vowpal_wabbit"
-  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.2.1.tar.gz"
-  sha256 "884eaa4b126f8247c980082dc1959db0206b75bab4fee06bbb54936800a8e5e2"
-  head "https://github.com/JohnLangford/vowpal_wabbit.git"
+  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.3.0.tar.gz"
+  sha256 "f255019a42515db6d7530299df41948a1ae56922e1b255045646dc433192a895"
 
   bottle do
     cellar :any
@@ -22,7 +21,7 @@ class VowpalWabbit < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "rapidjson" => :build if build.head?
+  depends_on "rapidjson" => :build
   needs :cxx11
 
   def install
