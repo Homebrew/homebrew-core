@@ -38,6 +38,7 @@
   "plt-racket": "racket",
   "polarssl": "mbedtls",
   "qt55": "qt@5.5",
+  "postgres-xc": "postgres-x2",
   "racket": "minimal-racket",
   "screenbrightness": "brightness",
   "sonar": "sonarqube",
