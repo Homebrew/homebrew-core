@@ -60,8 +60,8 @@ class DockerMachineDriverXhyve < Formula
   def caveats; <<-EOS.undent
     This driver requires superuser privileges to access the hypervisor. To
     enable, execute
-        sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
-        sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+        sudo chown root:wheel #{opt_prefix}/bin/docker-machine-driver-xhyve
+        sudo chmod u+s #{opt_prefix}/bin/docker-machine-driver-xhyve
     EOS
   end
 
