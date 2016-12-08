@@ -18,12 +18,44 @@ class Webdis < Formula
     system "make"
     bin.install "webdis"
 
-    inreplace "webdis.prod.json", "/var/log/webdis.log", "#{var}/log/webdis.log"
+    inreplace "webdis.prod.json" do |s|
+      s.gsub! "/var/log/webdis.log", "#{var}/log/webdis.log"
+      s.gsub! /daemonize":\s*true/, "daemonize\":\tfalse"
+    end
+
     etc.install "webdis.json", "webdis.prod.json"
   end
 
   def post_install
     (var/"log").mkpath
+  end
+
+  plist_options :manual => "webdis #{HOMEBREW_PREFIX}/etc/webdis.json"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>#{opt_bin}/webdis</string>
+            <string>#{etc}/webdis.prod.json</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <dict>
+            <key>SuccessfulExit</key>
+            <false/>
+        </dict>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+      </dict>
+    </plist>
+    EOS
   end
 
   test do
