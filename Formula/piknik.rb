@@ -30,7 +30,7 @@ class Piknik < Formula
 
   def caveats; <<-EOS.undent
     In order to get convenient shell aliases, put something like this in #{shell_profile}:
-      source "$(brew --prefix)/etc/profile.d/piknik.sh"
+      . #{etc}/profile.d/piknik.sh
     EOS
   end
 
