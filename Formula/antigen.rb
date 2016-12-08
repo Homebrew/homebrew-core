@@ -13,14 +13,12 @@ class Antigen < Formula
 
   def caveats; <<-EOS.undent
     To activate antigen, add the following to your ~/.zshrc:
-
-      source $(brew --prefix)/share/antigen/antigen.zsh
-
+      source #{HOMEBREW_PREFIX}/share/antigen/antigen.zsh
     EOS
   end
 
   test do
-    (testpath/".zshrc").write "source `brew --prefix`/share/antigen/antigen.zsh\n"
+    (testpath/".zshrc").write "source #{HOMEBREW_PREFIX}/share/antigen/antigen.zsh\n"
     system "zsh", "--login", "-i", "-c", "antigen help"
   end
 end
