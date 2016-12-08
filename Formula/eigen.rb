@@ -1,8 +1,8 @@
 class Eigen < Formula
   desc "C++ template library for linear algebra"
   homepage "https://eigen.tuxfamily.org/"
-  url "https://bitbucket.org/eigen/eigen/get/3.3.0.tar.bz2"
-  sha256 "e3cf8f9289de20540a79c9c5653bbe623cadd6202bfe9692e95c420b5adbb7e7"
+  url "https://bitbucket.org/eigen/eigen/get/3.3.1.tar.bz2"
+  sha256 "a0b4cebaabd8f371d1b364f9723585fbcc7c9640ca60273b99835e6cf115f056"
   head "https://bitbucket.org/eigen/eigen", :using => :hg
 
   bottle do
