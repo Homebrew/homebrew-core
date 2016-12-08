@@ -3,8 +3,8 @@ require "language/go"
 class Devd < Formula
   desc "Local webserver for developers"
   homepage "https://github.com/cortesi/devd"
-  url "https://github.com/cortesi/devd/archive/v0.6.tar.gz"
-  sha256 "fdf8fbc73e1d09c968c483c0e84d58cb88f9f934a72bca3f63b7f505de69e01b"
+  url "https://github.com/cortesi/devd/archive/v0.7.tar.gz"
+  sha256 "c1d2f102e017da92bf6c333ba90c305eb90085aec342a69e7a7889b3b685da96"
   head "https://github.com/cortesi/devd.git"
 
   bottle do
