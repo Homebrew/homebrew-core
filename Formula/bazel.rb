@@ -1,8 +1,8 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/archive/0.4.1.tar.gz"
-  sha256 "8e4646898fa9298422e69767752680d34cbf21bcae01c401b11aa74fcdb0ef66"
+  url "https://github.com/bazelbuild/bazel/releases/download/0.4.2/bazel-0.4.2-dist.zip"
+  sha256 "8e6f41252abadcdb2cc7a07f910ec4b45fb12c46f0a578672c6a186c7efcdb36"
   head "https://github.com/bazelbuild/bazel.git"
 
   bottle do
