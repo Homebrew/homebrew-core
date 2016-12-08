@@ -214,6 +214,10 @@ class Ooniprobe < Formula
        <true/>
      <key>KeepAlive</key>
        <true/>
+     <key>StandardErrorPath</key>
+       <string>/dev/null</string>
+     <key>StandardOutPath</key>
+       <string>/dev/null</string>
      <key>WorkingDirectory</key>
        <string>#{var}/log/</string>
    </dict>
