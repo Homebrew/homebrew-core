@@ -12,6 +12,12 @@ class Nomad < Formula
     sha256 "f292943027d1ee394312ec6286ef3ef944a6cdcac882b6086801d12eda7864ba" => :yosemite
   end
 
+  devel do
+    url "https://github.com/hashicorp/nomad/archive/v0.4.1-rc1.tar.gz"
+    version "0.4.1-rc1"
+    sha256 "b9883930003283c0dbc0027b273ce5ae745055c542d2fe514befcd4d555d89cb"
+  end
+
   depends_on "go" => :build
 
   def install
