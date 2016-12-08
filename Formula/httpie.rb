@@ -1,9 +1,8 @@
 class Httpie < Formula
   desc "User-friendly cURL replacement (command-line HTTP client)"
   homepage "https://httpie.org/"
-  url "https://pypi.python.org/packages/be/52/d85e9d18138cb0bbb396d52d53219f294fcf065eb543a65a4b38a3a0e03c/httpie-0.9.6.tar.gz"
-  sha256 "a64b90f845544b654495fa9268431dfb74c14c3a855b52937517a70c812f90b1"
-
+  url "https://pypi.python.org/packages/85/95/7ccea3ae7fd1185e21629f6d14fa9c896d6250bb15fb492efa91edc741a2/httpie-0.9.8.tar.gz"
+  sha256 "515870b15231530f56fe2164190581748e8799b66ef0fe36ec9da3396f0df6e1"
   head "https://github.com/jkbrzt/httpie.git"
 
   bottle do
@@ -22,8 +21,8 @@ class Httpie < Formula
   end
 
   resource "requests" do
-    url "https://pypi.python.org/packages/8d/66/649f861f980c0a168dd4cccc4dd0ed8fa5bd6c1bed3bea9a286434632771/requests-2.11.0.tar.gz"
-    sha256 "b2ff053e93ef11ea08b0e596a1618487c4e4c5f1006d7a1706e3671c57dea385"
+    url "https://pypi.python.org/packages/d9/03/155b3e67fe35fe5b6f4227a8d9e96a14fda828b18199800d161bcefc1359/requests-2.12.3.tar.gz"
+    sha256 "de5d266953875e9647e37ef7bfe6ef1a46ff8ddfe61b5b3652edf7ea717ee2b2"
   end
 
   def install
