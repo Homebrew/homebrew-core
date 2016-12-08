@@ -1,8 +1,8 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers."
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.3.1.tar.gz"
-  sha256 "a5aa561e485229dc58100673d0b10df5c0e7c3661b57530ed68a4d84cdfe3940"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.3.2.tar.gz"
+  sha256 "2e3292c4b87ef1a9f9b32240b3c46f70b0a5e3c77b914df3266ba2e70f7d6da4"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
@@ -41,6 +41,8 @@ class Ibex < Formula
     args << "--with-param-estim" if build.with? "param-estim"
 
     system "./waf", "configure", *args
+    system "make", "-C", "3rd/filibsrc"
+    system "./waf", "build"
     system "./waf", "install"
 
     pkgshare.install %w[examples benchs]
