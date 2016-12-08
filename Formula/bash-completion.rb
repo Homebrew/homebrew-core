@@ -37,9 +37,7 @@ class BashCompletion < Formula
 
   def caveats; <<-EOS.undent
     Add the following lines to your ~/.bash_profile:
-      if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
-      fi
+      [ -f #{etc}/bash_completion ] && . #{etc}/bash_completion
     EOS
   end
 
