@@ -28,7 +28,7 @@ class Dvm < Formula
 
       system "make", "VERSION=#{version}", "UPGRADE_DISABLED=true"
       prefix.install "dvm.sh"
-      prefix.install "bash_completion"
+      bash_completion.install "bash_completion" => "dvm"
       (prefix/"dvm-helper").install "dvm-helper/dvm-helper"
       prefix.install_metafiles
     end
@@ -37,12 +37,7 @@ class Dvm < Formula
   def caveats; <<-EOS.undent
     dvm is a shell function, and must be sourced before it can be used.
     Add the following command to your bash profile:
-
-        [[ -s "$(brew --prefix dvm)/dvm.sh" ]] && source "$(brew --prefix dvm)/dvm.sh"
-
-    To enable tab completion of commands, add the following command to your bash profile:
-        [[ -s "$(brew --prefix dvm)/bash_completion" ]] && source "$(brew --prefix dvm)/bash_completion"
-
+        [ -f #{opt_prefix}/dvm.sh ] && . #{opt_prefix}/dvm.sh
     EOS
   end
 
