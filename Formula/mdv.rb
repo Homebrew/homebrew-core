@@ -3,8 +3,8 @@ class Mdv < Formula
 
   desc "Styled terminal markdown viewer"
   homepage "https://github.com/axiros/terminal_markdown_viewer"
-  url "https://github.com/axiros/terminal_markdown_viewer/archive/1.6.0.tar.gz"
-  sha256 "20ad41366e0944f627ccc85d91ddc3b72d53cab1501c4930ff24ae30abc64831"
+  url "https://github.com/axiros/terminal_markdown_viewer/archive/1.6.3.tar.gz"
+  sha256 "58dbdf8c051a2d7f8c00e4dc13c655c335cbc2bc96851dd0388d73a21c4507b6"
 
   bottle do
     cellar :any_skip_relocation
