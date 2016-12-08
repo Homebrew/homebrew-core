@@ -14,7 +14,7 @@ class Homeshick < Formula
     inreplace "bin/homeshick", /^homeshick=.*/, "homeshick=#{opt_prefix}"
 
     prefix.install "lib", "homeshick.sh"
-    prefix.install "homeshick.fish" if build.with? "fish"
+    fish_function.install "homeshick.fish" if build.with? "fish"
     bin.install "bin/homeshick"
     bin.install "bin/homeshick.csh" if build.with? "csh"
     zsh_completion.install "completions/_homeshick"
@@ -32,13 +32,6 @@ class Homeshick < Formula
       `source "#{opt_prefix}/homeshick.sh"`
       in your $HOME/.bashrc
     EOS
-    if build.with? "fish"
-      s += <<-EOS.undent
-        and
-        `#{opt_prefix}.fish`
-        in your $HOME/.config/fish/config.fish
-      EOS
-    end
     if build.with? "csh"
       s += <<-EOS.undent
         and
