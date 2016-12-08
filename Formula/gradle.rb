@@ -12,9 +12,7 @@ class Gradle < Formula
 
   def install
     libexec.install %w[bin lib]
-    if build.with? "all"
-      libexec.install %w[docs media samples src]
-    end
+    libexec.install %w[docs media samples src] if build.with? "all"
     bin.install_symlink libexec/"bin/gradle"
   end
 
