@@ -26,7 +26,7 @@ class Autojump < Formula
   def caveats; <<-EOS.undent
     Add the following line to your ~/.bash_profile or ~/.zshrc file (and remember
     to source the file to update your current session):
-      [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+      [ -f #{etc}/profile.d/autojump.sh ] && . #{etc}/profile.d/autojump.sh
 
     If you use the Fish shell then add the following line to your ~/.config/fish/config.fish:
       [ -f #{HOMEBREW_PREFIX}/share/autojump/autojump.fish ]; and source #{HOMEBREW_PREFIX}/share/autojump/autojump.fish
@@ -37,7 +37,7 @@ class Autojump < Formula
     path = testpath/"foo/bar"
     path.mkpath
     output = %x(
-      source #{HOMEBREW_PREFIX}/etc/profile.d/autojump.sh
+      source #{etc}/profile.d/autojump.sh
       j -a "#{path.relative_path_from(testpath)}"
       j foo >/dev/null
       pwd
