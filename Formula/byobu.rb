@@ -38,7 +38,7 @@ class Byobu < Formula
 
   def caveats; <<-EOS.undent
     Add the following to your shell configuration file:
-      export BYOBU_PREFIX=$(brew --prefix)
+      export BYOBU_PREFIX=#{HOMEBREW_PREFIX}
     EOS
   end
 
