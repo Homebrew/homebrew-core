@@ -27,7 +27,7 @@ class OsrmBackend < Formula
       system "make"
       system "make", "install"
     end
-    share.install "profiles"
+    pkgshare.install "profiles"
   end
 
   test do
