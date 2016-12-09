@@ -7,6 +7,12 @@ class Termius < Formula
   sha256 "53fa552b68366682c471bf4b3f23417c436c3a3d453f9e95a3fac504ec715f07"
   head "https://github.com/Crystalnix/termius-cli.git", :branch => "develop"
 
+  bottle do
+    sha256 "ea5036e22b139db9fd8ec4488cbca5d3c2f931d9f4a315654e527862794d7226" => :sierra
+    sha256 "ba8eb52a3464c69ad24c22c0e81dd9466e739de685f92f045a282aaf66a7c286" => :el_capitan
+    sha256 "3bee74ae73e4487c96fe62b553f5c62dc565a66a651df98e74ebf6383e69c942" => :yosemite
+  end
+
   depends_on :python
   depends_on "openssl"
   depends_on "bash-completion" => :recommended
