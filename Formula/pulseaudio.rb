@@ -35,7 +35,6 @@ class Pulseaudio < Formula
   depends_on "libsoxr"
   depends_on "openssl"
 
-  depends_on :x11 => :optional
   depends_on "glib" => :optional
   depends_on "gconf" => :optional
   depends_on "dbus" => :optional
@@ -66,6 +65,7 @@ class Pulseaudio < Formula
     args << "--with-mac-sysroot=#{MacOS.sdk_path}"
     args << "--with-mac-version-min=#{MacOS.version}"
     args << "--disable-nls" if build.without? "nls"
+    args << "--disable-x11"
 
     if build.universal?
       args << "--enable-mac-universal"
