@@ -4,7 +4,7 @@ class Jolt < Formula
   url "http://search.maven.org/remotecontent?filepath=com/bazaarvoice/jolt/jolt-cli/0.0.24/jolt-cli-0.0.24.jar"
   sha256 "5a4bf4afb8bd01154aa2bcf89bde87a1b2623ae8b6901893a4d9f1a291689bbf"
 
-  depends_on :java
+  depends_on :java => "1.7+"
 
   def install
     libexec.install "jolt-cli-#{version}.jar"
