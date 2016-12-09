@@ -1,8 +1,8 @@
 class Filebeat < Formula
   desc "File harvester to ship log files to Elasticsearch or Logstash"
   homepage "https://www.elastic.co/products/beats/filebeat"
-  url "https://github.com/elastic/beats/archive/v5.0.2.tar.gz"
-  sha256 "feef1e53b978c12b3b3c552534fd666839df5d7d3b974e16636360ca6c4ab7c0"
+  url "https://github.com/elastic/beats/archive/v5.1.1.tar.gz"
+  sha256 "f280b975afffd5c2e9ddb9aef2823aff065aec8c41325999c2721fa2770dafb0"
 
   head "https://github.com/elastic/beats.git"
 
