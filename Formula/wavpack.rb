@@ -1,8 +1,8 @@
 class Wavpack < Formula
   desc "Hybrid lossless audio compression"
   homepage "http://www.wavpack.com/"
-  url "http://www.wavpack.com/wavpack-4.80.0.tar.bz2"
-  sha256 "79182ea75f7bd1ca931ed230062b435fde4a4c2e0dbcad048007bd1ef1e66be9"
+  url "http://www.wavpack.com/wavpack-5.0.0.tar.bz2"
+  sha256 "918d7e32a19598df543b17fff840b10a0880f87296f9e32af454d256b6a64049"
 
   bottle do
     cellar :any
