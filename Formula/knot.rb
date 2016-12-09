@@ -3,8 +3,8 @@ class Knot < Formula
   homepage "https://www.knot-dns.cz/"
 
   stable do
-    url "https://secure.nic.cz/files/knot-dns/knot-2.3.2.tar.xz"
-    sha256 "ba298157693d2b3264ff53afd397d8bb240336b36c18064515890733254700df"
+    url "https://secure.nic.cz/files/knot-dns/knot-2.3.3.tar.xz"
+    sha256 "a929bce3b957a81776b1db7b43b0e4473339bf16be8dbba5abb4b0593bf43c94"
 
     resource "fstrm" do
       url "https://github.com/farsightsec/fstrm/archive/v0.3.0.tar.gz"
