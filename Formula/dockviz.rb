@@ -4,8 +4,8 @@ class Dockviz < Formula
   desc "Visualizing docker data"
   homepage "https://github.com/justone/dockviz"
   url "https://github.com/justone/dockviz.git",
-    :tag => "v0.4.2",
-    :revision => "9863e97953bde4fc770c6f1a499513b01f907902"
+    :tag => "v0.5.0",
+    :revision => "ee1ab834db62e5549c144f7968b81ebb167e0564"
   head "https://github.com/justone/dockviz.git"
 
   bottle do
