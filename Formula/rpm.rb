@@ -18,6 +18,7 @@ class Rpm < Formula
       :using => RpmDownloadStrategy
   version "5.4.15"
   sha256 "d4ae5e9ed5df8ab9931b660f491418d20ab5c4d72eb17ed9055b80b71ef6c4ee"
+  revision 1
 
   bottle do
     sha256 "718f3e01ea9eac8516a4566403627da074b7cc2b20c40d7797828f5fe93bfae7" => :sierra
@@ -114,7 +115,8 @@ class Rpm < Formula
     EOS
 
     system "#{bin}/rpm", "-vv", "-qa", "--dbpath=#{testpath}/var/lib/rpm"
-    assert File.exist?(testpath/"var/lib/rpm/Packages")
+    assert File.exist?(testpath/"var/lib/rpm/sqldb"), "Failed to create 'sqldb' file!"
+    assert_match "Packages", shell_output("sqlite3 #{testpath}/var/lib/rpm/sqldb <<< .tables")
     rpmdir("%_builddir").mkpath
     specfile = rpmdir("%_specdir")+"test.spec"
     specfile.write(test_spec)
