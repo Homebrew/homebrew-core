@@ -1,8 +1,8 @@
 class Libbpg < Formula
   desc "Image format meant to improve on JPEG quality and file size"
   homepage "http://bellard.org/bpg/"
-  url "http://bellard.org/bpg/libbpg-0.9.6.tar.gz"
-  sha256 "2800777d88a77fd64a4a9036b131f021a5bda8304e1dbe7996dd466567fb484e"
+  url "http://bellard.org/bpg/libbpg-0.9.7.tar.gz"
+  sha256 "05035862ff4ffca0280261871486f44e74c4af4337c931e0858483551e6efe25"
 
   bottle do
     cellar :any
@@ -29,6 +29,8 @@ class Libbpg < Formula
     args << "USE_X265=" if build.without? "x265"
 
     system "make", "install", "prefix=#{prefix}", "CONFIG_APPLE=y", *args
+
+    pkgshare.install Dir["html/bpgdec*.js"]
   end
 
   test do
