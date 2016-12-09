@@ -1,9 +1,8 @@
 class Pike < Formula
   desc "Dynamic programming language"
   homepage "https://pike.lysator.liu.se"
-  url "https://pike.lysator.liu.se/pub/pike/all/7.8.866/Pike-v7.8.866.tar.gz"
-  sha256 "0b12e1a99bd8bdd9c8a2daa46e623ac718bc0737290236a0c8474091359b594e"
-  revision 3
+  url "https://pike.lysator.liu.se/pub/pike/all/8.0.276/Pike-v8.0.276.tar.gz"
+  sha256 "3d2b0843d5c8925a4e4e9275e2b455d17c12c0284eefe5d9b8c1f538129585ae"
 
   bottle do
     sha256 "0f2a49f68021e5076182f457faaa042ce70214fb03157f60f807fb5307c13114" => :sierra
@@ -54,10 +53,6 @@ class Pike < Formula
     else
       ENV.append "CFLAGS", "-m32"
       args << "--with-abi=32"
-    end
-
-    if build.without? "machine-code"
-      args << "--without-machine-code"
     end
 
     ENV.j1
