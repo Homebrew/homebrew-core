@@ -40,6 +40,7 @@ class Logstash < Formula
   end
 
   test do
+    # workaround https://github.com/elastic/logstash/issues/6378
     mkdir testpath/"config"
     ["jvm.options", "log4j2.properties", "startup.options"].each { |f| cp prefix/"libexec/config/#{f}", testpath/"config" }
     (testpath/"config/logstash.yml").write <<-EOS.undent
