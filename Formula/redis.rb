@@ -18,6 +18,12 @@ class Redis < Formula
     version "4.0RC2"
   end
 
+  devel do
+    url "https://github.com/antirez/redis/archive/4.0-rc1.tar.gz"
+    sha256 "4a7f8daafd5ca6d65a077d0bb8d4b6cc4ba5a2e6da2281fd45acebd327db941c"
+    version "4.0RC1"
+  end
+
   option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
 
   fails_with :llvm do
