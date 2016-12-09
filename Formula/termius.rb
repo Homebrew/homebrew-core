@@ -8,9 +8,9 @@ class Termius < Formula
   head "https://github.com/Crystalnix/termius-cli.git", :branch => "develop"
 
   bottle do
-    sha256 "ea5036e22b139db9fd8ec4488cbca5d3c2f931d9f4a315654e527862794d7226" => :sierra
-    sha256 "ba8eb52a3464c69ad24c22c0e81dd9466e739de685f92f045a282aaf66a7c286" => :el_capitan
-    sha256 "3bee74ae73e4487c96fe62b553f5c62dc565a66a651df98e74ebf6383e69c942" => :yosemite
+    sha256 "e70099d7701474deaa3be257e5da388c01aa107d966fe3a6654fd665f3e0a583" => :sierra
+    sha256 "e8945d6846bb16d305a38457e8fd4b887b7ab14ddbadbbfff0343b49ed9c1981" => :el_capitan
+    sha256 "2b96d28a4f25663ec4f614a001f4135c153596f0d2912bd1ab910d104051eefb" => :yosemite
   end
 
   depends_on :python
