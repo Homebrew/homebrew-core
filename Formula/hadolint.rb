@@ -5,8 +5,8 @@ class Hadolint < Formula
 
   desc "Smarter Dockerfile linter to validate best practices."
   homepage "http://hadolint.lukasmartinelli.ch/"
-  url "https://github.com/lukasmartinelli/hadolint/archive/v1.2.1.tar.gz"
-  sha256 "e0f06adf266f366d8ac847be979ca6db9f16b487f2b1d0d3a2d1db4d1a3e11ea"
+  url "https://github.com/lukasmartinelli/hadolint/archive/v1.2.2.tar.gz"
+  sha256 "600731b0ebf8b86d561ea7ff37424d3249ccd36b91c440551200829c2f80f646"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,7 +20,10 @@ class Hadolint < Formula
   depends_on "cabal-install" => :build
 
   def install
-    install_cabal_package
+    # Fix "src/Hadolint/Bash.hs:9:20: error: The constructor 'PositionedComment'
+    # should have 3 arguments, but has been given 2"
+    # Reported 9 Dec 2016 https://github.com/lukasmartinelli/hadolint/issues/72
+    install_cabal_package "--constraint=ShellCheck<0.4.5"
   end
 
   test do
