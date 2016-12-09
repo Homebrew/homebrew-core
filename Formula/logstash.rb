@@ -40,15 +40,16 @@ class Logstash < Formula
   end
 
   test do
-    (testpath/"simple.conf").write <<-EOS.undent
-      input { stdin { type => stdin } }
-      output { stdout { codec => rubydebug } }
+    mkdir testpath/"config"
+    ["jvm.options", "log4j2.properties", "startup.options"].each { |f| cp prefix/"libexec/config/#{f}", testpath/"config" }
+    (testpath/"config/logstash.yml").write <<-EOS.undent
+      path.queue: #{testpath}/queue
     EOS
-
     mkdir testpath/"data"
     mkdir testpath/"logs"
+    mkdir testpath/"queue"
 
-    output = pipe_output("#{bin}/logstash -f #{testpath}/simple.conf --path.data=#{testpath}/data --path.logs=#{testpath}/logs --log.level=fatal", "hello world\n")
+    output = pipe_output("#{bin}/logstash -e '' --path.data=#{testpath}/data --path.logs=#{testpath}/logs --path.settings=#{testpath}/config --log.level=fatal", "hello world\n")
     assert_match /hello world/, output
   end
 end
