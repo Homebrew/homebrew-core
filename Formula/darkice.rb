@@ -3,6 +3,7 @@ class Darkice < Formula
   homepage "http://www.darkice.org/"
   url "https://downloads.sourceforge.net/project/darkice/darkice/1.3/darkice-1.3.tar.gz"
   sha256 "2c0d0faaa627c0273b2ce8b38775a73ef97e34ef866862a398f660ad8f6e9de6"
+  revision 1
 
   bottle do
     cellar :any
@@ -21,6 +22,12 @@ class Darkice < Formula
   depends_on "jack"
 
   def install
+    # Fixes  "invalid conversion from 'const float*' to 'float*' [-fpermissive]"
+    # Upstream issue Oct 25, 2016 https://github.com/rafael2k/darkice/issues/119
+    # Suggested fix  Oct 25, 2016 https://github.com/rafael2k/darkice/pull/120
+    ["aacPlusEncoder.cpp", "FaacEncoder.cpp", "OpusLibEncoder.cpp", "VorbisLibEncoder.cpp"].each do |f|
+      inreplace "src/#{f}", ", converterData.data_in", ", const_cast<float*>( converterData.data_in )"
+    end
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
