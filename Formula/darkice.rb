@@ -22,6 +22,9 @@ class Darkice < Formula
   depends_on "jack"
 
   def install
+    ["aacPlusEncoder.cpp", "FaacEncoder.cpp", "OpusLibEncoder.cpp", "VorbisLibEncoder.cpp"].each do |f|
+      inreplace "src/#{f}", ", converterData.data_in", ", const_cast<float*>( converterData.data_in )"
+    end
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
