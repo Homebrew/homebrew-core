@@ -1,9 +1,9 @@
 class HtmlXmlUtils < Formula
   desc "Tools for manipulating HTML and XML files"
   homepage "https://www.w3.org/Tools/HTML-XML-utils/"
-  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-7.0.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/h/html-xml-utils/html-xml-utils_7.0.orig.tar.gz"
-  sha256 "e7d30de4fb4731f3ecd4622ac30db9fb82e1aa0ab190ae13e457360eea9460b0"
+  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-7.1.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/h/html-xml-utils/html-xml-utils_7.1.orig.tar.gz"
+  sha256 "ec0efd2263b864bb7e0ae5c59f02c43c5d8aebd0e1c0d2bfce391e665766d56e"
 
   bottle do
     cellar :any_skip_relocation
