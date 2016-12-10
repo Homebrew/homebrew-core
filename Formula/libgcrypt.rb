@@ -1,9 +1,9 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://directory.fsf.org/wiki/Libgcrypt"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.3.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.3.tar.bz2"
-  sha256 "ddac6111077d0a1612247587be238c5294dd0ee4d76dc7ba783cc55fb0337071"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.4.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.4.tar.bz2"
+  sha256 "3b67862e2f4711e25c4ce3cc4b48d52a58a3afdcd1d8c6a57f93a1c0ef03e5c6"
 
   bottle do
     cellar :any
@@ -25,13 +25,14 @@ class Libgcrypt < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-    # Temporary hack to get libgcrypt building on macOS 10.12.
+    # Temporary hack to get libgcrypt building on macOS 10.12 and 10.11 with XCode 8.
     # Seems to be a Clang issue rather than an upstream one, so
     # keep checking whether or not this is necessary.
     # Should be reported to GnuPG if still an issue when near stable.
     # https://github.com/Homebrew/homebrew-core/issues/1957
-    ENV.O1 if MacOS.version >= :sierra
+    ENV.O1 if DevelopmentTools.clang_build_version >= 800
+
+    ENV.universal_binary if build.universal?
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
