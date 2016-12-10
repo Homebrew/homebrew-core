@@ -1,8 +1,8 @@
 class Docutils < Formula
   desc "Text processing system for reStructuredText"
   homepage "http://docutils.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/docutils/docutils/0.12/docutils-0.12.tar.gz"
-  sha256 "c7db717810ab6965f66c8cf0398a98c9d8df982da39b4cd7f162911eb89596fa"
+  url "https://downloads.sourceforge.net/project/docutils/docutils/0.13.1/docutils-0.13.1.tar.gz"
+  sha256 "718c0f5fb677be0f34b781e04241c4067cbd9327b66bdd8e763201130f5175be"
 
   bottle do
     cellar :any_skip_relocation
