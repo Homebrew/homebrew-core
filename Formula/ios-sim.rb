@@ -9,9 +9,9 @@ class IosSim < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "df622046ca434228db723b0fb1440e92932547128c6495458d72ad30d5ba3b06" => :sierra
-    sha256 "767fa40662468c5468ec4cd07b64541667629ffa5a5fb3e5776ec9d95d20348a" => :el_capitan
-    sha256 "ab7f45ee1b3a91872e14afc9c479f4bfd2e01fa1f6e535730f574e2686e70eb7" => :yosemite
+    sha256 "06b0fc6e49f1dce6a2c85e6e59627f4400b30c4645020137cb0bcc9d646be636" => :sierra
+    sha256 "450b22522fca80417b40ea99451485f13146a717363033dfc7260bdf2f573c05" => :el_capitan
+    sha256 "7998c7b99ab13e674449230968392ab1c201b9cf400186fd939d4e7cb5308171" => :yosemite
   end
 
   depends_on :macos => :mountain_lion
