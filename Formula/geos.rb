@@ -1,8 +1,8 @@
 class Geos < Formula
   desc "Geometry Engine"
   homepage "https://trac.osgeo.org/geos"
-  url "http://download.osgeo.org/geos/geos-3.5.0.tar.bz2"
-  sha256 "49982b23bcfa64a53333dab136b82e25354edeb806e5a2e2f5b8aa98b1d0ae02"
+  url "http://download.osgeo.org/geos/geos-3.5.1.tar.bz2"
+  sha256 "e6bb0a7ba0e142b1e952fae9d946b2b532fa05a5c384e458f7cb8990e1fcac32"
 
   bottle do
     cellar :any
@@ -20,7 +20,6 @@ class Geos < Formula
   option "with-ruby", "Build the ruby extension"
 
   depends_on "swig" => :build if build.with?("python") || build.with?("ruby")
-
 
   def install
     ENV.universal_binary if build.universal?
