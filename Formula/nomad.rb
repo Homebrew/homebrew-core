@@ -20,7 +20,7 @@ class Nomad < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/hashicorp/nomad").install buildpath.children
     cd "src/github.com/hashicorp/nomad" do
-      if build.with? "dynamic" then ENV["CGO_ENABLED"] = "1" end
+      ENV["CGO_ENABLED"] = "1" if build.with? "dynamic"
       system "go", "build", "-o", bin/"nomad"
       prefix.install_metafiles
     end
