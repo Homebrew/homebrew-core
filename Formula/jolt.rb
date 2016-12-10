@@ -73,7 +73,7 @@ class Jolt < Formula
       }
     EOS
 
-    system "#{bin}/jolt transform jolt_spec.json input.json > actual_output.json"
+    (testpath/"actual_output.json").write shell_output("#{bin}/jolt transform jolt_spec.json input.json")
     system "#{bin}/jolt", "diffy", "actual_output.json", "expected_output.json"
   end
 end
