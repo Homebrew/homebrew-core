@@ -3,8 +3,8 @@ require "language/node"
 class IosSim < Formula
   desc "Command-line application launcher for the iOS Simulator"
   homepage "https://github.com/phonegap/ios-sim"
-  url "https://registry.npmjs.org/ios-sim/-/ios-sim-5.0.12.tgz"
-  sha256 "f2cc6e1a0ab37ddbd82a6a659ef107ae032aff877f0f65a5f4e64dadcb03cd48"
+  url "https://registry.npmjs.org/ios-sim/-/ios-sim-5.0.13.tgz"
+  sha256 "7d304f1bc2982db64d46f97623cdfe0f256d58d7a55da95373ff8cdfbb4edc35"
   head "https://github.com/phonegap/ios-sim.git"
 
   bottle do
