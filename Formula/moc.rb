@@ -17,7 +17,7 @@ class Moc < Formula
     # Patch for clock_gettime issue
     # https://moc.daper.net/node/1576
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/c02ec96/moc/r2936-clock_gettime.patch"
+      url "https://raw.githubusercontent.com/Homebrew/patches/78d5908905c6848bb75ae41b70d6bbb46abaa69b/moc/r2936-clock_gettime.patch"
       sha256 "601b5cdf59db67f180f1aaa6cc90804c1cb69c44cdecb2e8149338782e4f21a8"
     end
 
