@@ -29,6 +29,8 @@ class Libbpg < Formula
     args << "USE_X265=" if build.without? "x265"
 
     system "make", "install", "prefix=#{prefix}", "CONFIG_APPLE=y", *args
+
+    pkgshare.install Dir["html/bpgdec*.js"]
   end
 
   test do
