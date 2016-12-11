@@ -30,6 +30,16 @@ class Pyexiv2 < Formula
     # let's install manually
     mv "build/libexiv2python.dylib", "build/libexiv2python.so"
     (lib+"python2.7/site-packages").install "build/libexiv2python.so", "src/pyexiv2"
+    pkgshare.install "test/data/smiley1.jpg"
+  end
+
+  test do
+    (testpath/"test.py").write <<-EOS.undent
+      import pyexiv2
+      metadata = pyexiv2.ImageMetadata("#{pkgshare}/smiley1.jpg")
+      metadata.read()
+      assert "Exif.Image.ImageDescription" in metadata.exif_keys
+    EOS
+    system "python", testpath/"test.py"
   end
 end
-
