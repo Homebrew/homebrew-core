@@ -14,10 +14,9 @@ class Zsh < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 "d40ddb483bf98ba2bb1b829207607f288618a30ecf640a28151c3e922796b0f8" => :sierra
-    sha256 "2a860b90c4b47b034a6b8c2d6a70dccf479f56aebac38683790f2e4cd1da615b" => :el_capitan
-    sha256 "d140366f62354011a7de99949e847ae44d6aa70f2b51e1722028844e4fa0b252" => :yosemite
+    sha256 "51270c500dbf6bfc81e1fa1b19ce8b147adbc717ef0c0fe2ed6f41031b056236" => :sierra
+    sha256 "bb54d4104228326c7661ef9a6014b1f2ee00e9f5ae651551dfd56fed700e679d" => :el_capitan
+    sha256 "d5fa17cb9ebf4c9115f66b6b8fb7ef3c535bcf2eb372668936e54591f732fc86" => :yosemite
   end
 
   head do
