@@ -6,7 +6,7 @@ class AmmoniteRepl < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8+"
 
   def install
     bin.install Dir["*"].shift => "amm"
