@@ -5,8 +5,8 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20161118/git-annex-6.20161118.tar.gz"
-  sha256 "84d83b41ce671b29f7c718979bb06d2bb3e3a3f3a3536257f3c6a3da993e47ba"
+  url "https://hackage.haskell.org/package/git-annex-6.20161210/git-annex-6.20161210.tar.gz"
+  sha256 "b568cceda32908e7cd66b34181811d4da3d3197d71009eac20c1c4c4379f6381"
   head "git://git-annex.branchable.com/"
 
   bottle do
@@ -29,6 +29,15 @@ class GitAnnex < Formula
   depends_on "quvi"
   depends_on "xdot" => :recommended
 
+  # Remove when aws > 0.14.1 is released on Hackage
+  # Adds http-client 2.2 support
+  # Merged PR https://github.com/aristidb/aws/pull/213
+  # Original issue https://github.com/aristidb/aws/issues/206
+  resource "aws" do
+    url "https://github.com/aristidb/aws.git",
+        :revision => "c8806dcbb58604381698e394c0e7798b704776db"
+  end
+
   resource "esqueleto-2.4.3" do
     url "https://mirrors.ocf.berkeley.edu/debian/pool/main/h/haskell-esqueleto/haskell-esqueleto_2.4.3.orig.tar.gz"
     mirror "https://mirrors.kernel.org/debian/pool/main/h/haskell-esqueleto/haskell-esqueleto_2.4.3.orig.tar.gz"
@@ -46,22 +55,14 @@ class GitAnnex < Formula
   end
 
   def install
-    # use `xdot` instead of `dot -Tx11` to display generated maps
-    inreplace "Command/Map.hs" do |s|
-      s.gsub! "dot", "xdot"
-      # eliminate extra parameter in actual invocation
-      s.gsub! "Param \"-Tx11\",", ""
-      # change status message
-      s.gsub! "-Tx11", ""
-    end
-
     cabal_sandbox do
+      (buildpath/"aws").install resource("aws")
       (buildpath/"esqueleto-2.4.3").install resource("esqueleto-2.4.3")
       resource("esqueleto-newer-persistent-patch").stage do
         system "patch", "-p1", "-i", Pathname.pwd/"patches/newer-persistent",
                         "-d", buildpath/"esqueleto-2.4.3"
       end
-      cabal_sandbox_add_source "esqueleto-2.4.3"
+      cabal_sandbox_add_source "aws", "esqueleto-2.4.3"
       install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
         # this can be made the default behavior again once git-union-merge builds properly when bottling
         if build.with? "git-union-merge"
