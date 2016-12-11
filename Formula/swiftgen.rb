@@ -11,7 +11,7 @@ class Swiftgen < Formula
     sha256 "90c013628201d4a6a3bd9bbd139012978b4e4520b5d11b84aedde10d3395223f" => :el_capitan
   end
 
-  depends_on :xcode => "8.0"
+  depends_on :xcode => ["8.0", :build]
 
   def install
     rake "install[#{bin},#{lib},#{pkgshare}/templates]"
