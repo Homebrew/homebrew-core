@@ -19,6 +19,11 @@ class Typescript < Formula
     sha256 "7ad26082d896ee4a1de8053f66531066b5f9fb4b460510aaba8022179c0b55a8"
   end
 
+  devel do
+    url "https://registry.npmjs.org/typescript/-/typescript-2.1.1.tgz"
+    sha256 "7ad26082d896ee4a1de8053f66531066b5f9fb4b460510aaba8022179c0b55a8"
+  end
+
   depends_on "node"
 
   def install
