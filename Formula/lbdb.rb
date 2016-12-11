@@ -15,7 +15,7 @@ class Lbdb < Formula
   depends_on "abook" => :recommended
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--libdir=#{libexec}"
+    system "./configure", "--prefix=#{prefix}", "--libdir=#{lib}/lbdb"
     system "make", "install"
   end
 
