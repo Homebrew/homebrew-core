@@ -332,6 +332,7 @@
   "ucspi-tools": "homebrew/boneyard",
   "uim": "homebrew/x11",
   "ume": "homebrew/games",
+  "unfs3": "homebrew/boneyard",
   "upnp-router-control": "homebrew/gui",
   "ushare": "homebrew/boneyard",
   "validns": "homebrew/boneyard",
