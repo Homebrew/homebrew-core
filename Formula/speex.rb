@@ -1,8 +1,8 @@
 class Speex < Formula
   desc "Audio codec designed for speech"
   homepage "http://speex.org"
-  url "http://downloads.us.xiph.org/releases/speex/speex-1.2rc1.tar.gz"
-  sha256 "342f30dc57bd4a6dad41398365baaa690429660b10d866b7d508e8f1179cb7a6"
+  url "http://downloads.us.xiph.org/releases/speex/speex-1.2.0.tar.gz"
+  sha256 "eaae8af0ac742dc7d542c9439ac72f1f385ce838392dc849cae4536af9210094"
 
   bottle do
     cellar :any
