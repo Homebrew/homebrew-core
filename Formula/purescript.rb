@@ -10,10 +10,9 @@ class Purescript < Formula
   head "https://github.com/purescript/purescript.git"
 
   bottle do
-    rebuild 1
-    sha256 "9061f02205436efeedb0350cec40f81aeb1c714bf3be6ec1ffa2d23a9036cf7b" => :sierra
-    sha256 "3d20149072a5c931af2f8d7f7c909c354bcf6babceb786c5660775bdfe28341c" => :el_capitan
-    sha256 "549f565313ff57b8bf4b1b7ef7dd07771d3501b24945b25f1ff8bcad20a15b00" => :yosemite
+    sha256 "69ce4961c241c87adcd7f70445f8a8c2dd62d4d4bb96bc7ef85fb50b9c67b167" => :sierra
+    sha256 "d1deef9286bf2587b4c279dfb59f751b0ab55bbf31febe12909763ac26ec2429" => :el_capitan
+    sha256 "de3f5dbd405d1f1699b12b974d0f648594f93ae7793fade432469f03bf42b9ed" => :yosemite
   end
 
   depends_on "ghc" => :build
