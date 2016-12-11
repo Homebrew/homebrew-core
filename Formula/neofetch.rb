@@ -12,6 +12,13 @@ class Neofetch < Formula
     sha256 "eb1cbc74bba6487b48d9c7c6f9118bd49ce0572751f42461f52341d9b0b43f86" => :yosemite
   end
 
+  patch do
+    # Fixes image display in iTerm2
+    # Will be removed in the next released version
+    url "https://github.com/dylanaraps/neofetch/commit/926dea972b82d1b81e5501e63c8d4395ee274b84.patch"
+    sha256 "d0132c00c50111de60cc31b07c2dcf07aaba8ce378e1553e3322dce159198155"
+  end
+
   depends_on "screenresolution" => :recommended
   depends_on "imagemagick" => :recommended
 
