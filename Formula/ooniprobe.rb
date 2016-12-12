@@ -219,7 +219,7 @@ class Ooniprobe < Formula
      <key>StandardOutPath</key>
        <string>/dev/null</string>
      <key>WorkingDirectory</key>
-       <string>#{var}/log/</string>
+       <string>#{prefix}</string>
    </dict>
    </plist>
    EOS
