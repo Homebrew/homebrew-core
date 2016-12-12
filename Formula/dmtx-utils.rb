@@ -3,7 +3,7 @@ class DmtxUtils < Formula
   homepage "http://www.libdmtx.org"
   url "https://downloads.sourceforge.net/project/libdmtx/libdmtx/0.7.4/dmtx-utils-0.7.4.zip"
   sha256 "4e8be16972320a64351ab8d57f3a65873a1c35135666a9ce5fd574b8dc52078f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
