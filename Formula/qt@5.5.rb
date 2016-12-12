@@ -54,6 +54,12 @@ class QtAT55 < Formula
     sha256 "63b5f37d694d0bd1db6d586d98f3c551239dc8818588f3b90dc75dfe6e9952be"
   end
 
+  bottle do
+    sha256 "527c9dbc9f71b6cb2bf6134b5f92730e5f1b639ae700f914126ae4d7aee0b7fb" => :sierra
+    sha256 "41811d73ca7dc49280e48802c3420bb210f7272464cc2f59d40f03c79b323df0" => :el_capitan
+    sha256 "642e52296c4b27b8ecfc3ad2646f4459582365b08c65cf94eb3f9f70c9513230" => :yosemite
+  end
+
   # Additional MaxOSX10.12 SDK bluetooth fixes
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/qt%405.5/qtconnectivity-bluetooth-fix-2.patch"
