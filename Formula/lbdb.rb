@@ -7,10 +7,9 @@ class Lbdb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "1193c2651e556beeb66443d562803ffe076e6c64e7fa25c8031369549965deee" => :sierra
-    sha256 "0011a9c8c337268496c32f21c1e620431219f47b7aea069eecaad0f9cbc651b2" => :el_capitan
-    sha256 "2c7ee40068170ce3943be138ac4a91e8116322f9f3d098319af3b41cb3072a6f" => :yosemite
+    sha256 "1ec7d9b55fcaf951ee1fa082aa4ff1e82d7617dd511d6bacb625584ebfdde877" => :sierra
+    sha256 "8dbfea218eac1c250fc475375648ae494e56ea5ab36ea6e20751e9c56554656a" => :el_capitan
+    sha256 "22fdfc4988af29d204cd7b5e32cd1d38fcea10429d79d62121fdadcd9f018f2d" => :yosemite
   end
 
   depends_on "abook" => :recommended
