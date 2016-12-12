@@ -3,21 +3,14 @@ class Zsh < Formula
   homepage "https://www.zsh.org/"
 
   stable do
-    url "https://downloads.sourceforge.net/project/zsh/zsh/5.2/zsh-5.2.tar.gz"
-    mirror "https://www.zsh.org/pub/zsh-5.2.tar.gz"
-    sha256 "fa924c534c6633c219dcffdcd7da9399dabfb63347f88ce6ddcd5bb441215937"
+    url "https://www.zsh.org/pub/zsh-5.3.tar.gz"
+    mirror "https://downloads.sourceforge.net/project/zsh/zsh/5.3/zsh-5.3.tar.gz"
+    sha256 "1da273fa96041b395ee9f628d14f2aff08f9a62e98423a990218e2ea037b9a6d"
 
     # We cannot build HTML doc on HEAD, because yodl which is required for
     # building zsh.texi is not available.
     option "with-texi2html", "Build HTML documentation"
     depends_on "texi2html" => [:build, :optional]
-
-    # apply patch that fixes nvcsformats which is broken in zsh-5.2 and will propably be fixed in 5.2.1
-    # See https://github.com/zsh-users/zsh/commit/4105f79a3a9b5a85c4ce167865e5ac661be160dc
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/zsh/nvcs-formats-fix.patch"
-      sha256 "f351cd67d38b9d8a9c2013ae47b77a753eca3ddeb6bfd807bd8b492516479d94"
-    end
   end
 
   bottle do
@@ -25,16 +18,6 @@ class Zsh < Formula
     sha256 "d40ddb483bf98ba2bb1b829207607f288618a30ecf640a28151c3e922796b0f8" => :sierra
     sha256 "2a860b90c4b47b034a6b8c2d6a70dccf479f56aebac38683790f2e4cd1da615b" => :el_capitan
     sha256 "d140366f62354011a7de99949e847ae44d6aa70f2b51e1722028844e4fa0b252" => :yosemite
-  end
-
-  devel do
-    url "http://www.zsh.org/pub/development/zsh-5.2-test-3.tar.gz"
-    version "5.2-test-3"
-    sha256 "7d486688d77c98b2a9bb8d8d6283d780c0e0ac64b1226dddb3fc9bcca5bcfcc3"
-
-    option "with-texi2html", "Build HTML documentation"
-    option "with-unicode9", "Build with Unicode 9 character width support"
-    depends_on "texi2html" => [:build, :optional]
   end
 
   head do
@@ -45,6 +28,7 @@ class Zsh < Formula
   end
 
   option "without-etcdir", "Disable the reading of Zsh rc files in /etc"
+  option "with-unicode9", "Build with Unicode 9 character width support"
 
   deprecated_option "disable-etcdir" => "without-etcdir"
 
