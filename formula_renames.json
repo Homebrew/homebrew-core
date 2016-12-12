@@ -37,6 +37,7 @@
   "offline-imap": "offlineimap",
   "plt-racket": "racket",
   "polarssl": "mbedtls",
+  "qt55": "qt@5.5",
   "racket": "minimal-racket",
   "screenbrightness": "brightness",
   "sonar": "sonarqube",
