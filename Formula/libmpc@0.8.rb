@@ -6,6 +6,13 @@ class LibmpcAT08 < Formula
   mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/mpc-0.8.1.tar.gz"
   sha256 "e664603757251fd8a352848276497a4c79b7f8b21fd8aedd5cc0598a38fee3e4"
 
+  bottle do
+    cellar :any
+    sha256 "640ac5352ddd744e5e35cd15e1c5b6301bfda1c60b1432c22c4a9af7c93fe674" => :sierra
+    sha256 "d52fb9281d199704c43f57b9496be69d1a45ed77d5f179928c27bf800a343698" => :el_capitan
+    sha256 "51be960a907bb34a89c13b3db80260fcb6c4ffa55ca2ac2e797615d71a02fde6" => :yosemite
+  end
+
   keg_only "Older version of libmpc"
 
   depends_on "gmp@4"
