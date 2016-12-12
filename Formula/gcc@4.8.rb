@@ -1,5 +1,6 @@
 class GccAT48 < Formula
   desc "GNU compiler collection"
+
   def arch
     if Hardware::CPU.type == :intel
       if MacOS.prefer_64_bit?
@@ -26,6 +27,12 @@ class GccAT48 < Formula
   sha256 "22fb1e7e0f68a63cee631d85b20461d1ea6bda162f03096350e38c8d427ecf23"
 
   head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_8-branch"
+
+  bottle do
+    sha256 "ba783081bc60dc0abf0c745518be605adc0375d198526084148fb8f7493dcf2b" => :sierra
+    sha256 "183f243bb8626eb7e16ce4b7bba480c2c1da8a8eb650664d4035a7b3aeed5624" => :el_capitan
+    sha256 "a2a9650a0737909f2b0dc63d41117672a7862b89e9e2664b6442449096f79030" => :yosemite
+  end
 
   if MacOS.version >= :yosemite
     # Fixes build on El Capitan
