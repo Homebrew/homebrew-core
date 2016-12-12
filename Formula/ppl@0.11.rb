@@ -7,6 +7,12 @@ class PplAT011 < Formula
   sha256 "3453064ac192e095598576c5b59ecd81a26b268c597c53df05f18921a4f21c77"
   revision 1
 
+  bottle do
+    sha256 "a2f72ba2ed7bc2f4fb6c0f48798e3a74520f7ed899809bc8d7c30b4f91725790" => :sierra
+    sha256 "c21185bed924fe4ea2898e340a39cf461bf4a5f4548a41568dd3980b0c4b4422" => :el_capitan
+    sha256 "3e1af8f6e19816c8bb6ba143d0d6a7ca42398d0c81098da50bb6202a2b251051" => :yosemite
+  end
+
   keg_only "Older version of ppl"
 
   depends_on "homebrew/dupes/m4" => :build if MacOS.version < :leopard
