@@ -52,6 +52,7 @@ class Mpv < Formula
       --prefix=#{prefix}
       --enable-zsh-comp
       --enable-libmpv-shared
+      --enable-html-build
       --confdir=#{etc}/mpv
       --datadir=#{pkgshare}
       --mandir=#{man}
