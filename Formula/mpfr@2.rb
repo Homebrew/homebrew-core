@@ -6,6 +6,13 @@ class MpfrAT2 < Formula
   mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/mpfr-2.4.2.tar.bz2"
   sha256 "c7e75a08a8d49d2082e4caee1591a05d11b9d5627514e678f02d66a124bcf2ba"
 
+  bottle do
+    cellar :any
+    sha256 "40b794dc63736c1d99d12488acce77e88ec699880d6c43e8fa12d67eda450a21" => :sierra
+    sha256 "d555463688c8a8728989a9ef5f90693962cf6cf5297952e04e9ac25276e94edb" => :el_capitan
+    sha256 "fad9992e12b9dab83c8630330e1e5b4a612380b6f0258ac77b1ac512b6286e1e" => :yosemite
+  end
+
   keg_only "Older version of mpfr"
 
   depends_on "gmp@4"
