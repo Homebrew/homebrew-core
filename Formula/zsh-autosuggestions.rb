@@ -7,14 +7,14 @@ class ZshAutosuggestions < Formula
   bottle :unneeded
 
   def install
-    pkgshare.install "zsh-autosuggestions.zsh"
+    zsh_function.install "zsh-autosuggestions.zsh" => "zsh-autosuggestions"
   end
 
   def caveats
     <<-EOS.undent
     To activate the autosuggestions, add the following at the end of your .zshrc:
 
-      source #{HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+      autoload -Uz zsh-autosuggestions && zsh-autosuggestions
 
     You will also need to force reload of your .zshrc:
 
@@ -24,6 +24,6 @@ class ZshAutosuggestions < Formula
 
   test do
     assert_match "default",
-      shell_output("zsh -c '. #{pkgshare}/zsh-autosuggestions.zsh && echo $ZSH_AUTOSUGGEST_STRATEGY'")
+      shell_output("zsh -c 'autoload -Uz zsh-autosuggestions && zsh-autosuggestions && echo $ZSH_AUTOSUGGEST_STRATEGY'")
   end
 end
