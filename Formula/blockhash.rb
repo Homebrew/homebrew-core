@@ -3,6 +3,7 @@ class Blockhash < Formula
   homepage "http://blockhash.io/"
   url "https://github.com/commonsmachinery/blockhash/archive/0.1.tar.gz"
   sha256 "aef300f39be2cbc1b508af15d7ddb5b851b671b27680d8b7ab1d043cc0369893"
+  revision 1
   head "https://github.com/commonsmachinery/blockhash.git"
 
   bottle do
