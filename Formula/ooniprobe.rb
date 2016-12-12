@@ -3,8 +3,8 @@ class Ooniprobe < Formula
 
   desc "Network interference detection tool"
   homepage "https://ooni.torproject.org/"
-  url "https://pypi.python.org/packages/2e/5c/7fd90f852e0e4ed44e7740925326bb1798f908321b29394803755f5bef31/ooniprobe-2.0.1.tar.gz"
-  sha256 "cc4398716f7d7bb5806f8e0f25d3ec2ad36f7c611bd4506b21fb847da6120542"
+  url "https://pypi.python.org/packages/ea/31/f6ffff21b406b5c38b78f00b38897a48baae30eef0469089fb1330d86218/ooniprobe-2.1.0.tar.gz"
+  sha256 "867f51fcee8d84f68c42dea24c3384736a1e0cf153e1f18254e91682ca6e927a"
 
   bottle do
     sha256 "ab5aa52408ae04f8b8e546efe1cc0516c75ec1ca78a5199f996fe3822fe4acdb" => :sierra
@@ -200,28 +200,22 @@ class Ooniprobe < Formula
    <dict>
      <key>Label</key>
        <string>#{plist_name}</string>
-     <key>Program</key>
-       <string>#{opt_bin}/ooniprobe</string>
+     <key>EnvironmentVariables</key>
+     <dict>
+       <key>PATH</key>
+       <string>#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+     </dict>
      <key>ProgramArguments</key>
      <array>
-       <string>-i</string>
-       <string>#{pkgshare}/current.deck</string>
+       <string>#{opt_bin}/ooniprobe-agent</string>
+       <string>run</string>
      </array>
      <key>RunAtLoad</key>
-       <false/>
+       <true/>
      <key>KeepAlive</key>
-       <false/>
-     <key>StandardErrorPath</key>
-       <string>/dev/null</string>
-     <key>StandardOutPath</key>
-       <string>/dev/null</string>
-     <key>StartCalendarInterval</key>
-     <dict>
-       <key>Hour</key>
-       <integer>00</integer>
-       <key>Minute</key>
-       <integer>00</integer>
-     </dict>
+       <true/>
+     <key>WorkingDirectory</key>
+       <string>#{var}/log/</string>
    </dict>
    </plist>
    EOS
