@@ -26,10 +26,6 @@ class Libcaca < Formula
   depends_on "imlib2" => :optional
   depends_on :x11 if build.with? "imlib2"
 
-  fails_with :llvm do
-    cause "Unsupported inline asm: input constraint with a matching output constraint of incompatible type"
-  end
-
   def install
     system "./bootstrap" if build.head?
 
