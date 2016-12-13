@@ -19,11 +19,6 @@ class Gnutls < Formula
   depends_on "guile" => :optional
   depends_on "unbound" => :optional
 
-  fails_with :llvm do
-    build 2326
-    cause "Undefined symbols when linking"
-  end
-
   def install
     # Fix "dyld: lazy symbol binding failed: Symbol not found: _getentropy"
     # Reported 18 Oct 2016 https://gitlab.com/gnutls/gnutls/issues/142
