@@ -13,10 +13,6 @@ class Spin < Formula
     sha256 "974442a06ab42b2ba3dd16818a1bd201cc064fa6995e133b196d643b03d4eda7" => :mavericks
   end
 
-  fails_with :llvm do
-    build 2334
-  end
-
   def install
     ENV.deparallelize
 
