@@ -31,11 +31,6 @@ class Boost < Formula
     depends_on :mpi => [:cc, :cxx, :optional]
   end
 
-  fails_with :llvm do
-    build 2335
-    cause "Dropped arguments to functions when linking with boost"
-  end
-
   needs :cxx11 if build.cxx11?
 
   def install
