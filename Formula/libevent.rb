@@ -49,11 +49,6 @@ class Libevent < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl"
 
-  fails_with :llvm do
-    build 2326
-    cause "Undefined symbol '_current_base' reported during linking."
-  end
-
   conflicts_with "pincaster",
     :because => "both install `event_rpcgen.py` binaries"
 
