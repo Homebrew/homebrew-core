@@ -21,7 +21,6 @@ class Geos < Formula
 
   depends_on "swig" => :build if build.with?("python") || build.with?("ruby")
 
-  fails_with :llvm
 
   def install
     ENV.universal_binary if build.universal?
