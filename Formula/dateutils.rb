@@ -1,9 +1,9 @@
 class Dateutils < Formula
   desc "Tools to manipulate dates with a focus on financial data"
   homepage "http://www.fresse.org/dateutils/"
-  url "https://bitbucket.org/hroptatyr/dateutils/downloads/dateutils-0.4.0.tar.xz"
-  mirror "https://github.com/hroptatyr/dateutils/releases/download/v0.4.0/dateutils-0.4.0.tar.xz"
-  sha256 "d05af02bc60a82bdc21c0ac4779f1040f631b0a1233ed15c4f69a80d3dad23da"
+  url "https://bitbucket.org/hroptatyr/dateutils/downloads/dateutils-0.4.1.tar.xz"
+  mirror "https://github.com/hroptatyr/dateutils/releases/download/v0.4.1/dateutils-0.4.1.tar.xz"
+  sha256 "6ccce48975fc4d3af2e27c7893e181c46ab5df1cb37e4a428b4b521a77d55278"
 
   bottle do
     sha256 "53ef682e35b0de87fc1ecbc451c53af71720b8a3c13717e97b61dcd00dacc4fc" => :sierra
