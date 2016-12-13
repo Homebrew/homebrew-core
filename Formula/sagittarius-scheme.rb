@@ -7,9 +7,10 @@ class SagittariusScheme < Formula
 
   bottle do
     cellar :any
-    sha256 "9803137a6a4a7b9b71381cedcfde4cf02f646acd085e72918ac30d7098840d39" => :sierra
-    sha256 "6d5ab721d11b58c023fa3d4b143e3ed4ddd121358c3fc50f38bfec46d0c2b4da" => :el_capitan
-    sha256 "7064beb5ba43cbb29058d9dfd2ce79558013decef3d0076a6f2784fef838c538" => :yosemite
+    rebuild 1
+    sha256 "ecb1eb25eace5250bb578fa9640edfaa9e16331f6943d0fe7240afbf3aceaa8e" => :sierra
+    sha256 "5ee9369f70759998ff7e2d902c31a6c2e2b70d5221a62d507cb286ae4e0aef82" => :el_capitan
+    sha256 "459531e572837ed993a8cdee96c2d672d31ebf8fe3458c18036631769c2281d2" => :yosemite
   end
 
   option "without-docs", "Build without HTML docs"
