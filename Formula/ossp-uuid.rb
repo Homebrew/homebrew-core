@@ -16,13 +16,10 @@ class OsspUuid < Formula
   end
 
   option :universal
-  option "32-bit"
 
   def install
     if build.universal?
       ENV.universal_binary
-    elsif build.build_32_bit?
-      ENV.append %w[CFLAGS LDFLAGS], "-arch #{Hardware::CPU.arch_32_bit}"
     end
 
     # upstream ticket: http://cvs.ossp.org/tktview?tn=200
