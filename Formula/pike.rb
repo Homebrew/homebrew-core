@@ -40,11 +40,6 @@ class Pike < Formula
   depends_on "pdflib-lite"   if build.with?("pdf")     || build.with?("all")
   depends_on "mesalib-glw"   if build.with?("gl")      || build.with?("all")
 
-  fails_with :llvm do
-    build 2335
-    cause "Fails to build multiset.c, results in a Abort trap being caught."
-  end
-
   def install
     args = ["--prefix=#{prefix}", "--without-bundles"]
 
