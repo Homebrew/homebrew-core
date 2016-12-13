@@ -15,11 +15,6 @@ class Streamripper < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
 
-  fails_with :llvm do
-    build 2335
-    cause "Strange runtime errors with LLVM."
-  end
-
   def install
     # the Makefile ignores CPPFLAGS from the environment, which
     # breaks the build when HOMEBREW_PREFIX is not /usr/local
