@@ -12,11 +12,6 @@ class Sbcl < Formula
     sha256 "94b9b75914e6b1b98f2adf21ea3bb409bf25922aa150026fa962ed3fbe7254b0" => :yosemite
   end
 
-  fails_with :llvm do
-    build 2334
-    cause "Compilation fails with LLVM."
-  end
-
   option "32-bit"
   option "with-internal-xref", "Include XREF information for SBCL internals (increases core size by 5-6MB)"
   option "with-ldb", "Include low-level debugger in the build"
