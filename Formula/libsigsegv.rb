@@ -15,11 +15,6 @@ class Libsigsegv < Formula
     sha256 "70fcc5532a085c178a68d378f75d9926d06ee27b5733e0fb7a8d2e1288e8d80a" => :mountain_lion
   end
 
-  fails_with :llvm do
-    build 2336
-    cause "Fails make check with LLVM GCC from XCode 4 on Snow Leopard"
-  end
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
