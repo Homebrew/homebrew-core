@@ -23,11 +23,6 @@ class Libvirt < Formula
     depends_on "libxml2"
   end
 
-  fails_with :llvm do
-    build 2326
-    cause "Undefined symbols when linking"
-  end
-
   def install
     args = %W[
       --prefix=#{prefix}
