@@ -32,11 +32,6 @@ class PerconaServer < Formula
   conflicts_with "mariadb-connector-c",
     :because => "both install plugins"
 
-  fails_with :llvm do
-    build 2334
-    cause "https://github.com/Homebrew/homebrew/issues/issue/144"
-  end
-
   resource "boost" do
     url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
     sha256 "727a932322d94287b62abb1bd2d41723eec4356a7728909e38adb65ca25241ca"
