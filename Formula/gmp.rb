@@ -13,20 +13,14 @@ class Gmp < Formula
     sha256 "b604a20e2501a10773abc384d9750fa27112cf9ad9c532367ebd7caf241c8d4b" => :mavericks
   end
 
-  option "32-bit"
   option :cxx11
 
   def install
     ENV.cxx11 if build.cxx11?
     args = ["--prefix=#{prefix}", "--enable-cxx"]
 
-    if build.build_32_bit?
-      ENV.m32
-      args << "ABI=32"
-    end
-
     # https://github.com/Homebrew/homebrew/issues/20693
-    args << "--disable-assembly" if build.build_32_bit? || build.bottle?
+    args << "--disable-assembly" if build.bottle?
 
     system "./configure", *args
     system "make"
