@@ -38,11 +38,6 @@ class Fontforge < Formula
         :revision => "29ea6d6fe2a699a32edbe29f44fe72e0c253fcee"
   end
 
-  fails_with :llvm do
-    build 2336
-    cause "Compiling cvexportdlg.c fails with error: initializer element is not constant"
-  end
-
   def install
     # Don't link libraries to libpython, but do link binaries that expect
     # to embed a python interpreter
