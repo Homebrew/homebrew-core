@@ -41,11 +41,6 @@ class Pdf2htmlex < Formula
   end
 
   # And failures
-  fails_with :llvm do
-    build 2336
-    cause "Compiling cvexportdlg.c fails with error: initializer element is not constant"
-  end
-
   def install
     resource("fontforge").stage do
       args = %W[
