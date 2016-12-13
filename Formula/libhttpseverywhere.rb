@@ -4,6 +4,12 @@ class Libhttpseverywhere < Formula
   url "https://download.gnome.org/sources/libhttpseverywhere/0.2/libhttpseverywhere-0.2.9.tar.xz"
   sha256 "1226b2f7cc30db28bd1ccb0a84902e999488f1a99847940cbdab3d2e510be3e1"
 
+  bottle do
+    sha256 "31bb137f4c16e80a56d1c59def16229ef3bcbe439ed8f399a6e3aaa95e23aa5b" => :sierra
+    sha256 "5df53c851d3db6c702ebf0fee726ac2289fa4c8cd96faafa6e8caacc6509c336" => :el_capitan
+    sha256 "bfb764d269870f219a6c419477c952bb7b4c1c0c2bab314479eeb8d22ed3df1d" => :yosemite
+  end
+
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "vala" => :build
