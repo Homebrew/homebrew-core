@@ -75,11 +75,6 @@ class Wine < Formula
     sha256 "ac681f737f83742d786706529eb85f4bc8d6bdddd8dcdfa9e2e336b71973bc25"
   end
 
-  fails_with :llvm do
-    build 2336
-    cause "llvm-gcc does not respect force_align_arg_pointer"
-  end
-
   fails_with :clang do
     build 425
     cause "Clang prior to Xcode 5 miscompiles some parts of wine"
