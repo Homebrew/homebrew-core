@@ -25,11 +25,6 @@ class Flac < Formula
   depends_on "pkg-config" => :build
   depends_on "libogg" => :optional
 
-  fails_with :llvm do
-    build 2326
-    cause "Undefined symbols when linking"
-  end
-
   fails_with :clang do
     build 500
     cause "Undefined symbols ___cpuid and ___cpuid_count"
