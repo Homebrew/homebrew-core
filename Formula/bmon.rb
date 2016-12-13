@@ -1,9 +1,8 @@
 class Bmon < Formula
   desc "Interface bandwidth monitor"
   homepage "https://github.com/tgraf/bmon"
-  url "https://github.com/tgraf/bmon/releases/download/v3.9/bmon-3.9.tar.gz"
-  sha256 "9c08332520497ef1d51a733ca531ffedbb5a30c7c3f55579efe86c36138f93e1"
-  revision 1
+  url "https://github.com/tgraf/bmon/releases/download/v4.0/bmon-4.0.tar.gz"
+  sha256 "02fdc312b8ceeb5786b28bf905f54328f414040ff42f45c83007f24b76cc9f7a"
 
   bottle do
     sha256 "5764df478a5fd162c212b989aa22060d94100ec8becda51493adeb2215479fed" => :sierra
