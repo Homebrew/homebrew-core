@@ -244,6 +244,10 @@ class Gdal < Formula
   end
 
   def install
+    inreplace "frmts/jpeg2000/jpeg2000_vsil_io.cpp",
+      "stream->bufbase_ = JAS_CAST(uchar *, buf);",
+      "stream->bufbase_ = JAS_CAST(u_char *, buf);"
+
     if build.with? "libkml"
       resource("libkml").stage do
         # See main `libkml` formula for info on patches
