@@ -1,8 +1,8 @@
 class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "http://kubernetes.io/"
-  url "https://github.com/kubernetes/kubernetes/archive/v1.4.7.tar.gz"
-  sha256 "2f5d4c5071109935386c550899ae85f338ee3a9d58cb1908d2d975d8a9c5baa9"
+  url "https://github.com/kubernetes/kubernetes/archive/v1.5.0.tar.gz"
+  sha256 "0992af9e13bf756f0fb2abf08cd258631d08103cf833bb62936f09d2d5c60eb3"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
@@ -13,24 +13,18 @@ class KubernetesCli < Formula
   end
 
   devel do
-    url "https://github.com/kubernetes/kubernetes/archive/v1.5.0-beta.3.tar.gz"
-    sha256 "210a84a0585160cf5947148f7b4c239a62c9b202e3cecbc7b87ef14a8c62042c"
-    version "1.5.0-beta.3"
+    url "https://github.com/kubernetes/kubernetes/archive/v1.5.1-beta.0.tar.gz"
+    sha256 "98582a12d32552694c4974a018b97c9d2e8c072befa5ab464d1d43fd35500b0d"
+    version "1.5.1-beta.0"
   end
 
   depends_on "go" => :build
 
   def install
-    # Patch needed to avoid vendor dependency on github.com/jteeuwen/go-bindata
-    # Build will otherwise fail with missing dep
-    # Raised in https://github.com/kubernetes/kubernetes/issues/34067
-    # Fix merged into 1.5 branch; patch may be removed when that goes GA
-    rm "./test/e2e/framework/gobindata_util.go"
-
     # Race condition still exists in OSX Yosemite
     # Filed issue: https://github.com/kubernetes/kubernetes/issues/34635
     ENV.deparallelize { system "make", "generated_files" }
-    system "make", "kubectl", "GOFLAGS=-v"
+    system "make", "kubectl"
 
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
     bin.install "_output/local/bin/darwin/#{arch}/kubectl"
