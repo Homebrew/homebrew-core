@@ -30,11 +30,6 @@ class Pango < Formula
   depends_on "fontconfig"
   depends_on "gobject-introspection"
 
-  fails_with :llvm do
-    build 2326
-    cause "Undefined symbols when linking"
-  end
-
   def install
     ENV.universal_binary if build.universal?
 
