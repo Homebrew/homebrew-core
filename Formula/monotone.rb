@@ -21,11 +21,6 @@ class Monotone < Formula
   # Monotone only needs headers, not any built libraries
   depends_on "boost" => :build
 
-  fails_with :llvm do
-    build 2334
-    cause "linker fails"
-  end
-
   def install
     botan = Formula["botan"]
 
