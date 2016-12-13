@@ -11,14 +11,11 @@ class Openrtsp < Formula
     sha256 "0288928ad21138b15680fb534f4c40f50254748c423f33e4000cf58946d2ede0" => :yosemite
   end
 
-  option "32-bit"
-
   def install
-    if build.build_32_bit? || !MacOS.prefer_64_bit?
-      ENV.m32
-      system "./genMakefiles", "macosx-32bit"
-    else
+    if MacOS.prefer_64_bit?
       system "./genMakefiles", "macosx"
+    else
+      system "./genMakefiles", "macosx-32bit"
     end
 
     system "make", "PREFIX=#{prefix}", "install"
