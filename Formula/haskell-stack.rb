@@ -12,7 +12,7 @@ class HaskellStack < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8b91aa807605cd89e57363ba257c9793db15a903df6e02976e79bc0f4453fbdc" => :el_capitan
+    sha256 "8b91aa807605cd89e57363ba257c9793db15a903df6e02976e79bc0f4453fbdc" => :el_capitan_or_later
     sha256 "9094b74b88d4bd33fb9a3a5fc311cedec9a594acb2dbc494e25abc452f86e756" => :yosemite
   end
 
