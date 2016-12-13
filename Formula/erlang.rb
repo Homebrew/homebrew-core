@@ -33,8 +33,6 @@ class Erlang < Formula
   depends_on :java => :optional
   depends_on "wxmac" => :recommended # for GUI apps like observer
 
-  fails_with :llvm
-
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_19.1.tar.gz"
     sha256 "7200e9e5b3a229a6b3838046e1b3e64afc869265539d49d0e4853212f19c0c79"
