@@ -12,7 +12,6 @@ class Postgresql < Formula
     sha256 "6f535922dca6457f0b16a5a22be5d35ec9138dc2334acc60a660dbb7594c1d41" => :yosemite
   end
 
-  option "32-bit"
   option "without-perl", "Build without Perl support"
   option "without-tcl", "Build without Tcl support"
   option "with-dtrace", "Build with DTrace support"
@@ -87,10 +86,6 @@ class Postgresql < Formula
 
     args << "--enable-dtrace" if build.with? "dtrace"
     args << "--with-uuid=e2fs"
-
-    if build.build_32_bit?
-      ENV.append %w[CFLAGS LDFLAGS], "-arch #{Hardware::CPU.arch_32_bit}"
-    end
 
     system "./configure", *args
     system "make"
