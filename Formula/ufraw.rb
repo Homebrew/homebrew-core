@@ -22,10 +22,6 @@ class Ufraw < Formula
   depends_on "little-cms2"
   depends_on "exiv2" => :optional
 
-  fails_with :llvm do
-    cause "Segfault while linking"
-  end
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
