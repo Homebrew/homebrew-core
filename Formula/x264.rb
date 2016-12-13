@@ -2,8 +2,8 @@ class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
   # the latest commit on the stable branch
-  url "https://git.videolan.org/git/x264.git", :revision => "86b71982e131eaa70125f8d0e725fcade9c4c677"
-  version "r2708"
+  url "https://git.videolan.org/git/x264.git", :revision => "4d5c8b01a48f72f9c40651e92c39294326a0863f"
+  version "r2728"
   head "https://git.videolan.org/git/x264.git"
 
   bottle do
@@ -15,8 +15,8 @@ class X264 < Formula
 
   devel do
     # the latest commit on the master branch
-    url "https://git.videolan.org/git/x264.git", :revision => "72d53ab2ac7af24597a824e868f2ef363a22f5d4"
-    version "r2721"
+    url "https://git.videolan.org/git/x264.git", :revision => "b97ae0644f16bad2e2c9c9181264a946769a0aa0"
+    version "r2744"
   end
 
   option "with-10-bit", "Build a 10-bit x264 (default: 8-bit)"
