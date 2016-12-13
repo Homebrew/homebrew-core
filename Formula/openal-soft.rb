@@ -25,7 +25,6 @@ class OpenalSoft < Formula
 
   # llvm-gcc does not support the alignas macro
   # clang 4.2's support for alignas is incomplete
-  fails_with :llvm
   fails_with(:clang) { build 425 }
 
   def install
