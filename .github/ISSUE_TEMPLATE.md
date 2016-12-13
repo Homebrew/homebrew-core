@@ -10,12 +10,12 @@ _You can erase any parts of this template not applicable to your Issue._
 
 ### Bug reports:
 
-Please replace this line with a brief summary of your issue **AND** the output of `brew config` and `brew doctor` or if reporting a formula issue include the link from:
+Please replace this section with a brief summary of your issue **AND** the output of `brew config` and `brew doctor` or if reporting a formula issue include the link from:
 `brew gist-logs <formula>`
-(where `<formula>` is the name of the formula that failed to build).
+(where `<formula>` is the name of the formula that failed to build). Please note we may immediately close your issue without comment if you do not fill out the issue template and provide the requested information.
 
 ### Formula Requests:
 
 **Please note by far the quickest way to get a new formula into Homebrew is to file a [Pull Request](https://github.com/Homebrew/homebrew-core/blob/master/CONTRIBUTING.md).**
 
-We will consider your request but it may be closed if it's something we're not actively planning to work on.
+Please replace this section with the homepage and name of your requested formula (after using `brew search` to check it does not already exist). Please note we may close this issue or ask you to create a pull-request if it's something we're not actively planning to work on.
