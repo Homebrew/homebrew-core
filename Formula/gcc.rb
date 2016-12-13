@@ -60,7 +60,6 @@ class Gcc < Formula
   end
 
   fails_with :gcc_4_0
-  fails_with :llvm
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
