@@ -15,10 +15,6 @@ class W3m < Formula
   depends_on "bdw-gc"
   depends_on "openssl"
 
-  fails_with :llvm do
-    build 2334
-  end
-
   patch :DATA
 
   def install
