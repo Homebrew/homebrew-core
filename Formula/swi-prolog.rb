@@ -39,11 +39,6 @@ class SwiProlog < Formula
     depends_on "jpeg"
   end
 
-  fails_with :llvm do
-    build 2335
-    cause "Exported procedure chr_translate:chr_translate_line_info/3 is not defined"
-  end
-
   def install
     # The archive package hard-codes a check for MacPort libarchive
     # Replace this with a check for Homebrew's libarchive, or nowhere
