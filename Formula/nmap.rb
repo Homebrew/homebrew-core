@@ -18,10 +18,6 @@ class Nmap < Formula
 
   conflicts_with "ndiff", :because => "both install `ndiff` binaries"
 
-  fails_with :llvm do
-    build 2334
-  end
-
   def install
     ENV.deparallelize
 
