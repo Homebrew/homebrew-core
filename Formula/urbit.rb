@@ -6,9 +6,9 @@ class Urbit < Formula
 
   bottle do
     cellar :any
-    sha256 "d723a4c29bed9ff97429264cd149cd7800841198d0a027137056f269b0c26f54" => :sierra
-    sha256 "11bd0f49a62ee05b62cda24d3a0595695bcd6a5866c99e946862eb7d0cf9234a" => :el_capitan
-    sha256 "57738db2b16a13a00ae95f86e3026a929ec253f2c763f6d4ddef186396aff2f7" => :yosemite
+    sha256 "8cfa835171cddaca78fe33b173b0d8046276b6ea517f5b5cf85722be2005880e" => :sierra
+    sha256 "3e2391cff7e0689176338e49427988fdde52037132b30f56c56af79ec85a5c58" => :el_capitan
+    sha256 "3b317f4b178acde0ed429aab7867d94a60551d74d5aea1e4119b2f54682a1eef" => :yosemite
   end
 
   depends_on "gmp"
