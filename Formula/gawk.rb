@@ -12,11 +12,6 @@ class Gawk < Formula
     sha256 "bc8bd37d3761403f22bf3937097c67d8e76e914c90abfa577fd7e17af337057a" => :yosemite
   end
 
-  fails_with :llvm do
-    build 2326
-    cause "Undefined symbols when linking"
-  end
-
   depends_on "mpfr"
   depends_on "readline"
 
