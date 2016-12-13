@@ -7,9 +7,9 @@ class Flow < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b7e9a3011c05ceb26b20c590746441816ac9697453c98d7ff40157da42ef31ec" => :sierra
-    sha256 "09b1cd562b32b5e4776ce063bac3053c02afabffcb3dc9f4270d266cd28850a7" => :el_capitan
-    sha256 "96ab80b672aa81a15e6ff736e5bfae4db30923c72a5acb17c76ba18c8dbf48eb" => :yosemite
+    sha256 "5aeb06918e6723887160f2cde50089ea73869eb39096b8b740443f5cc2831b97" => :sierra
+    sha256 "8a48f7d56bd0e6517beee5122439be3d7f41e7cc2fb8fff36fe7aacca806361e" => :el_capitan
+    sha256 "8ff142781e442f563232742e87ecc76aac01137595c368e2c39135b5705fd448" => :yosemite
   end
 
   depends_on "ocaml" => :build
