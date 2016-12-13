@@ -1,8 +1,8 @@
 class Whatmp3 < Formula
   desc "Small script to create mp3 torrents out of FLACs"
   homepage "https://github.com/RecursiveForest/whatmp3"
-  url "https://github.com/RecursiveForest/whatmp3/archive/v3.7.tar.gz"
-  sha256 "a8b688e2e5873e3bf527fc44e8f3966227b432cf59593062dd58493df65de3b0"
+  url "https://github.com/RecursiveForest/whatmp3/archive/v3.8.tar.gz"
+  sha256 "0d8ba70a1c72835663a3fde9ba8df0ff7007268ec0a2efac76c896dea4fcf489"
   head "https://github.com/RecursiveForest/whatmp3.git"
 
   bottle do
@@ -24,7 +24,6 @@ class Whatmp3 < Formula
   depends_on "sox" => :optional
 
   def install
-    inreplace "whatmp3.py", "#!/usr/bin/env python", "#!/usr/bin/env python3"
     system "make", "PREFIX=#{prefix}", "install"
   end
 
