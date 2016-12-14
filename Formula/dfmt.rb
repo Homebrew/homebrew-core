@@ -24,6 +24,9 @@ class Dfmt < Formula
   depends_on "dmd" => :build
 
   def install
+    if build.stable?
+      rmtree "libdparse/experimental_allocator"
+    end
     system "make"
     bin.install "bin/dfmt"
   end
