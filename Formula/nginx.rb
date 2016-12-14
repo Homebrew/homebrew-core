@@ -14,8 +14,8 @@ class Nginx < Formula
   end
 
   devel do
-    url "https://nginx.org/download/nginx-1.11.6.tar.gz"
-    sha256 "3153abbb518e2d9c032e1b127da3dc0028ad36cd4679e5f3be0b8afa33bc85bd"
+    url "https://nginx.org/download/nginx-1.11.7.tar.gz"
+    sha256 "0d55beb52b2126a3e6c7ae40f092986afb89d77b8062ca0974512b8c76d9300e"
   end
 
   # Before submitting more options to this formula please check they aren't
