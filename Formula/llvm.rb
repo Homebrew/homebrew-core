@@ -124,7 +124,11 @@ class Llvm < Formula
 
   option :universal
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
-  option "without-libcxx", "Do not build libc++ standard library"
+  if OS.mac?
+    option "without-libcxx", "Do not build libc++ standard library"
+  else
+    option "with-libcxx", "Build libc++ standard library"
+  end
   option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
   option "with-lldb", "Build LLDB debugger"
   option "with-python", "Build bindings against custom Python"
@@ -150,8 +154,11 @@ class Llvm < Formula
 
   if build.with? "lldb"
     depends_on "swig" if MacOS.version >= :lion
-    depends_on CodesignRequirement
+    depends_on CodesignRequirement if OS.mac?
   end
+  # llvm requires <histedit.h>
+  depends_on "homebrew/dupes/libedit" unless OS.mac?
+  depends_on "libxml2" unless OS.mac?
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
@@ -165,6 +172,9 @@ class Llvm < Formula
   end
 
   def install
+    # Reduce parallelization to avoid build failures.
+    ENV["MAKEFLAGS"] = "-j5" if ENV["CIRCLECI"]
+
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
@@ -191,9 +201,11 @@ class Llvm < Formula
       # the search path in a superenv build. The following three lines add
       # the login keychain to ~/Library/Preferences/com.apple.security.plist,
       # which adds it to the superenv keychain search path.
-      mkdir_p "#{ENV["HOME"]}/Library/Preferences"
-      username = ENV["USER"]
-      system "security", "list-keychains", "-d", "user", "-s", "/Users/#{username}/Library/Keychains/login.keychain"
+      if OS.mac?
+        mkdir_p "#{ENV["HOME"]}/Library/Preferences"
+        username = ENV["USER"]
+        system "security", "list-keychains", "-d", "user", "-s", "/Users/#{username}/Library/Keychains/login.keychain"
+      end
     end
 
     if build.with? "compiler-rt"
@@ -272,6 +284,11 @@ class Llvm < Formula
     # install llvm python bindings
     (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
+
+    # Remove conflicting libraries.
+    # libgomp.so conflicts with gcc.
+    # libunwind.so conflcits with libunwind.
+    rm [lib/"libgomp.so", lib/"libunwind.so"] if OS.linux?
   end
 
   def caveats
@@ -309,7 +326,7 @@ class Llvm < Formula
 
     system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
                            "-I#{lib}/clang/#{version}/include",
-                           "omptest.c", "-o", "omptest"
+                           "omptest.c", "-o", "omptest", *ENV["LDFLAGS"].split
     testresult = shell_output("./omptest")
 
     sorted_testresult = testresult.split("\n").sort.join("\n")
@@ -342,7 +359,7 @@ class Llvm < Formula
     EOS
 
     # Testing Command Line Tools
-    if MacOS::CLT.installed?
+    if OS.mac? && MacOS::CLT.installed?
       libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS::CLT.version.to_i}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",

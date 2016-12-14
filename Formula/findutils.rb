@@ -12,6 +12,7 @@ class Findutils < Formula
     sha256 "fc0efb414966dda5544279320c8b7505a7a292bcf38164b7afcc5fdfcf666aa5" => :el_capitan
     sha256 "e7fb30feeb8f5adb37e29c298d24da06a172d778a0d1373ed47c02bb3735419d" => :yosemite
     sha256 "4dffec36d2f9b22e67c75aecba9391af95408426bcae16e270ae42e53305909a" => :mavericks
+    sha256 "ed62035b33f21598b7a1e9b9c51116a22ab796e0cea6db03c2ad30d2aa4897f7" => :x86_64_linux
   end
 
   deprecated_option "default-names" => "with-default-names"

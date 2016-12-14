@@ -28,7 +28,7 @@ class Mariadb < Formula
   deprecated_option "with-tests" => "with-test"
 
   depends_on "cmake" => :build
-  depends_on "pidof" unless MacOS.version >= :mountain_lion
+  depends_on "pidof" if OS.mac? && MacOS.version < :mountain_lion
   depends_on "openssl"
 
   conflicts_with "mysql", "mysql-cluster", "percona-server",
@@ -123,7 +123,7 @@ class Mariadb < Formula
     inreplace "#{prefix}/support-files/mysql.server" do |s|
       s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
       # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
+      s.gsub!(/pidof/, "pgrep") unless OS.mac? && MacOS.version < :mountain_lion
     end
 
     bin.install_symlink prefix/"support-files/mysql.server"

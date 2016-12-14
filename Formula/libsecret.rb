@@ -9,6 +9,7 @@ class Libsecret < Formula
     sha256 "07d7fd02e1c3857a2a27415575248ea89a19c7dd1a86efe53fcf1866dce1bf46" => :el_capitan
     sha256 "090ea52539396135f710956cd051cbab59d6dd7fb94d8666dc4ed4e0312cddac" => :yosemite
     sha256 "b7f878856f2f272de7d0456ad3c82a6e260a9a272a7c4eefc1504a668a430fb0" => :mavericks
+    sha256 "40394105302903085cf2679cd2c0c3255ae8edd4fa6dee451eb674d4f9a8fc5b" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -37,7 +38,7 @@ class Libsecret < Formula
     system "./configure", *args
 
     # https://bugzilla.gnome.org/show_bug.cgi?id=734630
-    inreplace "Makefile", "sed", "gsed"
+    inreplace "Makefile", "sed", "gsed" unless OS.linux?
 
     system "make", "install"
   end

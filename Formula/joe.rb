@@ -9,6 +9,7 @@ class Joe < Formula
     sha256 "3404c9b3378b430dbbf416a3e29cc15b29aacdca1d00ff9d05982d711f741967" => :el_capitan
     sha256 "4cf7df6c52a64dcd917e6d39aca024b57ff0313bb07ee79ff3f6e7ebad037735" => :yosemite
     sha256 "ecfa1240b7102d12171acbd2f5f3fdc4723e4b657495ec7c81e9c5b0f6d45ec1" => :mavericks
+    sha256 "466a611539a2293bf78372b3fb90dbcbe70daa39e3d5b88eb7559de105105617" => :x86_64_linux
   end
 
   def install

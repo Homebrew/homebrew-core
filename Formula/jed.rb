@@ -11,6 +11,7 @@ class Jed < Formula
     sha256 "3b316c792feabf9622a70a8ccdf2d2e985e7f991dbcd49a104b2ee6b8ea078cb" => :yosemite
     sha256 "f0e02951e534d96baad147970e51b2f5c09155ad0e51114cfc72b3f49301dff3" => :mavericks
     sha256 "595aff2e43b8ec8c31626831dcab83ffe4ffc129ea85efa61bc2e35877137a29" => :mountain_lion
+    sha256 "ece85f6ba321074d7f8e2ad4f229653ae9b81911eb8c83ffe170bae696cc983b" => :x86_64_linux
   end
 
   head do

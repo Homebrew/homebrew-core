@@ -12,6 +12,7 @@ class Libglade < Formula
     sha256 "5c650d4a9eb7de60ce0b74a15825b0396a3811df14c51ea53b2d4477cf1835cc" => :yosemite
     sha256 "a9fdc34b5efc22d5193598ca045f6fd05828428c4b691bba1a18082e989b54ed" => :mavericks
     sha256 "256b81161ba3a638eb993d8309c8a1e7172fcb84fea247675597b4232c7db775" => :mountain_lion
+    sha256 "8c1326549dfa4b13d5897c499aa4b09790d7bf943cefa828a671221cb74675fa" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -71,18 +72,18 @@ class Libglade < Formula
       -L#{pango.opt_lib}
       -latk-1.0
       -lcairo
-      -lgdk-quartz-2.0
+      -lgdk-#{OS.mac? ? "quartz" : "x11"}-2.0
       -lgdk_pixbuf-2.0
       -lgio-2.0
       -lglade-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lgtk-quartz-2.0
-      -lintl
+      -lgtk-#{OS.mac? ? "quartz" : "x11"}-2.0
       -lpango-1.0
       -lpangocairo-1.0
       -lxml2
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

@@ -12,12 +12,16 @@ class Gperftools < Formula
     sha256 "35a478cc1f30e79b07099318b24d82fbdcbb53bc52cdd09688c55ba3f8e12d72" => :el_capitan
     sha256 "86f429aa714330a0b550397e306f691340e4beaa5dd3def7d62a3cb42b5200de" => :yosemite
     sha256 "8b50e2171af61bf38094d6173d5c39d34c42559440c94ca27fae750e8012cb17" => :mavericks
+    sha256 "582b56330932b33d5ef2a20f51b0a3db062169779451fcd8dd18c323685bf291" => :x86_64_linux
   end
 
   # Needed for stable due to the patch; otherwise, just head
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
+  # Fix error: No frame pointers and no libunwind. The compilation will fail
+  depends_on "libunwind" unless OS.mac?
 
   fails_with :llvm do
     build 2326
@@ -35,7 +39,7 @@ class Gperftools < Formula
   end
 
   def install
-    ENV.append_to_cflags "-D_XOPEN_SOURCE"
+    ENV.append_to_cflags "-D_XOPEN_SOURCE" if OS.mac?
 
     # Needed for stable due to the patch; otherwise, just head
     system "autoreconf", "-fiv"

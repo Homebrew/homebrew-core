@@ -23,9 +23,14 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.20.0/crystal-0.20.0-1-darwin-x86_64.tar.gz"
+    if OS.mac?
+      url "https://github.com/crystal-lang/crystal/releases/download/0.20.0/crystal-0.20.0-1-darwin-x86_64.tar.gz"
+      sha256 "4865c464d37aa4328f1f401e3a66136d8149bad51ef5ecd6fef0d032067e7fee"
+    elsif OS.linux?
+      url "https://github.com/crystal-lang/crystal/releases/download/0.20.0/crystal-0.20.0-1-linux-x86_64.tar.gz"
+      sha256 "55f309882b71f1722b00e63c5e91bcf8be54865b9bc9e7bb85f333b94990e298"
+    end
     version "0.20.0"
-    sha256 "4865c464d37aa4328f1f401e3a66136d8149bad51ef5ecd6fef0d032067e7fee"
   end
 
   resource "shards" do

@@ -26,7 +26,7 @@ class Premake < Formula
       system "./premake5", "gmake"
     end
 
-    system "make", "-C", "build/gmake.macosx"
+    system "make", "-C", "build/gmake.#{OS.mac? ? "macosx" : "unix"}"
 
     if build.devel? || build.head?
       bin.install "bin/release/premake5"

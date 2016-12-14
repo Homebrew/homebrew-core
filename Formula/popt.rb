@@ -11,6 +11,7 @@ class Popt < Formula
     sha256 "56d1104516e23bb314a248904b8ec85afe2fdbf71555417eb8f91edc1286e6da" => :yosemite
     sha256 "ba122e7f34b9b03ab5a32ab01124b61eb608c29e0c0d023462953ed03782dd2a" => :mavericks
     sha256 "6d95c3530a7bd4d7099d91f448669b53bb51a071c5e9a8b9915cdc750bd72aec" => :mountain_lion
+    sha256 "fbfb8248da18982c7b9e80c1a3ef7016c5f4e2afdbf8e0e1ba8ca086c87a5d55" => :x86_64_linux
   end
 
   option :universal

@@ -13,8 +13,13 @@ class Rust < Formula
 
     # name includes date to satisfy cache
     resource "cargo-nightly-2015-09-17" do
-      url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2015-09-17/cargo-nightly-x86_64-apple-darwin.tar.gz"
-      sha256 "02ba744f8d29bad84c5e698c0f316f9e428962b974877f7f582cd198fdd807a8"
+      if OS.mac?
+        url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2015-09-17/cargo-nightly-x86_64-apple-darwin.tar.gz"
+        sha256 "02ba744f8d29bad84c5e698c0f316f9e428962b974877f7f582cd198fdd807a8"
+      else
+        url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2015-09-17/cargo-nightly-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "500d1af7c5f54074fef5e393195e9dfd6d42b41bb709caa81a3b52cfd8d27ea4"
+      end
     end
   end
 
@@ -50,6 +55,8 @@ class Rust < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j12" if ENV["CIRCLECI"]
     args = ["--prefix=#{prefix}"]
     args << "--disable-rpath" if build.head?
     args << "--enable-clang" if ENV.compiler == :clang

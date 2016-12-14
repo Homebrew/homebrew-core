@@ -11,6 +11,7 @@ class Atool < Formula
     sha256 "dcfdcb720aa3704b9103aa01bb8efac42d24327bc8664baa420a9a69d75a98b6" => :el_capitan
     sha256 "efdeeb165e146f4a76477417d2af9c60e2f776d06081bb579ff73ceb296a899d" => :yosemite
     sha256 "4eed286344a3a1d4fc6efc908b34062b5cc7c7fdf2449cf85b7767168585fc7a" => :mavericks
+    sha256 "7c908cc1f52028e534fb1c085b492506ea04ecf663a8159b1469d8d13221ee84" => :x86_64_linux
   end
 
   def install

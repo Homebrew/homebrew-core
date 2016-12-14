@@ -9,6 +9,7 @@ class Libmagic < Formula
     sha256 "146769301626e0dd89c9a43ee792d9bb6e12141934282cdb079a97894a7fa5e9" => :sierra
     sha256 "f34471287b07b123d823fa83b3a7367c46547544ec697b1b73bd8b9431159a4c" => :el_capitan
     sha256 "54a619ed0c36e8003cde613d05d5ba3d823bf8e53f475e053264efb5d8b63765" => :yosemite
+    sha256 "c82348702415bff91e654e948ccfc0e3006d93392c8c159ef0994cc8d313cac9" => :x86_64_linux
   end
 
   option :universal

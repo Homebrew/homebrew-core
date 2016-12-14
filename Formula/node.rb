@@ -9,6 +9,7 @@ class Node < Formula
     sha256 "8f1d4d3874bd95160a0752e24caeeefebdc6ad082966f0cd3728af12fd958b2b" => :sierra
     sha256 "2b217764e63eaac6d8f031bdbf87e30c77308a81a509c40c45407eb3f1158660" => :el_capitan
     sha256 "6dfd9f27a9cb291feac6f8091aab7933bf04da30d65e9417797fbe3eb08d76c5" => :yosemite
+    sha256 "e2ea200b1569f16b8bc4240298c1dc95daaaed38283b504cecae8af112d66f02" => :x86_64_linux
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -54,6 +55,9 @@ class Node < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV.deparallelize if ENV["CIRCLECI"]
+
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm]
@@ -65,6 +69,11 @@ class Node < Formula
       resource("icu4c").stage buildpath/"deps/icu"
       args << "--with-intl=full-icu"
     end
+
+    # Fix collect2: fatal error: cannot find 'ld'
+    # The snapshot feature requires the gold linker.
+    # See https://github.com/nodejs/node/issues/4212
+    args << "--without-snapshot" if OS.linux?
 
     system "./configure", *args
     system "make", "install"

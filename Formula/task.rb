@@ -17,6 +17,7 @@ class Task < Formula
 
   depends_on "cmake" => :build
   depends_on "gnutls" => :recommended
+  depends_on "util-linux" if OS.linux? # for libuuid
 
   needs :cxx11
 

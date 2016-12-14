@@ -9,11 +9,21 @@ class IcarusVerilog < Formula
     sha256 "74ba9d85c0c64df9c4d68f978ef56ccfe623eaade7e8c16080c418f3ccc6d864" => :el_capitan
     sha256 "b6b8920ebb2837a6bdf292f935d6ec09f4a4df2a3b79050fb3906a38f787893a" => :yosemite
     sha256 "8a1f573ce80b2a7f8e7789030a27d9ea8dfd68cbd690c3c556ac96e3a013e410" => :mavericks
+    sha256 "5f9fe152d5af29ef33719342f5127d3b36f00952afd67cc3dfe8da455eac77bc" => :x86_64_linux
   end
 
   head do
     url "https://github.com/steveicarus/iverilog.git"
     depends_on "autoconf" => :build
+  end
+
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+    depends_on "gperf" => :build
+    depends_on "bzip2"
+    depends_on "readline"
+    depends_on "zlib"
   end
 
   def install

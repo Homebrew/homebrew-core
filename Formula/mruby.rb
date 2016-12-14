@@ -12,6 +12,7 @@ class Mruby < Formula
     sha256 "a086424c6137f85d5c814e8a0216430081d9c583e2e3849231d82fd49ec118b8" => :el_capitan
     sha256 "9798334879beef5eba0f79bcd5720bc39b1466eade5254bcd8c38ef5a6a6b026" => :yosemite
     sha256 "874a62ef53850b0987d0be761b8b767072803bae69f620a6595bc8759822f0c6" => :mavericks
+    sha256 "67b51eff3720dbf78e30a9261678a8514ca23d12ed95398981d91eded6065f13" => :x86_64_linux
   end
 
   depends_on "bison" => :build

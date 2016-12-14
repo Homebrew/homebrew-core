@@ -12,6 +12,7 @@ class GitSh < Formula
     sha256 "e30e7836919a5d79712e3fd51a118279b412c44da909053b9b185eb48963323f" => :el_capitan
     sha256 "cdbc6fc62300722f613f314e2859422edcf938c6807a3039bcf476e02fbe222c" => :yosemite
     sha256 "1b9aa141f32145516db62304dda799611e1fc35ec57275ee75bf566325a6bfa5" => :mavericks
+    sha256 "4a90e6f44bb3e10c770b7d374534b91299159f8cfdd4fb5a407aa2461d27390c" => :x86_64_linux
   end
 
   def install

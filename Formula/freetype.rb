@@ -11,6 +11,7 @@ class Freetype < Formula
     sha256 "0c98beda51c7d5a42f317598a2fbb65391278f6bb72f038512033392a681b25e" => :el_capitan
     sha256 "f29056e7f47435120efd7fedfce5483e083dcf52fa587569a99d2afba3fb11c2" => :yosemite
     sha256 "470c71da601ed6b1fd95445492040e5a56f30135d1602d3617f4da89539f1b6b" => :mavericks
+    sha256 "f909400b675e54dc325753b2711733563718d8601520121c9582430af7342731" => :x86_64_linux
   end
 
   keg_only :provided_pre_mountain_lion

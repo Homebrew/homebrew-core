@@ -1,0 +1,35 @@
+machine:
+  environment:
+    HOMEBREW_DEVELOPER: 1
+    HOMEBREW_VERBOSE_USING_DOTS: 1
+checkout:
+  post:
+    - git remote set-url origin https://github.com/Linuxbrew/homebrew-core
+    - git fetch origin
+    - git checkout master
+    - git reset --hard origin/master
+    - git config user.name LinuxbrewTestBot
+    - git config user.email testbot@linuxbrew.sh
+    - sudo mkdir /home/linuxbrew
+    - sudo chown "$USER:" /home/linuxbrew
+    - git clone --depth=1 https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
+    - mkdir -p /home/linuxbrew/.linuxbrew/Library/Taps/homebrew
+    - mv $HOME/homebrew-core /home/linuxbrew/.linuxbrew/Library/Taps/homebrew/
+    - mkdir $HOME/homebrew-core
+dependencies:
+  override:
+    - sudo apt-get update
+    - sudo apt-get install curl g++ git libperl-dev libxml-parser-perl libxml-sax-perl make python-dev ruby2.0 ruby2.0-dev wbritish
+    - sudo apt-get remove libblas-dev libicu-dev libjbig-dev libncurses5-dev libtinfo-dev libxml2-dev llvm-3.4
+    - sudo ln -sf ruby2.0 /usr/bin/ruby
+    - sudo ln -sf gem2.0 /usr/bin/gem
+    - sudo ln -sf /usr/lib/x86_64-linux-gnu/libruby-2.0.so /usr/lib/x86_64-linux-gnu/libruby.so
+    - sudo rm -rf /opt/circleci /usr/local/*
+test:
+  override:
+    - umask 022;
+      PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH";
+      brew install patchelf curl
+        && brew tap homebrew/dupes
+        && brew tap linuxbrew/xorg
+        && brew test-bot --tap=homebrew/core --keep-old --verbose

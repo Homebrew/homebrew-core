@@ -9,6 +9,7 @@ class Algol68g < Formula
     sha256 "467a5892fd9cdd854eaabb2b298dbc55bc8dec961960ef54e5730f6854d388f8" => :el_capitan
     sha256 "6f4ba5db40637d0a5d10d0f416854e2497d59ec43abc108484a3420f36903323" => :yosemite
     sha256 "5ec387dbb47eeeca93019a449ced1e7e5472f0ada413e19258c81cb3ec41d76d" => :mavericks
+    sha256 "b25004995ba6e5af9079273b0e36d55caf70178530f1495deafbedefa830ad2a" => :x86_64_linux
   end
 
   depends_on "gsl" => :optional

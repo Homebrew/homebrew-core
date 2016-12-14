@@ -11,6 +11,7 @@ class Es < Formula
     sha256 "53f0c0654ddecc62b99135fb96722b6467593248d884c1506ea93681367c611d" => :el_capitan
     sha256 "bceadf8a0ef4d3231d149f30cc53d2c7fe686cd8fdd0dafe83ceaabc35151d5e" => :yosemite
     sha256 "14f203383d01f581bdb63e7240ff57d1174553467314351d49ea41d3052148f9" => :mavericks
+    sha256 "47eb9c54542fdc1f05144632e4d0cb93a50d8ddea973d452b98ad4de527b2d25" => :x86_64_linux
   end
 
   option "with-readline", "Use readline instead of libedit"

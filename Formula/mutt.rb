@@ -44,14 +44,18 @@ class Mutt < Formula
     :because => "both install mmdf.5 and mbox.5 man pages"
 
   def install
-    user_admin = Etc.getgrnam("admin").mem.include?(ENV["USER"])
+    begin
+        user_admin = Etc.getgrnam("admin").mem.include?(ENV["USER"])
+    rescue
+        user_admin = false
+    end
 
     args = %W[
       --disable-dependency-tracking
       --disable-warnings
       --prefix=#{prefix}
       --with-ssl=#{Formula["openssl"].opt_prefix}
-      --with-sasl
+      #{OS.mac? ? "--with-sasl" : "--with-sasl2"}
       --with-gss
       --enable-imap
       --enable-smtp

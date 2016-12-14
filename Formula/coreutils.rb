@@ -9,7 +9,12 @@ class Coreutils < Formula
     sha256 "9409628a4780999323b47bbc5f7e3d622360766995e5b2d97fabbc9930b6d78d" => :sierra
     sha256 "c37e171b4969db30c4ac11d6eda9297d0ad7253061569d8a8d849592664c8fd5" => :el_capitan
     sha256 "fc6fc46b6c96c75424b4c0eeffaf3f493dfc605940960d4c35c17fdb2e598ed5" => :yosemite
+    sha256 "00afcb54d81e363b3602af045474f32109516e4d4a256d11c217d1f73a48ce6b" => :x86_64_linux
   end
+
+  # --default-names interferes with Mac builds.
+  option "with-default-names", "Do not prepend 'g' to the binary" if OS.linux?
+  deprecated_option "default-names" => "with-default-names"
 
   head do
     url "git://git.sv.gnu.org/coreutils"
@@ -21,6 +26,7 @@ class Coreutils < Formula
     depends_on "texinfo" => :build
     depends_on "xz" => :build
     depends_on "wget" => :build
+    depends_on "homebrew/dupes/gperf" => :build unless OS.mac?
   end
 
   depends_on "gmp" => :optional
@@ -58,9 +64,20 @@ class Coreutils < Formula
       (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}" => cmd
     end
 
-    # Symlink non-conflicting binaries
-    bin.install_symlink "grealpath" => "realpath"
-    man1.install_symlink "grealpath.1" => "realpath.1"
+    if build.with? "default-names"
+      # Symlink all commands without the 'g' prefix
+      coreutils_filenames(bin).each do |cmd|
+        bin.install_symlink "g#{cmd}" => cmd
+      end
+      # Symlink all man(1) pages without the 'g' prefix
+      coreutils_filenames(man1).each do |cmd|
+        man1.install_symlink "g#{cmd}" => cmd
+      end
+    else
+      # Symlink non-conflicting binaries
+      bin.install_symlink "grealpath" => "realpath"
+      man1.install_symlink "grealpath.1" => "realpath.1"
+    end
   end
 
   def caveats; <<-EOS.undent
@@ -77,7 +94,7 @@ class Coreutils < Formula
         MANPATH="#{opt_libexec}/gnuman:$MANPATH"
 
     EOS
-  end
+  end if build.without? "default-names"
 
   def coreutils_filenames(dir)
     filenames = []

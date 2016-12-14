@@ -107,7 +107,7 @@ class Serf < Formula
     ENV["GOPATH"] = gopath
     arch = MacOS.prefer_64_bit? ? "amd64" : "386"
     ENV["XC_ARCH"] = arch
-    ENV["XC_OS"] = "darwin"
+    ENV["XC_OS"] = OS::NAME
     ENV.prepend_create_path "PATH", gopath/"bin"
 
     Language::Go.stage_deps resources, gopath/"src"

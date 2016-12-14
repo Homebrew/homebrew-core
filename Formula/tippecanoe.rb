@@ -9,7 +9,10 @@ class Tippecanoe < Formula
     sha256 "07e42528d03884de3afa3318a6ff3ce0743157aa864674c9d50d371c22c4bec0" => :sierra
     sha256 "dc55c01d782ac02aa23bcd889c52cc01eef6255f5a06e30854542b48dd7755b0" => :el_capitan
     sha256 "03cc11b55214b1bcf0fb07f3ba680e5b90c2aa6f198c0e8b0266ff10f1405639" => :yosemite
+    sha256 "bd9117b23ab8f27f7d77fbbf86f5bf016e5917fbd2d693a328c35f4def5fef8f" => :x86_64_linux
   end
+
+  depends_on "sqlite" unless OS.mac?
 
   def install
     system "make"

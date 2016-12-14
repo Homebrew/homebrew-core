@@ -11,6 +11,7 @@ class Readline < Formula
     sha256 "57f11a1e678f3aab637f45dfe4178e440553a77c744c08ebf446a91341129a95" => :sierra
     sha256 "e3e5f24328fc3ff54217b4d75c63a0ef258ef1143d910feab4af9b3300598603" => :el_capitan
     sha256 "5eeccaa91566f0eb1301c0592e64414d35b1334d9c3ea77cbd916fef487ee1cb" => :yosemite
+    sha256 "e6024e564dfe089f342d5bdcefe1b387878874847d4bf9274bbbabd22744b612" => :x86_64_linux
   end
 
   patch :p0 do
@@ -25,10 +26,15 @@ class Readline < Formula
     defaulting this GNU Readline installation to keg-only.
   EOS
 
+  depends_on "homebrew/dupes/ncurses" => :recommended unless OS.mac?
+
   def install
     ENV.universal_binary
-    system "./configure", "--prefix=#{prefix}", "--enable-multibyte"
-    system "make", "install"
+    system "./configure", "--prefix=#{prefix}", "--enable-multibyte",
+      ("--with-curses" if build.with? "ncurses")
+    args = []
+    args << "SHLIB_LIBS=-lcurses" if build.with? "ncurses"
+    system "make", "install", *args
   end
 
   test do

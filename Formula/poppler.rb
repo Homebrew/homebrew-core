@@ -8,6 +8,7 @@ class Poppler < Formula
     sha256 "6e62caef27967e0a4034574bfd850f8170983c781118c99090d7241b167ce10f" => :sierra
     sha256 "a1607a3aa87bfec520b2835b7df3daaef7f569b6a5da112ca9c4c25c949657f3" => :el_capitan
     sha256 "eed10583d2b0c5fcc3665cdfdf7419b2a5f6deb6176c161ed8ae6a5aaacda38a" => :yosemite
+    sha256 "b594d2afd905a8a7deaebb8d5074582b0800e86ee4fd22c56bf2565c76881702" => :x86_64_linux
   end
 
   option "with-qt5", "Build Qt5 backend"
@@ -30,6 +31,9 @@ class Poppler < Formula
   depends_on "openjpeg"
   depends_on "qt5" => :optional
   depends_on "little-cms2" => :optional
+
+  # workaround for incorrect X11 dependency propogation by cairo
+  depends_on :x11 unless OS.mac?
 
   conflicts_with "pdftohtml", :because => "both install `pdftohtml` binaries"
 

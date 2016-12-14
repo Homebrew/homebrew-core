@@ -27,7 +27,12 @@ class Cdrdao < Formula
   patch do
     url "https://sourceforge.net/p/cdrdao/patches/_discuss/thread/205354b0/141e/attachment/cdrdao-mac.patch"
     sha256 "ee1702dfd9156ebb69f5d84dcab04197e11433dd823e80923fd497812041179e"
-  end
+  end if OS.mac?
+
+  patch do
+    url "https://raw.githubusercontent.com/PacBSD/abs/master/extra/cdrdao/cdrdao-1.2.3-stat.patch"
+    sha256 "ca89b7c56a376d5a9574c5757f0d372236a895334f81867ff5e1703806565bbc"
+  end if OS.linux?
 
   # second patch fixes device autodetection on macOS
   # see https://trac.macports.org/ticket/27819

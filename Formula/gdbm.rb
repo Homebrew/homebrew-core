@@ -11,6 +11,7 @@ class Gdbm < Formula
     sha256 "80ee188768a6029012a576c29be718149378d058e1803c6149ee8a36ce879f58" => :el_capitan
     sha256 "fa512dd57e18dc3db293cfcf305356d137a3fad0f85240a9788dc4057290ce9c" => :yosemite
     sha256 "87bfecf948e8b6182519f627f95c244531b2a48c1941352bee0980275b515f43" => :mavericks
+    sha256 "211de22676f77adf5caef736d94fa5b7c5f1f8fd0ac08b35ab015eea67974f0e" => :x86_64_linux
   end
 
   option :universal

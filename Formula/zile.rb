@@ -9,6 +9,7 @@ class Zile < Formula
     sha256 "f7dc25c97ab09bcccf37413dc7014e0a3204384574b02ffdb99cf2b418edd691" => :sierra
     sha256 "cab5ad88b8f8a1a00b82516100a86bd3e60edf3e06971d283fa6b2454197adad" => :el_capitan
     sha256 "42f3ec505b358369d9c6058602605ef4da80266813ce577916673264a7a608b5" => :yosemite
+    sha256 "7d090f1cef1d203e560f6976d2ddccf4a08a904a377252b6deb39f19859afe28" => :x86_64_linux
   end
 
   # https://github.com/mistydemeo/tigerbrew/issues/215
@@ -27,6 +28,7 @@ class Zile < Formula
   depends_on "pkg-config" => :build
   depends_on "help2man" => :build
   depends_on "bdw-gc"
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

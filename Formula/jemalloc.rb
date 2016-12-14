@@ -10,6 +10,7 @@ class Jemalloc < Formula
     sha256 "5fe917ec03daea84cdc3fa5bf8e40ca7095b508a1496bf0de79ae436713d2938" => :sierra
     sha256 "75f73d4fdcca91df71c9e420cba44dc32d5aac158a43126610088a395e542559" => :el_capitan
     sha256 "1502e8720863b1cab829ff3fd46c497100b4da13099558e04b239fcec2d65533" => :yosemite
+    sha256 "3a840e6be3f09bf84e10da9b06d21807292d9fd0bae8a7dbcb704398db36834b" => :x86_64_linux
   end
 
   def install
@@ -35,7 +36,7 @@ class Jemalloc < Formula
         malloc_stats_print(NULL, NULL, NULL);
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-ljemalloc", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-ljemalloc", "-o", "test", ("--std=c99" unless OS.mac?)
     system "./test"
   end
 end

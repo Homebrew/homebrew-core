@@ -15,6 +15,7 @@ class Rethinkdb < Formula
   depends_on :macos => :lion
   depends_on "boost" => :build
   depends_on "openssl"
+  depends_on "curl" unless OS.mac?
 
   fails_with :gcc do
     build 5666 # GCC 4.2.1

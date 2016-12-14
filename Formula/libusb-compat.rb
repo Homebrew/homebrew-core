@@ -11,6 +11,7 @@ class LibusbCompat < Formula
     sha256 "df7e556f8af9bccb149bb26becc8a2e6cd9a3d22fc04b2ebf81e981abc892fef" => :el_capitan
     sha256 "564b4c326a98e27c164544531535be57668ce242ca536a7b34e3716b20f8cd00" => :yosemite
     sha256 "264bc9dacd754bae665907cd087e06e7063d15fbad38b336c567f76e7f886193" => :mavericks
+    sha256 "2a90e3d47cbb6d340050c2d4947f2585e1746704a6c71903b365c46f687e5a2a" => :x86_64_linux
     sha256 "239e6f2a527713c38b4e802cd25b80fbb01af30a88a36b77b591f5e95890511f" => :mountain_lion
   end
 

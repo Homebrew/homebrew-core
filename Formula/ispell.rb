@@ -11,7 +11,10 @@ class Ispell < Formula
     sha256 "ff46baf7aa6daf42fddde68897bd80dbb073922b4556c502e7b0072656b48498" => :yosemite
     sha256 "f1ee90dcc76682d17c2b758d2a896493448753acc0e556e9b0c8bf7ec0f552df" => :mavericks
     sha256 "dbbaabbc715f6f16dfb9f2cd05755a88e471b92c63d7f87f79a940a5df8dadfb" => :mountain_lion
+    sha256 "c8bbcdc12d3e90e63949f6f284d8e8ebc2c723ed53251fe4619d600896345bfb" => :x86_64_linux
   end
+
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
     ENV.deparallelize

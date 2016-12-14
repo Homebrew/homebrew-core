@@ -10,6 +10,7 @@ class Ninja < Formula
     sha256 "a01d44b0a8af3445a6a1e6cd01c81648c6b445119fbae51a54c634d77cbd7f2e" => :sierra
     sha256 "1973a5e00cf2bc5a13597f979e3bb7a56d3a1ad12b2073b5b5b4368a58335e65" => :el_capitan
     sha256 "60dc23e5cc3a940d38f4c0914e0fd2eac2f30222270c95d34b9f1a6b152844ba" => :yosemite
+    sha256 "e379524071975e153cb0ecd71978ac20f970762e1255805f7684588e729b572b" => :x86_64_linux
   end
 
   option "without-test", "Don't run build-time tests"

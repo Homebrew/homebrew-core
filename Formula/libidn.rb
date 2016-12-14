@@ -11,6 +11,7 @@ class Libidn < Formula
     sha256 "b46b71b9adb991af6a444400a1c3f53d20b8001792855bcf96044ce33eb81d26" => :el_capitan
     sha256 "f675600e756059cdcd02d92963ff76f43c3b572f4ea9f99657a40e9e80c316b1" => :yosemite
     sha256 "07e19d25263d77030cccc3899967c4505dcf0c771da90a658b4f27de136a326b" => :mavericks
+    sha256 "c091b6c0064dbf882ebd633af0041d767131757b6d00b255078c492f447099f1" => :x86_64_linux
   end
 
   option :universal

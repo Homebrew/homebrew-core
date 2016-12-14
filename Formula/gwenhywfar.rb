@@ -11,6 +11,7 @@ class Gwenhywfar < Formula
     sha256 "9b78e775989003bfe9e79bc745ef477b2c485c58d4aaff947cf4a44e86f1fc9b" => :el_capitan
     sha256 "f0beb1b72cafab6696ab63c5a0ae5aa22040095bd6ae8997121f1725e7a11d5f" => :yosemite
     sha256 "ef8ea6c7fa80e6e89faf9dbbc3f2aa7ef89fd31e16b940abd64ed036a7b1069a" => :mavericks
+    sha256 "376738529a8f663820720936c3b6b8661b2c01b43306a848d26b9bd0115ad886" => :x86_64_linux
   end
 
   option "without-cocoa", "Build without cocoa support"
@@ -28,7 +29,7 @@ class Gwenhywfar < Formula
   def install
     guis = []
     guis << "gtk2" if build.with? "gtk+"
-    guis << "cocoa" if build.with? "cocoa"
+    guis << "cocoa" if OS.mac? && build.with?("cocoa")
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

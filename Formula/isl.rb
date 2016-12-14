@@ -7,16 +7,16 @@ class Isl < Formula
   # and update isl_version() function accordingly.  All other names will
   # result in isl_version() function returning "UNKNOWN" and hence break
   # package detection.
-  url "http://isl.gforge.inria.fr/isl-0.17.1.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/isl/isl_0.17.1.orig.tar.xz"
-  sha256 "be152e5c816b477594f4c6194b5666d8129f3a27702756ae9ff60346a8731647"
+  url "http://isl.gforge.inria.fr/isl-0.15.tar.bz2"
+  mirror "ftp://gcc.gnu.org//pub/gcc/infrastructure/isl-0.15.tar.bz2"
+  sha256 "8ceebbf4d9a81afa2b4449113cee4b7cb14a687d7a549a963deb5e2a41458b6b"
 
   bottle do
     cellar :any
-    sha256 "576527b154c7685f3cab34231732b8ad04edf1c10eb86fd5add7ec5fe35ae5b7" => :sierra
-    sha256 "906a846dca409b6cd1ae671f010486c48b1a9dc4a19a9d287dcb7db1b64c523d" => :el_capitan
-    sha256 "3e7b39a62deef1a50df0affe4af50285a1e22e9aa32eb70c6099b06863d4de29" => :yosemite
-    sha256 "aa211db34ef7be89791ccc9057e0742b4a8bad94685be0f33b196ba10a6abef3" => :mavericks
+    sha256 "8fd8215540c6d44494400fbc964ffabfccfdf806fb4a1de8c8c302f06d998f0f" => :el_capitan
+    sha256 "b370c775e2e670df7cab1375833722c72a1121e49b30d780746878945f7ef9c2" => :yosemite
+    sha256 "13a5858f8a27b63d6613f5f29c44bfc1c9c6b95d625e3fbd1ff71acf17557476" => :mavericks
+    sha256 "4d7ef6be0f083cab40af0debed4f45b1d596728eda4e08605df26fd1e4eb64aa" => :x86_64_linux
   end
 
   head do

@@ -18,6 +18,7 @@ class Mediaconch < Formula
   depends_on "sqlite"
   # fails to build against Leopard's older libcurl
   depends_on "curl" if MacOS.version < :snow_leopard
+  depends_on "libxslt" unless OS.mac?
 
   def install
     cd "ZenLib/Project/GNU/Library" do

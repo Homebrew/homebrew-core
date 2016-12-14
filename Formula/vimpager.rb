@@ -11,6 +11,7 @@ class Vimpager < Formula
     sha256 "eccfe695299ff91b489e0385b2024e6f383426f696dc4a5462fe2e0bc6f875b1" => :el_capitan
     sha256 "be8ae8e77106e1fa95821b59171b982af74365693be0b416e41bb807a07c6c60" => :yosemite
     sha256 "4e751d2207b8925e1c229edb88a7f635d41aa611a576a1b7a9bf0b9b701df341" => :mavericks
+    sha256 "30604f02c981295f1cd967cb1ecf5a2afd3c4c51f5d751383c78eafb085e0f10" => :x86_64_linux
   end
 
   option "with-pandoc", "Use pandoc to build and install man pages"

@@ -14,6 +14,7 @@ class BashCompletion < Formula
     sha256 "37fab5b6bc7dc8a35cf5aad75c6ccbc9d1be39bc706eaedd3ff422b0332289a5" => :sierra
     sha256 "9389068fbb802b321e2b782eac34b2597e6cf031c2ce4f7a6d7436cd5b0699ce" => :el_capitan
     sha256 "9389068fbb802b321e2b782eac34b2597e6cf031c2ce4f7a6d7436cd5b0699ce" => :yosemite
+    sha256 "7cf68d2676b5daa4c348d822d9b62ba74123040170812b3b08932edeb6d5ba8a" => :x86_64_linux
   end
 
   # Backports the following upstream patch from 2.x:

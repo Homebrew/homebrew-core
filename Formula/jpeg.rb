@@ -13,6 +13,7 @@ class Jpeg < Formula
     sha256 "c94f5859603b34d9b3c1b021ee21cf3a41a5d92b178a41ed5c05a1e5b7d19ff5" => :mavericks
     sha256 "816f0f826e633cb70f8efc173b6fe745fb9b90334d6cb78813de25f48aec6191" => :mountain_lion
     sha256 "f94b7976c0e867dfc36ff6cead1d88db8b1198a91a01589e008d2006fcf37c61" => :lion
+    sha256 "8e6268c3b76d4d3a98873aece2beb0c092c186959afc412dc5e92eba5c98b70d" => :x86_64_linux
   end
 
   option :universal

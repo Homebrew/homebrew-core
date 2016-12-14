@@ -22,7 +22,7 @@ class Sdl2 < Formula
   option :universal
 
   # https://github.com/mistydemeo/tigerbrew/issues/361
-  if MacOS.version <= :snow_leopard
+  if OS.mac? && MacOS.version <= :snow_leopard
     patch do
       url "https://gist.githubusercontent.com/miniupnp/26d6e967570e5729a757/raw/1a86f3cdfadbd9b74172716abd26114d9cb115d5/SDL2-2.0.3_OSX_104.patch"
       sha256 "4d01f05f02568e565978308e42e98b4da2b62b1451f71c29d24e11202498837e"

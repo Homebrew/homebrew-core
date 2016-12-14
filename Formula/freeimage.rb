@@ -25,7 +25,15 @@ class Freeimage < Formula
 
   option :universal
 
-  patch :DATA
+  patch :DATA if OS.mac?
+
+  # same as the :DATA patch, but for linux
+  if OS.linux?
+    patch do
+      url "https://gist.githubusercontent.com/davydden/5a4f348108d3c9110299/raw/3396840ff71c639d848ce552de9124462777ab97/freeimage.patch"
+      sha256 "537a4045d31a3ce1c3bab2736d17b979543758cf2081e97fff4d72786f1830dc"
+    end
+  end
 
   # fix GCC 5.0 compile.
   patch do

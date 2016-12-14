@@ -11,6 +11,7 @@ class Cln < Formula
     sha256 "b816f165673f58fb952669c7fa542b2fe52257e6572853785efee0048ea35d6a" => :el_capitan
     sha256 "95e74408a4b9dca4e7a939d2ff79e9ab16f3193622027d3d741eb6fc9cc7695d" => :yosemite
     sha256 "048947d9343c8848897be272cae74d98cd869fa3d64fa6f2bfe82cb68ca100b9" => :mavericks
+    sha256 "26c953a9f756d021e266d1c84ff2b15feeeb9874d8d56100713776d7260fb5f2" => :x86_64_linux
   end
 
   option "without-test", "Skip compile-time checks (Not recommended)"

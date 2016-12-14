@@ -11,6 +11,7 @@ class Dieharder < Formula
     sha256 "ee6c8f5dd87948423016574258755ea42a01f55c38e81bbf6dc3d35d5cf0d733" => :el_capitan
     sha256 "6bf47d1e141f260abcf8926d75c82ff7ae45e582cb1af79fc984a849d9a08f71" => :yosemite
     sha256 "3a1fafb4843d5a16798b9a9375446b52bffb7f9a0516884b444d7e8a4d4adc24" => :mavericks
+    sha256 "f84199a2e1c7723e158639da5af7f0df9b191439913e551bc151e28d559e8716" => :x86_64_linux
   end
 
   depends_on "gsl"

@@ -11,6 +11,7 @@ class Openexr < Formula
     sha256 "a73d66076b03d20908db659b965cee768d82408ddca5196fef8164b779091765" => :el_capitan
     sha256 "ad973fc780bb731a5ee8be347283903e8343448913e46a23fbdede0145ef980a" => :yosemite
     sha256 "9c21b70caff58d8d699a58a50249f220b03c23f450a219276782827e6c03ff33" => :mavericks
+    sha256 "fede3de1222bd9c581fbdcf5bc17515694966ac6edccd79b98071dcc0ff4d24a" => :x86_64_linux
   end
 
   option :universal

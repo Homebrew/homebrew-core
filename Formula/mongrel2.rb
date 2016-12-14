@@ -20,9 +20,11 @@ class Mongrel2 < Formula
     sha256 "7a6880cbc814b084a3ac91e379b7a720438951e31a18119c232f976fded229c3" => :el_capitan
     sha256 "0b2926fe3d79ab934e95f0e5c067e8bb23b6900b99255482defee9388a0dee07" => :yosemite
     sha256 "dd07092a2384c243fcd8c54ed67f2a728f3da698276540fc1c9b201eb3c5cbbb" => :mavericks
+    sha256 "ba23cfd286e198728a95b4d44c7466c2c8acba12e2951d88dd8eb4c7e996ed3a" => :x86_64_linux
   end
 
   depends_on "zeromq"
+  depends_on "sqlite" unless OS.mac?
 
   def install
     # Build in serial. See:
@@ -31,7 +33,7 @@ class Mongrel2 < Formula
 
     # Mongrel2 pulls from these ENV vars instead
     ENV["OPTFLAGS"] = "#{ENV.cflags} #{ENV.cppflags}"
-    ENV["OPTLIBS"] = "#{ENV.ldflags} -undefined dynamic_lookup"
+    ENV["OPTLIBS"] = "#{ENV.ldflags} -undefined dynamic_lookup" if OS.mac?
 
     system "make", "all"
     system "make", "install", "PREFIX=#{prefix}"

@@ -10,6 +10,7 @@ class GoogleSparsehash < Formula
     sha256 "8655e0c3b4f4c69e46d8823eef0d8ae2b1397cd2aa01bda3340eb3a84d647b89" => :el_capitan
     sha256 "b8e55b96aa3016ed2ab5a8d53a4bb39b44773885355ec75e80c9d9ef57c3e8b1" => :yosemite
     sha256 "570c4d250a4fe18d99f11167653a501a1d8a82ff74d2413336a85bc7fa8cbb81" => :mavericks
+    sha256 "ed022642809ddcc995f6a46546d902d002b12c962fc47e0a33418347513885a6" => :x86_64_linux
   end
 
   option :cxx11

@@ -8,6 +8,7 @@ class Atk < Formula
     sha256 "0223438a41f539e2c9a9d1b8b8f68d8a67c5ac9dbaae32b7a117da68f8947828" => :sierra
     sha256 "a065750a4ea385f6504b111f6f538b9bd64b3526bb65a72f705276ebecefbb7d" => :el_capitan
     sha256 "5f9a612ac3616d720a14f148f19e0a4d3a2259d58fc18edc548443635bc28f48" => :yosemite
+    sha256 "0c0b75c4d171c78a23a102cb644f5c9238f520f3984f7f5b8a3f9925af10f406" => :x86_64_linux
   end
 
   option :universal
@@ -47,8 +48,8 @@ class Atk < Formula
       -latk-1.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

@@ -15,7 +15,7 @@ class Valgrind < Formula
     patch :p0 do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/54d59bf/valgrind/bzero.diff"
       sha256 "48de4054dba20c27ef6089d3ea7832e48dcbbb5368ac4316394b8be55ffe93a2"
-    end
+    end if OS.mac?
   end
 
   bottle do
@@ -46,7 +46,8 @@ class Valgrind < Formula
       --prefix=#{prefix}
     ]
     if MacOS.prefer_64_bit?
-      args << "--enable-only64bit" << "--build=amd64-darwin"
+      args << "--enable-only64bit"
+      args << "--build=amd64-darwin" if OS.mac?
     else
       args << "--enable-only32bit"
     end

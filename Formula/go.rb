@@ -20,6 +20,7 @@ class Go < Formula
     sha256 "bde94987de94c3b872760961782ff44e7cfa904b1df84507e90ed39d5cb63b05" => :sierra
     sha256 "c684fbf681412a1aa06c0e64159d2dede4fd49dd3987e2c9679794c203e307a7" => :el_capitan
     sha256 "5d7d8e26f7c96470be2cdf23fd10d83bd97a2ae3c4095aff0c6c253cbee84e68" => :yosemite
+    sha256 "d15af2e9d1fb2642da427c37d4a19097a183ea895ccdccf174a250c6493fbf81" => :x86_64_linux
   end
 
   devel do
@@ -49,20 +50,33 @@ class Go < Formula
   # Should use the last stable binary release to bootstrap.
   # More explicitly, leave this at 1.7 when 1.7.1 is released.
   resource "gobootstrap" do
-    url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
+    if OS.mac?
+      url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
+      sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+    elsif OS.linux?
+      url "https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz"
+      sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
+    end
     version "1.7"
-    sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+  end
+
+  def os
+    OS.mac? ? "darwin" : "linux"
   end
 
   def install
     ENV.permit_weak_imports
+
+    # Fix error: unknown relocation type 42; compiled without -fpic?
+    # See https://github.com/Linuxbrew/linuxbrew/issues/1057
+    ENV["CGO_ENABLED"] = "0" if OS.linux?
 
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      ENV["GOOS"]         = "darwin"
+      ENV["GOOS"]         = os
       ENV["CGO_ENABLED"]  = build.with?("cgo") ? "1" : "0"
       system "./make.bash", "--no-clean"
     end

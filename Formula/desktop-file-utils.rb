@@ -9,6 +9,7 @@ class DesktopFileUtils < Formula
     sha256 "8c18c3fe21f8d2b1bdb4befdadd2b6dabbbe89dcb9ebb7fbaf4a8a3c7a2153a1" => :el_capitan
     sha256 "a6a09a60579ac8875cb92fbcf6177a860da6954c0aa61f323c66441211af0d1b" => :yosemite
     sha256 "ccca14604b32329e36acf15be710bdc1458410c4bd382b8708d4afba1b68177a" => :mavericks
+    sha256 "79473d47fd25a99999b6ea12672769e8f1855ef6d86c9d176717b07f6399b49e" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

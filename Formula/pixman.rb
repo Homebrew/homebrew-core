@@ -10,6 +10,7 @@ class Pixman < Formula
     sha256 "ce36799e5a38be394c20f7196f93c2bcfbf9a0a49c7964e59ab8980fb81cda26" => :el_capitan
     sha256 "d9db47ff106386a945bc74d1717a9215a6de5bdcc848aea99ef10d31ae480ef4" => :yosemite
     sha256 "810b4e5d428e6be2987e96767adf8bca06dd026fbcc5246f96d8d5ec4f64962c" => :mavericks
+    sha256 "8d942d1b6c013560e3a8af6f20a2a3dd7f8875b8bedc0c9391fb294671d30ca6" => :x86_64_linux
   end
 
   keg_only :provided_pre_mountain_lion

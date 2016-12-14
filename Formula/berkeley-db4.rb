@@ -10,6 +10,7 @@ class BerkeleyDb4 < Formula
     sha256 "598c8cc77263920589169c413c1b40cad1f02774bc889aeb0c1406d6b46ccfa3" => :el_capitan
     sha256 "9e4fd0da37c849e00a5bead14e64c8a71168287d957f71a96be96e4bd3000985" => :yosemite
     sha256 "45c3212a6755c7a6bda099b8fcd7c5f92014a350849f310ca3ca8cde63cc705b" => :mavericks
+    sha256 "f9c3b08e17e19ad61058066c8988341e88369bfe0bf99a04a8edc3bf2a0959d6" => :x86_64_linux
     sha256 "04fc8d3b03381d87b3852ac1756dd144a10e7ac47444fa3e81dec0fc8ea33d25" => :mountain_lion
   end
 

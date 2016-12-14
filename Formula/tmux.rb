@@ -10,6 +10,7 @@ class Tmux < Formula
     sha256 "2288f2bdd93d63e7020d6a70d32b141f8b704c1adc8fe3eb493a1a8efdd3a46b" => :sierra
     sha256 "7e18b96da6a0b2d88a236f20d9e4f18de55f1fe307a01776abc95aa023232249" => :el_capitan
     sha256 "717432a1d0242cdc66df0d6c54175c5202e7c09bfc1dd14a6d919defbeca5d1a" => :yosemite
+    sha256 "cdca18fe37b17344991bb19b4da4514b1f57b0a0fe42382010871630840ffc3b" => :x86_64_linux
   end
 
   head do
@@ -23,6 +24,7 @@ class Tmux < Formula
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "utf8proc" => :optional
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   resource "completion" do
     url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/homebrew_1.0.0/completions/tmux"

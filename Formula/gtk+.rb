@@ -12,6 +12,7 @@ class Gtkx < Formula
     sha256 "1ccd4e2e5e0e4be8ab9cc577a88560eb41568713d2b3a32609377b85fcbd077e" => :el_capitan
     sha256 "276e32ca1759b28b020f401c780e3bde6f18f85167f2e01595ea1248e403f62b" => :yosemite
     sha256 "4ae4cefcbaf0d6fc3755b2255bde899a10d9371d97f4630c71105cece297cd0d" => :mavericks
+    sha256 "6514fedb10a9533888eeb7e3eb8516f274a11dc7409023ce6ddf88f22fdb5a93" => :x86_64_linux
   end
 
   head do
@@ -33,6 +34,7 @@ class Gtkx < Formula
   depends_on "pango"
   depends_on "gobject-introspection"
   depends_on "hicolor-icon-theme"
+  depends_on "cairo" unless OS.mac?
 
   fails_with :llvm do
     build 2326
@@ -56,10 +58,13 @@ class Gtkx < Formula
             "--prefix=#{prefix}",
             "--disable-glibtest",
             "--enable-introspection=yes",
-            "--with-gdktarget=quartz",
+            "--with-gdktarget=#{OS.mac? ? 'quartz' : 'x11'}",
             "--disable-visibility"]
 
     args << "--enable-quartz-relocation" if build.with?("quartz-relocation")
+
+    # temporarily disable cups until linuxbrew/homebrew-core#495 is merged
+    args << "--disable-cups" unless OS.mac?
 
     if build.head?
       inreplace "autogen.sh", "libtoolize", "glibtoolize"
@@ -89,7 +94,9 @@ class Gtkx < Formula
     libpng = Formula["libpng"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
-    flags = %W[
+    backend = OS.mac? ? "quartz" : "x11"
+    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
+    flags += %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{cairo.opt_include}/cairo
       -I#{fontconfig.opt_include}
@@ -113,16 +120,16 @@ class Gtkx < Formula
       -L#{pango.opt_lib}
       -latk-1.0
       -lcairo
-      -lgdk-quartz-2.0
+      -lgdk-#{backend}-2.0
       -lgdk_pixbuf-2.0
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lgtk-quartz-2.0
-      -lintl
+      -lgtk-#{backend}-2.0
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

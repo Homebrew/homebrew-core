@@ -12,6 +12,7 @@ class Fish < Formula
     sha256 "0935641436db91447c2ebfa271df82a39ae0be428044a59aab9a41992d12e57f" => :sierra
     sha256 "1f9faaa90bb1200db70221c8c5a79bcb524dd4b09808276f93315353b06af493" => :el_capitan
     sha256 "36f144331928e5a9dcd612b303457ae6b4ae2d6afb17b873b709c1f80369d359" => :yosemite
+    sha256 "88dfec8ff2d6ff0c50b6168401a37c41f2043f7785ac8a7d778b956f497acafe" => :x86_64_linux
   end
 
   head do
@@ -23,6 +24,7 @@ class Fish < Formula
   end
 
   depends_on "pcre2"
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
     system "autoreconf", "--no-recursive" if build.head?
@@ -34,8 +36,8 @@ class Fish < Formula
       --with-extra-functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d
       --with-extra-completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
       --with-extra-confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
-      SED=/usr/bin/sed
     ]
+    args << "SED=/usr/bin/sed" if OS.mac?
     system "./configure", *args
     system "make", "install"
   end

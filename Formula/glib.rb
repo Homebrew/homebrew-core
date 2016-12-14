@@ -8,6 +8,7 @@ class Glib < Formula
     sha256 "99ae316b13b93f38b08c02e2ad18c54364ffad71ed1cde413ebb6f024c9c88dc" => :sierra
     sha256 "b9f6e4cd0ff6a54e0dbb49c4016f31c30886fe9d253883ba84db5a936235c513" => :el_capitan
     sha256 "1f9f8b9faf2b1d50b9de58a35b7692fbc709077f70528bdfc5db9ae9bbcc1518" => :yosemite
+    sha256 "590eeb66817f615df0789418196b28b55a063aaede25f21e578659d58c4738f1" => :x86_64_linux
   end
 
   option :universal
@@ -19,6 +20,7 @@ class Glib < Formula
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
+  depends_on "util-linux" unless OS.mac? # for libmount.so
 
   fails_with :llvm do
     build 2334
@@ -61,7 +63,7 @@ class Glib < Formula
   # Reverts upstream commits 36e093a31a9eb12021e7780b9e322c29763ffa58
   # and 89058e8a9b769ab223bc75739f5455dab18f7a3d, with equivalent changes
   # also applied to configure and gio/Makefile.in
-  if MacOS.version < :mavericks
+  if OS.mac? && MacOS.version < :mavericks
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/a4fe61b/glib/gnotification-mountain.patch"
       sha256 "5bf6d562dd2be811d71e6f84eb43fc6c51a112db49ec0346c1b30f4f6f4a4233"
@@ -85,6 +87,7 @@ class Glib < Formula
       --disable-silent-rules
       --disable-dtrace
       --disable-libelf
+      --disable-selinux
       --enable-static
       --prefix=#{prefix}
       --localstatedir=#{var}
@@ -114,7 +117,7 @@ class Glib < Formula
               "Libs: -L${libdir} -lglib-2.0 -L#{gettext}/lib -lintl"
       s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
               "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
-    end
+    end if OS.mac?
 
     (share+"gtk-doc").rmtree
   end

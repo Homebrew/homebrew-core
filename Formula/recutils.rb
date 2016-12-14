@@ -15,6 +15,8 @@ class Recutils < Formula
     sha256 "aec2464c5e26a561b340e9ae5a080366a068936ff2ba4e86e6a4bcf0ed8a95d0" => :mountain_lion
   end
 
+  depends_on "libgcrypt" unless OS.mac?
+
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"

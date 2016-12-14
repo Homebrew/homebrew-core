@@ -10,6 +10,7 @@ class Ee < Formula
     sha256 "3da2d595dec856251eb734ce0f12b5d04fd2c7354d48198c1014a923c63769ab" => :el_capitan
     sha256 "7cff46a098f916a37f45fa09799b79a204ba9866871413e596ab29295ece7b40" => :yosemite
     sha256 "b30c4ef2a49b136eb0912cad5ed4d36a954746c42aca3fb7d8197d827d8b3ff6" => :mavericks
+    sha256 "35eda2a59749374c68232f331b9a4d9b3883e3c6599e32e7337dcd361041179b" => :x86_64_linux
   end
 
   def install

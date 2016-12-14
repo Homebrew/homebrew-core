@@ -10,11 +10,13 @@ class Ginac < Formula
     sha256 "dacff9e73723b9f3e7340eed2c54d142a79a7e71748816071d120b4609c80b44" => :sierra
     sha256 "ca9596b46348b3d89a617e15b6366325f8a19b47797476cd539ab71a0246cf11" => :el_capitan
     sha256 "1785488b224b55b17e799afe462189c5ac49ef4b66159a83d724aced4633c933" => :yosemite
+    sha256 "14e49800a67f9764d3f66d887eb99f1bf03472ee9c7c95667ef40195b272e8c9" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
   depends_on "cln"
   depends_on "readline"
+  depends_on :python unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",

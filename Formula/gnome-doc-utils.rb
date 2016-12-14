@@ -10,6 +10,7 @@ class GnomeDocUtils < Formula
     sha256 "dd60bea34848049cef5c065cfd329428fbd1aca0375e65a5c50ef424a8cd8205" => :sierra
     sha256 "dd60bea34848049cef5c065cfd329428fbd1aca0375e65a5c50ef424a8cd8205" => :el_capitan
     sha256 "dd60bea34848049cef5c065cfd329428fbd1aca0375e65a5c50ef424a8cd8205" => :yosemite
+    sha256 "c3ec8994c213b7e92c34d0b02a88e615259263eec2e1c19a5cf58454eaab1b27" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -18,6 +19,7 @@ class GnomeDocUtils < Formula
   depends_on "docbook"
   depends_on "gettext"
   depends_on "libxml2" => "with-python"
+  depends_on "libxslt" unless OS.mac?
 
   fails_with :llvm do
     build 2326

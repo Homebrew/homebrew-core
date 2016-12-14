@@ -12,6 +12,7 @@ class Httrack < Formula
     sha256 "032f5fde39f04bdf772c223cdcd4974a7bb72bfcff0f71f34a8716870a80e37c" => :el_capitan
     sha256 "5dafcc2d3cf49fcbf3b804aacd42955d32cfff7643fdbb157ffbecbdaddfae68" => :yosemite
     sha256 "d6c9e71315a64a0fb1ac42e3515742f6d7b8dfac6ec1049a0f81e5aedd4f4364" => :mavericks
+    sha256 "ad0f581c293399da20e6369e65d4c92343f271ab9411d55fc0515c585891c6a9" => :x86_64_linux
   end
 
   depends_on "openssl"

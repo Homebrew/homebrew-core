@@ -10,18 +10,19 @@ class Chicken < Formula
     sha256 "46cf38e5f44a23d9fbbe9a833fba73297c54721387e74da4349e82997a5c657b" => :el_capitan
     sha256 "972a4c6c87fc3ea8d23312a76d650da696ebb66a2905ecf792f1e762dc21ea1e" => :yosemite
     sha256 "1521fde608c55c8fcf182a341f90c96274c7a6f5eb07ad75f437a6a3fde44ad5" => :mavericks
+    sha256 "2d1ab79d8f7a365f59ac6c47480475ba1c591192704230681098fc2140d2d3f3" => :x86_64_linux
   end
 
   def install
     ENV.deparallelize
 
     args = %W[
-      PLATFORM=macosx
+      PLATFORM=#{OS.mac? ? "macosx" : OS::NAME}
       PREFIX=#{prefix}
       C_COMPILER=#{ENV.cc}
       LIBRARIAN=ar
-      POSTINSTALL_PROGRAM=install_name_tool
     ]
+    args << "POSTINSTALL_PROGRAM=install_name_tool" if OS.mac?
 
     # Sometimes chicken detects a 32-bit environment by mistake, causing errors,
     # see https://github.com/Homebrew/homebrew/issues/45648

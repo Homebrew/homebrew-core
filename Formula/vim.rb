@@ -11,6 +11,7 @@ class Vim < Formula
     sha256 "b35efa2bc8a35cca3127a9a2f655272d9575ad4352859fd06cdc30f9cbba20f4" => :sierra
     sha256 "90345ca86818d5b960f5aab59cbc3f43841c0506e217e9d51d43e19c202a276e" => :el_capitan
     sha256 "9b3559bec145992e1ca1835acd9ede74c32d515e0c35ebb2b8059f83e112c827" => :yosemite
+    sha256 "36b7a3c98afca36e19db20b810da19774e9c70aac1341b0b9c19cd6e93e040bc" => :x86_64_linux
   end
 
   deprecated_option "disable-nls" => "without-nls"
@@ -119,7 +120,7 @@ class Vim < Formula
 
   test do
     # Simple test to check if Vim was linked to Python version in $PATH
-    if build.with? "python"
+    if OS.mac? && build.with?("python")
       vim_path = bin/"vim"
 
       # Get linked framework using otool

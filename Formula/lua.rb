@@ -3,7 +3,7 @@ class Lua < Formula
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.2.4.tar.gz"
   sha256 "b9e2e4aad6789b3b63a056d442f7b39f0ecfca3ae0f1fc0ae4e9614401b69f4b"
-  revision 4
+  revision OS.mac? ? 4 : 5
 
   bottle do
     cellar :any
@@ -11,13 +11,14 @@ class Lua < Formula
     sha256 "cfcc9d3f4326de0690e09f046329dc656922fd2201270393cb02b6fb1ffe1349" => :el_capitan
     sha256 "809d4bcc9937b0d7d6483f1cdf211a5adb7d3adbf13663d1e3917211d0de6165" => :yosemite
     sha256 "8acadcad5cc0e79193a9d88e11e391b366ed631d23279954bd4fed6807e14db4" => :mavericks
+    sha256 "86dd735193b041ed7ebb485e8d2f011d49ca15e75bec28a35d4dcf1f99d460b1" => :x86_64_linux
   end
 
   pour_bottle? do
     reason "The bottle needs to be installed into /usr/local."
     # DomT4: I'm pretty sure this can be fixed, so don't leave this in place forever.
     # https://github.com/Homebrew/homebrew/issues/44619
-    satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
+    satisfy { HOMEBREW_PREFIX.to_s == (OS.linux? ? "/home/linuxbrew/.linuxbrew" : "/usr/local") }
   end
 
   fails_with :llvm do
@@ -30,9 +31,11 @@ class Lua < Formula
   option "without-sigaction", "Revert to ANSI signal instead of improved POSIX sigaction"
   option "without-luarocks", "Don't build with Luarocks support embedded"
 
+  depends_on "readline" unless OS.mac?
+
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/homebrew/pull/5043
-  patch :DATA
+  patch :DATA if OS.mac?
 
   # completion provided by advanced readline power patch
   # See http://lua-users.org/wiki/LuaPowerPatches
@@ -63,7 +66,7 @@ class Lua < Formula
     # Subtitute formula prefix in `src/Makefile` for install name (dylib ID).
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
-      s.gsub! "@LUA_PREFIX@", prefix
+      s.gsub! "@LUA_PREFIX@", prefix if OS.mac?
       s.remove_make_var! "CC"
       s.change_make_var! "CFLAGS", "#{ENV.cflags} -DLUA_COMPAT_ALL $(SYSCFLAGS) $(MYCFLAGS)"
       s.change_make_var! "MYLDFLAGS", ENV.ldflags
@@ -73,7 +76,8 @@ class Lua < Formula
     inreplace "src/luaconf.h", "/usr/local", HOMEBREW_PREFIX
 
     # We ship our own pkg-config file as Lua no longer provide them upstream.
-    system "make", "macosx", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
+    arch = if OS.mac? then "macosx" elsif OS.linux? then "linux" else "posix" end
+    system "make", arch, "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
     system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
     (lib/"pkgconfig/lua.pc").write pc_file
 
@@ -133,7 +137,7 @@ class Lua < Formula
     Description: An Extensible Extension Language
     Version: 5.2.4
     Requires:
-    Libs: -L${libdir} -llua -lm
+    Libs: -L${libdir} -llua -lm #{"-ldl" if OS.linux?}
     Cflags: -I${includedir}
     EOS
   end

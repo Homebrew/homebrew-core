@@ -17,6 +17,7 @@ class GitExtras < Formula
     sha256 "eff9e393ac4b8e59a40ecb75152cf2bcfed171b7cb296d80606b99ad5ca81ec0" => :sierra
     sha256 "eff9e393ac4b8e59a40ecb75152cf2bcfed171b7cb296d80606b99ad5ca81ec0" => :el_capitan
     sha256 "eff9e393ac4b8e59a40ecb75152cf2bcfed171b7cb296d80606b99ad5ca81ec0" => :yosemite
+    sha256 "1834caba855c5cfdeb70b06cf6e2dd9c6b03dc65d564f232a16fcd4e040d3543" => :x86_64_linux
   end
 
   conflicts_with "git-town",

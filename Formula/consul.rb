@@ -13,6 +13,7 @@ class Consul < Formula
     sha256 "79f10c6083b5bcadf6a989ae4e870bd4e73f66a89af8b1e4f35d0c646f53fe50" => :sierra
     sha256 "102dadb359f912705a619cb4f02c488d8df1ec9d7fc8d9188c9b0cce1daa5bc1" => :el_capitan
     sha256 "f2d3a6a1c0a9585c4f71aabe225b1c8f0b1795eef7b6cee54e6e49b175499471" => :yosemite
+    sha256 "525036aa9939298cef2c474a1f604db79924d7561ca1bb79d47238a45274faf9" => :x86_64_linux
   end
 
   option "with-web-ui", "Installs the consul web ui"
@@ -85,7 +86,7 @@ class Consul < Formula
 
   test do
     fork do
-      exec "#{bin}/consul", "agent", "-data-dir", "."
+      exec "#{bin}/consul", "agent", "-data-dir", ".", "-bind", "127.0.0.1"
     end
     sleep 3
     system "#{bin}/consul", "leave"

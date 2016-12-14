@@ -9,6 +9,7 @@ class Lci < Formula
     sha256 "88603e7d22fa41138940318a9ce703087062a5466e796a17d636f9ca212a9fc3" => :el_capitan
     sha256 "46a84d5644606edb37c1f915df039901ac96d6728345bb95d57ed52fe783a34d" => :yosemite
     sha256 "d9c2381543f5fff02005a66d07f5c8fb925e4c2c40d87392816947c3c1b22816" => :mavericks
+    sha256 "b96e9d72694c390a8a8947d2324a2e4bd32da0ed57c80ef0b63460abab047a94" => :x86_64_linux
   end
 
   conflicts_with "lolcode", :because => "both install `lci` binaries"

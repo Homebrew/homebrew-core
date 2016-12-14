@@ -12,6 +12,7 @@ class Tree < Formula
     sha256 "2721bafcbe1db12e444f5025bdae81aa3c7cff6572aa7423e401baeb10a43157" => :el_capitan
     sha256 "c1ad4f32c4922cbd1e37aa55b8fa6e0cc8a04c96a24f0d9e7957b50b311d854d" => :yosemite
     sha256 "0bcb8a1de3ed51295917d6dd997ea492048f90a5ee1084676171a39dbd489654" => :mavericks
+    sha256 "0277d4ea1d32885f55a32a026a84da949f0e68a667038f66fbfd7ededd8e5a5f" => :x86_64_linux
     sha256 "c3bd091797c487bb1ac5586d0e524da341c6043b0298269a9ded271646274fa3" => :mountain_lion
   end
 

@@ -13,6 +13,7 @@ class Pth < Formula
     sha256 "7b31c6d65a97c722e661feb4c73a59a9025f1eac6b297ff181931bbdbc894ff3" => :yosemite
     sha256 "4271f5c483e95641caa088059669dad1ab6d95774ff66eecae2af1c5c0ddaf0a" => :mavericks
     sha256 "b478e70f3b391d547d98334070185e44d9d9074943bafbb3a7bf2e13dfdc34b9" => :mountain_lion
+    sha256 "a1e2eafca56d3449338a0d2455b268329d11280dddb91db21864f0082390fe47" => :x86_64_linux
   end
 
   def install

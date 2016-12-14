@@ -11,6 +11,7 @@ class Quilt < Formula
     sha256 "8ea83c73d0043e442c32351e84c591a39305abd13745a5968993c43f750c046a" => :sierra
     sha256 "8ea83c73d0043e442c32351e84c591a39305abd13745a5968993c43f750c046a" => :el_capitan
     sha256 "8ea83c73d0043e442c32351e84c591a39305abd13745a5968993c43f750c046a" => :yosemite
+    sha256 "7786c1cdee0778e1d6997f7a3c0603c24f56800920d0c0df9e5530163d5f550f" => :x86_64_linux
   end
 
   depends_on "gnu-sed"
@@ -18,7 +19,7 @@ class Quilt < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--with-sed=#{HOMEBREW_PREFIX}/bin/gsed",
+                          ("--with-sed=#{HOMEBREW_PREFIX}/bin/gsed" if OS.mac?),
                           "--without-getopt"
     system "make"
     system "make", "install", "emacsdir=#{elisp}"

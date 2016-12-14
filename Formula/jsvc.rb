@@ -11,6 +11,7 @@ class Jsvc < Formula
     sha256 "f42f7315d5015da70971e6771fd3fe1b8aebeb6852c48d8a921d37ad5753ed05" => :el_capitan
     sha256 "ee2cdf6d939f8cbde26edbde512d6afa3c57a144c83f3a11699fe998b3d71815" => :yosemite
     sha256 "b97d2c0458b7280e197c420af87edd7f798b8ca6d3e0520a458750eaab5fbf68" => :mavericks
+    sha256 "bc48d9195b638367ba88efd256a3fcc948659b0b3576f46e566c22fcfaa4377a" => :x86_64_linux
   end
 
   # Enable Java 7 JVMs: https://issues.apache.org/jira/browse/DAEMON-281
@@ -19,15 +20,17 @@ class Jsvc < Formula
   depends_on :java
 
   def install
-    ENV.append "CFLAGS", "-arch #{MacOS.preferred_arch}"
-    ENV.append "LDFLAGS", "-arch #{MacOS.preferred_arch}"
-    ENV.append "CPPFLAGS", "-I/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers"
+    if OS.mac?
+      ENV.append "CFLAGS", "-arch #{MacOS.preferred_arch}"
+      ENV.append "LDFLAGS", "-arch #{MacOS.preferred_arch}"
+      ENV.append "CPPFLAGS", "-I/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers"
+    end
 
     prefix.install %w[NOTICE.txt LICENSE.txt RELEASE-NOTES.txt]
 
     cd "unix"
-    system "./configure", "--with-java=/System/Library/Frameworks/JavaVM.framework",
-                          "--with-os-type=Headers"
+    system "./configure", ("--with-java=/System/Library/Frameworks/JavaVM.framework" if OS.mac?),
+                          ("--with-os-type=Headers" if OS.mac?)
     system "make"
     bin.install "jsvc"
   end

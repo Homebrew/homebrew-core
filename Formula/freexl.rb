@@ -10,6 +10,7 @@ class Freexl < Formula
     sha256 "5c6edd364f1c97cca352eba13ea5c594ec5bb4a1a2878b1ea187ec6728d72f31" => :el_capitan
     sha256 "8e7233c0b1c33adad45ef88a52e1e797aa677933b5348fe46cc99085a6975a7c" => :yosemite
     sha256 "04495f65384391622533b8fbe4c23579a3704ce4da491e3b7c53cb171c50c8c6" => :mavericks
+    sha256 "191c6cac5c1a5bdde4f311b0a07c9f8f1d2b9fdcd299246dfdd076a2942c0faa" => :x86_64_linux
     sha256 "ae6d78c69b399ea733ff6ef346d83499408c0c510fe40484072c423b9552925b" => :mountain_lion
   end
 

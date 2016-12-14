@@ -9,6 +9,7 @@ class MobileShell < Formula
     sha256 "bc1a1ce96af199e577ee7eecd75688f43aaa6bddec09a7973c487f8d4233e60f" => :sierra
     sha256 "73f0c2c60aae22d886f44421034fe1e43e2c643dba10913026d9f2935b3c0ddc" => :el_capitan
     sha256 "0d4e77bc71d3413788995fc3029ae29df2789ef6eed7871862a823ffeee7f12d" => :yosemite
+    sha256 "2ae9cd416feabacf08439ac71f3c34da3614154518234a48823e690a218814a1" => :x86_64_linux
   end
 
   head do
@@ -26,6 +27,7 @@ class MobileShell < Formula
   depends_on "protobuf"
   depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
   depends_on "tmux" => :build if build.with?("test") || build.bottle?
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
     # Fix for 'dyld: lazy symbol binding failed: Symbol not found: _clock_gettime' issue

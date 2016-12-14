@@ -21,6 +21,10 @@ class Netpbm < Formula
   depends_on "jasper"
   depends_on "jpeg"
   depends_on "libpng"
+  unless OS.mac?
+    depends_on "flex"
+    depends_on "zlib"
+  end
 
   def install
     ENV.universal_binary if build.universal?
@@ -29,10 +33,14 @@ class Netpbm < Formula
 
     inreplace "config.mk" do |s|
       s.remove_make_var! "CC"
-      s.change_make_var! "CFLAGS_SHLIB", "-fno-common"
-      s.change_make_var! "NETPBMLIBTYPE", "dylib"
-      s.change_make_var! "NETPBMLIBSUFFIX", "dylib"
-      s.change_make_var! "LDSHLIB", "--shared -o $(SONAME)"
+      if OS.linux?
+        s.change_make_var! "CFLAGS_SHLIB", "-fPIC"
+      elsif OS.mac?
+        s.change_make_var! "CFLAGS_SHLIB", "-fno-common"
+        s.change_make_var! "NETPBMLIBTYPE", "dylib"
+        s.change_make_var! "NETPBMLIBSUFFIX", "dylib"
+        s.change_make_var! "LDSHLIB", "--shared -o $(SONAME)"
+      end
       s.change_make_var! "TIFFLIB", "-ltiff"
       s.change_make_var! "JPEGLIB", "-ljpeg"
       s.change_make_var! "PNGLIB", "-lpng"

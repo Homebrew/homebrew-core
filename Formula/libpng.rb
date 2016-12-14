@@ -10,6 +10,7 @@ class Libpng < Formula
     sha256 "f9215a039025176328cfbeb979cca738b752a19d51df43d6c9c23b0535699d6b" => :sierra
     sha256 "2c1f289bbb1013a8a71a3547e26d2d6bea709fc3d9e918a0ec7eb728ee126919" => :el_capitan
     sha256 "5d77f5f8e1c4f08a47fa555a15f5265f4429c2c732ef11f7802be562e4ec99ee" => :yosemite
+    sha256 "acaed6c30516ecef37fb4877eaf8c455eff838b31414a727b12ba22e92a4de7c" => :x86_64_linux
   end
 
   head do
@@ -23,6 +24,8 @@ class Libpng < Formula
   keg_only :provided_pre_mountain_lion
 
   option :universal
+
+  depends_on "zlib" unless OS.mac?
 
   def install
     ENV.universal_binary if build.universal?

@@ -1,3 +1,4 @@
+# x264: Build a bottle for Linuxbrew
 class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
@@ -55,7 +56,7 @@ class X264 < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "-lx264", "test.c", "-o", "test"
+    system ENV.cc, "-L", lib, "test.c", "-o", "test", "-lx264"
     system "./test"
   end
 end

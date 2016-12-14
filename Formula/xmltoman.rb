@@ -10,6 +10,7 @@ class Xmltoman < Formula
     sha256 "010af030c01ebe6528bbdecfa1153fac5f6e082fa088e1803d0768bb268a509b" => :el_capitan
     sha256 "6345ec17095eeec7fde97b609c0c88f07fcdd1e911fa7fd3b8db7f3e5b081b9c" => :yosemite
     sha256 "9330b2e39919f745009122679a1e4f42ff818c55950fd7b462af86de644c0a45" => :mavericks
+    sha256 "662d5bd05b25019e95ae5aa1a3e660557c92f3416d5643b2d003a095691562c1" => :x86_64_linux
   end
 
   def install

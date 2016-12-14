@@ -83,7 +83,7 @@ class Terraform < Formula
 
       # Generate release binary
       arch = MacOS.prefer_64_bit? ? "amd64" : "386"
-      ENV["XC_OS"] = "darwin"
+      ENV["XC_OS"] = OS::NAME
       ENV["XC_ARCH"] = arch
       system "make", "bin"
 

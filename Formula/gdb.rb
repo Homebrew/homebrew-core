@@ -1,5 +1,5 @@
 class UniversalBrewedPython < Requirement
-  satisfy { archs_for_command("python").universal? }
+  satisfy { !OS.mac? || archs_for_command("python").universal? }
 
   def message; <<-EOS.undent
     A build of GDB using a brewed Python was requested, but Python is not
@@ -23,17 +23,24 @@ class Gdb < Formula
     sha256 "cddcc8e78bbff0cabe56a2d2a57ce9045defcb3ec28d17871d014171fc582465" => :sierra
     sha256 "6cec71a37016b259d5e07f4de0a828075bc556252635078cc70ee8870bd7c9d8" => :el_capitan
     sha256 "79c050699683460e4a78c3055a602665b2fc8dd72f639edab61cbe6f48ae79f7" => :yosemite
+    sha256 "c677167843b66daa7a077348949525955a6f580b28693c577cb7b0ae4b16420f" => :x86_64_linux
   end
 
   deprecated_option "with-brewed-python" => "with-python"
 
-  option "with-python", "Use the Homebrew version of Python; by default system Python is used"
+  if OS.mac?
+    option "with-python", "Use the Homebrew version of Python; by default system Python is used"
+  else
+    option "without-python", "Use the system version of Python; by default Homebrew Python is used"
+  end
   option "with-version-suffix", "Add a version suffix to program"
   option "with-all-targets", "Build with support for all targets"
 
   depends_on "pkg-config" => :build
   depends_on "python" => :optional
   depends_on "guile" => :optional
+  depends_on "texinfo" => :build unless OS.mac?
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   if MacOS.version >= :sierra
     patch do
@@ -60,7 +67,7 @@ class Gdb < Formula
 
     if build.with? "python"
       args << "--with-python=#{HOMEBREW_PREFIX}"
-    else
+    elsif OS.mac?
       args << "--with-python=/usr"
     end
 

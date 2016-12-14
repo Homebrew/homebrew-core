@@ -10,6 +10,7 @@ class LibatomicOps < Formula
     sha256 "2ca5c62c613dd85ac4901f9e937a901b19048f9e691c8f91961099dcf0ce08a9" => :el_capitan
     sha256 "7ef7eb4cccf81644068a38b67f1ad191d100b29130f9561f3d676b3c651a7566" => :yosemite
     sha256 "df26486b811bd7c6fe6a18622c4716e2e106b9726a8887a9bca69c4f7bc8b56a" => :mavericks
+    sha256 "4cc062b32d5480381aa6597ffac104b5231609efc0ee488f609e8d3dee632e2e" => :x86_64_linux
   end
 
   def install

@@ -10,6 +10,7 @@ class Libyaml < Formula
     sha256 "697f644d61983bd75f1ff5e7d4cccce26cc9a81cb8c78c066931dfc7c0dc94ba" => :sierra
     sha256 "ad9d3bee24a05281ecccd88dba5ac246cf27b99f32161b3572c109993c75238e" => :el_capitan
     sha256 "3a7788655c3c8f3b7ad73521928277ca5433789e134f437534702145171b1104" => :yosemite
+    sha256 "3076b7e94154f8c7eb34f1c1da5097da20672c6fecde05e246cd36d17941abc6" => :x86_64_linux
   end
 
   option :universal

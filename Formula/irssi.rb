@@ -9,6 +9,7 @@ class Irssi < Formula
     sha256 "7bf8f9d6b3962d9555de3c47e10e0f9175ffeed1b0b89a8f410bf7c386c0195e" => :sierra
     sha256 "28fc544267f2461b8aa9b55551020f7c2cb7b1aa469e9f61a510038c44651502" => :el_capitan
     sha256 "c0c9e4d5704693edb883cf5218df0f17d92ae9925ee04649723c6c28e0fa26db" => :yosemite
+    sha256 "738b120106d5d76e360a083032c34456458802fc57b808e45f061bdfad3929e8" => :x86_64_linux
   end
 
   head do
@@ -26,6 +27,7 @@ class Irssi < Formula
   depends_on "glib"
   depends_on "openssl" => :recommended
   depends_on "dante" => :optional
+  depends_on "perl" unless OS.mac? || build.without?("perl") # for libperl.so
 
   def install
     args = %W[
@@ -37,7 +39,7 @@ class Irssi < Formula
       --enable-ipv6
       --enable-true-color
       --with-socks=#{build.with?("dante") ? "yes" : "no"}
-      --with-ncurses=#{MacOS.sdk_path}/usr
+      --with-ncurses=#{OS.mac? ? MacOS.sdk_path/"usr" : Formula["ncurses"].prefix}
     ]
 
     if build.with? "perl"

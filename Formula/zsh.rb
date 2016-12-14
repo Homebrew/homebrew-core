@@ -17,6 +17,7 @@ class Zsh < Formula
     sha256 "51270c500dbf6bfc81e1fa1b19ce8b147adbc717ef0c0fe2ed6f41031b056236" => :sierra
     sha256 "bb54d4104228326c7661ef9a6014b1f2ee00e9f5ae651551dfd56fed700e679d" => :el_capitan
     sha256 "d5fa17cb9ebf4c9115f66b6b8fb7ef3c535bcf2eb372668936e54591f732fc86" => :yosemite
+    sha256 "dd4bb9a89bce6b82ecf134e893eeb70f2e547574979cd14d97b9ff3c1127028d" => :x86_64_linux
   end
 
   head do
@@ -33,6 +34,8 @@ class Zsh < Formula
 
   depends_on "gdbm"
   depends_on "pcre"
+  depends_on "texinfo" unless OS.mac?
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
     system "Util/preconfig" if build.head?

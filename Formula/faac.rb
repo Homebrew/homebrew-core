@@ -14,6 +14,8 @@ class Faac < Formula
     sha256 "e2cf2e63defd76653bc96443956f28bb9e0388a76cda5d0c8c463528d68a191a" => :mountain_lion
   end
 
+  patch :DATA
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
@@ -25,3 +27,15 @@ class Faac < Formula
     assert File.exist?("test.m4a")
   end
 end
+
+__END__
+--- a/common/mp4v2/mpeg4ip.h	2014-08-11 21:47:47.074013710 -0700
++++ b/common/mp4v2/mpeg4ip.h	2014-08-11 21:48:38.278413585 -0700
+@@ -123,7 +123,6 @@
+ #ifdef __cplusplus
+ extern "C" {
+ #endif
+-char *strcasestr(const char *haystack, const char *needle);
+ #ifdef __cplusplus
+ }
+ #endif
