@@ -3,10 +3,9 @@ require "base64"
 class AndroidSdk < Formula
   desc "Android API libraries and developer tools"
   homepage "https://developer.android.com/index.html"
-  url "https://dl.google.com/android/android-sdk_r24.4.1-macosx.zip"
-  version "24.4.1"
-  sha256 "ce1638cb48526a0e55857fc46b57eda4349e6512006244ad13dd6c1361c74104"
-  revision 1
+  url "https://dl.google.com/android/repository/tools_r25.2.4-macosx.zip"
+  version "25.2.4"
+  sha256 "399f107a905c367bd23b64bf34d4c0313d63ba6292376992021a93cbce6e9d89"
 
   bottle do
     cellar :any
@@ -31,11 +30,43 @@ class AndroidSdk < Formula
 
   # Version of the android-build-tools the wrapper scripts reference.
   def build_tools_version
-    "23.0.1"
+    "25.0.1"
   end
 
   def install
-    prefix.install "tools", "SDK Readme.txt" => "README"
+    prefix.install_metafiles
+
+    (prefix/"tools").install [
+      buildpath/"android",
+      buildpath/"ant",
+      buildpath/"apps",
+      buildpath/"bin",
+      buildpath/"bin64",
+      buildpath/"ddms",
+      buildpath/"draw9patch",
+      buildpath/"emulator",
+      buildpath/"emulator-check",
+      buildpath/"emulator64-arm",
+      buildpath/"emulator64-crash-service",
+      buildpath/"emulator64-mips",
+      buildpath/"emulator64-x86",
+      buildpath/"hierarchyviewer",
+      buildpath/"jobb",
+      buildpath/"lib",
+      buildpath/"lib64",
+      buildpath/"lint",
+      buildpath/"mksdcard",
+      buildpath/"monitor",
+      buildpath/"monkeyrunner",
+      buildpath/"proguard",
+      buildpath/"qemu",
+      buildpath/"screenshot2",
+      buildpath/"source.properties",
+      buildpath/"support",
+      buildpath/"templates",
+      buildpath/"traceview",
+      buildpath/"uiautomatorviewer",
+    ]
 
     %w[android ddms draw9patch emulator
        emulator-arm emulator-x86 hierarchyviewer lint mksdcard
@@ -47,13 +78,17 @@ class AndroidSdk < Formula
       EOS
     end
 
-    %w[zipalign].each do |tool|
-      (bin/tool).write <<-EOS.undent
+    (bin/"zipalign").write <<-EOS.undent
         #!/bin/bash
-        TOOL="#{prefix}/build-tools/#{build_tools_version}/#{tool}"
+        TOOL="#{prefix}/build-tools/#{build_tools_version}/zipalign"
         exec "$TOOL" "$@"
-      EOS
-    end
+    EOS
+
+    (bin/"sdkmanager").write <<-EOS.undent
+        #!/bin/bash
+        TOOL="#{prefix}/tools/bin/sdkmanager"
+        exec "$TOOL" "$@"
+    EOS
 
     %w[dmtracedump etc1tool hprof-conv].each do |tool|
       (bin/tool).write <<-EOS.undent
@@ -103,7 +138,7 @@ class AndroidSdk < Formula
     end
 
     # automatically install platform and build tools
-    system "echo y | bash #{bin}/android --verbose update sdk --no-ui --all --filter platform-tools,build-tools-#{build_tools_version}"
+    system "echo y | ANDROID_SDK_HOME=$HOME bash #{bin}/android --verbose update sdk --no-ui --all --filter platform-tools,build-tools-#{build_tools_version}"
   end
 
   def caveats; <<-EOS.undent
@@ -117,6 +152,7 @@ class AndroidSdk < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{prefix}/tools/emulator -version")
+    assert_match "Android Debug Bridge", shell_output("#{bin}/adb version")
+    system "#{bin}/emulator", "-list-avds"
   end
 end
