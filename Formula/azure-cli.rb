@@ -3,9 +3,9 @@ require "language/node"
 class AzureCli < Formula
   desc "Official Azure CLI"
   homepage "https://github.com/azure/azure-xplat-cli"
-  url "https://github.com/Azure/azure-xplat-cli/archive/v0.10.7-November2016.tar.gz"
-  version "0.10.7"
-  sha256 "4015616bd3a95ec319db4e3e098bf7251120123528d34d1dcc985834057cf531"
+  url "https://github.com/Azure/azure-xplat-cli/archive/v0.10.8-December2016.tar.gz"
+  version "0.10.8"
+  sha256 "4878650f5f7495d852a5fddbf23a6458c386125dc2c3917efbcd8e296572efd3"
   head "https://github.com/azure/azure-xplat-cli.git", :branch => "dev"
 
   bottle do
