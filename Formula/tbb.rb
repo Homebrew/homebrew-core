@@ -10,6 +10,7 @@ class Tbb < Formula
     sha256 "56bb202deb6b5fe157a014f2453fd64228e249d57fb28739bc7447c84838815d" => :sierra
     sha256 "c94240b9d711b2d25bea079f1fbf7eb3bb41963917792f1c2793d453ebe0dee3" => :el_capitan
     sha256 "cd43fda9c973cdf59c266cfbb222711160d7e0c6473e982f859678e29732b522" => :yosemite
+    sha256 "3a4bb74230bbbd6cb8d3597b66d0ab73594335a019ede93cb291d1f20f31a611" => :x86_64_linux
   end
 
   option :cxx11
@@ -33,7 +34,11 @@ class Tbb < Formula
     end
 
     system "make", *args
-    lib.install Dir["build/BUILDPREFIX_release/*.dylib"]
+    if OS.mac?
+      lib.install Dir["build/BUILDPREFIX_release/*.dylib"]
+    else
+      lib.install Dir["build/BUILDPREFIX_release/*.so*"]
+    end
     include.install "include/tbb"
 
     cd "python" do

@@ -9,6 +9,7 @@ class Ttfautohint < Formula
     sha256 "197bdbe7aa06aed36b16589e200c02ecc774f36881920e65befa3f50fa6b5276" => :sierra
     sha256 "97e64ed4c50b3caf57446c2040f65e0b4055eb38f741e4e9bf56d61babda7054" => :el_capitan
     sha256 "e0ac2b0caba3aef14d7a1feb119559daebfe74fa7b49b6f2cf249d0f878beca5" => :yosemite
+    sha256 "4a9b94cc1c28a395ad2de2cf8b653b33f6c9267ea66ef12c68492ab886abcff6" => :x86_64_linux
   end
 
   head do

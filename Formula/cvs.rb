@@ -3,6 +3,12 @@
 # MacPorts: https://trac.macports.org/browser/trunk/dports/devel/cvs/Portfile
 # Creating a useful testcase: https://mrsrl.stanford.edu/~brian/cvstutorial/
 
+class VimRequirement < Requirement
+  fatal true
+  default_formula "vim"
+  satisfy { which "vim" }
+end
+
 class Cvs < Formula
   desc "Version control system"
   homepage "http://cvs.nongnu.org/"
@@ -21,21 +27,23 @@ class Cvs < Formula
 
   keg_only :provided_until_xcode5
 
+  depends_on VimRequirement
+
   patch :p0 do
     url "https://opensource.apple.com/tarballs/cvs/cvs-45.tar.gz"
     sha256 "4d200dcf0c9d5044d85d850948c88a07de83aeded5e14fa1df332737d72dc9ce"
-    apply "patches/PR5178707.diff",
+    apply *["patches/PR5178707.diff",
           "patches/ea.diff",
           "patches/endian.diff",
           "patches/fixtest-client-20.diff",
           "patches/fixtest-recase.diff",
           "patches/i18n.diff",
           "patches/initgroups.diff",
-          "patches/nopic.diff",
+          ("patches/nopic.diff" if OS.mac?),
           "patches/remove-libcrypto.diff",
           "patches/remove-info.diff",
           "patches/tag.diff",
-          "patches/zlib.diff"
+          "patches/zlib.diff"].compact
   end
 
   def install

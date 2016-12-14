@@ -8,12 +8,15 @@ class Flex < Formula
     sha256 "c7bcd12da4584e7d59e3801f92711820f2b9223d686326693a42da7733cd408d" => :sierra
     sha256 "b9f443e7292fe613dca088f7c4d26bf636086bee799c0dda06d8371b6702b410" => :el_capitan
     sha256 "637020dcd2cb5895b9da6c248e6035a3cbb91e3a310b7e71cb5f9c4ae959f149" => :yosemite
+    sha256 "1763602d7b6d77709f7393b18ab7cf52456a09228904fd3997e560771c2f21a8" => :x86_64_linux
   end
 
   keg_only :provided_by_osx, "Some formulae require a newer version of flex."
 
   depends_on "help2man" => :build
   depends_on "gettext"
+  depends_on "homebrew/dupes/m4" unless OS.mac?
+  depends_on "bison" => :build unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",

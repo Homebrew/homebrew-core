@@ -10,6 +10,7 @@ class Clasp < Formula
     sha256 "c1c8dff2446da52ad0d87fc53f14065ef9d92e6a66d27ecd8ed3e7619b6bddea" => :el_capitan
     sha256 "1cb2579b887870f73fc216c474e841951b01ff26f120273bf536665403f65826" => :yosemite
     sha256 "06c9bce4ff95e45e4fb78351c658f2d4bbc80fadd2db581e6b9673ec383d4755" => :mavericks
+    sha256 "50e4635c74ec5cd04a12369a13bd8b7081524381a5f8ea503c70e7b6210b4ffa" => :x86_64_linux
     sha256 "20058e023ad293199f0c1619953adaea03f84aa25c07f42e3edb9d177447cd52" => :mountain_lion
   end
 

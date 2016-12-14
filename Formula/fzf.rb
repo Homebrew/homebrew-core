@@ -12,9 +12,11 @@ class Fzf < Formula
     sha256 "01b8577d797a8dbd8bb453a7e3b6bac072a4f99ff95a3e4bed60f3957a26c1ea" => :sierra
     sha256 "9a8de5282ca4641129af5335d6e7180a1b835400edf164ae3623e3e5c337d288" => :el_capitan
     sha256 "d945597aae09d5398c7d760e31448f5d86eeb070eeb9259b0ce29e462ac52ebc" => :yosemite
+    sha256 "ed0658812d3a02b3d809f4df0205efeab00a627a15703e7473945dc43dfbb48f" => :x86_64_linux
   end
 
   depends_on "go" => :build
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   go_resource "github.com/junegunn/go-isatty" do
     url "https://github.com/junegunn/go-isatty.git",

@@ -11,11 +11,13 @@ class Gringo < Formula
     sha256 "441c81748e551106a923ccd61298f98c8b5e46cba684fc2e0031a4fe11f1d0ae" => :el_capitan
     sha256 "e9b5ee97a0a0b8c14a66d6359936259b7edc96c2013531c250903a03df65bfb0" => :yosemite
     sha256 "7215d8a23fe6052bd67e4ce8b5537da6e16236f07fe387bd7b29fa5f9ee35ca9" => :mavericks
+    sha256 "cae46e44b569bbca76e47a6b87eae77095222fdba020cc702f47eec41561d4e3" => :x86_64_linux
   end
 
   depends_on "re2c" => :build
   depends_on "scons" => :build
   depends_on "bison" => :build
+  depends_on "python" unless OS.mac? # for libpython2.7.so.1.0
 
   needs :cxx11
 

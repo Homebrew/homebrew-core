@@ -11,6 +11,7 @@ class Libspiro < Formula
     sha256 "ba2ac132368792d5715eb39a7b0e452fba5a222977ec30b9c5ff09728acfd0e0" => :el_capitan
     sha256 "408083484eb78518514bd2613f019bd03ac94e791b8302721187eeaf5c775479" => :yosemite
     sha256 "7bbae215d77ea9b5977f066b2fa646821933f5ed4cbc972e4c50fc5a1708725e" => :mavericks
+    sha256 "fa3195a1713de6bf1dddac515d6a63039b3087c96ec473acc429fa997170ca6c" => :x86_64_linux
   end
 
   head do

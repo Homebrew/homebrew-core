@@ -9,11 +9,15 @@ class Advancecomp < Formula
     sha256 "c6be5afcb1aeb0c8f6ce37bc528cfd27755b09043d052580b1e4a89cb954f341" => :sierra
     sha256 "d4fe20402a495811acd27c98ce7c5c8c7329a4596b5d1f6cef345c4ecb3f8e5c" => :el_capitan
     sha256 "4106a08a195345033e4e5481f28091895fd297a334aa622851678a98689dd34d" => :yosemite
+    sha256 "1d1bd8721a51a19e4ccca2f99ac8b4d16b014550c78bc9ac3176b146856f5f58" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
+  depends_on "bzip2" unless OS.mac?
+  depends_on "zlib" unless OS.mac?
 
   def install
     system "autoreconf", "-fiv"

@@ -11,6 +11,7 @@ class Camlp4 < Formula
     sha256 "49096259b8b6ca8de2e13430ca64667e7240ea4c57ceec970ec09c6018e92afa" => :sierra
     sha256 "2653f7e820938274b150429ae79c8b7384a93e655707f1c028577ad46eb720f7" => :el_capitan
     sha256 "368d94cdd7367926ad0c77e0c818a3f4cbc09fc2cdbd9ad35dd391f90b2eef9a" => :yosemite
+    sha256 "7241758c316a103b599af5f6a2df2c13791aeb836b11540113c6a3c42eea5771" => :x86_64_linux
   end
 
   depends_on "ocaml"

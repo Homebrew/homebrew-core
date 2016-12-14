@@ -10,6 +10,7 @@ class Ilmbase < Formula
     sha256 "486b1207a66286e6a1bd4aebeef5a249c0cae6daf4c28265b4c4dfef422dce65" => :sierra
     sha256 "4153f054e5c819ce35ccf70c6142b5d7059e84c9c0b446a9c83d8f590d7434c7" => :el_capitan
     sha256 "2bfd8bef08f89e6c84d6f9da5f5b3db38b787d33a3c6e6bb9751a9c43bbea2de" => :yosemite
+    sha256 "130ba3192d0d30ccb991a3c3ae8d38545c8f90fb917070f2ba266c30ef4fca40" => :x86_64_linux
   end
 
   option :universal

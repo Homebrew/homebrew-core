@@ -11,6 +11,7 @@ class Mpfr < Formula
     sha256 "563898b76509b25a1c7ed09c3f541310569d7c124f1edc84638ecec75e507698" => :sierra
     sha256 "f9ae415a51042ad963dfd8d6171556b0119a27edbe894614c0e3a2e4398515c4" => :el_capitan
     sha256 "ca737c71556161c37563b78305aa93c6663cde07f06d94e4d7de091983327c48" => :yosemite
+    sha256 "2f018a9fe6788f2b5ea355f4172324a16af9a2a8ac56557cfd62177490a39846" => :x86_64_linux
   end
 
   option "32-bit"
@@ -27,6 +28,11 @@ class Mpfr < Formula
 
   def install
     ENV.m32 if build.build_32_bit?
+
+    # Fix error makeinfo: command not found
+    # The mpfr.info timestamp is older than the mpfr.texi timestamp.
+    touch "doc/mpfr.info"
+
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
                           "--disable-silent-rules"
     system "make"

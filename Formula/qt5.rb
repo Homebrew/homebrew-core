@@ -109,6 +109,18 @@ class Qt5 < Formula
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
   end
 
+  unless OS.mac?
+    depends_on :x11
+    depends_on "fontconfig"
+    depends_on "glib"
+    depends_on "icu4c"
+    depends_on "libproxy"
+    depends_on "pulseaudio"
+    depends_on "sqlite"
+    depends_on "systemd"
+    depends_on "homebrew/x11/libxkbcommon"
+  end
+
   def install
     args = %W[
       -verbose
@@ -121,9 +133,15 @@ class Qt5 < Formula
       -qt-freetype
       -qt-pcre
       -nomake tests
-      -no-rpath
       -pkg-config
     ]
+
+    if OS.mac?
+      args << "-no-rpath"
+    elsif OS.linux?
+      args << "-qt-xcb"
+      args << "-R#{lib}"
+    end
 
     args << "-nomake" << "examples" if build.without? "examples"
 

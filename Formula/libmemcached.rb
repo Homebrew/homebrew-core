@@ -12,6 +12,7 @@ class Libmemcached < Formula
     sha256 "726426f5a3fd386bbbe637935377e46cea6bd6ca24d086ecead5962de1ecdc33" => :yosemite
     sha256 "819a893ecb0d662b2cc299dcc5f86879b569f91a2101a4b3e1f3b265bacc2708" => :mavericks
     sha256 "bcf00c6004c5d4e5104867e16905f4375b129b527a47b2b000131bf59e15a423" => :mountain_lion
+    sha256 "559df5684281018873c58ed9512ebed9bb53ea1335c91706267b07ae7e831687" => :x86_64_linux
   end
 
   option "with-sasl", "Build with sasl support"
@@ -26,7 +27,7 @@ class Libmemcached < Formula
   patch :DATA
 
   def install
-    ENV.append_to_cflags "-undefined dynamic_lookup" if MacOS.version <= :leopard
+    ENV.append_to_cflags "-undefined dynamic_lookup" if OS.mac? && MacOS.version <= :leopard
 
     args = ["--prefix=#{prefix}"]
 

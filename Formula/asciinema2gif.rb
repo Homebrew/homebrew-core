@@ -10,6 +10,7 @@ class Asciinema2gif < Formula
     sha256 "49f626f86c63d429f618ae4d010bd3d98080aa1840354b1f6c9dc398eeb5fec2" => :sierra
     sha256 "49f626f86c63d429f618ae4d010bd3d98080aa1840354b1f6c9dc398eeb5fec2" => :el_capitan
     sha256 "49f626f86c63d429f618ae4d010bd3d98080aa1840354b1f6c9dc398eeb5fec2" => :yosemite
+    sha256 "18c89099970e6e5a39e884797385b2819d6b95f557c572277cf2fe6f1a49e97b" => :x86_64_linux
   end
 
   depends_on "gifsicle"

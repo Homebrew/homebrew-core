@@ -10,6 +10,7 @@ class Aha < Formula
     sha256 "56cfd33659adb98e630ead8d9cff6b3345a7f0a0da484a0921827ff1dcacf9c2" => :sierra
     sha256 "f553081042955aa96a1fa42fcd7572a17357a0986a8f8a9dfb1799fec0f489c1" => :el_capitan
     sha256 "efb7f763bae069d24fdc77942c06cc2267f7b3775b2e6cdf2863ba230dd8350a" => :yosemite
+    sha256 "66ae747e54e4e8cdd36e7db9b3f393f56f705f1585631a9d0aff50c7065248a9" => :x86_64_linux
   end
 
   def install

@@ -10,6 +10,7 @@ class Sqlite < Formula
     sha256 "8c44218c1d89ab03e7001109c33f143658ffed63e134be050b426f6fb5748c07" => :sierra
     sha256 "fb9d7788059eab8e5ecea974b2ea34d6196453cd7b8d624ad14408010fac32e5" => :el_capitan
     sha256 "8621a5200dbc3150b2b2bf743e3b6fb781b4e6d00c164689c4903dbba710274a" => :yosemite
+    sha256 "096aa8ad93a38746cc6ece70d82b094ddc6459a8331e9b8604f5f1bb3118c683" => :x86_64_linux
   end
 
   keg_only :provided_by_osx, "macOS provides an older sqlite3."
@@ -43,6 +44,10 @@ class Sqlite < Formula
   end
 
   def install
+    # Fix error: sqlite3.o: No such file or directory
+    # See https://github.com/Homebrew/linuxbrew/issues/407
+    ENV.deparallelize
+
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_COLUMN_METADATA=1"
     # Default value of MAX_VARIABLE_NUMBER is 999 which is too low for many
     # applications. Set to 250000 (Same value used in Debian and Ubuntu).

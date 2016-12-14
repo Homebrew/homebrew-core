@@ -11,6 +11,7 @@ class Iniparser < Formula
     sha256 "0278cf54ff7cf350232559892ada560905b6b736ce96ed1c16550bee5bfad682" => :el_capitan
     sha256 "c31e24f968cd204eef07f40dab70174df9ac9d6d130af13b2943e8a9df00acfe" => :yosemite
     sha256 "7e211ecdcd55d267ab0921a15cf27b739b7a1af62160ac8b62dd456119c1a5d0" => :mavericks
+    sha256 "20685c3fa7ad7f18429b72283b7af54a6d30ce8795f24806f0ad6996cf9a1d50" => :x86_64_linux
   end
 
   conflicts_with "fastbit", :because => "Both install `include/dictionary.h`"

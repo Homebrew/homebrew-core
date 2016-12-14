@@ -11,11 +11,13 @@ class Hardlink < Formula
     sha256 "36c30ed90a3d2b9d2d4d07cb182c2838dfba276a05c22d022a42e16043e86f02" => :yosemite
     sha256 "cba1b82474c668bbb36e2e56cf7b36685924592d291dc05067d7c4a605686084" => :mavericks
     sha256 "733b12fdaffb5b2dd0f5d87394eaf058ce4a621d3234dca2b18a9487c1d487f2" => :mountain_lion
+    sha256 "10427db60f2e993fa3cc0711b493bffff4da377b29d11564a8df1c520cd85372" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
   depends_on "gnu-getopt"
   depends_on "pcre"
+  depends_on "attr" if OS.linux?
 
   def install
     system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "BINDIR=#{bin}", "install"

@@ -22,6 +22,7 @@ class Python3 < Formula
     sha256 "4a43600ceb2875c13200ace82fea1a9a119973b831f5503fa57cf8db44fbb155" => :sierra
     sha256 "301854e1a52fd577f84015eb5ef07e0e369c794b8894fb6850ae84d9391f740e" => :el_capitan
     sha256 "075f5e63188dfcd5a13ef1f9658b26aa2d8d943fbc5c5c50e05fc973bc38f7c1" => :yosemite
+    sha256 "ab6dda249829e28bf4611f9bb4624834ed38be13074232104f99cb745145af7c" => :x86_64_linux
   end
 
   devel do
@@ -46,6 +47,7 @@ class Python3 < Formula
   depends_on "homebrew/dupes/tcl-tk" => :optional
   depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
   depends_on "sphinx-doc" => [:build, :optional]
+  depends_on "bzip2" unless OS.mac?
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5"
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5"
@@ -76,7 +78,8 @@ class Python3 < Formula
   patch :DATA if build.with? "tcl-tk"
 
   def lib_cellar
-    prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}"
+    prefix / (OS.mac? ? "Frameworks/Python.framework/Versions/#{xy}" : "") /
+      "lib/python#{xy}"
   end
 
   def site_packages_cellar
@@ -125,7 +128,7 @@ class Python3 < Formula
       --enable-ipv6
       --datarootdir=#{share}
       --datadir=#{share}
-      --enable-framework=#{frameworks}
+      #{OS.mac? ? "--enable-framework=#{frameworks}" : "--enable-shared"}
       --without-ensurepip
     ]
 
@@ -149,6 +152,19 @@ class Python3 < Formula
     end
     # Avoid linking to libgcc https://mail.python.org/pipermail/python-dev/2012-February/116205.html
     args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
+
+    # Python's setup.py parses CPPFLAGS and LDFLAGS to learn search
+    # paths for the dependencies of the compiled extension modules.
+    # See Linuxbrew/linuxbrew#420, Linuxbrew/linuxbrew#460, and Linuxbrew/linuxbrew#875
+    if OS.linux?
+      if build.bottle?
+        # Configure Python to use cc and c++ to build extension modules.
+        ENV["CC"] = "cc"
+        ENV["CXX"] = "c++"
+      end
+      cppflags << ENV.cppflags << " -I#{HOMEBREW_PREFIX}/include"
+      ldflags << ENV.ldflags
+    end
 
     # We want our readline and openssl! This is just to outsmart the detection code,
     # superenv makes cc always find includes/libs!
@@ -199,28 +215,29 @@ class Python3 < Formula
     ENV.deparallelize do
       # Tell Python not to install into /Applications (default for framework builds)
       system "make", "install", "PYTHONAPPSDIR=#{prefix}"
-      system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
+      system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}" if OS.mac?
     end
 
     # Any .app get a " 3" attached, so it does not conflict with python 2.x.
     Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 3.app") }
 
-    # Prevent third-party packages from building against fragile Cellar paths
-    inreplace Dir[lib_cellar/"**/_sysconfigdata_m_darwin_darwin.py",
-                  lib_cellar/"config*/Makefile",
-                  frameworks/"Python.framework/Versions/3*/lib/pkgconfig/python-3.?.pc"],
-              prefix, opt_prefix
+    if OS.mac?
+      # Prevent third-party packages from building against fragile Cellar paths
+      inreplace Dir[lib_cellar/"**/_sysconfigdata_m_darwin_darwin.py",
+                    lib_cellar/"config*/Makefile",
+                    frameworks/"Python.framework/Versions/3*/lib/pkgconfig/python-3.?.pc"],
+                prefix, opt_prefix
 
-    # Help third-party packages find the Python framework
-    inreplace Dir[lib_cellar/"config*/Makefile"],
-              /^LINKFORSHARED=(.*)PYTHONFRAMEWORKDIR(.*)/,
-              "LINKFORSHARED=\\1PYTHONFRAMEWORKINSTALLDIR\\2"
-
-    # A fix, because python and python3 both want to install Python.framework
-    # and therefore we can't link both into HOMEBREW_PREFIX/Frameworks
-    # https://github.com/Homebrew/homebrew/issues/15943
-    ["Headers", "Python", "Resources"].each { |f| rm(prefix/"Frameworks/Python.framework/#{f}") }
-    rm prefix/"Frameworks/Python.framework/Versions/Current"
+      # Help third-party packages find the Python framework
+      inreplace Dir[lib_cellar/"config*/Makefile"],
+                /^LINKFORSHARED=(.*)PYTHONFRAMEWORKDIR(.*)/,
+                "LINKFORSHARED=\\1PYTHONFRAMEWORKINSTALLDIR\\2"
+      # A fix, because python and python3 both want to install Python.framework
+      # and therefore we can't link both into HOMEBREW_PREFIX/Frameworks
+      # https://github.com/Homebrew/homebrew/issues/15943
+      ["Headers", "Python", "Resources"].each { |f| rm(prefix/"Frameworks/Python.framework/#{f}") }
+      rm prefix/"Frameworks/Python.framework/Versions/Current"
+    end
 
     # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
     (lib/"pkgconfig").install_symlink Dir["#{frameworks}/Python.framework/Versions/#{xy}/lib/pkgconfig/*"]
@@ -381,7 +398,9 @@ class Python3 < Formula
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
     system "#{bin}/python#{xy}", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
-    system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()"
+    if OS.mac? || build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
+      system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()"
+    end
     system bin/"pip3", "list"
   end
 end

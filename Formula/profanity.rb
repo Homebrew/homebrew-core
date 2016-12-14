@@ -29,6 +29,7 @@ class Profanity < Formula
   depends_on "libotr" => :recommended
   depends_on "gpgme" => :recommended
   depends_on "terminal-notifier" => :optional
+  depends_on "curl" unless OS.mac?
 
   def install
     system "./bootstrap.sh" if build.head?

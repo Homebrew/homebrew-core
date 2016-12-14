@@ -11,6 +11,7 @@ class Yasm < Formula
     sha256 "7dc741b8006e58498622b846151270d1d958d9cff7d4dc2aade0cdad532639d5" => :el_capitan
     sha256 "5c5191c5a6b6c523334cdf43ff1af761f2fee1ee94111652a7f0dd369e9153e5" => :yosemite
     sha256 "734b4d3d218323417b7b5aa1edf2e47c4309e37207bcaf5f9e13da96aa6201d9" => :mavericks
+    sha256 "3230b73a044f0cb807311282d99ce358aa7525f00fb500cc399fbe1cbe9d57b6" => :x86_64_linux
   end
 
   head do
@@ -70,7 +71,9 @@ class Yasm < Formula
       .len:   equ     $ - msg
     EOS
     system "#{bin}/yasm", "-f", "macho64", "test.asm"
-    system "/usr/bin/ld", "-macosx_version_min", "10.7.0", "-lSystem", "-o", "test", "test.o"
-    system "./test"
+    if OS.mac?
+      system "/usr/bin/ld", "-macosx_version_min", "10.7.0", "-lSystem", "-o", "test", "test.o"
+      system "./test"
+    end
   end
 end

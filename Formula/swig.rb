@@ -9,6 +9,7 @@ class Swig < Formula
     sha256 "0b5ade8c002e0f28c6e6f2d7643119138a8cc75d1363809f59e042c4fb54c6b7" => :sierra
     sha256 "26124aad280aadec6e95bb3a797ca48980f2cdf442f712c58bc43d02ae794f0c" => :el_capitan
     sha256 "8811ab4b431de10f0c061f80d3c549c9b475eb8f273c7c6fd1f71e11f52bfbe8" => :yosemite
+    sha256 "8e3536ba414652df9f0dc62be82417d2362f66d8f8c53bed0aad3ae9daa831a6" => :x86_64_linux
   end
 
   option :universal
@@ -48,9 +49,15 @@ class Swig < Formula
       puts Test.add(1, 1)
     EOS
     system "#{bin}/swig", "-ruby", "test.i"
-    system ENV.cc, "-c", "test.c"
-    system ENV.cc, "-c", "test_wrap.c", "-I/System/Library/Frameworks/Ruby.framework/Headers/"
-    system ENV.cc, "-bundle", "-flat_namespace", "-undefined", "suppress", "test.o", "test_wrap.o", "-o", "test.bundle"
+    if OS.mac?
+      system ENV.cc, "-c", "test.c"
+      system ENV.cc, "-c", "test_wrap.c", "-I/System/Library/Frameworks/Ruby.framework/Headers/"
+      system ENV.cc, "-bundle", "-flat_namespace", "-undefined", "suppress", "test.o", "test_wrap.o", "-o", "test.bundle"
+    else
+      system ENV.cc, "-c", "-fPIC", "test.c"
+      system ENV.cc, "-c", "-fPIC", "test_wrap.c", "-I#{RbConfig::CONFIG["rubyhdrdir"]}", "-I#{RbConfig::CONFIG["rubyarchhdrdir"]}"
+      system ENV.cc, "-shared", "test.o", "test_wrap.o", "-o", "test.so", "-lruby"
+    end
     assert_equal "2", shell_output("ruby run.rb").strip
   end
 end

@@ -11,6 +11,7 @@ class AutoconfArchive < Formula
     sha256 "7ae05e07723ff6ac37e0847f1233b7021b0fd25496a4d52a4198fa9ba6b48942" => :el_capitan
     sha256 "c03a8439f143550e2fd7f94ea8053c00a6023f794faadd0ce6a6b0ebe654f225" => :yosemite
     sha256 "c03a8439f143550e2fd7f94ea8053c00a6023f794faadd0ce6a6b0ebe654f225" => :mavericks
+    sha256 "fd9b5f7f2974f799fc4d2e54a4d61cadded946f5a9c7e97241565fa01fc3290f" => :x86_64_linux
   end
 
   # autoconf-archive is useless without autoconf

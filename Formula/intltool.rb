@@ -11,6 +11,7 @@ class Intltool < Formula
     sha256 "da6c24f1cc40fdf6ae286ec003ecd779d0f866fe850e36f5e5953786fa45a561" => :yosemite
     sha256 "5deeef3625d52f71d633e7510396d0028ec7b7ccf40c78b5d254bdf4214e6363" => :mavericks
     sha256 "739e17a9f4e75913118a8ef0fd2a7ad7d645769cc61aeb1d6bcf760fe4bd48a7" => :mountain_lion
+    sha256 "2b0bc62fa22240902e2bc04b91d6f25b0989e224953ed99ad66d06ad9b37b34d" => :x86_64_linux
   end
 
   def install

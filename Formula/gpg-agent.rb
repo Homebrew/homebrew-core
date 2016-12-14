@@ -14,6 +14,7 @@ class GpgAgent < Formula
     sha256 "d13f81eed299b09bb12bc3d9cb3a85af17e28662c9353c6928d90efbd01556d5" => :el_capitan
     sha256 "d495205bb284b493fcc5cdbcbda32d9d9c0408532e99ce9d4f13ed6e3f74d969" => :yosemite
     sha256 "cbcab34d6357423d93904bc3f80b552519291852e1bc87e3fbfb70628237f094" => :mavericks
+    sha256 "5b8620829b892cd6495de5e125efc64c9b003bc2c940ea45a5e731d3c0d0140a" => :x86_64_linux
   end
 
   depends_on "libgpg-error"

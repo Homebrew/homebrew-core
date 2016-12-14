@@ -11,6 +11,7 @@ class Libxml2 < Formula
     sha256 "106885b0ac96d1f59c5a1f7588ffc938d90361fb9e68cbdd74db2177ea3fa694" => :el_capitan
     sha256 "abc9899e778ff2d5abcdac5c1b8b976b9811029b739d557c1ac61dbe1ef2cc19" => :yosemite
     sha256 "03f73fbc3f99f098f44ff5805aadd1b5cd6c4741e9ca9f6e66d9cc4a9b2f1a5a" => :mavericks
+    sha256 "b4ab0b95a7a2881a1430991993abe6a579471ae6df29359d4fdb721a703d8734" => :x86_64_linux
   end
 
   head do
@@ -26,6 +27,7 @@ class Libxml2 < Formula
   option :universal
 
   depends_on :python => :optional
+  depends_on "zlib" unless OS.mac?
 
   fails_with :llvm do
     build 2326
@@ -50,7 +52,8 @@ class Libxml2 < Formula
     if build.with? "python"
       cd "python" do
         # We need to insert our include dir first
-        inreplace "setup.py", "includes_dir = [", "includes_dir = ['#{include}', '#{MacOS.sdk_path}/usr/include',"
+        inreplace "setup.py", "includes_dir = [",
+          "includes_dir = ['#{include}', '#{OS.mac? ? MacOS.sdk_path/"usr" : HOMEBREW_PREFIX}/include',"
         system "python", "setup.py", "install", "--prefix=#{prefix}"
       end
     end
@@ -69,8 +72,8 @@ class Libxml2 < Formula
         return 0;
       }
     EOS
-    args = shell_output("#{bin}/xml2-config --cflags --libs").split
-    args += %w[test.c -o test]
+    args = %w[test.c -o test]
+    args += shell_output("#{bin}/xml2-config --cflags --libs").split
     system ENV.cc, *args
     system "./test"
   end

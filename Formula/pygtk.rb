@@ -25,7 +25,7 @@ class Pygtk < Formula
   depends_on "libglade" => :optional
 
   def install
-    ENV.append "CFLAGS", "-ObjC"
+    ENV.append "CFLAGS", "-ObjC" if OS.mac?
     ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

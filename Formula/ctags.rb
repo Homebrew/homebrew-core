@@ -21,6 +21,7 @@ class Ctags < Formula
     sha256 "e1582f148434de71bfa2516f6fad0598b41115f21164ad59c847e3282d550586" => :el_capitan
     sha256 "1ba38746fe55be78781dcf313977b60f242ed42d412bbaf96627daf24d9fd168" => :yosemite
     sha256 "9904dcc6f32a8f52d900339ff11ba4c9cb3e67374e558bb2abcc777fe56d49b5" => :mavericks
+    sha256 "6187d7dbec4f830e564c2d6eba57791615b2916caf747765c270d17731f7fc1d" => :x86_64_linux
     sha256 "b3619b0231eb952ee7c768dbb82e2301ece1060f8c713e781767cc700f02b2f2" => :mountain_lion
   end
 

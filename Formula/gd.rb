@@ -11,6 +11,7 @@ class Gd < Formula
     sha256 "31dfa0f6b8816983e9837cee2e57a49c5aadff0f8622831c9ce8b62eaa58052b" => :el_capitan
     sha256 "1f3ee5e4bdc25d90d76be1b6282039e8e08117b7d195067a3569d8de9b056bde" => :yosemite
     sha256 "76800f3d1c37d0db1f78e94fdf0fd6c40542920da2c1efbcb1d6d59c7a47dae3" => :mavericks
+    sha256 "fa85e92f47f48e8d3664e2d3874bc2f1df6a4b934ad5abdd938a5b6e654f15de" => :x86_64_linux
   end
 
   head do

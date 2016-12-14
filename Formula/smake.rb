@@ -9,6 +9,7 @@ class Smake < Formula
     sha256 "a5cb6ea4fab2d0ce67342f482fd0efb4dcc20483722e56ae120880d2a97ebab0" => :el_capitan
     sha256 "c1420a59ceba43481eac2b2046a7d3c4aac967a12ff52bccb3b4697eca8d5c8f" => :yosemite
     sha256 "4e8157c27f8ab0d5ad2c9673a86357f38acfabea1ac4eef80c54e8141dfdb336" => :mavericks
+    sha256 "07e29bed6bf75f8c192744ec1fa65816fc72ac04ec76657dc763baf7db2d2898" => :x86_64_linux
     sha256 "ce1edbcc0ec3f7db2208e39a09183d7dcfa21d50250393f5ad5c83204ab7b3ed" => :mountain_lion
   end
 

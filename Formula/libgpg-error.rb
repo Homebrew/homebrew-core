@@ -10,6 +10,7 @@ class LibgpgError < Formula
     sha256 "72b4ba066c36701a6f3eaeca581faf0e4ed971ae97bd71dc345effb69575bfe6" => :sierra
     sha256 "31afa3a5eaae9962bd89cd9d65170e6c0308e1b58a3ace70f4433a53d795d50e" => :el_capitan
     sha256 "98a847a644ebc419ab2d66ce7ede10cb524fbff0b98898039e351fcea9f005ca" => :yosemite
+    sha256 "70ad549a90153827b2e3fffeb939ea2b5c1ad82b11432e39ab7425793eef53cf" => :x86_64_linux
   end
 
   option :universal

@@ -11,6 +11,7 @@ class Libvorbis < Formula
     sha256 "cf396496dc6daea304bb81e9e099831c97bf6756ac91954c26993cbb39bc97c2" => :yosemite
     sha256 "9e042bea299b9fb2dcc7bac8140ae3544d1bbe74a8ce3b6204836d2704f641bf" => :mavericks
     sha256 "0f9ad569a98c521e28447cd85ecc18e7a4a61585564d86251d3225b0099f84aa" => :mountain_lion
+    sha256 "02d462530deb0317e5ee59768152b03f3a3a71bbbb933c8f1c0d4063a79f3e54" => :x86_64_linux
   end
 
   head do

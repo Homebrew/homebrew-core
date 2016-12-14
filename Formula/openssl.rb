@@ -13,6 +13,14 @@ class Openssl < Formula
     sha256 "109fe24d2ee82d89e1ee60587d91c953cdd3384db5374e8e83635c456fa15ed0" => :sierra
     sha256 "7b331c548a5a82f7a111c6218be3e255a2a1a6c19888c2b7ceaf02f2021c1628" => :el_capitan
     sha256 "a3083052e81d711dd6da2d5bda7418d321eba26570a63818e52f5f68247c63f2" => :yosemite
+    sha256 "292c3d5628a58908fdbc2e1587e27b1301890de043069fc08919d20f14871c07" => :x86_64_linux
+  end
+
+  resource "cacert" do
+    # Update post_install when you update this resource.
+    # homepage "http://curl.haxx.se/docs/caextract.html"
+    url "https://curl.haxx.se/ca/cacert-2016-04-20.pem"
+    sha256 "2c6d4960579b0d4fd46c6cbf135545116e76f2dbb7490e24cf330f2565770362"
   end
 
   keg_only :provided_by_osx,
@@ -24,8 +32,11 @@ class Openssl < Formula
   deprecated_option "without-check" => "without-test"
 
   depends_on "makedepend" => :build
+  depends_on "zlib" unless OS.mac?
+  depends_on :perl => ["5.0", :build] unless OS.mac?
 
   def arch_args
+    return { :i386  => %w[linux-generic32], :x86_64 => %w[linux-x86_64] } if OS.linux?
     {
       :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
       :i386 => %w[darwin-i386-cc],
@@ -39,6 +50,7 @@ class Openssl < Formula
     zlib-dynamic
     shared
     enable-cms
+    #{[ENV.cppflags, ENV.cflags, ENV.ldflags].join(" ").strip unless OS.mac?}
   ]
   end
 
@@ -53,7 +65,7 @@ class Openssl < Formula
     # https://langui.sh/2015/11/27/sip-and-dlopen
     inreplace "crypto/comp/c_zlib.c",
               'zlib_dso = DSO_load(NULL, "z", NULL, 0);',
-              'zlib_dso = DSO_load(NULL, "/usr/lib/libz.dylib", NULL, DSO_FLAG_NO_NAME_TRANSLATION);'
+              'zlib_dso = DSO_load(NULL, "/usr/lib/libz.dylib", NULL, DSO_FLAG_NO_NAME_TRANSLATION);' if OS.mac?
 
     if build.universal?
       ENV.permit_arch_flags
@@ -79,7 +91,11 @@ class Openssl < Formula
       system "perl", "./Configure", *(configure_args + arch_args[arch])
       system "make", "depend"
       system "make"
-      system "make", "test" if build.with?("test")
+      if which "cmp"
+        system "make", "test" if build.with?("test")
+      else
+        opoo "Skipping `make check` due to unavailable `cmp`"
+      end
 
       next unless build.universal?
       cp "include/openssl/opensslconf.h", dir
@@ -126,6 +142,12 @@ class Openssl < Formula
   end
 
   def post_install
+    unless OS.mac?
+      # Download and install cacert.pem from curl.haxx.se
+      (etc/"openssl").install resource("cacert").files("cacert-2016-04-20.pem" => "cert.pem")
+      return
+    end
+
     keychains = %w[
       /System/Library/Keychains/SystemRootCertificates.keychain
     ]

@@ -11,9 +11,12 @@ class Check < Formula
     sha256 "bb824d8cb8a74ebbc1eb9d22b8ea15327dfe3ce91151b37c7f41c80939609f52" => :yosemite
     sha256 "022667ec28a8af0bf6e19f3afbaa144542f1754ebaff5710229484fa8071084e" => :mavericks
     sha256 "b223c76b5519c5aa3300488b230c5b5b2cbd32d896f2fab0f1a0700a24e1f975" => :mountain_lion
+    sha256 "7fd070949bdae603a54f3e573f4d949678edc20c9e28bbb92a1f522a11a16483" => :x86_64_linux
   end
 
   option :universal
+
+  depends_on "gawk" unless OS.mac?
 
   def install
     ENV.universal_binary if build.universal?

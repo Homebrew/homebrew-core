@@ -53,7 +53,7 @@ class Qemu < Formula
     # Cocoa and SDL/GTK+ UIs cannot both be enabled at once.
     if build.with?("sdl") || build.with?("gtk+")
       args << "--disable-cocoa"
-    else
+    elsif OS.mac?
       args << "--enable-cocoa"
     end
 

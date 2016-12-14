@@ -10,18 +10,25 @@ class Cmake < Formula
     sha256 "2220cacb9082f8239edba730a60821c31950ae01efc121948cfe673410bd0376" => :sierra
     sha256 "6e1486bcc9d1f0483319cd7b730492ab8a35bf9b7aa747eddafab9035c849017" => :el_capitan
     sha256 "c8086bc9f149cb0b944273497a40ac0dfd23b7bb720f95f57e313e82ede73dea" => :yosemite
+    sha256 "46d0fd85d699e095f7d64a9a0a4abe5ffff22b760258ed3591cb4bdaf88a380f" => :x86_64_linux
   end
 
   option "without-docs", "Don't build man pages"
   option "with-completion", "Install Bash completion (Has potential problems with system bash)"
 
   depends_on "sphinx-doc" => :build if build.with? "docs"
+  depends_on "bzip2" unless OS.mac?
+  depends_on "curl" unless OS.mac?
+  depends_on "libidn" unless OS.mac?
 
   # The `with-qt` GUI option was removed due to circular dependencies if
   # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
   # For the GUI application please instead use `brew cask install cmake`.
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV.deparallelize if ENV["CIRCLECI"]
+
     args = %W[
       --prefix=#{prefix}
       --no-system-libs
@@ -34,7 +41,7 @@ class Cmake < Formula
     ]
 
     # https://github.com/Homebrew/legacy-homebrew/issues/45989
-    if MacOS.version <= :lion
+    if OS.mac? && MacOS.version <= :lion
       args << "--no-system-curl"
     else
       args << "--system-curl"

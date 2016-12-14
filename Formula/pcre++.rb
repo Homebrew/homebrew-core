@@ -10,6 +10,7 @@ class Pcrexx < Formula
     sha256 "5c30b4cbf987ad3b9a05521f83c672419b636277714838b6f7dee5a656c9868b" => :el_capitan
     sha256 "c883ed380b38f020e7383643fedf80f4bad9ed1205592fe8127423e340c02c05" => :yosemite
     sha256 "fd7050ff36dbb4c5605a4f0a9bb5d5de3ea01e6b959dd2026297a9ae35b99f51" => :mavericks
+    sha256 "539777749613468b4aa8f374321980e31a56e42e41abbf3777f9103d4ffaca6a" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build

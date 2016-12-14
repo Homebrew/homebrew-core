@@ -11,6 +11,7 @@ class Ttyrec < Formula
     sha256 "f24cda5af4db432d89cf3d3f5fb68a6f4afd1950c2c7e32456c8a8a779dfefd6" => :el_capitan
     sha256 "86ff5251f02aa7becad5f95ff8a6bdb62572d2cac4f99a72166bda8cfffc7981" => :yosemite
     sha256 "0324a2412722841b8f58bf41ab18d50e3dd15bed3d956f7d3738a6b1911f1130" => :mavericks
+    sha256 "0480647397ca35c3b5a86a667ddab4019291de0e7d30bfa9bd7b57e2e53e4d22" => :x86_64_linux
   end
 
   resource "matrix.tty" do

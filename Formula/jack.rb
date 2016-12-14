@@ -21,6 +21,7 @@ class Jack < Formula
   depends_on "berkeley-db"
   depends_on "libsndfile"
   depends_on "libsamplerate"
+  depends_on "util-linux" if OS.linux? # for libuuid
 
   def install
     # Makefile hardcodes Carbon header location

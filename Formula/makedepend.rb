@@ -11,6 +11,7 @@ class Makedepend < Formula
     sha256 "0f13329fdaa980ab3e4440f352a70e99aa3afdcfba0ad9bc60e9bc2e828f1b3b" => :el_capitan
     sha256 "18186e2c1dbd9ea5b8107f4987318e9a75c87d2195e98238e216d8554c410138" => :yosemite
     sha256 "afe9b0203383cd9a180c4f247fbf26c2a4bc75a7324963c95f6e9ebc39f1d806" => :mavericks
+    sha256 "b20c48a129006cc114fce0a7f8a9ca170c9d9d978a6a8f282b3c844a2e6543a2" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

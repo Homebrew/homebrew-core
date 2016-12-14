@@ -10,6 +10,7 @@ class Scrollkeeper < Formula
     sha256 "fe0171c12bd61b59032a0914fd2279ca91132a714993d2dddd0f2641d8cb8142" => :el_capitan
     sha256 "ca1090d4daf705fc9bddc18b303ed1bf511ebd1173bcb48b17f5e47daab74351" => :yosemite
     sha256 "7e302cb0c50b34bf47cceefa2c79a8b565b06e7d850ea07f10992598c2058773" => :mavericks
+    sha256 "e636c7888f5d3d005fa189127531f1e03901b49f172ccdebc3d2250343fe57f7" => :x86_64_linux
   end
 
   depends_on "gettext"

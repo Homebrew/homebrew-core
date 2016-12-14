@@ -11,6 +11,7 @@ class Szip < Formula
     sha256 "c2264ab5d3e0070040c9eb82ed44ff384d79d3e1c279266a1621172c44de1c0a" => :el_capitan
     sha256 "b8ad0f2ea77da1bc013fd3ea10104f3958389c76aa11fe33d4c79111a3605918" => :yosemite
     sha256 "df5cfb198d5fbdc45bf9e386ffcf25535b995ca32477afe03ca2d277443ef022" => :mavericks
+    sha256 "cd8595c8d090852b8555734198b6ffbe9c462b79ab94ebb8cf73d44ed0d8be80" => :x86_64_linux
   end
 
   option :universal

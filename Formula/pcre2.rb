@@ -12,9 +12,12 @@ class Pcre2 < Formula
     sha256 "8acb48f5116ba5b97707b730c60d7d22840b27d6a4a434e28afb8985583db3f5" => :el_capitan
     sha256 "de109142c8edc8a357ede1cdbaceb7be924fc6da52b9a366ca9d214ddfa2ee9a" => :yosemite
     sha256 "64f26a62c8d94ced2b82d41d1dae3485d95639daaf8806aea9fb5f063d27690c" => :mavericks
+    sha256 "431ea507b68e3e82fbf10cae44fc849bd518936454fdd87f87a733d81ac9bb29" => :x86_64_linux
   end
 
   option :universal
+
+  depends_on "bzip2" unless OS.mac?
 
   def install
     ENV.universal_binary if build.universal?

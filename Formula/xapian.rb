@@ -10,6 +10,7 @@ class Xapian < Formula
     sha256 "bd192a730135a58f8ce2ef10ebc6b666d1b69ba8963236873c817e8e5c4a4957" => :sierra
     sha256 "f365378f4940d20051d9aa51f2beb1bfafae95d728767f59e91ef50c92e34323" => :el_capitan
     sha256 "404fd689318016e6d8eb6b8011fa4dd195eff1bad73fd9bc72fb71ddf256d635" => :yosemite
+    sha256 "0776db0e6753ac8410dc036a30d5a7b2e201e512ed4dccba2d31bd7cc2ccfe2f" => :x86_64_linux
   end
 
   option "with-java", "Java bindings"
@@ -23,6 +24,7 @@ class Xapian < Formula
   depends_on :ruby => ["2.1", :optional]
   depends_on :python => :optional
   depends_on "sphinx-doc" => :build if build.with?("python")
+  depends_on "util-linux" if OS.linux? # for libuuid
 
   skip_clean :la
 

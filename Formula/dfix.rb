@@ -11,6 +11,7 @@ class Dfix < Formula
     sha256 "6b19da6a3db617b0dcce69a9c19b6b212e6f64adaacfe0e7296328c74aa8f398" => :el_capitan
     sha256 "28db097fe0facaa42f4b1a441f89237e1ad2480ecb7d81f56dd6937d586e1974" => :yosemite
     sha256 "186aaedeb0b223858a5cb16e133ef03886fe81ece596e376c111342251842c5e" => :mavericks
+    sha256 "7cc857a801bba797f91f56f40e5c04b263c0cbcc495d23ef145016b833599ebe" => :x86_64_linux
   end
 
   depends_on "dmd" => :build

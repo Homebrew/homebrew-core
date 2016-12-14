@@ -10,6 +10,7 @@ class Libtiff < Formula
     sha256 "d5c6ed557885da6a7916e9f12b7525f1b98a8f5af8ab0835b0997bcc44669eb1" => :sierra
     sha256 "0300c8ab24c262720311fdf88d8d33e5d3c60bff6745b747d27f0ce8653b81d8" => :el_capitan
     sha256 "b07c7cc511ffd7d64287a5d55f63397863d4295843f4862ba3d84216548f02f3" => :yosemite
+    sha256 "0d1ff1d909e2d3f524b4e244c7357ee7ac369918895c47dc22ba088cb031868d" => :x86_64_linux
   end
 
   option :universal
@@ -18,6 +19,7 @@ class Libtiff < Formula
 
   depends_on "jpeg"
   depends_on "xz" => :optional
+  depends_on "zlib" unless OS.mac?
 
   def install
     ENV.universal_binary if build.universal?

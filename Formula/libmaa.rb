@@ -12,6 +12,7 @@ class Libmaa < Formula
     sha256 "2187eee3e1d3b9dd54fabbf1be63c388458af7986f0f470f31a6111d47212227" => :yosemite
     sha256 "c0919efec1d1e0661a8228914a90c0f482b720622f31033841631819c6c4d1df" => :mavericks
     sha256 "60bd1424f0ef468d95248fa6c3bf4845f2b5b649829623160c1b85b82be3ad57" => :mountain_lion
+    sha256 "3d87bebc65b919ded9f7508513cf3877d058a3a6e03d0bf4974036c217b19fdf" => :x86_64_linux
   end
 
   depends_on "libtool" => :build

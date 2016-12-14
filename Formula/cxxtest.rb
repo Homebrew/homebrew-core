@@ -12,6 +12,7 @@ class Cxxtest < Formula
     sha256 "a69d95d4c027024e6c14a999c679106cf6259e22bb748205d93dbc5d0596a8e3" => :yosemite
     sha256 "2e8e487aac953d698f38f89ae9946572f8d072ec35b91683aa66bc147cec2fa4" => :mavericks
     sha256 "de1e98e94198507c65ecb17ae240b995ae8f03dadeafbde27bb704df2e10737c" => :mountain_lion
+    sha256 "6ae4f59bfb97934f5de0477c1d6b9da286ab6ad444b7db6af8051272fb204799" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

@@ -9,12 +9,18 @@ class Git < Formula
     sha256 "3e57569cb8058b98a9c46fe7cf0e65b2b4007286dd607256446abd5cac0e9d8a" => :sierra
     sha256 "505487e55a7a38e08c06f8ac301fa33d4c890c10432ffb3bde5a173dd2fa12b8" => :el_capitan
     sha256 "dc138bfcb944111b4c94f95bd985b8f406ba8fb33e2a449cf641ca5463fee04d" => :yosemite
+    sha256 "1ea67b0a42389577ea1585bf84341a73051ce0bd0aafbd44e7c598358594470d" => :x86_64_linux
   end
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
   option "without-completions", "Disable bash/zsh completions from 'contrib' directory"
-  option "with-brewed-openssl", "Build with Homebrew OpenSSL instead of the system version"
-  option "with-brewed-curl", "Use Homebrew's version of cURL library"
+  if OS.mac?
+    option "with-brewed-openssl", "Build with Homebrew OpenSSL instead of the system version"
+    option "with-brewed-curl", "Use Homebrew's version of cURL library"
+  else
+    option "without-brewed-openssl", "Build with the system's OpenSSL library instead of Homebrew's"
+    option "without-brewed-curl", "Build with the system's cURL library instead of Homebrew's"
+  end
   option "with-brewed-svn", "Use Homebrew's version of SVN"
   option "with-persistent-https", "Build git-remote-persistent-https from 'contrib' directory"
 
@@ -23,6 +29,9 @@ class Git < Formula
   depends_on "openssl" if build.with? "brewed-openssl"
   depends_on "curl" if build.with? "brewed-curl"
   depends_on "go" => :build if build.with? "persistent-https"
+  depends_on "expat" unless OS.mac?
+  depends_on "homebrew/dupes/tcl-tk" => :optional unless OS.mac?
+
   # Trigger an install of swig before subversion, as the "swig" doesn't get pulled in otherwise
   # See https://github.com/Homebrew/homebrew/issues/34554
   if build.with? "brewed-svn"
@@ -92,6 +101,7 @@ class Git < Formula
       LDFLAGS=#{ENV.ldflags}
     ]
     args << "NO_OPENSSL=1" << "APPLE_COMMON_CRYPTO=1" if build.without? "brewed-openssl"
+    args << "NO_TCLTK=1" if build.without? "tcl-tk"
 
     system "make", "install", *args
 
@@ -102,7 +112,7 @@ class Git < Formula
                      "LDFLAGS=#{ENV.ldflags}"
       bin.install "git-credential-osxkeychain"
       system "make", "clean"
-    end
+    end if OS.mac?
 
     # Install the netrc credential helper
     cd "contrib/credential/netrc" do
@@ -152,18 +162,30 @@ class Git < Formula
     # If you need it, install git --with-brewed-openssl.
     rm "#{libexec}/git-core/git-imap-send" if build.without? "brewed-openssl"
 
+    pod = Dir[lib/"*/*/perllocal.pod"][0]
+    unless pod.nil?
+      # Remove perllocal.pod, which conflicts with the perl formula.
+      # I don't know why this issue doesn't affect Mac.
+      rm_r Pathname.new(pod).dirname.dirname
+    end
+
     # Set the macOS keychain credential helper by default
     # (as Apple's CLT's git also does this).
     (buildpath/"gitconfig").write <<-EOS.undent
       [credential]
       \thelper = osxkeychain
     EOS
-    etc.install "gitconfig"
+    etc.install "gitconfig" if OS.mac?
   end
 
   test do
     system bin/"git", "init"
     %w[haunted house].each { |f| touch testpath/f }
+
+    # Test environment has no git configuration, which prevents commiting
+    system bin/"git", "config", "user.email", "you@example.com"
+    system bin/"git", "config", "user.name", "Your Name"
+
     system bin/"git", "add", "haunted", "house"
     system bin/"git", "commit", "-a", "-m", "Initial Commit"
     assert_equal "haunted\nhouse", shell_output("#{bin}/git ls-files").strip

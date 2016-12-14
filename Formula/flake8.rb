@@ -13,6 +13,7 @@ class Flake8 < Formula
     sha256 "4a77d3bae9077de0de12db93cdc041259fc9c29829ccbdbcd1067f493f1ffae0" => :sierra
     sha256 "12ffb789323a3afcab35a62e9a9b3a94dfe81d7ea0193bb9848529990850a0c0" => :el_capitan
     sha256 "3c4ebf5880732f8cd9a34577b27c5c99af3173345b4a55b893378aacc3cfbed7" => :yosemite
+    sha256 "a27ca59058774e9a06a3a5c2d8888a5fffe4fe2bfb0ee206d736c10be00c7de6" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

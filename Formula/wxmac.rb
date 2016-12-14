@@ -39,6 +39,7 @@ class Wxmac < Formula
     sha256 "a5efe8ecbcfebf941096b9a5fdeb3321be2906bbe530d0a3af7ce7dacb20c0a7" => :sierra
     sha256 "148b27f56a089b435842087450efa57a701851378648a32a8f1d3fbc988d9b9f" => :el_capitan
     sha256 "b29cf28e87e89b86ad601efdbdb38840b4810b2bf6e49f6b4c42c4530da36100" => :yosemite
+    sha256 "cffea14cbbb885b69709d849dd4a4558b9e223324b4e22b19d6af9153664de40" => :x86_64_linux
   end
 
   devel do
@@ -71,6 +72,7 @@ class Wxmac < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "gtk+" unless OS.mac?
 
   def install
     args = [
@@ -79,7 +81,6 @@ class Wxmac < Formula
       "--enable-std_string",
       "--enable-display",
       "--with-opengl",
-      "--with-osx_cocoa",
       "--with-libjpeg",
       "--with-libtiff",
       # Otherwise, even in superenv, the internal libtiff can pick
@@ -101,11 +102,14 @@ class Wxmac < Formula
       "--enable-dataviewctrl",
       "--with-expat",
       "--disable-precomp-headers",
-      # need to set with-macosx-version-min to avoid configure defaulting to 10.5
-      "--with-macosx-version-min=#{MacOS.version}",
       # This is the default option, but be explicit
       "--disable-monolithic",
     ]
+
+    if OS.mac?
+      args << "--with-osx_cocoa"
+      args << "--with-macosx-version-min=#{MacOS.version}"
+    end
 
     if build.universal?
       ENV.universal_binary

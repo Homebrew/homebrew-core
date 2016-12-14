@@ -20,12 +20,13 @@ class Notmuch < Formula
   depends_on :emacs => ["24.1", :optional]
   depends_on :python3 => :optional
   depends_on :ruby => ["1.9", :optional]
+  depends_on "zlib" unless OS.mac?
 
   # Requires zlib >= 1.2.5.2
   resource "zlib" do
     url "http://zlib.net/zlib-1.2.8.tar.gz"
     sha256 "36658cb768a54c1d4dec43c3116c27ed893e88b02ecfcb44f2166f9c0b7f2a0d"
-  end
+  end if OS.mac?
 
   # Fix SIP issue with python bindings
   # A more comprehensive patch has been submitted upstream
@@ -37,7 +38,7 @@ class Notmuch < Formula
       system "./configure", "--prefix=#{buildpath}/zlib", "--static"
       system "make", "install"
       ENV.append_path "PKG_CONFIG_PATH", "#{buildpath}/zlib/lib/pkgconfig"
-    end
+    end if OS.mac?
 
     args = %W[--prefix=#{prefix}]
 

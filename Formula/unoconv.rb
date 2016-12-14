@@ -11,6 +11,7 @@ class Unoconv < Formula
     sha256 "432c15c1bab856edb94784c5849a120f6397d0198ec7e3acedff679f65f6841c" => :el_capitan
     sha256 "82e4120b114a941e5a099ca5ca3df12270f66795d8292a95d4164bcd3199edac" => :yosemite
     sha256 "db9fc7afd8681160e90f2e3de016e92bffe9d4d541cd70b50abe85b3c987f7d1" => :mavericks
+    sha256 "a3894454d5da2486c89ae3b3745051144a6cedabb2777dfaac2f83230ece9e6d" => :x86_64_linux
     sha256 "ae47973f02b31408afac680814bfb26002714faded753a9c753c3ab28977572b" => :mountain_lion
   end
 

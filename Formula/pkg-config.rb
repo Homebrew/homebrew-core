@@ -10,6 +10,7 @@ class PkgConfig < Formula
     sha256 "aa5f169cffe4576a6a6b0e3d528ab2ee0ac331ff3fe51bfbb182fb4ef7cdb794" => :sierra
     sha256 "6c89838a29bea6a641b611e631de3765b7755d987029de34419e04d85191d8a5" => :el_capitan
     sha256 "fc68806653ba68fe742885cc050990433125588099d2ea30139d1663d3d4311a" => :yosemite
+    sha256 "2705cb10614036958c0e72d20ae7e7b65169d4fb1bbc5849d32b581f14315ae3" => :x86_64_linux
   end
 
   def install
@@ -21,7 +22,7 @@ class PkgConfig < Formula
       #{HOMEBREW_LIBRARY}/Homebrew/os/mac/pkgconfig/#{MacOS.version}
     ].uniq.join(File::PATH_SEPARATOR)
 
-    ENV.append "LDFLAGS", "-framework Foundation -framework Cocoa"
+    ENV.append "LDFLAGS", "-framework Foundation -framework Cocoa" if OS.mac?
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--disable-host-tool",

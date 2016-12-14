@@ -10,6 +10,7 @@ class Miller < Formula
     sha256 "21ad852a4e442347a56f9544e6bc37a19e5ec6da408546965eabcfae4731c6d4" => :el_capitan
     sha256 "b1c960a061390e0c2dd3126529cd03d79858358279fa3014f2515755abd6f1ba" => :yosemite
     sha256 "3a1d0ec591312b790a6cd669b9b724adef11ceb9264cc68d66fda9eed08ebb9a" => :mavericks
+    sha256 "bb0b1bfae911b7ae38ddd94a93254b9fe01c6f82a0e57c143fb8890321838bfa" => :x86_64_linux
   end
 
   head do
@@ -19,6 +20,8 @@ class Miller < Formula
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
   end
+
+  depends_on "flex" => :build unless OS.mac?
 
   def install
     system "autoreconf", "-fvi" if build.head?

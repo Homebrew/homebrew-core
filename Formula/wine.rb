@@ -36,12 +36,12 @@ class Wine < Formula
   # note that all wine dependencies should declare a --universal option in their formula,
   # otherwise homebrew will not notice that they are not built universal
   def require_universal_deps?
-    MacOS.prefer_64_bit?
+    OS.mac? && MacOS.prefer_64_bit?
   end
 
   if MacOS.version >= :el_capitan
     option "without-win64", "Build without 64-bit support"
-    depends_on :xcode => ["8.0", :build] if build.with? "win64"
+    depends_on :xcode => ["8.0", :build] if OS.mac? && build.with?("win64")
   end
 
   # Wine will build both the Mac and the X11 driver by default, and you can switch
@@ -89,6 +89,8 @@ class Wine < Formula
   # configure: libv4l, gstreamer-0.10, libcapi20, libgsm
 
   def install
+    ENV.m32 if OS.mac? # Build 32-bit; Wine doesn't support 64-bit host builds on macOS.
+
     # Help configure find libxml2 in an XCode only (no CLT) installation.
     ENV.libxml2
 

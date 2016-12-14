@@ -11,6 +11,7 @@ class Pbzip2 < Formula
     sha256 "0fb0998fb35b62add5348bbf1c50372220052d52347be7b11e949e27b3997e1c" => :yosemite
     sha256 "ac0e6128b16cb551a926fb713d8a4154e29ada2b71f231ecee2ebdab4d4bea96" => :mavericks
     sha256 "7604662202fbb60acdb016da163b552b1c2cee6a4bdd21ca2be85afb1ce4c987" => :mountain_lion
+    sha256 "6bd560fd6d8bec206ec4821171368db75e72eb93b4918e45409eace36d0ed140" => :x86_64_linux
   end
 
   fails_with :llvm do

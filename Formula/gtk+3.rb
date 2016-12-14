@@ -23,6 +23,7 @@ class Gtkx3 < Formula
   depends_on "hicolor-icon-theme"
   depends_on "gsettings-desktop-schemas" => :recommended
   depends_on "jasper" => :optional
+  depends_on "cairo" unless OS.mac?
 
   def install
     ENV.universal_binary if build.universal?
@@ -34,9 +35,13 @@ class Gtkx3 < Formula
       --disable-glibtest
       --enable-introspection=yes
       --disable-schemas-compile
-      --enable-quartz-backend
-      --disable-x11-backend
     ]
+
+    if OS.mac?
+      args << "--enable-quartz-backend" << "--disable-x11-backend"
+    else
+      args << "--disable-quartz-backend" << "--enable-x11-backend"
+    end
 
     args << "--enable-quartz-relocation" if build.with?("quartz-relocation")
 

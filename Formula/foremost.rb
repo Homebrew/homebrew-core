@@ -19,7 +19,12 @@ class Foremost < Formula
       s.change_make_var! "RAW_FLAGS", ENV.cflags
     end
 
-    system "make", "mac"
+    if OS.mac?
+      system "make", "mac"
+    else
+      inreplace "config.c", "/usr/local/etc/", "#{etc}/"
+      system "make"
+    end
 
     bin.install "foremost"
     man8.install "foremost.8.gz"

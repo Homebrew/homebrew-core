@@ -12,6 +12,7 @@ class Libmpc < Formula
     sha256 "afc56d4ba864a701495e7a8787d53a6375e808fed19fc056a8afea417f924958" => :yosemite
     sha256 "8e20b94ef5014396801c5d3a99899cfd116e6f0e9873b239901f561bb9ff789d" => :mavericks
     sha256 "040e6c55e3b641a1c8775eeb7416d6f9e20698d8670dc51e81d8175abd05283a" => :mountain_lion
+    sha256 "46c1bca77ee4c00ff63cbb2b6aa5a6dda7b5fcfa4254d5858364d8b8345c8345" => :x86_64_linux
   end
 
   depends_on "gmp"

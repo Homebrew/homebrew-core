@@ -14,6 +14,9 @@ class XercesC < Formula
 
   option :universal
 
+  depends_on "icu4c" unless OS.mac?
+  depends_on "curl" unless OS.mac?
+
   def install
     ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",

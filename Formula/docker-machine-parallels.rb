@@ -12,6 +12,7 @@ class DockerMachineParallels < Formula
     sha256 "13b46654247146d7d49e97ed46567cdb4beeeb2790547e1631e67da08284456c" => :el_capitan
     sha256 "4998226a4279c54c250e66310ed6005808d74718c057a4c6f7260d8ad8309078" => :yosemite
     sha256 "e5610a0a448202b1929ffaf2edfaeb4e0b7271dfbbeb2823593e6289a2f587d6" => :mavericks
+    sha256 "a7d3e46acae96309a93da93640184a664205ebe4fb96d2ca8337fe419394e1f6" => :x86_64_linux
   end
 
   depends_on "go" => :build

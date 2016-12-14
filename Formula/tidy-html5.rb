@@ -10,6 +10,7 @@ class TidyHtml5 < Formula
     sha256 "ea943c15cd5e364901517f2f423aa615eb701f180d0db617428bf5cbd03362be" => :el_capitan
     sha256 "c6bd4b2ff01a8e2c0583fdbe665cf5f9a282cafe548c52bfd5c180d36c56ef89" => :yosemite
     sha256 "0ab1735f830a593c4bb6567e427457abfc501e6211f12c547f5017b72dff8696" => :mavericks
+    sha256 "c3a9fb2d99fd5e6d69c50930853e55b85c38d6d0cd4a515621d1bb2597a8ad15" => :x86_64_linux
   end
 
   depends_on "cmake" => :build

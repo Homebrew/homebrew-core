@@ -55,7 +55,7 @@ class X264 < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "-lx264", "test.c", "-o", "test"
+    system ENV.cc, "-L", lib, "test.c", "-o", "test", "-lx264"
     system "./test"
   end
 end

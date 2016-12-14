@@ -9,6 +9,7 @@ class Htop < Formula
     sha256 "b13e6457905778a75d2627e1586e14ab20920001bed16b84c1fb64a258715741" => :el_capitan
     sha256 "f50fd11325a34da989c268f1e4bb998c4b8415079c23a95c267088e9576bef3e" => :yosemite
     sha256 "785c2806efe12a008c2fc958f567501e2931d2457261eed721ffae374f989498" => :mavericks
+    sha256 "2c44e3de62f62e8b554ff1927a61c8a2cd46e5a8f9add6db98888f26668123b7" => :x86_64_linux
   end
 
   head do
@@ -19,9 +20,9 @@ class Htop < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-ncurses", "Build using homebrew ncurses (enables mouse scroll)"
+  option "with-ncurses", "Build using homebrew ncurses (enables mouse scroll)" if OS.mac?
 
-  depends_on "homebrew/dupes/ncurses" => :optional
+  depends_on "homebrew/dupes/ncurses" => OS.mac? ? :optional : :recommended
 
   conflicts_with "htop-osx", :because => "both install an `htop` binary"
 
