@@ -1,10 +1,9 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.30.tar.gz"
-  sha256 "f367e0c1d808d7356c3749222194a72ea03efe61a3bf1b682bd05d47f087b4e3"
+  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.1.0.tar.gz"
+  sha256 "a46970b520ba0b1ecc9eac5c9b45f459fcdae882a02e462a375bab7ff0683545"
   head "https://github.com/phusion/passenger.git"
-  revision 2
 
   bottle do
     sha256 "b186c1019e0b382f21187f967be6fdf391df2716961895274fe17b6620506321" => :sierra
@@ -26,9 +25,6 @@ class Passenger < Formula
     ENV["APU_CONFIG"] = Formula["apr-util"].opt_bin/"apu-1-config"
     ENV["APR_CONFIG"] = Formula["apr"].opt_bin/"apr-1-config"
 
-    inreplace "src/ruby_supportlib/phusion_passenger.rb",
-      "PREFERRED_NGINX_VERSION = '1.10.1'",
-      "PREFERRED_NGINX_VERSION = '1.10.2'"
     inreplace "src/ruby_supportlib/phusion_passenger/platform_info/openssl.rb" do |s|
       s.gsub! "-I/usr/local/opt/openssl/include", "-I#{Formula["openssl"].opt_include}"
       s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{Formula["openssl"].opt_lib}"
