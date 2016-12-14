@@ -1,3 +1,4 @@
+# flow: Build a bottle for Linuxbrew
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
