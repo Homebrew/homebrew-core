@@ -1,8 +1,10 @@
 class Termsql < Formula
   desc "Convert text into SQL table and query it"
   homepage "https://tobimensch.github.io/termsql/"
-  url "https://github.com/tobimensch/termsql.git"
-  version "0.3"
+
+  url "https://github.com/tobimensch/termsql/archive/22501e5c982ec04229643802e36756feb4687e89.tar.gz"
+  version "22501e5c982ec04229643802e36756feb4687e89"
+  sha256 "d8fabe96f57153a2e2852995d66f4506cf593bae4a6b9d7d76d3aef6150fb07e"
 
   depends_on :python => ["sqlite3", "sqlparse"]
 
