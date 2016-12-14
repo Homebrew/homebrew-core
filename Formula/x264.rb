@@ -1,3 +1,4 @@
+# x264: Build a bottle for Linuxbrew
 class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
