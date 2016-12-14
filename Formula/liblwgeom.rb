@@ -21,6 +21,7 @@ class Liblwgeom < Formula
     sha256 "55bc93a06f6981f5aea43764ef2c228a0527187f6127c91c672cf2dd1617bf85" => :sierra
     sha256 "d93db626f97638f2d267444e5fa85222b35673293245d576e0a3ab0020fb187b" => :el_capitan
     sha256 "c793550ab04e4c40a3f3c2dfbb63476e2e1629182a52d6b9e404ca8ca52e5d64" => :yosemite
+    sha256 "edb5661ca505759a5c80ac21ee83d847abcff39bdd276324f1563e4cfde3eb77" => :x86_64_linux
   end
 
   head do
@@ -38,6 +39,7 @@ class Liblwgeom < Formula
   depends_on "proj"
   depends_on "geos"
   depends_on "json-c"
+  depends_on "libxml2" unless OS.mac?
 
   def install
     # See postgis.rb for comments about these settings

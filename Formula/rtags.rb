@@ -18,7 +18,7 @@ class Rtags < Formula
 
   def install
     # Homebrew llvm libc++.dylib doesn't correctly reexport libc++abi
-    ENV.append("LDFLAGS", "-lc++abi")
+    ENV.append("LDFLAGS", "-lc++abi") if OS.mac?
 
     args = std_cmake_args << "-DRTAGS_NO_BUILD_CLANG=ON"
 

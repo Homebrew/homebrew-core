@@ -70,7 +70,7 @@ class Fontforge < Formula
     args << "--without-libspiro" if build.without? "libspiro"
 
     # Fix linker error; see: https://trac.macports.org/ticket/25012
-    ENV.append "LDFLAGS", "-lintl"
+    ENV.append "LDFLAGS", "-lintl" if OS.mac?
 
     # Reset ARCHFLAGS to match how we build
     ENV["ARCHFLAGS"] = "-arch #{MacOS.preferred_arch}"

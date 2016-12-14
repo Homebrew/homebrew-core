@@ -3,9 +3,14 @@ require "base64"
 class AndroidSdk < Formula
   desc "Android API libraries and developer tools"
   homepage "https://developer.android.com/index.html"
-  url "https://dl.google.com/android/android-sdk_r24.4.1-macosx.zip"
   version "24.4.1"
-  sha256 "ce1638cb48526a0e55857fc46b57eda4349e6512006244ad13dd6c1361c74104"
+  if OS.mac?
+    url "https://dl.google.com/android/android-sdk_r#{version}-macosx.zip"
+    sha256 "ce1638cb48526a0e55857fc46b57eda4349e6512006244ad13dd6c1361c74104"
+  elsif OS.linux?
+    url "https://dl.google.com/android/android-sdk_r#{version}-linux.tgz"
+    sha256 "e16917ad685c1563ccbc5dd782930ee1a700a1b6a6fd3e44b83ac694650435e9"
+  end
   revision 1
 
   bottle do

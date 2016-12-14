@@ -11,7 +11,10 @@ class ZshSyntaxHighlighting < Formula
     sha256 "d83cf047c3da6c7901f625e9993557523740c84b8988cda986e255330bd03c93" => :sierra
     sha256 "d83cf047c3da6c7901f625e9993557523740c84b8988cda986e255330bd03c93" => :el_capitan
     sha256 "d83cf047c3da6c7901f625e9993557523740c84b8988cda986e255330bd03c93" => :yosemite
+    sha256 "682917d10148c25aabf2120dbd60222ad6f0579a2e6e15fd602a2533bb8a7cd7" => :x86_64_linux
   end
+
+  depends_on "zsh" unless OS.mac?
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

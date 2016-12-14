@@ -10,23 +10,18 @@ class Sonarqube < Formula
 
   def install
     # Delete native bin directories for other systems
-    rm_rf Dir["bin/{aix,hpux,linux,solaris,windows}-*"]
+    rm_rf Dir["bin/{aix,hpux,solaris,windows}-*"]
 
-    if MacOS.prefer_64_bit?
-      rm_rf "bin/macosx-universal-32"
-    else
-      rm_rf "bin/macosx-universal-64"
-    end
+    rm_rf "bin/macosx-universal-32" unless OS.mac? && !MacOS.prefer_64_bit?
+    rm_rf "bin/macosx-universal-64" unless OS.mac? && MacOS.prefer_64_bit?
+    rm_rf "bin/linux-x86-32" unless OS.linux? && !MacOS.prefer_64_bit?
+    rm_rf "bin/linux-x86-64" unless OS.linux? && MacOS.prefer_64_bit?
 
     # Delete Windows files
     rm_f Dir["war/*.bat"]
     libexec.install Dir["*"]
 
-    if MacOS.prefer_64_bit?
-      bin.install_symlink "#{libexec}/bin/macosx-universal-64/sonar.sh" => "sonar"
-    else
-      bin.install_symlink "#{libexec}/bin/macosx-universal-32/sonar.sh" => "sonar"
-    end
+    bin.install_symlink Dir[libexec/"bin/*/sonar.sh"].first => "sonar"
   end
 
   plist_options :manual => "sonar console"

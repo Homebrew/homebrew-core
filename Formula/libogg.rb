@@ -12,6 +12,7 @@ class Libogg < Formula
     sha256 "eafa300fd404b5f2a48b9327b8cb320712faf228ff2fbfdac53ad99060f82350" => :mavericks
     sha256 "795ebc059c77ca0087ead3f642a888bfc470953c98104dacee5b6e5d7c5aeaa9" => :mountain_lion
     sha256 "b2b1a8a3bf34fd5f7ea7d60a10fe38e3d699b7344a843599938d1669871c9c8a" => :lion
+    sha256 "8a3bf9fa9c3aa505db3abfba6bdd160aa022ac867c20792a70dff282bde48cbe" => :x86_64_linux
   end
 
   head do

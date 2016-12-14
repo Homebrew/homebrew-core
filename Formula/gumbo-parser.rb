@@ -10,6 +10,7 @@ class GumboParser < Formula
     sha256 "56f5446eb431b628655748659a8a7479466e00addf7d90070464364a3f3cafa9" => :el_capitan
     sha256 "02169cdaafcf9343bacf98e0e34b1f7383eb0b1b89385965d81796e110f8c38f" => :yosemite
     sha256 "efc9658f05e6543d7faed663ef7106c5720e72a86672d7ef000372babade1e43" => :mavericks
+    sha256 "d390b6bfc3e61e87253117d04ef1c324e7ae18c7347d540ee413392e120316ef" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build

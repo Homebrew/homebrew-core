@@ -12,6 +12,7 @@ class GnuSed < Formula
     sha256 "e7123ca64185d9b6e01b122a0f5a10154fd2405b5b34d765360db55beb9bafca" => :el_capitan
     sha256 "a45ed585278029792f71d8882763ee0e1605e3df7bdb06dd02c8f815e2f58c68" => :yosemite
     sha256 "b074edd2ec60b244284cd1545d83fdf48151ee5b9f8e5f0dc6a509b822d0bb37" => :mavericks
+    sha256 "edbbfc535545573de27b646560fd7096284f72bca1980a51572c9203ed8705a7" => :x86_64_linux
     sha256 "bc210361d787b929011afbe96bd5a78c77e35a14d953942cd278d04c640183ae" => :mountain_lion
   end
 
@@ -23,6 +24,7 @@ class GnuSed < Formula
 
   def install
     args = ["--prefix=#{prefix}", "--disable-dependency-tracking"]
+    args << "--without-selinux" if OS.linux?
     args << "--program-prefix=g" if build.without? "default-names"
 
     system "./configure", *args

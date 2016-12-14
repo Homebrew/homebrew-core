@@ -8,6 +8,7 @@ class GobjectIntrospection < Formula
     sha256 "c50540846431e361498c8912c8b6852c1547f94458cb080cad9754ac9ffa4129" => :sierra
     sha256 "2999c2c6259c37a49600acd02f7330841756ee71df39fd8e8a88e406881a95f7" => :el_capitan
     sha256 "cb851182a1a2c6bdd29ed88b8f186fc7f2453e0b3cbf2c36409e80c00c3a100c" => :yosemite
+    sha256 "d21fb29208db3849de33a169153a202a0c12c95ac89247537ba0b3f2980667ab" => :x86_64_linux
   end
 
   option :universal
@@ -20,6 +21,8 @@ class GobjectIntrospection < Formula
   #    Caught exception: <type 'exceptions.AttributeError'> AttributeError("'NoneType' object has no attribute 'get'",)
   #    > /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/distutils/sysconfig.py(171)customize_compiler()
   depends_on "python" if MacOS.version <= :mavericks
+  depends_on "bison" unless OS.mac?
+  depends_on "flex" unless OS.mac?
 
   resource "tutorial" do
     url "https://gist.github.com/7a0023656ccfe309337a.git",

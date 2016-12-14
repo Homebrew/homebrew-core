@@ -12,11 +12,13 @@ class Pinentry < Formula
     sha256 "def02b22eaf6952407f037a3923f44b5e1ed8a94cfd208134c1799258200e877" => :el_capitan
     sha256 "e859990def70e26bf7e3b26732b7b73154ae209659161671713702e294cd0b06" => :yosemite
     sha256 "00152cec104d9c9e515ba5c0b29aa942161fac38225317d66514b822e2e5617f" => :mavericks
+    sha256 "ed78e2eccacb6be15fbfaaf838bf15e473e7b48e3d7b966e6beae75f37bc12d8" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
   depends_on "libgpg-error"
   depends_on "libassuan"
+  depends_on "libsecret" unless OS.mac?
   depends_on "gtk+" => :optional
 
   def install

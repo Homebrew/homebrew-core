@@ -49,6 +49,7 @@ class Swift < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on :xcode => ["7.0", :build]
+  depends_on "icu4c" unless OS.mac?
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
@@ -76,19 +77,21 @@ class Swift < Formula
         "--build-args=-j#{ENV.make_jobs}",
         "--lldb-use-system-debugserver",
         "--install-prefix=#{prefix}",
-        "--darwin-deployment-version-osx=#{MacOS.version}",
+        ("--darwin-deployment-version-osx=#{MacOS.version}" if OS.mac?),
         "--jobs=#{ENV.make_jobs}"
     end
-    bin.install "#{build}/swift-macosx-x86_64/bin/swift",
-                "#{build}/swift-macosx-x86_64/bin/swift-autolink-extract",
-                "#{build}/swift-macosx-x86_64/bin/swift-demangle",
-                "#{build}/swift-macosx-x86_64/bin/swift-ide-test",
-                "#{build}/swift-macosx-x86_64/bin/swift-llvm-opt",
-                "#{build}/swift-macosx-x86_64/bin/swiftc",
-                "#{build}/swift-macosx-x86_64/bin/sil-extract",
-                "#{build}/swift-macosx-x86_64/bin/sil-opt"
-    (lib/"swift").install "#{build}/swift-macosx-x86_64/lib/swift/macosx/",
-                          "#{build}/swift-macosx-x86_64/lib/swift/shims/"
+    os = OS.mac? ? "macosx" : OS::NAME
+    bin.install "#{build}/swift-#{os}-x86_64/bin/swift",
+                "#{build}/swift-#{os}-x86_64/bin/swift-autolink-extract",
+                "#{build}/swift-#{os}-x86_64/bin/swift-compress",
+                "#{build}/swift-#{os}-x86_64/bin/swift-demangle",
+                "#{build}/swift-#{os}-x86_64/bin/swift-ide-test",
+                "#{build}/swift-#{os}-x86_64/bin/swift-llvm-opt",
+                "#{build}/swift-#{os}-x86_64/bin/swiftc",
+                "#{build}/swift-#{os}-x86_64/bin/sil-extract",
+                "#{build}/swift-#{os}-x86_64/bin/sil-opt"
+    (lib/"swift").install "#{build}/swift-#{os}-x86_64/lib/swift/#{os}/",
+                          "#{build}/swift-#{os}-x86_64/lib/swift/shims/"
   end
 
   test do

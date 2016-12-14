@@ -10,6 +10,7 @@ class Libssh2 < Formula
     sha256 "4a1e39137bc9461d779a7a84626354928788aeb0650fb0fed75e0fbecb95c0cd" => :sierra
     sha256 "d6693c1417f0deb8f1b0c6a7c338491a7f60f2cc516675186e572329c1fcaa6c" => :el_capitan
     sha256 "f7fab0024a104c43a3139b0e70cbc04606c20409b36ffb6deebb326c168c4547" => :yosemite
+    sha256 "ce667b0140142b39660f6e0551af295ba244ece706d16fac5780a57434e354ec" => :x86_64_linux
   end
 
   head do

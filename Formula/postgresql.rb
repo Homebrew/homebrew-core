@@ -10,11 +10,16 @@ class Postgresql < Formula
     sha256 "0da8bf2c15d5991feb11df68680b85d29fb56cca7cf51262cd467ad688b2130c" => :sierra
     sha256 "f885679f2fe9999551fab47618529287097345a8226da5b969baaa26a60333b4" => :el_capitan
     sha256 "6f535922dca6457f0b16a5a22be5d35ec9138dc2334acc60a660dbb7594c1d41" => :yosemite
+    sha256 "556098fd3ddf1c28ff2fa2f5a942b24ab61d5bec180e23ba14dd267237695ab3" => :x86_64_linux
   end
 
   option "32-bit"
   option "without-perl", "Build without Perl support"
-  option "without-tcl", "Build without Tcl support"
+  if OS.linux?
+    option "with-tcl", "Build with Tcl support"
+  else
+    option "without-tcl", "Build without Tcl support"
+  end
   option "with-dtrace", "Build with DTrace support"
 
   deprecated_option "no-perl" => "without-perl"
@@ -27,6 +32,10 @@ class Postgresql < Formula
 
   option "with-python", "Enable PL/Python2"
   depends_on :python => :optional
+  depends_on "libxslt" unless OS.mac?
+  depends_on "util-linux" if OS.linux? # for libuuid
+  depends_on "homebrew/dupes/tcl-tk" if build.with?("tcl") && !OS.mac?
+  depends_on "perl" => :recommended unless OS.mac? # for libperl.so
 
   option "with-python3", "Enable PL/Python3 (incompatible with --with-python)"
   depends_on :python3 => :optional
@@ -55,14 +64,16 @@ class Postgresql < Formula
       --sysconfdir=#{etc}
       --docdir=#{doc}
       --enable-thread-safety
-      --with-bonjour
-      --with-gssapi
-      --with-ldap
       --with-openssl
-      --with-pam
       --with-libxml
       --with-libxslt
     ]
+    args += %w[
+      --with-bonjour
+      --with-gssapi
+      --with-ldap
+      --with-pam
+    ] if OS.mac?
 
     args << "--with-perl" if build.with? "perl"
 

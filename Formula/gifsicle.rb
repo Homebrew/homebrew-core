@@ -11,6 +11,7 @@ class Gifsicle < Formula
     sha256 "2d40a7dc8d0f2a39134872a99ab8e8c3f5e5dc6381826abdd8d4f89c3fe287d0" => :el_capitan
     sha256 "f4699986ab815c25764b4c7049fc067d6209922bcfd8b841bb19f2ae41c66f8d" => :yosemite
     sha256 "29af107b09e41c0e40a10411565345cb636e724cd28e9d2f4e58c5dc0dd819c9" => :mavericks
+    sha256 "c7604c1e045e16f2299d871f0c4bbb3d356e3cdbb5ca2dc101d1f33a948ae478" => :x86_64_linux
   end
 
   head do

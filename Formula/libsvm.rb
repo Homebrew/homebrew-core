@@ -10,15 +10,21 @@ class Libsvm < Formula
     sha256 "0fce8de31135d07cd0fdb3641ebad2dfa974cc764ebaf6687f37a3a69a745c3a" => :el_capitan
     sha256 "bdbaaa0c8be35d3424ace7a9fc4ff03158116c76151cbd2baa5361bd34db7b67" => :yosemite
     sha256 "dca4ebe29389222258e146be192f3d40d147c355751a9581b873d30b8f1a0f91" => :mavericks
+    sha256 "dfc7c6015460c4ff7796725243644a7675eea48c870121e5e715c307cb3f3f66" => :x86_64_linux
   end
 
   def install
-    system "make", "CFLAGS=#{ENV.cflags}"
+    system "make", "CFLAGS=#{ENV.cflags} -fPIC"
     system "make", "lib"
     bin.install "svm-scale", "svm-train", "svm-predict"
-    lib.install "libsvm.so.2" => "libsvm.2.dylib"
-    lib.install_symlink "libsvm.2.dylib" => "libsvm.dylib"
-    system "install_name_tool", "-id", "#{lib}/libsvm.2.dylib", "#{lib}/libsvm.2.dylib"
+    if OS.mac?
+      lib.install "libsvm.so.2" => "libsvm.2.dylib"
+      lib.install_symlink "libsvm.2.dylib" => "libsvm.dylib"
+      system "install_name_tool", "-id", "#{lib}/libsvm.2.dylib", "#{lib}/libsvm.2.dylib"
+    else
+      lib.install "libsvm.so.2"
+      lib.install_symlink "libsvm.so.2" => "libsvm.so"
+    end
     include.install "svm.h"
   end
 

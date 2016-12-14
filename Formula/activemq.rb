@@ -9,7 +9,7 @@ class Activemq < Formula
   depends_on :java => "1.6+"
 
   def install
-    rm_rf Dir["bin/linux-x86-*"]
+    rm_rf Dir["bin/linux-x86-*"] unless OS.linux?
     libexec.install Dir["*"]
     (bin/"activemq").write_env_script libexec/"bin/activemq", Language::Java.java_home_env("1.6+")
   end

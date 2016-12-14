@@ -12,6 +12,7 @@ class Webp < Formula
     sha256 "b110fdb97fa2abeeb6653343dbdf3a7d49d16863623b9884c2088e4e5384560a" => :el_capitan
     sha256 "e345e20c86d54365d313ec9ff498857405b6dc738101c1e9c047d93333395436" => :yosemite
     sha256 "eb44042c412d6701172e5dd2da764041abb523d391b400d136695b5059a9a133" => :mavericks
+    sha256 "0acfdc4901380b84c5f8bc75044e656c76c140c2bf3bb8f446d0abbec343b6e2" => :x86_64_linux
   end
 
   head do
@@ -25,7 +26,7 @@ class Webp < Formula
 
   depends_on "libpng"
   depends_on "jpeg" => :recommended
-  depends_on "libtiff" => :optional
+  depends_on "libtiff" => (OS.mac? ? :optional : :recommended)
   depends_on "giflib" => :optional
 
   def install

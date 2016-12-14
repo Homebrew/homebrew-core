@@ -8,6 +8,7 @@ class Bmake < Formula
     sha256 "38e0b7712c5ae20b9a2639f21aa46c96e7893e3a44ce8956d1c64f5efb16ed66" => :sierra
     sha256 "6964daaba5e8b288e9b39ee9439821bac54f3babbc619fe9db5c6ae7d81284e8" => :el_capitan
     sha256 "74d7a6b8f7fb23383762be1440171f50336283eebe1f48d7163ae5b81ae4489f" => :yosemite
+    sha256 "503abe1d621ffd71cdaa6a5548df9f30168cb338cb78e0d0e374cc82b770d179" => :x86_64_linux
   end
 
   def install
@@ -19,6 +20,7 @@ class Bmake < Formula
     args = ["--prefix=#{prefix}", "-DWITHOUT_PROG_LINK", "--install"]
     system "sh", "boot-strap", *args
 
+    chmod "u+w", man1/"bmake.1"
     man1.install "bmake.1"
   end
 

@@ -9,6 +9,7 @@ class Td < Formula
     sha256 "55f7d879795bcf5cde8af98b463f4751c6c5426ceed96a46a0c1531b1324a60f" => :sierra
     sha256 "e740be06065aac7f578e47d0bbf6ef803993a6246d0d7fa74c90367b5f3ea080" => :el_capitan
     sha256 "e608e79004fe1cfbefb2f9963ed4a4e86aad8e8c751e12a97ff3a03325bddd2b" => :yosemite
+    sha256 "8cfc0fda507f06f4bd6f1983df289196435c43435a3938ffe4731daad5023124" => :x86_64_linux
   end
 
   depends_on "go" => :build

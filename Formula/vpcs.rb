@@ -15,7 +15,7 @@ class Vpcs < Formula
 
   def install
     cd "src" do
-      system "make", "-f", "Makefile.osx"
+      system "make", "-f", "Makefile.#{OS.mac? ? "osx" : "linux"}"
       bin.install "vpcs"
     end
   end

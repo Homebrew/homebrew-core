@@ -11,7 +11,10 @@ class Dialog < Formula
     sha256 "8c12527b91df19529a580ff081621d30514119bfd999f76a763d59c406b32531" => :el_capitan
     sha256 "89a8a52b64df7abe4aabfa9de1aa62523098154ae447da57fab3adce18b34a29" => :yosemite
     sha256 "74626b6e18ebd0b4b755e04457be5a385bc10745cf08130f1330ab2b108a0550" => :mavericks
+    sha256 "d05a67d2bc4aba6c599249ea8937222b75d1ff606522d218643fcbba72ba20c5" => :x86_64_linux
   end
+
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
     system "./configure", "--prefix=#{prefix}"

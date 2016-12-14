@@ -10,7 +10,10 @@ class Cscope < Formula
     sha256 "97930be35cbcd08980651597acf931adbb50a80df10960d6564497f19d9c8032" => :el_capitan
     sha256 "71d86771790165c777341e4457dd193008cfb2fb24628a138cb45fec61e6b42d" => :yosemite
     sha256 "cb2f63522d072307cacf63e8eabf4c284f2e8c1b2ff8c6de3aeb6fb8759a1212" => :mavericks
+    sha256 "fc29371aab2eefa041da5c483648fab3558f0149c47884abd6133c9817ac9bca" => :x86_64_linux
   end
+
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
     system "./configure", "--prefix=#{prefix}",

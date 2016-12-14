@@ -28,7 +28,7 @@ class Wxpython < Formula
 
   option :universal
 
-  if MacOS.version <= :snow_leopard
+  if MacOS.version <= :snow_leopard && OS.mac?
     depends_on :python
     depends_on FrameworkPythonRequirement
   end
@@ -39,7 +39,7 @@ class Wxpython < Formula
 
     if build.universal?
       ENV.universal_binary
-    else
+    elsif OS.mac?
       ENV.append_to_cflags "-arch #{MacOS.preferred_arch}"
     end
 
@@ -50,7 +50,7 @@ class Wxpython < Formula
       "WXPREFIX +", "'#{prefix}' +"
 
     args = [
-      "WXPORT=osx_cocoa",
+      ("WXPORT=osx_cocoa" if OS.mac?),
       # Reference our wx-config
       "WX_CONFIG=#{Formula["wxmac"].opt_bin}/wx-config",
       # At this time Wxmac is installed Unicode only

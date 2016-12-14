@@ -12,6 +12,8 @@ class Libcue < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "bison" => :build unless OS.mac?
+  depends_on "flex" => :build unless OS.mac?
 
   def install
     system "cmake", ".", *std_cmake_args

@@ -23,12 +23,17 @@ class Cdparanoia < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/2a22152/cdparanoia/osx_interface.patch"
     sha256 "3eca8ff34d2617c460056f97457b5ac62db1983517525e5c73886a2dea9f06d9"
-  end
+  end if OS.mac?
 
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/2a22152/cdparanoia/patch-paranoia_paranoia.c.10.4.diff"
     sha256 "4d6d51909d1b29a3c8ac349f5132a8acd96628355117efb3f192408d2cc4829e"
   end
+
+  patch do
+    url "https://raw.githubusercontent.com/drewc/guix/master/gnu/packages/patches/cdparanoia-fpic.patch"
+    sha256 "496f53d21dde7e23f4c9cf1cc28219efcbb5464fe2abbd5a073635279281c9c4"
+  end if OS.linux?
 
   def install
     system "autoconf"

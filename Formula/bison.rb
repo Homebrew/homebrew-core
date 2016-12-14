@@ -11,9 +11,12 @@ class Bison < Formula
     sha256 "0a6b72564c1602a033d814b68939bf2732f21cfdc06196c29da19c79faba669f" => :yosemite
     sha256 "a3146ea90c2e4ee5d5626154b3446c7c5aea748b9239beac6ac2c26e753c830e" => :mavericks
     sha256 "1ac1b43ae92fea5b04f663197309ce8b788061d31f09ba14e97dd4d5d1183d62" => :mountain_lion
+    sha256 "9413372ce7a2baa1c773483a66eaa270093ffc122bb19e4ca8162bf189ca191d" => :x86_64_linux
   end
 
   keg_only :provided_by_osx, "Some formulae require a newer version of bison."
+
+  depends_on "homebrew/dupes/m4" unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",

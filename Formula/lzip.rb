@@ -10,6 +10,7 @@ class Lzip < Formula
     sha256 "dcebc83e260a8bfdfe55a2cc991a4184d935b6fe53390160d7e2154371671845" => :el_capitan
     sha256 "a5e4b8f48d93f2d3ca8988df55b619ff779ff5331d3ee64dd31b57b7d88959db" => :yosemite
     sha256 "cfde4d3e188c4347a23811e2712a60bd646a3037e6f7b9cf6afecd6db933fda0" => :mavericks
+    sha256 "eba3ff90d2e05ec38dfb642d563a0a6616d9a0b555f93a090fbbbc40ea828c02" => :x86_64_linux
   end
 
   def install

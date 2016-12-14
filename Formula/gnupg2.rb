@@ -15,6 +15,7 @@ class Gnupg2 < Formula
     sha256 "813a968d4654ac2e4e8961e787fecfbee4ea3e64f7ac88f6ee50b59f6cd99d25" => :el_capitan
     sha256 "2c996ba3b66bf57b92a286b3cb3d90c882006c8ae284b93f4bb1aa4b57287dd8" => :yosemite
     sha256 "8f1ae364521427e96ff479b43cd74879cecb648d39d00df816321a9f41acc561" => :mavericks
+    sha256 "c558418276f3401cdd787676e93c72090ed868e2e1c3ca9f04c08f0b5da7a818" => :x86_64_linux
   end
 
   depends_on "libgpg-error"
@@ -58,6 +59,9 @@ class Gnupg2 < Formula
       --with-agent-pgm=#{agent}/bin/gpg-agent
       --with-protect-tool-pgm=#{agent}/libexec/gpg-protect-tool
     ]
+
+    # Fix for https://github.com/Linuxbrew/homebrew-core/issues/311
+    args << "--disable-nls" unless OS.mac?
 
     if build.with? "readline"
       args << "--with-readline=#{Formula["readline"].opt_prefix}"

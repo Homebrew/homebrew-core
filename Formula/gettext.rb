@@ -10,6 +10,7 @@ class Gettext < Formula
     sha256 "311475f36f3fd314ae0db4fb52e4ab769f62ded6c8c81678ad8295f41762e4ba" => :el_capitan
     sha256 "ca8fe572e7c8db00bb1bdfd66c379ba4a960927f4b829f47f9e2335c51dc7376" => :yosemite
     sha256 "e3091192716347fc54f6e8a8184d892feed5309672daa061a1407b071af80c05" => :mavericks
+    sha256 "dae894eedee985c8c15b9f1525686130c1c9dcdcfca71632cfbf37dd01747c21" => :x86_64_linux
   end
 
   keg_only :shadowed_by_osx, "macOS provides the BSD gettext library and some software gets confused if both are in the library path."
@@ -18,6 +19,7 @@ class Gettext < Formula
 
   # https://savannah.gnu.org/bugs/index.php?46844
   depends_on "libxml2" if MacOS.version <= :mountain_lion
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
     ENV.libxml2
@@ -27,7 +29,7 @@ class Gettext < Formula
                           "--disable-silent-rules",
                           "--disable-debug",
                           "--prefix=#{prefix}",
-                          "--with-included-gettext",
+                          ("--with-included-gettext" if OS.mac?),
                           "--with-included-glib",
                           "--with-included-libcroco",
                           "--with-included-libunistring",

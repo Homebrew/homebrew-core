@@ -10,6 +10,7 @@ class Libdbi < Formula
     sha256 "fdc8341304e7a5b08f8baa86019c0b75d9bea99b7461f1eafc32f906a446b49a" => :yosemite
     sha256 "105af923e45a1deb810224f39ecd138442943dfef193636414bf1394982c01ea" => :mavericks
     sha256 "44c30231f8c33cb67eae20b8078528c743e180bf549b940cf20598a551b46b6b" => :mountain_lion
+    sha256 "160acd6237b78d48690ee7ba7eff9dd8b6fc23b424f76a4e5fff46322d6864d6" => :x86_64_linux
   end
 
   def install

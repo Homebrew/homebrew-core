@@ -10,6 +10,7 @@ class Libfixposix < Formula
     sha256 "e876af0f5a95391c41f9bf7e7e1ca7c69ba0c5afe4ce570daff34474f3ece1dd" => :el_capitan
     sha256 "defc55272fbda383c8598e216a65b79ba8c5c4fc5c0d0a1752168919f0eee1c7" => :yosemite
     sha256 "f1f7f7248fd249cbb4ac366ad45e313c39055e51ffb0c15679f1b880d5b7a566" => :mavericks
+    sha256 "ca479c6bf373017e6414a61ecc44a67138cdf40290f71db8c0e69555a648e31a" => :x86_64_linux
   end
 
   head do
@@ -36,12 +37,13 @@ class Libfixposix < Formula
       int main(void)
       {
           fd_set rset, wset, eset;
+          unsigned i;
 
           lfp_fd_zero(&rset);
           lfp_fd_zero(&wset);
           lfp_fd_zero(&eset);
 
-          for(unsigned i = 0; i < FD_SETSIZE; i++) {
+          for(i = 0; i < FD_SETSIZE; i++) {
               if(lfp_fd_isset(i, &rset)) {
                   printf("%d ", i);
               }
@@ -50,7 +52,7 @@ class Libfixposix < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "mxstemp.c", lib/"libfixposix.dylib", "-o", "mxstemp"
+    system ENV.cc, "mxstemp.c", lib/"libfixposix.#{OS.mac? ? "dylib" : "so"}", "-I#{include}", "-L#{lib}", "-o", "mxstemp"
     system "./mxstemp"
   end
 end

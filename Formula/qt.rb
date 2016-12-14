@@ -12,6 +12,7 @@ class Qt < Formula
     sha256 "f6dc9df6f78e1d8c12ebf961c8a9196885a1ee732eed098b2cbe8320f2d9a7a8" => :el_capitan
     sha256 "323bcba88bd3600a4a5dc26d43602e57a71609f1d9a620b9d42b63426569e191" => :yosemite
     sha256 "157a2338190f124a7c9446ecafa6669f503ca4e0221fece620096832a767f852" => :mavericks
+    sha256 "e4a1eccaeabec05b09b714d2c654daece574861fcd28a41a1457c7136b05b8f0" => :x86_64_linux
   end
 
   # Backport of Qt5 commit to fix the fatal build error with Xcode 7, SDK 10.11.
@@ -29,6 +30,7 @@ class Qt < Formula
   depends_on "dbus" => :optional
   depends_on "mysql" => :optional
   depends_on "postgresql" => :optional
+  depends_on :x11 unless OS.mac?
 
   # Qt4 is dead upstream. We backported a build fix for 10.11 but do not
   # intend to keep rescuing it forever, including for macOS 10.12. Homebrew will
@@ -44,6 +46,11 @@ class Qt < Formula
   end
 
   def install
+    # Fix this error:
+    # /bin/ld: warning: libQtCLucene.so.4, needed by libQtHelp.so, not found
+    # libQtHelp.so: undefined reference to `QCLuceneIndexWriter::setMergeFactor(int)'
+    ENV["LD_LIBRARY_PATH"] = buildpath/"lib" if OS.linux?
+
     args = %W[
       -prefix #{prefix}
       -release
@@ -107,8 +114,8 @@ class Qt < Formula
     system "make", "install"
 
     # what are these anyway?
-    (bin+"pixeltool.app").rmtree
-    (bin+"qhelpconverter.app").rmtree
+    (bin+"pixeltool.app").rmtree if OS.mac?
+    (bin+"qhelpconverter.app").rmtree if OS.mac?
     # remove porting file for non-humans
     (prefix+"q3porting.xml").unlink if build.without? "qt3support"
 
@@ -126,7 +133,7 @@ class Qt < Formula
     # for Qt Designer to support formulae that provide Qt Designer plug-ins.
     system "/usr/libexec/PlistBuddy",
             "-c", "Add :LSEnvironment:QT_PLUGIN_PATH string \"#{HOMEBREW_PREFIX}/lib/qt4/plugins\"",
-           "#{bin}/Designer.app/Contents/Info.plist"
+           "#{bin}/Designer.app/Contents/Info.plist" if OS.mac?
 
     Pathname.glob("#{bin}/*.app") { |app| mv app, prefix }
   end

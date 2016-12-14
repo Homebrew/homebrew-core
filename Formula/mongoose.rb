@@ -9,6 +9,7 @@ class Mongoose < Formula
     sha256 "2a29b6494d6e7d38b616ee8f8fabdbcec42377b17afb4eb1d399886fadb2b292" => :sierra
     sha256 "a55500b5747b8629023e0e132794a1f9d6e81b048d52c2bec43444346dd1b552" => :el_capitan
     sha256 "f81a27631658176fccaceaf55f2c93a536bcf21f7f7d18e5aa2d6666ff43f817" => :yosemite
+    sha256 "b81f4c91b7b27f129c4d760d92977b787e526684d557e252999d681aa9ff724a" => :x86_64_linux
   end
 
   depends_on "openssl" => :recommended
@@ -22,9 +23,15 @@ class Mongoose < Formula
       bin.install "simplest_web_server" => "mongoose"
     end
 
-    system ENV.cc, "-dynamiclib", "mongoose.c", "-o", "libmongoose.dylib"
+    if OS.mac?
+      system ENV.cc, "-dynamiclib", "mongoose.c", "-o", "libmongoose.dylib"
+      lib.install "libmongoose.dylib"
+    else
+      system ENV.cc, "-fPIC", "-c", "mongoose.c"
+      system ENV.cc, "-shared", "-Wl,-soname,libmongoose.so", "-o", "libmongoose.so", "mongoose.o", "-lc", "-lpthread"
+      lib.install "libmongoose.so"
+    end
     include.install "mongoose.h"
-    lib.install "libmongoose.dylib"
     pkgshare.install "examples", "jni"
     doc.install Dir["docs/*"]
   end

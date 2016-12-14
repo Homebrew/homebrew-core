@@ -10,9 +10,13 @@ class Libproxy < Formula
     sha256 "68aaba945b87320573bff0c536e607cdedc93a90b7b90530c62ca5a84c198009" => :el_capitan
     sha256 "9f5bd17d93068b1e4074f72214dd5b9e850ac65a5ed0972f3bb0358fabec1883" => :yosemite
     sha256 "8c8a57a319799b3277f503142ef124a34b5d12866dffbffad299fd4b68fba572" => :mavericks
+    sha256 "9c8fbe695294aef5e0927ddbaa5ee87afb66aa104a0bc653cc48b71f72334e21" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
+
+  # tries to install to system perl location
+  depends_on "perl" unless OS.mac?
 
   def install
     mkdir "build" do

@@ -29,10 +29,11 @@ class Blahtexml < Formula
   end
 
   def install
-    system "make", "blahtex-mac"
+    os = OS.mac? ? "mac" : OS::NAME
+    system "make", "blahtex-#{os}"
     bin.install "blahtex"
     if build.with? "blahtexml"
-      system "make", "blahtexml-mac"
+      system "make", "blahtexml-#{os}"
       bin.install "blahtexml"
     end
   end

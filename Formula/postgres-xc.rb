@@ -23,6 +23,10 @@ class PostgresXc < Formula
   depends_on "libxml2" if MacOS.version <= :leopard # Leopard libxml is too old
   depends_on "ossp-uuid" => :recommended
   depends_on :python => :optional
+  depends_on "homebrew/dupes/krb5" unless OS.mac?
+  depends_on "libxslt" unless OS.mac?
+  depends_on "perl" unless OS.mac? || build.without?("perl")
+  depends_on "flex" => :build unless OS.mac?
 
   conflicts_with "postgresql",
     :because => "postgres-xc and postgresql install the same binaries."
@@ -51,7 +55,6 @@ class PostgresXc < Formula
       --datadir=#{pkgshare}
       --docdir=#{doc}
       --enable-thread-safety
-      --with-bonjour
       --with-gssapi
       --with-krb5
       --with-openssl
@@ -64,6 +67,7 @@ class PostgresXc < Formula
     args << "--with-perl" if build.with? "perl"
     args << "--enable-dtrace" if build.with? "dtrace"
     args << "ARCHFLAGS='-arch x86_64'"
+    args << "--with-bonjour" if OS.mac?
 
     if build.with? "ossp-uuid"
       ENV.append "CFLAGS", `uuid-config --cflags`.strip

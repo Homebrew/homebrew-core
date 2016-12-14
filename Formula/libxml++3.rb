@@ -9,6 +9,7 @@ class Libxmlxx3 < Formula
     sha256 "1d5baca91832c79cc7ae0257f3b0f35d67184f25db8aa75bdabe2e2d581caf7b" => :sierra
     sha256 "9a1c98fc76dc4dede0d4092c1c015a690bcb8a8fe24be1a37235fe9846a302c0" => :el_capitan
     sha256 "3f9d20753370b2ff1ff3e3e9bb0df129787f3b2904d5f0ee475b9099ca66dbfc" => :yosemite
+    sha256 "0667be7a8156742eee8dd04e2cad1963efbe63e86dc95e83a4dcced47f498c18" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -59,11 +60,11 @@ class Libxmlxx3 < Formula
       -lglib-2.0
       -lglibmm-2.4
       -lgobject-2.0
-      -lintl
       -lsigc-2.0
       -lxml++-3.0
       -lxml2
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
     system "./test"
   end

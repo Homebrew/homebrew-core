@@ -10,6 +10,7 @@ class KubernetesCli < Formula
     sha256 "337214c2e6b19db9552ce623ecae350394c728012c58b6bb60c7bcd8afd06c7b" => :sierra
     sha256 "4ff383f14064886c0b5206614d582842f17cf633e7041c4a5b579904a3eec219" => :el_capitan
     sha256 "502f1126761078740fa19b10f7561dd6267e88c5311604ee7703c12d90575fb1" => :yosemite
+    sha256 "69f2bf3c222dafdf3abeca28a3dd9af77932d9520018189549ff85e84f840b15" => :x86_64_linux
   end
 
   devel do
@@ -26,8 +27,9 @@ class KubernetesCli < Formula
     ENV.deparallelize { system "make", "generated_files" }
     system "make", "kubectl"
 
+    os = OS.linux? ? "linux" : "darwin"
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
-    bin.install "_output/local/bin/darwin/#{arch}/kubectl"
+    bin.install "_output/local/bin/#{os}/#{arch}/kubectl"
 
     output = Utils.popen_read("#{bin}/kubectl completion bash")
     (bash_completion/"kubectl").write output

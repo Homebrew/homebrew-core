@@ -71,7 +71,8 @@ class V8 < Formula
   def install
     # Bully GYP into correctly linking with c++11
     ENV.cxx11
-    ENV["GYP_DEFINES"] = "clang=1 mac_deployment_target=#{MacOS.version}"
+    ENV["GYP_DEFINES"] = "clang=#{ENV.compiler == :clang || OS.mac? ? 1 : 0} mac_deployment_target=#{MacOS.version}"
+
     # https://code.google.com/p/v8/issues/detail?id=4511#c3
     ENV.append "GYP_DEFINES", "v8_use_external_startup_data=0"
 
@@ -105,8 +106,12 @@ class V8 < Formula
     include.install Dir["include/*"]
 
     cd "out/native" do
-      rm ["libgmock.a", "libgtest.a"]
-      lib.install Dir["lib*"]
+      if OS.mac?
+        rm ["libgmock.a", "libgtest.a"]
+        lib.install Dir["lib*"]
+      else
+        lib.install "lib.target/libv8.so"
+      end
       bin.install "d8", "mksnapshot", "process", "shell" => "v8"
     end
   end

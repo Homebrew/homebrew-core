@@ -12,6 +12,7 @@ class Wget < Formula
     sha256 "6f23f874cf3997bb0635e5f7706db92c9e98b5089df3b3098045afe071dc992b" => :el_capitan
     sha256 "358e6f9ed3467579b1994e88403ce434afff75d8d5992e81b938a07ed4b62436" => :yosemite
     sha256 "550c915afa5dc225699bfb9d6f98291594ca62402ce6280c43be6438cfed05fe" => :mavericks
+    sha256 "6f5fb1d35012e62a8611b3ba931403ff112b778fbb5071f95437702dd3bb5394" => :x86_64_linux
   end
 
   head do
@@ -30,18 +31,19 @@ class Wget < Formula
   option "with-debug", "Build with debug support"
 
   depends_on "pkg-config" => :build
-  depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
+  depends_on "pod2man" => :build if OS.mac? && MacOS.version <= :snow_leopard
   depends_on "openssl" => :recommended
   depends_on "libressl" => :optional
   depends_on "libidn" if build.with? "iri"
   depends_on "pcre" => :optional
   depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
+  depends_on "util-linux" if OS.linux? # for libuuid
 
   def install
     # Fixes undefined symbols _iconv, _iconv_close, _iconv_open
     # Reported 10 Jun 2016: https://savannah.gnu.org/bugs/index.php?48193
-    ENV.append "LDFLAGS", "-liconv"
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
 
     args = %W[
       --prefix=#{prefix}

@@ -27,13 +27,17 @@ class Fontconfig < Formula
     sha256 "151acfcc10e7d9c38aca5e23d5acdb953f3d627f05e206a097d039e6e8168a4a" => :el_capitan
     sha256 "72c9f7932c02e7ad44d9bed147ea26f84a7bc5ba681da6eb00e52c381b6f7a68" => :yosemite
     sha256 "644c80b9c9b8af2c13329043f6921cac3d0effdd6a5ecc696484113a46b90488" => :mavericks
+    sha256 "ac91e177e6a9a8c077d403b1dd453de6d4c9d695b88a5d39ba0af0157c51a98c" => :x86_64_linux
   end
 
+  option "without-docs", "Skip building the fontconfig docs"
+
   pour_bottle? do
-    reason "The bottle needs to be installed into /usr/local."
+    default_prefix = BottleSpecification::DEFAULT_PREFIX
+    reason "The bottle needs to be installed into #{default_prefix}."
     # c.f. the identical hack in lua
     # https://github.com/Homebrew/homebrew/issues/47173
-    satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
+    satisfy { HOMEBREW_PREFIX.to_s == default_prefix }
   end
 
   head do
@@ -50,6 +54,8 @@ class Fontconfig < Formula
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
+  depends_on "bzip2" => :recommended unless OS.mac?
+  depends_on "expat" unless OS.mac?
 
   def install
     ENV.universal_binary if build.universal?
@@ -60,7 +66,8 @@ class Fontconfig < Formula
                           "--with-add-fonts=/System/Library/Fonts,/Library/Fonts,~/Library/Fonts",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
-                          "--sysconfdir=#{etc}"
+                          "--sysconfdir=#{etc}",
+                          ("--disable-docs" if build.without? "docs")
     system "make", "install", "RUN_FC_CACHE_TEST=false"
   end
 

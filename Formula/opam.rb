@@ -12,10 +12,12 @@ class Opam < Formula
     sha256 "833e78a6f35f9a3e9374d88b558f5137ba69d0661a15b1737ba103350330b1bb" => :el_capitan
     sha256 "38d74f1eb643e7db9405a142b9067e5ae35e5b0394986abdd7b25c32fc6a9977" => :yosemite
     sha256 "c5cb841262a592cf43f152dc664e5268ab3d24da9e0a18974b376e0348fbf460" => :mavericks
+    sha256 "b5b4c5a94fe67a5876abfb58a819b21bd596bfa28f4e560cec8e43edb544ae6c" => :x86_64_linux
   end
 
   depends_on "ocaml" => :recommended
   depends_on "camlp4" => :recommended if build.with? "ocaml"
+  depends_on "homebrew/dupes/unzip" unless OS.mac?
 
   # aspcud has a fairly large buildtime dep tree, and uses gringo,
   # which requires C++11 and is inconvenient to install pre-10.8

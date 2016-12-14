@@ -9,6 +9,7 @@ class Jmeter < Formula
     sha256 "f303c7f14b419c279199f4cc9fc5013f3fc76d257f6ac57ea2f7e26f0946c786" => :sierra
     sha256 "f303c7f14b419c279199f4cc9fc5013f3fc76d257f6ac57ea2f7e26f0946c786" => :el_capitan
     sha256 "f303c7f14b419c279199f4cc9fc5013f3fc76d257f6ac57ea2f7e26f0946c786" => :yosemite
+    sha256 "64153744b3111a340a2a6be1ea0f8d6aa8fa02275ae2266cc35e6d8cb4e078a5" => :x86_64_linux
   end
 
   option "with-plugins", "add JMeterPlugins Standard, Extras, ExtrasLibs, WebDriver and Hadoop"

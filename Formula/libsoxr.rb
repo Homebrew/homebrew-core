@@ -11,6 +11,7 @@ class Libsoxr < Formula
     sha256 "077ef8de96bc1d6e91c102a1ef37a8abdfc5a5c58e630ddf4c71d588f4928514" => :el_capitan
     sha256 "b4a93f140c6811066af0a9c4ed5018426cacd57708aeed413b81ff887823926e" => :yosemite
     sha256 "ab97e9c831858081a06933a5394623b8e4dbafd660e507cfbe851dee07c73c09" => :mavericks
+    sha256 "55fd913abd961958bd99944771851f1f1bcabbf2c58751fa1a6e718144c9b1a6" => :x86_64_linux
   end
 
   depends_on "cmake" => :build

@@ -10,6 +10,7 @@ class Libconfig < Formula
     sha256 "b761558d36680478ea69e888a35bb64df066a561f9534e9b893b26e07a4062e4" => :el_capitan
     sha256 "da3783f62333e9f65b235c7359de96264476e7bb7a0e472f7f81d288cbd059ec" => :yosemite
     sha256 "dfb06c8602d8cb3a81a0d63127fc45c112bbdd494772f5ce50715f06383d596d" => :mavericks
+    sha256 "4c66dc28067e2413541c79addf46cdc2def7d9537536c0f8a56b174e0644ec7d" => :x86_64_linux
   end
 
   head do
@@ -20,6 +21,9 @@ class Libconfig < Formula
   end
 
   option :universal
+
+  depends_on "flex" => :build unless OS.mac?
+  depends_on "texinfo" => :build unless OS.mac?
 
   def install
     ENV.universal_binary if build.universal?
@@ -45,8 +49,8 @@ class Libconfig < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lconfig",
-           testpath/"test.c", "-o", testpath/"test"
+    system ENV.cc, "-I#{include}", "-L#{lib}",
+           testpath/"test.c", "-lconfig", "-o", testpath/"test"
     system "./test"
   end
 end

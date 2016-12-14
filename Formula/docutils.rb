@@ -9,6 +9,7 @@ class Docutils < Formula
     sha256 "cae7b82e3555eacdd6156c67af59a71d03274b006857ddbc84fe639136b21902" => :sierra
     sha256 "1a7d2c671cbd6f88c81de7c2abf2cc099794313b082c81ae8079b86d40ad3cd2" => :el_capitan
     sha256 "1a7d2c671cbd6f88c81de7c2abf2cc099794313b082c81ae8079b86d40ad3cd2" => :yosemite
+    sha256 "622c6bfe613641ae3d5d3a0ddad3e000fb18a779548be22f532a00bece9ef7c6" => :x86_64_linux
   end
 
   def install
@@ -16,6 +17,7 @@ class Docutils < Formula
   end
 
   test do
+    ENV.prepend_create_path "PYTHONPATH", HOMEBREW_PREFIX/"lib/python2.7/site-packages" unless OS.mac?
     system "#{bin}/rst2man.py", "#{prefix}/HISTORY.txt"
   end
 end

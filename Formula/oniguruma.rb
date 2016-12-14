@@ -9,6 +9,7 @@ class Oniguruma < Formula
     sha256 "7ecb3f890a754b476381918973a29951f12e121529ff01b35a054399f057b7c7" => :sierra
     sha256 "c810b2ed83f23f55490441468dde02f81819ed78ccc811ea92ae0750c6bc3a8b" => :el_capitan
     sha256 "75a99e7c082a25999ea8c58c04b49b9306c2ef539eb98e93a60a8f092b573c0f" => :yosemite
+    sha256 "a6ec087fb395ce5b22d2378d3fbafa6259d748d76f6f5c5e576d70108173251d" => :x86_64_linux
   end
 
   def install

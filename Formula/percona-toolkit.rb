@@ -12,6 +12,7 @@ class PerconaToolkit < Formula
 
   depends_on :mysql
   depends_on "openssl"
+  depends_on "DBI::DBD" => :perl unless OS.mac?
 
   resource "DBD::mysql" do
     url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"

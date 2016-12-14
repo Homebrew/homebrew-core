@@ -10,6 +10,7 @@ class Aspell < Formula
     sha256 "ccc60cb56f23d7ad911ae2b564c1257ba0e5136e069b9cff6372a12bd720ce64" => :el_capitan
     sha256 "cbef227317d456df1bb54e11aa041ed28a445a95fb0b8517c1a352b01634026b" => :yosemite
     sha256 "2c254cad4de36437852bf34806f3766b90013ea52310eb4b7afcb7eb2399d970" => :mavericks
+    sha256 "217f60304d2c362c222d5a32c9c06a14843ee1399bb50d62c41b42cbea7e7103" => :x86_64_linux
     sha256 "138549002ae369e1659a990ef26b30e500cab4f5cd0a21b80290946099fee6d0" => :mountain_lion
   end
 

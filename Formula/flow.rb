@@ -1,3 +1,4 @@
+# flow: Build a bottle for Linuxbrew
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
@@ -14,6 +15,7 @@ class Flow < Formula
 
   depends_on "ocaml" => :build
   depends_on "ocamlbuild" => :build
+  depends_on "elfutils" unless OS.mac?
 
   def install
     system "make"

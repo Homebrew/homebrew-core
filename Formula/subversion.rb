@@ -10,6 +10,7 @@ class Subversion < Formula
     sha256 "a1eb24f126de1cbe776690c6d8320638c9c917d3d45aeb06f38530236272e6ce" => :sierra
     sha256 "b63e9e5af0e18ae59e851795ca551e2b2161fcea99dc7d4b147ca44f572e0062" => :el_capitan
     sha256 "5be40371113a10bfb441edeceea9df3705290df1db296adf4a2616ed81c73185" => :yosemite
+    sha256 "b1c56acb1c9295f698516de674d4a10c70f85e581457da58c16a2f7f8623ccb0" => :x86_64_linux
   end
 
   deprecated_option "java" => "with-java"
@@ -36,6 +37,14 @@ class Subversion < Formula
   # For Serf
   depends_on "scons" => :build
   depends_on "openssl"
+
+  unless OS.mac?
+    depends_on "expat"
+    depends_on "libmagic"
+    depends_on "zlib"
+    depends_on "homebrew/dupes/krb5" => :recommended
+    depends_on "util-linux" if OS.linux? && build.with?("serf") # for libuuid
+  end
 
   # Other optional dependencies
   depends_on "gpg-agent" => :optional
@@ -68,7 +77,7 @@ class Subversion < Formula
   end
 
   def install
-    serf_prefix = libexec/"serf"
+    serf_prefix = OS.mac? ? libexec/"serf" : prefix
 
     resource("serf").stage do
       # SConstruct merges in gssapi linkflags using scons's MergeFlags,
@@ -81,7 +90,7 @@ class Subversion < Formula
 
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[
-        PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
+        PREFIX=#{serf_prefix} GSSAPI=#{Formula["krb5"].prefix} CC=#{ENV.cc}
         CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
         OPENSSL=#{Formula["openssl"].opt_prefix}
         APR=#{Formula["apr"].opt_prefix}
@@ -114,7 +123,7 @@ class Subversion < Formula
       --prefix=#{prefix}
       --disable-debug
       --enable-optimize
-      --with-zlib=/usr
+      #{"--with-zlib=/usr" if OS.mac?}
       --with-sqlite=#{Formula["sqlite"].opt_prefix}
       --with-apr=#{Formula["apr"].opt_prefix}
       --with-apr-util=#{Formula["apr-util"].opt_prefix}
@@ -152,7 +161,8 @@ class Subversion < Formula
 
     system "./configure", *args
     system "make"
-    system "make", "install"
+    # Fix ld: cannot find -lsvn_delta-1
+    ENV.deparallelize { system "make", "install" }
     bash_completion.install "tools/client-side/bash_completion" => "subversion"
 
     system "make", "tools"
@@ -183,7 +193,7 @@ class Subversion < Formula
 
       inreplace "Makefile" do |s|
         s.change_make_var! "SWIG_PL_INCLUDES",
-          "$(SWIG_INCLUDES) #{arches} -g -pipe -fno-common -DPERL_DARWIN -fno-strict-aliasing -I/usr/local/include -I#{perl_core}"
+          "$(SWIG_INCLUDES) #{arches if OS.mac?} -g -pipe -fno-common #{"-DPERL_DARWIN" if OS.mac?} -fno-strict-aliasing -I/usr/local/include -I#{perl_core}"
       end
       system "make", "swig-pl"
       system "make", "install-swig-pl"

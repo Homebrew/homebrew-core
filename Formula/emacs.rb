@@ -39,6 +39,7 @@ class Emacs < Formula
   depends_on "librsvg" => :optional
   depends_on "imagemagick" => :optional
   depends_on "mailutils" => :optional
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
     args = %W[

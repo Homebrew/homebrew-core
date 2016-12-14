@@ -10,6 +10,7 @@ class Flac < Formula
     sha256 "ba87fb6e7919f334b04745d5c075f5ae12a5374b3b7edd0514cc62d9f8ad28c8" => :el_capitan
     sha256 "b5c4e452287e0aaf9355fd8f13849450edceca1b63d2401a0aa42d9c3344c143" => :yosemite
     sha256 "a9caf29aa44208d98d4f885ba78e6d6d3bf56725748007a1cb9e0339631e807e" => :mavericks
+    sha256 "a05efe9639853ebc9a8e3b53fee01eadb752078bd7b22f46d08acb36d3bf3148" => :x86_64_linux
     sha256 "738f8ba2670b9eff4c0ff794813a86841934f6791ce393d9833f1cef56cb8e25" => :mountain_lion
   end
 

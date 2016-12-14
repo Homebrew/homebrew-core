@@ -11,6 +11,7 @@ class Libtasn1 < Formula
     sha256 "2d7b27ee64a21b6d23dbe0d55bf1140704eb78911555d848f4a6a5846818a405" => :el_capitan
     sha256 "5d24dc6645c06b92219f52c15ffeea3ab2149da9cf2a1c33cb10131f6244179b" => :yosemite
     sha256 "5fb8522427e23d95e572f9f25c8a37b3bd6b8e4747446bb0b4e3954e816d4bf8" => :mavericks
+    sha256 "a573af5472e41b7276cf628f782558645b9e331a890f9383e791b43edd695fce" => :x86_64_linux
   end
 
   option :universal

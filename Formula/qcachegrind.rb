@@ -16,12 +16,18 @@ class Qcachegrind < Formula
   depends_on "qt5"
 
   def install
-    cd "qcachegrind"
-    system "#{Formula["qt5"].bin}/qmake", "-spec", "macx-clang", "-config", "release"
-    system "make"
-    # Install app
-    prefix.install "qcachegrind.app"
-    # Symlink in the command-line version
-    bin.install_symlink prefix/"qcachegrind.app/Contents/MacOS/qcachegrind"
+    if OS.mac?
+      cd "qcachegrind"
+      system "#{Formula["qt5"].bin}/qmake", "-spec", "macx-clang", "-config", "release"
+      system "make"
+      # Install app
+      prefix.install "qcachegrind.app"
+      # Symlink in the command-line version
+      bin.install_symlink prefix/"qcachegrind.app/Contents/MacOS/qcachegrind"
+    else
+      system "qmake", "-config", "release"
+      system "make"
+      bin.install "qcachegrind/qcachegrind"
+    end
   end
 end

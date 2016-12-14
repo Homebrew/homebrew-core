@@ -10,6 +10,7 @@ class Fop < Formula
     sha256 "657c88e138769d842e0f48daf3abd3798194eca420a3327fa5b0b667e7dfbece" => :el_capitan
     sha256 "a3ce519cfe5f54a0823515e2e75f878373d47e8174f9d470976db9ca2f792759" => :yosemite
     sha256 "38602cef629a33f05149c3411ea6b82451deec872aa6cbe1fa8203ad2ee875fb" => :mavericks
+    sha256 "19ca9fbf7427c743c137de26d2662c0f6438b4ca39d933b17b386fcf8679de62" => :x86_64_linux
   end
 
   depends_on :java => "1.6+"

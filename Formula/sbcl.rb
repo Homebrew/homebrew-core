@@ -10,6 +10,7 @@ class Sbcl < Formula
     sha256 "b0eb170a32a7362c22248f95663177a0c3c4dbf4e17de7efa1eea7ac98257b10" => :sierra
     sha256 "86cae46ef9001dd322897368f4858044e10feef05f0df085be15b59f8ad932dd" => :el_capitan
     sha256 "94b9b75914e6b1b98f2adf21ea3bb409bf25922aa150026fa962ed3fbe7254b0" => :yosemite
+    sha256 "d5966a15094457cfa2197f146b82c209bcfa1413336a20062093f8258251e3a6" => :x86_64_linux
   end
 
   fails_with :llvm do
@@ -24,21 +25,33 @@ class Sbcl < Formula
   option "without-core-compression", "Build SBCL without support for compressed cores and without a dependency on zlib"
   option "without-threads", "Build SBCL without support for native threads"
 
+  depends_on "zlib" unless OS.mac?
+
   # Current binary versions are listed at http://sbcl.sourceforge.net/platform-table.html
   resource "bootstrap64" do
-    url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.2.11/sbcl-1.2.11-x86-64-darwin-binary.tar.bz2"
-    sha256 "057d3a1c033fb53deee994c0135110636a04f92d2f88919679864214f77d0452"
+    if OS.mac?
+      url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.2.11/sbcl-1.2.11-x86-64-darwin-binary.tar.bz2"
+      sha256 "057d3a1c033fb53deee994c0135110636a04f92d2f88919679864214f77d0452"
+    elsif OS.linux?
+      url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.3/sbcl-1.3.3-x86-64-linux-binary.tar.bz2"
+      sha256 "e8b1730c42e4a702f9b4437d9842e91cb680b7246f88118c7443d7753e61da65"
+    end
   end
 
   resource "bootstrap32" do
-    url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.1.6/sbcl-1.1.6-x86-darwin-binary.tar.bz2"
-    sha256 "5801c60e2a875d263fccde446308b613c0253a84a61ab63569be62eb086718b3"
+    if OS.mac?
+      url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.1.6/sbcl-1.1.6-x86-darwin-binary.tar.bz2"
+      sha256 "5801c60e2a875d263fccde446308b613c0253a84a61ab63569be62eb086718b3"
+    elsif OS.linux?
+      url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.2.7/sbcl-1.2.7-x86-linux-binary.tar.bz2"
+      sha256 "724425fe0d28747c7d31c6655e39fa8c27f9ef4608c482ecc60089bcc85fc31d"
+    end
   end
 
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-base-target-features.diff"
     sha256 "e101d7dc015ea71c15a58a5c54777283c89070bf7801a13cd3b3a1969a6d8b75"
-  end
+  end if OS.mac?
 
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-make-doc.diff"

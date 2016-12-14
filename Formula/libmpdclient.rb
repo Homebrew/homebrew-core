@@ -11,6 +11,7 @@ class Libmpdclient < Formula
     sha256 "53c232fdc4c66fb2aa823b474337f8c5275cf01171077b8772a0dd2b1aaf670c" => :yosemite
     sha256 "a6d500dd34581bb30a623df20b2e031eb3f1a6a586886acc97e437a5447e144b" => :mavericks
     sha256 "d583dffa231db87e89bc291d20aedb63d9ac5324eeff80cdc974cff2b93c6a1a" => :mountain_lion
+    sha256 "53fb29a5c892ad984d3fb90e440fec7ecc5fa129da392ec7caab6d72f60f3b9c" => :x86_64_linux
   end
 
   head do

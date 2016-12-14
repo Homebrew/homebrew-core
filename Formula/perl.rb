@@ -1,7 +1,7 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  revision 1
+  revision OS.linux? ? 2 : 1
   head "git://perl5.git.perl.org/perl.git", :branch => "blead"
 
   stable do
@@ -25,12 +25,21 @@ class Perl < Formula
     sha256 "2d17be7f00decaec2d9d9d25335962e78319b5ee121112ae6e6325227c50313a" => :sierra
     sha256 "bbc3eb4e2a1e7d9585918862adf718e5be80e4dae793e547bf71da8a07b372d8" => :el_capitan
     sha256 "7f4410ad668128cb66085a8e7fa995258cb60ba8b2551ab170ae612d3101d021" => :yosemite
+    sha256 "41f7a7813d33cec8ed783bc072dd4841fc3b889bcee2a678bd63458a39f3fb4a" => :x86_64_linux
   end
 
   option "with-dtrace", "Build with DTrace probes"
   option "without-test", "Skip running the build test suite"
 
   deprecated_option "with-tests" => "with-test"
+
+  unless OS.mac?
+    depends_on "gdbm" => "with-libgdbm-compat"
+    depends_on "berkeley-db"
+
+    # required for XML::Parser
+    depends_on "expat"
+  end
 
   def install
     if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
@@ -63,6 +72,8 @@ class Perl < Formula
 
     args << "-Dusedtrace" if build.with? "dtrace"
     args << "-Dusedevel" if build.head?
+    # Fix for https://github.com/Linuxbrew/homebrew-core/issues/405
+    args << "-Dlocincpth=#{HOMEBREW_PREFIX}/include" if OS.linux?
 
     system "./Configure", *args
     system "make"
@@ -76,6 +87,13 @@ class Perl < Formula
     end
 
     system "make", "install"
+
+    # expose libperl.so to ensure we aren't using a brewed executable
+    # but a system library
+    if OS.linux?
+      perl_core = Pathname.new(`#{bin/"perl"} -MConfig -e 'print $Config{archlib}'`)+"CORE"
+      lib.install_symlink perl_core/"libperl.so"
+    end
   end
 
   def caveats; <<-EOS.undent
@@ -86,6 +104,17 @@ class Perl < Formula
       PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" cpan local::lib
       echo 'eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"' >> #{shell_profile}
     EOS
+  end
+
+  def post_install
+    # CPAN modules installed via the system package manager will not be visible to
+    # brewed Perl. As a temporary measure, install critical CPAN modules to ensure
+    # they are available. See https://github.com/Linuxbrew/homebrew-core/pull/1064
+    unless OS.mac?
+      ENV["PERL_MM_USE_DEFAULT"] = "1"
+      system bin/"cpan", "-i", "XML::Parser"
+      system bin/"cpan", "-i", "XML::SAX"
+    end
   end
 
   test do

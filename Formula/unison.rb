@@ -10,6 +10,7 @@ class Unison < Formula
     sha256 "f6c266af01a145381c73d0ab5b89c480c9cb1770e08b0d8d88e514d19045afd0" => :el_capitan
     sha256 "55f770497c67900e508bb9478671e7148f4214694a09ad475e246529a64a3a3a" => :yosemite
     sha256 "fe26dcfa9763fe9ed89a2cca23f82ca11b0c9117a0d52758ef245d5f307304f5" => :mavericks
+    sha256 "9e5cf55bc10b9a1735cee1d005c32ca326e6ded66fe47d483e282d2fb36f980c" => :x86_64_linux
   end
 
   depends_on "ocaml" => :build

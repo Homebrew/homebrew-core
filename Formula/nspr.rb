@@ -31,7 +31,7 @@ class Nspr < Formula
       args << "--enable-64bit" if MacOS.prefer_64_bit?
       system "./configure", *args
       # Remove the broken (for anyone but Firefox) install_name
-      inreplace "config/autoconf.mk", "-install_name @executable_path/$@ ", "-install_name #{lib}/$@ "
+      inreplace "config/autoconf.mk", "-install_name @executable_path/$@ ", "-install_name #{lib}/$@ " if OS.mac?
 
       system "make"
       system "make", "install"

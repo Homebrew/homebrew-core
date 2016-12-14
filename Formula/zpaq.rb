@@ -11,6 +11,7 @@ class Zpaq < Formula
     sha256 "63f132c8cbff5b22daddc07289837ad710c4af7785fa36351a498cc99e77c6ec" => :sierra
     sha256 "beafa9e6d0ba28368a77d9ddcbaf3b04a3f02716f08eb4b2a345745c45fcf9d2" => :el_capitan
     sha256 "de09d5f93f86f77372ea01b40f23481bc3e6cd33b9b2ac67736c85167a760dbb" => :yosemite
+    sha256 "1906f46aa3da466758d340d37e4ac5cb34aecf5667ee8a874243027054e52ab6" => :x86_64_linux
   end
 
   resource "test" do

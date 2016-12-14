@@ -21,6 +21,7 @@ class Libevent < Formula
     sha256 "1f18bad6b4b19c55ed11b63256241558923eea26814a7d551cf7384ffe0dd098" => :el_capitan
     sha256 "8f02227ee85ed96fd3499befc12cf00aad34dcdf436f0b58f29945432a69d4b4" => :yosemite
     sha256 "e32a8b4b74b3a41fb7ccf7933f0cc883c16d9fbd8ed55ff3d204556afa9d1a41" => :mavericks
+    sha256 "2a99a3d33b574732fdc6badd5b01c05fb4712a6d7e701adb032838c741cd9031" => :x86_64_linux
   end
 
   devel do

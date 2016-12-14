@@ -10,6 +10,7 @@ class Libxslt < Formula
     sha256 "b77dfef558e110a710cae786918e1be56ffa6815c1f7f241f5d69e31a2ca5a24" => :el_capitan
     sha256 "353119ea7d1be30141944cf716b76df941e7f776209c15217607cbced8ca5f14" => :yosemite
     sha256 "03aecde25d5312258ba0d752f7fb04573b6be93ab784ef41a555de15af333541" => :mavericks
+    sha256 "e35c1b09092aa5789670467e3170cae7fa771094556be2975b01dc148f233b6b" => :x86_64_linux
   end
 
   head do
@@ -39,6 +40,7 @@ class Libxslt < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
+                          ("--without-crypto" if OS.linux?),
                           "--with-libxml-prefix=#{Formula["libxml2"].opt_prefix}"
     system "make"
     system "make", "install"

@@ -34,7 +34,7 @@ class Qwt < Formula
     # On Mavericks we want to target libc++, this requires a unsupported/macx-clang-libc++ flag
     if ENV.compiler == :clang && MacOS.version >= :mavericks
       args << "macx-clang"
-    else
+    elsif OS.mac?
       args << "macx-g++"
     end
 

@@ -11,6 +11,7 @@ class Libicns < Formula
     sha256 "8fb5848fa2a111b3fc66aaea73c60a0795da6468e2ace92d2de57c9c8a5a3cde" => :sierra
     sha256 "12579e9f34ef57d3979b5a01206b543a67bf313cdb056d6c3e20e0b8cf0842b6" => :el_capitan
     sha256 "aed1a7df05a8f98ea64dcdd8c4a406207239b7b187629fc03ae799308a142a4d" => :yosemite
+    sha256 "008a350b6b14e99a99563f98cb851354601bdb5a676c059c5210c1e54e74f5bb" => :x86_64_linux
   end
 
   option :universal

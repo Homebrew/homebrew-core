@@ -12,7 +12,10 @@ class A2ps < Formula
     sha256 "95e6cd96cc753d9d632ac8aa1b9d5099d5507c5fb8fc085544803fd85a4bd7c8" => :el_capitan
     sha256 "c89521bb6b3df6a8277564f264006bde650b7d214b288f4805da856a76ec3b69" => :yosemite
     sha256 "d10db3452567e6d4a6be65f15728c40b4a62bcc374e04ff7f5d3608c294c74f4" => :mavericks
+    sha256 "ba921815bbde15e3fab76a070950160fa836f4f72514bcbf9731265cadd1ae09" => :x86_64_linux
   end
+
+  depends_on "homebrew/dupes/gperf" unless OS.mac?
 
   # Software was last updated in 2007.
   # https://svn.macports.org/ticket/20867
@@ -20,7 +23,7 @@ class A2ps < Formula
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/0ae366e6/a2ps/patch-contrib_sample_Makefile.in"
     sha256 "5a34c101feb00cf52199a28b1ea1bca83608cf0a1cb123e6af2d3d8992c6011f"
-  end
+  end if OS.mac?
 
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/0ae366e6/a2ps/patch-lib__xstrrpl.c"

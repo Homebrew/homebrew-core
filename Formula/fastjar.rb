@@ -10,6 +10,7 @@ class Fastjar < Formula
     sha256 "996937a030b443cee74e1de1945e3199022fc27514cf9925c332ed5d5804c80a" => :el_capitan
     sha256 "07dd91fef374251b87b1a2987089234a3da225b79313afa4d8a7f502d1a51aae" => :yosemite
     sha256 "4e1d46c61723a1babbba0841b9dbde5c33388e107202f6ca292adc23ab7149a3" => :mavericks
+    sha256 "d5f4c6b38e23aac6271d80145474c1b4f985beb373988e5b1cb9e631269978e0" => :x86_64_linux
   end
 
   def install

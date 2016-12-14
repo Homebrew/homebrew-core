@@ -3,7 +3,7 @@ class Python < Formula
   homepage "https://www.python.org"
   url "https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz"
   sha256 "d7837121dd5652a05fef807c361909d255d173280c4e1a4ded94d73d80a1f978"
-  revision 2
+  revision OS.linux? ? 3 : 2
 
   head "https://hg.python.org/cpython", :using => :hg, :branch => "2.7"
 
@@ -11,14 +11,21 @@ class Python < Formula
     sha256 "2ac20b04ff599f02e950431622943f2c92e70e85c097f645265adaf4dd8c6a31" => :sierra
     sha256 "ed692ad5e13437a751dce19865989ce7e3344402aa38496db3e78ab179121197" => :el_capitan
     sha256 "834c7ac3ce19df12cb4fb9cbb1cae0c7fbdcaf33a9141dc1c3791ab801df27f0" => :yosemite
+    sha256 "a907d652b14a4b145ac4fbac28fad641c29243c7b8d3340a31db2e59c7f63bf6" => :x86_64_linux
   end
 
-  # Please don't add a wide/ucs4 option as it won't be accepted.
+  # Homebrew doesn't accept a wide/ucs4 option because narrow build is the de facto standard
+  # on Windows and OSX, but wide seems to be the default for linux
   # More details in: https://github.com/Homebrew/homebrew/pull/32368
+  option "with-unicode-ucs4", "Build unicode support with UCS4"
   option :universal
   option "with-quicktest", "Run `make quicktest` after the build (for devs; may fail)"
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
-  option "with-poll", "Enable select.poll, which is not fully implemented on macOS (https://bugs.python.org/issue5154)"
+  if OS.mac?
+    option "with-poll", "Enable select.poll, which is not fully implemented on macOS (https://bugs.python.org/issue5154)"
+  else
+    option "without-poll", "Disable select.poll"
+  end
 
   # sphinx-doc depends on python, but on 10.6 or earlier python is fulfilled by
   # brew, which would lead to circular dependency.
@@ -38,6 +45,7 @@ class Python < Formula
   depends_on "homebrew/dupes/tcl-tk" => :optional
   depends_on "berkeley-db4" => :optional
   depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
+  depends_on "bzip2" unless OS.mac?
 
   skip_clean "bin/pip", "bin/pip-2.7"
   skip_clean "bin/easy_install", "bin/easy_install-2.7"
@@ -79,7 +87,8 @@ class Python < Formula
   end
 
   def lib_cellar
-    prefix/"Frameworks/Python.framework/Versions/2.7/lib/python2.7"
+    prefix / (OS.mac? ? "Frameworks/Python.framework/Versions/2.7" : "") /
+      "lib/python2.7"
   end
 
   def site_packages_cellar
@@ -105,7 +114,7 @@ class Python < Formula
   def install
     ENV.permit_weak_imports
 
-    if build.with? "poll"
+    if OS.mac? && build.with?("poll")
       opoo "The given option --with-poll enables a somewhat broken poll() on macOS (https://bugs.python.org/issue5154)."
     end
 
@@ -119,11 +128,12 @@ class Python < Formula
       --enable-ipv6
       --datarootdir=#{share}
       --datadir=#{share}
-      --enable-framework=#{frameworks}
+      #{OS.mac? ? "--enable-framework=#{frameworks}" : "--enable-shared"}
       --without-ensurepip
     ]
 
     args << "--without-gcc" if ENV.compiler == :clang
+    args << "--enable-unicode=ucs4" if build.with? "unicode-ucs4"
 
     cflags   = []
     ldflags  = []
@@ -139,6 +149,19 @@ class Python < Formula
       if build.without? "tcl-tk"
         cflags << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
       end
+    end
+
+    # Python's setup.py parses CPPFLAGS and LDFLAGS to learn search
+    # paths for the dependencies of the compiled extension modules.
+    # See Homebrew/linuxbrew#420, Homebrew/linuxbrew#460, and Homebrew/linuxbrew#875
+    if OS.linux?
+      if build.bottle?
+        # Configure Python to use cc and c++ to build extension modules.
+        ENV["CC"] = "cc"
+        ENV["CXX"] = "c++"
+      end
+      cppflags << ENV.cppflags << " -I#{HOMEBREW_PREFIX}/include"
+      ldflags << ENV.ldflags
     end
 
     # Avoid linking to libgcc https://code.activestate.com/lists/python-dev/112195/
@@ -205,7 +228,7 @@ class Python < Formula
     ENV.deparallelize do
       # Tell Python not to install into /Applications
       system "make", "install", "PYTHONAPPSDIR=#{prefix}"
-      system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
+      system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}" if OS.mac?
     end
 
     # Fixes setting Python build flags for certain software
@@ -214,17 +237,18 @@ class Python < Formula
     inreplace lib_cellar/"config/Makefile" do |s|
       s.change_make_var! "LINKFORSHARED",
         "-u _PyMac_Error $(PYTHONFRAMEWORKINSTALLDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK)"
+    end if OS.mac?
+
+    if OS.mac?
+      # Prevent third-party packages from building against fragile Cellar paths
+      inreplace [lib_cellar/"_sysconfigdata.py",
+                 lib_cellar/"config/Makefile",
+                 frameworks/"Python.framework/Versions/Current/lib/pkgconfig/python-2.7.pc"],
+                prefix, opt_prefix
+
+      # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
+      (lib/"pkgconfig").install_symlink Dir[frameworks/"Python.framework/Versions/Current/lib/pkgconfig/*"]
     end
-
-    # Prevent third-party packages from building against fragile Cellar paths
-    inreplace [lib_cellar/"_sysconfigdata.py",
-               lib_cellar/"config/Makefile",
-               frameworks/"Python.framework/Versions/Current/lib/pkgconfig/python-2.7.pc"],
-              prefix, opt_prefix
-
-    # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
-    (lib/"pkgconfig").install_symlink Dir[frameworks/"Python.framework/Versions/Current/lib/pkgconfig/*"]
-
     # Remove the site-packages that Python created in its Cellar.
     site_packages_cellar.rmtree
 
@@ -253,7 +277,7 @@ class Python < Formula
 
     # Write our sitecustomize.py
     rm_rf Dir["#{site_packages}/sitecustomize.py[co]"]
-    (site_packages/"sitecustomize.py").atomic_write(sitecustomize)
+    (site_packages/"sitecustomize.py").atomic_write(sitecustomize) if OS.mac?
 
     # Remove old setuptools installations that may still fly around and be
     # listed in the easy_install.pth. This can break setuptools build with
@@ -374,7 +398,9 @@ class Python < Formula
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
     system "#{bin}/python", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
-    system "#{bin}/python", "-c", "import Tkinter; root = Tkinter.Tk()"
+    if OS.mac? || build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
+      system "#{bin}/python", "-c", "import Tkinter; root = Tkinter.Tk()"
+    end
     system bin/"pip", "list"
   end
 end

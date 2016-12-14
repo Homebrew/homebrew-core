@@ -19,6 +19,7 @@ class Ghc < Formula
     sha256 "066bebe5c79970838bd589aed33ef209695eb86189c693378bd6fbcc6e47accb" => :sierra
     sha256 "5f56a89c44c750fc8b1a3c93b66eb2c5e92c58455e215c4f8f2c5ba0f350d7b3" => :el_capitan
     sha256 "b5b5307ffc223b4ff5946cbe6fa08eef881f8f92c91dc3449ef225d8190a0abe" => :yosemite
+    sha256 "4f9d9756e2562da99c825103fb90c0d833f67bc681d7d71ec46c059028b3badf" => :x86_64_linux
   end
 
   head do
@@ -47,6 +48,11 @@ class Ghc < Formula
 
   depends_on :macos => :lion
   depends_on "sphinx-doc" => :build if build.with? "docs"
+  depends_on "homebrew/dupes/m4" => :build unless OS.mac?
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+
+  # This dependency is needed for the bootstrap executables.
+  depends_on "gmp" => :build if OS.linux?
 
   resource "gmp" do
     url "https://ftpmirror.gnu.org/gmp/gmp-6.1.1.tar.xz"
@@ -69,7 +75,12 @@ class Ghc < Formula
   # https://www.haskell.org/ghc/download_ghc_8_0_1#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   resource "binary" do
-    if MacOS.version >= :sierra
+    if OS.linux?
+      # Using 8.0.1 gives the error message:
+      # strip: Not enough room for program headers, try linking with -N
+      url "http://downloads.haskell.org/~ghc/7.8.4/ghc-7.8.4-x86_64-unknown-linux-deb7.tar.xz"
+      sha256 "f62e00e93a5ac16ebfe97cd7cb8cde6c6f3156073d4918620542be3e0ad55f8d"
+    elsif MacOS.version >= :sierra
       url "https://downloads.haskell.org/~ghc/8.0.2-rc1/ghc-8.0.1.20161117-x86_64-apple-darwin.tar.xz"
       sha256 "6086ac08be3733c8817328c99c4af66f5a2feba02d4be4b0dc0aeac5acf0360e"
     else
@@ -89,6 +100,9 @@ class Ghc < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV.deparallelize if ENV["CIRCLECI"]
+
     # Setting -march=native, which is what --build-from-source does, fails
     # on Skylake (and possibly other architectures as well) with the error
     # "Segmentation fault: 11" for at least the following files:
@@ -121,12 +135,24 @@ class Ghc < Formula
     args = ["--with-gmp-includes=#{gmp}/include",
             "--with-gmp-libraries=#{gmp}/lib",
             "--with-ld=ld", # Avoid hardcoding superenv's ld.
-            "--with-gcc=#{ENV.cc}"] # Always.
+            "--with-gcc=#{OS.mac? ? ENV.cc : "gcc"}"] # Always.
 
     if ENV.compiler == :clang
-      args << "--with-clang=#{ENV.cc}"
+      args << "--with-clang=#{OS.mac? ? ENV.cc : "clang"}"
     elsif ENV.compiler == :llvm
       args << "--with-gcc-4.2=#{ENV.cc}"
+    end
+
+    if OS.linux?
+      # Fix error while loading shared libraries: libgmp.so.3
+      ln_s Formula["gmp"].lib/"libgmp.so", gmp/"lib/libgmp.so.3"
+      ENV.prepend_path "LD_LIBRARY_PATH", gmp/"lib"
+      # Fix /usr/bin/ld: cannot find -lgmp
+      ENV.prepend_path "LIBRARY_PATH", gmp/"lib"
+      # Fix ghc-stage2: error while loading shared libraries: libncursesw.so.5
+      ln_s Formula["ncurses"].lib/"libncursesw.so", gmp/"lib/libncursesw.so.5"
+      # Fix ghc-pkg: error while loading shared libraries: libncursesw.so.6
+      ENV.prepend_path "LD_LIBRARY_PATH", Formula["ncurses"].lib
     end
 
     # As of Xcode 7.3 (and the corresponding CLT) `nm` is a symlink to `llvm-nm`
@@ -140,11 +166,19 @@ class Ghc < Formula
     # https://mail.haskell.org/pipermail/ghc-devs/2016-April/011862.html
     # LLVM itself has already fixed the bug: llvm-mirror/llvm@ae7cf585
     # rdar://25311883 and rdar://25299678
-    if DevelopmentTools.clang_build_version >= 703 && DevelopmentTools.clang_build_version < 800
-      args << "--with-nm=#{`xcrun --find nm-classic`.chomp}"
-    end
+    args << "--with-nm=#{`xcrun --find nm-classic`.chomp}" if OS.mac? && DevelopmentTools.clang_build_version >= 703
 
     resource("binary").stage do
+      # Change the dynamic linker and RPATH of the binary executables.
+      if OS.linux? && Formula["glibc"].installed?
+        keg = Keg.new(prefix)
+        Dir["ghc/stage2/build/tmp/ghc-stage2", "libraries/*/dist-install/build/*.so",
+            "rts/dist/build/*.so*", "utils/*/dist*/build/tmp/*"].each do |s|
+          file = Pathname.new(s)
+          keg.change_rpath(file, Keg::PREFIX_PLACEHOLDER, HOMEBREW_PREFIX.to_s) if file.mach_o_executable? || file.dylib?
+        end
+      end
+
       binary = buildpath/"binary"
 
       system "./configure", "--prefix=#{binary}", *args
@@ -192,5 +226,7 @@ class Ghc < Formula
   test do
     (testpath/"hello.hs").write('main = putStrLn "Hello Homebrew"')
     system "#{bin}/runghc", testpath/"hello.hs"
+    system "#{bin}/ghc", "-o", "hello", "hello.hs"
+    system "./hello"
   end
 end

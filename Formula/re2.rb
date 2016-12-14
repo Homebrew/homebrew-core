@@ -19,9 +19,10 @@ class Re2 < Formula
     ENV.cxx11
 
     system "make", "install", "prefix=#{prefix}"
-    system "install_name_tool", "-id", "#{lib}/libre2.0.dylib", "#{lib}/libre2.0.0.0.dylib"
-    lib.install_symlink "libre2.0.0.0.dylib" => "libre2.0.dylib"
-    lib.install_symlink "libre2.0.0.0.dylib" => "libre2.dylib"
+    system "install_name_tool", "-id", "#{lib}/libre2.0.dylib", "#{lib}/libre2.0.0.0.dylib" if OS.mac?
+    ext = OS.mac? ? "dylib" : "so"
+    lib.install_symlink "libre2.0.0.0.#{ext}" => "libre2.0.#{ext}"
+    lib.install_symlink "libre2.0.0.0.#{ext}" => "libre2.#{ext}"
   end
 
   test do

@@ -10,11 +10,13 @@ class Libgcrypt < Formula
     sha256 "20016587df668c8c314a09213bfe4b4ebb426c55230f96d77e643d985a6ac0fb" => :sierra
     sha256 "dd8b02437315cb0cfe51542147546e13479294c516b3febdccbd5fdedd6c4bd6" => :el_capitan
     sha256 "aab062ed11c2b3560730e903f32112b0c6ba726a541fadc1d59706adeb9995b9" => :yosemite
+    sha256 "7e213f7de04a22b6ad76332656eeab2d2af42151e93b8e589df8bd820a9c6e0f" => :x86_64_linux
   end
 
   option :universal
 
   depends_on "libgpg-error"
+  depends_on "libxslt" unless OS.mac?
 
   resource "config.h.ed" do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/ec8d133/libgcrypt/config.h.ed"
@@ -53,7 +55,7 @@ class Libgcrypt < Formula
     system "install_name_tool", "-change",
                                 lib/"libgcrypt.20.dylib",
                                 buildpath/"src/.libs/libgcrypt.20.dylib",
-                                buildpath/"tests/.libs/random"
+                                buildpath/"tests/.libs/random" if OS.mac?
     system "make", "check"
     system "make", "install"
 

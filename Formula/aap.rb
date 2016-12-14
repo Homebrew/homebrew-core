@@ -11,6 +11,7 @@ class Aap < Formula
     sha256 "32c30b38a37147754c5abfe9a801777b4a798af6dbcce2f15e1693c6027f0fbe" => :el_capitan
     sha256 "15472b5a56a90d2d83c3ab24eba09e3644867857d8a7c547c82e6937beff3344" => :yosemite
     sha256 "b141c07f091f90bd883148bf0e3c093d90fc0be7c4f8e7d07df9ae7cae684862" => :mavericks
+    sha256 "4e422aa695195352e1541c7d5384822733350a2e8a585ba68ca8e96d9b9faaab" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

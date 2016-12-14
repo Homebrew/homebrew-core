@@ -10,6 +10,7 @@ class Unixodbc < Formula
     sha256 "a902055dc3ca4fbda0f26f5463cf971c1f80d13028ba8a7b2631823c8c84782b" => :el_capitan
     sha256 "91c8778727b1d8d5d2f2b0b21d25f3c8ff2f5221ec38231d06c54bbc75684f32" => :yosemite
     sha256 "f968a389218dde09820ce6d7278bcd521d7fb43e27f186541a8bfc538ff8ead6" => :mavericks
+    sha256 "90d63a969171e7c13e193fbaea54efd28c156cb20d92b162fe3f5288cee5ba5e" => :x86_64_linux
   end
 
   keg_only "Shadows system iODBC header files" if MacOS.version < :mavericks
@@ -17,6 +18,8 @@ class Unixodbc < Formula
   option :universal
 
   conflicts_with "virtuoso", :because => "Both install `isql` binaries."
+
+  depends_on "libtool" => :run unless OS.mac?
 
   def install
     ENV.universal_binary if build.universal?

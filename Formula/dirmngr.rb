@@ -11,6 +11,7 @@ class Dirmngr < Formula
     sha256 "53434e2db3e40e72e2ed25d76a5e2ae70326825d2d57ee91138839612db3db37" => :el_capitan
     sha256 "ddc0de1dff6015fd5072c2da6e0173be8fedf29db27edd03c33a3275b842e402" => :yosemite
     sha256 "47fe29be8ca19eeb4d4a3e3434cd35ef7b13e1c1a9e8696f5ebd4434dc8cc062" => :mavericks
+    sha256 "e3eb4f508ea39d2098e872d8d7dfeacd53aca498918f229a9d5d1a57c726553d" => :x86_64_linux
   end
 
   depends_on "libassuan"
@@ -18,6 +19,7 @@ class Dirmngr < Formula
   depends_on "libgcrypt"
   depends_on "libksba"
   depends_on "pth"
+  depends_on "homebrew/dupes/openldap" unless OS.mac?
 
   patch :p0 do
     # patch by upstream developer to fix an API incompatibility with libgcrypt >=1.6.0

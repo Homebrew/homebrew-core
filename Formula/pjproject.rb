@@ -10,6 +10,7 @@ class Pjproject < Formula
     sha256 "38f3a930783d7236623b0d90d1be5ab8334c126a49cde9b49dd12cbe1e601b7c" => :el_capitan
     sha256 "5c4ace5e1cf0aebf00f6a02967a09164659c4adbe24221f54bc4c2d8e6777db5" => :yosemite
     sha256 "3fb7e329490962df23a0d89574d3469abb2a9dbc9cd279133f4eff79cc1744f6" => :mavericks
+    sha256 "95d9d53df88a5ee522c4a5a5586b3d9042a51679bcca760e62077dec377416bb" => :x86_64_linux
   end
 
   depends_on "openssl"
@@ -19,7 +20,12 @@ class Pjproject < Formula
     system "make", "dep"
     system "make"
     system "make", "install"
-    bin.install "pjsip-apps/bin/pjsua-#{`uname -m`.chomp}-apple-darwin#{`uname -r`.chomp}" => "pjsua"
+    if OS.mac?
+      suffix = "apple-darwin#{`uname -r`.chomp}"
+    elsif OS.linux?
+      suffix = "unknown-linux-gnu"
+    end
+    bin.install "pjsip-apps/bin/pjsua-#{`uname -m`.chomp}-#{suffix}" => "pjsua"
   end
 
   test do

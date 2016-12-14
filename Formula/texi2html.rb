@@ -10,6 +10,7 @@ class Texi2html < Formula
     sha256 "75d7f657b619df77f6242cf24f07819730bd3907b1a74f683d54a4d2fb351fb2" => :el_capitan
     sha256 "3c3922e7c49aa3a0e1c02c845fd186d6feb1832067801d07168ef311960bdbf3" => :yosemite
     sha256 "b38ff58a22f0b79bc719bd16c987af8cd6673230f150eaac5d11c886e5a3883a" => :mavericks
+    sha256 "692aaf81c9deb9ff928163dbcf97b7a3d746077429c87697bcb31d9f09340239" => :x86_64_linux
   end
 
   keg_only :provided_pre_mountain_lion

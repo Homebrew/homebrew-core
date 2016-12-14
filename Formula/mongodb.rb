@@ -59,8 +59,8 @@ class Mongodb < Formula
     args = %W[
       --prefix=#{prefix}
       -j#{ENV.make_jobs}
-      --osx-version-min=#{MacOS.version}
     ]
+    args << "--osx-version-min=#{MacOS.version}" if OS.mac?
 
     args << "CC=#{ENV.cc}"
     args << "CXX=#{ENV.cxx}"
@@ -68,7 +68,7 @@ class Mongodb < Formula
     args << "--use-sasl-client" if build.with? "sasl"
     args << "--use-system-boost" if build.with? "boost"
     args << "--use-new-tools"
-    args << "--disable-warnings-as-errors" if MacOS.version >= :yosemite
+    args << "--disable-warnings-as-errors" if !OS.mac? || MacOS.version >= :yosemite
 
     if build.with? "openssl"
       args << "--ssl"

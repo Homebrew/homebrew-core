@@ -9,6 +9,7 @@ class Libsass < Formula
     sha256 "fcc15fe8462e1559cd87efaad9a080e9687e2726705d6fb8def72eb13712ebd1" => :sierra
     sha256 "79be0774c3282325f2252e8fb8ae5b56ffe016311f972e46567fbd2792fd0775" => :el_capitan
     sha256 "a25f3fb0fd1d8d3296c545d9cc6bb5b04dd81492ac3143f06aeffec289790e39" => :yosemite
+    sha256 "0d96bf2d570f779aed88c66cb486cedf4d10d07669c4ad0be1e8ca52bd2f3688" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -17,6 +18,9 @@ class Libsass < Formula
   needs :cxx11
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV.deparallelize if ENV["CIRCLECI"]
+
     ENV.cxx11
     system "autoreconf", "-fvi"
     system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",

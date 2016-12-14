@@ -12,6 +12,7 @@ class Doxygen < Formula
     sha256 "60656bd148d8a143f6feda2ed4e61a910a62788ab5177864f9e19766546f32c0" => :el_capitan
     sha256 "9459c7ee8153939bd8ac152548d6c206d67a0aa16be2dcc61dcac616d652d019" => :yosemite
     sha256 "7bb03f81dc587296272560b6768f6088a5ef7846b9c4975ca6a1a05742393f20" => :mavericks
+    sha256 "a2773be013216b33a20c25d894af428fe0ba45c081616cecc60798e0d8e3e376" => :x86_64_linux
   end
 
   option "with-graphviz", "Build with dot command support from Graphviz."
@@ -26,6 +27,8 @@ class Doxygen < Formula
   depends_on "graphviz" => :optional
   depends_on "qt5" => :optional
   depends_on "llvm" => :optional
+  depends_on "bison" unless OS.mac?
+  depends_on "flex" unless OS.mac?
 
   def install
     args = std_cmake_args

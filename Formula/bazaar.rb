@@ -10,7 +10,10 @@ class Bazaar < Formula
     sha256 "75e4a4aa57887371b783839667da3a142805c60f13197d599f6c8ef95c104707" => :el_capitan
     sha256 "7919335ffdd76bd54a3b58da3e7d9499f8bc6dd895b1d117390bb19ceaf08818" => :yosemite
     sha256 "51a058a4ff6b070a62ce30d01a673bba74d65d4eab6a13a9d53696f24cceb80d" => :mavericks
+    sha256 "cd9f35b015942a2f700abe99e1ddd6a8cfcf68ce2f749d0dca54f2163fe777b2" => :x86_64_linux
   end
+
+  depends_on :python unless OS.mac?
 
   def install
     ENV.j1 # Builds aren't parallel-safe
@@ -23,7 +26,7 @@ class Bazaar < Formula
     ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/Current/bin"
 
     system "make"
-    inreplace "bzr", "#! /usr/bin/env python", "#!/usr/bin/python"
+    inreplace "bzr", "#! /usr/bin/env python", "#!/usr/bin/python" if OS.mac?
     libexec.install "bzr", "bzrlib"
 
     (bin/"bzr").write_env_script(libexec/"bzr", :BZR_PLUGIN_PATH => "+user:#{HOMEBREW_PREFIX}/share/bazaar/plugins")

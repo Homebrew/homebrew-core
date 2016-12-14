@@ -13,11 +13,15 @@ class GitNow < Formula
     sha256 "7126e867e543659b9750041412e737407fb94f9dbb38fea1edf16cec8027aa64" => :el_capitan
     sha256 "748cd8691ad94b407f892ffa7f8e12c183b7326208efd9ac6dafbe1b8fda9565" => :yosemite
     sha256 "c19eda078da8974bde40ee07eac5701e9295d56bd59a6d18ea21c3d337b50e02" => :mavericks
+    sha256 "df4b4b7da7d3f0dd563858b126bece61cd99ed697521000b5c593c47753d7a54" => :x86_64_linux
   end
 
   depends_on "gnu-getopt"
 
   def install
+    # Fix bashism in git-now-add when executed by git-now
+    inreplace "git-now", "#!/bin/sh", "#!/bin/bash"
+
     system "make", "prefix=#{libexec}", "install"
 
     (bin/"git-now").write <<-EOS.undent

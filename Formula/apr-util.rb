@@ -10,6 +10,7 @@ class AprUtil < Formula
     sha256 "315f64f6b345302aaeb9eb6635b6679e7460757da0cb1555f3610387813a44c7" => :sierra
     sha256 "d305a48dad4a0ceb01cc9cc874fbac7b18a6d1721cc4e385f8614dd6d666cbdb" => :el_capitan
     sha256 "df0ccddb589927e907f83149156b274dfaaaf8f82067f901f38789728a3193dc" => :yosemite
+    sha256 "4e0f6773c62904d1fe0771c03956da96dd7bec58dd1e5ef04eca497a828a66c7" => :x86_64_linux
   end
 
   keg_only :provided_by_osx, "Apple's CLT package contains apr."
@@ -24,6 +25,10 @@ class AprUtil < Formula
   depends_on "unixodbc" => :optional
   depends_on "sqlite" => :optional
   depends_on "homebrew/dupes/openldap" => :optional
+  depends_on "util-linux" if OS.linux? # for libuuid
+
+  # prevent building bundled expat
+  depends_on "expat" unless OS.mac?
 
   def install
     ENV.universal_binary if build.universal?
@@ -51,6 +56,7 @@ class AprUtil < Formula
     system "make"
     system "make", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
+    lib.install_symlink Dir["#{libexec}/lib/*.so*"] unless OS.mac?
 
     # No need for this to point to the versioned path.
     inreplace libexec/"bin/apu-1-config", libexec, opt_libexec

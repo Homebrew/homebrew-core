@@ -13,6 +13,7 @@ class Xz < Formula
     sha256 "7cfefbef7669a6959eb019ffba2d06b2c8f041fb826e89126c1ced23f03e2029" => :el_capitan
     sha256 "cd13b4dea278b179eceebed9f07b79c95e7416d7cac0ba095173cc463149df46" => :yosemite
     sha256 "9a5b520ae6a4cc728a7f5c4a15deb1dc2f150e3665d5afbc802b07f2a4fbd6e6" => :mavericks
+    sha256 "141868176d88d094dfa6067c9214de59db60aca3eb81edac4ff598f309ab5b50" => :x86_64_linux
   end
 
   option :universal

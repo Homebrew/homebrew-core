@@ -10,10 +10,11 @@ class Ripmime < Formula
     sha256 "1151fa0bb8a10779979cec95c7039832eb81b7126f808ba9c89ccb73cf658814" => :el_capitan
     sha256 "6ef2fdabe468bc42be725020ef23cc924d1572c7446648e38dbd6de3f1399a38" => :yosemite
     sha256 "741b45ca155022fb6b540dd1cc0882f5f29330b6909e37fd5115e84705d9d6bb" => :mavericks
+    sha256 "67c4f5e95036bdb48769f3eedb4323fff39128f028996c352f6ed798aa0ef74c" => :x86_64_linux
   end
 
   def install
-    system "make", "LIBS=-liconv", "CFLAGS=#{ENV.cflags}"
+    system "make", "CFLAGS=#{ENV.cflags}", *("LIBS=-liconv" if OS.mac?)
     bin.install "ripmime"
     man1.install "ripmime.1"
   end

@@ -9,6 +9,7 @@ class KyotoCabinet < Formula
     sha256 "c4b2e78762b188a19b3c6c2aec1733c59b03fd69d23aa2ae41ba8e756704c795" => :el_capitan
     sha256 "149125dc24b899ac4d6dd48a11aebb2ac092252b8e9cccac6472d3713062f914" => :yosemite
     sha256 "bfed1b4b4aa5e742c89f9aa0ba83375ad4ff1d5daaf0e060260d16df4024582d" => :mavericks
+    sha256 "ef4eba5edb599d051cc9acf12f8cc8e4de3732611eac6c92c1f30be8f9d0f452" => :x86_64_linux
   end
 
   fails_with :clang do

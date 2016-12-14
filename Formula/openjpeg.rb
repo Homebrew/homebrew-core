@@ -11,6 +11,7 @@ class Openjpeg < Formula
     sha256 "4e27fbf3c861435a3413a9ce6a32dd2336b666fb046278eb72711176cb10ecad" => :sierra
     sha256 "7d4ac6ba6dceae7f22d1f477abc8e4c3039324382d7029df71bd8f380f4e94d3" => :el_capitan
     sha256 "6e5766dd0f55d5cee1406ad8919ffc89fe3a701a2a4dd2cdd836abb34d753ae6" => :yosemite
+    sha256 "54cb57f3285c8d3cabfb2fe376fa144a4aa80f19bd1a52775f457d75633249d4" => :x86_64_linux
   end
 
   option "without-doxygen", "Do not build HTML documentation."
@@ -45,8 +46,8 @@ class Openjpeg < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}/openjpeg-2.1", "-L#{lib}", "-lopenjp2",
-           testpath/"test.c", "-o", "test"
+    system ENV.cc, "-I#{include}/openjpeg-2.1", "-L#{lib}",
+           testpath/"test.c", "-o", "test", "-lopenjp2"
     system "./test"
   end
 end

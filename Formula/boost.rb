@@ -10,6 +10,7 @@ class Boost < Formula
     sha256 "22763fd3647255018dc31832f2513c03f36a56c3461c03e03cf5e8866cc64ce5" => :sierra
     sha256 "5c639c9f61b56ed1d99a5b8b25d149c366543330b654c429fe939e57fae9541b" => :el_capitan
     sha256 "527fdbeaa9f685e3de45938bf897e145292471250c6e47ea50ff1635f121b67a" => :yosemite
+    sha256 "2963be19764c742c58e6adb5a313bd09eab9bff50a0d7a8562b578bfdb6095e3" => :x86_64_linux
   end
 
   env :userpaths
@@ -30,6 +31,7 @@ class Boost < Formula
     depends_on "icu4c" => :optional
     depends_on :mpi => [:cc, :cxx, :optional]
   end
+  depends_on "bzip2" unless OS.mac?
 
   fails_with :llvm do
     build 2335
@@ -39,11 +41,17 @@ class Boost < Formula
   needs :cxx11 if build.cxx11?
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["HOMEBREW_MAKE_JOBS"] = "6" if ENV["CIRCLECI"]
     ENV.universal_binary if build.universal?
 
     # Force boost to compile with the desired compiler
     open("user-config.jam", "a") do |file|
-      file.write "using darwin : : #{ENV.cxx} ;\n"
+      if OS.mac?
+        file.write "using darwin : : #{ENV.cxx} ;\n"
+      else
+        file.write "using gcc : : #{ENV.cxx} ;\n"
+      end
       file.write "using mpi ;\n" if build.with? "mpi"
     end
 
@@ -107,6 +115,10 @@ class Boost < Formula
         args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
       end
     end
+
+    # Fix error: bzlib.h: No such file or directory
+    # and /usr/bin/ld: cannot find -lbz2
+    args += ["include=#{HOMEBREW_PREFIX}/include", "linkflags=-L#{HOMEBREW_PREFIX}/lib"] unless OS.mac?
 
     system "./bootstrap.sh", *bootstrap_args
     system "./b2", "headers"

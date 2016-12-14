@@ -10,12 +10,15 @@ class Texinfo < Formula
     sha256 "f0fcad49893de2e4167658cf13dc6b6ef0a458e764637b63ff2ba623959e4928" => :el_capitan
     sha256 "91d4ca04c9b42751af95b6114b477afe01221758ba152763d4177332a67399d9" => :yosemite
     sha256 "5990ad5d13570b6991156fa2db000dfe25273614c27912d46d8802577d85fe8c" => :mavericks
+    sha256 "f16bc0c99d0cbf70208037bd6552bcd47f74aaa9ce4de0cc46baea5c9a4fa1e5" => :x86_64_linux
   end
 
   keg_only :provided_by_osx, <<-EOS.undent
     Software that uses TeX, such as lilypond and octave, require a newer version
     of these files.
   EOS
+
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",

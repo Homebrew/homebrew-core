@@ -10,6 +10,7 @@ class Libzip < Formula
     sha256 "c28e83d87bf7c83b0a6f9acbe1d42088310d7790ffb120515c4eeb4e452ddbb6" => :el_capitan
     sha256 "ad08d1d50f0e5b263ec39253eaec4e70216bef97558a0ec37aae4d7849a1e17f" => :yosemite
     sha256 "e5c8a9203db8983a448ab144a7457b069f560354f2a0f6ee677e89dc4b07c21e" => :mavericks
+    sha256 "911e7bfc1b5cc78a4ea3149cf076c820b033e553d632993e2888ad502c6e6edc" => :x86_64_linux
   end
 
   option :universal

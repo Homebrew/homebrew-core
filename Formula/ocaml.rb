@@ -30,6 +30,7 @@ class Ocaml < Formula
     sha256 "b7448dcd0685f7e129ace58707f821f53a89fb436edba86d20e86a203c2deb5e" => :sierra
     sha256 "cba95bfb38d7f4466830906b67e69f63463ae90fdf28ef05abbf6234760c8d9a" => :el_capitan
     sha256 "fe05592478358e1ffab4f83c03ad6567865978e52341544131c66da1e9917a02" => :yosemite
+    sha256 "10d51f63fd5b42e7506e692167953a486b02f36c6db72cf03502b1263135eba8" => :x86_64_linux
   end
 
   option "with-x11", "Install with the Graphics module"

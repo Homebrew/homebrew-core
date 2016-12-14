@@ -10,6 +10,7 @@ class Jam < Formula
     sha256 "d93effb9978322bc47d7d204e435ce7da90dd577a43b9086d6868a3118c2fb29" => :el_capitan
     sha256 "9f8bffedce727f07a14ff7a9453bf66884dce87d463de464fe2c40e30f127c60" => :yosemite
     sha256 "83ef7ba772948a5e06481cd0a32c54f09139d2693d880223b72ee27deb4d7e37" => :mavericks
+    sha256 "8098a441933f7077f732bfa6a73d4e4d6e8d89a3bac658935c23807f642ffd8d" => :x86_64_linux
   end
 
   conflicts_with "ftjam", :because => "both install a `jam` binary"
