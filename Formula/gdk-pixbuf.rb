@@ -1,3 +1,4 @@
+# gdk-pixbuf: Build a bottle for Linuxbrew
 class GdkPixbuf < Formula
   desc "Toolkit for image loading and pixel buffer manipulation"
   homepage "http://gtk.org"
