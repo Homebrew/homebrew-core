@@ -1,8 +1,8 @@
 class Ccextractor < Formula
   desc "Free, GPL licensed closed caption tool"
   homepage "http://www.ccextractor.org"
-  url "https://downloads.sourceforge.net/project/ccextractor/ccextractor/0.82/ccextractor.src.0.82.zip"
-  sha256 "890e7786256c74c7e4850592784da027451dd7c3e3a353c9bad3bea5467b7b77"
+  url "https://downloads.sourceforge.net/project/ccextractor/ccextractor/0.83/ccextractor.src.0.83.zip"
+  sha256 "6ed32ba8424dc22fb3cca77776f2ee3137f5198cc2909711cab22fcc7cee470a"
   head "https://github.com/ccextractor/ccextractor.git"
 
   bottle do
@@ -14,6 +14,9 @@ class Ccextractor < Formula
   end
 
   def install
+    inreplace "src/lib_ccx/ccx_sub_entry_message.pb-c.h",
+      '#include "protobuf-c.h"', '#include "../protobuf-c/protobuf-c.h"'
+
     cd "mac" do
       system "./build.command"
       bin.install "ccextractor"
