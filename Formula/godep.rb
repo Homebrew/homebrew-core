@@ -3,6 +3,8 @@ class Godep < Formula
   homepage "https://godoc.org/github.com/tools/godep"
   url "https://github.com/tools/godep/archive/v75.tar.gz"
   sha256 "a9508db6a792170f9815864b70a70a8e0e66ca0bf57f1a9cc087d811ec105494"
+  revision 1
+
   head "https://github.com/tools/godep.git"
 
   bottle do
@@ -13,6 +15,12 @@ class Godep < Formula
   end
 
   depends_on "go"
+
+  # Add support for Go 1.8+, currently devel.
+  patch do
+    url "https://github.com/tools/godep/pull/524.patch"
+    sha256 "245ff4b4fad3831fd2a2a51ba4ac7b01e3affad1a25a7b4da8ef31e7a387c7b8"
+  end
 
   def install
     ENV["GOPATH"] = buildpath
