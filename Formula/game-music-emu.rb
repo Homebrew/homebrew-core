@@ -1,8 +1,8 @@
 class GameMusicEmu < Formula
   desc "Videogame music file emulator collection"
   homepage "https://bitbucket.org/mpyne/game-music-emu"
-  url "https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-0.6.0.tar.bz2"
-  sha256 "506e81d0c61e1a26d503fbf5351503e0b31f9fbb374cb1f09979758b46a24987"
+  url "https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-0.6.1.tar.bz2"
+  sha256 "dc11bea098072d540d4d52dfb252e76fc3d3af67ee2807da48fbd8dbda3fd321"
   head "https://bitbucket.org/mpyne/game-music-emu.git"
 
   bottle do
