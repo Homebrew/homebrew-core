@@ -111,6 +111,8 @@ class Gcc < Formula
       languages << "jit" if build.with? "jit"
     end
 
+    languages -= ["java"] if build.head?
+
     args = [
       "--build=#{arch}-apple-darwin#{osmajor}",
       "--prefix=#{prefix}",
