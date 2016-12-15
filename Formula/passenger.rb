@@ -25,9 +25,6 @@ class Passenger < Formula
     ENV["APU_CONFIG"] = Formula["apr-util"].opt_bin/"apu-1-config"
     ENV["APR_CONFIG"] = Formula["apr"].opt_bin/"apr-1-config"
 
-    inreplace "src/ruby_supportlib/phusion_passenger.rb",
-      "PREFERRED_NGINX_VERSION = '1.10.1'",
-      "PREFERRED_NGINX_VERSION = '1.10.2'"
     inreplace "src/ruby_supportlib/phusion_passenger/platform_info/openssl.rb" do |s|
       s.gsub! "-I/usr/local/opt/openssl/include", "-I#{Formula["openssl"].opt_include}"
       s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{Formula["openssl"].opt_lib}"
