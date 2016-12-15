@@ -27,4 +27,11 @@ class Unfs3 < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    (testpath/"exports").write <<-EOS.undent
+    "#{Dir.pwd}" 192.168.0.1(ro)
+    EOS
+    system("#{sbin}/unfsd", "-T", "-e", (testpath/"exports").to_s)
+  end
 end
