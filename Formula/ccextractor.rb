@@ -7,10 +7,9 @@ class Ccextractor < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e9b4e38e0b81d257841d64eb8aeec6e3015d1ad7ac9afe3d8b797f969109960d" => :sierra
-    sha256 "358c85300067eb0ae9a7b09d2325c24103ecbdf73f2d07c8e76baaeac5743931" => :el_capitan
-    sha256 "e5dfe6c34730149839a16860fb012776633dc0021562d26a6f06a5825116ee3c" => :yosemite
-    sha256 "b513081333efed3bf23e133bd062c18507b587a627379693a14372c45b966d6b" => :mavericks
+    sha256 "c728f96ce60f0f7833f076c242fff1327e22fec775087d8c6dec7a1ffa34719d" => :sierra
+    sha256 "cc2090ced16465dc32d2a5079364b5f3ca064222d42c177126c49b2b372336cf" => :el_capitan
+    sha256 "3d6aa76b9cb91f4f67c901d4386ec8db148224b0504b8228e978d02e4a4a5587" => :yosemite
   end
 
   def install
