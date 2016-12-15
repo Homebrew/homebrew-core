@@ -13,6 +13,8 @@ class Watson < Formula
     sha256 "49a31680d09bafb7f4067f10da498ea542f90c3630bc65ab31552ec59dd02c72" => :yosemite
   end
 
+  option "with-completion", "Install Zsh & Bash completions"
+
   depends_on :python
 
   resource "arrow" do
@@ -42,6 +44,20 @@ class Watson < Formula
 
   def install
     virtualenv_install_with_resources
+
+    if build.with? "completion"
+      bash_completion.install "watson.completion" => "watson"
+      zsh_completion.install "watson.zsh-completion" => "_watson"
+    end
+  end
+
+  def caveats
+    <<-EOS.undent
+    To activate these completions, make sure that your .zshrc enables compinit:
+
+        autoload -Uz compinit && compinit
+
+    EOS
   end
 
   test do
