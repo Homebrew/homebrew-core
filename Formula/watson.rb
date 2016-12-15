@@ -42,6 +42,9 @@ class Watson < Formula
 
   def install
     virtualenv_install_with_resources
+
+    bash_completion.install "watson.completion" => "watson"
+    zsh_completion.install "watson.zsh-completion" => "_watson"
   end
 
   test do
