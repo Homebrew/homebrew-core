@@ -3,8 +3,8 @@ class Saltstack < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "http://www.saltstack.org"
-  url "https://files.pythonhosted.org/packages/b4/01/521c042089dd4c364ae9d4523342edfec530914244ae7379f125f8b97f51/salt-2016.11.0.tar.gz"
-  sha256 "b516285926ee95cedc64ecddab05d14422b7c8819c9f6d046a431c41d608e6bc"
+  url "https://files.pythonhosted.org/packages/dd/b2/2a81377b66a25ef29c38deea8244f6d35d56ae7c7db1d0234201b284c7d3/salt-2016.11.1.tar.gz"
+  sha256 "00343e190dcf6dfa27dbec996d1161f7aef16cf99510b67970136cf24f092992"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -76,8 +76,8 @@ class Saltstack < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/d9/03/155b3e67fe35fe5b6f4227a8d9e96a14fda828b18199800d161bcefc1359/requests-2.12.3.tar.gz"
-    sha256 "de5d266953875e9647e37ef7bfe6ef1a46ff8ddfe61b5b3652edf7ea717ee2b2"
+    url "https://files.pythonhosted.org/packages/5b/0b/34be574b1ec997247796e5d516f3a6b6509c4e064f2885a96ed885ce7579/requests-2.12.4.tar.gz"
+    sha256 "ed98431a0631e309bb4b63c81d561c1654822cb103de1ac7b47e45c26be7ae34"
   end
 
   resource "singledispatch" do
