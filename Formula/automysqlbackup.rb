@@ -28,6 +28,8 @@ class Automysqlbackup < Formula
     EOS
   end
 
+  plist_options :startup => true
+
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -55,5 +57,8 @@ class Automysqlbackup < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
   end
 end
