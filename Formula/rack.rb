@@ -23,9 +23,16 @@ class Rack < Formula
     rackpath.install Dir["{*,.??*}"]
 
     cd rackpath do
+      # This is a slightly grim hack to handle the weird logic around
+      # deciding whether to add a = or not on the ldflags, as mandated
+      # by Go 1.7+.
+      # https://github.com/rackspace/rack/issues/446
+      inreplace "script/build", "go1.5", Utils.popen_read("go version")[/go1\.\d/]
+
       ln_s "internal", "vendor"
       system "script/build", "rack"
       bin.install "rack"
+      prefix.install_metafiles
     end
   end
 
