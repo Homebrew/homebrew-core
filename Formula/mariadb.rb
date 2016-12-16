@@ -60,6 +60,7 @@ class Mariadb < Formula
 
     # -DINSTALL_* are relative to prefix
     args = %W[
+      -DCMAKE_CXX_STANDARD=11
       -DMYSQL_DATADIR=#{var}/mysql
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_MANDIR=share/man
