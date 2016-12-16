@@ -3,6 +3,7 @@ class Pulseaudio < Formula
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
   url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-9.0.tar.xz"
   sha256 "c3d3d66b827f18fbe903fe3df647013f09fc1e2191c035be1ee2d82a9e404686"
+  revision 1
 
   bottle do
     sha256 "462b639e10a35707632216543223664921f5f0db2344bbea62f8c7d3ea6a2763" => :sierra
@@ -34,10 +35,10 @@ class Pulseaudio < Formula
   depends_on "libsndfile"
   depends_on "libsoxr"
   depends_on "openssl"
-
+  depends_on "dbus" => :recommended
+  depends_on "speex" => :recommended
   depends_on "glib" => :optional
   depends_on "gconf" => :optional
-  depends_on "dbus" => :optional
   depends_on "gtk+3" => :optional
   depends_on "jack" => :optional
 
