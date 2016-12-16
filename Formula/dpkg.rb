@@ -1,9 +1,9 @@
 class Dpkg < Formula
   desc "Debian package management system"
   homepage "https://wiki.debian.org/Teams/Dpkg"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.14.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.14.tar.xz"
-  sha256 "1788e418526049097fb3d8f68d5a75053c19693ab1fa47a506a7ef80db454d5a"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.15.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.15.tar.xz"
+  sha256 "aee936653b9c39403160c0a331ee7934563fbfa4e1f5adbc14a289c803cda371"
 
   bottle do
     sha256 "c02d531b3bc8703b33cc273c9328965001dd633eb30b85a160cc80029c7433dd" => :sierra
@@ -25,7 +25,7 @@ class Dpkg < Formula
     # Using an env and scripting is a solution less likely to break over time.
     # Both variables need to be set. One is compile-time, the other run-time.
     ENV["PERL_LIBDIR"] = libexec/"lib/perl5"
-    ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -33,7 +33,6 @@ class Dpkg < Formula
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
                           "--disable-dselect",
-                          "--disable-linker-optimisations",
                           "--disable-start-stop-daemon"
     system "make"
     system "make", "install"
