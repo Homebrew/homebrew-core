@@ -1,11 +1,10 @@
 class Upx < Formula
   desc "Compress/expand executable files"
   homepage "https://upx.github.io/"
-  url "https://github.com/upx/upx/releases/download/v3.91/upx-3.91-src.tar.bz2"
-  mirror "https://fossies.org/linux/privat/upx-3.91-src.tar.bz2"
-  sha256 "527ce757429841f51675352b1f9f6fc8ad97b18002080d7bf8672c466d8c6a3c"
+  url "https://github.com/upx/upx/releases/download/v3.92/upx-3.92-src.tar.xz"
+  mirror "https://fossies.org/linux/privat/upx-3.92-src.tar.bz2"
+  sha256 "0378169c342a0f98dc93236deae42f72fda07d0b02d7f51e6147448ee7e77794"
   head "https://github.com/upx/upx.git", :branch => :devel
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -17,20 +16,7 @@ class Upx < Formula
 
   depends_on "ucl"
 
-  # https://sourceforge.net/p/upx/bugs/248/
-  # https://github.com/upx/upx/issues/4
-  depends_on MaximumMacOSRequirement => :el_capitan
-
-  resource "lzma" do
-    url "https://downloads.sourceforge.net/project/sevenzip/LZMA%20SDK/lzma938.7z"
-    sha256 "721f4f15378e836686483811d7ea1282463e3dec1932722e1010d3102c5c3b20"
-  end
-
   def install
-    inreplace "src/compress_lzma.cpp", "C/Types.h", "C/7zTypes.h"
-    (buildpath/"lzmasdk").install resource("lzma")
-    ENV["UPX_LZMADIR"] = buildpath/"lzmasdk"
-    ENV["UPX_LZMA_VERSION"] = "0x938"
     system "make", "all"
     bin.install "src/upx.out" => "upx"
     man1.install "doc/upx.1"
