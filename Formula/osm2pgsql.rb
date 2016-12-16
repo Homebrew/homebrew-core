@@ -1,19 +1,9 @@
 class Osm2pgsql < Formula
   desc "OpenStreetMap data to PostgreSQL converter"
   homepage "https://wiki.openstreetmap.org/wiki/Osm2pgsql"
+  url "https://github.com/openstreetmap/osm2pgsql/archive/0.92.0.tar.gz"
+  sha256 "b741cfdf6489fd5def721f75a9558b8cda53165dda7ca9548fcc5b43e163ee77"
   head "https://github.com/openstreetmap/osm2pgsql.git"
-  revision 2
-
-  stable do
-    url "https://github.com/openstreetmap/osm2pgsql/archive/0.90.1.tar.gz"
-    sha256 "f9ba09714603db251e4a357c1968640c350b0ca5c99712008dadc71c0c3e898b"
-
-    # Remove for >0.90.1; adds the option to build without lua (-DWITH_LUA=OFF)
-    patch do
-      url "https://github.com/openstreetmap/osm2pgsql/commit/dbbca884.patch"
-      sha256 "1efce5c8feeb3646450bee567582252b15634c7e139d4aa73058efbd8236fb60"
-    end
-  end
 
   bottle do
     sha256 "e0faa9d16e381814c88c6640dbc2dde471392e830c14dddd10f1b3a3713584e2" => :sierra
