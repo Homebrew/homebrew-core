@@ -7,6 +7,8 @@ class OpenshiftCli < Formula
 
   head "https://github.com/openshift/origin.git"
 
+  depends_on "socat"
+
   bottle do
     cellar :any_skip_relocation
     sha256 "aa16bc29805dd80a448cc6af5c9cc9b140bdd37c945dd8efab0e0170c4a17975" => :sierra
@@ -19,8 +21,6 @@ class OpenshiftCli < Formula
       :tag => "v1.4.0-rc1",
       :revision => "b4e0954faa4a0d11d9c1a536b76ad4a8c0206b7c"
     version "1.4.0-rc1"
-
-    depends_on "socat"
   end
 
   depends_on "go" => :build
