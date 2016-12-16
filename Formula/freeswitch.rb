@@ -2,8 +2,8 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   url "https://freeswitch.org/stash/scm/fs/freeswitch.git",
-      :tag => "v1.4.23",
-      :revision => "aaef0e298730d0f1cc11f2573bb6e6d999b0242d"
+      :tag => "v1.6.13",
+      :revision => "e755b430da70bd63eebf1dfddacdce48ce863fce"
 
   head "https://freeswitch.org/stash/scm/fs/freeswitch.git"
 
@@ -24,7 +24,8 @@ class Freeswitch < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on :apr => :build
+  depends_on "apr-util" => :build
+  depends_on "yasm" => :build
 
   depends_on "curl"
   depends_on "jpeg"
@@ -33,9 +34,17 @@ class Freeswitch < Formula
   depends_on "pcre"
   depends_on "speex"
   depends_on "sqlite"
+  depends_on "lua"
+  depends_on "opus"
+  depends_on "libsndfile"
 
   # https://github.com/Homebrew/homebrew/issues/42865
   fails_with :gcc
+
+  resource "speexdsp" do
+    url "https://github.com/xiph/speexdsp/archive/SpeexDSP-1.2rc3.tar.gz"
+    sha256 "e8be7482df7c95735e5466efb371bd7f21115f39eb45c20ab7264d39c57b6413"
+  end
 
   #----------------------- Begin sound file resources -------------------------
   sounds_url_base = "https://files.freeswitch.org/releases/sounds"
@@ -43,106 +52,117 @@ class Freeswitch < Formula
   #---------------
   # music on hold
   #---------------
-  moh_version = "1.0.50" # from build/moh_version.txt
+  moh_version = "1.0.52" # from build/moh_version.txt
   resource "sounds-music-8000" do
     url "#{sounds_url_base}/freeswitch-sounds-music-8000-#{moh_version}.tar.gz"
     version moh_version
-    sha256 "557807409688e4a00be2597bd1a0e88907c48d8229a81d5a317b08a38bc905a4"
+    sha256 "2491dcb92a69c629b03ea070d2483908a52e2c530dd77791f49a45a4d70aaa07"
   end
   resource "sounds-music-16000" do
     url "#{sounds_url_base}/freeswitch-sounds-music-16000-#{moh_version}.tar.gz"
     version moh_version
-    sha256 "d0578d19c0eef5a85de715cde4d2b86f9ff3c8e3a06715ae1612fb6291967772"
+    sha256 "93e0bf31797f4847dc19a94605c039ad4f0763616b6d819f5bddbfb6dd09718a"
   end
   resource "sounds-music-32000" do
     url "#{sounds_url_base}/freeswitch-sounds-music-32000-#{moh_version}.tar.gz"
     version moh_version
-    sha256 "ab9c502d0242f85bf2ea951af6c5a39996df0de851007ef73e1bab3412e343fd"
+    sha256 "4129788a638b77c5f85ff35abfcd69793d8aeb9d7833a75c74ec77355b2657a9"
   end
   resource "sounds-music-48000" do
     url "#{sounds_url_base}/freeswitch-sounds-music-48000-#{moh_version}.tar.gz"
     version moh_version
-    sha256 "d72e416ded81e0e8749145c82fee5c475841c143ee7b85f570f4cfb95c93c7e6"
+    sha256 "cc31cdb5b1bd653850bf6e054d963314bcf7c1706a9bf05f5a69bcbd00858d2a"
   end
 
   #-----------
   # sounds-en
   #-----------
-  sounds_en_version = "1.0.50" # from build/sounds_version.txt
+  sounds_en_version = "1.0.51" # from build/sounds_version.txt
   resource "sounds-en-us-callie-8000" do
     url "#{sounds_url_base}/freeswitch-sounds-en-us-callie-8000-#{sounds_en_version}.tar.gz"
     version sounds_en_version
-    sha256 "c1901d6df1bf0aa550e6ce035d7573c010168f625f4605813b153a0e9e0e48e2"
+    sha256 "e48a63bd69e6253d294ce43a941d603b02467feb5d92ee57a536ccc5f849a4a8"
   end
   resource "sounds-en-us-callie-16000" do
     url "#{sounds_url_base}/freeswitch-sounds-en-us-callie-16000-#{sounds_en_version}.tar.gz"
     version sounds_en_version
-    sha256 "fb99c5df21fd73c99aa9d8fb8219a098952f8c22e5c0757f70972e2767a09342"
+    sha256 "324b1ab5ab754db5697963e9bf6a2f9c7aeb1463755e86bbb6dc4d6a77329da2"
   end
   resource "sounds-en-us-callie-32000" do
     url "#{sounds_url_base}/freeswitch-sounds-en-us-callie-32000-#{sounds_en_version}.tar.gz"
     version sounds_en_version
-    sha256 "74cc7ef7b64d1b51fdb669d2b8db89afdd3cd678b94679b2d6636443c8c63ed8"
+    sha256 "06fd6b8aec937556bf5303ab19a212c60daf00546d395cf269dfe324ac9c6838"
   end
   resource "sounds-en-us-callie-48000" do
     url "#{sounds_url_base}/freeswitch-sounds-en-us-callie-48000-#{sounds_en_version}.tar.gz"
     version sounds_en_version
-    sha256 "4bfa974cacb56cd99540831716bf7974dc1c99569a202b57120dc79e74877f1b"
+    sha256 "cfc50f1d9b5d43cb87a9a2c0ce136c37ee85ac3b0e5be930d8dc2c913c4495aa"
   end
 
   #-----------
   # sounds-fr
   #-----------
-  sounds_fr_version = "1.0.18" # from build/sounds_version.txt
+  sounds_fr_version = "1.0.51" # from build/sounds_version.txt
   resource "sounds-fr-ca-june-8000" do
     url "#{sounds_url_base}/freeswitch-sounds-fr-ca-june-8000-#{sounds_fr_version}.tar.gz"
     version sounds_fr_version
-    sha256 "f7fd5c84ff9b1c1929167a4b33f38d6770a44c5bcad4e5f96b86e3165bfd05d4"
+    sha256 "eada67c61bd62ec420eb017df7524d10de286fba0c2da4800516b9f62c00e78c"
   end
   resource "sounds-fr-ca-june-16000" do
     url "#{sounds_url_base}/freeswitch-sounds-fr-ca-june-16000-#{sounds_fr_version}.tar.gz"
     version sounds_fr_version
-    sha256 "5c4e45be5988e7763b196a453722f3a5dd41f79b280a37a8960cf65d390318a7"
+    sha256 "f942980ad359951ef3f69a324a3299ef86cdb4f8d2c62adaf73a1b95fb39fcc6"
   end
   resource "sounds-fr-ca-june-32000" do
     url "#{sounds_url_base}/freeswitch-sounds-fr-ca-june-32000-#{sounds_fr_version}.tar.gz"
     version sounds_fr_version
-    sha256 "b0c30f112bfd40e0422a93b30d251072e9847274a39d3407a06f3528d8935bfe"
+    sha256 "8966a0c4daf666018cca6d8ba0f7708e251bed952b015d0ca6a0792341fe531b"
   end
   resource "sounds-fr-ca-june-48000" do
     url "#{sounds_url_base}/freeswitch-sounds-fr-ca-june-48000-#{sounds_fr_version}.tar.gz"
     version sounds_fr_version
-    sha256 "4c7f6d373b72b5af5bad028b3b193d1b862abcee4466bb6f398f1d3f20befd0b"
+    sha256 "abaea558fb5485abdd01d0b1186e03cf508f96ac90492814cc7ed4475e99a1e0"
   end
 
   #-----------
   # sounds-ru
   #-----------
-  sounds_ru_version = "1.0.50" # from build/sounds_version.txt
+  sounds_ru_version = "1.0.51" # from build/sounds_version.txt
   resource "sounds-ru-RU-elena-8000" do
     url "#{sounds_url_base}/freeswitch-sounds-ru-RU-elena-8000-#{sounds_ru_version}.tar.gz"
     version sounds_ru_version
-    sha256 "d3a67f8983470056b48212935177e9996891081ca01ba5fb468dd9ccd593f981"
+    sha256 "d2679503eb1f4dc1716df5f8c4b5a7b721f087b17e96a02b1a92480311074c66"
   end
   resource "sounds-ru-RU-elena-16000" do
     url "#{sounds_url_base}/freeswitch-sounds-ru-RU-elena-16000-#{sounds_ru_version}.tar.gz"
     version sounds_ru_version
-    sha256 "5cf4ac2ad85bb4903272bf462581cb73867038408bce4aa3073d2200ef5d734d"
+    sha256 "e5a354cd10401208291f1d0e668a8cf8215d3cdcb93f2cbd4b83dd134425e60b"
   end
   resource "sounds-ru-RU-elena-32000" do
     url "#{sounds_url_base}/freeswitch-sounds-ru-RU-elena-32000-#{sounds_ru_version}.tar.gz"
     version sounds_ru_version
-    sha256 "6b68ad561c617ede92c830eb7d27f8dd47b0ebe566874d468c16958d3148ba98"
+    sha256 "a2b43f20246f376d55dd73d269eb238cbeb6a961a40716d2f79a5835344aabfc"
   end
   resource "sounds-ru-RU-elena-48000" do
     url "#{sounds_url_base}/freeswitch-sounds-ru-RU-elena-48000-#{sounds_ru_version}.tar.gz"
     version sounds_ru_version
-    sha256 "fc67a97ef4db62b4559ecd30ee7da710a7f848f585cf7190c9d0ca39946c2999"
+    sha256 "ffd7d34907f6b6ac861e7898d2237ad763f242a17cd23811da28fd7745d3350d"
   end
 
   #------------------------ End sound file resources --------------------------
 
   def install
+    resource("speexdsp").stage do
+      system "./autogen.sh"
+      system "./configure", "--disable-debug",
+                            "--disable-dependency-tracking",
+                            "--prefix=#{libexec}/speexdsp"
+      system "make"
+      system "make", "install"
+    end
+
+    ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/speexdsp/lib/pkgconfig"
+
     system "./bootstrap.sh", "-j"
 
     # tiff will fail to find OpenGL unless told not to use X
