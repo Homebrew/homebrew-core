@@ -19,11 +19,10 @@ class OpenshiftCli < Formula
       :tag => "v1.4.0-rc1",
       :revision => "b4e0954faa4a0d11d9c1a536b76ad4a8c0206b7c"
     version "1.4.0-rc1"
-
-    depends_on "socat"
   end
 
   depends_on "go" => :build
+  depends_on "socat"
 
   def install
     # this is necessary to avoid having the version marked as dirty
