@@ -79,8 +79,11 @@ class Otto < Formula
 
     ENV["GOPATH"] = gopath
     ENV.prepend_create_path "PATH", gopath/"bin"
-
     Language::Go.stage_deps resources, gopath/"src"
+
+    # Fix for Go 1.7+ syntax strictness. Upstream is dead.
+    inreplace gopath/"src/github.com/hashicorp/otto/scripts/build.sh",
+              "main.GitCommit ", "main.GitCommit="
 
     cd gopath/"src/github.com/jteeuwen/go-bindata/go-bindata" do
       system "go", "install"
@@ -97,6 +100,7 @@ class Otto < Formula
     cd gopath/"src/github.com/hashicorp/otto" do
       system "make", "dev"
       bin.install "bin/otto"
+      prefix.install_metafiles
     end
   end
 
