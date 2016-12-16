@@ -74,7 +74,7 @@ class Go < Formula
 
     # Race detector only supported on amd64 platforms.
     # https://golang.org/doc/articles/race_detector.html
-    if buid.with?("cgo") && build.with?("race") && MacOS.prefer_64_bit?
+    if build.with?("cgo") && build.with?("race") && MacOS.prefer_64_bit?
       system bin/"go", "install", "-race", "std"
     end
 
