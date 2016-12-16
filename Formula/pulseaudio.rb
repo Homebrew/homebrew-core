@@ -3,7 +3,7 @@ class Pulseaudio < Formula
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
   url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-9.0.tar.xz"
   sha256 "c3d3d66b827f18fbe903fe3df647013f09fc1e2191c035be1ee2d82a9e404686"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "6d3c7848457ef249c7ba72ca8d8d8ee3333a091d8bed9ed97c616ab9a4dae664" => :sierra
