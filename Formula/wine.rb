@@ -28,9 +28,9 @@ class Wine < Formula
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/2.0/wine-2.0-rc1.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.0-rc1.tar.bz2"
-    sha256 "063baa6a437989c07192ba10b02b6f2903250fbeaf8068056209d54fbcbf39fe"
+    url "https://dl.winehq.org/wine/source/2.0/wine-2.0-rc2.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.0-rc2.tar.bz2"
+    sha256 "66f12b055549a3d24fc92d7d2610a002adeeda68f68ac2453d5d4f47f5ce535e"
   end
 
   # note that all wine dependencies should declare a --universal option in their formula,
