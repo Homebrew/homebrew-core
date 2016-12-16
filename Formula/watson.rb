@@ -45,7 +45,6 @@ class Watson < Formula
 
     bash_completion.install "watson.completion" => "watson"
     zsh_completion.install "watson.zsh-completion" => "_watson"
-    end
   end
 
   test do
