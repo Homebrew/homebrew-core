@@ -5,8 +5,8 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-19.1.tar.gz"
-  sha256 "caf320c07bdd4c6e11831a0b0d25645a29112007077dbf11eec22437f8b041ed"
+  url "https://github.com/erlang/otp/archive/OTP-19.2.tar.gz"
+  sha256 "c6adbc82a45baa49bf9f5b524089da480dd27113c51b3d147aeb196fdb90516b"
   head "https://github.com/erlang/otp.git"
 
   bottle do
@@ -34,13 +34,13 @@ class Erlang < Formula
   depends_on "wxmac" => :recommended # for GUI apps like observer
 
   resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_19.1.tar.gz"
-    sha256 "7200e9e5b3a229a6b3838046e1b3e64afc869265539d49d0e4853212f19c0c79"
+    url "https://www.erlang.org/download/otp_doc_man_19.2.tar.gz"
+    sha256 "8a76ff3bb40a6d6a1552fa5a4204c8a3c7d99d2ea6f12684f02d038b23ad25cb"
   end
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_19.1.tar.gz"
-    sha256 "76c89aee1ac69b5107114b0065189101e3f42d53e929d8ef8f08b5c586f15930"
+    url "https://www.erlang.org/download/otp_doc_html_19.2.tar.gz"
+    sha256 "c373c8c1a9fe7433825088684932f3ded76f53d5b8a4d3d2a364263f1f783043"
   end
 
   def install
