@@ -1,20 +1,9 @@
 class Ccextractor < Formula
   desc "Free, GPL licensed closed caption tool"
   homepage "http://www.ccextractor.org"
+  url "https://downloads.sourceforge.net/project/ccextractor/ccextractor/0.84/ccextractor.src.0.84.zip"
+  sha256 "8825849021fd8bfaa99ea63fc3c7e3f442b54450a1e50e93bf8b51627ebe60a7"
   head "https://github.com/ccextractor/ccextractor.git"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/ccextractor/ccextractor/0.83/ccextractor.src.0.83.zip"
-    sha256 "6ed32ba8424dc22fb3cca77776f2ee3137f5198cc2909711cab22fcc7cee470a"
-
-    # Remove for > 0.83
-    # Fix "fatal error: 'protobuf-c.h' file not found"
-    # Upstream commit from 15 Dec 2016 "Added missing directory for protobuf-c."
-    patch do
-      url "https://github.com/CCExtractor/ccextractor/commit/6e17633.patch"
-      sha256 "1a23b3e48708e60d73fffa09bb257b421ad2edab7de3d8d88c64f840c16564b3"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
