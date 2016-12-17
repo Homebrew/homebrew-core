@@ -4,6 +4,12 @@ class Rpcgen < Formula
   url "https://opensource.apple.com/tarballs/developer_cmds/developer_cmds-62.tar.gz"
   sha256 "b11161df7a8dd293efe52213d8e968279dbff545a583e4706c4250d6cc122ce5"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "75c923737996ecc27e2afe8e26e7b9bac572cbf03d543ef45c87a0e32e2da80b" => :sierra
+    sha256 "17a73b22f1e7a7256bc232c113e4c4fd603f95b783d732478671c4a0a2958e62" => :el_capitan
+  end
+
   keg_only :provided_by_macos
 
   depends_on :xcode => ["7.3", :build]
