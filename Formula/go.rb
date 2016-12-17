@@ -63,7 +63,9 @@ class Go < Formula
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
       ENV["GOOS"]         = "darwin"
-      ENV["CGO_ENABLED"]  = build.with?("cgo") ? "1" : "0"
+      if build.without? "cgo"
+        ENV["CGO_ENABLED"] = "0"
+      end
       system "./make.bash", "--no-clean"
     end
 
