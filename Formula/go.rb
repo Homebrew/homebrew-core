@@ -1,6 +1,7 @@
 class Go < Formula
   desc "The Go programming language"
   homepage "https://golang.org"
+  revision 1
 
   stable do
     url "https://storage.googleapis.com/golang/go1.7.4.src.tar.gz"
