@@ -15,12 +15,14 @@ class Moreutils < Formula
   end
 
   option "without-parallel", "Build without the 'parallel' tool."
+  option "without-errno",    "Build without the 'errno' tool, for compatibility with 'pwntools'."
+  option "without-ts",       "Build without the 'ts' tool, for compatibility with 'task-spooler'."
 
   depends_on "docbook-xsl" => :build
 
-  conflicts_with "parallel", :because => "Both install a `parallel` executable."
-  conflicts_with "pwntools", :because => "Both install an `errno` executable."
-  conflicts_with "task-spooler", :because => "Both install a `ts` executable."
+  conflicts_with "parallel", :because => "Both install a `parallel` executable."  if build.with? "parallel"
+  conflicts_with "pwntools", :because => "Both install an `errno` executable."    if build.with? "errno"
+  conflicts_with "task-spooler", :because => "Both install a `ts` executable."    if build.with? "ts"
 
   resource "Time::Duration" do
     url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Time-Duration-1.20.tar.gz"
@@ -53,6 +55,14 @@ class Moreutils < Formula
     if build.without? "parallel"
       inreplace "Makefile", /^BINS=.*\Kparallel/, ""
       inreplace "Makefile", /^MANS=.*\Kparallel\.1/, ""
+    end
+    if build.without? "errno"
+      inreplace "Makefile", /^BINS=.*\Kerrno/, ""
+      inreplace "Makefile", /^MANS=.*\Kerrno\.1/, ""
+    end
+    if build.without? "ts"
+      inreplace "Makefile", /^PERLSCRIPTS=.*\Kts/, ""
+      inreplace "Makefile", /^MANS=.*\Kts\.1/, ""
     end
     system "make", "all"
     system "make", "check"
