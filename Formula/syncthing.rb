@@ -8,10 +8,9 @@ class Syncthing < Formula
   head "https://github.com/syncthing/syncthing.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7ab714f22ab6935fac70f72ddba83e44d60e4639c64e7dc5561f4895691f242c" => :sierra
-    sha256 "93deab153d656e956a99325d75c1274a9bc3217f5f55dbd678e2bc44dda89960" => :el_capitan
-    sha256 "8f5708e04fd283c535a7bc3159f47d0ee2ab0b07d875314ae348121d752af775" => :yosemite
+    sha256 "a40e866d8d417099e33fc43a4493d428d2fdb282f1e54dc32c8296679d5ae3d4" => :sierra
+    sha256 "fef5bc63d562c4e0d83a96b8ab941f56bab01c96f99311d1f5a745d81b1f6d89" => :el_capitan
+    sha256 "ec4f85c8bc9f9502a5f2cab9e7a925eab46260ea2c10a960edf5ef59841123a2" => :yosemite
   end
 
   depends_on "go" => :build
