@@ -7,9 +7,9 @@ class Peco < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a1aeba94f4a4dd45f0124561fb495fb3b03f56b010a82fadd5e915c3e5221c3c" => :sierra
-    sha256 "b3724a21d989b5ad8825b8031dd3d21d956187a2a9f4f347722cccba54e6a9c7" => :el_capitan
-    sha256 "3015e4ff65c7fd8be687801735fe44e32c78c26986c67dfe5a3565e9936b555d" => :yosemite
+    sha256 "1d0329f9e239dca2083efb752384c4a827ac7861add4dc3c07d116d689947898" => :sierra
+    sha256 "27146cadf7d4e4bc2f1cdf5753d5954d6c2b53a6bf179a58041f767db73746dc" => :el_capitan
+    sha256 "50c6670b272e8438af1800bbe328aac1185288d1d33126f3cb83870e88837e61" => :yosemite
   end
 
   depends_on "glide" => :build
