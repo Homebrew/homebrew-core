@@ -1,8 +1,8 @@
 class Gspell < Formula
   desc "Flexible API to implement spellchecking in GTK+ applications"
   homepage "https://wiki.gnome.org/Projects/gspell"
-  url "https://download.gnome.org/sources/gspell/1.2/gspell-1.2.1.tar.xz"
-  sha256 "9f1c3e5f09693a786e8b8dfdc5f142e9c9641d8674ec687014be928073d3f1a3"
+  url "https://download.gnome.org/sources/gspell/1.2/gspell-1.2.2.tar.xz"
+  sha256 "d93c677b77e8b92cf00693ade6ea0d46e478fc5fe75cc508111428e77e90661e"
 
   bottle do
     sha256 "6cab19ff5669e3539920355d3adea13d279ce8b1bde900c2d344dbbe911e16d0" => :sierra
