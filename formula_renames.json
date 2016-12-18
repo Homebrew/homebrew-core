@@ -36,6 +36,7 @@
   "llvm35": "llvm@3.5",
   "llvm36": "llvm@3.6",
   "llvm37": "llvm@3.7",
+  "llvm38": "llvm@3.8",
   "mongo-c": "mongo-c-driver",
   "mpfr2": "mpfr@2",
   "mpich2": "mpich",
