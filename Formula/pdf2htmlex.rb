@@ -40,7 +40,6 @@ class Pdf2htmlex < Formula
     url "https://github.com/coolwanglu/fontforge.git", :branch => "pdf2htmlEX"
   end
 
-  # And failures
   def install
     resource("fontforge").stage do
       args = %W[
