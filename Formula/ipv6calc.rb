@@ -1,8 +1,8 @@
 class Ipv6calc < Formula
   desc "Small utility for manipulating IPv6 addresses"
   homepage "http://www.deepspace6.net/projects/ipv6calc.html"
-  url "ftp://ftp.deepspace6.net/pub/ds6/sources/ipv6calc/ipv6calc-0.94.1.tar.gz"
-  sha256 "3bd73fd92c1d971fadea41b39830975b4a20bbcd26587dfb2835964b33de4040"
+  url "https://github.com/pbiering/ipv6calc/archive/0.99.2.tar.gz"
+  sha256 "f2eeec1b8d8626756f2cb9c461e9d1db20affccf582d43ded439bdb2d12646ef"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,9 +12,19 @@ class Ipv6calc < Formula
     sha256 "7b3518dc5a1a0e9d8804b2d3e231b271f112569f61ae816f3649ca2ba55b9168" => :mavericks
   end
 
+  patch do
+    url "https://github.com/pbiering/ipv6calc/commit/128cb3b178dde1b9bcadc1b7a334c5eebcc529be.patch"
+    sha256 "3148380d4aba3b50150597ec209a1cf7aca7091d3be5f57a2e517445cb55430c"
+  end
+
   def install
     # This needs --mandir, otherwise it tries to install to /share/man/man8.
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
+    system "make"
     system "make", "install"
+  end
+
+  test do
+    assert_equal "192.168.251.97", shell_output("#{bin}/ipv6calc -q --action conv6to4 --in ipv6 2002:c0a8:fb61::1 --out ipv4").strip
   end
 end
