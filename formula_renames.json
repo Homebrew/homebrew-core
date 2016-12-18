@@ -36,6 +36,7 @@
   "libcppa": "caf",
   "libmongoclient": "mongo-cxx-driver",
   "libmpc08": "libmpc@0.8",
+  "llvm36": "llvm@3.6",
   "llvm37": "llvm@3.7",
   "llvm38": "llvm@3.8",
   "mongo-c": "mongo-c-driver",
