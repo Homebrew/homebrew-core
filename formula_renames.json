@@ -33,6 +33,7 @@
   "libmongoclient": "mongo-cxx-driver",
   "libmpc08": "libmpc@0.8",
   "llvm34": "llvm@3.4",
+  "llvm35": "llvm@3.5",
   "mongo-c": "mongo-c-driver",
   "mpfr2": "mpfr@2",
   "mpich2": "mpich",
