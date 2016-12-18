@@ -72,6 +72,10 @@ class Gcc < Formula
   end
 
   def version_suffix
+    version.to_s.slice(/\d/)
+  end
+
+  def build_version_suffix
     if build.head?
       (stable.version.to_s.slice(/\d/).to_i + 1).to_s
     else
@@ -115,10 +119,10 @@ class Gcc < Formula
     args = [
       "--build=#{arch}-apple-darwin#{osmajor}",
       "--prefix=#{prefix}",
-      "--libdir=#{lib}/gcc/#{version_suffix}",
+      "--libdir=#{lib}/gcc/#{build_version_suffix}",
       "--enable-languages=#{languages.join(",")}",
       # Make most executables versioned to avoid conflicts.
-      "--program-suffix=-#{version_suffix}",
+      "--program-suffix=-#{build_version_suffix}",
       "--with-gmp=#{Formula["gmp"].opt_prefix}",
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
@@ -161,7 +165,7 @@ class Gcc < Formula
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
-    inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
+    inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{build_version_suffix}"
 
     mkdir "build" do
       unless MacOS::CLT.installed?
@@ -176,7 +180,7 @@ class Gcc < Formula
       system "make", "install"
 
       if build.with?("fortran") || build.with?("all-languages")
-        bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
+        bin.install_symlink bin/"gfortran-#{build_version_suffix}" => "gfortran"
       end
     end
 
@@ -184,7 +188,7 @@ class Gcc < Formula
     # with system compilers.
     # Since GCC 4.8 libffi stuff are no longer shipped.
     # Rename man7.
-    Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
+    Dir.glob(man7/"*.7") { |file| add_suffix file, build_version_suffix }
     # Even when suffixes are appended, the info pages conflict when
     # install-info is run. TODO fix this.
     info.rmtree
@@ -217,7 +221,7 @@ class Gcc < Formula
         return 0;
       }
     EOS
-    system "#{bin}/gcc-#{version_suffix}", "-o", "hello-c", "hello-c.c"
+    system "#{bin}/gcc-#{build_version_suffix}", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
 
     (testpath/"hello-cc.cc").write <<-EOS.undent
@@ -228,7 +232,7 @@ class Gcc < Formula
         return 0;
       }
     EOS
-    system "#{bin}/g++-#{version_suffix}", "-o", "hello-cc", "hello-cc.cc"
+    system "#{bin}/g++-#{build_version_suffix}", "-o", "hello-cc", "hello-cc.cc"
     assert_equal "Hello, world!\n", `./hello-cc`
 
     if build.with?("fortran") || build.with?("all-languages")
