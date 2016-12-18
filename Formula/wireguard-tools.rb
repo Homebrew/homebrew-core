@@ -1,10 +1,10 @@
 class WireguardTools < Formula
   desc "Tools for the WireGuard secure network tunnel"
   homepage "https://www.wireguard.io/"
-  # Despite the experimental tag the tools themselves are stable.
-  # Please only update version when the tools have been modified/updated.
-  url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-experimental-0.0.20161103.tar.xz"
-  sha256 "e9d6a97002e0b63bb9572bf42037a7f5b67ccad421fec3afac684e4fc5e931ac"
+  # Please only update version when the tools have been modified/updated,
+  # since the Linux module aspect isn't of utility for us.
+  url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20161218.tar.xz"
+  sha256 "d805035d3e99768e69d8cdeb8fb5250a59b994ce127fceb71a078582c30f5597"
   head "https://git.zx2c4.com/WireGuard", :using => :git
 
   bottle do
