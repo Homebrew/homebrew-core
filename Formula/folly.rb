@@ -55,10 +55,9 @@ class Folly < Formula
         inreplace "portability/Time.h", "typedef uint8_t clockid_t;", ""
       end
 
-      # Build system relies on pkg-config but gflags removed
-      # the .pc files so now folly cannot find without flags.
-      ENV["GFLAGS_CFLAGS"] = Formula["gflags"].opt_include
-      ENV["GFLAGS_LIBS"] = Formula["gflags"].opt_lib
+      # Fixes the .pc file, which references the gflags .pc under the wrong name.
+      # Applied upstream: https://github.com/facebook/folly/pull/531
+      inreplace "configure.ac", "[libgflags]", "[gflags]"
 
       system "autoreconf", "-fvi"
       system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",
