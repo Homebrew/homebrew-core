@@ -1,8 +1,9 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://dnscrypt.org"
-  url "https://github.com/jedisct1/dnscrypt-proxy/releases/download/1.7.0/dnscrypt-proxy-1.7.0.tar.bz2"
-  sha256 "1daf77df9092491ea0b5176ec4b170f7b0645f97b62d1a50412a960656b482e3"
+  url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.8.0.tar.gz"
+  sha256 "20080738a06fdaf0f4c77af5f9a62823a4aac7697609c7923c6989284f2271c4"
+  head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
     rebuild 1
@@ -11,24 +12,20 @@ class DnscryptProxy < Formula
     sha256 "e56ea17922dcf696b4d8e3b5307abf330c0b43cbe9df81c91a3ac62890cc732e" => :yosemite
   end
 
-  head do
-    url "https://github.com/jedisct1/dnscrypt-proxy.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
   option "with-plugins", "Support plugins and install example plugins."
 
   deprecated_option "plugins" => "with-plugins"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "libtool" => :run
   depends_on "libsodium"
   depends_on "minisign" => :recommended
   depends_on "ldns" => :recommended
 
   def install
-    system "autoreconf", "-if" if build.head?
+    system "./autogen.sh"
 
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
 
