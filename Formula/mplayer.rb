@@ -30,8 +30,6 @@ class Mplayer < Formula
     end
   end
 
-  # ld fails with: Unknown instruction for architecture x86_64
-
   def install
     # It turns out that ENV.O1 fixes link errors with llvm.
     ENV.O1 if ENV.compiler == :llvm
