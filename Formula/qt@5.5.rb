@@ -97,7 +97,7 @@ class QtAT55 < Formula
 
     system "./configure", *args
     system "make"
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
 
     # Some config scripts will only find Qt in a "Frameworks" folder
