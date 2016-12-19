@@ -25,7 +25,7 @@ class Dvdauthor < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make"
-    ENV.j1 # Install isn't parallel-safe
+    ENV.deparallelize # Install isn't parallel-safe
     system "make", "install"
   end
 end
