@@ -18,7 +18,7 @@ class IrcdHybrid < Formula
   conflicts_with "ircd-irc2", :because => "both install an `ircd` binary"
 
   def install
-    ENV.j1 # build system trips over itself
+    ENV.deparallelize # build system trips over itself
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
