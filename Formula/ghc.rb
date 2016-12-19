@@ -125,8 +125,6 @@ class Ghc < Formula
 
     if ENV.compiler == :clang
       args << "--with-clang=#{ENV.cc}"
-    elsif ENV.compiler == :llvm
-      args << "--with-gcc-4.2=#{ENV.cc}"
     end
 
     # As of Xcode 7.3 (and the corresponding CLT) `nm` is a symlink to `llvm-nm`
