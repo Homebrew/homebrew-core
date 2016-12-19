@@ -79,6 +79,10 @@ class PerconaServer < Formula
       -DCMAKE_BUILD_TYPE=RelWithDebInfo
     ]
 
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      args << "-DHAVE_CLOCK_GETTIME:INTERNAL=0"
+    end
+
     # PAM plugin is Linux-only at the moment
     args.concat %w[
       -DWITHOUT_AUTH_PAM=1
