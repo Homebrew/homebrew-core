@@ -16,7 +16,7 @@ class HtmlXmlUtils < Formula
     ENV.append "CFLAGS", "-std=gnu89"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
-    ENV.j1 # install is not thread-safe
+    ENV.deparallelize # install is not thread-safe
     system "make", "install"
   end
 
