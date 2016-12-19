@@ -92,7 +92,7 @@ class Mpd < Formula
 
     system "./configure", *args
     system "make"
-    ENV.j1 # Directories are created in parallel, so let's not do that
+    ENV.deparallelize # Directories are created in parallel, so let's not do that
     system "make", "install"
 
     (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"
