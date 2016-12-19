@@ -1,9 +1,9 @@
 class Gmp < Formula
   desc "GNU multiple precision arithmetic library"
   homepage "https://gmplib.org/"
-  url "https://gmplib.org/download/gmp/gmp-6.1.1.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.1.1.tar.xz"
-  sha256 "d36e9c05df488ad630fff17edb50051d6432357f9ce04e34a09b3d818825e831"
+  url "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
+  sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
 
   bottle do
     cellar :any
