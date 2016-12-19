@@ -54,7 +54,7 @@ class Libevent < Formula
 
   def install
     ENV.universal_binary if build.universal?
-    ENV.j1
+    ENV.deparallelize
 
     if build.with? "doxygen"
       inreplace "Doxyfile", /GENERATE_MAN\s*=\s*NO/, "GENERATE_MAN = YES"
