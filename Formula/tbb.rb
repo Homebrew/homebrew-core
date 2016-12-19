@@ -21,9 +21,6 @@ class Tbb < Formula
   depends_on "swig" => :build
 
   def install
-    # Intel sets varying O levels on each compile command.
-    ENV.no_optimization
-
     compiler = ENV.compiler == :clang ? "clang" : "gcc"
     args = %W[tbb_build_prefix=BUILDPREFIX compiler=#{compiler}]
 
