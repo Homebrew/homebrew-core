@@ -95,7 +95,7 @@ class Sdf < Formula
   end
 
   def install
-    ENV.j1 # build is not parallel-safe
+    ENV.deparallelize # build is not parallel-safe
     ENV.append "CFLAGS", "-std=gnu89 -fbracket-depth=1024" if ENV.compiler == :clang
 
     resource("c-library").stage do
