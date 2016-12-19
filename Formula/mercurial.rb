@@ -21,8 +21,6 @@ class Mercurial < Formula
   end
 
   def install
-    ENV.minimal_optimization if MacOS.version <= :snow_leopard
-
     system "make", "PREFIX=#{prefix}", "install-bin"
     # Install man pages, which come pre-built in source releases
     man1.install "doc/hg.1"
