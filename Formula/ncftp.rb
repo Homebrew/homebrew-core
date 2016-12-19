@@ -13,11 +13,6 @@ class Ncftp < Formula
   end
 
   def install
-    # "disable universal" doesn't seem to work.
-    # If ncftp detects the 10.4 SDK, it will try to use GCC 4.0 which doesn't
-    # support all of the compiler flags we set.
-    # So, just disable optimizations intead.
-    ENV.no_optimization
     system "./configure", "--disable-universal",
                           "--disable-precomp",
                           "--prefix=#{prefix}",
