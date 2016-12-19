@@ -16,9 +16,9 @@ class Ghc < Formula
   revision 4
 
   bottle do
-    sha256 "066bebe5c79970838bd589aed33ef209695eb86189c693378bd6fbcc6e47accb" => :sierra
-    sha256 "5f56a89c44c750fc8b1a3c93b66eb2c5e92c58455e215c4f8f2c5ba0f350d7b3" => :el_capitan
-    sha256 "b5b5307ffc223b4ff5946cbe6fa08eef881f8f92c91dc3449ef225d8190a0abe" => :yosemite
+    sha256 "ac1552ae6c039782940af86fb77a2a49fa80354a22e263089097620af2bf4ec1" => :sierra
+    sha256 "bd1c4603ee5400264ee3435ee9fa2fed46ffc9d1a86866ec84d1c43a131475a2" => :el_capitan
+    sha256 "3984dff0307409045eee0f47fb5c72fd4aaacc7ea810d03a3cc25e2c7689d9e2" => :yosemite
   end
 
   head do
