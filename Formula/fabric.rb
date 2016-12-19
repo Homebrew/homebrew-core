@@ -6,10 +6,10 @@ class Fabric < Formula
   head "https://github.com/fabric/fabric.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e8d5a5ab06d133c2fc5617b276b119a5a4b1ca8567bc1697d622e27b1a612edf" => :sierra
-    sha256 "8cbff630aac360476908923a566c858b1fb6748742ca3cb5b09b9fe8ee341e03" => :el_capitan
-    sha256 "bb39fa519461b1eb648b071a8cd06e13f4c10cda1fcd01b02a44be422019c37a" => :yosemite
+    cellar :any
+    sha256 "8fda75c5648fbb17776a3f775e23608a7f0f82a0f2fd06a1a10b0369716c1999" => :sierra
+    sha256 "858ac38f6bfb7badd0321718e0c100bb1666358c314d955ded8f18ac2cc09c25" => :el_capitan
+    sha256 "00dd62a3c295535993511bc6bd2aaaa7244794fee38df49cd1e75fe8ac9f2211" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
