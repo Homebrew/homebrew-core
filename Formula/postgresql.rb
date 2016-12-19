@@ -39,7 +39,6 @@ class Postgresql < Formula
   end
 
   def install
-    ENV.libxml2 if MacOS.version >= :snow_leopard
     # avoid adding the SDK library directory to the linker search path
     ENV["XML2_CONFIG"] = "xml2-config --exec-prefix=/usr"
 
