@@ -13,6 +13,7 @@ class Node < Formula
 
   option "with-debug", "Build with debugger hooks"
   option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
+  option "with-libressl", "Build against Homebrew's LibreSSL"
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
   option "with-full-icu", "Build with full-icu (all locales) instead of small-icu (English only)"
@@ -22,7 +23,13 @@ class Node < Formula
 
   depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
+
+  if build.with?("openssl") && build.with?("libressl")
+    odie "Options --with-openssl and --with-libressl are mutually exclusive."
+  end
+
   depends_on "openssl" => :optional
+  depends_on "libressl" => :optional
 
   conflicts_with "node@0.10", :because => "Differing versions of the same formulae."
   conflicts_with "node@0.12", :because => "Differing versions of the same formulae."
@@ -58,8 +65,11 @@ class Node < Formula
     # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
-    args << "--shared-openssl" if build.with? "openssl"
     args << "--tag=head" if build.head?
+
+    if build.with?("openssl") || build.with?("libressl")
+      args << "--shared-openssl"
+    end
 
     if build.with? "full-icu"
       resource("icu4c").stage buildpath/"deps/icu"
