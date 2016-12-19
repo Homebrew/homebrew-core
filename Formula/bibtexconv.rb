@@ -30,7 +30,7 @@ class Bibtexconv < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make"
-    ENV.j1 # serialize folder creation
+    ENV.deparallelize # serialize folder creation
     system "make", "install"
   end
 
