@@ -22,7 +22,7 @@ class Lablgtk < Formula
                           "--libdir=#{lib}",
                           "--mandir=#{man}",
                           "--with-libdir=#{lib}/ocaml"
-    ENV.j1
+    ENV.deparallelize
     system "make", "world"
     system "make", "old-install"
   end
