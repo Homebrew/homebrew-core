@@ -26,7 +26,7 @@ class Cmigemo < Formula
     system "make", "osx"
     system "make", "osx-dict"
     system "make", "-C", "dict", "utf-8" if build.stable?
-    ENV.j1 # Install can fail on multi-core machines unless serialized
+    ENV.deparallelize # Install can fail on multi-core machines unless serialized
     system "make", "osx-install"
   end
 
