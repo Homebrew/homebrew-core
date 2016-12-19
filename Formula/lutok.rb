@@ -21,7 +21,7 @@ class Lutok < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make"
-    ENV.j1
+    ENV.deparallelize
     system "make", "check"
     system "make", "install"
     system "make", "installcheck"
