@@ -24,7 +24,7 @@ class RakudoStar < Formula
     ENV.remove "CPPFLAGS", "-I#{libffi.include}"
     ENV.prepend "CPPFLAGS", "-I#{libffi.lib}/libffi-#{libffi.version}/include"
 
-    ENV.j1 # An intermittent race condition causes random build failures.
+    ENV.deparallelize # An intermittent race condition causes random build failures.
 
     backends = ["moar"]
     generate = ["--gen-moar"]
