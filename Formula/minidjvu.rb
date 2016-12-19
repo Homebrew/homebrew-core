@@ -19,7 +19,7 @@ class Minidjvu < Formula
   depends_on "libtiff"
 
   def install
-    ENV.j1
+    ENV.deparallelize
     # force detection of BSD mkdir
     system "autoreconf", "-vfi"
     system "./configure", "--prefix=#{prefix}"
