@@ -55,7 +55,7 @@ class Pike < Formula
       args << "--without-machine-code"
     end
 
-    ENV.j1
+    ENV.deparallelize
 
     system "make", "CONFIGUREARGS='" + args.join(" ") + "'"
 
