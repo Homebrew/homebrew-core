@@ -3,7 +3,7 @@ class SwiProlog < Formula
   homepage "http://www.swi-prolog.org/"
   url "http://www.swi-prolog.org/download/stable/src/swipl-7.2.3.tar.gz"
   sha256 "43657d51b7c5887bc2d2bced50a9822b86a08a6841399b8e76ee877f51d646b5"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "549bcf8dd84fbcd140eecf80a43d01890046fff67094fd7da40e307ada01c61c" => :sierra
