@@ -84,9 +84,6 @@ class Wine < Formula
   # configure: libv4l, gstreamer-0.10, libcapi20, libgsm
 
   def install
-    # Help configure find libxml2 in an XCode only (no CLT) installation.
-    ENV.libxml2
-
     if build.with? "win64"
       args64 = ["--prefix=#{prefix}"]
       args64 << "--enable-win64"
