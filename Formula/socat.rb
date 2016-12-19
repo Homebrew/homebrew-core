@@ -22,7 +22,6 @@ class Socat < Formula
   depends_on "openssl"
 
   def install
-    ENV.enable_warnings # -w causes build to fail
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
   end
