@@ -42,7 +42,7 @@ class Sdl2 < Formula
     args = %W[--prefix=#{prefix}]
 
     # LLVM-based compilers choke on the assembly code packaged with SDL.
-    if ENV.compiler == :llvm || (ENV.compiler == :clang && DevelopmentTools.clang_build_version < 421)
+    if ENV.compiler == :clang && DevelopmentTools.clang_build_version < 421
       args << "--disable-assembly"
     end
     args << "--without-x"
