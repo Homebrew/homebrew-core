@@ -106,7 +106,7 @@ class Gnuplot < Formula
 
     system "./prepare" if build.head?
     system "./configure", *args
-    ENV.j1 # or else emacs tries to edit the same file with two threads
+    ENV.deparallelize # or else emacs tries to edit the same file with two threads
     system "make"
     system "make", "check" if build.with?("test") || build.bottle?
     system "make", "install"
