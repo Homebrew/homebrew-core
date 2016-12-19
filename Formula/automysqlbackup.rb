@@ -28,7 +28,7 @@ class Automysqlbackup < Formula
     EOS
   end
 
-  plist_options :startup => true
+  plist_options :manual => "automysqlbackup"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -60,5 +60,6 @@ class Automysqlbackup < Formula
   end
 
   test do
+    system "#{sbin}/automysqlbackup", "--help"
   end
 end
