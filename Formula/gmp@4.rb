@@ -40,7 +40,7 @@ class GmpAT4 < Formula
 
     system "./configure", *args
     system "make"
-    ENV.j1 # Doesn't install in parallel on 8-core Mac Pro
+    ENV.deparallelize # Doesn't install in parallel on 8-core Mac Pro
     system "make", "install"
 
     # Different compilers and options can cause tests to fail even
