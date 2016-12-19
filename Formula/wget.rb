@@ -32,7 +32,6 @@ class Wget < Formula
   depends_on "pkg-config" => :build
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
   depends_on "openssl" => :recommended
-  depends_on "libressl" => :optional
   depends_on "libidn" if build.with? "iri"
   depends_on "pcre" => :optional
   depends_on "libmetalink" => :optional
@@ -47,13 +46,8 @@ class Wget < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-ssl=openssl
+      --with-libssl-prefix=#{Formula["openssl"].opt_prefix}
     ]
-
-    if build.with? "libressl"
-      args << "--with-libssl-prefix=#{Formula["libressl"].opt_prefix}"
-    else
-      args << "--with-libssl-prefix=#{Formula["openssl"].opt_prefix}"
-    end
 
     args << "--disable-debug" if build.without? "debug"
     args << "--disable-iri" if build.without? "iri"
