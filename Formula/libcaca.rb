@@ -52,7 +52,7 @@ class Libcaca < Formula
 
     system "./configure", *args
     system "make"
-    ENV.j1 # Or install can fail making the same folder at the same time
+    ENV.deparallelize # Or install can fail making the same folder at the same time
     system "make", "install"
   end
 
