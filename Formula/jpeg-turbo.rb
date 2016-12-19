@@ -33,7 +33,7 @@ class JpegTurbo < Formula
     system "./configure", *args
     system "make"
     system "make", "test" if build.with? "test"
-    ENV.j1 # Stops a race condition error: file exists
+    ENV.deparallelize # Stops a race condition error: file exists
     system "make", "install"
   end
 
