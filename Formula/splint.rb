@@ -15,7 +15,7 @@ class Splint < Formula
   patch :DATA
 
   def install
-    ENV.j1 # build is not parallel-safe
+    ENV.deparallelize # build is not parallel-safe
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--infodir=#{info}",
