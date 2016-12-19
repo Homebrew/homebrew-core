@@ -13,7 +13,6 @@ class Links < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl" => :recommended
-  depends_on "libressl" => :optional
   depends_on "libtiff" => :optional
   depends_on "jpeg" => :optional
   depends_on "librsvg" => :optional
@@ -25,13 +24,8 @@ class Links < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --mandir=#{man}
+      --with-ssl=#{Formula["openssl"].opt_prefix}
     ]
-
-    if build.with? "libressl"
-      args << "--with-ssl=#{Formula["libressl"].opt_prefix}"
-    else
-      args << "--with-ssl=#{Formula["openssl"].opt_prefix}"
-    end
 
     args << "--enable-graphics" if build.with? "x11"
     args << "--without-libtiff" if build.without? "libtiff"
