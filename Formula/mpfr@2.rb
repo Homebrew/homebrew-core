@@ -34,7 +34,7 @@ class MpfrAT2 < Formula
 
     # Build 32-bit where appropriate, and help configure find 64-bit CPUs
     # Note: This logic should match what the GMP formula does.
-    if MacOS.prefer_64_bit? && !build.build_32_bit?
+    if MacOS.prefer_64_bit?
       ENV.m64
       args << "--build=x86_64-apple-darwin"
     else
