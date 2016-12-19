@@ -7,11 +7,6 @@ class Yarn < Formula
   sha256 "7d16699c8690ef145e1732004266fb82a32b0c06210a43c624986d100537b5a8"
   head "https://github.com/yarnpkg/yarn.git"
 
-  devel do
-    url "https://yarnpkg.com/downloads/0.18.1/yarn-v0.18.1.tar.gz"
-    sha256 "7d16699c8690ef145e1732004266fb82a32b0c06210a43c624986d100537b5a8"
-  end
-
   bottle do
     cellar :any_skip_relocation
     rebuild 1
