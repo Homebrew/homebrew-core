@@ -26,7 +26,6 @@ class Neon < Formula
 
   def install
     ENV.universal_binary if build.universal?
-    ENV.enable_warnings
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--enable-shared",
@@ -45,7 +44,7 @@ index d7702d2..5c3b5a3 100755
 +++ b/configure
 @@ -4224,7 +4224,6 @@ fi
  $as_echo "$ne_cv_os_uname" >&6; }
- 
+
  if test "$ne_cv_os_uname" = "Darwin"; then
 -  CPPFLAGS="$CPPFLAGS -no-cpp-precomp"
    LDFLAGS="$LDFLAGS -flat_namespace"
