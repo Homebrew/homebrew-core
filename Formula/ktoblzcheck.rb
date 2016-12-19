@@ -16,7 +16,7 @@ class Ktoblzcheck < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
   end
 
