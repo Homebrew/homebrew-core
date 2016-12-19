@@ -29,7 +29,6 @@ class H2o < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "libressl" => :optional
   depends_on "libuv" => :optional
   depends_on "wslay" => :optional
 
@@ -37,11 +36,6 @@ class H2o < Formula
     # https://github.com/Homebrew/homebrew-core/pull/1046
     # https://github.com/Homebrew/brew/pull/251
     ENV.delete("SDKROOT")
-
-    openssl = build.stable? ? Formula["openssl"] : Formula["openssl@1.1"]
-    if build.with?("libressl") && build.with?(openssl)
-      odie "--without-#{openssl} must be passed when building --with-libressl"
-    end
 
     args = std_cmake_args
     args << "-DWITH_BUNDLED_SSL=OFF"
