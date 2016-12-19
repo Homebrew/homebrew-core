@@ -109,6 +109,13 @@ class Qt5 < Formula
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
   end
 
+  # Fix macdeployqt
+  # Original patch from https://bugreports.qt.io/browse/QTBUG-56814
+  patch do
+    url "https://gist.githubusercontent.com/cawka/3025baecf3b05e14311b82210a15320f/raw/7ac6a2696f19630df5d02ccc0e48aec733da1364/qt5-patch"
+    sha256 "b18e4715fcef2992f051790d3784a54900508c93350c25b0f2228cb058567142"
+  end
+
   def install
     args = %W[
       -verbose
