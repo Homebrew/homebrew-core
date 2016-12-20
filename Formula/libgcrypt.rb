@@ -50,10 +50,10 @@ class Libgcrypt < Formula
     # normal place on >10.10 where SIP is enabled.
     # https://github.com/Homebrew/homebrew-core/pull/3004
     # https://bugs.gnupg.org/gnupg/issue2056
-    system "install_name_tool", "-change",
-                                lib/"libgcrypt.20.dylib",
-                                buildpath/"src/.libs/libgcrypt.20.dylib",
-                                buildpath/"tests/.libs/random"
+    MachO::Tools.change_install_name("#{buildpath}/tests/.libs/random",
+                                     "#{lib}/libgcrypt.20.dylib",
+                                     "#{buildpath}/src/.libs/libgcrypt.20.dylib")
+
     system "make", "check"
     system "make", "install"
 
