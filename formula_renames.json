@@ -48,6 +48,7 @@
   "ppl011": "ppl@0.11",
   "polarssl": "mbedtls",
   "qt55": "qt@5.5",
+  "postgres-xc": "postgres-x2",
   "racket": "minimal-racket",
   "screenbrightness": "brightness",
   "sonar": "sonarqube",

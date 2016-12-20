@@ -1,8 +1,8 @@
-class PostgresXc < Formula
-  desc "PostgreSQL cluster based on shared-nothing architecture"
-  homepage "http://postgres-xc.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/postgres-xc/Version_1.0/pgxc-v1.0.4.tar.gz"
-  sha256 "b467cbb7d562a8545645182958efd1608799ed4e04a9c3906211878d477b29c1"
+class PostgresX2 < Formula
+  desc "PostgreSQL cluster based on shared-nothing architecture, successor of Postgres-XC"
+  homepage "http://postgres-x2.github.io/"
+  url "http://postgres-x2.github.io/release_materials/1.2.1/pgxc-v1.2.1.tar.gz"
+  sha256 "7522a860970b4a72f7a9c6c1962766fe7c5ad86363eba9dfc8a8b3ca1907c189"
   revision 1
 
   bottle do
@@ -24,8 +24,10 @@ class PostgresXc < Formula
   depends_on "ossp-uuid" => :recommended
   depends_on :python => :optional
 
+  conflicts_with "postgres-xc",
+    :because => "postgres-x2 is the successor of postgres-xc."
   conflicts_with "postgresql",
-    :because => "postgres-xc and postgresql install the same binaries."
+    :because => "postgres-x2 and postgresql install the same binaries."
 
   fails_with :clang do
     build 211
