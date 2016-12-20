@@ -350,7 +350,7 @@ class Llvm < Formula
               "-I#{libclangclt}/include",
               "-I/usr/include", # need it because /Library/.../usr/include/c++/v1/iosfwd refers to <wchar.h>, which CLT installs to /usr/include
               "test.cpp", "-o", "testCLT++"
-      assert_match "/usr/lib/libc++.1.dylib", shell_output("otool -L ./testCLT++").chomp
+      assert_includes MachO::Tools.dylibs("testCLT++"), "/usr/lib/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./testCLT++").chomp
 
       system "#{bin}/clang", "-v", "-nostdinc",
@@ -368,7 +368,7 @@ class Llvm < Formula
               "-I#{libclangxc}/include",
               "-I#{MacOS.sdk_path}/usr/include",
               "test.cpp", "-o", "testXC++"
-      assert_match "/usr/lib/libc++.1.dylib", shell_output("otool -L ./testXC++").chomp
+      assert_includes MachO::Tools.dylibs("testXC++"), "/usr/lib/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./testXC++").chomp
 
       system "#{bin}/clang", "-v", "-nostdinc",
@@ -387,7 +387,7 @@ class Llvm < Formula
               "-I#{MacOS.sdk_path}/usr/include",
               "-L#{lib}",
               "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
-      assert_match "#{opt_lib}/libc++.1.dylib", shell_output("otool -L ./test").chomp
+      assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./test").chomp
     end
   end
