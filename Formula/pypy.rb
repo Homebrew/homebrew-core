@@ -81,9 +81,9 @@ class Pypy < Formula
     end
 
     (libexec/"lib").install libexec/"bin/libpypy-c.dylib"
-    system "install_name_tool", "-change", "@rpath/libpypy-c.dylib",
-                                "#{libexec}/lib/libpypy-c.dylib",
-                                "#{libexec}/bin/pypy"
+    MachO::Tools.change_install_name("#{libexec}/bin/pypy",
+                                     "@rpath/libpypy-c.dylib",
+                                     "#{libexec}/lib/libpypy-c.dylib")
 
     # The PyPy binary install instructions suggest installing somewhere
     # (like /opt) and symlinking in binaries as needed. Specifically,
