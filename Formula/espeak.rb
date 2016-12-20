@@ -32,7 +32,7 @@ class Espeak < Formula
       lib.install "libespeak.a"
       system "make", "libespeak.so", "DATADIR=#{share}/espeak-data", "PREFIX=#{prefix}"
       lib.install "libespeak.so.1.1.48" => "libespeak.dylib"
-      system "install_name_tool", "-id", "#{lib}/libespeak.dylib", "#{lib}/libespeak.dylib"
+      MachO::Tools.change_dylib_id("#{lib}/libespeak.dylib", "#{lib}/libespeak.dylib")
       # macOS does not use the convention libraryname.so.X.Y.Z. macOS uses the convention libraryname.X.dylib
       # See https://stackoverflow.com/questions/4580789/ld-unknown-option-soname-on-os-x/32280483#32280483
     end
