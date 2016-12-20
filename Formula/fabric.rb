@@ -3,6 +3,7 @@ class Fabric < Formula
   homepage "http://www.fabfile.org"
   url "https://github.com/fabric/fabric/archive/1.13.1.tar.gz"
   sha256 "59ee3b780e0cd3b8c5db7333d2006a5f932e8e79e2f334aec76c6f97b298bac6"
+  revision 1
   head "https://github.com/fabric/fabric.git"
 
   bottle do
@@ -69,6 +70,13 @@ class Fabric < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
     resources.each do |r|
       r.stage do
+        if r.name == "cryptography" && MacOS.version < :sierra
+          # Fixes .../cryptography/hazmat/bindings/_openssl.so: Symbol not found: _getentropy
+          # Reported 20 Dec 2016 https://github.com/pyca/cryptography/issues/3332
+          inreplace "src/_cffi_src/openssl/src/osrandom_engine.h",
+            "#elif defined(BSD) && defined(SYS_getentropy)",
+            "#elif defined(BSD) && defined(SYS_getentropy) && 0"
+        end
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
