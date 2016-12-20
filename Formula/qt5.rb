@@ -3,6 +3,7 @@
 class Qt5 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
+  revision 1
   head "https://code.qt.io/qt/qt5.git", :branch => "5.7", :shallow => false
 
   # Remove stable patches for > 5.7.0
@@ -69,8 +70,6 @@ class Qt5 < Formula
     sha256 "14b78a048c833306509457401bb186679b88e5311c4fe33deb3417222064c64d" => :el_capitan
     sha256 "1bbdf366e87a2fb8adb4f657a384b9dd8851149c06c23be870838abd24433991" => :yosemite
   end
-
-  keg_only "Qt 5 conflicts Qt 4"
 
   option "with-docs", "Build documentation"
   option "with-examples", "Build examples"
