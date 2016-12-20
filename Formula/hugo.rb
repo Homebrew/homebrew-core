@@ -3,8 +3,8 @@ require "language/go"
 class Hugo < Formula
   desc "Configurable static site generator"
   homepage "https://gohugo.io/"
-  url "https://github.com/spf13/hugo/archive/v0.17.tar.gz"
-  sha256 "c09913e00d8af9d7ffc7a6aa414c147f8edd7417d430fd59478989e544347590"
+  url "https://github.com/spf13/hugo/archive/v0.18.tar.gz"
+  sha256 "9d432f53018d642526a44f9182b6584a4be83810dcd6ebc13e7a44c015ae35a0"
   head "https://github.com/spf13/hugo.git"
 
   bottle do
