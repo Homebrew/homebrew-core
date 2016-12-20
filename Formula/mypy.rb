@@ -1,10 +1,10 @@
 class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
-  url "https://github.com/JukkaL/mypy.git",
-      :tag => "v0.4.5",
-      :revision => "032acb74769ebfd3f08db1ba46623e8e0fed7b94"
-  head "https://github.com/JukkaL/mypy.git"
+  url "https://github.com/python/mypy.git",
+      :tag => "v0.4.6",
+      :revision => "29b7675e6d21de8c81b170cc1e28213aa874a2fe"
+  head "https://github.com/python/mypy.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -29,12 +29,20 @@ class Mypy < Formula
     xy = Language::Python.major_minor_version "python3"
 
     if build.with? "sphinx-doc"
-      ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-      resource("sphinx_rtd_theme").stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
+      # https://github.com/python/mypy/issues/2593
+      version_static = buildpath/"mypy/version_static.py"
+      version_static.write "__version__ = '#{version}'\n"
+      inreplace "docs/source/conf.py", "mypy.version", "mypy.version_static"
+
+      (buildpath/"docs/sphinx_rtd_theme").install resource("sphinx_rtd_theme")
+      # Inject sphinx_rtd_theme's path into sys.path
+      inreplace "docs/source/conf.py",
+                "sys.path.insert(0, os.path.abspath('../..'))",
+                "sys.path[:0] = [os.path.abspath('../..'), os.path.abspath('../sphinx_rtd_theme')]"
       system "make", "-C", "docs", "html"
       doc.install Dir["docs/build/html/*"]
+
+      rm version_static
     end
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
