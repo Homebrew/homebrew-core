@@ -3,7 +3,7 @@ class Ice < Formula
   homepage "https://zeroc.com"
   url "https://github.com/zeroc-ice/ice/archive/v3.6.3.tar.gz"
   sha256 "82ff74e6d24d9fa396dbb4d9697dc183b17bc9c3f6f076fecdc05632be80a2dc"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "f77f68326d23a4fe732f7ddc771e766959902ebbe490a1712d21a9b4da666d7e" => :sierra
@@ -48,6 +48,11 @@ class Ice < Formula
     end
 
     inreplace "cpp/src/slice2js/Makefile", /install:/, "dontinstall:"
+    # Fixes dynamic_cast error on Sierra that has been fixed upstream and will be included in the next upstream release
+    # https://github.com/zeroc-ice/ice/commit/99e39121fc8613bc4dd356d5479c03fa9bb40b97
+    inreplace "cpp/src/Ice/Instance.cpp",
+              "else if(!dynamic_cast<IceUtil::UnicodeWstringConverter*>(_wstringConverter.get()))",
+              "else"
 
     # Unset ICE_HOME as it interferes with the build
     ENV.delete("ICE_HOME")
