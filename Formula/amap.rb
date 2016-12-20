@@ -34,8 +34,8 @@ class Amap < Formula
   end
 
   test do
-    output = shell_output("otool -L #{bin}/amap")
-    assert_match Formula["openssl"].opt_lib.to_s, output
+    openssl_linked = MachO::Tools.dylibs("#{bin}/amap").any? { |d| d.include? Formula["openssl"].opt_lib.to_s }
+    assert openssl_linked
     # We can do more than this, but unsure how polite it is to port-scan
     # someone's domain every time this goes through CI.
     assert_match version.to_s, shell_output("#{bin}/amap", 255)
