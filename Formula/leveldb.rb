@@ -27,7 +27,7 @@ class Leveldb < Formula
     lib.install "out-shared/libleveldb.dylib.1.19" => "libleveldb.1.19.dylib"
     lib.install_symlink lib/"libleveldb.1.19.dylib" => "libleveldb.dylib"
     lib.install_symlink lib/"libleveldb.1.19.dylib" => "libleveldb.1.dylib"
-    system "install_name_tool", "-id", "#{lib}/libleveldb.1.dylib", "#{lib}/libleveldb.1.19.dylib"
+    MachO::Tools.change_dylib_id("#{lib}/libleveldb.1.dylib", "#{lib}/libleveldb.1.19.dylib")
   end
 
   test do
