@@ -1,8 +1,8 @@
 class Zstd < Formula
   desc "Zstandard is a real-time compression algorithm"
   homepage "http://zstd.net/"
-  url "https://github.com/facebook/zstd/archive/v1.1.1.tar.gz"
-  sha256 "a92965a2480fecc6b7bf491106e93cbf69a298b865b6d623755b3a482d77e614"
+  url "https://github.com/facebook/zstd/archive/v1.1.2.tar.gz"
+  sha256 "980b8febb0118e22f6ed70d23b5b3e600995dbf7489c1f6d6122c1411cdda8d8"
 
   bottle do
     cellar :any
@@ -14,6 +14,12 @@ class Zstd < Formula
   option "without-pzstd", "Build without parallel (de-)compression tool"
 
   depends_on "cmake" => :build
+
+  # https://github.com/facebook/zstd/pull/497
+  patch do
+    url "https://github.com/facebook/zstd/pull/497.patch"
+    sha256 "2bf9d85a083af66da3323f43b815fe41e21ebdab126dbbbe4d1e5f47d2e05036"
+  end
 
   def install
     system "make", "install", "PREFIX=#{prefix}/"
