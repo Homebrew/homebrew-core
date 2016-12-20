@@ -21,7 +21,7 @@ class G3log < Formula
     # No install target yet: https://github.com/KjellKod/g3log/issues/49
     include.install "src/g3log"
     lib.install "libg3logger.a", "libg3logger.dylib"
-    system "install_name_tool", "-id", "#{lib}/libg3logger.dylib", "#{lib}/libg3logger.dylib"
+    MachO::Tools.change_dylib_id("#{lib}/libg3logger.dylib", "#{lib}/libg3logger.dylib")
   end
 
   test do
