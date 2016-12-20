@@ -1,15 +1,8 @@
 class Libvoikko < Formula
   desc "Linguistic software and Finnish dictionary"
   homepage "http://voikko.puimula.org/"
-  url "http://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.0.2.tar.gz"
-  sha256 "0bfaaabd039024920713020671daff828434fcf4c89bce4601b94a377567f2a3"
-
-  # Standard compatibility fixes for Clang, upstream pull request at
-  # https://github.com/voikko/corevoikko/pull/22
-  patch :p2 do
-    url "https://github.com/voikko/corevoikko/commit/f69bab4.diff"
-    sha256 "415fc284feccb3b55972177d73d32a445a4c9b790071637d8d64da9c86ab2928"
-  end
+  url "http://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.1.tar.gz"
+  sha256 "8ecf4a352ff330594250dbc191e0843394f340061bdc6586f8ff2e281bce8e70"
 
   bottle do
     cellar :any
