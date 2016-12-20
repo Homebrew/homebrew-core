@@ -19,7 +19,7 @@ class Re2 < Formula
     ENV.cxx11
 
     system "make", "install", "prefix=#{prefix}"
-    system "install_name_tool", "-id", "#{lib}/libre2.0.dylib", "#{lib}/libre2.0.0.0.dylib"
+    MachO::Tools.change_dylib_id("#{lib}/libre2.0.0.0.dylib", "#{lib}/libre2.0.dylib")
     lib.install_symlink "libre2.0.0.0.dylib" => "libre2.0.dylib"
     lib.install_symlink "libre2.0.0.0.dylib" => "libre2.dylib"
   end
