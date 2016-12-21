@@ -3,8 +3,8 @@ class H2o < Formula
   homepage "https://github.com/h2o/h2o/"
 
   stable do
-    url "https://github.com/h2o/h2o/archive/v2.0.4.tar.gz"
-    sha256 "c0efa18f0ffb0f68ee4b60a6ed1feb54c770458c59e48baa2d9d0906ef9c68c0"
+    url "https://github.com/h2o/h2o/archive/v2.0.5.tar.gz"
+    sha256 "0ce4f16184813d7c8045f41e293457a3526b7d8b18a89105cdfd16330005926b"
 
     depends_on "openssl" => :recommended
   end
