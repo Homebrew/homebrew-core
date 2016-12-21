@@ -7,11 +7,9 @@ class Abcl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "1524176f22d6a95e5cf0bed9a14df42ee769eaff13ec009e8e3846baba6d42a0" => :sierra
-    sha256 "07238d63939ab91c3d9f0c66cb0214e22a2a87d928c8118a59eaf3400f9c5e6f" => :el_capitan
-    sha256 "6baf2c9e04b9bdded093234f797dcdab93d980ca941e74c8a9d44f7bc59a8b6d" => :yosemite
-    sha256 "8a4fa7e13d476419b446b7efa99d3d2e380cf468ec9e9f5c311ef6e1d71847d0" => :mavericks
+    sha256 "e3113086b561f7d7012f9f9bf6c4b5a771f175957fda178671dc0f3278439c73" => :sierra
+    sha256 "137500452d385a1f644e47f50e6d053962ae4d179089160c41fdd4b2b6229b1c" => :el_capitan
+    sha256 "c144dff67537d0aa3fb4fffa2df417ac772e8649835fa20d8fe08d6cd34aee41" => :yosemite
   end
 
   depends_on "ant"
