@@ -5,9 +5,18 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20161210/git-annex-6.20161210.tar.gz"
-  sha256 "b568cceda32908e7cd66b34181811d4da3d3197d71009eac20c1c4c4379f6381"
+  revision 1
   head "git://git-annex.branchable.com/"
+
+  stable do
+    url "https://hackage.haskell.org/package/git-annex-6.20161210/git-annex-6.20161210.tar.gz"
+    sha256 "b568cceda32908e7cd66b34181811d4da3d3197d71009eac20c1c4c4379f6381"
+
+    # Remove for git-annex > 6.20161210
+    # Upstream commit from 20 Dec 2016 "Fix build with directory-1.3."
+    # https://github.com/joeyh/git-annex/commit/e312ec37506f4b07beb0e082fedbdd06aed24c42
+    patch :DATA
+  end
 
   bottle do
     cellar :any
@@ -56,6 +65,11 @@ class GitAnnex < Formula
   def install
     cabal_sandbox do
       (buildpath/"aws").install resource("aws")
+
+      # Remove for aws > 0.14.1
+      # Reported 21 Dec 2016 https://github.com/aristidb/aws/issues/215
+      inreplace "aws/aws.cabal", /(directory +>= 1.0 +&& <) 1.3,/, "\\1 1.4,"
+
       (buildpath/"esqueleto-2.4.3").install resource("esqueleto-2.4.3")
       resource("esqueleto-newer-persistent-patch").stage do
         system "patch", "-p1", "-i", Pathname.pwd/"patches/newer-persistent",
@@ -98,3 +112,15 @@ class GitAnnex < Formula
     system "git", "annex", "uninit"
   end
 end
+
+__END__
+diff --git a/Utility/SystemDirectory.hs b/Utility/SystemDirectory.hs
+index 3dd44d1..b9040fe 100644
+--- a/Utility/SystemDirectory.hs
++++ b/Utility/SystemDirectory.hs
+@@ -13,4 +13,4 @@ module Utility.SystemDirectory (
+	module System.Directory
+ ) where
+
+-import System.Directory hiding (isSymbolicLink)
++import System.Directory hiding (isSymbolicLink, getFileSize)
