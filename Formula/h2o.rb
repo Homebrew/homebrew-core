@@ -6,7 +6,7 @@ class H2o < Formula
     url "https://github.com/h2o/h2o/archive/v2.0.5.tar.gz"
     sha256 "0ce4f16184813d7c8045f41e293457a3526b7d8b18a89105cdfd16330005926b"
 
-    depends_on "openssl" => :recommended
+    depends_on "openssl"
   end
 
   bottle do
@@ -20,7 +20,7 @@ class H2o < Formula
     version "2.1.0-beta3"
     sha256 "e85aa794b1d1dd074f44e1a2df6afee61175b443f8fa6413a47033c179485d2a"
 
-    depends_on "openssl@1.1" => :recommended
+    depends_on "openssl@1.1"
   end
 
   option "with-libuv", "Build the H2O library in addition to the executable"
