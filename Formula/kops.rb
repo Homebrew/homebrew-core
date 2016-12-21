@@ -6,10 +6,9 @@ class Kops < Formula
   head "https://github.com/kubernetes/kops.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f174b175d52e45b7d195ea231a6e970841e770d1f2a62385673425c596e59e5b" => :sierra
-    sha256 "aaf16240625675fb28c46d357a0b25f4844e56aa881c987fa7dd03c521087477" => :el_capitan
-    sha256 "9edb1edd290e6e0a39bcad0177f2adf85d5cd9c030c4621efc01e6dc90517877" => :yosemite
+    sha256 "42f01019c571fd0e399022f10e209f9e47baf1357b815ef56393467cbee65e58" => :sierra
+    sha256 "6bd50f64cdd384dddd61fd7c2ddc975ee2d97bffd16744f54b8608fd0d7266e3" => :el_capitan
+    sha256 "1f740e8a4d1ca20e5e567c8880102c243dc95fb9878656fab99a0c2e1d438445" => :yosemite
   end
 
   depends_on "go" => :build
