@@ -1,8 +1,8 @@
 class Libhttpseverywhere < Formula
   desc "Bring HTTPSEverywhere to desktop apps"
   homepage "https://github.com/gnome/libhttpseverywhere"
-  url "https://download.gnome.org/sources/libhttpseverywhere/0.2/libhttpseverywhere-0.2.9.tar.xz"
-  sha256 "1226b2f7cc30db28bd1ccb0a84902e999488f1a99847940cbdab3d2e510be3e1"
+  url "https://download.gnome.org/sources/libhttpseverywhere/0.2/libhttpseverywhere-0.2.10.tar.xz"
+  sha256 "235f5b7f96188d800470871774e31696fbde085b63f65bd71434af8e9e6ac8aa"
 
   bottle do
     sha256 "31bb137f4c16e80a56d1c59def16229ef3bcbe439ed8f399a6e3aaa95e23aa5b" => :sierra
