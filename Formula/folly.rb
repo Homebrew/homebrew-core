@@ -3,6 +3,7 @@ class Folly < Formula
   homepage "https://github.com/facebook/folly"
   url "https://github.com/facebook/folly/archive/v2016.12.19.00.tar.gz"
   sha256 "471050ccd2a32f551eb11f43170d3f9cdd39d363ec026ca922b872d1c03831c1"
+  revision 1
   head "https://github.com/facebook/folly.git"
 
   bottle do
@@ -23,7 +24,6 @@ class Folly < Formula
   depends_on "xz"
   depends_on "snappy"
   depends_on "lz4"
-  depends_on "jemalloc"
   depends_on "openssl"
 
   # https://github.com/facebook/folly/issues/451
@@ -61,8 +61,7 @@ class Folly < Formula
 
       system "autoreconf", "-fvi"
       system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",
-                            "--disable-dependency-tracking",
-                            "--with-jemalloc"
+                            "--disable-dependency-tracking"
       system "make"
       system "make", "install"
     end
