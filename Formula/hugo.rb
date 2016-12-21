@@ -21,6 +21,11 @@ class Hugo < Formula
         :revision => "99064174e013895bbd9b025c31100bd1d9b590ca"
   end
 
+  go_resource "github.com/bep/gitmap" do
+    url "https://github.com/bep/gitmap.git",
+        :revision => "a1a71abe12823e27ae7507189fe2e914ba9626ac"
+  end
+
   go_resource "github.com/PuerkitoBio/purell" do
     url "https://github.com/PuerkitoBio/purell.git",
         :revision => "8a290539e2e8629dbc4e6bad948158f790ec31f4"
@@ -158,7 +163,7 @@ class Hugo < Formula
 
   go_resource "github.com/spf13/fsync" do
     url "https://github.com/spf13/fsync.git",
-        :revision => "1773df7b269b572f0fc8df916b38e3c9d15cee66"
+        :revision => "cb2da332d00cbc04e4f3f677520dc3e7cc11874b"
   end
 
   go_resource "github.com/spf13/jwalterweatherman" do
@@ -178,7 +183,7 @@ class Hugo < Formula
 
   go_resource "github.com/spf13/viper" do
     url "https://github.com/spf13/viper.git",
-        :revision => "670c42a85b2a2215949acd943cb8f11add317e3f"
+        :revision => "5ed0fc31f7f453625df314d8e66b9791e8d13003"
   end
 
   go_resource "github.com/stretchr/testify" do
