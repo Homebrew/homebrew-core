@@ -5,6 +5,7 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "http://wiki.portal.chalmers.se/agda/"
+  revision 1
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.5.1.2/Agda-2.5.1.2.tar.gz"
@@ -46,6 +47,15 @@ class Agda < Formula
   depends_on :emacs => ["23.4", :recommended]
 
   def install
+    # Remove for > 2.5.1.2
+    # Equivalent to upstream commit from 17 Dec 2016
+    # "[ #2319 ] Bumped directory upper version bound."
+    # https://github.com/agda/agda/commit/2fb174551bdfb59fdd99a4d862810ee4f588c4cb
+    if build.stable?
+      inreplace "Agda.cabal", "directory >= 1.2.0.1 && < 1.3",
+                              "directory >= 1.2.0.1 && < 1.4"
+    end
+
     # install Agda core
     install_cabal_package :using => ["alex", "happy", "cpphs"]
 
