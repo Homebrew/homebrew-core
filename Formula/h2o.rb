@@ -16,9 +16,9 @@ class H2o < Formula
   end
 
   devel do
-    url "https://github.com/h2o/h2o/archive/v2.1.0-beta3.tar.gz"
-    version "2.1.0-beta3"
-    sha256 "e85aa794b1d1dd074f44e1a2df6afee61175b443f8fa6413a47033c179485d2a"
+    url "https://github.com/h2o/h2o/archive/v2.1.0-beta4.tar.gz"
+    version "2.1.0-beta4"
+    sha256 "780d4b210f1a9b76a1a29cad794305631afb739c79b3835902b13aaf01507e60"
 
     depends_on "openssl@1.1"
   end
