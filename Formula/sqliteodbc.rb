@@ -6,11 +6,9 @@ class Sqliteodbc < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "21d2e12e8b0cd45d4d0424be01279d4d269f687934579d2d0f52adac99b7df65" => :sierra
-    sha256 "b48cbcd80134a93b694b2b01366970aa1114afad86acd921b484ddee3a64c9be" => :el_capitan
-    sha256 "691272b6dd92741f4f8c1f7cb435c4fade6a03271fc0694d88378238d48a0f6e" => :yosemite
-    sha256 "5ff36ea537f174e4db9f44da33db0d4a21b425f346d11eedd45582d85971ffb1" => :mavericks
+    sha256 "3b50601a3dd200c8706dc421b7d4ec26bdcd316d5165100ca6d87533fb35ecf1" => :sierra
+    sha256 "2ab8fb2d6cd9bf40121b4c92c88d34001be074a3d7a41e4d14bf897b35868e77" => :el_capitan
+    sha256 "3a05177887821c6ed86053bcc54795ca7968eb541a9fc689c6b0952c88ed88b8" => :yosemite
   end
 
   depends_on "sqlite"
