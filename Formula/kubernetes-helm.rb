@@ -6,6 +6,12 @@ class KubernetesHelm < Formula
       :revision => "58e545f47002e36ca71ac5d1f7a987b56e1937b3"
   head "https://github.com/kubernetes/helm.git"
 
+  bottle do
+    sha256 "62fef924916130b40ac7a3e266091304a0a30ee63522e31f7e0ffb3759fcc79e" => :sierra
+    sha256 "0281cb74bf39fc1ed2e4e50147d54cb1f62fc5de39ccf029754a2df5ee3dd103" => :el_capitan
+    sha256 "dea9bb52515ab1e41f682c429afc3a46871c37ab203c46f253633d51f4bfb125" => :yosemite
+  end
+
   depends_on :hg => :build
   depends_on "go" => :build
   depends_on "glide" => :build
