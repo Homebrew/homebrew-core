@@ -4,7 +4,6 @@ class Dbt < Formula
   desc "Data build tool"
   homepage "https://github.com/analyst-collective/dbt"
   url "https://github.com/analyst-collective/dbt/archive/v0.5.4.tar.gz"
-  version "0.5.4"
   sha256 "df830bb0355e46608727fc6c59fa4aadd2514aec227e55765fe56abcfc72918c"
 
   depends_on :python3
@@ -157,6 +156,6 @@ class Dbt < Formula
   end
 
   test do
-    system "#{bin}/dbt", "help"
+    system "#{bin}/dbt", "-h"
   end
 end
