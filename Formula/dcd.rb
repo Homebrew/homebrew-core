@@ -24,6 +24,10 @@ class Dcd < Formula
   depends_on "dmd" => :build
 
   def install
+    if build.stable?
+      rmtree "libdparse/experimental_allocator"
+      rmtree "containers/experimental_allocator"
+    end
     system "make"
     bin.install "bin/dcd-client", "bin/dcd-server"
   end
