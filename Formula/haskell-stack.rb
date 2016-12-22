@@ -35,8 +35,17 @@ class HaskellStack < Formula
       EOS
     end
 
-    if build.with? "bootstrap"
-      cabal_sandbox do
+    cabal_sandbox do
+      inreplace "stack.cabal", "directory >=1.2.1.0 && <1.3,",
+                               "directory >=1.2.1.0 && <1.4,"
+      system "cabal", "get", "Glob", "hpc"
+      inreplace "Glob-0.7.13/Glob.cabal", ", directory    <  1.3",
+                                          ", directory    <  1.4"
+      inreplace "hpc-0.6.0.3/hpc.cabal", "directory  >= 1.1   && < 1.3,",
+                                         "directory  >= 1.1   && < 1.4,"
+      cabal_sandbox_add_source "Glob-0.7.13", "hpc-0.6.0.3"
+
+      if build.with? "bootstrap"
         cabal_install
         # Let `stack` handle its own parallelization
         # Prevents "install: mkdir ... ghc-7.10.3/lib: File exists"
@@ -45,9 +54,9 @@ class HaskellStack < Formula
           system "stack", "-j#{jobs}", "setup"
           system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install"
         end
+      else
+        install_cabal_package
       end
-    else
-      install_cabal_package
     end
 
     # Remove the unneeded rpaths so that the binary works on Sierra
