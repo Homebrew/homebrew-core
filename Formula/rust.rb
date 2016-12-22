@@ -3,12 +3,12 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.13.0-src.tar.gz"
-    sha256 "ecb84775ca977a5efec14d0cad19621a155bfcbbf46e8050d18721bb1e3e5084"
+    url "https://static.rust-lang.org/dist/rustc-1.14.0-src.tar.gz"
+    sha256 "c790edd2e915bd01bea46122af2942108479a2fda9a6f76d1094add520ac3b6b"
 
     resource "cargo" do
       # git required because of submodules
-      url "https://github.com/rust-lang/cargo.git", :tag => "0.14.0", :revision => "eca9e159b6b0d484788ac757cf23052eba75af55"
+      url "https://github.com/rust-lang/cargo.git", :tag => "0.15.0", :revision => "298a0127f703d4c2500bb06d309488b92ef84ae1"
     end
 
     # name includes date to satisfy cache
