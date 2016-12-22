@@ -3,8 +3,8 @@ require "language/go"
 class Hugo < Formula
   desc "Configurable static site generator"
   homepage "https://gohugo.io/"
-  url "https://github.com/spf13/hugo/archive/v0.17.tar.gz"
-  sha256 "c09913e00d8af9d7ffc7a6aa414c147f8edd7417d430fd59478989e544347590"
+  url "https://github.com/spf13/hugo/archive/v0.18.tar.gz"
+  sha256 "9d432f53018d642526a44f9182b6584a4be83810dcd6ebc13e7a44c015ae35a0"
   head "https://github.com/spf13/hugo.git"
 
   bottle do
@@ -19,6 +19,11 @@ class Hugo < Formula
   go_resource "github.com/BurntSushi/toml" do
     url "https://github.com/BurntSushi/toml.git",
         :revision => "99064174e013895bbd9b025c31100bd1d9b590ca"
+  end
+
+  go_resource "github.com/bep/gitmap" do
+    url "https://github.com/bep/gitmap.git",
+        :revision => "a1a71abe12823e27ae7507189fe2e914ba9626ac"
   end
 
   go_resource "github.com/PuerkitoBio/purell" do
@@ -158,7 +163,7 @@ class Hugo < Formula
 
   go_resource "github.com/spf13/fsync" do
     url "https://github.com/spf13/fsync.git",
-        :revision => "1773df7b269b572f0fc8df916b38e3c9d15cee66"
+        :revision => "cb2da332d00cbc04e4f3f677520dc3e7cc11874b"
   end
 
   go_resource "github.com/spf13/jwalterweatherman" do
@@ -178,7 +183,7 @@ class Hugo < Formula
 
   go_resource "github.com/spf13/viper" do
     url "https://github.com/spf13/viper.git",
-        :revision => "670c42a85b2a2215949acd943cb8f11add317e3f"
+        :revision => "5ed0fc31f7f453625df314d8e66b9791e8d13003"
   end
 
   go_resource "github.com/stretchr/testify" do
