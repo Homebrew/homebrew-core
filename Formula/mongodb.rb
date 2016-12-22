@@ -3,8 +3,8 @@ require "language/go"
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.0.tar.gz"
-  sha256 "5a904b66d09e4d15f3ed35028a004640afcba5d8ecb5644165bd08cd7eb79df6"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.1.tar.gz"
+  sha256 "54f475e553827733fb351ee4b03b470297f0d08e0434fbf7e6661705124da97b"
 
   bottle do
     rebuild 1
