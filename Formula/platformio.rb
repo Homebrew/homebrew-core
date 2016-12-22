@@ -3,14 +3,14 @@ class Platformio < Formula
 
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
   homepage "http://platformio.org"
-  url "https://pypi.python.org/packages/b1/16/b74f0d085932905149118119aef58525bdb9b0f24e28bf25550b70581794/platformio-3.1.0.tar.gz"
-  sha256 "6fc9e4c9a7b8271156daa3095b1efaba7940547e663f16e68f55f77247211c09"
+  url "https://pypi.python.org/packages/01/29/5720a510593527335710a6f0219d7e7cff177d799cfeb61a74e2a2e94f84/platformio-3.2.1.tar.gz"
+  sha256 "fad4b32bc68f44ac0df7582d2965be456012bd79bb6c220797155d220c503d17"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e44b569b3f006c84b48f6ce29df065f2b4da9e7f10e4a04ee396be217c697e4a" => :sierra
-    sha256 "281045c64b2a1d48854577781d9f72039196794b6900d82c35d5bee0fca594ea" => :el_capitan
-    sha256 "55c116597881c9f59bdfcdfe3a36d939a86c3587ea03cbf4ca1cd9ab09600676" => :yosemite
+    sha256 "991ae3c2f9885133ffac704cccb1b9a972bb87d3323de135d95ade336330bf37" => :sierra
+    sha256 "f7c3dfb4f492afeda3f5382509e89686b2c9d38d7c2d98ee32ce00340d32ffaa" => :el_capitan
+    sha256 "c46726959dbe80539200bdb84fb750e351a48e952a630ec0e6c04bf8ada52855" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -21,8 +21,8 @@ class Platformio < Formula
   end
 
   resource "bottle" do
-    url "https://files.pythonhosted.org/packages/d2/59/e61e3dc47ed47d34f9813be6d65462acaaba9c6c50ec863db74101fa8757/bottle-0.12.9.tar.gz"
-    sha256 "fe0a24b59385596d02df7ae7845fe7d7135eea73799d03348aeb9f3771500051"
+    url "https://pypi.python.org/packages/7e/b5/a8404cf922bdedb63b41e9b6f3ae64c93f99cf1accdf0fc265ae75f063a2/bottle-0.12.10.tar.gz"
+    sha256 "1308133647adc2d266f0ba5fea6684ba955cbf5e8133590cf0314c8beb814ff4"
   end
 
   resource "click" do
@@ -41,8 +41,8 @@ class Platformio < Formula
   end
 
   resource "pyserial" do
-    url "https://files.pythonhosted.org/packages/3c/d8/a9fa247ca60b02b3bebbd61766b4f321393b57b13c53b18f6f62cf172c08/pyserial-3.1.1.tar.gz"
-    sha256 "d657051249ce3cbd0446bcfb2be07a435e1029da4d63f53ed9b4cdde7373364c"
+    url "https://pypi.python.org/packages/1f/3b/ee6f354bcb1e28a7cd735be98f39ecf80554948284b41e9f7965951befa6/pyserial-3.2.1.tar.gz"
+    sha256 "1eecfe4022240f2eab5af8d414f0504e072ee68377ba63d3b6fe6e66c26f66d1"
   end
 
   resource "requests" do
@@ -51,8 +51,8 @@ class Platformio < Formula
   end
 
   resource "semantic_version" do
-    url "https://files.pythonhosted.org/packages/8e/0e/33052dd97ab9d07dae8ddffcfb2740efe58c46d72efbc060cf6da250439f/semantic_version-2.5.0.tar.gz"
-    sha256 "3baad35dcb074a49419539cea6a33b484706b6c2dd03f05b67763eba4c1bb65c"
+    url "https://pypi.python.org/packages/72/83/f76958017f3094b072d8e3a72d25c3ed65f754cc607fdb6a7b33d84ab1d5/semantic_version-2.6.0.tar.gz"
+    sha256 "2a4328680073e9b243667b201119772aefc5fc63ae32398d6afafff07c4f54c0"
   end
 
   def install

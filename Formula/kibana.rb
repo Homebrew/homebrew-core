@@ -4,19 +4,19 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v5.0.2",
-      :revision => "8f2ace746d1b84702bb618308efa65dc0c3f8a34"
+      :tag => "v5.1.1",
+      :revision => "85a6f4da184835398a4dea748d15cfffa527aa22"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "20ed1a8d44c2e2ba8425e33cc97389f56579286b117029844b3cdd8226ff75be" => :sierra
-    sha256 "f627d1175936d42ef4ca2cfee8b454fa1c7513918d409b0d6cb9497a55810168" => :el_capitan
-    sha256 "b8f75a650d97d270cebd90459a7dcd6115ba5244692ff0968453e0b455db4a67" => :yosemite
+    sha256 "4ef541adf2971b3058b76ad1c4698ea01155904de643391157bfd9f0475f46d4" => :sierra
+    sha256 "2f1c1bf6a5e5bb55a53a46f128d4afff140d27a61c3f994d6b88d1baaf2bf3c1" => :el_capitan
+    sha256 "220d33c9afe03d3f806098107361df222a3f02f1016c61a647856b0c365d6cbe" => :yosemite
   end
 
   resource "node" do
-    url "https://nodejs.org/dist/v7.2.0/node-v7.2.0.tar.xz" # N.B. includes vendored dependencies
-    sha256 "486d4db7ef659521ad2fafefca877638da07bef61e2aee090207ff52149294fb"
+    url "https://nodejs.org/dist/v6.9.0/node-v6.9.0.tar.xz" # N.B. includes vendored dependencies
+    sha256 "656342ed8a84c95a36af902f309aeeca7103b16d61c02925bd37bd47d2194915"
   end
 
   def install
@@ -28,10 +28,8 @@ class Kibana < Formula
 
     # do not build packages for other platforms
     platforms = Set.new(["darwin-x64", "linux-x64", "linux-x86", "windows-x86"])
-    if OS.mac? && Hardware::CPU.is_64_bit?
+    if MacOS.prefer_64_bit?
       platform = "darwin-x64"
-    elsif OS.linux?
-      platform = Hardware::CPU.is_64_bit? ? "linux-x64" : "linux-x86"
     else
       raise "Installing Kibana via Homebrew is only supported on Darwin x86_64, Linux i386, Linux i686, and Linux x86_64"
     end

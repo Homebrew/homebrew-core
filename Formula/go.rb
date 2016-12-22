@@ -1,6 +1,7 @@
 class Go < Formula
   desc "The Go programming language"
   homepage "https://golang.org"
+  revision 1
 
   stable do
     url "https://storage.googleapis.com/golang/go1.7.4.src.tar.gz"
@@ -17,15 +18,15 @@ class Go < Formula
   end
 
   bottle do
-    sha256 "bde94987de94c3b872760961782ff44e7cfa904b1df84507e90ed39d5cb63b05" => :sierra
-    sha256 "c684fbf681412a1aa06c0e64159d2dede4fd49dd3987e2c9679794c203e307a7" => :el_capitan
-    sha256 "5d7d8e26f7c96470be2cdf23fd10d83bd97a2ae3c4095aff0c6c253cbee84e68" => :yosemite
+    sha256 "f30470e4cef40ed0afcf111274eac6e921241e6ceaa6950bf771572356bd567e" => :sierra
+    sha256 "e04994e1c0885cda9b3ca313829405979ad53213a87571eb6e462e73fe76fe7c" => :el_capitan
+    sha256 "064ceb562c5ad8a99029a7bd92be27161d96760e36939c9287c2f4176d82dc48" => :yosemite
   end
 
   devel do
-    url "https://storage.googleapis.com/golang/go1.8beta1.src.tar.gz"
-    version "1.8beta1"
-    sha256 "7204232743f85a2ebb31dbbb8ea0d792eeb89357bb2ff0ef3ed62e192fdd60e4"
+    url "https://storage.googleapis.com/golang/go1.8beta2.src.tar.gz"
+    version "1.8beta2"
+    sha256 "f5d8252f7746c77df0beb205b8f8b158362ad1718e1a2195d122ac43859f5930"
 
     resource "gotools" do
       url "https://go.googlesource.com/tools.git"
@@ -63,7 +64,7 @@ class Go < Formula
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
       ENV["GOOS"]         = "darwin"
-      ENV["CGO_ENABLED"]  = build.with?("cgo") ? "1" : "0"
+      ENV["CGO_ENABLED"]  = "0" if build.without?("cgo")
       system "./make.bash", "--no-clean"
     end
 
@@ -120,6 +121,11 @@ class Go < Formula
     if build.with? "godoc"
       assert File.exist?(libexec/"bin/godoc")
       assert File.executable?(libexec/"bin/godoc")
+    end
+
+    if build.with? "cgo"
+      ENV["GOOS"] = "freebsd"
+      system bin/"go", "build", "hello.go"
     end
   end
 end

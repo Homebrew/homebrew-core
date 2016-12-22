@@ -5,31 +5,25 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
+  url "https://github.com/purescript/purescript/archive/v0.10.3.tar.gz"
+  sha256 "46c3f695ccc6e7be3cb2afe1ea9586eafdf51a04f1d40fe7240def0d8693ca68"
   head "https://github.com/purescript/purescript.git"
 
-  stable do
-    url "https://github.com/purescript/purescript/archive/v0.10.2.tar.gz"
-    sha256 "4b5663e2a5ebb7a2e432f951d0a5d0ddfa08f18304827ec33f609d9b3c1c3fe7"
-
-    # Remove for > 0.10.2
-    # Upstream commit "Fix GHC 8.0.2 build"
-    patch do
-      url "https://github.com/purescript/purescript/commit/46f573a.patch"
-      sha256 "6a070c6890480613cf3876da34118aad9bb48c8cf5ca1f285adf69d4f9d99a1b"
-    end
-  end
-
   bottle do
-    rebuild 1
-    sha256 "9061f02205436efeedb0350cec40f81aeb1c714bf3be6ec1ffa2d23a9036cf7b" => :sierra
-    sha256 "3d20149072a5c931af2f8d7f7c909c354bcf6babceb786c5660775bdfe28341c" => :el_capitan
-    sha256 "549f565313ff57b8bf4b1b7ef7dd07771d3501b24945b25f1ff8bcad20a15b00" => :yosemite
+    sha256 "69ce4961c241c87adcd7f70445f8a8c2dd62d4d4bb96bc7ef85fb50b9c67b167" => :sierra
+    sha256 "d1deef9286bf2587b4c279dfb59f751b0ab55bbf31febe12909763ac26ec2429" => :el_capitan
+    sha256 "de3f5dbd405d1f1699b12b974d0f648594f93ae7793fade432469f03bf42b9ed" => :yosemite
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
+    # Fix "error: Couldn't match type 'Text' with 'Line'"
+    # Upstream issue "turtle 1.3 breaks build"
+    # Reported 10 Dec 2016 https://github.com/purescript/purescript/issues/2472
+    inreplace "purescript.cabal", "turtle -any", "turtle < 1.3"
+
     install_cabal_package :using => ["alex", "happy"]
   end
 

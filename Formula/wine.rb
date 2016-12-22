@@ -28,9 +28,9 @@ class Wine < Formula
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.24.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.24.tar.bz2"
-    sha256 "cb727dc978ef383d1dce020d032023550877d5d01a2c1a8ee4817cdedd3e6061"
+    url "https://dl.winehq.org/wine/source/2.0/wine-2.0-rc2.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.0-rc2.tar.bz2"
+    sha256 "66f12b055549a3d24fc92d7d2610a002adeeda68f68ac2453d5d4f47f5ce535e"
   end
 
   # note that all wine dependencies should declare a --universal option in their formula,
@@ -75,11 +75,6 @@ class Wine < Formula
     sha256 "ac681f737f83742d786706529eb85f4bc8d6bdddd8dcdfa9e2e336b71973bc25"
   end
 
-  fails_with :llvm do
-    build 2336
-    cause "llvm-gcc does not respect force_align_arg_pointer"
-  end
-
   fails_with :clang do
     build 425
     cause "Clang prior to Xcode 5 miscompiles some parts of wine"
@@ -89,9 +84,6 @@ class Wine < Formula
   # configure: libv4l, gstreamer-0.10, libcapi20, libgsm
 
   def install
-    # Help configure find libxml2 in an XCode only (no CLT) installation.
-    ENV.libxml2
-
     if build.with? "win64"
       args64 = ["--prefix=#{prefix}"]
       args64 << "--enable-win64"

@@ -75,7 +75,7 @@ class Freetds < Formula
       system "./configure", *args
     end
     system "make"
-    ENV.j1 # Or fails to install on multi-core machines
+    ENV.deparallelize # Or fails to install on multi-core machines
     system "make", "install"
   end
 

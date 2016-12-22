@@ -1,16 +1,15 @@
 class Ccextractor < Formula
   desc "Free, GPL licensed closed caption tool"
   homepage "http://www.ccextractor.org"
-  url "https://downloads.sourceforge.net/project/ccextractor/ccextractor/0.82/ccextractor.src.0.82.zip"
-  sha256 "890e7786256c74c7e4850592784da027451dd7c3e3a353c9bad3bea5467b7b77"
+  url "https://downloads.sourceforge.net/project/ccextractor/ccextractor/0.84/ccextractor.src.0.84.zip"
+  sha256 "8825849021fd8bfaa99ea63fc3c7e3f442b54450a1e50e93bf8b51627ebe60a7"
   head "https://github.com/ccextractor/ccextractor.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e9b4e38e0b81d257841d64eb8aeec6e3015d1ad7ac9afe3d8b797f969109960d" => :sierra
-    sha256 "358c85300067eb0ae9a7b09d2325c24103ecbdf73f2d07c8e76baaeac5743931" => :el_capitan
-    sha256 "e5dfe6c34730149839a16860fb012776633dc0021562d26a6f06a5825116ee3c" => :yosemite
-    sha256 "b513081333efed3bf23e133bd062c18507b587a627379693a14372c45b966d6b" => :mavericks
+    sha256 "24f24fc570ae8cf9e846d7f58080593903f73d7b97e028f75f602e0c6f7f1bd7" => :sierra
+    sha256 "12983851e7a4d513ebefabe5bbbbd3ee8f4cf5182fa247cc9c90f39c7c0390da" => :el_capitan
+    sha256 "90704ba1dff668c08889cdcfc18ae80c1f130e4230dbbebb475967fbffca009f" => :yosemite
   end
 
   def install

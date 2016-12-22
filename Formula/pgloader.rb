@@ -1,15 +1,14 @@
 class Pgloader < Formula
   desc "Data loading tool for PostgreSQL"
   homepage "https://github.com/dimitri/pgloader"
-  url "https://github.com/dimitri/pgloader/archive/v3.2.2.tar.gz"
-  sha256 "5fe5c115e277a9dd616b1077f89bffdf978bc6983ce62d99af9a218142c39e40"
+  url "https://github.com/dimitri/pgloader/archive/v3.3.2.tar.gz"
+  sha256 "09408a976ca1e474e5461db766e0a1efef446303cb744ec3748356b98cf0efbd"
   head "https://github.com/dimitri/pgloader.git"
-  revision 2
 
   bottle do
-    sha256 "3474b716df1279759a9cc1f4b49ea52dc6fbc270386d490dcefa3d3949df973d" => :sierra
-    sha256 "b6d1a4ff0f134c5832cc4249bafc03c478c2f02f32a98d526f42c9e16d2f486a" => :el_capitan
-    sha256 "693fd7db17f168790b7177ab2d5a2295b095cb03737b913e075ca76f2930c371" => :yosemite
+    sha256 "baca983479adca1a1a8165d0338c9ee910c298785a9f82ac675b423fb4c3ec89" => :sierra
+    sha256 "7c59c87a0812a9706a05338b0b330455d32d41c012f947f8d5e8069ea81fbdd0" => :el_capitan
+    sha256 "f5efc890f63a81454789969479f91b7ee6ed8318d89ea69f8e25158faa38dd8a" => :yosemite
   end
 
   depends_on "sbcl"
@@ -21,8 +20,8 @@ class Pgloader < Formula
   # See: https://github.com/benesch/quicklisp-homebrew-roundup
 
   resource "alexandria" do
-    url "https://beta.quicklisp.org/archive/alexandria/2015-05-05/alexandria-20150505-git.tgz"
-    sha256 "14edf05fd7550a49450c4cdab8a29d2266d722e856e1dd15e3403854d2a633fc"
+    url "https://beta.quicklisp.org/archive/alexandria/2016-12-04/alexandria-20161204-git.tgz"
+    sha256 "c41df5956886db8d66f6a5d3e5362f606f2805af44fea567175afca9e1ac755c"
   end
 
   resource "anaphora" do
@@ -46,18 +45,18 @@ class Pgloader < Formula
   end
 
   resource "bordeaux-threads" do
-    url "https://beta.quicklisp.org/archive/bordeaux-threads/2013-06-15/bordeaux-threads-0.8.3.tgz"
-    sha256 "1e96b51770d9a4a52d1a60b821c2d1807a08b7eb3359a0d1a38349d2353e7630"
+    url "https://beta.quicklisp.org/archive/bordeaux-threads/2016-03-18/bordeaux-threads-v0.8.5.tgz"
+    sha256 "edaedd450d9267b0a578c9da421fdc96e5f93b119d1502abb1d428e646eb0127"
   end
 
   resource "cffi" do
-    url "https://beta.quicklisp.org/archive/cffi/2015-09-23/cffi_0.16.1.tgz"
-    sha256 "8c0d8ccef43c5cc8562b03f3c3020464578a7c92273cde1060e8d9d89c0ccb47"
+    url "https://beta.quicklisp.org/archive/cffi/2016-10-31/cffi_0.18.0.tgz"
+    sha256 "ff5ff69b6de2a73ff7c8d4c81207f600ad4fee8791a41d61e2f1b04453a78c3c"
   end
 
   resource "chipz" do
-    url "https://beta.quicklisp.org/archive/chipz/2015-05-05/chipz-20150505-git.tgz"
-    sha256 "803d15e7a4acdae9e6fd18aaad78abb3bb9681d03a8ebb20ae0f733b06691924"
+    url "https://beta.quicklisp.org/archive/chipz/2016-03-18/chipz-20160318-git.tgz"
+    sha256 "4620842f94c9431379e9e7e4f27c46381e1730fb1a2c187b39600ed2267afab6"
   end
 
   resource "chunga" do
@@ -66,8 +65,8 @@ class Pgloader < Formula
   end
 
   resource "cl+ssl" do
-    url "https://beta.quicklisp.org/archive/cl+ssl/2015-06-08/cl+ssl-20150608-git.tgz"
-    sha256 "6d7314a13874ad8edbb3bb4ba64344f22b1fee26ffd3280b4e3e02b28cb811e5"
+    url "https://beta.quicklisp.org/archive/cl+ssl/2016-12-08/cl+ssl-20161208-git.tgz"
+    sha256 "1a9efc7af99a435de6b2a76e5638f98c61f93707921d51cbed2f41d7b2503d75"
   end
 
   resource "cl-abnf" do
@@ -96,18 +95,18 @@ class Pgloader < Formula
   end
 
   resource "cl-fad" do
-    url "https://beta.quicklisp.org/archive/cl-fad/2014-12-17/cl-fad-0.7.3.tgz"
-    sha256 "7fce0593d246463ee42029c3a769ca7f0e8538a4d46c82a26b8fac0b9fe23457"
+    url "https://beta.quicklisp.org/archive/cl-fad/2016-08-25/cl-fad-0.7.4.tgz"
+    sha256 "3d6d30910217d11bfcef0c2805c9c79e0946bf2696f057bd2efbe66d8c2c77ab"
   end
 
   resource "cl-interpol" do
-    url "https://beta.quicklisp.org/archive/cl-interpol/2010-10-06/cl-interpol-0.2.1.tgz"
-    sha256 "7b659ecd994f0a2b4d13f698bf1c7afde9c49f579513d59ed576c6e862d7ca66"
+    url "https://beta.quicklisp.org/archive/cl-interpol/2016-09-29/cl-interpol-0.2.6.tgz"
+    sha256 "0bc1d45179d4295ee25a012558f7fd167724c9c74b1a7b3e74be3b7217f1519c"
   end
 
   resource "cl-ixf" do
-    url "https://beta.quicklisp.org/archive/cl-ixf/2014-08-26/cl-ixf-20140826-git.tgz"
-    sha256 "14c6db515cdb1b34859ef5fde4d3539b27a666938de25a036aee51ec72a4f627"
+    url "https://beta.quicklisp.org/archive/cl-ixf/2016-09-29/cl-ixf-20160929-git.tgz"
+    sha256 "fe62143b034beab6a765649b6111e8a861436305c3cde4183491fb095d035342"
   end
 
   resource "cl-log" do
@@ -146,13 +145,13 @@ class Pgloader < Formula
   end
 
   resource "closer-mop" do
-    url "https://beta.quicklisp.org/archive/closer-mop/2015-10-31/closer-mop-20151031-git.tgz"
-    sha256 "8c75b2470e7e1a5d0b1ed6bc572704b10bf7ee340f87d0c1ae0190456c6cfb94"
+    url "https://beta.quicklisp.org/archive/closer-mop/2016-10-31/closer-mop-20161031-git.tgz"
+    sha256 "a514e5736dc960bef8ec0662cb65dbd5ac8b7dc92a3a79ffbc043cd0af2298ef"
   end
 
   resource "command-line-arguments" do
-    url "https://beta.quicklisp.org/archive/command-line-arguments/2015-07-09/command-line-arguments-20150709-git.tgz"
-    sha256 "b032a2a750fe335be6b7327e8f87d39ed1669c671f010544b838522606a9c17c"
+    url "https://beta.quicklisp.org/archive/command-line-arguments/2015-12-18/command-line-arguments-20151218-git.tgz"
+    sha256 "d0fba1c0ac361aab4273425079945ee1ac8e7d7e7b9a960026a8c999e41edb1f"
   end
 
   resource "drakma" do
@@ -166,8 +165,8 @@ class Pgloader < Formula
   end
 
   resource "esrap" do
-    url "https://beta.quicklisp.org/archive/esrap/2015-10-31/esrap-20151031-git.tgz"
-    sha256 "ad18ba00760f48e291c0a3b1e884ff4a6414d4994902b67bf3ce50ca8b0a16ba"
+    url "https://beta.quicklisp.org/archive/esrap/2016-12-04/esrap-20161204-git.tgz"
+    sha256 "727f602aee2b8b275fb8bb0ba6ed604a50c1030037c266a42c81c37ff90e993b"
   end
 
   resource "flexi-streams" do
@@ -181,8 +180,8 @@ class Pgloader < Formula
   end
 
   resource "ieee-floats" do
-    url "https://beta.quicklisp.org/archive/ieee-floats/2015-06-08/ieee-floats-20150608-git.tgz"
-    sha256 "ad1c0a62b9434f8aa0d10a2b6a725d68830008a1e5fba3b41d9890b84281ebb0"
+    url "https://beta.quicklisp.org/archive/ieee-floats/2016-03-18/ieee-floats-20160318-git.tgz"
+    sha256 "a47baa0658b5ab8c202e85327a2dac5f639ae82471aed2b9ebee795fb0c1846f"
   end
 
   resource "ironclad" do
@@ -191,18 +190,18 @@ class Pgloader < Formula
   end
 
   resource "iterate" do
-    url "https://beta.quicklisp.org/archive/iterate/2014-07-13/iterate-20140713-darcs.tgz"
-    sha256 "c50264e19b0c5cf52f05dc45889a48c96d449ce24dd15018a228fa6a722405b2"
+    url "https://beta.quicklisp.org/archive/iterate/2016-08-25/iterate-20160825-darcs.tgz"
+    sha256 "f55db27495b731c65f3d3dee8b453cd55924b22f1ef5e01df86dda6e9f097f4f"
   end
 
   resource "local-time" do
-    url "https://beta.quicklisp.org/archive/local-time/2015-06-08/local-time-20150608-git.tgz"
-    sha256 "5c251852c09e508962a02ab441fccc07524bcb6059c6bc77ec4f1d20472bee3c"
+    url "https://beta.quicklisp.org/archive/local-time/2016-06-28/local-time-20160628-git.tgz"
+    sha256 "eb57577bb046927b90eec9a2f5979e2f1e43f280d9c7eb90d9fb0a1d5f2d0a5d"
   end
 
   resource "lparallel" do
-    url "https://beta.quicklisp.org/archive/lparallel/2015-09-23/lparallel-20150923-git.tgz"
-    sha256 "deaf06f4796630c85fcc1fff3b9b715d674cc3ecb9ab742b0cca77132e4440ec"
+    url "https://beta.quicklisp.org/archive/lparallel/2016-08-25/lparallel-20160825-git.tgz"
+    sha256 "213bc89e6bbabe07fc3bcb21be1021b31f6f2ab1b7a2abb358a01ab9bee69c73"
   end
 
   resource "md5" do
@@ -210,6 +209,8 @@ class Pgloader < Formula
     sha256 "856d522b4f60af0ead0435114c11100c0f5348e5e1db5fffe93a851be54dc7e9"
   end
 
+  # Build fails with metabang-bind-20161204-git
+  # Reported 12 Dec 2016 https://github.com/dimitri/pgloader/issues/492
   resource "metabang-bind" do
     url "https://beta.quicklisp.org/archive/metabang-bind/2014-11-06/metabang-bind-20141106-git.tgz"
     sha256 "84b0d7384a8f385140a11820e4f57cfd630c8e7ff48b44d357e9af9acd82be86"
@@ -221,8 +222,8 @@ class Pgloader < Formula
   end
 
   resource "nibbles" do
-    url "https://beta.quicklisp.org/archive/nibbles/2015-07-09/nibbles-20150709-git.tgz"
-    sha256 "2fc1e3a8a62f322904b2bb0f3743c25c0e75939944ed8de4eb73f50670d9f652"
+    url "https://beta.quicklisp.org/archive/nibbles/2016-12-04/nibbles-20161204-git.tgz"
+    sha256 "04dac9ade7c38d2030968ee0ed11412eaaa778c52d5e246f66c6248177b48d19"
   end
 
   resource "parse-number" do
@@ -231,8 +232,8 @@ class Pgloader < Formula
   end
 
   resource "postmodern" do
-    url "https://beta.quicklisp.org/archive/postmodern/2015-10-31/postmodern-20151031-git.tgz"
-    sha256 "636d7192e57f236dd580ceede1431ef0cdfbf9bc1906914fc98a691f2a88f65b"
+    url "https://beta.quicklisp.org/archive/postmodern/2016-12-04/postmodern-20161204-git.tgz"
+    sha256 "a3e8b299f521632c33a57b63ef27cc2475f9b980170023b30e506ba36239dab3"
   end
 
   resource "puri" do
@@ -246,13 +247,13 @@ class Pgloader < Formula
   end
 
   resource "qmynd" do
-    url "https://beta.quicklisp.org/archive/qmynd/2015-08-04/qmynd-20150804-git.tgz"
-    sha256 "a25ef1ed7bb162b40f964fd0e0baec1c6c6dca19b27aa09c05f6ed7f3061ca47"
+    url "https://beta.quicklisp.org/archive/qmynd/2016-02-08/qmynd-20160208-git.tgz"
+    sha256 "b8aa6cfb63a4e1baef4dfadca28a170bfa4a8b660b81a0740614e9d122a23575"
   end
 
   resource "quri" do
-    url "https://beta.quicklisp.org/archive/quri/2015-10-31/quri-20151031-git.tgz"
-    sha256 "b7eba0392f588e9af57c47805bd9210ed1c35d0cde62e0fd5da80b2a658203be"
+    url "https://beta.quicklisp.org/archive/quri/2016-12-04/quri-20161204-git.tgz"
+    sha256 "7b29fe2c2746f2cf59eee703b2ff65b10e6ed2e10232f2c8456657d1e6402e92"
   end
 
   resource "salza2" do
@@ -266,13 +267,13 @@ class Pgloader < Formula
   end
 
   resource "trivial-backtrace" do
-    url "https://beta.quicklisp.org/archive/trivial-backtrace/2015-04-07/trivial-backtrace-20150407-git.tgz"
-    sha256 "97d045b7701e3dcc49149a0a94e3648131bd586e803126d07a79f405f6c07cd1"
+    url "https://beta.quicklisp.org/archive/trivial-backtrace/2016-05-31/trivial-backtrace-20160531-git.tgz"
+    sha256 "1df68d7d0f4a9611e5470cdacae58d594b26cc63b223e89fd85152b119559bed"
   end
 
   resource "trivial-features" do
-    url "https://beta.quicklisp.org/archive/trivial-features/2015-09-23/trivial-features-20150923-git.tgz"
-    sha256 "f7afa96fab42e57ccf86ccd787ee743913c7e2bcb549502ab85eb6948e636808"
+    url "https://beta.quicklisp.org/archive/trivial-features/2016-12-04/trivial-features-20161204-git.tgz"
+    sha256 "424681538abfa8c5af41fae0099c6e5cb9b05f823a094abba42fcac312f35f44"
   end
 
   resource "trivial-garbage" do
@@ -291,13 +292,13 @@ class Pgloader < Formula
   end
 
   resource "uiop" do
-    url "https://beta.quicklisp.org/archive/uiop/2015-10-31/uiop-3.1.6.tgz"
-    sha256 "8b01848d84a5c5dd6107aa63b4bcabb9b0d0889dd4eb351cfe88255f4ded9115"
+    url "https://beta.quicklisp.org/archive/uiop/2016-10-31/uiop-3.1.7.tgz"
+    sha256 "7441b16e496c79379602901997f02f95651f476e479a744cb0293bf9190afd66"
   end
 
   resource "usocket" do
-    url "https://beta.quicklisp.org/archive/usocket/2015-06-08/usocket-0.6.3.2.tgz"
-    sha256 "2815c7bdf1352f1ac634204ec12457ff57dfe64170512e6416bb17eb4799fce6"
+    url "https://beta.quicklisp.org/archive/usocket/2016-10-31/usocket-0.7.0.1.tgz"
+    sha256 "c2454e8d8f65bf81aadf877d65d9b6364ed25f8560ad405063e2b4bfb872ecd6"
   end
 
   resource "uuid" do

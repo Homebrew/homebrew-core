@@ -3,8 +3,8 @@ class Logstash < Formula
   homepage "https://www.elastic.co/products/logstash"
 
   stable do
-    url "https://artifacts.elastic.co/downloads/logstash/logstash-5.0.2.tar.gz"
-    sha256 "eff45f965118b6ef767f719d85f6dbca438ea2daa5e901907a32fa5bf1a70d9c"
+    url "https://artifacts.elastic.co/downloads/logstash/logstash-5.1.1.tar.gz"
+    sha256 "9ce438ec331d3311acc55f22553a3f5a7eaea207b8aa2863164bb2767917de1f"
   end
 
   head do
@@ -40,15 +40,17 @@ class Logstash < Formula
   end
 
   test do
-    (testpath/"simple.conf").write <<-EOS.undent
-      input { stdin { type => stdin } }
-      output { stdout { codec => rubydebug } }
+    # workaround https://github.com/elastic/logstash/issues/6378
+    mkdir testpath/"config"
+    ["jvm.options", "log4j2.properties", "startup.options"].each { |f| cp prefix/"libexec/config/#{f}", testpath/"config" }
+    (testpath/"config/logstash.yml").write <<-EOS.undent
+      path.queue: #{testpath}/queue
     EOS
-
     mkdir testpath/"data"
     mkdir testpath/"logs"
+    mkdir testpath/"queue"
 
-    output = pipe_output("#{bin}/logstash -f #{testpath}/simple.conf --path.data=#{testpath}/data --path.logs=#{testpath}/logs", "hello world\n")
+    output = pipe_output("#{bin}/logstash -e '' --path.data=#{testpath}/data --path.logs=#{testpath}/logs --path.settings=#{testpath}/config --log.level=fatal", "hello world\n")
     assert_match /hello world/, output
   end
 end

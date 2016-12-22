@@ -30,14 +30,6 @@ class Sphinx < Formula
         :revision => "9b58e92c965cd7e3208247ace3cc00d173397f3c"
   end
 
-  fails_with :llvm do
-    build 2334
-    cause <<-EOS.undent
-      ld: rel32 out of range in _GetPrivateProfileString from
-          /usr/lib/libodbc.a(SQLGetPrivateProfileString.o)
-    EOS
-  end
-
   fails_with :clang do
     build 421
     cause "sphinxexpr.cpp:1802:11: error: use of undeclared identifier 'ExprEval'"

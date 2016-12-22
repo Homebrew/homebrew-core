@@ -1,34 +1,30 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://dnscrypt.org"
-  url "https://github.com/jedisct1/dnscrypt-proxy/releases/download/1.7.0/dnscrypt-proxy-1.7.0.tar.bz2"
-  sha256 "1daf77df9092491ea0b5176ec4b170f7b0645f97b62d1a50412a960656b482e3"
+  url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.8.1.tar.gz"
+  sha256 "2e392b4b02ece2c60d1bcb6bab658cfcea3171030f9a982b5e9ed66543d11103"
+  head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
-    rebuild 1
-    sha256 "7940aba621d665eccbc3018c6a892313514ce84a540a416f19cddd962d33273d" => :sierra
-    sha256 "63d4a11824527a3d333176aa6ea93fe7e5eefcae658be41855fce86d45192115" => :el_capitan
-    sha256 "e56ea17922dcf696b4d8e3b5307abf330c0b43cbe9df81c91a3ac62890cc732e" => :yosemite
-  end
-
-  head do
-    url "https://github.com/jedisct1/dnscrypt-proxy.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+    sha256 "e708d4f219b6834afd68621a6d95268e949d5e2e984f1e441416ba312cfe0916" => :sierra
+    sha256 "ac838f54241d4096ecf9f41a90730280d74fe6ef495348db870c626a7f871c9f" => :el_capitan
+    sha256 "49e7ef44e8e2a8c6bf6a8263dd2de2a7a792bc991550e258a59efbe917790c27" => :yosemite
   end
 
   option "with-plugins", "Support plugins and install example plugins."
 
   deprecated_option "plugins" => "with-plugins"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "libtool" => :run
   depends_on "libsodium"
   depends_on "minisign" => :recommended
   depends_on "ldns" => :recommended
 
   def install
-    system "autoreconf", "-if" if build.head?
+    system "./autogen.sh"
 
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
 

@@ -3,22 +3,18 @@ class Gtkglext < Formula
   homepage "https://projects.gnome.org/gtkglext/"
   url "https://download.gnome.org/sources/gtkglext/1.2/gtkglext-1.2.0.tar.gz"
   sha256 "e5073f3c6b816e7fa67d359d9745a5bb5de94a628ac85f624c992925a46844f9"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "41ac321a45828aaa92df4a2ab421817a36271489d07326215246fe398843e2e2" => :sierra
-    sha256 "1685253493988d61a703aa506dcc8a543da32f5b23a27b4562b4604595e54dbe" => :el_capitan
-    sha256 "0b2d6bfe3dca8660885a0bdb6f34a607d61511c8608af37adbc0e4878211d521" => :yosemite
-    sha256 "6b0f3ff71e5581715fcf7b0834ee1ffe79d29f26c7d1687405ffbf8fc3c25442" => :mavericks
-    sha256 "3a05001b2dddf5d887600a0003948b26c5f9ed8d84c82ea4ed93ae28ef5440fb" => :mountain_lion
+    sha256 "06c59b81c678523054566cb101bac3170fed61c74e1a8beadd25e32ea62de4e2" => :sierra
+    sha256 "1bfd5206621c55215c249f86971be17f9de6385ff08141a53797931e621e507c" => :el_capitan
+    sha256 "bbc371cd59e3955e3bf31f37df5dfe56e977c3552d01596f0e93f252d80430e0" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gtk+"
-  depends_on "pangox-compat"
 
   # All these MacPorts patches have already been included upstream. A new release
   # of gtkglext for gtk+2.0 remains uncertain though.

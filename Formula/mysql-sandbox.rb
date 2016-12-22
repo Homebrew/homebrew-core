@@ -1,15 +1,15 @@
 class MysqlSandbox < Formula
   desc "Install one or more MySQL servers"
   homepage "http://mysqlsandbox.net"
-  url "https://github.com/datacharmer/mysql-sandbox/archive/3.2.03.tar.gz"
-  sha256 "96b428d803eab6e2d9f630bce9ba7c8f553e335b6dbbed4b091e765392a57285"
+  url "https://github.com/datacharmer/mysql-sandbox/archive/3.2.04.tar.gz"
+  sha256 "66992e96a656245ae4c4c891922216f0ddaf733bbd3a7b1bffe310fa677556cc"
   head "https://github.com/datacharmer/mysql-sandbox.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9fc3f33c0b207c6cdae5b6cc3d7f4d9317fbb00343cec2c6e610f9b4f9b93ea4" => :sierra
-    sha256 "a643beb63f10ebb6526adda0c436208986ef28387999341ac8b2e3f44de92d1e" => :el_capitan
-    sha256 "b17ffc6a48ab2b5c5f5c543b0769a7812d3752398367e958ae14fd72ab5b1f5c" => :yosemite
+    sha256 "7ce58f12cc1d315c4cbed1a5c83bd3b529f5cc700aadb083fe6ab4b2f679f6dc" => :sierra
+    sha256 "4565932010a033487357c5742b11146e0fa9ebb225a89cf2996c894d877750d9" => :el_capitan
+    sha256 "a4e2a293c46d0e4e0eed20ba6b358a073caa520c72721753a9fd8c674ac931a2" => :yosemite
   end
 
   def install

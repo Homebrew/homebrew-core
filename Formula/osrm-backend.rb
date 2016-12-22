@@ -3,12 +3,14 @@ class OsrmBackend < Formula
   homepage "http://project-osrm.org/"
   url "https://github.com/Project-OSRM/osrm-backend/archive/v5.4.3.tar.gz"
   sha256 "501b9302d4ae622f04305debacd2f59941409c6345056ebb272779ac375f874d"
+  head "https://github.com/Project-OSRM/osrm-backend.git"
 
   bottle do
     cellar :any
-    sha256 "0863463d77797b66d6f661ab31922522639b2137c8a36cdda124463c445ac3dd" => :sierra
-    sha256 "279673f9f781665def01c8411b4f5b81731f2892e96e9d5556f7f7e194abf8cc" => :el_capitan
-    sha256 "dfc5d52ab4910c11cdb5b9929f2ef9a306deb0d810694bfc7cc8e6a7cc6b547c" => :yosemite
+    rebuild 1
+    sha256 "ba73d99520b070d69c8b973fbd395adc67c871a0866dd4b236b662b4b8f5f7cf" => :sierra
+    sha256 "0e3f746ad5aebf89dd08635ad6430b0b9726dea62be2543e539d9e75cebc2d25" => :el_capitan
+    sha256 "e5d20ef724178e01a29bd7cc68edc50654a99a8ed95c37ce7fad729ab098295b" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -26,6 +28,7 @@ class OsrmBackend < Formula
       system "make"
       system "make", "install"
     end
+    pkgshare.install "profiles"
   end
 
   test do

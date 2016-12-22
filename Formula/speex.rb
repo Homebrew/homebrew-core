@@ -20,7 +20,7 @@ class Speex < Formula
   depends_on "libogg" => :recommended
 
   def install
-    ENV.j1
+    ENV.deparallelize
     ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

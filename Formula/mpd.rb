@@ -1,15 +1,13 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.19/mpd-0.19.19.tar.xz"
-  sha256 "bc856cda4136403446d53d11576f86990b61d1fe4668f6008e9eae47450d4e1d"
-  revision 1
+  url "https://www.musicpd.org/download/mpd/0.19/mpd-0.19.21.tar.xz"
+  sha256 "8305b8bc026f4b6bde28b8dd09bfdddbe5590acf36358eed4d083a396e301730"
 
   bottle do
-    cellar :any
-    sha256 "2e18e68b7c679d37f70b3457bf83a002dc21abb7fbd8307a8b9c2f321e4cd45c" => :sierra
-    sha256 "cbec08bdb8f351a5d7914f1a02531e9f410ade7ed116bac1d51bf1c734918845" => :el_capitan
-    sha256 "4966580d4fdc7473d2f67c743b1b2ee02fa1b277a7ca7eb1aa3218b2b2f632a2" => :yosemite
+    sha256 "429071e06bd07c4f23a719958539f0fe305d82417b14373d597e2c964411b3e4" => :sierra
+    sha256 "b83f2993e8ae7a1043e48c9faa1bc188487a7056a4bfa2114aecdac0f9dca5e1" => :el_capitan
+    sha256 "7857f370e19e1bc2b1418e6f55f4d13ae046972fa4ff7cb95777f2234397a932" => :yosemite
   end
 
   head do
@@ -94,7 +92,7 @@ class Mpd < Formula
 
     system "./configure", *args
     system "make"
-    ENV.j1 # Directories are created in parallel, so let's not do that
+    ENV.deparallelize # Directories are created in parallel, so let's not do that
     system "make", "install"
 
     (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"

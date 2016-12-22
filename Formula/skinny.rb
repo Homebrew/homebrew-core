@@ -1,8 +1,8 @@
 class Skinny < Formula
   desc "Full-stack web app framework in Scala"
   homepage "http://skinny-framework.org/"
-  url "https://github.com/skinny-framework/skinny-framework/releases/download/2.3.1/skinny-2.3.1.tar.gz"
-  sha256 "f09c564c150a286f51bfe08617887ff2092045106c9cd841d2c52a60749f95e5"
+  url "https://github.com/skinny-framework/skinny-framework/releases/download/2.3.2/skinny-2.3.2.tar.gz"
+  sha256 "8898d62996b7406a5b23276a3c942d5b2ce5b77a9e7b26de5725cbd896bf7017"
 
   bottle :unneeded
 

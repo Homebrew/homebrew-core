@@ -5,16 +5,24 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20161118/git-annex-6.20161118.tar.gz"
-  sha256 "84d83b41ce671b29f7c718979bb06d2bb3e3a3f3a3536257f3c6a3da993e47ba"
+  revision 1
   head "git://git-annex.branchable.com/"
+
+  stable do
+    url "https://hackage.haskell.org/package/git-annex-6.20161210/git-annex-6.20161210.tar.gz"
+    sha256 "b568cceda32908e7cd66b34181811d4da3d3197d71009eac20c1c4c4379f6381"
+
+    # Remove for git-annex > 6.20161210
+    # Upstream commit from 20 Dec 2016 "Fix build with directory-1.3."
+    # https://github.com/joeyh/git-annex/commit/e312ec37506f4b07beb0e082fedbdd06aed24c42
+    patch :DATA
+  end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "12d434ff3347440a541b8dafc8e6fb99edc952a00715defa51e7f2713f29c9b9" => :sierra
-    sha256 "0f6459e5ac5df69e01e97a182c3d842a3b9ae5bb40fc4447ceb081db12b73723" => :el_capitan
-    sha256 "49f296bab9478dd2b3603bd645ab8dcae60a8df45297def78da443805dfba086" => :yosemite
+    sha256 "3d51a7ef95e0ab4885d820ae2afbefc4c1b54c7200bc47df5e79a7715a13d06c" => :sierra
+    sha256 "53e80adf5a72a12dadbbb7541ce7bab4354e74372a5a6848da3fa317c7289f8c" => :el_capitan
+    sha256 "5b6026b3cecfefe1494e41c851ab3b22599ea510d8a11ec51b2d58503271ef90" => :yosemite
   end
 
   option "with-git-union-merge", "Build the git-union-merge tool"
@@ -28,6 +36,15 @@ class GitAnnex < Formula
   depends_on "gnutls"
   depends_on "quvi"
   depends_on "xdot" => :recommended
+
+  # Remove when aws > 0.14.1 is released on Hackage
+  # Adds http-client 2.2 support
+  # Merged PR https://github.com/aristidb/aws/pull/213
+  # Original issue https://github.com/aristidb/aws/issues/206
+  resource "aws" do
+    url "https://github.com/aristidb/aws.git",
+        :revision => "c8806dcbb58604381698e394c0e7798b704776db"
+  end
 
   resource "esqueleto-2.4.3" do
     url "https://mirrors.ocf.berkeley.edu/debian/pool/main/h/haskell-esqueleto/haskell-esqueleto_2.4.3.orig.tar.gz"
@@ -46,22 +63,19 @@ class GitAnnex < Formula
   end
 
   def install
-    # use `xdot` instead of `dot -Tx11` to display generated maps
-    inreplace "Command/Map.hs" do |s|
-      s.gsub! "dot", "xdot"
-      # eliminate extra parameter in actual invocation
-      s.gsub! "Param \"-Tx11\",", ""
-      # change status message
-      s.gsub! "-Tx11", ""
-    end
-
     cabal_sandbox do
+      (buildpath/"aws").install resource("aws")
+
+      # Remove for aws > 0.14.1
+      # Reported 21 Dec 2016 https://github.com/aristidb/aws/issues/215
+      inreplace "aws/aws.cabal", /(directory +>= 1.0 +&& <) 1.3,/, "\\1 1.4,"
+
       (buildpath/"esqueleto-2.4.3").install resource("esqueleto-2.4.3")
       resource("esqueleto-newer-persistent-patch").stage do
         system "patch", "-p1", "-i", Pathname.pwd/"patches/newer-persistent",
                         "-d", buildpath/"esqueleto-2.4.3"
       end
-      cabal_sandbox_add_source "esqueleto-2.4.3"
+      cabal_sandbox_add_source "aws", "esqueleto-2.4.3"
       install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
         # this can be made the default behavior again once git-union-merge builds properly when bottling
         if build.with? "git-union-merge"
@@ -98,3 +112,15 @@ class GitAnnex < Formula
     system "git", "annex", "uninit"
   end
 end
+
+__END__
+diff --git a/Utility/SystemDirectory.hs b/Utility/SystemDirectory.hs
+index 3dd44d1..b9040fe 100644
+--- a/Utility/SystemDirectory.hs
++++ b/Utility/SystemDirectory.hs
+@@ -13,4 +13,4 @@ module Utility.SystemDirectory (
+	module System.Directory
+ ) where
+
+-import System.Directory hiding (isSymbolicLink)
++import System.Directory hiding (isSymbolicLink, getFileSize)

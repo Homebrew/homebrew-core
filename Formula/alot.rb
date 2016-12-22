@@ -3,16 +3,15 @@ class Alot < Formula
 
   desc "Text mode MUA using notmuch mail"
   homepage "https://github.com/pazz/alot"
-  url "https://github.com/pazz/alot/archive/0.3.7.tar.gz"
-  sha256 "fd2d4121ba109224560919e84e320b09526891fbc0038afcea26a3f1284dad26"
-  head "https://github.com/pazz/alot.git", :branch => "testing"
+  url "https://github.com/pazz/alot/archive/0.4.tar.gz"
+  sha256 "22de78c1e2d427e8ed2d9c2dd33799cde5cde822de2e4b2902624fe8049d816a"
+  head "https://github.com/pazz/alot.git"
 
   bottle do
     cellar :any
-    sha256 "b7a64dc42167e44219228b71b7234ff6ed7d8ca9c7a3a52688f78c9b369a0f90" => :sierra
-    sha256 "3f181ad220a8c70237ba564d30b0da7475921d8644702fea31f88167ca71df81" => :el_capitan
-    sha256 "d48c2504956c24c88a64876946efa8a5a284829839fa7165a59b9e9e2ef03550" => :yosemite
-    sha256 "257b06000d6ac02a509acd7161567d753d8ad31abba99bd0a0af4cdcac39486a" => :mavericks
+    sha256 "a3fd3c011bf0f94663a8fe9e943a272735c0ae4876461a1c86eb4be74e75fd17" => :sierra
+    sha256 "8421f15108013104376df4db861e35730f752ded5897e3bb2566014623ee2022" => :el_capitan
+    sha256 "1b289b616c47a68ed6cd782b22054d720fc415c3ed05823304a5ad7eb2d5067c" => :yosemite
   end
 
   option "without-sphinx-doc", "Don't build documentation"
@@ -23,43 +22,53 @@ class Alot < Formula
   depends_on "sphinx-doc" => [:build, :recommended]
 
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   resource "configobj" do
-    url "https://pypi.python.org/packages/source/c/configobj/configobj-5.0.6.tar.gz"
+    url "https://files.pythonhosted.org/packages/64/61/079eb60459c44929e684fa7d9e2fdca403f67d64dd9dbac27296be2e0fab/configobj-5.0.6.tar.gz"
     sha256 "a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902"
   end
 
   resource "zope.interface" do
-    url "https://pypi.python.org/packages/ea/a3/38bdc8e8bd068ea5b4d21a2d80eca1547cd8509318e8d7c875f7247abe43/zope.interface-4.2.0.tar.gz"
-    sha256 "36762743940a075283e1fb22a2ec9e8231871dace2aa00599511ddc4edf0f8f9"
+    url "https://files.pythonhosted.org/packages/38/1b/d55c39f2cf442bd9fb2c59760ed058c84b57d25c680819c25f3aff741e1f/zope.interface-4.3.2.tar.gz"
+    sha256 "6a0e224a052e3ce27b3a7b1300a24747513f7a507217fcc2a4cb02eb92945cee"
   end
 
-  resource "twisted" do
-    url "https://pypi.python.org/packages/18/85/eb7af503356e933061bf1220033c3a85bad0dbc5035dfd9a97f1e900dfcb/Twisted-16.2.0.tar.bz2"
-    sha256 "a090e8dc675e97fb20c3bb5f8114ae94169f4e29fd3b3cbede35705fd3cdbd79"
+  resource "Twisted" do
+    url "https://files.pythonhosted.org/packages/dc/c0/a0114a6d7fa211c0904b0de931e8cafb5210ad824996cc6a9d67f3bae22c/Twisted-16.6.0.tar.bz2"
+    sha256 "d0fe115ea7ef8cf632d05103de60356c6e992b2153d6830bdc4476f8accb1fca"
   end
 
   resource "urwid" do
-    url "https://pypi.python.org/packages/source/u/urwid/urwid-1.3.1.tar.gz"
+    url "https://files.pythonhosted.org/packages/85/5d/9317d75b7488c335b86bd9559ca03a2a023ed3413d0e8bfe18bea76f24be/urwid-1.3.1.tar.gz"
     sha256 "cfcec03e36de25a1073e2e35c2c7b0cc6969b85745715c3a025a31d9786896a1"
   end
 
   resource "urwidtrees" do
-    url "https://github.com/pazz/urwidtrees/archive/1.0.2.tar.gz"
-    sha256 "703f4b161b930a26a461a3e3e695f94237ac75e2a52b87613e49093d9aa76034"
+    url "https://files.pythonhosted.org/packages/88/9d/981617fa083a75cf0b5ebb0ae47c3af6fb69183be1c74cc3ac6d9a0c5964/urwidtrees-1.0.1.1.tar.gz"
+    sha256 "08a66d0e76e94bc32bc590e35ed283e8a6b0c93adeb431dc576ec0a345f09bfd"
   end
 
   resource "pygpgme" do
-    url "https://pypi.python.org/packages/source/p/pygpgme/pygpgme-0.3.tar.gz"
+    url "https://files.pythonhosted.org/packages/dc/96/b2bcbd3a216af313bb9045c2e573aa18653876a65db471b86be7598234dd/pygpgme-0.3.tar.gz"
     sha256 "5fd887c407015296a8fd3f4b867fe0fcca3179de97ccde90449853a3dfb802e1"
   end
 
   resource "python-magic" do
-    url "https://pypi.python.org/packages/source/p/python-magic/python-magic-0.4.11.tar.gz"
-    sha256 "89021e288d6efd22cde2842349d79939b9664efdbf99f5790c9862a67759ea94"
+    url "https://files.pythonhosted.org/packages/d8/94/4b2930f2146c1318e6250c85d884c87720f3089085e4d4ba53fa0f8c620c/python-magic-0.4.12.tar.gz"
+    sha256 "a04b20900100884d4fce40a767182a16fcb9d10756c67cdc21f5fa610b7c9d3c"
+  end
+
+  resource "incremental" do
+    url "https://files.pythonhosted.org/packages/da/b0/32233c9e84b0d44b39015fba8fec03e88053723c1b455925081dc6ccd9e7/incremental-16.10.1.tar.gz"
+    sha256 "14ad6b720ec47aad6c9caa83e47db1843e2b9b98742da5dda08e16a99f400342"
+  end
+
+  resource "constantly" do
+    url "https://files.pythonhosted.org/packages/95/f1/207a0a478c4bb34b1b49d5915e2db574cadc415c9ac3a7ef17e29b2e8951/constantly-15.1.0.tar.gz"
+    sha256 "586372eb92059873e29eba4f9dec8381541b4d3834660707faf8ba59146dfc35"
   end
 
   def install

@@ -1,7 +1,7 @@
 # Patches for Qt5 must be at the very least submitted to Qt's Gerrit codereview
 # rather than their bug-report Jira. The latter is rarely reviewed by Qt.
 class Qt5 < Formula
-  desc "Version 5 of the Qt framework"
+  desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
   head "https://code.qt.io/qt/qt5.git", :branch => "5.7", :shallow => false
 
@@ -152,7 +152,7 @@ class Qt5 < Formula
 
     system "./configure", *args
     system "make"
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
 
     if build.with? "docs"

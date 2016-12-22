@@ -11,9 +11,20 @@ class Moc < Formula
   end
 
   devel do
-    url "http://ftp.daper.net/pub/soft/moc/unstable/moc-2.6-alpha2.tar.xz"
-    sha256 "0a3a4fb11227ec58025f7177a3212aca9c9955226a2983939e8db662af13434b"
+    url "http://ftp.daper.net/pub/soft/moc/unstable/moc-2.6-alpha3.tar.xz"
+    sha256 "a27b8888984cf8dbcd758584961529ddf48c237caa9b40b67423fbfbb88323b1"
 
+    # Patch for clock_gettime issue
+    # https://moc.daper.net/node/1576
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/patches/78d5908905c6848bb75ae41b70d6bbb46abaa69b/moc/r2936-clock_gettime.patch"
+      sha256 "601b5cdf59db67f180f1aaa6cc90804c1cb69c44cdecb2e8149338782e4f21a8"
+    end
+
+    # Remove build deps when 2.6-alpha4 comes out
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
     depends_on "popt"
   end
 
@@ -45,7 +56,8 @@ class Moc < Formula
   depends_on "homebrew/dupes/ncurses" => :optional
 
   def install
-    system "autoreconf", "-fvi" if build.head?
+    # Remove build.devel? when 2.6-alpha4 comes out
+    system "autoreconf", "-fvi" if build.head? || build.devel?
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "install"
   end

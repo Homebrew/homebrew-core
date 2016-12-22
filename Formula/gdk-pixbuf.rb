@@ -1,14 +1,13 @@
 class GdkPixbuf < Formula
   desc "Toolkit for image loading and pixel buffer manipulation"
   homepage "http://gtk.org"
-  url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.0.tar.xz"
-  sha256 "85ab52ce9f2c26327141b3dcf21cca3da6a3f8de84b95fa1e727d8871a23245c"
-  revision 2
+  url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.1.tar.xz"
+  sha256 "9d5ba72070460c1b5b74115d395a3e33daeb7b7b67fb256cdccc9d7187c42a38"
 
   bottle do
-    sha256 "8e48081047bc6a572a1ce04ca52d1cbb73091ee300961ffaf84d9fb2d0817eb0" => :sierra
-    sha256 "df2edeed86a88e0d57730a0fb7a045c62201af2d40ac538d6568f8f20aa34789" => :el_capitan
-    sha256 "e15e0dcd787c220f32c3b049953439a26dc93207c5bb734c9421c276d67fc6f5" => :yosemite
+    sha256 "9f1032b81b6b372d0a102248ecde6a4bc4cc724926986177087bac591057e360" => :sierra
+    sha256 "c08ed90b567abfcb69add70ad7273980d611e6155ebf0bd99eedb3ac2951fc5c" => :el_capitan
+    sha256 "7979618692c17d5470b2c4730679054a07575a4fe93d3261a1d29f2bafcab94a" => :yosemite
   end
 
   option :universal

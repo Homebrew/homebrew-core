@@ -2,14 +2,14 @@
 class Clipper < Formula
   desc "Share macOS clipboard with tmux and other local and remote apps"
   homepage "https://wincent.com/products/clipper"
-  url "https://github.com/wincent/clipper/archive/0.4.tar.gz"
-  sha256 "f94d898f575a974ca9658102a876b6852b58354ca445503909aeedcb3cb9964b"
+  url "https://github.com/wincent/clipper/archive/0.4.1.tar.gz"
+  sha256 "76875e8e3cc7ab53e8966dd52a47d08e8acb6b6db7a0af69a3ec529fe9ae7766"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f678d622370d7f7333aeb694f682b1fc0c4bb10158cdfa979866aa0522e96b2" => :sierra
-    sha256 "f65593291aae772f6942a1562909bfa7d07c71a6ca3ac0cd88d6a03422aa6592" => :el_capitan
-    sha256 "ca3e71e19055a184fa4f5b3f075c443b80a5d77c0f3506d45466f69f92052765" => :yosemite
+    sha256 "a3d294b554108d9d4279c4cb7faec47bace12d809ceace2d78eb6379d64c1cf3" => :sierra
+    sha256 "3544a2a3a19abac783869335f5429d7d34e709fb9487f3a5c7d6f956b7c2a561" => :el_capitan
+    sha256 "8555464d08d154a85e81a10704913e63dcf7fe94fd3d055f44bbbfae3b93f27d" => :yosemite
   end
 
   depends_on "go" => :build

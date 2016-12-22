@@ -15,10 +15,6 @@ class Dirac < Formula
     sha256 "e7c407545085631c27c77f2d15abe84b3cc0a3645cf5e538aa15f0aacfe6de50" => :mavericks
   end
 
-  fails_with :llvm do
-    build 2334
-  end
-
   # First two patches: the only two commits in the upstream repo not in 1.0.2
 
   patch do

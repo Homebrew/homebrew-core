@@ -1,17 +1,15 @@
 class Webp < Formula
   desc "Image format providing lossless and lossy compression for web images"
   homepage "https://developers.google.com/speed/webp/"
-  url "http://downloads.webmproject.org/releases/webp/libwebp-0.5.1.tar.gz"
+  url "http://downloads.webmproject.org/releases/webp/libwebp-0.5.2.tar.gz"
   # Because Google-hosted upstream URL gets firewalled in some countries.
-  mirror "https://dl.bintray.com/homebrew/mirror/webp-0.5.1.tar.gz"
-  sha256 "6ad66c6fcd60a023de20b6856b03da8c7d347269d76b1fd9c3287e8b5e8813df"
+  sha256 "b75310c810b3eda222c77f6d6c26b061240e3d9060095de44b2c1bae291ecdef"
 
   bottle do
     cellar :any
-    sha256 "d6cbccda27006699d626c2328166f9b7f6953d9340ed16a4d16a14090aa731f0" => :sierra
-    sha256 "b110fdb97fa2abeeb6653343dbdf3a7d49d16863623b9884c2088e4e5384560a" => :el_capitan
-    sha256 "e345e20c86d54365d313ec9ff498857405b6dc738101c1e9c047d93333395436" => :yosemite
-    sha256 "eb44042c412d6701172e5dd2da764041abb523d391b400d136695b5059a9a133" => :mavericks
+    sha256 "91f25987f2285b5c0cb207ce1140a7713a4dfc4225647d2a66068d008232b0f4" => :sierra
+    sha256 "7fa34bf3080e7d5928d55fbf4a1dd02c3bad77c28438598ece378ce03092848d" => :el_capitan
+    sha256 "138af3c079cb9d542297295a69026cb44e4cdf132ccddb97dbc7439d3b8d6736" => :yosemite
   end
 
   head do

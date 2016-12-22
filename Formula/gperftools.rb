@@ -19,11 +19,6 @@ class Gperftools < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  fails_with :llvm do
-    build 2326
-    cause "Segfault during linking"
-  end
-
   # Prevents build failure on Xcode >= 7.3:
   # Undefined symbols for architecture x86_64:
   #   "operator delete(void*, unsigned long)", referenced from:

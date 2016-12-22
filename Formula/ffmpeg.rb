@@ -11,6 +11,7 @@ class Ffmpeg < Formula
     sha256 "5927efaae97fce64142c89e1024f4bd100c9e1deef534c6a3daf44c0d9d4a4da" => :yosemite
   end
 
+  option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
   option "with-libass", "Enable ASS/SSA subtitle format"
   option "with-libebur128", "Enable using libebur128 for EBU R128 loudness measurement"
@@ -51,6 +52,7 @@ class Ffmpeg < Formula
   depends_on "x264" => :recommended
   depends_on "xvid" => :recommended
 
+  depends_on "chromaprint" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "fontconfig" => :optional
   depends_on "freetype" => :optional
@@ -111,6 +113,7 @@ class Ffmpeg < Formula
 
     args << "--disable-indev=qtkit" if build.without? "qtkit"
     args << "--disable-securetransport" if build.without? "securetransport"
+    args << "--enable-chromaprint" if build.with? "chromaprint"
     args << "--enable-ffplay" if build.with? "sdl2"
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--enable-libass" if build.with? "libass"

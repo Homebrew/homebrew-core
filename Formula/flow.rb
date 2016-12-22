@@ -1,26 +1,15 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
-  revision 1
+  url "https://github.com/facebook/flow/archive/v0.37.4.tar.gz"
+  sha256 "f78bd6a37a242159ca5344069ae97b1843add40a43dc5680e463ca137a2b211c"
   head "https://github.com/facebook/flow.git"
-
-  stable do
-    url "https://github.com/facebook/flow/archive/v0.36.0.tar.gz"
-    sha256 "064792468e9b811fbc8d030de18b5b296b6214b2429e6c40876a64262e65fb16"
-
-    # OCaml 4.04.0 compatibility
-    # Upstream commit from 22 Nov 2016 "Remove unused modules"
-    patch do
-      url "https://github.com/facebook/flow/commit/2edc619.patch"
-      sha256 "6cc507f72850e1ef921e7db2e9ac5a036851f23eca00c00a14c9bfbb77b5eb1c"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b7e9a3011c05ceb26b20c590746441816ac9697453c98d7ff40157da42ef31ec" => :sierra
-    sha256 "09b1cd562b32b5e4776ce063bac3053c02afabffcb3dc9f4270d266cd28850a7" => :el_capitan
-    sha256 "96ab80b672aa81a15e6ff736e5bfae4db30923c72a5acb17c76ba18c8dbf48eb" => :yosemite
+    sha256 "2e3d8de0fb7c5aced2e46867966be8d131a88023641a6d3dea024eb83fa9e43e" => :sierra
+    sha256 "9e30a4eab41d150b10bc638f34f59295301c6514de6d1fb238074f3e3430a9dd" => :el_capitan
+    sha256 "c16b894c3dc1f904044cc2ccfc21a652d12003ab1c65fef1f9db7be96253694d" => :yosemite
   end
 
   depends_on "ocaml" => :build

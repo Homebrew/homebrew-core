@@ -1,15 +1,14 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "http://rocksdb.org"
-  url "https://github.com/facebook/rocksdb/archive/v4.11.2.tar.gz"
-  sha256 "9374be06fdfccbbdbc60de90b72b5db7040e1bc4e12532e4c67aaec8181b45be"
-  revision 1
+  url "https://github.com/facebook/rocksdb/archive/v4.13.5.tar.gz"
+  sha256 "3384655107f59a6ee9a52a54d0631d9ae96c722e411bafe6c4547ec4fc201534"
 
   bottle do
     cellar :any
-    sha256 "ea5a3318a1962c49837bc5bc05853b51040c01e84c128427211525cc7df70410" => :sierra
-    sha256 "eb0ec4b8bdeaf5e6ccd02492d52e240337293764e57b3f25d223ede81ab35dfa" => :el_capitan
-    sha256 "1c1f1af5de8312570f26a8df429e0e17b6c7183a7fc2f1e2176f3e2068bc3e99" => :yosemite
+    sha256 "9705c2528dcfc015e40951b5710ea1e617ed1b25b34fe8627f68684175215bdc" => :sierra
+    sha256 "5a92a7459636cf8df453f6b45d713453aafec33daf0e61bdad038987296b4080" => :el_capitan
+    sha256 "a74163785a0356483520f8ae05f0453acbc05b3c179501f574d33de52c24c933" => :yosemite
   end
 
   option "with-lite", "Build mobile/non-flash optimized lite version"

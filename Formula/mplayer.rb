@@ -30,13 +30,7 @@ class Mplayer < Formula
     end
   end
 
-  # ld fails with: Unknown instruction for architecture x86_64
-  fails_with :llvm
-
   def install
-    # It turns out that ENV.O1 fixes link errors with llvm.
-    ENV.O1 if ENV.compiler == :llvm
-
     # we disable cdparanoia because homebrew's version is hacked to work on macOS
     # and mplayer doesn't expect the hacks we apply. So it chokes. Only relevant
     # if you have cdparanoia installed.
@@ -68,7 +62,7 @@ index addc461..3b871aa 100755
 +++ b/configure
 @@ -1517,8 +1517,6 @@ if test -e ffmpeg/mp_auto_pull ; then
  fi
- 
+
  if test "$ffmpeg_a" != "no" && ! test -e ffmpeg ; then
 -    echo "No FFmpeg checkout, press enter to download one with git or CTRL+C to abort"
 -    read tmp

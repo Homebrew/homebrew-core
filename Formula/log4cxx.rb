@@ -21,11 +21,6 @@ class Log4cxx < Formula
 
   depends_on "apr-util"
 
-  fails_with :llvm do
-    build 2334
-    cause "Fails with 'collect2: ld terminated with signal 11 [Segmentation fault]'"
-  end
-
   # Incorporated upstream, remove on next version update
   # https://issues.apache.org/jira/browse/LOGCXX-400 (r1414037)
   # https://issues.apache.org/jira/browse/LOGCXX-404 (r1414037)

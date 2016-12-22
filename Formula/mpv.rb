@@ -8,9 +8,10 @@ class Mpv < Formula
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    sha256 "dcc8a25efd4c74d5cb619af8651399239cc93f4039c5c88965c208be9473b1a5" => :sierra
-    sha256 "8610d4db3500053a10c41a954a902b4001ffe5821a15c4dbf45975b1b200e838" => :el_capitan
-    sha256 "9d0516238bf40e6760afbbeed87f4069c2ca9a49a30c4f14cc9472c8ecc0609f" => :yosemite
+    rebuild 1
+    sha256 "0b2c1b383fb869a19c8f16354cb77ba0bb6292729b96ee546cdb45e3ff8886d7" => :sierra
+    sha256 "3cbcd834815feaa351de6e33ec5d30537b7ac8e3bb6cb404ca617b1a9c4d1f1d" => :el_capitan
+    sha256 "0aa28954619134b2f6803612917a4758c3b052e3bb81adf2004a23ca9aed6aff" => :yosemite
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
@@ -52,6 +53,7 @@ class Mpv < Formula
       --prefix=#{prefix}
       --enable-zsh-comp
       --enable-libmpv-shared
+      --enable-html-build
       --confdir=#{etc}/mpv
       --datadir=#{pkgshare}
       --mandir=#{man}

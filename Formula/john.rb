@@ -16,11 +16,6 @@ class John < Formula
 
   patch :DATA # Taken from MacPorts, tells john where to find runtime files
 
-  fails_with :llvm do
-    build 2334
-    cause "Don't remember, but adding this to whitelist 2336."
-  end
-
   def install
     ENV.deparallelize
     arch = MacOS.prefer_64_bit? ? "64" : "sse2"

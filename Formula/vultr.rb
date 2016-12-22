@@ -3,15 +3,14 @@ require "language/go"
 class Vultr < Formula
   desc "Command-line tool for Vultr"
   homepage "https://jamesclonk.github.io/vultr"
-  url "https://github.com/JamesClonk/vultr/archive/v1.11.tar.gz"
-  sha256 "a717c3fc07e652822e2c567dd7b715553b754885948b40c430b640a1e5ef65ea"
+  url "https://github.com/JamesClonk/vultr/archive/1.12.0.tar.gz"
+  sha256 "c95d90dc7972bd4f41d665c4632a428d3f1d0fb68b34665a3bf120ce3d69f5f7"
   head "https://github.com/JamesClonk/vultr.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5ae34af28c07318e5c2ff49ccf0309a87c95716650bd632d292883abfe87d49f" => :sierra
-    sha256 "9be61aef914af56459ef1467f97da2bab7ec7ccdd5338ff8f28bb3afe9e9681a" => :el_capitan
-    sha256 "8b33b925e839a4af87edbe31b43de3ef6f348a394d6a8a5214667b8ec317a430" => :yosemite
+    sha256 "3056607438f2129fee2ebe549465643f71df01fb6ae48dde719aeee887c0f8e7" => :sierra
+    sha256 "896513d7870dd5d89979afd0e5b74a59c24b0996f185ed37781bf012914bad08" => :el_capitan
+    sha256 "dfdfcdb7fe384e5a53a65bbf4bfbaec3a256015ba5da0017f6d7a59de525591b" => :yosemite
   end
 
   depends_on "go" => :build
@@ -20,7 +19,7 @@ class Vultr < Formula
 
   go_resource "github.com/jawher/mow.cli" do
     url "https://github.com/jawher/mow.cli.git",
-        :revision => "660b9261e2c80bb92e5a0eaa581596084656140e"
+        :revision => "0de3d3b4ed00f261460d12ecde4efa90fbfcd8ed"
   end
 
   go_resource "github.com/juju/ratelimit" do

@@ -1,16 +1,16 @@
 class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
-  url "https://github.com/JukkaL/mypy.git",
-      :tag => "v0.4.5",
-      :revision => "032acb74769ebfd3f08db1ba46623e8e0fed7b94"
-  head "https://github.com/JukkaL/mypy.git"
+  url "https://github.com/python/mypy.git",
+      :tag => "v0.4.6",
+      :revision => "29b7675e6d21de8c81b170cc1e28213aa874a2fe"
+  head "https://github.com/python/mypy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "39d02d87b748a1958692769b70fa81d5353e560d3e91070e79c7aa310bf27b86" => :sierra
-    sha256 "39d02d87b748a1958692769b70fa81d5353e560d3e91070e79c7aa310bf27b86" => :el_capitan
-    sha256 "39d02d87b748a1958692769b70fa81d5353e560d3e91070e79c7aa310bf27b86" => :yosemite
+    sha256 "ca17cfeca1c551fa384ec9bd16984c30dde53b8fa9e275067c41b2c304c78c3b" => :sierra
+    sha256 "ab604fb85ff5f5dada264ab238842810a427337a9ba6b2f62366df223ebc0a2e" => :el_capitan
+    sha256 "bb0fcfeb18a24870b0140573203d268820230776ac33f403922078772ebf9f1e" => :yosemite
   end
 
   option "without-sphinx-doc", "Don't build documentation"
@@ -29,12 +29,20 @@ class Mypy < Formula
     xy = Language::Python.major_minor_version "python3"
 
     if build.with? "sphinx-doc"
-      ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-      resource("sphinx_rtd_theme").stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
+      # https://github.com/python/mypy/issues/2593
+      version_static = buildpath/"mypy/version_static.py"
+      version_static.write "__version__ = '#{version}'\n"
+      inreplace "docs/source/conf.py", "mypy.version", "mypy.version_static"
+
+      (buildpath/"docs/sphinx_rtd_theme").install resource("sphinx_rtd_theme")
+      # Inject sphinx_rtd_theme's path into sys.path
+      inreplace "docs/source/conf.py",
+                "sys.path.insert(0, os.path.abspath('../..'))",
+                "sys.path[:0] = [os.path.abspath('../..'), os.path.abspath('../sphinx_rtd_theme')]"
       system "make", "-C", "docs", "html"
       doc.install Dir["docs/build/html/*"]
+
+      rm version_static
     end
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"

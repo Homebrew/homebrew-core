@@ -13,7 +13,7 @@ class Bazaar < Formula
   end
 
   def install
-    ENV.j1 # Builds aren't parallel-safe
+    ENV.deparallelize # Builds aren't parallel-safe
 
     # Make and install man page first
     system "make", "man1/bzr.1"

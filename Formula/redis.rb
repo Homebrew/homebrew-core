@@ -20,13 +20,6 @@ class Redis < Formula
 
   option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
 
-  fails_with :llvm do
-    build 2334
-    cause <<-EOS.undent
-      Fails with "reference out of range from _linenoise"
-    EOS
-  end
-
   def install
     # Architecture isn't detected correctly on 32bit Snow Leopard without help
     ENV["OBJARCH"] = "-arch #{MacOS.preferred_arch}"

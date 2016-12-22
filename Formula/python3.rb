@@ -25,8 +25,8 @@ class Python3 < Formula
   end
 
   devel do
-    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0rc1.tar.xz"
-    sha256 "fc868c1b84833262bef5547f2ed44844a1b4355ab3b7f747e28a1e1ccbff5807"
+    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0rc2.tar.xz"
+    sha256 "ed07453330af6677d0a670e187344922a67208fc6bdaea9fade66dc08bf763a4"
   end
 
   option :universal
@@ -86,19 +86,6 @@ class Python3 < Formula
   # The HOMEBREW_PREFIX location of site-packages.
   def site_packages
     HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"
-  end
-
-  fails_with :llvm do
-    build 2336
-    cause <<-EOS.undent
-      Could not find platform dependent libraries <exec_prefix>
-      Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
-      python.exe(14122) malloc: *** mmap(size=7310873954244194304) failed (error code=12)
-      *** error: can't allocate region
-      *** set a breakpoint in malloc_error_break to debug
-      Could not import runpy module
-      make: *** [pybuilddir.txt] Segmentation fault: 11
-    EOS
   end
 
   # setuptools remembers the build flags python is built with and uses them to

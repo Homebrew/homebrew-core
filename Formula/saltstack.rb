@@ -3,15 +3,15 @@ class Saltstack < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "http://www.saltstack.org"
-  url "https://files.pythonhosted.org/packages/b4/01/521c042089dd4c364ae9d4523342edfec530914244ae7379f125f8b97f51/salt-2016.11.0.tar.gz"
-  sha256 "b516285926ee95cedc64ecddab05d14422b7c8819c9f6d046a431c41d608e6bc"
+  url "https://files.pythonhosted.org/packages/dd/b2/2a81377b66a25ef29c38deea8244f6d35d56ae7c7db1d0234201b284c7d3/salt-2016.11.1.tar.gz"
+  sha256 "00343e190dcf6dfa27dbec996d1161f7aef16cf99510b67970136cf24f092992"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "1e92302027439f07c33d345310ce71bd6ef104cb1767f4faee82ada6bc256686" => :sierra
-    sha256 "f36a8a7a162338862fedd1444d23ff79dbdb1a45454220f814270508e2e14e47" => :el_capitan
-    sha256 "01ad02e9e9032182465ca72b413e0cc02dc5a9f2d09a7a1c2ca6bed72cae88e2" => :yosemite
+    sha256 "0339744bcb0c4735c086eaa75e9224f5ad760f9a8443bc0352b50d27072d7320" => :sierra
+    sha256 "84fa4287c656b7555d138ff61c962bd13f2506f770ff85489099d67b2bb3c515" => :el_capitan
+    sha256 "6c01406b7a21f5e110879fed1767baed7bcef350dff30e50eea787642ad62c06" => :yosemite
   end
 
   depends_on "swig" => :build
@@ -76,8 +76,8 @@ class Saltstack < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/d9/03/155b3e67fe35fe5b6f4227a8d9e96a14fda828b18199800d161bcefc1359/requests-2.12.3.tar.gz"
-    sha256 "de5d266953875e9647e37ef7bfe6ef1a46ff8ddfe61b5b3652edf7ea717ee2b2"
+    url "https://files.pythonhosted.org/packages/5b/0b/34be574b1ec997247796e5d516f3a6b6509c4e064f2885a96ed885ce7579/requests-2.12.4.tar.gz"
+    sha256 "ed98431a0631e309bb4b63c81d561c1654822cb103de1ac7b47e45c26be7ae34"
   end
 
   resource "singledispatch" do
