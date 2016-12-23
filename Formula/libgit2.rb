@@ -11,6 +11,12 @@ class Libgit2 < Formula
     sha256 "e837edf7cee23fa3ff9b04583dee57bba2496bcd062f8e48704767abae242255" => :yosemite
   end
 
+  devel do
+    url "https://github.com/libgit2/libgit2/archive/v0.25.0-rc2.tar.gz"
+    version "0.25.0-rc2"
+    sha256 "4bb27401ec30349690a7e2c937d497c7d32b2fc3ba75a4e8f71b38a6d2e15eb9"
+  end
+
   option :universal
 
   depends_on "pkg-config" => :build
