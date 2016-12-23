@@ -19,6 +19,7 @@ class Sdl2 < Formula
     depends_on "libtool" => :build
   end
 
+  option "with-test", "Compile and install the tests"
   option :universal
 
   # https://github.com/mistydemeo/tigerbrew/issues/361
@@ -50,6 +51,27 @@ class Sdl2 < Formula
 
     system "./configure", *args
     system "make", "install"
+
+    if build.with? "test"
+      ENV.prepend_path "PATH", bin
+      # We need the build to point at the newly-built (not yet linked) copy of SDL.
+      inreplace bin/"sdl2-config", "prefix=#{HOMEBREW_PREFIX}", "prefix=#{prefix}"
+      cd "test" do
+        system "./configure"
+        system "make"
+        # Tests don't have a "make install" target
+        (share/"tests").install %w[checkkeys controllermap loopwave loopwavequeue testaudioinfo
+                                   testerror testfile testgl2 testiconv testjoystick testkeys
+                                   testloadso testlock testmultiaudio testoverlay2 testplatform
+                                   testsem testshape testsprite2 testthread testtimer testver
+                                   testwm2 torturethread]
+        (share/"test_extras").install %w[axis.bmp button.bmp controllermap.bmp icon.bmp moose.dat
+                                         picture.xbm sample.bmp sample.wav shapes]
+        bin.write_exec_script Dir["#{share}/tests/*"]
+      end
+      # Point sdl-config back at the normal prefix once we've built everything.
+      inreplace bin/"sdl2-config", "prefix=#{prefix}", "prefix=#{HOMEBREW_PREFIX}"
+    end
   end
 
   test do
