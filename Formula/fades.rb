@@ -3,7 +3,7 @@ class Fades < Formula
   homepage "https://fades.readthedocs.org/"
   url "https://pypi.python.org/packages/source/f/fades/fades-5.tar.gz"
   sha256 "1952f496059ba6bac535f2c07effae44a55de0654ababaa1a15879c4b3fa89c1"
-
+  revision 1
   head "https://github.com/PyAr/fades.git"
 
   bottle do
