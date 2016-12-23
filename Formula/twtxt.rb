@@ -3,6 +3,7 @@ class Twtxt < Formula
   homepage "https://github.com/buckket/twtxt"
   url "https://github.com/buckket/twtxt/archive/v1.2.1.tar.gz"
   sha256 "d16fe169b2f5800a60d2ed3d9b876e50fe45f2c0b46730d60a7b489bbc2c4e6a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
