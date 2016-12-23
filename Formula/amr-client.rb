@@ -14,6 +14,7 @@ class AmrClient < Formula
   end
 
   test do
-    system "true"
+    system "if [[ -x `which amr` ]]; then true; else false; fi"
+    system "if [[ -x `which amrupdate` ]]; then true; else false; fi"
   end
 end
