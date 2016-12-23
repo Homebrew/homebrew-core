@@ -3,6 +3,7 @@ class Pyqt5 < Formula
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
   url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.7/PyQt5_gpl-5.7.tar.gz"
   sha256 "892693ba5f79989abb2061dad2d5c4e6f127e9dd3240f73f8220c7152cd35b05"
+  revision 1
 
   bottle do
     sha256 "712463bc94f0658bc160e308b096047de132c860034cb93ed55cfb655a149baf" => :sierra
@@ -56,8 +57,8 @@ class Pyqt5 < Formula
   end
 
   test do
-    system "pyuic5", "--version"
-    system "pylupdate5", "-version"
+    system "#{bin}/pyuic5", "--version"
+    system "#{bin}/pylupdate5", "-version"
     Language::Python.each_python(build) do |python, _version|
       system python, "-c", "import PyQt5"
       %w[
