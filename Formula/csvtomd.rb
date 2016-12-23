@@ -5,6 +5,7 @@ class Csvtomd < Formula
   homepage "https://github.com/mplewis/csvtomd"
   url "https://files.pythonhosted.org/packages/5a/d8/9dbce820243bb6db670cd1ddea80ea1890c6bfd5d122910fdd157d51d71f/csvtomd-0.1.1.tar.gz"
   sha256 "f2cd1da71ca8ed823d1f02167039e07e58d15a73d672069dfddcda8639576490"
+  revision 1
 
   bottle do
     sha256 "4364ae91ea62c6b25d87245d0f9046bb3156191b1826ff337f717a43fe4c480d" => :sierra
