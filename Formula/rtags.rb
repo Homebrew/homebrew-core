@@ -2,17 +2,14 @@ class Rtags < Formula
   desc "ctags-like source code cross-referencer with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
   url "https://github.com/Andersbakken/rtags.git",
-      :tag => "v2.3",
-      :revision => "da75268b1caa973402ab17e501718da7fc748b34"
-  revision 1
-
+      :tag => "v2.7",
+      :revision => "8b6d0cdf57c951769ead8aad1d8538308e1b6861"
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
-    rebuild 1
-    sha256 "3f03bffd39241580d8855361e3bc1ce78045aae83234cad2352d84c695262089" => :sierra
-    sha256 "b7cb50df5b666ee070ab4fe7e25c20a17c05dc185384de3d34ef8c316b21a732" => :el_capitan
-    sha256 "281867ab049791b0e907b3f928696cd6c23acb568b0c5465e4e92812b560cd09" => :yosemite
+    sha256 "7c7089f5a1a96c7e8da0c2c1242044d882e4717864d2dfbc33e2d4133fa1fa16" => :sierra
+    sha256 "b769fda6091510c19eef23562488fc783f305f2efd764ff4ed7c6015a40904cb" => :el_capitan
+    sha256 "58f042d5bf2b7faac49cbce5fdf5dbfe2b851480f64b38c3b05f84dfb6a204f8" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -84,14 +81,14 @@ class Rtags < Formula
     rdm = fork do
       $stdout.reopen("/dev/null")
       $stderr.reopen("/dev/null")
-      exec "#{bin}/rdm", "-L", "log"
+      exec "#{bin}/rdm", "--exclude-filter=\"\"", "-L", "log"
     end
 
     begin
       sleep 1
-      pipe_output("#{bin}/rc -c", "clang -c src/foo.c", 0)
+      pipe_output("#{bin}/rc -c", "clang -c #{testpath}/src/foo.c", 0)
       sleep 1
-      assert_match "foo.c:1:6", shell_output("#{bin}/rc -f src/foo.c:5:3")
+      assert_match "foo.c:1:6", shell_output("#{bin}/rc -f #{testpath}/src/foo.c:5:3")
       system "#{bin}/rc", "-q"
     ensure
       Process.kill 9, rdm

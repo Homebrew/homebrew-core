@@ -126,21 +126,20 @@ class Llvm < Formula
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
   option "without-libcxx", "Do not build libc++ standard library"
   option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
-  option "without-libunwind", "Do not build libunwind library"
-  option "without-lld", "Do not build LLD linker"
   option "with-lldb", "Build LLDB debugger"
   option "with-python", "Build bindings against custom Python"
-  option "without-rtti", "Build without C++ RTTI or exception handling"
-  option "without-utils", "Do not install utility binaries"
-  option "without-polly", "Do not build Polly optimizer"
-  option "with-test", "Build LLVM unit tests"
   option "with-shared-libs", "Build shared instead of static libraries"
   option "without-libffi", "Do not use libffi to call external functions"
   option "with-all-targets", "Build all targets. Default targets: AMDGPU, ARM, NVPTX, and X86"
 
   depends_on "libffi" => :recommended # http://llvm.org/docs/GettingStarted.html#requirement
   depends_on "graphviz" => :optional # for the 'dot' tool (lldb)
+
   depends_on "ocaml" => :optional
+  if build.with? "ocaml"
+    depends_on "opam" => :build
+    depends_on "pkg-config" => :build
+  end
 
   if MacOS.version <= :snow_leopard
     depends_on :python
@@ -154,8 +153,6 @@ class Llvm < Formula
     depends_on CodesignRequirement
   end
 
-  # Apple's libstdc++ is too old to build LLVM
-  fails_with :llvm
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
   fails_with :gcc
@@ -175,9 +172,9 @@ class Llvm < Formula
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx?
-    (buildpath/"projects/libunwind").install resource("libunwind") if build.with? "libunwind"
-    (buildpath/"tools/lld").install resource("lld") if build.with? "lld"
-    (buildpath/"tools/polly").install resource("polly") if build.with? "polly"
+    (buildpath/"projects/libunwind").install resource("libunwind")
+    (buildpath/"tools/lld").install resource("lld")
+    (buildpath/"tools/polly").install resource("polly")
 
     if build.with? "lldb"
       if build.with? "python"
@@ -212,6 +209,12 @@ class Llvm < Formula
 
     args = %w[
       -DLLVM_OPTIMIZED_TABLEGEN=ON
+      -DLLVM_INCLUDE_DOCS=OFF
+      -DLLVM_ENABLE_RTTI=ON
+      -DLLVM_ENABLE_EH=ON
+      -DLLVM_INSTALL_UTILS=ON
+      -DWITH_POLLY=ON
+      -DLINK_POLLY_INTO_TOOLS=ON
     ]
     args << "-DLLVM_TARGETS_TO_BUILD=#{build.with?("all-targets") ? "all" : "AMDGPU;ARM;NVPTX;X86"}"
     args << "-DLIBOMP_ARCH=x86_64"
@@ -225,16 +228,6 @@ class Llvm < Formula
       args << "-DLLVM_BUILD_LLVM_DYLIB=ON"
     end
 
-    if build.with? "test"
-      args << "-DLLVM_BUILD_TESTS=ON"
-      args << "-DLLVM_ABI_BREAKING_CHECKS=WITH_ASSERTS"
-    end
-
-    if build.with? "rtti"
-      args << "-DLLVM_ENABLE_RTTI=ON"
-      args << "-DLLVM_ENABLE_EH=ON"
-    end
-    args << "-DLLVM_INSTALL_UTILS=ON" if build.with? "utils"
     args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
 
     if build.with?("lldb") && build.with?("python")
@@ -254,13 +247,18 @@ class Llvm < Formula
       args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
     end
 
-    if build.with? "polly"
-      args << "-DWITH_POLLY=ON"
-      args << "-DLINK_POLLY_INTO_TOOLS=ON"
-    end
-
     mktemp do
-      system "cmake", "-G", "Unix Makefiles", buildpath, *(std_cmake_args + args)
+      if build.with? "ocaml"
+        ENV["OPAMYES"] = "1"
+        ENV["OPAMROOT"] = Pathname.pwd/"opamroot"
+        (Pathname.pwd/"opamroot").mkpath
+        system "opam", "init", "--no-setup"
+        system "opam", "install", "ocamlfind", "ctypes"
+        system "opam", "config", "exec", "--",
+               "cmake", "-G", "Unix Makefiles", buildpath, *(std_cmake_args + args)
+      else
+        system "cmake", "-G", "Unix Makefiles", buildpath, *(std_cmake_args + args)
+      end
       system "make"
       system "make", "install"
       system "make", "install-xcode-toolchain" if build.with? "toolchain"
@@ -345,7 +343,7 @@ class Llvm < Formula
 
     # Testing Command Line Tools
     if MacOS::CLT.installed?
-      libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{DevelopmentTools.clang_version}*"].last { |f| File.directory? f }
+      libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS::CLT.version.to_i}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",
               "-I/Library/Developer/CommandLineTools/usr/include/c++/v1",

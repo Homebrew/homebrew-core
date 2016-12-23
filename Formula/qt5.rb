@@ -1,18 +1,7 @@
-class OracleHomeVarRequirement < Requirement
-  fatal true
-  satisfy(:build_env => false) { ENV["ORACLE_HOME"] }
-
-  def message; <<-EOS.undent
-      To use --with-oci you have to set the ORACLE_HOME environment variable.
-      Check Oracle Instant Client documentation for more information.
-    EOS
-  end
-end
-
 # Patches for Qt5 must be at the very least submitted to Qt's Gerrit codereview
 # rather than their bug-report Jira. The latter is rarely reviewed by Qt.
 class Qt5 < Formula
-  desc "Version 5 of the Qt framework"
+  desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
   head "https://code.qt.io/qt/qt5.git", :branch => "5.7", :shallow => false
 
@@ -21,6 +10,13 @@ class Qt5 < Formula
     url "https://download.qt.io/official_releases/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.xz"
     mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.xz"
     sha256 "a6a2632de7e44bbb790bc3b563f143702c610464a7f537d02036749041fd1800"
+
+    # Upstream commit from 13 Sep 2016 "Fix crash on exit when using default property aliases with layouts"
+    # http://code.qt.io/cgit/qt/qtdeclarative.git/patch/?id=5149aa68eca6ede8836ec4f07a14d22d9da9b161
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/3b71525/qt5/QTBUG-51927.patch"
+      sha256 "9460c3cc5ea0f530f24cb92fc9b260a2a7b01ccbdcd0b86e3ddae719a8b53eae"
+    end
 
     # Upstream commit from 7 Jul 2016 "configure and mkspecs: Don't try to find xcrun with xcrun"
     # https://code.qt.io/cgit/qt/qtbase.git/patch/configure?id=77a71c32c9d19b87f79b208929e71282e8d8b5d9
@@ -68,18 +64,17 @@ class Qt5 < Formula
   end
 
   bottle do
-    sha256 "4be3f39a46f38bd596d2198b3535a4329072b6dc3e75717a0fcf23d392b84ed0" => :sierra
-    sha256 "3085e765270fbae1df00a0a56df1e287234345cd5532cb54dafd991463813868" => :el_capitan
-    sha256 "17bec6a0f29a0fb74c3dd8d7b8e45cb50a10b0b6860bca5f54590e04cbf7e48b" => :yosemite
+    rebuild 3
+    sha256 "242197dfab9e62df340ef9f82d061005ec9c73ccf08f8d54345eea0dda8a4af0" => :sierra
+    sha256 "14b78a048c833306509457401bb186679b88e5311c4fe33deb3417222064c64d" => :el_capitan
+    sha256 "1bbdf366e87a2fb8adb4f657a384b9dd8851149c06c23be870838abd24433991" => :yosemite
   end
 
   keg_only "Qt 5 conflicts Qt 4"
 
   option "with-docs", "Build documentation"
   option "with-examples", "Build examples"
-  option "with-oci", "Build with Oracle OCI plugin"
   option "with-qtwebkit", "Build with QtWebkit module"
-  option "without-webengine", "Build without QtWebEngine module"
 
   deprecated_option "qtdbus" => "with-dbus"
   deprecated_option "with-d-bus" => "with-dbus"
@@ -91,10 +86,9 @@ class Qt5 < Formula
 
   depends_on "dbus" => :optional
   depends_on :mysql => :optional
+  depends_on "pkg-config" => :build
   depends_on :postgresql => :optional
   depends_on :xcode => :build
-
-  depends_on OracleHomeVarRequirement if build.with? "oci"
 
   # http://lists.qt-project.org/pipermail/development/2016-March/025358.html
   resource "qt-webkit" do
@@ -128,6 +122,7 @@ class Qt5 < Formula
       -qt-pcre
       -nomake tests
       -no-rpath
+      -pkg-config
     ]
 
     args << "-nomake" << "examples" if build.without? "examples"
@@ -150,14 +145,6 @@ class Qt5 < Formula
       args << "-no-dbus"
     end
 
-    if build.with? "oci"
-      args << "-I#{ENV["ORACLE_HOME"]}/sdk/include"
-      args << "-L#{ENV["ORACLE_HOME"]}"
-      args << "-plugin-sql-oci"
-    end
-
-    args << "-skip" << "qtwebengine" if build.without? "webengine"
-
     if build.with? "qtwebkit"
       (buildpath/"qtwebkit").install resource("qt-webkit")
       inreplace ".gitmodules", /.*status = obsolete\n((\s*)project = WebKit\.pro)/, "\\1\n\\2initrepo = true"
@@ -165,7 +152,7 @@ class Qt5 < Formula
 
     system "./configure", *args
     system "make"
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
 
     if build.with? "docs"

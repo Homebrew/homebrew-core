@@ -6,7 +6,7 @@ class Icu4c < Formula
   version "58.1"
   sha256 "0eb46ba3746a9c2092c8ad347a29b1a1b4941144772d13a88667a7b11ea30309"
 
-  head "https://ssl.icu-project.org/repos/icu/icu/trunk/", :using => :svn
+  head "https://ssl.icu-project.org/repos/icu/trunk/icu4c/", :using => :svn
 
   bottle do
     cellar :any

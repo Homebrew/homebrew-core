@@ -1,14 +1,13 @@
 class Openconnect < Formula
   desc "Open client for Cisco AnyConnect VPN"
   homepage "http://www.infradead.org/openconnect.html"
-  url "ftp://ftp.infradead.org/pub/openconnect/openconnect-7.07.tar.gz"
-  sha256 "f3ecfcd487dcd916748db38b4138c1e72c86347d6328b11dfe1d0af2821b8366"
-  revision 2
+  url "ftp://ftp.infradead.org/pub/openconnect/openconnect-7.08.tar.gz"
+  sha256 "1c44ec1f37a6a025d1ca726b9555649417f1d31a46f747922b84099ace628a03"
 
   bottle do
-    sha256 "266cc4b4de7651d73c938e5e4a4cf4b530f50cc6490e19f28bb7905c493b8e28" => :sierra
-    sha256 "f3e140dd2008d6e4cfeec620de32d918a0ba2d0056c34595796297ab8f917c6a" => :el_capitan
-    sha256 "e66d0122a808b3335f3731ba01086011dd1ff86368ded4ed1a09b9a5ec91c888" => :yosemite
+    sha256 "6ca71944ac9c1f0f8324cf3eb3b494dc3838036265b786f479003e41dd053e32" => :sierra
+    sha256 "991d5e4ed400b1aa18d855a5ae29477980e6ae203567e72b29ab9880e5990bcf" => :el_capitan
+    sha256 "ee57ea1532750340f0ef11fe765a4bef226a505557e944aab039668fb155ba2f" => :yosemite
   end
 
   head do
@@ -30,8 +29,8 @@ class Openconnect < Formula
   depends_on "stoken" => :optional
 
   resource "vpnc-script" do
-    url "http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/a64e23b1b6602095f73c4ff7fdb34cccf7149fd5:/vpnc-script"
-    sha256 "cc30b74788ca76928f23cc7bc6532425df8ea3701ace1454d38174ca87d4b9c5"
+    url "http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/6e04e0bbb66c0bf0ae055c0f4e58bea81dbb5c3c:/vpnc-script"
+    sha256 "48b1673e1bfaacbfa4e766c41e15dd8458726cca8f3e07991d078d0d5b7c55e9"
   end
 
   def install

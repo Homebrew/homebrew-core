@@ -22,8 +22,6 @@ class Libgraphqlparser < Formula
   end
 
   test do
-    require "utils/json"
-
     sample_query = <<-EOS.undent
       { user }
     EOS
@@ -50,7 +48,7 @@ class Libgraphqlparser < Formula
                 "directives"=>nil,
                 "selectionSet"=>nil }] } }] }
 
-    test_ast = Utils::JSON.load pipe_output("#{libexec}/dump_json_ast", sample_query)
+    test_ast = JSON.parse pipe_output("#{libexec}/dump_json_ast", sample_query)
     assert_equal sample_ast, test_ast
   end
 end

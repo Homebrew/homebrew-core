@@ -5,12 +5,13 @@ class Dcraw < Formula
   mirror "https://distfiles.macports.org/dcraw/dcraw-9.27.0.tar.gz"
   mirror "https://mirror.csclub.uwaterloo.ca/MacPorts/mpdistfiles/dcraw/dcraw-9.27.0.tar.gz"
   sha256 "c1d8cc4f19752a3d3aaab1fceb712ea85b912aa25f1f33f68c69cd42ef987099"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "44369bd668c640cf403109918b658bfeaf508a9fd6f01b989737f1543932fb87" => :sierra
-    sha256 "0bde35e1b1208c2748c70d549f53ff4c83178e5fb3423fd61b2feaba8387a221" => :el_capitan
-    sha256 "7773cd46b2f7b316cda1033999d8d8a9c16e2b5f0c552b438f0dfbf59070a229" => :yosemite
+    sha256 "fd86c81c35d07d7fc919b0835975cf2d09407c8d3802508092c2edf8aa1b76d1" => :sierra
+    sha256 "1bdb077f41630167865d8f9fdf08747c33fe429c4d09b8d1703791c1273accbd" => :el_capitan
+    sha256 "158f4c5794f21b39c2102b721425d9f69ffe78d0b86e28c73f6b36a4e84d44c8" => :yosemite
   end
 
   depends_on "jpeg"

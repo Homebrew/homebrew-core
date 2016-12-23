@@ -1,15 +1,15 @@
 class SqliteAnalyzer < Formula
   desc "Analyze how space is allocated inside an SQLite file"
   homepage "https://www.sqlite.org/"
-  url "https://www.sqlite.org/2016/sqlite-src-3150100.zip"
-  version "3.15.1"
-  sha256 "423a73936931c5148a4812ee7d82534ec7d998576ea1b4e1573af91ec15a4b01"
+  url "https://www.sqlite.org/2016/sqlite-src-3150200.zip"
+  version "3.15.2"
+  sha256 "38a1e867b5b1a58ba3731a63ffe69a2271d79bd0723d21c5a9a71e4cb7452a83"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4c5eda120ae4d0de4fb7d3ff9e304bf07526c9283b636034c1310a8fdb948d7b" => :sierra
-    sha256 "53305996c55bda24f02b4c7974950b6cca35d05231e7b0a35c0e7ca97c53716f" => :el_capitan
-    sha256 "afb630357759cb15085409243f8b30ad348a78f1e6ebfea64f5ea58d23f0cb70" => :yosemite
+    sha256 "2f23970781fddb82bc783dfb7729bfe80aca64465a8900e81e80239b247e296f" => :sierra
+    sha256 "190b49894b478553f8bd8f39f92528d4b14bc761459779bd4e2cc045cd53b840" => :el_capitan
+    sha256 "1197dc8a2426c8edcd1a7d7169d70ee5e10bff676400dcc76fa0e2c371691c41" => :yosemite
   end
 
   def install

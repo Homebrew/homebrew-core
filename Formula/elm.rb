@@ -7,61 +7,59 @@ class Elm < Formula
   homepage "http://elm-lang.org"
 
   stable do
-    url "https://github.com/elm-lang/elm-compiler/archive/0.17.1.tar.gz"
-    sha256 "3339b79696981b76a719c651bda18082f4ecc58e01d913b29b202f174665e387"
+    url "https://github.com/elm-lang/elm-compiler/archive/0.18.0.tar.gz"
+    sha256 "3ed70ab6e624c09dd251bb2f1e104752ebd3f50a062ddf92fff9cbec98d09850"
 
     resource "elm-package" do
-      url "https://github.com/elm-lang/elm-package/archive/0.17.1.tar.gz"
-      sha256 "f7f9ede1066fe55e0f9e94906fdda0e4a0f56efeb12de8481bc5f5b96b78d33d"
+      url "https://github.com/elm-lang/elm-package/archive/0.18.0.tar.gz"
+      sha256 "5cf6e1ae0a645b426c0474cc7cd3f7d1605ffa1ac5756a39a8b2268ddc7ea0e9"
     end
 
     resource "elm-make" do
-      url "https://github.com/elm-lang/elm-make/archive/0.17.1.tar.gz"
-      sha256 "918316f65fc8cac1f6fe8cffa9b86aeff3d9d9a446559db43ec7c87e1dc78d95"
+      url "https://github.com/elm-lang/elm-make/archive/0.18.0.tar.gz"
+      sha256 "00c2d40128ca86454251d6672f49455265011c02aa3552a857af3109f337dbea"
     end
 
     resource "elm-repl" do
-      url "https://github.com/elm-lang/elm-repl/archive/0.17.1.tar.gz"
-      sha256 "01621479d798f906d90c2bff77fdefe4a76b1855241efc9a3530d4febcdee61b"
+      url "https://github.com/elm-lang/elm-repl/archive/0.18.0.tar.gz"
+      sha256 "be2b05d022ffa766fe186d5ad5da14385cec41ba7a4b2c18f2e0018351c99376"
     end
 
     resource "elm-reactor" do
-      url "https://github.com/elm-lang/elm-reactor/archive/0.17.1.tar.gz"
-      sha256 "0778df7e7fad897c750c29024166234cf3b4fcebe664aa52d864e0b64691e5e0"
+      url "https://github.com/elm-lang/elm-reactor/archive/0.18.0.tar.gz"
+      sha256 "736f84a08b10df07cfd3966aa5c7802957ab35d6d74f6322d4a69a0b9d75f4fe"
     end
   end
 
   bottle do
-    sha256 "cdda51b539fd89e25375be053a0cc3a78ad09b242541fc1023a2d86b54dc3948" => :sierra
-    sha256 "d7babb625ca0a614a434d2db6c4af692bb9a5d543461a4e5a39e61f2f86b3e53" => :el_capitan
-    sha256 "ed537a9a30af32282badb2d61b52f653a073eec07efd08405b37b025de8b01e1" => :yosemite
-    sha256 "63eb1dfad6bd3b17c07d9695082c7771f1ea2773ee3231ed6289ebf887f81013" => :mavericks
+    sha256 "64f0a490d8bce84b1541a2a219c7298d515d64b3042bb48c41d52f83adf9260d" => :sierra
+    sha256 "1c3f415cf011dbadc6265a22fd1671c2461f3e906cecc54172b67c7295b28344" => :el_capitan
+    sha256 "428fb7d2719fee543d9cc8a5e25d0cbd697fe447e585e322f01f29f35fcc1011" => :yosemite
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
-  # GHC 8 compat
-  # Fixes "No instance for (Num Json.Indent) arising from the literal '2'"
-  # Reported 3 Jul 2016; PR subject "aeson-pretty: use Spaces with confIndent"
-  patch do
-    url "https://github.com/elm-lang/elm-compiler/pull/1431.patch"
-    sha256 "4f11e645b4190eb3b0cbea7c641d4b28b307b811889f3b8206f45f6e53a5575b"
-  end
-
   def install
     # elm-compiler needs to be staged in a subdirectory for the build process to succeed
     (buildpath/"elm-compiler").install Dir["*"]
-
-    # GHC 8 compat
-    # Fixes "cabal: Could not resolve dependencies"
-    # Reported 25 May 2016: https://github.com/elm-lang/elm-compiler/issues/1397
-    (buildpath/"cabal.config").write("allow-newer: base,time,transformers,HTTP\n")
 
     extras_no_reactor = ["elm-package", "elm-make", "elm-repl"]
     extras = extras_no_reactor + ["elm-reactor"]
     extras.each do |extra|
       resource(extra).stage buildpath/extra
+    end
+
+    # https://github.com/elm-lang/elm-make/pull/130
+    inreplace "elm-make/elm-make.cabal", "optparse-applicative >=0.11 && <0.12,",
+                                         "optparse-applicative >=0.11 && <0.14," # 0.13.0.0 is current
+
+    # https://github.com/elm-lang/elm-package/pull/252
+    inreplace "elm-package/elm-package.cabal" do |s|
+      s.gsub! "optparse-applicative >= 0.11 && < 0.12,",
+              "optparse-applicative >= 0.11 && < 0.14," # 0.13.0.0 is current
+      s.gsub! "HTTP >= 4000.2.5 && < 4000.3,",
+              "HTTP >= 4000.2.5 && < 4000.4," # 4000.3.3 is current
     end
 
     cabal_sandbox do

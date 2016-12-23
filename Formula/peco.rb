@@ -1,15 +1,15 @@
 class Peco < Formula
   desc "Simplistic interactive filtering tool"
   homepage "https://github.com/peco/peco"
-  url "https://github.com/peco/peco/archive/v0.4.5.tar.gz"
-  sha256 "d8efdc807a313962780026ca20a428d3d04ac543b83ad6486eeb475f25113434"
+  url "https://github.com/peco/peco/archive/v0.4.7.tar.gz"
+  sha256 "13b14c547a4fa54c33e14a3a5c18d971961963008e22410fe377614100a34c00"
   head "https://github.com/peco/peco.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7b3996588e42639759334721c29389c3fb12448a14ac6929b7b6249e1890a9cc" => :sierra
-    sha256 "4ae723c8405dbdb88391a56729cf76a33ac7e79b0853540ed91808974f5fba5a" => :el_capitan
-    sha256 "184d7192674395dbf5bcbb4079dd6e7e9c32d30ac972bb0de4d30c2a4392a481" => :yosemite
+    sha256 "1d0329f9e239dca2083efb752384c4a827ac7861add4dc3c07d116d689947898" => :sierra
+    sha256 "27146cadf7d4e4bc2f1cdf5753d5954d6c2b53a6bf179a58041f767db73746dc" => :el_capitan
+    sha256 "50c6670b272e8438af1800bbe328aac1185288d1d33126f3cb83870e88837e61" => :yosemite
   end
 
   depends_on "glide" => :build

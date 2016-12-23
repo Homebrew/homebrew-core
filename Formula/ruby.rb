@@ -1,11 +1,10 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  revision 2
 
   stable do
-    url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.bz2"
-    sha256 "4a7c5f52f205203ea0328ca8e1963a7a88cf1f7f0e246f857d595b209eac0a4d"
+    url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.3.tar.bz2"
+    sha256 "882e6146ed26c6e78c02342835f5d46b86de95f0dc4e16543294bc656594cc5b"
 
     # Reverts an upstream commit which incorrectly tries to install headers
     # into SDKROOT, if defined
@@ -19,9 +18,9 @@ class Ruby < Formula
   end
 
   bottle do
-    sha256 "2cb8d433b4948881c2e3f3f2a62c529fbd84ea6e67c69724d8e59320aa54560c" => :sierra
-    sha256 "e16cbadb53777409d930b2732eda252ec186a4076032dce80de273bf8f8ff06c" => :el_capitan
-    sha256 "2d4fd2558c00fb558c79165cf5af3e3ec94686a46b653cf200c08946dd202418" => :yosemite
+    sha256 "ecad7a8204378568faccc24bef41076b40d6ce3ab1958e679f09ca344ac9dad1" => :sierra
+    sha256 "8d03b0704f95fdd2ca400f4ffd694347bbf6596fa14802e62c1cdaa925c37ca4" => :el_capitan
+    sha256 "7f9a5afa469631f8b2c4fc914043ef2fcc2f69b790cec7a9707c80549a7f23ad" => :yosemite
   end
 
   devel do
@@ -48,10 +47,6 @@ class Ruby < Formula
   depends_on "libyaml"
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
-
-  fails_with :llvm do
-    build 2326
-  end
 
   def install
     # otherwise `gem` command breaks

@@ -35,8 +35,8 @@ class Shyaml < Formula
         - 1st
         - 2nd
     EOS
-    assert_equal "val", pipe_output("shyaml get-value key", yaml, 0)
-    assert_equal "1st", pipe_output("shyaml get-value arr.0", yaml, 0)
-    assert_equal "2nd", pipe_output("shyaml get-value arr.-1", yaml, 0)
+    assert_equal "val", pipe_output("#{bin}/shyaml get-value key", yaml, 0)
+    assert_equal "1st", pipe_output("#{bin}/shyaml get-value arr.0", yaml, 0)
+    assert_equal "2nd", pipe_output("#{bin}/shyaml get-value arr.-1", yaml, 0)
   end
 end

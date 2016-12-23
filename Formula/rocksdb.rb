@@ -1,15 +1,14 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "http://rocksdb.org"
-  url "https://github.com/facebook/rocksdb/archive/v4.11.2.tar.gz"
-  sha256 "9374be06fdfccbbdbc60de90b72b5db7040e1bc4e12532e4c67aaec8181b45be"
+  url "https://github.com/facebook/rocksdb/archive/v4.13.5.tar.gz"
+  sha256 "3384655107f59a6ee9a52a54d0631d9ae96c722e411bafe6c4547ec4fc201534"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "df25c15c8f1a4b41ff5e5273fa8c3c21a186b9241c5cfce0226f4ef6f58e8b36" => :sierra
-    sha256 "0bfffdb6a3ad9b446a9d8936e43462adaa6c2195f70068c43785feed4bef537d" => :el_capitan
-    sha256 "c2a7a1f67add41b293cf5b059b9eef93f641f00c4c2e286b48973b887ebfbe3c" => :yosemite
+    sha256 "9705c2528dcfc015e40951b5710ea1e617ed1b25b34fe8627f68684175215bdc" => :sierra
+    sha256 "5a92a7459636cf8df453f6b45d713453aafec33daf0e61bdad038987296b4080" => :el_capitan
+    sha256 "a74163785a0356483520f8ae05f0453acbc05b3c179501f574d33de52c24c933" => :yosemite
   end
 
   option "with-lite", "Build mobile/non-flash optimized lite version"
@@ -18,7 +17,7 @@ class Rocksdb < Formula
   needs :cxx11
   depends_on "snappy"
   depends_on "lz4"
-  depends_on "gflags" if build.with? "lite"
+  depends_on "gflags"
 
   def install
     ENV.cxx11

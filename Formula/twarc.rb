@@ -3,13 +3,13 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://github.com/DocNow/twarc/archive/v0.8.2.tar.gz"
-  sha256 "6d5151c722dc3da53151456c012b69cb0cc627667cb01323857064d5ce5ebd0f"
+  url "https://github.com/DocNow/twarc/archive/v1.0.0.tar.gz"
+  sha256 "00652703b10349e06d6c51c02b66f8fb7c0f0f3a3993264764b33211d0cf836f"
 
   bottle do
-    sha256 "6e8946c79c64788c5b06b054a9e118c355fdacba3999b433706f85dd134dabca" => :sierra
-    sha256 "fdcc08b9d1557e4fe47d004f88d49aeaff4cc57aa2fd7976452697085026f024" => :el_capitan
-    sha256 "4a714b96010c09fd184dfcc6f56e464be879cc7c95ea9c0461a5fc31f3db196a" => :yosemite
+    sha256 "d84013a05295f2a538b4b8b2c8235b96a61949b27ef010b5d74db8798add03ab" => :sierra
+    sha256 "e4836536bb3a5d8b8e824211460ae483423fb1847cd10ee5ac4636734a6f9ec0" => :el_capitan
+    sha256 "72bbe8927ffd909514e272a08cc48862dea481e4058cf1e0580b1d6667ef614d" => :yosemite
   end
 
   depends_on :python
@@ -25,8 +25,8 @@ class Twarc < Formula
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/ce/92/7f07412a4f04e55c1e83a09c6fd48075b5df96c1dbd4078c3407c5be1dff/oauthlib-2.0.0.tar.gz"
-    sha256 "0ad22b4f03fd75ef18d5793e1fed5e2361af5d374009f7722b4af390a0030dfd"
+    url "https://files.pythonhosted.org/packages/d2/4c/5ac894a469e25ebd02f6b3c2adb9f55253e6d1ca1f16a7d247ae6d48b4c8/oauthlib-2.0.1.tar.gz"
+    sha256 "132ad46df25e53a84b33f1fd43f80e973cda2cb018cc0168d7d0c8c4d5cef9b5"
   end
 
   resource "pbr" do
@@ -40,18 +40,18 @@ class Twarc < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/a0/2f/076c816e2402c4911ccee4b93ba0475145b7cffd0320ca8efa0add7c469c/pytest-3.0.3.tar.gz"
-    sha256 "f213500a356800a483e8a146ff971ae14a8df3f2c0ae4145181aad96996abee7"
+    url "https://files.pythonhosted.org/packages/2f/03/0c636d7191255e1737012e5f9c42368f11b55463aeea46fb1955892cab0d/pytest-3.0.4.tar.gz"
+    sha256 "879fee2c1fdbaacd1bf2c0047677c6dd4aee05b9c1e64330b34d130a584fa40d"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
-    sha256 "1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed"
+    url "https://files.pythonhosted.org/packages/51/fc/39a3fbde6864942e8bb24c93663734b74e281b984d1b8c4f95d64b0c21f6/python-dateutil-2.6.0.tar.gz"
+    sha256 "62a2f8df3d66f878373fd0072eacf4ee52194ba302e00082828e0d263b0418d2"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/2e/ad/e627446492cc374c284e82381215dcd9a0a87c4f6e90e9789afefe6da0ad/requests-2.11.1.tar.gz"
-    sha256 "5acf980358283faba0b897c73959cecf8b841205bb4b2ad3ef545f46eae1a133"
+    url "https://files.pythonhosted.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
+    sha256 "63f1815788157130cee16a933b2ee184038e975f0017306d723ac326b5525b54"
   end
 
   resource "requests-oauthlib" do
@@ -74,6 +74,7 @@ class Twarc < Formula
   end
 
   test do
-    assert_equal "twarc #{version}", shell_output("#{bin}/twarc.py -v 2>&1").chomp
+    assert_equal "usage: twarc [-h] [--log LOG] [--consumer_key CONSUMER_KEY]",
+                 shell_output("#{bin}/twarc -h").chomp.split("\n").first
   end
 end

@@ -6,9 +6,10 @@ class Dvm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e046329279fd7c2c093a4159b60755161370721400e10da6df23a34a1efa97eb" => :sierra
-    sha256 "a47592736f3dff452ac0060602bf915a763255102fe75adaf6e6dea4203f4ceb" => :el_capitan
-    sha256 "beb50586491e083878940a059491b4ab40802e5fb417876532a7185340ab8d48" => :yosemite
+    rebuild 1
+    sha256 "29c0477105dffacb2826895fc543d396efbc1563512939f38658b774753f7b80" => :sierra
+    sha256 "fe17b992aa8506e903642162d03addd1b106debff425e75a447f4293ccfdefbc" => :el_capitan
+    sha256 "8c504a35ceb86496fc9d582e9642d4746b525e97c24008fb47957371e642ddfb" => :yosemite
   end
 
   depends_on "glide" => :build
@@ -28,7 +29,7 @@ class Dvm < Formula
 
       system "make", "VERSION=#{version}", "UPGRADE_DISABLED=true"
       prefix.install "dvm.sh"
-      prefix.install "bash_completion"
+      bash_completion.install "bash_completion" => "dvm"
       (prefix/"dvm-helper").install "dvm-helper/dvm-helper"
       prefix.install_metafiles
     end
@@ -37,12 +38,7 @@ class Dvm < Formula
   def caveats; <<-EOS.undent
     dvm is a shell function, and must be sourced before it can be used.
     Add the following command to your bash profile:
-
-        [[ -s "$(brew --prefix dvm)/dvm.sh" ]] && source "$(brew --prefix dvm)/dvm.sh"
-
-    To enable tab completion of commands, add the following command to your bash profile:
-        [[ -s "$(brew --prefix dvm)/bash_completion" ]] && source "$(brew --prefix dvm)/bash_completion"
-
+        [ -f #{opt_prefix}/dvm.sh ] && . #{opt_prefix}/dvm.sh
     EOS
   end
 

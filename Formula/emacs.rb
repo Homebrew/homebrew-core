@@ -12,6 +12,11 @@ class Emacs < Formula
     sha256 "8fa2c1f493b9dc831a017055b5de26b426925895c6400b24a3755e4db8b0ffa2" => :yosemite
   end
 
+  devel do
+    url "http://alpha.gnu.org/gnu/emacs/pretest/emacs-25.1.90.tar.xz"
+    sha256 "4dadcf1ed96e9c375647a55a053a41c64c4958cb3eadb1ee50d6b2e8c1aa8a6a"
+  end
+
   head do
     url "https://github.com/emacs-mirror/emacs.git"
 
@@ -68,7 +73,7 @@ class Emacs < Formula
     args << "--with-rsvg" if build.with? "librsvg"
     args << "--without-pop" if build.with? "mailutils"
 
-    system "./autogen.sh" if build.head? || build.devel?
+    system "./autogen.sh" if build.head?
 
     if build.with? "cocoa"
       args << "--with-ns" << "--disable-ns-self-contained"

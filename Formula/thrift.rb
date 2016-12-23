@@ -72,7 +72,7 @@ class Thrift < Formula
                           "--prefix=#{prefix}",
                           "--libdir=#{lib}",
                           *exclusions
-    ENV.j1
+    ENV.deparallelize
     system "make"
     system "make", "install"
   end

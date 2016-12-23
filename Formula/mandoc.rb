@@ -1,17 +1,15 @@
 class Mandoc < Formula
   desc "The mandoc UNIX manpage compiler toolset"
   homepage "http://mdocml.bsd.lv"
-  url "http://mdocml.bsd.lv/snapshots/mdocml-1.13.3.tar.gz"
-  sha256 "23ccab4800d50bf4c327979af5d4aa1a6a2dc490789cb67c4c3ac1bd40b8cad8"
+  url "http://mdocml.bsd.lv/snapshots/mdocml-1.13.4.tar.gz"
+  sha256 "0a55c1addb188071d6f784599303656b8465e98ec6b2f4f264e12fb96d79e0ef"
 
   head "anoncvs@mdocml.bsd.lv:/cvs", :module => "mdocml", :using => :cvs
 
   bottle do
-    sha256 "bb3993deb7c2eefba8ba128d84b9975b0e647f5adce79b4348680661f7f339ec" => :sierra
-    sha256 "86aeb9459638f425f5e40c33732b641f90942cd0ff66f37c81ea611b25eb0a10" => :el_capitan
-    sha256 "15a8ba3a50c95ba6c5b02fd77991fd0f5e9cd8fccfed9c96b9f6afb171cbffba" => :yosemite
-    sha256 "66bf930eb1fbbe1be9cfab3f5a4d2582de2f9cd550d5e98894513d75f62e4ef2" => :mavericks
-    sha256 "79987dc1387313f384f8943306a41b37ee2b35ca90d06456a956b79fbaf61673" => :mountain_lion
+    sha256 "42f275d193a546595d71172c3c3d53e089e36f760724e9a3e4319e7555f76592" => :sierra
+    sha256 "98b708b8a2b82a07295e6e5d8165c9c3a1fe91698073549709bf7706a1104435" => :el_capitan
+    sha256 "5c90ada1b81b9c9da0cd3507c20667287e5b96268e75328c173bd94e85c6f722" => :yosemite
   end
 
   option "without-sqlite", "Only install the mandoc/demandoc utilities."

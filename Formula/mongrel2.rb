@@ -27,7 +27,7 @@ class Mongrel2 < Formula
   def install
     # Build in serial. See:
     # https://github.com/Homebrew/homebrew/issues/8719
-    ENV.j1
+    ENV.deparallelize
 
     # Mongrel2 pulls from these ENV vars instead
     ENV["OPTFLAGS"] = "#{ENV.cflags} #{ENV.cppflags}"

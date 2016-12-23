@@ -3,21 +3,20 @@ class Makensis < Formula
   homepage "http://nsis.sourceforge.net/"
 
   stable do
-    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.0/nsis-3.0-src.tar.bz2"
-    sha256 "53a1e8ef109acd828ec909f3e6203f69d917f1a5b8bff27e93e66d0bddc5637e"
+    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.01/nsis-3.01-src.tar.bz2"
+    sha256 "604c011593be484e65b2141c50a018f1b28ab28c994268e4ecd377773f3ffba1"
 
     resource "nsis" do
-      url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.0/nsis-3.0.zip"
-      sha256 "87b1d36765bb2f6e0fe531fdd8c9282b28e86b88d1f6b61842777bb791955372"
+      url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.01/nsis-3.01.zip"
+      sha256 "daa17556c8690a34fb13af25c87ced89c79a36a935bf6126253a9d9a5226367c"
     end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7e26c00822172892a80ab04c2408dc30b3f5844a87c8788ca169f310c0417154" => :sierra
-    sha256 "b1b91ef9a80cd5857cc9e600ddf29c6ff26b5e8d95d7ed1b362519f6aa15d798" => :el_capitan
-    sha256 "3424dc5147485d37deb1c4c5569a07ab370424268bf841c77b235cc85e96d248" => :yosemite
-    sha256 "0901ab2f047cdebbabbcd4fbb382a90dcd8398a4817579548a727f1952cdf07d" => :mavericks
+    sha256 "e18b6829e0db4cf473b1869cff4a21d3a3a1bd9a82bf267ec9a04b24b60dfbd6" => :sierra
+    sha256 "b9facea6fcb40112469e564a42b68a3e93f9b53ad1671c50d62ce7e7832546ef" => :el_capitan
+    sha256 "867cf5c8c0699cc8d3ce570571ef883cd6a2ebf0ac657e5091ed60b4b03ff88b" => :yosemite
   end
 
   depends_on "scons" => :build

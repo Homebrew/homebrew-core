@@ -1,17 +1,16 @@
 class Camlp4 < Formula
   desc "Tool to write extensible parsers in OCaml"
   homepage "https://github.com/ocaml/camlp4"
-  url "https://github.com/ocaml/camlp4/archive/4.03+1.tar.gz"
-  version "4.03+1"
-  sha256 "6eefeacced81cca59ddf90c2538505fd5cd6596a3fc1acf4971e9796c2e7f2ae"
+  url "https://github.com/ocaml/camlp4/archive/4.04+1.tar.gz"
+  version "4.04+1"
+  sha256 "6044f24a44053684d1260f19387e59359f59b0605cdbf7295e1de42783e48ff1"
   head "https://github.com/ocaml/camlp4.git", :branch => "trunk"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a25b9822e4cac3ab1e1434f801a21dce4a59b1be5fcf8633031195859a92a76e" => :sierra
-    sha256 "8393f45f735de47ccae58ea6974aacd34770449980664377b7533a6de8a08c25" => :el_capitan
-    sha256 "5fb90eba1c7b96d259b6dff9049b52d2aee380ff3312376514f96fbd6bd2b613" => :yosemite
-    sha256 "e7082ef589dbf2df951d3da8caaafacfada7def89ae24bde05fb1eb29b12d09d" => :mavericks
+    sha256 "49096259b8b6ca8de2e13430ca64667e7240ea4c57ceec970ec09c6018e92afa" => :sierra
+    sha256 "2653f7e820938274b150429ae79c8b7384a93e655707f1c028577ad46eb720f7" => :el_capitan
+    sha256 "368d94cdd7367926ad0c77e0c818a3f4cbc09fc2cdbd9ad35dd391f90b2eef9a" => :yosemite
   end
 
   depends_on "ocaml"

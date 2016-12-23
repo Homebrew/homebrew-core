@@ -11,10 +11,6 @@ class Nload < Formula
     sha256 "344b909ee8033a4ab27c1db04e9505b0bbf6d0141f391c470cc36b33e6dd7723" => :mavericks
   end
 
-  fails_with :llvm do
-    build 2334
-  end
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 

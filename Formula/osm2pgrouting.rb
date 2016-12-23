@@ -3,13 +3,14 @@ class Osm2pgrouting < Formula
   homepage "http://pgrouting.org/docs/tools/osm2pgrouting.html"
   url "https://github.com/pgRouting/osm2pgrouting/archive/v2.2.0.tar.gz"
   sha256 "bdd3095123cf21ee2f56e5cf04b2ea7b781dea629bff909fa45ebc5dbe50f8a6"
+  revision 1
   head "https://github.com/pgRouting/osm2pgrouting.git"
 
   bottle do
     cellar :any
-    sha256 "dc2257b6ba845714b8543519140ce3e60a9f72623e72bbab3c1099b65d4e3b12" => :sierra
-    sha256 "9f1df3976e859f8688b4d87963b896e7683349a6bb2aee5894c58eff95f37696" => :el_capitan
-    sha256 "b780ea51ec19cada89d188b622ec5ad9b6985058cd464eed45cc7d4c803bda9d" => :yosemite
+    sha256 "8ea798b06d437c03de3d6650923b1507e66c1f4375871e9a01604e1de5eb1045" => :sierra
+    sha256 "51f98a582af555b60abebabaf6aebc8792f571bb686a01c0dd340aef1a8d47b4" => :el_capitan
+    sha256 "68a2b95a5acdbd4b25d8933243ebcb0205e2ca42a6996a26be9ded2726477b31" => :yosemite
   end
 
   depends_on "cmake" => :build

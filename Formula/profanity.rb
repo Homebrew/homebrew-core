@@ -40,6 +40,6 @@ class Profanity < Formula
   end
 
   test do
-    system "profanity", "-v"
+    system "#{bin}/profanity", "-v"
   end
 end

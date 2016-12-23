@@ -17,8 +17,6 @@ class Ejabberd < Formula
     depends_on "autoconf" => :build
   end
 
-  option "32-bit"
-
   depends_on "openssl"
   depends_on "erlang"
   depends_on "libyaml"
@@ -29,10 +27,6 @@ class Ejabberd < Formula
     ENV["TARGET_DIR"] = ENV["DESTDIR"] = "#{lib}/ejabberd/erlang/lib/ejabberd-#{version}"
     ENV["MAN_DIR"] = man
     ENV["SBIN_DIR"] = sbin
-
-    if build.build_32_bit?
-      ENV.append %w[CFLAGS LDFLAGS], "-arch #{Hardware::CPU.arch_32_bit}"
-    end
 
     args = ["--prefix=#{prefix}",
             "--sysconfdir=#{etc}",

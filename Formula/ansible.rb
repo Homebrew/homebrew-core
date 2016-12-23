@@ -5,14 +5,14 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.2.0.0.tar.gz"
   sha256 "d9f198d293394ce0f8ba802561b21368888e3301036a706b5584641b49408586"
-  revision 1
+  revision 2
 
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
-    sha256 "6a9e16fe2778d5eca82a1b123efe7a4b928a891646bc13d058fe72f4df9d95a7" => :sierra
-    sha256 "bef7b9f56ac28a36046b241c72ae10726198fa859bcf7e68d74d6b1e1765c725" => :el_capitan
-    sha256 "059d75cb439af21744ca30175e6785b12e7611aefe6b6912b9410ff421399d0e" => :yosemite
+    sha256 "ce79d6111459deb4340fb0f4a725884a0d604869c60e33f71e8977b3e8456c7e" => :sierra
+    sha256 "27b832c511212e51aa3f63493a27230450792faa7c8bc2c5105c5bdcdc4f1693" => :el_capitan
+    sha256 "564b7f50916694c77e1968377b62db2d3391cd9d77cb53a92f9a30f55c6ec3ae" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -75,6 +75,7 @@ class Ansible < Formula
   end
 
   resource "PrettyTable" do
+    # When switching to a different version, check if file permissions of the installed files need to be fixed. (See the "install" method below.)
     url "https://files.pythonhosted.org/packages/ef/30/4b0746848746ed5941f052479e7c23d2b56d174b82f4fd34a25e389831f5/prettytable-0.7.2.tar.bz2"
     sha256 "853c116513625c738dc3ce1aee148b5b5757a86727e67eff6502c7ca59d43c36"
   end
@@ -536,6 +537,13 @@ class Ansible < Formula
     end
 
     virtualenv_install_with_resources
+
+    # prettytable 0.7.2 has file permissions 600 for some files. We need to add read permissions in order to be able to use it as a different user than the one installing it.
+    # See https://github.com/Homebrew/homebrew-core/issues/6975
+    Pathname.glob(libexec/"lib/python*/site-packages/prettytable-0.7.2-py*.egg-info").each do |prettytable_path|
+      chmod_R("a+r", prettytable_path)
+    end
+
     man1.install Dir["docs/man/man1/*.1"]
   end
 

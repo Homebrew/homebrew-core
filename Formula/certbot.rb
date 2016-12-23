@@ -5,8 +5,8 @@ class Certbot < Formula
   homepage "https://certbot.eff.org/"
   url "https://github.com/certbot/certbot/archive/v0.9.3.tar.gz"
   sha256 "5c40cfcf3a17624e34dcb733148bd247c4f0cee189766fe0fb6d29571d4068bb"
-  head "https://github.com/certbot/certbot.git"
   revision 1
+  head "https://github.com/certbot/certbot.git"
 
   bottle do
     sha256 "68ebae4452bad0d62c67450f00904ae42b8f5e67a768f07e5ce1bec4990a9a8c" => :sierra

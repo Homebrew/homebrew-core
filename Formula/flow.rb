@@ -1,15 +1,15 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
-  url "https://github.com/facebook/flow/archive/v0.35.0.tar.gz"
-  sha256 "c60efe9da95b578705ac61a4666af93a37401d973c37edae1865cd734aa2b95b"
+  url "https://github.com/facebook/flow/archive/v0.37.4.tar.gz"
+  sha256 "f78bd6a37a242159ca5344069ae97b1843add40a43dc5680e463ca137a2b211c"
   head "https://github.com/facebook/flow.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bcc4df22ad97211ff8566a12ba04452181d0231790edd9f66617b4cfae03b7a5" => :sierra
-    sha256 "e4bf0b9aaf0f77a914f7b25059678d56e9e38ec8bbf5921fc2050f16162a04ff" => :el_capitan
-    sha256 "036fd8da08f0ad5ce9988a65432a498a1c3a35f335595fb3c76dcbfa21545b0d" => :yosemite
+    sha256 "2e3d8de0fb7c5aced2e46867966be8d131a88023641a6d3dea024eb83fa9e43e" => :sierra
+    sha256 "9e30a4eab41d150b10bc638f34f59295301c6514de6d1fb238074f3e3430a9dd" => :el_capitan
+    sha256 "c16b894c3dc1f904044cc2ccfc21a652d12003ab1c65fef1f9db7be96253694d" => :yosemite
   end
 
   depends_on "ocaml" => :build
@@ -29,7 +29,7 @@ class Flow < Formula
       /* @flow */
       var x: string = 123;
     EOS
-    expected = /number\nThis type is incompatible with\n.*string\n\nFound 1 error/
-    assert_match expected, shell_output("#{bin}/flow check --old-output-format #{testpath}", 2)
+    expected = /Found 1 error/
+    assert_match expected, shell_output("#{bin}/flow check #{testpath}", 2)
   end
 end

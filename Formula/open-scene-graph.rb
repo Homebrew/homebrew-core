@@ -3,13 +3,13 @@ class OpenSceneGraph < Formula
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
   url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.5.tar.gz"
   sha256 "f44c96ade3a1d3c547f36504d75633bedbb9b8f6f42dac4fff75166db7d3aadf"
-
+  revision 1
   head "https://github.com/openscenegraph/OpenSceneGraph"
 
   bottle do
-    sha256 "d970ff77049a0c4d02e149696e28d5c4bb833cb4f9cba14b3fd0315ea00966d0" => :sierra
-    sha256 "3d9c592b7442c985cbcf40e4d6d0f7610b8745a8896b70a2477505d16e7f7323" => :el_capitan
-    sha256 "92a14a032c8713149feecba845f2dcd99b37b1c4dc3e91d78563f8aa686f865f" => :yosemite
+    sha256 "4bf6acd394ae2c0c9d8f97731c6e8acd68020fcd65c1b8135a3ea82491b907d9" => :sierra
+    sha256 "0eda111a9f1cf95deb5aa758ca3125d45ab2e597647c230984aa95ec0ea42e2d" => :el_capitan
+    sha256 "012db4d0fd27e67ecd076a7e79ba8e80b80305ae42d8b2d72c9b8cb8de93e038" => :yosemite
   end
 
   option :cxx11

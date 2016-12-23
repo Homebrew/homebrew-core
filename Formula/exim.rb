@@ -52,7 +52,7 @@ class Exim < Formula
     # The compile script ignores CPPFLAGS
     ENV.append "CFLAGS", ENV.cppflags
 
-    ENV.j1 # See: https://lists.exim.org/lurker/thread/20111109.083524.87c96d9b.en.html
+    ENV.deparallelize # See: https://lists.exim.org/lurker/thread/20111109.083524.87c96d9b.en.html
     system "make"
     system "make", "INSTALL_ARG=-no_chown", "install"
     man8.install "doc/exim.8"

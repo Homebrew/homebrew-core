@@ -19,7 +19,7 @@ class Proftpd < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}"
-    ENV.j1
+    ENV.deparallelize
     install_user = ENV["USER"]
     install_group = `groups`.split[0]
     system "make", "INSTALL_USER=#{install_user}", "INSTALL_GROUP=#{install_group}", "install"

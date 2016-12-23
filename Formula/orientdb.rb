@@ -6,7 +6,9 @@ class Orientdb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4468d55ad311b318a9b36cf468194797da0314f583433a3ad196e219fb5750a2" => :sierra
+    sha256 "8813783518d6c3a88ba85328daa82075a9ce51cb66309ab2e98aef3901a818d6" => :sierra
+    sha256 "8813783518d6c3a88ba85328daa82075a9ce51cb66309ab2e98aef3901a818d6" => :el_capitan
+    sha256 "8813783518d6c3a88ba85328daa82075a9ce51cb66309ab2e98aef3901a818d6" => :yosemite
   end
 
   def install
@@ -52,8 +54,8 @@ class Orientdb < Formula
   end
 
   def caveats; <<-EOS.undent
-    The OrientDB root password was set to 'orientdb'. Follow this to reset it:
-    http://orientdb.com/docs/2.2/Server-Security.html#restoring-the-servers-user-root
+    The OrientDB root password was set to 'orientdb'. To reset it:
+      http://orientdb.com/docs/2.2/Server-Security.html#restoring-the-servers-user-root
     EOS
   end
 
@@ -62,7 +64,8 @@ class Orientdb < Formula
     ENV["ORIENTDB_ROOT_PASSWORD"] = "orientdb"
 
     cp "#{libexec}/config/orientdb-server-config.xml", testpath
-    inreplace "#{testpath}/orientdb-server-config.xml", "</properties>", "  <entry name=\"server.database.path\" value=\"#{testpath}\" />\n    </properties>"
+    inreplace "#{testpath}/orientdb-server-config.xml", "</properties>",
+      "  <entry name=\"server.database.path\" value=\"#{testpath}\" />\n    </properties>"
 
     begin
       assert_match /OrientDB console v.2.2.13/, pipe_output("#{bin}/orientdb-console \"exit;\"")

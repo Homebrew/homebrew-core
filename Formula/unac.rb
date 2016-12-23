@@ -47,7 +47,7 @@ class Unac < Formula
 
     # Separate steps to prevent race condition in folder creation
     system "make"
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
   end
 

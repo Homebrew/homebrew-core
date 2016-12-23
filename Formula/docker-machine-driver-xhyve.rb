@@ -2,15 +2,16 @@ class DockerMachineDriverXhyve < Formula
   desc "Docker Machine driver for xhyve"
   homepage "https://github.com/zchee/docker-machine-driver-xhyve"
   url "https://github.com/zchee/docker-machine-driver-xhyve.git",
-    :tag => "v0.3.0",
-    :revision => "b74c23dc15666ad6d5ccdd207b87a6c44bdd584d"
+    :tag => "v0.3.1",
+    :revision => "ab0aebaeba32c3a3ca3c201c1e02dc35dd862c99"
 
   head "https://github.com/zchee/docker-machine-driver-xhyve.git"
 
   bottle do
-    sha256 "f650f9a530c52b62d6aeaeca51453f2488155f9c3b9e7ee6fec8f1006f4bad3b" => :sierra
-    sha256 "4425bd727de66f57cc15f4c14d10cf764a1e968ac19022ead3f5144b3d859934" => :el_capitan
-    sha256 "6042fe21e3e6e6feb46273796d5cbe9ba307ea73e3e6c40135f23e5e820f411d" => :yosemite
+    rebuild 1
+    sha256 "c55645bf88390d77c2cf7341f7eb1ebca0413b2f5cc066dc5a434e4fa27c018b" => :sierra
+    sha256 "4662953932a2d343d6aedc4d1bdf9277e7727e1dcbd4330049135a82597c7b9e" => :el_capitan
+    sha256 "29f8a9d3b372acc9177f5197bb04c38f2d30273b3182008a7a1da291a4053cea" => :yosemite
   end
 
   option "without-qcow2", "Do not support qcow2 disk image format"
@@ -60,8 +61,8 @@ class DockerMachineDriverXhyve < Formula
   def caveats; <<-EOS.undent
     This driver requires superuser privileges to access the hypervisor. To
     enable, execute
-        sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
-        sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+        sudo chown root:wheel #{opt_prefix}/bin/docker-machine-driver-xhyve
+        sudo chmod u+s #{opt_prefix}/bin/docker-machine-driver-xhyve
     EOS
   end
 

@@ -20,6 +20,7 @@ class Quantlib < Formula
   end
 
   option :cxx11
+  option "with-intraday", "Enable intraday components to dates"
 
   if build.cxx11?
     depends_on "boost" => "c++11"
@@ -32,9 +33,13 @@ class Quantlib < Formula
     (buildpath/"QuantLib").install buildpath.children if build.stable?
     cd "QuantLib" do
       system "./autogen.sh" if build.head?
+      args = []
+      args << "--enable-intraday" if build.with? "intraday"
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{prefix}",
-                            "--with-lispdir=#{elisp}"
+                            "--with-lispdir=#{elisp}",
+                            *args
+
       system "make", "install"
       prefix.install_metafiles
     end

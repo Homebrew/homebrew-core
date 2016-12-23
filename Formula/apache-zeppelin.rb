@@ -30,7 +30,7 @@ class ApacheZeppelin < Formula
       begin
         sleep 10
         json_text = shell_output("curl -s http://localhost:9999/api/notebook/")
-        assert_operator Utils::JSON.load(json_text)["body"].length, :>=, 1
+        assert_operator JSON.parse(json_text)["body"].length, :>=, 1
       ensure
         system "#{bin}/zeppelin-daemon.sh", "stop"
       end

@@ -1,16 +1,15 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.16.tar.xz"
-  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.4/gnutls-3.4.16.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.4/gnutls-3.4.16.tar.xz"
-  sha256 "d99abb1b320771b58c949bab85e4b654dd1e3e9d92e2572204b7dc479d923927"
+  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.17.tar.xz"
+  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.4/gnutls-3.4.17.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.4/gnutls-3.4.17.tar.xz"
+  sha256 "9b50e8a670d5e950425d96935c7ddd415eb6f8079615a36df425f09a3143172e"
 
   bottle do
-    cellar :any
-    sha256 "9b4d0b7417921237ad3af173bc4a87009485097f747a1ba8772349dbd017a43d" => :sierra
-    sha256 "658060843a6cf5287cbad3156af68a0df4022d72b82b2ceb7f2d285378761196" => :el_capitan
-    sha256 "9765ebfda053f80754f5aa1ceaaca1b8b56838e02030f0e133b5e7d5a9c5ee76" => :yosemite
+    sha256 "613d98861f14e5a880d8a9567b42d680a118f5ee38946a0cf70c6952293a9dd2" => :sierra
+    sha256 "279c874f80267ef7af89f36220c9bf3cae148be36d2ac30a615b862b00b40cd0" => :el_capitan
+    sha256 "f08c75ac18752eb56cccb756b33727668900fe2ff63b039fcbebc9c504052460" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -19,11 +18,6 @@ class Gnutls < Formula
   depends_on "nettle"
   depends_on "guile" => :optional
   depends_on "unbound" => :optional
-
-  fails_with :llvm do
-    build 2326
-    cause "Undefined symbols when linking"
-  end
 
   def install
     # Fix "dyld: lazy symbol binding failed: Symbol not found: _getentropy"

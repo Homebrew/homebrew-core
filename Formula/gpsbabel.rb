@@ -17,6 +17,7 @@ class Gpsbabel < Formula
   depends_on "qt5"
 
   def install
+    ENV.cxx11
     args = ["--disable-debug", "--disable-dependency-tracking",
             "--prefix=#{prefix}"]
     args << "--without-libusb" if build.without? "libusb"

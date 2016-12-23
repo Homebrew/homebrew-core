@@ -1,35 +1,38 @@
 class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "http://kubernetes.io/"
-  url "https://github.com/kubernetes/kubernetes/archive/v1.4.6.tar.gz"
-  sha256 "dcbbf24ca664f55e40d539a167143f2e0ea0f3ff40e7df6e25887ca10bb2e185"
+  url "https://github.com/kubernetes/kubernetes.git",
+      :tag => "v1.5.1",
+      :revision => "82450d03cb057bab0950214ef122b67c83fb11df"
+  revision 1
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "eff8827a884114a99f33884cd46cd3b72109f5921b3555a17346db715fdbaa3a" => :sierra
-    sha256 "fe8165b68a2a7522932a34315ecd5de327652d8688ce4830fd49ebc1f869dfbb" => :el_capitan
-    sha256 "a286f94b04bfa608735ceb003e75e34cfbd46fb49c379f2486051a64b9d52f47" => :yosemite
+    rebuild 1
+    sha256 "5915f66fb4bd94b867820b9516989a50bb1028f2c41161aa47b09e5fcadf9df7" => :sierra
+    sha256 "709be588857014657d47db971f3051d3c2692dd90a833c9323a707b4767322a6" => :el_capitan
+    sha256 "b74c7f5f6e3e89a9e9fc7bb74eee8155087105c353ed01820b5e3866e913295b" => :yosemite
   end
 
   devel do
-    url "https://github.com/kubernetes/kubernetes/archive/v1.5.0-beta.0.tar.gz"
-    sha256 "5453d3402e13fbab163f12bd00bdf143ea982aad64900a0f6b3b3a65e182dd99"
-    version "1.5.0-beta.0"
+    url "https://github.com/kubernetes/kubernetes.git",
+        :tag => "v1.5.2-beta.0",
+        :revision => "5f332aab13e58173f85fd204a2c77731f7a2573f"
+    version "1.5.2-beta.0"
   end
 
   depends_on "go" => :build
 
   def install
-    # Patch needed to avoid vendor dependency on github.com/jteeuwen/go-bindata
-    # Build will otherwise fail with missing dep
-    # Raised in https://github.com/kubernetes/kubernetes/issues/34067
-    rm "./test/e2e/framework/gobindata_util.go"
+    # Clean git tree
+    system "git", "clean", "-xfd"
 
     # Race condition still exists in OSX Yosemite
     # Filed issue: https://github.com/kubernetes/kubernetes/issues/34635
     ENV.deparallelize { system "make", "generated_files" }
-    system "make", "kubectl", "GOFLAGS=-v"
+
+    # Make binary
+    system "make", "kubectl"
 
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
     bin.install "_output/local/bin/darwin/#{arch}/kubectl"
@@ -39,7 +42,10 @@ class KubernetesCli < Formula
   end
 
   test do
-    output = shell_output("#{bin}/kubectl 2>&1")
-    assert_match "kubectl controls the Kubernetes cluster manager.", output
+    run_output = shell_output("#{bin}/kubectl 2>&1")
+    assert_match "kubectl controls the Kubernetes cluster manager.", run_output
+
+    version_output = shell_output("#{bin}/kubectl version --client 2>&1")
+    assert_match "GitTreeState:\"clean\"", version_output
   end
 end

@@ -3,13 +3,13 @@ class Supersonic < Formula
   homepage "https://code.google.com/archive/p/supersonic/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/supersonic/supersonic-0.9.4.tar.gz"
   sha256 "1592dfd2dc73f0b97298e0d25e51528dc9a94e9e7f4ab525569f63db0442d769"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "91f211f1f97db835c2bfca0d57ef4395f2f0db1ac0bb29399fe4137d99489ae7" => :sierra
-    sha256 "04ca7fc01824e99db96641ec2aad43b8f0e32d3366714997bb4b9eef8197b240" => :el_capitan
-    sha256 "037e4b12ceb0973ce0e3132714e47f0d05d69aa74ad687cb811b76a452b62c7a" => :yosemite
+    sha256 "d1df947187e77b14986ea7bd8cfef018b2f0568d8b1f9b80f2debc51c4b326be" => :sierra
+    sha256 "3147ee979fbc19c8721e5e2d0c2d8629c25be65bff2c11f7ba3f68a01aa939ee" => :el_capitan
+    sha256 "5e0a426050ed37a706cd7dabe90c0c3e0371b86332723d6b999dd750adeb353d" => :yosemite
   end
 
   if MacOS.version < :mavericks

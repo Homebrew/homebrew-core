@@ -1,8 +1,8 @@
 class Checkstyle < Formula
   desc "Check Java source against a coding standard"
   homepage "http://checkstyle.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/checkstyle/checkstyle/7.2/checkstyle-7.2-all.jar"
-  sha256 "f842f1170ee5b31adafedb7e6590518d01f788d673b804f0e2f37ff91e854c96"
+  url "https://downloads.sourceforge.net/project/checkstyle/checkstyle/7.3/checkstyle-7.3-all.jar"
+  sha256 "9bd5c711c03a7f246f4b4826719a7a40e2b36389945633dafe9b8e1bedb81066"
 
   bottle :unneeded
 

@@ -1,17 +1,16 @@
 class Scala < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "https://downloads.lightbend.com/scala/2.12.0/scala-2.12.0.tgz"
-  mirror "https://downloads.typesafe.com/scala/2.12.0/scala-2.12.0.tgz"
-  mirror "http://www.scala-lang.org/files/archive/scala-2.12.0.tgz"
-  sha256 "42be98ff9754518fd5c9a942c94ffba2464667a5e95ed4917e4e95565c96bdfe"
+  url "https://downloads.lightbend.com/scala/2.12.1/scala-2.12.1.tgz"
+  mirror "https://downloads.typesafe.com/scala/2.12.1/scala-2.12.1.tgz"
+  mirror "http://www.scala-lang.org/files/archive/scala-2.12.1.tgz"
+  sha256 "4db068884532a3e27010df17befaca0f06ea50f69433d58e06a5e63c7a3cc359"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "2021f0815655cd419fa5ef3fec5f57b6181943ec57af8a1bee68976f2872d942" => :sierra
-    sha256 "2021f0815655cd419fa5ef3fec5f57b6181943ec57af8a1bee68976f2872d942" => :el_capitan
-    sha256 "2021f0815655cd419fa5ef3fec5f57b6181943ec57af8a1bee68976f2872d942" => :yosemite
+    sha256 "db41ce1c81a4275a4995e63c21e5fe656d33f5373860cbe4417b771646355850" => :sierra
+    sha256 "db41ce1c81a4275a4995e63c21e5fe656d33f5373860cbe4417b771646355850" => :el_capitan
+    sha256 "db41ce1c81a4275a4995e63c21e5fe656d33f5373860cbe4417b771646355850" => :yosemite
   end
 
   option "with-docs", "Also install library documentation"
@@ -20,14 +19,14 @@ class Scala < Formula
   depends_on :java => "1.8+"
 
   resource "docs" do
-    url "https://downloads.lightbend.com/scala/2.12.0/scala-docs-2.12.0.txz"
-    mirror "http://www.scala-lang.org/files/archive/scala-docs-2.12.0.txz"
-    sha256 "4cb52f403339f961025de266adfaf75b5d4c15133bf0241f1e8ac058a6afc4c5"
+    url "https://downloads.lightbend.com/scala/2.12.1/scala-docs-2.12.1.txz"
+    mirror "http://www.scala-lang.org/files/archive/scala-docs-2.12.1.txz"
+    sha256 "b8730008ab64cddb0cfaebae61396147461a5a1a75258640b92033b7e2661e4d"
   end
 
   resource "src" do
-    url "https://github.com/scala/scala/archive/v2.12.0.tar.gz"
-    sha256 "692c66a898e7a658303664a6cb08c2ab3626ca26324197ac7df1b0db82275564"
+    url "https://github.com/scala/scala/archive/v2.12.1.tar.gz"
+    sha256 "edff94803a632139c132d23b103e0482317d3ecf1c745721501365b28eb02c90"
   end
 
   resource "completion" do

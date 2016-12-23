@@ -1,11 +1,10 @@
 class SshCopyId < Formula
   desc "Add a public key to a remote machine's authorized_keys file"
   homepage "https://www.openssh.com/"
-  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.3p1.tar.gz"
-  mirror "https://www.mirrorservice.org/pub/OpenBSD/OpenSSH/portable/openssh-7.3p1.tar.gz"
-  version "7.3p1"
-  sha256 "3ffb989a6dcaa69594c3b550d4855a5a2e1718ccdde7f5e36387b424220fbecc"
-
+  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.4p1.tar.gz"
+  mirror "https://www.mirrorservice.org/pub/OpenBSD/OpenSSH/portable/openssh-7.4p1.tar.gz"
+  version "7.4p1"
+  sha256 "1b1fc4a14e2024293181924ed24872e6f2e06293f3e8926a376b8aec481f19d1"
   head "https://github.com/openssh/openssh-portable.git"
 
   bottle :unneeded

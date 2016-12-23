@@ -1,16 +1,15 @@
 class Rbenv < Formula
   desc "Ruby version manager"
   homepage "https://github.com/rbenv/rbenv#readme"
-  url "https://github.com/rbenv/rbenv/archive/v1.0.0.tar.gz"
-  sha256 "4658f2d8604ef847b39cb8216bb0d8a8aa000f504b6d06b30e008f92e6fa5210"
+  url "https://github.com/rbenv/rbenv/archive/v1.1.0.tar.gz"
+  sha256 "070835ccb4a295a49712ded936be306433442129d5a8411dddf2f52e6732ce59"
   head "https://github.com/rbenv/rbenv.git"
 
   bottle do
     cellar :any
-    sha256 "624804d691177a450b546d0122fcbc6afeda0be7051df44cae4fe464dda69c23" => :sierra
-    sha256 "02457958c3aae15e162436c481581639782134c7600c7cfd8eb9af1275f7b922" => :el_capitan
-    sha256 "5f2bda33e2574d02eb076c70ef8de3e7765b40a8945c2fcc9749e9d9f9d7685c" => :yosemite
-    sha256 "a8af7a2dfbf2aa9e1ce1dd0951550482e5456efb2b59ccc72c06b60d7186943b" => :mavericks
+    sha256 "c9d34dee07b2a04d24aa1a8da30b0b5663529d69d7a46b29d979ceba79c81e67" => :sierra
+    sha256 "2bdafe7927a69de0aedad237694431fddaa7cd2167855094a3c7caeeccc0a347" => :el_capitan
+    sha256 "f829928b4796a022a60f10ab89c48f050ad8c69e40a74aa5fd3ba9b1b721769c" => :yosemite
   end
 
   depends_on "ruby-build" => :recommended

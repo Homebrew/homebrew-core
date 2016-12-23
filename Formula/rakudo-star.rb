@@ -1,13 +1,13 @@
 class RakudoStar < Formula
   desc "Perl 6 compiler"
   homepage "http://rakudo.org/"
-  url "http://rakudo.org/downloads/star/rakudo-star-2016.10.tar.gz"
-  sha256 "00fb63c1e0475213960298fac82a53906f1bfa8d431ca8c00ef278f58bf1d14b"
+  url "http://rakudo.org/downloads/star/rakudo-star-2016.11.tar.gz"
+  sha256 "05ebc77171bba8314657cfcd64701f9688a20caab9a371da19d5d9105cbde8d8"
 
   bottle do
-    sha256 "b63ee3f5622da6180abfa8bc172253a9c5f84fae97733df5e666ed5e75ff3cc5" => :sierra
-    sha256 "4d944fad4fb0a5e91433038ed40c1a9df9956abc86fb7231ab1610c7e9626bf7" => :el_capitan
-    sha256 "6f1f51602759579a958a00049ee5509711cbd91a17b2ae65f9dfdd4bf6cbf827" => :yosemite
+    sha256 "c86632a923419652755fa6203e161de91ebfc348102bd67f9df39fb4d63036b8" => :sierra
+    sha256 "3750726d8319e300f11d8e8d02321f4fd194147b8ad262a025ec6987a3300df8" => :el_capitan
+    sha256 "71b5d1828f0c732c24e2dbc61e5121660087d079127646cd26bb55c3865fa12c" => :yosemite
   end
 
   option "with-jvm", "Build also for jvm as an alternate backend."
@@ -24,13 +24,7 @@ class RakudoStar < Formula
     ENV.remove "CPPFLAGS", "-I#{libffi.include}"
     ENV.prepend "CPPFLAGS", "-I#{libffi.lib}/libffi-#{libffi.version}/include"
 
-    # Work around to prevent MoarVM from using clock_gettime
-    # Reported 2016-10-27: https://github.com/MoarVM/MoarVM/issues/437
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      inreplace "MoarVM/src/platform/posix/time.c", "CLOCK_REALTIME", "UNDEFINED_XCODE8_HACK"
-    end
-
-    ENV.j1 # An intermittent race condition causes random build failures.
+    ENV.deparallelize # An intermittent race condition causes random build failures.
 
     backends = ["moar"]
     generate = ["--gen-moar"]

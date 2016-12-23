@@ -1,15 +1,14 @@
 class GribApi < Formula
   desc "Encode and decode grib messages (editions 1 and 2)"
   homepage "https://software.ecmwf.int/wiki/display/GRIB/Home"
-  url "https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.18.0-Source.tar.gz"
-  mirror "https://distfiles.macports.org/grib_api/grib_api-1.18.0-Source.tar.gz"
-  sha256 "dfffeeb4df715b234907cb12d6729617bed0df0ff023337c2dd3cd20ab58199e"
-  revision 1
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/grib-api/grib-api_1.19.0.orig.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/grib-api/grib-api_1.19.0.orig.tar.xz"
+  sha256 "c234a0a6d551a79ac77eae86b5effaa82c96dfc16ba6a8e7570067d83f1f6326"
 
   bottle do
-    sha256 "1add34660d71a4f1a32837b6270245d39d459ad8ac06fa85ed8d199ee3b857f9" => :sierra
-    sha256 "890a36a4df3ecb00bba7d73297d338381a9ccd1cecdf390f76aa66ea00ab9ffb" => :el_capitan
-    sha256 "4392fd87478b5f1f0336c230a31e9427f19aefa2ba91152be536e9c8d3f1bbef" => :yosemite
+    sha256 "0f8223d6a5d6896171940bfdb331f56b5247dd73cff69e6d1ed54c2e4b0a2d03" => :sierra
+    sha256 "263b65c97059e883da47a1f1964500f3ba289fbb3d2597f7822b8f919d648e03" => :el_capitan
+    sha256 "6fb2acd370359d14f5bdaa6340e10d0987057b0fcba55bc9e1a3c73ed1d280f2" => :yosemite
   end
 
   option "with-static", "Build static instead of shared library."

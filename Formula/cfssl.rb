@@ -35,7 +35,6 @@ class Cfssl < Formula
   end
 
   test do
-    require "utils/json"
     (testpath/"request.json").write <<-EOS.undent
     {
       "CN" : "Your Certificate Authority",
@@ -56,7 +55,7 @@ class Cfssl < Formula
     }
     EOS
     shell_output("#{bin}/cfssl genkey -initca request.json > response.json")
-    response = Utils::JSON.load(File.read(testpath/"response.json"))
+    response = JSON.parse(File.read(testpath/"response.json"))
     assert_match(/^-----BEGIN CERTIFICATE-----.*/, response["cert"])
     assert_match(/.*-----END CERTIFICATE-----$/, response["cert"])
     assert_match(/^-----BEGIN RSA PRIVATE KEY-----.*/, response["key"])

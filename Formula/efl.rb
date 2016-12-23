@@ -1,13 +1,13 @@
 class Efl < Formula
   desc "Enlightenment Foundation Libraries"
   homepage "https://www.enlightenment.org"
-  url "https://download.enlightenment.org/rel/libs/efl/efl-1.18.2.tar.xz"
-  sha256 "292faf76557fe56a6bc15b48b5ea3eb1f0790e2ed7f2ade4ae79ef7973d67bed"
+  url "https://download.enlightenment.org/rel/libs/efl/efl-1.18.4.tar.xz"
+  sha256 "39ebc07e37437d6ecdeb0f645783484e28a882b38f7e619ad12c2bf9b5548025"
 
   bottle do
-    sha256 "f6c6a2e5a796b37154230863b1208b2f5df22d49bbdac6b3218a5afaed991653" => :sierra
-    sha256 "5387e7e7741a61d4e9b6248bec4583e703cee6e7a8741d9cead1973119d784af" => :el_capitan
-    sha256 "3bbc5fa995e4c3edf6aa984857639fad408f2d25bb92f91fd35b88f467b923b8" => :yosemite
+    sha256 "8fd98384e2cfc41afb1b9556d3948c90f069d91185c85e63116757ea9fd6daab" => :sierra
+    sha256 "009e3c4c3c4c2a30aff68f8f93ad5f60d1a8389da45e9eaac41f8c92cc05a472" => :el_capitan
+    sha256 "3274109f86407842590ce01901cabedbed0e59645bdd23a089121ab787ab19b7" => :yosemite
   end
 
   option "with-docs", "Install development libraries/headers and HTML docs"

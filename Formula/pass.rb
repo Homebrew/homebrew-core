@@ -2,6 +2,7 @@ class Pass < Formula
   desc "Password manager"
   homepage "https://www.passwordstore.org/"
   url "https://git.zx2c4.com/password-store/snapshot/password-store-1.6.5.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/password-store/password-store_1.6.5.orig.tar.xz"
   sha256 "337a39767e6a8e69b2bcc549f27ff3915efacea57e5334c6068fcb72331d7315"
   revision 1
 
@@ -9,10 +10,10 @@ class Pass < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b9d356a1b3a8aff31e29c8db18aaa80d6998ab29ef5d0d8c098404eef5d2b5c2" => :sierra
-    sha256 "b836275ace8b8e585a1ef824795f54b7a8b124228237982fbb6ee9ff12411616" => :el_capitan
-    sha256 "6ef1fee60f542dd951897b5085ac9c1f76a772a27d9b90a4097966e5b6bf7df2" => :yosemite
-    sha256 "c709c4f11aff94b6cf9ca73007013c23b4dfb1f7f45fdb0e4b4e5ea96374175e" => :mavericks
+    rebuild 1
+    sha256 "c297d2352590d65c7edffe5667a11c4c89d2efa17a4b207e303883cf19c36770" => :sierra
+    sha256 "c297d2352590d65c7edffe5667a11c4c89d2efa17a4b207e303883cf19c36770" => :el_capitan
+    sha256 "c297d2352590d65c7edffe5667a11c4c89d2efa17a4b207e303883cf19c36770" => :yosemite
   end
 
   depends_on "pwgen"
@@ -22,6 +23,8 @@ class Pass < Formula
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
+
+    elisp.install "contrib/emacs/password-store.el"
     pkgshare.install "contrib"
     zsh_completion.install "src/completion/pass.zsh-completion" => "_pass"
     bash_completion.install "src/completion/pass.bash-completion" => "password-store"

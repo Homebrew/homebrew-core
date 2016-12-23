@@ -31,11 +31,6 @@ class Boost < Formula
     depends_on :mpi => [:cc, :cxx, :optional]
   end
 
-  fails_with :llvm do
-    build 2335
-    cause "Dropped arguments to functions when linking with boost"
-  end
-
   needs :cxx11 if build.cxx11?
 
   def install
@@ -71,7 +66,7 @@ class Boost < Formula
 
     # Boost.Log cannot be built using Apple GCC at the moment. Disabled
     # on such systems.
-    without_libraries << "log" if ENV.compiler == :gcc || ENV.compiler == :llvm
+    without_libraries << "log" if ENV.compiler == :gcc
     without_libraries << "mpi" if build.without? "mpi"
 
     bootstrap_args << "--without-libraries=#{without_libraries.join(",")}"

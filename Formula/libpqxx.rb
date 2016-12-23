@@ -3,15 +3,13 @@ class Libpqxx < Formula
   homepage "http://pqxx.org/development/libpqxx/"
   url "http://pqxx.org/download/software/libpqxx/libpqxx-4.0.1.tar.gz"
   sha256 "097ceda2797761ce517faa5bee186c883df1c407cb2aada613a16773afeedc38"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "4510d02d679143af2c19b7982fa977b9b35da5e5dacf073d1e7cecab8730a54f" => :sierra
-    sha256 "5bda2a641ddb2774efa2355612181d6cbdaae5dd665eeac656ff4d42b90cfbdb" => :el_capitan
-    sha256 "7e3ee6966db26936ca065024fbf5ef1476317c8ffdeaafe4f43e6d6252ca6061" => :yosemite
-    sha256 "e93fe321d641627928110a05d2f985b4b3f08a6a015c9e9846a3aaf25286555a" => :mavericks
-    sha256 "602109e64f4d6e94f81b43fad6f2bb999c497d32214942aa1fe5c68f25960628" => :mountain_lion
+    sha256 "8a3e1146c725afd5bc1629b551127fdd3bd93b6621ad7f041cded9243aadcc8b" => :sierra
+    sha256 "02e443954d3e39e9e64fe80e7db7759be83eb9ace896bc9d47601f8c23c66fb6" => :el_capitan
+    sha256 "f9f643cb0518bf4ee54b09b58558cbe4f0737201bff3f380f208af32432602d9" => :yosemite
   end
 
   depends_on "pkg-config" => :build

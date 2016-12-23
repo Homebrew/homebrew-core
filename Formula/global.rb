@@ -1,14 +1,14 @@
 class Global < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "https://ftpmirror.gnu.org/global/global-6.5.5.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/global/global-6.5.5.tar.gz"
-  sha256 "bc5b42a2c58d1570ff6b6acf7479c3e1609fe0ec8b44e5baa5290dc47148cf7b"
+  url "https://ftpmirror.gnu.org/global/global-6.5.6.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/global/global-6.5.6.tar.gz"
+  sha256 "122f9afa69a8daa0f64c12db7f02981fe573f51a163fa3829ed4f832cd281505"
 
   bottle do
-    sha256 "3a7631af0628e819fe08751c74e9de2b744cebabfcd2c5cc6d6b7fe97a3a404c" => :sierra
-    sha256 "5264d8a192de1d386deef9498dcb1fc660e5cba7675a347a9984d951f1a93e83" => :el_capitan
-    sha256 "ac78f2132504eda491cc8cb2e2919cbce501c3397970ffee3854c1eeabe50cbf" => :yosemite
+    sha256 "af4fa80ef9e85cb7cae59aa640d6cd03af96f8f47e9ead463bf711fcc5c589dd" => :sierra
+    sha256 "07b350e0d629047c3fd4b106c1ce3f747b6ebf99b545634ef1071a30e25e748b" => :el_capitan
+    sha256 "2d51a1dabfa1eb5738f54f05cc10446741c37d44df95b07121759255f333efe6" => :yosemite
   end
 
   head do

@@ -3,14 +3,14 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v0.9.3.tar.gz"
-  sha256 "5bf1c6a5d4364c272f6b73a6a364cd3d6afb96688bdf17b9839dc039d129e660"
+  url "https://github.com/pre-commit/pre-commit/archive/v0.9.4.tar.gz"
+  sha256 "d03023a57180d548c821e59ff2449564f98442e2bb8f9579cc5f3a689996505e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a11c81a7dd7cc0ede5bf64e6e93e5a9d79b6855a6585360f4dc005872892905c" => :sierra
-    sha256 "ba9bda711435919b5b6d875e547270553572da1b3004a1daf8c0d975a0e5d3d7" => :el_capitan
-    sha256 "d365c509bccb23c47561f4684623909158e75bbbd3a4a86cf52deb9227270e71" => :yosemite
+    sha256 "8addc2640700160e3ce9dd6547cc5462011c047b2a953362b61c1f9a4a0cf1a2" => :sierra
+    sha256 "5dc88bee0245c92e907853ab59ec8a12fa1f5cd592d78f53f93c6d64d9dbbf76" => :el_capitan
+    sha256 "45e10b1de920f9acb89c4aa851199443f2897809d44bb18b932582feb51e5bd5" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -51,8 +51,8 @@ class PreCommit < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/8b/2c/c0d3e47709d0458816167002e1aa3d64d03bdeb2a9d57c5bd18448fd24cd/virtualenv-15.0.3.tar.gz"
-    sha256 "6d9c760d3fc5fa0894b0f99b9de82a4647e1164f0b700a7f99055034bf548b1d"
+    url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
+    sha256 "02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a"
   end
 
   def install
