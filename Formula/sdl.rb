@@ -87,13 +87,12 @@ class Sdl < Formula
 
     if build.with? "test"
       ENV.prepend_path "PATH", bin
-      # This is stupid but necessary. Blurgh. Otherwise, test building fails, even
-      # with various flags, prepending & pkg_config_path tinkering.
+      # We need the build to point at the newly-built (not yet linked) copy of SDL.
       inreplace bin/"sdl-config", "prefix=#{HOMEBREW_PREFIX}", "prefix=#{prefix}"
       cd "test" do
         system "./configure"
         system "make"
-        # Upstream - Why no make install? Why?
+        # Tests don't have a "make install" target
         (share/"tests").install %w[checkkeys graywin loopwave testalpha testbitmap testblitspeed testcdrom
                                    testcursor testdyngl testerror testfile testgamma testgl testhread testiconv
                                    testjoystick testkeys testloadso testlock testoverlay testoverlay2 testpalette
@@ -102,7 +101,7 @@ class Sdl < Formula
         (share/"test_extras").install %w[icon.bmp moose.dat picture.xbm sail.bmp sample.bmp sample.wav]
         bin.write_exec_script Dir["#{share}/tests/*"]
       end
-      # And then we undo stupid but necessary so it doesn't break all the other things.
+      # Point sdl-config back at the normal prefix once we've built everything.
       inreplace bin/"sdl-config", "prefix=#{prefix}", "prefix=#{HOMEBREW_PREFIX}"
     end
   end
