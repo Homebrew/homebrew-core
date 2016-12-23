@@ -1,6 +1,6 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
-  homepage "http://www.ghostscript.com/"
+  homepage "https://www.ghostscript.com/"
 
   stable do
     url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs919/ghostscript-9.19.tar.gz"
@@ -23,7 +23,7 @@ class Ghostscript < Formula
 
   head do
     # Can't use shallow clone. Doing so = fatal errors.
-    url "git://git.ghostscript.com/ghostpdl.git", :shallow => false
+    url "https://git.ghostscript.com/ghostpdl.git", :shallow => false
 
     resource "djvu" do
       url "git://git.code.sf.net/p/djvu/gsdjvu-git"
