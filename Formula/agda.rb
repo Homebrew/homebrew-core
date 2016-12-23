@@ -5,15 +5,14 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "http://wiki.portal.chalmers.se/agda/"
-  revision 1
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.5.1.2/Agda-2.5.1.2.tar.gz"
-    sha256 "fb272bd6f7d532320c669b96faa85088b37bae02d906e9a9f764bc8e8639fb5e"
+    url "https://hackage.haskell.org/package/Agda-2.5.2/Agda-2.5.2.tar.gz"
+    sha256 "d812cec3bf7f03c4b27248572475c7e060154102771a8434cc11ba89f5691439"
 
     resource "stdlib" do
-      url "https://github.com/agda/agda-stdlib/archive/v0.12.tar.gz"
-      sha256 "2fddbc6d08e74c6205075704f40c550fc40137dee44e6b22b2e08ddee1410e87"
+      url "https://github.com/agda/agda-stdlib/archive/v0.13.tar.gz"
+      sha256 "e7cffc2b8b168c3584b6d1e760d2b49850835444e4777caa69eb29b3677ef8bb"
     end
   end
 
@@ -47,15 +46,6 @@ class Agda < Formula
   depends_on :emacs => ["23.4", :recommended]
 
   def install
-    # Remove for > 2.5.1.2
-    # Equivalent to upstream commit from 17 Dec 2016
-    # "[ #2319 ] Bumped directory upper version bound."
-    # https://github.com/agda/agda/commit/2fb174551bdfb59fdd99a4d862810ee4f588c4cb
-    if build.stable?
-      inreplace "Agda.cabal", "directory >= 1.2.0.1 && < 1.3",
-                              "directory >= 1.2.0.1 && < 1.4"
-    end
-
     # install Agda core
     install_cabal_package :using => ["alex", "happy", "cpphs"]
 
@@ -163,9 +153,6 @@ class Agda < Formula
       main = run (putStr "Hello, world!")
     EOS
 
-    # run Agda's built-in test suite
-    system bin/"agda", "--test"
-
     # typecheck a simple module
     system bin/"agda", simpletest
 
@@ -180,7 +167,7 @@ class Agda < Formula
     # test the GHC backend
     if build.with? "ghc"
       cabal_sandbox do
-        cabal_install "text"
+        cabal_install "text", "ieee754"
         dbpath = Dir["#{testpath}/.cabal-sandbox/*-packages.conf.d"].first
         dbopt = "--ghc-flag=-package-db=#{dbpath}"
 
