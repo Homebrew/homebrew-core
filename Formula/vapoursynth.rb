@@ -5,6 +5,7 @@ class Vapoursynth < Formula
   homepage "http://www.vapoursynth.com"
   url "https://github.com/vapoursynth/vapoursynth/archive/R35.tar.gz"
   sha256 "762cada84d2f975ec925a1eb719dd8a2f40dfaa69d10c358b228184785f64918"
+  revision 1
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
