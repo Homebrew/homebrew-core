@@ -164,7 +164,6 @@
   "kismet": "homebrew/boneyard",
   "kjell": "homebrew/boneyard",
   "klavaro": "homebrew/gui",
-  "kubernetes-helm": "homebrew/boneyard",
   "kumofs": "homebrew/boneyard",
   "lastfmlib": "homebrew/boneyard",
   "latex-mk": "homebrew/tex",
