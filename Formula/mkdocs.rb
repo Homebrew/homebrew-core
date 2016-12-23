@@ -16,8 +16,8 @@ class Mkdocs < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "backports_abc" do
-    url "https://files.pythonhosted.org/packages/f5/d0/1d02695c0dd4f0cf01a35c03087c22338a4f72e24e2865791ebdb7a45eac/backports_abc-0.4.tar.gz"
-    sha256 "8b3e4092ba3d541c7a2f9b7d0d9c0275b21c6a01c53a61c731eba6686939d0a5"
+    url "https://files.pythonhosted.org/packages/68/3c/1317a9113c377d1e33711ca8de1e80afbaf4a3c950dd0edfaf61f9bfe6d8/backports_abc-0.5.tar.gz"
+    sha256 "033be54514a03e255df75c5aee8f9e672f663f93abb723444caec8fe43437bde"
   end
 
   resource "certifi" do
@@ -36,8 +36,8 @@ class Mkdocs < Formula
   end
 
   resource "livereload" do
-    url "https://files.pythonhosted.org/packages/d3/fb/fa04cd6a08cc42e1ac089220b6f42d124d01aeb0c70fbe169a73713ca636/livereload-2.4.1.tar.gz"
-    sha256 "887cc9976d72d7616fa57c82c4ef5bf5da27e2350dfd6f65d3f44e86efc51b92"
+    url "https://files.pythonhosted.org/packages/ba/71/2660028c74cb3289d4b9fd06632aa277b4edbe0747b7219cd92307fa19ba/livereload-2.5.0.tar.gz"
+    sha256 "bc708b46e22dff243c02e709c636ffeb8a64cdd019c95a215304e6ce183c4859"
   end
 
   resource "Markdown" do
