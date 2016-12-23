@@ -1,20 +1,8 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "http://graphviz.org/"
-  revision 1
-
-  stable do
-    url "http://graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.38.0.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/graphviz/graphviz_2.38.0.orig.tar.gz"
-    sha256 "81aa238d9d4a010afa73a9d2a704fc3221c731e1e06577c2ab3496bdef67859e"
-
-    # https://github.com/ellson/graphviz/commit/f97c86e
-    # Support either version of ghostcript's error prefixes
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6a6a1a3/graphviz/patch-gvloadimage_gs.c.diff"
-      sha256 "bcc0758dd9e0ac17bd1cde63a55a613124814002b470ac4a7a0c421c83a253ab"
-    end
-  end
+  url "http://graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.40.20161221.0239.tar.gz"
+  sha256 "49141bc9a9ac0d31e091551bc1319ea3dd0c0c9ead94aed50c76805cc90b983a"
 
   bottle do
     sha256 "8cdecc90167e47c11153a8cde909f4387b96abee37a6e59cd7024112ba4709cc" => :sierra
@@ -29,9 +17,6 @@ class Graphviz < Formula
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
   end
-
-  # https://github.com/Homebrew/homebrew/issues/14566
-  env :std
 
   option :universal
   option "with-bindings", "Build Perl/Python/Ruby/etc. bindings"
@@ -55,18 +40,25 @@ class Graphviz < Formula
     depends_on "swig" => :build
     depends_on :python
     depends_on :java
-  end
-
-  fails_with :clang do
-    build 318
-  end
-
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ec8d133/graphviz/patch-project.pbxproj.diff"
-    sha256 "7c8d5c2fd475f07de4ca3a4340d722f472362615a369dd3f8524021306605684"
+    depends_on "ruby"
   end
 
   def install
+    # Only needed when using superenv, which causes qfrexp and qldexp to be
+    # falsely detected as available. The problem is triggered by
+    #   args << "-#{ENV["HOMEBREW_OPTIMIZATION_LEVEL"]}"
+    # during argument refurbishment of cflags.
+    # https://github.com/Homebrew/brew/blob/ab060c9/Library/Homebrew/shims/super/cc#L241
+    # https://github.com/Homebrew/legacy-homebrew/issues/14566
+    # Alternative fixes include using stdenv or using "xcrun make"
+    inreplace "lib/sfio/features/sfio", "lib qfrexp\nlib qldexp\n", ""
+
+    if build.with? "bindings"
+      # the ruby pkg-config file is version specific
+      inreplace "configure", "ruby-1.9",
+                             "ruby-#{Formula["ruby"].stable.version.to_f}"
+    end
+
     ENV.universal_binary if build.universal?
     args = %W[
       --disable-debug
@@ -82,13 +74,6 @@ class Graphviz < Formula
     args << "--without-x" if build.without? "x11"
     args << "--without-rsvg" if build.without? "librsvg"
 
-    if build.stable? && build.with?("bindings")
-      # http://www.graphviz.org/mantisbt/view.php?id=2486
-      # Fixed in HEAD to use "undefined dynamic_lookup".
-      inreplace "configure", 'PYTHON_LIBS="-lpython$PYTHON_VERSION_SHORT"',
-                             'PYTHON_LIBS="-undefined dynamic_lookup"'
-    end
-
     if build.head?
       system "./autogen.sh", *args
     else
@@ -98,7 +83,7 @@ class Graphviz < Formula
 
     if build.with? "app"
       cd "macosx" do
-        xcodebuild "-configuration", "Release", "SYMROOT=build", "PREFIX=#{prefix}",
+        xcodebuild "SDKROOT=#{MacOS.sdk_path}", "-configuration", "Release", "SYMROOT=build", "PREFIX=#{prefix}",
                    "ONLY_ACTIVE_ARCH=YES", "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
       end
       prefix.install "macosx/build/Release/Graphviz.app"
