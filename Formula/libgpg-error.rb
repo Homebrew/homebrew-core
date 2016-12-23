@@ -1,9 +1,9 @@
 class LibgpgError < Formula
   desc "Common error values for all GnuPG components"
   homepage "https://www.gnupg.org/related_software/libgpg-error/"
-  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.25.tar.bz2"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/libg/libgpg-error/libgpg-error_1.25.orig.tar.bz2"
-  sha256 "f628f75843433b38b05af248121beb7db5bd54bb2106f384edac39934261320c"
+  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.26.tar.bz2"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/libg/libgpg-error/libgpg-error_1.26.orig.tar.bz2"
+  sha256 "4c4bcbc90116932e3acd37b37812d8653b1b189c1904985898e860af818aee69"
 
   bottle do
     cellar :any
