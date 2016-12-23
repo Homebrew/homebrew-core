@@ -4,7 +4,7 @@ class Py3cairo < Formula
   url "https://cairographics.org/releases/pycairo-1.10.0.tar.bz2"
   mirror "https://distfiles.macports.org/py-cairo/pycairo-1.10.0.tar.bz2"
   sha256 "9aa4078e7eb5be583aeabbe8d87172797717f95e8c4338f0d4a17b683a7253be"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
