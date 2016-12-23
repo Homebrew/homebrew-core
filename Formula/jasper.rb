@@ -5,9 +5,9 @@ class Jasper < Formula
   sha256 "873c436fa302b0de10e45df4eef567520414b98ba6e29e41a3fb998d2c26cd54"
 
   bottle do
-    sha256 "bc352da5126c3b91d0e301aae1fdbed5759e6de6dacced81d83043cc10c01a6e" => :sierra
-    sha256 "10e2f055bd0b28529ac74282feefab48af9c73cd64fefceabae7ee72c658bb8a" => :el_capitan
-    sha256 "f64455f21bf00a0663f10176466d83991f9b88deaf28a9a162f4d9a708d704ac" => :yosemite
+    sha256 "c35e8e29c9114057c4f678d7435688dd74b67f0030841fecca69a68ce113eab1" => :sierra
+    sha256 "d8686f2a7b8e4099e467a5903b62071dbfb62f3045d6e7375692f952237f5087" => :el_capitan
+    sha256 "9ecccefc7c5f115b5e0682fcbb89008d2f8017a2e1dba57f5f18702600117563" => :yosemite
   end
 
   option :universal
