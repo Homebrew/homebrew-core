@@ -6,10 +6,9 @@ class Libltc < Formula
 
   bottle do
     cellar :any
-    sha256 "d2f7990b23a3505655a9dde22cdbad8606082205006d1943b856c1965ccb4d2e" => :sierra
-    sha256 "31c52af18e9e85329630c55777b0ba4ec979c45c30e7cbcd0295e7b5a3836c69" => :el_capitan
-    sha256 "4bb6de6a99e6cf4bb4e221dc61866af010663f49d209b2258f0f7668d1c8d9bd" => :yosemite
-    sha256 "57d266dffda8397f531514f83f6e7f8be3225d60adab7e4d78662e2935bb40b8" => :mavericks
+    sha256 "5ce9e5d2072877c2d7ba32260047aa900b0918a796bd07ecc069c098d0763a6c" => :sierra
+    sha256 "39c5b5eae78f0abb51a5ac965f9e3f89bf831861ca88347b170f4fd4a9562b6e" => :el_capitan
+    sha256 "9e42898755bb3312b42cd61a28e658288a3282801d401f771cfb6236ba4a08aa" => :yosemite
   end
 
   def install
