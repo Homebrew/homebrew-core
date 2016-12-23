@@ -5,6 +5,7 @@ class Rtv < Formula
   homepage "https://github.com/michael-lazar/rtv"
   url "https://github.com/michael-lazar/rtv/archive/v1.13.0.tar.gz"
   sha256 "801f8674599d4a4abb5593d3d5ac957a748d3daf06f962538a0ae717db117abd"
+  revision 1
   head "https://github.com/michael-lazar/rtv.git"
 
   bottle do
