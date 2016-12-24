@@ -9,9 +9,9 @@ class Httpie < Formula
   head "https://github.com/jkbrzt/httpie.git"
 
   bottle do
-    sha256 "0334c408f0b52b5c41dd275f1e781b096826e802f5f37207eea73818b9ce685b" => :sierra
-    sha256 "1d87eb3e00e47a8026a90ea635f38818d3284f387e51716fc28167a4f22b96b9" => :el_capitan
-    sha256 "e4def5f34b154f206520df3dfbb26024616e22c3625da9dd5f2456f6ca38eccc" => :yosemite
+    sha256 "2dec6b0b3240edd2fbbfef596f9d743a6360408c38bb37f193fe27e0189ede56" => :sierra
+    sha256 "fcd8779f4eb9b793142e16da828d85b8b76530c58fb2844e17c0fdd9a70c0cbc" => :el_capitan
+    sha256 "9c579afbebbc6e5341483aae03845768313e965cf80d6f893ffce77e13a01174" => :yosemite
   end
 
   depends_on :python3
