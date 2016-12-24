@@ -2,10 +2,10 @@ class Netpbm < Formula
   desc "Image manipulation"
   homepage "http://netpbm.sourceforge.net"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
-  # for versions and matching revisions
+  # for stable versions and matching revisions
   url "http://svn.code.sf.net/p/netpbm/code/advanced", :revision => 2825
   version "10.76"
-  revision 1
+  revision 2
   head "http://svn.code.sf.net/p/netpbm/code/trunk"
 
   bottle do
@@ -56,7 +56,7 @@ class Netpbm < Formula
       # do man pages explicitly; otherwise a junk file is installed in man/web
       man1.install Dir["man/man1/*.1"]
       man5.install Dir["man/man5/*.5"]
-      lib.install Dir["link/*.a"]
+      lib.install Dir["link/*.a"], Dir["link/*.dylib"]
       (lib/"pkgconfig").install "pkgconfig_template" => "netpbm.pc"
     end
 
