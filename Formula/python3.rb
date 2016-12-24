@@ -1,32 +1,14 @@
 class Python3 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  revision 3
-
+  url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tar.xz"
+  sha256 "b0c5f904f685e32d9232f7bdcbece9819a892929063b6e385414ad2dd6a23622"
   head "https://hg.python.org/cpython", :using => :hg
-
-  stable do
-    url "https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz"
-    sha256 "0010f56100b9b74259ebcd5d4b295a32324b58b517403a10d1a2aa7cb22bca40"
-
-    # Patch for pyport.h macro issue
-    # https://bugs.python.org/issue10910
-    # https://trac.macports.org/ticket/44288
-    patch do
-      url "https://bugs.python.org/file30805/issue10910-workaround.txt"
-      sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
-    end
-  end
 
   bottle do
     sha256 "4a43600ceb2875c13200ace82fea1a9a119973b831f5503fa57cf8db44fbb155" => :sierra
     sha256 "301854e1a52fd577f84015eb5ef07e0e369c794b8894fb6850ae84d9391f740e" => :el_capitan
     sha256 "075f5e63188dfcd5a13ef1f9658b26aa2d8d943fbc5c5c50e05fc973bc38f7c1" => :yosemite
-  end
-
-  devel do
-    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0rc2.tar.xz"
-    sha256 "ed07453330af6677d0a670e187344922a67208fc6bdaea9fade66dc08bf763a4"
   end
 
   option :universal
@@ -47,21 +29,21 @@ class Python3 < Formula
   depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
   depends_on "sphinx-doc" => [:build, :optional]
 
-  skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5"
-  skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5"
+  skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6"
+  skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9f/32/81c324675725d78e7f6da777483a3453611a427db0145dfb878940469692/setuptools-25.2.0.tar.gz"
-    sha256 "b2757ddac2c41173140b111e246d200768f6dd314110e1e40661d0ecf9b4d6a6"
+    url "https://files.pythonhosted.org/packages/87/1a/33d3d05569e857c5c5cc3e90d197bf4d9696dc740a05f66a09599d66e5bd/setuptools-32.2.0.zip"
+    sha256 "634313924fd186a2be0489c96965f5a909b666bd652eb3e16724913c707ec33f"
   end
 
   resource "pip" do
-    url "https://pypi.python.org/packages/e7/a8/7556133689add8d1a54c0b14aeff0acb03c64707ce100ecd53934da1aa13/pip-8.1.2.tar.gz"
-    sha256 "4d24b03ffa67638a3fa931c09fd9e0273ffa904e95ebebe7d4b1a54c93d7b732"
+    url "https://files.pythonhosted.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz"
+    sha256 "09f243e1a7b461f654c26a725fa373211bb7ff17a9300058b205c61658ca940d"
   end
 
   resource "wheel" do
-    url "https://pypi.python.org/packages/source/w/wheel/wheel-0.29.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/c9/1d/bd19e691fd4cfe908c76c429fe6e4436c9e83583c4414b54f6c85471954a/wheel-0.29.0.tar.gz"
     sha256 "1ebb8ad7e26b448e9caa4773d2357849bf80ff9e313964bcaf79cbf0201a1648"
   end
 

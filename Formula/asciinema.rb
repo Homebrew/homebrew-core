@@ -3,7 +3,7 @@ class Asciinema < Formula
   homepage "https://asciinema.org"
   url "https://github.com/asciinema/asciinema/archive/v1.3.0.tar.gz"
   sha256 "968016828119d53b8e4e6ccf40a2635704d236f8e805f635c15adc09a4373a55"
-
+  revision 1
   head "https://github.com/asciinema/asciinema.git"
 
   bottle do

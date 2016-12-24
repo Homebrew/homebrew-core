@@ -5,6 +5,7 @@ class Buku < Formula
   homepage "https://github.com/jarun/Buku"
   url "https://github.com/jarun/Buku/archive/v2.7.tar.gz"
   sha256 "9ebc95a665e56460d91b9d98711f1eba722b14a14a058e2ef330b117b79943fe"
+  revision 1
 
   bottle do
     sha256 "308525c2ea7b01e7d441a0b6a2f6efd0b549f358faf635b0363e85550ccf10ee" => :sierra
