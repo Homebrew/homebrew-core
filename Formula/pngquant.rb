@@ -7,9 +7,9 @@ class Pngquant < Formula
 
   bottle do
     cellar :any
-    sha256 "04f41bea33a688e7a195e4714b9c9bfec52437acf6b1452c9086e8eebe5b6851" => :sierra
-    sha256 "1c5cce67fe72ed717b84b46c54150bde739233767e331add727ac7123a5bdeaa" => :el_capitan
-    sha256 "31e0ed88ca2d1663318c4aefb3191c2e20e5aa9e15c6f71c9622fa0c81056893" => :yosemite
+    sha256 "88a6a0062aa21324c449840d5304789a1feed2309bd9817d83114a0e54a22402" => :sierra
+    sha256 "4a7393976890e0d00d1335410aff6c7dde6b820894262da2b7c27508c2287ee8" => :el_capitan
+    sha256 "1530412b698806c01980dd29917aafcc14cb8dd223725d35e7d45672cbceabe6" => :yosemite
   end
 
   option "with-openmp", "Enable OpenMP"
