@@ -11,8 +11,8 @@ class Mariadb < Formula
   end
 
   devel do
-    url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.2.2/source/mariadb-10.2.2.tar.gz"
-    sha256 "55cf9e357ae4511fc1330e7cb8a15746d99b3a7875b6da9bcf1acfb1aa6f893a"
+    url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.2.3/source/mariadb-10.2.3.tar.gz"
+    sha256 "7dcbb0c35d2c25e8a2d5bef5a5ebbf578eb755e1dd810ca0e55d529521296249"
   end
 
   option :universal
