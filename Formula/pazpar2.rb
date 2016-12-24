@@ -6,9 +6,9 @@ class Pazpar2 < Formula
 
   bottle do
     cellar :any
-    sha256 "e985cd0262786850462c0901bec6b8b12475cd123f627a1fc5b091811c31fa24" => :sierra
-    sha256 "e2018db8519464882d01ca913b051c659accb365d37d3d0a15531d613f6357a8" => :el_capitan
-    sha256 "7ddc95c295c5b58d91397254d65a05653949c5af4c2707c08ae29d8851e9d8aa" => :yosemite
+    sha256 "c6e7964c126bf5a7d7840fa0f835f9c42ae92cfa4273241d8163041ef0b8eca6" => :sierra
+    sha256 "4f4d33fdca8f24e2b3f122f825251a7b11354d5b8383ca435aa67f51412cb496" => :el_capitan
+    sha256 "d2b3a8c64ae2ecd75708c790e4f67b4cc0309699c3cc5b9d7b02a87db100f45e" => :yosemite
   end
 
   head do
