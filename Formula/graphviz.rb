@@ -1,8 +1,9 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "http://graphviz.org/"
-  url "http://graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.40.20161221.0239.tar.gz"
-  sha256 "49141bc9a9ac0d31e091551bc1319ea3dd0c0c9ead94aed50c76805cc90b983a"
+  url "http://graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.40.1.tar.gz"
+  sha256 "ca5218fade0204d59947126c38439f432853543b0818d9d728c589dfe7f3a421"
+  version_scheme 1
 
   bottle do
     sha256 "99744f163cdfbdd82e34c5a3a5560ec1383a0469d357dcaf9ee159d9adbe2390" => :sierra
@@ -29,11 +30,13 @@ class Graphviz < Formula
 
   depends_on "pkg-config" => :build
   depends_on :xcode => :build if build.with? "app"
+  depends_on "libtool" => :run
   depends_on "pango" => :optional
   depends_on "gts" => :optional
   depends_on "librsvg" => :optional
   depends_on "freetype" => :optional
   depends_on :x11 => :optional
+  depends_on "gd"
   depends_on "libpng"
 
   if build.with? "bindings"
