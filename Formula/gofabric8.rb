@@ -20,6 +20,7 @@ class Gofabric8 < Formula
 
     cd dir do
       system "make", "install", "REV=homebrew"
+      prefix.install_metafiles
     end
 
     bin.install "bin/gofabric8"
@@ -29,7 +30,7 @@ class Gofabric8 < Formula
     Open3.popen3("#{bin}/gofabric8", "version") do |stdin, stdout, _|
       stdin.puts "N" # Reject any auto-update prompts
       stdin.close
-      assert_match(/gofabric8, version #{version} \(branch: 'unknown', revision: 'homebrew'\)/, stdout.read)
+      assert_match "gofabric8, version #{version} (branch: 'unknown', revision: 'homebrew')", stdout.read
     end
   end
 end
