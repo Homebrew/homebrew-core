@@ -5,10 +5,9 @@ class Gofabric8 < Formula
   sha256 "7d45aaed142da057483f8ce014d4dd3068f03274f6af7773ec29c4d454257c09"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "69f1bd5941cebeb6aede2cd82d00aa26ec68b7f08dcf58cc3441461142909408" => :sierra
-    sha256 "ff15650f932512e53b9e0787042777d7a5df4d505c3cd963b81fcab7332952f0" => :el_capitan
-    sha256 "e79903e992601c960e1302793d116d64553ebe91e67a3ed262658f2f4081bd7e" => :yosemite
+    sha256 "ad7678f9c1b76a985446ebb8ff01fb1a434ccfe8debfcd565c6811d8e661d680" => :sierra
+    sha256 "72e455047f2d6bed27a0f2a2f4b0214d16a4f0c17f0a523039d1af89de9824c8" => :el_capitan
+    sha256 "4988a3e6ea6acf1677c76845b51ca734e0ad5c1113f4e80d80c0c6930ffb71fe" => :yosemite
   end
 
   depends_on "go" => :build
