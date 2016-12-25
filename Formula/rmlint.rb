@@ -6,9 +6,9 @@ class Rmlint < Formula
 
   bottle do
     cellar :any
-    sha256 "b1c74f7d57579329a5cf8009a86ca4ea6dcd95bdc0c5cee30a97bf6b2b3b5a67" => :sierra
-    sha256 "70519bac667bf7dcf1b152e9b3cf6855079f8f5882e1cb96ed97381068adbe3a" => :el_capitan
-    sha256 "4579a1094ca56ab3677b20b37e9c62a2ce27a641890360ca8d2153e5bfe119c0" => :yosemite
+    sha256 "906e04c346f1c20aa5f42aef75f45f76d758f8e7cb18b78178dbeb1a5b73a77a" => :sierra
+    sha256 "5eaa91172e5d5580fad4b382182721704008bb20515965e57897486f6792100e" => :el_capitan
+    sha256 "e1230b201afba08957e237a92e837933fd5b69b02705f1b5fde31fc88e9b7c4e" => :yosemite
   end
 
   option "with-json-glib", "Add support for reading json caches"
