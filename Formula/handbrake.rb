@@ -1,9 +1,8 @@
 class Handbrake < Formula
   desc "Open-source video transcoder available for Linux, Mac, and Windows."
   homepage "https://handbrake.fr/"
-  url "https://github.com/HandBrake/HandBrake.git",
-      :tag => "1.0.0",
-      :revision => "3f4a076243d2821ae78bc97aaed0ca47301d0d65"
+  url "https://handbrake.fr/rotation.php?file=HandBrake-1.0.0.tar.bz2"
+  sha256 "15fb4593c70d75621212e4499f018c3c93d7ce39f1083bf527d4616ded0044c5"
   head "https://github.com/HandBrake/HandBrake.git"
 
   depends_on "autoconf" => :build
