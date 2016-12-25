@@ -1,8 +1,8 @@
 class SuomiMalagaVoikko < Formula
   desc "Linguistic software and data for Finnish"
   homepage "http://voikko.puimula.org/"
-  url "http://www.puimula.org/voikko-sources/suomi-malaga/suomi-malaga-1.18.tar.gz"
-  sha256 "83655d56aa8255d8926ad3bafa190b8d7da32a0e3ff12150dc2dac31c92c5b0d"
+  url "http://www.puimula.org/voikko-sources/suomi-malaga/suomi-malaga-1.19.tar.gz"
+  sha256 "5c4c15dd87a82e9b8ab74f9c570c6db011e3fd824db4de47ffeb71c4261451cc"
 
   head "https://github.com/voikko/corevoikko.git"
 
