@@ -3,6 +3,7 @@ class Mosquitto < Formula
   homepage "https://mosquitto.org/"
   url "https://mosquitto.org/files/source/mosquitto-1.4.10.tar.gz"
   sha256 "437648d68a4a781dd8d913814cd5451f59ab4a5fcf84cccaf7c36e6a07459770"
+  revision 1
 
   bottle do
     sha256 "7785ee99e6ecdeea449194b75d9a3e0b53ee1e7cb63547ab09569483f12bc903" => :sierra
