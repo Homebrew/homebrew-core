@@ -1,8 +1,10 @@
 class Ohcount < Formula
   desc "Source code line counter"
   homepage "https://github.com/blackducksw/ohcount"
-  url "https://github.com/blackducksw/ohcount/archive/3.0.0.tar.gz"
-  sha256 "46ef92e1bbf9313de507a03decaf8279173584555fb580bb3d46d42c65aa4a6d"
+  url "https://github.com/blackducksw/ohcount.git",
+      :revision => "d54514399013f2f9566baf40edd0e801b27fe17b"
+  version "3.0.0-g331"
+  head "https://github.com/blackducksw/ohcount.git"
 
   bottle do
     cellar :any
@@ -12,11 +14,7 @@ class Ohcount < Formula
     sha256 "055b2eb9460b1723bcb8a0f215ddda35750ce6d9b9c3cd0bce75d4e9584f0b62" => :mavericks
   end
 
-  head do
-    url "https://github.com/blackducksw/ohcount.git"
-    depends_on "libmagic"
-  end
-
+  depends_on "libmagic"
   depends_on "ragel"
   depends_on "pcre"
 
