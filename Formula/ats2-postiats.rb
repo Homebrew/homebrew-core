@@ -1,8 +1,8 @@
 class Ats2Postiats < Formula
-  desc "ATS programming language implementation"
+  desc "ATS2: Unleashing the Potentials of Types and Templates"
   homepage "http://www.ats-lang.org/"
-  url "https://downloads.sourceforge.net/project/ats2-lang/ats2-lang/ats2-postiats-0.2.11/ATS2-Postiats-0.2.11.tgz"
-  sha256 "0fe99975fe5eb86b884c4bcfd3c5b6d0015793f2d8c8455c5b21649744f01d90"
+  url "https://downloads.sourceforge.net/project/ats2-lang/ats2-lang/ats2-postiats-0.2.13/ATS2-Postiats-0.2.13.tgz"
+  sha256 "316eb28470154fb96ed69fddd5ef3477c4986835c48ab3e932fdaec7e7f23307"
 
   bottle do
     cellar :any
