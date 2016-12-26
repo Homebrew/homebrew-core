@@ -48,7 +48,6 @@ class Node < Formula
 
   resource "icu4c" do
     url "https://ssl.icu-project.org/files/icu4c/58.1/icu4c-58_1-src.tgz"
-    mirror "https://nuxi.nl/distfiles/third_party/icu4c-58_1-src.tgz"
     version "58.1"
     sha256 "0eb46ba3746a9c2092c8ad347a29b1a1b4941144772d13a88667a7b11ea30309"
   end
