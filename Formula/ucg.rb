@@ -27,7 +27,7 @@ class Ucg < Formula
 
   test do
     (testpath/"test.txt").write("Hello World!")
-    lines = `#{bin}/ucg 'Hello World' #{testpath}`.strip.split(":")
+    lines = shell_output("#{bin}/ucg 'Hello World' #{testpath}").strip.split(":")
     assert_equal "Hello World!", lines[2]
   end
 end
