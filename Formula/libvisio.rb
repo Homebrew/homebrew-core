@@ -3,7 +3,7 @@ class Libvisio < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libvisio"
   url "http://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.5.tar.xz"
   sha256 "430a067903660bb1b97daf4b045e408a1bb75ca45e615cf05fb1a4da65fc5a8c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -13,8 +13,8 @@ class Libvisio < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "boost" => :build
   depends_on "cppunit" => :build
+  depends_on "boost"
   depends_on "librevenge"
   depends_on "icu4c"
 
