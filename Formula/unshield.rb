@@ -1,8 +1,9 @@
 class Unshield < Formula
   desc "Extract files from InstallShield cabinet files"
   homepage "https://github.com/twogood/unshield"
-  url "https://github.com/twogood/unshield/archive/1.3.tar.gz"
-  sha256 "31a49c43b60e86b3ed731e0a1b988b88d35b755c85d103e93e1507278328bf73"
+  url "https://github.com/twogood/unshield/archive/1.4.tar.gz"
+  sha256 "8ae91961212193a7d3d7973c1c9464f3cd1967c179d6099feb1bb193912f8231"
+  head "https://github.com/twogood/unshield.git"
 
   bottle do
     cellar :any
@@ -12,21 +13,11 @@ class Unshield < Formula
     sha256 "804098ab7f9c7ecac5d8749d7b13d542b07dd3551170da17568a073710740ac6" => :mavericks
   end
 
-  head do
-    url "https://github.com/twogood/unshield.git"
-
-    # Fix compilation on macOS
-    patch do
-      url "https://github.com/twogood/unshield/pull/47.patch"
-      sha256 "3b37bdac497a9113e576c2ddc042b978ce15758ef8158e3f495f819f92dad531"
-    end
-  end
-
-  depends_on "openssl"
   depends_on "cmake" => :build
+  depends_on "openssl"
 
   def install
-    system "cmake", *std_cmake_args
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
