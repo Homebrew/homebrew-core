@@ -5,11 +5,9 @@ class ApacheBrooklynCli < Formula
   sha256 "9273a30e8fea9b5ebdd11ea64ff9164e03500660d4be26e2bc13e4e09c1c9ecc"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "56c26aea57882969990487f455e378229238b1e49373e3044f50255c89d2fa16" => :sierra
-    sha256 "4252ac91abef5c6c0026a0db2c8afc38b30d9af649620e6bf7b7e84a47e9a402" => :el_capitan
-    sha256 "c9190a11e83e3a9bdc2d200125050c384dcbf1490549bf60059240a2f1882a38" => :yosemite
-    sha256 "5bd6d72b2f1a91699f990bb9e3b09d743595909407a66edfb8f9436847958077" => :mavericks
+    sha256 "0f4d805b9d8a7086c481310d13e5807e90561e0eadaa1597135700c8e7bf1327" => :sierra
+    sha256 "c8bf103b0bd822b5a3caf6200b28405c5de29f93998c69148b0a4edd2dc72035" => :el_capitan
+    sha256 "2f9ee7ed7223009df9a7ea14cfb56091acbf2d3d2b2e880504b917574d4044f4" => :yosemite
   end
 
   depends_on "glide" => :build
