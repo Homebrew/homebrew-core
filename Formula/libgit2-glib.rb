@@ -3,7 +3,7 @@ class Libgit2Glib < Formula
   homepage "https://github.com/GNOME/libgit2-glib"
   url "https://download.gnome.org/sources/libgit2-glib/0.24/libgit2-glib-0.24.4.tar.xz"
   sha256 "3a211f756f250042f352b3070e7314a048c88e785dba9d118b851253a7c60220"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "5bdad256a9562f73998e774adfc365fa16b3ed3a7d04f426906e44ccd95e34f2" => :sierra
