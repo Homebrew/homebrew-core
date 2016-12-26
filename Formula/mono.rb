@@ -1,8 +1,7 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "http://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-4.6.2.7.tar.bz2"
-  sha256 "b69ead7db7590277630685f3fcad84a5ac2f83e40563f0dc8cf139b10cbe6b31"
+  url "https://github.com/mono/mono.git", :tag => "mono-4.6.2.16", :revision => "ac9e222cd99a3ba55a3232598bd53bd3c397f03f"
 
   bottle do
     sha256 "dd214b33b7b66785327aecaac80d2260cca4e5e97dbd0efcb0d2c04d9eba18a9" => :sierra
@@ -25,6 +24,7 @@ class Mono < Formula
 
   depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
 
   conflicts_with "xsd", :because => "both install `xsd` binaries"
@@ -46,7 +46,8 @@ class Mono < Formula
 
     args << "--build=" + (MacOS.prefer_64_bit? ? "x86_64": "i686") + "-apple-darwin"
 
-    system "./configure", *args
+    system "./autogen.sh", *args
+    system "make", "get-monolite-latest"
     system "make"
     system "make", "install"
     # mono-gdb.py and mono-sgen-gdb.py are meant to be loaded by gdb, not to be
