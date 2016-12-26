@@ -1,10 +1,8 @@
-require "language/go"
-
 class ApacheBrooklynCli < Formula
   desc "Apache Brooklyn command-line interface"
   homepage "https://brooklyn.apache.org"
-  url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-0.9.0.tar.gz"
-  sha256 "873804a145aed33de86e3928df05bad31a921f73984fed06ecdeb11e799d9c01"
+  url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-0.10.0.tar.gz"
+  sha256 "9273a30e8fea9b5ebdd11ea64ff9164e03500660d4be26e2bc13e4e09c1c9ecc"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,30 +12,20 @@ class ApacheBrooklynCli < Formula
     sha256 "5bd6d72b2f1a91699f990bb9e3b09d743595909407a66edfb8f9436847958077" => :mavericks
   end
 
+  depends_on "glide" => :build
   depends_on "go" => :build
-
-  go_resource "github.com/codegangsta/cli" do
-    url "https://github.com/codegangsta/cli.git",
-        :revision => "5db74198dee1cfe60cf06a611d03a420361baad6"
-  end
-
-  go_resource "golang.org/x/crypto" do
-    url "https://github.com/golang/crypto.git",
-        :revision => "1f22c0103821b9390939b6776727195525381532"
-  end
 
   def install
     ENV["XC_OS"] = "darwin"
     ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
     ENV["GOPATH"] = buildpath
-
-    brooklyn_client_path = buildpath/"src/github.com/apache/brooklyn-client/"
-    brooklyn_client_path.install Dir["*"]
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/github.com/apache/brooklyn-client/br" do
-      system "go", "build"
-      bin.install brooklyn_client_path/"br/br"
+    ENV["GOBIN"] = bin
+    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+    (buildpath/"src/github.com/apache/brooklyn-client").install "cli"
+    cd "src/github.com/apache/brooklyn-client/cli" do
+      system "glide", "install"
+      system "go", "install", ".../br"
+      prefix.install_metafiles
     end
   end
 
