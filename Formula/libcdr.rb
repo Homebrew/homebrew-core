@@ -3,7 +3,7 @@ class Libcdr < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libcdr"
   url "http://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.3.tar.xz"
   sha256 "66e28e502abef7f6f494ce03de037d532f5e7888cfdee62c01203c8325b33f22"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -13,8 +13,8 @@ class Libcdr < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "boost" => :build
   depends_on "cppunit" => :build
+  depends_on "boost"
   depends_on "icu4c"
   depends_on "librevenge"
   depends_on "little-cms2"
