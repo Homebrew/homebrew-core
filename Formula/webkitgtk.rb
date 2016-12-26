@@ -4,6 +4,7 @@ class Webkitgtk < Formula
   homepage "https://webkitgtk.org"
   url "https://webkitgtk.org/releases/webkitgtk-2.14.1.tar.xz"
   sha256 "2e2d76c328de65bed6e0e4f096b2720a366654b27fc1af0830ece90bc4b7ceb5"
+  revision 1
 
   bottle do
     sha256 "36b6a68ffa6aa06ddee26db2f9c8f933f16f25a82c280311438a9722000b16af" => :sierra
