@@ -6,9 +6,9 @@ class Dbt < Formula
   url "https://github.com/analyst-collective/dbt/archive/v0.5.4.tar.gz"
   sha256 "df830bb0355e46608727fc6c59fa4aadd2514aec227e55765fe56abcfc72918c"
 
-  depends_on :python3
+  depends_on "python3"
   depends_on "openssl"
-  depends_on :postgresql
+  depends_on "postgresql"
 
   resource "amqp" do
     url "https://files.pythonhosted.org/packages/cc/a4/f265c6f9a7eb1dd45d36d9ab775520e07ff575b11ad21156f9866da047b2/amqp-1.4.9.tar.gz"
@@ -156,6 +156,8 @@ class Dbt < Formula
   end
 
   test do
-    system "#{bin}/dbt", "-h"
+    (testpath/"dbt_project.yml").write("name: 'test'")
+    (testpath/"models/test.sql").write("select * from test")
+    system "#{bin}/dbt", "compile"
   end
 end
