@@ -5,9 +5,9 @@ class Baresip < Formula
   sha256 "4c364f4bb2cf17f83b6ff2b35962fd94258158202dfa566f68531e8ba77c1436"
 
   bottle do
-    sha256 "3afae7bb354ef15e3b277e3a5621672e3cbf0fe3ba4ba5cd4af72dc3427c376f" => :sierra
-    sha256 "570afad75e57d5b52918285036cf55e133e4354cf6267f29200cb9bb8ad28e94" => :el_capitan
-    sha256 "589cc2e4213cf000403fda87ebd6945f60be7383f804e3cd5bb20127272929bd" => :yosemite
+    sha256 "a0e97dfd5efbb100ff712cf7ec5eec77f867b5a34099407ecb1aa8e558048835" => :sierra
+    sha256 "d9b26cebd156ba6fd43eba873ad57135d06d22f5e7ca409745fab562c8be5df5" => :el_capitan
+    sha256 "9952b751f556030faaad8c0a1260e2b9adcaaa039ec60ed3dd241edc99e8545e" => :yosemite
   end
 
   depends_on "librem"
