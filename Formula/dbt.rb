@@ -6,6 +6,12 @@ class Dbt < Formula
   url "https://github.com/analyst-collective/dbt/archive/v0.5.4.tar.gz"
   sha256 "df830bb0355e46608727fc6c59fa4aadd2514aec227e55765fe56abcfc72918c"
 
+  bottle do
+    sha256 "3870236908885795e7b5e0feafe8a3a87118d7457439854d89c32c58ef0dc449" => :sierra
+    sha256 "9c97da4daf1f094da371dc6e705ac0ff567e205026b3728be6fd64885afae148" => :el_capitan
+    sha256 "bc666783dbc2730ce750d4f3126b8a792be7cc7cd6ebe9d8d08f49700a179da9" => :yosemite
+  end
+
   depends_on "python3"
   depends_on "openssl"
   depends_on "postgresql"
