@@ -6,10 +6,9 @@ class Gitg < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "4685b6887acb3c0c345fda156bc6af109a447a13176ea3afaddb2e2e5b9efd0b" => :sierra
-    sha256 "5c6efee7dec23fba801c9e526070fa4ddd8f108c0f0c07ff953efe3e7c9f6b78" => :el_capitan
-    sha256 "232618f70cc465d506bfb0d3f7b2725552ff294e8a9138da5b23c15dd66bdf53" => :yosemite
+    sha256 "4132836f7275773fc4fc52017295455416e067d044b75e610070ddb6448d6903" => :sierra
+    sha256 "326c39b1aef24d993dbf6897ed2e0166a6e0e403fbae6c808e1eb90c4b1c613d" => :el_capitan
+    sha256 "36b4f56fb22dbb3375f926adc2eed61254070eb6793c4b8add14e9d0db4a5a9a" => :yosemite
   end
 
   depends_on "pkg-config" => :build
