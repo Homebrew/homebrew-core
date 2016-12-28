@@ -1,8 +1,8 @@
 class Pngpaste < Formula
   desc "Paste PNG into files"
   homepage "https://github.com/jcsalterego/pngpaste"
-  url "https://github.com/jcsalterego/pngpaste/archive/0.2.1.tar.gz"
-  sha256 "0fee49ae467b4db58da687089e1729a911f2c0d5c1583a4a0dcb59aba95da519"
+  url "https://github.com/jcsalterego/pngpaste/archive/0.2.2.tar.gz"
+  sha256 "f7566b4eba94916df5723cdcef8e325ee7151c530eec025e996d0e784293362c"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,6 +12,11 @@ class Pngpaste < Formula
     sha256 "eeea5b97cd20b83f7d01fa73d9b8bc98f776dc122769cc682312981dde54b07e" => :mavericks
     sha256 "c8577460546d1c8f7f4cf9e833a420989b1fb94969dc1fcffd1c8f6d07a78e93" => :mountain_lion
   end
+
+  depends_on :macos => :el_capitan # needs NSBitmapImageFileTypePNG, etc.
+
+  # Sierra's CLT is sufficient, but El Capitain's isn't
+  depends_on :xcode => [:build, "8.0"] if MacOS.version < :sierra
 
   def install
     system "make", "all"
