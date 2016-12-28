@@ -3,6 +3,7 @@ class Gitg < Formula
   homepage "https://wiki.gnome.org/Apps/Gitg"
   url "https://download.gnome.org/sources/gitg/3.22/gitg-3.22.0.tar.xz"
   sha256 "ba6895f85c18748294075980a5e03e0936ad4e84534dbb0d8f9e29aa874ddeaf"
+  revision 1
 
   bottle do
     rebuild 1
@@ -30,6 +31,8 @@ class Gitg < Formula
   depends_on "pygobject3" => "with-python3" if build.with?("python3")
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libgit2-glib"].opt_libexec/"libgit2/lib/pkgconfig"
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -68,7 +71,7 @@ class Gitg < Formula
     libepoxy = Formula["libepoxy"]
     libffi = Formula["libffi"]
     libgee = Formula["libgee"]
-    libgit2 = Formula["libgit2"]
+    libgit2 = Formula["libgit2-glib"].opt_libexec/"libgit2"
     libgit2_glib = Formula["libgit2-glib"]
     libpng = Formula["libpng"]
     libsoup = Formula["libsoup"]
@@ -92,7 +95,7 @@ class Gitg < Formula
       -I#{libepoxy.opt_include}
       -I#{libgee.opt_include}/gee-0.8
       -I#{libffi.opt_lib}/libffi-3.0.13/include
-      -I#{libgit2.opt_include}
+      -I#{libgit2}/include
       -I#{libgit2_glib.opt_include}/libgit2-glib-1.0
       -I#{libpng.opt_include}/libpng16
       -I#{libsoup.opt_include}/libsoup-2.4
@@ -109,7 +112,7 @@ class Gitg < Formula
       -L#{gobject_introspection.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{libgee.opt_lib}
-      -L#{libgit2.opt_lib}
+      -L#{libgit2}/lib
       -L#{libgit2_glib.opt_lib}
       -L#{libsoup.opt_lib}
       -L#{lib}
