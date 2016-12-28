@@ -1,9 +1,9 @@
 class Neo4j < Formula
   desc "Robust (fully ACID) transactional property graph database"
   homepage "https://neo4j.com/"
-  url "https://neo4j.com/artifact.php?name=neo4j-community-3.0.7-unix.tar.gz"
-  version "3.0.7"
-  sha256 "69f7b410934d0a83120f892c1f341905b3a9346656b5d085eca1da612b8e7ae6"
+  url "https://neo4j.com/artifact.php?name=neo4j-community-3.1.0-unix.tar.gz"
+  version "3.1.0"
+  sha256 "47317a5a60f72de3d1b4fae4693b5f15514838ff3650bf8f2a965d3ba117dfc2"
 
   bottle :unneeded
 
@@ -23,7 +23,7 @@ class Neo4j < Formula
 
     # Adjust UDC props
     # Suppress the empty, focus-stealing java gui.
-    (libexec/"conf/neo4j-wrapper.conf").append_lines <<-EOS.undent
+    (libexec/"conf/neo4j.conf").append_lines <<-EOS.undent
       wrapper.java.additional=-Djava.awt.headless=true
       wrapper.java.additional.4=-Dneo4j.ext.udc.source=homebrew
     EOS
