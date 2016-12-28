@@ -6,9 +6,9 @@ class Libgit2Glib < Formula
   revision 2
 
   bottle do
-    sha256 "5bdad256a9562f73998e774adfc365fa16b3ed3a7d04f426906e44ccd95e34f2" => :sierra
-    sha256 "641b3e4494b86f6ead4fedd260b6ff7e1477ed253d1e3e1870e4e07e26457e98" => :el_capitan
-    sha256 "dd438cd28d5a7e398dad1b25795cb73d7df383abe91e569987996bcba59b6a5d" => :yosemite
+    sha256 "2f6732dfc6bbffc4ebbe8158b72e222cfe82679068da5cf1d0ad0e036a976eaf" => :sierra
+    sha256 "cbca45cc3e8326a1c4031b3fb184f7c99e8b33ad587ffc78af4c87f49ce50c0a" => :el_capitan
+    sha256 "e94b2976bfbb7241d688428b38f35ff1bdfb9d13041354c5cd6be53c97eda082" => :yosemite
   end
 
   head do
