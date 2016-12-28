@@ -7,9 +7,9 @@ class Openvpn < Formula
 
   bottle do
     cellar :any
-    sha256 "2e994b1b98169ed00a4b4ad9943c7fc5fa193d2b3d5b68479695ebce3835f25e" => :sierra
-    sha256 "c6ce9eb22bccd442b666ed8493de32396f6b01e64cba4817701c2f1cba21ff10" => :el_capitan
-    sha256 "073d92bdf706f05014462b55d5294bc25dc3cfb2d31b07b3c657f8141bc85bf6" => :yosemite
+    sha256 "a410e3af369a2654cda6b1f05db43282656d3907ea9efca32561aaeccf88d291" => :sierra
+    sha256 "52815c93bf913bc99f2ee4546f3d992e296eaab7d5da9b269b02cceb69c71434" => :el_capitan
+    sha256 "067fcd6d7917ea37434d901e54dd9edaf9beb41a97444d9dd5d80ddd9eb161ac" => :yosemite
   end
 
   # Requires tuntap for < 10.10
