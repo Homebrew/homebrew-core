@@ -22,17 +22,12 @@ class Radare2 < Formula
   homepage "http://radare.org"
 
   stable do
-    url "http://www.radare.org/get/radare2-0.10.5.tar.xz"
-    sha256 "e534e89b1ddc06b962766fab1d9a8c6957ce1eeac4b6babdd0cd3345c6d14ca5"
+    url "http://cloud.radare.org/get/1.1.0/radare2-1.1.0.tar.gz"
+    sha256 "7bc1e206a2b4def6bdb8684c2af0281b007986a0b5b5da652bd03be264ca0fa5"
 
     resource "bindings" do
-      url "http://www.radare.org/get/radare2-bindings-0.10.5.tar.xz"
-      sha256 "04eb9a31e752d393e240a5d2e77f6313f1e5b7ccf7471e6fea2d346781173fb1"
-    end
-
-    resource "extras" do
-      url "http://www.radare.org/get/radare2-extras-0.10.5.tar.xz"
-      sha256 "2dd23a4ab8f787f47b22cdd0df76d7b575a80e9afaf0ee95a553deaaba65e6f6"
+      url "http://cloud.radare.org/get/1.1.0/radare2-bindings-1.0.1.tar.gz"
+      sha256 "ab0b3ca4ca5e9ca6b11211408dada85bb18014a793628ef32167dc89575fd2e0"
     end
   end
 
@@ -48,10 +43,6 @@ class Radare2 < Formula
 
     resource "bindings" do
       url "https://github.com/radare/radare2-bindings.git"
-    end
-
-    resource "extras" do
-      url "https://github.com/radare/radare2-extras.git"
     end
   end
 
@@ -81,15 +72,6 @@ class Radare2 < Formula
       system "make", "HOME=#{home}", "-C", "binr/radare2", "osx-sign-libs"
     end
     system "make", "install"
-
-    resource("extras").stage do
-      ENV.append_path "PATH", bin
-      ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
-
-      system "./configure", "--prefix=#{prefix}"
-      system "make", "all"
-      system "make", "install"
-    end
 
     resource("bindings").stage do
       ENV.append_path "PATH", bin
