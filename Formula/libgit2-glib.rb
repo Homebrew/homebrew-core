@@ -3,7 +3,7 @@ class Libgit2Glib < Formula
   homepage "https://github.com/GNOME/libgit2-glib"
   url "https://download.gnome.org/sources/libgit2-glib/0.24/libgit2-glib-0.24.4.tar.xz"
   sha256 "3a211f756f250042f352b3070e7314a048c88e785dba9d118b851253a7c60220"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "5bdad256a9562f73998e774adfc365fa16b3ed3a7d04f426906e44ccd95e34f2" => :sierra
@@ -21,15 +21,40 @@ class Libgit2Glib < Formula
     depends_on "gtk-doc" => :build
   end
 
+  depends_on "cmake" => :build # for libgit2
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "libgit2"
+  depends_on "libssh2" # for libgit2
   depends_on "gobject-introspection"
   depends_on "glib"
   depends_on "vala" => :optional
   depends_on :python => :optional
 
+  # Re-evaluate when > 0.24.4 is released
+  # Vendor libgit2 0.24.x since libgit2-glib isn't compatible with 0.25.x yet
+  # Reported 28 Dec 2016 https://bugzilla.gnome.org/show_bug.cgi?id=776506
+  resource "libgit2" do
+    url "https://github.com/libgit2/libgit2/archive/v0.24.5.tar.gz"
+    sha256 "f6135ee64b174f449c8857272352c11ca182af05a340237834cedcc9eb390cba"
+  end
+
   def install
+    resource("libgit2").stage do
+      args = std_cmake_args - ["-DCMAKE_INSTALL_PREFIX=#{prefix}"]
+      args << "-DCMAKE_INSTALL_PREFIX=#{libexec}/libgit2"
+      args << "-DBUILD_CLAR=NO" # Don't build the tests
+
+      mkdir "build" do
+        system "cmake", "..", *args
+        system "make", "install"
+      end
+
+      # Prevent "dyld: Library not loaded: libgit2.24.dylib"
+      MachO::Tools.change_dylib_id("#{libexec}/libgit2/lib/libgit2.dylib",
+                                   "#{libexec}/libgit2/lib/libgit2.dylib")
+    end
+    ENV.prepend_path "PKG_CONFIG_PATH", libexec/"libgit2/lib/pkgconfig"
+
     args = %W[
       --prefix=#{prefix}
       --disable-silent-rules
