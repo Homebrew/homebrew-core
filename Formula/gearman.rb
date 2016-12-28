@@ -1,8 +1,8 @@
 class Gearman < Formula
   desc "Application framework to farm out work to other machines or processes"
   homepage "http://gearman.org/"
-  url "https://launchpad.net/gearmand/1.2/1.1.12/+download/gearmand-1.1.12.tar.gz"
-  sha256 "973d7a3523141a84c7b757c6f243febbc89a3631e919b532c056c814d8738acb"
+  url "https://github.com/gearman/gearmand/releases/download/1.1.14/gearmand-1.1.14.tar.gz"
+  sha256 "6e01b72cdf386149f689cccd934e79c55851549845f0128683a726ffb3200cd0"
 
   bottle do
     rebuild 3
@@ -14,9 +14,9 @@ class Gearman < Formula
   option "with-mysql", "Compile with MySQL persistent queue enabled"
   option "with-postgresql", "Compile with Postgresql persistent queue enabled"
 
-  # https://bugs.launchpad.net/gearmand/+bug/1318151 - Still ongoing as of 1.1.12
-  # https://bugs.launchpad.net/gearmand/+bug/1236815 - Still ongoing as of 1.1.12
-  # https://github.com/Homebrew/homebrew/issues/33246 - Still ongoing as of 1.1.12
+  # https://bugs.launchpad.net/gearmand/+bug/1318151 - Still ongoing as of 1.1.14
+  # https://bugs.launchpad.net/gearmand/+bug/1236815 - Still ongoing as of 1.1.14
+  # https://github.com/Homebrew/homebrew/issues/33246 - Still ongoing as of 1.1.14
   patch :DATA
 
   depends_on "pkg-config" => :build
@@ -97,6 +97,10 @@ class Gearman < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    assert_match /gearman\s*Error in usage/, shell_output("#{bin}/gearman --version 2>&1", 1)
   end
 end
 
