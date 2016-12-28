@@ -3,6 +3,7 @@ class GnomeBuilder < Formula
   homepage "https://wiki.gnome.org/Apps/Builder"
   url "https://download.gnome.org/sources/gnome-builder/3.22/gnome-builder-3.22.4.tar.xz"
   sha256 "d569446a83ab88872c265f238f8f42b5928a6b3eebb22fd1db3dbc0dd9128795"
+  revision 1
 
   bottle do
     sha256 "32b73e0764bc01b84d90c30a2cb374024940699617f90345c74efd1225aa0c43" => :sierra
@@ -34,6 +35,8 @@ class GnomeBuilder < Formula
   needs :cxx11
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libgit2-glib"].opt_libexec/"libgit2/lib/pkgconfig"
+
     ENV.cxx11
 
     system "./configure", "--disable-debug",
