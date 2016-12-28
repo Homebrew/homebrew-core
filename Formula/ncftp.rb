@@ -1,8 +1,8 @@
 class Ncftp < Formula
   desc "FTP client with an advanced user interface"
   homepage "http://www.ncftp.com"
-  url "ftp://ftp.ncftp.com/ncftp/ncftp-3.2.5-src.tar.gz"
-  sha256 "ac111b71112382853b2835c42ebe7bd59acb7f85dd00d44b2c19fbd074a436c4"
+  url "ftp://ftp.ncftp.com/ncftp/ncftp-3.2.6-src.tar.gz"
+  sha256 "129e5954850290da98af012559e6743de193de0012e972ff939df9b604f81c23"
 
   bottle do
     sha256 "70199e4db05dd77686e0256f0c19ac8082b8bf59ec9285df8688fb5d22640d42" => :sierra
