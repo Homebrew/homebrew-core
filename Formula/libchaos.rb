@@ -2,7 +2,7 @@ class Libchaos < Formula
   desc "Advanced library for randomization, hashing and statistical analysis."
   homepage "https://github.com/maciejczyzewski/libchaos"
   url "https://github.com/maciejczyzewski/libchaos/releases/download/v1.0/libchaos-1.0.tar.gz"
-  sha256 "6e623bfd09956ce480b7404c5788d8b3e9abcba2c5012d13b6faf2092ec36ff0"
+  sha256 "29940ff014359c965d62f15bc34e5c182a6d8a505dc496c636207675843abd15"
 
   depends_on "cmake" => :build
 
