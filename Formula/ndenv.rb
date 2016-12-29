@@ -5,6 +5,8 @@ class Ndenv < Formula
   sha256 "1a85e4c0c0eee24d709cbc7b5c9d50709bf51cf7fe996a1548797a4079e0b6e4"
   head "https://github.com/riywo/ndenv.git"
 
+  bottle :unneeded
+
   depends_on "node-build" => :recommended
 
   def install
