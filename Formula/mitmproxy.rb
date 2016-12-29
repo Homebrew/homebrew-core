@@ -8,9 +8,9 @@ class Mitmproxy < Formula
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
-    sha256 "47711f782e17db9c02ed7c948a777936b490c10424a3623621270c9f2d0b4f0e" => :sierra
-    sha256 "eba9fa3be2bca122cf30d43c25d966963d0efa2e07e8c063ba007e674f0f14b6" => :el_capitan
-    sha256 "3e3014c3db195632f2ebe186c8d2aeaaf98205eca0b795138f4e2ac6b456235c" => :yosemite
+    sha256 "ff3bf4cc87211c6f0948435aedd440c70e35f39a2eb1b595447da91710b7cd65" => :sierra
+    sha256 "80cafefb38dbca6c2871ab56c83e143a7505a72b4e882dd8e5b7e1f741ec8b55" => :el_capitan
+    sha256 "de6027e10d8d9250a4950191ee0ef048e73c68557d7e93fe9a11d8705e293d57" => :yosemite
   end
 
   option "with-pyamf", "Enable action message format (AMF) support for python"
