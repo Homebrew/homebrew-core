@@ -10,17 +10,27 @@ class P11Kit < Formula
     sha256 "122fa200388458776d870d483680f21d8bc755f62db1a87cab30338ab0ab445d" => :yosemite
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  head do
+    url "https://github.com/p11-glue/p11-kit.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "libffi"
+  depends_on "pkg-config" => :build
 
   def install
     # https://bugs.freedesktop.org/show_bug.cgi?id=91602#c1
     ENV["FAKED_MODE"] = "1"
 
-    system "autoreconf", "-fiv"
+    if build.head?
+      ENV["NOCONFIGURE"] = "1"
+      system "./autogen.sh"
+    end
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-trust-module",
