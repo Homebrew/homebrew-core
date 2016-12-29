@@ -1,8 +1,8 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://dnscrypt.org"
-  url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.8.1.tar.gz"
-  sha256 "2e392b4b02ece2c60d1bcb6bab658cfcea3171030f9a982b5e9ed66543d11103"
+  url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.0.tar.gz"
+  sha256 "d7b80c32c105b2463e19800804bd38ab578484ff4fb741c61579a7eef6eb7310"
   head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
@@ -36,6 +36,7 @@ class DnscryptProxy < Formula
 
     system "./configure", *args
     system "make", "install"
+    pkgshare.install Dir["contrib/*"] - Dir["contrib/Makefile*"]
 
     if build.with? "minisign"
       (bin/"dnscrypt-update-resolvers").write <<-EOS.undent
