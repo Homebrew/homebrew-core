@@ -71,6 +71,7 @@ class Thrift < Formula
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--libdir=#{lib}",
+                          "--with-openssl=#{Formula["openssl"].opt_prefix}",
                           *exclusions
     ENV.deparallelize
     system "make"
