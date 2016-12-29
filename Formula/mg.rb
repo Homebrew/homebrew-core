@@ -1,8 +1,8 @@
 class Mg < Formula
   desc "Small Emacs-like editor"
   homepage "https://devio.us/~bcallah/mg/"
-  url "https://devio.us/~bcallah/mg/mg-20160815.tar.gz"
-  sha256 "d4cf4cc5e811f13bfcebd0240d074344d0a6e8c27e5a5d9be9c5e53f328a416a"
+  url "https://devio.us/~bcallah/mg/mg-20161016.tar.gz"
+  sha256 "bcb4be59aaa30ae8dd0e9aed3c0a5ff8bf2dae6e6768396d37c11aaaab29d370"
 
   bottle do
     cellar :any_skip_relocation
