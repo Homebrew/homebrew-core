@@ -1,8 +1,8 @@
 class Lmdb < Formula
   desc "Lightning memory-mapped database: key-value data store"
   homepage "https://symas.com/mdb-and-sqlite/"
-  url "https://github.com/LMDB/lmdb/archive/LMDB_0.9.18.tar.gz"
-  sha256 "dd35b471d6eea84f48f2feece13d121abf59ef255308b8624a36223ffbdf9989"
+  url "https://github.com/LMDB/lmdb/archive/LMDB_0.9.19.tar.gz"
+  sha256 "108532fb94c6f227558d45be3f3347b52539f0f58290a7bb31ec06c462d05326"
   head "https://github.com/LMDB/lmdb.git", :branch => "mdb.master"
 
   bottle do
@@ -15,12 +15,9 @@ class Lmdb < Formula
 
   def install
     cd "libraries/liblmdb" do
-      # Reported 19 Aug 2016: http://www.openldap.org/its/index.cgi?findid=8481
-      inreplace "Makefile", ".so", ".dylib"
-
-      system "make"
-      system "make", "test"
-      system "make", "install", "prefix=#{prefix}"
+      system "make", "SOEXT=.dylib"
+      system "make", "test", "SOEXT=.dylib"
+      system "make", "install", "SOEXT=.dylib", "prefix=#{prefix}"
     end
   end
 
