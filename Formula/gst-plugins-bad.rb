@@ -49,13 +49,6 @@ class GstPluginsBad < Formula
       --disable-dependency-tracking
     ]
 
-    # upstream does not support Apple video for older SDKs
-    # error: use of undeclared identifier 'AVQueuedSampleBufferRenderingStatusFailed'
-    # https://github.com/Homebrew/legacy-homebrew/pull/35284
-    if MacOS.version <= :mavericks
-      args << "--disable-apple_media"
-    end
-
     args << "--with-gtk=3.0" if build.with? "gtk+3"
 
     if build.head?
