@@ -6,17 +6,12 @@ class Fantom < Formula
 
   bottle :unneeded
 
-  option "without-src",      "Do not install source code"
-  option "without-examples", "Do not install examples"
-
   def install
-    # Options
-    rm_rf "src"      if build.without? "src"
-    rm_rf "examples" if build.without? "examples"
-
     # Select the macOS JDK path in the config file
     inreplace "etc/build/config.props", "//jdkHome=/System", "jdkHome=/System"
     inreplace "etc/build/config.props", "jdkHome=/C:", "//jdkHome=/System"
+
+    # Mark bin/ executable
     libexec.install Dir["*"]
     chmod 0755, Dir["#{libexec}/bin/*"]
     bin.install_symlink Dir["#{libexec}/bin/*"]
