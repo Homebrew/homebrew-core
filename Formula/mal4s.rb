@@ -52,7 +52,7 @@ class Mal4s < Formula
       pid = fork do
         exec bin/"mal4s", "-t", "2", "-o", "out", pkgshare/"sample--newns.mal4s"
       end
-      sleep 5
+      sleep 60
       assert File.exist?("out"), "Failed to output PPM stream!"
     ensure
       Process.kill("TERM", pid)
