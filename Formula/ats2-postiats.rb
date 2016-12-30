@@ -1,5 +1,5 @@
 class Ats2Postiats < Formula
-  desc "ATS2: Unleashing the Potentials of Types and Templates"
+  desc "Statically typed programming language that unifies implementation and formal specification"
   homepage "http://www.ats-lang.org/"
   url "https://downloads.sourceforge.net/project/ats2-lang/ats2-lang/ats2-postiats-0.2.13/ATS2-Postiats-0.2.13.tgz"
   sha256 "316eb28470154fb96ed69fddd5ef3477c4986835c48ab3e932fdaec7e7f23307"
