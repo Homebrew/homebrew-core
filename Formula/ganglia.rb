@@ -1,9 +1,8 @@
 class Ganglia < Formula
   desc "Scalable distributed monitoring system"
   homepage "http://ganglia.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ganglia/ganglia%20monitoring%20core/3.7.1/ganglia-3.7.1.tar.gz"
-  sha256 "e735a6218986a0ff77c737e5888426b103196c12dc2d679494ca9a4269ca69a3"
-  revision 2
+  url "https://downloads.sourceforge.net/project/ganglia/ganglia%20monitoring%20core/3.7.2/ganglia-3.7.2.tar.gz"
+  sha256 "042dbcaf580a661b55ae4d9f9b3566230b2232169a0898e91a797a4c61888409"
 
   bottle do
     sha256 "acdf779111e970a0109ee574e6b814b8378f29945d688bcb73a438e54d77ff9e" => :sierra
@@ -21,7 +20,7 @@ class Ganglia < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :apr => :build
+  depends_on "apr"
   depends_on "confuse"
   depends_on "pcre"
   depends_on "rrdtool"
@@ -43,6 +42,7 @@ class Ganglia < Formula
                           "--sysconfdir=#{etc}",
                           "--mandir=#{man}",
                           "--with-gmetad",
+                          "--with-libapr=#{Formula["apr"].opt_bin}/apr-1-config",
                           "--with-libpcre=#{Formula["pcre"].opt_prefix}"
     system "make", "install"
 
