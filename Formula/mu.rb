@@ -6,12 +6,17 @@ class Mu < Formula
   homepage "https://www.djcbsoftware.nl/code/mu/"
   url "https://github.com/djcb/mu/releases/download/0.9.18/mu-0.9.18.tar.gz"
   sha256 "6559ec888d53f8e03b87b67148a73f52fe086477cb10e43f3fc13ed7f717e809"
-  head "https://github.com/djcb/mu.git"
 
   bottle do
     sha256 "7a22948357dea29fea7aad7fb40a1d40c91587a9ae6d5584fdc926c051558394" => :sierra
     sha256 "2668d780329437c1a9aa3a59a545f227adb2effcd162c61a57d162c0dea27596" => :el_capitan
     sha256 "5021092fa9584e6ed4755a61d675dbd89108706de2b4f4e35fe0597a5a79fcb1" => :yosemite
+  end
+
+  head do
+    url "https://github.com/djcb/mu.git"
+
+    depends_on "autoconf-archive" => :build
   end
 
   depends_on "autoconf" => :build
