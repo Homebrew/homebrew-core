@@ -9,10 +9,9 @@ class Qt5 < Formula
   head "https://code.qt.io/qt/qt5.git", :branch => "5.7", :shallow => false
 
   bottle do
-    rebuild 3
-    sha256 "242197dfab9e62df340ef9f82d061005ec9c73ccf08f8d54345eea0dda8a4af0" => :sierra
-    sha256 "14b78a048c833306509457401bb186679b88e5311c4fe33deb3417222064c64d" => :el_capitan
-    sha256 "1bbdf366e87a2fb8adb4f657a384b9dd8851149c06c23be870838abd24433991" => :yosemite
+    sha256 "c8c73d777dea4f1ad896828ed8bb236e1c360707304316d7b10bc2e21686bca6" => :sierra
+    sha256 "2ecd12f551e720e072d6c04a41ccd38a01645f4835531f8125164dd620c121cb" => :el_capitan
+    sha256 "0495b22126f33308435ee3118d263a85528dc96353b8ba2ccadaed03295e952b" => :yosemite
   end
 
   option "with-docs", "Build documentation"
