@@ -1,8 +1,8 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.13.tar.gz"
-  sha256 "4356bb576eaa0d51651ec9754e8c3948f56e439c6c8b98ec6c23d5bebaae86bc"
+  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.14.tar.gz"
+  sha256 "2d09340e94a72e0d62c6fdc92d6d86a70770229bee5719caca83b532638864a1"
 
   bottle do
     cellar :any
@@ -20,9 +20,9 @@ class Afflib < Formula
   depends_on :osxfuse => :optional
 
   def install
-    inreplace "m4/acinclude.m4",
-      "PYTHON_LDFLAGS=\"-L$ac_python_libdir -lpython$ac_python_version\"",
-      "PYTHON_LDFLAGS=\"-undefined dynamic_lookup\""
+    # use Language::Python.setup_install_args instead
+    inreplace ["Makefile.am", "pyaff/Makefile.am"], "if HAVE_PYTHON",
+                                                    "if HAVE_PYTHON\nelse"
 
     args = ["--enable-s3", "--enable-python"]
 
@@ -39,6 +39,13 @@ class Afflib < Formula
                           "--prefix=#{prefix}",
                           *args
     system "make", "install"
+
+    cd "pyaff" do
+      ENV.prepend "CPPFLAGS", "-I#{include}"
+      ENV.prepend "LDFLAGS", "-L#{lib}"
+      ENV["PYTHONPATH"] = lib/"python2.7/site-packages"
+      system "python", *Language::Python.setup_install_args(prefix)
+    end
   end
 
   test do
