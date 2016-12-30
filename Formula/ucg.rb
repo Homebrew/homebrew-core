@@ -1,8 +1,8 @@
 class Ucg < Formula
   desc "grep-like tool for searching large bodies of source code"
   homepage "https://github.com/gvansickle/ucg"
-  url "https://github.com/gvansickle/ucg/releases/download/0.3.1/universalcodegrep-0.3.1.tar.gz"
-  sha256 "62f9ef88ea5c0777696c4322bed1fb9a3fb62eb85bd053af50f75d42ec259086"
+  url "https://github.com/gvansickle/ucg/releases/download/0.3.2/universalcodegrep-0.3.2.tar.gz"
+  sha256 "df57c877164454a5001caf791a24cd119afe4196070cb8d3cc741a7a43805c3e"
   head "https://github.com/gvansickle/ucg.git"
 
   depends_on "pkg-config" => :build
@@ -11,9 +11,6 @@ class Ucg < Formula
   depends_on "automake" => :build
   depends_on "argp-standalone" => :build
   depends_on "pcre2"
-
-  # superenv's '-march' flag conflicts with build script
-  env :std
 
   def install
     system "autoreconf", "-i" if build.head?
