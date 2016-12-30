@@ -1,8 +1,8 @@
 class Bup < Formula
   desc "Backup tool"
   homepage "https://github.com/bup/bup"
-  url "https://github.com/bup/bup/archive/0.28.1.tar.gz"
-  sha256 "fd962dbdade1b8ea257ac0e95d771ba11e6da4ef6f8ca6bee498a5b1bce8c817"
+  url "https://github.com/bup/bup/archive/0.29.tar.gz"
+  sha256 "7cdfd8a7f081059f0c125a4363a6d1f59c8e95c7f57aa660ca31516af946186c"
   head "https://github.com/bup/bup.git"
 
   bottle do
