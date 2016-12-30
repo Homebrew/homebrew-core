@@ -3,6 +3,7 @@ class Mpv < Formula
   homepage "https://mpv.io"
   url "https://github.com/mpv-player/mpv/archive/v0.23.0.tar.gz"
   sha256 "8aeefe5970587dfc454d2b89726b603f156bd7a9ae427654eef0d60c68d94998"
+  revision 1
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
@@ -14,7 +15,6 @@ class Mpv < Formula
   option "with-bundle", "Enable compilation of the .app bundle."
 
   depends_on "pkg-config" => :build
-  depends_on "docutils" => :build
   depends_on :python3 => :build
 
   depends_on "libass"
@@ -40,11 +40,22 @@ class Mpv < Formula
 
   depends_on :macos => :mountain_lion
 
+  resource "docutils" do
+    url "https://files.pythonhosted.org/packages/05/25/7b5484aca5d46915493f1fd4ecb63c38c333bd32aa9ad6e19da8d08895ae/docutils-0.13.1.tar.gz"
+    sha256 "718c0f5fb677be0f34b781e04241c4067cbd9327b66bdd8e763201130f5175be"
+  end
+
   def install
     # LANG is unset by default on osx and causes issues when calling getlocale
     # or getdefaultlocale in docutils. Force the default c/posix locale since
     # that's good enough for building the manpage.
     ENV["LC_ALL"] = "C"
+
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
+    resource("docutils").stage do
+      system "python", *Language::Python.setup_install_args(buildpath/"vendor")
+    end
+    ENV.prepend_path "PATH", buildpath/"vendor/bin"
 
     args = %W[
       --prefix=#{prefix}
