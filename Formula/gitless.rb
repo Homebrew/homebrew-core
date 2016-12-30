@@ -5,6 +5,7 @@ class Gitless < Formula
   homepage "http://gitless.com/"
   url "https://github.com/sdg-mit/gitless/archive/v0.8.5.tar.gz"
   sha256 "c93f8f558d05f41777ae36fab7434cfcdb13035ae2220893d5ee222ced1e7b9f"
+  revision 1
 
   bottle do
     cellar :any
@@ -37,8 +38,8 @@ class Gitless < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/29/fb/fd98403ed4ec5554ed4f6de3719d2c672ca2518598061ff7231301ff864b/pygit2-0.24.2.tar.gz"
-    sha256 "2aae85836c3a8da686220db7db05f91f8797e37edf91cc2a1f88b09fb653166a"
+    url "https://files.pythonhosted.org/packages/08/d5/6cc33ce2990b8502d9796902f686e622f647f3f59d5b7123e4d17ad34769/pygit2-0.25.0.tar.gz"
+    sha256 "de0ed85fd840dfeb32bcaa94c643307551dc0d967c3714e49087e7edc0cdc571"
   end
 
   resource "sh" do
