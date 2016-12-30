@@ -15,6 +15,7 @@ class Mu < Formula
   end
 
   depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build if build.head?
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
