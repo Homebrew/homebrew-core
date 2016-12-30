@@ -10,7 +10,7 @@ class Termsql < Formula
 
   def install
     # Replace path to man pages in hard-coded setup.py
-    inreplace "setup.py", %r{/usr/share/man/man1/}, man1
+    inreplace "setup.py", %r{/usr/share/man/man1/}, "#{man1}/"
 
     system "python", *Language::Python.setup_install_args(prefix)
   end
