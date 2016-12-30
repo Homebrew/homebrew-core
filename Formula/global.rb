@@ -23,12 +23,14 @@ class Global < Formula
   end
 
   option "with-ctags", "Enable Exuberant Ctags as a plug-in parser"
+  option "with-universal-ctags", "Enable Universal Ctags as a plug-in parser"
   option "with-pygments", "Enable Pygments as a plug-in parser (should enable exuberent-ctags too)"
   option "with-sqlite3", "Use SQLite3 API instead of BSD/DB API for making tag files"
 
   deprecated_option "with-exuberant-ctags" => "with-ctags"
 
   depends_on "ctags" => :optional
+  depends_on "universal-ctags/universal-ctags/universal-ctags" => :optional
 
   skip_clean "lib/gtags"
 
@@ -50,6 +52,10 @@ class Global < Formula
 
     if build.with? "ctags"
       args << "--with-exuberant-ctags=#{Formula["ctags"].opt_bin}/ctags"
+    end
+
+    if build.with? "universal-ctags"
+      args << "--with-universal-ctags=#{Formula["universal-ctags"].opt_bin}/ctags"
     end
 
     if build.with? "pygments"
@@ -78,7 +84,7 @@ class Global < Formula
        int c2func (void) { return 0; }
        void cfunc (void) {int cvar = c2func(); }")
     EOS
-    if build.with?("pygments") || build.with?("ctags")
+    if build.with?("pygments") || build.with?("ctags") || build.with?("universal-ctags")
       (testpath/"test.py").write <<-EOS
         def py2func ():
              return 0
@@ -88,7 +94,7 @@ class Global < Formula
     end
     if build.with? "pygments"
       assert shell_output("#{bin}/gtags --gtagsconf=#{share}/gtags/gtags.conf --gtagslabel=pygments .")
-      if build.with? "ctags"
+      if build.with?("ctags") || build.with?("universal-ctags")
         assert_match "test.c", shell_output("#{bin}/global -d cfunc")
         assert_match "test.c", shell_output("#{bin}/global -d c2func")
         assert_match "test.c", shell_output("#{bin}/global -r c2func")
