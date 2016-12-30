@@ -18,6 +18,6 @@ class CrystalIcr < Formula
   end
 
   test do
-    assert_match "icr version #{version}\n", shell_output("#{bin/"icr"} -v")
+    assert_match "icr version #{version}", shell_output("#{bin}/icr -v")
   end
 end
