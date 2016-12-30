@@ -17,6 +17,6 @@ class Termsql < Formula
 
   test do
     # Run an example query (count processes)
-    system "ls -lha /usr/bin/* | termsql -w -r 8 \"select count(*) from tbl\""
+    assert_equal "bar", pipe_output("#{bin}/termsql 'select COL1 from tbl'", "foo bar baz").strip
   end
 end
