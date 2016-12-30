@@ -1,8 +1,8 @@
 class Ucg < Formula
   desc "grep-like tool for searching large bodies of source code"
   homepage "https://github.com/gvansickle/ucg"
-  url "https://github.com/gvansickle/ucg/releases/download/0.3.2/universalcodegrep-0.3.2.tar.gz"
-  sha256 "df57c877164454a5001caf791a24cd119afe4196070cb8d3cc741a7a43805c3e"
+  url "https://github.com/gvansickle/ucg/releases/download/0.3.3/universalcodegrep-0.3.3.tar.gz"
+  sha256 "116d832bbc743c7dd469e5e7f1b20addb3b7a08df4b4441d59da3acf221caf2d"
   head "https://github.com/gvansickle/ucg.git"
 
   depends_on "pkg-config" => :build
@@ -24,7 +24,6 @@ class Ucg < Formula
 
   test do
     (testpath/"test.txt").write("Hello World!")
-    lines = shell_output("#{bin}/ucg 'Hello World' #{testpath}").strip.split(":")
-    assert_equal "Hello World!", lines[2]
+    assert_match "Hello World!", shell_output("#{bin}/ucg 'Hello World' #{testpath}")
   end
 end
