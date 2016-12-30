@@ -3,6 +3,7 @@ class Compcert < Formula
   homepage "http://compcert.inria.fr"
   url "http://compcert.inria.fr/release/compcert-2.7.1.tgz"
   sha256 "446199fb66c1e6e47eb464f2549d847298f3d7dcce9be6718da2a75c5dd00bee"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,9 +13,15 @@ class Compcert < Formula
     sha256 "0194247311a58c8bb09107bc42b9971566c1a64dbb5457dc841b703ed884c7f8" => :mavericks
   end
 
-  depends_on "coq" => :build
-  depends_on "ocaml" => :build
   depends_on "menhir" => :build
+  depends_on "ocaml" => :build
+  depends_on "opam" => :build
+
+  # remove for > 2.7.1; allow Coq version 8.5pl3
+  patch do
+    url "https://github.com/AbsInt/CompCert/commit/a8f87aa.patch"
+    sha256 "fb1b35503ae106a28b276521579fcf862772615414dca3ae3fabc4ed736ab5de"
+  end
 
   def install
     ENV.permit_arch_flags
@@ -25,9 +32,17 @@ class Compcert < Formula
     # causes problems with the compcert compiler at runtime.
     inreplace "configure", "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
 
-    system "./configure", "-prefix", prefix, "ia32-macosx"
-    system "make", "all"
-    system "make", "install"
+    ENV["OPAMYES"] = "1"
+    ENV["OPAMROOT"] = Pathname.pwd/"opamroot"
+    (Pathname.pwd/"opamroot").mkpath
+    system "opam", "init", "--no-setup"
+    system "opam", "install", "coq=8.5.3"
+    system "opam", "config", "exec", "--",
+           "./configure", "-prefix", prefix, "ia32-macosx"
+    system "opam", "config", "exec", "--",
+           "make", "all"
+    system "opam", "config", "exec", "--",
+           "make", "install"
   end
 
   test do
