@@ -17,14 +17,14 @@ class CloogAT018 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gmp@4"
-  depends_on "isl@0.11"
+  depends_on "isl@0.12"
 
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--with-gmp-prefix=#{Formula["gmp@4"].opt_prefix}",
-                          "--with-isl-prefix=#{Formula["isl@0.11"].opt_prefix}"
+                          "--with-isl-prefix=#{Formula["isl@0.12"].opt_prefix}"
     system "make", "install"
   end
 
