@@ -209,8 +209,6 @@ class Pgloader < Formula
     sha256 "856d522b4f60af0ead0435114c11100c0f5348e5e1db5fffe93a851be54dc7e9"
   end
 
-  # Build fails with metabang-bind-20161204-git
-  # Reported 12 Dec 2016 https://github.com/dimitri/pgloader/issues/492
   resource "metabang-bind" do
     url "https://beta.quicklisp.org/archive/metabang-bind/2014-11-06/metabang-bind-20141106-git.tgz"
     sha256 "84b0d7384a8f385140a11820e4f57cfd630c8e7ff48b44d357e9af9acd82be86"
