@@ -4,6 +4,13 @@ class Libchaos < Formula
   url "https://github.com/maciejczyzewski/libchaos/releases/download/v1.0/libchaos-1.0.tar.gz"
   sha256 "29940ff014359c965d62f15bc34e5c182a6d8a505dc496c636207675843abd15"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "476414dff3721c654468f3022b4a53506e3bbfad31314714025b3226fdd254d2" => :sierra
+    sha256 "40534621ddbbf1e05aada56c23034a99373e00c9c00140c0a0b5c687e1379e14" => :el_capitan
+    sha256 "8aeaf844fa6f07faecb2efe9a91d4ca1dfcedd31b8f9c4bfc4e2c2a388d80b27" => :yosemite
+  end
+
   depends_on "cmake" => :build
   needs :cxx11
 
