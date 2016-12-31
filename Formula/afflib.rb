@@ -1,8 +1,8 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.14.tar.gz"
-  sha256 "2d09340e94a72e0d62c6fdc92d6d86a70770229bee5719caca83b532638864a1"
+  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.15.tar.gz"
+  sha256 "cc705a3b4108594fe36f1d843f4a7c60c93fe79375fda3018c21f5cd24949f1c"
 
   bottle do
     cellar :any
@@ -20,10 +20,6 @@ class Afflib < Formula
   depends_on :osxfuse => :optional
 
   def install
-    # use Language::Python.setup_install_args instead
-    inreplace ["Makefile.am", "pyaff/Makefile.am"], "if HAVE_PYTHON",
-                                                    "if HAVE_PYTHON\nelse"
-
     args = ["--enable-s3", "--enable-python"]
 
     if build.with? "osxfuse"
@@ -39,13 +35,6 @@ class Afflib < Formula
                           "--prefix=#{prefix}",
                           *args
     system "make", "install"
-
-    cd "pyaff" do
-      ENV.prepend "CPPFLAGS", "-I#{include}"
-      ENV.prepend "LDFLAGS", "-L#{lib}"
-      ENV["PYTHONPATH"] = lib/"python2.7/site-packages"
-      system "python", *Language::Python.setup_install_args(prefix)
-    end
   end
 
   test do
