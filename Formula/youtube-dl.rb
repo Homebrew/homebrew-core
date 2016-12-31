@@ -6,6 +6,7 @@ class YoutubeDl < Formula
   homepage "https://rg3.github.io/youtube-dl/"
   url "https://github.com/rg3/youtube-dl/releases/download/2016.12.31/youtube-dl-2016.12.31.tar.gz"
   sha256 "94d9f6cb99a1f5c27a8885f1bffe1f36c7e89feef961a83f78d8093284cf1ec9"
+  head "https://github.com/rg3/youtube-dl.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,11 +15,7 @@ class YoutubeDl < Formula
     sha256 "f35411edcc00d23b4a488b49af6fe688d5cc2286a7951ecf9e6bc96af87ce741" => :yosemite
   end
 
-  head do
-    url "https://github.com/rg3/youtube-dl.git"
-    depends_on "pandoc" => :build
-  end
-
+  depends_on "pandoc" => :build
   depends_on "rtmpdump" => :optional
 
   def install
