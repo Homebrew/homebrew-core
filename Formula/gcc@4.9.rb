@@ -28,9 +28,10 @@ class GccAT49 < Formula
   head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_9-branch"
 
   bottle do
-    sha256 "298b051b7d18c9513d9b6bc7c493eabfebcb45b83894fdb84d1262bc2c03200d" => :sierra
-    sha256 "3db928fdee29fc3b6a50a6b725808c9855b0f36cbd8d12869bbfa18d64f46a65" => :el_capitan
-    sha256 "300c6a88ab274f1bb6044765f8815c8a2f350db3f936d54c2f5ef257804e68e3" => :yosemite
+    rebuild 1
+    sha256 "dd1418732c0ada49d8eaa30e9ad0931368985f63ded2607759d78500c5e53fa4" => :sierra
+    sha256 "cd36fce5fc9135e1909078714b43abe4c5066cfa9c89a29ba32cd3b4b7edc76d" => :el_capitan
+    sha256 "de94adaf14f877894316efae4b1004418a5b426d7838e9853576a9d66d5f1f01" => :yosemite
   end
 
   if MacOS.version >= :yosemite
