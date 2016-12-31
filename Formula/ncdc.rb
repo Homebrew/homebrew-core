@@ -6,11 +6,9 @@ class Ncdc < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "5f94587e044934bdafa6bb72828438c977d13472e6351aed8e788017583b2edb" => :sierra
-    sha256 "f7feefe3718e9c3a05ce79f2041dc32bfee134bd8814441add9619be68bf4e80" => :el_capitan
-    sha256 "1ef7784bd2c40aa5e20c9fd125bf9707dbebd2af6c8df82587d5831ba8f089a8" => :yosemite
-    sha256 "1446fb4a72a5af8abc839e6b8e2e4ccbf53fbb95f0ff005ccdc36045965210d6" => :mavericks
+    sha256 "1e882285c9367191a63d62cea2f539b22f9d209593649d6f3fb6c7a472cc2eaa" => :sierra
+    sha256 "05b153207799eae9250516bfd51b41e0069f94155d727ec69a016db96bdfa349" => :el_capitan
+    sha256 "8655d4cda874055cadc3c02f1a1929385f1d8e08e7f5b7fa0a6a8971321aeee8" => :yosemite
   end
 
   head do
