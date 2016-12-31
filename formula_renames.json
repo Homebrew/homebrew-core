@@ -24,6 +24,7 @@
   "hamsterdb": "upscaledb",
   "heroku-toolbelt": "heroku",
   "isl011": "isl@0.11",
+  "isl012": "isl@0.12",
   "isl014": "isl@0.14",
   "kotlin-compiler": "kotlin",
   "juju": "juju@1.25",
