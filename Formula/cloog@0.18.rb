@@ -8,9 +8,10 @@ class CloogAT018 < Formula
 
   bottle do
     cellar :any
-    sha256 "ce68d6fe432603b7c52cb6502eb1cac6fe89cb3fd5d39d28a9f28a8d422b78d9" => :sierra
-    sha256 "41d9d79f23da5752a2c3c9ca2b3489de8dd1eedf55e6d7b5226fc38e9d19037f" => :el_capitan
-    sha256 "875b986395c3e98d5bf5cbeab803c47cbb7668ccebb57f8550c56019ef922a18" => :yosemite
+    rebuild 1
+    sha256 "0510018effa230134f8976e06e54424e8a2a7aa0857bb9c178574eb044bfc6eb" => :sierra
+    sha256 "874f95df2fe0c9243302c86eb551f207afe467ef9e56a3b54b08814459f1f125" => :el_capitan
+    sha256 "1b72d502896aa6c2b67a56ef5dc5518fcd3a21fa8c4f56490d092b2e80cb1d27" => :yosemite
   end
 
   keg_only "Older version of cloog"
