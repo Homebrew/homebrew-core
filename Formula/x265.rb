@@ -1,8 +1,8 @@
 class X265 < Formula
   desc "H.265/HEVC encoder"
   homepage "http://x265.org"
-  url "https://bitbucket.org/multicoreware/x265/downloads/x265_2.1.tar.gz"
-  sha256 "88fcb9af4ba52c0757ac9c0d8cd5ec79951a22905ae886897e06954353d6a643"
+  url "https://bitbucket.org/multicoreware/x265/downloads/x265_2.2.tar.gz"
+  sha256 "b872552535e41fbffa03ba7cbcd3479c42c4053868309292e78e147b7773ac4b"
 
   head "https://bitbucket.org/multicoreware/x265", :using => :hg
 
