@@ -13,7 +13,7 @@ class GnomeAutoar < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-	                        "--disable-glibtest",
+	                  "--disable-glibtest",
                           "--disable-schemas-compile"
     system "make", "install"
   end
