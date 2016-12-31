@@ -22,6 +22,6 @@ class Recipes < Formula
   end
 
   test do
-    system "recipes", "--help"
+    system "#{bin}/recipes", "--help"
   end
 end
