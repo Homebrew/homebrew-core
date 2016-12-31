@@ -5,6 +5,7 @@ class Libchaos < Formula
   sha256 "29940ff014359c965d62f15bc34e5c182a6d8a505dc496c636207675843abd15"
 
   depends_on "cmake" => :build
+  needs :cxx11
 
   def install
     mkdir "build" do
@@ -15,18 +16,17 @@ class Libchaos < Formula
 
   test do
     (testpath/"t_libchaos.cc").write <<-EOS
+    #include <chaos.h>
     #include <iostream>
     #include <string>
-    #include <assert.h>
-
-    #include <chaos.h>
 
     int main(void) {
-      assert(strcmp(CHAOS_META_NAME(CHAOS_MACHINE_XORRING64),
-        "xorring64") == 0);
+      std::cout << CHAOS_META_NAME(CHAOS_MACHINE_XORRING64) << std::endl;
       std::string hash = chaos::password<CHAOS_MACHINE_XORRING64, 175, 25, 40>(
-        "some secret password", "my private salt");
+          "some secret password", "my private salt");
       std::cout << hash << std::endl;
+      if (hash.size() != 40)
+        return 1;
       return 0;
     }
     EOS
