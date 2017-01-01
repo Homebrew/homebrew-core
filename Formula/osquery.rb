@@ -5,7 +5,7 @@ class Osquery < Formula
   url "https://github.com/facebook/osquery.git",
     :tag => "1.7.3",
     :revision => "6901aa644a9bcc0667207008db71471abf756b82"
-  revision 6
+  revision 7
 
   bottle do
     cellar :any
@@ -14,35 +14,37 @@ class Osquery < Formula
     sha256 "9279afff7830b7cf05dd8b741f1e06800cfb37761e13ad62d370493a39680467" => :yosemite
   end
 
+  fails_with :gcc => "6"
+
   # osquery only supports OS X 10.9 and above. Do not remove this.
   depends_on :macos => :mavericks
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "boost"
   depends_on "rocksdb"
   depends_on "thrift"
   depends_on "yara"
-  depends_on "libressl"
+  depends_on "openssl"
   depends_on "gflags"
   depends_on "glog"
   depends_on "libmagic"
+  depends_on "lz4"
   depends_on "cpp-netlib"
   depends_on "sleuthkit"
 
-  resource "markupsafe" do
-    url "https://pypi.python.org/packages/source/M/MarkupSafe/MarkupSafe-0.23.tar.gz"
+  resource "MarkupSafe" do
+    url "https://files.pythonhosted.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"
     sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
   end
 
-  resource "jinja2" do
-    url "https://pypi.python.org/packages/source/J/Jinja2/Jinja2-2.7.3.tar.gz"
-    sha256 "2e24ac5d004db5714976a04ac0e80c6df6e47e98c354cb2c0d82f8879d4f8fdb"
+  resource "Jinja2" do
+    url "https://files.pythonhosted.org/packages/5f/bd/5815d4d925a2b8cbbb4b4960f018441b0c65f24ba29f3bdcfb3c8218a307/Jinja2-2.8.1.tar.gz"
+    sha256 "35341f3a97b46327b3ef1eb624aadea87a535b8f50863036e085e7c426ac5891"
   end
 
   resource "psutil" do
-    url "https://pypi.python.org/packages/source/p/psutil/psutil-2.2.1.tar.gz"
-    sha256 "a0e9b96f1946975064724e242ac159f3260db24ffa591c3da0a355361a3a337f"
+    url "https://files.pythonhosted.org/packages/d9/c8/8c7a2ab8ec108ba9ab9a4762c5a0d67c283d41b13b5ce46be81fdcae3656/psutil-5.0.1.tar.gz"
+    sha256 "9d8b7f8353a2b2eb6eb7271d42ec99d0d264a9338a37be46424d56b4e473b39e"
   end
 
   # as of gflags 2.2.0 FlagRegisterer no longer needs type specified
@@ -55,12 +57,52 @@ class Osquery < Formula
     sha256 "be111edf7d46b7a0c630e73ce754c00ff2c289b5221b87080b9e7eb57ec1e4b0"
   end
 
-  def install
-    # Link dynamically against brew-installed libraries.
-    ENV["BUILD_LINK_SHARED"] = "1"
+  resource "boost" do
+    url "https://downloads.sourceforge.net/project/boost/boost/1.62.0/boost_1_62_0.tar.bz2"
+    sha256 "36c96b0f6155c98404091d8ceb48319a28279ca0333fba1ad8611eb90afb2ca0"
+  end
 
-    # Use LibreSSL instead of the system provided OpenSSL.
-    ENV["BUILD_USE_LIBRESSL"] = "1"
+  def install
+    ENV.cxx11
+
+    resource("boost").stage do
+      # Force boost to compile with the desired compiler
+      open("user-config.jam", "a") do |file|
+        file.write "using darwin : : #{ENV.cxx} ;\n"
+        file.write "using mpi ;\n" if build.with? "mpi"
+      end
+
+      bootstrap_args = %W[
+        --without-icu
+        --prefix=#{libexec}/boost
+        --libdir=#{libexec}/boost/lib
+        --with-libraries=filesystem,regex,system
+      ]
+
+      args = %W[
+        --prefix=#{libexec}/boost
+        --libdir=#{libexec}/boost/lib
+        -d2
+        -j#{ENV.make_jobs}
+        --ignore-site-config
+        --layout=tagged
+        --user-config=user-config.jam
+        install
+        threading=multi
+        link=static
+        optimization=space
+        variant=release
+        cxxflags=-std=c++11
+      ]
+
+      if ENV.compiler == :clang
+        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
+      end
+
+      system "./bootstrap.sh", *bootstrap_args
+      system "./b2", "headers"
+      system "./b2", *args
+    end
 
     # Skip test and benchmarking.
     ENV["SKIP_TESTS"] = "1"
@@ -68,8 +110,9 @@ class Osquery < Formula
     ENV.prepend_create_path "PYTHONPATH", buildpath/"third-party/python/lib/python2.7/site-packages"
     ENV["THRIFT_HOME"] = Formula["thrift"].opt_prefix
 
-    resources.each do |r|
-      r.stage do
+    res = resources.map(&:name).to_set - ["boost"]
+    res.each do |r|
+      resource(r).stage do
         system "python", "setup.py", "install",
                                  "--prefix=#{buildpath}/third-party/python/",
                                  "--single-version-externally-managed",
@@ -77,7 +120,18 @@ class Osquery < Formula
       end
     end
 
-    system "cmake", ".", *std_cmake_args
+    ENV["BOOST_ROOT"] = Formula["osquery"].libexec/"boost/include"
+
+    args = std_cmake_args + %W[
+      -Dboost_filesystem_library:FILEPATH=#{libexec}/boost/lib/libboost_filesystem-mt.a
+      -Dboost_regex_library:FILEPATH=#{libexec}/boost/lib/libboost_regex-mt.a
+      -Dboost_system_library:FILEPATH=#{libexec}/boost/lib/libboost_system-mt.a
+    ]
+
+    # Link dynamically against brew-installed libraries.
+    ENV["BUILD_LINK_SHARED"] = "1"
+
+    system "cmake", ".", *args
     system "make"
     system "make", "install"
   end
@@ -117,8 +171,16 @@ class Osquery < Formula
     EOS
 
     system ENV.cxx, "test.cpp", "-o", "test", "-v", "-std=c++11",
-      "-losquery", "-lthrift", "-lboost_system", "-lboost_thread-mt",
-      "-lboost_filesystem", "-lglog", "-lgflags", "-lrocksdb"
+                    "-I#{include}", "-I#{libexec}/boost/include",
+                    "-I#{Formula["gflags"].opt_include}",
+                    "-I#{Formula["glog"].opt_include}",
+                    "-L#{lib}", "-L#{libexec}/boost/lib",
+                    "-L#{Formula["gflags"].opt_lib}",
+                    "-L#{Formula["glog"].opt_lib}",
+                    "-L#{Formula["rocksdb"].opt_lib}",
+                    "-L#{Formula["thrift"].opt_lib}",
+                    "-losquery", "-lboost_filesystem-mt", "-lboost_system-mt",
+                    "-lgflags", "-lglog", "-lrocksdb", "-lthrift"
     system "./test"
   end
 end
