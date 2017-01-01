@@ -227,7 +227,6 @@
   "pdf-tools": "homebrew/emacs",
   "pdf2image": "homebrew/x11",
   "pdfjam": "homebrew/tex",
-  "pdftoipe": "homebrew/head-only",
   "pdksh": "homebrew/boneyard",
   "pebble-sdk": "pebble/pebble-sdk",
   "peervpn": "homebrew/boneyard",
