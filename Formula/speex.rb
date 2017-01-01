@@ -1,17 +1,14 @@
 class Speex < Formula
   desc "Audio codec designed for speech"
   homepage "http://speex.org"
-  url "http://downloads.us.xiph.org/releases/speex/speex-1.2rc1.tar.gz"
-  sha256 "342f30dc57bd4a6dad41398365baaa690429660b10d866b7d508e8f1179cb7a6"
+  url "http://downloads.us.xiph.org/releases/speex/speex-1.2.0.tar.gz"
+  sha256 "eaae8af0ac742dc7d542c9439ac72f1f385ce838392dc849cae4536af9210094"
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "cff3da001ea5e21ae9cb2292460500a04d8ffbd28d2adbc957499d3960c71e59" => :sierra
-    sha256 "fc685c1693b9a669112c9c13bf9b1758a6ac2adf45ff99fdbf8c6202254110bf" => :el_capitan
-    sha256 "72bf08da8cf820cdf56072fa4bdb2cecf79d9eb8f4999873f48358f0acc92793" => :yosemite
-    sha256 "79678ca5128b013bedd0e2dee757d4b746f3120b64742d6e9a587e91f2659b4a" => :mavericks
-    sha256 "c245232af0587e05254cbce4d078f420c5bf79508c0021c2aa72edfdcdc4f8b2" => :mountain_lion
+    sha256 "5aa61761fb5426de78297fdc83579515dda1a880f47c925cb3405b7175079b92" => :sierra
+    sha256 "056781a4d7c5fe9a05f30160c059352bda0a4f8a759820df7dde7233aa08cba5" => :el_capitan
+    sha256 "a0b3c91782b8242508adac3ebc0cd86688e75b043ea0d84f4ef7ac9940f8a21b" => :yosemite
   end
 
   option :universal
@@ -20,7 +17,7 @@ class Speex < Formula
   depends_on "libogg" => :recommended
 
   def install
-    ENV.j1
+    ENV.deparallelize
     ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

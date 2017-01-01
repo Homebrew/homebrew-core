@@ -59,6 +59,6 @@ class Weechat < Formula
   end
 
   test do
-    system "weechat", "-r", "/quit"
+    system "#{bin}/weechat", "-r", "/quit"
   end
 end

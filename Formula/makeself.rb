@@ -18,6 +18,6 @@ class Makeself < Formula
   test do
     touch "testfile"
     system "tar", "cvzf", "testfile.tar.gz", "testfile"
-    system "makeself", ".", "testfile.run", '"A test file"', "echo"
+    system "#{bin}/makeself", ".", "testfile.run", '"A test file"', "echo"
   end
 end

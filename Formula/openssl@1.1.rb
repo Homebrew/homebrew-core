@@ -1,15 +1,15 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.0b.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0b.tar.gz"
-  sha256 "a45de072bf9be4dea437230aaf036000f0e68c6a665931c57e76b5b036cef6f7"
+  url "https://www.openssl.org/source/openssl-1.1.0c.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0c.tar.gz"
+  sha256 "fc436441a2e05752d31b4e46115eb89709a28aef96d4fe786abe92409b2fd6f5"
   version_scheme 1
 
   bottle do
-    sha256 "341cc068d59c5f9a551815e61ae8a5460356ffd7ced67d0d89d354d342cf002c" => :sierra
-    sha256 "17135ac0f3f26aff6ebdc15236f4056456950890732ca438f185a85c1515dcd7" => :el_capitan
-    sha256 "fd3da75aeef50c3835f918e77a22b5a17abef478d54173714668fc3e98c391e3" => :yosemite
+    sha256 "bd582f23920475e5dee6aeaab79d9af9d6bd5592f534bc07e10cf41d1bc1ac43" => :sierra
+    sha256 "528ab5f19b4f5b08d8cc921ee0675515c50f1e870a10de7bac2fea1a4062c0c1" => :el_capitan
+    sha256 "34d106f1b300d4b192757941febde26cba194d903c5683d09df8b7328ce04215" => :yosemite
   end
 
   keg_only :provided_by_osx,
@@ -138,7 +138,7 @@ class OpensslAT11 < Formula
     )
 
     valid_certs = certs.select do |cert|
-      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
+      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout >/dev/null", "w") do |openssl_io|
         openssl_io.write(cert)
         openssl_io.close_write
       end

@@ -14,7 +14,7 @@ First time contributing to Homebrew? Read our [Code of Conduct](https://github.c
 * check if the same upgrade has been already submitted by [searching the open pull requests for `foo`](https://github.com/Homebrew/homebrew-core/pulls?utf8=✓&q=is%3Apr+is%3Aopen+foo).
 * `brew edit foo`
 * edit [`url`](http://www.rubydoc.info/github/Homebrew/brew/master/Formula#url-class_method) and [`sha256`](http://www.rubydoc.info/github/Homebrew/brew/master/Formula#sha256%3D-class_method)/[`tag`](http://www.rubydoc.info/github/Homebrew/brew/master/Formula#url-class_method), leave the [`bottle`](http://www.rubydoc.info/github/Homebrew/brew/master/Formula#bottle-class_method) as-is
-* `brew install foo`
+* `brew install --build-from-source foo`
 * run `brew audit --strict foo` and fix any issues
 * `git commit` with commit subject `foo 1.2.3`
 * [open a pull request](https://github.com/Homebrew/brew/blob/master/docs/How-To-Open-a-Homebrew-Pull-Request-(and-get-it-merged).md#how-to-open-a-homebrew-pull-request-and-get-it-merged) and fix any failing tests
@@ -22,7 +22,7 @@ First time contributing to Homebrew? Read our [Code of Conduct](https://github.c
 ### Add a new formula for `foo` version `2.3.4` from `$URL`
 
 * read [the Formula Cookbook](https://github.com/Homebrew/brew/blob/master/docs/Formula-Cookbook.md#formula-cookbook) or: `brew create $URL` and make edits
-* `brew install foo`
+* `brew install --build-from-source foo`
 * `brew audit --new-formula foo`
 * `git commit` with message formatted `foo 2.3.4 (new formula)`
 * [open a pull request](https://github.com/Homebrew/brew/blob/master/docs/How-To-Open-a-Homebrew-Pull-Request-(and-get-it-merged).md#how-to-open-a-homebrew-pull-request-and-get-it-merged) and fix any failing tests

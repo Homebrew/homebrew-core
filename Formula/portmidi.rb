@@ -6,14 +6,14 @@ class Portmidi < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "0753ebe02a1713ebc6d090cec9be0bb3c01cf4fec430aa6eabe63b483f954e7f" => :sierra
-    sha256 "5320b13b677108342e5153f86f3472a5dc988cd616e804bbe20ea19a237602b0" => :el_capitan
-    sha256 "091871a9be11e7af35cd455bb55e8020ce911ac768ac0569fa489d7b34fd715e" => :yosemite
-    sha256 "c950ba2eed6221f1734ab05fe44c263eedbabd7510bec2de3333c61984bfb87c" => :mavericks
+    rebuild 2
+    sha256 "755cc50ba616dc4b10228a792f63af6e280cc85a641ed19f10df3092e5e65a13" => :sierra
+    sha256 "bafccc31f658c6803e95f982564b463dab81402428843393db20283fd78c2821" => :el_capitan
+    sha256 "e349d8556d5699fc3a1599917f8f575c76cd43f437b8371cd8d003ef7a875810" => :yosemite
   end
 
   option "with-java", "Build Java-based app and bindings."
+  option :universal
 
   depends_on "cmake" => :build
   depends_on :python => :optional
@@ -29,6 +29,8 @@ class Portmidi < Formula
   end
 
   def install
+    ENV.universal_binary if build.universal?
+
     inreplace "pm_mac/Makefile.osx", "PF=/usr/local", "PF=#{prefix}"
 
     # need to create include/lib directories since make won't create them itself

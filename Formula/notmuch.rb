@@ -1,14 +1,14 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org"
-  url "https://notmuchmail.org/releases/notmuch-0.23.tar.gz"
-  sha256 "c5e75b658ee2b58c5ac7a79e34d2449d37ddfa5c9e67a736454ec296c9a0a1b8"
+  url "https://notmuchmail.org/releases/notmuch-0.23.4.tar.gz"
+  sha256 "106dd6e39c4955871a49a84488d06394c1cecf66c1542b11834f8e8d5c66453b"
 
   bottle do
     cellar :any
-    sha256 "614766cbffb67f92020139ac55b6f8a0d091d1b75eab352abad1c32fb743722b" => :sierra
-    sha256 "c9f90b4fd8b51bfa3d4c4e4f6a7ca2c7a0dc1708dd3da1511c77e73a659548aa" => :el_capitan
-    sha256 "301aec29fa59adc8e3be59fdf5fff66a6be2636393284a763fe173ae555ad21e" => :yosemite
+    sha256 "603c36e526202f6d4c0a276e5db4c3db17d53b22165e83e2760ed356dc486154" => :sierra
+    sha256 "ab3cfcaa329ef54f4476b0629075f9bbcc67f85629c6157594ed16431f8a6ecd" => :el_capitan
+    sha256 "9c4e41e7f3d8b0ac98fa26e3003381f8b6cc0013fa0fa1310455a23aa7e8b5c9" => :yosemite
   end
 
   option "without-python", "Build without python support"
@@ -17,7 +17,7 @@ class Notmuch < Formula
   depends_on "gmime"
   depends_on "talloc"
   depends_on "xapian"
-  depends_on :emacs => ["21.1", :optional]
+  depends_on :emacs => ["24.1", :optional]
   depends_on :python3 => :optional
   depends_on :ruby => ["1.9", :optional]
 

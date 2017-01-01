@@ -19,11 +19,13 @@ class Proftpd < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}"
-    ENV.j1
+    ENV.deparallelize
     install_user = ENV["USER"]
     install_group = `groups`.split[0]
     system "make", "INSTALL_USER=#{install_user}", "INSTALL_GROUP=#{install_group}", "install"
   end
+
+  plist_options :manual => "proftpd"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -53,11 +55,7 @@ class Proftpd < Formula
     EOS
   end
 
-  def caveats; <<-EOS.undent
-    The config file is in:
-       #{HOMEBREW_PREFIX}/etc/proftpd.conf
-
-    proftpd may need to be run as root, depending on configuration
-    EOS
+  test do
+    assert_match version.to_s, shell_output("#{opt_sbin}/proftpd -v")
   end
 end

@@ -25,6 +25,6 @@ class Fsh < Formula
   end
 
   test do
-    system "fsh", "-V"
+    system "#{bin}/fsh", "-V"
   end
 end

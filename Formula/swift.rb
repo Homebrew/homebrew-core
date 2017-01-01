@@ -3,29 +3,29 @@ class Swift < Formula
   homepage "https://github.com/apple/swift"
 
   stable do
-    url "https://github.com/apple/swift/archive/swift-2.2.1-RELEASE.tar.gz"
-    sha256 "e971e2287055da72564356f369bad97e95821afb1ef36157e954a04a7e90753a"
+    url "https://github.com/apple/swift/archive/swift-3.0.1-RELEASE.tar.gz"
+    sha256 "5770cc45fe352d8a96d35ee35222cba0a47883b057e012a5464d411898afa074"
 
     swift_tag = "swift-#{version}-RELEASE"
     resource "cmark" do
       url "https://github.com/apple/swift-cmark/archive/#{swift_tag}.tar.gz"
-      sha256 "254d3c02bf2b03ad456fa3ad27b4da854e36318fcaf6b6f199fdb3e978a90803"
+      sha256 "07c8d491735cc0bef3a7f8796f9eff5e52011b85e025084721fbc896a469cddb"
     end
 
     resource "clang" do
       url "https://github.com/apple/swift-clang/archive/#{swift_tag}.tar.gz"
-      sha256 "40bdfa7eec0497ec69005d6a5d018b12c85aa2c0959d3408ecaaa9e34ff0415f"
+      sha256 "470e3c735a675aa37f58e4fe206a2d4141478a318dcb78c3fc8121e087e782b4"
     end
 
     resource "llvm" do
       url "https://github.com/apple/swift-llvm/archive/#{swift_tag}.tar.gz"
-      sha256 "f7977e5bb275494b5dac4490afc5d634f894ba5f209f3b2dbd5b7e520fa5fce2"
+      sha256 "5cfaa08743b29e6c8a948654b71fef608a48953b3eb928c3049c07ca279275c9"
     end
   end
 
   bottle do
-    sha256 "f63f2c86b7d5aaed1c922d50e98b146d0cdc0a6437977fef519ee616ec39ac73" => :el_capitan
-    sha256 "573b2120ea67319f8c398c2fa604479281b922deaa884c59b53ee0bc575765c6" => :yosemite
+    sha256 "b890e2a056a71a6e87135bfd50f0a500c81af637aa1184dca1cecf540c0f39c8" => :sierra
+    sha256 "a7763860ae2420475af51e2e970148ad7353a74f6a8dbfd4e2f916cfd81de4f6" => :el_capitan
   end
 
   head do
@@ -77,11 +77,10 @@ class Swift < Formula
         "--lldb-use-system-debugserver",
         "--install-prefix=#{prefix}",
         "--darwin-deployment-version-osx=#{MacOS.version}",
-        "--build-jobs=#{ENV.make_jobs}"
+        "--jobs=#{ENV.make_jobs}"
     end
     bin.install "#{build}/swift-macosx-x86_64/bin/swift",
                 "#{build}/swift-macosx-x86_64/bin/swift-autolink-extract",
-                "#{build}/swift-macosx-x86_64/bin/swift-compress",
                 "#{build}/swift-macosx-x86_64/bin/swift-demangle",
                 "#{build}/swift-macosx-x86_64/bin/swift-ide-test",
                 "#{build}/swift-macosx-x86_64/bin/swift-llvm-opt",

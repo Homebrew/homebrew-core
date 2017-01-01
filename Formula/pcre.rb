@@ -23,11 +23,6 @@ class Pcre < Formula
 
   option :universal
 
-  fails_with :llvm do
-    build 2326
-    cause "Bus error in ld on SL 10.6.4"
-  end
-
   def install
     ENV.universal_binary if build.universal?
 

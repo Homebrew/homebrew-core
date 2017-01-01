@@ -1,38 +1,32 @@
-class PythonWithoutPPCRequirement < Requirement
-  fatal true
-  satisfy(:build_env => false) { !archs_for_command("python").ppc? }
-
-  def message
-    "This software will not compile if your default Python is built with PPC support."
-  end
-end
-
 class Distcc < Formula
   desc "Distributed compiler client and server"
-  homepage "https://code.google.com/p/distcc/"
-  url "https://distcc.googlecode.com/files/distcc-3.2rc1.tar.gz"
-  sha256 "8cf474b9e20f5f3608888c6bff1b5f804a9dfc69ae9704e3d5bdc92f0487760a"
+  homepage "https://github.com/distcc/distcc/"
+  url "https://github.com/distcc/distcc/archive/v3.2rc1.tar.gz"
+  version "3.2rc1"
+  sha256 "33e85981ff6afd94efc38b23b2d8b9036b3dff2dc6eac6982b9ff0ae1de64caa"
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   bottle do
-    sha256 "67cace8962a3046e66c71726e0800b93635e2b51d5ae95d1a4465ec6c93e3a93" => :el_capitan
-    sha256 "e2fb841415d554487d5cd7a9410862c08b99bde86d59e78d007b1eaf73173bdf" => :yosemite
-    sha256 "bf0e1b9468861414802356814229c8c1256abf22fb00bc2819644f4f6e336485" => :mavericks
+    rebuild 1
+    sha256 "7550914e05bccc38cf002ae14a2209248166149fa2720f0b8716320433d51c28" => :sierra
+    sha256 "7a457a41b795c825e315a296e6883a8b8ab749f8329d492026f4b9072571dc7b" => :el_capitan
+    sha256 "4b38fccd7d1f3ac119bc50f4252fd593a828a6564dfb98d6bc819adff332a4b5" => :yosemite
   end
-
-  depends_on PythonWithoutPPCRequirement
 
   def install
     # Make sure python stuff is put into the Cellar.
     # --root triggers a bug and installs into HOMEBREW_PREFIX/lib/python2.7/site-packages instead of the Cellar.
     inreplace "Makefile.in", '--root="$$DESTDIR"', ""
-
+    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
-    plist_path.write startup_plist
-    plist_path.chmod 0644
   end
 
-  def startup_plist; <<-EOPLIST.undent
+  plist_options :manual => "distccd"
+
+  def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -45,21 +39,15 @@ class Distcc < Formula
         <true/>
         <key>ProgramArguments</key>
         <array>
-            <string>#{HOMEBREW_PREFIX}/bin/distccd</string>
+            <string>#{opt_prefix}/bin/distccd</string>
             <string>--daemon</string>
             <string>--no-detach</string>
             <string>--allow=192.168.0.1/24</string>
         </array>
         <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
+        <string>#{opt_prefix}</string>
       </dict>
     </plist>
-    EOPLIST
-  end
-
-  def caveats; <<-EOS.undent
-    Use 'brew services start distcc' to start distccd automatically on login.
-    By default, it will allow access to all clients on 192.168.0.1/24.
     EOS
   end
 

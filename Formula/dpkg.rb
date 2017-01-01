@@ -1,15 +1,14 @@
 class Dpkg < Formula
   desc "Debian package management system"
   homepage "https://wiki.debian.org/Teams/Dpkg"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.10.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.10.tar.xz"
-  sha256 "025524da41ba18b183ff11e388eb8686f7cc58ee835ed7d48bd159c46a8b6dc5"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.15.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.15.tar.xz"
+  sha256 "aee936653b9c39403160c0a331ee7934563fbfa4e1f5adbc14a289c803cda371"
 
   bottle do
-    sha256 "47929bc2b33b461788e0d1b74846cda3ad2454862486220345ec54eebac9b36a" => :sierra
-    sha256 "1e13b24cd8b0ebcdc18974b2324d66e6b5c7e7984be8610ef098dacb8e592c3e" => :el_capitan
-    sha256 "2d4703e267cc69a932dc5c7849111a8504bae13f363fc34d469d43f47699c900" => :yosemite
-    sha256 "c859b1f92594ee0aa612bb3cd9a1a33fb9f7579ca0c23951d0bd0832a1080463" => :mavericks
+    sha256 "d4948d2da0cfd747dc4926fb0b9ed8febe067b925bc65082dbad62fdc03128a8" => :sierra
+    sha256 "904a2b6d2461b41bd87b92c66758c084416f85cf71bce3b6413c5cd99c238bf2" => :el_capitan
+    sha256 "f65544444a68dfd1100485ac081584d9771b4baabe8f4099708be5fd92cb38ba" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -26,7 +25,7 @@ class Dpkg < Formula
     # Using an env and scripting is a solution less likely to break over time.
     # Both variables need to be set. One is compile-time, the other run-time.
     ENV["PERL_LIBDIR"] = libexec/"lib/perl5"
-    ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -34,7 +33,6 @@ class Dpkg < Formula
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
                           "--disable-dselect",
-                          "--disable-linker-optimisations",
                           "--disable-start-stop-daemon"
     system "make"
     system "make", "install"

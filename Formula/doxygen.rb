@@ -1,17 +1,15 @@
 class Doxygen < Formula
   desc "Generate documentation for several programming languages"
   homepage "http://www.doxygen.org/"
-  url "https://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.12.src.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.8.12/doxygen-1.8.12.src.tar.gz"
-  sha256 "792d4091cbdf228549ff2033dd71ff7ea5029c6b436317cc5ec866e71302df6c"
+  url "https://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.13.src.tar.gz"
+  sha256 "af667887bd7a87dc0dbf9ac8d86c96b552dfb8ca9c790ed1cbffaa6131573f6b"
   head "https://github.com/doxygen/doxygen.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ed81e27c7b251dda01c9d8f44657ed6508c12bb2f1703250fb40bbe9ff1392b1" => :sierra
-    sha256 "60656bd148d8a143f6feda2ed4e61a910a62788ab5177864f9e19766546f32c0" => :el_capitan
-    sha256 "9459c7ee8153939bd8ac152548d6c206d67a0aa16be2dcc61dcac616d652d019" => :yosemite
-    sha256 "7bb03f81dc587296272560b6768f6088a5ef7846b9c4975ca6a1a05742393f20" => :mavericks
+    sha256 "1a5065ab4f03154643aa0b3988ef460833898c459c1af3ba2a6e9206891e51d7" => :sierra
+    sha256 "5614c88dc28e4c3f54645e02366646a19b3dad6ff0a3fc9f9525f5495dca467d" => :el_capitan
+    sha256 "d1bd29b70a813314c2e7308d2d8e2593d22913c9a59b3a289885dfe08eba9096" => :yosemite
   end
 
   option "with-graphviz", "Build with dot command support from Graphviz."

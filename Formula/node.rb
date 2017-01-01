@@ -1,14 +1,14 @@
 class Node < Formula
-  desc "Platform built on the V8 JavaScript runtime to build network applications"
+  desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v7.0.0/node-v7.0.0.tar.xz"
-  sha256 "e16c3c76c2d6756bbfd711189cbdaf5676049b443e6817007bb537f243ca899a"
+  url "https://nodejs.org/dist/v7.3.0/node-v7.3.0.tar.xz"
+  sha256 "dde8f6c800ac8049016d86b91ba5aeb6ddb35cb747cd74756dc05cf9fbe16b81"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "494ccc8ea6fa68e8ceace33ad6ced5a9efa24a964d720412cca381a036d28764" => :sierra
-    sha256 "f8bf2da4c0e453603d022ba931cd4a0175f2c7cc0adea63793996ae5f00bf9ec" => :el_capitan
-    sha256 "12595bb720032f50bb984e33342e9fc00362a263b5aa8b1fabaea2e3feae4b7e" => :yosemite
+    sha256 "787569d92b933f7abfc0f4dbc92a92b82246581d47f124e282f9b0d2f5337f30" => :sierra
+    sha256 "bfe478dd77c8d4deed0640edb5d70623b22343e50e135e0ff563d62d20e1ae27" => :el_capitan
+    sha256 "a2b4092c735f40872b1c7e5238c5df0f9b5db204632709b0573ff59485af8650" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -24,9 +24,14 @@ class Node < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl" => :optional
 
+  conflicts_with "node@0.10", :because => "Differing versions of the same formulae."
+  conflicts_with "node@0.12", :because => "Differing versions of the same formulae."
+  conflicts_with "node@4", :because => "Differing versions of the same formulae."
+  conflicts_with "node@5", :because => "Differing versions of the same formulae."
+  conflicts_with "node@6", :because => "Differing versions of the same formulae."
+
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
-  fails_with :llvm
   fails_with :gcc_4_0
   fails_with :gcc
   ("4.3".."4.7").each do |n|
@@ -37,15 +42,16 @@ class Node < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.10.8.tgz"
-    sha256 "1121a75a370fd0efb320fffb7c9e4a8bcb3840d1cf2fbd585c54837b7014dd76"
+    url "https://registry.npmjs.org/npm/-/npm-3.10.10.tgz"
+    sha256 "1a7cd203ac30fd1417326d576ca5c66ae2ae6a2bf1ada151bee2fc0d6965f99a"
   end
 
   resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz"
-    mirror "https://fossies.org/linux/misc/icu4c-57_1-src.tgz"
-    version "57.1"
-    sha256 "ff8c67cb65949b1e7808f2359f2b80f722697048e90e7cfc382ec1fe229e9581"
+    url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
+    mirror "https://fossies.org/linux/misc/icu4c-58_2-src.tgz"
+    mirror "https://downloads.sourceforge.net/project/icu/ICU4C/58.2/icu4c-58_2-src.tgz"
+    version "58.2"
+    sha256 "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
   end
 
   def install

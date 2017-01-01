@@ -3,12 +3,12 @@ class Qscintilla2 < Formula
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
   url "https://downloads.sf.net/project/pyqt/QScintilla2/QScintilla-2.9.3/QScintilla_gpl-2.9.3.tar.gz"
   sha256 "98aab93d73b05635867c2fc757acb383b5856a0b416e3fd7659f1879996ddb7e"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "310291e3544aa93f2022b7d359ca6f852aeb2d2636b027772d04a03856b5e124" => :sierra
-    sha256 "310291e3544aa93f2022b7d359ca6f852aeb2d2636b027772d04a03856b5e124" => :el_capitan
-    sha256 "1bf32d13d7b9eedc95bea4c57c1188a94c6f6261822ef5138f10f18a2fcbf2a7" => :yosemite
+    sha256 "190583c007e245c5db04a8a08a30a63f13921015552f92fc1e7e5ffd509d27b8" => :sierra
+    sha256 "61fba19b628ffd096662735f8c1b74792609181b13c9da8db9a46b9c3ba3bc6b" => :el_capitan
+    sha256 "7f0ff693a52e6a1f57954586e1dde36b55b953e5625b4cb34f8e0737932687e7" => :yosemite
   end
 
   option "with-plugin", "Build the Qt Designer plugin"

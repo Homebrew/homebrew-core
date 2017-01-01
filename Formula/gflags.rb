@@ -1,17 +1,14 @@
 class Gflags < Formula
   desc "Library for processing command-line flags"
   homepage "https://gflags.github.io/gflags/"
-  url "https://github.com/gflags/gflags/archive/v2.1.2.tar.gz"
-  sha256 "d8331bd0f7367c8afd5fcb5f5e85e96868a00fd24b7276fa5fcee1e5575c2662"
+  url "https://github.com/gflags/gflags/archive/v2.2.0.tar.gz"
+  sha256 "466c36c6508a451734e4f4d76825cf9cd9b8716d2b70ef36479ae40f08271f88"
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "74acebb939a243ba3ba0c63bc8e31138b3e63d8403eadc12e8285554e8b28c77" => :sierra
-    sha256 "6ed095ce8dc4921841a7dd0045f9160d6704dba6853dd631ee6855a02efb6bde" => :el_capitan
-    sha256 "8e648b5824007745eb546beffe4d94a3c25a29556f89eaa4a156dec6984335dd" => :yosemite
-    sha256 "8f4093596ce2b359821d9a3398b82d7d327288d24ca9f0218a9ade1ace2bdbfa" => :mavericks
-    sha256 "19d46507297d14c4ff50d99c9279ddd513df439a5d87e5325ef8fb52c37f7e6d" => :mountain_lion
+    sha256 "1574a42aa01d89d14396cd7e914c572dfd03aeedacf3b1fde7aa70a3354ad8ae" => :sierra
+    sha256 "ee9cd12657a11df873e606421d0d070fe97a216dad2167914f52dbb36086603d" => :el_capitan
+    sha256 "f02436e09a92c37d315f12a6336d6e2ee78602ed5221668e331af040ee791722" => :yosemite
   end
 
   option "with-debug", "Build debug version"

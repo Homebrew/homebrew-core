@@ -5,11 +5,12 @@ class Csvtomd < Formula
   homepage "https://github.com/mplewis/csvtomd"
   url "https://files.pythonhosted.org/packages/5a/d8/9dbce820243bb6db670cd1ddea80ea1890c6bfd5d122910fdd157d51d71f/csvtomd-0.1.1.tar.gz"
   sha256 "f2cd1da71ca8ed823d1f02167039e07e58d15a73d672069dfddcda8639576490"
+  revision 1
 
   bottle do
-    sha256 "4364ae91ea62c6b25d87245d0f9046bb3156191b1826ff337f717a43fe4c480d" => :sierra
-    sha256 "ff9ed1382f01e5351c6377052e9e62618feeb04377294a5b7dc4c5f7b5a915c6" => :el_capitan
-    sha256 "ae4316cbe060984c617344c9a581996b1456f3c7c4ad951097c7aa09bb331d97" => :yosemite
+    sha256 "c60454f44269f525807b10b67858b4f49d0d7eca10b367c097f54412a7516809" => :sierra
+    sha256 "faca755b29c143c22d8c62643833454c81a0522a687c7180cf11fc14e1277b75" => :el_capitan
+    sha256 "14d9321aa652cef9a4dab8a1c1fc966d6955a68fda3f3b3f10d454bd2c8ad731" => :yosemite
   end
 
   depends_on :python3

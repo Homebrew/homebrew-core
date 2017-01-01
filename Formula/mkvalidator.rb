@@ -28,7 +28,7 @@ class Mkvalidator < Formula
   end
 
   def install
-    ENV.j1 # Otherwise there are races
+    ENV.deparallelize # Otherwise there are races
     system "./configure"
     system "make", "-C", "mkvalidator"
     bindir = `corec/tools/coremake/system_output.sh`.chomp

@@ -1,14 +1,14 @@
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "http://www.freetds.org/"
-  url "ftp://ftp.freetds.org/pub/freetds/stable/freetds-1.00.15.tar.gz"
-  mirror "https://fossies.org/linux/privat/freetds-1.00.15.tar.gz"
-  sha256 "310be6a9396a3de7a420f58219afacc13fb4f774ee6c70c06da903262db06ec2"
+  url "ftp://ftp.freetds.org/pub/freetds/stable/freetds-1.00.23.tar.bz2"
+  mirror "https://fossies.org/linux/privat/freetds-1.00.23.tar.bz2"
+  sha256 "1be0cedc4ad026c28633c6587e84e35844dfa4e05e6779eae6d475572a64d36f"
 
   bottle do
-    sha256 "8504714793c26361e045fe9d4a8640eb9f26399c8f188927b771e2c20066b29a" => :sierra
-    sha256 "500e02460d3b18e869d4bdb182ddfecdeeb5efc218db4a1da7d8ad3424743028" => :el_capitan
-    sha256 "fd457df31dac76810fde87d45e42b0ba9723841ace49510d56059367ba3b1802" => :yosemite
+    sha256 "6f9f35372aa13f2f9cb276fc1a35c264414394ceedad1a897998a0cb2e4f896e" => :sierra
+    sha256 "9c9a1b8809c2fd3040e04278a5f3160b9cfc4a7666741265db7be68b98390995" => :el_capitan
+    sha256 "99628b203d9055dbbed9e4906efe814b70fb23329b0af2f9dfdff1dcc59c346a" => :yosemite
   end
 
   head do
@@ -75,7 +75,7 @@ class Freetds < Formula
       system "./configure", *args
     end
     system "make"
-    ENV.j1 # Or fails to install on multi-core machines
+    ENV.deparallelize # Or fails to install on multi-core machines
     system "make", "install"
   end
 

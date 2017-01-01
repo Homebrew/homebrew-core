@@ -1,20 +1,24 @@
 class Gtkextra < Formula
   desc "Widgets for creating GUIs for GTK+"
   homepage "http://gtkextra.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/gtkextra/3.3/gtkextra-3.3.2.tar.gz"
-  sha256 "3388692306b1afc79f17f5472a194c607fa67d5a38f1b4e79eda27a27f54f1a4"
+  url "https://downloads.sourceforge.net/project/gtkextra/3.3/gtkextra-3.3.3.tar.gz"
+  sha256 "7889f958ee9fb6bd564aa941891909c3af7a03b92e232c5a90bab0289407d884"
 
   bottle do
     cellar :any
-    sha256 "6b12cfecd5690b9bbecb25abfb0c32e67c12ac28b9a53a0d30c1b5701496f7f4" => :sierra
-    sha256 "588b8a145efbd5e0489e9cf9cbe17fc5652fba479a3572e5367854fa136fcf02" => :el_capitan
-    sha256 "57d90385f07bfd83ee52f4570f2694aa7a5594df1829213f4bda1c7fce9af763" => :yosemite
+    sha256 "e1c1be18254cb2598000bec74511879089a7431ae338fdd4e5ddb05769355fcb" => :sierra
+    sha256 "7b32a82119aa9de2c9f8998db3db68a1700a73bfda917b6047ccc09c5c95e1a5" => :el_capitan
+    sha256 "7ee8be67c7fb4c9c1cb16248055aeecdc6a6f936e80fe767bfdbe4b98975baf3" => :yosemite
   end
 
-  depends_on "gtk+"
   depends_on "pkg-config" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "gtk+"
 
   def install
+    system "autoreconf", "-i"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

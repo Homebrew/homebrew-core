@@ -1,18 +1,14 @@
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
-
-  stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz"
-    sha256 "f10a0b51f45c4f64c1fe69ef713abf9eb9571bc7385a82da892e83bb6c965e90"
-  end
+  url "https://www.apache.org/dyn/closer.cgi?path=zookeeper/zookeeper-3.4.9/zookeeper-3.4.9.tar.gz"
+  sha256 "e7f340412a61c7934b5143faef8d13529b29242ebfba2eba48169f4a8392f535"
 
   bottle do
     cellar :any
-    sha256 "3230d51f26def531a0ebe4897c2f8c6ef12a5a42a9ee8c00ddb782bf531cc561" => :sierra
-    sha256 "b45ec5b5e847bb31357700c3fb02821dc5b42f41f81f432ed6990e35c6719a8b" => :el_capitan
-    sha256 "9988bce4d4e77d580e27ead20a2a9d0d82cc34c795a3dbdaccb71a7e619d0c03" => :yosemite
-    sha256 "7d7c14e893642c5625f34676622ca3766e74cbb7cb39d921cf67bc21afb44a9d" => :mavericks
+    sha256 "bbc85efad319f22fb13a453cfece11636eaafb8cc4ff0fd18bb78178a154629e" => :sierra
+    sha256 "a48486dcbf0155d12340e8ca6beae48d096719a0a7864726f17aacb7adf0efce" => :el_capitan
+    sha256 "bba0b4ed698c79f2bedb0d26a161107570cbcca88a88599587880c543626d0f6" => :yosemite
   end
 
   head do
@@ -42,7 +38,7 @@ class Zookeeper < Formula
 
   def default_zk_env
     <<-EOS.undent
-      export ZOOCFGDIR="#{etc}/zookeeper"
+      [ -z "$ZOOCFGDIR" ] && export ZOOCFGDIR="#{etc}/zookeeper"
     EOS
   end
 
@@ -157,5 +153,12 @@ class Zookeeper < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    output = shell_output("#{bin}/zkServer -h 2>&1")
+    assert_match "Using config: #{etc}/zookeeper/zoo.cfg", output
+    output = shell_output("ZOOCFGDIR=/tmp #{bin}/zkServer -h 2>&1")
+    assert_match "Using config: /tmp/zoo.cfg", output
   end
 end

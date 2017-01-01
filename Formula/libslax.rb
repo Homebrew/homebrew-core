@@ -24,7 +24,7 @@ class Libslax < Formula
     depends_on "sqlite" # Needs 3.7.13, which shipped on 10.9.
   end
 
-  depends_on "libtool"  => :build
+  depends_on "libtool" => :build
   depends_on "curl" if MacOS.version <= :lion
   depends_on "openssl"
 

@@ -6,9 +6,11 @@ class Piknik < Formula
   head "https://github.com/jedisct1/piknik.git"
 
   bottle do
-    sha256 "a5b6ec2bcfaaf4fd7d4770f989f002a3e8e5bc599bf098bbcaff8afd9356a751" => :sierra
-    sha256 "18dffa6ad73f2148f443167e1678a86b62fabf29ae2a5a97b51bea95814a0752" => :el_capitan
-    sha256 "1af1d28a88b23bd23c098e3410c26ed79ad05ac0cf42ded7831f773dee46a27a" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "fffe6c2329ae0840061a464162703ec7cd26649cd985d1ff4de37315059b9357" => :sierra
+    sha256 "40b1bdb322e89f3c955519a3156f8ab9ed7aa3833f0887f1bb1ccf6224038de8" => :el_capitan
+    sha256 "c1bb1b4632aca54d93490f53b9142f7f808abec1cd6761418df63f11abeb80fe" => :yosemite
   end
 
   depends_on "glide" => :build
@@ -30,7 +32,7 @@ class Piknik < Formula
 
   def caveats; <<-EOS.undent
     In order to get convenient shell aliases, put something like this in #{shell_profile}:
-      source "$(brew --prefix)/etc/profile.d/piknik.sh"
+      . #{etc}/profile.d/piknik.sh
     EOS
   end
 

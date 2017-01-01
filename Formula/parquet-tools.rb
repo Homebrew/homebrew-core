@@ -2,17 +2,15 @@ class ParquetTools < Formula
   desc "Apache Parquet command-line tools and utilities"
   homepage "https://parquet.apache.org/"
   url "https://github.com/apache/parquet-mr.git",
-      :tag => "apache-parquet-1.8.1",
-      :revision => "4aba4dae7bb0d4edbcf7923ae1339f28fd3f7fcf"
-
+      :tag => "apache-parquet-1.9.0",
+      :revision => "38262e2c80015d0935dad20f8e18f2d6f9fbd03c"
   head "https://github.com/apache/parquet-mr.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "38775c26308bfa9cde712927d60d5f89daf54fbef837ba8639db13c4abe0be07" => :sierra
-    sha256 "f1382310a6cfd278b0a545c944e32cc6a486b3885ef1f023f4290e0bde4be7bf" => :el_capitan
-    sha256 "1780f8fa81ef90becc15d5e6cbbe6994f639a51429347f9c223599518a9d049d" => :yosemite
-    sha256 "72c7af52e61a9f93ae80dd0c51f42ff09fc7024b985e785e3b79f866720e4d20" => :mavericks
+    sha256 "4759d5a7d777828b8fd59182b3436cef50933927d99b12fc55a0e8f5edaf8e62" => :sierra
+    sha256 "fcb4bd168264a7c7703443c1441e4bb24a1f6c0f161f96879b31cfb867091473" => :el_capitan
+    sha256 "92bd9e54d5e447504dc61b51520bcce62f325f9aee09e3aac580b15a0fc4734e" => :yosemite
   end
 
   depends_on "maven" => :build

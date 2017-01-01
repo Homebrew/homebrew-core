@@ -3,15 +3,14 @@ class Fades < Formula
   homepage "https://fades.readthedocs.org/"
   url "https://pypi.python.org/packages/source/f/fades/fades-5.tar.gz"
   sha256 "1952f496059ba6bac535f2c07effae44a55de0654ababaa1a15879c4b3fa89c1"
-
+  revision 1
   head "https://github.com/PyAr/fades.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2b5adfda71f1a43bdac76eaa9358854d64a446b31d1f045c0bb3723626f56f5b" => :sierra
-    sha256 "03c99b08cf910903a08e1fdb45c8e359b419e32d5dceaa924a4731b8a9299b8d" => :el_capitan
-    sha256 "b1de3519ca9423da3344d84afcfcb9fd7d8a9ea8e65064a075d8df77da3a8d93" => :yosemite
-    sha256 "2bc897cf9b5d4c54261fff90e0fd519010de4784b8024538cc7bcd71158c2781" => :mavericks
+    sha256 "9b4e3a4f485e75ec2a65686db6207dfd5f085c3ae96970933b6ecd647f788cf6" => :sierra
+    sha256 "1a44cbdb4c7ee07150271ad72e9bf55f1edccce3e601e8d474dc80c033d38f35" => :el_capitan
+    sha256 "1a44cbdb4c7ee07150271ad72e9bf55f1edccce3e601e8d474dc80c033d38f35" => :yosemite
   end
 
   depends_on :python3

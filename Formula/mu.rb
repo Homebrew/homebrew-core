@@ -4,16 +4,19 @@
 class Mu < Formula
   desc "Tool for searching e-mail messages stored in the maildir-format"
   homepage "https://www.djcbsoftware.nl/code/mu/"
-  url "https://github.com/djcb/mu-releases/raw/master/mu-0.9.16.tar.gz"
-  sha256 "55dff47f1ec2ea5a409a882009888c4f1b2b6ef2d81ee29753a649654752ee7e"
-  head "https://github.com/djcb/mu.git"
+  url "https://github.com/djcb/mu/releases/download/0.9.18/mu-0.9.18.tar.gz"
+  sha256 "6559ec888d53f8e03b87b67148a73f52fe086477cb10e43f3fc13ed7f717e809"
 
   bottle do
-    rebuild 1
-    sha256 "65d3162cdd56525218cef14453a998f26f100f63d255288a77620b3ef0b5d422" => :sierra
-    sha256 "e0e3532baa75ecee2d71a264a8bed4725a1dc1a6ecb9b0afbcc6f225a77dd06e" => :el_capitan
-    sha256 "927ba3c36a061061c679ad91319d614532dbbd7c450ec0e0172681465b8f06e3" => :yosemite
-    sha256 "99553174cd38a3d19993a94c07dafab56e98f591ac5054bf6b79d1d6b13f5e02" => :mavericks
+    sha256 "7a22948357dea29fea7aad7fb40a1d40c91587a9ae6d5584fdc926c051558394" => :sierra
+    sha256 "2668d780329437c1a9aa3a59a545f227adb2effcd162c61a57d162c0dea27596" => :el_capitan
+    sha256 "5021092fa9584e6ed4755a61d675dbd89108706de2b4f4e35fe0597a5a79fcb1" => :yosemite
+  end
+
+  head do
+    url "https://github.com/djcb/mu.git"
+
+    depends_on "autoconf-archive" => :build
   end
 
   depends_on "autoconf" => :build

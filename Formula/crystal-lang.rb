@@ -1,27 +1,14 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  revision 1
+  url "https://github.com/crystal-lang/crystal/archive/0.20.3.tar.gz"
+  sha256 "5372ba2a35d885345207047a51b9389f9190fd12389847e7f7298618bcf59ad6"
   head "https://github.com/crystal-lang/crystal.git"
 
-  stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.19.4.tar.gz"
-    sha256 "e239afa449744e0381823531f6af66407ba1f4b78767bd67a9bb09d9fcc6b9e4"
-
-    # Remove for > 0.19.4
-    # changes already merged upstream to fix compilation with LLVM 3.9
-    # https://github.com/crystal-lang/crystal/pull/3439
-    patch do
-      url "https://github.com/crystal-lang/crystal/commit/13b11d7.patch"
-      sha256 "d981515791c48ae7fce0e906b0eec934fd622987a87f0614b3c91c71b0966b66"
-    end
-  end
-
   bottle do
-    rebuild 1
-    sha256 "c4b0dc235c1869d886be08627f39ac16bfc0766420f211099f24db8d7aa22c06" => :sierra
-    sha256 "a31e70a472ac213f39bc6365bd59048b73b615a57fadc4420829ed2e87f09fc3" => :el_capitan
-    sha256 "be5f69d7050db3c477cab53ba6974b59529797392b3c32e212bb9d34c16af1b3" => :yosemite
+    sha256 "8151152f558b4e637ee0f69d72efde11a0278b773bee94ffbb7c15323d6194b8" => :sierra
+    sha256 "b63367ce6369837c4f4ecd4e74df089547588507ccd918b23692eb890019dbfc" => :el_capitan
+    sha256 "2c1447650ad720bd00b5213ef4cf18f299d376349622aa9da4e04d021aa15752" => :yosemite
   end
 
   option "without-release", "Do not build the compiler in release mode"
@@ -36,14 +23,14 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.19.3/crystal-0.19.3-1-darwin-x86_64.tar.gz"
-    version "0.19.3"
-    sha256 "2c9aebfefe2aca46eeda1e5a3fd6a91e3177af8f324ea23ebf8b5cad3c87ad2d"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.20.1/crystal-0.20.1-1-darwin-x86_64.tar.gz"
+    version "0.20.1"
+    sha256 "e934d5e737949a6bce977f810d0ffdd3ddcb4b226125400c8f64f46944af56c5"
   end
 
   resource "shards" do
-    url "https://github.com/ysbaddaden/shards/archive/v0.6.4.tar.gz"
-    sha256 "5972f1b40bb3253319f564dee513229f82b0dcb8eea1502ae7dc483a9c6da5a0"
+    url "https://github.com/crystal-lang/shards/archive/v0.7.1.tar.gz"
+    sha256 "31de819c66518479682ec781a39ef42c157a1a8e6e865544194534e2567cb110"
   end
 
   def install
@@ -55,7 +42,7 @@ class CrystalLang < Formula
       ENV["CRYSTAL_CONFIG_VERSION"] = version
     end
 
-    ENV["CRYSTAL_CONFIG_PATH"] = prefix/"src:libs:lib"
+    ENV["CRYSTAL_CONFIG_PATH"] = prefix/"src:lib"
     ENV.append_path "PATH", "boot/bin"
 
     if build.with? "release"

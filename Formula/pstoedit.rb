@@ -3,13 +3,12 @@ class Pstoedit < Formula
   homepage "http://www.pstoedit.net/"
   url "https://downloads.sourceforge.net/project/pstoedit/pstoedit/3.70/pstoedit-3.70.tar.gz"
   sha256 "06b86113f7847cbcfd4e0623921a8763143bbcaef9f9098e6def650d1ff8138c"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 "e59491ef16cd7ad6090ae3a2419b81d81cb4b5e83e37b28d83015be018e58147" => :sierra
-    sha256 "cc96b0fb284bbabdf14cc129b8e1fe3d92bf9936395f492c9d6e374bbb4b741e" => :el_capitan
-    sha256 "30ceb72f6abb640d43688b3375815a5c7ebf5299916917788c10914519a43127" => :yosemite
-    sha256 "3389eded1fc8a6c62dc47ad1ceba64f2e476f964d09e4f989071d1b290a8996d" => :mavericks
+    sha256 "826db501efe9109b15048acc51c21dde4d9bb3fa0a0fd0e941266fa0fa386cde" => :sierra
+    sha256 "e9b0551ca5f24fb36834b3ba151d659d8abc5cf2e1dccbb99706adda65e3e8e1" => :el_capitan
+    sha256 "c91f6ccf6ce6831c30036d6f459514b01e10cd84c053d906e367b36cc90c8f56" => :yosemite
   end
 
   depends_on "pkg-config" => :build

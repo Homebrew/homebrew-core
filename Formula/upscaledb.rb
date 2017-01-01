@@ -38,11 +38,6 @@ class Upscaledb < Formula
     build 503
     cause "error: member access into incomplete type 'const std::type_info"
   end
-  fails_with :llvm do
-    build 2336
-    cause "error: forward declaration of 'const struct std::type_info'"
-  end
-
   def install
     # Fix collision with isset() in <sys/params.h>
     # See https://github.com/Homebrew/homebrew-core/pull/4145

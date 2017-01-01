@@ -9,12 +9,12 @@ class Postgrest < Formula
   url "https://github.com/begriffs/postgrest/archive/v0.3.2.0.tar.gz"
   sha256 "1cedceb22f051d4d80a75e4ac7a875164e3ee15bd6f6edc68dfca7c9265a2481"
   head "https://github.com/begriffs/postgrest.git"
+  revision 1
 
   bottle do
-    sha256 "889e4eba9ec555d6304765feb5e25cd46d55806a323e237f4fba708a55af8dad" => :sierra
-    sha256 "a6315f312795298dca7bb58b8b671020e52db78f7f60c85a80647f2af0ef5ba5" => :el_capitan
-    sha256 "f775adbb96f422903e41af81d5277dcbd6497197308fe26abce04e574d7778d1" => :yosemite
-    sha256 "f245755397ec6c1718f989f3df8cb6a5b0e6d3ae821304954d51c22050f58e6e" => :mavericks
+    sha256 "e46e739256e3f753abe8540db32cff90ed8e4adfbed1e658cb229dc8ded0ce00" => :sierra
+    sha256 "287da0080c05d3e3903d8c8fcaa18f55811b857d297096664511bfdbc7868caa" => :el_capitan
+    sha256 "57351277753e13fd3667c12b1514290f7aaac42abd90e03309ac7a6d04a931b4" => :yosemite
   end
 
   depends_on "ghc" => :build

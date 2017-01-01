@@ -1,14 +1,14 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "http://ftp.exim.org/pub/exim/exim4/exim-4.87.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/exim/exim4/exim-4.87.tar.bz2"
-  sha256 "74691e0dff4d1b5d387e9c33c86f96a8f6d2adbc781c0dec9d2061a847b07dc9"
+  url "http://ftp.exim.org/pub/exim/exim4/exim-4.88.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/exim/exim4/exim-4.88.tar.bz2"
+  sha256 "119d5fd7e31fc224e84dfa458fe182f200856bae7adf852a8287c242161f8a2d"
 
   bottle do
-    sha256 "ae1edaa9bf887ede5ed4b3617486b02b9e40ca693beacf6f6eee264be1d5de73" => :sierra
-    sha256 "55453f4af7c7d9c0484869ac923fc7ff4e49e866ec70cedff00cd12358466dd7" => :el_capitan
-    sha256 "033f2c0465b702ea98b89c74858be24026215c957504ab695c57daefd2c60d7e" => :yosemite
+    sha256 "a9b1dbcca6ee309521e9a1436ce65eccb316cae9bffe5fdc8e4c649402f17d5c" => :sierra
+    sha256 "6b75b2b698f2733b5b1130240d1182a29262f61f6d483c225f1114cebfdf2a0f" => :el_capitan
+    sha256 "a55f208727d7fa23b7021623aae684fd4f568a4f578db9b2cc9ef8e232dae9b0" => :yosemite
   end
 
   deprecated_option "support-maildir" => "with-maildir"
@@ -52,7 +52,7 @@ class Exim < Formula
     # The compile script ignores CPPFLAGS
     ENV.append "CFLAGS", ENV.cppflags
 
-    ENV.j1 # See: https://lists.exim.org/lurker/thread/20111109.083524.87c96d9b.en.html
+    ENV.deparallelize # See: https://lists.exim.org/lurker/thread/20111109.083524.87c96d9b.en.html
     system "make"
     system "make", "INSTALL_ARG=-no_chown", "install"
     man8.install "doc/exim.8"

@@ -1,17 +1,16 @@
 class Sslscan < Formula
   desc "Test SSL/TLS enabled services to discover supported cipher suites."
   homepage "https://github.com/rbsec/sslscan"
-  url "https://github.com/rbsec/sslscan/archive/1.11.6-rbsec.tar.gz"
-  version "1.11.6"
-  sha256 "18932a78ad968dc5859b8cc72c84e64a46367887eb9302eaf13069bb9da1e08d"
+  url "https://github.com/rbsec/sslscan/archive/1.11.8-rbsec.tar.gz"
+  version "1.11.8"
+  sha256 "1449f8bb45d323b322cb070a74d8dcc57b43ca2dba0560e7a16151efc8b3d911"
   head "https://github.com/rbsec/sslscan.git"
 
   bottle do
     cellar :any
-    sha256 "5a045b679fc13fb41ec5d6db720ca0275afdf0e7ad4e8247ad69cf781c5b563f" => :sierra
-    sha256 "7fb494cd35dd02742c5bc303fa1c08e814d79c2c1ab94a7259473fa356ae0166" => :el_capitan
-    sha256 "854ff0b05b00e8a53f34c1c8e802f13c3fd296460716fc78d5d818ba56d5730d" => :yosemite
-    sha256 "ba2d28eb56bb0ac8563d0763e3c01ba00866ec842a8af0af688367589a462350" => :mavericks
+    sha256 "04e602109f1066a74f01bb71ba9fcfd354b3508a0dafbc1c4951f30d276aade1" => :sierra
+    sha256 "30a096d3b1458298d1015a61baac9ddc7aab548a0855b47becbf3add224b256a" => :el_capitan
+    sha256 "b69483d7db7813ad144004b0f8c4f6848e6f8f59d305c2d8fd4499ec355247de" => :yosemite
   end
 
   depends_on "openssl"

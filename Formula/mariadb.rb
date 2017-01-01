@@ -1,18 +1,18 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.18/source/mariadb-10.1.18.tar.gz"
-  sha256 "d7336907e9ff44496d6453f92526b25bd253638a64a051ca879f953499873b73"
+  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.20/source/mariadb-10.1.20.tar.gz"
+  sha256 "c24e83f24d674d9912319f9e9422f093c8ca6be1721a4380cbd74792b89ba0b9"
 
   bottle do
-    sha256 "2f8e29bdbbdef563ff9721bdc2fc11a8ecc3797607d9f2ee8dbd041cf5b44a2c" => :sierra
-    sha256 "2022c580adf22c0a3998790b352f9895a252ca1f4a406dfd614861e6ec12d005" => :el_capitan
-    sha256 "0831114ea928b1c566e1da704e5800d3c9b1f9bd38b6856cd060dd506d45da88" => :yosemite
+    sha256 "19183b99cbcfd45b4674cfd9524b2c742f8809649ce39085f813cf78d781d050" => :sierra
+    sha256 "04b201f8a447ef03aac43bb3f432d98a266acf8adcfad69f6fea485da65faed2" => :el_capitan
+    sha256 "e9edfa3f0a8895503f660cf1afce196d9f66c55a8259d1595f96efc3b588b738" => :yosemite
   end
 
   devel do
-    url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.2.2/source/mariadb-10.2.2.tar.gz"
-    sha256 "55cf9e357ae4511fc1330e7cb8a15746d99b3a7875b6da9bcf1acfb1aa6f893a"
+    url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.2.3/source/mariadb-10.2.3.tar.gz"
+    sha256 "7dcbb0c35d2c25e8a2d5bef5a5ebbf578eb755e1dd810ca0e55d529521296249"
   end
 
   option :universal
@@ -53,10 +53,6 @@ class Mariadb < Formula
       s.change_make_var! "basedir", "\"#{prefix}\""
       s.change_make_var! "ldata", "\"#{var}/mysql\""
     end
-
-    # Build without compiler or CPU specific optimization flags to facilitate
-    # compilation of gems and other software that queries `mysql-config`.
-    ENV.minimal_optimization
 
     # -DINSTALL_* are relative to prefix
     args = %W[

@@ -4,16 +4,13 @@ class Libicns < Formula
   url "https://downloads.sourceforge.net/project/icns/libicns-0.8.1.tar.gz"
   mirror "https://mirrors.kernel.org/debian/pool/main/libi/libicns/libicns_0.8.1.orig.tar.gz"
   sha256 "335f10782fc79855cf02beac4926c4bf9f800a742445afbbf7729dab384555c2"
-  revision 1
+  revision 3
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "a6f20d61281b8b5c7fe8273c466cde1c619d3569b74c8471c702c26ea71a328c" => :sierra
-    sha256 "0a4ca09b65f56649ee13e247026b76d558c6f4530f74871149f50b42221f645e" => :el_capitan
-    sha256 "a3bd011b7b3b8aa29e4ef98eab0c15438e88447a3be984af671341db1856f538" => :yosemite
-    sha256 "df6b2e2eaa0e647706073e4523a41b8df32b192b12d671255d7c2009a9900559" => :mavericks
-    sha256 "4a64274683702dac5e144715cfa1f372b6625df5f69d357253999c1bde838e0f" => :mountain_lion
+    sha256 "8fb5848fa2a111b3fc66aaea73c60a0795da6468e2ace92d2de57c9c8a5a3cde" => :sierra
+    sha256 "12579e9f34ef57d3979b5a01206b543a67bf313cdb056d6c3e20e0b8cf0842b6" => :el_capitan
+    sha256 "aed1a7df05a8f98ea64dcdd8c4a406207239b7b187629fc03ae799308a142a4d" => :yosemite
   end
 
   option :universal

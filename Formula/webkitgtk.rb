@@ -1,15 +1,15 @@
 class Webkitgtk < Formula
   desc "Full-featured Gtk+ port of the WebKit rendering engine"
   homepage "https://webkitgtk.org/"
-  url "https://webkitgtk.org/releases/webkitgtk-2.10.9.tar.xz"
-  sha256 "bbb18d741780b1b7fa284beb9a97361ac57cda2e42bad2ae2fcdbf797919e969"
+  homepage "https://webkitgtk.org"
+  url "https://webkitgtk.org/releases/webkitgtk-2.14.1.tar.xz"
+  sha256 "2e2d76c328de65bed6e0e4f096b2720a366654b27fc1af0830ece90bc4b7ceb5"
   revision 1
 
   bottle do
-    sha256 "f6ef3a38294ecba2b9b36543e643301187147f7761484702409ab8466c70ca05" => :sierra
-    sha256 "259c9237a79f0c596ec790b91dc18230beeac86d18ee3880c14afab504e5e6f3" => :el_capitan
-    sha256 "8d2f2e10bae4bc951e7592283bd40cd82199636e9eee1661906dee5274439bc6" => :yosemite
-    sha256 "0a2d7e830a634126fa1b434ffca328cbab76f03889304effe574d292ef0f646e" => :mavericks
+    sha256 "fff429cc57048ef0c0fe2db584c01fd008ab1d1b5bab38ce6b8367a89f8c1c43" => :sierra
+    sha256 "087a5f03b742155327a0dd0bd0b6b118eb126ace81850f8c133c73e30d924cd8" => :el_capitan
+    sha256 "c3128be2e6dd93032f6b55e00d9dc790827268b2191af4017f4537ea93415a0f" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -18,14 +18,17 @@ class Webkitgtk < Formula
   depends_on "enchant"
   depends_on "webp"
 
-  needs :cxx11
-
-  # modified version of the patch in https://bugs.webkit.org/show_bug.cgi?id=151293
-  # should be included in next version
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/webkit/webkit-2.14.1.diff"
+    sha256 "df9af608b9c5c1f19c26db5970ad6b8638fc6b7573b9510f82e4ddadf248787d"
+  end
 
   def install
+    ENV.delete "SDKROOT"
+
+    # turn introspection support OFF until we figure out how to fix it
     extra_args = %w[
+      -DENABLE_INTROSPECTION=OFF
       -DPORT=GTK
       -DENABLE_X11_TARGET=OFF
       -DENABLE_QUARTZ_TARGET=ON
@@ -37,13 +40,16 @@ class Webkitgtk < Formula
       -DENABLE_CREDENTIAL_STORAGE=OFF
       -DENABLE_GEOLOCATION=OFF
       -DENABLE_OPENGL=OFF
+      -DENABLE_GRAPHICS_CONTEXT_3D=OFF
       -DUSE_LIBNOTIFY=OFF
       -DUSE_LIBHYPHEN=OFF
       -DCMAKE_SHARED_LINKER_FLAGS=-L/path/to/nonexistent/folder
     ]
 
-    system "cmake", ".", *(std_cmake_args + extra_args)
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *(std_cmake_args + extra_args)
+      system "make", "install"
+    end
   end
 
   test do
@@ -121,18 +127,3 @@ class Webkitgtk < Formula
     assert_match version.to_s, shell_output("./test")
   end
 end
-
-__END__
-diff --git a/Source/WebKit2/Platform/IPC/unix/ConnectionUnix.cpp b/Source/WebKit2/Platform/IPC/unix/ConnectionUnix.cpp
-index 7594cac..7e39ac0 100644
---- a/Source/WebKit2/Platform/IPC/unix/ConnectionUnix.cpp
-+++ b/Source/WebKit2/Platform/IPC/unix/ConnectionUnix.cpp
-@@ -43,7 +43,7 @@
- #include <gio/gio.h>
- #endif
-
--#if defined(SOCK_SEQPACKET)
-+#if defined(SOCK_SEQPACKET) && !OS(DARWIN)
- #define SOCKET_TYPE SOCK_SEQPACKET
- #else
- #if PLATFORM(GTK)

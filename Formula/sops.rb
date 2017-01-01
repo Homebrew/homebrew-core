@@ -3,16 +3,15 @@ class Sops < Formula
 
   desc "Editor of encrypted files"
   homepage "https://github.com/mozilla/sops"
-  url "https://files.pythonhosted.org/packages/73/78/efb0e0cc6715ccbfdbd82e802c0f394bd8794d159b0998d5d60b4250b702/sops-1.14.tar.gz"
-  sha256 "3af953198e54c9564b74f35c937ec230365a74c3659c720e083422103e064a9e"
+  url "https://pypi.python.org/packages/a9/b3/45763c92831314e4c820208ed908d59205adf25f4a7f4f5d7bee86e860a9/sops-1.15.tar.gz"
+  sha256 "45fc8f55fc0c600dc51a9bbb3b615a32af201f34bfc7806c98c707ef7a2bad1d"
   head "https://github.com/mozilla/sops.git"
 
   bottle do
     cellar :any
-    sha256 "e088165ec84dd3fc5ce81e4d0069c543ec2a1de5d4b68ecea11325d526ca33e6" => :sierra
-    sha256 "14506bfebac13b4816cbfd4db88e88db3862b170c266161c9ecf2b8ba2232cf3" => :el_capitan
-    sha256 "a315c1b4f41d5c7f6aaa833991dcc22c662dfdfc039369aa2b612648f016d361" => :yosemite
-    sha256 "2e34954c20bc5b1137073990ef472d8574e979deb399112533a14558952a3e22" => :mavericks
+    sha256 "95038acdf38ef6bf5f0b9a2f909f342687901c35bfabd71419b70c02cf295251" => :sierra
+    sha256 "0f74494ae92478cec3ce6ebf6a7b88fa8245a7a924adec75f657ddd8000135e3" => :el_capitan
+    sha256 "e19f9bdd0588f733b3fdbaaa4470e675acb0b03c476337ae49e138cd94908525" => :yosemite
   end
 
   depends_on "pkg-config" => :build

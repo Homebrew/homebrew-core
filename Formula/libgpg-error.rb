@@ -1,16 +1,14 @@
 class LibgpgError < Formula
   desc "Common error values for all GnuPG components"
   homepage "https://www.gnupg.org/related_software/libgpg-error/"
-  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.24.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-1.24.tar.bz2"
-  sha256 "9268e1cc487de5e6e4460fca612a06e4f383072ac43ae90603e5e46783d3e540"
+  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.26.tar.bz2"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/libg/libgpg-error/libgpg-error_1.26.orig.tar.bz2"
+  sha256 "4c4bcbc90116932e3acd37b37812d8653b1b189c1904985898e860af818aee69"
 
   bottle do
-    cellar :any
-    sha256 "7e24a4a8c5d6ba2a6834d8ebbef72f2d76d795ee8b349b6560d2058af1e46d1c" => :sierra
-    sha256 "4a8ddf89b1502ed14a165b834c95aefb0bb519f23cbfc3d7212524dd301ff3be" => :el_capitan
-    sha256 "a06c5094fb9ebf5e4069672d0c83a98fb695f59748c59051df20b3d776f71f3b" => :yosemite
-    sha256 "44d4ca69136518bddf81d6e2d1cadc7191e5b0b384d37f47e08f39e5e0121d7d" => :mavericks
+    sha256 "84ecae359a015fefe16831ddfe5d3dfc99772c8903ce711badd0376dfc9a3a0f" => :sierra
+    sha256 "12ae29c509eb5ed2cd0c81ce0a5ac6378fb969703f62c195a059929df22105a9" => :el_capitan
+    sha256 "c7ca03639e52db681ed04b799343e63c61996e5781286ef00c6cb5f6b7a18731" => :yosemite
   end
 
   option :universal

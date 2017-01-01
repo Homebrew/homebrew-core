@@ -26,11 +26,13 @@ class Uade < Formula
   end
 
   def install
-    resource("bencode-tools").stage do
-      system "./configure", "--prefix=#{prefix}", "--without-python"
-      system "make"
-      system "make", "install"
-    end if build.head?
+    if build.head?
+      resource("bencode-tools").stage do
+        system "./configure", "--prefix=#{prefix}", "--without-python"
+        system "make"
+        system "make", "install"
+      end
+    end
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"

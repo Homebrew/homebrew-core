@@ -1,15 +1,15 @@
 class Mediaconch < Formula
   desc "Conformance checker and technical metadata reporter"
   homepage "https://mediaarea.net/MediaConch"
-  url "https://mediaarea.net/download/binary/mediaconch/16.09/MediaConch_CLI_16.09_GNU_FromSource.tar.bz2"
-  version "16.09"
-  sha256 "e85d99ffbdbd45f77b953692fb39fabc89745a4811ecc5729223b264ebf77b54"
+  url "https://mediaarea.net/download/binary/mediaconch/16.11/MediaConch_CLI_16.11_GNU_FromSource.tar.bz2"
+  version "16.11"
+  sha256 "a26543f696280f8c7c4c853aa731040bf179ef2dd9c06341edcf89388d334bce"
 
   bottle do
     cellar :any
-    sha256 "a855eaf364a91accdbc0bb93bf682476266fb9a36a2e7d0ac0514b9caa41737f" => :sierra
-    sha256 "4d718177f09aab18af88c7877e91eb2028d43e85515ecf92a8396557aee15fac" => :el_capitan
-    sha256 "63023e82f3cfbdd6ab8b90f7b5fa50fe428bebd1aeb4247b1f9a4e559c053eff" => :yosemite
+    sha256 "a9236ec559a39fb9a6f252db634f9de10400e2f15ab0e4c34db0575957e98ee0" => :sierra
+    sha256 "e96f16ad5b3e59dbca2767a4b1bc350ad521ef80aae3cd8e762aa0b7ff3d2a32" => :el_capitan
+    sha256 "28974866420751a400c9cb9e11138230369496fe3b621326f029012557748e31" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -21,17 +21,25 @@ class Mediaconch < Formula
 
   def install
     cd "ZenLib/Project/GNU/Library" do
-      system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}"
-      system "make"
+      args = ["--disable-debug",
+              "--disable-dependency-tracking",
+              "--enable-shared",
+              "--enable-static",
+              "--prefix=#{prefix}",
+              # mediaconch installs libs/headers at the same paths as mediainfo
+              "--libdir=#{lib}/mediaconch",
+              "--includedir=#{include}/mediaconch"]
+      system "./configure", *args
+      system "make", "install"
     end
 
     cd "MediaInfoLib/Project/GNU/Library" do
       args = ["--disable-debug",
               "--disable-dependency-tracking",
+              "--enable-static",
+              "--enable-shared",
               "--with-libcurl",
               "--prefix=#{prefix}",
-              # mediaconch installs libs/headers at the same paths as mediainfo
               "--libdir=#{lib}/mediaconch",
               "--includedir=#{include}/mediaconch"]
       system "./configure", *args

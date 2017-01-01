@@ -3,16 +3,16 @@ require "language/node"
 class AzureCli < Formula
   desc "Official Azure CLI"
   homepage "https://github.com/azure/azure-xplat-cli"
-  url "https://github.com/Azure/azure-xplat-cli/archive/v0.10.6-October2016.tar.gz"
-  version "0.10.6"
-  sha256 "a7cbbc5e31328bfaec17af14f50752a4f54e41df360f4a36aa57091f9c24de49"
+  url "https://github.com/Azure/azure-xplat-cli/archive/v0.10.8-December2016.tar.gz"
+  version "0.10.8"
+  sha256 "4878650f5f7495d852a5fddbf23a6458c386125dc2c3917efbcd8e296572efd3"
   head "https://github.com/azure/azure-xplat-cli.git", :branch => "dev"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9cf26a81e677604eca510235dee5c114c0d737a9c563063e29640a69016bd65c" => :sierra
-    sha256 "52245ebdb1b6dae1025cecdf0275f89d87e8f00861a24dd7276c54b2e8077a00" => :el_capitan
-    sha256 "2bcffc313f98a4137df2e368348007fe3b7acfebeb494a59dd3062b7c6f81bc0" => :yosemite
+    sha256 "516d45024edabdc427f0385c50f2c83422f188b316b5bf32da24b5bbe875bf41" => :sierra
+    sha256 "4e777348f21aca14bc2814ecd288f1d2f7dfa59cb2c53e0be1e6852e31f8c77d" => :el_capitan
+    sha256 "411a8248975745e52e09253645602f461a8e5f1fe4ef631f5c0da530d196119f" => :yosemite
   end
 
   depends_on "node"
@@ -28,7 +28,7 @@ class AzureCli < Formula
   test do
     shell_output("#{bin}/azure telemetry --disable")
     json_text = shell_output("#{bin}/azure account env show AzureCloud --json")
-    azure_cloud = Utils::JSON.load(json_text)
+    azure_cloud = JSON.parse(json_text)
     assert_equal azure_cloud["name"], "AzureCloud"
     assert_equal azure_cloud["managementEndpointUrl"], "https://management.core.windows.net"
     assert_equal azure_cloud["resourceManagerEndpointUrl"], "https://management.azure.com/"

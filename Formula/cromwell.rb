@@ -1,8 +1,8 @@
 class Cromwell < Formula
   desc "Workflow Execution Engine using Workflow Description Language"
   homepage "https://github.com/broadinstitute/cromwell"
-  url "https://github.com/broadinstitute/cromwell/releases/download/0.22/cromwell-0.22.jar"
-  sha256 "2949e2d5eb6b32430b83e7587a94d8238b332aefe47c6b2e068b2650bcdec734"
+  url "https://github.com/broadinstitute/cromwell/releases/download/23/cromwell-23.jar"
+  sha256 "c27c201f0cb295c1426ba56861adf97f1d15094ffffb77851cfb7425d1145437"
 
   head do
     url "https://github.com/broadinstitute/cromwell.git"
@@ -51,6 +51,6 @@ class Cromwell < Formula
 
     result = shell_output("#{bin}/cromwell run hello.wdl hello.json")
 
-    assert_match /test\.hello\.response/, result
+    assert_match "test_hello_response", result
   end
 end

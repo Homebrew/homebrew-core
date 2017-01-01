@@ -1,8 +1,11 @@
 class Aiccu < Formula
   desc "Automatic IPv6 Connectivity Client Utility"
   homepage "https://www.sixxs.net/tools/aiccu/"
-  url "https://www.sixxs.net/archive/sixxs/aiccu/unix/aiccu_20070115.tar.gz"
-  sha256 "2260f426c13471169ccff8cb4a3908dc5f79fda18ddb6a55363e7824e6c4c760"
+  # Upstream 402s when passed a non-standard User-Agent such as Homebrew's
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/a/aiccu/aiccu_20070115.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/a/aiccu/aiccu_20070115.orig.tar.gz"
+  version "20070115"
+  sha256 "d23cf50a16fa842242c97683c3c1c1089a7a4964e3eaba97ad1f17110fdfe3cc"
 
   bottle do
     cellar :any_skip_relocation

@@ -1,33 +1,13 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  revision 2
-
-  stable do
-    url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.bz2"
-    sha256 "4a7c5f52f205203ea0328ca8e1963a7a88cf1f7f0e246f857d595b209eac0a4d"
-
-    # Reverts an upstream commit which incorrectly tries to install headers
-    # into SDKROOT, if defined
-    # See https://bugs.ruby-lang.org/issues/11881
-    # The issue has been fixed on HEAD as of 1 Jan 2016, but has not been
-    # backported to the 2.3 branch yet and patch is still required.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/ba8cc6b88e6b7153ac37739e5a1a6bbbd8f43817/ruby/mkconfig.patch"
-      sha256 "929c618f74e89a5e42d899a962d7d2e4af75716523193af42626884eaba1d765"
-    end
-  end
+  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0.tar.bz2"
+  sha256 "440bbbdc49d08d3650f340dccb35986d9399177ad69a204def56e5d3954600cf"
 
   bottle do
-    sha256 "2cb8d433b4948881c2e3f3f2a62c529fbd84ea6e67c69724d8e59320aa54560c" => :sierra
-    sha256 "e16cbadb53777409d930b2732eda252ec186a4076032dce80de273bf8f8ff06c" => :el_capitan
-    sha256 "2d4fd2558c00fb558c79165cf5af3e3ec94686a46b653cf200c08946dd202418" => :yosemite
-  end
-
-  devel do
-    url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0-preview2.tar.xz"
-    version "2.4.0-beta2"
-    sha256 "6c2d25bedc50c2f19b0e349f0ffd9b9a83000d9cb6a677bf5372fb493d33e16a"
+    sha256 "17915322edb90adc7f3bb31dd203fde924d735a32681dbe220b45e099162b35b" => :sierra
+    sha256 "a4326c66518777a710368335014c165b201f0805a4583aa7fc1db007ed811b5d" => :el_capitan
+    sha256 "950321028559e31539c93d937705346320c200f6edbfcb87311cf574974b3b51" => :yosemite
   end
 
   head do
@@ -36,9 +16,8 @@ class Ruby < Formula
   end
 
   option :universal
-  option "with-suffix", "Suffix commands with '23'"
+  option "with-suffix", "Suffix commands with '24'"
   option "with-doc", "Install documentation"
-  option "with-tcltk", "Install with Tcl/Tk support"
 
   depends_on "pkg-config" => :build
   depends_on "readline" => :recommended
@@ -47,11 +26,6 @@ class Ruby < Formula
   depends_on "libffi" => :optional
   depends_on "libyaml"
   depends_on "openssl"
-  depends_on :x11 if build.with? "tcltk"
-
-  fails_with :llvm do
-    build 2326
-  end
 
   def install
     # otherwise `gem` command breaks
@@ -73,13 +47,9 @@ class Ruby < Formula
     end
 
     args << "--program-suffix=#{program_suffix}" if build.with? "suffix"
-    args << "--with-out-ext=tk" if build.without? "tcltk"
     args << "--disable-install-doc" if build.without? "doc"
     args << "--disable-dtrace" unless MacOS::CLT.installed?
     args << "--without-gmp" if build.without? "gmp"
-
-    # Reported upstream: https://bugs.ruby-lang.org/issues/10272
-    args << "--with-setjmp-type=setjmp" if MacOS.version == :lion
 
     paths = [
       Formula["libyaml"].opt_prefix,
@@ -129,11 +99,11 @@ class Ruby < Formula
   end
 
   def abi_version
-    "2.3.0"
+    "2.4.0"
   end
 
   def program_suffix
-    build.with?("suffix") ? "23" : ""
+    build.with?("suffix") ? "24" : ""
   end
 
   def rubygems_bindir

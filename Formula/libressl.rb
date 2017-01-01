@@ -2,14 +2,14 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.3.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.4.3.tar.gz"
-  sha256 "bd5726f3e247e7a7d30ce69946d174b8fb92d999d22710c65f176c969812960e"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.4.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.4.4.tar.gz"
+  sha256 "6fcfaf6934733ea1dcb2f6a4d459d9600e2f488793e51c2daf49b70518eebfd1"
 
   bottle do
-    sha256 "c25978a9b0fc0bdc0c16d39eedf47bfef8b8e6ab7d266d77b54cddf3772bafe2" => :sierra
-    sha256 "1b509bf33ec94496584b1c70d2094a267a961b5c00fb3f8daace7653baeffea1" => :el_capitan
-    sha256 "093e950780c7d7946d283732becb7adb4f067a0accf54c562be3117017e03139" => :yosemite
+    sha256 "195dbdc31bd39dc8e3416862e24d38f125d718038bcba37061fff35f593093d0" => :sierra
+    sha256 "73800293a1f0b46b2799551db94da9dcd5c60d04700a8a186c09898772dd0cf8" => :el_capitan
+    sha256 "11b2aaa96ad2b920c9871e867d3ade299ea9a37473bb85a751c33b882afab86b" => :yosemite
   end
 
   devel do

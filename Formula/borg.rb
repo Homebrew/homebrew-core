@@ -2,15 +2,15 @@ require "language/go"
 
 class Borg < Formula
   desc "Terminal based search engine for bash commands"
-  homepage "http://ok-b.org"
-  url "https://github.com/crufter/borg/archive/v0.0.1.tar.gz"
-  sha256 "4ee3028a3d6034bcf6f92396f2a7abc9ae562652f886551c33a91cb0fbae835d"
+  homepage "https://ok-b.org/"
+  url "https://github.com/crufter/borg/archive/v0.0.2.tar.gz"
+  sha256 "e1b24f34a5b391e910af5aa903a376106c6328389b0accadbca231822ca1ff32"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "788af2a35baa8684d87c08af155e9f8e4337be8e17791037e6427bceff8c9e16" => :sierra
-    sha256 "45ed751aded7f2473187e7c834c8f0504903907352200bb2df7484f7ccba276d" => :el_capitan
-    sha256 "d94dd0f87690d6c0615832eee18d6141ee29973ecfcf114d5d4f5003d24547d9" => :yosemite
+    sha256 "194cb02cf318ae8341ba00119a9b6b4a855a75de60c7c51ccd6a7ee79fb87680" => :sierra
+    sha256 "9ec849e3fead12d9fdb8f61881d6f7ea487e3b4839a307a7a1a2ff7d7a191a98" => :el_capitan
+    sha256 "24b4bac6608cc3fe3e290760c06349f5f8b5b00876e2aa015a8c3d07be40b2fd" => :yosemite
   end
 
   depends_on "go" => :build
@@ -20,14 +20,18 @@ class Borg < Formula
         :revision => "4e76c56581859c14d9d87e1ddbe29e1c0f10195f"
   end
 
+  go_resource "gopkg.in/yaml.v2" do
+    url "https://gopkg.in/yaml.v2.git",
+        :revision => "a5b47d31c556af34a302ce5d659e6fea44d90de0"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
 
     Language::Go.stage_deps resources, buildpath/"src"
     (buildpath/"src/github.com/crufter").mkpath
     ln_s buildpath, buildpath/"src/github.com/crufter/borg"
-
-    system "go", "build", "-o", bin/"borg", "./src/github.com/crufter/borg"
+    system "go", "build", "-o", bin/"borg", "github.com/crufter/borg"
   end
 
   test do

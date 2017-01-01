@@ -3,36 +3,32 @@ class Buku < Formula
 
   desc "Command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v2.5.tar.gz"
-  sha256 "27dd770837110db8348446436aca3c7ed16b2884b4064aad0deb58d4ad4a69d4"
+  url "https://github.com/jarun/Buku/archive/v2.7.tar.gz"
+  sha256 "9ebc95a665e56460d91b9d98711f1eba722b14a14a058e2ef330b117b79943fe"
   revision 1
 
   bottle do
-    sha256 "824e2a0f75cce19b6a78b613dc5063ecf587fa79296b91ae00b357296d368896" => :sierra
-    sha256 "ccc88b0b37cda748f65bdbf0b8706082bab820c0d63748e6de10f1667131222a" => :el_capitan
-    sha256 "ed6b89816df8066f51b20322b9e5dfc80c1524c47224ed2eccc03e1309f17a62" => :yosemite
+    sha256 "9b3511452cb07c82bc2a62d18689adec92fac87aa584d7b6b9cf75a19c81fb58" => :sierra
+    sha256 "26ec6a9fd5b9eef52a054e13330040f2817b0d87d3008774731f40b01fedef32" => :el_capitan
+    sha256 "3987c15d09d55c9be482cd3621e9f6181d108b7fb864d045b90440031d33a20b" => :yosemite
   end
 
   depends_on :python3
-  depends_on "openssl"
-
-  # beautifulsoup4
+  depends_on "openssl@1.1"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/86/ea/8e9fbce5c8405b9614f1fd304f7109d9169a3516a493ce4f7f77c39435b7/beautifulsoup4-4.5.1.tar.gz"
     sha256 "3c9474036afda9136aac6463def733f81017bf9ef3510d25634f335b0c87f5e1"
   end
 
-  # cryptography
-
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/0a/f3/686af8873b70028fccf67b15c78fd4e4667a3da995007afc71e786d61b0a/cffi-1.8.3.tar.gz"
-    sha256 "c321bd46faa7847261b89c0469569530cad5a41976bb6dba8202c0159f476568"
+    url "https://files.pythonhosted.org/packages/a1/32/e3d6c3a8b5461b903651dd6ce958ed03c093d2e00128e3f33ea69f1d7965/cffi-1.9.1.tar.gz"
+    sha256 "563e0bd53fda03c151573217b3a49b3abad8813de9dd0632e10090f6190fdaf8"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/03/1a/60984cb85cc38c4ebdfca27b32a6df6f1914959d8790f5a349608c78be61/cryptography-1.5.2.tar.gz"
-    sha256 "eb8875736734e8e870b09be43b17f40472dc189b1c422a952fa8580768204832"
+    url "https://files.pythonhosted.org/packages/d7/a2/b90736c37fd720db425c5e48d69da75a6eff6609b22d2123762f1ae8c5f5/cryptography-1.6.tar.gz"
+    sha256 "4d0d86d2c8d3fc89133c3fa0d164a688a458b6663ab6fa965c80d6c2cdaf9b3f"
   end
 
   resource "idna" do
@@ -46,8 +42,18 @@ class Buku < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/eb/83/00c55ff5cb773a78e9e47476ac1a0cd2f0fb71b34cb6e178572eaec22984/pycparser-2.16.tar.gz"
-    sha256 "108f9ff23869ae2f8b38e481e7b4b4d4de1e32be968f29bbe303d629c34a6260"
+    url "https://files.pythonhosted.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
+    sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
+  end
+
+  resource "pyOpenSSL" do
+    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
+    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
+  end
+
+  resource "requests" do
+    url "https://files.pythonhosted.org/packages/6e/40/7434b2d9fe24107ada25ec90a1fc646e97f346130a2c51aa6a2b1aba28de/requests-2.12.1.tar.gz"
+    sha256 "2109ecea94df90980be040490ff1d879971b024861539abb00054062388b612e"
   end
 
   resource "six" do
@@ -55,14 +61,19 @@ class Buku < Formula
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/b4/cb/0f195aa96fd63a4ef8b3578c67f56eb0804e394d9789080a8862c06c2f68/urllib3-1.19.1.tar.gz"
+    sha256 "53bc34c8ee268c3bd83ecf5e9c80fa783f3148484579bd4e20f4a7c1bb2dd6a0"
+  end
+
   def install
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
 
     # Replace shebang with virtualenv python
-    inreplace "buku", "#!/usr/bin/env python3", "#!#{libexec}/bin/python"
+    inreplace "buku.py", "#!/usr/bin/env python3", "#!#{libexec}/bin/python"
 
-    bin.install "buku"
+    bin.install "buku.py" => "buku"
     man1.install "buku.1"
     bash_completion.install "auto-completion/bash/buku-completion.bash"
     fish_completion.install "auto-completion/fish/buku.fish"
@@ -83,17 +94,19 @@ class Buku < Formula
           <HR>    <DT><H3 ADD_DATE="1464091987" LAST_MODIFIED="1477369518" PERSONAL_TOOLBAR_FOLDER="true">Bookmarks Toolbar</H3>
           <DD>Add bookmarks to this folder to see them displayed on the Bookmarks Toolbar
           <DL><p>
-              <DT><A HREF="https://github.com/Homebrew/brew" ADD_DATE="1477369518" LAST_MODIFIED="1477369529">Homebrew</A>
+              <DT><A HREF="https://github.com/Homebrew/brew" ADD_DATE="1477369518" LAST_MODIFIED="1477369529">Title unknown</A>
           </DL><p>
       </DL>
     EOS
+    system bin/"buku", "--import", "bookmarks.html"
 
-    assert_match "https://github.com/Homebrew/brew", shell_output("#{bin}/buku --import bookmarks.html")
+    # Test online components -- fetch titles
+    system bin/"buku", "--update"
 
     # Test crypto functionality
     (testpath/"crypto-test").write <<-EOS.undent
       # Lock bookmark database
-      spawn buku -l
+      spawn buku --lock
       expect "Password: "
       send "password\r"
       expect "Password: "
@@ -104,7 +117,7 @@ class Buku < Formula
       }
 
       # Unlock bookmark database
-      spawn buku -k
+      spawn buku --unlock
       expect "Password: "
       send "password\r"
       expect {
@@ -114,6 +127,9 @@ class Buku < Formula
     EOS
     system "/usr/bin/expect", "-f", "crypto-test"
 
-    assert_match "https://github.com/Homebrew/brew", shell_output("#{bin}/buku --noprompt -s github")
+    # Test database content and search
+    result = shell_output("#{bin}/buku --noprompt --sany Homebrew")
+    assert_match "https://github.com/Homebrew/brew", result
+    assert_match "The missing package manager for macOS", result
   end
 end

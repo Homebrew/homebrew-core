@@ -1,14 +1,13 @@
 class GdkPixbuf < Formula
   desc "Toolkit for image loading and pixel buffer manipulation"
   homepage "http://gtk.org"
-  url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.0.tar.xz"
-  sha256 "85ab52ce9f2c26327141b3dcf21cca3da6a3f8de84b95fa1e727d8871a23245c"
-  revision 2
+  url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.2.tar.xz"
+  sha256 "3a082ad67d68b55970aed0b2034a06618167be98a42d5c70de736756b45d325d"
 
   bottle do
-    sha256 "8e48081047bc6a572a1ce04ca52d1cbb73091ee300961ffaf84d9fb2d0817eb0" => :sierra
-    sha256 "df2edeed86a88e0d57730a0fb7a045c62201af2d40ac538d6568f8f20aa34789" => :el_capitan
-    sha256 "e15e0dcd787c220f32c3b049953439a26dc93207c5bb734c9421c276d67fc6f5" => :yosemite
+    sha256 "c6786bd781df2b3421351f3b3c5ab468644d9ec5940744a97149f83b9d91dd4a" => :sierra
+    sha256 "d007f9b2b0296b6302902d1011428572513aaa8e7be2cdbba62a39c4456bbe16" => :el_capitan
+    sha256 "1aa5969773dbaff17cc38c6c21cf0e17e5bae650d88e9aa867ee06eb53984155" => :yosemite
   end
 
   option :universal
@@ -95,14 +94,17 @@ class GdkPixbuf < Formula
     ln_sf module_file, module_dir
   end
 
-  def caveats; <<-EOS.undent
-    Programs that require this module need to set the environment variable
-      export GDK_PIXBUF_MODULE_FILE="#{module_file}"
-      export GDK_PIXBUF_MODULEDIR="#{module_dir}/loaders"
-    If you need to manually update the query loader cache, set these variables then run
-      #{bin}/gdk-pixbuf-query-loaders --update-cache
-    EOS
-  end if build.with?("relocations") || HOMEBREW_PREFIX.to_s != "/usr/local"
+  def caveats
+    if build.with?("relocations") || HOMEBREW_PREFIX.to_s != "/usr/local"
+      <<-EOS.undent
+        Programs that require this module need to set the environment variable
+          export GDK_PIXBUF_MODULE_FILE="#{module_file}"
+          export GDK_PIXBUF_MODULEDIR="#{module_dir}/loaders"
+        If you need to manually update the query loader cache, set these variables then run
+          #{bin}/gdk-pixbuf-query-loaders --update-cache
+      EOS
+    end
+  end
 
   test do
     system bin/"gdk-pixbuf-csource", test_fixtures("test.png")

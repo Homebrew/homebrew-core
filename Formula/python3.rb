@@ -1,32 +1,14 @@
 class Python3 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  revision 3
-
+  url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tar.xz"
+  sha256 "b0c5f904f685e32d9232f7bdcbece9819a892929063b6e385414ad2dd6a23622"
   head "https://hg.python.org/cpython", :using => :hg
 
-  stable do
-    url "https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz"
-    sha256 "0010f56100b9b74259ebcd5d4b295a32324b58b517403a10d1a2aa7cb22bca40"
-
-    # Patch for pyport.h macro issue
-    # https://bugs.python.org/issue10910
-    # https://trac.macports.org/ticket/44288
-    patch do
-      url "https://bugs.python.org/file30805/issue10910-workaround.txt"
-      sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
-    end
-  end
-
   bottle do
-    sha256 "4a43600ceb2875c13200ace82fea1a9a119973b831f5503fa57cf8db44fbb155" => :sierra
-    sha256 "301854e1a52fd577f84015eb5ef07e0e369c794b8894fb6850ae84d9391f740e" => :el_capitan
-    sha256 "075f5e63188dfcd5a13ef1f9658b26aa2d8d943fbc5c5c50e05fc973bc38f7c1" => :yosemite
-  end
-
-  devel do
-    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0b2.tar.xz"
-    sha256 "3afd4544b99933275c513f7c3d3a23e183de8e209709ed8785bbd42e2c4869ea"
+    sha256 "b9b1de457689c84376fb8c35c67b0de4745ccb573ddc5f8ce0257b3b73358917" => :sierra
+    sha256 "8588e0f338a9c2187569cfd63180a7f6e4124929f0402f2e2a9e3337d23f9d94" => :el_capitan
+    sha256 "6db855fa31e33ceed7703f249f6c0e098e74db05294d7191cf175f0a4bffb1e2" => :yosemite
   end
 
   option :universal
@@ -47,21 +29,21 @@ class Python3 < Formula
   depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
   depends_on "sphinx-doc" => [:build, :optional]
 
-  skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5"
-  skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5"
+  skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6"
+  skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9f/32/81c324675725d78e7f6da777483a3453611a427db0145dfb878940469692/setuptools-25.2.0.tar.gz"
-    sha256 "b2757ddac2c41173140b111e246d200768f6dd314110e1e40661d0ecf9b4d6a6"
+    url "https://files.pythonhosted.org/packages/87/1a/33d3d05569e857c5c5cc3e90d197bf4d9696dc740a05f66a09599d66e5bd/setuptools-32.2.0.zip"
+    sha256 "634313924fd186a2be0489c96965f5a909b666bd652eb3e16724913c707ec33f"
   end
 
   resource "pip" do
-    url "https://pypi.python.org/packages/e7/a8/7556133689add8d1a54c0b14aeff0acb03c64707ce100ecd53934da1aa13/pip-8.1.2.tar.gz"
-    sha256 "4d24b03ffa67638a3fa931c09fd9e0273ffa904e95ebebe7d4b1a54c93d7b732"
+    url "https://files.pythonhosted.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz"
+    sha256 "09f243e1a7b461f654c26a725fa373211bb7ff17a9300058b205c61658ca940d"
   end
 
   resource "wheel" do
-    url "https://pypi.python.org/packages/source/w/wheel/wheel-0.29.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/c9/1d/bd19e691fd4cfe908c76c429fe6e4436c9e83583c4414b54f6c85471954a/wheel-0.29.0.tar.gz"
     sha256 "1ebb8ad7e26b448e9caa4773d2357849bf80ff9e313964bcaf79cbf0201a1648"
   end
 
@@ -74,32 +56,6 @@ class Python3 < Formula
   # so we have to stop python from searching for frameworks and linking against
   # X11.
   patch :DATA if build.with? "tcl-tk"
-
-  def lib_cellar
-    prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}"
-  end
-
-  def site_packages_cellar
-    lib_cellar/"site-packages"
-  end
-
-  # The HOMEBREW_PREFIX location of site-packages.
-  def site_packages
-    HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"
-  end
-
-  fails_with :llvm do
-    build 2336
-    cause <<-EOS.undent
-      Could not find platform dependent libraries <exec_prefix>
-      Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
-      python.exe(14122) malloc: *** mmap(size=7310873954244194304) failed (error code=12)
-      *** error: can't allocate region
-      *** set a breakpoint in malloc_error_break to debug
-      Could not import runpy module
-      make: *** [pybuilddir.txt] Segmentation fault: 11
-    EOS
-  end
 
   # setuptools remembers the build flags python is built with and uses them to
   # build packages later. Xcode-only systems need different flags.
@@ -119,6 +75,9 @@ class Python3 < Formula
     # and not into some other Python the user has installed.
     ENV["PYTHONHOME"] = nil
     ENV["PYTHONPATH"] = nil
+
+    xy = (buildpath/"configure.ac").read.slice(/PYTHON_VERSION, (3\.\d)/, 1)
+    lib_cellar = prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}"
 
     args = %W[
       --prefix=#{prefix}
@@ -229,7 +188,7 @@ class Python3 < Formula
     rm bin/"2to3"
 
     # Remove the site-packages that Python created in its Cellar.
-    site_packages_cellar.rmtree
+    (prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/site-packages").rmtree
 
     %w[setuptools pip wheel].each do |r|
       (libexec/r).install resource(r)
@@ -244,6 +203,10 @@ class Python3 < Formula
   end
 
   def post_install
+    xy = (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
+    site_packages = HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"
+    site_packages_cellar = prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/site-packages"
+
     # Fix up the site-packages so that user-installed Python software survives
     # minor updates, such as going from 3.3.2 to 3.3.3:
 
@@ -298,7 +261,8 @@ class Python3 < Formula
       library_dirs << Formula["homebrew/dupes/tcl-tk"].opt_lib
     end
 
-    cfg = lib_cellar/"distutils/distutils.cfg"
+    cfg = prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/distutils/distutils.cfg"
+
     cfg.atomic_write <<-EOF.undent
       [install]
       prefix=#{HOMEBREW_PREFIX}
@@ -309,11 +273,9 @@ class Python3 < Formula
     EOF
   end
 
-  def xy
-    version.to_s.slice(/(3\.\d)/) || "3.6"
-  end
-
   def sitecustomize
+    xy = (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
+
     <<-EOF.undent
       # This file is created by Homebrew and is executed on each python startup.
       # Don't print from here, or else python command line scripts may fail!
@@ -344,7 +306,7 @@ class Python3 < Formula
           # the Cellar site-packages is a symlink to the HOMEBREW_PREFIX
           # site_packages; prefer the shorter paths
           long_prefix = re.compile(r'#{rack}/[0-9\._abrc]+/Frameworks/Python\.framework/Versions/#{xy}/lib/python#{xy}/site-packages')
-          sys.path = [long_prefix.sub('#{site_packages}', p) for p in sys.path]
+          sys.path = [long_prefix.sub('#{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}', p) for p in sys.path]
 
           # Set the sys.executable to use the opt_prefix
           sys.executable = '#{opt_bin}/python#{xy}'
@@ -352,6 +314,7 @@ class Python3 < Formula
   end
 
   def caveats
+    xy = (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
     text = <<-EOS.undent
       Pip, setuptools, and wheel have been installed. To update them
         pip3 install --upgrade pip setuptools wheel
@@ -360,7 +323,7 @@ class Python3 < Formula
         pip3 install <package>
 
       They will install into the site-package directory
-        #{site_packages}
+        #{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}
 
       See: https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md
     EOS
@@ -377,6 +340,7 @@ class Python3 < Formula
   end
 
   test do
+    xy = (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
     # Check if sqlite is ok, because we build with --enable-loadable-sqlite-extensions
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
     system "#{bin}/python#{xy}", "-c", "import sqlite3"

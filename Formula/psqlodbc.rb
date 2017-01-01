@@ -3,13 +3,13 @@ class Psqlodbc < Formula
   homepage "https://odbc.postgresql.org"
   url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-09.05.0400.tar.gz"
   sha256 "c9fde1c104065e81813d79eb29bb7e715d64697bdda031ff01e40e3ad59e3ad3"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f48d82160578703f06413867130613b61fee30211316a58f79b2b275487411ea" => :sierra
-    sha256 "c9fb98f4523608e7c53fa5a82672f2fde2abdc95b985d232d046b184d3915334" => :el_capitan
-    sha256 "c685c6f293b556b118d22ac2cf1171c503a90e6f7f63c543a8358aba36990495" => :yosemite
-    sha256 "ab82542257f0eb7fffac4d405f6d1b246ac68adc1eabc1cfdbf4777e76fdce11" => :mavericks
+    sha256 "b135e713eef4c0f66e7fddefe4186810baf9b56a2b3799eefc00ff8e64ef7e00" => :sierra
+    sha256 "4661e56ba0466dc527e5917e858b12a2a5f5d54b4eed9e4433b44ef32435e644" => :el_capitan
+    sha256 "3d9de332566373f67eab7843324d4b7c38a5c037ea61baf89f641a5f0db78f6a" => :yosemite
   end
 
   head do

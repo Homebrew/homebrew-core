@@ -1,14 +1,15 @@
 class ArchiSteamFarm < Formula
   desc "ASF is a C# application that allows you to farm steam cards"
   homepage "https://github.com/JustArchi/ArchiSteamFarm"
-  url "https://github.com/JustArchi/ArchiSteamFarm/releases/download/2.1.6.2/ASF.zip"
-  sha256 "b7670ae84d08b2512b823bc820870b14c8810297f5f526b5b785fde8ee6b67f6"
+  url "https://github.com/JustArchi/ArchiSteamFarm/releases/download/2.1.6.8/ASF.zip"
+  version "2.1.6.8"
+  sha256 "c0e7f4efdbaa51acb3b64ad0c41383de752dda26db5ad990761ff088d80544c7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bcd7bfabc46251ab44e9d912185f2f782d4bfcf6125b6e68be2fc285061cc4ad" => :sierra
-    sha256 "bcd7bfabc46251ab44e9d912185f2f782d4bfcf6125b6e68be2fc285061cc4ad" => :el_capitan
-    sha256 "bcd7bfabc46251ab44e9d912185f2f782d4bfcf6125b6e68be2fc285061cc4ad" => :yosemite
+    sha256 "c1c970bca2939b5ffc5bc8ee25a1ff7375652e6274ec30a11bb9c54f0b9923d2" => :sierra
+    sha256 "c1c970bca2939b5ffc5bc8ee25a1ff7375652e6274ec30a11bb9c54f0b9923d2" => :el_capitan
+    sha256 "c1c970bca2939b5ffc5bc8ee25a1ff7375652e6274ec30a11bb9c54f0b9923d2" => :yosemite
   end
 
   depends_on "mono"
@@ -22,6 +23,11 @@ class ArchiSteamFarm < Formula
 
     etc.install "config" => "asf"
     libexec.install_symlink etc/"asf" => "config"
+  end
+
+  def caveats; <<-EOS.undent
+    Config: #{etc}/asf/
+    EOS
   end
 
   test do

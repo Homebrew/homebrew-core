@@ -67,10 +67,6 @@ class Proj < Formula
 
   skip_clean :la
 
-  fails_with :llvm do
-    build 2334
-  end
-
   def install
     resources.each do |r|
       if r.name == "datumgrid"

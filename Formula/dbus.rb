@@ -2,29 +2,32 @@ class Dbus < Formula
   # releases: even (1.10.x) = stable, odd (1.11.x) = development
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
-  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.12.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.12.orig.tar.gz"
-  sha256 "210a79430b276eafc6406c71705e9140d25b9956d18068df98a70156dc0e475d"
+  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.14.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.14.orig.tar.gz"
+  sha256 "23238f70353e38ce5ca183ebc9525c0d97ac00ef640ad29cf794782af6e6a083"
 
   bottle do
-    sha256 "8848b7e368750df3a9526f4c5d47a0649359e9e89cd9d94cb45e706402bdb66c" => :sierra
-    sha256 "153735bc649bf2b7c8e995a5fdf44947d9f1c1a0091f1e351283a9621f281298" => :el_capitan
-    sha256 "93fba26972dd5930cc211f9d76b4d16c93a120ce7b3c19c2f2be2aedbceac09c" => :yosemite
+    sha256 "3f9de5a716a7bf2854f60dd2151bf17347d60bb8be71a451a8b7d68c9780b5f7" => :sierra
+    sha256 "f5572907ce488208dd6eed55eb46befe09ada2f8a2fab020f9d45be6cb029c4f" => :el_capitan
+    sha256 "8868065744f1987b4eaf585b3111bcd6c3ff7eec176f7aa6c21edc91826977e6" => :yosemite
   end
 
   devel do
-    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.4.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.4.orig.tar.gz"
-    sha256 "474de2afde8087adbd26b3fc5cbf6ec45559763c75b21981169a9a1fbac256c9"
+    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.6.tar.gz"
+    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.6.orig.tar.gz"
+    sha256 "a228ce822983206becd5d36c0a63243ea77d47f65134feccacb10350250b9c0e"
   end
 
   head do
     url "https://anongit.freedesktop.org/git/dbus/dbus.git"
 
     depends_on "autoconf" => :build
+    depends_on "autoconf-archive" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  depends_on "xmlto" => :build
 
   # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
   # Homebrew pr/issue: 50219
@@ -37,12 +40,14 @@ class Dbus < Formula
     # Fix the TMPDIR to one D-Bus doesn't reject due to odd symbols
     ENV["TMPDIR"] = "/tmp"
 
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
     system "./autogen.sh", "--no-configure" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}",
-                          "--disable-xml-docs",
+                          "--enable-xml-docs",
                           "--disable-doxygen-docs",
                           "--enable-launchd",
                           "--with-launchd-agent-dir=#{prefix}",

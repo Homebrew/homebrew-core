@@ -3,15 +3,15 @@ class Creduce < Formula
   homepage "https://embed.cs.utah.edu/creduce/"
   url "https://embed.cs.utah.edu/creduce/creduce-2.5.0.tar.gz"
   sha256 "2dcd784e1d27df60f4ea1d92c4c556c02da4152db353d544dce8b7813fa443e4"
-  revision 2
+  revision 3
 
   head "https://github.com/csmith-project/creduce.git"
 
   bottle do
     cellar :any
-    sha256 "ba94a03e5249b8f66db588b7dfea3c67c03fff1a841f3d82b62f1e6d3dd094b7" => :sierra
-    sha256 "02dfc1b1598e7de131e1ab6d7f9353f05e329af78fb8d172310562996a7c86d4" => :el_capitan
-    sha256 "37f3e7a6e2102138714ceaecd749ee0ddac6bf1d9cb4c5586201e0c840c03951" => :yosemite
+    sha256 "c321367b337d9bbd2c7859016a4beede81d1f44bcd102a6586b5ea5dc513f89c" => :sierra
+    sha256 "88a10e18027577f2c7041265819e09753a1960ecaa6d4316a66e71597c4ae3be" => :el_capitan
+    sha256 "6ff0287cf967ff384d5d136a63d12b9012e759c825508c41a2cdfdb22dbd8d37" => :yosemite
   end
 
   # changes from upstream to fix compilation with LLVM 3.9

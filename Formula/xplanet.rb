@@ -5,10 +5,10 @@ class Xplanet < Formula
   sha256 "4380d570a8bf27b81fb629c97a636c1673407f4ac4989ce931720078a90aece7"
 
   bottle do
-    sha256 "636ab38398e793471e33477e3940c8151866ea57443e0a2bd2f820890066f2b0" => :sierra
-    sha256 "ecf69cdfcddd72c2237eb141a045abf062e1d25e89b58732a86c09e868ab66f3" => :el_capitan
-    sha256 "eb4c003f5a3d278afd4dc2498a4e667a0aed4a97df07288c9246ca42002b1b76" => :yosemite
-    sha256 "7cb1c47183147d061ab589073be7ff1b8be4cf78f96b240f27d164cddcb16858" => :mavericks
+    rebuild 1
+    sha256 "26b9ea053ce88f65e9ec0c2fe3497a54a76de71c05820cabef881644b457e89c" => :sierra
+    sha256 "7e949972c1819afa7904a32a036278d42df8db372cd1725e25a30552104e1c88" => :el_capitan
+    sha256 "6a6189f20e2bc255048feed40d60ceebf9b5fab3ff14816b9b242cc77bf6b57b" => :yosemite
   end
 
   option "with-x11", "Build for X11 instead of Aqua"
@@ -36,6 +36,13 @@ class Xplanet < Formula
 
   depends_on "freetype"
   depends_on :x11 => :optional
+
+  # patches bug in 1.3.1 with flag -num_times=2 (1.3.2 will contain fix, when released)
+  # https://sourceforge.net/p/xplanet/code/208/tree/trunk/src/libdisplay/DisplayOutput.cpp?diff=5056482efd48f8457fc7910a:207
+  patch :p2 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f952f1d/xplanet/xplanet-1.3.1-ntimes.patch"
+    sha256 "3f95ba8d5886703afffdd61ac2a0cd147f8d659650e291979f26130d81b18433"
+  end
 
   def install
     args = %W[

@@ -31,6 +31,8 @@ class Polipo < Formula
     system "make", "install", *args
   end
 
+  plist_options :manual => "polipo"
+
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -58,5 +60,20 @@ class Polipo < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    pid = fork do
+      exec "#{bin}/polipo"
+    end
+    sleep 2
+
+    begin
+      output = shell_output("curl -s http://localhost:8123")
+      assert_match "<title>Welcome to Polipo</title>", output, "Polipo webserver did not start!"
+    ensure
+      Process.kill("SIGINT", pid)
+      Process.wait(pid)
+    end
   end
 end

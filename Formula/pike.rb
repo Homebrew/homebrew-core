@@ -40,15 +40,10 @@ class Pike < Formula
   depends_on "pdflib-lite"   if build.with?("pdf")     || build.with?("all")
   depends_on "mesalib-glw"   if build.with?("gl")      || build.with?("all")
 
-  fails_with :llvm do
-    build 2335
-    cause "Fails to build multiset.c, results in a Abort trap being caught."
-  end
-
   def install
     args = ["--prefix=#{prefix}", "--without-bundles"]
 
-    if MacOS.prefer_64_bit? && !build.build_32_bit?
+    if MacOS.prefer_64_bit?
       ENV.append "CFLAGS", "-m64"
       args << "--with-abi=64"
     else
@@ -60,7 +55,7 @@ class Pike < Formula
       args << "--without-machine-code"
     end
 
-    ENV.j1
+    ENV.deparallelize
 
     system "make", "CONFIGUREARGS='" + args.join(" ") + "'"
 

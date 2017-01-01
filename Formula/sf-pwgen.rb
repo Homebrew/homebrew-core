@@ -1,18 +1,16 @@
 class SfPwgen < Formula
   desc "Generate passwords using SecurityFoundation framework"
   homepage "https://bitbucket.org/anders/sf-pwgen/"
-  url "https://bitbucket.org/anders/sf-pwgen/downloads/sf-pwgen-1.3.tar.gz"
-  sha256 "0489dace9de7ad65bf545e774dbf67b6d24cecdcbd32fe5d41397140ccf3aa84"
+  url "https://github.com/anders/pwgen/archive/v1.4.tar.gz"
+  sha256 "1f4c7f514426305be2e1b893a586310d579e500e033938800afd2c98fedb84d9"
 
-  head "https://bitbucket.org/anders/sf-pwgen", :using => :hg
+  head "https://github.com/anders/pwgen.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "96efd2d1757e6999fe5f92470b6aa4bee220f631b3a4e201593bfe4f786b7c0e" => :sierra
-    sha256 "28bfda5dcff489cc0b1510ccd34cb6cc19082eb9b5199cf1db504d83d6a26483" => :el_capitan
-    sha256 "2a5f0b9d8c9a951820583b7e4ec115b545252cc2e247f8b35f4ecfdfa3fc4114" => :yosemite
-    sha256 "71043a6853a292150f236ac1c83694c492d930ba8f504a487d636027e5ce8302" => :mavericks
-    sha256 "5b91f63b28d364f5a09b7d11db9a1b3de1958e858d51f99ed9ce7e235aa74936" => :mountain_lion
+    sha256 "ff59281df8d8c0e341233cdffafe67d0dc78101afb90a8597b0a83605ef578a3" => :sierra
+    sha256 "2c0e0523569aa25fe254012d3b86ae0bdc587c0f17c4a62d8d12917b7fa44fbf" => :el_capitan
+    sha256 "2c6d133b3c9b079dc8c81407107a3c1fb4d5cb3d654afa7acef6f23b9f9df9a6" => :yosemite
   end
 
   depends_on :macos => :mountain_lion

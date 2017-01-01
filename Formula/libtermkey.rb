@@ -1,15 +1,14 @@
 class Libtermkey < Formula
   desc "Library for processing keyboard entry from the terminal"
   homepage "http://www.leonerd.org.uk/code/libtermkey/"
-  url "http://www.leonerd.org.uk/code/libtermkey/libtermkey-0.18.tar.gz"
-  sha256 "239746de41c845af52bb3c14055558f743292dd6c24ac26c2d6567a5a6093926"
+  url "http://www.leonerd.org.uk/code/libtermkey/libtermkey-0.19.tar.gz"
+  sha256 "c505aa4cb48c8fa59c526265576b97a19e6ebe7b7da20f4ecaae898b727b48b7"
 
   bottle do
     cellar :any
-    sha256 "3ae613ddcb184ff95fce6763779284e2e03d6c39e441d3663965d216b57eb5a8" => :sierra
-    sha256 "6f5a5f6120c9c9a61df4d706b6ec3fb8825ea07e013367e5b92158e361decb60" => :el_capitan
-    sha256 "fe1507d296341a28e7f4ec68dabbbcdcd7f2f07371b74a594ee99dd8f2bd3b36" => :yosemite
-    sha256 "29fb6a44d6ea50f8bc7cedf6dbdf6de9ad85c9568797ff40b4cb25c2ac28b07a" => :mavericks
+    sha256 "e67485b331eeac167fcad54f504952fc1bcfb8a52aa22e6fd139839bb7d6585e" => :sierra
+    sha256 "366ea267ec414f63966f3443b21f7479d888f999df1545eb97b8e76b0631afbb" => :el_capitan
+    sha256 "d8bbe8d3e78821cd3785c7582ed7355ea74e966a3572abd92499db014907fefa" => :yosemite
   end
 
   option :universal

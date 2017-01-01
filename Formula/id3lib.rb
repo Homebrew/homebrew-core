@@ -55,11 +55,6 @@ class Id3lib < Formula
     sha256 "71c79002d9485965a3a93e87ecbd7fed8f89f64340433b7ccd263d21385ac969"
   end
 
-  fails_with :llvm do
-    build 2326
-    cause "Segfault during linking"
-  end
-
   def install
     system "autoreconf", "-fvi"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

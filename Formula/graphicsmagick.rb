@@ -33,10 +33,6 @@ class Graphicsmagick < Formula
   depends_on "webp" => :optional
   depends_on :x11 => :optional
 
-  fails_with :llvm do
-    build 2335
-  end
-
   skip_clean :la
 
   def ghostscript_fonts?

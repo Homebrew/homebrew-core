@@ -25,16 +25,16 @@ class Gcc < Formula
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
   stable do
-    url "https://ftpmirror.gnu.org/gcc/gcc-6.2.0/gcc-6.2.0.tar.bz2"
-    mirror "https://ftp.gnu.org/gnu/gcc/gcc-6.2.0/gcc-6.2.0.tar.bz2"
-    sha256 "9944589fc722d3e66308c0ce5257788ebd7872982a718aa2516123940671b7c5"
+    url "https://ftpmirror.gnu.org/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
+    mirror "https://ftp.gnu.org/gnu/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
+    sha256 "f06ae7f3f790fbf0f018f6d40e844451e6bc3b7bc96e128e63b09825c1f8b29f"
   end
 
   bottle do
-    sha256 "878992d0c8246135fbfe9cc6e9e48b384fd9bd4f4a9e570b79a4a8eaecceb248" => :sierra
-    sha256 "98c186a0644d02e96dc89b884f025db96af0082b81f90068da80fc69092e4a39" => :el_capitan
-    sha256 "49ca9df24d174d1cd14c2142489e15537021df89f10ad2c0fe75c650c4084d6d" => :yosemite
-    sha256 "11578960629843cf085dc82ff9855a17b4ae63a9acd74a5aeb0e7fd7921d0915" => :mavericks
+    rebuild 1
+    sha256 "20604e3cec12aa38bd780df65f928809195030ffdc5e1f9dc6d44acc7bcfc77b" => :sierra
+    sha256 "e262976af166ea91eeb1b8fcb3394eb5147a1c3ba2796726742f4bced9f55760" => :el_capitan
+    sha256 "168883585eb3aaa35aedf5e42c976314e792b7ed83d2d055206e4c5bf758c0a0" => :yosemite
   end
 
   # GCC's Go compiler is not currently supported on macOS.
@@ -60,7 +60,6 @@ class Gcc < Formula
   end
 
   fails_with :gcc_4_0
-  fails_with :llvm
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
@@ -111,6 +110,13 @@ class Gcc < Formula
       languages << "jit" if build.with? "jit"
     end
 
+    languages -= ["java"] if build.head?
+
+    # Even when suffixes are appended, the info pages conflict when
+    # install-info is run so pretend we have an outdated makeinfo
+    # to prevent their build.
+    ENV["gcc_cv_prog_makeinfo_modern"] = "no"
+
     args = [
       "--build=#{arch}-apple-darwin#{osmajor}",
       "--prefix=#{prefix}",
@@ -131,8 +137,8 @@ class Gcc < Formula
       # files prior to comparison during bootstrap (broken by Xcode 6.3).
       "--with-build-config=bootstrap-debug",
       "--disable-werror",
-      "--with-pkgversion=Homebrew #{name} #{pkg_version} #{build.used_options*" "}".strip,
-      "--with-bugurl=https://github.com/Homebrew/homebrew/issues",
+      "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
+      "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",
     ]
 
     # "Building GCC with plugin support requires a host that supports
@@ -181,13 +187,8 @@ class Gcc < Formula
 
     # Handle conflicts between GCC formulae and avoid interfering
     # with system compilers.
-    # Since GCC 4.8 libffi stuff are no longer shipped.
     # Rename man7.
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
-    # Even when suffixes are appended, the info pages conflict when
-    # install-info is run. TODO fix this.
-    info.rmtree
-    # Since GCC 4.9 java properties are properly sandboxed.
   end
 
   def add_suffix(file, suffix)

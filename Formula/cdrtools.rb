@@ -24,9 +24,9 @@ class Cdrtools < Formula
   end
 
   devel do
-    url "https://downloads.sourceforge.net/project/cdrtools/alpha/cdrtools-3.02a06.tar.bz2"
-    mirror "https://fossies.org/linux/misc/cdrtools-3.02a06.tar.bz2"
-    sha256 "ed79ab99414352ea9305163660b52b6a82394466bae03aebdbe2150997835eb1"
+    url "https://downloads.sourceforge.net/project/cdrtools/alpha/cdrtools-3.02a07.tar.bz2"
+    mirror "https://fossies.org/linux/misc/cdrtools-3.02a07.tar.bz2"
+    sha256 "49c1a67fa7ad3d7c0b05d41d18cb6677b40d4811faba111f0c01145d3ef0491b"
   end
 
   depends_on "smake" => :build
@@ -41,6 +41,7 @@ class Cdrtools < Formula
     # lib*/*_p.mk files. The latter method produces warnings but works fine.
     rm_f Dir["lib*/*_p.mk"]
     system "smake", "INS_BASE=#{prefix}", "INS_RBASE=#{prefix}", "install"
+    system "smake", "tests" if build.devel?
     # cdrtools tries to install some generic smake headers, libraries and
     # manpages, which conflict with the copies installed by smake itself
     (include/"schily").rmtree

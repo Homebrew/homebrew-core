@@ -3,13 +3,13 @@ class Diffoscope < Formula
   homepage "https://diffoscope.org"
   url "https://pypi.python.org/packages/source/d/diffoscope/diffoscope-42.tar.gz"
   sha256 "c0241acf5de7eb0e9e209e43dbf389beca722ddfb8b5d5630fd40569f1f465e2"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "b6e20aa50502b90c3452eb1718d359fe6cd6cb587c44e1c54b40b8d13159abc3" => :sierra
-    sha256 "b6e20aa50502b90c3452eb1718d359fe6cd6cb587c44e1c54b40b8d13159abc3" => :el_capitan
-    sha256 "b6e20aa50502b90c3452eb1718d359fe6cd6cb587c44e1c54b40b8d13159abc3" => :yosemite
+    sha256 "c82b2fa62c50c2c3bf9e9fc76180260eb2e74271da3087831aa3861305b0a881" => :sierra
+    sha256 "0ba46201e568d407d5950e8494eae43c1bb3e72926f707c416e8804392b4848a" => :el_capitan
+    sha256 "0ba46201e568d407d5950e8494eae43c1bb3e72926f707c416e8804392b4848a" => :yosemite
   end
 
   depends_on "libmagic"

@@ -11,6 +11,6 @@ class GitFresh < Formula
   end
 
   test do
-    system "git-fresh", "-T"
+    system "#{bin}/git-fresh", "-T"
   end
 end

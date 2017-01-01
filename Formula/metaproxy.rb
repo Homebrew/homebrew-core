@@ -3,12 +3,13 @@ class Metaproxy < Formula
   homepage "https://www.indexdata.com/metaproxy"
   url "http://ftp.indexdata.dk/pub/metaproxy/metaproxy-1.11.6.tar.gz"
   sha256 "33c9a9bcba3abb5592b3c1671455dc0d0a5747d2df014726abd0518e98a9cb76"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "2d6765d91c2bc9adf7cdef8ded32c9824748ab8c0f7837053f4ab226f7b506f5" => :sierra
-    sha256 "16d1277e6a3dd404939288ab3f62130c120343a2d72fa2b2d759dd20cbb74652" => :el_capitan
-    sha256 "838c1b6c0a1d3de4ae3e6d227552563d2b4a7d849d5c3a862e214dcd99bcc25f" => :yosemite
+    sha256 "325b72f3a34f75011b6116a7759d7d810c942439f2a34417854f4129339ec5e5" => :sierra
+    sha256 "85a3118660e51393f7d6ff223838b645fc55587d282fbf2c1bd973950f662a6d" => :el_capitan
+    sha256 "ca12d07a9094883252da8734fff7679fdcb541c2440b7777efe335674b01c7ef" => :yosemite
   end
 
   depends_on "pkg-config" => :build

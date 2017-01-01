@@ -3,15 +3,14 @@ class Pdf2htmlex < Formula
   homepage "https://coolwanglu.github.io/pdf2htmlEX/"
   url "https://github.com/coolwanglu/pdf2htmlEX/archive/v0.14.6.tar.gz"
   sha256 "320ac2e1c2ea4a2972970f52809d90073ee00a6c42ef6d9833fb48436222f0e5"
-  revision 7
+  revision 9
 
   head "https://github.com/coolwanglu/pdf2htmlEX.git"
 
   bottle do
-    rebuild 1
-    sha256 "3750dfac0b238cdad8666ba28d76a22ad54279589085f649ef2f5d441f59b73b" => :sierra
-    sha256 "5565adf91f0b76e0e21f152a57caafe0b1849cef815111912eca0dfb7108ebad" => :el_capitan
-    sha256 "4e82162db3370ecec2a6b477a6e63bf7297048c53a0b25a089fe334298598005" => :yosemite
+    sha256 "13de76e9061f6e36caaf57c95269eb290677a98307345d6f17f55a62264a908a" => :sierra
+    sha256 "d55de889401417d4089138b04e6bfc6f834c0db723672795ce95610532c1f547" => :el_capitan
+    sha256 "48064256fc3c27f4a821ec1631a246d0128320324ccd0528909130ed70d47a79" => :yosemite
   end
 
   depends_on :macos => :lion
@@ -25,6 +24,9 @@ class Pdf2htmlex < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :run
+  depends_on "cairo"
+  depends_on "freetype"
+  depends_on "giflib"
   depends_on "glib"
   depends_on "pango"
   depends_on "gettext"
@@ -36,12 +38,6 @@ class Pdf2htmlex < Formula
   # See https://github.com/coolwanglu/pdf2htmlEX/wiki/Building
   resource "fontforge" do
     url "https://github.com/coolwanglu/fontforge.git", :branch => "pdf2htmlEX"
-  end
-
-  # And failures
-  fails_with :llvm do
-    build 2336
-    cause "Compiling cvexportdlg.c fails with error: initializer element is not constant"
   end
 
   def install
