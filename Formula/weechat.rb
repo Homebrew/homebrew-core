@@ -29,10 +29,9 @@ class Weechat < Formula
   end
 
   bottle do
-    sha256 "969b36c1535667895dc0db113177cc7a851b731cebf5c754e5bd19c3bae32339" => :sierra
-    sha256 "86118fb13bbbe371612fe38351adbf5b32da676daf139e59f7a0f9e1a2ae5290" => :el_capitan
-    sha256 "80ac11ead01b4e87a5006f0663cb1efe6e500d2c7d05b66610d5f27cbe97f5e1" => :yosemite
-    sha256 "5829823f5b1e1605a10f372b903467d80bc39377f686316bd7284c2cb94ed098" => :mavericks
+    sha256 "40bdea0f0c9d0f79a81971bdfe4e1482d7f455c74b9cd2a14c13b34525be08b9" => :sierra
+    sha256 "04ad4707f713e3bf5a8e14d5e3de7f57f2fabeac3cc307fa642b12b53a28b44b" => :el_capitan
+    sha256 "78d808d561c8689dd9cdacff87630b1bcd3e9f991f8249f72add6be614221abd" => :yosemite
   end
 
   option "with-perl", "Build the perl module"
