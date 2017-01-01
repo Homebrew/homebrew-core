@@ -1,5 +1,6 @@
 {
   "app-engine-java-sdk": "app-engine-java",
+  "ansible19": "ansible@19",
   "beanstalk": "beanstalkd",
   "cloog-ppl015": "cloog@0.15",
   "cloog018": "cloog",
