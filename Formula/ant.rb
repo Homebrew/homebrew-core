@@ -7,9 +7,9 @@ class Ant < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f4d965e345f128f5ed9871467f37ab46495bac7590c0d51827ed7398a61c42d" => :sierra
-    sha256 "66ecee3d85ab96e761df300f6b6128f7e3f806ab2f3674d880107be0b886e73a" => :el_capitan
-    sha256 "66ecee3d85ab96e761df300f6b6128f7e3f806ab2f3674d880107be0b886e73a" => :yosemite
+    sha256 "014a680a8ddd0f46cda9a2fe1810f98b4f6be3b09203be032d58210dd51dd952" => :sierra
+    sha256 "7daabc4c4836853d92657ce7de727691ca8271455f1e2084b1f50766381232d9" => :el_capitan
+    sha256 "7daabc4c4836853d92657ce7de727691ca8271455f1e2084b1f50766381232d9" => :yosemite
   end
 
   keg_only :provided_by_osx if MacOS.version < :mavericks
