@@ -1,5 +1,11 @@
 class GccAT47 < Formula
   desc "GNU compiler collection"
+  bottle do
+    sha256 "4c3abce6ce37cbcd59ffde88b01fe50fdbd16d21bc5cec509e523d51eaf8e97a" => :sierra
+    sha256 "09d3ab5f906bc85711fc509ce68a1a6b9cf88c704582fbc8116a49b7386e6801" => :el_capitan
+    sha256 "02b2baf57d1588649ff7050b825c82e2eef6c3aecec0a301d18ebc9850117b8c" => :yosemite
+  end
+
   def arch
     if Hardware::CPU.type == :intel
       if MacOS.prefer_64_bit?
