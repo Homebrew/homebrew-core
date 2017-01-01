@@ -6,6 +6,7 @@
   "antlr3": "antlr@3",
   "apache-spark15": "apache-spark@15",
   "apache-spark16": "apache-spark@16",
+  "autoconf213": "autoconf@213",
   "beanstalk": "beanstalkd",
   "cloog-ppl015": "cloog@0.15",
   "cloog018": "cloog",
