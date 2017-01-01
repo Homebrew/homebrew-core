@@ -66,7 +66,7 @@ class GccAT49 < Formula
   depends_on "gmp@4"
   depends_on "libmpc@0.8"
   depends_on "mpfr@2"
-  depends_on "cloog@0.18"
+  depends_on "cloog"
   depends_on "isl@0.12"
   depends_on "ecj" if build.with?("java") || build.with?("all-languages")
 
@@ -108,7 +108,7 @@ class GccAT49 < Formula
       "--with-gmp=#{Formula["gmp@4"].opt_prefix}",
       "--with-mpfr=#{Formula["mpfr@2"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc@0.8"].opt_prefix}",
-      "--with-cloog=#{Formula["cloog@0.18"].opt_prefix}",
+      "--with-cloog=#{Formula["cloog"].opt_prefix}",
       "--with-isl=#{Formula["isl@0.12"].opt_prefix}",
       "--with-system-zlib",
       "--enable-libstdcxx-time=yes",
