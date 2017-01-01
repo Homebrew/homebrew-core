@@ -8,6 +8,7 @@
   "apache-spark16": "apache-spark@16",
   "autoconf213": "autoconf@213",
   "autoconf264": "autoconf@264",
+  "automake112": "automake@112",
   "beanstalk": "beanstalkd",
   "cloog-ppl015": "cloog@0.15",
   "cloog018": "cloog",
