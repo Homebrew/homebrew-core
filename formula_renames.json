@@ -3,6 +3,7 @@
   "ansible19": "ansible@19",
   "ansible20": "ansible@20",
   "antlr2": "antlr@2",
+  "antlr3": "antlr@3",
   "beanstalk": "beanstalkd",
   "cloog-ppl015": "cloog@0.15",
   "cloog018": "cloog",
