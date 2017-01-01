@@ -1,9 +1,9 @@
 class PureFtpd < Formula
   desc "Secure and efficient FTP server"
   homepage "https://www.pureftpd.org/"
-  url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.42.tar.gz"
-  mirror "ftp://ftp.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.42.tar.gz"
-  sha256 "7be73a8e58b190a7054d2ae00c5e650cb9e091980420082d02ec3c3b68d8e7f9"
+  url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.44.tar.gz"
+  mirror "ftp://ftp.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.44.tar.gz"
+  sha256 "38b3b613a48ae50f4f681b2e8a56503a11ea531df61bc7916ff6cbeb381b64da"
 
   bottle do
     cellar :any
