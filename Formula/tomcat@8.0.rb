@@ -17,6 +17,13 @@ class TomcatAT80 < Formula
     end
   end
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "9ebb7ebde0a3bab24f403056b0436b765cdb080bfef4861e5c5d4e150f302f72" => :sierra
+    sha256 "32fe32a8e72c602b18230aa300f59fb62d2b879be026d58c7c5b4f028c8f3627" => :el_capitan
+    sha256 "32fe32a8e72c602b18230aa300f59fb62d2b879be026d58c7c5b4f028c8f3627" => :yosemite
+  end
+
   option "with-fulldocs", "Install full documentation locally"
 
   conflicts_with "tomcat", :because => "Differing versions of same formula"
