@@ -111,6 +111,11 @@ class Gcc < Formula
 
     languages -= ["java"] if build.head?
 
+    # Even when suffixes are appended, the info pages conflict when
+    # install-info is run so pretend we have an outdated makeinfo
+    # to prevent their build.
+    ENV["gcc_cv_prog_makeinfo_modern"] = "no"
+
     args = [
       "--build=#{arch}-apple-darwin#{osmajor}",
       "--prefix=#{prefix}",
@@ -133,9 +138,6 @@ class Gcc < Formula
       "--disable-werror",
       "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
       "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",
-      # Even when suffixes are appended, the info pages conflict when
-      # install-info is run.
-      "MAKEINFO=missing",
     ]
 
     # "Building GCC with plugin support requires a host that supports
