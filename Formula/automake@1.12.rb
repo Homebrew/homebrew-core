@@ -5,6 +5,13 @@ class AutomakeAT112 < Formula
   mirror "https://ftp.gnu.org/gnu/automake/automake-1.12.6.tar.gz"
   sha256 "0cbe570db487908e70af7119da85ba04f7e28656b26f717df0265ae08defd9ef"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "ec1f95863cad359c6278cf4986e417dc189fcb827c8051729091df80875ae17c" => :sierra
+    sha256 "fd6dc4d4af7cfb4b89e1bc966e03b53f04f44e70b5675aeef591df5c2c0ccf31" => :el_capitan
+    sha256 "fd6dc4d4af7cfb4b89e1bc966e03b53f04f44e70b5675aeef591df5c2c0ccf31" => :yosemite
+  end
+
   keg_only :provided_until_xcode43
 
   depends_on "autoconf" => :run
