@@ -21,6 +21,7 @@ class Gcc < Formula
 
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org"
+  revision 1
 
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
@@ -189,6 +190,8 @@ class Gcc < Formula
     # with system compilers.
     # Rename man7.
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
+    # Even when we disable building info pages some are still installed.
+    info.rmtree
   end
 
   def add_suffix(file, suffix)
