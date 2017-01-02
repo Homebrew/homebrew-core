@@ -1,8 +1,9 @@
 class Flac < Formula
   desc "Free lossless audio codec"
   homepage "https://xiph.org/flac/"
-  url "http://downloads.xiph.org/releases/flac/flac-1.3.1.tar.xz"
-  sha256 "4773c0099dba767d963fd92143263be338c48702172e8754b9bc5103efe1c56c"
+  url "http://downloads.xiph.org/releases/flac/flac-1.3.2.tar.xz"
+  mirror "https://downloads.sourceforge.net/project/flac/flac-src/flac-1.3.2.tar.xz"
+  sha256 "91cfc3ed61dc40f47f050a109b08610667d73477af6ef36dcad31c31a4a8d53f"
 
   bottle do
     cellar :any
@@ -15,6 +16,7 @@ class Flac < Formula
 
   head do
     url "https://git.xiph.org/flac.git"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -33,14 +35,10 @@ class Flac < Formula
   def install
     ENV.universal_binary if build.universal?
 
-    ENV.append "CFLAGS", "-std=gnu89"
-
     args = %W[
       --disable-dependency-tracking
       --disable-debug
       --prefix=#{prefix}
-      --mandir=#{man}
-      --enable-sse
       --enable-static
     ]
 
@@ -49,12 +47,6 @@ class Flac < Formula
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
-
-    ENV["OBJ_FORMAT"] = "macho"
-
-    # adds universal flags to the generated libtool script
-    inreplace "libtool", ":$verstring\"", ":$verstring -arch #{Hardware::CPU.arch_32_bit} -arch #{Hardware::CPU.arch_64_bit}\""
-
     system "make", "install"
   end
 
