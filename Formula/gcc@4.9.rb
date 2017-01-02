@@ -24,6 +24,7 @@ class GccAT49 < Formula
   url "https://ftpmirror.gnu.org/gcc/gcc-4.9.3/gcc-4.9.3.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-4.9.3/gcc-4.9.3.tar.bz2"
   sha256 "2332b2a5a321b57508b9031354a8503af6fdfb868b8c1748d33028d100a8b67e"
+  revision 1
 
   head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_9-branch"
 
@@ -178,6 +179,8 @@ class GccAT49 < Formula
     # Handle conflicts between GCC formulae.
     # Rename man7.
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
+    # Even when we disable building info pages some are still installed.
+    info.rmtree
   end
 
   def add_suffix(file, suffix)
