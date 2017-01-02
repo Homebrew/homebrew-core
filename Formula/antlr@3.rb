@@ -4,6 +4,13 @@ class AntlrAT3 < Formula
   url "http://www.antlr3.org/download/antlr-3.4-complete.jar"
   sha256 "9d3e866b610460664522520f73b81777b5626fb0a282a5952b9800b751550bf7"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "ddb6e0b9c8cdd51ca782eaa47077f7c8cafcd165bd659f38046fc92f1ad58058" => :sierra
+    sha256 "4050297f21adad59f58fbd7f83128fb5ff0d47184ac52c0b8747d8e495dd6a76" => :el_capitan
+    sha256 "4050297f21adad59f58fbd7f83128fb5ff0d47184ac52c0b8747d8e495dd6a76" => :yosemite
+  end
+
   depends_on :java
 
   def install
