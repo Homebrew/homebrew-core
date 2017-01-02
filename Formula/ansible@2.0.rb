@@ -6,6 +6,13 @@ class AnsibleAT20 < Formula
 
   head "https://github.com/ansible/ansible.git", :branch => "stable-2.0"
 
+  bottle do
+    cellar :any
+    sha256 "d4d13e2de230d2651cc1c6769560c199f654764d0f8d8f6bfb86662708370688" => :sierra
+    sha256 "5d9908b751d32c3b71f1e50560690dcb6e3f77e9151fb4af07d5050c2008843b" => :el_capitan
+    sha256 "e9d440a0b726b66b84e16908fe4bccfe08cd34742641c57254ff1a1397ec1cb7" => :yosemite
+  end
+
   devel do
     url "https://releases.ansible.com/ansible/ansible-2.0.2.0-0.4.rc4.tar.gz"
     sha256 "b902f974b48bd6867fc5e6770bbc80df5d8af6c5b8f5a831bc8611360af1dc08"
