@@ -24,6 +24,7 @@ class GccAT6 < Formula
   url "https://ftpmirror.gnu.org/gcc/gcc-6.2.0/gcc-6.2.0.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-6.2.0/gcc-6.2.0.tar.bz2"
   sha256 "9944589fc722d3e66308c0ce5257788ebd7872982a718aa2516123940671b7c5"
+  revision 1
 
   bottle do
     sha256 "cf1c3d3a1c47ad2e90270cc05ebe380b2231596f087b0f8cb5925262402dfea4" => :sierra
@@ -175,6 +176,8 @@ class GccAT6 < Formula
     # Handle conflicts between GCC formulae.
     # Rename man7.
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
+    # Even when we disable building info pages some are still installed.
+    info.rmtree
   end
 
   def add_suffix(file, suffix)
