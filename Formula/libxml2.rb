@@ -1,9 +1,26 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org"
-  url "http://xmlsoft.org/sources/libxml2-2.9.4.tar.gz"
-  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.4.tar.gz"
-  sha256 "ffb911191e509b966deb55de705387f14156e1a56b21824357cdf0053233633c"
+  revision 1
+
+  stable do
+    url "http://xmlsoft.org/sources/libxml2-2.9.4.tar.gz"
+    mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.4.tar.gz"
+    sha256 "ffb911191e509b966deb55de705387f14156e1a56b21824357cdf0053233633c"
+
+    # All patches upstream already. Remove whenever 2.9.5 is released.
+    # Fixes CVE-2016-4658, CVE-2016-5131.
+    patch do
+      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.1.debian.tar.xz"
+      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.1.debian.tar.xz"
+      sha256 "e71790a415e5d6b4a6490040d946d584fa79465571da3b186cc67b8f064cd104"
+      apply "patches/0003-Fix-NULL-pointer-deref-in-XPointer-range-to.patch",
+            "patches/0004-Fix-comparison-with-root-node-in-xmlXPathCmpNodes.patch",
+            "patches/0005-Fix-XPointer-paths-beginning-with-range-to.patch",
+            "patches/0006-Disallow-namespace-nodes-in-XPointer-ranges.patch",
+            "patches/0007-Fix-more-NULL-pointer-derefs-in-xpointer.c.patch"
+    end
+  end
 
   bottle do
     cellar :any
