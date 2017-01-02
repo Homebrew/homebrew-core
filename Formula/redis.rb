@@ -62,6 +62,7 @@ class Redis < Formula
         <array>
           <string>#{opt_bin}/redis-server</string>
           <string>#{etc}/redis.conf</string>
+          <string>--daemonize no</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
