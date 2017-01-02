@@ -1,8 +1,8 @@
 class NagiosPlugins < Formula
   desc "Plugins for the nagios network monitoring system"
   homepage "https://www.nagios-plugins.org/"
-  url "https://www.nagios-plugins.org/download/nagios-plugins-2.0.3.tar.gz"
-  sha256 "8f0021442dce0138f0285ca22960b870662e28ae8973d49d439463588aada04a"
+  url "https://www.nagios-plugins.org/download/nagios-plugins-2.1.4.tar.gz"
+  sha256 "4355b5daede0fa72bbb55d805d724dfa3d05e7f66592ad71b4e047c6d9cdd090"
 
   bottle do
     sha256 "c6eae912c0c738868f3cf4c760e6dfe70589628e15b90aacfb2b549c1b31766d" => :sierra
@@ -28,7 +28,6 @@ class NagiosPlugins < Formula
 
     system "./configure", *args
     system "make", "install"
-    system "make", "install-root" # Do we still want to support root-install Jack?
     sbin.write_exec_script Dir["#{libexec}/sbin/*"]
   end
 
@@ -37,5 +36,10 @@ class NagiosPlugins < Formula
     All plugins have been installed in:
       #{HOMEBREW_PREFIX}/sbin
     EOS
+  end
+
+  test do
+    output = shell_output("#{sbin}/check_dns -H 8.8.8.8 -t 3")
+    assert_match "google-public-dns", output
   end
 end
