@@ -5,8 +5,8 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.10.3.tar.gz"
-  sha256 "46c3f695ccc6e7be3cb2afe1ea9586eafdf51a04f1d40fe7240def0d8693ca68"
+  url "https://hackage.haskell.org/package/purescript-0.10.4/purescript-0.10.4.tar.gz"
+  sha256 "2a79006d3861b8cdceaff3c5f7de48be19ba5ed6c2b5fa49f419f2c7e4bc6a51"
   head "https://github.com/purescript/purescript.git"
 
   bottle do
@@ -18,13 +18,21 @@ class Purescript < Formula
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
-  def install
-    # Fix "error: Couldn't match type 'Text' with 'Line'"
-    # Upstream issue "turtle 1.3 breaks build"
-    # Reported 10 Dec 2016 https://github.com/purescript/purescript/issues/2472
-    inreplace "purescript.cabal", "turtle -any", "turtle < 1.3"
+  # Fix "Couldn't match type '[Char]' with 'Text'"
+  # Upstream issue from 2 Jan 2017 https://github.com/purescript/purescript/issues/2528
+  resource "purescript-cabal-hackage" do
+    url "https://hackage.haskell.org/package/purescript-0.10.4/revision/1.cabal"
+    sha256 "a5dacd7a8e23b2aaa2e0f606372496d44cdb9217dbb565b06ce584a22f986a16"
+  end
 
-    install_cabal_package :using => ["alex", "happy"]
+  def install
+    buildpath.install resource("purescript-cabal-hackage")
+    # overwrites pre-existing purescript.cabal
+    mv "1.cabal", "purescript.cabal"
+
+    install_cabal_package "--allow-newer=turtle:directory",
+                          "--constraint", "directory < 1.4",
+                          :using => ["alex", "happy"]
   end
 
   test do
