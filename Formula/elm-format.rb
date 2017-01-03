@@ -9,6 +9,12 @@ class ElmFormat < Formula
   sha256 "3bf9d54298333139609a991364a3d8549766cf4462cb25021c65b7f5c5bc0bf3"
   head "https://github.com/avh4/elm-format.git"
 
+  bottle do
+    sha256 "61ad938bc44efb57e575b7ae1da584d81e07ab114979bd54d294933675d4c12b" => :sierra
+    sha256 "ddcfbf0941cd76df534000aa01062c354f2d8788ca7b2ef93e37fcf8ed029b88" => :el_capitan
+    sha256 "6b1b4cbb6da1aad3a80cd61190694b2e8ab19f5114eae8641ad1b0fc6ceaa1ed" => :yosemite
+  end
+
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
