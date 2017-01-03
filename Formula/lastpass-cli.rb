@@ -15,6 +15,8 @@ class LastpassCli < Formula
 
   option "with-doc", "Install man pages"
 
+  depends_on "cmake" => :build
+
   depends_on "asciidoc" => :build if build.with? "doc"
   depends_on "openssl"
   depends_on "pinentry" => :optional
