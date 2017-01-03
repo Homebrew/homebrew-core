@@ -24,6 +24,7 @@ class GccAT46 < Formula
   url "https://ftpmirror.gnu.org/gcc/gcc-4.6.4/gcc-4.6.4.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-4.6.4/gcc-4.6.4.tar.bz2"
   sha256 "35af16afa0b67af9b8eb15cafb76d2bc5f568540552522f5dc2c88dd45d977e8"
+  revision 1
 
   bottle do
     sha256 "671707f82b7fedcd3711a4cfc953f7180f44aafab7f40f907fcfd8f6b40adfef" => :sierra
@@ -174,6 +175,8 @@ class GccAT46 < Formula
     Dir.glob(prefix/"**/libiberty.*") { |file| add_suffix file, version_suffix }
     # Rename man7.
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
+    # Even when we disable building info pages some are still installed.
+    info.rmtree
     # Rename java properties
     if build.with?("java") || build.with?("all-languages")
       config_files = [

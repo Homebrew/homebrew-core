@@ -1,10 +1,5 @@
 class GccAT47 < Formula
   desc "GNU compiler collection"
-  bottle do
-    sha256 "4c3abce6ce37cbcd59ffde88b01fe50fdbd16d21bc5cec509e523d51eaf8e97a" => :sierra
-    sha256 "09d3ab5f906bc85711fc509ce68a1a6b9cf88c704582fbc8116a49b7386e6801" => :el_capitan
-    sha256 "02b2baf57d1588649ff7050b825c82e2eef6c3aecec0a301d18ebc9850117b8c" => :yosemite
-  end
 
   def arch
     if Hardware::CPU.type == :intel
@@ -30,8 +25,15 @@ class GccAT47 < Formula
   url "https://ftpmirror.gnu.org/gcc/gcc-4.7.4/gcc-4.7.4.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-4.7.4/gcc-4.7.4.tar.bz2"
   sha256 "92e61c6dc3a0a449e62d72a38185fda550168a86702dea07125ebd3ec3996282"
+  revision 1
 
   head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_7-branch"
+
+  bottle do
+    sha256 "4c3abce6ce37cbcd59ffde88b01fe50fdbd16d21bc5cec509e523d51eaf8e97a" => :sierra
+    sha256 "09d3ab5f906bc85711fc509ce68a1a6b9cf88c704582fbc8116a49b7386e6801" => :el_capitan
+    sha256 "02b2baf57d1588649ff7050b825c82e2eef6c3aecec0a301d18ebc9850117b8c" => :yosemite
+  end
 
   # Fixes build with Xcode 7.
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=66523
@@ -172,6 +174,8 @@ class GccAT47 < Formula
     Dir.glob(prefix/"**/libiberty.*") { |file| add_suffix file, version_suffix }
     # Rename man7.
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
+    # Even when we disable building info pages some are still installed.
+    info.rmtree
     # Rename java properties
     if build.with?("java") || build.with?("all-languages")
       config_files = [
