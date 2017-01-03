@@ -7,6 +7,13 @@ class Statik < Formula
   sha256 "a93768023b3702712271f5734266ed1223e890121363fd030a3d2a6273cd583f"
   head "https://github.com/thanethomson/statik.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "a49d5e7ed57957e706764ea751b54c6acf82628618007c7156175dc2a273e13e" => :sierra
+    sha256 "4fee9d640c2ebc36c7d56b19af07f5d918bfffbce6a933d6e9984efb9d9ab112" => :el_capitan
+    sha256 "478cbd81905495ee44a90d5ebf908c6258863628c10325131a94a6f9d32344e5" => :yosemite
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   # future requirements
