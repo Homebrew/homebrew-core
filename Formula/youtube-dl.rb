@@ -4,18 +4,21 @@
 class YoutubeDl < Formula
   desc "Download YouTube videos from the command-line"
   homepage "https://rg3.github.io/youtube-dl/"
-  url "https://github.com/rg3/youtube-dl/releases/download/2016.12.31/youtube-dl-2016.12.31.tar.gz"
-  sha256 "94d9f6cb99a1f5c27a8885f1bffe1f36c7e89feef961a83f78d8093284cf1ec9"
-  head "https://github.com/rg3/youtube-dl.git"
+  url "https://github.com/rg3/youtube-dl/releases/download/2017.01.02/youtube-dl-2017.01.02.tar.gz"
+  sha256 "140de01ea879cdc50bc34240802d5c10231baf448d7a664e6efeb9d5efb74d5b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "668f265abf4c08ea952669bd30c1a9965a30f94b069bf1363524fd7cf3dd24cd" => :sierra
-    sha256 "5734343442a8853b2cf571a2413e8e9bdf6649f6879e634fda1ce4d9ffaa0333" => :el_capitan
-    sha256 "978c685e46677d40ca8ff8e50efda2af2b43adc007fdd055540cba9bc28e83f4" => :yosemite
+    sha256 "34decc7d556cee30694da5cdb684a56dc5bc3ec3a443f82449a39d7167ca00f1" => :sierra
+    sha256 "4dd2161222912ae05b61840e1095e8ec01f1866db5e7fde73a228661636a35c8" => :el_capitan
+    sha256 "4dd2161222912ae05b61840e1095e8ec01f1866db5e7fde73a228661636a35c8" => :yosemite
   end
 
-  depends_on "pandoc" => :build
+  head do
+    url "https://github.com/rg3/youtube-dl.git"
+    depends_on "pandoc" => :build
+  end
+
   depends_on "rtmpdump" => :optional
 
   def install

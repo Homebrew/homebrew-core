@@ -5,26 +5,34 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.10.3.tar.gz"
-  sha256 "46c3f695ccc6e7be3cb2afe1ea9586eafdf51a04f1d40fe7240def0d8693ca68"
+  url "https://hackage.haskell.org/package/purescript-0.10.4/purescript-0.10.4.tar.gz"
+  sha256 "2a79006d3861b8cdceaff3c5f7de48be19ba5ed6c2b5fa49f419f2c7e4bc6a51"
   head "https://github.com/purescript/purescript.git"
 
   bottle do
-    sha256 "69ce4961c241c87adcd7f70445f8a8c2dd62d4d4bb96bc7ef85fb50b9c67b167" => :sierra
-    sha256 "d1deef9286bf2587b4c279dfb59f751b0ab55bbf31febe12909763ac26ec2429" => :el_capitan
-    sha256 "de3f5dbd405d1f1699b12b974d0f648594f93ae7793fade432469f03bf42b9ed" => :yosemite
+    sha256 "7c0b7d34fb71532086dcc894d2bd3c373f1323054c324c4595b1ee5cb4c2ec4b" => :sierra
+    sha256 "7c1dc5b5210d35de3ba3517ed8fe164fb8cfb31a2c4238807002706274450c5f" => :el_capitan
+    sha256 "91abcbe9675b4ddc657444ce6d4580c75cac7830155ced0260e0ccbcef4dcb03" => :yosemite
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
-  def install
-    # Fix "error: Couldn't match type 'Text' with 'Line'"
-    # Upstream issue "turtle 1.3 breaks build"
-    # Reported 10 Dec 2016 https://github.com/purescript/purescript/issues/2472
-    inreplace "purescript.cabal", "turtle -any", "turtle < 1.3"
+  # Fix "Couldn't match type '[Char]' with 'Text'"
+  # Upstream issue from 2 Jan 2017 https://github.com/purescript/purescript/issues/2528
+  resource "purescript-cabal-hackage" do
+    url "https://hackage.haskell.org/package/purescript-0.10.4/revision/1.cabal"
+    sha256 "a5dacd7a8e23b2aaa2e0f606372496d44cdb9217dbb565b06ce584a22f986a16"
+  end
 
-    install_cabal_package :using => ["alex", "happy"]
+  def install
+    buildpath.install resource("purescript-cabal-hackage")
+    # overwrites pre-existing purescript.cabal
+    mv "1.cabal", "purescript.cabal"
+
+    install_cabal_package "--allow-newer=turtle:directory",
+                          "--constraint", "directory < 1.4",
+                          :using => ["alex", "happy"]
   end
 
   test do

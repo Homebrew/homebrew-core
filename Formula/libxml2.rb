@@ -1,16 +1,32 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org"
-  url "http://xmlsoft.org/sources/libxml2-2.9.4.tar.gz"
-  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.4.tar.gz"
-  sha256 "ffb911191e509b966deb55de705387f14156e1a56b21824357cdf0053233633c"
+  revision 1
+
+  stable do
+    url "http://xmlsoft.org/sources/libxml2-2.9.4.tar.gz"
+    mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.4.tar.gz"
+    sha256 "ffb911191e509b966deb55de705387f14156e1a56b21824357cdf0053233633c"
+
+    # All patches upstream already. Remove whenever 2.9.5 is released.
+    # Fixes CVE-2016-4658, CVE-2016-5131.
+    patch do
+      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.1.debian.tar.xz"
+      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.1.debian.tar.xz"
+      sha256 "e71790a415e5d6b4a6490040d946d584fa79465571da3b186cc67b8f064cd104"
+      apply "patches/0003-Fix-NULL-pointer-deref-in-XPointer-range-to.patch",
+            "patches/0004-Fix-comparison-with-root-node-in-xmlXPathCmpNodes.patch",
+            "patches/0005-Fix-XPointer-paths-beginning-with-range-to.patch",
+            "patches/0006-Disallow-namespace-nodes-in-XPointer-ranges.patch",
+            "patches/0007-Fix-more-NULL-pointer-derefs-in-xpointer.c.patch"
+    end
+  end
 
   bottle do
     cellar :any
-    sha256 "48fa14c9f84184afd4623aa414589b1ea1088e422d4fd326c82dbe2025ed64f8" => :sierra
-    sha256 "106885b0ac96d1f59c5a1f7588ffc938d90361fb9e68cbdd74db2177ea3fa694" => :el_capitan
-    sha256 "abc9899e778ff2d5abcdac5c1b8b976b9811029b739d557c1ac61dbe1ef2cc19" => :yosemite
-    sha256 "03f73fbc3f99f098f44ff5805aadd1b5cd6c4741e9ca9f6e66d9cc4a9b2f1a5a" => :mavericks
+    sha256 "077c1f4a73619c4012c2f5be53608e8c346915b7118a920dedb5e8e14d69bb6c" => :sierra
+    sha256 "b60ed79d32e4abfd350fb753bc1149606963dce4123c2f0557edac42b79ad96c" => :el_capitan
+    sha256 "5100a394f86c395f3392b6961a415ed833d3be9b7747e69099b5cd378b0852b4" => :yosemite
   end
 
   head do

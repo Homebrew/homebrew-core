@@ -32,6 +32,7 @@
   "isl014": "isl@0.14",
   "kotlin-compiler": "kotlin",
   "juju": "juju@1.25",
+  "juju2": "juju@2.0",
   "letsencrypt": "certbot",
   "libcppa": "caf",
   "libmongoclient": "mongo-cxx-driver",

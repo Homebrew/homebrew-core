@@ -24,11 +24,12 @@ class GccAT46 < Formula
   url "https://ftpmirror.gnu.org/gcc/gcc-4.6.4/gcc-4.6.4.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-4.6.4/gcc-4.6.4.tar.bz2"
   sha256 "35af16afa0b67af9b8eb15cafb76d2bc5f568540552522f5dc2c88dd45d977e8"
+  revision 1
 
   bottle do
-    sha256 "671707f82b7fedcd3711a4cfc953f7180f44aafab7f40f907fcfd8f6b40adfef" => :sierra
-    sha256 "d27e41dbf68fec583a1f83dad7987a6e44c9bd287eb2f825a75e546cc4ae3046" => :el_capitan
-    sha256 "cb13edfd5bed8a9dfd2bebfcf3a2b58d35d3fa3b1de7e8e653f49e076ed2bc31" => :yosemite
+    sha256 "61d78914d2f4bb499b075b5cbf70dd8a333ab5f29d4274c35054f4e9aa2a4260" => :sierra
+    sha256 "4db90407af9ee48b59295ac5f67d821b706e50414ab33ecb5cb974ab21b2855f" => :el_capitan
+    sha256 "376688c133561cae1ac5ddca171b4ba1df1dc68c5045b377d8cd926b15d6f7af" => :yosemite
   end
 
   # Fixes build with Xcode 7.
@@ -174,6 +175,8 @@ class GccAT46 < Formula
     Dir.glob(prefix/"**/libiberty.*") { |file| add_suffix file, version_suffix }
     # Rename man7.
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
+    # Even when we disable building info pages some are still installed.
+    info.rmtree
     # Rename java properties
     if build.with?("java") || build.with?("all-languages")
       config_files = [

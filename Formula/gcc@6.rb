@@ -24,11 +24,12 @@ class GccAT6 < Formula
   url "https://ftpmirror.gnu.org/gcc/gcc-6.2.0/gcc-6.2.0.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-6.2.0/gcc-6.2.0.tar.bz2"
   sha256 "9944589fc722d3e66308c0ce5257788ebd7872982a718aa2516123940671b7c5"
+  revision 1
 
   bottle do
-    sha256 "cf1c3d3a1c47ad2e90270cc05ebe380b2231596f087b0f8cb5925262402dfea4" => :sierra
-    sha256 "390a0ae9d1f3d5f01d589d866cf48c5a52f6149504ab4c98417c631c6e9b042b" => :el_capitan
-    sha256 "51042cb8b45426b11a093f1ea2e5d2a21cf8bc91a05932ed9e16dc79acfde6f9" => :yosemite
+    sha256 "bfb52caec32dc9af53ff77582e20916ff136b74868f1e30296f3c43d69894630" => :sierra
+    sha256 "190c127c503e9aaa845b24d8effdbdc2a0d180ee6cd7baf7e34b63f9766acb72" => :el_capitan
+    sha256 "c5b1163b6e5cb09d18fb20c4d0cd025142011d115ed60c1267ba40ff5bc0cdd5" => :yosemite
   end
 
   # GCC's Go compiler is not currently supported on Mac OS X.
@@ -175,6 +176,8 @@ class GccAT6 < Formula
     # Handle conflicts between GCC formulae.
     # Rename man7.
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
+    # Even when we disable building info pages some are still installed.
+    info.rmtree
   end
 
   def add_suffix(file, suffix)
