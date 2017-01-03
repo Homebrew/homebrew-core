@@ -84,15 +84,9 @@ class Statik < Formula
       project-name: Homebrew Test
       base-path: /
     EOS
-    (testpath/"models/Post.yml").write <<-EOS.undent
-      title: String
-    EOS
-    (testpath/"data/Post/test-post1.yml").write <<-EOS.undent
-      title: Test post 1
-    EOS
-    (testpath/"data/Post/test-post2.yml").write <<-EOS.undent
-      title: Test post 2
-    EOS
+    (testpath/"models/Post.yml").write("title: String")
+    (testpath/"data/Post/test-post1.yml").write("title: Test post 1")
+    (testpath/"data/Post/test-post2.yml").write("title: Test post 2")
     (testpath/"views/posts.yml").write <<-EOS.undent
       path:
         template: /{{ post.pk }}/
@@ -118,8 +112,8 @@ class Statik < Formula
     EOS
     system bin/"statik"
 
-    assert File.exist? testpath/"public/index.html"
-    assert File.exist? testpath/"public/test-post1/index.html"
-    assert File.exist? testpath/"public/test-post2/index.html"
+    assert(File.exist?(testpath/"public/index.html"), "home view was not correctly generated!")
+    assert(File.exist?(testpath/"public/test-post1/index.html"), "test-post1 was not correctly generated!")
+    assert(File.exist?(testpath/"public/test-post2/index.html"), "test-post2 was not correctly generated!")
   end
 end
