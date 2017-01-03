@@ -5,9 +5,21 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://hackage.haskell.org/package/purescript-0.10.4/purescript-0.10.4.tar.gz"
-  sha256 "2a79006d3861b8cdceaff3c5f7de48be19ba5ed6c2b5fa49f419f2c7e4bc6a51"
+  revision 1
   head "https://github.com/purescript/purescript.git"
+
+  stable do
+    url "https://github.com/purescript/purescript/archive/v0.10.4.tar.gz"
+    sha256 "4224d5595352ad000e3b0b39c3f9e4d21ddddad337b651a5bc7480eecfe731e3"
+
+    # Fix "Couldn't match type '[Char]' with 'Text'"
+    # Upstream PR from 2 Jan 2017 "Update bower-json to 1.0.0.1"
+    # https://github.com/purescript/purescript/pull/2531
+    patch do
+      url "https://github.com/purescript/purescript/commit/b84ef77.patch"
+      sha256 "1fd272dff1a09b1bc49e9fea54d829a5fdee04487a436b97b3e573513b96f532"
+    end
+  end
 
   bottle do
     sha256 "7c0b7d34fb71532086dcc894d2bd3c373f1323054c324c4595b1ee5cb4c2ec4b" => :sierra
@@ -18,18 +30,7 @@ class Purescript < Formula
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
-  # Fix "Couldn't match type '[Char]' with 'Text'"
-  # Upstream issue from 2 Jan 2017 https://github.com/purescript/purescript/issues/2528
-  resource "purescript-cabal-hackage" do
-    url "https://hackage.haskell.org/package/purescript-0.10.4/revision/1.cabal"
-    sha256 "a5dacd7a8e23b2aaa2e0f606372496d44cdb9217dbb565b06ce584a22f986a16"
-  end
-
   def install
-    buildpath.install resource("purescript-cabal-hackage")
-    # overwrites pre-existing purescript.cabal
-    mv "1.cabal", "purescript.cabal"
-
     install_cabal_package "--allow-newer=turtle:directory",
                           "--constraint", "directory < 1.4",
                           :using => ["alex", "happy"]
