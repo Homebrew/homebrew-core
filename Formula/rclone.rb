@@ -3,8 +3,8 @@ require "language/go"
 class Rclone < Formula
   desc "rsync for cloud storage"
   homepage "http://rclone.org"
-  url "https://github.com/ncw/rclone/archive/v1.34.tar.gz"
-  sha256 "8426b19e0a94149fcfc0d5d1fb481af4d907459165c46cdc2d6e8eeba22851a6"
+  url "https://github.com/ncw/rclone/archive/v1.35.tar.gz"
+  sha256 "63a075c4e6725f1a59c151a2d0d8cdf3119940fe293ee6220ff9fea6438b6fd7"
 
   bottle do
     cellar :any_skip_relocation
