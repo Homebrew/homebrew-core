@@ -3,6 +3,7 @@ class Rocksdb < Formula
   homepage "http://rocksdb.org"
   url "https://github.com/facebook/rocksdb/archive/v4.13.5.tar.gz"
   sha256 "3384655107f59a6ee9a52a54d0631d9ae96c722e411bafe6c4547ec4fc201534"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,7 +12,7 @@ class Rocksdb < Formula
     sha256 "a74163785a0356483520f8ae05f0453acbc05b3c179501f574d33de52c24c933" => :yosemite
   end
 
-  option "with-lite", "Build mobile/non-flash optimized lite version"
+  option "without-lite", "Don't build mobile/non-flash optimized lite version"
   option "with-tools", "Build tools"
 
   needs :cxx11
@@ -22,7 +23,10 @@ class Rocksdb < Formula
   def install
     ENV.cxx11
     ENV["PORTABLE"] = "1" if build.bottle?
-    ENV.append_to_cflags "-DROCKSDB_LITE=1" if build.with? "lite"
+    if build.with? "lite"
+      ENV.append_to_cflags "-DROCKSDB_LITE=1"
+      ENV["LIBNAME"] = "librocksdb_lite"
+    end
     system "make", "clean"
     system "make", "static_lib"
     system "make", "shared_lib"
@@ -48,7 +52,6 @@ class Rocksdb < Formula
       using namespace rocksdb;
       int main() {
         Options options;
-        options.memtable_factory.reset(NewHashSkipListRepFactory(16));
         return 0;
       }
     EOS
@@ -56,7 +59,7 @@ class Rocksdb < Formula
     system ENV.cxx, "test.cpp", "-o", "db_test", "-v",
                                 "-std=c++11", "-stdlib=libc++", "-lstdc++",
                                 "-lz", "-lbz2",
-                                "-L#{lib}", "-lrocksdb",
+                                "-L#{lib}", "-lrocksdb_lite",
                                 "-L#{Formula["snappy"].opt_lib}", "-lsnappy",
                                 "-L#{Formula["lz4"].opt_lib}", "-llz4"
     system "./db_test"
