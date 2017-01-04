@@ -3,6 +3,7 @@ class Asio < Formula
   homepage "https://think-async.com/Asio"
   url "https://downloads.sourceforge.net/project/asio/asio/1.10.8%20%28Stable%29/asio-1.10.8.tar.bz2"
   sha256 "26deedaebbed062141786db8cfce54e77f06588374d08cccf11c02de1da1ed49"
+  revision 1
   head "https://github.com/chriskohlhoff/asio.git"
 
   bottle do
@@ -19,19 +20,18 @@ class Asio < Formula
   option "with-boost-coroutine", "Use Boost.Coroutine to implement stackful coroutines"
   option :cxx11
 
-  needs :cxx11 if build.cxx11?
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  if !build.cxx11? || build.with?("boost-coroutine")
-    depends_on "boost"
-  else
-    depends_on "boost" => :optional
-  end
+
+  depends_on "boost" => :optional
+  depends_on "boost" if build.with?("boost-coroutine")
   depends_on "openssl"
 
+  needs :cxx11 if build.without? "boost"
+
   def install
-    ENV.cxx11 if build.cxx11?
+    ENV.cxx11 if build.cxx11? || build.without?("boost")
+
     if build.head?
       cd "asio"
       system "./autogen.sh"
@@ -42,7 +42,7 @@ class Asio < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-boost=#{(build.with?("boost") || build.with?("boost-coroutine") || !build.cxx11?) ? Formula["boost"].opt_include : "no"}
+      --with-boost=#{(build.with?("boost") || build.with?("boost-coroutine")) ? Formula["boost"].opt_include : "no"}
     ]
     args << "--enable-boost-coroutine" if build.with? "boost-coroutine"
 
@@ -52,9 +52,11 @@ class Asio < Formula
   end
 
   test do
-    httpserver = pkgshare/"examples/cpp03/http/server/http_server"
+    found = [pkgshare/"examples/cpp11/http/server/http_server",
+             pkgshare/"examples/cpp03/http/server/http_server"].select(&:exist?)
+    raise "no http_server example file found" if found.empty?
     pid = fork do
-      exec httpserver, "127.0.0.1", "8080", "."
+      exec found.first, "127.0.0.1", "8080", "."
     end
     sleep 1
     begin
