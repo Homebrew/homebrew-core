@@ -7,9 +7,10 @@ class Osquery < Formula
       :revision => "8fcb3659eeeac56847ee6d26b138b6bddc941a6a"
 
   bottle do
-    sha256 "e5e53203da14c962be57dcab14948dbb8c177f14e4f810ce75561c5bf29937c6" => :sierra
-    sha256 "140f8e53419334680ff347e1eb05b74ce41cc1c1e91c75b7bb896c2aef5cfefd" => :el_capitan
-    sha256 "c151eb53edb09c1a8891f85e836d5552079c7d9512f97fe2cff114c8a64ce918" => :yosemite
+    cellar :any
+    sha256 "87e28511c0de4c6032ce213269273cd46c740786eccadddf6eade01d57c42a61" => :sierra
+    sha256 "cbab16c4b58746ef215da8ae7a8a2f8f51087debf8b35fc8ef5bde207281bec3" => :el_capitan
+    sha256 "5f4dfc1e35cd1241d7031ea9a2fd583f646988a0f14bbfdfd279b2ba0fad2486" => :yosemite
   end
 
   fails_with :gcc => "6"
