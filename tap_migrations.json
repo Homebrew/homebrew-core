@@ -44,6 +44,7 @@
   "coin": "homebrew/boneyard",
   "comparepdf": "homebrew/boneyard",
   "cowpatty": "homebrew/boneyard",
+  "cpp-netlib": "homebrew/boneyard",
   "csync": "homebrew/boneyard",
   "curlftpfs": "homebrew/x11",
   "cuty_capt": "homebrew/boneyard",
