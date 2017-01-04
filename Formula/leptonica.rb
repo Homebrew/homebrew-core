@@ -1,8 +1,8 @@
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
-  url "http://www.leptonica.org/source/leptonica-1.74.tar.gz"
-  sha256 "e170f8a3f79e7f1742aff975ad5bb0c4a124df1532e6e38d9d71aaa5111de5a2"
+  url "http://www.leptonica.com/source/leptonica-1.74.1.tar.gz"
+  sha256 "746a517a47a3bd2a90bc8d581ca6464c10f30e91a60209735efe45b3778bec62"
 
   bottle do
     cellar :any
