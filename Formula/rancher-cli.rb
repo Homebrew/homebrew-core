@@ -5,10 +5,9 @@ class RancherCli < Formula
   sha256 "9eff3243135d5da8c03659ec6910989f418938d3346b9737052cb0b2a400196e"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e066b44b4d5558aa8f1774a8260391217bcf8e8e00b198bb21974db6e593c5bb" => :sierra
-    sha256 "5d8cbf68f7c83d0b47369f7ed7880b787fe54a90b4987d2f93d81d51d290391d" => :el_capitan
-    sha256 "bf4d56b782d4545a216d8da0807804a3d9ae1042e0b36da74d47346d050ce1f1" => :yosemite
+    sha256 "13a3be987a2e2a5e9c05f32dc676cb0267f94f90ef7d124297b6c5047e364885" => :sierra
+    sha256 "7e722a72ac35dd3ba4f501d32287269696e51a2816df7f056cb5cc29e08ab4c2" => :el_capitan
+    sha256 "eedfa1fc0a6bf3a3d12c9bcd23de40712a1f8f0a6cfbaef2713aa5ef6a67e1c0" => :yosemite
   end
 
   depends_on "go" => :build
