@@ -7,12 +7,9 @@ class GnuSed < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "d5db0714fd68ae5308fb0b34da9c5e0b3c6dc0eda3371cde001dc148405330f8" => :sierra
-    sha256 "e7123ca64185d9b6e01b122a0f5a10154fd2405b5b34d765360db55beb9bafca" => :el_capitan
-    sha256 "a45ed585278029792f71d8882763ee0e1605e3df7bdb06dd02c8f815e2f58c68" => :yosemite
-    sha256 "b074edd2ec60b244284cd1545d83fdf48151ee5b9f8e5f0dc6a509b822d0bb37" => :mavericks
-    sha256 "bc210361d787b929011afbe96bd5a78c77e35a14d953942cd278d04c640183ae" => :mountain_lion
+    sha256 "ea5a119a6a420b2048cc254433622101dd998a91e2367d7e5554447cbc481c03" => :sierra
+    sha256 "f01350c5adf68a76c7e541a56a88e65bc480d2551146b404704aace725774a1b" => :el_capitan
+    sha256 "ffb7ecd8bcb5795f230b0b6977ddf1c3e851e78a87e22a1137639d556bbe18b6" => :yosemite
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
