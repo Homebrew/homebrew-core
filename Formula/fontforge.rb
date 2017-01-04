@@ -3,6 +3,7 @@ class Fontforge < Formula
   homepage "https://fontforge.github.io"
   url "https://github.com/fontforge/fontforge/archive/20161012.tar.gz"
   sha256 "a5f5c2974eb9109b607e24f06e57696d5861aaebb620fc2c132bdbac6e656351"
+  revision 1
   head "https://github.com/fontforge/fontforge.git"
 
   bottle do
@@ -30,6 +31,7 @@ class Fontforge < Formula
   depends_on "libtiff" => :recommended
   depends_on "giflib" => :optional
   depends_on "libspiro" => :optional
+  depends_on "libuninameslist" => :optional
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "gnulib" do
@@ -38,22 +40,13 @@ class Fontforge < Formula
   end
 
   def install
-    # Don't link libraries to libpython, but do link binaries that expect
-    # to embed a python interpreter
-    # https://github.com/fontforge/fontforge/issues/2353#issuecomment-121009759
     ENV["PYTHON_CFLAGS"] = `python-config --cflags`.chomp
-    ENV["PYTHON_LIBS"] = "-undefined dynamic_lookup"
-    python_libs = `python2.7-config --ldflags`.chomp
-    inreplace "fontforgeexe/Makefile.am" do |s|
-      oldflags = s.get_make_var "libfontforgeexe_la_LDFLAGS"
-      s.change_make_var! "libfontforgeexe_la_LDFLAGS", "#{python_libs} #{oldflags}"
-    end
+    ENV["PYTHON_LIBS"] = `python-config --ldflags`.chomp
 
     args = %W[
       --prefix=#{prefix}
       --disable-silent-rules
       --disable-dependency-tracking
-      --with-pythonbinary=#{which "python2.7"}
       --without-x
     ]
 
@@ -62,12 +55,7 @@ class Fontforge < Formula
     args << "--without-libtiff" if build.without? "libtiff"
     args << "--without-giflib" if build.without? "giflib"
     args << "--without-libspiro" if build.without? "libspiro"
-
-    # Fix linker error; see: https://trac.macports.org/ticket/25012
-    ENV.append "LDFLAGS", "-lintl"
-
-    # Reset ARCHFLAGS to match how we build
-    ENV["ARCHFLAGS"] = "-arch #{MacOS.preferred_arch}"
+    args << "--without-libuninameslist" if build.without? "libuninameslist"
 
     # Bootstrap in every build: https://github.com/fontforge/fontforge/issues/1806
     resource("gnulib").fetch
