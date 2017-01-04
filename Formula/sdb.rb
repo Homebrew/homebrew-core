@@ -1,8 +1,8 @@
 class Sdb < Formula
   desc "Ondisk/memory hashtable based on CDB."
   homepage "https://github.com/radare/sdb"
-  url "http://www.radare.org/get/sdb-0.10.4.tar.gz"
-  sha256 "124e9ca05308100876bd1faf3f71c062be1236846600729d4aa9029f41a08a11"
+  url "http://www.radare.org/get/sdb-0.10.5.tar.gz"
+  sha256 "9eae3ed9e5a889e22395333d2c3503230a6418caad3e7739b918ea37315a87bf"
 
   bottle do
     cellar :any
