@@ -3,7 +3,6 @@ class LastpassCli < Formula
   homepage "https://github.com/lastpass/lastpass-cli"
   url "https://github.com/lastpass/lastpass-cli/archive/v1.0.0.tar.gz"
   sha256 "42096c0bd3972b0e9cc9cef32fbf141e47b04b9e2387fb3abe8b105e135fb41e"
-  head "https://github.com/lastpass/lastpass-cli.git"
 
   bottle do
     cellar :any
@@ -13,9 +12,13 @@ class LastpassCli < Formula
     sha256 "dc2eb72ebe79a0963dc9cae50ec6a38633740866b356e7521f37bf1c586a37f0" => :mavericks
   end
 
+  head do
+    url "https://github.com/lastpass/lastpass-cli.git"
+    
+    depends_on "cmake" => :build
+  end
+  
   option "with-doc", "Install man pages"
-
-  depends_on "cmake" => :build
 
   depends_on "asciidoc" => :build if build.with? "doc"
   depends_on "openssl"
