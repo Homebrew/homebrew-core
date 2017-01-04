@@ -1,8 +1,8 @@
 class Flatbuffers < Formula
   desc "Serialization library for C++, supporting Java, C#, and Go"
   homepage "https://google.github.io/flatbuffers"
-  url "https://github.com/google/flatbuffers/archive/v1.4.0.tar.gz"
-  sha256 "d3355f0adcc16054afcce4a3eac90b9c26f926be9a65b2e158867f56ab689e63"
+  url "https://github.com/google/flatbuffers/archive/v1.5.0.tar.gz"
+  sha256 "85362cb54042e96329cb65396a5b589789b3d42e4ed7c2debddb7a2300a05f41"
   head "https://github.com/google/flatbuffers.git"
 
   bottle do
@@ -66,6 +66,6 @@ class Flatbuffers < Formula
     end
     (testpath/"test.json").write(testjson)
 
-    system "flatc", "-c", "-b", "test.fbs", "test.json"
+    system bin/"flatc", "-c", "-b", "test.fbs", "test.json"
   end
 end
