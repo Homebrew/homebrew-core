@@ -3,9 +3,8 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-    :tag => "1.7.3",
-    :revision => "6901aa644a9bcc0667207008db71471abf756b82"
-  revision 7
+      :tag => "2.2.1",
+      :revision => "8fcb3659eeeac56847ee6d26b138b6bddc941a6a"
 
   bottle do
     sha256 "e5e53203da14c962be57dcab14948dbb8c177f14e4f810ce75561c5bf29937c6" => :sierra
@@ -17,19 +16,21 @@ class Osquery < Formula
 
   # osquery only supports OS X 10.9 and above. Do not remove this.
   depends_on :macos => :mavericks
-
+  depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "rocksdb"
-  depends_on "thrift"
-  depends_on "yara"
-  depends_on "openssl"
+  depends_on "asio"
+  depends_on "augeas"
+  depends_on "snappy"
   depends_on "gflags"
   depends_on "glog"
   depends_on "libmagic"
   depends_on "lz4"
-  depends_on "cpp-netlib"
+  depends_on "openssl"
+  depends_on "rocksdb"
   depends_on "sleuthkit"
+  depends_on "yara"
+  depends_on "xz"
 
   resource "MarkupSafe" do
     url "https://files.pythonhosted.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"
@@ -46,14 +47,9 @@ class Osquery < Formula
     sha256 "9d8b7f8353a2b2eb6eb7271d42ec99d0d264a9338a37be46424d56b4e473b39e"
   end
 
-  # as of gflags 2.2.0 FlagRegisterer no longer needs type specified
-  # reported 26 Nov 2016 https://github.com/facebook/osquery/issues/2798
-  # upstream PR from 26 Nov 2016 https://github.com/facebook/osquery/pull/2800
-  # original gflags PR https://github.com/gflags/gflags/pull/158
-  # breaking commit https://github.com/gflags/gflags/commit/46ea10f
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/dc800df/osquery/patch-gflags-2.2.0.diff"
-    sha256 "be111edf7d46b7a0c630e73ce754c00ff2c289b5221b87080b9e7eb57ec1e4b0"
+  resource "aws-sdk-cpp" do
+    url "https://github.com/aws/aws-sdk-cpp/archive/0.14.4.tar.gz"
+    sha256 "2e935275c6f7eb25e7d850b354344c92cacb7c193b708ec64ffce10ec6afa7f4"
   end
 
   resource "boost" do
@@ -61,8 +57,51 @@ class Osquery < Formula
     sha256 "36c96b0f6155c98404091d8ceb48319a28279ca0333fba1ad8611eb90afb2ca0"
   end
 
+  resource "cpp-netlib" do
+    url "https://github.com/cpp-netlib/cpp-netlib/archive/cpp-netlib-0.12.0-final.tar.gz"
+    version "0.12.0"
+    sha256 "d66e264240bf607d51b8d0e743a1fa9d592d96183d27e2abdaf68b0a87e64560"
+  end
+
+  resource "linenoise" do
+    url "https://github.com/theopolis/linenoise-ng/archive/v1.0.1.tar.gz"
+    sha256 "c317f3ec92dcb4244cb62f6fb3b7a0a5a53729a85842225fcfce0d4a429a0dfa"
+  end
+
+  resource "thrift" do
+    url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.9.3/thrift-0.9.3.tar.gz"
+    sha256 "b0740a070ac09adde04d43e852ce4c320564a292f26521c46b78e0641564969e"
+  end
+
+  resource "thrift-patch" do
+    url "https://gist.githubusercontent.com/ilovezfs/1d098a46e30b9e8bf78d4871e541d2fe/raw/3f5cf999f36aed3f2b5a477bafa6f9c16862649b/gistfile1.txt"
+    sha256 "61955afa09ef244fc84a72ef019de15515e76377aceeb2cbf1e93fa0df374cd2"
+  end
+
   def install
     ENV.cxx11
+
+    vendor = buildpath/"brew_vendor"
+
+    resource("aws-sdk-cpp").stage do
+      inreplace "CMakeLists.txt", "${CMAKE_CXX_FLAGS_RELEASE} -s",
+                                  "${CMAKE_CXX_FLAGS_RELEASE}"
+
+      args = std_cmake_args + %W[
+        -DSTATIC_LINKING=1
+        -DNO_HTTP_CLIENT=1
+        -DMINIMIZE_SIZE=ON
+        -DBUILD_SHARED_LIBS=OFF
+        -DBUILD_ONLY=firehose;kinesis;sts
+        -DCMAKE_INSTALL_PREFIX=#{vendor}/aws-sdk-cpp
+      ]
+
+      mkdir "build" do
+        system "cmake", "..", *args
+        system "make"
+        system "make", "install"
+      end
+    end
 
     resource("boost").stage do
       # Force boost to compile with the desired compiler
@@ -73,14 +112,14 @@ class Osquery < Formula
 
       bootstrap_args = %W[
         --without-icu
-        --prefix=#{libexec}/boost
-        --libdir=#{libexec}/boost/lib
+        --prefix=#{vendor}/boost
+        --libdir=#{vendor}/boost/lib
         --with-libraries=filesystem,regex,system
       ]
 
       args = %W[
-        --prefix=#{libexec}/boost
-        --libdir=#{libexec}/boost/lib
+        --prefix=#{vendor}/boost
+        --libdir=#{vendor}/boost/lib
         -d2
         -j#{ENV.make_jobs}
         --ignore-site-config
@@ -103,13 +142,76 @@ class Osquery < Formula
       system "./b2", *args
     end
 
+    resource("cpp-netlib").stage do
+      ENV["BOOST_ROOT"] = vendor/"boost"
+      args = std_cmake_args + %W[
+        -DCMAKE_INSTALL_PREFIX=#{vendor}/cpp-netlib
+        -DCPP-NETLIB_BUILD_TESTS=OFF
+        -DCPP-NETLIB_BUILD_EXAMPLES=OFF
+      ]
+      system "cmake", ".", *args
+      system "make"
+      system "make", "install"
+    end
+
+    resource("linenoise").stage do
+      mkdir "build" do
+        args = std_cmake_args + %W[
+          -DCMAKE_INSTALL_PREFIX=#{vendor}/linenoise
+          -DCMAKE_CXX_FLAGS=-mno-avx\ -fPIC
+        ]
+        system "cmake", "..", *args
+        system "make"
+        system "make", "install"
+      end
+    end
+
+    resource("thrift").stage do
+      ENV["PY_PREFIX"] = vendor/"thrift"
+      ENV.append "CPPFLAGS", "-DOPENSSL_NO_SSL3"
+
+      # Remove SSLv3
+      # See https://github.com/apache/thrift/commit/b819260c653f6fd9602419ee2541060ecb930c4c
+      Pathname.pwd.install resource("thrift-patch")
+      system "patch", "-p1", "-i", "gistfile1.txt"
+
+      exclusions = %W[
+        --without-ruby
+        --disable-tests
+        --without-php_extension
+        --without-haskell
+        --without-java
+        --without-perl
+        --without-php
+        --without-erlang
+        --without-go
+        --without-qt
+        --without-qt4
+        --without-nodejs
+        --with-cpp
+        --with-python
+        --with-openssl=#{Formula["openssl"].opt_prefix}
+      ]
+
+      ENV.prepend_path "PATH", Formula["bison"].opt_bin
+      system "./configure", "--disable-debug",
+                            "--prefix=#{vendor}/thrift",
+                            "--libdir=#{vendor}/thrift/lib",
+                            "--with-boost=#{vendor}/boost",
+                            *exclusions
+      system "make", "-j#{ENV.make_jobs}"
+      system "make", "install"
+    end
+    ENV.prepend_path "PATH", vendor/"thrift/bin"
+
     # Skip test and benchmarking.
     ENV["SKIP_TESTS"] = "1"
 
     ENV.prepend_create_path "PYTHONPATH", buildpath/"third-party/python/lib/python2.7/site-packages"
-    ENV["THRIFT_HOME"] = Formula["thrift"].opt_prefix
+    ENV["THRIFT_HOME"] = vendor/"thrift"
 
-    res = resources.map(&:name).to_set - ["boost"]
+    res = resources.map(&:name).to_set - %w[aws-sdk-cpp boost cpp-netlib
+                                            linenoise thrift thrift-patch]
     res.each do |r|
       resource(r).stage do
         system "python", "setup.py", "install",
@@ -119,12 +221,21 @@ class Osquery < Formula
       end
     end
 
-    ENV["BOOST_ROOT"] = Formula["osquery"].libexec/"boost/include"
+    ENV["BOOST_ROOT"] = vendor/"boost/include"
 
     args = std_cmake_args + %W[
-      -Dboost_filesystem_library:FILEPATH=#{libexec}/boost/lib/libboost_filesystem-mt.a
-      -Dboost_regex_library:FILEPATH=#{libexec}/boost/lib/libboost_regex-mt.a
-      -Dboost_system_library:FILEPATH=#{libexec}/boost/lib/libboost_system-mt.a
+      -Daws-cpp-sdk-core_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-core.a
+      -Daws-cpp-sdk-firehose_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-firehose.a
+      -Daws-cpp-sdk-kinesis_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-kinesis.a
+      -Daws-cpp-sdk-sts_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-sts.a
+      -Dboost_filesystem-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_filesystem-mt.a
+      -Dboost_regex-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_regex-mt.a
+      -Dboost_system-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_system-mt.a
+      -Dcppnetlib-client-connections_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-client-connections.a
+      -Dcppnetlib-uri_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-uri.a
+      -Dlinenoise_library:FILEPATH=#{vendor}/linenoise/lib/liblinenoise.a
+      -Dthrift_library:FILEPATH=#{vendor}/thrift/lib/libthrift.a
+      -DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG\ -I#{MacOS.sdk_path}/usr/include/libxml2\ -I#{vendor}/aws-sdk-cpp/include\ -I#{vendor}/boost/include\ -I#{vendor}/cpp-netlib/include\ -I#{vendor}/linenoise/include\ -I#{vendor}/thrift/include\ -Wl,-L#{vendor}/linenoise/lib
     ]
 
     # Link dynamically against brew-installed libraries.
@@ -133,53 +244,12 @@ class Osquery < Formula
     system "cmake", ".", *args
     system "make"
     system "make", "install"
+    (include/"osquery/core").install Dir["osquery/core/*.h"]
   end
 
   plist_options :startup => true, :manual => "osqueryd"
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
-      #include <osquery/sdk.h>
-
-      using namespace osquery;
-
-      class ExampleTablePlugin : public TablePlugin {
-       private:
-        TableColumns columns() const {
-          return {{"example_text", TEXT_TYPE}, {"example_integer", INTEGER_TYPE}};
-        }
-
-        QueryData generate(QueryContext& request) {
-          QueryData results;
-          Row r;
-
-          r["example_text"] = "example";
-          r["example_integer"] = INTEGER(1);
-          results.push_back(r);
-          return results;
-        }
-      };
-
-      REGISTER_EXTERNAL(ExampleTablePlugin, "table", "example");
-
-      int main(int argc, char* argv[]) {
-        Initializer runner(argc, argv, OSQUERY_EXTENSION);
-        runner.shutdown();
-        return 0;
-      }
-    EOS
-
-    system ENV.cxx, "test.cpp", "-o", "test", "-v", "-std=c++11",
-                    "-I#{include}", "-I#{libexec}/boost/include",
-                    "-I#{Formula["gflags"].opt_include}",
-                    "-I#{Formula["glog"].opt_include}",
-                    "-L#{lib}", "-L#{libexec}/boost/lib",
-                    "-L#{Formula["gflags"].opt_lib}",
-                    "-L#{Formula["glog"].opt_lib}",
-                    "-L#{Formula["rocksdb"].opt_lib}",
-                    "-L#{Formula["thrift"].opt_lib}",
-                    "-losquery", "-lboost_filesystem-mt", "-lboost_system-mt",
-                    "-lgflags", "-lglog", "-lrocksdb", "-lthrift"
-    system "./test"
+    assert_match "platform_info", shell_output("#{bin}/osqueryi -L")
   end
 end
