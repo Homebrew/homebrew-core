@@ -3,6 +3,7 @@ class Notmuch < Formula
   homepage "https://notmuchmail.org"
   url "https://notmuchmail.org/releases/notmuch-0.23.4.tar.gz"
   sha256 "106dd6e39c4955871a49a84488d06394c1cecf66c1542b11834f8e8d5c66453b"
+  revision 1
 
   bottle do
     cellar :any
@@ -21,7 +22,7 @@ class Notmuch < Formula
   depends_on :python3 => :optional
   depends_on :ruby => ["1.9", :optional]
 
-  # Requires zlib >= 1.2.5.2
+  # Requires zlib >= 1.2.10
   resource "zlib" do
     url "http://zlib.net/zlib-1.2.10.tar.gz"
     sha256 "8d7e9f698ce48787b6e1c67e6bff79e487303e66077e25cb9784ac8835978017"
