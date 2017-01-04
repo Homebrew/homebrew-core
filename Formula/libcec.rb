@@ -6,9 +6,9 @@ class Libcec < Formula
 
   bottle do
     cellar :any
-    sha256 "fca87d5d42d6a5119723c2644aaaf57c852ef752f3da110375e6d78c60d22df8" => :sierra
-    sha256 "ce89ff77d0e8a0c43d58010ef8ce75f3ec512b178b60ad66099a47a070323b39" => :el_capitan
-    sha256 "6b6cdda80e312020a280bbc12c27fb2cc6cb6a26aa8be14a0c3a4ec0f661ba53" => :yosemite
+    sha256 "08c84729cd395ac1830bf463a2886608c2c192a5ca76f3bc322a6b2fd98049aa" => :sierra
+    sha256 "8e8f44578d261c086202da14555464ee5e26f2a1aee147aa2e93002998e3a5dd" => :el_capitan
+    sha256 "c27aedfea8faf634bef8692a9626d0e5d45dee1a0f7ef36c68132caae752bd41" => :yosemite
   end
 
   depends_on "cmake" => :build
