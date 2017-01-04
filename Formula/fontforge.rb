@@ -26,7 +26,7 @@ class Fontforge < Formula
   depends_on "pango"
   depends_on "cairo"
   depends_on "fontconfig"
-  depends_on "libpng" => :recommended
+  depends_on "libpng"
   depends_on "jpeg" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "giflib" => :optional
@@ -50,7 +50,6 @@ class Fontforge < Formula
       --without-x
     ]
 
-    args << "--without-libpng" if build.without? "libpng"
     args << "--without-libjpeg" if build.without? "jpeg"
     args << "--without-libtiff" if build.without? "libtiff"
     args << "--without-giflib" if build.without? "giflib"
