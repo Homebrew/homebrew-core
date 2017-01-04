@@ -30,6 +30,6 @@ class Pkcrack < Formula
   end
 
   test do
-    shell_output("pkcrack", 1)
+    shell_output("#{bin}/pkcrack", 1)
   end
 end
