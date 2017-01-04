@@ -22,6 +22,6 @@ class Odo < Formula
   end
 
   test do
-    system "odo", "testlog"
+    system "#{bin}/odo", "testlog"
   end
 end
