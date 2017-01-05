@@ -6,9 +6,9 @@ class NodeAT6 < Formula
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    sha256 "9db4a8f253040efe3db9e97e5eefc23e3c064d01c703a4d28528579fd686a6e5" => :sierra
-    sha256 "51a8cc8e6faeced1c4465340f29e87b00b541fb232154f453478e0995bc03ceb" => :el_capitan
-    sha256 "1d7c833e680df2906a7cb81fbf702e07ee55ef299c20447edffa9e360ab3af33" => :yosemite
+    sha256 "6b84ada132921790f165c2e8809e50a46d678c951bbf189567112111394f5a64" => :sierra
+    sha256 "0a90b579ceb594f29e9112284cda80037e22eefc086aa6a1b9f89db4304e6d4a" => :el_capitan
+    sha256 "ab9ed094df18ccc8ea7054761a2e27278d09dff1c3a659942aec726ce5dd5897" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
