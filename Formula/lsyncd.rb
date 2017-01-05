@@ -3,6 +3,7 @@ class Lsyncd < Formula
   homepage "https://github.com/axkibe/lsyncd"
   url "https://github.com/axkibe/lsyncd/archive/release-2.2.0.tar.gz"
   sha256 "fb4b49c314846c251b624f9ee3129483c4b3d4d53c5263bb36086feb17f2e800"
+  revision 1
 
   bottle do
     cellar :any
@@ -60,19 +61,10 @@ class Lsyncd < Formula
   end
 
   def install
-    # XNU Headers
+    inreplace "CMakeLists.txt", "DESTINATION man", "DESTINATION share/man/man1"
     resource("xnu").stage buildpath/"xnu"
-
-    args = std_cmake_args
-    args << "-DWITH_INOTIFY=OFF"
-    args << "-DWITH_FSEVENTS=ON"
-    args << "-DXNU_DIR=#{buildpath/"xnu"}"
-
-    # DESTINATION man
-    inreplace "CMakeLists.txt", "DESTINATION man",
-                                "DESTINATION #{man}"
-
-    system "cmake", ".", *args
+    system "cmake", ".", "-DWITH_INOTIFY=OFF", "-DWITH_FSEVENTS=ON",
+                         "-DXNU_DIR=#{buildpath}/xnu", *std_cmake_args
     system "make", "install"
   end
 
