@@ -13,9 +13,6 @@ class BerkeleyDb < Formula
     sha256 "8f5a87bc3336e01f8528ae8aaae24c83e8fa10e8f01ee65e8cac4af7d0786bf1" => :mountain_lion
   end
 
-  option "without-sql", "Build without SQL support."
-  option "without-dbm", "Build without dbm interface."
-
   depends_on :java => [:optional, :build]
 
   def install
@@ -29,10 +26,11 @@ class BerkeleyDb < Formula
       --mandir=#{man}
       --enable-cxx
       --enable-compat185
+      --enable-sql
+      --enable-sql_codegen
+      --enable-dbm
     ]
     args << "--enable-java" if build.with? "java"
-    args << "--enable-sql" if build.with? "sql"
-    args << "--enable-dbm" if build.with? "dbm"
 
     # BerkeleyDB requires you to build everything from the build_unix subdirectory
     cd "build_unix" do
