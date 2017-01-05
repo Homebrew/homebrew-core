@@ -29,6 +29,7 @@ class BerkeleyDb < Formula
       --enable-sql
       --enable-sql_codegen
       --enable-dbm
+      --enable-stl
     ]
     args << "--enable-java" if build.with? "java"
 
