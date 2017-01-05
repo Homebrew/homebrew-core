@@ -53,7 +53,7 @@ class Weechat < Formula
   depends_on "curl" => :optional
 
   def install
-    args = std_cmake_args
+    args = std_cmake_args << "-DENABLE_GUILE=OFF"
     if build.with? "debug"
       args -= %w[-DCMAKE_BUILD_TYPE=Release]
       args << "-DCMAKE_BUILD_TYPE=Debug"
@@ -63,7 +63,6 @@ class Weechat < Formula
     args << "-DENABLE_PERL=OFF" if build.without? "perl"
     args << "-DENABLE_RUBY=OFF" if build.without? "ruby"
     args << "-DENABLE_ASPELL=OFF" if build.without? "aspell"
-    args << "-DENABLE_GUILE=OFF" if build.without? "guile"
     args << "-DENABLE_TCL=OFF" if build.without? "tcl"
     args << "-DENABLE_PYTHON=OFF" if build.without? "python"
     args << "-DENABLE_JAVASCRIPT=OFF"
