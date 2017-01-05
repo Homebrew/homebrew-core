@@ -1,8 +1,8 @@
 class Libmill < Formula
   desc "Go-style concurrency in C"
   homepage "http://libmill.org/"
-  url "http://libmill.org/libmill-1.17.tar.gz"
-  sha256 "ada513275d8d5a2ce98cdbc47ad491bfb10f5e9a5429656e539a5889f863042d"
+  url "http://libmill.org/libmill-1.18.tar.gz"
+  sha256 "12e538dbee8e52fd719a9a84004e0aba9502a6e62cd813223316a1e45d49577d"
   head "https://github.com/sustrik/libmill.git"
 
   bottle do
