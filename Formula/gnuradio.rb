@@ -3,7 +3,7 @@ class Gnuradio < Formula
   homepage "https://gnuradio.squarespace.com/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.9.1.tar.gz"
   sha256 "9c06f0f1ec14113203e0486fd526dd46ecef216dfe42f12d78d9b781b1ef967e"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
