@@ -1,8 +1,8 @@
 class DatetimeFortran < Formula
   desc "Fortran time and date manipulation library"
   homepage "https://github.com/milancurcic/datetime-fortran"
-  url "https://github.com/milancurcic/datetime-fortran/releases/download/v1.5.0/datetime-fortran-1.5.0.tar.gz"
-  sha256 "e9a200767b744afd2a3b10363315eacb7c92293c7e638d45bf16ebbce168860d"
+  url "https://github.com/milancurcic/datetime-fortran/releases/download/v1.6.0/datetime-fortran-1.6.0.tar.gz"
+  sha256 "e46c583bca42e520a05180984315495495da4949267fc155e359524c2bf31e9a"
 
   bottle do
     sha256 "d311aff0507c9c6e40189b7d1ad23d4f10763f4021f2dcaeaced7ed6ab1b0500" => :sierra
