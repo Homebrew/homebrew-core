@@ -1,9 +1,9 @@
 class Xapian < Formula
   desc "C++ search engine library with many bindings"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.1/xapian-core-1.4.1.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/x/xapian-core/xapian-core_1.4.1.orig.tar.xz"
-  sha256 "c5f2534de73c067ac19eed6d6bec65b7b2c1be00131c8867da9e1dfa8bce70eb"
+  url "https://oligarchy.co.uk/xapian/1.4.2/xapian-core-1.4.2.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/x/xapian-core/xapian-core_1.4.2.orig.tar.xz"
+  sha256 "aec2c4352998127a2f2316218bf70f48cef0a466a87af3939f5f547c5246e1ce"
 
   bottle do
     cellar :any
@@ -27,8 +27,8 @@ class Xapian < Formula
   skip_clean :la
 
   resource "bindings" do
-    url "https://oligarchy.co.uk/xapian/1.4.1/xapian-bindings-1.4.1.tar.xz"
-    sha256 "6ca9731eed0fdfd84c6f8d788389bc7e7a7dc62fa46e0383eb0bb502576c2331"
+    url "https://oligarchy.co.uk/xapian/1.4.2/xapian-bindings-1.4.2.tar.xz"
+    sha256 "9ef59fbe38a120bd2a1774f1a277cf8132f0ca5ff2fc22bacf539ce74df35518"
   end
 
   def install
@@ -57,9 +57,6 @@ class Xapian < Formula
         end
 
         if build.with? "python"
-          # https://github.com/xapian/xapian/pull/126
-          inreplace "python/Makefile.in", "$(PYTHON2) $(SPHINX_BUILD)", "$(SPHINX_BUILD)"
-
           # https://github.com/Homebrew/homebrew-core/issues/2422
           ENV.delete("PYTHONDONTWRITEBYTECODE")
 
