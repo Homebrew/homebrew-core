@@ -1,8 +1,8 @@
 class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.9.2/node-v6.9.2.tar.xz"
-  sha256 "f41b320b37ce23a34dbc597040e71535ea4f6baa2342bc526bb45f5f9aa9c9fb"
+  url "https://nodejs.org/dist/v6.9.3/node-v6.9.3.tar.xz"
+  sha256 "98ea92695e9df27c8a2719406e0be51967f06c5ed4e0f6ee5f1e8460814d2723"
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
@@ -39,8 +39,8 @@ class NodeAT6 < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.10.8.tgz"
-    sha256 "1121a75a370fd0efb320fffb7c9e4a8bcb3840d1cf2fbd585c54837b7014dd76"
+    url "https://registry.npmjs.org/npm/-/npm-3.10.10.tgz"
+    sha256 "1a7cd203ac30fd1417326d576ca5c66ae2ae6a2bf1ada151bee2fc0d6965f99a"
   end
 
   resource "icu4c" do
