@@ -22,6 +22,9 @@ class Darkice < Formula
   depends_on "jack"
 
   def install
+    # Fixes  "invalid conversion from ‘const float*’ to ‘float*’ [-fpermissive]"
+    # Upstream issue Oct 25, 2016 https://github.com/rafael2k/darkice/issues/119
+    # Suggested fix  Oct 25, 2016 https://github.com/rafael2k/darkice/pull/120
     ["aacPlusEncoder.cpp", "FaacEncoder.cpp", "OpusLibEncoder.cpp", "VorbisLibEncoder.cpp"].each do |f|
       inreplace "src/#{f}", ", converterData.data_in", ", const_cast<float*>( converterData.data_in )"
     end
