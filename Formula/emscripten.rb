@@ -89,7 +89,7 @@ class Emscripten < Formula
   def caveats; <<-EOS.undent
     Manually set LLVM_ROOT to
       #{opt_libexec}/llvm/bin
-    and uncomment BINARYEN_ROOT
+    and comment out BINARYEN_ROOT
     in ~/.emscripten after running `emcc` for the first time.
     EOS
   end
