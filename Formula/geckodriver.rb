@@ -6,9 +6,9 @@ class Geckodriver < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "677fd03fdb1f590c8b5f7aee0efbb3e60583ed7a305f79daa43027b08eb40fc9" => :sierra
-    sha256 "1ab8bbd78a432c84f7f0d2b57265f408825a8008f2f8b37e1efb861dbb4b84a7" => :el_capitan
-    sha256 "b2704e574b55568661d4b7a2cd00ba2556ad64e6b4eb9713ab14b442bcec5a89" => :yosemite
+    sha256 "45e5f89b14ca4808cda71d700552b30ce5d49f41ce3b2750e30af33de75c2709" => :sierra
+    sha256 "bf343de2cf3d8861c3cee06643e1598a6092450972ad82b006e77aef3ef864eb" => :el_capitan
+    sha256 "d89ff07e964f2f0b5dafb3a5f80ea04dd639071fa4578ec8ab84f922e250b5ef" => :yosemite
   end
 
   depends_on "rust" => :build
