@@ -5,9 +5,9 @@ class DatetimeFortran < Formula
   sha256 "e46c583bca42e520a05180984315495495da4949267fc155e359524c2bf31e9a"
 
   bottle do
-    sha256 "d311aff0507c9c6e40189b7d1ad23d4f10763f4021f2dcaeaced7ed6ab1b0500" => :sierra
-    sha256 "b2b94b5bb0ab17c0a25ce9c87590041f40095a3cfdacc4d49fda4e17eb90d43b" => :el_capitan
-    sha256 "4c658f924f82c91531e59233a1c818ef17a897d58379ecec360cb8cba3b13da9" => :yosemite
+    sha256 "46f58e0ccb9d289d9d4238782bd71b4b384b3637fb119089bcf191dcbd00a739" => :sierra
+    sha256 "0122e54aa32a7f3f511412991a9e7bc0157904071ebe561194417c98671594d1" => :el_capitan
+    sha256 "ba610fdf63062196dd75e6ef8721f1647bf7cb62a172e530a10cccc6d1877f28" => :yosemite
   end
 
   head do
