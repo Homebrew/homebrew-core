@@ -3,6 +3,7 @@ class Libdap < Formula
   homepage "https://www.opendap.org/"
   url "https://www.opendap.org/pub/source/libdap-3.18.2.tar.gz"
   sha256 "0f33b2d91c8f06713e1fcb99658372dc0357cbebe99e7c1850b68a927b7e54db"
+  revision 1
 
   bottle do
     sha256 "e1f82a19bed0d0c8f6a218b24eccb4ccae2ae391d2946407b48b7e862a48ac6a" => :sierra
