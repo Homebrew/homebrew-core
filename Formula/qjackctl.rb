@@ -7,9 +7,9 @@ class Qjackctl < Formula
   head "http://git.code.sf.net/p/qjackctl/code.git"
 
   bottle do
-    sha256 "6c02e0e43466d750b511a79a2518305314f271f05d2d9428166348f5630277c1" => :sierra
-    sha256 "9548ef1c55b7ccbcec30d975cb5abb2e1563fd0ae17200bed12025d261b07bbc" => :el_capitan
-    sha256 "14b930438f32b9726697f9db7e18c53b3d5e6dc23b5503d4f0b85420610f3879" => :yosemite
+    sha256 "a1ca2fa7ede8255ecc93d603fc03288edb2c76bf9fa1b0ab04f6ea94554624d9" => :sierra
+    sha256 "9eee408da628e6006fd9ddbd360f2327771b563c6547b6b3d6fd8e0bfb45db86" => :el_capitan
+    sha256 "4f684b6f62ee1dc61e78659e357419d9135b2d630200b8d1ba94175a7fbc0eb5" => :yosemite
   end
 
   depends_on "pkg-config" => :build
