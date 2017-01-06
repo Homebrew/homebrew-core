@@ -13,9 +13,9 @@ class Jack < Formula
   revision 1
 
   bottle do
-    sha256 "09037cc758f7fbb1906e9f57722143ac6fad688dafc8a3737b23ee6cf60f3277" => :sierra
-    sha256 "538c6769165c651170287b466aadd693622430a4b3df917277faa4dcef9e36a9" => :el_capitan
-    sha256 "e605e6c982263cf1e058ac67c130273caec43aec75371b907ad3a04ec5e212d8" => :yosemite
+    sha256 "0a993d32dd74ce014e0c0aa5a04e632a7e4bca7bc6ced4afa9a7d717cc893f06" => :sierra
+    sha256 "abb9fc993cda86b4daf45f0d2a8c775716fec08fc016facd8151787ac06e60e4" => :el_capitan
+    sha256 "de96b9c43cb77f57d42ba02c1373b31a421ec485eafe401c11cc27c8c8c1838f" => :yosemite
   end
 
   depends_on "pkg-config" => :build
