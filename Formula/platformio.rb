@@ -15,11 +15,6 @@ class Platformio < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/32/3c/e853a68b703f347f5ed86585c2dd2828a83252e1216c1201fa6f81270578/setuptools-26.1.1.tar.gz"
-    sha256 "475ce28993d7cb75335942525b9fac79f7431a7f6e8a0079c0f2680641379481"
-  end
-
   resource "bottle" do
     url "https://pypi.python.org/packages/7e/b5/a8404cf922bdedb63b41e9b6f3ae64c93f99cf1accdf0fc265ae75f063a2/bottle-0.12.10.tar.gz"
     sha256 "1308133647adc2d266f0ba5fea6684ba955cbf5e8133590cf0314c8beb814ff4"
