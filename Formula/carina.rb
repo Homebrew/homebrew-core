@@ -1,9 +1,9 @@
 class Carina < Formula
-  desc "Work with Swarm clusters on Carina"
+  desc "command-line client for Carina"
   homepage "https://github.com/getcarina/carina"
   url "https://github.com/getcarina/carina.git",
-        :tag => "v1.5.0",
-        :revision => "2d7f5c0afe28a3e9e794c99ce5024be283979e71"
+        :tag => "v2.0.1",
+        :revision => "15e3e772a56553e563598288be720c703c4166e6"
   head "https://github.com/getcarina/carina.git"
 
   bottle do
@@ -18,13 +18,14 @@ class Carina < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV.prepend_create_path "PATH", buildpath/"bin"
 
     carinapath = buildpath/"src/github.com/getcarina/carina"
     carinapath.install Dir["{*,.git}"]
 
     cd carinapath do
       system "make", "get-deps"
-      system "make", "carina", "VERSION=#{version}"
+      system "make", "local", "VERSION=#{version}"
       bin.install "carina"
     end
   end
