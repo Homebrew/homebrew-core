@@ -10,11 +10,9 @@ class Stathat < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GOBIN"] = buildpath
     (buildpath/"src/github.com/stathat/cmd/").install "stathat"
 
-    system "go", "build", "-a", "github.com/stathat/cmd/stathat"
-    bin.install "stathat"
+    system "go", "build", "-o", bin/"stathat", "-a", "github.com/stathat/cmd/stathat"
   end
 
   test do
