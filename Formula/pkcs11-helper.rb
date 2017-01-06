@@ -1,8 +1,8 @@
 class Pkcs11Helper < Formula
   desc "Library to simplify the interaction with PKCS#11"
   homepage "https://github.com/OpenSC/OpenSC/wiki/pkcs11-helper"
-  url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.20/pkcs11-helper-1.20.tar.bz2"
-  sha256 "dafaa71ea9735d7d4ca43f385c53a44bc642c5a7d380d1e2912a0969b3b717be"
+  url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.21/pkcs11-helper-1.21.tar.bz2"
+  sha256 "7bc455915590fec1a85593171f08a73ef343b1e7a73e60378d8744d54523e17c"
   head "https://github.com/OpenSC/pkcs11-helper.git"
 
   bottle do
