@@ -6,11 +6,9 @@ class Jigdo < Formula
   revision 3
 
   bottle do
-    rebuild 2
-    sha256 "6da430302b596e440570775353ebe94aed5f0feec583bda74e78bf45c5c093a4" => :sierra
-    sha256 "8128ebe3947194e46c94ee9f141c1000ce0a8a0281522a4a858e341bae011bf9" => :el_capitan
-    sha256 "1a8a7505c33fc6ee08c23effc8776b4a575947fab9b8e1ea08c03df0c1d83d65" => :yosemite
-    sha256 "78483d046c8deea235b333401dc959d7e928dc65728519a789ba09488546cced" => :mavericks
+    sha256 "d7c7af1e33252cafe37d0d43ad9e122ce16e9dd541e4552d32a93f1e79db4343" => :sierra
+    sha256 "8e1a5a2d8af459ea2bc7a4961ac83f98d5dcdb6c9134d48ce115741960721179" => :el_capitan
+    sha256 "dd8599117276a905cbf3f0c892625c3af690f192ac746b32ee203fe6386c0233" => :yosemite
   end
 
   depends_on "pkg-config" => :build
