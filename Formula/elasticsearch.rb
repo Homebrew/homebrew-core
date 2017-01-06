@@ -82,13 +82,8 @@ class Elasticsearch < Formula
       Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
       Plugins: #{libexec}/plugins/
       Config:  #{etc}/elasticsearch/
+      plugin script: #{libexec}/bin/elasticsearch-plugin
     EOS
-
-    if stable?
-      s += <<-EOS.undent
-        plugin script: #{libexec}/bin/plugin
-      EOS
-    end
 
     s
   end
