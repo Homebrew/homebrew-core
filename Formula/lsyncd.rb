@@ -1,9 +1,8 @@
 class Lsyncd < Formula
   desc "Synchronize local directories with remote targets"
   homepage "https://github.com/axkibe/lsyncd"
-  url "https://github.com/axkibe/lsyncd/archive/release-2.2.0.tar.gz"
-  sha256 "fb4b49c314846c251b624f9ee3129483c4b3d4d53c5263bb36086feb17f2e800"
-  revision 1
+  url "https://github.com/axkibe/lsyncd/archive/release-2.2.1.tar.gz"
+  sha256 "f41969454a17f9441a9b1809bb251235631768393bf5d29ad8e8142670ae4735"
 
   bottle do
     cellar :any
