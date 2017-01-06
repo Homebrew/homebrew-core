@@ -7,9 +7,9 @@ class Dbhash < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b83b2025bbd690faca7b6eb0b6c30d89c367a6fa39e0e8cea3945fb75a38411c" => :sierra
-    sha256 "e942ad3b915b9d9f088859f15cc7504b9ec64a42c78fde8146dab1d19565e673" => :el_capitan
-    sha256 "ce89037d1859fd8437ac63cb987d0b1705cff230312f48c9407630351c894e2e" => :yosemite
+    sha256 "8d65e3906e7a38035f9cda419bba2af5bd7447b70420f83c5d2190478d24c391" => :sierra
+    sha256 "39eef693805627a753a000ff44043f61541a62ed0c3c7fb96ba30243aca5b67f" => :el_capitan
+    sha256 "d55f82a1f4b8d3cd2ae2ff110de22f274f94b521ae6bd0b60cde4116a575b756" => :yosemite
   end
 
   def install
