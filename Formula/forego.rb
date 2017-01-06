@@ -1,8 +1,8 @@
 class Forego < Formula
   desc "Foreman in Go"
   homepage "https://github.com/ddollar/forego"
-  url "https://github.com/ddollar/forego/archive/v0.16.1.tar.gz"
-  sha256 "d4c8305262ac18c7e51d9d8028827f83b37fb3f9373d304686d084d68033ac6d"
+  url "https://github.com/ddollar/forego/archive/d42165a186c1e4bdc772b9fa4dff9506e9294537.tar.gz"
+  sha256 "1c9f0fd89700271eb208dc9ed14e3480d70fd6b81df16810585e90011f3d1697"
 
   head "https://github.com/ddollar/forego.git"
 
@@ -16,7 +16,6 @@ class Forego < Formula
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -24,7 +23,7 @@ class Forego < Formula
     ln_sf buildpath, buildpath/"src/github.com/ddollar/forego"
 
     ldflags = "-X main.Version=#{version} -X main.allowUpdate=false"
-    system "godep", "go", "build", "-ldflags", ldflags, "-o", bin/"forego"
+    system "go", "build", "-ldflags", ldflags, "-o", bin/"forego", "-v", "github.com/ddollar/forego/"
   end
 
   test do
