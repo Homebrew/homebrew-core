@@ -24,8 +24,8 @@ class Libevent < Formula
   end
 
   devel do
-    url "https://github.com/libevent/libevent/archive/release-2.1.6-beta.tar.gz"
-    sha256 "388da3707a6060319fc8aff042e0abd8441f1134bf2a29318f040af68312ee3a"
+    url "https://github.com/libevent/libevent/archive/release-2.1.7-rc.tar.gz"
+    sha256 "548362d202e22fe24d4c3fad38287b4f6d683e6c21503341373b89785fa6f991"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
