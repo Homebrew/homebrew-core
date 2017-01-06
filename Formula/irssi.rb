@@ -1,9 +1,9 @@
 class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
-  url "https://github.com/irssi/irssi/releases/download/0.8.20/irssi-0.8.20.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/irssi/irssi_0.8.20.orig.tar.xz"
-  sha256 "7882c4e821f5aac469c5e69e69d7e235f4986101285c675e81a9a95bfb20505a"
+  url "https://github.com/irssi/irssi/releases/download/1.0.0/irssi-1.0.0.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/irssi/irssi_1.0.0.orig.tar.xz"
+  sha256 "6a8a3c1fc6a021a2c02a693877b2e19cbceb3eccd78fce49e44f596f4bae4fb8"
 
   bottle do
     sha256 "7bf8f9d6b3962d9555de3c47e10e0f9175ffeed1b0b89a8f410bf7c386c0195e" => :sierra
@@ -34,7 +34,6 @@ class Irssi < Formula
       --sysconfdir=#{etc}
       --with-bot
       --with-proxy
-      --enable-ipv6
       --enable-true-color
       --with-socks=#{build.with?("dante") ? "yes" : "no"}
       --with-ncurses=#{MacOS.sdk_path}/usr
