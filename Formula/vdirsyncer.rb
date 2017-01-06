@@ -3,9 +3,8 @@ class Vdirsyncer < Formula
 
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
-  url "https://pypi.python.org/packages/9a/46/c870edb9e85ff884c6d8833abac1ae86af5b4302b8615dc7dda943569356/vdirsyncer-0.14.0.tar.gz"
-  sha256 "28211a857c03ea6cdad22ca74505758a743dbb8bc224e5bcd558a73efd1370d5"
-  revision 1
+  url "https://files.pythonhosted.org/packages/7f/3b/24b44d91eb591f75a658928fc228cbe6571d499a8778730f9ddae389ca5e/vdirsyncer-0.14.1.tar.gz"
+  sha256 "c51734cdbaf4ede98c375f87bc7a673032a4026378d4963cf9b7a1265d008e10"
   head "https://github.com/pimutils/vdirsyncer"
 
   bottle do
@@ -29,18 +28,18 @@ class Vdirsyncer < Formula
   end
 
   resource "click-log" do
-    url "https://files.pythonhosted.org/packages/18/c6/ce0c132a90b5f5f52cce68292c8f0bee55b73994148bda0540f773922571/click-log-0.1.4.tar.gz"
-    sha256 "dc6275b7d8f87512a22d9806ccc845f474825edd82ad37925a36ba156c887570"
+    url "https://files.pythonhosted.org/packages/b7/71/d029ea00ede6c1fd307c8d87cd7aac90c1a7ed8dec2ede5dc115e254fade/click-log-0.1.8.tar.gz"
+    sha256 "57271008c12e2dc16d413373bedd7fd3ff17c57434e168650dc27dfb9c743392"
   end
 
   resource "click-threading" do
-    url "https://files.pythonhosted.org/packages/72/a5/0d72a73e085d8943c82dee5a0713ae1237f8cd59a0586fa87ecebb5320fe/click-threading-0.4.0.tar.gz"
-    sha256 "1823fac05f6b7705ab15956512a06d1b634beb4bbf99e115cab4fc4f6d1436d3"
+    url "https://files.pythonhosted.org/packages/ef/67/7d75738e83b4d7f30242ed1e4379e4207da5d0c0aa9876148778790433f6/click-threading-0.4.2.tar.gz"
+    sha256 "400b0bb63d9096b6bf2806efaf742a1cc8b6c88e0484f0afe7d7a7f0e9870609"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/2e/ad/e627446492cc374c284e82381215dcd9a0a87c4f6e90e9789afefe6da0ad/requests-2.11.1.tar.gz"
-    sha256 "5acf980358283faba0b897c73959cecf8b841205bb4b2ad3ef545f46eae1a133"
+    url "https://files.pythonhosted.org/packages/5b/0b/34be574b1ec997247796e5d516f3a6b6509c4e064f2885a96ed885ce7579/requests-2.12.4.tar.gz"
+    sha256 "ed98431a0631e309bb4b63c81d561c1654822cb103de1ac7b47e45c26be7ae34"
   end
 
   resource "requests-toolbelt" do
