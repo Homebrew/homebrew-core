@@ -1,8 +1,8 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  url "https://github.com/crystal-lang/crystal/archive/0.20.3.tar.gz"
-  sha256 "5372ba2a35d885345207047a51b9389f9190fd12389847e7f7298618bcf59ad6"
+  url "https://github.com/crystal-lang/crystal/archive/0.20.4.tar.gz"
+  sha256 "fd099f278b71bbb5cad1927c93933d1feba554fbf8f6f4ab9165f535765f5e31"
   head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
@@ -23,9 +23,9 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.20.1/crystal-0.20.1-1-darwin-x86_64.tar.gz"
-    version "0.20.1"
-    sha256 "e934d5e737949a6bce977f810d0ffdd3ddcb4b226125400c8f64f46944af56c5"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.20.3/crystal-0.20.3-1-darwin-x86_64.tar.gz"
+    version "0.20.3"
+    sha256 "0088972c5cad9543f262976ae6c8ee1dbcbefdee3a8bedae851998bfa7098637"
   end
 
   resource "shards" do
