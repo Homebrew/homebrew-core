@@ -3,9 +3,8 @@ require "language/go"
 class Qpm < Formula
   desc "Package manager for Qt applications"
   homepage "https://www.qpm.io"
-  url "https://github.com/Cutehacks/qpm.git",
-      :tag => "v0.10.0",
-      :revision => "b0dfc0f26e009ff778cc25ebb8b166fa460ea998"
+  url "https://github.com/Cutehacks/qpm/archive/v0.10.0.tar.gz"
+  sha256 "2c56aa81e46fb144ff25b14a26476862462510e38cf1265b24c38e3ac4636ee5"
 
   bottle do
     cellar :any_skip_relocation
