@@ -1,8 +1,8 @@
 class JdnssecTools < Formula
   desc "Java command-line tools for DNSSEC"
   homepage "https://www.verisignlabs.com/jdnssec-tools/"
-  url "https://www.verisignlabs.com/dnssec-tools/packages/jdnssec-tools-0.12.tar.gz"
-  sha256 "3fa0bfe062051d9048c5186adbb04d8f5e176e50da3cdcf9b0d97e1c558efc22"
+  url "https://www.verisignlabs.com/dnssec-tools/packages/jdnssec-tools-0.13.tar.gz"
+  sha256 "95b1feb4d21c8bef08bf3e591c734bb066a0878b22a1de7c3c110cf2ee52352d"
 
   head "https://github.com/dblacka/jdnssec-tools.git"
 
