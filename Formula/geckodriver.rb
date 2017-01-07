@@ -1,8 +1,8 @@
 class Geckodriver < Formula
   desc "WebDriver <-> Marionette proxy"
   homepage "https://github.com/mozilla/geckodriver"
-  url "https://github.com/mozilla/geckodriver/archive/v0.12.0.tar.gz"
-  sha256 "a893129f3cb8f6b95876e79cf50ae2af9c2df6d7e3d8654bdca8963729a0a468"
+  url "https://github.com/mozilla/geckodriver/archive/v0.13.0.tar.gz"
+  sha256 "3eb92f5896b0e5a92fcbee18eb342fbd31688d1d266bbecb9c61819021050402"
 
   bottle do
     cellar :any_skip_relocation
