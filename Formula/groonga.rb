@@ -5,9 +5,9 @@ class Groonga < Formula
   sha256 "1287b2bc3fe9e65638b7536daecdbf8abbe20411ffc1861229f07c01a9bd2b66"
 
   bottle do
-    sha256 "fb100db520e4c7d2a2ca7c6468b185848603c523e6e3cbf6d0bb1598a1177178" => :sierra
-    sha256 "64e1cdf12c0887eabdbd323e6c8be84a26a90fca788d2abed3bb39f85c678970" => :el_capitan
-    sha256 "65ce2d1abdaf46cfe196578144238bac2abcadcb5fa7b6f4cd8305ff0e9d2984" => :yosemite
+    sha256 "dfd88f673f10afd1005d54c40055dd103001249e8dd83c858a1bff20c875938a" => :sierra
+    sha256 "ab5bcf047a559e5e08f30583feeda704b71834c23110751f8a10b6b9da2f79e3" => :el_capitan
+    sha256 "d0bda3fafb65a3276416bd08af6bc0fc02c96eafa66e244fea94d4af46d016a0" => :yosemite
   end
 
   head do
