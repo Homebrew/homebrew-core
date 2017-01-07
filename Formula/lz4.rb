@@ -1,10 +1,9 @@
 class Lz4 < Formula
-  desc "Lossless compression algorithm"
-  homepage "http://www.lz4.info/"
-  url "https://github.com/Cyan4973/lz4/archive/r131.tar.gz"
-  version "r131"
-  sha256 "9d4d00614d6b9dec3114b33d1224b6262b99ace24434c53487a0c8fd0b18cfed"
-  head "https://github.com/Cyan4973/lz4.git"
+  desc "Extremely Fast Compression algorithm"
+  homepage "http://www.lz4.org/"
+  url "https://github.com/lz4/lz4/archive/v1.7.5.tar.gz"
+  sha256 "0190cacd63022ccb86f44fa5041dc6c3804407ad61550ca21c382827319e7e7e"
+  head "https://github.com/lz4/lz4.git"
 
   bottle do
     cellar :any
