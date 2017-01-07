@@ -24,15 +24,31 @@ class Dsd < Formula
 
   depends_on "cmake" => :build
   depends_on "libsndfile"
-  depends_on "mbelib"
   depends_on "itpp"
   depends_on "portaudio"
 
+  resource "mbelib-1.2.5" do
+    url "https://github.com/szechyjs/mbelib/archive/v1.2.5.tar.gz"
+    sha256 "59d5e821b976a57f1eae84dd57ba84fd980d068369de0bc6a75c92f0b286c504"
+  end
+
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+    resource("mbelib-1.2.5").stage do
+      # only want the static library
+      inreplace "CMakeLists.txt",
+        "install(TARGETS mbe-static mbe-shared DESTINATION lib)",
+        "install(TARGETS mbe-static DESTINATION lib)"
+      args = std_cmake_args
+      args << "-DCMAKE_INSTALL_PREFIX=#{buildpath}/vendor/mbelib"
+      system "cmake", ".", *args
       system "make", "install"
     end
+
+    ENV.prepend "LDFLAGS", "-L#{buildpath}/vendor/mbelib/lib -lmbe"
+    buildpath.install_symlink buildpath/"vendor/mbelib/include/mbelib.h"
+
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do
