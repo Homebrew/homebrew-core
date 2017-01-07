@@ -14,7 +14,7 @@ class Xplanetfx < Formula
   end
 
   option "without-gui", "Build to run xplanetFX from the command-line only"
-  option "with-gnu-sed", "Build to use GNU sed instead of OS X sed"
+  option "with-gnu-sed", "Build to use GNU sed instead of macOS sed"
 
   depends_on "xplanet"
   depends_on "imagemagick"

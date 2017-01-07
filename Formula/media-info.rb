@@ -1,16 +1,15 @@
 class MediaInfo < Formula
   desc "Unified display of technical and tag data for audio/video"
   homepage "https://mediaarea.net/"
-  url "https://mediaarea.net/download/binary/mediainfo/0.7.88/MediaInfo_CLI_0.7.88_GNU_FromSource.tar.bz2"
-  version "0.7.88"
-  sha256 "8b9ccf5c7379a801916a8f0de169c432ece2e1b20027438514ab58eb956e558a"
+  url "https://mediaarea.net/download/binary/mediainfo/0.7.91/MediaInfo_CLI_0.7.91_GNU_FromSource.tar.bz2"
+  version "0.7.91"
+  sha256 "359085606f76749fe1eb5ee391fa62add40c95a9959e0831e2450c71e17d4832"
 
   bottle do
     cellar :any
-    sha256 "b9743d605934bc96aa7e54597da81038fc227ed1c94b84088291fc2b89d9fb57" => :sierra
-    sha256 "2baeab9de8996b6ac678777469ef03cac982b052b297dbbea306318c9fb79748" => :el_capitan
-    sha256 "69d5244699b6697c2c055d52fcc43f5c60bca0f00c738e46f69ed11c503d0e6e" => :yosemite
-    sha256 "b1e225b7f720f39c9eea2a84b0ec7ccea41021afc7acd58ba12442921ea974f0" => :mavericks
+    sha256 "a71d90376ade00ba830db6d724552dd0aa828e6283962a4b7793982cd12aede3" => :sierra
+    sha256 "29a76b917f8b23a494ba33549d8dcdb81b61a7e6cdc71d5c91148d4a85ccdcb1" => :el_capitan
+    sha256 "4e84d0befabc6218f621c41d7225aa72899d0ff7c248dd0d9e6aad63ba3d133c" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -19,9 +18,13 @@ class MediaInfo < Formula
 
   def install
     cd "ZenLib/Project/GNU/Library" do
-      system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}"
-      system "make"
+      args = ["--disable-debug",
+              "--disable-dependency-tracking",
+              "--enable-static",
+              "--enable-shared",
+              "--prefix=#{prefix}"]
+      system "./configure", *args
+      system "make", "install"
     end
 
     cd "MediaInfoLib/Project/GNU/Library" do

@@ -1,29 +1,35 @@
 class P11Kit < Formula
   desc "Library to load and enumerate PKCS#11 modules"
   homepage "https://p11-glue.freedesktop.org"
-
-  stable do
-    url "https://p11-glue.freedesktop.org/releases/p11-kit-0.22.1.tar.gz"
-    sha256 "ef3a339fcf6aa0e32c8c23f79ba7191e57312be2bda8b24e6d121c2670539a5c"
-  end
+  url "https://github.com/p11-glue/p11-kit/releases/download/0.23.3/p11-kit-0.23.3.tar.gz"
+  sha256 "d487f04dba3f9e8256f53034c59c944ca45fd7b8434c095da6a74079644dcd82"
 
   bottle do
-    sha256 "2fc8da74d14aca3af0dd9b76e160cf8842b44223814b7c2b94e135c4f1df603f" => :sierra
-    sha256 "2c141f369e6cdc5d3d11e2e2002e346c0fc18168671125f129b411f5c9e9f185" => :el_capitan
-    sha256 "2e79ba610021a8f93be9a40656097b0ee7bde232d16230d44f5e038d98beb1ac" => :yosemite
+    sha256 "5aa16ddaa7bb0c6fcf66122685337e9d98e421c9389fdff2250e6fd7cf4ef352" => :sierra
+    sha256 "ea3948d2d030a226143afb6f0cf63ea7c7ed936078b7984c492e53e4dc05c8ff" => :el_capitan
+    sha256 "122fa200388458776d870d483680f21d8bc755f62db1a87cab30338ab0ab445d" => :yosemite
   end
 
-  devel do
-    url "https://p11-glue.freedesktop.org/releases/p11-kit-0.23.2.tar.gz"
-    sha256 "ba726ea8303c97467a33fca50ee79b7b35212964be808ecf9b145e9042fdfaf0"
+  head do
+    url "https://github.com/p11-glue/p11-kit.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+    depends_on "libtool" => :build
   end
 
-  depends_on "pkg-config" => :build
   depends_on "libffi"
+  depends_on "pkg-config" => :build
 
   def install
     # https://bugs.freedesktop.org/show_bug.cgi?id=91602#c1
     ENV["FAKED_MODE"] = "1"
+
+    if build.head?
+      ENV["NOCONFIGURE"] = "1"
+      system "./autogen.sh"
+    end
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

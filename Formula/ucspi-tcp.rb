@@ -12,9 +12,11 @@ class UcspiTcp < Formula
     sha256 "67eb31db588a2299c5e69a4a60f3c56d07624a58e52e77cff2e58be554085d9f" => :mavericks
   end
 
+  # IPv6 patch
+  # Used to be https://www.fefe.de/ucspi/ucspi-tcp-0.88-ipv6.diff19.bz2
   patch do
-    url "https://www.fefe.de/ucspi/ucspi-tcp-0.88-ipv6.diff19.bz2"
-    sha256 "35952cd290d714452c840580126004cbae8db65b1632df67ac9c8fad7d1f9ace"
+    url "https://raw.githubusercontent.com/homebrew/patches/2b3e4da/ucspi-tcp/patch-0.88-ipv6.diff"
+    sha256 "c2d6ce17c87397253f298cc28499da873efe23afe97e855bdcf34ae66374036a"
   end
 
   def install

@@ -1,32 +1,21 @@
 class Nginx < Formula
   desc "HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server"
   homepage "https://nginx.org/"
-
-  stable do
-    url "https://nginx.org/download/nginx-1.10.1.tar.gz"
-    sha256 "1fd35846566485e03c0e318989561c135c598323ff349c503a6c14826487a801"
-
-    depends_on "openssl"
-  end
+  url "https://nginx.org/download/nginx-1.10.2.tar.gz"
+  sha256 "1045ac4987a396e2fa5d0011daf8987b612dd2f05181b67507da68cbe7d765c2"
+  revision 1
+  head "http://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "7f6f051cf7331c6d003dbfee5863bbf47a3a321d7508f4f5d439e97991c5f59b" => :sierra
-    sha256 "2b67c86454cc67bdeb2a637d9872ae471a810d8a2dae40b6a0c1dad7b253d30d" => :el_capitan
-    sha256 "6ac0a3e07cad5efb31185998f6cd6754de6d799396ffd872814593ba3430fdb3" => :yosemite
-    sha256 "c2f67c6b720a2f2c790338e0d30103acf36c757c068bbed8cc4c79734fd3779e" => :mavericks
+    rebuild 1
+    sha256 "ff161520ff4eb778a618588c952db7e46ed3fe98715e1c47e9897e6edede0bcf" => :sierra
+    sha256 "8c82da7fed11065d14e5ae2db0e9d653bbccafd685089a01a1a0e495e4ce41ff" => :el_capitan
+    sha256 "f0dfbac623592f6ee545df909c973c4ca72a6d621cd7d28fdacd145e7ddb371c" => :yosemite
   end
 
   devel do
-    url "https://nginx.org/download/nginx-1.11.4.tar.gz"
-    sha256 "06221c1f43f643bc6bfe5b2c26d19e09f2588d5cde6c65bdb77dfcce7c026b3b"
-
-    depends_on "openssl@1.1"
-  end
-
-  head do
-    url "http://hg.nginx.org/nginx/", :using => :hg
-
-    depends_on "openssl@1.1"
+    url "https://nginx.org/download/nginx-1.11.8.tar.gz"
+    sha256 "53aef3715d79015314c2dcb18f2b185a0c64368cc01b30bdf0737a215f666b34"
   end
 
   # Before submitting more options to this formula please check they aren't
@@ -43,6 +32,14 @@ class Nginx < Formula
   depends_on "pcre"
   depends_on "passenger" => :optional
 
+  # passenger uses apr, which uses openssl, so need to keep
+  # crypto library choice consistent throughout the tree.
+  if build.with? "passenger"
+    depends_on "openssl"
+  else
+    depends_on "openssl@1.1"
+  end
+
   def install
     # Changes default port to 8080
     inreplace "conf/nginx.conf" do |s|
@@ -51,7 +48,12 @@ class Nginx < Formula
     end
 
     pcre = Formula["pcre"]
-    openssl = build.stable? ? Formula["openssl"] : Formula["openssl@1.1"]
+
+    if build.with? "passenger"
+      openssl = Formula["openssl"]
+    else
+      openssl = Formula["openssl@1.1"]
+    end
 
     cc_opt = "-I#{pcre.opt_include} -I#{openssl.opt_include}"
     ld_opt = "-L#{pcre.opt_lib} -L#{openssl.opt_lib}"
@@ -60,7 +62,6 @@ class Nginx < Formula
       --prefix=#{prefix}
       --with-http_ssl_module
       --with-pcre
-      --with-ipv6
       --sbin-path=#{bin}/nginx
       --with-cc-opt=#{cc_opt}
       --with-ld-opt=#{ld_opt}
@@ -82,6 +83,7 @@ class Nginx < Formula
       args << "--add-module=#{nginx_ext}"
     end
 
+    args << "--with-ipv6" if build.stable?
     args << "--with-http_dav_module" if build.with? "webdav"
     args << "--with-debug" if build.with? "debug"
     args << "--with-http_gunzip_module" if build.with? "gunzip"

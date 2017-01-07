@@ -1,8 +1,8 @@
 class Digdag < Formula
   desc "Workload Automation System"
-  homepage "https://github.com/treasure-data/digdag"
-  url "https://dl.digdag.io/digdag-0.8.14.jar"
-  sha256 "97dce8e88b832bee099c4d89b00b24baceb4d0c9c0d1c73ddaebe5ff56313943"
+  homepage "https://www.digdag.io/"
+  url "https://dl.digdag.io/digdag-0.9.1.jar"
+  sha256 "424c04a73abce89851d3f59e9089007a1e47d353a5dd7d2688b6bde992e37cc6"
 
   bottle :unneeded
 

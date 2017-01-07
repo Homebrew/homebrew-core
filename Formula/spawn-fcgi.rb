@@ -24,6 +24,6 @@ class SpawnFcgi < Formula
   end
 
   test do
-    system "spawn-fcgi", "--version"
+    system "#{bin}/spawn-fcgi", "--version"
   end
 end

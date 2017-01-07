@@ -1,15 +1,15 @@
 class Ncmpcpp < Formula
   desc "Ncurses-based client for the Music Player Daemon"
   homepage "https://rybczak.net/ncmpcpp/"
-  url "https://ncmpcpp.rybczak.net/stable/ncmpcpp-0.7.4.tar.bz2"
-  sha256 "d70425f1dfab074a12a206ddd8f37f663bce2bbdc0a20f7ecf290ebe051f1e63"
-  revision 2
+  url "https://ncmpcpp.rybczak.net/stable/ncmpcpp-0.7.7.tar.bz2"
+  sha256 "b7bcbec83b1f88cc7b21f196b10be09a27b430566c59f402df170163464d01ef"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "23f55a03c6d95a8ae7de5cf915d301146175e1d75dcc626193c6615f00b1c614" => :sierra
-    sha256 "8b6bd9148dee65aeb28cdf1658339cf59042ca7b410d361b8c3ed09cbf53dc59" => :el_capitan
-    sha256 "5ba52a24064d47a7518d077d87025161c836d998e4e0511c45c1cbe4dc3cc94f" => :yosemite
+    sha256 "3595e188d8fb6bab50d8e4f086f6eb6b7e28eb2fb69c6eb11c50ff90956e8327" => :sierra
+    sha256 "598500607763ae05abb5689ff72655d5156d0d176db8eeb0d3797d1f5e160a99" => :el_capitan
+    sha256 "4d6ac3b7a0efc84797b776cf07f3478f109d6e1f4d8b8ae31770812c38cc5e70" => :yosemite
   end
 
   head do
@@ -71,6 +71,7 @@ class Ncmpcpp < Formula
   end
 
   test do
+    ENV.delete("LC_CTYPE")
     assert_match version.to_s, shell_output("#{bin}/ncmpcpp --version")
   end
 end

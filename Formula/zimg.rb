@@ -1,38 +1,24 @@
 class Zimg < Formula
   desc "Scaling, colorspace conversion, and dithering library"
   homepage "https://github.com/sekrit-twc/zimg"
-  url "https://github.com/sekrit-twc/zimg/archive/release-2.2.1.tar.gz"
-  sha256 "0ac3004f7612f91e2eda1aaaf170c2ceef4f90f881647b8e248f36b0e6954f54"
+  url "https://github.com/sekrit-twc/zimg/archive/release-2.3.tar.gz"
+  sha256 "09962385f986dbcfd8ed6160cdafc2bc57bef8c6bfb3ca3a4bcaa482f09c06fa"
   head "https://github.com/sekrit-twc/zimg.git"
 
   bottle do
     cellar :any
-    sha256 "7ca6312ba8416e46c43ba8a14cedbd98b3bd331386d045235d22e5ea32b9dae4" => :sierra
-    sha256 "13cb75cf9289ec4475deb11f5ba35ca06dd40137d17de8d00b4ae001ee9a770d" => :el_capitan
-    sha256 "133e3062cb99bbb8d88380cedde2878474165bc6fbb9fef3e7d49dfa20dab766" => :yosemite
-    sha256 "d1bddc6475030a82c133e749b5bd448d160be8e039b662001b872ac1513e7ddb" => :mavericks
+    sha256 "574178eca30bfc624ba7704426e8a376b608d035da2be4d26c4dc35f5376d806" => :sierra
+    sha256 "21e70256499ef4f5b1d255537d98e8d563979e8cf3ac16f8b23bdef42e70622a" => :el_capitan
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  needs :cxx11 if MacOS.version < :mavericks
+  # Upstream has decided not to fix https://github.com/sekrit-twc/zimg/issues/52
+  depends_on :macos => :el_capitan
 
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
-
-    # Fixes "error: use of undeclared identifier '_mm256_cvtph_ps'"
-    # See https://reviews.llvm.org/rL254528 for the underlying cause
-    # Reported 4 Sep 2016 https://github.com/sekrit-twc/zimg/issues/52
-    if MacOS.version < :el_capitan
-      (buildpath/"brew_include/immintrin.h").write <<-EOS.undent
-        #include <x86intrin.h>
-        #include_next <immintrin.h>
-      EOS
-      ENV.prepend "CPPFLAGS", "-I#{buildpath}/brew_include"
-    end
-
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"

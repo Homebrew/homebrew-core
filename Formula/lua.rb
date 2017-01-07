@@ -20,11 +20,6 @@ class Lua < Formula
     satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
   end
 
-  fails_with :llvm do
-    build 2326
-    cause "Lua itself compiles with LLVM, but may fail when other software tries to link."
-  end
-
   option :universal
   option "with-completion", "Enables advanced readline support"
   option "without-sigaction", "Revert to ANSI signal instead of improved POSIX sigaction"
@@ -38,7 +33,7 @@ class Lua < Formula
   # See http://lua-users.org/wiki/LuaPowerPatches
   if build.with? "completion"
     patch do
-      url "http://luajit.org/patches/lua-5.2.0-advanced_readline.patch"
+      url "https://luajit.org/patches/lua-5.2.0-advanced_readline.patch"
       sha256 "33d32d11fce4f85b88ce8f9bd54e6a6cbea376dfee3dbf8cdda3640e056bc29d"
     end
   end

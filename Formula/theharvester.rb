@@ -34,7 +34,7 @@ class Theharvester < Formula
   end
 
   test do
-    output = shell_output("#{bin}/theharvester -d brew.sh -l 1 -b pgp 2>&1")
+    output = shell_output("#{bin}/theharvester -d brew.sh -l 1 -b google 2>&1")
     assert_match "security@brew.sh", output
   end
 end

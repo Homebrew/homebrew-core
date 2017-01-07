@@ -14,15 +14,15 @@ end
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftpmirror.gnu.org/gdb/gdb-7.11.1.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gdb/gdb-7.11.1.tar.xz"
-  sha256 "e9216da4e3755e9f414c1aa0026b626251dfc57ffe572a266e98da4f6988fc70"
+  url "https://ftpmirror.gnu.org/gdb/gdb-7.12.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gdb/gdb-7.12.tar.xz"
+  sha256 "834ff3c5948b30718343ea57b11cbc3235d7995c6a4f3a5cecec8c8114164f94"
+  revision 1
 
   bottle do
-    sha256 "ce9602dbc92b1e1d986a1a5536fcef9baf3f703d08a86c4d18e4b411b20b2a4c" => :sierra
-    sha256 "90b608379fefd418b72e6b73ae1bde9014d94b9f366259cbc3fea99dc63985b1" => :el_capitan
-    sha256 "588dcb9acd832060e189004a4c7fef14b7a3bdeda3a7780b1f1bb8106c810327" => :yosemite
-    sha256 "07db094029ff33ec19e0b90633f9a2b8fcceaec14d2bf30f7824b618ce993a3e" => :mavericks
+    sha256 "cddcc8e78bbff0cabe56a2d2a57ce9045defcb3ec28d17871d014171fc582465" => :sierra
+    sha256 "6cec71a37016b259d5e07f4de0a828075bc556252635078cc70ee8870bd7c9d8" => :el_capitan
+    sha256 "79c050699683460e4a78c3055a602665b2fc8dd72f639edab61cbe6f48ae79f7" => :yosemite
   end
 
   deprecated_option "with-brewed-python" => "with-python"
@@ -34,6 +34,15 @@ class Gdb < Formula
   depends_on "pkg-config" => :build
   depends_on "python" => :optional
   depends_on "guile" => :optional
+
+  if MacOS.version >= :sierra
+    patch do
+      # Patch is needed to work on new 10.12 installs with SIP.
+      # See http://sourceware-org.1504.n7.nabble.com/gdb-on-macOS-10-12-quot-Sierra-quot-td415708.html
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9d3dbc2/gdb/0001-darwin-nat.c-handle-Darwin-16-aka-Sierra.patch"
+      sha256 "a71489440781ae133eeba5a3123996e55f72bd914dbfdd3af0b0700f6d0e4e08"
+    end
+  end
 
   if build.with? "python"
     depends_on UniversalBrewedPython
@@ -75,6 +84,10 @@ class Gdb < Formula
     You will need to codesign the binary. For instructions, see:
 
       https://sourceware.org/gdb/wiki/BuildingOnDarwin
+
+    On 10.12 (Sierra) or later with SIP, you need to run this:
+
+      echo "set startup-with-shell off" >> ~/.gdbinit
     EOS
   end
 

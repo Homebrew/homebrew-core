@@ -27,7 +27,7 @@ class Bookloupe < Formula
     ENV["BOOKLOUPE"] = "#{bin}/bookloupe"
 
     Dir["#{pkgshare}/*.tst"].each do |test_file|
-      # Skip test that fails on OS X
+      # Skip test that fails on macOS
       # http://project.juiblex.co.uk/bugzilla/show_bug.cgi?id=39
       # (bugzilla page is not publicly accessible)
       next if test_file.end_with?("/markup.tst")

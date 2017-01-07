@@ -1,16 +1,15 @@
 class GoogleBenchmark < Formula
   desc "C++ microbenchmark support library"
   homepage "https://github.com/google/benchmark"
-  url "https://github.com/google/benchmark/archive/v1.0.0.tar.gz"
-  sha256 "d2206c263fc1a7803d4b10e164e0c225f6bcf0d5e5f20b87929f137dee247b54"
+  url "https://github.com/google/benchmark/archive/v1.1.0.tar.gz"
+  sha256 "e7334dd254434c6668e33a54c8f839194c7c61840d52f4b6258eee28e9f3b20e"
   head "https://github.com/google/benchmark.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ee73fe1a4e7de64eab11db6cffb74b0293456717d90e25aa270f85cce00f10dd" => :sierra
-    sha256 "9c51ee80e92c2d530249c7e225bdc23d34581102199ff098a25eb6da7cac7a03" => :el_capitan
-    sha256 "e9983f859dcb425ddf670c044a206a971068d0fcf54c234b8f5278873e3b3852" => :yosemite
-    sha256 "90f4914562c9ad1678b5e9fa318875cd1c97c098aca441ce58aea3617243c95f" => :mavericks
+    sha256 "747b86dbce83cc3b846b1a2dd5564409d8a8778363c5144f01d0c5b9bfc4b0b8" => :sierra
+    sha256 "ba23e2238556ac482048ab2b720ead87b1bea0ed8ac58c36707395ee33e8057e" => :el_capitan
+    sha256 "2e4cfa40e4c57b6a14c5fef8e93434a901ae4962801bae15756820a0e1144bb8" => :yosemite
   end
 
   depends_on "cmake" => :build

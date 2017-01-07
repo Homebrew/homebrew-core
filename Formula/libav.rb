@@ -52,6 +52,7 @@ class Libav < Formula
   depends_on "libvorbis" => :optional
   depends_on "libvpx" => :optional
   depends_on "opencore-amr" => :optional
+  depends_on "openssl" => :optional
   depends_on "opus" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "schroedinger" => :optional

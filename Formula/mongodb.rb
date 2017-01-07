@@ -3,14 +3,14 @@ require "language/go"
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.9.tar.gz"
-  sha256 "25f8817762b784ce870edbeaef14141c7561eb6d7c14cd3197370c2f9790061b"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.0.tar.gz"
+  sha256 "5a904b66d09e4d15f3ed35028a004640afcba5d8ecb5644165bd08cd7eb79df6"
 
   bottle do
-    sha256 "2226f31b0a1314d7961a2cd64e0e82d4b1aedf42fc7768bc311073b183f7e6d2" => :sierra
-    sha256 "4aeeddfe6d1ebcebc5c2e900c8f1d89204eb0c7462f3f4effa8cf26880218d2d" => :el_capitan
-    sha256 "c8c39ea2e6d53b35924398604c203c9fba5a07c0c5754c080315fc87c9a57532" => :yosemite
-    sha256 "7001fce4f27bda699bb151e0b4ba9bfc370a39344e69bbabfa8da166653c1e4d" => :mavericks
+    rebuild 1
+    sha256 "cde99d85a61a7d98205ebf144f0f6518bce137dea7ec72f542caafa76efd788d" => :sierra
+    sha256 "6533f73019753d672eac8e99a33ea5926f799381acadb22c3acceef5ec2b0cca" => :el_capitan
+    sha256 "3092cb1bcdf542be5fd5afec77257b4a6f2c618a0ff185f6e1b04267f5afdddc" => :yosemite
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
@@ -24,8 +24,8 @@ class Mongodb < Formula
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.2.9",
-        :revision => "4a4e7d30773b28cf66f75e45bc289a5d3ca49ddd",
+        :tag => "r3.4.0",
+        :revision => "3cc9a07766fb55de63e81a13e72f3c5a7c07f477",
         :shallow => false
   end
 
@@ -40,7 +40,7 @@ class Mongodb < Formula
     Language::Go.stage_deps resources, buildpath/"src"
 
     cd "src/github.com/mongodb/mongo-tools" do
-      args = %W[]
+      args = %w[]
 
       if build.with? "openssl"
         args << "ssl"

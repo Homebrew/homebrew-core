@@ -24,7 +24,7 @@ class Tcc < Formula
 
     args << "--enable-cross" if build.with? "cross"
 
-    ENV.j1
+    ENV.deparallelize
     system "./configure", *args
     system "make"
     system "make", "install"

@@ -19,10 +19,6 @@ class Vice < Formula
   depends_on "giflib"
   depends_on "lame" => :optional
 
-  fails_with :llvm do
-    build 2335
-  end
-
   def install
     # Use Cocoa instead of X
     # Use a static lame, otherwise Vice is hard-coded to look in

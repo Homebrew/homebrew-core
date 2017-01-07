@@ -2,26 +2,24 @@ class Netpbm < Formula
   desc "Image manipulation"
   homepage "http://netpbm.sourceforge.net"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
-  # for versions and matching revisions
-  url "http://svn.code.sf.net/p/netpbm/code/advanced", :revision => 2294
-  version "10.68"
-
+  # for stable versions and matching revisions
+  url "http://svn.code.sf.net/p/netpbm/code/advanced", :revision => 2825
+  version "10.76"
+  revision 2
   head "http://svn.code.sf.net/p/netpbm/code/trunk"
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "a06beff20f07959feddbd3e9db275c8ef624d5a08f3a7905f3fdaf0ebeeee590" => :sierra
-    sha256 "ad369fbec6067be0355b02aa02f5b542224cbf9835974de7d0d36ea2a1966e2f" => :el_capitan
-    sha256 "a3c04a8257065886cf7f19d246a586a011b8c7d8fd708e5e669b769340e007fa" => :yosemite
-    sha256 "5d668e7795efa192da1bf14e1cfc27f458b58a40dfaa63873d7a642b5ec06a4f" => :mavericks
-    sha256 "b0c160558d0f764360041069129877bfc7e6d9fc81b3dabfa6cf4fe9a9efc21b" => :mountain_lion
+    sha256 "99fade59e5b70b6c4d6a51d226d9c12c2821f73887745d5a797a217174a2e735" => :sierra
+    sha256 "6987847f96f40f95ba61323a0046b3e12afc99ff43bcf30cb41ddfad7c10311c" => :el_capitan
+    sha256 "4140eb093a21f8c4d8209d27381c504dd350e19f2b3610a4d9f9d90b39c44a8a" => :yosemite
   end
 
   option :universal
 
   depends_on "libtiff"
   depends_on "jasper"
+  depends_on "jpeg"
   depends_on "libpng"
 
   def install
@@ -58,7 +56,7 @@ class Netpbm < Formula
       # do man pages explicitly; otherwise a junk file is installed in man/web
       man1.install Dir["man/man1/*.1"]
       man5.install Dir["man/man5/*.5"]
-      lib.install Dir["link/*.a"]
+      lib.install Dir["link/*.a"], Dir["link/*.dylib"]
       (lib/"pkgconfig").install "pkgconfig_template" => "netpbm.pc"
     end
 

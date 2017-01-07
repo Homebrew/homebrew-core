@@ -1,18 +1,16 @@
-require "utils/json"
-
 class Internetarchive < Formula
   include Language::Python::Virtualenv
 
   desc "Python wrapper for the various Internet Archive APIs"
   homepage "https://github.com/jjjake/internetarchive"
-  url "https://pypi.python.org/packages/3e/e3/fd6d8c7dafef90d7be5ec6216fd0b352d130f4accee7598cc6a10e85e141/internetarchive-1.0.10.tar.gz"
-  sha256 "a376762c7335db422f7a6691ed037bca5567f293ea244a12f2910e25ff9a550d"
+  url "https://pypi.python.org/packages/69/91/4a757bdc0a2c1e64dae0d4d522e26ca8513183c04c5f7490924fabfa7c41/internetarchive-1.1.0.tar.gz"
+  sha256 "52b59cc8ebdc49501932e1ddedf4201ea0c537757cbe827f593c24089bd699c9"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1c4e832ace5b621f51c63e5a0fe430206ce8e020888b06f25a43fcc4c3ce15df" => :sierra
-    sha256 "8ce2a4a316f80a828d5b4ba9bcb4155de4143d8ac4add7b5ff2d3f7c8e288879" => :el_capitan
-    sha256 "77ff6084b75f58e4ad30ef081bab59d4418ca8d9133e18bdc2d868c6fa1557e2" => :yosemite
+    sha256 "16b9b119be6610309506e10c197cde791b4a1aff1d3b9d06a87a231bd139dcec" => :sierra
+    sha256 "f6ddfa097c61e6da8e71d8806cb6021a86e4c7927daf402be79a5550b50a21b3" => :el_capitan
+    sha256 "115bddda7c35a7f1b297452fb4f4e94e04cf2d2d677927d06a78554ae4eb6492" => :yosemite
   end
 
   resource "args" do
@@ -31,18 +29,8 @@ class Internetarchive < Formula
   end
 
   resource "jsonpatch" do
-    url "https://pypi.python.org/packages/source/j/jsonpatch/jsonpatch-0.4.tar.gz"
+    url "https://files.pythonhosted.org/packages/b7/ad/760e2ebfced5f7ad4f12c6e0865f2cb646f183fb33ea6db58aa8e890db9c/jsonpatch-0.4.tar.gz"
     sha256 "43d725fb21d31740b4af177d482d9ae53fe23daccb13b2b7da2113fe80b3191e"
-  end
-
-  resource "jsonpointer" do
-    url "https://files.pythonhosted.org/packages/f6/36/6bdd302303e8bc7c25102dbc1eabb3e3d97f57b0f8f414f4da7ea7ab9dd8/jsonpointer-1.10.tar.gz"
-    sha256 "9fa5dcac35eefd53e25d6cd4c310d963c9f0b897641772cd6e5e7b89df7ee0b1"
-  end
-
-  resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
   end
 
   resource "requests" do
@@ -65,10 +53,11 @@ class Internetarchive < Formula
     ENV.append "CFLAGS", "-std=gnu99" if ENV.compiler == :clang
 
     virtualenv_install_with_resources
+    bin.install_symlink libexec/"bin/ia"
   end
 
   test do
-    metadata = Utils::JSON.load shell_output("#{bin}/ia metadata tigerbrew")
+    metadata = JSON.parse shell_output("#{bin}/ia metadata tigerbrew")
     assert_equal metadata["metadata"]["uploader"], "mistydemeo@gmail.com"
   end
 end

@@ -1,15 +1,14 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/archive/20160404.tar.gz"
-  sha256 "1cc5646fccba2e5af8f1b6c1d0d6d7b6082d9546aefed2348d6c0ed948324796"
+  url "https://github.com/fontforge/fontforge/archive/20161012.tar.gz"
+  sha256 "a5f5c2974eb9109b607e24f06e57696d5861aaebb620fc2c132bdbac6e656351"
   head "https://github.com/fontforge/fontforge.git"
 
   bottle do
-    sha256 "74daacbb3416e84d8593fdaf2d0123ca4ef660bcbdcb5dda3792ac087cf07666" => :sierra
-    sha256 "fd97cefd808fc0f07ac61e6ea624f074c9be5f2fb11f5a45468912fe5991ca36" => :el_capitan
-    sha256 "e2dd2a2c7ce89b74b4bc2902da0ff93615b62b31bda5303a4f9bdf4447c2f05e" => :yosemite
-    sha256 "6f1a9f1a0a15a2f84f0dce5c73e80e4265efd05e4bfa570f3c5e78da2211bbc6" => :mavericks
+    sha256 "ee5a2a154bf5b1ab8761c79eb2671b2959306d3ae9d47075a1bbc24976ba80bc" => :sierra
+    sha256 "929d48bace95a3ae1294b54303499a0e3f5dbaaeeec5dac259c5edbc875cd846" => :el_capitan
+    sha256 "8fa8ab443af4f0ffa3378056878a7244a961dc5e977f71cbb1fe0e5d4f894cfd" => :yosemite
   end
 
   option "with-giflib", "Build with GIF support"
@@ -24,8 +23,6 @@ class Fontforge < Formula
   depends_on "libtool" => :run
   depends_on "gettext"
   depends_on "pango"
-  depends_on "zeromq"
-  depends_on "czmq"
   depends_on "cairo"
   depends_on "fontconfig"
   depends_on "libpng" => :recommended
@@ -40,11 +37,6 @@ class Fontforge < Formula
         :revision => "29ea6d6fe2a699a32edbe29f44fe72e0c253fcee"
   end
 
-  fails_with :llvm do
-    build 2336
-    cause "Compiling cvexportdlg.c fails with error: initializer element is not constant"
-  end
-
   def install
     # Don't link libraries to libpython, but do link binaries that expect
     # to embed a python interpreter
@@ -56,10 +48,6 @@ class Fontforge < Formula
       oldflags = s.get_make_var "libfontforgeexe_la_LDFLAGS"
       s.change_make_var! "libfontforgeexe_la_LDFLAGS", "#{python_libs} #{oldflags}"
     end
-
-    # Disable Homebrew detection
-    # https://github.com/fontforge/fontforge/issues/2425
-    inreplace "configure.ac", 'test "y$HOMEBREW_BREW_FILE" != "y"', "false"
 
     args = %W[
       --prefix=#{prefix}

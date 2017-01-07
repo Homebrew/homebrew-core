@@ -1,20 +1,18 @@
 class Qwtpolar < Formula
   desc "Library for displaying values on a polar coordinate system"
   homepage "http://qwtpolar.sourceforge.net/"
-  url "https://downloads.sf.net/project/qwtpolar/qwtpolar/1.1.0/qwtpolar-1.1.0.tar.bz2"
-  sha256 "e45a1019b481f52a63483c536c5ef3225f1cced04abf45d7d0ff8e06d30e2355"
+  url "https://downloads.sourceforge.net/project/qwtpolar/qwtpolar/1.1.1/qwtpolar-1.1.1.tar.bz2"
+  sha256 "6168baa9dbc8d527ae1ebf2631313291a1d545da268a05f4caa52ceadbe8b295"
 
   bottle do
-    cellar :any
-    sha256 "e51aec713366e7406d63b0eea55f41385a24d67ff7d298f9fd479ae14dea2e3c" => :el_capitan
-    sha256 "8bd14ade82bd28887ec4bfef8098cd893806b380b2176eae6885ec5da4168a54" => :yosemite
-    sha256 "cb47115b5ca12d61ccc63a2cd681323825f6a73001a02f62a1f58c8a920ae82d" => :mavericks
+    sha256 "d251c45be1aaa0f07d9d0b883b1f3469879d3f31ba5b7326f423d96fd73a986b" => :sierra
+    sha256 "d251c45be1aaa0f07d9d0b883b1f3469879d3f31ba5b7326f423d96fd73a986b" => :el_capitan
+    sha256 "b22fa716068e8e059496b09bfa1857e9f5684fdde05e85fbac15d04a7ca30a5a" => :yosemite
   end
 
-  option "with-examples", "Install source code for example apps"
   option "without-plugin", "Skip building the Qt Designer plugin"
 
-  depends_on "qt"
+  depends_on "qt5"
   depends_on "qwt"
 
   # Update designer plugin linking back to qwtpolar framework/lib after install
@@ -29,8 +27,6 @@ class Qwtpolar < Formula
     # Remove leftover doxygen files, so they don't get installed
     rm_r "doc"
 
-    libexec.install Dir["examples/*"] if build.with? "examples"
-
     inreplace "qwtpolarconfig.pri" do |s|
       s.gsub! /^(\s*)QWT_POLAR_INSTALL_PREFIX\s*=\s*(.*)$/,
               "\\1QWT_POLAR_INSTALL_PREFIX=#{prefix}"
@@ -38,23 +34,38 @@ class Qwtpolar < Formula
       # Don't build examples now, since linking flawed until qwtpolar installed
       s.sub! /\+(=\s*QwtPolarExamples)/, "-\\1"
 
-      # Install Qt plugin in `lib/qt4/plugins/designer`, not `plugins/designer`.
+      # Install Qt plugin in `lib/qt5/plugins/designer`, not `plugins/designer`.
       s.sub! %r{(= \$\$\{QWT_POLAR_INSTALL_PREFIX\})/(plugins/designer)$},
-             "\\1/lib/qt4/\\2"
-    end
-
-    args = %W[-config release -spec]
-    # On Mavericks we want to target libc++, this requires a unsupported/macx-clang-libc++ flag
-    if ENV.compiler == :clang && MacOS.version >= :mavericks
-      args << "unsupported/macx-clang-libc++"
-    else
-      args << "macx-g++"
+             "\\1/lib/qt5/\\2"
     end
 
     ENV["QMAKEFEATURES"] = "#{Formula["qwt"].opt_prefix}/features"
-    system "qmake", *args
+    system "qmake", "-config", "release"
     system "make"
     system "make", "install"
+    pkgshare.install "examples"
+    pkgshare.install Dir["*.p*"]
+  end
+
+  test do
+    cp_r pkgshare.children, testpath
+    qwtpolar_framework = lib/"qwtpolar.framework"
+    qwt_framework = Formula["qwt"].opt_lib/"qwt.framework"
+    (testpath/"lib").mkpath
+    ln_s qwtpolar_framework, "lib"
+    ln_s qwt_framework, "lib"
+    inreplace "examples/examples.pri" do |s|
+      s.gsub! "INCLUDEPATH += $${QWT_POLAR_ROOT}/src",
+              "INCLUDEPATH += #{qwtpolar_framework}/Headers\nINCLUDEPATH += #{qwt_framework}/Headers"
+      s.gsub! "qwtPolarAddLibrary(qwtpolar)", "qwtPolarAddLibrary(qwtpolar)\nqwtPolarAddLibrary(qwt)"
+    end
+    cd "examples" do
+      system Formula["qt5"].opt_bin/"qmake"
+      rm_rf "bin" # just in case
+      system "make"
+      assert File.exist?("bin/polardemo.app/Contents/MacOS/polardemo"), "Failed to build polardemo"
+      assert File.exist?("bin/spectrogram.app/Contents/MacOS/spectrogram"), "Failed to build spectrogram"
+    end
   end
 end
 

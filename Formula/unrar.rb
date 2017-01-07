@@ -22,7 +22,7 @@ class Unrar < Formula
     bin.install "unrar"
     # Sent an email to dev@rarlab.com (18-Feb-2015) asking them to look into
     # the need for the explicit clean, and to change the make to generate a
-    # dylib file on OS X
+    # dylib file on macOS
     lib.install "libunrar.so" => "libunrar.dylib"
   end
 

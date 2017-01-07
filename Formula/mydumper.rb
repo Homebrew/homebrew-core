@@ -22,7 +22,7 @@ class Mydumper < Formula
   depends_on "pcre"
   depends_on "openssl"
 
-  # This patch allows cmake to find .dylib shared libs in OS X. A bug report has
+  # This patch allows cmake to find .dylib shared libs in macOS. A bug report has
   # been filed upstream here: https://bugs.launchpad.net/mydumper/+bug/1517966
   # It also ignores .a libs because of an issue with glib's static libraries now
   # being included by default in homebrew.

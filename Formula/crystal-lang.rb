@@ -1,14 +1,14 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  url "https://github.com/crystal-lang/crystal/archive/0.19.3.tar.gz"
-  sha256 "72954087131bd648735bc397cfd585204087a4b8ab7f927f0a054741381ea01f"
+  url "https://github.com/crystal-lang/crystal/archive/0.20.3.tar.gz"
+  sha256 "5372ba2a35d885345207047a51b9389f9190fd12389847e7f7298618bcf59ad6"
   head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
-    sha256 "2a437557a13707eeea1d603e520c74837373257df139b80a90728a59c0beee12" => :sierra
-    sha256 "20fd7f187a7e91c16231e11dea2826d0d55359a58c96b618e4d357c712e8c9fb" => :el_capitan
-    sha256 "cf70696dc50064875dc140090cf5e3d0b2b33d7eedb23ef3e4578c086d2089f2" => :yosemite
+    sha256 "8151152f558b4e637ee0f69d72efde11a0278b773bee94ffbb7c15323d6194b8" => :sierra
+    sha256 "b63367ce6369837c4f4ecd4e74df089547588507ccd918b23692eb890019dbfc" => :el_capitan
+    sha256 "2c1447650ad720bd00b5213ef4cf18f299d376349622aa9da4e04d021aa15752" => :yosemite
   end
 
   option "without-release", "Do not build the compiler in release mode"
@@ -19,17 +19,18 @@ class CrystalLang < Formula
   depends_on "bdw-gc"
   depends_on "llvm"
   depends_on "pcre"
+  depends_on "gmp"
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.19.2/crystal-0.19.2-1-darwin-x86_64.tar.gz"
-    version "0.19.2"
-    sha256 "d5254e3e2d1e5fc851831a57573429876e5c9f86b2db066a2c74c392ae9080a2"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.20.1/crystal-0.20.1-1-darwin-x86_64.tar.gz"
+    version "0.20.1"
+    sha256 "e934d5e737949a6bce977f810d0ffdd3ddcb4b226125400c8f64f46944af56c5"
   end
 
   resource "shards" do
-    url "https://github.com/ysbaddaden/shards/archive/v0.6.4.tar.gz"
-    sha256 "5972f1b40bb3253319f564dee513229f82b0dcb8eea1502ae7dc483a9c6da5a0"
+    url "https://github.com/crystal-lang/shards/archive/v0.7.1.tar.gz"
+    sha256 "31de819c66518479682ec781a39ef42c157a1a8e6e865544194534e2567cb110"
   end
 
   def install
@@ -41,7 +42,7 @@ class CrystalLang < Formula
       ENV["CRYSTAL_CONFIG_VERSION"] = version
     end
 
-    ENV["CRYSTAL_CONFIG_PATH"] = prefix/"src:libs"
+    ENV["CRYSTAL_CONFIG_PATH"] = prefix/"src:lib"
     ENV.append_path "PATH", "boot/bin"
 
     if build.with? "release"

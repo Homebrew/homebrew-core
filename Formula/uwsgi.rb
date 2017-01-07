@@ -1,16 +1,14 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
-  url "https://projects.unbit.it/downloads/uwsgi-2.0.11.2.tar.gz"
-  sha256 "0b889b0b4d2dd3f6625df28cb0b86ec44a68d074ede2d0dfad0b91e88914885c"
-  revision 2
-
+  url "https://projects.unbit.it/downloads/uwsgi-2.0.14.tar.gz"
+  sha256 "21b3d1ef926d835ff23576193a2c60d4c896d8e21567850cf0677a4764122887"
   head "https://github.com/unbit/uwsgi.git"
 
   bottle do
-    sha256 "2258066dd56e9eeb60b020dc15e0a0c425a3e5878bfc38b68a0151d940d969cc" => :el_capitan
-    sha256 "44521fd50cb32d053d57657b6ae5a44462e63a6c142438de2204a0ca0b9bdc73" => :yosemite
-    sha256 "e30fad4f2f875219109c554bd203038b3fc4769ddad9dc6914414fd40fa8f321" => :mavericks
+    sha256 "a651f0ac7fe61dc1f550f58691958147cec11d8ab9674d029949cf393d2a4db0" => :sierra
+    sha256 "1d2536f6050440d0451ec0c39681efeff984601147d6cf47830f2b7d6f79f1b5" => :el_capitan
+    sha256 "1a12d456801270b232d319878340ddff923bc94963f76558218ab89b71d7409a" => :yosemite
   end
 
   option "with-java", "Compile with Java support"
@@ -45,11 +43,14 @@ class Uwsgi < Formula
   depends_on "zeromq" => :optional
   depends_on "yajl" if build.without? "jansson"
 
-  def install
-    # "no such file or directory: '... libpython2.7.a'"
-    # Reported 23 Jun 2016: https://github.com/unbit/uwsgi/issues/1299
-    ENV.delete("SDKROOT")
+  # "no such file or directory: '... libpython2.7.a'"
+  # Reported 23 Jun 2016: https://github.com/unbit/uwsgi/issues/1299
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/726bff4/uwsgi/libpython-tbd-xcode-sdk.diff"
+    sha256 "d71c879774b32424b5a9051ff47d3ae6e005412e9214675d806857ec906f9336"
+  end
 
+  def install
     ENV.append %w[CFLAGS LDFLAGS], "-arch #{MacOS.preferred_arch}"
     openssl = Formula["openssl"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
@@ -57,11 +58,6 @@ class Uwsgi < Formula
 
     json = build.with?("jansson") ? "jansson" : "yajl"
     yaml = build.with?("libyaml") ? "libyaml" : "embedded"
-
-    # Fix build on case-sensitive filesystems
-    # https://github.com/Homebrew/homebrew/issues/45560
-    # https://github.com/unbit/uwsgi/pull/1128
-    inreplace "plugins/alarm_speech/uwsgiplugin.py", "'-framework appkit'", "'-framework AppKit'"
 
     (buildpath/"buildconf/brew.ini").write <<-EOS.undent
       [uwsgi]

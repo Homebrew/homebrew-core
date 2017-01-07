@@ -19,7 +19,7 @@ class Hbase < Formula
   # 64 bit is required because of three things:
   # the lzo jar has a native extension
   # building native extensions requires a version of java that matches the architecture
-  # there is no 32 bit version of java for OS X since Java 1.7, and 1.7+ is required for hbase
+  # there is no 32 bit version of java for macOS since Java 1.7, and 1.7+ is required for hbase
 
   resource "hadoop-lzo" do
     url "https://github.com/cloudera/hadoop-lzo/archive/0.4.14.tar.gz"

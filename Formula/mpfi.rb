@@ -15,10 +15,7 @@ class Mpfi < Formula
   depends_on "gmp"
   depends_on "mpfr"
 
-  option "32-bit"
-
   def install
-    ENV.m32 if build.build_32_bit?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
     system "make", "check"

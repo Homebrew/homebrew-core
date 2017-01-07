@@ -46,6 +46,6 @@ class Elinks < Formula
       <ol><li>one</li><li>two</li></ol>
     EOS
     assert_match /^\s*Hello world!\n+ *1. one\n *2. two\s*$/,
-                 shell_output("elinks test.html")
+                 shell_output("#{bin}/elinks test.html")
   end
 end

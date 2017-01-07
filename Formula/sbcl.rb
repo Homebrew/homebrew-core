@@ -1,23 +1,17 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.10/sbcl-1.3.10-source.tar.bz2"
-  sha256 "4a567aad91b316c22eb756dd8e502cfd9a95a4c660fb1fa2eb1e50e009b85777"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.13/sbcl-1.3.13-source.tar.bz2"
+  sha256 "4c6935e4a9022637da95f2aab04d08326762f55a35942b40cb6a4276838c76cc"
 
   head "git://sbcl.git.sourceforge.net/gitroot/sbcl/sbcl.git"
 
   bottle do
-    sha256 "f9274daa67bb1c19304bce8df14224d3f929bdcf6a7d75f003fc2c8e57f8de6b" => :sierra
-    sha256 "5a7df978f6113a563bfb919e4334cc18fd919b209bb14de62358313d205c1528" => :el_capitan
-    sha256 "3859a8ac5b062a1b39a35e725f13b91225ab0a2f99896aad1cbdd9a1a0b13ff2" => :yosemite
+    sha256 "75c8a1cba577db266d50a12a915262aeacfcbb8ad2021ae625ef2282e1f95e90" => :sierra
+    sha256 "e1357aa80be2ced6a7625fdc022c5c3b250248028f2fee4248654147a9bec0cf" => :el_capitan
+    sha256 "d354147d5326323228833fdbeda1a615eeeb08ab38adf2cd6f6003f8e4d25b12" => :yosemite
   end
 
-  fails_with :llvm do
-    build 2334
-    cause "Compilation fails with LLVM."
-  end
-
-  option "32-bit"
   option "with-internal-xref", "Include XREF information for SBCL internals (increases core size by 5-6MB)"
   option "with-ldb", "Include low-level debugger in the build"
   option "without-sources", "Don't install SBCL sources"
@@ -82,7 +76,7 @@ class Sbcl < Formula
       ascii_val =~ /[\x80-\xff]/n
     end
 
-    bootstrap = (build.build_32_bit? || !MacOS.prefer_64_bit?) ? "bootstrap32" : "bootstrap64"
+    bootstrap = MacOS.prefer_64_bit? ? "bootstrap64" : "bootstrap32"
     resource(bootstrap).stage do
       # We only need the binaries for bootstrapping, so don't install anything:
       command = "#{Dir.pwd}/src/runtime/sbcl"
@@ -90,7 +84,6 @@ class Sbcl < Formula
       xc_cmdline = "#{command} --core #{core} --disable-debugger --no-userinit --no-sysinit"
 
       cd buildpath do
-        ENV["SBCL_ARCH"] = "x86" if build.build_32_bit?
         Pathname.new("version.lisp-expr").write('"1.0.99.999"') if build.head?
         system "./make.sh", "--prefix=#{prefix}", "--xc-host=#{xc_cmdline}"
       end

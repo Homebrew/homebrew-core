@@ -3,21 +3,18 @@ require "language/node"
 class Jsdoc3 < Formula
   desc "API documentation generator for JavaScript"
   homepage "http://usejsdoc.org/"
-  url "https://registry.npmjs.org/jsdoc/-/jsdoc-3.4.1.tgz"
-  sha256 "44819ae4e92b8a1f38b131c57fb3b2b350746ec6c04c5be2e60fed5a9d373af7"
+  url "https://registry.npmjs.org/jsdoc/-/jsdoc-3.4.3.tgz"
+  sha256 "23614801b96ab77c17cd5d509a2a892f022c9f0669de9de81b8a426a0a761054"
   head "https://github.com/jsdoc3/jsdoc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0288d38dc34a7ccd5b253145c55547fb47008f1ea157dc2d12dcbc851ccc4226" => :sierra
-    sha256 "601e03f9cbfe83dfbae0b63b6fa4a2a0d8ded62a8b3f019a2852e47fd957b79f" => :el_capitan
-    sha256 "adceb946ab836b50f6316963275309abb54c3be6b7eb9e1aac7c964b068a66f8" => :yosemite
-    sha256 "9c71b6167ef567af5d40f301539f1789f483f761821868e75eb01d3d2927d470" => :mavericks
+    sha256 "05b19f6416176a148d4378a513ccb97162d39dfc7e1eb334ee847a255864c614" => :sierra
+    sha256 "a20047ed1604c540600e93726a072dd26c7050b0f100459047f01b8bd4388aa9" => :el_capitan
+    sha256 "3d1035d8d1ff7bd705d8b9ae2b3a00e1f969be6cdb1843c594924302e3de918d" => :yosemite
   end
 
   depends_on "node"
-
-  conflicts_with "jsdoc-toolkit", :because => "both install jsdoc"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)

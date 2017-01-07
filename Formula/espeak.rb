@@ -21,10 +21,10 @@ class Espeak < Formula
     cd "src" do
       rm "portaudio.h"
       inreplace "Makefile", "SONAME_OPT=-Wl,-soname,", "SONAME_OPT=-Wl,-install_name,"
-      # OS X does not use -soname so replacing with -install_name to compile for OS X.
+      # macOS does not use -soname so replacing with -install_name to compile for macOS.
       # See https://stackoverflow.com/questions/4580789/ld-unknown-option-soname-on-os-x/32280483#32280483
       inreplace "speech.h", "#define USE_ASYNC", "//#define USE_ASYNC"
-      # OS X does not provide sem_timedwait() so disabling #define USE_ASYNC to compile for OS X.
+      # macOS does not provide sem_timedwait() so disabling #define USE_ASYNC to compile for macOS.
       # See https://sourceforge.net/p/espeak/discussion/538922/thread/0d957467/#407d
       system "make", "speak", "DATADIR=#{share}/espeak-data", "PREFIX=#{prefix}"
       bin.install "speak" => "espeak"
@@ -33,7 +33,7 @@ class Espeak < Formula
       system "make", "libespeak.so", "DATADIR=#{share}/espeak-data", "PREFIX=#{prefix}"
       lib.install "libespeak.so.1.1.48" => "libespeak.dylib"
       system "install_name_tool", "-id", "#{lib}/libespeak.dylib", "#{lib}/libespeak.dylib"
-      # OS X does not use the convention libraryname.so.X.Y.Z. OS X uses the convention libraryname.X.dylib
+      # macOS does not use the convention libraryname.so.X.Y.Z. macOS uses the convention libraryname.X.dylib
       # See https://stackoverflow.com/questions/4580789/ld-unknown-option-soname-on-os-x/32280483#32280483
     end
   end

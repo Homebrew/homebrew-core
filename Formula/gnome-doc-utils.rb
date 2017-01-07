@@ -19,11 +19,6 @@ class GnomeDocUtils < Formula
   depends_on "gettext"
   depends_on "libxml2" => "with-python"
 
-  fails_with :llvm do
-    build 2326
-    cause "Undefined symbols when linking"
-  end
-
   def install
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

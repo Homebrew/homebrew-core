@@ -1,17 +1,25 @@
 class Rtags < Formula
   desc "ctags-like source code cross-referencer with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
-  url "https://github.com/Andersbakken/rtags.git",
-      :tag => "v2.3",
-      :revision => "da75268b1caa973402ab17e501718da7fc748b34"
-
   head "https://github.com/Andersbakken/rtags.git"
 
+  stable do
+    url "https://github.com/Andersbakken/rtags.git",
+        :tag => "v2.8",
+        :revision => "6ac7740eaf05cdd9b699185f71cc2d1f634a761b"
+
+    # Fix test failure "couldn't find process for pid"
+    # Upstream commit from 4 Jan 2017 "Copy environment from indexmessage"
+    patch do
+      url "https://github.com/Andersbakken/rtags/commit/cddf96a.patch"
+      sha256 "c7d2c62cba6ef8180ac6214af6dfdf2d0f6425b9453de7b55053ddcc74ce5fe2"
+    end
+  end
+
   bottle do
-    sha256 "7c7ff92e640b983a845afc9eb562e962dcaf71088352a2b9030c94c70406dd59" => :sierra
-    sha256 "92ddceb4c7186da6627fc1b607f573cd36fe661b90ece0c5833ff18811c5462b" => :el_capitan
-    sha256 "568f12abc4ef51856ebfa3b33373a7003b568ac6447f37ab747a38aac242946f" => :yosemite
-    sha256 "2989f3179d501a2617a0ed37e1ed4f89aff0372e687f6724b526539bb329d3c2" => :mavericks
+    sha256 "3e2649ceda64ae71a42c1907c34ba186b9b6937faaee13cec239c60f134c30f7" => :sierra
+    sha256 "c221421644f29d5f2680d7fe6375d6c7c46f2b4eeb5665707ca29a26541cf50e" => :el_capitan
+    sha256 "d875068e438884f4166a7a859fad9affbcb7a12c4164df38277fd548e6dc203b" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -22,11 +30,48 @@ class Rtags < Formula
     # Homebrew llvm libc++.dylib doesn't correctly reexport libc++abi
     ENV.append("LDFLAGS", "-lc++abi")
 
+    args = std_cmake_args << "-DRTAGS_NO_BUILD_CLANG=ON"
+
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      args << "-DHAVE_CLOCK_MONOTONIC_RAW:INTERNAL=0"
+      args << "-DHAVE_CLOCK_MONOTONIC:INTERNAL=0"
+    end
+
     mkdir "build" do
-      system "cmake", "..", "-DRTAGS_NO_BUILD_CLANG=ON", *std_cmake_args
+      system "cmake", "..", *args
       system "make"
       system "make", "install"
     end
+  end
+
+  plist_options :manual => "#{HOMEBREW_PREFIX}/bin/rdm --verbose --inactivity-timeout=300 --log-file=#{HOMEBREW_PREFIX}/var/log/rtags.log"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+      <key>Label</key>
+      <string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{bin}/rdm</string>
+        <string>--verbose</string>
+        <string>--launchd</string>
+        <string>--inactivity-timeout=300</string>
+        <string>--log-file=#{var}/log/rtags.log</string>
+      </array>
+      <key>Sockets</key>
+      <dict>
+        <key>Listener</key>
+        <dict>
+          <key>SockPathName</key>
+          <string>#{ENV["HOME"]}/.rdm</string>
+        </dict>
+      </dict>
+    </dict>
+    </plist>
+    EOS
   end
 
   test do
@@ -46,14 +91,14 @@ class Rtags < Formula
     rdm = fork do
       $stdout.reopen("/dev/null")
       $stderr.reopen("/dev/null")
-      exec "#{bin}/rdm", "-L", "log"
+      exec "#{bin}/rdm", "--exclude-filter=\"\"", "-L", "log"
     end
 
     begin
       sleep 1
-      pipe_output("#{bin}/rc -c", "clang -c src/foo.c", 0)
+      pipe_output("#{bin}/rc -c", "clang -c #{testpath}/src/foo.c", 0)
       sleep 1
-      assert_match "foo.c:1:6", shell_output("#{bin}/rc -f src/foo.c:5:3")
+      assert_match "foo.c:1:6", shell_output("#{bin}/rc -f #{testpath}/src/foo.c:5:3")
       system "#{bin}/rc", "-q"
     ensure
       Process.kill 9, rdm

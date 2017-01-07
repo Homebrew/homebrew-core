@@ -45,17 +45,12 @@ class Guile < Formula
   depends_on "gmp"
   depends_on "readline"
 
-  fails_with :llvm do
-    build 2336
-    cause "Segfaults during compilation"
-  end
-
   fails_with :clang do
     build 211
     cause "Segfaults during compilation"
   end
 
-  # http://debbugs.gnu.org/cgi/bugreport.cgi?bug=23870
+  # https://debbugs.gnu.org/cgi/bugreport.cgi?bug=23870
   # https://github.com/Homebrew/homebrew-core/issues/1957#issuecomment-229347476
   if MacOS.version >= :sierra
     patch do
@@ -72,7 +67,7 @@ class Guile < Formula
                           "--with-libgmp-prefix=#{Formula["gmp"].opt_prefix}"
     system "make", "install"
 
-    # A really messed up workaround required on OS X --mkhl
+    # A really messed up workaround required on macOS --mkhl
     Pathname.glob("#{lib}/*.dylib") do |dylib|
       lib.install_symlink dylib.basename => "#{dylib.basename(".dylib")}.so"
     end

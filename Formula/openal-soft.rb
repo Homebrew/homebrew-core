@@ -13,7 +13,7 @@ class OpenalSoft < Formula
     sha256 "819886eab2909ebcff2edb16c39ede1800ec987e193b0fdfce8d4047636fff17" => :mavericks
   end
 
-  keg_only :provided_by_osx, "OS X provides OpenAL.framework."
+  keg_only :provided_by_osx, "macOS provides OpenAL.framework."
 
   option :universal
 
@@ -22,11 +22,8 @@ class OpenalSoft < Formula
   depends_on "portaudio" => :optional
   depends_on "pulseaudio" => :optional
   depends_on "fluid-synth" => :optional
-  depends_on "qt" => :optional
 
-  # llvm-gcc does not support the alignas macro
   # clang 4.2's support for alignas is incomplete
-  fails_with :llvm
   fails_with(:clang) { build 425 }
 
   def install

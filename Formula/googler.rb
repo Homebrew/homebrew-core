@@ -1,24 +1,15 @@
 class Googler < Formula
   desc "Google Search and News from the command-line"
   homepage "https://github.com/jarun/googler"
+  url "https://github.com/jarun/googler/archive/v2.9.tar.gz"
+  sha256 "71a992d3e6a3fcbe0edcc88fc389edf4ce4da97c3377d62cc3a7e5d512304504"
   head "https://github.com/jarun/googler.git"
-
-  stable do
-    url "https://github.com/jarun/googler/archive/v2.7.tar.gz"
-    sha256 "ca9f3f2e7b475c458be8bb61f7b7b170d0d174c18c4afa8292e815dd9d5531a4"
-
-    patch do
-      url "https://github.com/jarun/googler/commit/6152bd3.patch"
-      sha256 "ca16a5ed65aceeba8f079b0fbb0371d0755c30c5e43139ba1a659b2730944788"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f28be805f4d8c9dc43ad82533e9c4bba7fe3680ec136a0f849dab85768b2b11" => :sierra
-    sha256 "15aa5bcc9869993df207ccd661780493b78596729d6b0761a80c84cf58f99d4b" => :el_capitan
-    sha256 "8f28be805f4d8c9dc43ad82533e9c4bba7fe3680ec136a0f849dab85768b2b11" => :yosemite
-    sha256 "8f28be805f4d8c9dc43ad82533e9c4bba7fe3680ec136a0f849dab85768b2b11" => :mavericks
+    sha256 "44f9bd65915294fa8230db2752b873211140beba4257e6a74dd5f443dc664f68" => :sierra
+    sha256 "94b3ac1de25be458fad9f89ce70d34b6c3dc2c52a4df067163e69e9251d85387" => :el_capitan
+    sha256 "94b3ac1de25be458fad9f89ce70d34b6c3dc2c52a4df067163e69e9251d85387" => :yosemite
   end
 
   depends_on :python3

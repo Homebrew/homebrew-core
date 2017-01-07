@@ -1,41 +1,37 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.30.tar.gz"
-  sha256 "f367e0c1d808d7356c3749222194a72ea03efe61a3bf1b682bd05d47f087b4e3"
+  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.1.1.tar.gz"
+  sha256 "cc59ed164a71aec1d06dd993172729ae656948788528d04e5453595ce5e5a10e"
   head "https://github.com/phusion/passenger.git"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "b8378337f02b1999c0b5c3405c38ae70955c231f40451ae6e7a8f59f8e61a8c6" => :sierra
-    sha256 "58a9719049a21cc39d108a8ca8d2628203df0a372912249ddf021d85d66fff54" => :el_capitan
-    sha256 "c91893004fd2d0312db156a45409b02bf0cfe92a495cb6d3ac4902025108e077" => :yosemite
+    sha256 "dfe967d91ef1142af256a63b49fa263bb307648c3df5fd9551e93080c267cdba" => :sierra
+    sha256 "48c9cb502161d8196ee7cbbbfaa83ca0fc001a188c6a55542625955fa14ebb9d" => :el_capitan
+    sha256 "fc24ea05fccf1ca327b572953d6a2d7d57275195bfd70a1bc329ac50f6ddf484" => :yosemite
   end
 
   option "without-apache2-module", "Disable Apache2 module"
 
+  depends_on :macos => :lion
   depends_on "pcre"
   depends_on "openssl"
-  depends_on :macos => :lion
-
-  # macOS Sierra ships the APR libraries & headers, but has removed the
-  # apr-1-config & apu-1-config executables which are used to find
-  # those elements. We may need to adopt a broader solution if this problem
-  # expands, but currently subversion & passenger are the only breakage as a result.
-  if MacOS.version >= :sierra
-    depends_on "apr-util" => :build
-    depends_on "apr" => :build
-  end
+  depends_on "apr-util"
 
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
 
-    if MacOS.version >= :sierra
-      ENV["APU_CONFIG"] = Formula["apr-util"].opt_bin/"apu-1-config"
-      ENV["APR_CONFIG"] = Formula["apr"].opt_bin/"apr-1-config"
+    ENV["APU_CONFIG"] = Formula["apr-util"].opt_bin/"apu-1-config"
+    ENV["APR_CONFIG"] = Formula["apr"].opt_bin/"apr-1-config"
+
+    inreplace "src/ruby_supportlib/phusion_passenger/platform_info/openssl.rb" do |s|
+      s.gsub! "-I/usr/local/opt/openssl/include", "-I#{Formula["openssl"].opt_include}"
+      s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{Formula["openssl"].opt_lib}"
     end
+    inreplace "src/ruby_supportlib/phusion_passenger/config/nginx_engine_compiler.rb",
+      "http://nginx.org",
+      "https://nginx.org"
 
     rake "apache2" if build.with? "apache2-module"
     rake "nginx"

@@ -1,5 +1,5 @@
 class Rmtrash < Formula
-  desc "Move files to OS X's Trash"
+  desc "Move files to macOS's Trash"
   homepage "http://www.nightproductions.net/cli.htm"
   url "http://www.nightproductions.net/downloads/rmtrash_source.tar.gz"
   version "0.3.3"

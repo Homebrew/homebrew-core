@@ -32,8 +32,6 @@ class Rrdtool < Formula
     # fatal error: 'ruby/config.h' file not found
     ENV.delete("SDKROOT")
 
-    ENV.libxml2
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}

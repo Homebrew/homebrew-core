@@ -1,32 +1,33 @@
 class Cayley < Formula
   desc "Graph database inspired by Freebase and Knowledge Graph"
-  homepage "https://github.com/google/cayley"
-  url "https://github.com/google/cayley/archive/v0.5.0.tar.gz"
-  sha256 "2f48445377bc73b125a7f65c01307fa301e4996e536fa83b42a2fcbaa2141e82"
+  homepage "https://github.com/cayleygraph/cayley"
+  url "https://github.com/cayleygraph/cayley/archive/v0.6.0.tar.gz"
+  sha256 "b55d6b02567dd0a1c51001cb25d5bde602358f621cdf78ba40bdf8a8c51422b0"
   head "https://github.com/google/cayley.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b5d01a150d463687202292d011f9d5949269013e134c9b0d1652e15e19ace4a0" => :sierra
-    sha256 "534940e21466304d1cd3f41bcd6c16b428567dc568f9ab6fb50b1141eae9d2b6" => :el_capitan
-    sha256 "75b8e3c300a50bf85e9d6aa394313aeed9a5e12d39258343dcb3c6dbad2fc013" => :yosemite
-    sha256 "b4e736e73826c1c1caafc5b6fca77be722bb6f0d7b30c8d8e77646bf6e621269" => :mavericks
+    sha256 "06e628c51dffbcebc9cc881e1179c9174d445940877bba122759d2c8c67e6dbb" => :sierra
+    sha256 "452f7b30fe5159cf9ef3775b8f2ecaf930b21b84c635ecd54fc003aad8ae183f" => :el_capitan
+    sha256 "e3895acb97793b73d523db3060a6aa12d92460e37f2c8dbc40262bc60ab63b76" => :yosemite
   end
 
   option "without-samples", "Don't install sample data"
 
   depends_on "bazaar" => :build
   depends_on :hg => :build
+  depends_on "glide" => :build
   depends_on "go" => :build
-  depends_on "godep" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/google/cayley").install buildpath.children
-    cd "src/github.com/google/cayley" do
-      system "godep", "restore"
-      system "go", "build", "-ldflags=-X main.Version=#{version}", "cmd/cayley/cayley.go"
-      bin.install "cayley"
+    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+
+    (buildpath/"src/github.com/cayleygraph/cayley").install buildpath.children
+    cd "src/github.com/cayleygraph/cayley" do
+      system "glide", "install"
+      system "go", "build", "-o", bin/"cayley", "-ldflags",
+             "-X main.Version=#{version}", ".../cmd/cayley"
 
       inreplace "cayley.cfg.example", "/tmp/cayley_test", var/"cayley"
       etc.install "cayley.cfg.example" => "cayley.conf"

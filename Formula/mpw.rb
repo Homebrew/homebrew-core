@@ -36,6 +36,6 @@ class Mpw < Formula
 
   test do
     assert_equal "RoliQeka7/Deqi",
-      shell_output("mpw -u user -P password test.com 2>/dev/null").strip
+      shell_output("#{bin}/mpw -u user -P password test.com 2>/dev/null").strip
   end
 end

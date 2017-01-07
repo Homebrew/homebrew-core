@@ -18,7 +18,7 @@ class Clens < Formula
   end
 
   def install
-    ENV.j1
+    ENV.deparallelize
     system "make", "all", "install", "LOCALBASE=#{prefix}"
   end
 end

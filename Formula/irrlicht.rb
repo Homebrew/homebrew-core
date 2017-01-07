@@ -1,20 +1,28 @@
 class Irrlicht < Formula
   desc "Realtime 3D engine"
   homepage "http://irrlicht.sourceforge.net/"
-  url "https://downloads.sourceforge.net/irrlicht/irrlicht-1.8.3.zip"
-  sha256 "9e7be44277bf2004d73580a8585e7bd3c9ce9a3c801691e4f4aed030ac68931c"
+  url "https://downloads.sourceforge.net/project/irrlicht/Irrlicht%20SDK/1.8/1.8.4/irrlicht-1.8.4.zip"
+  sha256 "f42b280bc608e545b820206fe2a999c55f290de5c7509a02bdbeeccc1bf9e433"
   head "https://irrlicht.svn.sourceforge.net/svnroot/irrlicht/trunk"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fc3a35165599455475f307e7c0a5ab9a39737df0fe44ebbc711721a1a3a6dea5" => :el_capitan
-    sha256 "778ce6351942a2e36ba3cfb30031cc5e6b7327b626cb37c550409ebb71d9a288" => :yosemite
-    sha256 "4389e5f8047158f0ef3ae9c55c03f7a1584a90a0964b8ff4ea4669df3ef741d1" => :mavericks
+    sha256 "bf23da843d21ab650999c6766b20c4940d589caaaaf2b651726a2c09acb472e0" => :sierra
+    sha256 "4f75c007fac42d0c5970afcbac919ccf32a2f827ea1d153461a2f6bffb638be8" => :el_capitan
+    sha256 "4eaaf9df3b87d34a4ed562d3bedb4a07bbfe8ff069025f3d28000755c09a4d88" => :yosemite
   end
 
   depends_on :xcode => :build
 
   def install
+    # Fix "error: cannot initialize a parameter of type
+    # 'id<NSApplicationDelegate> _Nullable' with an rvalue of type
+    # 'id<NSFileManagerDelegate>'"
+    # Reported 5 Oct 2016 http://irrlicht.sourceforge.net/forum/viewtopic.php?f=7&t=51562
+    inreplace "source/Irrlicht/MacOSX/CIrrDeviceMacOSX.mm",
+      "[NSApp setDelegate:(id<NSFileManagerDelegate>)",
+      "[NSApp setDelegate:(id<NSApplicationDelegate>)"
+
     xcodebuild "-project", "source/Irrlicht/MacOSX/MacOSX.xcodeproj",
                "-configuration", "Release",
                "-target", "libIrrlicht.a",

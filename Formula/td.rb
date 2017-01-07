@@ -1,48 +1,30 @@
-require "language/go"
-
 class Td < Formula
   desc "Your todo list in your terminal"
   homepage "https://github.com/Swatto/td"
-  url "https://github.com/Swatto/td/archive/1.3.0.tar.gz"
-  sha256 "d138fd1798cf828fe6291cf3faf447ce9abbfa29ae5ff5ede977b7cb5dfc8db0"
+  url "https://github.com/Swatto/td/archive/1.4.0.tar.gz"
+  sha256 "b8080a73b274c201bc1fadaf5b83e5fab26b38838f4c82b49f1ae5dadaa94c20"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c4a2ee497032f6ca01acbbd66ef0fbc27709fd463d0d33a583b1c6de57a18edf" => :sierra
-    sha256 "867b8f9f687f76225eebbb3b183206178fb1321f87e14e6a101bdf40d2f9fbce" => :el_capitan
-    sha256 "38428b68601f84a7cf0360bea09b17d891bd5bb2a5d6fbc6bce420011de698d2" => :yosemite
-    sha256 "f73a1a4e82115217791c73e95938f474f906f5215164abd71d71c9304674895e" => :mavericks
-    sha256 "c3e12ecfa1b4c9530f2f27c6707cf8e493377ca6132170814476d715564c536f" => :mountain_lion
+    sha256 "55f7d879795bcf5cde8af98b463f4751c6c5426ceed96a46a0c1531b1324a60f" => :sierra
+    sha256 "e740be06065aac7f578e47d0bbf6ef803993a6246d0d7fa74c90367b5f3ea080" => :el_capitan
+    sha256 "e608e79004fe1cfbefb2f9963ed4a4e86aad8e8c751e12a97ff3a03325bddd2b" => :yosemite
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/codegangsta/cli" do
-    url "https://github.com/codegangsta/cli.git",
-        :revision => "bca61c476e3c752594983e4c9bcd5f62fb09f157"
-  end
-
-  go_resource "github.com/daviddengcn/go-colortext" do
-    url "https://github.com/daviddengcn/go-colortext.git",
-        :revision => "3b18c8575a432453d41fdafb340099fff5bba2f7"
-  end
-
   def install
-    ENV["GOBIN"] = bin
     ENV["GOPATH"] = buildpath
-    ENV["GOHOME"] = buildpath
-
-    mkdir_p buildpath/"src/github.com/Swatto/"
-    ln_sf buildpath, buildpath/"src/github.com/Swatto/td"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    system "go", "build", "."
-    bin.install "td-#{version}" => "td"
+    ENV["GOBIN"] = bin
+    (buildpath/"src/github.com/Swatto/td").install buildpath.children
+    cd "src/github.com/Swatto/td" do
+      system "go", "install"
+      prefix.install_metafiles
+    end
   end
 
   test do
-    (testpath/".todos").write "[]"
-
+    (testpath/".todos").write "[]\n"
     system "#{bin}/td", "a", "todo of test"
     todos = (testpath/".todos").read
     assert_match "todo of test", todos

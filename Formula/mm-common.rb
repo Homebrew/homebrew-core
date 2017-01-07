@@ -1,6 +1,6 @@
 class MmCommon < Formula
   desc "C++ interfaces for GTK+ and GNOME"
-  homepage "http://www.gtkmm.org"
+  homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/mm-common/0.9/mm-common-0.9.10.tar.xz"
   sha256 "16c0e2bc196b67fbc145edaecb5dbe5818386504fe5703de27002d77140fa217"
 

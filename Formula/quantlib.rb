@@ -1,14 +1,14 @@
 class Quantlib < Formula
   desc "Library for quantitative finance"
   homepage "http://quantlib.org/"
-  url "https://downloads.sourceforge.net/project/quantlib/QuantLib/1.8.1/QuantLib-1.8.1.tar.gz"
-  sha256 "27d14d5e49b8a21d20f03da69a05584af50e6a3dbe47dad5b9f2c61ad3460bed"
+  url "https://downloads.sourceforge.net/project/quantlib/QuantLib/1.9.1/QuantLib-1.9.1.tar.gz"
+  sha256 "80c0349dd5f8f6d33ea5205dbb6cc64fce7a0778942506d0c942b632b82c03ed"
 
   bottle do
     cellar :any
-    sha256 "8f682c4aad6ec88a2950ae6f7dbbbf4462aec8031661d80a2d4d374b96024f1d" => :sierra
-    sha256 "46b39799b60669ddab32f6e0cf08b83af1036ca701837a10e7864b71755841cd" => :el_capitan
-    sha256 "bee53cb0776d7b92b2e319c1ab3be2452266beb5c1e5a858a499b0b615ce7e16" => :yosemite
+    sha256 "552c5fce38887d3ac72c825f8332f460c1e37c484911c318ec3da5c5c6f4ddc6" => :sierra
+    sha256 "ac1c6554d50f1296b7554c452d0433dd363a373f62167332c763e8c3d34bd14e" => :el_capitan
+    sha256 "41152596ea9d392ab65ee4e61007b3eb54328a0787b0cd2df6c5ca7091d65219" => :yosemite
   end
 
   head do
@@ -20,6 +20,7 @@ class Quantlib < Formula
   end
 
   option :cxx11
+  option "with-intraday", "Enable intraday components to dates"
 
   if build.cxx11?
     depends_on "boost" => "c++11"
@@ -32,9 +33,13 @@ class Quantlib < Formula
     (buildpath/"QuantLib").install buildpath.children if build.stable?
     cd "QuantLib" do
       system "./autogen.sh" if build.head?
+      args = []
+      args << "--enable-intraday" if build.with? "intraday"
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{prefix}",
-                            "--with-lispdir=#{elisp}"
+                            "--with-lispdir=#{elisp}",
+                            *args
+
       system "make", "install"
       prefix.install_metafiles
     end

@@ -1,15 +1,13 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/3.20/evince-3.20.1.tar.xz"
-  sha256 "fc7ac23036939c24f02e9fed6dd6e28a85b4b00b60fa4b591b86443251d20055"
-  revision 1
+  url "https://download.gnome.org/sources/evince/3.22/evince-3.22.1.tar.xz"
+  sha256 "f3d439db3b5a5745d26175d615a71dffa1535235b1e3aa0b85d397ea33ab231c"
 
   bottle do
-    sha256 "0743774b888e97dd8be9ce2737bcf8b04f55f48cdc606b1593883e7a7d041915" => :sierra
-    sha256 "fa5d7a4becdd0da9fe9b864c8fa4b0f67e6949497deb8dd5abd86d92f7ca8107" => :el_capitan
-    sha256 "f8b73e52c589d8c1e19bbd9f4edff0fccb471196304e6bf4c87d08a064904978" => :yosemite
-    sha256 "7987ea6935e9850ce2a4ad72ff6d06269e6cfb966cb0a2e19129ba1ce6ff3993" => :mavericks
+    sha256 "e9a2c2c8c8b52eb5092493d5493c0ba88f0be3a8050df357d10bcc9caae8c183" => :sierra
+    sha256 "2880e727b283dccfa168e17d1d0adc0056d6c784b1e92ac0b3dd99ee470bd74e" => :el_capitan
+    sha256 "a3fb6d9b31839132e2dba42d93b222cdd89662df5ffe75755f4412d8cb3cf58b" => :yosemite
   end
 
   depends_on "pkg-config" => :build

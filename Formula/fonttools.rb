@@ -1,17 +1,17 @@
 class Fonttools < Formula
+  include Language::Python::Virtualenv
+
   desc "Library for manipulating fonts"
-  homepage "https://github.com/behdad/fonttools"
-  url "https://github.com/behdad/fonttools/archive/3.0.tar.gz"
-  sha256 "3bc9141d608603faac3f800482feec78a550d0a94c29ff3850471dbe4ad9e941"
-  head "https://github.com/behdad/fonttools.git"
+  homepage "https://github.com/fonttools/fonttools"
+  url "https://github.com/fonttools/fonttools/releases/download/3.4.0/fonttools-3.4.0.zip"
+  sha256 "12949c451af8db545e8a239f54312eb7b37977a0b946a85bcbbc28f8fcc1a4d7"
+  head "https://github.com/fonttools/fonttools.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "684979aedb42ed576575e2eea0aa42d3669a3242d9025be1a0c1263fae097226" => :sierra
-    sha256 "d2aca5663043850875bd16bb04af383eaee14b4b205c8595fbda20ae0867429e" => :el_capitan
-    sha256 "2639039f72920032e0dc6ce6faf15b837487c8561936412c437497c23bd248d0" => :yosemite
-    sha256 "eaa0a7decad7e731eae45b93364d18bdadbfadcf39f9a14a6f4e78d55f0b757f" => :mavericks
+    sha256 "4a7d2d6e3eb97cb360b3c00d4406faad2e6de5f414a4f9ad3175115be01f9062" => :sierra
+    sha256 "76a2a12377583a7ae2f43d7bffb1dd56c350adcffcfe58a63558a0394f4d4a73" => :el_capitan
+    sha256 "10d261359af40f0f04bb505c61e99509526df0ff583351970a30cee824597b9c" => :yosemite
   end
 
   option "with-pygtk", "Build with pygtk support for pyftinspect"
@@ -20,12 +20,7 @@ class Fonttools < Formula
   depends_on "pygtk" => :optional
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages/FontTools"
-
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

@@ -1,17 +1,15 @@
 class Peco < Formula
   desc "Simplistic interactive filtering tool"
   homepage "https://github.com/peco/peco"
-  url "https://github.com/peco/peco/archive/v0.4.2.tar.gz"
-  sha256 "66dd72033653e41f26a2e9524ccc04650ebccb9af42daa00b106fc9e1436ddef"
+  url "https://github.com/peco/peco/archive/v0.4.7.tar.gz"
+  sha256 "13b14c547a4fa54c33e14a3a5c18d971961963008e22410fe377614100a34c00"
   head "https://github.com/peco/peco.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "5f519f75eb49dc037ce22fc0a65c3304e0cbdf58e171359df9c5dd823cf45b15" => :sierra
-    sha256 "d3e993c831c62cf75ba0f15285aaf2af4f09f89f68b262b0b5d28276888669df" => :el_capitan
-    sha256 "b29c6d5e2039014db0daae5385611e479015a5ecfb3d49c9ad359b6c0e86be61" => :yosemite
-    sha256 "29d22eaa232bc401ca8532f65f5267187b781a8210f338385439dc295fba8075" => :mavericks
+    sha256 "1d0329f9e239dca2083efb752384c4a827ac7861add4dc3c07d116d689947898" => :sierra
+    sha256 "27146cadf7d4e4bc2f1cdf5753d5954d6c2b53a6bf179a58041f767db73746dc" => :el_capitan
+    sha256 "50c6670b272e8438af1800bbe328aac1185288d1d33126f3cb83870e88837e61" => :yosemite
   end
 
   depends_on "glide" => :build
@@ -19,7 +17,7 @@ class Peco < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = buildpath/"glide_home"
+    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     (buildpath/"src/github.com/peco/peco").install buildpath.children
     cd "src/github.com/peco/peco" do
       system "glide", "install"

@@ -19,7 +19,7 @@ class ImapUw < Formula
   depends_on "openssl"
 
   def install
-    ENV.j1
+    ENV.deparallelize
     inreplace "Makefile" do |s|
       s.gsub! "SSLINCLUDE=/usr/include/openssl",
               "SSLINCLUDE=#{Formula["openssl"].opt_include}/openssl"

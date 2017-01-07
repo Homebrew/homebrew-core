@@ -17,11 +17,6 @@ class Cdrdao < Formula
   depends_on "mad"
   depends_on "lame"
 
-  fails_with :llvm do
-    build 2326
-    cause "Segfault while linking"
-  end
-
   # first patch fixes build problems under 10.6
   # see https://sourceforge.net/p/cdrdao/patches/23/
   patch do
@@ -29,7 +24,7 @@ class Cdrdao < Formula
     sha256 "ee1702dfd9156ebb69f5d84dcab04197e11433dd823e80923fd497812041179e"
   end
 
-  # second patch fixes device autodetection on OS X
+  # second patch fixes device autodetection on macOS
   # see https://trac.macports.org/ticket/27819
   # upstream bug report:
   # https://sourceforge.net/p/cdrdao/bugs/175/

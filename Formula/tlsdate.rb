@@ -19,7 +19,7 @@ class Tlsdate < Formula
   depends_on "libevent" => :build
   depends_on "openssl"
 
-  # Upstream PR to fix the build on OS X
+  # Upstream PR to fix the build on macOS
   patch do
     url "https://github.com/ioerror/tlsdate/pull/160.patch"
     sha256 "78a739d952d2fa0046eec958194136c50751c0e97bfe9f5ed173ecc864f8adb8"

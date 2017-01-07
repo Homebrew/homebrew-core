@@ -1,30 +1,15 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  revision 1
-
+  url "https://downloads.sourceforge.net/project/boost/boost/1.63.0/boost_1_63_0.tar.bz2"
+  sha256 "beae2529f759f6b3bf3f4969a19c2e9d6f0c503edcb2de4a61d1428519fcb3b0"
   head "https://github.com/boostorg/boost.git"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/boost/boost/1.61.0/boost_1_61_0.tar.bz2"
-    sha256 "a547bd06c2fd9a71ba1d169d9cf0339da7ebf4753849a8f7d6fdb8feee99b640"
-
-    # Remove for > 1.61.0
-    # Upstream commit "Fix build issues when optional_fwd.hpp is used before
-    # including boost/config.hpp" from PR boostorg/optional#19
-    # See https://svn.boost.org/trac/boost/ticket/12179
-    patch :p2 do
-      url "https://github.com/boostorg/optional/commit/844ca6a0.patch"
-      sha256 "1ef54ca1dcd12d809e2a01b558113fcd734d992402d2ec78c387298ef29cc887"
-    end
-  end
 
   bottle do
     cellar :any
-    sha256 "56c7f4f5902e5bb2c1512c69a87a609b50f305971c3c975726cf324cc40f536e" => :sierra
-    sha256 "0c06f4558c5f98e5615cb9a33b66ab912e702ad50a2e1051ae80171b0bda9aa3" => :el_capitan
-    sha256 "508bfe58b3ba391690be77da7a47a34f2cf0b489cc2590c69c746d7919fa12c1" => :yosemite
-    sha256 "92db134e4a77c4cc0566261b09b96886b30f6c1bf81d65b120dffd6937e99f58" => :mavericks
+    sha256 "e51c6ca6eb46b548a2e1fdd11f7379a864f4f92d1c42920ab6df8d81bcfe57ca" => :sierra
+    sha256 "ea3c556f85bac86b86be9af3828982cbc7a8896bbb0b4f845167b02d10f821ca" => :el_capitan
+    sha256 "027cbc505f530e00ddc835e87b3bad1a7a723dae199fca4d3416b20701ac83b1" => :yosemite
   end
 
   env :userpaths
@@ -46,23 +31,9 @@ class Boost < Formula
     depends_on :mpi => [:cc, :cxx, :optional]
   end
 
-  fails_with :llvm do
-    build 2335
-    cause "Dropped arguments to functions when linking with boost"
-  end
-
   needs :cxx11 if build.cxx11?
 
   def install
-    # https://svn.boost.org/trac/boost/ticket/8841
-    if build.with?("mpi") && build.with?("single")
-      raise <<-EOS.undent
-        Building MPI support for both single and multi-threaded flavors
-        is not supported.  Please use "--with-mpi" together with
-        "--without-single".
-      EOS
-    end
-
     ENV.universal_binary if build.universal?
 
     # Force boost to compile with the desired compiler
@@ -95,7 +66,7 @@ class Boost < Formula
 
     # Boost.Log cannot be built using Apple GCC at the moment. Disabled
     # on such systems.
-    without_libraries << "log" if ENV.compiler == :gcc || ENV.compiler == :llvm
+    without_libraries << "log" if ENV.compiler == :gcc
     without_libraries << "mpi" if build.without? "mpi"
 
     bootstrap_args << "--without-libraries=#{without_libraries.join(",")}"

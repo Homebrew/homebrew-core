@@ -1,14 +1,14 @@
 class Libass < Formula
   desc "Subtitle renderer for the ASS/SSA subtitle format"
   homepage "https://github.com/libass/libass"
-  url "https://github.com/libass/libass/releases/download/0.13.3/libass-0.13.3.tar.gz"
-  sha256 "86c8c45d14e4fd23b5aa45c72d9366c46b4e28087da306e04d52252e04a87d0a"
+  url "https://github.com/libass/libass/releases/download/0.13.6/libass-0.13.6.tar.gz"
+  sha256 "62070da83b2139c1875c9db65ece37f80f955097227b7d46ade680221efdff4b"
 
   bottle do
     cellar :any
-    sha256 "382ac2942a012bf63beced7ad334f8f8bdcb05ac0f673d8b6b7e65e703dd4e79" => :sierra
-    sha256 "8eedaec98988b02e79e615f7a7e3550f880e2fbd42af5fcb4bba6613e235e970" => :el_capitan
-    sha256 "5455db85e4b0476b9590ddbe1fb6934fa7755efb2c925e35c87d30f17854fcbf" => :yosemite
+    sha256 "21f04f3347abcb82c3d0710bbe47a8e1e61943f38d15f361d5165a92632fee93" => :sierra
+    sha256 "cb6084560a8a866727c0957bd327ab575bf6e7ea906ccc0693946a2d18b5bca7" => :el_capitan
+    sha256 "e5a92d4cbc9ff8ca1bfac7862dd0f7926417155a8afb9e3b2ff9376b96dce9e9" => :yosemite
   end
 
   head do

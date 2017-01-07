@@ -13,10 +13,6 @@ class Pbzip2 < Formula
     sha256 "7604662202fbb60acdb016da163b552b1c2cee6a4bdd21ca2be85afb1ce4c987" => :mountain_lion
   end
 
-  fails_with :llvm do
-    build 2334
-  end
-
   def install
     system "make", "PREFIX=#{prefix}",
                    "CC=#{ENV.cxx}",

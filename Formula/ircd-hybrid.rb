@@ -1,14 +1,13 @@
 class IrcdHybrid < Formula
   desc "High-performance secure IRC server"
   homepage "http://www.ircd-hybrid.org/"
-  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.18/ircd-hybrid-8.2.18.tgz"
-  sha256 "8dcbd45a049dd4da03045bfa4833527555fdfdfce4e4637ee8b63abe6ae13405"
+  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.21/ircd-hybrid-8.2.21.tgz"
+  sha256 "c37f67ff087bb471e6a4fbdd172e4b92d4c9924ba3ddfe481787855febcb8fa5"
 
   bottle do
-    sha256 "77e8811016bf351abb6c6f2d810ddfc63e102de65935e14a2055334ff4f4b1b4" => :sierra
-    sha256 "ba2c91d06c5a60b39c2101de3a51859ece7ce2d1a51505932e62b13d7c25f714" => :el_capitan
-    sha256 "c910cc2c4abe4b2fcd98443c6d900499fe7fcda57a7069261b73af282d3fa543" => :yosemite
-    sha256 "a6780c66f7fc1e44ed01a6de14f33886e0a679d9512bd5b8920ac770a7a9869c" => :mavericks
+    sha256 "6c4b9bd6f5a995452b965710994b622ff713a665d256c433a83969bbebd5602c" => :sierra
+    sha256 "be751fd518ea469356f7976d11a2fc57974f4e2ad6c43d48b4a3422a01cf62ad" => :el_capitan
+    sha256 "4ed29598b245938e36eae68005ef3108c2f3415ed78002316dc0d1750394cc36" => :yosemite
   end
 
   # ircd-hybrid needs the .la files
@@ -19,7 +18,7 @@ class IrcdHybrid < Formula
   conflicts_with "ircd-irc2", :because => "both install an `ircd` binary"
 
   def install
-    ENV.j1 # build system trips over itself
+    ENV.deparallelize # build system trips over itself
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

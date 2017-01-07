@@ -17,11 +17,6 @@ class MysqlConnectorC < Formula
   conflicts_with "mysql", "mariadb", "percona-server",
     :because => "both install MySQL client libraries"
 
-  fails_with :llvm do
-    build 2334
-    cause "Unsupported inline asm"
-  end
-
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"

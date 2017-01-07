@@ -1,18 +1,18 @@
 class Pick < Formula
   desc "Utility to choose one option from a set of choices"
-  homepage "https://github.com/thoughtbot/pick"
-  url "https://github.com/thoughtbot/pick/releases/download/v1.4.0/pick-1.4.0.tar.gz"
-  sha256 "46f46b0df54cf27e8dd19ae291d5534cb55ef37d9cdb3cc774cd88c809f718fd"
+  homepage "https://github.com/calleerlandsson/pick"
+  url "https://github.com/calleerlandsson/pick/releases/download/v1.5.3/pick-1.5.3.tar.gz"
+  sha256 "925f5736cdc44455305678030b190e7ee359bd710af4cfaf0388d6d27e21bc93"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "328d148420af50a175424027977a508ab2771b706b800effca95b79843953569" => :sierra
-    sha256 "966359b2647a1268c4091bb76a7daed22cb4cf1fa96a40a95da8b2d7b54b5968" => :el_capitan
-    sha256 "429d8e11ae48b5e23a39039218f4e65f04be09bdd5916fdd2aaa81b467b3d711" => :yosemite
-    sha256 "ba74ec54344e9ab11638f6576e46128193b483b3e4bb1739a414f0a8df54ecc6" => :mavericks
+    sha256 "77eacf48b9f317239e5d9fcfa62dbaf90fb11fbbf603d7b4652b456fe563bdde" => :sierra
+    sha256 "af14394e7e4374fbdb960ce07e5128f669a09dd6ef325ea229d26d2e7e627715" => :el_capitan
+    sha256 "75e6b3b7b4e85f81b8c5528c2cd78a36e4601b5932908b1ebdd522a934c3d6fc" => :yosemite
   end
 
   def install
+    ENV["TERM"] = "xterm"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"

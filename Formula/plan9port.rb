@@ -18,7 +18,7 @@ class Plan9port < Formula
   def install
     ENV["PLAN9_TARGET"] = libexec
 
-    # Make OS X system fonts available to Plan 9
+    # Make macOS system fonts available to Plan 9
     (buildpath/"LOCAL.config").write "FONTSRV=fontsrv" if build.with? "x11"
 
     system "./INSTALL"

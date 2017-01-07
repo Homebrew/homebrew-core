@@ -29,6 +29,8 @@ class Beansdb < Formula
     (var/"log").mkpath
   end
 
+  plist_options :manual => "beansdb"
+
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -63,5 +65,9 @@ class Beansdb < Formula
     </dict>
     </plist>
     EOS
+  end
+
+  test do
+    system "#{bin}/beansdb", "-h"
   end
 end

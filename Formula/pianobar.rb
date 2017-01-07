@@ -22,11 +22,6 @@ class Pianobar < Formula
   depends_on "json-c"
   depends_on "ffmpeg"
 
-  fails_with :llvm do
-    build 2334
-    cause "Reports of this not compiling on Xcode 4"
-  end
-
   def install
     # Discard Homebrew's CFLAGS as Pianobar reportedly doesn't like them
     ENV["CFLAGS"] = "-O2 -DNDEBUG " +

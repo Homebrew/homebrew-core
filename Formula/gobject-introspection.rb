@@ -1,14 +1,13 @@
 class GobjectIntrospection < Formula
   desc "Generate introspection data for GObject libraries"
   homepage "https://live.gnome.org/GObjectIntrospection"
-  url "https://download.gnome.org/sources/gobject-introspection/1.48/gobject-introspection-1.48.0.tar.xz"
-  sha256 "fa275aaccdbfc91ec0bc9a6fd0562051acdba731e7d584b64a277fec60e75877"
+  url "https://download.gnome.org/sources/gobject-introspection/1.50/gobject-introspection-1.50.0.tar.xz"
+  sha256 "1c6597c666f543c70ef3d7c893ab052968afae620efdc080c36657f4226337c5"
 
   bottle do
-    sha256 "a761110e7da384ef2759aed67c87dadddedd265fc69a11ed28190ba886bddec4" => :sierra
-    sha256 "00cdb24c5e74f65800d88ca69b5e49f087ab5ea6d59117a1cd47d81e669c9c0d" => :el_capitan
-    sha256 "65d2698a5a28799513d4aaa8d28e5d41a87034fa38ce5b9412af43f1b7a9ecb4" => :yosemite
-    sha256 "227e7041931934d9bc54ad74e7c163ea80b287120d79e7e3a664e3819687a26f" => :mavericks
+    sha256 "c50540846431e361498c8912c8b6852c1547f94458cb080cad9754ac9ffa4129" => :sierra
+    sha256 "2999c2c6259c37a49600acd02f7330841756ee71df39fd8e8a88e406881a95f7" => :el_capitan
+    sha256 "cb851182a1a2c6bdd29ed88b8f186fc7f2453e0b3cbf2c36409e80c00c3a100c" => :yosemite
   end
 
   option :universal

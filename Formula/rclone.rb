@@ -3,15 +3,13 @@ require "language/go"
 class Rclone < Formula
   desc "rsync for cloud storage"
   homepage "http://rclone.org"
-  url "https://github.com/ncw/rclone/archive/v1.33.tar.gz"
-  sha256 "c1f947b9fa624bb70da151327d3b7e4652746ae56a2e66772a0808f2061efde3"
+  url "https://github.com/ncw/rclone/archive/v1.35.tar.gz"
+  sha256 "63a075c4e6725f1a59c151a2d0d8cdf3119940fe293ee6220ff9fea6438b6fd7"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0cb2925af78bcac37a1e9a13862cc20c0446f0be7155a1c90b61e8f334556194" => :sierra
-    sha256 "59453b327439c6a65c178537d55dec1724cc8961d14cce2cbc3001fe904e5e36" => :el_capitan
-    sha256 "b779fe7793bd40100c803a8a787c1e6b7ccf0cfa1ebe3ef381bd69086a155393" => :yosemite
-    sha256 "3f08a41d8636c525b6e88e1d7330104ea85140b106aa13ce2f918e71d7031863" => :mavericks
+    sha256 "29d8dfe76326afc047e725c586886a6924d5121d43a0158370f97a466d675574" => :sierra
+    sha256 "e4086b5ff3276c8b7867df1559fbb3b0fee7571471783765391459a41803b7c2" => :el_capitan
+    sha256 "16219c9852ac4a93592badd6d3f45a54613cde683d9aca9c4827b10aa31f5195" => :yosemite
   end
 
   depends_on "go" => :build

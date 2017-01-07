@@ -15,10 +15,6 @@ class W3m < Formula
   depends_on "bdw-gc"
   depends_on "openssl"
 
-  fails_with :llvm do
-    build 2334
-  end
-
   patch :DATA
 
   def install
@@ -26,7 +22,7 @@ class W3m < Formula
                           "--with-ssl=#{Formula["openssl"].opt_prefix}"
     # Race condition in build reported in:
     # https://github.com/Homebrew/homebrew/issues/12854
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
   end
 

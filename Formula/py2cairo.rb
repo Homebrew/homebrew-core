@@ -21,11 +21,6 @@ class Py2cairo < Formula
   depends_on "cairo"
   depends_on :python if MacOS.version <= :snow_leopard
 
-  fails_with :llvm do
-    build 2336
-    cause "The build script will set -march=native which llvm can't accept"
-  end
-
   def install
     ENV.refurbish_args
 

@@ -1,5 +1,5 @@
 class HardlinkOsx < Formula
-  desc "Command-line utility that implements hardlinks on OS X"
+  desc "Command-line utility that implements hardlinks on macOS"
   homepage "https://github.com/selkhateeb/hardlink"
   url "https://github.com/selkhateeb/hardlink/archive/v0.1.1.tar.gz"
   sha256 "5876554e6dafb6627a94670ac33e750a7efeb3a5fbde5ede3e145cdb5131d1ba"

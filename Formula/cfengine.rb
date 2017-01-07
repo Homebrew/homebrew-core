@@ -6,9 +6,10 @@ class Cfengine < Formula
 
   bottle do
     cellar :any
-    sha256 "2b4b6e89499fc8f54c30252b8d74572611ee7e8ac39f449129da96fca6f414e6" => :el_capitan
-    sha256 "cb6c2974f852eefab238ac9d9da37db105e0dd8b07c02529edbdfab7a3457f39" => :yosemite
-    sha256 "f9259787ea468667fa14062b343b15dc31b71268b0aca2d0612e38c2ba66459d" => :mavericks
+    rebuild 1
+    sha256 "9e44968c018b2c768a8e06e56f7a7d2d1055e681c7d5ac15f8965d2ccb88e668" => :sierra
+    sha256 "116955921224f5bab1043aec945fec298febb2798758abb559970304b9320bba" => :el_capitan
+    sha256 "6519f4ca5364019cd9239db4433c2b8eda6bfbb8e02e25441530b17805b10105" => :yosemite
   end
 
   depends_on "libxml2" if MacOS.version < :mountain_lion
@@ -22,6 +23,11 @@ class Cfengine < Formula
   end
 
   def install
+    # Fix "typedef redefinition with different types"
+    if DevelopmentTools.clang_build_version >= 800
+      ENV["ac_cv_type_clockid_t"] = "yes"
+    end
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-workdir=#{var}/cfengine",

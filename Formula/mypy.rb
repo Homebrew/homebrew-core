@@ -1,17 +1,17 @@
 class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
-  url "https://github.com/JukkaL/mypy.git",
-      :tag => "v0.4.4",
-      :revision => "3935fe0efc68318e2a3a08a98c2097c527a8d8d4"
-  head "https://github.com/JukkaL/mypy.git"
+  url "https://github.com/python/mypy.git",
+      :tag => "v0.4.6",
+      :revision => "29b7675e6d21de8c81b170cc1e28213aa874a2fe"
+  revision 1
+  head "https://github.com/python/mypy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "639a28badfa1a2eb986d3e1680ae013251e5ba8800fb1acd82e1cae20bcf10a1" => :sierra
-    sha256 "e73fd7e6eb2b5ddc339771045879976902d7c6f63121025fea84f25f42de69b0" => :el_capitan
-    sha256 "624a040ab3ff1419c6f0ff1d8d5d02e58f9c6415f7f1fd88e8b3bcf285de2033" => :yosemite
-    sha256 "624a040ab3ff1419c6f0ff1d8d5d02e58f9c6415f7f1fd88e8b3bcf285de2033" => :mavericks
+    sha256 "e5c9f3dc61edd6d21d18624515c2dbcdf3e6350e625bd1f58c4ed08cd1c60de9" => :sierra
+    sha256 "253e79f891698176f92b87d514b4a13dd7b7c29f15d3583661c207b85f3c2f02" => :el_capitan
+    sha256 "c648a15046e55bd70fe60f5e5e6aef2d5f98420bfe725a1efb6b24d0f5571035" => :yosemite
   end
 
   option "without-sphinx-doc", "Don't build documentation"
@@ -30,12 +30,20 @@ class Mypy < Formula
     xy = Language::Python.major_minor_version "python3"
 
     if build.with? "sphinx-doc"
-      ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-      resource("sphinx_rtd_theme").stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
+      # https://github.com/python/mypy/issues/2593
+      version_static = buildpath/"mypy/version_static.py"
+      version_static.write "__version__ = '#{version}'\n"
+      inreplace "docs/source/conf.py", "mypy.version", "mypy.version_static"
+
+      (buildpath/"docs/sphinx_rtd_theme").install resource("sphinx_rtd_theme")
+      # Inject sphinx_rtd_theme's path into sys.path
+      inreplace "docs/source/conf.py",
+                "sys.path.insert(0, os.path.abspath('../..'))",
+                "sys.path[:0] = [os.path.abspath('../..'), os.path.abspath('../sphinx_rtd_theme')]"
       system "make", "-C", "docs", "html"
       doc.install Dir["docs/build/html/*"]
+
+      rm version_static
     end
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"

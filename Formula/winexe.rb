@@ -16,7 +16,7 @@ class Winexe < Formula
   depends_on "autoconf" => :build
 
   # This patch removes second definition of event context, which *should* break the build
-  # virtually everywhere, but for some reason it only breaks it on OS X.
+  # virtually everywhere, but for some reason it only breaks it on macOS.
   # https://miskstuf.tumblr.com/post/6840077505/winexe-1-00-linux-macos-windows-7-finally-working
   # Added by @vspy
   patch :DATA

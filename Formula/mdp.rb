@@ -1,16 +1,15 @@
 class Mdp < Formula
   desc "Command-line based markdown presentation tool"
   homepage "https://github.com/visit1985/mdp"
-  url "https://github.com/visit1985/mdp/archive/1.0.8.tar.gz"
-  sha256 "e9a366afac877e86d2dbc8d9ca3585138b8208581079b44c94000300a8b1cf81"
+  url "https://github.com/visit1985/mdp/archive/1.0.9.tar.gz"
+  sha256 "893e13a9a61a89bacf29ee141bd9f6e8935710323701e3d36584a4bb90e1372d"
   head "https://github.com/visit1985/mdp.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7c619dac68ee38987974a40424af26dbeb083a2094a63801f369ec4ec3f14a87" => :sierra
-    sha256 "a38709f3da071c6e8becb2e94ba91c0261651b8de44d4e1d8781bc6554da8bc1" => :el_capitan
-    sha256 "3d0bbee087458a4312a78d6a36e30a2a0b30711d35f07f264bf3e0999d0ca5c4" => :yosemite
-    sha256 "f0c315c1a437ce4c220c4fb85c7e7234dd58b9c5929839202a13390d10d0e868" => :mavericks
+    sha256 "6771747a2b8bc5d42770188f99060be438cb9d13b5371e14fbf9a147155c62ea" => :sierra
+    sha256 "e109dc3235ce7c8525b141d062c8f5483b5fe2e47d12c80f3fce5e74b16d766f" => :el_capitan
+    sha256 "9b47182af992b02773445de59b2e9dcb75d18ac72a229d36f019de9847d2f4c1" => :yosemite
   end
 
   def install

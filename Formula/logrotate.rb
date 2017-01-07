@@ -38,6 +38,8 @@ class Logrotate < Formula
     (etc/"logrotate.d").mkpath
   end
 
+  plist_options :manual => "logrotate"
+
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -62,6 +64,18 @@ class Logrotate < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    (testpath/"test.log").write("testlograndomstring")
+    (testpath/"testlogrotate.conf").write <<-EOS.undent
+        #{testpath}/test.log {
+        size 1
+        copytruncate
+    }
+    EOS
+    system "#{sbin}/logrotate", "-s", "logstatus", "testlogrotate.conf"
+    assert(File.size?("test.log").nil?, "File is not zero length!")
   end
 end
 

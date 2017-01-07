@@ -1,33 +1,30 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://dnscrypt.org"
-  url "https://github.com/jedisct1/dnscrypt-proxy/releases/download/1.7.0/dnscrypt-proxy-1.7.0.tar.bz2"
-  sha256 "1daf77df9092491ea0b5176ec4b170f7b0645f97b62d1a50412a960656b482e3"
+  url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.1.tar.gz"
+  sha256 "1797a4f3c4bacbe872ce7b9f9b3a88f09b9e41776429a37555581f0e832496de"
+  head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
-    sha256 "67b062700838260b4912212c128e5c832741f2564b03f6c0bfad697363583b30" => :sierra
-    sha256 "6823eef358616722da3a931ee4af2efa77d76b99345b7bb7de98f7cfd9ac076f" => :el_capitan
-    sha256 "2342b453a35d9ae1d272f2542f3d654be3b82d1594f250d8b97293196186de6f" => :yosemite
-    sha256 "6f0e548b4ef064981611673af052fdf11132f50b7d71be6bf48728016297a876" => :mavericks
-  end
-
-  head do
-    url "https://github.com/jedisct1/dnscrypt-proxy.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+    sha256 "8ba7499cf515996462c3826bc475e3834f3f2bb032fa385c667a4ef844e2eb81" => :sierra
+    sha256 "14d57e687899746ede2dad8370484d8ed19e338a65a171c5c0008d74df92bb8a" => :el_capitan
+    sha256 "6a88a97fe3b416865c8e0d17042f12247a0dc25f4650760a077efb0735198f78" => :yosemite
   end
 
   option "with-plugins", "Support plugins and install example plugins."
 
   deprecated_option "plugins" => "with-plugins"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "libtool" => :run
   depends_on "libsodium"
   depends_on "minisign" => :recommended
+  depends_on "ldns" => :recommended
 
   def install
-    system "autoreconf", "-if" if build.head?
+    system "./autogen.sh"
 
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
 
@@ -39,6 +36,7 @@ class DnscryptProxy < Formula
 
     system "./configure", *args
     system "make", "install"
+    pkgshare.install Dir["contrib/*"] - Dir["contrib/Makefile*"]
 
     if build.with? "minisign"
       (bin/"dnscrypt-update-resolvers").write <<-EOS.undent

@@ -4,13 +4,13 @@ class Mapnik < Formula
   url "https://github.com/mapnik/mapnik/releases/download/v3.0.12/mapnik-v3.0.12.tar.bz2"
   sha256 "66a3d620c3ce543c91ea5b42a25079aca9a2a90f6079a2ce2a8714398fa57d6d"
   head "https://github.com/mapnik/mapnik.git"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "1fd943b5c5518bc241762d8c0bb1b818f6b93ca7872b4cc24089e29ab32ff44a" => :sierra
-    sha256 "ce5fb5600cf2bd911ab27e8a3c235e343fceb4d015a1dd6d392045c6dbbcf1f3" => :el_capitan
-    sha256 "0ce4c310ca31fb10ec751ce7ef1192f6088b92c3ba669843610596d96609e6e7" => :yosemite
-    sha256 "8f4dc52e72a3ed52d9b5487c0effb0c9a5c49c7ce626e0b1b98e7dec4df8bc22" => :mavericks
+    sha256 "6b2beb34e54495637783248a1e7f6d7d02783ef82a2605ce13032f5a68b062ea" => :sierra
+    sha256 "3e7775d632e2754babb407a3af5d23623f887c1fc25e66cc63153687ac4f5974" => :el_capitan
+    sha256 "0a0187f29c95e5ad835d731edfdc10c6e8199937ce5238b992a909950c4e33f3" => :yosemite
   end
 
   depends_on "pkg-config" => :build

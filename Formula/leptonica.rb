@@ -1,15 +1,14 @@
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
-  url "http://www.leptonica.org/source/leptonica-1.73.tar.gz"
-  sha256 "19e4335c674e7b78af9338d5382cc5266f34a62d4ce533d860af48eaa859afc1"
+  url "http://www.leptonica.org/source/leptonica-1.74.tar.gz"
+  sha256 "e170f8a3f79e7f1742aff975ad5bb0c4a124df1532e6e38d9d71aaa5111de5a2"
 
   bottle do
     cellar :any
-    sha256 "ec8fe0b657e0a3a79564e3ba78451699201e23b0b8e9da3e342a05139df71e7c" => :sierra
-    sha256 "9d27186bb860962f3df77a8467194b18a660af2406451218b4e61c277d1e8470" => :el_capitan
-    sha256 "0fed0bd62f53161a0b68dc466f6a3fae405c8850f21683fbe995e5b4483ec635" => :yosemite
-    sha256 "48a9b224ae3cbe80f921cc82b17984c789a33a39a8f03fd59b96c53fa7aff9be" => :mavericks
+    sha256 "2acf4703688924d8ecc79a427ce7c0c0d9dddcd697a4336fac6a58af6b384538" => :sierra
+    sha256 "9cb6424ce52d45c6f4183bce9dcf722e423a07183053729ce41bd8ca8f784004" => :el_capitan
+    sha256 "a09aa53e816bd9cc4e9419db1abe2a5bd75ae4b280e8b32d9ac429f50d3519fe" => :yosemite
   end
 
   depends_on "libpng" => :recommended

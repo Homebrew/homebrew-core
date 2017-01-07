@@ -2,16 +2,16 @@ class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
   url "https://github.com/influxdata/kapacitor.git",
-    :tag => "v1.0.1",
-    :revision => "04f1ab3116b6bab27cbf63cb0e6b918fc77c7320"
+    :tag => "v1.1.1",
+    :revision => "d1e0173df2b9f44c64b7bbf1a120a1bdb3ef683e"
 
   head "https://github.com/influxdata/kapacitor.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e86d8e487a22692d980ecd18f953e6ee3e8d6b5d20c7a669bc78596e375aad7f" => :sierra
-    sha256 "e38b8a9fe9679f98aaf818f9a6ad9b77db05837ce6191b96f9f327ef5d231c87" => :el_capitan
-    sha256 "a24c21e3c44fda7f6cd95c9b14090be357e29e750839bee2f6b8ee628a99b28b" => :yosemite
+    sha256 "c72496f571ec125dac12450ff140bf4c4c26034e12b516173c37250e8932de41" => :sierra
+    sha256 "5f12afb9f70962e0b3d7412356b12de339ae60777d2268ec12673ada363eca91" => :el_capitan
+    sha256 "8ff509cdb29c5949dbee5a16be72d1ffa7a2b048e2d1214766f6087f141d9a16" => :yosemite
   end
 
   depends_on "go" => :build
@@ -76,7 +76,7 @@ class Kapacitor < Formula
   end
 
   test do
-    (testpath/"config.toml").write shell_output("kapacitord config")
+    (testpath/"config.toml").write shell_output("#{bin}/kapacitord config")
 
     inreplace testpath/"config.toml" do |s|
       s.gsub! /disable-subscriptions = false/, "disable-subscriptions = true"

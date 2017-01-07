@@ -1,15 +1,14 @@
 class Pngcrush < Formula
   desc "Optimizer for PNG files"
   homepage "http://pmt.sourceforge.net/pngcrush/"
-  url "https://downloads.sourceforge.net/project/pmt/pngcrush/1.8.6/pngcrush-1.8.6.tar.gz"
-  sha256 "6cea4a981f0e953c8f3af8b20964f1f106aaf22c63d2d49e8a503ebfd248b85c"
+  url "https://downloads.sourceforge.net/project/pmt/pngcrush/1.8.10/pngcrush-1.8.10.tar.gz"
+  sha256 "ed8dc4759d5067ebf53a2a5188eff1e8ad10262737cf50516cccf8c60d220b6d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b6c671d45d99d6977faefca33d4346d37db5b644cf74fbde82ba353b1337d096" => :sierra
-    sha256 "c4ed270d22feeb48689542d44dd3225cca13d27657e147a0aa6220027c55be07" => :el_capitan
-    sha256 "bf46beae36a0ad019b9d6c5a676612b45aab99dc4d28273c74b980dcd00fe10b" => :yosemite
-    sha256 "ed228209fe5e22d1c298843852987649818dbc9e0f00b93165f608a2c650a7e1" => :mavericks
+    sha256 "76204e797331ce2d454a0781296d122628acc9cb631fadaaac4b90c6e0f36932" => :sierra
+    sha256 "e82a9b969438a5434be036ff922b0df563b64e070548921a1a9e3538b9df80ec" => :el_capitan
+    sha256 "07ceca9ffb572a78d036aad41cb612b963ba86e8b16008e85110ca3fc7650a94" => :yosemite
   end
 
   def install

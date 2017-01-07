@@ -1,14 +1,13 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "http://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.20/gtk+-3.20.9.tar.xz"
-  sha256 "83a609ba2f3424b5509e73967c49c67833af466d6f91081b24ee5c64fce6ac17"
+  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.6.tar.xz"
+  sha256 "eba75a216a117f4391beb2971ba20ff8a1823f109893f0ab6c2eac2210ea172f"
 
   bottle do
-    sha256 "845e8ffbba026568d58f2d1c1c5633be9c999acd0fb873013d07979b4fb732b7" => :sierra
-    sha256 "0725ecf53991ca4edbeeff32000aed2c7cb1be53553db1e9dc23c3ba90051efd" => :el_capitan
-    sha256 "bdab115ec793cdc543a7d9936f2689f2992a4a54e5e61728bff0c3d8413e7a7d" => :yosemite
-    sha256 "d73e0948f345c6ebdb95b20fadd3a673fd60fca34a51ae69cc7bd1f8ac5a25fe" => :mavericks
+    sha256 "7f0655b39fc517d4971053d95e12b897188e3360e63c03061e4e4b422dfe5529" => :sierra
+    sha256 "b6f9787c76347d15bbe00d6a09dbadf82807b880bef8b5b22212bc72949a6efc" => :el_capitan
+    sha256 "8f0a001d19fe9b49dc1bbfabdc6827fc49421a2cc475c9941948455721b1dfaf" => :yosemite
   end
 
   option :universal
@@ -40,9 +39,6 @@ class Gtkx3 < Formula
     ]
 
     args << "--enable-quartz-relocation" if build.with?("quartz-relocation")
-
-    # TODO: Remove when it fails. See https://git.gnome.org/browse/gtk+/commit/?id=74bd3f3810133d44f333aa5f8d02ae3de19a6834
-    inreplace "gdk/quartz/gdkeventloop-quartz.c", "g_string_appendi", "g_string_append"
 
     system "./configure", *args
     # necessary to avoid gtk-update-icon-cache not being found during make install

@@ -1,26 +1,19 @@
 class Re2 < Formula
   desc "Alternative to backtracking PCRE-style regular expression engines"
   homepage "https://github.com/google/re2"
-  url "https://github.com/google/re2/archive/2016-09-01.tar.gz"
-  version "20160901"
-  sha256 "4f5833331c5d6e3bc0465984cff6f75ed9360e1ea1db670716161b98564cda2a"
+  url "https://github.com/google/re2/archive/2017-01-01.tar.gz"
+  version "20170101"
+  sha256 "e46019b4428942464bf65ba92f2fcd88739d1b05fe7c3787bc031a03a50a327a"
   head "https://github.com/google/re2.git"
 
   bottle do
     cellar :any
-    sha256 "45eaa77510527ced7036baae2c3c4bd0b08fa113e64bf5bf2825a6cd04f96134" => :sierra
-    sha256 "e985cf93476de797b6c2dd643c141f35f2bfa800952c98ac56578939ae738fa4" => :el_capitan
-    sha256 "48a2b946c7646ef1ceeea4ffaf719fbd353626cf03a1012f356ad91506ff8c1f" => :yosemite
-    sha256 "b7652eee1b647fa5ddb68fbae9f34729ec0b0242c86ff28d1ab093822c782874" => :mavericks
+    sha256 "d6496dda9b6e863b8b06d350033e8656f792231e7d7609971800eac194a59c4d" => :sierra
+    sha256 "5424f029d19403a7f962051dd054299745070007eb37ba444acfb9e42a5dfd2e" => :el_capitan
+    sha256 "d0cb83cf4f3ac26dc46ad3a3dd223de8c0da581b963bd36c1420494a14559ae3" => :yosemite
   end
 
   needs :cxx11
-
-  # https://github.com/google/re2/issues/102
-  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70932
-  fails_with :gcc => "6" do
-    cause "error: field 'next_' has incomplete type 'std::atomic<re2::DFA::State*> []'"
-  end
 
   def install
     ENV.cxx11

@@ -4,14 +4,13 @@ class Py3cairo < Formula
   url "https://cairographics.org/releases/pycairo-1.10.0.tar.bz2"
   mirror "https://distfiles.macports.org/py-cairo/pycairo-1.10.0.tar.bz2"
   sha256 "9aa4078e7eb5be583aeabbe8d87172797717f95e8c4338f0d4a17b683a7253be"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "4c09c892ebd8cbb783d9191b055b30f7b45ae2048dfaef9754c26e0f9d49b22b" => :sierra
-    sha256 "3e853d8591df79acdd2406fb0696f136ef27de7064b4383827180c423b2e167b" => :el_capitan
-    sha256 "679305655b5d1453e338dac356d81c42796313fc1092cdcdef01f5f2e53e6043" => :yosemite
+    sha256 "f0e12ea1b4f9aec69b7762ec3bb387b13d6abc7c02ff70e9d024c9cc49b7e027" => :sierra
+    sha256 "3991534de1d9542bef1dd191364ebf5ce22cc32debbbc5333ebc42bbbbc50b30" => :el_capitan
+    sha256 "0a6c13d9827824e995914eab59ea1437ca7cae5b7cd8dd78b5e92e61bba4821d" => :yosemite
   end
 
   depends_on "pkg-config" => :build

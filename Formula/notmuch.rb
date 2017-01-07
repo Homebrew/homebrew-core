@@ -1,15 +1,15 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org"
-  url "https://notmuchmail.org/releases/notmuch-0.22.2.tar.gz"
-  sha256 "6cd19c61634079981b2d8f4b7cb4eb953cba2a36272520603682d813d2bd7ed1"
+  url "https://notmuchmail.org/releases/notmuch-0.23.4.tar.gz"
+  sha256 "106dd6e39c4955871a49a84488d06394c1cecf66c1542b11834f8e8d5c66453b"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "b43915b43d94939812f3e687a50e6c3217dafe13d22df1c60d88bd94e0c2ac84" => :sierra
-    sha256 "6c02ccb2da0d5f0f302bf5b0c0c3e9248faef79d8c86a54f3262040e6b2701b0" => :el_capitan
-    sha256 "416a53f68a21c5d6a2f979791aebd7bf77e75da65e47b088c57f790c29493f3f" => :yosemite
-    sha256 "0bf74578261118e2f186abcb6329ab50274a05b58c05c164683801dd19965b7d" => :mavericks
+    sha256 "7674c95018e7d4448814a58a2590d7475ccaf4aa829125049044e04e34c792df" => :sierra
+    sha256 "0736efee3908338c6d3c27f1be7fb48fddc818170879d0834c364821b87991ad" => :el_capitan
+    sha256 "60def862686436b9e0408fdec7efaa09869bedb6c367afe23128318c9d567132" => :yosemite
   end
 
   option "without-python", "Build without python support"
@@ -18,14 +18,14 @@ class Notmuch < Formula
   depends_on "gmime"
   depends_on "talloc"
   depends_on "xapian"
-  depends_on :emacs => ["21.1", :optional]
+  depends_on :emacs => ["24.1", :optional]
   depends_on :python3 => :optional
   depends_on :ruby => ["1.9", :optional]
 
-  # Requires zlib >= 1.2.5.2
+  # Requires zlib >= 1.2.10
   resource "zlib" do
-    url "http://zlib.net/zlib-1.2.8.tar.gz"
-    sha256 "36658cb768a54c1d4dec43c3116c27ed893e88b02ecfcb44f2166f9c0b7f2a0d"
+    url "http://zlib.net/zlib-1.2.10.tar.gz"
+    sha256 "8d7e9f698ce48787b6e1c67e6bff79e487303e66077e25cb9784ac8835978017"
   end
 
   # Fix SIP issue with python bindings

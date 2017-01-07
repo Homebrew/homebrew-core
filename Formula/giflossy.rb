@@ -14,14 +14,14 @@ class Giflossy < Formula
     sha256 "1e71bcca774a3f01d8ede50d6040d06c2f25df7e6e3635efab4c5daf06f2bcb1" => :mountain_lion
   end
 
-  conflicts_with "gifsicle",
-    :because => "both install an `gifsicle` binary"
-
   option "with-x11", "Install gifview"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on :x11 => :optional
+
+  conflicts_with "gifsicle",
+    :because => "both install an `gifsicle` binary"
 
   def install
     args = %W[

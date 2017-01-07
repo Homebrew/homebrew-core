@@ -24,10 +24,6 @@ class Protobuf < Formula
   depends_on "libtool" => :build
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
 
-  fails_with :llvm do
-    build 2334
-  end
-
   resource "setuptools" do
     url "https://pypi.python.org/packages/df/c3/4265eb901f9db8c0ea5bdfb344084d85bc96c1a9b883f70430254b5491f6/setuptools-26.1.0.tar.gz"
     sha256 "64a2f7676cd026b64e46d179ed26b365e2f92f26c7fe04228ddd86d0436b797f"

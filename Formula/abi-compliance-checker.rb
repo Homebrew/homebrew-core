@@ -1,15 +1,14 @@
 class AbiComplianceChecker < Formula
   desc "Check binary and source compatibility for C/C++"
   homepage "http://ispras.linuxbase.org/index.php/ABI_compliance_checker"
-  url "https://github.com/lvc/abi-compliance-checker/archive/1.99.23.tar.gz"
-  sha256 "5d1a66e12b654798a09bdc087bb523bb38dd52bc6a212d604c18b547eb1ca2b2"
+  url "https://github.com/lvc/abi-compliance-checker/archive/1.99.25.tar.gz"
+  sha256 "b6d82df39c89be5c55ab13c4829223c0f17cf84c62d437350c06243f0a8b7380"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cbccd1f176823b3003b863e0c7a5a9a890d4a1e691ae0a9f8dd0972c7dc4a6dc" => :sierra
-    sha256 "de51254b07fbbf3b235dc0b3739282eca049a9a2fec09c07c8341afd85a029dc" => :el_capitan
-    sha256 "9449c8dd5e1f0b768aa84a6aeaa26478595ecdddcbb6a279861ea488303a7da7" => :yosemite
-    sha256 "f4a6b2172826629e6fa9c3d16f7b334e3aa57646a843717ea7020428b042186c" => :mavericks
+    sha256 "2dc2a2081b6429c9ea6414b2f0d44ac678e4d4163f98b5503f32f8a9776c8f6d" => :sierra
+    sha256 "2dc2a2081b6429c9ea6414b2f0d44ac678e4d4163f98b5503f32f8a9776c8f6d" => :el_capitan
+    sha256 "2dc2a2081b6429c9ea6414b2f0d44ac678e4d4163f98b5503f32f8a9776c8f6d" => :yosemite
   end
 
   depends_on "ctags"

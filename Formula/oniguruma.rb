@@ -1,15 +1,14 @@
 class Oniguruma < Formula
   desc "Regular expressions library"
   homepage "https://github.com/kkos/oniguruma/"
-  url "https://github.com/kkos/oniguruma/releases/download/v6.1.1/onig-6.1.1.tar.gz"
-  sha256 "b9cf2eefef5105820c97f94a2ccd12ed8aa274a576ccdaaed3c632a2aa0d0f04"
+  url "https://github.com/kkos/oniguruma/releases/download/v6.1.3/onig-6.1.3.tar.gz"
+  sha256 "480c850cd7c7f2fcaad0942b4a488e2af01fbb8e65375d34908f558b432725cf"
 
   bottle do
     cellar :any
-    sha256 "8b869f01524a047aefa59d984f9d7a09bb629bf2fe1af964540d4e335ce0166a" => :sierra
-    sha256 "94fc0d6205348bb2462b3786f917547068a86c8ee8d48462297e2a666d69ad7e" => :el_capitan
-    sha256 "775764a099ba44167efdb9ad76e6d082c772100a3c92e060ec6dd0102ceb2e04" => :yosemite
-    sha256 "3714187af50dfaa7106796167bb604a73f84a69e9daef725a4df1f2b06fec992" => :mavericks
+    sha256 "7ecb3f890a754b476381918973a29951f12e121529ff01b35a054399f057b7c7" => :sierra
+    sha256 "c810b2ed83f23f55490441468dde02f81819ed78ccc811ea92ae0750c6bc3a8b" => :el_capitan
+    sha256 "75a99e7c082a25999ea8c58c04b49b9306c2ef539eb98e93a60a8f092b573c0f" => :yosemite
   end
 
   def install

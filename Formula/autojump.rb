@@ -1,15 +1,16 @@
 class Autojump < Formula
   desc "Shell extension to jump to frequently used directories"
   homepage "https://github.com/wting/autojump"
-  url "https://github.com/wting/autojump/archive/release-v22.4.1.tar.gz"
-  sha256 "4756132c992e3da82bb3e2b3cbc449168f85355f63e1d3fb6c1f43d36d1690c6"
+  url "https://github.com/wting/autojump/archive/release-v22.5.0.tar.gz"
+  sha256 "8da11ff82dabfc9d0ea10f453ed90d601fbf1a212f9e8ad42965a87986045101"
   head "https://github.com/wting/autojump.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "274b5bb680afeb031e1abfabc7d79060f4779e85014f715708f9e273ebab0813" => :sierra
-    sha256 "274b5bb680afeb031e1abfabc7d79060f4779e85014f715708f9e273ebab0813" => :el_capitan
-    sha256 "274b5bb680afeb031e1abfabc7d79060f4779e85014f715708f9e273ebab0813" => :yosemite
+    rebuild 1
+    sha256 "b2bc4e8a88f045cf59134eea71e64fd52c05fb5057dd48f9f8b00e84014f7975" => :sierra
+    sha256 "c7f4586872c6ae5bff8c1f75cf575dc89dbb590b2164ba95ba073510a10bdd78" => :el_capitan
+    sha256 "c7f4586872c6ae5bff8c1f75cf575dc89dbb590b2164ba95ba073510a10bdd78" => :yosemite
   end
 
   def install
@@ -26,7 +27,7 @@ class Autojump < Formula
   def caveats; <<-EOS.undent
     Add the following line to your ~/.bash_profile or ~/.zshrc file (and remember
     to source the file to update your current session):
-      [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+      [ -f #{etc}/profile.d/autojump.sh ] && . #{etc}/profile.d/autojump.sh
 
     If you use the Fish shell then add the following line to your ~/.config/fish/config.fish:
       [ -f #{HOMEBREW_PREFIX}/share/autojump/autojump.fish ]; and source #{HOMEBREW_PREFIX}/share/autojump/autojump.fish
@@ -37,7 +38,7 @@ class Autojump < Formula
     path = testpath/"foo/bar"
     path.mkpath
     output = %x(
-      source #{HOMEBREW_PREFIX}/etc/profile.d/autojump.sh
+      source #{etc}/profile.d/autojump.sh
       j -a "#{path.relative_path_from(testpath)}"
       j foo >/dev/null
       pwd

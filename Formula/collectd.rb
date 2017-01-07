@@ -3,16 +3,15 @@ class Collectd < Formula
   homepage "https://collectd.org/"
 
   stable do
-    url "https://collectd.org/files/collectd-5.6.0.tar.bz2"
-    mirror "http://pkgs.fedoraproject.org/repo/pkgs/collectd/collectd-5.5.2.tar.bz2/40b83343f72089e0330f53965f1140bd/collectd-5.5.2.tar.bz2"
-    sha256 "f0ffbbd91fac3682bd324a74b9b4c9eabe781394b303b5cfd457c4cfbe748623"
+    url "https://collectd.org/files/collectd-5.7.0.tar.bz2"
+    mirror "https://storage.googleapis.com/collectd-tarballs/collectd-5.6.2.tar.bz2"
+    sha256 "25a05fbdc6baad571554342bbac6141928bf95a47fc60ee3b32e46d0c89ef2b2"
   end
 
   bottle do
-    sha256 "29b690652623688bed85473741f2de1283df2af25593428965a67b6615a08955" => :sierra
-    sha256 "2242b0eb2d8d3084a00645de928918258ee834b2e12e732f20232aea579daf6d" => :el_capitan
-    sha256 "7f379ca2df5e5692074bf9b31cd5e9c9fccccb78da3e3f007b420e2feda725a5" => :yosemite
-    sha256 "cead1ed09197cd8f504203d46aeb9e152f44e455d85add5f66123a5dab730b4a" => :mavericks
+    sha256 "863ccf25e849fa6c58deba5fa1fdeb7548feeb05f3ee88917943e986ab1d24de" => :sierra
+    sha256 "63c33d657699651a778f817cba103a96b785319cc521be732ff5a9efda8ea535" => :el_capitan
+    sha256 "535f26c7857194c8e6fb9b33acabb55d19f4a7d4b8dcf2482037803f81f20fe2" => :yosemite
   end
 
   head do
@@ -24,6 +23,7 @@ class Collectd < Formula
   end
 
   option "with-java", "Enable Java support"
+  option "with-python", "Enable Python support"
   option "with-protobuf-c", "Enable write_riemann via protobuf-c support"
   option "with-debug", "Enable debug support"
 
@@ -33,6 +33,7 @@ class Collectd < Formula
   depends_on "pkg-config" => :build
   depends_on "protobuf-c" => :optional
   depends_on :java => :optional
+  depends_on :python => :optional
   depends_on "net-snmp"
 
   fails_with :clang do
@@ -53,6 +54,7 @@ class Collectd < Formula
 
     args << "--disable-embedded-perl" if MacOS.version <= :leopard
     args << "--disable-java" if build.without? "java"
+    args << "--enable-python" if build.with? "python"
     args << "--enable-write_riemann" if build.with? "protobuf-c"
     args << "--enable-debug" if build.with? "debug"
 

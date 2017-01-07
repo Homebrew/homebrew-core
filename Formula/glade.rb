@@ -3,12 +3,12 @@ class Glade < Formula
   homepage "https://glade.gnome.org/"
   url "https://download.gnome.org/sources/glade/3.20/glade-3.20.0.tar.xz"
   sha256 "82d96dca5dec40ee34e2f41d49c13b4ea50da8f32a3a49ca2da802ff14dc18fe"
+  revision 1
 
   bottle do
-    sha256 "fc210f3175ad1fd91fff015cf53f7161d32064c7a43529c16f2c434f46443bb5" => :sierra
-    sha256 "e75ebf47b26357a1fc17e3e1ac4a979624461b47d68c186870886826d33aba86" => :el_capitan
-    sha256 "7b680faa1fd3c7c1d24d3dba3721c395e14f1f28674bf60bbee5626a17e7a7dd" => :yosemite
-    sha256 "28f89cd2e1f2738af4893d41bd31a1884e1e1959522a1dc161a4dc702ce59be4" => :mavericks
+    sha256 "5ce422e93894c6136ef3df57e8440c482c0bfac5277a41ed8f2fc79879caec86" => :sierra
+    sha256 "93e1cacb5f672dd4913191e16f81a6c24ca45943faf7493f7b0b0363dbfe69d6" => :el_capitan
+    sha256 "97be70ab4496c03f9fae820dffaaa5fcc9c1d3399adbe797bbe52e50ab1aad76" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -29,7 +29,8 @@ class Glade < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--enable-gladeui"
+                          "--enable-gladeui",
+                          "--enable-introspection"
     # objective-c is needed for glade-registration.c. unfortunately build fails if -x objective-c is added to global CFLAGS.
     # Bugreport Upstream: https://bugzilla.gnome.org/show_bug.cgi?id=768032
     inreplace "src/Makefile", "-c -o glade-glade-registration.o", "-x objective-c -c -o glade-glade-registration.o"
