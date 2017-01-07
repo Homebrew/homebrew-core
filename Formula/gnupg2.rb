@@ -10,11 +10,9 @@ class Gnupg2 < Formula
   revision 3
 
   bottle do
-    rebuild 1
-    sha256 "3350575ec52e749e3212beaf1516ad3c6257250caaed8e5f35c89b93e249c15b" => :sierra
-    sha256 "813a968d4654ac2e4e8961e787fecfbee4ea3e64f7ac88f6ee50b59f6cd99d25" => :el_capitan
-    sha256 "2c996ba3b66bf57b92a286b3cb3d90c882006c8ae284b93f4bb1aa4b57287dd8" => :yosemite
-    sha256 "8f1ae364521427e96ff479b43cd74879cecb648d39d00df816321a9f41acc561" => :mavericks
+    sha256 "9289e192f19a2ed16b4910af8f7892fd8b93963805997d26192883803639b8ec" => :sierra
+    sha256 "ed3349ae0102f8fdc95d8feabe5bc34f74d2f66f1ccacec834a62ab8b931192a" => :el_capitan
+    sha256 "94c15342895e54b7692df595c2f2fc1d83f8e90f51d7831987542133e8a850c5" => :yosemite
   end
 
   depends_on "libgpg-error"
