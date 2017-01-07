@@ -29,6 +29,10 @@ class Neo4j < Formula
     EOS
   end
 
+  def post_install
+    (var/"log").mkpath
+  end
+
   plist_options :manual => "neo4j start"
 
   def plist; <<-EOS.undent
