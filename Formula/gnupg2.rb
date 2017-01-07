@@ -7,7 +7,7 @@ class Gnupg2 < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   sha256 "e329785a4f366ba5d72c2c678a7e388b0892ac8440c2f4e6810042123c235d71"
-  revision 2
+  revision 3
 
   bottle do
     rebuild 1
@@ -67,15 +67,13 @@ class Gnupg2 < Formula
     system "make"
     system "make", "check"
     system "make", "install"
+    bin.install "tools/gpg-zip"
 
     # Add symlinks from gpg2 to unversioned executables, replacing gpg 1.x.
     bin.install_symlink "gpg2" => "gpg"
     bin.install_symlink "gpgv2" => "gpgv"
     man1.install_symlink "gpg2.1" => "gpg.1"
     man1.install_symlink "gpgv2.1" => "gpgv.1"
-
-    # Gpg-zip isn't installed by this formula.
-    rm_f man1/"gpg-zip.1"
   end
 
   def post_install
