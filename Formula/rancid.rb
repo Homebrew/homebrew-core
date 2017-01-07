@@ -7,9 +7,9 @@ class Rancid < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0cfbb0aedc224af94a7dd197a2b014a913c7ac37ed14e6f7a3caa19020b59c01" => :sierra
-    sha256 "5765b6f666386f660b1906bf9769fb4146c1b8455ab709976653281a98cffc4e" => :el_capitan
-    sha256 "8d354a975bde4553ecfa9092cf12024d837246d6f85b1f0ce80415ba641e9a20" => :yosemite
+    sha256 "745dd42957fdc73dda7994782045b04a10805f2fb4c58aee4188d333838b07c3" => :sierra
+    sha256 "9bebc4fa99124a06242fd98dc96c02128921e6c0fa2c5d93beee457261dde852" => :el_capitan
+    sha256 "b78402959ada869064b10b7b8c358cff85b86c14e1147c9660245a7883e1f963" => :yosemite
   end
 
   conflicts_with "par", :because => "both install `par` binaries"
