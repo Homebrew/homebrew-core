@@ -6,10 +6,9 @@ class Minizip < Formula
 
   bottle do
     cellar :any
-    sha256 "76fe6c2aa28272b4f7befa312615fd4e2f7632282cc78a37b46fa53df1714990" => :sierra
-    sha256 "a8bc9c34837f19f570b0b79e202bd45dd94345f3caf605ec0cf4eb1a6f6b2bfd" => :el_capitan
-    sha256 "df494b791137984171c79c63bbfe5ab941309f62a5e12757442d7eb5c53e620c" => :yosemite
-    sha256 "c03fd8e43919572a7b4ed71ad160f07e9ccbabc81e3a1f9dfb7b27b540f25bf1" => :mavericks
+    sha256 "1d84feef5e29869e4eca8341e782f4b695abe1ec29d54c00cab82ac67c638b68" => :sierra
+    sha256 "48a6ae81021c0208f72434b4f7d0c4b3095d192564b78574afb1f8ea27ac8af9" => :el_capitan
+    sha256 "60235f0fe3bd432857c27b5c5b912d538925a7a477ff3822ac2af95ea9b00c22" => :yosemite
   end
 
   option :universal
