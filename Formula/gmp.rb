@@ -16,11 +16,8 @@ class Gmp < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
-    args = ["--prefix=#{prefix}", "--enable-cxx"]
-
-    # https://github.com/Homebrew/homebrew/issues/20693
-    args << "--disable-assembly" if build.bottle?
-
+    args = %W[--prefix=#{prefix} --enable-cxx]
+    args << "--build=core2-apple-darwin#{`uname -r`.to_i}" if build.bottle?
     system "./configure", *args
     system "make"
     system "make", "check"
