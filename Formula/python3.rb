@@ -314,7 +314,11 @@ class Python3 < Formula
   end
 
   def caveats
-    xy = (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
+    if prefix.exist?
+      xy = (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
+    else
+      xy = version.to_s.slice(/(3\.\d)/) || "3.6"
+    end
     text = <<-EOS.undent
       Pip, setuptools, and wheel have been installed. To update them
         pip3 install --upgrade pip setuptools wheel
