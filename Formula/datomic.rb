@@ -29,7 +29,7 @@ class Datomic < Formula
 
   test do
     IO.popen("#{bin}/datomic-repl", "r+") do |pipe|
-      assert_equal "Clojure 1.8.0", pipe.gets.chomp
+      assert_equal "Clojure 1.9.0-alpha14", pipe.gets.chomp
       pipe.puts "^C"
       pipe.close_write
       pipe.close
