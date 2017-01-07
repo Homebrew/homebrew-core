@@ -62,8 +62,15 @@ class Xapian < Formula
 
           (lib/"python2.7/site-packages").mkpath
           ENV["PYTHON_LIB"] = lib/"python2.7/site-packages"
+
           # configure looks for python2 and system python doesn't install one
           ENV["PYTHON"] = which "python"
+
+          ENV.append_path "PYTHONPATH",
+                          Formula["sphinx-doc"].opt_libexec/"lib/python2.7/site-packages"
+          ENV.append_path "PYTHONPATH",
+                          Formula["sphinx-doc"].opt_libexec/"vendor/lib/python2.7/site-packages"
+
           args << "--with-python"
         end
 
