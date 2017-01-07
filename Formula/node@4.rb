@@ -1,8 +1,8 @@
 class NodeAT4 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v4.7.1/node-v4.7.1.tar.xz"
-  sha256 "1e8582c5ef7905f55792cbae59ea32991d6d2821c6d52ef974ac3194d3728888"
+  url "https://nodejs.org/dist/v4.7.2/node-v4.7.2.tar.xz"
+  sha256 "ad1b8309a621f725b5d8205f0fc5bbb7b396a438c108e6fba417c1a914932dfc"
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
@@ -27,8 +27,8 @@ class NodeAT4 < Formula
   conflicts_with "node@6", :because => "Differing versions of the same formulae."
 
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-2.15.9.tgz"
-    sha256 "111243bdcf37c3cc8d16e2e7dc15f5ed422c20a9a7201a1620b3136d1e858081"
+    url "https://registry.npmjs.org/npm/-/npm-2.15.11.tgz"
+    sha256 "927974142c9a44e9bd879d9e9762e7de379b43c5acfae32b02b44f60e59a9c9c"
   end
 
   resource "icu4c" do
