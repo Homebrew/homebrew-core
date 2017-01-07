@@ -1,4 +1,6 @@
 class Mimms < Formula
+  include Language::Python::Virtualenv
+
   desc "Mms stream downloader"
   homepage "https://savannah.nongnu.org/projects/mimms"
   url "https://launchpad.net/mimms/trunk/3.2.1/+download/mimms-3.2.1.tar.bz2"
@@ -19,9 +21,7 @@ class Mimms < Formula
   patch :DATA
 
   def install
-    ENV["PYTHONPATH"] = lib+"python2.7/site-packages"
-    system "python", "setup.py", "install", "--prefix=#{prefix}"
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
