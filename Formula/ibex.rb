@@ -7,6 +7,7 @@ class Ibex < Formula
 
   bottle do
     cellar :any
+    sha256 "fc45300182956cefbbd1686afec577f403c20bc57dfac3c03ab3382c7629a6c5" => :sierra
     sha256 "f5a28a4757a34f6d9a52771d6c8f27d7cf14d3b658c027d752b926e48c5e0d39" => :el_capitan
     sha256 "2202b92b69198bbf1a2d0a3b068ac17a6340ee896a2c05df0b0bdeb7a1e9ebd6" => :yosemite
   end
