@@ -1,12 +1,15 @@
 class AircrackNg < Formula
   desc "Next-generation aircrack with lots of new features"
   homepage "https://aircrack-ng.org/"
-
-  # We can't update this due to linux-only dependencies in >1.1.
-  # See https://github.com/Homebrew/homebrew/issues/29450
-  url "https://download.aircrack-ng.org/aircrack-ng-1.1.tar.gz"
-  sha256 "b136b549b7d2a2751c21793100075ea43b28de9af4c1969508bb95bcc92224ad"
   revision 2
+
+  stable do
+    url "https://download.aircrack-ng.org/aircrack-ng-1.1.tar.gz"
+    sha256 "b136b549b7d2a2751c21793100075ea43b28de9af4c1969508bb95bcc92224ad"
+    # Remove root requirement from OUI update script. See:
+    # https://github.com/Homebrew/homebrew/pull/12755
+    patch :DATA
+  end
 
   bottle do
     cellar :any
@@ -19,15 +22,16 @@ class AircrackNg < Formula
   devel do
     url "https://download.aircrack-ng.org/aircrack-ng-1.2-rc4.tar.gz"
     sha256 "d93ac16aade5b4d37ab8cdf6ce4b855835096ccf83deb65ffdeff6d666eaff36"
+    patch do
+      # The url will be replaced with one on formula-patch once PR on formula-patch has merged
+      url "https://github.com/equal-l2/formula-patches/raw/aircrack-ng/aircrack-ng/aircrack-ng-devel.patch"
+      sha256 "9fa96d2633046622779dbe431572f2888329cfda6bc73fbb959d6a7c2d712c32"
+    end
   end
 
   depends_on "pkg-config" => :build
   depends_on "sqlite"
   depends_on "openssl"
-
-  # Remove root requirement from OUI update script. See:
-  # https://github.com/Homebrew/homebrew/pull/12755
-  patch :DATA
 
   def install
     unless build.devel?
