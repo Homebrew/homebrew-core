@@ -1,6 +1,7 @@
 class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://github.com/apple/swift"
+  revision 1
 
   stable do
     url "https://github.com/apple/swift/archive/swift-3.0.1-RELEASE.tar.gz"
@@ -20,6 +21,12 @@ class Swift < Formula
     resource "llvm" do
       url "https://github.com/apple/swift-llvm/archive/#{swift_tag}.tar.gz"
       sha256 "5cfaa08743b29e6c8a948654b71fef608a48953b3eb928c3049c07ca279275c9"
+    end
+
+    # Fixes build error against certain pod2man versions. Already merged in upstream HEAD.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/abef20e/swift/swift-2.2.1-pod2man.patch"
+      sha256 "bb8fefc664b248737e127cced2418372dc3a1398a85d13ff19f5aa5668d6fa20"
     end
   end
 
