@@ -1,7 +1,7 @@
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
-  url "http://www.leptonica.com/source/leptonica-1.74.1.tar.gz"
+  url "http://www.leptonica.org/source/leptonica-1.74.1.tar.gz"
   sha256 "746a517a47a3bd2a90bc8d581ca6464c10f30e91a60209735efe45b3778bec62"
 
   bottle do
@@ -46,7 +46,7 @@ class Leptonica < Formula
     #include <leptonica/allheaders.h>
 
     int main(int argc, char **argv) {
-        std::fprintf(stdout, "%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION);
+        std::fprintf(stdout, "%d.%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION, LIBLEPT_PATCH_VERSION);
         return 0;
     }
     EOS
