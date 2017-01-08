@@ -8,6 +8,7 @@ class Jxrlib < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0eb8602ab389d9fff5bce803b085af322309592dc41aa0902b223e353a9f8abc" => :sierra
     sha256 "47c308b47ec8227d813a21c8092b32ada9b7f862aef102bf619d6bb19f0144e1" => :el_capitan
     sha256 "0dae977caf9e34289c9dd09f7e12bdf7158ccc42d9fa2dc00b4164b82c1caf3f" => :yosemite
     sha256 "cc49654146951a561ca6fce7c485f7f3f3511ab5549a7db8263e4e8ddc95e740" => :mavericks
