@@ -16,6 +16,11 @@ class AircrackNg < Formula
     sha256 "02efed81e48c8f70bbd1d3051e84b25815fcceb7166cb79d472f9552a4708ae2" => :mavericks
   end
 
+  devel do
+    url "https://download.aircrack-ng.org/aircrack-ng-1.2-rc4.tar.gz"
+    sha256 "d93ac16aade5b4d37ab8cdf6ce4b855835096ccf83deb65ffdeff6d666eaff36"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "sqlite"
   depends_on "openssl"
@@ -25,10 +30,12 @@ class AircrackNg < Formula
   patch :DATA
 
   def install
-    # Fix incorrect OUI url
-    inreplace "scripts/airodump-ng-oui-update",
-      "http://standards.ieee.org/regauth/oui/oui.txt",
-      "http://standards-oui.ieee.org/oui.txt"
+    unless build.devel?
+      # Fix incorrect OUI url
+      inreplace "scripts/airodump-ng-oui-update",
+        "http://standards.ieee.org/regauth/oui/oui.txt",
+        "http://standards-oui.ieee.org/oui.txt"
+    end
 
     system "make", "CC=#{ENV.cc}"
     system "make", "prefix=#{prefix}", "mandir=#{man1}", "install"
