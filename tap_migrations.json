@@ -253,6 +253,7 @@
   "qi": "homebrew/boneyard",
   "qiv": "homebrew/boneyard",
   "qrupdate": "homebrew/science",
+  "qtplay": "homebrew/boneyard",
   "quassel": "caskroom/cask",
   "rbenv-readline": "homebrew/boneyard",
   "rcssserver": "homebrew/boneyard",
