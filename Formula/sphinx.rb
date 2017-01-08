@@ -35,7 +35,18 @@ class Sphinx < Formula
     cause "sphinxexpr.cpp:1802:11: error: use of undeclared identifier 'ExprEval'"
   end
 
+  needs :cxx11 if build.with? "re2"
+
   def install
+    if build.with? "re2"
+      ENV.cxx11
+
+      # Fix "error: invalid suffix on literal" and "error:
+      # non-constant-expression cannot be narrowed from type 'long' to 'int'"
+      # Upstream issue from 7 Dec 2016 http://sphinxsearch.com/bugs/view.php?id=2578
+      ENV.append "CXXFLAGS", "-Wno-reserved-user-defined-literal -Wno-c++11-narrowing"
+    end
+
     resource("stemmer").stage do
       system "make", "dist_libstemmer_c"
       system "tar", "xzf", "dist/libstemmer_c.tgz", "-C", buildpath
