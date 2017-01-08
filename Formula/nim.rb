@@ -1,9 +1,8 @@
 class Nim < Formula
   desc "Statically typed, imperative programming language"
   homepage "http://nim-lang.org/"
-  url "http://nim-lang.org/download/nim-0.15.2.tar.xz"
-  sha256 "905df2316262aa2cbacae067acf45fc05c2a71c8c6fde1f2a70c927ebafcfe8a"
-  head "https://github.com/nim-lang/Nim.git", :branch => "devel"
+  url "http://nim-lang.org/download/nim-0.16.0.tar.xz"
+  sha256 "9e199823be47cba55e62dd6982f02cf0aad732f369799fec42a4d8c2265c5167"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,36 +11,35 @@ class Nim < Formula
     sha256 "602c726784ef9fb42538ac9945c8fad86c4aacdd8a9689f71e04a4d5f9c951e2" => :yosemite
   end
 
-  resource "nimble" do
-    url "https://github.com/nim-lang/nimble/archive/v0.7.10.tar.gz"
-    sha256 "9fc4a5eb4a294697e530fe05e6e16cc25a1515343df24270c5344adf03bd5cbb"
-  end
-
-  resource "nimsuggest" do
-    url "https://github.com/nim-lang/nimsuggest/archive/1bf26419e84fab2bbefe8e11910b16f8f6c8a758.tar.gz"
-    sha256 "87c78998f185f8541255b0999dfe4af3a1edcc59e063818efd1b6ca157d18315"
+  head do
+    url "https://github.com/nim-lang/Nim.git", :branch => "devel"
+    resource "csources" do
+      url "https://github.com/nim-lang/csources.git"
+    end
   end
 
   def install
     if build.head?
-      system "/bin/sh", "bootstrap.sh"
-
-      # Grab the tools source and put them in the dist folder
-      nimble = buildpath/"dist/nimble"
-      resource("nimble").stage { nimble.install Dir["*"] }
-      nimsuggest = buildpath/"dist/nimsuggest"
-      resource("nimsuggest").stage { nimsuggest.install Dir["*"] }
+      resource("csources").stage do
+        system "/bin/sh", "build.sh"
+        build_bin = buildpath/"bin"
+        build_bin.install "bin/nim"
+      end
     else
       system "/bin/sh", "build.sh"
     end
+    # Compile the koch management tool
+    system "bin/nim", "c", "-d:release", "koch"
+    # Build a new version of the compiler with readline bindings
+    system "./koch", "boot", "-d:release", "-d:useLinenoise"
+    # Build nimsuggest/nimble/nimgrep
+    system "./koch", "tools"
+    system "./koch", "geninstall"
     system "/bin/sh", "install.sh", prefix
-
     bin.install_symlink prefix/"nim/bin/nim"
     bin.install_symlink prefix/"nim/bin/nim" => "nimrod"
 
-    system "bin/nim", "e", "install_tools.nims"
     target = prefix/"nim/bin"
-    target.install "dist/nimble/src/nimblepkg"
     target.install "bin/nimsuggest"
     target.install "bin/nimble"
     target.install "bin/nimgrep"
@@ -63,6 +61,6 @@ class Nim < Formula
       license = "MIT"
       requires "nim >= 0.15.0"
     EOS
-    assert_equal "name: \"hello\"", shell_output("#{bin}/nimble dump").split("\n")[1].chomp
+    assert_equal "name: \"hello\"\n", shell_output("#{bin}/nimble dump").lines.first
   end
 end
