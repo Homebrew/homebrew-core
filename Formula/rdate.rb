@@ -21,6 +21,7 @@ class Rdate < Formula
   end
 
   test do
-    system "#{bin}/rdate", "-p", "-t", "2", "0.pool.ntp.org"
+    # note that the server must support RFC 868
+    system "#{bin}/rdate", "-p", "-t", "10", "ptbtime1.ptb.de"
   end
 end
