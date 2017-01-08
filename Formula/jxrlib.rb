@@ -1,10 +1,9 @@
 class Jxrlib < Formula
   desc "Tools for JPEG-XR image encoding/decoding"
   homepage "https://jxrlib.codeplex.com/"
-  url "https://download-codeplex.sec.s-msft.com/Download/Release?ProjectName=jxrlib&DownloadId=685250&FileTime=130142428056630000&Build=21031"
-  version "1.1"
-  sha256 "a79e27801ab19af936beb9ece36f1c6c1914c3baf25597fd270709dc4520a190"
-
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/j/jxrlib/jxrlib_1.1.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/j/jxrlib/jxrlib_1.1.orig.tar.gz"
+  sha256 "c7287b86780befa0914f2eeb8be2ac83e672ebd4bd16dc5574a36a59d9708303"
   head "https://git01.codeplex.com/jxrlib", :using => :git
 
   bottle do
