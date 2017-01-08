@@ -1,9 +1,8 @@
 class Vice < Formula
   desc "Versatile Commodore Emulator"
   homepage "http://vice-emu.sourceforge.net/"
-  url "http://www.zimmers.net/anonftp/pub/cbm/crossplatform/emulators/VICE/vice-2.4.tar.gz"
-  sha256 "ff8b8d5f0f497d1f8e75b95bbc4204993a789284a08a8a59ba727ad81dcace10"
-  revision 2
+  url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.0.tar.gz"
+  sha256 "bc56811381920d43ab5f2f85a5e08f21ab5bdf6190dd5dfe9f500a745d14972b"
 
   bottle do
     cellar :any
@@ -14,12 +13,38 @@ class Vice < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "jpeg"
-  depends_on "libpng"
+  depends_on "texinfo" => :build
+  depends_on "yasm" => :build
+  depends_on "flac"
   depends_on "giflib"
-  depends_on "lame" => :optional
+  depends_on "jpeg"
+  depends_on "lame"
+  depends_on "libogg"
+  depends_on "libpng"
+  depends_on "libvorbis"
+  depends_on "portaudio"
+  depends_on "xz"
+
+  # needed to avoid Makefile errors with the vendored ffmpeg 2.4.2
+  resource "make" do
+    url "https://ftpmirror.gnu.org/make/make-4.2.1.tar.bz2"
+    mirror "https://ftp.gnu.org/gnu/make/make-4.2.1.tar.bz2"
+    sha256 "d6e262bf3601b42d2b1e4ef8310029e1dcf20083c5446b4b7aa67081fdffc589"
+  end
 
   def install
+    resource("make").stage do
+      system "./configure", "--prefix=#{buildpath}/vendor/make",
+                            "--disable-dependency-tracking"
+      system "make", "install"
+    end
+    ENV.prepend_path "PATH", buildpath/"vendor/make/bin"
+    ENV.refurbish_args # since "make" won't be the shim
+
+    # Fix undefined symbol errors for _Gestalt, _VDADecoderCreate, _iconv
+    # among others.
+    ENV["LIBS"] = "-framework CoreServices -framework VideoDecodeAcceleration -liconv"
+
     # Use Cocoa instead of X
     # Use a static lame, otherwise Vice is hard-coded to look in
     # /opt for the library.
@@ -27,10 +52,8 @@ class Vice < Formula
                           "--prefix=#{prefix}",
                           "--with-cocoa",
                           "--without-x",
-                          "--enable-static-lame",
-                          # VICE can't compile against FFMPEG newer than 0.11:
-                          # https://sourceforge.net/p/vice-emu/bugs/341/
-                          "--disable-ffmpeg"
+                          "--enable-static-ffmpeg",
+                          "--enable-static-lame"
     system "make"
     system "make", "bindist"
     prefix.install Dir["vice-macosx-*/*"]
@@ -40,5 +63,9 @@ class Vice < Formula
   def caveats; <<-EOS.undent
     Cocoa apps for these emulators have been installed to #{prefix}.
   EOS
+  end
+
+  test do
+    assert_match "Usage", shell_output("#{bin}/petcat -help", 1)
   end
 end
