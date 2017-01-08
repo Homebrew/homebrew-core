@@ -1,8 +1,8 @@
 class AnsibleCmdb < Formula
   desc "Generates static HTML overview page from Ansible facts"
   homepage "https://github.com/fboender/ansible-cmdb"
-  url "https://github.com/fboender/ansible-cmdb/releases/download/1.18/ansible-cmdb-1.18.zip"
-  sha256 "0000dd3f91cd67dc470e7304de02b61eefc74f7fa2106d4f9b19d83926585fd3"
+  url "https://github.com/fboender/ansible-cmdb/releases/download/1.19/ansible-cmdb-1.19.zip"
+  sha256 "a77237344abda87b5811fb7c0941b15be314482cb1851647229c577c720b4e45"
 
   bottle do
     cellar :any_skip_relocation
