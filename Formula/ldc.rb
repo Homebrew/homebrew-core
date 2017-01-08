@@ -1,6 +1,7 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
+  revision 1
 
   stable do
     # for the sake of LLVM 3.9 compatibility
