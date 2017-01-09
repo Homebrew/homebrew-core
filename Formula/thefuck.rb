@@ -9,10 +9,9 @@ class Thefuck < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4df009ba13d6e6acdfccbedc61a68a9afce4efcb2de9de3f18d3ca5fdcc1a783" => :sierra
-    sha256 "76b8b3a739db3d716d983fd30ce15c3ccb2056cc1d52fea2f15c4a9c8f8fd7ec" => :el_capitan
-    sha256 "cf3be90c176ee71167389e325f0de3663a82567572fe528971733e3165ff304d" => :yosemite
-    sha256 "3690744f57178d0e2e945b3039d0ce937aa774533909509d9ffc59461d69a9e8" => :mavericks
+    sha256 "703c4b05d838d976b3a9cb6952ee9cf5cd77de45ba45a117336136e0e9e8f79e" => :sierra
+    sha256 "9d3803fad063f1789ed8c158420f006bef2d841b13d49242559e67664da54aaa" => :el_capitan
+    sha256 "624f839be7f07b72acf9bb94a1889be85c4bd52dee4dc726ec7dab5adb1eba80" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
