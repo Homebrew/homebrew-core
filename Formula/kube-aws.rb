@@ -35,7 +35,7 @@ class KubeAws < Formula
     ENV["GOPATH"] = "#{gopath_vendor}:#{gopath_kube_aws}"
 
     cd kube_aws_dir do
-      system "go", "generate", ".config"
+      system "go", "generate", "./config"
       system "go", "build", "-ldflags",
              "-X github.com/coreos/coreos-kubernetes/kube-aws/cluster/cluster.VERSION=#{version}",
              "-a", "-tags", "netgo", "-installsuffix", "netgo",
