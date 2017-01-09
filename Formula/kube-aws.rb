@@ -25,7 +25,7 @@ class KubeAws < Formula
     mkdir_p File.dirname(kube_aws_dir)
 
     ln_s buildpath/"vendor", "#{gopath_vendor}/src"
-    ln_s buildpath/, kube_aws_dir
+    ln_s buildpath/".", kube_aws_dir
 
     ENV["GOPATH"] = "#{gopath_vendor}:#{gopath_kube_aws}"
 
