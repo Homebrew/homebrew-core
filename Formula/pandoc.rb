@@ -11,9 +11,9 @@ class Pandoc < Formula
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
-    sha256 "bbec3be0f16d69d0d1b00aec395cde226eeebdeff3fbeedb55f0bc72e594c935" => :sierra
-    sha256 "65ecbc93d80f906879748ccf869e830ec00f876f773e936112980c4560531576" => :el_capitan
-    sha256 "6b6afdd595a240d6d51b6cd3621c2ed262c8693633189d752273d682725e7b97" => :yosemite
+    sha256 "a8ab6fddd1437208f23eba528b00f3ff321ce8b04d4174fc5a849fe01b938abc" => :sierra
+    sha256 "a17042674efb75a6fdf96be7e40feebfc805f4a6ccd4859901499ebe9130914a" => :el_capitan
+    sha256 "1ab808a57bf1603bab47c5e2176ee014774cc19cad6d40e3034f7cd901c93f42" => :yosemite
   end
 
   depends_on "ghc" => :build
