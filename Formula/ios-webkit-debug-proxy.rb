@@ -4,6 +4,8 @@ class IosWebkitDebugProxy < Formula
   url "https://github.com/google/ios-webkit-debug-proxy/archive/1.7.tar.gz"
   sha256 "e4f86d926a93b25672d4337af9c3549896125c7f345bb1d98eb3dca7da12c123"
 
+  head "https://github.com/google/ios-webkit-debug-proxy.git"
+
   bottle do
     cellar :any
     sha256 "ddc1f4b34f2ad2bb585aec9d3be281641f10df8e9737b4359f55cab9efc5c166" => :sierra
@@ -25,5 +27,9 @@ class IosWebkitDebugProxy < Formula
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    system "#{bin}/ios_webkit_debug_proxy", "--help"
   end
 end
