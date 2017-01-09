@@ -7,10 +7,9 @@ class Bitlbee < Formula
   head "https://github.com/bitlbee/bitlbee.git"
 
   bottle do
-    rebuild 1
-    sha256 "22f5da46c5b88ef3b966d41d8432c51e5c00885f04a8c7c51544fc95e7607754" => :sierra
-    sha256 "ef4a9a2997b74d26c49c72fb31ff7a17e3dee672021affaf73329681c44cb804" => :el_capitan
-    sha256 "dbac12a0c0d7d38ab4235ad177194fec0c40a5e13301aefef729bae4b22f2db7" => :yosemite
+    sha256 "25e0fccb21f49326295ef5b24de1b6001ebb60e82f7dfad58ea1b14753aa7006" => :sierra
+    sha256 "9f2fe2cde9e8282312eeeea3b694f94d6669ece67a653156c93270f9b6d8f1cb" => :el_capitan
+    sha256 "7d1a271ad5feff5e3a5c3beadc4371e648218ee230547d59c9346471451f8c2b" => :yosemite
   end
 
   option "with-pidgin", "Use finch/libpurple for all communication with instant messaging networks"
