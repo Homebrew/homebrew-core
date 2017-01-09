@@ -8,9 +8,9 @@ class Aubio < Formula
 
   bottle do
     cellar :any
-    sha256 "1ea3665497c83878734eeb3efa6f899b661d21fe6d4e980515803878f604f5b9" => :sierra
-    sha256 "dba88cd10bc1e3ad3669c7a5d1c8a3279e18d3fd2d6d4ccba628efe8a6d9e213" => :el_capitan
-    sha256 "0f0d4a87a78046f088a640077d56d2adce0d19a59498f1b2e69e5027d740f84c" => :yosemite
+    sha256 "e72e6f6ca2562e43dd3b79755bac1741fbda2cc12c1adf41e19712da9eb292c7" => :sierra
+    sha256 "d754ca2e173318c33fd6af21184fcbf7e9d739ece3c35b329f616483dc8696d3" => :el_capitan
+    sha256 "c826af70ae0ac208299282b6935747736ef58d5505b9c7235c699590ac26020d" => :yosemite
   end
 
   option :universal
