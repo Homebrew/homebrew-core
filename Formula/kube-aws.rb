@@ -5,7 +5,7 @@ class KubeAws < Formula
   homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
   url "https://github.com/coreos/kube-aws/archive/v0.9.1.tar.gz"
   sha256 "45f1ac64d6e1132811cd777e2f25ce2dd131cc38d8d7c6c0257ad5c5ff8f5e26"
-  head "https://github.com/coreos/coreos-kubernetes.git"
+  head "https://github.com/coreos/kube-aws.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,20 +19,20 @@ class KubeAws < Formula
   def install
     gopath_vendor = buildpath/"_gopath-vendor"
     gopath_kube_aws = buildpath/"_gopath-kube-aws"
-    kube_aws_dir = "#{gopath_kube_aws}/src/github.com/coreos/coreos-kubernetes/multi-node/aws"
+    kube_aws_dir = "#{gopath_kube_aws}/src/github.com/coreos/kube-aws"
 
     mkdir_p gopath_vendor
     mkdir_p File.dirname(kube_aws_dir)
 
-    ln_s buildpath/"multi-node/aws/vendor", "#{gopath_vendor}/src"
-    ln_s buildpath/"multi-node/aws", kube_aws_dir
+    ln_s buildpath/"vendor", "#{gopath_vendor}/src"
+    ln_s buildpath/, kube_aws_dir
 
     ENV["GOPATH"] = "#{gopath_vendor}:#{gopath_kube_aws}"
 
     cd kube_aws_dir do
       system "go", "generate", "./pkg/config"
       system "go", "build", "-ldflags",
-             "-X github.com/coreos/coreos-kubernetes/multi-node/aws/pkg/cluster.VERSION=#{version}",
+             "-X github.com/coreos/coreos-kubernetes/kube-aws/cluster/cluster.VERSION=#{version}",
              "-a", "-tags", "netgo", "-installsuffix", "netgo",
              "-o", bin/"kube-aws", "./cmd/kube-aws"
     end
