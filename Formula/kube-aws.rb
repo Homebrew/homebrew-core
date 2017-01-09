@@ -37,7 +37,7 @@ class KubeAws < Formula
     cd kube_aws_dir do
       system "go", "generate", "./config"
       system "go", "build", "-ldflags",
-             "-X github.com/coreos/coreos-kubernetes/kube-aws/cluster/cluster.VERSION=#{version}",
+             "-X github.com/coreos/kube-aws/cluster/cluster.VERSION=#{version}",
              "-a", "-tags", "netgo", "-installsuffix", "netgo",
              "-o", bin/"kube-aws", "./cmd/kube-aws"
     end
