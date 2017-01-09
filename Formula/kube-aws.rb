@@ -3,8 +3,8 @@ require "yaml"
 class KubeAws < Formula
   desc "CoreOS Kubernetes on AWS"
   homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
-  url "https://github.com/coreos/coreos-kubernetes/archive/v0.8.3.tar.gz"
-  sha256 "549e5c572fb8842b777d839a8aebadb4165aa5e3d8f4887e87a64347cb6ece09"
+  url "https://github.com/coreos/kube-aws/archive/v0.9.1.tar.gz"
+  sha256 "45f1ac64d6e1132811cd777e2f25ce2dd131cc38d8d7c6c0257ad5c5ff8f5e26"
   head "https://github.com/coreos/coreos-kubernetes.git"
 
   bottle do
