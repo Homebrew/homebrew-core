@@ -16,6 +16,7 @@ class OpenMesh < Formula
   depends_on "cmake" => :build
 
   patch do
+    # Fixes missing include files in OpenMesh/Tools/Smoother during install
     url "https://graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh/commit/c5cfef87427a793268f9e012856872bbed958d92.diff"
     sha256 "5180b3ea8e92b88e9212a4fcfc214666d3b2ca2133a95c2f6b0a44855a298c79"
   end
