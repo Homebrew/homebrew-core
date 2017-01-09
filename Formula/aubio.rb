@@ -1,8 +1,8 @@
 class Aubio < Formula
   desc "Extract annotations from audio signals"
   homepage "https://aubio.org/"
-  url "https://aubio.org/pub/aubio-0.4.3.tar.bz2"
-  sha256 "b62cdb073c0c64ae301917fa162969d42cba45e478bdf1e74490bd87e9cceaab"
+  url "https://aubio.org/pub/aubio-0.4.4.tar.bz2"
+  sha256 "2acdb92623b9d4ba641c387760ffe3ec1e4c6ab498e64e5e2286c99e36ffbff8"
 
   head "https://github.com/piem/aubio.git", :branch => "develop"
 
