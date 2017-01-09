@@ -1,8 +1,8 @@
 class Pbzip2 < Formula
   desc "Parallel bzip2"
   homepage "http://compression.ca/pbzip2/"
-  url "https://launchpad.net/pbzip2/1.1/1.1.12/+download/pbzip2-1.1.12.tar.gz"
-  sha256 "573bb358a5a7d3bf5f42f881af324cedf960c786e8d66dd03d448ddd8a0166ee"
+  url "https://launchpad.net/pbzip2/1.1/1.1.13/+download/pbzip2-1.1.13.tar.gz"
+  sha256 "8fd13eaaa266f7ee91f85c1ea97c86d9c9cc985969db9059cdebcb1e1b7bdbe6"
 
   bottle do
     cellar :any_skip_relocation
