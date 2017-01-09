@@ -1,10 +1,8 @@
 class Pev < Formula
   desc "PE analysis toolkit"
   homepage "http://pev.sf.net/"
-  url "https://downloads.sourceforge.net/project/pev/pev-0.70/pev-0.70.tar.gz"
-  sha256 "250396a06930d60a92e9bc86d7afb543d899ba12c007d1be5d09802a02908202"
-  revision 1
-
+  url "https://downloads.sourceforge.net/project/pev/pev-0.80/pev-0.80.tar.gz"
+  sha256 "f68c8596f16d221d9a742812f6f728bcc739be90957bc1b00fbaa5943ffc5cfa"
   head "https://github.com/merces/pev.git"
 
   bottle do
@@ -20,16 +18,9 @@ class Pev < Formula
   depends_on "openssl"
 
   def install
-    inreplace "src/Makefile" do |s|
-      s.gsub! "/usr", prefix
-      s.change_make_var! "SHAREDIR", share
-      s.change_make_var! "MANDIR", man
-    end
-
-    inreplace "lib/libpe/Makefile", "/usr", prefix
-
-    system "make", "CC=#{ENV.cc}"
-    system "make", "install"
+    ENV.deparallelize
+    system "make", "prefix=#{prefix}", "CC=#{ENV.cc}"
+    system "make", "prefix=#{prefix}", "install"
   end
 
   test do
