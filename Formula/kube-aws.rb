@@ -39,7 +39,7 @@ class KubeAws < Formula
       system "go", "build", "-ldflags",
              "-X github.com/coreos/kube-aws/cluster/cluster.VERSION=#{version}",
              "-a", "-tags", "netgo", "-installsuffix", "netgo",
-             "-o", bin/"kube-aws", "./cmd/kube-aws"
+             "-o", bin/"kube-aws", "./cmd"
     end
   end
 
