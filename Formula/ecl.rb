@@ -25,28 +25,10 @@ class Ecl < Formula
     ENV.append "CXXFLAGS", "-I#{gmp.opt_include} -I#{boehmgc.opt_include}"
     ENV.append "LDFLAGS", "-L#{gmp.opt_lib} -L#{boehmgc.opt_lib}"
 
-    # FIXME: Remove deparallelize after:
-    # https://gitlab.com/embeddable-common-lisp/ecl/issues/339
-    #
-    # @dkochmanski notes:
-    #
-    # This branch is not tested and may break some unusual builds. Parallels
-    # are the only (known and confirmed) issue with the build scripts in the
-    # release, while the recent changes are not widely tested and may break
-    # some unusual builds. If you are interested in using it, here is the
-    # mentioned branch:
-    #
     # https://gitlab.com/embeddable-common-lisp/ecl/tree/revert-make-split
     ENV.deparallelize
 
     system "./configure",
-      # @MikeMcQuaid requested that I do it like this rather than ENV.append,
-      # above but it breaks the build.
-      # Really should be able to find depends_on libraries without further ado
-      # but here we are.
-                          # "CFLAGS=-I'#{gmp.opt_include} -I#{boehmgc.opt_include}'",
-                          # "CXXFLAGS=-I'#{gmp.opt_include} -I#{boehmgc.opt_include}'",
-                          # "LDFLAGS=-L'#{gmp.opt_lib} -L#{boehmgc.opt_lib}'",
                           "--prefix=#{prefix}",
                           "--enable-threads=yes",
                           "--with-dffi=included",
@@ -54,28 +36,17 @@ class Ecl < Formula
                           "--enable-gmp=system"
     system "make"
     system "make", "install"
-    # make check
-    # Doesn't work but doesn't fail the build
-    # But the real issue is 'make check' should be able to run before 'make
-    # install'
-    # https://gitlab.com/embeddable-common-lisp/ecl/issues/342
-    # FIXME
-    #
-    # ==> make check
-    # cd build && /Applications/Xcode.app/Contents/Developer/usr/bin/make check
-    # TESTS=""
-    # dyld: Library not loaded: @libdir@/libecl.16.1.dylib
-    #   Referenced from: /usr/local/Cellar/ecl/16.1.3//bin/ecl
-    #     Reason: image not found
     system "make", "check"
   end
 
-  # FIXME
-  # Should be 'make check', but see above
   test do
     (testpath/"simple.cl").write <<-EOS.undent
       (write-line (write-to-string (+ 2 2)))
     EOS
     assert_equal "4", shell_output("#{bin}/ecl -shell #{testpath}/simple.cl").chomp
+    (testpath/"compile-test.cl").write <<-EOS.undent
+      (compile (defun two-plus-two () (write-line (write-to-string (+ 2 2)))))
+    EOS
+    shell_output("#{bin}/ecl -shell #{testpath}/compile-test.cl").chomp
   end
 end
