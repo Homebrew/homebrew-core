@@ -14,6 +14,11 @@ class KubeAws < Formula
     sha256 "6c5d8d12c01d94918ef68bf4d487aa1b6f577bed3aa64145cd58192fdb8aa948" => :yosemite
   end
 
+  devel do
+    url "https://github.com/coreos/kube-aws/archive/v0.9.3-rc.2.tar.gz"
+    version "v0.9.3-rc.2"
+  end
+
   depends_on "go" => :build
 
   def install
