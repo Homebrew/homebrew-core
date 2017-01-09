@@ -1,7 +1,7 @@
 class Go < Formula
   desc "The Go programming language"
   homepage "https://golang.org"
-  revision 1
+  revision 2
 
   stable do
     url "https://storage.googleapis.com/golang/go1.7.4.src.tar.gz"
@@ -14,6 +14,13 @@ class Go < Formula
       url "https://go.googlesource.com/tools.git",
           :branch => "release-branch.go#{go_version}",
           :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
+    end
+
+    # Upstream commit from 14 Dec 2016 "crypto/x509: speed up and deflake
+    # non-cgo Darwin root cert discovery"
+    patch do
+      url "https://github.com/golang/go/commit/3357daa.patch"
+      sha256 "c3945cacd5a208cf0bbd6125c77665ef1829035ae09133f3fd50e1022e0f2032"
     end
   end
 
