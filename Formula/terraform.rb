@@ -5,6 +5,7 @@ class Terraform < Formula
   homepage "https://www.terraform.io/"
   url "https://github.com/hashicorp/terraform/archive/v0.8.2.tar.gz"
   sha256 "bc38273dcaf50e240788f6174dff0ad3cb6b252da22617fae768164cf6065c3b"
+  revision 1
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
