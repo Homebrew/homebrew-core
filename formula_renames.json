@@ -66,6 +66,8 @@
   "polarssl": "mbedtls",
   "qt55": "qt@5.5",
   "racket": "minimal-racket",
+  "scala210": "scala@2.10",
+  "scala211": "scala@2.11",
   "screenbrightness": "brightness",
   "sonar": "sonarqube",
   "stash-cli": "atlassian-cli",
