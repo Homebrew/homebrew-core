@@ -1,8 +1,8 @@
 class Nim < Formula
   desc "Statically typed, imperative programming language"
   homepage "http://nim-lang.org/"
-  url "http://nim-lang.org/download/nim-0.15.2.tar.xz"
-  sha256 "905df2316262aa2cbacae067acf45fc05c2a71c8c6fde1f2a70c927ebafcfe8a"
+  url "http://nim-lang.org/download/nim-0.16.0.tar.xz"
+  sha256 "9e199823be47cba55e62dd6982f02cf0aad732f369799fec42a4d8c2265c5167"
   head "https://github.com/nim-lang/Nim.git", :branch => "devel"
 
   bottle do
@@ -13,13 +13,13 @@ class Nim < Formula
   end
 
   resource "nimble" do
-    url "https://github.com/nim-lang/nimble/archive/v0.7.10.tar.gz"
-    sha256 "9fc4a5eb4a294697e530fe05e6e16cc25a1515343df24270c5344adf03bd5cbb"
+    url "https://github.com/nim-lang/nimble/archive/v0.8.2.tar.gz"
+    sha256 "5cfdebdeddf5cf7d32c7b1b047a99d660de4e3a29e29ce7a3216020dc4f301cd"
   end
 
   resource "nimsuggest" do
-    url "https://github.com/nim-lang/nimsuggest/archive/1bf26419e84fab2bbefe8e11910b16f8f6c8a758.tar.gz"
-    sha256 "87c78998f185f8541255b0999dfe4af3a1edcc59e063818efd1b6ca157d18315"
+    url "https://github.com/nim-lang/nimsuggest/archive/v0.15.2.tar.gz"
+    sha256 "432f45af20f0e5b158a1fec43f733f71f1f7d36efccba9db04d3b0d4e13f4a4d"
   end
 
   def install
