@@ -16,7 +16,7 @@ class KubeAws < Formula
 
   devel do
     url "https://github.com/coreos/kube-aws/archive/v0.9.3-rc.2.tar.gz"
-    version "v0.9.3-rc.2"
+    version "0.9.3-rc.2"
   end
 
   depends_on "go" => :build
