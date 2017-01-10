@@ -8,9 +8,9 @@ class Syncthing < Formula
   head "https://github.com/syncthing/syncthing.git"
 
   bottle do
-    sha256 "7373575f6334b575b426fd145f7f4b6621677718db9e2b3f8c26956d6a8c38bd" => :sierra
-    sha256 "7eac3e98e75b3423d8853dd15a23738d0722b9a2971bfa7f2f5468742ba35b22" => :el_capitan
-    sha256 "f39d2153b18d8c8e7909eb7b735648aedbeb4da1bf72898ee03675b793f721af" => :yosemite
+    sha256 "055efc39018da96a3793a15b2f41346a325ff1dd65fe30d8ee143852e55b5bd6" => :sierra
+    sha256 "86b8eb365789ea9b9db69fe45926190c93f1f03291d6e35130b94cfb148c8b99" => :el_capitan
+    sha256 "07533f50923a98aa47fc493dba324895b62cc165f410904cb203d2114b1bd13e" => :yosemite
   end
 
   depends_on "go" => :build
