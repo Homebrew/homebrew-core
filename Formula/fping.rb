@@ -1,9 +1,16 @@
 class Fping < Formula
   desc "Scriptable ping program for checking if multiple hosts are up"
   homepage "https://fping.org/"
-  url "https://fping.org/dist/fping-3.13.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/f/fping/fping_3.13.orig.tar.gz"
-  sha256 "4bb28efd1cb3d1240ae551dadc20daa852b1ba71bafe32e49ca629c1848e5720"
+
+  stable do
+    url "https://fping.org/dist/fping-3.14.tar.gz"
+    sha256 "704a574f4a4abeb132e95f89749c1c27b0861ad04262be4c5119e91be25f7a90"
+
+    patch do
+      url "https://github.com/schweikert/fping/commit/356e7b3.patch"
+      sha256 "b826979d1b9a50bee07092162356de9b667dcac9aa79c780029b57f6da8204f9"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
