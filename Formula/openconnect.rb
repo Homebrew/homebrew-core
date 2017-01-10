@@ -6,9 +6,9 @@ class Openconnect < Formula
   revision 1
 
   bottle do
-    sha256 "6ca71944ac9c1f0f8324cf3eb3b494dc3838036265b786f479003e41dd053e32" => :sierra
-    sha256 "991d5e4ed400b1aa18d855a5ae29477980e6ae203567e72b29ab9880e5990bcf" => :el_capitan
-    sha256 "ee57ea1532750340f0ef11fe765a4bef226a505557e944aab039668fb155ba2f" => :yosemite
+    sha256 "82f6f4b72fba93ee972a8455ebd6f9d9dfb607cd4bdd06c4b0bf068c5dbc4547" => :sierra
+    sha256 "41230a870a365a76eebd77a6a2255aa4e8f93eedc56c42546cd493967221f7c2" => :el_capitan
+    sha256 "207b75663d9f34b99a0cb2f7c4b7eccd665a98f88b7e9d736928dd4b65b658ca" => :yosemite
   end
 
   head do
