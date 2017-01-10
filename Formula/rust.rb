@@ -19,10 +19,9 @@ class Rust < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "0756b3e161683415ef0139b72ba2366f727f4e8b2be6040f0bd374fbf206365e" => :sierra
-    sha256 "3932a3f79f35b74b917770ed2078d3ff2243b7730491b0f7e2b94a394884e2a3" => :el_capitan
-    sha256 "c7d4222a23f16279c142f9778a6187bd5e15169caa04469085cb0fe6df865bdd" => :yosemite
+    sha256 "0dd055001c2bc70f2efd9c68209f70c6facb1cc86101939adfe3377ab4b022fc" => :sierra
+    sha256 "48b79dd13d9bd51b6f23255a640e86706fc239154659c2df621c76b25f00f87b" => :el_capitan
+    sha256 "0a4d37a134ec0d23e48bcdf0aab43154d38a619fa84c879bffc6bafc6639cdca" => :yosemite
   end
 
   head do
