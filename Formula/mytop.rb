@@ -5,14 +5,13 @@ class Mytop < Formula
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/mytop/mytop_1.9.1.orig.tar.gz"
   sha256 "179d79459d0013ab9cea2040a41c49a79822162d6e64a7a85f84cdc44828145e"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "97141d4fee3c92c39263f48273cd459042d539c14c684bb89110f85eb7e58d18" => :sierra
-    sha256 "672c4f9115cc23baca9522bb4bca10908a3f45d527d176710d2bfa9c79e40758" => :el_capitan
-    sha256 "cf55483653ab53f64f6cd287a5b88e090f0f413229626f33f4f7533aa4580864" => :yosemite
-    sha256 "76f9ef9fb495f66d596dcec0f8ba9b2d2e43349432b164dddf6a2dde09e2632b" => :mavericks
+    sha256 "e49071ca46a5f8203d24ea318afab37b6a387f5669b69cca670a0b053e1c7611" => :sierra
+    sha256 "4fca8e6d7cf86993af8dcded0b4ce5bc0b4a3fb63ec2359c42d0513019ec03e0" => :el_capitan
+    sha256 "869b2a25dd9cd7fdeadce32336e8c8ff0d90545a78fedbd6c9a870c0910b2521" => :yosemite
   end
 
   depends_on :mysql
@@ -21,21 +20,21 @@ class Mytop < Formula
   conflicts_with "mariadb", :because => "both install `mytop` binaries"
 
   resource "List::Util" do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.45.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.45.tar.gz"
-    sha256 "9e175535913af22d003ce1ef896d98d9bb6fc1d551782a3b512c066da5bd27dd"
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.46.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.46.tar.gz"
+    sha256 "30662b1261364adb317e9a5bd686273d3dd731e3fda1b8e894802aa52e0052e7"
   end
 
   resource "Config::IniFiles" do
-    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/Config-IniFiles-2.93.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/Config-IniFiles-2.93.tar.gz"
-    sha256 "2fc79e5616c176b97f49f3d57b8d8068695639209ff9de7aa7f28a550d0478e4"
+    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/Config-IniFiles-2.94.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/Config-IniFiles-2.94.tar.gz"
+    sha256 "d6d38a416da79de874c5f1825221f22e972ad500b6527d190cc6e9ebc45194b4"
   end
 
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.035.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.035.tar.gz"
-    sha256 "b7eca365ea16bcf4c96c2fc0221304ff9c4995e7a551886837804a8f66b61937"
+    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
+    sha256 "4777de11c464b515db9da95c08c225900d0594b65ba3256982dc21f9f9379040"
   end
 
   # Pick up some patches from Debian to improve functionality & fix

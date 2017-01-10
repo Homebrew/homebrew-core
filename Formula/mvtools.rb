@@ -3,12 +3,13 @@ class Mvtools < Formula
   homepage "https://github.com/dubhater/vapoursynth-mvtools"
   url "https://github.com/dubhater/vapoursynth-mvtools/archive/v17.tar.gz"
   sha256 "739656d8ea3fb864b72e3e3d167dc1f7fdb8feff4e396cdf9414b367621ca011"
+  revision 1
   head "https://github.com/dubhater/vapoursynth-mvtools.git"
 
   bottle do
     cellar :any
-    sha256 "818decc6115f204d38f9ff41134943318ad79e44176e85df3daa8a6e0dafe59f" => :sierra
-    sha256 "80a885159e3e524a103f06aa1450164f6eead929a4701f56fef1aae20d1f750d" => :el_capitan
+    sha256 "999e644ce8b4d721081491b0bf504aac96f8021a6bc417e44b4dc78174effeb3" => :sierra
+    sha256 "5ebe81cfcff81d1763175660b0305fb3f8661e3435e72b9fa1f1951bd09fb30b" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

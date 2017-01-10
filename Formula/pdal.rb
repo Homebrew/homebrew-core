@@ -1,14 +1,14 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "http://www.pdal.io/"
-  url "https://github.com/PDAL/PDAL/archive/1.3.0.tar.gz"
-  sha256 "48d48b1fc2a2ce2cf6fba5b28f2455b94a1ccc33148ee0a3c79a4dc041641557"
+  url "https://github.com/PDAL/PDAL/archive/1.4.0.tar.gz"
+  sha256 "199b34f77d48e468ff2dd2077766b63893d6be99a1db28cadfaee4f92978aed1"
   head "https://github.com/PDAL/PDAL.git"
 
   bottle do
-    sha256 "5f3124558a1e2ed3d8cbd8125ca2ac338ea622a566a03eb030c088b9f7f14ba1" => :sierra
-    sha256 "4a63751d73e54b40f6ce16028f9ca136292720ae2f0873a346abcddad055416a" => :el_capitan
-    sha256 "f1f7829dc4cb65be993aed5255f1ed69d53d1928c7cc3b9e396d83fdd8404557" => :yosemite
+    sha256 "89df91c08ea3b515215e02c93b1c50b3bf4226e474335d7d6c178b2b0030e184" => :sierra
+    sha256 "20e86c46e3812254079760b335b97e64276b984fb1679355553d502db1710057" => :el_capitan
+    sha256 "2a308cd0dc12301dc0cbb44d29f726e0c93dfbd6902fbd2f6cdf06b9be2a5f61" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -28,6 +28,10 @@ class Pdal < Formula
     if build.with? "laszip"
       args << "-DWITH_LASZIP=TRUE"
     else
+      # CMake Error LASZIP_LIBRARY set to NOTFOUND
+      # Reported 16 Dec 2016 https://github.com/PDAL/PDAL/issues/1446
+      inreplace "CMakeLists.txt", "        ${LASZIP_LIBRARY}\n", ""
+
       args << "-DWITH_LASZIP=FALSE"
     end
 

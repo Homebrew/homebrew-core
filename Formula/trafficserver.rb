@@ -29,9 +29,6 @@ class Trafficserver < Formula
   def install
     ENV.cxx11
 
-    # Needed for correct ./configure detections
-    ENV.enable_warnings
-
     # Needed for OpenSSL headers
     if MacOS.version <= :lion
       ENV.append_to_cflags "-Wno-deprecated-declarations"

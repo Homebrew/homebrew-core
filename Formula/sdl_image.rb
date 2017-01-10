@@ -3,13 +3,13 @@ class SdlImage < Formula
   homepage "https://www.libsdl.org/projects/SDL_image"
   url "https://www.libsdl.org/projects/SDL_image/release/SDL_image-1.2.12.tar.gz"
   sha256 "0b90722984561004de84847744d566809dbb9daf732a9e503b91a1b5a84e5699"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
-    sha256 "c33b83a550f59dda30e1a89e4b641e1fcb5b51042f991b41aaa64d4790ac1add" => :sierra
-    sha256 "7f88784dcac2131166af9721b33abf0130eb9e51538f0ad2f4e575830279a6c8" => :el_capitan
-    sha256 "4c06ae51142919fbf22ff7208801592b8a9195ba214b83bd79eae2491ed72855" => :yosemite
+    sha256 "16d716a38408f6d50447a36c1a3822f6621ce042290278017ead0d2ea3333107" => :sierra
+    sha256 "0d6abc80c331bfb6c371291e5733bc42931e0c8b9b2db5b18b5f3a55d94d8e43" => :el_capitan
+    sha256 "77677c0f05c1f9b54e9b5d198252da9a56089f978fc5468b6e5ff002515fb0aa" => :yosemite
   end
 
   option :universal
@@ -33,10 +33,19 @@ class SdlImage < Formula
     ENV.universal_binary if build.universal?
     inreplace "SDL_image.pc.in", "@prefix@", HOMEBREW_PREFIX
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--disable-imageio",
-                          "--disable-sdltest"
+    args = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+      --disable-imageio
+      --disable-sdltest
+    ]
+
+    args << "--disable-png-shared" if build.with? "libpng"
+    args << "--disable-jpg-shared" if build.with? "jpeg"
+    args << "--disable-tif-shared" if build.with? "libtiff"
+    args << "--disable-webp-shared" if build.with? "webp"
+
+    system "./configure", *args
     system "make", "install"
   end
 end

@@ -3,15 +3,15 @@ class DockerCompose < Formula
 
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://files.pythonhosted.org/packages/b3/cb/094bf998a02fa396c4ff728191c553370b390babb80dc318a16e7461597a/docker-compose-1.8.1.tar.gz"
-  sha256 "1c72725a0a5cd41f56021cb51c6cba86932fb5b4155378ce883500d2644efc84"
+  url "https://files.pythonhosted.org/packages/37/bc/82444964a31604aedf78b302cdfc55bc56807aa8a4fafd9b1db85ec3ebe8/docker-compose-1.9.0.tar.gz"
+  sha256 "98fb664c79c06a0777af2540b83eaa63c6a05ae7eb9e7417193899df2f96e27f"
   head "https://github.com/docker/compose.git"
 
   bottle do
     cellar :any
-    sha256 "8aa0f4df0af7ad3df848f3016c9dffa7862a72f1666c25aa17fc67829f9f7049" => :sierra
-    sha256 "aad4b65958e5cd36889ae6db7f0fffd8ac9c5b6988aee7a0eaa8c306622c93af" => :el_capitan
-    sha256 "4e6bdbc1e0718c13ec752be35bf27aa86b1868c0c75be7b7da5842eb79c6bf90" => :yosemite
+    sha256 "406b178611cb72446c2036995f760ad7f77d6f69e3b03e5d9dcb504e7582da23" => :sierra
+    sha256 "8aaeaf8684c22f51e0b00bc9d191d0e3c88cd162dc429b7bc80942b0476d7068" => :el_capitan
+    sha256 "6305981f3690b530846bbab3ac87afabffabe18c6678dbe483c3ee6984c86cfc" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -33,8 +33,8 @@ class DockerCompose < Formula
   end
 
   resource "docker-py" do
-    url "https://files.pythonhosted.org/packages/bd/54/c0abfa577ecd46e43d6c89489aa99d0787ff3fd83b01bc8d8f3534bc3d5b/docker-py-1.10.4.tar.gz"
-    sha256 "157c487329f2a4c7d70a7d355c0ccc3acb0a540170a17ccfc13f24411ba09b14"
+    url "https://files.pythonhosted.org/packages/fa/2d/906afc44a833901fc6fed1a89c228e5c88fbfc6bd2f3d2f0497fdfb9c525/docker-py-1.10.6.tar.gz"
+    sha256 "4c2a75875764d38d67f87bc7d03f7443a3895704efc57962bdf6500b8d4bc415"
   end
 
   resource "docker-pycreds" do
@@ -78,8 +78,8 @@ class DockerCompose < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/0a/00/8cc925deac3a87046a4148d7846b571cf433515872b5430de4cd9dea83cb/requests-2.7.0.tar.gz"
-    sha256 "398a3db6d61899d25fd4a06c6ca12051b0ce171d705decd7ed5511517b4bb93d"
+    url "https://files.pythonhosted.org/packages/2e/ad/e627446492cc374c284e82381215dcd9a0a87c4f6e90e9789afefe6da0ad/requests-2.11.1.tar.gz"
+    sha256 "5acf980358283faba0b897c73959cecf8b841205bb4b2ad3ef545f46eae1a133"
   end
 
   resource "six" do
@@ -88,8 +88,8 @@ class DockerCompose < Formula
   end
 
   resource "texttable" do
-    url "https://files.pythonhosted.org/packages/92/3e/7d05feb005057009c323ff5edcb3800fb5d53435a649207192e710d8c175/texttable-0.8.5.tar.gz"
-    sha256 "c2b554b0c20c866f061cf08a315354278590b312ee178199a29bfde7a944f986"
+    url "https://files.pythonhosted.org/packages/65/d4/bab53c112e44fcdc562e0bea19bda1f28db9d25340c4fcbf43b50ac0555d/texttable-0.8.7.tar.gz"
+    sha256 "8a38082fe822e825fde5bcf150741bdf38ef52e00a05a20c8967bcf99a8f31d2"
   end
 
   resource "websocket-client" do

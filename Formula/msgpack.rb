@@ -14,10 +14,6 @@ class Msgpack < Formula
 
   depends_on "cmake" => :build
 
-  fails_with :llvm do
-    build 2334
-  end
-
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"

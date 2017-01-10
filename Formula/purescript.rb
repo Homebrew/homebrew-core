@@ -5,32 +5,23 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
+  url "https://github.com/purescript/purescript/archive/v0.10.5.tar.gz"
+  sha256 "cb38d14e353bf200471385dd08dc5108f4f8690a76806e79c8f2fb3f8facca9c"
   head "https://github.com/purescript/purescript.git"
 
-  stable do
-    url "https://github.com/purescript/purescript/archive/v0.10.2.tar.gz"
-    sha256 "4b5663e2a5ebb7a2e432f951d0a5d0ddfa08f18304827ec33f609d9b3c1c3fe7"
-
-    # Remove for > 0.10.2
-    # Upstream commit "Fix GHC 8.0.2 build"
-    patch do
-      url "https://github.com/purescript/purescript/commit/46f573a.patch"
-      sha256 "6a070c6890480613cf3876da34118aad9bb48c8cf5ca1f285adf69d4f9d99a1b"
-    end
-  end
-
   bottle do
-    rebuild 1
-    sha256 "9061f02205436efeedb0350cec40f81aeb1c714bf3be6ec1ffa2d23a9036cf7b" => :sierra
-    sha256 "3d20149072a5c931af2f8d7f7c909c354bcf6babceb786c5660775bdfe28341c" => :el_capitan
-    sha256 "549f565313ff57b8bf4b1b7ef7dd07771d3501b24945b25f1ff8bcad20a15b00" => :yosemite
+    sha256 "c384fb0ebb7229d5a329a75624430eda19fa703a45673cf323ce4f173c39577f" => :sierra
+    sha256 "36d657fbbe5b709d8870dc737326f749f26e4734f0e2df6f03cc65144a110334" => :el_capitan
+    sha256 "fe61f809dd28fed3ea6c3c0df4ff3d69e66bcba82e2311419671d626c2b7c8fe" => :yosemite
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
-    install_cabal_package :using => ["alex", "happy"]
+    install_cabal_package "--allow-newer=turtle:directory",
+                          "--constraint", "directory < 1.4",
+                          :using => ["alex", "happy"]
   end
 
   test do

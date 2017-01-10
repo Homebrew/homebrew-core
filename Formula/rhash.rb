@@ -19,7 +19,7 @@ class Rhash < Formula
 
   def install
     # install target isn't parallel-safe
-    ENV.j1
+    ENV.deparallelize
 
     system "make", "lib-static", "lib-shared", "all", "CC=#{ENV.cc}"
     system "make", "install-lib-static", "install-lib-shared", "install",

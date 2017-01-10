@@ -1,16 +1,14 @@
 class Geos < Formula
   desc "Geometry Engine"
   homepage "https://trac.osgeo.org/geos"
-  url "http://download.osgeo.org/geos/geos-3.5.0.tar.bz2"
-  sha256 "49982b23bcfa64a53333dab136b82e25354edeb806e5a2e2f5b8aa98b1d0ae02"
+  url "http://download.osgeo.org/geos/geos-3.6.1.tar.bz2"
+  sha256 "4a2e4e3a7a09a7cfda3211d0f4a235d9fd3176ddf64bd8db14b4ead266189fc5"
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "d52351433e01eaa27e35ac2b1015e4cc97b424a30990b5491078a67c1a35f19a" => :sierra
-    sha256 "44de97863f261ada672b34bc9d66e34331a449114d50b7c76134527e6ff0ef9e" => :el_capitan
-    sha256 "80cfa970463761a2056c1c080294c59a3b6f6fd8a84276627a38fcf74b045d26" => :yosemite
-    sha256 "8c49f91cfd332e092efb8efc3d4b6190029f648b23b47d20a1341b3882566c87" => :mavericks
+    sha256 "02aa28dcfd38747e924fa486b1607c90ddf5e18c7a400510e3d7f12ef6b90d86" => :sierra
+    sha256 "b4f3fd82b0f39f109ff3da7d5027471c8c2bc8f39bc24198af145df9d3576a71" => :el_capitan
+    sha256 "5b20acb4dfa59515be97f9f731f497c59d11deee2547ca61191b0da4eb8cf735" => :yosemite
   end
 
   option :universal
@@ -20,8 +18,6 @@ class Geos < Formula
   option "with-ruby", "Build the ruby extension"
 
   depends_on "swig" => :build if build.with?("python") || build.with?("ruby")
-
-  fails_with :llvm
 
   def install
     ENV.universal_binary if build.universal?

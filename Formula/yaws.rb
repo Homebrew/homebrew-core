@@ -21,7 +21,6 @@ class Yaws < Formula
   end
 
   option "without-yapp", "Omit yaws applications"
-  option "32-bit"
 
   depends_on "erlang"
 
@@ -31,10 +30,6 @@ class Yaws < Formula
   skip_clean "lib/yaws/examples/include"
 
   def install
-    if build.build_32_bit?
-      ENV.append %w[CFLAGS LDFLAGS], "-arch #{Hardware::CPU.arch_32_bit}"
-    end
-
     system "autoreconf", "-fvi" if build.head?
     system "./configure", "--prefix=#{prefix}",
                           # Ensure pam headers are found on Xcode-only installs

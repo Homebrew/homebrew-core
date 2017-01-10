@@ -1,13 +1,13 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.16.1/nghttp2-1.16.1.tar.xz"
-  sha256 "226241d4869aec0c755c1650f72839a34ea31ecf31ba75586efa6c2b45a9e2d0"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.18.1/nghttp2-1.18.1.tar.xz"
+  sha256 "82a929415ce4115dcb4d2917402cb938c29f98ca705d9c0425eb6c02a50d5ae1"
 
   bottle do
-    sha256 "3fbeb2ab12e5651d1e3537318f5806b734b6ce4870d8b389c98f30206bccbe07" => :sierra
-    sha256 "d6bfdacb120ee1b97f72538de93259a94a37cbee6842a28f05d7dae80254e998" => :el_capitan
-    sha256 "ec0b8916634208d5ba99da1782b4b3ffb86bc7aa66757638363bc6b128f60c0f" => :yosemite
+    sha256 "9fe41e705353aaf8a49918a1da07cabeebaef9c49de3dcb96ecc2ea3b9118d41" => :sierra
+    sha256 "b3d25187b545524394f4401cc2e3b9f2fc68332e349e45001b5b654849ff914a" => :el_capitan
+    sha256 "d4dd8e961862aa5935a8b54c8119356064808dde571357ecdc3dfc78225b4ce3" => :yosemite
   end
 
   head do
@@ -27,6 +27,7 @@ class Nghttp2 < Formula
   depends_on "libxml2" if MacOS.version <= :lion
   depends_on "pkg-config" => :build
   depends_on "cunit" => :build
+  depends_on "c-ares"
   depends_on "libev"
   depends_on "openssl"
   depends_on "libevent"
@@ -36,8 +37,8 @@ class Nghttp2 < Formula
   depends_on "jemalloc" => :recommended
 
   resource "Cython" do
-    url "https://pypi.python.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz"
-    sha256 "84808fda00508757928e1feadcf41c9f78e9a9b7167b6649ab0933b76f75e7b9"
+    url "https://files.pythonhosted.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz"
+    sha256 "f141d1f9c27a07b5a93f7dc5339472067e2d7140d1c5a9e20112a5665ca60306"
   end
 
   # https://github.com/tatsuhiro-t/nghttp2/issues/125

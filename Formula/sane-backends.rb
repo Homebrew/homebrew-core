@@ -35,7 +35,7 @@ class SaneBackends < Formula
 
   def install
     ENV.universal_binary if build.universal?
-    ENV.j1 # Makefile does not seem to be parallel-safe
+    ENV.deparallelize # Makefile does not seem to be parallel-safe
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",

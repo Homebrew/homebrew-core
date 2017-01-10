@@ -5,38 +5,39 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  revision 2
-
-  stable do
-    if MacOS.version >= :sierra
-      url "https://git.haskell.org/ghc.git",
-          :revision => "ee3ff0d21fd51af269a29d371db0094397090bc8"
-      version "8.0.1"
-
-      depends_on "autoconf" => :build
-      depends_on "automake" => :build
-      depends_on "libtool" => :build
-
-      resource "cabal" do
-        url "https://hackage.haskell.org/package/cabal-install-1.24.0.0/cabal-install-1.24.0.0.tar.gz"
-        sha256 "d840ecfd0a95a96e956b57fb2f3e9c81d9fc160e1fd0ea350b0d37d169d9e87e"
-      end
-
-      # disables haddock for hackage-security
-      resource "cabal-patch" do
-        url "https://github.com/haskell/cabal/commit/9441fe.patch"
-        sha256 "5506d46507f38c72270efc4bb301a85799a7710804e033eaef7434668a012c5e"
-      end
-    else
-      url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-src.tar.xz"
-      sha256 "90fb20cd8712e3c0fbeb2eac8dab6894404c21569746655b9b12ca9684c7d1d2"
-    end
+  if MacOS.version >= :sierra
+    url "https://downloads.haskell.org/~ghc/8.0.2-rc2/ghc-8.0.1.20161213-src.tar.xz"
+    sha256 "4994e21c722659bef0a6d851f3e1e807585f067b9778e042007ae50117cc2a50"
+    version "8.0.1"
+  else
+    url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-src.tar.xz"
+    sha256 "90fb20cd8712e3c0fbeb2eac8dab6894404c21569746655b9b12ca9684c7d1d2"
   end
+  revision 4
 
   bottle do
-    sha256 "fdd521d61017c4a2068d24b3386c85266f68cbb56d5b88d392c17cb2f3bfd197" => :sierra
-    sha256 "4ba5955be4502877ab9fc7c748209d81680ada0dd127284c423f1af53553b66d" => :el_capitan
-    sha256 "b023ec943f8aae7ed0c11687c8fa277d6f23d41a4771b8b3a695cc6833c8e593" => :yosemite
+    sha256 "ac1552ae6c039782940af86fb77a2a49fa80354a22e263089097620af2bf4ec1" => :sierra
+    sha256 "bd1c4603ee5400264ee3435ee9fa2fed46ffc9d1a86866ec84d1c43a131475a2" => :el_capitan
+    sha256 "3984dff0307409045eee0f47fb5c72fd4aaacc7ea810d03a3cc25e2c7689d9e2" => :yosemite
+  end
+
+  head do
+    url "https://git.haskell.org/ghc.git", :branch => "ghc-8.0"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+
+    resource "cabal" do
+      url "https://hackage.haskell.org/package/cabal-install-1.24.0.0/cabal-install-1.24.0.0.tar.gz"
+      sha256 "d840ecfd0a95a96e956b57fb2f3e9c81d9fc160e1fd0ea350b0d37d169d9e87e"
+    end
+
+    # disables haddock for hackage-security
+    resource "cabal-patch" do
+      url "https://github.com/haskell/cabal/commit/9441fe.patch"
+      sha256 "5506d46507f38c72270efc4bb301a85799a7710804e033eaef7434668a012c5e"
+    end
   end
 
   option "with-test", "Verify the build using the testsuite"
@@ -48,10 +49,10 @@ class Ghc < Formula
   depends_on "sphinx-doc" => :build if build.with? "docs"
 
   resource "gmp" do
-    url "https://ftpmirror.gnu.org/gmp/gmp-6.1.1.tar.xz"
-    mirror "https://gmplib.org/download/gmp/gmp-6.1.1.tar.xz"
-    mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.1.1.tar.xz"
-    sha256 "d36e9c05df488ad630fff17edb50051d6432357f9ce04e34a09b3d818825e831"
+    url "https://ftpmirror.gnu.org/gmp/gmp-6.1.2.tar.xz"
+    mirror "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
+    mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
+    sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
   end
 
   if MacOS.version <= :lion
@@ -68,13 +69,23 @@ class Ghc < Formula
   # https://www.haskell.org/ghc/download_ghc_8_0_1#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   resource "binary" do
-    url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-x86_64-apple-darwin.tar.xz"
-    sha256 "06ec33056b927da5e68055147f165f873088f6812fe0c642c4c78c9a449fbc42"
+    if MacOS.version >= :sierra
+      url "https://downloads.haskell.org/~ghc/8.0.2-rc2/ghc-8.0.1.20161213-x86_64-apple-darwin.tar.xz"
+      sha256 "f5cacbf6ae9394cfd191244e6a7ab385184c6dc5168cb2c576ab2d74543c1391"
+    else
+      url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-x86_64-apple-darwin.tar.xz"
+      sha256 "06ec33056b927da5e68055147f165f873088f6812fe0c642c4c78c9a449fbc42"
+    end
   end
 
   resource "testsuite" do
-    url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-testsuite.tar.xz"
-    sha256 "bc57163656ece462ef61072559d491b72c5cdd694f3c39b80ac0f6b9a3dc8151"
+    if MacOS.version >= :sierra
+      url "https://downloads.haskell.org/~ghc/8.0.2-rc2/ghc-8.0.1.20161213-testsuite.tar.xz"
+      sha256 "86ed1ecf570e11bf9bc6b9efe05812eb9ff90cb7627a8014bdcafdf01baba807"
+    else
+      url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-testsuite.tar.xz"
+      sha256 "bc57163656ece462ef61072559d491b72c5cdd694f3c39b80ac0f6b9a3dc8151"
+    end
   end
 
   def install
@@ -114,8 +125,6 @@ class Ghc < Formula
 
     if ENV.compiler == :clang
       args << "--with-clang=#{ENV.cc}"
-    elsif ENV.compiler == :llvm
-      args << "--with-gcc-4.2=#{ENV.cc}"
     end
 
     # As of Xcode 7.3 (and the corresponding CLT) `nm` is a symlink to `llvm-nm`
@@ -142,7 +151,7 @@ class Ghc < Formula
       ENV.prepend_path "PATH", binary/"bin"
     end
 
-    if MacOS.version == :sierra
+    if build.head?
       resource("cabal").stage do
         Pathname.pwd.install resource("cabal-patch")
         system "patch", "-p2", "-i", "9441fe.patch"

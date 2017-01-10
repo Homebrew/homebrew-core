@@ -1,29 +1,31 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "http://rocksdb.org"
-  url "https://github.com/facebook/rocksdb/archive/v4.11.2.tar.gz"
-  sha256 "9374be06fdfccbbdbc60de90b72b5db7040e1bc4e12532e4c67aaec8181b45be"
+  url "https://github.com/facebook/rocksdb/archive/v5.0.1.tar.gz"
+  sha256 "a47c6ed3bbc80c3564bf77aa9c482cec2d35cec20693d48354722e6b3051324e"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "df25c15c8f1a4b41ff5e5273fa8c3c21a186b9241c5cfce0226f4ef6f58e8b36" => :sierra
-    sha256 "0bfffdb6a3ad9b446a9d8936e43462adaa6c2195f70068c43785feed4bef537d" => :el_capitan
-    sha256 "c2a7a1f67add41b293cf5b059b9eef93f641f00c4c2e286b48973b887ebfbe3c" => :yosemite
+    sha256 "32d3328413cc8765935f716e6c6a861f04d448f3bb006f1349b5afd589884d50" => :sierra
+    sha256 "6d17a7867d5f8be0a5481406da94cf84b822e9b81296cb09f7b57cf3de6cfdee" => :el_capitan
+    sha256 "d71a0973966e23b217c1b0ff345a945e4dadbc271cb53749afe3a69fc14f8c34" => :yosemite
   end
 
-  option "with-lite", "Build mobile/non-flash optimized lite version"
+  option "without-lite", "Don't build mobile/non-flash optimized lite version"
   option "with-tools", "Build tools"
 
   needs :cxx11
   depends_on "snappy"
   depends_on "lz4"
-  depends_on "gflags" if build.with? "lite"
+  depends_on "gflags"
 
   def install
     ENV.cxx11
     ENV["PORTABLE"] = "1" if build.bottle?
-    ENV.append_to_cflags "-DROCKSDB_LITE=1" if build.with? "lite"
+    if build.with? "lite"
+      ENV.append_to_cflags "-DROCKSDB_LITE=1"
+      ENV["LIBNAME"] = "librocksdb_lite"
+    end
     system "make", "clean"
     system "make", "static_lib"
     system "make", "shared_lib"
@@ -49,7 +51,6 @@ class Rocksdb < Formula
       using namespace rocksdb;
       int main() {
         Options options;
-        options.memtable_factory.reset(NewHashSkipListRepFactory(16));
         return 0;
       }
     EOS
@@ -57,7 +58,7 @@ class Rocksdb < Formula
     system ENV.cxx, "test.cpp", "-o", "db_test", "-v",
                                 "-std=c++11", "-stdlib=libc++", "-lstdc++",
                                 "-lz", "-lbz2",
-                                "-L#{lib}", "-lrocksdb",
+                                "-L#{lib}", "-lrocksdb_lite",
                                 "-L#{Formula["snappy"].opt_lib}", "-lsnappy",
                                 "-L#{Formula["lz4"].opt_lib}", "-llz4"
     system "./db_test"

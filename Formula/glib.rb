@@ -20,11 +20,6 @@ class Glib < Formula
   depends_on "libffi"
   depends_on "pcre"
 
-  fails_with :llvm do
-    build 2334
-    cause "Undefined symbol errors while linking"
-  end
-
   resource "config.h.ed" do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/eb51d82/glib/config.h.ed"
     version "111532"

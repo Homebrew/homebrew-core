@@ -2,15 +2,15 @@ class Caf < Formula
   # Renamed from libccpa
   desc "Implementation of the Actor Model for C++"
   homepage "https://actor-framework.org/"
-  url "https://github.com/actor-framework/actor-framework/archive/0.15.1.tar.gz"
-  sha256 "e6a9e6c18f69073175fbd8e2af980c577710cd88de17e82b66d823293ee3aace"
+  url "https://github.com/actor-framework/actor-framework/archive/0.15.2.tar.gz"
+  sha256 "ac0ad066c429cc5e883e2345b962275d0d1f59a9046af3edbb2d32009efb406b"
   head "https://github.com/actor-framework/actor-framework.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "8307b56ad0d7bf898cbff457b03b741ec881335c08e3689491134877c24cfbf3" => :sierra
-    sha256 "5d30120a9fbb20e40832762702fb8b006035cbd08fb2a9502659d67490425f2e" => :el_capitan
-    sha256 "c5e1516841992e86f6a88247960e427b3148c386a85a422974a38c392c8cd20d" => :yosemite
+    sha256 "7b08e6f9c8af9f597e747b4459cf3e4741f328bd1d9277b5966d7a34fd0469ec" => :sierra
+    sha256 "5c665e205ece042c4798e352485163eb0630b1278ad9e1189488c707e5feb65d" => :el_capitan
+    sha256 "852211649c40d1f644a94ef885ea328e6402662016e3f7b2f37ca8f12d8daa45" => :yosemite
   end
 
   needs :cxx11

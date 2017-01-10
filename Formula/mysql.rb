@@ -1,13 +1,13 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.16.tar.gz"
-  sha256 "43fc282f807353ff77ead21efb5f85f7f214c2a5362762a8cc370ae1c075095a"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.17.tar.gz"
+  sha256 "b75bba87199ef6a6ccc5dfbcaf70949009dc12089eafad8c5254afc9002aa903"
 
   bottle do
-    sha256 "347bf9920c6f8ee4d45326202be8f1d17c7e96fa8958d06b591beecd8680c982" => :sierra
-    sha256 "db26903bbe1db44dbd431481bd486d20dea0cca8f4b422a8b34e447b1d39be98" => :el_capitan
-    sha256 "7c1d5b17b089108c01e0c5679382709cd43544c75136a563dafb98b820f278a5" => :yosemite
+    sha256 "657f7a5d6e9a1d60f20095904748fc217446a1758455da9d39215c2128884903" => :sierra
+    sha256 "b2abbd2f4416e05a5d12bca93d2ac1655225ac20decc495edbec2ee21a1c4f41" => :el_capitan
+    sha256 "8f914a0a7dce4fc0672874d018fcb2f1b91ab57f51b8fc2d3d0702c473a6047b" => :yosemite
   end
 
   option "with-test", "Build with unit tests"
@@ -37,11 +37,6 @@ class Mysql < Formula
   conflicts_with "mariadb-connector-c",
     :because => "both install plugins"
 
-  fails_with :llvm do
-    build 2326
-    cause "https://github.com/Homebrew/homebrew/issues/issue/144"
-  end
-
   def datadir
     var/"mysql"
   end
@@ -52,10 +47,6 @@ class Mysql < Formula
     inreplace "cmake/libutils.cmake",
       "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
       "COMMAND libtool -static -o ${TARGET_LOCATION}"
-
-    # Build without compiler or CPU specific optimization flags to facilitate
-    # compilation of gems and other software that queries `mysql-config`.
-    ENV.minimal_optimization
 
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[

@@ -1,16 +1,14 @@
 class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
-  # *** Vim should be updated no more than once every 7 days ***
-  url "https://github.com/vim/vim/archive/v8.0.0086.tar.gz"
-  sha256 "f290263425f0b9cc3769c7d0bbc0b59ae5033ec3213624d93fcf08f1785eb226"
-
+  url "https://github.com/vim/vim/archive/v8.0.0160.tar.gz"
+  sha256 "955c9f9196c548c199650dd932fb010a5fd94e5a9fe71acfc2798364e99bf1bc"
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "8d1a7b4985a2520bfc7f37404acbf232c6c8a96a746b1846771da81141d02123" => :sierra
-    sha256 "513d202145a6ff2da18f12b765bce7701dbdbae55671307f358a7b1d082f6d6b" => :el_capitan
-    sha256 "a9753e050be6dfa9508d415821b8abaa740356afc5540c414430c51953e16288" => :yosemite
+    sha256 "3135ec72953339ae1749c8c6f5499393db03e6ce07bc13b167ed868aaf9ed17b" => :sierra
+    sha256 "144e2dc841ea75f973e7e7f730ddea505f63593ba902d3ae4f1c879656a24986" => :el_capitan
+    sha256 "39330cfe2dfd9c58e70e4a587bd6d3524e102df93621f89ff3bf8682617fb936" => :yosemite
   end
 
   deprecated_option "disable-nls" => "without-nls"
@@ -84,6 +82,10 @@ class Vim < Formula
       opts << "--without-x"
     end
 
+    if build.with? "lua"
+      opts << "--enable-luainterp"
+    end
+
     if build.with? "luajit"
       opts << "--with-luajit"
       opts << "--enable-luainterp"
@@ -114,18 +116,13 @@ class Vim < Formula
   end
 
   test do
-    # Simple test to check if Vim was linked to Python version in $PATH
     if build.with? "python"
-      vim_path = bin/"vim"
-
-      # Get linked framework using otool
-      otool_output = `otool -L #{vim_path} | grep -m 1 Python`.gsub(/\(.*\)/, "").strip.chomp
-
-      # Expand the link and get the python exec path
-      vim_framework_path = Pathname.new(otool_output).realpath.dirname.to_s.chomp
-      system_framework_path = `python-config --exec-prefix`.chomp
-
-      assert_equal system_framework_path, vim_framework_path
+      (testpath/"commands.vim").write <<-EOS.undent
+        :python import vim; vim.current.buffer[0] = 'hello world'
+        :wq
+      EOS
+      system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
+      assert_equal (testpath/"test.txt").read, "hello world\n"
     end
   end
 end

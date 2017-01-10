@@ -20,7 +20,7 @@ class Skktools < Formula
                           "--with-skkdic-expr2"
 
     system "make", "CC=#{ENV.cc}"
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
   end
 end

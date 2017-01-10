@@ -3,14 +3,14 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://mercurial-scm.org/release/mercurial-4.0.tar.gz"
-  sha256 "24be080745230840f214d93e9f9fb4e25510f9abbbec2e56fab18543fedc43a7"
+  url "https://mercurial-scm.org/release/mercurial-4.0.2.tar.gz"
+  sha256 "ae6659dba27508a9a6417d535a89e282d5c8a5ea77b6e00af102822145b06d02"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "82e2be5ba133acae6f63013f19e79f6fc671357f64416eca713b73e6bd7052be" => :sierra
-    sha256 "12f25651723ede887c3af9dbb62bd1c4a2fb8847a81c873227eae5d00ab58aa0" => :el_capitan
-    sha256 "69efee6a0266e4f9b0d20c387f50ae9b8f3de084d2624958c35d9f6fed633605" => :yosemite
+    sha256 "20f193ea1672ab2126fe9de7055cc95f0115e49ba4a8b6d896f0e33d1cbf1691" => :sierra
+    sha256 "bf107e7f54ef8478ee6dd2268f96edce6ea6c54fce01f02e89795fd000442d97" => :el_capitan
+    sha256 "a5859696439b125ee70e98cd03ee44e75310f255a7ad1ecafe5db3945cf0b168" => :yosemite
   end
 
   option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"
@@ -21,8 +21,6 @@ class Mercurial < Formula
   end
 
   def install
-    ENV.minimal_optimization if MacOS.version <= :snow_leopard
-
     system "make", "PREFIX=#{prefix}", "install-bin"
     # Install man pages, which come pre-built in source releases
     man1.install "doc/hg.1"

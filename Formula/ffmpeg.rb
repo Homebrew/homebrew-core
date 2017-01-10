@@ -1,16 +1,17 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.2.tar.bz2"
-  sha256 "76d6cd9f5e64463a5b9940736da8a515c990bcbbe506a722e2040916cb366d74"
+  url "https://ffmpeg.org/releases/ffmpeg-3.2.2.tar.bz2"
+  sha256 "0b129a56d1b8d06101b1fcbfaa9f4f5eee3182d1ad6e44f511a84c12113a366b"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "84fba610ee0802576eef1a25020ff7dcd1d4f080c2a667444e47394a36980df7" => :sierra
-    sha256 "19c5859847ae7c99c51da1c4e1ee3ed3600f86643b0a6d95d7a8f522a10dff1a" => :el_capitan
-    sha256 "d5a26d633ef56f2aa37b72229629db3197d779a16c82edaa0c11509e7d6669d1" => :yosemite
+    sha256 "35c5f0c80c957610c635957b2c71508308a43063ae1c29ef130dd69792c3d3d7" => :sierra
+    sha256 "7ad880dd7577382807e1dda8a56dff70971fa5f2f45f2bb46d8a69bf58eeb0e7" => :el_capitan
+    sha256 "5927efaae97fce64142c89e1024f4bd100c9e1deef534c6a3daf44c0d9d4a4da" => :yosemite
   end
 
+  option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
   option "with-libass", "Enable ASS/SSA subtitle format"
   option "with-libebur128", "Enable using libebur128 for EBU R128 loudness measurement"
@@ -35,6 +36,7 @@ class Ffmpeg < Formula
   option "with-zimg", "Enable z.lib zimg library"
   option "without-lame", "Disable MP3 encoder"
   option "without-qtkit", "Disable deprecated QuickTime framework"
+  option "without-securetransport", "Disable use of SecureTransport"
   option "without-x264", "Disable H.264 encoder"
   option "without-xvid", "Disable Xvid MPEG-4 video encoder"
 
@@ -50,6 +52,7 @@ class Ffmpeg < Formula
   depends_on "x264" => :recommended
   depends_on "xvid" => :recommended
 
+  depends_on "chromaprint" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "fontconfig" => :optional
   depends_on "freetype" => :optional
@@ -109,6 +112,8 @@ class Ffmpeg < Formula
     ]
 
     args << "--disable-indev=qtkit" if build.without? "qtkit"
+    args << "--disable-securetransport" if build.without? "securetransport"
+    args << "--enable-chromaprint" if build.with? "chromaprint"
     args << "--enable-ffplay" if build.with? "sdl2"
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--enable-libass" if build.with? "libass"

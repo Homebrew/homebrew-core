@@ -22,25 +22,19 @@ class Radare2 < Formula
   homepage "http://radare.org"
 
   stable do
-    url "http://www.radare.org/get/radare2-0.10.5.tar.xz"
-    sha256 "e534e89b1ddc06b962766fab1d9a8c6957ce1eeac4b6babdd0cd3345c6d14ca5"
+    url "http://cloud.radare.org/get/1.1.0/radare2-1.1.0.tar.gz"
+    sha256 "7bc1e206a2b4def6bdb8684c2af0281b007986a0b5b5da652bd03be264ca0fa5"
 
     resource "bindings" do
-      url "http://www.radare.org/get/radare2-bindings-0.10.5.tar.xz"
-      sha256 "04eb9a31e752d393e240a5d2e77f6313f1e5b7ccf7471e6fea2d346781173fb1"
-    end
-
-    resource "extras" do
-      url "http://www.radare.org/get/radare2-extras-0.10.5.tar.xz"
-      sha256 "2dd23a4ab8f787f47b22cdd0df76d7b575a80e9afaf0ee95a553deaaba65e6f6"
+      url "http://cloud.radare.org/get/1.1.0/radare2-bindings-1.0.1.tar.gz"
+      sha256 "ab0b3ca4ca5e9ca6b11211408dada85bb18014a793628ef32167dc89575fd2e0"
     end
   end
 
   bottle do
-    sha256 "a4c33f756b7a1117d05ace4acb12bedab6e59b9af777532a540600f345691f55" => :sierra
-    sha256 "9eb9eb34f22803323480de1af7ca57336cda9d51429901772b94d1d223a0d10f" => :el_capitan
-    sha256 "9795fb8f8091df0cb505767d6cb9c2f6c7b9f9a0b3d19d99778cf0c86c2bfa46" => :yosemite
-    sha256 "faef9e723a152abaf0e1e11dba293a203a1801fd7e2c8420ce59fc83ad5546c7" => :mavericks
+    sha256 "91db44471f7d343662fd90b09e1a263a08f0cc7653dcd3f32b3ba57706d58403" => :sierra
+    sha256 "c59413c6140a2ef743b5648705b269db21eecc42b920b10bab00909d8a591296" => :el_capitan
+    sha256 "7697c0c569a38d3fe1091ba7a6ba759f4228f888a8e4b16b1a83a8f05f9c3e63" => :yosemite
   end
 
   head do
@@ -48,10 +42,6 @@ class Radare2 < Formula
 
     resource "bindings" do
       url "https://github.com/radare/radare2-bindings.git"
-    end
-
-    resource "extras" do
-      url "https://github.com/radare/radare2-extras.git"
     end
   end
 
@@ -81,15 +71,6 @@ class Radare2 < Formula
       system "make", "HOME=#{home}", "-C", "binr/radare2", "osx-sign-libs"
     end
     system "make", "install"
-
-    resource("extras").stage do
-      ENV.append_path "PATH", bin
-      ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
-
-      system "./configure", "--prefix=#{prefix}"
-      system "make", "all"
-      system "make", "install"
-    end
 
     resource("bindings").stage do
       ENV.append_path "PATH", bin

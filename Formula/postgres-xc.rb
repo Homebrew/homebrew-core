@@ -37,8 +37,6 @@ class PostgresXc < Formula
   patch :DATA
 
   def install
-    ENV.libxml2 if MacOS.version >= :snow_leopard
-
     # See https://sourceforge.net/mailarchive/forum.php?thread_name=82E44F89-543A-44F2-8AF8-F6909B5DC561%40uniud.it&forum_name=postgres-xc-bugs
     ENV.append "CFLAGS", "-D_FORTIFY_SOURCE=0 -O2" if MacOS.version >= :mavericks
 

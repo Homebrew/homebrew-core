@@ -1,12 +1,13 @@
 class Go < Formula
   desc "The Go programming language"
   homepage "https://golang.org"
+  revision 2
 
   stable do
-    url "https://storage.googleapis.com/golang/go1.7.3.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.7.3.src.tar.gz"
-    version "1.7.3"
-    sha256 "79430a0027a09b0b3ad57e214c4c1acfdd7af290961dd08d322818895af1ef44"
+    url "https://storage.googleapis.com/golang/go1.7.4.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.7.4.src.tar.gz"
+    version "1.7.4"
+    sha256 "4c189111e9ba651a2bb3ee868aa881fab36b2f2da3409e80885ca758a6b614cc"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
@@ -14,16 +15,33 @@ class Go < Formula
           :branch => "release-branch.go#{go_version}",
           :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
     end
+
+    # Upstream commit from 14 Dec 2016 "crypto/x509: speed up and deflake
+    # non-cgo Darwin root cert discovery"
+    patch do
+      url "https://github.com/golang/go/commit/3357daa.patch"
+      sha256 "c3945cacd5a208cf0bbd6125c77665ef1829035ae09133f3fd50e1022e0f2032"
+    end
   end
 
   bottle do
-    sha256 "225c78822090415a2e6dade491086b4277650cb2ea7b14f71afcc5288251d422" => :sierra
-    sha256 "0174cd69ed115c6c5290cdcab5d0bb1320ac189650ce866dbb65a9d8faf88c89" => :el_capitan
-    sha256 "70b606845a76a8654594bf23ecc7e6e41b5f3553580776279b1a3045fecf2c8b" => :yosemite
+    sha256 "bd477ed1ab7ab3f53074e4e634f313b9c66ba76b0d9e9d50461ab680f5a8018f" => :sierra
+    sha256 "3372db7913383d69fcc2c67086f735638ae6fb6be90d4c9d03032867eea5b91d" => :el_capitan
+    sha256 "1a3c23da7fc76f2446c601b34c8cfcbdc408a97735e66c02c3da177cf344342f" => :yosemite
+  end
+
+  devel do
+    url "https://storage.googleapis.com/golang/go1.8beta2.src.tar.gz"
+    version "1.8beta2"
+    sha256 "f5d8252f7746c77df0beb205b8f8b158362ad1718e1a2195d122ac43859f5930"
+
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git"
+    end
   end
 
   head do
-    url "https://github.com/golang/go.git"
+    url "https://go.googlesource.com/go.git"
 
     resource "gotools" do
       url "https://go.googlesource.com/tools.git"
@@ -53,7 +71,7 @@ class Go < Formula
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
       ENV["GOOS"]         = "darwin"
-      ENV["CGO_ENABLED"]  = build.with?("cgo") ? "1" : "0"
+      ENV["CGO_ENABLED"]  = "0" if build.without?("cgo")
       system "./make.bash", "--no-clean"
     end
 
@@ -110,6 +128,11 @@ class Go < Formula
     if build.with? "godoc"
       assert File.exist?(libexec/"bin/godoc")
       assert File.executable?(libexec/"bin/godoc")
+    end
+
+    if build.with? "cgo"
+      ENV["GOOS"] = "freebsd"
+      system bin/"go", "build", "hello.go"
     end
   end
 end

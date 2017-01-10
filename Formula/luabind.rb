@@ -53,8 +53,6 @@ class Luabind < Formula
     args = %w[release install]
     if ENV.compiler == :clang
       args << "--toolset=clang"
-    elsif ENV.compiler == :llvm
-      args << "--toolset=llvm"
     elsif ENV.compiler == :gcc
       args << "--toolset=darwin"
     end

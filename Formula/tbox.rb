@@ -1,15 +1,15 @@
 class Tbox < Formula
   desc "Glib-like multi-platform c library"
   homepage "http://www.tboox.org"
-  url "https://github.com/waruqi/tbox/archive/v1.5.3.tar.gz"
-  sha256 "404235eacd0edc0bb18cade161005001a7af11af3d447663ef57f61fe734dead"
+  url "https://github.com/waruqi/tbox/archive/v1.6.0.tar.gz"
+  sha256 "4f17646eb6623ca4331dc9e7d1163ff6969af58070b7392bab217f194384e0c2"
   head "https://github.com/waruqi/tbox.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f6bea8029cc26e9bd92fdd9b2c76bbd2bccb3f0fc3083e6fff31fea44d43e78" => :sierra
-    sha256 "1960e9bc4dd0d646c717917ca8307d6d0ddc7b16a490949f01572377e9e2ff26" => :el_capitan
-    sha256 "96b482e4e64324bfb4efc8be99f15fd356abb3e499cbd61557e0efb7070eeecf" => :yosemite
+    sha256 "5dc65f1e5f0d2e8e46451c38ca926ee7f85eae504eda5b4bd21acb79da93275d" => :sierra
+    sha256 "f412506c78824f3bb40adfd51cd5c6073eec0a17db490bd6166aeeed4b5626c1" => :el_capitan
+    sha256 "942bb7bc49c770e7b7e6cd685aa4ad15a7c047458b1e596fe8f3432a96e772f4" => :yosemite
   end
 
   depends_on "xmake" => :build
@@ -20,8 +20,8 @@ class Tbox < Formula
     # superenv won't do this automatically
     ENV.refurbish_args
 
-    system "xmake", "config", "--smallest=y", "--demo=n", "--xml=y", "--asio=y",
-                              "--thread=y", "--network=y", "--charset=y"
+    system "xmake", "config", "--charset=y", "--demo=n", "--smallest=y",
+                              "--xml=y"
     system "xmake", "install", "-o", prefix
   end
 

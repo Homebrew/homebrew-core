@@ -15,45 +15,33 @@ end
 class Opentsdb < Formula
   desc "Scalable, distributed Time Series Database."
   homepage "http://opentsdb.net/"
-  url "https://github.com/OpenTSDB/opentsdb/releases/download/v2.2.0/opentsdb-2.2.0.tar.gz"
-  sha256 "5689d4d83ee21f1ce5892d064d6738bfa9fdef99f106f45d5c38eefb9476dfb5"
+  url "https://github.com/OpenTSDB/opentsdb/releases/download/v2.3.0/opentsdb-2.3.0.tar.gz"
+  sha256 "90e982fecf8a830741622004070fe13a55fb2c51d01fc1dc5785ee013320375a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "09f6ea9bccb2eac33e34762460faf3360e53b037007d2e3bffde6d2dcb792034" => :sierra
-    sha256 "050fc28675d4b62c7143ff6f6748fc6361305c2701e3d3a3babec64a3078130f" => :el_capitan
-    sha256 "b15a3370a281f2a26cb3dbd531d9bf165fe7796d895912aa5caedd6d7ab4b926" => :yosemite
-    sha256 "890ed2fd269e9fd20825e592f2a2d3cc91269669418b93389c56eded33d4b226" => :mavericks
+    sha256 "4ef2e9151ebc7aafccdeb170495d2a3308ce92f8cbac68cf88c71558d4b8aaf7" => :sierra
+    sha256 "0e8eb571054d13d3abcb06940c481814dd54dbb94104cedcdedbd57c09721743" => :el_capitan
+    sha256 "07ba3d636bad55c244e259d5eb619f09367f16b3e14e8caea74bbd19c33f44d5" => :yosemite
   end
 
   depends_on "hbase"
+  depends_on :java => "1.6+"
   depends_on "lzo" => :recommended
   depends_on HbaseLZORequirement if build.with?("lzo")
-  depends_on :java => "1.6+"
   depends_on "gnuplot" => :optional
 
   def install
-    # submitted to upstream: https://github.com/OpenTSDB/opentsdb/pull/711
-    # pulled to next branch: https://github.com/OpenTSDB/opentsdb/commit/5d0cfa9b4b6d8da86735efeea4856632581a7adb.patch
-    # doesn't apply cleanly on this release though
-    # mkdir_p is called from in a subdir of build so needs an extra ../ and there is no rule to create $(classes) and
-    # everything builds without specifying them as dependencies of the jar.
-    inreplace "Makefile.in" do |s|
-      s.sub!(/(\$\(jar\): manifest \.javac-stamp) \$\(classes\)/, '\1')
-      s.sub!(/(echo " \$\(mkdir_p\) '\$\$dstdir'"; )/, '\1../')
-    end
-
-    mkdir "build" do
-      system "../configure",
-             "--disable-silent-rules",
-             "--prefix=#{prefix}",
-             "--mandir=#{man}",
-             "--sysconfdir=#{etc}",
-             "--localstatedir=#{var}/opentsdb"
-      system "make"
-      bin.mkpath
-      system "make", "install-exec-am", "install-data-am"
-    end
+    system "./configure",
+           "--disable-silent-rules",
+           "--prefix=#{prefix}",
+           "--mandir=#{man}",
+           "--sysconfdir=#{etc}",
+           "--localstatedir=#{var}/opentsdb"
+    system "make"
+    bin.mkpath
+    (pkgshare/"static/gwt/opentsdb/images/ie6").mkpath
+    system "make", "install"
 
     env = {
       :HBASE_HOME => Formula["hbase"].opt_libexec,

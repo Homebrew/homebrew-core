@@ -13,7 +13,6 @@ class Tin < Formula
   conflicts_with "mutt", :because => "both install mmdf.5 and mbox.5 man pages"
 
   def install
-    ENV.enable_warnings
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

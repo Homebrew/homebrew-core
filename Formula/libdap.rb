@@ -3,11 +3,12 @@ class Libdap < Formula
   homepage "https://www.opendap.org/"
   url "https://www.opendap.org/pub/source/libdap-3.18.2.tar.gz"
   sha256 "0f33b2d91c8f06713e1fcb99658372dc0357cbebe99e7c1850b68a927b7e54db"
+  revision 1
 
   bottle do
-    sha256 "e1f82a19bed0d0c8f6a218b24eccb4ccae2ae391d2946407b48b7e862a48ac6a" => :sierra
-    sha256 "e001b38cfa8690744e83e75d28b2d3404ab09e0e8698ff1948fd371f6b42e843" => :el_capitan
-    sha256 "04e632b298df57bdc1f9a41794fc55a92bcc417aefc0a3cca840c2a9c6736961" => :yosemite
+    sha256 "862f4ae6f2c4f12fb62326e62d1922ee8ad24cd11b2c278ae01230256ad6862a" => :sierra
+    sha256 "7045dbb9dcb0a13841fcba61889742887e84c74bb61dd8f2f13f2a387f1cb3d5" => :el_capitan
+    sha256 "0e6e8aa5a40de3bd3bd9113105213babd3464add9d0abf83dea6fbbdbf1a6b36" => :yosemite
   end
 
   head do

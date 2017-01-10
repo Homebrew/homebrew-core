@@ -16,11 +16,6 @@ class Nu < Formula
   depends_on :macos => :lion
   depends_on "pcre"
 
-  fails_with :llvm do
-    build 2336
-    cause "nu only builds with clang"
-  end
-
   fails_with :gcc do
     build 5666
     cause "nu only builds with clang"

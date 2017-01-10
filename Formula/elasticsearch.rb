@@ -1,8 +1,8 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.1.tar.gz"
-  sha256 "542e197485fbcb1aac46097439337d2e9ac6a54b7b1e29ad17761f4d65898833"
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.1.tar.gz"
+  sha256 "cd45bafb1f74a7df9bad12c77b7bf3080069266bcbe0b256b0959ef2536e31e8"
 
   head do
     url "https://github.com/elasticsearch/elasticsearch.git"
@@ -12,6 +12,9 @@ class Elasticsearch < Formula
   bottle :unneeded
 
   depends_on :java => "1.8+"
+
+  conflicts_with "elasticsearch@1.7", :because => "Different versions of same formula"
+  conflicts_with "elasticsearch@2.4", :because => "Different versions of same formula"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
@@ -79,13 +82,8 @@ class Elasticsearch < Formula
       Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
       Plugins: #{libexec}/plugins/
       Config:  #{etc}/elasticsearch/
+      plugin script: #{libexec}/bin/elasticsearch-plugin
     EOS
-
-    if stable?
-      s += <<-EOS.undent
-        plugin script: #{libexec}/bin/plugin
-      EOS
-    end
 
     s
   end

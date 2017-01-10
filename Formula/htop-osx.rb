@@ -19,9 +19,6 @@ class HtopOsx < Formula
   conflicts_with "htop", :because => "both install an `htop` binary"
 
   def install
-    # Otherwise htop will segfault when resizing the terminal
-    ENV.no_optimization if ENV.compiler == :clang
-
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install", "DEFAULT_INCLUDES='-iquote .'"

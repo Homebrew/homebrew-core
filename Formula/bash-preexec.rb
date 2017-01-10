@@ -14,9 +14,7 @@ class BashPreexec < Formula
 
   def caveats; <<-EOS.undent
     Add the following line to your bash profile (e.g. ~/.bashrc, ~/.profile, or ~/.bash_profile)
-
-      [[ -f $(brew --prefix)/etc/profile.d/bash-preexec.sh ]] && . $(brew --prefix)/etc/profile.d/bash-preexec.sh
-
+      [ -f #{etc}/profile.d/bash-preexec.sh ] && . #{etc}/profile.d/bash-preexec.sh
     EOS
   end
 

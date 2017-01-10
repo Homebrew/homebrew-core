@@ -15,24 +15,40 @@ class Dsd < Formula
   end
 
   bottle do
-    cellar :any
-    revision 1
-    sha256 "b4dd0514fb32269f4c92d02e8057b8d6d6cd583c82cfd8509a29cb7b770a9b30" => :el_capitan
-    sha256 "545b456a92ba6da6054dc4dc54d456373d5be7b6429a015ccf8cd8278f65ee2e" => :yosemite
-    sha256 "02f0f0e3d5cbd791145706ea1019bda93c1062210df9c80aa0c532d21f1e584e" => :mavericks
+    cellar :any_skip_relocation
+    rebuild 2
+    sha256 "78b44aa3504849a7bc49c9d0a2937494f23ee269acb3473e58b52cc02d529faa" => :sierra
+    sha256 "760f775d1f2d91ef2f8c7cc8f69f521747538f1a701d2bba0e475267f939ad82" => :el_capitan
+    sha256 "c3b1690315f044d52151ed035e489175bf24f87da94f0ae5608a7c8245b9e39d" => :yosemite
   end
 
   depends_on "cmake" => :build
   depends_on "libsndfile"
-  depends_on "mbelib"
   depends_on "itpp"
   depends_on "portaudio"
 
+  resource "mbelib-1.2.5" do
+    url "https://github.com/szechyjs/mbelib/archive/v1.2.5.tar.gz"
+    sha256 "59d5e821b976a57f1eae84dd57ba84fd980d068369de0bc6a75c92f0b286c504"
+  end
+
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+    resource("mbelib-1.2.5").stage do
+      # only want the static library
+      inreplace "CMakeLists.txt",
+        "install(TARGETS mbe-static mbe-shared DESTINATION lib)",
+        "install(TARGETS mbe-static DESTINATION lib)"
+      args = std_cmake_args
+      args << "-DCMAKE_INSTALL_PREFIX=#{buildpath}/vendor/mbelib"
+      system "cmake", ".", *args
       system "make", "install"
     end
+
+    ENV.prepend "LDFLAGS", "-L#{buildpath}/vendor/mbelib/lib -lmbe"
+    buildpath.install_symlink buildpath/"vendor/mbelib/include/mbelib.h"
+
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do

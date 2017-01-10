@@ -1,15 +1,15 @@
+# encoding: UTF-8
 class Clipper < Formula
   desc "Share macOS clipboard with tmux and other local and remote apps"
   homepage "https://wincent.com/products/clipper"
-  url "https://github.com/wincent/clipper/archive/0.3.tar.gz"
-  sha256 "ddadc32477744f39a0604255c68c159613809f549c3b28bedcedd23f3f93bcf0"
+  url "https://github.com/wincent/clipper/archive/0.4.1.tar.gz"
+  sha256 "76875e8e3cc7ab53e8966dd52a47d08e8acb6b6db7a0af69a3ec529fe9ae7766"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2e136469fd301629e5efb8c5cfde53a9ff62dc5da14cb9fe1ce09b215b47ae5e" => :sierra
-    sha256 "0c09f31278c101918500815d6b9c08d17806ebc40e52d04326b44a15ecce7f0c" => :el_capitan
-    sha256 "907b0645aaba9805a3184bf5fea9d470bc8ec480cd666deae0f88525522a63f1" => :yosemite
-    sha256 "ab8c85b76f636af8109d70ba27407bdec2e05a165746022375bf283411c9543f" => :mavericks
+    sha256 "a3d294b554108d9d4279c4cb7faec47bace12d809ceace2d78eb6379d64c1cf3" => :sierra
+    sha256 "3544a2a3a19abac783869335f5429d7d34e709fb9487f3a5c7d6f956b7c2a561" => :el_capitan
+    sha256 "8555464d08d154a85e81a10704913e63dcf7fe94fd3d055f44bbbfae3b93f27d" => :yosemite
   end
 
   depends_on "go" => :build
@@ -38,10 +38,6 @@ class Clipper < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/clipper</string>
-        <string>--address</string>
-        <string>127.0.0.1</string>
-        <string>--port</string>
-        <string>8377</string>
       </array>
       <key>EnvironmentVariables</key>
       <dict>
@@ -51,5 +47,26 @@ class Clipper < Formula
     </dict>
     </plist>
     EOS
+  end
+
+  test do
+    TEST_DATA = "a simple string! to test clipper, with söme spéciål characters!! 🐎\n".freeze
+
+    cmd = [opt_bin/"clipper", "-a", testpath/"clipper.sock", "-l", testpath/"clipper.log"].freeze
+    ohai cmd.join " "
+
+    require "open3"
+    Open3.popen3({ "LANG" => "en_US.UTF-8" }, *cmd) do |_, _, _, clipper|
+      sleep 0.5 # Give it a moment to launch and create its socket.
+      begin
+        sock = UNIXSocket.new testpath/"clipper.sock"
+        assert_equal TEST_DATA.bytesize, sock.sendmsg(TEST_DATA)
+        sock.close
+        sleep 0.5
+        assert_equal TEST_DATA, `LANG=en_US.UTF-8 pbpaste`
+      ensure
+        Process.kill "TERM", clipper.pid
+      end
+    end
   end
 end

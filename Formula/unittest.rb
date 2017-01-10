@@ -12,10 +12,6 @@ class Unittest < Formula
     sha256 "2acbb80540c9ff3c17cf4ab95db16657947761813915a94fa4afc0204e4b09b3" => :mavericks
   end
 
-  fails_with :llvm do
-    build 2334
-  end
-
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

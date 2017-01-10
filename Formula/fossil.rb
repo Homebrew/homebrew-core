@@ -35,7 +35,7 @@ class Fossil < Formula
     end
 
     if build.with? "osxfuse"
-      ENV.prepend "CFLAGS", "-I#{HOMEBREW_PREFIX}/include/osxfuse"
+      ENV.prepend "CFLAGS", "-I/usr/local/include/osxfuse"
     else
       args << "--disable-fusefs"
     end

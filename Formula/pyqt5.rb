@@ -3,11 +3,12 @@ class Pyqt5 < Formula
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
   url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.7/PyQt5_gpl-5.7.tar.gz"
   sha256 "892693ba5f79989abb2061dad2d5c4e6f127e9dd3240f73f8220c7152cd35b05"
+  revision 1
 
   bottle do
-    sha256 "712463bc94f0658bc160e308b096047de132c860034cb93ed55cfb655a149baf" => :sierra
-    sha256 "661671d00238a33251feba784b76ad735c44a95b59f5a2db0ccb2a4e0e901726" => :el_capitan
-    sha256 "b0db1a3299549820aca3a54f7e3499c1278d0531c0697ebf68c334396cd80b2d" => :yosemite
+    sha256 "00a65868fb96a2281e2af3e7739a773c75fc2d4a70b11aaf7693bd7ca8788e9f" => :sierra
+    sha256 "b31d6639c1598c2b5466e5d66ae7157e4cfa50ea0a86853934264822e7ddf35d" => :el_capitan
+    sha256 "0f86e5e31c9378e4fe02e9648811df717dd28831fa62c69f34866c539cfc94da" => :yosemite
   end
 
   option "with-debug", "Build with debug symbols"
@@ -56,8 +57,8 @@ class Pyqt5 < Formula
   end
 
   test do
-    system "pyuic5", "--version"
-    system "pylupdate5", "-version"
+    system "#{bin}/pyuic5", "--version"
+    system "#{bin}/pylupdate5", "-version"
     Language::Python.each_python(build) do |python, _version|
       system python, "-c", "import PyQt5"
       %w[

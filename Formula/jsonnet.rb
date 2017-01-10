@@ -22,8 +22,6 @@ class Jsonnet < Formula
   end
 
   test do
-    require "utils/json"
-
     (testpath/"example.jsonnet").write <<-EOS
       {
         person1: {
@@ -46,6 +44,6 @@ class Jsonnet < Formula
     }
 
     output = shell_output("#{bin}/jsonnet #{testpath}/example.jsonnet")
-    assert_equal expected_output, Utils::JSON.load(output)
+    assert_equal expected_output, JSON.parse(output)
   end
 end

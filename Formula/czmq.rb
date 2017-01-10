@@ -1,14 +1,14 @@
 class Czmq < Formula
   desc "High-level C binding for ZeroMQ"
   homepage "http://czmq.zeromq.org/"
-  url "https://github.com/zeromq/czmq/releases/download/v4.0.1/czmq-4.0.1.tar.gz"
-  sha256 "0fc7294d983df7c2d6dc9b28ad7cd970377d25b33103aa82932bdb7fa6207215"
+  url "https://github.com/zeromq/czmq/releases/download/v4.0.2/czmq-4.0.2.tar.gz"
+  sha256 "808c7a2262ca733d7a2c362e0a00fdbe5ec517d90fa017ba405b7cdb4f81eb89"
 
   bottle do
     cellar :any
-    sha256 "a8a996216bf15cc37a48507c1549162517f7afb30289b5fd18808015b2686596" => :sierra
-    sha256 "d649c24c131485e701c461970db241aa2c59e0a98fdd831787703943477f25fc" => :el_capitan
-    sha256 "b408b48eeb8fe5bd31277197c322f67fde275693e9b5f7ddd5ea1d8dffb03455" => :yosemite
+    sha256 "5e7c9ba51cf01d6bd653b727a50ffef388e17aa7a6732f769cbc33e64a8bde69" => :sierra
+    sha256 "52a626dc63cbb469a726230389ad5388fe218399380a7868a46429d6392bb38c" => :el_capitan
+    sha256 "e68078e86128bb2aba85c7bbc765f962fc5e506b1886712a255064af2fa4a844" => :yosemite
   end
 
   head do

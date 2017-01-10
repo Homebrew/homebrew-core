@@ -1,15 +1,14 @@
 class SharedMimeInfo < Formula
   desc "Database of common MIME types"
   homepage "https://wiki.freedesktop.org/www/Software/shared-mime-info"
-  url "https://freedesktop.org/~hadess/shared-mime-info-1.7.tar.xz"
-  sha256 "eacc781cfebaa2074e43cf9521dc7ab4391ace8a4712902b2841669c83144d2e"
-  revision 1
+  url "https://freedesktop.org/~hadess/shared-mime-info-1.8.tar.xz"
+  sha256 "2af55ef1a0319805b74ab40d331a3962c905477d76c086f49e34dc96363589e9"
 
   bottle do
     cellar :any
-    sha256 "181e7f618b5bdf09441314fea649dc4437c0ee8cc31975e093d13856cddff2d8" => :sierra
-    sha256 "f36bb002e90dca88585e5507ae744c09d3909916da051d05e96bf53534072936" => :el_capitan
-    sha256 "023e50b506b7401303b9a8a6b9ef5d4f3987786cc1d9456b6104af40df2d7498" => :yosemite
+    sha256 "d7ca64902748a28cc734fd835a7b85d9973115e33731291fba2e1bcf44eee9ea" => :sierra
+    sha256 "18b0140f44ab9b54a2e11d0df999d7628b03f1e50257cd35b0d080b9ed519e1f" => :el_capitan
+    sha256 "46b2ace2e454f893464cd674d723e54d096219470513ae639d6681155e96b364" => :yosemite
   end
 
   head do

@@ -28,6 +28,8 @@ class Uptimed < Formula
     system "make", "install"
   end
 
+  plist_options :manual => "uptimed"
+
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -54,6 +56,9 @@ class Uptimed < Formula
   end
 
   test do
-    system "#{bin}/uprecords"
+    system "#{sbin}/uptimed", "-t", "0"
+    sleep 2
+    output = shell_output("#{bin}/uprecords -s")
+    assert_match /->\s+\d+\s+\d+\w,\s+\d+:\d+:\d+\s+|.*/, output, "Uptime returned is invalid"
   end
 end

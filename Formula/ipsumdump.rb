@@ -1,16 +1,14 @@
 class Ipsumdump < Formula
   desc "Summarizes TCP/IP dump files into a self-describing ASCII format"
   homepage "http://www.read.seas.harvard.edu/~kohler/ipsumdump/"
-  url "http://www.read.seas.harvard.edu/~kohler/ipsumdump/ipsumdump-1.85.tar.gz"
-  sha256 "98feca0f323605a022ba0cabcd765a8fcad1b308461360a5ae6c4c293740dc32"
+  url "http://www.read.seas.harvard.edu/~kohler/ipsumdump/ipsumdump-1.86.tar.gz"
+  sha256 "e114cd01b04238b42cd1d0dc6cfb8086a6b0a50672a866f3d0d1888d565e3b9c"
   head "https://github.com/kohler/ipsumdump.git"
 
   bottle do
-    sha256 "4d8e9c2df9d9a7c1858f1a4152b68a8069c10e420af72758d7912b409680423a" => :sierra
-    sha256 "62031b89c4e974ff3f921fe0537f4d1bba6e492701488c84ba21c90fbfdb5139" => :el_capitan
-    sha256 "dd85d17c5ad0c0c54faee81f640f5089756b17f4ee94d257cb6990159eaa0489" => :yosemite
-    sha256 "470b7134576942b195a5643d5d59f7f6aba90ac0e61be7bbff57b2f47b6bf87c" => :mavericks
-    sha256 "b6fcabd37713036c619cdb7c0d12a2821c511ec640dac3e97f4d2806b1386e45" => :mountain_lion
+    sha256 "96148641aa0430d8b80cb3ebad8994d1911d61cad9557155172490579e210eaf" => :sierra
+    sha256 "a98b6116340b9b459f53310c030e99b8022f546c78cda7fcb040ea87c6e2a5f6" => :el_capitan
+    sha256 "83b145e153aa8e0680e9329035fb9ad55ce8875a2a6c8d35879821f51e394c7e" => :yosemite
   end
 
   def install

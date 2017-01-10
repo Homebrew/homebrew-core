@@ -1,19 +1,20 @@
 class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
-  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.4.1.tar.gz"
-  sha256 "7b0a95d2061e66d12b54e088ad899aa745995b9b3bf1916960cbdf6a89fb9ee3"
+  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.4.3.tar.gz"
+  sha256 "501b9302d4ae622f04305debacd2f59941409c6345056ebb272779ac375f874d"
+  revision 1
+  head "https://github.com/Project-OSRM/osrm-backend.git"
 
   bottle do
     cellar :any
-    sha256 "0ea0c9be72339e12711889ce65011784b32a8f8301d308e8139d5f63bb794a9f" => :sierra
-    sha256 "587bb9bd26d107334b4fddb852e0e0599b9ff85c8df9255265567df0a0831d4f" => :el_capitan
-    sha256 "3e84fa659f49edff978c4245c44b830553c1f609f9323a0ec68f3f5ec911f96e" => :yosemite
+    sha256 "5a93ab4c1aee2a1aa3aeff8bc8b739defae0050bda2b395169578495f339a2e8" => :sierra
+    sha256 "b57534d1a8324c9aa47f7d67e5440d04a1e819705ccda5ea14ce9f5773701a66" => :el_capitan
+    sha256 "6b54d9896a8ffda61751c2025884d967da02dc23a098da9bed2ae2bacb22b72f" => :yosemite
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "cmake"
   depends_on "libstxxl"
   depends_on "libxml2"
   depends_on "libzip"
@@ -27,6 +28,7 @@ class OsrmBackend < Formula
       system "make"
       system "make", "install"
     end
+    pkgshare.install "profiles"
   end
 
   test do

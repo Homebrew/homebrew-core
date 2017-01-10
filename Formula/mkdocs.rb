@@ -3,21 +3,22 @@ class Mkdocs < Formula
 
   desc "Project documentation with Markdown"
   homepage "http://www.mkdocs.org/"
-  url "https://github.com/mkdocs/mkdocs/archive/0.16.0.tar.gz"
-  sha256 "ff0108563ce8a33f4a0bc1f99e9817bd5cab2c9532f8a5ff272beba864066381"
+  url "https://github.com/mkdocs/mkdocs/archive/0.16.1.tar.gz"
+  sha256 "b665679d7c6da47e734a00e89f823e478cc57389ffeb49266de68a804f803f83"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e4a79d4db3f9380ffad1b91efb9f9332874835708bb08bebfe279647b1781240" => :sierra
-    sha256 "6e28a88716d65f29261d880cb7dd9029ed4ff45c52c355e5eed587918e962463" => :el_capitan
-    sha256 "e27c127ac68faa8ace392b8b5c0866e1cc2beb3668cc25613898a1c56cc57648" => :yosemite
+    sha256 "31db903b25de353f1149249d6e184425d6b8926f77cc1e818f3deba828542907" => :sierra
+    sha256 "2751b2e79c05ae4c1c2c682179e3b4b59c479bbf08c60cdff588b1729f184a25" => :el_capitan
+    sha256 "0470e202fd4adcf8c5ece8f48595ed5003921905adc33847739d00698fe179db" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "backports_abc" do
-    url "https://files.pythonhosted.org/packages/f5/d0/1d02695c0dd4f0cf01a35c03087c22338a4f72e24e2865791ebdb7a45eac/backports_abc-0.4.tar.gz"
-    sha256 "8b3e4092ba3d541c7a2f9b7d0d9c0275b21c6a01c53a61c731eba6686939d0a5"
+    url "https://files.pythonhosted.org/packages/68/3c/1317a9113c377d1e33711ca8de1e80afbaf4a3c950dd0edfaf61f9bfe6d8/backports_abc-0.5.tar.gz"
+    sha256 "033be54514a03e255df75c5aee8f9e672f663f93abb723444caec8fe43437bde"
   end
 
   resource "certifi" do
@@ -36,8 +37,8 @@ class Mkdocs < Formula
   end
 
   resource "livereload" do
-    url "https://files.pythonhosted.org/packages/d3/fb/fa04cd6a08cc42e1ac089220b6f42d124d01aeb0c70fbe169a73713ca636/livereload-2.4.1.tar.gz"
-    sha256 "887cc9976d72d7616fa57c82c4ef5bf5da27e2350dfd6f65d3f44e86efc51b92"
+    url "https://files.pythonhosted.org/packages/ba/71/2660028c74cb3289d4b9fd06632aa277b4edbe0747b7219cd92307fa19ba/livereload-2.5.0.tar.gz"
+    sha256 "bc708b46e22dff243c02e709c636ffeb8a64cdd019c95a215304e6ce183c4859"
   end
 
   resource "Markdown" do

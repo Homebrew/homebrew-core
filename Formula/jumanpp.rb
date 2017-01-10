@@ -10,8 +10,8 @@ class Jumanpp < Formula
     sha256 "522b6b6a9bade9082d131a0be2c852d9cb80aa99635265e87e54b98b91769b33" => :yosemite
   end
 
+  depends_on "boost-build" => :build
   depends_on "boost"
-  depends_on "boost-build"
   depends_on "gperftools"
 
   patch do

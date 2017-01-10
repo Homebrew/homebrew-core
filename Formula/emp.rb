@@ -25,7 +25,6 @@ class Emp < Formula
 
   test do
     require "webrick"
-    require "utils/json"
 
     server = WEBrick::HTTPServer.new :Port => 8035
     server.mount_proc "/apps/foo/releases" do |_req, res|
@@ -39,14 +38,14 @@ class Emp < Formula
         },
         "version" => 1,
       }
-      res.body = Utils::JSON.dump([resp])
+      res.body = JSON.generate([resp])
     end
 
     Thread.new { server.start }
 
     begin
       ENV["EMPIRE_API_URL"] = "http://127.0.0.1:8035"
-      assert_match /v1  zab  Oct 1(1|2|3) \d\d:00  my awesome release/,
+      assert_match /v1  zab  Oct 1(1|2|3)  2015  my awesome release/,
         shell_output("#{bin}/emp releases -a foo").strip
     ensure
       server.shutdown

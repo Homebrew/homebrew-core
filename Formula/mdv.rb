@@ -3,16 +3,17 @@ class Mdv < Formula
 
   desc "Styled terminal markdown viewer"
   homepage "https://github.com/axiros/terminal_markdown_viewer"
-  url "https://files.pythonhosted.org/packages/c8/94/931f2b9bae37acbe8de987884fc7a8a8981de6efc3ef9276d23b967f6c15/mdv-1.4.1.tar.gz"
-  sha256 "8792cd42c24445007b7eb6ad3ab28483ab6e47f2d6a5fe408e69b62bc83a567a"
+  url "https://github.com/axiros/terminal_markdown_viewer/archive/1.6.3.tar.gz"
+  sha256 "58dbdf8c051a2d7f8c00e4dc13c655c335cbc2bc96851dd0388d73a21c4507b6"
 
   bottle do
-    sha256 "454220cd1377ac315ee5ca5ed484f8e150d261bc50f1153e925d03f418f01b89" => :sierra
-    sha256 "9cacb9d0db26e8d1898a9b4fe1045063a821bd1b79c6e35f8b6b09be54126ee9" => :el_capitan
-    sha256 "dbbead980818a33d58c2e4f1ac4f0834c10aa8a8b483692457f0e40ff0291070" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "85fe18363a3c8b9f56526a6cf0d2bde2eb212cbb80ba8f1175a646c749f50ced" => :sierra
+    sha256 "5c371c8a9313f7cd8104d23978217916b2991d02da9605b2798d9d292b15f118" => :el_capitan
+    sha256 "d2ac3612660964bc8a33780f50c076ce884094735b3f1cc3686ac606c154af13" => :yosemite
   end
 
-  depends_on :python
+  depends_on :python if MacOS.version <= :snow_leopard
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"

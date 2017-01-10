@@ -1,27 +1,16 @@
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
   homepage "http://liballeg.org/"
-  revision 1
+  url "http://download.gna.org/allegro/allegro/5.2.2/allegro-5.2.2.tar.gz"
+  sha256 "e285b9e12a7b33488c0e7e139326903b9df10e8fa9adbfcfe2e1105b69ce94fc"
 
   head "https://github.com/liballeg/allegro5.git", :branch => "master"
 
-  stable do
-    url "http://download.gna.org/allegro/allegro/5.2.1.1/allegro-5.2.1.1.tar.gz"
-    sha256 "b5d9df303bc6d72d54260c24505889acd995049b75463b46344e797a58a44a71"
-
-    # Fix compilation on 10.12
-    # https://github.com/liballeg/allegro5/pull/682
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/2daef1c/allegro/patch-allegro-10.12.diff"
-      sha256 "f2879676a370749319b8247ab7437b8060c9d9dc2f58f45db0d782419fe37adf"
-    end
-  end
-
   bottle do
     cellar :any
-    sha256 "8491d79cf614dbf5a4fe3798d18d70493c64035d8d9c36db580f3654b7d294fe" => :sierra
-    sha256 "91486ac3298f48f4160fbed4980fc0ee3f92ff9ee6c3d92b9d1af83fc5bb2c88" => :el_capitan
-    sha256 "7488de3a760d2e36ab3a5933cff118c622a3dd9fb854bc31b8934922bb5cede6" => :yosemite
+    sha256 "f1bcce974ffeeedb441e364fdc4a3fdc7eb34a0f051f612534a408baf206cf5c" => :sierra
+    sha256 "50894c87f68741f5f65e148a31662cf5a7feead3072884352b77a4e0be8860fa" => :el_capitan
+    sha256 "f87c93bceed439a7cd581ee6d305b30268d113cd1f76205c5f32651acde370a6" => :yosemite
   end
 
   depends_on "cmake" => :build

@@ -15,7 +15,6 @@ class Ispell < Formula
 
   def install
     ENV.deparallelize
-    ENV.no_optimization
 
     # No configure script, so do this all manually
     cp "local.h.macos", "local.h"

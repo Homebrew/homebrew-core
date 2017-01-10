@@ -47,7 +47,7 @@ class Io < Formula
   end
 
   def install
-    ENV.j1
+    ENV.deparallelize
 
     # FSF GCC needs this to build the ObjC bridge
     ENV.append_to_cflags "-fobjc-exceptions"

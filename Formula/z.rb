@@ -15,7 +15,7 @@ class Z < Formula
 
   def caveats; <<-EOS.undent
     For Bash or Zsh, put something like this in your $HOME/.bashrc or $HOME/.zshrc:
-      . `brew --prefix`/etc/profile.d/z.sh
+      . #{etc}/profile.d/z.sh
     EOS
   end
 end

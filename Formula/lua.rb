@@ -20,11 +20,6 @@ class Lua < Formula
     satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
   end
 
-  fails_with :llvm do
-    build 2326
-    cause "Lua itself compiles with LLVM, but may fail when other software tries to link."
-  end
-
   option :universal
   option "with-completion", "Enables advanced readline support"
   option "without-sigaction", "Revert to ANSI signal instead of improved POSIX sigaction"

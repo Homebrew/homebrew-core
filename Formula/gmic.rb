@@ -1,15 +1,15 @@
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
-  url "https://gmic.eu/files/source/gmic_1.7.8.tar.gz"
-  sha256 "3a2f32d79714239cfa56ecb10799b7d73362b4e2a852444bc24866272cd041a4"
+  url "https://gmic.eu/files/source/gmic_1.7.9.1.tar.gz"
+  sha256 "152f100eb139a5f6e5b3d1e43aaed34f2b3786f72f52724ebde5e5ccea2c7133"
   head "https://github.com/dtschump/gmic.git"
 
   bottle do
     cellar :any
-    sha256 "ba328c321a3512d50e3c629cd90f07708d2c7f419864256b11f45c0598e88eb6" => :sierra
-    sha256 "8fbc070d68220caff4f6163ba5047041cf468ca1cb56cd994e160cec2541e6d8" => :el_capitan
-    sha256 "59505d916d46bb661986fa3291ecc781c06f94aa3fb1ce84fd3f2a3f07084929" => :yosemite
+    sha256 "a29a1d45e967f14ee748f041169e4dedce7444f3a33fced4e1983d601aaabe51" => :sierra
+    sha256 "7142932838ea10b26c94a11ab8ba3992f8773fe787836ceac06cf10e35e92a47" => :el_capitan
+    sha256 "34a3c667311ce14c54843b37b3a2846ee86958d818da0d660e8b33adb430eb48" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -33,9 +33,6 @@ class Gmic < Formula
     args << "-DENABLE_OPENEXR=OFF" if build.without? "openexr"
     system "cmake", *args
     system "make", "install"
-
-    # https://github.com/dtschump/gmic/issues/11
-    man1.install "man/gmic.1.gz"
   end
 
   test do

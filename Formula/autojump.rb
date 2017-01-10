@@ -7,9 +7,10 @@ class Autojump < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3cafdacb41c2e300682dfbc74ee28fe069d09a380a8e4bd7a6458cd6373200c5" => :sierra
-    sha256 "3cafdacb41c2e300682dfbc74ee28fe069d09a380a8e4bd7a6458cd6373200c5" => :el_capitan
-    sha256 "3cafdacb41c2e300682dfbc74ee28fe069d09a380a8e4bd7a6458cd6373200c5" => :yosemite
+    rebuild 1
+    sha256 "b2bc4e8a88f045cf59134eea71e64fd52c05fb5057dd48f9f8b00e84014f7975" => :sierra
+    sha256 "c7f4586872c6ae5bff8c1f75cf575dc89dbb590b2164ba95ba073510a10bdd78" => :el_capitan
+    sha256 "c7f4586872c6ae5bff8c1f75cf575dc89dbb590b2164ba95ba073510a10bdd78" => :yosemite
   end
 
   def install
@@ -26,7 +27,7 @@ class Autojump < Formula
   def caveats; <<-EOS.undent
     Add the following line to your ~/.bash_profile or ~/.zshrc file (and remember
     to source the file to update your current session):
-      [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+      [ -f #{etc}/profile.d/autojump.sh ] && . #{etc}/profile.d/autojump.sh
 
     If you use the Fish shell then add the following line to your ~/.config/fish/config.fish:
       [ -f #{HOMEBREW_PREFIX}/share/autojump/autojump.fish ]; and source #{HOMEBREW_PREFIX}/share/autojump/autojump.fish
@@ -37,7 +38,7 @@ class Autojump < Formula
     path = testpath/"foo/bar"
     path.mkpath
     output = %x(
-      source #{HOMEBREW_PREFIX}/etc/profile.d/autojump.sh
+      source #{etc}/profile.d/autojump.sh
       j -a "#{path.relative_path_from(testpath)}"
       j foo >/dev/null
       pwd

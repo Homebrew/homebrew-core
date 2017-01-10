@@ -1,18 +1,25 @@
 class Rtags < Formula
   desc "ctags-like source code cross-referencer with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
-  url "https://github.com/Andersbakken/rtags.git",
-      :tag => "v2.3",
-      :revision => "da75268b1caa973402ab17e501718da7fc748b34"
-  revision 1
-
   head "https://github.com/Andersbakken/rtags.git"
 
+  stable do
+    url "https://github.com/Andersbakken/rtags.git",
+        :tag => "v2.8",
+        :revision => "6ac7740eaf05cdd9b699185f71cc2d1f634a761b"
+
+    # Fix test failure "couldn't find process for pid"
+    # Upstream commit from 4 Jan 2017 "Copy environment from indexmessage"
+    patch do
+      url "https://github.com/Andersbakken/rtags/commit/cddf96a.patch"
+      sha256 "c7d2c62cba6ef8180ac6214af6dfdf2d0f6425b9453de7b55053ddcc74ce5fe2"
+    end
+  end
+
   bottle do
-    rebuild 1
-    sha256 "3f03bffd39241580d8855361e3bc1ce78045aae83234cad2352d84c695262089" => :sierra
-    sha256 "b7cb50df5b666ee070ab4fe7e25c20a17c05dc185384de3d34ef8c316b21a732" => :el_capitan
-    sha256 "281867ab049791b0e907b3f928696cd6c23acb568b0c5465e4e92812b560cd09" => :yosemite
+    sha256 "3e2649ceda64ae71a42c1907c34ba186b9b6937faaee13cec239c60f134c30f7" => :sierra
+    sha256 "c221421644f29d5f2680d7fe6375d6c7c46f2b4eeb5665707ca29a26541cf50e" => :el_capitan
+    sha256 "d875068e438884f4166a7a859fad9affbcb7a12c4164df38277fd548e6dc203b" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -84,14 +91,14 @@ class Rtags < Formula
     rdm = fork do
       $stdout.reopen("/dev/null")
       $stderr.reopen("/dev/null")
-      exec "#{bin}/rdm", "-L", "log"
+      exec "#{bin}/rdm", "--exclude-filter=\"\"", "-L", "log"
     end
 
     begin
       sleep 1
-      pipe_output("#{bin}/rc -c", "clang -c src/foo.c", 0)
+      pipe_output("#{bin}/rc -c", "clang -c #{testpath}/src/foo.c", 0)
       sleep 1
-      assert_match "foo.c:1:6", shell_output("#{bin}/rc -f src/foo.c:5:3")
+      assert_match "foo.c:1:6", shell_output("#{bin}/rc -f #{testpath}/src/foo.c:5:3")
       system "#{bin}/rc", "-q"
     ensure
       Process.kill 9, rdm

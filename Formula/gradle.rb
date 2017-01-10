@@ -1,15 +1,18 @@
 class Gradle < Formula
   desc "Build system based on the Groovy language"
   homepage "https://www.gradle.org/"
-  url "https://downloads.gradle.org/distributions/gradle-3.2-bin.zip"
-  sha256 "5321b36837226dc0377047a328f12010f42c7bf88ee4a3b1cee0c11040082935"
+  url "https://downloads.gradle.org/distributions/gradle-3.3-all.zip"
+  sha256 "71a787faed83c4ef21e8464cc8452b941b5fcd575043aa29d39d15d879be89f7"
 
   bottle :unneeded
+
+  option "with-all", "Installs Javadoc, examples, and source in addition to the binaries"
 
   depends_on :java => "1.7+"
 
   def install
     libexec.install %w[bin lib]
+    libexec.install %w[docs media samples src] if build.with? "all"
     bin.install_symlink libexec/"bin/gradle"
   end
 

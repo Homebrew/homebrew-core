@@ -3,14 +3,13 @@ class Zbar < Formula
   homepage "http://zbar.sourceforge.net"
   url "https://downloads.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2"
   sha256 "234efb39dbbe5cef4189cc76f37afbe3cfcfb45ae52493bfe8e191318bdbadc6"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "fe51e5b5668ba04ba18186a7f3f78267a9a4c8270ae4c25331e3963b8002b6b0" => :sierra
-    sha256 "41950a6ec2dc5631fba19098d644f9eed2b91b8be0a1a1473f6d93e796345bea" => :el_capitan
-    sha256 "175d9360172bc0afc153dc1e2b3e042d3d4ad27db94ed28573c12f4c77616b74" => :yosemite
-    sha256 "39865fe54a7bd3f0153e19729d0b958bd3ac5a5bac5d39a50194b39db2503317" => :mavericks
+    sha256 "29d40135e9a56213749341e374d0cf42270d542d1d8a959a7b97b03cea256449" => :sierra
+    sha256 "2f77c46a1a74bdd212c9a46c7928ee719f5e2f34fbe4c8ce1cb07e54f670b122" => :el_capitan
+    sha256 "531433ae5627a6f6776e9082a68683dd2886e8791b78c738157c3d45f06db051" => :yosemite
   end
 
   depends_on :x11 => :optional

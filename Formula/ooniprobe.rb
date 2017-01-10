@@ -3,19 +3,19 @@ class Ooniprobe < Formula
 
   desc "Network interference detection tool"
   homepage "https://ooni.torproject.org/"
-  url "https://pypi.python.org/packages/2e/5c/7fd90f852e0e4ed44e7740925326bb1798f908321b29394803755f5bef31/ooniprobe-2.0.1.tar.gz"
-  sha256 "cc4398716f7d7bb5806f8e0f25d3ec2ad36f7c611bd4506b21fb847da6120542"
+  url "https://pypi.python.org/packages/ea/31/f6ffff21b406b5c38b78f00b38897a48baae30eef0469089fb1330d86218/ooniprobe-2.1.0.tar.gz"
+  sha256 "867f51fcee8d84f68c42dea24c3384736a1e0cf153e1f18254e91682ca6e927a"
 
   bottle do
-    sha256 "ab5aa52408ae04f8b8e546efe1cc0516c75ec1ca78a5199f996fe3822fe4acdb" => :sierra
-    sha256 "04c6c488811904d5f627f3bd0a4dd9879c863d3f167ab0c412a52f9c428c15b1" => :el_capitan
-    sha256 "16b41cc859c7107c25f0976a13156eb59acf89cfe4642ad8c016a7a8364d8bcf" => :yosemite
+    sha256 "dba0edcdb9fc579dd9986d2a401606dbd56d30d314ad69430acebd6a7fcf913e" => :sierra
+    sha256 "32f7919942239715feee64c56d7dde35b4eaa0ce13923f0d162049d27553c056" => :el_capitan
+    sha256 "bf83530bdc3dec0c687e275a0fc2138aa4710760f43bfeea763ba9addc1c433e" => :yosemite
   end
 
   depends_on "geoip"
   depends_on "libdnet"
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   depends_on "tor"
   depends_on :python
 
@@ -200,41 +200,45 @@ class Ooniprobe < Formula
    <dict>
      <key>Label</key>
        <string>#{plist_name}</string>
-     <key>Program</key>
-       <string>#{opt_bin}/ooniprobe</string>
+     <key>EnvironmentVariables</key>
+     <dict>
+       <key>PATH</key>
+       <string>#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+     </dict>
      <key>ProgramArguments</key>
      <array>
-       <string>-i</string>
-       <string>#{pkgshare}/current.deck</string>
+       <string>#{opt_bin}/ooniprobe-agent</string>
+       <string>run</string>
      </array>
      <key>RunAtLoad</key>
-       <false/>
+       <true/>
      <key>KeepAlive</key>
-       <false/>
+       <true/>
      <key>StandardErrorPath</key>
        <string>/dev/null</string>
      <key>StandardOutPath</key>
        <string>/dev/null</string>
-     <key>StartCalendarInterval</key>
-     <dict>
-       <key>Hour</key>
-       <integer>00</integer>
-       <key>Minute</key>
-       <integer>00</integer>
-     </dict>
+     <key>WorkingDirectory</key>
+       <string>#{prefix}</string>
    </dict>
    </plist>
    EOS
   end
 
   test do
-    (testpath/".ooni").mkpath
-    ooniconf = testpath/".ooni/ooniprobe.conf"
-    cp pkgshare/"ooniprobe.conf.sample", ooniconf
-    inreplace ooniconf, "/var/log", testpath
-    touch testpath/".ooni/initialized"
+    mkdir_p "#{testpath}/ooni/var_lib"
+    mkdir_p "#{testpath}/ooni/etc"
 
-    (testpath/"hosts.txt").write "github.com:443\n"
-    system bin/"ooniprobe", "-n", "blocking/tcp_connect", "-f", testpath/"hosts.txt"
+    (testpath/"ooni/settings.ini").atomic_write <<-EOS.undent
+      [directories]
+      usr_share = #{pkgshare}
+      var_lib = #{testpath}/ooni/var_lib
+      etc = #{testpath}/ooni/etc
+    EOS
+    (testpath/"ooni/var_lib/initialized").write ""
+
+    (testpath/"ooni/hosts.txt").write "github.com:443\n"
+    ENV["OONIPROBE_SETTINGS"] = "#{testpath}/ooni/settings.ini"
+    system bin/"ooniprobe", "-ng", "blocking/tcp_connect", "-f", testpath/"ooni/hosts.txt"
   end
 end

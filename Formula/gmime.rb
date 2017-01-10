@@ -1,27 +1,25 @@
 class Gmime < Formula
   desc "MIME mail utilities"
   homepage "http://spruce.sourceforge.net/gmime/"
-  url "https://download.gnome.org/sources/gmime/2.6/gmime-2.6.20.tar.xz"
-  sha256 "e0a170fb264c2ae4cecd852f4e7aaddb8d58e8f3f0b569ce2d2a4704f55bdf65"
+  url "https://download.gnome.org/sources/gmime/2.6/gmime-2.6.22.tar.xz"
+  sha256 "c25f9097d5842a4808f1d62faf5eace24af2c51d6113da58d559a3bfe1d5553a"
 
   bottle do
-    cellar :any
-    sha256 "cb981e780b4171bd0547071cd3774fd853a1c59fbcaad68d2a5264e9be8a3917" => :sierra
-    sha256 "848440f6eaec305993135ee8708b81ad5ae2cfa9cfb5f7e6fcc8f4d077e9eda0" => :el_capitan
-    sha256 "445348c5634172858befc936961626d1bc45ee6e6119f11b764032efc1b96687" => :yosemite
-    sha256 "be33acb8e9285f2d17a0895fb7c85b0938c517708e81ea3de34a86065f0c49cd" => :mavericks
-    sha256 "89e935d9ed23f2c5c426e2f19a112a682e71e805ac89f7faf91f102e24676691" => :mountain_lion
+    sha256 "86225b6bfb8839d6641d3a7e158fb71ddcb84d9613acea8238b3e9e31cd33888" => :sierra
+    sha256 "0cb3dbc9dede5046e04ae5024afed3934a52ffb208d1ebc21e5d36a71aed7385" => :el_capitan
+    sha256 "bbc9ad0689d9c35835a8ca9ee1d162807ee107bb10bf447f23c4858f4d7f42ca" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "libgpg-error" => :build
   depends_on "glib"
+  depends_on "gobject-introspection"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-largefile",
-                          "--disable-introspection",
+                          "--enable-introspection",
                           "--disable-vala",
                           "--disable-mono",
                           "--disable-glibtest"

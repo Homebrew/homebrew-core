@@ -37,9 +37,6 @@ class Gegl < Formula
   depends_on "sdl" => :optional
 
   def install
-    # ./configure breaks when optimization is enabled with llvm
-    ENV.no_optimization if ENV.compiler == :llvm
-
     argv = %W[
       --disable-debug
       --disable-dependency-tracking

@@ -3,12 +3,12 @@ class Ice < Formula
   homepage "https://zeroc.com"
   url "https://github.com/zeroc-ice/ice/archive/v3.6.3.tar.gz"
   sha256 "82ff74e6d24d9fa396dbb4d9697dc183b17bc9c3f6f076fecdc05632be80a2dc"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "f77f68326d23a4fe732f7ddc771e766959902ebbe490a1712d21a9b4da666d7e" => :sierra
-    sha256 "a766b8562df95b2215cdc349027eb271711a52d22d8433f12d01a945fc79067b" => :el_capitan
-    sha256 "0731860bd7cebc7585dba29ea8c90497c198257adb69bddf9333798bb1d219c4" => :yosemite
+    sha256 "e59783409909806a1d958fa589de9cfb5f690b20c8402270258ad88443a2787a" => :sierra
+    sha256 "9994eecf827c3d53e39af5e15b30e14b25a4d4cf2ea999e898be64d99788a1df" => :el_capitan
+    sha256 "2ba154cc8311481dcbb4f202e854251891a69b3ef3e9e9ac21e25870b6ad6e7f" => :yosemite
   end
 
   option "with-java", "Build Ice for Java and the IceGrid Admin app"
@@ -48,6 +48,11 @@ class Ice < Formula
     end
 
     inreplace "cpp/src/slice2js/Makefile", /install:/, "dontinstall:"
+    # Fixes dynamic_cast error on Sierra that has been fixed upstream and will be included in the next upstream release
+    # https://github.com/zeroc-ice/ice/commit/99e39121fc8613bc4dd356d5479c03fa9bb40b97
+    inreplace "cpp/src/Ice/Instance.cpp",
+              "else if(!dynamic_cast<IceUtil::UnicodeWstringConverter*>(_wstringConverter.get()))",
+              "else"
 
     # Unset ICE_HOME as it interferes with the build
     ENV.delete("ICE_HOME")

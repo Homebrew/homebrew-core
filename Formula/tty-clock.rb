@@ -20,6 +20,6 @@ class TtyClock < Formula
   end
 
   test do
-    system "#{bin}/tty-clock -i"
+    system "#{bin}/tty-clock", "-i"
   end
 end

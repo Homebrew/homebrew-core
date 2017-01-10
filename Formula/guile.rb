@@ -45,11 +45,6 @@ class Guile < Formula
   depends_on "gmp"
   depends_on "readline"
 
-  fails_with :llvm do
-    build 2336
-    cause "Segfaults during compilation"
-  end
-
   fails_with :clang do
     build 211
     cause "Segfaults during compilation"

@@ -8,9 +8,10 @@ class Watson < Formula
   head "https://github.com/TailorDev/Watson.git"
 
   bottle do
-    sha256 "99d2a372c53ca9ad6d631fb14e3e235c0df12b121b0faad214161f31948bf5df" => :sierra
-    sha256 "8c93ae8eab5ce2b5a39973a106bf5e54c756f6efa5606332f3326dc225be9314" => :el_capitan
-    sha256 "49a31680d09bafb7f4067f10da498ea542f90c3630bc65ab31552ec59dd02c72" => :yosemite
+    rebuild 1
+    sha256 "abd34fcb26af6dfedbd04309e1f89cdf344b22106230babc52cde7278ebf83fa" => :sierra
+    sha256 "c442d3832a3fe7d1be02c4e164ffa2f0acfdb0037c973ed251c5c847bccdd28e" => :el_capitan
+    sha256 "3903dade326956273ec9f34e00b105aa3bfd7ea92a33aa2a9b1c2a2b68b3cce1" => :yosemite
   end
 
   depends_on :python
@@ -42,6 +43,9 @@ class Watson < Formula
 
   def install
     virtualenv_install_with_resources
+
+    bash_completion.install "watson.completion" => "watson"
+    zsh_completion.install "watson.zsh-completion" => "_watson"
   end
 
   test do

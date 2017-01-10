@@ -1,14 +1,14 @@
 class Nmap < Formula
   desc "Port scanning utility for large networks"
   homepage "https://nmap.org/"
-  url "https://nmap.org/dist/nmap-7.31.tar.bz2"
-  sha256 "cb9f4e03c0771c709cd47dc8fc6ac3421eadbdd313f0aae52276829290583842"
+  url "https://nmap.org/dist/nmap-7.40.tar.bz2"
+  sha256 "9e14665fffd054554d129d62c13ad95a7b5c7a046daa2290501909e65f4d3188"
   head "https://guest:@svn.nmap.org/nmap/", :using => :svn
 
   bottle do
-    sha256 "575123f2d2010f2cd05988dbf3534c005efe3607d0f0fca1e083369f508348f1" => :sierra
-    sha256 "69ccdc8010781ad9e827571259ed18cc605f8271d48ed9a2910f5a48ef212fdc" => :el_capitan
-    sha256 "613e3457aabdbd74919b8d16e29fe730141c265b1050233ee778dac76aaa8973" => :yosemite
+    sha256 "a8a43b57a4ed84ba718e7ab64015d118d8a9f4b99309ab114edcb8587c2f1693" => :sierra
+    sha256 "bf50768abbdcab2554e06925be69321cc6f8d36ed6125bacb6cd25b1af78356f" => :el_capitan
+    sha256 "713767f307d9cc28e40cacfe1663c175ec96fa5db483121df996aad1490773a6" => :yosemite
   end
 
   option "with-pygtk", "Build Zenmap GUI"
@@ -17,10 +17,6 @@ class Nmap < Formula
   depends_on "pygtk" => :optional
 
   conflicts_with "ndiff", :because => "both install `ndiff` binaries"
-
-  fails_with :llvm do
-    build 2334
-  end
 
   def install
     ENV.deparallelize

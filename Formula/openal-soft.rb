@@ -23,9 +23,7 @@ class OpenalSoft < Formula
   depends_on "pulseaudio" => :optional
   depends_on "fluid-synth" => :optional
 
-  # llvm-gcc does not support the alignas macro
   # clang 4.2's support for alignas is incomplete
-  fails_with :llvm
   fails_with(:clang) { build 425 }
 
   def install

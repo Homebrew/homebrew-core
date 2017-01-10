@@ -3,18 +3,24 @@ class Compcert < Formula
   homepage "http://compcert.inria.fr"
   url "http://compcert.inria.fr/release/compcert-2.7.1.tgz"
   sha256 "446199fb66c1e6e47eb464f2549d847298f3d7dcce9be6718da2a75c5dd00bee"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8eb897fde9bbb8c3180f702f2140f6301f404ce46adcb3008fb2f1aa15559716" => :sierra
-    sha256 "2e3d7fd8752d28a19427d1f194d664afee935652f2643a76ed8cb2aee0ad8785" => :el_capitan
-    sha256 "9659ca41c9ebe8ec673e47b140d8a78ec68610e77e9be34b322d7c8c058c881c" => :yosemite
-    sha256 "0194247311a58c8bb09107bc42b9971566c1a64dbb5457dc841b703ed884c7f8" => :mavericks
+    sha256 "b250bb227cc2c4b186a13d0140ab2a9a56c640f714c8ab65ac74ae00bded3ddf" => :sierra
+    sha256 "05979ef2cd32f7dd1e860e32a7dbc4338f193a358326dbf0720c4fe992849ce1" => :el_capitan
+    sha256 "d1b1c7c3ea3edf4e9f40b9c30d3d3bc4786e927dd8659928c697c0eb673c33c7" => :yosemite
   end
 
-  depends_on "coq" => :build
-  depends_on "ocaml" => :build
   depends_on "menhir" => :build
+  depends_on "ocaml" => :build
+  depends_on "opam" => :build
+
+  # remove for > 2.7.1; allow Coq version 8.5pl3
+  patch do
+    url "https://github.com/AbsInt/CompCert/commit/a8f87aa.patch"
+    sha256 "fb1b35503ae106a28b276521579fcf862772615414dca3ae3fabc4ed736ab5de"
+  end
 
   def install
     ENV.permit_arch_flags
@@ -25,9 +31,17 @@ class Compcert < Formula
     # causes problems with the compcert compiler at runtime.
     inreplace "configure", "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
 
-    system "./configure", "-prefix", prefix, "ia32-macosx"
-    system "make", "all"
-    system "make", "install"
+    ENV["OPAMYES"] = "1"
+    ENV["OPAMROOT"] = Pathname.pwd/"opamroot"
+    (Pathname.pwd/"opamroot").mkpath
+    system "opam", "init", "--no-setup"
+    system "opam", "install", "coq=8.5.3"
+    system "opam", "config", "exec", "--",
+           "./configure", "-prefix", prefix, "ia32-macosx"
+    system "opam", "config", "exec", "--",
+           "make", "all"
+    system "opam", "config", "exec", "--",
+           "make", "install"
   end
 
   test do

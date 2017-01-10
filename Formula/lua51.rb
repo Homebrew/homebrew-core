@@ -16,11 +16,6 @@ class Lua51 < Formula
     sha256 "821a3e39854354505c4751ce8605b20f56e441c43b1d8464fe37e5301122e9c2" => :mavericks
   end
 
-  fails_with :llvm do
-    build 2326
-    cause "Lua itself compiles with LLVM, but may fail when other software tries to link."
-  end
-
   option :universal
   option "with-completion", "Enables advanced readline support"
   option "without-sigaction", "Revert to ANSI signal instead of improved POSIX sigaction"

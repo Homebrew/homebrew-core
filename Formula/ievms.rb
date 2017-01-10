@@ -1,8 +1,8 @@
 class Ievms < Formula
   desc "Automated installation of Microsoft IE AppCompat virtual machines"
   homepage "https://xdissent.github.io/ievms/"
-  url "https://github.com/xdissent/ievms/archive/v0.3.1.tar.gz"
-  sha256 "4db0b334fa9471f1116e56b472ffd24f92c4d8a2d6e016cd9d4060c6059664bb"
+  url "https://github.com/xdissent/ievms/archive/v0.3.2.tar.gz"
+  sha256 "bd48678bf5472de198c65b9cc14c74eb0348b448ed25e252d8cecbdf948571d7"
 
   bottle :unneeded
 

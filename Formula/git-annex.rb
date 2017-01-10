@@ -5,15 +5,14 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20161111/git-annex-6.20161111.tar.gz"
-  sha256 "d6ea2566b5883fce8cdbd498d5b6fc22c4ed042de6514622b8b4a59ea4564f45"
+  url "https://hackage.haskell.org/package/git-annex-6.20170101/git-annex-6.20170101.tar.gz"
+  sha256 "5fbf88652a84278275d9d4bec083189f590b045e23a73bfe8d395c3e356e3f53"
   head "git://git-annex.branchable.com/"
 
   bottle do
-    cellar :any
-    sha256 "ef666f2f5ee23f9515705c7e6a2bdf2807f1c8f7738f8fe6fb914117d3c6a2d8" => :sierra
-    sha256 "e516b9b924b86df5f9e2e65618d40bf797d81ed634c497cc01e5ba7cbbb939e6" => :el_capitan
-    sha256 "29a2893aeb7f5d93adb702ef27db08a374916357704dc0b3d16c0045d4c197a6" => :yosemite
+    sha256 "dff23e6bdf87bacbed4ba55fd8038bcc9f4bca3d03c5e793cf4b07c8a8f5f88c" => :sierra
+    sha256 "1badb7ae0cb32fc292907330b15b3bf98533ac01b61e09ef5190fcd06a8bd777" => :el_capitan
+    sha256 "b5908bbdb75d5e2d2f36fd9ece046470935b59daa107b61ab89751be98711bbb" => :yosemite
   end
 
   option "with-git-union-merge", "Build the git-union-merge tool"
@@ -26,19 +25,29 @@ class GitAnnex < Formula
   depends_on "libmagic"
   depends_on "gnutls"
   depends_on "quvi"
+  depends_on "xdot" => :recommended
+
+  # new maintainer's fork, which will be in Hackage shortly
+  resource "esqueleto" do
+    url "https://github.com/bitemyapp/esqueleto.git",
+        :revision => "bfc8502dbf23251b3794bcd0370a100211297cc5"
+    version "2.5.0-alpha1"
+  end
 
   def install
-    # Fixes CI timeout by providing a more specific hint for Solver
-    # Reported 9 Aug 2016: https://github.com/joeyh/git-annex/pull/56
-    # Can be removed once prowdsponsor/esqueleto#137 is resolved
-    inreplace "git-annex.cabal", "persistent (< 2.5)", "persistent (== 2.2.4.1)"
-
-    install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
-      # this can be made the default behavior again once git-union-merge builds properly when bottling
-      if build.with? "git-union-merge"
-        system "make", "git-union-merge", "PREFIX=#{prefix}"
-        bin.install "git-union-merge"
-        system "make", "git-union-merge.1", "PREFIX=#{prefix}"
+    cabal_sandbox do
+      (buildpath/"esqueleto").install resource("esqueleto")
+      inreplace "esqueleto/esqueleto.cabal",
+        "base                 >= 4.5     && < 4.9",
+        "base                 >= 4.5     && < 5.0"
+      cabal_sandbox_add_source "esqueleto"
+      install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
+        # this can be made the default behavior again once git-union-merge builds properly when bottling
+        if build.with? "git-union-merge"
+          system "make", "git-union-merge", "PREFIX=#{prefix}"
+          bin.install "git-union-merge"
+          system "make", "git-union-merge.1", "PREFIX=#{prefix}"
+        end
       end
     end
     bin.install_symlink "git-annex" => "git-annex-shell"

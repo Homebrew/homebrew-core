@@ -44,7 +44,7 @@ class Nzbget < Formula
                           "--prefix=#{prefix}",
                           "--with-tlslib=OpenSSL"
     system "make"
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
     pkgshare.install_symlink "nzbget.conf" => "webui/nzbget.conf"
 

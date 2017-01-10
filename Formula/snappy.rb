@@ -26,7 +26,7 @@ class Snappy < Formula
 
   def install
     ENV.universal_binary if build.universal?
-    ENV.j1 if build.stable?
+    ENV.deparallelize if build.stable?
 
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",

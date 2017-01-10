@@ -1,17 +1,15 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://directory.fsf.org/wiki/Libgcrypt"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.3.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.3.tar.bz2"
-  sha256 "ddac6111077d0a1612247587be238c5294dd0ee4d76dc7ba783cc55fb0337071"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.5.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.5.tar.bz2"
+  sha256 "d1fea4128beef2bb30a470af6bafabccc503ced350534fb9dd8f5a53ffbae800"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "e7c80b73a6f1cc25ace8c581eaede93e069f1c5ae3c83275fb6ae3f5031d7bcd" => :sierra
-    sha256 "af9419bfc33e847b7c3e47e2c7cf44daef081e534e631001a56169aa5e538cc6" => :el_capitan
-    sha256 "6c838cfadd82115e2e5efcc1f8109e3b7a1f2f5f37d63bf00d70e72dda60689d" => :yosemite
-    sha256 "b2e8b5cc88d5041f6d4f19c7edfee8439fb1669908804ba7bd55202c8e4bcc42" => :mavericks
+    sha256 "7fd2065fca349fd01415149d0770de66f750a9ed33fd80cc83bbfbf2a08cf349" => :sierra
+    sha256 "1b8169618ad2c94cbda19f6b9cdfcc536e480e2013cccc82058142f90dd7e086" => :el_capitan
+    sha256 "16edd40459fb68fd0db4e802ce5ec78a17ffc16b6285f13a5236cdf7920ba4f3" => :yosemite
   end
 
   option :universal
@@ -25,13 +23,14 @@ class Libgcrypt < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-    # Temporary hack to get libgcrypt building on macOS 10.12.
+    # Temporary hack to get libgcrypt building on macOS 10.12 and 10.11 with XCode 8.
     # Seems to be a Clang issue rather than an upstream one, so
     # keep checking whether or not this is necessary.
     # Should be reported to GnuPG if still an issue when near stable.
     # https://github.com/Homebrew/homebrew-core/issues/1957
-    ENV.O1 if MacOS.version >= :sierra
+    ENV.O1 if DevelopmentTools.clang_build_version >= 800
+
+    ENV.universal_binary if build.universal?
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

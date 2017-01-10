@@ -21,6 +21,10 @@ class Libvpx < Formula
 
   depends_on "yasm" => :build
 
+  # configure misdetects 32-bit 10.6
+  # https://code.google.com/p/webm/issues/detail?id=401
+  depends_on :macos => :lion
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -33,15 +37,13 @@ class Libvpx < Formula
     args << "--enable-gcov" if !ENV.compiler == :clang && build.with?("gcov")
     args << "--enable-postproc" << "--enable-postproc-visualizer" if build.with? "visualizer"
 
-    # configure misdetects 32-bit 10.6
-    # https://code.google.com/p/webm/issues/detail?id=401
-    if MacOS.version == "10.6" && Hardware::CPU.is_32_bit?
-      args << "--target=x86-darwin10-gcc"
-    end
-
     mkdir "macbuild" do
       system "../configure", *args
       system "make", "install"
     end
+  end
+
+  test do
+    system "otool", "-a", lib/"libvpx.a"
   end
 end

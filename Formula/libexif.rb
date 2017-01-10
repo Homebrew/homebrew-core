@@ -14,11 +14,6 @@ class Libexif < Formula
     sha256 "c84d39e0e1b14770c53190e46aa80ed4155dc22106a104d11fe4c85e533bf1ba" => :mountain_lion
   end
 
-  fails_with :llvm do
-    build 2334
-    cause "segfault with llvm"
-  end
-
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
