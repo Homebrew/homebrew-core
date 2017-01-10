@@ -6,9 +6,9 @@ class Yaz < Formula
 
   bottle do
     cellar :any
-    sha256 "39be7127f9bc208d3d867aa39d1bb4216429d95ca04e5bf2666431cd94af5bcf" => :sierra
-    sha256 "f3b856a1e45573057d642c8d33974545d4d8e221b5a905c76f98e5dfa73306b0" => :el_capitan
-    sha256 "c2ea2bf66fc26a793af64cb27397de828dbc8d54ce652392aa1e305d39070450" => :yosemite
+    sha256 "39dd3b0b0b503ed4f4900c5ace059f798aebcf81872d0ae5a88a5bf3416fc7ed" => :sierra
+    sha256 "addd7b9ce258035ca2dd747d9db958b153b90d9c1625dc23afd07a098fb82969" => :el_capitan
+    sha256 "97870a023abbe71efd8d48c1d13240f94756f48f645485daa406716d70c9d9ff" => :yosemite
   end
 
   head do
