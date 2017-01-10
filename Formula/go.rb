@@ -31,9 +31,9 @@ class Go < Formula
   end
 
   devel do
-    url "https://storage.googleapis.com/golang/go1.8beta2.src.tar.gz"
-    version "1.8beta2"
-    sha256 "f5d8252f7746c77df0beb205b8f8b158362ad1718e1a2195d122ac43859f5930"
+    url "https://storage.googleapis.com/golang/go1.8rc1.src.tar.gz"
+    version "1.8rc1"
+    sha256 "aa25758b754369018c507bbf646dda7839a41ffe4fd85a014c9704d7d8720dda"
 
     resource "gotools" do
       url "https://go.googlesource.com/tools.git"
