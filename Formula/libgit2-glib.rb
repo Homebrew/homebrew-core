@@ -3,7 +3,7 @@ class Libgit2Glib < Formula
   homepage "https://github.com/GNOME/libgit2-glib"
   url "https://download.gnome.org/sources/libgit2-glib/0.24/libgit2-glib-0.24.4.tar.xz"
   sha256 "3a211f756f250042f352b3070e7314a048c88e785dba9d118b851253a7c60220"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "2f6732dfc6bbffc4ebbe8158b72e222cfe82679068da5cf1d0ad0e036a976eaf" => :sierra
@@ -34,8 +34,8 @@ class Libgit2Glib < Formula
   # Vendor libgit2 0.24.x since libgit2-glib isn't compatible with 0.25.x yet
   # Reported 28 Dec 2016 https://bugzilla.gnome.org/show_bug.cgi?id=776506
   resource "libgit2" do
-    url "https://github.com/libgit2/libgit2/archive/v0.24.5.tar.gz"
-    sha256 "f6135ee64b174f449c8857272352c11ca182af05a340237834cedcc9eb390cba"
+    url "https://github.com/libgit2/libgit2/archive/v0.24.6.tar.gz"
+    sha256 "7b441a96967ff525e790f8b66859faba5c6be4c347124011f536ae9075ebc30c"
   end
 
   def install
