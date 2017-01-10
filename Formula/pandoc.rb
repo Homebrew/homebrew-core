@@ -21,9 +21,11 @@ class Pandoc < Formula
 
   def install
     cabal_sandbox do
-      # remove for > 1.19.1; compatibility with directory 1.3
-      system "cabal", "get", "pandoc"
-      mv "pandoc-1.19.1/pandoc.cabal", "pandoc.cabal"
+      if build.stable?
+        # remove for > 1.19.1; compatibility with directory 1.3
+        system "cabal", "get", "pandoc"
+        mv "pandoc-1.19.1/pandoc.cabal", "pandoc.cabal"
+      end
 
       args = []
       args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
