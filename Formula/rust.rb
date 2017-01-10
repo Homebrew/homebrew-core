@@ -39,6 +39,7 @@ class Rust < Formula
 
   option "with-llvm", "Build with brewed LLVM. By default, Rust's LLVM will be used."
   option "with-racer", "Build Racer code completion tool, and retain Rust sources."
+  option "with-cargo", "Build with 'cargo' binary in CARGO_PATH."
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :run
@@ -71,6 +72,7 @@ class Rust < Formula
 
     resource("cargo").stage do
       cargo_stage_path = pwd
+      cargo_path = ENV["CARGO_PATH"]
 
       if build.stable?
         resource("cargo-nightly-2015-09-17").stage do
@@ -78,6 +80,16 @@ class Rust < Formula
           # satisfy make target to skip download
           touch "#{cargo_stage_path}/target/snapshot/cargo/bin/cargo"
         end
+      end
+
+      if build.with? "cargo"
+        ohai "Building with 'cargo' binary from #{cargo_path.inspect}"
+
+        unless which("cargo", cargo_path)
+          odie "Couldn't find cargo binary in #{cargo_path.inspect}"
+        end
+
+        ENV.prepend_path "PATH", cargo_path
       end
 
       system "./configure", "--prefix=#{prefix}", "--local-rust-root=#{prefix}", "--enable-optimize"
