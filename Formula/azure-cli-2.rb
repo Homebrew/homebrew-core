@@ -11,14 +11,14 @@ class AzureCli2 < Formula
 
   # Apply the 'az component' patch
   patch do
-    url "https://azurecliprod.blob.core.windows.net/homebrew/azure_cli_homebrew_patch_component_0.1.5_custom.diff"
-    sha256 "674819102cfb112bc5c150c2dd5a1316d8b2c456f6af94a2c5f17240b35c14c3"
+    url "https://azurecliprod.blob.core.windows.net/patches/patch_0.1.5_component_custom.diff"
+    sha256 "d61ef29ace9bbdfef9a25dfbb1f475225bbca174263c8f863ee70f87d0a78bbe"
   end
 
   # Apply pip module search patch
   patch do
-    url "https://azurecliprod.blob.core.windows.net/homebrew/azure_cli_homebrew_patch_pkg_util_0.1.5.diff"
-    sha256 "f5993264c11e57a08263bb6221925710a213564403ff84877d5c89f273a907d0"
+    url "https://azurecliprod.blob.core.windows.net/patches/patch_0.1.5_pkg_util.diff"
+    sha256 "ea0879280dbb3074d464752c27bfe01a7673da14137a4c4315d1938a0d05a03e"
   end
 
   def completion_script; <<-EOS.undent
