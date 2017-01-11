@@ -7,12 +7,14 @@ class ZshGitPrompt < Formula
   bottle :unneeded
 
   def install
-    prefix.install Dir["*.{sh,py}"]
+    inreplace "zshrc.sh", "export __GIT_PROMPT_DIR=${0:A:h}", "export __GIT_PROMPT_DIR=#{opt_prefix}"
+    prefix.install Dir["*.py"]
+    zsh_function.install "zshrc.sh" => "zsh-git-prompt"
   end
 
   def caveats; <<-EOS.undent
     First, make sure zsh-git-prompt is loaded from your .zshrc:
-      source "#{opt_prefix}/zshrc.sh"
+      autoload -Uz zsh-git-prompt && zsh-git-prompt
 
     Then include $(git_super_status) in your PROMPT or RPROMPT, e.g.:
       PROMPT='%B%m%~%b$(git_super_status) %# '
@@ -21,7 +23,7 @@ class ZshGitPrompt < Formula
 
   test do
     system "git", "init"
-    zsh_command = ". #{opt_prefix}/zshrc.sh && git_super_status"
+    zsh_command = "autoload -Uz zsh-git-prompt && zsh-git-prompt && git_super_status"
     assert_match "master", shell_output("zsh -c '#{zsh_command}'")
   end
 end
