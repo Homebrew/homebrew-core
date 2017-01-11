@@ -25,6 +25,14 @@ class Ydk < Formula
   end
 
   test do
-    system "brew", "ls", "--versions", "ydk"
+    (testpath/"CMakeLists.txt").write("cmake_minimum_required(VERSION 2.8.9)
+find_library( LIB_YDK NAMES libydk ydk
+    PATHS
+    /usr/lib
+    /usr/lib64
+    /usr/local/lib
+    /usr/local/lib64
+    PATH_SUFFIXES release )")
+    system "cmake", "."
   end
 end
