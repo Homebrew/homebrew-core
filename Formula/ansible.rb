@@ -529,6 +529,11 @@ class Ansible < Formula
     url "https://pypi.python.org/packages/source/z/zabbix-api/zabbix-api-0.4.tar.gz"
     sha256 "31fab8ca9b12aa5e6fe79b4463cfe62f33ded770ddc933a8d99c4debe934a0de"
   end
+  
+  resource "zabbix-api" do
+    url "https://pypi.python.org/packages/source/z/zabbix-api/zabbix-api-0.4.tar.gz"
+    sha256 "31fab8ca9b12aa5e6fe79b4463cfe62f33ded770ddc933a8d99c4debe934a0de"
+  end
 
   def install
     inreplace "lib/ansible/constants.py" do |s|
