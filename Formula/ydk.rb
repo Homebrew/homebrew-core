@@ -7,8 +7,11 @@ class Ydk < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "boost-python"
-  depends_on "pkg-config" => :build
+  depends_on "curl"
   depends_on "libssh"
+  depends_on "pcre"
+  depends_on "xml2"
+  depends_on "pkg-config" => :build
   depends_on :x11 => :optional
 
   def install
