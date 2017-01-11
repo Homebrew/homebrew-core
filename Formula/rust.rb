@@ -3,23 +3,17 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.13.0-src.tar.gz"
-    sha256 "ecb84775ca977a5efec14d0cad19621a155bfcbbf46e8050d18721bb1e3e5084"
+    url "https://static.rust-lang.org/dist/rustc-1.14.0-src.tar.gz"
+    sha256 "c790edd2e915bd01bea46122af2942108479a2fda9a6f76d1094add520ac3b6b"
 
     resource "cargo" do
       # git required because of submodules
-      url "https://github.com/rust-lang/cargo.git", :tag => "0.14.0", :revision => "eca9e159b6b0d484788ac757cf23052eba75af55"
+      url "https://github.com/rust-lang/cargo.git", :tag => "0.15.0", :revision => "298a0127f703d4c2500bb06d309488b92ef84ae1"
     end
 
     resource "racer" do
       url "https://github.com/phildawes/racer/archive/2.0.3.tar.gz"
       sha256 "0396ce9e8535ecb821d556e40758ce5dc2ba37fcfa6f96d6caa7d1a9a88acba8"
-    end
-
-    # name includes date to satisfy cache
-    resource "cargo-nightly-2015-09-17" do
-      url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2015-09-17/cargo-nightly-x86_64-apple-darwin.tar.gz"
-      sha256 "02ba744f8d29bad84c5e698c0f316f9e428962b974877f7f582cd198fdd807a8"
     end
   end
 
@@ -70,16 +64,6 @@ class Rust < Formula
     system "make", "install"
 
     resource("cargo").stage do
-      cargo_stage_path = pwd
-
-      if build.stable?
-        resource("cargo-nightly-2015-09-17").stage do
-          system "./install.sh", "--prefix=#{cargo_stage_path}/target/snapshot/cargo"
-          # satisfy make target to skip download
-          touch "#{cargo_stage_path}/target/snapshot/cargo/bin/cargo"
-        end
-      end
-
       system "./configure", "--prefix=#{prefix}", "--local-rust-root=#{prefix}", "--enable-optimize"
       system "make"
       system "make", "install"
