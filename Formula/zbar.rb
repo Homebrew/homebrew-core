@@ -3,7 +3,7 @@ class Zbar < Formula
   homepage "http://zbar.sourceforge.net"
   url "https://downloads.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2"
   sha256 "234efb39dbbe5cef4189cc76f37afbe3cfcfb45ae52493bfe8e191318bdbadc6"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -27,6 +27,12 @@ class Zbar < Formula
   patch :DATA
 
   def install
+    # ImageMagick 7 compatibility
+    # Reported 20 Jun 2016 https://sourceforge.net/p/zbar/support-requests/156/
+    inreplace ["configure", "zbarimg/zbarimg.c"],
+      "wand/MagickWand.h",
+      "ImageMagick-7/MagickWand/MagickWand.h"
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -44,6 +50,10 @@ class Zbar < Formula
 
     system "./configure", *args
     system "make", "install"
+  end
+
+  test do
+    system bin/"zbarimg", "-h"
   end
 end
 
