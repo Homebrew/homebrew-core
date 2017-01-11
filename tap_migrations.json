@@ -62,6 +62,7 @@
   "discodex": "homebrew/boneyard",
   "djmount": "homebrew/fuse",
   "dmenu": "homebrew/x11",
+  "dmtx-utils": "homebrew/boneyard",
   "dotwrp": "homebrew/science",
   "drizzle": "homebrew/boneyard",
   "drush": "homebrew/php",
