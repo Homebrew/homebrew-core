@@ -9,9 +9,9 @@ class Conan < Formula
 
   bottle do
     cellar :any
-    sha256 "1efae503cdaed62e2149a01429e0faf71f1c7432d53d041bc1d8083c2928a21f" => :sierra
-    sha256 "2a520eeb381ba3b72ae15bd3c1c63916b4ff5d47365d67cd925a9d75a9df0aa7" => :el_capitan
-    sha256 "ffe0714498b505413cfebc737ce0041b0842fa99287b71158c77de123d5aa187" => :yosemite
+    sha256 "358f60ab559c07ec28caff01c208172e3bd2131c30b27c627ddc57add5b31015" => :sierra
+    sha256 "3d8200f7c7b4a50428b56a57d2e7d165704b27399aaa704bbfed56b7b715bd58" => :el_capitan
+    sha256 "63c2ab8d9088b81005761e747c8b3e4c4ec62317a1e6364c8319b719705b7f9c" => :yosemite
   end
 
   depends_on "pkg-config" => :build
