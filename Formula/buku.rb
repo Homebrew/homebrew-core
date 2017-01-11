@@ -3,9 +3,8 @@ class Buku < Formula
 
   desc "Command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v2.7.tar.gz"
-  sha256 "9ebc95a665e56460d91b9d98711f1eba722b14a14a058e2ef330b117b79943fe"
-  revision 1
+  url "https://github.com/jarun/Buku/archive/v2.8.tar.gz"
+  sha256 "164ef66619012d6e89c11cd1f8b5247e3f31005ae89d97a59adc7760e76092b9"
 
   bottle do
     sha256 "9b3511452cb07c82bc2a62d18689adec92fac87aa584d7b6b9cf75a19c81fb58" => :sierra
@@ -17,8 +16,8 @@ class Buku < Formula
   depends_on "openssl@1.1"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/86/ea/8e9fbce5c8405b9614f1fd304f7109d9169a3516a493ce4f7f77c39435b7/beautifulsoup4-4.5.1.tar.gz"
-    sha256 "3c9474036afda9136aac6463def733f81017bf9ef3510d25634f335b0c87f5e1"
+    url "https://files.pythonhosted.org/packages/9b/a5/c6fa2d08e6c671103f9508816588e0fb9cec40444e8e72993f3d4c325936/beautifulsoup4-4.5.3.tar.gz"
+    sha256 "b21ca09366fa596043578fd4188b052b46634d22059e68dd0077d9ee77e08a3e"
   end
 
   resource "cffi" do
@@ -27,13 +26,13 @@ class Buku < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/d7/a2/b90736c37fd720db425c5e48d69da75a6eff6609b22d2123762f1ae8c5f5/cryptography-1.6.tar.gz"
-    sha256 "4d0d86d2c8d3fc89133c3fa0d164a688a458b6663ab6fa965c80d6c2cdaf9b3f"
+    url "https://files.pythonhosted.org/packages/82/f7/d6dfd7595910a20a563a83a762bf79a253c4df71759c3b228accb3d7e5e4/cryptography-1.7.1.tar.gz"
+    sha256 "953fef7d40a49a795f4d955c5ce4338abcec5dea822ed0414ed30348303fdb4c"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/fb/84/8c27516fbaa8147acd2e431086b473c453c428e24e8fb99a1d89ce381851/idna-2.1.tar.gz"
-    sha256 "ed36f281aebf3cd0797f163bb165d84c31507cedd15928b095b1675e2d04c676"
+    url "https://files.pythonhosted.org/packages/94/fe/efb1cb6f505e1a560b3d080ae6b9fddc11e7c542d694ce4635c49b1ccdcb/idna-2.2.tar.gz"
+    sha256 "0ac27740937d86850010e035c6a10a564158a5accddf1aa24df89b0309252426"
   end
 
   resource "pyasn1" do
@@ -52,8 +51,8 @@ class Buku < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/6e/40/7434b2d9fe24107ada25ec90a1fc646e97f346130a2c51aa6a2b1aba28de/requests-2.12.1.tar.gz"
-    sha256 "2109ecea94df90980be040490ff1d879971b024861539abb00054062388b612e"
+    url "https://files.pythonhosted.org/packages/5b/0b/34be574b1ec997247796e5d516f3a6b6509c4e064f2885a96ed885ce7579/requests-2.12.4.tar.gz"
+    sha256 "ed98431a0631e309bb4b63c81d561c1654822cb103de1ac7b47e45c26be7ae34"
   end
 
   resource "six" do
@@ -68,7 +67,22 @@ class Buku < Formula
 
   def install
     venv = virtualenv_create(libexec, "python3")
-    venv.pip_install resources
+
+    resource("cryptography").stage do
+      if MacOS.version < :sierra
+        # Fixes .../cryptography/hazmat/bindings/_openssl.so: Symbol not found: _getentropy
+        # Reported 20 Dec 2016 https://github.com/pyca/cryptography/issues/3332
+        inreplace "src/_cffi_src/openssl/src/osrandom_engine.h",
+          "#elif defined(BSD) && defined(SYS_getentropy)",
+          "#elif defined(BSD) && defined(SYS_getentropy) && 0"
+      end
+      venv.pip_install Pathname.pwd
+    end
+
+    other_resources = resources.map(&:name).to_set - ["cryptography"]
+    other_resources.each do |r|
+      venv.pip_install resource(r)
+    end
 
     # Replace shebang with virtualenv python
     inreplace "buku.py", "#!/usr/bin/env python3", "#!#{libexec}/bin/python"
@@ -81,6 +95,7 @@ class Buku < Formula
   end
 
   test do
+    ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["XDG_DATA_HOME"] = "#{testpath}/.local/share"
 
     # Firefox exported bookmarks file
