@@ -61,14 +61,22 @@ class Minio < Formula
       <array>
         <string>#{opt_bin}/minio</string>
         <string>server</string>
-        <string>--config-dir=etc/minio</string>
+        <string>--config-dir=#{etc}/minio</string>
         <string>--address :9000</string>
-        <string>var/minio</string>
+        <string>#{var}/minio</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
+      <key>KeepAlive</key>
+      <true/>
       <key>WorkingDirectory</key>
-      <string>var/minio</string>
+      <string>#{HOMEBREW_PREFIX}</string>
+      <key>StandardErrorPath</key>
+      <string>#{var}/log/minio/output.log</string>
+      <key>StandardOutPath</key>
+      <string>#{var}/log/minio/output.log</string>
+      <key>RunAtLoad</key>
+      <true/>
     </dict>
     </plist>
     EOS
