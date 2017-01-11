@@ -3,8 +3,8 @@ class Thefuck < Formula
 
   desc "Programatically correct mistyped console commands"
   homepage "https://github.com/nvbn/thefuck"
-  url "https://files.pythonhosted.org/packages/cf/15/968269f67bb03743401b45b0a43e22ee465f3159e6fe37e459ceec20268c/thefuck-3.12.tar.gz"
-  sha256 "cedd841699de351385b50143e8f5b69f07d50b512029be1a7ec7184f14a9cd64"
+  url "https://files.pythonhosted.org/packages/92/dc/c03623252b8a165257ba6bbcf3c87117c92807c27ab42cf933018d97722e/thefuck-3.14.tar.gz"
+  sha256 "0d00217a3b90af50d7c88806cf560b0ac59071c115df4c2a67800f6ea1f1be4d"
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
@@ -16,11 +16,6 @@ class Thefuck < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  resource "bashlex" do
-    url "https://files.pythonhosted.org/packages/e6/83/8f35a0a430908e5c964fbf31a8e46fbac125d1bbf066a1e26110c618a3ff/bashlex-0.12.tar.gz"
-    sha256 "94bcf8759f28286d4fe2bbc408fa50e9fb7c46fa7097eac5b7cd76d75ca9936d"
-  end
-
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/f0/d0/21c6449df0ca9da74859edc40208b3a57df9aca7323118c913e58d442030/colorama-0.3.7.tar.gz"
     sha256 "e043c8d32527607223652021ff648fbb394d5e19cba9f1a698670b338c9d782b"
@@ -29,11 +24,6 @@ class Thefuck < Formula
   resource "decorator" do
     url "https://files.pythonhosted.org/packages/13/8a/4eed41e338e8dcc13ca41c94b142d4d20c0de684ee5065523fee406ce76f/decorator-4.0.10.tar.gz"
     sha256 "9c6e98edcb33499881b86ede07d9968c81ab7c769e28e9af24075f0a5379f070"
-  end
-
-  resource "enum34" do
-    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
-    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
   end
 
   resource "pathlib2" do
