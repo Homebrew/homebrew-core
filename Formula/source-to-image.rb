@@ -9,6 +9,7 @@ class SourceToImage < Formula
   end
 
   test do
-    system "#{bin}/s2i", "-h"
+    system "#{bin}/s2i", "create", "testimage", testpath
+    assert_match(/Dockerfile/, shell_output("ls").chomp)
   end
 end
