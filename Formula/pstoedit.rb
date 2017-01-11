@@ -3,7 +3,7 @@ class Pstoedit < Formula
   homepage "http://www.pstoedit.net/"
   url "https://downloads.sourceforge.net/project/pstoedit/pstoedit/3.70/pstoedit-3.70.tar.gz"
   sha256 "06b86113f7847cbcfd4e0623921a8763143bbcaef9f9098e6def650d1ff8138c"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "826db501efe9109b15048acc51c21dde4d9bb3fa0a0fd0e941266fa0fa386cde" => :sierra
