@@ -8,9 +8,9 @@ class Terraform < Formula
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
-    sha256 "fda4490da4afcb5dd9cf388070558ccbc3b64d3f3ba27f13d9b0f713804d1dd3" => :sierra
-    sha256 "c142239ddf58910120a625e108df12e8e6af17c89321d2f6e36fe127b7a14aaa" => :el_capitan
-    sha256 "7b05a53a6f2a182bc8c253e33e076932eab38acda5485e7b8f67493dc050ae9b" => :yosemite
+    sha256 "e1a862010f45c40579c60824d44e363a8e6dafec1133621ff17001ec242edb69" => :sierra
+    sha256 "e39368674d9ae7c8ced56afdb2c9272ace52b5ead3eed14fc7641a0dce066d6f" => :el_capitan
+    sha256 "bb9f76ff821920f745f5f7c0fc4e82718d68f5f64e3ca91a3def83158d70a65b" => :yosemite
   end
 
   depends_on "go" => :build
