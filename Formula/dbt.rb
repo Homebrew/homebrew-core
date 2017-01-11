@@ -7,9 +7,9 @@ class Dbt < Formula
   sha256 "b8241785dcb40ab5f68addc72eafeb52e498e9ddc83aa979bd3b5d3f89a86bd8"
 
   bottle do
-    sha256 "3870236908885795e7b5e0feafe8a3a87118d7457439854d89c32c58ef0dc449" => :sierra
-    sha256 "9c97da4daf1f094da371dc6e705ac0ff567e205026b3728be6fd64885afae148" => :el_capitan
-    sha256 "bc666783dbc2730ce750d4f3126b8a792be7cc7cd6ebe9d8d08f49700a179da9" => :yosemite
+    sha256 "bec0024cc753e6d711bf216a1dc73e4abe7c595aeaae7c929a6d3c7111207f17" => :sierra
+    sha256 "2703213a6bc34e6f9eda11ff38ab73c7afa5bdf66a734aeb81c2af86ac048d96" => :el_capitan
+    sha256 "85911b5abab482b537be1a78331fff3d37451cd69a381a0e2e3b82e465887a8a" => :yosemite
   end
 
   depends_on "python3"
