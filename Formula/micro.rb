@@ -6,7 +6,7 @@ class Micro < Formula
   url "https://github.com/zyedidia/micro.git",
     :tag => "v1.1.3",
     :revision => "67ac3f1a244913273ece41fe78208de635c1d6db"
-  head "https://github.com/zyedidia/micro.git"
+  head "https://github.com/zyedidia/micro.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
