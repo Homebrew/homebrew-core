@@ -160,6 +160,9 @@ class Rclone < Formula
     ln_s buildpath, buildpath/"src/github.com/ncw/rclone"
     Language::Go.stage_deps resources, buildpath/"src"
     system "go", "build", "-o", bin/"rclone"
+
+    system bin/"rclone", "genautocomplete", "bash_completion"
+    bash_completion.install "bash_completion" => "rclone"
   end
 
   test do
