@@ -3,6 +3,7 @@ class Git < Formula
   homepage "https://git-scm.com"
   url "https://www.kernel.org/pub/software/scm/git/git-2.11.0.tar.xz"
   sha256 "7e7e8d69d494892373b87007674be5820a4bc1ef596a0117d03ea3169119fd0b"
+  revision 1
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
@@ -18,6 +19,8 @@ class Git < Formula
   option "with-brewed-svn", "Use Homebrew's version of SVN"
   option "with-persistent-https", "Build git-remote-persistent-https from 'contrib' directory"
 
+  depends_on "asciidoc" => :build
+  depends_on "xmlto" => :build
   depends_on "pcre" => :optional
   depends_on "gettext" => :optional
   depends_on "openssl" if build.with? "brewed-openssl"
@@ -95,6 +98,17 @@ class Git < Formula
 
     system "make", "install", *args
 
+    # We could build the manpages ourselves, but the build process depends
+    # on many other packages, and is somewhat crazy, this way is easier.
+    # This should happen before other installs, so that the manpages extract
+    # to the correct place.
+    man.install resource("man")
+    (share/"doc/git-doc").install resource("html")
+
+    # Make html docs world-readable
+    chmod 0644, Dir["#{share}/doc/git-doc/**/*.{html,txt}"]
+    chmod 0755, Dir["#{share}/doc/git-doc/{RelNotes,howto,technical}"]
+
     # Install the macOS keychain credential helper
     cd "contrib/credential/osxkeychain" do
       system "make", "CC=#{ENV.cc}",
@@ -112,9 +126,12 @@ class Git < Formula
 
     # Install git-subtree
     cd "contrib/subtree" do
-      system "make", "CC=#{ENV.cc}",
+      ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+      system "make", "prefix=#{prefix}",
+                     "CC=#{ENV.cc}",
                      "CFLAGS=#{ENV.cflags}",
                      "LDFLAGS=#{ENV.ldflags}"
+      system "make", "install-doc", "prefix=#{prefix}"
       bin.install "git-subtree"
     end
 
@@ -138,15 +155,6 @@ class Git < Formula
 
     elisp.install Dir["contrib/emacs/*.el"]
     (share/"git-core").install "contrib"
-
-    # We could build the manpages ourselves, but the build process depends
-    # on many other packages, and is somewhat crazy, this way is easier.
-    man.install resource("man")
-    (share/"doc/git-doc").install resource("html")
-
-    # Make html docs world-readable
-    chmod 0644, Dir["#{share}/doc/git-doc/**/*.{html,txt}"]
-    chmod 0755, Dir["#{share}/doc/git-doc/{RelNotes,howto,technical}"]
 
     # To avoid this feature hooking into the system OpenSSL, remove it.
     # If you need it, install git --with-brewed-openssl.
