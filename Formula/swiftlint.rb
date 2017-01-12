@@ -19,7 +19,8 @@ class Swiftlint < Formula
   end
 
   test do
-    (testpath/"Test.swift").write "import Foundation\n"
-    system "#{bin}/swiftlint"
+    # Rewrite test after sandbox issues investigated.
+    # https://github.com/Homebrew/homebrew/pull/50211
+    system "#{bin}/swiftlint", "version"
   end
 end
