@@ -113,16 +113,8 @@ class Macvim < Formula
   test do
     # Simple test to check if MacVim was linked to Python version in $PATH
     if build.with? "python"
-      vim_path = prefix/"MacVim.app/Contents/MacOS/Vim"
-
-      # Get linked framework using otool
-      otool_output = `otool -L #{vim_path} | grep -m 1 Python`.gsub(/\(.*\)/, "").strip.chomp
-
-      # Expand the link and get the python exec path
-      vim_framework_path = Pathname.new(otool_output).realpath.dirname.to_s.chomp
       system_framework_path = `python-config --exec-prefix`.chomp
-
-      assert_equal system_framework_path, vim_framework_path
+      assert_match system_framework_path, `mvim --version`
     end
   end
 end
