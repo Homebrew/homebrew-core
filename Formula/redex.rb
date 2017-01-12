@@ -10,9 +10,9 @@ class Redex < Formula
   depends_on "automake" => :build
   depends_on "libevent" => :build
   depends_on "libtool" => :build
-  depends_on "boost" => :run
-  depends_on "python3" => :run
-  depends_on "jsoncpp" => :run
+  depends_on "boost"
+  depends_on "python3"
+  depends_on "jsoncpp"
 
   def install
     system "autoreconf", "-ivf"
