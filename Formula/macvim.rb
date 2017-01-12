@@ -2,9 +2,9 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-120.tar.gz"
-  version "8.0-120"
-  sha256 "8b8a0f0c05203f9732bae17f79f7170244958acb995432a4381373ab2cdfaf86"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-121.tar.gz"
+  version "8.0-121"
+  sha256 "1ab29899fd72cbe7de975b9378bb754a5f5f2e5cce43a88356d2fac284126acc"
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
@@ -33,6 +33,9 @@ class Macvim < Formula
   env :std if MacOS.version <= :snow_leopard
 
   def install
+    # Avoid "fatal error: 'ruby/config.h' file not found"
+    ENV.delete("SDKROOT") if MacOS.version == :yosemite
+
     # MacVim doesn't have or require any Python package, so unset PYTHONPATH
     ENV.delete("PYTHONPATH")
 
