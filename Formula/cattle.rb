@@ -1,12 +1,8 @@
 class Cattle < Formula
   desc "Brainfuck language toolkit"
   homepage "https://github.com/andreabolognani/cattle"
-  # Source archive tarball results in "./ChangeLog: No such file or directory"
-  # Reported 12 Sep 2016 https://github.com/andreabolognani/cattle/issues/4
-  url "https://github.com/andreabolognani/cattle.git",
-      :tag => "cattle-1.2.1",
-      :revision => "338a34f7abc35334afd378f305c6e1fb0d0abd7d"
-  head "https://github.com/andreabolognani/cattle.git"
+  url "http://kiyuko.org/software/cattle/releases/1.2.2/source"
+  sha256 "e8e9baba41c4b25a1fdac552c5b03ad62a4dbb782e9866df3c3463baf6411826"
 
   bottle do
     sha256 "0c7554bcd19bbe7b416741b27f9447cebcd1ffff9081b3a3d4877a6ab1395e87" => :sierra
@@ -15,11 +11,16 @@ class Cattle < Formula
     sha256 "93bea5bb1f99a9ec84a3ddc2bbe752cc9fd7627b6f099ac54fadc3150405749b" => :mavericks
   end
 
-  depends_on "gtk-doc" => :build
+  head do
+    url "https://github.com/andreabolognani/cattle.git"
+
+    depends_on "gtk-doc" => :build
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => :build
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
 
@@ -28,8 +29,10 @@ class Cattle < Formula
     cp_r ["examples", "tests"], pkgshare
     rm Dir["#{pkgshare}/{examples,tests}/{Makefile.am,.gitignore}"]
 
-    inreplace "autogen.sh", "libtoolize", "glibtoolize"
-    system "sh", "autogen.sh"
+    if build.head?
+      inreplace "autogen.sh", "libtoolize", "glibtoolize"
+      system "sh", "autogen.sh"
+    end
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
