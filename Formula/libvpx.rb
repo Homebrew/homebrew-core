@@ -44,6 +44,6 @@ class Libvpx < Formula
   end
 
   test do
-    system "otool", "-a", lib/"libvpx.a"
+    system "ar", "-x", "#{lib}/libvpx.a"
   end
 end
