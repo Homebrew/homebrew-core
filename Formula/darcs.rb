@@ -5,9 +5,8 @@ class Darcs < Formula
 
   desc "Distributed version control system that tracks changes, via Haskell"
   homepage "http://darcs.net/"
-  url "https://hackage.haskell.org/package/darcs-2.12.4/darcs-2.12.4.tar.gz"
-  sha256 "48e836a482bd2fcfe0be499fe4f255925ce50bdcf5ce8023bb9aa359288fdc49"
-  revision 1
+  url "https://hackage.haskell.org/package/darcs-2.12.5/darcs-2.12.5.tar.gz"
+  sha256 "355b04c85c27bca43c8c380212988d9c1e9a984b0b593ceb2884de4295063553"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,10 +20,6 @@ class Darcs < Formula
   depends_on "gmp"
 
   def install
-    # Upstream issue "darcs.cabal needs directory 1.3 compatibility"
-    # Reported 9 Jan 2017 http://bugs.darcs.net/issue2520
-    inreplace "darcs.cabal", "directory    >= 1.2.0.1 && < 1.3.0.0,",
-                             "directory    >= 1.2.0.1 && < 1.4.0.0,"
     install_cabal_package
   end
 
