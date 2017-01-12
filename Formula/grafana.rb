@@ -3,8 +3,8 @@ require "language/node"
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases."
   homepage "http://grafana.org"
-  url "https://github.com/grafana/grafana/archive/v4.1.0.tar.gz"
-  sha256 "bc47fd409b57be4e498d8ec2ca34da8476961bfc9c51a6d1ccebbaf5949c00ac"
+  url "https://github.com/grafana/grafana/archive/v4.1.1.tar.gz"
+  sha256 "34ecd6c7d3e30b7b0eecf78f57383ad3b4754f5da9da77f031ca4b5866fe9893"
 
   head "https://github.com/grafana/grafana.git"
 
