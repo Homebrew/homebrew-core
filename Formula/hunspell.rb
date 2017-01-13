@@ -3,6 +3,7 @@ class Hunspell < Formula
   homepage "https://hunspell.github.io"
   url "https://github.com/hunspell/hunspell/archive/v1.6.0.tar.gz"
   sha256 "512e7d2ee69dad0b35ca011076405e56e0f10963a02d4859dbcc4faf53ca68e2"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,8 +14,8 @@ class Hunspell < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "gettext" => :build
   depends_on "libtool" => :build
+  depends_on "gettext"
   depends_on "readline"
 
   conflicts_with "freeling", :because => "both install 'analyze' binary"
@@ -42,7 +43,6 @@ class Hunspell < Formula
   end
 
   test do
-    cp_r "#{pkgshare}/tests/.", testpath
-    system "./test.sh"
+    system bin/"hunspell", "--help"
   end
 end
