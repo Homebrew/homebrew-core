@@ -3,9 +3,8 @@ class Rtv < Formula
 
   desc "Command-line Reddit client"
   homepage "https://github.com/michael-lazar/rtv"
-  url "https://github.com/michael-lazar/rtv/archive/v1.13.0.tar.gz"
-  sha256 "801f8674599d4a4abb5593d3d5ac957a748d3daf06f962538a0ae717db117abd"
-  revision 1
+  url "https://github.com/michael-lazar/rtv/archive/v1.14.1.tar.gz"
+  sha256 "78650214b4c50f0ba6fd0b79def5d2abd16d14dddbddc67783ffa2b985fdb2ac"
   head "https://github.com/michael-lazar/rtv.git"
 
   bottle do
@@ -17,8 +16,8 @@ class Rtv < Formula
   depends_on :python3
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/86/ea/8e9fbce5c8405b9614f1fd304f7109d9169a3516a493ce4f7f77c39435b7/beautifulsoup4-4.5.1.tar.gz"
-    sha256 "3c9474036afda9136aac6463def733f81017bf9ef3510d25634f335b0c87f5e1"
+    url "https://files.pythonhosted.org/packages/9b/a5/c6fa2d08e6c671103f9508816588e0fb9cec40444e8e72993f3d4c325936/beautifulsoup4-4.5.3.tar.gz"
+    sha256 "b21ca09366fa596043578fd4188b052b46634d22059e68dd0077d9ee77e08a3e"
   end
 
   resource "decorator" do
@@ -32,18 +31,18 @@ class Rtv < Formula
   end
 
   resource "mailcap-fix" do
-    url "https://files.pythonhosted.org/packages/2e/44/79b536cf6659c8a93ac3aa988726c0dbfc84fa35ac40910795ec83dcbe0e/mailcap-fix-0.2.0.tar.gz"
-    sha256 "0fc57a701801cd31c45a8f0a661144085b4b0c56b8990c74f9af02af1d0feb60"
+    url "https://files.pythonhosted.org/packages/c2/e5/55485018f29af549d94e7a52ce9271ec88ff5f5f2f8246bcc7ce13e3897f/mailcap-fix-1.0.1.tar.gz"
+    sha256 "113c0b36091ac0b8181c33f2cd4905280e1bb316383d3c3fcae98c6df094910a"
   end
 
   resource "praw" do
-    url "https://files.pythonhosted.org/packages/9b/90/2b41c0b374164a9b033093aea7c7f2b392c6333972f83156ab92a3bfbbc4/praw-3.5.0.zip"
-    sha256 "0aa3da06d731ed5aa8994f34e46fb36006d168d597ddee216671369917fe8dc3"
+    url "https://files.pythonhosted.org/packages/84/1b/8e0601a0841089e8d2d86b54a22dae8b53bc8c94bb188f4bab8407206ced/praw-3.6.1.tar.gz"
+    sha256 "b36000883533c2f4572fe8810a3b4b245c32b80b7a521211ace8023f40e35997"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/2e/ad/e627446492cc374c284e82381215dcd9a0a87c4f6e90e9789afefe6da0ad/requests-2.11.1.tar.gz"
-    sha256 "5acf980358283faba0b897c73959cecf8b841205bb4b2ad3ef545f46eae1a133"
+    url "https://files.pythonhosted.org/packages/5b/0b/34be574b1ec997247796e5d516f3a6b6509c4e064f2885a96ed885ce7579/requests-2.12.4.tar.gz"
+    sha256 "ed98431a0631e309bb4b63c81d561c1654822cb103de1ac7b47e45c26be7ae34"
   end
 
   resource "six" do
@@ -52,8 +51,8 @@ class Rtv < Formula
   end
 
   resource "update_checker" do
-    url "https://files.pythonhosted.org/packages/ae/06/84e8872337ff2c94a417eef571ac727b1cf2c98355462f7ca239d9eba987/update_checker-0.11.tar.gz"
-    sha256 "681bc7c26cffd1564eb6f0f3170d975a31c2a9f2224a32f80fe954232b86f173"
+    url "https://files.pythonhosted.org/packages/de/17/35d8c5cf206b2840fec39bf33c3817aec0320433f8de574441468a632e99/update_checker-0.16.tar.gz"
+    sha256 "70e39446fccf77b21192cf7a8214051fa93a636dc3b5c8b602b589d100a168b8"
   end
 
   def install
