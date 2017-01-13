@@ -6,16 +6,22 @@ class Autorest < Formula
 
   depends_on "mono"
 
+  resource "swagger" do
+    url "https://raw.githubusercontent.com/Azure/autorest/master/Samples/petstore/petstore.json"
+    sha256 "8de4043eff83c71d49f80726154ca3935548bd974d915a6a9b6aa86da8b1c87c"
+  end
+
   def install
     libexec.install Dir["*"]
     (bin/"autorest").write <<-EOS.undent
       #!/bin/bash
-      mono #{libexec}/autorest.exe "$@"
+      mono #{libexec}/AutoRest.exe "$@"
     EOS
   end
 
   test do
-    system "curl", "-#SLO", "https://raw.githubusercontent.com/Azure/autorest/master/Samples/petstore/petstore.json"
-    assert_match "Finished generating CSharp code for petstore.json.", shell_output("#{bin}/autorest -n test -i petstore.json | tail -1")
+    resource("swagger").stage do
+      assert_match "Finished generating CSharp code for petstore.json.", shell_output("#{bin}/autorest -n test -i petstore.json | tail -1")
+    end
   end
 end
