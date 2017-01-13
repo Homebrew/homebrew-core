@@ -5,11 +5,9 @@ class Pdns < Formula
   sha256 "d051e53b63f586c924f00ce8a81662f7bd285b461d125d4991538f92cf7e629d"
 
   bottle do
-    rebuild 1
-    sha256 "f547277f50df63e7e1b440a004484af0703013a8a85e184e46caa40b38463c9b" => :sierra
-    sha256 "3ad6cd394a15d6aef7d68648103e934d1cd172733346ed2a72a1f0ddffd0a8df" => :el_capitan
-    sha256 "3f7651090d99aa1b1fe2d7dd317b936f7c8c357ff0e6c0a5587b98715b7b4658" => :yosemite
-    sha256 "e11c02d5f242205cd1190bcdd32a1cc96649e2ee7f0ec72039422c6993452179" => :mavericks
+    sha256 "69dba7691ad395dcfc1a5d41505b88a5b3fdec3b19e10fd89fe1ad52a7da128e" => :sierra
+    sha256 "62083c5d449fc0f1f537171bebec8cfc252ca3a0cc8fa3aefa557651df4494c4" => :el_capitan
+    sha256 "e3323131ac6c78dd5da8725d420759f5af55e65ec4d3b00189f43efea617b060" => :yosemite
   end
 
   head do
