@@ -1,8 +1,10 @@
 class StormpathCli < Formula
+  include Language::Python::Virtualenv
+
   desc "Command-line interface for https://stormpath.com/ user management"
   homepage "https://github.com/stormpath/stormpath-cli"
-  url "https://github.com/stormpath/stormpath-cli/archive/0.1.1.tar.gz"
-  sha256 "36b0c68127fa5f95f1440eb3f10c36a572e4c2ae54963146495a8b103dd33d34"
+  url "https://github.com/stormpath/stormpath-cli/archive/0.1.2.tar.gz"
+  sha256 "8e66da2c8891b029317e6e8cbd8b6413318af8582249137bfed597d9b215e795"
   head "https://github.com/stormpath/stormpath-cli.git"
 
   bottle do
@@ -16,8 +18,8 @@ class StormpathCli < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "cssselect" do
-    url "https://files.pythonhosted.org/packages/11/21/47b5d2696a945da177d2344b6e330b7b0d1c52404063cb387d2261517ccb/cssselect-0.9.2.tar.gz"
-    sha256 "713b5b99ef08022257b3409c7ae1b18b2c6536b3f155e6237c5cfba0f67ae6f5"
+    url "https://files.pythonhosted.org/packages/77/ff/9c865275cd19290feba56344eba570e719efb7ca5b34d67ed12b22ebbb0d/cssselect-1.0.1.tar.gz"
+    sha256 "73db1c054b9348409e2862fc6c0dde5c4e4fbe4da64c5c5a9e05fbea45744077"
   end
 
   resource "docopt" do
@@ -31,8 +33,8 @@ class StormpathCli < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/11/1b/fe6904151b37a0d6da6e60c13583945f8ce3eae8ebd0ec763ce546358947/lxml-3.6.0.tar.gz"
-    sha256 "9c74ca28a7f0c30dca8872281b3c47705e21217c8bc63912d95c9e2a7cac6bdf"
+    url "https://files.pythonhosted.org/packages/66/45/f11fc376f784c6f2e77ffc7a9d02374ff3ceb07ede8c56f918939409577c/lxml-3.7.2.tar.gz"
+    sha256 "59d9176360dbc3919e9d4bfca85c1ca64ab4f4ee00e6f119d7150ba887e3410a"
   end
 
   resource "oauthlib" do
@@ -46,23 +48,23 @@ class StormpathCli < Formula
   end
 
   resource "PyJWT" do
-    url "https://files.pythonhosted.org/packages/55/88/88d9590195a7fcc947501806f79c0918d8d3cdc6f519225d4efaaf3965e8/PyJWT-1.4.0.tar.gz"
-    sha256 "e1b2386cfad541445b1d43e480b02ca37ec57259fd1a23e79415b57ba5d8a694"
+    url "https://files.pythonhosted.org/packages/8f/10/9ce7e91d8ec9d852db6f9f2b076811d9f51ed7b0360602432d95e6ea4feb/PyJWT-1.4.2.tar.gz"
+    sha256 "87a831b7a3bfa8351511961469ed0462a769724d4da48a501cb8c96d1e17f570"
   end
 
   resource "pyquery" do
-    url "https://files.pythonhosted.org/packages/e0/4c/29d89a63446a1693798c7431188b75371921de4ea1506c06159e9eca23d6/pyquery-1.2.13.tar.gz"
-    sha256 "fbc95cf422ac79fa00c5107a2f33dff7dd106d6de569493bd938881b75d42e49"
+    url "https://files.pythonhosted.org/packages/dc/37/c2012b88a0ba957b5f27619054eaf21d66b7fd7261d8ade998f1e154eb46/pyquery-1.2.17.tar.gz"
+    sha256 "6aa0133b30d9a0229ad65d3a7708c4e853bf46808fb359d06ca56f5039102af6"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
-    sha256 "1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed"
+    url "https://files.pythonhosted.org/packages/51/fc/39a3fbde6864942e8bb24c93663734b74e281b984d1b8c4f95d64b0c21f6/python-dateutil-2.6.0.tar.gz"
+    sha256 "62a2f8df3d66f878373fd0072eacf4ee52194ba302e00082828e0d263b0418d2"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
-    sha256 "63f1815788157130cee16a933b2ee184038e975f0017306d723ac326b5525b54"
+    url "https://files.pythonhosted.org/packages/5b/0b/34be574b1ec997247796e5d516f3a6b6509c4e064f2885a96ed885ce7579/requests-2.12.4.tar.gz"
+    sha256 "ed98431a0631e309bb4b63c81d561c1654822cb103de1ac7b47e45c26be7ae34"
   end
 
   resource "six" do
@@ -71,8 +73,8 @@ class StormpathCli < Formula
   end
 
   resource "stormpath" do
-    url "https://files.pythonhosted.org/packages/08/00/8566ef03476112f13120569816644f3af7e8cdc7a13cb776417c520eca8e/stormpath-2.4.0.tar.gz"
-    sha256 "d226aecf5535680b537a3f95fb383b19fe08312a031cb26fcb3aa3b68d1f1b66"
+    url "https://files.pythonhosted.org/packages/48/af/208b29a79a3464515ce1f6ca9b3461a8d246cf47c7a530a715b0ee93e269/stormpath-2.5.1.tar.gz"
+    sha256 "7f1215c38dfab6c4dee393b54b7394fbdaa3662a31ac0af714481a886657b388"
   end
 
   resource "termcolor" do
@@ -81,18 +83,7 @@ class StormpathCli < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
