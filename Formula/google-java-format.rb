@@ -6,9 +6,9 @@ class GoogleJavaFormat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cd02ff7d091b8a70fd5a70b708f0a2782f023ce61fc2b9f971c2f1af75647e19" => :sierra
-    sha256 "112ab893b27010c93d31a6d2328fd3b0179c962bf1d84420634d878dd6453dff" => :el_capitan
-    sha256 "7fbf50feec06fea5760971ce8202f9704effdb500ee6728ae3eb65a18523cf4e" => :yosemite
+    sha256 "357c8d6fe08df50e95b426691f2822963abf62dc5c211082a7eda05ebacec897" => :sierra
+    sha256 "849feab99fe3e2667b0105117ebfc3958729bd7aff4b812bc887e2cc016ea59b" => :el_capitan
+    sha256 "61946ad4592bccf2cf454a5f2a9852eaf728426952b8fa2cab6c94bc66995b1f" => :yosemite
   end
 
   depends_on "maven" => :build
