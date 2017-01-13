@@ -1,8 +1,8 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.0.1.tar.bz2"
-  sha256 "d191eed4a6664430e85969f49835c59e810ecbb7b3eb506e64c6b2734091edd7"
+  url "https://downloads.powerdns.com/releases/pdns-4.0.2.tar.bz2"
+  sha256 "d051e53b63f586c924f00ce8a81662f7bd285b461d125d4991538f92cf7e629d"
 
   bottle do
     rebuild 1
@@ -21,16 +21,17 @@ class Pdns < Formula
     depends_on "ragel"
   end
 
-  option "with-pgsql", "Enable the PostgreSQL backend"
+  option "with-postgresql", "Enable the PostgreSQL backend"
 
-  deprecated_option "pgsql" => "with-pgsql"
+  deprecated_option "pgsql" => "with-postgresql"
+  deprecated_option "with-pgsql" => "with-postgresql"
 
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "lua"
   depends_on "openssl"
   depends_on "sqlite"
-  depends_on :postgresql if build.with? "pgsql"
+  depends_on :postgresql => :optional
 
   def install
     args = %W[
@@ -41,7 +42,7 @@ class Pdns < Formula
     ]
 
     # Include the PostgreSQL backend if requested
-    if build.with? "pgsql"
+    if build.with? "postgresql"
       args << "--with-modules=gsqlite3 gpgsql"
     else
       # SQLite3 backend only is the default
