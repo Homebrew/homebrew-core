@@ -80,6 +80,43 @@ class Findutils < Formula
     end
   end
 
+  plist_options :manual => (build.with?("default-names") ? "updatedb" : "gupdatedb")
+
+  def plist
+    updatedb = (build.with?("default-names") ? "updatedb" : "gupdatedb")
+    <<-EOS.undent
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{libexec}/bin/#{updatedb}</string>
+          </array>
+          <key>LowPriorityIO</key>
+          <true/>
+          <key>Nice</key>
+          <integer>5</integer>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/updatedb.log</string>
+          <key>StartCalendarInterval</key>
+          <array>
+              <dict>
+                  <key>Hour</key>
+                  <integer>3</integer>
+                  <key>Minute</key>
+                  <integer>15</integer>
+                  <key>Weekday</key>
+                  <integer>6</integer>
+              </dict>
+          </array>
+        </dict>
+      </plist>
+    EOS
+  end
+
   def post_install
     (var/"locate").mkpath
   end
