@@ -6,10 +6,9 @@ class OpencoreAmr < Formula
 
   bottle do
     cellar :any
-    sha256 "6412c1b3a927ed533d8dac323320c1d005eff643ede06070915ddcdd68975273" => :sierra
-    sha256 "2434237ad9e130eab8f89b4b3f7fb7d299c216bb28b344a47460a93180025eea" => :el_capitan
-    sha256 "b4373425e5d5ad32cfda4b98c17946a61a78d1d6001edd6bc31f17546d881036" => :yosemite
-    sha256 "b7d22ef690bc40dee36e90d747cfb108fd69b6cabd3b6a4593767fb49c553aff" => :mavericks
+    sha256 "425fbe7604961f21ac05150585e77311094159ffe13b1ce2de816f36482482ad" => :sierra
+    sha256 "92bdd75efff4d4c94822847d9ddda34a70abd8dec5a28c6875b071394d31b7a6" => :el_capitan
+    sha256 "c97e0859a55c074d5679d7fc63df608041ae8258d737cb56cfad997f8c82eba2" => :yosemite
   end
 
   def install
