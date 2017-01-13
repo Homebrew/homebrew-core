@@ -32,12 +32,7 @@ class Ydk < Formula
         return 0;
       }
     EOS
-    system "/usr/bin/g++", "-std=c++11", "-Wall", "-Wextra", "-g", "-O0", "test.cpp", "-otest", 
-    "-lboost_log_setup-mt", "-lboost_log-mt", "-lboost_thread-mt", "-lboost_date_time-mt", 
-    "-lboost_system-mt", "-lboost_filesystem-mt", "-lboost_log_setup-mt", "-lboost_log-mt", 
-    "-lboost_thread-mt", "-lboost_date_time-mt", "-lboost_system-mt", "-lboost_filesystem-mt", 
-    "-lboost_log_setup-mt", "-lboost_log-mt", "-lboost_filesystem-mt", "-lboost_system-mt", 
-    "-lxml2", "-lcurl", "-lssh_threads", "-lpcre", "-lxslt", "-lssh", "-lpthread", "-ldl", "-lydk"
+    system ENV.cxx, "-std=c++11", "-Wall", "-Wextra", "-g", "-O0", "test.cpp", "-otest", "-lboost_log_setup-mt", "-lboost_log-mt", "-lboost_thread-mt", "-lboost_date_time-mt", "-lboost_system-mt", "-lboost_filesystem-mt", "-lboost_log_setup-mt", "-lboost_log-mt", "-lboost_thread-mt", "-lboost_date_time-mt", "-lboost_system-mt", "-lboost_filesystem-mt", "-lboost_log_setup-mt", "-lboost_log-mt", "-lboost_filesystem-mt", "-lboost_system-mt", "-lxml2", "-lcurl", "-lssh_threads", "-lpcre", "-lxslt", "-lssh", "-lpthread", "-ldl", "-lydk"
     system "./test"
   end
 end
