@@ -1,9 +1,8 @@
 class Blockhash < Formula
   desc "Perceptual image hash calculation tool"
   homepage "http://blockhash.io/"
-  url "https://github.com/commonsmachinery/blockhash/archive/0.1.tar.gz"
-  sha256 "aef300f39be2cbc1b508af15d7ddb5b851b671b27680d8b7ab1d043cc0369893"
-  revision 2
+  url "https://github.com/commonsmachinery/blockhash/archive/0.2.tar.gz"
+  sha256 "485c356afc665ab26a33dfe2d6e67feb3dfc3ca610f7ea80bd28b121c42640ca"
   head "https://github.com/commonsmachinery/blockhash.git"
 
   bottle do
@@ -22,11 +21,6 @@ class Blockhash < Formula
   end
 
   def install
-    # ImageMagick 7 compatibility
-    # Reported 20 Jun 2016 https://github.com/commonsmachinery/blockhash/issues/19
-    inreplace "blockhash.c", "wand/MagickWand.h",
-                             "ImageMagick-7/MagickWand/MagickWand.h"
-
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf"
     system "./waf", "install"
@@ -34,11 +28,8 @@ class Blockhash < Formula
 
   test do
     resource("testdata").stage testpath
-    hash = "00007ffe7ffe7ffe7ffe7ffe7ffe77fe77fe600e7f5e00000000000000000000"
-    # Exit status is not meaningful, so use pipe_output instead of shell_output
-    # for now
-    # https://github.com/commonsmachinery/blockhash/pull/9
-    result = pipe_output("#{bin}/blockhash #{testpath}/clipper_ship.jpg", nil, nil)
+    hash = "00007ff07fe07fe07fe67ff07520600077fe601e7f5e000079fd40410001fffe"
+    result = shell_output("#{bin}/blockhash #{testpath}/clipper_ship.jpg")
     assert_match hash, result
   end
 end
