@@ -6,9 +6,9 @@ class Haproxy < Formula
 
   bottle do
     cellar :any
-    sha256 "809f3303bb3b129dc554c9d92290f85e78c96ccd6c252cbfc39991ae0109c790" => :sierra
-    sha256 "58de3011f0ec059e8ae966ad7f6c77a2100b1eb0374c878a6a077c01d4fd2993" => :el_capitan
-    sha256 "9f74786c431a5907575384c499db60a3fae8d4e1ec56aea6fb147efab65b4ebb" => :yosemite
+    sha256 "c9978b6fa1153a4b5d2873b2c0f738be53654ba30b133c4d3eb648f025fc54a3" => :sierra
+    sha256 "eb2e9f8b44983b54a993f6abae639bb3d3e12f69c7ae81298fc0870bc7feeb02" => :el_capitan
+    sha256 "ef89607a0342812850a845ccce1abcf055d08b1566d60aba04475a5098924b03" => :yosemite
   end
 
   depends_on "openssl"
