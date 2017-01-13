@@ -1,8 +1,8 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://dnscrypt.org"
-  url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.1.tar.gz"
-  sha256 "1797a4f3c4bacbe872ce7b9f9b3a88f09b9e41776429a37555581f0e832496de"
+  url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.4.tar.gz"
+  sha256 "a79d5da0133344d38f8b3d3355c16269f11c15fbeedd0521e1a657b00ac503bb"
   head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
@@ -24,9 +24,17 @@ class DnscryptProxy < Formula
   depends_on "ldns" => :recommended
 
   def install
+    # Modify hard-coded path to resolver list
+    inreplace "dnscrypt-proxy.conf",
+      "# ResolversList /usr/local/share/dnscrypt-proxy/dnscrypt-resolvers.csv",
+      "ResolversList #{opt_pkgshare}/dnscrypt-resolvers.csv"
+
+    # Run as unprivileged user
+    inreplace "dnscrypt-proxy.conf", "# User _dnscrypt-proxy", "User nobody"
+
     system "./autogen.sh"
 
-    args = %W[--disable-dependency-tracking --prefix=#{prefix}]
+    args = %W[--disable-dependency-tracking --prefix=#{prefix} --sysconfdir=#{etc}]
 
     if build.with? "plugins"
       args << "--enable-plugins"
@@ -76,9 +84,9 @@ class DnscryptProxy < Formula
       can click "+" and enter 127.0.0.1 in the "DNS Servers" section.
 
       By default, dnscrypt-proxy runs on localhost (127.0.0.1), port 53,
-      and under the "nobody" user using the dnscrypt.eu-dk DNSCrypt-enabled
-      resolver. If you would like to change these settings, you will have to edit
-      the plist file (e.g., --resolver-address, --provider-name, --provider-key, etc.)
+      and under the "nobody" user using a random resolver. If you would like to
+      change these settings, you will have to edit the configuration file:
+      #{etc}/dnscrypt-proxy.conf (e.g., ResolverName, etc.)
 
       To check that dnscrypt-proxy is working correctly, open Terminal and enter the
       following command. Replace en1 with whatever network interface you're using:
@@ -117,10 +125,7 @@ class DnscryptProxy < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_sbin}/dnscrypt-proxy</string>
-          <string>--ephemeral-keys</string>
-          <string>--resolvers-list=#{opt_pkgshare}/dnscrypt-resolvers.csv</string>
-          <string>--resolver-name=dnscrypt.eu-dk</string>
-          <string>--user=nobody</string>
+          <string>#{etc}/dnscrypt-proxy.conf</string>
         </array>
         <key>UserName</key>
         <string>root</string>
