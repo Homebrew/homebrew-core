@@ -25,6 +25,7 @@ class Cnats < Formula
       }
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-lnats", "-o", "test"
-    system "./test"
+    script_version = shell_output "./test", 0
+    assert_equal "1.4.4", script_version.strip
   end
 end
