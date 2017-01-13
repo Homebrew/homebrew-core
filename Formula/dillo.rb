@@ -20,7 +20,7 @@ class Dillo < Formula
   end
 
   test do
-    system "#{bin}/dillo"
+    system "#{bin}/dillo", "--version"
   end
 end
 
