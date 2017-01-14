@@ -1,8 +1,8 @@
 class Ranger < Formula
   desc "File browser"
   homepage "http://ranger.nongnu.org/"
-  url "http://ranger.nongnu.org/ranger-1.8.0.tar.gz"
-  sha256 "ce02476cb93d51b901eb6f5f0fc9675c58bd0a2f11d2ce0cdb667e15ec314092"
+  url "http://ranger.nongnu.org/ranger-1.8.1.tar.gz"
+  sha256 "1433f9f9958b104c97d4b23ab77a2ac37d3f98b826437b941052a55c01c721b4"
 
   head "git://git.savannah.nongnu.org/ranger.git"
 
