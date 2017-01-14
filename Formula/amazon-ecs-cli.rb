@@ -5,9 +5,9 @@ class AmazonEcsCli < Formula
   sha256 "d61c8f09a2a31d160b1676f09ab7360cca9fdc00bc28c24cebbb5a05d5f38319"
 
   bottle do
-    sha256 "98bd2a5e34576e4fd6ea4a46946f18175217855e0271225801debe9139688c5b" => :sierra
-    sha256 "1b25bafe5385f0f4682284bb7bb2c2a9ef906ce5f8cbdc0f6eacef50c24a842d" => :el_capitan
-    sha256 "33d5d55673c60456a874ba1b08638d0202ce8c897933ca08690bf5d80a538476" => :yosemite
+    sha256 "f918f92be0799beec43553aafee8f6ff43db70f279996f97256ce488931dfbb8" => :sierra
+    sha256 "1a7966b456b4057c92d709b3b4cafdc0ff217b0ea536484686020099390eb896" => :el_capitan
+    sha256 "44b77ac11ee46d2dbd4cd160096bc68f650b57e11d2a3fee4dcd753ca911f2d3" => :yosemite
   end
 
   depends_on "go" => :build
