@@ -1,8 +1,8 @@
 class Libslax < Formula
   desc "Implementation of the SLAX language (an XSLT alternative)"
   homepage "http://www.libslax.org/"
-  url "https://github.com/Juniper/libslax/releases/download/0.20.1/libslax-0.20.1.tar.gz"
-  sha256 "59f8aace21fb7e02091da3b84de7e231d5d02af26401985b109d2b328ab3f09d"
+  url "https://github.com/Juniper/libslax/releases/download/0.20.2/libslax-0.20.2.tar.gz"
+  sha256 "2daa6c908eb03a4db4a701fce8b9cb269a2cc59d7adc70653cd4934c9662111b"
 
   bottle do
     sha256 "a1a28522c18d2e2ee6db483a24d05f11434526ee01a0f30de88a1fd915409c58" => :sierra
