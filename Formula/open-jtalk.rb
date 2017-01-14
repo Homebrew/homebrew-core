@@ -1,8 +1,8 @@
 class OpenJtalk < Formula
   desc "Japanese text-to-speech system"
   homepage "http://open-jtalk.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/open-jtalk/Open%20JTalk/open_jtalk-1.09/open_jtalk-1.09.tar.gz"
-  sha256 "8ed79238d825fee1d9e0a1c6c8a89e2cc707189be1caa3fa79e8eb72436079d7"
+  url "https://downloads.sourceforge.net/project/open-jtalk/Open%20JTalk/open_jtalk-1.10/open_jtalk-1.10.tar.gz"
+  sha256 "5b77ee729e546ca6a22d0b08cda0923fb4225fa782b26c2511b66cc644c14b7d"
 
   bottle do
     cellar :any_skip_relocation
