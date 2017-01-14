@@ -1,8 +1,8 @@
 class Yaws < Formula
   desc "Webserver for dynamic content (written in Erlang)"
   homepage "http://yaws.hyber.org"
-  url "http://yaws.hyber.org/download/yaws-2.0.3.tar.gz"
-  sha256 "450a4b2b2750a6feb34238c0b38bc9801de80b228188a22d85dccbb4b4e049f6"
+  url "http://yaws.hyber.org/download/yaws-2.0.4.tar.gz"
+  sha256 "da6677c315aadc7c64c970ef74eaa29f61eba886c7d30c61806651ac38c1e6c5"
 
   bottle do
     rebuild 1
