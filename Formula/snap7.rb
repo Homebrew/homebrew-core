@@ -1,8 +1,8 @@
 class Snap7 < Formula
   desc "Ethernet communication suite that works natively with Siemens S7 PLCs"
   homepage "http://snap7.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/snap7/1.4.0/snap7-full-1.4.0.tar.gz"
-  sha256 "5d2a4948a65e0ad2a52b1a7981f3c3209be0ef821f3d00756ee0584cf4b762bb"
+  url "https://downloads.sourceforge.net/project/snap7/1.4.2/snap7-full-1.4.2.7z"
+  sha256 "65af129e11de4b0d942751bcd9c563f7012cae174931860c03dbb2cdf2e80ae7"
 
   bottle do
     cellar :any
@@ -14,6 +14,7 @@ class Snap7 < Formula
   end
 
   def install
+    cd "snap7-full-#{version}"
     lib.mkpath
     system "make", "-C", "build/osx",
                    "-f", "#{MacOS.preferred_arch}_osx.mk",
