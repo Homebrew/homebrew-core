@@ -57,7 +57,7 @@ class Sdl2 < Formula
       # We need the build to point at the newly-built (not yet linked) copy of SDL.
       inreplace bin/"sdl2-config", "prefix=#{HOMEBREW_PREFIX}", "prefix=#{prefix}"
       cd "test" do
-        system "./configure"
+        system "./configure", "--without-x"
         system "make"
         # Tests don't have a "make install" target
         (share/"tests").install %w[checkkeys controllermap loopwave loopwavequeue testaudioinfo
