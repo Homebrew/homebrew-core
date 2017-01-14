@@ -1,8 +1,8 @@
 class Clasp < Formula
   desc "Answer set solver for (extended) normal logic programs"
   homepage "http://potassco.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/potassco/clasp/3.1.3/clasp-3.1.3-source.tar.gz"
-  sha256 "f08684eadfa5ae5efa5c06439edc361b775fc55b7c1a9ca862eda8f5bf7e5f1f"
+  url "https://downloads.sourceforge.net/project/potassco/clasp/3.2.0/clasp-3.2.0-source.tar.gz"
+  sha256 "eafb050408b586d561cd828aec331b4d3b92ea7a26d249a02c4f39b1675f4e68"
 
   bottle do
     cellar :any_skip_relocation
