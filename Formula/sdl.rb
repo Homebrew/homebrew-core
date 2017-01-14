@@ -93,13 +93,13 @@ class Sdl < Formula
         system "./configure"
         system "make"
         # Tests don't have a "make install" target
-        (share/"tests").install %w[checkkeys graywin loopwave testalpha testbitmap testblitspeed testcdrom
-                                   testcursor testdyngl testerror testfile testgamma testgl testhread testiconv
-                                   testjoystick testkeys testloadso testlock testoverlay testoverlay2 testpalette
-                                   testplatform testsem testsprite testtimer testver testvidinfo testwin testwm
-                                   threadwin torturethread]
-        (share/"test_extras").install %w[icon.bmp moose.dat picture.xbm sail.bmp sample.bmp sample.wav]
-        bin.write_exec_script Dir["#{share}/tests/*"]
+        (pkgshare/"tests").install %w[checkkeys graywin loopwave testalpha testbitmap testblitspeed testcdrom
+                                      testcursor testdyngl testerror testfile testgamma testgl testhread testiconv
+                                      testjoystick testkeys testloadso testlock testoverlay testoverlay2 testpalette
+                                      testplatform testsem testsprite testtimer testver testvidinfo testwin testwm
+                                      threadwin torturethread]
+        (pkgshare/"test_extras").install %w[icon.bmp moose.dat picture.xbm sail.bmp sample.bmp sample.wav]
+        bin.write_exec_script Dir["#{pkgshare}/tests/*"]
       end
       # Point sdl-config back at the normal prefix once we've built everything.
       inreplace bin/"sdl-config", "prefix=#{prefix}", "prefix=#{HOMEBREW_PREFIX}"
