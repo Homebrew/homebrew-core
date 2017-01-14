@@ -7,9 +7,9 @@ class Tbox < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5dc65f1e5f0d2e8e46451c38ca926ee7f85eae504eda5b4bd21acb79da93275d" => :sierra
-    sha256 "f412506c78824f3bb40adfd51cd5c6073eec0a17db490bd6166aeeed4b5626c1" => :el_capitan
-    sha256 "942bb7bc49c770e7b7e6cd685aa4ad15a7c047458b1e596fe8f3432a96e772f4" => :yosemite
+    sha256 "ea7c48b6fe2b39bab5eed10e69cec5bd0082f7113d27288e31ddf337928b7ece" => :sierra
+    sha256 "8af4c08809e12a4717cf5ea229d9eecd5e1409bb9bafe37942c4a7c9101011b1" => :el_capitan
+    sha256 "6a55d97930ce0cc3e62dfbc8a9438243e8d9020757ebaf0dbab532f80587b3d8" => :yosemite
   end
 
   depends_on "xmake" => :build
