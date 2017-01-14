@@ -42,7 +42,8 @@ class Ginac < Formula
     EOS
     system ENV.cxx, "test.cpp", "-L#{lib}",
                                 "-L#{Formula["cln"].lib}",
-                                "-lcln", "-lginac", "-o", "test"
+                                "-lcln", "-lginac", "-o", "test",
+                                "-std=c++11"
     system "./test"
   end
 end
