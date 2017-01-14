@@ -22,21 +22,24 @@ class KubernetesCli < Formula
   depends_on "go" => :build
 
   def install
-    # Clean git tree
-    system "git", "clean", "-xfd"
-
-    # Race condition still exists in OSX Yosemite
-    # Filed issue: https://github.com/kubernetes/kubernetes/issues/34635
-    ENV.deparallelize { system "make", "generated_files" }
-
-    # Make binary
-    system "make", "kubectl"
-
+    ENV["GOPATH"] = buildpath
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
-    bin.install "_output/local/bin/darwin/#{arch}/kubectl"
+    dir = buildpath/"src/k8s.io/kubernetes"
+    dir.install buildpath.children - [buildpath/".brew_home"]
 
-    output = Utils.popen_read("#{bin}/kubectl completion bash")
-    (bash_completion/"kubectl").write output
+    cd dir do
+      # Race condition still exists in OSX Yosemite
+      # Filed issue: https://github.com/kubernetes/kubernetes/issues/34635
+      ENV.deparallelize { system "make", "generated_files" }
+
+      # Make binary
+      system "make", "kubectl"
+      bin.install "_output/local/bin/darwin/#{arch}/kubectl"
+
+      # Install bash completion
+      output = Utils.popen_read("#{bin}/kubectl completion bash")
+      (bash_completion/"kubectl").write output
+    end
   end
 
   test do
