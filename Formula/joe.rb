@@ -1,8 +1,8 @@
 class Joe < Formula
   desc "Joe's Own Editor (JOE)"
   homepage "http://joe-editor.sourceforge.net/index.html"
-  url "https://downloads.sourceforge.net/project/joe-editor/JOE%20sources/joe-4.2/joe-4.2.tar.gz"
-  sha256 "bc5da64bc5683ab7b2962a33214b3537ea17ff6528a3c60ba170359e31e86974"
+  url "https://downloads.sourceforge.net/project/joe-editor/JOE%20sources/joe-4.3/joe-4.3.tar.gz"
+  sha256 "985d6a8f943a06e64165996c24d7fecaeae8c59efb52998a49b3fb4b8a3e26e1"
 
   bottle do
     sha256 "651f4fb35e25b81b27b64b517f01df63ea05d5079fc702f329b05aa641bbb97e" => :sierra
