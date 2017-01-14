@@ -1,8 +1,8 @@
 class Pdfcrack < Formula
   desc "PDF files password cracker"
   homepage "http://pdfcrack.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/pdfcrack/pdfcrack/pdfcrack-0.14/pdfcrack-0.14.tar.gz"
-  sha256 "ac88eca576cebb40c4a63cd90542664de7d8f1b39885db5a7ac021d8b0c6a95c"
+  url "https://downloads.sourceforge.net/project/pdfcrack/pdfcrack/pdfcrack-0.15/pdfcrack-0.15.tar.gz"
+  sha256 "791043693f9fc261fa326dbcb5e4de3801d6ae552dbea39293f9b2674c250d3e"
 
   bottle do
     cellar :any_skip_relocation
