@@ -4,6 +4,7 @@ class KubernetesHelm < Formula
   url "https://github.com/kubernetes/helm.git",
       :tag => "v2.1.3",
       :revision => "5cbc48fb305ca4bf68c26eb8d2a7eb363227e973"
+  revision 1
   head "https://github.com/kubernetes/helm.git"
 
   bottle do
