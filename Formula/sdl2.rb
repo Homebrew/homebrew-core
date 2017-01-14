@@ -63,18 +63,18 @@ class Sdl2 < Formula
         inreplace %w[controllermap.c loopwave.c loopwavequeue.c testmultiaudio.c
                      testoverlay2.c testsprite2.c],
                   /"(\w+\.(?:bmp|dat|wav))"/,
-                  "\"#{share}/test_extras/\\1\""
+                  "\"#{pkgshare}/test_extras/\\1\""
         system "./configure", "--without-x"
         system "make"
         # Tests don't have a "make install" target
-        (share/"tests").install %w[checkkeys controllermap loopwave loopwavequeue testaudioinfo
-                                   testerror testfile testgl2 testiconv testjoystick testkeys
-                                   testloadso testlock testmultiaudio testoverlay2 testplatform
-                                   testsem testshape testsprite2 testthread testtimer testver
-                                   testwm2 torturethread]
-        (share/"test_extras").install %w[axis.bmp button.bmp controllermap.bmp icon.bmp moose.dat
-                                         picture.xbm sample.bmp sample.wav shapes]
-        bin.write_exec_script Dir["#{share}/tests/*"]
+        (pkgshare/"tests").install %w[checkkeys controllermap loopwave loopwavequeue testaudioinfo
+                                      testerror testfile testgl2 testiconv testjoystick testkeys
+                                      testloadso testlock testmultiaudio testoverlay2 testplatform
+                                      testsem testshape testsprite2 testthread testtimer testver
+                                      testwm2 torturethread]
+        (pkgshare/"test_extras").install %w[axis.bmp button.bmp controllermap.bmp icon.bmp moose.dat
+                                            picture.xbm sample.bmp sample.wav shapes]
+        bin.write_exec_script Dir["#{pkgshare}/tests/*"]
       end
       # Point sdl-config back at the normal prefix once we've built everything.
       inreplace bin/"sdl2-config", "prefix=#{prefix}", "prefix=#{HOMEBREW_PREFIX}"
