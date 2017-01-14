@@ -5,12 +5,9 @@ class Grsync < Formula
   sha256 "66d5acea5e6767d6ed2082e1c6e250fe809cb1e797cbbee5c8e8a2d28a895619"
 
   bottle do
-    rebuild 1
-    sha256 "0fa146b8797b174d33d492a2955381a2f54dc1807fc1167ed6cf6e29d4be78c2" => :sierra
-    sha256 "ea12e9e95d04f06c892915a476919f991af95b39e5653fae76d4026cb50906a1" => :el_capitan
-    sha256 "39e1387923c5a9f9d591bb5e8f6d3ed9fa1dedc94c521285e7948a272597549e" => :yosemite
-    sha256 "6ec80e0362bff0bac9976c1ca2088d5152273e926b1a6cb3a331e8435c8d4c0c" => :mavericks
-    sha256 "b95620a523c2bd02260a75ddfcf97dc428629ac4314ab0d12b763376eed357cd" => :mountain_lion
+    sha256 "c35defcfcef7d9f1af5c8fd82c95733d1d0191e7c9a338f9223744e55adf32de" => :sierra
+    sha256 "d0afd0d818a8c4a72368c85d1123f76997470c16c2ab38ed78b6e1b977c7b691" => :el_capitan
+    sha256 "7046b8ffefa83d5a153ecd75d9255813b95e325595c712bec1d0a11727f70017" => :yosemite
   end
 
   depends_on "pkg-config" => :build
