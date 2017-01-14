@@ -1,8 +1,8 @@
 class Shmcat < Formula
   desc "Tool that dumps shared memory segments (System V and POSIX)"
   homepage "http://shmcat.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/shmcat/shmcat-1.7.tar.bz2"
-  sha256 "dfe113592425373ea3d67cad5e9e44cbc27e45c75af3b308240aee9530d169cc"
+  url "https://downloads.sourceforge.net/project/shmcat/shmcat-1.8.tar.bz2"
+  sha256 "43fbf1b62f22f7cfcfd21228225151441450441d47ca73c9c2951c9af5549dde"
 
   bottle do
     cellar :any_skip_relocation
