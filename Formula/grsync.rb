@@ -1,9 +1,8 @@
 class Grsync < Formula
   desc "GUI for rsync"
   homepage "http://www.opbyte.it/grsync/"
-  url "https://downloads.sourceforge.net/project/grsync/grsync-1.2.5.tar.gz"
-  sha256 "4f1443154f7c85ca7b0e93d5fea438e2709776005e7cfc97da89f4899b1c12e5"
-  revision 1
+  url "https://downloads.sourceforge.net/project/grsync/grsync-1.2.6.tar.gz"
+  sha256 "66d5acea5e6767d6ed2082e1c6e250fe809cb1e797cbbee5c8e8a2d28a895619"
 
   bottle do
     rebuild 1
