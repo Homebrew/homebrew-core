@@ -8,9 +8,9 @@ class Ranger < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "134b13f0873516b6e3b04c757a19cddd0f2daf5291b6094b608d7a72e146af64" => :sierra
-    sha256 "b03b18490965e67475c1bbe1c1423427772bff7760fb6213ae60aec55af9008f" => :el_capitan
-    sha256 "b03b18490965e67475c1bbe1c1423427772bff7760fb6213ae60aec55af9008f" => :yosemite
+    sha256 "53183d431e6bcf9cf49a462130fb5e0929a4bf557a2d109c354e3194bfd36cc0" => :sierra
+    sha256 "224dce8bf10cb4f29a182e00d8a684a388f5dc1544f427149ee85e050c07a833" => :el_capitan
+    sha256 "224dce8bf10cb4f29a182e00d8a684a388f5dc1544f427149ee85e050c07a833" => :yosemite
   end
 
   # requires 2.6 or newer; Leopard comes with 2.5
