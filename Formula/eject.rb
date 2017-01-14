@@ -1,8 +1,8 @@
 class Eject < Formula
   desc "Generate swift code from Interface Builder xibs"
   homepage "https://github.com/Raizlabs/Eject"
-  url "https://github.com/Raizlabs/Eject/archive/0.1.25.tar.gz"
-  sha256 "9b6796c0517e516bdf606aec1d039416cf515a07f53e37efb833fe1960b925c3"
+  url "https://github.com/Raizlabs/Eject/archive/0.1.27.tar.gz"
+  sha256 "b4aa8d281074074632422e9e8583d50024f1b2712566fae7950e73f751f75791"
 
   bottle do
     cellar :any
