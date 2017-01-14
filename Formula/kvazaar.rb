@@ -1,9 +1,28 @@
 class Kvazaar < Formula
   desc "Ultravideo HEVC encoder"
   homepage "https://github.com/ultravideo/kvazaar"
-  url "https://github.com/ultravideo/kvazaar/archive/v0.8.2.tar.gz"
-  sha256 "1b9354a639ab6c902e974780b39112b5e75477205611f88b54562c895182b945"
   head "https://github.com/ultravideo/kvazaar.git"
+
+  stable do
+    url "https://github.com/ultravideo/kvazaar/archive/v1.0.0.tar.gz"
+    sha256 "40eb7b4b23897299e99050f0c011e9380cf898b25615dd143f018b278b972a46"
+
+    # Remove for > 1.0.0
+    # Upstream commit from 2 Feb 2017 "Fix encoder getting stuck on OS-X"
+    # See https://github.com/ultravideo/kvazaar/issues/153
+    patch do
+      url "https://github.com/ultravideo/kvazaar/commit/d893474.patch"
+      sha256 "0d2087dcf535ce01b2cc8afdb138f207e7e2389976fda6167bbb7c22c78c4797"
+    end
+
+    # Remove for > 1.0.0
+    # Upstream commit from 8 Feb 2017 "Fix crash with sub-LCU frame sizes and WPP"
+    # See https://github.com/ultravideo/kvazaar/issues/153
+    patch do
+      url "https://github.com/ultravideo/kvazaar/commit/b8e3513.patch"
+      sha256 "de52ecb665f65be4d364f0070632e660f4bf5a16a47e63064846595b64afe14a"
+    end
+  end
 
   bottle do
     cellar :any
@@ -16,6 +35,7 @@ class Kvazaar < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "yasm" => :build
 
   resource "videosample" do
