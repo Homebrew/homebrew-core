@@ -17,29 +17,23 @@ class KubernetesHelm < Formula
   depends_on "glide" => :build
 
   def install
-    contents = Dir["{*,.git,.gitignore}"]
-    gopath = buildpath/"gopath"
-    (gopath/"src/k8s.io/helm").install contents
-
-    ENV["GOPATH"] = gopath
+    ENV["GOPATH"] = buildpath
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
-    ENV.prepend_create_path "PATH", gopath/"bin"
-
+    ENV.prepend_create_path "PATH", buildpath/"bin"
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
     ENV["TARGETS"] = "darwin/#{arch}"
+    dir = buildpath/"src/k8s.io/helm"
+    dir.install buildpath.children - [buildpath/".brew_home"]
 
-    cd gopath/"src/k8s.io/helm" do
-      # Ensure a clean git tree for version output
-      system "git", "reset", "--hard"
-      system "git", "clean", "-xfd"
-
+    cd dir do
       # Bootstap build
       system "make", "bootstrap"
 
-      # Build/install binary
+      # Make binary
       system "make", "build"
       bin.install "bin/helm"
 
+      # Install bash completion
       bash_completion.install "scripts/completions.bash" => "helm"
     end
   end
