@@ -11,12 +11,14 @@ class Clasp < Formula
     sha256 "a7770d88cfb59b6678f297ceaa8a38e305eb11a28df6a887205a36c90728c973" => :yosemite
   end
 
-  option "with-mt", "Enable multi-thread support"
+  option "with-tbb", "Enable multi-thread support"
 
-  depends_on "tbb" if build.with? "mt"
+  deprecated_option "with-mt" => "with-tbb"
+
+  depends_on "tbb" => :optional
 
   def install
-    if build.with? "mt"
+    if build.with? "tbb"
       ENV["TBB30_INSTALL_DIR"] = Formula["tbb"].opt_prefix
       build_dir = "build/release_mt"
     else
@@ -27,7 +29,7 @@ class Clasp < Formula
       --config=release
       --prefix=#{prefix}
     ]
-    args << "--with-mt" if build.with? "mt"
+    args << "--with-mt=tbb" if build.with? "tbb"
 
     bin.mkpath
     system "./configure.sh", *args
@@ -35,6 +37,6 @@ class Clasp < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/clasp --version")
+    assert_match version.to_s, shell_output("#{bin}/clasp --version")
   end
 end
