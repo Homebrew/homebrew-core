@@ -1,8 +1,8 @@
 class Xrootd < Formula
   desc "High performance, scalable, fault-tolerant access to data"
   homepage "http://xrootd.org"
-  url "http://xrootd.org/download/v4.1.1/xrootd-4.1.1.tar.gz"
-  sha256 "3e472ec8068adc76f10df8a1bb1c795bb37a0a9936d4a255cc62073eb86c70c4"
+  url "http://xrootd.org/download/v4.5.0/xrootd-4.5.0.tar.gz"
+  sha256 "27a8e4ef1e6bb6bfe076fef50afe474870edd198699d43359ef01de2f446c670"
   head "https://github.com/xrootd/xrootd.git"
 
   bottle do
@@ -23,7 +23,6 @@ class Xrootd < Formula
       system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
-    share.install prefix/"man"
   end
 
   test do
