@@ -8,9 +8,9 @@ class KubernetesHelm < Formula
   head "https://github.com/kubernetes/helm.git"
 
   bottle do
-    sha256 "811c2cabac0420f5eb4608a194ddc3e96196c988b95387e0cdbe441a3f52459d" => :sierra
-    sha256 "3914aa33e47b34b844f82da5032696f25cf55cf40147bd318329b1a3370c89e5" => :el_capitan
-    sha256 "14ad01505b1a598b941422a4d8120ba0e3074430f18c3e1b1b38bccef3938b98" => :yosemite
+    sha256 "9f4d03a9c0ad97c8e8643a45be8e000622b301fe593b1cf10207876abf4dd848" => :sierra
+    sha256 "4955344752ec133296ad476f2a414b7164ddde25119cf9273f1634afefd41b24" => :el_capitan
+    sha256 "f75a767b9b8d4c5a47281f1f8eaeb5ce81101939da1132d32f1c37387f448ada" => :yosemite
   end
 
   depends_on :hg => :build
