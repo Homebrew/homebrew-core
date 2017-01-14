@@ -1,8 +1,8 @@
 class NodeAT012 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v0.12.17/node-v0.12.17.tar.xz"
-  sha256 "e2e82229200ef973e033d6dae910d789ab440e913f8c4c6225bf5e6e4a446420"
+  url "https://nodejs.org/dist/v0.12.18/node-v0.12.18.tar.xz"
+  sha256 "aec65fae74d1b8d649c145f8ede70afa481002af49cca3336368a7502cb0dc1f"
   head "https://github.com/nodejs/node.git", :branch => "v0.12-staging"
 
   bottle do
@@ -30,8 +30,8 @@ class NodeAT012 < Formula
   conflicts_with "node@6", :because => "Differing versions of the same formulae."
 
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-2.15.1.tgz"
-    sha256 "e3435100b37379354b899a31d073ef81b8aa7365c52eb138847ecfbf9f01ea93"
+    url "https://registry.npmjs.org/npm/-/npm-2.15.11.tgz"
+    sha256 "927974142c9a44e9bd879d9e9762e7de379b43c5acfae32b02b44f60e59a9c9c"
   end
 
   def install
