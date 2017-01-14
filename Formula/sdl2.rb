@@ -57,6 +57,13 @@ class Sdl2 < Formula
       # We need the build to point at the newly-built (not yet linked) copy of SDL.
       inreplace bin/"sdl2-config", "prefix=#{HOMEBREW_PREFIX}", "prefix=#{prefix}"
       cd "test" do
+        # These test source files produce binaries which by default will reference
+        # some sample resources in the working directory.
+        # Let's point them to the test_extras directory we're about to set up instead!
+        inreplace %w[controllermap.c loopwave.c loopwavequeue.c testmultiaudio.c
+                     testoverlay2.c testsprite2.c],
+                  /"(\w+\.(?:bmp|dat|wav))"/,
+                  "\"#{share}/test_extras/\\1\""
         system "./configure", "--without-x"
         system "make"
         # Tests don't have a "make install" target
