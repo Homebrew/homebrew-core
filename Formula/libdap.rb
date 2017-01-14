@@ -5,9 +5,9 @@ class Libdap < Formula
   sha256 "0ced6aa36bb445f51e4d72d480e326de7d513a4a7a2c1e5c73e16e2c1f71f22b"
 
   bottle do
-    sha256 "862f4ae6f2c4f12fb62326e62d1922ee8ad24cd11b2c278ae01230256ad6862a" => :sierra
-    sha256 "7045dbb9dcb0a13841fcba61889742887e84c74bb61dd8f2f13f2a387f1cb3d5" => :el_capitan
-    sha256 "0e6e8aa5a40de3bd3bd9113105213babd3464add9d0abf83dea6fbbdbf1a6b36" => :yosemite
+    sha256 "4ec4781108986332b022cb81d238345f4e697e62ad5a3cc5cb66b77ee7d7ebe8" => :sierra
+    sha256 "1e6bb8cf800083b6c5f6ae3f3efa1284bf436b16601ffaaa77214711aac0cccd" => :el_capitan
+    sha256 "9ab1a73227319d216efd1c0f2737d2f1d43701f1fafbc375bb1963c631c047f2" => :yosemite
   end
 
   head do
