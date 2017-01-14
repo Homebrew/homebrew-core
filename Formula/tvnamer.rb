@@ -1,8 +1,8 @@
 class Tvnamer < Formula
   desc "Automatic TV episode file renamer that uses data from thetvdb.com"
   homepage "https://github.com/dbr/tvnamer"
-  url "https://github.com/dbr/tvnamer/archive/2.3.tar.gz"
-  sha256 "c28836f4c9263ee8ad6994788ad35f00e66fa1bd602e876364cd9b938f2843c8"
+  url "https://github.com/dbr/tvnamer/archive/2.4.tar.gz"
+  sha256 "bddaba4b3887ab3b6777932457c8d8f65754b64de9a13b9987869e8e78573bb2"
   head "https://github.com/dbr/tvnamer.git"
 
   bottle do
