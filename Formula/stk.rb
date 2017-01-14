@@ -23,6 +23,8 @@ class Stk < Formula
   end
 
   def install
+    # Allow pre-10.9 clangs to build in C++11 mode
+    ENV.libcxx
     args = %W[--prefix=#{prefix}]
 
     if build.with? "debug"
