@@ -5,10 +5,9 @@ class Joe < Formula
   sha256 "985d6a8f943a06e64165996c24d7fecaeae8c59efb52998a49b3fb4b8a3e26e1"
 
   bottle do
-    sha256 "651f4fb35e25b81b27b64b517f01df63ea05d5079fc702f329b05aa641bbb97e" => :sierra
-    sha256 "3404c9b3378b430dbbf416a3e29cc15b29aacdca1d00ff9d05982d711f741967" => :el_capitan
-    sha256 "4cf7df6c52a64dcd917e6d39aca024b57ff0313bb07ee79ff3f6e7ebad037735" => :yosemite
-    sha256 "ecfa1240b7102d12171acbd2f5f3fdc4723e4b657495ec7c81e9c5b0f6d45ec1" => :mavericks
+    sha256 "4c2981014abdb5b86da5427e2fc274d596e3b33539ea27c4fcae58562b1393c2" => :sierra
+    sha256 "7d645771891a181a0db72b11724827c7d7c25f10d2cae2730ac6fe7f190256db" => :el_capitan
+    sha256 "669e06a1ce0eda63a58daf56823b637984fc109af782dbd1035ea1d2ca19bf84" => :yosemite
   end
 
   def install
