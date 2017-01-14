@@ -1,8 +1,8 @@
 class IcarusVerilog < Formula
   desc "Verilog simulation and synthesis tool"
   homepage "http://iverilog.icarus.com/"
-  url "ftp://icarus.com/pub/eda/verilog/v10/verilog-10.0.tar.gz"
-  sha256 "179f09afbafb951bea28c9001b06ed8b9b2e54181092d48e343cb20f436b1185"
+  url "ftp://icarus.com/pub/eda/verilog/v10/verilog-10.1.1.tar.gz"
+  sha256 "fdaa75dfe7c58cbc471fc12710ee49b3f32fd6cc055d9181b5190cbcbbd6cada"
 
   bottle do
     sha256 "32b49d99490f6076377ec3e41dab98ec23848e61b180bce9e74026fd8d16457a" => :sierra
