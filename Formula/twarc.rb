@@ -7,9 +7,9 @@ class Twarc < Formula
   sha256 "9894a29f02c3fbbd671c9ee05db6fae3461ebbfcbba8f748421b8017c1f8fa96"
 
   bottle do
-    sha256 "bf75fbe7d03cc5095b9b7209ea90ac3605353b64c036d32ea3375b85c9d6669b" => :sierra
-    sha256 "0fb8ebb422316c20323d576f6626453ad6823cc35dbac39c4efd233ae94c3c83" => :el_capitan
-    sha256 "e4892f201cc1f989668b70081ae6e6bf60b8c430f03fae5719380aa996229391" => :yosemite
+    sha256 "7a21c9cb6b221ffecc4b6985a26227c93d69c92726cf90256e55c4dde7d22f64" => :sierra
+    sha256 "e73b7732e7138c890993fd93242002bcfc90f5ea94e2b3da3acb6ff64cd3e791" => :el_capitan
+    sha256 "001f4e79b8f0034f29eaa6b19a3a1e385cb10019de84db0ab96afd9bb046e18a" => :yosemite
   end
 
   depends_on :python
