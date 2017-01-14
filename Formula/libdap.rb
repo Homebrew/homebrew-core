@@ -1,9 +1,8 @@
 class Libdap < Formula
   desc "Framework for scientific data networking"
   homepage "https://www.opendap.org/"
-  url "https://www.opendap.org/pub/source/libdap-3.18.2.tar.gz"
-  sha256 "0f33b2d91c8f06713e1fcb99658372dc0357cbebe99e7c1850b68a927b7e54db"
-  revision 1
+  url "https://www.opendap.org/pub/source/libdap-3.18.3.tar.gz"
+  sha256 "0ced6aa36bb445f51e4d72d480e326de7d513a4a7a2c1e5c73e16e2c1f71f22b"
 
   bottle do
     sha256 "862f4ae6f2c4f12fb62326e62d1922ee8ad24cd11b2c278ae01230256ad6862a" => :sierra
