@@ -1,8 +1,8 @@
 class TtyClock < Formula
   desc "Analog clock in ncurses"
   homepage "https://github.com/xorg62/tty-clock"
-  url "https://github.com/xorg62/tty-clock/archive/v0.1.tar.gz"
-  sha256 "866ee25c9ef467a5f79e9560c8f03f2c7a4c0371fb5833d5a311a3103e532691"
+  url "https://github.com/xorg62/tty-clock/archive/v2.3.tar.gz"
+  sha256 "343e119858db7d5622a545e15a3bbfde65c107440700b62f9df0926db8f57984"
   head "https://github.com/xorg62/tty-clock.git"
 
   bottle do
@@ -13,10 +13,12 @@ class TtyClock < Formula
     sha256 "82cc2ecb173ecc895ce117f765bcda7e20d911abb63db5c9ffe9339aa2054a1a" => :mavericks
   end
 
+  depends_on "pkg-config" => :build
+
   def install
-    inreplace "Makefile", "/usr/local/bin/", "#{bin}/"
-    system "make"
-    system "make", "install"
+    ENV.append "LDFLAGS", "-lncurses"
+    system "make", "PREFIX=#{prefix}"
+    system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
