@@ -6,12 +6,9 @@ class Libming < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "39edc699c3ae41daae0872c8edbf6b5364a428b9579d5ed4d2d66787347de33e" => :sierra
-    sha256 "aeead83fb25e5e53f185a5bf3995503b01045abc1f6593246a1622839be7e86c" => :el_capitan
-    sha256 "18eeaa97826666b7a0e056f5a954f14b849da4d5e061454cbeeea8405ac71a58" => :yosemite
-    sha256 "de61c35147f75601b49728366cf0baa958429c50e2a26f1f1bb7eaf1d697259e" => :mavericks
-    sha256 "fe516b67284f8de7a34ed1ac3dc68ee46d0bdb3593db16ba5f62b9e228336144" => :mountain_lion
+    sha256 "40d795df57d1e133795eec2398be3009c12f4fde529da0ce58ae7890c15fe93d" => :sierra
+    sha256 "d94345b9515ac352ab1da123536f28d431c99d70cfde7e31110a6b18186d7a8d" => :el_capitan
+    sha256 "2fc3c18b64fe9cacdc0c5098d9d9a1b8b672aedd660208949e227b98241cac08" => :yosemite
   end
 
   depends_on "autoconf" => :build
