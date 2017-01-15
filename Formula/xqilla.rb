@@ -6,11 +6,9 @@ class Xqilla < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "c5ddfea1f0e15d8dda3af57bc20add4e986eec8fa1afc22541b48492bdbf5a78" => :sierra
-    sha256 "467093e2e7aa5d27ef6fbb4b38b4272847b58f0034a274dee32a47d03269a4fc" => :el_capitan
-    sha256 "25adad84e1e9c8aef23c2acde2a7848a1899d291628ffbe6c03c6296fbeb39f4" => :yosemite
-    sha256 "29918d50fd8318817ddea7f7e99ee9f6e144c631fcbeaa19c5b0f478223b1d39" => :mavericks
+    sha256 "ec371fc2b757a643eaf9a2ba738ac26038f848abc5ff84cdba67e192c8e69ccd" => :sierra
+    sha256 "50c54dbee37fb8def85096c322d8c2e48e01e568aca9d47936b5e2c25c19c0f6" => :el_capitan
+    sha256 "7b0530e7eb211b6789d26a1331f7a8402ea83351587fb24686284dd6938a8362" => :yosemite
   end
 
   depends_on "xerces-c"
