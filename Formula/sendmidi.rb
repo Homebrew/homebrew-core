@@ -1,8 +1,8 @@
 class Sendmidi < Formula
   desc "Multi-platform command-line tool to send out MIDI messages"
   homepage "https://github.com/gbevin/SendMIDI"
-  url "https://github.com/gbevin/SendMIDI/archive/1.0.2.tar.gz"
-  sha256 "46ab36516b6d4ba022c4b57aa35c384ccd491c99993464e56bc317bc4748330b"
+  url "https://github.com/gbevin/SendMIDI/archive/1.0.3.tar.gz"
+  sha256 "f37a4ff16fac73e23e403fee0ed7ffb0eefcca399ed39dece9cd157969ad5fc6"
 
   depends_on :xcode => :build
 
