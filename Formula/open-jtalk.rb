@@ -3,6 +3,7 @@ class OpenJtalk < Formula
   homepage "http://open-jtalk.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/open-jtalk/Open%20JTalk/open_jtalk-1.10/open_jtalk-1.10.tar.gz"
   sha256 "5b77ee729e546ca6a22d0b08cda0923fb4225fa782b26c2511b66cc644c14b7d"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -22,8 +23,8 @@ class OpenJtalk < Formula
   end
 
   resource "mei" do
-    url "https://downloads.sourceforge.net/project/mmdagent/MMDAgent_Example/MMDAgent_Example-1.6/MMDAgent_Example-1.6.zip"
-    sha256 "2640ede5831a83e19f9cd8dabca9ad07ef05c50af06c6bc8cb3adfb5e5d4f639"
+    url "https://downloads.sourceforge.net/project/mmdagent/MMDAgent_Example/MMDAgent_Example-1.7/MMDAgent_Example-1.7.zip"
+    sha256 "5b560e8c23c5acaf67688e6e25788db2c0bb230aff0635b7c75a82a87c7f6dba"
   end
 
   def install
