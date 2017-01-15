@@ -6,7 +6,7 @@ class Qt5 < Formula
   url "https://download.qt.io/official_releases/qt/5.7/5.7.1/single/qt-everywhere-opensource-src-5.7.1.tar.xz"
   mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.7/5.7.1/single/qt-everywhere-opensource-src-5.7.1.tar.xz"
   sha256 "46ebca977deb629c5e69c2545bc5fe13f7e40012e5e2e451695c583bd33502fa"
-  revision 1
+  revision 2
   head "https://code.qt.io/qt/qt5.git", :branch => "5.7", :shallow => false
 
   bottle do
@@ -17,9 +17,9 @@ class Qt5 < Formula
 
   keg_only "Qt 5 has CMake issues when linked"
 
-  option "with-docs", "Build documentation"
-  option "with-examples", "Build examples"
-  option "with-qtwebkit", "Build with QtWebkit module"
+  option "without-docs", "Don't build documentation"
+  option "without-examples", "Don't build examples"
+  option "without-qtwebkit", "Don't build with QtWebkit module"
 
   deprecated_option "qtdbus" => "with-dbus"
   deprecated_option "with-d-bus" => "with-dbus"
@@ -29,10 +29,10 @@ class Qt5 < Formula
   # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
   depends_on :macos => :mountain_lion
 
-  depends_on "dbus" => :optional
-  depends_on :mysql => :optional
+  depends_on "dbus" => :recommended
+  depends_on :mysql => :recommended
   depends_on "pkg-config" => :build
-  depends_on :postgresql => :optional
+  depends_on :postgresql => :recommended
   depends_on :xcode => :build
 
   # http://lists.qt-project.org/pipermail/development/2016-March/025358.html
