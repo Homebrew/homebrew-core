@@ -1,6 +1,6 @@
 class Clens < Formula
   desc "Library to help port code from OpenBSD to other operating systems"
-  homepage "https://opensource.conformal.com/wiki/clens"
+  homepage "https://github.com/conformal/clens"
   url "https://github.com/conformal/clens/archive/CLENS_0_7_0.tar.gz"
   sha256 "0cc18155c2c98077cb90f07f6ad8334314606c4be0b6ffc13d6996171c7dc09d"
 
