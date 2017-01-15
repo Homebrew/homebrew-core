@@ -1,8 +1,8 @@
 class AptDater < Formula
   desc "Manage package updates on remote hosts using SSH"
-  homepage "https://www.ibh.de/apt-dater/"
-  url "https://downloads.sourceforge.net/project/apt-dater/apt-dater/0.9.0/apt-dater-0.9.0.tar.gz"
-  sha256 "10b8335c156dabae249aa071cf8689900fae325c2e9540e36a840a2a77d3eeb4"
+  homepage "https://github.com/DE-IBH/apt-dater"
+  url "https://github.com/DE-IBH/apt-dater/archive/v1.0.3.tar.gz"
+  sha256 "891b15e4dd37c7b35540811bbe444e5f2a8d79b1c04644730b99069eabf1e10f"
 
   bottle do
     sha256 "e8c3997c31dd62b04f5da31bd2055fea9ebb12e3959d09840d9eac0801e1befc" => :sierra
