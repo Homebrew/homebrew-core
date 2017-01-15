@@ -1,32 +1,9 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
+  url "https://weechat.org/files/src/weechat-1.7.tar.xz"
+  sha256 "599348337a4bff179bf50888dad135751fa401538ebaadc59831d2223be52db3"
   head "https://github.com/weechat/weechat.git"
-
-  stable do
-    url "https://weechat.org/files/src/weechat-1.6.tar.xz"
-    sha256 "d667db4f98307a47c9bfbbe00a4be44c356b8483d566740618b484d8565a16e3"
-
-    # All these patches are already upstream. Remove on 1.7 release.
-    # This top patch is unrelated to the build fix, but other two
-    # patches fail to apply cleanly without it.
-    patch do
-      url "https://github.com/weechat/weechat/commit/2122cbf9.patch"
-      sha256 "8d48b9abf04c717109bc29bcdc47420f2e21ff545fb5af85162dd9722fcab48c"
-    end
-
-    # These two patches fix lresolv linking errors.
-    # https://github.com/Homebrew/homebrew-core/pull/4427
-    patch do
-      url "https://github.com/weechat/weechat/commit/e098a0d.patch"
-      sha256 "e459496133b981d9121ae82977e8a8709d82d63a019963f704fb35fb8a36312b"
-    end
-
-    patch do
-      url "https://github.com/weechat/weechat/commit/c9fbb91.patch"
-      sha256 "bb3ea7bbb4e4fcf20cef7d89ce38dd4c73b90f3482e3af248c0e93c2831cd854"
-    end
-  end
 
   bottle do
     sha256 "40bdea0f0c9d0f79a81971bdfe4e1482d7f455c74b9cd2a14c13b34525be08b9" => :sierra
