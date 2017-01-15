@@ -5,10 +5,9 @@ class AptDater < Formula
   sha256 "891b15e4dd37c7b35540811bbe444e5f2a8d79b1c04644730b99069eabf1e10f"
 
   bottle do
-    sha256 "e8c3997c31dd62b04f5da31bd2055fea9ebb12e3959d09840d9eac0801e1befc" => :sierra
-    sha256 "ac82bb9943120aa1325e782c2ef99cad7a6ecd12f260c0f7f1e054015c7f39bc" => :el_capitan
-    sha256 "7d2a6d082f2a2d0271bb7c87f30ddda2a94a51134dc1efa490b6042bfdf21bc4" => :yosemite
-    sha256 "43774745944523bb099fad706d8bc8ac81ec0716ca1c41c2cacb1352a9902e90" => :mavericks
+    sha256 "e4062b5a3202e29cd57cf95328348c20022857ec4486056dcc8bf9c10da5e97a" => :sierra
+    sha256 "0ecdb3314feb56e4ca56028317fec6e513223356fb10569bcc86d95db1be19bc" => :el_capitan
+    sha256 "daefda2c8bd5c4aae56f69c540905ca08101339b393ea01d697abb05af2d51e0" => :yosemite
   end
 
   depends_on "pkg-config" => :build
