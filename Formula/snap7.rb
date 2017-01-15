@@ -6,11 +6,9 @@ class Snap7 < Formula
 
   bottle do
     cellar :any
-    sha256 "b31ea99a516376e68a5b610d72bf5fc7af72b3030d5a8c45efd3bf472c42b154" => :sierra
-    sha256 "c65d8e3e9f9f1a426ed4b7581fdf44afa45da09e4dc0f70669d3c72288a96fe1" => :el_capitan
-    sha256 "b8fa94cae36795dc754f17123317bd2e816f99907cecd2522e587ec52cbdb453" => :yosemite
-    sha256 "d152d00966b20ae4429b3aabe53e91635bf2ee6125cae563778aefade1e59d0e" => :mavericks
-    sha256 "ea1eeaee1876b4ef948cdef5b5f9b9a9b8233d93ffe285ad13fe1301100ca318" => :mountain_lion
+    sha256 "ed5bbb34831786cc62281716df93c5b1c15533793b49ec08efa85ffa1627c26c" => :sierra
+    sha256 "a9067f22d44555dbe4cdf4a7d68d4f531a7120c2e1241535f4ad1610d5bbc5bc" => :el_capitan
+    sha256 "53d421256ed6bb88628f05ad081e2829b27359707fe04b877aec10cd67ea18e4" => :yosemite
   end
 
   def install
