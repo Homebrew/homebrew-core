@@ -8,9 +8,10 @@ class Twarc < Formula
   revision 1
 
   bottle do
-    sha256 "7a21c9cb6b221ffecc4b6985a26227c93d69c92726cf90256e55c4dde7d22f64" => :sierra
-    sha256 "e73b7732e7138c890993fd93242002bcfc90f5ea94e2b3da3acb6ff64cd3e791" => :el_capitan
-    sha256 "001f4e79b8f0034f29eaa6b19a3a1e385cb10019de84db0ab96afd9bb046e18a" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "1613c5a676bdbfc2f9d46c03674ee42e6cfde8b31ad040c64c2d51e232034473" => :sierra
+    sha256 "efd78b2c07fecee0bb978e280e297c7c7f3425af25ef2273d955e258d57e528a" => :el_capitan
+    sha256 "393fe1429e6a8ee310ea84f6c63bfb0906758f4e4c74c9853024c7a0b4942170" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
