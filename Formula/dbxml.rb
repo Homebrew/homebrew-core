@@ -7,9 +7,9 @@ class Dbxml < Formula
 
   bottle do
     cellar :any
-    sha256 "b383921c02c9a882a7437a7a14097bfea4d19f2da6d0329e711bb71f1ec3f4d9" => :sierra
-    sha256 "36a614a26a2fbdb0986c241fc93ed392455587cfa76756f0385718a80cf9f258" => :el_capitan
-    sha256 "a543c8d175bb91bd3ae0bf20fe9c10c1ece60e20026effe8a3476f3728f9a7cf" => :yosemite
+    sha256 "f12996781a7a784ff65b5fbb33b5285f996fda729e7fcd4104890ea55010c549" => :sierra
+    sha256 "babca444db17952084979d91bb17680f3a8a3d009f03cef87686bb7bd4ae6054" => :el_capitan
+    sha256 "3a64c61d48a1f0c864d6f780c0b73ccd82a26f24958d64c1ddff6c5f35ea9b2f" => :yosemite
   end
 
   depends_on "xerces-c"
