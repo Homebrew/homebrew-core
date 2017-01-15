@@ -7,11 +7,9 @@ class Cloc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "02aa44feab6b34f60f68a4fc0fd85e6fe5fadb8b41e266d611839ae49f2f361d" => :sierra
-    sha256 "6e6e8a4019474b1249b3c655e5609010888d3642ad8b04a742123d0cb099146c" => :el_capitan
-    sha256 "2846be2db9ffb1a7259a261142aa4edac6f6ad01e469e28b19df9c479e058fdd" => :yosemite
-    sha256 "cf7a851ac407ecaea3c183b30bb47e549a178bcc7fc5ce145447f162e98db888" => :mavericks
+    sha256 "20ad35f8364a77e84cc412f1bb1a86d9b96876eed88afbdc71017bec227290ea" => :sierra
+    sha256 "a8c39fc4daf93dc56e24a55a76414f0b64e51e2c443de10c24e4b1c5b9b5a2b1" => :el_capitan
+    sha256 "d6eef98c928c222e5cc7c675b23774ec87a62076c5642c92555c36e749d97996" => :yosemite
   end
 
   resource "Regexp::Common" do
