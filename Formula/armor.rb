@@ -6,10 +6,9 @@ class Armor < Formula
   head "https://github.com/labstack/armor.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "021d1e27f3d79c3900ac617dfc80ff5bde1b72599fc3cebc6357f958a9053300" => :sierra
-    sha256 "ffef92c5c6a5d9c648b6e3eff43930b27578b2b4be6af05a0f20af5aa17027bf" => :el_capitan
-    sha256 "da6eab3c8251643b22086aa7924d5167dad38ab530808493b57ae8980c96f999" => :yosemite
+    sha256 "5d05faf503880c1358e550c14f82f946f171ceb3b2e36fe87c7ecea02add36b2" => :sierra
+    sha256 "47982967cbd64367307724e0e6d62e68cd4441e9f48a2d53d2e12cfcf2f27fa9" => :el_capitan
+    sha256 "bb8eea9801eb1cdb96b5d99a24cab22c3c16955bfddb3fde62584557ab271809" => :yosemite
   end
 
   depends_on "go" => :build
