@@ -7,10 +7,9 @@ class TtyClock < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3939d783a09c4717bd02169ef6d074cc3ae9551e87743b3576510978d6bd6553" => :sierra
-    sha256 "421eaa195f1dc55ec1af56ed7d3ab1825d94ddfebe2276b667afeae59e68d78e" => :el_capitan
-    sha256 "51cf833ee7f7bfb6539d804c9df571be0ec010886128c7bef8ce3cd53dd478ac" => :yosemite
-    sha256 "82cc2ecb173ecc895ce117f765bcda7e20d911abb63db5c9ffe9339aa2054a1a" => :mavericks
+    sha256 "9b0e056ec6d86d9ba9cbd2abc02236607a6ad5601e7a656d10cad20182564315" => :sierra
+    sha256 "c0d981769811bf1c265e11702ea0d26bcf87102ac92896c04c14a91fbed1cc8c" => :el_capitan
+    sha256 "9341fb07070b665dc5f9593c1b4811ec734f7221afbde2547cee55fc9102aa1e" => :yosemite
   end
 
   depends_on "pkg-config" => :build
