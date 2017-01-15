@@ -21,6 +21,12 @@ class Yarn < Formula
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
+  def caveats; <<-EOS.undent
+    Add path:
+      export PATH="$PATH:`yarn global bin`"
+    EOS
+  end
+
   test do
     (testpath/"package.json").write('{"name": "test"}')
     system bin/"yarn", "add", "jquery"
