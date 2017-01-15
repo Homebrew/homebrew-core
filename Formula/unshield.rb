@@ -1,8 +1,8 @@
 class Unshield < Formula
   desc "Extract files from InstallShield cabinet files"
   homepage "https://github.com/twogood/unshield"
-  url "https://github.com/twogood/unshield/archive/1.4.tar.gz"
-  sha256 "8ae91961212193a7d3d7973c1c9464f3cd1967c179d6099feb1bb193912f8231"
+  url "https://github.com/twogood/unshield/archive/1.4.1.tar.gz"
+  sha256 "f84c0f29028f7162fe6e97c2b1e7f2886eedbda76f94f357fa2ab0362ebfe635"
   head "https://github.com/twogood/unshield.git"
 
   bottle do
@@ -20,6 +20,6 @@ class Unshield < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/unshield -V")
+    system bin/"unshield", "-V"
   end
 end
