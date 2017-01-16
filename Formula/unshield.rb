@@ -6,9 +6,9 @@ class Unshield < Formula
   head "https://github.com/twogood/unshield.git"
 
   bottle do
-    sha256 "e0ce716312845cd1598b853162d50bbb09db26c5b759ff98dba45a91d584a2b6" => :sierra
-    sha256 "d8d77887ab6bdb1346eb3ff4049bfc0febc00c6b6acd9f868e86aef8b724c2a8" => :el_capitan
-    sha256 "cfba17ecf917cf98f367c214134e5a38b461793a43951856ed9fd2b1ec7c2a83" => :yosemite
+    sha256 "b3bfe30e3dc96edfcda3be347e9d3101d1de741c33b5d6ca2aafa07449d37d59" => :sierra
+    sha256 "e4da5b388cc3133e231e8c34dcf244a2934b470fcd26123acb88e29b99400e19" => :el_capitan
+    sha256 "64004268bba853ce5e89da772961757c8d57f40af6690dd997af5ca109670650" => :yosemite
   end
 
   depends_on "cmake" => :build
