@@ -22,9 +22,9 @@ class Ldc < Formula
   end
 
   devel do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.1.0-beta3/ldc-1.1.0-beta3-src.tar.gz"
-    sha256 "cf4aeb393eada610aa3bad18c3ae6a5de94250eaa968fe2d1b0a6afdf8ea54f6"
-    version "1.1.0-beta3"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.1.0-beta6/ldc-1.1.0-beta6-src.tar.gz"
+    sha256 "2ded84ba496d1fb02571745bb3679dce06664009bcd200c8d352b746c9399262"
+    version "1.1.0-beta6"
 
     resource "ldc-lts" do
       url "https://github.com/ldc-developers/ldc/releases/download/v0.17.2/ldc-0.17.2-src.tar.gz"
@@ -79,7 +79,11 @@ class Ldc < Formula
       }
     EOS
 
-    system bin/"ldc2", "test.d"
+    if build.stable?
+      system bin/"ldc2", "test.d"
+    else
+      system bin/"ldc2", "-flto=full", "test.d"
+    end
     assert_match "Hello, world!", shell_output("./test")
     system bin/"ldmd2", "test.d"
     assert_match "Hello, world!", shell_output("./test")
