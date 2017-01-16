@@ -3,8 +3,8 @@ class Dbt < Formula
 
   desc "Data build tool"
   homepage "https://github.com/analyst-collective/dbt"
-  url "https://files.pythonhosted.org/packages/e0/1e/b60ca306bb02bbd1c204cc7b724e6d348659e2279323777dc488debc03f9/dbt-0.6.1.tar.gz"
-  sha256 "b8241785dcb40ab5f68addc72eafeb52e498e9ddc83aa979bd3b5d3f89a86bd8"
+  url "https://files.pythonhosted.org/packages/39/50/1fc214e6e2950c9061537062e624c54ada4497a2496ecfaf86928d634014/dbt-0.6.2.tar.gz"
+  sha256 "076d0d20c0f090207c34b84dd8466edbafec6cae715e5b2e9c59e54e487fefc6"
   head "https://github.com/analyst-collective/dbt.git", :branch => "development"
 
   bottle do
@@ -43,13 +43,13 @@ class Dbt < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/13/8a/4eed41e338e8dcc13ca41c94b142d4d20c0de684ee5065523fee406ce76f/decorator-4.0.10.tar.gz"
-    sha256 "9c6e98edcb33499881b86ede07d9968c81ab7c769e28e9af24075f0a5379f070"
+    url "https://files.pythonhosted.org/packages/cc/ac/5a16f1fc0506ff72fcc8fd4e858e3a1c231f224ab79bb7c4c9b2094cc570/decorator-4.0.11.tar.gz"
+    sha256 "953d6bf082b100f43229cf547f4f97f97e970f5ad645ee7601d55ff87afdfe76"
   end
 
   resource "gevent" do
-    url "https://files.pythonhosted.org/packages/52/17/fe47f6e565c7ac22886dbd15dc45f63707b76b255e8f41675043ba1db4a3/gevent-1.2.0.tar.gz"
-    sha256 "fec7aaa513bec624634a67eb3c85baffa7e1781b1b76680493224a6a5aed6edf"
+    url "https://files.pythonhosted.org/packages/54/dd/17dc7e899ac7c1de2d19b367b29d90fdb4cfe83bda8c2581464906c9399d/gevent-1.2.1.tar.gz"
+    sha256 "3de300d0e32c31311e426e4d5d73b36777ed99c2bac3f8fbad939eeb2c29fa7c"
   end
 
   resource "greenlet" do
