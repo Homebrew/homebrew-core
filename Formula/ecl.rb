@@ -15,28 +15,35 @@ class Ecl < Formula
 
   depends_on "gmp"
   depends_on "bdw-gc"
+  depends_on "libffi"
 
   def install
-    # These environment variables are necessary or gmp / boehmgc won't be found
-    # No idea why
     gmp = Formula["gmp"]
-    boehmgc = Formula["boehmgc"]
-    ENV.append "CFLAGS", "-I#{gmp.opt_include} -I#{boehmgc.opt_include}"
-    ENV.append "CXXFLAGS", "-I#{gmp.opt_include} -I#{boehmgc.opt_include}"
-    ENV.append "LDFLAGS", "-L#{gmp.opt_lib} -L#{boehmgc.opt_lib}"
+    bdwgc = Formula["bdwgc"]
+    libffi = Formula["libffi"]
 
+    # These environment variables are necessary or bdwgc won't be found until the
+    # next upstream release:
+    # https://gitlab.com/embeddable-common-lisp/ecl/issues/346
+    ENV.append "CFLAGS", "-I#{bdwgc.opt_include}"
+    ENV.append "CXXFLAGS", "-I#{bdwgc.opt_include}"
+    ENV.append "LDFLAGS", "-L#{bdwgc.opt_lib}"
+
+    # Parallel-make support is being actively worked on and there is not a PR
+    # ready at this time:
     # https://gitlab.com/embeddable-common-lisp/ecl/tree/revert-make-split
     ENV.deparallelize
 
     system "./configure",
                           "--prefix=#{prefix}",
+                          "--with-gmp-prefix=#{gmp.prefix}",
+                          "--with-libffi-prefix=#{libffi.prefix}",
                           "--enable-threads=yes",
-                          "--with-dffi=included",
+                          "--with-dffi=system",
                           "--with-cxx",
                           "--enable-gmp=system"
     system "make"
     system "make", "install"
-    system "make", "check"
   end
 
   test do
