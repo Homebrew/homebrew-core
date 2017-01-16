@@ -10,6 +10,6 @@ class SourceToImage < Formula
 
   test do
     system "#{bin}/s2i", "create", "testimage", testpath
-    assert_match(/Dockerfile/, shell_output("ls").chomp)
+    assert (testpath/"Dockerfile").exist?
   end
 end
