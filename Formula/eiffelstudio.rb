@@ -1,8 +1,8 @@
 class Eiffelstudio < Formula
   desc "Development environment for the Eiffel language"
   homepage "https://www.eiffel.com"
-  url "https://ftp.eiffel.com/pub/download/16.05/eiffelstudio-16.05.tar"
-  sha256 "7154ee73671b7b29892d7b6ac5ef3819dc2aec95c262e95e9482c6f35a897e25"
+  url "https://ftp.eiffel.com/pub/download/16.05/eiffelstudio-17.01.9.9700.tar"
+  sha256 "610344e8e4bbb4b8ccedc22e57b6ffa6b8fd7b9ffee05edad15fc1aa2b1259a1"
 
   bottle do
     cellar :any
