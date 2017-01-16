@@ -22,9 +22,14 @@ class Ldc < Formula
   end
 
   devel do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.1.0-beta3/ldc-1.1.0-beta3-src.tar.gz"
-    sha256 "cf4aeb393eada610aa3bad18c3ae6a5de94250eaa968fe2d1b0a6afdf8ea54f6"
-    version "1.1.0-beta3"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.1.0-beta5/ldc-1.1.0-beta5-src.tar.gz"
+    sha256 "46c494ca1c29f2cd1e5d2e2d29681ceeb71fad72f34cc8d2308856c22b27a41b"
+    version "1.1.0-beta5"
+
+    patch do
+      url "https://github.com/ldc-developers/ldc/pull/1902.patch"
+      sha256 "dcb61bb49a56537f77d9153b687a591a48129bb1cb5ac30d7df78cd251431e6d"
+    end
 
     resource "ldc-lts" do
       url "https://github.com/ldc-developers/ldc/releases/download/v0.17.2/ldc-0.17.2-src.tar.gz"
@@ -68,6 +73,9 @@ class Ldc < Formula
       system "cmake", "..", *args
       system "make"
       system "make", "install"
+      unless build.stable?
+        lib.install bin/"libLTO-ldc.dylib"
+      end
     end
   end
 
@@ -79,7 +87,11 @@ class Ldc < Formula
       }
     EOS
 
-    system bin/"ldc2", "test.d"
+    if build.stable?
+      system bin/"ldc2", "test.d"
+    else
+      system bin/"ldc2", "-flto=full", "test.d"
+    end
     assert_match "Hello, world!", shell_output("./test")
     system bin/"ldmd2", "test.d"
     assert_match "Hello, world!", shell_output("./test")
