@@ -5,9 +5,8 @@ class Ldc < Formula
   stable do
     # for the sake of LLVM 3.9 compatibility
     url "https://github.com/ldc-developers/ldc.git",
-        :branch => "release-1.0.1",
-        :revision => "3461e00f3531f855f9fc6e92515d7affb8201827"
-    version "1.0.1-alpha1"
+        :tag => "v1.1.0-beta6"
+    version "1.1.0-beta6"
 
     resource "ldc-lts" do
       url "https://github.com/ldc-developers/ldc/releases/download/v0.17.2/ldc-0.17.2-src.tar.gz"
@@ -19,17 +18,6 @@ class Ldc < Formula
     sha256 "5d4e2c20dd74909113448f9d80032b9eea9776061c2aabde9b58d33b36503588" => :sierra
     sha256 "4837cf9fdb9b9c030fb26674254a844610459203a79847b1ff3cf0d85770fc33" => :el_capitan
     sha256 "8d827625dea278303befcbb997d3e1713b7d85e257705a30da72ce1519eab147" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.1.0-beta3/ldc-1.1.0-beta3-src.tar.gz"
-    sha256 "cf4aeb393eada610aa3bad18c3ae6a5de94250eaa968fe2d1b0a6afdf8ea54f6"
-    version "1.1.0-beta3"
-
-    resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.2/ldc-0.17.2-src.tar.gz"
-      sha256 "8498f0de1376d7830f3cf96472b874609363a00d6098d588aac5f6eae6365758"
-    end
   end
 
   head do
