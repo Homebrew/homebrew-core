@@ -6,10 +6,9 @@ class Fabio < Formula
   head "https://github.com/eBay/fabio.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "efc2f0e77deceb489f326992979fc25bb164f7ac789193cecde85522e9a0dc85" => :sierra
-    sha256 "a789205f6250b1e2205c0d77f8f8adbc00cb1b4627b09deccbcdadc4af4804b0" => :el_capitan
-    sha256 "624c6609bda0d82ea676d95bd821caa88ac9be03b9f20075843e7fce3c3fd5eb" => :yosemite
+    sha256 "a1cadbc2d75f0d21f28a03cf7c0c89e04b67685527e3622e21a3cf28825ffe7c" => :sierra
+    sha256 "6ce2926781faaa40f210c1e6e405271253751860256b0a5982c3e8fdb49185de" => :el_capitan
+    sha256 "d2e3e9dc535c3b9040f453be7f5149262f66cf1af2c162a9248e11a2a309d8fc" => :yosemite
   end
 
   depends_on "go" => :build
