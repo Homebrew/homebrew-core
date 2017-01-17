@@ -7,9 +7,9 @@ class IsoCodes < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e4db140774927b21d78ad33c7d72d63a208448af1f4782fd2f9be872ca9b6a03" => :sierra
-    sha256 "81ec7286fb1b9390a3ce1d718003b6aae56addde3bf3e52a8f82e37ad178f5c2" => :el_capitan
-    sha256 "81ec7286fb1b9390a3ce1d718003b6aae56addde3bf3e52a8f82e37ad178f5c2" => :yosemite
+    sha256 "f51560d019e402c0571b1218b9380449e7b3c0049529e6b4d9d99f0c5fe3537b" => :sierra
+    sha256 "f01c5cd9f3254fe006a225a17cafe51ab926b21ce8a2e9d56932c32d2ce028b6" => :el_capitan
+    sha256 "f01c5cd9f3254fe006a225a17cafe51ab926b21ce8a2e9d56932c32d2ce028b6" => :yosemite
   end
 
   depends_on "gettext" => :build
