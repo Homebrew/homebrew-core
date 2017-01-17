@@ -15,7 +15,7 @@ class GmpAT4 < Formula
   mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/gmp-4.3.2.tar.bz2"
   sha256 "936162c0312886c21581002b79932829aa048cfaf9937c6265aeaa14f1cd1775"
 
-  keg_only "Older version of gmp"
+  keg_only :versioned_formula
 
   fails_with :gcc_4_0 do
     cause "Reports of problems using gcc 4.0 on Leopard: https://github.com/mxcl/homebrew/issues/issue/2302"
