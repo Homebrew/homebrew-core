@@ -1,6 +1,7 @@
 class TomcatAT80 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
+  revision 1
 
   stable do
     url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.0.39/bin/apache-tomcat-8.0.39.tar.gz"
@@ -24,11 +25,9 @@ class TomcatAT80 < Formula
     sha256 "32fe32a8e72c602b18230aa300f59fb62d2b879be026d58c7c5b4f028c8f3627" => :yosemite
   end
 
-  option "with-fulldocs", "Install full documentation locally"
+  keg_only :versioned_formula
 
-  conflicts_with "tomcat", :because => "Differing versions of same formula"
-  conflicts_with "tomcat@6", :because => "Differing versions of same formula"
-  conflicts_with "tomcat@7", :because => "Differing versions of same formula"
+  option "with-fulldocs", "Install full documentation locally"
 
   def install
     # Remove Windows scripts
