@@ -13,7 +13,7 @@ class IslAT012 < Formula
   mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-0.12.2.tar.bz2"
   sha256 "f4b3dbee9712850006e44f0db2103441ab3d13b406f77996d1df19ee89d11fb4"
 
-  keg_only "Older version of isl"
+  keg_only :versioned_formula
 
   depends_on "gmp@4"
 
