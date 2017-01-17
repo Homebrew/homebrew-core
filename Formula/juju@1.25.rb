@@ -3,6 +3,7 @@ class JujuAT125 < Formula
   homepage "https://jujucharms.com/"
   url "https://launchpad.net/juju-core/1.25/1.25.8/+download/juju-core_1.25.8.tar.gz"
   sha256 "7866cf4195d7fe87463bc7501cece12b4d0c3d08b8983f66cecf54f6f8b28267"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,8 @@ class JujuAT125 < Formula
   end
 
   depends_on "go" => :build
-  conflicts_with "juju@2.0", :because => "juju 1 and 2 cannot be installed simultaneously."
+
+  keg_only :versioned_formula
 
   def install
     ENV["GOPATH"] = buildpath
