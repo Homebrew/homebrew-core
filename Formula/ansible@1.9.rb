@@ -3,6 +3,7 @@ class AnsibleAT19 < Formula
   homepage "http://www.ansible.com"
   url "https://releases.ansible.com/ansible/ansible-1.9.6.tar.gz"
   sha256 "50773781b1e76f2885bbeb2351a97cf1c6a29239d3e073da939a104e7e81ee5d"
+  revision 1
 
   head "https://github.com/ansible/ansible.git", :branch => "stable-1.9"
 
@@ -13,12 +14,11 @@ class AnsibleAT19 < Formula
     sha256 "ee66e03e98a6f7248b813b9c7f526e0208feb11fb556c811a75056b8ac974138" => :yosemite
   end
 
+  keg_only :versioned_formula
+
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libyaml"
   depends_on "openssl"
-
-  conflicts_with "ansible", :because => "Differing version of same formula."
-  conflicts_with "ansible@2.0", :because => "Differing version of same formula."
 
   #
   # ansible (core dependencies)
