@@ -3,6 +3,7 @@ class AnsibleAT20 < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.0.2.0.tar.gz"
   sha256 "373a2e50319d90da50948e3faf1c033464b7302200e0199da8981d24646d4387"
+  revision 1
 
   head "https://github.com/ansible/ansible.git", :branch => "stable-2.0"
 
@@ -19,13 +20,12 @@ class AnsibleAT20 < Formula
     version "2.0.2.0-0.4.rc4"
   end
 
+  keg_only :versioned_formula
+
   depends_on "pkg-config" => :build
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libyaml"
   depends_on "openssl"
-
-  conflicts_with "ansible", :because => "Differing version of same formula."
-  conflicts_with "ansible@1.9", :because => "Differing version of same formula."
 
   #
   # ansible (core dependencies)
