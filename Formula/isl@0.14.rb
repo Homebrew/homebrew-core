@@ -13,7 +13,7 @@ class IslAT014 < Formula
     sha256 "a0f74e8b8c350176d4b90eaf1d5ea569e2ebf6b715a7c1403040b13a5c05b7a5" => :yosemite
   end
 
-  keg_only "Older version of isl"
+  keg_only :versioned_formula
 
   depends_on "gmp"
 
