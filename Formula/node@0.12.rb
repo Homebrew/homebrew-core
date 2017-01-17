@@ -4,12 +4,15 @@ class NodeAT012 < Formula
   url "https://nodejs.org/dist/v0.12.18/node-v0.12.18.tar.xz"
   sha256 "aec65fae74d1b8d649c145f8ede70afa481002af49cca3336368a7502cb0dc1f"
   head "https://github.com/nodejs/node.git", :branch => "v0.12-staging"
+  revision 1
 
   bottle do
     sha256 "378660a4ccc4d3a56de6efed02682bf20c86a33c1021ce880e1cc359dea45354" => :sierra
     sha256 "953a182bf211ee7b2dcde85d124dc9ac161b1cb5c72fdc641fdb311b1f5b4e9e" => :el_capitan
     sha256 "f54dc660effe3003b76977385e4077d21c8f3096f2e6bdf3045cb0fe26ec37e8" => :yosemite
   end
+
+  keg_only :versioned_formula
 
   option "with-debug", "Build with debugger hooks"
   option "without-npm", "npm will not be installed"
@@ -22,12 +25,6 @@ class NodeAT012 < Formula
   # https://github.com/nodejs/node-v0.x-archive/issues/7919
   # https://github.com/Homebrew/homebrew/issues/36681
   depends_on "icu4c" => :optional
-
-  conflicts_with "node", :because => "Differing versions of the same formula"
-  conflicts_with "node@0.10", :because => "Differing versions of the same formulae."
-  conflicts_with "node@4", :because => "Differing versions of the same formulae."
-  conflicts_with "node@5", :because => "Differing versions of the same formulae."
-  conflicts_with "node@6", :because => "Differing versions of the same formulae."
 
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-2.15.11.tgz"
