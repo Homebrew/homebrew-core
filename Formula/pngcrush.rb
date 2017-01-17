@@ -6,9 +6,9 @@ class Pngcrush < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "76204e797331ce2d454a0781296d122628acc9cb631fadaaac4b90c6e0f36932" => :sierra
-    sha256 "e82a9b969438a5434be036ff922b0df563b64e070548921a1a9e3538b9df80ec" => :el_capitan
-    sha256 "07ceca9ffb572a78d036aad41cb612b963ba86e8b16008e85110ca3fc7650a94" => :yosemite
+    sha256 "255db9f0ae400173a0486d674e1f9995c54d2bfa6bce70fa7359549342ca5253" => :sierra
+    sha256 "9ee84cf4494310f01f291c9a2080de62be068288b5b6fb639db7fbdde8e9f2a1" => :el_capitan
+    sha256 "4d9f65bb65b96210865edb046c72b16609e335439e05d2dedf8690bf62575cee" => :yosemite
   end
 
   def install
