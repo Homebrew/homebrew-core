@@ -1,8 +1,9 @@
 class Fftw < Formula
   desc "C routines to compute the Discrete Fourier Transform"
   homepage "http://www.fftw.org"
-  url "http://www.fftw.org/fftw-3.3.5.tar.gz"
-  sha256 "8ecfe1b04732ec3f5b7d279fdb8efcad536d555f9d1e8fabd027037d45ea8bcf"
+  url "http://fftw.org/fftw-3.3.6-pl1.tar.gz"
+  version "3.3.6-pl1"
+  sha256 "1ef4aa8427d9785839bc767f3eb6a84fcb5e9a37c31ed77a04e7e047519a183d"
 
   bottle do
     cellar :any
