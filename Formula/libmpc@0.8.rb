@@ -13,7 +13,7 @@ class LibmpcAT08 < Formula
     sha256 "51be960a907bb34a89c13b3db80260fcb6c4ffa55ca2ac2e797615d71a02fde6" => :yosemite
   end
 
-  keg_only "Older version of libmpc"
+  keg_only :versioned_formula
 
   depends_on "gmp@4"
   depends_on "mpfr@2"
