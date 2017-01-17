@@ -72,7 +72,7 @@ class QtAT55 < Formula
     sha256 "642e52296c4b27b8ecfc3ad2646f4459582365b08c65cf94eb3f9f70c9513230" => :yosemite
   end
 
-  keg_only "Older version of qt5"
+  keg_only :versioned_formula
 
   # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
   # configuration and thus untested in practice. Builds on OS X 10.7 have been
