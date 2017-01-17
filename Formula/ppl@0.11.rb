@@ -13,7 +13,7 @@ class PplAT011 < Formula
     sha256 "3e1af8f6e19816c8bb6ba143d0d6a7ca42398d0c81098da50bb6202a2b251051" => :yosemite
   end
 
-  keg_only "Older version of ppl"
+  keg_only :versioned_formula
 
   depends_on "homebrew/dupes/m4" => :build if MacOS.version < :leopard
   depends_on "gmp@4"
