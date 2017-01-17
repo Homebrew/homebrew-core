@@ -3,13 +3,13 @@ class ElasticsearchAT17 < Formula
   homepage "https://www.elastic.co/products/elasticsearch"
   url "https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.7.6.tar.gz"
   sha256 "78affc30353730ec245dad1f17de242a4ad12cf808eaa87dd878e1ca10ed77df"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  keg_only :versioned_formula
 
-  conflicts_with "elasticsearch", :because => "Different versions of same formula"
-  conflicts_with "elasticsearch@2.4", :because => "Different versions of same formula"
+  depends_on :java => "1.7+"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
