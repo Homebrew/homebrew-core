@@ -6,6 +6,13 @@ class Opencoarrays < Formula
 
   head "https://github.com/sourceryinstitute/opencoarrays.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "24c7cf5023c367cec5452cfa38623a42c790833747f022d48b8e9f02bdea8a13" => :sierra
+    sha256 "29756fac9b29ca02acac4ef8928d1a9d3f3f9f1c32e5cf2f28cae520c0e96002" => :el_capitan
+    sha256 "8cf3dc65932e2cadf89502726ae7adbb456cb54ad6a63f88c37e7b17d73b8175" => :yosemite
+  end
+
   option "without-test", "Skip build time tests (not recommended)"
 
   depends_on "gcc"
