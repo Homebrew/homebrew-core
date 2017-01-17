@@ -3,12 +3,15 @@ class MysqlAT56 < Formula
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
   url "https://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.34.tar.gz"
   sha256 "ee90bafec6af3abe2715ccb0b3cc9345ed8d1cce025d41e6ec2b2b7a7d820823"
+  revision 1
 
   bottle do
     sha256 "e977aa8e72d36d4d3299e6185c98450b43501e6dcee541070e63700eac42e682" => :sierra
     sha256 "d9ad86732265179cd7be92b2ec7b97fdd8977476ffc80477fed0143051c5963a" => :el_capitan
     sha256 "7b45bbe87f2add631829d8c576e293870e52997847d0023787132a121b81bfe3" => :yosemite
   end
+
+  keg_only :versioned_formula
 
   option :universal
   option "with-test", "Build with unit tests"
@@ -27,16 +30,6 @@ class MysqlAT56 < Formula
   depends_on "cmake" => :build
   depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
-
-  conflicts_with "mysql", :because => "Different versions of same formula"
-  conflicts_with "mysql@5.5", :because => "Different versions of same formula"
-
-  conflicts_with "mysql-cluster", "mariadb", "percona-server",
-    :because => "mysql, mariadb, and percona install the same binaries."
-  conflicts_with "mysql-connector-c",
-    :because => "both install MySQL client libraries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
 
   def datadir
     var/"mysql"
