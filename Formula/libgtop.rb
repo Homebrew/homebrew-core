@@ -1,8 +1,8 @@
 class Libgtop < Formula
   desc "Library for portably obtaining information about processes"
   homepage "https://library.gnome.org/devel/libgtop/stable/"
-  url "https://download.gnome.org/sources/libgtop/2.34/libgtop-2.34.0.tar.xz"
-  sha256 "8d8ae39e700d1c8c0b3e1391ed10ca88e6fc14f49d175d516dab6e3313b4ee2a"
+  url "https://download.gnome.org/sources/libgtop/2.34/libgtop-2.34.2.tar.xz"
+  sha256 "268ad1478363e8c0955ea842fa134f6eb88965ab5e03166c20d8df9e7a1f8ef8"
 
   bottle do
     sha256 "1b6dd8bba18db9ebed44b58bbf99e3b94d207be8e3c120a40d2a44d15d2a5a50" => :sierra
