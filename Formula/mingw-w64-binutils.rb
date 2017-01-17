@@ -26,24 +26,24 @@ class MingwW64Binutils < Formula
 
     # Assemble a simple 64-bit routine
     (testpath/"test.s").write <<-EOS.undent
-foo:
-	pushq	%rbp
-	movq	%rsp, %rbp
-	movl	$42, %eax
-	popq	%rbp
-	ret
+      foo:
+        pushq  %rbp
+        movq   %rsp, %rbp
+        movl   $42, %eax
+        popq   %rbp
+        ret
     EOS
     system "#{bin}/x86_64-w64-mingw32-as", "-o", "test.o", "test.s"
     assert_match "file format pe-x86-64", shell_output("#{bin}/x86_64-w64-mingw32-objdump -a test.o")
 
     # Assemble a simple 32-bit routine
     (testpath/"test32.s").write <<-EOS.undent
-_foo:
-	pushl	%ebp
-	movl	%esp, %ebp
-	movl	$42, %eax
-	popl	%ebp
-	ret
+      _foo:
+        pushl  %ebp
+        movl   %esp, %ebp
+        movl   $42, %eax
+        popl   %ebp
+        ret
     EOS
     system "#{bin}/x86_64-w64-mingw32-as", "--32", "-o", "test32.o", "test32.s"
     assert_match "file format pe-i386", shell_output("#{bin}/x86_64-w64-mingw32-objdump -a test32.o")
