@@ -1,18 +1,18 @@
 class ImagemagickAT6 < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://www.imagemagick.org/"
-  bottle do
-    sha256 "bbb30df64b7b5f41d339838ee71d2b4da564dfb6e26a1ecf982ecde182b82532" => :sierra
-    sha256 "fd242bcf901059fe4bda34932f8d4145b30064501ae82415aacb0bf005df2ad7" => :el_capitan
-    sha256 "e3494379c7350b15b5a1bf2b2756214484fe17e0012fed9134a8cfa5f6c51237" => :yosemite
-  end
-
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
   url "https://dl.bintray.com/homebrew/mirror/imagemagick-6.9.7-4.tar.xz"
   mirror "https://www.imagemagick.org/download/ImageMagick-6.9.7-4.tar.xz"
   sha256 "68842c55ed9c958b84aae17974961cefff4212bf7146f09fd15c09dbdc2d9629"
+
+  bottle do
+    sha256 "bbb30df64b7b5f41d339838ee71d2b4da564dfb6e26a1ecf982ecde182b82532" => :sierra
+    sha256 "fd242bcf901059fe4bda34932f8d4145b30064501ae82415aacb0bf005df2ad7" => :el_capitan
+    sha256 "e3494379c7350b15b5a1bf2b2756214484fe17e0012fed9134a8cfa5f6c51237" => :yosemite
+  end
 
   keg_only "Older version of imagemagick"
 
