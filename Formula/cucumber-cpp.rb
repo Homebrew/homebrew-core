@@ -3,13 +3,13 @@ class CucumberCpp < Formula
   homepage "https://cucumber.io"
   url "https://github.com/cucumber/cucumber-cpp/archive/v0.3.1.tar.gz"
   sha256 "442c3fc3020c709f5609e33b76e25c3c9fc9166911e74f590590f794f24f8a9b"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6c0c83adb312b8248416ad453a19242c1b1c31b6a98794f094d7724e0547c54c" => :sierra
-    sha256 "591ac14650c526676c73b76339da8c0a7a3ebc9c51f2aa8437de43cbebc205eb" => :el_capitan
-    sha256 "cc0600c9191bbb71c4b6e09982ca7284557a71cddcf1552018383105394a2a3a" => :yosemite
+    sha256 "6d9ed526b8f6d66b29add16c09f07f2298f3ec26f62c3105caaa832ba57d89d9" => :sierra
+    sha256 "5900c7c70fc4814f069ba98a1712c14131e90533410462e68775a6eea36501c5" => :el_capitan
+    sha256 "a1ddac23ff567418aa17e2d829d93c2e702d3a9b8b0217079dc330bfd5f02c95" => :yosemite
   end
 
   depends_on "cmake" => :build

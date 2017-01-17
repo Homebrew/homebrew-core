@@ -17,6 +17,6 @@ class Mlogger < Formula
   end
 
   test do
-    system "mlogger", "-i", "-d", "test"
+    system "#{bin}/mlogger", "-i", "-d", "test"
   end
 end

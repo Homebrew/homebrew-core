@@ -42,7 +42,7 @@ class Bsdmake < Formula
     # Use "prefix" since this is sometimes a keg-only brew
     # But first replace the X11 path if X11 is installed
     inreplace "mk/sys.mk", "@PREFIX@", MacOS::X11.prefix || prefix
-    inreplace %W[mk/bsd.README
+    inreplace %w[mk/bsd.README
                  mk/bsd.cpu.mk
                  mk/bsd.doc.mk
                  mk/bsd.obj.mk

@@ -1,14 +1,14 @@
 class Roswell < Formula
   desc "Lisp installer and launcher for major environments"
   homepage "https://github.com/roswell/roswell"
-  url "https://github.com/roswell/roswell/archive/v0.0.6.67.tar.gz"
-  sha256 "4cb34b568d249c36e069051482a112cc8eb9d14e9b30c486af7563f21f185a24"
+  url "https://github.com/roswell/roswell/archive/v16.12.8.72.tar.gz"
+  sha256 "c73ad5763257729eaf8b28876ddca4fcc5dd7b83b955db82ab9af95cd25ad02d"
   head "https://github.com/roswell/roswell.git"
 
   bottle do
-    sha256 "b19d3188685acda7c1211a5156ca04f2c69b5cef4ad55a71203e07b4094de038" => :sierra
-    sha256 "9a26eaec144b811c4de52f92bb4d0b77793215c1289769a16f537ceb2955f189" => :el_capitan
-    sha256 "d1c8e8e30d1803b5874fcf125ae4de08e8e3d3a5826656bf9ec8f092e6d81489" => :yosemite
+    sha256 "6ba4d7e688f8c9d784d1eac08cd4cb0e85c1d330c7a95e63beffef8527578838" => :sierra
+    sha256 "6189d27d2ac1c3444e49295104f4b3837b7b594e373a74b845a7c647cfe9e4df" => :el_capitan
+    sha256 "51c247c225060bf32db5463987b88b01776462cf08814c29c79699970d0a95f2" => :yosemite
   end
 
   depends_on "automake" => :build

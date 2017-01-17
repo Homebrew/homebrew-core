@@ -1,15 +1,14 @@
 class Codequery < Formula
-  desc "Index, query, or search C, C++, Java, Python, Ruby, or Go code"
+  desc "Index, query, or search C, C++, Java, Python, Ruby, Go and Javascript code"
   homepage "https://github.com/ruben2020/codequery"
-  url "https://github.com/ruben2020/codequery/archive/v0.16.0.tar.gz"
-  sha256 "4896435a8aa35dbdca43cba769aece9731f647ac9422a92c3209c2955d2e7101"
-  revision 2
+  url "https://github.com/ruben2020/codequery/archive/v0.18.1.tar.gz"
+  sha256 "482fa737691c260e16adcc32bc3fd43ba50a309495faec6b2f3098b517e6c0e9"
 
   bottle do
     cellar :any
-    sha256 "902fc914dc635862d8b464b7428249b9a21ed8fe5cea4d7809cbaed5c0c74662" => :el_capitan
-    sha256 "eecdc4016192b2a8c35874d6996e8a43288775dcdfd0691f73ed288662f0d109" => :yosemite
-    sha256 "0b2628d4c0c39cf81c66605acb587864e0590b69130ec28719b0b1c821e57682" => :mavericks
+    sha256 "f8bfbac52963d68ed6ab81e022a8fd0c45548dac6b5cf95ef73437aafa556edf" => :sierra
+    sha256 "04df25b8ab1113897094db9d0519a1f28ce1ba9689c2597486819713464a1d53" => :el_capitan
+    sha256 "a2309154fc40df49a175b81755644b9ffceb1d7805a2ea9e22c37375c51c23bd" => :yosemite
   end
 
   depends_on "cmake" => :build

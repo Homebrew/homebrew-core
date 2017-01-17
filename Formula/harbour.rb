@@ -1,8 +1,16 @@
 class Harbour < Formula
   desc "Portable, xBase-compatible programming language and environment"
   homepage "https://harbour.github.io"
-  url "https://downloads.sourceforge.net/harbour-project/source/3.0.0/harbour-3.0.0.tar.bz2"
-  sha256 "4e99c0c96c681b40c7e586be18523e33db24baea68eb4e394989a3b7a6b5eaad"
+
+  head "https://github.com/harbour/core.git"
+
+  # Missing a header that was deprecated by libcurl @ version 7.12.0 and
+  # deleted sometime after Harbour 3.0.0 release.
+  stable do
+    patch :DATA
+    url "https://downloads.sourceforge.net/harbour-project/source/3.0.0/harbour-3.0.0.tar.bz2"
+    sha256 "4e99c0c96c681b40c7e586be18523e33db24baea68eb4e394989a3b7a6b5eaad"
+  end
 
   bottle do
     cellar :any
@@ -14,16 +22,8 @@ class Harbour < Formula
     sha256 "8b6384af586eeec66714a8c55e5e6efb26909053958897b64c7cdad2459965e0" => :mountain_lion
   end
 
-  head "https://github.com/harbour/core.git"
-
   depends_on "pcre"
   depends_on :x11 => :optional
-
-  # Missing a header that was deprecated by libcurl @ version 7.12.0 and
-  # deleted sometime after Harbour 3.0.0 release.
-  stable do
-    patch :DATA
-  end
 
   def install
     ENV["HB_INSTALL_PREFIX"] = prefix

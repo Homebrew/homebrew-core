@@ -1,20 +1,20 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.48.0.tar.xz"
-  sha256 "85a003968074c85d8e13bf320ec47cef647b496b56dcff4c790b34e5482fef93"
+  url "https://poppler.freedesktop.org/poppler-0.51.0.tar.xz"
+  sha256 "e997c9ad81a8372f2dd03a02b00692b8cc479c220340c8881edaca540f402c1f"
 
   bottle do
-    sha256 "88dded32895ac3807b5e7496a60f63598c82fceba3b77577d405805b61440a52" => :sierra
-    sha256 "b705fd24cc2766211c32a0bdc85b07ef084c41130fb4aa3228ecb9da692da7dc" => :el_capitan
-    sha256 "eb6915ae4a27ddd3c64fc89b7232c31153b8bd6a98de5f379132b956d5cd1150" => :yosemite
+    sha256 "59c234fbdb1746c0ce1a42e455147978eb7293f71209907c52d8c08e1c106e50" => :sierra
+    sha256 "984eee524efe6395706d812a9129d38f77534d5e892aab5c1d1a6e879e317447" => :el_capitan
+    sha256 "28d9bac7855c3034c66715660e6a717a5c296ac18a07bfcb21b799050ed4e4eb" => :yosemite
   end
 
-  option "with-qt", "Build Qt backend"
   option "with-qt5", "Build Qt5 backend"
   option "with-little-cms2", "Use color management system"
 
-  deprecated_option "with-qt4" => "with-qt"
+  deprecated_option "with-qt4" => "with-qt5"
+  deprecated_option "with-qt" => "with-qt5"
   deprecated_option "with-lcms2" => "with-little-cms2"
 
   depends_on "pkg-config" => :build
@@ -28,7 +28,6 @@ class Poppler < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openjpeg"
-  depends_on "qt" => :optional
   depends_on "qt5" => :optional
   depends_on "little-cms2" => :optional
 
@@ -39,8 +38,10 @@ class Poppler < Formula
     sha256 "e752b0d88a7aba54574152143e7bf76436a7ef51977c55d6bd9a48dccde3a7de"
   end
 
+  needs :cxx11 if build.with?("qt5") || MacOS.version < :mavericks
+
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
+    ENV.cxx11 if build.with?("qt5") || MacOS.version < :mavericks
     ENV["LIBOPENJPEG_CFLAGS"] = "-I#{Formula["openjpeg"].opt_include}/openjpeg-2.1"
 
     args = %W[
@@ -50,16 +51,13 @@ class Poppler < Formula
       --enable-poppler-glib
       --disable-gtk-test
       --enable-introspection=yes
+      --disable-poppler-qt4
     ]
 
-    if build.with?("qt") && build.with?("qt5")
-      raise "poppler: --with-qt and --with-qt5 cannot be used at the same time"
-    elsif build.with? "qt"
-      args << "--enable-poppler-qt4"
-    elsif build.with? "qt5"
+    if build.with? "qt5"
       args << "--enable-poppler-qt5"
     else
-      args << "--disable-poppler-qt4" << "--disable-poppler-qt5"
+      args << "--disable-poppler-qt5"
     end
 
     args << "--enable-cms=lcms2" if build.with? "little-cms2"

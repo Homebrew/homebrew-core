@@ -16,11 +16,6 @@ class Nu < Formula
   depends_on :macos => :lion
   depends_on "pcre"
 
-  fails_with :llvm do
-    build 2336
-    cause "nu only builds with clang"
-  end
-
   fails_with :gcc do
     build 5666
     cause "nu only builds with clang"
@@ -57,7 +52,7 @@ EOS
     Nu.framework was installed to:
       #{frameworks}/Nu.framework
 
-    You may want to symlink this Framework to a standard OS X location,
+    You may want to symlink this Framework to a standard macOS location,
     such as:
       ln -s "#{frameworks}/Nu.framework" /Library/Frameworks
   EOS

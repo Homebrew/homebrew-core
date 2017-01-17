@@ -17,7 +17,7 @@ class Pxz < Formula
   head do
     url "https://github.com/jnovy/pxz.git"
 
-    # Rebased version of an upstream PR to fix the build on OS X
+    # Rebased version of an upstream PR to fix the build on macOS
     # https://github.com/jnovy/pxz/pull/5
     patch :DATA
   end

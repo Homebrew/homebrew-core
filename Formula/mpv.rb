@@ -1,21 +1,20 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.20.0.tar.gz"
-  sha256 "fe6ec9d2ded5ce84b963f54b812d579d04f944f4a737f3ae639c4d5d9e842b56"
+  url "https://github.com/mpv-player/mpv/archive/v0.23.0.tar.gz"
+  sha256 "8aeefe5970587dfc454d2b89726b603f156bd7a9ae427654eef0d60c68d94998"
+  revision 2
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    rebuild 2
-    sha256 "24dd905156f1044a79e16a248d6eff6e1a5ffb67f4d5b6c37b61ff653a6aecaf" => :sierra
-    sha256 "f241f756ab0644fb277ab0725c69d62721bed17d6d2ee4bc298c4ed8a9bb5ca4" => :el_capitan
-    sha256 "78a0b0e6ba9af8d641fca571cf9e38b3c7f4dad3ab4087eb64a38bf90d47f02f" => :yosemite
+    sha256 "a74294958c50cc3cef3822fd07357a466e4163ab596868cae5fe3e810ac80b31" => :sierra
+    sha256 "0b34874baa978602660ccacc2b8fe4710fd27fe10cc434f6458a101914aa0eea" => :el_capitan
+    sha256 "8c48408b5a34d5c8e04205b7be5c69d5618be4fe851cf7a9dd7bf6aa64c519d5" => :yosemite
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
 
   depends_on "pkg-config" => :build
-  depends_on "docutils" => :build
   depends_on :python3 => :build
 
   depends_on "libass"
@@ -26,21 +25,24 @@ class Mpv < Formula
   depends_on "lua" => :recommended
   depends_on "youtube-dl" => :recommended
 
-  depends_on "libarchive" => :optional
-  depends_on "libcaca" => :optional
-  depends_on "libdvdread" => :optional
-  depends_on "libdvdnav" => :optional
-  depends_on "libbluray" => :optional
+  depends_on "jack" => :optional
   depends_on "libaacs" => :optional
-  depends_on "vapoursynth" => :optional
+  depends_on "libarchive" => :optional
+  depends_on "libbluray" => :optional
+  depends_on "libcaca" => :optional
+  depends_on "libdvdnav" => :optional
+  depends_on "libdvdread" => :optional
+  depends_on "pulseaudio" => :optional
+  depends_on "rubberband" => :optional
   depends_on "uchardet" => :optional
+  depends_on "vapoursynth" => :optional
   depends_on :x11 => :optional
 
   depends_on :macos => :mountain_lion
 
-  resource "waf" do
-    url "https://waf.io/waf-1.9.2"
-    sha256 "7abb4fbe61d12b8ef6a3163653536da7ee31709299d8f17400d71a43247cea81"
+  resource "docutils" do
+    url "https://files.pythonhosted.org/packages/05/25/7b5484aca5d46915493f1fd4ecb63c38c333bd32aa9ad6e19da8d08895ae/docutils-0.13.1.tar.gz"
+    sha256 "718c0f5fb677be0f34b781e04241c4067cbd9327b66bdd8e763201130f5175be"
   end
 
   def install
@@ -49,10 +51,17 @@ class Mpv < Formula
     # that's good enough for building the manpage.
     ENV["LC_ALL"] = "C"
 
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
+    resource("docutils").stage do
+      system "python", *Language::Python.setup_install_args(buildpath/"vendor")
+    end
+    ENV.prepend_path "PATH", buildpath/"vendor/bin"
+
     args = %W[
       --prefix=#{prefix}
       --enable-zsh-comp
       --enable-libmpv-shared
+      --enable-html-build
       --confdir=#{etc}/mpv
       --datadir=#{pkgshare}
       --mandir=#{man}
@@ -60,9 +69,9 @@ class Mpv < Formula
       --zshdir=#{zsh_completion}
     ]
     args << "--enable-libarchive" if build.with? "libarchive"
+    args << "--enable-pulse" if build.with? "pulseaudio"
 
-    waf = resource("waf")
-    buildpath.install waf.files("waf-#{waf.version}" => "waf")
+    system "./bootstrap.py"
     system "python3", "waf", "configure", *args
     system "python3", "waf", "install"
 

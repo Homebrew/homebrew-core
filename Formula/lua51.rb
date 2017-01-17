@@ -16,11 +16,6 @@ class Lua51 < Formula
     sha256 "821a3e39854354505c4751ce8605b20f56e441c43b1d8464fe37e5301122e9c2" => :mavericks
   end
 
-  fails_with :llvm do
-    build 2326
-    cause "Lua itself compiles with LLVM, but may fail when other software tries to link."
-  end
-
   option :universal
   option "with-completion", "Enables advanced readline support"
   option "without-sigaction", "Revert to ANSI signal instead of improved POSIX sigaction"
@@ -43,7 +38,7 @@ class Lua51 < Formula
   # http://lua-users.org/wiki/LuaPowerPatches
   if build.with? "completion"
     patch do
-      url "http://luajit.org/patches/lua-5.1.4-advanced_readline.patch"
+      url "https://luajit.org/patches/lua-5.1.4-advanced_readline.patch"
       sha256 "dfd17e720d1079dcb64529af3e4fea4a4abc0115c934f365282a489d134cceb4"
     end
   end

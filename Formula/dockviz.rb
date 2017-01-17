@@ -4,16 +4,15 @@ class Dockviz < Formula
   desc "Visualizing docker data"
   homepage "https://github.com/justone/dockviz"
   url "https://github.com/justone/dockviz.git",
-    :tag => "v0.4.2",
-    :revision => "9863e97953bde4fc770c6f1a499513b01f907902"
+    :tag => "v0.5.0",
+    :revision => "ee1ab834db62e5549c144f7968b81ebb167e0564"
   head "https://github.com/justone/dockviz.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d6e2ef2f2e4a6f43de55daa43a47e1a965793bc365c890a95bb2d1d2f9473800" => :sierra
-    sha256 "498ec9e084a18a4c256fb0a24230773ac9a8bba47a8e897a9cce8767c7d5bad0" => :el_capitan
-    sha256 "29d338e965ec9e997163a151e2abfd0e79709929b45604a16040ba9da2125a67" => :yosemite
-    sha256 "c8b7e3714715ca235598f029652ab7a3cb38adae63cc103a60f87844f8281a8b" => :mavericks
+    sha256 "f1a18e5098e54f029ed6e495d9aeffe5e56b9428be55cfff3df2103d96016093" => :sierra
+    sha256 "a6e76fe6cb823309673ba0a83cd1117f1c4179e2911954a20fcd589aa54c090f" => :el_capitan
+    sha256 "9b3f18e2ccb4f700ab515c002d4ae6128c9e3ebbbc0ff8796b67d3e698205214" => :yosemite
   end
 
   depends_on "go" => :build

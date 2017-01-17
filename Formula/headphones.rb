@@ -1,21 +1,20 @@
 class Headphones < Formula
   desc "Automatic music downloader for SABnzbd"
   homepage "https://github.com/rembo10/headphones"
-  url "https://github.com/rembo10/headphones/archive/v0.5.16.tar.gz"
-  sha256 "4dc789a48140ec2cfd62905c001397ef73b971dd79cd3cf24cf8b4dd1fe70143"
+  url "https://github.com/rembo10/headphones/archive/v0.5.18.tar.gz"
+  sha256 "5558669ee64448c82a90a4f2d8755ef9e7337b95b44354772fb2898769a04aeb"
   head "https://github.com/rembo10/headphones.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "466f60c31faacc75f571024a38c6848b6dfd0b1df4b3542f47ce7ad0d60c164c" => :sierra
-    sha256 "66580fb1be0cc42040dbc101b0a79e67aaf21bd9abd51609d56c44e32df6f44c" => :el_capitan
-    sha256 "44e240a8fcc6ee7d65e7ab242cf4225a11e81668711473e65fb25adf5525e461" => :yosemite
-    sha256 "a51c67470df2d7b42d1f26b9d861553bbe62c5bd20598bc3d29260b946da8f70" => :mavericks
+    sha256 "913f1f0ea6600b6aa4bb6f4f9fcfd6c5447f072334b024faf40da2d7ed6b0600" => :sierra
+    sha256 "fb9288d3885ac6ee18b6ee3292d7fe886f8b5d538b4876f3bdd32309e3643431" => :el_capitan
+    sha256 "be688187ebdfd25f221b227a9aa6df3e8015788f564bdfdc524cd99834540d80" => :yosemite
   end
 
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/9b/53/4492f2888408a2462fd7f364028b6c708f3ecaa52a028587d7dd729f40b4/Markdown-2.6.6.tar.gz"
-    sha256 "9a292bb40d6d29abac8024887bcfc1159d7a32dc1d6f1f6e8d6d8e293666c504"
+    url "https://files.pythonhosted.org/packages/d4/32/642bd580c577af37b00a1eb59b0eaa996f2d11dfe394f3dd0c7a8a2de81a/Markdown-2.6.7.tar.gz"
+    sha256 "daebf24846efa7ff269cfde8c41a48bb2303920c7b2c7c5e04fa82e6282d05c0"
   end
 
   resource "Cheetah" do

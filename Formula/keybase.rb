@@ -1,17 +1,16 @@
 class Keybase < Formula
   desc "Command-line interface to Keybase.io"
   homepage "https://keybase.io/"
-  url "https://github.com/keybase/client/archive/v1.0.17.tar.gz"
-  sha256 "937b4bc61c889ef3982a5352d8a49cda8a4f4db28732d4cb21df1fe20128399c"
+  url "https://github.com/keybase/client/archive/v1.0.18.tar.gz"
+  sha256 "8a4ebcb3ce8e3ed3649be870ab407fafeaeaed23c399f18dc25cba50fbb7f5a6"
 
   head "https://github.com/keybase/client.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aadf1887c4fb92be9b9ca0639f03670b056f4aea14b75db11197a4f29e5bf942" => :sierra
-    sha256 "3b3a5451ba2cedf14adaaaa6928c300de9c88ff4ea7bb9e35bbd6c9090eb65a6" => :el_capitan
-    sha256 "944e4effa6edbccb66649200782f6439295519390f2cbb47e476cfb4a1864c83" => :yosemite
-    sha256 "300573098e20510b6593243628275c433f81f3cc8b08a74848e61b32ec6ef49a" => :mavericks
+    sha256 "e3d686ab1029e7a446f034f48822dd14583603e409087f52b756fe5665bc9493" => :sierra
+    sha256 "24b1d12e70362b3601ba6ffa67a0ef487b2b8e0fe7aeca2cbfed1e7af47be168" => :el_capitan
+    sha256 "5c969b19d2585ee5766d1f85ef6ff935086e2468d253091bf109ca8310906610" => :yosemite
   end
 
   depends_on "go" => :build

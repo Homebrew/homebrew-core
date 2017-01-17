@@ -15,7 +15,7 @@ class Ndiff < Formula
   conflicts_with "nmap", :because => "both install `ndiff` binaries"
 
   def install
-    ENV.j1
+    ENV.deparallelize
     # Install manually as the `install` make target is crufty
     system "./configure", "--prefix=.", "--mandir=."
     mkpath "bin"

@@ -15,11 +15,6 @@ class Clisp < Formula
   depends_on "libsigsegv"
   depends_on "readline"
 
-  fails_with :llvm do
-    build 2334
-    cause "Configure fails on XCode 4/Snow Leopard."
-  end
-
   patch :DATA
 
   patch :p0 do

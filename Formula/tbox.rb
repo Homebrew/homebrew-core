@@ -1,22 +1,27 @@
 class Tbox < Formula
   desc "Glib-like multi-platform c library"
   homepage "http://www.tboox.org"
-  url "https://github.com/waruqi/tbox/archive/v1.5.2.tar.gz"
-  sha256 "c470a8a5b8f84d928d83af87c8f69c87ec9ecb6f89017bef93dc0d188e91a8c6"
+  url "https://github.com/waruqi/tbox/archive/v1.6.1.tar.gz"
+  sha256 "3d4010d3ec182bb99fd73c321053846a67992e667bdd3f10277010be3e721cac"
   head "https://github.com/waruqi/tbox.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9e0491f0d90040d46c9ae24801d2eb330a47e27a8b53b5027044ce1785c141cf" => :el_capitan
-    sha256 "3b1fd6ca8831b887d924d375d5ce974810bd2d6ee02ce812d35ed28e8e5cee8f" => :yosemite
-    sha256 "4ba1ed7572832dd6e51be2bc6abf58e0a861e370b82007ed8d064f2eeca3ed91" => :mavericks
+    sha256 "ea7c48b6fe2b39bab5eed10e69cec5bd0082f7113d27288e31ddf337928b7ece" => :sierra
+    sha256 "8af4c08809e12a4717cf5ea229d9eecd5e1409bb9bafe37942c4a7c9101011b1" => :el_capitan
+    sha256 "6a55d97930ce0cc3e62dfbc8a9438243e8d9020757ebaf0dbab532f80587b3d8" => :yosemite
   end
 
   depends_on "xmake" => :build
 
   def install
-    system "xmake", "config", "--smallest=y", "--demo=n", "--xml=y", "--asio=y",
-                              "--thread=y", "--network=y", "--charset=y"
+    # Prevents "error: pointer is missing a nullability type specifier" when the
+    # CLT is installed; needed since the command below is `xmake` not `make` so
+    # superenv won't do this automatically
+    ENV.refurbish_args
+
+    system "xmake", "config", "--charset=y", "--demo=n", "--smallest=y",
+                              "--xml=y"
     system "xmake", "install", "-o", prefix
   end
 

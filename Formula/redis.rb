@@ -1,25 +1,24 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "http://redis.io/"
-  url "http://download.redis.io/releases/redis-3.2.4.tar.gz"
-  sha256 "2ad042c5a6c508223adeb9c91c6b1ae091394b4026f73997281e28914c9369f1"
+  url "http://download.redis.io/releases/redis-3.2.6.tar.gz"
+  sha256 "2e1831c5a315e400d72bda4beaa98c0cfbe3f4eb8b20c269371634390cf729fa"
   head "https://github.com/antirez/redis.git", :branch => "unstable"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "88d0fe8719ed7d6dfcd14fa96f47a44724fc1bae9035d2fc9f06e02525fe508a" => :sierra
-    sha256 "5dfbf8d2a1a62d837bf2e06f13957f27c5cefa1b2d6516ab3ecc4ac3d97cc2f9" => :el_capitan
-    sha256 "013eb53f5cacf855a015d3953ab096958b6604a1bb7f19c2ccc3653a17989db5" => :yosemite
+    sha256 "abb8250399ccf96671e78df26dea7864886e61ece76b55845dc1767670f2ced1" => :sierra
+    sha256 "1e42b350f206627a52a6e3f4703353491d09a619b65b73d6229ec1af275a3940" => :el_capitan
+    sha256 "57b058e071c66eed4e081046945a5432aa658e2c5ba2939dadddbdb68036bf9c" => :yosemite
+  end
+
+  devel do
+    url "https://github.com/antirez/redis/archive/4.0-rc2.tar.gz"
+    sha256 "70941c192e6afe441cf2c8d659c39ab955e476030c492179a91dcf3f02f5db67"
+    version "4.0RC2"
   end
 
   option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
-
-  fails_with :llvm do
-    build 2334
-    cause <<-EOS.undent
-      Fails with "reference out of range from _linenoise"
-    EOS
-  end
 
   def install
     # Architecture isn't detected correctly on 32bit Snow Leopard without help
@@ -63,6 +62,7 @@ class Redis < Formula
         <array>
           <string>#{opt_bin}/redis-server</string>
           <string>#{etc}/redis.conf</string>
+          <string>--daemonize no</string>
         </array>
         <key>RunAtLoad</key>
         <true/>

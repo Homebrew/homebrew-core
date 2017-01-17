@@ -30,6 +30,8 @@ class Mdk < Formula
   end
 
   test do
+    ENV["LANG"] = "en_US.UTF-8"
+
     (testpath/"hello.mixal").write <<-EOS.undent
       *                                                        (1)
       * hello.mixal: say "hello world" in MIXAL                (2)

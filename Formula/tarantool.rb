@@ -1,17 +1,15 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server."
   homepage "https://tarantool.org/"
-  url "http://download.tarantool.org/tarantool/1.6/src/tarantool-1.6.8.772.tar.gz"
-  version "1.6.8-772"
-  sha256 "e07913d3416fcf855071e7b82eed0c5bcdb81a6e587fa2d900a9755ed5bb220c"
-  revision 2
+  url "https://download.tarantool.org/tarantool/1.7/src/tarantool-1.7.3.7.tar.gz"
+  sha256 "6c0e1eb37eebf662a8946d990c8e79ca44c5ccc7be8e86e97d1dc334d3f90d7b"
 
   head "https://github.com/tarantool/tarantool.git", :branch => "1.7", :shallow => false
 
   bottle do
-    sha256 "06452c73ff96c97c21bc874059a9fbe71a2a3b030325f618500a8e83700dd10d" => :sierra
-    sha256 "bf47282a6990eaa65fcea8f05c75dcbde904c87c33cc9dc7a0ab54917e0e257b" => :el_capitan
-    sha256 "580b317f6916c9b52c9dc05d351e5655837e27ba228420ccdb0a8f7780fdeaae" => :yosemite
+    sha256 "f45db64033c6cf2799b2af54db6bf2ccc75881c2f62a6ff5ce71a3b479d4adfe" => :sierra
+    sha256 "44933b913e237ab36e5ef05035a9f8d5709638a80e5e3cdece072b3a1272ae88" => :el_capitan
+    sha256 "9d6e5904fade724e484c8ff03b5f1969cbafbea1a3ed51c7b3f5ade6b36d98f1" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -21,19 +19,12 @@ class Tarantool < Formula
   def install
     args = std_cmake_args
 
-    # Fix "dyld: lazy symbol binding failed: Symbol not found: _clock_gettime"
-    # Reported 19 Sep 2016 https://github.com/tarantool/tarantool/issues/1777
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      args << "-DHAVE_CLOCK_GETTIME:INTERNAL=0"
-      inreplace "src/trivia/util.h", "#ifndef HAVE_CLOCK_GETTIME",
-                                     "#ifdef UNDEFINED_GIBBERISH"
-    end
-
     args << "-DCMAKE_INSTALL_MANDIR=#{doc}"
     args << "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}"
     args << "-DCMAKE_INSTALL_LOCALSTATEDIR=#{var}"
     args << "-DENABLE_DIST=ON"
     args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
+    args << "-DREADLINE_ROOT=#{Formula["readline"].opt_prefix}"
 
     system "cmake", ".", *args
     system "make"

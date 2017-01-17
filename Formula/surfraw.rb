@@ -27,7 +27,7 @@ class Surfraw < Formula
                           "--sysconfdir=#{etc}",
                           "--with-graphical-browser=open"
     system "make"
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
   end
 

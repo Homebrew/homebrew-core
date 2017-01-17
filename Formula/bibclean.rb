@@ -21,7 +21,7 @@ class Bibclean < Formula
 
     # The following inline patches have been reported upstream.
     inreplace "Makefile" do |s|
-      # Insert `mkdir` statements before `scp` statements because `scp` in OS X
+      # Insert `mkdir` statements before `scp` statements because `scp` in macOS
       # requires that the full path to the target already exist.
       s.gsub! /[$][(]CP.*BIBCLEAN.*bindir.*BIBCLEAN[)]/,
               "mkdir -p $(bindir) && $(CP) $(BIBCLEAN) $(bindir)/$(BIBCLEAN)"

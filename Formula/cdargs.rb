@@ -12,11 +12,6 @@ class Cdargs < Formula
     sha256 "2bb555d4cf65f3d11595350135582599fd6ccf988bc7bb76c58155ddcef29223" => :mavericks
   end
 
-  fails_with :llvm do
-    build 2334
-    cause "Bus error in ld on SL 10.6.4"
-  end
-
   # fixes zsh usage using the patch provided at the cdargs homepage
   # (See http://www.skamphausen.de/cgi-bin/ska/CDargs)
   patch :DATA

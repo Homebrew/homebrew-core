@@ -1,15 +1,14 @@
 class Libcec < Formula
   desc "Control devices with TV remote control and HDMI cabling"
   homepage "http://libcec.pulse-eight.com/"
-  url "https://github.com/Pulse-Eight/libcec/archive/libcec-3.1.0.tar.gz"
-  sha256 "09109d21a1b03f42c9e341d12600f2e4c41038d640269fa75408e2d36126f921"
+  url "https://github.com/Pulse-Eight/libcec/archive/libcec-4.0.1.tar.gz"
+  sha256 "92dd5d19675d571856c67785ea2dac0d11c4205a320c500981117152ffcdc15f"
 
   bottle do
     cellar :any
-    sha256 "936b72a34281492b5730927a8ed8a3ec0b896e9b0ca320ec6a4f0d203051a2d1" => :sierra
-    sha256 "417e766b366a2845b2178c83d1abb56263b1c4a28901ef5dd663ab4f97d644b1" => :el_capitan
-    sha256 "b61d3a5aff0a3f7568665192829a77d4d437d382b9ae32b70a558ed6f360848d" => :yosemite
-    sha256 "177e2e1b1bbc405d6408797750e5714471614464776457d8324cecbfb70375eb" => :mavericks
+    sha256 "08c84729cd395ac1830bf463a2886608c2c192a5ca76f3bc322a6b2fd98049aa" => :sierra
+    sha256 "8e8f44578d261c086202da14555464ee5e26f2a1aee147aa2e93002998e3a5dd" => :el_capitan
+    sha256 "c27aedfea8faf634bef8692a9626d0e5d45dee1a0f7ef36c68132caae752bd41" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -17,8 +16,8 @@ class Libcec < Formula
   needs :cxx11
 
   resource "p8-platform" do
-    url "https://github.com/Pulse-Eight/platform/archive/p8-platform-2.0.1.tar.gz"
-    sha256 "e97e45273e90571aa37732cde913b262f5f519c387083645d2557d7189c054cf"
+    url "https://github.com/Pulse-Eight/platform/archive/p8-platform-2.1.0.1.tar.gz"
+    sha256 "064f8d2c358895c7e0bea9ae956f8d46f3f057772cb97f2743a11d478a0f68a0"
   end
 
   def install

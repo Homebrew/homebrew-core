@@ -1,15 +1,15 @@
 class BoostPython < Formula
   desc "C++ library for C++/Python interoperability"
   homepage "https://www.boost.org/"
-  url "https://downloads.sourceforge.net/project/boost/boost/1.62.0/boost_1_62_0.tar.bz2"
-  sha256 "36c96b0f6155c98404091d8ceb48319a28279ca0333fba1ad8611eb90afb2ca0"
+  url "https://downloads.sourceforge.net/project/boost/boost/1.63.0/boost_1_63_0.tar.bz2"
+  sha256 "beae2529f759f6b3bf3f4969a19c2e9d6f0c503edcb2de4a61d1428519fcb3b0"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "e0598f250daedaf5988f0fe8bcf30045958da23a9528ed0ab2c3ac7fb889d414" => :sierra
-    sha256 "b74b8eebdc5966e3c2ae88214e2d88297518eaf42389618765a72a8efccc0949" => :el_capitan
-    sha256 "0a092430336db86deb30697a751fde85f2b189486ed91310a45c33ea944c0e8a" => :yosemite
+    sha256 "3b47066b435fc7b9acb677969bf2fa54e634a45ee91d089f222169d012ab487a" => :sierra
+    sha256 "0958d5f3c4de00cc9b391c5ba4225c798056941be69cda4c6df913bf81f57c33" => :el_capitan
+    sha256 "14b55a75a1328adfe89f9234c72ed769d159f93fc0a7e140c956de2c3c5d54c9" => :yosemite
   end
 
   option :universal
@@ -22,11 +22,6 @@ class BoostPython < Formula
     depends_on "boost" => "c++11"
   else
     depends_on "boost"
-  end
-
-  fails_with :llvm do
-    build 2335
-    cause "Dropped arguments to functions when linking with boost"
   end
 
   def install
@@ -98,7 +93,7 @@ class BoostPython < Formula
       }
     EOS
     Language::Python.each_python(build) do |python, _|
-      pyflags = (`#{python}-config --includes`.strip +
+      pyflags = (`#{python}-config --includes`.strip + " " +
                  `#{python}-config --ldflags`.strip).split(" ")
       system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_#{python}", "-o", "hello.so", *pyflags
       output = `#{python} -c "from __future__ import print_function; import hello; print(hello.greet())"`

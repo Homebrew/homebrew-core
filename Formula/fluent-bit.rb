@@ -1,16 +1,15 @@
 class FluentBit < Formula
   desc "Data Collector for IoT"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v0.8.5.tar.gz"
-  sha256 "a028880ff4b80eb52137d43c72d2291af1b7ef6192f3ba922ae408f2e28b03c0"
+  url "https://github.com/fluent/fluent-bit/archive/v0.10.1.tar.gz"
+  sha256 "78349c453c0546025ef38f7912f20f63f6d152c33ff36e77892afa2253b9ce48"
   head "https://github.com/fluent/fluent-bit.git"
 
   bottle do
     cellar :any
-    sha256 "8147ff5c949478a670c0520a317325c09f626f07acacf8f3652ef948baa8ca33" => :sierra
-    sha256 "686a68b6aac9d14aea6d39f96ae8fdb4cf37a099e948acc55634193e836e0930" => :el_capitan
-    sha256 "ed1a751e17d5e90d6af02382cbe05b736afcdeebd9d120d7fbbb16b3ced33679" => :yosemite
-    sha256 "e2cfd67ad579251f39e883356e06a2b56e316497d51478473d94771ee49bcc33" => :mavericks
+    sha256 "012216b035e64fbba9aa81cfeea414e6acd2e5e49825376f6db31c502910e31f" => :sierra
+    sha256 "1595b57e2e7cc9e8e8bc8e03ddc77c6a6fab5bcb957e6b4ccea6e1dfc404d859" => :el_capitan
+    sha256 "5abd7dc368dc68848e0a31960f7e9b23f064c3e97f39ef125cd4af381fab99ee" => :yosemite
   end
 
   depends_on "cmake" => :build

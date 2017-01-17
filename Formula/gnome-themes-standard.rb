@@ -1,14 +1,14 @@
 class GnomeThemesStandard < Formula
   desc "Default themes for the GNOME desktop environment"
   homepage "https://git.gnome.org/browse/gnome-themes-standard/"
-  url "https://download.gnome.org/sources/gnome-themes-standard/3.22/gnome-themes-standard-3.22.1.tar.xz"
-  sha256 "90f6f4e79eaa42e424fa35144cdbcb5db93db56e73200ac045742ba320febb54"
+  url "https://download.gnome.org/sources/gnome-themes-standard/3.22/gnome-themes-standard-3.22.2.tar.xz"
+  sha256 "b34516cd59b873c187c1897c25bac3b9ce2d30a472f1fd7ae9d7105d93e17da5"
 
   bottle do
     cellar :any
-    sha256 "77e463ccc14696060f780313933d6867b31141ea6312fd3883adc74dad04ad37" => :sierra
-    sha256 "6db25a2227ca8793ce4cb4c64dd5853829b1c481cf64821ddabb7b63e436f51f" => :el_capitan
-    sha256 "3265fe54f19e77693be6bfe669b054f6cc84e3bc15d10b8c80e51c93141c0d7e" => :yosemite
+    sha256 "d6f59d31c2847ed0cb8538288bcb89f2c3740a9987e0d06707b309978b61c2c7" => :sierra
+    sha256 "cde669051c2d96b22ee2857f44679e90743756ba5e8a433ceabde5123ebab8ce" => :el_capitan
+    sha256 "211149e7a4fda4a9566fde9b3b8083022f8f3a5fc551b6e96765055ffafb9b5a" => :yosemite
   end
 
   depends_on "pkg-config" => :build

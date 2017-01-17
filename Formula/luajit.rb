@@ -1,11 +1,11 @@
 class Luajit < Formula
   desc "Just-In-Time Compiler (JIT) for the Lua programming language"
-  homepage "http://luajit.org/luajit.html"
-  url "http://luajit.org/download/LuaJIT-2.0.4.tar.gz"
+  homepage "https://luajit.org/luajit.html"
+  url "https://luajit.org/download/LuaJIT-2.0.4.tar.gz"
   sha256 "620fa4eb12375021bef6e4f237cbd2dd5d49e56beb414bee052c746beef1807d"
   revision 3
 
-  head "http://luajit.org/git/luajit-2.0.git"
+  head "https://luajit.org/git/luajit-2.0.git"
 
   bottle do
     sha256 "f9badbb9d75d07cb8a9297e874035a20c85795b43e80360e209b26dcb051fac9" => :sierra
@@ -15,7 +15,7 @@ class Luajit < Formula
   end
 
   devel do
-    url "http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz"
+    url "https://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz"
     sha256 "713924ca034b9d99c84a0b7b701794c359ffb54f8e3aa2b84fad52d98384cf47"
 
     # https://github.com/LuaJIT/LuaJIT/issues/180

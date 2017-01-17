@@ -1,7 +1,7 @@
 class Nuttcp < Formula
   desc "Network performance measurement tool"
-  homepage "http://www.nuttcp.net/nuttcp"
-  url "http://www.nuttcp.net/nuttcp/nuttcp-6.1.2.tar.bz2"
+  homepage "https://www.nuttcp.net/nuttcp"
+  url "https://www.nuttcp.net/nuttcp/nuttcp-6.1.2.tar.bz2"
   sha256 "054e96d9d68fe917df6f25fab15c7755bdd480f6420d7d48d9194a1a52378169"
 
   bottle do

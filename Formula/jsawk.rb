@@ -14,7 +14,7 @@ class Jsawk < Formula
   end
 
   test do
-    cmd = %(#{bin}/jsawk 'this.a = "foo"')
-    assert_equal %({"a":"foo"}\n), pipe_output(cmd, "{}")
+    cmd = %Q(#{bin}/jsawk 'this.a = "foo"')
+    assert_equal %Q({"a":"foo"}\n), pipe_output(cmd, "{}")
   end
 end

@@ -20,6 +20,6 @@ class Sshrc < Formula
     EOS
     chmod 0755, testpath/"ssh"
     ENV.prepend_path "PATH", testpath
-    system "sshrc"
+    system "#{bin}/sshrc"
   end
 end

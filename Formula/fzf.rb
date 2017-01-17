@@ -3,27 +3,36 @@ require "language/go"
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/0.15.4.tar.gz"
-  sha256 "9e5a5e4c929df8172afde9dd9cb7bbefdae8f98fc4a24d40696ccb3da1483261"
+  url "https://github.com/junegunn/fzf/archive/0.16.1.tar.gz"
+  sha256 "f8a05e9e72f6e2b87bec63809843afa77fd89067722407f6f9a86299c6215fce"
   head "https://github.com/junegunn/fzf.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ed162fdedea0fb569c461d919e534f788cb1817686e2d9f17e0715e894725fc3" => :sierra
-    sha256 "cf39542431519da33f09efc54e8aa68196a7757c5e4ad7cff333d0c5cef45087" => :el_capitan
-    sha256 "9db881faf4d81dac5e0ffe5bacfbdbec8436c0bd3ab932ec32ced078e15a65a3" => :yosemite
+    sha256 "6522e26e982f91cadb5b35cffc0e8a7b50f44404ff09f11170ca988ac8c3b573" => :sierra
+    sha256 "a75f5ff839206c4c3c3986657f31245821e17d3955014a38187f7867cc8bb3d4" => :el_capitan
+    sha256 "337ba7152491e08358fd12d475f7b328c24a36348bff7275fdb59ad5032240e1" => :yosemite
   end
 
   depends_on "go" => :build
+
+  go_resource "github.com/junegunn/go-isatty" do
+    url "https://github.com/junegunn/go-isatty.git",
+        :revision => "66b8e73f3f5cda9f96b69efd03dd3d7fc4a5cdb8"
+  end
+
+  go_resource "github.com/junegunn/go-runewidth" do
+    url "https://github.com/junegunn/go-runewidth.git",
+        :revision => "63c378b851290989b19ca955468386485f118c65"
+  end
 
   go_resource "github.com/junegunn/go-shellwords" do
     url "https://github.com/junegunn/go-shellwords.git",
         :revision => "35d512af75e283aae4ca1fc3d44b159ed66189a4"
   end
 
-  go_resource "github.com/junegunn/go-runewidth" do
-    url "https://github.com/junegunn/go-runewidth.git",
-        :revision => "63c378b851290989b19ca955468386485f118c65"
+  go_resource "golang.org/x/crypto" do
+    url "https://go.googlesource.com/crypto.git",
+        :revision => "abc5fa7ad02123a41f02bf1391c9760f7586e608"
   end
 
   def install

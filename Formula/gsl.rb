@@ -1,16 +1,15 @@
 class Gsl < Formula
   desc "Numerical library for C and C++"
   homepage "https://www.gnu.org/software/gsl/"
-  url "https://ftpmirror.gnu.org/gsl/gsl-2.2.1.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/gsl/gsl-2.2.1.tar.gz"
-  sha256 "13d23dc7b0824e1405f3f7e7d0776deee9b8f62c62860bf66e7852d402b8b024"
+  url "https://ftpmirror.gnu.org/gsl/gsl-2.3.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/gsl/gsl-2.3.tar.gz"
+  sha256 "562500b789cd599b3a4f88547a7a3280538ab2ff4939504c8b4ac4ca25feadfb"
 
   bottle do
     cellar :any
-    sha256 "3e762d44c1d72ae29e392b7215bdcd6a98c8e2ed17492d603dcdfa56e00edd94" => :sierra
-    sha256 "89462bab1b0b7001ce6b71db851960f005c0436ffac840f3b9cc255ed7cb8d44" => :el_capitan
-    sha256 "00e0d7aa1202bededfa2bdce311dd7ff08db0e412e45bd87b783eb29305ccde5" => :yosemite
-    sha256 "00a05716a23a7bc333782dd77f547942563912650445d557aa5c8c941ac22c7e" => :mavericks
+    sha256 "1bb5851b23af3a29907fe944b0223f84a2a13f9f493a124b9f659f3ac77cfbce" => :sierra
+    sha256 "ca5dd754f6988ee2083be33660530854b3a8d4ab2ab6026d9da6613cfec7431e" => :el_capitan
+    sha256 "27e916ed0e2bec74aeb88e694a22f0076e225c6a0b8c9b5450d5cbc0db842e3e" => :yosemite
   end
 
   option :universal

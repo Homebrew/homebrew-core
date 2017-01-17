@@ -1,29 +1,25 @@
 class Uncrustify < Formula
   desc "Source code beautifier"
   homepage "http://uncrustify.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/uncrustify/uncrustify/uncrustify-0.63/uncrustify-0.63.tar.gz"
-  sha256 "dffbb1341a8d208e0c76b65209750e34e75b29c5a0e9a5d5a943df58bfdc2ae3"
+  url "https://github.com/uncrustify/uncrustify/archive/uncrustify-0.64.tar.gz"
+  sha256 "2a8cb3ab82ca53202d50fc2c2cec0edd11caa584def58d356c1c759b57db0b32"
+  head "https://github.com/uncrustify/uncrustify.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8889c95952f0106f0f602415617ccbe85c20aa932b8c8429849e958458118c9a" => :sierra
-    sha256 "387c422d75c6f1ca680cc4a0b8541dda9aeb40cd7b3fcf685efddbf1f29ea2d6" => :el_capitan
-    sha256 "9e2c5d484dc6cc7a9eaa26b3b26ebeafaa9974144e43fcb6fedcae4196f0a654" => :yosemite
-    sha256 "7bbc100632b13c81d2ec3ab897629f49effbb5dc76f991c4abde65566742b868" => :mavericks
+    sha256 "0ed95c1838ebb4da3dbebfceb89db2f159cdaf289ad6871fc71ce4d83af35562" => :sierra
+    sha256 "3e2d5dddcbedbb8aa1a7ba063a38c572bea7369ec38a9eedf02433cccd715194" => :el_capitan
+    sha256 "89213a509c0ba50028359fc635956aff035cd36e598a3ec75221ce0fb2626be2" => :yosemite
   end
 
-  head do
-    url "https://github.com/uncrustify/uncrustify.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
+  depends_on "cmake" => :build
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
+    doc.install (buildpath/"documentation").children
   end
 
   test do
@@ -38,7 +34,7 @@ class Uncrustify < Formula
       }
     EOS
 
-    system "#{bin}/uncrustify", "-c", "#{pkgshare}/defaults.cfg", "t.c"
+    system "#{bin}/uncrustify", "-c", "#{doc}/htdocs/default.cfg", "t.c"
     assert_equal expected, File.read("#{testpath}/t.c.uncrustify")
   end
 end

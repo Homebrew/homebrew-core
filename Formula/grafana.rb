@@ -3,18 +3,15 @@ require "language/node"
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases."
   homepage "http://grafana.org"
-  url "https://github.com/grafana/grafana/archive/v3.1.1.tar.gz"
-  sha256 "77bff57f02e507fb998d6d2492798801db4cb10c82c1378e32bd1dde963dba3d"
+  url "https://github.com/grafana/grafana/archive/v4.1.1.tar.gz"
+  sha256 "34ecd6c7d3e30b7b0eecf78f57383ad3b4754f5da9da77f031ca4b5866fe9893"
 
   head "https://github.com/grafana/grafana.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "12ecd8800a3948b7f24160b78100a686c4fe9dbe1caa8e0e65280f75b6a7d9b7" => :sierra
-    sha256 "0a188a184ad09b6c6a5b66350d8563ef47c81cf360d807ec5b76006777d9d205" => :el_capitan
-    sha256 "426a722b7bdba4eb0f9004296c056df3aa06c27f4d58728f3985ede035aa5fff" => :yosemite
-    sha256 "96701f8bcc4ccbbcceb316084fe26ff7bd5ba9a478b5fb04fc8aadfa4361908e" => :mavericks
+    sha256 "36e61585e585aef974a99c8169060a48efa3891e3cd3d74fde35a35d34024052" => :sierra
+    sha256 "d9c0db0692a96c3f386cd94d73687adc37f74d6a2098c2559cae9030fcf9bd5a" => :el_capitan
+    sha256 "85ac4a720c9b3fe8179f6ccc07a54402b1e228d508a780f0e11f96ff9c3f89c3" => :yosemite
   end
 
   depends_on "go" => :build
@@ -117,7 +114,7 @@ class Grafana < Formula
     listening = Timeout.timeout(5) do
       li = false
       r.each do |l|
-        if l =~ /Listen/
+        if l =~ /Initializing HTTP Server/
           li = true
           break
         end

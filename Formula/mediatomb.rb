@@ -92,12 +92,12 @@ class Mediatomb < Formula
 
   test do
     pid = fork do
-      exec "#{bin}/mediatomb --ip 127.0.0.1 --port 49153"
+      exec "#{bin}/mediatomb --ip 127.0.0.1 --port 49154"
     end
     sleep 2
 
     begin
-      assert_match "file is part of MediaTomb", shell_output("curl 127.0.0.1:49153")
+      assert_match "file is part of MediaTomb", shell_output("curl 127.0.0.1:49154")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)

@@ -3,15 +3,14 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v0.9.1.tar.gz"
-  sha256 "0dc2f27c2597ec03435f7cb52fbedeb6a4e6f82b0ebf1142e81ca116c3f35808"
+  url "https://github.com/pre-commit/pre-commit/archive/v0.10.1.tar.gz"
+  sha256 "3b2846d91abe652106ce142b404d3fb8b49ad3081823c41a33a1dc3e6a7a0f92"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cdf7662eeb8d875119676513d9ec7a4a98099fa5bfc7765d04b4d8a69dbe7d18" => :sierra
-    sha256 "1640168ac3387776ad5aa3d18b94662b9c5972340f956df1a835a3690fc144be" => :el_capitan
-    sha256 "abfda9e623ae8b3ac839eff56d7a87695d60a0db3dd9e30c7a42c3d73fd536c1" => :yosemite
-    sha256 "3668cb81038cae82a0f793ebb5a6b5b224b7400f606af2d969f668399ef07949" => :mavericks
+    sha256 "5d1b2aaf482d87de4a522df0063aac37e5714bac511b492ff8d0baf3fbc58ce7" => :sierra
+    sha256 "1d0dfe8f35e3d82f05a8db4b861375e942ffb89a9eb0ca404896e28c51ed2ddd" => :el_capitan
+    sha256 "086652b53a66fdfb36f3b9badaffb699125714ab2b34cd9ba885095ec196a6d0" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -37,18 +36,13 @@ class PreCommit < Formula
   end
 
   resource "nodeenv" do
-    url "https://files.pythonhosted.org/packages/4e/98/7678dda681857af016eae588f8172ea4ea687aeb3dcda6ac05899493ba4b/nodeenv-0.13.6.tar.gz"
-    sha256 "feaafb0486d776360ef939bd85ba34cff9b623013b13280d1e3770d381ee2b7f"
+    url "https://files.pythonhosted.org/packages/fa/62/f3dc0d7b596f7187585520bca14c050909de88866e8f793338de907538cf/nodeenv-1.0.0.tar.gz"
+    sha256 "def2a6d927bef8d17c1776edbd5bbc8b7a5f0eee159af53b9924d559fc8d3202"
   end
 
   resource "ordereddict" do
     url "https://files.pythonhosted.org/packages/53/25/ef88e8e45db141faa9598fbf7ad0062df8f50f881a36ed6a0073e1572126/ordereddict-1.1.tar.gz"
     sha256 "1c35b4ac206cef2d24816c89f89cf289dd3d38cf7c449bb3fab7bf6d43f01b1f"
-  end
-
-  resource "pyterminalsize" do
-    url "https://files.pythonhosted.org/packages/58/7a/440407502c758313ff208b55ffeac89ae7d5b23b5baaa7aaeea178103fc1/pyterminalsize-0.1.0.tar.gz"
-    sha256 "ca49f8c92f180a278d9ca0a106d2c98436933889c9a8bc06adde86d03aea7dd3"
   end
 
   resource "PyYAML" do
@@ -57,8 +51,8 @@ class PreCommit < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/8b/2c/c0d3e47709d0458816167002e1aa3d64d03bdeb2a9d57c5bd18448fd24cd/virtualenv-15.0.3.tar.gz"
-    sha256 "6d9c760d3fc5fa0894b0f99b9de82a4647e1164f0b700a7f99055034bf548b1d"
+    url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
+    sha256 "02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a"
   end
 
   def install

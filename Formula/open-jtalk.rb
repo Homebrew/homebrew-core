@@ -1,15 +1,15 @@
 class OpenJtalk < Formula
   desc "Japanese text-to-speech system"
   homepage "http://open-jtalk.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/open-jtalk/Open%20JTalk/open_jtalk-1.09/open_jtalk-1.09.tar.gz"
-  sha256 "8ed79238d825fee1d9e0a1c6c8a89e2cc707189be1caa3fa79e8eb72436079d7"
+  url "https://downloads.sourceforge.net/project/open-jtalk/Open%20JTalk/open_jtalk-1.10/open_jtalk-1.10.tar.gz"
+  sha256 "5b77ee729e546ca6a22d0b08cda0923fb4225fa782b26c2511b66cc644c14b7d"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aadda815ae5734733abade73a4fa1617e5cb9227b3427f3dfc2753429256d94a" => :sierra
-    sha256 "23362fa7302809f689af8731920217cddef88e9ff0d73d3ef67101292d2fa1e6" => :el_capitan
-    sha256 "1ff83a2c75f99b0cd0b7a3de1454c0b90382e6384e6be4afcd66a5d971b298f0" => :yosemite
-    sha256 "c95c595beb973f17831291766a918c60525b225661faa02b31438a98808f66f8" => :mavericks
+    sha256 "a472664a3ab3edb6fe9198aeecfc8c4881cf62298c09eec9dce78ad04a591f5c" => :sierra
+    sha256 "1f688549f09842e4513ee93386e747fc5b819239a808c0b6de08e74f41619f37" => :el_capitan
+    sha256 "ebcd63c3814851c22a8e536791a8ece8fd7b77a9dd77856b0aec705eab82e0b0" => :yosemite
   end
 
   resource "hts_engine API" do
@@ -23,8 +23,8 @@ class OpenJtalk < Formula
   end
 
   resource "mei" do
-    url "https://downloads.sourceforge.net/project/mmdagent/MMDAgent_Example/MMDAgent_Example-1.6/MMDAgent_Example-1.6.zip"
-    sha256 "2640ede5831a83e19f9cd8dabca9ad07ef05c50af06c6bc8cb3adfb5e5d4f639"
+    url "https://downloads.sourceforge.net/project/mmdagent/MMDAgent_Example/MMDAgent_Example-1.7/MMDAgent_Example-1.7.zip"
+    sha256 "5b560e8c23c5acaf67688e6e25788db2c0bb230aff0635b7c75a82a87c7f6dba"
   end
 
   def install

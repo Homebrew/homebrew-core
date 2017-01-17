@@ -20,7 +20,11 @@ class Vimpager < Formula
     system "make", "docs" if build.with? "pandoc"
     bin.install "vimcat"
     bin.install "vimpager"
-    doc.install "README.md", "vimcat.md", "vimpager.md"
+    if build.head?
+      doc.install "README.md"
+    else
+      doc.install "README.md", "vimcat.md", "vimpager.md"
+    end
     man1.install "vimcat.1", "vimpager.1" if build.with? "pandoc"
   end
 

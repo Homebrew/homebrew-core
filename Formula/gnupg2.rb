@@ -7,14 +7,12 @@ class Gnupg2 < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   sha256 "e329785a4f366ba5d72c2c678a7e388b0892ac8440c2f4e6810042123c235d71"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 "3350575ec52e749e3212beaf1516ad3c6257250caaed8e5f35c89b93e249c15b" => :sierra
-    sha256 "813a968d4654ac2e4e8961e787fecfbee4ea3e64f7ac88f6ee50b59f6cd99d25" => :el_capitan
-    sha256 "2c996ba3b66bf57b92a286b3cb3d90c882006c8ae284b93f4bb1aa4b57287dd8" => :yosemite
-    sha256 "8f1ae364521427e96ff479b43cd74879cecb648d39d00df816321a9f41acc561" => :mavericks
+    sha256 "9289e192f19a2ed16b4910af8f7892fd8b93963805997d26192883803639b8ec" => :sierra
+    sha256 "ed3349ae0102f8fdc95d8feabe5bc34f74d2f66f1ccacec834a62ab8b931192a" => :el_capitan
+    sha256 "94c15342895e54b7692df595c2f2fc1d83f8e90f51d7831987542133e8a850c5" => :yosemite
   end
 
   depends_on "libgpg-error"
@@ -67,15 +65,13 @@ class Gnupg2 < Formula
     system "make"
     system "make", "check"
     system "make", "install"
+    bin.install "tools/gpg-zip"
 
     # Add symlinks from gpg2 to unversioned executables, replacing gpg 1.x.
     bin.install_symlink "gpg2" => "gpg"
     bin.install_symlink "gpgv2" => "gpgv"
     man1.install_symlink "gpg2.1" => "gpg.1"
     man1.install_symlink "gpgv2.1" => "gpgv.1"
-
-    # Gpg-zip isn't installed by this formula.
-    rm_f man1/"gpg-zip.1"
   end
 
   def post_install

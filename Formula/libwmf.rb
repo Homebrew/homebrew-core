@@ -25,7 +25,7 @@ class Libwmf < Formula
                           "--with-png=#{Formula["libpng"].opt_prefix}",
                           "--with-freetype=#{Formula["freetype"].opt_prefix}"
     system "make"
-    ENV.j1 # yet another rubbish Makefile
+    ENV.deparallelize # yet another rubbish Makefile
     system "make", "install"
   end
 end

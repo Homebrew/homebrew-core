@@ -28,6 +28,6 @@ class Jo < Formula
   end
 
   test do
-    assert_equal %({"success":true,"result":"pass"}\n), pipe_output("#{bin}/jo success=true result=pass")
+    assert_equal %Q({"success":true,"result":"pass"}\n), pipe_output("#{bin}/jo success=true result=pass")
   end
 end

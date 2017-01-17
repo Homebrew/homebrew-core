@@ -4,14 +4,13 @@ class Gabedit < Formula
   url "https://downloads.sourceforge.net/project/gabedit/gabedit/Gabedit248/GabeditSrc248.tar.gz"
   version "2.4.8"
   sha256 "38d6437a18280387b46fd136f2201a73b33e45abde13fa802c64806b6b64e4d3"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "76f03dc778e3379b2824c875c9eb344e8042c27fdf57f39576dcce78aa96dbb7" => :sierra
-    sha256 "e8f13bf6bf5744f3439604b74c1313817dbf148b63e039e54089c10d65a818ee" => :el_capitan
-    sha256 "86ef29773a913efbce0b04aef8e6abfe8c4849b02840f411f418e939da479c45" => :yosemite
-    sha256 "507caa30aad09047605ca4df857b98e2c2172145d9382e8ca156fd63eeec334a" => :mavericks
+    sha256 "65355757dc6da502a9c0e1716aa0a7048f50b6b67fcd2325988ae0b629ba3bd0" => :sierra
+    sha256 "d32b12a340be7d2c2ae089ed2a6488063cd12b419e68cf6eb16d18761acb34be" => :el_capitan
+    sha256 "a48b0977eacecc156b170dbd1b8730d5f694e09aa9553b88e0dc6b68aa3e6cbb" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -19,6 +18,15 @@ class Gabedit < Formula
   depends_on "gtkglext"
 
   def install
+    opengl_headers = MacOS.sdk_path/"System/Library/Frameworks/OpenGL.framework/Headers"
+    (buildpath/"brew_include").install_symlink opengl_headers => "GL"
+
+    inreplace "CONFIG" do |s|
+      s.gsub! "-lX11", ""
+      s.gsub! "-lpangox-1.0", ""
+      s.gsub! "GTKCFLAGS =", "GTKCFLAGS = -I#{buildpath}/brew_include"
+    end
+
     args = []
     args << "OMPLIB=" << "OMPCFLAGS=" if ENV.compiler == :clang
     system "make", *args

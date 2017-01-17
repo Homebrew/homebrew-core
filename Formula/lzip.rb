@@ -17,7 +17,7 @@ class Lzip < Formula
                           "CXX=#{ENV.cxx}",
                           "CXXFLAGS=#{ENV.cflags}"
     system "make", "check"
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
   end
 

@@ -23,7 +23,7 @@ class Fossil < Formula
   def install
     args = [
       # fix a build issue, recommended by upstream on the mailing-list:
-      # http://comments.gmane.org/gmane.comp.version-control.fossil-scm.user/22444
+      # https://permalink.gmane.org/gmane.comp.version-control.fossil-scm.user/22444
       "--with-tcl-private-stubs=1",
     ]
     args << "--json" if build.with? "json"
@@ -35,7 +35,7 @@ class Fossil < Formula
     end
 
     if build.with? "osxfuse"
-      ENV.prepend "CFLAGS", "-I#{HOMEBREW_PREFIX}/include/osxfuse"
+      ENV.prepend "CFLAGS", "-I/usr/local/include/osxfuse"
     else
       args << "--disable-fusefs"
     end

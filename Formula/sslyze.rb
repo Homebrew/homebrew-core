@@ -5,25 +5,25 @@ class Sslyze < Formula
   homepage "https://github.com/nabla-c0d3/sslyze"
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/0.14.0.tar.gz"
-    sha256 "a4450cec121dfde9e52869f430197e83082752f61c02af3010ab96a8957773aa"
+    url "https://github.com/nabla-c0d3/sslyze/archive/0.14.2.tar.gz"
+    sha256 "6c17aaed61bcf46a9bd19218cbf2ec424504fafeb0a7d563a88d954ef27fa091"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl/archive/0.14.0.tar.gz"
-      sha256 "b268b20eb6e1c32990d85933120ea459251e7fb70838ebd677ab9003e1b0fa0c"
+      url "https://github.com/nabla-c0d3/nassl/archive/0.14.1.tar.gz"
+      sha256 "2bd2f42f4c3144c2834e96e3e0d4ad2f158ee2a8655f2ba649b7aa41c8840baa"
     end
 
     resource "openssl" do
       url "https://github.com/PeterMosmans/openssl.git",
-          :revision => "b5caa78f0c54e7f7746b2c3bbfd1d786c8fd21f9"
+          :revision => "2622e9bff72f4949c285f2d955c2f78663d79776"
     end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "309240b841786862dfaea4f3fd026541807e9b6afc05e4e99f01abee2f453c1c" => :sierra
-    sha256 "8628558f0114cf3329859a056a8fc619de5388732b57553157041f363c563e32" => :el_capitan
-    sha256 "95f5f3bd69bbf9cb1a4780da906fd2cd11d2d467633080c9ddcaa5976edbed48" => :yosemite
+    sha256 "0b6a7883db808474b04b5a7a2c317df6866bcb88ddad7295d91c117f2e9049cc" => :sierra
+    sha256 "1d4a1a965ae153fb499afb97c80d8522171f406711e202196c21b3949edc8c57" => :el_capitan
+    sha256 "608d456eed12d684041f46a45f7210300c60ba3adc1639f65d41578538efa192" => :yosemite
   end
 
   head do
@@ -68,13 +68,7 @@ class Sslyze < Formula
       venv.pip_install nassl_path
     end
     venv.pip_install_and_link buildpath
-    mv bin/"sslyze_cli.py", bin/"sslyze"
 
-    # Fix test_tlsv1_2_enable assertion error
-    # Reported 29 Aug 2016 https://github.com/nabla-c0d3/sslyze/issues/170
-    inreplace "tests/test_openssl_cipher_suites_plugin.py",
-      "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256",
-      "ECDHE-RSA-CHACHA20-POLY1305-OLD"
     ENV.prepend "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", "run_tests.py"
   end

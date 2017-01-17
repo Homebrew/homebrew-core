@@ -15,12 +15,8 @@ class Zint < Formula
     sha256 "bfbd68636ae952c6b4bb27ac6eadfca425ea5658be708c1152baa0d336d6fce8" => :mavericks
   end
 
-  option "with-qt", "Build the zint-qt GUI"
-  deprecated_option "qt" => "with-qt"
-
   depends_on "cmake" => :build
   depends_on "libpng"
-  depends_on "qt" => :optional
 
   def install
     # Sandbox fix: install FindZint.cmake in zint's prefix, not cmake's.

@@ -1,36 +1,36 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-1.5.tar.gz"
-  sha256 "3174558556a20ae8f9ee3abbf66b7d42b657d3370322555501a707e339e10771"
-
+  url "https://weechat.org/files/src/weechat-1.7.tar.xz"
+  sha256 "599348337a4bff179bf50888dad135751fa401538ebaadc59831d2223be52db3"
   head "https://github.com/weechat/weechat.git"
 
   bottle do
-    sha256 "969b36c1535667895dc0db113177cc7a851b731cebf5c754e5bd19c3bae32339" => :sierra
-    sha256 "86118fb13bbbe371612fe38351adbf5b32da676daf139e59f7a0f9e1a2ae5290" => :el_capitan
-    sha256 "80ac11ead01b4e87a5006f0663cb1efe6e500d2c7d05b66610d5f27cbe97f5e1" => :yosemite
-    sha256 "5829823f5b1e1605a10f372b903467d80bc39377f686316bd7284c2cb94ed098" => :mavericks
+    sha256 "c50aaff646370983bacf7892b68eed554fda6c31d56cb555611bb3eeb51df4b4" => :sierra
+    sha256 "e03fd5e2b7a2c6043bbbf7b5fe8bfdaab4a08e4359ecb1dbe01fc8ac48f22095" => :el_capitan
+    sha256 "fa2e68079dec50b17c31f9eaebc7aa784acce21c62e57acd4d422926d7f77da0" => :yosemite
   end
 
   option "with-perl", "Build the perl module"
   option "with-ruby", "Build the ruby module"
   option "with-curl", "Build with brewed curl"
   option "with-debug", "Build with debug information"
+  option "without-tcl", "Do not build the tcl module"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "libgcrypt"
   depends_on "gettext"
-  depends_on "guile" => :optional
   depends_on "aspell" => :optional
   depends_on "lua" => :optional
   depends_on :python => :optional
+  depends_on :ruby => ["2.1", :optional]
+  depends_on :perl => ["5.3", :optional]
   depends_on "curl" => :optional
 
   def install
-    args = std_cmake_args
+    args = std_cmake_args << "-DENABLE_GUILE=OFF"
     if build.with? "debug"
       args -= %w[-DCMAKE_BUILD_TYPE=Release]
       args << "-DCMAKE_BUILD_TYPE=Debug"
@@ -40,7 +40,7 @@ class Weechat < Formula
     args << "-DENABLE_PERL=OFF" if build.without? "perl"
     args << "-DENABLE_RUBY=OFF" if build.without? "ruby"
     args << "-DENABLE_ASPELL=OFF" if build.without? "aspell"
-    args << "-DENABLE_GUILE=OFF" if build.without? "guile"
+    args << "-DENABLE_TCL=OFF" if build.without? "tcl"
     args << "-DENABLE_PYTHON=OFF" if build.without? "python"
     args << "-DENABLE_JAVASCRIPT=OFF"
 
@@ -59,6 +59,6 @@ class Weechat < Formula
   end
 
   test do
-    system "weechat", "-r", "/quit"
+    system "#{bin}/weechat", "-r", "/quit"
   end
 end

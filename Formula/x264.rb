@@ -2,22 +2,21 @@ class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
   # the latest commit on the stable branch
-  url "https://git.videolan.org/git/x264.git", :revision => "a5e06b9a435852f0125de4ecb198ad47340483fa"
-  version "r2699"
+  url "https://git.videolan.org/git/x264.git", :revision => "4d5c8b01a48f72f9c40651e92c39294326a0863f"
+  version "r2728"
   head "https://git.videolan.org/git/x264.git"
 
   bottle do
     cellar :any
-    sha256 "48bbe37f3d559cf62baa2da53c6beaf62dc586e425851c8f9325213a81653ebd" => :sierra
-    sha256 "749cf0abb596388079ccfc482060b61d40b381234c3f55f70664a21b87750b7d" => :el_capitan
-    sha256 "25ae640bda892a1da820d7f8ab195fc441f439fb78fe9015bdbfa3dbbf5ad1d9" => :yosemite
-    sha256 "ad6ba164deab0b1bd7cd19677c83d994522228e262fe3026aca321540da49e5c" => :mavericks
+    sha256 "454351400844abc9ef9dc75eda60613e3522089f395aa7d7239abb6d801455dc" => :sierra
+    sha256 "00ddf0e14555830c2be93db080e51a18915ecd7afdf43de676b57945f199f9ae" => :el_capitan
+    sha256 "02985537eae4685adc60829b04f180b5a6e23192bb1864d2086f3cd6a7895781" => :yosemite
   end
 
   devel do
     # the latest commit on the master branch
-    url "https://git.videolan.org/git/x264.git", :revision => "3f5ed56d4105f68c01b86f94f41bb9bbefa3433b"
-    version "r2705"
+    url "https://git.videolan.org/git/x264.git", :revision => "b97ae0644f16bad2e2c9c9181264a946769a0aa0"
+    version "r2744"
   end
 
   option "with-10-bit", "Build a 10-bit x264 (default: 8-bit)"

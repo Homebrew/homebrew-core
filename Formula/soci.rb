@@ -1,14 +1,13 @@
 class Soci < Formula
   desc "Database access library for C++"
   homepage "http://soci.sourceforge.net/"
-  url "https://download.sourceforge.net/project/soci/soci/soci-3.2.2/soci-3.2.2.zip"
-  sha256 "e3ad3ea0ef37eab0ae9e6459d2cdd099b1fa1165b663c349e1200356cf4e9c91"
+  url "https://download.sourceforge.net/project/soci/soci/soci-3.2.3/soci-3.2.3.zip"
+  sha256 "ab0f82873b0c5620e0e8eb2ff89abad6517571fd63bae4bdcac64dd767ac9a05"
 
   bottle do
-    sha256 "9932dbe8cf88a7951ee909ef02d348fd45296e79cd7b1c8beeba6e5375578e01" => :sierra
-    sha256 "36f059c90784c6d4ebe3bcf9f83babddb2bbfef0b108eda04deb4c98e4e5b119" => :el_capitan
-    sha256 "a442c3d3c94c6132bd3e03a2f4b7dc34c1163b6befd807494dbc90049d7a1d82" => :yosemite
-    sha256 "7ea7c9074d708f276244e9b6a5251406a2b1fc7b6d57d0974b98e87df21f24cd" => :mavericks
+    sha256 "61ac3ada591371a743198251fa35d70a18cc6018d23e4a36e3ec45aa6ec99db2" => :sierra
+    sha256 "4b8d8acc29c2ed8e826be84c9dc777d947033396336885440fb823530460b470" => :el_capitan
+    sha256 "b802ee253ceb25ebfd2b5a90ef4dc8b229a90c7b1cae1a33533c9bd2ff9e7d50" => :yosemite
   end
 
   depends_on "cmake" => :build

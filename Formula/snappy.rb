@@ -1,6 +1,6 @@
 class Snappy < Formula
   desc "Compression/decompression library aiming for high speed"
-  homepage "https://code.google.com/archive/p/snappy/"
+  homepage "https://google.github.io/snappy/"
   url "https://github.com/google/snappy/releases/download/1.1.3/snappy-1.1.3.tar.gz"
   sha256 "2f1e82adf0868c9e26a5a7a3115111b6da7e432ddbac268a7ca2fae2a247eef3"
 
@@ -26,7 +26,7 @@ class Snappy < Formula
 
   def install
     ENV.universal_binary if build.universal?
-    ENV.j1 if build.stable?
+    ENV.deparallelize if build.stable?
 
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",

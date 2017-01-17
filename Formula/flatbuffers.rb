@@ -1,16 +1,15 @@
 class Flatbuffers < Formula
   desc "Serialization library for C++, supporting Java, C#, and Go"
   homepage "https://google.github.io/flatbuffers"
-  url "https://github.com/google/flatbuffers/archive/v1.4.0.tar.gz"
-  sha256 "d3355f0adcc16054afcce4a3eac90b9c26f926be9a65b2e158867f56ab689e63"
+  url "https://github.com/google/flatbuffers/archive/v1.5.0.tar.gz"
+  sha256 "85362cb54042e96329cb65396a5b589789b3d42e4ed7c2debddb7a2300a05f41"
   head "https://github.com/google/flatbuffers.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4e7a7048a3eddd16f080c8a1267c255bf5e7c08ab9d087d0f64b1f3e4f229cba" => :sierra
-    sha256 "11e6a7e4c4b2c7dca2e5582dae037b15f2547aeb3f49ab1fb716f10e5ec65977" => :el_capitan
-    sha256 "4b0330850e90721864c2c5a4f73e4efd6fbee006b52cd2f77cdbcd0ac98dce64" => :yosemite
-    sha256 "e60373d7db349515b22e81b3b2fe8cdfb3438688b310b90d3e227b9d5d106e6d" => :mavericks
+    sha256 "f967e254f1871b9469130fa51442e744b965f262ef0056dc0af59462761891dc" => :sierra
+    sha256 "0f6ad20c81932296e44addee697f51a578babd72db17713ace7a57e8cfde6704" => :el_capitan
+    sha256 "c6ab12c74042b373684015a79ba8bed2fc554943b404ce3fcdfd65c8d11f96be" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -66,6 +65,6 @@ class Flatbuffers < Formula
     end
     (testpath/"test.json").write(testjson)
 
-    system "flatc", "-c", "-b", "test.fbs", "test.json"
+    system bin/"flatc", "-c", "-b", "test.fbs", "test.json"
   end
 end

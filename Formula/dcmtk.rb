@@ -3,16 +3,16 @@ class Dcmtk < Formula
   homepage "http://dicom.offis.de/dcmtk.php.en"
 
   # Current snapshot used for stable now.
-  url "http://dicom.offis.de/download/dcmtk/snapshot/dcmtk-3.6.1_20160216.tar.gz"
-  version "3.6.1-20160216"
-  sha256 "51c1075a5c0b631ac0849a967862eaa55466df0aa8c4704f9d67b541bedba812"
+  url "http://dicom.offis.de/download/dcmtk/snapshot/dcmtk-3.6.1_20161102.tar.gz"
+  version "3.6.1-20161102"
+  sha256 "657adb3811e0c5c08d8f143a6d878afcd92fac7dcf0d3c89860eecffd5a1a873"
 
   head "git://git.dcmtk.org/dcmtk.git"
 
   bottle do
-    sha256 "177f217df6e3eccb68e5306222b136ed87609f89f041f4451459e4a78f5eaf33" => :el_capitan
-    sha256 "15ce712721b1a1d52095dda6ccaee211920357834f26e39241673e6513a1fa9a" => :yosemite
-    sha256 "8d788453c0221597d65effe0b814aedb371d1b28170bc38be904823d28d5c0d7" => :mavericks
+    sha256 "d2f1b4cde8c9469ee42bf9271b20a305ea75eb59632d37b408aa9900c54b3485" => :sierra
+    sha256 "04082c805dfc1d504e8bfd02f24be60c79fb39e365c17e95aea8a5815a4b9713" => :el_capitan
+    sha256 "96dccd681ab37da2898afa3ee9c2aa03d11b7451b936f25ca5f56d5c797ba5d6" => :yosemite
   end
 
   option "with-docs", "Install development libraries/headers and HTML docs"

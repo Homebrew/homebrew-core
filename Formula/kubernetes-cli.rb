@@ -1,46 +1,52 @@
 class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "http://kubernetes.io/"
-  url "https://github.com/kubernetes/kubernetes/archive/v1.3.7.tar.gz"
-  sha256 "40a655b5ae1734acfda157088a20853aaf87945508edf73497bec5fa26352a9b"
+  url "https://github.com/kubernetes/kubernetes.git",
+      :tag => "v1.5.2",
+      :revision => "08e099554f3c31f6e6f07b448ab3ed78d0520507"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8847676dee7de017eeccd753ef1a10871d437d2b84e1cdb2158923a088879dec" => :sierra
-    sha256 "2cf1c6ef203ad6fb22ab3409b119d80c8d29f2705c6ffccd164da57b0b45793c" => :el_capitan
-    sha256 "808c93e78b84f743877690d72aee24a61415af5fc1cc4c7bbd6c7b60fa66b735" => :yosemite
+    sha256 "61272b68222b5236facc5c3e0385e0a8d02302312aee33a72413257df94c1239" => :sierra
+    sha256 "a036fdd2bfd50f1a2e811273aa140ffb1c70fa51ef1725ee4388f18bf67f7e52" => :el_capitan
+    sha256 "acc5e4b83bc07df1b027737e6331f4532f7fb4e4f4714b7404525c6ee042b7c3" => :yosemite
   end
 
   devel do
-    # building from the tag lets it pick up the correct version info
     url "https://github.com/kubernetes/kubernetes.git",
-        :tag => "v1.4.0-alpha.3",
-        :revision => "b44b716965db2d54c8c7dfcdbcb1d54792ab8559"
-    version "1.4.0-alpha.3"
+        :tag => "v1.5.3-beta.0",
+        :revision => "b5f9d56cab78ccaad2b726223ba8be5802026f0b"
+    version "1.5.3-beta.0"
   end
 
   depends_on "go" => :build
 
   def install
-    if build.stable?
-      system "make", "all", "WHAT=cmd/kubectl", "GOFLAGS=-v"
-    else
-      # avoids needing to vendor github.com/jteeuwen/go-bindata
-      rm "./test/e2e/framework/gobindata_util.go"
-
-      ENV.deparallelize { system "make", "generated_files" }
-      system "make", "kubectl", "GOFLAGS=-v"
-    end
+    ENV["GOPATH"] = buildpath
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
-    bin.install "_output/local/bin/darwin/#{arch}/kubectl"
+    dir = buildpath/"src/k8s.io/kubernetes"
+    dir.install buildpath.children - [buildpath/".brew_home"]
 
-    output = Utils.popen_read("#{bin}/kubectl completion bash")
-    (bash_completion/"kubectl").write output
+    cd dir do
+      # Race condition still exists in OSX Yosemite
+      # Filed issue: https://github.com/kubernetes/kubernetes/issues/34635
+      ENV.deparallelize { system "make", "generated_files" }
+
+      # Make binary
+      system "make", "kubectl"
+      bin.install "_output/local/bin/darwin/#{arch}/kubectl"
+
+      # Install bash completion
+      output = Utils.popen_read("#{bin}/kubectl completion bash")
+      (bash_completion/"kubectl").write output
+    end
   end
 
   test do
-    output = shell_output("#{bin}/kubectl 2>&1")
-    assert_match "kubectl controls the Kubernetes cluster manager.", output
+    run_output = shell_output("#{bin}/kubectl 2>&1")
+    assert_match "kubectl controls the Kubernetes cluster manager.", run_output
+
+    version_output = shell_output("#{bin}/kubectl version --client 2>&1")
+    assert_match "GitTreeState:\"clean\"", version_output
   end
 end

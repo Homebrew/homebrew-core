@@ -15,7 +15,7 @@ class Nettle < Formula
   depends_on "gmp"
 
   def install
-    # OS X doesn't use .so libs. Emailed upstream 04/02/2016.
+    # macOS doesn't use .so libs. Emailed upstream 04/02/2016.
     inreplace "testsuite/dlopen-test.c", "libnettle.so", "libnettle.dylib"
 
     system "./configure", "--disable-dependency-tracking",

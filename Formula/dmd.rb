@@ -1,31 +1,55 @@
 class Dmd < Formula
-  desc "D programming language compiler for OS X"
+  desc "D programming language compiler for macOS"
   homepage "https://dlang.org/"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.071.2.tar.gz"
-    sha256 "bb6195a9cd5351e57ba4dfaf3af3bbf31387a3480306adf2ca317dfc5146cc3f"
+    url "https://github.com/dlang/dmd/archive/v2.072.2.tar.gz"
+    sha256 "ffb1fd593b7f8c0120c4519b0e60c1029948544d60e6d0166523410687373e23"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.071.2.tar.gz"
-      sha256 "4a58d1fb8e7427d2302b3830dd5b423cd22b48ad19f7db93c7339d46fd030cda"
+      url "https://github.com/dlang/druntime/archive/v2.072.2.tar.gz"
+      sha256 "49a9f1295f887bb4edb686d689044ddfa86e8522a9848d6bb4e41f5198907183"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.071.2.tar.gz"
-      sha256 "0cd1ef9f8f92d05f58f93b87271a3cfc2ce9ad156e15069f055e5d1edef98fa4"
+      url "https://github.com/dlang/phobos/archive/v2.072.2.tar.gz"
+      sha256 "fa110766b8e3acebf4c316e78fca6d61d2a3cf03c13f23ed1833f4869ed72769"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.071.2.tar.gz"
-      sha256 "392f3766f5f2ac52e19fbacfd37fb9ddba507a53e77fe98f0c5aeca3238ec000"
+      url "https://github.com/dlang/tools/archive/v2.072.2.tar.gz"
+      sha256 "2cfbaaa1736d21a5225ad43015366cc12f4e86805d1287ef3ffbd5b36aefc738"
     end
   end
 
   bottle do
-    sha256 "887320f50135759fcd97ef2528421ab3d8716afe899217a35f704b66dcef74fb" => :sierra
-    sha256 "dcad29345a9ce3670734628eca339c9bb4dafbc3dcbfe3e0c9df022530e29031" => :el_capitan
-    sha256 "ec3d0ed9e0531b9accf65e122f113d84cde32d9a3f5025d861ef6f37e8bd4156" => :yosemite
+    sha256 "f5307872239e65a99cd9bc8b52e9a1b81d0dca6c53f1a538ad0dd04b9af59456" => :sierra
+    sha256 "1f8a65f1d7ad78fb62387284c7376603299d2fea2c9efec307d450fd7201fd1a" => :el_capitan
+    sha256 "d3bba0028f81d71df83f7f02cce8c61f530b32a1d0a1bfb0be035c58bb6c6ec2" => :yosemite
+  end
+
+  devel do
+    url "https://github.com/dlang/dmd/archive/v2.073.0-b2.tar.gz"
+    sha256 "bc5546522c7baad70fb24437853fae2570058a0af339fcd92f86a80daa1b6cc2"
+    version "2.073.0-b2"
+
+    resource "druntime" do
+      url "https://github.com/dlang/druntime/archive/v2.073.0-b2.tar.gz"
+      sha256 "6fdd2a5cbdc84c6638a98e2772f53139ec8a43216d2eb321ccc946d166b7078b"
+      version "2.073.0-b2"
+    end
+
+    resource "phobos" do
+      url "https://github.com/dlang/phobos/archive/v2.073.0-b2.tar.gz"
+      sha256 "846ff15d466f79f14867ff3da720fcfeb82d75b72fd1916ea95499e8dcf26ab0"
+      version "2.073.0-b2"
+    end
+
+    resource "tools" do
+      url "https://github.com/dlang/tools/archive/v2.073.0-b2.tar.gz"
+      sha256 "a70dd4c7f3b7de94b3cb34560447333110fc9c5ad8774d9b7469ec51e3b701f4"
+      version "2.073.0-b2"
+    end
   end
 
   head do
@@ -46,11 +70,6 @@ class Dmd < Formula
 
   def install
     make_args = ["INSTALL_DIR=#{prefix}", "MODEL=#{Hardware::CPU.bits}", "-f", "posix.mak"]
-
-    # VERSION file is wrong upstream, has happened before, so we just overwrite it here.
-    version_file = (buildpath/"VERSION")
-    rm version_file
-    version_file.write version
 
     system "make", "SYSCONFDIR=#{etc}", "TARGET_CPU=X86", "AUTO_BOOTSTRAP=1", "RELEASE=1", *make_args
 

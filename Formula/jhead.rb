@@ -13,6 +13,8 @@ class Jhead < Formula
     sha256 "cc28907085b95ff54384eefb5650e1a363128b74da950a3a30f3d10c7c093f66" => :mountain_lion
   end
 
+  depends_on "jpeg"
+
   # Patch to provide a proper install target to the Makefile. The patch has
   # been submitted upstream through email. We need to carry this patch until
   # upstream decides to incorporate it.
@@ -23,7 +25,8 @@ class Jhead < Formula
   end
 
   test do
-    system "#{bin}/jhead", test_fixtures("test.jpg")
+    cp test_fixtures("test.jpg"), testpath
+    system "#{bin}/jhead", "-autorot", "test.jpg"
   end
 end
 

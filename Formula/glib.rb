@@ -1,13 +1,13 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.50/glib-2.50.0.tar.xz"
-  sha256 "830b551fa626bda06e12729205b3c5bb0d82b924a8cf64d948945878f01b7d70"
+  url "https://download.gnome.org/sources/glib/2.50/glib-2.50.2.tar.xz"
+  sha256 "be68737c1f268c05493e503b3b654d2b7f43d7d0b8c5556f7e4651b870acfbf5"
 
   bottle do
-    sha256 "bb396367169022dedf170881de64c7a034273e909de57b2e42cd5876746f1fe6" => :sierra
-    sha256 "482783ddb70bf66dec6ae214a69ad32a91347b99b08fe87893839dc20d8a361b" => :el_capitan
-    sha256 "eb5be0abeec81800c17f4b432420117bcbed1a64ec9aab5c8df29c73d1c963f1" => :yosemite
+    sha256 "99ae316b13b93f38b08c02e2ad18c54364ffad71ed1cde413ebb6f024c9c88dc" => :sierra
+    sha256 "b9f6e4cd0ff6a54e0dbb49c4016f31c30886fe9d253883ba84db5a936235c513" => :el_capitan
+    sha256 "1f9f8b9faf2b1d50b9de58a35b7692fbc709077f70528bdfc5db9ae9bbcc1518" => :yosemite
   end
 
   option :universal
@@ -19,11 +19,6 @@ class Glib < Formula
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
-
-  fails_with :llvm do
-    build 2334
-    cause "Undefined symbol errors while linking"
-  end
 
   resource "config.h.ed" do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/eb51d82/glib/config.h.ed"
@@ -54,7 +49,7 @@ class Glib < Formula
     end
   end
 
-  # Reverts GNotification support on OS X.
+  # Reverts GNotification support on macOS.
   # This only supports OS X 10.9, and the reverted commits removed the
   # ability to build glib on older versions of OS X.
   # https://bugzilla.gnome.org/show_bug.cgi?id=747146
@@ -63,8 +58,8 @@ class Glib < Formula
   # also applied to configure and gio/Makefile.in
   if MacOS.version < :mavericks
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/59e4d32/glib/gnotification-mountain.patch"
-      sha256 "723def732304552ca55ae9f5b568ff3e8a59a14d512af72b6c1f0421f8228a68"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a4fe61b/glib/gnotification-mountain.patch"
+      sha256 "5bf6d562dd2be811d71e6f84eb43fc6c51a112db49ec0346c1b30f4f6f4a4233"
     end
   end
 

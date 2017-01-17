@@ -37,8 +37,6 @@ class PostgresXc < Formula
   patch :DATA
 
   def install
-    ENV.libxml2 if MacOS.version >= :snow_leopard
-
     # See https://sourceforge.net/mailarchive/forum.php?thread_name=82E44F89-543A-44F2-8AF8-F6909B5DC561%40uniud.it&forum_name=postgres-xc-bugs
     ENV.append "CFLAGS", "-D_FORTIFY_SOURCE=0 -O2" if MacOS.version >= :mavericks
 
@@ -75,7 +73,7 @@ class PostgresXc < Formula
 
     system "./configure", *args
 
-    # Building the documentation looks for Jade or OpenJade, neither of which exist on OS X
+    # Building the documentation looks for Jade or OpenJade, neither of which exist on macOS
     # or are supplied by Homebrew at this point in time. Disable for now, since error fatal.
     inreplace "GNUmakefile", "recurse,install-world,doc-xc src", "recurse,install-world,src"
     system "make", "install-world"

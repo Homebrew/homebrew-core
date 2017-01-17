@@ -37,7 +37,7 @@ class Nacl < Formula
     # It also builds both x86 and x86_64 copies if your compiler can
     # handle it. Here we only install one copy, based on if you're a
     # 64bit system or not. A --universal could come later though I guess.
-    archstr = Hardware.is_64_bit? ? "amd64" : "x86"
+    archstr = Hardware::CPU.is_64_bit? ? "amd64" : "x86"
 
     # Don't include cpucycles.h
     include.install Dir["build/brew/include/#{archstr}/crypto_*.h"]

@@ -1,24 +1,20 @@
 class Scale2x < Formula
   desc "Real-time graphics effect"
   homepage "http://scale2x.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/scale2x/scale2x/2.4/scale2x-2.4.tar.gz"
-  sha256 "83599b1627988c941ee9c7965b6f26a9fd2608cd1e0073f7262a858d0f4f7078"
-  revision 1
+  url "https://downloads.sourceforge.net/project/scale2x/scale2x/3.1/scale2x-3.1.tar.gz"
+  sha256 "afdd88b90811b00ae884eb8a97355991f39d8028dbd5c6b1d95fdccf0fc56574"
 
   bottle do
     cellar :any
-    sha256 "d6c9c08d16c16c6da5b5acc5e7b2de861c8325d67dd0e9dc0e1a5032ad6cc637" => :sierra
-    sha256 "c4d3727b99efa7e329259d5b8bc5e600f034db13e7ddfcbb792f8e512e2b5419" => :el_capitan
-    sha256 "ab48af00a09bbb84b1a99cb178d7e2943e51f8ec743b74321ef24a86cc646797" => :yosemite
-    sha256 "0ad21fade0671c6139a0d959e5952614fc9b796dee535db443aaa9e455aa766f" => :mavericks
+    sha256 "8699587cf81a5d38985d81e32bb7b7815cda1d731a5f134d045692b5276e0a12" => :sierra
+    sha256 "ad49eb9e6167e9ad5d5ea4f08a870b06ee9118465668762ac05a8b50cdbd7ebf" => :el_capitan
+    sha256 "c431a4d6ccc671f7d010fc1d010d6f31372c2075942ffc402f7969f7b0c7b43a" => :yosemite
   end
 
   depends_on "libpng"
 
   def install
-    # This function was renamed in current versions of libpng.
-    inreplace "file.c", "png_set_gray_1_2_4_to_8", "png_set_expand_gray_1_2_4_to_8"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "CPPFLAGS=-I/usr/include/malloc/"
     system "make", "install"
   end
 end

@@ -1,14 +1,14 @@
 class Voldemort < Formula
   desc "Distributed key-value storage system"
   homepage "http://www.project-voldemort.com/"
-  url "https://github.com/voldemort/voldemort/archive/release-1.10.22-cutoff.tar.gz"
-  sha256 "7b6c72cade334d0816f4dc39abb55d6f6f5d10dad129aeceb939c670316cc503"
+  url "https://github.com/voldemort/voldemort/archive/release-1.10.23-cutoff.tar.gz"
+  sha256 "650981e1acc25dd043f39bef4af491defefa09987acdd32554d8ee0beed967c7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "09fcf0824843006fb9846f1f4510a0259d6f237a8b2127b7c467b3f5d52f0fd6" => :sierra
-    sha256 "530477615ae3e64894730e8edacadcc51e8e8d8e6ac9e243a2ec6ef07a69b7e2" => :el_capitan
-    sha256 "dfe79fdadd0dd6aba4f4570738dd31b06b0c4205b4d3e9e9c34ad1110723b444" => :yosemite
+    sha256 "9d4fe894dafb965550b30e1ab8bbbfed1019fb33be830db3779b596d13212ad4" => :sierra
+    sha256 "fa17ebb844d76054267dba56931e4434328f3c69c1feae1c1f259cf16368baf7" => :el_capitan
+    sha256 "992c7ff4c25d8374de15c28b95cefc2b8f14c28d0d30bd68bc92f342f7c6f7bb" => :yosemite
   end
 
   depends_on "gradle" => :build

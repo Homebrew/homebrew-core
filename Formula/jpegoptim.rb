@@ -20,7 +20,7 @@ class Jpegoptim < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    ENV.j1 # Install is not parallel-safe
+    ENV.deparallelize # Install is not parallel-safe
     system "make", "install"
   end
 

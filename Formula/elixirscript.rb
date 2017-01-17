@@ -3,15 +3,14 @@ require "language/node"
 class Elixirscript < Formula
   desc "Elixir to JavaScript compiler"
   homepage "https://github.com/bryanjos/elixirscript"
-  url "https://github.com/bryanjos/elixirscript/archive/v0.21.0.tar.gz"
-  sha256 "8580826b248ae1d268ea1439b05fcc53a7010a4bb64c4e240baabc20be6c3bcf"
+  url "https://github.com/bryanjos/elixirscript/archive/v0.24.0.tar.gz"
+  sha256 "9b4b9b04328b230431567add8a3a1766dec40a49f8c7c3352dbd48bb1ea71a45"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4243ede37038b43ff91c5c669cb4ef89aa61784d28f4b0e2290bb285a28917e3" => :sierra
-    sha256 "bc42d5a2dba3a02c35436741bc9a3e5aaf79e75d9be04ddd20e115a092a6da72" => :el_capitan
-    sha256 "3a0e04f52b69a4e9c852906439956b324cb11fe78534b5a72d1e2a9c6a00de4d" => :yosemite
-    sha256 "349cb1b7acf6075a9ee5d3dddc42ed5aea179fd7162416c19e48a45f4436dc91" => :mavericks
+    sha256 "e65990bf7c910dd1b485615d3b499732bdcee07b402afddc7bf538c7e15c7914" => :sierra
+    sha256 "5a110112a9a2996ff0d1fa1c0f7ec45466ec94546857ef0a4853a8d1e6791e61" => :el_capitan
+    sha256 "5b6b760eb8749b5b1db5c0cc78de3df231f807bfda7147582eeded2a13b42d40" => :yosemite
   end
 
   depends_on "elixir" => :build

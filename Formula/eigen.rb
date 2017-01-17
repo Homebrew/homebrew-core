@@ -1,15 +1,15 @@
 class Eigen < Formula
   desc "C++ template library for linear algebra"
   homepage "https://eigen.tuxfamily.org/"
-  url "https://bitbucket.org/eigen/eigen/get/3.2.10.tar.bz2"
-  sha256 "760e6656426fde71cc48586c971390816f456d30f0b5d7d4ad5274d8d2cb0a6d"
+  url "https://bitbucket.org/eigen/eigen/get/3.3.1.tar.bz2"
+  sha256 "a0b4cebaabd8f371d1b364f9723585fbcc7c9640ca60273b99835e6cf115f056"
   head "https://bitbucket.org/eigen/eigen", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e870a71cbcbe8cb7d71cfcd4751780267f2c74d766c2f026c66392c516685cef" => :sierra
-    sha256 "e870a71cbcbe8cb7d71cfcd4751780267f2c74d766c2f026c66392c516685cef" => :el_capitan
-    sha256 "e870a71cbcbe8cb7d71cfcd4751780267f2c74d766c2f026c66392c516685cef" => :yosemite
+    sha256 "e0a5c96d5bbe5f9dcd7ffc4e75d2c83dd92d40f953623a96dc3705799b9a3ce3" => :sierra
+    sha256 "9ef7e849e5496407789e2113a25097b1a797086eba6d8350a020a3905fcb0f1a" => :el_capitan
+    sha256 "9ef7e849e5496407789e2113a25097b1a797086eba6d8350a020a3905fcb0f1a" => :yosemite
   end
 
   option :universal

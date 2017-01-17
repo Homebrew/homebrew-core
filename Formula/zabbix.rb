@@ -1,14 +1,13 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.0.1/zabbix-3.0.1.tar.gz"
-  sha256 "e91a8497bf635b96340988e2d9ca1bb3fac06e657b6596fa903c417a6c6b110b"
+  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.2.3/zabbix-3.2.3.tar.gz"
+  sha256 "e6dba74039d8d6efff86ec3da99909f4daeaeb66d48781bbb666e3094533da25"
 
   bottle do
-    sha256 "5b143b61a45cc0e19843ce052b8db18a959f1f5759b775c4061628f31ffa1b5b" => :sierra
-    sha256 "280644147140b9bab7a62980f504ead6c92dff07be53307241dd9714b4450ab4" => :el_capitan
-    sha256 "bc73d952251046996572adb17f8a7e86a0fe6ef2889dfbd0416159479bf28127" => :yosemite
-    sha256 "6456b27c7e81a5714baa818ba7c280bfc3972f6065ab1fa3b079bb9aa8dd83c2" => :mavericks
+    sha256 "11186942afe721513cf62f293506319c14ebfee244e287275cf92175077de477" => :sierra
+    sha256 "afbeeff30b41bd92c76c2febd99584d534a2fba6df6fd5adb6f1d43525f4f1d9" => :el_capitan
+    sha256 "12955b6b4ebd4686bb398214633bfebdfda5b21e9fcb9ee1c3ed41b68eb515bb" => :yosemite
   end
 
   option "with-mysql", "Use Zabbix Server with MySQL library instead PostgreSQL."
@@ -37,7 +36,7 @@ class Zabbix < Formula
     ]
 
     if build.with? "server-proxy"
-      args += %W[
+      args += %w[
         --enable-server
         --enable-proxy
         --enable-ipv6
@@ -51,6 +50,11 @@ class Zabbix < Formula
       else
         args << "--with-postgresql=#{brewed_or_shipped("pg_config")}"
       end
+    end
+
+    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "configure", "clock_gettime(CLOCK_REALTIME, &tp);",
+                             "undefinedgibberish(CLOCK_REALTIME, &tp);"
     end
 
     system "./configure", *args

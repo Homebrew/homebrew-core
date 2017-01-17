@@ -21,6 +21,6 @@ class Vpcs < Formula
   end
 
   test do
-    system "vpcs", "--version"
+    system "#{bin}/vpcs", "--version"
   end
 end

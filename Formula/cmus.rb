@@ -3,14 +3,13 @@ class Cmus < Formula
   homepage "https://cmus.github.io/"
   url "https://github.com/cmus/cmus/archive/v2.7.1.tar.gz"
   sha256 "8179a7a843d257ddb585f4c65599844bc0e516fe85e97f6f87a7ceade4eb5165"
-  revision 1
+  revision 2
   head "https://github.com/cmus/cmus.git"
 
   bottle do
-    sha256 "05c19820e072054df3c5a739a99976f875d2447483f2c98c9988f1e5b897c64c" => :sierra
-    sha256 "c59774836e10d043d117b3a07193fc4eee97e37e11875fceea17980a067a7904" => :el_capitan
-    sha256 "efaa6209f0fdfe5bfffa9a527a9c073ac202229e82484e96e5b539d17c283444" => :yosemite
-    sha256 "15b3a9610c3b37808396787ced0f1cb5ae9b0dff30e6657419d46906229f5097" => :mavericks
+    sha256 "48171d7e6cd31ec1451a14c1c5275249f872c68c493910b39b1fa1d49eda04ad" => :sierra
+    sha256 "deeed1d9ef93f0a8263b18a08239cab7a22983afe4278310f9944b79ab3df560" => :el_capitan
+    sha256 "150534ed291aeb39a6c1a84a6efa6f1e4b518c0e3eae4e18efac9a5496e826af" => :yosemite
   end
 
   depends_on "pkg-config" => :build

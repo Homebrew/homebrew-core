@@ -1,14 +1,14 @@
 class Mg < Formula
   desc "Small Emacs-like editor"
   homepage "https://devio.us/~bcallah/mg/"
-  url "https://devio.us/~bcallah/mg/mg-20160815.tar.gz"
-  sha256 "d4cf4cc5e811f13bfcebd0240d074344d0a6e8c27e5a5d9be9c5e53f328a416a"
+  url "https://devio.us/~bcallah/mg/mg-20161016.tar.gz"
+  sha256 "bcb4be59aaa30ae8dd0e9aed3c0a5ff8bf2dae6e6768396d37c11aaaab29d370"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4aed2dfd90c3bab684d69183bfa315fc2ece5b3b8a15c4dd6ea9f4905fd44c4f" => :sierra
-    sha256 "20bba78b053638d1e05c80a678f4107aa928760c0caab7b3b8a112b6ec624afa" => :el_capitan
-    sha256 "b75b2d2ce24746207c5d0253745a992ae6e6a83f190a32ba5fd4aedd08028bb5" => :yosemite
+    sha256 "231f0f356fb33dbb14a21c5605b9049d834285cd7b78a6647580eb7548e823d2" => :sierra
+    sha256 "510b4da455b8018934cd19d70952fe39633af1978d9f7b0bcc41d7b714dc1dcc" => :el_capitan
+    sha256 "90283bf60bd3bd0f287514fc30857903f138c5177affed345962cfa9ffbb1d07" => :yosemite
   end
 
   depends_on :macos => :yosemite # older versions don't support fstatat(2)

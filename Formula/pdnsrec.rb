@@ -25,7 +25,7 @@ class Pdnsrec < Formula
   end
 
   # Remove for > 4.0.3
-  # Upstream commit "rec: Fix Lua-enabled compilation on OS X and FreeBSD"
+  # Upstream commit "rec: Fix Lua-enabled compilation on macOS and FreeBSD"
   patch :p2 do
     url "https://github.com/PowerDNS/pdns/commit/546d1fb.patch"
     sha256 "9a7711596aebaf3eceaf8abcf723df12aa9c22583e6bb177b4eb0f90c8bb2ec3"

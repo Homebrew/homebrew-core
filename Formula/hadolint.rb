@@ -5,22 +5,24 @@ class Hadolint < Formula
 
   desc "Smarter Dockerfile linter to validate best practices."
   homepage "http://hadolint.lukasmartinelli.ch/"
-  url "https://github.com/lukasmartinelli/hadolint/archive/v1.2.1.tar.gz"
-  sha256 "e0f06adf266f366d8ac847be979ca6db9f16b487f2b1d0d3a2d1db4d1a3e11ea"
+  url "https://github.com/lukasmartinelli/hadolint/archive/v1.2.2.tar.gz"
+  sha256 "600731b0ebf8b86d561ea7ff37424d3249ccd36b91c440551200829c2f80f646"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2c82de9cd0f6e51c34948c156f73f0b06619ff0d7cd1852584a6f52d23d2bc9b" => :sierra
-    sha256 "a100c0b33af09bfc6cebc79d4b77f1297d3af9fe9fd28c0a1b61317f921abdac" => :el_capitan
-    sha256 "dd73c444fe18969e280438855416bd2d03cab6f198f43fc8cc83fc03a9a6e7c3" => :yosemite
-    sha256 "68f377b99b1245afa10e940059fe22619702f7b9536f85f701afbaa6343a45db" => :mavericks
+    sha256 "e50b8e3ecbaa931e47a6eef649c041af70569f3812433707e22502cfe281c186" => :sierra
+    sha256 "8e2cf9aa35ef51c0ffe475af366a97149b15a64558c97445e34574f6a66ce43d" => :el_capitan
+    sha256 "c079436775b7811e6e3b566fa040d9c39580c31e9362fad7386f2527212fde10" => :yosemite
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
-    install_cabal_package
+    # Fix "src/Hadolint/Bash.hs:9:20: error: The constructor 'PositionedComment'
+    # should have 3 arguments, but has been given 2"
+    # Reported 9 Dec 2016 https://github.com/lukasmartinelli/hadolint/issues/72
+    install_cabal_package "--constraint=ShellCheck<0.4.5"
   end
 
   test do

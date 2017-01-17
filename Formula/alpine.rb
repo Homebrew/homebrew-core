@@ -15,7 +15,7 @@ class Alpine < Formula
   depends_on "openssl"
 
   def install
-    ENV.j1
+    ENV.deparallelize
     system "./configure", "--disable-debug",
                           "--with-ssl-dir=#{Formula["openssl"].opt_prefix}",
                           "--with-ssl-certs-dir=#{etc}/openssl",

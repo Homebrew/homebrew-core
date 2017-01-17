@@ -46,11 +46,6 @@ class Tesseract < Formula
 
   needs :cxx11
 
-  fails_with :llvm do
-    build 2206
-    cause "Executable 'tesseract' segfaults on 10.6 when compiled with llvm-gcc"
-  end
-
   resource "tessdata" do
     url "https://github.com/tesseract-ocr/tessdata/archive/3.04.00.tar.gz"
     sha256 "5dcb37198336b6953843b461ee535df1401b41008d550fc9e43d0edabca7adb1"

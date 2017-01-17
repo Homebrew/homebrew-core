@@ -1,16 +1,14 @@
 class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
-  # *** Vim should be updated no more than once every 7 days ***
-  url "https://github.com/vim/vim/archive/v8.0.0022.tar.gz"
-  sha256 "9b414635f008865ed9464b540c09cfbf60d1a7150838bce91b6d6adfb7805a2b"
-
+  url "https://github.com/vim/vim/archive/v8.0.0194.tar.gz"
+  sha256 "e06a4107f957bd5ee4abba03b645eabd5a31aedbbcd3137680871b5ddda37067"
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "6712170e135a98362ff3993bedb4ee56ca1bac773598230ab91a3079cbd87249" => :sierra
-    sha256 "2689ec8603ce07762a5dd91ef7129c91034fb5804f0a8dbe47f74204a79c1bcc" => :el_capitan
-    sha256 "4e5c22a0c5e2d5c846b9b6da56abf3a024de496d7dbda657308478de235dd4cf" => :yosemite
+    sha256 "0a5fc6af4a4274716cb2665412fceec84e8173704dc1194afa429ad428c8d657" => :sierra
+    sha256 "40d1cd26f08f04e586851e54dfc95759a96adcbf6f729078b82dbaf4810f87a0" => :el_capitan
+    sha256 "a5933f5a271f1743d080c2996f666bdaeee316b28840e53b3684640b65dee5e4" => :yosemite
   end
 
   deprecated_option "disable-nls" => "without-nls"
@@ -72,7 +70,7 @@ class Vim < Formula
       # only compile with either python or python3 support, but not both
       # (if vim74 is compiled with +python3/dyn, the Python[3] library lookup segfaults
       # in other words, a command like ":py3 import sys" leads to a SEGV)
-      opts -= %W[--enable-pythoninterp]
+      opts -= %w[--enable-pythoninterp]
     end
 
     opts << "--disable-nls" if build.without? "nls"
@@ -82,6 +80,10 @@ class Vim < Formula
       opts << "--with-x"
     else
       opts << "--without-x"
+    end
+
+    if build.with? "lua"
+      opts << "--enable-luainterp"
     end
 
     if build.with? "luajit"
@@ -114,18 +116,13 @@ class Vim < Formula
   end
 
   test do
-    # Simple test to check if Vim was linked to Python version in $PATH
     if build.with? "python"
-      vim_path = bin/"vim"
-
-      # Get linked framework using otool
-      otool_output = `otool -L #{vim_path} | grep -m 1 Python`.gsub(/\(.*\)/, "").strip.chomp
-
-      # Expand the link and get the python exec path
-      vim_framework_path = Pathname.new(otool_output).realpath.dirname.to_s.chomp
-      system_framework_path = `python-config --exec-prefix`.chomp
-
-      assert_equal system_framework_path, vim_framework_path
+      (testpath/"commands.vim").write <<-EOS.undent
+        :python import vim; vim.current.buffer[0] = 'hello world'
+        :wq
+      EOS
+      system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
+      assert_equal (testpath/"test.txt").read, "hello world\n"
     end
   end
 end
