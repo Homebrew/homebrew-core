@@ -12,8 +12,7 @@ class OpensslAT11 < Formula
     sha256 "34d106f1b300d4b192757941febde26cba194d903c5683d09df8b7328ce04215" => :yosemite
   end
 
-  keg_only :provided_by_osx,
-    "Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries"
+  keg_only :versioned_formula
 
   option :universal
   option "without-test", "Skip build-time tests (not recommended)"
