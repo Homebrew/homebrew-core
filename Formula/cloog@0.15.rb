@@ -12,7 +12,7 @@ class CloogAT015 < Formula
     sha256 "b6945a3a781be4c9d4ad3e866812f859055c8b8c53895bedf0b071e2741b7ab4" => :yosemite
   end
 
-  keg_only "Older version of cloog"
+  keg_only :versioned_formula
 
   depends_on "gmp@4"
   depends_on "ppl@0.11"
