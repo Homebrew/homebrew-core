@@ -7,7 +7,7 @@ class DropboxUploader < Formula
   bottle :unneeded
 
   def install
-    bin.install "dropbox_uploader.sh"
+    bin.install "dropbox_uploader.sh", "dropShell.sh"
   end
 
   test do
