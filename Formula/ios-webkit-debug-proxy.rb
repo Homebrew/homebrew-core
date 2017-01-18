@@ -1,8 +1,8 @@
 class IosWebkitDebugProxy < Formula
   desc "DevTools proxy for iOS devices"
   homepage "https://github.com/google/ios-webkit-debug-proxy"
-  url "https://github.com/google/ios-webkit-debug-proxy/archive/1.7.tar.gz"
-  sha256 "e4f86d926a93b25672d4337af9c3549896125c7f345bb1d98eb3dca7da12c123"
+  url "https://github.com/google/ios-webkit-debug-proxy/archive/1.7.1.tar.gz"
+  sha256 "56416febf6535b22f2552db7489ce90517f9a642732e1c1e6722377bf13c6f6a"
 
   head "https://github.com/google/ios-webkit-debug-proxy.git"
 
