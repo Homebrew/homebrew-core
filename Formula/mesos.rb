@@ -88,9 +88,14 @@ class Mesos < Formula
               "<url>http://mesos.apache.org</url>",
               maven_javadoc_patch
 
+    # Disable optimizing as libc++ does not play well with optimized
+    # clang builds (see
+    # https://llvm.org/bugs/show_bug.cgi?id=28469 and
+    # https://issues.apache.org/jira/browse/MESOS-5745).
     args = %W[
       --prefix=#{prefix}
       --disable-debug
+      --disable-optimize
       --disable-dependency-tracking
       --disable-silent-rules
       --with-svn=#{Formula["subversion"].opt_prefix}
