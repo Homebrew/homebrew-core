@@ -19,6 +19,7 @@ class KubeAws < Formula
     sha256 "0c7d3e6d40adc137d6ff9202400c72b832db4e85ed60abd6dfdb17a9ae301a03"
     version "0.9.3-rc.5"
   end
+
   depends_on "go" => :build
 
   def install
@@ -30,22 +31,19 @@ class KubeAws < Formula
     mkdir_p File.dirname(kube_aws_dir)
 
     ln_s buildpath/"vendor", "#{gopath_vendor}/src"
-    ln_s buildpath/".", kube_aws_dir
+    ln_s buildpath, kube_aws_dir
 
     ENV["GOPATH"] = "#{gopath_vendor}:#{gopath_kube_aws}"
 
-    if build.devel? || build.head?
-      cd kube_aws_dir do
-        system "go", "generate", "./config"
+    cd kube_aws_dir do
+    system "go", "generate", "./config"
+      if build.devel? || build.head?
         system "go", "generate", "./nodepool/config"
         system "go", "build", "-ldflags",
                "-X github.com/coreos/kube-aws/cluster.VERSION=#{version}",
                "-a", "-tags", "netgo", "-installsuffix", "netgo",
                "-o", bin/"kube-aws", "./"
-      end
-    else
-      cd kube_aws_dir do
-        system "go", "generate", "./config"
+      else
         system "go", "build", "-ldflags",
                "-X github.com/coreos/kube-aws/cluster.VERSION=#{version}",
                "-a", "-tags", "netgo", "-installsuffix", "netgo",
@@ -55,31 +53,23 @@ class KubeAws < Formula
   end
 
   test do
+    system "#{bin}/kube-aws"
     if build.devel? || build.head?
-      system "#{bin}/kube-aws"
       cluster = { "clusterName" => "test-cluster", "externalDNSName" => "dns",
                   "keyName" => "key", "region" => "west",
                   "availabilityZone" => "zone", "kmsKeyArn" => "arn", "controller" => nil }
-      system "#{bin}/kube-aws", "init", "--cluster-name", "test-cluster",
-             "--external-dns-name", "dns", "--region", "west",
-             "--availability-zone", "zone", "--key-name", "key",
-             "--kms-key-arn", "arn"
-      cluster_yaml = YAML.load_file("cluster.yaml")
-      assert_equal cluster, cluster_yaml
     else
-      system "#{bin}/kube-aws"
       cluster = { "clusterName" => "test-cluster", "externalDNSName" => "dns",
                   "keyName" => "key", "region" => "west",
                   "availabilityZone" => "zone", "kmsKeyArn" => "arn" }
-      system "#{bin}/kube-aws", "init", "--cluster-name", "test-cluster",
-             "--external-dns-name", "dns", "--region", "west",
-             "--availability-zone", "zone", "--key-name", "key",
-             "--kms-key-arn", "arn"
-      cluster_yaml = YAML.load_file("cluster.yaml")
-      assert_equal cluster, cluster_yaml
-
-      installed_version = shell_output("#{bin}/kube-aws version 2>&1")
-      assert_match "kube-aws version #{version}", installed_version
     end
+    system "#{bin}/kube-aws", "init", "--cluster-name", "test-cluster",
+           "--external-dns-name", "dns", "--region", "west",
+           "--availability-zone", "zone", "--key-name", "key",
+           "--kms-key-arn", "arn"
+    cluster_yaml = YAML.load_file("cluster.yaml")
+    assert_equal cluster, cluster_yaml
+    installed_version = shell_output("#{bin}/kube-aws version 2>&1")
+    assert_match "kube-aws version #{version}", installed_version
   end
 end
