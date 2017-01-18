@@ -5,6 +5,12 @@ class MingwW64Binutils < Formula
   mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.27.tar.gz"
   sha256 "26253bf0f360ceeba1d9ab6965c57c6a48a01a8343382130d1ed47c468a3094f"
 
+  bottle do
+    sha256 "6bc55401f311a9f5df14cf01c2e87e414952f60eb4de91f1a04ebf6f7ef1668a" => :sierra
+    sha256 "328d6d452200f6c4babd2607bf0b7ed622f6ff3198eb172ad6ad5a769a69c70b" => :el_capitan
+    sha256 "39e04cd72f16ce87abac183cfa9d1bfe3b979378a938f4a8b987b79ea696261d" => :yosemite
+  end
+
   def install
     system "./configure", "--disable-werror",
                           "--target=x86_64-w64-mingw32",
