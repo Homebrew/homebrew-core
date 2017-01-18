@@ -9,6 +9,7 @@ class Riak < Formula
 
   depends_on :macos => :mountain_lion
   depends_on :arch => :x86_64
+  depends_on "openssl"
 
   def install
     logdir = var + "log/riak"
