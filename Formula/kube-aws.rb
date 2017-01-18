@@ -36,7 +36,7 @@ class KubeAws < Formula
     ENV["GOPATH"] = "#{gopath_vendor}:#{gopath_kube_aws}"
 
     cd kube_aws_dir do
-    system "go", "generate", "./config"
+      system "go", "generate", "./config"
       if build.devel? || build.head?
         system "go", "generate", "./nodepool/config"
         system "go", "build", "-ldflags",
