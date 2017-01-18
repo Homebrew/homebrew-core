@@ -5,20 +5,20 @@ class AzureCli2 < Formula
 
   desc "Azure CLI 2.0"
   homepage "https://github.com/Azure/azure-cli"
-  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli_packaged_0.1.5.tar.gz"
-  sha256 "cb65651530544c43343e2c80b0d96a681ad0a07367e288ef9fae261093c497f3"
+  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli_packaged_0.1.6.tar.gz"
+  sha256 "bb4bd4694e044bf416941e3afdc505bde7d049bac2e66c8b3fe44c9cb3b57ff8"
   depends_on "python"
 
   # Apply the 'az component' patch
   patch do
-    url "https://azurecliprod.blob.core.windows.net/patches/patch_0.1.5_component_custom.diff"
+    url "https://azurecliprod.blob.core.windows.net/patches/patch_2_component_custom.diff"
     sha256 "d61ef29ace9bbdfef9a25dfbb1f475225bbca174263c8f863ee70f87d0a78bbe"
   end
 
   # Apply pip module search patch
   patch do
-    url "https://azurecliprod.blob.core.windows.net/patches/patch_0.1.5_pkg_util.diff"
-    sha256 "ea0879280dbb3074d464752c27bfe01a7673da14137a4c4315d1938a0d05a03e"
+    url "https://azurecliprod.blob.core.windows.net/patches/patch_2_pkg_util.diff"
+    sha256 "4b97507cb73b405c6fb2d701eb52ffa72ce547f791097fccadffc491ad6ae194"
   end
 
   def completion_script; <<-EOS.undent
@@ -52,18 +52,6 @@ class AzureCli2 < Formula
     # Bash tab completion
     File.write(libexec/"az.completion", completion_script)
     bash_completion.install libexec/"az.completion"
-  end
-
-  def caveats; <<-EOS.undent
-    To complete tab completion set up:
-      1. Modify your ~/.bash_profile (if the line doesn't already exist)
-        $ echo "[ -f #{HOMEBREW_PREFIX}/etc/bash_completion.d/az.completion ] && . #{HOMEBREW_PREFIX}/etc/bash_completion.d/az.completion" >> ~/.bash_profile
-      2. Restart your shell
-        $ exec -l $SHELL
-    ----
-    Get started with:
-      $ az configure
-    EOS
   end
 
   test do
