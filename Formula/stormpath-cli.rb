@@ -1,7 +1,7 @@
 class StormpathCli < Formula
   include Language::Python::Virtualenv
 
-  desc "Command-line interface for https://stormpath.com/ user management"
+  desc "The official Stormpath command line client."
   homepage "https://github.com/stormpath/stormpath-cli"
   url "https://github.com/stormpath/stormpath-cli/archive/0.1.2.tar.gz"
   sha256 "8e66da2c8891b029317e6e8cbd8b6413318af8582249137bfed597d9b215e795"
