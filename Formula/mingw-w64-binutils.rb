@@ -20,10 +20,6 @@ class MingwW64Binutils < Formula
   end
 
   test do
-    # Check target and version number
-    assert_match "x86_64-w64-mingw32", shell_output("#{bin}/x86_64-w64-mingw32-as --version")
-    assert_match version.to_s, shell_output("#{bin}/x86_64-w64-mingw32-ld --version")
-
     # Assemble a simple 64-bit routine
     (testpath/"test.s").write <<-EOS.undent
       foo:
@@ -35,6 +31,8 @@ class MingwW64Binutils < Formula
     EOS
     system "#{bin}/x86_64-w64-mingw32-as", "-o", "test.o", "test.s"
     assert_match "file format pe-x86-64", shell_output("#{bin}/x86_64-w64-mingw32-objdump -a test.o")
+    system "#{bin}/x86_64-w64-mingw32-ld", "-o", "test.exe", "test.o"
+    assert_match "PE32+ executable (console) x86-64", shell_output("file test.exe")
 
     # Assemble a simple 32-bit routine
     (testpath/"test32.s").write <<-EOS.undent
@@ -47,5 +45,7 @@ class MingwW64Binutils < Formula
     EOS
     system "#{bin}/x86_64-w64-mingw32-as", "--32", "-o", "test32.o", "test32.s"
     assert_match "file format pe-i386", shell_output("#{bin}/x86_64-w64-mingw32-objdump -a test32.o")
+    system "#{bin}/x86_64-w64-mingw32-ld", "-m", "i386pe", "-o", "test32.exe", "test32.o"
+    assert_match "PE32 executable (console) Intel 80386", shell_output("file test32.exe")
   end
 end
