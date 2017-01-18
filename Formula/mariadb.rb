@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.20/source/mariadb-10.1.20.tar.gz"
-  sha256 "c24e83f24d674d9912319f9e9422f093c8ca6be1721a4380cbd74792b89ba0b9"
+  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.21/source/mariadb-10.1.21.tar.gz"
+  sha256 "5a816355781ea22a6c65a436d8162f19bd292ec90e2b7d9499c031ae4a659490"
 
   bottle do
     sha256 "19183b99cbcfd45b4674cfd9524b2c742f8809649ce39085f813cf78d781d050" => :sierra
@@ -15,7 +15,6 @@ class Mariadb < Formula
     sha256 "7dcbb0c35d2c25e8a2d5bef5a5ebbf578eb755e1dd810ca0e55d529521296249"
   end
 
-  option :universal
   option "with-test", "Keep test when installing"
   option "with-bench", "Keep benchmark app when installing"
   option "with-embedded", "Build the embedded server"
@@ -85,12 +84,6 @@ class Mariadb < Formula
 
     # Compile with BLACKHOLE engine enabled if chosen
     args << "-DPLUGIN_BLACKHOLE=YES" if build.with? "blackhole-storage-engine"
-
-    # Make universal for binding to universal applications
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
 
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
