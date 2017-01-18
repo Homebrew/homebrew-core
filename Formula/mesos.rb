@@ -53,6 +53,16 @@ class Mesos < Formula
   def install
     ENV.java_cache
 
+    # Disable optimizing as libc++ does not play well with optimized clang
+    # builds (see https://llvm.org/bugs/show_bug.cgi?id=28469 and
+    # https://issues.apache.org/jira/browse/MESOS-5745).
+    #
+    # NOTE: We cannot use `--disable-optimize` since we also pass e.g.,
+    # CXXFLAGS via environment variables. Since compiler flags are passed via
+    # environment variables the Mesos build will silently ignore flags like
+    # `--[disable|enable]-optimize`.
+    ENV.O0 unless DevelopmentTools.clang_build_version >= 900
+
     # work around to avoid `_clock_gettime` symbol not found error.
     if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
       ENV["ac_have_clock_syscall"] = "no"
@@ -138,6 +148,23 @@ class Mesos < Formula
   test do
     require "timeout"
 
+    # Make sure we are not affected by MESOS-6910 and related issues.
+    agent = fork do
+      exec "/Users/bbannier/src/homebrew/sbin/mesos-agent",
+          "--master=127.0.0.1:5050",
+          "--work_dir=/tmp/mesos.slave.brew",
+          "--image_providers=docker"
+    end
+    begin
+      Timeout.timeout(2) do
+        Process.wait agent
+      end
+    rescue Timeout::Error
+      Process.kill "TERM", agent
+    end
+    assert $?.exitstatus, "agent process died, check MESOS-6606-related behavior"
+
+    # Make tests for minimal functionality.
     master = fork do
       exec "#{sbin}/mesos-master", "--ip=127.0.0.1",
                                    "--registry=in_memory"
