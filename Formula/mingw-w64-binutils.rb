@@ -11,18 +11,40 @@ class MingwW64Binutils < Formula
     sha256 "39e04cd72f16ce87abac183cfa9d1bfe3b979378a938f4a8b987b79ea696261d" => :yosemite
   end
 
-  def install
-    system "./configure", "--disable-werror",
-                          "--target=x86_64-w64-mingw32",
-                          "--enable-targets=x86_64-w64-mingw32,i686-w64-mingw32",
-                          "--prefix=#{prefix}",
-                          "--with-sysroot=#{prefix}"
-    system "make"
-    system "make", "install"
+  option "without-i686", "Compile without i686 mingw target"
+  option "without-x86_64", "Compile without x86_64 mingw target"
+  option "without-multilib", "Compile x86_64 mingw target without multilib"
 
-    # Info pages and localization files conflict with native tools
-    info.rmtree
-    (share/"locale").rmtree
+  def targets
+    if build.without?("i686") && build.without?("x86_64")
+      odie "Options --without-i686 and --without-x86_64 are mutually exclusive"
+    end
+    archs = []
+    archs.push("i686-w64-mingw32") if build.with?("i686")
+    archs.push("x86_64-w64-mingw32") if build.with?("x86_64")
+  end
+
+  def install
+    targets.each do |target_arch|
+      args = %W[
+        --disable-werror
+        --target=#{target_arch}
+        --prefix=#{prefix}
+        --with-sysroot=#{prefix}
+      ]
+      args.push("--disable-multilib", "--enable-target=#{target_arch}") if target_arch.start_with?("i686") || build.without?("multilib")
+      args.push("--enable-multilib", "--enable-target=#{target_arch},i686-w64-mingw32") if target_arch.start_with?("x86_64") && build.with?("multilib")
+
+      mkdir "build-#{target_arch}" do
+        system "../configure", *args
+        system "make"
+        system "make", "install"
+      end
+
+      # Info pages and localization files conflict with native tools
+      info.rmtree
+      (share/"locale").rmtree
+    end
   end
 
   test do
@@ -35,10 +57,6 @@ class MingwW64Binutils < Formula
         popq   %rbp
         ret
     EOS
-    system "#{bin}/x86_64-w64-mingw32-as", "-o", "test.o", "test.s"
-    assert_match "file format pe-x86-64", shell_output("#{bin}/x86_64-w64-mingw32-objdump -a test.o")
-    system "#{bin}/x86_64-w64-mingw32-ld", "-o", "test.exe", "test.o"
-    assert_match "PE32+ executable", shell_output("file test.exe")
 
     # Assemble a simple 32-bit routine
     (testpath/"test32.s").write <<-EOS.undent
@@ -49,9 +67,19 @@ class MingwW64Binutils < Formula
         popl   %ebp
         ret
     EOS
-    system "#{bin}/x86_64-w64-mingw32-as", "--32", "-o", "test32.o", "test32.s"
-    assert_match "file format pe-i386", shell_output("#{bin}/x86_64-w64-mingw32-objdump -a test32.o")
-    system "#{bin}/x86_64-w64-mingw32-ld", "-m", "i386pe", "-o", "test32.exe", "test32.o"
-    assert_match "PE32 executable", shell_output("file test32.exe")
+    targets.each do |target_arch|
+      if target_arch.start_with?("i686") || (target_arch.start_with?("x86_64") && build.with?("multilib"))
+        system "#{bin}/#{target_arch}-as", "--32", "-o", "test32.o", "test32.s"
+        assert_match "file format pe-i386", shell_output("#{bin}/#{target_arch}-objdump -a test32.o")
+        system "#{bin}/#{target_arch}-ld", "-m", "i386pe", "-o", "test32.exe", "test32.o"
+        assert_match "PE32 executable", shell_output("file test32.exe")
+      end
+      if target_arch.start_with?("x86_64")
+        system "#{bin}/#{target_arch}-as", "-o", "test.o", "test.s"
+        assert_match "file format pe-x86-64", shell_output("#{bin}/#{target_arch}-objdump -a test.o")
+        system "#{bin}/#{target_arch}-ld", "-o", "test.exe", "test.o"
+        assert_match "PE32+ executable", shell_output("file test.exe")
+      end
+    end
   end
 end
