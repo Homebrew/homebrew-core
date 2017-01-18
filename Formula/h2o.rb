@@ -1,13 +1,8 @@
 class H2o < Formula
   desc "HTTP server with support for HTTP/1.x and HTTP/2"
   homepage "https://github.com/h2o/h2o/"
-
-  stable do
-    url "https://github.com/h2o/h2o/archive/v2.0.6.tar.gz"
-    sha256 "bf4f2dc3b2f1a6886eb7ee6487cb6ba4b206700055a1d2ca9c2a99a82d21055b"
-
-    depends_on "openssl"
-  end
+  url "https://github.com/h2o/h2o/archive/v2.1.0.tar.gz"
+  sha256 "41f3853f3083c2fe8e70d3ab7be02c3de3c26fb77ba5fc56fdaf46712418b999"
 
   bottle do
     sha256 "72a73995197aa85a33a933309cc6439a2d9ba0e4df62e2fcdb11cfa14d985870" => :sierra
@@ -15,19 +10,12 @@ class H2o < Formula
     sha256 "b090435d46399fa5098b5c5c27aa329464f65c16f9c658a2d1810ff5593f284b" => :yosemite
   end
 
-  devel do
-    url "https://github.com/h2o/h2o/archive/v2.1.0-beta4.tar.gz"
-    version "2.1.0-beta4"
-    sha256 "780d4b210f1a9b76a1a29cad794305631afb739c79b3835902b13aaf01507e60"
-
-    depends_on "openssl@1.1"
-  end
-
   option "with-libuv", "Build the H2O library in addition to the executable"
   option "without-mruby", "Don't build the bundled statically-linked mruby"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "openssl"
   depends_on "libuv" => :optional
   depends_on "wslay" => :optional
 
