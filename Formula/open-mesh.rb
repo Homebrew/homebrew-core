@@ -7,10 +7,10 @@ class OpenMesh < Formula
 
   bottle do
     cellar :any
-    sha256 "696e707dbbc25c6b2b6504eb78336a8833f9d690bbb07f226d9529258fc984f2" => :sierra
-    sha256 "80c3297bf3f7ab9c4b519dd9ae622ea5c87fb5afdebaabeb4b4c8d3149067016" => :el_capitan
-    sha256 "e73e25f5adbb12bd20bf822e472a2a883f6d969c1cb340d76feb1a83fc4c02cf" => :yosemite
-    sha256 "f55c01c2dbde31f9307530349141b33860f733bbe2836fc88d79536bcd3945d4" => :mavericks
+    rebuild 1
+    sha256 "a34226124549c2d56c74723a11585a2948edf2e6f60851ef63eab1c826647d7f" => :sierra
+    sha256 "89cb1989a31311b1d2fb741dc35e06a6e9e077273cb63560f7bfcaa5b796ca27" => :el_capitan
+    sha256 "fa31eb68403e75daa03eac85164864ba80bb3c76f59db97778777f78dfaa10a1" => :yosemite
   end
 
   depends_on "cmake" => :build
