@@ -1,32 +1,26 @@
 class LastpassCli < Formula
   desc "LastPass command-line interface tool"
   homepage "https://github.com/lastpass/lastpass-cli"
-  url "https://github.com/lastpass/lastpass-cli/archive/v1.0.0.tar.gz"
-  sha256 "42096c0bd3972b0e9cc9cef32fbf141e47b04b9e2387fb3abe8b105e135fb41e"
+  url "https://github.com/lastpass/lastpass-cli/archive/v1.1.1.tar.gz"
+  sha256 "1aac80da5305a73d6574892c9948078fcbfb0fa25c0e1b29712659de64273243"
+  head "https://github.com/lastpass/lastpass-cli.git"
 
   bottle do
     cellar :any
-    sha256 "bc5e958d0b2529ab05e78dfbecd332ddb7f2b061ffa89e8337519a8bfe58861e" => :sierra
-    sha256 "42710f8cf1bef7628e61251e10bd0bf2a36f219e950fd40fb9d93561f87f4335" => :el_capitan
-    sha256 "6d8a04d5bab5db00b80f5d6a35c639040ca0494e81ee85e7ae21bb52d8e617b8" => :yosemite
-    sha256 "dc2eb72ebe79a0963dc9cae50ec6a38633740866b356e7521f37bf1c586a37f0" => :mavericks
+    sha256 "5a28248885da75621bfcb78aaee4c1fc99eb2e0f14f0c0a974f0b099fa7b2c54" => :sierra
+    sha256 "f74caf7d2c500146bc08b771f24edcb9e68cc54638110eaa5ae54877b50b8274" => :el_capitan
+    sha256 "1c6dc1b0bee7527f946f28f4f625eb8d11c13887c31ea00fd7afc8f324803224" => :yosemite
   end
 
-  head do
-    url "https://github.com/lastpass/lastpass-cli.git"
-
-    depends_on "cmake" => :build
-  end
-
-  option "with-doc", "Install man pages"
-
-  depends_on "asciidoc" => :build if build.with? "doc"
+  depends_on "asciidoc" => :build
+  depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "pinentry" => :optional
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
-    system "make", "MANDIR=#{man}", "install-doc" if build.with? "doc"
+    system "make", "MANDIR=#{man}", "install-doc"
   end
 
   test do

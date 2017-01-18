@@ -11,6 +11,11 @@ class MobileShell < Formula
     sha256 "0d4e77bc71d3413788995fc3029ae29df2789ef6eed7871862a823ffeee7f12d" => :yosemite
   end
 
+  devel do
+    url "https://github.com/mobile-shell/mosh/releases/download/mosh-1.3.0-rc2/mosh-1.3.0-rc2.tar.gz"
+    sha256 "8b6bff33c469ccea0438877c68774a6b2ded6fccd99b1db180222da82f0654ae"
+  end
+
   head do
     url "https://github.com/mobile-shell/mosh.git", :shallow => false
 
@@ -32,9 +37,6 @@ class MobileShell < Formula
     # PATH to support launching outside shell e.g. via launcher
     inreplace "scripts/mosh.pl", "'mosh-client", "\'#{bin}/mosh-client"
 
-    # Upstream prefers O2:
-    # https://github.com/keithw/mosh/blob/master/README.md
-    ENV.O2
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}", "--enable-completion"
     system "make", "check" if build.with?("test") || build.bottle?

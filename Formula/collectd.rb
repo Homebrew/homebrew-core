@@ -4,7 +4,7 @@ class Collectd < Formula
 
   stable do
     url "https://collectd.org/files/collectd-5.7.0.tar.bz2"
-    mirror "https://storage.googleapis.com/collectd-tarballs/collectd-5.6.2.tar.bz2"
+    mirror "https://storage.googleapis.com/collectd-tarballs/collectd-5.7.0.tar.bz2"
     sha256 "25a05fbdc6baad571554342bbac6141928bf95a47fc60ee3b32e46d0c89ef2b2"
   end
 

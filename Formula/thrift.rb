@@ -1,31 +1,14 @@
 class Thrift < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org/"
-
-  stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.9.3/thrift-0.9.3.tar.gz"
-    sha256 "b0740a070ac09adde04d43e852ce4c320564a292f26521c46b78e0641564969e"
-
-    # Apply any necessary patches (none currently required)
-    [
-      # Example patch:
-      #
-      # Apply THRIFT-2201 fix from master to 0.9.1 branch (required for clang to compile with C++11 support)
-      # %w{836d95f9f00be73c6936d407977796181d1a506c f8e14cbae1810ade4eab49d91e351459b055c81dba144c1ca3c5d6f4fe440925},
-    ].each do |name, sha|
-      patch do
-        url "https://git-wip-us.apache.org/repos/asf?p=thrift.git;a=commitdiff_plain;h=#{name}"
-        sha256 sha
-      end
-    end
-  end
+  url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.10.0/thrift-0.10.0.tar.gz"
+  sha256 "2289d02de6e8db04cbbabb921aeb62bfe3098c4c83f36eec6c31194301efa10b"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "f3bd35df2ba94af77f15a836668db5eb7dfc0d37c77a2f77bc6cc980e1524f27" => :sierra
-    sha256 "528061b3a3689341d76d76a7faaa6345100bbbadeb4055a26f1acb6377aad3ba" => :el_capitan
-    sha256 "7b1c9edc94356d9cb426237fab09143c64d2bb2a85d86f7d8236702fa110f90c" => :yosemite
+    sha256 "a0d93b6f61524775ec194daa25a3a8da16f5e858823822847074711c718f1618" => :sierra
+    sha256 "e82b69518d57411e51c78652c2af6bcede1404b3d99fce5087b9e5ceae96598e" => :el_capitan
+    sha256 "331177b6661cef631e930e14ef2ce2c8884c4fcbc662699498f39fc395b8da5a" => :yosemite
   end
 
   head do

@@ -1,6 +1,6 @@
 class Htpdate < Formula
   desc "Synchronize time with remote web servers"
-  homepage "http://www.vervest.org/fiki/bin/view/HTP"
+  homepage "http://www.vervest.org/htp/"
   url "http://www.vervest.org/htp/archive/c/htpdate-0.9.1.tar.bz2"
   sha256 "2afd132b00d33cd45eea9445387441174fe9bedf3fdf72c5a19f0051cf5a2446"
 

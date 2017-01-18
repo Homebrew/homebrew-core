@@ -3,16 +3,18 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://github.com/DocNow/twarc/archive/v1.0.0.tar.gz"
-  sha256 "00652703b10349e06d6c51c02b66f8fb7c0f0f3a3993264764b33211d0cf836f"
+  url "https://github.com/DocNow/twarc/archive/v1.0.3.tar.gz"
+  sha256 "9894a29f02c3fbbd671c9ee05db6fae3461ebbfcbba8f748421b8017c1f8fa96"
+  revision 1
 
   bottle do
-    sha256 "d84013a05295f2a538b4b8b2c8235b96a61949b27ef010b5d74db8798add03ab" => :sierra
-    sha256 "e4836536bb3a5d8b8e824211460ae483423fb1847cd10ee5ac4636734a6f9ec0" => :el_capitan
-    sha256 "72bbe8927ffd909514e272a08cc48862dea481e4058cf1e0580b1d6667ef614d" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "1613c5a676bdbfc2f9d46c03674ee42e6cfde8b31ad040c64c2d51e232034473" => :sierra
+    sha256 "efd78b2c07fecee0bb978e280e297c7c7f3425af25ef2273d955e258d57e528a" => :el_capitan
+    sha256 "393fe1429e6a8ee310ea84f6c63bfb0906758f4e4c74c9853024c7a0b4942170" => :yosemite
   end
 
-  depends_on :python
+  depends_on :python if MacOS.version <= :snow_leopard
 
   resource "funcsigs" do
     url "https://files.pythonhosted.org/packages/94/4a/db842e7a0545de1cdb0439bb80e6e42dfe82aaeaadd4072f2263a4fbed23/funcsigs-1.0.2.tar.gz"
@@ -35,13 +37,13 @@ class Twarc < Formula
   end
 
   resource "py" do
-    url "https://files.pythonhosted.org/packages/f4/9a/8dfda23f36600dd701c6722316ba8a3ab4b990261f83e7d3ffc6dfedf7ef/py-1.4.31.tar.gz"
-    sha256 "a6501963c725fc2554dabfece8ae9a8fb5e149c0ac0a42fd2b02c5c1c57fc114"
+    url "https://files.pythonhosted.org/packages/93/bd/8a90834a287e0c1682eab8e20ada672e4f4cf7d5b99f2833ddbf31ed1a6d/py-1.4.32.tar.gz"
+    sha256 "c4b89fd1ff1162375115608d01f77c38cca1d0f28f37fd718005e19b28be41a7"
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/2f/03/0c636d7191255e1737012e5f9c42368f11b55463aeea46fb1955892cab0d/pytest-3.0.4.tar.gz"
-    sha256 "879fee2c1fdbaacd1bf2c0047677c6dd4aee05b9c1e64330b34d130a584fa40d"
+    url "https://files.pythonhosted.org/packages/a8/87/b7ca49efe52d2b4169f2bfc49aa5e384173c4619ea8e635f123a0dac5b75/pytest-3.0.5.tar.gz"
+    sha256 "4a003aa956f023ce91aa6e166b555e6f02a4b0aeb459ac61e14f64c0d39037fd"
   end
 
   resource "python-dateutil" do
@@ -50,8 +52,8 @@ class Twarc < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
-    sha256 "63f1815788157130cee16a933b2ee184038e975f0017306d723ac326b5525b54"
+    url "https://files.pythonhosted.org/packages/5b/0b/34be574b1ec997247796e5d516f3a6b6509c4e064f2885a96ed885ce7579/requests-2.12.4.tar.gz"
+    sha256 "ed98431a0631e309bb4b63c81d561c1654822cb103de1ac7b47e45c26be7ae34"
   end
 
   resource "requests-oauthlib" do

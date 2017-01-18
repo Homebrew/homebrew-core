@@ -2,43 +2,44 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "http://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag => "v1.5.1",
-      :revision => "82450d03cb057bab0950214ef122b67c83fb11df"
-  revision 1
+      :tag => "v1.5.2",
+      :revision => "08e099554f3c31f6e6f07b448ab3ed78d0520507"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
-    rebuild 1
-    sha256 "5915f66fb4bd94b867820b9516989a50bb1028f2c41161aa47b09e5fcadf9df7" => :sierra
-    sha256 "709be588857014657d47db971f3051d3c2692dd90a833c9323a707b4767322a6" => :el_capitan
-    sha256 "b74c7f5f6e3e89a9e9fc7bb74eee8155087105c353ed01820b5e3866e913295b" => :yosemite
+    sha256 "61272b68222b5236facc5c3e0385e0a8d02302312aee33a72413257df94c1239" => :sierra
+    sha256 "a036fdd2bfd50f1a2e811273aa140ffb1c70fa51ef1725ee4388f18bf67f7e52" => :el_capitan
+    sha256 "acc5e4b83bc07df1b027737e6331f4532f7fb4e4f4714b7404525c6ee042b7c3" => :yosemite
   end
 
   devel do
     url "https://github.com/kubernetes/kubernetes.git",
-        :tag => "v1.5.2-beta.0",
-        :revision => "5f332aab13e58173f85fd204a2c77731f7a2573f"
-    version "1.5.2-beta.0"
+        :tag => "v1.5.3-beta.0",
+        :revision => "b5f9d56cab78ccaad2b726223ba8be5802026f0b"
+    version "1.5.3-beta.0"
   end
 
   depends_on "go" => :build
 
   def install
-    # Clean git tree
-    system "git", "clean", "-xfd"
-
-    # Race condition still exists in OSX Yosemite
-    # Filed issue: https://github.com/kubernetes/kubernetes/issues/34635
-    ENV.deparallelize { system "make", "generated_files" }
-
-    # Make binary
-    system "make", "kubectl"
-
+    ENV["GOPATH"] = buildpath
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
-    bin.install "_output/local/bin/darwin/#{arch}/kubectl"
+    dir = buildpath/"src/k8s.io/kubernetes"
+    dir.install buildpath.children - [buildpath/".brew_home"]
 
-    output = Utils.popen_read("#{bin}/kubectl completion bash")
-    (bash_completion/"kubectl").write output
+    cd dir do
+      # Race condition still exists in OSX Yosemite
+      # Filed issue: https://github.com/kubernetes/kubernetes/issues/34635
+      ENV.deparallelize { system "make", "generated_files" }
+
+      # Make binary
+      system "make", "kubectl"
+      bin.install "_output/local/bin/darwin/#{arch}/kubectl"
+
+      # Install bash completion
+      output = Utils.popen_read("#{bin}/kubectl completion bash")
+      (bash_completion/"kubectl").write output
+    end
   end
 
   test do

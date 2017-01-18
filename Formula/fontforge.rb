@@ -3,12 +3,13 @@ class Fontforge < Formula
   homepage "https://fontforge.github.io"
   url "https://github.com/fontforge/fontforge/archive/20161012.tar.gz"
   sha256 "a5f5c2974eb9109b607e24f06e57696d5861aaebb620fc2c132bdbac6e656351"
+  revision 1
   head "https://github.com/fontforge/fontforge.git"
 
   bottle do
-    sha256 "ee5a2a154bf5b1ab8761c79eb2671b2959306d3ae9d47075a1bbc24976ba80bc" => :sierra
-    sha256 "929d48bace95a3ae1294b54303499a0e3f5dbaaeeec5dac259c5edbc875cd846" => :el_capitan
-    sha256 "8fa8ab443af4f0ffa3378056878a7244a961dc5e977f71cbb1fe0e5d4f894cfd" => :yosemite
+    sha256 "57809a9c61afc72a933fa905464d80de5b8fe59749cadb962e861749698e4453" => :sierra
+    sha256 "8d2501b45449f86695410f21da449aa5a7f80b15efb74fb975e0d40f6eeb8974" => :el_capitan
+    sha256 "77aacdcdc740df564b186c043890f433459122b34b3225bdbe3952172f466dd7" => :yosemite
   end
 
   option "with-giflib", "Build with GIF support"
@@ -25,11 +26,12 @@ class Fontforge < Formula
   depends_on "pango"
   depends_on "cairo"
   depends_on "fontconfig"
-  depends_on "libpng" => :recommended
+  depends_on "libpng"
   depends_on "jpeg" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "giflib" => :optional
   depends_on "libspiro" => :optional
+  depends_on "libuninameslist" => :optional
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "gnulib" do
@@ -38,36 +40,21 @@ class Fontforge < Formula
   end
 
   def install
-    # Don't link libraries to libpython, but do link binaries that expect
-    # to embed a python interpreter
-    # https://github.com/fontforge/fontforge/issues/2353#issuecomment-121009759
     ENV["PYTHON_CFLAGS"] = `python-config --cflags`.chomp
-    ENV["PYTHON_LIBS"] = "-undefined dynamic_lookup"
-    python_libs = `python2.7-config --ldflags`.chomp
-    inreplace "fontforgeexe/Makefile.am" do |s|
-      oldflags = s.get_make_var "libfontforgeexe_la_LDFLAGS"
-      s.change_make_var! "libfontforgeexe_la_LDFLAGS", "#{python_libs} #{oldflags}"
-    end
+    ENV["PYTHON_LIBS"] = `python-config --ldflags`.chomp
 
     args = %W[
       --prefix=#{prefix}
       --disable-silent-rules
       --disable-dependency-tracking
-      --with-pythonbinary=#{which "python2.7"}
       --without-x
     ]
 
-    args << "--without-libpng" if build.without? "libpng"
     args << "--without-libjpeg" if build.without? "jpeg"
     args << "--without-libtiff" if build.without? "libtiff"
     args << "--without-giflib" if build.without? "giflib"
     args << "--without-libspiro" if build.without? "libspiro"
-
-    # Fix linker error; see: https://trac.macports.org/ticket/25012
-    ENV.append "LDFLAGS", "-lintl"
-
-    # Reset ARCHFLAGS to match how we build
-    ENV["ARCHFLAGS"] = "-arch #{MacOS.preferred_arch}"
+    args << "--without-libuninameslist" if build.without? "libuninameslist"
 
     # Bootstrap in every build: https://github.com/fontforge/fontforge/issues/1806
     resource("gnulib").fetch

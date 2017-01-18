@@ -1,14 +1,14 @@
 class Quantlib < Formula
   desc "Library for quantitative finance"
   homepage "http://quantlib.org/"
-  url "https://downloads.sourceforge.net/project/quantlib/QuantLib/1.9/QuantLib-1.9.tar.gz"
-  sha256 "eb4aeebaa2b850c36eb8a03bc0c71556f34811913b4bea21ec0553a91b746de5"
+  url "https://downloads.sourceforge.net/project/quantlib/QuantLib/1.9.1/QuantLib-1.9.1.tar.gz"
+  sha256 "80c0349dd5f8f6d33ea5205dbb6cc64fce7a0778942506d0c942b632b82c03ed"
 
   bottle do
     cellar :any
-    sha256 "b14aff340ff300b7f53b6b190aa60ad595601588866c5c608456233669f27a5b" => :sierra
-    sha256 "b32b4708bcdc4240c488151d4b3ccbd6161f82f38619c78dd972e098f4b1ff54" => :el_capitan
-    sha256 "7acc9e5a40bda06dadf93fe80694479c4af6cfd01f34acb699241fed846bc81a" => :yosemite
+    sha256 "552c5fce38887d3ac72c825f8332f460c1e37c484911c318ec3da5c5c6f4ddc6" => :sierra
+    sha256 "ac1c6554d50f1296b7554c452d0433dd363a373f62167332c763e8c3d34bd14e" => :el_capitan
+    sha256 "41152596ea9d392ab65ee4e61007b3eb54328a0787b0cd2df6c5ca7091d65219" => :yosemite
   end
 
   head do

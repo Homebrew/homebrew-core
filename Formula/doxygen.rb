@@ -26,7 +26,7 @@ class Doxygen < Formula
   depends_on "llvm" => :optional
 
   def install
-    args = std_cmake_args
+    args = std_cmake_args << "-DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=#{MacOS.version}"
     args << "-Dbuild_wizard=ON" if build.with? "qt5"
     args << "-Duse_libclang=ON -DLLVM_CONFIG=#{Formula["llvm"].opt_bin}/llvm-config" if build.with? "llvm"
 

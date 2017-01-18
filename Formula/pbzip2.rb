@@ -1,16 +1,14 @@
 class Pbzip2 < Formula
   desc "Parallel bzip2"
   homepage "http://compression.ca/pbzip2/"
-  url "https://launchpad.net/pbzip2/1.1/1.1.12/+download/pbzip2-1.1.12.tar.gz"
-  sha256 "573bb358a5a7d3bf5f42f881af324cedf960c786e8d66dd03d448ddd8a0166ee"
+  url "https://launchpad.net/pbzip2/1.1/1.1.13/+download/pbzip2-1.1.13.tar.gz"
+  sha256 "8fd13eaaa266f7ee91f85c1ea97c86d9c9cc985969db9059cdebcb1e1b7bdbe6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "85c8604a5fbe8387a183ff0f0afbfe16cc57612c882a003bc1736a31f727318f" => :sierra
-    sha256 "baaa2981ded1c6a0731bed32fbb22b3e143612fadd8452b79c78732f9ac1a903" => :el_capitan
-    sha256 "0fb0998fb35b62add5348bbf1c50372220052d52347be7b11e949e27b3997e1c" => :yosemite
-    sha256 "ac0e6128b16cb551a926fb713d8a4154e29ada2b71f231ecee2ebdab4d4bea96" => :mavericks
-    sha256 "7604662202fbb60acdb016da163b552b1c2cee6a4bdd21ca2be85afb1ce4c987" => :mountain_lion
+    sha256 "c15b9c38b5302286033e54ff4be006c3b31ccb179f96641e44f1126958527d7e" => :sierra
+    sha256 "be653d724b6f061cb9939dbdbf457aebc275e16dbf599f598b9ff3999fdd5db3" => :el_capitan
+    sha256 "ad103aef3e2d72293cfed3fcc42999afee9b4fc332f8319e3c079758215411c9" => :yosemite
   end
 
   def install

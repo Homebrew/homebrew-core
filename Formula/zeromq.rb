@@ -1,14 +1,14 @@
 class Zeromq < Formula
   desc "High-performance, asynchronous messaging library"
   homepage "http://www.zeromq.org/"
-  url "https://github.com/zeromq/libzmq/releases/download/v4.2.0/zeromq-4.2.0.tar.gz"
-  sha256 "53b83bf0ee978931f76fa9cb46ad4affea65787264a5f3d140bc743412d0c117"
+  url "https://github.com/zeromq/libzmq/releases/download/v4.2.1/zeromq-4.2.1.tar.gz"
+  sha256 "27d1e82a099228ee85a7ddb2260f40830212402c605a4a10b5e5498a7e0e9d03"
 
   bottle do
     cellar :any
-    sha256 "a7fbc3c02719a8e1f828a44ad16625a75e076f2b77baf6e10b242de7950bae39" => :sierra
-    sha256 "5737a824fa12a919595ec21650f2c85abc4bc04876b3af8273db42cf459b65e6" => :el_capitan
-    sha256 "1aff88bffa74b14fb02df052d4a7bf6f0417a54d51e12803b92888d66a8c2896" => :yosemite
+    sha256 "d8b1da1fd80b65b8191fab4a4b85a18ee3c7433003976c1b64a45459fef47d6b" => :sierra
+    sha256 "608d38f13244719f644cb59bb5614b00a48001f703801e3d6513dbd38d4c7f62" => :el_capitan
+    sha256 "ba979f5d38b74b8a6dba6913af31670a54cca835a030d4a998ef09b00675f82f" => :yosemite
   end
 
   head do

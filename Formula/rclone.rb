@@ -7,9 +7,10 @@ class Rclone < Formula
   sha256 "63a075c4e6725f1a59c151a2d0d8cdf3119940fe293ee6220ff9fea6438b6fd7"
 
   bottle do
-    sha256 "29d8dfe76326afc047e725c586886a6924d5121d43a0158370f97a466d675574" => :sierra
-    sha256 "e4086b5ff3276c8b7867df1559fbb3b0fee7571471783765391459a41803b7c2" => :el_capitan
-    sha256 "16219c9852ac4a93592badd6d3f45a54613cde683d9aca9c4827b10aa31f5195" => :yosemite
+    rebuild 1
+    sha256 "b97d66f861fe54ab18a5b6509882b6a8e0b5c72d12cd2eaeb728665aef61b493" => :sierra
+    sha256 "24e61d5eb9de37d0580850468b7b2d4047449f5e6c2e7e9602ec5a7467bdb0cd" => :el_capitan
+    sha256 "6cea020623574112886f45614aea5b34105f16d12cbdd9225cac23a2f071ae80" => :yosemite
   end
 
   depends_on "go" => :build
@@ -160,6 +161,9 @@ class Rclone < Formula
     ln_s buildpath, buildpath/"src/github.com/ncw/rclone"
     Language::Go.stage_deps resources, buildpath/"src"
     system "go", "build", "-o", bin/"rclone"
+
+    system bin/"rclone", "genautocomplete", "bash_completion"
+    bash_completion.install "bash_completion" => "rclone"
   end
 
   test do

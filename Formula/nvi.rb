@@ -4,14 +4,13 @@ class Nvi < Formula
   url "https://mirrors.ocf.berkeley.edu/debian/pool/main/n/nvi/nvi_1.81.6.orig.tar.gz"
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/n/nvi/nvi_1.81.6.orig.tar.gz"
   sha256 "8bc348889159a34cf268f80720b26f459dbd723b5616107d36739d007e4c978d"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "0007956c286d70e71a6cf044e686e09ec56688d28f02ea4aabc41e80861349eb" => :sierra
-    sha256 "c4f15ed7ef7d6ca867cccf614823d03a0ffebfd1c303ae2625f64645b4b36b62" => :el_capitan
-    sha256 "2b6a728e143b8dbd0584d403e5c7b5138130a09177bd658ba3dc95f999420ddd" => :yosemite
-    sha256 "b86a3fc268f0b698e8218505bc257256d36c79f215e19fbaa72c8970995c402e" => :mavericks
+    sha256 "480baa9b488abb33c08590de07adc770b660df406f692ba346f3900e49543f7a" => :sierra
+    sha256 "95ada29912b1927f8871bb786326547abec6a3470d70dc112ed4cd97c2e01cd0" => :el_capitan
+    sha256 "70fb802840beb17167caec88f7d8b2c07dc2a127ce11a7ab1f51e5a6415449c1" => :yosemite
   end
 
   depends_on "xz" => :build # Homebrew bug. Shouldn't need declaring explicitly.

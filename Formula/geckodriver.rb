@@ -1,14 +1,14 @@
 class Geckodriver < Formula
   desc "WebDriver <-> Marionette proxy"
   homepage "https://github.com/mozilla/geckodriver"
-  url "https://github.com/mozilla/geckodriver/archive/v0.11.1.tar.gz"
-  sha256 "faa4d398b2dce60ec46534739a4b8273bc98d1246cb7b26c89625353875d3434"
+  url "https://github.com/mozilla/geckodriver/archive/v0.13.0.tar.gz"
+  sha256 "3eb92f5896b0e5a92fcbee18eb342fbd31688d1d266bbecb9c61819021050402"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "677fd03fdb1f590c8b5f7aee0efbb3e60583ed7a305f79daa43027b08eb40fc9" => :sierra
-    sha256 "1ab8bbd78a432c84f7f0d2b57265f408825a8008f2f8b37e1efb861dbb4b84a7" => :el_capitan
-    sha256 "b2704e574b55568661d4b7a2cd00ba2556ad64e6b4eb9713ab14b442bcec5a89" => :yosemite
+    sha256 "c160a6bf24d684b98419faa01635ed4134e44d1f0783cc5379700da91611f744" => :sierra
+    sha256 "d01aedecd9bd3bc67686111d43215a4459c9d9c6e49cf53197e02da5b90ab4aa" => :el_capitan
+    sha256 "c42fbec0fb702b45abf745cca93f2a39cf8c2c3973f55add97e68f4a623d1c87" => :yosemite
   end
 
   depends_on "rust" => :build

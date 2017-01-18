@@ -136,10 +136,10 @@ class Mysql < Formula
     To connect run:
         mysql -uroot
     EOS
-    if File.exist? "/etc/my.cnf"
+    if my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x }
       s += <<-EOS.undent
 
-        A "/etc/my.cnf" from another install may interfere with a Homebrew-built
+        A "#{my_cnf}" from another install may interfere with a Homebrew-built
         server starting up correctly.
       EOS
     end

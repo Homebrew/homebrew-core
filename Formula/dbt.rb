@@ -3,13 +3,14 @@ class Dbt < Formula
 
   desc "Data build tool"
   homepage "https://github.com/analyst-collective/dbt"
-  url "https://github.com/analyst-collective/dbt/archive/v0.5.4.tar.gz"
-  sha256 "df830bb0355e46608727fc6c59fa4aadd2514aec227e55765fe56abcfc72918c"
+  url "https://files.pythonhosted.org/packages/39/50/1fc214e6e2950c9061537062e624c54ada4497a2496ecfaf86928d634014/dbt-0.6.2.tar.gz"
+  sha256 "076d0d20c0f090207c34b84dd8466edbafec6cae715e5b2e9c59e54e487fefc6"
+  head "https://github.com/analyst-collective/dbt.git", :branch => "development"
 
   bottle do
-    sha256 "3870236908885795e7b5e0feafe8a3a87118d7457439854d89c32c58ef0dc449" => :sierra
-    sha256 "9c97da4daf1f094da371dc6e705ac0ff567e205026b3728be6fd64885afae148" => :el_capitan
-    sha256 "bc666783dbc2730ce750d4f3126b8a792be7cc7cd6ebe9d8d08f49700a179da9" => :yosemite
+    sha256 "abd6e3bce5892b2649c37cfacf70c53ab5cd5ef38f081c83138da8c7b249df0d" => :sierra
+    sha256 "40063c78468dc6b0b3a8db0a83cfc0e065cc04fe638396516a20a752d79308e0" => :el_capitan
+    sha256 "824aa7b98f7af7644a12b3afcb9869946b305ac8ae43a0c8823ed56a8d78e3e9" => :yosemite
   end
 
   depends_on "python3"
@@ -41,19 +42,14 @@ class Dbt < Formula
     sha256 "92f8b8647becb5cb1dccb3af92a13a4e85702d42ba465ce8447881fb38c9f93a"
   end
 
-  resource "dbt" do
-    url "https://files.pythonhosted.org/packages/7f/c5/7b2a8cb268af08e9cc469931e3011f38d461513063cf25310e65a51b96d5/dbt-0.5.4.tar.gz"
-    sha256 "298b48ba058652df13bb155170b225c4667470fb41ae43c8af5f10968dd1dfa2"
-  end
-
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/13/8a/4eed41e338e8dcc13ca41c94b142d4d20c0de684ee5065523fee406ce76f/decorator-4.0.10.tar.gz"
-    sha256 "9c6e98edcb33499881b86ede07d9968c81ab7c769e28e9af24075f0a5379f070"
+    url "https://files.pythonhosted.org/packages/cc/ac/5a16f1fc0506ff72fcc8fd4e858e3a1c231f224ab79bb7c4c9b2094cc570/decorator-4.0.11.tar.gz"
+    sha256 "953d6bf082b100f43229cf547f4f97f97e970f5ad645ee7601d55ff87afdfe76"
   end
 
   resource "gevent" do
-    url "https://files.pythonhosted.org/packages/43/8f/cb3224a0e6ab663547f45c10d0651cfd52633fde4283bf68d627084df8cc/gevent-1.1.2.tar.gz"
-    sha256 "cb15cf73d69a2eeefed330858f09634e2c50bf46da9f9e7635730fcfb872c02c"
+    url "https://files.pythonhosted.org/packages/54/dd/17dc7e899ac7c1de2d19b367b29d90fdb4cfe83bda8c2581464906c9399d/gevent-1.2.1.tar.gz"
+    sha256 "3de300d0e32c31311e426e4d5d73b36777ed99c2bac3f8fbad939eeb2c29fa7c"
   end
 
   resource "greenlet" do
@@ -67,8 +63,8 @@ class Dbt < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/f2/2f/0b98b06a345a761bec91a079ccae392d282690c2d8272e708f4d10829e22/Jinja2-2.8.tar.gz"
-    sha256 "bc1ff2ff88dbfacefde4ddde471d1417d3b304e8df103a7a9437d47269201bf4"
+    url "https://files.pythonhosted.org/packages/f4/3f/28387a5bbc6883082c16784c6135440b94f9d5938fb156ff579798e18eda/Jinja2-2.9.4.tar.gz"
+    sha256 "aab8d8ca9f45624f1e77f2844bf3c144d180e97da8824c2a6d7552ad039b5442"
   end
 
   resource "kombu" do
@@ -162,7 +158,11 @@ class Dbt < Formula
   end
 
   test do
-    (testpath/"dbt_project.yml").write("name: 'test'")
+    (testpath/"dbt_project.yml").write("{name: 'test', version: '0.0.1', profile: 'default'}")
+    (testpath/".dbt/profiles.yml").write(
+      "{default: {outputs: {default: {type: 'postgres', threads: 1, host: 'localhost', port: 5432,
+      user: 'root', pass: 'password', dbname: 'test', schema: 'test'}}}, target: 'default'}"
+    )
     (testpath/"models/test.sql").write("select * from test")
     system "#{bin}/dbt", "compile"
   end

@@ -1,7 +1,7 @@
 class Go < Formula
   desc "The Go programming language"
   homepage "https://golang.org"
-  revision 1
+  revision 2
 
   stable do
     url "https://storage.googleapis.com/golang/go1.7.4.src.tar.gz"
@@ -15,18 +15,25 @@ class Go < Formula
           :branch => "release-branch.go#{go_version}",
           :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
     end
+
+    # Upstream commit from 14 Dec 2016 "crypto/x509: speed up and deflake
+    # non-cgo Darwin root cert discovery"
+    patch do
+      url "https://github.com/golang/go/commit/3357daa.patch"
+      sha256 "c3945cacd5a208cf0bbd6125c77665ef1829035ae09133f3fd50e1022e0f2032"
+    end
   end
 
   bottle do
-    sha256 "f30470e4cef40ed0afcf111274eac6e921241e6ceaa6950bf771572356bd567e" => :sierra
-    sha256 "e04994e1c0885cda9b3ca313829405979ad53213a87571eb6e462e73fe76fe7c" => :el_capitan
-    sha256 "064ceb562c5ad8a99029a7bd92be27161d96760e36939c9287c2f4176d82dc48" => :yosemite
+    sha256 "bd477ed1ab7ab3f53074e4e634f313b9c66ba76b0d9e9d50461ab680f5a8018f" => :sierra
+    sha256 "3372db7913383d69fcc2c67086f735638ae6fb6be90d4c9d03032867eea5b91d" => :el_capitan
+    sha256 "1a3c23da7fc76f2446c601b34c8cfcbdc408a97735e66c02c3da177cf344342f" => :yosemite
   end
 
   devel do
-    url "https://storage.googleapis.com/golang/go1.8beta2.src.tar.gz"
-    version "1.8beta2"
-    sha256 "f5d8252f7746c77df0beb205b8f8b158362ad1718e1a2195d122ac43859f5930"
+    url "https://storage.googleapis.com/golang/go1.8rc1.src.tar.gz"
+    version "1.8rc1"
+    sha256 "aa25758b754369018c507bbf646dda7839a41ffe4fd85a014c9704d7d8720dda"
 
     resource "gotools" do
       url "https://go.googlesource.com/tools.git"

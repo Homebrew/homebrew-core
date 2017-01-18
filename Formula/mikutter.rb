@@ -1,15 +1,14 @@
 class Mikutter < Formula
   desc "Extensible Twitter client."
   homepage "http://mikutter.hachune.net"
-  url "http://mikutter.hachune.net/bin/mikutter.3.5.0.tar.gz"
-  sha256 "2d731f842308b863887def22627102fad37954442a1645a3d4678cf658170991"
-  revision 1
+  url "http://mikutter.hachune.net/bin/mikutter.3.5.1.tar.gz"
+  sha256 "082ce9795208e7ca5f218178091123c56b735b2c0d59b742c17998d71a321737"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
-    sha256 "58288e540ceed0976dd47faca85bd7ca7225777d092e5304a7fb7f2825ee21a9" => :sierra
-    sha256 "5f2fc99e11bfbb1ce5917cb4b36265840dfaf8b8bd5ef47ed341f41a40ee33ef" => :el_capitan
-    sha256 "e800d46ccb118bf8f7e13779437615031e9841f21148d9a1f59b8ea17e64301d" => :yosemite
+    sha256 "41fda605f06e835ce7a50b1664ffac656c4173a3fc002381be25ed3a7708161f" => :sierra
+    sha256 "062ec0357da82068721fa9a41f5df560541e626cbcd3b919c8d52706e72f294e" => :el_capitan
+    sha256 "c062a865853181d9d92714c5c83ea2693ddf3d020113b3a2d48a6b5c8e5140d7" => :yosemite
   end
 
   depends_on "gtk+"

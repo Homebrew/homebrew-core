@@ -1,16 +1,15 @@
 class Whatmp3 < Formula
   desc "Small script to create mp3 torrents out of FLACs"
   homepage "https://github.com/RecursiveForest/whatmp3"
-  url "https://github.com/RecursiveForest/whatmp3/archive/v3.7.tar.gz"
-  sha256 "a8b688e2e5873e3bf527fc44e8f3966227b432cf59593062dd58493df65de3b0"
+  url "https://github.com/RecursiveForest/whatmp3/archive/v3.8.tar.gz"
+  sha256 "0d8ba70a1c72835663a3fde9ba8df0ff7007268ec0a2efac76c896dea4fcf489"
   head "https://github.com/RecursiveForest/whatmp3.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d39eb890cf6cd27fca7e552ce2bf046f7b708ac50aadcade5517e0ad413e89c6" => :sierra
-    sha256 "86c84dbc0ce4a709418896ba50776dfe0465ee0f03110736988eb9babfff3e04" => :el_capitan
-    sha256 "3fccae200f82415da7e94c69be6fc6262e078d90526e62e60d602847bfdfd0df" => :yosemite
-    sha256 "3fccae200f82415da7e94c69be6fc6262e078d90526e62e60d602847bfdfd0df" => :mavericks
+    sha256 "4b9cae8fe803bbb26ee73e1724dba6e679d384fba7df680a42363b8f45a848d8" => :sierra
+    sha256 "d50a1cb3c8406226f5b06750652ec7928243b9367723fe4def66332f412c719b" => :el_capitan
+    sha256 "d50a1cb3c8406226f5b06750652ec7928243b9367723fe4def66332f412c719b" => :yosemite
   end
 
   depends_on :python3
@@ -24,7 +23,6 @@ class Whatmp3 < Formula
   depends_on "sox" => :optional
 
   def install
-    inreplace "whatmp3.py", "#!/usr/bin/env python", "#!/usr/bin/env python3"
     system "make", "PREFIX=#{prefix}", "install"
   end
 

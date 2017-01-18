@@ -2,17 +2,15 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-119.tar.gz"
-  version "8.0-119"
-  sha256 "5e99d6b4b2fbdb411ccbae747fc2270eac05c7f0d8c2273833cf1bb71fd7483e"
-  revision 1
-
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-121.tar.gz"
+  version "8.0-121"
+  sha256 "1ab29899fd72cbe7de975b9378bb754a5f5f2e5cce43a88356d2fac284126acc"
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
-    sha256 "418aead432f51f4fc5696aa2a51e05ea0667c912ada9d683d8c11e44c80d78a5" => :sierra
-    sha256 "0d28d20a154b229bb5da6587c866a44b1994bfb29876d5fe109f8c4e1575ca7c" => :el_capitan
-    sha256 "484565c5feb6c9ae9a8d34d01642916220c444d5f0258a90de018d1a098537b3" => :yosemite
+    sha256 "abe32eef5aa11740969da100922a701ded22b252faff2bca0cfd369b67ed9730" => :sierra
+    sha256 "7a40dbd16196e52da0eab56648c657d1ff1e34edc2415c7e281d7d79a133b3e8" => :el_capitan
+    sha256 "e43d601957ad378c78348d7dc2fa18e8b97d0b7cf0141f403050c060349347f1" => :yosemite
   end
 
   option "with-override-system-vim", "Override system vim"
@@ -35,6 +33,9 @@ class Macvim < Formula
   env :std if MacOS.version <= :snow_leopard
 
   def install
+    # Avoid "fatal error: 'ruby/config.h' file not found"
+    ENV.delete("SDKROOT") if MacOS.version == :yosemite
+
     # MacVim doesn't have or require any Python package, so unset PYTHONPATH
     ENV.delete("PYTHONPATH")
 
@@ -115,16 +116,8 @@ class Macvim < Formula
   test do
     # Simple test to check if MacVim was linked to Python version in $PATH
     if build.with? "python"
-      vim_path = prefix/"MacVim.app/Contents/MacOS/Vim"
-
-      # Get linked framework using otool
-      otool_output = `otool -L #{vim_path} | grep -m 1 Python`.gsub(/\(.*\)/, "").strip.chomp
-
-      # Expand the link and get the python exec path
-      vim_framework_path = Pathname.new(otool_output).realpath.dirname.to_s.chomp
       system_framework_path = `python-config --exec-prefix`.chomp
-
-      assert_equal system_framework_path, vim_framework_path
+      assert_match system_framework_path, `mvim --version`
     end
   end
 end

@@ -99,7 +99,7 @@ class Alot < Formula
         $stdin.reopen("/dev/null")
         exec "script", "-q", "/dev/null", bin/"alot", "--logfile", testpath/"out.log"
       end
-      sleep 2
+      sleep 10
     ensure
       Process.kill 9, pid
     end

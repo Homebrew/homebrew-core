@@ -1,13 +1,13 @@
 class Libgphoto2 < Formula
   desc "Gphoto2 digital camera library"
   homepage "http://www.gphoto.org/proj/libgphoto2/"
-  url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.11/libgphoto2-2.5.11.tar.bz2"
-  sha256 "7fb61486d6c153fbbadc57b8bada8528abd289f46175bfaab09350f33f38e0aa"
+  url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.12/libgphoto2-2.5.12.tar.bz2"
+  sha256 "b9bb28990fde45ac385e4851a07dbad2e1250404b535b0a3a3b898bb431e4e2e"
 
   bottle do
-    sha256 "f66faa2958b535af43c2891e75f39116cc798b3c2bdb6137f4990997fb944d74" => :sierra
-    sha256 "a49a7d8071c17b5f817589d684b87bb0b5bf9a7e5ab6bc3b4a5f31f40193be94" => :el_capitan
-    sha256 "0b690cde244e88750786ba8ac5aad3a44dc431f73800b7d0627fd1a10132789a" => :yosemite
+    sha256 "fe4981c740e836964c904e902f4ed6f574eaa592cbcb2b7c09f7494bb7f3623b" => :sierra
+    sha256 "76437bdcca172b21d77b157618c7e0b84112429bcfd94f211da3e5fcbf8d50aa" => :el_capitan
+    sha256 "c8be602b47dbd2423d8b9ccbc7dc5c583d6006a6d52203d612a6d800bd190e31" => :yosemite
   end
 
   head do

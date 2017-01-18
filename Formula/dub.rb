@@ -1,15 +1,20 @@
 class Dub < Formula
   desc "Build tool for D projects"
   homepage "https://code.dlang.org/about"
-  url "https://github.com/dlang/dub/archive/v1.1.1.tar.gz"
-  sha256 "9931c03fa908e83632553572bdcfb3570b8175a57b00b9ff7c9b69b991662b89"
+  url "https://github.com/dlang/dub/archive/v1.1.2.tar.gz"
+  sha256 "2945c8ab52a421da3ae4c64cc655e3322bd01a9a15ef1ea0208ec999d0e36b91"
 
   head "https://github.com/dlang/dub.git"
 
   bottle do
-    sha256 "7827c87c92d9f4e172188bc7b85aaf7b2ac91b550c38835bc9540fc77b6d157d" => :sierra
-    sha256 "7827c87c92d9f4e172188bc7b85aaf7b2ac91b550c38835bc9540fc77b6d157d" => :el_capitan
-    sha256 "b82248608a872053d4af56720647fc14ea382345f5a09bead56205b34b7fe56f" => :yosemite
+    sha256 "9d96e4cba1202ca9273b5f93dd2864357f0635b239f1e39fe9eff79c2bc12cb6" => :sierra
+    sha256 "9aae20df2e96270f61f2694676be3f1710fd935b5a578cbecbf0e041d90eec35" => :el_capitan
+    sha256 "d067fcbfec11e40e32d07bd91ace0c1d64c787b39ba9f21dfd6b362307abcb72" => :yosemite
+  end
+
+  devel do
+    url "https://github.com/dlang/dub/archive/v1.2.0-beta.2.tar.gz"
+    sha256 "d319620d17fcc9d8c43cc2f958ff3147b0d36aac8f5c62200af5e56960404cff"
   end
 
   depends_on "pkg-config" => [:recommended, :run]

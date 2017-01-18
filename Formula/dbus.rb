@@ -13,9 +13,9 @@ class Dbus < Formula
   end
 
   devel do
-    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.6.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.6.orig.tar.gz"
-    sha256 "a228ce822983206becd5d36c0a63243ea77d47f65134feccacb10350250b9c0e"
+    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.8.tar.gz"
+    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.8.orig.tar.gz"
+    sha256 "fa207530d694706e33378c87e65b2b4304eb99fff71fc6d6caa6f70591b9afd5"
   end
 
   head do

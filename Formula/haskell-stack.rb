@@ -38,12 +38,10 @@ class HaskellStack < Formula
     cabal_sandbox do
       inreplace "stack.cabal", "directory >=1.2.1.0 && <1.3,",
                                "directory >=1.2.1.0 && <1.4,"
-      system "cabal", "get", "Glob", "hpc"
-      inreplace "Glob-0.7.13/Glob.cabal", ", directory    <  1.3",
-                                          ", directory    <  1.4"
+      system "cabal", "get", "hpc"
       inreplace "hpc-0.6.0.3/hpc.cabal", "directory  >= 1.1   && < 1.3,",
                                          "directory  >= 1.1   && < 1.4,"
-      cabal_sandbox_add_source "Glob-0.7.13", "hpc-0.6.0.3"
+      cabal_sandbox_add_source "hpc-0.6.0.3"
 
       if build.with? "bootstrap"
         cabal_install
@@ -60,17 +58,11 @@ class HaskellStack < Formula
     end
 
     # Remove the unneeded rpaths so that the binary works on Sierra
-    rpaths = Utils.popen_read("otool -l #{bin}/stack").split("\n")
-    rpaths = rpaths.inject([]) do |r, e|
-      if e =~ /^ +path (.*) \(offset.*/
-        r << $~[1]
-      else
-        r
-      end
+    macho = MachO.open("#{bin}/stack")
+    macho.rpaths.each do |rpath|
+      macho.delete_rpath(rpath)
     end
-    rpaths.each do |r|
-      system "install_name_tool", "-delete_rpath", r, bin/"stack"
-    end
+    macho.write!
   end
 
   test do

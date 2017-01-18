@@ -1,14 +1,14 @@
 class Unshield < Formula
   desc "Extract files from InstallShield cabinet files"
   homepage "https://github.com/twogood/unshield"
-  url "https://github.com/twogood/unshield/archive/1.4.tar.gz"
-  sha256 "8ae91961212193a7d3d7973c1c9464f3cd1967c179d6099feb1bb193912f8231"
+  url "https://github.com/twogood/unshield/archive/1.4.2.tar.gz"
+  sha256 "5dd4ea0c7e97ad8e3677ff3a254b116df08a5d041c2df8859aad5c4f88d1f774"
   head "https://github.com/twogood/unshield.git"
 
   bottle do
-    sha256 "e0ce716312845cd1598b853162d50bbb09db26c5b759ff98dba45a91d584a2b6" => :sierra
-    sha256 "d8d77887ab6bdb1346eb3ff4049bfc0febc00c6b6acd9f868e86aef8b724c2a8" => :el_capitan
-    sha256 "cfba17ecf917cf98f367c214134e5a38b461793a43951856ed9fd2b1ec7c2a83" => :yosemite
+    sha256 "ce0d7256b7fa9194c736f958b84121c5303246721f4d66c13dce9b103de14424" => :sierra
+    sha256 "0c4970e41a434a33d58395acfdfbadf1269c50fe0c4a986dcf72882200145a72" => :el_capitan
+    sha256 "435e0ded27f6febb443d73c238b3f1b198c7881fed943b3b5505cb7c24e40fcc" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -20,6 +20,6 @@ class Unshield < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/unshield -V")
+    system bin/"unshield", "-V"
   end
 end

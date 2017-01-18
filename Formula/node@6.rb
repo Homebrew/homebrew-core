@@ -1,14 +1,14 @@
 class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.9.2/node-v6.9.2.tar.xz"
-  sha256 "f41b320b37ce23a34dbc597040e71535ea4f6baa2342bc526bb45f5f9aa9c9fb"
+  url "https://nodejs.org/dist/v6.9.4/node-v6.9.4.tar.xz"
+  sha256 "c51d7c61db40455d57428abcadc7eb0f0a08a8878cb1d8ea3c1e211c54532c35"
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    sha256 "9db4a8f253040efe3db9e97e5eefc23e3c064d01c703a4d28528579fd686a6e5" => :sierra
-    sha256 "51a8cc8e6faeced1c4465340f29e87b00b541fb232154f453478e0995bc03ceb" => :el_capitan
-    sha256 "1d7c833e680df2906a7cb81fbf702e07ee55ef299c20447edffa9e360ab3af33" => :yosemite
+    sha256 "e5eb1e5cd78b23ec9abbf8f8b5604e411a5285ce6733dac2b3596b9b561342e9" => :sierra
+    sha256 "ee2fbd410d3696531c18cd54420600c68527cb935d12f65a18a639562d10c1e2" => :el_capitan
+    sha256 "8ccd8c8c6826e56644973866b22b4682a0e916e7bedf7f1e3a58cd65e80a4684" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -39,8 +39,8 @@ class NodeAT6 < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.10.8.tgz"
-    sha256 "1121a75a370fd0efb320fffb7c9e4a8bcb3840d1cf2fbd585c54837b7014dd76"
+    url "https://registry.npmjs.org/npm/-/npm-3.10.10.tgz"
+    sha256 "1a7cd203ac30fd1417326d576ca5c66ae2ae6a2bf1ada151bee2fc0d6965f99a"
   end
 
   resource "icu4c" do

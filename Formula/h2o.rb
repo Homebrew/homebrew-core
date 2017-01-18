@@ -3,16 +3,16 @@ class H2o < Formula
   homepage "https://github.com/h2o/h2o/"
 
   stable do
-    url "https://github.com/h2o/h2o/archive/v2.0.5.tar.gz"
-    sha256 "0ce4f16184813d7c8045f41e293457a3526b7d8b18a89105cdfd16330005926b"
+    url "https://github.com/h2o/h2o/archive/v2.0.6.tar.gz"
+    sha256 "bf4f2dc3b2f1a6886eb7ee6487cb6ba4b206700055a1d2ca9c2a99a82d21055b"
 
     depends_on "openssl"
   end
 
   bottle do
-    sha256 "22b3e1a612b269a84077c33cffbc28ff6ea9e01dd01b4361649b44340aa78bbb" => :sierra
-    sha256 "2db14ac617b60afd43ce0466bbbf9a42538bf1401d9de643e6256499093b43ec" => :el_capitan
-    sha256 "3d79cb519d8edd1b452be3936db783e1c889e8378af9cddcd576e40f1de65af0" => :yosemite
+    sha256 "72a73995197aa85a33a933309cc6439a2d9ba0e4df62e2fcdb11cfa14d985870" => :sierra
+    sha256 "915b71553d0fc0e7f815a1d2c64486ef87c6e61f40a6ab0fb2d2860166c93eba" => :el_capitan
+    sha256 "b090435d46399fa5098b5c5c27aa329464f65c16f9c658a2d1810ff5593f284b" => :yosemite
   end
 
   devel do

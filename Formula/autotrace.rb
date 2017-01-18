@@ -3,13 +3,13 @@ class Autotrace < Formula
   homepage "http://autotrace.sourceforge.net"
   url "https://downloads.sourceforge.net/project/autotrace/AutoTrace/0.31.1/autotrace-0.31.1.tar.gz"
   sha256 "5a1a923c3335dfd7cbcccb2bbd4cc3d68cafe7713686a2f46a1591ed8a92aff6"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "3e7e11a55fc00336ea8ae33fb77ce6f74b30ced7807818d0e91cf60dcf3d91ed" => :sierra
-    sha256 "db6a3b005b2a6691b44831fe8683e583199b7ca39eea22505e4f23c96693c42d" => :el_capitan
-    sha256 "a9f4eec90bd575a1a6ed721d0d0b32b9184d9815cbeb537926d13ee7c1a0008f" => :yosemite
+    sha256 "c42f1c9bce94526b9c77f36658151dd45cfceeb1fcc5bf78ce896c1b59ca23cd" => :sierra
+    sha256 "fcca0159cc773ecab656fdb869b758f09e22abd6fe2dcff1559626ea75cdfb85" => :el_capitan
+    sha256 "fd6b429acb05f3e515fa07bcb92e7822dfdd7fd18647ddd94bb4032aaffa476d" => :yosemite
   end
 
   depends_on "pkg-config" => :build

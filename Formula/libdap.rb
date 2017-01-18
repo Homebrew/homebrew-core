@@ -1,13 +1,13 @@
 class Libdap < Formula
   desc "Framework for scientific data networking"
   homepage "https://www.opendap.org/"
-  url "https://www.opendap.org/pub/source/libdap-3.18.2.tar.gz"
-  sha256 "0f33b2d91c8f06713e1fcb99658372dc0357cbebe99e7c1850b68a927b7e54db"
+  url "https://www.opendap.org/pub/source/libdap-3.18.3.tar.gz"
+  sha256 "0ced6aa36bb445f51e4d72d480e326de7d513a4a7a2c1e5c73e16e2c1f71f22b"
 
   bottle do
-    sha256 "e1f82a19bed0d0c8f6a218b24eccb4ccae2ae391d2946407b48b7e862a48ac6a" => :sierra
-    sha256 "e001b38cfa8690744e83e75d28b2d3404ab09e0e8698ff1948fd371f6b42e843" => :el_capitan
-    sha256 "04e632b298df57bdc1f9a41794fc55a92bcc417aefc0a3cca840c2a9c6736961" => :yosemite
+    sha256 "4ec4781108986332b022cb81d238345f4e697e62ad5a3cc5cb66b77ee7d7ebe8" => :sierra
+    sha256 "1e6bb8cf800083b6c5f6ae3f3efa1284bf436b16601ffaaa77214711aac0cccd" => :el_capitan
+    sha256 "9ab1a73227319d216efd1c0f2737d2f1d43701f1fafbc375bb1963c631c047f2" => :yosemite
   end
 
   head do

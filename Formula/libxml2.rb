@@ -1,7 +1,7 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org"
-  revision 1
+  revision 2
 
   stable do
     url "http://xmlsoft.org/sources/libxml2-2.9.4.tar.gz"
@@ -20,13 +20,19 @@ class Libxml2 < Formula
             "patches/0006-Disallow-namespace-nodes-in-XPointer-ranges.patch",
             "patches/0007-Fix-more-NULL-pointer-derefs-in-xpointer.c.patch"
     end
+
+    # https://bugzilla.gnome.org/show_bug.cgi?id=766834
+    patch do
+      url "https://git.gnome.org/browse/libxml2/patch/?id=3169602058bd2d04913909e869c61d1540bc7fb4"
+      sha256 "42082b0e7fa80eac68abeace98ea5a03e8cd44cd781c13966eb0758b9a1749b3"
+    end
   end
 
   bottle do
     cellar :any
-    sha256 "077c1f4a73619c4012c2f5be53608e8c346915b7118a920dedb5e8e14d69bb6c" => :sierra
-    sha256 "b60ed79d32e4abfd350fb753bc1149606963dce4123c2f0557edac42b79ad96c" => :el_capitan
-    sha256 "5100a394f86c395f3392b6961a415ed833d3be9b7747e69099b5cd378b0852b4" => :yosemite
+    sha256 "ee3dbe9214cbd11f94f909262c11c5cd9d4a8e7c214a01f63c09aa678088caeb" => :sierra
+    sha256 "682ab8b699edb23164a5a90e28099d9e532e0d2f99ff75ceab40ccbfc92bc494" => :el_capitan
+    sha256 "df893d3e5c300697faae88cbece95fedf93ed838fc2274668f31b33e204cee21" => :yosemite
   end
 
   head do

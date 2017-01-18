@@ -1,14 +1,14 @@
 class NodeAT4 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v4.7.0/node-v4.7.0.tar.xz"
-  sha256 "b03c777ba8817a8478d57f00797db86dc7e7953d2066c34edbceeba8ad056142"
+  url "https://nodejs.org/dist/v4.7.2/node-v4.7.2.tar.xz"
+  sha256 "ad1b8309a621f725b5d8205f0fc5bbb7b396a438c108e6fba417c1a914932dfc"
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
-    sha256 "312c17e525bccf3a8fb25db244d958642b058cfa604e69170a9c7c5905752c72" => :sierra
-    sha256 "e0ea163a2851a7d6ed7ec4b1be8ded180817255dbba56d303f28b438e6963850" => :el_capitan
-    sha256 "8255a0f585a77ec579245e5261b63eddfd85b6d3deb32914a320567fb4539a8e" => :yosemite
+    sha256 "9bfbf45f8c1d1aa63d2556ca69e878634fc701df7a730b99f5f6f748b27a55b0" => :sierra
+    sha256 "8d3026205953ed0b56b942771ff978aac2eb8c56e3a2a588e69bcbbd76986045" => :el_capitan
+    sha256 "b8415cde68f9d17ee92394b857423b0c1d1a4ffbff361c4e1df1823d5c366983" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -27,8 +27,8 @@ class NodeAT4 < Formula
   conflicts_with "node@6", :because => "Differing versions of the same formulae."
 
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-2.15.9.tgz"
-    sha256 "111243bdcf37c3cc8d16e2e7dc15f5ed422c20a9a7201a1620b3136d1e858081"
+    url "https://registry.npmjs.org/npm/-/npm-2.15.11.tgz"
+    sha256 "927974142c9a44e9bd879d9e9762e7de379b43c5acfae32b02b44f60e59a9c9c"
   end
 
   resource "icu4c" do

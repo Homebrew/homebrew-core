@@ -1,15 +1,15 @@
 class Hana < Formula
   desc "The Boost.Hana C++14 metaprogramming library"
   homepage "https://github.com/boostorg/hana"
-  url "https://github.com/boostorg/hana/archive/v1.0.1.tar.gz"
-  sha256 "a422ef36e38598c5c9135fdb67d8049b5b96c70a3b7ea3839e5ec6cbcb6e4457"
+  url "https://github.com/boostorg/hana/archive/v1.0.2.tar.gz"
+  sha256 "51be7e5d11c4bafa595d7a4ebd90185e19e213fa4de291b74a44acc635e86e95"
   head "https://github.com/boostorg/hana.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "45519a9fa2e2150570e23aca82adb53ef242e13e358b968f94caa8fc8bde4628" => :sierra
-    sha256 "45519a9fa2e2150570e23aca82adb53ef242e13e358b968f94caa8fc8bde4628" => :el_capitan
-    sha256 "45519a9fa2e2150570e23aca82adb53ef242e13e358b968f94caa8fc8bde4628" => :yosemite
+    sha256 "d3648fae565ddce63d113bddaefd639bf1e52618e5be45e88b6ba7cf529d38ec" => :sierra
+    sha256 "822eef7d44eb999289d344c9d8b51c93106f0ede237b065d54ac0c3451412fbc" => :el_capitan
+    sha256 "822eef7d44eb999289d344c9d8b51c93106f0ede237b065d54ac0c3451412fbc" => :yosemite
   end
 
   depends_on "cmake" => :build

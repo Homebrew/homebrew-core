@@ -18,11 +18,6 @@ class Termius < Formula
   depends_on "bash-completion" => :recommended
   depends_on "zsh-completions" => :recommended
 
-  resource "setuptools" do
-    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-20.3.1.tar.gz"
-    sha256 "a1b3f74a1dc7c81368f2bc28a34366cfa6ffe80cdee1451261aabfba1ae1f4a8"
-  end
-
   resource "requests" do
     url "https://pypi.python.org/packages/source/r/requests/requests-2.7.0.tar.gz"
     sha256 "398a3db6d61899d25fd4a06c6ca12051b0ce171d705decd7ed5511517b4bb93d"

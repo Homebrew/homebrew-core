@@ -5,26 +5,14 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  revision 1
+  url "https://github.com/purescript/purescript/archive/v0.10.5.tar.gz"
+  sha256 "cb38d14e353bf200471385dd08dc5108f4f8690a76806e79c8f2fb3f8facca9c"
   head "https://github.com/purescript/purescript.git"
 
-  stable do
-    url "https://github.com/purescript/purescript/archive/v0.10.4.tar.gz"
-    sha256 "4224d5595352ad000e3b0b39c3f9e4d21ddddad337b651a5bc7480eecfe731e3"
-
-    # Fix "Couldn't match type '[Char]' with 'Text'"
-    # Upstream PR from 2 Jan 2017 "Update bower-json to 1.0.0.1"
-    # https://github.com/purescript/purescript/pull/2531
-    patch do
-      url "https://github.com/purescript/purescript/commit/b84ef77.patch"
-      sha256 "1fd272dff1a09b1bc49e9fea54d829a5fdee04487a436b97b3e573513b96f532"
-    end
-  end
-
   bottle do
-    sha256 "b1963ea8c20e0deaa6eabbeee2de8295c80b253265b858db30747b4e152c89ee" => :sierra
-    sha256 "248c2c94c06bdb6e9057d461c30d024e71bbd9b17cbf0bb8031ce47d30d484f1" => :el_capitan
-    sha256 "9bfd9ec165d70ba11ce9f91911a04952670fe1192b36e5d582190a12629988bf" => :yosemite
+    sha256 "c384fb0ebb7229d5a329a75624430eda19fa703a45673cf323ce4f173c39577f" => :sierra
+    sha256 "36d657fbbe5b709d8870dc737326f749f26e4734f0e2df6f03cc65144a110334" => :el_capitan
+    sha256 "fe61f809dd28fed3ea6c3c0df4ff3d69e66bcba82e2311419671d626c2b7c8fe" => :yosemite
   end
 
   depends_on "ghc" => :build
