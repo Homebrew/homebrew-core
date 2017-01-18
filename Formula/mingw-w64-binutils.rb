@@ -74,12 +74,11 @@ class MingwW64Binutils < Formula
         system "#{bin}/#{target_arch}-ld", "-m", "i386pe", "-o", "test32.exe", "test32.o"
         assert_match "PE32 executable", shell_output("file test32.exe")
       end
-      if target_arch.start_with?("x86_64")
-        system "#{bin}/#{target_arch}-as", "-o", "test.o", "test.s"
-        assert_match "file format pe-x86-64", shell_output("#{bin}/#{target_arch}-objdump -a test.o")
-        system "#{bin}/#{target_arch}-ld", "-o", "test.exe", "test.o"
-        assert_match "PE32+ executable", shell_output("file test.exe")
-      end
+      next unless target_arch.start_with?("x86_64")
+      system "#{bin}/#{target_arch}-as", "-o", "test.o", "test.s"
+      assert_match "file format pe-x86-64", shell_output("#{bin}/#{target_arch}-objdump -a test.o")
+      system "#{bin}/#{target_arch}-ld", "-o", "test.exe", "test.o"
+      assert_match "PE32+ executable", shell_output("file test.exe")
     end
   end
 end
