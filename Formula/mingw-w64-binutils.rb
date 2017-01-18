@@ -32,7 +32,7 @@ class MingwW64Binutils < Formula
     system "#{bin}/x86_64-w64-mingw32-as", "-o", "test.o", "test.s"
     assert_match "file format pe-x86-64", shell_output("#{bin}/x86_64-w64-mingw32-objdump -a test.o")
     system "#{bin}/x86_64-w64-mingw32-ld", "-o", "test.exe", "test.o"
-    assert_match "PE32+ executable (console) x86-64", shell_output("file test.exe")
+    assert_match /PE32\+ executable .* x86-64/, shell_output("file test.exe")
 
     # Assemble a simple 32-bit routine
     (testpath/"test32.s").write <<-EOS.undent
@@ -46,6 +46,6 @@ class MingwW64Binutils < Formula
     system "#{bin}/x86_64-w64-mingw32-as", "--32", "-o", "test32.o", "test32.s"
     assert_match "file format pe-i386", shell_output("#{bin}/x86_64-w64-mingw32-objdump -a test32.o")
     system "#{bin}/x86_64-w64-mingw32-ld", "-m", "i386pe", "-o", "test32.exe", "test32.o"
-    assert_match "PE32 executable (console) Intel 80386", shell_output("file test32.exe")
+    assert_match /PE32 executable .* Intel 80386/, shell_output("file test32.exe")
   end
 end
