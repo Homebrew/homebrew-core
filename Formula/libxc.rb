@@ -1,6 +1,6 @@
 class Libxc < Formula
   desc "Library of exchange and correlation functionals for codes"
-  homepage "http://www.tddft.org/programs/octopus/wiki/index.php/Libxc"
+  homepage "http://octopus-code.org/wiki/Libxc"
   url "http://www.tddft.org/programs/octopus/down.php?file=libxc/libxc-3.0.0.tar.gz"
   sha256 "5542b99042c09b2925f2e3700d769cda4fb411b476d446c833ea28c6bfa8792a"
 
