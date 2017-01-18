@@ -7,10 +7,9 @@ class Gitup < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5ce2b6f16803feaf619ef2d286c559a87b14b95b28a2b679c2e1d7d387f56d89" => :sierra
-    sha256 "cef33e7aeac55b0c65396559fa73e933a7752c88659fc812797948ecf76d0987" => :el_capitan
-    sha256 "9426a727f17fc9637e1a2a55ca7e1c27933bea30e8575470a53c0c9c31e11cd9" => :yosemite
-    sha256 "6207251eb906b35befcf09cd52fc27f8932970bc2cb4f9b78c488e99f561c205" => :mavericks
+    sha256 "df3840c9daaac7b04edc11f479258351f9748f868ec02f1df5547139c5df9cf2" => :sierra
+    sha256 "9b372d519ff6ad0544a94c61b827321de1efec9049340a24263358ff83e83163" => :el_capitan
+    sha256 "808c74bfc5b026f85ad97bba46c30c39ab244cfa1033579a4607867ae3cd72b8" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
