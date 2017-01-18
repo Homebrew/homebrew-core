@@ -31,9 +31,9 @@ class ConsulTemplate < Formula
 
   devel do
     url "https://github.com/hashicorp/consul-template.git",
-        :tag => "v0.18.0-rc2",
-        :revision => "e446ab16fb567e1ddeb88ef29406b53bdb4ee387"
-    version "0.18.0-rc2"
+        :tag => "v0.18.0-rc3",
+        :revision => "945c308bcb23835a51d04180981147bc96aecdd7"
+    version "0.18.0-rc3"
   end
 
   depends_on "go" => :build
