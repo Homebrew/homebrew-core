@@ -5,6 +5,8 @@ class Certbot < Formula
   homepage "https://certbot.eff.org/"
   url "https://github.com/certbot/certbot/archive/v0.10.1.tar.gz"
   sha256 "c91b5fddb50dfd46545c12c1e96d1bb5e2794652c11421a6f5d9dad2bbca4d52"
+  revision 1
+
   head "https://github.com/certbot/certbot.git"
 
   bottle do
@@ -136,7 +138,26 @@ class Certbot < Formula
   end
 
   def install
-    venv = virtualenv_install_with_resources
+    venv = virtualenv_create(libexec)
+
+    resource("cryptography").stage do
+      if MacOS.version < :sierra
+        # Fixes .../cryptography/hazmat/bindings/_openssl.so: Symbol not found: _getentropy
+        # Reported 20 Dec 2016 https://github.com/pyca/cryptography/issues/3332
+        inreplace "src/_cffi_src/openssl/src/osrandom_engine.h",
+          "#elif defined(BSD) && defined(SYS_getentropy)",
+          "#elif defined(BSD) && defined(SYS_getentropy) && 0"
+      end
+      venv.pip_install Pathname.pwd
+    end
+
+    res = resources.map(&:name).to_set - ["cryptography"]
+
+    res.each do |r|
+      venv.pip_install resource(r)
+    end
+
+    venv.pip_install_and_link buildpath
 
     # Shipped with certbot, not external resources.
     %w[acme certbot-apache certbot-nginx].each do |r|
