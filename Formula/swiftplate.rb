@@ -34,8 +34,7 @@ class Swiftplate < Formula
       "Tests" => ["#{project_name}Tests"]
     }
 
-    required_files.each { |dir_name, files|
-      expected = files
+    required_files.each { |dir_name, expected|
       actual = Dir.entries(dir_name) 
       unless (expected - actual).empty?
         abort("directory structure of #{dir_name} doesn't match expected results - #{files}, #{actual}")
