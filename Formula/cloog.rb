@@ -28,6 +28,7 @@ class Cloog < Formula
     system "./autogen.sh" if build.head?
 
     args = %W[
+      CC=gcc-6
       --prefix=#{prefix}
     ]
 
