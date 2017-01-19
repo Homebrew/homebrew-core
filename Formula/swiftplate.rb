@@ -6,6 +6,7 @@ class Swiftplate < Formula
   url "https://github.com/JohnSundell/SwiftPlate/archive/1.2.1.tar.gz"
   sha256 "c4a47411340c88dbacc87d63daf69eed12c80cbc2e1fc8c02cc8d6b2966c04b9"
   head "https://github.com/JohnSundell/SwiftPlate.git"
+  
   depends_on :xcode => "8.2"
 
   def install
@@ -37,7 +38,7 @@ class Swiftplate < Formula
       expected = files
       actual = Dir.entries(dir_name) 
       unless (expected - actual).empty?
-       abort("directory structure of #{dir_name} doesn't match expected results - #{files}, #{actual}")
+        abort("directory structure of #{dir_name} doesn't match expected results - #{files}, #{actual}")
       end
     }
   end
