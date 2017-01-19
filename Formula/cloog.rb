@@ -26,9 +26,7 @@ class Cloog < Formula
   def install
     system "./autogen.sh" if build.head?
 
-    args = [
-      "--prefix=#{prefix}",
-    ]
+    args = []
 
     args << "--with-osl=bundled" if build.head?
 
