@@ -20,35 +20,25 @@ class Swiftplate < Formula
 
   test do
     project_name = "test"
-
+    
     system "#{bin}/swiftplate", "--destination", ".",
       "--project", project_name, "--name", "testUser",
       "--email", "test@example.com", "--url", "https://github.com/johnsundell/swiftplate",
       "--organization", "exampleOrg", "--force"
 
-    root_files = Set.new ["LICENSE", "Package.swift", "README.md", project_name + ".podspec"]
-    config_files = Set.new [project_name + ".plist", project_name + "Tests.plist"]
-    source_files = Set.new [project_name + ".swift"]
-    test_dirs = Set.new [project_name + "Tests"]
+    required_files = {
+      "." => ["LICENSE", "Package.swift", "README.md", "#{project_name}.podspec"],
+      "Configs" => ["#{project_name}.plist", "#{project_name}Tests.plist"],
+      "Sources" => ["#{project_name}.swift"],
+      "Tests" => ["#{project_name}Tests"]
+    }
 
-    def die(directory)
-      abort("directory structure of " + directory + " doesn't match expected results")
-    end
-
-    unless root_files.subset? Dir.glob("*").to_set
-      die("root")
-    end
-
-    unless config_files.subset? Dir["Configs/*"].map { |x| File.basename(x) }.to_set
-      die("Configs")
-    end
-
-    unless source_files.subset? Dir["Sources/*"].map { |x| File.basename(x) }.to_set
-      die("Sources")
-    end
-
-    unless test_dirs.subset? Dir["Tests/*"].map { |x| File.basename(x) }.to_set
-      die("Tests")
-    end
+    required_files.each { |dir_name, files|
+      expected = files
+      actual = Dir.entries(dir_name) 
+      unless (expected - actual).empty?
+       abort("directory structure of #{dir_name} doesn't match expected results - #{files}, #{actual}")
+      end
+    }
   end
 end
