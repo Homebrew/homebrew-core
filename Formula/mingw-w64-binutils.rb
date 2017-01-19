@@ -20,8 +20,8 @@ class MingwW64Binutils < Formula
       odie "Options --without-i686 and --without-x86_64 are mutually exclusive"
     end
     archs = []
-    archs.push("i686-w64-mingw32") if build.with?("i686")
-    archs.push("x86_64-w64-mingw32") if build.with?("x86_64")
+    archs << "i686-w64-mingw32" if build.with?("i686")
+    archs << "x86_64-w64-mingw32" if build.with?("x86_64")
   end
 
   def install
@@ -32,8 +32,8 @@ class MingwW64Binutils < Formula
         --prefix=#{prefix}
         --with-sysroot=#{prefix}
       ]
-      args.push("--disable-multilib", "--enable-target=#{target_arch}") if target_arch.start_with?("i686") || build.without?("multilib")
-      args.push("--enable-multilib", "--enable-target=#{target_arch},i686-w64-mingw32") if target_arch.start_with?("x86_64") && build.with?("multilib")
+      args << "--disable-multilib", "--enable-target=#{target_arch}" if target_arch.start_with?("i686") || build.without?("multilib")
+      args << "--enable-multilib", "--enable-target=#{target_arch},i686-w64-mingw32" if target_arch.start_with?("x86_64") && build.with?("multilib")
 
       mkdir "build-#{target_arch}" do
         system "../configure", *args
