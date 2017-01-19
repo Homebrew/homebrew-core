@@ -12,10 +12,10 @@ class MingwW64Binutils < Formula
   end
 
   option "with-multilib", "Compile x86_64 mingw target with multilib support"
-  
+
   def target_arches
     %w[i686-w64-mingw32 x86_64-w64-mingw32].freeze
-  end 
+  end
 
   def install
     target_arches.each do |target_arch|
