@@ -8,10 +8,9 @@ class Docker < Formula
   head "https://github.com/docker/docker.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "060ff75126bef8a3c5edf01e6520e27f826bcea3ba6de9b89e11ced3bead01fd" => :sierra
-    sha256 "cd44a713e6649908bdf43224fff50478b8fdfc4b4a2f10a87843eb76358cc266" => :el_capitan
-    sha256 "b839fc87e274a8fd7dc6a40db7c50e2db8a4bf4d629fccc0eb5a23e3e91e678a" => :yosemite
+    sha256 "468bfeed9b8d032b47833ef69c60abf214a5397564d510a1769c4fac7f180d9b" => :sierra
+    sha256 "f9ca0a0c2cb93564c01852200bf46f31ff9cce1248990a8ab19d591386062e22" => :el_capitan
+    sha256 "93af3ca7dbf140adc7060539a24a002870fd015527022a47e76fad28fbc18f98" => :yosemite
   end
 
   option "with-experimental", "Enable experimental features"
