@@ -27,11 +27,7 @@ class Cloog < Formula
     system "./autogen.sh" if build.head?
 
     args = [
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
       "--prefix=#{prefix}",
-      "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}",
-      "--with-isl-prefix=#{Formula["isl"].opt_prefix}",
     ]
 
     args << "--with-osl=bundled" if build.head?
