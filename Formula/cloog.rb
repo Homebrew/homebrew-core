@@ -20,13 +20,16 @@ class Cloog < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gcc" => :build
   depends_on "gmp"
   depends_on "isl"
 
   def install
     system "./autogen.sh" if build.head?
 
-    args = []
+    args = %W[
+      --prefix=#{prefix}
+    ]
 
     args << "--with-osl=bundled" if build.head?
 
