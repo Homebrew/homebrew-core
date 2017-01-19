@@ -11,7 +11,7 @@ class Carrot2 < Formula
   def install
     libexec.install Dir["*"]
     bin.install libexec/"dcs.sh" => "carrot2"
-    inreplace bin/"carrot2", "java", "cd #{libexec} && java"
+    inreplace bin/"carrot2", "java", "cd #{libexec} && exec java"
   end
 
   plist_options :manual => "carrot2"
@@ -40,6 +40,15 @@ class Carrot2 < Formula
   end
 
   test do
-    system bin/"carrot2", "--help"
+    cp_r Dir["#{prefix}/*"], testpath
+    inreplace testpath/"bin/carrot2", "cd #{libexec}", "cd #{testpath}/libexec"
+    begin
+      pid = fork { exec testpath/"bin/carrot2" }
+      sleep 5
+      output = shell_output("curl -s -F dcs.c2stream=@#{libexec}/examples/shared/data-mining.xml http://localhost:8080/dcs/rest")
+      assert_match /data mining/m, output
+    ensure
+      Process.kill "INT", pid
+    end
   end
 end
