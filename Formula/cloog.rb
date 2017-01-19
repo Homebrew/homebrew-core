@@ -30,9 +30,7 @@ class Cloog < Formula
       "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--prefix=#{prefix}",
-      "--with-gmp=system",
       "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}",
-      "--with-isl=system",
       "--with-isl-prefix=#{Formula["isl"].opt_prefix}",
     ]
 
