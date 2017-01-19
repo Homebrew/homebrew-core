@@ -37,7 +37,7 @@ class MingwW64Binutils < Formula
 
       mkdir "build-#{target_arch}" do
         system "../configure", *args
-        system "make"
+        system "make", "check"
         system "make", "install"
       end
 
