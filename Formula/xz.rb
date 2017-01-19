@@ -9,10 +9,9 @@ class Xz < Formula
 
   bottle do
     cellar :any
-    sha256 "ebbc97e37366a5bac5c38befb9243514a57bab8be44563d059782d44e409b2fa" => :sierra
-    sha256 "7cfefbef7669a6959eb019ffba2d06b2c8f041fb826e89126c1ced23f03e2029" => :el_capitan
-    sha256 "cd13b4dea278b179eceebed9f07b79c95e7416d7cac0ba095173cc463149df46" => :yosemite
-    sha256 "9a5b520ae6a4cc728a7f5c4a15deb1dc2f150e3665d5afbc802b07f2a4fbd6e6" => :mavericks
+    sha256 "2518e5105c2b290755cda0fd5cd7f71eea4cd4741b70c48250eed1750c3a6814" => :sierra
+    sha256 "faa0f79c1776a8b5d8093f84fca4c92e1ada51957a1381d120f690be36b42819" => :el_capitan
+    sha256 "82eef73a78db1c46ed8482c357f6ad1797a62f4c9124410b362efe885082892c" => :yosemite
   end
 
   option :universal
