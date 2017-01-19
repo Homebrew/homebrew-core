@@ -3,8 +3,8 @@ class Euca2ools < Formula
 
   desc "Eucalyptus client API tools-works with Amazon EC2 and IAM"
   homepage "https://github.com/eucalyptus/euca2ools"
-  url "https://downloads.eucalyptus.com/software/euca2ools/3.3/source/euca2ools-3.3.2.tar.xz"
-  sha256 "16825975ac1af7baceb8e0fc872ebefe867c22bf9b64e70dffd8d64309b203b7"
+  url "https://downloads.eucalyptus.com/software/euca2ools/3.4/source/euca2ools-3.4.1.tar.xz"
+  sha256 "af2027306cf7829ee512c02c1160e96a8f9c152b77f6eb408bf3dee4d4bb551d"
   head "https://github.com/eucalyptus/euca2ools.git"
 
   bottle do
@@ -22,8 +22,8 @@ class Euca2ools < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/5b/0b/34be574b1ec997247796e5d516f3a6b6509c4e064f2885a96ed885ce7579/requests-2.12.4.tar.gz"
-    sha256 "ed98431a0631e309bb4b63c81d561c1654822cb103de1ac7b47e45c26be7ae34"
+    url "https://files.pythonhosted.org/packages/b6/61/7b374462d5b6b1d824977182db287758d549d8680444bad8d530195acba2/requests-2.12.5.tar.gz"
+    sha256 "d902a54f08d086a7cc6e58c20e2bb225b1ae82c19c35e5925269ee94fb9fce00"
   end
 
   resource "six" do
@@ -32,8 +32,8 @@ class Euca2ools < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/c4/68/cf0ab7e26de58d14d441f19f7f9c2ab15eb109b0b2640f8b19c1da34e9e0/lxml-3.7.1.tar.gz"
-    sha256 "1c7f6771838300787cfa1bb3ed6512e9dc78e60ecb308a8ed49ac956569c1cca"
+    url "https://files.pythonhosted.org/packages/66/45/f11fc376f784c6f2e77ffc7a9d02374ff3ceb07ede8c56f918939409577c/lxml-3.7.2.tar.gz"
+    sha256 "59d9176360dbc3919e9d4bfca85c1ca64ab4f4ee00e6f119d7150ba887e3410a"
   end
 
   resource "PyYAML" do
