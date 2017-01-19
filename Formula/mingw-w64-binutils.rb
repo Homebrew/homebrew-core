@@ -32,8 +32,8 @@ class MingwW64Binutils < Formula
         --prefix=#{prefix}
         --with-sysroot=#{prefix}
       ]
-      args << "--disable-multilib", "--enable-target=#{target_arch}" if target_arch.start_with?("i686") || build.without?("multilib")
-      args << "--enable-multilib", "--enable-target=#{target_arch},i686-w64-mingw32" if target_arch.start_with?("x86_64") && build.with?("multilib")
+      args << "--disable-multilib" << "--enable-target=#{target_arch}" if target_arch.start_with?("i686") || build.without?("multilib")
+      args << "--enable-multilib" << "--enable-target=#{target_arch},i686-w64-mingw32" if target_arch.start_with?("x86_64") && build.with?("multilib")
 
       mkdir "build-#{target_arch}" do
         system "../configure", *args
