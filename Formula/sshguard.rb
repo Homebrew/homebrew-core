@@ -1,8 +1,8 @@
 class Sshguard < Formula
   desc "Protect from brute force attacks against SSH"
   homepage "http://www.sshguard.net/"
-  url "https://downloads.sourceforge.net/project/sshguard/sshguard/1.99.0/sshguard-1.99.0.tar.gz"
-  sha256 "d55ec6f57c24d954998328e0363000dbded9aed0580cfe4b558fce0abe550f95"
+  url "https://downloads.sourceforge.net/project/sshguard/sshguard/1.7.1/sshguard-1.7.1.tar.gz"
+  sha256 "2e527589c9b33219222d827dff63974229d044de945729aa47271c4a29aaa195"
 
   bottle do
     cellar :any_skip_relocation
@@ -69,6 +69,6 @@ class Sshguard < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{sbin}/sshguard -v 2>&1", 78)
+    assert_match version.to_s, shell_output("#{sbin}/sshguard -v 2>&1", 64)
   end
 end
