@@ -11,29 +11,21 @@ class MingwW64Binutils < Formula
     sha256 "39e04cd72f16ce87abac183cfa9d1bfe3b979378a938f4a8b987b79ea696261d" => :yosemite
   end
 
-  option "without-i686", "Compile without i686 mingw target"
-  option "without-x86_64", "Compile without x86_64 mingw target"
-  option "without-multilib", "Compile x86_64 mingw target without multilib"
-
-  def targets
-    if build.without?("i686") && build.without?("x86_64")
-      odie "Options --without-i686 and --without-x86_64 are mutually exclusive"
-    end
-    archs = []
-    archs << "i686-w64-mingw32" if build.with?("i686")
-    archs << "x86_64-w64-mingw32" if build.with?("x86_64")
-  end
+  option "with-multilib", "Compile x86_64 mingw target with multilib support"
+  
+  def target_arches
+    %w[i686-w64-mingw32 x86_64-w64-mingw32].freeze
+  end 
 
   def install
-    targets.each do |target_arch|
+    target_arches.each do |target_arch|
       args = %W[
-        --disable-werror
         --target=#{target_arch}
         --prefix=#{prefix}
         --with-sysroot=#{prefix}
       ]
       args << "--disable-multilib" << "--enable-target=#{target_arch}" if target_arch.start_with?("i686") || build.without?("multilib")
-      args << "--enable-multilib" << "--enable-target=#{target_arch},i686-w64-mingw32" if target_arch.start_with?("x86_64") && build.with?("multilib")
+      args << "--enable-multilib" << "--enable-target=#{target_arches.join(",")}" if target_arch.start_with?("x86_64") && build.with?("multilib")
 
       mkdir "build-#{target_arch}" do
         system "../configure", *args
@@ -67,7 +59,7 @@ class MingwW64Binutils < Formula
         popl   %ebp
         ret
     EOS
-    targets.each do |target_arch|
+    target_arches.each do |target_arch|
       if target_arch.start_with?("i686") || (target_arch.start_with?("x86_64") && build.with?("multilib"))
         system "#{bin}/#{target_arch}-as", "--32", "-o", "test32.o", "test32.s"
         assert_match "file format pe-i386", shell_output("#{bin}/#{target_arch}-objdump -a test32.o")
