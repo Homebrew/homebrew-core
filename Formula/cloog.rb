@@ -20,8 +20,8 @@ class Cloog < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gmp"
-  depends_on "isl"
+  depends_on "gmp@4"
+  depends_on "isl@0.12"
 
   def install
     system "./autogen.sh" if build.head?
@@ -31,14 +31,15 @@ class Cloog < Formula
       "--disable-silent-rules",
       "--prefix=#{prefix}",
       "--with-gmp=system",
-      "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}",
+      "--with-gmp-prefix=#{Formula["gmp@4"].opt_prefix}",
       "--with-isl=system",
-      "--with-isl-prefix=#{Formula["isl"].opt_prefix}",
+      "--with-isl-prefix=#{Formula["isl@0.12"].opt_prefix}",
     ]
 
     args << "--with-osl=bundled" if build.head?
 
     system "./configure", *args
+    system "make", "check"
     system "make", "install"
   end
 
