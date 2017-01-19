@@ -1,8 +1,8 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.com"
-  url "https://orientdb.com/download.php?file=orientdb-community-2.2.14.tar.gz"
-  sha256 "00834b09248a4de9a65792215b3bc1f9dcef1cd69099db349994d31d7f87555d"
+  url "https://orientdb.com/download.php?file=orientdb-community-2.2.15.tar.gz"
+  sha256 "9a553c9d91eb03d954b085c6ecbe05c54526b166c8ca86f1fb27036b2f4dba03"
 
   bottle do
     cellar :any_skip_relocation
@@ -67,7 +67,7 @@ class Orientdb < Formula
       "  <entry name=\"server.database.path\" value=\"#{testpath}\" />\n    </properties>"
 
     begin
-      assert_match /OrientDB console v.2.2.14/, pipe_output("#{bin}/orientdb-console \"exit;\"")
+      assert_match /OrientDB console v.2.2.15/, pipe_output("#{bin}/orientdb-console \"exit;\"")
     end
   end
 end
