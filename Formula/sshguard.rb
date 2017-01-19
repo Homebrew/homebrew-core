@@ -3,6 +3,7 @@ class Sshguard < Formula
   homepage "http://www.sshguard.net/"
   url "https://downloads.sourceforge.net/project/sshguard/sshguard/1.7.1/sshguard-1.7.1.tar.gz"
   sha256 "2e527589c9b33219222d827dff63974229d044de945729aa47271c4a29aaa195"
+  version_scheme 1
 
   bottle do
     rebuild 1
