@@ -1,8 +1,8 @@
 class Hyperscan < Formula
   desc "High-performance regular expression matching library"
   homepage "https://01.org/hyperscan"
-  url "https://github.com/01org/hyperscan/archive/v4.3.2.tar.gz"
-  sha256 "6cd5820d6da51d6fe4ab12066d1efd9afecc1bc6fb7d6eca9c98f76fd391dbd5"
+  url "https://github.com/01org/hyperscan/archive/v4.4.0.tar.gz"
+  sha256 "6ff1b47ce9888803ce6dfa8e1efbab30ec53f984410275d7a45138825af0a0d5"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,6 +17,7 @@ class Hyperscan < Formula
   depends_on "boost" => :build
   depends_on "ragel" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
 
   def install
     mkdir "build" do
