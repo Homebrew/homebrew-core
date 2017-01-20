@@ -6,10 +6,9 @@ class DockerSwarm < Formula
   head "https://github.com/docker/swarm.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "be0111eb686c63e1c886a3d8d4fafe02e39fc6eb89672dbcaa319912d2abadb3" => :sierra
-    sha256 "45d6f0f20397387536400f61d810f53ae335f53be1ac2ada67c80dd7b7d6cef2" => :el_capitan
-    sha256 "31cd5e9596234041a912e2cdcee6f434a0a9552b53307df0d80eca5676833543" => :yosemite
+    sha256 "a5fa2857c0ea64376819f9983697888b2237b968e3eb301f8daf7ee291b5ce4d" => :sierra
+    sha256 "5e7b222ad49eae76a5754240fd98bce22a9f795c5e8928f26d9c185e6f91f0e0" => :el_capitan
+    sha256 "0b7c5090b689a6163fa3a1533a85bd3526edc75329d9536a8dd197c8556b1163" => :yosemite
   end
 
   depends_on "go" => :build
