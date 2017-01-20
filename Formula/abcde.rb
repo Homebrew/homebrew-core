@@ -1,9 +1,8 @@
 class Abcde < Formula
   desc "Better CD Encoder"
   homepage "https://abcde.einval.com"
-  url "https://abcde.einval.com/download/abcde-2.8.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/a/abcde/abcde_2.8.orig.tar.gz"
-  sha256 "4c88aff400b4f1efa3b46ff6677607829aa26f70ca272de1f25c305bc1d0f332"
+  url "https://abcde.einval.com/download/abcde-2.8.1.tar.gz"
+  sha256 "e49c71d7ddcd312dcc819c3be203abd3d09d286500ee777cde434c7881962b39"
   head "https://git.einval.com/git/abcde.git"
 
   bottle do
