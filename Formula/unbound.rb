@@ -36,7 +36,7 @@ class Unbound < Formula
     system "./configure", *args
 
     inreplace "doc/example.conf", 'username: "unbound"', 'username: "@@HOMEBREW-UNBOUND-USER@@"'
-    system "make"
+    system "make", "test"
     system "make", "install"
   end
 
