@@ -4,7 +4,7 @@ class DockerSwarm < Formula
   url "https://github.com/docker/swarm.git",
       :tag => "v1.2.6",
       :revision => "508b331683331a0421bdc48979a0a16885ba4e7c"
-  
+
   head "https://github.com/docker/swarm.git"
 
   bottle do
