@@ -23,6 +23,7 @@ class Xz < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
+    system "make", "check"
     system "make", "install"
   end
 
