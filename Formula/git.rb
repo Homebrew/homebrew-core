@@ -93,6 +93,7 @@ class Git < Formula
     ]
     args << "NO_OPENSSL=1" << "APPLE_COMMON_CRYPTO=1" if build.without? "brewed-openssl"
 
+    system "make", "test", *args
     system "make", "install", *args
 
     # Install the macOS keychain credential helper
