@@ -1,8 +1,8 @@
 class Libgosu < Formula
   desc "2D game development library"
   homepage "https://libgosu.org"
-  url "https://github.com/gosu/gosu/archive/v0.10.8.tar.gz"
-  sha256 "470ea170f86071514adc085a3417e97050572e5c83e2f48aa4265050983f817e"
+  url "https://github.com/gosu/gosu/archive/v0.11.1.tar.gz"
+  sha256 "950628903f4c0c5e7c875b5c22fd33efdf93593176c067d17fbc0591b3e1f699"
 
   head "https://github.com/gosu/gosu.git"
 
@@ -33,9 +33,9 @@ class Libgosu < Formula
       {
       public:
           MyWindow()
-          :   Gosu::Window(640, 480, false)
+          :   Gosu::Window(640, 480)
           {
-              setCaption(L\"Hello World!\");
+              set_caption(\"Hello World!\");
           }
 
           void update()
