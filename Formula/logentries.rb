@@ -1,8 +1,10 @@
 class Logentries < Formula
+  include Language::Python::Virtualenv
+
   desc "Utility for access to logentries logging infrastructure"
   homepage "https://logentries.com/doc/agent/"
-  url "https://github.com/logentries/le/archive/v1.4.40.tar.gz"
-  sha256 "65c14106596ac40870f5a7829e9bb61e9ac6e389a03ca3dcbeb5a944e342f7fd"
+  url "https://github.com/logentries/le/archive/v1.4.41.tar.gz"
+  sha256 "eb29f1c3f22ada7818f8763c94a702e8947f084a948d55100d2dbdf614e21697"
   head "https://github.com/logentries/le.git"
 
   bottle do
@@ -16,11 +18,7 @@ class Logentries < Formula
   conflicts_with "le", :because => "both install a le binary"
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   plist_options :manual => "le monitor"
