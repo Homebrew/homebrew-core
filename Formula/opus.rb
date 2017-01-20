@@ -1,8 +1,8 @@
 class Opus < Formula
   desc "Audio codec"
   homepage "https://www.opus-codec.org"
-  url "http://downloads.xiph.org/releases/opus/opus-1.1.3.tar.gz"
-  sha256 "58b6fe802e7e30182e95d0cde890c0ace40b6f125cffc50635f0ad2eef69b633"
+  url "http://downloads.xiph.org/releases/opus/opus-1.1.4.tar.gz"
+  sha256 "9122b6b380081dd2665189f97bfd777f04f92dc3ab6698eea1dbb27ad59d8692"
 
   bottle do
     cellar :any
