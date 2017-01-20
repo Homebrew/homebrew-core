@@ -1,8 +1,8 @@
 class Libcouchbase < Formula
   desc "C library for Couchbase"
   homepage "https://developer.couchbase.com/documentation/server/4.5/sdk/c/start-using-sdk.html"
-  url "https://s3.amazonaws.com/packages.couchbase.com/clients/c/libcouchbase-2.7.0.tar.gz"
-  sha256 "c0ce74c5ede1ecdb49a9f2eab174ab90825263e659f900c9d017a7b7f58c2206"
+  url "https://s3.amazonaws.com/packages.couchbase.com/clients/c/libcouchbase-2.7.1.tar.gz"
+  sha256 "cd1d219e6cee21a665c61d6949f3c0cdce52526ecea878a3b73feb3ee32d6ab8"
   head "https://github.com/couchbase/libcouchbase.git"
 
   bottle do
@@ -11,7 +11,6 @@ class Libcouchbase < Formula
     sha256 "afb432710eccaff6794130e494dd4675ec95669eae580bf8a49d62b1d6b717af" => :yosemite
   end
 
-  option :universal
   option "with-libev", "Build libev plugin"
   option "without-libevent", "Do not build libevent plugin"
 
@@ -30,10 +29,6 @@ class Libcouchbase < Formula
 
     ["libev", "libevent", "libuv"].each do |dep|
       args << "-DLCB_BUILD_#{dep.upcase}=" + (build.with?(dep) ? "ON" : "OFF")
-    end
-    if build.universal?
-      args << "-DLCB_UNIVERSAL_BINARY=1"
-      ENV.universal_binary
     end
     if build.without?("libev") && build.without?("libuv") && build.without?("libevent")
       args << "-DLCB_NO_PLUGINS=1"
