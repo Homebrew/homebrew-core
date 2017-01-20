@@ -7,10 +7,9 @@ class ConsulTemplate < Formula
   head "https://github.com/hashicorp/consul-template.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4a5ed83931505027e4d40f774fb791254e26a8fa232b8932a54cc77665962d38" => :sierra
-    sha256 "fd8408ce1b01c0fd07047013a2b658e6ff792c88aad842cf9d978cb90d456eb2" => :el_capitan
-    sha256 "844950502c5edb1f0b9797f3dc4d92241616982bfdf272e92c5c42883e53a6c4" => :yosemite
+    sha256 "d3b38ee6b72d76d53073f4bedd734350f31788441517ca324bcdf89dfa11b75e" => :sierra
+    sha256 "8e0bd59beeab9335826df18e00bc92da53e6b104d6a73b31bcc2e416ac8e99b2" => :el_capitan
+    sha256 "c19f21e76191a6731603cc18fe2b82fc2ace6b7a6337ba1679323fd4fb09e182" => :yosemite
   end
 
   depends_on "go" => :build
