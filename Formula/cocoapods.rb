@@ -12,9 +12,9 @@ class Cocoapods < Formula
   end
 
   devel do
-    url "https://github.com/CocoaPods/CocoaPods/archive/1.2.0.beta.3.tar.gz"
-    version "1.2.0.beta.3"
-    sha256 "f3619ef1678d4b625699b2d30dcdad41677d7785a0e3da505cd26dab07af765a"
+    url "https://github.com/CocoaPods/CocoaPods/archive/1.2.0.rc.1.tar.gz"
+    version "1.2.0.rc.1"
+    sha256 "bb9e1266d6ea31250389ea80ed919fc3ea5cd16a2c0aa5345502ccafec6d98e7"
   end
 
   def install
