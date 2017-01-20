@@ -6,9 +6,9 @@ class Tcpkali < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d37427e7fff546ae9ffb6bab7c77b275442cf21959ea3111b6eaefa1aef87c93" => :sierra
-    sha256 "b1322c09c39a72419660646dd014af6cab694727f382ce784daaed19e6f13322" => :el_capitan
-    sha256 "064726e4e45a932793bc61e4cae43b9dfc8631237bd2b6cf713280d3bb66ac5d" => :yosemite
+    sha256 "7cc36bcbb2120334c5d0f0623ae1f81deaf5b43338ce60cde82f271d0adb8732" => :sierra
+    sha256 "eb8df1e10fdb4f4f608eb53626ed3cac4fe6960888bf89cccffc85449988a7ab" => :el_capitan
+    sha256 "358ce45dd065b2f92e4de1430343d9339d09e21a052d7593d9c308963f36d7d1" => :yosemite
   end
 
   # Upstream issue "1.1 release tarball is missing pcg_basic.h"
