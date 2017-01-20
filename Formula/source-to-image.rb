@@ -2,8 +2,8 @@ class SourceToImage < Formula
   desc "Tool for building source and injecting into docker images"
   homepage "https://github.com/openshift/source-to-image"
   url "https://github.com/openshift/source-to-image.git",
-    :tag => "v1.1.3",
-    :revision => "ddb10f16412977688136b77c76c30c0632e510d6"
+    :tag => "v1.1.4",
+    :revision => "870b2730357b2664598b47672a4840e3ebd31338"
   head "https://github.com/openshift/source-to-image.git"
 
   depends_on "go" => :build
