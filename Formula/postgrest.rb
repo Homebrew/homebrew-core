@@ -6,10 +6,9 @@ class Postgrest < Formula
 
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/begriffs/postgrest"
-  url "https://github.com/begriffs/postgrest/archive/v0.3.2.0.tar.gz"
-  sha256 "1cedceb22f051d4d80a75e4ac7a875164e3ee15bd6f6edc68dfca7c9265a2481"
+  url "https://github.com/begriffs/postgrest/archive/v0.4.0.0.tar.gz"
+  sha256 "d23aa9b9ed0272dfd2075c573a96ba95e28328617ba63bfc2792f8655a479cb9"
   head "https://github.com/begriffs/postgrest.git"
-  revision 1
 
   bottle do
     sha256 "e46e739256e3f753abe8540db32cff90ed8e4adfbed1e658cb229dc8ded0ce00" => :sierra
@@ -39,14 +38,19 @@ class Postgrest < Formula
 
     begin
       system "#{pg_bin}/createdb", "-w", "-p", pg_port, "-U", pg_user, test_db
+      (testpath/"postgrest.config").write <<-EOS.undent
+        db-uri = "postgres://#{pg_user}@localhost:#{pg_port}/#{test_db}"
+        db-schema = "public"
+        db-anon-role = "#{pg_user}"
+        server-port = 55560
+      EOS
       pid = fork do
-        exec "postgrest", "postgres://#{pg_user}@localhost:#{pg_port}/#{test_db}",
-          "-a", pg_user, "-p", "55560"
+        exec "#{bin}/postgrest", "postgrest.config"
       end
       Process.detach(pid)
       sleep(5) # Wait for the server to start
       response = Net::HTTP.get(URI("http://localhost:55560"))
-      assert_equal "[]", response
+      assert_match /responses.*200.*OK/, response
     ensure
       begin
         Process.kill("TERM", pid) if pid
