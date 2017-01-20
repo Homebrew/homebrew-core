@@ -1,8 +1,11 @@
 class Dpkg < Formula
   desc "Debian package management system"
   homepage "https://wiki.debian.org/Teams/Dpkg"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.18.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.18.tar.xz"
+  # Please always keep the Homebrew mirror as the primary URL as the
+  # dpkg site removes tarballs regularly which means we get issues
+  # unnecessarily and older versions of the formula are broken.
+  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.18.18.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.18.tar.xz"
   sha256 "c88b61e3d4660500753142689e8ddbeff1c731f29549f3338e6975f655936ff5"
 
   bottle do
