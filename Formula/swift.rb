@@ -48,7 +48,10 @@ class Swift < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on :xcode => ["7.0", :build]
+
+  # Depends on latest version of Xcode
+  # https://github.com/apple/swift#system-requirements
+  depends_on :xcode => ["8.0", :build]
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
