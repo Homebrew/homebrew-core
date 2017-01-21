@@ -8,10 +8,9 @@ class GitTracker < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "46aa6bb9caddfe0bb589e73132b67e5f9cf5558203ca276f24d994fdafa1327d" => :sierra
-    sha256 "9d04e96e283ae94ea0a789911aeddddd55d53af805313ad6bf8b1d84334daca0" => :el_capitan
-    sha256 "26afe6cdf02f1bda66d2d56518786970c8c1de878e00c09cb045cfbd3379487b" => :yosemite
-    sha256 "132caf19abd7bef677b3d74f38e7fc5d139e90f03b4cb96c3ce8e34ea8cf96ad" => :mavericks
+    sha256 "38f5240121fa53c038034ea9d0ce639f49c6df241727cbc5fbbd6acb48c60ea7" => :sierra
+    sha256 "beba888de6c1dad6b4069be93ad1029ce70c24cc241c5b930c6aaf541fd11c4d" => :el_capitan
+    sha256 "beba888de6c1dad6b4069be93ad1029ce70c24cc241c5b930c6aaf541fd11c4d" => :yosemite
   end
 
   def install
