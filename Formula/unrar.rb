@@ -3,6 +3,7 @@ class Unrar < Formula
   homepage "http://www.rarlab.com"
   url "http://www.rarlab.com/rar/unrarsrc-5.4.5.tar.gz"
   sha256 "e470c584332422893fb52e049f2cbd99e24dc6c6da971008b4e2ae4284f8796c"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,6 +14,11 @@ class Unrar < Formula
   end
 
   def install
+    # upstream doesn't particularly care about their unix targets,
+    # so we do the dirty work of renaming their shared objects to
+    # dylibs for them.
+    inreplace "makefile", "libunrar.so", "libunrar.dylib"
+
     system "make"
     # Explicitly clean up for the library build to avoid an issue with an
     # apparent implicit clean which confuses the dependencies.
@@ -20,10 +26,7 @@ class Unrar < Formula
     system "make", "lib"
 
     bin.install "unrar"
-    # Sent an email to dev@rarlab.com (18-Feb-2015) asking them to look into
-    # the need for the explicit clean, and to change the make to generate a
-    # dylib file on macOS
-    lib.install "libunrar.so" => "libunrar.dylib"
+    lib.install "libunrar.dylib"
   end
 
   test do
