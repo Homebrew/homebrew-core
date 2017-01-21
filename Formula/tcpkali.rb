@@ -18,6 +18,13 @@ class Tcpkali < Formula
     sha256 "cd823ddc225da9be520a54f13ef2c491506c353800cae04e8b673b2de58f2cc4"
   end
 
+  # Upstream issue "1.1 release tarball is missing pcg_basic.h"
+  # Reported 20 Jan 2016 https://github.com/machinezone/tcpkali/issues/39
+  resource "pcg_basic_header" do
+    url "https://raw.githubusercontent.com/machinezone/tcpkali/1be382b/deps/pcg-c-basic/pcg_basic.h"
+    sha256 "cd823ddc225da9be520a54f13ef2c491506c353800cae04e8b673b2de58f2cc4"
+  end
+
   def install
     raise "remove the resource" if File.exist? "deps/pcg-c-basic/pcg_basic.h"
     resource("pcg_basic_header").stage buildpath/"deps/pcg-c-basic"
