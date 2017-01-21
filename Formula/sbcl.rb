@@ -3,6 +3,7 @@ class Sbcl < Formula
   homepage "http://www.sbcl.org/"
   url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.14/sbcl-1.3.14-source.tar.bz2"
   sha256 "bf963d58533d839eb76a8028abd17071708d964d5dce07787839cfb6d0d6dcca"
+  revision 1
 
   head "git://sbcl.git.sourceforge.net/gitroot/sbcl/sbcl.git"
 
@@ -98,7 +99,8 @@ class Sbcl < Formula
 
       (lib/"sbcl/sbclrc").write <<-EOS.undent
         (setf (logical-pathname-translations "SYS")
-          '(("SYS:SRC;**;*.*.*" #p"#{pkgshare}/src/**/*.*")))
+          '(("SYS:SRC;**;*.*.*" #p"#{pkgshare}/src/**/*.*")
+            ("SYS:CONTRIB;**;*.*.*" #p"#{pkgshare}/contrib/**/*.*")))
         EOS
     end
   end
