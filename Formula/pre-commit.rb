@@ -3,8 +3,8 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v0.10.1.tar.gz"
-  sha256 "3b2846d91abe652106ce142b404d3fb8b49ad3081823c41a33a1dc3e6a7a0f92"
+  url "https://github.com/pre-commit/pre-commit/archive/v0.11.0.tar.gz"
+  sha256 "b8c3f1d69c098daec6a2f99f199a6d76dba62554d3d502e3b312f339cf147df8"
 
   bottle do
     cellar :any_skip_relocation
@@ -36,8 +36,8 @@ class PreCommit < Formula
   end
 
   resource "nodeenv" do
-    url "https://files.pythonhosted.org/packages/fa/62/f3dc0d7b596f7187585520bca14c050909de88866e8f793338de907538cf/nodeenv-1.0.0.tar.gz"
-    sha256 "def2a6d927bef8d17c1776edbd5bbc8b7a5f0eee159af53b9924d559fc8d3202"
+    url "https://files.pythonhosted.org/packages/a0/d0/a7f6443901894a6c93db42e7fa2f2e2135ca2fcb5f466b8e21cce49d596e/nodeenv-1.1.0.tar.gz"
+    sha256 "4a592f8cb891c4894113007be8f5d886a215695ef2e6f84ddf8a0be979c2879a"
   end
 
   resource "ordereddict" do
