@@ -4,18 +4,18 @@ class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://www.influxdata.com/time-series-platform/chronograf/"
   url "https://github.com/influxdata/chronograf.git",
-      :tag => "1.1.0-beta2",
+      :tag => "1.1.0-beta6",
       :revision => "a5f76192aa90af4fa5815ea055fa93eeadb97a00"
 
   head "https://github.com/influxdata/chronograf.git"
 
   depends_on "gdm" => :build
   depends_on "go" => :build
-  depends_on "node@6" => :build
+  depends_on "node" => :build
 
   go_resource "github.com/jteeuwen/go-bindata" do
     url "https://github.com/jteeuwen/go-bindata.git",
-        :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
+        :revision => "16108f0321ee126fda5ed2a384b005e65054393e"
   end
 
   def install
