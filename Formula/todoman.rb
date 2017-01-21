@@ -7,6 +7,12 @@ class Todoman < Formula
   sha256 "8ccd602da8b0870dab8273dd50631847b2b9ad7e902a8ec5bfe901e0ea6c72a2"
   head "https://github.com/pimutils/todoman.git"
 
+  bottle do
+    sha256 "ec3463832a2f0e4fa1c78e091afd614a9d41f33e78e1eb387a9f15e15be3c1a2" => :sierra
+    sha256 "113aac5ad15ce47a8efe72010a301ddcf39ef328a2c0d456c1d0f03e57cab063" => :el_capitan
+    sha256 "e261c28da74f32c76b6bd7266653cae904f665f46c7620447c0a8b32a066568e" => :yosemite
+  end
+
   depends_on :python3
 
   resource "atomicwrites" do
