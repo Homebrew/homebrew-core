@@ -3,6 +3,7 @@ class Pulseaudio < Formula
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
   url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-10.0.tar.xz"
   sha256 "a3186824de9f0d2095ded5d0d0db0405dc73133983c2fbb37291547e37462f57"
+  revision 1
 
   bottle do
     sha256 "9e3418834949d52b47ce9dcf65c65cc9b5f5c662072f7ecbbc5b3e5dce6ecbb2" => :sierra
@@ -21,6 +22,8 @@ class Pulseaudio < Formula
 
   option "with-nls", "Build with native language support"
 
+  deprecated_option "without-speex" => "without-speexdsp"
+
   depends_on "pkg-config" => :build
 
   if build.with? "nls"
@@ -34,8 +37,7 @@ class Pulseaudio < Formula
   depends_on "libsoxr"
   depends_on "openssl"
   depends_on "dbus" => :recommended
-  depends_on "speex" => :recommended
-  depends_on "speexdsp" if build.with? "speex"
+  depends_on "speexdsp" => :recommended
   depends_on "glib" => :optional
   depends_on "gconf" => :optional
   depends_on "gtk+3" => :optional
