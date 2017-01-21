@@ -98,7 +98,8 @@ class Sbcl < Formula
 
       (lib/"sbcl/sbclrc").write <<-EOS.undent
         (setf (logical-pathname-translations "SYS")
-          '(("SYS:SRC;**;*.*.*" #p"#{pkgshare}/src/**/*.*")))
+          '(("SYS:SRC;**;*.*.*" #p"#{pkgshare}/src/**/*.*")
+            ("SYS:CONTRIB;**;*.*.*" #p"#{pkgshare}/contrib/**/*.*")))
         EOS
     end
   end
