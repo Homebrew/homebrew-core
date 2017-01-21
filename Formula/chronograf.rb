@@ -5,7 +5,7 @@ class Chronograf < Formula
   homepage "https://www.influxdata.com/time-series-platform/chronograf/"
   url "https://github.com/influxdata/chronograf.git",
       :tag => "1.1.0-beta6",
-      :revision => "a5f76192aa90af4fa5815ea055fa93eeadb97a00"
+      :revision => "16108f0321ee126fda5ed2a384b005e65054393e"
 
   head "https://github.com/influxdata/chronograf.git"
 
