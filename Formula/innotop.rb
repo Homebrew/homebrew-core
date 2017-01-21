@@ -7,9 +7,9 @@ class Innotop < Formula
 
   bottle do
     cellar :any
-    sha256 "dfd9d2ec112cb5d350a4de0e5627cc87d35b87a7eecc60b7552ee3f103573dd8" => :sierra
-    sha256 "9780c71d0f7a0d693fc22f289246bc5ff870108377fe1808c15fa6c091900f53" => :el_capitan
-    sha256 "430675ff15b6d1ddd680234dbf1697d22cfe1de853ea216fd394297cf98ca2c3" => :yosemite
+    sha256 "d1bf5e48162b71e8f19dca2d31f19140e5c4cc54f524c528cf0aa05b458626de" => :sierra
+    sha256 "c9f84dbe941f5d6dcf9f0e4a8b2ef560b8565f21c431f039d445efe755c41a74" => :el_capitan
+    sha256 "0c91367118f50ef4e624e31837418dd07d09bf24f8cc91a6f143538a61a56b95" => :yosemite
   end
 
   depends_on :mysql
