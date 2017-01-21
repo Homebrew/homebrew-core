@@ -1,8 +1,8 @@
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "http://wiki.qemu.org"
-  url "http://wiki.qemu-project.org/download/qemu-2.7.0.tar.bz2"
-  sha256 "326e739506ba690daf69fc17bd3913a6c313d9928d743bd8eddb82f403f81e53"
+  url "http://wiki.qemu-project.org/download/qemu-2.8.0.tar.bz2"
+  sha256 "dafd5d7f649907b6b617b822692f4c82e60cf29bc0fc58bc2036219b591e5e62"
 
   head "git://git.qemu-project.org/qemu.git"
 
@@ -41,6 +41,14 @@ class Qemu < Formula
 
   def install
     ENV["LIBTOOL"] = "glibtool"
+
+    # Fixes "dyld: lazy symbol binding failed: Symbol not found: _clock_gettime"
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace %w[hw/i386/kvm/i8254.c include/qemu/timer.h linux-user/strace.c
+                   roms/skiboot/external/pflash/progress.c
+                   roms/u-boot/arch/sandbox/cpu/os.c ui/spice-display.c
+                   util/qemu-timer-common.c], "CLOCK_MONOTONIC", "NOT_A_SYMBOL"
+    end
 
     args = %W[
       --prefix=#{prefix}
