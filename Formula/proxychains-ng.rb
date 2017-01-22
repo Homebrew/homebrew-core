@@ -3,6 +3,7 @@ class ProxychainsNg < Formula
   homepage "https://sourceforge.net/projects/proxychains-ng/"
   url "https://github.com/rofl0r/proxychains-ng/releases/download/v4.12/proxychains-ng-4.12.tar.xz"
   sha256 "482a549935060417b629f32ddadd14f9c04df8249d9588f7f78a3303e3d03a4e"
+  revision 1
 
   head "https://github.com/rofl0r/proxychains-ng.git"
 
@@ -15,7 +16,7 @@ class ProxychainsNg < Formula
   option :universal
 
   def install
-    args = ["--prefix=#{prefix}", "--sysconfdir=#{prefix}/etc"]
+    args = ["--prefix=#{prefix}", "--sysconfdir=#{etc}"]
     if build.universal?
       ENV.universal_binary
       args << "--fat-binary"
