@@ -25,6 +25,7 @@ class Mpd < Formula
   option "with-yajl", "Build with yajl support (for playing from soundcloud)"
   option "with-opus", "Build with opus support (for Opus encoding and decoding)"
   option "with-libmodplug", "Build with modplug support (for decoding modules supported by MODPlug)"
+  option "with-pulseaudio", "Build with PulseAudio support (for sending audio output to a PulseAudio sound server)"
 
   deprecated_option "with-vorbis" => "with-libvorbis"
 
@@ -58,6 +59,7 @@ class Mpd < Formula
   depends_on "libnfs" => :optional
   depends_on "mad" => :optional
   depends_on "libmodplug" => :optional  # MODPlug decoder
+  depends_on "pulseaudio" => :optional
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -89,6 +91,7 @@ class Mpd < Formula
     args << "--enable-vorbis-encoder" if build.with? "libvorbis"
     args << "--enable-nfs" if build.with? "libnfs"
     args << "--enable-modplug" if build.with? "libmodplug"
+    args << "--enable-pulse" if build.with? "pulseaudio"
 
     system "./configure", *args
     system "make"
