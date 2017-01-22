@@ -45,9 +45,6 @@ class Carrot2 < Formula
     begin
       pid = fork { exec testpath/"bin/carrot2" }
       sleep 10
-      puts "---"
-      puts File.read(testpath/"libexec/logs/c2-dcs-root-full.log")
-      puts "---"
       output = shell_output("curl -s -F dcs.c2stream=@#{libexec}/examples/shared/data-mining.xml http://localhost:8080/dcs/rest")
       assert_match /data mining/m, output
     ensure
