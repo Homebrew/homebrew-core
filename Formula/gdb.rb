@@ -14,10 +14,9 @@ end
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftpmirror.gnu.org/gdb/gdb-7.12.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gdb/gdb-7.12.tar.xz"
-  sha256 "834ff3c5948b30718343ea57b11cbc3235d7995c6a4f3a5cecec8c8114164f94"
-  revision 1
+  url "https://ftpmirror.gnu.org/gdb/gdb-7.12.1.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gdb/gdb-7.12.1.tar.xz"
+  sha256 "4607680b973d3ec92c30ad029f1b7dbde3876869e6b3a117d8a7e90081113186"
 
   bottle do
     sha256 "cddcc8e78bbff0cabe56a2d2a57ce9045defcb3ec28d17871d014171fc582465" => :sierra
