@@ -15,7 +15,8 @@ class Chronograf < Formula
 
   go_resource "github.com/jteeuwen/go-bindata" do
     url "https://github.com/jteeuwen/go-bindata.git",
-        :revision => "16108f0321ee126fda5ed2a384b005e65054393e"
+        :tag => "v3.0.5",
+        :revision => "1c1928d3b62dc79f5b35c32ae372a5fe69e9b4f1"
   end
 
   def install
