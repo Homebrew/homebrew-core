@@ -8,9 +8,9 @@ class ProxychainsNg < Formula
   head "https://github.com/rofl0r/proxychains-ng.git"
 
   bottle do
-    sha256 "d6765a74122bf1c4eee6c6fba574914d5d7ea3bc8a8213190559ca3a3710b036" => :sierra
-    sha256 "d415e8d865c78168528c02b0ec1a903c0bd980a245273ad39c0e548f03301cb9" => :el_capitan
-    sha256 "ee754ccf623b29e7d14ba2bd6697175ff3e1337e8637c463caab4a6a18e3d32f" => :yosemite
+    sha256 "5e6fec4ad1150223a3c97d353b22085632dd634181ff85f7c125f49b74975710" => :sierra
+    sha256 "ac61e782f334b00180f7b0008e4c5da35ee9f5632821a806c99af7b144938916" => :el_capitan
+    sha256 "2298ad9f27411a1da59bd925bf9cf49ae5579d368acbaebf1c29103e84684a09" => :yosemite
   end
 
   option :universal
