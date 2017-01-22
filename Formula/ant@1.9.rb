@@ -5,12 +5,10 @@ class AntAT19 < Formula
   version "1.9"
   sha256 "6edeaab09fc0bb1eeeb6b6be9c0e463813b073c40189f760e70c85fa288d5125"
 
-  keg_only :provided_by_osx if MacOS.version < :mavericks
+  keg_only "Older version of formula"
 
   option "with-ivy", "Install ivy dependency manager"
   option "with-bcel", "Install Byte Code Engineering Library"
-
-  conflicts_with "ant", :because => "Different versions of same formula"
 
   resource "ivy" do
     url "https://www.apache.org/dyn/closer.cgi?path=ant/ivy/2.4.0/apache-ivy-2.4.0-bin.tar.gz"
