@@ -1,8 +1,8 @@
 class OpusTools < Formula
   desc "Utilities to encode, inspect, and decode .opus files"
   homepage "https://www.opus-codec.org"
-  url "http://downloads.xiph.org/releases/opus/opus-tools-0.1.9.tar.gz"
-  sha256 "b1873dd78c7fbc98cf65d6e10cfddb5c2c03b3af93f922139a2104baedb4643a"
+  url "http://downloads.xiph.org/releases/opus/opus-tools-0.1.10.tar.gz"
+  sha256 "a2357532d19471b70666e0e0ec17d514246d8b3cb2eb168f68bb0f6fd372b28c"
 
   bottle do
     cellar :any
