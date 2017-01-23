@@ -8,10 +8,9 @@ class Sops < Formula
   head "https://github.com/mozilla/sops.git"
 
   bottle do
-    cellar :any
-    sha256 "95038acdf38ef6bf5f0b9a2f909f342687901c35bfabd71419b70c02cf295251" => :sierra
-    sha256 "0f74494ae92478cec3ce6ebf6a7b88fa8245a7a924adec75f657ddd8000135e3" => :el_capitan
-    sha256 "e19f9bdd0588f733b3fdbaaa4470e675acb0b03c476337ae49e138cd94908525" => :yosemite
+    sha256 "3bba826e5df2d67210c94b0e411afec3ee5786e95a55b6e2a2637f9677e28a01" => :sierra
+    sha256 "ce276dd1fd34cf5addceab033810852287b20f6644a36d58e1b17dc32fbfe90f" => :el_capitan
+    sha256 "0a6e44204f38a8597111f91827d1144d1d3dbb94828464eb00f47569d5292570" => :yosemite
   end
 
   depends_on "go" => :build
