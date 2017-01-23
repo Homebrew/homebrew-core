@@ -1,9 +1,9 @@
 class Gcal < Formula
   desc "Program for calculating and printing calendars"
   homepage "https://www.gnu.org/software/gcal/"
-  url "https://ftpmirror.gnu.org/gcal/gcal-4.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gcal/gcal-4.tar.xz"
-  sha256 "59c5c876b12ec70649d90e2ce76afbe2f4ed93503d49ec39e5c575b3aef8ff6e"
+  url "https://ftpmirror.gnu.org/gcal/gcal-4.1.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gcal/gcal-4.1.tar.xz"
+  sha256 "91b56c40b93eee9bda27ec63e95a6316d848e3ee047b5880ed71e5e8e60f61ab"
 
   bottle do
     cellar :any_skip_relocation
