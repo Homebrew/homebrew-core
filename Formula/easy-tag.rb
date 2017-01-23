@@ -4,6 +4,12 @@ class EasyTag < Formula
   url "https://download.gnome.org//sources/easytag/2.4/easytag-2.4.3.tar.xz"
   sha256 "fc51ee92a705e3c5979dff1655f7496effb68b98f1ada0547e8cbbc033b67dd5"
 
+  bottle do
+    sha256 "d20f399c5972fa22c9d7cd4e932fa0ee06aed3d47bdfc1a8e8f113182db844d2" => :sierra
+    sha256 "d69715f30682f6444a8c4846cb240de0d73d8c8c554ab9bebf2d8fdbed562a97" => :el_capitan
+    sha256 "341ef4c5ac80879f7d187e977e63dd446382bbcd0b210d4100f6794261486ea2" => :yosemite
+  end
+
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
