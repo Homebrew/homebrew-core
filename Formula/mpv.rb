@@ -22,7 +22,8 @@ class Mpv < Formula
 
   depends_on "jpeg" => :recommended
   depends_on "little-cms2" => :recommended
-  depends_on "lua" => :recommended
+  depends_on "lua" => :recommended if build.without? "lua51"
+  depends_on "lua51" => :optional
   depends_on "youtube-dl" => :recommended
 
   depends_on "jack" => :optional
