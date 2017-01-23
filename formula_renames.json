@@ -18,6 +18,7 @@
   "cv": "progress",
   "cyassl": "wolfssl",
   "d-bus": "dbus",
+  "eigen32": "eigen@3.2",
   "elasticsearch17": "elasticsearch@1.7",
   "elasticsearch24": "elasticsearch@2.4",
   "fig": "docker-compose",
