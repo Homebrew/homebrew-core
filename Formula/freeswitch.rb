@@ -2,11 +2,9 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   url "https://freeswitch.org/stash/scm/fs/freeswitch.git",
-      :tag => "v1.6.13",
-      :revision => "e755b430da70bd63eebf1dfddacdce48ce863fce"
-
+      :tag => "v1.6.14",
+      :revision => "e460bf85396a57a36b47752cb5997dd60ed373ef"
   head "https://freeswitch.org/stash/scm/fs/freeswitch.git"
-  revision 1
 
   bottle do
     sha256 "a90138dea60a1f7b799aca559e35e25634b3993317ed0340183633d6d018cd2c" => :sierra
@@ -28,7 +26,6 @@ class Freeswitch < Formula
 
   depends_on "curl"
   depends_on "jpeg"
-  depends_on "ldns"
   depends_on "openssl"
   depends_on "pcre"
   depends_on "sqlite"
@@ -147,6 +144,10 @@ class Freeswitch < Formula
   #------------------------ End sound file resources --------------------------
 
   def install
+    # avoid a dependency on ldns to prevent OpenSSL version conflicts
+    inreplace "build/modules.conf.in", "applications/mod_enum",
+                                       "#applications/mod_enum"
+
     system "./bootstrap.sh", "-j"
 
     # tiff will fail to find OpenGL unless told not to use X
