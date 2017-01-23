@@ -3,9 +3,8 @@ class Collectd < Formula
   homepage "https://collectd.org/"
 
   stable do
-    url "https://collectd.org/files/collectd-5.7.0.tar.bz2"
-    mirror "https://storage.googleapis.com/collectd-tarballs/collectd-5.7.0.tar.bz2"
-    sha256 "25a05fbdc6baad571554342bbac6141928bf95a47fc60ee3b32e46d0c89ef2b2"
+    url "https://collectd.org/files/collectd-5.7.1.tar.bz2"
+    sha256 "7edd3643c0842215553b2421d5456f4e9a8a58b07e216b40a7e8e91026d8e501"
   end
 
   bottle do
