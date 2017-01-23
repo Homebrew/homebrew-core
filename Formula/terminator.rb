@@ -11,6 +11,13 @@ class Terminator < Formula
     # Should be fixed in next release after 0.98
     patch :DATA
   end
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "2f845d41df3d9744731766bba04e1982fe100acce7b5c590b2025a269aba5d51" => :sierra
+    sha256 "d2abd2e81a52ee85f484aff67d8752e85e175fd08b8a2b017c6b74673c4d0450" => :el_capitan
+    sha256 "2f845d41df3d9744731766bba04e1982fe100acce7b5c590b2025a269aba5d51" => :yosemite
+  end
+
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
