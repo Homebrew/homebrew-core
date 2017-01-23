@@ -1,8 +1,8 @@
 class Mcabber < Formula
   desc "Console Jabber client"
   homepage "https://mcabber.com/"
-  url "https://lilotux.net/~mikael/mcabber/files/mcabber-1.0.1.tar.bz2"
-  sha256 "579a45a2bc944455012ca9b308f7f3454efabbe0c36c6723af761aa1f3092d93"
+  url "https://mcabber.com/files/mcabber-1.0.4.tar.bz2"
+  sha256 "63b6bc003fcceba4dc4b273ed1c71643c4f8d95e8696543d53f64a7672b1ce0a"
 
   bottle do
     rebuild 1
@@ -50,14 +50,18 @@ class Mcabber < Formula
     system "./configure", *args
     system "make", "install"
 
-    (share+"mcabber").install %w[mcabberrc.example contrib]
+    pkgshare.install %w[mcabberrc.example contrib]
   end
 
   def caveats; <<-EOS.undent
     A configuration file is necessary to start mcabber.  The template is here:
-      #{share}/mcabber/mcabberrc.example
+      #{pkgshare}/mcabber/mcabberrc.example
     And there is a Getting Started Guide you will need to setup Mcabber:
       http://wiki.mcabber.com/index.php/Getting_started
     EOS
+  end
+
+  test do
+    system "#{bin}/mcabber", "-V"
   end
 end
