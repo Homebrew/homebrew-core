@@ -4,6 +4,13 @@ class EigenAT32 < Formula
   url "https://bitbucket.org/eigen/eigen/get/3.2.10.tar.bz2"
   sha256 "760e6656426fde71cc48586c971390816f456d30f0b5d7d4ad5274d8d2cb0a6d"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "1fa99674fedbf0196533ecd21b010a2f3cb20b16098657247497c113031d4ddd" => :sierra
+    sha256 "a578cb372df5b7a4b33f4c39abfbb4a1ed2862248b08cfb69e58d77a069ec109" => :el_capitan
+    sha256 "1fa99674fedbf0196533ecd21b010a2f3cb20b16098657247497c113031d4ddd" => :yosemite
+  end
+
   keg_only "Older version of eigen"
 
   depends_on "cmake" => :build
