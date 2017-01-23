@@ -8,10 +8,9 @@ class Tundra < Formula
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
-#    bin.install "tundra2"
   end
 
   test do
-    system "#{bin}/tundra -h"
+    system "#{bin}/tundra2 -h"
   end
 end
