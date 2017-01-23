@@ -1,8 +1,8 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "http://groonga.org/"
-  url "http://packages.groonga.org/source/groonga/groonga-6.1.4.tar.gz"
-  sha256 "ce2f72b3e620f2449463d183f92681203448eea4d4644f387e926dcc909eb229"
+  url "http://packages.groonga.org/source/groonga/groonga-6.1.5.tar.gz"
+  sha256 "bd404dca8860b4bb7af72d77020c95b32926f8976fecfe3ae2b9f8792e26105e"
 
   bottle do
     sha256 "c9855ce342156a2efb87be43257555a8778a49d8f99e35721109634680ee8d02" => :sierra
