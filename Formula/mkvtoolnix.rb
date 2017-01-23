@@ -1,9 +1,8 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
-  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-9.7.1.tar.xz"
-  sha256 "b2b8821e2d74df0f765c97f93ddd1dbfb062f3c22b969cfa04d1bb5cb638a88e"
-  revision 1
+  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-9.8.0.tar.xz"
+  sha256 "494b2fb9ff83a858d8849baecdd3320456717923bb7a854d31a02a49640228db"
 
   bottle do
     sha256 "eaf0723da2bfec402459ba60a0db878bfd21f1bf41899b55afe5c0dc4ee5dc7f" => :sierra
@@ -79,8 +78,8 @@ class Mkvtoolnix < Formula
 
     system "./configure", *args
 
-    system "./drake", "-j#{ENV.make_jobs}"
-    system "./drake", "install"
+    system "rake", "-j#{ENV.make_jobs}"
+    system "rake", "install"
   end
 
   test do
