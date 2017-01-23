@@ -1,8 +1,8 @@
 class Neofetch < Formula
   desc "fast, highly customisable system info script"
   homepage "https://github.com/dylanaraps/neofetch"
-  url "https://github.com/dylanaraps/neofetch/archive/2.0.2.tar.gz"
-  sha256 "25a174ed41720d7645240cce4ca24f6228097a0daae3afd42563bfcf01584bc9"
+  url "https://github.com/dylanaraps/neofetch/archive/3.0.tar.gz"
+  sha256 "b5d3319474ff432c874dd39d38800ac8eb31da0b8e481b871ff4792f07fb67c4"
   head "https://github.com/dylanaraps/neofetch.git"
 
   bottle do
@@ -13,18 +13,12 @@ class Neofetch < Formula
     sha256 "d71c70e67a1d0085b3c41f0e0ef996de97f7ed53eed754a942da7ab888ea3591" => :yosemite
   end
 
-  patch do
-    # Fixes image display in iTerm2
-    # Will be removed in the next released version
-    url "https://github.com/dylanaraps/neofetch/commit/926dea972b82d1b81e5501e63c8d4395ee274b84.patch"
-    sha256 "d0132c00c50111de60cc31b07c2dcf07aaba8ce378e1553e3322dce159198155"
-  end
-
   depends_on "screenresolution" => :recommended
   depends_on "imagemagick" => :recommended
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    inreplace "Makefile", "$(DESTDIR)/etc", "$(DESTDIR)$(SYSCONFDIR)"
+    system "make", "install", "PREFIX=#{prefix}", "SYSCONFDIR=#{etc}"
   end
 
   test do
