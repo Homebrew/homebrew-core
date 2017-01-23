@@ -7,11 +7,9 @@ class Gcal < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "ec62a4a5840e34f059baa4c7644a3ca23466ba7823ba60426cf804e1e016d318" => :sierra
-    sha256 "fbe42347ddde707d847d215350a19d2a0356e54614b289cde17b8ecb7f8156c4" => :el_capitan
-    sha256 "dab7e957c76dd7ff92202fcc25da0f78fd35639edaa9a3cb84442a97d2a9a3a8" => :yosemite
-    sha256 "5bbba3a4824c1d11dcea9dc80912333e904c84e6e2b18f5d0abe6377eb5c0c27" => :mavericks
+    sha256 "f120585bc8538eb1ab7c71ec240b150472cbf7b42e7fc6a3f008c15104d81e7c" => :sierra
+    sha256 "c94d7232ff507f387fad5ba5fb0d09b1548e695cf7e1da284846a5ee828f2d03" => :el_capitan
+    sha256 "b50b10e57eea6d6fa84c35769401b0da3bde02bade28e137bc1263d492c60c3f" => :yosemite
   end
 
   def install
