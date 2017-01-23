@@ -49,11 +49,6 @@ class Git < Formula
     ENV["PYTHON_PATH"] = which "python"
     ENV["PERL_PATH"] = which "perl"
 
-    # Support Tcl versions before "lime" color name was introduced
-    # https://github.com/Homebrew/homebrew-core/issues/115
-    # https://www.mail-archive.com/git%40vger.kernel.org/msg92017.html
-    inreplace "gitk-git/gitk", "lime", '"#99FF00"'
-
     perl_version = /\d\.\d+/.match(`perl --version`)
 
     if build.with? "brewed-svn"
