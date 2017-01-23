@@ -7,6 +7,12 @@ class Gobby < Formula
 
   head "git://git.0x539.de/git/gobby.git"
 
+  bottle do
+    sha256 "78045e763ef4add614e757f3c22b4bdd6266930550b80850ac3967955eb0a24e" => :sierra
+    sha256 "21e2f4df3800d200209ab46be26e30a29579a93395cb2e8b385c23d41906f12e" => :el_capitan
+    sha256 "dfb1e48d8d013fa4f969d2617b816d02bc019fe396d3d789634a146374faf10f" => :yosemite
+  end
+
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "gtkmm3"
