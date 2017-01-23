@@ -1,23 +1,24 @@
 class Terminator < Formula
   desc "Multiple terminals in one window"
   homepage "http://gnometerminator.blogspot.com/p/introduction.html"
-  url "https://launchpad.net/terminator/trunk/0.98/+download/terminator-0.98.tar.gz"
-  sha256 "0a6d8c9ffe36d67e60968fbf2752c521e5d498ceda42ef171ad3e966c02f26c1"
   head "lp:terminator", :using => :bzr
 
   stable do
+    url "https://launchpad.net/terminator/trunk/0.98/+download/terminator-0.98.tar.gz"
+    sha256 "0a6d8c9ffe36d67e60968fbf2752c521e5d498ceda42ef171ad3e966c02f26c1"
+
     # Patch to fix cwd resolve issue for OS X / Darwin
     # See: https://bugs.launchpad.net/terminator/+bug/1261293
     # Should be fixed in next release after 0.98
     patch :DATA
   end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "2f845d41df3d9744731766bba04e1982fe100acce7b5c590b2025a269aba5d51" => :sierra
     sha256 "d2abd2e81a52ee85f484aff67d8752e85e175fd08b8a2b017c6b74673c4d0450" => :el_capitan
     sha256 "2f845d41df3d9744731766bba04e1982fe100acce7b5c590b2025a269aba5d51" => :yosemite
   end
-
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
