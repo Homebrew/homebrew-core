@@ -20,9 +20,11 @@ class Qemu < Formula
   depends_on "glib"
   depends_on "pixman"
   depends_on "vde" => :optional
-  depends_on "sdl" => :optional
+  depends_on "sdl2" => :optional
   depends_on "gtk+" => :optional
   depends_on "libssh2" => :optional
+
+  deprecated_option "with-sdl" => "with-sdl2"
 
   fails_with :gcc_4_0 do
     cause "qemu requires a compiler with support for the __thread specifier"
@@ -57,15 +59,15 @@ class Qemu < Formula
       --disable-guest-agent
     ]
 
-    # Cocoa and SDL/GTK+ UIs cannot both be enabled at once.
-    if build.with?("sdl") || build.with?("gtk+")
+    # Cocoa and SDL2/GTK+ UIs cannot both be enabled at once.
+    if build.with?("sdl2") || build.with?("gtk+")
       args << "--disable-cocoa"
     else
       args << "--enable-cocoa"
     end
 
     args << (build.with?("vde") ? "--enable-vde" : "--disable-vde")
-    args << (build.with?("sdl") ? "--enable-sdl" : "--disable-sdl")
+    args << (build.with?("sdl2") ? "--enable-sdl" : "--disable-sdl")
     args << (build.with?("gtk+") ? "--enable-gtk" : "--disable-gtk")
     args << (build.with?("libssh2") ? "--enable-libssh2" : "--disable-libssh2")
 
