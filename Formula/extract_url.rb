@@ -1,8 +1,8 @@
 class ExtractUrl < Formula
   desc "Perl script to extracts URLs from emails or plain text."
   homepage "http://www.memoryhole.net/~kyle/extract_url/"
-  url "https://github.com/m3m0ryh0l3/extracturl/archive/v1.6.1.tar.gz"
-  sha256 "6ce3a977477cce6c7c8355500db4ef660d5b22118df6534d3ab022124c62a393"
+  url "https://github.com/m3m0ryh0l3/extracturl/archive/v1.6.2.tar.gz"
+  sha256 "5f0b568d5c9449f477527b4077d8269f1f5e6d6531dfa5eb6ca72dbacab6f336"
 
   bottle do
     cellar :any_skip_relocation
@@ -49,15 +49,6 @@ class ExtractUrl < Formula
   resource "Curses::UI" do
     url "https://cpan.metacpan.org/authors/id/M/MD/MDXI/Curses-UI-0.9609.tar.gz"
     sha256 "0ab827a513b6e14403184fb065a8ea1d2ebda122d2178cbf45c781f311240eaf"
-  end
-
-  # Remove for > 1.6.1
-  # Fix test failure "Can't locate sys/ioctl.ph in @INC (did you run h2ph?)"
-  # Upstream commit from 19 Jan 2017 "ioctl.ph is not often installed; do a
-  # better job of loading modules for term size detection"
-  patch do
-    url "https://github.com/m3m0ryh0l3/extracturl/commit/fad68f2.patch"
-    sha256 "cccd76d73afd9e5fbb98a9685dba27c15311671de3cf4388829f43f230b13698"
   end
 
   def install
