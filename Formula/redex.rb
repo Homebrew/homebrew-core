@@ -6,6 +6,13 @@ class Redex < Formula
 
   head "https://github.com/facebook/redex.git"
 
+  bottle do
+    cellar :any
+    sha256 "11f80b6cc9ea4967d23972c66bc115a11b9fae6e0420f78c8744215979efc7cb" => :sierra
+    sha256 "c069b63acba15031c739a73a62637dd7ee7a56d341d6b46de06e35dd9971ba36" => :el_capitan
+    sha256 "fac8aa70fd659224fa932d2b469596b68351623333f70704c4d3e9f1b7dcf2df" => :yosemite
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libevent" => :build
