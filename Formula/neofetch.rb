@@ -12,6 +12,12 @@ class Neofetch < Formula
     sha256 "bb072d134f876ab2a8d37713673b9099d33f5b5b7ec5276b42d51edb6da72a35" => :yosemite
   end
 
+  patch do
+    # Fixes config file detection now that neofetch stores the config in /usr/local/etc
+    url "https://github.com/dylanaraps/neofetch/commit/0fed289d58bb5f0675ebed37f5bb71b11ad54b9e.patch"
+    sha256 "39dd55b268b515f22521e0dd2f1a31edd0b869cabf4c515142399906d9fa2d6d"
+  end
+
   depends_on "screenresolution" => :recommended
   depends_on "imagemagick" => :recommended
 
