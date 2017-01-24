@@ -3,11 +3,10 @@
 class Qt5 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.7/5.7.1/single/qt-everywhere-opensource-src-5.7.1.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.7/5.7.1/single/qt-everywhere-opensource-src-5.7.1.tar.xz"
-  sha256 "46ebca977deb629c5e69c2545bc5fe13f7e40012e5e2e451695c583bd33502fa"
-  revision 1
-  head "https://code.qt.io/qt/qt5.git", :branch => "5.7", :shallow => false
+  url "https://download.qt.io/official_releases/qt/5.8/5.8.0/single/qt-everywhere-opensource-src-5.8.0.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.8/5.8.0/single/qt-everywhere-opensource-src-5.8.0.tar.xz"
+  sha256 "0f4c54386d3dbac0606a936a7145cebb7b94b0ca2d29bc001ea49642984824b6"
+  head "https://code.qt.io/qt/qt5.git", :branch => "5.8", :shallow => false
 
   bottle do
     sha256 "39a5a2502c781730dfd6ca1add299c051af7dadc3fee07e94a7d57ed52d4c024" => :sierra
@@ -21,24 +20,20 @@ class Qt5 < Formula
   option "with-examples", "Build examples"
   option "with-qtwebkit", "Build with QtWebkit module"
 
-  deprecated_option "qtdbus" => "with-dbus"
-  deprecated_option "with-d-bus" => "with-dbus"
-
   # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
   # configuration and thus untested in practice. Builds on OS X 10.7 have been
   # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
   depends_on :macos => :mountain_lion
 
-  depends_on "dbus" => :optional
-  depends_on :mysql => :optional
   depends_on "pkg-config" => :build
-  depends_on :postgresql => :optional
   depends_on :xcode => :build
+  depends_on :mysql => :optional
+  depends_on :postgresql => :optional
 
   # http://lists.qt-project.org/pipermail/development/2016-March/025358.html
   resource "qt-webkit" do
-    url "https://download.qt.io/community_releases/5.7/5.7.1/qtwebkit-opensource-src-5.7.1.tar.xz"
-    sha256 "a46cf7c89339645f94a5777e8ae5baccf75c5fc87ab52c9dafc25da3327b5f03"
+    url "https://download.qt.io/community_releases/5.8/5.8.0-final/qtwebkit-opensource-src-5.8.0.tar.xz"
+    sha256 "79ae8660086bf92ffb0008b17566270e6477c8fa0daf9bb3ac29404fb5911bec"
   end
 
   # Restore `.pc` files for framework-based build of Qt 5 on OS X. This
@@ -68,27 +63,26 @@ class Qt5 < Formula
       -nomake tests
       -no-rpath
       -pkg-config
+      -dbus-runtime
     ]
 
     args << "-nomake" << "examples" if build.without? "examples"
 
     if build.with? "mysql"
       args << "-plugin-sql-mysql"
-      inreplace "qtbase/configure", /(QT_LFLAGS_MYSQL_R|QT_LFLAGS_MYSQL)=\`(.*)\`/, "\\1=\`\\2 | sed \"s/-lssl -lcrypto//\"\`"
+      (buildpath/"brew_shim/mysql_config").write <<-EOS.undent
+        #!/bin/sh
+        if [ x"$1" = x"--libs" ]; then
+          mysql_config --libs | sed "s/-lssl -lcrypto//"
+        else
+          exec mysql_config "$@"
+        fi
+      EOS
+      chmod 0755, "brew_shim/mysql_config"
+      args << "-mysql_config" << buildpath/"brew_shim/mysql_config"
     end
 
     args << "-plugin-sql-psql" if build.with? "postgresql"
-
-    if build.with? "dbus"
-      dbus_opt = Formula["dbus"].opt_prefix
-      args << "-I#{dbus_opt}/lib/dbus-1.0/include"
-      args << "-I#{dbus_opt}/include/dbus-1.0"
-      args << "-L#{dbus_opt}/lib"
-      args << "-ldbus-1"
-      args << "-dbus-linked"
-    else
-      args << "-no-dbus"
-    end
 
     if build.with? "qtwebkit"
       (buildpath/"qtwebkit").install resource("qt-webkit")
@@ -114,12 +108,6 @@ class Qt5 < Formula
     Pathname.glob("#{lib}/*.framework/Headers") do |path|
       include.install_symlink path => path.parent.basename(".framework")
     end
-
-    # configure saved PKG_CONFIG_LIBDIR set up by superenv; remove it
-    # see: https://github.com/Homebrew/homebrew/issues/27184
-    inreplace prefix/"mkspecs/qconfig.pri",
-              /\n# pkgconfig\n(PKG_CONFIG_(SYSROOT_DIR|LIBDIR) = .*\n){2}\n/,
-              "\n"
 
     # Move `*.app` bundles into `libexec` to expose them to `brew linkapps` and
     # because we don't like having them in `bin`. Also add a `-qt5` suffix to
