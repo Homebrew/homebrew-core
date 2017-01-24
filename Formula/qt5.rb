@@ -121,6 +121,13 @@ class Qt5 < Formula
               /\n# pkgconfig\n(PKG_CONFIG_(SYSROOT_DIR|LIBDIR) = .*\n){2}\n/,
               "\n"
 
+    # Make `HOMEBREW_PREFIX/lib/qt5/plugins` an additional plug-in search path
+    # for Qt Designer to support formulae that provide Qt Designer plug-ins.
+    system "/usr/libexec/PlistBuddy",
+           "-c", "Add :LSEnvironment:QT_PLUGIN_PATH string \"#{HOMEBREW_PREFIX}/lib/qt5/plugins\"",
+           "#{bin}/Designer.app/Contents/Info.plist"
+    touch "#{bin}/Designer.app" # re-register edited bundle with Launch Services
+
     # Move `*.app` bundles into `libexec` to expose them to `brew linkapps` and
     # because we don't like having them in `bin`. Also add a `-qt5` suffix to
     # avoid conflict with the `*.app` bundles provided by the `qt` formula.
