@@ -8,16 +8,9 @@ class Wine < Formula
   head "git://source.winehq.org/git/wine.git"
 
   stable do
-    url "https://dl.winehq.org/wine/source/1.8/wine-1.8.6.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.8.6.tar.bz2"
-    sha256 "b1797896eb3b63aab8a4753cc756d6211a0e85460146a1b52063ec79c13906d3"
-
-    # Patch to fix screen-flickering issues. Still relevant on 1.8. Broken on 1.9.10.
-    # https://bugs.winehq.org/show_bug.cgi?id=34166
-    patch do
-      url "https://bugs.winehq.org/attachment.cgi?id=52485"
-      sha256 "59f1831a1b49c1b7a4c6e6af7e3f89f0bc60bec0bead645a615b251d37d232ac"
-    end
+    url "https://dl.winehq.org/wine/source/2.0/wine-2.0.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.0.tar.bz2"
+    sha256 "9756f5a2129b6a83ba701e546173cbff86caa671b0af73eb8f72c03b20c066c6"
   end
 
   bottle do
@@ -57,11 +50,18 @@ class Wine < Formula
   depends_on "gnutls"
   depends_on "libgsm" => :optional
 
-  # Patch to fix texture compression issues. Still relevant on 1.8.
+  # Patch to fix texture compression issues. Still relevant on 2.0.
   # https://bugs.winehq.org/show_bug.cgi?id=14939
   patch do
     url "https://bugs.winehq.org/attachment.cgi?id=52384"
     sha256 "30766403f5064a115f61de8cacba1defddffe2dd898b59557956400470adc699"
+  end
+
+  # Patch to fix screen-flickering issues. Still relevant on 2.0.
+  # https://bugs.winehq.org/show_bug.cgi?id=34166
+  patch do
+    url "https://bugs.winehq.org/attachment.cgi?id=55968"
+    sha256 "1b5086798ce6dc959b3cbb8f343ee236ae06c7910e4bbae7d9fde3f162f03a79"
   end
 
   resource "gecko" do
