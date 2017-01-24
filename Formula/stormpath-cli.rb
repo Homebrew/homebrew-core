@@ -1,10 +1,10 @@
 class StormpathCli < Formula
   include Language::Python::Virtualenv
 
-  desc "The official Stormpath command line client."
+  desc "The official Stormpath command-line client."
   homepage "https://github.com/stormpath/stormpath-cli"
-  url "https://github.com/stormpath/stormpath-cli/archive/0.1.2.tar.gz"
-  sha256 "8e66da2c8891b029317e6e8cbd8b6413318af8582249137bfed597d9b215e795"
+  url "https://github.com/stormpath/stormpath-cli/archive/0.1.3.tar.gz"
+  sha256 "e6ec75f781bc85ed7648c9df60c40d863f4cc2b091a90db6e63b36549fd25dba"
   head "https://github.com/stormpath/stormpath-cli.git"
 
   bottle do
