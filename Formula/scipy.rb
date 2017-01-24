@@ -5,6 +5,12 @@ class Scipy < Formula
   sha256 "406d4e2dec5e46ad9f2ab08620174d064d3b5aab987591d1acd77eda846bd95e"
   head "https://github.com/scipy/scipy.git"
 
+  bottle do
+    sha256 "07ce1e43b9985be7728cd5e381bbcf4cd523d3fabbb309385ef14020874b8d2e" => :sierra
+    sha256 "21a66c03485a690bd4768099aedfe8b3830a7806d82f7f82c5b0e242a7bb8d36" => :el_capitan
+    sha256 "821b54bc33725fdb46970ef2cba2d7fc68492fe930078d2ba1b5d3303af7ba8f" => :yosemite
+  end
+
   option "without-python", "Build without python2 support"
 
   depends_on "swig" => :build
