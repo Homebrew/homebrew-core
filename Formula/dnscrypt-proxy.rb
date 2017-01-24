@@ -20,7 +20,7 @@ class DnscryptProxy < Formula
   depends_on "pkg-config" => :build
   depends_on "libtool" => :run
   depends_on "libsodium"
-  depends_on "minisign" => :recommended
+  depends_on "minisign" => :recommended if MacOS.version >= :el_capitan
   depends_on "ldns" => :recommended
 
   def install
