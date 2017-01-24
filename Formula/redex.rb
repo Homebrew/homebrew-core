@@ -14,6 +14,11 @@ class Redex < Formula
   depends_on "python3"
   depends_on "jsoncpp"
 
+  resource "test_apk" do
+    url "https://raw.githubusercontent.com/facebook/redex/master/test/instr/redex-test.apk"
+    sha256 "7851cf2a15230ea6ff076639c2273bc4ca4c3d81917d2e13c05edcc4d537cc04"
+  end
+
   def install
     system "autoreconf", "-ivf"
     system "./configure", "--prefix=#{prefix}"
@@ -22,6 +27,8 @@ class Redex < Formula
   end
 
   test do
-    system "#{bin}/redex", "-h"
+    resource("test_apk").stage do
+      system "#{bin}/redex", "redex-test.apk", "-o", "redex-test-out.apk"
+    end
   end
 end
