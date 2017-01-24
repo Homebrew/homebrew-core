@@ -86,6 +86,8 @@ class LlvmAT38 < Formula
 
   patch :DATA
 
+  option "with-all-targets", "Build all targets. Default: AMDGPU, ARM, NVPTX, and X86"
+
   depends_on "gnu-sed" => :build
   depends_on "gmp"
   depends_on "libffi"
@@ -127,9 +129,9 @@ class LlvmAT38 < Formula
       --disable-bindings
       --with-gmp=#{Formula["gmp"].opt_prefix}
       --enable-shared
-      --enable-targets=host
       --enable-libffi
     ]
+    args << "--enable-targets=#{build.with?("all-targets") ? "all" : "amdgpu,arm,nvptx,x86"}"
 
     mktemp do
       system buildpath/"configure", *args
