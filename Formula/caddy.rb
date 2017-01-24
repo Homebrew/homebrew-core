@@ -3,8 +3,8 @@ require "language/go"
 class Caddy < Formula
   desc "Alternative general-purpose HTTP/2 web server"
   homepage "https://caddyserver.com/"
-  url "https://github.com/mholt/caddy/archive/v0.9.4.tar.gz"
-  sha256 "6f272b29347842ee4166f0e58531b1082ef7f51b3df138c3a20f1c11088004bb"
+  url "https://github.com/mholt/caddy/archive/v0.9.5.tar.gz"
+  sha256 "6d602e6009ff14cfe7cccea470f9c4cb5ea10865f137293435b35122333b72c2"
   head "https://github.com/mholt/caddy.git"
 
   bottle do
@@ -22,7 +22,7 @@ class Caddy < Formula
 
   go_resource "github.com/dustin/go-humanize" do
     url "https://github.com/dustin/go-humanize.git",
-        :revision => "ef638b6c2e62b857442c6443dace9366a48c0ee2"
+        :revision => "7a41df006ff9af79a29f0ffa9c5f21fbe6314a2d"
   end
 
   go_resource "github.com/flynn/go-shlex" do
@@ -32,7 +32,7 @@ class Caddy < Formula
 
   go_resource "github.com/gorilla/websocket" do
     url "https://github.com/gorilla/websocket.git",
-        :revision => "3ab3a8b8831546bd18fd182c20687ca853b2bb13"
+        :revision => "0674c7c7968d9fac5f0f678325161ec31df406af"
   end
 
   go_resource "github.com/hashicorp/go-syslog" do
@@ -62,7 +62,7 @@ class Caddy < Formula
 
   go_resource "github.com/lucas-clemente/quic-go" do
     url "https://github.com/lucas-clemente/quic-go.git",
-        :revision => "294cef3354c0625e9a1af8917300deea9f534e57"
+        :revision => "86e02c4d2c459b70073cd5c39468e8a5a22db45a"
   end
 
   go_resource "github.com/lucas-clemente/quic-go-certificates" do
@@ -72,12 +72,12 @@ class Caddy < Formula
 
   go_resource "github.com/mholt/archiver" do
     url "https://github.com/mholt/archiver.git",
-        :revision => "3db696109532489aed9b8e71d01666f95f05fa05"
+        :revision => "24d540239654d76e79c8f4e3d5bd56d90712becb"
   end
 
   go_resource "github.com/miekg/dns" do
     url "https://github.com/miekg/dns.git",
-        :revision => "4f8d08ab3c3f260afc934e9baf564bede5795458"
+        :revision => "ca336a1f95a6b89be9c250df26c7a41742eb4a6f"
   end
 
   go_resource "github.com/naoina/go-stringutil" do
@@ -92,7 +92,7 @@ class Caddy < Formula
 
   go_resource "github.com/nwaples/rardecode" do
     url "https://github.com/nwaples/rardecode.git",
-        :revision => "f94841372ddc36be531a5c3e1206238e32e93d74"
+        :revision => "f22b7ef81a0afac9ce1447d37e5ab8e99fbd2f73"
   end
 
   go_resource "github.com/russross/blackfriday" do
@@ -112,17 +112,17 @@ class Caddy < Formula
 
   go_resource "github.com/xenolf/lego" do
     url "https://github.com/xenolf/lego.git",
-        :revision => "e9c307849235a093040b62f2f295accadb3b470f"
+        :revision => "f5d538caab6dc0c167d4e32990c79bbf9eff578c"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "f5719d24587163700c5f7fa625ef3e05d9b372e7"
+        :revision => "41d678d1df78cd0410143162dff954e6dc09300f"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "9313baa13d9262e49d07b20ed57dceafcd7240cc"
+        :revision => "f2499483f923065a842d38eb4c7f1927e6fc6e6d"
   end
 
   go_resource "gopkg.in/natefinch/lumberjack.v2" do
