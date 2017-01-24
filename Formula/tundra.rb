@@ -11,6 +11,6 @@ class Tundra < Formula
   end
 
   test do
-    system "#{bin}/tundra2",  "-h"
+    system "#{bin}/tundra2", "-h"
   end
 end
