@@ -6,10 +6,9 @@ class Telegraf < Formula
   head "https://github.com/influxdata/telegraf.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f4807dd7a138d9bd8556d76806e88753b44e60a17378c7c6b621d8475fcd0fb2" => :sierra
-    sha256 "9cb44ab510045b20ce9e548647bc06fa85a0b3bd12b32611cb908e879f86b870" => :el_capitan
-    sha256 "958ca0c16cdfe1ddaa27d3ec8d19560e798e6d87ee8f8984f03578d670a8613e" => :yosemite
+    sha256 "2beb4b969faff604aad705179c0815868afee13355343b8501b5420a97b189d5" => :sierra
+    sha256 "63cf88925b48888246949db95fc1718f2cbb998499c444760832b04b0b1e7421" => :el_capitan
+    sha256 "ecacbd792a7a085799d8882546e3b8027c4b354c15441779a83d394a6f9a9d6b" => :yosemite
   end
 
   depends_on "gdm" => :build
