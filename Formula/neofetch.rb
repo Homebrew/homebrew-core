@@ -7,9 +7,10 @@ class Neofetch < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bb072d134f876ab2a8d37713673b9099d33f5b5b7ec5276b42d51edb6da72a35" => :sierra
-    sha256 "efb18f551826ff73ead2537b13cf94bfbbbdf680fab6dae58da75f22584528f5" => :el_capitan
-    sha256 "bb072d134f876ab2a8d37713673b9099d33f5b5b7ec5276b42d51edb6da72a35" => :yosemite
+    rebuild 1
+    sha256 "d76acad31a6c94dc33602133fda65a1968b8403b5a42cb2cff96927137008b9d" => :sierra
+    sha256 "d76acad31a6c94dc33602133fda65a1968b8403b5a42cb2cff96927137008b9d" => :el_capitan
+    sha256 "d76acad31a6c94dc33602133fda65a1968b8403b5a42cb2cff96927137008b9d" => :yosemite
   end
 
   # Fixes config file detection now that neofetch stores the config in /usr/local/etc
