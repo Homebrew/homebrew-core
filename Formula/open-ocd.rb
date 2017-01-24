@@ -42,13 +42,6 @@ class OpenOcd < Formula
       --enable-remote-bitbang
     ]
 
-    if build.with? "libftdi"
-      args << "--enable-usb_blaster_libftdi"
-      args << "--enable-presto_libftdi"
-      args << "--enable-openjtag_ftdi"
-      args << "--enable-legacy-ft2232_libftdi"
-    end
-
     ENV["CCACHE"] = "none"
 
     system "./bootstrap", "nosubmodule" if build.head?
