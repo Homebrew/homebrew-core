@@ -13,6 +13,15 @@ class Sourcery < Formula
   end
 
   test do
-    system "#{bin}/sourcery", "--version"
+    assert_match version.to_s, shell_output("#{bin}/sourcery --version").chomp
+    (testpath/"Test.swift").write "enum One { }\nenum Two { }"
+    (testpath/"Test.stencil").write "// Found {{ types.all.count }} Types\n// {% for type in types.all %}{{ type.name }}, {% endfor %}"
+    system "#{bin}/sourcery", testpath/"Test.swift", testpath/"Test.stencil", testpath/"Generated.swift"
+    assert_equal "// Generated using Sourcery 0.5.3 — https://github.com/krzysztofzablocki/Sourcery
+// DO NOT EDIT
+
+
+// Found 2 Types
+// One, Two, ", (testpath/"Generated.swift").read.strip, "sourcery generation failed"
   end
 end
