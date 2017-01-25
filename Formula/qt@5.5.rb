@@ -6,6 +6,7 @@ class QtAT55 < Formula
   url "https://download.qt.io/archive/qt/5.5/5.5.1/single/qt-everywhere-opensource-src-5.5.1.tar.xz"
   mirror "https://www.mirrorservice.org/sites/download.qt-project.org/archive/qt/5.5/5.5.1/single/qt-everywhere-opensource-src-5.5.1.tar.xz"
   sha256 "6f028e63d4992be2b4a5526f2ef3bfa2fe28c5c757554b11d9e8d86189652518"
+  revision 1
 
   # Build error: Fix library detection for QtWebEngine with Xcode 7.
   # https://codereview.qt-project.org/#/c/1w27759/
@@ -114,6 +115,16 @@ class QtAT55 < Formula
     # see: https://github.com/Homebrew/homebrew/issues/27184
     inreplace prefix/"mkspecs/qconfig.pri", /\n\n# pkgconfig/, ""
     inreplace prefix/"mkspecs/qconfig.pri", /\nPKG_CONFIG_.*=.*$/, ""
+
+    # Qt tries to find xcrun using xcrun, which fails with Xcode 8 with the
+    # error "Project ERROR: Xcode not set up properly. You may need to confirm
+    # the license agreement by running /usr/bin/xcodebuild."
+    # See https://github.com/Homebrew/homebrew-core/issues/8777.
+    # Fixed upstream 7 Jul 2016 in http://code.qt.io/cgit/qt/qtbase.git/patch/configure?id=77a71c32c9d19b87f79b208929e71282e8d8b5d9.
+    if MacOS::Xcode.version >= "8.0"
+      inreplace prefix/"mkspecs/features/mac/default_pre.prf",
+                /xcrun -find xcrun/, "xcrun -find xcodebuild"
+    end
 
     # Move `*.app` bundles into `libexec` to expose them to `brew linkapps` and
     # because we don't like having them in `bin`. Also add a `-qt5` suffix to
