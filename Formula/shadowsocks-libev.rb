@@ -1,9 +1,8 @@
 class ShadowsocksLibev < Formula
   desc "Libev port of shadowsocks"
   homepage "https://github.com/shadowsocks/shadowsocks-libev"
-  url "https://github.com/shadowsocks/shadowsocks-libev/archive/v2.6.2.tar.gz"
-  sha256 "1fa5b70177f7c125cd10b46d590274c22b4bded26bf3d2372ab73829dc4b7c97"
-  head "https://github.com/shadowsocks/shadowsocks-libev.git"
+  url "https://github.com/shadowsocks/shadowsocks-libev/releases/download/v2.6.3/shadowsocks-libev-2.6.3.tar.gz"
+  sha256 "9d435c41f017860b9015af2397181eeb1ad6b729e538fb8a8ddeb099c74b4726"
 
   bottle do
     cellar :any
@@ -14,8 +13,11 @@ class ShadowsocksLibev < Formula
 
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
+  depends_on "libev"
+  depends_on "libsodium"
   depends_on "openssl"
   depends_on "pcre"
+  depends_on "udns"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
