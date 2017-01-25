@@ -8,7 +8,7 @@ class Sourcery < Formula
 
   def install
     ENV.delete("CC")
-    system "swift build -c release"
+    system "xcrun -sdk macosx swift build -c release"
     bin.install ".build/release/sourcery"
     lib.install Dir[".build/release/*.dylib"]
   end
