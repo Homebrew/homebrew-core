@@ -115,6 +115,9 @@ class QtAT55 < Formula
     inreplace prefix/"mkspecs/qconfig.pri", /\n\n# pkgconfig/, ""
     inreplace prefix/"mkspecs/qconfig.pri", /\nPKG_CONFIG_.*=.*$/, ""
 
+    # see: https://github.com/Homebrew/homebrew-core/issues/8777
+    inreplace prefix/"mkspecs/features/mac/default_pre.prf", Regexp.escape('isEmpty($$list($$system("/usr/bin/xcrun -find xcrun 2>/dev/null")))'), 'isEmpty($$list($$system("/usr/bin/xcrun -find xcodebuild 2>/dev/null")))'
+
     # Move `*.app` bundles into `libexec` to expose them to `brew linkapps` and
     # because we don't like having them in `bin`. Also add a `-qt5` suffix to
     # avoid conflict with the `*.app` bundles provided by the `qt` formula.
