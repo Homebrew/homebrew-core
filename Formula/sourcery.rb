@@ -9,7 +9,7 @@ class Sourcery < Formula
   def install
     ENV.delete("CC")
     ENV["SDKROOT"] = MacOS.sdk_path
-    system "swift build -c release"
+    system "swift", "build", "-c", "release"
     bin.install ".build/release/sourcery"
     lib.install Dir[".build/release/*.dylib"]
   end
@@ -24,26 +24,26 @@ class Sourcery < Formula
 
     # Re-enable these tests when the issue has been closed
     #
-    #(testpath/"Test.swift").write <<-TEST_SWIFT
-    #enum One { }
-    #enum Two { }
-    #TEST_SWIFT
+    # (testpath/"Test.swift").write <<-TEST_SWIFT
+    # enum One { }
+    # enum Two { }
+    # TEST_SWIFT
+    #
+    # (testpath/"Test.stencil").write <<-TEST_STENCIL
+    # // Found {{ types.all.count }} Types
+    # // {% for type in types.all %}{{ type.name }}, {% endfor %}
+    # TEST_STENCIL
 
-    #(testpath/"Test.stencil").write <<-TEST_STENCIL
-    #// Found {{ types.all.count }} Types
-    #// {% for type in types.all %}{{ type.name }}, {% endfor %}
-    #TEST_STENCIL
+    # system "#{bin}/sourcery", testpath/"Test.swift", testpath/"Test.stencil", testpath/"Generated.swift"
 
-    #system "#{bin}/sourcery", testpath/"Test.swift", testpath/"Test.stencil", testpath/"Generated.swift"
-
-    #expected = <<-GENERATED_SWIFT
-    #// Generated using Sourcery 0.5.3 — https://github.com/krzysztofzablocki/Sourcery
-    #// DO NOT EDIT
+    # expected = <<-GENERATED_SWIFT
+    # // Generated using Sourcery 0.5.3 - https://github.com/krzysztofzablocki/Sourcery
+    # // DO NOT EDIT
     #
     #
-    #// Found 2 Types
-    #// One, Two,
-    #GENERATED_SWIFT
-    #assert_match expected, (testpath/"Generated.swift").read, "sourcery generation failed"
+    # // Found 2 Types
+    # // One, Two,
+    # GENERATED_SWIFT
+    # assert_match expected, (testpath/"Generated.swift").read, "sourcery generation failed"
   end
 end
