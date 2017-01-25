@@ -1,8 +1,8 @@
 class Pdfgrep < Formula
   desc "Search PDFs for strings matching a regular expression"
   homepage "https://pdfgrep.org/"
-  url "https://pdfgrep.org/download/pdfgrep-1.4.1.tar.gz"
-  sha256 "db04a210e6bb7b77cd6c54b17f0f6fed0d123a85f97a541b270736a5d3840f2c"
+  url "https://pdfgrep.org/download/pdfgrep-2.0.tar.gz"
+  sha256 "2636da1f3157722640170f4469b574835b1c834c71237a4c3ca00197e31a89b4"
 
   bottle do
     cellar :any
@@ -21,6 +21,7 @@ class Pdfgrep < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libgcrypt"
   depends_on "poppler"
   depends_on "pcre" => :optional
 
