@@ -20,8 +20,6 @@ class Webp < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
-
   depends_on "libpng"
   depends_on "jpeg" => :recommended
   depends_on "libtiff" => :optional
@@ -30,7 +28,6 @@ class Webp < Formula
   def install
     system "./autogen.sh" if build.head?
 
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-gl",
                           "--enable-libwebpmux",
