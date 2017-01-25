@@ -53,19 +53,19 @@ class KubeAws < Formula
   end
 
   test do
-  system "#{bin}/kube-aws"
-  cluster = { "clusterName" => "test-cluster", "externalDNSName" => "dns",
-              "keyName" => "key", "region" => "west",
-              "availabilityZone" => "zone", "kmsKeyArn" => "arn" }
-  cluster["controller"] = nil unless build.stable?
-  system "#{bin}/kube-aws", "init", "--cluster-name", "test-cluster",
-         "--external-dns-name", "dns", "--region", "west",
-         "--availability-zone", "zone", "--key-name", "key",
-         "--kms-key-arn", "arn"
-  cluster_yaml = YAML.load_file("cluster.yaml")
-  assert_equal cluster, cluster_yaml
+    system "#{bin}/kube-aws"
+    cluster = { "clusterName" => "test-cluster", "externalDNSName" => "dns",
+                "keyName" => "key", "region" => "west",
+                "availabilityZone" => "zone", "kmsKeyArn" => "arn" }
+    cluster["controller"] = nil unless build.stable?
+    system "#{bin}/kube-aws", "init", "--cluster-name", "test-cluster",
+           "--external-dns-name", "dns", "--region", "west",
+           "--availability-zone", "zone", "--key-name", "key",
+           "--kms-key-arn", "arn"
+    cluster_yaml = YAML.load_file("cluster.yaml")
+    assert_equal cluster, cluster_yaml
 
-  installed_version = shell_output("#{bin}/kube-aws version 2>&1")
-  assert_match "kube-aws version #{version}", installed_version
+    installed_version = shell_output("#{bin}/kube-aws version 2>&1")
+    assert_match "kube-aws version #{version}", installed_version
   end
 end
