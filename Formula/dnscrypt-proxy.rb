@@ -7,9 +7,9 @@ class DnscryptProxy < Formula
   head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
-    sha256 "181a68875712338b03f0b900974cba5e458b51bea8889a50c6d19519d4bd3c75" => :sierra
-    sha256 "f90876292441fb13b976ebb329bc7e7d26f71c57674945a7dd538abc9a71e768" => :el_capitan
-    sha256 "8bf5ff9dd9ff91c03fb839869a1354d0fc95cb494a7526b5c1980fdff120fcb7" => :yosemite
+    sha256 "14de34e98b96ef029d98202ca0422ee9e35345bcea3881e0d990c6d193295506" => :sierra
+    sha256 "dd17ce5cf3bd581f94e42e12ecde0bf6f80510b5443452d5099b392be9b10b35" => :el_capitan
+    sha256 "7de091af5d6b8d2ebe22fba6be333ac6431bbeb0ab545747def1f8923e8a26d1" => :yosemite
   end
 
   option "with-plugins", "Support plugins and install example plugins."
