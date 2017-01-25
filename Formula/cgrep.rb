@@ -5,8 +5,8 @@ class Cgrep < Formula
 
   desc "Context-aware grep for source code"
   homepage "https://github.com/awgn/cgrep"
-  url "https://hackage.haskell.org/package/cgrep-6.6.16/cgrep-6.6.16.tar.gz"
-  sha256 "7161e331f409ee95abfab14f720ad300ce4c9bd37a9fae74de6643c0f30b134b"
+  url "https://github.com/awgn/cgrep/archive/v6.6.17.tar.gz"
+  sha256 "2508563701365d9b49c9a5610a4ff7ea3905b2d9cd77ac332f485322d93bcd07"
   head "https://github.com/awgn/cgrep.git"
 
   bottle do
