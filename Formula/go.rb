@@ -1,26 +1,18 @@
 class Go < Formula
   desc "The Go programming language"
   homepage "https://golang.org"
-  revision 2
 
   stable do
-    url "https://storage.googleapis.com/golang/go1.7.4.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.7.4.src.tar.gz"
-    version "1.7.4"
-    sha256 "4c189111e9ba651a2bb3ee868aa881fab36b2f2da3409e80885ca758a6b614cc"
+    url "https://storage.googleapis.com/golang/go1.7.5.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.7.5.src.tar.gz"
+    version "1.7.5"
+    sha256 "4e834513a2079f8cbbd357502cccaac9507fd00a1efe672375798858ff291815"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
           :branch => "release-branch.go#{go_version}",
-          :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
-    end
-
-    # Upstream commit from 14 Dec 2016 "crypto/x509: speed up and deflake
-    # non-cgo Darwin root cert discovery"
-    patch do
-      url "https://github.com/golang/go/commit/3357daa.patch"
-      sha256 "c3945cacd5a208cf0bbd6125c77665ef1829035ae09133f3fd50e1022e0f2032"
+          :revision => "6220cba6419b2bf78aad19d85c347ecc0fda2b53"
     end
   end
 
