@@ -8,10 +8,9 @@ class KubeAws < Formula
   head "https://github.com/coreos/kube-aws.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e435ef5fa8b83a63334fcadb5d432eabf85fac6e055926ddb8848f27fc3da7d5" => :sierra
-    sha256 "79af2b3afdb2adaeb0538aa702bd7bff555b0c4b55140bfd3cc7440bca0a36f2" => :el_capitan
-    sha256 "6c5d8d12c01d94918ef68bf4d487aa1b6f577bed3aa64145cd58192fdb8aa948" => :yosemite
+    sha256 "7b073c55de427c7f981b5e2c432400bebe73d5003d5886cf3dfdbdaadfde2827" => :sierra
+    sha256 "029348d0ff9248e56e38aaf51b51502e265785c81b42efb553d5ab94032f77eb" => :el_capitan
+    sha256 "262c04907593bbdfd04739d21740da4b34c4409c2294e376080965c0ac8e578d" => :yosemite
   end
 
   devel do
