@@ -1,21 +1,16 @@
 class Gssh < Formula
   desc "SSH automation tool based on Groovy DSL"
   homepage "https://github.com/int128/groovy-ssh"
-  url "https://github.com/int128/groovy-ssh/releases/download/2.7.0/gssh.jar"
-  sha256 "32646321b01e42b40f339a9d7647ea4cadcf9a26f827944144f0baf99e85f00d"
-  head "https://github.com/int128/groovy-ssh.git"
+  url "https://github.com/int128/groovy-ssh/archive/2.7.2.tar.gz"
+  sha256 "3eeab71c16dd721fbb8196007319bd6e10eda1e56a2a132bb88dbf1d71b58e4b"
 
-  bottle :unneeded
-
-  depends_on :java => "1.6+"
+  depends_on :java => "1.7+"
 
   def install
-    if build.head?
-      system "./gradlew", "shadowJar"
-      libexec.install "build/libs/gssh.jar"
-    else
-      libexec.install "gssh.jar"
-    end
+    ENV.java_cache
+    ENV["CIRCLE_TAG"] = version
+    system "./gradlew", "shadowJar"
+    libexec.install "cli/build/libs/gssh.jar"
     bin.write_jar_script libexec/"gssh.jar", "gssh"
   end
 
