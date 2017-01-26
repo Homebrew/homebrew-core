@@ -1,8 +1,8 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "http://bulletphysics.org/wordpress/"
-  url "https://github.com/bulletphysics/bullet3/archive/2.85.1.tar.gz"
-  sha256 "6e157c0b50373bc0e860de27f06397827bb28a4205bc568ae79d76a0f919ed62"
+  url "https://github.com/bulletphysics/bullet3/archive/2.86.tar.gz"
+  sha256 "e6e8b755280ce2c1a8218529eae5dd78e184f7036854229cea611374ad5a671f"
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
@@ -12,16 +12,15 @@ class Bullet < Formula
     sha256 "2f3b941f70527d96caab211f1f05dd1448b9efa4072f0ed576deb1113497075b" => :yosemite
   end
 
-  deprecated_option "framework" => "with-framework"
-  deprecated_option "shared" => "with-shared"
-  deprecated_option "build-demo" => "with-demo"
-  deprecated_option "double-precision" => "with-double-precision"
-
-  option :universal
   option "with-framework", "Build frameworks"
   option "with-shared", "Build shared libraries"
   option "with-demo", "Build demo applications"
   option "with-double-precision", "Use double precision"
+
+  deprecated_option "framework" => "with-framework"
+  deprecated_option "shared" => "with-shared"
+  deprecated_option "build-demo" => "with-demo"
+  deprecated_option "double-precision" => "with-double-precision"
 
   depends_on "cmake" => :build
 
@@ -35,11 +34,6 @@ class Bullet < Formula
     else
       args << "-DBUILD_SHARED_LIBS=ON" if build.with? "shared"
       args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
-    end
-
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
     end
 
     args << "-DUSE_DOUBLE_PRECISION=ON" if build.with? "double-precision"
