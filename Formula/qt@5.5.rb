@@ -6,6 +6,7 @@ class QtAT55 < Formula
   url "https://download.qt.io/archive/qt/5.5/5.5.1/single/qt-everywhere-opensource-src-5.5.1.tar.xz"
   mirror "https://www.mirrorservice.org/sites/download.qt-project.org/archive/qt/5.5/5.5.1/single/qt-everywhere-opensource-src-5.5.1.tar.xz"
   sha256 "6f028e63d4992be2b4a5526f2ef3bfa2fe28c5c757554b11d9e8d86189652518"
+  revision 1
 
   # Build error: Fix library detection for QtWebEngine with Xcode 7.
   # https://codereview.qt-project.org/#/c/1w27759/
