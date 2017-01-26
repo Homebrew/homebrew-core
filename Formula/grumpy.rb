@@ -3,23 +3,29 @@ class Grumpy < Formula
   homepage "https://github.com/google/grumpy"
   head "https://github.com/google/grumpy.git"
 
-  depends_on "go" => :build
+  depends_on "go"
 
   def install
     system "make"
     system "make", "DESTDIR=#{prefix}", "install"
-    system "mkdir", "-p", "#{bin}"
-    system "cp", "#{prefix}/usr/bin/grumpc", "#{bin}"
-    system "cp", "#{prefix}/usr/bin/grumprun", "#{bin}"
-    system "echo", "Do 'brew test grumpy' to see sample usage"
-    system "echo", "NOTE:  Before using grumpc and/or grumprun, you MUST:"
-    system "echo", "export GOPATH=#{prefix}/usr/lib/go"
-    system "echo", "export PYTHONPATH=#{prefix}/Library/Python/2.7/site-packages"
+    bin.install "#{prefix}/usr/bin/grumpc"
+    bin.install "#{prefix}/usr/bin/grumprun"
+  end
+
+  def caveats
+    <<-EOS.undent
+      NOTE:  Before using grumpc and/or grumprun, you MUST:
+      export GOPATH="#{prefix}/usr/lib/go"
+      export PYTHONPATH="#{prefix}/Library/Python/2.7/site-packages"
+
+      Then you can test out grumpy with:
+      echo "print 'hello, grumpy world'" | grumprun
+    EOS
   end
 
   test do
-    system "GOPATH=#{prefix}/usr/lib/go"
-    system "PYTHONPATH=#{prefix}/Library/Python/2.7/site-packages"
+    ENV["GOPATH"] = #{prefix}/usr/lib/go
+    ENV["PYTHONPATH"] = #{prefix}/Library/Python/2.7/site-packages
     system "echo", "\"print 'hello, grumpy world'\"", "\|", "grumprun"
   end
 end
