@@ -1,8 +1,8 @@
 class Libgetdata < Formula
   desc "Reference implementation of the Dirfile Standards"
   homepage "http://getdata.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/getdata/getdata/0.9.4/getdata-0.9.4.tar.xz"
-  sha256 "4a26598f6051cf9a5f8c68fd2440584769265533a89e03690eceecae91a2334e"
+  url "https://downloads.sourceforge.net/project/getdata/getdata/0.10.0/getdata-0.10.0.tar.xz"
+  sha256 "d547a022f435b9262dcf06dc37ebd41232e2229ded81ef4d4f5b3dbfc558aba3"
 
   bottle do
     cellar :any
@@ -20,6 +20,7 @@ class Libgetdata < Formula
   deprecated_option "lzma" => "with-xz"
   deprecated_option "zzip" => "with-libzzip"
 
+  depends_on "libtool" => :run
   depends_on :fortran => :optional
   depends_on :perl => ["5.3", :optional]
   depends_on "xz" => :optional
