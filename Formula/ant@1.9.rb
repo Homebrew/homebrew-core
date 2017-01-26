@@ -5,7 +5,7 @@ class AntAT19 < Formula
   version "1.9"
   sha256 "6edeaab09fc0bb1eeeb6b6be9c0e463813b073c40189f760e70c85fa288d5125"
 
-  keg_only "Older version of formula"
+  keg_only :versioned_formula
 
   option "with-ivy", "Install ivy dependency manager"
   option "with-bcel", "Install Byte Code Engineering Library"
