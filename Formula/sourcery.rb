@@ -4,6 +4,12 @@ class Sourcery < Formula
   url "https://github.com/krzysztofzablocki/Sourcery/archive/0.5.3.tar.gz"
   sha256 "ad34e2146e73ce81894ac1dd9130fb2fd12c8213789aef7c5cde9580f813c823"
 
+  bottle do
+    cellar :any
+    sha256 "b7d91c0f9d6684f8030bd51b92b8e7ad61cbdc913ffcce67885e27e21e563209" => :sierra
+    sha256 "f7f7e2284b8d76c88a71cba64c7b9be6c3482956890a381171baeda003a076dd" => :el_capitan
+  end
+
   depends_on :xcode => ["8.0", :build]
 
   def install
