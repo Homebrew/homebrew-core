@@ -53,6 +53,8 @@ class Privoxy < Formula
       </array>
       <key>RunAtLoad</key>
       <true/>
+      <key>StandardErrorPath</key>
+      <string>#{var}/log/privoxy/logfile</string>
     </dict>
     </plist>
     EOS
