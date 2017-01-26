@@ -7,9 +7,9 @@ class Godep < Formula
   head "https://github.com/tools/godep.git"
 
   bottle do
-    sha256 "1b111f2663dc031b407b3e8f917b853a6dca16b36b1edf9e6c69d78abecb7e09" => :sierra
-    sha256 "069578a238f23a2685ef03f97051eaaa540f42a9e48755eaecb5e280a2333fac" => :el_capitan
-    sha256 "10e423c520c7f00d58f93f7a414f7dd847b1b5021a4df1f24d2f385a691caa29" => :yosemite
+    sha256 "e35d1482f7faaf7596399722e24c76aab257da08ff2c4831473d643941461ef9" => :sierra
+    sha256 "6ffc281d817db545aed8affe48d720bb7d816e424668d36f891d1131f617befa" => :el_capitan
+    sha256 "d18c5626444a94e5633b748f430f62567221be886e87924d726aaf8d9fe90931" => :yosemite
   end
 
   depends_on "go"
