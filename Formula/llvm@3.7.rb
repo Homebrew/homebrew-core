@@ -108,7 +108,7 @@ class LlvmAT37 < Formula
       --disable-bindings
       --with-gmp=#{Formula["gmp"].opt_prefix}
       --enable-shared
-      --enable-targets=host
+      --enable-targets=all
       --enable-libffi
     ]
 
