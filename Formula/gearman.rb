@@ -3,6 +3,7 @@ class Gearman < Formula
   homepage "http://gearman.org/"
   url "https://github.com/gearman/gearmand/releases/download/1.1.14/gearmand-1.1.14.tar.gz"
   sha256 "6e01b72cdf386149f689cccd934e79c55851549845f0128683a726ffb3200cd0"
+  revision 1
 
   bottle do
     sha256 "33da528d8425788f8ef1ffa6644dbec84c4f8a4f90ba37275ff810e8bb1ea6d6" => :sierra
