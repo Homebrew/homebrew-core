@@ -5,6 +5,12 @@ class Rdesktop < Formula
   mirror "https://mirrors.kernel.org/debian/pool/main/r/rdesktop/rdesktop_1.8.3.orig.tar.gz"
   sha256 "88b20156b34eff5f1b453f7c724e0a3ff9370a599e69c01dc2bf0b5e650eece4"
 
+  bottle do
+    sha256 "2a09f53bccef981e542de0c2a3066ccb6e438fe0c11341281cb2803ce09f7bb8" => :sierra
+    sha256 "46b1a3070669d5f0e2f1e70e387ae4a3c7d956a0991378138ab5de39e6be3b9e" => :el_capitan
+    sha256 "923ab34a5daaab70f97aa23c8cebc91cba3a776584d35444eadf123050471d5f" => :yosemite
+  end
+
   option "with-smartcard", "Build with Smart Card Support"
 
   depends_on "openssl"
