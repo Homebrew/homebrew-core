@@ -22,8 +22,4 @@ class Mscgen < Formula
                           "--disable-dependency-tracking"
     system "make", "install"
   end
-
-  test do
-    system "#{bin}/mscgen", "--version"
-  end
 end
