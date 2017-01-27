@@ -5,6 +5,12 @@ class I3 < Formula
   sha256 "94c13183e527a984132a3b050c8bf629626502a6e133e07b413641aec5f8cf8a"
   head "https://github.com/i3/i3.git"
 
+  bottle do
+    sha256 "3d5076ab193c0a768508a2fc1d3d64f163a065409c02856efb373ad2b762b6ca" => :sierra
+    sha256 "f3e957e4d41877752572eaab1527f72e10800e33b359d49d101a5543c303a55b" => :el_capitan
+    sha256 "10a9482d01d9c681d9bf9ddabb0ee437d29ba9c5b215b9352acda20821bb329b" => :yosemite
+  end
+
   depends_on "asciidoc" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
