@@ -4,6 +4,13 @@ class TemporalTables < Formula
   url "https://github.com/arkhipov/temporal_tables/archive/v1.1.0.tar.gz"
   sha256 "1fe210a349d1418d097f229c36f30a1daef1ff17cf0f027685171c52e366308a"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "c1c8bb4c1530a912141c955643233d05051026c45c0b27deac021467472aa781" => :sierra
+    sha256 "e0441ab106f5c10ddb866773b19f9d345d9298a1fb3e9c4f246cee99739ec405" => :el_capitan
+    sha256 "701a78e5ca4cb85a0b0e2bef6ce5e18eb063a6b3fdf255aedd9070f8c09436c4" => :yosemite
+  end
+
   depends_on "postgresql"
 
   def install
