@@ -130,7 +130,6 @@ class Llvm < Formula
   option "with-python", "Build bindings against custom Python"
   option "with-shared-libs", "Build shared instead of static libraries"
   option "without-libffi", "Do not use libffi to call external functions"
-  option "with-all-targets", "Build all targets. Default targets: AMDGPU, ARM, NVPTX, and X86"
 
   depends_on "libffi" => :recommended # http://llvm.org/docs/GettingStarted.html#requirement
   depends_on "graphviz" => :optional # for the 'dot' tool (lldb)
@@ -215,8 +214,8 @@ class Llvm < Formula
       -DLLVM_INSTALL_UTILS=ON
       -DWITH_POLLY=ON
       -DLINK_POLLY_INTO_TOOLS=ON
+      -DLLVM_TARGETS_TO_BUILD=all
     ]
-    args << "-DLLVM_TARGETS_TO_BUILD=#{build.with?("all-targets") ? "all" : "AMDGPU;ARM;NVPTX;X86"}"
     args << "-DLIBOMP_ARCH=x86_64"
     args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if build.with? "compiler-rt"
     args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON" if build.with? "toolchain"
