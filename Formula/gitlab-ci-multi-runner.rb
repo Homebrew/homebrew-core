@@ -9,9 +9,10 @@ class GitlabCiMultiRunner < Formula
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
-    sha256 "4c5ff5fdcc4e8d6fc27a9cb166d6b599e6d32fa1e8439dc28729efcd094258eb" => :sierra
-    sha256 "977871f5b0619da30692633ded7adc08626a91602c1393bcb77a75a7d4501d56" => :el_capitan
-    sha256 "6fbe5e7d2568584cd4149c1abea695c1b73a98aef7b650558172100f4b9850e2" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "3f6a68c2cef347b680403cb16d93fa5e207caef6b9c29252f1ea14ac20bbf599" => :sierra
+    sha256 "2d40ed03aa87e623fafa111e3972cb71923009fd0f7eeff36de1e85683a406e9" => :el_capitan
+    sha256 "1ef3c3971bcb0dc531e9be1c635f5b7dd84804c1ecce1555fd1d97c2099e9fc9" => :yosemite
   end
 
   depends_on "go" => :build
