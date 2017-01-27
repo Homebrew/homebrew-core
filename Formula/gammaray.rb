@@ -3,6 +3,7 @@ class Gammaray < Formula
   homepage "https://www.kdab.com/kdab-products/gammaray/"
   url "https://github.com/KDAB/GammaRay/releases/download/v2.6.0/gammaray-2.6.0.tar.gz"
   sha256 "6fe8e0bf9f9a479b7edf7d15e6ed48ad3cca666e149bc26e8fea54c12ded9039"
+  revision 1
   head "https://github.com/KDAB/GammaRay.git"
 
   bottle do
@@ -17,11 +18,11 @@ class Gammaray < Formula
   needs :cxx11
 
   depends_on "cmake" => :build
-  depends_on "qt5"
+  depends_on "qt@5.7"
   depends_on "graphviz" => :recommended
 
   # VTK needs to have Qt support, and it needs to match GammaRay's
-  depends_on "homebrew/science/vtk" => [:optional, "with-qt5"]
+  depends_on "homebrew/science/vtk" => [:optional, "with-qt@5.7"]
 
   def install
     # For Mountain Lion
