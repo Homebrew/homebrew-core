@@ -22,8 +22,4 @@ class Xpa < Formula
     # relocate man, since --mandir is ignored
     mv "#{prefix}/man", man
   end
-
-  test do
-    system "#{bin}/xpa", "--version"
-  end
 end
