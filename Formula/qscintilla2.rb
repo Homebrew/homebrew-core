@@ -3,6 +3,7 @@ class Qscintilla2 < Formula
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
   url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.9.4/QScintilla_gpl-2.9.4.tar.gz"
   sha256 "8b3a23023e9f0573caed6f9cee86f898d87b768ee15b8c211a423783a4cfa4e6"
+  revision 1
 
   bottle do
     sha256 "6a3933d5fb2be839856352441cfc3a25db6cf2d15e26d7de7197ce5c980694e0" => :sierra
@@ -14,7 +15,7 @@ class Qscintilla2 < Formula
   option "with-python", "Build Python bindings"
   option "without-python3", "Do not build Python3 bindings"
 
-  depends_on "qt5"
+  depends_on "qt@5.7"
   depends_on :python3 => :recommended
   depends_on :python => :optional
 
