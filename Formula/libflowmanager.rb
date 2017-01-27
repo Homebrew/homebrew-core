@@ -3,6 +3,7 @@ class Libflowmanager < Formula
   homepage "http://research.wand.net.nz/software/libflowmanager.php"
   url "http://research.wand.net.nz/software/libflowmanager/libflowmanager-2.0.5.tar.gz"
   sha256 "00cae0a13ac0a486a6b8db2c98a909099fd22bd8e688571e2833cf3ee7ad457e"
+  revision 1
 
   bottle do
     cellar :any
