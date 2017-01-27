@@ -3,8 +3,9 @@
 class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
-  url "https://github.com/v8/v8-git-mirror/archive/5.1.281.47.tar.gz"
-  sha256 "63c9933227d6912689ea6bc012eea6a1fabaf526ac04bc245d9381e3ea238bf6"
+  url "https://chromium.googlesource.com/chromium/tools/depot_tools.git"
+  version "5.6.326"
+  head "https://chromium.googlesource.com/chromium/tools/depot_tools.git"
 
   bottle do
     cellar :any
@@ -14,100 +15,71 @@ class V8 < Formula
     sha256 "7bcd1bbd66c11305eeea0c36ca472de8a639f511abe0909c8815b1208dbce7b6" => :mavericks
   end
 
-  option "with-readline", "Use readline instead of libedit"
-
   # not building on Snow Leopard:
   # https://github.com/Homebrew/homebrew/issues/21426
   depends_on :macos => :lion
 
-  depends_on :python => :build # gyp doesn't run under 2.6 or lower
-  depends_on "readline" => :optional
-  depends_on "icu4c" => :optional
+  # depot_tools/GN require Python 2.7+
+  depends_on :python => :build
 
   needs :cxx11
 
-  # Update from "DEPS" file in tarball.
-  # Note that we don't require the "test" DEPS because we don't run the tests.
-  resource "gyp" do
-    url "https://chromium.googlesource.com/external/gyp.git",
-        :revision => "4ec6c4e3a94bd04a6da2858163d40b2429b8aad1"
-  end
-
-  resource "icu" do
-    url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        :revision => "c291cde264469b20ca969ce8832088acb21e0c48"
-  end
-
-  resource "buildtools" do
-    url "https://chromium.googlesource.com/chromium/buildtools.git",
-        :revision => "80b5126f91be4eb359248d28696746ef09d5be67"
-  end
-
-  resource "common" do
-    url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-        :revision => "c8c8665c2deaf1cc749d9f8e153256d4f67bf1b8"
-  end
-
-  resource "swarming_client" do
-    url "https://chromium.googlesource.com/external/swarming.client.git",
-        :revision => "df6e95e7669883c8fe9ef956c69a544154701a49"
-  end
-
-  resource "gtest" do
-    url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-        :revision => "6f8a66431cb592dad629028a50b3dd418a408c87"
-  end
-
-  resource "gmock" do
-    url "https://chromium.googlesource.com/external/googlemock.git",
-        :revision => "0421b6f358139f02e102c9c332ce19a33faf75be"
-  end
-
-  resource "clang" do
-    url "https://chromium.googlesource.com/chromium/src/tools/clang.git",
-        :revision => "faee82e064e04e5cbf60cc7327e7a81d2a4557ad"
-  end
-
   def install
-    # Bully GYP into correctly linking with c++11
-    ENV.cxx11
-    ENV["GYP_DEFINES"] = "clang=1 mac_deployment_target=#{MacOS.version}"
-    # https://code.google.com/p/v8/issues/detail?id=4511#c3
-    ENV.append "GYP_DEFINES", "v8_use_external_startup_data=0"
+    (buildpath/"depot_tools").install buildpath.children - [buildpath/".brew_home"]
+    ENV["DEPOT_TOOLS_UPDATE"] = "0"
+    ENV.prepend_path "PATH", buildpath/"depot_tools"
 
-    if build.with? "icu4c"
-      ENV.append "GYP_DEFINES", "use_system_icu=1"
-      i18nsupport = "i18nsupport=on"
-    else
-      i18nsupport = "i18nsupport=off"
+    system "gclient", "root"
+    system "gclient", "config", "--spec", <<-EOS.undent
+      solutions = [
+        {
+          "url": "https://chromium.googlesource.com/v8/v8.git",
+          "managed": False,
+          "name": "v8",
+          "deps_file": "DEPS",
+          "custom_deps": {},
+        },
+      ]
+      target_os = [ "mac" ]
+      target_os_only = True
+    EOS
+
+    cache_location = ENV["CACHE_DEPS"]
+    no_sync = ENV["NO_SYNC"]
+
+    if cache_location && File.directory?(cache_location)
+      cp_r cache_location, "v8"
     end
 
-    # fix up libv8.dylib install_name
-    # https://github.com/Homebrew/homebrew/issues/36571
-    # https://code.google.com/p/v8/issues/detail?id=3871
-    inreplace "tools/gyp/v8.gyp",
-              "'OTHER_LDFLAGS': ['-dynamiclib', '-all_load']",
-              "\\0, 'DYLIB_INSTALL_NAME_BASE': '#{opt_lib}'"
+    system "gclient", "sync", "-vvv", "-j #{Hardware::CPU.cores}", "-r", version unless no_sync
 
-    (buildpath/"build/gyp").install resource("gyp")
-    (buildpath/"third_party/icu").install resource("icu")
-    (buildpath/"buildtools").install resource("buildtools")
-    (buildpath/"base/trace_event/common").install resource("common")
-    (buildpath/"tools/swarming_client").install resource("swarming_client")
-    (buildpath/"testing/gtest").install resource("gtest")
-    (buildpath/"testing/gmock").install resource("gmock")
-    (buildpath/"tools/clang").install resource("clang")
+    if !no_sync
+      rm_rf cache_location
+      cp_r "v8", cache_location
+    end
 
-    system "make", "native", "library=shared", "snapshot=on",
-                   "console=readline", i18nsupport,
-                   "strictaliasing=off"
+    cd "v8" do
+      arch = MacOS.prefer_64_bit? ? "x64" : "x86"
+      output_name = "#{arch}.release"
+      output_path = "out.gn/#{output_name}"
 
-    include.install Dir["include/*"]
+      # Configure build
+      gn_args = {
+        :is_debug => false,
+        :is_component_build => true,
+        :v8_use_external_startup_data => false,
+      }
 
-    cd "out/native" do
-      rm ["libgmock.a", "libgtest.a"]
-      lib.install Dir["lib*"]
-      bin.install "d8", "mksnapshot", "process", "shell" => "v8"
+      gn = "gn gen #{output_path} --args=\"#{gn_args.map { |k, v| "#{k}=#{v}" }.join(" ")}\""
+      system gn
+      system "ninja", "-j #{Hardware::CPU.cores}", "-v", "-C", output_path, "d8"
+
+      include.install Dir["include/*"]
+
+      cd output_path do
+        lib.install Dir["lib*.dylib"]
+        bin.install "d8" => "v8"
+      end
     end
   end
 
