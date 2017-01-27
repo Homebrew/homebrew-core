@@ -33,8 +33,4 @@ class TigerVnc < Formula
     system "cmake", *args
     system "make", "install"
   end
-
-  test do
-    system "#{bin}/tigervnc", "--version"
-  end
 end
