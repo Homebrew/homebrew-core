@@ -5,6 +5,13 @@ class Dwm < Formula
   sha256 "c2f6c56167f0acdbe3dc37cca9c1a19260c040f2d4800e3529a21ad7cce275fe"
   head "http://git.suckless.org/dwm", :using => :git
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "ab241356f8f38fb9e1ff6bba2dfbb07b8b82a5be0eee7fe75ba128548034115a" => :sierra
+    sha256 "1f900b061eb8c36118c85c494aeb634da01d5dd7e3d6e58f9a1d8d5c53da2208" => :el_capitan
+    sha256 "0e8c7d9f991b3269569e0d990dbf9fc56e89f9a6274a1abd72d41248253afca8" => :yosemite
+  end
+
   depends_on :x11
   depends_on "dmenu" => :optional
 
