@@ -8,6 +8,12 @@ class Pgplot < Formula
   sha256 "a5799ff719a510d84d26df4ae7409ae61fe66477e3f1e8820422a9a4727a5be4"
   revision 1
 
+  bottle do
+    sha256 "ed65038009e3d1a2edd08545dc6aef7512656bc15324e8aa8f9a6f4207c4cb66" => :sierra
+    sha256 "c8195def30dd170cb7a6ccea573dd49dfd903ef2b417781704d5a8d39192ba46" => :el_capitan
+    sha256 "a77cce2000c3b0c3c09132ac771f7f973aaa9baa6c7c010c78423a3d4d176771" => :yosemite
+  end
+
   depends_on :x11
   depends_on :fortran
 
