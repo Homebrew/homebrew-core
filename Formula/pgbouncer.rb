@@ -3,6 +3,7 @@ class Pgbouncer < Formula
   homepage "https://wiki.postgresql.org/wiki/PgBouncer"
   url "https://pgbouncer.github.io/downloads/files/1.7.2/pgbouncer-1.7.2.tar.gz"
   sha256 "de36b318fe4a2f20a5f60d1c5ea62c1ca331f6813d2c484866ecb59265a160ba"
+  revision 1
 
   bottle do
     cellar :any
