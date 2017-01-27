@@ -37,8 +37,4 @@ class Xpdf < Formula
     system "make"
     system "make", "install"
   end
-
-  test do
-    system "#{bin}/xpdf", "--version"
-  end
 end
