@@ -5,6 +5,13 @@ class RobotFramework < Formula
   sha256 "354f539ef4b9f94f7faab7395aa60ff65f166f0609eba175ec9eb75eff8dfd9b"
   head "https://github.com/robotframework/robotframework.git"
 
+  bottle do
+    cellar :any
+    sha256 "e527771a3af95d98c24dd1dc11803f0d2041937a19d705b05db645f2973fb485" => :sierra
+    sha256 "f084650ea2c35144f347488855372b4962256f25e059c2eb8041a0c4abf260d3" => :el_capitan
+    sha256 "262dc0c59b6a21862c5f1efff6c724755b351dd173e5661e13f432578ddc435a" => :yosemite
+  end
+
   depends_on :x11
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "openssl"
