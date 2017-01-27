@@ -3,6 +3,7 @@ class Curlpp < Formula
   homepage "http://www.curlpp.org"
   url "https://github.com/jpbarrette/curlpp/releases/download/v0.7.4/curlpp-0.7.4.tar.gz"
   sha256 "7e33934f4ce761ba293576c05247af4b79a7c8895c9829dc8792c5d75894e389"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,6 +19,10 @@ class Curlpp < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+
+    # Workaround for #9315, replace CRLF with LF
+    system "sed", "-i.bak", "-e", "s/\r//g", "#{bin}/curlpp-config"
+    rm "#{bin}/curlpp-config.bak"
   end
 
   test do
