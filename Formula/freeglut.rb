@@ -22,10 +22,6 @@ class Freeglut < Formula
     system "make", "all"
     system "make", "install"
   end
-
-  test do
-    system "#{bin}/freeglut", "--version"
-  end
 end
 
 __END__
