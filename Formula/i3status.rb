@@ -14,6 +14,13 @@ class I3status < Formula
       sha256 "f183f05f9295d420a13dee0afbb7a9781216da13c88c8568e49dbfdadf958b64"
     end
   end
+  bottle do
+    cellar :any
+    sha256 "3548d5e6f451ffa9c132116d596accae5fd161a546865b8e328b9d83320bcbe5" => :sierra
+    sha256 "7e1556c6122b185906d5120b6c4673053ab8f681d230b3f4a26f13801dabafc5" => :el_capitan
+    sha256 "abcaacfe2ea691a59ea8b21de3b9e0c8a030a829b02fa254969a302b698553db" => :yosemite
+  end
+
 
   depends_on :x11
   depends_on "yajl"
