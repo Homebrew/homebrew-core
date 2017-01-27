@@ -4,6 +4,12 @@ class Libxkbcommon < Formula
   url "https://xkbcommon.org/download/libxkbcommon-0.7.1.tar.xz"
   sha256 "ba59305d2e19e47c27ea065c2e0df96ebac6a3c6e97e28ae5620073b6084e68b"
 
+  bottle do
+    sha256 "f315b5f0587687bfe2a859fc2440980820031a8d984c0b707f468f886953ab0c" => :sierra
+    sha256 "b28c61c01bf2b30c2d9250ef4ba8650d3a4040802e2184f1c3673ba717f09ea0" => :el_capitan
+    sha256 "87d2bf3128550c3fd80f8d91908c888aa8c19361a189c59a9478af925668710b" => :yosemite
+  end
+
   head do
     url "https://github.com/xkbcommon/libxkbcommon.git"
 
