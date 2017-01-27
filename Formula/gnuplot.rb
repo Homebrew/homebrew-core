@@ -3,6 +3,7 @@ class Gnuplot < Formula
   homepage "http://www.gnuplot.info"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.5/gnuplot-5.0.5.tar.gz"
   sha256 "25f3e0bf192e01115c580f278c3725d7a569eb848786e12b455a3fda70312053"
+  revision 1
 
   bottle do
     sha256 "248bea9c816f6da0c3723e3bd14a874fcfd6d0fe7f0283bc3b4704632f74af4c" => :sierra
@@ -28,8 +29,9 @@ class Gnuplot < Formula
   deprecated_option "with-x" => "with-x11"
   deprecated_option "pdf" => "with-pdflib-lite"
   deprecated_option "wx" => "with-wxmac"
-  deprecated_option "qt" => "with-qt5"
-  deprecated_option "with-qt" => "with-qt5"
+  deprecated_option "qt" => "with-qt@5.7"
+  deprecated_option "with-qt" => "with-qt@5.7"
+  deprecated_option "with-qt5" => "with-qt@5.7"
   deprecated_option "cairo" => "with-cairo"
   deprecated_option "nolua" => "without-lua"
   deprecated_option "tests" => "with-test"
@@ -39,6 +41,7 @@ class Gnuplot < Formula
 
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
+  depends_on "freetype"
   depends_on "gd"
   depends_on "lua" => :recommended
   depends_on "jpeg"
@@ -48,16 +51,16 @@ class Gnuplot < Formula
   depends_on "webp"
   depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
   depends_on "pdflib-lite" => :optional
-  depends_on "qt5" => :optional
+  depends_on "qt@5.7" => :optional
   depends_on "wxmac" => :optional
   depends_on :tex => :optional
   depends_on :x11 => :optional
 
-  needs :cxx11 if build.with? "qt5"
+  needs :cxx11 if build.with? "qt@5.7"
 
   def install
     # Qt5 requires c++11 (and the other backends do not care)
-    ENV.cxx11 if build.with? "qt5"
+    ENV.cxx11 if build.with? "qt@5.7"
 
     if build.with? "aquaterm"
       # Add "/Library/Frameworks" to the default framework search path, so that an
@@ -84,7 +87,7 @@ class Gnuplot < Formula
       args << "--without-cairo" if build.without? "cairo"
     end
 
-    if build.with? "qt5"
+    if build.with? "qt@5.7"
       args << "--with-qt"
     else
       args << "--with-qt=no"
