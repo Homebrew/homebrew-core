@@ -6,6 +6,12 @@ class Ddd < Formula
   sha256 "3ad6cd67d7f4b1d6b2d38537261564a0d26aaed077bf25c51efc1474d0e8b65c"
   revision 1
 
+  bottle do
+    sha256 "c37e9851b799befc425280b8e62e2c7b12dc79ecf46eaed9e740f9e2ef87d373" => :sierra
+    sha256 "0effedf657591027f917ea1dd048e32e136da61490ba64a51e1b8dddad17acdf" => :el_capitan
+    sha256 "9753fcc17d509faf60b8566da742c8eaaefc2e52e5d360366b6fa827a61c733b" => :yosemite
+  end
+
   depends_on "openmotif"
   depends_on :x11
 
