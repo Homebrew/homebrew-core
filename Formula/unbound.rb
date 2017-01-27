@@ -3,6 +3,7 @@ class Unbound < Formula
   homepage "https://www.unbound.net"
   url "https://www.unbound.net/downloads/unbound-1.6.0.tar.gz"
   sha256 "6b7db874e6debda742fee8869d722e5a17faf1086e93c911b8564532aeeffab7"
+  revision 1
 
   bottle do
     sha256 "d105cae4a7e3580644c6036b4cdc5557887c34cc8c06715633578d925f6382da" => :sierra
