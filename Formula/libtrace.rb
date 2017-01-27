@@ -12,6 +12,7 @@ class Libtrace < Formula
     sha256 "1e1115e10b3c226a49a3c29187327ba39cc5a83941736ed48a5cf866fae3da69" => :mountain_lion
   end
 
+  depends_on "openssl"
   depends_on "wandio"
 
   def install
