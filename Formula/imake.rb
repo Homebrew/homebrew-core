@@ -48,8 +48,4 @@ class Imake < Formula
       system "make", "install"
     end
   end
-
-  test do
-    system "#{bin}/imake", "--version"
-  end
 end
