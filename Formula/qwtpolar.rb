@@ -6,9 +6,9 @@ class Qwtpolar < Formula
   revision 1
 
   bottle do
-    sha256 "d251c45be1aaa0f07d9d0b883b1f3469879d3f31ba5b7326f423d96fd73a986b" => :sierra
-    sha256 "d251c45be1aaa0f07d9d0b883b1f3469879d3f31ba5b7326f423d96fd73a986b" => :el_capitan
-    sha256 "b22fa716068e8e059496b09bfa1857e9f5684fdde05e85fbac15d04a7ca30a5a" => :yosemite
+    sha256 "e734751a7cf473eadbb85ae4ccc80c219f96e7db7b2fc1e7bf2b57b782927d4f" => :sierra
+    sha256 "b3feda4b2d321a24015d62c91596b2f7b65465ffa8b216195dda8af2dd222ff6" => :el_capitan
+    sha256 "85439bf4f5950b12d685f7360aaead121cd24e8f98c4ec18a935549849806ef0" => :yosemite
   end
 
   option "without-plugin", "Skip building the Qt Designer plugin"
