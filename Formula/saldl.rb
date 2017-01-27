@@ -3,6 +3,8 @@ class Saldl < Formula
   homepage "https://saldl.github.io"
   url "https://github.com/saldl/saldl/archive/v34.tar.gz"
   sha256 "12053f306306023e5bbdc6bb8594cc83f8793da0ce99dab1981179cdeccea4da"
+  revision 1
+
   head "https://github.com/saldl/saldl.git", :shallow => false
 
   bottle do
