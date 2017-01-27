@@ -90,8 +90,4 @@ class Pgplot < Formula
       (share/"examples").install Dir["*demo*", "../examples/pgdemo*.f", "../cpg/cpgdemo*.c", "../drivers/*/pg*demo.*"]
     end
   end
-
-  test do
-    system "#{bin}/pgplot", "--version"
-  end
 end
