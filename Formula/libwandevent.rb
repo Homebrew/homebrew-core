@@ -6,11 +6,9 @@ class Libwandevent < Formula
 
   bottle do
     cellar :any
-    sha256 "41c82d4b35565dc4dbb558dd63a7f5c63b97edcf0e9724eab050ffa9a1d661a9" => :sierra
-    sha256 "78343d11a98d223c2e944971516c8c5213c2e88a5484c1a104be57b8e1b228e1" => :el_capitan
-    sha256 "e6a07c41e838e86d5a1c39274d5d15e37d55dd7439f19a05a50818fd78f437e5" => :yosemite
-    sha256 "5565d710cbaeb8110f2f50289965dc0cfc76d20ddb96138ddbbadd452b13eefc" => :mavericks
-    sha256 "63c6840e4140921671922f960b63a48565fb0204ae2646d3355bf20f6e5c3958" => :mountain_lion
+    sha256 "e4b00ade9387b8fdccf72bbe9edd0e334c69f23597f85dd1e6da02088703c286" => :sierra
+    sha256 "f1459d39284b520c17443c6bef5ccb641dfe1e20266a4f34071f6a87cd9669e4" => :el_capitan
+    sha256 "b8c90b8dca1d0ded39036d7f23b4e33857c7914e178ba8ac8870ab702f96fa04" => :yosemite
   end
 
   def install
