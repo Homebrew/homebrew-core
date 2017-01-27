@@ -18,8 +18,4 @@ class Morse < Formula
     bin.install "morse"
     man1.install "morse.1"
   end
-
-  test do
-    system "#{bin}/morse", "--version"
-  end
 end
