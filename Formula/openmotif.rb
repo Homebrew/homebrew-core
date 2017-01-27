@@ -5,6 +5,12 @@ class Openmotif < Formula
   sha256 "fa810e6bedeca0f5a2eb8216f42129bcf6bd23919068d433e386b7bfc05d58cf"
   revision 1
 
+  bottle do
+    sha256 "eb39560a1fa08efa0e20f91497cf229a6481819c342ef1f2d457f0f9947abe19" => :sierra
+    sha256 "943f1b50e628023d165ef25d56c5ba6152d0251fa65e6161197405e3e1e09c0e" => :el_capitan
+    sha256 "5facc0a7321db4a34bb9d630ad93890ea42596515828d33f351fcdce100d3ae0" => :yosemite
+  end
+
   depends_on "automake" => :build
   depends_on "autoconf" => :build
   depends_on "libtool" => :build
