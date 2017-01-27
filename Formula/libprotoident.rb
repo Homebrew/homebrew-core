@@ -3,6 +3,7 @@ class Libprotoident < Formula
   homepage "http://research.wand.net.nz/software/libprotoident.php"
   url "http://research.wand.net.nz/software/libprotoident/libprotoident-2.0.10.tar.gz"
   sha256 "a5ef504967c34fa07ed967b3a629a9df2768eb9da799858ceecd8026ca1efceb"
+  revision 1
 
   bottle do
     cellar :any
