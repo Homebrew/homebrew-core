@@ -5,6 +5,13 @@ class RxvtUnicode < Formula
   sha256 "e94628e9bcfa0adb1115d83649f898d6edb4baced44f5d5b769c2eeb8b95addd"
   revision 2
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "99a00bb5523cda0abb2a849e7af85cd8739526fea08231687b88724222b1aad7" => :sierra
+    sha256 "a2b8cc310fa04d1ce66ffc0de2ea6591503cede49135e4b854e6267c837b5010" => :el_capitan
+    sha256 "cdf8a97ab37a46eb605587b50eb7541be53866870241b85f202e92df2a67b8a8" => :yosemite
+  end
+
   option "without-iso14755", "Disable ISO 14775 Shift+Ctrl hotkey"
   option "without-unicode3", "Disable 21-bit Unicode 3 (non-BMP) character support"
 
