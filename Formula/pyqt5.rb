@@ -6,9 +6,9 @@ class Pyqt5 < Formula
   revision 1
 
   bottle do
-    sha256 "ce2c25fd28a7969ac4a1ef80143e1eb99258777fc9b879d22a39c0277114d532" => :sierra
-    sha256 "16e494298d1eadfb673448bdeaf0df0df3b37542ee04edec57f29c5604a78f0a" => :el_capitan
-    sha256 "d7bcf26d817e2f0ae30b12ac0c0f4f4cd5de848db8956cad7fc01cc9af92680a" => :yosemite
+    sha256 "27eddc922ae320cd2c5659cfbb9da1d37a8dbe6c9671b2f683e3f4864f97b4b5" => :sierra
+    sha256 "1f311accef448da869903b02c93a27c84e85165d3039789b81ee0f817121d9d0" => :el_capitan
+    sha256 "2574c984ca7fcf082fc7fa8c51fce6eaac7f3ec0bd0157781b1ee4f98de87958" => :yosemite
   end
 
   option "with-debug", "Build with debug symbols"
