@@ -3,7 +3,7 @@ class Tmate < Formula
   homepage "https://tmate.io/"
   url "https://github.com/tmate-io/tmate/archive/2.2.1.tar.gz"
   sha256 "d9c2ac59f42e65aac5f500f0548ea8056fd79c9c5285e5af324d833e2a84c305"
-  revision 2
+  revision 3
 
   head "https://github.com/tmate-io/tmate.git"
 
