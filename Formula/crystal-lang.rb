@@ -4,6 +4,7 @@ class CrystalLang < Formula
   url "https://github.com/crystal-lang/crystal/archive/0.20.5.tar.gz"
   sha256 "ee1e5948c6e662ccb1e62671cf2c91458775b559b23d74ab226dc2a2d23f7707"
   head "https://github.com/crystal-lang/crystal.git"
+  revision 2
 
   bottle do
     rebuild 1
