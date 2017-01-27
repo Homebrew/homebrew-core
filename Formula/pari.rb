@@ -5,6 +5,12 @@ class Pari < Formula
   mirror "https://mirrors.kernel.org/debian/pool/main/p/pari/pari_2.9.1.orig.tar.gz"
   sha256 "dc510f96686463c1ade7c2a6e16fa9466fd4af6a65fddf9822ba07d7d2e70767"
 
+  bottle do
+    sha256 "e2708ec11078a54cad2991356a4fed959afb1fdb4b2a58bea5debcd1c729a93e" => :sierra
+    sha256 "d97c361da5c314a298eff855bd7a30d87cffa6b1ac222dc30200ef652aa3a183" => :el_capitan
+    sha256 "f660e2526e6a5103bcb5a3c5dc99ab6a8af51399a63285df9fe503cf82727076" => :yosemite
+  end
+
   depends_on "gmp"
   depends_on "readline"
   depends_on :x11
