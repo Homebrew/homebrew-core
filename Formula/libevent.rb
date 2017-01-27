@@ -1,18 +1,8 @@
 class Libevent < Formula
   desc "Asynchronous event library"
   homepage "http://libevent.org"
-
-  stable do
-    url "https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz"
-    sha256 "71c2c49f0adadacfdbe6332a372c38cf9c8b7895bb73dabeaa53cdcc1d4e1fa3"
-
-    # https://github.com/Homebrew/homebrew-core/issues/2869
-    # https://github.com/libevent/libevent/issues/376
-    patch do
-      url "https://github.com/libevent/libevent/commit/df6f99e5b51a3.patch"
-      sha256 "26e831f7b000c7a0d79fed68ddc1d9bd1f1c3fab8a3c150fcec04a3e282b1acb"
-    end
-  end
+  url "https://github.com/libevent/libevent/archive/release-2.1.8-stable.tar.gz"
+  sha256 "316ddb401745ac5d222d7c529ef1eada12f58f6376a66c1118eee803cb70f83d"
 
   bottle do
     cellar :any
@@ -23,29 +13,10 @@ class Libevent < Formula
     sha256 "e32a8b4b74b3a41fb7ccf7933f0cc883c16d9fbd8ed55ff3d204556afa9d1a41" => :mavericks
   end
 
-  devel do
-    url "https://github.com/libevent/libevent/archive/release-2.1.7-rc.tar.gz"
-    sha256 "548362d202e22fe24d4c3fad38287b4f6d683e6c21503341373b89785fa6f991"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
-  head do
-    url "https://github.com/libevent/libevent.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
-  option :universal
-  option "without-doxygen", "Don't build & install the manpages (uses Doxygen)"
-
-  deprecated_option "enable-manpages" => "with-doxygen"
-
-  depends_on "doxygen" => [:recommended, :build]
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "doxygen" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl"
 
@@ -53,24 +24,15 @@ class Libevent < Formula
     :because => "both install `event_rpcgen.py` binaries"
 
   def install
-    ENV.universal_binary if build.universal?
-    ENV.deparallelize
-
-    if build.with? "doxygen"
-      inreplace "Doxyfile", /GENERATE_MAN\s*=\s*NO/, "GENERATE_MAN = YES"
-    end
-
-    system "./autogen.sh" unless build.stable?
+    inreplace "Doxyfile", /GENERATE_MAN\s*=\s*NO/, "GENERATE_MAN = YES"
+    system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-debug-mode",
                           "--prefix=#{prefix}"
     system "make"
     system "make", "install"
-
-    if build.with? "doxygen"
-      system "make", "doxygen"
-      man3.install Dir["doxygen/man/man3/*.3"]
-    end
+    system "make", "doxygen"
+    man3.install Dir["doxygen/man/man3/*.3"]
   end
 
   test do
