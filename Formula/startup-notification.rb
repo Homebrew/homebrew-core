@@ -21,8 +21,4 @@ class StartupNotification < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
-
-  test do
-    system "#{bin}/startup-notification", "--version"
-  end
 end
