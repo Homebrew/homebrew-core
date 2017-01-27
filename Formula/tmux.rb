@@ -3,7 +3,7 @@ class Tmux < Formula
   homepage "https://tmux.github.io/"
   url "https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz"
   sha256 "55313e132f0f42de7e020bf6323a1939ee02ab79c48634aa07475db41573852b"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
