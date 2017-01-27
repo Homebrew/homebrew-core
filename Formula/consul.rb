@@ -9,9 +9,10 @@ class Consul < Formula
        :shallow => false
 
   bottle do
-    sha256 "c4bd264feef94dc71bf09760d8350b4664a3cc2c625a4c425de00b88df9c9994" => :sierra
-    sha256 "0e9b2941114c706b91a39cffbb9b02d240ef784251f079dab3c43d89c632a268" => :el_capitan
-    sha256 "34b53377cd971b6af9dbffdcbc51f1816dfb9277bc1b5c2eeceef1570bb821ae" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "886d7f199b7c32d9a3d1734c3c491ef4974ad7cbbe39ebb29c466a57e75323dc" => :sierra
+    sha256 "cd406c356cba1fab5a3e4573c4ed87994e5f191a28150bd262f6b093ae3e011b" => :el_capitan
+    sha256 "b037a5ec5d68fe29fda9da5ff3a0414f4f18298eed9c8cefb56a4c9d32814881" => :yosemite
   end
 
   option "with-web-ui", "Installs the consul web ui"
