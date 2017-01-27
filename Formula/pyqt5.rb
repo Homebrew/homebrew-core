@@ -3,6 +3,7 @@ class Pyqt5 < Formula
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
   url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.7.1/PyQt5_gpl-5.7.1.tar.gz"
   sha256 "be849f212a074049b9ebc10b6c07dddefb86e6d30e8df8a5c715cbb2cf7fad14"
+  revision 1
 
   bottle do
     sha256 "ce2c25fd28a7969ac4a1ef80143e1eb99258777fc9b879d22a39c0277114d532" => :sierra
@@ -17,7 +18,7 @@ class Pyqt5 < Formula
 
   depends_on :python3 => :recommended
   depends_on :python => :optional
-  depends_on "qt5"
+  depends_on "qt@5.7"
 
   if build.with? "python3"
     depends_on "sip" => "with-python3"
@@ -40,7 +41,7 @@ class Pyqt5 < Formula
               "--sip-incdir=#{Formula["sip"].opt_include}",
               # Make sure the qt5 version of qmake is found.
               # If qt4 is linked it will pickup that version otherwise.
-              "--qmake=#{Formula["qt5"].bin}/qmake",
+              "--qmake=#{Formula["qt@5.7"].bin}/qmake",
               # Force deployment target to avoid libc++ issues
               "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
               "--qml-plugindir=#{pkgshare}/plugins",
