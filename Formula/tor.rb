@@ -4,6 +4,7 @@ class Tor < Formula
   url "https://www.torproject.org/dist/tor-0.2.9.9.tar.gz"
   mirror "https://tor.eff.org/dist/tor-0.2.9.9.tar.gz"
   sha256 "33325d2b250fd047ba2ddc5d11c2190c4e2951f4b03ec48ebd8bf0666e990d43"
+  revision 1
 
   bottle do
     sha256 "5e4acea22f72cf506c2dfe58a3d4b59110956d20e2191ac11144c4160fc8dda7" => :sierra
