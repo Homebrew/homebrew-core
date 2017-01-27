@@ -3,6 +3,7 @@ class SstpClient < Formula
   homepage "http://sstp-client.sourceforge.net"
   url "https://downloads.sourceforge.net/project/sstp-client/sstp-client/1.0.11/sstp-client-1.0.11.tar.gz"
   sha256 "1b851b504030ed5522ced431217a5c700b35e8bb72d6f5b40b006c7becb8fb20"
+  revision 1
 
   bottle do
     sha256 "1fc1e56346f4cb8f35effd7986e22a13f9f2236448c44f479a8118f5600e6bc1" => :sierra
