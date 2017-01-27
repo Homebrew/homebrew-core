@@ -4,6 +4,13 @@ class Wmctrl < Formula
   url "https://sites.google.com/site/tstyblo/wmctrl/wmctrl-1.07.tar.gz"
   sha256 "d78a1efdb62f18674298ad039c5cbdb1edb6e8e149bb3a8e3a01a4750aa3cca9"
 
+  bottle do
+    cellar :any
+    sha256 "968c76a341ff4ef21ebe8f850e4de4301adaefd8ff8402b3373c80255adecbc7" => :sierra
+    sha256 "bc752b0214893066214d649b108d69b08b50729f029581b332e93780525ee204" => :el_capitan
+    sha256 "0bc70cf2f7d8c90401364d8c1f9533423034941bfc375f60991c0940ae562e5b" => :yosemite
+  end
+
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gettext"
