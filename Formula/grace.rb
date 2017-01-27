@@ -5,6 +5,12 @@ class Grace < Formula
   sha256 "751ab9917ed0f6232073c193aba74046037e185d73b77bab0f5af3e3ff1da2ac"
   revision 1
 
+  bottle do
+    sha256 "c3a3a4047612f704f3d66b67abfd8786414bc008a593db862b01373561af9d85" => :sierra
+    sha256 "27a34f15e0d9898a82556b0f5972dfef6fe3fdd7ef4d331f4e851177cb7eeed4" => :el_capitan
+    sha256 "0721efb822050b87437e8ce49faa405a0bb83006453f35e9f6abce89ff4e7a7e" => :yosemite
+  end
+
   depends_on :x11
   depends_on "pdflib-lite"
   depends_on "jpeg"
