@@ -4,7 +4,7 @@ class AircrackNg < Formula
 
   # We can't update this due to linux-only dependencies in >1.1.
   # See https://github.com/Homebrew/homebrew/issues/29450
-  url "https://download.aircrack-ng.org/aircrack-ng-1.1.tar.gz"
+  url "http://download.aircrack-ng.org/aircrack-ng-1.2-rc4.tar.gz"
   sha256 "b136b549b7d2a2751c21793100075ea43b28de9af4c1969508bb95bcc92224ad"
   revision 2
 
