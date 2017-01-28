@@ -33,8 +33,28 @@ class CrystalLang < Formula
     sha256 "31de819c66518479682ec781a39ef42c157a1a8e6e865544194534e2567cb110"
   end
 
+  resource "libevent-2.0.22" do
+    url "https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz"
+    sha256 "71c2c49f0adadacfdbe6332a372c38cf9c8b7895bb73dabeaa53cdcc1d4e1fa3"
+  end
+
   def install
+    resource("libevent-2.0.22").stage do
+      system "./configure", "--disable-dependency-tracking",
+                            "--disable-debug-mode",
+                            "--prefix=#{buildpath}/vendor/libevent"
+      ENV.deparallelize do
+        system "make"
+        system "make", "install"
+      end
+    end
+
     (buildpath/"boot").install resource("boot")
+
+    macho = MachO.open("#{buildpath}/boot/embedded/bin/crystal")
+    macho.change_dylib("/usr/local/opt/libevent/lib/libevent-2.0.5.dylib",
+                       "#{buildpath}/vendor/libevent/lib/libevent-2.0.5.dylib")
+    macho.write!
 
     if build.head?
       ENV["CRYSTAL_CONFIG_VERSION"] = Utils.popen_read("git rev-parse --short HEAD").strip
