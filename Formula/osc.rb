@@ -1,4 +1,6 @@
 class Osc < Formula
+  include Language::Python::Virtualenv
+
   desc "The Command Line Interface to work with an Open Build Service"
   homepage "https://github.com/openSUSE/osc"
   url "https://github.com/openSUSE/osc/archive/0.155.1.tar.gz"
@@ -33,22 +35,16 @@ class Osc < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        inreplace "setup.py", "self.openssl = '/usr'", "self.openssl = '#{Formula["openssl"].opt_prefix}'" if r.name == "M2Crypto"
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
+    venv = virtualenv_create(libexec)
+    venv.pip_install resources.reject { |r| r.name == "M2Crypto" }
+    resource("M2Crypto").stage do
+      inreplace "setup.py", /(self.openssl = )'\/usr'/, "\\1'#{Formula["openssl"].prefix}'"
+      venv.pip_install "."
     end
 
-    # Fix for Homebrew's custom OpenSSL cert path.
     inreplace "osc/conf.py", "'/etc/ssl/certs'", "'#{etc}/openssl/cert.pem'"
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(prefix)
-
-    bin.install "osc-wrapper.py" => "osc"
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    venv.pip_install_and_link buildpath
+    mv bin/"osc-wrapper.py", bin/"osc"
   end
 
   test do
