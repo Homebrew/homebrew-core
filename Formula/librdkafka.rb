@@ -8,9 +8,9 @@ class Librdkafka < Formula
 
   bottle do
     cellar :any
-    sha256 "033d6b22393921e086b3e96c321019994fff84c9d34ed8e6033d09d26406d0a0" => :sierra
-    sha256 "06052eff546aaf4b36a951913a231f606a921082bd94a0bfd2383197df25f1f7" => :el_capitan
-    sha256 "2f50d32d16bcde11957d514c8fb276df92e5c7a6ebe196c052aa9b61df602ec4" => :yosemite
+    sha256 "24fa8334f54dff2cca4dfec93352550de92ee0f38ab4fc04c9fdf69c5968af59" => :sierra
+    sha256 "79253c4ca04908ec37e171c191138ebbe9dc7376971b0de29d57599b13d84e74" => :el_capitan
+    sha256 "1d42f6ff44c79b0a94475e6f5c216a63c8edffc4fd779b106ba7c1ad1dd45a96" => :yosemite
   end
 
   depends_on "pkg-config" => :build
