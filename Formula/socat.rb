@@ -6,9 +6,9 @@ class Socat < Formula
 
   bottle do
     cellar :any
-    sha256 "a8d3d1071187640117ed5ee28f0cc9daa756ecd7b53e2e73832b86bc05046a62" => :sierra
-    sha256 "9c13f2f3a21c6ccfa4347767875f70adad43476b361ee4357ec69dc64e51a2f5" => :el_capitan
-    sha256 "b1f4d317c2462d800b8fe4e354a21f18d460ca2cacd29d2d71fd6d716e93ca91" => :yosemite
+    sha256 "63cba17ba8512ae70e018d6e918b67e4d3646bbd44b6aa77d7e4c92833f4a79c" => :sierra
+    sha256 "65e0fd67dbb8f8615110beb7a10710aa73ec8cd4dcfb19408558a56d368728e2" => :el_capitan
+    sha256 "8bbbe3d993e937ee42499de4efdf02c168c97b30bb75077e5489c4b165829e1f" => :yosemite
   end
 
   devel do
