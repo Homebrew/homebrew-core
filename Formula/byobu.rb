@@ -6,10 +6,9 @@ class Byobu < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "37ff1fbe3404c5a71d5162b20b131ab91edb0496f3f5f0079ee400fb55d209c5" => :sierra
-    sha256 "a21766d825c68db2341701781c65ee17fe6bf2d45d48c8ae3e87a3cdb7dd6460" => :el_capitan
-    sha256 "a21766d825c68db2341701781c65ee17fe6bf2d45d48c8ae3e87a3cdb7dd6460" => :yosemite
+    sha256 "b3db11c9f0f224c39ddbbda336a7168d54e654f54a68f766170ac85701a44b3b" => :sierra
+    sha256 "a82a96ba0617e6e0fb44807f1591d638863bc48e548be30240fd23bf896911f1" => :el_capitan
+    sha256 "a82a96ba0617e6e0fb44807f1591d638863bc48e548be30240fd23bf896911f1" => :yosemite
   end
 
   head do
