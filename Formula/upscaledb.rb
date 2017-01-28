@@ -3,7 +3,7 @@ class Upscaledb < Formula
   homepage "https://upscaledb.com/"
   url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
   sha256 "7d0d1ace47847a0f95a9138637fcaaf78b897ef682053e405e2c0865ecfd253e"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -21,13 +21,15 @@ class Upscaledb < Formula
   end
 
   option "without-java", "Do not build the Java wrapper"
-  option "without-remote", "Disable access to remote databases"
+  option "without-protobuf", "Disable access to remote databases"
+
+  deprecated_option "without-remote" => "without-protobuf"
 
   depends_on "boost"
   depends_on "gnutls"
   depends_on "openssl"
   depends_on :java => :recommended
-  depends_on "protobuf" if build.with? "remote"
+  depends_on "protobuf" => :recommended
 
   resource "libuv" do
     url "https://github.com/libuv/libuv/archive/v0.10.37.tar.gz"
@@ -59,7 +61,7 @@ class Upscaledb < Formula
       args << "--disable-java"
     end
 
-    if build.with? "remote"
+    if build.with? "protobuf"
       resource("libuv").stage do
         system "make", "libuv.dylib", "SO_LDFLAGS=-Wl,-install_name,#{libexec}/libuv/lib/libuv.dylib"
         (libexec/"libuv/lib").install "libuv.dylib"
