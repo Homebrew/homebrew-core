@@ -1,9 +1,9 @@
 class Stunnel < Formula
   desc "SSL tunneling program"
   homepage "https://www.stunnel.org/"
-  url "https://www.stunnel.org/downloads/stunnel-5.39.tar.gz"
-  mirror "https://www.usenix.org.uk/mirrors/stunnel/stunnel-5.39.tar.gz"
-  sha256 "288c087a50465390d05508068ac76c8418a21fae7275febcc63f041ec5b04dee"
+  url "https://www.stunnel.org/downloads/stunnel-5.40.tar.gz"
+  mirror "https://www.usenix.org.uk/mirrors/stunnel/stunnel-5.40.tar.gz"
+  sha256 "23acdb390326ffd507d90f8984ecc90e0d9993f6bd6eac1d0a642456565c45ff"
 
   bottle do
     sha256 "518f73ace97710205d17a27622276bad530845d3f3d3a186af411a64867136b0" => :sierra
