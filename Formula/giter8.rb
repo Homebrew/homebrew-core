@@ -1,6 +1,6 @@
 class Giter8 < Formula
   desc "Generate files and directories from templates in a git repo"
-  homepage "https://github.com/n8han/giter8"
+  homepage "https://github.com/foundweekends/giter8"
   url "https://github.com/foundweekends/giter8/archive/v0.7.2.tar.gz"
   sha256 "68d28adb49ac30c30fc177cb97f43aa9b66701dafbd2de77c46d7d771fef9024"
 
