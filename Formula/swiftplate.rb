@@ -27,18 +27,6 @@ class Swiftplate < Formula
       "--email", "test@example.com", "--url", "https://github.com/johnsundell/swiftplate",
       "--organization", "exampleOrg", "--force"
 
-    required_files = {
-      "." => ["LICENSE", "Package.swift", "README.md", "#{project_name}.podspec"],
-      "Configs" => ["#{project_name}.plist", "#{project_name}Tests.plist"],
-      "Sources" => ["#{project_name}.swift"],
-      "Tests" => ["#{project_name}Tests"],
-    }
-
-    required_files.each do |dir_name, expected|
-      actual = Dir.entries(dir_name)
-      unless (expected - actual).empty?
-        abort("directory structure of #{dir_name} doesn't match expected results - #{expected}, #{actual}")
-      end
-    end
+    assert((Dir.entries(".").include? "#{project_name}.xcodeproj"), "Failed to generate #{project_name}.xcodeproj") 
   end
 end
