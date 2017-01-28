@@ -14,10 +14,9 @@ class Planck < Formula
   end
 
   devel do
-    url "https://github.com/mfikes/planck/archive/2.0.0-beta.6.tar.gz"
-    version "2.0.0-beta.6"
-    sha256 "30662158a88930ac001e5d2533ae04e003104a01c8fd965623d8e13d07050595"
-    depends_on "maven" => :build
+    url "https://github.com/mfikes/planck/archive/2.0.0-rc.1.tar.gz"
+    version "2.0.0-rc.1"
+    sha256 "755853ff3712e3867dc252653d2e36faec5db68a561a4138055dbdabc2af1edb"
     depends_on "cmake" => :build
     depends_on "pkg-config" => :build
     depends_on "libzip"
