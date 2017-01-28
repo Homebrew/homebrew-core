@@ -5,6 +5,7 @@ class Mitmproxy < Formula
   homepage "https://mitmproxy.org"
   url "https://github.com/mitmproxy/mitmproxy/archive/v1.0.2.tar.gz"
   sha256 "0458b4ad3cedbc238decc7d736e693cd220c7977592b57052e181d404e1152b4"
+  revision 1
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
@@ -19,7 +20,7 @@ class Mitmproxy < Formula
   depends_on "jpeg"
   depends_on "openssl@1.1"
   depends_on :python3
-  depends_on "protobuf" => :optional
+  depends_on "protobuf"
 
   resource "blinker" do
     url "https://files.pythonhosted.org/packages/1b/51/e2a9f3b757eb802f61dc1f2b09c8c99f6eb01cf06416c0671253536517b6/blinker-1.4.tar.gz"
