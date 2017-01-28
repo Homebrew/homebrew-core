@@ -5,10 +5,9 @@ class Proftpd < Formula
   sha256 "f4e2997be7f22a5b31d7ac72497ed4f4471d24d32385978350410713e76129ac"
 
   bottle do
-    sha256 "8096f58b34c460c9df7bee97396d962e58ea1fad6d87fc2802cc0cf8ed6b95b2" => :sierra
-    sha256 "68a6173bda2128b5b349939493a479a99c87f2efc7d1942b2059c70428cb9bec" => :el_capitan
-    sha256 "b7b8db826dee70ea773819aeeddf1138552b46086c9ee0d158184c53f09df328" => :yosemite
-    sha256 "12d79b90719529f9ddf2581b334108665bd5193fb127c6dc78cec290f44343ad" => :mavericks
+    sha256 "b8ce132ef4cf864ae2c4d5cde3b118182f5264034f72b71d337c370b242daa39" => :sierra
+    sha256 "ab2c7ca148715c53e120508406a279bba028bfae719ff935438bfb45062733a6" => :el_capitan
+    sha256 "b246efcec181bc4154a7bc4318c59e357ab07af819987ffacaf12aa3f41ca1cf" => :yosemite
   end
 
   def install
