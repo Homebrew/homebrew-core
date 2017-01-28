@@ -1,8 +1,8 @@
 class Librdkafka < Formula
   desc "The Apache Kafka C/C++ library"
   homepage "https://github.com/edenhill/librdkafka"
-  url "https://github.com/edenhill/librdkafka/archive/v0.9.2.tar.gz"
-  sha256 "e4fcde677b8cbb6076070a3fbf54ef5f5b495879a2d2e78af8601f2544ee84ae"
+  url "https://github.com/edenhill/librdkafka/archive/v0.9.3.tar.gz"
+  sha256 "745ead036f0d5b732e1cd035a1f31fc23665f2982bf9d799742034e0a1bd0be9"
 
   head "https://github.com/edenhill/librdkafka.git"
 
