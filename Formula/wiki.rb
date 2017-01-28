@@ -3,8 +3,8 @@ require "language/go"
 class Wiki < Formula
   desc "Fetch summaries from MediaWiki wikis, like Wikipedia"
   homepage "https://github.com/walle/wiki"
-  url "https://github.com/walle/wiki/archive/1.3.0.tar.gz"
-  sha256 "c12edcaed5c9d5e69fc43e77713a68948a399017467d248ba59367b5d458a9e6"
+  url "https://github.com/walle/wiki/archive/1.4.0.tar.gz"
+  sha256 "b9adb27485feba68574e3abf5564577f2fcec1bf2176fc8f80b09b6f8ca6ffff"
 
   bottle do
     cellar :any_skip_relocation
