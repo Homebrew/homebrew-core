@@ -20,7 +20,9 @@ class Curlpp < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
+    # https://github.com/jpbarrette/curlpp/issues/34
     # Workaround for #9315, replace CRLF with LF
+    # This should be removed in the next release
     system "sed", "-i.bak", "-e", "s/\r//g", "#{bin}/curlpp-config"
     rm "#{bin}/curlpp-config.bak"
   end
