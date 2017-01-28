@@ -3,7 +3,7 @@ class Zbar < Formula
   homepage "http://zbar.sourceforge.net"
   url "https://downloads.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2"
   sha256 "234efb39dbbe5cef4189cc76f37afbe3cfcfb45ae52493bfe8e191318bdbadc6"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
