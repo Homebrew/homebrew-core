@@ -98,6 +98,12 @@ class Mysql < Formula
     system "make"
     system "make", "install"
 
+    # We don't want to keep a 240MB+ folder around most users won't need.
+    (prefix/"mysql-test").cd do
+      system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
+    end
+    rm_rf prefix/"mysql-test"
+
     # Don't create databases inside of the prefix!
     # See: https://github.com/Homebrew/homebrew/issues/4975
     rm_rf prefix/"data"
@@ -174,8 +180,5 @@ class Mysql < Formula
 
   test do
     system "/bin/sh", "-n", "#{bin}/mysqld_safe"
-    (prefix/"mysql-test").cd do
-      system "./mysql-test-run.pl", "status", "--vardir=#{testpath}"
-    end
   end
 end
