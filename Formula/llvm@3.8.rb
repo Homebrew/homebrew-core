@@ -180,10 +180,11 @@ class LlvmAT38 < Formula
 
     system "make", "-C", libcxx_buildpath, "install", *libcxx_make_args
 
-    (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
-    inreplace share/"clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", bin/"clang-#{ver}"
-    bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
-    man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
+    (share/"clang-#{ver}/tools").install Dir["tools/clang/tools/scan-{build,view}"]
+    inreplace share/"clang-#{ver}/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", install_prefix/"bin/clang"
+    (install_prefix/"bin").install_symlink share/"clang-#{ver}/tools/scan-view/bin/scan-view"
+    (install_prefix/"bin").install_symlink share/"clang-#{ver}/tools/scan-build/bin/scan-build"
+    (install_prefix/"share/man/man1").install_symlink share/"clang-#{ver}/tools/scan-build/scan-build.1"
 
     (lib/"python2.7/site-packages").install "bindings/python/llvm" => "llvm-#{ver}",
                                             clang_buildpath/"bindings/python/clang" => "clang-#{ver}"
