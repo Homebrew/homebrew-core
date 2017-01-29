@@ -9,10 +9,9 @@ class Twemcache < Formula
 
   bottle do
     cellar :any
-    sha256 "a5d1e1367c163d3741461f66bcef4cca410133ad5905655c744e24898e4f8025" => :sierra
-    sha256 "8257030de4e6251c2899c235cf860b8aae1def40922d0ebd474bba5b92133982" => :el_capitan
-    sha256 "458cedc005b03da5a0dbbc2bdc916b30f04b1dc37916dbcaf38b6270712b4bd2" => :yosemite
-    sha256 "4489ad8862e470f2c9ccab1bdf5ac072ab42133283a6f89b4f2cd831af902e67" => :mavericks
+    sha256 "24aa937f8757cab1bad5e0d774478c18f7baf6e2ddc2fee78a2d48a8bf66f381" => :sierra
+    sha256 "08efcbeaabad2800d757213a7919b83772f09bbb852e17d8be5d8b70e332309d" => :el_capitan
+    sha256 "afe9fcd8a6e8c4c8aac98b2484da12b44126a6070e810fcba3441bf1afa899cf" => :yosemite
   end
 
   option "with-debug", "Debug mode with assertion panics enabled"
