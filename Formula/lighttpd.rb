@@ -3,6 +3,7 @@ class Lighttpd < Formula
   homepage "https://www.lighttpd.net/"
   url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.45.tar.xz"
   sha256 "1c97225deea33eefba6d4158c2cef27913d47553263516bbe9d2e2760fc43a3f"
+  revision 1
 
   bottle do
     sha256 "5eeee9b9f923662b121980937c64730b012ce1485565d081bd9ea0abc823f173" => :sierra
@@ -10,7 +11,8 @@ class Lighttpd < Formula
     sha256 "dec2c266da7ad182ba857caf3308403ce97aa55053ab7106c080dfc6c91ae867" => :yosemite
   end
 
-  option "with-lua51", "Include Lua scripting support for mod_magnet"
+  option "with-lua@5.1", "Include Lua scripting support for mod_magnet"
+  deprecated_option "with-lua51" => "with-lua@5.1"
 
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
@@ -18,7 +20,7 @@ class Lighttpd < Formula
   depends_on "libtool" => :build
   depends_on "pcre"
   depends_on "openssl"
-  depends_on "lua51" => :optional
+  depends_on "lua@5.1" => :optional
   depends_on "libev" => :optional
 
   # default max. file descriptors; this option will be ignored if the server is not started as root
@@ -53,7 +55,7 @@ class Lighttpd < Formula
       --with-attr
     ]
 
-    args << "--with-lua" if build.with? "lua51"
+    args << "--with-lua" if build.with? "lua@5.1"
     args << "--with-libev" if build.with? "libev"
 
     # autogen must be run, otherwise prebuilt configure may complain
