@@ -3,8 +3,8 @@ class Internetarchive < Formula
 
   desc "Python wrapper for the various Internet Archive APIs"
   homepage "https://github.com/jjjake/internetarchive"
-  url "https://pypi.python.org/packages/69/91/4a757bdc0a2c1e64dae0d4d522e26ca8513183c04c5f7490924fabfa7c41/internetarchive-1.1.0.tar.gz"
-  sha256 "52b59cc8ebdc49501932e1ddedf4201ea0c537757cbe827f593c24089bd699c9"
+  url "https://files.pythonhosted.org/packages/0d/69/62f671f7ec373801377715f0f1dba91f1d2d82be6994746feab118acd10c/internetarchive-1.4.0.tar.gz"
+  sha256 "7f3d5f4dacc1834ec3745010f25dc727c0045a185225c826baa854cf7c79110b"
 
   bottle do
     cellar :any_skip_relocation
