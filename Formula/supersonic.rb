@@ -7,9 +7,9 @@ class Supersonic < Formula
 
   bottle do
     cellar :any
-    sha256 "d1df947187e77b14986ea7bd8cfef018b2f0568d8b1f9b80f2debc51c4b326be" => :sierra
-    sha256 "3147ee979fbc19c8721e5e2d0c2d8629c25be65bff2c11f7ba3f68a01aa939ee" => :el_capitan
-    sha256 "5e0a426050ed37a706cd7dabe90c0c3e0371b86332723d6b999dd750adeb353d" => :yosemite
+    sha256 "f7bc8f2149bd9612a238ffca58b476dd7c2b78446228396ff451c30268a985f7" => :sierra
+    sha256 "3383c96004319f1571d7456717574c890bedec4191f8675efe98d50893e98529" => :el_capitan
+    sha256 "a93f407be72111a84cd14a7464025775a0b2c892ca7699cd47df4ddb5692fae0" => :yosemite
   end
 
   if MacOS.version < :mavericks
