@@ -1,8 +1,8 @@
 class GitFtp < Formula
   desc "Git-powered FTP client"
   homepage "https://git-ftp.github.io/git-ftp"
-  url "https://github.com/git-ftp/git-ftp/archive/1.3.1.tar.gz"
-  sha256 "e01065efb41d52cd36562a419440bd4804a9a91e85bc91b31131fe28c4ec0efe"
+  url "https://github.com/git-ftp/git-ftp/archive/1.3.2.tar.gz"
+  sha256 "a86e2437e60ab4314874a2da71fe330f0a892ed1c9b038b97f755c4b68d60dd1"
 
   head "https://github.com/git-ftp/git-ftp.git", :branch => "develop"
 
