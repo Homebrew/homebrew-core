@@ -1,8 +1,8 @@
 class Swig < Formula
   desc "Generate scripting interfaces to C/C++ code"
   homepage "http://www.swig.org/"
-  url "https://downloads.sourceforge.net/project/swig/swig/swig-3.0.11/swig-3.0.11.tar.gz"
-  sha256 "d9031d531d7418829a54d0d51c4ed9007016b213657ec70be44031951810566e"
+  url "https://downloads.sourceforge.net/project/swig/swig/swig-3.0.12/swig-3.0.12.tar.gz"
+  sha256 "7cf9f447ae7ed1c51722efc45e7f14418d15d7a1e143ac9f09a668999f4fc94d"
 
   bottle do
     sha256 "2e2906a9606fa06638ab536daf72de73cca26fd3632dc440867f19581edc2e85" => :sierra
