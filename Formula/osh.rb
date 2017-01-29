@@ -1,8 +1,8 @@
 class Osh < Formula
   desc "Two ports of /bin/sh from V6 UNIX (circa 1975)"
   homepage "http://v6shell.org"
-  url "http://v6shell.org/src/osh-4.2.1.tar.gz"
-  sha256 "2e2855c58b88d96146accbdc60f39a5745dea571b620b5f38ebf3e43d9b0ca74"
+  url "http://v6shell.org/src/osh-4.3.0.tar.gz"
+  sha256 "1173b8feffb617c0ed249f6cb7aff482eae960d8ccfb89f38ed73dab37dae5ed"
   version_scheme 1
   head "https://github.com/JNeitzel/v6shell.git"
 
@@ -21,7 +21,7 @@ class Osh < Formula
   end
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "SYSCONFDIR=#{etc}"
+    system "make", "install", "PREFIX=#{prefix}", "SYSCONFDIR=#{etc}", "MANDIR=#{man}"
 
     if build.with? "examples"
       resource("examples").stage do
