@@ -3,7 +3,7 @@ class Luabind < Formula
   homepage "http://www.rasterbar.com/products/luabind.html"
   url "https://downloads.sourceforge.net/project/luabind/luabind/0.9.1/luabind-0.9.1.tar.gz"
   sha256 "80de5e04918678dd8e6dac3b22a34b3247f74bf744c719bae21faaa49649aaae"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class Luabind < Formula
   end
 
   depends_on "boost-build" => :build
-  depends_on "lua51"
+  depends_on "lua@5.1"
   depends_on "boost"
 
   # boost 1.57 compatibility
@@ -48,7 +48,7 @@ class Luabind < Formula
   end
 
   def install
-    ENV["LUA_PATH"] = Formula["lua51"].opt_prefix
+    ENV["LUA_PATH"] = Formula["lua@5.1"].opt_prefix
 
     args = %w[release install]
     if ENV.compiler == :clang
