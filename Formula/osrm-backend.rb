@@ -3,7 +3,7 @@ class OsrmBackend < Formula
   homepage "http://project-osrm.org/"
   url "https://github.com/Project-OSRM/osrm-backend/archive/v5.4.3.tar.gz"
   sha256 "501b9302d4ae622f04305debacd2f59941409c6345056ebb272779ac375f874d"
-  revision 1
+  revision 2
   head "https://github.com/Project-OSRM/osrm-backend.git"
 
   bottle do
@@ -18,7 +18,7 @@ class OsrmBackend < Formula
   depends_on "libstxxl"
   depends_on "libxml2"
   depends_on "libzip"
-  depends_on "lua51"
+  depends_on "lua@5.1"
   depends_on "luabind"
   depends_on "tbb"
 
