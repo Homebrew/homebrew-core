@@ -6,9 +6,10 @@ class Cmocka < Formula
 
   bottle do
     cellar :any
-    sha256 "9ae0c0b36d7b8be3fb1847cf22434a7824cc19ed068e7b25af2967c1f0854890" => :sierra
-    sha256 "df6dcdbd93b8cc1ec973f869aa55bfe04434d2ee205a0a61fa4a568ed73c1d72" => :el_capitan
-    sha256 "ee52eab67b7f24ced2106764e6baf90b37f5011cb398d920b8040835d4760206" => :yosemite
+    rebuild 1
+    sha256 "728fa205df7a8e1efd39ddba0bc770d9d312dda20f54945baad099db272e011f" => :sierra
+    sha256 "c88eec638bf6414a40ce20b2e5bb2160b50abe639c83e3ae8b138ac12568e3e9" => :el_capitan
+    sha256 "d64fb55ed84223d2737f1e0902e522a83ced3c29fa196320a1bbe9f0655c7581" => :yosemite
   end
 
   depends_on "cmake" => :build
