@@ -20,7 +20,6 @@ class Lua < Formula
     satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
   end
 
-  option :universal
   option "with-completion", "Enables advanced readline support"
   option "without-sigaction", "Revert to ANSI signal instead of improved POSIX sigaction"
   option "without-luarocks", "Don't build with Luarocks support embedded"
@@ -53,8 +52,6 @@ class Lua < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-
     # Subtitute formula prefix in `src/Makefile` for install name (dylib ID).
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
