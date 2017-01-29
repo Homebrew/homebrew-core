@@ -31,6 +31,8 @@ class Radare2 < Formula
     end
   end
 
+  revision 1
+
   bottle do
     sha256 "91db44471f7d343662fd90b09e1a263a08f0cc7653dcd3f32b3ba57706d58403" => :sierra
     sha256 "c59413c6140a2ef743b5648705b269db21eecc42b920b10bab00909d8a591296" => :el_capitan
@@ -54,7 +56,7 @@ class Radare2 < Formula
   depends_on "gmp"
   depends_on "libewf"
   depends_on "libmagic"
-  depends_on "lua51" # It seems to latch onto Lua51 rather than Lua. Enquire this upstream.
+  depends_on "lua@5.1" # It seems to latch onto Lua@5.1 rather than Lua. Enquire this upstream.
   depends_on "openssl"
   depends_on "yara"
 
