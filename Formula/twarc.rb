@@ -3,9 +3,8 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://github.com/DocNow/twarc/archive/v1.0.3.tar.gz"
-  sha256 "9894a29f02c3fbbd671c9ee05db6fae3461ebbfcbba8f748421b8017c1f8fa96"
-  revision 1
+  url "https://github.com/DocNow/twarc/archive/v1.0.5.tar.gz"
+  sha256 "d980c57bcb9030205dfa233379431f20c6d7e4ce6badc3026b68bcde050084f8"
 
   bottle do
     cellar :any_skip_relocation
@@ -37,13 +36,13 @@ class Twarc < Formula
   end
 
   resource "py" do
-    url "https://files.pythonhosted.org/packages/93/bd/8a90834a287e0c1682eab8e20ada672e4f4cf7d5b99f2833ddbf31ed1a6d/py-1.4.32.tar.gz"
-    sha256 "c4b89fd1ff1162375115608d01f77c38cca1d0f28f37fd718005e19b28be41a7"
+    url "https://files.pythonhosted.org/packages/f4/9a/8dfda23f36600dd701c6722316ba8a3ab4b990261f83e7d3ffc6dfedf7ef/py-1.4.31.tar.gz"
+    sha256 "a6501963c725fc2554dabfece8ae9a8fb5e149c0ac0a42fd2b02c5c1c57fc114"
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/a8/87/b7ca49efe52d2b4169f2bfc49aa5e384173c4619ea8e635f123a0dac5b75/pytest-3.0.5.tar.gz"
-    sha256 "4a003aa956f023ce91aa6e166b555e6f02a4b0aeb459ac61e14f64c0d39037fd"
+    url "https://files.pythonhosted.org/packages/2f/03/0c636d7191255e1737012e5f9c42368f11b55463aeea46fb1955892cab0d/pytest-3.0.4.tar.gz"
+    sha256 "879fee2c1fdbaacd1bf2c0047677c6dd4aee05b9c1e64330b34d130a584fa40d"
   end
 
   resource "python-dateutil" do
@@ -52,8 +51,8 @@ class Twarc < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/5b/0b/34be574b1ec997247796e5d516f3a6b6509c4e064f2885a96ed885ce7579/requests-2.12.4.tar.gz"
-    sha256 "ed98431a0631e309bb4b63c81d561c1654822cb103de1ac7b47e45c26be7ae34"
+    url "https://files.pythonhosted.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
+    sha256 "63f1815788157130cee16a933b2ee184038e975f0017306d723ac326b5525b54"
   end
 
   resource "requests-oauthlib" do
