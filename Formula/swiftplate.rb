@@ -1,5 +1,3 @@
-require "set"
-
 class Swiftplate < Formula
   desc "Cross-platform Swift framework templates from the command-line"
   homepage "https://github.com/JohnSundell/SwiftPlate"
@@ -20,13 +18,10 @@ class Swiftplate < Formula
   end
 
   test do
-    project_name = "test"
-
     system "#{bin}/swiftplate", "--destination", ".",
-      "--project", project_name, "--name", "testUser",
+      "--project", "test", "--name", "testUser",
       "--email", "test@example.com", "--url", "https://github.com/johnsundell/swiftplate",
       "--organization", "exampleOrg", "--force"
-
-    assert((Dir.entries(".").include? "#{project_name}.xcodeproj"), "Failed to generate #{project_name}.xcodeproj")
+    assert File.exist?("test.xcodeproj"), "Failed to generate test.xcodeproj"
   end
 end
