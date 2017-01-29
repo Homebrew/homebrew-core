@@ -8,10 +8,9 @@ class Grok < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "39e4a16aacd8785350973962a852781c27c585b9b317fb80333ee35633aab5c1" => :sierra
-    sha256 "3a3894913d45c1989bb208d01e5a1d4c6a9f8fb7dbe8d354be2946b42553f9ff" => :el_capitan
-    sha256 "550c236ce16a5ac0931a66538571686064f8e9c461a5ae7d2351e0d7d0ac7bb6" => :yosemite
+    sha256 "18f3b7612397f4956e9013b37aecd55f47b0896edf3bdc7f4dc6833a8dcc54b0" => :sierra
+    sha256 "0c494fb95ba85d3ab1dd9092165a22e0737c60c17035ce030efcb142990df0a0" => :el_capitan
+    sha256 "f933ebf3d1fffbcc2512cdb32ef405d55ba6a9de1919eaf2f66e437e2dd34570" => :yosemite
   end
 
   depends_on "libevent"
