@@ -6,10 +6,9 @@ class Transmission < Formula
   revision 1
 
   bottle do
-    sha256 "0886b0d5825c557540222b50bd7ce30feb2bd48f6d14db5ec7b15ac2451088d6" => :sierra
-    sha256 "68af47554f408d92d04cbf86239a3d973cf7b4e9f0d254e127f5ead36074987a" => :el_capitan
-    sha256 "2071f4bb87d9d5e7cf6885caa8cf8605d81b108a097259113ba295a3c1f90bb7" => :yosemite
-    sha256 "9fb74d440426bbdf82d06dcd01e53db625cabfce0c4c85b15aec298007df6fd3" => :mavericks
+    sha256 "28ee6ef92d3c75e664eff438e08c66a26645fd27f308ef58839eae676d0e8f06" => :sierra
+    sha256 "f82fb7296f36573dd7730b602edcf27421d880cd8e3c16a56a69c1503d26a5e0" => :el_capitan
+    sha256 "e1b7d0f5ed6928752c71898e92364209e28a3c6d6e4be01572f818b852f57e37" => :yosemite
   end
 
   option "with-nls", "Build with native language support"
