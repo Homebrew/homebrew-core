@@ -27,6 +27,6 @@ class Swiftplate < Formula
       "--email", "test@example.com", "--url", "https://github.com/johnsundell/swiftplate",
       "--organization", "exampleOrg", "--force"
 
-    assert((Dir.entries(".").include? "#{project_name}.xcodeproj"), "Failed to generate #{project_name}.xcodeproj") 
+    assert((Dir.entries(".").include? "#{project_name}.xcodeproj"), "Failed to generate #{project_name}.xcodeproj")
   end
 end
