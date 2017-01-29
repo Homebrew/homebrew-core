@@ -3,6 +3,7 @@ class Uwsgi < Formula
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
   url "https://projects.unbit.it/downloads/uwsgi-2.0.14.tar.gz"
   sha256 "21b3d1ef926d835ff23576193a2c60d4c896d8e21567850cf0677a4764122887"
+  revision 1
   head "https://github.com/unbit/uwsgi.git"
 
   bottle do
@@ -14,6 +15,8 @@ class Uwsgi < Formula
   option "with-java", "Compile with Java support"
   option "with-php", "Compile with PHP support (PHP must be built for embedding)"
   option "with-ruby", "Compile with Ruby support"
+
+  deprecated_option "with-lua51" => "with-lua@5.1"
 
   depends_on "pkg-config" => :build
   depends_on "pcre"
@@ -27,7 +30,7 @@ class Uwsgi < Formula
   depends_on "libffi" => :optional
   depends_on "libxslt" => :optional
   depends_on "libyaml" => :optional
-  depends_on "lua51" => :optional
+  depends_on "lua@5.1" => :optional
   depends_on "mongodb" => :optional
   depends_on "mongrel2" => :optional
   depends_on "mono" => :optional
@@ -98,7 +101,7 @@ class Uwsgi < Formula
     plugins << "jvm" if build.with? "java"
     plugins << "jwsgi" if build.with? "java"
     plugins << "libtcc" if build.with? "tcc"
-    plugins << "lua" if build.with? "lua"
+    plugins << "lua" if build.with? "lua@5.1"
     plugins << "mongodb" if build.with? "mongodb"
     plugins << "mongodblog" if build.with? "mongodb"
     plugins << "mongrel2" if build.with? "mongrel2"
