@@ -50,6 +50,7 @@
   "libmpc08": "libmpc@0.8",
   "llvm37": "llvm@3.7",
   "llvm38": "llvm@3.8",
+  "lua51": "lua@5.1",
   "lua53": "lua@5.3",
   "mongo-c": "mongo-c-driver",
   "mpfr2": "mpfr@2",
