@@ -4,6 +4,7 @@ class Portaudio < Formula
   url "http://www.portaudio.com/archives/pa_stable_v190600_20161030.tgz"
   version "19.6.0"
   sha256 "f5a21d7dcd6ee84397446fa1fa1a0675bb2e8a4a6dceb4305a8404698d8d1513"
+  version_scheme 1
   head "https://git.assembla.com/portaudio.git"
 
   bottle do
