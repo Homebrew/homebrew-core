@@ -6,9 +6,9 @@ class Lldpd < Formula
   revision 2
 
   bottle do
-    sha256 "9e12bcec16a21ae516205f2d1ebdaae1d28edda9d987147c0c7902cf3ece3d61" => :sierra
-    sha256 "c2572db75c9e2d696bfdf19d7e9cf572d52ac3bb66e0cea06965a39501db269b" => :el_capitan
-    sha256 "e99ab8b1858316df6db2e98b665570ce0fa9dee4a76db83ef72bd6c03cb105e1" => :yosemite
+    sha256 "68513191e42cb6c5b8c0b17eb07d553d1d5b9f949dc82ba3e3c94ab02907820b" => :sierra
+    sha256 "91db17ee1b90ebfe754dce063443d6ce1e0315b3b6b202685773983be3250f07" => :el_capitan
+    sha256 "b2810c86f3cafe0d9771bb56fcc93b05189f2842e77c82ff159266ca33ba1b05" => :yosemite
   end
 
   option "with-snmp", "Build SNMP subagent support"
