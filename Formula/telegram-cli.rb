@@ -6,12 +6,11 @@ class TelegramCli < Formula
       :tag => "1.3.1",
       :revision => "5935c97ed05b90015418b5208b7beeca15a6043c"
   head "https://github.com/vysheng/tg.git"
-  revision 1
 
   depends_on "pkg-config" => :build
-  depends_on "readline" => :build
-  depends_on "libevent" => :build
-  depends_on "openssl" => :build
+  depends_on "readline"
+  depends_on "libevent"
+  depends_on "openssl"
   depends_on "libconfig" => :recommended
   depends_on "jansson" => :recommended
   depends_on "lua" => :recommended
@@ -37,6 +36,10 @@ class TelegramCli < Formula
 
     bin.install "bin/telegram-cli"
     (etc/"telegram-cli").install "server.pub"
+  end
+
+  test do
+    system "#{bin}/telegram-cli", "-h"
   end
 end
 
