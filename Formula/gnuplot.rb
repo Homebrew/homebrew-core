@@ -25,6 +25,7 @@ class Gnuplot < Formula
   option "with-wxmac", "Build wxmac support. Need with-cairo to build wxt terminal"
   option "with-tex", "Build with LaTeX support"
   option "with-aquaterm", "Build with AquaTerm support"
+  option "without-gd", "Build without gd based terminals"
 
   deprecated_option "with-x" => "with-x11"
   deprecated_option "pdf" => "with-pdflib-lite"
@@ -40,15 +41,9 @@ class Gnuplot < Formula
   deprecated_option "with-latex" => "with-tex"
 
   depends_on "pkg-config" => :build
-  depends_on "fontconfig"
-  depends_on "freetype"
-  depends_on "gd"
+  depends_on "gd" => :recommended
   depends_on "lua" => :recommended
-  depends_on "jpeg"
-  depends_on "libpng"
-  depends_on "libtiff"
   depends_on "readline"
-  depends_on "webp"
   depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
   depends_on "pdflib-lite" => :optional
   depends_on "qt@5.7" => :optional
@@ -81,6 +76,10 @@ class Gnuplot < Formula
     ]
 
     args << "--with-pdf=#{pdflib}" if build.with? "pdflib-lite"
+
+    if build.without? "gd"
+      args << "--without-gd"
+    end
 
     if build.without? "wxmac"
       args << "--disable-wxwidgets"
