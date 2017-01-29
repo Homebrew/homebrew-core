@@ -14,10 +14,9 @@ class OpenMpi < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "2607dd32851847dd48b35c88cf4de134dfc53fd13e8981a930d1c03535da65d4" => :sierra
-    sha256 "59f7b489e8684864432707600a0592f069900ae0159197243734fde1ffc02e18" => :el_capitan
-    sha256 "fa586ded89ffd30e8414b8132005fc806edc648331932ca9af749ed00a385343" => :yosemite
+    sha256 "98e28a166fc746b76686909b1feba5753aeb2170b7dddcf6348a037f1069f0fb" => :sierra
+    sha256 "7b63b8223213b8056185658b323d96e0a92da7d03794c1d83f2cdc2c77ba246b" => :el_capitan
+    sha256 "596d6159044cb9a43b879f2b985fe6ddfba775f778909c5defc499109dd81dee" => :yosemite
   end
 
   head do
