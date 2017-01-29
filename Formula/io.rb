@@ -17,10 +17,9 @@ class Io < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "be4e0bdd2b8a71e4a1162c23a01deceea1fc48d3bbf8b018e454ec436f598ef5" => :sierra
-    sha256 "846d10b607665d5d64cf1ab74f68962da808a684de194e043061f4c25be7a2f7" => :el_capitan
-    sha256 "8274549062848cdc162462a5f4f9568a14c6b136157f97a903ca9bf419ec114a" => :yosemite
+    sha256 "568f0e2970b3ebb0ee1407eddc76f6c9a7d7ce14284aa068266dfaa4ecb95f92" => :sierra
+    sha256 "e78e1078cadd25d0991d8d8cdd4e2f8af114df23b253f2a0d864efccf6cbe233" => :el_capitan
+    sha256 "39d88952df6b5ad7dd4622364e83c36011fda46faafc83145fb2d535586fd75b" => :yosemite
   end
 
   option "without-addons", "Build without addons"
