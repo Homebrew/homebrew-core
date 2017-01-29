@@ -1,9 +1,10 @@
 class Portaudio < Formula
   desc "Cross-platform library for audio I/O"
   homepage "http://www.portaudio.com"
-  url "http://www.portaudio.com/archives/pa_stable_v19_20140130.tgz"
-  sha256 "8fe024a5f0681e112c6979808f684c3516061cc51d3acc0b726af98fc96c8d57"
-  head "https://subversion.assembla.com/svn/portaudio/portaudio/trunk/", :using => :svn
+  url "http://www.portaudio.com/archives/pa_stable_v190600_20161030.tgz"
+  version "19.6.0"
+  sha256 "f5a21d7dcd6ee84397446fa1fa1a0675bb2e8a4a6dceb4305a8404698d8d1513"
+  head "https://git.assembla.com/portaudio.git"
 
   bottle do
     cellar :any
@@ -15,16 +16,13 @@ class Portaudio < Formula
     sha256 "1386972e0632b4ebe2b2770f1ade4c5921c7726fb7fa70f764f5fe09df085c5e" => :mountain_lion
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--prefix=#{prefix}",
                           "--disable-debug",
                           "--disable-dependency-tracking",
-                          "--enable-mac-universal=#{build.universal? ? "yes" : "no"}",
+                          "--enable-mac-universal=no",
                           "--enable-cxx"
     system "make", "install"
 
