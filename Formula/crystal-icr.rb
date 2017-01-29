@@ -6,9 +6,9 @@ class CrystalIcr < Formula
   revision 1
 
   bottle do
-    sha256 "88527c9ac0ee79319de10f816b19328ebf5c005a5690072fed1ac13d38c271ec" => :sierra
-    sha256 "4adf753310f1144c1105389ac7d752edf236337a52ac419c81490e2af2f8655e" => :el_capitan
-    sha256 "88e5bd242523c81ce04d26ac8bc4a16f2cb5f9a70b49fe9b085b2d04b521f4b9" => :yosemite
+    sha256 "41c369d2c4dc7b4572711cc24a0e04e1818452b4c744d6370456d1b89302c6b5" => :sierra
+    sha256 "cc33f3a028bba2e5cd06fc1b0d37823b94c7a51bbcb3a5fa948cb0f90dbb4b4b" => :el_capitan
+    sha256 "49968631daf1beff83c754af3c29e7b9941a2c18eaf24798317be7de69c4c92d" => :yosemite
   end
 
   depends_on "crystal-lang"
