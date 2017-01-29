@@ -3,6 +3,7 @@ class CrystalIcr < Formula
   homepage "https://github.com/greyblake/crystal-icr"
   url "https://github.com/greyblake/crystal-icr/archive/v0.2.13.tar.gz"
   sha256 "33763fa190baad390df7143b437b1ddda3867a12ccf6e11c3278e53ecb94e40a"
+  revision 1
 
   bottle do
     sha256 "88527c9ac0ee79319de10f816b19328ebf5c005a5690072fed1ac13d38c271ec" => :sierra
