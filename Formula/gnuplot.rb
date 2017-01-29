@@ -127,10 +127,10 @@ class Gnuplot < Formula
 
   test do
     system "#{bin}/gnuplot", "-e", <<-EOS.undent
-      set terminal png;
-      set output "#{testpath}/image.png";
+      set terminal dumb;
+      set output "#{testpath}/graph.txt";
       plot sin(x);
     EOS
-    File.exist? testpath/"image.png"
+    File.exist? testpath/"graph.txt"
   end
 end
