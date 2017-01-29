@@ -30,4 +30,29 @@ class Portaudio < Formula
     # Need 'pa_mac_core.h' to compile PyAudio
     include.install "include/pa_mac_core.h"
   end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <stdio.h>
+      #include "portaudio.h"
+
+      int main(){
+        printf("%s",Pa_GetVersionInfo()->versionText);
+      }
+    EOS
+
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <iostream>
+      #include "portaudiocpp/System.hxx"
+
+      int main(){
+        std::cout << portaudio::System::versionText();
+      }
+    EOS
+
+    system ENV.cc, testpath/"test.c", "-lportaudio", "-o", "test"
+    system ENV.cxx, testpath/"test.cpp", "-lportaudiocpp", "-o", "test_cpp"
+    assert_match version.to_s, shell_output(testpath/"test")
+    assert_match version.to_s, shell_output(testpath/"test_cpp")
+  end
 end
