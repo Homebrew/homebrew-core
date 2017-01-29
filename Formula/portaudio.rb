@@ -50,9 +50,9 @@ class Portaudio < Formula
       }
     EOS
 
-    system ENV.cc, testpath/"test.c", "-lportaudio", "-o", "test"
-    system ENV.cxx, testpath/"test.cpp", "-lportaudiocpp", "-o", "test_cpp"
-    assert_match version.to_s, shell_output(testpath/"test")
-    assert_match version.to_s, shell_output(testpath/"test_cpp")
+    system ENV.cc, testpath/"test.c", "-I#{include}", "-L#{lib}", "-lportaudio", "-o", "test"
+    system ENV.cxx, testpath/"test.cpp", "-I#{include}", "-L#{lib}", "-lportaudiocpp", "-o", "test_cpp"
+    assert_match stable.version.to_s, shell_output(testpath/"test")
+    assert_match stable.version.to_s, shell_output(testpath/"test_cpp")
   end
 end
