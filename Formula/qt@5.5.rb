@@ -116,17 +116,14 @@ class QtAT55 < Formula
     inreplace prefix/"mkspecs/qconfig.pri", /\n\n# pkgconfig/, ""
     inreplace prefix/"mkspecs/qconfig.pri", /\nPKG_CONFIG_.*=.*$/, ""
 
-    # In Xcode 8 on Sierra, when Qt tries to find xcrun but should be looking
-    # for xcodebuild. The error is "Project ERROR: Xcode not set up properly.
-    # You may need to confirm the license agreement by running
+    # In Xcode 8 (especially on Sierra), Qt tries to find xcrun but should be
+    # looking for xcodebuild. The error is "Project ERROR: Xcode not set up
+    # properly. You may need to confirm the license agreement by running
     # /usr/bin/xcodebuild."
     # see: https://github.com/Homebrew/homebrew-core/issues/8777
-    unless MacOS.version < :sierra
-      inreplace(
-        prefix/"mkspecs/features/mac/default_pre.prf",
-        /xcrun -find xcrun/,
-        "xcrun -find xcodebuild"
-      )
+    if MacOS::Xcode.version >= "8.0"
+      inreplace prefix/"mkspecs/features/mac/default_pre.prf",
+                /xcrun -find xcrun/, "xcrun -find xcodebuild"
     end
 
     # Move `*.app` bundles into `libexec` to expose them to `brew linkapps` and
