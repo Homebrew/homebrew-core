@@ -38,7 +38,7 @@ class Osc < Formula
     venv = virtualenv_create(libexec)
     venv.pip_install resources.reject { |r| r.name == "M2Crypto" }
     resource("M2Crypto").stage do
-      inreplace "setup.py", /(self.openssl = )'\/usr'/, "\\1'#{Formula["openssl"].prefix}'"
+      inreplace "setup.py", %r{(self.openssl = )'/usr'}, "\\1'#{Formula["openssl"].prefix}'"
       venv.pip_install "."
     end
 
