@@ -1,8 +1,8 @@
 class Plplot < Formula
   desc "Cross-platform software package for creating scientific plots"
   homepage "http://plplot.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/plplot/plplot/5.11.1%20Source/plplot-5.11.1.tar.gz"
-  sha256 "289dff828c440121e57b70538b3f0fb4056dc47159bc1819ea444321f2ff1c4c"
+  url "https://downloads.sourceforge.net/project/plplot/plplot/5.12.0%20Source/plplot-5.12.0.tar.gz"
+  sha256 "8dc5da5ef80e4e19993d4c3ef2a84a24cc0e44a5dade83201fca7160a6d352ce"
 
   bottle do
     rebuild 1
@@ -20,22 +20,6 @@ class Plplot < Formula
   depends_on :x11 => :optional
   depends_on :fortran => :optional
   depends_on :java => :optional
-
-  # Patches taken upstream
-  # https://sourceforge.net/p/plplot/plplot/ci/11c496bebb2d23f86812c753e60e7a5b8bbfb0a0/
-  # https://sourceforge.net/p/plplot/plplot/ci/cac0198537a260fcb413f7d97301979c2dfaa31c/
-  # Remove both when next release is made available
-  # CMake 3.6.x fix
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9d49869e/plplot/cmake-3.6.patch"
-    sha256 "50b17ff7c80f24288f9eaeca256be0d9dd449e1f59cb933f442c8ecf812f999f"
-  end
-
-  # CMake 3.7.x fix
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b90fdc8f9a17f291bf3f2a33c25ffcc7ea85b31f/plplot/cmake-3.7.patch"
-    sha256 "5c6cd338ca93637e5a4be5c0b3d479ca3211f1ebb456a1b51896b823d69fb992"
-  end
 
   def install
     args = std_cmake_args
