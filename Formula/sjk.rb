@@ -6,9 +6,9 @@ class Sjk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "35650f5840bde9a62b05bc660b3f2c38b551d0bda6d3fa666e79e49cb4f4b646" => :sierra
-    sha256 "e965cfbe1287adc7f55324b9a3209718a55b6464ff695bb6b648c28674270dd1" => :el_capitan
-    sha256 "2b0057a4934ed28ae2f8d9d02f871f3f6ec3d0645a34087460bd68817e34e434" => :yosemite
+    sha256 "298ca4cf2da2d45f3c2a67c7f31ab172b747c2388d97cd475e269e52c8525deb" => :sierra
+    sha256 "24271d45fbf4f2ad5d4ae008f95e4fdb4dfbe3afde349ac429984914526bc0f2" => :el_capitan
+    sha256 "d83e89c35dff7eabd7dee175fe6fa2f3d1fc72abdccedfff6e3205ed4cbc5405" => :yosemite
   end
 
   depends_on "maven" => :build
