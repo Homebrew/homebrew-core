@@ -30,4 +30,8 @@ class Riak < Formula
     bin.write_exec_script libexec/"bin/riak-debug"
     bin.write_exec_script libexec/"bin/search-cmd"
   end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/riak version")    
+  end
 end
