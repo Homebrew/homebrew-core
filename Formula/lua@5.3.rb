@@ -1,8 +1,8 @@
 class LuaAT53 < Formula
   desc "Powerful, lightweight programming language"
   homepage "https://www.lua.org/"
-  url "https://www.lua.org/ftp/lua-5.3.3.tar.gz"
-  sha256 "5113c06884f7de453ce57702abaac1d618307f33f6789fa870e87a59d772aca2"
+  url "https://www.lua.org/ftp/lua-5.3.4.tar.gz"
+  sha256 "f681aa518233bc407e23acf0f5887c884f17436f000d453b2491a9f11a52400c"
 
   bottle do
     cellar :any
