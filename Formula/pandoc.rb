@@ -5,9 +5,8 @@ class Pandoc < Formula
 
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://hackage.haskell.org/package/pandoc-1.19.1/pandoc-1.19.1.tar.gz"
-  sha256 "9d22db0a1536de0984f4a605f1a28649e68d540e6d892947d9644987ecc4172a"
-  revision 1
+  url "https://hackage.haskell.org/package/pandoc-1.19.2/pandoc-1.19.2.tar.gz"
+  sha256 "8a87110f60e6412a4cae68b27e1647d029b73bb7f1794a62a3477a0df1bbbbbc"
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
@@ -21,12 +20,6 @@ class Pandoc < Formula
 
   def install
     cabal_sandbox do
-      if build.stable?
-        # remove for > 1.19.1; compatibility with directory 1.3
-        system "cabal", "get", "pandoc"
-        mv "pandoc-1.19.1/pandoc.cabal", "pandoc.cabal"
-      end
-
       args = []
       args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
       install_cabal_package *args
