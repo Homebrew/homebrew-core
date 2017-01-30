@@ -1,8 +1,8 @@
 class Mikutter < Formula
   desc "Extensible Twitter client."
   homepage "http://mikutter.hachune.net"
-  url "http://mikutter.hachune.net/bin/mikutter.3.5.1.tar.gz"
-  sha256 "082ce9795208e7ca5f218178091123c56b735b2c0d59b742c17998d71a321737"
+  url "http://mikutter.hachune.net/bin/mikutter.3.5.2.tar.gz"
+  sha256 "a5c6d88ff7062014339d1af1f44bcc3736dbbd25e503f1c83f0b4e6e3c72b61f"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
@@ -66,8 +66,8 @@ class Mikutter < Formula
   end
 
   resource "hashdiff" do
-    url "https://rubygems.org/gems/hashdiff-0.3.1.gem"
-    sha256 "fef28aadc110e1770488c6c777f16ec729244ed4e7cdd027013bf2381e09b71e"
+    url "https://rubygems.org/gems/hashdiff-0.3.2.gem"
+    sha256 "5682c6e510f224d3c42c885d80d15d3dc0effadde5ed4920cd727acf2cb939e0"
   end
 
   resource "httpclient" do
@@ -116,8 +116,8 @@ class Mikutter < Formula
   end
 
   resource "nokogiri" do
-    url "https://rubygems.org/gems/nokogiri-1.6.8.1.gem"
-    sha256 "92814a7ff672e42b60fd5c02d75b62ab8fd2df3afbac279cc8dadac3c16bbd10"
+    url "https://rubygems.org/gems/nokogiri-1.7.0.1.gem"
+    sha256 "63d702f4e6684523f08f7d0fd48d9e42c95693207ba1aaef11b079eec083aa83"
   end
 
   resource "oauth" do
@@ -141,13 +141,13 @@ class Mikutter < Formula
   end
 
   resource "power_assert" do
-    url "https://rubygems.org/gems/power_assert-0.4.1.gem"
-    sha256 "8d2bf80d28a9f8bc4c6c7eb162780971896d0a27fa0540093a0f125157aa6b7f"
+    url "https://rubygems.org/gems/power_assert-1.0.1.gem"
+    sha256 "a51f4adaaf3d73dd87c12ab3f2d95b86f94ec1090af7970b63ba5281a0eda8ed"
   end
 
   resource "public_suffix" do
-    url "https://rubygems.org/gems/public_suffix-2.0.4.gem"
-    sha256 "1d10f21372a31e54fb3e6f5cf0040954fca4bce626c7aa97679258923c8de5c5"
+    url "https://rubygems.org/gems/public_suffix-2.0.5.gem"
+    sha256 "f8488b110921532ff291af74eef70fa4e3c036141c4ef80009dcdc2b51721210"
   end
 
   resource "rake" do
