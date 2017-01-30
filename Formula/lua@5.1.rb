@@ -10,10 +10,9 @@ class LuaAT51 < Formula
 
   bottle do
     cellar :any
-    sha256 "450656c0c5da3c9b6c429891bf6f3e38478e740e0334c00a9435a4ddf9fdca22" => :sierra
-    sha256 "52a35adb5c9531f2092b0daca56f1dee6f3f0ce65d78fbc91571c28a2a737176" => :el_capitan
-    sha256 "10e42166a4f4b6758a3b3183a32aaac246270af6a859cf92694661acccfb4d70" => :yosemite
-    sha256 "821a3e39854354505c4751ce8605b20f56e441c43b1d8464fe37e5301122e9c2" => :mavericks
+    sha256 "550dd46b8849792fe96aa3878bdbe47972b8b39a3af8d7e3df15c2d0e2969ab8" => :sierra
+    sha256 "bb5aed7c3b485ec7a102706d84dbcb9878cd2be20ac8cd686a0ef6eba9de7cba" => :el_capitan
+    sha256 "1bc63e65986763d0501b26de2d712b055ae7d2e036b9257d48cb59fd6cb6e3c4" => :yosemite
   end
 
   option "with-completion", "Enables advanced readline support"
