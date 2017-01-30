@@ -10,6 +10,8 @@ class MysqlAT56 < Formula
     sha256 "7b45bbe87f2add631829d8c576e293870e52997847d0023787132a121b81bfe3" => :yosemite
   end
 
+  keg_only :versioned_formula
+
   option :universal
   option "with-test", "Build with unit tests"
   option "with-embedded", "Build the embedded server"
@@ -27,16 +29,6 @@ class MysqlAT56 < Formula
   depends_on "cmake" => :build
   depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
-
-  conflicts_with "mysql", :because => "Different versions of same formula"
-  conflicts_with "mysql@5.5", :because => "Different versions of same formula"
-
-  conflicts_with "mysql-cluster", "mariadb", "percona-server",
-    :because => "mysql, mariadb, and percona install the same binaries."
-  conflicts_with "mysql-connector-c",
-    :because => "both install MySQL client libraries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
 
   def datadir
     var/"mysql"
