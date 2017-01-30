@@ -28,15 +28,7 @@ class MysqlAT55 < Formula
   depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
 
-  conflicts_with "mysql", :because => "Different versions of same formula"
-  conflicts_with "mysql@5.6", :because => "Different versions of same formula"
-
-  conflicts_with "mysql-cluster", "mariadb", "percona-server",
-    :because => "mysql, mariadb, and percona install the same binaries."
-  conflicts_with "mysql-connector-c",
-    :because => "both install MySQL client libraries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
+  keg_only :versioned_formula
 
   def datadir
     var/"mysql"
