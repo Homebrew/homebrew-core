@@ -1,8 +1,8 @@
 class Ffe < Formula
   desc "Parse flat file structures and print them in different formats"
   homepage "http://ff-extractor.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ff-extractor/ff-extractor/0.3.6/ffe-0.3.6.tar.gz"
-  sha256 "f508a0698d9ebdfefd41f150634ee97b2c4b3831577dd27d0156893d0c5f0b3c"
+  url "https://downloads.sourceforge.net/project/ff-extractor/ff-extractor/0.3.7/ffe-0.3.7.tar.gz"
+  sha256 "20ef5fda32e6576e7c81a7a30f2929e99eb84ddeb0f2fa7fa8337e8c6c740141"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,6 +13,11 @@ class Ffe < Formula
   end
 
   def install
+    # Work around build failure "ffe.c:326:23: error: non-void function
+    # 'update_anon_info' should return a value [-Wreturn-type]"
+    # Reported 7 Feb 2017 to tjsa@iki.fi
+    ENV.append_to_cflags "-Wno-return-type"
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
