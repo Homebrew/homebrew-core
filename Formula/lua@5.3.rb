@@ -6,9 +6,9 @@ class LuaAT53 < Formula
 
   bottle do
     cellar :any
-    sha256 "923fcb9bb86130a14be955d8731bdfa3ca434e2dfce9cfd3da98abb1b1194f2e" => :sierra
-    sha256 "af9dc8d00518fa1002638c9bfff739f0ee67e7cac629c376b2bb0638b53a92d6" => :el_capitan
-    sha256 "e8d86aaaeef4c000e632882a501b82140a673907505d7d2adb657fdefce4f110" => :yosemite
+    sha256 "19376afd63de40260f34006b8212432f2003fcbc2e7a1de28238e9bc67b89af0" => :sierra
+    sha256 "970494abb3a2ce2f97710be65a76affdf7001c25ea00432514ae96523d6700b8" => :el_capitan
+    sha256 "d0e79e1f4097bf550a488ec987e5e7316d3c4b95d4e5e588e348debcd0df7320" => :yosemite
   end
 
   option "without-luarocks", "Don't build with Luarocks support embedded"
