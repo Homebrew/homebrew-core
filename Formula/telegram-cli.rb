@@ -11,11 +11,12 @@ class TelegramCli < Formula
   depends_on "readline"
   depends_on "libevent"
   depends_on "openssl"
-  depends_on "libconfig" => :recommended
-  depends_on "jansson" => :recommended
+  depends_on "libconfig"
+  depends_on "jansson"
   depends_on "lua" => :recommended
   depends_on "python" => :recommended
 
+  # Look for the configuration file under /usr/local/etc rather than /etc on OS X.
   patch :DATA
 
   def install
