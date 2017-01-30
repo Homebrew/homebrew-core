@@ -3,8 +3,8 @@
 class V8AT58 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
-  url "https://chromium.googlesource.com/chromium/tools/depot_tools.git"
-  version "5.8.60"
+  url "https://github.com/v8/v8/archive/5.8.69.tar.gz"
+  sha256 "15271aa814a8e00f8a1b493084513eb5e0b88d6a4ca662f26f0a446bfe568d99"
 
   keg_only "Provided V8 formula is co-installable and it is not installed in the library path."
 
@@ -17,102 +17,78 @@ class V8AT58 < Formula
 
   needs :cxx11
 
+  resource "depot_tools" do
+    url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
+        :revision => "7afd16467e2c4f4375584746e698a6f0db5a42f9"
+  end
 
   def install
-    (buildpath/"depot_tools").install buildpath.children - [buildpath/".brew_home"]
+    (buildpath/"depot_tools").install resource("depot_tools")
+    ENV.prepend_path "PATH", buildpath/"depot_tools"
+
     # This env variable used by gclient to prevent depot_tools to update depot_tools on every call
     # see https://www.chromium.org/developers/how-tos/depottools#TOC-Disabling-auto-update
     ENV["DEPOT_TOOLS_UPDATE"] = "0"
-    ENV.prepend_path "PATH", buildpath/"depot_tools"
 
-    system "gclient", "root"
-    system "gclient", "config", "--spec", <<-EOS.undent
-      solutions = [
-        {
-          "url": "https://chromium.googlesource.com/v8/v8.git",
-          "managed": False,
-          "name": "v8",
-          "deps_file": "DEPS",
-          "custom_deps": {},
-        },
-      ]
-      target_os = [ "mac" ]
-      target_os_only = True
-    EOS
+    repo_cache = HOMEBREW_CACHE/"#{name}--v8--gclient/"
+    repo_cache.mkpath
 
-    # For formula development purposes we may want to avoid fetching v8 on every call as it is time-consuming,
-    # so we backup/restore fetched v8 sources to directory specified in DEV_CACHE_DEPS env variable (if any).
-    # To refresh cache you have to delete cached v8 folder (the one you pass as DEV_CACHE_DEPS), and it will be
-    # refreshed on a next run
-    cache_location = ENV["DEV_CACHE_DEPS"]
-    # For formula development purposes we may want to avoid syncing v8 sources and deps (to avoid full rebuild)
-    # so when DEV_NO_SYNC env variable passed alongside DEV_CACHE_DEPS, no v8 sync will be done.
-    no_sync = ENV["DEV_NO_SYNC"]
-
-    # Note: at this time we don't run tests
-    # For formula development purposes we may want to avoid running full v8 test suite as it's time consuming.
-    # run_tests = ENV["DEV_RUN_TESTS"]
-    # Always run tests when formula is being built as a bottle (uncomment below to make that happened)
-    # run_tests = build.bottle? || ENV["DEV_RUN_TESTS"]
-
-    # We consider x.y-lkgr as our version branch HEAD because v8 doesn't have version major.minor branches and
-    # real HEAD on v8 will point to master, so lkgr is the best simple ans reliable way to get latest version.
-    # Normally, it is just a few releases behind real latest version and as v8 releases quite often, it's ok.
-    v8_version = build.head? ? "5.8-lgkr" : version
-
-    if cache_location and File.directory?(cache_location)
-      cp_r(cache_location, "v8")
-    else
-      system "gclient", "sync", "-vvv", "-j #{Hardware::CPU.cores}", "-r", v8_version unless no_sync
-
-      if cache_location and !File.exist?(cache_location)
-        cp_r("v8", cache_location)
-      end
-    end
-
-    cd "v8" do
-      arch = MacOS.prefer_64_bit? ? "x64" : "x86"
-      output_name = "#{arch}.release"
-      output_path = "out.gn/#{output_name}"
-
-      # Configure build
-      gn_args = {
+    # Configure build
+    gn_args = {
         is_debug: false,
         is_component_build: true,
         v8_use_external_startup_data: false,
-      }
+    }
 
-      # Patch d8 (1/2) to make it relocatable: allows icudtl.dat being loaded from keg shared directory
-      inreplace "src/d8.cc",
-                "v8::V8::InitializeICUDefaultLocation(argv[0],",
-                "v8::V8::InitializeICUDefaultLocation(\"#{share}/\","
+    v8_version = version
+    arch = MacOS.prefer_64_bit? ? "x64" : "x86"
+    output_name = "#{arch}.release"
+    output_path = "out.gn/#{output_name}"
 
-      gn_command = "gn gen #{output_path} --args=\"#{gn_args.map { |k, v| "#{k}=#{v}" }.join(' ')}\""
-      system gn_command
+    gn_command = "gn gen #{output_path} --args=\"#{gn_args.map { |k, v| "#{k}=#{v}" }.join(' ')}\""
 
-      system "ninja", "-j #{Hardware::CPU.cores}", "-v", "-C", output_path
+    cd repo_cache do
+      system "gclient", "root"
+      system "gclient", "config", "--spec", <<-EOS.undent
+        solutions = [
+          {
+            "url": "https://chromium.googlesource.com/v8/v8.git",
+            "managed": False,
+            "name": "v8",
+            "deps_file": "DEPS",
+            "custom_deps": {},
+          },
+        ]
+        target_os = [ "mac" ]
+        target_os_only = True
+      EOS
 
-      # As we patched d8, we now need to have that new ICU data location to be created before we run tests,
-      # at this time we just ignore running tests rather then playing with running that tests
-      #system "tools/run-tests.py", "--outdir", output_path if run_tests
+      system "gclient", "sync", "-vvv", "-j #{Hardware::CPU.cores}", "-r", v8_version
 
-      # Patch d8 (2/2) to make it relocatable: specify valid @rpath
-      File.chmod(0777, "#{output_path}/d8")
-      system "install_name_tool", "-add_rpath", lib, "#{output_path}/d8"
-      File.chmod(0555, "#{output_path}/d8")
+      cd "v8" do
+        system gn_command
+        system "ninja", "-j #{Hardware::CPU.cores}", "-v", "-C", output_path, "d8"
 
-      include.install Dir["include/*"]
+        include.install Dir["include/*"]
 
-      cd output_path do
-        lib.install Dir["lib*.dylib"]
-        share.install "icudtl.dat"
-        bin.install "d8" => "v8"
+        cd output_path do
+          lib.install Dir["lib*.dylib", "icudtl.dat", "d8"]
+        end
       end
     end
   end
 
   test do
-    assert_equal "Hello World!", pipe_output("#{bin}/v8 -e 'print(\"Hello World!\")'").chomp
-    assert_equal "12/20/2012", pipe_output("#{bin}/v8 -e 'var date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0)); print(new Intl.DateTimeFormat(\"en-US\").format(date));'").chomp
+    test_basic_script = <<-EOS.strip
+      print("Hello World!");
+    EOS
+
+    test_icu_script = <<-EOS.undent.tr("\n", " ").strip
+      var date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
+      print(new Intl.DateTimeFormat("en-US").format(date));
+    EOS
+
+    assert_equal "Hello World!", pipe_output("#{lib}/d8 -e '#{test_basic_script}'").chomp
+    assert_match %r{12/\d{2}/2012}, pipe_output("#{lib}/d8 -e '#{test_icu_script}'").chomp
   end
 end
