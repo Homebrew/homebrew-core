@@ -1,9 +1,8 @@
 class Upx < Formula
   desc "Compress/expand executable files"
   homepage "https://upx.github.io/"
-  url "https://github.com/upx/upx/releases/download/v3.92/upx-3.92-src.tar.xz"
-  mirror "https://fossies.org/linux/privat/upx-3.92-src.tar.bz2"
-  sha256 "0378169c342a0f98dc93236deae42f72fda07d0b02d7f51e6147448ee7e77794"
+  url "https://github.com/upx/upx/releases/download/v3.93/upx-3.93-src.tar.xz"
+  sha256 "893f1cf1580c8f0048a4d328474cb81d1a9bf9844410d2fd99f518ca41141007"
   head "https://github.com/upx/upx.git", :branch => :devel
 
   bottle do
