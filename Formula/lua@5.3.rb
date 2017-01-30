@@ -4,6 +4,13 @@ class LuaAT53 < Formula
   url "https://www.lua.org/ftp/lua-5.3.3.tar.gz"
   sha256 "5113c06884f7de453ce57702abaac1d618307f33f6789fa870e87a59d772aca2"
 
+  bottle do
+    cellar :any
+    sha256 "923fcb9bb86130a14be955d8731bdfa3ca434e2dfce9cfd3da98abb1b1194f2e" => :sierra
+    sha256 "af9dc8d00518fa1002638c9bfff739f0ee67e7cac629c376b2bb0638b53a92d6" => :el_capitan
+    sha256 "e8d86aaaeef4c000e632882a501b82140a673907505d7d2adb657fdefce4f110" => :yosemite
+  end
+
   option "without-luarocks", "Don't build with Luarocks support embedded"
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
