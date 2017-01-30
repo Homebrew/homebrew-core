@@ -67,9 +67,14 @@ class Sqlite < Formula
 
     ENV.universal_binary if build.universal?
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--enable-dynamic-extensions"
+    args = [
+      "--prefix=#{prefix}",
+      "--disable-dependency-tracking",
+      "--enable-dynamic-extensions",
+    ]
+    args << "--enable-readline" << "--disable-editline" if build.with? "readline"
+
+    system "./configure", *args
     system "make", "install"
 
     if build.with? "functions"
@@ -85,25 +90,45 @@ class Sqlite < Formula
   end
 
   def caveats
-    if build.with? "functions" then <<-EOS.undent
-      Usage instructions for applications calling the sqlite3 API functions:
+    s = ""
+    if build.with? "functions"
+      s += <<-EOS.undent
+        Usage instructions for applications calling the sqlite3 API functions:
 
-        In your application, call sqlite3_enable_load_extension(db,1) to
-        allow loading external libraries.  Then load the library libsqlitefunctions
-        using sqlite3_load_extension; the third argument should be 0.
-        See https://sqlite.org/loadext.html.
-        Select statements may now use these functions, as in
-        SELECT cos(radians(inclination)) FROM satsum WHERE satnum = 25544;
+          In your application, call sqlite3_enable_load_extension(db,1) to
+          allow loading external libraries.  Then load the library libsqlitefunctions
+          using sqlite3_load_extension; the third argument should be 0.
+          See https://sqlite.org/loadext.html.
+          Select statements may now use these functions, as in
+          SELECT cos(radians(inclination)) FROM satsum WHERE satnum = 25544;
 
-      Usage instructions for the sqlite3 program:
+        Usage instructions for the sqlite3 program:
 
-        If the program is built so that loading extensions is permitted,
-        the following will work:
-         sqlite> SELECT load_extension('#{lib}/libsqlitefunctions.dylib');
-         sqlite> select cos(radians(45));
-         0.707106781186548
+          If the program is built so that loading extensions is permitted,
+          the following will work:
+           sqlite> SELECT load_extension('#{lib}/libsqlitefunctions.dylib');
+           sqlite> select cos(radians(45));
+           0.707106781186548
       EOS
     end
+    if build.with? "readline"
+      user_history = "~/.sqlite_history"
+      user_history_path = File.expand_path(user_history)
+      if File.exist?(user_history_path) && File.read(user_history_path).include?("\\040")
+        s += <<-EOS.undent
+          Homebrew has detected an existing SQLite history file that was created
+          with the editline library. The current version of this formula is
+          built with Readline. To back up and convert your history file so that
+          it can be used with Readline, run:
+
+            sed -i~ 's/\\\\040/ /g' #{user_history}
+
+          before using the `sqlite` command-line tool again. Otherwise, your
+          history will be lost.
+        EOS
+      end
+    end
+    s
   end
 
   test do
