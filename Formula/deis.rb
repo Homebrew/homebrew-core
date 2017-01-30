@@ -1,8 +1,8 @@
 class Deis < Formula
   desc "Deploy and manage applications on your own servers"
   homepage "https://deis.io/"
-  url "https://github.com/deis/deis/archive/v1.13.4.tar.gz"
-  sha256 "c59b244b2d4e87e04491898a401238ea6f302326957ffe1aeb6154485fe1d8ec"
+  url "https://github.com/deis/workflow-cli/archive/v2.10.0.tar.gz"
+  sha256 "de5a9b1dd8746059c77b63472ae8d9a788e3f3cccdb190f8f307e3fdbb309700"
 
   bottle do
     sha256 "274ce1639c8b85fff3fd4a315e260ac37baa5d66b52357d4d08b45cefa29cb15" => :sierra
