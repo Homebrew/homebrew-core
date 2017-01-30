@@ -18,6 +18,6 @@ class SimpleObfs < Formula
   end
 
   test do
-    assert_match "ERROR: Invalid config path.", shell_output("#{bin}/obfs-local -c test.json 2>&1", 1)
+    assert_match "simple-obfs", shell_output("#{bin}/obfs-local -h 2>&1", 1)
   end
 end
