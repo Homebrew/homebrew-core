@@ -14,15 +14,13 @@ class Unixodbc < Formula
 
   keg_only "Shadows system iODBC header files" if MacOS.version < :mavericks
 
-  option :universal
-
   conflicts_with "virtuoso", :because => "Both install `isql` binaries."
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
+                          "--enable-static",
                           "--enable-gui=no"
     system "make", "install"
   end
