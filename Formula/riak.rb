@@ -7,6 +7,13 @@ class Riak < Formula
 
   bottle :unneeded
 
+  # Broken dylib links (should be fixed in 2.2.1)
+  # https://github.com/basho/eleveldb/issues/236
+  
+  # Currently refuses to use non-system OpenSSL
+  # https://github.com/basho/riak/issues/888
+  # depends_on "openssl"
+  
   depends_on :macos => :mountain_lion
   depends_on :arch => :x86_64
 
