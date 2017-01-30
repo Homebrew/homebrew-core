@@ -1,9 +1,9 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/6.6/racket-minimal-6.6-src-builtpkgs.tgz"
-  version "6.6"
-  sha256 "f0666dbf0c7fc446f103b0c16eed508225addb09596f9c44a87b9d546422b1e9"
+  url "https://mirror.racket-lang.org/installers/6.7/racket-minimal-6.7-src-builtpkgs.tgz"
+  version "6.7"
+  sha256 "4203d9b51a0de7ea549db966cfa49a736f8605ab51e2f198cbdb9cfaf428b0f3"
 
   bottle do
     sha256 "b90d78d65e3fb07b115a38b5d00706915863123c827601a3d58c973cb5c05f9f" => :sierra
@@ -16,6 +16,8 @@ class MinimalRacket < Formula
   skip_clean "lib/racket/launchers.rktd", "lib/racket/mans.rktd"
 
   def install
+    ENV.delete "SDKROOT"
+
     cd "src" do
       args = %W[
         --disable-debug
