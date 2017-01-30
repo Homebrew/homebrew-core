@@ -13,9 +13,6 @@ class Elasticsearch < Formula
 
   depends_on :java => "1.8+"
 
-  conflicts_with "elasticsearch@1.7", :because => "Different versions of same formula"
-  conflicts_with "elasticsearch@2.4", :because => "Different versions of same formula"
-
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
   end

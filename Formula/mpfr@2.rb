@@ -13,7 +13,7 @@ class MpfrAT2 < Formula
     sha256 "fad9992e12b9dab83c8630330e1e5b4a612380b6f0258ac77b1ac512b6286e1e" => :yosemite
   end
 
-  keg_only "Older version of mpfr"
+  keg_only :versioned_formula
 
   depends_on "gmp@4"
 
