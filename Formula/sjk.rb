@@ -1,8 +1,8 @@
 class Sjk < Formula
   desc "Swiss Java Knife"
   homepage "https://github.com/aragozin/jvm-tools"
-  url "https://github.com/aragozin/jvm-tools/archive/jvmtool-umbrella-pom-0.4.4.tar.gz"
-  sha256 "d022fb266d86aa2325b9b76f53754a46daf8635ef4004e4b28e4d068f0461f3b"
+  url "https://github.com/aragozin/jvm-tools/archive/jvmtool-umbrella-pom-0.5.tar.gz"
+  sha256 "94ef70187752e0e3a9ebc0e37b5453b046066e17b7db100ee18f18742af13f94"
 
   bottle do
     cellar :any_skip_relocation
