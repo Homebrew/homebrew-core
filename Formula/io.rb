@@ -1,6 +1,7 @@
 class Io < Formula
   desc "Small prototype-based programming language"
   homepage "http://iolanguage.com/"
+  revision 1
 
   head "https://github.com/stevedekorte/io.git"
 

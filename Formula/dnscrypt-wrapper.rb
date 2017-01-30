@@ -4,6 +4,7 @@ class DnscryptWrapper < Formula
   url "https://github.com/Cofyc/dnscrypt-wrapper/releases/download/v0.2.2/dnscrypt-wrapper-v0.2.2.tar.bz2"
   sha256 "6fa0d2bea41a11c551d6b940bf4dffeaaa0e034fffd8c67828ee2093c1230fee"
   head "https://github.com/Cofyc/dnscrypt-wrapper.git"
+  revision 1
 
   bottle do
     cellar :any

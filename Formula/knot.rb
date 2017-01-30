@@ -1,6 +1,7 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
+  revision 1
 
   stable do
     url "https://secure.nic.cz/files/knot-dns/knot-2.3.3.tar.xz"
