@@ -3,8 +3,8 @@ class Pipenv < Formula
 
   desc "Experimental virtualenv, and package manager for Python"
   homepage "https://github.com/kennethreitz/pipenv"
-  url "https://github.com/kennethreitz/pipenv/archive/v3.2.10.tar.gz"
-  sha256 "c213e610406746c0a9e0c4f0060a859b1a5417afdafc905877b24539db7d0349"
+  url "https://github.com/kennethreitz/pipenv/archive/v3.2.11.tar.gz"
+  sha256 "4dc7dcea983f0ecd8f3ca16e9249280271558bdffd0cc1bdca3bdf322f365d4e"
 
   depends_on :python
 
@@ -93,16 +93,37 @@ class Pipenv < Formula
     sha256 "02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a"
   end
 
+  option "without-completions", "Disable bash/fish/zsh completions"
+
   def install
     virtualenv_install_with_resources
+    if build.with? "completions"
+      system "mkdir completions"
+      system "_PIPENV_COMPLETE=source-bash #{bin}/pipenv > completions/pipenv"
+      system "_PIPENV_COMPLETE=source-fish #{bin}/pipenv > completions/pipenv.fish"
+      system "_PIPENV_COMPLETE=source-zsh #{bin}/pipenv > completions/_pipenv"
+      bash_completion.install "completions/pipenv"
+      fish_completion.install "completions/pipenv.fish"
+      zsh_completion.install "completions/_pipenv"
+    end
+  end
+
+  def caveats; <<-EOS.undent
+    To use Python 3 virtualenvs, `brew install python3`.
+    EOS
   end
 
   test do
     system "#{bin}/pipenv", "--three"
-    File.exist?("Pipfile")
+    assert_equal true, File.exist?("Pipfile")
     system "#{bin}/pipenv", "install", "requests"
+    assert_equal true, Dir.exist?(".venv")
     assert_match "requests", shell_output("cat Pipfile")
     system "#{bin}/pipenv", "lock"
-    File.exist?("Pipfile.lock")
+    assert_equal true, File.exist?("Pipfile.lock")
+    if build.with? "completions"
+      assert_match "-F _pipenv",
+        shell_output("bash -c 'source #{bash_completion}/pipenv && complete -p pipenv'")
+    end
   end
 end
