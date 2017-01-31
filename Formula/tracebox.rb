@@ -3,6 +3,7 @@ class Tracebox < Formula
   homepage "http://www.tracebox.org/"
   url "https://github.com/tracebox/tracebox.git", :tag => "v0.3.1",
                                                   :revision => "aec062dcf7198c8b8f3b90ee4216e929ebf0ffcb"
+  head "https://github.com/tracebox/tracebox.git"
 
   bottle do
     cellar :any
@@ -12,8 +13,6 @@ class Tracebox < Formula
     sha256 "3cf26c9f63b463048eea103b7eac1faeea873dd85391673f590161f4dc0e9416" => :mavericks
     sha256 "03ce10b37ac2bcb7cad32594899fe650fc49cf47ed2f4336e300a18e6f30f12d" => :mountain_lion
   end
-
-  head "https://github.com/tracebox/tracebox.git"
 
   needs :cxx11
 

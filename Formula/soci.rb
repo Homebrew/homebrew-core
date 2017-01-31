@@ -10,15 +10,15 @@ class Soci < Formula
     sha256 "b802ee253ceb25ebfd2b5a90ef4dc8b229a90c7b1cae1a33533c9bd2ff9e7d50" => :yosemite
   end
 
-  depends_on "cmake" => :build
-  depends_on "boost" => [:build, :optional]
-  depends_on "sqlite" if MacOS.version <= :snow_leopard
-
   option "with-oracle", "Enable Oracle support."
   option "with-boost", "Enable boost support."
   option "with-mysql", "Enable MySQL support."
   option "with-odbc", "Enable ODBC support."
   option "with-pg", "Enable PostgreSQL support."
+
+  depends_on "cmake" => :build
+  depends_on "boost" => [:build, :optional]
+  depends_on "sqlite" if MacOS.version <= :snow_leopard
 
   def translate(a)
     a == "pg" ? "postgresql" : a

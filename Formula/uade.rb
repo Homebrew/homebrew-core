@@ -1,6 +1,7 @@
 class Uade < Formula
   desc "Play Amiga tunes through UAE emulation"
   homepage "http://zakalwe.fi/uade/"
+  head "git://zakalwe.fi/uade"
 
   stable do
     url "http://zakalwe.fi/uade/uade2/uade-2.13.tar.bz2"
@@ -15,8 +16,6 @@ class Uade < Formula
     sha256 "454945f35580b0b2bc8f0c7ddeecfae091634f54ee3a367eb14acce7251e5779" => :yosemite
     sha256 "807b7f5cb5a83348c778003d781d715cec73d37da537e0b11b8138c93aad4938" => :mavericks
   end
-
-  head "git://zakalwe.fi/uade"
 
   depends_on "pkg-config" => :build
   depends_on "libao"

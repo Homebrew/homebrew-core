@@ -9,6 +9,8 @@ class Maven < Formula
 
   depends_on :java
 
+  conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
+
   def install
     # Remove windows files
     rm_f Dir["bin/*.bat"]
@@ -27,8 +29,6 @@ class Maven < Formula
       (bin/basename).write_env_script file, Language::Java.overridable_java_home_env
     end
   end
-
-  conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
 
   test do
     (testpath/"pom.xml").write <<-EOS.undent

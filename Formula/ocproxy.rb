@@ -3,8 +3,8 @@ class Ocproxy < Formula
   homepage "https://github.com/cernekee/ocproxy"
   url "https://github.com/cernekee/ocproxy/archive/v1.50.tar.gz"
   sha256 "b061d59e0b5729d7a8950d8d4e0004a9739c092a4d5daf58a3bc61b177b24e4f"
-  head "https://github.com/cernekee/ocproxy.git"
   revision 1
+  head "https://github.com/cernekee/ocproxy.git"
 
   bottle do
     cellar :any

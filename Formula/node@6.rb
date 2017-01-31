@@ -3,8 +3,8 @@ class NodeAT6 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v6.9.4/node-v6.9.4.tar.xz"
   sha256 "c51d7c61db40455d57428abcadc7eb0f0a08a8878cb1d8ea3c1e211c54532c35"
-  head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
   revision 1
+  head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
     sha256 "197c2c00f3ed0fdf59c06758881a77d1600ef761a3a8dfeb00280d4a25079d83" => :sierra
