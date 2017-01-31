@@ -1,9 +1,8 @@
 class Gnuradio < Formula
   desc "SDK providing the signal processing runtime and processing blocks"
   homepage "https://gnuradio.squarespace.com/"
-  url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.9.1.tar.gz"
-  sha256 "9c06f0f1ec14113203e0486fd526dd46ecef216dfe42f12d78d9b781b1ef967e"
-  revision 2
+  url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.10.1.tar.gz"
+  sha256 "63d7b65cc4abe22f47b8f41caaf7370a0a502b91e36e29901ba03e8838ab4937"
 
   bottle do
     sha256 "7f2b54d889d4d568736e9ae8221b0a652015d6abb18b1466a5637f92a007884f" => :sierra
@@ -13,6 +12,7 @@ class Gnuradio < Formula
 
   option :universal
 
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -32,10 +32,10 @@ class Gnuradio < Formula
   depends_on "portaudio" => :recommended
 
   # gnuradio is known not to compile against CMake >3.3.2 currently.
-  resource "cmake" do
-    url "https://cmake.org/files/v3.3/cmake-3.3.2.tar.gz"
-    sha256 "e75a178d6ebf182b048ebfe6e0657c49f0dc109779170bad7ffcb17463f2fc22"
-  end
+  #resource "cmake" do
+  #  url "https://cmake.org/files/v3.3/cmake-3.3.2.tar.gz"
+  #  sha256 "e75a178d6ebf182b048ebfe6e0657c49f0dc109779170bad7ffcb17463f2fc22"
+  #end
 
   resource "numpy" do
     url "https://pypi.python.org/packages/source/n/numpy/numpy-1.10.1.tar.gz"
@@ -68,29 +68,29 @@ class Gnuradio < Formula
     ENV["CHEETAH_INSTALL_WITHOUT_SETUPTOOLS"] = "1"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
 
-    resource("cmake").stage do
-      args = %W[
-        --prefix=#{buildpath}/cmake
-        --no-system-libs
-        --parallel=#{ENV.make_jobs}
-        --datadir=/share/cmake
-        --docdir=/share/doc/cmake
-        --mandir=/share/man
-        --system-zlib
-        --system-bzip2
-      ]
-
-      # https://github.com/Homebrew/homebrew/issues/45989
-      if MacOS.version <= :lion
-        args << "--no-system-curl"
-      else
-        args << "--system-curl"
-      end
-
-      system "./bootstrap", *args
-      system "make"
-      system "make", "install"
-    end
+#    resource("cmake").stage do
+#      args = %W[
+#        --prefix=#{buildpath}/cmake
+#        --no-system-libs
+#        --parallel=#{ENV.make_jobs}
+#        --datadir=/share/cmake
+#        --docdir=/share/doc/cmake
+#        --mandir=/share/man
+#        --system-zlib
+#        --system-bzip2
+#      ]
+#
+#      # https://github.com/Homebrew/homebrew/issues/45989
+#      if MacOS.version <= :lion
+#        args << "--no-system-curl"
+#      else
+#        args << "--system-curl"
+#      end
+#
+#      system "./bootstrap", *args
+#      system "make"
+#      system "make", "install"
+#    end
 
     ENV.prepend_path "PATH", buildpath/"cmake/bin"
 
