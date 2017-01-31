@@ -7,19 +7,6 @@ class AntAT19 < Formula
 
   keg_only :versioned_formula
 
-  option "with-ivy", "Install ivy dependency manager"
-  option "with-bcel", "Install Byte Code Engineering Library"
-
-  resource "ivy" do
-    url "https://www.apache.org/dyn/closer.cgi?path=ant/ivy/2.4.0/apache-ivy-2.4.0-bin.tar.gz"
-    sha256 "7a3d13a80b69d71608191463dfc2a74fff8ef638ce0208e70d54d28ba9785ee9"
-  end
-
-  resource "bcel" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/bcel/bcel/6.0/bcel-6.0.jar"
-    sha256 "7eb80fdb30034dda26ba109a1b76af8dae0782c8cd27db32f1775086482d5bd0"
-  end
-
   def install
     rm Dir["bin/*.{bat,cmd,dll,exe}"]
     libexec.install Dir["*"]
@@ -29,16 +16,6 @@ class AntAT19 < Formula
       #!/bin/sh
       #{libexec}/bin/ant -lib #{HOMEBREW_PREFIX}/share/ant "$@"
     EOS
-    if build.with? "ivy"
-      resource("ivy").stage do
-        (libexec/"lib").install Dir["ivy-*.jar"]
-      end
-    end
-    if build.with? "bcel"
-      resource("bcel").stage do
-        (libexec/"lib").install Dir["bcel-*.jar"]
-      end
-    end
   end
 
   test do
