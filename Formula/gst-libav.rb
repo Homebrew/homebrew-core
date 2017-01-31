@@ -5,9 +5,9 @@ class GstLibav < Formula
   sha256 "9a6bc165b1862b18b98d9f1755c43806e4839a80f69ec7ea9a2dab61b65752a9"
 
   bottle do
-    sha256 "c0691cde027e2726aabe54b272a2544a10883cadb56e916971e60d89fc9d95fd" => :sierra
-    sha256 "048c9f2b28882e4fe1c429893e03d414f07284887a19857bafbb82312007f424" => :el_capitan
-    sha256 "fff6838f79daac7bc9d1398b7e38f42fff2f0672005c67e7e6f5e663d5d5308a" => :yosemite
+    sha256 "7a212f1baae604171eec9bcec870881da8a3019587439619dd8f3eacd51229f8" => :sierra
+    sha256 "28928240a4773c8ccf7cc5156fc7aaade75c53eb35576a8c83afc1067f799f74" => :el_capitan
+    sha256 "5cacdd4fb0df881cdb48b86a2aacb69d96968ce0e990f1cb5277dc8747c852b7" => :yosemite
   end
 
   head do
