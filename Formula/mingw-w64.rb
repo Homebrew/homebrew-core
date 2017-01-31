@@ -182,7 +182,6 @@ class MingwW64 < Formula
         exe = "#{target_arch}-#{src.tr(".", "-")}.exe"
         system "#{bin}/#{target_arch}-#{compiler[File.extname(src)]}", "-o", exe, src
         assert_match "file format pei-#{target_archs[target_arch]}", shell_output("#{bin}/#{target_arch}-objdump -a #{exe}")
-        end
       end
     end
   end
