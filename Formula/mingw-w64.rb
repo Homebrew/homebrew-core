@@ -182,10 +182,6 @@ class MingwW64 < Formula
         exe = "#{target_arch}-#{src.tr(".", "-")}.exe"
         system "#{bin}/#{target_arch}-#{compiler[File.extname(src)]}", "-o", exe, src
         assert_match "file format pei-#{target_archs[target_arch]}", shell_output("#{bin}/#{target_arch}-objdump -a #{exe}")
-        if target_arch.start_with?("x86_64")
-          assert_match "PE32+ executable (console) x86-64, for MS Windows", shell_output("file #{exe}")
-        elsif target_arch.start_with?("i686")
-          assert_match "PE32 executable for MS Windows (console) Intel 80386 32-bit", shell_output("file #{exe}")
         end
       end
     end
