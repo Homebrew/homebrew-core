@@ -21,11 +21,15 @@ class Ipmitool < Formula
 
     # https://sourceforge.net/p/ipmitool/bugs/436/
     ENV.append "CFLAGS", "--std=gnu99"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          "--disable-intf-usb"
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --mandir=#{man}
+      --disable-intf-usb
+    ]
+    system "./configure", *args
+    system "make", "check"
     system "make", "install"
   end
 
