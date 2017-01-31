@@ -8,9 +8,9 @@ class AutomakeAT112 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ec1f95863cad359c6278cf4986e417dc189fcb827c8051729091df80875ae17c" => :sierra
-    sha256 "fd6dc4d4af7cfb4b89e1bc966e03b53f04f44e70b5675aeef591df5c2c0ccf31" => :el_capitan
-    sha256 "fd6dc4d4af7cfb4b89e1bc966e03b53f04f44e70b5675aeef591df5c2c0ccf31" => :yosemite
+    sha256 "74e9cf57241defe9e32223904bb91a881f1091b7081a552fcdde2f520fdfeaa2" => :sierra
+    sha256 "3caf60c70024e3997193a907f1e848b4a37e5a2e3465c9e95ab97a709faebe00" => :el_capitan
+    sha256 "7a20cc435d255a4b2f31dfa4246020e91bcaeaa4706576b8847366f7422d31e8" => :yosemite
   end
 
   depends_on "autoconf" => :run
