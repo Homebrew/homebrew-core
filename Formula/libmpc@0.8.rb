@@ -8,9 +8,10 @@ class LibmpcAT08 < Formula
 
   bottle do
     cellar :any
-    sha256 "640ac5352ddd744e5e35cd15e1c5b6301bfda1c60b1432c22c4a9af7c93fe674" => :sierra
-    sha256 "d52fb9281d199704c43f57b9496be69d1a45ed77d5f179928c27bf800a343698" => :el_capitan
-    sha256 "51be960a907bb34a89c13b3db80260fcb6c4ffa55ca2ac2e797615d71a02fde6" => :yosemite
+    rebuild 1
+    sha256 "d085ef6e78f5f69dedcdcc20920b11bba3882dbc15d9720d6dd58e9ee232197a" => :sierra
+    sha256 "99bf66edb09b4bb9f8c9595c1c578b9cdc6d5db7b652fe7d2d2fe85128470e3e" => :el_capitan
+    sha256 "64bffe51a7eb97a8053cf6a9cf8e13c4f337c2ed85bc7aa8bf08e67c5dc88906" => :yosemite
   end
 
   keg_only :versioned_formula
