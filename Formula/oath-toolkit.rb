@@ -1,9 +1,9 @@
 class OathToolkit < Formula
   desc "Tools for one-time password authentication systems"
   homepage "http://www.nongnu.org/oath-toolkit/"
-  url "https://download.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.1.tar.gz"
-  mirror "https://fossies.org/linux/privat/oath-toolkit-2.6.1.tar.gz"
-  sha256 "9c57831907bc26eadcdf90ba1827d0bd962dd1f737362e817a1dd6d6ec036f79"
+  url "https://download.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.2.tar.gz"
+  mirror "https://fossies.org/linux/privat/oath-toolkit-2.6.2.tar.gz"
+  sha256 "b03446fa4b549af5ebe4d35d7aba51163442d255660558cd861ebce536824aa0"
 
   bottle do
     sha256 "b9e174a86ba5d8801e8c13d5e6629e3ee1133236e4839f1a150c18d7142f7db6" => :sierra
@@ -23,6 +23,6 @@ class OathToolkit < Formula
   end
 
   test do
-    assert_equal "328482", shell_output("oathtool 00").chomp
+    assert_equal "328482", shell_output("#{bin}/oathtool 00").chomp
   end
 end
