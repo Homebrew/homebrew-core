@@ -15,10 +15,6 @@ class Ipmitool < Formula
   depends_on "openssl"
 
   def install
-    # Required to get NI_MAXHOST and NI_MAXSERV defined in /usr/include/netdb.h, see
-    # https://sourceforge.net/p/ipmitool/bugs/418
-    inreplace "src/plugins/ipmi_intf.c", "#define _GNU_SOURCE 1", "#define _GNU_SOURCE 1\n#define _DARWIN_C_SOURCE 1"
-
     # Fix ipmi_cfgp.c:33:10: fatal error: 'malloc.h' file not found
     # Upstream issue from 8 Nov 2016 https://sourceforge.net/p/ipmitool/bugs/474/
     inreplace "lib/ipmi_cfgp.c", "#include <malloc.h>", ""
