@@ -7,9 +7,9 @@ class AwsSdkCpp < Formula
 
   bottle do
     cellar :any
-    sha256 "0071a54ca7e046644f79a5f385db75f4a8db7b47e2f7e14e31418a7b04c40277" => :sierra
-    sha256 "aaafb1697306a40379a6425ced6b9165adf2b833cd738eaee0155939074c5ef6" => :el_capitan
-    sha256 "de8b354b214d578c269ad3f2f96c831ff12706c15d412daf947e9b4b57ecca59" => :yosemite
+    sha256 "e2cd5d3ddbabee3066a9d2dcf8129923710eee7806399a343c027809b49861ea" => :sierra
+    sha256 "6ef6b00af2ed68f36c61b13f7e2dfff9d3694e0c10f3ccd83db392410388402c" => :el_capitan
+    sha256 "039e6c0fc9c3b68a3db876f8c32ef8d47a019a2082d4f2a9225a6e52cfec69bd" => :yosemite
   end
 
   option "with-static", "Build with static linking"
