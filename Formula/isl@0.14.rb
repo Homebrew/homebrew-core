@@ -8,9 +8,10 @@ class IslAT014 < Formula
 
   bottle do
     cellar :any
-    sha256 "33114e084463d3b4f81bc82e37af5feec655840b43c143df1452b2a68f132fae" => :sierra
-    sha256 "2149a627c0264bce672cd1db53f62ce1bb3d77d6013344559cc316d08cd09abc" => :el_capitan
-    sha256 "a0f74e8b8c350176d4b90eaf1d5ea569e2ebf6b715a7c1403040b13a5c05b7a5" => :yosemite
+    rebuild 1
+    sha256 "24a03da7808be89c8b3872bf44f4cf084c6f55602de47a7fa24b11cdcd70dc59" => :sierra
+    sha256 "9607fffe97f967e33867fa9b9aa27818cd535774ce5b4dc9702d372a6e037b69" => :el_capitan
+    sha256 "bce9482d827461585725d445416b26f89b523cb9dfa6acb3580999e0f7d5c1ee" => :yosemite
   end
 
   keg_only :versioned_formula
