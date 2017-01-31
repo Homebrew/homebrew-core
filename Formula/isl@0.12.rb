@@ -3,9 +3,10 @@ class IslAT012 < Formula
   homepage "http://isl.gforge.inria.fr/"
   bottle do
     cellar :any
-    sha256 "58f51bff59e1bebfe402380a904317e6fadf74cc75902d7bb585ca674ccfcedb" => :sierra
-    sha256 "103cf44dbb2fa96e78233d8aaa47d86de8c22021010375db77affbdc22fd37e3" => :el_capitan
-    sha256 "f5aba204a914e99394d91e88e41b9340c97a40765f7d9ab437ad32423a0da817" => :yosemite
+    rebuild 1
+    sha256 "9ca9d2bc65afcdce0d1816a98273701a2381c5ae8b58e47b2237d0dd89d6181c" => :sierra
+    sha256 "57e01a30d3847bfa805c21e0cf8b45bfe958e10a0d3c2e8d225e780dba6f93f5" => :el_capitan
+    sha256 "4da54a5f24e4d7dd0cd315096ee4a3c3a26388d8368f80b6a9bc0735c7b259ac" => :yosemite
   end
 
   # Track gcc infrastructure releases.
