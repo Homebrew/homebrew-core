@@ -3,15 +3,13 @@ class Vapoursynth < Formula
 
   desc "Video processing framework with simplicity in mind"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R33.1.tar.gz"
-  sha256 "8c448e67bccbb56af96ed0e6ba65f0ec60bc33482efd0534f5b4614fb8920494"
-  revision 1
-
+  url "https://github.com/vapoursynth/vapoursynth/archive/R36.tar.gz"
+  sha256 "8a156c5143cecd70b48e59428ec175e901510593082d3ddbc16fba93f5b6c704"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
-    sha256 "17dc89e8795e08b1c58f7c1e08e53e35d02317e0942faa6d792704ac4eb8f2e2" => :sierra
-    sha256 "90102da063f6d7f9c1dba45c8fc59cf646e4f17a6034c199d16da507db37357d" => :el_capitan
+    sha256 "cce9f980ae99e67f68ed75efa2b3a4e851ca1b026ae6fc8355c7dddc06f5af6c" => :sierra
+    sha256 "adf4f4e27f80b2136977b60c1cbde1305912b982fe2bfcd197e423e066076db1" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -27,8 +25,8 @@ class Vapoursynth < Formula
   depends_on "zimg"
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz"
-    sha256 "84808fda00508757928e1feadcf41c9f78e9a9b7167b6649ab0933b76f75e7b9"
+    url "https://files.pythonhosted.org/packages/2f/ae/0bb6ca970b949d97ca622641532d4a26395322172adaf645149ebef664eb/Cython-0.25.1.tar.gz"
+    sha256 "e0941455769335ec5afb17dee36dc3833b7edc2ae20a8ed5806c58215e4b6669"
   end
 
   def install

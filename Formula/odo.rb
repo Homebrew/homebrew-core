@@ -6,11 +6,10 @@ class Odo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "378a9ce90af46da22729f0aa62aa203ef5949ffa94c483fe17b86c3c43b0be3b" => :sierra
-    sha256 "1b9571088ea3f397a58858946763b557b45bdffe71bfea346468c1ff8660b2f7" => :el_capitan
-    sha256 "066649031770814fe0991dc595f123a145f5c786e5efdc6142c4be7b11eb86be" => :yosemite
-    sha256 "eda3760bca97cc11d11dadc2aabcbb76fef5c47022900e5c628eda1f46cf4adc" => :mavericks
-    sha256 "218018e5ffcf9ce61836429440d28d2b0ca690f66a0491c9d42d9c7482459447" => :mountain_lion
+    rebuild 1
+    sha256 "06af025b0a2df201a9b79944dcc4809708b305242622a90c92a9906a18adf2d6" => :sierra
+    sha256 "979cc7131a35180614e848fa5fa12a72f734da7321358c89dfbd425fc8dff837" => :el_capitan
+    sha256 "ebfc6a2e616694a3862b1d6d11dda1a2c1cb4c966447678b342457490e0e0abc" => :yosemite
   end
 
   def install
@@ -22,6 +21,6 @@ class Odo < Formula
   end
 
   test do
-    system "odo", "testlog"
+    system "#{bin}/odo", "testlog"
   end
 end

@@ -2,29 +2,18 @@ class AwsElasticbeanstalk < Formula
   include Language::Python::Virtualenv
 
   desc "Client for Amazon Elastic Beanstalk web service"
-  homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-reference-eb.html"
-  url "https://pypi.python.org/packages/a0/90/b86fe16aaea41c69d265d1b872ca73d2bfc07de85489273a31ac712489de/awsebcli-3.7.8.tar.gz"
-  sha256 "03fb33b4951fdef3f4c1e4dd89ed9f97ae049d6bc6a5568f0e987cfacdfedae3"
+  homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
+  url "https://files.pythonhosted.org/packages/8e/dc/cc09e88d5f6794c38823db6218fb16c9c637fc2749f6da96621ed55b502f/awsebcli-3.9.0.tar.gz"
+  sha256 "6aad6ee6fa20ec72389e6617ddd35dcd264a2fa14d001e6fb5693e648ea530b0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f55a32ac1cbb30143be91be38731c36b6191a1b464002f8f1bdbf6b1bacdd36c" => :sierra
-    sha256 "ec81f70c841f6ac24bf3f6cac8d829a3c9a32f156a53807a78d7c5dc6172ad2b" => :el_capitan
-    sha256 "e570ec4fb346cca158d089369298fa055f5065d0b624138c583c817f58db29de" => :yosemite
-    sha256 "2e8b30b3ad098f6ad0a30bb0f37ce08a3b3d0dbdc2aa6848258092b182138921" => :mavericks
+    sha256 "a2b4d34060473aa9a447530c5c6b4fe07caa7f748d4ac4748108d9ee4cab7e5c" => :sierra
+    sha256 "ed56745d25c84baa157a820942cd553865c1e068afb85b1db0edb4759457acc4" => :el_capitan
+    sha256 "be65e017d4cb6afee298b47516cd6b4f81e9d4fcaf070ac7e1a8d01a88cd3b02" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
-
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/32/3c/e853a68b703f347f5ed86585c2dd2828a83252e1216c1201fa6f81270578/setuptools-26.1.1.tar.gz"
-    sha256 "475ce28993d7cb75335942525b9fac79f7431a7f6e8a0079c0f2680641379481"
-  end
-
-  resource "backports.ssl_match_hostname" do
-    url "https://files.pythonhosted.org/packages/76/21/2dc61178a2038a5cb35d14b61467c6ac632791ed05131dda72c20e7b9e23/backports.ssl_match_hostname-3.5.0.1.tar.gz"
-    sha256 "502ad98707319f4a51fa2ca1c677bd659008d27ded9f6380c79e8932e38dcdf2"
-  end
 
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/0f/56/2ff802d1a91ea50f7597328d6048aa3995b329b284c05d464aa24d6d5635/blessed-1.9.5.tar.gz"
@@ -32,8 +21,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/55/9d/9f118d87220121bf3028317853236b1d2e6e27ba4600bf67a8bbf17a2bfe/botocore-1.4.49.tar.gz"
-    sha256 "c7804efb622f340593ae49cc552481f2820de2088199a0010d469cf0dfb94731"
+    url "https://files.pythonhosted.org/packages/ac/6a/7d949a29bb0dcf1d8b602562a003ab7a796e45e824ae3752ff31f631b0a5/botocore-1.4.87.tar.gz"
+    sha256 "6ac64c778455a4e10b6556ee27592b9f7fb31925faf0054181c26ae7e40fea39"
   end
 
   resource "cement" do
@@ -62,8 +51,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/37/38/ceda70135b9144d84884ae2fc5886c6baac4edea39550f28bcd144c1234d/docutils-0.12.tar.gz"
-    sha256 "c7db717810ab6965f66c8cf0398a98c9d8df982da39b4cd7f162911eb89596fa"
+    url "https://files.pythonhosted.org/packages/05/25/7b5484aca5d46915493f1fd4ecb63c38c333bd32aa9ad6e19da8d08895ae/docutils-0.13.1.tar.gz"
+    sha256 "718c0f5fb677be0f34b781e04241c4067cbd9327b66bdd8e763201130f5175be"
   end
 
   resource "jmespath" do
@@ -72,13 +61,13 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/14/9d/c9d790d373d6f6938d793e9c549b87ad8670b6fa7fc6176485e6ef11c1a4/pathspec-0.3.4.tar.gz"
-    sha256 "7605ca5c26f554766afe1d177164a2275a85bb803b76eba3428f422972f66728"
+    url "https://files.pythonhosted.org/packages/67/f6/ad4d6964da803ffe0ec9d513b0be6924be0f502636c17781308561f08034/pathspec-0.5.0.tar.gz"
+    sha256 "aa3a071054d4740b963c91a3127a5e0e1358351718bae2a3f731ec24fb0bdd1f"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
-    sha256 "1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed"
+    url "https://files.pythonhosted.org/packages/51/fc/39a3fbde6864942e8bb24c93663734b74e281b984d1b8c4f95d64b0c21f6/python-dateutil-2.6.0.tar.gz"
+    sha256 "62a2f8df3d66f878373fd0072eacf4ee52194ba302e00082828e0d263b0418d2"
   end
 
   resource "PyYAML" do
@@ -101,9 +90,9 @@ class AwsElasticbeanstalk < Formula
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
-  resource "texttable" do
-    url "https://files.pythonhosted.org/packages/f5/5e/47cbc50187ca719a39ce4838182c6126487ca62ddd299bc34cafb94260fe/texttable-0.8.4.tar.gz"
-    sha256 "8587b61cb6c6022d0eb79e56e59825df4353f0f33099b4ae3bcfe8d41bd1702e"
+  resource "tabulate" do
+    url "https://files.pythonhosted.org/packages/db/40/6ffc855c365769c454591ac30a25e9ea0b3e8c952a1259141f5b9878bd3d/tabulate-0.7.5.tar.gz"
+    sha256 "9071aacbd97a9a915096c1aaf0dc684ac2672904cd876db5904085d6dac9810e"
   end
 
   resource "wcwidth" do
@@ -112,8 +101,13 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/a3/1e/b717151e29a70e8f212edae9aebb7812a8cae8477b52d9fe990dcaec9bbd/websocket_client-0.37.0.tar.gz"
-    sha256 "678b246d816b94018af5297e72915160e2feb042e0cde1a9397f502ac3a52f41"
+    url "https://files.pythonhosted.org/packages/a7/2b/0039154583cb0489c8e18313aa91ccd140ada103289c5c5d31d80fd6d186/websocket_client-0.40.0.tar.gz"
+    sha256 "40ac14a0c54e14d22809a5c8d553de5a2ae45de3c60105fae53bcb281b3fe6fb"
+  end
+
+  resource "backports.ssl_match_hostname" do
+    url "https://files.pythonhosted.org/packages/76/21/2dc61178a2038a5cb35d14b61467c6ac632791ed05131dda72c20e7b9e23/backports.ssl_match_hostname-3.5.0.1.tar.gz"
+    sha256 "502ad98707319f4a51fa2ca1c677bd659008d27ded9f6380c79e8932e38dcdf2"
   end
 
   def install

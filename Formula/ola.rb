@@ -1,48 +1,35 @@
 class Ola < Formula
   desc "Open Lighting Architecture for lighting control information"
   homepage "https://www.openlighting.org/ola/"
-  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.2/ola-0.10.2.tar.gz"
-  sha256 "986e61874bc80db3b23cf201af2dafa39e3412cc50cddf1cd449c869110bfd27"
-  revision 2
+  url "https://github.com/OpenLightingProject/ola/archive/0.10.3.tar.gz"
+  sha256 "474db6752940cea6cd9493dcbeeb13429b5d29f4777973d08738cb5ef04c9dcd"
+  head "https://github.com/OpenLightingProject/ola.git"
 
   bottle do
-    sha256 "164fd596606c68a6a826e030231f7b329c46954de1077f253fd6ebbd7218839b" => :sierra
-    sha256 "51227df09255050dc92d773aa8274ffd26895ecf28c2f6c5207424f3b791e141" => :el_capitan
-    sha256 "ce8e55b11b5988f652f606d96d06dca2f2b5f2fad76d09a45f9ff6d612abf4d1" => :yosemite
-  end
-
-  head do
-    url "https://github.com/OpenLightingProject/ola.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+    sha256 "414efbcd331ca04b7c56e5c555cbe929adcd717e8f497b023215c12d7826ad12" => :sierra
+    sha256 "028eb3416ceb0418ad0092318a8a47ca704aaeb190173a8beafe6fe58963beaa" => :el_capitan
+    sha256 "fd4409d7fa44587e429d240c38f546ccf5a1986d9d1a0a323182148a97547c1e" => :yosemite
   end
 
   option :universal
-  option "with-ftdi", "Install FTDI USB plugin for OLA."
-  # RDM tests require protobuf-c --with-python to work
+  option "with-libftdi", "Install FTDI USB plugin for OLA."
   option "with-rdm-tests", "Install RDM Tests for OLA."
+  deprecated_option "with-ftdi" => "with-libftdi"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "cppunit"
-  depends_on "protobuf-c"
   depends_on "libmicrohttpd"
   depends_on "ossp-uuid"
-  depends_on "libusb" => :recommended
+  depends_on "protobuf-c"
+  depends_on :python if MacOS.version <= :snow_leopard
   depends_on "liblo" => :recommended
+  depends_on "libusb" => :recommended
   depends_on "doxygen" => :optional
-
-  if build.with? "ftdi"
-    depends_on "libftdi"
-    depends_on "libftdi0"
-  end
-
-  if build.with? "rdm-tests"
-    depends_on :python if MacOS.version <= :snow_leopard
-  else
-    depends_on :python => :optional
-  end
+  depends_on "libftdi" => :optional
+  depends_on "libftdi0" if build.with? "libftdi"
 
   def install
     ENV.universal_binary if build.universal?
@@ -52,13 +39,13 @@ class Ola < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
+      --enable-python-libs
     ]
 
-    args << "--enable-python-libs" if build.with? "python"
     args << "--enable-rdm-tests" if build.with? "rdm-tests"
     args << "--enable-doxygen-man" if build.with? "doxygen"
 
-    system "autoreconf", "-fvi" if build.head?
+    system "autoreconf", "-fvi"
     system "./configure", *args
     system "make", "install"
   end

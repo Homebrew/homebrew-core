@@ -53,7 +53,7 @@ class Zpython < Formula
   depends_on "autoconf" => :build
 
   def install
-    args = %W[
+    args = %w[
       --disable-gdbm
       --enable-zpython
       --with-tcsetpgrp

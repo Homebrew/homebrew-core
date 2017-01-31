@@ -48,7 +48,7 @@ class Mldonkey < Formula
   depends_on "libpng"
 
   def install
-    ENV.j1
+    ENV.deparallelize
 
     # Fix compiler selection
     ENV["OCAMLC"] = "#{HOMEBREW_PREFIX}/bin/ocamlc.opt -cc #{ENV.cc}"

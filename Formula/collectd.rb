@@ -3,15 +3,14 @@ class Collectd < Formula
   homepage "https://collectd.org/"
 
   stable do
-    url "https://collectd.org/files/collectd-5.6.1.tar.bz2"
-    mirror "http://pkgs.fedoraproject.org/repo/pkgs/collectd/collectd-5.5.2.tar.bz2/40b83343f72089e0330f53965f1140bd/collectd-5.5.2.tar.bz2"
-    sha256 "c30ff644f91407b4dc2d99787b99cc45ec00e538bd1cc269429d3c5e8a4aee2c"
+    url "https://collectd.org/files/collectd-5.7.1.tar.bz2"
+    sha256 "7edd3643c0842215553b2421d5456f4e9a8a58b07e216b40a7e8e91026d8e501"
   end
 
   bottle do
-    sha256 "24fa7953ab6b72d431c2104bb92361b30c28017e2f60cde8ddd5c36d3e7ae7ae" => :sierra
-    sha256 "65bdb89a4c44ca9442fb0820127b14188b36308a8ca19f7bd494d78b66a6954d" => :el_capitan
-    sha256 "172fd414dfd5a88ccbbe6383220ef89de9e129db06aabad0d19c372f25283c21" => :yosemite
+    sha256 "f9adc84dbfdd0acfff4292077b58c9c496a38b4d31b83aa011caba556b2c6fd1" => :sierra
+    sha256 "8b089b6fa5bd2f6860b1fa9ec8136ab12e216d9537bf204311123fae0b04da63" => :el_capitan
+    sha256 "cf32fb80a6d26f60862fcf2fbba1eaf1c50d83d45cb6cce37178a48ec2b05e91" => :yosemite
   end
 
   head do

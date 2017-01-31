@@ -17,7 +17,7 @@ class Atf < Formula
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}"
     system "make"
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
   end
 end

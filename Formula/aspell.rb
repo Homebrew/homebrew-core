@@ -660,11 +660,6 @@ class Aspell < Formula
 
   deprecated_option "all" => "with-all-langs"
 
-  fails_with :llvm do
-    build 2334
-    cause "Segmentation fault during linking."
-  end
-
   def available_languages
     resources.map(&:name)
   end

@@ -1,33 +1,31 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "http://bulletphysics.org/wordpress/"
-  url "https://github.com/bulletphysics/bullet3/archive/2.83.7.tar.gz"
-  sha256 "00d1d8f206ee85ffd171643ac8e72f9f4e0bf6dbf3d4ac55f4495cb168b51243"
+  url "https://github.com/bulletphysics/bullet3/archive/2.86.tar.gz"
+  sha256 "e6e8b755280ce2c1a8218529eae5dd78e184f7036854229cea611374ad5a671f"
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c40652f885e1a4c46007591a2499dc54fee0b8c720795f7d73d7dc3d880d1ac7" => :sierra
-    sha256 "76ccbd35bad9d8314034ff565faaa0554780ccb824a8e2f8e0f2c8e6d943c36f" => :el_capitan
-    sha256 "f1820f7ee747911117fc28eef8fee1d9e4cb4d776aa5f26c575edc5545a3d995" => :yosemite
-    sha256 "affa568baabe79d993fe27eaa89466d1e837002754dd407f595a9c992eef58c4" => :mavericks
+    sha256 "6541eb8fbc31e00e68596fcbe5cf9bb8df3bf19da7fd2fd86132fa86eadffe4c" => :sierra
+    sha256 "3c5f27941c7790c2dede6e35ff12c931567c1e6d4da106f1072f91caa85e8ce3" => :el_capitan
+    sha256 "ec901e1e204253445867e43828415be9beedc47be265f223572730c08b43210f" => :yosemite
   end
+
+  option "with-framework", "Build frameworks"
+  option "with-shared", "Build shared libraries"
+  option "with-demo", "Build demo applications"
+  option "with-double-precision", "Use double precision"
 
   deprecated_option "framework" => "with-framework"
   deprecated_option "shared" => "with-shared"
   deprecated_option "build-demo" => "with-demo"
   deprecated_option "double-precision" => "with-double-precision"
 
-  option :universal
-  option "with-framework", "Build frameworks"
-  option "with-shared", "Build shared libraries"
-  option "with-demo", "Build demo applications"
-  option "with-double-precision", "Use double precision"
-
   depends_on "cmake" => :build
 
   def install
-    args = ["-DINSTALL_EXTRA_LIBS=ON"]
+    args = ["-DINSTALL_EXTRA_LIBS=ON", "-DBUILD_UNIT_TESTS=OFF"]
 
     if build.with? "framework"
       args << "-DBUILD_SHARED_LIBS=ON" << "-DFRAMEWORK=ON"
@@ -36,11 +34,6 @@ class Bullet < Formula
     else
       args << "-DBUILD_SHARED_LIBS=ON" if build.with? "shared"
       args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
-    end
-
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
     end
 
     args << "-DUSE_DOUBLE_PRECISION=ON" if build.with? "double-precision"

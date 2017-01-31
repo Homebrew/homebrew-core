@@ -3,13 +3,13 @@ class Memcacheq < Formula
   homepage "http://memcachedb.org/memcacheq"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/memcacheq/memcacheq-0.2.0.tar.gz"
   sha256 "b314c46e1fb80d33d185742afe3b9a4fadee5575155cb1a63292ac2f28393046"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "5b42b846a028b765da1ecfd3337b5b2fb12582d1b5f4584258f9896257b3eaaf" => :sierra
-    sha256 "27b972d2f3c9d63ce7769dd964f575bfd0cb8f6136a666c713d5c66390f23ff3" => :el_capitan
-    sha256 "91d6ebd845b87bfe94cfa32f62220c8f4bd748c7c4daa61f318cc6835eb52973" => :yosemite
-    sha256 "73325fc64a4c34b0bbfacd59e30bd1f07e8052e851f9226e7a71d3c2061e173e" => :mavericks
+    sha256 "baa39077181e787e4001fe4b6c9f272e89ad08bf5641b333b1c887f4cc78b8e9" => :sierra
+    sha256 "936659b1df64676cebe6876d4507b828761eb603eade7dbb5dfa40a6b8d6a49f" => :el_capitan
+    sha256 "cd97f684ae8759b2406ba3d3a7ac70e5c642c160852e477625fb60e9170b7730" => :yosemite
   end
 
   depends_on "berkeley-db"

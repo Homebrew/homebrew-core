@@ -1,15 +1,15 @@
 class Luaradio < Formula
   desc "lightweight, embeddable flow graph signal processing framework for SDR"
   homepage "http://luaradio.io/"
-  url "https://github.com/vsergeev/luaradio/archive/v0.4.0.tar.gz"
-  sha256 "b475e0b2fe0564439dc560b65aa2da29937338d95390bb2d0873b67d0531446a"
+  url "https://github.com/vsergeev/luaradio/archive/v0.5.0.tar.gz"
+  sha256 "660b995f8fe6e62e2304647565cfecc3dc042472e514a05c1d2c0d1342565908"
   head "https://github.com/vsergeev/luaradio.git"
 
   bottle do
     cellar :any
-    sha256 "d6222af64f59300f861a2db1efaec04c1d8acea37dc63dba51fd663dd194b825" => :sierra
-    sha256 "9c91479f6c8481b9b9a5772082f73934128b2a9de1f146f4f5012b47a1f889d8" => :el_capitan
-    sha256 "50c9ce6fd39f2d52f7f009a7240535cbd714f51381937e03a054646aa7fac4c2" => :yosemite
+    sha256 "9d1b4988ac40cde3ec5c689f1bca02d18829828ddec5e6209be102b576948fde" => :sierra
+    sha256 "4c25ef01c7e0fbd08b924883a0251d6e0808cc23ccd8386d30256675797f4c80" => :el_capitan
+    sha256 "126631069fc04e1a67bae61ca843f1651c80f43c5a47da59c67dba6933278458" => :yosemite
   end
 
   depends_on "pkg-config" => :build

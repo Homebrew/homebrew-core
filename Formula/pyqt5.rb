@@ -1,14 +1,14 @@
 class Pyqt5 < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
-  url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.6/PyQt5_gpl-5.6.tar.gz"
-  sha256 "2e481a6c4c41b96ed3b33449e5f9599987c63a5c8db93313bd57a6acbf20f0e1"
+  url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.7.1/PyQt5_gpl-5.7.1.tar.gz"
+  sha256 "be849f212a074049b9ebc10b6c07dddefb86e6d30e8df8a5c715cbb2cf7fad14"
+  revision 1
 
   bottle do
-    sha256 "1abcb70dac9e0ef7340c861895a0c726f5e5ce06e9f7d098c534fceea0672c89" => :sierra
-    sha256 "4815f60529eadc829c704adbfb6a01ea2daec7acae4c4f7871579d3b01bdbc63" => :el_capitan
-    sha256 "ac14ff2a18458c8201415adf3dfbd872849b0fef9968e105c4ce43e72876fcbf" => :yosemite
-    sha256 "111602985fb4ced414dc4722a1af8ee3d428b2e013e22bdae8d0d059570ac44c" => :mavericks
+    sha256 "27eddc922ae320cd2c5659cfbb9da1d37a8dbe6c9671b2f683e3f4864f97b4b5" => :sierra
+    sha256 "1f311accef448da869903b02c93a27c84e85165d3039789b81ee0f817121d9d0" => :el_capitan
+    sha256 "2574c984ca7fcf082fc7fa8c51fce6eaac7f3ec0bd0157781b1ee4f98de87958" => :yosemite
   end
 
   option "with-debug", "Build with debug symbols"
@@ -18,7 +18,7 @@ class Pyqt5 < Formula
 
   depends_on :python3 => :recommended
   depends_on :python => :optional
-  depends_on "qt5"
+  depends_on "qt@5.7"
 
   if build.with? "python3"
     depends_on "sip" => "with-python3"
@@ -41,7 +41,7 @@ class Pyqt5 < Formula
               "--sip-incdir=#{Formula["sip"].opt_include}",
               # Make sure the qt5 version of qmake is found.
               # If qt4 is linked it will pickup that version otherwise.
-              "--qmake=#{Formula["qt5"].bin}/qmake",
+              "--qmake=#{Formula["qt@5.7"].bin}/qmake",
               # Force deployment target to avoid libc++ issues
               "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
               "--qml-plugindir=#{pkgshare}/plugins",
@@ -57,8 +57,8 @@ class Pyqt5 < Formula
   end
 
   test do
-    system "pyuic5", "--version"
-    system "pylupdate5", "-version"
+    system "#{bin}/pyuic5", "--version"
+    system "#{bin}/pylupdate5", "-version"
     Language::Python.each_python(build) do |python, _version|
       system python, "-c", "import PyQt5"
       %w[

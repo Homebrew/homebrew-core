@@ -1,14 +1,14 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "http://ftp.exim.org/pub/exim/exim4/exim-4.86.2.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/exim/exim4/exim-4.86.2.tar.bz2"
-  sha256 "7756deafd0583776e091f2efcba9b36203e668cf420d8876f314980803636eb3"
+  url "http://ftp.exim.org/pub/exim/exim4/exim-4.88.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/exim/exim4/exim-4.88.tar.bz2"
+  sha256 "119d5fd7e31fc224e84dfa458fe182f200856bae7adf852a8287c242161f8a2d"
 
   bottle do
-    sha256 "9386715ff3734f8efa535cfd0e4766a248cd2cc48b71cde72292001a1fc208a8" => :el_capitan
-    sha256 "51d1fda02c60d0e7652c79a0fb92b60ee0b81031cc372b05b5874f74e80c13db" => :yosemite
-    sha256 "466f841e61afbd9ed4143a19fdff554b57a44591edc22ba5151dc01dcbb77f16" => :mavericks
+    sha256 "a9b1dbcca6ee309521e9a1436ce65eccb316cae9bffe5fdc8e4c649402f17d5c" => :sierra
+    sha256 "6b75b2b698f2733b5b1130240d1182a29262f61f6d483c225f1114cebfdf2a0f" => :el_capitan
+    sha256 "a55f208727d7fa23b7021623aae684fd4f568a4f578db9b2cc9ef8e232dae9b0" => :yosemite
   end
 
   deprecated_option "support-maildir" => "with-maildir"
@@ -52,7 +52,7 @@ class Exim < Formula
     # The compile script ignores CPPFLAGS
     ENV.append "CFLAGS", ENV.cppflags
 
-    ENV.j1 # See: https://lists.exim.org/lurker/thread/20111109.083524.87c96d9b.en.html
+    ENV.deparallelize # See: https://lists.exim.org/lurker/thread/20111109.083524.87c96d9b.en.html
     system "make"
     system "make", "INSTALL_ARG=-no_chown", "install"
     man8.install "doc/exim.8"
@@ -89,5 +89,9 @@ class Exim < Formula
       exim_ctl start
     Don't forget to run it as root to be able to bind port 25.
     EOS
+  end
+
+  test do
+    assert_match "Mail Transfer Agent", shell_output("#{bin}/exim --help 2>&1", 1)
   end
 end

@@ -1,9 +1,9 @@
 class DependencyCheck < Formula
   desc "OWASP Dependency Check"
   homepage "https://www.owasp.org/index.php/OWASP_Dependency_Check"
-  url "https://dl.bintray.com/jeremy-long/owasp/dependency-check-1.4.3-release.zip"
-  version "1.4.3"
-  sha256 "53ce0904475897cb79a4ef162fe6e9068f8c23a788d8855bb46fe059cf8664c3"
+  url "https://dl.bintray.com/jeremy-long/owasp/dependency-check-1.4.5-release.zip"
+  version "1.4.5"
+  sha256 "129323b238c372b156c0c315d0b365518025765f3c0855f0ec6ac385f91b91be"
 
   bottle :unneeded
 
@@ -32,7 +32,7 @@ class DependencyCheck < Formula
     output = shell_output("#{libexec}/bin/dependency-check --version").strip
     assert_match "Dependency-Check Core version #{version}", output
 
-    (testpath/"temp-props.properties").write "cve.startyear=2015"
+    (testpath/"temp-props.properties").write "cve.startyear=2017"
     system bin/"dependency-check", "-P", "temp-props.properties", "-f", "XML",
                "--project", "dc", "-s", libexec, "-d", testpath, "-o", testpath
     assert File.exist?(testpath/"dependency-check-report.xml")

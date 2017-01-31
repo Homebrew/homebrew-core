@@ -19,7 +19,6 @@ class Cc65 < Formula
 
   def install
     ENV.deparallelize
-    ENV.no_optimization
 
     make_vars = ["prefix=#{prefix}", "libdir=#{share}"]
 

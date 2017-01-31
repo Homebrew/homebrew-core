@@ -15,13 +15,12 @@ class Ssreflect < Formula
   homepage "https://www.msr-inria.fr/projects/mathematical-components-2/"
   url "http://ssr.msr-inria.inria.fr/FTP/ssreflect-1.5.tar.gz"
   sha256 "bad978693d1bfd0a89586a34678bcc244e3b7efba6431e0f83d8e1ae8f82a142"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "75090f0085ccce1fa2d9271dd75a984599db927658f642870fd49f1abdbc18b6" => :sierra
-    sha256 "a3efc25705a07a1373605376c45f5ba4695c26c49d3c28d47209547467d7c25a" => :el_capitan
-    sha256 "5f09ae1cf490a5aac9c0b7aae1d77205af29498ee65423db2836a9d7aa44119e" => :yosemite
-    sha256 "70f99bcb91c8299ab2f1e7f3197c3a2579ed887170deac919390a7d8b527ce1f" => :mavericks
+    sha256 "654fb1c617736a464bf6590ec9d178dd253f69f0866c703bfa50818bac43cd5b" => :sierra
+    sha256 "93e5f52b8f1579728037b2cf69f553e8b271401778623df5aaf43170730f7b0c" => :el_capitan
+    sha256 "d94eae64893a5977d15aef7cbf80e548a6001aebd8b144306a965c85c46327c3" => :yosemite
   end
 
   option "with-doc", "Install HTML documents"

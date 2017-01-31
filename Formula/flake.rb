@@ -13,7 +13,7 @@ class Flake < Formula
   end
 
   def install
-    ENV.j1
+    ENV.deparallelize
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make"
     system "make", "install"

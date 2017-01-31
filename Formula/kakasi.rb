@@ -21,7 +21,7 @@ class Kakasi < Formula
 
   test do
     hiragana = "\xa4\xa2 \xa4\xab \xa4\xb5"
-    romanji = pipe_output("kakasi -rh -ieuc -Ha", hiragana).chomp
+    romanji = pipe_output("#{bin}/kakasi -rh -ieuc -Ha", hiragana).chomp
     assert_equal "a ka sa", romanji
   end
 end

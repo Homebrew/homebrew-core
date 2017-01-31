@@ -1,16 +1,16 @@
 class Parallel < Formula
   desc "GNU parallel shell command"
   homepage "https://savannah.gnu.org/projects/parallel/"
-  url "https://ftpmirror.gnu.org/parallel/parallel-20160922.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/parallel/parallel-20160922.tar.bz2"
-  sha256 "d86f3ddfebb73ef8020559a54db0837c3f436ec4fd0a9d3a635cce2df609f894"
+  url "https://ftpmirror.gnu.org/parallel/parallel-20170122.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/parallel/parallel-20170122.tar.bz2"
+  sha256 "417e83d9de2fe518a976fcff5a96bffe41421c2a57713cd5272cc89d1072aaa6"
   head "http://git.savannah.gnu.org/r/parallel.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6192d6eb299ced5a0a5ef854f3d889b6819e507319c8a6c32e1057f971ab3532" => :sierra
-    sha256 "6192d6eb299ced5a0a5ef854f3d889b6819e507319c8a6c32e1057f971ab3532" => :el_capitan
-    sha256 "6192d6eb299ced5a0a5ef854f3d889b6819e507319c8a6c32e1057f971ab3532" => :yosemite
+    sha256 "038d037e61fc290f0eb3c3324fe998758b50afa49e8904ffc4ce6de60e283bc6" => :sierra
+    sha256 "a5f4a92db8c6eec8c611443b037684b28f243ba81c472f54a2516a9200fc87d8" => :el_capitan
+    sha256 "a5f4a92db8c6eec8c611443b037684b28f243ba81c472f54a2516a9200fc87d8" => :yosemite
   end
 
   conflicts_with "moreutils", :because => "both install a 'parallel' executable."

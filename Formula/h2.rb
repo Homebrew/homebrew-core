@@ -18,7 +18,7 @@ class H2 < Formula
     rm_f Dir["bin/*.bat"]
 
     # As of 1.4.190, the script contains \r\n line endings,
-    # causing it to fail on OS X. This is a workaround until
+    # causing it to fail on macOS. This is a workaround until
     # upstream publishes a fix.
     #
     # https://github.com/h2database/h2database/issues/218

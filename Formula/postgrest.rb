@@ -6,15 +6,14 @@ class Postgrest < Formula
 
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/begriffs/postgrest"
-  url "https://github.com/begriffs/postgrest/archive/v0.3.2.0.tar.gz"
-  sha256 "1cedceb22f051d4d80a75e4ac7a875164e3ee15bd6f6edc68dfca7c9265a2481"
+  url "https://github.com/begriffs/postgrest/archive/v0.4.0.0.tar.gz"
+  sha256 "d23aa9b9ed0272dfd2075c573a96ba95e28328617ba63bfc2792f8655a479cb9"
   head "https://github.com/begriffs/postgrest.git"
 
   bottle do
-    sha256 "889e4eba9ec555d6304765feb5e25cd46d55806a323e237f4fba708a55af8dad" => :sierra
-    sha256 "a6315f312795298dca7bb58b8b671020e52db78f7f60c85a80647f2af0ef5ba5" => :el_capitan
-    sha256 "f775adbb96f422903e41af81d5277dcbd6497197308fe26abce04e574d7778d1" => :yosemite
-    sha256 "f245755397ec6c1718f989f3df8cb6a5b0e6d3ae821304954d51c22050f58e6e" => :mavericks
+    sha256 "5ccd950f8d3eeac90747f21b554c734410c24974c3aaddb0d9af63e3298499a1" => :sierra
+    sha256 "c1387285d6c35527786ed4d34b5ba0b9426454eaa2f6effe806e787fd4368339" => :el_capitan
+    sha256 "c6ffd2e7503f23fb5cbdbd1e9e0a8af176621dbdedcd21bc298c8e2b93fb6e26" => :yosemite
   end
 
   depends_on "ghc" => :build
@@ -35,18 +34,23 @@ class Postgrest < Formula
       "--auth=trust", "--username=#{pg_user}"
 
     system "#{pg_bin}/pg_ctl", "-D", testpath/test_db, "-l",
-      testpath/"#{test_db}.log", "-w", "-o", %("-p #{pg_port}"), "start"
+      testpath/"#{test_db}.log", "-w", "-o", %Q("-p #{pg_port}"), "start"
 
     begin
       system "#{pg_bin}/createdb", "-w", "-p", pg_port, "-U", pg_user, test_db
+      (testpath/"postgrest.config").write <<-EOS.undent
+        db-uri = "postgres://#{pg_user}@localhost:#{pg_port}/#{test_db}"
+        db-schema = "public"
+        db-anon-role = "#{pg_user}"
+        server-port = 55560
+      EOS
       pid = fork do
-        exec "postgrest", "postgres://#{pg_user}@localhost:#{pg_port}/#{test_db}",
-          "-a", pg_user, "-p", "55560"
+        exec "#{bin}/postgrest", "postgrest.config"
       end
       Process.detach(pid)
       sleep(5) # Wait for the server to start
       response = Net::HTTP.get(URI("http://localhost:55560"))
-      assert_equal "[]", response
+      assert_match /responses.*200.*OK/, response
     ensure
       begin
         Process.kill("TERM", pid) if pid

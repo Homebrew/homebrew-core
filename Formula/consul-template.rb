@@ -1,50 +1,31 @@
-require "language/go"
-
 class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
   url "https://github.com/hashicorp/consul-template.git",
-      :tag => "v0.16.0",
-      :revision => "efa462daa2b961bff683677146713f4008555fba"
+      :tag => "v0.18.0",
+      :revision => "8bf2ce9e0cdcd60d799a75262b90468d24ee392e"
   head "https://github.com/hashicorp/consul-template.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4a5ed83931505027e4d40f774fb791254e26a8fa232b8932a54cc77665962d38" => :sierra
-    sha256 "fd8408ce1b01c0fd07047013a2b658e6ff792c88aad842cf9d978cb90d456eb2" => :el_capitan
-    sha256 "844950502c5edb1f0b9797f3dc4d92241616982bfdf272e92c5c42883e53a6c4" => :yosemite
+    sha256 "d3b38ee6b72d76d53073f4bedd734350f31788441517ca324bcdf89dfa11b75e" => :sierra
+    sha256 "8e0bd59beeab9335826df18e00bc92da53e6b104d6a73b31bcc2e416ac8e99b2" => :el_capitan
+    sha256 "c19f21e76191a6731603cc18fe2b82fc2ace6b7a6337ba1679323fd4fb09e182" => :yosemite
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/mitchellh/gox" do
-    url "https://github.com/mitchellh/gox.git",
-        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
-  end
-
-  # gox dependency
-  go_resource "github.com/mitchellh/iochan" do
-    url "https://github.com/mitchellh/iochan.git",
-        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
-
+    arch = MacOS.prefer_64_bit? ? "amd64" : "386"
+    ENV["XC_OS"] = "darwin"
+    ENV["XC_ARCH"] = arch
     dir = buildpath/"src/github.com/hashicorp/consul-template"
-    dir.install buildpath.children
-
-    Language::Go.stage_deps resources, buildpath/"src"
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    cd("src/github.com/mitchellh/gox") { system "go", "install" }
+    dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      system "make", "updatedeps" if build.head?
-      system "make", "dev"
-      system "make", "test"
+      system "make", "bin-local"
+      bin.install "pkg/darwin_#{arch}/consul-template"
     end
-
-    bin.install "bin/consul-template"
   end
 
   test do

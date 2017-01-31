@@ -1,19 +1,17 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.5.4/postgresql-9.5.4.tar.bz2"
-  sha256 "cf5e571164ad66028ecd7dd8819e3765470d45bcd440d258b686be7e69c76ed0"
-  revision 1
+  url "https://ftp.postgresql.org/pub/source/v9.6.1/postgresql-9.6.1.tar.bz2"
+  sha256 "e5101e0a49141fc12a7018c6dad594694d3a3325f5ab71e93e0e51bd94e51fcd"
 
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "2c360204c8420cb5d970a7bf453936d7a1163ec061082f14fea1fd7f80422084" => :sierra
-    sha256 "51565747e6ff1c767397a9904e82b6e387cdbb0ce38aea9da7137587710ee76a" => :el_capitan
-    sha256 "3bc3271ca1ec75712eb91797c4a6a702b0a96a911097bd8ca038a29838d396bb" => :yosemite
+    sha256 "0da8bf2c15d5991feb11df68680b85d29fb56cca7cf51262cd467ad688b2130c" => :sierra
+    sha256 "f885679f2fe9999551fab47618529287097345a8226da5b969baaa26a60333b4" => :el_capitan
+    sha256 "6f535922dca6457f0b16a5a22be5d35ec9138dc2334acc60a660dbb7594c1d41" => :yosemite
   end
 
-  option "32-bit"
   option "without-perl", "Build without Perl support"
   option "without-tcl", "Build without Tcl support"
   option "with-dtrace", "Build with DTrace support"
@@ -41,7 +39,6 @@ class Postgresql < Formula
   end
 
   def install
-    ENV.libxml2 if MacOS.version >= :snow_leopard
     # avoid adding the SDK library directory to the linker search path
     ENV["XML2_CONFIG"] = "xml2-config --exec-prefix=/usr"
 
@@ -89,10 +86,6 @@ class Postgresql < Formula
     args << "--enable-dtrace" if build.with? "dtrace"
     args << "--with-uuid=e2fs"
 
-    if build.build_32_bit?
-      ENV.append %w[CFLAGS LDFLAGS], "-arch #{Hardware::CPU.arch_32_bit}"
-    end
-
     system "./configure", *args
     system "make"
     system "make", "install-world", "datadir=#{pkgshare}",
@@ -114,10 +107,10 @@ class Postgresql < Formula
       https://github.com/Homebrew/homebrew/issues/2510
 
     To migrate existing data from a previous major version (pre-9.0) of PostgreSQL, see:
-      https://www.postgresql.org/docs/9.5/static/upgrading.html
+      https://www.postgresql.org/docs/9.6/static/upgrading.html
 
-    To migrate existing data from a previous minor version (9.0-9.4) of PostgreSQL, see:
-      https://www.postgresql.org/docs/9.5/static/pgupgrade.html
+    To migrate existing data from a previous minor version (9.0-9.5) of PostgreSQL, see:
+      https://www.postgresql.org/docs/9.6/static/pgupgrade.html
 
       You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
       Do not run `brew cleanup postgresql` until you have performed the migration.

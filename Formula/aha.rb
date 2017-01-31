@@ -1,15 +1,15 @@
 class Aha < Formula
   desc "ANSI HTML adapter"
   homepage "https://github.com/theZiz/aha"
-  url "https://github.com/theZiz/aha/archive/0.4.10.tar.gz"
-  sha256 "bbfb55940cbd8c4cbf8eccededf30a9e3861feda2b9c50d76f55d384080641aa"
+  url "https://github.com/theZiz/aha/archive/0.4.10.3.tar.gz"
+  sha256 "135e18a6bd4568fc9e58a02dbd8b18a31a8bf598bdeaf24795d7d2492c4ad5be"
   head "https://github.com/theZiz/aha.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "de2a2448df45ce8015c32cfa4929e0f7b97a44ccc34cb021007bc079a3c26955" => :sierra
-    sha256 "ed91f263c063132ffcfda8216a5ace0a6af9bcf02d81d548625b038be7171507" => :el_capitan
-    sha256 "357dff75a627e45d0c0d23c31b42656ce6db5646791ac3893fc6b6741e469098" => :yosemite
+    sha256 "56cfd33659adb98e630ead8d9cff6b3345a7f0a0da484a0921827ff1dcacf9c2" => :sierra
+    sha256 "f553081042955aa96a1fa42fcd7572a17357a0986a8f8a9dfb1799fec0f489c1" => :el_capitan
+    sha256 "efb7f763bae069d24fdc77942c06cc2267f7b3775b2e6cdf2863ba230dd8350a" => :yosemite
   end
 
   def install

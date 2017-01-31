@@ -16,7 +16,7 @@ class Taktuk < Formula
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
   end
 

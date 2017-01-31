@@ -1,14 +1,15 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  url "https://github.com/crystal-lang/crystal/archive/0.19.4.tar.gz"
-  sha256 "e239afa449744e0381823531f6af66407ba1f4b78767bd67a9bb09d9fcc6b9e4"
+  url "https://github.com/crystal-lang/crystal/archive/0.20.5.tar.gz"
+  sha256 "ee1e5948c6e662ccb1e62671cf2c91458775b559b23d74ab226dc2a2d23f7707"
   head "https://github.com/crystal-lang/crystal.git"
+  revision 2
 
   bottle do
-    sha256 "b891e7a9c01906be5b6d51adc374c1882e036ae443b95abb1a8f27b072762fde" => :sierra
-    sha256 "928c541573faaeb82030d2fcbee7f4b5865b54cd0cb4f080adab00035394d9f5" => :el_capitan
-    sha256 "0faca697844e5ef7bbcf9d750ed27c448e224363c7150ebebc77c73f01099e07" => :yosemite
+    sha256 "81fa90904eedd9ca99584b364250894fedf1f94b55dbebb5d364f436dfa58680" => :sierra
+    sha256 "0db10890a7324308d12f6779407f20f74e1fc9d7435b7e403bdfa28deaff1dce" => :el_capitan
+    sha256 "dfcbea132fa056fa4e32abd27b681e860366fd7c53a46f82fcea61d80cf6c449" => :yosemite
   end
 
   option "without-release", "Do not build the compiler in release mode"
@@ -23,18 +24,38 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.19.3/crystal-0.19.3-1-darwin-x86_64.tar.gz"
-    version "0.19.3"
-    sha256 "2c9aebfefe2aca46eeda1e5a3fd6a91e3177af8f324ea23ebf8b5cad3c87ad2d"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.20.4/crystal-0.20.4-1-darwin-x86_64.tar.gz"
+    version "0.20.4"
+    sha256 "3fd291a4a5c9eccdea933a9df25446c90d80660a17e89f83503fcb5b6deba03e"
   end
 
   resource "shards" do
-    url "https://github.com/ysbaddaden/shards/archive/v0.6.4.tar.gz"
-    sha256 "5972f1b40bb3253319f564dee513229f82b0dcb8eea1502ae7dc483a9c6da5a0"
+    url "https://github.com/crystal-lang/shards/archive/v0.7.1.tar.gz"
+    sha256 "31de819c66518479682ec781a39ef42c157a1a8e6e865544194534e2567cb110"
+  end
+
+  resource "libevent-2.0.22" do
+    url "https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz"
+    sha256 "71c2c49f0adadacfdbe6332a372c38cf9c8b7895bb73dabeaa53cdcc1d4e1fa3"
   end
 
   def install
+    resource("libevent-2.0.22").stage do
+      system "./configure", "--disable-dependency-tracking",
+                            "--disable-debug-mode",
+                            "--prefix=#{buildpath}/vendor/libevent"
+      ENV.deparallelize do
+        system "make"
+        system "make", "install"
+      end
+    end
+
     (buildpath/"boot").install resource("boot")
+
+    macho = MachO.open("#{buildpath}/boot/embedded/bin/crystal")
+    macho.change_dylib("/usr/local/opt/libevent/lib/libevent-2.0.5.dylib",
+                       "#{buildpath}/vendor/libevent/lib/libevent-2.0.5.dylib")
+    macho.write!
 
     if build.head?
       ENV["CRYSTAL_CONFIG_VERSION"] = Utils.popen_read("git rev-parse --short HEAD").strip
@@ -42,7 +63,7 @@ class CrystalLang < Formula
       ENV["CRYSTAL_CONFIG_VERSION"] = version
     end
 
-    ENV["CRYSTAL_CONFIG_PATH"] = prefix/"src:libs:lib"
+    ENV["CRYSTAL_CONFIG_PATH"] = prefix/"src:lib"
     ENV.append_path "PATH", "boot/bin"
 
     if build.with? "release"

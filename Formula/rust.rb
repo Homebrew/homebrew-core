@@ -3,35 +3,37 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.12.0-src.tar.gz"
-    sha256 "ac5907d6fa96c19bd5901d8d99383fb8755127571ead3d4070cce9c1fb5f337a"
+    url "https://static.rust-lang.org/dist/rustc-1.14.0-src.tar.gz"
+    sha256 "c790edd2e915bd01bea46122af2942108479a2fda9a6f76d1094add520ac3b6b"
 
     resource "cargo" do
-      # git required because of submodules
-      url "https://github.com/rust-lang/cargo.git", :tag => "0.13.0", :revision => "109cb7c33d426044d141457049bd0fffaca1327c"
+      url "https://github.com/rust-lang/cargo.git",
+          :tag => "0.15.0",
+          :revision => "298a0127f703d4c2500bb06d309488b92ef84ae1"
     end
 
-    # name includes date to satisfy cache
-    resource "cargo-nightly-2015-09-17" do
-      url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2015-09-17/cargo-nightly-x86_64-apple-darwin.tar.gz"
-      sha256 "02ba744f8d29bad84c5e698c0f316f9e428962b974877f7f582cd198fdd807a8"
+    resource "racer" do
+      url "https://github.com/phildawes/racer/archive/2.0.4.tar.gz"
+      sha256 "e30e383af4d01695e35d420e36c9b2cf462337f680497ae14c09388f14c53809"
     end
   end
 
   bottle do
-    sha256 "db162fd8fe0ad57a42bd597405f1290882d06543c285f45194010d3d215f139e" => :sierra
-    sha256 "78a222e3ea2c1d550b463f55582588287b7bcd5c84d65abe578b3d573f3c43f2" => :el_capitan
-    sha256 "e462dceb8bd2dd988ca9278c9a5839d9010674eee785d83c0f47e6efc7aa92a8" => :yosemite
+    sha256 "0dd055001c2bc70f2efd9c68209f70c6facb1cc86101939adfe3377ab4b022fc" => :sierra
+    sha256 "48b79dd13d9bd51b6f23255a640e86706fc239154659c2df621c76b25f00f87b" => :el_capitan
+    sha256 "0a4d37a134ec0d23e48bcdf0aab43154d38a619fa84c879bffc6bafc6639cdca" => :yosemite
   end
 
   head do
     url "https://github.com/rust-lang/rust.git"
+
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git"
     end
   end
 
   option "with-llvm", "Build with brewed LLVM. By default, Rust's LLVM will be used."
+  option "with-racer", "Build Racer code completion tool, and retain Rust sources."
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :run
@@ -48,6 +50,12 @@ class Rust < Formula
     fails_with :gcc => n
   end
 
+  resource "cargobootstrap" do
+    version "2016-11-02"
+    url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2016-11-02/cargo-nightly-x86_64-apple-darwin.tar.gz"
+    sha256 "3bfb2e3e7292a629b86b9fad1d7d6ea9531bb990964c02005305c5cea3a579d9"
+  end
+
   def install
     args = ["--prefix=#{prefix}"]
     args << "--disable-rpath" if build.head?
@@ -62,20 +70,31 @@ class Rust < Formula
     system "make"
     system "make", "install"
 
+    resource("cargobootstrap").stage do
+      system "./install.sh", "--prefix=#{buildpath}/cargobootstrap"
+    end
+    ENV.prepend_path "PATH", buildpath/"cargobootstrap/bin"
+
     resource("cargo").stage do
-      cargo_stage_path = pwd
-
-      if build.stable?
-        resource("cargo-nightly-2015-09-17").stage do
-          system "./install.sh", "--prefix=#{cargo_stage_path}/target/snapshot/cargo"
-          # satisfy make target to skip download
-          touch "#{cargo_stage_path}/target/snapshot/cargo/bin/cargo"
-        end
-      end
-
-      system "./configure", "--prefix=#{prefix}", "--local-rust-root=#{prefix}", "--enable-optimize"
+      system "./configure", "--prefix=#{prefix}", "--local-rust-root=#{prefix}",
+                            "--enable-optimize"
       system "make"
       system "make", "install"
+    end
+
+    if build.with? "racer"
+      resource("racer").stage do
+        ENV.prepend_path "PATH", bin
+        cargo_home = buildpath/"cargo_home"
+        cargo_home.mkpath
+        ENV["CARGO_HOME"] = cargo_home
+        system bin/"cargo", "build", "--release", "--verbose"
+        (libexec/"bin").install "target/release/racer"
+        (bin/"racer").write_env_script(libexec/"bin/racer", :RUST_SRC_PATH => pkgshare/"rust_src")
+      end
+      # Remove any binary files; as Homebrew will run ranlib on them and barf.
+      rm_rf Dir["src/{llvm,test,librustdoc,etc/snapshot.pyc}"]
+      (pkgshare/"rust_src").install Dir["src/*"]
     end
 
     rm_rf prefix/"lib/rustlib/uninstall.sh"

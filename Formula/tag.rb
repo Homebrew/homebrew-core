@@ -1,16 +1,15 @@
 class Tag < Formula
   desc "Manipulate and query tags on Mavericks files"
   homepage "https://github.com/jdberry/tag/"
-  url "https://github.com/jdberry/tag/archive/v0.8.1.tar.gz"
-  sha256 "4ac5005dcffff4f03fe3885b2ab321a61d77df2fb862527f4a0d05d1f9280680"
+  url "https://github.com/jdberry/tag/archive/v0.9.tar.gz"
+  sha256 "ec2e3df36e18d4bd17f8fea34c1c5b9311e23d220e4ad64fc55505aa4c4b552a"
   head "https://github.com/jdberry/tag.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e96f388c073710ee630ce6437758995ab4f76df047b31a70cdfc45d050e1916a" => :sierra
-    sha256 "7406b17715a627677917d75800850bfcf52b5796584dfc90f5e17d67a01cf4a8" => :el_capitan
-    sha256 "ae93b14ff99a6e0827359effbed9ca31f148affbf28f6d212bed39232023e1eb" => :yosemite
-    sha256 "8aa970a198d4c14b310d0f2ba5dcb238699d44585205137061a21d0e7690d629" => :mavericks
+    sha256 "976deacd9ba2533d152a70d4920ce0edab6e22f35fd72f438774c675e9bf532f" => :sierra
+    sha256 "f91752c50c52456037e04b7e38c1fd1246edb0086fc681860e71f222c2891df8" => :el_capitan
+    sha256 "640a9ebb8fa34d93f5566e2af7e25716eaa2497165c4e7122bcae1d9cd51fb5a" => :yosemite
   end
 
   depends_on :macos => :mavericks

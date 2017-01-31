@@ -22,7 +22,7 @@ class SLang < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--with-pnglib=#{png.lib}",
                           "--with-pnginc=#{png.include}"
-    ENV.j1
+    ENV.deparallelize
     system "make"
     system "make", "install"
   end

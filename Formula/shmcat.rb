@@ -1,16 +1,14 @@
 class Shmcat < Formula
   desc "Tool that dumps shared memory segments (System V and POSIX)"
   homepage "http://shmcat.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/shmcat/shmcat-1.7.tar.bz2"
-  sha256 "dfe113592425373ea3d67cad5e9e44cbc27e45c75af3b308240aee9530d169cc"
+  url "https://downloads.sourceforge.net/project/shmcat/shmcat-1.8.tar.bz2"
+  sha256 "43fbf1b62f22f7cfcfd21228225151441450441d47ca73c9c2951c9af5549dde"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0afdc7913d9c167b5aebc523987feb1d6e0c36c329d58b015f9983d5d55af5be" => :sierra
-    sha256 "5dc052ed656a11bcfb22c612bb7081926ca2d7af79fc818bcac158c223215087" => :el_capitan
-    sha256 "ab506697c27345d9efe49e21f9631fb1bfc1834cbb7cf2179f698b5f9a71e73a" => :yosemite
-    sha256 "32c8493fa69cc202fc49dfde49c0288236666246d42dd3a6e3d6d0c87e6205a1" => :mavericks
-    sha256 "736f0bad34d004a83f6c7fed14623ccc2ccb00ae6df2a03325962bf1a647148e" => :mountain_lion
+    sha256 "01cab982f77ba84084219d9106a7dc2e15ea8f1386b6b1dccadfb3f731c3a5be" => :sierra
+    sha256 "418a5aca4e039528a55706db8063808a0fa1dafb3d913376177735bbce1dc836" => :el_capitan
+    sha256 "1ce5eef9d77925041ea91bc2c8d49572525369df7a037928c3eb83698a58a8a4" => :yosemite
   end
 
   option "with-ftok", "Build the ftok utility"

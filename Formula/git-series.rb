@@ -1,14 +1,14 @@
 class GitSeries < Formula
   desc "Track changes to a patch series over time"
   homepage "https://github.com/git-series/git-series"
-  url "https://github.com/git-series/git-series/archive/0.8.10.tar.gz"
-  sha256 "d70c9a2105c69fdd6059c04285ddb74b3b10852d9729dd8a14681b9bf36790be"
+  url "https://github.com/git-series/git-series/archive/0.9.1.tar.gz"
+  sha256 "c0362e19d3fa168a7cb0e260fcdecfe070853b163c9f2dfd2ad8213289bc7e5f"
 
   bottle do
     cellar :any
-    sha256 "2daebeea29b8dab29cec91fc882c2b2d800b893e995d68ebfa76c00f45e25590" => :sierra
-    sha256 "9e763fcdeca9dbe7e8033e19c8e58288a85ab01e9dbf887f53a87dd90f1746a3" => :el_capitan
-    sha256 "4b9788b40b76dc4811b251ef8c08b654cefeae4fde5a8ef34e64bad52b4e0010" => :yosemite
+    sha256 "011a866094f523161e8d153da782acde646e59f92def690dfbb2298529e38492" => :sierra
+    sha256 "4ee103a2d1645bf3e214c81d6fe34736217c3b0394dcb4881b16e348c71c1e62" => :el_capitan
+    sha256 "ef5a67c986fca412080678bd81a8791e3af5739ba5236f38aa79b99a33aa8a41" => :yosemite
   end
 
   depends_on "cmake" => :build

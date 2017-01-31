@@ -35,7 +35,7 @@ class CenterIm < Formula
                           "--with-openssl=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
 
-    # /bin/gawk does not exist on OS X
+    # /bin/gawk does not exist on macOS
     inreplace bin/"cimformathistory", "/bin/gawk", "/usr/bin/awk"
   end
 

@@ -1,16 +1,14 @@
 class Pdfgrep < Formula
   desc "Search PDFs for strings matching a regular expression"
   homepage "https://pdfgrep.org/"
-  url "https://pdfgrep.org/download/pdfgrep-1.4.1.tar.gz"
-  sha256 "db04a210e6bb7b77cd6c54b17f0f6fed0d123a85f97a541b270736a5d3840f2c"
+  url "https://pdfgrep.org/download/pdfgrep-2.0.tar.gz"
+  sha256 "2636da1f3157722640170f4469b574835b1c834c71237a4c3ca00197e31a89b4"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "af1f7068de0bcffdb1652616d13e9ddf474b22986a3bd8c25b6f1e7de4416657" => :sierra
-    sha256 "821ab1b17b4f314f184f6277255fefd2f88457850a258bc8d041c5301780b416" => :el_capitan
-    sha256 "0eba080d293bfad89420f25b37a8810d937848c44d705afbb1764ccdf9c8a321" => :yosemite
-    sha256 "ffa47430a9f736b1f6d52fad14d9cc4a677f842498101dc358d43de48ec9017c" => :mavericks
+    sha256 "a871c41a2a76055e7f00bdc09c1beba86f67d1d766d16e6dcab38229eb1daaf3" => :sierra
+    sha256 "86dfa0e1e5efaa4e9f760af79061d81e949fea4ceaa7922649f6ae9e030e73f0" => :el_capitan
+    sha256 "d2c6c7b50c616c4efd85699ea2f8f4b88dde03205bdf13920dc8bb8fb059d617" => :yosemite
   end
 
   head do
@@ -21,6 +19,7 @@ class Pdfgrep < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libgcrypt"
   depends_on "poppler"
   depends_on "pcre" => :optional
 

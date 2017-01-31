@@ -14,7 +14,7 @@ class Libtecla < Formula
   end
 
   def install
-    ENV.j1
+    ENV.deparallelize
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
   end

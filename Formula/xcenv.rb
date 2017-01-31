@@ -1,27 +1,19 @@
 class Xcenv < Formula
   desc "Xcode version manager"
-  homepage "https://github.com/xcenv/xcenv#readme"
-  url "https://github.com/xcenv/xcenv/archive/v1.0.4.tar.gz"
-  sha256 "cac6e5475b0dda35fe1c3771bc60b703e0df7b87b1bf607988c447768ca02122"
+  homepage "http://xcenv.org"
+  url "https://github.com/xcenv/xcenv/archive/v1.1.0.tar.gz"
+  sha256 "3a08afad39bf8243769b7aa49597688a8418ded9c229f672a3af8b007db4d331"
   head "https://github.com/xcenv/xcenv.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8bdcf774eebbfa075bf539c44ee4469a8d3d7b0f326c475ec8654d61a2647429" => :sierra
-    sha256 "cea5afaa85e626275f25897176165839ce8b62e83e6858a6d2733e5aa2a08b4e" => :el_capitan
-    sha256 "82c0673fec7ade22f064e2d8f67739b4e1c86c4b86cfe0d89bf8561b82978565" => :yosemite
-    sha256 "82c0673fec7ade22f064e2d8f67739b4e1c86c4b86cfe0d89bf8561b82978565" => :mavericks
+    sha256 "000e0d3d363de9398ba5655f5536cb817a6f1019f2679b4469556d86bf012a4b" => :sierra
+    sha256 "000e0d3d363de9398ba5655f5536cb817a6f1019f2679b4469556d86bf012a4b" => :el_capitan
+    sha256 "000e0d3d363de9398ba5655f5536cb817a6f1019f2679b4469556d86bf012a4b" => :yosemite
   end
 
   def install
     prefix.install ["bin", "libexec"]
-  end
-
-  def caveats; <<-EOS.undent
-    Xcenv stores data under ~/.xcenv by default. If you absolutely need to
-    store everything under Homebrew's prefix, include this in your profile:
-      export XCENV_ROOT=#{var}/xcenv
-    EOS
   end
 
   test do

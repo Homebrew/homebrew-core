@@ -1,14 +1,15 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.4/gnuplot-5.0.4.tar.gz"
-  sha256 "151cb845728bde75eb9d1561b35140114a05a7c52a52bd35b4b2b3d944e0c31e"
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.5/gnuplot-5.0.5.tar.gz"
+  sha256 "25f3e0bf192e01115c580f278c3725d7a569eb848786e12b455a3fda70312053"
   revision 1
 
   bottle do
-    sha256 "00bd1a8848555dd7b107b24791159fbe44e2bc4907b1320f1317861588e51101" => :sierra
-    sha256 "0d622d5b39e7c437e1d514335ca6f6228b1a349b33f694097f03fbec4fb7ce2f" => :el_capitan
-    sha256 "2f4996eb86d23210d2dd5c544f39be5c2be7b2601e41e1543607615366baeac9" => :yosemite
+    rebuild 1
+    sha256 "73d0f5bcdbcd1136026c1802956867794aaf0ed65fcd35b8a9468da8e9855012" => :sierra
+    sha256 "748ac4de44ee3e39610811be140f3a398af15eb17cf4a05f7d9166e9e6f0d632" => :el_capitan
+    sha256 "9674931c763c8741051bd8e2de7aaa4c1f697c21afd3b497dee679f85aee400b" => :yosemite
   end
 
   head do
@@ -25,12 +26,14 @@ class Gnuplot < Formula
   option "with-wxmac", "Build wxmac support. Need with-cairo to build wxt terminal"
   option "with-tex", "Build with LaTeX support"
   option "with-aquaterm", "Build with AquaTerm support"
+  option "without-gd", "Build without gd based terminals"
 
   deprecated_option "with-x" => "with-x11"
   deprecated_option "pdf" => "with-pdflib-lite"
   deprecated_option "wx" => "with-wxmac"
-  deprecated_option "qt" => "with-qt5"
-  deprecated_option "with-qt" => "with-qt5"
+  deprecated_option "qt" => "with-qt@5.7"
+  deprecated_option "with-qt" => "with-qt@5.7"
+  deprecated_option "with-qt5" => "with-qt@5.7"
   deprecated_option "cairo" => "with-cairo"
   deprecated_option "nolua" => "without-lua"
   deprecated_option "tests" => "with-test"
@@ -39,22 +42,22 @@ class Gnuplot < Formula
   deprecated_option "with-latex" => "with-tex"
 
   depends_on "pkg-config" => :build
-  depends_on "fontconfig"
-  depends_on "gd"
+  depends_on "gd" => :recommended
   depends_on "lua" => :recommended
-  depends_on "jpeg"
-  depends_on "libpng"
-  depends_on "libtiff"
   depends_on "readline"
-  depends_on "webp"
   depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
   depends_on "pdflib-lite" => :optional
-  depends_on "qt5" => :optional
+  depends_on "qt@5.7" => :optional
   depends_on "wxmac" => :optional
   depends_on :tex => :optional
   depends_on :x11 => :optional
 
+  needs :cxx11 if build.with? "qt@5.7"
+
   def install
+    # Qt5 requires c++11 (and the other backends do not care)
+    ENV.cxx11 if build.with? "qt@5.7"
+
     if build.with? "aquaterm"
       # Add "/Library/Frameworks" to the default framework search path, so that an
       # installed AquaTerm framework can be found. Brew does not add this path
@@ -75,12 +78,14 @@ class Gnuplot < Formula
 
     args << "--with-pdf=#{pdflib}" if build.with? "pdflib-lite"
 
+    args << "--without-gd" if build.without? "gd"
+
     if build.without? "wxmac"
       args << "--disable-wxwidgets"
       args << "--without-cairo" if build.without? "cairo"
     end
 
-    if build.with? "qt5"
+    if build.with? "qt@5.7"
       args << "--with-qt"
     else
       args << "--with-qt=no"
@@ -102,7 +107,7 @@ class Gnuplot < Formula
 
     system "./prepare" if build.head?
     system "./configure", *args
-    ENV.j1 # or else emacs tries to edit the same file with two threads
+    ENV.deparallelize # or else emacs tries to edit the same file with two threads
     system "make"
     system "make", "check" if build.with?("test") || build.bottle?
     system "make", "install"
@@ -121,10 +126,10 @@ class Gnuplot < Formula
 
   test do
     system "#{bin}/gnuplot", "-e", <<-EOS.undent
-      set terminal png;
-      set output "#{testpath}/image.png";
+      set terminal dumb;
+      set output "#{testpath}/graph.txt";
       plot sin(x);
     EOS
-    File.exist? testpath/"image.png"
+    File.exist? testpath/"graph.txt"
   end
 end

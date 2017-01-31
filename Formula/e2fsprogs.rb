@@ -14,7 +14,7 @@ class E2fsprogs < Formula
     sha256 "3f95be44af372f34e747aa4b7a89a721a170cc0cafee21b5ae4b85c630d2972f" => :mavericks
   end
 
-  keg_only "This brew installs several commands which override OS X-provided file system commands."
+  keg_only "This brew installs several commands which override macOS-provided file system commands."
 
   depends_on "pkg-config" => :build
   depends_on "gettext"

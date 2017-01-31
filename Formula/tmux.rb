@@ -3,13 +3,13 @@ class Tmux < Formula
   homepage "https://tmux.github.io/"
   url "https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz"
   sha256 "55313e132f0f42de7e020bf6323a1939ee02ab79c48634aa07475db41573852b"
-  revision 1
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "24d9dbda94c0aa1234789f25f492768b49c67563642233a5d2abbb51fd4e3ad2" => :sierra
-    sha256 "417d94c03e60ff396e02a6d6b56ff9be96f0b22127afaa3732ff26d86ed769e3" => :el_capitan
-    sha256 "5dbd3539dda1ce33a19dbc9813d005a88d4bef2977af7f40903aae4d9efc5d0c" => :yosemite
+    sha256 "249d37ae806e98d1827d1104174c9d446977c89ed5c3c761d8cff583cc8de43d" => :sierra
+    sha256 "4b4bb6330ac0992d329dba3c95fd9f25a222a672e712f95ddd0c6c66ce3ba1bb" => :el_capitan
+    sha256 "1eee1ba5746cf99aef9ffc30437651422af0b49082e8fd77f10fdc145ce60a81" => :yosemite
   end
 
   head do
@@ -22,7 +22,7 @@ class Tmux < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "utf8proc"
+  depends_on "utf8proc" => :optional
 
   resource "completion" do
     url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/homebrew_1.0.0/completions/tmux"
@@ -32,11 +32,16 @@ class Tmux < Formula
   def install
     system "sh", "autogen.sh" if build.head?
 
+    args = %W[
+      --disable-Dependency-tracking
+      --prefix=#{prefix}
+      --sysconfdir=#{etc}
+    ]
+
+    args << "--enable-utf8proc" if build.with?("utf8proc")
+
     ENV.append "LDFLAGS", "-lresolv"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
-                          "--enable-utf8proc"
+    system "./configure", *args
 
     system "make", "install"
 

@@ -30,10 +30,6 @@ class Redland < Formula
     sha256 "ff72b587ab55f09daf81799cb3f9d263708fad5df7a5458f0c28566a2563b7f5"
   end
 
-  fails_with :llvm do
-    build 2334
-  end
-
   def install
     args = %W[
       --disable-debug

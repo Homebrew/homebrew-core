@@ -1,14 +1,13 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.14-7/source/tarball/percona-server-5.7.14-7.tar.gz"
-  sha256 "b204ffac56bfc8cf092acca3ce73d63b00450b59f554acd1daeb5a573eec2c1d"
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.16-10/source/tarball/percona-server-5.7.16-10.tar.gz"
+  sha256 "1e88233d4bc5fd9a6910f2cc01ad5aca7d751f036cdba5a1c9954e1e25300347"
 
   bottle do
-    sha256 "2931e0ee93052e3589ac53dc0e2634187fc80e90b8fb98b98d9d0ff9ec8e6050" => :sierra
-    sha256 "97f8be4a8a2dde3956076b716fe85befa1ec0e28865ec1991f791132677efe81" => :el_capitan
-    sha256 "2494b5f19cb1e45fa7ae377f1586fa6465ed7773cac741f308ff6d6b16b23f4e" => :yosemite
-    sha256 "e77d870f147a8a1951af2ea57db8d28c792b378a940ac062623db7f846839ee6" => :mavericks
+    sha256 "b0391178de2803d46702b753fca1aca128a3727568b0eb315e7cf024072f6ab3" => :sierra
+    sha256 "c1e7882f668bbc1a62eb4aa346fb3daceedcb84b2d6bbb8bc173f41b277e9a95" => :el_capitan
+    sha256 "d80780fbcb5d993dccc66697988aba550a1047e539b07d3dcb10ab7003d2a5f6" => :yosemite
   end
 
   option :universal
@@ -32,11 +31,6 @@ class PerconaServer < Formula
     :because => "both install MySQL client libraries"
   conflicts_with "mariadb-connector-c",
     :because => "both install plugins"
-
-  fails_with :llvm do
-    build 2334
-    cause "https://github.com/Homebrew/homebrew/issues/issue/144"
-  end
 
   resource "boost" do
     url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
@@ -62,10 +56,6 @@ class PerconaServer < Formula
       "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
       "COMMAND libtool -static -o ${TARGET_LOCATION}"
 
-    # Build without compiler or CPU specific optimization flags to facilitate
-    # compilation of gems and other software that queries `mysql-config`.
-    ENV.minimal_optimization
-
     args = %W[
       -DCMAKE_INSTALL_PREFIX=#{prefix}
       -DCMAKE_FIND_FRAMEWORK=LAST
@@ -86,7 +76,7 @@ class PerconaServer < Formula
     ]
 
     # PAM plugin is Linux-only at the moment
-    args.concat %W[
+    args.concat %w[
       -DWITHOUT_AUTH_PAM=1
       -DWITHOUT_AUTH_PAM_COMPAT=1
       -DWITHOUT_DIALOG=1
@@ -94,7 +84,7 @@ class PerconaServer < Formula
 
     # TokuDB is broken on MacOsX
     # https://bugs.launchpad.net/percona-server/+bug/1531446
-    args.concat %W[-DWITHOUT_TOKUDB=1]
+    args.concat %w[-DWITHOUT_TOKUDB=1]
 
     # MySQL >5.7.x mandates Boost as a requirement to build & has a strict
     # version check in place to ensure it only builds against expected release.

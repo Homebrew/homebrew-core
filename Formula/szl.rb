@@ -3,13 +3,13 @@ class Szl < Formula
   homepage "https://code.google.com/archive/p/szl/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/szl/szl-1.0.tar.gz"
   sha256 "af5c647276fd0dea658eae6016957b7ad09ac68efe13ae2a3c867043b5889f87"
-  revision 9
+  revision 11
 
   bottle do
     cellar :any
-    sha256 "92b7971b7dacde39563d9cd998cc8ca977e33d81b9a448784254b193a274f851" => :sierra
-    sha256 "acdeab201f07e46ba85ea1cf4a5d1e44d4dd8d35876c9f744f4c577da02dad48" => :el_capitan
-    sha256 "6c4866189c5492dc12b21341f79d7bbe700182b0035844be98f8ad19935bd3f4" => :yosemite
+    sha256 "b78c2b82290b5c80b49815a75052acb11d13871b2f4c1d5a56bd0d827723a876" => :sierra
+    sha256 "f3224fc17a452fa3d1a6b7314b18cffbcbf891a9c2e383c2299d0cc1dc3ea2a1" => :el_capitan
+    sha256 "1889c1a0218397cc31812b0d48f0bc2c4fa5c509ec0b6e3f9024fcc52218597e" => :yosemite
   end
 
   depends_on :macos => :mavericks

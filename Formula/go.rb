@@ -3,35 +3,44 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://storage.googleapis.com/golang/go1.7.1.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.7.1.src.tar.gz"
-    version "1.7.1"
-    sha256 "2b843f133b81b7995f26d0cb64bbdbb9d0704b90c44df45f844d28881ad442d3"
+    url "https://storage.googleapis.com/golang/go1.7.5.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.7.5.src.tar.gz"
+    version "1.7.5"
+    sha256 "4e834513a2079f8cbbd357502cccaac9507fd00a1efe672375798858ff291815"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
           :branch => "release-branch.go#{go_version}",
-          :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
+          :revision => "6220cba6419b2bf78aad19d85c347ecc0fda2b53"
     end
   end
 
   bottle do
-    sha256 "341f36ef4172b2df09cf100b873ffcbd1be9f6d39c4c1a190128443277537c30" => :sierra
-    sha256 "fdeadb70a2a12bb5fb98e8c7ebe9b9bc9fa8eb7b7ffb0282094e47d3018da4fc" => :el_capitan
-    sha256 "b172524cb48d5649cb125c34b50b780593f9a9527d714918ccd433a0bb17dc89" => :yosemite
-    sha256 "e43d9abf5a88d17647497ebfc3b728c52fc92926879d9f15b726338b0c01e745" => :mavericks
+    sha256 "7d96560afe4d231cb7c63911fc1e8324a5092306503e8cbe8b7b89d5dcbffe9d" => :sierra
+    sha256 "8d4d7111294a186a032c7fd9534ae343f01e84e5b45b56118d7e20a896fb0926" => :el_capitan
+    sha256 "311a87565de855a024df90eed45d95c84e3c71dfcc44941a5755ce6b412755cb" => :yosemite
   end
 
-  head do
-    url "https://github.com/golang/go.git"
+  devel do
+    url "https://storage.googleapis.com/golang/go1.8rc3.src.tar.gz"
+    version "1.8rc3"
+    sha256 "38b1c1738f111f7bccdd372efca2aa98a7bad1ca2cb21767ba69f34ae007499c"
 
     resource "gotools" do
       url "https://go.googlesource.com/tools.git"
     end
   end
 
-  option "without-cgo", "Build without cgo"
+  head do
+    url "https://go.googlesource.com/go.git"
+
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git"
+    end
+  end
+
+  option "without-cgo", "Build without cgo (also disables race detector)"
   option "without-godoc", "godoc will not be installed for you"
   option "without-race", "Build without race detector"
 
@@ -54,7 +63,7 @@ class Go < Formula
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
       ENV["GOOS"]         = "darwin"
-      ENV["CGO_ENABLED"]  = build.with?("cgo") ? "1" : "0"
+      ENV["CGO_ENABLED"]  = "0" if build.without?("cgo")
       system "./make.bash", "--no-clean"
     end
 
@@ -65,7 +74,7 @@ class Go < Formula
 
     # Race detector only supported on amd64 platforms.
     # https://golang.org/doc/articles/race_detector.html
-    if MacOS.prefer_64_bit? && build.with?("race")
+    if build.with?("cgo") && build.with?("race") && MacOS.prefer_64_bit?
       system bin/"go", "install", "-race", "std"
     end
 
@@ -111,6 +120,11 @@ class Go < Formula
     if build.with? "godoc"
       assert File.exist?(libexec/"bin/godoc")
       assert File.executable?(libexec/"bin/godoc")
+    end
+
+    if build.with? "cgo"
+      ENV["GOOS"] = "freebsd"
+      system bin/"go", "build", "hello.go"
     end
   end
 end

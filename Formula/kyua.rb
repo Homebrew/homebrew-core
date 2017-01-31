@@ -22,7 +22,7 @@ class Kyua < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make"
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
   end
 end

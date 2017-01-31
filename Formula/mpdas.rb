@@ -22,7 +22,7 @@ class Mpdas < Formula
     ENV["MANPREFIX"] = man
     ENV["CONFIG"] = etc
 
-    ENV.j1
+    ENV.deparallelize
     system "make"
     # Just install ourselves
     bin.install "mpdas"

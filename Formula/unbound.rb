@@ -1,18 +1,21 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://unbound.net/downloads/unbound-1.5.10.tar.gz"
-  sha256 "a39b8b4fcca2a2b35a2daa53fe35150cc3f09038dc9acede09c912fc248a9486"
+  url "https://www.unbound.net/downloads/unbound-1.6.0.tar.gz"
+  sha256 "6b7db874e6debda742fee8869d722e5a17faf1086e93c911b8564532aeeffab7"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "96e9154693efc3cdcad0e80c9236448218c0fe6b4b958c9e8111c24a4277c94d" => :sierra
-    sha256 "da31692ef5cf6a8fd3910e90b4eae50e4bfb261d8abfea0893bc0b921ed72637" => :el_capitan
-    sha256 "f873d5c0fac865009e8e49cd216ff0920c398327718cf47a1c667ae46f2cdb12" => :yosemite
+    sha256 "1524bb0a7378a890adcf794bdde5a14b3c7184bab1bad6bdb962ca939d01fc26" => :sierra
+    sha256 "9e776be5da4e9058edaf99a81be1ec16fed7f613a014366eab3bcd6057adc778" => :el_capitan
+    sha256 "88f88dcf06ce464bec1926ed7ba2fda7849b3ff4116c89ac2b69066a0ebfb6d9" => :yosemite
   end
 
   depends_on "openssl"
   depends_on "libevent"
+
+  depends_on :python => :optional
+  depends_on "swig" if build.with?("python")
 
   def install
     args = %W[
@@ -21,10 +24,20 @@ class Unbound < Formula
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-ssl=#{Formula["openssl"].opt_prefix}
     ]
+
+    if build.with? "python"
+      ENV.prepend "LDFLAGS", `python-config --ldflags`.chomp
+
+      args << "--with-pyunbound"
+      args << "--with-pythonmodule"
+      args << "PYTHON_SITE_PKG=#{lib}/python2.7/site-packages"
+    end
+
     args << "--with-libexpat=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
     system "./configure", *args
 
     inreplace "doc/example.conf", 'username: "unbound"', 'username: "@@HOMEBREW-UNBOUND-USER@@"'
+    system "make", "test"
     system "make", "install"
   end
 

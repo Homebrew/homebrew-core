@@ -14,7 +14,7 @@ class Aalib < Formula
     sha256 "b2fd6584ff2ad3afc0050e0663ad680f84c79d59958afb043681bac77e9fd2fc" => :mountain_lion
   end
 
-  # Fix malloc/stdlib issue on OS X
+  # Fix malloc/stdlib issue on macOS
   # Fix underquoted definition of AM_PATH_AALIB in aalib.m4
   patch :DATA
 

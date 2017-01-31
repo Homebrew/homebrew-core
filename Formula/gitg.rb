@@ -3,17 +3,17 @@ class Gitg < Formula
   homepage "https://wiki.gnome.org/Apps/Gitg"
   url "https://download.gnome.org/sources/gitg/3.22/gitg-3.22.0.tar.xz"
   sha256 "ba6895f85c18748294075980a5e03e0936ad4e84534dbb0d8f9e29aa874ddeaf"
+  revision 1
 
   bottle do
-    sha256 "a1b08247409aa919f893ef16fb1001c8ac84d0a109c4234d34fcb4017e2c1269" => :sierra
-    sha256 "0e08648a797dbc4c661a3adcc2d0fcfbc07544cf9d0f8a9355449bc0f3dc457e" => :el_capitan
-    sha256 "34577c96439c46031678098d5da44f9345c64cc76285a75892b5fd2fe458b2bd" => :yosemite
+    sha256 "4132836f7275773fc4fc52017295455416e067d044b75e610070ddb6448d6903" => :sierra
+    sha256 "326c39b1aef24d993dbf6897ed2e0166a6e0e403fbae6c808e1eb90c4b1c613d" => :el_capitan
+    sha256 "36b4f56fb22dbb3375f926adc2eed61254070eb6793c4b8add14e9d0db4a5a9a" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "intltool" => :build
-  depends_on "webkitgtk"
   depends_on "gtksourceview3"
   depends_on "gobject-introspection"
   depends_on "libgit2-glib"
@@ -22,6 +22,7 @@ class Gitg < Formula
   depends_on "json-glib"
   depends_on "libsecret"
   depends_on "libpeas"
+  depends_on "libsoup"
   depends_on "gtkspell3"
   depends_on "hicolor-icon-theme"
   depends_on "gnome-icon-theme"
@@ -29,6 +30,8 @@ class Gitg < Formula
   depends_on "pygobject3" => "with-python3" if build.with?("python3")
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libgit2-glib"].opt_libexec/"libgit2/lib/pkgconfig"
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -67,7 +70,7 @@ class Gitg < Formula
     libepoxy = Formula["libepoxy"]
     libffi = Formula["libffi"]
     libgee = Formula["libgee"]
-    libgit2 = Formula["libgit2"]
+    libgit2 = Formula["libgit2-glib"].opt_libexec/"libgit2"
     libgit2_glib = Formula["libgit2-glib"]
     libpng = Formula["libpng"]
     libsoup = Formula["libsoup"]
@@ -91,7 +94,7 @@ class Gitg < Formula
       -I#{libepoxy.opt_include}
       -I#{libgee.opt_include}/gee-0.8
       -I#{libffi.opt_lib}/libffi-3.0.13/include
-      -I#{libgit2.opt_include}
+      -I#{libgit2}/include
       -I#{libgit2_glib.opt_include}/libgit2-glib-1.0
       -I#{libpng.opt_include}/libpng16
       -I#{libsoup.opt_include}/libsoup-2.4
@@ -108,7 +111,7 @@ class Gitg < Formula
       -L#{gobject_introspection.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{libgee.opt_lib}
-      -L#{libgit2.opt_lib}
+      -L#{libgit2}/lib
       -L#{libgit2_glib.opt_lib}
       -L#{libsoup.opt_lib}
       -L#{lib}

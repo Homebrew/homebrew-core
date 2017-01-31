@@ -3,13 +3,13 @@ class PgTop < Formula
   homepage "http://ptop.projects.postgresql.org/"
   url "http://pgfoundry.org/frs/download.php/3504/pg_top-3.7.0.tar.bz2"
   sha256 "c48d726e8cd778712e712373a428086d95e2b29932e545ff2a948d043de5a6a2"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "91b171e0653b1e77a416a4d5ab59f28daaaf5b24cdeaf9b9e88cea81b5f24c81" => :sierra
-    sha256 "f6942875416fa688254e82feac6f0991cab3181ca0a545bce53ca4af9dc856f3" => :el_capitan
-    sha256 "2e1a209d75f91eea0f22dc6e9c391c95a65289436d5060df7cc803bec8c3df35" => :yosemite
-    sha256 "6d9c0960d9594b6643126ef60ecdae71b21b8ab9ebdcd6d0a7efc9a1847dab87" => :mavericks
+    sha256 "530371a7cbfe45c075cc7211630aa35d1e3aad3ba6c5e6f8611349baaf805dfc" => :sierra
+    sha256 "55384b673ebc22e89c093b70809b5ea796fdcc72c492d89a68468a51b1a2943a" => :el_capitan
+    sha256 "3c2dbc3fe9610a43cc4171c7d9d0d65a02c57d24d37f67208b12ead8654ae95f" => :yosemite
   end
 
   depends_on :postgresql

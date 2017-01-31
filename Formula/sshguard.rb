@@ -1,14 +1,15 @@
 class Sshguard < Formula
   desc "Protect from brute force attacks against SSH"
   homepage "http://www.sshguard.net/"
-  url "https://downloads.sourceforge.net/project/sshguard/sshguard/1.7.0/sshguard-1.7.0.tar.gz"
-  sha256 "5ce784bc25dc9801fbfadc4117669ee02397526c420170ae1145ada96df8cd59"
+  url "https://downloads.sourceforge.net/project/sshguard/sshguard/1.7.1/sshguard-1.7.1.tar.gz"
+  sha256 "2e527589c9b33219222d827dff63974229d044de945729aa47271c4a29aaa195"
+  version_scheme 1
 
   bottle do
-    sha256 "eafc23ae542d22103ed6750185e78d48c75c9db7d16b2d528c0e55f9b3cd0be4" => :sierra
-    sha256 "52954aab894544db55b011b98fe5fe1b3e32c54e933198d8dfe56da5a8245ae6" => :el_capitan
-    sha256 "84e797a7ec7778b8fc449f8da2501cd463da83b54899c6a7907275363b7241a4" => :yosemite
-    sha256 "f4b03d720b38fefe394c2b4e87247080edf3e0b82cbf4e623d3f44c48dd00300" => :mavericks
+    rebuild 2
+    sha256 "53632d2d0342927a1a7f03333db69ba4c48959d06397588485c170839530711f" => :sierra
+    sha256 "66170f748cb7f94d4d6f85b6e9a5caca4dfba074641587614c948f1feccf4031" => :el_capitan
+    sha256 "ac7d61e2bf2adb13185b55c5afdc8647c3842328b8ec379995acdfa99105f46c" => :yosemite
   end
 
   depends_on "automake" => :build

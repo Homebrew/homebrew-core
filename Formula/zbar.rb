@@ -3,14 +3,13 @@ class Zbar < Formula
   homepage "http://zbar.sourceforge.net"
   url "https://downloads.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2"
   sha256 "234efb39dbbe5cef4189cc76f37afbe3cfcfb45ae52493bfe8e191318bdbadc6"
-  revision 1
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "fe51e5b5668ba04ba18186a7f3f78267a9a4c8270ae4c25331e3963b8002b6b0" => :sierra
-    sha256 "41950a6ec2dc5631fba19098d644f9eed2b91b8be0a1a1473f6d93e796345bea" => :el_capitan
-    sha256 "175d9360172bc0afc153dc1e2b3e042d3d4ad27db94ed28573c12f4c77616b74" => :yosemite
-    sha256 "39865fe54a7bd3f0153e19729d0b958bd3ac5a5bac5d39a50194b39db2503317" => :mavericks
+    sha256 "a1c9cf15f2fc2631cc737e031cd8a688631d976f32409cd79efe940961121898" => :sierra
+    sha256 "19a16d4b34849fc0c406c5b8c7abd9ae57713a7f5d366d8864eb76d67f060b7e" => :el_capitan
+    sha256 "ea1468cc850c168c966de78e6c6c970a87c665d3afb8610b5abe2e2cc99763fb" => :yosemite
   end
 
   depends_on :x11 => :optional
@@ -28,6 +27,12 @@ class Zbar < Formula
   patch :DATA
 
   def install
+    # ImageMagick 7 compatibility
+    # Reported 20 Jun 2016 https://sourceforge.net/p/zbar/support-requests/156/
+    inreplace ["configure", "zbarimg/zbarimg.c"],
+      "wand/MagickWand.h",
+      "ImageMagick-7/MagickWand/MagickWand.h"
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -45,6 +50,10 @@ class Zbar < Formula
 
     system "./configure", *args
     system "make", "install"
+  end
+
+  test do
+    system bin/"zbarimg", "-h"
   end
 end
 

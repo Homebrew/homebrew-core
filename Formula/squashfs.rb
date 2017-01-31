@@ -18,7 +18,7 @@ class Squashfs < Formula
   depends_on "lz4" => :optional
 
   # Patch necessary to emulate the sigtimedwait process otherwise we get build failures
-  # Also clang fixes, extra endianness knowledge and a bundle of other OS X fixes.
+  # Also clang fixes, extra endianness knowledge and a bundle of other macOS fixes.
   # Originally from https://github.com/plougher/squashfs-tools/pull/3
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/05ae0eb1/squashfs/squashfs-osx-bundle.diff"

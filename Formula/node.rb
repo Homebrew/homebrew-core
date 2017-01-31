@@ -1,14 +1,15 @@
 class Node < Formula
-  desc "Platform built on the V8 JavaScript runtime to build network applications"
+  desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.7.0/node-v6.7.0.tar.xz"
-  sha256 "ceb028324aab1ee8c7ea6a62026f036f3ea71f5ef5212593d0f833f999dd3be5"
+  url "https://nodejs.org/dist/v7.4.0/node-v7.4.0.tar.xz"
+  sha256 "9f15b916f8677ec1615c46bdd6d2208ed1b24fad26384f9ac249f5b09d31c32b"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "75086e9d48cb4ccba985641d05021933b3866de4c97724a9f94cc75e321ad5b4" => :sierra
-    sha256 "c225aff30bc7b266b1b80b69133a6d407a40b117168cf30a91b39ebf8070b9c3" => :el_capitan
-    sha256 "cbd917c6ba18097ad959b8efa33c0b906f08ef2a4fdc8286a1c48aca7afbf8d9" => :yosemite
+    rebuild 1
+    sha256 "1c1e460f90f92565e92a58f55bdbe35cc545c299e9b73b85968241a1c478a09f" => :sierra
+    sha256 "44487c399991ff84e8de3fc3637800fb22b361cd75b128e19a4fad1daa5b94d9" => :el_capitan
+    sha256 "a492ac712f346b1cea1e14880809af0da7473374a73de502cf23f8452d71fb65" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -26,7 +27,6 @@ class Node < Formula
 
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
-  fails_with :llvm
   fails_with :gcc_4_0
   fails_with :gcc
   ("4.3".."4.7").each do |n|
@@ -37,15 +37,16 @@ class Node < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.10.7.tgz"
-    sha256 "4a9f6b04c34655740ece1510227978396a9047f5d6c203b919289f0121300cc3"
+    url "https://registry.npmjs.org/npm/-/npm-4.0.5.tgz"
+    sha256 "195f654387867484a17826990fce2d46177a16f4911297c53b870597c037a27e"
   end
 
   resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz"
-    mirror "https://fossies.org/linux/misc/icu4c-57_1-src.tgz"
-    version "57.1"
-    sha256 "ff8c67cb65949b1e7808f2359f2b80f722697048e90e7cfc382ec1fe229e9581"
+    url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
+    mirror "https://fossies.org/linux/misc/icu4c-58_2-src.tgz"
+    mirror "https://downloads.sourceforge.net/project/icu/ICU4C/58.2/icu4c-58_2-src.tgz"
+    version "58.2"
+    sha256 "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
   end
 
   def install

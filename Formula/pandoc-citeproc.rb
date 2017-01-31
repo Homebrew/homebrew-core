@@ -5,15 +5,14 @@ class PandocCiteproc < Formula
 
   desc "Library and executable for using citeproc with pandoc"
   homepage "https://github.com/jgm/pandoc-citeproc"
-  url "https://hackage.haskell.org/package/pandoc-citeproc-0.10.1/pandoc-citeproc-0.10.1.tar.gz"
-  sha256 "ebc3eb3ff95e97ebd46c0918a65db2da021de2a70d02dc85ca5b344ea5c21205"
+  url "https://hackage.haskell.org/package/pandoc-citeproc-0.10.3/pandoc-citeproc-0.10.3.tar.gz"
+  sha256 "2f6233ff91a9fb08edfb0ac2b4ec40729d87590a7c557d0452674dd3c7df4d58"
   head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
-    sha256 "3fb20df3481762bc3832d638c1a09b21fe5e39df4d0314a3b619c0a413596419" => :sierra
-    sha256 "9ea68bf53585b7033415dfe6bde764ab98bd417e3bbd16c64b07ee496067ab00" => :el_capitan
-    sha256 "a5d8a0b02b65e79283a6c2407a5519cb0c672efa11aa7017d640a1db10007ce0" => :yosemite
-    sha256 "53dcdd90bf14f62f69db9d463234f91dd7548b51ed73ec482a3e614cd0e7edb3" => :mavericks
+    sha256 "e6c7ab6dcf59aea1367eac17e1a649917fd8cafa07f17ad81ee419b3da595b43" => :sierra
+    sha256 "33454243989046fa696800af3814353d80e076d55f013d2c6fa43ad627499887" => :el_capitan
+    sha256 "7b4e38c77212bbec46a30e95ee544b5d218222f6698fc90e02635a1bddb99705" => :yosemite
   end
 
   depends_on "ghc" => :build
@@ -21,6 +20,12 @@ class PandocCiteproc < Formula
   depends_on "pandoc"
 
   def install
+    # Build error with aeson >= 1.0.0.0: "Overlapping instances for FromJSON"
+    # Reported 27 Oct 2016 https://github.com/jgm/pandoc-citeproc/issues/263
+    inreplace "pandoc-citeproc.cabal",
+      "aeson >= 0.7 && < 1.1, text, vector,",
+      "aeson >= 0.7 && < 1.0.0.0, text, vector,"
+
     args = []
     args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
     install_cabal_package *args

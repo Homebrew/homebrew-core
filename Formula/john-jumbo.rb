@@ -37,11 +37,6 @@ class JohnJumbo < Formula
   # https://github.com/magnumripper/JohnTheRipper/issues/982
   patch :DATA
 
-  fails_with :llvm do
-    build 2334
-    cause "Don't remember, but adding this to whitelist 2336."
-  end
-
   # https://github.com/magnumripper/JohnTheRipper/blob/bleeding-jumbo/doc/INSTALL#L133-L143
   fails_with :gcc do
     cause "Upstream have a hacky workaround for supporting gcc that we can't use."

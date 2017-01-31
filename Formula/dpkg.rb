@@ -1,15 +1,17 @@
 class Dpkg < Formula
   desc "Debian package management system"
   homepage "https://wiki.debian.org/Teams/Dpkg"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.10.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.10.tar.xz"
-  sha256 "025524da41ba18b183ff11e388eb8686f7cc58ee835ed7d48bd159c46a8b6dc5"
+  # Please always keep the Homebrew mirror as the primary URL as the
+  # dpkg site removes tarballs regularly which means we get issues
+  # unnecessarily and older versions of the formula are broken.
+  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.18.18.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.18.tar.xz"
+  sha256 "c88b61e3d4660500753142689e8ddbeff1c731f29549f3338e6975f655936ff5"
 
   bottle do
-    sha256 "47929bc2b33b461788e0d1b74846cda3ad2454862486220345ec54eebac9b36a" => :sierra
-    sha256 "1e13b24cd8b0ebcdc18974b2324d66e6b5c7e7984be8610ef098dacb8e592c3e" => :el_capitan
-    sha256 "2d4703e267cc69a932dc5c7849111a8504bae13f363fc34d469d43f47699c900" => :yosemite
-    sha256 "c859b1f92594ee0aa612bb3cd9a1a33fb9f7579ca0c23951d0bd0832a1080463" => :mavericks
+    sha256 "0cb724b24e6259a1b792d081fca589925809f841b271c57b3ca5bb9100299412" => :sierra
+    sha256 "a612146da7dffef7b2324726b07237e7af9ab67215f9b05ca4825adb4c5b6cb5" => :el_capitan
+    sha256 "990103f2fada3040e5056d492a331bb0ba4defb921d1f66abcd452851e3940ed" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -26,7 +28,7 @@ class Dpkg < Formula
     # Using an env and scripting is a solution less likely to break over time.
     # Both variables need to be set. One is compile-time, the other run-time.
     ENV["PERL_LIBDIR"] = libexec/"lib/perl5"
-    ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -34,7 +36,6 @@ class Dpkg < Formula
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
                           "--disable-dselect",
-                          "--disable-linker-optimisations",
                           "--disable-start-stop-daemon"
     system "make"
     system "make", "install"

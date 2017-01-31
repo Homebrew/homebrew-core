@@ -19,7 +19,7 @@ class Ilmbase < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
-    (share/"ilmbase").install %W[Half HalfTest Iex IexMath IexTest IlmThread Imath ImathTest]
+    (share/"ilmbase").install %w[Half HalfTest Iex IexMath IexTest IlmThread Imath ImathTest]
   end
 
   test do

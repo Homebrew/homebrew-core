@@ -13,25 +13,31 @@ end
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://coq.inria.fr/distrib/8.5pl2/files/coq-8.5pl2.tar.gz"
-  version "8.5pl2"
-  sha256 "83239d1251bf6c54a9ca5045d738e469019b93ca601756bf982aab0654e4de73"
+  url "https://coq.inria.fr/distrib/V8.6/files/coq-8.6.tar.gz"
+  sha256 "6e3c3cf5c8e2b0b760dc52738e2e849f3a8c630869659ecc0cf41413fcee81df"
   head "git://scm.gforge.inria.fr/coq/coq.git", :branch => "trunk"
 
   bottle do
-    sha256 "774e14c3f3755fe94d20fc3c410b54239f3365b1e3961ec7a3066e59c87a3666" => :sierra
-    sha256 "6bca59c08a4ec3b0633621332d9e66eb252c652d3efbce51f039ff8e6b7fe28f" => :el_capitan
-    sha256 "a61a407c55cde0cd9a68e2995af1af227b5dfc66060438254b3f4d76baa4dc1d" => :yosemite
-    sha256 "12444450f927ce6ebe0ff4dbbde42530edc57ee2e3a1baa5748cd987bf9750d8" => :mavericks
+    sha256 "2de7aac122e38d25d09f85e367c5f7541ef9db6588bc4dd2fc05d5ba740eda9e" => :sierra
+    sha256 "a6db94a34cc5d56f9b094b6b28104be5a86f5f1052c0abeb497f5f58a470acff" => :el_capitan
+    sha256 "e9c282b008dd5030895f16e7fc68249eca3c3eaecaa4c1c7fb258670242374de" => :yosemite
   end
 
+  depends_on "opam" => :build
   depends_on Camlp5TransitionalModeRequirement
   depends_on "camlp5"
   depends_on "ocaml"
 
   def install
+    ENV["OPAMYES"] = "1"
+    ENV["OPAMROOT"] = Pathname.pwd/"opamroot"
+    (Pathname.pwd/"opamroot").mkpath
+    system "opam", "init", "--no-setup"
+    system "opam", "install", "ocamlfind"
+
     camlp5_lib = Formula["camlp5"].opt_lib/"ocaml/camlp5"
-    system "./configure", "-prefix", prefix,
+    system "opam", "config", "exec", "--",
+           "./configure", "-prefix", prefix,
                           "-mandir", man,
                           "-camlp5dir", camlp5_lib,
                           "-emacslib", elisp,

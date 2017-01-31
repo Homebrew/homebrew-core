@@ -1,14 +1,14 @@
 class Infer < Formula
   desc "Static analyzer for Java, C and Objective-C"
   homepage "http://fbinfer.com/"
-  url "https://github.com/facebook/infer/releases/download/v0.9.2/infer-osx-v0.9.2.tar.xz"
-  sha256 "3935f8be25982a023aba306b66804d73a7316ab833296277c1ec6c3694bfc7c7"
+  url "https://github.com/facebook/infer/releases/download/v0.9.4.1/infer-osx-v0.9.4.1.tar.xz"
+  sha256 "a738a3492a4e0229df8abd745cd88bca8fb547bc3bcca15ec194d6780b07cbda"
 
   bottle do
     cellar :any
-    sha256 "2b1dd1bdebf2550f01ad9c6d5e6ee463f24b740e28ece126787f2f08b2276818" => :el_capitan
-    sha256 "d65405a47ead42e33e751f33ba4766e90005ea0b59f7aeadf860828bfcf4a3ff" => :yosemite
-    sha256 "7ce4996fd1da93d8f325c3abb2bc6804fd5af12d09953f67f643fca5c6dc889e" => :mavericks
+    sha256 "deefb4714b5bb9b95e80a2d516ed2af0ce162815b55b07a2e306ff56eb46526c" => :sierra
+    sha256 "d17c0540c9fb57b0c79f1d4a9d01e37821be73aec3afa946add2567bfce9f2b7" => :el_capitan
+    sha256 "aa7fb2d1a2f8de4321aed0bc9d5bf0f50f851401d7e3e8bbb9d9638d3001d8c9" => :yosemite
   end
 
   option "without-clang", "Build without C/Objective-C analyzer"
@@ -17,6 +17,7 @@ class Infer < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "ocaml" => :build
   depends_on "opam" => :build
 
   def install
@@ -24,7 +25,7 @@ class Infer < Formula
       odie "infer: --without-clang and --without-java are mutually exclusive"
     end
 
-    opamroot = buildpath/"build"
+    opamroot = buildpath/"opamroot"
     opamroot.mkpath
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
@@ -44,8 +45,12 @@ class Infer < Formula
       "all"
     end
 
+    system "opam", "init", "--no-setup"
+    ocaml_version = File.read("build-infer.sh").match(/OCAML_VERSION=\"([0-9\.]+)\"/)[1]
+    inreplace "#{opamroot}/compilers/#{ocaml_version}/#{ocaml_version}/#{ocaml_version}.comp",
+      '["./configure"', '["./configure" "-no-graph"'
     system "./build-infer.sh", target_platform, "--yes"
-    system "opam", "config", "exec", "--switch=infer-4.02.3", "--", "make", "install"
+    system "opam", "config", "exec", "--switch=infer-#{ocaml_version}", "--", "make", "install"
   end
 
   test do

@@ -14,11 +14,6 @@ class Libfaketime < Formula
 
   depends_on :macos => :lion
 
-  fails_with :llvm do
-    build 2336
-    cause "No thread local storage support"
-  end
-
   def install
     system "make", "-C", "src", "-f", "Makefile.OSX", "PREFIX=#{prefix}"
     bin.install "src/faketime"

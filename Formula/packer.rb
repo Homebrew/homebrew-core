@@ -4,18 +4,18 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/mitchellh/packer.git",
-      :tag => "v0.10.2",
-      :revision => "fb1c968d573f2a6b65af1d0b14a892d730dd7778"
+      :tag => "v0.12.2",
+      :revision => "f25949eb2dd5cafb8661048ef4a97b68e7186e8b"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ba6e462887a2a2caa26450e71eb59bcb64280a87dd866485c024dc861d8c60b8" => :sierra
-    sha256 "b7ce3f2f0e15e6564f49a57267d2f476cd78cc4d19f857c2a4750104525f3a86" => :el_capitan
-    sha256 "8c9ba1723e40fa621f06358fa0dd90e5fa3ff07fbe801126e214db15c5dac611" => :yosemite
+    sha256 "ed99cef7cc09a7523287c87ade35abdc07116ed2c240076a2b592adcfe402c8a" => :sierra
+    sha256 "f175b7824326e1e24691b74726a6c40531e2aeaab27924fe6d569defc2f27811" => :el_capitan
+    sha256 "6522cd3014af1f425fea7e21b0e74fd6cc49b092ed9ae2d0e48d43e9912927eb" => :yosemite
   end
 
   depends_on :hg => :build
   depends_on "go" => :build
+  depends_on "govendor" => :build
 
   go_resource "github.com/mitchellh/gox" do
     url "https://github.com/mitchellh/gox.git",
@@ -29,7 +29,7 @@ class Packer < Formula
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :revision => "3f4088edb48e8a4e3c66a5f8e7b2a78615fcb83f"
+        :revision => "fcfba28e23c7bbd8474b355ca7d6a9d88afcca00"
   end
 
   def install
@@ -43,7 +43,6 @@ class Packer < Formula
     packerpath = buildpath/"src/github.com/mitchellh/packer"
     packerpath.install Dir["{*,.git}"]
     Language::Go.stage_deps resources, buildpath/"src"
-    (buildpath/"bin").mkpath
 
     cd "src/github.com/mitchellh/gox" do
       system "go", "build"
@@ -60,11 +59,14 @@ class Packer < Formula
       inreplace "Makefile" do |s|
         s.gsub! "go get github.com/mitchellh/gox", ""
         s.gsub! "go get golang.org/x/tools/cmd/stringer", ""
+        s.gsub! "go get github.com/kardianos/govendor", ""
       end
 
-      system "make", "bin"
-      bin.install Dir["bin/*"]
+      (buildpath/"bin").mkpath
+      system "make", "releasebin"
+      bin.install buildpath/"bin/packer"
       zsh_completion.install "contrib/zsh-completion/_packer"
+      prefix.install_metafiles
     end
   end
 

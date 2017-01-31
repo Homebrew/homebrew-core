@@ -1,25 +1,14 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "http://graphviz.org/"
-  revision 1
-
-  stable do
-    url "http://graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.38.0.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/graphviz/graphviz_2.38.0.orig.tar.gz"
-    sha256 "81aa238d9d4a010afa73a9d2a704fc3221c731e1e06577c2ab3496bdef67859e"
-
-    # https://github.com/ellson/graphviz/commit/f97c86e
-    # Support either version of ghostcript's error prefixes
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6a6a1a3/graphviz/patch-gvloadimage_gs.c.diff"
-      sha256 "bcc0758dd9e0ac17bd1cde63a55a613124814002b470ac4a7a0c421c83a253ab"
-    end
-  end
+  url "http://graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.40.1.tar.gz"
+  sha256 "ca5218fade0204d59947126c38439f432853543b0818d9d728c589dfe7f3a421"
+  version_scheme 1
 
   bottle do
-    sha256 "8cdecc90167e47c11153a8cde909f4387b96abee37a6e59cd7024112ba4709cc" => :sierra
-    sha256 "c36aa173c45aecedee2aa2c6b410e8b609a4fcab1a81c948a705388e7265a7b3" => :el_capitan
-    sha256 "655323ee62b7328acb15e46f2d099103f6a774895b909b9a51011f5254688cfb" => :yosemite
+    sha256 "5b0261f25e240400997567a643a6c02a56fad9f7c8751a12bb460eacd2063284" => :sierra
+    sha256 "e7bf067cb36594de77cdeb2f6701e71d6bc1118127f63cc8a788e932c904b2d2" => :el_capitan
+    sha256 "d66468e290a031a97c3b0762ec10163c5164847d31adf3a64bb4bdd640251000" => :yosemite
   end
 
   head do
@@ -29,9 +18,6 @@ class Graphviz < Formula
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
   end
-
-  # https://github.com/Homebrew/homebrew/issues/14566
-  env :std
 
   option :universal
   option "with-bindings", "Build Perl/Python/Ruby/etc. bindings"
@@ -44,29 +30,38 @@ class Graphviz < Formula
 
   depends_on "pkg-config" => :build
   depends_on :xcode => :build if build.with? "app"
+  depends_on "libtool" => :run
   depends_on "pango" => :optional
   depends_on "gts" => :optional
   depends_on "librsvg" => :optional
   depends_on "freetype" => :optional
   depends_on :x11 => :optional
+  depends_on "gd"
   depends_on "libpng"
 
   if build.with? "bindings"
     depends_on "swig" => :build
     depends_on :python
     depends_on :java
-  end
-
-  fails_with :clang do
-    build 318
-  end
-
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ec8d133/graphviz/patch-project.pbxproj.diff"
-    sha256 "7c8d5c2fd475f07de4ca3a4340d722f472362615a369dd3f8524021306605684"
+    depends_on "ruby"
   end
 
   def install
+    # Only needed when using superenv, which causes qfrexp and qldexp to be
+    # falsely detected as available. The problem is triggered by
+    #   args << "-#{ENV["HOMEBREW_OPTIMIZATION_LEVEL"]}"
+    # during argument refurbishment of cflags.
+    # https://github.com/Homebrew/brew/blob/ab060c9/Library/Homebrew/shims/super/cc#L241
+    # https://github.com/Homebrew/legacy-homebrew/issues/14566
+    # Alternative fixes include using stdenv or using "xcrun make"
+    inreplace "lib/sfio/features/sfio", "lib qfrexp\nlib qldexp\n", ""
+
+    if build.with? "bindings"
+      # the ruby pkg-config file is version specific
+      inreplace "configure", "ruby-1.9",
+                             "ruby-#{Formula["ruby"].stable.version.to_f}"
+    end
+
     ENV.universal_binary if build.universal?
     args = %W[
       --disable-debug
@@ -82,13 +77,6 @@ class Graphviz < Formula
     args << "--without-x" if build.without? "x11"
     args << "--without-rsvg" if build.without? "librsvg"
 
-    if build.stable? && build.with?("bindings")
-      # http://www.graphviz.org/mantisbt/view.php?id=2486
-      # Fixed in HEAD to use "undefined dynamic_lookup".
-      inreplace "configure", 'PYTHON_LIBS="-lpython$PYTHON_VERSION_SHORT"',
-                             'PYTHON_LIBS="-undefined dynamic_lookup"'
-    end
-
     if build.head?
       system "./autogen.sh", *args
     else
@@ -98,7 +86,7 @@ class Graphviz < Formula
 
     if build.with? "app"
       cd "macosx" do
-        xcodebuild "-configuration", "Release", "SYMROOT=build", "PREFIX=#{prefix}",
+        xcodebuild "SDKROOT=#{MacOS.sdk_path}", "-configuration", "Release", "SYMROOT=build", "PREFIX=#{prefix}",
                    "ONLY_ACTIVE_ARCH=YES", "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
       end
       prefix.install "macosx/build/Release/Graphviz.app"

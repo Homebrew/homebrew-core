@@ -1,20 +1,19 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://downloads.sourceforge.net/project/boost/boost/1.62.0/boost_1_62_0.tar.bz2"
-  sha256 "36c96b0f6155c98404091d8ceb48319a28279ca0333fba1ad8611eb90afb2ca0"
+  url "https://downloads.sourceforge.net/project/boost/boost/1.63.0/boost_1_63_0.tar.bz2"
+  sha256 "beae2529f759f6b3bf3f4969a19c2e9d6f0c503edcb2de4a61d1428519fcb3b0"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "22763fd3647255018dc31832f2513c03f36a56c3461c03e03cf5e8866cc64ce5" => :sierra
-    sha256 "5c639c9f61b56ed1d99a5b8b25d149c366543330b654c429fe939e57fae9541b" => :el_capitan
-    sha256 "527fdbeaa9f685e3de45938bf897e145292471250c6e47ea50ff1635f121b67a" => :yosemite
+    sha256 "e51c6ca6eb46b548a2e1fdd11f7379a864f4f92d1c42920ab6df8d81bcfe57ca" => :sierra
+    sha256 "ea3c556f85bac86b86be9af3828982cbc7a8896bbb0b4f845167b02d10f821ca" => :el_capitan
+    sha256 "027cbc505f530e00ddc835e87b3bad1a7a723dae199fca4d3416b20701ac83b1" => :yosemite
   end
 
   env :userpaths
 
-  option :universal
   option "with-icu4c", "Build regexp engine with icu support"
   option "without-single", "Disable building single-threading variant"
   option "without-static", "Disable building static library variant"
@@ -31,25 +30,9 @@ class Boost < Formula
     depends_on :mpi => [:cc, :cxx, :optional]
   end
 
-  fails_with :llvm do
-    build 2335
-    cause "Dropped arguments to functions when linking with boost"
-  end
-
   needs :cxx11 if build.cxx11?
 
   def install
-    # https://svn.boost.org/trac/boost/ticket/8841
-    if build.with?("mpi") && build.with?("single")
-      raise <<-EOS.undent
-        Building MPI support for both single and multi-threaded flavors
-        is not supported.  Please use "--with-mpi" together with
-        "--without-single".
-      EOS
-    end
-
-    ENV.universal_binary if build.universal?
-
     # Force boost to compile with the desired compiler
     open("user-config.jam", "a") do |file|
       file.write "using darwin : : #{ENV.cxx} ;\n"
@@ -72,7 +55,7 @@ class Boost < Formula
     # The context library is implemented as x86_64 ASM, so it
     # won't build on PPC or 32-bit builds
     # see https://github.com/Homebrew/homebrew/issues/17646
-    if Hardware::CPU.ppc? || Hardware::CPU.is_32_bit? || build.universal?
+    if Hardware::CPU.ppc? || Hardware::CPU.is_32_bit?
       without_libraries << "context"
       # The coroutine library depends on the context library.
       without_libraries << "coroutine"
@@ -80,7 +63,7 @@ class Boost < Formula
 
     # Boost.Log cannot be built using Apple GCC at the moment. Disabled
     # on such systems.
-    without_libraries << "log" if ENV.compiler == :gcc || ENV.compiler == :llvm
+    without_libraries << "log" if ENV.compiler == :gcc
     without_libraries << "mpi" if build.without? "mpi"
 
     bootstrap_args << "--without-libraries=#{without_libraries.join(",")}"
@@ -105,8 +88,6 @@ class Boost < Formula
     else
       args << "link=shared"
     end
-
-    args << "address-model=32_64" << "architecture=x86" << "pch=off" if build.universal?
 
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
     # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
@@ -133,7 +114,7 @@ class Boost < Formula
       EOS
     end
 
-    if Hardware::CPU.ppc? || Hardware::CPU.is_32_bit? || build.universal?
+    if Hardware::CPU.ppc? || Hardware::CPU.is_32_bit?
       s += <<-EOS.undent
 
       Building of Boost.Context and Boost.Coroutine is disabled as they are

@@ -3,12 +3,12 @@ class LibicalGlib < Formula
   homepage "https://wiki.gnome.org/Projects/libical-glib"
   url "https://download.gnome.org/sources/libical-glib/1.0/libical-glib-1.0.4.tar.xz"
   sha256 "3e47c7c19a403e77a598cfa8fc82c8e9ea0b3625e2f28bdcec096aeba37fb0cd"
+  revision 1
 
   bottle do
-    sha256 "4730ba10128951d74d36aa4b98b667ed4b85697f12c73ef5b9083a4eb4d579ac" => :sierra
-    sha256 "8a6b485db04370ac7bb5accba6624b7bb0f6887121103154a679833c4f49cfcd" => :el_capitan
-    sha256 "c026784a1bff6740004a9cfbdacc6e75003ea1aa3a1df28630658eee4fdeb065" => :yosemite
-    sha256 "4a7e68b90cbb6e41395fe092ee6fc92f3816c9c65398e736dba70f5da1b4b120" => :mavericks
+    sha256 "69ac0d22224466d8fd02e65fafe758da6b3d06724accbea82d8b2dcad81f659a" => :sierra
+    sha256 "8e4a96b46dc44aa61f0247b4d5d7afdd6c55bd457b693e599c4da5d74e8e8f49" => :el_capitan
+    sha256 "485062bfe30e8dc477adaf4e25d1a2d91c53f8be33993901a078bec1ae09b4ef" => :yosemite
   end
 
   depends_on "pkg-config" => :build

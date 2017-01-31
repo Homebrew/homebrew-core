@@ -1,14 +1,13 @@
 class Gnumeric < Formula
   desc "GNOME Spreadsheet Application"
   homepage "https://projects.gnome.org/gnumeric/"
-  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.31.tar.xz"
-  sha256 "c8ace78e75c280dced3f15b27c44c7a98e8d21cd8361c6b2599cce191f6d6ae7"
+  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.33.tar.xz"
+  sha256 "7eade408b6c20d2e8ad557d539e5e2f29705845a2eaa181b38934bb0cad49c0b"
 
   bottle do
-    sha256 "7f5e66bc40caa0cdaff449c86b0e620c3fb76efb8e1092c2ab15ed316871f66f" => :sierra
-    sha256 "f34a50977ece768bc1dc36f1575b1d707144a6f74a1d9309213b3fc2812059d4" => :el_capitan
-    sha256 "e6ae60e9466949b26bf195c15d261c4fb0cf99fad028f521b5c1e9c966a365ea" => :yosemite
-    sha256 "b0bcddec6232e8ca9c5e24be6e36436b47b8e0a8c6d9c78307464439d09db46e" => :mavericks
+    sha256 "86643beecac3bca21414b58da0d78f6e9ecc690b3a29945327fa4fa2e3795396" => :sierra
+    sha256 "4d51ad3c8b9a9f3fa3426ab86b4d3ce9e39d7a40d733dcd48e57aca263696670" => :el_capitan
+    sha256 "f7a0dea619c437ae5a4e4990eb4f65fdfc734172df7d74cc862b80de48a66a1c" => :yosemite
   end
 
   option "with-python-scripting", "Enable Python scripting."
@@ -17,6 +16,7 @@ class Gnumeric < Formula
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "itstool" => :build
   depends_on "gettext"
   depends_on "goffice"
   depends_on "rarian"

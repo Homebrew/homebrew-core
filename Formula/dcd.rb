@@ -16,14 +16,18 @@ class Dcd < Formula
 
   devel do
     url "https://github.com/Hackerpilot/DCD.git",
-      :tag => "v0.9.0-alpha4",
-      :revision => "c324ca9700d7ed9cf2f89c140b286ae9f325b977"
-    version "0.9.0-alpha4"
+      :tag => "v0.9.0-alpha5",
+      :revision => "83454f10f49da2c95b366206934cf3a88f8ce3f4"
+    version "0.9.0-alpha5"
   end
 
   depends_on "dmd" => :build
 
   def install
+    if build.stable?
+      rmtree "libdparse/experimental_allocator"
+      rmtree "containers/experimental_allocator"
+    end
     system "make"
     bin.install "bin/dcd-client", "bin/dcd-server"
   end

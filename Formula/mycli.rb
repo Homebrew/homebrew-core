@@ -1,18 +1,18 @@
 class Mycli < Formula
+  include Language::Python::Virtualenv
+
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "http://mycli.net/"
-  url "https://files.pythonhosted.org/packages/c7/12/782d85bd32dfa24a977dcc9a35b3cdd76b8cd33b58b78897f377d988f869/mycli-1.8.0.tar.gz"
-  sha256 "7fe7c8fd06930009547fb44b9a4a143a0f8b7bd0911a31c5c2a29a76ba8e0021"
+  url "https://files.pythonhosted.org/packages/06/e4/748f932427af83fc9c7f3311e580476e9686c301630a3096b3e18f60a4d0/mycli-1.8.1.tar.gz"
+  sha256 "5514ec779a211acb2d2776561b17f5bdb2583e333cc05e1b219865985faa799c"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1483fd03ac596339762fd046087ea7018b49d7389070dd4fd3239cafa43a1578" => :sierra
-    sha256 "326e6861074b6c541d0b13d487419995869b923030296a40de762359b43897aa" => :el_capitan
-    sha256 "1816b49f2acd2aa4b8044acc0b631741ea812c006f0bcb1ab7c7d1a74939e615" => :yosemite
-    sha256 "0326b74dc13b204ac10140da1296187f68442a35b7797a7ef8af0b3381986a4f" => :mavericks
+    sha256 "05e2153e0cd10ac3de544196ac676aa25565d0cce08ff8a299f858c847ef6433" => :sierra
+    sha256 "7e96245ecbbe76ee83e0f6f6fbb66cf785a2a3349be2a86c16b601f64655e028" => :el_capitan
+    sha256 "ab332f9bc19a11e48049ca56a663fd2f1b60be2158d0fd559f3bb8f661e77bc8" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on :python
   depends_on "openssl"
 
   resource "click" do
@@ -25,14 +25,9 @@ class Mycli < Formula
     sha256 "a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902"
   end
 
-  resource "mycli" do
-    url "https://files.pythonhosted.org/packages/c7/12/782d85bd32dfa24a977dcc9a35b3cdd76b8cd33b58b78897f377d988f869/mycli-1.8.0.tar.gz"
-    sha256 "7fe7c8fd06930009547fb44b9a4a143a0f8b7bd0911a31c5c2a29a76ba8e0021"
-  end
-
   resource "prompt_toolkit" do
-    url "https://files.pythonhosted.org/packages/c0/d0/dcb9235c812b70f20d8d1ff110f9caa85daf4bf1ec2ac10516f51c07957e/prompt_toolkit-1.0.5.tar.gz"
-    sha256 "b726807349e8158a70773cf6ac2a90f0c62849dd02a339aac910ba1cd882f313"
+    url "https://files.pythonhosted.org/packages/7f/72/845e3e5678ebe016fe2cff2ffaf91fc9615b9b1a630134f34cf394aa3927/prompt_toolkit-1.0.8.tar.gz"
+    sha256 "b686ff216fc016dcbdf9ddf18d0ded480457213886ed4cda9fbc21002d18be54"
   end
 
   resource "pycrypto" do
@@ -46,8 +41,8 @@ class Mycli < Formula
   end
 
   resource "PyMySQL" do
-    url "https://files.pythonhosted.org/packages/f5/d9/976c885396294bb1c4ca3d013fd2046496cde2efbb168e4f41dd12552dd9/PyMySQL-0.7.6.tar.gz"
-    sha256 "ad1115f1366c14a107f7b45c4a5f19b534f9ee85c188dfcd585fc08d2c966b30"
+    url "https://files.pythonhosted.org/packages/a4/c4/c15457f261fda9839637de044eca9b6da8f55503183fe887523801b85701/PyMySQL-0.7.9.tar.gz"
+    sha256 "2331f82b7b85d407c8d9d7a8d7901a6abbeb420533e5d5d64ded5009b5c6dcc3"
   end
 
   resource "six" do
@@ -56,8 +51,8 @@ class Mycli < Formula
   end
 
   resource "sqlparse" do
-    url "https://files.pythonhosted.org/packages/9c/cc/3d8d34cfd0507dd3c278575e42baff2316a92513de0a87ac0ec9f32806c9/sqlparse-0.1.19.tar.gz"
-    sha256 "d896be1a1c7f24bffe08d7a64e6f0176b260e281c5f3685afe7826f8bada4ee8"
+    url "https://files.pythonhosted.org/packages/c3/c4/6159720e7a100cd419bac31a202898e291e5af29e4ada09ee58f7eeaa076/sqlparse-0.2.1.tar.gz"
+    sha256 "1c98a2bdffe67f1bb817b72a7ba4d38be592e0f07c5acea4adebcec12c4377d1"
   end
 
   resource "wcwidth" do
@@ -66,18 +61,7 @@ class Mycli < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    %w[click prompt_toolkit pycrypto PyMySQL sqlparse Pygments wcwidth six configobj].each do |r|
-      resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

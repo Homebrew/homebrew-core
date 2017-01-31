@@ -1,15 +1,25 @@
 class Io < Formula
   desc "Small prototype-based programming language"
   homepage "http://iolanguage.com/"
-  url "https://github.com/stevedekorte/io/archive/2015.11.11.tar.gz"
-  sha256 "00d7be0b69ad04891dd5f6c77604049229b08164d0c3f5877bfab130475403d3"
+  revision 1
 
   head "https://github.com/stevedekorte/io.git"
 
+  stable do
+    url "https://github.com/stevedekorte/io/archive/2015.11.11.tar.gz"
+    sha256 "00d7be0b69ad04891dd5f6c77604049229b08164d0c3f5877bfab130475403d3"
+
+    # Fix build on Sierra. Already merged upstream.
+    patch do
+      url "https://github.com/stevedekorte/io/commit/db4d9c2.patch"
+      sha256 "25245bcfcde145ee5c0d142bee5be3017622173b98a04b26c2169ff738b5914d"
+    end
+  end
+
   bottle do
-    sha256 "741314b5c2629688c17eabca50e0a623a9318a44d94568d4d0cf53e86560c2b2" => :el_capitan
-    sha256 "e34facca9debca217eaab84e55c036fe1bbd30a34a18bac927dc4a435947604b" => :yosemite
-    sha256 "6c0b0d22dd8184f20c60b9d35437645314c7149b0a2e34d8c406546faf44e570" => :mavericks
+    sha256 "568f0e2970b3ebb0ee1407eddc76f6c9a7d7ce14284aa068266dfaa4ecb95f92" => :sierra
+    sha256 "e78e1078cadd25d0991d8d8cdd4e2f8af114df23b253f2a0d864efccf6cbe233" => :el_capitan
+    sha256 "39d88952df6b5ad7dd4622364e83c36011fda46faafc83145fb2d535586fd75b" => :yosemite
   end
 
   option "without-addons", "Build without addons"
@@ -37,7 +47,7 @@ class Io < Formula
   end
 
   def install
-    ENV.j1
+    ENV.deparallelize
 
     # FSF GCC needs this to build the ObjC bridge
     ENV.append_to_cflags "-fobjc-exceptions"

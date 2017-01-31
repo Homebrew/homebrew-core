@@ -3,13 +3,12 @@ class PgpoolIi < Formula
   homepage "http://www.pgpool.net/mediawiki/index.php/Main_Page"
   url "http://www.pgpool.net/download.php?f=pgpool-II-3.4.3.tar.gz"
   sha256 "b030d1a0dfb919dabb90987f429b03a67b22ecdbeb0ec1bd969ebebe690006e4"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "e0161db31e86d68c6c0f2805a7830787f6ffefd2b0f0150d1405837ef6703838" => :sierra
-    sha256 "272ee6246595eecdcb1b44febbe05422f9559aecce4078028448029753d091e2" => :el_capitan
-    sha256 "11233e63d5830295ff825d3181aa4240fd81c532b1c7f19889bb3c248f809813" => :yosemite
-    sha256 "93c1d153801b4338d2bd2a233787aa570480ba53589d9209cd5f55291b5296df" => :mavericks
+    sha256 "5fb685056312efeef58e27c203536b8d1b2e4b6f33aa4302baa90c5937c9064e" => :sierra
+    sha256 "814632a68081d80fe33bb217d661bf88336f324697910cd709cda67a1f7be04a" => :el_capitan
+    sha256 "678de12bb8c5669349dfe808ca3e08bfd5ed490fe1e25bf1057a8936fa6d883b" => :yosemite
   end
 
   depends_on :postgresql

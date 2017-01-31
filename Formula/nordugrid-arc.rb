@@ -5,6 +5,7 @@ class NordugridArc < Formula
   sha256 "d7306d91b544eeba571ede341e43760997c46d4ccdacc8b785c64f594780a9d1"
 
   bottle do
+    sha256 "d216048cdcf93d89caef1a7263e532577e1684dc3217b830ec80b5f61ab175c4" => :sierra
     sha256 "c78502aa7927d0376c4f3fed72d7fa258f19d26faaaf302ca5c2cbb17a36cdf2" => :el_capitan
     sha256 "121eb7d254c13ae76dada8ba27922dc1dc0b160b2f9fd2c45755c02d6ed67610" => :yosemite
   end

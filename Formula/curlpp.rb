@@ -1,29 +1,30 @@
 class Curlpp < Formula
   desc "C++ wrapper for libcURL"
   homepage "http://www.curlpp.org"
-  url "https://github.com/jpbarrette/curlpp/archive/v0.7.3.tar.gz"
-  sha256 "b72093f221a9e2d0f7ce0bd0f846587835e01607a7bb0f106ff4317a8c30a81c"
+  url "https://github.com/jpbarrette/curlpp/releases/download/v0.7.4/curlpp-0.7.4.tar.gz"
+  sha256 "7e33934f4ce761ba293576c05247af4b79a7c8895c9829dc8792c5d75894e389"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "2b3f984774c125d4756430277ed06dad420ebac1c98c0d05482262cec2ef0e97" => :sierra
-    sha256 "f46b151ea329f356276dc42b8079df56e7ad481e5618686eb6e591766f9e0c09" => :el_capitan
-    sha256 "35fab07062b0420738fbf1c45461ca2aee7e5631c070b935f35855f993243b3e" => :yosemite
-    sha256 "fa44ece8e8e1285f1aa420d69abeda7457bf6e7303be0e7931f66ef4a180add9" => :mavericks
+    sha256 "aad1ba504598a073ac81f56db02a6792ea7148e19918da8cfc368cf0a14fcf36" => :sierra
+    sha256 "028b22d2b5fb6ccaef6b4f0c30195a9314d3b20ed3e403ad68587802b38e2aa9" => :el_capitan
+    sha256 "9443ec4d10508f72a8b2fcc609c8e0c913ff145d0ae706fafd753e5ca76d2b2b" => :yosemite
   end
 
   depends_on "boost" => :build
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
 
   def install
-    system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+
+    # https://github.com/jpbarrette/curlpp/issues/34
+    # Workaround for #9315, replace CRLF with LF
+    # This should be removed in the next release
+    system "sed", "-i.bak", "-e", "s/\r//g", "#{bin}/curlpp-config"
+    rm "#{bin}/curlpp-config.bak"
   end
 
   test do

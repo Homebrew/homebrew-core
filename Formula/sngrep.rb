@@ -1,15 +1,13 @@
 class Sngrep < Formula
   desc "Command-line tool for displaying SIP calls message flows"
   homepage "https://github.com/irontec/sngrep"
-  url "https://github.com/irontec/sngrep/archive/v1.4.0.tar.gz"
-  sha256 "0be686901773c2648b504137b9bae5e3c7c1373f07ae3f943753cabe3e1b3c51"
+  url "https://github.com/irontec/sngrep/archive/v1.4.2.tar.gz"
+  sha256 "30fbfb4f90ed8805194b39683a8a2ed465776ffd60df4482bd029d63b316b3f1"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b24eb110676f862f8f362a6fe56a1b885019ed9f6dbc34540a77e15a70ebea45" => :sierra
-    sha256 "80bf467322a973a852b6b84fb6e32bb5d0387303bbd60aab93b3a5ae37ab91e7" => :el_capitan
-    sha256 "74ba38790d5263e34c43f8f8c970e610d2a0d514cb3b9ac5a06072e18f00cfce" => :yosemite
-    sha256 "6007b4506629bfeb7759b4450d01ac1ff14a75d582c14f1c7568dd9cdf722f95" => :mavericks
+    sha256 "fe8b98d1f20e00953e5da906c3cfafe568307612921a39ab4978dc21c97ffcef" => :sierra
+    sha256 "6a6e9e94f1184cbc91f8589f09ff688aa3bd456dc862ecd04de71bef0d17722a" => :el_capitan
+    sha256 "65b4d589799e79214563c4a89f9b294a63bb6cc04a1cae363f60846ff6d2d890" => :yosemite
   end
 
   depends_on "autoconf" => :build

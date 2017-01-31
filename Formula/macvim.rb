@@ -1,18 +1,16 @@
 # Reference: https://github.com/macvim-dev/macvim/wiki/building
 class Macvim < Formula
-  desc "GUI for vim, made for OS X"
+  desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-110.tar.gz"
-  version "8.0-110"
-  sha256 "a3437a0edbe0d2229def37e342b746ce22028bd604a738f5ee0cc978c7996336"
-  revision 1
-
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-124.tar.gz"
+  version "8.0-124"
+  sha256 "589898c797b81050f1a2604eb98e9227eba160e5d96e71ed751b7312a3c833a3"
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
-    sha256 "b4550cc6bddb62c832cde0e72bafdb060dcb483a5cf2943e2118bb9870582491" => :sierra
-    sha256 "28cb4a797f95ee9bd8627cdbcbdf4e2953cd144f2a8f8d8046c346608d071100" => :el_capitan
-    sha256 "a13730fd60146b23b6f9214a508f945b6a6c608a389f6f567373f40adeb51692" => :yosemite
+    sha256 "5e81a31c04038cbe2095a5736fdef11601ce87ef2ceae12200e412a0b5f4fe63" => :sierra
+    sha256 "046a4ea0b7e667696131fb7b58a97ff6fb47903094c79c799735a04ef752160f" => :el_capitan
+    sha256 "de92b17802d660cbe3e98354d29c0f09ff3389e425e1699abac69b4e98d164cb" => :yosemite
   end
 
   option "with-override-system-vim", "Override system vim"
@@ -35,6 +33,9 @@ class Macvim < Formula
   env :std if MacOS.version <= :snow_leopard
 
   def install
+    # Avoid "fatal error: 'ruby/config.h' file not found"
+    ENV.delete("SDKROOT") if MacOS.version == :yosemite
+
     # MacVim doesn't have or require any Python package, so unset PYTHONPATH
     ENV.delete("PYTHONPATH")
 
@@ -115,16 +116,8 @@ class Macvim < Formula
   test do
     # Simple test to check if MacVim was linked to Python version in $PATH
     if build.with? "python"
-      vim_path = prefix/"MacVim.app/Contents/MacOS/Vim"
-
-      # Get linked framework using otool
-      otool_output = `otool -L #{vim_path} | grep -m 1 Python`.gsub(/\(.*\)/, "").strip.chomp
-
-      # Expand the link and get the python exec path
-      vim_framework_path = Pathname.new(otool_output).realpath.dirname.to_s.chomp
       system_framework_path = `python-config --exec-prefix`.chomp
-
-      assert_equal system_framework_path, vim_framework_path
+      assert_match system_framework_path, `mvim --version`
     end
   end
 end

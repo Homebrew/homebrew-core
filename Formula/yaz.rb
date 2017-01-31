@@ -1,14 +1,14 @@
 class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/yaz"
-  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.17.0.tar.gz"
-  sha256 "9b735f0f6bc11856bf4d26ef3b9f2a2b92225d29d37f2e0b66ca9ecbd40965a0"
+  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.20.1.tar.gz"
+  sha256 "494eb0979cb359acb5e2494b77d6107ae96ef9c361f8599019b2ebc30b6496cc"
 
   bottle do
     cellar :any
-    sha256 "1be4961bb7ed19b15e414298691611dd1539b1d353b15b7487ec7859bebf3d96" => :sierra
-    sha256 "ccb8c6bd759a0eb6fb41c22c36df124d68f62e6a0b163f12bb764f6292608bc9" => :el_capitan
-    sha256 "f52cd62ad8de07f26ce0f763459133e0506a9d2527f964ef207d50f92f5ae847" => :yosemite
+    sha256 "da4cbcbcd8d6b92620030be0c1767a70dc7146d721b320a2ca71638f0366cb29" => :sierra
+    sha256 "47c56f14ace2db53773cd21bb66c78a0f4d307b79dd24186b965a3efd2bd9aba" => :el_capitan
+    sha256 "f26e827e0821946a28558ebe7ba1f25183ac8409631cee2d66e0a82319f32f69" => :yosemite
   end
 
   head do
@@ -18,18 +18,10 @@ class Yaz < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "icu4c" => :recommended
 
   def install
-    ENV.universal_binary if build.universal?
-
-    # Fix "malloc_info.c:15:10: fatal error: 'malloc.h' file not found"
-    # Reported 5 Oct 2016 https://github.com/indexdata/yaz/issues/13
-    inreplace "src/malloc_info.c", "<malloc.h>", "<malloc/malloc.h>"
-
     system "./buildconf.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

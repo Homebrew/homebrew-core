@@ -1,23 +1,18 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.10/sbcl-1.3.10-source.tar.bz2"
-  sha256 "4a567aad91b316c22eb756dd8e502cfd9a95a4c660fb1fa2eb1e50e009b85777"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.14/sbcl-1.3.14-source.tar.bz2"
+  sha256 "bf963d58533d839eb76a8028abd17071708d964d5dce07787839cfb6d0d6dcca"
+  revision 1
 
   head "git://sbcl.git.sourceforge.net/gitroot/sbcl/sbcl.git"
 
   bottle do
-    sha256 "f9274daa67bb1c19304bce8df14224d3f929bdcf6a7d75f003fc2c8e57f8de6b" => :sierra
-    sha256 "5a7df978f6113a563bfb919e4334cc18fd919b209bb14de62358313d205c1528" => :el_capitan
-    sha256 "3859a8ac5b062a1b39a35e725f13b91225ab0a2f99896aad1cbdd9a1a0b13ff2" => :yosemite
+    sha256 "0319bfca503c34a5c6644dfb3a67079d83045101dda37500f6f741d969b02a4d" => :sierra
+    sha256 "8b0109891ff37154eb55fb5378285aa5cf321e46c2cd52d8d86caa7e9dce990d" => :el_capitan
+    sha256 "916eae4f6b5b9b2c6e77ede91153b7b88dd19c22ab7052f40fc9326dc3576767" => :yosemite
   end
 
-  fails_with :llvm do
-    build 2334
-    cause "Compilation fails with LLVM."
-  end
-
-  option "32-bit"
   option "with-internal-xref", "Include XREF information for SBCL internals (increases core size by 5-6MB)"
   option "with-ldb", "Include low-level debugger in the build"
   option "without-sources", "Don't install SBCL sources"
@@ -82,7 +77,7 @@ class Sbcl < Formula
       ascii_val =~ /[\x80-\xff]/n
     end
 
-    bootstrap = (build.build_32_bit? || !MacOS.prefer_64_bit?) ? "bootstrap32" : "bootstrap64"
+    bootstrap = MacOS.prefer_64_bit? ? "bootstrap64" : "bootstrap32"
     resource(bootstrap).stage do
       # We only need the binaries for bootstrapping, so don't install anything:
       command = "#{Dir.pwd}/src/runtime/sbcl"
@@ -90,7 +85,6 @@ class Sbcl < Formula
       xc_cmdline = "#{command} --core #{core} --disable-debugger --no-userinit --no-sysinit"
 
       cd buildpath do
-        ENV["SBCL_ARCH"] = "x86" if build.build_32_bit?
         Pathname.new("version.lisp-expr").write('"1.0.99.999"') if build.head?
         system "./make.sh", "--prefix=#{prefix}", "--xc-host=#{xc_cmdline}"
       end
@@ -105,7 +99,8 @@ class Sbcl < Formula
 
       (lib/"sbcl/sbclrc").write <<-EOS.undent
         (setf (logical-pathname-translations "SYS")
-          '(("SYS:SRC;**;*.*.*" #p"#{pkgshare}/src/**/*.*")))
+          '(("SYS:SRC;**;*.*.*" #p"#{pkgshare}/src/**/*.*")
+            ("SYS:CONTRIB;**;*.*.*" #p"#{pkgshare}/contrib/**/*.*")))
         EOS
     end
   end

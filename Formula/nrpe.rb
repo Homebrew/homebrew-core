@@ -45,6 +45,8 @@ class Nrpe < Formula
     system "make", "install-daemon-config"
   end
 
+  plist_options :manual => "nrpe -n -c #{HOMEBREW_PREFIX}/etc/nrpe.cfg -d"
+
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -70,13 +72,20 @@ class Nrpe < Formula
     EOS
   end
 
-  def caveats
-    <<-EOS.undent
-    The nagios plugin check_nrpe has been installed in:
-      #{HOMEBREW_PREFIX}/sbin
+  test do
+    pid = fork do
+      exec "#{bin}/nrpe", "-n", "-c", "#{etc}/nrpe.cfg", "-d"
+    end
+    sleep 2
 
-    You can start the daemon with
-      #{bin}/nrpe -c #{etc}/nrpe.cfg -d
-    EOS
+    begin
+      output = shell_output("netstat -an")
+      assert_match /.*\*\.5666.*LISTEN/, output, "nrpe did not start"
+      pid_nrpe = shell_output("pgrep nrpe").to_i
+    ensure
+      Process.kill("SIGINT", pid_nrpe)
+      Process.kill("SIGINT", pid)
+      Process.wait(pid)
+    end
   end
 end

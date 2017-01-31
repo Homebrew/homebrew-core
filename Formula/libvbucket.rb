@@ -23,8 +23,7 @@ class Libvbucket < Formula
   end
 
   test do
-    require "utils/json"
-    json = Utils::JSON.dump(
+    json = JSON.generate(
       "hashAlgorithm" => "CRC",
       "numReplicas" => 2,
       "serverList" => ["server1:11211", "server2:11210", "server3:11211"],

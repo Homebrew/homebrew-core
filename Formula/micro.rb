@@ -4,22 +4,22 @@ class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
   url "https://github.com/zyedidia/micro.git",
-    :tag => "v1.1.0",
-    :revision => "6acda994e4536a873d9ff70682c1ac9896154426"
-  head "https://github.com/zyedidia/micro.git"
+    :tag => "v1.1.3",
+    :revision => "67ac3f1a244913273ece41fe78208de635c1d6db"
+  head "https://github.com/zyedidia/micro.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d64364688de924de03f0fcd9af47ac13907cf4459b9bbbff1d8e5498bc05352c" => :sierra
-    sha256 "bcaf65d4cdcd224a975551272cddd21a7be350e824d6cc430535f7902a4576c8" => :el_capitan
-    sha256 "0926bd06a55d1040efb14a55b64219d9e1601d2b9e5a5fe65d76c01bc073f580" => :yosemite
+    sha256 "5e02a361c25d9f9943de34bd780131040829f5f36dd0ee80293cd838355ec57b" => :sierra
+    sha256 "0fb1e8ec17e28deaf789edc81bf28cd6c98453109403169b24926dc5cec91015" => :el_capitan
+    sha256 "420018246f2c71f7366b5a651dfe3c46bde1348d93894d38638deaac23da7cbb" => :yosemite
   end
 
   depends_on "go" => :build
 
   go_resource "github.com/blang/semver" do
     url "https://github.com/blang/semver.git",
-        :revision => "60ec3488bfea7cca02b021d106d9911120d25fe9"
+        :revision => "3a37c301dda64cbe17f16f661b4c976803c0e2d2"
   end
 
   go_resource "github.com/gdamore/encoding" do
@@ -29,12 +29,12 @@ class Micro < Formula
 
   go_resource "github.com/go-errors/errors" do
     url "https://github.com/go-errors/errors.git",
-        :revision => "a41850380601eeb43f4350f7d17c6bbd8944aaf8"
+        :revision => "8fa88b06e5974e97fbf9899a7f86a344bfd1f105"
   end
 
   go_resource "github.com/layeh/gopher-luar" do
     url "https://github.com/layeh/gopher-luar.git",
-        :revision => "921d03e21a7844141b02d4c729269b6709762f28"
+        :revision => "8d335db8d052b4757fc8891f2b27b4d6ee4a7b97"
   end
 
   go_resource "github.com/lucasb-eyer/go-colorful" do
@@ -44,32 +44,32 @@ class Micro < Formula
 
   go_resource "github.com/mattn/go-isatty" do
     url "https://github.com/mattn/go-isatty.git",
-        :revision => "66b8e73f3f5cda9f96b69efd03dd3d7fc4a5cdb8"
+        :revision => "30a891c33c7cde7b02a981314b4228ec99380cca"
   end
 
   go_resource "github.com/mattn/go-runewidth" do
     url "https://github.com/mattn/go-runewidth.git",
-        :revision => "d6bea18f789704b5f83375793155289da36a3c7f"
+        :revision => "737072b4e32b7a5018b4a7125da8d12de90e8045"
   end
 
   go_resource "github.com/mitchellh/go-homedir" do
     url "https://github.com/mitchellh/go-homedir.git",
-        :revision => "756f7b183b7ab78acdbbee5c7f392838ed459dda"
+        :revision => "b8bc1bf767474819792c23f32d8286a45736f1c6"
   end
 
   go_resource "github.com/sergi/go-diff" do
     url "https://github.com/sergi/go-diff.git",
-        :revision => "ec7fdbb58eb3e300c8595ad5ac74a5aa50019cc7"
+        :revision => "83532ca1c1caa393179c677b6facf48e61f4ca5d"
   end
 
   go_resource "github.com/yuin/gopher-lua" do
     url "https://github.com/yuin/gopher-lua.git",
-        :revision => "6a1397dfb6f8e7af08496129dd96f5f62c148f47"
+        :revision => "7692488a1ad6bd06dc48890f4a149b65a86a767d"
   end
 
   go_resource "github.com/zyedidia/clipboard" do
     url "https://github.com/zyedidia/clipboard.git",
-        :revision => "72497670a7bd47eb648153f55bea83852546abe0"
+        :revision => "7b4ccc9435f89956bfa9466c3c42717df272e3bd"
   end
 
   go_resource "github.com/zyedidia/glob" do
@@ -84,12 +84,12 @@ class Micro < Formula
 
   go_resource "github.com/zyedidia/tcell" do
     url "https://github.com/zyedidia/tcell.git",
-        :revision => "2cdfb9030fb6b921fb1c8679219f881fd0824947"
+        :revision => "f03d5b8b2730cb2578c427d120a5692ca54fb67b"
   end
 
   go_resource "golang.org/x/text" do
     url "https://go.googlesource.com/text.git",
-        :revision => "ceefd2213ed29504fff30155163c8f59827734f3"
+        :revision => "5c6cf4f9a2357d38515014cea8c488ed22bdab90"
   end
 
   def install
@@ -97,13 +97,8 @@ class Micro < Formula
     mkdir_p buildpath/"src/github.com/zyedidia"
     ln_s buildpath, buildpath/"src/github.com/zyedidia/micro"
     Language::Go.stage_deps resources, buildpath/"src"
-    hash = `git rev-parse --short HEAD`.chomp
-    date = `go run tools/build-date.go`.chomp
-    system "go", "build", "-o", bin/"micro", "-ldflags", <<-EOS.undent, "./cmd/micro"
-      -X main.Version=#{version}
-      -X main.CommitHash=#{hash}
-      -X 'main.CompileDate=#{date}'
-    EOS
+    system "make", "build"
+    bin.install "micro"
   end
 
   test do

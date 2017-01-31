@@ -1,14 +1,13 @@
 class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "http://homebank.free.fr"
-  url "http://homebank.free.fr/public/homebank-5.0.9.tar.gz"
-  sha256 "d0bc763e94da0cba544495b07070e79faecf1d5de0cfb092d126482525e062b7"
+  url "http://homebank.free.fr/public/homebank-5.1.3.tar.gz"
+  sha256 "22b2baf2e66fee2f97c7a6050298aa6d2502d75f02f046259e4181512714fb73"
 
   bottle do
-    sha256 "e87951e96143a12682fb91565d3d9112c495e5e91320209a7c3394480755e266" => :sierra
-    sha256 "5dde8dedac90082099c4332c45edc524d745029971000e0d4daccb0a60958975" => :el_capitan
-    sha256 "e6eb2df7b2a57cd2f81d03acf45177ce13320aa6130e6db0d0f2ea90046d06e4" => :yosemite
-    sha256 "92830e910d7d87e9bb59d3aca9da880fd94c7dd623d6742654defa6d90d89fad" => :mavericks
+    sha256 "933eef64969c5be645c0025439fd89b5fc7c7d3ffed6f3a0edbee85975ef70d8" => :sierra
+    sha256 "eab5d6f05426ccb46f6bc24d6462f1185ad32cd7e77d4f14c2e8e330f8c84af7" => :el_capitan
+    sha256 "03852ca34e14fdb4de307e8c513be4bcb795ec831588bb59daed61e42891c70e" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -19,6 +18,7 @@ class Homebank < Formula
   depends_on "hicolor-icon-theme"
   depends_on "freetype"
   depends_on "fontconfig"
+  depends_on "libsoup"
   depends_on "libofx" => :optional
 
   def install

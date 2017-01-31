@@ -3,11 +3,12 @@ class Ice < Formula
   homepage "https://zeroc.com"
   url "https://github.com/zeroc-ice/ice/archive/v3.6.3.tar.gz"
   sha256 "82ff74e6d24d9fa396dbb4d9697dc183b17bc9c3f6f076fecdc05632be80a2dc"
+  revision 2
 
   bottle do
-    sha256 "ea71253379700e895b5dc6e3ef5f2eb8f6f89d7eae33e8c2910e20a1506a4b3c" => :sierra
-    sha256 "9269652e3d4ec5b7fc4a384ac669b39aa89a4d8b94a54aaefef4275d29473fb2" => :el_capitan
-    sha256 "faec66447e4db030881c3ae814407e9db76e5fc5c3d9d145e10941cc04631738" => :yosemite
+    sha256 "e59783409909806a1d958fa589de9cfb5f690b20c8402270258ad88443a2787a" => :sierra
+    sha256 "9994eecf827c3d53e39af5e15b30e14b25a4d4cf2ea999e898be64d99788a1df" => :el_capitan
+    sha256 "2ba154cc8311481dcbb4f202e854251891a69b3ef3e9e9ac21e25870b6ad6e7f" => :yosemite
   end
 
   option "with-java", "Build Ice for Java and the IceGrid Admin app"
@@ -47,6 +48,11 @@ class Ice < Formula
     end
 
     inreplace "cpp/src/slice2js/Makefile", /install:/, "dontinstall:"
+    # Fixes dynamic_cast error on Sierra that has been fixed upstream and will be included in the next upstream release
+    # https://github.com/zeroc-ice/ice/commit/99e39121fc8613bc4dd356d5479c03fa9bb40b97
+    inreplace "cpp/src/Ice/Instance.cpp",
+              "else if(!dynamic_cast<IceUtil::UnicodeWstringConverter*>(_wstringConverter.get()))",
+              "else"
 
     # Unset ICE_HOME as it interferes with the build
     ENV.delete("ICE_HOME")
@@ -54,8 +60,12 @@ class Ice < Formula
     ENV.delete("CPPFLAGS")
     ENV.O2
 
+    # Ensure Gradle uses a writable directory even in sandbox mode
+    ENV["GRADLE_USER_HOME"] = buildpath/".gradle"
+
     args = %W[
       prefix=#{prefix}
+      embedded_runpath_prefix=#{prefix}
       USR_DIR_INSTALL=yes
       SLICE_DIR_SYMLINK=yes
       OPTIMIZE=yes
@@ -117,5 +127,8 @@ class Ice < Formula
     system "xcrun", "clang++", "-c", "-I#{include}", "-I.", "Test.cpp"
     system "xcrun", "clang++", "-L#{lib}", "-o", "test", "Test.o", "Hello.o", "-lIce", "-lIceUtil"
     system "./test", "--Ice.InitPlugins=0"
+    system "/usr/bin/php", "-d", "extension_dir=#{lib}/php/extensions",
+                           "-d", "extension=IcePHP.dy",
+                           "-r", "extension_loaded('ice') ? exit(0) : exit(1);"
   end
 end

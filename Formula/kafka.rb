@@ -1,17 +1,14 @@
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org"
-  url "http://mirrors.ibiblio.org/apache/kafka/0.10.0.1/kafka_2.11-0.10.0.1.tgz"
-  mirror "https://archive.apache.org/dist/kafka/0.10.0.1/kafka_2.11-0.10.0.1.tgz"
-  sha256 "2d73625aeddd827c9e92eefb3c727a78455725fbca4361c221eaa05ae1fab02d"
+  url "http://mirror.nbtelecom.com.br/apache/kafka/0.10.1.1/kafka_2.11-0.10.1.1.tgz"
+  mirror "https://archive.apache.org/dist/kafka/0.10.1.1/kafka_2.11-0.10.1.1.tgz"
+  sha256 "1540800779429d8f0a08be7b300e4cb6500056961440a01c8dbb281db76f0929"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "16b2d2ad87154ee65f7b7e90bf2344aa495e518fc41a000642bfbb37e0bc329b" => :sierra
-    sha256 "2874959d241121c73d914ea4d7b00055274d1bbeb4680d899e80243095c5d523" => :el_capitan
-    sha256 "16b2d2ad87154ee65f7b7e90bf2344aa495e518fc41a000642bfbb37e0bc329b" => :yosemite
-    sha256 "16b2d2ad87154ee65f7b7e90bf2344aa495e518fc41a000642bfbb37e0bc329b" => :mavericks
+    sha256 "ae8b72f462dd88d7becc5d7e25d5cdbed342aa61aaeb6ba4be74c9662f434579" => :sierra
+    sha256 "da9c80fd6936342e9bb1f47a7f83c922c8babb64be5fcfb531b06d5f9dbf1776" => :el_capitan
+    sha256 "da9c80fd6936342e9bb1f47a7f83c922c8babb64be5fcfb531b06d5f9dbf1776" => :yosemite
   end
 
   depends_on "zookeeper"
@@ -52,7 +49,7 @@ class Kafka < Formula
     (var+"log/kafka").mkpath
   end
 
-  plist_options :manual => "zookeeper-server-start #{HOMEBREW_PREFIX}/etc/kafka/zookeeper.properties; kafka-server-start #{HOMEBREW_PREFIX}/etc/kafka/server.properties"
+  plist_options :manual => "zookeeper-server-start #{HOMEBREW_PREFIX}/etc/kafka/zookeeper.properties & kafka-server-start #{HOMEBREW_PREFIX}/etc/kafka/server.properties"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -104,7 +101,7 @@ class Kafka < Formula
       sleep 30
 
       system "#{bin}/kafka-topics --zookeeper localhost:2181 --create --if-not-exists --replication-factor 1 --partitions 1 --topic test > #{testpath}/kafka/demo.out 2>/dev/null"
-      system "echo \"test message\" | #{bin}/kafka-console-producer --broker-list localhost:9092 --topic test 2>/dev/null"
+      pipe_output("#{bin}/kafka-console-producer --broker-list localhost:9092 --topic test 2>/dev/null", "test message")
       system "#{bin}/kafka-console-consumer --zookeeper localhost:2181 --topic test --from-beginning --max-messages 1 >> #{testpath}/kafka/demo.out 2>/dev/null"
       system "#{bin}/kafka-topics --zookeeper localhost:2181 --delete --topic test >> #{testpath}/kafka/demo.out 2>/dev/null"
     ensure

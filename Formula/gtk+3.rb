@@ -1,13 +1,13 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "http://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.1.tar.xz"
-  sha256 "127c8c5cfc32681f9ab3cb542eb0d5c16c1c02faba68bf8fcac9a3cf278ef471"
+  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.7.tar.xz"
+  sha256 "a3a27564bfb1679ebbc75c37cd2bcd6e727c8bdfbcd3984d29305bf9ee60d432"
 
   bottle do
-    sha256 "8151f76bc6ed9d4c72dfb276dc9e8d5ef16dd4d9040bdb10214f7c4421e99c9c" => :sierra
-    sha256 "e4e039200ade896de65d3efe4ef69cbfd1e48098ee04748545a085684e61cbe0" => :el_capitan
-    sha256 "8a8da4c1c214bdbf2cd469baf6d017666956ecef2a9cbdf79ceb968244bf9159" => :yosemite
+    sha256 "546267c9976fba96278c5272e5db840e2ac01edddc4d16e1e8b871cc4f07ffe0" => :sierra
+    sha256 "f4242629e0b05548d6390edb60dc69cf71456db609b1d160c26f03aabd76eb8e" => :el_capitan
+    sha256 "757139b6f2068f43bb5f5728effd535b010921368d591ea1afbf8769e21074ce" => :yosemite
   end
 
   option :universal

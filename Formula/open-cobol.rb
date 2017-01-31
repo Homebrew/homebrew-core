@@ -3,12 +3,12 @@ class OpenCobol < Formula
   homepage "http://www.opencobol.org/"
   url "https://downloads.sourceforge.net/project/open-cobol/open-cobol/1.1/open-cobol-1.1.tar.gz"
   sha256 "6ae7c02eb8622c4ad55097990e9b1688a151254407943f246631d02655aec320"
+  revision 1
 
   bottle do
-    sha256 "5803c69bb9b04d1fdebd4aa8a3e2b211a97ec3e8bc8e50f3918635d367d9d1bf" => :sierra
-    sha256 "31b5e3af55285483f2e73463aa58cf35afae5a5ee675b7622703d62c34bbe529" => :el_capitan
-    sha256 "a36ae3bbf6eabe5b5119f489b41d26a0bb03ae0aa6935a597ebeb046eea32da7" => :yosemite
-    sha256 "64e3bb2cd22d0b95e4b143191d7dc2c3b245edef0f9a61e0cee366dc96723a77" => :mavericks
+    sha256 "2ef0f1a0ed50e42ae2c25ae9281fe02e35a4b29b56800a79b38271b74004bb9a" => :sierra
+    sha256 "79c04c9fece60fcca728d408298e521679051e493a84907e0112638009616f8a" => :el_capitan
+    sha256 "4df237883c76c8d8566a3a44f7d77bc9820f2ef027392d20f31afe7601050625" => :yosemite
   end
 
   depends_on "gmp"

@@ -15,7 +15,7 @@ class Thrulay < Formula
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
   end
 end

@@ -7,7 +7,7 @@ class ImgurScreenshot < Formula
 
   bottle :unneeded
 
-  option "with-terminal-notifier", "Needed for Mac OS X Notifications"
+  option "with-terminal-notifier", "Needed for macOS Notifications"
 
   depends_on "terminal-notifier" => :optional
 
