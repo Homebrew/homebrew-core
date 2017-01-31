@@ -77,7 +77,7 @@ class Terraform < Formula
       arch = MacOS.prefer_64_bit? ? "amd64" : "386"
       ENV["XC_OS"] = "darwin"
       ENV["XC_ARCH"] = arch
-      system "make", "bin"
+      ENV.deparallelize { system "make", "fmt", "bin" }
 
       # Install release binary
       bin.install "pkg/darwin_#{arch}/terraform"
