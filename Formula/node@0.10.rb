@@ -7,9 +7,9 @@ class NodeAT010 < Formula
   revision 1
 
   bottle do
-    sha256 "8583f18bb7737fd02230f6abfc04f9fb79a135e7ec9e6c72327d8e75aba5052f" => :sierra
-    sha256 "73dbaf96f21f3392aee5b24366c3a72d08146fb10c0556ba7d0a11857570155c" => :el_capitan
-    sha256 "3873679aeb79256b23fbf7282222020ef5353989f8c44c2feeaed24c3a206100" => :yosemite
+    sha256 "b2e454c9b5d0f30b4873b1b999d506d6672dd1d44dacd355fdd00beba414229b" => :sierra
+    sha256 "8ce0ceb59591ce55c8cd26b0f7c3d5fd5abac589d7889dbfa533cda1aec6a129" => :el_capitan
+    sha256 "92d2adc6b4da184b09142ca42e1c66abe7febd45ab7018dfd07735b841a7385c" => :yosemite
   end
 
   keg_only :versioned_formula
