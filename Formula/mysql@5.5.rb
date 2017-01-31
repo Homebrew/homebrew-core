@@ -11,6 +11,8 @@ class MysqlAT55 < Formula
     sha256 "6af94793a7396ccc590e43251f3b131dfb43268a837fc2b2dee670d1c8f95334" => :yosemite
   end
 
+  keg_only :versioned_formula
+
   option "with-test", "Build with unit tests"
   option "with-embedded", "Build the embedded server"
   option "with-archive-storage-engine", "Compile with the ARCHIVE storage engine enabled"
@@ -27,8 +29,6 @@ class MysqlAT55 < Formula
   depends_on "cmake" => :build
   depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
-
-  keg_only :versioned_formula
 
   def datadir
     var/"mysql"
