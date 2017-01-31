@@ -23,6 +23,7 @@ class Ipmitool < Formula
     # Upstream issue from 8 Nov 2016 https://sourceforge.net/p/ipmitool/bugs/474/
     inreplace "lib/ipmi_cfgp.c", "#include <malloc.h>", ""
 
+    ENV.append "CFLAGS", "--std=gnu99"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
