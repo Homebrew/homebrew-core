@@ -7,9 +7,9 @@ class Ola < Formula
   head "https://github.com/OpenLightingProject/ola.git"
 
   bottle do
-    sha256 "414efbcd331ca04b7c56e5c555cbe929adcd717e8f497b023215c12d7826ad12" => :sierra
-    sha256 "028eb3416ceb0418ad0092318a8a47ca704aaeb190173a8beafe6fe58963beaa" => :el_capitan
-    sha256 "fd4409d7fa44587e429d240c38f546ccf5a1986d9d1a0a323182148a97547c1e" => :yosemite
+    sha256 "3634a0b314dfbad14424e87f0de04d2d34232bd1771419cf9f257ea1fb8f4413" => :sierra
+    sha256 "bc4bbbf61dab618082a6aba42eb5ce2251ccac7686c6d3904c6f631557a7c131" => :el_capitan
+    sha256 "07aec2b01a983343c6c6741e457a00f83357f968c914135123bf08b91c81b381" => :yosemite
   end
 
   option "with-libftdi", "Install FTDI USB plugin for OLA."
