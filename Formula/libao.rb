@@ -3,6 +3,7 @@ class Libao < Formula
   homepage "https://www.xiph.org/ao/"
   url "https://github.com/xiph/libao/archive/1.2.2.tar.gz"
   sha256 "df8a6d0e238feeccb26a783e778716fb41a801536fe7b6fce068e313c0e2bf4d"
+  head "https://git.xiph.org/libao.git"
 
   bottle do
     rebuild 1
@@ -11,10 +12,6 @@ class Libao < Formula
     sha256 "08d568c4bed498b2920983d9b848213779164c15489c82cc61429533337d19f5" => :yosemite
     sha256 "81b1d6c5d1920092fba0470db2840414eb99bba8ec63d6d22800e79090db8e4b" => :mavericks
     sha256 "21aa15e92c5577a4a610de8fbb3f5a72638a0c37a40c4ebebc14826359932efa" => :mountain_lion
-  end
-
-  head do
-    url "https://git.xiph.org/libao.git"
   end
 
   depends_on "automake" => :build
