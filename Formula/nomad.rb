@@ -6,9 +6,10 @@ class Nomad < Formula
   head "https://github.com/hashicorp/nomad.git"
 
   bottle do
-    sha256 "0aecbdf384c6b3cc80a145d8863787c16e44080181a02817438b84f2e52a604d" => :sierra
-    sha256 "3cd1c6103ee289d3cea39a6a5dabd3a8f3a7a1517503a2ba3161ffc43577bb81" => :el_capitan
-    sha256 "869acfecea68003dfcb3969b25a35e5b7f9ddf31708c82fb4c43cf38118bf0bb" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "df0259cc74d7c5b1af890a88b9e3b5a968d439e80962dd50f73131840e744963" => :sierra
+    sha256 "d6ffc03e9e5266855b0df0529ff1657ed620a28d43beca9def982b5de4c0a88d" => :el_capitan
+    sha256 "ea62d3ea038d25bd3b05a602665f2d971913fc86a30122788d211ef848147de1" => :yosemite
   end
 
   option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"
