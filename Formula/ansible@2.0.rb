@@ -9,9 +9,9 @@ class AnsibleAT20 < Formula
 
   bottle do
     cellar :any
-    sha256 "d4d13e2de230d2651cc1c6769560c199f654764d0f8d8f6bfb86662708370688" => :sierra
-    sha256 "5d9908b751d32c3b71f1e50560690dcb6e3f77e9151fb4af07d5050c2008843b" => :el_capitan
-    sha256 "e9d440a0b726b66b84e16908fe4bccfe08cd34742641c57254ff1a1397ec1cb7" => :yosemite
+    sha256 "f8af604e3a659dec1751261c6993730d88cf7c12707477c5aa7a3c8f9683c68e" => :sierra
+    sha256 "1a0cf69816d357429dbdd063e0f29ae407cba9d2afa238702319644ff3425ba5" => :el_capitan
+    sha256 "7d878c54552e0e542e10e84adbea7e88d18285b9756c8abaf8d5f38670b17856" => :yosemite
   end
 
   devel do
