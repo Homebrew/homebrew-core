@@ -11,14 +11,18 @@ class Deis < Formula
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    ENV["GOPATH"] = `dirname #{buildpath}`.chomp
+    ENV["GOBIN"] = ENV["GOPATH"] + "/bin"
     (buildpath/"src/github.com/deis").mkpath
-    ln_s buildpath, "src/github.com/deis/deis"
-    system "godep", "restore"
-    system "go", "build", "-o", bin/"deis", "client/deis.go"
+    (buildpath/"bin").mkpath
+    ln_s buildpath, "src/github.com/deis/workflow-cli"
+    system "go", "get", "github.com/mitchellh/gox"
+    system "go", "get"
+    system "../bin/gox", "-verbose", "-ldflags",
+      "'-X=github.com/deis/workflow-cli/version.Version=v2.10.0'",
+      "-os=darwin", "-arch=amd64", "-output=#{bin}/deis"
   end
 
   test do
