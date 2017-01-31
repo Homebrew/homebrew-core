@@ -17,6 +17,7 @@ class TelegramCli < Formula
   depends_on "python" => :recommended
 
   # Look for the configuration file under /usr/local/etc rather than /etc on OS X.
+  # Issue: https://github.com/vysheng/tg/issues/1296
   patch :DATA
 
   def install
@@ -27,8 +28,6 @@ class TelegramCli < Formula
       LDFLAGS=-L#{Formula["readline"].lib}
     ]
 
-    args << "--disable-libconfig" if build.without? "libconfig"
-    args << "--disable-json" if build.without? "jansson"
     args << "--disable-liblua" if build.without? "lua"
     args << "--disable-python" if build.without? "python"
 
