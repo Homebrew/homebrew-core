@@ -3,6 +3,7 @@ class Ola < Formula
   homepage "https://www.openlighting.org/ola/"
   url "https://github.com/OpenLightingProject/ola/archive/0.10.3.tar.gz"
   sha256 "474db6752940cea6cd9493dcbeeb13429b5d29f4777973d08738cb5ef04c9dcd"
+  revision 1
   head "https://github.com/OpenLightingProject/ola.git"
 
   bottle do
@@ -23,6 +24,7 @@ class Ola < Formula
   depends_on "cppunit"
   depends_on "libmicrohttpd"
   depends_on "ossp-uuid"
+  depends_on "protobuf"
   depends_on "protobuf-c"
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "liblo" => :recommended
