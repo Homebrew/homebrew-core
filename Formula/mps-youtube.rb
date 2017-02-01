@@ -8,10 +8,9 @@ class MpsYoutube < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "b0c07339711e1e9732c3a9e9e62662d798a689df6e701dd5fe479fab84d85add" => :sierra
-    sha256 "c8121ccd9a8b706b290c5f3c9b613ec33c651813ac4ac4d593f133f0a5481c90" => :el_capitan
-    sha256 "e8e5582225df29b3ff6aaabd5c1d8c284f18d681372971a4943520b9be1572ac" => :yosemite
+    sha256 "0fdbafcf9d54293d91247cb2b933e5fe6c3a48264a7c1c8ca69aff1564f93213" => :sierra
+    sha256 "d1358944ddad37923e7d083c2d231917de0973f69900ebdb92768c4a9c3c5f0f" => :el_capitan
+    sha256 "38082e784faea2d029a703bbac65e0bdb114313104872baeadcb00125888188e" => :yosemite
   end
 
   depends_on "python3"
