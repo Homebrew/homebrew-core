@@ -52,6 +52,7 @@ class DockerMachineDriverXhyve < Formula
       go_ldflags = "-w -s -X 'github.com/zchee/docker-machine-driver-xhyve/xhyve.GitCommit=Homebrew#{git_hash}'"
       ENV["GO_LDFLAGS"] = go_ldflags
       ENV["GO_BUILD_TAGS"] = build_tags
+      ENV["LIBEV_FILE"] = "#{Formula["libev"].lib}/libev.a"
       system "make", "lib9p"
       system "make", "build"
       bin.install "bin/docker-machine-driver-xhyve"
