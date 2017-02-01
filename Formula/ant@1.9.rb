@@ -2,7 +2,6 @@ class AntAT19 < Formula
   desc "Java build tool"
   homepage "https://ant.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.9.8-bin.tar.bz2"
-  version "1.9"
   sha256 "6edeaab09fc0bb1eeeb6b6be9c0e463813b073c40189f760e70c85fa288d5125"
 
   keg_only :versioned_formula
