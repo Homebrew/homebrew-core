@@ -16,6 +16,7 @@ class CrystalLang < Formula
   option "without-shards", "Do not include `shards` dependency manager"
 
   depends_on "pkg-config" => :build
+  depends_on "libatomic_ops" => :build # for building bdw-gc
   depends_on "libevent"
   depends_on "bdw-gc"
   depends_on "llvm"
@@ -34,12 +35,26 @@ class CrystalLang < Formula
     sha256 "31de819c66518479682ec781a39ef42c157a1a8e6e865544194534e2567cb110"
   end
 
+  resource "bdw-gc-7.6.0" do
+    url "http://www.hboehm.info/gc/gc_source/gc-7.6.0.tar.gz"
+    sha256 "a14a28b1129be90e55cd6f71127ffc5594e1091d5d54131528c24cd0c03b7d90"
+  end
+
   resource "libevent-2.0.22" do
     url "https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz"
     sha256 "71c2c49f0adadacfdbe6332a372c38cf9c8b7895bb73dabeaa53cdcc1d4e1fa3"
   end
 
   def install
+    resource("bdw-gc-7.6.0").stage do
+      system "./configure", "--disable-debug",
+                            "--disable-dependency-tracking",
+                            "--prefix=#{buildpath}/vendor/bdw-gc",
+                            "--enable-cplusplus"
+      system "make"
+      system "make", "install"
+    end
+
     resource("libevent-2.0.22").stage do
       system "./configure", "--disable-dependency-tracking",
                             "--disable-debug-mode",
@@ -55,6 +70,8 @@ class CrystalLang < Formula
     macho = MachO.open("#{buildpath}/boot/embedded/bin/crystal")
     macho.change_dylib("/usr/local/opt/libevent/lib/libevent-2.0.5.dylib",
                        "#{buildpath}/vendor/libevent/lib/libevent-2.0.5.dylib")
+    macho.change_dylib("/usr/local/opt/bdw-gc/lib/libgc.1.dylib",
+                       "#{buildpath}/vendor/bdw-gc/lib/libgc.1.dylib")
     macho.write!
 
     if build.head?
