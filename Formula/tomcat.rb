@@ -37,9 +37,6 @@ class Tomcat < Formula
 
   option "with-fulldocs", "Install full documentation locally"
 
-  conflicts_with "tomcat@6", :because => "Differing versions of same formula"
-  conflicts_with "tomcat@7", :because => "Differing versions of same formula"
-
   def install
     # Remove Windows scripts
     rm_rf Dir["bin/*.bat"]

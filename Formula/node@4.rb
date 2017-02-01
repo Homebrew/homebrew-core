@@ -4,12 +4,15 @@ class NodeAT4 < Formula
   url "https://nodejs.org/dist/v4.7.2/node-v4.7.2.tar.xz"
   sha256 "ad1b8309a621f725b5d8205f0fc5bbb7b396a438c108e6fba417c1a914932dfc"
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
+  revision 1
 
   bottle do
-    sha256 "9bfbf45f8c1d1aa63d2556ca69e878634fc701df7a730b99f5f6f748b27a55b0" => :sierra
-    sha256 "8d3026205953ed0b56b942771ff978aac2eb8c56e3a2a588e69bcbbd76986045" => :el_capitan
-    sha256 "b8415cde68f9d17ee92394b857423b0c1d1a4ffbff361c4e1df1823d5c366983" => :yosemite
+    sha256 "3dd1dd7bc5ec3a1ae5d1a0adac0155861904d10e150059d7ae975d681b2eddc4" => :sierra
+    sha256 "76c0eb00abf07fdd057a97d55d73036c11b32e7702121fc6d065025a57abe78c" => :el_capitan
+    sha256 "3b80002728bdd35f0fd8824c68c982204dcae2335f56ee0ff386197b6a06172d" => :yosemite
   end
+
+  keg_only :versioned_formula
 
   option "with-debug", "Build with debugger hooks"
   option "without-npm", "npm will not be installed"
@@ -19,12 +22,6 @@ class NodeAT4 < Formula
   depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "openssl" => :optional
-
-  conflicts_with "node", :because => "Differing versions of the same formula"
-  conflicts_with "node@0.10", :because => "Differing versions of the same formulae."
-  conflicts_with "node@0.12", :because => "Differing versions of the same formulae."
-  conflicts_with "node@5", :because => "Differing versions of the same formulae."
-  conflicts_with "node@6", :because => "Differing versions of the same formulae."
 
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-2.15.11.tgz"

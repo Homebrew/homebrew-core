@@ -4,12 +4,12 @@ class Webkitgtk < Formula
   homepage "https://webkitgtk.org"
   url "https://webkitgtk.org/releases/webkitgtk-2.14.1.tar.xz"
   sha256 "2e2d76c328de65bed6e0e4f096b2720a366654b27fc1af0830ece90bc4b7ceb5"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "fff429cc57048ef0c0fe2db584c01fd008ab1d1b5bab38ce6b8367a89f8c1c43" => :sierra
-    sha256 "087a5f03b742155327a0dd0bd0b6b118eb126ace81850f8c133c73e30d924cd8" => :el_capitan
-    sha256 "c3128be2e6dd93032f6b55e00d9dc790827268b2191af4017f4537ea93415a0f" => :yosemite
+    sha256 "56e0d21409bdb19d458fae16b51f4b3ce0dac2e5bdf5961cc8c7359b457a888f" => :sierra
+    sha256 "088b8f11009ea5dfc3d387059be2f958a8f723ac3fadfd242db515bb080da559" => :el_capitan
+    sha256 "fcbacf52a0926be46549ecbd710281cbf50b7dfe36af13a16a7067c66a8d4067" => :yosemite
   end
 
   depends_on "cmake" => :build

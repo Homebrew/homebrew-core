@@ -1,15 +1,17 @@
 class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.9.4/node-v6.9.4.tar.xz"
-  sha256 "c51d7c61db40455d57428abcadc7eb0f0a08a8878cb1d8ea3c1e211c54532c35"
+  url "https://nodejs.org/dist/v6.9.5/node-v6.9.5.tar.xz"
+  sha256 "d7fed1a354b29503f3e176d7fdb90b1a9de248e0ce9b3eb56cc26bb1f3d5b6b3"
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    sha256 "e5eb1e5cd78b23ec9abbf8f8b5604e411a5285ce6733dac2b3596b9b561342e9" => :sierra
-    sha256 "ee2fbd410d3696531c18cd54420600c68527cb935d12f65a18a639562d10c1e2" => :el_capitan
-    sha256 "8ccd8c8c6826e56644973866b22b4682a0e916e7bedf7f1e3a58cd65e80a4684" => :yosemite
+    sha256 "2b4ca85b030a0fffff2903cf5f4083c0a4ffbb36841d982518f46a840103c4f2" => :sierra
+    sha256 "ac9ffdb295bedd5b2a812e200dacb959b599e4c16b60b841a4e2b89e5a98262a" => :el_capitan
+    sha256 "496639c4b416b70ca779023c4738a71508a6ffa24e9adc89f0710bebb2a39236" => :yosemite
   end
+
+  keg_only :versioned_formula
 
   option "with-debug", "Build with debugger hooks"
   option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
@@ -20,12 +22,6 @@ class NodeAT6 < Formula
   depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "openssl" => :optional
-
-  conflicts_with "node", :because => "Differing versions of the same formula"
-  conflicts_with "node@0.10", :because => "Differing versions of the same formulae."
-  conflicts_with "node@0.12", :because => "Differing versions of the same formulae."
-  conflicts_with "node@4", :because => "Differing versions of the same formulae."
-  conflicts_with "node@5", :because => "Differing versions of the same formulae."
 
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
