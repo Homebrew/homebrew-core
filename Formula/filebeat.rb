@@ -1,8 +1,8 @@
 class Filebeat < Formula
   desc "File harvester to ship log files to Elasticsearch or Logstash"
   homepage "https://www.elastic.co/products/beats/filebeat"
-  url "https://github.com/elastic/beats/archive/v5.1.2.tar.gz"
-  sha256 "7cd554f8be6b02290ebbc17c9820acde3dc59108672ced7a0cf5486faa3e23ce"
+  url "https://github.com/elastic/beats/archive/v5.2.0.tar.gz"
+  sha256 "b74d6c77e60dffe1d76623ef50117715219f8d81c2400b2aa90fef79d34ed564"
 
   head "https://github.com/elastic/beats.git"
 
@@ -26,6 +26,8 @@ class Filebeat < Formula
 
       (etc/"filebeat").install("filebeat.yml", "filebeat.template.json", "filebeat.template-es2x.json")
     end
+
+    prefix.install_metafiles gopath/"src/github.com/elastic/beats"
 
     (bin/"filebeat").write <<-EOS.undent
       #!/bin/sh
