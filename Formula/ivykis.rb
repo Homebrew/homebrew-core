@@ -1,8 +1,8 @@
 class Ivykis < Formula
   desc "Async I/O-assisting library"
-  homepage "http://libivykis.sourceforge.net"
-  url "https://github.com/buytenh/ivykis/archive/v0.41.tar.gz"
-  sha256 "b074441cc33aa0281f393c0a172136f0e0648266b89405b31ac819d64ea89e48"
+  homepage "https://sourceforge.net/projects/libivykis"
+  url "https://downloads.sourceforge.net/project/libivykis/0.41/ivykis-0.41.tar.gz"
+  sha256 "2c934539a59029851b1332c8143ba9f21b79fb0185dd68d6eb259ae1b61ef3c5"
 
   depends_on "automake" => :build
   depends_on "autoconf" => :build
