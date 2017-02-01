@@ -5,6 +5,7 @@ class Webpack < Formula
   homepage "https://webpack.js.org/"
   url "https://registry.npmjs.org/webpack/-/webpack-2.2.1.tgz"
   sha256 "14d1bdcc5438d486793e9061eef3adab2a2ed2f5b82d9234463ad5375928737f"
+  head "https://github.com/webpack/webpack.git"
 
   depends_on "node"
 
