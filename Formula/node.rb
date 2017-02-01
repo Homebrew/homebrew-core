@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v7.4.0/node-v7.4.0.tar.xz"
-  sha256 "9f15b916f8677ec1615c46bdd6d2208ed1b24fad26384f9ac249f5b09d31c32b"
+  url "https://nodejs.org/dist/v7.5.0/node-v7.5.0.tar.xz"
+  sha256 "f99ee74647fe223eb03f2dd1dc6acdc14d9a881621376c848236c8d2ac8afd03"
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -16,13 +16,13 @@ class Node < Formula
   option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
-  option "with-full-icu", "Build with full-icu (all locales) instead of small-icu (English only)"
+  option "without-icu4c", "Build with small-icu (English only) instead of system-icu (all locales)"
 
   deprecated_option "enable-debug" => "with-debug"
-  deprecated_option "with-icu4c" => "with-full-icu"
 
   depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
+  depends_on "icu4c" => :recommended
   depends_on "openssl" => :optional
 
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
@@ -37,16 +37,16 @@ class Node < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-4.0.5.tgz"
-    sha256 "195f654387867484a17826990fce2d46177a16f4911297c53b870597c037a27e"
+    url "https://registry.npmjs.org/npm/-/npm-4.1.2.tgz"
+    sha256 "87f2c95f98ac53d14d9e2c506f8ecfe1d891cd7c970450c74bf0daff24d65cfd"
   end
 
-  resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
-    mirror "https://fossies.org/linux/misc/icu4c-58_2-src.tgz"
-    mirror "https://downloads.sourceforge.net/project/icu/ICU4C/58.2/icu4c-58_2-src.tgz"
-    version "58.2"
-    sha256 "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
+  # Fix run-time failure "Symbol not found: _clock_gettime"
+  # Upstream issue "7.5.0 clock_gettime runtime failure built with macOS 10.11
+  # and Xcode 8.x"
+  # Reported 1 Feb 2017 https://github.com/nodejs/node/issues/11104
+  if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    patch :DATA
   end
 
   def install
@@ -54,13 +54,9 @@ class Node < Formula
     # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
+    args << "--with-intl=system-icu" if build.with? "icu4c"
     args << "--shared-openssl" if build.with? "openssl"
     args << "--tag=head" if build.head?
-
-    if build.with? "full-icu"
-      resource("icu4c").stage buildpath/"deps/icu"
-      args << "--with-intl=full-icu"
-    end
 
     system "./configure", *args
     system "make", "install"
@@ -175,3 +171,65 @@ class Node < Formula
     end
   end
 end
+
+__END__
+diff --git a/deps/openssl/openssl/apps/apps.c b/deps/openssl/openssl/apps/apps.c
+index c487bd9..9456e47 100644
+--- a/deps/openssl/openssl/apps/apps.c
++++ b/deps/openssl/openssl/apps/apps.c
+@@ -150,6 +150,10 @@ static int WIN32_rename(const char *from, const char *to);
+ # define rename(from,to) WIN32_rename((from),(to))
+ #endif
+ 
++#ifdef __APPLE__
++#include <AvailabilityMacros.h>
++#endif
++
+ typedef struct {
+     const char *name;
+     unsigned long flag;
+@@ -3041,7 +3045,7 @@ double app_tminterval(int stop, int usertime)
+ double app_tminterval(int stop, int usertime)
+ {
+     double ret = 0;
+-# ifdef CLOCK_REALTIME
++# if (defined(__APPLE__) && MAC_OS_X_VERSION_MIN_REQUIRED >= 101200) || (!defined(__APPLE__) && defined(CLOCK_REALTIME))
+     static struct timespec tmstart;
+     struct timespec now;
+ # else
+@@ -3055,7 +3059,13 @@ double app_tminterval(int stop, int usertime)
+                    "this program on idle system.\n");
+         warning = 0;
+     }
+-# ifdef CLOCK_REALTIME
++# if (defined(__APPLE__) && MAC_OS_X_VERSION_MIN_REQUIRED >= 101200) || (!defined(__APPLE__) && defined(CLOCK_REALTIME))
++    clock_gettime(CLOCK_REALTIME, &now);
++    if (stop == TM_START)
++        tmstart = now;
++    else
++        ret = ((now.tv_sec + now.tv_nsec * 1e-9)
++               - (tmstart.tv_sec + tmstart.tv_nsec * 1e-9));
+     clock_gettime(CLOCK_REALTIME, &now);
+     if (stop == TM_START)
+         tmstart = now;
+diff --git a/deps/uv/src/unix/darwin.c b/deps/uv/src/unix/darwin.c
+index b1ffbc3..23e91db 100644
+--- a/deps/uv/src/unix/darwin.c
++++ b/deps/uv/src/unix/darwin.c
+@@ -36,6 +36,7 @@
+ #include <sys/sysctl.h>
+ #include <time.h>
+ #include <unistd.h>  /* sysconf */
++#include <AvailabilityMacros.h>
+ 
+ #undef NANOSEC
+ #define NANOSEC ((uint64_t) 1e9)
+@@ -57,7 +58,7 @@ void uv__platform_loop_delete(uv_loop_t* loop) {
+ 
+ 
+ uint64_t uv__hrtime(uv_clocktype_t type) {
+-#ifdef MAC_OS_X_VERSION_10_12
++#if MAC_OS_X_VERSION_MIN_REQUIRED >= 101200
+   struct timespec ts;
+   clock_gettime(CLOCK_MONOTONIC, &ts);
+   return (((uint64_t) ts.tv_sec) * NANOSEC + ts.tv_nsec);
