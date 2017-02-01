@@ -203,6 +203,8 @@ class Python3 < Formula
   end
 
   def post_install
+    ENV.delete "PYTHONPATH"
+
     xy = (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
     site_packages = HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"
     site_packages_cellar = prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/site-packages"
