@@ -4,14 +4,14 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v5.1.2",
-      :revision => "ed55995668f95ce28fe5dad55ab4a0da67d2a7b6"
+      :tag => "v5.2.0",
+      :revision => "9b0119b706e53fbd67b447381fe80f71b9996893"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "e8e7e122af8c2ba472552800951268ebe6db90e9615dc144265f331c486f569f" => :sierra
-    sha256 "f988882b715794b8332edb561137728e22fe28ef3a1daa145c507568d4aeb421" => :el_capitan
-    sha256 "14d7353062f1f2af85e73797680c0d13454cf6370ff80984a60bbd21b6477298" => :yosemite
+    sha256 "c73bd2daa4bd9328d0fc552005ec6ddf7affc1a77e697220cefe1e8b08e442e8" => :sierra
+    sha256 "ebf27ffa91a52b4fe16b24fbd32296e051ebf713c937924f0a7e21b5f151e53a" => :el_capitan
+    sha256 "08b575e48f0e146cc43a85a4fb7e72ad61a9226a953d45b4b7d5921244ae8674" => :yosemite
   end
 
   resource "node" do

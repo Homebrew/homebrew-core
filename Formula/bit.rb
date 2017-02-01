@@ -2,14 +2,13 @@ require "language/node"
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://www.bitsrc.io"
-  url "http://assets.bitsrc.io/release/0.1.0/bit_0.1.0_brew.tar.gz"
-  sha256 "c33c00a8334da4659b263472d013eaafbc5f0c16249e755f7624ac396d673270"
+  url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.1.12/bit-0.1.12-brew.tar.gz"
+  sha256 "122ec737cca207bba1fa9ae6e3ea22acf53cecd56b542a2a5bacd380a88bdef9"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "521284d178e8899881ad7a1461ac3a4387661b489e2a9e79675ff967883edfbc" => :sierra
-    sha256 "06a6e114c0ce663a7bda3cc422b3c47c1c16eca598305b191e0d508baf6470d8" => :el_capitan
-    sha256 "86fc112094a34ee836bfe23abb3920424a50836c8c4f1a07384d558c13f47be7" => :yosemite
+    sha256 "a3c8f1d2888e2320928dfc76ea6bc7b5b5b699929afc98fc542d0d9ac8184d40" => :sierra
+    sha256 "1c8a8923bf16a13ac6a978c183d0b0a84671216942d8e2a72c19ae2b39b88cfd" => :el_capitan
+    sha256 "622587fc49651195cd61471939a2c4d6aa109f3673b622c0e1ddd4d490f9adfc" => :yosemite
   end
 
   depends_on "node"
@@ -20,7 +19,6 @@ class Bit < Formula
   end
 
   test do
-    assert_equal "successfully initialized an empty bit scope.\n",
-      shell_output("#{bin}/bit init")
+    assert_equal "successfully initialized an empty bit scope.\n", shell_output("#{bin}/bit init")
   end
 end
