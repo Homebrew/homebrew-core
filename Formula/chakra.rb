@@ -4,6 +4,13 @@ class Chakra < Formula
   url "https://github.com/Microsoft/ChakraCore/archive/v1.4.0.tar.gz"
   sha256 "f6b4a3bce9e69bb3ea619a82805460906ef53d4f9da98b51e554dd48d6cdfdb3"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "c0fef46cf4705b69a52678c0baba358da73a7d989669c5102c3167510945e0cd" => :sierra
+    sha256 "3402242c5abfbe83615eb06b0d1eac27ee49b9bd6f4f77218c3b402c5f44a384" => :el_capitan
+    sha256 "266a7f78b91f0e5963d22b9dc19c427f8680cae97d19eb79a4077a300f194fbf" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "icu4c" => :optional
 
