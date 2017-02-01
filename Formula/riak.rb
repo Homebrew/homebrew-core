@@ -1,11 +1,18 @@
 class Riak < Formula
   desc "Distributed database"
-  homepage "https://basho.com/products/#riak"
-  url "https://s3.amazonaws.com/downloads.basho.com/riak/2.1/2.1.4/osx/10.8/riak-2.1.4-OSX-x86_64.tar.gz"
-  version "2.1.4"
-  sha256 "ece75fa1d1ac89525162537ac3cb258c37da5adf0f03b6a04cc49e9f29cbfb8a"
+  homepage "http://basho.com/products/riak-kv/"
+  url "http://s3.amazonaws.com/downloads.basho.com/riak/2.2/2.2.0/osx/10.8/riak-2.2.0-OSX-x86_64.tar.gz"
+  version "2.2.0"
+  sha256 "51ea63d6efaa3bba4efb0ca13de81da2e2662b6691b4132cf552ca7635c8a857"
 
   bottle :unneeded
+
+  # Broken dylib links (should be fixed in 2.2.1)
+  # https://github.com/basho/eleveldb/issues/236
+
+  # Currently refuses to use non-system OpenSSL
+  # https://github.com/basho/riak/issues/888
+  # depends_on "openssl"
 
   depends_on :macos => :mountain_lion
   depends_on :arch => :x86_64
@@ -29,5 +36,9 @@ class Riak < Formula
     bin.write_exec_script libexec/"bin/riak-admin"
     bin.write_exec_script libexec/"bin/riak-debug"
     bin.write_exec_script libexec/"bin/search-cmd"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/riak version")
   end
 end
