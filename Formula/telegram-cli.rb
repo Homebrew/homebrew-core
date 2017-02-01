@@ -34,7 +34,7 @@ class TelegramCli < Formula
     system "./configure", *args
     system "make"
 
-    bin.install "bin/telegram-cli"
+    bin.install "bin/telegram-cli" => "telegram"
     (etc/"telegram-cli").install "server.pub"
   end
 
