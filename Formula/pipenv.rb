@@ -6,6 +6,8 @@ class Pipenv < Formula
   url "https://github.com/kennethreitz/pipenv/archive/v3.2.11.tar.gz"
   sha256 "4dc7dcea983f0ecd8f3ca16e9249280271558bdffd0cc1bdca3bdf322f365d4e"
 
+  option "without-completions", "Disable bash/fish/zsh completions"
+
   depends_on :python
 
   resource "backports.shutil_get_terminal_size" do
@@ -93,12 +95,10 @@ class Pipenv < Formula
     sha256 "02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a"
   end
 
-  option "without-completions", "Disable bash/fish/zsh completions"
-
   def install
     virtualenv_install_with_resources
     if build.with? "completions"
-      system "mkdir completions"
+      Dir.mkdir("completions")
       system "_PIPENV_COMPLETE=source-bash #{bin}/pipenv > completions/pipenv"
       system "_PIPENV_COMPLETE=source-fish #{bin}/pipenv > completions/pipenv.fish"
       system "_PIPENV_COMPLETE=source-zsh #{bin}/pipenv > completions/_pipenv"
@@ -114,9 +114,11 @@ class Pipenv < Formula
   end
 
   test do
-    system "#{bin}/pipenv", "--three"
-    assert_equal true, File.exist?("Pipfile")
+    assert_match "Commands",
+      shell_output("#{bin}/pipenv")
+    assert_equal false, File.exist?("Pipfile")
     system "#{bin}/pipenv", "install", "requests"
+    assert_equal true, File.exist?("Pipfile")
     assert_equal true, Dir.exist?(".venv")
     assert_match "requests", shell_output("cat Pipfile")
     system "#{bin}/pipenv", "lock"
