@@ -32,8 +32,8 @@ class MingwW64 < Formula
       resource("binutils").stage do
         args = %W[
           --target=#{target_arch}
-          --prefix=#{prefix}/mingw-w64
-          --with-sysroot=#{prefix}/mingw-w64
+          --prefix=#{prefix}/#{name}
+          --with-sysroot=#{prefix}/#{name}
         ]
         if target_arch.start_with?("i686") || (target_arch.start_with?("x86_64") && build.without?("multilib"))
           args << "--enable-targets=#{target_arch}" << "--disable-multilib"
@@ -45,14 +45,16 @@ class MingwW64 < Formula
           system "make"
           system "make", "install"
         end
-        info.rmtree
-        (share/"locale").rmtree
+        rm_rf( %W[
+          #{prefix}/#{name}/share/info
+          #{prefix}/#{name}/share/locale
+        ])
       end
-      ENV.prepend_path "PATH", "#{prefix}/mingw-w64/bin"
+      ENV.prepend_path "PATH", "#{prefix}/#{name}/bin"
 
       args = %W[
         --host=#{target_arch}
-        --prefix=#{prefix}/mingw-w64/#{target_arch}
+        --prefix=#{prefix}/#{name}/#{target_arch}
       ]
       args << "--disable-multilib" if target_arch.start_with?("i686") || (target_arch.start_with?("x86_64") && build.without?("multilib"))
 
@@ -62,19 +64,19 @@ class MingwW64 < Formula
         system "make", "install"
       end
 
-      ln_s "#{prefix}/mingw-w64/#{target_arch}", "#{prefix}/mingw-w64/mingw"
+      ln_s "#{prefix}/#{name}/#{target_arch}", "#{prefix}/#{name}/mingw"
 
       resource("gcc").stage buildpath/"gcc"
 
       gcc_args = %W[
         --target=#{target_arch}
-        --prefix=#{prefix}/mingw-w64
-        --with-sysroot=#{prefix}/mingw-w64
+        --prefix=#{prefix}/#{name}
+        --with-sysroot=#{prefix}/#{name}
         --enable-version-specific-runtime-libs
         --with-bugurl=https://github.com/Homebrew/homebrew-core/issues
         --enable-languages=c,c++,fortran
-        --with-ld=#{prefix}/mingw-w64/bin/#{target_arch}-ld
-        --with-as=#{prefix}/mingw-w64/bin/#{target_arch}-as
+        --with-ld=#{prefix}/#{name}/bin/#{target_arch}-ld
+        --with-as=#{prefix}/#{name}/bin/#{target_arch}-as
         --with-gmp=#{Formula["gmp"].opt_prefix}
         --with-mpfr=#{Formula["mpfr"].opt_prefix}
         --with-mpc=#{Formula["libmpc"].opt_prefix}
@@ -100,8 +102,8 @@ class MingwW64 < Formula
         CPP=#{target_arch}-cpp
         LD=#{target_arch}-gcc
         --host=#{target_arch}
-        --prefix=#{prefix}/mingw-w64/#{target_arch}
-        --with-sysroot=#{prefix}/mingw-w64/#{target_arch}
+        --prefix=#{prefix}/#{name}/#{target_arch}
+        --with-sysroot=#{prefix}/#{name}/#{target_arch}
       ]
 
       if target_arch.start_with?("i686")
@@ -123,7 +125,7 @@ class MingwW64 < Formula
         system "make", "install"
       end
 
-      ln_s "../../lib/gcc/#{target_arch}/lib/libgcc_s.a", "#{prefix}/mingw-w64/#{target_arch}/lib"
+      ln_s "../../lib/gcc/#{target_arch}/lib/libgcc_s.a", "#{prefix}/#{name}/#{target_arch}/lib"
 
       ENV["LDPATH"] = "#{target_arch}/#{lib}"
       args = %W[
@@ -131,7 +133,7 @@ class MingwW64 < Formula
         CXX=#{target_arch}-g++
         CPP=#{target_arch}-cpp
         --host=#{target_arch}
-        --prefix=#{prefix}/mingw-w64/#{target_arch}
+        --prefix=#{prefix}/#{name}/#{target_arch}
       ]
 
       mkdir "mingw-w64-libraries/winpthreads/build-#{target_arch}" do
@@ -178,8 +180,8 @@ class MingwW64 < Formula
     target_archs.keys.each do |target_arch|
       Dir["hello*{#{compiler.keys.join(",")}}"].each do |src|
         exe = "#{target_arch}-#{src.tr(".", "-")}.exe"
-        system "#{prefix}/mingw-w64/bin/#{target_arch}-#{compiler[File.extname(src)]}", "-o", exe, src
-        assert_match "file format pei-#{target_archs[target_arch]}", shell_output("#{prefix}//mingw-w64/bin/#{target_arch}-objdump -a #{exe}")
+        system "#{prefix}/#{name}/bin/#{target_arch}-#{compiler[File.extname(src)]}", "-o", exe, src
+        assert_match "file format pei-#{target_archs[target_arch]}", shell_output("#{prefix}/#{name}/bin/#{target_arch}-objdump -a #{exe}")
       end
     end
   end
