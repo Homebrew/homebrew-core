@@ -5,6 +5,7 @@ class MpsYoutube < Formula
   homepage "https://github.com/mps-youtube/mps-youtube"
   url "https://github.com/mps-youtube/mps-youtube/archive/v0.2.7.1.tar.gz"
   sha256 "917958ab02f8dace9c84974f510bd8838f905814c1a05a91fb1a38d37d19f0e8"
+  revision 1
 
   bottle do
     rebuild 1
@@ -18,13 +19,13 @@ class MpsYoutube < Formula
   depends_on "mplayer" => :optional
 
   resource "pafy" do
-    url "https://pypi.python.org/packages/0d/f1/765c5a2e9264ab98b5515501e794962a56157e1809c96c7445d8c2cef136/pafy-0.5.2.tar.gz"
-    sha256 "11e0cb83bd9e636bc4d0d6f7d7ce964f4975c6f0e037fe285ef2acedafcf7bb2"
+    url "https://pypi.python.org/packages/23/74/0e32a671b445107f34fa785ea2ac3658b0e80aef5446538a6181eba7c2e7/pafy-0.5.3.1.tar.gz"
+    sha256 "35e64ff495b5d62f31f65a31ac0ca6dc1ab39e1dbde4d07b1e04845a52eceda8"
   end
 
   resource "youtube_dl" do
-    url "https://pypi.python.org/packages/33/53/be5fd3d2e8b4af17cce81cdece45426856868692e2b7821a957108ff302e/youtube_dl-2016.12.31.tar.gz"
-    sha256 "cdba662fc6ff00b9b972da3bf4ac76d3db95841767871155a9518bfc6afb9a82"
+    url "https://pypi.python.org/packages/5e/28/f2aeaaf0e2b5a97c8072ebea282f2318c46327a6c07e2854c16744a0e548/youtube_dl-2017.1.31.tar.gz"
+    sha256 "9edabc7881d13849f8a88aca47da7612ed8675b8706b99adca3aa46cadf71c95"
   end
 
   def install
