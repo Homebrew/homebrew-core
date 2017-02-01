@@ -18,6 +18,6 @@ class SimpleObfs < Formula
   end
 
   test do
-    assert_match "simple-obfs", shell_output("#{bin}/obfs-local -h 2>&1", 0)
+    assert_match "simple-obfs", shell_output("#{bin}/obfs-local -h 2>&1")
   end
 end
