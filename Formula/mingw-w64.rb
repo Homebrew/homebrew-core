@@ -45,10 +45,10 @@ class MingwW64 < Formula
           system "make"
           system "make", "install"
         end
-        rm_rf( %W[
-          #{prefix}/#{name}/share/info
-          #{prefix}/#{name}/share/locale
-        ])
+        rm_rf(%W[
+                #{prefix}/#{name}/share/info
+                #{prefix}/#{name}/share/locale
+              ])
       end
       ENV.prepend_path "PATH", "#{prefix}/#{name}/bin"
 
