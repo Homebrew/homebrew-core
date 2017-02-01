@@ -7,9 +7,10 @@ class CrystalLang < Formula
   revision 2
 
   bottle do
-    sha256 "81fa90904eedd9ca99584b364250894fedf1f94b55dbebb5d364f436dfa58680" => :sierra
-    sha256 "0db10890a7324308d12f6779407f20f74e1fc9d7435b7e403bdfa28deaff1dce" => :el_capitan
-    sha256 "dfcbea132fa056fa4e32abd27b681e860366fd7c53a46f82fcea61d80cf6c449" => :yosemite
+    rebuild 1
+    sha256 "0bb9e463f9bedc321d1f507c341f6bbbb59141bf47caf28bef4a61e1d6d6d711" => :sierra
+    sha256 "c94f2f493daf688432cd1af07f4730994726fa1f6e6cb022caa3e01c11e29bd4" => :el_capitan
+    sha256 "1581d0a871f6af23b3fa13923d9c85ff8e2db9cd80e1ed88a26c1f2f09cfe86c" => :yosemite
   end
 
   option "without-release", "Do not build the compiler in release mode"
