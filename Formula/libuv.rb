@@ -1,8 +1,8 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
   homepage "https://github.com/libuv/libuv"
-  url "https://github.com/libuv/libuv/archive/v1.10.1.tar.gz"
-  sha256 "4b5f71939dd4272ebcfb8e04833e9a273a08b1bf1277d37d14085d7b04b19832"
+  url "https://github.com/libuv/libuv/archive/v1.11.0.tar.gz"
+  sha256 "6ec7eec6ecc24b1a8ffedebedb2fe9313fffb5410de89aaf784dd01080411c7a"
   head "https://github.com/libuv/libuv.git", :branch => "v1.x"
 
   bottle do
@@ -14,7 +14,6 @@ class Libuv < Formula
 
   option "without-docs", "Don't build and install documentation"
   option "with-test", "Execute compile time checks (Requires Internet connection)"
-  option :universal
 
   deprecated_option "with-check" => "with-test"
 
@@ -25,8 +24,6 @@ class Libuv < Formula
   depends_on "sphinx-doc" => :build if build.with? "docs"
 
   def install
-    ENV.universal_binary if build.universal?
-
     if build.with? "docs"
       # This isn't yet handled by the make install process sadly.
       cd "docs" do
