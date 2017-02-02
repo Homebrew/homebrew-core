@@ -53,6 +53,7 @@ class MingwW64 < Formula
       args = %W[
         --host=#{target_arch}
         --prefix=#{prefix}/#{target_arch}
+        --libdir=#{lib}/#{name}
       ]
       args << "--disable-multilib" if target_arch.start_with?("i686") || (target_arch.start_with?("x86_64") && build.without?("multilib"))
 
