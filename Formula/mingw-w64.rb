@@ -5,7 +5,7 @@ class MingwW64 < Formula
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.1.tar.bz2"
   sha256 "9bb5cd7df78817377841a63555e73596dc0af4acbb71b09bd48de7cf24aeadd2"
 
-  # option "with-multilib", "Compile x86_64 compiler with multilib support"
+  # option "without-multilib", "Compile x86_64 compiler with multilib support"
 
   depends_on "texinfo" => :build
   depends_on "mpfr"
@@ -32,8 +32,9 @@ class MingwW64 < Formula
       resource("binutils").stage do
         args = %W[
           --target=#{target_arch}
-          --prefix=#{prefix}/#{name}
-          --with-sysroot=#{prefix}/#{name}
+          --prefix=#{prefix}
+          --with-sysroot=#{prefix}
+          --datarootdir=#{share}/#{name}
         ]
         if target_arch.start_with?("i686") || (target_arch.start_with?("x86_64") && build.without?("multilib"))
           args << "--enable-targets=#{target_arch}" << "--disable-multilib"
@@ -45,16 +46,13 @@ class MingwW64 < Formula
           system "make"
           system "make", "install"
         end
-        rm_rf(%W[
-                #{prefix}/#{name}/share/info
-                #{prefix}/#{name}/share/locale
-              ])
+        rm_rf("#{share}/locale")
       end
-      ENV.prepend_path "PATH", "#{prefix}/#{name}/bin"
+      ENV.prepend_path "PATH", bin.to_s
 
       args = %W[
         --host=#{target_arch}
-        --prefix=#{prefix}/#{name}/#{target_arch}
+        --prefix=#{prefix}/#{target_arch}
       ]
       args << "--disable-multilib" if target_arch.start_with?("i686") || (target_arch.start_with?("x86_64") && build.without?("multilib"))
 
@@ -64,19 +62,21 @@ class MingwW64 < Formula
         system "make", "install"
       end
 
-      ln_s "#{prefix}/#{name}/#{target_arch}", "#{prefix}/#{name}/mingw"
+      ln_s "#{prefix}/#{target_arch}", "#{prefix}/mingw"
 
       resource("gcc").stage buildpath/"gcc"
 
       gcc_args = %W[
         --target=#{target_arch}
-        --prefix=#{prefix}/#{name}
-        --with-sysroot=#{prefix}/#{name}
+        --prefix=#{prefix}
+        --with-sysroot=#{prefix}
+        --libdir=#{lib}/#{name}
+        --datarootdir=#{share}/#{name}
         --enable-version-specific-runtime-libs
         --with-bugurl=https://github.com/Homebrew/homebrew-core/issues
         --enable-languages=c,c++,fortran
-        --with-ld=#{prefix}/#{name}/bin/#{target_arch}-ld
-        --with-as=#{prefix}/#{name}/bin/#{target_arch}-as
+        --with-ld=#{bin}/#{target_arch}-ld
+        --with-as=#{bin}/#{target_arch}-as
         --with-gmp=#{Formula["gmp"].opt_prefix}
         --with-mpfr=#{Formula["mpfr"].opt_prefix}
         --with-mpc=#{Formula["libmpc"].opt_prefix}
@@ -102,8 +102,8 @@ class MingwW64 < Formula
         CPP=#{target_arch}-cpp
         LD=#{target_arch}-gcc
         --host=#{target_arch}
-        --prefix=#{prefix}/#{name}/#{target_arch}
-        --with-sysroot=#{prefix}/#{name}/#{target_arch}
+        --prefix=#{prefix}/#{target_arch}
+        --with-sysroot=#{prefix}/#{target_arch}
       ]
 
       if target_arch.start_with?("i686")
@@ -125,7 +125,7 @@ class MingwW64 < Formula
         system "make", "install"
       end
 
-      ln_s "../../lib/gcc/#{target_arch}/lib/libgcc_s.a", "#{prefix}/#{name}/#{target_arch}/lib"
+      ln_s "../../lib/gcc/#{target_arch}/lib/libgcc_s.a", "#{prefix}/#{target_arch}/lib"
 
       ENV["LDPATH"] = "#{target_arch}/#{lib}"
       args = %W[
@@ -133,7 +133,7 @@ class MingwW64 < Formula
         CXX=#{target_arch}-g++
         CPP=#{target_arch}-cpp
         --host=#{target_arch}
-        --prefix=#{prefix}/#{name}/#{target_arch}
+        --prefix=#{prefix}/#{target_arch}
       ]
 
       mkdir "mingw-w64-libraries/winpthreads/build-#{target_arch}" do
@@ -180,8 +180,8 @@ class MingwW64 < Formula
     target_archs.keys.each do |target_arch|
       Dir["hello*{#{compiler.keys.join(",")}}"].each do |src|
         exe = "#{target_arch}-#{src.tr(".", "-")}.exe"
-        system "#{prefix}/#{name}/bin/#{target_arch}-#{compiler[File.extname(src)]}", "-o", exe, src
-        assert_match "file format pei-#{target_archs[target_arch]}", shell_output("#{prefix}/#{name}/bin/#{target_arch}-objdump -a #{exe}")
+        system "#{bin}/#{target_arch}-#{compiler[File.extname(src)]}", "-o", exe, src
+        assert_match "file format pei-#{target_archs[target_arch]}", shell_output("#{bin}/#{target_arch}-objdump -a #{exe}")
       end
     end
   end
