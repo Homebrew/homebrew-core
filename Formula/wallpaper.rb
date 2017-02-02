@@ -1,8 +1,8 @@
 class Wallpaper < Formula
   desc "Get or set the desktop wallpaper"
   homepage "https://github.com/sindresorhus/macos-wallpaper"
-  url "https://github.com/sindresorhus/macos-wallpaper/archive/1.2.0.tar.gz"
-  sha256 "d57ab0cafb9c11cdee8dba9a3a0b9dc5bc0e27cc64bad65529cc1e979a510620"
+  url "https://github.com/sindresorhus/macos-wallpaper/archive/1.3.0.tar.gz"
+  sha256 "ef5098c47c84d43969ef82c7c0ce7b53abad4c8648d70589ff9426342ec23985"
   head "https://github.com/sindresorhus/macos-wallpaper.git"
 
   bottle do
