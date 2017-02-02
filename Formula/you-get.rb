@@ -8,9 +8,9 @@ class YouGet < Formula
   head "https://github.com/soimort/you-get.git", :branch => "develop"
 
   bottle do
-    sha256 "fb6aece28013fc8de296ec5e49f224a30ac2f37d0ba8662ba03fa1dcf7669c6d" => :sierra
-    sha256 "096718c56e7f6e5bd709b1ef968d14e4c7c8fb38b751d3e01b850f0849f7db93" => :el_capitan
-    sha256 "f414366b93592d4a5e9656fe0961e418458aac33e63ca675ade057aa9fdcf940" => :yosemite
+    sha256 "6a8d6681066b6f3cc6e0ca001763e746c8df6d89c0466069d98123fba98c0d4f" => :sierra
+    sha256 "3788ee1f03bcf7278bc3140086f39643cf4fe33e5e88b722d67b664df3ce0f0a" => :el_capitan
+    sha256 "338c662002255ebbca86f3ba4ec38cdcd074e20365c6d73bf45028eacdcd9730" => :yosemite
   end
 
   depends_on :python3
