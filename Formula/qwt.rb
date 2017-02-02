@@ -3,7 +3,7 @@ class Qwt < Formula
   homepage "http://qwt.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.3/qwt-6.1.3.tar.bz2"
   sha256 "f3ecd34e72a9a2b08422fb6c8e909ca76f4ce5fa77acad7a2883b701f4309733"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "e760d252093b926ecabe83dbe830f59dbcba2e69d746a3d616de46f1f51dd2f8" => :sierra
@@ -14,7 +14,7 @@ class Qwt < Formula
   option "with-qwtmathml", "Build the qwtmathml library"
   option "without-plugin", "Skip building the Qt Designer plugin"
 
-  depends_on "qt@5.7"
+  depends_on "qt5"
 
   # Update designer plugin linking back to qwt framework/lib after install
   # See: https://sourceforge.net/p/qwt/patches/45/
@@ -73,10 +73,10 @@ class Qwt < Formula
     system ENV.cxx, "test.cpp", "-o", "out",
       "-std=c++11",
       "-framework", "qwt", "-framework", "QtCore",
-      "-F#{lib}", "-F#{Formula["qt@5.7"].opt_lib}",
+      "-F#{lib}", "-F#{Formula["qt5"].opt_lib}",
       "-I#{lib}/qwt.framework/Headers",
-      "-I#{Formula["qt@5.7"].opt_lib}/QtCore.framework/Versions/5/Headers",
-      "-I#{Formula["qt@5.7"].opt_lib}/QtGui.framework/Versions/5/Headers"
+      "-I#{Formula["qt5"].opt_lib}/QtCore.framework/Versions/5/Headers",
+      "-I#{Formula["qt5"].opt_lib}/QtGui.framework/Versions/5/Headers"
     system "./out"
   end
 end
