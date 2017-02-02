@@ -16,9 +16,9 @@ class Gammaray < Formula
   end
 
   bottle do
-    sha256 "342fc389969f8cbf452757845f6479d23dcc569bfbaadcde4390451e0126510e" => :sierra
-    sha256 "f85cc86e12cf89563063771b31bedc20995840594730ca6eca4c6bc055c96818" => :el_capitan
-    sha256 "dd95dae687e38ec2b9f73a24f8a60a16a6c7edded1cc9e1e3f75a9341582e95b" => :yosemite
+    sha256 "40abbbf3706bcd8671fae35f7e53397b090895d9022e7f1dc1370d572342a87a" => :sierra
+    sha256 "b289c07b23b494f2d9442e77dedfda8227982cdf184e938cbc248454db85b272" => :el_capitan
+    sha256 "3c4094ed9c841a17de8a87f696f038c99f1e532bd3de13664068cb7bc5ab623a" => :yosemite
   end
 
   option "with-vtk", "Build with VTK-with-Qt support, for object 3D visualizer"
