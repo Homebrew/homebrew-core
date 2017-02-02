@@ -1,5 +1,5 @@
 class Tundra < Formula
-  desc "Code build system that tries to be accurate and fast for incremental builds"
+  desc "Code build system that tries to be fast for incremental builds"
   homepage "https://github.com/deplinenoise/tundra"
   url "https://github.com/deplinenoise/tundra/archive/v2.0.tar.gz"
   sha256 "0d9f2b756959db76619aab563b412fa9e8a8bbf6fe0fc44836a725febb2c7662"
