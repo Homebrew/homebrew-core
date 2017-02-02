@@ -4,8 +4,6 @@ class Bit < Formula
   homepage "https://www.bitsrc.io"
   url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.1.19/bit-0.1.19-brew.tar.gz"
   sha256 "70683e3539036bfd0d276002229c0d01d02ecd2f1d849022d5e56f4bbdf4454d"
-
-
   depends_on "node"
 
   def install
