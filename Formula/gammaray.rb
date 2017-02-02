@@ -1,10 +1,19 @@
 class Gammaray < Formula
   desc "Examine and manipulate Qt application internals at runtime"
   homepage "https://www.kdab.com/kdab-products/gammaray/"
-  url "https://github.com/KDAB/GammaRay/releases/download/v2.6.0/gammaray-2.6.0.tar.gz"
-  sha256 "6fe8e0bf9f9a479b7edf7d15e6ed48ad3cca666e149bc26e8fea54c12ded9039"
-  revision 1
+  revision 2
   head "https://github.com/KDAB/GammaRay.git"
+
+  stable do
+    url "https://github.com/KDAB/GammaRay/releases/download/v2.6.0/gammaray-2.6.0.tar.gz"
+    sha256 "6fe8e0bf9f9a479b7edf7d15e6ed48ad3cca666e149bc26e8fea54c12ded9039"
+
+    # Upstream commit from 23 Jan 2017 "Fix macOS startup crash with Qt 5.8"
+    patch do
+      url "https://github.com/KDAB/GammaRay/commit/01c5154.patch"
+      sha256 "c4d44f2625fa3823e0c6788437446247473cc460877be87a5e33d2b1b1a9d6ff"
+    end
+  end
 
   bottle do
     sha256 "342fc389969f8cbf452757845f6479d23dcc569bfbaadcde4390451e0126510e" => :sierra
@@ -18,11 +27,11 @@ class Gammaray < Formula
   needs :cxx11
 
   depends_on "cmake" => :build
-  depends_on "qt@5.7"
+  depends_on "qt5"
   depends_on "graphviz" => :recommended
 
   # VTK needs to have Qt support, and it needs to match GammaRay's
-  depends_on "homebrew/science/vtk" => [:optional, "with-qt@5.7"]
+  depends_on "homebrew/science/vtk" => [:optional, "with-qt5"]
 
   def install
     # For Mountain Lion
