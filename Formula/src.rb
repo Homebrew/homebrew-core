@@ -1,8 +1,8 @@
 class Src < Formula
   desc "Simple revision control: RCS reloaded with a modern UI"
   homepage "http://www.catb.org/~esr/src/"
-  url "http://www.catb.org/~esr/src/src-1.4.tar.gz"
-  sha256 "9c9fbc1255b35c5250ff28c2c8cbdafa6eedb2b037b21985ad93bd6c45350666"
+  url "http://www.catb.org/~esr/src/src-1.12.tar.gz"
+  sha256 "f51392ef4b55618b95a1e3859555c92879a7cd09dd4736e5b091a7fee392d9d4"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,11 +22,6 @@ class Src < Formula
   depends_on "rcs"
 
   def install
-    # OSX doesn't provide a /usr/bin/python2. Upstream has been notified but
-    # cannot fix the issue. See:
-    #   https://github.com/Homebrew/homebrew/pull/34165#discussion_r22342214
-    inreplace "src", "#!/usr/bin/env python2", "#!/usr/bin/env python"
-
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog" if build.head?
 
     system "make", "install", "prefix=#{prefix}"
