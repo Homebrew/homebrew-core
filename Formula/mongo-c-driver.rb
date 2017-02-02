@@ -1,8 +1,8 @@
 class MongoCDriver < Formula
   desc "C driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-c-driver"
-  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.5.4/mongo-c-driver-1.5.4.tar.gz"
-  sha256 "8a0f908ac06619d8074acccd2e26443663ba6effbc4326959db6925cedb4aebb"
+  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.6.0/mongo-c-driver-1.6.0.tar.gz"
+  sha256 "d15fe571fb6b0331ceb9139ad724429fef0fdc0444900d7ebd6841590f4f8783"
 
   bottle do
     cellar :any
@@ -19,6 +19,7 @@ class MongoCDriver < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "sphinx-doc" => :build
 
   def install
     system "./autogen.sh" if build.head?
