@@ -1,9 +1,8 @@
 class Godep < Formula
   desc "Dependency tool for go"
   homepage "https://godoc.org/github.com/tools/godep"
-  url "https://github.com/tools/godep/archive/v78.tar.gz"
-  sha256 "247cbebffff1a5e077287cc7e2f84ca30266f9e535d1182823ececf9bf37b18a"
-  revision 1
+  url "https://github.com/tools/godep/archive/v79.tar.gz"
+  sha256 "3dd2e6c4863077762498af98fa0c8dc5fedffbca6a5c0c4bb42b452c8268383d"
   head "https://github.com/tools/godep.git"
 
   bottle do
@@ -28,13 +27,13 @@ class Godep < Formula
         "GoVersion": "go1.7",
         "Deps": [
           {
-            "ImportPath": "go.googlesource.com/tools",
+            "ImportPath": "golang.org/x/tools/cover",
             "Rev": "3fe2afc9e626f32e91aff6eddb78b14743446865"
           }
         ]
       }
     EOS
     system bin/"godep", "restore"
-    assert File.exist?("src/go.googlesource.com/tools/README")
+    assert File.exist?("src/golang.org/x/tools/README"), "Failed to find 'src/golang.org/x/tools/README!' file"
   end
 end
