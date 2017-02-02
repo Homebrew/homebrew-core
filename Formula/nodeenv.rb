@@ -3,8 +3,8 @@ class Nodeenv < Formula
 
   desc "Node.js virtual environment builder"
   homepage "https://github.com/ekalinin/nodeenv"
-  url "https://files.pythonhosted.org/packages/a0/d0/a7f6443901894a6c93db42e7fa2f2e2135ca2fcb5f466b8e21cce49d596e/nodeenv-1.1.0.tar.gz"
-  sha256 "4a592f8cb891c4894113007be8f5d886a215695ef2e6f84ddf8a0be979c2879a"
+  url "https://files.pythonhosted.org/packages/ae/22/1405bb4eb1fcecc41349814119a7e8282a734b60b96589ddd78214ba1614/nodeenv-1.1.1.tar.gz"
+  sha256 "b31e0940bf8ef7df0299c45c687662e7fda8e14279d28e9a9113d2d7be9f0c9c"
 
   bottle do
     cellar :any_skip_relocation
