@@ -104,6 +104,7 @@ class MingwW64 < Formula
         --host=#{target_arch}
         --prefix=#{prefix}/#{target_arch}
         --with-sysroot=#{prefix}/#{target_arch}
+        --libdir=#{lib}/#{name}
       ]
 
       if target_arch.start_with?("i686")
@@ -134,6 +135,7 @@ class MingwW64 < Formula
         CPP=#{target_arch}-cpp
         --host=#{target_arch}
         --prefix=#{prefix}/#{target_arch}
+        --libdir=#{lib}/#{name}
       ]
 
       mkdir "mingw-w64-libraries/winpthreads/build-#{target_arch}" do
