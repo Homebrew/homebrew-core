@@ -4,6 +4,13 @@ class Tundra < Formula
   url "https://github.com/deplinenoise/tundra/archive/v2.0.tar.gz"
   sha256 "0d9f2b756959db76619aab563b412fa9e8a8bbf6fe0fc44836a725febb2c7662"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "4bbd62530aa1dfac344a9a4d880eb9725ff20bf97e149e5f152ecbc583e41278" => :sierra
+    sha256 "51e111d89555e8eb2229eb9eb73b085a45c45fbddc10d0f6c179b199a907e19a" => :el_capitan
+    sha256 "b676cf79e11819ad9beebeae6cde5cad31cc7730e4c8dcafbacdbbd9e0affba7" => :yosemite
+  end
+
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
