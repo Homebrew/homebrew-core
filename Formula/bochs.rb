@@ -4,6 +4,12 @@ class Bochs < Formula
   url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.8/bochs-2.6.8.tar.gz"
   sha256 "79700ef0914a0973f62d9908ff700ef7def62d4a28ed5de418ef61f3576585ce"
 
+  bottle do
+    sha256 "6797f2b0af54f4ab18d6e299c1a58b87058a6d4d40605479ff8e9084814cf08b" => :sierra
+    sha256 "ab55b5ad21ade857ea4d306dbf8b80a97144b47fb2cef18dc6e861833db84902" => :el_capitan
+    sha256 "09006b2fee12fc83ded1859991d40964d8710b712e207672dba0b5ef65bf931a" => :yosemite
+  end
+
   option "with-gdb-stub", "Enable GDB Stub"
 
   depends_on "pkg-config" => :build
