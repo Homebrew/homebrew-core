@@ -17,6 +17,8 @@ class Catimg < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+    man.mkpath
+    man1.install "man/catimg.1"
   end
 
   test do
