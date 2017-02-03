@@ -7,9 +7,9 @@ class Hh < Formula
 
   bottle do
     cellar :any
-    sha256 "39cbce5e5288725d6fbf686163e5609fe41eaf212565481ec53836cab87d0610" => :sierra
-    sha256 "f1ea86ec9b53d0de43a3880e0db700584e272e8e3ff9c5e552e2c11d48c47b7e" => :el_capitan
-    sha256 "c9223089815736888069cb8bb168a8dfe1332bae8e2293b0736ad74772ec589b" => :yosemite
+    sha256 "53f1394c25ec70f3b36cfab592cae961d4f88fcff2a95726c716e84b6fbc47f1" => :sierra
+    sha256 "7c6f3bfbf05d62f769b343f8d2172dc9f1d713af9ca1766183d81e34ab494f84" => :el_capitan
+    sha256 "b51559f5d0d5791e356b85a1a98a8d287180d7931a21595375620ad70222d742" => :yosemite
   end
 
   depends_on "autoconf" => :build
