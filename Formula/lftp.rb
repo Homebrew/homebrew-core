@@ -29,6 +29,6 @@ class Lftp < Formula
   end
 
   test do
-    system "#{bin}/lftp", "-c", "open ftp://mirrors.kernel.org; ls"
+    system "#{bin}/lftp", "-c", "open ftp://ftp.gnu.org/; ls"
   end
 end
