@@ -1,8 +1,8 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database."
   homepage "https://www.arangodb.com/"
-  url "https://www.arangodb.com/repositories/Source/ArangoDB-3.1.9.tar.gz"
-  sha256 "4d2163f5bf8ce4584320f319084d3c7b7dbfa302853ca0e06907964921e4128f"
+  url "https://www.arangodb.com/repositories/Source/ArangoDB-3.1.10.tar.gz"
+  sha256 "97d165c502d236df45f5ca8fc9381f64c6a74b5e36d2ea9140989b1d336b6331"
   head "https://github.com/arangodb/arangodb.git", :branch => "unstable"
 
   bottle do
