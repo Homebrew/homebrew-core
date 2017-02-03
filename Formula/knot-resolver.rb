@@ -3,6 +3,7 @@ class KnotResolver < Formula
   homepage "https://www.knot-resolver.cz"
   url "https://secure.nic.cz/files/knot-resolver/knot-resolver-1.2.1.tar.xz"
   sha256 "1b6f55ea1dfec90f45c437f23e1ab440e478570498161d0f8a8f94a439305f8c"
+  revision 1
 
   head do
     url "https://gitlab.labs.nic.cz/knot/resolver.git"
@@ -59,7 +60,8 @@ class KnotResolver < Formula
 
   # DNSSEC root anchor published by IANA
   def root_keys; <<-EOS.undent
-    . 172800 IN DS 19036 8 2 49aac11d7b6f6446702e54a1607371607a1a41855200fd2ce1cdde32f24e8fb5
+    . IN DS 19036 8 2 49aac11d7b6f6446702e54a1607371607a1a41855200fd2ce1cdde32f24e8fb5
+    . IN DS 20326 8 2 e06d44b80b8f1d39a95c0b0d7c65d08458e880409bbc683457104237c7f8ec8d
     EOS
   end
 
