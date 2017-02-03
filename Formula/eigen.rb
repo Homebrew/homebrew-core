@@ -1,8 +1,8 @@
 class Eigen < Formula
   desc "C++ template library for linear algebra"
   homepage "https://eigen.tuxfamily.org/"
-  url "https://bitbucket.org/eigen/eigen/get/3.3.1.tar.bz2"
-  sha256 "a0b4cebaabd8f371d1b364f9723585fbcc7c9640ca60273b99835e6cf115f056"
+  url "https://bitbucket.org/eigen/eigen/get/3.3.2.tar.bz2"
+  sha256 "3e1fa6e8c45635938193f84fee6c35a87fac26ee7c39c68c230e5080c4a8fe98"
   head "https://bitbucket.org/eigen/eigen", :using => :hg
 
   bottle do
@@ -12,13 +12,9 @@ class Eigen < Formula
     sha256 "9ef7e849e5496407789e2113a25097b1a797086eba6d8350a020a3905fcb0f1a" => :yosemite
   end
 
-  option :universal
-
   depends_on "cmake" => :build
 
   def install
-    ENV.universal_binary if build.universal?
-
     mkdir "eigen-build" do
       args = std_cmake_args
       args << "-Dpkg_config_libdir=#{lib}" << ".."
