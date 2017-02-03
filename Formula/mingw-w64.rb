@@ -46,6 +46,7 @@ class MingwW64 < Formula
           system "make"
           system "make", "install"
         end
+        # remove share/locale from conflicting with other binutils installs
         rm_rf("#{share}/locale")
       end
       ENV.prepend_path "PATH", bin.to_s
