@@ -7,9 +7,9 @@ class Eigen < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e0a5c96d5bbe5f9dcd7ffc4e75d2c83dd92d40f953623a96dc3705799b9a3ce3" => :sierra
-    sha256 "9ef7e849e5496407789e2113a25097b1a797086eba6d8350a020a3905fcb0f1a" => :el_capitan
-    sha256 "9ef7e849e5496407789e2113a25097b1a797086eba6d8350a020a3905fcb0f1a" => :yosemite
+    sha256 "141c35bade90aea1f3fcca7652dd7a28850467986aef26aa887370f5a0bf28fa" => :sierra
+    sha256 "26ef36ab67b11af368ac89fb1e6209136d3f9992bb825deec7399527fe75fa39" => :el_capitan
+    sha256 "141c35bade90aea1f3fcca7652dd7a28850467986aef26aa887370f5a0bf28fa" => :yosemite
   end
 
   depends_on "cmake" => :build
