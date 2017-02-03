@@ -212,7 +212,7 @@ class MysqlCluster < Formula
       <string>#{plist_name(name)}</string>
       <key>ProgramArguments</key>
       <array>
-        <string>#{HOMEBREW_PREFIX}/bin/mysqld</string>
+        <string>#{opt_bin}/mysqld</string>
         <string>--defaults-file=#{var}/mysql-cluster/conf/my.cnf</string>
       </array>
       <key>RunAtLoad</key>
@@ -235,7 +235,7 @@ class MysqlCluster < Formula
       <string>#{plist_name(name)}</string>
       <key>ProgramArguments</key>
       <array>
-        <string>#{HOMEBREW_PREFIX}/bin/ndb_mgmd</string>
+        <string>#{opt_bin}/ndb_mgmd</string>
         <string>--nodaemon</string>
         <string>-f</string>
         <string>#{var}/mysql-cluster/conf/config.ini</string>
@@ -264,7 +264,7 @@ class MysqlCluster < Formula
       <string>#{plist_name(name)}</string>
       <key>ProgramArguments</key>
       <array>
-        <string>#{HOMEBREW_PREFIX}/bin/ndbd</string>
+        <string>#{opt_bin}/ndbd</string>
         <string>--nodaemon</string>
         <string>-c</string>
         <string>localhost:1186</string>
