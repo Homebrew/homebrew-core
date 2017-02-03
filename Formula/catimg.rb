@@ -4,6 +4,7 @@ class Catimg < Formula
   url "https://github.com/posva/catimg/archive/v2.2.2.tar.gz"
   sha256 "1fa775db2bbb94dc2c66646c8a87edcfdcba878d686d61390d4264c2618673a9"
   head "https://github.com/posva/catimg.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
