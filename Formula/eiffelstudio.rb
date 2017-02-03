@@ -15,9 +15,7 @@ class Eiffelstudio < Formula
   depends_on "gtk+"
 
   def ise_platform
-    if Hardware::CPU.ppc?
-      "macosx-ppc"
-    elsif MacOS.prefer_64_bit?
+    if MacOS.prefer_64_bit?
       "macosx-x86-64"
     else
       "macosx-x86"
