@@ -3,8 +3,8 @@ class Fish < Formula
   homepage "https://fishshell.com"
 
   stable do
-    url "https://fishshell.com/files/2.5.0/fish-2.5.0.tar.gz"
-    mirror "https://github.com/fish-shell/fish-shell/releases/download/2.5.0/fish-2.5.0.tar.gz"
+    url "https://github.com/fish-shell/fish-shell/releases/download/2.5.0/fish-2.5.0.tar.gz"
+    mirror "https://fishshell.com/files/2.5.0/fish-2.5.0.tar.gz"
     sha256 "f8c0edadca2de379ccf305aeace660a9255fa2180c72e85e97705a24c256b2a5"
   end
 
