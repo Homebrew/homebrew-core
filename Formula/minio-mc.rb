@@ -8,9 +8,9 @@ class MinioMc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a93d3cce76dff4652a77e039013718c9b06812b0d2ad5d481c58dffa62c51324" => :sierra
-    sha256 "f922bbe824c1574c1287cece8737534f33189ec4f0db4f3fc8f20d0186ea9cae" => :el_capitan
-    sha256 "5a365062c622ffbbe546c7e82d6b91b3f9371cd9f5183afeba6ab8417685f340" => :yosemite
+    sha256 "f9d37b9dc215c15a0356c4ee44c6eec30b04e393e03f74ca256ccb613684a319" => :sierra
+    sha256 "c530131c11dc6b52886ebfc3bf3afba70f08ef854f7a44bad021e4d0f56a6d6f" => :el_capitan
+    sha256 "9191a19ca875fc715c8703537d3d77da8c0d47070ca6c3c26a2e8ae39cf381ea" => :yosemite
   end
 
   depends_on "go" => :build
