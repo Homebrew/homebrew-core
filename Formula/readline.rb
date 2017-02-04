@@ -26,7 +26,6 @@ class Readline < Formula
   EOS
 
   def install
-    ENV.universal_binary
     system "./configure", "--prefix=#{prefix}", "--enable-multibyte"
     system "make", "install"
   end
