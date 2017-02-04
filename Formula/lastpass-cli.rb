@@ -7,9 +7,9 @@ class LastpassCli < Formula
 
   bottle do
     cellar :any
-    sha256 "5a28248885da75621bfcb78aaee4c1fc99eb2e0f14f0c0a974f0b099fa7b2c54" => :sierra
-    sha256 "f74caf7d2c500146bc08b771f24edcb9e68cc54638110eaa5ae54877b50b8274" => :el_capitan
-    sha256 "1c6dc1b0bee7527f946f28f4f625eb8d11c13887c31ea00fd7afc8f324803224" => :yosemite
+    sha256 "6632f4ddb5d99984f76bc7f50d4adf99002efbc0a5cc89c06224805af2b05b11" => :sierra
+    sha256 "8921710f235709e42360ccb48d66636d24917e8084e79f0c828dc9796c4503b2" => :el_capitan
+    sha256 "2f0184ca15f14a9aa1444a9748e1ecbca75f71383af272eb86da587dff0c8a9d" => :yosemite
   end
 
   depends_on "asciidoc" => :build
