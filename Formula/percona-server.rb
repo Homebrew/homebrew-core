@@ -10,7 +10,6 @@ class PerconaServer < Formula
     sha256 "d80780fbcb5d993dccc66697988aba550a1047e539b07d3dcb10ab7003d2a5f6" => :yosemite
   end
 
-  option :universal
   option "with-test", "Build with unit tests"
   option "with-embedded", "Build the embedded server"
   option "with-local-infile", "Build with local infile loading support"
@@ -104,12 +103,6 @@ class PerconaServer < Formula
 
     # Build with InnoDB Memcached plugin
     args << "-DWITH_INNODB_MEMCACHED=ON" if build.with? "memcached"
-
-    # Make universal for binding to universal applications
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
 
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
