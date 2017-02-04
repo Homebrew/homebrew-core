@@ -13,7 +13,6 @@ class R3 < Formula
     sha256 "26bd4bc4114b54d57d9f39bd00f15914f03eea7407fbcc50df4c1925b412a879" => :mavericks
   end
 
-  option :universal
   option "with-graphviz", "Enable Graphviz functions"
 
   depends_on "autoconf" => :build
@@ -25,8 +24,6 @@ class R3 < Formula
   depends_on "jemalloc" => :recommended
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "./autogen.sh"
 
     args = %W[
