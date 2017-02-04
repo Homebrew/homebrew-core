@@ -9,9 +9,9 @@ class ImagemagickAT6 < Formula
   sha256 "c23420e208d8c90bd7c05d7a3f14e976b479a93ceb3354dd4d84c830fe30a40b"
 
   bottle do
-    sha256 "f14413f2a5465307f1ee91599a889f96473485f9b0117f0162a26701fb67aa86" => :sierra
-    sha256 "2cc77d2d5f4ed2f478eb6f3aa4958936513c44e1a1bb21341df1b8583a9f5caa" => :el_capitan
-    sha256 "84fde7a5273de812e2eccc622ff77029389fdf74147a41927be4692ba26e64bd" => :yosemite
+    sha256 "c255dad4583b9c2d906af10680d669b3a9c154729cdd7b779e440e6320f92ba7" => :sierra
+    sha256 "0cdd5cb0c6410131041c692a6f5b219dadedcfccac63bf9753ff1db712f77061" => :el_capitan
+    sha256 "ea052518c37749a277adc5fbc50817cb894cacbef2d6c44de8aa6c7a9f12eef8" => :yosemite
   end
 
   keg_only "Older version of imagemagick"
