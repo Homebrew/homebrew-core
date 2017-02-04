@@ -21,15 +21,12 @@ class Libmpdclient < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
-
   depends_on "doxygen" => :build
 
   def install
     inreplace "autogen.sh", "libtoolize", "glibtoolize"
     system "./autogen.sh" if build.head?
 
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
