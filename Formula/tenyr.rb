@@ -1,10 +1,10 @@
 class Tenyr < Formula
-  desc "32-bit computing environment"
+  desc "32-bit computing environment (including simulated CPU)"
   homepage "http://tenyr.info/"
-  url "https://github.com/kulp/tenyr/archive/v0.6.0.tar.gz"
-  sha256 "fc9ed9f6f46c79470163ed5e9f2f820aab74c7bd972315862d3cca547988684c"
+  url "https://github.com/kulp/tenyr/archive/v0.9.3.tar.gz"
+  sha256 "62405d084d205c148f6cc4121b7fca817c3fbad5c300e3e137f4a3cb731329bc"
 
-  head "https://github.com/kulp/tenyr.git"
+  head "https://github.com/kulp/tenyr.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,43 +14,57 @@ class Tenyr < Formula
     sha256 "c20b4f63feb6150edc2e46222eed8329d0e8e5bb8bdfa3f84a87059ed03d95a4" => :mavericks
   end
 
+  # pkg-config is used after v0.9.3 for sdl2, instead of sdl2-config
+  # prepare for post-v0.9.3 versions (including HEAD) by depending on it now
+  depends_on "pkg-config" => :build
   depends_on "bison" => :build # tenyr requires bison >= 2.5
-  depends_on "sdl2"
-  depends_on "sdl2_image"
-
-  patch :DATA
+  # sdl2_image implies sdl2. If we specify sdl2 separately, we create
+  # nonsensical possibilities like `--with-sdl2_image --without-sdl2`
+  # tenyr requires sdl2_image --with-png
+  depends_on "sdl2_image" => :recommended
 
   def install
     bison = Formula["bison"].bin/"bison"
 
-    inreplace "Makefile", "bison", bison
+    args = []
 
-    system "make"
-    bin.install "tsim", "tas", "tld"
+    # specify our own bison, since we need bison >= 2.5
+    args << "BISON=" + bison
+
+    # JIT build is not available until we can pull in AsmJit somehow
+    # HEAD version can build with JIT enabled, using git submodule
+    # Right now there is no way for `build.with?("jit")` to be true
+    if build.without?("jit")
+      args << "JIT=0"
+    end
+
+    # Use our own build directory (tenyr's default build directory encodes
+    # builder platform information in the path)
+    builddir = "build/homebrew"
+    args << "BUILDDIR=" + builddir
+
+    if build.without?("sdl2_image")
+      args << "SDL=0"
+    end
+
+    system "make", *args
+
+    pkgshare.install "rsrc", "plugins"
+    cd builddir do
+      bin.install "tsim", "tas", "tld"
+      lib.install Dir["*.dylib"]
+    end
+  end
+
+  test do
+    # sanity test assembler, linker and simulator
+    (testpath/"part1").write "B <- 9\n"
+    (testpath/"part2").write "C <- B * 3\n"
+
+    system "#{bin}/tas", "--output=a.to", "part1"
+    system "#{bin}/tas", "--output=b.to", "part2"
+    system "#{bin}/tld", "--output=test.texe", "a.to", "b.to"
+
+    assert_match "C 0000001b", `tsim -vvvv test.texe`
   end
 end
-
-__END__
-diff --git a/src/debugger_parser.y b/src/debugger_parser.y
-index c000640..289e4da 100644
---- a/src/debugger_parser.y
-+++ b/src/debugger_parser.y
-@@ -13,6 +13,7 @@
- int tdbg_error(YYLTYPE *locp, struct debugger_data *dd, const char *s);
-
- #define YYLEX_PARAM (dd->scanner)
-+void *yyscanner;
-
- %}
-
-diff --git a/src/parser.y b/src/parser.y
-index 6eb4dd1..e3f23df 100644
---- a/src/parser.y
-+++ b/src/parser.y
-@@ -40,6 +40,7 @@ static int check_immediate_size(struct parse_data *pd, YYLTYPE *locp, uint32_t
-         imm);
-
- #define YYLEX_PARAM (pd->scanner)
-+void *yyscanner;
-
- struct symbol *symbol_find(struct symbol_list *list, const char *name);
