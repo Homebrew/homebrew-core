@@ -13,8 +13,6 @@ class Mcrypt < Formula
     sha256 "b6dd5f1210d4b0fffa7b14e4fce445c11d6245840fd38f08255149b6e27832c2" => :mountain_lion
   end
 
-  option :universal
-
   depends_on "mhash"
 
   resource "libmcrypt" do
@@ -27,8 +25,6 @@ class Mcrypt < Formula
   patch :DATA
 
   def install
-    ENV.universal_binary if build.universal?
-
     resource("libmcrypt").stage do
       system "./configure", "--prefix=#{prefix}",
                             "--mandir=#{man}"
