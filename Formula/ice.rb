@@ -25,12 +25,14 @@ class Ice < Formula
 
   option "with-additional-compilers", "Build additional Slice compilers (slice2py, slice2js, slice2rb)"
   option "with-java", "Build Ice for Java and the IceGrid GUI app"
+  option "without-python", "Build without Ice for Python"
   option "without-xcode-sdk", "Build without the Xcode SDK for iOS development (includes static libs)"
 
   depends_on "mcpp"
   depends_on "lmdb"
   depends_on :java => ["1.8+", :optional]
   depends_on :macos => :mavericks
+  depends_on :python if MacOS.version <= :snow_leopard
 
   def install
     # Ensure Gradle uses a writable directory even in sandbox mode
@@ -43,9 +45,31 @@ class Ice < Formula
       "LMDB_HOME=#{Formula["lmdb"].opt_prefix}",
       "CONFIGS=shared cpp11-shared #{build.with?("xcode-sdk") ? "xcodesdk cpp11-xcodesdk" : ""}",
       "PLATFORMS=all",
-      "SKIP=slice2confluence #{build.without?("additional-compilers") ? "slice2py slice2rb slice2js" : ""}",
-      "LANGUAGES=cpp objective-c #{build.with?("java") ? "java java-compat" : ""}",
+      "SKIP=slice2confluence #{build.without?("python") ? "slice2py" : ""} #{build.without?("additional-compilers") ? "slice2rb slice2js" : ""}",
+      "LANGUAGES=cpp objective-c #{build.with?("java") ? "java java-compat" : ""} #{build.with?("python") ? "python" : ""}",
     ]
+
+    if build.with? "python"
+      args << "PYTHON_LIB_NAME=-Wl,-undefined,dynamic_lookup"
+      cd "python" do
+        inreplace "config/install_dir", "print(e.install_dir)", "print('#{lib}/python2.7/site-packages')"
+        inreplace "config/Make.rules", /^python_ldflags\s*:=\s*-L\$\(PYTHON_LIB_DIR\) -l\$\(PYTHON_LIB_NAME\)$/, "python_ldflags := -Wl,-undefined,dynamic_lookup"
+      end
+
+      # If building Python support, slice2py is required to generate Python code from slices. However if additional
+      # compilers should not be installed, we must skip installation of slice2py
+      # => patch Makefile macro `define create-translator-project`
+      if build.without?("additional-compilers")
+        inreplace "config/Make.project.rules",
+                  /(define create-translator-project.*?\$1_install_platforms\s*:=.*?)endef/m,
+                  "\\1\n" \
+                  "ifeq ($(notdir $1),slice2py)\n" \
+                  "$1_install_platforms := \n" \
+                  "endif\n" \
+                  "endef"
+      end
+    end
+
     system "make", "install", *args
   end
 
