@@ -11,7 +11,6 @@ class MysqlCluster < Formula
     sha256 "d44cd4807b7dcdb32c58bab30e258310baa2f2fc1f510254f1fdccc150f75bb9" => :mavericks
   end
 
-  option :universal
   option "with-test", "Build with unit tests"
   option "with-embedded", "Build the embedded server"
   option "with-libedit", "Compile with editline wrapper instead of readline"
@@ -73,12 +72,6 @@ class MysqlCluster < Formula
 
     # Compile with BLACKHOLE engine enabled if chosen
     args << "-DWITH_BLACKHOLE_STORAGE_ENGINE=1" if build.with? "blackhole-storage-engine"
-
-    # Make universal for binding to universal applications
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
 
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
