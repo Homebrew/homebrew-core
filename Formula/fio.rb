@@ -1,8 +1,8 @@
 class Fio < Formula
   desc "I/O benchmark and stress test"
   homepage "http://freecode.com/projects/fio"
-  url "https://github.com/axboe/fio/archive/fio-2.14.tar.gz"
-  sha256 "9fad9dd4d6304f1220023500abf07c5d20bf5e27fba95ac6edb7035939d363a5"
+  url "https://github.com/axboe/fio/archive/fio-2.17.tar.gz"
+  sha256 "4d31ce145cc2d21e91aaf08bb4d14cca942ad6572131cba687906983478ce6e5"
   head "git://git.kernel.dk/fio.git"
 
   bottle do
@@ -14,6 +14,12 @@ class Fio < Formula
   end
 
   def install
+    # Fixes "dyld: lazy symbol binding failed: Symbol not found: _clock_gettime"
+    # Reported 4 February 2017 https://github.com/axboe/fio/issues/305
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "configure", "return clock_gettime(0, NULL);", "return foo();"
+    end
+
     system "./configure"
     # fio's CFLAGS passes vital stuff around, and crushing it will break the build
     system "make", "prefix=#{prefix}",
