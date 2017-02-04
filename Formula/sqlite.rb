@@ -14,7 +14,6 @@ class Sqlite < Formula
 
   keg_only :provided_by_osx, "macOS provides an older sqlite3."
 
-  option :universal
   option "with-docs", "Install HTML documentation"
   option "without-rtree", "Disable the R*Tree index module"
   option "with-fts", "Enable the FTS3 module"
@@ -64,8 +63,6 @@ class Sqlite < Formula
       ENV.append "CPPFLAGS", icu4ccppflags
       ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_ICU=1"
     end
-
-    ENV.universal_binary if build.universal?
 
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
