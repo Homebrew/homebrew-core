@@ -15,8 +15,6 @@ class Libbtbb < Formula
     sha256 "0ccf46429a2bddd4a71aeaaf24df9dc85c34f1c64062059ed0e630b551fcddd2" => :yosemite
   end
 
-  option :universal
-
   depends_on "cmake" => :build
   depends_on :python if MacOS.version <= :snow_leopard
 
@@ -27,13 +25,6 @@ class Libbtbb < Formula
   end
 
   def install
-    args = std_cmake_args
-
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
     resource("libpcap").stage do
       system "./configure", "--prefix=#{libexec}/vendor", "--enable-ipv6"
       system "make", "install"
@@ -42,7 +33,7 @@ class Libbtbb < Formula
     ENV.prepend_path "PATH", libexec/"vendor/bin"
     ENV.append_to_cflags "-I#{libexec}/vendor/include"
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
   end
