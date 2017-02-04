@@ -14,10 +14,7 @@ class TaLib < Formula
     sha256 "d4c5bf3efdaed633acf74d8039d723fd828e52982ebc864a48e09c2e71506311" => :mountain_lion
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
