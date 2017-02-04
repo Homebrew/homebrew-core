@@ -15,16 +15,12 @@ class Netpbm < Formula
     sha256 "4140eb093a21f8c4d8209d27381c504dd350e19f2b3610a4d9f9d90b39c44a8a" => :yosemite
   end
 
-  option :universal
-
   depends_on "libtiff"
   depends_on "jasper"
   depends_on "jpeg"
   depends_on "libpng"
 
   def install
-    ENV.universal_binary if build.universal?
-
     cp "config.mk.in", "config.mk"
 
     inreplace "config.mk" do |s|
