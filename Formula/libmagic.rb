@@ -11,13 +11,9 @@ class Libmagic < Formula
     sha256 "54a619ed0c36e8003cde613d05d5ba3d823bf8e53f475e053264efb5d8b63765" => :yosemite
   end
 
-  option :universal
-
   depends_on :python => :optional
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
