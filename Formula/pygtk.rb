@@ -14,8 +14,6 @@ class Pygtk < Formula
     sha256 "603694d87d2c6193caa164029bc441d93d45cdcd75419c8f8ed11b0902577457" => :mavericks
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gtk+"
@@ -26,7 +24,6 @@ class Pygtk < Formula
 
   def install
     ENV.append "CFLAGS", "-ObjC"
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
