@@ -1,7 +1,7 @@
 require "language/go"
 
 class Lxc < Formula
-  desc "LXC: cli client for interacting with LXD"
+  desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
   url "https://github.com/lxc/lxd/archive/lxd-2.8.tar.gz"
   sha256 "47d831933ca448e1eb72731c4ae089c26b3409a7852c7fb9e474f19b7abc258c"
