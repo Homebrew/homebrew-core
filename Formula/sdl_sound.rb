@@ -22,8 +22,6 @@ class SdlSound < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "sdl"
   depends_on "flac" => :optional
@@ -34,8 +32,6 @@ class SdlSound < Formula
   depends_on "physfs" => :optional
 
   def install
-    ENV.universal_binary if build.universal?
-
     if build.head?
       inreplace "bootstrap", "/usr/bin/glibtoolize", "#{Formula["libtool"].opt_bin}/glibtoolize"
       system "./bootstrap"
