@@ -1,10 +1,8 @@
 class Sysbench < Formula
   desc "System performance benchmark tool"
   homepage "https://github.com/akopytov/sysbench"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/s/sysbench/sysbench_0.4.12.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/s/sysbench/sysbench_0.4.12.orig.tar.gz"
-  sha256 "83fa7464193e012c91254e595a89894d8e35b4a38324b52a5974777e3823ea9e"
-  revision 2
+  url "https://github.com/akopytov/sysbench/archive/1.0.0.tar.gz"
+  sha256 "c73817799ed646dced6f13899cd01145c775cdcf6d431d1689c3c084ed45eb29"
 
   bottle do
     cellar :any
@@ -16,24 +14,20 @@ class Sysbench < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on :postgresql => :optional
   depends_on :mysql => :recommended
 
   def install
-    inreplace "configure.ac", "AC_PROG_LIBTOOL", "AC_PROG_RANLIB"
-    system "./autogen.sh"
-
-    # A horrible horrible backport of fixes in upstream's git for
-    # latest mysql detection. Normally would just patch, but we need
-    # the autogen above which overwrites a patched configure.
-    inreplace "configure" do |s|
-      s.gsub! "-lmysqlclient_r", "-lmysqlclient"
-      s.gsub! "MYSQL_LIBS=`${mysqlconfig} --libs | sed -e \\",
-              "MYSQL_LIBS=`${mysqlconfig} --libs_r`"
-      s.gsub! "'s/-lmysqlclient /-lmysqlclient /' -e 's/-lmysqlclient$/-lmysqlclient/'`",
-              ""
+    # Fixes "dyld: lazy symbol binding failed: Symbol not found: _clock_gettime"
+    # Reported 4 Feb 2017 https://github.com/akopytov/sysbench/issues/105
+    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      ENV["ac_cv_have_decl_clock_gettime"] = "no"
     end
+
+    system "./autogen.sh"
 
     args = ["--prefix=#{prefix}"]
     if build.with? "mysql"
