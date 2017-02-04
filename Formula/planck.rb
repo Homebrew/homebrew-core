@@ -6,11 +6,10 @@ class Planck < Formula
   head "https://github.com/mfikes/planck.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d670247f5e9010f363d0c4743b188dd0dd46192f3070d6a1b97aa60071040610" => :sierra
-    sha256 "338db78620d60b90ee0ab18b32873a1b17782948c57d5cfc074d3e902380013e" => :el_capitan
-    sha256 "4544586aa9c310f34060dba25a4cd558aa70c1863f5303aae8ed7c7602d110d9" => :yosemite
-    sha256 "237e29161849ae72add25713a1e6ce3d3aab357f887cd4864fe10bdde266be35" => :mavericks
+    cellar :any
+    sha256 "6833f15a0b7256f8b3fc7b50f5b9a555d3fa572c6a782e600faf15cbd778a78a" => :sierra
+    sha256 "b7087b27513414d3b8ac5b6d496a6b2d8d65226c9351b56aacc8d2ec39127d25" => :el_capitan
+    sha256 "29dbe06e1a4cbb75e0a27be15a19a09a8ebfba602edf038dd83874d408b11840" => :yosemite
   end
 
   depends_on "libzip"
