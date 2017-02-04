@@ -15,7 +15,6 @@ class Ruby < Formula
     depends_on "autoconf" => :build
   end
 
-  option :universal
   option "with-suffix", "Suffix commands with '24'"
   option "with-doc", "Install documentation"
 
@@ -40,11 +39,6 @@ class Ruby < Formula
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
     ]
-
-    if build.universal?
-      ENV.universal_binary
-      args << "--with-arch=#{Hardware::CPU.universal_archs.join(",")}"
-    end
 
     args << "--program-suffix=#{program_suffix}" if build.with? "suffix"
     args << "--disable-install-doc" if build.without? "doc"
