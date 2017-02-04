@@ -20,11 +20,7 @@ class Libsodium < Formula
     depends_on "automake" => :build
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
-
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
