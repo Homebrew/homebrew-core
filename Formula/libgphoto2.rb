@@ -18,8 +18,6 @@ class Libgphoto2 < Formula
     depends_on "gettext" => :build
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "libtool" => :run
   depends_on "libusb-compat"
@@ -27,8 +25,6 @@ class Libgphoto2 < Formula
   depends_on "libexif" => :optional
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "autoreconf", "-fvi" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
