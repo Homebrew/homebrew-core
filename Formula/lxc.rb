@@ -4,7 +4,7 @@ class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
   url "https://github.com/lxc/lxd/archive/lxd-2.8.tar.gz"
-  sha256 "47d831933ca448e1eb72731c4ae089c26b3409a7852c7fb9e474f19b7abc258c"
+  sha256 "8722d9ea4cc4341742b0dd3646ee679f074756d675ee98ae324f1a2a4b6fa0b5"
 
   depends_on "go" => :build
 
