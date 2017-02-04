@@ -19,7 +19,6 @@ class Zeromq < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
   option "with-libpgm", "Build with PGM extension"
   option "with-norm", "Build with NORM extension"
   option "with-drafts", "Build and install draft classes and methods"
@@ -34,7 +33,6 @@ class Zeromq < Formula
   depends_on "norm" => :optional
 
   def install
-    ENV.universal_binary if build.universal?
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
