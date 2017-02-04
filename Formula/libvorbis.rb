@@ -21,14 +21,10 @@ class Libvorbis < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "libogg"
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
