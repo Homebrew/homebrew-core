@@ -12,14 +12,10 @@ class Librsync < Formula
     sha256 "bc7ada34fb6aae7fcb9a303a3daeda5861ab11e0a966425aaed2e549fd88e6b9" => :mavericks
   end
 
-  option :universal
-
   depends_on "cmake" => :build
   depends_on "popt"
 
   def install
-    ENV.universal_binary if build.universal?
-
     # https://github.com/librsync/librsync/commit/1765ad0d416
     # https://github.com/librsync/librsync/issues/50
     # Safe to remove when the next stable release is cut.
