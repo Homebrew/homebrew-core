@@ -13,7 +13,6 @@ class YamlCpp < Formula
   end
 
   option :cxx11
-  option :universal
   option "with-static-lib", "Build a static library"
 
   depends_on "cmake" => :build
@@ -26,7 +25,6 @@ class YamlCpp < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
-    ENV.universal_binary if build.universal?
     args = std_cmake_args
     if build.with? "static-lib"
       args << "-DBUILD_SHARED_LIBS=OFF"
