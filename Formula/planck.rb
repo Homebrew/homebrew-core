@@ -1,8 +1,8 @@
 class Planck < Formula
   desc "Stand-alone ClojureScript REPL"
   homepage "http://planck-repl.org/"
-  url "https://github.com/mfikes/planck/archive/1.17.tar.gz"
-  sha256 "f088acecc25412f901b512478d9fd5acf38c1ff0276f18d45f78ad9a5ce37596"
+  url "https://github.com/mfikes/planck/archive/2.0.0.tar.gz"
+  sha256 "9105264dd55b4c157782e9d7a1fd96ecc6c06cfe1787ee8fc732c9d4ed68c1fb"
   head "https://github.com/mfikes/planck.git"
 
   bottle do
@@ -13,23 +13,17 @@ class Planck < Formula
     sha256 "237e29161849ae72add25713a1e6ce3d3aab357f887cd4864fe10bdde266be35" => :mavericks
   end
 
-  devel do
-    url "https://github.com/mfikes/planck/archive/2.0.0-rc.1.tar.gz"
-    version "2.0.0-rc.1"
-    sha256 "755853ff3712e3867dc252653d2e36faec5db68a561a4138055dbdabc2af1edb"
-    depends_on "cmake" => :build
-    depends_on "pkg-config" => :build
-    depends_on "libzip"
-    depends_on "icu4c"
-  end
-
+  depends_on "libzip"
+  depends_on "icu4c"
+  depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "leiningen" => :build
   depends_on :xcode => :build
   depends_on :macos => :mavericks
 
   def install
     system "./script/build-sandbox"
-    bin.install "build/Release/planck"
+    bin.install "planck-c/build/planck"
   end
 
   test do
