@@ -13,7 +13,6 @@ class Portmidi < Formula
   end
 
   option "with-java", "Build Java-based app and bindings."
-  option :universal
 
   depends_on "cmake" => :build
   depends_on :python => :optional
@@ -29,8 +28,6 @@ class Portmidi < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-
     inreplace "pm_mac/Makefile.osx", "PF=/usr/local", "PF=#{prefix}"
 
     # need to create include/lib directories since make won't create them itself
