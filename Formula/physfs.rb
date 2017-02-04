@@ -14,12 +14,9 @@ class Physfs < Formula
     sha256 "c4d372b4db8a7b0ed8019562cebce7ac59b1778c8a88d27a0d6cd508607826b9" => :mavericks
   end
 
-  option :universal
-
   depends_on "cmake" => :build
 
   def install
-    ENV.universal_binary if build.universal?
     mkdir "macbuild" do
       args = std_cmake_args
       args << "-DPHYSFS_BUILD_TEST=TRUE"
