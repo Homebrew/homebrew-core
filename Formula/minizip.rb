@@ -11,14 +11,11 @@ class Minizip < Formula
     sha256 "60235f0fe3bd432857c27b5c5b912d538925a7a477ff3822ac2af95ea9b00c22" => :yosemite
   end
 
-  option :universal
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--prefix=#{prefix}"
     system "make"
 
