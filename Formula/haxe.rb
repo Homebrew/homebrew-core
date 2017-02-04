@@ -14,11 +14,10 @@ class Haxe < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4865e7dbd816f5fc433390d55c6493fd0b82cab3c1e84038b21ea77fce88c1c2" => :sierra
-    sha256 "131893375697db4a6f747ebec788f9d0d7304b742a3c007f27ea877f561e1e9f" => :el_capitan
-    sha256 "104c2a1e9cc5c0d3ca3ee794a4872e8b25107139106f904c2471162ce278474e" => :yosemite
-    sha256 "1e4c88518c6747bf86345ac67b2e3e2da5d9f3cea3c3917e8837ac4db2083412" => :mavericks
+    cellar :any
+    sha256 "7e98883ce8d4e985f90dc53fcff567593c071cfe563f52932d7390ad2c22185a" => :sierra
+    sha256 "6887bea23db0e6ace873cc01330b956f9d24babb01cd0c8c2471f1be7138e0b4" => :el_capitan
+    sha256 "ef9c72f4a2b47cfc412f86879ba6d30c369eef843cae9c1d0b1585ad1161311c" => :yosemite
   end
 
   depends_on "ocaml" => :build
