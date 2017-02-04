@@ -7,6 +7,7 @@ class GitAnnex < Formula
   homepage "https://git-annex.branchable.com/"
   url "https://hackage.haskell.org/package/git-annex-6.20170101/git-annex-6.20170101.tar.gz"
   sha256 "5fbf88652a84278275d9d4bec083189f590b045e23a73bfe8d395c3e356e3f53"
+  revision 1
   head "git://git-annex.branchable.com/"
 
   bottle do
@@ -27,20 +28,23 @@ class GitAnnex < Formula
   depends_on "quvi"
   depends_on "xdot" => :recommended
 
-  # new maintainer's fork, which will be in Hackage shortly
-  resource "esqueleto" do
-    url "https://github.com/bitemyapp/esqueleto.git",
-        :revision => "bfc8502dbf23251b3794bcd0370a100211297cc5"
-    version "2.5.0-alpha1"
+  # Fix "Text/XML.hs:334:16: error: Couldn't match type 'a0 -> BI.MarkupM a0'
+  # with 'BI.MarkupM ()'"
+  # Upstream PR from 23 Dec 2016 "Allow xml-conduit 1.4"
+  # https://github.com/aristidb/aws/pull/216
+  resource "aws-xml-conduit-patch" do
+    url "https://github.com/aristidb/aws/commit/8ef6f9a.patch"
+    sha256 "341d1b621163bb779fe57258729fa5a53cf63069a97d39679783abd5604111d6"
   end
 
   def install
     cabal_sandbox do
-      (buildpath/"esqueleto").install resource("esqueleto")
-      inreplace "esqueleto/esqueleto.cabal",
-        "base                 >= 4.5     && < 4.9",
-        "base                 >= 4.5     && < 5.0"
-      cabal_sandbox_add_source "esqueleto"
+      system "cabal", "get", "aws"
+      resource("aws-xml-conduit-patch").stage do
+        system "patch", "-d", buildpath/"aws-0.15", "-i",
+                        Pathname.pwd/"8ef6f9a.patch"
+      end
+      cabal_sandbox_add_source "aws-0.15"
       install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
         # this can be made the default behavior again once git-union-merge builds properly when bottling
         if build.with? "git-union-merge"
