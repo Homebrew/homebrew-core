@@ -3,8 +3,8 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://github.com/DocNow/twarc/archive/v1.0.5.tar.gz"
-  sha256 "d980c57bcb9030205dfa233379431f20c6d7e4ce6badc3026b68bcde050084f8"
+  url "https://files.pythonhosted.org/packages/28/d8/e30c3b7af9617519e9eee34bb4d5c5796fca097a80483fbdedf2d2090437/twarc-1.0.7.tar.gz"
+  sha256 "9ab7d0fca49f471e74739d7b8fd6da10900bbeb0f77119a08edd034c8da8cc9a"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,6 +14,11 @@ class Twarc < Formula
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
+
+  resource "appdirs" do
+    url "https://files.pythonhosted.org/packages/bd/66/0a7f48a0f3fb1d3a4072bceb5bbd78b1a6de4d801fb7135578e7c7b1f563/appdirs-1.4.0.tar.gz"
+    sha256 "8fc245efb4387a4e3e0ac8ebcc704582df7d72ff6a42a53f5600bbb18fdaadc5"
+  end
 
   resource "funcsigs" do
     url "https://files.pythonhosted.org/packages/94/4a/db842e7a0545de1cdb0439bb80e6e42dfe82aaeaadd4072f2263a4fbed23/funcsigs-1.0.2.tar.gz"
@@ -30,6 +35,11 @@ class Twarc < Formula
     sha256 "132ad46df25e53a84b33f1fd43f80e973cda2cb018cc0168d7d0c8c4d5cef9b5"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
+    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
+  end
+
   resource "pbr" do
     url "https://files.pythonhosted.org/packages/c3/2c/63275fab26a0fd8cadafca71a3623e4d0f0ee8ed7124a5bb128853d178a7/pbr-1.10.0.tar.gz"
     sha256 "186428c270309e6fdfe2d5ab0949ab21ae5f7dea831eab96701b86bd666af39c"
@@ -40,9 +50,14 @@ class Twarc < Formula
     sha256 "a6501963c725fc2554dabfece8ae9a8fb5e149c0ac0a42fd2b02c5c1c57fc114"
   end
 
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/38/bb/bf325351dd8ab6eb3c3b7c07c3978f38b2103e2ab48d59726916907cd6fb/pyparsing-2.1.10.tar.gz"
+    sha256 "811c3e7b0031021137fc83e051795025fcb98674d07eb8fe922ba4de53d39188"
+  end
+
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/2f/03/0c636d7191255e1737012e5f9c42368f11b55463aeea46fb1955892cab0d/pytest-3.0.4.tar.gz"
-    sha256 "879fee2c1fdbaacd1bf2c0047677c6dd4aee05b9c1e64330b34d130a584fa40d"
+    url "https://files.pythonhosted.org/packages/68/9c/c06dc051b39b817efd31e4c589df7780f7b287d96fab67e90be1f614fc0a/pytest-3.0.6.tar.gz"
+    sha256 "643434a9f1a188271da35e20064cb8b6c5440976c5bb541dc7b5b0e3cf75d940"
   end
 
   resource "python-dateutil" do
