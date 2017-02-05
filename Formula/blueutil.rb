@@ -13,12 +13,9 @@ class Blueutil < Formula
     sha256 "ad5d8d0d865f9d369090698432c822c7842a4b59d8c5bc1627cd54959cb3329c" => :yosemite
   end
 
-  depends_on :xcode => :build
-
   def install
-    # Set to build with SDK=macosx10.6, but it doesn't actually need 10.6
-    xcodebuild "SDKROOT=", "SYMROOT=build"
-    bin.install "build/Release/blueutil"
+    system "make"
+    bin.install "blueutil"
   end
 
   test do
