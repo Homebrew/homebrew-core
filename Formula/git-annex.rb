@@ -7,7 +7,7 @@ class GitAnnex < Formula
   homepage "https://git-annex.branchable.com/"
   url "https://hackage.haskell.org/package/git-annex-6.20170101/git-annex-6.20170101.tar.gz"
   sha256 "5fbf88652a84278275d9d4bec083189f590b045e23a73bfe8d395c3e356e3f53"
-  revision 1
+  revision 2
   head "git://git-annex.branchable.com/"
 
   bottle do
@@ -28,30 +28,21 @@ class GitAnnex < Formula
   depends_on "quvi"
   depends_on "xdot" => :recommended
 
-  # Fix "Text/XML.hs:334:16: error: Couldn't match type 'a0 -> BI.MarkupM a0'
-  # with 'BI.MarkupM ()'"
-  # Upstream PR from 23 Dec 2016 "Allow xml-conduit 1.4"
-  # https://github.com/aristidb/aws/pull/216
-  resource "aws-xml-conduit-patch" do
-    url "https://github.com/aristidb/aws/commit/8ef6f9a.patch"
-    sha256 "341d1b621163bb779fe57258729fa5a53cf63069a97d39679783abd5604111d6"
-  end
-
   def install
-    cabal_sandbox do
-      system "cabal", "get", "aws"
-      resource("aws-xml-conduit-patch").stage do
-        system "patch", "-d", buildpath/"aws-0.15", "-i",
-                        Pathname.pwd/"8ef6f9a.patch"
-      end
-      cabal_sandbox_add_source "aws-0.15"
-      install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
-        # this can be made the default behavior again once git-union-merge builds properly when bottling
-        if build.with? "git-union-merge"
-          system "make", "git-union-merge", "PREFIX=#{prefix}"
-          bin.install "git-union-merge"
-          system "make", "git-union-merge.1", "PREFIX=#{prefix}"
-        end
+    # aws-0.16 compatibility
+    # Avoid the build failure "Remote/S3.hs:224:49: error: The constructor
+    # 'S3.UploadPartResponse' should have 1 argument, but has been given 2"
+    # Fix taken from upstream report from 5 Feb 2017 https://git-annex.branchable.com/bugs/aws_0.16_breaking_changes/
+    inreplace "Remote/S3.hs",
+      "S3.UploadPartResponse _ etag <- sendS3Handle h req",
+      "S3.UploadPartResponse { S3.uprETag = etag } <- sendS3Handle h req"
+
+    install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
+      # this can be made the default behavior again once git-union-merge builds properly when bottling
+      if build.with? "git-union-merge"
+        system "make", "git-union-merge", "PREFIX=#{prefix}"
+        bin.install "git-union-merge"
+        system "make", "git-union-merge.1", "PREFIX=#{prefix}"
       end
     end
     bin.install_symlink "git-annex" => "git-annex-shell"
