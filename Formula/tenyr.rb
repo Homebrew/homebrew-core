@@ -50,9 +50,10 @@ class Tenyr < Formula
     system "make", *args
 
     pkgshare.install "rsrc", "plugins"
-    Dir.chdir(builddir)
-    bin.install "tsim", "tas", "tld"
-    lib.install Dir["*.dylib"]
+    cd builddir do
+      bin.install "tsim", "tas", "tld"
+      lib.install Dir["*.dylib"]
+    end
   end
 
   test do
