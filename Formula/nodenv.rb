@@ -14,15 +14,6 @@ class Nodenv < Formula
     prefix.install "bin", "libexec", "completions"
   end
 
-  def caveats; <<-EOS.undent
-    To use Homebrew's directories rather than ~/.nodenv add to your profile:
-      export NODENV_ROOT=#{var}/nodenv
-
-    To enable shims and autocompletion add to your profile:
-      if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
-    EOS
-  end
-
   test do
     shell_output("eval \"$(#{bin}/nodenv init -)\" && nodenv --version")
   end
