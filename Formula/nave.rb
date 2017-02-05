@@ -1,8 +1,8 @@
 class Nave < Formula
   desc "Virtual environments for Node.js"
   homepage "https://github.com/isaacs/nave"
-  url "https://github.com/isaacs/nave/archive/v1.0.1.tar.gz"
-  sha256 "9ba408d795a33f2df0ada548ea962bfbff75ea179ceabf5bc1c1a786e45ba26e"
+  url "https://github.com/isaacs/nave/archive/v2.1.0.tar.gz"
+  sha256 "1785ed898a4cfd3e5451aaa2cf9e236ceebe810f01bf8f9eb51722298b59f62e"
   head "https://github.com/isaacs/nave.git"
 
   bottle :unneeded
