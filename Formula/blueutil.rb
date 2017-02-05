@@ -14,8 +14,11 @@ class Blueutil < Formula
   end
 
   def install
-    system "make"
-    bin.install "blueutil"
+    bin.mkpath
+    inreplace "Makefile",
+      "@echo $(INSTALL_PROGRAM) blueutil $(DESTDIR)$(bindir)/blueutil",
+             "$(INSTALL_PROGRAM) blueutil #{bin}/blueutil"
+    system "make", "install"
   end
 
   test do
