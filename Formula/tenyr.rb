@@ -57,6 +57,10 @@ class Tenyr < Formula
   end
 
   test do
-    system "make", "check_sim"
+    # sanity test assembler, linker and simulator
+    `echo 'B <- 9'     | tas --output=a.to -`
+    `echo 'C <- B * 3' | tas --output=b.to -`
+    `tld --output=test.texe a.to b.to`
+    `tsim -vvvv test.texe | grep -o 'C [0-9a-f]\\{8\\}' | tail -n1` == "C 0000001b\n"
   end
 end
