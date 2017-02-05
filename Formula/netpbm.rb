@@ -2,10 +2,11 @@ class Netpbm < Formula
   desc "Image manipulation"
   homepage "http://netpbm.sourceforge.net"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
-  # for stable versions and matching revisions
-  url "http://svn.code.sf.net/p/netpbm/code/advanced", :revision => 2825
-  version "10.76"
-  revision 2
+  # for stable versions and matching revisions.
+  url "http://svn.code.sf.net/p/netpbm/code/stable", :revision => 2885
+  version "10.73.07"
+  version_scheme 1
+
   head "http://svn.code.sf.net/p/netpbm/code/trunk"
 
   bottle do
