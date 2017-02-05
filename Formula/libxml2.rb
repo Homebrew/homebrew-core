@@ -11,9 +11,9 @@ class Libxml2 < Formula
     # All patches upstream already. Remove whenever 2.9.5 is released.
     # Fixes CVE-2016-4658, CVE-2016-5131.
     patch do
-      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.1.debian.tar.xz"
-      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.1.debian.tar.xz"
-      sha256 "e71790a415e5d6b4a6490040d946d584fa79465571da3b186cc67b8f064cd104"
+      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.2.debian.tar.xz"
+      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.2.debian.tar.xz"
+      sha256 "c038bba02a56164cef7728509ba3c8f1856018573769ee9ffcc48c565e90bdc9"
       apply "patches/0003-Fix-NULL-pointer-deref-in-XPointer-range-to.patch",
             "patches/0004-Fix-comparison-with-root-node-in-xmlXPathCmpNodes.patch",
             "patches/0005-Fix-XPointer-paths-beginning-with-range-to.patch",
