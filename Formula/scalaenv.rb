@@ -28,15 +28,6 @@ class Scalaenv < Formula
     (var_lib/"plugins").install_symlink "#{prefix}/default-plugins/scala-install"
   end
 
-  def caveats; <<-EOS.undent
-    To use Homebrew's directories rather than ~/.scalaenv add to your profile:
-      export SCALAENV_ROOT=#{var}/scalaenv
-
-    To enable shims and autocompletion add to your profile:
-      eval "$(scalaenv init -)"
-    EOS
-  end
-
   test do
     shell_output("eval \"$(#{bin}/scalaenv init -)\" && scalaenv versions")
   end
