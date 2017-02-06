@@ -1,8 +1,10 @@
 class Fail2ban < Formula
   desc "Scan log files and ban IPs showing malicious signs"
   homepage "http://www.fail2ban.org/"
-  url "https://github.com/fail2ban/fail2ban/archive/0.8.14.tar.gz"
-  sha256 "2d579d9f403eb95064781ffb28aca2b258ca55d7a2ba056a8fa2b3e6b79721f2"
+  url "https://github.com/fail2ban/fail2ban/archive/0.9.4.tar.gz"
+  sha256 "870b99dd0110f10d705d0ca5743d42d358e0b5a0a4de8b69ed1d41b40dd98fa4"
+
+  head "https://github.com/fail2ban/fail2ban.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,6 +13,11 @@ class Fail2ban < Formula
     sha256 "1c546abfdb096457c188bd32f97f95368c9e11e0d9eb0b44172e130083b26205" => :el_capitan
     sha256 "024aff8d53788e55039de105bef04036b97cdde3b62a67a750a5b748f2b5389a" => :yosemite
     sha256 "f39d0f4aa122b1e40ce05ad9010901beefacd560c5d84960eed4448daa3915f2" => :mavericks
+  end
+
+  devel do
+    url "https://github.com/fail2ban/fail2ban/archive/0.10.tar.gz"
+    sha256 "0ba941d3c419ef31a42654c20e4a371615b0713326921defa92aea4fda9c8cd8"
   end
 
   def install
