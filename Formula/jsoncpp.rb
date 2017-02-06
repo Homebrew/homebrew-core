@@ -12,8 +12,6 @@ class Jsoncpp < Formula
     sha256 "9f33d38dc6d459622705c4982204e0eea49a5d9a14440a032695dd1b72214cad" => :yosemite
   end
 
-  option :universal
-
   needs :cxx11
 
   depends_on "cmake" => :build
@@ -28,10 +26,6 @@ class Jsoncpp < Formula
       -DJSONCPP_WITH_TESTS=OFF
       -DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF
     ]
-    if build.universal?
-      ENV.universal_binary
-      cmake_args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
     system "cmake", ".", *cmake_args
     system "make", "install"
   end
