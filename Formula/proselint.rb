@@ -7,6 +7,13 @@ class Proselint < Formula
   sha256 "094d808d44bf1a60dcb1465749be5cc44f4f6c146c04bc5f28976a833786e830"
   head "https://github.com/amperser/proselint.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "687c89e0c258892d4828b56f11b9329a31369a9db73a90c1247ab6bf383da671" => :sierra
+    sha256 "933de5180619d51cd5c025b532975f50f8b150d95a805b099662e14825a860a2" => :el_capitan
+    sha256 "a98c0d9911557b387cf745985b4928be442eb87d2364f639c9041456349fbd8e" => :yosemite
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "click" do
