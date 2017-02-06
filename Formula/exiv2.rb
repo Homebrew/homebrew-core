@@ -20,10 +20,7 @@ class Exiv2 < Formula
     depends_on "libssh"
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     if build.head?
       args = std_cmake_args
       args += %W[
