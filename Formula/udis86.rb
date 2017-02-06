@@ -12,10 +12,7 @@ class Udis86 < Formula
     sha256 "84b56e3d62695b2c39c2c450d94fcd258439baedbcd68980a19b685f2e2b95c9" => :mavericks
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--prefix=#{prefix}",
                           "--enable-shared"
     system "make"

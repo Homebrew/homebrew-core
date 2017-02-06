@@ -13,8 +13,6 @@ class Graphite2 < Formula
     sha256 "a483f552d39ed4d3dbfb3abb73301fe273b81fb4842c67b294f96dc25f353ac2" => :yosemite
   end
 
-  option :universal
-
   depends_on "cmake" => :build
 
   resource "testfont" do
@@ -23,8 +21,6 @@ class Graphite2 < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "cmake", *std_cmake_args
     system "make", "install"
   end

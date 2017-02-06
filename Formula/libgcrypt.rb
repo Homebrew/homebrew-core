@@ -12,8 +12,6 @@ class Libgcrypt < Formula
     sha256 "461822c0429c16e33c2c5f8be173fedc3228cea786683e463ae628789ea6c1e1" => :yosemite
   end
 
-  option :universal
-
   depends_on "libgpg-error"
 
   resource "config.h.ed" do
@@ -30,19 +28,12 @@ class Libgcrypt < Formula
     # https://github.com/Homebrew/homebrew-core/issues/1957
     ENV.O1 if DevelopmentTools.clang_build_version >= 800
 
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-static",
                           "--prefix=#{prefix}",
                           "--disable-asm",
                           "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}"
-
-    if build.universal?
-      buildpath.install resource("config.h.ed")
-      system "ed -s - config.h <config.h.ed"
-    end
 
     # Parallel builds work, but only when run as separate steps
     system "make"

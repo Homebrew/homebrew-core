@@ -13,7 +13,6 @@ class Libmicrohttpd < Formula
   end
 
   option "with-ssl", "Enable SSL support"
-  option :universal
 
   if build.with? "ssl"
     depends_on "libgcrypt"
@@ -21,8 +20,6 @@ class Libmicrohttpd < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-
     # Remove for > 0.9.52
     # Equivalent to upstream commit from 11 Nov 2016 https://gnunet.org/git/libmicrohttpd.git/commit/?id=52e995c0a7741967ab68883a63a8c7e70a4589ee
     # "mhd_itc.c: fixed typo preventing build on Solaris and other systems"

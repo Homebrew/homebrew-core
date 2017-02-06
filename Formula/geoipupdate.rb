@@ -17,11 +17,7 @@ class Geoipupdate < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
-
     system "./bootstrap" if build.head?
 
     system "./configure", "--disable-dependency-tracking",

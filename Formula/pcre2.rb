@@ -14,11 +14,7 @@ class Pcre2 < Formula
     sha256 "64f26a62c8d94ced2b82d41d1dae3485d95639daaf8806aea9fb5f063d27690c" => :mavericks
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-pcre2-16",

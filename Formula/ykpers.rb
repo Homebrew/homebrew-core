@@ -12,14 +12,11 @@ class Ykpers < Formula
     sha256 "708fcea4a38578c8dabe046c07d8705bb8d1874c8b389c46e2edd6bc4f8b1d5c" => :mavericks
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "libyubikey"
   depends_on "json-c" => :recommended
 
   def install
-    ENV.universal_binary if build.universal?
     libyubikey_prefix = Formula["libyubikey"].opt_prefix
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

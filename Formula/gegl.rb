@@ -20,8 +20,6 @@ class Gegl < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
-
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "babl"
@@ -43,14 +41,6 @@ class Gegl < Formula
       --prefix=#{prefix}
       --disable-docs
     ]
-
-    if build.universal?
-      ENV.universal_binary
-      # ffmpeg's formula is currently not universal-enabled
-      argv << "--without-libavformat"
-
-      opoo "Compilation may fail at gegl-cpuaccel.c using gcc for a universal build" if ENV.compiler == :gcc
-    end
 
     system "./autogen.sh" if build.head?
     system "./configure", *argv

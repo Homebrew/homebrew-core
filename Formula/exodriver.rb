@@ -14,13 +14,9 @@ class Exodriver < Formula
     sha256 "bcc5eea01c69b14b1a2f3256105523016294ae54f9e026f03fbd4f65f7ce5c66" => :mavericks
   end
 
-  option :universal
-
   depends_on "libusb"
 
   def install
-    ENV.universal_binary if build.universal?
-
     cd "liblabjackusb"
     system "make", "-f", "Makefile",
                    "DESTINATION=#{lib}",

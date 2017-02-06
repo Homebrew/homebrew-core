@@ -13,11 +13,7 @@ class Libyubikey < Formula
     sha256 "53122ea8a869ed5c811273df1c2767e46138797f1af122db93beda2b7254b407" => :mountain_lion
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end

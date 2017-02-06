@@ -11,14 +11,10 @@ class Libtermkey < Formula
     sha256 "d8bbe8d3e78821cd3785c7582ed7355ea74e966a3572abd92499db014907fefa" => :yosemite
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end

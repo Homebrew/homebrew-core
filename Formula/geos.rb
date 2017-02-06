@@ -11,7 +11,6 @@ class Geos < Formula
     sha256 "5b20acb4dfa59515be97f9f731f497c59d11deee2547ca61191b0da4eb8cf735" => :yosemite
   end
 
-  option :universal
   option :cxx11
   option "with-php", "Build the PHP extension"
   option "without-python", "Do not build the Python extension"
@@ -20,7 +19,6 @@ class Geos < Formula
   depends_on "swig" => :build if build.with?("python") || build.with?("ruby")
 
   def install
-    ENV.universal_binary if build.universal?
     ENV.cxx11 if build.cxx11?
 
     # https://trac.osgeo.org/geos/ticket/771

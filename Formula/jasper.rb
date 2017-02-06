@@ -10,14 +10,10 @@ class Jasper < Formula
     sha256 "7f4fb674c6ffa1d14d5651da60d2a5e20acca9a7abd1e321c385d0cb6e87778d" => :yosemite
   end
 
-  option :universal
-
   depends_on "cmake" => :build
   depends_on "jpeg"
 
   def install
-    ENV.universal_binary if build.universal?
-
     mkdir "build" do
       # Make sure macOS's GLUT.framework is used, not XQuartz or freeglut
       # Reported to CMake upstream 4 Apr 2016 https://gitlab.kitware.com/cmake/cmake/issues/16045

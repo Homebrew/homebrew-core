@@ -14,13 +14,10 @@ class LibusbCompat < Formula
     sha256 "239e6f2a527713c38b4e802cd25b80fbb01af30a88a36b77b591f5e95890511f" => :mountain_lion
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "libusb"
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
   end

@@ -14,13 +14,9 @@ class Geoip < Formula
     sha256 "5ee66187d1b4510fd463ebb8bf360c2d78a4252467a0e10e905a2a3502f9bcaa" => :mavericks
   end
 
-  option :universal
-
   depends_on "geoipupdate" => :optional
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--datadir=#{var}",
