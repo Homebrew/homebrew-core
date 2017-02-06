@@ -7,11 +7,10 @@ class Tenyr < Formula
   head "https://github.com/kulp/tenyr.git", :branch => "develop"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8ffa29217b05ea8f74719b43369b483f0ad20ba1534b80b430e22f585b1dbc44" => :sierra
-    sha256 "21f73763ac69ceca9e98ac6c8bc471772b6337ecc18acf13faabdaaabd01e25a" => :el_capitan
-    sha256 "180229f9b3855dcb64225c1e5b1ea22105f3931146d2b818d61a5f9058f5fbb7" => :yosemite
-    sha256 "c20b4f63feb6150edc2e46222eed8329d0e8e5bb8bdfa3f84a87059ed03d95a4" => :mavericks
+    cellar :any
+    sha256 "2f79f0c17315ce2c7c6466632d83c5b90806257da76a9faf6cfee133e3e4e0c8" => :sierra
+    sha256 "730aada10b54b088a4a48d24c00885a0928b70a7b95b424b6d2bdb2130e5af6d" => :el_capitan
+    sha256 "a7f0be7a6661480330e68f655eb67d5e0fe5a1bbd360ad2a2032eba45c595d96" => :yosemite
   end
 
   # pkg-config is used after v0.9.3 for sdl2, instead of sdl2-config
