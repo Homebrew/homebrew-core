@@ -3,8 +3,8 @@ class Logstash < Formula
   homepage "https://www.elastic.co/products/logstash"
 
   stable do
-    url "https://artifacts.elastic.co/downloads/logstash/logstash-5.1.2.tar.gz"
-    sha256 "ffa4e370c6834f8e2591a23147a74a8cea04509efc6cf8c02b5cc563455c559c"
+    url "https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.tar.gz"
+    sha256 "f371d20127fb9b34a6575ba0d69fa764df73718eda02adc177a85fd3117500f0"
   end
 
   head do

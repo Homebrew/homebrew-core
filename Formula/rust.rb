@@ -3,25 +3,25 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.14.0-src.tar.gz"
-    sha256 "c790edd2e915bd01bea46122af2942108479a2fda9a6f76d1094add520ac3b6b"
+    url "https://static.rust-lang.org/dist/rustc-1.15.0-src.tar.gz"
+    sha256 "33f3747d231ede34b56c6cc0ae6be8cbaa29d2fdb39d86f25693dceb9fc5f164"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.15.0",
-          :revision => "298a0127f703d4c2500bb06d309488b92ef84ae1"
+          :tag => "0.16.0",
+          :revision => "6e0c18cccc8b0c06fba8a8d76486f81a792fb420"
     end
 
     resource "racer" do
-      url "https://github.com/phildawes/racer/archive/2.0.4.tar.gz"
-      sha256 "e30e383af4d01695e35d420e36c9b2cf462337f680497ae14c09388f14c53809"
+      url "https://github.com/phildawes/racer/archive/2.0.5.tar.gz"
+      sha256 "370e8e2661b379185667001884b51bdc4b414abdc27bb9671513c1912ad8be25"
     end
   end
 
   bottle do
-    sha256 "0dd055001c2bc70f2efd9c68209f70c6facb1cc86101939adfe3377ab4b022fc" => :sierra
-    sha256 "48b79dd13d9bd51b6f23255a640e86706fc239154659c2df621c76b25f00f87b" => :el_capitan
-    sha256 "0a4d37a134ec0d23e48bcdf0aab43154d38a619fa84c879bffc6bafc6639cdca" => :yosemite
+    sha256 "17210109dfa87d23dbca90befbae311d9e570d27f1122b710954b59e2ccea8fe" => :sierra
+    sha256 "881094ef4a3e3c0dda93a4976d8598415640899cee6845627075920c54229f3f" => :el_capitan
+    sha256 "a19d9b58a78caba0c738bebd06035a5cfb2b0129bac9a374a0199e010a195434" => :yosemite
   end
 
   head do
@@ -51,9 +51,9 @@ class Rust < Formula
   end
 
   resource "cargobootstrap" do
-    version "2016-11-02"
-    url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2016-11-02/cargo-nightly-x86_64-apple-darwin.tar.gz"
-    sha256 "3bfb2e3e7292a629b86b9fad1d7d6ea9531bb990964c02005305c5cea3a579d9"
+    url "https://s3.amazonaws.com/rust-lang-ci/cargo-builds/fbeea902d2c9a5be6d99cc35681565d8f7832592/cargo-nightly-x86_64-apple-darwin.tar.gz"
+    version "2016-12-15"
+    sha256 "ad6c31b41fef1d68e4523eb7d090fe8103848f30eb5ac8cba5128b7c11ed23fc"
   end
 
   def install

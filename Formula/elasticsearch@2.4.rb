@@ -83,7 +83,7 @@ class ElasticsearchAT24 < Formula
           <string>#{plist_name}</string>
           <key>ProgramArguments</key>
           <array>
-            <string>#{HOMEBREW_PREFIX}/bin/elasticsearch</string>
+            <string>#{opt_bin}/elasticsearch</string>
           </array>
           <key>EnvironmentVariables</key>
           <dict>

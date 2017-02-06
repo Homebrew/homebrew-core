@@ -20,13 +20,30 @@ class Hub < Formula
   end
 
   option "without-completions", "Disable bash/zsh completions"
+  option "without-docs", "Don't install man pages"
 
   depends_on "go" => :build
 
   def install
-    system "script/build", "-o", "hub"
-    bin.install "hub"
-    man1.install Dir["man/*"]
+    if build.stable?
+      system "script/build", "-o", "hub"
+      bin.install "hub"
+      man1.install Dir["man/*"] if build.with? "docs"
+    elsif build.with? "docs"
+      begin
+        deleted = ENV.delete "SDKROOT"
+        ENV["GEM_HOME"] = buildpath/"gem_home"
+        system "gem", "install", "bundle"
+        ENV.prepend_path "PATH", buildpath/"gem_home/bin"
+        system "make", "man-pages"
+      ensure
+        ENV["SDKROOT"] = deleted
+      end
+      system "make", "install", "prefix=#{prefix}"
+    else
+      system "script/build", "-o", "hub"
+      bin.install "hub"
+    end
 
     if build.with? "completions"
       bash_completion.install "etc/hub.bash_completion.sh"

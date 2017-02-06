@@ -1,24 +1,20 @@
 class Eigen < Formula
   desc "C++ template library for linear algebra"
   homepage "https://eigen.tuxfamily.org/"
-  url "https://bitbucket.org/eigen/eigen/get/3.3.1.tar.bz2"
-  sha256 "a0b4cebaabd8f371d1b364f9723585fbcc7c9640ca60273b99835e6cf115f056"
+  url "https://bitbucket.org/eigen/eigen/get/3.3.2.tar.bz2"
+  sha256 "3e1fa6e8c45635938193f84fee6c35a87fac26ee7c39c68c230e5080c4a8fe98"
   head "https://bitbucket.org/eigen/eigen", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e0a5c96d5bbe5f9dcd7ffc4e75d2c83dd92d40f953623a96dc3705799b9a3ce3" => :sierra
-    sha256 "9ef7e849e5496407789e2113a25097b1a797086eba6d8350a020a3905fcb0f1a" => :el_capitan
-    sha256 "9ef7e849e5496407789e2113a25097b1a797086eba6d8350a020a3905fcb0f1a" => :yosemite
+    sha256 "141c35bade90aea1f3fcca7652dd7a28850467986aef26aa887370f5a0bf28fa" => :sierra
+    sha256 "26ef36ab67b11af368ac89fb1e6209136d3f9992bb825deec7399527fe75fa39" => :el_capitan
+    sha256 "141c35bade90aea1f3fcca7652dd7a28850467986aef26aa887370f5a0bf28fa" => :yosemite
   end
-
-  option :universal
 
   depends_on "cmake" => :build
 
   def install
-    ENV.universal_binary if build.universal?
-
     mkdir "eigen-build" do
       args = std_cmake_args
       args << "-Dpkg_config_libdir=#{lib}" << ".."

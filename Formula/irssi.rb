@@ -1,14 +1,13 @@
 class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
-  url "https://github.com/irssi/irssi/releases/download/1.0.0/irssi-1.0.0.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/irssi/irssi_1.0.0.orig.tar.xz"
-  sha256 "6a8a3c1fc6a021a2c02a693877b2e19cbceb3eccd78fce49e44f596f4bae4fb8"
+  url "https://github.com/irssi/irssi/releases/download/1.0.1/irssi-1.0.1.tar.xz"
+  sha256 "9428c51a3f3598ffaef438c351a8d609cf10db34f2435bdcb84456226c383ccf"
 
   bottle do
-    sha256 "b863efe197d8cba9fb5c1ca13f552ab98123c567270a91a3912f89d30911e3ff" => :sierra
-    sha256 "09cf4ed04eb3ab19f8f8c5a14e1c87ce866226068912c68d0abbbe4794b43c33" => :el_capitan
-    sha256 "5eb503b3ac4d7ae39ea172e8bfe9204c0d64e93ae74fbff93662f188c3e1c6c5" => :yosemite
+    sha256 "584a3fce1c417ce190b0d7bc956a73244b7becd64da91b367e81ca3f3e387887" => :sierra
+    sha256 "2a3ea4ea9cf1ae9340634138834eed249d0a960a81f7a2d3a07cf5febdc6e91b" => :el_capitan
+    sha256 "ba8ce35490ca58ffdc001dc352a04d23b2e849bbd3229f073e3224d8bbd258c4" => :yosemite
   end
 
   head do

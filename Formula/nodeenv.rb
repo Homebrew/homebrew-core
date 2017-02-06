@@ -3,14 +3,14 @@ class Nodeenv < Formula
 
   desc "Node.js virtual environment builder"
   homepage "https://github.com/ekalinin/nodeenv"
-  url "https://files.pythonhosted.org/packages/a0/d0/a7f6443901894a6c93db42e7fa2f2e2135ca2fcb5f466b8e21cce49d596e/nodeenv-1.1.0.tar.gz"
-  sha256 "4a592f8cb891c4894113007be8f5d886a215695ef2e6f84ddf8a0be979c2879a"
+  url "https://files.pythonhosted.org/packages/79/c1/c772f1e2beb5c67a1ce750a07e9ab790d44b9ff89cd9ff4356197ab68a8c/nodeenv-1.1.2.tar.gz"
+  sha256 "6e5e54b2520aff970a8a161750dedecc196b396b9436247859128e53ff7aa074"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d3149f4b11bf66ddccc613e1446312db08d9e148020e07b837ccca76a80899e6" => :sierra
-    sha256 "1b36e1a6c3a00127d5cfc87149efb68c18a8d4744b28bea67ee791bd251bd594" => :el_capitan
-    sha256 "dd14be6825ada729dc47ba64feb05b67dfe5c8071af0bff8bc85db74d82a8b04" => :yosemite
+    sha256 "d36e410297cf9fcd4970ee07a91343390b0f5e1b38bf830987cc5710f6c42b8b" => :sierra
+    sha256 "7c97359ed2b57939aac392229d0e9cef0fe0942c5f7c23fd203c9ebb7111fd5c" => :el_capitan
+    sha256 "b776c11f551766eb8756da7bf9dd27caf60eaa805cf7d0ed07c7e8ce0d915565" => :yosemite
   end
 
   def install
