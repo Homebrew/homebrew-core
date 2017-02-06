@@ -17,15 +17,11 @@ class Jbigkit < Formula
   head "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit",
        :using => :git
 
-  option :universal
   option "with-test", "Verify the library during install"
 
   deprecated_option "with-check" => "with-test"
 
   def install
-    # Set for a universal build and patch the Makefile.
-    # There's no configure. It creates a static lib.
-    ENV.universal_binary if build.universal?
     system "make", "CC=#{ENV.cc}", "CCFLAGS=#{ENV.cflags}"
 
     if build.with? "test"
