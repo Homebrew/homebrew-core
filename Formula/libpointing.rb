@@ -1,8 +1,8 @@
 class Libpointing < Formula
   desc "Provides direct access to HID pointing devices"
   homepage "http://libpointing.org"
-  url "https://github.com/INRIA/libpointing/releases/download/v1.0.3/libpointing-mac-1.0.3.tar.gz"
-  sha256 "0c0461bb7470595650fd34735283a21ba7fafe9e476887ef8e63b7b35c040e90"
+  url "https://github.com/INRIA/libpointing/releases/download/v1.0.4/libpointing-mac-1.0.4.tar.gz"
+  sha256 "2218beccc1b7b3f5df6b6a9f6fc14e9673d7215726c7c15c7daf66c1ac7ad729"
 
   bottle do
     cellar :any
