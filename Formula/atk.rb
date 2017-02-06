@@ -10,14 +10,11 @@ class Atk < Formula
     sha256 "5f9a612ac3616d720a14f148f19e0a4d3a2259d58fc18edc548443635bc28f48" => :yosemite
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-introspection=yes"
