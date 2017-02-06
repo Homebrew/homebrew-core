@@ -14,10 +14,7 @@ class Cppunit < Formula
     sha256 "0494ee4b157acec4c86c4d26a2c1155e71e11e5dc3a897ae1888a3da4edbb21f" => :mountain_lion
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
