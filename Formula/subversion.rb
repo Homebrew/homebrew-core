@@ -16,7 +16,6 @@ class Subversion < Formula
   deprecated_option "perl" => "with-perl"
   deprecated_option "ruby" => "with-ruby"
 
-  option :universal
   option "with-java", "Build Java bindings"
   option "with-perl", "Build Perl bindings"
   option "with-ruby", "Build Ruby bindings"
@@ -77,8 +76,6 @@ class Subversion < Formula
       # Passing 0 as the `unique` kwarg turns this behaviour off.
       inreplace "SConstruct", "unique=1", "unique=0"
 
-      ENV.universal_binary if build.universal?
-
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[
         PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
@@ -95,17 +92,7 @@ class Subversion < Formula
       # Java support doesn't build correctly in parallel:
       # https://github.com/Homebrew/homebrew/issues/20415
       ENV.deparallelize
-
-      unless build.universal?
-        opoo "A non-Universal Java build was requested."
-        puts <<-EOS.undent
-        To use Java bindings with various Java IDEs, you might need a universal build:
-          `brew install subversion --universal --java`
-        EOS
-      end
     end
-
-    ENV.universal_binary if build.universal?
 
     # Use existing system zlib
     # Use dep-provided other libraries
@@ -135,13 +122,6 @@ class Subversion < Formula
       args << "RUBY=/usr/bin/ruby"
     end
 
-    # If Python is built universally, then extensions built with that Python
-    # are too. This default behaviour is not desired when building an extension
-    # for a single architecture.
-    if build.with?("python") && (which "python").universal? && !build.universal?
-      ENV["ARCHFLAGS"] = "-arch #{MacOS.preferred_arch}"
-    end
-
     # The system Python is built with llvm-gcc, so we override this
     # variable to prevent failures due to incompatible CFLAGS
     ENV["ac_cv_python_compile"] = ENV.cc
@@ -168,9 +148,7 @@ class Subversion < Formula
       # In theory SWIG can be built in parallel, in practice...
       ENV.deparallelize
       # Remove hard-coded ppc target, add appropriate ones
-      if build.universal?
-        arches = Hardware::CPU.universal_archs.as_arch_flags
-      elsif MacOS.version <= :leopard
+      if MacOS.version <= :leopard
         arches = "-arch #{Hardware::CPU.arch_32_bit}"
       else
         arches = "-arch #{Hardware::CPU.arch_64_bit}"
@@ -252,21 +230,21 @@ index 445251b..6ff4332 100755
 +++ b/configure
 @@ -26153,6 +26153,8 @@ fi
  SWIG_CPPFLAGS="$CPPFLAGS"
- 
+
    SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-no-cpp-precomp //'`
 +  SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-F\/[^ ]* //'`
 +  SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-isystem\/[^ ]* //'`
- 
- 
+
+
    SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-Wdate-time //'`
 diff --git a/subversion/bindings/swig/perl/native/Makefile.PL.in b/subversion/bindings/swig/perl/native/Makefile.PL.in
 index a60430b..bd9b017 100644
 --- a/subversion/bindings/swig/perl/native/Makefile.PL.in
 +++ b/subversion/bindings/swig/perl/native/Makefile.PL.in
 @@ -76,10 +76,13 @@ my $apr_ldflags = '@SVN_APR_LIBS@'
- 
+
  chomp $apr_shlib_path_var;
- 
+
 +my $config_ccflags = $Config{ccflags};
 +$config_ccflags =~ s/-arch\s+\S+//g;
 +
