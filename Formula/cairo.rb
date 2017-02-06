@@ -25,8 +25,6 @@ class Cairo < Formula
 
   keg_only :provided_pre_mountain_lion
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on :x11 => :optional if MacOS.version > :leopard
   depends_on "freetype"
@@ -36,8 +34,6 @@ class Cairo < Formula
   depends_on "glib"
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
