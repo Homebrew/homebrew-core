@@ -13,7 +13,6 @@ class Glfw < Formula
     sha256 "ecfc037c61cedd936d230880dd052691e8c07c4f10c3c95ccde4d8bc4e3f5e35" => :yosemite
   end
 
-  option :universal
   option "without-shared-library", "Build static library only (defaults to building dylib only)"
   option "with-examples", "Build examples"
   option "with-test", "Build test programs"
@@ -26,13 +25,10 @@ class Glfw < Formula
   deprecated_option "with-tests" => "with-test"
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = std_cmake_args + %w[
       -DGLFW_USE_CHDIR=TRUE
       -DGLFW_USE_MENUBAR=TRUE
     ]
-    args << "-DGLFW_BUILD_UNIVERSAL=TRUE" if build.universal?
     args << "-DBUILD_SHARED_LIBS=TRUE" if build.with? "shared-library"
     args << "-DGLFW_BUILD_EXAMPLES=TRUE" if build.with? "examples"
     args << "-DGLFW_BUILD_TESTS=TRUE" if build.with? "test"
