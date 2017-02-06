@@ -12,8 +12,6 @@ class Gts < Formula
     sha256 "b6e2ce541c5b4b46076843076c6842723a896afa36619cfab8155194795c9817" => :mavericks
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
@@ -24,7 +22,6 @@ class Gts < Formula
   patch :DATA
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
 
