@@ -11,10 +11,7 @@ class Jansson < Formula
     sha256 "03a6016b16023b314916147e7ece853c39450a249644fceb2dac3a0417b11fdc" => :yosemite
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
