@@ -58,9 +58,13 @@ class Tenyr < Formula
 
   test do
     # sanity test assembler, linker and simulator
-    `echo 'B <- 9'     | tas --output=a.to -`
-    `echo 'C <- B * 3' | tas --output=b.to -`
-    `tld --output=test.texe a.to b.to`
-    `tsim -vvvv test.texe | grep -o 'C [0-9a-f]\\{8\\}' | tail -n1` == "C 0000001b\n"
+    (testpath/"part1").write "B <- 9\n"
+    (testpath/"part2").write "C <- B * 3\n"
+
+    system "#{bin}/tas", "--output=a.to", "part1"
+    system "#{bin}/tas", "--output=b.to", "part2"
+    system "#{bin}/tld", "--output=test.texe", "a.to", "b.to"
+
+    assert_match "C 0000001b", `tsim -vvvv test.texe`
   end
 end
