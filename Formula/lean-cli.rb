@@ -6,9 +6,10 @@ class LeanCli < Formula
   head "https://github.com/leancloud/lean-cli.git"
 
   bottle do
-    sha256 "f6cc6aac4dcd67b5a1fbaad3086536b7236cf71d4d31e3a9f0925443dc683387" => :sierra
-    sha256 "3e13d01871000ec5f59d9f04c3c1124857b717de56baf96bea1f157f3af75687" => :el_capitan
-    sha256 "8c2e74e0c6fb357e5f1714592a328f1130bca52a0b610d307236b3f5289abec3" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "d1822c4209f234d0e6876a05672bfeed9138b8cd83ba895da97a7c11873dc609" => :sierra
+    sha256 "3df59a79a5012e027fdfc607e2998f73e6769dcafa22a67fec39dd2f366bb270" => :el_capitan
+    sha256 "81421c18d44f5c95027eb74996573fe2a1266f521d65199331836cd5cb1c2ea4" => :yosemite
   end
 
   depends_on "go" => :build
