@@ -29,7 +29,6 @@ class Freerdp < Formula
     sha256 "a371c32a6fd8c6ccd28dad7260ecc84b042128f157aa85f2e2ffe9efcc19e0bc" => :yosemite
   end
 
-
   devel do
     url "https://github.com/FreeRDP/FreeRDP/archive/4c69c3ea1489f09e1c3e698eaebd67b6d8d25785.tar.gz" # stable-1.1 branch as of Aug 13, 2016
     sha256 "4a3a2cbb8d5dd2660252c1dc03ddfbdce8a23423d09c01b590cc94390a31e476"
