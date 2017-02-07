@@ -14,7 +14,7 @@ class Fstar < Formula
   end
 
   depends_on "opam" => :build
-  depends_on "gmp" => :build
+  depends_on "gmp"
   depends_on "ocaml" => :recommended
   depends_on "z3" => :recommended
 
@@ -30,28 +30,27 @@ class Fstar < Formula
     system "opam", "init", "--no-setup"
 
     if build.stable?
-      system "opam", "install", "batteries=2.5.3", "zarith=1.3", "yojson=1.1.6"
+      system "opam", "install", "batteries=2.5.3", "zarith=1.4.1", "yojson=1.3.3", "pprint=20140424"
     else
-      system "opam", "install", "batteries", "zarith", "yojson"
+      system "opam", "install", "batteries", "zarith", "yojson", "pprint"
     end
 
     system "opam", "config", "exec", "--", "make", "-C", "src", "boot-ocaml"
 
-    bin.install "src/ocaml-output/fstar.exe"
+    bin.install "bin/fstar.exe"
 
-    (libexec/"stdlib").install Dir["lib/*"]
-    (libexec/"contrib").install Dir["contrib/*"]
+    (libexec/"stdlib").install Dir["ulib/*"]
+    (libexec/"contrib").install Dir["ucontrib/*"]
     (libexec/"examples").install Dir["examples/*"]
     (libexec/"tutorial").install Dir["doc/tutorial/*"]
     (libexec/"src").install Dir["src/*"]
-    (libexec/"licenses").install "LICENSE-fsharp.txt", Dir["3rdparty/licenses/*"]
+    prefix.install "LICENSE-fsharp.txt"
 
     prefix.install_symlink libexec/"stdlib"
     prefix.install_symlink libexec/"contrib"
     prefix.install_symlink libexec/"examples"
     prefix.install_symlink libexec/"tutorial"
     prefix.install_symlink libexec/"src"
-    prefix.install_symlink libexec/"licenses"
   end
 
   def caveats; <<-EOS.undent
