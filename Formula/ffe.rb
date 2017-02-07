@@ -6,10 +6,9 @@ class Ffe < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f4089f2f843b9aaccbcfb2d24c3f4fbdeddac6912e47657bdd794a106cd7012b" => :sierra
-    sha256 "3aa23ef80b9b7585ae611958c0554aedf0551c2a145350c82684fc2e84542eda" => :el_capitan
-    sha256 "3ad5ef87fbf6d04ab007ec9417ba4dbca488209ae746bc614187db07229b3183" => :yosemite
-    sha256 "7fef4388c75c233b12ba2a850dd6bbd3b843032b63e13455d442cb8211ca921e" => :mavericks
+    sha256 "e8c56b7ac4c2fdd8c67716aacca8857ce364d8711b6ff09340d5b9feedba3481" => :sierra
+    sha256 "666dc2469aeaf63a90ce687eba70efa56c955acd768664c96a1bf85fe8dcb9d6" => :el_capitan
+    sha256 "526a95e0b9565c15a2fb6dfd2ad7ce3bb58d56872c1a8bb203c4ea2093b09929" => :yosemite
   end
 
   def install
