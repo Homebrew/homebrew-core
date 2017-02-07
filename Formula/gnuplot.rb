@@ -26,6 +26,7 @@ class Gnuplot < Formula
   option "with-tex", "Build with LaTeX support"
   option "with-aquaterm", "Build with AquaTerm support"
   option "without-gd", "Build without gd based terminals"
+  option "with-libcerf", "Build with libcerf support"
 
   deprecated_option "with-x" => "with-x11"
   deprecated_option "pdf" => "with-pdflib-lite"
@@ -53,6 +54,12 @@ class Gnuplot < Formula
 
   needs :cxx11 if build.with? "qt@5.7"
 
+  resource "libcerf" do
+    url "http://apps.jcns.fz-juelich.de/src/libcerf/libcerf-1.5.tgz"
+    mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/libcerf/libcerf-1.5.tgz"
+    sha256 "e36dc147e7fff81143074a21550c259b5aac1b99fc314fc0ae33294231ca5c86"
+  end
+
   def install
     # Qt5 requires c++11 (and the other backends do not care)
     ENV.cxx11 if build.with? "qt@5.7"
@@ -65,6 +72,15 @@ class Gnuplot < Formula
       ENV.prepend "LDFLAGS", "-F/Library/Frameworks"
     end
 
+    if build.with? "libcerf"
+      # Build libcerf
+      resource("libcerf").stage do
+        system "./configure", "--prefix=#{buildpath}/libcerf", "--enable-static", "--disable-shared"
+        system "make", "install"
+      end
+      ENV.prepend "PKG_CONFIG_PATH", buildpath/"libcerf/lib/pkgconfig"
+    end
+
     # Help configure find libraries
     pdflib = Formula["pdflib-lite"].opt_prefix
 
@@ -74,6 +90,8 @@ class Gnuplot < Formula
       --prefix=#{prefix}
       --with-readline=#{Formula["readline"].opt_prefix}
     ]
+
+    args << "--without-libcerf" if build.without? "libcerf"
 
     args << "--with-pdf=#{pdflib}" if build.with? "pdflib-lite"
 
