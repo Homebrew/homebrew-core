@@ -1,8 +1,8 @@
 class Ant < Formula
   desc "Java build tool"
   homepage "https://ant.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.10.0-bin.tar.bz2"
-  sha256 "1c34158fb1e3b56c843afae3ef91a60e779f91f63e69d69150698c049d2893c5"
+  url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.10.1-bin.tar.xz"
+  sha256 "51dd6b4ec740013dc5ad71812ce5d727a9956aa3a56de7164c76cbd70d015d79"
   head "https://git-wip-us.apache.org/repos/asf/ant.git"
 
   bottle do
