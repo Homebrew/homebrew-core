@@ -7,10 +7,10 @@ class Fstar < Formula
   head "https://github.com/FStarLang/FStar.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fed93a145c1455025bb3e799f14ca456e5326147059e60655daf2b90d5d31765" => :sierra
-    sha256 "af3a84d4b8fa2f76fe5863dd001aadb38200fe7409bac1ba1e5460b91ca2c72d" => :el_capitan
-    sha256 "158cb0755c2b09565fc3d605e1bbf6e894c7176e69f707f9ee01a4d844d879b6" => :yosemite
+    cellar :any
+    sha256 "c0e12f89c58c63d456c194206243b1c2b9cbea1857afe7f2fd31fa3b709c2797" => :sierra
+    sha256 "632b24047df19cc9568fe46c3e5041cfc0c0858f3139aaa7c3bc9905a55f87df" => :el_capitan
+    sha256 "97c2b2db56554822f03293d74099db6f20386d512287295a5d16b8ed265a2899" => :yosemite
   end
 
   depends_on "opam" => :build
