@@ -12,9 +12,10 @@ class Vault < Formula
   head "https://github.com/hashicorp/vault.git"
 
   bottle do
-    sha256 "a33d5e5517222e74a8f260af4ce5074da1e8e9771dbe0f66d3b318df96d8b45a" => :sierra
-    sha256 "d90242f9c818ea5e905df1e4c85a076d00601436594b2d5db408513394873690" => :el_capitan
-    sha256 "edf4396087bf7ac0d91179e5418c4cff783909eb917c4910f5f9d531e02c2caf" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "ebdc9a1bac7fa49802e5dd2e9b1812c571693bf4039e4569a32635e8127bd2d9" => :sierra
+    sha256 "79a6b983b01a8226a34c7253f98faaa09c8add0fa2e334c6d45857d06492f91c" => :el_capitan
+    sha256 "a38069074a345578060faa9716d80191ac6c36e567cc2b79678b151e712f9dc9" => :yosemite
   end
 
   option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"
