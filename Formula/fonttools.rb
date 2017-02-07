@@ -9,9 +9,9 @@ class Fonttools < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d21ce7c75de8e1c25dd93db9aae66df4881c69abba3a045aee829c30aef2d206" => :sierra
-    sha256 "7718b115ac64a5739791a8690ff9194686d716a9c9e6e739b8e5471da1c061a4" => :el_capitan
-    sha256 "94bc693d769ccf9cef028b00f2fda5b3ef9a313928ab2aff8ce89a9a12946a7a" => :yosemite
+    sha256 "87ace75102f2c622bad605439f06e84dc6edab79a057ef50dec6ca53591cf114" => :sierra
+    sha256 "822622965198bf41c75487434af5e7d8d11f43d27f2eb6f81900032ccb3b0462" => :el_capitan
+    sha256 "8f36a8f9b2c6e02ca80a07d5fec7da1d5468abc58c9528caee6d775bbb096043" => :yosemite
   end
 
   option "with-pygtk", "Build with pygtk support for pyftinspect"
