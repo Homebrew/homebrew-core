@@ -2,9 +2,8 @@ class Fstar < Formula
   desc "Language with a type system for program verification"
   homepage "https://www.fstar-lang.org/"
   url "https://github.com/FStarLang/FStar.git",
-      :tag => "v0.9.2.0",
-      :revision => "2a8ce0b3dfbfb9703079aace0d73f2479f0d0ce2"
-  revision 3
+      :tag => "v0.9.4.0",
+      :revision => "2137ca0fbc56f04e202f715202c85a24b36c3b29"
   head "https://github.com/FStarLang/FStar.git"
 
   bottle do
