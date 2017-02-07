@@ -7,9 +7,10 @@ class Carina < Formula
   head "https://github.com/getcarina/carina.git"
 
   bottle do
-    sha256 "0b90a3e277e586074d876c5d84d800640ba273f0cc6e9fb776e0507bafcade9b" => :sierra
-    sha256 "04b201c2952c6d81aee9885285530f8a8e19be332de266443df542ada48062ae" => :el_capitan
-    sha256 "0fa4c677d1055496b02c11beb2fec16604f8daf4b87d5e204205825790ac4d81" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "37e75b5e6b8c8f576b8bde8485e5c6e66ec71b598396d873e6ce005911fcaccb" => :sierra
+    sha256 "73297e3bb69192eb07670579834e3339eae96d086dd8995b03277174933bded7" => :el_capitan
+    sha256 "83e275ba929845a5fb1512c29655345e60f2022ef93bfa0d4bf2321d2abd6bf4" => :yosemite
   end
 
   depends_on "go" => :build
