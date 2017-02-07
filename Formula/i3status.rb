@@ -21,7 +21,6 @@ class I3status < Formula
     sha256 "abcaacfe2ea691a59ea8b21de3b9e0c8a030a829b02fa254969a302b698553db" => :yosemite
   end
 
-
   depends_on :x11
   depends_on "yajl"
   depends_on "confuse"
