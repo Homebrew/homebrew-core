@@ -5,8 +5,8 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.10.5.tar.gz"
-  sha256 "cb38d14e353bf200471385dd08dc5108f4f8690a76806e79c8f2fb3f8facca9c"
+  url "https://github.com/purescript/purescript/archive/v0.10.6.tar.gz"
+  sha256 "35df61a60cc810c4f509e015ec786881ff9a06d3653f4845bd5faa6281f417da"
   head "https://github.com/purescript/purescript.git"
 
   bottle do
@@ -19,9 +19,7 @@ class Purescript < Formula
   depends_on "cabal-install" => :build
 
   def install
-    install_cabal_package "--allow-newer=turtle:directory",
-                          "--constraint", "directory < 1.4",
-                          :using => ["alex", "happy"]
+    install_cabal_package :using => ["alex", "happy"]
   end
 
   test do
