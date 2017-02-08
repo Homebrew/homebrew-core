@@ -6,10 +6,9 @@ class Dosbox < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "be37f802731de6700dd47252c9d5f8c6693aaa47849bde69e687647b44ec7ac7" => :yosemite
-    sha256 "9c367cd50d5ace12040f9ce2b1dc1256b99a06be5d4ea32293b4a36eacb668c8" => :mavericks
-    sha256 "0f084aebb29fa7ea7825f1a230c4ec825b7a1ee112bce2e3e4d256a9e737ff44" => :mountain_lion
+    sha256 "390e2b95a940e1f3f7e73566fe85b998bfff1d5331616a8b9e35e1204bdb06ef" => :sierra
+    sha256 "9c79e172494877d82dce3842aa07109823458342d6f4f7b221d5a2225ca27de5" => :el_capitan
+    sha256 "8f8b3b6ed1260f3ef74cb281711fea046e315ce20c169a0b76a1f5efa40146f8" => :yosemite
   end
 
   head do
