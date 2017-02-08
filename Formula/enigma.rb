@@ -4,9 +4,9 @@ class Enigma < Formula
   url "https://downloads.sourceforge.net/project/enigma-game/Release%201.21/enigma-1.21.tar.gz"
   sha256 "d872cf067d8eb560d3bb1cb17245814bc56ac3953ae1f12e2229c8eb6f82ce01"
   bottle do
-    sha256 "60274053ae5662f56c2443578c873513b3f493e62a903f1a4f11befafd3aa970" => :yosemite
-    sha256 "70e36b4ad59bf95db896a2517615af904fbb8c1a409bbf5b1633980bbfc8b7bb" => :mavericks
-    sha256 "692a47168fbd05dc95395d0aeaa6e9d6077a7f3e0f93e983edafd5a01081f4a1" => :mountain_lion
+    sha256 "dc9fe571d7f6f73e11aa0032359e87ae627b3204e6b7bbeaa2a6d76533467c98" => :sierra
+    sha256 "5b18efbeb88722813ee28b0e9936edaec5b176d24184e0d0fb76ba31c5c0aae2" => :el_capitan
+    sha256 "49fcfb95078058b520d5de211301a693b7f04375ab8f576919a7f4218fd80e90" => :yosemite
   end
 
   head do
