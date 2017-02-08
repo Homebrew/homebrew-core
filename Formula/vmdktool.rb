@@ -4,6 +4,13 @@ class Vmdktool < Formula
   url "https://people.freebsd.org/~brian/vmdktool/vmdktool-1.4.tar.gz"
   sha256 "981eb43d3db172144f2344886040424ef525e15c85f84023a7502b238aa7b89c"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "3fa294be9d6e9e6b56435526520262aaa86f5909cc10b9ccf9d9670ae3ac0e3c" => :sierra
+    sha256 "8604a90f9ad0f3b04767c021a4d24dacdcabd788767df56a45e3913231d4336e" => :el_capitan
+    sha256 "f19ae3ac92ae4400c7139771f3a5ec07d32bf2e3ed49bfa7add445f8a680ef0c" => :yosemite
+  end
+
   def install
     system "make", "CFLAGS='-D_GNU_SOURCE -g -O -pipe'"
 
