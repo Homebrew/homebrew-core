@@ -9,10 +9,9 @@ class DosboxX < Formula
   end
   bottle do
     cellar :any
-    revision 1
-    sha256 "e87541a7f22a8cea8d8888f4b2321186279ad88d1d0455156946b08ac2be423d" => :el_capitan
-    sha256 "d096d2ee803fc3c8e573f8cdf4f8659ea6cbe1af12b643d496b62db0b2c98b0c" => :yosemite
-    sha256 "6c72c099d9601e8061c3aca6df90afccf87f590606f55e9b0fa289678d6ee445" => :mavericks
+    sha256 "8a727059fa9d789963220e52492ac7045ef98cfb7224883610c486568cdd864c" => :sierra
+    sha256 "ba30889dd69d459b4e40a5492a185d37182087f9dc1d92dd2a4ca9d5135aa8a5" => :el_capitan
+    sha256 "b941f63418e748914fbab2e346d5a7acc9f8458adfba4685cd60eaa82771e109" => :yosemite
   end
 
   depends_on "sdl"
