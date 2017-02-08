@@ -5,9 +5,9 @@ class Pacman4console < Formula
   sha256 "9a5c4a96395ce4a3b26a9896343a2cdf488182da1b96374a13bf5d811679eb90"
 
   bottle do
-    sha256 "3a36192b5ad29f1795386c3fcb9b23418340ba89f2ba556ff3ad28535804db37" => :el_capitan
-    sha256 "9789adc955f7a76c368e596bcf7744f14496d2529b4e63714e2c99bcbc8d5f20" => :yosemite
-    sha256 "fd20126b10d66684bd40b181a1d243fdf4040accd3a84cca5678ba853bea6da8" => :mavericks
+    sha256 "496938f00189695a57af2ef862b97c237d8bcf4c422b8e1d24c309cb8e83d0cd" => :sierra
+    sha256 "713a6a48016edcd709c27f84c5e743a0f95f95a3d01da7303a2562b2f3dee68d" => :el_capitan
+    sha256 "0177bce0045d06947a44cd810e3af8abdf2853981fe8564782a83474fc45f727" => :yosemite
   end
 
   def install
