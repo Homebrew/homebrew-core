@@ -6,10 +6,9 @@ class Myman < Formula
   head ":pserver:anonymous:@myman.cvs.sourceforge.net:/cvsroot/myman", :using => :cvs
 
   bottle do
-    rebuild 1
-    sha256 "452b64835fbf52eec3d5b83532153caf2f0fd7c039b35b589031bbcc9db7f0ad" => :sierra
-    sha256 "fb2e03ca7d79febb09bbb7f192fc2c6c3fa9cd401dbcd4dfae9b01746aa6faa6" => :el_capitan
-    sha256 "60e5b8dca2b167ff37369ec25c208d653e716415e603f2a53db32186c05958cf" => :yosemite
+    sha256 "0d4f0baea895f5c18f0719ddefe41c7a91a475e4f58dccaaf001c7efebe6d0ea" => :sierra
+    sha256 "afa7eac94ad1954334d4e2574b40b763bbbb354572005552f3482f4c6eab27f2" => :el_capitan
+    sha256 "9b14137f2ae42a2e13bd1066d43467f0e7a647df225b2d013c64fdb8cead3ac3" => :yosemite
   end
 
   depends_on "coreutils" => :build
