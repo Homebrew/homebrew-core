@@ -12,6 +12,12 @@ class Jnethack < Formula
   version "3.4.3-0.11"
   sha256 "bb39c3d2a9ee2df4a0c8fdde708fbc63740853a7608d2f4c560b488124866fe4"
 
+  bottle do
+    sha256 "89c2fed343614d39084a8c59908032fe929e78c1572e92f50b9eafa4aca3860d" => :sierra
+    sha256 "c11837932635f89762360ad449e189c44e8213cb74f981ccb7908671a0e3ad4b" => :el_capitan
+    sha256 "f0c7c0c5bbf5c7d5b2d733fd76d49f31039b15c982a7ef7530444f734a41ec7c" => :yosemite
+  end
+
   # needs X11 locale for i18n
   depends_on :x11
 
