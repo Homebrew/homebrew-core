@@ -5,9 +5,9 @@ class Xrick < Formula
   sha256 "aa8542120bec97a730258027a294bd16196eb8b3d66134483d085f698588fc2b"
 
   bottle do
-    sha256 "a7f818904878107dd9133834b044415684906e5e2ac37b5b015ca9f0b0868836" => :el_capitan
-    sha256 "913496241e1fdf0df5895a1bae3701ca64dc912a174a1f5efe80d5ad56e9e73f" => :yosemite
-    sha256 "dbe2a1f793f6f7421885241c2caae5af92fde79fc7317a9b447c03b0bbac9da9" => :mavericks
+    sha256 "03e69c34042ffa8849aaa653f06ae889a6d404797a42c6549ce7de8d3de72dce" => :sierra
+    sha256 "772f6718786e66657b0647dc7233b3680903a2e16d06fa59a9f804dd33d5096a" => :el_capitan
+    sha256 "2d4e9e140f15692acd4d0e9f4a9da08d1a3e6f3d3fdbc8d4d799e6d2bde91e8f" => :yosemite
   end
 
   depends_on "sdl"
