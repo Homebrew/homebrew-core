@@ -7,9 +7,9 @@ class Abuse < Formula
 
   bottle do
     cellar :any
-    sha256 "cb60b8b12112e3c18080db23624aa9d3fd9217aff9254f2c6c76df99b4f03284" => :yosemite
-    sha256 "0ad33d743c8f6bfab8b1a6b0a85657ab27309cd95c2df478439dc3b21dd3cc0b" => :mavericks
-    sha256 "aeb28d6f8d8ec88838f462619975642649397e9a0122cadbee32e0bd5200fdf6" => :mountain_lion
+    sha256 "6971b6eebf4c00eaaed72a1104a49be63861eabc95d679a0c84040398e320059" => :sierra
+    sha256 "456dfbfb6e7486d0c5a50ac01423efabf5243b08d3235c83477681090a42c652" => :el_capitan
+    sha256 "3ca083d0d99c00ad26f306c026ef35ee565a24f0171b94457deb64d5e170edf9" => :yosemite
   end
 
   depends_on "autoconf" => :build
