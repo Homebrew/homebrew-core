@@ -24,9 +24,9 @@ class Qtads < Formula
 
   bottle do
     cellar :any
-    sha256 "209e71a355f9da3fbd39f61ea911dfe53938e7ffdeb7733d10be05c34a7038f7" => :sierra
-    sha256 "656b1b8d5f729517c24ac6d7634e9763181318b4de41f9bc26262a7f14b52cef" => :el_capitan
-    sha256 "88bd4cf29d96a84279dbd761d774b783cd92f8113645b8fd87972d0e3a985cae" => :yosemite
+    sha256 "39f13ab007d79d3ce020424a2a52f6eac223233a40907a3ce4ca8f74fe6c328d" => :sierra
+    sha256 "39f13ab007d79d3ce020424a2a52f6eac223233a40907a3ce4ca8f74fe6c328d" => :el_capitan
+    sha256 "943945d02fc1dad997f31f95d8a5d5dd37ebce4db98dcc9aa5e3fa74ebff895e" => :yosemite
   end
 
   depends_on "pkg-config" => :build
