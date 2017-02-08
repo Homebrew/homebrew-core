@@ -6,9 +6,9 @@ class Exult < Formula
   head "svn://svn.code.sf.net/p/exult/code/exult/trunk"
 
   bottle do
-    sha256 "f9cac006633608c628a8d069e44c7c6f3c1ceb6c9f45eccfb3a011f4ca32fb41" => :el_capitan
-    sha256 "c36761dc9db169de70f9e9a56b64c3f609924728562d50f8ed04ac9354c06c9a" => :yosemite
-    sha256 "031de2aab1ec65682d2d89f029e4a8f574539d6048c9082a3ce8e5c88084b4fa" => :mavericks
+    sha256 "903c0ab936349d37871b211146ffee34e7471ba8c0230cc81b583f67003bf7d0" => :sierra
+    sha256 "e7359d920d31832d74a01e3fa367d65065fa0c9c921534732d947eb968173d3a" => :el_capitan
+    sha256 "5fdcf6dd02cd1fef6863e30ed382b23391ebba2ebd06a34b991c88f4238a559e" => :yosemite
   end
 
   option "with-audio-pack", "Install audio pack"
