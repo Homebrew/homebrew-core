@@ -6,9 +6,9 @@ class Vitetris < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4d894a98104d29fc3bfcfb59e2796aff6edce184440f8211e3db00d7fe6a70fc" => :el_capitan
-    sha256 "5a924675df65dfa62e04be4ab2d9ab4edc44b2095583a87b26a354a83ea62838" => :yosemite
-    sha256 "8a15d0e55e5fe09cf569c977882bb33c725de38cb5019b70c0a8dcd66c1fda21" => :mavericks
+    sha256 "817866938f1d4df2dcbb69166e187ec4a5d2f61cff83d50725f5112e773c5f34" => :sierra
+    sha256 "d3d2d0c8a86995742c790418cd4e11bbf46d0ea4efa6b8bd5f372a3df7f9ea2b" => :el_capitan
+    sha256 "3ce0392ac4a01daeb72ae626eba038f32d4b3acd0ecb3695f0ec57376e1a4039" => :yosemite
   end
 
   # remove a 'strip' option not supported on OS X and root options for
