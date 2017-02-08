@@ -5,6 +5,12 @@ class Swiftplate < Formula
   sha256 "c4a47411340c88dbacc87d63daf69eed12c80cbc2e1fc8c02cc8d6b2966c04b9"
   head "https://github.com/JohnSundell/SwiftPlate.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "1f2f6159e6de0243545bc2f18eca9618a33ecc56995dcd92db46b4298c6eb372" => :sierra
+    sha256 "80484682a0aff82ec7b34d4b4beeecbf1cfed673ab5b3cd1ad2af2d3fcbbc020" => :el_capitan
+  end
+
   depends_on :xcode => "8.2"
 
   def install
