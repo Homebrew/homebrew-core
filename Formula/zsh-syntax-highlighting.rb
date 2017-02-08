@@ -27,7 +27,7 @@ class ZshSyntaxHighlighting < Formula
 
       source ~/.zshrc
 
-    Additionally, if you receive "highlighters directory not found" error message,
+    Additionally, if you a receive "highlighters directory not found" error message,
     you may need to add the following to your .zshenv:
 
       export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=#{HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/highlighters
