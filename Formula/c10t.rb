@@ -6,9 +6,9 @@ class C10t < Formula
 
   bottle do
     cellar :any
-    sha256 "ee486643c14a847b7cc83549ab65049d4ce86dfa92caa31b985cd6751060d16c" => :el_capitan
-    sha256 "f92f8344c43c7c02351d1e4d6868949c31c97e6a71decac044a7d5b104a67329" => :yosemite
-    sha256 "77e6d3767099897ef8dab8587a73a19f460c158647cfc67fe82230ecf234c90e" => :mavericks
+    sha256 "81effa3d15bf65343a17befabbab5ddf9e40953336d4dec27b379e62fac98439" => :sierra
+    sha256 "a7e8fa78424c478351d68d8db77577b1d93208da645e975be9dfd5696d0cf851" => :el_capitan
+    sha256 "bcda91a0b11bf1fc75fa5235901ad0c43c22b058846f8b6785daf35fcc10e9af" => :yosemite
   end
 
   depends_on "cmake" => :build
