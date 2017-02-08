@@ -5,9 +5,9 @@ class Robotfindskitten < Formula
   sha256 "7749a370796fd23e3b306b00de5f7fb7997a35fef30e3910ff159448c932d719"
 
   bottle do
-    sha256 "5eba0572a63480f072944448df0f8c309abd05e8b7c5d9cdb954c3758b165f48" => :el_capitan
-    sha256 "bd32a237e6402d69f88da12ac0e4ccde9a3663c73f8b078649752cbcade0b479" => :yosemite
-    sha256 "fc55bd723a4f3ea7a105ba2d8d74234adc077129e218f4295cae1d40ae42d125" => :mavericks
+    sha256 "710b88a647ab9dfcbca6464deff11424fd854cd21e5fe8ae366389c909d8b2ea" => :sierra
+    sha256 "ccbdb2706ad962c50eb417530835e651ec00469bef4467033bd1eab3b301adc3" => :el_capitan
+    sha256 "c2e72aea983c21ca8a2559d61b9401047d16cead69ee52e75c36aa073b8f583f" => :yosemite
   end
 
   def install
