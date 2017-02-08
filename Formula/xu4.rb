@@ -7,9 +7,9 @@ class Xu4 < Formula
 
   bottle do
     cellar :any
-    sha256 "f16e6b85d800aeb69636b5c63144505572e20bd21205defb8d3d5a7288904e52" => :yosemite
-    sha256 "e82e64b77ba616ba3d50367fd12d154aee709710682523039032257979384272" => :mavericks
-    sha256 "e686a6ed031cd79462ced50885703b0872ce8a96bb02549598d7a1354fa5d491" => :mountain_lion
+    sha256 "9d490768b07abfa8c105c88dc0d2a6be97e175f6535afcee0a4c63e37d976f6f" => :sierra
+    sha256 "47700a341c1dc6a700d5a0f2925846b2457e3f470b25c2288c8c0c132202d027" => :el_capitan
+    sha256 "aab6d22274a345209ff25516b2dd11b715088ccab2d31588b8253f65e29f0e96" => :yosemite
   end
 
   depends_on "sdl"
