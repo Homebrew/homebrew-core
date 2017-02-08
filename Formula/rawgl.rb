@@ -7,8 +7,9 @@ class Rawgl < Formula
 
   bottle do
     cellar :any
-    sha256 "f3b4affdbc9313bdb206923ee1d12e509a9acf539d25818832270cbc1c4c16a8" => :sierra
-    sha256 "ed075b6796ac69e2912ee05404672f70e611276a9d884f878e8285d7a14b6214" => :yosemite
+    sha256 "73791cd66afb8da8c36bfcec4ffda39fbd4db8bf94e5112dff8bda46462c3365" => :sierra
+    sha256 "83711f3b4e919fbe21d02221356ad3e0108ee00739c699eb1acf79f2be8b6b18" => :el_capitan
+    sha256 "b453fd2cf86a0299e372222942500f0b816165218ce0dec1726e0be493cf77c9" => :yosemite
   end
 
   depends_on "sdl2"
