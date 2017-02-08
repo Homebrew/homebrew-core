@@ -5,10 +5,10 @@ class Xshogi < Formula
   mirror "https://ftp.gnu.org/gnu/gnushogi/xshogi-1.4.2.tar.gz"
 
   bottle do
-    cellar :any
-    sha256 "896d7fd6f2ee9171fdc61017b6ca32ae28b8e0b43d5242dad5a9e7a01de0f5c9" => :yosemite
-    sha256 "ef3e719f3c7677d3017fdf771e580316d87db7bee8d260509e49a32666768e4b" => :mavericks
-    sha256 "d05d49dc5001f6b2f51070c33e2ebbb30aadc07c461fcff817973d99f1b1fde0" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "4877493db0e9536a1282b9aa79d3cd38357a4b8e767533cfb6c4dce941faed23" => :sierra
+    sha256 "a4bfc78e6d2f10e6bf4c813a2e847963d6dd6d939a522934717ff6d35acafcc9" => :el_capitan
+    sha256 "62c11f796225f439e5698ad87abafbfe55d2184d895b86fd13abe3dc924b2030" => :yosemite
   end
 
   depends_on :x11
