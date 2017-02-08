@@ -6,9 +6,9 @@ class CdogsSdl < Formula
   head "https://github.com/cxong/cdogs-sdl.git"
 
   bottle do
-    sha256 "d9d3ee8835fb9af9c08ec84b9b59e632a4f40485497bff41c42e062bab5f33e2" => :el_capitan
-    sha256 "e0d3a2a9402ac81328412c55042ebb7ebc8ff57c5499ffb1e8d0e6e7d57a34bd" => :yosemite
-    sha256 "ba448b78e268752f265ac42e40a1e6e24a6f0063073eb814c9149f8d82ee1393" => :mavericks
+    sha256 "b612f4fdf5d7f15e2ff88a5045437d1d411e254e6cda143d3256870bc5b2a30c" => :sierra
+    sha256 "c154d6101f4b903488527a604b570e28703a19854da31d56e082444fe5dda1a5" => :el_capitan
+    sha256 "535668e2f4619dde88da207249a2bbaaecd34d0972ce6f87947868518d7a6a54" => :yosemite
   end
 
   depends_on "cmake" => :build
