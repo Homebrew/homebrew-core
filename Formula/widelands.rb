@@ -5,9 +5,9 @@ class Widelands < Formula
   sha256 "e511f9d26828a2b71b64cdfc6674e6e847543b2da73961ab882acca36c7c01a6"
 
   bottle do
-    sha256 "95963abfc0247618837dc467a638ccfd69b2b47785a0608f2ae60fc2662ec258" => :sierra
-    sha256 "cb42054b619f17310fdcc20f8b8d23dd449771b813223e7e998c7973edea39b4" => :el_capitan
-    sha256 "2f7fc6715fbc40b5acd6fb55630f44f76d4838487e6a5f2ceaa230de05aece26" => :yosemite
+    sha256 "bf7af934904ca34981ff86a8c720428d81751aa1185a29e58f6ed20b024a2086" => :sierra
+    sha256 "797b9842ba80337f8705f421182f01cbed13804c47bae9dd8265786f5c5d5d28" => :el_capitan
+    sha256 "0376e78a26a50d0576233ebb626fb00a1e969be5a540e29a6219d16ff3b4d969" => :yosemite
   end
 
   depends_on "cmake" => :build
