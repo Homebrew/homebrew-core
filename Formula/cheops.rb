@@ -5,10 +5,10 @@ class Cheops < Formula
   sha256 "60aabc9f193d62028424de052c0618bb19ee2ccfa6a99b74a33968eba4c8abad"
 
   bottle do
-    cellar :any
-    sha256 "1640d418df9b54a929efb7a176acd01e05b17a032cc5bf3a259044c800ea7f82" => :yosemite
-    sha256 "97bbc31c165d2cfa37d87bfea045e459ae98bcb0f8c1f01d07dd3620bf60831d" => :mavericks
-    sha256 "7584ac4bcb11e2d3bf970dca2da588eb5c1c5f9bcd63e1305f71fef12c56d72d" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "27d8ebc44571902b64043fdcc5c956f89df988e9311ad76eea6f66e2127d3898" => :sierra
+    sha256 "aa996a9d23fb57b16bd744aef3746f76d3d3c0316f37ecd258b62d9a36a8b751" => :el_capitan
+    sha256 "17d4673487be785e81e1a7cac0a9a3f371cd79cf870906c65d8bdb81fb1a5cc7" => :yosemite
   end
 
   def install
