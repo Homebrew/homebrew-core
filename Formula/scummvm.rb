@@ -6,9 +6,9 @@ class Scummvm < Formula
   head "https://github.com/scummvm/scummvm.git"
 
   bottle do
-    sha256 "e0886c043e7823f4123605721b72faf0fab35003183000fec6aa14ec86e3b6f7" => :sierra
-    sha256 "1ccd12dee162c5be09ee8d0328bdd239897c746036e2bf98564ce349f70ebe59" => :el_capitan
-    sha256 "c116f470d6ed19dacd261f27c7f00ab9e34b2398eb3aa48355cc7e1e000214a8" => :yosemite
+    sha256 "34e01d9f579230ff887a801722d9bd2d4dd4f7245ae5c96ef3d6a0c3a13003bf" => :sierra
+    sha256 "300612434290d59de56fde9715ca32ee8b8671d76625c3b79197cf44c81b2201" => :el_capitan
+    sha256 "213a1905e6d46cfe685e0cf25f0d7bb164bace5abbaff9497f4c1e40f794240d" => :yosemite
   end
 
   option "with-all-engines", "Enable all engines (including broken or unsupported)"
