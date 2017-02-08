@@ -5,9 +5,9 @@ class Frobtads < Formula
   sha256 "88c6a987813d4be1420a1c697e99ecef4fa9dd9bc922be4acf5a3054967ee788"
 
   bottle do
-    sha256 "57bd02f13719c266c9473320cd5bbe641fe1b2f8244c4e97cd35694fd78e38ba" => :el_capitan
-    sha256 "c7cd9d7b88e197913decad46a34f9e31853265739a3458c32dc52ae158d610d3" => :yosemite
-    sha256 "862ee593c96541cdd53a0019cb7f0cc09f6944e62cd451e9875af81fe742ce5d" => :mavericks
+    sha256 "48bb40f88489ea4a7c8fc0351a23dd4a243ac61b2e710bcd28b22db3320e53a1" => :sierra
+    sha256 "0fac4c4359ac59bffa5838884fb53ee6cf18c4b6efbc0d5fa2e16ca1c1675cc6" => :el_capitan
+    sha256 "5acaa00274668115972537bf48e6f855b66f7144a2bdfceb4a396d5837dbbc59" => :yosemite
   end
 
   head do
