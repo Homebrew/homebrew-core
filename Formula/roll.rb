@@ -6,9 +6,9 @@ class Roll < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "82bff3de41d1b0934deb3b56ef3f626307ddc11d29b335941636c6d37ace7cf5" => :sierra
-    sha256 "aa97a33ccbe0b5bb53f6eb2aac100b99b3f8b79232cd058a8f0a98b78df5928d" => :el_capitan
-    sha256 "96688f438082dd8e0da6f1bb4d3cdd2dab0c27ecee0b4490ccc096e958c2543b" => :yosemite
+    sha256 "bf42fe63830aa9b363962c6cfbdeb79065cad24b70b32710dfe0eaefe47a1dfc" => :sierra
+    sha256 "67d9f2bfdfa266bcc01a76b494eb9d897f0a9385f9ae4d9dd12783ec675b8e99" => :el_capitan
+    sha256 "018dc40d3339a486b49401fa7ba43fae3c27879dbec29c3fbea73cc64c51f647" => :yosemite
   end
 
   head do
