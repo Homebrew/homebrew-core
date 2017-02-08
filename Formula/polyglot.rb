@@ -7,9 +7,9 @@ class Polyglot < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e8fec97a8ac86a2e0a8d73ef7d2867912001cf9c838f2b2943b910f38db88845" => :sierra
-    sha256 "fab4e7a336016feb657852395b589bd8aa35b7f8d07147ee3147600ff57de609" => :el_capitan
-    sha256 "f3aca0dff8bec92b56d215dae77738863e0216227c40f1bf148eb78b807cbf6f" => :yosemite
+    sha256 "de7a79cd7b59fb412b245a50c601ec0546da345f5901b2bec260fba86fc27ce9" => :sierra
+    sha256 "36d5170db384175c1f6f097f6d179243d265c3a06dcf34a11266cbd370be5aad" => :el_capitan
+    sha256 "eff91a02101ab40e05f3479100120da2f54b1a9832cea957a054ed92872748a8" => :yosemite
   end
 
   def install
