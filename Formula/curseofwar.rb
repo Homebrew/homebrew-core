@@ -7,9 +7,9 @@ class Curseofwar < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "88605368194a451067920d6be53b2545a13180ba1ce74f6df2488a4f2c39609b" => :el_capitan
-    sha256 "510f0fef5ed3355099a297a6588b1d9e94734a42b61c3d42bd336cf0706cb82d" => :yosemite
-    sha256 "02a4add2f36df3da44a71cd5f7e9a367abdfc43a272559c14d41f0a9d68cdce8" => :mavericks
+    sha256 "8a19536dcb6b4a3f508c800980d6300399d1b9d7af1683df7ea7f4dd502cf238" => :sierra
+    sha256 "014a448d16cef523e97f898c952a74b08b379569f22d951189e90c9ee5056c11" => :el_capitan
+    sha256 "6b1368e3d4875b19c9817c413037edbeaf49120519032b725207079b86913c8a" => :yosemite
   end
 
   depends_on "sdl" => :optional
