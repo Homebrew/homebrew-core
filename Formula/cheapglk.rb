@@ -7,9 +7,9 @@ class Cheapglk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "148667db31db5635af17eafb3c564a3fcf498a8631dd5e42aaa09b11613725da" => :sierra
-    sha256 "ebf0b9e232857c385f3fa7ddbda6c338c38d516405b65db4c044cc717723f3d0" => :el_capitan
-    sha256 "0e82e6dfff4bf8964a29eaef3f8f9b0f1c8ee6a9f8dc3293060539bcbc4684c2" => :yosemite
+    sha256 "def8cf0f954279c503b3b67c456721af6ccd9657f87df37fecd4459a0a44918d" => :sierra
+    sha256 "e58d40a1c283dbb45ef9d672361849e807d104d627a93626cdb06e66105f1d4a" => :el_capitan
+    sha256 "93d9f95fbdef5fc3c51b3ecbd69fedea47bbaaf9a89e3a3f8275b9c801bba2e3" => :yosemite
   end
 
   keg_only "Conflicts with other Glk libraries"
