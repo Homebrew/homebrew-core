@@ -7,9 +7,9 @@ class EmsFlasher < Formula
 
   bottle do
     cellar :any
-    sha256 "3e48e32d5c881d2c4f5f6bd8d5f454f22d7f174da04a62ba141cc4f5403b9cf5" => :yosemite
-    sha256 "a8eb1537eab2d24537afbf4ab3f27e0514214f84fabdb77415c096bd04147318" => :mavericks
-    sha256 "a4bc387b199cb3842d4dee3998c24b1b73a30e9868fd9f9c1ce3f7ecbf5c0117" => :mountain_lion
+    sha256 "51ac3640147a25c8cf9f1177c2f3c430fa3c6a95d75022544eea825b14934593" => :sierra
+    sha256 "2be0a155a5442879c3cfa7a804e125be814bb3d1b5c002326a33e0b84ce6024b" => :el_capitan
+    sha256 "3f978e8b96d4c1f0464ce2d4af86ff5bac6cb60810e1b8d81ce4fe55bb2abb63" => :yosemite
   end
 
   depends_on "pkg-config" => :build
