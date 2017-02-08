@@ -4,6 +4,13 @@ class Einstein < Formula
   url "https://web.archive.org/web/20120621005109/http://games.flowix.com/files/einstein/einstein-2.0-src.tar.gz"
   sha256 "0f2d1c7d46d36f27a856b98cd4bbb95813970c8e803444772be7bd9bec45a548"
 
+  bottle do
+    cellar :any
+    sha256 "b2f4290bc28e3dd1c528b7c58fa363f8e5832c00283fa79f2f9243d8e5a02c4c" => :sierra
+    sha256 "d0424faaf640750ab3ff8e8e24216a93227b9ff40d33405e3a55a7bdf14d1a36" => :el_capitan
+    sha256 "e884bcdb8f1644707fceb03a8d7732a528495e9655216eff42336c64fdd90179" => :yosemite
+  end
+
   depends_on "sdl"
   depends_on "sdl_ttf"
   depends_on "sdl_mixer"
