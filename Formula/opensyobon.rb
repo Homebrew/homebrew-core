@@ -8,9 +8,9 @@ class Opensyobon < Formula
 
   bottle do
     cellar :any
-    sha256 "bedb519dede9fa3faef539cddf43e73c9710a2a5a1a9db39d8ee3035a04d12e9" => :el_capitan
-    sha256 "95aa58fd64ca54d11fb8b271a1aaae36c28ac9e861cc70af727dbdcd9d345de2" => :yosemite
-    sha256 "c5711cafbb9b01051625c1c6c81091dda4ffa4143c26872d297aed4eb84d6d39" => :mavericks
+    sha256 "215b9473caaf9ada21e1cdf394845f33170b5bfdf046be68b3c57e4b97df18fe" => :sierra
+    sha256 "85febfd924159a3f8913765a48d5c9d507b1917545b6c1f35114180eeff5c521" => :el_capitan
+    sha256 "18494006fa2ef4c2d49f5a753d23909999db49f8fb58f405fc06f588fa973633" => :yosemite
   end
 
   depends_on "sdl"
