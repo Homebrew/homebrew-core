@@ -6,9 +6,9 @@ class Gnuski < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8dbf391590db15b5fc88034e5b964d1f938044e0a99c317ffc523bda3586a6ec" => :el_capitan
-    sha256 "11cc6933909b99946c338d372d8a967ef8cccd1e7f43b3ee727f149c193ebfc6" => :yosemite
-    sha256 "82066055b0f45e86adb2ca749980a9d455d31bdf042ec8d0c9444e7a9a5e82a3" => :mavericks
+    sha256 "3874907a4ad715492c026d969ec3265dcd5f71424dde07a83aa1c21a1e36fa38" => :sierra
+    sha256 "ce14d8ee8b8d58c710b93adb2f4cedfb9d78fb64746f38daee4ea38aa977ae43" => :el_capitan
+    sha256 "3163ed8b9f1487e0f5f5a42006e0edfbfdb3a4dbea9b917c0aa692db282ec13b" => :yosemite
   end
 
   def install
