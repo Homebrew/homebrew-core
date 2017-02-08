@@ -5,11 +5,9 @@ class Bastet < Formula
   sha256 "c47a84fb17c2895ea7a85b72ea40a154a03c1114c178ea7fee341215153afcdc"
 
   bottle do
-    cellar :any
-    revision 1
-    sha256 "582b03b73c28ef526dcf0c5cb972245f21c10f0d93122ae216afc9667c4c8e83" => :el_capitan
-    sha256 "f831035af03c3a8541d614dedf5548d0c360ebf5aff9b7eec4a47b6c28a10b45" => :yosemite
-    sha256 "a2213aee8e63aa7e2fc3b263282b93de7394d034ae36287e53e306b884306e18" => :mavericks
+    sha256 "d2d89b7ece332aee114a3e28eb7026dfb385b2c1052e2bb2c9f63826c4c4c0ca" => :sierra
+    sha256 "796de6f99d45c0238c57398ddfb8ade912e8395b13149a753933cd6da066577b" => :el_capitan
+    sha256 "f5ef7e127187153c9599b8eef65ce6e6b31b3cf90f1bf1e90cf022e15495ae64" => :yosemite
   end
 
   # "friend declaration specifying a default argument must be a definition"
