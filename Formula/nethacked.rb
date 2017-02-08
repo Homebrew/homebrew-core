@@ -24,6 +24,12 @@ class Nethacked < Formula
   url "https://github.com/nethacked/nethacked/archive/1.0.tar.gz"
   sha256 "4e3065a7b652d5fc21577e0b7ac3a60513cd30f4ee81c7f11431a71185b609aa"
 
+  bottle do
+    sha256 "d2c880eb02b32bc6a976b16502f400a94b395375b5cd59e731fb209580e3ceee" => :sierra
+    sha256 "dcbe9a404fb0215e35dc9d08e73595ba8dadad55e6ca898078a66ce04c9dc11b" => :el_capitan
+    sha256 "08b24568c94b14271e5d1b2880a0a78e6eea5cbbabfb9519347b5be1d2cc0893" => :yosemite
+  end
+
   # Don't remove save folder
   skip_clean "libexec/save"
 
