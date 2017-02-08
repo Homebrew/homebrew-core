@@ -53,9 +53,9 @@ class Boost < Formula
     without_libraries = ["python"]
 
     # The context library is implemented as x86_64 ASM, so it
-    # won't build on PPC or 32-bit builds
+    # won't build on 32-bit builds
     # see https://github.com/Homebrew/homebrew/issues/17646
-    if Hardware::CPU.ppc? || Hardware::CPU.is_32_bit?
+    if Hardware::CPU.is_32_bit?
       without_libraries << "context"
       # The coroutine library depends on the context library.
       without_libraries << "coroutine"
@@ -114,7 +114,7 @@ class Boost < Formula
       EOS
     end
 
-    if Hardware::CPU.ppc? || Hardware::CPU.is_32_bit?
+    if Hardware::CPU.is_32_bit?
       s += <<-EOS.undent
 
       Building of Boost.Context and Boost.Coroutine is disabled as they are
