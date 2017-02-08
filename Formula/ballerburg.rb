@@ -7,9 +7,9 @@ class Ballerburg < Formula
 
   bottle do
     cellar :any
-    sha256 "2a8049ab07afdd51322f517a8ecdab9a13f77a7e49c7fa37a6ba1ed09ced9321" => :yosemite
-    sha256 "8fe0ceaf918f821a279ccfc312f808610caa95c06ccdab27fe3285eef86f18ff" => :mavericks
-    sha256 "5fe9dde09b27b72048482631b90a2e185140e3e84e0e33c5ebff57082a31746c" => :mountain_lion
+    sha256 "fa38cec8799ff4dcd33735146d4d93c986eb42c72bf6a9f1b3bd997acb5613c1" => :sierra
+    sha256 "314236d328ffdbaa4ddbcfbe38566ab0669df3935a9a051d3366a8d0e87d3de9" => :el_capitan
+    sha256 "46502878f24bf976bc5798ff74c145059f642ca2e9cb9d8467e296ad5b582f00" => :yosemite
   end
 
   depends_on "cmake" => :build
