@@ -1,8 +1,9 @@
 class Lmdb < Formula
   desc "Lightning memory-mapped database: key-value data store"
   homepage "https://symas.com/mdb-and-sqlite/"
-  url "https://github.com/LMDB/lmdb/archive/LMDB_0.9.20.tar.gz"
-  sha256 "8ae77a093352d3e894fdfaa387266fc650a04746429cdf303b3d93fd0751d971"
+  url "https://github.com/LMDB/lmdb/archive/LMDB_0.9.19.tar.gz"
+  sha256 "108532fb94c6f227558d45be3f3347b52539f0f58290a7bb31ec06c462d05326"
+  version_scheme 1
   head "https://github.com/LMDB/lmdb.git", :branch => "mdb.master"
 
   bottle do
