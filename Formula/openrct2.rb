@@ -5,6 +5,13 @@ class Openrct2 < Formula
   sha256 "c4e04359ef91bedf58fbd9da57c39ba59066840a467aa0346c4a6353b0ae33f5"
   head "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
 
+  bottle do
+    cellar :any
+    sha256 "032c1b75b68b5651e6aea5a49ae18c37a1d63ffda4a850333a551acd1fd69587" => :sierra
+    sha256 "b06b28693bfca1419517e0ba08ff33823dd07fbbc5578c07b359328793120882" => :el_capitan
+    sha256 "bc4e64492d425929e3062d88a69392138d9717423f75aae29f17c0252a8dbb0f" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "jansson"
