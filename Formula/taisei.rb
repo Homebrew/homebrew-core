@@ -5,6 +5,12 @@ class Taisei < Formula
   version "1.0a"
   sha256 "1561c84c9fd8b9c7a91b864bdfc07fb811bb6da5c54cf32a2b6bd63de5f8f3ff"
 
+  bottle do
+    sha256 "e41fc7a5c28ca97217135e413af393e05d09b7a4a2131a0fb292f9873f6bb326" => :sierra
+    sha256 "4382fbd49e142c1fd318169ee8c91f1fff390c516b2f5fc5c6d975b330f8f472" => :el_capitan
+    sha256 "3d5fa72700737fa76e87e21e6176b32f88ef4f5d464a2a0b4fa4b98b8509251b" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "freealut"
   depends_on "freetype"
