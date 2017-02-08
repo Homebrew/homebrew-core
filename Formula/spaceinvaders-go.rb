@@ -7,10 +7,10 @@ class SpaceinvadersGo < Formula
   sha256 "e5298c4c13ff42f5cb3bf3913818c5155cf6918fd757124920045485d7ab5b9e"
 
   bottle do
-    cellar :any
-    sha256 "d87c8842da8a374186432fe48113900a1c8d2d0293972d67d8bdb727802d82ba" => :yosemite
-    sha256 "081fa658e03709c18853713bf81d21159c5a1648ae555a3dac65cab2e3df332f" => :mavericks
-    sha256 "ff2cbca94485e91ec6202ab637c6b7035f6b24c6112bef51d9b004e5627e61c4" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "672db5956f42626d3e9fc18defe431c4f2c18cd647f8cd534f9f522c314a0c49" => :sierra
+    sha256 "2ac0b623df41e8c9e9da05fc7f21e842bce1e71c0b9d4db52ef685cca9e040b0" => :el_capitan
+    sha256 "99a7e2c353d5dbb310fa03e4a430d05e0092cb0aee1c19e38bd592492ae16487" => :yosemite
   end
 
   depends_on "go" => :build
