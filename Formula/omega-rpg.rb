@@ -6,9 +6,9 @@ class OmegaRpg < Formula
   revision 1
 
   bottle do
-    sha256 "66fb30477b59d100f7ac35e186202dedd60682bc4650784f82be599e839b2c6a" => :yosemite
-    sha256 "95f29ae642a99f7c830aa6af6ff645a23ea19ebd02e781eb354e0db646088f9d" => :mavericks
-    sha256 "64968e94d82f9664cb571b59bdddc10c119dd278e99e7c026a63c0421e93951e" => :mountain_lion
+    sha256 "06008f528a9ac14c6b7e1f9be84a5e76a4ad4df234344e7e13eaedb108ce4b04" => :sierra
+    sha256 "d46db018d9c54c5a0460f46763a218b6bff1bf277aca19fe91b17965dac3a367" => :el_capitan
+    sha256 "1b5b760d814cf07c4d9daa8dbcbcccfc38038dbab140ed182ad514bad07fe932" => :yosemite
   end
 
   def install
