@@ -9,9 +9,9 @@ class GnuGo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2fb1f3a416c5c2073ca72c5deeba248b9c81d357558a7315221dcf3634303203" => :sierra
-    sha256 "cf02936086b6da588fab4b8e9c5e000b0d9fd78d7ab45a6b3202e55026408b7d" => :el_capitan
-    sha256 "2d0a130fba94f47f80815f3c6da5c9ceeb45e7190972185ae275a8647305e39d" => :yosemite
+    sha256 "25fa92bd5c129cb655ec06c441523ada5cbc90a560111c32f5b1246c8f7d124c" => :sierra
+    sha256 "f845be5a48a89cf0e46322b4d3a64a86b9fd4793f6b98fee0c45de5e8e5eda69" => :el_capitan
+    sha256 "57731f2cb8dcb2959e85baebdb779989390688a70447b923b9d5c1ce8575da44" => :yosemite
   end
 
   def install
