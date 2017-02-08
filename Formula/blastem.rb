@@ -6,6 +6,13 @@ class Blastem < Formula
   sha256 "f9a15d2e381c7eb6f55f12b0d00f3d2779b0b29bea99b422484d6ada250655ba"
   head "http://rhope.retrodev.com/repos/blastem", :using => :hg
 
+  bottle do
+    cellar :any
+    sha256 "4e932c882ff9e8557c329fa7a7f19cf7ecd44b1dbec21e7bcac86608043df585" => :sierra
+    sha256 "96f6745417f6715c7618eee8dbbe03b80c8c52bc50ccea10727a207ca1122863" => :el_capitan
+    sha256 "840d2190e1d79be0d7df3d8b54b39bddd5ee7391572af080dcf60e1c0287fee8" => :yosemite
+  end
+
   depends_on "freetype" => :build
   depends_on "jpeg" => :build
   depends_on "libpng" => :build # for xcftools
