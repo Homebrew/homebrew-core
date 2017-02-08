@@ -6,6 +6,12 @@ class Unnethack < Formula
 
   head "https://github.com/UnNetHack/UnNetHack.git"
 
+  bottle do
+    sha256 "2801362d487c397485b6849a2421c080ddb1261563e77bf64d16aa982843d332" => :sierra
+    sha256 "f0e6315f7a8d6135f80290dd20d8e2d80dc8224ad865b073fb71c05771d799eb" => :el_capitan
+    sha256 "a6345197d1067ce08e9220bd74701355d19add9c251794b3f12210cded3dce46" => :yosemite
+  end
+
   # directory for temporary level data of running games
   skip_clean "var/unnethack/level"
 
