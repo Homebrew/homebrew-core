@@ -7,6 +7,13 @@ class Slashem < Formula
   version "0.0.8E0F1"
   sha256 "e9bd3672c866acc5a0d75e245c190c689956319f192cb5d23ea924dd77e426c3"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "80a4df38057ec2bef889b92b4edfc80158add542a1bd9f1ca50ed8d39eb21e2c" => :sierra
+    sha256 "3b0ec09db5b1e2abccc22d2cc9282de211d9a15e4d2d66c404f898af2768d1b3" => :el_capitan
+    sha256 "9220e4e678c8302cd7c1ae15b4af08a733899c38717021c867e35decf79f00a7" => :yosemite
+  end
+
   skip_clean "slashemdir/save"
 
   depends_on "pkg-config" => :build
