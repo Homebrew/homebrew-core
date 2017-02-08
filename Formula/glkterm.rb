@@ -7,9 +7,9 @@ class Glkterm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5a72c3f8490cd55598d1160533e951e5b188b319a2dccbf0cb6ee8a8b12dd4b0" => :sierra
-    sha256 "e1f42b6bef2421cf3c42e52f79b8e6153301b7c8d65fbaf4fe284b691705899c" => :el_capitan
-    sha256 "3fe7df7e54d96dcd88cc57674ae570b34af41b6a0511439a28c3036bc9e80580" => :yosemite
+    sha256 "b4c65e282b8cf6fce1e32e4e168aef241d6c38f2090448c68ad3ca7157e1d473" => :sierra
+    sha256 "b9db7677c23716a7f8a57ce45d309487a36cc41c1388e2c7990b49c17e2f0bb7" => :el_capitan
+    sha256 "61b75bf1232fb3aacc5966ea13e88fe339da7ffd7c9882bab549456dd816a30a" => :yosemite
   end
 
   keg_only "Conflicts with other Glk libraries"
