@@ -5,9 +5,9 @@ class Advancemenu < Formula
   sha256 "c7599da6ff715eb3ad9f7a55973a9aaac2f26740a4e12daf744cf08963d652c1"
 
   bottle do
-    sha256 "17b87afd785fefa91eb2fc1aa6e1ac4b96869d8f9921c958bb45e27a0beed1f7" => :sierra
-    sha256 "bfa928fd5353506a31320b9563645c42ce951094b628698992c540cd1fc3260c" => :el_capitan
-    sha256 "ada2ad9d75ca6887dd4c2e02c8b62fd3281c1146d56f9028bc730721579492ce" => :yosemite
+    sha256 "875396a5eb77a17ee1cda679fc782d5fa15072a206331d15cb186e52bf4d5369" => :sierra
+    sha256 "5e4a2e320562c0d92c3d61049f097d0a7ee054b76bacc8dbf81095c2758bed6a" => :el_capitan
+    sha256 "543c8592f5f72c1407fac7e29a9bc298b2d5b15529d669b54338d60209409028" => :yosemite
   end
 
   depends_on "sdl"
