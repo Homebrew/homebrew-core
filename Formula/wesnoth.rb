@@ -7,9 +7,9 @@ class Wesnoth < Formula
   head "https://github.com/wesnoth/wesnoth.git"
 
   bottle do
-    sha256 "63250b3eefb3ff93eba14addee9acfb6980ba138b9033b824a14f5e2a3a5a4b0" => :yosemite
-    sha256 "93e971f838ba9c2bf97974dc3ef7d6823138bdda560671d67cf74794d65c4f30" => :mavericks
-    sha256 "dcbc0e81cd0a5c92392b51b1e68f933045277bf75eeddebaa3b99797c45ce6be" => :mountain_lion
+    sha256 "f5152f725924178af6172de9dc712470195d4df061e1e17556a4610bdfa895ca" => :sierra
+    sha256 "ff711ce841b40bf9737ff9284edf505c4784aec3617dee3faae01ef85ddeea3b" => :el_capitan
+    sha256 "9808f9d078a039a3d95f2f1313c97de24036c6f5766181c7ccd07cb87916cd04" => :yosemite
   end
 
   option "with-ccache", "Speeds recompilation, convenient for beta testers"
