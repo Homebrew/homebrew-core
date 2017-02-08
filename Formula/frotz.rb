@@ -7,10 +7,9 @@ class Frotz < Formula
   head "https://github.com/DavidGriffith/frotz.git"
 
   bottle do
-    cellar :any
-    sha256 "2c48e1e411a9e6721a2f7bc493c0f2b25f1846cd7a74837ba48b70c2497025f8" => :yosemite
-    sha256 "d51a6a6c16d0274843e0e1b629d73d5faa27ab8b7de713e5c42d6087c1391ec3" => :mavericks
-    sha256 "d29b8dd2a5f92b818ad782d602764119fe8b211b853e3911cb0dbc0863541467" => :mountain_lion
+    sha256 "e190264a540f03ec98b7be45d1edfc73c0bd4946b4d2c4aacdf98521354e4ca0" => :sierra
+    sha256 "6506ec53859a859eb71ab33511a11e9c957e0749cb25efa06d63d6c80d000b4a" => :el_capitan
+    sha256 "887efd67a050038ffb15df8c713eaa40fcbfcc69d36f58373981dba3ccae422b" => :yosemite
   end
 
   def install
