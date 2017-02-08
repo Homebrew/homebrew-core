@@ -3,8 +3,8 @@ require "language/go"
 class Jvgrep < Formula
   desc "Grep for Japanese users of Vim"
   homepage "https://github.com/mattn/jvgrep"
-  url "https://github.com/mattn/jvgrep/archive/v5.0.tar.gz"
-  sha256 "70078c61ff86a7d1c8c689c8535d06010672027d636f6e624598ec186df4d2e7"
+  url "https://github.com/mattn/jvgrep/archive/v5.1.tar.gz"
+  sha256 "4fe6d3fa77c4e4c7860286435750d007b797604a661b324f2ae87d68fc34566a"
   head "https://github.com/mattn/jvgrep.git"
 
   bottle do
@@ -19,27 +19,27 @@ class Jvgrep < Formula
 
   go_resource "github.com/k-takata/go-iscygpty" do
     url "https://github.com/k-takata/go-iscygpty.git",
-        :revision => "f91f8810106213f01bd64933dc10d849bd9137ac"
+        :revision => "ef1d38de59ba64389903f1b91b99dfb80a4eda24"
   end
 
   go_resource "github.com/mattn/go-colorable" do
     url "https://github.com/mattn/go-colorable.git",
-        :revision => "9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59"
+        :revision => "d228849504861217f796da67fae4f6e347643f15"
   end
 
   go_resource "github.com/mattn/go-isatty" do
     url "https://github.com/mattn/go-isatty.git",
-        :revision => "56b76bdf51f7708750eac80fa38b952bb9f32639"
+        :revision => "30a891c33c7cde7b02a981314b4228ec99380cca"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "e445b19913b9d40fdbdfe19ac5e3d314aafd6f63"
+        :revision => "236b8f043b920452504e263bc21d354427127473"
   end
 
   go_resource "golang.org/x/text" do
     url "https://go.googlesource.com/text.git",
-        :revision => "4440cd4f4c2ea31e1872e00de675a86d0c19006c"
+        :revision => "dafb3384ad25363d928a9e97ce4ad3a2f0667e34"
   end
 
   def install
