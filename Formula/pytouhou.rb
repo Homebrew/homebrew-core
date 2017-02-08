@@ -5,6 +5,13 @@ class Pytouhou < Formula
   version "634"
   head "https://hg.linkmauve.fr/touhou", :using => :hg
 
+  bottle do
+    cellar :any
+    sha256 "fd255fcb879ea6dfcf7cd7d4c5b379b42fdf3612caa48e33ee724df9211ce0eb" => :sierra
+    sha256 "0b14b271443ce5833a8377c00cca5a697d49696cb030faf8eb868bb6543281b1" => :el_capitan
+    sha256 "89644eff0f65c4200f563324a6d0a8b9531889ff302b1020cbe9e75147e02df1" => :yosemite
+  end
+
   option "with-demo", "Install demo version of Touhou 6"
 
   depends_on :python3
