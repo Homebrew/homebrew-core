@@ -7,9 +7,9 @@ class Nesemu2 < Formula
 
   bottle do
     cellar :any
-    sha256 "c2096564a3a460a3a76d6a982f7c8a46c0ee776696dc7882a3c1d0069f68f5e6" => :el_capitan
-    sha256 "47b2366f4edcf4be2a4d0adf3745274195d920b560778c43d3bec3c2ef434e23" => :yosemite
-    sha256 "a6a6fb240a1a4d4ae660f35d5cb8253f35ea58e428048760f9882f1e0ab66dd1" => :mavericks
+    sha256 "b5e129f5258a72d05f9a8bec4db59b26328fe556b497273ae9d22e31f65e88ee" => :sierra
+    sha256 "84e8ce17829e03cd96982d0b3bf305ac46905dec81bd65beefd4d13eaa4c9fd9" => :el_capitan
+    sha256 "5029f5ea2c96e0fb1b7f3f0898a5b42003e8db44f65aebf954a32265afc132f5" => :yosemite
   end
 
   depends_on "wla-dx" => :build
