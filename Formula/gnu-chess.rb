@@ -6,9 +6,9 @@ class GnuChess < Formula
   sha256 "3c425c0264f253fc5cc2ba969abe667d77703c728770bd4b23c456cbe5e082ef"
 
   bottle do
-    sha256 "411c317415947009b6049a01eba5f982b3a490f6bf55e11666af6e6c8b8ffe18" => :sierra
-    sha256 "65ee081879182d9ebd12eef9d737bc12ad22247ff27ecd339ecb2f76e1434cbe" => :el_capitan
-    sha256 "20c1c10b54746fb09eeb0101b014d39fb6196b0668ed5e6e9b9acd0b6488b970" => :yosemite
+    sha256 "986750bf4784a983b5b9cdb41ebaecea3df181755bdd3b9925a06521fd9ebc07" => :sierra
+    sha256 "8251ba46089e98ab4155c610e693026c7830312284cd30d6929acf1110b5cde9" => :el_capitan
+    sha256 "0b2a3d6580b8b96e2dbd3b34d499f0143622b8d1757e2a72b4c43617ccd2d321" => :yosemite
   end
 
   head do
