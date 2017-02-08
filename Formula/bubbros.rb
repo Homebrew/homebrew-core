@@ -6,9 +6,9 @@ class Bubbros < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "54b93573f8d5de0b51eafc9b0c6a2bc4f1d2530b1f31923cf9fcd95a0a098838" => :sierra
-    sha256 "072b7e03df1d5dbe8ce6e1d8c23251bb3358e3d6106f88f6fb0425142ab7afdc" => :el_capitan
-    sha256 "6166d83051609c8e9e9a7001a0e75b57e2166a2f93d74194f2d7455581270531" => :yosemite
+    sha256 "672afb435affe29227d9755b9c06b787263506059f27e9470c98e8fd7119d9a9" => :sierra
+    sha256 "f9e5eb52706a72f8a6999e30945a5ab89035c1a9dbff403a8febd68322f56124" => :el_capitan
+    sha256 "66e1a809c1e27df455cfb0f25a2c5b1d3a4560ef9598c2c2a4b6ffce66f9b591" => :yosemite
   end
 
   depends_on :python
