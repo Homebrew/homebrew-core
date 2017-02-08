@@ -6,9 +6,9 @@ class Guichan < Formula
 
   bottle do
     cellar :any
-    sha256 "980c483e7566fc69294a26a603bcf474fe74c660840916ef238ea9f88a27daed" => :el_capitan
-    sha256 "60ac3594c93c20b0a992d85990d981e9d5f9de42492c0f3ab7b49a83286e655f" => :yosemite
-    sha256 "8e1358e9b004b2889abb90ff24fb9ce22f2fa6efb856db76a708ececac0609f1" => :mavericks
+    sha256 "3815959a2b29e0d92e8f8e47fb09528c13adff1756df3acf72792092e1e13ef0" => :sierra
+    sha256 "ceccf2469c60c0ee7c06d3b7af0a8a43080d857c959dabcb30c74da908318a34" => :el_capitan
+    sha256 "472e8b2c7e04d74d2704481e2bb12d228773de400975ecf53c07bbc2823a0ea7" => :yosemite
   end
 
   depends_on "sdl_image"
