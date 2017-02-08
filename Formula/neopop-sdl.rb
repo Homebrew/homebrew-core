@@ -6,9 +6,9 @@ class NeopopSdl < Formula
 
   bottle do
     cellar :any
-    sha256 "3d8a1f106136142a38f8ec89e0bd2403d6294f51ba86211a1309e58186906f50" => :sierra
-    sha256 "6b56cf6822ca345a48cca6527417f449d884b35bde617b9d59058b1e29a2b7e4" => :el_capitan
-    sha256 "3eb50b57fef442f83df0d9d92f1612094a40feb38658b9d153eae568d0570472" => :yosemite
+    sha256 "3510d31984f2f46a59390617e2af3941638a4eb20a42131fc804e5d307cb5059" => :sierra
+    sha256 "e115fe849a0b8e1921a6c36c3d34fcc00b911f0504a0e32543656e76513384ad" => :el_capitan
+    sha256 "a8de30162f9e5146ee7c39480e83588f8036c0b965215e7ce1894c79855c8687" => :yosemite
   end
 
   head do
