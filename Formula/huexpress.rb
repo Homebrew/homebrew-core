@@ -7,9 +7,9 @@ class Huexpress < Formula
 
   bottle do
     cellar :any
-    sha256 "aefa69c1df19635a784390e259890ca2107bf66a390c7e84bfd9f51c042f150a" => :el_capitan
-    sha256 "25302596add34af85e0381d09a363f1789becf9378b0181253867e418e83c935" => :yosemite
-    sha256 "5e85cb80e11a1d57413ae5d33321b773712cdafee692cef68082a748ec4affdd" => :mavericks
+    sha256 "cf0ed74cfe5407985ef14c807cea97ce85e3ed1b156fc5634ba5d16841cfffff" => :sierra
+    sha256 "a3cc21304fdd6906df6f1a8bbf7f2ae3a467b906ec81df725f8a9b85431dc1e3" => :el_capitan
+    sha256 "74672f9c6a4efa91a47184edd67d5a4356d47f8acaf663e53543be24598e1c90" => :yosemite
   end
 
   depends_on "scons" => :build
