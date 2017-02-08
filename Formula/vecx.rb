@@ -7,9 +7,9 @@ class Vecx < Formula
 
   bottle do
     cellar :any
-    sha256 "fc2bccdd37c22fa9966690e5c61b967077de0d26fcc54ae965cc73119d2344e2" => :sierra
-    sha256 "ea08d6c2a84382366688673dee326dee353a5e5e506d2f34ca673ce6964d3762" => :el_capitan
-    sha256 "1d8d7c78396869a949aec225adbab7612812d4690cf3c96264609ba2a086a774" => :yosemite
+    sha256 "9417cc9e5938dc117b4ab7ab41518a2b28e366cae15cdf1192af15e6237a35e6" => :sierra
+    sha256 "48d404ad79ecd0ac870ca0b3390a6465e7ed2755d58eaf130ec93a4e874e5f34" => :el_capitan
+    sha256 "65e4cd91159f3772ec9e688d93bb1c1dd823e9c397b5163a62b1499909a2b74b" => :yosemite
   end
 
   depends_on "sdl"
