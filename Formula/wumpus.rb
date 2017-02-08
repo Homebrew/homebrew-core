@@ -5,10 +5,10 @@ class Wumpus < Formula
   sha256 "965e49b3e53f44023994b42b3aa568ad79d3a2287bb0a07460b601500c9ae16d"
 
   bottle do
-    cellar :any
-    sha256 "d3b2684fa7a1a7a9c676bc0f7d635ed3913f6734c7810f0c6fa234044ca9a147" => :yosemite
-    sha256 "cb277b7dab8ca78ea627f80a9596807b7cd5e8bbba389d0117b4a743bdfdaacf" => :mavericks
-    sha256 "c92ce6674f45ee484435cfd5746b4c6ae80d8ced9a5901e254b7e5bacadc8726" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "fa693e01a17d31e9e5a5b51f27ea18b69e30f5613615c95ddb89c7dbc4bbe75d" => :sierra
+    sha256 "3b6751d8a871e44c033e4a6d83009bb8b499952385d8c1743be3d26bfe37b312" => :el_capitan
+    sha256 "d292048f1869507766d60e6931bffbf402f99d8fe36711ed6d9dbb060407a4a6" => :yosemite
   end
 
   # Patches to allow `make install` to specify a prefix; both patches
