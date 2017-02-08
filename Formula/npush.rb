@@ -7,9 +7,9 @@ class Npush < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6813b07cd32089c5c41d04375233270f8a61d26dfcb41f82a50063c995a562bc" => :el_capitan
-    sha256 "b54aafd290ef5872b8b4737165639cb7a670902bee8bbb52422913c40aae0e94" => :yosemite
-    sha256 "3959d2c4f0a9e7525e18f44a25e5208388979bcf97a4896570766f4f29c8b1d9" => :mavericks
+    sha256 "ce2f958ef8d766791137266e74b7c2cd0843755d080ecbbd6a7074bc7d035c19" => :sierra
+    sha256 "c37e743784c68e9c1bb1527d4c6161a5653831de44b3203be8c1cb07d9eeb7c2" => :el_capitan
+    sha256 "d334de125247efff9ce8031cedbb240a493b355a66cae5e6687cefb414d69ffb" => :yosemite
   end
 
   def install
