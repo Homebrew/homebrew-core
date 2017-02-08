@@ -22,7 +22,7 @@ class Terragrunt < Formula
     mkdir_p buildpath/"src/github.com/gruntwork-io/"
     ln_s buildpath, buildpath/"src/github.com/gruntwork-io/terragrunt"
     system "glide", "install"
-    system "go", "build", "-o", bin/"terragrunt", "-ldflags", "-X main.VERSION=" + version.to_s
+    system "go", "build", "-o", bin/"terragrunt", "-ldflags", "-X main.VERSION=v#{version}"
   end
 
   test do
