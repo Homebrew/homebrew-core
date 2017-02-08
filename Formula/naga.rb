@@ -6,10 +6,9 @@ class Naga < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "d463ce4c2bab8ca72fcdee4545592a5de2d4eb4c30ae83d8bc7e59aff65b9b37" => :el_capitan
-    sha256 "c1e7b2d084acd6f9c902dd012f56c3f4bb0e8e6482cea24d6416dcd9ec5fe540" => :yosemite
-    sha256 "79beeb5cf00056d30ca4ca8173b6c992d562ab4b948e62d636fbc599b17a9bba" => :mavericks
+    sha256 "8baa28b92a0d6970a857c859b11e4a1df878db5270f259bd3ccfe3b5f57f3303" => :sierra
+    sha256 "6ff3dd51d1cdeed9364c36c25d1c2794f973e2927077eaeb251fa0dbfc48a531" => :el_capitan
+    sha256 "fe303605603697993def097e9557a0dcec83d323a0b43d51fb1811108937da6c" => :yosemite
   end
 
   def install
