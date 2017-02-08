@@ -6,9 +6,9 @@ class ColorCode < Formula
 
   bottle do
     cellar :any
-    sha256 "92a73a595c94c657676c5b0380c3a6aef9de725e88dde65656e9848e0fe81605" => :el_capitan
-    sha256 "c10fcb700a0c47abef3727c17dd689215e164102a16ac3aad9444f29b7fb9139" => :yosemite
-    sha256 "e06d67b2033015f2112fdee7dcd20de8057aa112be7cd156f87c0e0b36e19ba7" => :mavericks
+    sha256 "97f97f9cf8117d1acf3159c675c86daeaca8cfdf16033f9b56490fd1b39f8ea2" => :sierra
+    sha256 "97f97f9cf8117d1acf3159c675c86daeaca8cfdf16033f9b56490fd1b39f8ea2" => :el_capitan
+    sha256 "ca1ad797d0438d8c9d0aea74b3cb70dfb48963b2309e04b69849694957dacdda" => :yosemite
   end
 
   depends_on "qt5"
