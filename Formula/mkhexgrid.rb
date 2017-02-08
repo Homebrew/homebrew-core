@@ -4,6 +4,13 @@ class Mkhexgrid < Formula
   url "http://www.nomic.net/~uckelman/mkhexgrid/releases/mkhexgrid-0.1.1.src.tar.bz2"
   sha256 "122609261cc91c2063ab5315d4316a27c9a0ab164f663a6cb781dd87310be3dc"
 
+  bottle do
+    cellar :any
+    sha256 "d2be4b1376fbeb90429433d0cae9b95b8b927701038156a7cb3d73a49620548f" => :sierra
+    sha256 "a87808f88a90308adfb14cf89b3bd89251580301f40ba18d08816de2df0be632" => :el_capitan
+    sha256 "ec463b01aecec2cc76cd6f91761867fa0efbdeddf60f09bc134f45822006889b" => :yosemite
+  end
+
   depends_on "boost"
   depends_on "gd"
 
