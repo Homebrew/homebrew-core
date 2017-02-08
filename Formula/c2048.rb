@@ -7,9 +7,9 @@ class C2048 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "150f562e3a85e962e576fe172353fc709483cb9b49f47dd05b0248fb0b238f0e" => :el_capitan
-    sha256 "aedb7caed6f1bfeb343a12df5cb62b060a92cbfb27f22af6d4aede12968d92c2" => :yosemite
-    sha256 "bfee60cbfe49b6f5b4a4dc14f6f83a7e521f7c5fe651dd701307dd185de798e5" => :mavericks
+    sha256 "d2f33783cf7cd2ac69eaed113d940aca31e02e5863fcdb40e200e3fe9a4d0623" => :sierra
+    sha256 "8f9e75196f87718be0c572f731cecba0c8cd4e8dc35f8b3027392cd6e1c45f5d" => :el_capitan
+    sha256 "c06bde9e58788a1a4f16b6d0ace89be02cf07f86211e0c78af5fdaa7d70a3614" => :yosemite
   end
 
   def install
