@@ -8,9 +8,9 @@ class Openjazz < Formula
 
   bottle do
     cellar :any
-    sha256 "2af3cfc16369b10add552cb8fe84656857473e1f567087cc9b37ddbe1b82049e" => :yosemite
-    sha256 "faa962823262bace1d0105d5be10cbebdc5ebb244ebe170ba3b4b4b7ae56afeb" => :mavericks
-    sha256 "70f56d799b82522426d011face63f33665af096c0d22f18c432c6d2cae25033e" => :mountain_lion
+    sha256 "e5cecf43b5022ad8ed9eecef1ad221c5fcda9f7ee346c3543ad665d082c226aa" => :sierra
+    sha256 "35720ec4dc158b49f9b537033a72c4ca53a529b68de5ca577ff0e8df4ae102ab" => :el_capitan
+    sha256 "557b67389c325c2377555fd2fd6495acab7df376d03db2ab8cfa7d539c1da4ed" => :yosemite
   end
 
   depends_on "autoconf" => :build
