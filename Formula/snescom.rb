@@ -5,10 +5,10 @@ class Snescom < Formula
   sha256 "e80187d969fd448fe4d3c636bdbe9c24fe452e1436566b29fbf3410bde739504"
 
   bottle do
-    cellar :any
-    sha256 "102cfb6d03ac2dede67119f47329a1db8436f001946ef36c285b7bb3463dafa3" => :yosemite
-    sha256 "2ef1408312be3110c88e5be2f9e7b736a8d498ade8335b5076da09585ebff971" => :mavericks
-    sha256 "23af80922e45a7937086900f06e213fb017b6afdde06b3ab96db2ce7b7f784ce" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "88ef26252bca284c277bc7256cc3c956061033c1b4f6139748c51a486a92523d" => :sierra
+    sha256 "bc1820ed86664536c22182adb696c091c6c49a9535171b201374e17f7162fdfd" => :el_capitan
+    sha256 "0bf3fa4d114e481542f8c12ee04b8dda5c160958348771ab9cd4791f06ec55f3" => :yosemite
   end
 
   patch :p1 do
