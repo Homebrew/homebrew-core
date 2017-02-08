@@ -5,9 +5,9 @@ class Nuvie < Formula
   sha256 "ff026f6d569d006d9fe954f44fdf0c2276dbf129b0fc5c0d4ef8dce01f0fc257"
 
   bottle do
-    sha256 "c0c3f49017d8aca42f7abf1681db052d699585741aad47ae9c92f19f1aa9208c" => :yosemite
-    sha256 "cf1ca12f0dc0fdf4b26fb53be5899b979eb277005de257e94c5b1509d53cf2eb" => :mavericks
-    sha256 "b44e21612d24b3f2552f342f445408a19b82449e5686c1b40b1c72686fe20b09" => :mountain_lion
+    sha256 "036ab5e7a6b95f33f470c00124cc498012f38e650b830eca1d84082a7296a554" => :sierra
+    sha256 "bbf72ee5eeb816255999fc5c331bc70d6b4af3a7f639795f736b8f46e70b9790" => :el_capitan
+    sha256 "324dcf4a9f1ae523fd70fbbb1141f7cfe4245348d439c37dbe7a1520eb9e00d9" => :yosemite
   end
 
   head do
