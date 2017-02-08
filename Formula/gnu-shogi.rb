@@ -6,9 +6,9 @@ class GnuShogi < Formula
   sha256 "1ecc48a866303c63652552b325d685e7ef5e9893244080291a61d96505d52b29"
 
   bottle do
-    sha256 "d5f6a61a19d4a7021f7df9a2531ac416a20bda3c5ac57e03c388634d62aafe8e" => :yosemite
-    sha256 "f6b79feeeed71109d169782a5cfd744073b4d7e18cd56f6a97bfa0d551225083" => :mavericks
-    sha256 "40db203ce21ba253edf1bd714bae5f065e9119cc9cadfde4439d18dd45db343a" => :mountain_lion
+    sha256 "677531c9eb7bdd01f22862c24d5ab144f7b78bd672223854fc169d103a9924e2" => :sierra
+    sha256 "49ff431036e172362b24dc7eca426a638ec2953ea014c67e4cae239e9175bf27" => :el_capitan
+    sha256 "1fbc9bf567ea4c50c5bb12fda953e18ce8617298d474ed8a56ca2b9dd24b2726" => :yosemite
   end
 
   def install
