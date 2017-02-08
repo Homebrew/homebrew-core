@@ -5,9 +5,9 @@ class Avanor < Formula
   sha256 "8f55be83d985470b9a5220263fc87d0a0a6e2b60dbbc977c1c49347321379ef3"
 
   bottle do
-    sha256 "89c8215f9e670819e065820a3fd59dee56c7e59f9e304f799f2b319db372f998" => :el_capitan
-    sha256 "0c8cce6920444c2b7d6ea524bc9881f2e19c6ced735bb4f833cb6e04c49c5ffc" => :yosemite
-    sha256 "0899dfe6dbc824bdf5b589020063c711c51fde9a6cca87048ec352779c2cbcf1" => :mavericks
+    sha256 "848e96ed26b258042b77a3c2139398b8e6f62722719263c082fb4c6655ffd4bc" => :sierra
+    sha256 "a66b436a645cafa77a5bd79d22f314ff2b9331526f5efeaf79d38346647cad66" => :el_capitan
+    sha256 "1c12fd7f45993d18b481d3317594083e4bb88f0eecf100d4b5dd4a927c866200" => :yosemite
   end
 
   # Upstream fix for clang: http://sourceforge.net/p/avanor/code/133/
