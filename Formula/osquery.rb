@@ -5,7 +5,7 @@ class Osquery < Formula
   url "https://github.com/facebook/osquery.git",
       :tag => "2.2.1",
       :revision => "8fcb3659eeeac56847ee6d26b138b6bddc941a6a"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
