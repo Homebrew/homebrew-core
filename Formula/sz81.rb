@@ -6,9 +6,9 @@ class Sz81 < Formula
   head "svn://svn.code.sf.net/p/sz81/code/sz81"
 
   bottle do
-    sha256 "3953792f4c21d30885cd05560737d387df832072a4ae478f7f6eac1f5f1bb4e0" => :el_capitan
-    sha256 "0c3feb15a6e52e5f6c54cadcb2775c6235b9b222d4415b276a003913b2e9e0c2" => :yosemite
-    sha256 "2167f29e1aa3c866662790b359b89515506a45bf7514d5df77e490cf68d4d58b" => :mavericks
+    sha256 "853475dfc7991beea12b01669e81fc35ce10e6a9b067716eb026e0ff693d5c4c" => :sierra
+    sha256 "7a9b6ffa108486dea9514df6fbdd820a0e7b829c893ecb1b76a1b69ca8f39a21" => :el_capitan
+    sha256 "a7f7cc5af1a1a42449da3169e18587df907369c94debf6bb15edba62acf0e199" => :yosemite
   end
 
   depends_on "sdl"
