@@ -2,8 +2,8 @@ class Carina < Formula
   desc "command-line client for Carina"
   homepage "https://github.com/getcarina/carina"
   url "https://github.com/getcarina/carina.git",
-        :tag => "v2.1.2",
-        :revision => "a6912875e62b2c832a8f71602b51a7d764ac53d4"
+        :tag => "v2.1.3",
+        :revision => "2b3ec267e298e095d7c2f81a2d82dc50a720e81c"
   head "https://github.com/getcarina/carina.git"
 
   bottle do
