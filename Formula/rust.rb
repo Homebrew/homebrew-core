@@ -4,7 +4,7 @@ class Rust < Formula
 
   stable do
     url "https://static.rust-lang.org/dist/rustc-1.15.0-src.tar.gz"
-    sha256 "33f3747d231ede34b56c6cc0ae6be8cbaa29d2fdb39d86f25693dceb9fc5f164"
+    sha256 "f655e4fac9c2abb93eb579e29c408e46052c0e74b7655cd222c63c6743457673"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
