@@ -1,8 +1,8 @@
 class WakatimeCli < Formula
   desc "Command-line interface to the WakaTime api"
   homepage "https://wakatime.com/"
-  url "https://pypi.python.org/packages/bb/62/8878ca650bb002f29aef1ecc7292954c24bfe30ecb94ec4504aff726b22d/wakatime-6.2.0.tar.gz"
-  sha256 "e8eaba0dd83621b2bd4d1e71b1775ec78f65823d07ae4b1f65fa085210418b78"
+  url "https://pypi.python.org/packages/94/aa/c0/37c51b21d6b133742beb9a5a53495f4d7c096bb12d1da77f17/wakatime-6.2.1.tar.gz"
+  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
   bottle do
     cellar :any_skip_relocation
