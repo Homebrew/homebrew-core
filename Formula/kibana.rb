@@ -49,6 +49,7 @@ class Kibana < Formula
     prefix.install Dir["build/kibana-#{version}-#{platform.sub("x64", "x86_64")}/{bin,config,node_modules,optimize,package.json,src,webpackShims}"]
 
     inreplace "#{bin}/kibana", %r{/node/bin/node}, "/libexec/node/bin/node"
+    inreplace "#{bin}/kibana-plugin", %r{/node/bin/node}, "/libexec/node/bin/node"
 
     cd prefix do
       inreplace "config/kibana.yml", "/var/run/kibana.pid", var/"run/kibana.pid"
