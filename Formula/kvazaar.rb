@@ -26,10 +26,9 @@ class Kvazaar < Formula
 
   bottle do
     cellar :any
-    sha256 "45a41530791f514842620ce53d6b03cf3915f396bf50b2fdc7025fd1917fadb4" => :sierra
-    sha256 "51cc24538d1978ad0dc4d52056e45a3fcf2960d6d859ec728c4edd44e267dfde" => :el_capitan
-    sha256 "165654dedd6d7bb438ea9215789bf97a8fa426b3e7f09b1f010559c680a6b7b6" => :yosemite
-    sha256 "ae000ea2d5cb4717dce904aa371813e3603c0b05bf333306948457848e22c272" => :mavericks
+    sha256 "5dd89059b3af46dc2bb14659e85ef3df0335e1cb4983776618e2a11ebc33bdb5" => :sierra
+    sha256 "5bda05263252256cefadb228ec8588f09568d00875a00ef0f12da69ab06868f6" => :el_capitan
+    sha256 "ec981006d5607147b9af8a1a1d6e9dca1642b1dd85ac8a528f1c801f82053573" => :yosemite
   end
 
   depends_on "autoconf" => :build
