@@ -2,8 +2,8 @@ require "language/node"
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://www.bitsrc.io"
-  url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.1.12/bit-0.1.12-brew.tar.gz"
-  sha256 "122ec737cca207bba1fa9ae6e3ea22acf53cecd56b542a2a5bacd380a88bdef9"
+  url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.1.28/bit-0.1.28-brew.tar.gz"
+  sha256 "2911896ce1b1b4d12a50fe67ba53ceb35abac93529ac660e2715e499c3b1b2bb"
 
   bottle do
     sha256 "a3c8f1d2888e2320928dfc76ea6bc7b5b5b699929afc98fc542d0d9ac8184d40" => :sierra
