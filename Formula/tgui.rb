@@ -1,8 +1,8 @@
 class Tgui < Formula
   desc "GUI library for use with sfml"
   homepage "https://tgui.eu"
-  url "https://github.com/texus/TGUI/archive/0.7.2.tar.gz"
-  sha256 "850195a90fcff3d7d61d276c3ec3fdfc8cd09c60201d49163b0b3cddfac78164"
+  url "https://github.com/texus/TGUI/archive/0.7.3.tar.gz"
+  sha256 "1d71264420f0108e317e5e2a39fb6db559e1f0f897bcd62007c9b36cf0ceeb99"
 
   bottle do
     cellar :any
