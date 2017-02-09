@@ -3,7 +3,7 @@ class PgpoolIi < Formula
   homepage "http://www.pgpool.net/mediawiki/index.php/Main_Page"
   url "http://www.pgpool.net/download.php?f=pgpool-II-3.4.3.tar.gz"
   sha256 "b030d1a0dfb919dabb90987f429b03a67b22ecdbeb0ec1bd969ebebe690006e4"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "5fb685056312efeef58e27c203536b8d1b2e4b6f33aa4302baa90c5937c9064e" => :sierra
