@@ -3,6 +3,7 @@ class Psqlodbc < Formula
   homepage "https://odbc.postgresql.org"
   url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-09.06.0100.tar.gz"
   sha256 "050c80b25eb6553a718b9ab4ac00dcbadf7a13ee5ae637c30f7dcde8f4a6c962"
+  revision 1
 
   bottle do
     cellar :any
