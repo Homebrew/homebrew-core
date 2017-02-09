@@ -5,8 +5,8 @@ class PandocCiteproc < Formula
 
   desc "Library and executable for using citeproc with pandoc"
   homepage "https://github.com/jgm/pandoc-citeproc"
-  url "https://hackage.haskell.org/package/pandoc-citeproc-0.10.3/pandoc-citeproc-0.10.3.tar.gz"
-  sha256 "2f6233ff91a9fb08edfb0ac2b4ec40729d87590a7c557d0452674dd3c7df4d58"
+  url "https://hackage.haskell.org/package/pandoc-citeproc-0.10.4/pandoc-citeproc-0.10.4.tar.gz"
+  sha256 "1dcfffe0dc26d0a1b5ef5688a09c1bb81231702169196e6faed8ddef360d848f"
   head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
@@ -20,12 +20,6 @@ class PandocCiteproc < Formula
   depends_on "pandoc"
 
   def install
-    # Build error with aeson >= 1.0.0.0: "Overlapping instances for FromJSON"
-    # Reported 27 Oct 2016 https://github.com/jgm/pandoc-citeproc/issues/263
-    inreplace "pandoc-citeproc.cabal",
-      "aeson >= 0.7 && < 1.1, text, vector,",
-      "aeson >= 0.7 && < 1.0.0.0, text, vector,"
-
     args = []
     args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
     install_cabal_package *args
