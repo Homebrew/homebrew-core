@@ -3,8 +3,8 @@ class Xonsh < Formula
 
   desc "Python-ish, BASHwards-compatible shell language and command prompt"
   homepage "http://xon.sh"
-  url "https://github.com/xonsh/xonsh/archive/0.5.2.tar.gz"
-  sha256 "58bd878acdfe46372b56b3f4b764e85c1038bd149334731f778daa12ab072294"
+  url "https://github.com/xonsh/xonsh/archive/0.5.4.tar.gz"
+  sha256 "878f57da4bbb8e67f0a83b910fd175f54c99bb1b5e652c7d039e72020c8d0e25"
   head "https://github.com/scopatz/xonsh.git"
 
   bottle do
@@ -14,11 +14,6 @@ class Xonsh < Formula
   end
 
   depends_on :python3
-
-  resource "ply" do
-    url "https://files.pythonhosted.org/packages/a8/4d/487e12d0478ee0cbb15d6fe9b8916e98fe4e2fce4cc65e4de309209c0b24/ply-3.9.tar.gz"
-    sha256 "0d7e2940b9c57151392fceaa62b0865c45e06ce1e36687fd8d03f011a907f43e"
-  end
 
   def install
     virtualenv_install_with_resources
