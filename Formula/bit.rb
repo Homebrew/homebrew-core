@@ -11,7 +11,7 @@ class Bit < Formula
     sha256 "06a6e114c0ce663a7bda3cc422b3c47c1c16eca598305b191e0d508baf6470d8" => :el_capitan
     sha256 "86fc112094a34ee836bfe23abb3920424a50836c8c4f1a07384d558c13f47be7" => :yosemite
   end
-  
+
   depends_on "node"
 
   def install
