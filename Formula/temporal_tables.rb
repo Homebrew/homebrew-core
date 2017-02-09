@@ -3,6 +3,7 @@ class TemporalTables < Formula
   homepage "http://pgxn.org/dist/temporal_tables/"
   url "https://github.com/arkhipov/temporal_tables/archive/v1.1.0.tar.gz"
   sha256 "1fe210a349d1418d097f229c36f30a1daef1ff17cf0f027685171c52e366308a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
