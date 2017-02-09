@@ -1,8 +1,8 @@
 class Ipmiutil < Formula
   desc "IPMI server management utility"
   homepage "http://ipmiutil.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-2.9.5.tar.gz"
-  sha256 "eb00f0582ee75e1f8d371e398d546ddd7639595b9a0a1f27a84cc6ecb038dbe6"
+  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-3.0.1.tar.gz"
+  sha256 "762cbd40cc17f81512ca94a622bc01bd122c92215880407e906356c0b3da309d"
 
   bottle do
     cellar :any
@@ -14,11 +14,6 @@ class Ipmiutil < Formula
   end
 
   depends_on "openssl"
-
-  # Ensure ipmiutil does not try to link against (disabled) OpenSSL's MD2
-  # support. Patch submitted upstream in
-  # https://sourceforge.net/p/ipmiutil/mailman/message/33373858/
-  patch :DATA
 
   conflicts_with "renameutils", :because => "both install `icmd` binaries"
 
@@ -42,26 +37,3 @@ class Ipmiutil < Formula
     system "#{bin}/ipmiutil", "delloem", "help"
   end
 end
-
-__END__
-diff -u ./configure.bak ./configure
---- ./configure.bak       2015-02-04 22:15:07.000000000 +0100
-+++ ./configure   2015-02-04 22:16:18.000000000 +0100
-@@ -20739,7 +20739,7 @@
-            echo "Detected HP-UX"
-            os=hpux
-            MD2_CFLAGS="-DSKIP_MD2"
--           OS_CFLAGS="-DHPUX"
-+           OS_CFLAGS="-DHPUX $MD2_CFLAGS"
-            OS_LFLAGS=""
-            OS_DRIVERS="ipmimv.c"
-            drivers="open"
-@@ -20748,7 +20748,7 @@
-            echo "Detected MacOSX"
-            os=macos
-            MD2_CFLAGS="-DSKIP_MD2"
--           OS_CFLAGS="-DMACOS"
-+           OS_CFLAGS="-DMACOS $MD2_CFLAGS"
-            OS_LFLAGS=""
-           OS_DRIVERS="ipmimv.c ipmidir.c"
-           drivers="open direct"
