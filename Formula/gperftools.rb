@@ -1,9 +1,19 @@
 class Gperftools < Formula
   desc "Multi-threaded malloc() and performance analysis tools"
   homepage "https://github.com/gperftools/gperftools"
-  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.5/gperftools-2.5.tar.gz"
-  sha256 "6fa2748f1acdf44d750253e160cf6e2e72571329b42e563b455bde09e9e85173"
+  revision 1
   head "https://github.com/gperftools/gperftools.git"
+
+  stable do
+    url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.5/gperftools-2.5.tar.gz"
+    sha256 "6fa2748f1acdf44d750253e160cf6e2e72571329b42e563b455bde09e9e85173"
+
+    # Fix finding default zone on macOS Sierra (https://github.com/gperftools/gperftools/issues/827)
+    patch do
+      url "https://github.com/gperftools/gperftools/commit/acac6af26b0ef052b39f61a59507b23e9703bdfa.patch"
+      sha256 "36289228d240cb8714f7543772544dc1541e8fec37ab6cc7915296d7bcec3dcf"
+    end
+  end
 
   bottle do
     cellar :any
