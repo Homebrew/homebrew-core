@@ -3,6 +3,7 @@ class Pgloader < Formula
   homepage "https://github.com/dimitri/pgloader"
   url "https://github.com/dimitri/pgloader/archive/v3.3.2.tar.gz"
   sha256 "09408a976ca1e474e5461db766e0a1efef446303cb744ec3748356b98cf0efbd"
+  revision 1
   head "https://github.com/dimitri/pgloader.git"
 
   bottle do
