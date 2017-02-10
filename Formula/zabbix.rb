@@ -13,6 +13,7 @@ class Zabbix < Formula
   end
 
   option "with-mysql", "Use Zabbix Server with MySQL library instead PostgreSQL."
+  option "with-sqlite", "Use Zabbix Server with SQLite library instead PostgreSQL."
   option "without-server-proxy", "Install only the Zabbix Agent without Server and Proxy."
 
   deprecated_option "agent-only" => "without-server-proxy"
@@ -49,6 +50,8 @@ class Zabbix < Formula
 
       if build.with? "mysql"
         args << "--with-mysql=#{brewed_or_shipped("mysql_config")}"
+      elsif build.with? "sqlite"
+        args << "--with-sqlite3"
       else
         args << "--with-postgresql=#{brewed_or_shipped("pg_config")}"
       end
