@@ -5,6 +5,7 @@ class Dbt < Formula
   homepage "https://github.com/analyst-collective/dbt"
   url "https://files.pythonhosted.org/packages/10/24/6a06082afbaf7171387a1dc37b067c2d15bd946981a77c731209db0d4112/dbt-0.7.0.tar.gz"
   sha256 "f52b87724b551be90b873870e0acc9865c1ae16786b769d09de570f3280efeb5"
+  revision 1
   head "https://github.com/analyst-collective/dbt.git", :branch => "development"
 
   bottle do
