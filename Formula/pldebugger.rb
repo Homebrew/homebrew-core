@@ -4,7 +4,7 @@ class Pldebugger < Formula
   url "https://git.postgresql.org/git/pldebugger.git",
       :revision => "4058a938f588397b2923247974eb22106f530ebb"
   version "1.0" # See default_version field in pldbgapi.control
-  revision 2
+  revision 3
   head "https://git.postgresql.org/git/pldebugger.git"
 
   bottle do
