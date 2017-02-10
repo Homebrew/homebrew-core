@@ -5,10 +5,9 @@ class Juise < Formula
   sha256 "f16fbedc31ce9efd4b0d7aeed2305fdbe8efe1b3c039be5f3b0a2d6014d3fe32"
 
   bottle do
-    sha256 "e6471f194bb00840083cbf692fb4e726edd88982b937e3a41dbbb3c95d5fe665" => :sierra
-    sha256 "fc1e16d6035e93e4a13aa2eddb37d5588ee51095705a0f13470bd8a3c68e1ada" => :el_capitan
-    sha256 "c0efb90b6a493eb7ca92844378f560da1d11043e2a9c20f58309892613e2baeb" => :yosemite
-    sha256 "9fee9246ca23f5928cc5e8fd1d4feb77ce45ca31c8ce93385eb611976c63481b" => :mavericks
+    sha256 "f06626a7a780aa3a611f824379ea4ccc8aa9d86dd60eb3a9ea57b2adc502d2cb" => :sierra
+    sha256 "d8ba0fc9fa29cfe00fec87c88ca5745a0da3109beab94da9ecf1ac4a7632e55e" => :el_capitan
+    sha256 "c0b82fdd6ebca18deb01481ec5dd0cd3f349994441445afdae2f71606766a69c" => :yosemite
   end
 
   head do
