@@ -1,8 +1,8 @@
 class Juise < Formula
   desc "JUNOS user interface scripting environment"
   homepage "https://github.com/Juniper/juise/wiki"
-  url "https://github.com/Juniper/juise/releases/download/0.7.2/juise-0.7.2.tar.gz"
-  sha256 "869f18cb6095c2340872bc02235530616fcfc2e88c523c6a05238a521d0afe82"
+  url "https://github.com/Juniper/juise/releases/download/0.7.3/juise-0.7.3.tar.gz"
+  sha256 "f16fbedc31ce9efd4b0d7aeed2305fdbe8efe1b3c039be5f3b0a2d6014d3fe32"
 
   bottle do
     sha256 "e6471f194bb00840083cbf692fb4e726edd88982b937e3a41dbbb3c95d5fe665" => :sierra
