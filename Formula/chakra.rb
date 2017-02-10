@@ -15,6 +15,11 @@ class Chakra < Formula
   depends_on "icu4c" => :optional
 
   def install
+    # Build fails with -Os default
+    # Upstream issue from 26 Jan 2016 https://github.com/Microsoft/ChakraCore/issues/2417
+    # Fixed in master https://github.com/obastemur/ChakraCore/commit/cda81f4
+    ENV.O3
+
     args = ["--static"]
     if build.with? "icu4c"
       args << "--icu=#{Formula["icu4c"].opt_include}"
