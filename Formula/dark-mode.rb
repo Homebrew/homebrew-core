@@ -12,7 +12,7 @@ class DarkMode < Formula
     sha256 "f58b190cb89027daaea97e8cdc31bc4f097c51fef33e805751a1aef797871e5f" => :yosemite
   end
 
-  depends_on :macos => :yosemite
+  depends_on :macos => :el_capitan
   depends_on :xcode => :build
 
   def install
