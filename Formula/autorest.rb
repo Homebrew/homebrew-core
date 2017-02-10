@@ -22,7 +22,7 @@ class Autorest < Formula
   test do
     resource("swagger").stage do
       assert_match "Finished generating CSharp code for petstore.json.",
-        shell_output("#{bin}/autorest -n test -i petstore.json | tail -1")
+        shell_output("#{bin}/autorest -n test -i petstore.json")
     end
   end
 end
