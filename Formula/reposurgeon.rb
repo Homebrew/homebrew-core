@@ -2,8 +2,8 @@ class Reposurgeon < Formula
   desc "Edit version-control repository history"
   homepage "http://www.catb.org/esr/reposurgeon/"
   url "https://gitlab.com/esr/reposurgeon.git",
-      :tag => "3.40",
-      :revision => "4e0e56e0773e5d00e000f12196642b83081ceb0d"
+      :tag => "3.41",
+      :revision => "26514f50738a6bfbfeec896a5e1934b8567b5fbb"
   head "https://gitlab.com/esr/reposurgeon.git"
 
   bottle do
@@ -20,8 +20,8 @@ class Reposurgeon < Formula
   depends_on "xmlto" => :build
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz"
-    sha256 "84808fda00508757928e1feadcf41c9f78e9a9b7167b6649ab0933b76f75e7b9"
+    url "https://files.pythonhosted.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz"
+    sha256 "f141d1f9c27a07b5a93f7dc5339472067e2d7140d1c5a9e20112a5665ca60306"
   end
 
   def install
