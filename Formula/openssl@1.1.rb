@@ -1,19 +1,19 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.0c.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0c.tar.gz"
-  sha256 "fc436441a2e05752d31b4e46115eb89709a28aef96d4fe786abe92409b2fd6f5"
+  url "https://www.openssl.org/source/openssl-1.1.0d.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0d.tar.gz"
+  sha256 "7d5ebb9e89756545c156ff9c13cf2aa6214193b010a468a3bc789c3c28fe60df"
   version_scheme 1
 
   bottle do
-    sha256 "bd582f23920475e5dee6aeaab79d9af9d6bd5592f534bc07e10cf41d1bc1ac43" => :sierra
-    sha256 "528ab5f19b4f5b08d8cc921ee0675515c50f1e870a10de7bac2fea1a4062c0c1" => :el_capitan
-    sha256 "34d106f1b300d4b192757941febde26cba194d903c5683d09df8b7328ce04215" => :yosemite
+    rebuild 1
+    sha256 "9237bb28e7c9d8fd18b5a90401d54139b1dd9d0988b9a83b7607ae7fb86c72de" => :sierra
+    sha256 "53da6f83eb00af8b8747a29a697e0eac6ca70ef509590af3e2651cd4c35e2852" => :el_capitan
+    sha256 "29deee7a495f1d898a7f1bdbb85a6a2f947ad32a27f43a7400ba897038819738" => :yosemite
   end
 
-  keg_only :provided_by_osx,
-    "Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries"
+  keg_only :versioned_formula
 
   option :universal
   option "without-test", "Skip build-time tests (not recommended)"

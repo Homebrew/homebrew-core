@@ -3,12 +3,13 @@ class Curlpp < Formula
   homepage "http://www.curlpp.org"
   url "https://github.com/jpbarrette/curlpp/releases/download/v0.7.4/curlpp-0.7.4.tar.gz"
   sha256 "7e33934f4ce761ba293576c05247af4b79a7c8895c9829dc8792c5d75894e389"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "4bd0e7d3471f3e9ed4717a2eb38a16224889deaef3ea61072d752aceec272d4c" => :sierra
-    sha256 "d3605f5eb05b1f0151c2f3d40b5cba11aa18c783403856908ae9e758e401112e" => :el_capitan
-    sha256 "e013c177a2f5dfb28d3f800ef015d9600e629d96897901604e21a697afec9ec1" => :yosemite
+    sha256 "aad1ba504598a073ac81f56db02a6792ea7148e19918da8cfc368cf0a14fcf36" => :sierra
+    sha256 "028b22d2b5fb6ccaef6b4f0c30195a9314d3b20ed3e403ad68587802b38e2aa9" => :el_capitan
+    sha256 "9443ec4d10508f72a8b2fcc609c8e0c913ff145d0ae706fafd753e5ca76d2b2b" => :yosemite
   end
 
   depends_on "boost" => :build
@@ -18,6 +19,12 @@ class Curlpp < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+
+    # https://github.com/jpbarrette/curlpp/issues/34
+    # Workaround for #9315, replace CRLF with LF
+    # This should be removed in the next release
+    system "sed", "-i.bak", "-e", "s/\r//g", "#{bin}/curlpp-config"
+    rm "#{bin}/curlpp-config.bak"
   end
 
   test do

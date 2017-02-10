@@ -1,15 +1,15 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.2.3.tar.bz2"
-  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.2.3.tar.bz2"
-  sha256 "97bac89e88892054a5848a9f7e0c36aa399a2008900829b078e29cab0ddd593b"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.2.4.tar.bz2"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.2.4.tar.bz2"
+  sha256 "42a7fb35eed5a32478153e24601a284bb50148b7ba919c3e8452652f4c2a3911"
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
-    sha256 "fdc53388335ebe4a2a29432fb0595373b9224f4dbdf4792255c7851a6745fb90" => :sierra
-    sha256 "5b47759f340d84c00e96f430a51c8b0ee9f2308e0363a5e8ccdaa8eff4d663b4" => :el_capitan
-    sha256 "aa57ba0fa179cb8471c1d13d116d31da532d250607655cbd4035a3ca7e7b9b0d" => :yosemite
+    sha256 "b21a67aaaa301907c5cd0ae86589892aa01bbb9fb63d4458a5ea40199e36a585" => :sierra
+    sha256 "ce9ca34dd25a1a171178ed3b662fba833c5b60539b8a713134fd25eabec46e44" => :el_capitan
+    sha256 "0a9c9c065de9ac1fa3c5eb1e5ca4b3436b90eae901a5a2d126335d256a27878b" => :yosemite
   end
 
   option "with-gtk+3", "Build the wireshark command with gtk+3"

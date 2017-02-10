@@ -5,17 +5,19 @@ class Fdroidserver < Formula
   homepage "https://f-droid.org"
   url "https://files.pythonhosted.org/packages/18/6c/6fe6f718073024e23fb0bfaff8d0a6db596adc7d29f259edd325e93bd33c/fdroidserver-0.7.0.tar.gz"
   sha256 "3de76a02d17260a5fd65b089ceaabcc578e238ffe71f205a8f6f37e705648d6e"
-  revision 2
+  revision 4
 
   bottle do
-    sha256 "280aabef64de9b59632300f635b01f669dddf92ccecbbc97af0344347a7fde69" => :sierra
-    sha256 "d408cb69bf51bd7d327ac6fc466e6886741e0efc7dba7c7350fde70c7ef2ca2d" => :el_capitan
-    sha256 "6b79fc1e74c42d7403dbf97aa9b3e7bfdc68ff3b67c62d94566a907e67c75062" => :yosemite
+    sha256 "bde86bc70919a6a809abe62e9a5cceb2f4dfa4bc36a2c82aa2f5d76521f97495" => :sierra
+    sha256 "d8bf4e71c10ef831461c6d6c9fbf69b8f0abc6284f90e0b219bdc91db63244d9" => :el_capitan
+    sha256 "1e3ef69db10c907c9edbfb6a261451420ec49e0906af7eecd04adf63c2db83fb" => :yosemite
   end
 
   depends_on :python3
   depends_on "freetype"
   depends_on "jpeg"
+  depends_on "libtiff"
+  depends_on "webp"
   depends_on "openssl@1.1"
   depends_on "android-sdk" => :recommended
 

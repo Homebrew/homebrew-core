@@ -4,13 +4,13 @@ class Nvi < Formula
   url "https://mirrors.ocf.berkeley.edu/debian/pool/main/n/nvi/nvi_1.81.6.orig.tar.gz"
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/n/nvi/nvi_1.81.6.orig.tar.gz"
   sha256 "8bc348889159a34cf268f80720b26f459dbd723b5616107d36739d007e4c978d"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "480baa9b488abb33c08590de07adc770b660df406f692ba346f3900e49543f7a" => :sierra
-    sha256 "95ada29912b1927f8871bb786326547abec6a3470d70dc112ed4cd97c2e01cd0" => :el_capitan
-    sha256 "70fb802840beb17167caec88f7d8b2c07dc2a127ce11a7ab1f51e5a6415449c1" => :yosemite
+    sha256 "a789fc3d07b258beb99140f2488a8b0ae8f16f0470a5e1f8a195314dc5b3458d" => :sierra
+    sha256 "858fe0fc9589a4f2bf3ab3644677805440910e107ea31a3fe7d3a579c8031113" => :el_capitan
+    sha256 "07aacc59e81b122e4b34444d1e47d5e102cfc7e281bbae1d75bde4b5ac3af1fc" => :yosemite
   end
 
   depends_on "xz" => :build # Homebrew bug. Shouldn't need declaring explicitly.
@@ -36,14 +36,15 @@ class Nvi < Formula
   # Upstream have been pretty inactive for a while, so we may want to kill this
   # formula at some point unless that changes. We're leaning hard on Debian now.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/n/nvi/nvi_1.81.6-12.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/n/nvi/nvi_1.81.6-12.debian.tar.xz"
-    sha256 "c86c9feac8410ffbf79bb8ddf85b34d2edcc00660d8f4cd131eb65e8e0d6156b"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/n/nvi/nvi_1.81.6-13.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/n/nvi/nvi_1.81.6-13.debian.tar.xz"
+    sha256 "306c6059d386a161b9884535f0243134c8c9b5b15648e09e595fd1b349a7b9e1"
     apply "patches/03db4.patch",
           "patches/19include_term_h.patch",
           "patches/24fallback_to_dumb_term.patch",
           "patches/26trailing_tab_segv.patch",
-          "patches/27support_C_locale.patch"
+          "patches/27support_C_locale.patch",
+          "patches/31regex_heap_overflow.patch"
   end
 
   def install

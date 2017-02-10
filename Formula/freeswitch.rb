@@ -2,16 +2,14 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   url "https://freeswitch.org/stash/scm/fs/freeswitch.git",
-      :tag => "v1.6.13",
-      :revision => "e755b430da70bd63eebf1dfddacdce48ce863fce"
-
+      :tag => "v1.6.14",
+      :revision => "e460bf85396a57a36b47752cb5997dd60ed373ef"
   head "https://freeswitch.org/stash/scm/fs/freeswitch.git"
-  revision 1
 
   bottle do
-    sha256 "a90138dea60a1f7b799aca559e35e25634b3993317ed0340183633d6d018cd2c" => :sierra
-    sha256 "cecbe4cdbfe15991510699ec9186e8a5b53d6a768637a5bfeb05e92fdc5d291c" => :el_capitan
-    sha256 "3a68d15a3ebd45f73ae941e9cbd9e77392a2e9f64e86897cfbf322c01f94e961" => :yosemite
+    sha256 "1d28f53c70794ed1e1aa76104aeda61afc603f4abcc48b604db8d9f124431b2d" => :sierra
+    sha256 "b84bf953c173272be24df2d9b5719fc9610e841957d24aed9899bc77404e1caa" => :el_capitan
+    sha256 "421054173240030160fd71484ec841b4ae9b662d6519f04ac94cf700379d0f2c" => :yosemite
   end
 
   option "without-moh", "Do not install music-on-hold"
@@ -28,7 +26,6 @@ class Freeswitch < Formula
 
   depends_on "curl"
   depends_on "jpeg"
-  depends_on "ldns"
   depends_on "openssl"
   depends_on "pcre"
   depends_on "sqlite"
@@ -147,6 +144,10 @@ class Freeswitch < Formula
   #------------------------ End sound file resources --------------------------
 
   def install
+    # avoid a dependency on ldns to prevent OpenSSL version conflicts
+    inreplace "build/modules.conf.in", "applications/mod_enum",
+                                       "#applications/mod_enum"
+
     system "./bootstrap.sh", "-j"
 
     # tiff will fail to find OpenGL unless told not to use X

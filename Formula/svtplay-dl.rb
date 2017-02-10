@@ -3,28 +3,28 @@ class SvtplayDl < Formula
 
   desc "Download videos from http://svtplay.se"
   homepage "https://svtplay-dl.se"
-  url "https://pypi.python.org/packages/48/f8/f48498c3560dee7d56ad60a6a46a2c505ba64d6d7aea949e5e379008724b/svtplay-dl-1.8.tar.gz"
-  sha256 "5d44aaabc0b7cc04c0c43fdb8cb37c9749b14be4706ba9ff5fb7d22bd09c9b7d"
+  url "https://pypi.python.org/packages/9e/9d/1087c68307643988941a650c8f86504acf98daab3eb0f15ee493268e7108/svtplay-dl-1.9.1.tar.gz"
+  sha256 "bf0c25f71e76cf2df22238b6bd3f8c3d93af8263103e3d7c64ca7bfc71bc59ef"
 
   bottle do
     cellar :any
-    sha256 "9c8e3138fa9608b45c2c815c8144a2b1d54a029f000d1e896a0c87327eb81e6c" => :sierra
-    sha256 "e7e3acc3a067cd2bcadc57652a391472b36d5804540884660c067136a3dc4ca9" => :el_capitan
-    sha256 "f3973c57afe94ea1d99893532d7af3cfcc5a8ddc5f6c861308844024d8179363" => :yosemite
+    sha256 "e879b1e037479e4ffd20331c999f2efa5ef06df198b77683f8ef85a4ae116725" => :sierra
+    sha256 "0fe77c29341b62b95d6592559126c1f6003a9cd55096e7951d47a554d3809303" => :el_capitan
+    sha256 "72ee4d19e20f7d7bc96212e7c8a0942fbeb350670752ebda998ea11f077a7f8d" => :yosemite
   end
 
   depends_on "rtmpdump"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
 
   # for request security
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/b8/21/9d6f08d2d36a0a8c84623646b4ed5a07023d868823361a086b021fb21172/cffi-1.8.2.tar.gz"
-    sha256 "2b636db1a179439d73ae0a090479e179a43df5d4eddc7e4c4067f960d4038530"
+    url "https://pypi.python.org/packages/a1/32/e3d6c3a8b5461b903651dd6ce958ed03c093d2e00128e3f33ea69f1d7965/cffi-1.9.1.tar.gz"
+    sha256 "563e0bd53fda03c151573217b3a49b3abad8813de9dd0632e10090f6190fdaf8"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/6c/c5/7fc1f8384443abd2d71631ead026eb59863a58cad0149b94b89f08c8002f/cryptography-1.5.3.tar.gz"
-    sha256 "cf82ddac919b587f5e44247579b433224cc2e03332d2ea4d89aa70d7e6b64ae5"
+    url "https://pypi.python.org/packages/82/f7/d6dfd7595910a20a563a83a762bf79a253c4df71759c3b228accb3d7e5e4/cryptography-1.7.1.tar.gz"
+    sha256 "953fef7d40a49a795f4d955c5ce4338abcec5dea822ed0414ed30348303fdb4c"
   end
 
   resource "enum34" do
@@ -33,13 +33,13 @@ class SvtplayDl < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/fb/84/8c27516fbaa8147acd2e431086b473c453c428e24e8fb99a1d89ce381851/idna-2.1.tar.gz"
-    sha256 "ed36f281aebf3cd0797f163bb165d84c31507cedd15928b095b1675e2d04c676"
+    url "https://pypi.python.org/packages/94/fe/efb1cb6f505e1a560b3d080ae6b9fddc11e7c542d694ce4635c49b1ccdcb/idna-2.2.tar.gz"
+    sha256 "0ac27740937d86850010e035c6a10a564158a5accddf1aa24df89b0309252426"
   end
 
   resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/bb/26/3b64955ff73f9e3155079b9ed31812afdfa5333b5c76387454d651ef593a/ipaddress-1.0.17.tar.gz"
-    sha256 "3a21c5a15f433710aaa26f1ae174b615973a25182006ae7f9c26de151cd51716"
+    url "https://pypi.python.org/packages/4e/13/774faf38b445d0b3a844b65747175b2e0500164b7c28d78e34987a5bfe06/ipaddress-1.0.18.tar.gz"
+    sha256 "5d8534c8e185f2d8a1fda1ef73f2c8f4b23264e8e30063feeb9511d492a413e1"
   end
 
   resource "ndg-httpsclient" do
@@ -53,8 +53,8 @@ class SvtplayDl < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/6d/31/666614af3db0acf377876d48688c5d334b6e493b96d21aa7d332169bee50/pycparser-2.14.tar.gz"
-    sha256 "7959b4a74abdc27b312fed1c21e6caf9309ce0b29ea86b591fd2e99ecdf27f73"
+    url "https://pypi.python.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
+    sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
   end
 
   resource "pyOpenSSL" do
@@ -63,8 +63,8 @@ class SvtplayDl < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/2e/ad/e627446492cc374c284e82381215dcd9a0a87c4f6e90e9789afefe6da0ad/requests-2.11.1.tar.gz"
-    sha256 "5acf980358283faba0b897c73959cecf8b841205bb4b2ad3ef545f46eae1a133"
+    url "https://pypi.python.org/packages/b6/61/7b374462d5b6b1d824977182db287758d549d8680444bad8d530195acba2/requests-2.12.5.tar.gz"
+    sha256 "d902a54f08d086a7cc6e58c20e2bb225b1ae82c19c35e5925269ee94fb9fce00"
   end
 
   resource "six" do

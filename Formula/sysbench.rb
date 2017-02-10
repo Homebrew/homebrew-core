@@ -1,39 +1,25 @@
 class Sysbench < Formula
   desc "System performance benchmark tool"
   homepage "https://github.com/akopytov/sysbench"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/s/sysbench/sysbench_0.4.12.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/s/sysbench/sysbench_0.4.12.orig.tar.gz"
-  sha256 "83fa7464193e012c91254e595a89894d8e35b4a38324b52a5974777e3823ea9e"
-  revision 2
+  url "https://github.com/akopytov/sysbench/archive/1.0.1.tar.gz"
+  sha256 "27a1426923d83105448180d7ca9680aad9b00c460a13887bce72f877e13de6a7"
 
   bottle do
-    cellar :any
-    sha256 "0046dc8a940ebad605027a67fc2371ebf04fee1106300d9d90d37bd1088e55a4" => :sierra
-    sha256 "123270f2b97760e43a575585d1a1b9e815776edaaaa2a33faf419f5d60c18894" => :el_capitan
-    sha256 "c55629bcc6aa72d622d7998059136d49993dffd7394467fbf60711252d3f2655" => :yosemite
-    sha256 "1128a41e37dc93806e3fe81920cac22c046467e5f2a2d7e4bf2e20c4c8974224" => :mavericks
+    sha256 "57dccc9defd0420ba3d8d25821c2ce0df26f5d7a0b0123c3f8eebd71e3fd5a5e" => :sierra
+    sha256 "58403feaab7db494fb236e41448e21d1b85ac0190206384cdb8bcd81bf4f83bf" => :el_capitan
+    sha256 "0ce9b1047f51fde87ece1375ec9d41165a4fbe9b8568cedce8d597148dd265e7" => :yosemite
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on :postgresql => :optional
   depends_on :mysql => :recommended
 
   def install
-    inreplace "configure.ac", "AC_PROG_LIBTOOL", "AC_PROG_RANLIB"
     system "./autogen.sh"
-
-    # A horrible horrible backport of fixes in upstream's git for
-    # latest mysql detection. Normally would just patch, but we need
-    # the autogen above which overwrites a patched configure.
-    inreplace "configure" do |s|
-      s.gsub! "-lmysqlclient_r", "-lmysqlclient"
-      s.gsub! "MYSQL_LIBS=`${mysqlconfig} --libs | sed -e \\",
-              "MYSQL_LIBS=`${mysqlconfig} --libs_r`"
-      s.gsub! "'s/-lmysqlclient /-lmysqlclient /' -e 's/-lmysqlclient$/-lmysqlclient/'`",
-              ""
-    end
 
     args = ["--prefix=#{prefix}"]
     if build.with? "mysql"

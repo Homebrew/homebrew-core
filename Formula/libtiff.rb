@@ -4,13 +4,13 @@ class Libtiff < Formula
   url "http://download.osgeo.org/libtiff/tiff-4.0.7.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7.orig.tar.gz"
   sha256 "9f43a2cfb9589e5cecaa66e16bf87f814c945f22df7ba600d63aac4632c4f019"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "6f8a945c6a6bf6690c3d83f154182f106b3e65b3c13a877db29ffaacfc73963b" => :sierra
-    sha256 "9548e6c5426357175eaedde7af97536f1a231386d74905fb03fe3a55265c7e65" => :el_capitan
-    sha256 "c8e803b1c3c24662ca2b45d9a00d12578103116d6d42983220965340fadaec4e" => :yosemite
+    sha256 "c2212960a740a559d42c2d150a7f0fedd191c1b2b2ff0b815e54299ccc8ebe29" => :sierra
+    sha256 "8e75bf8bcd907c19a56ca7f83f0d29b6651f31a85fb1b2bccc72e5b4ec6337c2" => :el_capitan
+    sha256 "3d22664e9f1c12b123913bcba3306fe922a860c2399fd33e778f86f58ffe6151" => :yosemite
   end
 
   option :universal
@@ -23,9 +23,9 @@ class Libtiff < Formula
   # Patches from Debian for CVE-2016-10094, and various other issues.
   # All reported upstream, so should be safe to remove this block on next stable.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7-4.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.7-4.debian.tar.xz"
-    sha256 "74c9c85b43e1bb1016f96665090da7d8481a48f66a53a43100ab78f729cef0c0"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7-5.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.7-5.debian.tar.xz"
+    sha256 "f4183c48ed74b6c3c3a74ff1f10f0cf972d3dba0f840cf28b5a3f3846ceb2be6"
     apply "patches/01-CVE.patch",
           "patches/02-CVE.patch",
           "patches/03-CVE.patch",
@@ -41,7 +41,8 @@ class Libtiff < Formula
           "patches/13-CVE.patch",
           "patches/14-CVE.patch",
           "patches/15-TIFFFaxTabEnt_bugfix.patch",
-          "patches/16-CVE-2016-10094.patch"
+          "patches/16-CVE-2016-10094.patch",
+          "patches/17-CVE-2017-5225.patch"
   end
 
   def install

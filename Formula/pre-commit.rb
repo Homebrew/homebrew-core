@@ -3,14 +3,14 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v0.10.1.tar.gz"
-  sha256 "3b2846d91abe652106ce142b404d3fb8b49ad3081823c41a33a1dc3e6a7a0f92"
+  url "https://github.com/pre-commit/pre-commit/archive/v0.12.2.tar.gz"
+  sha256 "d61618ebf6bc16be50b9a08a41a5a88816f60ca1663bcbf1e0af0e70370031fd"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5d1b2aaf482d87de4a522df0063aac37e5714bac511b492ff8d0baf3fbc58ce7" => :sierra
-    sha256 "1d0dfe8f35e3d82f05a8db4b861375e942ffb89a9eb0ca404896e28c51ed2ddd" => :el_capitan
-    sha256 "086652b53a66fdfb36f3b9badaffb699125714ab2b34cd9ba885095ec196a6d0" => :yosemite
+    sha256 "dd345dcfa6570fe573b32e93363af68ad7f443732b22a8fbb883bdde2dba62c4" => :sierra
+    sha256 "d2f4c6bd643ab98d2af1e5f2b019dc275de4f16d1a4bce45eb0cd38f6dd4b1d3" => :el_capitan
+    sha256 "3a69b9b95fee8b9447e35ee56f24c40b7e1e4244b0cc0a88c1da159fd10038c0" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -36,8 +36,8 @@ class PreCommit < Formula
   end
 
   resource "nodeenv" do
-    url "https://files.pythonhosted.org/packages/fa/62/f3dc0d7b596f7187585520bca14c050909de88866e8f793338de907538cf/nodeenv-1.0.0.tar.gz"
-    sha256 "def2a6d927bef8d17c1776edbd5bbc8b7a5f0eee159af53b9924d559fc8d3202"
+    url "https://files.pythonhosted.org/packages/a0/d0/a7f6443901894a6c93db42e7fa2f2e2135ca2fcb5f466b8e21cce49d596e/nodeenv-1.1.0.tar.gz"
+    sha256 "4a592f8cb891c4894113007be8f5d886a215695ef2e6f84ddf8a0be979c2879a"
   end
 
   resource "ordereddict" do

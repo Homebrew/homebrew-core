@@ -3,12 +3,12 @@ class Qwt < Formula
   homepage "http://qwt.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.3/qwt-6.1.3.tar.bz2"
   sha256 "f3ecd34e72a9a2b08422fb6c8e909ca76f4ce5fa77acad7a2883b701f4309733"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 "6ea24f67c77c659daf3b33f9b6256b0bf7edbb66a955e44adfa526cdd72e0117" => :sierra
-    sha256 "6ea24f67c77c659daf3b33f9b6256b0bf7edbb66a955e44adfa526cdd72e0117" => :el_capitan
-    sha256 "4413369f3db162f33791378a8940e17bf1403c00b9e1f553a9eef80debc29632" => :yosemite
+    sha256 "c27465d6fa732f966ab1f8c6acde2fa331028e7b2c4c50124970c5ffedad8bb6" => :sierra
+    sha256 "287b3aa35bd3925a61d867ea9a122c04deee767cd587719fd11282f5f1cd171c" => :el_capitan
+    sha256 "b5d6c8c36a6090a8dd4aa0172b64389c27e973d3bfc6ae20c030d353fbd8ab34" => :yosemite
   end
 
   option "with-qwtmathml", "Build the qwtmathml library"
@@ -43,7 +43,7 @@ class Qwt < Formula
       prefix.install "textengines/mathml/qtmmlwidget-license"
     end
 
-    system Formula["qt5"].bin/"qmake", *args
+    system "qmake", *args
     system "make"
     system "make", "install"
   end

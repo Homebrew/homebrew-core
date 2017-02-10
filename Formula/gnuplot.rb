@@ -3,11 +3,12 @@ class Gnuplot < Formula
   homepage "http://www.gnuplot.info"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.5/gnuplot-5.0.5.tar.gz"
   sha256 "25f3e0bf192e01115c580f278c3725d7a569eb848786e12b455a3fda70312053"
+  revision 2
 
   bottle do
-    sha256 "248bea9c816f6da0c3723e3bd14a874fcfd6d0fe7f0283bc3b4704632f74af4c" => :sierra
-    sha256 "fa7ed60920684032ade79dd4334fd66f5675d7e36bdea07f20a4be551f82b5e6" => :el_capitan
-    sha256 "2efbe8de41120ff75e2572328db4eba6adc80519a4396b4c14ad68b415f45e3d" => :yosemite
+    sha256 "16c76274f98c1575d6c8b02439f74d272e87a14ec9ae5441d4e2fc1e1b0e9356" => :sierra
+    sha256 "3f089fb0bec39e0eb4ec54936969931b93fbb5508eb70c6ca3f422b99b37d208" => :el_capitan
+    sha256 "e10b24bb0615ccd7e6d9472342357538ea088d3da5cb210af9d619ceacf9d4e1" => :yosemite
   end
 
   head do
@@ -24,12 +25,14 @@ class Gnuplot < Formula
   option "with-wxmac", "Build wxmac support. Need with-cairo to build wxt terminal"
   option "with-tex", "Build with LaTeX support"
   option "with-aquaterm", "Build with AquaTerm support"
+  option "without-gd", "Build without gd based terminals"
 
   deprecated_option "with-x" => "with-x11"
   deprecated_option "pdf" => "with-pdflib-lite"
   deprecated_option "wx" => "with-wxmac"
-  deprecated_option "qt" => "with-qt5"
-  deprecated_option "with-qt" => "with-qt5"
+  deprecated_option "qt" => "with-qt@5.7"
+  deprecated_option "with-qt" => "with-qt@5.7"
+  deprecated_option "with-qt5" => "with-qt@5.7"
   deprecated_option "cairo" => "with-cairo"
   deprecated_option "nolua" => "without-lua"
   deprecated_option "tests" => "with-test"
@@ -38,26 +41,21 @@ class Gnuplot < Formula
   deprecated_option "with-latex" => "with-tex"
 
   depends_on "pkg-config" => :build
-  depends_on "fontconfig"
-  depends_on "gd"
+  depends_on "gd" => :recommended
   depends_on "lua" => :recommended
-  depends_on "jpeg"
-  depends_on "libpng"
-  depends_on "libtiff"
   depends_on "readline"
-  depends_on "webp"
   depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
   depends_on "pdflib-lite" => :optional
-  depends_on "qt5" => :optional
+  depends_on "qt@5.7" => :optional
   depends_on "wxmac" => :optional
   depends_on :tex => :optional
   depends_on :x11 => :optional
 
-  needs :cxx11 if build.with? "qt5"
+  needs :cxx11 if build.with? "qt@5.7"
 
   def install
     # Qt5 requires c++11 (and the other backends do not care)
-    ENV.cxx11 if build.with? "qt5"
+    ENV.cxx11 if build.with? "qt@5.7"
 
     if build.with? "aquaterm"
       # Add "/Library/Frameworks" to the default framework search path, so that an
@@ -79,12 +77,14 @@ class Gnuplot < Formula
 
     args << "--with-pdf=#{pdflib}" if build.with? "pdflib-lite"
 
+    args << "--without-gd" if build.without? "gd"
+
     if build.without? "wxmac"
       args << "--disable-wxwidgets"
       args << "--without-cairo" if build.without? "cairo"
     end
 
-    if build.with? "qt5"
+    if build.with? "qt@5.7"
       args << "--with-qt"
     else
       args << "--with-qt=no"
@@ -125,10 +125,10 @@ class Gnuplot < Formula
 
   test do
     system "#{bin}/gnuplot", "-e", <<-EOS.undent
-      set terminal png;
-      set output "#{testpath}/image.png";
+      set terminal dumb;
+      set output "#{testpath}/graph.txt";
       plot sin(x);
     EOS
-    File.exist? testpath/"image.png"
+    File.exist? testpath/"graph.txt"
   end
 end

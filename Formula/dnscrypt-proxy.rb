@@ -1,14 +1,15 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://dnscrypt.org"
-  url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.1.tar.gz"
-  sha256 "1797a4f3c4bacbe872ce7b9f9b3a88f09b9e41776429a37555581f0e832496de"
+  url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.4.tar.gz"
+  sha256 "a79d5da0133344d38f8b3d3355c16269f11c15fbeedd0521e1a657b00ac503bb"
+  revision 1
   head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
-    sha256 "8ba7499cf515996462c3826bc475e3834f3f2bb032fa385c667a4ef844e2eb81" => :sierra
-    sha256 "14d57e687899746ede2dad8370484d8ed19e338a65a171c5c0008d74df92bb8a" => :el_capitan
-    sha256 "6a88a97fe3b416865c8e0d17042f12247a0dc25f4650760a077efb0735198f78" => :yosemite
+    sha256 "14de34e98b96ef029d98202ca0422ee9e35345bcea3881e0d990c6d193295506" => :sierra
+    sha256 "dd17ce5cf3bd581f94e42e12ecde0bf6f80510b5443452d5099b392be9b10b35" => :el_capitan
+    sha256 "7de091af5d6b8d2ebe22fba6be333ac6431bbeb0ab545747def1f8923e8a26d1" => :yosemite
   end
 
   option "with-plugins", "Support plugins and install example plugins."
@@ -20,13 +21,21 @@ class DnscryptProxy < Formula
   depends_on "pkg-config" => :build
   depends_on "libtool" => :run
   depends_on "libsodium"
-  depends_on "minisign" => :recommended
+  depends_on "minisign" => :recommended if MacOS.version >= :el_capitan
   depends_on "ldns" => :recommended
 
   def install
+    # Modify hard-coded path to resolver list
+    inreplace "dnscrypt-proxy.conf",
+      "# ResolversList /usr/local/share/dnscrypt-proxy/dnscrypt-resolvers.csv",
+      "ResolversList #{opt_pkgshare}/dnscrypt-resolvers.csv"
+
+    # Run as unprivileged user
+    inreplace "dnscrypt-proxy.conf", "# User _dnscrypt-proxy", "User nobody"
+
     system "./autogen.sh"
 
-    args = %W[--disable-dependency-tracking --prefix=#{prefix}]
+    args = %W[--disable-dependency-tracking --prefix=#{prefix} --sysconfdir=#{etc}]
 
     if build.with? "plugins"
       args << "--enable-plugins"
@@ -76,9 +85,9 @@ class DnscryptProxy < Formula
       can click "+" and enter 127.0.0.1 in the "DNS Servers" section.
 
       By default, dnscrypt-proxy runs on localhost (127.0.0.1), port 53,
-      and under the "nobody" user using the dnscrypt.eu-dk DNSCrypt-enabled
-      resolver. If you would like to change these settings, you will have to edit
-      the plist file (e.g., --resolver-address, --provider-name, --provider-key, etc.)
+      and under the "nobody" user using a random resolver. If you would like to
+      change these settings, you will have to edit the configuration file:
+      #{etc}/dnscrypt-proxy.conf (e.g., ResolverName, etc.)
 
       To check that dnscrypt-proxy is working correctly, open Terminal and enter the
       following command. Replace en1 with whatever network interface you're using:
@@ -117,10 +126,7 @@ class DnscryptProxy < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_sbin}/dnscrypt-proxy</string>
-          <string>--ephemeral-keys</string>
-          <string>--resolvers-list=#{opt_pkgshare}/dnscrypt-resolvers.csv</string>
-          <string>--resolver-name=dnscrypt.eu-dk</string>
-          <string>--user=nobody</string>
+          <string>#{etc}/dnscrypt-proxy.conf</string>
         </array>
         <key>UserName</key>
         <string>root</string>

@@ -6,15 +6,15 @@ class Postgrest < Formula
 
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/begriffs/postgrest"
-  url "https://github.com/begriffs/postgrest/archive/v0.3.2.0.tar.gz"
-  sha256 "1cedceb22f051d4d80a75e4ac7a875164e3ee15bd6f6edc68dfca7c9265a2481"
-  head "https://github.com/begriffs/postgrest.git"
+  url "https://github.com/begriffs/postgrest/archive/v0.4.0.0.tar.gz"
+  sha256 "d23aa9b9ed0272dfd2075c573a96ba95e28328617ba63bfc2792f8655a479cb9"
   revision 1
+  head "https://github.com/begriffs/postgrest.git"
 
   bottle do
-    sha256 "e46e739256e3f753abe8540db32cff90ed8e4adfbed1e658cb229dc8ded0ce00" => :sierra
-    sha256 "287da0080c05d3e3903d8c8fcaa18f55811b857d297096664511bfdbc7868caa" => :el_capitan
-    sha256 "57351277753e13fd3667c12b1514290f7aaac42abd90e03309ac7a6d04a931b4" => :yosemite
+    sha256 "bd954738a49778863f1be944532aabfd239f4d7fcfd7662b5ac5a17d0ec0a66a" => :sierra
+    sha256 "8c55e41a94e4653c6bdfffe74848768cb723d318df82c79a1374ff606e8fcd64" => :el_capitan
+    sha256 "20b20d5183a9ab6083926b62491276c1d6fd4df831e735a294a6f45f9cefc050" => :yosemite
   end
 
   depends_on "ghc" => :build
@@ -39,14 +39,19 @@ class Postgrest < Formula
 
     begin
       system "#{pg_bin}/createdb", "-w", "-p", pg_port, "-U", pg_user, test_db
+      (testpath/"postgrest.config").write <<-EOS.undent
+        db-uri = "postgres://#{pg_user}@localhost:#{pg_port}/#{test_db}"
+        db-schema = "public"
+        db-anon-role = "#{pg_user}"
+        server-port = 55560
+      EOS
       pid = fork do
-        exec "postgrest", "postgres://#{pg_user}@localhost:#{pg_port}/#{test_db}",
-          "-a", pg_user, "-p", "55560"
+        exec "#{bin}/postgrest", "postgrest.config"
       end
       Process.detach(pid)
       sleep(5) # Wait for the server to start
       response = Net::HTTP.get(URI("http://localhost:55560"))
-      assert_equal "[]", response
+      assert_match /responses.*200.*OK/, response
     ensure
       begin
         Process.kill("TERM", pid) if pid

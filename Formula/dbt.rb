@@ -5,12 +5,13 @@ class Dbt < Formula
   homepage "https://github.com/analyst-collective/dbt"
   url "https://files.pythonhosted.org/packages/39/50/1fc214e6e2950c9061537062e624c54ada4497a2496ecfaf86928d634014/dbt-0.6.2.tar.gz"
   sha256 "076d0d20c0f090207c34b84dd8466edbafec6cae715e5b2e9c59e54e487fefc6"
+  revision 1
   head "https://github.com/analyst-collective/dbt.git", :branch => "development"
 
   bottle do
-    sha256 "abd6e3bce5892b2649c37cfacf70c53ab5cd5ef38f081c83138da8c7b249df0d" => :sierra
-    sha256 "40063c78468dc6b0b3a8db0a83cfc0e065cc04fe638396516a20a752d79308e0" => :el_capitan
-    sha256 "824aa7b98f7af7644a12b3afcb9869946b305ac8ae43a0c8823ed56a8d78e3e9" => :yosemite
+    sha256 "fdfc9c1dea62bf1c3433b794dcbb85e62f10f8338eb2200d6710bf11906ce3cc" => :sierra
+    sha256 "e75a9f961563afc809505c4913aa4da05138be551ac369e953d585368134d1d2" => :el_capitan
+    sha256 "b32b2260928e567876b45255b51d55525c11a28d69624448ac7d0e3cbb0fc002" => :yosemite
   end
 
   depends_on "python3"

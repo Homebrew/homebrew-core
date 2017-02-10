@@ -1,26 +1,23 @@
 class Logentries < Formula
+  include Language::Python::Virtualenv
+
   desc "Utility for access to logentries logging infrastructure"
   homepage "https://logentries.com/doc/agent/"
-  url "https://github.com/logentries/le/archive/v1.4.40.tar.gz"
-  sha256 "65c14106596ac40870f5a7829e9bb61e9ac6e389a03ca3dcbeb5a944e342f7fd"
+  url "https://github.com/logentries/le/archive/v1.4.41.tar.gz"
+  sha256 "eb29f1c3f22ada7818f8763c94a702e8947f084a948d55100d2dbdf614e21697"
   head "https://github.com/logentries/le.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "497fb9fde20d96acb77019d983c0c2a8d0b53956c41102bda41d3c9d3104ae10" => :sierra
-    sha256 "a7e9da0109b525f9d3ab9143c4ded9edad0a023da1517262e08920a1ab0fd817" => :el_capitan
-    sha256 "477138f1ee0fa5a123b12886edf0e8a81e7bcfb725949976855eaa50c1304e8d" => :yosemite
-    sha256 "01edb0fe82fade9c94c86f93e0ab284d6eda959d007eb747908819e395df1bee" => :mavericks
+    sha256 "e97d41a863d4692549bd23a9e1e2d01d6255a583b0a25cdd97aaf130e12ef276" => :sierra
+    sha256 "97c9c05730ea6abde47fd6ab054e73510d24db0541cc9394b687bafed1650f72" => :el_capitan
+    sha256 "f61a6ead7bddbedd902216a3210cd23d5ecf7e1bf941c1dee4e59a4dde4479d9" => :yosemite
   end
 
   conflicts_with "le", :because => "both install a le binary"
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   plist_options :manual => "le monitor"

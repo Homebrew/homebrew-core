@@ -3,15 +3,15 @@ class TomcatAT7 < Formula
   homepage "https://tomcat.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.73/bin/apache-tomcat-7.0.73.tar.gz"
   sha256 "0e814d6ad7d5b90e29c79887137420d3bc413540f9faa60d98f11e6c8a8fea85"
+  revision 1
 
   bottle :unneeded
+
+  keg_only :versioned_formula
 
   option "with-fulldocs", "Install full documentation locally"
 
   depends_on :java
-
-  conflicts_with "tomcat", :because => "Differing versions of same formula"
-  conflicts_with "tomcat@6", :because => "Differing versions of same formula"
 
   resource "fulldocs" do
     url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-7/v7.0.73/bin/apache-tomcat-7.0.73-fulldocs.tar.gz"

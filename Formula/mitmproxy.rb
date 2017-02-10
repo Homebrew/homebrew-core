@@ -5,12 +5,13 @@ class Mitmproxy < Formula
   homepage "https://mitmproxy.org"
   url "https://github.com/mitmproxy/mitmproxy/archive/v1.0.2.tar.gz"
   sha256 "0458b4ad3cedbc238decc7d736e693cd220c7977592b57052e181d404e1152b4"
+  revision 1
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
-    sha256 "ff3bf4cc87211c6f0948435aedd440c70e35f39a2eb1b595447da91710b7cd65" => :sierra
-    sha256 "80cafefb38dbca6c2871ab56c83e143a7505a72b4e882dd8e5b7e1f741ec8b55" => :el_capitan
-    sha256 "de6027e10d8d9250a4950191ee0ef048e73c68557d7e93fe9a11d8705e293d57" => :yosemite
+    sha256 "448730823d8ea2239fc54116a36530c72d380b1db3811907972082ee4731748c" => :sierra
+    sha256 "f3bf1918244725c2dd35f0229beff4db21b4ad998c68e2f465baf214542e78a9" => :el_capitan
+    sha256 "2353214d573645ea2b89986d4b243f0d5d01d75f4cc3eb16d27d734d4fcdbd8b" => :yosemite
   end
 
   option "with-pyamf", "Enable action message format (AMF) support for python"
@@ -19,7 +20,7 @@ class Mitmproxy < Formula
   depends_on "jpeg"
   depends_on "openssl@1.1"
   depends_on :python3
-  depends_on "protobuf" => :optional
+  depends_on "protobuf"
 
   resource "blinker" do
     url "https://files.pythonhosted.org/packages/1b/51/e2a9f3b757eb802f61dc1f2b09c8c99f6eb01cf06416c0671253536517b6/blinker-1.4.tar.gz"

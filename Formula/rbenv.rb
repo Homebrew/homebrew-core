@@ -36,16 +36,6 @@ class Rbenv < Formula
     prefix.install ["bin", "completions", "libexec", "rbenv.d"]
   end
 
-  def caveats; <<-EOS.undent
-    Rbenv stores data under ~/.rbenv by default. If you absolutely need to
-    store everything under Homebrew's prefix, include this in your profile:
-      export RBENV_ROOT=#{var}/rbenv
-
-    To enable shims and autocompletion, run this and follow the instructions:
-      rbenv init
-    EOS
-  end
-
   test do
     shell_output("eval \"$(#{bin}/rbenv init -)\" && rbenv versions")
   end

@@ -1,14 +1,15 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.com"
-  url "https://orientdb.com/download.php?file=orientdb-community-2.2.14.tar.gz"
-  sha256 "00834b09248a4de9a65792215b3bc1f9dcef1cd69099db349994d31d7f87555d"
+  url "https://orientdb.com/download.php?file=orientdb-community-2.2.15.tar.gz"
+  sha256 "9a553c9d91eb03d954b085c6ecbe05c54526b166c8ca86f1fb27036b2f4dba03"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "64746478d88d08659601026c392de095eb4c3eae908c5ad39e28b14869bea29c" => :sierra
-    sha256 "6d7a25f2f30378b3bb19e6a833c0c58959f3f4f430dc9b5d33ac89b5aaabb56d" => :el_capitan
-    sha256 "6d7a25f2f30378b3bb19e6a833c0c58959f3f4f430dc9b5d33ac89b5aaabb56d" => :yosemite
+    rebuild 1
+    sha256 "359342720516992b900b46b28847870513e30223e45f09f8b2507eb5c5889ecb" => :sierra
+    sha256 "19ffbe060238c64b9077624a2ff95759767592aec181234a4a7d9f05707c0dbd" => :el_capitan
+    sha256 "19ffbe060238c64b9077624a2ff95759767592aec181234a4a7d9f05707c0dbd" => :yosemite
   end
 
   def install
@@ -58,6 +59,37 @@ class Orientdb < Formula
     EOS
   end
 
+  plist_options :manual => "orientdb start"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+          <dict>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+        <key>Label</key>
+        <string>homebrew.mxcl.orientdb</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>/usr/local/opt/orientdb/libexec/bin/server.sh</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>/usr/local/var</string>
+        <key>StandardErrorPath</key>
+        <string>/usr/local/var/log/orientdb/serror.log</string>
+        <key>StandardOutPath</key>
+        <string>/usr/local/var/log/orientdb/sout.log</string>
+      </dict>
+    </plist>
+    EOS
+  end
+
   test do
     ENV["CONFIG_FILE"] = "#{testpath}/orientdb-server-config.xml"
     ENV["ORIENTDB_ROOT_PASSWORD"] = "orientdb"
@@ -67,7 +99,7 @@ class Orientdb < Formula
       "  <entry name=\"server.database.path\" value=\"#{testpath}\" />\n    </properties>"
 
     begin
-      assert_match /OrientDB console v.2.2.14/, pipe_output("#{bin}/orientdb-console \"exit;\"")
+      assert_match /OrientDB console v.2.2.15/, pipe_output("#{bin}/orientdb-console \"exit;\"")
     end
   end
 end

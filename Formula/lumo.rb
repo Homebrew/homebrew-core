@@ -1,15 +1,15 @@
 class Lumo < Formula
   desc "Fast, cross-platform, standalone ClojureScript REPL"
   homepage "https://github.com/anmonteiro/lumo"
-  url "https://github.com/anmonteiro/lumo/archive/1.0.0.tar.gz"
-  sha256 "347ec7a57f2b85d7d23489f5d1f7e0ef9705d652d14fbbf83e0058a73cd44387"
+  url "https://github.com/anmonteiro/lumo/archive/1.1.0.tar.gz"
+  sha256 "03bf4b80ea2163c26c584fc80fe28de250e553c4443b58ddf489749fa8da0249"
   head "https://github.com/anmonteiro/lumo.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3e9852b8ca3e68827bcd900e2738fdae8f8bab492888e3a56a9b84f8bb5d54ce" => :sierra
-    sha256 "3f2a04bcd3c4d8bc59b9e13c1693626c6d78843c177bde6aef1c142a4cf98bb8" => :el_capitan
-    sha256 "0aa3268d1944247a7634d8b0e3902d473e53de23867d66eff9cc2f784f543425" => :yosemite
+    sha256 "b3e7944aeb12061c523bdb16761c4e3155fc9ba461e14c5bdd36021646e4e979" => :sierra
+    sha256 "76d01172eabd9b00a2a556dcc5a272ea70f945590c3e179cd0ae68d0d1455621" => :el_capitan
+    sha256 "d398aaf771ef1b5676f84b729ca3d511d6265648b62eaf99b454425a2b0c7dbb" => :yosemite
   end
 
   depends_on "boot-clj" => :build

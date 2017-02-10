@@ -3,16 +3,18 @@ class JujuAT125 < Formula
   homepage "https://jujucharms.com/"
   url "https://launchpad.net/juju-core/1.25/1.25.8/+download/juju-core_1.25.8.tar.gz"
   sha256 "7866cf4195d7fe87463bc7501cece12b4d0c3d08b8983f66cecf54f6f8b28267"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e179401b1e81f898bab0e3e83be72c25a1f894b9354035ddae70380428fb040a" => :sierra
-    sha256 "eb2b74644085377a8eca3740b1ee0b209db4324fb7932877dd3d737e60855ee5" => :el_capitan
-    sha256 "3358c915bb0f29d699752a29e6bdd1bdb26de8ddb43d452ac01b8ce19f7cf18d" => :yosemite
+    sha256 "a0ad71fc333f02bbcda831576e73571885947e5289206d748353f474172c7bfe" => :sierra
+    sha256 "cf2011da3e6f7fbbb73627b6f8737bfaf333af26131bb25f29c85f7419ec687f" => :el_capitan
+    sha256 "71e3b915b5452125889e03be19dd6fad09cb244cc30c235f1d36841ea984788a" => :yosemite
   end
 
   depends_on "go" => :build
-  conflicts_with "juju@2.0", :because => "juju 1 and 2 cannot be installed simultaneously."
+
+  keg_only :versioned_formula
 
   def install
     ENV["GOPATH"] = buildpath

@@ -1,15 +1,15 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server."
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/1.7/src/tarantool-1.7.3.7.tar.gz"
-  sha256 "6c0e1eb37eebf662a8946d990c8e79ca44c5ccc7be8e86e97d1dc334d3f90d7b"
+  url "https://download.tarantool.org/tarantool/1.7/src/tarantool-1.7.3.99.tar.gz"
+  sha256 "e6fbe05f491cde472f30c3e978d8b6533245852bd353824e2e33164aa6bba903"
 
   head "https://github.com/tarantool/tarantool.git", :branch => "1.7", :shallow => false
 
   bottle do
-    sha256 "f45db64033c6cf2799b2af54db6bf2ccc75881c2f62a6ff5ce71a3b479d4adfe" => :sierra
-    sha256 "44933b913e237ab36e5ef05035a9f8d5709638a80e5e3cdece072b3a1272ae88" => :el_capitan
-    sha256 "9d6e5904fade724e484c8ff03b5f1969cbafbea1a3ed51c7b3f5ade6b36d98f1" => :yosemite
+    sha256 "872054634b828db330728218df90b0bb3ecb98c7a4d40132e092d1cbc85bc4fd" => :sierra
+    sha256 "f4bfdecb75a6ddc4e680ea5d4f6b9dca62e40fa8ac2e3c4fea0c36250aaeb584" => :el_capitan
+    sha256 "eff95199b02b2de5a93173738d42e0cb22aa27f71712db92428dbcf427c050bb" => :yosemite
   end
 
   depends_on "cmake" => :build

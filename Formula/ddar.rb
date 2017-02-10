@@ -3,15 +3,15 @@ class Ddar < Formula
   homepage "https://github.com/basak/ddar"
   url "https://github.com/basak/ddar/archive/v1.0.tar.gz"
   sha256 "b95a11f73aa872a75a6c2cb29d91b542233afa73a8eb00e8826633b8323c9b22"
-  revision 3
+  revision 4
 
   head "https://github.com/basak/ddar.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6dc73565cbce9b13c28eb942088faad6506d0e3b8d5421acd54019be39bf0076" => :sierra
-    sha256 "2c63eb7e5c93cd986432fe26484ab1e9c74e8ce6b156cf5e30d14fb104b012ad" => :el_capitan
-    sha256 "bfa2b94bc078c69736d163227a6cfc83889eeda661125c2921cfea2e663b5a46" => :yosemite
+    sha256 "f67f2b0cc120f77faeddea7b110d20fe07d704f39b1dde8dd22e3797fb1a2b34" => :sierra
+    sha256 "fc95482e4b3e32bedf27cc374cb393495ef9698b4ae297282de0ed6360c5c921" => :el_capitan
+    sha256 "f4d6892bbe9d74535d160ea50240aa976764f838c62d125343c3db2383eee2a9" => :yosemite
   end
 
   depends_on "xmltoman" => :build

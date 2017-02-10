@@ -3,11 +3,12 @@ class Qwtpolar < Formula
   homepage "http://qwtpolar.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/qwtpolar/qwtpolar/1.1.1/qwtpolar-1.1.1.tar.bz2"
   sha256 "6168baa9dbc8d527ae1ebf2631313291a1d545da268a05f4caa52ceadbe8b295"
+  revision 2
 
   bottle do
-    sha256 "d251c45be1aaa0f07d9d0b883b1f3469879d3f31ba5b7326f423d96fd73a986b" => :sierra
-    sha256 "d251c45be1aaa0f07d9d0b883b1f3469879d3f31ba5b7326f423d96fd73a986b" => :el_capitan
-    sha256 "b22fa716068e8e059496b09bfa1857e9f5684fdde05e85fbac15d04a7ca30a5a" => :yosemite
+    sha256 "10d54e6c3e07fb379afdf1c5f6b1bf4000d3d6702a5eba23442fcd4bbc54045e" => :sierra
+    sha256 "0852f2c09a37616d6ac1f9e124d1681baeb7b000bc4156f812726395e3741e37" => :el_capitan
+    sha256 "8032c9f2ba849ced52e503de62ca922642ab28626627f32f1a574b775aba87be" => :yosemite
   end
 
   option "without-plugin", "Skip building the Qt Designer plugin"

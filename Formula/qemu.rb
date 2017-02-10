@@ -1,16 +1,15 @@
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "http://wiki.qemu.org"
-  url "http://wiki.qemu-project.org/download/qemu-2.7.0.tar.bz2"
-  sha256 "326e739506ba690daf69fc17bd3913a6c313d9928d743bd8eddb82f403f81e53"
+  url "http://wiki.qemu-project.org/download/qemu-2.8.0.tar.bz2"
+  sha256 "dafd5d7f649907b6b617b822692f4c82e60cf29bc0fc58bc2036219b591e5e62"
 
   head "git://git.qemu-project.org/qemu.git"
 
   bottle do
-    sha256 "f60b1708d38f92902dd6c864b79f64e2f635daa87012861f1ae9714c201b1b65" => :sierra
-    sha256 "ee10bda4f0f8fd9e3fda7747e239b3a736bb409b683392b61936a6fd7484874d" => :el_capitan
-    sha256 "2cba8f0c87c9e18fe4dcf1f7cce3ab6b386e94fbe4c966081f5353689b667ccb" => :yosemite
-    sha256 "f58b50c5106fa15e8792410b14e0c7f675358cde30c2340fc2da86b64bb3e921" => :mavericks
+    sha256 "9b14fea7d0151fd7a150678b4328d05fb74d75e66613733ba5dca6b1cbb2c1e3" => :sierra
+    sha256 "5d828daa16ec27a62509bae002f35ffd6135905dff5ade78de81479e6dada346" => :el_capitan
+    sha256 "d6229727ed1d48b67b8308d093c4238b3cd3e5e56e4e0994794be7b7168b0b62" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -21,9 +20,11 @@ class Qemu < Formula
   depends_on "glib"
   depends_on "pixman"
   depends_on "vde" => :optional
-  depends_on "sdl" => :optional
+  depends_on "sdl2" => :optional
   depends_on "gtk+" => :optional
   depends_on "libssh2" => :optional
+
+  deprecated_option "with-sdl" => "with-sdl2"
 
   fails_with :gcc_4_0 do
     cause "qemu requires a compiler with support for the __thread specifier"
@@ -42,6 +43,14 @@ class Qemu < Formula
   def install
     ENV["LIBTOOL"] = "glibtool"
 
+    # Fixes "dyld: lazy symbol binding failed: Symbol not found: _clock_gettime"
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace %w[hw/i386/kvm/i8254.c include/qemu/timer.h linux-user/strace.c
+                   roms/skiboot/external/pflash/progress.c
+                   roms/u-boot/arch/sandbox/cpu/os.c ui/spice-display.c
+                   util/qemu-timer-common.c], "CLOCK_MONOTONIC", "NOT_A_SYMBOL"
+    end
+
     args = %W[
       --prefix=#{prefix}
       --cc=#{ENV.cc}
@@ -50,15 +59,15 @@ class Qemu < Formula
       --disable-guest-agent
     ]
 
-    # Cocoa and SDL/GTK+ UIs cannot both be enabled at once.
-    if build.with?("sdl") || build.with?("gtk+")
+    # Cocoa and SDL2/GTK+ UIs cannot both be enabled at once.
+    if build.with?("sdl2") || build.with?("gtk+")
       args << "--disable-cocoa"
     else
       args << "--enable-cocoa"
     end
 
     args << (build.with?("vde") ? "--enable-vde" : "--disable-vde")
-    args << (build.with?("sdl") ? "--enable-sdl" : "--disable-sdl")
+    args << (build.with?("sdl2") ? "--enable-sdl" : "--disable-sdl")
     args << (build.with?("gtk+") ? "--enable-gtk" : "--disable-gtk")
     args << (build.with?("libssh2") ? "--enable-libssh2" : "--disable-libssh2")
 

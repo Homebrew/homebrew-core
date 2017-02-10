@@ -3,18 +3,19 @@ class Qscintilla2 < Formula
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
   url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.9.4/QScintilla_gpl-2.9.4.tar.gz"
   sha256 "8b3a23023e9f0573caed6f9cee86f898d87b768ee15b8c211a423783a4cfa4e6"
+  revision 1
 
   bottle do
-    sha256 "6a3933d5fb2be839856352441cfc3a25db6cf2d15e26d7de7197ce5c980694e0" => :sierra
-    sha256 "d7a569b26da51ff444c4051fa43ce9060ef8f9a6af081c57d705ce57a81e38b6" => :el_capitan
-    sha256 "78d838bd713bc2bc07f1868111c585d24034df0bac9220b56af6b4e73587e554" => :yosemite
+    sha256 "f741f29edab4493e2f3c716b2804252bc4d5b1258384ea5a81ed90c63f455824" => :sierra
+    sha256 "75b6da54da59c22a06051941d4f85a866355f0dabda0f0e25fe20de87d403217" => :el_capitan
+    sha256 "4761b0c353545ae85acecc80d0bdf209d439e3687b0fbbf0ab05014e501ac96f" => :yosemite
   end
 
   option "with-plugin", "Build the Qt Designer plugin"
   option "with-python", "Build Python bindings"
   option "without-python3", "Do not build Python3 bindings"
 
-  depends_on "qt5"
+  depends_on "qt@5.7"
   depends_on :python3 => :recommended
   depends_on :python => :optional
 

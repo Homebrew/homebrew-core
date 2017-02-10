@@ -15,15 +15,6 @@ class Goenv < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
-    To use Homebrew's directories rather than ~/.goenv add to your profile:
-      export GOENV_ROOT=#{var}/goenv
-
-    To enable shims and autocompletion add to your profile:
-      if which goenv > /dev/null; then eval "$(goenv init -)"; fi
-    EOS
-  end
-
   test do
     assert_match "Usage: goenv <command> [<args>]", shell_output("#{bin}/goenv help")
   end
