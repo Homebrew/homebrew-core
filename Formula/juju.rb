@@ -3,7 +3,6 @@ class Juju < Formula
   homepage "https://jujucharms.com/"
   url "https://launchpad.net/juju/2.0/2.0.3/+download/juju-core_2.0.3.tar.gz"
   sha256 "b37e78b91c5d96ddd28044b645f4fe7144f7c44e55ddc2dfea2ad134101a4ed0"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
