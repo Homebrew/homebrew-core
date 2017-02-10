@@ -1,8 +1,8 @@
 class Autorest < Formula
   desc "Swagger (OpenAPI) Specification code generator"
   homepage "https://github.com/Azure/autorest"
-  url "https://github.com/Azure/autorest/releases/download/AutoRest-0.16.0/autorest.0.16.0.zip"
-  sha256 "bc909aaf3db2105a5d709c940c4d120c5b71047539c2068d484ced1be47650c3"
+  url "https://api.nuget.org/packages/autorest.0.17.3.nupkg"
+  sha256 "b3f5b67ae1a8aa4f0fd6cf1e51df27ea1867f0c845dbb13c1c608b148bd86296"
 
   depends_on "mono"
 
@@ -12,7 +12,7 @@ class Autorest < Formula
   end
 
   def install
-    libexec.install Dir["*"]
+    libexec.install Dir["tools/*"]
     (bin/"autorest").write <<-EOS.undent
       #!/bin/bash
       mono #{libexec}/AutoRest.exe "$@"
