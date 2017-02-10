@@ -9,9 +9,9 @@ class CheckPostgres < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "280d4e53327b9cc6ffd04229e5a81170a8a9288f156fdaea3b9c00f5280cd3d7" => :sierra
-    sha256 "280d4e53327b9cc6ffd04229e5a81170a8a9288f156fdaea3b9c00f5280cd3d7" => :el_capitan
-    sha256 "280d4e53327b9cc6ffd04229e5a81170a8a9288f156fdaea3b9c00f5280cd3d7" => :yosemite
+    sha256 "36f0895bc5985115dd5b3525b7fbc1f49a2e432e4a52de0a148d8279ac548daf" => :sierra
+    sha256 "36f0895bc5985115dd5b3525b7fbc1f49a2e432e4a52de0a148d8279ac548daf" => :el_capitan
+    sha256 "36f0895bc5985115dd5b3525b7fbc1f49a2e432e4a52de0a148d8279ac548daf" => :yosemite
   end
 
   depends_on :postgresql
