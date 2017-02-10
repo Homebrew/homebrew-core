@@ -13,6 +13,7 @@ class JujuAT125 < Formula
   end
 
   keg_only :versioned_formula
+
   depends_on "go" => :build
 
   def install
