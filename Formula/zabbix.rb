@@ -2,12 +2,14 @@ class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
   url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.2.3/zabbix-3.2.3.tar.gz"
+  mirror "https://fossies.org/linux/misc/zabbix-3.2.3.tar.gz"
   sha256 "e6dba74039d8d6efff86ec3da99909f4daeaeb66d48781bbb666e3094533da25"
+  revision 1
 
   bottle do
-    sha256 "11186942afe721513cf62f293506319c14ebfee244e287275cf92175077de477" => :sierra
-    sha256 "afbeeff30b41bd92c76c2febd99584d534a2fba6df6fd5adb6f1d43525f4f1d9" => :el_capitan
-    sha256 "12955b6b4ebd4686bb398214633bfebdfda5b21e9fcb9ee1c3ed41b68eb515bb" => :yosemite
+    sha256 "35a2068460d9ca35b0a52f8beb8e56a0c3144eb469a4fff993c35eaadafc9ff8" => :sierra
+    sha256 "be5a15450a93c860ae19d8a4fbf6738282dfc9e6fecc3bb633b3863f2472659a" => :el_capitan
+    sha256 "8f22eb0c9e5fc108a6e3127c86eef174542214c3e7f08ab535dfda4e06cc061d" => :yosemite
   end
 
   option "with-mysql", "Use Zabbix Server with MySQL library instead PostgreSQL."
