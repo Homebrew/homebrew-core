@@ -1,16 +1,10 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  revision 1
 
   stable do
-    url "https://secure.nic.cz/files/knot-dns/knot-2.4.0.tar.xz"
-    sha256 "0ba4d3e6951fc4d5c0e3dc88a720462690dd1d25f4bc1e7c24bb5747d3853679"
-
-    patch do
-      url "https://gitlab.labs.nic.cz/labs/knot/commit/ed5d4421657d7250813a2aae789b75e8baf7468a.patch"
-      sha256 "39167126370786f844394c71ad044ccfd588394c0d2a30e6e57d56e00194d156"
-    end
+    url "https://secure.nic.cz/files/knot-dns/knot-2.4.1.tar.xz"
+    sha256 "c064ddf99bf5fc24dd3c6a3a523394760357e204c8b69f0e691e49bc0d9b704c"
 
     resource "fstrm" do
       url "https://github.com/farsightsec/fstrm/archive/v0.3.0.tar.gz"
