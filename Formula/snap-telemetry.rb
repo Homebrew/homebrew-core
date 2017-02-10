@@ -1,8 +1,8 @@
 class SnapTelemetry < Formula
   desc "Snap is an opensource telemetry framework"
   homepage "http://snap-telemetry.io/"
-  url "https://github.com/intelsdi-x/snap/archive/1.0.0.tar.gz"
-  sha256 "0868462d85bb08f8ad02ab89a95c769881ace1ad941b738a8fb394caf70b5a0c"
+  url "https://github.com/intelsdi-x/snap/archive/1.1.0.tar.gz"
+  sha256 "461aeb9fe7752478e40fa00ad3485086cc1af726b29bfe40a1216fa3aa3a3f17"
 
   head "https://github.com/intelsdi-x/snap.git"
 
