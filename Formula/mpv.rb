@@ -3,7 +3,7 @@ class Mpv < Formula
   homepage "https://mpv.io"
   url "https://github.com/mpv-player/mpv/archive/v0.23.0.tar.gz"
   sha256 "8aeefe5970587dfc454d2b89726b603f156bd7a9ae427654eef0d60c68d94998"
-  revision 3
+  revision 4
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
