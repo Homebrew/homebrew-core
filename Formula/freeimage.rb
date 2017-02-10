@@ -23,8 +23,6 @@ class Freeimage < Formula
     sha256 "9d1e914ae20deb7066caf5f1cf52c3d48c0c04ccd36b791170c7e1fcb3528a36" => :mountain_lion
   end
 
-  option :universal
-
   patch :DATA
 
   # fix GCC 5.0 compile.
@@ -34,11 +32,23 @@ class Freeimage < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     system "make", "-f", "Makefile.gnu"
     system "make", "-f", "Makefile.gnu", "install", "PREFIX=#{prefix}"
     system "make", "-f", "Makefile.fip"
     system "make", "-f", "Makefile.fip", "install", "PREFIX=#{prefix}"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <FreeImage.h>
+      int main() {
+         FreeImage_Initialise(0);
+         FreeImage_DeInitialise();
+         exit(0);
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lfreeimage", "-o", "test"
+    system "./test"
   end
 end
 
