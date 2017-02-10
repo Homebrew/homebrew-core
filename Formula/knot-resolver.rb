@@ -3,11 +3,7 @@ class KnotResolver < Formula
   homepage "https://www.knot-resolver.cz"
   url "https://secure.nic.cz/files/knot-resolver/knot-resolver-1.2.1.tar.xz"
   sha256 "1b6f55ea1dfec90f45c437f23e1ab440e478570498161d0f8a8f94a439305f8c"
-  revision 1
-
-  head do
-    url "https://gitlab.labs.nic.cz/knot/resolver.git"
-  end
+  head "https://gitlab.labs.nic.cz/knot/resolver.git"
 
   depends_on "knot"
   depends_on "luajit"
