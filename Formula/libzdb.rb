@@ -7,9 +7,9 @@ class Libzdb < Formula
 
   bottle do
     cellar :any
-    sha256 "9967ba5917ccaa97f0b21cc823336244b91c1375827e435828ce79c2bf47a92b" => :sierra
-    sha256 "d81e3d7cff1d212b7fc0d016b132b182052d1852127b3e756474302f16f1f52d" => :el_capitan
-    sha256 "897732ae462579b760269990415b881fba81cc21b699cd04206a5d179090806e" => :yosemite
+    sha256 "9cec69cc93f6b975d95c506f3c7b04a4d2934ac30adc13afedd1d32fe2e31d8c" => :sierra
+    sha256 "0a7bc557e3e91db185787147df1a87ae9c7aef33a1b57875bc74daa52a1338c8" => :el_capitan
+    sha256 "3a5394289ceffbd2bc7bde8dd4dfad4f9b27a4d0180fab199a839c44739f0344" => :yosemite
   end
 
   depends_on "openssl"
