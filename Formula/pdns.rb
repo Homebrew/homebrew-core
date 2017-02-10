@@ -50,8 +50,6 @@ class Pdns < Formula
     system "./bootstrap" if build.head?
     system "./configure", *args
 
-    # Compilation fails at polarssl if we skip straight to make install
-    system "make"
     system "make", "install"
   end
 
