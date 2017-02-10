@@ -2,20 +2,19 @@ class Fstar < Formula
   desc "Language with a type system for program verification"
   homepage "https://www.fstar-lang.org/"
   url "https://github.com/FStarLang/FStar.git",
-      :tag => "v0.9.2.0",
-      :revision => "2a8ce0b3dfbfb9703079aace0d73f2479f0d0ce2"
-  revision 3
+      :tag => "v0.9.4.0",
+      :revision => "2137ca0fbc56f04e202f715202c85a24b36c3b29"
   head "https://github.com/FStarLang/FStar.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fed93a145c1455025bb3e799f14ca456e5326147059e60655daf2b90d5d31765" => :sierra
-    sha256 "af3a84d4b8fa2f76fe5863dd001aadb38200fe7409bac1ba1e5460b91ca2c72d" => :el_capitan
-    sha256 "158cb0755c2b09565fc3d605e1bbf6e894c7176e69f707f9ee01a4d844d879b6" => :yosemite
+    cellar :any
+    sha256 "c0e12f89c58c63d456c194206243b1c2b9cbea1857afe7f2fd31fa3b709c2797" => :sierra
+    sha256 "632b24047df19cc9568fe46c3e5041cfc0c0858f3139aaa7c3bc9905a55f87df" => :el_capitan
+    sha256 "97c2b2db56554822f03293d74099db6f20386d512287295a5d16b8ed265a2899" => :yosemite
   end
 
   depends_on "opam" => :build
-  depends_on "gmp" => :build
+  depends_on "gmp"
   depends_on "ocaml" => :recommended
   depends_on "z3" => :recommended
 
@@ -31,28 +30,27 @@ class Fstar < Formula
     system "opam", "init", "--no-setup"
 
     if build.stable?
-      system "opam", "install", "batteries=2.5.3", "zarith=1.3", "yojson=1.1.6"
+      system "opam", "install", "batteries=2.5.3", "zarith=1.4.1", "yojson=1.3.3", "pprint=20140424"
     else
-      system "opam", "install", "batteries", "zarith", "yojson"
+      system "opam", "install", "batteries", "zarith", "yojson", "pprint"
     end
 
     system "opam", "config", "exec", "--", "make", "-C", "src", "boot-ocaml"
 
-    bin.install "src/ocaml-output/fstar.exe"
+    bin.install "bin/fstar.exe"
 
-    (libexec/"stdlib").install Dir["lib/*"]
-    (libexec/"contrib").install Dir["contrib/*"]
+    (libexec/"stdlib").install Dir["ulib/*"]
+    (libexec/"contrib").install Dir["ucontrib/*"]
     (libexec/"examples").install Dir["examples/*"]
     (libexec/"tutorial").install Dir["doc/tutorial/*"]
     (libexec/"src").install Dir["src/*"]
-    (libexec/"licenses").install "LICENSE-fsharp.txt", Dir["3rdparty/licenses/*"]
+    prefix.install "LICENSE-fsharp.txt"
 
     prefix.install_symlink libexec/"stdlib"
     prefix.install_symlink libexec/"contrib"
     prefix.install_symlink libexec/"examples"
     prefix.install_symlink libexec/"tutorial"
     prefix.install_symlink libexec/"src"
-    prefix.install_symlink libexec/"licenses"
   end
 
   def caveats; <<-EOS.undent

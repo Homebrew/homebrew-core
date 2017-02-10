@@ -6,14 +6,11 @@ class TomcatAT6 < Formula
 
   bottle :unneeded
 
-  keg_only "Some scripts that are installed conflict with other software."
+  keg_only :versioned_formula
 
   option "with-fulldocs", "Install full documentation locally"
 
   depends_on :java
-
-  conflicts_with "tomcat", :because => "Differing versions of same formula"
-  conflicts_with "tomcat@7", :because => "Differing versions of same formula"
 
   resource "fulldocs" do
     url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-6/v6.0.45/bin/apache-tomcat-6.0.45-fulldocs.tar.gz"

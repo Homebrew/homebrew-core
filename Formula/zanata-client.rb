@@ -1,15 +1,14 @@
 class ZanataClient < Formula
   desc "Zanata translation system command-line client"
   homepage "http://zanata.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/zanata/zanata-cli/3.8.1/zanata-cli-3.8.1-dist.tar.gz"
-  sha256 "cc4ecfa2d530ff314076bd0173bdf829824737d48d4f4a2f4ca18d263e9da7c3"
+  url "https://search.maven.org/remotecontent?filepath=org/zanata/zanata-cli/3.9.1/zanata-cli-3.9.1-dist.tar.gz"
+  sha256 "ec59d9588308c22fa2070d902b8e53d205d4812ae38af1ea250eaad9d55f7863"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "782ed4326d7513cfd34dd73e8f804fa604ae6a45941eb3af641058d743fe2f7d" => :sierra
-    sha256 "8e0cef73202011c4e5f72396a86b197292136ac4c51474853167a8f3cd2d5f40" => :el_capitan
-    sha256 "d77b7008d3f2f22be8430c58b4fb18839b1740e6752607e4cb9a1f314e24d91c" => :yosemite
-    sha256 "7ff54b8ca01393f2c85e30c595572c04fcc903838ede194325914b183e9f9c00" => :mavericks
+    sha256 "4813eecde6fe48ac41da9e068a64c1424fdfa7b418145c496a373a15167fcd93" => :sierra
+    sha256 "4813eecde6fe48ac41da9e068a64c1424fdfa7b418145c496a373a15167fcd93" => :el_capitan
+    sha256 "4813eecde6fe48ac41da9e068a64c1424fdfa7b418145c496a373a15167fcd93" => :yosemite
   end
 
   depends_on :java => "1.8+"

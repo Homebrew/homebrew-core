@@ -7,12 +7,13 @@ class GitAnnex < Formula
   homepage "https://git-annex.branchable.com/"
   url "https://hackage.haskell.org/package/git-annex-6.20170101/git-annex-6.20170101.tar.gz"
   sha256 "5fbf88652a84278275d9d4bec083189f590b045e23a73bfe8d395c3e356e3f53"
+  revision 2
   head "git://git-annex.branchable.com/"
 
   bottle do
-    sha256 "dff23e6bdf87bacbed4ba55fd8038bcc9f4bca3d03c5e793cf4b07c8a8f5f88c" => :sierra
-    sha256 "1badb7ae0cb32fc292907330b15b3bf98533ac01b61e09ef5190fcd06a8bd777" => :el_capitan
-    sha256 "b5908bbdb75d5e2d2f36fd9ece046470935b59daa107b61ab89751be98711bbb" => :yosemite
+    sha256 "541a9ca45f5ddb6baf37f4be4067e32a50f9ede4338a937a87364d3b8a18056b" => :sierra
+    sha256 "011ec79e42d82f42386101a8d2d79d5d520c66b8c1c61f39335ae257bf926358" => :el_capitan
+    sha256 "5dff8242ee567f1916cb01abda57f079a2d10d4cad286f5d6cae3ec3f1b77549" => :yosemite
   end
 
   option "with-git-union-merge", "Build the git-union-merge tool"
@@ -27,27 +28,21 @@ class GitAnnex < Formula
   depends_on "quvi"
   depends_on "xdot" => :recommended
 
-  # new maintainer's fork, which will be in Hackage shortly
-  resource "esqueleto" do
-    url "https://github.com/bitemyapp/esqueleto.git",
-        :revision => "bfc8502dbf23251b3794bcd0370a100211297cc5"
-    version "2.5.0-alpha1"
-  end
-
   def install
-    cabal_sandbox do
-      (buildpath/"esqueleto").install resource("esqueleto")
-      inreplace "esqueleto/esqueleto.cabal",
-        "base                 >= 4.5     && < 4.9",
-        "base                 >= 4.5     && < 5.0"
-      cabal_sandbox_add_source "esqueleto"
-      install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
-        # this can be made the default behavior again once git-union-merge builds properly when bottling
-        if build.with? "git-union-merge"
-          system "make", "git-union-merge", "PREFIX=#{prefix}"
-          bin.install "git-union-merge"
-          system "make", "git-union-merge.1", "PREFIX=#{prefix}"
-        end
+    # aws-0.16 compatibility
+    # Avoid the build failure "Remote/S3.hs:224:49: error: The constructor
+    # 'S3.UploadPartResponse' should have 1 argument, but has been given 2"
+    # Fix taken from upstream report from 5 Feb 2017 https://git-annex.branchable.com/bugs/aws_0.16_breaking_changes/
+    inreplace "Remote/S3.hs",
+      "S3.UploadPartResponse _ etag <- sendS3Handle h req",
+      "S3.UploadPartResponse { S3.uprETag = etag } <- sendS3Handle h req"
+
+    install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
+      # this can be made the default behavior again once git-union-merge builds properly when bottling
+      if build.with? "git-union-merge"
+        system "make", "git-union-merge", "PREFIX=#{prefix}"
+        bin.install "git-union-merge"
+        system "make", "git-union-merge.1", "PREFIX=#{prefix}"
       end
     end
     bin.install_symlink "git-annex" => "git-annex-shell"

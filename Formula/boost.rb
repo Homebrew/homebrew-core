@@ -52,15 +52,6 @@ class Boost < Formula
     # Handle libraries that will not be built.
     without_libraries = ["python"]
 
-    # The context library is implemented as x86_64 ASM, so it
-    # won't build on PPC or 32-bit builds
-    # see https://github.com/Homebrew/homebrew/issues/17646
-    if Hardware::CPU.ppc? || Hardware::CPU.is_32_bit?
-      without_libraries << "context"
-      # The coroutine library depends on the context library.
-      without_libraries << "coroutine"
-    end
-
     # Boost.Log cannot be built using Apple GCC at the moment. Disabled
     # on such systems.
     without_libraries << "log" if ENV.compiler == :gcc
@@ -111,14 +102,6 @@ class Boost < Formula
       s += <<-EOS.undent
 
       Building of Boost.Log is disabled because it requires newer GCC or Clang.
-      EOS
-    end
-
-    if Hardware::CPU.ppc? || Hardware::CPU.is_32_bit?
-      s += <<-EOS.undent
-
-      Building of Boost.Context and Boost.Coroutine is disabled as they are
-      only supported on x86_64.
       EOS
     end
 

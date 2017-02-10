@@ -3,12 +3,12 @@ class Gnuplot < Formula
   homepage "http://www.gnuplot.info"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.5/gnuplot-5.0.5.tar.gz"
   sha256 "25f3e0bf192e01115c580f278c3725d7a569eb848786e12b455a3fda70312053"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "9a45029ee03f7011ac9dace9cd22854fed5badb788dceb2043a4d5412e2d9a0b" => :sierra
-    sha256 "9ba16e37310ace0de6a97d81f21bd9d4e0d2c79e1ee750a3bf3b9b926a20a684" => :el_capitan
-    sha256 "95da509dc600150780651cf34f62cd524ff065b833fff119617e5d0e61e3e215" => :yosemite
+    sha256 "16c76274f98c1575d6c8b02439f74d272e87a14ec9ae5441d4e2fc1e1b0e9356" => :sierra
+    sha256 "3f089fb0bec39e0eb4ec54936969931b93fbb5508eb70c6ca3f422b99b37d208" => :el_capitan
+    sha256 "e10b24bb0615ccd7e6d9472342357538ea088d3da5cb210af9d619ceacf9d4e1" => :yosemite
   end
 
   head do
@@ -25,6 +25,7 @@ class Gnuplot < Formula
   option "with-wxmac", "Build wxmac support. Need with-cairo to build wxt terminal"
   option "with-tex", "Build with LaTeX support"
   option "with-aquaterm", "Build with AquaTerm support"
+  option "without-gd", "Build without gd based terminals"
 
   deprecated_option "with-x" => "with-x11"
   deprecated_option "pdf" => "with-pdflib-lite"
@@ -40,15 +41,9 @@ class Gnuplot < Formula
   deprecated_option "with-latex" => "with-tex"
 
   depends_on "pkg-config" => :build
-  depends_on "fontconfig"
-  depends_on "freetype"
-  depends_on "gd"
+  depends_on "gd" => :recommended
   depends_on "lua" => :recommended
-  depends_on "jpeg"
-  depends_on "libpng"
-  depends_on "libtiff"
   depends_on "readline"
-  depends_on "webp"
   depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
   depends_on "pdflib-lite" => :optional
   depends_on "qt@5.7" => :optional
@@ -81,6 +76,8 @@ class Gnuplot < Formula
     ]
 
     args << "--with-pdf=#{pdflib}" if build.with? "pdflib-lite"
+
+    args << "--without-gd" if build.without? "gd"
 
     if build.without? "wxmac"
       args << "--disable-wxwidgets"
@@ -128,10 +125,10 @@ class Gnuplot < Formula
 
   test do
     system "#{bin}/gnuplot", "-e", <<-EOS.undent
-      set terminal png;
-      set output "#{testpath}/image.png";
+      set terminal dumb;
+      set output "#{testpath}/graph.txt";
       plot sin(x);
     EOS
-    File.exist? testpath/"image.png"
+    File.exist? testpath/"graph.txt"
   end
 end

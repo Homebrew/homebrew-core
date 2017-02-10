@@ -1,4 +1,4 @@
-class Lua51 < Formula
+class LuaAT51 < Formula
   # 5.2 is not fully backwards compatible so we must retain 2 Luas for now.
   # The transition has begun. Lua will now become Lua51, and Lua52 will become Lua.
   desc "Powerful, lightweight programming language (v5.1.5)"
@@ -10,13 +10,11 @@ class Lua51 < Formula
 
   bottle do
     cellar :any
-    sha256 "450656c0c5da3c9b6c429891bf6f3e38478e740e0334c00a9435a4ddf9fdca22" => :sierra
-    sha256 "52a35adb5c9531f2092b0daca56f1dee6f3f0ce65d78fbc91571c28a2a737176" => :el_capitan
-    sha256 "10e42166a4f4b6758a3b3183a32aaac246270af6a859cf92694661acccfb4d70" => :yosemite
-    sha256 "821a3e39854354505c4751ce8605b20f56e441c43b1d8464fe37e5301122e9c2" => :mavericks
+    sha256 "550dd46b8849792fe96aa3878bdbe47972b8b39a3af8d7e3df15c2d0e2969ab8" => :sierra
+    sha256 "bb5aed7c3b485ec7a102706d84dbcb9878cd2be20ac8cd686a0ef6eba9de7cba" => :el_capitan
+    sha256 "1bc63e65986763d0501b26de2d712b055ae7d2e036b9257d48cb59fd6cb6e3c4" => :yosemite
   end
 
-  option :universal
   option "with-completion", "Enables advanced readline support"
   option "without-sigaction", "Revert to ANSI signal instead of improved POSIX sigaction"
   option "without-luarocks", "Don't build with Luarocks support embedded"
@@ -49,8 +47,6 @@ class Lua51 < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
       s.remove_make_var! "CC"
@@ -68,7 +64,7 @@ class Lua51 < Formula
       s.gsub! "INSTALL_MAN= ${prefix}/man/man1", "INSTALL_MAN= ${prefix}/share/man/man1"
       s.gsub! "INSTALL_INC= ${prefix}/include", "INSTALL_INC= ${prefix}/include/lua-5.1"
       s.gsub! "includedir=${prefix}/include", "includedir=${prefix}/include/lua-5.1"
-      s.gsub! "Libs: -L${libdir} -llua -lm", "Libs: -L${libdir} -llua5.1 -lm"
+      s.gsub! "Libs: -L${libdir} -llua -lm", "Libs: -L${libdir} -llua.5.1 -lm"
     end
 
     system "make", "macosx", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1"
@@ -83,11 +79,11 @@ class Lua51 < Formula
     mv "#{bin}/luac", "#{bin}/luac-5.1"
     mv "#{man1}/lua.1", "#{man1}/lua-5.1.1"
     mv "#{man1}/luac.1", "#{man1}/luac-5.1.1"
-    mv "#{lib}/pkgconfig/lua.pc", "#{lib}/pkgconfig/lua5.1.pc"
-    (lib/"pkgconfig").install_symlink "lua5.1.pc" => "lua-5.1.pc"
-    include.install_symlink "lua-5.1" => "lua5.1"
+    mv "#{lib}/pkgconfig/lua.pc", "#{lib}/pkgconfig/lua-5.1.pc"
     bin.install_symlink "lua-5.1" => "lua5.1"
     bin.install_symlink "luac-5.1" => "luac5.1"
+    include.install_symlink "lua-5.1" => "lua5.1"
+    (lib/"pkgconfig").install_symlink "lua-5.1.pc" => "lua5.1.pc"
 
     # This resource must be handled after the main install, since there's a lua dep.
     # Keeping it in install rather than postinstall means we can bottle.

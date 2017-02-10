@@ -4,14 +4,15 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v5.1.2",
-      :revision => "ed55995668f95ce28fe5dad55ab4a0da67d2a7b6"
+      :tag => "v5.2.0",
+      :revision => "9b0119b706e53fbd67b447381fe80f71b9996893"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "e8e7e122af8c2ba472552800951268ebe6db90e9615dc144265f331c486f569f" => :sierra
-    sha256 "f988882b715794b8332edb561137728e22fe28ef3a1daa145c507568d4aeb421" => :el_capitan
-    sha256 "14d7353062f1f2af85e73797680c0d13454cf6370ff80984a60bbd21b6477298" => :yosemite
+    rebuild 1
+    sha256 "2d749497642924d97b9dedeecea785e0c77fdc7063eb93517d6c1f6ac4cefde2" => :sierra
+    sha256 "c9e9134df53cf08b1cde25703895e56b16514a3a42243f66be640572989b91d1" => :el_capitan
+    sha256 "51b54e132e0baa0f7c5a5fe4fdb658cf27bae4ed50ee8c7f48ab9c0c787ccc8b" => :yosemite
   end
 
   resource "node" do
@@ -49,6 +50,7 @@ class Kibana < Formula
     prefix.install Dir["build/kibana-#{version}-#{platform.sub("x64", "x86_64")}/{bin,config,node_modules,optimize,package.json,src,webpackShims}"]
 
     inreplace "#{bin}/kibana", %r{/node/bin/node}, "/libexec/node/bin/node"
+    inreplace "#{bin}/kibana-plugin", %r{/node/bin/node}, "/libexec/node/bin/node"
 
     cd prefix do
       inreplace "config/kibana.yml", "/var/run/kibana.pid", var/"run/kibana.pid"

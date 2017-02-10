@@ -1,9 +1,9 @@
 class Moreutils < Formula
   desc "Collection of tools that nobody wrote when UNIX was young"
   homepage "https://joeyh.name/code/moreutils/"
-  url "git://git.kitenet.net/moreutils",
-      :tag => "0.60",
-      :revision => "1173bd9f10d731485f3b63f1c7ff55eb9c58a605"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/moreutils/moreutils_0.60.orig.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/moreutils/moreutils_0.60.orig.tar.xz"
+  sha256 "e42d18bacbd2d003779a55fb3542befa5d1d217ee37c1874e8c497581ebc17c5"
   head "git://git.joeyh.name/moreutils"
 
   bottle do

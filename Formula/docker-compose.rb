@@ -3,15 +3,15 @@ class DockerCompose < Formula
 
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://github.com/docker/compose/archive/1.10.0.tar.gz"
-  sha256 "0277930feaeb03f480914274f65eb419a2ee4b48be9a9fb55a201bb3a14bf290"
+  url "https://github.com/docker/compose/archive/1.11.1.tar.gz"
+  sha256 "d00a261c08ed664a068a7e72f1a89dc85fc7fb32b9af3dc4b25e414a7b3662e4"
   head "https://github.com/docker/compose.git"
 
   bottle do
     cellar :any
-    sha256 "05e23608f3fc5184fd6d8fc4ea28b7245170eec1a2776bac212285c43a40e24f" => :sierra
-    sha256 "b4b513f6088866eb3fc3e146f86ac3358845b2a3d691830f1caca331ced0f6b6" => :el_capitan
-    sha256 "8672869f6f73c1dd39c3fa289c991f9cb0d7eab66f5d06ee09c1ad429e11d471" => :yosemite
+    sha256 "2f0c95d3cc9cac92265aae462e3994b49dce147acae90b878210764975fd2705" => :sierra
+    sha256 "6de9307328dcd59134ef41a1592627afc3392987bcbeac2589dd36303f25997c" => :el_capitan
+    sha256 "6d178745ce546d503a1d29237d7f10ba57bd227c4a498377fc59d40d66ade93e" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

@@ -1,16 +1,16 @@
 class Saldl < Formula
   desc "CLI downloader optimized for speed and early preview."
   homepage "https://saldl.github.io"
-  url "https://github.com/saldl/saldl/archive/v34.tar.gz"
-  sha256 "12053f306306023e5bbdc6bb8594cc83f8793da0ce99dab1981179cdeccea4da"
+  url "https://github.com/saldl/saldl/archive/v35.tar.gz"
+  sha256 "6b5f45a8f7782bcad124df4a24876c8b3c47d45aa25d0b09b2030837c6ece82c"
+
   head "https://github.com/saldl/saldl.git", :shallow => false
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "c018fd1c0c1d356c7e084a84865ef0bb14074f8ac578c12bf921f92ec2b2e7fa" => :sierra
-    sha256 "8fcfee53034c79f680bdf8a4ef0cc9673f52dd5c6c9cf2b08caa4cf59cda8ba7" => :el_capitan
-    sha256 "a1307b5bf28fafdf11c9164c5a9754a461bc9c87447e02a15eabb9b6ad40ac64" => :yosemite
+    sha256 "723d7e0181ea35f4b6643682db7731434411454239ef7c61a9393cd8cf5c9a08" => :sierra
+    sha256 "f006aa31bd31f9410a5579a92354c3d4acba5a7ac2102564423120ba1b45ef06" => :el_capitan
+    sha256 "689d5ea91227117ad5c43d52925456a8e75b069e4900a15a5853a6de96b8ffd5" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -30,13 +30,6 @@ class Saldl < Formula
 
     # a2x/asciidoc needs this to build the man page successfully
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-
-    # Fixes clock_gettime build error on macOS 10.11
-    # Reported 28 January 2017 https://github.com/saldl/saldl/issues/8
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      inreplace "wscript", "clock_gettime(CLOCK_MONOTONIC_RAW, &tp);",
-                           "not_a_function(NOT_A_SYMBOL, &tp);"
-    end
 
     args = ["--prefix=#{prefix}"]
 

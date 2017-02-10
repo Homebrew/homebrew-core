@@ -3,19 +3,17 @@ class Luabind < Formula
   homepage "http://www.rasterbar.com/products/luabind.html"
   url "https://downloads.sourceforge.net/project/luabind/luabind/0.9.1/luabind-0.9.1.tar.gz"
   sha256 "80de5e04918678dd8e6dac3b22a34b3247f74bf744c719bae21faaa49649aaae"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "915f83810e6e4f7438859dfb00920b94f0b8d0865194021d981ccd48f500e495" => :sierra
-    sha256 "a91678a0e7830fdaebdebeb315b4e4480ca5eb12f16aa6e6534fd79c30f203dc" => :el_capitan
-    sha256 "57f0368918d142bba0d28ba02529cbf51eb6be30321ab001922032fbaabe583b" => :yosemite
-    sha256 "bdb3e0380687c7943c13986b054bce3ae7c53db72394b5f4bec3e40a649f08b8" => :mavericks
+    sha256 "39e74593d47fd648230e177e9a8a90e1b3a888c84d6c7d38f358265d5b93ce94" => :sierra
+    sha256 "914a79679264790d9ffb0726a1f303954d816da3dd23db3b8816873cf467677f" => :el_capitan
+    sha256 "171123f48a6cf2431d6b143b84bf31dbb955f103195aa30597a61b7a61943982" => :yosemite
   end
 
   depends_on "boost-build" => :build
-  depends_on "lua51"
+  depends_on "lua@5.1"
   depends_on "boost"
 
   # boost 1.57 compatibility
@@ -48,7 +46,7 @@ class Luabind < Formula
   end
 
   def install
-    ENV["LUA_PATH"] = Formula["lua51"].opt_prefix
+    ENV["LUA_PATH"] = Formula["lua@5.1"].opt_prefix
 
     args = %w[release install]
     if ENV.compiler == :clang

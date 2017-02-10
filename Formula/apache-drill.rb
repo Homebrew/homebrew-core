@@ -1,6 +1,6 @@
 class ApacheDrill < Formula
-  desc "Schema-free SQL query engine for Hadoop and NoSQL"
-  homepage "https://drill.apache.org/download/"
+  desc "Schema-free SQL Query Engine for Hadoop, NoSQL and Cloud Storage"
+  homepage "https://drill.apache.org"
   url "https://www.apache.org/dyn/closer.cgi?path=drill/drill-1.9.0/apache-drill-1.9.0.tar.gz"
   mirror "https://archive.apache.org/dist/drill/drill-1.9.0/apache-drill-1.9.0.tar.gz"
   sha256 "ebe668054059b394298a294ab85e44d71facb3ecbf03bf475c5246a6c22fbc89"

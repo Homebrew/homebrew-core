@@ -3,15 +3,28 @@
 class Qt5 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.8/5.8.0/single/qt-everywhere-opensource-src-5.8.0.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.8/5.8.0/single/qt-everywhere-opensource-src-5.8.0.tar.xz"
-  sha256 "0f4c54386d3dbac0606a936a7145cebb7b94b0ca2d29bc001ea49642984824b6"
+  revision 1
   head "https://code.qt.io/qt/qt5.git", :branch => "5.8", :shallow => false
 
+  stable do
+    url "https://download.qt.io/official_releases/qt/5.8/5.8.0/single/qt-everywhere-opensource-src-5.8.0.tar.xz"
+    mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.8/5.8.0/single/qt-everywhere-opensource-src-5.8.0.tar.xz"
+    sha256 "0f4c54386d3dbac0606a936a7145cebb7b94b0ca2d29bc001ea49642984824b6"
+
+    # Upstream issue "Qt5.8: macOS, designer examples fails to compile"
+    # Reported 15 Dec 2016 https://bugreports.qt.io/browse/QTBUG-57656
+    # Upstream PR from 31 Jan 2017 "fix installation of header-only frameworks"
+    # See https://codereview.qt-project.org/#/c/184053/1
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/634a19fb/qt5/QTBUG-57656.patch"
+      sha256 "a69fc727f4378dbe0cf05ecf6e633769fe7ee6ea52b1630135a05d5adfa23d87"
+    end
+  end
+
   bottle do
-    sha256 "ecffbbbfc0d16771da5de32973d6db83b866463bd42e2a103e70add9f204721f" => :sierra
-    sha256 "e8c4098b1725bb763487f730544f24559b623f355b0cd9109d86e5f3007184d2" => :el_capitan
-    sha256 "7b559049a68b04fdf2eb093fba2d46886df7461872b757396216b351a05d76a1" => :yosemite
+    sha256 "b970062ce3534e7265e2cd3d7f4bcd57e852cfc21ca23d834d281281fd20b107" => :sierra
+    sha256 "4054b76f3dad826ff7c01980ab8c49e117ca6c0a0ed8b6f5cdd7e242762820c8" => :el_capitan
+    sha256 "0f6e703d3f08e30a93aa7c3093874e4ed1055d56f1a1e3dd248f2d76041c4536" => :yosemite
   end
 
   keg_only "Qt 5 has CMake issues when linked"

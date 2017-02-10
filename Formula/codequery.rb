@@ -1,5 +1,5 @@
 class Codequery < Formula
-  desc "Index, query, or search C, C++, Java, Python, Ruby, Go and Javascript code"
+  desc "Code-understanding, code-browsing or code-search tool."
   homepage "https://github.com/ruben2020/codequery"
   url "https://github.com/ruben2020/codequery/archive/v0.18.1.tar.gz"
   sha256 "482fa737691c260e16adcc32bc3fd43ba50a309495faec6b2f3098b517e6c0e9"

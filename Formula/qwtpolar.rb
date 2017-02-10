@@ -3,17 +3,17 @@ class Qwtpolar < Formula
   homepage "http://qwtpolar.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/qwtpolar/qwtpolar/1.1.1/qwtpolar-1.1.1.tar.bz2"
   sha256 "6168baa9dbc8d527ae1ebf2631313291a1d545da268a05f4caa52ceadbe8b295"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "e734751a7cf473eadbb85ae4ccc80c219f96e7db7b2fc1e7bf2b57b782927d4f" => :sierra
-    sha256 "b3feda4b2d321a24015d62c91596b2f7b65465ffa8b216195dda8af2dd222ff6" => :el_capitan
-    sha256 "85439bf4f5950b12d685f7360aaead121cd24e8f98c4ec18a935549849806ef0" => :yosemite
+    sha256 "10d54e6c3e07fb379afdf1c5f6b1bf4000d3d6702a5eba23442fcd4bbc54045e" => :sierra
+    sha256 "0852f2c09a37616d6ac1f9e124d1681baeb7b000bc4156f812726395e3741e37" => :el_capitan
+    sha256 "8032c9f2ba849ced52e503de62ca922642ab28626627f32f1a574b775aba87be" => :yosemite
   end
 
   option "without-plugin", "Skip building the Qt Designer plugin"
 
-  depends_on "qt@5.7"
+  depends_on "qt5"
   depends_on "qwt"
 
   # Update designer plugin linking back to qwtpolar framework/lib after install
@@ -61,7 +61,7 @@ class Qwtpolar < Formula
       s.gsub! "qwtPolarAddLibrary(qwtpolar)", "qwtPolarAddLibrary(qwtpolar)\nqwtPolarAddLibrary(qwt)"
     end
     cd "examples" do
-      system Formula["qt@5.7"].opt_bin/"qmake"
+      system Formula["qt5"].opt_bin/"qmake"
       rm_rf "bin" # just in case
       system "make"
       assert File.exist?("bin/polardemo.app/Contents/MacOS/polardemo"), "Failed to build polardemo"

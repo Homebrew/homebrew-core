@@ -6,9 +6,10 @@ class Orientdb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3a9999572d3a643f5a467bf5f3e6150d61e504225f8b784c126c0306182b2366" => :sierra
-    sha256 "6d880ae0eba63478ace30b6daca3c2dcaf3cc0ca83c55a4d5f32e66f9bdbbc86" => :el_capitan
-    sha256 "6d880ae0eba63478ace30b6daca3c2dcaf3cc0ca83c55a4d5f32e66f9bdbbc86" => :yosemite
+    rebuild 1
+    sha256 "359342720516992b900b46b28847870513e30223e45f09f8b2507eb5c5889ecb" => :sierra
+    sha256 "19ffbe060238c64b9077624a2ff95759767592aec181234a4a7d9f05707c0dbd" => :el_capitan
+    sha256 "19ffbe060238c64b9077624a2ff95759767592aec181234a4a7d9f05707c0dbd" => :yosemite
   end
 
   def install
@@ -55,6 +56,37 @@ class Orientdb < Formula
   def caveats; <<-EOS.undent
     The OrientDB root password was set to 'orientdb'. To reset it:
       http://orientdb.com/docs/2.2/Server-Security.html#restoring-the-servers-user-root
+    EOS
+  end
+
+  plist_options :manual => "orientdb start"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+          <dict>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+        <key>Label</key>
+        <string>homebrew.mxcl.orientdb</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>/usr/local/opt/orientdb/libexec/bin/server.sh</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>/usr/local/var</string>
+        <key>StandardErrorPath</key>
+        <string>/usr/local/var/log/orientdb/serror.log</string>
+        <key>StandardOutPath</key>
+        <string>/usr/local/var/log/orientdb/sout.log</string>
+      </dict>
+    </plist>
     EOS
   end
 

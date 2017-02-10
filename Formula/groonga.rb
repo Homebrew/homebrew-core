@@ -1,13 +1,13 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "http://groonga.org/"
-  url "http://packages.groonga.org/source/groonga/groonga-6.1.5.tar.gz"
-  sha256 "bd404dca8860b4bb7af72d77020c95b32926f8976fecfe3ae2b9f8792e26105e"
+  url "http://packages.groonga.org/source/groonga/groonga-7.0.0.tar.gz"
+  sha256 "cde519dc4192095a1ad7effd20f9df5b3a8cc38a947b0ec3bf1d681505ff7b30"
 
   bottle do
-    sha256 "3d0724639c516f89b1351e7ff8024728bbe03a15f858800be88f937dd9527bff" => :sierra
-    sha256 "5a936914a4d9a0bd44737a4541f7f6baa930f21acf79ef6cbfb961304c136e79" => :el_capitan
-    sha256 "105ba3a4c9b465e13cbf25744c707d66dd7e6bd90f36879d6553aef6f279158a" => :yosemite
+    sha256 "d13ebb07365c2feae4680a8fc792e8fbe38af8e0b2162cad9469244d7f79d0e1" => :sierra
+    sha256 "9241ce130f99a6df44123aa3e32691935226bf2440862cb36d3be8b806d1eb7d" => :el_capitan
+    sha256 "844c1ae161105d715379289da87754eeda4fb666691abcdac05790b75f9856f3" => :yosemite
   end
 
   head do
@@ -19,6 +19,7 @@ class Groonga < Formula
 
   option "with-glib", "With benchmark program for developer use"
   option "with-zeromq", "With suggest plugin for suggesting"
+  option "with-stemmer", "Build with libstemmer support"
 
   deprecated_option "enable-benchmark" => "with-glib"
   deprecated_option "with-benchmark" => "with-glib"
@@ -41,6 +42,11 @@ class Groonga < Formula
     sha256 "bc83d1e5e0f32d4b95e219cb940a7e3f61f0f743abd3bd47c2d436a34e503870"
   end
 
+  resource "stemmer" do
+    url "https://github.com/snowballstem/snowball.git",
+      :revision => "71936098048f915a797de990776564c924d40b6a"
+  end
+
   link_overwrite "lib/groonga/plugins/normalizers/"
   link_overwrite "share/doc/groonga-normalizer-mysql/"
   link_overwrite "lib/pkgconfig/groonga-normalizer-mysql.pc"
@@ -51,13 +57,26 @@ class Groonga < Formula
       --with-zlib
       --with-ssl
       --enable-mruby
-      --without-libstemmer
     ]
 
     if build.with? "zeromq"
       args << "--enable-zeromq"
     else
       args << "--disable-zeromq"
+    end
+
+    if build.with? "stemmer"
+      resource("stemmer").stage do
+        system "make", "dist_libstemmer_c"
+        system "tar", "xzf", "dist/libstemmer_c.tgz", "-C", buildpath
+        Dir.chdir buildpath.join("libstemmer_c")
+        system "make"
+        mkdir "lib"
+        mv "libstemmer.o", "lib/libstemmer.a"
+        args << "--with-libstemmer=#{Dir.pwd}"
+      end
+    else
+      args << "--without-libstemmer"
     end
 
     args << "--enable-benchmark" if build.with? "glib"

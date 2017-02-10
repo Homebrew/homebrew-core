@@ -56,7 +56,7 @@ class Nrpe < Formula
       <string>org.nrpe.agent</string>
       <key>ProgramArguments</key>
       <array>
-        <string>#{HOMEBREW_PREFIX}/bin/nrpe</string>
+        <string>#{opt_bin}/nrpe</string>
         <string>-c</string>
         <string>#{etc}/nrpe.cfg</string>
         <string>-d</string>

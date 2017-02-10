@@ -1,4 +1,6 @@
 class Osc < Formula
+  include Language::Python::Virtualenv
+
   desc "The Command Line Interface to work with an Open Build Service"
   homepage "https://github.com/openSUSE/osc"
   url "https://github.com/openSUSE/osc/archive/0.155.1.tar.gz"
@@ -7,9 +9,10 @@ class Osc < Formula
 
   bottle do
     cellar :any
-    sha256 "40d21c9d0442b616d8c480937ea6def6e4ce8029558884feba32ab523e410924" => :sierra
-    sha256 "4f42f55714f5cfb88ed9b71808002c7522b0ffd6c19caac3320c8bda3d50fa57" => :el_capitan
-    sha256 "e3029ec5a251f6239b656c0c55900f6202c6590777e3c1dfa34dd2f66a66f660" => :yosemite
+    rebuild 1
+    sha256 "cc20e8bef5cc964324336e3c6c9b8f0ef9d6e78126d862c89ef46940e436b025" => :sierra
+    sha256 "5a33b4648a76ef5f9db5889806709c8a4c38683e3f47b15a5e98526db6fd20f1" => :el_capitan
+    sha256 "b47248cf456a80a300d950f918b9aacae58164e8e8d69e193c86a28dacdd33ac" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -33,22 +36,16 @@ class Osc < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        inreplace "setup.py", "self.openssl = '/usr'", "self.openssl = '#{Formula["openssl"].opt_prefix}'" if r.name == "M2Crypto"
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
+    venv = virtualenv_create(libexec)
+    venv.pip_install resources.reject { |r| r.name == "M2Crypto" }
+    resource("M2Crypto").stage do
+      inreplace "setup.py", %r{(self.openssl = )'/usr'}, "\\1'#{Formula["openssl"].prefix}'"
+      venv.pip_install "."
     end
 
-    # Fix for Homebrew's custom OpenSSL cert path.
     inreplace "osc/conf.py", "'/etc/ssl/certs'", "'#{etc}/openssl/cert.pem'"
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(prefix)
-
-    bin.install "osc-wrapper.py" => "osc"
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    venv.pip_install_and_link buildpath
+    mv bin/"osc-wrapper.py", bin/"osc"
   end
 
   test do
