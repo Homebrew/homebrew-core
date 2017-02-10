@@ -7,7 +7,7 @@ class Autorest < Formula
   depends_on "mono"
 
   resource "swagger" do
-    url "https://raw.githubusercontent.com/Azure/autorest/master/Samples/petstore/petstore.json"
+    url "https://raw.githubusercontent.com/Azure/autorest/764d308b3b75ba83cb716708f5cef98e63dde1f7/Samples/petstore/petstore.json"
     sha256 "8de4043eff83c71d49f80726154ca3935548bd974d915a6a9b6aa86da8b1c87c"
   end
 
