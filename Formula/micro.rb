@@ -102,7 +102,7 @@ class Micro < Formula
     mkdir_p buildpath/"src/github.com/zyedidia"
     ln_s buildpath, buildpath/"src/github.com/zyedidia/micro"
     Language::Go.stage_deps resources, buildpath/"src"
-    system "make", "build"
+    system "make", "build-quick"
     bin.install "micro"
   end
 
