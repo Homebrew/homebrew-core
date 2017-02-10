@@ -17,7 +17,7 @@ class TelegramCli < Formula
   depends_on "python" => :recommended
 
   # Look for the configuration file under /usr/local/etc rather than /etc on OS X.
-  # Issue: https://github.com/vysheng/tg/issues/1296
+  # Pull Request: https://github.com/vysheng/tg/pull/1306
   patch :DATA
 
   def install
