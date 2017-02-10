@@ -1,7 +1,7 @@
 class FreeimageHttpDownloadStrategy < CurlDownloadStrategy
   def stage
     # need to convert newlines or patch chokes
-    quiet_safe_system "/usr/bin/unzip", { :quiet_flag => "-qq" }, "-aa", cached_location
+    quiet_safe_system "#{Formula["unzip"].bin}/unzip", { :quiet_flag => "-qq" }, "-aa", cached_location
     chdir
   end
 end
@@ -13,6 +13,7 @@ class Freeimage < Formula
     :using => FreeimageHttpDownloadStrategy
   version "3.17.0"
   sha256 "fbfc65e39b3d4e2cb108c4ffa8c41fd02c07d4d436c594fff8dab1a6d5297f89"
+  revision 1
 
   bottle do
     cellar :any
@@ -23,7 +24,7 @@ class Freeimage < Formula
     sha256 "9d1e914ae20deb7066caf5f1cf52c3d48c0c04ccd36b791170c7e1fcb3528a36" => :mountain_lion
   end
 
-  option :universal
+  depends_on "homebrew/dupes/unzip" => :build
 
   patch :DATA
 
@@ -39,6 +40,19 @@ class Freeimage < Formula
     system "make", "-f", "Makefile.gnu", "install", "PREFIX=#{prefix}"
     system "make", "-f", "Makefile.fip"
     system "make", "-f", "Makefile.fip", "install", "PREFIX=#{prefix}"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <FreeImage.h>
+      int main() {
+         FreeImage_Initialise(0);
+         FreeImage_DeInitialise();
+         exit(0);
+      }
+    EOS
+    system ENV.cc, "test.c", "-L#{lib}", "-lfreeimage", "-o", "test"
+    system "./test"
   end
 end
 
