@@ -12,11 +12,26 @@ class Libproxy < Formula
   end
 
   depends_on "cmake" => :build
+  # Non-fatally fails to build against system Perl, so stick to Homebrew's here.
+  depends_on "perl" => :optional
+  depends_on :python if MacOS.version <= :snow_leopard
 
   def install
+    args = std_cmake_args + %W[
+      ..
+      -DPYTHON2_SITEPKG_DIR=#{lib}/python2.7/site-packages
+      -DWITH_PYTHON3=OFF
+    ]
+
+    if build.with? "perl"
+      args << "-DPX_PERL_ARCH=#{lib}/perl5/site_perl"
+      args << "-DPERL_LINK_LIBPERL=YES"
+    else
+      args << "-DWITH_PERL=OFF"
+    end
+
     mkdir "build" do
-      # build tries to install to non-standard locations for Python bindings
-      system "cmake", "..", "-DWITH_PYTHON2=OFF", "-DWITH_PYTHON3=OFF", *std_cmake_args
+      system "cmake", *args
       system "make", "install"
     end
   end
