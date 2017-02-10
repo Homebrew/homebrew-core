@@ -5,10 +5,10 @@ class Infer < Formula
   sha256 "43d6c68d4e41057be8188877872544bf7c0e6a53a122be64efe06f3f3b772f47"
 
   bottle do
-    cellar :any
-    sha256 "deefb4714b5bb9b95e80a2d516ed2af0ce162815b55b07a2e306ff56eb46526c" => :sierra
-    sha256 "d17c0540c9fb57b0c79f1d4a9d01e37821be73aec3afa946add2567bfce9f2b7" => :el_capitan
-    sha256 "aa7fb2d1a2f8de4321aed0bc9d5bf0f50f851401d7e3e8bbb9d9638d3001d8c9" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "f253e9237dd1f06b67a7b8dff589f4da456b54cb6f5969edb8d2f6a45ea69230" => :sierra
+    sha256 "ad2f9f51200ba72b028e4afa6951677a0fe6145b88546816762ad7510e9bf982" => :el_capitan
+    sha256 "3d892ed670cb48536043ed270d7c0b5284cdd8907d40e5f0310b0b92e33760ab" => :yosemite
   end
 
   option "without-clang", "Build without C/Objective-C analyzer"
