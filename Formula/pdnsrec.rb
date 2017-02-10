@@ -1,8 +1,8 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-4.0.3.tar.bz2"
-  sha256 "ae9813a64d13d9ebe4b44e89e8e4e44fc438693b6ce4c3a98e4cab1af22d9627"
+  url "https://downloads.powerdns.com/releases/pdns-recursor-4.0.4.tar.bz2"
+  sha256 "2338778f49ccd03401e65f6f4b39047890e691c8ff6d810ecee45321fb4f1e4d"
 
   bottle do
     sha256 "f044aeacd64def9fa7f2bb0bd2c6dd601c324e3f030038a2f7914785552b3fbd" => :sierra
@@ -22,13 +22,6 @@ class Pdnsrec < Formula
   fails_with :clang do
     build 600
     cause "incomplete C++11 support"
-  end
-
-  # Remove for > 4.0.3
-  # Upstream commit "rec: Fix Lua-enabled compilation on macOS and FreeBSD"
-  patch :p2 do
-    url "https://github.com/PowerDNS/pdns/commit/546d1fb.patch"
-    sha256 "9a7711596aebaf3eceaf8abcf723df12aa9c22583e6bb177b4eb0f90c8bb2ec3"
   end
 
   def install
