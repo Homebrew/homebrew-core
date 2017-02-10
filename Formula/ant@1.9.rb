@@ -4,6 +4,13 @@ class AntAT19 < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.9.8-bin.tar.bz2"
   sha256 "6edeaab09fc0bb1eeeb6b6be9c0e463813b073c40189f760e70c85fa288d5125"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "3cc3cd6d67b5e3fe30bed9139dfdc7f3916415ba8a692c892221657e500a9148" => :sierra
+    sha256 "3cc3cd6d67b5e3fe30bed9139dfdc7f3916415ba8a692c892221657e500a9148" => :el_capitan
+    sha256 "3cc3cd6d67b5e3fe30bed9139dfdc7f3916415ba8a692c892221657e500a9148" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   def install
