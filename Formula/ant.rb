@@ -12,6 +12,8 @@ class Ant < Formula
     sha256 "50070b39168c9da1a5375a19fb1073f2a15b3a640e5433d10625eb9e170b4178" => :yosemite
   end
 
+  depends_on :java => "1.8+"
+
   keg_only :provided_by_osx if MacOS.version < :mavericks
 
   option "with-ivy", "Install ivy dependency manager"
