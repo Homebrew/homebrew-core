@@ -1,12 +1,10 @@
 class TomcatAT80 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  revision 1
 
   stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.0.39/bin/apache-tomcat-8.0.39.tar.gz"
-    mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.39/bin/apache-tomcat-8.0.39.tar.gz"
-    sha256 "4093aa19f70ebb2749d40fa81486971c1dc7f275da188f1436c62faedaf51e9a"
+    url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.0.41/bin/apache-tomcat-8.0.41.tar.gz"
+    sha256 "a57204b5434755b5767299bbcd32e3afd2d6327cafa6b8372077f824aa7176d7"
 
     depends_on :java => "1.7+"
 
