@@ -4,6 +4,12 @@ class MingwW64 < Formula
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.1.tar.bz2"
   sha256 "9bb5cd7df78817377841a63555e73596dc0af4acbb71b09bd48de7cf24aeadd2"
 
+  bottle do
+    sha256 "99d147a5ad2241d17eebf18ccc5a6614175d7b71f2046c091408d1b63578c261" => :sierra
+    sha256 "f060770a90c6e41d00a471f6ac3dfa6a5bb7429c988d2304c1c0c7634ebc4ec1" => :el_capitan
+    sha256 "16dbc5c0951a5a57f89554a7af90d1889d41bd92ea3c4d7ea1d9bb0d7550bf2c" => :yosemite
+  end
+
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "libmpc"
