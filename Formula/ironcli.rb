@@ -1,8 +1,8 @@
 class Ironcli < Formula
   desc "Go version of the Iron.io command-line tools"
   homepage "https://github.com/iron-io/ironcli"
-  url "https://github.com/iron-io/ironcli/archive/0.1.3.tar.gz"
-  sha256 "7fc530da947b31ba3a60e74a065deac5a88cb1a4c34dc7835998645816894af1"
+  url "https://github.com/iron-io/ironcli/archive/0.1.4.tar.gz"
+  sha256 "5ca1dee3732ae679353872b6be5fe9aa7e6119892fb477241c95a2546e140067"
 
   bottle do
     cellar :any_skip_relocation
