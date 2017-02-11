@@ -1,16 +1,21 @@
 class Kompose < Formula
   desc "Tool to move from `docker-compose` to Kubernetes"
-  homepage "https://github.com/skippbox/kompose"
-  url "https://github.com/skippbox/kompose/releases/download/v0.1.0/kompose_darwin-amd64.tar.gz"
-  sha256 "2cd1836fc0d5cd62bb72fb923cba98665c586087967b205b53dbcf2cdea9a9aa"
+  homepage "http://kompose.io"
+  url "https://github.com/kubernetes-incubator/kompose/archive/v0.2.0.tar.gz"
+  sha256 "a6be3935ff666b75ad06f389a5c23184c3c83659ae25135ab7c2c3d37b22d92d"
 
-  bottle :unneeded
+  # depends_on "cmake" => :build
+  depends_on "go" => :build
 
   def install
+    ENV["GOPATH"] = buildpath
+    mkdir_p buildpath/"src/github.com/kubernetes-incubator"
+    ln_s buildpath, buildpath/"src/github.com/kubernetes-incubator/kompose"
+    system "make", "bin"
     bin.install "kompose"
   end
 
   test do
-    system "#{bin}/kompose", "--version"
+    assert_match version.to_s, shell_output("#{bin}/kompose version")
   end
 end
