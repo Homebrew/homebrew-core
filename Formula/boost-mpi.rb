@@ -5,6 +5,12 @@ class BoostMpi < Formula
   sha256 "beae2529f759f6b3bf3f4969a19c2e9d6f0c503edcb2de4a61d1428519fcb3b0"
   head "https://github.com/boostorg/boost.git"
 
+  bottle do
+    sha256 "6d177c60f72c4182d72e7ebff037edd4ec25520b090fba74a617cf6c596524bd" => :sierra
+    sha256 "e5ddc5c4b9362352c63e46f1af46e6b1eb2269972a954afa0e7b4b484f3564aa" => :el_capitan
+    sha256 "d758f5b2305f113f8be1d423a23e7486e2c30a931592613db2b756d3223d6a2b" => :yosemite
+  end
+
   option :cxx11
 
   if build.cxx11?
