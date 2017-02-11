@@ -3,9 +3,9 @@
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
-  url "https://ftpmirror.gnu.org/wget/wget-1.18.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/wget/wget-1.18.tar.xz"
-  sha256 "b5b55b75726c04c06fe253daec9329a6f1a3c0c1878e3ea76ebfebc139ea9cc1"
+  url "https://ftpmirror.gnu.org/wget/wget-1.19.1.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/wget/wget-1.19.1.tar.gz"
+  sha256 "9e4f12da38cc6167d0752d934abe27c7b1599a9af294e73829be7ac7b5b4da40"
 
   bottle do
     sha256 "26c26f28a4fad3f57602722219e9c70574c4d8191e59639052ce02b3e9d84508" => :sierra
@@ -23,16 +23,13 @@ class Wget < Formula
     depends_on "gettext"
   end
 
-  deprecated_option "enable-iri" => "with-iri"
   deprecated_option "enable-debug" => "with-debug"
 
-  option "with-iri", "Enable iri support"
   option "with-debug", "Build with debug support"
 
   depends_on "pkg-config" => :build
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
-  depends_on "openssl" => :recommended
-  depends_on "libidn" if build.with? "iri"
+  depends_on "openssl"
   depends_on "pcre" => :optional
   depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
@@ -50,7 +47,6 @@ class Wget < Formula
     ]
 
     args << "--disable-debug" if build.without? "debug"
-    args << "--disable-iri" if build.without? "iri"
     args << "--disable-pcre" if build.without? "pcre"
     args << "--with-metalink" if build.with? "libmetalink"
     args << "--with-gpgme-prefix=#{Formula["gpgme"].opt_prefix}" if build.with? "gpgme"
@@ -61,6 +57,6 @@ class Wget < Formula
   end
 
   test do
-    system bin/"wget", "-O", "-", "https://google.com"
+    system bin/"wget", "-O", "/dev/null", "https://google.com"
   end
 end
