@@ -1,8 +1,8 @@
 class Scrypt < Formula
   desc "Encrypt and decrypt files using memory-hard password function"
   homepage "https://www.tarsnap.com/scrypt.html"
-  url "https://www.tarsnap.com/scrypt/scrypt-1.2.0.tgz"
-  sha256 "1754bc89405277c8ac14220377a4c240ddc34b1ce70882aa92cd01bfdc8569d4"
+  url "https://www.tarsnap.com/scrypt/scrypt-1.2.1.tgz"
+  sha256 "4621f5e7da2f802e20850436219370092e9fcda93bd598f6d4236cce33f4c577"
 
   bottle do
     cellar :any
