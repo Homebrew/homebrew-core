@@ -4,6 +4,13 @@ class Autorest < Formula
   url "https://api.nuget.org/packages/autorest.0.17.3.nupkg"
   sha256 "b3f5b67ae1a8aa4f0fd6cf1e51df27ea1867f0c845dbb13c1c608b148bd86296"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "da1dc0e3a25b005db13ffbb95b145c060162648ad700998e4814a7969e17cbb1" => :sierra
+    sha256 "da1dc0e3a25b005db13ffbb95b145c060162648ad700998e4814a7969e17cbb1" => :el_capitan
+    sha256 "da1dc0e3a25b005db13ffbb95b145c060162648ad700998e4814a7969e17cbb1" => :yosemite
+  end
+
   depends_on "mono"
 
   resource "swagger" do
