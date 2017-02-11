@@ -4,7 +4,6 @@ class Kompose < Formula
   url "https://github.com/kubernetes-incubator/kompose/archive/v0.2.0.tar.gz"
   sha256 "a6be3935ff666b75ad06f389a5c23184c3c83659ae25135ab7c2c3d37b22d92d"
 
-  # depends_on "cmake" => :build
   depends_on "go" => :build
 
   def install
