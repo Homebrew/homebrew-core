@@ -17,10 +17,8 @@ class Simutrans < Formula
     end
   end
 
-  option "with-makeobj", "Build makeobj tool"
-
   depends_on :macos => :lion
-  depends_on "libpng" if build.with? "makeobj"
+  depends_on "libpng"
   depends_on "sdl2"
 
   resource "pak64" do
@@ -47,10 +45,8 @@ class Simutrans < Formula
     libexec.install resource("pak64")
     (libexec/"text").install resource("text")
 
-    if build.with? "makeobj"
-      system "make", "makeobj", *args
-      bin.install "build/default/makeobj/makeobj"
-    end
+    system "make", "makeobj", *args
+    bin.install "build/default/makeobj/makeobj"
   end
 
   test do
