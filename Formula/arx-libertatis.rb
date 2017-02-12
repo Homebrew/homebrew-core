@@ -25,6 +25,23 @@ class ArxLibertatis < Formula
   def install
     args = std_cmake_args
 
+    # The patches for these aren't straightforward to backport because of
+    # other changes; these minimal inreplaces get it building.
+    # HEAD is fine, and the next stable release will contain these changes.
+    if build.stable?
+      inreplace "src/platform/Time.cpp", "clock_t", "clockid_t"
+
+      # Version parsing is broken in the current stable; fixed upstream.
+      # This hardcodes the current version based on data from VERSION.
+      inreplace "src/core/Version.cpp.in" do |s|
+        s.gsub! "${VERSION_COUNT}", "5"
+        s.gsub! "${VERSION_2}", "10"
+        s.gsub! "${VERSION_0}", "1.1.2"
+        s.gsub! "${GIT_SUFFIX_5}", "+Homebrew-1"
+        s.gsub! "${VERSION_4}", "Rhaa Movis"
+      end
+    end
+
     # Install prebuilt icons to avoid inkscape and imagemagick deps
     if build.head?
       (buildpath/"arx-libertatis-data").install resource("arx-libertatis-data")
