@@ -1,8 +1,17 @@
 class ArxLibertatis < Formula
   desc "Cross-platform, open source port of Arx Fatalis"
   homepage "https://arx-libertatis.org/"
-  url "https://arx-libertatis.org/files/arx-libertatis-1.1.2.tar.xz"
-  sha256 "82adb440a9c86673e74b84abd480cae968e1296d625b6d40c69ca35b35ed4e42"
+
+  stable do
+    url "https://arx-libertatis.org/files/arx-libertatis-1.1.2.tar.xz"
+    sha256 "82adb440a9c86673e74b84abd480cae968e1296d625b6d40c69ca35b35ed4e42"
+
+    # Add a missing include to CMakeLists.txt
+    patch do
+      url "https://github.com/arx/ArxLibertatis/commit/442ba4af978160abd3856a9daec38f5b6e213cb4.patch"
+      sha256 "64a4276b75944da19b91cb812e833339d40826be763eb3d9033d67b698c2ca9f"
+    end
+  end
 
   head do
     url "https://github.com/arx/ArxLibertatis.git"
