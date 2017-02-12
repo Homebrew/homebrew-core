@@ -5,14 +5,16 @@ class Openmsx < Formula
   sha256 "41e37c938be6fc9f90659f8808418133601a85475058725d3e0dccf2902e62cb"
   head "https://github.com/openMSX/openMSX.git"
 
-  option "without-opengl", "Disable OpenGL post-processing renderer"
+  deprecated_option "without-opengl" => "without-glew"
+
+  option "without-glew", "Disable OpenGL post-processing renderer"
   option "with-laserdisc", "Enable Laserdisc support"
 
   depends_on "sdl"
   depends_on "sdl_ttf"
   depends_on "freetype"
   depends_on "libpng"
-  depends_on "glew" if build.with? "opengl"
+  depends_on "glew" => :recommended
 
   if build.with? "laserdisc"
     depends_on "libogg"
