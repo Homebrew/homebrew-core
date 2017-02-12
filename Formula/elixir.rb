@@ -1,6 +1,5 @@
 class Erlang18Requirement < Requirement
   fatal true
-  env :userpaths
   default_formula "erlang"
 
   satisfy do
