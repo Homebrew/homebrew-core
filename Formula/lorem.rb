@@ -1,12 +1,12 @@
 class Lorem < Formula
-  desc "Lorem Ipsum generator"
+  desc "Python generator for the console"
   homepage "https://github.com/per9000/lorem"
-  url "https://github.com/per9000/lorem/archive/6da0a5ac4dcce0e2463a0d820baafde72210fbff.tar.gz"
   version "0.7.4"
-  sha256 "bb103552d6532e4e0276a936b9cec02ceffd5dce56325f2bf53fed8203a26ae1"
   head "https://github.com/per9000/lorem.git"
 
   stable do
+    url "https://github.com/per9000/lorem/archive/6da0a5ac4dcce0e2463a0d820baafde72210fbff.tar.gz"
+    sha256 "bb103552d6532e4e0276a936b9cec02ceffd5dce56325f2bf53fed8203a26ae1"
     # Patch to fix broken -q option in latest numbered release
     patch do
       url "https://github.com/per9000/lorem/commit/1e3167d15b1337665a236a1e65a582ad2e3dd994.diff"
