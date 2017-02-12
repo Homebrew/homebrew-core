@@ -4,6 +4,14 @@ class ArxLibertatis < Formula
   url "https://arx-libertatis.org/files/arx-libertatis-1.1.2.tar.xz"
   sha256 "82adb440a9c86673e74b84abd480cae968e1296d625b6d40c69ca35b35ed4e42"
 
+  head do
+    url "https://github.com/arx/ArxLibertatis.git"
+
+    resource "arx-libertatis-data" do
+      url "https://github.com/arx/ArxLibertatisData.git"
+    end
+  end
+
   option "without-innoextract", "Build without arx-install-data"
 
   depends_on "cmake" => :build
@@ -15,8 +23,16 @@ class ArxLibertatis < Formula
   depends_on "sdl"
 
   def install
+    args = std_cmake_args
+
+    # Install prebuilt icons to avoid inkscape and imagemagick deps
+    if build.head?
+      (buildpath/"arx-libertatis-data").install resource("arx-libertatis-data")
+      args << "-DDATA_FILES=#{buildpath}/arx-libertatis-data"
+    end
+
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *args
       system "make"
       system "make", "install"
     end
