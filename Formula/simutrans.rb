@@ -19,6 +19,7 @@ class Simutrans < Formula
 
   option "with-makeobj", "Build makeobj tool"
 
+  depends_on :macos => :lion
   depends_on "libpng" if build.with? "makeobj"
   depends_on "sdl2"
 
