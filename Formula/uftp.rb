@@ -9,8 +9,8 @@ class Uftp < Formula
   def install
     system "make", "OPENSSL=#{Formula["openssl"].opt_prefix}", "DESTDIR=#{prefix}", "install"
     # the makefile installs into DESTDIR/usr/..., move everything up one and remove usr
-    mv(Dir.glob("#{prefix}/usr/*"), prefix)
-    rmdir("#{prefix}/usr")
+    prefix.install Dir["#{prefix}/usr/*"]
+    (prefix/"usr").unlink
   end
 
   plist_options :manual => "uftpd"
@@ -39,15 +39,6 @@ class Uftp < Formula
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! It's enough to just replace
-    # "false" with the main program this formula installs, but it'd be nice if you
-    # were more thorough. Run the test with `brew test uftp`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
     system "#{bin}/uftp_keymgt"
   end
 end
