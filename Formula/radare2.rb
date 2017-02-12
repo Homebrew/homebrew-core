@@ -20,6 +20,7 @@ end
 class Radare2 < Formula
   desc "Reverse engineering framework"
   homepage "http://radare.org"
+  revision 1
 
   stable do
     url "http://cloud.radare.org/get/1.1.0/radare2-1.1.0.tar.gz"
@@ -30,8 +31,6 @@ class Radare2 < Formula
       sha256 "ab0b3ca4ca5e9ca6b11211408dada85bb18014a793628ef32167dc89575fd2e0"
     end
   end
-
-  revision 1
 
   bottle do
     sha256 "1375576749f424a8dc5bdc7fb6ee33bb69e6aa3616a19485ca8bdddcbfb31f4e" => :sierra
