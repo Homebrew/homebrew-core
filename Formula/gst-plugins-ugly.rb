@@ -1,5 +1,5 @@
 class GstPluginsUgly < Formula
-  desc "GStreamer plugins (well-supported, possibly problematic for distributors)"
+  desc "Library for constructing graphs of media-handling components"
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.10.3.tar.xz"
   sha256 "c91597d03abff9df435ad4892eae44df1ee14159c7cc7317ac9d2766ff446bd2"
