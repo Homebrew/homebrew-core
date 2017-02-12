@@ -5,6 +5,13 @@ class Openmsx < Formula
   sha256 "41e37c938be6fc9f90659f8808418133601a85475058725d3e0dccf2902e62cb"
   head "https://github.com/openMSX/openMSX.git"
 
+  bottle do
+    cellar :any
+    sha256 "587193c0792a28ff7d94f0fe2cdc3e724991bb07f871a3337c268efc0482cae0" => :sierra
+    sha256 "d72bf6eb5aa50f118374e27a698a7481437e2ac8df368844976c7317214aba66" => :el_capitan
+    sha256 "340fe139996bbd87274788932db4d3e64dcdc4f2f969fc405b58c6e16f7fe120" => :yosemite
+  end
+
   deprecated_option "without-opengl" => "without-glew"
 
   option "without-glew", "Disable OpenGL post-processing renderer"
