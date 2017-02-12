@@ -13,8 +13,6 @@ class Boost < Formula
     sha256 "dfec6aa1ab706974b3b9eae6ce20701d909f582c5fe7d250ac99a24d90997074" => :yosemite
   end
 
-  env :userpaths
-
   option "with-icu4c", "Build regexp engine with icu support"
   option "without-single", "Disable building single-threading variant"
   option "without-static", "Disable building static library variant"
