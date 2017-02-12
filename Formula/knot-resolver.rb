@@ -12,7 +12,7 @@ class KnotResolver < Formula
   depends_on "lmdb"
 
   depends_on "cmocka" => :build
-  depends_on "pkg-config" => :run
+  depends_on "pkg-config" => :build
 
   option "without-nettle", "Compile without DNS cookies support"
   option "with-hiredis", "Compile with Redis cache storage support"
