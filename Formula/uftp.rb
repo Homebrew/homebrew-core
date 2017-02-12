@@ -1,7 +1,7 @@
 class Uftp < Formula
-  desc "an encrypted multicast file transfer program, designed to securely, reliably, and efficiently transfer files to multiple receivers simultaneously."
+  desc "secure, reliable, efficient multicast file transfer program"
   homepage "http://uftp-multicast.sourceforge.net/"
-  url "http://sourceforge.net/projects/uftp-multicast/files/source-tar/uftp-4.9.3.tar.gz"
+  url "https://downloads.sourceforge.net/projects/uftp-multicast/files/source-tar/uftp-4.9.3.tar.gz"
   sha256 "9e9215af0315257c6cc4f40fbc6161057e861be1fff10a38a5564f699e99c78f"
 
   depends_on "openssl"
@@ -9,10 +9,10 @@ class Uftp < Formula
   def install
     system "make", "OPENSSL=#{Formula["openssl"].opt_prefix}", "DESTDIR=#{prefix}", "install"
     # the makefile installs into DESTDIR/usr/..., move everything up one and remove usr
-    Dir.glob("#{prefix}/usr/*") { |dir| system "mv", dir, "#{prefix}" }
-    system "rmdir", "#{prefix}/usr"
+    mv(Dir.glob("#{prefix}/usr/*"), prefix)
+    rmdir("#{prefix}/usr")
   end
-  
+
   plist_options :manual => "uftpd"
 
   def plist; <<-EOS.undent
