@@ -18,7 +18,7 @@ class Simutrans < Formula
 
   resource "text" do
     url "http://simutrans-germany.com/translator/data/tab/language_pack-Base+texts.zip"
-    sha256 "4c711c343db25e4055bf62b54c3bd8d96da5d43148db1c7767a72e586336790b"
+    sha256 "202816f67750cfb9decdfca3bacfebbc5bfc3474c8703239418edc093ce3774d"
   end
 
   def install
