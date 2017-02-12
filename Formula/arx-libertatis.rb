@@ -39,7 +39,7 @@ class ArxLibertatis < Formula
     # HEAD is fine, and the next stable release will contain these changes.
     if build.stable?
       # https://github.com/arx/ArxLibertatis/commit/39fb9a0e3a6888a6a5f040e39896e88750c89065
-      inreplace "src/platform/Time.cpp", "clock_t", "clockid_t"
+      inreplace "src/platform/Time.cpp", "clock_t ", "clockid_t "
 
       # Version parsing is broken in the current stable; fixed upstream.
       # This hardcodes the current version based on data from VERSION.
