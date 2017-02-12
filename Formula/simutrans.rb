@@ -1,14 +1,24 @@
 class Simutrans < Formula
   desc "Transport simulator"
   homepage "http://www.simutrans.com/"
-  url "https://downloads.sourceforge.net/project/simutrans/simutrans/120-1-3/simutrans-src-120-1-3.zip"
-  version "120.1.3"
-  sha256 "2d29b849fc39d25a0580091e1377270bddb2cae36c0fc32bd7c2d0f1d7ccfb84"
   head "https://github.com/aburch/simutrans.git"
 
-  option "with-makeobj", "Build makeobj tool"
+  stable do
+    url "https://downloads.sourceforge.net/project/simutrans/simutrans/120-1-3/simutrans-src-120-1-3.zip"
+    version "120.1.3"
+    sha256 "2d29b849fc39d25a0580091e1377270bddb2cae36c0fc32bd7c2d0f1d7ccfb84"
 
-  depends_on "libpng" if build.with? "makeobj"
+    # Port Mac audio code from QTKit to AVFoundation
+    # Required since 10.12 SDK no longer includes QTKit.
+    # Submitted upstream: http://forum.simutrans.com/index.php?topic=16675.0
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/bea80842a6ccc5639341add0d8abbca2d49b04c2/simutrans/avfoundation.patch"
+      sha256 "9b9c9e6d89de49f152faaf584fcbbeec628bb07315b7c767e1f8b6791ad1e3ee"
+    end
+  end
+
+  depends_on :macos => :lion
+  depends_on "libpng"
   depends_on "sdl2"
 
   resource "pak64" do
@@ -18,7 +28,7 @@ class Simutrans < Formula
 
   resource "text" do
     url "http://simutrans-germany.com/translator/data/tab/language_pack-Base+texts.zip"
-    sha256 "4c711c343db25e4055bf62b54c3bd8d96da5d43148db1c7767a72e586336790b"
+    sha256 "202816f67750cfb9decdfca3bacfebbc5bfc3474c8703239418edc093ce3774d"
   end
 
   def install
@@ -35,10 +45,8 @@ class Simutrans < Formula
     libexec.install resource("pak64")
     (libexec/"text").install resource("text")
 
-    if build.with? "makeobj"
-      system "make", "makeobj", *args
-      bin.install "build/default/makeobj/makeobj"
-    end
+    system "make", "makeobj", *args
+    bin.install "build/default/makeobj/makeobj"
   end
 
   test do
