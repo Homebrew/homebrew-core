@@ -3,7 +3,6 @@ class JujuAT125 < Formula
   homepage "https://jujucharms.com/"
   url "https://launchpad.net/juju-core/1.25/1.25.10/+download/juju-core_1.25.10.tar.gz"
   sha256 "8d5e6eee6a3adc9d6c240ef6a5806653644e30dc5b0b9825046a242b07944927"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
