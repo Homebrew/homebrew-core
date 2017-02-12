@@ -3,6 +3,7 @@ class Redland < Formula
   homepage "http://librdf.org/"
   url "http://download.librdf.org/source/redland-1.0.17.tar.gz"
   sha256 "de1847f7b59021c16bdc72abb4d8e2d9187cd6124d69156f3326dd34ee043681"
+  revision 1
 
   bottle do
     sha256 "0ed03c897836946cbadf2e390bd25c79eeb6ad34ea1144ef69d8bf1dfbfaf2eb" => :sierra
@@ -11,8 +12,6 @@ class Redland < Formula
     sha256 "06d1c7c81a9803ad37cd40303987b90456fb565f4305965388bc8faff54c6db7" => :mavericks
     sha256 "bbe8f82451695648adb66ab2766413e938f8f4ffdc318ba946e210d23e637dd2" => :mountain_lion
   end
-
-  revision 1
 
   option "with-php", "Build with php support"
   option "with-ruby", "Build with ruby support"
