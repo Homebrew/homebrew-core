@@ -1,8 +1,8 @@
 class Nzbget < Formula
   desc "Binary newsgrabber for nzb files"
   homepage "http://nzbget.net/"
-  url "https://github.com/nzbget/nzbget/releases/download/v17.1/nzbget-17.1-src.tar.gz"
-  sha256 "4b3cf500d9bb6e9ab65b2c8451358e6c93af0368176f193eebafca17d7209c39"
+  url "https://github.com/nzbget/nzbget/releases/download/v18.0/nzbget-18.0-src.tar.gz"
+  sha256 "4bc6366286988647d42165b442a62b73a1328d7e5b5067bd0078650e1716f55b"
   head "https://github.com/nzbget/nzbget.git"
 
   bottle do
@@ -36,7 +36,8 @@ class Nzbget < Formula
 
     # Fix "ncurses library not found"
     # Reported 14 Aug 2016: https://github.com/nzbget/nzbget/issues/264
-    ENV["ncurses_CFLAGS"] = "-I/usr/include"
+    (buildpath/"brew_include").install_symlink MacOS.sdk_path/"usr/include/ncurses.h"
+    ENV["ncurses_CFLAGS"] = "-I#{buildpath}/brew_include"
     ENV["ncurses_LIBS"] = "-L/usr/lib -lncurses"
 
     # Tell configure to use OpenSSL
