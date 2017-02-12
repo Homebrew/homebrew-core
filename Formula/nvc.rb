@@ -1,23 +1,13 @@
 class Nvc < Formula
   desc "VHDL compiler and simulator"
   homepage "https://github.com/nickg/nvc"
+  url "https://github.com/nickg/nvc/releases/download/r1.1.0/nvc-1.1.0.tar.gz"
+  sha256 "b3b5f67ee91046ab802112e544b7883f7a92b69d25041b5b8187c07016dfda75"
 
-  stable do
-    url "https://github.com/nickg/nvc/releases/download/r1.0.0/nvc-1.0.0.tar.gz"
-    sha256 "a60478636268a7d1cad2d1c90e775cfd938199dba6b9c407badbef32753dc30f"
-
-    # Fixes nickg/nvc#265
-    # nvc needs external vhdl libraries at build
-    # PR adds https and checksums to the download script - fetch-ieee.sh
-    patch do
-      url "https://github.com/nickg/nvc/pull/296.patch"
-      sha256 "68cc9d23c286945a63464f9aa71d25d1e1b140e4652845c837cae3babbc45ab6"
-    end
-  end
   bottle do
-    sha256 "63d766663a4aed43ba91d853abc4f6e23423c8fbcc07e6fffe1d558e886bdd57" => :sierra
-    sha256 "e21c764dae84a026ca2c69e6040303bb501022e525d49e9130331d5c95b02ca9" => :el_capitan
-    sha256 "5a5fb69e028a07bcde7c1010ea67ee51c5e8f72be81982d50f5f17f3595dd003" => :yosemite
+    sha256 "1e9c83fa64952cccf301e1652516697c6ab9e17a3d05e6f5f3861cb97689f1c0" => :sierra
+    sha256 "05d0071242e0e8cc1621e3ac0ea1e8b5bcdcfbfe9622db9bef8a7a3077c39983" => :el_capitan
+    sha256 "1b530bdf998bb161222efaae1ee59fe135889d6ed245f28dd2cee06e845ddc0e" => :yosemite
   end
 
   head do
@@ -32,8 +22,13 @@ class Nvc < Formula
 
   resource "vim-hdl-examples" do
     url "https://github.com/suoto/vim-hdl-examples.git",
-    :revision => "232d28a9279bc80d2797afef212749434a78be6a"
+        :revision => "c112c17f098f13719784df90c277683051b61d05"
   end
+
+  # LLVM 3.9 compatibility
+  # Fix "Undefined symbols for architecture x86_64: '_LLVMLinkModules'"
+  # Reported 8 Jan 2017 https://github.com/nickg/nvc/issues/310
+  patch :DATA
 
   def install
     args = %W[
@@ -53,3 +48,19 @@ class Nvc < Formula
     system "#{bin}/nvc", "-a", "#{testpath}/basic_library/very_common_pkg.vhd"
   end
 end
+
+__END__
+diff --git a/src/link.c b/src/link.c
+index 850de56..2592b84 100644
+--- a/src/link.c
++++ b/src/link.c
+@@ -158,8 +158,8 @@ static void link_context_bc_fn(lib_t lib, tree_t unit, FILE *deps)
+          tree_remove_attr(unit, llvm_i);
+
+       char *outmsg;
+-      if (LLVMLinkModules(module, src, LLVMLinkerDestroySource, &outmsg))
+-         fatal("LLVM link failed: %s", outmsg);
++      if (LLVMLinkModules2(module, src))
++         fatal("LLVM link failed");
+    }
+ }

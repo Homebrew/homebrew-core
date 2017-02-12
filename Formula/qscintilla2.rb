@@ -1,21 +1,21 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://downloads.sf.net/project/pyqt/QScintilla2/QScintilla-2.9.3/QScintilla_gpl-2.9.3.tar.gz"
-  sha256 "98aab93d73b05635867c2fc757acb383b5856a0b416e3fd7659f1879996ddb7e"
-  revision 3
+  url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.9.4/QScintilla_gpl-2.9.4.tar.gz"
+  sha256 "8b3a23023e9f0573caed6f9cee86f898d87b768ee15b8c211a423783a4cfa4e6"
+  revision 1
 
   bottle do
-    sha256 "310291e3544aa93f2022b7d359ca6f852aeb2d2636b027772d04a03856b5e124" => :sierra
-    sha256 "310291e3544aa93f2022b7d359ca6f852aeb2d2636b027772d04a03856b5e124" => :el_capitan
-    sha256 "1bf32d13d7b9eedc95bea4c57c1188a94c6f6261822ef5138f10f18a2fcbf2a7" => :yosemite
+    sha256 "f741f29edab4493e2f3c716b2804252bc4d5b1258384ea5a81ed90c63f455824" => :sierra
+    sha256 "75b6da54da59c22a06051941d4f85a866355f0dabda0f0e25fe20de87d403217" => :el_capitan
+    sha256 "4761b0c353545ae85acecc80d0bdf209d439e3687b0fbbf0ab05014e501ac96f" => :yosemite
   end
 
   option "with-plugin", "Build the Qt Designer plugin"
   option "with-python", "Build Python bindings"
   option "without-python3", "Do not build Python3 bindings"
 
-  depends_on "qt5"
+  depends_on "qt@5.7"
   depends_on :python3 => :recommended
   depends_on :python => :optional
 

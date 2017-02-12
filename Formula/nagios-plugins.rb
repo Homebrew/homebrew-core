@@ -1,15 +1,13 @@
 class NagiosPlugins < Formula
   desc "Plugins for the nagios network monitoring system"
   homepage "https://www.nagios-plugins.org/"
-  url "https://www.nagios-plugins.org/download/nagios-plugins-2.0.3.tar.gz"
-  sha256 "8f0021442dce0138f0285ca22960b870662e28ae8973d49d439463588aada04a"
+  url "https://www.nagios-plugins.org/download/nagios-plugins-2.1.4.tar.gz"
+  sha256 "4355b5daede0fa72bbb55d805d724dfa3d05e7f66592ad71b4e047c6d9cdd090"
 
   bottle do
-    sha256 "c6eae912c0c738868f3cf4c760e6dfe70589628e15b90aacfb2b549c1b31766d" => :sierra
-    sha256 "df7f1e32499d1ec5f2d9f790109cce9d6e4a1e8b6a495a531fc8d9d1609c5bb7" => :el_capitan
-    sha256 "6eee15fa36584d0bf1973144ca38ba22a9607a89845b33355bd7a164412e9e90" => :yosemite
-    sha256 "a0b386cfcfb80d39aa71f151f221e8ef912169354f2c00db8b6c086b64dca1fe" => :mavericks
-    sha256 "e03df47ea1bebec1cc1941b563441b5b3f651b15de8a6c99081fc131266a1490" => :mountain_lion
+    sha256 "33f3ad7bc229a5c98a91f1dc60fc5e113afdccb63e3e0c824c631062403c91ac" => :sierra
+    sha256 "8a45819e58f06a9cea8f34d2f13d79c22a73ea6fa77eef231681127b6227185a" => :el_capitan
+    sha256 "1cf4050b3043c6f74ccadb02ccdfe7b438994bfafad3758eafe625a7539c19db" => :yosemite
   end
 
   depends_on "openssl"
@@ -28,7 +26,6 @@ class NagiosPlugins < Formula
 
     system "./configure", *args
     system "make", "install"
-    system "make", "install-root" # Do we still want to support root-install Jack?
     sbin.write_exec_script Dir["#{libexec}/sbin/*"]
   end
 
@@ -37,5 +34,10 @@ class NagiosPlugins < Formula
     All plugins have been installed in:
       #{HOMEBREW_PREFIX}/sbin
     EOS
+  end
+
+  test do
+    output = shell_output("#{sbin}/check_dns -H 8.8.8.8 -t 3")
+    assert_match "google-public-dns", output
   end
 end

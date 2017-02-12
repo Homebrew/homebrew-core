@@ -13,7 +13,7 @@ class Hilite < Formula
   end
 
   def install
-    system "#{ENV.cc} #{ENV.cflags} hilite.c -o hilite"
+    system ENV.cc, ENV.cflags, "hilite.c", "-o", "hilite"
     bin.install "hilite"
   end
 

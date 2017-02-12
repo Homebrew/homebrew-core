@@ -1,19 +1,20 @@
 class Corectl < Formula
   desc "CoreOS over macOS made very simple"
   homepage "https://github.com/TheNewNormal/corectl"
-  url "https://github.com/TheNewNormal/corectl/archive/v0.7.17.tar.gz"
-  sha256 "915ae2988dc57bcf7f28e0ed6c2971ae6f83879daaadbb98bef3bad0b50039e4"
+  url "https://github.com/TheNewNormal/corectl/archive/v0.7.18.tar.gz"
+  sha256 "9bdf7bc8c6a7bd861e2b723c0566d0a093ed5d5caf370a065a1708132b4ab98a"
   head "https://github.com/TheNewNormal/corectl.git", :branch => "golang"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ff2926f719d3414d2a18313fb6963104e91d5d89826194dcc8ff63c036037c71" => :sierra
-    sha256 "ea463bfffeea5970d7c46f186e9440ba28cb1e0953f620e87df5345ecf7ea6ec" => :el_capitan
-    sha256 "cc5855cdd8679d87ce81f5ebce82992b9fa290848a6ba41e29ad0bdd2ba83593" => :yosemite
+    cellar :any
+    rebuild 1
+    sha256 "a33a53383b660b70c4d90ad1e134ba7c8f9cf23987be4209945060df1a95357b" => :sierra
+    sha256 "f4b1c3c1d674f973abc0d0fd7d4e7fba0053d2a52ac66a661657f98c87d9821a" => :el_capitan
+    sha256 "f72de502325419a9ce2345f4372206aa56f88ecca8a96e9698d3102acfe0e0b6" => :yosemite
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
+  depends_on "libev"
   depends_on "ocaml" => :build
   depends_on "aspcud" => :build
   depends_on "opam" => :build
@@ -35,7 +36,7 @@ class Corectl < Formula
 
     cd path do
       system "opam", "init", "--no-setup"
-      system "opam", "install", "uri", "ocamlfind", "qcow-format"
+      system "opam", "install", "uri", "ocamlfind", "qcow-format", "conf-libev"
 
       system "make", "tarball", *args
 

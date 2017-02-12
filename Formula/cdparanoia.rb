@@ -14,11 +14,6 @@ class Cdparanoia < Formula
 
   depends_on "autoconf" => :build
 
-  fails_with :llvm do
-    build 2326
-    cause '"File too small" error while linking'
-  end
-
   # Patches via MacPorts
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/2a22152/cdparanoia/osx_interface.patch"

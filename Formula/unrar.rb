@@ -3,16 +3,21 @@ class Unrar < Formula
   homepage "http://www.rarlab.com"
   url "http://www.rarlab.com/rar/unrarsrc-5.4.5.tar.gz"
   sha256 "e470c584332422893fb52e049f2cbd99e24dc6c6da971008b4e2ae4284f8796c"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "160c588885c324f705a335c8637e91c133f162d5ba5b8ed6626b79ba71c9ea63" => :sierra
-    sha256 "40c06c3c954ca0729491335e289dfc2a112ac8df6c2ac20e527693183ce520ff" => :el_capitan
-    sha256 "4c8325c8382d687ca64c55fa4c5cac3237491babe24f2abb580e36b87cc24c52" => :yosemite
-    sha256 "360cd0f3ed5b8a57e8afb0860148ce1997f7f7328afa624d4848db87a509f2a0" => :mavericks
+    sha256 "4f4dc2cec588ab76bc09c41ce70f14edadea9973c8d355a9a309e5a4c9992b54" => :sierra
+    sha256 "eb0ae9f689c8f4018160129ca11fbfb8c8f87aa3cd99d790dfa44b70a536a1d7" => :el_capitan
+    sha256 "ee98c32d1856c375c21ad4bd43c3e52e6751209152927e7603a93ec2900ca299" => :yosemite
   end
 
   def install
+    # upstream doesn't particularly care about their unix targets,
+    # so we do the dirty work of renaming their shared objects to
+    # dylibs for them.
+    inreplace "makefile", "libunrar.so", "libunrar.dylib"
+
     system "make"
     # Explicitly clean up for the library build to avoid an issue with an
     # apparent implicit clean which confuses the dependencies.
@@ -20,10 +25,7 @@ class Unrar < Formula
     system "make", "lib"
 
     bin.install "unrar"
-    # Sent an email to dev@rarlab.com (18-Feb-2015) asking them to look into
-    # the need for the explicit clean, and to change the make to generate a
-    # dylib file on macOS
-    lib.install "libunrar.so" => "libunrar.dylib"
+    lib.install "libunrar.dylib"
   end
 
   test do

@@ -39,7 +39,7 @@ class Sbt < Formula
     You can use $SBT_OPTS to pass additional JVM options to SBT:
        SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
 
-    This formula is now using the standard typesafe sbt launcher script.
+    This formula is now using the standard lightbend sbt launcher script.
     Project specific options should be placed in .sbtopts in the root of your project.
     Global settings should be placed in #{etc}/sbtopts
     EOS

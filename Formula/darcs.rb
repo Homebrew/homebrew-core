@@ -5,15 +5,14 @@ class Darcs < Formula
 
   desc "Distributed version control system that tracks changes, via Haskell"
   homepage "http://darcs.net/"
-  url "https://hackage.haskell.org/package/darcs-2.12.4/darcs-2.12.4.tar.gz"
-  sha256 "48e836a482bd2fcfe0be499fe4f255925ce50bdcf5ce8023bb9aa359288fdc49"
+  url "https://hackage.haskell.org/package/darcs-2.12.5/darcs-2.12.5.tar.gz"
+  sha256 "355b04c85c27bca43c8c380212988d9c1e9a984b0b593ceb2884de4295063553"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5d33f7b5cec27310161b94685b071772e71bead0baf2a5c2d9512d8a2778a296" => :sierra
-    sha256 "e4099cc0dba32425ce9298ffc534e64cab6f5cf1323a2b569355e9435492a10a" => :el_capitan
-    sha256 "ab8333149f6eb4853696bbfea1b38e30e972ab676b54c3b416990be6fb74c917" => :yosemite
-    sha256 "4f3d6df794f5cef9c817afe07413951fef3f09a4624381b3a4509ee8723aee17" => :mavericks
+    sha256 "92a148502ee81e0be44a12531fa8b45331742cb28f28e83fb351b23c93a7a7b3" => :sierra
+    sha256 "e11d1841f356e3f0ce47fc26951a81a23098d709fc726cbc786fa5451a002f14" => :el_capitan
+    sha256 "1c0522297c9eb1c858888fa28434305d149e474329890137ff9827a3424cef82" => :yosemite
   end
 
   depends_on "ghc" => :build

@@ -1,14 +1,13 @@
 class PcscLite < Formula
   desc "Middleware to access a smart card using SCard API"
   homepage "https://pcsclite.alioth.debian.org"
-  url "https://alioth.debian.org/frs/download.php/file/4173/pcsc-lite-1.8.17.tar.bz2"
-  sha256 "d72b6f8654024f2a1d2de70f8f1d39776bd872870a4f453f436fd93d4312026f"
+  url "https://alioth.debian.org/frs/download.php/file/4203/pcsc-lite-1.8.20.tar.bz2"
+  sha256 "ec7d0114016c788c1c09859c84860f6cec6c4595436d23245105154b9c046bb2"
 
   bottle do
-    sha256 "d144b95c0db7082ad21938f4c2e909bfb44f26e90bac8278d809c99e3840b876" => :sierra
-    sha256 "54683ac6133d00972c5a88067aa7417bded62ceed95c0763fb3ac89518269055" => :el_capitan
-    sha256 "55c0449cd3b8dc7ef64de836127f9e599896d50ae5cf774b416f49789665a01b" => :yosemite
-    sha256 "1c8b7ffabc889c164fac3fc6ff6f1c6f49e1c510ff46359bca544c8978075480" => :mavericks
+    sha256 "0cf13c92847d79113c18046de5bba33e154c89b3d5ddb2eb8a1510a740e3a2ab" => :sierra
+    sha256 "4dae204aa9af497a06a6cbd102f892ba6d41e3c8da2480ea1b057aa9fb7d1aad" => :el_capitan
+    sha256 "8369d8cf480a4c86005c5522fdeb30dc40c09331e674c5eaa03b42823cd6f2e7" => :yosemite
   end
 
   keg_only :provided_by_osx,
@@ -17,7 +16,9 @@ class PcscLite < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}",
+                          "--with-systemdsystemunitdir=no"
     system "make", "install"
   end
 

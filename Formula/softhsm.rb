@@ -1,15 +1,13 @@
 class Softhsm < Formula
   desc "Cryptographic store accessible through a PKCS#11 interface"
   homepage "https://www.opendnssec.org/softhsm/"
-  url "https://dist.opendnssec.org/source/softhsm-2.0.0.tar.gz"
-  sha256 "eae8065f6c472af24f4c056d6728edda0fd34306f41a818697f765a6a662338d"
+  url "https://dist.opendnssec.org/source/softhsm-2.1.0.tar.gz"
+  sha256 "0399b06f196fbfaebe73b4aeff2e2d65d0dc1901161513d0d6a94f031dcd827e"
 
   bottle do
-    sha256 "b92bf303a9b492a5258fe308a42b851954aab72b37a315a250d43b81a2185551" => :sierra
-    sha256 "651c97cafaf2f9c54cc32772d8d664cc91be0f7ad21f8d5325334259a9d55466" => :el_capitan
-    sha256 "6fc11217ed26c6db4c219c1bca0f264124cd0b0e7f455bcd670d2c2d481a0b90" => :yosemite
-    sha256 "1f4596c4b604987a823fb1d97631e628889fca6c1bbdba4075a0d82be6b04941" => :mavericks
-    sha256 "760f9931d96b3cea3d63be22a6f950087544f56c0810b86054099efe43fb00de" => :mountain_lion
+    sha256 "6d50085c72282396e0d850a440c307130dae3087cc7ed21376d219184278c258" => :sierra
+    sha256 "562ec5baec50d318c7eae4a2f12def095008c19d24d359d05e794e0fa17212fa" => :el_capitan
+    sha256 "39f1bc348f541d122a8bd03d978be09ca971f7e9373707c26e9ba82eee262563" => :yosemite
   end
 
   depends_on "botan"

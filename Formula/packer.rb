@@ -4,14 +4,13 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/mitchellh/packer.git",
-      :tag => "v0.11.0",
-      :revision => "59efd2b81202611ef29c8b44734c52ac68ff906f"
+      :tag => "v0.12.2",
+      :revision => "f25949eb2dd5cafb8661048ef4a97b68e7186e8b"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "293794b3fe8b5c4f40592bd3bfa0b351d9fde0cdab885439edaeb6e32e23af0a" => :sierra
-    sha256 "191b6e89c67603107b882c903afa22c4142edcca69c045bcd971d7b51cd88299" => :el_capitan
-    sha256 "43d451f07494d7b55c7faa13965ed3a04234fad6e6d0ba4ad4a3a4e04139806c" => :yosemite
+    sha256 "ed99cef7cc09a7523287c87ade35abdc07116ed2c240076a2b592adcfe402c8a" => :sierra
+    sha256 "f175b7824326e1e24691b74726a6c40531e2aeaab27924fe6d569defc2f27811" => :el_capitan
+    sha256 "6522cd3014af1f425fea7e21b0e74fd6cc49b092ed9ae2d0e48d43e9912927eb" => :yosemite
   end
 
   depends_on :hg => :build
@@ -30,7 +29,7 @@ class Packer < Formula
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :revision => "c6efba04dd0d931bb11cd7f556285fa3c9305398"
+        :revision => "fcfba28e23c7bbd8474b355ca7d6a9d88afcca00"
   end
 
   def install

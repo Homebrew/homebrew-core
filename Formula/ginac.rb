@@ -1,15 +1,13 @@
 class Ginac < Formula
   desc "Not a Computer algebra system"
   homepage "http://www.ginac.de/"
-  url "http://www.ginac.de/ginac-1.6.7.tar.bz2"
-  sha256 "cea5971b552372017ea654c025adb44d5f1b3e3ce0a739da2fe95189572b85db"
-  revision 1
+  url "http://www.ginac.de/ginac-1.7.2.tar.bz2"
+  sha256 "24b75b61c5cb272534e35b3f2cfd64f053b28aee7402af4b0e569ec4de21d8b7"
 
   bottle do
-    cellar :any
-    sha256 "dacff9e73723b9f3e7340eed2c54d142a79a7e71748816071d120b4609c80b44" => :sierra
-    sha256 "ca9596b46348b3d89a617e15b6366325f8a19b47797476cd539ab71a0246cf11" => :el_capitan
-    sha256 "1785488b224b55b17e799afe462189c5ac49ef4b66159a83d724aced4633c933" => :yosemite
+    sha256 "f0d4538f1192bcc7cd609e430b821204286ba927fbddd95c0fb916309fac7734" => :sierra
+    sha256 "299fa1acfa8338209289e3e622c3ebeb8faa873b9c04537247bf78b24293e2b3" => :el_capitan
+    sha256 "ac20716d581c5e0e5db6326c1a4f3ef9528ecc3c50dbc6bb3c46e9df32e0b888" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -43,7 +41,8 @@ class Ginac < Formula
     EOS
     system ENV.cxx, "test.cpp", "-L#{lib}",
                                 "-L#{Formula["cln"].lib}",
-                                "-lcln", "-lginac", "-o", "test"
+                                "-lcln", "-lginac", "-o", "test",
+                                "-std=c++11"
     system "./test"
   end
 end

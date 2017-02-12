@@ -18,8 +18,6 @@ class Vcdimager < Formula
   depends_on "popt"
 
   def install
-    ENV.libxml2
-
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"

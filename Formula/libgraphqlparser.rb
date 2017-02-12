@@ -1,15 +1,14 @@
 class Libgraphqlparser < Formula
   desc "GraphQL query parser in C++ with C and C++ APIs"
   homepage "https://github.com/graphql/libgraphqlparser"
-  url "https://github.com/graphql/libgraphqlparser/archive/v0.5.0.tar.gz"
-  sha256 "c20ee39bd8f519f874de3d1bc9dc65fb6430606d80badf34e070cc8a2225b62b"
+  url "https://github.com/graphql/libgraphqlparser/archive/v0.6.0.tar.gz"
+  sha256 "3d8f5878754203563d06a65175accb8ee9e4eb8b49cb51e6d5c6a1d9ff6aa5ad"
 
   bottle do
     cellar :any
-    sha256 "581deac0a13d95748ea4255e4636ad829c8317e4937e43adacaecb8e72d4fc4e" => :sierra
-    sha256 "25d0db7a8e1555c826fc3ea929f9bf1cb1cddff695c0d1987bca27bad22fd8c0" => :el_capitan
-    sha256 "876804db01aa0c42dd9c8f3d1a6fd272a02bf5d5f3468ab9485ae0f5dade9918" => :yosemite
-    sha256 "21a99540dfcfe737bd59e12e34bf8f60ca7d08c535764f272750959df1d569d9" => :mavericks
+    sha256 "028d48186278fa12691294c46360fc1089b468ce88ea5164376be75b66ba8c43" => :sierra
+    sha256 "7c8cfa351e83f68e4e5e7c98416a32a21af1e522ab6426a7123b59a40092ad66" => :el_capitan
+    sha256 "f53b9bd6626d2d51eeadde6e39271d88be0f8a36e6416901792c5c6ec1384e2d" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -22,8 +21,6 @@ class Libgraphqlparser < Formula
   end
 
   test do
-    require "utils/json"
-
     sample_query = <<-EOS.undent
       { user }
     EOS
@@ -50,7 +47,7 @@ class Libgraphqlparser < Formula
                 "directives"=>nil,
                 "selectionSet"=>nil }] } }] }
 
-    test_ast = Utils::JSON.load pipe_output("#{libexec}/dump_json_ast", sample_query)
+    test_ast = JSON.parse pipe_output("#{libexec}/dump_json_ast", sample_query)
     assert_equal sample_ast, test_ast
   end
 end

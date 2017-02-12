@@ -3,15 +3,13 @@ class Libexosip < Formula
   homepage "https://www.antisip.com/category/osip-and-exosip-toolkit"
   url "https://download.savannah.gnu.org/releases/exosip/libeXosip2-4.1.0.tar.gz"
   sha256 "3c77713b783f239e3bdda0cc96816a544c41b2c96fa740a20ed322762752969d"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "c1665d6b10cabe50e94316f589ceadd23a851f989c2eff52a532df04870f7cc3" => :sierra
-    sha256 "ed64379360adbbb2bd5c775891faad36bf6203df14c80a44f8a7f8352b050ae9" => :el_capitan
-    sha256 "c77e33eeb31833d443251338d84044ee2ce87863fc4de36604685aaf002057e9" => :yosemite
-    sha256 "f650ff7155a07782e895d7c5c6f5f85fcd8dc44e5080be6249a8cc3dad78a4a6" => :mavericks
-    sha256 "a229fe8f6e8e4934d8e9af5d5a3e7905da8329dbc35864d34f915751e6fa6d8a" => :mountain_lion
+    sha256 "bc49bf581921515eff4719d5e0f31c2bffb43137d06affdc6e73a947d80692e0" => :sierra
+    sha256 "4ba8b361d2fd38f861c66b470d05bbb21e80ac92236cb8ad9323f1dca6121e2d" => :el_capitan
+    sha256 "9fd63688f31b0561749756daa3f426abc58754dc5033f6068dc0d389bde043f3" => :yosemite
   end
 
   depends_on "pkg-config" => :build

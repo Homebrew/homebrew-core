@@ -1,14 +1,14 @@
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/v0.24.3.tar.gz"
-  sha256 "0a24e6a51dbf3beecb0ebcd2cafb1e09b1212e910be6477b5de03c84a5586754"
+  url "https://github.com/libgit2/libgit2/archive/v0.25.1.tar.gz"
+  sha256 "7ae8e699ff7ff9a1fa702249140ee31ea6fd556bf7968e84e38165870667bcb1"
   head "https://github.com/libgit2/libgit2.git"
 
   bottle do
-    sha256 "8beb1cb03a4c3da66753054cce18f80939e2b0a15934345622657e9f77133010" => :sierra
-    sha256 "c24adf3a7f04ea099e07f869518196c2c6e1ba63aab3c4ae5b5a8ca7a32682a3" => :el_capitan
-    sha256 "b5bb829ea74f54219b131c59c53fd441145ba8507529bfd8c17003320dfa005b" => :yosemite
+    sha256 "d43aa3bea4589796cc3819f79e1c0022be9c763a17b8d2a6d88bd16f8c4d2da7" => :sierra
+    sha256 "a2c31c7175e7a36fcf6b08d57259490bc16ffd6190e9ca4ae8da3add44a172d9" => :el_capitan
+    sha256 "1c9a4e6b427e80df70d78c9dfdf857b269888a2c8091ddcdcc3ce96e6d0acd8d" => :yosemite
   end
 
   option :universal

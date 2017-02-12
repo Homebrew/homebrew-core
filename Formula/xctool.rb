@@ -1,15 +1,15 @@
 class Xctool < Formula
   desc "Drop-in replacement for xcodebuild with a few extra features"
   homepage "https://github.com/facebook/xctool"
-  url "https://github.com/facebook/xctool/archive/0.3.tar.gz"
-  sha256 "d1eb62840ed0b7488f9d432c3d3bd198f357ee7bd268fea7e9d17166dfd90f25"
+  url "https://github.com/facebook/xctool/archive/0.3.1.tar.gz"
+  sha256 "9db246a95af6716cca93a57b45905c97b3228c1167b4ae7c9461715cfb3e9df0"
   head "https://github.com/facebook/xctool.git"
 
   bottle do
     cellar :any
-    sha256 "afefdffcddd0e2eac16c39076877b6357e0926cf7aa9a88ef3e6e3926265c791" => :sierra
-    sha256 "1fba6ae78da7166c8d0729ac72935b3be08bdfea0dfe98bbec61face97310152" => :el_capitan
-    sha256 "e8a9bf04d28df9cd6b859e1e37b446ce5eec5955f86fb614a577182d78147b68" => :yosemite
+    sha256 "7df0210ebb932eba903a68aa3b7618d15e0152c554b1730186323d70f077c6b0" => :sierra
+    sha256 "7e773b2754bb89dc576dd292e9c478777bd97771f8d2d1827686b6674d5dc155" => :el_capitan
+    sha256 "7704c484b555e0f5143fc61b69cc2b03ff96942e7d0e4e374ac78065eca8f544" => :yosemite
   end
 
   depends_on :xcode => "7.0"
@@ -17,6 +17,14 @@ class Xctool < Formula
   def install
     system "./scripts/build.sh", "XT_INSTALL_ROOT=#{libexec}", "-IDECustomDerivedDataLocation=#{buildpath}"
     bin.install_symlink "#{libexec}/bin/xctool"
+  end
+
+  def post_install
+    # all libraries need to be signed to avoid codesign errors when
+    # injecting them into xcodebuild or Simulator.app.
+    Dir.glob("#{libexec}/lib/*.dylib") do |lib_file|
+      system "/usr/bin/codesign", "-f", "-s", "-", lib_file
+    end
   end
 
   test do

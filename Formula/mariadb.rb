@@ -1,21 +1,20 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.18/source/mariadb-10.1.18.tar.gz"
-  sha256 "d7336907e9ff44496d6453f92526b25bd253638a64a051ca879f953499873b73"
+  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.21/source/mariadb-10.1.21.tar.gz"
+  sha256 "5a816355781ea22a6c65a436d8162f19bd292ec90e2b7d9499c031ae4a659490"
 
   bottle do
-    sha256 "2f8e29bdbbdef563ff9721bdc2fc11a8ecc3797607d9f2ee8dbd041cf5b44a2c" => :sierra
-    sha256 "2022c580adf22c0a3998790b352f9895a252ca1f4a406dfd614861e6ec12d005" => :el_capitan
-    sha256 "0831114ea928b1c566e1da704e5800d3c9b1f9bd38b6856cd060dd506d45da88" => :yosemite
+    sha256 "2dd8b25c44a50504548f14b47402acaac00910a23962342d741ac740842cf1e8" => :sierra
+    sha256 "9cd92968776a2bbd934cf3a1798049ae402e3fd432b65afe8a09a583150c4ea9" => :el_capitan
+    sha256 "dbfeceeb05d608fd981d1392dcfa4680a365a92380e649c7ada1537d60a7c650" => :yosemite
   end
 
   devel do
-    url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.2.2/source/mariadb-10.2.2.tar.gz"
-    sha256 "55cf9e357ae4511fc1330e7cb8a15746d99b3a7875b6da9bcf1acfb1aa6f893a"
+    url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.2.3/source/mariadb-10.2.3.tar.gz"
+    sha256 "7dcbb0c35d2c25e8a2d5bef5a5ebbf578eb755e1dd810ca0e55d529521296249"
   end
 
-  option :universal
   option "with-test", "Keep test when installing"
   option "with-bench", "Keep benchmark app when installing"
   option "with-embedded", "Build the embedded server"
@@ -54,10 +53,6 @@ class Mariadb < Formula
       s.change_make_var! "ldata", "\"#{var}/mysql\""
     end
 
-    # Build without compiler or CPU specific optimization flags to facilitate
-    # compilation of gems and other software that queries `mysql-config`.
-    ENV.minimal_optimization
-
     # -DINSTALL_* are relative to prefix
     args = %W[
       -DMYSQL_DATADIR=#{var}/mysql
@@ -89,12 +84,6 @@ class Mariadb < Formula
 
     # Compile with BLACKHOLE engine enabled if chosen
     args << "-DPLUGIN_BLACKHOLE=YES" if build.with? "blackhole-storage-engine"
-
-    # Make universal for binding to universal applications
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
 
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"

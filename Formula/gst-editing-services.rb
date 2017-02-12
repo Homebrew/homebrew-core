@@ -1,13 +1,13 @@
 class GstEditingServices < Formula
   desc "GStreamer Editing Services"
   homepage "https://gstreamer.freedesktop.org/modules/gst-editing-services.html"
-  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gstreamer-editing-services-1.10.0.tar.xz"
-  sha256 "1f2c8b8ba33c1cc746f129bb9d6b85e5fc4eff5fbb1c85bbc2c5b6683362560c"
+  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gstreamer-editing-services-1.10.3.tar.xz"
+  sha256 "bcbf52ad789be44abc6bb68c96457683438b2a1d966a3f408c8c931ae2c2a32b"
 
   bottle do
-    sha256 "0ffcda1ae32f30fb11019fa191a8b3d4ccd5c6b717bc787d9265f1a02906b3e5" => :sierra
-    sha256 "cc2c75248812f2385cc4ef9520f2f50b900180df8f24d06eaa2c3faed553a678" => :el_capitan
-    sha256 "d3c44ee64b7b467f4dc7500361b1cc607c49ab1258e266c82e2f74d520d84e33" => :yosemite
+    sha256 "ae6fd39790253485e03ada3db8950527aec2a76685d6d36647605ca73e49218f" => :sierra
+    sha256 "8a9bc56fd6e9ea9f1d45b2ff851a6027e825a770ae045d19c0208a3e04db54c3" => :el_capitan
+    sha256 "7f37148503392dd9521d29f459f8b4f2db6e70f7360cde7de644d947299ed16b" => :yosemite
   end
 
   depends_on "gstreamer"

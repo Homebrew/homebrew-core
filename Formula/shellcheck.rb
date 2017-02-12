@@ -33,6 +33,6 @@ class Shellcheck < Formula
         echo "$f"
       done
     EOS
-    assert_match "[SC2045]", shell_output("shellcheck -f gcc #{sh}", 1)
+    assert_match "[SC2045]", shell_output("#{bin}/shellcheck -f gcc #{sh}", 1)
   end
 end

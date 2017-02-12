@@ -1,15 +1,14 @@
 class Librem < Formula
   desc "Toolkit library for real-time audio and video processing"
   homepage "http://www.creytiv.com"
-  url "http://www.creytiv.com/pub/rem-0.4.7.tar.gz"
-  sha256 "5d084f5ee17b839680ab6b978357c095c2a85d04bdf61fa03192019e3435954e"
+  url "http://www.creytiv.com/pub/rem-0.5.0.tar.gz"
+  sha256 "6b516579e90736c5153dfa3fab843e27497b8596a4a96697e11d70c682972ad8"
 
   bottle do
     cellar :any
-    sha256 "afaa061f5747e2b6d6991b6a4e7d10b562e62e9e643a94d6a71c2f477d74a1a7" => :sierra
-    sha256 "c7a84c2c501d6affa3860e21c266393f91d1deb4686b2e58f884f6f52b273f02" => :el_capitan
-    sha256 "39cfeb55d8c301e2cad58d361ced4e90a0ff43c6c19e335ffd84382843bdb3a1" => :yosemite
-    sha256 "e382810be23c866dbf53f20e527566b99d0cbfbd67605adb537960b79c8c6136" => :mavericks
+    sha256 "3dc7d7827e0be3545a675a54f78d2baf812dfe5c45a8068de7de2a39daf8c44e" => :sierra
+    sha256 "7ca8c91179b72228b42b28adf9cc63d90169f199e657ea8275646c71224fd4ef" => :el_capitan
+    sha256 "45cf36acfb57d518a9c1a9da4a2c63a57371d7be90f1343f6cb2d61691afa6da" => :yosemite
   end
 
   depends_on "libre"

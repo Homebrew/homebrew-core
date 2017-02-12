@@ -1,16 +1,34 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org"
-  url "http://xmlsoft.org/sources/libxml2-2.9.4.tar.gz"
-  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.4.tar.gz"
-  sha256 "ffb911191e509b966deb55de705387f14156e1a56b21824357cdf0053233633c"
+  revision 2
+
+  stable do
+    url "http://xmlsoft.org/sources/libxml2-2.9.4.tar.gz"
+    mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.4.tar.gz"
+    sha256 "ffb911191e509b966deb55de705387f14156e1a56b21824357cdf0053233633c"
+
+    # All patches upstream already. Remove whenever 2.9.5 is released.
+    # Fixes CVE-2016-4658, CVE-2016-5131.
+    patch do
+      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.2.debian.tar.xz"
+      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.2.debian.tar.xz"
+      sha256 "c038bba02a56164cef7728509ba3c8f1856018573769ee9ffcc48c565e90bdc9"
+      apply "patches/0003-Fix-NULL-pointer-deref-in-XPointer-range-to.patch",
+            "patches/0004-Fix-comparison-with-root-node-in-xmlXPathCmpNodes.patch",
+            "patches/0005-Fix-XPointer-paths-beginning-with-range-to.patch",
+            "patches/0006-Disallow-namespace-nodes-in-XPointer-ranges.patch",
+            "patches/0007-Fix-more-NULL-pointer-derefs-in-xpointer.c.patch",
+            "patches/0008-Fix-attribute-decoding-during-XML-schema-validation.patch"
+    end
+  end
 
   bottle do
     cellar :any
-    sha256 "48fa14c9f84184afd4623aa414589b1ea1088e422d4fd326c82dbe2025ed64f8" => :sierra
-    sha256 "106885b0ac96d1f59c5a1f7588ffc938d90361fb9e68cbdd74db2177ea3fa694" => :el_capitan
-    sha256 "abc9899e778ff2d5abcdac5c1b8b976b9811029b739d557c1ac61dbe1ef2cc19" => :yosemite
-    sha256 "03f73fbc3f99f098f44ff5805aadd1b5cd6c4741e9ca9f6e66d9cc4a9b2f1a5a" => :mavericks
+    rebuild 1
+    sha256 "08ae8ecc02d55f390122cb6a66e252720ff76ac003f3605a0ff1a700b8da32cd" => :sierra
+    sha256 "935c1dc0821ca6c4676357c4a6a4339946f8a5d699b6da95f74380f098e61db1" => :el_capitan
+    sha256 "eb7c876f407381400b8c64c9a3107aa50dc853823c4bbf2e856f32e93cb68bac" => :yosemite
   end
 
   head do
@@ -26,11 +44,6 @@ class Libxml2 < Formula
   option :universal
 
   depends_on :python => :optional
-
-  fails_with :llvm do
-    build 2326
-    cause "Undefined symbols when linking"
-  end
 
   def install
     ENV.universal_binary if build.universal?

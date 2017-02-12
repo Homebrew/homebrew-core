@@ -13,8 +13,6 @@ class Mpfr < Formula
     sha256 "ca737c71556161c37563b78305aa93c6663cde07f06d94e4d7de091983327c48" => :yosemite
   end
 
-  option "32-bit"
-
   depends_on "gmp"
 
   fails_with :clang do
@@ -26,7 +24,6 @@ class Mpfr < Formula
   end
 
   def install
-    ENV.m32 if build.build_32_bit?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
                           "--disable-silent-rules"
     system "make"

@@ -3,26 +3,19 @@ class Xonsh < Formula
 
   desc "Python-ish, BASHwards-compatible shell language and command prompt"
   homepage "http://xon.sh"
-  url "https://github.com/xonsh/xonsh/archive/0.4.7.tar.gz"
-  sha256 "10732db7a635b94454232f389f1960a27736e63bb3ce7daf6dc59fda7d5f5abb"
+  url "https://github.com/xonsh/xonsh/archive/0.5.4.tar.gz"
+  sha256 "878f57da4bbb8e67f0a83b910fd175f54c99bb1b5e652c7d039e72020c8d0e25"
   head "https://github.com/scopatz/xonsh.git"
-  revision 1
 
   bottle do
-    sha256 "a34d75dadf69aecf089f0cd7da0d512e720dea21852b2b4897b9a22d5d07dcb6" => :sierra
-    sha256 "474da913366ca868e82f68358814732b5501aae2b535f70094fd531043455689" => :el_capitan
-    sha256 "7a79e9a174da863de115181872762ddb56d650cee85d750c1bb1e343cd82d5ee" => :yosemite
+    sha256 "c32d81bb9ddf9dac9a023ae622a39b1c112ae59c553c867f48a8110ece3351ca" => :sierra
+    sha256 "66064b2fe9f2a7b0318c0e5b87b51ca6c3acba7f606eeca81a17397ab49c2dc6" => :el_capitan
+    sha256 "d8011d9302054ae97027f7f67ca054f4c798f4a8a887cd85271f9c097e8bb7ea" => :yosemite
   end
 
   depends_on :python3
 
-  resource "ply" do
-    url "https://pypi.python.org/packages/96/e0/430fcdb6b3ef1ae534d231397bee7e9304be14a47a267e82ebcb3323d0b5/ply-3.8.tar.gz"
-    sha256 "e7d1bdff026beb159c9942f7a17e102c375638d9478a7ecd4cc0c76afd8de0b8"
-  end
-
   def install
-    virtualenv_create(libexec, "python3")
     virtualenv_install_with_resources
   end
 

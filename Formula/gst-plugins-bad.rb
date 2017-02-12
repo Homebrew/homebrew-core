@@ -1,13 +1,13 @@
 class GstPluginsBad < Formula
   desc "GStreamer plugins less supported, not fully tested"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.10.0.tar.xz"
-  sha256 "3d5f9d16e1a3ee7c5c024494cc3a3420007bfdce6f94511317ae004972811c4f"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.10.3.tar.xz"
+  sha256 "24099351fb6984c9e7560de06e072ff2e33d0b2db38b8fcc7afefb536e5094e7"
 
   bottle do
-    sha256 "21f7a08fab79ad037ab5a7572886adbd86ddc85324605d7d0caf9e624ad849cc" => :sierra
-    sha256 "8c1307e517bd2e75d765d4d56108abdade8fe5f06e3172592bc5434eb8159d28" => :el_capitan
-    sha256 "b552ab3d3add11d193659658ee41ca60226c913e2bf95f3dd60bdd45c410938e" => :yosemite
+    sha256 "743198f349c7d7cc512b7513f311403844619506cabff8872b77d591453ad3a2" => :sierra
+    sha256 "4f69b5d57ac8c8f9205803fbf14dcecb5a9c05208cc6bf3e1eb52855b2b4eb29" => :el_capitan
+    sha256 "6c44a5e78199d5193171267598fe414351c3dfc16e21579d6ffd2b0dba53fae4" => :yosemite
   end
 
   head do
@@ -48,13 +48,6 @@ class GstPluginsBad < Formula
       --disable-debug
       --disable-dependency-tracking
     ]
-
-    # upstream does not support Apple video for older SDKs
-    # error: use of undeclared identifier 'AVQueuedSampleBufferRenderingStatusFailed'
-    # https://github.com/Homebrew/legacy-homebrew/pull/35284
-    if MacOS.version <= :mavericks
-      args << "--disable-apple_media"
-    end
 
     args << "--with-gtk=3.0" if build.with? "gtk+3"
 

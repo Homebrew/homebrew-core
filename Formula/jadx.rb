@@ -1,8 +1,8 @@
 class Jadx < Formula
   desc "Dex to Java decompiler"
   homepage "https://github.com/skylot/jadx"
-  url "https://github.com/skylot/jadx/releases/download/v0.6.0/jadx-0.6.0.zip"
-  sha256 "0baa680c8bb4f1c49b6d8b94b3947b8fedf263b5a0c20d3b38da35b57b857228"
+  url "https://github.com/skylot/jadx/releases/download/v0.6.1/jadx-0.6.1.zip"
+  sha256 "75a9c01f07f434f42831fc71053e933e3a6e92692731fb0e2347234171a49e49"
 
   head do
     url "https://github.com/skylot/jadx.git"

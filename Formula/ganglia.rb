@@ -1,15 +1,13 @@
 class Ganglia < Formula
   desc "Scalable distributed monitoring system"
   homepage "http://ganglia.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ganglia/ganglia%20monitoring%20core/3.7.1/ganglia-3.7.1.tar.gz"
-  sha256 "e735a6218986a0ff77c737e5888426b103196c12dc2d679494ca9a4269ca69a3"
-  revision 2
+  url "https://downloads.sourceforge.net/project/ganglia/ganglia%20monitoring%20core/3.7.2/ganglia-3.7.2.tar.gz"
+  sha256 "042dbcaf580a661b55ae4d9f9b3566230b2232169a0898e91a797a4c61888409"
 
   bottle do
-    sha256 "acdf779111e970a0109ee574e6b814b8378f29945d688bcb73a438e54d77ff9e" => :sierra
-    sha256 "349f8c9d15380b37ab66eccba278a8f83537d4de091c76b1a699ea4c419131f7" => :el_capitan
-    sha256 "e09a9d76d29124ed9c1b7c9f92d43a98a43f95be498d315296300a9bb487b980" => :yosemite
-    sha256 "6aebfbaf3ebff825177eb2226d9a7d82f1543fd1ece8948eb6feea01f07b43e1" => :mavericks
+    sha256 "37ff8f1f7ea2632dd68a1db103b1f021a473565b03b44a4d1af99bd24ea19ece" => :sierra
+    sha256 "e71c1f715a65c12c1560b503ad02afb0a193c06664a98679b30152e12d644a17" => :el_capitan
+    sha256 "c2cca9f37278cb1336897465b0f8e39c4ae61708e9b9b28a2b0218c4f9333060" => :yosemite
   end
 
   head do
@@ -21,7 +19,7 @@ class Ganglia < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :apr => :build
+  depends_on "apr"
   depends_on "confuse"
   depends_on "pcre"
   depends_on "rrdtool"
@@ -43,6 +41,7 @@ class Ganglia < Formula
                           "--sysconfdir=#{etc}",
                           "--mandir=#{man}",
                           "--with-gmetad",
+                          "--with-libapr=#{Formula["apr"].opt_bin}/apr-1-config",
                           "--with-libpcre=#{Formula["pcre"].opt_prefix}"
     system "make", "install"
 

@@ -20,27 +20,22 @@ end
 class Radare2 < Formula
   desc "Reverse engineering framework"
   homepage "http://radare.org"
+  revision 1
 
   stable do
-    url "http://www.radare.org/get/radare2-0.10.5.tar.xz"
-    sha256 "e534e89b1ddc06b962766fab1d9a8c6957ce1eeac4b6babdd0cd3345c6d14ca5"
+    url "http://cloud.radare.org/get/1.1.0/radare2-1.1.0.tar.gz"
+    sha256 "7bc1e206a2b4def6bdb8684c2af0281b007986a0b5b5da652bd03be264ca0fa5"
 
     resource "bindings" do
-      url "http://www.radare.org/get/radare2-bindings-0.10.5.tar.xz"
-      sha256 "04eb9a31e752d393e240a5d2e77f6313f1e5b7ccf7471e6fea2d346781173fb1"
-    end
-
-    resource "extras" do
-      url "http://www.radare.org/get/radare2-extras-0.10.5.tar.xz"
-      sha256 "2dd23a4ab8f787f47b22cdd0df76d7b575a80e9afaf0ee95a553deaaba65e6f6"
+      url "http://cloud.radare.org/get/1.1.0/radare2-bindings-1.0.1.tar.gz"
+      sha256 "ab0b3ca4ca5e9ca6b11211408dada85bb18014a793628ef32167dc89575fd2e0"
     end
   end
 
   bottle do
-    sha256 "a4c33f756b7a1117d05ace4acb12bedab6e59b9af777532a540600f345691f55" => :sierra
-    sha256 "9eb9eb34f22803323480de1af7ca57336cda9d51429901772b94d1d223a0d10f" => :el_capitan
-    sha256 "9795fb8f8091df0cb505767d6cb9c2f6c7b9f9a0b3d19d99778cf0c86c2bfa46" => :yosemite
-    sha256 "faef9e723a152abaf0e1e11dba293a203a1801fd7e2c8420ce59fc83ad5546c7" => :mavericks
+    sha256 "1375576749f424a8dc5bdc7fb6ee33bb69e6aa3616a19485ca8bdddcbfb31f4e" => :sierra
+    sha256 "4e4d174472f126e9914dce0ca3848ce2b3448cde908bb02c0dfef65465cd9431" => :el_capitan
+    sha256 "1ee3c65d01c5d2496cd6b2354675fae11bf9a9f093538663f51ed21497db8eb3" => :yosemite
   end
 
   head do
@@ -48,10 +43,6 @@ class Radare2 < Formula
 
     resource "bindings" do
       url "https://github.com/radare/radare2-bindings.git"
-    end
-
-    resource "extras" do
-      url "https://github.com/radare/radare2-extras.git"
     end
   end
 
@@ -64,7 +55,7 @@ class Radare2 < Formula
   depends_on "gmp"
   depends_on "libewf"
   depends_on "libmagic"
-  depends_on "lua51" # It seems to latch onto Lua51 rather than Lua. Enquire this upstream.
+  depends_on "lua@5.1" # It seems to latch onto Lua@5.1 rather than Lua. Enquire this upstream.
   depends_on "openssl"
   depends_on "yara"
 
@@ -81,15 +72,6 @@ class Radare2 < Formula
       system "make", "HOME=#{home}", "-C", "binr/radare2", "osx-sign-libs"
     end
     system "make", "install"
-
-    resource("extras").stage do
-      ENV.append_path "PATH", bin
-      ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
-
-      system "./configure", "--prefix=#{prefix}"
-      system "make", "all"
-      system "make", "install"
-    end
 
     resource("bindings").stage do
       ENV.append_path "PATH", bin

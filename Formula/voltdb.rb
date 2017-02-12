@@ -1,15 +1,15 @@
 class Voltdb < Formula
   desc "Horizontally-scalable, in-memory SQL RDBMS"
   homepage "https://github.com/VoltDB/voltdb"
-  url "https://github.com/VoltDB/voltdb/archive/voltdb-6.6.tar.gz"
-  sha256 "300d06c8f5a1cc4a3537f216ea105d5ccc8987b10bad2c676a40543c8903d72e"
+  url "https://github.com/VoltDB/voltdb/archive/voltdb-6.9.tar.gz"
+  sha256 "46e4243ba4d12599cb99852ba0b57c693a6aca943270f41f50b70ac054cf05fc"
   head "https://github.com/VoltDB/voltdb.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "963b5a8050e0be1cd4901a56ecbf405a65a784511cc90253d14d100fb17b7b89" => :sierra
-    sha256 "dfa015f19e3507403eb161476b7f8536b7ed3d45214225997cd187cb013cbc42" => :el_capitan
-    sha256 "2bc7a5322b2b2afaa9d6d83651d922f3240d66eb690a8d389ef23ce56c0de463" => :yosemite
+    sha256 "81419cf29821d4d6051dec794e663bd76b6494eb7355bff2e9365c0610b32ae3" => :sierra
+    sha256 "ee6ee32c112cb64f772ed3791140350cd5a0cf13e66a6e5a05530d074043defa" => :el_capitan
+    sha256 "6762c49081ec4e08f96b738b1772a651e77165b124a2a28fe5a37820c4213561" => :yosemite
   end
 
   depends_on :ant => :build

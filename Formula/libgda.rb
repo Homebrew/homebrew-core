@@ -22,7 +22,6 @@ class Libgda < Formula
   depends_on "openssl"
 
   def install
-    ENV.libxml2
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

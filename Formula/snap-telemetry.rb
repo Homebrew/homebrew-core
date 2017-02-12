@@ -1,17 +1,16 @@
 class SnapTelemetry < Formula
   desc "Snap is an opensource telemetry framework"
   homepage "http://snap-telemetry.io/"
-  url "https://github.com/intelsdi-x/snap/archive/0.17.0.tar.gz"
-  sha256 "d627eff8155b346ce542fdf3251b2713a0bae887fb6a8ef3ba169b13c4f9fc60"
+  url "https://github.com/intelsdi-x/snap/archive/1.1.0.tar.gz"
+  sha256 "461aeb9fe7752478e40fa00ad3485086cc1af726b29bfe40a1216fa3aa3a3f17"
 
   head "https://github.com/intelsdi-x/snap.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "562b40c3b1496819e1485c355e1c006316ed75eaaeeb4b617f9e6d29736e2d5c" => :sierra
-    sha256 "acaa74b60a4c417ccb79e489734c1889bf4311d80af93a198d72b22d3911eb52" => :el_capitan
-    sha256 "9248facbc3a64388b48d18dbf9dc645823508fb50192554057cf56296338d6e8" => :yosemite
+    sha256 "f888f341ae06ed3d0989f17d008059df26e60193b31271ce9a33add68f5083dd" => :sierra
+    sha256 "0f47d8c45d35caa8acf3122b5c52bee6bd9de5cfc82f06745bf40451bc447de4" => :el_capitan
+    sha256 "e608643a5b15777cab39a2a0f7fedefd09678f0394e400896addacb9f40b5c2e" => :yosemite
   end
 
   depends_on "go" => :build
@@ -22,37 +21,37 @@ class SnapTelemetry < Formula
     ENV["CGO_ENABLED"] = "0"
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
 
-    snapd = buildpath/"src/github.com/intelsdi-x/snap"
-    snapd.install buildpath.children
+    snapteld = buildpath/"src/github.com/intelsdi-x/snap"
+    snapteld.install buildpath.children
 
-    cd snapd do
+    cd snapteld do
       system "glide", "install"
-      system "go", "build", "-o", "snapd", "-ldflags", "-w -X main.gitversion=#{version}"
-      bin.install "snapd"
+      system "go", "build", "-o", "snapteld", "-ldflags", "-w -X main.gitversion=#{version}"
+      sbin.install "snapteld"
       prefix.install_metafiles
     end
 
-    snapctl = buildpath/"src/github.com/intelsdi-x/snap/cmd/snapctl"
-    cd snapctl do
-      system "go", "build", "-o", "snapctl", "-ldflags", "-w -X main.gitversion=#{version}"
-      bin.install "snapctl"
+    snaptel = buildpath/"src/github.com/intelsdi-x/snap/cmd/snaptel"
+    cd snaptel do
+      system "go", "build", "-o", "snaptel", "-ldflags", "-w -X main.gitversion=#{version}"
+      bin.install "snaptel"
     end
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/snapd --version")
-    assert_match version.to_s, shell_output("#{bin}/snapctl --version")
+    assert_match version.to_s, shell_output("#{sbin}/snapteld --version")
+    assert_match version.to_s, shell_output("#{bin}/snaptel --version")
 
     begin
-      snapd_pid = fork do
-        exec "#{bin}/snapd -t 0 -l 1 -o #{testpath}"
+      snapteld_pid = fork do
+        exec "#{sbin}/snapteld -t 0 -l 1 -o #{testpath}"
       end
       sleep 5
-      assert_match("No plugins", shell_output("#{bin}/snapctl plugin list"))
-      assert_match("No task", shell_output("#{bin}/snapctl task list"))
-      assert_predicate testpath/"snapd.log", :exist?
+      assert_match("No plugins", shell_output("#{bin}/snaptel plugin list"))
+      assert_match("No task", shell_output("#{bin}/snaptel task list"))
+      assert_predicate testpath/"snapteld.log", :exist?
     ensure
-      Process.kill("TERM", snapd_pid)
+      Process.kill("TERM", snapteld_pid)
     end
   end
 end

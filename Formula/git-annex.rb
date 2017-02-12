@@ -5,15 +5,15 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20160923/git-annex-6.20160923.tar.gz"
-  sha256 "964235a358814e081cf4a5d8dab798faacb1dabe5fc714ac6687b135e30fd93d"
+  url "https://hackage.haskell.org/package/git-annex-6.20170101/git-annex-6.20170101.tar.gz"
+  sha256 "5fbf88652a84278275d9d4bec083189f590b045e23a73bfe8d395c3e356e3f53"
+  revision 2
   head "git://git-annex.branchable.com/"
 
   bottle do
-    cellar :any
-    sha256 "b9b8316e71a30188cd111c51409aebe5575423e88601cd449b5e34a729a12d8f" => :sierra
-    sha256 "b9b8316e71a30188cd111c51409aebe5575423e88601cd449b5e34a729a12d8f" => :el_capitan
-    sha256 "74cf22ed91b04871ff50dceb3f66a8089f8031539071c76e521705cf36b34f0e" => :yosemite
+    sha256 "541a9ca45f5ddb6baf37f4be4067e32a50f9ede4338a937a87364d3b8a18056b" => :sierra
+    sha256 "011ec79e42d82f42386101a8d2d79d5d520c66b8c1c61f39335ae257bf926358" => :el_capitan
+    sha256 "5dff8242ee567f1916cb01abda57f079a2d10d4cad286f5d6cae3ec3f1b77549" => :yosemite
   end
 
   option "with-git-union-merge", "Build the git-union-merge tool"
@@ -26,12 +26,16 @@ class GitAnnex < Formula
   depends_on "libmagic"
   depends_on "gnutls"
   depends_on "quvi"
+  depends_on "xdot" => :recommended
 
   def install
-    # Fixes CI timeout by providing a more specific hint for Solver
-    # Reported 9 Aug 2016: https://github.com/joeyh/git-annex/pull/56
-    # Can be removed once prowdsponsor/esqueleto#137 is resolved
-    inreplace "git-annex.cabal", "persistent (< 2.5)", "persistent (== 2.2.4.1)"
+    # aws-0.16 compatibility
+    # Avoid the build failure "Remote/S3.hs:224:49: error: The constructor
+    # 'S3.UploadPartResponse' should have 1 argument, but has been given 2"
+    # Fix taken from upstream report from 5 Feb 2017 https://git-annex.branchable.com/bugs/aws_0.16_breaking_changes/
+    inreplace "Remote/S3.hs",
+      "S3.UploadPartResponse _ etag <- sendS3Handle h req",
+      "S3.UploadPartResponse { S3.uprETag = etag } <- sendS3Handle h req"
 
     install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
       # this can be made the default behavior again once git-union-merge builds properly when bottling

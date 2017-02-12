@@ -1,8 +1,8 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.0.tar.gz"
-  sha256 "a866534f0fa7428e980c985d712024feef1dee04709add6e360fc7b73bb1e7ae"
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.tar.gz"
+  sha256 "6beec13bc64291020df8532d991b673b94119c5c365e3ddbc154ee35c6032953"
 
   head do
     url "https://github.com/elasticsearch/elasticsearch.git"
@@ -79,13 +79,8 @@ class Elasticsearch < Formula
       Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
       Plugins: #{libexec}/plugins/
       Config:  #{etc}/elasticsearch/
+      plugin script: #{libexec}/bin/elasticsearch-plugin
     EOS
-
-    if stable?
-      s += <<-EOS.undent
-        plugin script: #{libexec}/bin/plugin
-      EOS
-    end
 
     s
   end
@@ -103,7 +98,7 @@ class Elasticsearch < Formula
           <string>#{plist_name}</string>
           <key>ProgramArguments</key>
           <array>
-            <string>#{HOMEBREW_PREFIX}/bin/elasticsearch</string>
+            <string>#{opt_bin}/elasticsearch</string>
           </array>
           <key>EnvironmentVariables</key>
           <dict>

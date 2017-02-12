@@ -1,15 +1,14 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.10.2.tar.xz"
-  sha256 "94802903dd707d85ca3b9a2be35e936a54ce86375f52c6a789efe7ce7e238671"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.11.1.tar.xz"
+  sha256 "c0a779cae325d48a1d5ba08b6ee1febcc31d0657a6da01fd1dec1c6e10976415"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    rebuild 1
-    sha256 "6e5604e62cb48046e87bf68bb3f4782692b6fab59c0d2bf651411a68736acb78" => :sierra
-    sha256 "77f37fa233f50f186e114616ee031bb08f5d05c67af813102aedd52ac57b20e5" => :el_capitan
-    sha256 "e20834d09271026e99ab10a4c1d0372064c953ba0a425c9242707f6e17784437" => :yosemite
+    sha256 "bc67b0ecb083fa0c62daecba3be31296975b0e2f036a45f3d63449b6582c277d" => :sierra
+    sha256 "05bfdee83bb833cabec2edf522ccd510b17d99852a90c43dbce535927ad8ee65" => :el_capitan
+    sha256 "1e7b55a4a5f3ff6265a783355899c85582447959c414299be82d7b5f5bd98af2" => :yosemite
   end
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
@@ -32,13 +31,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.10.2.tar.xz"
-    sha256 "dd43111c3518a92a7fe64ac5cd32a5d4d77d49c67f7d89dce3e8293bc3d6b491"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.11.1.tar.xz"
+    sha256 "1a5f1e4a5eadad89b0783efa08bb1f7e3802d4a4d0a135bf5f61fd672ea3846e"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.10.2.tar.xz"
-    sha256 "83b0a317f6039ad95ef6af6a182cf659c2d053eed5d8f70b06710eb787f8aa6f"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.11.1.tar.xz"
+    sha256 "69486ed339ee0591001ae83d43c888aa26351b9680b6ceb59e06b593051bca31"
   end
 
   def install
@@ -53,7 +52,10 @@ class Git < Formula
     # Support Tcl versions before "lime" color name was introduced
     # https://github.com/Homebrew/homebrew-core/issues/115
     # https://www.mail-archive.com/git%40vger.kernel.org/msg92017.html
-    inreplace "gitk-git/gitk", "lime", '"#99FF00"'
+    #
+    # This has been resolved in Git (6e8fda5fd), which is currently present
+    # in HEAD but not in the stable.  This should be removed later.
+    inreplace "gitk-git/gitk", "lime", '"#99FF00"' if build.stable?
 
     perl_version = /\d\.\d+/.match(`perl --version`)
 
@@ -103,6 +105,12 @@ class Git < Formula
                      "LDFLAGS=#{ENV.ldflags}"
       bin.install "git-credential-osxkeychain"
       system "make", "clean"
+    end
+
+    # Install the netrc credential helper
+    cd "contrib/credential/netrc" do
+      system "make", "test"
+      bin.install "git-credential-netrc"
     end
 
     # Install git-subtree

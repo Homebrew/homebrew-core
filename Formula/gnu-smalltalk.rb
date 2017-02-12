@@ -40,11 +40,6 @@ class GnuSmalltalk < Formula
   depends_on "glew" => :optional
   depends_on :x11 if build.with? "tcltk"
 
-  fails_with :llvm do
-    build 2334
-    cause "Codegen problems with LLVM"
-  end
-
   def install
     ENV.m32 unless MacOS.prefer_64_bit?
 

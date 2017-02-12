@@ -3,14 +3,13 @@ class Hqx < Formula
   homepage "https://code.google.com/archive/p/hqx/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/hqx/hqx-1.1.tar.gz"
   sha256 "cc18f571fb4bc325317892e39ecd5711c4901831926bc93296de9ebb7b2f317b"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "1c7bb9de8f99fd227a2bcb82cad930e4643fe166a34bc49192ba0a563511ccd2" => :sierra
-    sha256 "cea2aaffc8d25b52b4665c5af495489a5971ed125ce5595a83f94396ef8696dd" => :el_capitan
-    sha256 "6ea1e409d4a9482c249dd9c17bfef20b7f34924ad96027dff47e8317615102be" => :yosemite
-    sha256 "f0b02dadd6f2a3effec4865f4b042621e375e65ba016fec7658ecf8cfd11758a" => :mavericks
+    sha256 "7e58bc40ff9214f1b074595ac85c842ebafe676c6f3db42e3e0712c77c3377f4" => :sierra
+    sha256 "6bf8b3b1b203ae43cc833480c8b395776d1369a38bb78fe2b47034ff8a8a0645" => :el_capitan
+    sha256 "82f3574ae2e08ed7312d22b751b94be4783eccb2166fc1e45cc25ae90a7e5046" => :yosemite
   end
 
   depends_on "devil"

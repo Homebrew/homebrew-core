@@ -7,12 +7,10 @@ class Zmap < Formula
   head "https://github.com/zmap/zmap.git"
 
   bottle do
-    cellar :any
-    sha256 "d4321a08eaba4f41401f2a7ce90c1e4822e4dfd43732bb975d1ee242ec5e115a" => :sierra
-    sha256 "1ca4f466dc62cdce9b88a0a6ac7beec710748ba3c22415424deb3c864237a3a5" => :el_capitan
-    sha256 "4bec1849985c6754abe0facfb20a0d847470bc6f66623e98104176b45932d42a" => :yosemite
-    sha256 "e543e77553615624b232d1feac4dbe20c3eb24d0403f6e679c9a704ce21da33b" => :mavericks
-    sha256 "85fff9d320b123e6637980f4777e89b5fb7957dd5c75154d2c8aa2f3505aa471" => :mountain_lion
+    rebuild 1
+    sha256 "659f3518abb4023324778a16fa306abc8d8c43b34c9bd16e6bc7e412f1a511d6" => :sierra
+    sha256 "d8c0781ebec0087401d6fe6c272b0ae83620590db314fc6cea5c5d33aea46725" => :el_capitan
+    sha256 "15c8181a1e086b39d88223f3a01bb29d868d9d7d6c3118973250833da96f38cb" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -23,7 +21,9 @@ class Zmap < Formula
   depends_on "libdnet"
   depends_on "json-c"
   depends_on "hiredis" => :optional
-  depends_on "mongo-c" => :optional
+  depends_on "mongo-c-driver" => :optional
+
+  deprecated_option "with-mongo-c" => "with-mongo-c-driver"
 
   def install
     inreplace ["conf/zmap.conf", "src/zmap.c", "src/zopt.ggo.in"], "/etc", etc
@@ -32,7 +32,7 @@ class Zmap < Formula
     args << "-DENABLE_DEVELOPMENT=OFF"
     args << "-DRESPECT_INSTALL_PREFIX_CONFIG=ON"
     args << "-DWITH_REDIS=ON" if build.with? "hiredis"
-    args << "-DWITH_MONGO=ON" if build.with? "mongo-c"
+    args << "-DWITH_MONGO=ON" if build.with? "mongo-c-driver"
 
     system "cmake", ".", *args
     system "make"
@@ -42,6 +42,6 @@ class Zmap < Formula
   test do
     system "#{sbin}/zmap", "--version"
     assert_match /redis-csv/, `#{sbin}/zmap --list-output-modules` if build.with? "hiredis"
-    assert_match /mongo/, `#{sbin}/zmap --list-output-modules` if build.with? "mongo-c"
+    assert_match /mongo/, `#{sbin}/zmap --list-output-modules` if build.with? "mongo-c-driver"
   end
 end

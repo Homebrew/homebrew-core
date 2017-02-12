@@ -10,11 +10,10 @@ class BashCompletion < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "fe6e1bfcd0c9c93c8d2845738ebf3419a48374c30dc5259eb0967a9212c5b669" => :sierra
-    sha256 "aaa0801956062f69a0e1c2c5214c110ef86828474508a3b4925f5e1cf11b0ce5" => :el_capitan
-    sha256 "aca381fd5650b1d0ef886d824f1846e4934b6dc7eaf062a6be4bc17251245af3" => :yosemite
-    sha256 "f745eeca7d3c9f98280a565064a54a1a177ad0792d5ccaeecf5d3c7e1d18d783" => :mavericks
+    rebuild 2
+    sha256 "37fab5b6bc7dc8a35cf5aad75c6ccbc9d1be39bc706eaedd3ff422b0332289a5" => :sierra
+    sha256 "9389068fbb802b321e2b782eac34b2597e6cf031c2ce4f7a6d7436cd5b0699ce" => :el_capitan
+    sha256 "9389068fbb802b321e2b782eac34b2597e6cf031c2ce4f7a6d7436cd5b0699ce" => :yosemite
   end
 
   # Backports the following upstream patch from 2.x:
@@ -37,9 +36,7 @@ class BashCompletion < Formula
 
   def caveats; <<-EOS.undent
     Add the following lines to your ~/.bash_profile:
-      if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
-      fi
+      [ -f #{etc}/bash_completion ] && . #{etc}/bash_completion
     EOS
   end
 

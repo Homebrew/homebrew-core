@@ -1,6 +1,6 @@
 class Rgbds < Formula
-  desc "Rednex GameBoy development system"
-  homepage "https://www.anjbe.name/rgbds/"
+  desc "Rednex GameBoy Development System"
+  homepage "https://github.com/bentley/rgbds"
   url "https://github.com/bentley/rgbds/releases/download/v0.2.4/rgbds-0.2.4.tar.gz"
   sha256 "a7d32f369c6acf65fc0875c72873ef21f4d3a5813d3a2ab74ea604429f7f0435"
 
@@ -14,8 +14,11 @@ class Rgbds < Formula
     sha256 "c08b856ecf4cb57390ec99241d0bc87ba623536ab7e3e11d5cc23334230ff1cd" => :mavericks
   end
 
+  depends_on "pkg-config" => :build
+  depends_on "libpng" => :build
+
   def install
-    system "make", "install", "PREFIX=#{prefix}", "MANPREFIX=#{man}"
+    system "make", "install", "PREFIX=#{prefix}", "MANPREFIX=#{man}", "PNGFLAGS=-I#{Formula["libpng"].opt_include}"
   end
 
   test do

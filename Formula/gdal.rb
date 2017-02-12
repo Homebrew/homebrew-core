@@ -6,9 +6,10 @@ class Gdal < Formula
   revision 1
 
   bottle do
-    sha256 "6729f9534bee5a76ecbfd0e93801cc0c8f84e342e8dea0a95ab024d78585a04d" => :sierra
-    sha256 "a1df118a472b5920bab2ac5952b030694e652f05b7bc9252d5baa88acc7f939a" => :el_capitan
-    sha256 "6fa4483395d41181cca179f83460615c9162b4876cbe32953f71096d9181a5e5" => :yosemite
+    rebuild 1
+    sha256 "0840b359f99a83c82b0d3bf71b03d806be220fd9be965af74211f867d1967fd2" => :sierra
+    sha256 "b608c991bc57c5c44e2c0fc81c09efc38b3cae2d95b335289d9074790a611e30" => :el_capitan
+    sha256 "5bd37c45673c46be62bc304dd6fcdd8138af762d0935f44113eb366538895457" => :yosemite
   end
 
   head do
@@ -244,6 +245,10 @@ class Gdal < Formula
   end
 
   def install
+    inreplace "frmts/jpeg2000/jpeg2000_vsil_io.cpp",
+      "stream->bufbase_ = JAS_CAST(uchar *, buf);",
+      "stream->bufbase_ = JAS_CAST(u_char *, buf);"
+
     if build.with? "libkml"
       resource("libkml").stage do
         # See main `libkml` formula for info on patches

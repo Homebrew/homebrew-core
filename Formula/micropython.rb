@@ -2,14 +2,14 @@ class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
   url "https://github.com/micropython/micropython.git",
-    :tag => "v1.8.5",
-    :revision => "c8d31585a00616b39839d112b7c696dafed6b08d"
+    :tag => "v1.8.7",
+    :revision => "5653e3c72fc8555c6a060acf6447ac694a036053"
 
   bottle do
     cellar :any
-    sha256 "9528ec405ab9d89bf55fb5cca1649aa9244cc4b4b3e20c9e658eb059f21c6989" => :sierra
-    sha256 "90db704d626d50117c49819e4d51a265fcf9eb758f849857bde4215f205d748a" => :el_capitan
-    sha256 "9f66d35b4033f76831ceb6091a8bc4fc3529d381762e600ef3c610cebc13adc3" => :yosemite
+    sha256 "67fc514638513368dfa774f1a72d502ffb61e24a0736c32869a9a1f4ad9737bb" => :sierra
+    sha256 "a1f784f6761753470994ed5fea67bfc13b9e8617828caa333a8b450a19875f59" => :el_capitan
+    sha256 "ad503b4e7a15dfcb8b151c7225db329697bad3270ee95196e7aeaf74c32b449d" => :yosemite
   end
 
   depends_on "pkg-config" => :build

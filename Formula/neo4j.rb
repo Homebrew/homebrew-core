@@ -1,9 +1,9 @@
 class Neo4j < Formula
   desc "Robust (fully ACID) transactional property graph database"
   homepage "https://neo4j.com/"
-  url "https://neo4j.com/artifact.php?name=neo4j-community-3.0.6-unix.tar.gz"
-  version "3.0.6"
-  sha256 "efeab41183e9e5fa94a2d396c65ea93a24e9f105cb3b5f0d0a8e42fb709f4660"
+  url "https://neo4j.com/artifact.php?name=neo4j-community-3.1.1-unix.tar.gz"
+  version "3.1.1"
+  sha256 "7d66389ad683f66664f11a79314ce4d434ab70ade9c02601ee74e59cd729e2cb"
 
   bottle :unneeded
 
@@ -23,9 +23,42 @@ class Neo4j < Formula
 
     # Adjust UDC props
     # Suppress the empty, focus-stealing java gui.
-    (libexec/"conf/neo4j-wrapper.conf").append_lines <<-EOS.undent
+    (libexec/"conf/neo4j.conf").append_lines <<-EOS.undent
       wrapper.java.additional=-Djava.awt.headless=true
       wrapper.java.additional.4=-Dneo4j.ext.udc.source=homebrew
+    EOS
+  end
+
+  def post_install
+    (var/"log").mkpath
+  end
+
+  plist_options :manual => "neo4j start"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <false/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/neo4j</string>
+          <string>console</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/neo4j.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/neo4j.log</string>
+      </dict>
+    </plist>
     EOS
   end
 

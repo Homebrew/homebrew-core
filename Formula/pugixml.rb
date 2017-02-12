@@ -1,15 +1,14 @@
 class Pugixml < Formula
   desc "Light-weight C++ XML processing library"
   homepage "http://pugixml.org"
-  url "https://github.com/zeux/pugixml/releases/download/v1.7/pugixml-1.7.tar.gz"
-  sha256 "fbe10d46f61d769f7d92a296102e4e2bd3ee16130f11c5b10a1aae590ea1f5ca"
+  url "https://github.com/zeux/pugixml/releases/download/v1.8.1/pugixml-1.8.1.tar.gz"
+  sha256 "00d974a1308e85ca0677a981adc1b2855cb060923181053fb0abf4e2f37b8f39"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "03ed2cba1e134f863836877d8a328ec9a3a65097c9815618adef6e8fb26c501d" => :sierra
-    sha256 "c21e9b8750463c6b5e232c40e695095327fc8afe855d8b8e149d4ea0eccc204d" => :el_capitan
-    sha256 "400c5afde63177b4a7c40d665a3a052d1e10ddfdc69c5d5ee97c2542fc1117b5" => :yosemite
-    sha256 "6d0abed138bda13d447f4f800f4d0154efb5d34315bbe6f2d49193bac410409c" => :mavericks
+    sha256 "4424c7e5154752886226e91bc8bd7a404079062d0705816533b1a86181fa95d6" => :sierra
+    sha256 "13495a332f3e2ba56148b936d42034d55373ade74af0c41f0c77feb52038ea43" => :el_capitan
+    sha256 "b2b7594b9fb20bda5ed45324ef815af60617673d6f86e066fbd988a8f82a0c16" => :yosemite
   end
 
   option "with-shared", "Build shared instead of static library"
@@ -18,30 +17,9 @@ class Pugixml < Formula
 
   def install
     shared = (build.with? "shared") ? "ON" : "OFF"
-
-    args = std_cmake_args
-    args << "-DBUILD_SHARED_LIBS=#{shared}"
-
-    cd "scripts" do
-      system "cmake", ".", *args
-      system "make", "install"
-    end
-
-    (lib/"pkgconfig/pugixml.pc").write pc_file
-  end
-
-  def pc_file; <<-EOS.undent
-    prefix=#{HOMEBREW_PREFIX}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${exec_prefix}/include
-
-    Name: pugixml
-    Description: Pugixml is a light-weight C++ XML processing library
-    Version: 1.7
-    Libs: -L${libdir} -lpugixml
-    Cflags: -I${includedir}
-    EOS
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=#{shared}",
+                         "-DBUILD_PKGCONFIG=ON", *std_cmake_args
+    system "make", "install"
   end
 
   test do
@@ -63,7 +41,9 @@ class Pugixml < Formula
       <root>Hello world!</root>
     EOS
 
-    system ENV.cc, "test.cpp", "-L#{lib}", "-lpugixml", "-lstdc++", "-o", "test"
+    system ENV.cc, "test.cpp", "-o", "test", "-lstdc++",
+                               "-L#{Dir["#{lib}/pug*"].first}", "-lpugixml",
+                               "-I#{include.children.first}"
     system "./test"
   end
 end

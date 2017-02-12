@@ -3,11 +3,13 @@ class Sshguard < Formula
   homepage "http://www.sshguard.net/"
   url "https://downloads.sourceforge.net/project/sshguard/sshguard/1.7.1/sshguard-1.7.1.tar.gz"
   sha256 "2e527589c9b33219222d827dff63974229d044de945729aa47271c4a29aaa195"
+  version_scheme 1
 
   bottle do
-    sha256 "d6f1bf7fcecbafccb4dcf20d14ea4a95d41ee53243f6f4134fc21f3b11adfef9" => :sierra
-    sha256 "47da62caca4dd60c8d9a336d0d31d2af52a7fb96da13a166020584f542293897" => :el_capitan
-    sha256 "e465030c2b2b0d1695a5296f6866cd14fbfcb78759777ac04610e9446ca1da4c" => :yosemite
+    rebuild 2
+    sha256 "53632d2d0342927a1a7f03333db69ba4c48959d06397588485c170839530711f" => :sierra
+    sha256 "66170f748cb7f94d4d6f85b6e9a5caca4dfba074641587614c948f1feccf4031" => :el_capitan
+    sha256 "ac7d61e2bf2adb13185b55c5afdc8647c3842328b8ec379995acdfa99105f46c" => :yosemite
   end
 
   depends_on "automake" => :build

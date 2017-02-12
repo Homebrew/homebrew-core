@@ -3,27 +3,37 @@ require "language/go"
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/0.15.5.tar.gz"
-  sha256 "b9d3f6e56f538079ac1237c4d2ec260cbe6ad0cea1c214588187447ec3e44607"
+  url "https://github.com/junegunn/fzf/archive/0.16.4.tar.gz"
+  sha256 "294034747b0739d716d88670e830a97080fb73b8d6172b2ae695074316903e8a"
   head "https://github.com/junegunn/fzf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18816c5565e187b7df3b1b8fea407398f042a34a9792b1889328ab14d48b3b78" => :sierra
-    sha256 "1106c94fb17b606ff372e4fe105570ae39c7cd8eb84cf94daa3343f2aa5063ed" => :el_capitan
-    sha256 "6ba3b315d3ecf180102138b4863a4386a6968da83ae496a008a9d25770c612e4" => :yosemite
+    sha256 "89f957bbe88f674b70254dcef6ddf414cf6937f2c458bd411178b719d3d84b49" => :sierra
+    sha256 "bb277992fc803da8fd4ae7a8a68feb0cf62afe9f3572404eda70064b89804fab" => :el_capitan
+    sha256 "4c1250d8317f565131957283ec23f0a5be4fc173b8ea9b9a19da75ffa6380873" => :yosemite
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/junegunn/go-shellwords" do
-    url "https://github.com/junegunn/go-shellwords.git",
-        :revision => "35d512af75e283aae4ca1fc3d44b159ed66189a4"
+  go_resource "github.com/junegunn/go-isatty" do
+    url "https://github.com/junegunn/go-isatty.git",
+        :revision => "66b8e73f3f5cda9f96b69efd03dd3d7fc4a5cdb8"
   end
 
   go_resource "github.com/junegunn/go-runewidth" do
     url "https://github.com/junegunn/go-runewidth.git",
-        :revision => "63c378b851290989b19ca955468386485f118c65"
+        :revision => "14207d285c6c197daabb5c9793d63e7af9ab2d50"
+  end
+
+  go_resource "github.com/junegunn/go-shellwords" do
+    url "https://github.com/junegunn/go-shellwords.git",
+        :revision => "33bd8f1ebe16d6e5eb688cc885749a63059e9167"
+  end
+
+  go_resource "golang.org/x/crypto" do
+    url "https://go.googlesource.com/crypto.git",
+        :revision => "abc5fa7ad02123a41f02bf1391c9760f7586e608"
   end
 
   def install

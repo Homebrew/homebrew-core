@@ -21,7 +21,7 @@ class Aqbanking < Formula
   depends_on "ktoblzcheck" => :recommended
 
   def install
-    ENV.j1
+    ENV.deparallelize
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

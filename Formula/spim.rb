@@ -2,24 +2,27 @@ class Spim < Formula
   desc "MIPS32 simulator"
   homepage "http://spimsimulator.sourceforge.net/"
   # No source code tarball exists
-  url "http://svn.code.sf.net/p/spimsimulator/code", :revision => 641
-  version "9.1.13"
+  url "http://svn.code.sf.net/p/spimsimulator/code", :revision => 681
+  version "9.1.17"
 
   bottle do
-    rebuild 1
-    sha256 "aa31b3d73125cc4ad1496a47bcc05ea1db9118348cc44dddfd309e71a70ae3b5" => :sierra
-    sha256 "952957b4ebb8b3246378a8c23acde68119659696b781a8e942da63f53a58a982" => :el_capitan
-    sha256 "c8664fba396b594ee3fce19490d7e61aa4f1e49b32073289d231309ae168d29c" => :yosemite
-    sha256 "008ff237c1a94bcf665a99717ff2ded724cbbdf7585eddc93c8000efab790222" => :mavericks
+    sha256 "f7088896690bf5d131b89b101f7e6a56dcb927c7be741a92d3041a5943130e5c" => :sierra
+    sha256 "8e3b92783684c8e0e2fa55d1dc748579a496b545d4ec53f2b3d4832ac11da95b" => :el_capitan
+    sha256 "f8e4dbc74c5261a24df6913d496d002b9a8e597b0fe4a738f42adbb042ef6a80" => :yosemite
   end
 
   def install
     bin.mkpath
     cd "spim" do
       system "make", "EXCEPTION_DIR=#{share}"
+      system "make", "test"
       system "make", "install", "BIN_DIR=#{bin}",
                                 "EXCEPTION_DIR=#{share}",
                                 "MAN_DIR=#{man1}"
     end
+  end
+
+  test do
+    assert_match "__start", pipe_output("#{bin}/spim", "print_symbols")
   end
 end

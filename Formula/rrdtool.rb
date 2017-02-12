@@ -23,16 +23,12 @@ class Rrdtool < Formula
   depends_on "pango"
   depends_on "lua" => :optional
 
-  env :userpaths # For perl, ruby
-
   # Ha-ha, but sleeping is annoying when running configure a lot
   patch :DATA
 
   def install
     # fatal error: 'ruby/config.h' file not found
     ENV.delete("SDKROOT")
-
-    ENV.libxml2
 
     args = %W[
       --disable-dependency-tracking

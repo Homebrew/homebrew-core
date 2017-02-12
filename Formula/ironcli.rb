@@ -1,14 +1,14 @@
 class Ironcli < Formula
   desc "Go version of the Iron.io command-line tools"
   homepage "https://github.com/iron-io/ironcli"
-  url "https://github.com/iron-io/ironcli/archive/0.1.3.tar.gz"
-  sha256 "7fc530da947b31ba3a60e74a065deac5a88cb1a4c34dc7835998645816894af1"
+  url "https://github.com/iron-io/ironcli/archive/0.1.4.tar.gz"
+  sha256 "5ca1dee3732ae679353872b6be5fe9aa7e6119892fb477241c95a2546e140067"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ecae4943c3a6a2827c8d34cc75173f0ac816c2221ecab05804f88b8c48a849d4" => :sierra
-    sha256 "7020a17bdbe63f9685c4e3e8407599f41faa1484572103bdc8e73f524cef7e15" => :el_capitan
-    sha256 "816e9831e6f00e9f919cb2c5e2b0744f12d32ab846e0627d8a1ed89b2180287f" => :yosemite
+    sha256 "a243445511d08268bac87dc4ee042366e9cb7ea5ded3a011431150b06b4dc894" => :sierra
+    sha256 "0382a73bd8168bcc4dfefb7710e7d377f62e49e15b83aa6ded26284a51be63b8" => :el_capitan
+    sha256 "2525bf5e2917ccf70c17c920739aaac88353390ba7ad15068c3963d2c5838389" => :yosemite
   end
 
   depends_on "go" => :build

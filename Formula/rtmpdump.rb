@@ -16,14 +16,9 @@ class Rtmpdump < Formula
     sha256 "f4c8dbdf3f8a04626a7975abf96eccd5e494a3f6a795b2035c6d418bfbe8079d" => :mavericks
   end
 
-  conflicts_with "flvstreamer", :because => "both install 'rtmpsrv', 'rtmpsuck' and 'streams' binary"
-
   depends_on "openssl"
 
-  fails_with :llvm do
-    build 2336
-    cause "Crashes at runtime"
-  end
+  conflicts_with "flvstreamer", :because => "both install 'rtmpsrv', 'rtmpsuck' and 'streams' binary"
 
   def install
     ENV.deparallelize

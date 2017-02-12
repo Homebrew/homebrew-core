@@ -1,39 +1,38 @@
 class Gwt < Formula
   desc "Google web toolkit"
   homepage "http://www.gwtproject.org/"
-  url "https://storage.googleapis.com/gwt-releases/gwt-2.7.0.zip"
-  sha256 "aa65061b73836190410720bea422eb8e787680d7bc0c2b244ae6c9a0d24747b3"
+  url "https://storage.googleapis.com/gwt-releases/gwt-2.8.0.zip"
+  sha256 "30da954f719efd9184dbb42d702078758455ab404d8b68ded517ed329a96f778"
 
   bottle :unneeded
 
   def install
     rm Dir["*.cmd"] # remove Windows cmd files
-    share.install Dir["*"]
+    libexec.install Dir["*"]
 
     # Don't use the GWT scripts because they expect the GWT jars to
     # be in the same place as the script.
     (bin/"webAppCreator").write <<-EOS.undent
       #!/bin/sh
-      HOMEDIR=#{share}
+      HOMEDIR=#{libexec}
       java -cp "$HOMEDIR/gwt-user.jar:$HOMEDIR/gwt-dev.jar" com.google.gwt.user.tools.WebAppCreator "$@";
     EOS
 
     (bin/"benchmarkViewer").write <<-EOS.undent
       #!/bin/sh
-      APPDIR=#{share}
+      APPDIR=#{libexec}
       java -Dcom.google.gwt.junit.reportPath="$1" -cp "$APPDIR/gwt-dev.jar" com.google.gwt.dev.RunWebApp -port auto $APPDIR/gwt-benchmark-viewer.war;
     EOS
 
     (bin/"i18nCreator").write <<-EOS.undent
       #!/bin/sh
-      HOMEDIR=#{share}
+      HOMEDIR=#{libexec}
       java -cp "$HOMEDIR/gwt-user.jar:$HOMEDIR/gwt-dev.jar" com.google.gwt.i18n.tools.I18NCreator "$@";
     EOS
   end
 
-  def caveats
-    <<-EOS.undent
-      The GWT jars are available at #{share}
-    EOS
+  test do
+    system bin/"webAppCreator", "sh.brew.test"
+    assert_predicate testpath/"src/sh/brew/test.gwt.xml", :exist?
   end
 end

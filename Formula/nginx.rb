@@ -1,20 +1,19 @@
 class Nginx < Formula
   desc "HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server"
   homepage "https://nginx.org/"
-  url "https://nginx.org/download/nginx-1.10.2.tar.gz"
-  sha256 "1045ac4987a396e2fa5d0011daf8987b612dd2f05181b67507da68cbe7d765c2"
-  revision 1
+  url "https://nginx.org/download/nginx-1.10.3.tar.gz"
+  sha256 "75020f1364cac459cb733c4e1caed2d00376e40ea05588fb8793076a4c69dd90"
   head "http://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "8e8c8176dc0377276ccdbedaf61fdbbf81098e630f4af5b777877da811d21d63" => :sierra
-    sha256 "fa41824e622a07f77636c3d578df46c3d365d2006cdfb1815a051b995ea91c2a" => :el_capitan
-    sha256 "6becf4816b1c9392bc5ce71c5e157e2648e95955509663bd5f07ff68b18e6fcb" => :yosemite
+    sha256 "365060465e5306d95ba6c2fb3d4463f9a343dfd2b5b2aa7e904372842834dfea" => :sierra
+    sha256 "5d6e5cde3a9ee66fca63e3c0c7988bfbc2db606729cfd220550f2433a6932a98" => :el_capitan
+    sha256 "39896b77f0ada05c5a01ac481023429a7baf09097cf5992a3db2d68cc6b7069f" => :yosemite
   end
 
   devel do
-    url "https://nginx.org/download/nginx-1.11.5.tar.gz"
-    sha256 "223f8a2345a75f891098cf26ccdf208b293350388f51ce69083674c9432db6f6"
+    url "https://nginx.org/download/nginx-1.11.9.tar.gz"
+    sha256 "dc22b71f16b551705930544dc042f1ad1af2f9715f565187ec22c7a4b2625748"
   end
 
   # Before submitting more options to this formula please check they aren't
@@ -29,8 +28,15 @@ class Nginx < Formula
   deprecated_option "with-spdy" => "with-http2"
 
   depends_on "pcre"
-  depends_on "openssl@1.1"
   depends_on "passenger" => :optional
+
+  # passenger uses apr, which uses openssl, so need to keep
+  # crypto library choice consistent throughout the tree.
+  if build.with? "passenger"
+    depends_on "openssl"
+  else
+    depends_on "openssl@1.1"
+  end
 
   def install
     # Changes default port to 8080
@@ -40,7 +46,12 @@ class Nginx < Formula
     end
 
     pcre = Formula["pcre"]
-    openssl = Formula["openssl@1.1"]
+
+    if build.with? "passenger"
+      openssl = Formula["openssl"]
+    else
+      openssl = Formula["openssl@1.1"]
+    end
 
     cc_opt = "-I#{pcre.opt_include} -I#{openssl.opt_include}"
     ld_opt = "-L#{pcre.opt_lib} -L#{openssl.opt_lib}"

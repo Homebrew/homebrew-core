@@ -5,8 +5,6 @@ class Libantlr3c < Formula
   sha256 "ca914a97f1a2d2f2c8e1fca12d3df65310ff0286d35c48b7ae5f11dcc8b2eb52"
   revision 1
 
-  option "without-exceptions", "Compile without support for exception handling"
-
   bottle do
     cellar :any
     sha256 "a5e779c431e16bdaab829c774468ce11f8e7ea359412800e294433b011704541" => :sierra
@@ -15,6 +13,8 @@ class Libantlr3c < Formula
     sha256 "010c3866a3c183b10dec76f845ce826a26a5a384074f8c56f41abeb9e4aa6e77" => :mavericks
     sha256 "e734361de9f3f5d81b0a0224cfcb561806fed5b1d5dbeeb86bd2131754aa993d" => :mountain_lion
   end
+
+  option "without-exceptions", "Compile without support for exception handling"
 
   def install
     args = ["--disable-dependency-tracking",

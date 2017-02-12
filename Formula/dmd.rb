@@ -3,29 +3,29 @@ class Dmd < Formula
   homepage "https://dlang.org/"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.072.0.tar.gz"
-    sha256 "a5fc4f4310a757b732634cbb0695f65fdd149201f6d1f3d7d9e3fa809e797803"
+    url "https://github.com/dlang/dmd/archive/v2.073.0.tar.gz"
+    sha256 "61483ea2c395341d05e65ce7e08a978cceff33ed3818f9ffa009a2f2da6929d5"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.072.0.tar.gz"
-      sha256 "5b1b9c2e55ff6c7bc7e4e14cfe44b83aab7946b15fb12880327b5c7cbba9cc6e"
+      url "https://github.com/dlang/druntime/archive/v2.073.0.tar.gz"
+      sha256 "542adeac69b93c728a3760273d8d50ec43bf609736c526a58976b3822d5aa883"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.072.0.tar.gz"
-      sha256 "79d4a5597e30ce0cfd3c094fa176f259bcdbc5994f86ab4cb530280cd44a2459"
+      url "https://github.com/dlang/phobos/archive/v2.073.0.tar.gz"
+      sha256 "2a0176039fcfcd6c05eff5f471e7659c2d368a8b2cd7f7de323d49d3d8b45782"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.072.0.tar.gz"
-      sha256 "671a44d58b7adc0d09ff0addb275028b373fa9cbb21e44f9ef269d5e428be2cf"
+      url "https://github.com/dlang/tools/archive/v2.073.0.tar.gz"
+      sha256 "fbc04a5521eac7a25d9f210a44d9ae9b6843466ae4560f9dafe29d65771c2e06"
     end
   end
 
   bottle do
-    sha256 "4e8247bbb15fbafda93eeda27218876ee367985ec616efa3cbec1a24a901f032" => :sierra
-    sha256 "a062c5ba9abc729243def47bc5bf5f33bf915519752ce063739be2483c7d4809" => :el_capitan
-    sha256 "160b069a1e89134d622cfd1fdf8106deb95f44b200fb8a76b00fb0183f2c5a22" => :yosemite
+    sha256 "59ea4775ead963332333068e070b4456df008c36bc31cd8600c8caac310d72fa" => :sierra
+    sha256 "dabf9f179337f76b82ac2940fa1de106141d3e8a1e11f331658c998fc03f714d" => :el_capitan
+    sha256 "6cf60c26e372805784388702ebdc87457a3c86da5e3b5d69a5f3b84e08579c72" => :yosemite
   end
 
   head do
@@ -46,11 +46,6 @@ class Dmd < Formula
 
   def install
     make_args = ["INSTALL_DIR=#{prefix}", "MODEL=#{Hardware::CPU.bits}", "-f", "posix.mak"]
-
-    # VERSION file is wrong upstream, has happened before, so we just overwrite it here.
-    version_file = (buildpath/"VERSION")
-    rm version_file
-    version_file.write version
 
     system "make", "SYSCONFDIR=#{etc}", "TARGET_CPU=X86", "AUTO_BOOTSTRAP=1", "RELEASE=1", *make_args
 

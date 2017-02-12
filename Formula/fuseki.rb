@@ -1,18 +1,15 @@
 class Fuseki < Formula
   desc "SPARQL server"
   homepage "https://jena.apache.org/documentation/serving_data/"
-  url "https://archive.apache.org/dist/jena/binaries/jena-fuseki1-1.1.2-distribution.tar.gz"
-  version "1.1.2"
-  sha256 "78bd92b4e32f9e918d89946d11aed9789416f4058b127af60b251b4a8636b5f0"
+  url "https://archive.apache.org/dist/jena/binaries/jena-fuseki1-1.4.0-distribution.tar.gz"
+  version "1.4.0"
+  sha256 "8f0cfa13d9a94df9dfb5a424177a0d3d9873b605e0ae610ba6e5f3d30f06f9bf"
 
   bottle :unneeded
 
   def install
     # Remove windows files
     rm_f "fuseki-server.bat"
-
-    # Remove init.d script to avoid confusion
-    rm "fuseki"
 
     # Write the installation path into the wrapper shell script
     inreplace "fuseki-server" do |s|
@@ -21,7 +18,7 @@ class Fuseki < Formula
     end
 
     # Install and symlink wrapper binaries into place
-    libexec.install "fuseki-server"
+    libexec.install "fuseki-server", "fuseki"
     bins = ["s-delete", "s-get", "s-head", "s-post", "s-put", "s-query", "s-update", "s-update-form"]
     chmod 0755, bins
     libexec.install bins
@@ -39,8 +36,9 @@ class Fuseki < Formula
     prefix.install "config-examples.ttl", "config-inf-tdb.ttl", "config-tdb-text.ttl", "config-tdb.ttl"
 
     prefix.install "Data"
-    prefix.install "ReleaseNotes.txt"
   end
+
+  plist_options :manual => "fuseki start"
 
   def caveats; <<-EOS.undent
     Quick-start guide:

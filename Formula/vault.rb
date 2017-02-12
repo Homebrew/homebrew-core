@@ -7,16 +7,18 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      :tag => "v0.6.2",
-      :revision => "22619b6786724c8eca5340a63395bf3058e1e3f7"
+      :tag => "v0.6.5",
+      :revision => "5d8d702f33b5fd965cbe8d6d0728295de813a196"
   head "https://github.com/hashicorp/vault.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bc7bff90d88fcfce5fcb807351bfa3192f32f0f21c2b73b27bd3f93282cd74f5" => :sierra
-    sha256 "aa17241a6539696efca21f13f6a71f55fe93b0336205e08edd8d42fb1f78f0be" => :el_capitan
-    sha256 "2dc0195cf0aaae3a9508fa2e8312ad9211a2f7b0880ed939b81473714dba1757" => :yosemite
+    sha256 "ebdc9a1bac7fa49802e5dd2e9b1812c571693bf4039e4569a32635e8127bd2d9" => :sierra
+    sha256 "79a6b983b01a8226a34c7253f98faaa09c8add0fa2e334c6d45857d06492f91c" => :el_capitan
+    sha256 "a38069074a345578060faa9716d80191ac6c36e567cc2b79678b151e712f9dc9" => :yosemite
   end
+
+  option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"
 
   depends_on "go" => :build
 
@@ -45,7 +47,8 @@ class Vault < Formula
     end
 
     cd "src/github.com/hashicorp/vault" do
-      system "make", "dev"
+      target = build.with?("dynamic") ? "dev-dynamic" : "dev"
+      system "make", target
       bin.install "bin/vault"
       prefix.install_metafiles
     end

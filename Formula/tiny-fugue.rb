@@ -1,6 +1,6 @@
 class TinyFugue < Formula
   desc "Programmable MUD client"
-  homepage "http://tinyfugue.sourceforge.net/"
+  homepage "https://tinyfugue.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/tinyfugue/tinyfugue/5.0%20beta%208/tf-50b8.tar.gz"
   version "5.0b8"
   sha256 "3750a114cf947b1e3d71cecbe258cb830c39f3186c369e368d4662de9c50d989"
@@ -13,11 +13,11 @@ class TinyFugue < Formula
     sha256 "0d7db7bf7a3744de5cb572c013da516e98b5d6ed911a2f3bf4e0a028a160fd04" => :mavericks
   end
 
-  conflicts_with "tee-clc", :because => "both install a `tf` binary"
-
   depends_on "libnet"
   depends_on "openssl"
   depends_on "pcre"
+
+  conflicts_with "tee-clc", :because => "both install a `tf` binary"
 
   # pcre deprecated pcre_info. Switch to HB pcre-8.31 and pcre_fullinfo.
   # Not reported upstream; project is in stasis since 2007.

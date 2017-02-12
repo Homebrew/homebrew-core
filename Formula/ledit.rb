@@ -3,14 +3,13 @@ class Ledit < Formula
   homepage "http://pauillac.inria.fr/~ddr/ledit/"
   url "http://pauillac.inria.fr/~ddr/ledit/distrib/src/ledit-2.03.tgz"
   sha256 "ce08a8568c964009ccb0cbba45ae78b9a96c823f42a4fd61431a5b0c2c7a19ce"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "39ec89e6a2bd3e584fbf04344e5d001d1554d3baffc16e52487faf2ccf788748" => :sierra
-    sha256 "5046bdcbf4e86ff4d8f5788366b88b50bf4d327a1dfd96b51da14bb48eaba9ef" => :el_capitan
-    sha256 "7ea1c26486320fc35269fa7bf2a1dd577f504a04ac3dca3278c568224661e99e" => :yosemite
-    sha256 "a5d80c1e40de9d3d8ab06ca88e412fc3d5e105d99f2439ef62b063eed3efb4e5" => :mavericks
-    sha256 "338e160cde4ece1c167ec07e8b202f599ba0267ac5c3b6ca896b569067cb2e20" => :mountain_lion
+    sha256 "19a3c01773ed5cfa28d3b3cf144d3c21f26f5e716bfa0b446115c11fad4ab3ba" => :sierra
+    sha256 "d863f55875afb7efd6ccce5ace4c5722c1c62fe50c474231a3f406630aeb5cad" => :el_capitan
+    sha256 "5ba23ccff679120de626f8287bae7bfd6d5d0ffc2b97b1e0f559d62f1cf05c8e" => :yosemite
   end
 
   depends_on "ocaml"

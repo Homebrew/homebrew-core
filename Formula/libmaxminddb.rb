@@ -20,9 +20,9 @@ class Libmaxminddb < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "geoipupdate" => :optional
-
   option :universal
+
+  depends_on "geoipupdate" => :optional
 
   def install
     ENV.universal_binary if build.universal?

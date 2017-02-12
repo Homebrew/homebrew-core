@@ -1,15 +1,14 @@
 class Telegraf < Formula
   desc "Server-level metric gathering agent for InfluxDB"
   homepage "https://influxdata.com"
-  url "https://github.com/influxdata/telegraf/archive/1.0.1.tar.gz"
-  sha256 "12fa64354ccd5fcac1ae30e38eda18090e0f6b674b62207dccf7d8920a19a535"
+  url "https://github.com/influxdata/telegraf/archive/1.2.0.tar.gz"
+  sha256 "56864fa9a00afc13b5aa6054ac731b9522dad47bdb74c18c9ad1760360b69c96"
   head "https://github.com/influxdata/telegraf.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "df4684f79dccbd19af8c5ec8740b191fa4678689db5e2f16ba2bc05812dde44a" => :sierra
-    sha256 "79a35597e2e29fa18558a396d712753abcf430db9481a30ffbf560dc7f87de26" => :el_capitan
-    sha256 "f72d03ac54b46d4d9e70532e91505aa0db9aa0ff77344f32663bfcc151e96997" => :yosemite
+    sha256 "2beb4b969faff604aad705179c0815868afee13355343b8501b5420a97b189d5" => :sierra
+    sha256 "63cf88925b48888246949db95fc1718f2cbb998499c444760832b04b0b1e7421" => :el_capitan
+    sha256 "ecacbd792a7a085799d8882546e3b8027c4b354c15441779a83d394a6f9a9d6b" => :yosemite
   end
 
   depends_on "gdm" => :build
@@ -70,7 +69,7 @@ class Telegraf < Formula
 
   test do
     (testpath/"config.toml").write shell_output("#{bin}/telegraf -sample-config")
-    system "telegraf", "-config", testpath/"config.toml", "-test",
+    system "#{bin}/telegraf", "-config", testpath/"config.toml", "-test",
            "-input-filter", "cpu:mem"
   end
 end

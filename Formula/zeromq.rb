@@ -1,14 +1,14 @@
 class Zeromq < Formula
   desc "High-performance, asynchronous messaging library"
   homepage "http://www.zeromq.org/"
-  url "https://github.com/zeromq/zeromq4-1/releases/download/v4.1.6/zeromq-4.1.6.tar.gz"
-  sha256 "02ebf60a43011e770799336365bcbce2eb85569e9b5f52aa0d8cc04672438a0a"
+  url "https://github.com/zeromq/libzmq/releases/download/v4.2.1/zeromq-4.2.1.tar.gz"
+  sha256 "27d1e82a099228ee85a7ddb2260f40830212402c605a4a10b5e5498a7e0e9d03"
 
   bottle do
     cellar :any
-    sha256 "645c9105c89e648da736ce466dccbdf9b87c3b3a6cd6d57d7d7ca43876661232" => :sierra
-    sha256 "b7dcf178923f7f1e47f69c2d01ca8b810e5b22c23f1af9dc9c88765e3fbe3d26" => :el_capitan
-    sha256 "78c24719c7c8dbba157ca225b41d515190281eb27549caaa60a359ec9f33e3f1" => :yosemite
+    sha256 "d8b1da1fd80b65b8191fab4a4b85a18ee3c7433003976c1b64a45459fef47d6b" => :sierra
+    sha256 "608d38f13244719f644cb59bb5614b00a48001f703801e3d6513dbd38d4c7f62" => :el_capitan
+    sha256 "ba979f5d38b74b8a6dba6913af31670a54cca835a030d4a998ef09b00675f82f" => :yosemite
   end
 
   head do
@@ -22,32 +22,30 @@ class Zeromq < Formula
   option :universal
   option "with-libpgm", "Build with PGM extension"
   option "with-norm", "Build with NORM extension"
+  option "with-drafts", "Build and install draft classes and methods"
 
   deprecated_option "with-pgm" => "with-libpgm"
 
+  depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
+  depends_on "xmlto" => :build
   depends_on "libpgm" => :optional
   depends_on "libsodium" => :optional
   depends_on "norm" => :optional
 
   def install
     ENV.universal_binary if build.universal?
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
-    if build.with? "libpgm"
-      # Use HB libpgm-5.2 because their internal 5.1 is b0rked.
-      ENV["pgm_CFLAGS"] = `pkg-config --cflags openpgm-5.2`.chomp
-      ENV["pgm_LIBS"] = `pkg-config --libs openpgm-5.2`.chomp
-      args << "--with-pgm"
-    end
 
-    if build.with? "libsodium"
-      args << "--with-libsodium"
-    else
-      args << "--without-libsodium"
-    end
-
+    args << "--with-pgm" if build.with? "libpgm"
+    args << "--with-libsodium" if build.with? "libsodium"
     args << "--with-norm" if build.with? "norm"
+    args << "--enable-drafts" if build.with?("drafts")
+
+    ENV["LIBUNWIND_LIBS"] = "-framework System"
+    ENV["LIBUNWIND_CFLAGS"] = "-I#{MacOS.sdk_path}/usr/include"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args

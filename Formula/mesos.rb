@@ -1,19 +1,19 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.0.1/mesos-1.0.1.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/1.0.1/mesos-1.0.1.tar.gz"
-  sha256 "e053d97192ca1dd949e07e6e34cca0f28af9767cdff5ec984769b2102017b0c1"
+  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.1.0/mesos-1.1.0.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/1.1.0/mesos-1.1.0.tar.gz"
+  sha256 "0f6d591eff78483e07bee93aed4553c69064f7870b216817a0085def3569b2c1"
 
   bottle do
-    sha256 "71559d903c2c5677dbf6f4fd5d8e87136f35a094f194fa112d88043a99bf63cf" => :sierra
-    sha256 "95464c86a67e1af673af595537e7af770854e59fa864f53f89ef8048d3cad54f" => :el_capitan
-    sha256 "6a94003af55afa369e40b3996f1b4bfce9a2ca9b8ee1d874d34d61b52a3b88e7" => :yosemite
+    sha256 "3094eac6ece7fe9598ba1f74d2b15bf1d05bdbd647d2bcbdc0604976d3b1b0f3" => :sierra
+    sha256 "b25c4832b362136ddf9082d76931b80a0661312c2f10b5fb5f239e46f780a3db" => :el_capitan
+    sha256 "eee65288bb9e3cd0b85ae9dcd03da021e179f57a0b589cce9e989a432fc22973" => :yosemite
   end
 
   depends_on :java => "1.7+"
   depends_on :macos => :mountain_lion
-  depends_on :apr => :build
+  depends_on "apr-util" => :build
   depends_on "maven" => :build
   depends_on "subversion"
 
@@ -97,7 +97,7 @@ class Mesos < Formula
     ]
 
     unless MacOS::CLT.installed?
-      args << "--with-apr=#{Formula["apr"].opt_libexec}"
+      args << "--with-apr=#{Formula["apr-util"].opt_libexec}"
     end
 
     ENV.cxx11

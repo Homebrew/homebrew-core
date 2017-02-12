@@ -3,12 +3,12 @@ class Dwdiff < Formula
   homepage "http://os.ghalkes.nl/dwdiff.html"
   url "http://os.ghalkes.nl/dist/dwdiff-2.1.0.tar.bz2"
   sha256 "45308f2f07c08c75c6ebd1eae3e3dcf7f836e5af1467cefc1b4829777c07743a"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "61ed66575054baf4339b1a6e9cfbf9a1d481d939e68d2b5fc588a5d1f5466c34" => :sierra
-    sha256 "263391e58e0478dce8d8e4074a4cd3b55943547b7a6525141a2f65c3bc9caabc" => :el_capitan
-    sha256 "54f5983c578d66a8fd1ae74e4c6b1b023d82523f87d061c17e3bf65b74d29872" => :yosemite
+    sha256 "1e89cad649d9fface636f7d810d728c1a7777f02ca2706dcdf1e176e1b1af9e6" => :sierra
+    sha256 "62f0c751c4eaad4f4983bdbf216f361365b632817c25e22717fdde311da98c6e" => :el_capitan
+    sha256 "a61909de2542b39ccb1072286887d3de6da4fac9310cfd062dbbf964184f6cd2" => :yosemite
   end
 
   depends_on "gettext"

@@ -1,17 +1,16 @@
 class Librdkafka < Formula
   desc "The Apache Kafka C/C++ library"
   homepage "https://github.com/edenhill/librdkafka"
-  url "https://github.com/edenhill/librdkafka/archive/0.9.1.tar.gz"
-  sha256 "5ad57e0c9a4ec8121e19f13f05bacc41556489dfe8f46ff509af567fdee98d82"
+  url "https://github.com/edenhill/librdkafka/archive/v0.9.3.tar.gz"
+  sha256 "745ead036f0d5b732e1cd035a1f31fc23665f2982bf9d799742034e0a1bd0be9"
 
   head "https://github.com/edenhill/librdkafka.git"
 
   bottle do
     cellar :any
-    sha256 "40bc4c4295471e4c9209c28d5b1b3485717e5e310c5fb297e86558853a5178aa" => :sierra
-    sha256 "dd1b9001bfd24f6cdc942fbe6c1b52e992e1e65ff1849962b2528fc8cd5773d5" => :el_capitan
-    sha256 "e516c7b35fb951370b102a73ef89f07fc40884c8f92e4c449c59a6933c32d148" => :yosemite
-    sha256 "a002a4f38bc21030d9c5a69dec3de560ec67ce5e976f80cbcb7cd52fbdfb22f3" => :mavericks
+    sha256 "24fa8334f54dff2cca4dfec93352550de92ee0f38ab4fc04c9fdf69c5968af59" => :sierra
+    sha256 "79253c4ca04908ec37e171c191138ebbe9dc7376971b0de29d57599b13d84e74" => :el_capitan
+    sha256 "1d42f6ff44c79b0a94475e6f5c216a63c8edffc4fd779b106ba7c1ad1dd45a96" => :yosemite
   end
 
   depends_on "pkg-config" => :build

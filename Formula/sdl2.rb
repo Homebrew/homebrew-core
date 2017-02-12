@@ -6,9 +6,10 @@ class Sdl2 < Formula
 
   bottle do
     cellar :any
-    sha256 "dd9b949459f217f2cd2c432e48fee2ba8a0035ffbce6c01ce0c35018691325d0" => :sierra
-    sha256 "2bb9bcf7da27c98413d7e54df03b89e75eb5118079d4b57dd4e06019b41e3c61" => :el_capitan
-    sha256 "cc4d5280aa614e389c1b6be3bf9430dbf97712ae8af492e3adbb4c496aec4068" => :yosemite
+    rebuild 1
+    sha256 "69c56053fd1246671263129fa4df611c6137bc59f75b95b81695ff4223b11d6f" => :sierra
+    sha256 "9dfa30c355fc8b7eafda55004a0bd201c06c18dd64a33ac1cb6308534f6dd3bc" => :el_capitan
+    sha256 "adc5a228885785a39e437bc51177df9b35aeade907af642a9d6885fca0b20443" => :yosemite
   end
 
   head do
@@ -19,6 +20,7 @@ class Sdl2 < Formula
     depends_on "libtool" => :build
   end
 
+  option "with-test", "Compile and install the tests"
   option :universal
 
   # https://github.com/mistydemeo/tigerbrew/issues/361
@@ -42,7 +44,7 @@ class Sdl2 < Formula
     args = %W[--prefix=#{prefix}]
 
     # LLVM-based compilers choke on the assembly code packaged with SDL.
-    if ENV.compiler == :llvm || (ENV.compiler == :clang && DevelopmentTools.clang_build_version < 421)
+    if ENV.compiler == :clang && DevelopmentTools.clang_build_version < 421
       args << "--disable-assembly"
     end
     args << "--without-x"
@@ -50,6 +52,34 @@ class Sdl2 < Formula
 
     system "./configure", *args
     system "make", "install"
+
+    if build.with? "test"
+      ENV.prepend_path "PATH", bin
+      # We need the build to point at the newly-built (not yet linked) copy of SDL.
+      inreplace bin/"sdl2-config", "prefix=#{HOMEBREW_PREFIX}", "prefix=#{prefix}"
+      cd "test" do
+        # These test source files produce binaries which by default will reference
+        # some sample resources in the working directory.
+        # Let's point them to the test_extras directory we're about to set up instead!
+        inreplace %w[controllermap.c loopwave.c loopwavequeue.c testmultiaudio.c
+                     testoverlay2.c testsprite2.c],
+                  /"(\w+\.(?:bmp|dat|wav))"/,
+                  "\"#{pkgshare}/test_extras/\\1\""
+        system "./configure", "--without-x"
+        system "make"
+        # Tests don't have a "make install" target
+        (pkgshare/"tests").install %w[checkkeys controllermap loopwave loopwavequeue testaudioinfo
+                                      testerror testfile testgl2 testiconv testjoystick testkeys
+                                      testloadso testlock testmultiaudio testoverlay2 testplatform
+                                      testsem testshape testsprite2 testthread testtimer testver
+                                      testwm2 torturethread]
+        (pkgshare/"test_extras").install %w[axis.bmp button.bmp controllermap.bmp icon.bmp moose.dat
+                                            picture.xbm sample.bmp sample.wav shapes]
+        bin.write_exec_script Dir["#{pkgshare}/tests/*"]
+      end
+      # Point sdl-config back at the normal prefix once we've built everything.
+      inreplace bin/"sdl2-config", "prefix=#{prefix}", "prefix=#{HOMEBREW_PREFIX}"
+    end
   end
 
   test do

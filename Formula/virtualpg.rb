@@ -33,6 +33,6 @@ class Virtualpg < Formula
 
   test do
     # Verify mod_virtualpg extension can be loaded using Homebrew's SQLite
-    system "echo \"SELECT load_extension('#{opt_lib}/mod_virtualpg');\" | #{Formula["sqlite"].opt_bin}/sqlite3"
+    system "echo", "\" SELECT load_extension('#{opt_lib}/mod_virtualpg');\" | #{Formula["sqlite"].opt_bin}/sqlite3"
   end
 end

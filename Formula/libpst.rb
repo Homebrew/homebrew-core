@@ -1,15 +1,14 @@
 class Libpst < Formula
   desc "Utilities for the PST file format"
   homepage "http://www.five-ten-sg.com/libpst/"
-  url "http://www.five-ten-sg.com/libpst/packages/libpst-0.6.66.tar.gz"
-  sha256 "92b49939d821091d9d25e27e17c78dbb867f3f9ab5b8f43e2b01ace0677e1f72"
+  url "http://www.five-ten-sg.com/libpst/packages/libpst-0.6.70.tar.gz"
+  sha256 "19981c0661305d093e7df8cf579662c6157ffb38a7873091cfc9e900fb4667d4"
 
   bottle do
     cellar :any
-    sha256 "b18ba28a201905f6039e2ac7b275ba8975626fb14060c7e62a43cd4d8c48c930" => :sierra
-    sha256 "85e5b6e462c43360ba320bfd0ff8f1df5651071d084204f83c28390a42ee3e8e" => :el_capitan
-    sha256 "8c8a952ce7f839a074bd7948ba90b14598d3e3979e821d9122fb612ddd059d04" => :yosemite
-    sha256 "2fcd9b451d14f8cec5960acc2ac1fa22f9b6f7ce943ab694ece78f52f5a29161" => :mavericks
+    sha256 "19b8a432c26fc588ae5d14bc289a4d988235b8a5b249b4f92ad0ac42432b360c" => :sierra
+    sha256 "2a33a8240ce33640057d771f9c61e5db9d632a62d316d09ef75282491d2703be" => :el_capitan
+    sha256 "bc19125e7bbb6ffa5226fead3f68cca6eaa48c61b8437ae857bb440eb3e70c21" => :yosemite
   end
 
   option "with-pst2dii", "Build pst2dii using gd"

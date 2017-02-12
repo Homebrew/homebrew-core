@@ -1,6 +1,7 @@
 class Gmtl < Formula
   desc "Lightweight math library"
   homepage "http://ggt.sourceforge.net/"
+  head "https://ggt.svn.sourceforge.net/svnroot/ggt/trunk/"
 
   stable do
     url "https://downloads.sourceforge.net/project/ggt/Generic%20Math%20Template%20Library/0.6.1/gmtl-0.6.1.tar.gz"
@@ -20,8 +21,6 @@ class Gmtl < Formula
     sha256 "ffeb26dd58a9b05a4427ca02392f93f9d5b352af790e536e4d2989baa81e4faf" => :mountain_lion
     sha256 "568a43df4aebd32ab9638d2725721b9c062bca0ecb778dbffb67fafd926d4a1a" => :lion
   end
-
-  head "https://ggt.svn.sourceforge.net/svnroot/ggt/trunk/"
 
   depends_on "scons" => :build
 

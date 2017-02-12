@@ -1,22 +1,22 @@
 class Gearman < Formula
   desc "Application framework to farm out work to other machines or processes"
   homepage "http://gearman.org/"
-  url "https://launchpad.net/gearmand/1.2/1.1.12/+download/gearmand-1.1.12.tar.gz"
-  sha256 "973d7a3523141a84c7b757c6f243febbc89a3631e919b532c056c814d8738acb"
+  url "https://github.com/gearman/gearmand/releases/download/1.1.14/gearmand-1.1.14.tar.gz"
+  sha256 "6e01b72cdf386149f689cccd934e79c55851549845f0128683a726ffb3200cd0"
+  revision 1
 
   bottle do
-    rebuild 3
-    sha256 "50c9bebcb8f62390c795106c73e8aeba07e55a5cfa38bd7f64a8e674a6d74855" => :sierra
-    sha256 "041a348b18932ea911a56b8a5db68eb1d939f7a0c4d87ea470b461a4ea7ff5b6" => :el_capitan
-    sha256 "7218d3a80766394055de6107d84f84d32f383a9ba0f41795ce849c7db6c05541" => :yosemite
+    sha256 "f9bd4e2279e915564625b1849b27b7336561b0d5c877088b1bff75143a8b830e" => :sierra
+    sha256 "cccbf026ffe59f7aad043003b0c18812a19b1a3be39b95dedd628fd7ae9b208b" => :el_capitan
+    sha256 "15118dcdc5f51c34b5b9c344d8d93245ab4c6a6273035916f92000f2590d2be4" => :yosemite
   end
 
   option "with-mysql", "Compile with MySQL persistent queue enabled"
   option "with-postgresql", "Compile with Postgresql persistent queue enabled"
 
-  # https://bugs.launchpad.net/gearmand/+bug/1318151 - Still ongoing as of 1.1.12
-  # https://bugs.launchpad.net/gearmand/+bug/1236815 - Still ongoing as of 1.1.12
-  # https://github.com/Homebrew/homebrew/issues/33246 - Still ongoing as of 1.1.12
+  # https://bugs.launchpad.net/gearmand/+bug/1318151 - Still ongoing as of 1.1.14
+  # https://bugs.launchpad.net/gearmand/+bug/1236815 - Still ongoing as of 1.1.14
+  # https://github.com/Homebrew/homebrew/issues/33246 - Still ongoing as of 1.1.14
   patch :DATA
 
   depends_on "pkg-config" => :build
@@ -97,6 +97,10 @@ class Gearman < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    assert_match /gearman\s*Error in usage/, shell_output("#{bin}/gearman --version 2>&1", 1)
   end
 end
 

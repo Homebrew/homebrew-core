@@ -1,16 +1,15 @@
 class Liquigraph < Formula
   desc "Migration runner for Neo4j"
   homepage "http://www.liquigraph.org"
-  url "https://github.com/fbiville/liquigraph/archive/liquigraph-3.0.0.tar.gz"
-  sha256 "4864c323a626c15df9fed49d05ede3e947e0b78fe864ff81dcc8703b875662b1"
+  url "https://github.com/fbiville/liquigraph/archive/liquigraph-3.0.1.tar.gz"
+  sha256 "d2b358187b4a9f250ad1941344f000fc1f3f08bc083c6e12bd3f9cdfa5f557b8"
   head "https://github.com/fbiville/liquigraph.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "57dd3af316302286243bd702f80a4ad4fa53a41f60c570da8b39928bf063aae3" => :sierra
-    sha256 "68fe2a70de1b7df7c4207ee2e83e0f80f94e40735152272752cf3b78bdcbc5e2" => :el_capitan
-    sha256 "c6bc6dd5f9769bbf176c44e1f72e08b43f14f2ba3ae21442bbd1b465378aff7d" => :yosemite
-    sha256 "d61206398e4b4a24b88b9ca44957f99db227d8a6a259b74a111c6f4d6fc38b8e" => :mavericks
+    sha256 "ee6482ffed0bc44bde7872809206eb94a7d2be36bf16458c3d25d699e82637ea" => :sierra
+    sha256 "b9977e94e803b3c9b5686e3a77707c3658142b78d7389c653117c88aa4afb560" => :el_capitan
+    sha256 "1414e187544b115f58805ecbb4ad4beb84f9620ef9b29c104c5ab2577b1de6e5" => :yosemite
   end
 
   depends_on "maven" => :build

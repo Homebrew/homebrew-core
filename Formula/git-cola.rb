@@ -1,16 +1,16 @@
 class GitCola < Formula
   desc "Highly caffeinated git GUI"
   homepage "https://git-cola.github.io/"
-  url "https://github.com/git-cola/git-cola/archive/v2.8.tar.gz"
-  sha256 "9962098bb73c2c13ea32ded01821e447e0c9fbece3d213eaccf6bb02413ccea5"
+  url "https://github.com/git-cola/git-cola/archive/v2.10.tar.gz"
+  sha256 "fd310087ad4c4ccd22829ae319d9409ea3ff872f5391b999de130faaf77f4e1c"
+  revision 1
   head "https://github.com/git-cola/git-cola.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "add4de977eea09355dd42727cde11d8e97fd83039846f84a290411d57689b817" => :sierra
-    sha256 "add4de977eea09355dd42727cde11d8e97fd83039846f84a290411d57689b817" => :el_capitan
-    sha256 "add4de977eea09355dd42727cde11d8e97fd83039846f84a290411d57689b817" => :yosemite
+    sha256 "749064be00fa1040b2ec94c4e0c98e9b21fd87f4ff7a046c1673318ffad64cb6" => :sierra
+    sha256 "b3b07496defb7064c0b0944f1baf59da4e968400c085055f139b11b6ff3922a8" => :el_capitan
+    sha256 "749064be00fa1040b2ec94c4e0c98e9b21fd87f4ff7a046c1673318ffad64cb6" => :yosemite
   end
 
   option "with-docs", "Build manpages and HTML docs"

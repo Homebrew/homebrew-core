@@ -22,7 +22,7 @@ class Leafnode < Formula
     For starting fetchnews and texpire, create links,
       ln -s #{opt_prefix}/homebrew.mxcl.{fetchnews,texpire}.plist ~/Library/LaunchAgents
     And to start the services,
-      launchctl load -w ~/Library/LaunchAgent/homebrew.mxcl.{fetchnews,texpire}.plist
+      launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.{fetchnews,texpire}.plist
     EOS
   end
 

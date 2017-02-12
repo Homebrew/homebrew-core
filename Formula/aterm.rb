@@ -17,7 +17,7 @@ class Aterm < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
-    ENV.j1 # Parallel builds don't work
+    ENV.deparallelize # Parallel builds don't work
     system "make", "install"
   end
 

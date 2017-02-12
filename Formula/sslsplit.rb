@@ -3,14 +3,15 @@ class Sslsplit < Formula
   homepage "https://www.roe.ch/SSLsplit"
   url "https://mirror.roe.ch/rel/sslsplit/sslsplit-0.5.0.tar.bz2"
   sha256 "3eb13c1d0164bf04e7602d9fc45ef7460444b953efaee3ee7d52c357adb3a89a"
+  revision 1
+
   head "https://github.com/droe/sslsplit.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "e7d2e81df066ed3d673cb475cdf075764058ef3f765e751a065e18c4ff1021a9" => :sierra
-    sha256 "f2321a371e97032488d3f83ba8675221247e528d214d57d049fe7b061715f649" => :el_capitan
-    sha256 "428633efd8536a64b3d59f81cc0fbd108d074e70293ed921c40f1771fab7785f" => :yosemite
-    sha256 "ef365628a85b83a00202933ff68e46f47fccb5681293230b2f9fceefa4535375" => :mavericks
+    sha256 "16a00fe728b7f0d3d216448f7a96b17d2abd5def2d60d178f8b63d3fd868ad18" => :sierra
+    sha256 "36985c068929da7ae9cf59f43f2735d2694fb6a6c9e0a231afa57b9b668b52e1" => :el_capitan
+    sha256 "f309aaeb4016c79b4b6b59833117336784d715a0694959c2731be9c9163b5ae2" => :yosemite
   end
 
   depends_on "check" => :build

@@ -1,16 +1,16 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/2.12.tar.gz"
-  sha256 "fa7a70cb2b51270288d454a22dba5ce814fed812a0868fa81f95a7d48a04e9bd"
+  url "https://github.com/aajanki/yle-dl/archive/2.14.tar.gz"
+  sha256 "f09d15670e3382f16d4bfb1ac113b59dfef72c86f54765d1df398a85b494a00c"
 
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9417de324c543c20788c7fe1bf9dc51fb158fc6a51676d9ba20b447656858d35" => :sierra
-    sha256 "94f06bfde80ce536f9b62b8a83c8f76c7a4c43ea5f00aeeac7058ade6e03655f" => :el_capitan
-    sha256 "a16b2f4686b5063907ea8f6ecd9c20083c9ee2ad450f633a39a0f50be9aa9dbb" => :yosemite
+    sha256 "3ce17bc91e68ffb3a6eb03e9be741ef315a06e35ca05b5f0cfc1e7c1a4e97ca7" => :sierra
+    sha256 "13dd47d49c9c746169d420d0533316e75804effe49b4d6d635f7c91a9bac9bfc" => :el_capitan
+    sha256 "d68663f700f59378d64cbbb4644f31e375d3a774d766974df1e6a5351dbea748" => :yosemite
   end
 
   depends_on "rtmpdump"

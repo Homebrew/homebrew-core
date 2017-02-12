@@ -1,15 +1,14 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.0.1.tar.bz2"
-  sha256 "d191eed4a6664430e85969f49835c59e810ecbb7b3eb506e64c6b2734091edd7"
+  url "https://downloads.powerdns.com/releases/pdns-4.0.3.tar.bz2"
+  sha256 "60fa21550b278b41f58701af31c9f2b121badf271fb9d7642f6d35bfbea8e282"
 
   bottle do
     rebuild 1
-    sha256 "f547277f50df63e7e1b440a004484af0703013a8a85e184e46caa40b38463c9b" => :sierra
-    sha256 "3ad6cd394a15d6aef7d68648103e934d1cd172733346ed2a72a1f0ddffd0a8df" => :el_capitan
-    sha256 "3f7651090d99aa1b1fe2d7dd317b936f7c8c357ff0e6c0a5587b98715b7b4658" => :yosemite
-    sha256 "e11c02d5f242205cd1190bcdd32a1cc96649e2ee7f0ec72039422c6993452179" => :mavericks
+    sha256 "1cbf7b9fee0547821a2e1272024a8f422f3a7d29352189fd31350058a48a9fa1" => :sierra
+    sha256 "21d3740b76c2db623bd0af082b19428491a8015ceb66a43b63ddc2bb0e582442" => :el_capitan
+    sha256 "b16f12210c373ed1c75b620617a59c74b5b458f7e151fe1ac5483e33586b42ed" => :yosemite
   end
 
   head do
@@ -21,16 +20,17 @@ class Pdns < Formula
     depends_on "ragel"
   end
 
-  option "with-pgsql", "Enable the PostgreSQL backend"
+  option "with-postgresql", "Enable the PostgreSQL backend"
 
-  deprecated_option "pgsql" => "with-pgsql"
+  deprecated_option "pgsql" => "with-postgresql"
+  deprecated_option "with-pgsql" => "with-postgresql"
 
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "lua"
   depends_on "openssl"
   depends_on "sqlite"
-  depends_on :postgresql if build.with? "pgsql"
+  depends_on :postgresql => :optional
 
   def install
     args = %W[
@@ -41,7 +41,7 @@ class Pdns < Formula
     ]
 
     # Include the PostgreSQL backend if requested
-    if build.with? "pgsql"
+    if build.with? "postgresql"
       args << "--with-modules=gsqlite3 gpgsql"
     else
       # SQLite3 backend only is the default
@@ -51,8 +51,6 @@ class Pdns < Formula
     system "./bootstrap" if build.head?
     system "./configure", *args
 
-    # Compilation fails at polarssl if we skip straight to make install
-    system "make"
     system "make", "install"
   end
 

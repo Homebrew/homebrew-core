@@ -12,10 +12,6 @@ class Syck < Formula
     sha256 "17606e97952cbea53c5649814d0d86c0cc2cdc5893b8063dcb4be8b4606c4f40" => :mavericks
   end
 
-  fails_with :llvm do
-    build 2334
-  end
-
   def install
     ENV.deparallelize # Not parallel safe.
     system "./configure", "--disable-dependency-tracking",

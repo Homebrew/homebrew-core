@@ -20,7 +20,6 @@ class Gettext < Formula
   depends_on "libxml2" if MacOS.version <= :mountain_lion
 
   def install
-    ENV.libxml2
     ENV.universal_binary if build.universal?
 
     system "./configure", "--disable-dependency-tracking",

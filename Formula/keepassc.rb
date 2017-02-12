@@ -3,16 +3,14 @@ class Keepassc < Formula
   homepage "https://raymontag.github.com/keepassc/"
   url "https://github.com/raymontag/keepassc/archive/1.7.0.tar.gz"
   sha256 "218537f6a16f70d907d22a23d1a4dec952d7622c65fae65f03c9ee98e64938dd"
+  revision 2
   head "https://github.com/raymontag/keepassc.git", :branch => "development"
-  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a39174ce3147dff5d0b8a790a19c74251fe497b4f5b1a92cc0acfcfa62512ab4" => :sierra
-    sha256 "a5ab54d0fdd1b4dad4e4a23b0d64675ca0c326582d3ab1bc80ce48e6587e1c11" => :el_capitan
-    sha256 "1af4bc97f7d8f7cce8c84ddf604ad5965fa36b42272db522c9d36d075a30249a" => :yosemite
-    sha256 "f728d5979d69d58d4838e8b4140deaaa3b1080c625f36902ac8e6c00734e5fdb" => :mavericks
-    sha256 "b2fbb08796c545c2a3f76de8ea61aa432fc023a06bc15441f87f78031e0be647" => :mountain_lion
+    cellar :any
+    sha256 "1e99f95e24602a4f7dd83a970cae3443007ad2c7809d05b1b465c679b87b0d13" => :sierra
+    sha256 "c185668f790114959248ac59e8f69e40624e68bfae512e38e6021a4bd1f55d21" => :el_capitan
+    sha256 "656de743c74e27801eb05c1c8639cc19fe174b2aace6dd503358c60ed9125c85" => :yosemite
   end
 
   depends_on :python3

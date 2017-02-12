@@ -1,14 +1,15 @@
 class Wdc < Formula
   desc "WebDAV Client provides easy and convenient to work with WebDAV-servers."
   homepage "https://designerror.github.io/webdav-client-cpp"
-  url "https://github.com/designerror/webdav-client-cpp/archive/v1.0.0.tar.gz"
-  sha256 "649a75a7fe3219dff014bf8d98f593f18d3c17b638753aa78741ee493519413d"
+  url "https://github.com/designerror/webdav-client-cpp/archive/v1.0.1.tar.gz"
+  sha256 "64b01de188032cb9e09f5060965bd90ed264e7c0b4ceb62bfc036d0caec9fd82"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8bdef781390ff6d3e18669ccad5d6504c0d25c647d47a991c7adfa9baa6f4fcb" => :sierra
-    sha256 "303461ad224414e8a1065ddd61e1d16570fd02fbb647f8fb24122996f2f2e34b" => :el_capitan
-    sha256 "0465537d25d7130987911e298575a1e0517cd7283ca081a1462ff59bdfadd92d" => :yosemite
+    rebuild 1
+    sha256 "de61e873a1a9eb37c29778ccbc7c0f8ceae61ca7b19cf98c45ec1a4569a842df" => :sierra
+    sha256 "6ede103d6893034ebd55d00f47d00056a081bfa0ca0a7dd51e06330896dbb743" => :el_capitan
+    sha256 "9bf61a23f849c5f60314ef58bdf3f988ed98618601eea67a65949e89f52593eb" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -16,23 +17,11 @@ class Wdc < Formula
   depends_on "pugixml"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    pugixml = Formula["pugixml"]
+    ENV.prepend "CXXFLAGS", "-I#{pugixml.opt_include.children.first}"
+    system "cmake", ".", "-DPUGIXML_INCLUDE_DIR=#{pugixml.opt_include}",
+                         "-DPUGIXML_LIBRARY=#{pugixml.opt_lib}", *std_cmake_args
     system "make", "install"
-    (lib+"pkgconfig/libwebdavclient.pc").write pc_file
-  end
-
-  def pc_file; <<-EOS.undent
-    prefix=#{HOMEBREW_PREFIX}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${exec_prefix}/include
-    Name: libwebdavclient
-    Description: Modern and convenient C++ WebDAV Client library
-    Version: 1.0.0
-    Libs: -L${libdir} -lwebdavclient
-    Libs.private: -lpthread -lpugixml -lm -lcurl -lssl -lcrypto
-    Cflags: -I${includedir}
-    EOS
   end
 
   test do
@@ -54,10 +43,14 @@ class Wdc < Formula
         assert(!check_connection);
       }
     EOS
-    system ENV.cc,  "test.cpp", "-L#{lib}", "-L/usr/local/lib",
-                    "-lwebdavclient", "-lpthread", "-lpugixml",
-                    "-lm", "-lcurl", "-lssl", "-lcrypto",
-                    "-lstdc++", "-std=c++11", "-o", "test"
+    pugixml = Formula["pugixml"]
+    openssl = Formula["openssl"]
+    system ENV.cc, "test.cpp", "-o", "test", "-lcurl", "-lstdc++", "-std=c++11",
+                   "-L#{lib}", "-lwdc", "-I#{include}",
+                   "-L#{openssl.opt_lib}", "-lssl", "-lcrypto",
+                   "-I#{openssl.opt_include}",
+                   "-L#{Dir["#{pugixml.opt_lib}/pug*"].first}", "-lpugixml",
+                   "-I#{pugixml.opt_include.children.first}"
     system "./test"
   end
 end

@@ -1,13 +1,13 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
-  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-9.5.0.tar.xz"
-  sha256 "dde9969c43ad04d03ded73934e52388d978d5947fc5d5528d1eb4dc722dc86c0"
+  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-9.8.0.tar.xz"
+  sha256 "494b2fb9ff83a858d8849baecdd3320456717923bb7a854d31a02a49640228db"
 
   bottle do
-    sha256 "f172a706e1c22c1005c360e4f1745723660355295e92f8b53597a84316d8d12c" => :sierra
-    sha256 "ea3fdddfcf8eea4666fc4ab07c301b1a4c9d696c99067024119a55d1bb222e22" => :el_capitan
-    sha256 "0dc919ad1911a698deec4273ab4b79f40f6c5b06dbc47ada060b75c886498a22" => :yosemite
+    sha256 "0b4cfaf7c807502a0edb45c3b828dff19947e9bd50f086eed3f90295f277b9fc" => :sierra
+    sha256 "7016a9a6e75fc4e91404f177a2504d9437acf292993a68cb702f22ce3e8a4587" => :el_capitan
+    sha256 "b93feeaf8df6b4d780993509511d9edebb40b7113332811bb9f4cc0cbc800f05" => :yosemite
   end
 
   head do
@@ -78,8 +78,8 @@ class Mkvtoolnix < Formula
 
     system "./configure", *args
 
-    system "./drake", "-j#{ENV.make_jobs}"
-    system "./drake", "install"
+    system "rake", "-j#{ENV.make_jobs}"
+    system "rake", "install"
   end
 
   test do

@@ -1,15 +1,13 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.19/mpd-0.19.19.tar.xz"
-  sha256 "bc856cda4136403446d53d11576f86990b61d1fe4668f6008e9eae47450d4e1d"
-  revision 1
+  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.4.tar.xz"
+  sha256 "712b25351c12616630c580204e1c3dcba3ae2993a56cff1c346c87e334d69728"
 
   bottle do
-    cellar :any
-    sha256 "2e18e68b7c679d37f70b3457bf83a002dc21abb7fbd8307a8b9c2f321e4cd45c" => :sierra
-    sha256 "cbec08bdb8f351a5d7914f1a02531e9f410ade7ed116bac1d51bf1c734918845" => :el_capitan
-    sha256 "4966580d4fdc7473d2f67c743b1b2ee02fa1b277a7ca7eb1aa3218b2b2f632a2" => :yosemite
+    sha256 "8adb73b59b30f8a8068eb41372d9804272db23075069e4dee81c26e7bbef723d" => :sierra
+    sha256 "b67cb3aba79a5237be56bfc147dd7236bf26ccfd1d5989c3223e5a99730cb89a" => :el_capitan
+    sha256 "0b87cfd3e621a4a587fb547056771168887bae98ff6228023cea04027179cf3b" => :yosemite
   end
 
   head do
@@ -27,6 +25,7 @@ class Mpd < Formula
   option "with-yajl", "Build with yajl support (for playing from soundcloud)"
   option "with-opus", "Build with opus support (for Opus encoding and decoding)"
   option "with-libmodplug", "Build with modplug support (for decoding modules supported by MODPlug)"
+  option "with-pulseaudio", "Build with PulseAudio support (for sending audio output to a PulseAudio sound server)"
 
   deprecated_option "with-vorbis" => "with-libvorbis"
 
@@ -60,6 +59,7 @@ class Mpd < Formula
   depends_on "libnfs" => :optional
   depends_on "mad" => :optional
   depends_on "libmodplug" => :optional  # MODPlug decoder
+  depends_on "pulseaudio" => :optional
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -91,10 +91,11 @@ class Mpd < Formula
     args << "--enable-vorbis-encoder" if build.with? "libvorbis"
     args << "--enable-nfs" if build.with? "libnfs"
     args << "--enable-modplug" if build.with? "libmodplug"
+    args << "--enable-pulse" if build.with? "pulseaudio"
 
     system "./configure", *args
     system "make"
-    ENV.j1 # Directories are created in parallel, so let's not do that
+    ENV.deparallelize # Directories are created in parallel, so let's not do that
     system "make", "install"
 
     (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"

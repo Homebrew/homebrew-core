@@ -1,33 +1,23 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  revision 1
+  url "https://github.com/crystal-lang/crystal/archive/0.20.5.tar.gz"
+  sha256 "ee1e5948c6e662ccb1e62671cf2c91458775b559b23d74ab226dc2a2d23f7707"
+  revision 2
   head "https://github.com/crystal-lang/crystal.git"
 
-  stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.19.4.tar.gz"
-    sha256 "e239afa449744e0381823531f6af66407ba1f4b78767bd67a9bb09d9fcc6b9e4"
-
-    # Remove for > 0.19.4
-    # changes already merged upstream to fix compilation with LLVM 3.9
-    # https://github.com/crystal-lang/crystal/pull/3439
-    patch do
-      url "https://github.com/crystal-lang/crystal/commit/13b11d7.patch"
-      sha256 "d981515791c48ae7fce0e906b0eec934fd622987a87f0614b3c91c71b0966b66"
-    end
-  end
-
   bottle do
-    rebuild 1
-    sha256 "c4b0dc235c1869d886be08627f39ac16bfc0766420f211099f24db8d7aa22c06" => :sierra
-    sha256 "a31e70a472ac213f39bc6365bd59048b73b615a57fadc4420829ed2e87f09fc3" => :el_capitan
-    sha256 "be5f69d7050db3c477cab53ba6974b59529797392b3c32e212bb9d34c16af1b3" => :yosemite
+    rebuild 2
+    sha256 "c1ac5f44b784dedc6c4489723af6c3ba1827437148deae3a2190e7735c434b1e" => :sierra
+    sha256 "c487674f973eca52a94485368b5b9edc6de0e67d8991a36e63b0ccb547567857" => :el_capitan
+    sha256 "b065a9a128b3a889db8e8db01714e2f9ff386399fe28a8221ad9b903ed9c2134" => :yosemite
   end
 
   option "without-release", "Do not build the compiler in release mode"
   option "without-shards", "Do not include `shards` dependency manager"
 
   depends_on "pkg-config" => :build
+  depends_on "libatomic_ops" => :build # for building bdw-gc
   depends_on "libevent"
   depends_on "bdw-gc"
   depends_on "llvm"
@@ -36,18 +26,54 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.19.3/crystal-0.19.3-1-darwin-x86_64.tar.gz"
-    version "0.19.3"
-    sha256 "2c9aebfefe2aca46eeda1e5a3fd6a91e3177af8f324ea23ebf8b5cad3c87ad2d"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.20.4/crystal-0.20.4-1-darwin-x86_64.tar.gz"
+    version "0.20.4"
+    sha256 "3fd291a4a5c9eccdea933a9df25446c90d80660a17e89f83503fcb5b6deba03e"
   end
 
   resource "shards" do
-    url "https://github.com/ysbaddaden/shards/archive/v0.6.4.tar.gz"
-    sha256 "5972f1b40bb3253319f564dee513229f82b0dcb8eea1502ae7dc483a9c6da5a0"
+    url "https://github.com/crystal-lang/shards/archive/v0.7.1.tar.gz"
+    sha256 "31de819c66518479682ec781a39ef42c157a1a8e6e865544194534e2567cb110"
+  end
+
+  resource "bdw-gc-7.6.0" do
+    url "http://www.hboehm.info/gc/gc_source/gc-7.6.0.tar.gz"
+    sha256 "a14a28b1129be90e55cd6f71127ffc5594e1091d5d54131528c24cd0c03b7d90"
+  end
+
+  resource "libevent-2.0.22" do
+    url "https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz"
+    sha256 "71c2c49f0adadacfdbe6332a372c38cf9c8b7895bb73dabeaa53cdcc1d4e1fa3"
   end
 
   def install
+    resource("bdw-gc-7.6.0").stage do
+      system "./configure", "--disable-debug",
+                            "--disable-dependency-tracking",
+                            "--prefix=#{buildpath}/vendor/bdw-gc",
+                            "--enable-cplusplus"
+      system "make"
+      system "make", "install"
+    end
+
+    resource("libevent-2.0.22").stage do
+      system "./configure", "--disable-dependency-tracking",
+                            "--disable-debug-mode",
+                            "--prefix=#{buildpath}/vendor/libevent"
+      ENV.deparallelize do
+        system "make"
+        system "make", "install"
+      end
+    end
+
     (buildpath/"boot").install resource("boot")
+
+    macho = MachO.open("#{buildpath}/boot/embedded/bin/crystal")
+    macho.change_dylib("/usr/local/opt/libevent/lib/libevent-2.0.5.dylib",
+                       "#{buildpath}/vendor/libevent/lib/libevent-2.0.5.dylib")
+    macho.change_dylib("/usr/local/opt/bdw-gc/lib/libgc.1.dylib",
+                       "#{buildpath}/vendor/bdw-gc/lib/libgc.1.dylib")
+    macho.write!
 
     if build.head?
       ENV["CRYSTAL_CONFIG_VERSION"] = Utils.popen_read("git rev-parse --short HEAD").strip
@@ -55,7 +81,7 @@ class CrystalLang < Formula
       ENV["CRYSTAL_CONFIG_VERSION"] = version
     end
 
-    ENV["CRYSTAL_CONFIG_PATH"] = prefix/"src:libs:lib"
+    ENV["CRYSTAL_CONFIG_PATH"] = prefix/"src:lib"
     ENV.append_path "PATH", "boot/bin"
 
     if build.with? "release"
@@ -76,7 +102,7 @@ class CrystalLang < Formula
     bin.install ".build/crystal"
     prefix.install "src"
     bash_completion.install "etc/completion.bash" => "crystal"
-    zsh_completion.install "etc/completion.zsh" => "crystal"
+    zsh_completion.install "etc/completion.zsh" => "_crystal"
   end
 
   test do

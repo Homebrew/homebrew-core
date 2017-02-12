@@ -1,16 +1,15 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers."
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.3.1.tar.gz"
-  sha256 "a5aa561e485229dc58100673d0b10df5c0e7c3661b57530ed68a4d84cdfe3940"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.3.3.tar.gz"
+  sha256 "0eef37cbfd3ea0f6f8645fb375c83d407c61dfa4d7ac9d7fedfd71f0b1191c7e"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
     cellar :any
-    sha256 "c7ef1c9af1eb14b3c8879d18fdb61a146f0ea44f76117ed7e89dbdc6499da857" => :sierra
-    sha256 "3f02389690062104e17fed76c944451574994d1df58c5042683e6cf3195783a5" => :el_capitan
-    sha256 "e1ced99fb58fe29cb5c4067d20993f20f09011daae209db84eefdac9fd8cc435" => :yosemite
-    sha256 "3cc2d3e52d4307f8fda2f1f8eba580af3eb2b91573311550c48916366ab4edbd" => :mavericks
+    sha256 "a1972a6f268b7fd01c66d0754ec6c068ee77c5cefccc8482bdc28b225354cef3" => :sierra
+    sha256 "91e62c090a2fdc6b617daf74e99e8d3ea7731cc31a4086c9305ddfdd01605a6f" => :el_capitan
+    sha256 "1fc9b7764cd3fb2de926491b0725a8a961ec0558e9a0e2c5c24e7a2553c69bd4" => :yosemite
   end
 
   option "with-java", "Enable Java bindings for CHOCO solver."
@@ -41,6 +40,8 @@ class Ibex < Formula
     args << "--with-param-estim" if build.with? "param-estim"
 
     system "./waf", "configure", *args
+    system "make", "-C", "3rd/filibsrc"
+    system "./waf", "build"
     system "./waf", "install"
 
     pkgshare.install %w[examples benchs]

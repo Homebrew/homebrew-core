@@ -3,17 +3,20 @@ class Uwsgi < Formula
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
   url "https://projects.unbit.it/downloads/uwsgi-2.0.14.tar.gz"
   sha256 "21b3d1ef926d835ff23576193a2c60d4c896d8e21567850cf0677a4764122887"
+  revision 1
   head "https://github.com/unbit/uwsgi.git"
 
   bottle do
-    sha256 "a651f0ac7fe61dc1f550f58691958147cec11d8ab9674d029949cf393d2a4db0" => :sierra
-    sha256 "1d2536f6050440d0451ec0c39681efeff984601147d6cf47830f2b7d6f79f1b5" => :el_capitan
-    sha256 "1a12d456801270b232d319878340ddff923bc94963f76558218ab89b71d7409a" => :yosemite
+    sha256 "6e041d7dacc6d0eaf18cc1c66758c633b7cccd85460b4821f4b7e3bc67086717" => :sierra
+    sha256 "daebffa1dc66dfb6b62585c78757c171ac371bbd7d449f632d8c5b15809db9d5" => :el_capitan
+    sha256 "dd3ccfd7d911442b3614b1f3e7d8344c0dd43ecd44b350c291bb0cf2041ae262" => :yosemite
   end
 
   option "with-java", "Compile with Java support"
   option "with-php", "Compile with PHP support (PHP must be built for embedding)"
   option "with-ruby", "Compile with Ruby support"
+
+  deprecated_option "with-lua51" => "with-lua@5.1"
 
   depends_on "pkg-config" => :build
   depends_on "pcre"
@@ -27,7 +30,7 @@ class Uwsgi < Formula
   depends_on "libffi" => :optional
   depends_on "libxslt" => :optional
   depends_on "libyaml" => :optional
-  depends_on "lua51" => :optional
+  depends_on "lua@5.1" => :optional
   depends_on "mongodb" => :optional
   depends_on "mongrel2" => :optional
   depends_on "mono" => :optional
@@ -98,7 +101,7 @@ class Uwsgi < Formula
     plugins << "jvm" if build.with? "java"
     plugins << "jwsgi" if build.with? "java"
     plugins << "libtcc" if build.with? "tcc"
-    plugins << "lua" if build.with? "lua"
+    plugins << "lua" if build.with? "lua@5.1"
     plugins << "mongodb" if build.with? "mongodb"
     plugins << "mongodblog" if build.with? "mongodb"
     plugins << "mongrel2" if build.with? "mongrel2"

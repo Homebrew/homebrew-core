@@ -1,15 +1,15 @@
 class TomcatNative < Formula
   desc "Lets Tomcat use some native resources for performance"
   homepage "https://tomcat.apache.org/native-doc/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-connectors/native/1.2.8/source/tomcat-native-1.2.8-src.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.8/source/tomcat-native-1.2.8-src.tar.gz"
-  sha256 "408ece0b027c8967b3aa85533c5fca642827e235b1857d28df918a4eab861d30"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-connectors/native/1.2.10/source/tomcat-native-1.2.10-src.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.10/source/tomcat-native-1.2.10-src.tar.gz"
+  sha256 "553a796f1efb9d52a22a24636baca45ae265327f2a2d2f3169436b4012df9c35"
 
   bottle do
     cellar :any
-    sha256 "45c35c0d029a0ef7fbe1b02877f44c1db38f4467300e14cd79606df1e872a7d7" => :el_capitan
-    sha256 "eb6dc9cf198cfa54462e9934b73df7b167a49355ba65390dd8dcb4d125dc7191" => :yosemite
-    sha256 "a874e4a8121681fe53dda34028946c60274f1f60021b7defd2daf6dfa353b7f0" => :mavericks
+    sha256 "a0b320aad5f81322a9f362811375a8f2bf71c9acbe2552af14d180a41953f01d" => :sierra
+    sha256 "f948df2f5f5ce08dcae517e0543ec79b275fa995f6631a561c2e010b09476688" => :el_capitan
+    sha256 "0de939cf4b43bba2bca9044fac764068deb8ce91c2060bf76732e7444f963ec1" => :yosemite
   end
 
   option "with-apr", "Include APR support via Homebrew"
@@ -18,17 +18,12 @@ class TomcatNative < Formula
   depends_on "tomcat" => :recommended
   depends_on :java => "1.7+"
   depends_on "openssl"
-  depends_on "apr" => :optional
+  depends_on "apr"
 
   def install
     cd "native" do
-      if build.with? "apr"
-        apr_path = Formula["apr"].opt_prefix
-      else
-        apr_path = "#{MacOS.sdk_path}/usr"
-      end
       system "./configure", "--prefix=#{prefix}",
-                            "--with-apr=#{apr_path}",
+                            "--with-apr=#{Formula["apr"].opt_prefix}",
                             "--with-java-home=#{ENV["JAVA_HOME"]}",
                             "--with-ssl=#{Formula["openssl"].opt_prefix}"
 

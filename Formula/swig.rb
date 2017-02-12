@@ -1,26 +1,18 @@
 class Swig < Formula
   desc "Generate scripting interfaces to C/C++ code"
   homepage "http://www.swig.org/"
-  url "https://downloads.sourceforge.net/project/swig/swig/swig-3.0.10/swig-3.0.10.tar.gz"
-  sha256 "2939aae39dec06095462f1b95ce1c958ac80d07b926e48871046d17c0094f44c"
-  revision 1
+  url "https://downloads.sourceforge.net/project/swig/swig/swig-3.0.12/swig-3.0.12.tar.gz"
+  sha256 "7cf9f447ae7ed1c51722efc45e7f14418d15d7a1e143ac9f09a668999f4fc94d"
 
   bottle do
-    sha256 "0b5ade8c002e0f28c6e6f2d7643119138a8cc75d1363809f59e042c4fb54c6b7" => :sierra
-    sha256 "26124aad280aadec6e95bb3a797ca48980f2cdf442f712c58bc43d02ae794f0c" => :el_capitan
-    sha256 "8811ab4b431de10f0c061f80d3c549c9b475eb8f273c7c6fd1f71e11f52bfbe8" => :yosemite
+    sha256 "68cb1b6bc898f2a1bd39ae24dd0235f68ffa56d04ba8cd4424835335202977d1" => :sierra
+    sha256 "37bf242aad0c18317cdaef66218483c04fa57e091b7c7f9d72089f5002881338" => :el_capitan
+    sha256 "3443dbf17f78be0cecb5419772c71bb418caa91763590072224c196a57317717" => :yosemite
   end
 
   option :universal
 
   depends_on "pcre"
-
-  # Remove for > 3.0.10
-  # Upstream fix for build failures caused by generated SWIG code for R
-  patch do
-    url "https://github.com/swig/swig/commit/1fcbf07.patch"
-    sha256 "ceaa4e6c59f6dce2036c35612adfb752dd7957c14d5ecfd91e6b508905944833"
-  end
 
   def install
     ENV.universal_binary if build.universal?
@@ -50,7 +42,7 @@ class Swig < Formula
     system "#{bin}/swig", "-ruby", "test.i"
     system ENV.cc, "-c", "test.c"
     system ENV.cc, "-c", "test_wrap.c", "-I/System/Library/Frameworks/Ruby.framework/Headers/"
-    system ENV.cc, "-bundle", "-flat_namespace", "-undefined", "suppress", "test.o", "test_wrap.o", "-o", "test.bundle"
+    system ENV.cc, "-bundle", "-undefined", "dynamic_lookup", "test.o", "test_wrap.o", "-o", "test.bundle"
     assert_equal "2", shell_output("ruby run.rb").strip
   end
 end

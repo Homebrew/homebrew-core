@@ -13,7 +13,7 @@ class ReginaRexx < Formula
   end
 
   def install
-    ENV.j1 # No core usage for you, otherwise race condition = missing files.
+    ENV.deparallelize # No core usage for you, otherwise race condition = missing files.
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}"
     system "make", "install"

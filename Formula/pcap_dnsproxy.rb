@@ -1,15 +1,16 @@
 class PcapDnsproxy < Formula
   desc "Powerful DNS proxy designed to anti DNS spoofing"
   homepage "https://github.com/chengr28/Pcap_DNSProxy"
-  url "https://github.com/chengr28/Pcap_DNSProxy/archive/v0.4.7.7.tar.gz"
-  sha256 "711f56e39535610e4b5fc174437a9572ef1a8e982207d0e7d0e5ed4b8eaf3f8e"
+  url "https://github.com/chengr28/Pcap_DNSProxy/archive/v0.4.7.8.tar.gz"
+  sha256 "57af22d8688cd23e74e5eee0b716ea0c8e68671d3be34ef993df7b8303aa73d0"
   head "https://github.com/chengr28/Pcap_DNSProxy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3a09961365b54ad86e40272c283e0e70b7efb6b20d41661788d13dad54ab2b7b" => :sierra
-    sha256 "8cdb6f4f1f300798d5525efeed9a90c7d999f1aa4c7f5777f7be6e6d8da52101" => :el_capitan
-    sha256 "9ffea6ca6c85205ec396a1b65f5311d31fff8fd250428e493d04bece593af94c" => :yosemite
+    rebuild 1
+    sha256 "64c03c2dc934b28302f9166aa601b8b7207ab64d58e48cbcf783c252ac8a0826" => :sierra
+    sha256 "39e0d718b01b3543da42e669ab66cbc99619298ce4d050610c4e0e3da039bdb0" => :el_capitan
+    sha256 "c5838936aed4df35a34abd7e472454e8b13c0b11ecf4410a69bff6907ab0c7b2" => :yosemite
   end
 
   depends_on :macos => :yosemite
@@ -21,31 +22,10 @@ class PcapDnsproxy < Formula
     xcodebuild "-project", "./Source/Pcap_DNSProxy.xcodeproj", "-target", "Pcap_DNSProxy", "-configuration", "Release", "SYMROOT=build"
     bin.install "Source/build/Release/Pcap_DNSProxy"
     (etc/"pcap_DNSproxy").install Dir["Source/ExampleConfig/*.{ini,txt}"]
+    prefix.install "Source/ExampleConfig/pcap_dnsproxy.service.plist"
   end
 
-  plist_options :startup => true, :manual => "sudo #{HOMEBREW_PREFIX}/opt/pcap_dnsproxy/bin/Pcap_DNSProxy -c #{HOMEBREW_PREFIX}/etc/pcap_dnsproxy/"
-
-  def plist; <<-EOS.undent
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/Pcap_DNSProxy</string>
-          <string>-c</string>
-          <string>#{etc}/pcap_dnsproxy/</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-      </dict>
-    </plist>
-    EOS
-  end
+  plist_options :startup => true, :manual => "sudo #{HOMEBREW_PREFIX}/opt/pcap_dnsproxy/bin/Pcap_DNSProxy -c #{HOMEBREW_PREFIX}/etc/pcap_DNSproxy/"
 
   test do
     (testpath/"pcap_DNSproxy").mkpath

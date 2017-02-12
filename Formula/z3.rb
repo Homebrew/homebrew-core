@@ -1,17 +1,15 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
-  url "https://github.com/Z3Prover/z3/archive/z3-4.4.1.tar.gz"
-  sha256 "50967cca12c5c6e1612d0ccf8b6ebf5f99840a783d6cf5216336a2b59c37c0ce"
+  url "https://github.com/Z3Prover/z3/archive/z3-4.5.0.tar.gz"
+  sha256 "aeae1d239c5e06ac183be7dd853775b84698db1265cb2258e5918a28372d4a0c"
   head "https://github.com/Z3Prover/z3.git"
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "30e5144988b88537b7b3d63f6eb3a9b0cec3f33fbced0ec6c9eade41a48c0d10" => :sierra
-    sha256 "d925dc49d327be2490db0596411337a0df192658a155699b103ba939c37b3d90" => :el_capitan
-    sha256 "17eae04130182bec971555ac61ca9f088dd553d872689b04573c10bf172d68ac" => :yosemite
-    sha256 "c24a8cd704b415d6de65985a5113d754fcdc3fbed98ab0e739364354a3d14770" => :mavericks
+    sha256 "0f1f3d3de36a046161950aa09e2dc42e1d49deccdd12acaf1ebbb472b2250ad1" => :sierra
+    sha256 "4646641c96b2369b11cd87d6cc81debf675f078fee3e0a296c8d0a0b4ce738f5" => :el_capitan
+    sha256 "72feb2352c0f9d5fbbf22ae83443520bff85acd6448898a5d89ba3fe42c61566" => :yosemite
   end
 
   option "without-python", "Build without python 2 support"
@@ -23,17 +21,8 @@ class Z3 < Formula
       odie "z3: --with-python3 must be specified when using --without-python"
     end
 
-    # This `inreplace` can be removed on next stable release.
-    inreplace "scripts/mk_util.py", "dist-packages", "site-packages" if build.stable?
-
     Language::Python.each_python(build) do |python, version|
-      # On next stable release remove the `if` condition and use
-      # the first statement in the condition below.
-      if build.head?
-        system python, "scripts/mk_make.py", "--prefix=#{prefix}", "--python", "--pypkgdir=#{lib}/python#{version}/site-packages", "--staticlib"
-      else
-        system python, "scripts/mk_make.py", "--prefix=#{prefix}", "--staticlib"
-      end
+      system python, "scripts/mk_make.py", "--prefix=#{prefix}", "--python", "--pypkgdir=#{lib}/python#{version}/site-packages", "--staticlib"
       cd "build" do
         system "make"
         system "make", "install"

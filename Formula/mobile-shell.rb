@@ -3,12 +3,17 @@ class MobileShell < Formula
   homepage "https://mosh.org"
   url "https://mosh.org/mosh-1.2.6.tar.gz"
   sha256 "7e82b7fbfcc698c70f5843bb960dadb8e7bd7ac1d4d2151c9d979372ea850e85"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "bc1a1ce96af199e577ee7eecd75688f43aaa6bddec09a7973c487f8d4233e60f" => :sierra
-    sha256 "73f0c2c60aae22d886f44421034fe1e43e2c643dba10913026d9f2935b3c0ddc" => :el_capitan
-    sha256 "0d4e77bc71d3413788995fc3029ae29df2789ef6eed7871862a823ffeee7f12d" => :yosemite
+    sha256 "f170b43d61fc6e9d1c38bbf4815ef7339415807ebfa560fdb5f3d8f23aeaf57c" => :sierra
+    sha256 "426d82ec12f5bcde93aaf1f5a90a357e6a1c9f78dcb21894635e26e54d5f6192" => :el_capitan
+    sha256 "fd01f23a2bdedf3cf182fea9737fa44a4cf1b3b39a6b522d6f7dd8c8f5c89336" => :yosemite
+  end
+
+  devel do
+    url "https://github.com/mobile-shell/mosh/releases/download/mosh-1.3.0-rc2/mosh-1.3.0-rc2.tar.gz"
+    sha256 "8b6bff33c469ccea0438877c68774a6b2ded6fccd99b1db180222da82f0654ae"
   end
 
   head do
@@ -28,19 +33,10 @@ class MobileShell < Formula
   depends_on "tmux" => :build if build.with?("test") || build.bottle?
 
   def install
-    # Fix for 'dyld: lazy symbol binding failed: Symbol not found: _clock_gettime' issue
-    # Reported 26 Sep 2016 https://github.com/mobile-shell/mosh/issues/807
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      ENV["ac_cv_search_clock_gettime"] = "no"
-    end
-
     # teach mosh to locate mosh-client without referring
     # PATH to support launching outside shell e.g. via launcher
     inreplace "scripts/mosh.pl", "'mosh-client", "\'#{bin}/mosh-client"
 
-    # Upstream prefers O2:
-    # https://github.com/keithw/mosh/blob/master/README.md
-    ENV.O2
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}", "--enable-completion"
     system "make", "check" if build.with?("test") || build.bottle?

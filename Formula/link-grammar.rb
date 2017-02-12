@@ -1,14 +1,13 @@
 class LinkGrammar < Formula
   desc "Carnegie Mellon University's link grammar parser"
   homepage "http://www.abisource.com/projects/link-grammar/"
-  url "http://www.abisource.com/downloads/link-grammar/5.3.3/link-grammar-5.3.3.tar.gz"
-  sha256 "832e1aa61d5eafbb7d3f4429847125067dcb6a3ece8c55ee8ffb1cd8c8db57d4"
+  url "http://www.abisource.com/downloads/link-grammar/5.3.14/link-grammar-5.3.14.tar.gz"
+  sha256 "4161ff7af5d6297cc97758ed5062fc48cb3e87749f3b8dcd5b2c8ceae216f267"
 
   bottle do
-    sha256 "f6e69a200b473a60a6bafe8abe02862b9e114f10a4277badf63b03f2a818fbab" => :sierra
-    sha256 "5446839a520baa5d47b88ca0162e90bc7101365065eba46d01fbb3a77c138396" => :el_capitan
-    sha256 "30808e4e9e65a8e5efaffa94b12b5bf1dfb14cf06af7421f9318a430d9f172d3" => :yosemite
-    sha256 "3c4079d866c2ef2b02713575a371cbc555992c9a319269361da6d280750b91a8" => :mavericks
+    sha256 "66101790b948b5263e51db66687cda46c28da529be606e5034a5727a6fd36afd" => :sierra
+    sha256 "3bdd18c86f8a755fb4d40402a8e1ffbec0ee6a629eb350275658cb43b579e8fc" => :el_capitan
+    sha256 "fcd29aef31a1b7e36a460b4090ad4381b4dfc51dfc0e11dff5b8d4322471a023" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -19,6 +18,10 @@ class LinkGrammar < Formula
   depends_on :ant => :build
 
   def install
+    ENV["PYTHON_LIBS"] = "-undefined dynamic_lookup"
+    inreplace "bindings/python/Makefile.am",
+      "$(PYTHON2_LDFLAGS) -module -no-undefined",
+      "$(PYTHON2_LDFLAGS) -module"
     inreplace "autogen.sh", "libtoolize", "glibtoolize"
     system "./autogen.sh", "--no-configure"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

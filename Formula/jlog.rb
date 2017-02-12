@@ -1,16 +1,15 @@
 class Jlog < Formula
   desc "Pure C message queue with subscribers and publishers for logs"
   homepage "https://labs.omniti.com/labs/jlog"
-  url "https://github.com/omniti-labs/jlog/archive/2.2.1.2.tar.gz"
-  sha256 "14a5cf3306390f7f47a1ad88a0fd286415a5c14fa3cab7b6d5e928f3f1ff79bc"
+  url "https://github.com/omniti-labs/jlog/archive/2.2.2.1.tar.gz"
+  sha256 "44b639102eb9336b21e6ece54610403bf9de04987f809e7d8713050072fd2335"
   head "https://github.com/omniti-labs/jlog.git"
 
   bottle do
     cellar :any
-    sha256 "6e875657dbcb40da636aa2fa4839cfc2b492f1a4402379eda244fcb807873135" => :sierra
-    sha256 "fa40ea85d78880abdcf6e681cc096e4451fe0df9b9604aba8e6f192ed99c059d" => :el_capitan
-    sha256 "448b83d9948d2d8a256ca68147c75b878479ab787331c17d78b7556e1d3d8412" => :yosemite
-    sha256 "dcc0c22a4e0670a373411409d0bd478f46754e32ac87928a211b4a2f1b1802d3" => :mavericks
+    sha256 "37fbd09023ab291b9480006004a7634dfb266aa74ff7d55b3c8c3567c9bc973f" => :sierra
+    sha256 "959e0c08b5adb6b1ff7e8dc660366f56d7e24629e3aef8c7623f68723cc62f1f" => :el_capitan
+    sha256 "dc25575310094b2dd1de67014ec968c45506723bc59d0ca7aa6491d0c0f8b2b7" => :yosemite
   end
 
   depends_on "automake" => :build

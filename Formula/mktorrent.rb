@@ -1,17 +1,14 @@
 class Mktorrent < Formula
   desc "Create BitTorrent metainfo files"
   homepage "http://mktorrent.sourceforge.net/"
-  url "https://downloads.sourceforge.net/mktorrent/mktorrent-1.0.tar.gz"
-  sha256 "6f8e562af6366e0d9bde76e434f740b55722c6c3c555860dbe80083f9d1d119f"
-  revision 1
+  url "https://github.com/Rudde/mktorrent/archive/v1.1.tar.gz"
+  sha256 "d0f47500192605d01b5a2569c605e51ed319f557d24cfcbcb23a26d51d6138c9"
 
   bottle do
     cellar :any
-    sha256 "d465e987b90707240ee59118fb719fef082a16261924449309a009abb6b6dae4" => :sierra
-    sha256 "4e1fbfdfd5bcd1f4ae28e07f2955eb34e785a72b5e93ef23ac5ae733b4f36a22" => :el_capitan
-    sha256 "afd5e147727bc83fcde127e06f244513708045a295976d6571c23ee704f618f0" => :yosemite
-    sha256 "79d448b9d2272a350d423668675a6b1504302505ae94af99f2a780efd0b82958" => :mavericks
-    sha256 "7f9b38afb40e0f2fe2cde8209f942fa9c1367407593ef64cffc4996a49e97329" => :mountain_lion
+    sha256 "9edd5b41e870ca716bad213d2ecf095e1d33b124ff150952fafc8a0d4dfd4560" => :sierra
+    sha256 "6b11723fa40237afee4a17781b51c0cf6be510c3df02bca72cd5f6a299e22f24" => :el_capitan
+    sha256 "d0f3f1d677e34044abcd712163c01008b56391d665daad15911acd446255c88a" => :yosemite
   end
 
   depends_on "openssl"

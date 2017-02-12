@@ -3,18 +3,18 @@ class Libvisio < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libvisio"
   url "http://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.5.tar.xz"
   sha256 "430a067903660bb1b97daf4b045e408a1bb75ca45e615cf05fb1a4da65fc5a8c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "6758550321b373a6f5018327056dc7cbd1a95449dfc197ad395cfcd8d2be2d2f" => :sierra
-    sha256 "d4e7de0a1de6eba7f69f12ad13713e8454290c225d94d66f29f560ee3a249baa" => :el_capitan
-    sha256 "345c4c4cd79ca0d4aa98bd9af2f21e5e445e1c1e9e6a95e9f0b9b4f941623f5a" => :yosemite
+    sha256 "ae278d471d1d7186905d705c4250bf3fe93e7fffc8819e33b357e52de3b9fe13" => :sierra
+    sha256 "265e259be67cd149b2b9a6b56b15e51f0e7f4b401e2c0671c2cdf7dca72a192b" => :el_capitan
+    sha256 "d71a0ec9ad1fa8ea8775332c809ee202d9b7049f546da2a89021055ad8a3c696" => :yosemite
   end
 
   depends_on "pkg-config" => :build
-  depends_on "boost" => :build
   depends_on "cppunit" => :build
+  depends_on "boost"
   depends_on "librevenge"
   depends_on "icu4c"
 

@@ -1,16 +1,15 @@
 class Bup < Formula
   desc "Backup tool"
   homepage "https://github.com/bup/bup"
-  url "https://github.com/bup/bup/archive/0.28.1.tar.gz"
-  sha256 "fd962dbdade1b8ea257ac0e95d771ba11e6da4ef6f8ca6bee498a5b1bce8c817"
+  url "https://github.com/bup/bup/archive/0.29.tar.gz"
+  sha256 "7cdfd8a7f081059f0c125a4363a6d1f59c8e95c7f57aa660ca31516af946186c"
   head "https://github.com/bup/bup.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6f4fa5ab7acd78433f2ef71c665022f3caec16d701534114cb8fedba555af581" => :sierra
-    sha256 "2d69255f361fd0dc199f3864a50a741af5c738f4930193aa9cde85f711d5db62" => :el_capitan
-    sha256 "c7cf25a60351bf6c7eeb8373f785abb31013f99e870090234843cc1b53b56bb3" => :yosemite
-    sha256 "a2175f3f5c6d6e65799cb1c72ea2177b1d96aa297736023d56baaad4eca25602" => :mavericks
+    sha256 "d81816f644534d1084940426f8ba67051a348745b8d378fff82dc994ea0ada53" => :sierra
+    sha256 "b1ca2ccebf8a07a69d5ec1c44b469437c2fd833d1715f62744835f50f2bf68a6" => :el_capitan
+    sha256 "eeac85ec30e1186df3c19d52563ea2f2baa9b73c6e92f64f983624faa497847a" => :yosemite
   end
 
   option "with-pandoc", "Build and install the manpages"

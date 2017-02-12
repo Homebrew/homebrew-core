@@ -3,17 +3,18 @@ class SwiProlog < Formula
   homepage "http://www.swi-prolog.org/"
   url "http://www.swi-prolog.org/download/stable/src/swipl-7.2.3.tar.gz"
   sha256 "43657d51b7c5887bc2d2bced50a9822b86a08a6841399b8e76ee877f51d646b5"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "549bcf8dd84fbcd140eecf80a43d01890046fff67094fd7da40e307ada01c61c" => :sierra
-    sha256 "39b666fe76f2262ee5fb42c06be30da14ad3171dd736cb09850e303e0ae5a0ca" => :el_capitan
-    sha256 "f3dba5bcde11ddc17feea987c1008b9d5800b6c7d48023cfa1e1d56aa3b90a25" => :yosemite
+    rebuild 1
+    sha256 "d110d8f643e8ffc1ec03b2803fe35ee4cf0f1fc0b65e1723007496bed928de23" => :sierra
+    sha256 "5d393388c3e50fb3654b6c62245e4803397e0c4a270d6f5efd53b279a779cded" => :el_capitan
+    sha256 "0e8f6ed41a8f7e162752ecf93fbca9ca75faa7787f60736ecceed679699ab07c" => :yosemite
   end
 
   devel do
-    url "http://www.swi-prolog.org/download/devel/src/swipl-7.3.28.tar.gz"
-    sha256 "dc517d2acff270cdf94d1214934dfb467e66682665d97a39053485eff9540704"
+    url "http://www.swi-prolog.org/download/devel/src/swipl-7.5.0.tar.gz"
+    sha256 "67f0a6d05dd5c6604c256734aac095a122a39791970c2bc802d2e7950cfedef9"
   end
 
   head do
@@ -37,11 +38,6 @@ class SwiProlog < Formula
   if build.with? "xpce"
     depends_on :x11
     depends_on "jpeg"
-  end
-
-  fails_with :llvm do
-    build 2335
-    cause "Exported procedure chr_translate:chr_translate_line_info/3 is not defined"
   end
 
   def install

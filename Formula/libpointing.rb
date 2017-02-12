@@ -1,14 +1,14 @@
 class Libpointing < Formula
   desc "Provides direct access to HID pointing devices"
   homepage "http://libpointing.org"
-  url "https://github.com/INRIA/libpointing/releases/download/v1.0.3/libpointing-mac-1.0.3.tar.gz"
-  sha256 "0c0461bb7470595650fd34735283a21ba7fafe9e476887ef8e63b7b35c040e90"
+  url "https://github.com/INRIA/libpointing/releases/download/v1.0.4/libpointing-mac-1.0.4.tar.gz"
+  sha256 "2218beccc1b7b3f5df6b6a9f6fc14e9673d7215726c7c15c7daf66c1ac7ad729"
 
   bottle do
     cellar :any
-    sha256 "2fa16b6c03d0e36f59ce686ab327cc949d0970b9d79e8f3e6c0f4bf7069e5756" => :sierra
-    sha256 "2fa16b6c03d0e36f59ce686ab327cc949d0970b9d79e8f3e6c0f4bf7069e5756" => :el_capitan
-    sha256 "a69e8fb6eb703b0f190cc10e2dc121d94d33be4b5499e43d740fbf4ba60535c0" => :yosemite
+    sha256 "e85c6daf643bcac5dc4309fae77d2105a42cf6b4e1bd7c95445464f3149839c2" => :sierra
+    sha256 "91b34da1f57b2988b08c157720e257e4c9048d5bbde26c21468c6d187a4fbd43" => :el_capitan
+    sha256 "d8bebe09c71a6ddd66d3c03c9b5aacf58ceb8faa475746690931783718116944" => :yosemite
   end
 
   needs :cxx11

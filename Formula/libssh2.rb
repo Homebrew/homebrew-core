@@ -20,10 +20,7 @@ class Libssh2 < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-libressl", "build with LibreSSL instead of OpenSSL"
-
   depends_on "openssl" => :recommended
-  depends_on "libressl" => :optional
 
   def install
     args = %W[
@@ -34,13 +31,8 @@ class Libssh2 < Formula
       --disable-examples-build
       --with-openssl
       --with-libz
+      --with-libssl-prefix=#{Formula["openssl"].opt_prefix}
     ]
-
-    if build.with? "libressl"
-      args << "--with-libssl-prefix=#{Formula["libressl"].opt_prefix}"
-    else
-      args << "--with-libssl-prefix=#{Formula["openssl"].opt_prefix}"
-    end
 
     system "./buildconf" if build.head?
     system "./configure", *args

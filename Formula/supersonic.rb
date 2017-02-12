@@ -3,26 +3,25 @@ class Supersonic < Formula
   homepage "https://code.google.com/archive/p/supersonic/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/supersonic/supersonic-0.9.4.tar.gz"
   sha256 "1592dfd2dc73f0b97298e0d25e51528dc9a94e9e7f4ab525569f63db0442d769"
-  revision 2
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "91f211f1f97db835c2bfca0d57ef4395f2f0db1ac0bb29399fe4137d99489ae7" => :sierra
-    sha256 "04ca7fc01824e99db96641ec2aad43b8f0e32d3366714997bb4b9eef8197b240" => :el_capitan
-    sha256 "037e4b12ceb0973ce0e3132714e47f0d05d69aa74ad687cb811b76a452b62c7a" => :yosemite
+    sha256 "f7bc8f2149bd9612a238ffca58b476dd7c2b78446228396ff451c30268a985f7" => :sierra
+    sha256 "3383c96004319f1571d7456717574c890bedec4191f8675efe98d50893e98529" => :el_capitan
+    sha256 "a93f407be72111a84cd14a7464025775a0b2c892ca7699cd47df4ddb5692fae0" => :yosemite
   end
 
   if MacOS.version < :mavericks
-    depends_on "protobuf" => "c++11"
     depends_on "boost" => "c++11"
   else
-    depends_on "protobuf"
     depends_on "boost"
   end
 
   depends_on "pkg-config" => :build
   depends_on "glog"
   depends_on "gflags"
+  depends_on "protobuf"
 
   needs :cxx11
 

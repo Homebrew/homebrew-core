@@ -16,7 +16,7 @@ class Fdclone < Formula
   patch :DATA
 
   def install
-    ENV.j1
+    ENV.deparallelize
     system "make", "PREFIX=#{prefix}", "all"
     system "make", "MANTOP=#{man}", "install"
 
