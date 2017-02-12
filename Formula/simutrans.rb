@@ -1,10 +1,21 @@
 class Simutrans < Formula
   desc "Transport simulator"
   homepage "http://www.simutrans.com/"
-  url "https://downloads.sourceforge.net/project/simutrans/simutrans/120-1-3/simutrans-src-120-1-3.zip"
-  version "120.1.3"
-  sha256 "2d29b849fc39d25a0580091e1377270bddb2cae36c0fc32bd7c2d0f1d7ccfb84"
   head "https://github.com/aburch/simutrans.git"
+
+  stable do
+    url "https://downloads.sourceforge.net/project/simutrans/simutrans/120-1-3/simutrans-src-120-1-3.zip"
+    version "120.1.3"
+    sha256 "2d29b849fc39d25a0580091e1377270bddb2cae36c0fc32bd7c2d0f1d7ccfb84"
+
+    # Port Mac audio code from QTKit to AVFoundation
+    # Required since 10.12 SDK no longer includes QTKit.
+    # Submitted upstream: http://forum.simutrans.com/index.php?topic=16675.0
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/bea80842a6ccc5639341add0d8abbca2d49b04c2/simutrans/avfoundation.patch"
+      sha256 "9b9c9e6d89de49f152faaf584fcbbeec628bb07315b7c767e1f8b6791ad1e3ee"
+    end
+  end
 
   option "with-makeobj", "Build makeobj tool"
 
