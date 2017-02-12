@@ -5,6 +5,13 @@ class Magnetix < Formula
   version "3.1"
   sha256 "9862c95659c4db0c5cbe604163aefb503e48462c5769692010d8851d7b31c2fb"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "92a54f8752b83ef2e179acc52aac4b79855fcf5e365586cc1cdd5e6e95ce6ac9" => :sierra
+    sha256 "b3a243cbb1f7c97d92ea1cb82db31f5c2cdc9c2d43e0221e55f1ef6819d1af33" => :el_capitan
+    sha256 "ed629c950ac52c6efee73a2e77e7004e0e33a85fe920d793a2e8621a484d7cdc" => :yosemite
+  end
+
   depends_on :macos => :lion
   depends_on :xcode => :build
 
