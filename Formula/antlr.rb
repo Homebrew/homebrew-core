@@ -4,9 +4,9 @@ class Antlr < Formula
   url "http://www.antlr.org/download/antlr-4.6-complete.jar"
   sha256 "bd74482f0ee68001926863d4239d23b70719141db522343d39defc4f2cf25969"
 
-  depends_on :java
-
   bottle :unneeded
+
+  depends_on :java
 
   def install
     prefix.install "antlr-#{version}-complete.jar"
