@@ -7,9 +7,9 @@ class Pkcs11Helper < Formula
 
   bottle do
     cellar :any
-    sha256 "b752623b5d3572650decfa02539c0fe2af9bbcc16fa9b1bceae133f931471fa2" => :sierra
-    sha256 "99dc05bbb35ecf1dd3ce0454b798b3e08eb1434e0bb98eea0bd1d049d844019c" => :el_capitan
-    sha256 "60b254cdd776669ece91e3651d4269272ab5bd358c9fcf1e076bcc12b99eb515" => :yosemite
+    sha256 "5b23024c360d1bb3bd84887d4983354d1b335fc84d693f7505e5633ee23b2411" => :sierra
+    sha256 "20249bea63ab70e0daafd8d398b26638cc2941caab4773360828bf775506c0f6" => :el_capitan
+    sha256 "e37790f0d0ca3f4fe29b0ecb88fe8c2e6711a5e020c96c2ffbd73a2aae3eec31" => :yosemite
   end
 
   option "without-threading", "Build without threading support"
