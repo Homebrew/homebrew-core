@@ -1,7 +1,6 @@
 class TelegramCli < Formula
   desc "Command-line interface for Telegram."
   homepage "https://github.com/vysheng/tg"
-  # Use the tag instead of the tarball to get submodules
   url "https://github.com/vysheng/tg.git",
       :tag => "1.3.1",
       :revision => "5935c97ed05b90015418b5208b7beeca15a6043c"
@@ -13,12 +12,15 @@ class TelegramCli < Formula
   depends_on "openssl"
   depends_on "libconfig"
   depends_on "jansson"
-  depends_on "lua" => :recommended
-  depends_on "python" => :recommended
+  depends_on "lua" => :optional
+  depends_on "python" => :optional
 
   # Look for the configuration file under /usr/local/etc rather than /etc on OS X.
   # Pull Request: https://github.com/vysheng/tg/pull/1306
-  patch :DATA
+  patch do
+    url "https://patch-diff.githubusercontent.com/raw/vysheng/tg/pull/1306.patch"
+    sha256 "97c692d332f3078144f514e2bebe08c3be187a0d4a2ab4bf240479f1a0f6c740"
+  end
 
   def install
     args = %W[
@@ -42,19 +44,3 @@ class TelegramCli < Formula
     system "#{bin}/telegram-cli", "-h"
   end
 end
-
-
-__END__
-diff --git a/main.c b/main.c
-index 4776f07..cfa7411 100644
---- a/main.c
-+++ b/main.c
-@@ -990,7 +990,7 @@ int main (int argc, char **argv) {
-   running_for_first_time ();
-   parse_config ();
-
--  #ifdef __FreeBSD__
-+  #if defined(__FreeBSD__) || (defined(__APPLE__) && defined(__MACH__))
-   tgl_set_rsa_key (TLS, "/usr/local/etc/" PROG_NAME "/server.pub");
-   #else
-   tgl_set_rsa_key (TLS, "/etc/" PROG_NAME "/server.pub");
