@@ -25,16 +25,16 @@ class GtkEngines < Formula
     system "make", "install"
   end
 
-  test do
-    assert (share/"gtk-engines/clearlooks.xml").exist?
-    assert (lib/"gtk-2.0/2.10.0/engines/libhcengine.so").exist?
-    assert (share/"themes/Industrial/gtk-2.0/gtkrc").exist?
-  end
-
   def caveats; <<-EOS.undent
     You will need to set:
       GTK_PATH=#{HOMEBREW_PREFIX}/lib/gtk-2.0
     as by default GTK looks for modules in Cellar.
     EOS
+  end
+
+  test do
+    assert (share/"gtk-engines/clearlooks.xml").exist?
+    assert (lib/"gtk-2.0/2.10.0/engines/libhcengine.so").exist?
+    assert (share/"themes/Industrial/gtk-2.0/gtkrc").exist?
   end
 end
