@@ -18,7 +18,7 @@ class Magnetix < Formula
 
   def install
     cd "magnetiX_src" do
-      xcodebuild
+      xcodebuild "SYMROOT=build"
       prefix.install "build/Default/magnetiX.app"
       bin.write_exec_script "#{prefix}/magnetiX.app/Contents/MacOS/magnetiX"
     end
