@@ -15,7 +15,7 @@ class Lockrun < Formula
   end
 
   def install
-    system "#{ENV.cc} #{ENV.cflags} lockrun.c -o lockrun"
+    system ENV.cc, ENV.cflags, "lockrun.c", "-o", "lockrun"
     bin.install "lockrun"
   end
 end
