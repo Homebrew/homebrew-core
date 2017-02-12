@@ -5,6 +5,7 @@ class Magnetix < Formula
   version "3.1"
   sha256 "9862c95659c4db0c5cbe604163aefb503e48462c5769692010d8851d7b31c2fb"
 
+  depends_on :macos => :lion
   depends_on :xcode => :build
 
   # Port audio code from QTKit to AVFoundation
