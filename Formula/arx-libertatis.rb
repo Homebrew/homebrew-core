@@ -19,8 +19,8 @@ class ArxLibertatis < Formula
   depends_on "glm" => :build
   depends_on "freetype"
   depends_on "glew"
-  depends_on "innoextract" => :recommended
   depends_on "sdl"
+  depends_on "innoextract" => :recommended
 
   def install
     args = std_cmake_args
