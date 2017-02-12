@@ -29,9 +29,6 @@ class Macvim < Formula
   depends_on :python => :recommended
   depends_on :python3 => :optional
 
-  # Help us! We'd like to use superenv in these environments, too
-  env :std if MacOS.version <= :snow_leopard
-
   def install
     # Avoid "fatal error: 'ruby/config.h' file not found"
     ENV.delete("SDKROOT") if MacOS.version == :yosemite
