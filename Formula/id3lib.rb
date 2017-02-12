@@ -3,6 +3,9 @@ class Id3lib < Formula
   homepage "http://id3lib.sourceforge.net/"
   revision 1
 
+  head ":pserver:anonymous:@id3lib.cvs.sourceforge.net:/cvsroot/id3lib",
+    :using => :cvs, :module => "id3lib-devel"
+
   stable do
     url "https://downloads.sourceforge.net/project/id3lib/id3lib/3.8.3/id3lib-3.8.3.tar.gz"
     sha256 "2749cc3c0cd7280b299518b1ddf5a5bcfe2d1100614519b68702230e26c7d079"
@@ -17,9 +20,6 @@ class Id3lib < Formula
       sha256 "83c8d2fa54e8f88b682402b2a8730dcbcc8a7578681301a6c034fd53e1275463"
     end
   end
-
-  head ":pserver:anonymous:@id3lib.cvs.sourceforge.net:/cvsroot/id3lib",
-    :using => :cvs, :module => "id3lib-devel"
 
   bottle do
     cellar :any

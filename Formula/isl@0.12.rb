@@ -1,6 +1,11 @@
 class IslAT012 < Formula
   desc "Integer Set Library for the polyhedral model"
   homepage "http://isl.gforge.inria.fr/"
+  # Track gcc infrastructure releases.
+  url "http://isl.gforge.inria.fr/isl-0.12.2.tar.bz2"
+  mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-0.12.2.tar.bz2"
+  sha256 "f4b3dbee9712850006e44f0db2103441ab3d13b406f77996d1df19ee89d11fb4"
+
   bottle do
     cellar :any
     rebuild 1
@@ -8,11 +13,6 @@ class IslAT012 < Formula
     sha256 "57e01a30d3847bfa805c21e0cf8b45bfe958e10a0d3c2e8d225e780dba6f93f5" => :el_capitan
     sha256 "4da54a5f24e4d7dd0cd315096ee4a3c3a26388d8368f80b6a9bc0735c7b259ac" => :yosemite
   end
-
-  # Track gcc infrastructure releases.
-  url "http://isl.gforge.inria.fr/isl-0.12.2.tar.bz2"
-  mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-0.12.2.tar.bz2"
-  sha256 "f4b3dbee9712850006e44f0db2103441ab3d13b406f77996d1df19ee89d11fb4"
 
   keg_only :versioned_formula
 

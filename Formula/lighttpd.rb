@@ -105,10 +105,6 @@ class Lighttpd < Formula
     EOS
   end
 
-  test do
-    system "#{bin}/lighttpd", "-t", "-f", config_path+"lighttpd.conf"
-  end
-
   plist_options :manual => "lighttpd -f #{HOMEBREW_PREFIX}/etc/lighttpd/lighttpd.conf"
 
   def plist; <<-EOS.undent
@@ -148,5 +144,9 @@ class Lighttpd < Formula
     </dict>
     </plist>
     EOS
+  end
+
+  test do
+    system "#{bin}/lighttpd", "-t", "-f", config_path+"lighttpd.conf"
   end
 end

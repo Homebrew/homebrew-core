@@ -3,6 +3,7 @@ class NodeAT4 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v4.7.3/node-v4.7.3.tar.xz"
   sha256 "7f35dc7adf0b348857b98e543a54c2b2cafb92c27d9d32799a81ac66cbf035f0"
+  revision 1
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
