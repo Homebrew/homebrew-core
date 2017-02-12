@@ -21,6 +21,11 @@ class Openmsx < Formula
   end
 
   def install
+    # Fixes a clang crash; this is an LLVM/Apple bug, not an openmsx bug
+    # https://github.com/Homebrew/homebrew-core/pull/9753
+    # Filed with Apple: rdar://30475877
+    ENV.O0
+
     inreplace "build/custom.mk", "/opt/openMSX", prefix
     # Help finding Tcl
     inreplace "build/libraries.py", /\((distroRoot), \)/, "(\\1, '/usr', '#{MacOS.sdk_path}/usr')"
