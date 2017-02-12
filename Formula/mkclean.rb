@@ -19,7 +19,7 @@ class Mkclean < Formula
   def install
     ENV.deparallelize # Otherwise there are races
     system "./configure"
-    system "make -C mkclean"
+    system "make", "-C", "mkclean"
     bindir = `corec/tools/coremake/system_output.sh`.chomp
     bin.install Dir["release/#{bindir}/mk*"]
   end

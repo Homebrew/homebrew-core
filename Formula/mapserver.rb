@@ -17,8 +17,6 @@ class Mapserver < Formula
   option "with-php", "Build PHP MapScript module"
   option "with-postgresql", "Build support for PostgreSQL as a data source"
 
-  env :userpaths
-
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "swig" => :build

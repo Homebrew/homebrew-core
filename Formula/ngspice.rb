@@ -1,8 +1,15 @@
 class Ngspice < Formula
   desc "Spice circuit simulator"
-  homepage "http://ngspice.sourceforge.net/"
+  homepage "https://ngspice.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/26/ngspice-26.tar.gz"
   sha256 "51e230c8b720802d93747bc580c0a29d1fb530f3dd06f213b6a700ca9a4d0108"
+
+  bottle do
+    sha256 "267664560fe26b818457e00ba124ad1951b452ad978bd34ee7d7b9f4567bd3b9" => :sierra
+    sha256 "b508b0ca4f88db18b48796715a9de16ee5e7c119b13809ce01a87685f3a9393e" => :el_capitan
+    sha256 "ea1f0b65fcb3bb926124694d210e14800be6e47e73dcbf47a8e2baaac5314f44" => :yosemite
+    sha256 "4bc737b0801c82999a290f602f416de0ed38777df599afc688d9695c1f16d704" => :mavericks
+  end
 
   head do
     url "git://ngspice.git.sourceforge.net/gitroot/ngspice/ngspice"
@@ -11,13 +18,6 @@ class Ngspice < Formula
     depends_on "automake" => :build
     depends_on "bison" => :build
     depends_on "libtool" => :build
-  end
-
-  bottle do
-    sha256 "267664560fe26b818457e00ba124ad1951b452ad978bd34ee7d7b9f4567bd3b9" => :sierra
-    sha256 "b508b0ca4f88db18b48796715a9de16ee5e7c119b13809ce01a87685f3a9393e" => :el_capitan
-    sha256 "ea1f0b65fcb3bb926124694d210e14800be6e47e73dcbf47a8e2baaac5314f44" => :yosemite
-    sha256 "4bc737b0801c82999a290f602f416de0ed38777df599afc688d9695c1f16d704" => :mavericks
   end
 
   option "without-xspice", "Build without x-spice extensions"

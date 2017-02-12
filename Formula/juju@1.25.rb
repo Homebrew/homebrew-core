@@ -12,9 +12,9 @@ class JujuAT125 < Formula
     sha256 "71e3b915b5452125889e03be19dd6fad09cb244cc30c235f1d36841ea984788a" => :yosemite
   end
 
-  depends_on "go" => :build
-
   keg_only :versioned_formula
+
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath

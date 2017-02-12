@@ -3,8 +3,8 @@ class LtcTools < Formula
   homepage "https://github.com/x42/ltc-tools"
   url "https://github.com/x42/ltc-tools/archive/v0.6.4.tar.gz"
   sha256 "8fc9621df6f43ab24c65752a9fee67bee6625027c19c088e5498d2ea038a22ec"
-  head "https://github.com/x42/ltc-tools.git"
   revision 1
+  head "https://github.com/x42/ltc-tools.git"
 
   bottle do
     cellar :any

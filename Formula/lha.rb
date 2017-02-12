@@ -14,13 +14,13 @@ class Lha < Formula
     sha256 "3def5e7035ef758428c7e158b93ad5459d6d221ba4698608cc1d14526cbfd5f8" => :mountain_lion
   end
 
-  conflicts_with "lhasa", :because => "both install a `lha` binary"
-
   head do
     url "http://scm.osdn.jp/gitroot/lha/lha.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
+
+  conflicts_with "lhasa", :because => "both install a `lha` binary"
 
   def install
     system "autoreconf", "-is" if build.head?

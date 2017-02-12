@@ -1,4 +1,5 @@
 class Jrnl < Formula
+  include Language::Python::Virtualenv
   desc "Command-line note taker"
   homepage "https://maebert.github.io/jrnl/"
   url "https://github.com/maebert/jrnl/archive/1.9.7.tar.gz"
@@ -12,8 +13,6 @@ class Jrnl < Formula
     sha256 "157caf5eecbc9feaead712675e575c8c2414ee2fdc54fe062cd849cc83033aeb" => :yosemite
     sha256 "2d7764d897c93c87ad3bc36595118e0adef3e275912c5126b5c63574c689a624" => :mavericks
   end
-
-  include Language::Python::Virtualenv
 
   depends_on :python if MacOS.version <= :snow_leopard
 

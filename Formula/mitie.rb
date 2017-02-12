@@ -15,9 +15,9 @@ class Mitie < Formula
     sha256 "25a3ca7c81987f46cb52f4cc8b8c8de674db5c232d9b6e8383d376fad00ae3ea" => :mountain_lion
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
-
   option "without-models", "Don't download the v0.2 models (~415MB)"
+
+  depends_on :python if MacOS.version <= :snow_leopard
 
   resource "models-english" do
     url "https://downloads.sourceforge.net/project/mitie/binaries/MITIE-models-v0.2.tar.bz2"

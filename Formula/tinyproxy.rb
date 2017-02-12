@@ -11,11 +11,11 @@ class Tinyproxy < Formula
     sha256 "ea3bc9079b1c7b4aa0163b37c1bbe21fd971b2122f42cf9c2140ecd43d80b4a6" => :yosemite
   end
 
-  depends_on "asciidoc" => :build
-
   option "with-reverse", "Enable reverse proxying"
   option "with-transparent", "Enable transparent proxying"
   option "with-filter", "Enable url filtering"
+
+  depends_on "asciidoc" => :build
 
   deprecated_option "reverse" => "with-reverse"
 
@@ -49,20 +49,6 @@ class Tinyproxy < Formula
     (var/"run/tinyproxy").mkpath
   end
 
-  test do
-    pid = fork do
-      exec "#{sbin}/tinyproxy"
-    end
-    sleep 2
-
-    begin
-      assert_match /tinyproxy/, shell_output("curl localhost:8888")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
-  end
-
   plist_options :manual => "tinyproxy"
 
   def plist; <<-EOS.undent
@@ -86,5 +72,19 @@ class Tinyproxy < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    pid = fork do
+      exec "#{sbin}/tinyproxy"
+    end
+    sleep 2
+
+    begin
+      assert_match /tinyproxy/, shell_output("curl localhost:8888")
+    ensure
+      Process.kill("SIGINT", pid)
+      Process.wait(pid)
+    end
   end
 end
