@@ -25,13 +25,13 @@ class JohnJumbo < Formula
     sha256 "b36f66b0469b5c6cde95f780671db5b32e4e4dd7c16c4e7e591043bfdef2b65c" => :mavericks
   end
 
-  conflicts_with "john", :because => "both install the same binaries"
-
   option "without-completion", "bash/zsh completion will not be installed"
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "gmp"
+
+  conflicts_with "john", :because => "both install the same binaries"
 
   # Patch taken from MacPorts, tells john where to find runtime files.
   # https://github.com/magnumripper/JohnTheRipper/issues/982
