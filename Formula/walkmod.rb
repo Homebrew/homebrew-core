@@ -18,6 +18,6 @@ class Walkmod < Formula
   test do
     system "git", "clone", "--depth", "1", "https://github.com/walkmod/walkmod-core.git"
     cd "walkmod-core"
-    system bin/"walkmod", "check"
+    system bin/"walkmod", "check", "-e"
   end
 end
