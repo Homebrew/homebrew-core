@@ -1,6 +1,6 @@
 class Irrlicht < Formula
   desc "Realtime 3D engine"
-  homepage "http://irrlicht.sourceforge.net/"
+  homepage "https://irrlicht.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/irrlicht/Irrlicht%20SDK/1.8/1.8.4/irrlicht-1.8.4.zip"
   sha256 "f42b280bc608e545b820206fe2a999c55f290de5c7509a02bdbeeccc1bf9e433"
   head "https://irrlicht.svn.sourceforge.net/svnroot/irrlicht/trunk"
