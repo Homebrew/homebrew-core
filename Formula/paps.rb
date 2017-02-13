@@ -1,6 +1,6 @@
 class Paps < Formula
   desc "Pango to PostScript converter"
-  homepage "http://paps.sourceforge.net/"
+  homepage "https://paps.sourceforge.io/"
   url "https://downloads.sourceforge.net/paps/paps-0.6.8.tar.gz"
   sha256 "db214c4ea7ecde2f7986b869f6249864d3ff364e6f210c15aa2824bcbd850a20"
 
