@@ -1,6 +1,6 @@
 class Ctags < Formula
   desc "Reimplementation of ctags(1)"
-  homepage "http://ctags.sourceforge.net/"
+  homepage "https://ctags.sourceforge.io/"
   revision 1
 
   stable do
