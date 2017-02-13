@@ -1,9 +1,9 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2017/sqlite-autoconf-3160200.tar.gz"
-  version "3.16.2"
-  sha256 "65cc0c3e9366f50c0679c5ccd31432cea894bc4a3e8947dabab88c8693263615"
+  url "https://sqlite.org/2017/sqlite-autoconf-3170000.tar.gz"
+  version "3.17.0"
+  sha256 "a4e485ad3a16e054765baf6371826b5000beed07e626510896069c0bf013874c"
 
   bottle do
     cellar :any
@@ -15,7 +15,6 @@ class Sqlite < Formula
 
   keg_only :provided_by_osx, "macOS provides an older sqlite3."
 
-  option :universal
   option "with-docs", "Install HTML documentation"
   option "without-rtree", "Disable the R*Tree index module"
   option "with-fts", "Enable the FTS3 module"
@@ -38,9 +37,9 @@ class Sqlite < Formula
   end
 
   resource "docs" do
-    url "https://sqlite.org/2017/sqlite-doc-3160200.zip"
-    version "3.16.2"
-    sha256 "c13ffbb6019f3849b251c22358f31ccb862a842c0a2379f552f2935600157dcb"
+    url "https://www.sqlite.org/2017/sqlite-doc-3170000.zip"
+    version "3.17.0"
+    sha256 "3102d9eab879074776216357e4c9e272f63d0cda975a0819ec5baba5e0922ff6"
   end
 
   def install
@@ -48,6 +47,7 @@ class Sqlite < Formula
     # Default value of MAX_VARIABLE_NUMBER is 999 which is too low for many
     # applications. Set to 250000 (Same value used in Debian and Ubuntu).
     ENV.append "CPPFLAGS", "-DSQLITE_MAX_VARIABLE_NUMBER=250000"
+    ENV.append "CPPFLAGS", "-DSQLITE_DISABLE_INTRINSIC" if MacOS.version <= :yosemite && ENV.compiler == :clang
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_RTREE=1" if build.with? "rtree"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_FTS3_PARENTHESIS=1" if build.with? "fts"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_FTS5=1" if build.with? "fts5"
@@ -65,8 +65,6 @@ class Sqlite < Formula
       ENV.append "CPPFLAGS", icu4ccppflags
       ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_ICU=1"
     end
-
-    ENV.universal_binary if build.universal?
 
     args = [
       "--prefix=#{prefix}",
