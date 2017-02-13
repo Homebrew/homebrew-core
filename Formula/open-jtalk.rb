@@ -1,6 +1,6 @@
 class OpenJtalk < Formula
   desc "Japanese text-to-speech system"
-  homepage "http://open-jtalk.sourceforge.net/"
+  homepage "https://open-jtalk.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/open-jtalk/Open%20JTalk/open_jtalk-1.10/open_jtalk-1.10.tar.gz"
   sha256 "5b77ee729e546ca6a22d0b08cda0923fb4225fa782b26c2511b66cc644c14b7d"
   revision 1
