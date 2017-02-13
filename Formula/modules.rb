@@ -1,6 +1,6 @@
 class Modules < Formula
   desc "Dynamic modification of a user's environment via modulefiles"
-  homepage "http://modules.sourceforge.net/"
+  homepage "https://modules.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/modules/Modules/modules-3.2.10/modules-3.2.10.tar.bz2"
   sha256 "e8403492a8d57ace6485813ad6cdaafe0a735b7d93b9435553a8d11d3fdd29a2"
 
