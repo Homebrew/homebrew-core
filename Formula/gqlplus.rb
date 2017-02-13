@@ -1,6 +1,6 @@
 class Gqlplus < Formula
   desc "Drop-in replacement for sqlplus, an Oracle SQL client"
-  homepage "http://gqlplus.sourceforge.net/"
+  homepage "https://gqlplus.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gqlplus/gqlplus/1.16/gqlplus-1.16.tar.gz"
   sha256 "9e0071d6f8bc24b0b3623c69d9205f7d3a19c2cb32b5ac9cff133dc75814acdd"
   revision 1
