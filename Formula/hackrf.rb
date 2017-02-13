@@ -7,11 +7,9 @@ class Hackrf < Formula
 
   bottle do
     cellar :any
-    sha256 "f496bec0cd122e8d92fd74336196e4dab89c48e8dc6cccd86e3b9177f72936f6" => :sierra
-    sha256 "7b0ed880b6f137fa9c8564654a1a63458c1b60f3108a4a8636dbae90eb392051" => :el_capitan
-    sha256 "c7bdd9df9292a54c7596dbd491f2139c730b34c53292fe1821b8aec7acd64555" => :yosemite
-    sha256 "fe5b6d365bce6c478514eb60db4523d16b4fa04c2863d407aa50f7ca4d77833e" => :mavericks
-    sha256 "58c43dafc515a6a92b8553fa7a6edea406b02fe44164e60273c882a31bb11496" => :mountain_lion
+    sha256 "1b543cb3ea75d8a435b43df8e02e9468b1a6cf93fff2ab1a6605dcb0a514aacf" => :sierra
+    sha256 "0c67009ad5e60aae45c203392dcee3a87e653177d996d296543b9de8d71ec827" => :el_capitan
+    sha256 "d78f8872362611465da4cfddbadfece708195057b88894d713959afd06030dc6" => :yosemite
   end
 
   depends_on "cmake" => :build
