@@ -1,6 +1,6 @@
 class Ucon64 < Formula
   desc "ROM backup tool and emulator's Swiss Army knife program"
-  homepage "http://ucon64.sourceforge.net/"
+  homepage "https://ucon64.sourceforge.io/"
   url "https://downloads.sourceforge.net/ucon64/ucon64-2.0.2-src.tar.gz"
   sha256 "2df3972a68d1d7237dfedb99803048a370b466a015a5e4c1343f7e108601d4c9"
   head ":pserver:anonymous:@ucon64.cvs.sourceforge.net:/cvsroot/ucon64", :using => :cvs
