@@ -1,6 +1,6 @@
 class Gringo < Formula
   desc "Grounder to translate user-provided logic programs"
-  homepage "http://potassco.sourceforge.net/"
+  homepage "https://potassco.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/potassco/gringo/4.5.4/gringo-4.5.4-source.tar.gz"
   mirror "https://mirrors.kernel.org/debian/pool/main/g/gringo/gringo_4.5.4.orig.tar.gz"
   sha256 "81f8bbbb1b06236778028e5f1b8627ee38a712ec708724112fb08aecf9bc649a"
