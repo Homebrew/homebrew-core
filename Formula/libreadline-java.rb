@@ -1,6 +1,6 @@
 class LibreadlineJava < Formula
   desc "Port of GNU readline for Java"
-  homepage "http://java-readline.sourceforge.net/"
+  homepage "https://java-readline.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/java-readline/java-readline/0.8.0/libreadline-java-0.8.0-src.tar.gz"
   sha256 "cdcfd9910bfe2dca4cd08b2462ec05efee7395e9b9c3efcb51e85fa70548c890"
   revision 1
