@@ -1,6 +1,6 @@
 class Geographiclib < Formula
   desc "C++ geography library"
-  homepage "http://geographiclib.sourceforge.net/"
+  homepage "https://geographiclib.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/geographiclib/distrib/GeographicLib-1.46.tar.gz"
   sha256 "3a0606fd99fb099572ba1923f556b05b545965359edb92930a658fc99172d962"
 
