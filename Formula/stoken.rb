@@ -1,6 +1,6 @@
 class Stoken < Formula
   desc "Tokencode generator compatible with RSA SecurID 128-bit (AES)"
-  homepage "http://stoken.sourceforge.net/"
+  homepage "https://stoken.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/stoken/stoken-0.91.tar.gz"
   sha256 "419ed84000bc455ef77c78e3ebfd4c6fd2d932384563989f864becbafd51bcf4"
 
