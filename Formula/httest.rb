@@ -1,6 +1,6 @@
 class Httest < Formula
   desc "Provides a large variety of HTTP-related test functionality."
-  homepage "http://htt.sourceforge.net/"
+  homepage "https://htt.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/htt/htt2.4/httest-2.4.12/httest-2.4.12.tar.gz"
   sha256 "fd18cdc996c199d56d77e9355c07e1e1701d5550c03fbecb06a255ce72d79bd1"
 
