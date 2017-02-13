@@ -1,6 +1,6 @@
 class Shmcat < Formula
   desc "Tool that dumps shared memory segments (System V and POSIX)"
-  homepage "http://shmcat.sourceforge.net/"
+  homepage "https://shmcat.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/shmcat/shmcat-1.8.tar.bz2"
   sha256 "43fbf1b62f22f7cfcfd21228225151441450441d47ca73c9c2951c9af5549dde"
 
