@@ -1,6 +1,6 @@
 class Exult < Formula
   desc "Recreation of Ultima 7"
-  homepage "http://exult.sourceforge.net/"
+  homepage "https://exult.sourceforge.io/"
   url "svn://svn.code.sf.net/p/exult/code/exult/trunk", :revision => 7520
   version "1.4.9rc1+r7520"
   head "svn://svn.code.sf.net/p/exult/code/exult/trunk"
