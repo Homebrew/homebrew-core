@@ -1,6 +1,6 @@
 class Qtads < Formula
   desc "TADS multimedia interpreter"
-  homepage "http://qtads.sourceforge.net/"
+  homepage "https://qtads.sourceforge.io/"
   head "https://github.com/realnc/qtads.git"
 
   stable do
