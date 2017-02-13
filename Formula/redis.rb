@@ -1,15 +1,15 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "http://redis.io/"
-  url "http://download.redis.io/releases/redis-3.2.7.tar.gz"
-  sha256 "bf9df3e5374bfe7bfc3386380f9df13d94990011504ef07632b3609bb2836fa9"
+  url "http://download.redis.io/releases/redis-3.2.8.tar.gz"
+  sha256 "61b373c23d18e6cc752a69d5ab7f676c6216dc2853e46750a8c4ed791d68482c"
   head "https://github.com/antirez/redis.git", :branch => "unstable"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a819b2ce1b8832efd7540182850fe5d858b8661c8b2595058b75ce14df77d260" => :sierra
-    sha256 "8741b9345a84dc4c679f876bbce60f1fdbc925f75ddeba4822ac8b28293ec380" => :el_capitan
-    sha256 "7b140a8ecc9eaa94ba756ea7afd08f901884217827dab3fe74df0abad55fabed" => :yosemite
+    sha256 "7d936f499fb528c4fbfe6c543f16c19d952b1ac043363234b29bd918d11896ab" => :sierra
+    sha256 "f60eebc6ffe63fe1c954d41046b546a3d6b258f149b823d3dbbef10f02a9ce43" => :el_capitan
+    sha256 "bb620833157655d9cc021174cceb21fc9e74966cd8f19e411df6832e89ebcba1" => :yosemite
   end
 
   devel do
