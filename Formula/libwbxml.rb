@@ -7,10 +7,9 @@ class Libwbxml < Formula
 
   bottle do
     cellar :any
-    sha256 "9d2026a484bf34361af070e8a3d16f7cbab2dd24003b4c7c1302dac114bb3273" => :sierra
-    sha256 "8dea99c05944dcc9b28a3494d00ff32d136669c6bb49ad3eb6640f7a2601f879" => :el_capitan
-    sha256 "3a3c54f55e3ca674f6e8cc993519b3988d174a642ad25bcbf3e540e35d541d90" => :yosemite
-    sha256 "cc821ee98e3af666012edf1abfbce6cf1816e3609a1fcf679519c2f883a84000" => :mavericks
+    sha256 "ff3988645fd4ed0fab3a44c7ec4d51247bece66319c75563125c85803d8759e3" => :sierra
+    sha256 "7e418f10145443f0aa9f0107d44091123230035ae48fe1fc9421bf1bc9ff480f" => :el_capitan
+    sha256 "e0d3fef67a6d509a486d06e633df0b6e9cc2c303acb6c7f6146e1cc17b741a84" => :yosemite
   end
 
   option "with-docs", "Build the documentation with Doxygen and Graphviz"
