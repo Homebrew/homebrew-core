@@ -1,6 +1,6 @@
 class Bsdsfv < Formula
   desc "SFV utility tools"
-  homepage "http://bsdsfv.sourceforge.net/"
+  homepage "https://bsdsfv.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/bsdsfv/bsdsfv/1.18/bsdsfv-1.18.tar.gz"
   sha256 "577245da123d1ea95266c1628e66a6cf87b8046e1a902ddd408671baecf88495"
 
