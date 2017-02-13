@@ -1,6 +1,6 @@
 class Pdfcrack < Formula
   desc "PDF files password cracker"
-  homepage "http://pdfcrack.sourceforge.net/"
+  homepage "https://pdfcrack.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/pdfcrack/pdfcrack/pdfcrack-0.15/pdfcrack-0.15.tar.gz"
   sha256 "791043693f9fc261fa326dbcb5e4de3801d6ae552dbea39293f9b2674c250d3e"
 
