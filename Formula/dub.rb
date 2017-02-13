@@ -29,7 +29,6 @@ class Dub < Formula
   end
 
   test do
-    system "#{bin}/dub"
     assert_match version.to_s, shell_output("#{bin}/dub --version")
   end
 end
