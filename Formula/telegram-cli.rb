@@ -41,6 +41,6 @@ class TelegramCli < Formula
   end
 
   test do
-    system "#{bin}/telegram", "-h"
+    shell_output "#{bin}/telegram -h", 1
   end
 end
