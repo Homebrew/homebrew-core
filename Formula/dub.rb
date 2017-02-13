@@ -1,6 +1,6 @@
 class Dub < Formula
   desc "Build tool for D projects"
-  homepage "https://code.dlang.org/about"
+  homepage "https://code.dlang.org/getting_started"
   url "https://github.com/dlang/dub/archive/v1.2.0.tar.gz"
   sha256 "836caddb30ad5972a453269b027f614d51b5fd2f751a0fe63cfeb0be7388a8e9"
   version_scheme 1
@@ -14,9 +14,9 @@ class Dub < Formula
   end
 
   devel do
-    version "1.2.1-beta.1"
     url "https://github.com/dlang/dub/archive/v1.2.1-beta.1.tar.gz"
     sha256 "8d0a8fd59afaf23194b99dd4e5b3ffd65c56f9d9da74d762d01fba9af6d79b07"
+    version "1.2.1-beta.1"
   end
 
   depends_on "pkg-config" => [:recommended, :run]
