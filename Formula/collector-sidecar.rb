@@ -20,12 +20,12 @@ class CollectorSidecar < Formula
       inreplace "collector_sidecar.yml", "/var", var
       system "glide", "install"
       system "make", "build"
-      (etc/"graylog/collector-sidecar").install "collector_sidecar.yml" unless (etc/"graylog/collector-sidecar/collector_sidecar.yml").exist?
+      (etc/"graylog/collector-sidecar").install "collector_sidecar.yml"
       bin.install "graylog-collector-sidecar"
     end
   end
 
   test do
-    system "#{bin}/graylog-collector-sidecar", "-version"
+    assert_match version.to_s, shell_output("#{bin}/graylog-collector-sidecar -version")
   end
 end
