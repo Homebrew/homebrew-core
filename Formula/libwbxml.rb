@@ -1,8 +1,8 @@
 class Libwbxml < Formula
   desc "Library and tools to parse and encode WBXML documents"
   homepage "https://sourceforge.net/projects/libwbxml/"
-  url "https://downloads.sourceforge.net/project/libwbxml/libwbxml/0.11.4/libwbxml-0.11.4.tar.bz2"
-  sha256 "8057998042b8a724328346a50c326010ba011a40e18e2df7043e87498a679c28"
+  url "https://downloads.sourceforge.net/project/libwbxml/libwbxml/0.11.5/libwbxml-0.11.5.tar.bz2"
+  sha256 "5f8fabc0152d73b725e16211ccd74263c1c2f9f1dc36a2fd916a8deb4ee577e2"
   head "https://github.com/libwbxml/libwbxml.git"
 
   bottle do
