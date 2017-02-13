@@ -5,12 +5,12 @@ class Sslyze < Formula
   homepage "https://github.com/nabla-c0d3/sslyze"
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/0.14.2.tar.gz"
-    sha256 "6c17aaed61bcf46a9bd19218cbf2ec424504fafeb0a7d563a88d954ef27fa091"
+    url "https://github.com/nabla-c0d3/sslyze/archive/1.0.0.tar.gz"
+    sha256 "5117f10cda0d041816ebef78dc73fcb0ba16e4f3fe2a9a28f7a73eadbab2b921"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl/archive/0.14.1.tar.gz"
-      sha256 "2bd2f42f4c3144c2834e96e3e0d4ad2f158ee2a8655f2ba649b7aa41c8840baa"
+      url "https://github.com/nabla-c0d3/nassl/archive/0.15.1.tar.gz"
+      sha256 "b25020074d0838837531b2ed30635ec715f60e13f11f416a89588edd08653f1f"
     end
 
     resource "openssl" do
@@ -42,15 +42,30 @@ class Sslyze < Formula
   depends_on :arch => :x86_64
   depends_on :python if MacOS.version <= :snow_leopard
 
+  resource "enum34" do
+    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
+    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
+  end
+
+  resource "typing" do
+    url "https://files.pythonhosted.org/packages/b6/0c/53c42edca789378b8c05a5496e689f44e5dd82bc6861d1ae5a926ee51b84/typing-3.5.3.0.tar.gz"
+    sha256 "ca2daac7e393e8ee86e9140cd0cf0172ff6bb50ebdf0b06281770f98f31bff21"
+  end
+
   resource "zlib" do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/z/zlib/zlib_1.2.8.dfsg.orig.tar.gz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/z/zlib/zlib_1.2.8.dfsg.orig.tar.gz"
-    version "1.2.8"
-    sha256 "2caecc2c3f1ef8b87b8f72b128a03e61c307e8c14f5ec9b422ef7914ba75cf9f"
+    url "http://zlib.net/zlib-1.2.11.tar.gz"
+    mirror "https://downloads.sourceforge.net/project/libpng/zlib/1.2.11/zlib-1.2.11.tar.gz"
+    sha256 "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1"
   end
 
   def install
     venv = virtualenv_create(libexec)
+
+    venv.pip_install resource("enum34")
+    venv.pip_install resource("typing")
+
+    ENV.prepend_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+
     resource("nassl").stage do
       nassl_path = Pathname.pwd
       # openssl fails on parallel build. Related issues:
@@ -68,9 +83,6 @@ class Sslyze < Formula
       venv.pip_install nassl_path
     end
     venv.pip_install_and_link buildpath
-
-    ENV.prepend "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", "run_tests.py"
   end
 
   test do
