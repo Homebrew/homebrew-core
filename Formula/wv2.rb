@@ -1,6 +1,6 @@
 class Wv2 < Formula
   desc "Programs for accessing Microsoft Word documents"
-  homepage "http://wvware.sourceforge.net/"
+  homepage "https://wvware.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/wvware/wv2-0.4.2.tar.bz2"
   sha256 "9f2b6d3910cb0e29c9ff432f935a594ceec0101bca46ba2fc251aff251ee38dc"
 
