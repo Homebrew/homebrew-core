@@ -41,6 +41,6 @@ class TelegramCli < Formula
   end
 
   test do
-    shell_output "#{bin}/telegram -h", 1
+    assert_match "telegram-cli", (shell_output "#{bin}/telegram -h", 1)
   end
 end
