@@ -1,6 +1,6 @@
 class Xstow < Formula
   desc "Extended replacement for GNU Stow"
-  homepage "http://xstow.sourceforge.net/"
+  homepage "https://xstow.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/xstow/xstow-1.0.2.tar.bz2"
   sha256 "6f041f19a5d71667f6a9436d56f5a50646b6b8c055ef5ae0813dcecb35a3c6ef"
 
