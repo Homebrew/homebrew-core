@@ -1,6 +1,6 @@
 class Cracklib < Formula
   desc "LibCrack password checking library"
-  homepage "http://cracklib.sourceforge.net/"
+  homepage "https://cracklib.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/cracklib/cracklib/2.9.5/cracklib-2.9.5.tar.gz"
   sha256 "59ab0138bc8cf90cccb8509b6969a024d5e58d2d02bcbdccbb9ba9b88be3fa33"
 
