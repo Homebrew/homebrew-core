@@ -1,6 +1,6 @@
 class Mcpp < Formula
   desc "Alternative C/C++ preprocessor"
-  homepage "http://mcpp.sourceforge.net/"
+  homepage "https://mcpp.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/mcpp/mcpp/V.2.7.2/mcpp-2.7.2.tar.gz"
   sha256 "3b9b4421888519876c4fc68ade324a3bbd81ceeb7092ecdbbc2055099fcb8864"
 
