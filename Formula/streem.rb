@@ -1,5 +1,5 @@
 class Streem < Formula
-  desc "prototype of stream based programming language"
+  desc "Prototype of stream based programming language"
   homepage "https://github.com/matz/streem"
   url "https://github.com/matz/streem/archive/201611.tar.gz"
   sha256 "807a9ccf3162efb061a15a333943050b329f0232cceb55492e5cd582c09a7fb4"
@@ -7,7 +7,7 @@ class Streem < Formula
 
   def install
     system "make"
-    cp_r "bin", prefix
+    prefix.install "bin"
   end
 
   test do
