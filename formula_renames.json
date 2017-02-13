@@ -11,6 +11,7 @@
   "automake112": "automake@112",
   "beanstalk": "beanstalkd",
   "berkeley-db4": "berkeley-db@4",
+  "boost155": "boost@1.55",
   "cloog-ppl015": "cloog@0.15",
   "cloog018": "cloog",
   "commonmark": "cmark",
