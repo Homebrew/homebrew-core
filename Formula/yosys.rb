@@ -4,16 +4,17 @@ class Yosys < Formula
   url "https://github.com/cliffordwolf/yosys/archive/yosys-0.7.tar.gz"
   sha256 "3df986d0c6bf20b78193456e11c660f2ad935cc126537c2dc5726e78896d6e6e"
 
-  option "without-abc", "Build without support for ABC"
-  option "without-tcl", "Build without support for Tcl language bindings"
-
   depends_on "python3"
   depends_on "libffi" => :recommended
   depends_on "readline" => :recommended
   depends_on "pkg-config" => :build
   depends_on "bison" => :build
 
-  # Prevent the makefile from trying to automatically locate homebrew and macports libraries
+  # The makefile in Yosys 0.7 adds library search paths from macports, which a homebrew build
+  # should not be using. It also prints warnings about a missing brew command.
+  # See https://github.com/cliffordwolf/yosys/pull/303 for discussion.
+  # The patch is based on the Makefile changes in this upstream commit:
+  # https://github.com/cliffordwolf/yosys/commit/a431f4ee311b9563f546201d255e429e9ce58cfa
   patch :DATA
 
   # This ABC revision is specified in the makefile.
@@ -25,28 +26,15 @@ class Yosys < Formula
   end
 
   def install
-    extra_args = []
+    args = []
 
-    if build.with? "abc"
-      resource("abc").stage buildpath/"abc"
-      extra_args.push "ABCREV=default"
-    else
-      extra_args.push "ENABLE_ABC=0"
-    end
+    resource("abc").stage buildpath/"abc"
 
-    if build.without? "tcl"
-      extra_args.push "ENABLE_TCL=0"
-    end
+    args << "ENABLE_PLUGINS=0" if build.without? "libffi"
 
-    if build.without? "readline"
-      extra_args.push "ENABLE_READLINE=0"
-    end
+    args << "ENABLE_READLINE=0" if build.without? "readline"
 
-    if build.without? "libffi"
-      extra_args.push "ENABLE_PLUGINS=0"
-    end
-
-    system "make", "install", "PREFIX=#{prefix}", "PRETTY=0", *extra_args
+    system "make", "install", "PREFIX=#{prefix}", "PRETTY=0", "ABCREV=default", *args
   end
 
   test do
@@ -56,11 +44,19 @@ end
 
 __END__
 diff --git a/Makefile b/Makefile
-index 0a61fe65..061102b3 100644
+index 0a61fe65..2d973b18 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -58,15 +58,6 @@ SED = sed
- BISON = bison
+@@ -53,23 +53,31 @@ CXXFLAGS += -Wall -Wextra -ggdb -I. -I"$(YOSYS_SRC)" -MD -D_YOSYS_ -fPIC -I$(PRE
+ LDFLAGS += -L$(LIBDIR)
+ LDLIBS = -lstdc++ -lm
+ 
+-PKG_CONFIG = pkg-config
+-SED = sed
+-BISON = bison
++PKG_CONFIG ?= pkg-config
++SED ?= sed
++BISON ?= bison
  
  ifeq (Darwin,$(findstring Darwin,$(shell uname)))
 -	# add macports/homebrew include and library path to search directories, don't use '-rdynamic' and '-lrt':
@@ -72,6 +68,49 @@ index 0a61fe65..061102b3 100644
 -	# use bison installed by homebrew if available
 -	BISON = $(shell (brew list bison | grep -m1 "bin/bison") || echo bison)
 -	SED = sed
++# homebrew search paths
++ifneq ($(shell which brew),)
++BREW_PREFIX := $(shell brew --prefix)/opt
++CXXFLAGS += -I$(BREW_PREFIX)/readline/include
++LDFLAGS += -L$(BREW_PREFIX)/readline/lib
++PKG_CONFIG_PATH := $(BREW_PREFIX)/libffi/lib/pkgconfig:$(PKG_CONFIG_PATH)
++PKG_CONFIG_PATH := $(BREW_PREFIX)/tcl-tk/lib/pkgconfig:$(PKG_CONFIG_PATH)
++export PATH := $(BREW_PREFIX)/bison/bin:$(BREW_PREFIX)/gettext/bin:$(BREW_PREFIX)/flex/bin:$(PATH)
++
++# macports search paths
++else ifneq ($(shell which port),)
++PORT_PREFIX := $(patsubst %/bin/port,%,$(shell which port))
++CXXFLAGS += -I$(PORT_PREFIX)/include
++LDFLAGS += -L$(PORT_PREFIX)/lib
++PKG_CONFIG_PATH := $(PORT_PREFIX)/lib/pkgconfig:$(PKG_CONFIG_PATH)
++export PATH := $(PORT_PREFIX)/bin:$(PATH)
++endif
  else
- 	LDFLAGS += -rdynamic
- 	LDLIBS += -lrt
+-	LDFLAGS += -rdynamic
+-	LDLIBS += -lrt
++LDFLAGS += -rdynamic
++LDLIBS += -lrt
+ endif
+ 
+ YOSYS_VER := 0.7
+@@ -202,15 +210,16 @@ endif
+ endif
+ 
+ ifeq ($(ENABLE_PLUGINS),1)
+-CXXFLAGS += -DYOSYS_ENABLE_PLUGINS $(shell $(PKG_CONFIG) --silence-errors --cflags libffi)
+-LDLIBS += $(shell $(PKG_CONFIG) --silence-errors --libs libffi || echo -lffi) -ldl
++CXXFLAGS += $(shell PKG_CONFIG_PATH=$(PKG_CONFIG_PATH) $(PKG_CONFIG) --silence-errors --cflags libffi) -DYOSYS_ENABLE_PLUGINS
++LDLIBS += $(shell PKG_CONFIG_PATH=$(PKG_CONFIG_PATH) $(PKG_CONFIG) --silence-errors --libs libffi || echo -lffi) -ldl
+ endif
+ 
+ ifeq ($(ENABLE_TCL),1)
+ TCL_VERSION ?= tcl$(shell bash -c "tclsh <(echo 'puts [info tclversion]')")
+ TCL_INCLUDE ?= /usr/include/$(TCL_VERSION)
+-CXXFLAGS += -I$(TCL_INCLUDE) -DYOSYS_ENABLE_TCL
+-LDLIBS += -l$(TCL_VERSION)
++
++CXXFLAGS += $(shell PKG_CONFIG_PATH=$(PKG_CONFIG_PATH) $(PKG_CONFIG) --silence-errors --cflags tcl || echo -I$(TCL_INCLUDE)) -DYOSYS_ENABLE_TCL
++LDLIBS += $(shell PKG_CONFIG_PATH=$(PKG_CONFIG_PATH) $(PKG_CONFIG) --silence-errors --libs tcl || echo -l$(TCL_VERSION))
+ endif
+ 
+ ifeq ($(ENABLE_GPROF),1)
