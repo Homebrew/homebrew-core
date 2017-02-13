@@ -1,6 +1,6 @@
 class Lensfun < Formula
   desc "Remove defects from digital images"
-  homepage "http://lensfun.sourceforge.net/"
+  homepage "https://lensfun.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/lensfun/0.3.2/lensfun-0.3.2.tar.gz"
   sha256 "ae8bcad46614ca47f5bda65b00af4a257a9564a61725df9c74cb260da544d331"
   revision 1
