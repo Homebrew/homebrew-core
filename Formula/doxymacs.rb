@@ -1,6 +1,6 @@
 class Doxymacs < Formula
   desc "Elisp package for using doxygen under Emacs"
-  homepage "http://doxymacs.sourceforge.net/"
+  homepage "https://doxymacs.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/doxymacs/doxymacs/1.8.0/doxymacs-1.8.0.tar.gz"
   sha256 "a23fd833bc3c21ee5387c62597610941e987f9d4372916f996bf6249cc495afa"
 
