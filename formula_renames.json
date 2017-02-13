@@ -13,6 +13,7 @@
   "berkeley-db4": "berkeley-db@4",
   "boost155": "boost@1.55",
   "boost157": "boost@1.57",
+  "boost159": "boost@1.59",
   "cloog-ppl015": "cloog@0.15",
   "cloog018": "cloog",
   "commonmark": "cmark",
