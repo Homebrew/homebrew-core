@@ -1,8 +1,8 @@
 class Hackrf < Formula
   desc "Low cost software radio platform"
   homepage "https://github.com/mossmann/hackrf"
-  url "https://github.com/mossmann/hackrf/archive/v2015.07.2.tar.gz"
-  sha256 "00eaca20eceb3f2ed4c23c80353b20dac3a29458b8d33654ff287699d2ed8877"
+  url "https://github.com/mossmann/hackrf/archive/v2017.02.1.tar.gz"
+  sha256 "7f84e61d07ab0ae4bd05912a4167cd7bc3cc2618d880bbd3a4579f65a2f1bbbf"
   head "https://github.com/mossmann/hackrf.git"
 
   bottle do
@@ -17,6 +17,7 @@ class Hackrf < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "libusb"
+  depends_on "fftw"
 
   def install
     cd "host" do
@@ -26,6 +27,6 @@ class Hackrf < Formula
   end
 
   test do
-    shell_output("hackrf_transfer", 1)
+    shell_output("#{bin}/hackrf_transfer", 1)
   end
 end
