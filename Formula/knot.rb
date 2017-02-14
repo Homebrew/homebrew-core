@@ -1,6 +1,7 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
+  revision 1
 
   stable do
     url "https://secure.nic.cz/files/knot-dns/knot-2.4.1.tar.xz"
@@ -116,8 +117,12 @@ class Knot < Formula
         <string>-c</string>
         <string>#{etc}/knot.conf</string>
       </array>
-      <key>ServiceIPC</key>
-      <false/>
+      <key>StandardInPath</key>
+      <string>/dev/null</string>
+      <key>StandardOutPath</key>
+      <string>/dev/null</string>
+      <key>StandardErrorPath</key>
+      <string>#{var}/log/knot.log</string>
     </dict>
     </plist>
     EOS
