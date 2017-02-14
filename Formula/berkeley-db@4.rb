@@ -6,11 +6,9 @@ class BerkeleyDbAT4 < Formula
 
   bottle do
     cellar :any
-    sha256 "0f53d408c3646bb2776d0be456e14fc1a66eca706e272ce6840ae03d2e7d9559" => :sierra
-    sha256 "598c8cc77263920589169c413c1b40cad1f02774bc889aeb0c1406d6b46ccfa3" => :el_capitan
-    sha256 "9e4fd0da37c849e00a5bead14e64c8a71168287d957f71a96be96e4bd3000985" => :yosemite
-    sha256 "45c3212a6755c7a6bda099b8fcd7c5f92014a350849f310ca3ca8cde63cc705b" => :mavericks
-    sha256 "04fc8d3b03381d87b3852ac1756dd144a10e7ac47444fa3e81dec0fc8ea33d25" => :mountain_lion
+    sha256 "d1352d9ea6085984a1ecd512babf3158416fe5b56b98aee3cd209c98ffb1f520" => :sierra
+    sha256 "ae348346b2c4bd39db740b0992cdad4f30d681a005cce8e20fbfa5d0059e4548" => :el_capitan
+    sha256 "b220bd9ce6ad809639dbbdd31abdce4a136ccf3f11b5ca6d3cc8c1c9d0fe8dfe" => :yosemite
   end
 
   keg_only :versioned_formula
