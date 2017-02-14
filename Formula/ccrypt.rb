@@ -23,7 +23,8 @@ class Ccrypt < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+                          "--mandir=#{man}",
+                          "--with-lispdir=#{share}/emacs/site-lisp/ccrypt"
     system "make", "install"
     system "make", "check"
   end
