@@ -4,6 +4,7 @@ class Dcd < Formula
   url "https://github.com/Hackerpilot/DCD.git",
       :tag => "v0.8.0",
       :revision => "f8f3024dda05e7f3d1a112adde1f99ec98649e78"
+  version_scheme 1
 
   head "https://github.com/Hackerpilot/dcd.git", :shallow => false
 
@@ -16,9 +17,9 @@ class Dcd < Formula
 
   devel do
     url "https://github.com/Hackerpilot/DCD.git",
-      :tag => "v0.9.0-alpha5",
-      :revision => "83454f10f49da2c95b366206934cf3a88f8ce3f4"
-    version "0.9.0-alpha5"
+      :tag => "v0.9.0-alpha.6",
+      :revision => "b5d313922317ff25d3a39980af248b7eff19b93b"
+    version "0.9.0-alpha.6"
   end
 
   depends_on "dmd" => :build
