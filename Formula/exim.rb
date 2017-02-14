@@ -4,6 +4,7 @@ class Exim < Formula
   url "http://ftp.exim.org/pub/exim/exim4/exim-4.88.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/exim/exim4/exim-4.88.tar.bz2"
   sha256 "119d5fd7e31fc224e84dfa458fe182f200856bae7adf852a8287c242161f8a2d"
+  revision 1
 
   bottle do
     sha256 "a9b1dbcca6ee309521e9a1436ce65eccb316cae9bffe5fdc8e4c649402f17d5c" => :sierra
@@ -15,7 +16,7 @@ class Exim < Formula
   option "with-maildir", "Support delivery in Maildir format"
 
   depends_on "pcre"
-  depends_on "berkeley-db4"
+  depends_on "berkeley-db@4"
   depends_on "openssl"
 
   def install
@@ -40,7 +41,7 @@ class Exim < Formula
       s << "LOOKUP_LIBS=-L#{HOMEBREW_PREFIX}/lib\n"
     end
 
-    bdb4 = Formula["berkeley-db4"]
+    bdb4 = Formula["berkeley-db@4"]
 
     inreplace "OS/Makefile-Darwin" do |s|
       s.remove_make_var! %w[CC CFLAGS]
