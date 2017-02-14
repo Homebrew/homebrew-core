@@ -3,14 +3,14 @@ class SvtplayDl < Formula
 
   desc "Download videos from http://svtplay.se"
   homepage "https://svtplay-dl.se"
-  url "https://pypi.python.org/packages/9e/9d/1087c68307643988941a650c8f86504acf98daab3eb0f15ee493268e7108/svtplay-dl-1.9.1.tar.gz"
-  sha256 "bf0c25f71e76cf2df22238b6bd3f8c3d93af8263103e3d7c64ca7bfc71bc59ef"
+  url "https://pypi.python.org/packages/c5/6b/5990cee417b5aee800588f3e3f373bf23e1b06e4ad364f11e883d1b0df09/svtplay-dl-1.9.2.tar.gz"
+  sha256 "a8b4aa34f37798a0c00d184d957b0d83b7e266ab5ca6de0fc7415951b6050f07"
 
   bottle do
     cellar :any
-    sha256 "e879b1e037479e4ffd20331c999f2efa5ef06df198b77683f8ef85a4ae116725" => :sierra
-    sha256 "0fe77c29341b62b95d6592559126c1f6003a9cd55096e7951d47a554d3809303" => :el_capitan
-    sha256 "72ee4d19e20f7d7bc96212e7c8a0942fbeb350670752ebda998ea11f077a7f8d" => :yosemite
+    sha256 "e80b7815f827c47a02ceac2c17cbb18231956eedceb486643a1f23ac80b5806f" => :sierra
+    sha256 "8aa7b40775c425783856b434a16e974f2487e9446760d92e00bedffae99123cc" => :el_capitan
+    sha256 "aaabf5871c0ceee632aac5cfba9f361308012d3d6ffbccc364530b443a96488f" => :yosemite
   end
 
   depends_on "rtmpdump"
