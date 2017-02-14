@@ -6,6 +6,7 @@ class Globjects < Formula
   head "https://github.com/cginternals/globjects.git"
 
   depends_on "cmake" => :build
+  depends_on "glm" => :build
   depends_on "glbinding"
 
   needs :cxx11
