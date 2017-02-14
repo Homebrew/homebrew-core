@@ -14,10 +14,6 @@ class Lftp < Formula
   depends_on "openssl"
   depends_on "libidn"
 
-  # On Yosemite, the system's openssl gets chosen over ours, and it is too old
-  # https://github.com/lavv17/lftp/issues/317
-  depends_on :macos => :el_capitan
-
   # Fix a cast issue, patch was merged upstream: https://github.com/lavv17/lftp/pull/307
   # Remove when lftp-4.7.6 is released
   patch do
@@ -26,6 +22,12 @@ class Lftp < Formula
   end
 
   def install
+    # Fix "error: use of undeclared identifier 'SSL_OP_NO_TLSv1_1'"
+    # Reported 6 Feb 2017 https://github.com/lavv17/lftp/issues/317
+    # Equivalent to upstream PR from 14 Feb 2017 https://github.com/lavv17/lftp/pull/321
+    inreplace "src/Makefile.in", "$(ZLIB_CPPFLAGS) $(OPENSSL_CPPFLAGS)",
+                                 "$(OPENSSL_CPPFLAGS) $(ZLIB_CPPFLAGS)"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}",
