@@ -26,32 +26,12 @@ class KnotResolver < Formula
       system "make", target, "PREFIX=#{prefix}"
     end
 
-    (buildpath/"config").write(config)
+    cp "etc/config.personal", "config"
+    inreplace "config", /^\s*user\(/, "-- user("
     (etc/"kresd").install "config"
 
     (buildpath/"root.keys").write(root_keys)
     (var/"kresd").install "root.keys"
-  end
-
-  def config; <<-EOS.undent
-    -- vim:syntax=lua:
-    -- Refer to manual: http://knot-resolver.readthedocs.org/en/latest/daemon.html#configuration
-
-    net.listen(net.lo0)
-
-    -- Unmanaged DNSSEC root TA
-    trust_anchors.file = 'root.keys'
-
-    -- Load useful modules
-    modules = {
-        'stats',    -- Track internal statistics
-        'policy',   -- Block queries to local zones/bad sites
-        'predict',  -- Prefetch expiring/frequent records
-    }
-
-    -- Cache size
-    cache.size = 100 * MB
-    EOS
   end
 
   # DNSSEC root anchor published by IANA
