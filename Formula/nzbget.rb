@@ -6,10 +6,9 @@ class Nzbget < Formula
   head "https://github.com/nzbget/nzbget.git"
 
   bottle do
-    cellar :any
-    sha256 "c5ba5c6f7045288ed4931fec0b6e49735914c3f45c5eaef1f7fbf02698f71d67" => :sierra
-    sha256 "d583653f09a83555c61b52f67c74a7f6c754e00e0556ce1da9855cbd4d957d7e" => :el_capitan
-    sha256 "11bf29190259273c4bb6de43c209743745a073bdf96f85fdc5327a8c70da4578" => :yosemite
+    sha256 "4122f1e0e65146db39423ad467b15653aec13000f1e5cbbd226c6c6d5fc539f9" => :sierra
+    sha256 "2ba87471a8ba0b1da2493027bdbf6ced4be0e14e91e4b7e1a457d6f6c4b76565" => :el_capitan
+    sha256 "6044d03c4f60356e89ee108d9d30be764137adec5c300bca2a795d81130821c6" => :yosemite
   end
 
   depends_on "pkg-config" => :build
