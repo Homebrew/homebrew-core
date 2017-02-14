@@ -25,6 +25,9 @@ class Raine < Formula
                         --without-git
                         --without-cvs
                         --without-xz],
+      "muparser"  => %w[--disable-debug
+                        --disable-dependency-tracking
+                        --disable-samples],
       "sdl"       => %w[--without-x],
       "sdl_image" => %w[--disable-dependency-tracking
                         --disable-imageio
