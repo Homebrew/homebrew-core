@@ -1,8 +1,8 @@
 class RobotFramework < Formula
   desc "Open source test framework for acceptance testing"
   homepage "http://robotframework.org/"
-  url "https://github.com/robotframework/robotframework/archive/3.0.1.tar.gz"
-  sha256 "354f539ef4b9f94f7faab7395aa60ff65f166f0609eba175ec9eb75eff8dfd9b"
+  url "https://github.com/robotframework/robotframework/archive/3.0.2.tar.gz"
+  sha256 "122d8dd93d9fa40fbaa8122e792d1ccb2d07a029534b2373c213568c055cf962"
   head "https://github.com/robotframework/robotframework.git"
 
   bottle do
