@@ -27,13 +27,9 @@ class Yosys < Formula
 
   def install
     args = []
-
     resource("abc").stage buildpath/"abc"
-
     args << "ENABLE_PLUGINS=0" if build.without? "libffi"
-
     args << "ENABLE_READLINE=0" if build.without? "readline"
-
     system "make", "install", "PREFIX=#{prefix}", "PRETTY=0", "ABCREV=default", *args
   end
 
