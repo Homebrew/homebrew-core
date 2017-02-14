@@ -5,6 +5,13 @@ class Globjects < Formula
   sha256 "be2f95b4e98eef61a57925985735af266fef667eec63a39f65def5d5d808a30a"
   head "https://github.com/cginternals/globjects.git"
 
+  bottle do
+    cellar :any
+    sha256 "fd8e1291e9e46a57116ce1533a8ef9243f1949f18b866f655cd0c245e8d7849d" => :sierra
+    sha256 "4e2d49ddfc4c868561ea4a4970eb9447c8b0c951dd58e5057ced8ce5c2c90e4b" => :el_capitan
+    sha256 "06d967f26d47c9c6532ee24485e5cde3eeb5d74feccdfde46811048c97a18b5a" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "glm"
   depends_on "glbinding"
