@@ -4,8 +4,8 @@ class Khal < Formula
   desc "CLI calendar application."
   homepage "https://lostpackets.de/khal/"
   url "https://github.com/pimutils/khal.git",
-      :tag => "v0.9.1",
-      :revision => "a10f95833ef1f303456e8398a3143e242866ccd9"
+      :tag => "v0.9.2",
+      :revision => "465e0a0123fa08e6c0776d59448862615f3bcff0"
   head "https://github.com/pimutils/khal.git"
 
   bottle do
