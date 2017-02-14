@@ -26,7 +26,7 @@ class Globjects < Formula
       }
       EOS
     system ENV.cxx, "-o", "test", "test.cpp", "-std=c++11", "-stdlib=libc++",
-           "-I#{include}/globjects", "-I#{include}/glm", "-I#{lib}/globjects",
+           "-I#{include}/globjects", "-I#{Formula["glm"].opt_prefix}", "-I#{lib}/globjects",
            "-lglobjects", "-lglbinding", *ENV.cflags.to_s.split
     system "./test"
   end
