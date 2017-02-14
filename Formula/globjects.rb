@@ -10,15 +10,13 @@ class Globjects < Formula
   depends_on "glbinding"
 
   needs :cxx11
+  
   def install
-    args = []
-
-    args << "-Dglbinding_DIR=" + Formula["glbinding"].prefix
-
     ENV.cxx11
-    system "cmake", ".", *args, *std_cmake_args
+    system "cmake", ".", "-Dglbinding_DIR=#{Formula["glbinding"].opt_prefix}", *std_cmake_args
     system "cmake", "--build", ".", "--target", "install"
   end
+  
   test do
     (testpath/"test.cpp").write <<-EOS.undent
       #include <globjects/globjects.h>
