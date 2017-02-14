@@ -238,7 +238,27 @@ class Dbt < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3")
+
+    resource("cryptography").stage do
+      if MacOS.version < :sierra
+        # Fixes .../cryptography/hazmat/bindings/_openssl.so: Symbol not found: _getentropy
+        # Reported 20 Dec 2016 https://github.com/pyca/cryptography/issues/3332
+        inreplace "src/_cffi_src/openssl/src/osrandom_engine.h",
+          "#elif defined(BSD) && defined(SYS_getentropy)",
+          "#elif defined(BSD) && defined(SYS_getentropy) && 0"
+      end
+      venv.pip_install Pathname.pwd
+    end
+
+    res = resources.map(&:name).to_set - ["cryptography"]
+
+    res.each do |r|
+      venv.pip_install resource(r)
+    end
+
+    venv.pip_install_and_link buildpath
+
     bin.install_symlink "#{libexec}/bin/dbt" => "dbt"
   end
 
@@ -246,7 +266,7 @@ class Dbt < Formula
     (testpath/"dbt_project.yml").write("{name: 'test', version: '0.0.1', profile: 'default'}")
     (testpath/".dbt/profiles.yml").write(
       "{default: {outputs: {default: {type: 'postgres', threads: 1, host: 'localhost', port: 5432,
-      user: 'root', pass: 'password', dbname: 'test', schema: 'test'}}}, target: 'default'}"
+      user: 'root', pass: 'password', dbname: 'test', schema: 'test'}}}, target: 'default'}",
     )
     (testpath/"models/test.sql").write("select * from test")
     system "#{bin}/dbt", "compile"
