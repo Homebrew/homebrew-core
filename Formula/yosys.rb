@@ -4,6 +4,12 @@ class Yosys < Formula
   url "https://github.com/cliffordwolf/yosys/archive/yosys-0.7.tar.gz"
   sha256 "3df986d0c6bf20b78193456e11c660f2ad935cc126537c2dc5726e78896d6e6e"
 
+  bottle do
+    sha256 "ff9af2558a3dfff5f5d08fc9bea6b649f01fcc65f96a293ad9abe57d410b96f3" => :sierra
+    sha256 "d39cb5298e5d65e16a1a942dfeb4b6e81079b08c350dfa829fb2c57f80a2852c" => :el_capitan
+    sha256 "7310d9d86c5480c69ebb32a0721245d82b3920ddab6f85ace8a3276b63dfee71" => :yosemite
+  end
+
   depends_on "python3"
   depends_on "libffi" => :recommended
   depends_on "readline" => :recommended
