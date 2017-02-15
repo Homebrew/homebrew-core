@@ -6,6 +6,7 @@ class Ansible < Formula
   url "https://releases.ansible.com/ansible/ansible-2.2.1.0.tar.gz"
   sha256 "63a12ea784c0f90e43293b973d5c75263634c7415e463352846cd676c188e93f"
   head "https://github.com/ansible/ansible.git", :branch => "devel"
+  revision 1
 
   bottle do
     sha256 "c0be0a9e00340ade30ba0fe01856e2ddc9ff01bddb56ef3b3d0bd57b8a9a882b" => :sierra
