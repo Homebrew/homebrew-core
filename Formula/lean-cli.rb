@@ -1,15 +1,15 @@
 class LeanCli < Formula
   desc "Command-line tool to develop and manage LeanCloud apps."
   homepage "https://github.com/leancloud/lean-cli"
-  url "https://github.com/leancloud/lean-cli/archive/v0.6.1.tar.gz"
-  sha256 "7dd0e9ffbf14b45744a51c8ad0d7c704e3ea0e78341cad13a6dcaaf175c1480c"
+  url "https://github.com/leancloud/lean-cli/archive/v0.6.2.tar.gz"
+  sha256 "422141d7b6e9729cf08c6baf385906afc2b02a6094ae7e3f01b7afc0ac731e9b"
   head "https://github.com/leancloud/lean-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d1822c4209f234d0e6876a05672bfeed9138b8cd83ba895da97a7c11873dc609" => :sierra
-    sha256 "3df59a79a5012e027fdfc607e2998f73e6769dcafa22a67fec39dd2f366bb270" => :el_capitan
-    sha256 "81421c18d44f5c95027eb74996573fe2a1266f521d65199331836cd5cb1c2ea4" => :yosemite
+    sha256 "a0a5d3bbd17b898f33e42032cdc5c0385795fc5e74e2a39cd6a785d3681e8391" => :sierra
+    sha256 "f97458c59629527308ffb8933f700ab3c7973dfe15755a6e2625f39cdb549172" => :el_capitan
+    sha256 "a0245be00163d4c1f2b9b4cf30120fce91a7bfdc12be8b29499f516298b91b31" => :yosemite
   end
 
   depends_on "go" => :build

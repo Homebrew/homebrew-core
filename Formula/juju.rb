@@ -11,6 +11,11 @@ class Juju < Formula
     sha256 "9beb96271da0a17929a7af8dba29af789c31ab022aae07eb6444192c4255b6df" => :yosemite
   end
 
+  devel do
+    url "https://launchpad.net/juju/2.1/2.1-rc1/+download/juju-core_2.1-rc1.tar.gz"
+    sha256 "dde7058b904d167c671e68a6915f6448bdcb04f2102923e136e28dac15c2e229"
+  end
+
   depends_on "go" => :build
 
   def install
@@ -18,7 +23,11 @@ class Juju < Formula
     system "go", "build", "github.com/juju/juju/cmd/juju"
     system "go", "build", "github.com/juju/juju/cmd/plugins/juju-metadata"
     bin.install "juju", "juju-metadata"
-    bash_completion.install "src/github.com/juju/juju/etc/bash_completion.d/juju-2.0"
+    if build.stable?
+      bash_completion.install "src/github.com/juju/juju/etc/bash_completion.d/juju-2.0"
+    else
+      bash_completion.install "src/github.com/juju/juju/etc/bash_completion.d/juju"
+    end
   end
 
   test do

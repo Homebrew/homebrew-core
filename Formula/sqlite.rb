@@ -1,21 +1,19 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2017/sqlite-autoconf-3160200.tar.gz"
-  version "3.16.2"
-  sha256 "65cc0c3e9366f50c0679c5ccd31432cea894bc4a3e8947dabab88c8693263615"
+  url "https://sqlite.org/2017/sqlite-autoconf-3170000.tar.gz"
+  version "3.17.0"
+  sha256 "a4e485ad3a16e054765baf6371826b5000beed07e626510896069c0bf013874c"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "7fbc18e173810d71234c84c3d3554958ddc1b135256af6d76d3e5886a0c7cbee" => :sierra
-    sha256 "826b13afd5cb714bdfbfd172ba463139c60756f97c51dfb2e23a0352ae32be97" => :el_capitan
-    sha256 "91bb6e4b6ec56c61455e6d4b6c3fd22e7304fb4785646800d5d27b118424118b" => :yosemite
+    sha256 "e47cece3f8508b5ab65a16294bd43ad13cf159f91f179e9bbe967c01fd5020fb" => :sierra
+    sha256 "98a4e72c05f76dc72510ee640a6ae4480e2d6e70c09b19e77e3cf931086d4998" => :el_capitan
+    sha256 "e181d28776802ec7851924f80295c215f1056e1b7c8892af7ba978fdd02c454a" => :yosemite
   end
 
   keg_only :provided_by_osx, "macOS provides an older sqlite3."
 
-  option :universal
   option "with-docs", "Install HTML documentation"
   option "without-rtree", "Disable the R*Tree index module"
   option "with-fts", "Enable the FTS3 module"
@@ -38,9 +36,9 @@ class Sqlite < Formula
   end
 
   resource "docs" do
-    url "https://sqlite.org/2017/sqlite-doc-3160200.zip"
-    version "3.16.2"
-    sha256 "c13ffbb6019f3849b251c22358f31ccb862a842c0a2379f552f2935600157dcb"
+    url "https://www.sqlite.org/2017/sqlite-doc-3170000.zip"
+    version "3.17.0"
+    sha256 "3102d9eab879074776216357e4c9e272f63d0cda975a0819ec5baba5e0922ff6"
   end
 
   def install
@@ -48,6 +46,7 @@ class Sqlite < Formula
     # Default value of MAX_VARIABLE_NUMBER is 999 which is too low for many
     # applications. Set to 250000 (Same value used in Debian and Ubuntu).
     ENV.append "CPPFLAGS", "-DSQLITE_MAX_VARIABLE_NUMBER=250000"
+    ENV.append "CPPFLAGS", "-DSQLITE_DISABLE_INTRINSIC" if MacOS.version <= :yosemite && ENV.compiler == :clang
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_RTREE=1" if build.with? "rtree"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_FTS3_PARENTHESIS=1" if build.with? "fts"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_FTS5=1" if build.with? "fts5"
@@ -65,8 +64,6 @@ class Sqlite < Formula
       ENV.append "CPPFLAGS", icu4ccppflags
       ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_ICU=1"
     end
-
-    ENV.universal_binary if build.universal?
 
     args = [
       "--prefix=#{prefix}",

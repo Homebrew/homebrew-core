@@ -4,18 +4,19 @@ class Exim < Formula
   url "http://ftp.exim.org/pub/exim/exim4/exim-4.88.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/exim/exim4/exim-4.88.tar.bz2"
   sha256 "119d5fd7e31fc224e84dfa458fe182f200856bae7adf852a8287c242161f8a2d"
+  revision 1
 
   bottle do
-    sha256 "a9b1dbcca6ee309521e9a1436ce65eccb316cae9bffe5fdc8e4c649402f17d5c" => :sierra
-    sha256 "6b75b2b698f2733b5b1130240d1182a29262f61f6d483c225f1114cebfdf2a0f" => :el_capitan
-    sha256 "a55f208727d7fa23b7021623aae684fd4f568a4f578db9b2cc9ef8e232dae9b0" => :yosemite
+    sha256 "9f30aa0e9a3bcf526f46cfb2a00e9b74f31a41285e7eb3f33c415481354932d6" => :sierra
+    sha256 "a267c527f5972746372c7fe0737b157ef30e4d16a3615da6f828fd3ee97be5d7" => :el_capitan
+    sha256 "7133e4f8b62324185d339d9601b72c4d8b3e749b7da2d76e165fa0594b0b85af" => :yosemite
   end
 
   deprecated_option "support-maildir" => "with-maildir"
   option "with-maildir", "Support delivery in Maildir format"
 
   depends_on "pcre"
-  depends_on "berkeley-db4"
+  depends_on "berkeley-db@4"
   depends_on "openssl"
 
   def install
@@ -40,7 +41,7 @@ class Exim < Formula
       s << "LOOKUP_LIBS=-L#{HOMEBREW_PREFIX}/lib\n"
     end
 
-    bdb4 = Formula["berkeley-db4"]
+    bdb4 = Formula["berkeley-db@4"]
 
     inreplace "OS/Makefile-Darwin" do |s|
       s.remove_make_var! %w[CC CFLAGS]
