@@ -9,9 +9,9 @@ class Ansible < Formula
   revision 1
 
   bottle do
-    sha256 "c0be0a9e00340ade30ba0fe01856e2ddc9ff01bddb56ef3b3d0bd57b8a9a882b" => :sierra
-    sha256 "164d5b7e1dd8fe0fca94aa31b53ab64e3076e843d0a312311b012c30cefc4e82" => :el_capitan
-    sha256 "df344a38fe509df9e5c5500f4e86f9d68be1e7dfea1a73fb40b9a224308948a4" => :yosemite
+    sha256 "235101a64292d2e7073716da7d35e255d4733cca9d9c8c14fc7d86cdde660042" => :sierra
+    sha256 "9eb4b528fe870c4679e477c0c1b4c9d6a0c48aaba3b6b49020896dd36c027e88" => :el_capitan
+    sha256 "73894cfe2cec6d3863c4cafb1a8f1dabe2ed75c7fe2c30738cd6193c6bf94db5" => :yosemite
   end
 
   depends_on "pkg-config" => :build
