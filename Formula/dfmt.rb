@@ -4,7 +4,6 @@ class Dfmt < Formula
   url "https://github.com/Hackerpilot/dfmt.git",
       :tag => "v0.4.5",
       :revision => "4fe021df9771d83c325c879012842402a28ca5c7"
-  version_scheme 1
 
   head "https://github.com/Hackerpilot/dfmt.git", :shallow => false
 
@@ -19,7 +18,7 @@ class Dfmt < Formula
     url "https://github.com/Hackerpilot/dfmt.git",
         :tag => "v0.5.0-beta.5",
         :revision => "9fb13d0cafb3a9f0252e7e45277c37c28889731c"
-    version "0.5.0-beta.5"
+    version "0.5.0-beta5"
   end
 
   depends_on "dmd" => :build
