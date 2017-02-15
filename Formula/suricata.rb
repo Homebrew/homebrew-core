@@ -1,8 +1,8 @@
 class Suricata < Formula
   desc "Network IDS, IPS, and security monitoring engine"
   homepage "https://suricata-ids.org/"
-  url "https://www.openinfosecfoundation.org/download/suricata-3.1.2.tar.gz"
-  sha256 "f9e7742580849f202254e75d9fc245ba53f4d7490f47a6d30f02a7b10aacc512"
+  url "https://www.openinfosecfoundation.org/download/suricata-3.2.1.tar.gz"
+  sha256 "0e0b0cf49016804bb2fb1fc4327341617e76a67902f4e03e0ef6d16c1d7d3994"
 
   bottle do
     sha256 "e7caa7b66b88b8686f820d9d064369dab84d9b9a3335659212c05faba1d49d1b" => :sierra
@@ -10,11 +10,12 @@ class Suricata < Formula
     sha256 "c7230f6f72d2da676873b437d1d9b88b7e8b137800f8e7787f26f207e472164b" => :yosemite
   end
 
-  devel do
-    url "https://www.openinfosecfoundation.org/download/suricata-3.2beta1.tar.gz"
-    sha256 "fa17c3191910282bb72f8e406328083ee7727cab06cf04ecbc47a911e013f96e"
-    version "3.2beta1"
-  end
+  # Stable is more recent than any devel branch as of now.
+  # devel do
+  #  url "https://www.openinfosecfoundation.org/download/suricata-3.2beta1.tar.gz"
+  #  sha256 "fa17c3191910282bb72f8e406328083ee7727cab06cf04ecbc47a911e013f96e"
+  #  version "3.2beta1"
+  # end
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
