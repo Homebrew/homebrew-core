@@ -9,6 +9,7 @@ class Uftp < Formula
   def install
     system "make", "OPENSSL=#{Formula["openssl"].opt_prefix}", "DESTDIR=#{prefix}", "install"
     # the makefile installs into DESTDIR/usr/..., move everything up one and remove usr
+    # the project maintainer was contacted via sourceforge on 12-Feb, he responded WONTFIX on 13-Feb
     prefix.install Dir["#{prefix}/usr/*"]
     (prefix/"usr").unlink
   end
