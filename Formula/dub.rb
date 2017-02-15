@@ -3,6 +3,7 @@ class Dub < Formula
   homepage "https://code.dlang.org/getting_started"
   url "https://github.com/dlang/dub/archive/v1.2.0.tar.gz"
   sha256 "836caddb30ad5972a453269b027f614d51b5fd2f751a0fe63cfeb0be7388a8e9"
+  version_scheme 1
 
   head "https://github.com/dlang/dub.git"
 
