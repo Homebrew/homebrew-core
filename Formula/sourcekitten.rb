@@ -12,7 +12,8 @@ class Sourcekitten < Formula
     sha256 "af5fb3e859eefa13abde502f0ed311e66c5ae92238e31c19fe591b19f8bd3ff2" => :el_capitan
   end
 
-  depends_on :xcode => "8.0"
+  depends_on :xcode => ["6.0", :run]
+  depends_on :xcode => ["8.0", :build]
 
   def install
     system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SourceKitten.dst"
