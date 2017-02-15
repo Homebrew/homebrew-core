@@ -14,6 +14,12 @@ class Terraform < Formula
     sha256 "00e5796adc849afb6c9043e64abc616880825d8e1cd51d11a5231ca9ef051697" => :yosemite
   end
 
+  devel do
+    url "https://github.com/hashicorp/terraform/archive/v0.9.0-beta1.tar.gz"
+    sha256 "01630791abd800250436a01efd707a0ec558d4d57f018754b12a88ab2ebbbeab"
+    version "0.9.0-beta1"
+  end
+
   depends_on "go" => :build
 
   go_resource "github.com/mitchellh/gox" do
