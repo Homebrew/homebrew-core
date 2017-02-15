@@ -5,9 +5,8 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20170101/git-annex-6.20170101.tar.gz"
-  sha256 "5fbf88652a84278275d9d4bec083189f590b045e23a73bfe8d395c3e356e3f53"
-  revision 2
+  url "https://hackage.haskell.org/package/git-annex-6.20170214/git-annex-6.20170214.tar.gz"
+  sha256 "d2f5a5bfa8077f417a8c0fee556571f498a9fbdabb99cdeed326df0a1f042e4b"
   head "git://git-annex.branchable.com/"
 
   bottle do
@@ -29,14 +28,6 @@ class GitAnnex < Formula
   depends_on "xdot" => :recommended
 
   def install
-    # aws-0.16 compatibility
-    # Avoid the build failure "Remote/S3.hs:224:49: error: The constructor
-    # 'S3.UploadPartResponse' should have 1 argument, but has been given 2"
-    # Fix taken from upstream report from 5 Feb 2017 https://git-annex.branchable.com/bugs/aws_0.16_breaking_changes/
-    inreplace "Remote/S3.hs",
-      "S3.UploadPartResponse _ etag <- sendS3Handle h req",
-      "S3.UploadPartResponse { S3.uprETag = etag } <- sendS3Handle h req"
-
     install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
       # this can be made the default behavior again once git-union-merge builds properly when bottling
       if build.with? "git-union-merge"
