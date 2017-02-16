@@ -1,6 +1,6 @@
 class Djview4 < Formula
   desc "Viewer for the DjVu image format"
-  homepage "http://djvu.sourceforge.net/djview4.html"
+  homepage "https://djvu.sourceforge.io"
   url "https://downloads.sourceforge.net/project/djvu/DjView/4.10/djview-4.10.6.tar.gz"
   sha256 "8446f3cd692238421a342f12baa365528445637bffb96899f319fe762fda7c21"
 
