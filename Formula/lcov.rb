@@ -1,6 +1,6 @@
 class Lcov < Formula
   desc "Graphical front-end for GCC's coverage testing tool (gcov)"
-  homepage "https://ltp.sourceforge.net/coverage/lcov.php"
+  homepage "https://ltp.sourceforge.io/"
   url "https://downloads.sourceforge.net/ltp/lcov-1.13.tar.gz"
   sha256 "44972c878482cc06a05fe78eaa3645cbfcbad6634615c3309858b207965d8a23"
   head "https://github.com/linux-test-project/lcov.git"
