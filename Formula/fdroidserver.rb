@@ -5,7 +5,7 @@ class Fdroidserver < Formula
   homepage "https://f-droid.org"
   url "https://files.pythonhosted.org/packages/18/6c/6fe6f718073024e23fb0bfaff8d0a6db596adc7d29f259edd325e93bd33c/fdroidserver-0.7.0.tar.gz"
   sha256 "3de76a02d17260a5fd65b089ceaabcc578e238ffe71f205a8f6f37e705648d6e"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "bde86bc70919a6a809abe62e9a5cceb2f4dfa4bc36a2c82aa2f5d76521f97495" => :sierra
