@@ -1,6 +1,6 @@
 class Dopewars < Formula
   desc 'Free rewrite of a game originally based on "Drug Wars"'
-  homepage "http://dopewars.sourceforge.net"
+  homepage "https://dopewars.sourceforge.io"
   url "https://downloads.sourceforge.net/project/dopewars/dopewars/1.5.12/dopewars-1.5.12.tar.gz"
   sha256 "23059dcdea96c6072b148ee21d76237ef3535e5be90b3b2d8239d150feee0c19"
 
