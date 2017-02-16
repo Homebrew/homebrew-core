@@ -26,6 +26,17 @@ class OpensslAT11 < Formula
     depends_on :perl => "5.10"
   end
 
+  # Both these can be removed whenever the next 1.1.0 release is available.
+  patch do
+    url "https://github.com/openssl/openssl/commit/b7d2480c82.patch"
+    sha256 "74efa5161331ef8ecd95a15ebb7013017ec8ef734f40ff11ed06fdac2c808f18"
+  end
+
+  patch do
+    url "https://github.com/openssl/openssl/commit/92ed7fa57.patch"
+    sha256 "0ff0eb395accdc035cc1f6bfa072b309fff4f23e38d1768612966511d8a88faf"
+  end
+
   def arch_args
     {
       :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
