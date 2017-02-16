@@ -4,6 +4,7 @@ class Mailutils < Formula
   url "https://ftpmirror.gnu.org/mailutils/mailutils-3.1.1.tar.gz"
   mirror "https://ftp.gnu.org/gnu/mailutils/mailutils-3.1.1.tar.gz"
   sha256 "d237622ee1957e8e14cd15713bd8bad710bdb0e408be3de2db12db0b8437049b"
+  revision 1
 
   bottle do
     sha256 "e4e43a33b9b8545dff2671e905faf87217b37778c4ea68339f4d11ec0e83bb42" => :sierra
@@ -11,7 +12,7 @@ class Mailutils < Formula
     sha256 "33b2cddbed872d86df88c150253c5141b5b2a1357b2cca8dc34d31c5cfe2b849" => :yosemite
   end
 
-  depends_on "libtool" => :build
+  depends_on "libtool" => :run
   depends_on "gnutls"
   depends_on "gsasl"
   depends_on "readline"
