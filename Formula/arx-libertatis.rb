@@ -13,19 +13,19 @@ class ArxLibertatis < Formula
     end
   end
 
+  bottle do
+    cellar :any
+    sha256 "1395d10871dada5e6687de4f54f9ef868dd6d9ec285689d7c6d0cf42b84f8ef0" => :sierra
+    sha256 "43e112585b39aef6d6c21a173caa1d75ca2313ad07801731a8be5aa8bb85943e" => :el_capitan
+    sha256 "0e23af82f5b1875dd8de3f0796c56609bf521f72bbf94ebfb829489b83bee5dd" => :yosemite
+  end
+
   head do
     url "https://github.com/arx/ArxLibertatis.git"
 
     resource "arx-libertatis-data" do
       url "https://github.com/arx/ArxLibertatisData.git"
     end
-  end
-
-  bottle do
-    cellar :any
-    sha256 "1395d10871dada5e6687de4f54f9ef868dd6d9ec285689d7c6d0cf42b84f8ef0" => :sierra
-    sha256 "43e112585b39aef6d6c21a173caa1d75ca2313ad07801731a8be5aa8bb85943e" => :el_capitan
-    sha256 "0e23af82f5b1875dd8de3f0796c56609bf521f72bbf94ebfb829489b83bee5dd" => :yosemite
   end
 
   option "without-innoextract", "Build without arx-install-data"
