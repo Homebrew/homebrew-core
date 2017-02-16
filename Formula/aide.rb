@@ -1,6 +1,6 @@
 class Aide < Formula
   desc "File and directory integrity checker"
-  homepage "http://aide.sourceforge.net"
+  homepage "https://aide.sourceforge.io"
   url "https://downloads.sourceforge.net/project/aide/aide/0.16/aide-0.16.tar.gz"
   sha256 "a81c53a131c4fd130b169b3a26ac35386a2f6e1e014f12807524cc273ed97345"
 
