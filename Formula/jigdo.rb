@@ -1,9 +1,12 @@
+# Jigdo is dead upstream. It consists of two components: Jigdo, a GTK+ using GUI,
+# which is LONG dead and completely unfunctional, and jigdo-lite, a command-line
+# tool that has been on life support and still works. Only build the CLI tool.
 class Jigdo < Formula
   desc "Tool to distribute very large files over the internet"
   homepage "http://atterer.org/jigdo/"
   url "http://atterer.org/sites/atterer/files/2009-08/jigdo/jigdo-0.7.3.tar.bz2"
   sha256 "875c069abad67ce67d032a9479228acdb37c8162236c0e768369505f264827f0"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "d7c7af1e33252cafe37d0d43ad9e122ce16e9dd541e4552d32a93f1e79db4343" => :sierra
@@ -14,7 +17,6 @@ class Jigdo < Formula
   depends_on "pkg-config" => :build
   depends_on "wget" => :recommended
   depends_on "berkeley-db"
-  depends_on "gtk+"
 
   # Use MacPorts patch for compilation on 10.9; this software is no longer developed.
   patch :p0 do
@@ -25,6 +27,7 @@ class Jigdo < Formula
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
+                          "--disable-x11",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make"
