@@ -11,8 +11,7 @@ class Hide < Formula
     prefix.install "CONFIG"
     prefix.install "INFO"
     man1.install "hide.1"
-    system "ls", "-la"
-    system "./configure", "initial"
+    system "#{prefix}/configure", "initial"
   end
 
   test do
