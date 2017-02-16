@@ -1,6 +1,6 @@
 class Mcrypt < Formula
   desc "Replacement for the old crypt package and crypt(1) command"
-  homepage "http://mcrypt.sourceforge.net"
+  homepage "https://mcrypt.sourceforge.io"
   url "https://downloads.sourceforge.net/project/mcrypt/MCrypt/2.6.8/mcrypt-2.6.8.tar.gz"
   sha256 "5145aa844e54cca89ddab6fb7dd9e5952811d8d787c4f4bf27eb261e6c182098"
 
