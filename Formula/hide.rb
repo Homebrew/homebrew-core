@@ -1,5 +1,5 @@
 class Hide < Formula
-  desc "clean up files and folders from the GUI"
+  desc "CLI tool to show/hide folders from the GUI"
   homepage "https://evancooper9.github.io/hide/"
   url "https://drive.google.com/uc?export=download&id=0B5Yw7X-K1mhfZ0szbDVZZUR2Zzg"
   version "1.0"
