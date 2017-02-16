@@ -1,6 +1,6 @@
 class Bubbros < Formula
   desc "The Bub's Brothers: Clone of the famous Bubble Bobble game"
-  homepage "http://bub-n-bros.sourceforge.net"
+  homepage "https://bub-n-bros.sourceforge.io"
   url "https://downloads.sourceforge.net/project/bub-n-bros/bub-n-bros/1.6.2/bubbros-1.6.2.tar.gz"
   sha256 "0ad8a359c4632071a9c85c2684bae32aa0fa278632c49f092dc4078cfb9858c4"
 
