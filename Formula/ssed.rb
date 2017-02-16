@@ -1,6 +1,6 @@
 class Ssed < Formula
   desc "Super sed stream editor"
-  homepage "http://sed.sourceforge.net/grabbag/ssed/"
+  homepage "https://sed.sourceforge.io"
   url "http://sed.sourceforge.net/grabbag/ssed/sed-3.62.tar.gz"
   sha256 "af7ff67e052efabf3fd07d967161c39db0480adc7c01f5100a1996fec60b8ec4"
 
