@@ -1,12 +1,12 @@
 class Imagesnap < Formula
   desc "Tool to capture still images from an iSight or other video source"
-  homepage "http://iharder.sourceforge.net/current/macosx/imagesnap/"
+  homepage "https://iharder.sourceforge.io"
   url "https://downloads.sourceforge.net/project/iharder/imagesnap/ImageSnap-v0.2.5.tgz"
   sha256 "2516edd6e8fe35c075f0a6517b9fb8ba9af296f8f29b9e349566b9ba6f729615"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
     sha256 "79b7735956a130731615aacf83610110a8b01a9e63eccbb8888687e8dadb1133" => :el_capitan_or_later
     sha256 "a8326b38e6f61d48ccd738482b353a714ededbe5dd16a2fb31aae0a575ebf2cc" => :yosemite
     sha256 "b2b1d9d52e2c5284ece4d846a4cff19d417132265f53dd5e1a0c02a964076f90" => :mavericks
