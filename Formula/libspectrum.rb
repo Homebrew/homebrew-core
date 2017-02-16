@@ -1,6 +1,6 @@
 class Libspectrum < Formula
   desc "Support library for ZX Spectrum emulator"
-  homepage "http://fuse-emulator.sourceforge.net/libspectrum.php"
+  homepage "https://fuse-emulator.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/fuse-emulator/libspectrum/1.3.2/libspectrum-1.3.2.tar.gz"
   sha256 "c7d7580097116a7afd90f1e3d000e4b7a66b20178503f11e03b3a95180208c3f"
 
