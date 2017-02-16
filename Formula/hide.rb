@@ -3,7 +3,7 @@ class Hide < Formula
   homepage "http://evancooper.tech"
   url "https://drive.google.com/uc?export=download&id=0B5Yw7X-K1mhfZ0szbDVZZUR2Zzg"
   version "1.0"
-  sha256 "17566106a210dac640b0a672af4a7fea0eb69a1d49450c41e8e79f7b4d7a18bb"
+  sha256 "59a7861f9aa0dfce447186d8a03d4068fa544cf0031e87471a4b578862b04495"
 
   def install
     bin.install "hide"
