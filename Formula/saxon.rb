@@ -1,6 +1,6 @@
 class Saxon < Formula
   desc "XSLT and XQuery processor"
-  homepage "http://saxon.sourceforge.net"
+  homepage "https://saxon.sourceforge.io"
   url "https://downloads.sourceforge.net/project/saxon/Saxon-HE/9.7/SaxonHE9-7-0-4J.zip"
   version "9.7.0.4"
   sha256 "b83d9abb4ed2b333a965c7c41787f7073d5af4d5a72e26ad6a551d1bbf9633de"
