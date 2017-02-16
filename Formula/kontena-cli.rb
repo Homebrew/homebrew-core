@@ -35,23 +35,31 @@ class KontenaCli < Formula
     # Add a build tag to "kontena --version" string
     inreplace buildpath/"cli/lib/kontena/main_command.rb", "RUBY_PLATFORM +", "RUBY_PLATFORM + '+homebrew' +"
 
-    # Install completions
-    inreplace buildpath/"cli/lib/kontena/scripts/init", "#!/usr/bin/env bash", "# Completion for kontena-cli"
-    inreplace buildpath/"cli/lib/kontena/scripts/init", "DIR=$( cd \"$( dirname \"$src\" )\" && pwd )", "DIR=#{libexec}/kontena/scripts"
+    # Patch completion init script
+    inreplace buildpath/"cli/lib/kontena/scripts/init" do |s|
+      s.gsub! "#!/usr/bin/env bash", "# Completion for kontena-cli"
+      s.gsub! "DIR=$( cd \"$( dirname \"$src\" )\" && pwd )", "DIR=#{libexec}/kontena/scripts"
+    end
+
+    # The same script works for both shells. The original 'init' needs to exist in the directory or
+    # kontena whois --bash-completion-path crashes.
     cp buildpath/"cli/lib/kontena/scripts/init", buildpath/"cli/lib/kontena/scripts/kontena.zsh"
     cp buildpath/"cli/lib/kontena/scripts/init", buildpath/"cli/lib/kontena/scripts/kontena.bash"
+
+    # Create a "standard" loader for the completion function
     (buildpath/"cli/lib/kontena/scripts/_kontena").write(zsh_completer)
-    bash_completion.install buildpath/"cli/lib/kontena/scripts/kontena.bash" => "kontena.bash"
-    zsh_completion.install buildpath/"cli/lib/kontena/scripts/kontena.zsh" => "kontena.zsh"
     zsh_completion.install buildpath/"cli/lib/kontena/scripts/_kontena" => "_kontena"
 
-    bin.install Dir["cli/bin/*"]
+    bash_completion.install buildpath/"cli/lib/kontena/scripts/kontena.bash" => "kontena.bash"
+    zsh_completion.install buildpath/"cli/lib/kontena/scripts/kontena.zsh" => "kontena.zsh"
+
+    bin.install buildpath/"cli/bin/kontena"
     libexec.install Dir["cli/lib/*"]
     prefix.install buildpath/"cli/README.md"
     prefix.install buildpath/"CHANGELOG.md"
+    # Required during operation:
     prefix.install buildpath/"cli/LOGO"
     prefix.install buildpath/"cli/VERSION"
-    doc.install Dir["docs/*"]
   end
 
   test do
