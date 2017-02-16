@@ -3,8 +3,8 @@ require "language/go"
 class Gauge < Formula
   desc "Test automation tool that supports executable documentation"
   homepage "http://getgauge.io"
-  url "https://github.com/getgauge/gauge/archive/v0.7.0.tar.gz"
-  sha256 "959ad3feea738d107e8840804b8faf82d1c1242db8beb1f746e21c76d7277f09"
+  url "https://github.com/getgauge/gauge/archive/v0.8.0.1.tar.gz"
+  sha256 "40ce96c975220a4218bab25600d6db9f9b5a8387ee3f28b154504f8f150ba856"
   head "https://github.com/getgauge/gauge.git"
 
   bottle do
@@ -18,7 +18,7 @@ class Gauge < Formula
 
   go_resource "github.com/getgauge/gauge_screenshot" do
     url "https://github.com/getgauge/gauge_screenshot.git",
-        :revision => "d04c2acc873b408211df8408f0217d4eafd327fe"
+        :revision => "23dd83ae2eeed5be12edc9aa34bb34246cebe866"
   end
 
   def install
@@ -43,6 +43,6 @@ class Gauge < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/gauge -v")
+    assert_match version.to_s[0, 5], shell_output("#{bin}/gauge -v")
   end
 end
