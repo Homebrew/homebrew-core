@@ -3,9 +3,8 @@ class Khard < Formula
 
   desc "Console carddav client."
   homepage "https://github.com/scheibler/khard/"
-  url "https://files.pythonhosted.org/packages/eb/9c/0d68645e0347afc2c8ef214cf4ad5b7404978296ccf0bdca5ffe3fa0bfea/khard-0.11.3.tar.gz"
-  sha256 "d6133f5622694dfdb73348604afaa78d20ba7a72178075e76afd045e309cc6ec"
-  revision 3
+  url "https://files.pythonhosted.org/packages/58/fd/778ab7340d9fcc1c4853cc19fb12fc4b9c28fe9f48ebc0bb19d42aa4b7bd/khard-0.11.4.tar.gz"
+  sha256 "81776d05e8f121f8969daf561f5c774c665378255ba0064b02a82d490da610ea"
 
   bottle do
     sha256 "0eca2f630d1f84548bf52e87d2ce111fa5fc0d630766b3f3e03ff3d6fe6e040c" => :sierra
@@ -26,8 +25,8 @@ class Khard < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
-    sha256 "1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed"
+    url "https://files.pythonhosted.org/packages/51/fc/39a3fbde6864942e8bb24c93663734b74e281b984d1b8c4f95d64b0c21f6/python-dateutil-2.6.0.tar.gz"
+    sha256 "62a2f8df3d66f878373fd0072eacf4ee52194ba302e00082828e0d263b0418d2"
   end
 
   resource "PyYAML" do
@@ -40,10 +39,9 @@ class Khard < Formula
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
-  # pinned to 0.9.2 due to https://github.com/eventable/vobject/issues/39
   resource "vobject" do
-    url "https://files.pythonhosted.org/packages/5a/fd/65094c081741aa12a482dfd4685cc0402de1c38d28cdcf64628ebd046c34/vobject-0.9.2.tar.gz"
-    sha256 "8b310c21a4d58e13aeb7e60fd846a1748e1c9c3374f3e2acc96f728c3ae5d6e1"
+    url "https://files.pythonhosted.org/packages/19/8e/6b84b80b14e98b2dcc73c53823850ce3c87899b5992e66a98fddabfd9cc1/vobject-0.9.4.1.tar.gz"
+    sha256 "faea7d4fb3e2bc8ef6367e7f9b4ad0841aa1980fd5dd96d05c7a90e39880811c"
   end
 
   def install
