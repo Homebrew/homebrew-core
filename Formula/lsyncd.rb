@@ -1,8 +1,8 @@
 class Lsyncd < Formula
   desc "Synchronize local directories with remote targets"
   homepage "https://github.com/axkibe/lsyncd"
-  url "https://github.com/axkibe/lsyncd/archive/release-2.2.1.tar.gz"
-  sha256 "f41969454a17f9441a9b1809bb251235631768393bf5d29ad8e8142670ae4735"
+  url "https://github.com/axkibe/lsyncd/archive/release-2.2.2.tar.gz"
+  sha256 "0bdb12f40f1a52ed2d8e6cb47242d296663a42b30f38d2b8efcb66b43129e009"
 
   bottle do
     cellar :any
@@ -48,7 +48,8 @@ class Lsyncd < Formula
     "10.11.6"  => ["xnu-3248.60.10.tar.gz",  "295b69cee59f2a7419eab3d95744595fa8cd614716fb6ddc958b61dc088e1f7a"],
     "10.12"    => ["xnu-3789.1.32.tar.gz",   "5bff9606bf32d9ae11d964d8eb280ed9543e4e4fef1cc394d272d7b6ce3f1e55"],
     "10.12.1"  => ["xnu-3789.21.4.tar.gz",   "0e866d90f1b966ccb466ea0c7d4dd8f1e32d40132bbac5c21a857fb6c2522119"],
-    "10.12.2"  => ["xnu-3789.21.4.tar.gz",   "0e866d90f1b966ccb466ea0c7d4dd8f1e32d40132bbac5c21a857fb6c2522119"],
+    "10.12.2"  => ["xnu-3789.31.2.tar.gz",   "768087e43fd16e4ce93862070a91f4b8b47c8d27640b4c35d68bb49a2ca3e4bd"],
+    "10.12.3"  => ["xnu-3789.41.3.tar.gz",   "910a8a5d69330d635a5a716ae1d70a2c503c1700fba7612d3ce604feee4eb3dd"],
   }
 
   if xnu_headers.key? MacOS.full_version
