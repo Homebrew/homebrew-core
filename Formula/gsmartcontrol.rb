@@ -1,6 +1,6 @@
 class Gsmartcontrol < Formula
   desc "Graphical user interface for smartctl"
-  homepage "http://gsmartcontrol.sourceforge.net/home/index.php"
+  homepage "https://gsmartcontrol.sourceforge.io"
   url "https://downloads.sourceforge.net/project/gsmartcontrol/0.8.7/gsmartcontrol-0.8.7.tar.bz2"
   sha256 "708fa803243abb852ed52050fc82cd3592a798c02743342441996e77f19ffec6"
   revision 2
