@@ -5,6 +5,12 @@ class Ktmpl < Formula
   sha256 "36924798cb88ddc98f43fea33aff894297cf4068a00157e08bf53373a79bb12c"
   head "https://github.com/InQuicker/ktmpl.git"
 
+  bottle do
+    sha256 "68cf4712f2b536268caebf3023c0c79449da626880e13d522a066394ef28ecf7" => :sierra
+    sha256 "f6ba509072e175d269ecf5f22dcd51f6164ed701a25da2e5efc028b68cef35cc" => :el_capitan
+    sha256 "17cced6dbed0e08c56f42c5871aa9882e89caf55e447091044a1ce56d3bd3795" => :yosemite
+  end
+
   depends_on "rust" => :build
 
   def install
