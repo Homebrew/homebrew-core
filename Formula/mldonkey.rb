@@ -1,6 +1,6 @@
 class Mldonkey < Formula
   desc "OCaml/GTK client for the eDonkey P2P network"
-  homepage "http://mldonkey.sourceforge.net/Main_Page"
+  homepage "https://mldonkey.sourceforge.io"
   revision 2
 
   head "https://github.com/ygrek/mldonkey.git", :branch => "next"
