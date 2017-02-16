@@ -2,9 +2,9 @@ class Dbus < Formula
   # releases: even (1.10.x) = stable, odd (1.11.x) = development
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
-  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.14.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.14.orig.tar.gz"
-  sha256 "23238f70353e38ce5ca183ebc9525c0d97ac00ef640ad29cf794782af6e6a083"
+  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.16.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.16.orig.tar.gz"
+  sha256 "a7b0ba6ea3e8d0e08afec5e3030d0245614268276620c536726f8fa6e5c43388"
 
   bottle do
     sha256 "3f9de5a716a7bf2854f60dd2151bf17347d60bb8be71a451a8b7d68c9780b5f7" => :sierra
@@ -13,9 +13,9 @@ class Dbus < Formula
   end
 
   devel do
-    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.8.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.8.orig.tar.gz"
-    sha256 "fa207530d694706e33378c87e65b2b4304eb99fff71fc6d6caa6f70591b9afd5"
+    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.10.tar.gz"
+    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.10.orig.tar.gz"
+    sha256 "d3d0b5f88a34b9f29120a2d4d5b2b46d3d9fe7af8b45e12fc4af93ed3f447275"
   end
 
   head do
