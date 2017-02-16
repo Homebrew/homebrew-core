@@ -1,6 +1,6 @@
 class Xmlcatmgr < Formula
   desc "Manipulate SGML and XML catalogs"
-  homepage "http://xmlcatmgr.sourceforge.net"
+  homepage "https://xmlcatmgr.sourceforge.io"
   url "https://downloads.sourceforge.net/project/xmlcatmgr/xmlcatmgr/2.2/xmlcatmgr-2.2.tar.gz"
   sha256 "ea1142b6aef40fbd624fc3e2130cf10cf081b5fa88e5229c92b8f515779d6fdc"
 
