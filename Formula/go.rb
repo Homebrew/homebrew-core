@@ -3,16 +3,15 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://storage.googleapis.com/golang/go1.7.5.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.7.5.src.tar.gz"
-    version "1.7.5"
-    sha256 "4e834513a2079f8cbbd357502cccaac9507fd00a1efe672375798858ff291815"
+    url "https://storage.googleapis.com/golang/go1.8.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.8.src.tar.gz"
+    version "1.8"
+    sha256 "406865f587b44be7092f206d73fc1de252600b79b3cacc587b74b5ef5c623596"
 
-    go_version = version.to_s.split(".")[0..1].join(".")
+    # revision should be tip of tree commit in release-branch.goX.Y
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
-          :branch => "release-branch.go#{go_version}",
-          :revision => "6220cba6419b2bf78aad19d85c347ecc0fda2b53"
+          :revision => "5682db0e919ed9cfc6f52ac32e170511a106eb3b"
     end
   end
 
@@ -20,16 +19,6 @@ class Go < Formula
     sha256 "7d96560afe4d231cb7c63911fc1e8324a5092306503e8cbe8b7b89d5dcbffe9d" => :sierra
     sha256 "8d4d7111294a186a032c7fd9534ae343f01e84e5b45b56118d7e20a896fb0926" => :el_capitan
     sha256 "311a87565de855a024df90eed45d95c84e3c71dfcc44941a5755ce6b412755cb" => :yosemite
-  end
-
-  devel do
-    url "https://storage.googleapis.com/golang/go1.8rc3.src.tar.gz"
-    version "1.8rc3"
-    sha256 "38b1c1738f111f7bccdd372efca2aa98a7bad1ca2cb21767ba69f34ae007499c"
-
-    resource "gotools" do
-      url "https://go.googlesource.com/tools.git"
-    end
   end
 
   head do
@@ -46,8 +35,7 @@ class Go < Formula
 
   depends_on :macos => :mountain_lion
 
-  # Should use the last stable binary release to bootstrap.
-  # More explicitly, leave this at 1.7 when 1.7.1 is released.
+  # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
     url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
     version "1.7"
@@ -55,8 +43,6 @@ class Go < Formula
   end
 
   def install
-    ENV.permit_weak_imports
-
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
@@ -94,7 +80,8 @@ class Go < Formula
   end
 
   def caveats; <<-EOS.undent
-    As of go 1.2, a valid GOPATH is required to use the `go get` command:
+    As of go 1.2, a valid GOPATH is required to use the `go get` command.
+    If $GOPATH is not specified, $HOME/go will be used by default:
       https://golang.org/doc/code.html#GOPATH
 
     You may wish to add the GOROOT-based install location to your PATH:
