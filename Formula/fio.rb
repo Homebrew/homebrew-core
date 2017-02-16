@@ -6,9 +6,10 @@ class Fio < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "08c04dceee78e15833417c2672940f83334cf8a5f552f28802f7d117e1ae7c5c" => :sierra
-    sha256 "34eb8a018808964010f9b626a81c268b3e704e4c3e02f9c75b4e2f8428173a31" => :el_capitan
-    sha256 "fcf155cd769b1328c40423c7081d34b37d585bc918d0d8590500c25aebf0b59c" => :yosemite
+    rebuild 1
+    sha256 "80b4ccb0ebffb0219ccce055aff65f4d0288e52adc74ac3ae12c09dd4186f7d5" => :sierra
+    sha256 "958ccd2531a841bddf5eac1113156bd992bcccd6bdbfd8cc74e7fdd28fe4097e" => :el_capitan
+    sha256 "a29b96564d86834fd3c6358a164d7d687372e0ae3c9698f49681d53f283afed5" => :yosemite
   end
 
   # Upstream fix for "dyld: lazy symbol binding failed: Symbol not found: _clock_gettime"
