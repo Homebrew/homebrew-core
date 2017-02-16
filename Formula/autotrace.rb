@@ -1,6 +1,6 @@
 class Autotrace < Formula
   desc "Convert bitmap to vector graphics"
-  homepage "http://autotrace.sourceforge.net"
+  homepage "https://autotrace.sourceforge.io"
   url "https://downloads.sourceforge.net/project/autotrace/AutoTrace/0.31.1/autotrace-0.31.1.tar.gz"
   sha256 "5a1a923c3335dfd7cbcccb2bbd4cc3d68cafe7713686a2f46a1591ed8a92aff6"
   revision 3
