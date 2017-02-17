@@ -1,10 +1,10 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.5/gnutls-3.5.8.tar.xz"
-  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.8.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.5/gnutls-3.5.8.tar.xz"
-  sha256 "0e97f243ae72b70307d684b84c7fe679385aa7a7a0e37e5be810193dcc17d4ff"
+  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.5/gnutls-3.5.9.tar.xz"
+  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.9.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.5/gnutls-3.5.9.tar.xz"
+  sha256 "82b10f0c4ef18f4e64ad8cef5dbaf14be732f5095a41cf366b4ecb4050382951"
 
   bottle do
     sha256 "88fd05b558364ccae0227139d162a72005329408b5a22801aaa94daca3243a13" => :sierra
@@ -64,9 +64,7 @@ class Gnutls < Formula
     ]
 
     certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
-    certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m
-    )
+    certs = certs_list.scan(/-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m)
 
     valid_certs = certs.select do |cert|
       IO.popen("openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
