@@ -3,8 +3,8 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v0.12.2.tar.gz"
-  sha256 "d61618ebf6bc16be50b9a08a41a5a88816f60ca1663bcbf1e0af0e70370031fd"
+  url "https://github.com/pre-commit/pre-commit/archive/v0.13.1.tar.gz"
+  sha256 "07728299f15806780c028ccf8e66f36806a43a4271cc966ad98e02c0a3e609dc"
 
   bottle do
     cellar :any_skip_relocation
@@ -31,13 +31,13 @@ class PreCommit < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/58/0d/c816f5ea5adaf1293a1d81d32e4cdfdaf8496973aa5049786d7fdb14e7e7/jsonschema-2.5.1.tar.gz"
-    sha256 "36673ac378feed3daa5956276a829699056523d7961027911f064b52255ead41"
+    url "https://files.pythonhosted.org/packages/58/b9/171dbb07e18c6346090a37f03c7e74410a1a56123f847efed59af260a298/jsonschema-2.6.0.tar.gz"
+    sha256 "6ff5f3180870836cae40f06fa10419f557208175f13ad7bc26caa77beb1f6e02"
   end
 
   resource "nodeenv" do
-    url "https://files.pythonhosted.org/packages/a0/d0/a7f6443901894a6c93db42e7fa2f2e2135ca2fcb5f466b8e21cce49d596e/nodeenv-1.1.0.tar.gz"
-    sha256 "4a592f8cb891c4894113007be8f5d886a215695ef2e6f84ddf8a0be979c2879a"
+    url "https://files.pythonhosted.org/packages/79/c1/c772f1e2beb5c67a1ce750a07e9ab790d44b9ff89cd9ff4356197ab68a8c/nodeenv-1.1.2.tar.gz"
+    sha256 "6e5e54b2520aff970a8a161750dedecc196b396b9436247859128e53ff7aa074"
   end
 
   resource "ordereddict" do
