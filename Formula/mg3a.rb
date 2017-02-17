@@ -6,9 +6,9 @@ class Mg3a < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e5457a711a7a5168c2ceae43cda1df7ba01b7556d78a599ce8ca5ff40908cafc" => :sierra
-    sha256 "7d18d1976876e2b596e236e61e11cf7ff133bddfd795489ec0c607092f1f1678" => :el_capitan
-    sha256 "6485b13fb71033a4140f680bd5953768995747de75ade322edd32ebef0ebb7f0" => :yosemite
+    sha256 "ef97936e888d4bdcc3176fa064e06c1eb698b5d45bff08ec9f22721fcb3f5577" => :sierra
+    sha256 "221e329c44ec1dd3988fb2cb033be3e0043e9114d0eaea38a02b35daeb01ee85" => :el_capitan
+    sha256 "e629714006e001d35b5c5d473b736197a881831c0cc19059dfb6d3c244799095" => :yosemite
   end
 
   option "with-c-mode", "Include the original C mode"
