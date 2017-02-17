@@ -75,6 +75,8 @@ class Terraform < Formula
       ENV.deparallelize { system "make", "test", "vet" }
 
       # Generate release binary
+      # Upsteam issue for parallelization errors:
+      # https://github.com/hashicorp/terraform/issues/12064
       arch = MacOS.prefer_64_bit? ? "amd64" : "386"
       ENV["XC_OS"] = "darwin"
       ENV["XC_ARCH"] = arch
