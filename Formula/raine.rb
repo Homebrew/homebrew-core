@@ -35,6 +35,7 @@ class Raine < Formula
       "sdl_sound" => %w[--disable-dependency-tracking
                         --disable-sdltest
                         --disable-mikmod
+                        --disable-modplug
                         --disable-physfs
                         --disable-speex],
       "sdl_ttf"   => %W[--disable-debug
