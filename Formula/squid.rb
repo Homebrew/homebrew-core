@@ -5,9 +5,9 @@ class Squid < Formula
   sha256 "4fe29f582eef357faa541a53835b6885e24e6f28b80a3abcdf3b57f5393bbdb2"
 
   bottle do
-    sha256 "81252cb6b996527204361c6d0d2a4ea7d88253cbb89af04d412538642c81afdd" => :sierra
-    sha256 "a6d502f21b947fa1204f80dde1039761d078bf9abb60595da37bfa956984bb8b" => :el_capitan
-    sha256 "b84d56e79dc041835b79790c5c85dc999156341130eec2e30d3c2f2f849ca3c3" => :yosemite
+    sha256 "1bfc5f0d3b3d756011dd26eafbb25d8cebbdc4b2da87342cff85e58329e086dc" => :sierra
+    sha256 "1a2950246a1a1f7695c2689b3299282e447790137aa16971007c2f5d162c530f" => :el_capitan
+    sha256 "81e4e0d9759095922b73e70b92f239bbfab09c7965db6d92d437379809c35e17" => :yosemite
   end
 
   head do
