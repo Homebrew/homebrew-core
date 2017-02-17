@@ -7,64 +7,76 @@ class KontenaCli < Formula
 
   bottle :unneeded
 
+  option "with-ruby-autodiscovery", "Select a Ruby interpreter on every run instead of linking to the Ruby used during installation"
+  option "with-development", "Install development libraries"
+
   depends_on :ruby => "2.1"
 
   def install
+    # The depends_on :ruby is a bit flawed. It will validate that a ruby with version >= X exists
+    # but does not patch PATH to return that one
     ruby_command = pick_a_ruby("2.1")
     gem_command = gem_for_ruby(ruby_command)
 
-    # There's something strange in the way -g / --file works in gem install, seems to only work when you run it in the .gemspec directory.
-    Dir.chdir buildpath/"cli" do
-      system gem_command, "install", "-g", "--no-document", "--norc", "--without", "test,development", "--install-dir", buildpath/"cli/lib/vendor"
-    end
+    # Make --version indicate it is a HEAD build
+    inreplace (buildpath/"cli/VERSION"), /(\d+\.\d+\.\d+).*/, "\\1-head" if build.head?
 
-    inreplace buildpath/"cli/bin/kontena" do |s|
-      # Point to the picked ruby, "env ruby" can give you a different ruby otherwise
-      s.gsub! "#!/usr/bin/env ruby", "#!#{ruby_command}"
-      # Modify the GEM_PATH to load gems from the vendor directory
-      s.gsub! "# add self to libpath", "# add vendor to gem path\nENV['GEM_PATH'] = '#{libexec}/vendor'\nGem.paths = ENV\n\n# add self to libpath"
-      # Files in lib/ will be installed to brew's "libexec", so change the loadpath to point there
-      s.gsub! "$:.unshift File.expand_path('../../lib', bin_file)", "$:.unshift '#{libexec}'"
-    end
-
-    # Same for the shell autocompleter
-    inreplace buildpath/"cli/lib/kontena/scripts/completer",
-      "#!/usr/bin/env ruby",
-      "#!#{ruby_command}\n\n# add vendor to gem path\nENV['GEM_PATH'] = '#{libexec}/vendor'\nGem.paths = ENV\n\n"
-
-    # Add a build tag to "kontena --version" string
+    # Also add a "homebrew" build tag to "kontena --version" string
     inreplace buildpath/"cli/lib/kontena/main_command.rb", "RUBY_PLATFORM +", "RUBY_PLATFORM + '+homebrew' +"
+
+    # If building from tar.gz sources, git ls-files obviously doesn't work
+    unless build.head?
+      inreplace buildpath/"cli/kontena-cli.gemspec", "`git ls-files -z`.split(\"\\x0\")", "Dir['LOGO', 'README.md', 'LICENSE.txt', 'VERSION','bin/*', 'lib/**/*']"
+    end
+
+    # Build the gem from sources and install it and its dependencies to buildpath/out
+    Dir.chdir buildpath/"cli" do
+      system gem_command, "build", "--norc", "kontena-cli.gemspec"
+      install_args = ["install", Dir["kontena-cli-*.gem"].first, "--install-dir", buildpath/"out", "--no-env-shebang", "--no-wrappers", "--norc", "--no-document"]
+      install_args << "--development" if build.with?("development")
+      system gem_command, *install_args
+    end
+
+    # Patch the exec script
+    inreplace buildpath/"cli/bin/kontena" do |s|
+      s.gsub! "#!/usr/bin/env ruby", build.with?("ruby-autodiscovery") ? adaptive_shebang : "#!#{ruby_command}"
+      s.gsub! "# add self to libpath", "# add libexec to gem path\nENV['GEM_PATH'] = '#{libexec}'\nGem.paths = ENV\n\n# add self to libpath"
+    end
+    bin.install buildpath/"cli/bin/kontena"
+
+    # Same for autocompleter
+    inreplace buildpath/"cli/lib/kontena/scripts/completer" do |s|
+      s.gsub! "#!/usr/bin/env ruby", build.with?("ruby-autodiscovery") ? adaptive_shebang : "#!#{ruby_command}"
+      s.gsub! "# add self to libpath", "# add libexec to gem path\nENV['GEM_PATH'] = '#{libexec}'\nGem.paths = ENV\n\n# add self to libpath"
+      s.gsub! "require_relative '..", "require 'kontena"
+    end
+    bin.install buildpath/"cli/lib/kontena/scripts/completer" => "_kontena_completer"
+
+    rm_rf buildpath/"out/cache"
+    rm_rf buildpath/"out/bin"
+    libexec.install Dir["out/*"]
 
     # Patch completion init script
     inreplace buildpath/"cli/lib/kontena/scripts/init" do |s|
       s.gsub! "#!/usr/bin/env bash", "# Completion for kontena-cli"
-      s.gsub! "DIR=$( cd \"$( dirname \"$src\" )\" && pwd )", "DIR=#{libexec}/kontena/scripts"
+      s.gsub! "${DIR}/completer", "#{bin}/_kontena_completer"
     end
 
-    # The same script works for both shells. The original 'init' needs to exist in the directory or
-    # kontena whois --bash-completion-path crashes.
+    # The same script works for both shells.
     cp buildpath/"cli/lib/kontena/scripts/init", buildpath/"cli/lib/kontena/scripts/kontena.zsh"
     cp buildpath/"cli/lib/kontena/scripts/init", buildpath/"cli/lib/kontena/scripts/kontena.bash"
 
-    # Create a "standard" loader for the completion function
+    bash_completion.install buildpath/"cli/lib/kontena/scripts/kontena.bash" => "kontena.bash"
+
+    # Create a loader for the completion function
     (buildpath/"cli/lib/kontena/scripts/_kontena").write(zsh_completer)
     zsh_completion.install buildpath/"cli/lib/kontena/scripts/_kontena" => "_kontena"
-
-    bash_completion.install buildpath/"cli/lib/kontena/scripts/kontena.bash" => "kontena.bash"
     zsh_completion.install buildpath/"cli/lib/kontena/scripts/kontena.zsh" => "kontena.zsh"
-
-    bin.install buildpath/"cli/bin/kontena"
-    libexec.install Dir["cli/lib/*"]
-    prefix.install buildpath/"cli/README.md"
-    prefix.install buildpath/"CHANGELOG.md"
-    # Required during operation:
-    prefix.install buildpath/"cli/LOGO"
-    prefix.install buildpath/"cli/VERSION"
   end
 
   test do
     assert_match "+homebrew", shell_output("#{bin}/kontena --version")
-    assert_match "login", shell_output("#{libexec}/kontena/scripts/completer kontena master")
+    assert_match "login", shell_output("#{bin}/_kontena_completer kontena master")
   end
 
   private
@@ -111,6 +123,20 @@ class KontenaCli < Formula
     return from_path if from_path
 
     odie "Can not find a rubygems gem executable for ruby #{ruby_path}"
+  end
+
+  def adaptive_shebang
+    <<-EOS.undent
+      #!/bin/sh
+      for ruby in $(which -a ruby); do
+        if $ruby -e "exit 1 if RUBY_VERSION < '2.1'"; then
+          exec $ruby -x "$0" "$@"
+        fi
+      done
+      echo "No suitable ruby 2.1+ interpreter found" >&2
+      exit 1
+      #!ruby
+    EOS
   end
 
   def zsh_completer
