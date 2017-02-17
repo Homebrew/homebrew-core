@@ -16,25 +16,25 @@ class Dvm < Formula
   depends_on "go" => :build
 
   def install
+    # `make` has to be deparallelized due to the following errors:
+    #   glide install
+    #   fatal: Not a git repository (or any of the parent directories): .git
+    #   CGO_ENABLED=0 go build ...
+    #   dvm-helper/dvm-helper.go:16:2: cannot find package "github.com/blang/semver"
+    #   make: *** [local] Error 1
+    # Reported 17 Feb 2017: https://github.com/getcarina/dvm/issues/151
+    ENV.deparallelize
+
     ENV["GOPATH"] = buildpath
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
-    ENV.append_path "PATH", buildpath/"bin"
 
-    dir = buildpath/"src/github.com/getcarina/dvm"
-    dir.install buildpath.children
+    # `depends_on "glide"` already has this covered
+    inreplace "Makefile", %r{^.*go get github.com/Masterminds/glide.*$\n}, ""
+    
+    (buildpath/"src/github.com/getcarina/dvm").install buildpath.children
 
-    cd dir do
-      # `depends_on "glide"` already has this covered
-      inreplace "Makefile", %r{^.*go get github.com/Masterminds/glide.*$\n}, ""
-
-      # `make` has to be deparallelized due to the following errors:
-      #   glide install
-      #   fatal: Not a git repository (or any of the parent directories): .git
-      #   CGO_ENABLED=0 go build ...
-      #   dvm-helper/dvm-helper.go:16:2: cannot find package "github.com/blang/semver"
-      #   make: *** [local] Error 1
-      # Reported 17 Feb 2017: https://github.com/getcarina/dvm/issues/151
-      ENV.deparallelize { system "make", "VERSION=#{version}", "UPGRADE_DISABLED=true" }
+    cd "src/github.com/getcarina/dvm" do
+      system "make", "VERSION=#{version}", "UPGRADE_DISABLED=true"
       prefix.install "dvm.sh"
       bash_completion.install "bash_completion" => "dvm"
       (prefix/"dvm-helper").install "dvm-helper/dvm-helper"
