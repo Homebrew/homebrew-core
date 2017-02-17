@@ -144,8 +144,9 @@ class Raine < Formula
       s.gsub! %r{/usr/local/lib/libSDL_sound\.a}, "-lSDL_sound"
       s.gsub! %r{/usr/local/lib/libintl\.a}, "-lintl"
       s.gsub! %r{/usr/local/lib/libmuparser\.a}, "-lmuparser"
+      s.gsub! %r{-I/usr/local/include}, ENV.cflags
     end
-    system "make"
+    system "make", "LD=#{ENV.cxx} #{ENV.ldflags}"
     system "make", "install"
     prefix.install "Raine.app"
     bin.write_exec_script "#{prefix}/Raine.app/Contents/MacOS/raine"
