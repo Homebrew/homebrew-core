@@ -30,7 +30,7 @@ class Dvm < Formula
 
     # `depends_on "glide"` already has this covered
     inreplace "Makefile", %r{^.*go get github.com/Masterminds/glide.*$\n}, ""
-    
+
     (buildpath/"src/github.com/getcarina/dvm").install buildpath.children
 
     cd "src/github.com/getcarina/dvm" do
