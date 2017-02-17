@@ -1,8 +1,8 @@
 class Scmpuff < Formula
   desc "Adds numbered shortcuts for common git commands"
   homepage "https://mroth.github.io/scmpuff/"
-  url "https://github.com/mroth/scmpuff/archive/v0.2.0.tar.gz"
-  sha256 "7ec19d68cfea6babbd2fafff67df0b7c07ed27a9e80dbd01691611038442a1a0"
+  url "https://github.com/mroth/scmpuff/archive/v0.2.1.tar.gz"
+  sha256 "6855562be9788a0fcf69102546f3bf8ccac063086d28a9a3f1ab4947e9dd08e2"
 
   bottle do
     cellar :any_skip_relocation
