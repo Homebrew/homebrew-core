@@ -5,9 +5,9 @@ class Nsd < Formula
   sha256 "494a862cfcd26a525a4bf06306eb7ab0387b34678ac6d37767507438e3a23a4b"
 
   bottle do
-    sha256 "7fe76b7fc8ce2bdb9fa9d30a29d1b1c6c930da8deb26f0df4ba8d8b9e6b95ee2" => :sierra
-    sha256 "a97ff0daff8e153e8bbbc0144798f46ecf0b8aa302758ec436bbf01c4a5736ee" => :el_capitan
-    sha256 "e523fd04dba1bd7720b62e3d6f845d19d333a27b8988c3cd006e002f2d49f9d0" => :yosemite
+    sha256 "a151c4ee34b03883204024d75a8764110f60b27ecd16833565a462dd518aefef" => :sierra
+    sha256 "a88214c56bcecdca5c9e661eb3a98aa72369ecea4d65cfe0729572261d1a2c19" => :el_capitan
+    sha256 "e735828b0cb4220ae7ead4d6d612844ac9901da5f4d1943debdfb53cfeb32144" => :yosemite
   end
 
   option "with-root-server", "Allow NSD to run as a root name server"
