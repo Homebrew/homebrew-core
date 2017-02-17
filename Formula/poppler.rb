@@ -1,8 +1,8 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.51.0.tar.xz"
-  sha256 "e997c9ad81a8372f2dd03a02b00692b8cc479c220340c8881edaca540f402c1f"
+  url "https://poppler.freedesktop.org/poppler-0.52.0.tar.xz"
+  sha256 "528b661738839f9a25f6e580fcd2d5db007e0a1948580c6489f0062798ca1992"
 
   bottle do
     sha256 "59c234fbdb1746c0ce1a42e455147978eb7293f71209907c52d8c08e1c106e50" => :sierra
