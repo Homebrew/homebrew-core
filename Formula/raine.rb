@@ -111,10 +111,10 @@ class Raine < Formula
   def install
     ENV.m32
 
-    ENV.append_path "PATH", "#{libexec}/bin"
+    ENV.prepend "PATH", "#{libexec}/bin", File::PATH_SEPARATOR
     ENV.append_to_cflags "-I#{libexec}/include"
     ENV.append "LDFLAGS", "-L#{libexec}/lib"
-    ENV.prepend_path "PKG_CONFIG_PATH", "#{libexec}/lib/pkgconfig"
+    ENV.prepend "PKG_CONFIG_PATH", "#{libexec}/lib/pkgconfig", File::PATH_SEPARATOR
 
     # Install private copies of all dependencies in libexec
     resources.each do |r|
