@@ -6,11 +6,9 @@ class Libgadu < Formula
 
   bottle do
     cellar :any
-    sha256 "c6f3fdde053bd774c477223aed06790665b7dadefadb792d62d1dd17937da628" => :sierra
-    sha256 "bbe510634d41fbd356ee7775ce360b2a9f9429a8e39231d47fa68167aaeeca1f" => :el_capitan
-    sha256 "4c611f1aa42aa415e0e8b3880a17536b37d3e5760ec0b8e7f81039d65c032d74" => :yosemite
-    sha256 "a125d428b27a849db24ce63ece66eb43de5b5ba5fb092e464628ba0b320872f4" => :mavericks
-    sha256 "77d315541e0bb563fdf9185e32a3bfb4661bbce4781853e1d66c9802ec7599e2" => :mountain_lion
+    sha256 "4cf4bb4fa157bff6ce4e1fa58a79c372df6b0a00c5e5fd621f6396b3d55451e6" => :sierra
+    sha256 "1feb9c3c574632f9324fdfc8bc5ed49f2817e7a58ae280e44b0ae8735e89caca" => :el_capitan
+    sha256 "845c258af465001dcdfad1f09e7659e86d6d006b9381c6e3cfaf0461e432ab46" => :yosemite
   end
 
   def install
