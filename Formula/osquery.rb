@@ -3,9 +3,8 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.2.1",
-      :revision => "8fcb3659eeeac56847ee6d26b138b6bddc941a6a"
-  revision 2
+      :tag => "2.3.3",
+      :revision => "d1d21cda78d60c1fe7cc2f86fe206522d0134528"
 
   bottle do
     cellar :any
@@ -16,8 +15,8 @@ class Osquery < Formula
 
   fails_with :gcc => "6"
 
-  # osquery only supports OS X 10.9 and above. Do not remove this.
-  depends_on :macos => :mavericks
+  # osquery only supports OS X 10.10 and above. Do not remove this.
+  depends_on :macos => :yosemite
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
@@ -116,7 +115,7 @@ class Osquery < Formula
         --without-icu
         --prefix=#{vendor}/boost
         --libdir=#{vendor}/boost/lib
-        --with-libraries=filesystem,regex,system
+        --with-libraries=filesystem,regex,system,thread
       ]
 
       args = %W[
@@ -233,6 +232,7 @@ class Osquery < Formula
       -Dboost_filesystem-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_filesystem-mt.a
       -Dboost_regex-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_regex-mt.a
       -Dboost_system-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_system-mt.a
+      -Dboost_thread-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_thread-mt.a
       -Dcppnetlib-client-connections_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-client-connections.a
       -Dcppnetlib-uri_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-uri.a
       -Dlinenoise_library:FILEPATH=#{vendor}/linenoise/lib/liblinenoise.a
