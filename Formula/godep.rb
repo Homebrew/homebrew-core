@@ -3,6 +3,7 @@ class Godep < Formula
   homepage "https://godoc.org/github.com/tools/godep"
   url "https://github.com/tools/godep/archive/v79.tar.gz"
   sha256 "3dd2e6c4863077762498af98fa0c8dc5fedffbca6a5c0c4bb42b452c8268383d"
+  revision 1
   head "https://github.com/tools/godep.git"
 
   bottle do
@@ -25,7 +26,7 @@ class Godep < Formula
     (testpath/"Godeps/Godeps.json").write <<-EOS.undent
       {
         "ImportPath": "github.com/tools/godep",
-        "GoVersion": "go1.7",
+        "GoVersion": "go1.8",
         "Deps": [
           {
             "ImportPath": "golang.org/x/tools/cover",
