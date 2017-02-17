@@ -7,10 +7,9 @@ class Autojump < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "b2bc4e8a88f045cf59134eea71e64fd52c05fb5057dd48f9f8b00e84014f7975" => :sierra
-    sha256 "c7f4586872c6ae5bff8c1f75cf575dc89dbb590b2164ba95ba073510a10bdd78" => :el_capitan
-    sha256 "c7f4586872c6ae5bff8c1f75cf575dc89dbb590b2164ba95ba073510a10bdd78" => :yosemite
+    sha256 "29d37b9fc31a978d0767c4925e88fa9fe3cebf4a9f9278fa82a96baf5caa0db4" => :sierra
+    sha256 "29d37b9fc31a978d0767c4925e88fa9fe3cebf4a9f9278fa82a96baf5caa0db4" => :el_capitan
+    sha256 "29d37b9fc31a978d0767c4925e88fa9fe3cebf4a9f9278fa82a96baf5caa0db4" => :yosemite
   end
 
   def install
