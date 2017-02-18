@@ -27,6 +27,7 @@ class Raine < Formula
                         --without-xz],
       "muparser"  => %w[--disable-debug
                         --disable-dependency-tracking
+                        --disable-shared
                         --disable-samples],
       "sdl"       => %w[--without-x],
       "sdl_image" => %w[--disable-dependency-tracking
@@ -41,10 +42,14 @@ class Raine < Formula
       "sdl_ttf"   => %W[--disable-debug
                         --disable-dependency-tracking
                         --disable-sdltest
-                        --with-freetype-prefix=#{libexec}],
+                        --with-freetype-prefix=#{buildpath}],
     }.fetch(package, %w[--disable-debug
-                        --disable-dependency-tracking]).dup
+                        --disable-dependency-tracking
+                        --disable-shared]).dup
   end
+
+  depends_on "nasm" => :build
+  depends_on "pkg-config" => :build
 
   resource "gettext" do
     url "https://ftpmirror.gnu.org/gettext/gettext-0.19.8.1.tar.xz"
@@ -106,18 +111,15 @@ class Raine < Formula
     sha256 "0666ef55da72c3e356ca85b6a0084d56b05dd740c3c21d26d372085aa2c6e708"
   end
 
-  depends_on "nasm" => :build
-  depends_on "pkg-config" => :build
-
   def install
     ENV.m32
 
-    ENV.prepend "PATH", "#{libexec}/bin", File::PATH_SEPARATOR
-    ENV.append_to_cflags "-I#{libexec}/include"
-    ENV.append "LDFLAGS", "-L#{libexec}/lib"
-    ENV.prepend "PKG_CONFIG_PATH", "#{libexec}/lib/pkgconfig", File::PATH_SEPARATOR
+    ENV.prepend "PATH", "#{buildpath}/bin", File::PATH_SEPARATOR
+    ENV.append_to_cflags "-I#{buildpath}/include"
+    ENV.append "LDFLAGS", "-L#{buildpath}/lib"
+    ENV.prepend "PKG_CONFIG_PATH", "#{buildpath}/lib/pkgconfig", File::PATH_SEPARATOR
 
-    # Install private copies of all dependencies in libexec
+    # Install private copies of all dependencies in buildpath
     resources.each do |r|
       r.stage do
         # this sucks; we can't apply real patches since this is a resource
@@ -132,7 +134,7 @@ class Raine < Formula
         end
 
         args = configure_args(r.name)
-        args << "--prefix=#{libexec}"
+        args << "--prefix=#{buildpath}"
 
         system "./configure", *args
         system "make"
@@ -141,13 +143,21 @@ class Raine < Formula
     end
 
     inreplace "makefile" do |s|
-      s.gsub! /-framework (SDL|SDL_image|SDL_ttf)/, "-l\\1"
-      s.gsub! %r{/usr/local/lib/libSDL_sound\.a}, "-lSDL_sound"
-      s.gsub! %r{/usr/local/lib/libintl\.a}, "-lintl"
-      s.gsub! %r{/usr/local/lib/libmuparser\.a}, "-lmuparser"
+      s.gsub! /-framework SDL_ttf/, "#{buildpath}/lib/libSDL_ttf.a #{buildpath}/lib/libfreetype.a -lbz2"
+      s.gsub! /-framework (SDL_image|SDL)/, "#{buildpath}/lib/lib\\1.a"
+      s.gsub! %r{/usr/local/lib/libSDL_sound\.a}, "#{buildpath}/lib/libSDL_sound.a"
+      s.gsub! %r{/usr/local/lib/libintl\.a}, "#{buildpath}/lib/libintl.a"
+      s.gsub! %r{/usr/local/lib/libmuparser\.a}, "#{buildpath}/lib/libmuparser.a"
+      s.gsub! %r{/usr/local/lib/libpng.a}, "#{buildpath}/lib/libpng.a"
       s.gsub! %r{-I/usr/local/include}, ENV.cflags
     end
-    system "make", "LD=#{ENV.cxx} #{ENV.ldflags}"
+
+    # We need to manually pass the system frameworks that the SDL libraries
+    # normally link against, since they're still used when linked statically.
+    frameworks = %w[ApplicationServices AppKit AudioToolbox AudioUnit Carbon
+                    CoreFoundation CoreGraphics CoreServices Foundation IOKit]
+
+    system "make", "LD=#{ENV.cxx} #{ENV.ldflags} #{frameworks.map { |f| "-framework #{f}" }.join(" ")}"
     system "make", "install"
     prefix.install "Raine.app"
     bin.write_exec_script "#{prefix}/Raine.app/Contents/MacOS/raine"
