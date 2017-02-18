@@ -13,12 +13,14 @@ class PkgConfig < Formula
   end
 
   def install
+    mkdir_p lib/"pkgconfig"
+    cp Dir["#{HOMEBREW_LIBRARY}/Homebrew/os/mac/pkgconfig/#{MacOS.version}/*"], lib/"pkgconfig"
     pc_path = %W[
       #{HOMEBREW_PREFIX}/lib/pkgconfig
       #{HOMEBREW_PREFIX}/share/pkgconfig
       /usr/local/lib/pkgconfig
       /usr/lib/pkgconfig
-      #{HOMEBREW_LIBRARY}/Homebrew/os/mac/pkgconfig/#{MacOS.version}
+      #{lib}/pkgconfig
     ].uniq.join(File::PATH_SEPARATOR)
 
     ENV.append "LDFLAGS", "-framework Foundation -framework Cocoa"
