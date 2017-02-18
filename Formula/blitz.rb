@@ -1,6 +1,6 @@
 class Blitz < Formula
   desc "C++ class library for scientific computing"
-  homepage "http://blitz.sourceforge.net"
+  homepage "https://blitz.sourceforge.io"
   url "https://downloads.sourceforge.net/project/blitz/blitz/Blitz++%200.10/blitz-0.10.tar.gz"
   sha256 "804ef0e6911d43642a2ea1894e47c6007e4c185c866a7d68bad1e4c8ac4e6f94"
 

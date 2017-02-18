@@ -7,7 +7,7 @@ require "etc"
 
 class Jnethack < Formula
   desc "Japanese localization of Nethack"
-  homepage "http://jnethack.sourceforge.jp/"
+  homepage "https://jnethack.sourceforge.jp/"
   url "https://downloads.sourceforge.net/project/nethack/nethack/3.4.3/nethack-343-src.tgz"
   version "3.4.3-0.11"
   sha256 "bb39c3d2a9ee2df4a0c8fdde708fbc63740853a7608d2f4c560b488124866fe4"

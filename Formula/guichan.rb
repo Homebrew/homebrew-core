@@ -1,6 +1,6 @@
 class Guichan < Formula
   desc "small, efficient C++ GUI library designed for games"
-  homepage "http://guichan.sourceforge.net/oldsite/about.shtml"
+  homepage "https://guichan.sourceforge.io"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/guichan/guichan-0.8.2.tar.gz"
   sha256 "eedf206eae5201eaae027b133226d0793ab9a287bfd74c5f82c7681e3684eeab"
 

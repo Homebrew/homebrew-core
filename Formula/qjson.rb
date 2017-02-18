@@ -1,6 +1,6 @@
 class Qjson < Formula
   desc "Map JSON to QVariant objects"
-  homepage "http://qjson.sourceforge.net"
+  homepage "https://qjson.sourceforge.io"
   url "https://github.com/flavio/qjson/archive/0.9.0.tar.gz"
   sha256 "e812617477f3c2bb990561767a4cd8b1d3803a52018d4878da302529552610d4"
 
