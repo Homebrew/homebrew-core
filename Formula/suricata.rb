@@ -10,13 +10,6 @@ class Suricata < Formula
     sha256 "c7230f6f72d2da676873b437d1d9b88b7e8b137800f8e7787f26f207e472164b" => :yosemite
   end
 
-  # Stable is more recent than any devel branch as of now.
-  # devel do
-  #  url "https://www.openinfosecfoundation.org/download/suricata-3.2beta1.tar.gz"
-  #  sha256 "fa17c3191910282bb72f8e406328083ee7727cab06cf04ecbc47a911e013f96e"
-  #  version "3.2beta1"
-  # end
-
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "libmagic"
