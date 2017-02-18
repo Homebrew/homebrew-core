@@ -1,6 +1,6 @@
 class Gmtl < Formula
   desc "Lightweight math library"
-  homepage "http://ggt.sourceforge.net/"
+  homepage "https://ggt.sourceforge.io/"
   head "https://ggt.svn.sourceforge.net/svnroot/ggt/trunk/"
 
   stable do

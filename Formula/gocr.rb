@@ -1,6 +1,6 @@
 class Gocr < Formula
   desc "Optical Character Recognition (OCR), converts images back to text"
-  homepage "http://jocr.sourceforge.net/"
+  homepage "https://jocr.sourceforge.io/"
   url "https://www-e.uni-magdeburg.de/jschulen/ocr/gocr-0.50.tar.gz"
   sha256 "bc261244f887419cba6d962ec1ad58eefd77176885093c4a43061e7fd565f5b5"
 

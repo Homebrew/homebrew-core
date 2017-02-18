@@ -1,6 +1,6 @@
 class Clasp < Formula
   desc "Answer set solver for (extended) normal logic programs"
-  homepage "http://potassco.sourceforge.net/"
+  homepage "https://potassco.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/potassco/clasp/3.2.0/clasp-3.2.0-source.tar.gz"
   sha256 "eafb050408b586d561cd828aec331b4d3b92ea7a26d249a02c4f39b1675f4e68"
 

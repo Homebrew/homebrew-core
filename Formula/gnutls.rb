@@ -1,15 +1,15 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.5/gnutls-3.5.8.tar.xz"
-  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.8.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.5/gnutls-3.5.8.tar.xz"
-  sha256 "0e97f243ae72b70307d684b84c7fe679385aa7a7a0e37e5be810193dcc17d4ff"
+  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.5/gnutls-3.5.9.tar.xz"
+  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.9.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.5/gnutls-3.5.9.tar.xz"
+  sha256 "82b10f0c4ef18f4e64ad8cef5dbaf14be732f5095a41cf366b4ecb4050382951"
 
   bottle do
-    sha256 "88fd05b558364ccae0227139d162a72005329408b5a22801aaa94daca3243a13" => :sierra
-    sha256 "b15373a79002c0690c8096503510f3c085c0362e2c811506e40692ae70023898" => :el_capitan
-    sha256 "8d590747e00a73314ea2795296d7f6c31e826dc190e317b2ffc42f3cdf1110e8" => :yosemite
+    sha256 "2dd0a113c6207a3f8f99b8278f0e2b0177f0dbed20265621354bc3c70803112a" => :sierra
+    sha256 "8e32171bd8c48c838437cb6cd5199f68b7ba94a62b02693da8c5af299e1d9212" => :el_capitan
+    sha256 "4663b7b6671f0b8fc1421f802ba92992f6cf600d36fff214d57248b60c592a36" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -64,9 +64,7 @@ class Gnutls < Formula
     ]
 
     certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
-    certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m
-    )
+    certs = certs_list.scan(/-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m)
 
     valid_certs = certs.select do |cert|
       IO.popen("openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|

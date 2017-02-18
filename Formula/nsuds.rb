@@ -1,6 +1,6 @@
 class Nsuds < Formula
   desc "Ncurses Sudoku system"
-  homepage "http://nsuds.sourceforge.net/"
+  homepage "https://nsuds.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/nsuds/nsuds/nsuds-0.7B/nsuds-0.7B.tar.gz"
   sha256 "6d9b3e53f3cf45e9aa29f742f6a3f7bc83a1290099a62d9b8ba421879076926e"
 

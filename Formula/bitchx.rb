@@ -1,6 +1,6 @@
 class Bitchx < Formula
   desc "Text-based, scriptable IRC client"
-  homepage "http://bitchx.sourceforge.net/"
+  homepage "https://bitchx.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/bitchx/ircii-pana/bitchx-1.2.1/bitchx-1.2.1.tar.gz"
   sha256 "2d270500dd42b5e2b191980d584f6587ca8a0dbda26b35ce7fadb519f53c83e2"
 

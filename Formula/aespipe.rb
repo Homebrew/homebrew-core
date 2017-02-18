@@ -1,6 +1,6 @@
 class Aespipe < Formula
   desc "AES encryption or decryption for pipes"
-  homepage "http://loop-aes.sourceforge.net/"
+  homepage "https://loop-aes.sourceforge.io/"
   url "http://loop-aes.sourceforge.net/aespipe/aespipe-v2.4d.tar.bz2"
   sha256 "c5ce656e0ade49b93e1163ec7b35450721d5743d8d804ad3a9e39add0389e50f"
 

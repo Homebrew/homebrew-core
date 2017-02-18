@@ -1,6 +1,6 @@
 class Xu4 < Formula
   desc "Remake of Ultima IV"
-  homepage "http://xu4.sourceforge.net/"
+  homepage "https://xu4.sourceforge.io/"
   url "http://xu4.svn.sourceforge.net/svnroot/xu4/trunk/u4", :revision => "3088"
   version "1.0beta4+r3088"
   head "http://xu4.svn.sourceforge.net/svnroot/xu4/trunk/u4"

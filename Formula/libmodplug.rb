@@ -1,6 +1,6 @@
 class Libmodplug < Formula
   desc "Library from the Modplug-XMMS project"
-  homepage "http://modplug-xmms.sourceforge.net/"
+  homepage "https://modplug-xmms.sourceforge.io/"
   url "https://downloads.sourceforge.net/modplug-xmms/libmodplug/0.8.8.5/libmodplug-0.8.8.5.tar.gz"
   sha256 "77462d12ee99476c8645cb5511363e3906b88b33a6b54362b4dbc0f39aa2daad"
 

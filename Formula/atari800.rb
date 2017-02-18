@@ -1,6 +1,6 @@
 class Atari800 < Formula
   desc "Atari 8-bit machine emulator"
-  homepage "http://atari800.sourceforge.net/"
+  homepage "https://atari800.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/atari800/atari800/3.1.0/atari800-3.1.0.tar.gz"
   sha256 "901b02cce92ddb0b614f8034e6211f24cbfc2f8fb1c6581ba0097b1e68f91e0c"
 

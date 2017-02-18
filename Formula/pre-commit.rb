@@ -3,14 +3,14 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v0.12.2.tar.gz"
-  sha256 "d61618ebf6bc16be50b9a08a41a5a88816f60ca1663bcbf1e0af0e70370031fd"
+  url "https://github.com/pre-commit/pre-commit/archive/v0.13.2.tar.gz"
+  sha256 "8773335e4877c1286efede4eac7e2f3db90251506f4a7d30f78b9360d49e00ff"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dd345dcfa6570fe573b32e93363af68ad7f443732b22a8fbb883bdde2dba62c4" => :sierra
-    sha256 "d2f4c6bd643ab98d2af1e5f2b019dc275de4f16d1a4bce45eb0cd38f6dd4b1d3" => :el_capitan
-    sha256 "3a69b9b95fee8b9447e35ee56f24c40b7e1e4244b0cc0a88c1da159fd10038c0" => :yosemite
+    sha256 "351fff1953f92f31bc89806915f124a75b84be2441074142052ee816bb3f00c3" => :sierra
+    sha256 "547586af3dfe7ad9456856e41cef4549590ab39c21d988c666e772310e2e8868" => :el_capitan
+    sha256 "6e9f8945d768b551a0d88ac7541c558744ecde172fef342e6a197d8f2daa4eed" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -31,13 +31,13 @@ class PreCommit < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/58/0d/c816f5ea5adaf1293a1d81d32e4cdfdaf8496973aa5049786d7fdb14e7e7/jsonschema-2.5.1.tar.gz"
-    sha256 "36673ac378feed3daa5956276a829699056523d7961027911f064b52255ead41"
+    url "https://files.pythonhosted.org/packages/58/b9/171dbb07e18c6346090a37f03c7e74410a1a56123f847efed59af260a298/jsonschema-2.6.0.tar.gz"
+    sha256 "6ff5f3180870836cae40f06fa10419f557208175f13ad7bc26caa77beb1f6e02"
   end
 
   resource "nodeenv" do
-    url "https://files.pythonhosted.org/packages/a0/d0/a7f6443901894a6c93db42e7fa2f2e2135ca2fcb5f466b8e21cce49d596e/nodeenv-1.1.0.tar.gz"
-    sha256 "4a592f8cb891c4894113007be8f5d886a215695ef2e6f84ddf8a0be979c2879a"
+    url "https://files.pythonhosted.org/packages/79/c1/c772f1e2beb5c67a1ce750a07e9ab790d44b9ff89cd9ff4356197ab68a8c/nodeenv-1.1.2.tar.gz"
+    sha256 "6e5e54b2520aff970a8a161750dedecc196b396b9436247859128e53ff7aa074"
   end
 
   resource "ordereddict" do

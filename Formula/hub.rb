@@ -14,9 +14,9 @@ class Hub < Formula
   end
 
   devel do
-    url "https://github.com/github/hub/archive/v2.3.0-pre8.tar.gz"
-    version "2.3.0-pre8"
-    sha256 "1cea4a5958f7ca72c232ede173f5e4893e007aaddf6842d48665dff6fb1d7e19"
+    url "https://github.com/github/hub/archive/v2.3.0-pre9.tar.gz"
+    version "2.3.0-pre9"
+    sha256 "3246a5e3a071a7ccb06c30230a720b6457837bd6b97b32ab248dfb2b2222dbfb"
   end
 
   option "without-completions", "Disable bash/zsh completions"
@@ -33,7 +33,7 @@ class Hub < Formula
       begin
         deleted = ENV.delete "SDKROOT"
         ENV["GEM_HOME"] = buildpath/"gem_home"
-        system "gem", "install", "bundle"
+        system "gem", "install", "bundler"
         ENV.prepend_path "PATH", buildpath/"gem_home/bin"
         system "make", "man-pages"
       ensure

@@ -1,14 +1,15 @@
 class Fabio < Formula
   desc "Zero-conf load balancing HTTP(S) router"
   homepage "https://github.com/eBay/fabio"
-  url "https://github.com/eBay/fabio/archive/v1.3.7.tar.gz"
-  sha256 "1d80f3e2c69e5ce99c0b5f2ccc7e950eb18468edcfdd06f7bd8d5519629779dd"
+  url "https://github.com/eBay/fabio/archive/v1.3.8.tar.gz"
+  sha256 "dfa5b78d54de36aa28771592bc5054a27edeed5d1d3eba8ff3a062f27463c95b"
   head "https://github.com/eBay/fabio.git"
 
   bottle do
-    sha256 "8cc42694d1347ebfac935657690115de4d95f9524fd16eca2ed2d742bff4f632" => :sierra
-    sha256 "c3afae25c24d1b178bee9d8dbb8f140d088690935394c6c5c2ad987a2384fe1c" => :el_capitan
-    sha256 "ca688ae30b554cb0731c2270d7b285b6a38d499c36ff18c1583bc61fc630a9fb" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "13b2409e72fa477e1799b935d278957ce60c25f48e51aa8cd08a7bc281c9b479" => :sierra
+    sha256 "7ab80decd27359719fa62717bba0f0b227d4b227cc72f42880e5897a33e36ae8" => :el_capitan
+    sha256 "450c021dad158bf31b7a3c3fb1acdd81fbfbd7d393958e66edf25d535cac4228" => :yosemite
   end
 
   depends_on "go" => :build

@@ -1,6 +1,6 @@
 class Gplcver < Formula
   desc "Pragmatic C Software GPL Cver 2001"
-  homepage "http://gplcver.sourceforge.net/"
+  homepage "https://gplcver.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gplcver/gplcver/2.12a/gplcver-2.12a.src.tar.bz2"
   sha256 "f7d94677677f10c2d1e366eda2d01a652ef5f30d167660905c100f52f1a46e75"
 

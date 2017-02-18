@@ -1,6 +1,6 @@
 class Snap7 < Formula
   desc "Ethernet communication suite that works natively with Siemens S7 PLCs"
-  homepage "http://snap7.sourceforge.net/"
+  homepage "https://snap7.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/snap7/1.4.2/snap7-full-1.4.2.7z"
   sha256 "65af129e11de4b0d942751bcd9c563f7012cae174931860c03dbb2cdf2e80ae7"
 

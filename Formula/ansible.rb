@@ -6,11 +6,12 @@ class Ansible < Formula
   url "https://releases.ansible.com/ansible/ansible-2.2.1.0.tar.gz"
   sha256 "63a12ea784c0f90e43293b973d5c75263634c7415e463352846cd676c188e93f"
   head "https://github.com/ansible/ansible.git", :branch => "devel"
+  revision 1
 
   bottle do
-    sha256 "c0be0a9e00340ade30ba0fe01856e2ddc9ff01bddb56ef3b3d0bd57b8a9a882b" => :sierra
-    sha256 "164d5b7e1dd8fe0fca94aa31b53ab64e3076e843d0a312311b012c30cefc4e82" => :el_capitan
-    sha256 "df344a38fe509df9e5c5500f4e86f9d68be1e7dfea1a73fb40b9a224308948a4" => :yosemite
+    sha256 "235101a64292d2e7073716da7d35e255d4733cca9d9c8c14fc7d86cdde660042" => :sierra
+    sha256 "9eb4b528fe870c4679e477c0c1b4c9d6a0c48aaba3b6b49020896dd36c027e88" => :el_capitan
+    sha256 "73894cfe2cec6d3863c4cafb1a8f1dabe2ed75c7fe2c30738cd6193c6bf94db5" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -142,6 +143,11 @@ class Ansible < Formula
   resource "decorator" do
     url "https://files.pythonhosted.org/packages/cc/ac/5a16f1fc0506ff72fcc8fd4e858e3a1c231f224ab79bb7c4c9b2094cc570/decorator-4.0.11.tar.gz"
     sha256 "953d6bf082b100f43229cf547f4f97f97e970f5ad645ee7601d55ff87afdfe76"
+  end
+
+  resource "dnspython" do
+    url "https://pypi.python.org/packages/e4/96/a598fa35f8a625bc39fed50cdbe3fd8a52ef215ef8475c17cabade6656cb/dnspython-1.15.0.zip"
+    sha256 "40f563e1f7a7b80dc5a4e76ad75c23da53d62f1e15e6e517293b04e1f84ead7c"
   end
 
   resource "docker-py" do
@@ -372,6 +378,11 @@ class Ansible < Formula
   resource "python-cinderclient" do
     url "https://files.pythonhosted.org/packages/de/14/e4bd3212ac73e415f4e5dc99fc8becffdef54e97fde404e60d10c4838b33/python-cinderclient-1.10.0.tar.gz"
     sha256 "08dde1df6dbbeebd6c338f8a4f375b86907dd5c0014d47a4d738a2ac06d98d61"
+  end
+
+  resource "python-consul" do
+    url "https://pypi.python.org/packages/82/01/0480ca4f42425cda93e4079b86852474dac4dde0ecacd263b9834f00c258/python-consul-0.7.0.tar.gz"
+    sha256 "f5725067586f0119a4eb50bbc8daca75c86791d1c002b97fc173f2347d2dfaa1"
   end
 
   resource "python-dateutil" do

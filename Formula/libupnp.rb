@@ -1,6 +1,6 @@
 class Libupnp < Formula
   desc "Portable UPnP development kit"
-  homepage "http://pupnp.sourceforge.net/"
+  homepage "https://pupnp.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/pupnp/pupnp/libUPnP%201.6.21/libupnp-1.6.21.tar.bz2"
   sha256 "af3f3c0846a1d75baeadae4aa5a2bda427567e2a1fb4559bf73ccff0a4f9a39b"
 

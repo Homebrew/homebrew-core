@@ -3,21 +3,20 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.2.1",
-      :revision => "8fcb3659eeeac56847ee6d26b138b6bddc941a6a"
-  revision 2
+      :tag => "2.3.3",
+      :revision => "d1d21cda78d60c1fe7cc2f86fe206522d0134528"
 
   bottle do
     cellar :any
-    sha256 "cfde479725df28b5569a5dcf40cb6ff0e06c26df6df6841a2365fd366dd12448" => :sierra
-    sha256 "77340345489f1824a9f51363f9726968fca053a017d9408564c7dac5af52cc2a" => :el_capitan
-    sha256 "63f5fc2f0971ffce5e8b6a4ac7c698601442c63b8146e58e43cc44f8f4a2ce25" => :yosemite
+    sha256 "22f6c145a95a2c238551b42ca7feeaa7510f794c3675fb171730c3749432986f" => :sierra
+    sha256 "e079ef9babf3a38729172a37b5971e0363dcb6d55a37544282cacceb907bdb3d" => :el_capitan
+    sha256 "c09ce9e5dce647bc53919955c29bbf2d1d02e79430b46ecc32adba86bca1e4d4" => :yosemite
   end
 
   fails_with :gcc => "6"
 
-  # osquery only supports OS X 10.9 and above. Do not remove this.
-  depends_on :macos => :mavericks
+  # osquery only supports OS X 10.10 and above. Do not remove this.
+  depends_on :macos => :yosemite
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
@@ -116,7 +115,7 @@ class Osquery < Formula
         --without-icu
         --prefix=#{vendor}/boost
         --libdir=#{vendor}/boost/lib
-        --with-libraries=filesystem,regex,system
+        --with-libraries=filesystem,regex,system,thread
       ]
 
       args = %W[
@@ -233,6 +232,7 @@ class Osquery < Formula
       -Dboost_filesystem-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_filesystem-mt.a
       -Dboost_regex-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_regex-mt.a
       -Dboost_system-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_system-mt.a
+      -Dboost_thread-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_thread-mt.a
       -Dcppnetlib-client-connections_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-client-connections.a
       -Dcppnetlib-uri_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-uri.a
       -Dlinenoise_library:FILEPATH=#{vendor}/linenoise/lib/liblinenoise.a

@@ -1,6 +1,6 @@
 class Libstxxl < Formula
   desc "C++ implementation of STL for extra large data sets"
-  homepage "http://stxxl.sourceforge.net/"
+  homepage "https://stxxl.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/stxxl/stxxl/1.4.1/stxxl-1.4.1.tar.gz"
   sha256 "92789d60cd6eca5c37536235eefae06ad3714781ab5e7eec7794b1c10ace67ac"
 

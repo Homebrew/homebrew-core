@@ -1,6 +1,6 @@
 class Opensyobon < Formula
   desc "Parody of Super Mario Bros"
-  homepage "http://opensyobon.sourceforge.net/"
+  homepage "https://opensyobon.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/opensyobon/src/SyobonAction_rc2_src.tar.gz"
   version "1.0rc2"
   sha256 "a61a621de7e4603be047e8666c0376892200f2876c244fb2adc9e4afebc79728"

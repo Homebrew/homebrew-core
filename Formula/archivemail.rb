@@ -1,6 +1,6 @@
 class Archivemail < Formula
   desc "Tool for archiving and compressing old email in mailboxes"
-  homepage "http://archivemail.sourceforge.net/"
+  homepage "https://archivemail.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/archivemail/archivemail-0.9.0.tar.gz"
   sha256 "4b430e2fba6f24970a67bd61eef39d7eae8209c7bef001196b997be1916fc663"
 

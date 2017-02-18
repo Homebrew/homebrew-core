@@ -1,6 +1,6 @@
 class FuseEmulator < Formula
   desc "Free Unix Spectrum Emulator"
-  homepage "http://fuse-emulator.sourceforge.net/"
+  homepage "https://fuse-emulator.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/fuse-emulator/fuse/1.3.2/fuse-1.3.2.tar.gz"
   sha256 "576bf916b499a4d5932acc34d315e2acd36636d1d5a3911c839589487a6b68e6"
 

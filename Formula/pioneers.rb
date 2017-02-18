@@ -1,6 +1,6 @@
 class Pioneers < Formula
   desc "Settlers of Catan clone"
-  homepage "http://pio.sourceforge.net/"
+  homepage "https://pio.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/pio/Source/pioneers-15.3.tar.gz"
   sha256 "69afa51b71646565536b571b0f89786d3a7616965265f196fd51656b51381a89"
 

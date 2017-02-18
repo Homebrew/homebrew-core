@@ -14,6 +14,12 @@ class A2ps < Formula
     sha256 "d10db3452567e6d4a6be65f15728c40b4a62bcc374e04ff7f5d3608c294c74f4" => :mavericks
   end
 
+  pour_bottle? do
+    reason "The bottle needs to be installed into /usr/local."
+    # https://github.com/Homebrew/brew/issues/2005
+    satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
+  end
+
   # Software was last updated in 2007.
   # https://svn.macports.org/ticket/20867
   # https://trac.macports.org/ticket/18255

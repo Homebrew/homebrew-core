@@ -1,6 +1,6 @@
 class Cpptest < Formula
   desc "Unit testing framework handling automated tests in C++"
-  homepage "http://cpptest.sourceforge.net/"
+  homepage "https://cpptest.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/cpptest/cpptest/cpptest-1.1.2/cpptest-1.1.2.tar.gz"
   sha256 "9e4fdf156b709397308536eb6b921e3aea1f463c6613f9a0c1dfec9614386027"
 

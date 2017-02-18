@@ -3,7 +3,7 @@ class Python3 < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tar.xz"
   sha256 "b0c5f904f685e32d9232f7bdcbece9819a892929063b6e385414ad2dd6a23622"
-  head "https://hg.python.org/cpython", :using => :hg
+  head "https://github.com/python/cpython", :using => :git
 
   bottle do
     sha256 "b9b1de457689c84376fb8c35c67b0de4745ccb573ddc5f8ce0257b3b73358917" => :sierra

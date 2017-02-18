@@ -4,7 +4,7 @@
 # Can `brew install homebrew/versions/giflib5` for now.
 class Giflib < Formula
   desc "GIF library using patented LZW algorithm"
-  homepage "http://giflib.sourceforge.net/"
+  homepage "https://giflib.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/giflib/giflib-4.x/giflib-4.2.3.tar.bz2"
   sha256 "0ac8d56726f77c8bc9648c93bbb4d6185d32b15ba7bdb702415990f96f3cb766"
 
