@@ -8,4 +8,10 @@ class Maclock < Formula
     system ENV.cc, "-framework", "Foundation", "maclock.m", "-o", "maclock"
     bin.install "maclock"
   end
+  test do
+    # A dummy test definition
+    # As the program is quite trivial, not a lot to test here, unless
+    # we want to lock your screen. :-)
+    system "true"
+  end
 end
