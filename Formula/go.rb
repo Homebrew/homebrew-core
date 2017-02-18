@@ -8,10 +8,10 @@ class Go < Formula
     version "1.8"
     sha256 "406865f587b44be7092f206d73fc1de252600b79b3cacc587b74b5ef5c623596"
 
-    # revision should be tip of tree commit in release-branch.goX.Y
+    go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
-          :revision => "5682db0e919ed9cfc6f52ac32e170511a106eb3b"
+          :branch => "release-branch.go#{go_version}"
     end
   end
 
