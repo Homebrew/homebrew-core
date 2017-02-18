@@ -28,4 +28,4 @@ Try `brew edit $FORMULA` and see how you fare.
 `brew help`, `man brew`, [Homebrew/brew's README](https://github.com/Homebrew/brew#homebrew) or check [Homebrew's documentation](https://github.com/Homebrew/brew/tree/master/docs#readme).
 
 ## License
-Code is under the [BSD 2 Clause (NetBSD) license](https://github.com/Homebrew/homebrew-core/blob/master/LICENSE.txt).
+Code is under the [BSD 2-clause "Simplified" License](https://github.com/Homebrew/homebrew-core/blob/master/LICENSE.txt).
