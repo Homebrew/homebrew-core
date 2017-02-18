@@ -48,6 +48,9 @@ class Raine < Formula
                         --disable-shared]).dup
   end
 
+  depends_on "nasm" => :build
+  depends_on "pkg-config" => :build
+
   resource "gettext" do
     url "https://ftpmirror.gnu.org/gettext/gettext-0.19.8.1.tar.xz"
     mirror "https://ftp.gnu.org/gnu/gettext/gettext-0.19.8.1.tar.xz"
@@ -108,9 +111,6 @@ class Raine < Formula
     sha256 "0666ef55da72c3e356ca85b6a0084d56b05dd740c3c21d26d372085aa2c6e708"
   end
 
-  depends_on "nasm" => :build
-  depends_on "pkg-config" => :build
-
   def install
     ENV.m32
 
@@ -157,7 +157,7 @@ class Raine < Formula
     frameworks = %w[ApplicationServices AppKit AudioToolbox AudioUnit Carbon
                     CoreFoundation CoreGraphics CoreServices Foundation IOKit]
 
-    system "make", "LD=#{ENV.cxx} #{ENV.ldflags} #{frameworks.map {|f| "-framework #{f}"}.join(" ")}"
+    system "make", "LD=#{ENV.cxx} #{ENV.ldflags} #{frameworks.map { |f| "-framework #{f}" }.join(" ")}"
     system "make", "install"
     prefix.install "Raine.app"
     bin.write_exec_script "#{prefix}/Raine.app/Contents/MacOS/raine"
