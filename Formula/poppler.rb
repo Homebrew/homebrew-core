@@ -31,7 +31,8 @@ class Poppler < Formula
   depends_on "qt5" => :optional
   depends_on "little-cms2" => :optional
 
-  conflicts_with "pdftohtml", :because => "both install `pdftohtml` binaries"
+  conflicts_with "pdftohtml", "pdf2image", "xpdf",
+    :because => "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
   resource "font-data" do
     url "https://poppler.freedesktop.org/poppler-data-0.4.7.tar.gz"
