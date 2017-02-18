@@ -143,7 +143,7 @@ class Raine < Formula
     end
 
     inreplace "makefile" do |s|
-      s.gsub! /-framework SDL_ttf/, "#{buildpath}/lib/libSDL_ttf.a #{buildpath}/lib/libfreetype.a -lbzip2"
+      s.gsub! /-framework SDL_ttf/, "#{buildpath}/lib/libSDL_ttf.a #{buildpath}/lib/libfreetype.a -lbz2"
       s.gsub! /-framework (SDL_image|SDL)/, "#{buildpath}/lib/lib\\1.a"
       s.gsub! %r{/usr/local/lib/libSDL_sound\.a}, "#{buildpath}/lib/libSDL_sound.a"
       s.gsub! %r{/usr/local/lib/libintl\.a}, "#{buildpath}/lib/libintl.a"
