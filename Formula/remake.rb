@@ -1,6 +1,6 @@
 class Remake < Formula
   desc "GNU Make with improved error handling, tracing, and a debugger"
-  homepage "https://bashdb.sourceforge.io"
+  homepage "https://bashdb.sourceforge.io/remake"
   url "https://downloads.sourceforge.net/project/bashdb/remake/4.1%2Bdbg-1.1/remake-4.1%2Bdbg1.1.tar.bz2"
   version "4.1-1.1"
   sha256 "42eb79a8418e327255341a55ccbdf358eed42c4e15ffb39052c1627de83521fe"
