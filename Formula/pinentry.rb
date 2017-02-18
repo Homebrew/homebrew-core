@@ -7,11 +7,9 @@ class Pinentry < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "d7087749e74c2cf953ba122871b90dbab708116e775c76a52c4120ba40658d9b" => :sierra
-    sha256 "def02b22eaf6952407f037a3923f44b5e1ed8a94cfd208134c1799258200e877" => :el_capitan
-    sha256 "e859990def70e26bf7e3b26732b7b73154ae209659161671713702e294cd0b06" => :yosemite
-    sha256 "00152cec104d9c9e515ba5c0b29aa942161fac38225317d66514b822e2e5617f" => :mavericks
+    sha256 "6ce2fe92d8e0cf8984ec00c1332bceb33579eee5ce005355e26c567a15a2d4d0" => :sierra
+    sha256 "dd3bc57a5eeaedc8ef075eedfbd2a7ce62983318b4f191c728e250720f785556" => :el_capitan
+    sha256 "edd1bc6682280c4d2d5bdaf63e4592e3921c63cd4c87af075ca937327ae7ff48" => :yosemite
   end
 
   depends_on "pkg-config" => :build
