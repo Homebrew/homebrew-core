@@ -1,6 +1,6 @@
 class Ftimes < Formula
   desc "System baselining and evidence collection tool"
-  homepage "https://ftimes.sourceforge.io"
+  homepage "https://ftimes.sourceforge.io/FTimes/index.shtml"
   url "https://downloads.sourceforge.net/project/ftimes/ftimes/3.11.0/ftimes-3.11.0.tgz"
   sha256 "70178e80c4ea7a8ce65404dd85a4bf5958a78f6a60c48f1fd06f78741c200f64"
   revision 1
