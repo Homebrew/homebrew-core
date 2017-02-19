@@ -1,8 +1,8 @@
 class MysqlCluster < Formula
   desc "Shared-nothing clustering and auto-sharding for MySQL"
   homepage "https://www.mysql.com/products/cluster/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.4/mysql-cluster-gpl-7.4.9.tar.gz"
-  sha256 "c577817a9c378f0e968b7d851c03e37a0101a4713c9f1ad762ac739f17d359bc"
+  url "https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.5/mysql-cluster-gpl-7.5.5.tar.gz"
+  sha256 "2a93deda2a1451a24ec8f8e62aa4e2d547e006a757c19481627efd2372752546"
 
   bottle do
     sha256 "c68a39b06aa8d0ffaaa0a59888f63d6cc7840ea084d6f4b904734ad749aee371" => :sierra
@@ -11,7 +11,6 @@ class MysqlCluster < Formula
     sha256 "d44cd4807b7dcdb32c58bab30e258310baa2f2fc1f510254f1fdccc150f75bb9" => :mavericks
   end
 
-  option :universal
   option "with-test", "Build with unit tests"
   option "with-embedded", "Build the embedded server"
   option "with-libedit", "Compile with editline wrapper instead of readline"
@@ -38,9 +37,19 @@ class MysqlCluster < Formula
     cause "https://article.gmane.org/gmane.comp.db.mysql.cluster/2085"
   end
 
+  resource "boost" do
+    url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
+    sha256 "727a932322d94287b62abb1bd2d41723eec4356a7728909e38adb65ca25241ca"
+  end
+
   def install
     # Make sure the var/mysql-cluster directory exists
     (var/"mysql-cluster").mkpath
+
+    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "configure.cmake", "(clock_gettime", "(everything_is_terrible"
+    end
 
     args = [".",
             "-DCMAKE_INSTALL_PREFIX=#{prefix}",
@@ -54,6 +63,12 @@ class MysqlCluster < Formula
             "-DDEFAULT_CHARSET=utf8",
             "-DDEFAULT_COLLATION=utf8_general_ci",
             "-DSYSCONFDIR=#{etc}"]
+
+    # mysql-cluster >5.7.x mandates Boost as a requirement to build & has a
+    # strict version check in place to ensure it only builds against expected
+    # release.
+    (buildpath/"boost_1_59_0").install resource("boost")
+    args << "-DWITH_BOOST=#{buildpath}/boost_1_59_0"
 
     # To enable unit testing at build, we need to download the unit testing suite
     if build.with? "test"
@@ -74,12 +89,6 @@ class MysqlCluster < Formula
     # Compile with BLACKHOLE engine enabled if chosen
     args << "-DWITH_BLACKHOLE_STORAGE_ENGINE=1" if build.with? "blackhole-storage-engine"
 
-    # Make universal for binding to universal applications
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
 
@@ -90,23 +99,15 @@ class MysqlCluster < Formula
     system "make"
     system "make", "install"
 
-    # Create default directories and configuration files
-    (var/"mysql-cluster/ndb_data").mkpath
-    (var/"mysql-cluster/mysqld_data").mkpath
-    (var/"mysql-cluster/conf").mkpath
-    (var/"mysql-cluster/conf/my.cnf").write my_cnf unless File.exist? var/"mysql-cluster/conf/my.cnf"
-    (var/"mysql-cluster/conf/config.ini").write config_ini unless File.exist? var/"mysql-cluster/conf/config.ini"
-
-    plist_path("ndb_mgmd").write ndb_mgmd_startup_plist("ndb_mgmd")
-    plist_path("ndb_mgmd").chmod 0644
-    plist_path("ndbd").write ndbd_startup_plist("ndbd")
-    plist_path("ndbd").chmod 0644
-    plist_path("mysqld").write mysqld_startup_plist("mysqld")
-    plist_path("mysqld").chmod 0644
+    # We don't want to keep a 240MB+ folder around most users won't need.
+    (prefix/"mysql-test").cd do
+      system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
+    end
+    rm_rf prefix/"mysql-test"
 
     # Don't create databases inside of the prefix!
     # See: https://github.com/Homebrew/homebrew/issues/4975
-    rm_rf prefix+"data"
+    rm_rf prefix/"data"
 
     # Link the setup script into bin
     bin.install_symlink prefix/"scripts/mysql_install_db"
@@ -118,10 +119,22 @@ class MysqlCluster < Formula
     end
     bin.install_symlink prefix/"support-files/mysql.server"
 
-    # Move mysqlaccess to libexec
-    libexec.mkpath
-    libexec.install "#{bin}/mysqlaccess", "#{bin}/mysqlaccess.conf",
-                    "#{bin}/mcc_config.py"
+    libexec.install "#{bin}/mcc_config.py"
+
+    plist_path("ndb_mgmd").write ndb_mgmd_startup_plist("ndb_mgmd")
+    plist_path("ndb_mgmd").chmod 0644
+    plist_path("ndbd").write ndbd_startup_plist("ndbd")
+    plist_path("ndbd").chmod 0644
+    plist_path("mysqld").write mysqld_startup_plist("mysqld")
+    plist_path("mysqld").chmod 0644
+  end
+
+  def post_install
+    (var/"mysql-cluster/ndb_data").mkpath
+    (var/"mysql-cluster/mysqld_data").mkpath
+    (var/"mysql-cluster/conf").mkpath
+    (var/"mysql-cluster/conf/my.cnf").write my_cnf unless File.exist? var/"mysql-cluster/conf/my.cnf"
+    (var/"mysql-cluster/conf/config.ini").write config_ini unless File.exist? var/"mysql-cluster/conf/config.ini"
   end
 
   def caveats; <<-EOS.undent
@@ -163,7 +176,7 @@ class MysqlCluster < Formula
     [mysqld]
     ndbcluster
     datadir=#{var}/mysql-cluster/mysqld_data
-    basedir=#{prefix}
+    basedir=#{opt_prefix}
     port=5000
     EOCNF
   end
@@ -200,6 +213,8 @@ class MysqlCluster < Formula
   def plist_path(extra = nil)
     extra ? super().dirname+(plist_name(extra)+".plist") : super()
   end
+
+  plist_options :manual => "mysql.server start"
 
   def mysqld_startup_plist(name); <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -281,9 +296,23 @@ class MysqlCluster < Formula
   end
 
   test do
-    system "/bin/sh", "-n", "#{bin}/mysqld_safe"
-    (prefix/"mysql-test").cd do
-      system "./mysql-test-run.pl", "status", "--vardir=#{testpath}"
+    begin
+      # Expects datadir to be a completely clean dir, which testpath isn't.
+      dir = Dir.mktmpdir
+      system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
+      "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
+
+      pid = fork do
+        exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
+      end
+      sleep 2
+
+      output = shell_output("curl 127.0.0.1:3306")
+      output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
+      assert_match version.to_s, output
+    ensure
+      Process.kill(9, pid)
+      Process.wait(pid)
     end
   end
 end
