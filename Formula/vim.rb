@@ -1,8 +1,8 @@
 class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
-  url "https://github.com/vim/vim/archive/v8.0.0337.tar.gz"
-  sha256 "a0eab15ac801a1fda1b65c93e6603f20f447762f5be65893fcb464a84b8c5a72"
+  url "https://github.com/vim/vim/archive/v8.0.0341.tar.gz"
+  sha256 "c91548d7bc01c00866acfdacab6b5cd1b8532b0ab1e90b4dbaa32885d33e0dea"
   head "https://github.com/vim/vim.git"
 
   bottle do
@@ -18,7 +18,7 @@ class Vim < Formula
   option "without-nls", "Build vim without National Language Support (translated messages, keymaps)"
   option "with-client-server", "Enable client/server mode"
 
-  LANGUAGES_OPTIONAL = %w[lua mzscheme python3 tcl].freeze
+  LANGUAGES_OPTIONAL = %w[lua python3 tcl].freeze
   LANGUAGES_DEFAULT  = %w[perl python ruby].freeze
 
   if MacOS.version >= :mavericks
