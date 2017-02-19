@@ -71,6 +71,7 @@
   "elementary": "homebrew/boneyard",
   "embryo": "homebrew/boneyard",
   "encfs": "homebrew/fuse",
+  "esound": "homebrew/boneyard",
   "evas": "homebrew/boneyard",
   "evas-generic-loaders": "homebrew/boneyard",
   "ext2fuse": "homebrew/fuse",
