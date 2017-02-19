@@ -9,6 +9,6 @@ class GitQuickStats < Formula
   end
 
   test do
-    assert_match /^Invalid argument/, shell_output("#{bin}/git-quick-stats test").strip
+    assert_match /^fatal: Not a git repository/, shell_output("#{bin}/git-quick-stats").strip
   end
 end
