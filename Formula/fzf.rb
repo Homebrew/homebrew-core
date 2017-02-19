@@ -3,8 +3,8 @@ require "language/go"
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/0.16.4.tar.gz"
-  sha256 "294034747b0739d716d88670e830a97080fb73b8d6172b2ae695074316903e8a"
+  url "https://github.com/junegunn/fzf/archive/0.16.5.tar.gz"
+  sha256 "7add1b5290af779fc1c6a3e306d696fb0e833d4efb5b60d94f9c424ac1b6f9fe"
   head "https://github.com/junegunn/fzf.git"
 
   bottle do
@@ -33,7 +33,7 @@ class Fzf < Formula
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "abc5fa7ad02123a41f02bf1391c9760f7586e608"
+        :revision => "453249f01cfeb54c3d549ddb75ff152ca243f9d8"
   end
 
   def install
