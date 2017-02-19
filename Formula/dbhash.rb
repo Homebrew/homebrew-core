@@ -13,6 +13,7 @@ class Dbhash < Formula
   end
 
   def install
+    ENV.append "CPPFLAGS", "-DSQLITE_DISABLE_INTRINSIC" if MacOS.version <= :yosemite && ENV.compiler == :clang
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "dbhash"
     bin.install "dbhash"
