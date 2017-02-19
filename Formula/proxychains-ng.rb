@@ -20,6 +20,7 @@ class ProxychainsNg < Formula
     if build.universal?
       ENV.universal_binary
       args << "--fat-binary"
+      args << "-arch i386"
     end
     system "./configure", *args
     system "make"
