@@ -4,6 +4,7 @@
   "afuse": "homebrew/fuse",
   "aget": "homebrew/boneyard",
   "aimage": "homebrew/boneyard",
+  "apg": "homebrew/boneyard",
   "aplus": "homebrew/boneyard",
   "apple-gcc42": "homebrew/dupes",
   "appswitch": "homebrew/binary",
