@@ -1,9 +1,8 @@
 class Curlpp < Formula
   desc "C++ wrapper for libcURL"
   homepage "http://www.curlpp.org"
-  url "https://github.com/jpbarrette/curlpp/releases/download/v0.7.4/curlpp-0.7.4.tar.gz"
-  sha256 "7e33934f4ce761ba293576c05247af4b79a7c8895c9829dc8792c5d75894e389"
-  revision 1
+  url "https://github.com/jpbarrette/curlpp/archive/v0.8.0.tar.gz"
+  sha256 "721271db0279fffeea94241650b6ceac3fdb767c0dcdf4f262859ab096066030"
 
   bottle do
     cellar :any
@@ -12,19 +11,14 @@ class Curlpp < Formula
     sha256 "9443ec4d10508f72a8b2fcc609c8e0c913ff145d0ae706fafd753e5ca76d2b2b" => :yosemite
   end
 
-  depends_on "boost" => :build
+  depends_on "cmake" => :build
+
+  needs :cxx11
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    ENV.cxx11
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
-
-    # https://github.com/jpbarrette/curlpp/issues/34
-    # Workaround for #9315, replace CRLF with LF
-    # This should be removed in the next release
-    system "sed", "-i.bak", "-e", "s/\r//g", "#{bin}/curlpp-config"
-    rm "#{bin}/curlpp-config.bak"
   end
 
   test do
@@ -51,7 +45,8 @@ class Curlpp < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-lcurl", "-lcurlpp", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}",
+                    "-L#{lib}", "-lcurlpp", "-lcurl"
     system "./test"
   end
 end
