@@ -1,8 +1,8 @@
 class Yank < Formula
   desc "Copy terminal output to clipboard"
   homepage "https://github.com/mptre/yank"
-  url "https://github.com/mptre/yank/archive/v0.8.1.tar.gz"
-  sha256 "94fff79aa635ae497f52128e688c25c19596035f1358c660fc6826ee8a6ffa41"
+  url "https://github.com/mptre/yank/archive/v0.8.2.tar.gz"
+  sha256 "27678a82c5e5415902bc6c4186adadf860c1730822c3ef08b21132ca46331ce5"
 
   bottle do
     cellar :any_skip_relocation
