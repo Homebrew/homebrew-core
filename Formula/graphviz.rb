@@ -19,7 +19,6 @@ class Graphviz < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
   option "with-bindings", "Build Perl/Python/Ruby/etc. bindings"
   option "with-pango", "Build with Pango/Cairo for alternate PDF output"
   option "with-app", "Build GraphViz.app (requires full XCode install)"
@@ -58,11 +57,12 @@ class Graphviz < Formula
 
     if build.with? "bindings"
       # the ruby pkg-config file is version specific
-      inreplace "configure", "ruby-1.9",
-                             "ruby-#{Formula["ruby"].stable.version.to_f}"
+      inreplace "configure" do |s|
+        s.gsub! "ruby-1.9", "ruby-#{Formula["ruby"].stable.version.to_f}"
+        s.gsub! "if test  -php0 2>&1"
+      end
     end
 
-    ENV.universal_binary if build.universal?
     args = %W[
       --disable-debug
       --disable-dependency-tracking
