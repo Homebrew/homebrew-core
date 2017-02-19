@@ -5,6 +5,13 @@ class Lolcat < Formula
       :tag => "v42.24.0",
       :revision => "dfc68649f6bdac255d5be052d2123f3fbe3f555c"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "418b84a736d082079aeca4af6d2446c185e6062c2c1c15647ddd4357e9ea73fa" => :sierra
+    sha256 "0bf6b7d10ce44f854e3f81c1392d75ba0e4346a92807fb66b97223b8ccd6ad6d" => :el_capitan
+    sha256 "9878b6167975b0ad58868d55f1b36465f9a88910dcf22c119950f3d7203a0d83" => :yosemite
+  end
+
   def install
     ENV["GEM_HOME"] = libexec
     system "gem", "build", "lolcat.gemspec"
