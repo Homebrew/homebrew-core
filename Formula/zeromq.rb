@@ -1,8 +1,8 @@
 class Zeromq < Formula
   desc "High-performance, asynchronous messaging library"
   homepage "http://www.zeromq.org/"
-  url "https://github.com/zeromq/libzmq/releases/download/v4.2.1/zeromq-4.2.1.tar.gz"
-  sha256 "27d1e82a099228ee85a7ddb2260f40830212402c605a4a10b5e5498a7e0e9d03"
+  url "https://github.com/zeromq/libzmq/releases/download/v4.2.2/zeromq-4.2.2.tar.gz"
+  sha256 "5b23f4ca9ef545d5bd3af55d305765e3ee06b986263b31967435d285a3e6df6b"
 
   bottle do
     cellar :any
@@ -19,7 +19,6 @@ class Zeromq < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
   option "with-libpgm", "Build with PGM extension"
   option "with-norm", "Build with NORM extension"
   option "with-drafts", "Build and install draft classes and methods"
@@ -34,7 +33,6 @@ class Zeromq < Formula
   depends_on "norm" => :optional
 
   def install
-    ENV.universal_binary if build.universal?
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
