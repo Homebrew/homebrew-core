@@ -13,6 +13,7 @@ class SqliteAnalyzer < Formula
   end
 
   def install
+    ENV.append "CPPFLAGS", "-DSQLITE_DISABLE_INTRINSIC" if MacOS.version <= :yosemite && ENV.compiler == :clang
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "sqlite3_analyzer"
     bin.install "sqlite3_analyzer"
