@@ -7,9 +7,9 @@ class Sqldiff < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "52887455e4430fb5aba448495c5bb723ab634a3bc8a38ea41e21f132b63f0cfa" => :sierra
-    sha256 "22fad066939d9d482e8209a354ac7f0464cbd6557c5fb081e39601872944053d" => :el_capitan
-    sha256 "ad658e6db8b2e4e87a13244f4758ed1aa47e8151197e71b9207cd143fc0eaf20" => :yosemite
+    sha256 "173d9e1e7b6a4250a217fe289006ab3cea34293b9decf72921e26ccc2b6f707c" => :sierra
+    sha256 "cac6792d8703736db85d08ec8b388d1854714389282ee8f2d31b4470cf0404f1" => :el_capitan
+    sha256 "d852a912a7611d03f964d3d35477a51fd76181f8ad10839f6e32844ac2e0a1e2" => :yosemite
   end
 
   def install
