@@ -12,6 +12,16 @@ class Chezscheme < Formula
   depends_on :x11 => :build
 
   def install
+    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "c/stats.c" do |s|
+        s.gsub! "CLOCK_MONOTONIC", "UNDEFINED_GIBBERISH"
+        s.gsub! "CLOCK_PROCESS_CPUTIME_ID", "UNDEFINED_GIBBERISH"
+        s.gsub! "CLOCK_REALTIME", "UNDEFINED_GIBBERISH"
+        s.gsub! "CLOCK_THREAD_CPUTIME_ID", "UNDEFINED_GIBBERISH"
+      end
+    end
+
     system "./configure",
               "--installprefix=#{prefix}",
               "--threads",
