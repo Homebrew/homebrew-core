@@ -1,9 +1,8 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-1.4.10.tar.gz"
-  sha256 "437648d68a4a781dd8d913814cd5451f59ab4a5fcf84cccaf7c36e6a07459770"
-  revision 2
+  url "https://mosquitto.org/files/source/mosquitto-1.4.11.tar.gz"
+  sha256 "ca47533bbc1b7c5e15d6e5d96d3efc59677f2515b6692263c34b7c48f33280c5"
 
   bottle do
     sha256 "d8cca498ddd9b860b036a6f9fb39bc4d0f6ee2c710686a36f64ebdb4c051b3fd" => :sierra
