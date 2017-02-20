@@ -5,8 +5,10 @@ class Chezscheme < Formula
   sha256 "9f4e6fe737300878c3c9ca6ed09ed97fc2edbf40e4cf37bd61f48a27f5adf952"
 
   bottle do
-    sha256 "b781813aa808743355d6f5287ea614d648c2394023f61179c2747fe9e367347b" => :sierra
-    sha256 "0ba364536190033f5758ef73f673f42054b636c843430ee7a7cdccba312fbc79" => :yosemite
+    rebuild 1
+    sha256 "96ced10b5fdddf2c8489cf9eaf1f20a85ebee73561340c34fcdf8ede5c859ec9" => :sierra
+    sha256 "0bd0cb29369b4b029351095fad544573241c791d700424cc937f33cabd034d32" => :el_capitan
+    sha256 "3a4f0f3c1a15208a03e6518b6a3e483f9340801a8121fcb637c458992d422d9b" => :yosemite
   end
 
   depends_on :x11 => :build
