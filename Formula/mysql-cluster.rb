@@ -46,6 +46,11 @@ class MysqlCluster < Formula
     # Make sure the var/mysql-cluster directory exists
     (var/"mysql-cluster").mkpath
 
+    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "configure.cmake", "(clock_gettime", "(everything_is_terrible"
+    end
+
     args = [".",
             "-DCMAKE_INSTALL_PREFIX=#{prefix}",
             "-DMYSQL_DATADIR=#{var}/mysql-cluster",
