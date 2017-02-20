@@ -16,18 +16,7 @@ class DhallJson < Formula
     install_cabal_package
   end
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "96f0cdf2a401e36526556d35588d71d763ed7e57ca0f7d7615dfcae3aefe3627" => :sierra
-  end
-
   test do
-    (testpath/"testing.sh").write <<-EOS.undent
-    #!/usr/bin/env bash
-      echo 1 | dhall-to-json
-    EOS
-
-    chmod 0755, testpath/"testing.sh"
-    assert_match "1", shell_output("./testing.sh")
+    assert_match "1", pipe_output("dhall-to-json", "1", 0)
   end
 end
