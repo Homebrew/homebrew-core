@@ -4,6 +4,12 @@ class MariadbAT100 < Formula
   url "https://fossies.org/linux/misc/mariadb-10.0.28.tar.gz"
   sha256 "0a5033d56f1c5403df7fabd519ccbdc4da308b30a1ecd52e06a19be182a9bab2"
 
+  bottle do
+    sha256 "189278d5398739ae3b72785dd4af62916cb0dc0f7f2b0a620909b890d3347428" => :sierra
+    sha256 "f1d9c4cb817daea42e3aa06871b8cc4786b52f247d3fb9fdb92ae68b087b09b6" => :el_capitan
+    sha256 "7ffe1cf6e8745a362a251351a2a240f146ba8ae9fb80fac00b54d918182a6886" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-test", "Keep test when installing"
