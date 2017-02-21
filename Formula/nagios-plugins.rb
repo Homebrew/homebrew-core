@@ -14,6 +14,8 @@ class NagiosPlugins < Formula
   depends_on "postgresql" => :optional
   depends_on :mysql => :optional
 
+  conflicts_with "monitoring-plugins", :because => "monitoring-plugins ships their plugins to the same folder."
+
   def install
     args = %W[
       --disable-dependency-tracking
