@@ -1,9 +1,8 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.9.4/QScintilla_gpl-2.9.4.tar.gz"
-  sha256 "8b3a23023e9f0573caed6f9cee86f898d87b768ee15b8c211a423783a4cfa4e6"
-  revision 1
+  url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10/QScintilla_gpl-2.10.tar.gz"
+  sha256 "16be30577bc178470936c458551f2512cc068aff6e7a7de6ed244e28c045f6ec"
 
   bottle do
     sha256 "f741f29edab4493e2f3c716b2804252bc4d5b1258384ea5a81ed90c63f455824" => :sierra
@@ -15,7 +14,7 @@ class Qscintilla2 < Formula
   option "with-python", "Build Python bindings"
   option "without-python3", "Do not build Python3 bindings"
 
-  depends_on "qt@5.7"
+  depends_on "qt5"
   depends_on :python3 => :recommended
   depends_on :python => :optional
 
@@ -28,17 +27,6 @@ class Qscintilla2 < Formula
   elsif build.with?("python3")
     depends_on "sip" => "with-python3"
     depends_on "pyqt5"
-  end
-
-  # Fix build with Xcode 8 "error: implicit instantiation of undefined template"
-  # Originally reported 7 Oct 2016 https://www.riverbankcomputing.com/pipermail/qscintilla/2016-October/001160.html
-  # Patch below posted 13 Oct 2016 https://www.riverbankcomputing.com/pipermail/qscintilla/2016-October/001167.html
-  # Same as Alan Garny's OpenCOR commit https://github.com/opencor/opencor/commit/70f3944e36b8b95b3ad92106aeae2f511b3f0e90
-  if DevelopmentTools.clang_build_version >= 800
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a651d71/qscintilla2/xcode-8.patch"
-      sha256 "1a88309fdfd421f4458550b710a562c622d72d6e6fdd697107e4a43161d69bc9"
-    end
   end
 
   def install
