@@ -41,7 +41,7 @@ class Ctorrent < Formula
       "#{test_url.length}:#{test_url}" \
       "10:created by" \
       "#{agent_string.length}:#{agent_string}" \
-      "13:creation date"
+      "13:creation date",
     ) + "i\\d+e"
     actual = File.open(testpath/"test.meta", "rb").read
     assert_match(/^#{expected}/, actual)
