@@ -12,7 +12,7 @@ class KontenaCli < Formula
   def install
     # avoid the outdated system ruby for now
     ruby_command = which_all("ruby").detect { |path| path.to_s != "/usr/bin/ruby" }
-    gem_command = File.join(ruby_command.dirname, 'gem')
+    gem_command = File.join(ruby_command.dirname, "gem")
 
     # Make --version indicate it is a HEAD build
     if build.head?
