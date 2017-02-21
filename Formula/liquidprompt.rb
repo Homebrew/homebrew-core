@@ -17,13 +17,6 @@ class Liquidprompt < Formula
       if [ -f #{HOMEBREW_PREFIX}/share/liquidprompt ]; then
         . #{HOMEBREW_PREFIX}/share/liquidprompt
       fi
-
-    If you'd like to reconfigure options, you may do so in ~/.liquidpromptrc.
-    A sample file you may copy and modify has been installed to
-      #{HOMEBREW_PREFIX}/share/liquidpromptrc-dist
-
-    Don't modify the PROMPT_COMMAND variable elsewhere in your shell config;
-    that will break things.
     EOS
   end
 

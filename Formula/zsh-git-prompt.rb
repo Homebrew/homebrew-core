@@ -11,11 +11,8 @@ class ZshGitPrompt < Formula
   end
 
   def caveats; <<-EOS.undent
-    First, make sure zsh-git-prompt is loaded from your .zshrc:
+    Make sure zsh-git-prompt is loaded from your .zshrc:
       source "#{opt_prefix}/zshrc.sh"
-
-    Then include $(git_super_status) in your PROMPT or RPROMPT, e.g.:
-      PROMPT='%B%m%~%b$(git_super_status) %# '
     EOS
   end
 

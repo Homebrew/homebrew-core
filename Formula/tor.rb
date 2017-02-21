@@ -39,15 +39,6 @@ class Tor < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
-    You will find a sample `torrc` file in #{etc}/tor.
-    It is advisable to edit the sample `torrc` to suit
-    your own security needs:
-      https://www.torproject.org/docs/faq#torrc
-    After editing the `torrc` you need to restart tor.
-    EOS
-  end
-
   plist_options :manual => "tor"
 
   def plist; <<-EOS.undent
