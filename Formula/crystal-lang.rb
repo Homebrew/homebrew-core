@@ -3,7 +3,6 @@ class CrystalLang < Formula
   homepage "https://crystal-lang.org/"
   url "https://github.com/crystal-lang/crystal/archive/0.21.0.tar.gz"
   sha256 "4dd01703f5304a0eda7f02fc362fba27ba069666097c0f921f8a3ee58808779c"
-  revision 2
   head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
