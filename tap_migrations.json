@@ -157,6 +157,7 @@
   "libtorrent": "homebrew/boneyard",
   "lilypond": "homebrew/tex",
   "magit": "homebrew/emacs",
+  "malaga": "homebrew/boneyard",
   "meld": "caskroom/cask",
   "memo": "homebrew/boneyard",
   "metalua": "homebrew/boneyard",
