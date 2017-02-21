@@ -33,14 +33,6 @@ class Awscli < Formula
   def caveats; <<-EOS.undent
     The "examples" directory has been installed to:
       #{HOMEBREW_PREFIX}/share/awscli/examples
-
-    Before using aws-cli, you need to tell it about your AWS credentials.
-    The quickest way to do this is to run:
-      aws configure
-
-    More information:
-      https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
-      https://pypi.python.org/pypi/awscli#getting-started
     EOS
   end
 
