@@ -74,6 +74,7 @@
   "ppl011": "ppl@0.11",
   "polarssl": "mbedtls",
   "protobuf250": "protobuf@2.5",
+  "protobuf260": "protobuf@2.6",
   "qt55": "qt@5.5",
   "racket": "minimal-racket",
   "scala210": "scala@2.10",
