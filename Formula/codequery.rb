@@ -3,7 +3,7 @@ class Codequery < Formula
   homepage "https://github.com/ruben2020/codequery"
   url "https://github.com/ruben2020/codequery/archive/v0.18.1.tar.gz"
   sha256 "482fa737691c260e16adcc32bc3fd43ba50a309495faec6b2f3098b517e6c0e9"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -13,13 +13,13 @@ class Codequery < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "qt@5.7"
+  depends_on "qt5"
   depends_on "qscintilla2"
 
   def install
     args = std_cmake_args
     args << "-DBUILD_QT5=ON"
-    args << "-DQT5QSCINTILLA_LIBRARY=#{Formula["qscintilla2"].opt_lib}/libqscintilla2.dylib"
+    args << "-DQT5QSCINTILLA_LIBRARY=#{Formula["qscintilla2"].opt_lib}/libqscintilla2_qt5.dylib"
 
     share.install "test"
     mkdir "build" do
