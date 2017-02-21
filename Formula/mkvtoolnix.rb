@@ -5,9 +5,9 @@ class Mkvtoolnix < Formula
   sha256 "f06c9359bd197b5de6556a05506f0ea9ddab72045b72f1ed04b1807e4e042043"
 
   bottle do
-    sha256 "0b4cfaf7c807502a0edb45c3b828dff19947e9bd50f086eed3f90295f277b9fc" => :sierra
-    sha256 "7016a9a6e75fc4e91404f177a2504d9437acf292993a68cb702f22ce3e8a4587" => :el_capitan
-    sha256 "b93feeaf8df6b4d780993509511d9edebb40b7113332811bb9f4cc0cbc800f05" => :yosemite
+    sha256 "2386041ca9e74fe1053ede78b5e27f60ec65459cfbf67ac7d2189ebc03c40e5b" => :sierra
+    sha256 "6675626e099b80503f107e0722443e3f66f450a381012df9d6fb0fd942b78216" => :el_capitan
+    sha256 "e4a61af713edeb50721d7203e4454c1bb5eb9b2dc5190e5d0c8f986b978fd5b4" => :yosemite
   end
 
   head do
