@@ -82,7 +82,7 @@ class KontenaCli < Formula
   end
 
   def caveats
-    unless Dir['/usr/local/{opt,var}/rbenv/shims/kontena'].empty?
+    unless Dir["/usr/local/{opt,var}/rbenv/shims/kontena"].empty?
       <<-EOS.undent
         You seem to use rbenv and have a previously installed kontena-cli that
         may get loaded instead of the homebrew installed version.
