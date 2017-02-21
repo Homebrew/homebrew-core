@@ -1,8 +1,8 @@
 class Poco < Formula
   desc "C++ class libraries for building network and internet-based applications"
   homepage "https://pocoproject.org/"
-  url "https://pocoproject.org/releases/poco-1.7.7/poco-1.7.7-all.tar.gz"
-  sha256 "94672bf834ada03ea83a5f2a7cc3fa07d73d04704997bac1f954cf6c4730fddc"
+  url "https://pocoproject.org/releases/poco-1.7.8/poco-1.7.8-all.tar.gz"
+  sha256 "0b620887bb24721c72487a17523fb09d81b459eef73ae815bd6e7d308d466dd0"
   head "https://github.com/pocoproject/poco.git", :branch => "develop"
 
   bottle do
