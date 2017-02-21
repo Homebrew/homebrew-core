@@ -226,6 +226,7 @@
   "rofs-filtered": "homebrew/fuse",
   "rsense": "homebrew/boneyard",
   "rtorrent": "homebrew/boneyard",
+  "rtpbreak": "homebrew/boneyard",
   "rubber": "homebrew/tex",
   "s3-backer": "homebrew/fuse",
   "s3fs": "homebrew/fuse",
