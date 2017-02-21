@@ -44,8 +44,10 @@ class Openssl < Formula
 
   def install
     # OpenSSL will prefer the PERL environment variable if set over $PATH
-    # which can cause some odd edge cases & isn't intended. Unset for safety.
+    # which can cause some odd edge cases & isn't intended. Unset for safety,
+    # along with perl modules in PERL5LIB.
     ENV.delete("PERL")
+    ENV.delete("PERL5LIB")
 
     # Load zlib from an explicit path instead of relying on dyld's fallback
     # path, which is empty in a SIP context. This patch will be unnecessary
