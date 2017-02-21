@@ -5,7 +5,7 @@ class GitQuickStats < Formula
   sha256 "397fabda3e894bf058767e32114ce8496ecf23f088e6de6203cae4486e1f755b"
 
   bottle :unneeded
-  
+
   def install
     bin.install "git-quick-stats"
   end
