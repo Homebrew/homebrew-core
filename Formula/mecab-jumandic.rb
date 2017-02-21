@@ -1,8 +1,9 @@
 class MecabJumandic < Formula
   desc "See mecab"
-  homepage "https://mecab.googlecode.com/svn/trunk/mecab/doc/index.html"
-  url "https://downloads.sourceforge.net/project/mecab/mecab-jumandic/5.1-20070304/mecab-jumandic-5.1-20070304.tar.gz"
-  sha256 "042614dcc04afc68f1cfa2a32f353dc31b06f0674ebab3bfa8e67472709fe657"
+  homepage "https://taku910.github.io/mecab/"
+  url "https://www.mirrorservice.org/sites/distfiles.macports.org/mecab/mecab-jumandic-7.0-20130310.tar.gz"
+  mirror "https://mirrors.ustc.edu.cn/macports/distfiles/mecab/mecab-jumandic-7.0-20130310.tar.gz"
+  sha256 "eaf216758edee9a159bc3d02507007318686b9537943268c4565cc1f9ef07f15"
 
   bottle do
     cellar :any_skip_relocation
