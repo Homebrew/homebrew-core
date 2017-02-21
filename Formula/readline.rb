@@ -3,7 +3,7 @@ class Readline < Formula
   homepage "https://tiswww.case.edu/php/chet/readline/rltop.html"
   url "https://ftpmirror.gnu.org/readline/readline-7.0.tar.gz"
   mirror "https://ftp.gnu.org/gnu/readline/readline-7.0.tar.gz"
-  version "7.0.1"
+  version "7.0.3"
   sha256 "750d437185286f40a369e1e4f4764eda932b9459b5ec9a731628393dd3d32334"
 
   bottle do
@@ -13,10 +13,16 @@ class Readline < Formula
     sha256 "5eeccaa91566f0eb1301c0592e64414d35b1334d9c3ea77cbd916fef487ee1cb" => :yosemite
   end
 
-  patch :p0 do
-    url "https://ftpmirror.gnu.org/readline/readline-7.0-patches/readline70-001"
-    mirror "https://ftp.gnu.org/gnu/readline/readline-7.0-patches/readline70-001"
-    sha256 "9ac1b3ac2ec7b1bf0709af047f2d7d2a34ccde353684e57c6b47ebca77d7a376"
+  %w[
+    001 9ac1b3ac2ec7b1bf0709af047f2d7d2a34ccde353684e57c6b47ebca77d7a376
+    002 8747c92c35d5db32eae99af66f17b384abaca961653e185677f9c9a571ed2d58
+    003 9e43aa93378c7e9f7001d8174b1beb948deefa6799b6f581673f465b7d9d4780
+  ].each_slice(2) do |p, checksum|
+    patch :p0 do
+      url "https://ftpmirror.gnu.org/readline/readline-7.0-patches/readline70-#{p}"
+      mirror "https://ftp.gnu.org/gnu/readline/readline-7.0-patches/readline70-#{p}"
+      sha256 checksum
+    end
   end
 
   keg_only :shadowed_by_osx, <<-EOS.undent
