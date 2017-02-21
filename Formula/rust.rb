@@ -1,6 +1,7 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
+  revision 1
 
   stable do
     url "https://static.rust-lang.org/dist/rustc-1.15.1-src.tar.gz"
