@@ -10,8 +10,8 @@ class GitQuickStats < Formula
 
   test do
     system "git", "init"
-    assert File.exist?("#{bin}/git-quick-stats")
-    assert_match /All branches \(sorted by most recent commit\)/, shell_output("#{bin}/git-quick-stats branchesByDate").strip
-    assert_match /^Invalid argument/, shell_output("#{bin}/git-quick-stats command").strip
+    assert_match "All branches (sorted by most recent commit)",
+    shell_output("#{bin}/git-quick-stats branchesByDate")
+    assert_match /^Invalid argument/, shell_output("#{bin}/git-quick-stats command")
   end
 end
