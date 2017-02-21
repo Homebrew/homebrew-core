@@ -81,6 +81,23 @@ class KontenaCli < Formula
     zsh_completion.install buildpath/"cli/lib/kontena/scripts/kontena.zsh" => "kontena.zsh"
   end
 
+  def caveats
+    unless Dir['/usr/local/{opt,var}/rbenv/shims/kontena'].empty?
+      <<-EOS.undent
+        You seem to use rbenv and have a previously installed kontena-cli that
+        may get loaded instead of the homebrew installed version.
+
+        To uninstall the previous installation copy and paste this into the
+        terminal:
+
+          for ruby in $(rbenv whence kontena); do \\
+            rbenv shell $ruby; gem uninstall --force -a -x kontena-cli; \\
+          done; \\
+          rbenv rehash
+      EOS
+    end
+  end
+
   test do
     assert_match "+homebrew", shell_output("#{bin}/kontena --version")
     assert_match "login", shell_output("#{bin}/_kontena_completer kontena master")
