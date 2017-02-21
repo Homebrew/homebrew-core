@@ -1,9 +1,8 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  url "https://github.com/crystal-lang/crystal/archive/0.20.5.tar.gz"
-  sha256 "ee1e5948c6e662ccb1e62671cf2c91458775b559b23d74ab226dc2a2d23f7707"
-  revision 2
+  url "https://github.com/crystal-lang/crystal/archive/0.21.0.tar.gz"
+  sha256 "4dd01703f5304a0eda7f02fc362fba27ba069666097c0f921f8a3ee58808779c"
   head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
@@ -26,9 +25,9 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.20.4/crystal-0.20.4-1-darwin-x86_64.tar.gz"
-    version "0.20.4"
-    sha256 "3fd291a4a5c9eccdea933a9df25446c90d80660a17e89f83503fcb5b6deba03e"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.20.5/crystal-0.20.5-1-darwin-x86_64.tar.gz"
+    version "0.20.5"
+    sha256 "79462c8ff994b36cff219c356967844a17e8cb2817bb24a196a960a08b8c9e47"
   end
 
   resource "shards" do
@@ -37,7 +36,7 @@ class CrystalLang < Formula
   end
 
   resource "bdw-gc-7.6.0" do
-    url "http://www.hboehm.info/gc/gc_source/gc-7.6.0.tar.gz"
+    url "https://www.hboehm.info/gc/gc_source/gc-7.6.0.tar.gz"
     sha256 "a14a28b1129be90e55cd6f71127ffc5594e1091d5d54131528c24cd0c03b7d90"
   end
 
