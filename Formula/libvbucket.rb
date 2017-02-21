@@ -27,7 +27,7 @@ class Libvbucket < Formula
       "hashAlgorithm" => "CRC",
       "numReplicas" => 2,
       "serverList" => ["server1:11211", "server2:11210", "server3:11211"],
-      "vBucketMap" => [[0, 1, 2], [1, 2, 0], [2, 1, -1], [1, 2, 0]]
+      "vBucketMap" => [[0, 1, 2], [1, 2, 0], [2, 1, -1], [1, 2, 0]],
     )
 
     expected = <<-EOS.undent
