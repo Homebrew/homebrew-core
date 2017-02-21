@@ -1,6 +1,6 @@
 class Irods < Formula
   desc "Integrated data grid software solution"
-  homepage "https://www.irods.org"
+  homepage "https://irods.org/"
   url "https://github.com/irods/irods-legacy/archive/3.3.1.tar.gz"
   sha256 "e34e7be8646317d5be1c84e680d8f59d50a223ea25a3c9717b6bf7b57df5b9f6"
   revision 1

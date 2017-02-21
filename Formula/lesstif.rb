@@ -1,6 +1,6 @@
 class Lesstif < Formula
   desc "Open source implementation of OSF/Motif"
-  homepage "http://lesstif.sourceforge.net"
+  homepage "https://lesstif.sourceforge.io"
   url "https://downloads.sourceforge.net/project/lesstif/lesstif/0.95.2/lesstif-0.95.2.tar.bz2"
   sha256 "eb4aa38858c29a4a3bcf605cfe7d91ca41f4522d78d770f69721e6e3a4ecf7e3"
 

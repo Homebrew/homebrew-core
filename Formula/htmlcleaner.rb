@@ -1,6 +1,6 @@
 class Htmlcleaner < Formula
   desc "HTML parser written in Java"
-  homepage "http://htmlcleaner.sourceforge.net/index.php"
+  homepage "https://htmlcleaner.sourceforge.io"
   url "https://downloads.sourceforge.net/project/htmlcleaner/htmlcleaner/htmlcleaner%20v2.18/htmlcleaner-2.18-src.zip"
   sha256 "d16250d038b5adc2a343fb322827575ddca95ba84887be659733bf753e7ef15b"
 

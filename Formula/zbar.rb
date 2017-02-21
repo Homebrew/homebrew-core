@@ -1,6 +1,6 @@
 class Zbar < Formula
   desc "Suite of barcodes-reading tools"
-  homepage "http://zbar.sourceforge.net"
+  homepage "https://zbar.sourceforge.io"
   url "https://downloads.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2"
   sha256 "234efb39dbbe5cef4189cc76f37afbe3cfcfb45ae52493bfe8e191318bdbadc6"
   revision 4

@@ -2,7 +2,7 @@ require "language/node"
 
 class Autocode < Formula
   desc "Code automation for every language, library and framework"
-  homepage "https://autocode.run"
+  homepage "https://autocode.readme.io/"
   url "https://registry.npmjs.org/autocode/-/autocode-1.3.1.tgz"
   sha256 "952364766e645d4ddae30f9d6cc106fdb74d05afc4028066f75eeeb17c4b0247"
 

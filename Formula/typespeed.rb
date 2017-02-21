@@ -1,6 +1,6 @@
 class Typespeed < Formula
   desc "Zap words flying across the screen by typing them correctly"
-  homepage "http://typespeed.sourceforge.net"
+  homepage "https://typespeed.sourceforge.io"
   url "https://downloads.sourceforge.net/project/typespeed/typespeed/0.6.5/typespeed-0.6.5.tar.gz"
   sha256 "5c860385ceed8a60f13217cc0192c4c2b4705c3e80f9866f7d72ff306eb72961"
 

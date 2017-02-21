@@ -1,14 +1,14 @@
 class ProtobufSwift < Formula
   desc "Implementation of Protocol Buffers in Apple Swift."
   homepage "https://github.com/alexeyxo/protobuf-swift"
-  url "https://github.com/alexeyxo/protobuf-swift/archive/3.0.9.tar.gz"
-  sha256 "1f5238de73ca0a5d28cebbbb57e9392b4dc49316a00d7d53701b2852d4ea2d63"
+  url "https://github.com/alexeyxo/protobuf-swift/archive/3.0.10.tar.gz"
+  sha256 "1d8043faae3f1ca5ec077b0bb2a0403db75aa4854daf76282fc910de4d567d5b"
 
   bottle do
     cellar :any
-    sha256 "36c78adb380bbdcca544bb07453d2b7d82da409923b886e8587cfb3ed9bb9b40" => :sierra
-    sha256 "19bb7725e805e765675b1e04903e7b9e7fb835a84145e213f861c4a5022af48c" => :el_capitan
-    sha256 "c3943f2fd9462dba14e5b7449bcb8603d28d2e2f912454e62da0ec5fbb8e8d12" => :yosemite
+    sha256 "44cf488eb0793a469d594b55690a1a664de92f03b0a79a5e2f3fbad6701c71b8" => :sierra
+    sha256 "38dd50b43bdab0177f8e06111a67552834ba36a7c9788b608872f7b9343b8ec5" => :el_capitan
+    sha256 "57d59fd0d20b9dbffbb855894cfb7965c2ba403a7601c6bb884ef8b06039af9d" => :yosemite
   end
 
   depends_on "autoconf" => :build

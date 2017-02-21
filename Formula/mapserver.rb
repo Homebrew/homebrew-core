@@ -1,15 +1,14 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "http://mapserver.org/"
-  url "http://download.osgeo.org/mapserver/mapserver-6.4.3.tar.gz"
-  sha256 "1f432d4b44e7a0e4e9ce883b02c91c9a66314123028eebb0415144903b8de9c2"
-  revision 1
+  url "http://download.osgeo.org/mapserver/mapserver-7.0.4.tar.gz"
+  sha256 "c91d40da5cc242b20ca7e29c41bd9eb23097b98a77908b1d708e9708f6f6cf69"
 
   bottle do
     cellar :any
-    sha256 "415c69f366dd40d0cd44c1faa63da8993d5c62f5a47b2d455b2c2775a21cc198" => :sierra
-    sha256 "ca854e9fe512e5a6138d7e1c527f76a000b56d45a85c5ae65198e7d3003ab77e" => :el_capitan
-    sha256 "697157b30524d1196f2eebbe4b65394dbd69060ceead6a5f983ac0c30318a563" => :yosemite
+    sha256 "ca153f9d18dd67a56243d5e35075912fe2ea64c5cdb7bed48d269c2f0c50c8c0" => :sierra
+    sha256 "e3d905a18cd9509733225f01c879aeb2a170406dc5b34dd072252f30dc7db724" => :el_capitan
+    sha256 "152152b5084d353299b06dc55c09b8cd64c4607d227a991f7c2de467f5b9c0fc" => :yosemite
   end
 
   option "with-fastcgi", "Build with fastcgi support"
@@ -29,12 +28,20 @@ class Mapserver < Formula
   depends_on "geos" => :optional
   depends_on "postgresql" => :optional unless MacOS.version >= :lion
   depends_on "cairo" => :optional
-  depends_on "fribidi" => :optional
   depends_on "fcgi" if build.with? "fastcgi"
 
   def install
-    args = std_cmake_args
-    args << "-DWITH_PROJ=ON" << "-DWITH_GDAL=ON" << "-DWITH_OGR=ON" << "-DWITH_WFS=ON"
+    # Harfbuzz support requires fribidi and fribidi support requires
+    # harfbuzz but fribidi currently fails to build with:
+    # fribidi-common.h:61:12: fatal error: 'glib.h' file not found
+    args = std_cmake_args + %w[
+      -DWITH_PROJ=ON
+      -DWITH_GDAL=ON
+      -DWITH_OGR=ON
+      -DWITH_WFS=ON
+      -DWITH_FRIBIDI=OFF
+      -DWITH_HARFBUZZ=OFF
+    ]
 
     # Install within our sandbox.
     inreplace "mapscript/php/CMakeLists.txt", "${PHP5_EXTENSION_DIR}", lib/"php/extensions"
@@ -77,12 +84,6 @@ class Mapserver < Formula
       args << "-DWITH_FCGI=OFF"
     end
 
-    if build.with? "fribidi"
-      args << "-DWITH_FRIBIDI=ON"
-    else
-      args << "-DWITH_FRIBIDI=OFF"
-    end
-
     mkdir "build" do
       system "cmake", "..", *args
       system "make", "install"
@@ -101,6 +102,7 @@ class Mapserver < Formula
   end
 
   test do
-    system "#{bin}/legend"
+    assert_match version.to_s, shell_output("#{bin}/mapserv -v")
+    system "python", "-c", "import mapscript"
   end
 end
