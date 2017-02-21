@@ -5,8 +5,9 @@ class Sslyze < Formula
   homepage "https://github.com/nabla-c0d3/sslyze"
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/1.0.0.tar.gz"
-    sha256 "5117f10cda0d041816ebef78dc73fcb0ba16e4f3fe2a9a28f7a73eadbab2b921"
+    url "https://github.com/nabla-c0d3/sslyze.git",
+        :revision => "ce662d0b9c88d1fbbce97a4c79dc5864978ab5fc"
+    version "1.0.1-alpha1"
 
     resource "nassl" do
       url "https://github.com/nabla-c0d3/nassl/archive/0.15.1.tar.gz"
@@ -83,6 +84,8 @@ class Sslyze < Formula
       venv.pip_install nassl_path
     end
     venv.pip_install_and_link buildpath
+
+    system "python", "run_tests.py"
   end
 
   test do
