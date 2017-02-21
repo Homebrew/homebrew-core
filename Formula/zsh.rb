@@ -77,12 +77,6 @@ class Zsh < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
-    In order to use this build of zsh as your login shell,
-    it must be added to /etc/shells.
-    EOS
-  end
-
   test do
     assert_equal "homebrew\n",
       shell_output("#{bin}/zsh -c 'echo homebrew'")
