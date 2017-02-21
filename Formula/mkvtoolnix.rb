@@ -1,8 +1,8 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
-  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-9.8.0.tar.xz"
-  sha256 "494b2fb9ff83a858d8849baecdd3320456717923bb7a854d31a02a49640228db"
+  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-9.9.0.tar.xz"
+  sha256 "f06c9359bd197b5de6556a05506f0ea9ddab72045b72f1ed04b1807e4e042043"
 
   bottle do
     sha256 "0b4cfaf7c807502a0edb45c3b828dff19947e9bd50f086eed3f90295f277b9fc" => :sierra
@@ -19,7 +19,9 @@ class Mkvtoolnix < Formula
 
   option "with-qt5", "Build with QT GUI"
 
+  depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
+  depends_on "pugixml" => :build
   depends_on :ruby => ["1.9", :build]
   depends_on "libogg"
   depends_on "libvorbis"
@@ -45,34 +47,36 @@ class Mkvtoolnix < Formula
   def install
     ENV.cxx11
 
-    boost = Formula["boost"]
-    ogg = Formula["libogg"]
-    vorbis = Formula["libvorbis"]
-    ebml = Formula["libebml"]
-    matroska = Formula["libmatroska"]
+    features = %w[libogg libvorbis libebml libmatroska]
+    features << "flac" if build.with? "flac"
+    features << "libmagic" if build.with? "libmagic"
+
+    extra_includes = ""
+    extra_libs = ""
+    features.each do |feature|
+      extra_includes << "#{Formula[feature].opt_include};"
+      extra_libs << "#{Formula[feature].opt_lib};"
+    end
+    extra_includes.chop!
+    extra_libs.chop!
 
     args = %W[
       --disable-debug
       --prefix=#{prefix}
-      --without-curl
-      --with-boost=#{boost.opt_prefix}
-      --with-extra-includes=#{ogg.opt_include};#{vorbis.opt_include};#{ebml.opt_include};#{matroska.opt_include}
-      --with-extra-libs=#{ogg.opt_lib};#{vorbis.opt_lib};#{ebml.opt_lib};#{matroska.opt_lib}
+      --with-boost=#{Formula["boost"].opt_prefix}
+      --with-docbook-xsl-root=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl
+      --with-extra-includes=#{extra_includes}
+      --with-extra-libs=#{extra_libs}
     ]
 
-    if build.with?("qt5")
-      qt5 = Formula["qt5"]
-
-      args << "--with-moc=#{qt5.opt_bin}/moc"
-      args << "--with-uic=#{qt5.opt_bin}/uic"
-      args << "--with-rcc=#{qt5.opt_bin}/rcc"
+    if build.with? "qt5"
+      args << "--with-moc=#{Formula["qt5"].opt_bin}/moc"
+      args << "--with-rcc=#{Formula["qt5"].opt_bin}/rcc"
+      args << "--with-uic=#{Formula["qt5"].opt_bin}/uic"
       args << "--enable-qt"
     else
       args << "--disable-qt"
     end
-
-    args << "--without-flac" if build.without? "flac"
-    args << "--disable-magic" if build.without? "libmagic"
 
     system "./autogen.sh" if build.head?
 
