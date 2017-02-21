@@ -73,6 +73,7 @@
   "plt-racket": "racket",
   "ppl011": "ppl@0.11",
   "polarssl": "mbedtls",
+  "protobuf250": "protobuf@2.5",
   "qt55": "qt@5.5",
   "racket": "minimal-racket",
   "scala210": "scala@2.10",
