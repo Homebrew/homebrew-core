@@ -60,7 +60,7 @@ class Graphviz < Formula
       # the ruby pkg-config file is version specific
       inreplace "configure" do |s|
         s.gsub! "ruby-1.9", "ruby-#{Formula["ruby"].stable.version.to_f}"
-        s.gsub! "if test  -php0 2>&1"
+        s.gsub! "if test `$SWIG -php7 2>&1", "if test `$SWIG -php0 2>&1"
       end
     end
 
