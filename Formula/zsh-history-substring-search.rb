@@ -10,10 +10,4 @@ class ZshHistorySubstringSearch < Formula
     inreplace "README.md", "source zsh-history", "source #{opt_prefix}/zsh-history"
     prefix.install Dir["*.zsh"]
   end
-
-  def caveats; <<-EOS.undent
-    For setup instructions:
-      more "#{opt_prefix}/README.md"
-    EOS
-  end
 end
