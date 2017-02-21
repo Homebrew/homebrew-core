@@ -80,7 +80,7 @@ class Go < Formula
   end
 
   def caveats; <<-EOS.undent
-    As of go 1.2, a valid GOPATH is required to use the `go get` command.
+    A valid GOPATH is required to use the `go get` command.
     If $GOPATH is not specified, $HOME/go will be used by default:
       https://golang.org/doc/code.html#GOPATH
 
