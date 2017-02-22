@@ -1,8 +1,8 @@
 class Jump < Formula
   desc "Quick and fuzzy directory jumper."
   homepage "https://github.com/gsamokovarov/jump"
-  url "https://github.com/gsamokovarov/jump/archive/v0.9.0.tar.gz"
-  sha256 "978ea7fbc9564eafc1d96760c70d642677a6acf66ad2d2764bdc0b3cc8242420"
+  url "https://github.com/gsamokovarov/jump/archive/v0.10.0.tar.gz"
+  sha256 "6826d353f9724c7dd417479fd9aea396d63463962e38682154964c07072a61fc"
   head "https://github.com/gsamokovarov/jump.git"
 
   bottle do
