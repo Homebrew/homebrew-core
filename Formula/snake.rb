@@ -3,7 +3,7 @@ class Snake < Formula
   homepage "http://silo.cs.indiana.edu:32903/snake/snakehome.html"
   url "http://silo.cs.indiana.edu:32903/snake/snake.tar.gz"
   version "1.0.0"
-  sha256 "0ce0cf8cd1cc77c67be06ea66f11909f43d5557e7c74595a37b6af85c9788abe"
+  sha256 "c80ef8ce54fa2a4d37de11bd386f04b77ea75b1e012dd3171cec14d86ed26090"
   depends_on "ant" => :build
   depends_on :java
   def install
