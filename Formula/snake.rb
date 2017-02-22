@@ -12,6 +12,6 @@ class Snake < Formula
     bin.install "snake"
   end
   test do
-    system "java", "-jar", "snake.jar", "--version"
+    system "java", "-jar", "#{prefix}/snake.jar", "--version"
   end
 end
