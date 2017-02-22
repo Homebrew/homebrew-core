@@ -8,10 +8,10 @@ class Snake < Formula
   depends_on :java
   def install
     system "ant", "compile", "jar"
-    system "mv " "snake.jar " "#{prefix}/"
+    mv "snake.jar", "#{prefix}/"
     bin.install "snake"
   end
   test do
-    system "java", "Snake", "--version"
+    system "java", "-jar", "snake.jar", "--version"
   end
 end
