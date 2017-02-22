@@ -23,8 +23,8 @@ class Mongodb < Formula
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.4.1",
-        :revision => "4a0fbf5245669b55915adf7547ac592223681fe1",
+        :tag => "r3.4.2",
+        :revision => "17fbdf31abca50cdfe27482b05b1476f42ecab0a",
         :shallow => false
   end
 
