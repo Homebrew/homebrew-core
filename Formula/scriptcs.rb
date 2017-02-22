@@ -1,8 +1,8 @@
 class Scriptcs < Formula
   desc "Tools to write and execute C#"
   homepage "https://github.com/scriptcs/scriptcs"
-  url "https://github.com/scriptcs/scriptcs/archive/v0.17.0.tar.gz"
-  sha256 "3ddf5f782d2092b2c1dd8068b2fbd97dca653ca88ade2f3aa4d764e6f2f04318"
+  url "https://github.com/scriptcs/scriptcs/archive/v0.17.1.tar.gz"
+  sha256 "e876118d82f52cbdd9569783ec9278c4ac449055aa628cdcb2d785bf8098a434"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,7 +11,7 @@ class Scriptcs < Formula
     sha256 "1d858aada8a8c6eb7a336a25eb75b4f6a3d49c2474d94388655696aa0941d6e8" => :yosemite
   end
 
-  depends_on "mono" => :recommended
+  depends_on "mono" 
 
   def install
     script_file = "scriptcs.sh"
