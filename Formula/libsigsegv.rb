@@ -7,12 +7,9 @@ class Libsigsegv < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "d79887cb1d2dfde80fa0241e7a1acb5d21ea8519faf41a90673e44c1bc5b54a7" => :sierra
-    sha256 "d19b0b407f01626b9e68974848cae096d3a00c8af5314b19be2278879c57275f" => :el_capitan
-    sha256 "7cc35675981e54794ac49dcadd6daa30abaf4aaae34a18fdc8a6358fb2201896" => :yosemite
-    sha256 "1eb98d94bf58591e7e2cec76725de88f08c8280db6e4f6216fc5b4eeb6623190" => :mavericks
-    sha256 "70fcc5532a085c178a68d378f75d9926d06ee27b5733e0fb7a8d2e1288e8d80a" => :mountain_lion
+    sha256 "ab8908ac5dd0796d8f3f4452d057ac18cc335f909f13ad866f8c721f043d3ce3" => :sierra
+    sha256 "ded2b14d1110f67dcc52f79525e3b37ba85943cc487b14e4e330f28963c8ebf2" => :el_capitan
+    sha256 "71448886166937e22df81d47a2836470fed0ddc4349cac1dec7f668c9048e398" => :yosemite
   end
 
   def install
