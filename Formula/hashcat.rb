@@ -1,7 +1,7 @@
 class Hashcat < Formula
   desc "World's fastest and most advanced password recovery utility"
   homepage "https://hashcat.net/hashcat/"
-  url "https://hashcat.net/files/hashcat-3.10.tar.gz"
+  url "https://hashcat.net/files_legacy/hashcat-3.10.tar.gz"
   sha256 "3b555e5f7b35ab6a4558bc460f28d80b32f5a211bf9e08d6a1ba1bad5203e3e9"
 
   bottle do
