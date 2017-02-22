@@ -1,8 +1,8 @@
 class Infer < Formula
   desc "Static analyzer for Java, C and Objective-C"
   homepage "http://fbinfer.com/"
-  url "https://github.com/facebook/infer/releases/download/v0.9.5/infer-osx-v0.9.5.tar.xz"
-  sha256 "43d6c68d4e41057be8188877872544bf7c0e6a53a122be64efe06f3f3b772f47"
+  url "https://github.com/facebook/infer/releases/download/v0.10.0/infer-osx-v0.10.0.tar.xz"
+  sha256 "6fdcfe52cee28f57a86e8cd80bf4cac7b2dda83a3cc511f86834636ada14a808"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,6 +19,8 @@ class Infer < Formula
   depends_on "libtool" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
+  depends_on "pkg-config" => :build
+  depends_on "libffi"
 
   def install
     if build.without?("clang") && build.without?("java")
@@ -35,7 +37,7 @@ class Infer < Formula
     # builds in its own parallelization logic to mitigate that.
     ENV.deparallelize
 
-    ENV["INFER_CONFIGURE_OPTS"] = "--prefix=#{prefix} --disable-ocaml-annot --disable-ocaml-binannot"
+    ENV["INFER_CONFIGURE_OPTS"] = "--prefix=#{prefix} --disable-ocaml-binannot"
 
     target_platform = if build.without?("clang")
       "java"
@@ -78,8 +80,8 @@ class Infer < Formula
       }
     EOS
 
-    shell_output("#{bin}/infer --fail-on-bug -- clang FailingTest.c", 2)
-    shell_output("#{bin}/infer --fail-on-bug -- clang PassingTest.c", 0)
+    shell_output("#{bin}/infer --fail-on-issue -- clang -c FailingTest.c", 2)
+    shell_output("#{bin}/infer --fail-on-issue -- clang -c PassingTest.c", 0)
 
     (testpath/"FailingTest.java").write <<-EOS.undent
       class FailingTest {
@@ -115,7 +117,7 @@ class Infer < Formula
       }
     EOS
 
-    shell_output("#{bin}/infer --fail-on-bug -- javac FailingTest.java", 2)
-    shell_output("#{bin}/infer --fail-on-bug -- javac PassingTest.java", 0)
+    shell_output("#{bin}/infer --fail-on-issue -- javac FailingTest.java", 2)
+    shell_output("#{bin}/infer --fail-on-issue -- javac PassingTest.java", 0)
   end
 end
