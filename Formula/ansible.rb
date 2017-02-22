@@ -555,6 +555,16 @@ class Ansible < Formula
     sha256 "31fab8ca9b12aa5e6fe79b4463cfe62f33ded770ddc933a8d99c4debe934a0de"
   end
 
+  resource "pykerberos" do
+    url "https://files.pythonhosted.org/packages/bf/64/dd86215662d7df0f4f35632849e3576646fe29416deb7766ee00e09bdad3/pykerberos-1.1.14.tar.gz"
+    sha256 "60f84e1b606d58cc457b186914c195072ebebf5d5a05e75c0136541808e06523"
+  end
+
+  resource "requests-kerberos" do
+    url "https://files.pythonhosted.org/packages/f4/ad/f102020a3cbe7e229cf2f8dd298f378fe1180c3539d8872c00b13d5a7f7a/requests-kerberos-0.11.0.tar.gz"
+    sha256 "ae734f71f46a7b205a74fb90e160c7ba4cc4e0dff2d4f3129cf74806b51b94ba"
+  end
+
   def install
     # https://github.com/Homebrew/homebrew-core/issues/7197
     ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
