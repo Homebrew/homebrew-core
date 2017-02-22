@@ -15,12 +15,6 @@ class Zstd < Formula
 
   depends_on "cmake" => :build
 
-  # https://github.com/facebook/zstd/pull/497
-  patch do
-    url "https://github.com/facebook/zstd/pull/497.patch"
-    sha256 "2bf9d85a083af66da3323f43b815fe41e21ebdab126dbbbe4d1e5f47d2e05036"
-  end
-
   def install
     system "make", "install", "PREFIX=#{prefix}/"
 
