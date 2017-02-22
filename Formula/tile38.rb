@@ -6,9 +6,10 @@ class Tile38 < Formula
   head "https://github.com/tidwall/tile38.git"
 
   bottle do
-    sha256 "0e17d1bdd00ee810ec9ad6e26e507985877838b22c7ff237ce1b73d8872af0f5" => :sierra
-    sha256 "176f578c204d1a80c0ffdf0fd91d3c85a65b4e7ed7e44a7a5578f8ddf9e971be" => :el_capitan
-    sha256 "a26ab545db5d385ed8dcee91556b9e173629943036a38c7e54f05d767f4cfb6a" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "c234ac1a7cbee3669631cbbcf7d243e4ae2c116e4d7f204177f880b6b9101a3a" => :sierra
+    sha256 "dafea121a50b1832d59590b6ba18ecda3606b0ad3a6501674a9868e216893da3" => :el_capitan
+    sha256 "f2cddeed8413c65e0f3a2af26d46d2581b819f01f895ef3bd9b3701afde92e99" => :yosemite
   end
 
   depends_on "go" => :build
