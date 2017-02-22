@@ -1,8 +1,9 @@
 class KontenaCli < Formula
   desc "Command-line client for Kontena container & microservices platform"
   homepage "https://kontena.io/"
-  url "https://github.com/kontena/kontena/archive/v1.1.1.tar.gz"
-  sha256 "e08e26a78e678eb0a1e5a2aa687829b9473a0c4744060b48e4a35050ebad0221"
+  #url "https://github.com/kontena/kontena.git", :revision => "76931bb26b6467698673c62ce9ada884a517c615"
+  url "https://github.com/kontena/kontena.git", :branch => "feature/brew_support"
+  version '1.1.1'
   head "https://github.com/kontena/kontena.git"
 
   bottle :unneeded
@@ -14,21 +15,6 @@ class KontenaCli < Formula
     ruby_command = which_all("ruby").detect { |path| path.to_s != "/usr/bin/ruby" }
     gem_command = File.join(ruby_command.dirname, "gem")
 
-    # Make --version indicate it is a HEAD build
-    if build.head?
-      inreplace (buildpath/"cli/VERSION"), /(\d+\.\d+\.\d+).*/, "\\1-head"
-    else
-      # If building from tar.gz sources, git ls-files obviously doesn't work
-      inreplace buildpath/"cli/kontena-cli.gemspec",
-        "`git ls-files -z`.split(\"\\x0\")",
-        "Dir['LOGO', 'README.md', 'LICENSE.txt', 'VERSION','bin/*', 'lib/**/*']"
-    end
-
-    # Also add a "homebrew" build tag to "kontena --version" string
-    inreplace buildpath/"cli/lib/kontena/main_command.rb",
-      "RUBY_PLATFORM +",
-      "RUBY_PLATFORM + '+homebrew' +"
-
     # Build the gem from sources and install it
     (buildpath/"cli").cd do
       system gem_command, "build", "--norc", "kontena-cli.gemspec"
@@ -37,48 +23,18 @@ class KontenaCli < Formula
         "--install-dir", buildpath/"out",
         "--no-env-shebang",
         "--no-wrappers",
-        "--norc",
         "--no-document"
     end
 
-    # Patch the exec script
-    inreplace buildpath/"cli/bin/kontena" do |s|
-      s.gsub! "#!/usr/bin/env ruby", "#!#{ruby_command}"
-      s.gsub! "# add self to libpath", libexec_to_gem_path
-    end
-    bin.install buildpath/"cli/bin/kontena"
-
-    # Same for autocompleter
-    completer = buildpath/"cli/lib/kontena/scripts/completer"
-    inreplace completer do |s|
-      s.gsub! "#!/usr/bin/env ruby", "#!#{ruby_command}"
-      s.gsub! "# add self to libpath", libexec_to_gem_path
-      s.gsub! "require_relative '..", "require 'kontena"
-    end
-    chmod 0555, completer
-    bin.install completer => "_kontena_completer"
+    exec_script = (buildpath/"out/bin/kontena").realpath
+    inreplace exec_script, "#!/usr/bin/env ruby", "#!#{ruby_command}"
+    bin.install exec_script
 
     rm_rf buildpath/"out/cache"
-    rm_rf buildpath/"out/bin"
     libexec.install Dir["out/*"]
 
-    # Patch completion init script
-    completion_init = buildpath/"cli/lib/kontena/scripts/init"
-    inreplace completion_init do |s|
-      s.gsub! "#!/usr/bin/env bash", "# Completion for kontena-cli"
-      s.gsub! "${DIR}/completer", "#{bin}/_kontena_completer"
-    end
-
-    # The same script works for both shells.
-    cp completion_init, buildpath/"cli/lib/kontena/scripts/kontena.zsh"
-    cp completion_init, buildpath/"cli/lib/kontena/scripts/kontena.bash"
-
-    bash_completion.install buildpath/"cli/lib/kontena/scripts/kontena.bash" => "kontena.bash"
-
-    # Create a loader for the completion function
-    (buildpath/"cli/lib/kontena/scripts/_kontena").write(zsh_completer)
-    zsh_completion.install buildpath/"cli/lib/kontena/scripts/_kontena" => "_kontena"
-    zsh_completion.install buildpath/"cli/lib/kontena/scripts/kontena.zsh" => "kontena.zsh"
+    zsh_completion.install buildpath/"cli/lib/kontena/scripts/kontena.zsh" => "_kontena"
+    bash_completion.install buildpath/"cli/lib/kontena/scripts/kontena.bash" => "kontena"
   end
 
   def caveats
@@ -100,31 +56,6 @@ class KontenaCli < Formula
 
   test do
     assert_match "+homebrew", shell_output("#{bin}/kontena --version")
-    assert_match "login", shell_output("#{bin}/_kontena_completer kontena master")
-  end
-
-  private
-
-  def libexec_to_gem_path
-    <<-EOS.undent
-      # add libexec to gem path
-      ENV['GEM_PATH'] = '#{libexec}'
-      Gem.paths = ENV
-
-      # add self to libpath
-    EOS
-  end
-
-  def zsh_completer
-    <<-EOS.undent
-      #compdef kontena
-      _kontena () {
-          local e
-          e=$(dirname ${funcsourcetrace[1]%:*})/kontena.zsh
-          if [ -f $e ]; then
-              . $e
-          fi
-      }
-    EOS
+    assert_match "login", shell_output("#{bin}/kontena complete kontena master")
   end
 end
