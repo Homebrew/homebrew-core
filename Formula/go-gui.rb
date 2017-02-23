@@ -15,7 +15,7 @@ class GoGui < Formula
   depends_on :java => "1.6"
 
   resource "quaqua" do
-    url "http://www.randelshofer.ch/quaqua/files/quaqua-5.4.1.nested.zip"
+    url "https://www.randelshofer.ch/quaqua/files/quaqua-5.4.1.nested.zip"
     sha256 "a01ce8bcce6e81941ca928468e728e76e0773957c685c349474ee04f3be677d6"
   end
 
