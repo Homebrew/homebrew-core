@@ -1,7 +1,7 @@
 class Xmoto < Formula
   desc "2D motocross platform game"
-  homepage "http://xmoto.tuxfamily.org/"
-  url "http://download.tuxfamily.org/xmoto/xmoto/0.5.11/xmoto-0.5.11-src.tar.gz"
+  homepage "https://xmoto.tuxfamily.org/"
+  url "https://download.tuxfamily.org/xmoto/xmoto/0.5.11/xmoto-0.5.11-src.tar.gz"
   sha256 "a584a6f9292b184686b72c78f16de4b82d5c5b72ad89e41912ff50d03eca26b2"
 
   bottle do
