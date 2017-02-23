@@ -7,9 +7,9 @@ class Cheops < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "27d8ebc44571902b64043fdcc5c956f89df988e9311ad76eea6f66e2127d3898" => :sierra
-    sha256 "aa996a9d23fb57b16bd744aef3746f76d3d3c0316f37ecd258b62d9a36a8b751" => :el_capitan
-    sha256 "17d4673487be785e81e1a7cac0a9a3f371cd79cf870906c65d8bdb81fb1a5cc7" => :yosemite
+    sha256 "f6087558b906474548d121bf3e745a7291dbc307d0c9ef16b3b6edd92d9dc830" => :sierra
+    sha256 "3ed8f3d4920c6c44b4d25f16402564db5639acb1e3f104329f244cd52051a9f6" => :el_capitan
+    sha256 "de719231c43b1494c0a77fe0ef97868399bd67e3c3386fecfd6564f26f4acbdf" => :yosemite
   end
 
   head do
