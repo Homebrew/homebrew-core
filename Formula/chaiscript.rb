@@ -1,8 +1,8 @@
 class Chaiscript < Formula
   desc "Easy to use embedded scripting language for C++"
   homepage "http://chaiscript.com/"
-  url "https://github.com/ChaiScript/ChaiScript/archive/v5.8.6.tar.gz"
-  sha256 "05943d28d22785c44d9cb825a8efad9c3a5699447d7204ef9b53b1d64a9ac492"
+  url "https://github.com/ChaiScript/ChaiScript/archive/v6.0.0.tar.gz"
+  sha256 "ec4b51e30afbc5133675662882c59417a36aa607556ede7ca4736fab2b28c026"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,6 +12,7 @@ class Chaiscript < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on :macos => :el_capitan # needs thread-local storage
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -24,12 +25,12 @@ class Chaiscript < Formula
       #include <chaiscript/chaiscript_stdlib.hpp>
       #include <cassert>
       int main() {
-        chaiscript::ChaiScript chai(chaiscript::Std_Lib::library());
+        chaiscript::ChaiScript chai;
         assert(chai.eval<int>("123") == 123);
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-std=c++11", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-std=c++14", "-o", "test"
     system "./test"
   end
 end
