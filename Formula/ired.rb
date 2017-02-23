@@ -1,7 +1,7 @@
 class Ired < Formula
   desc "Minimalistic hexadecimal editor designed to be used in scripts."
   homepage "https://github.com/radare/ired"
-  url "http://www.radare.org/get/ired-0.5.0.tar.gz"
+  url "https://www.radare.org/get/ired-0.5.0.tar.gz"
   sha256 "dce25f6b9402b78f183ecf4d94a2d44db1a6946546217d6c60c3f179bfbfff84"
 
   bottle do
