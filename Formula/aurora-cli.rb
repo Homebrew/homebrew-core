@@ -1,8 +1,8 @@
 class AuroraCli < Formula
   desc "Apache Aurora Scheduler Client"
   homepage "https://aurora.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=/aurora/0.16.0/apache-aurora-0.16.0.tar.gz"
-  sha256 "e8249acd03e2f7597e65d90eb6808ad878b14b36da190a1f30085a2c2e25329e"
+  url "https://www.apache.org/dyn/closer.cgi?path=/aurora/0.17.0/apache-aurora-0.17.0.tar.gz"
+  sha256 "2a7477d7275dd20f86fe5b0c2d7e884a4c8251dca055045c575cd365799ca548"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,11 +11,6 @@ class AuroraCli < Formula
     sha256 "f81dbf4693ca54388d6c1e1d21baab81c128240d7b82e97e9669641112c27fda" => :yosemite
   end
 
-  # Update binary_util OS map for OSX Sierra.
-  patch do
-    url "https://github.com/thinker0/aurora/commit/a92876a1.patch"
-    sha256 "b846045b2916c9d82a149bda06d98a2dabdbac435c16ba2943a90344bf55f344"
-  end
   depends_on :python if MacOS.version <= :snow_leopard
 
   def install
