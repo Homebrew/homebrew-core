@@ -1,7 +1,7 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
-  homepage "http://dovecot.org/"
-  url "http://dovecot.org/releases/2.2/dovecot-2.2.27.tar.gz"
+  homepage "https://dovecot.org/"
+  url "https://dovecot.org/releases/2.2/dovecot-2.2.27.tar.gz"
   mirror "https://fossies.org/linux/misc/dovecot-2.2.27.tar.gz"
   sha256 "897f92a87cda4b27b243f8149ce0ba7b7e71a2be8fb7994eb0a025e54cde18e9"
 
@@ -20,7 +20,7 @@ class Dovecot < Formula
   depends_on "clucene" => :optional
 
   resource "pigeonhole" do
-    url "http://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-0.4.16.tar.gz"
+    url "https://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-0.4.16.tar.gz"
     sha256 "8f0b98f18062d6e241eef74ebe16cc167cd246361cbe6657d94f0ecc5d7d3234"
   end
 
