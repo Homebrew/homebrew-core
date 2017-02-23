@@ -1,7 +1,7 @@
 class Xrick < Formula
   desc "Clone of Rick Dangerous"
-  homepage "http://www.bigorno.net/xrick/"
-  url "http://www.bigorno.net/xrick/xrick-021212.tgz"
+  homepage "https://www.bigorno.net/xrick/"
+  url "https://www.bigorno.net/xrick/xrick-021212.tgz"
   sha256 "aa8542120bec97a730258027a294bd16196eb8b3d66134483d085f698588fc2b"
 
   bottle do
