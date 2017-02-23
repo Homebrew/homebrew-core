@@ -16,7 +16,7 @@ class Nxengine < Formula
 
   # Freeware Cave Story 1.0.0.6 pre-patched with Aeon Genesis English translation
   resource "game" do
-    url "http://www.cavestory.org/downloads/cavestoryen.zip"
+    url "https://www.cavestory.org/downloads/cavestoryen.zip"
     sha256 "aa87fa30bee9b4980640c7e104791354e0f1f6411ee0d45a70af70046aa0685f"
   end
 
