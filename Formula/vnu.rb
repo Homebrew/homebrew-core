@@ -1,11 +1,13 @@
 class Vnu < Formula
   desc "Nu Markup Checker: command-line and server HTML validator"
   homepage "https://validator.github.io/validator/"
-  url "https://github.com/validator/validator/releases/download/17.2.0/vnu.jar_17.2.0.zip"
-  version "20170130"
-  sha256 "9e96616caf5ec720ab6db12ea0d9a9a3fd97128551e3d358e1bb7a50d4310aa6"
+  url "https://github.com/validator/validator/releases/download/17.2.1/vnu.jar_17.2.1.zip"
+  sha256 "e859b26b9532b4d1a5cb5c3bc873c85dc7a64c05ef7cb3f98ef040690d95609b"
+  version_scheme 1
 
   bottle :unneeded
+
+  depends_on :java => "1.8+"
 
   def install
     libexec.install "vnu.jar"
