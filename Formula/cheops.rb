@@ -23,6 +23,17 @@ class Cheops < Formula
     depends_on :tex => [:build, :optional]
   end
 
+  head do
+    url "https://github.com/logological/cheops.git"
+
+    option "with-tex", "Build pdf manual"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on :tex => [:build, :optional]
+  end
+
   def install
     if build.head?
       if build.without? "tex"
