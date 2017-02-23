@@ -151,7 +151,7 @@ class Mesos < Formula
 
     # Make sure we are not affected by MESOS-6910 and related issues.
     agent = fork do
-      exec "/Users/bbannier/src/homebrew/sbin/mesos-agent",
+      exec "#{sbin}/mesos-agent",
           "--master=127.0.0.1:5050",
           "--work_dir=/tmp/mesos.slave.brew",
           "--image_providers=docker"
