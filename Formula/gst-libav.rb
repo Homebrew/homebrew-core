@@ -1,8 +1,8 @@
 class GstLibav < Formula
   desc "GStreamer plugins for Libav (a fork of FFmpeg)"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.10.3.tar.xz"
-  sha256 "9a6bc165b1862b18b98d9f1755c43806e4839a80f69ec7ea9a2dab61b65752a9"
+  url "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.10.4.tar.xz"
+  sha256 "6ca0feca75e3d48315e07f20ec37cf6260ed1e9dde58df355febd5016246268b"
 
   bottle do
     sha256 "7a212f1baae604171eec9bcec870881da8a3019587439619dd8f3eacd51229f8" => :sierra
