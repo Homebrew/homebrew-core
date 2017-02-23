@@ -1,7 +1,7 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.21/source/mariadb-10.1.21.tar.gz"
+  url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.1.21/source/mariadb-10.1.21.tar.gz"
   sha256 "5a816355781ea22a6c65a436d8162f19bd292ec90e2b7d9499c031ae4a659490"
 
   bottle do
@@ -11,7 +11,7 @@ class Mariadb < Formula
   end
 
   devel do
-    url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.2.4/source/mariadb-10.2.4.tar.gz"
+    url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.2.4/source/mariadb-10.2.4.tar.gz"
     sha256 "b73e353c29a0171d1057f14191c83d1f17e6f58ca09a79dda4b12c0e12b7f975"
   end
 
