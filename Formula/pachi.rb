@@ -18,12 +18,12 @@ class Pachi < Formula
   option "without-book", "Don't download a fuseki opening book"
 
   resource "patterns" do
-    url "http://sainet-dist.s3.amazonaws.com/pachi_patterns.zip"
+    url "https://sainet-dist.s3.amazonaws.com/pachi_patterns.zip"
     sha256 "73045eed2a15c5cb54bcdb7e60b106729009fa0a809d388dfd80f26c07ca7cbc"
   end
 
   resource "book" do
-    url "http://gnugo.baduk.org/books/ra6.zip"
+    url "https://gnugo.baduk.org/books/ra6.zip"
     sha256 "1e7ffc75c424e94338308c048aacc479da6ac5cbe77c0df8adc733956872485a"
   end
 
