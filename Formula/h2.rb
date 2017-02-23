@@ -1,7 +1,7 @@
 class H2 < Formula
   desc "Java SQL database"
-  homepage "http://www.h2database.com/"
-  url "http://www.h2database.com/h2-2015-10-11.zip"
+  homepage "https://www.h2database.com/"
+  url "https://www.h2database.com/h2-2015-10-11.zip"
   version "1.4.190"
   sha256 "7881f308debe6d587219db3610b699af21d5e4b50ccb6fccac563382772a09c8"
 
