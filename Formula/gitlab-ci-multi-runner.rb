@@ -10,9 +10,9 @@ class GitlabCiMultiRunner < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2d036781275a449893b1ed3fb01bc796d91f9b1b0fcf579bad587f5d8c461a0c" => :sierra
-    sha256 "e542bd60bbfd25ec0e9985153ee2e688920d2f93d280ee63aecbfeede2929915" => :el_capitan
-    sha256 "220ffc4e42f2dd4ab6210b3c0646ca51e2619a9e562dbe1b1b4498aa60c73469" => :yosemite
+    sha256 "5959eb8dcfc1e227bc48cc6499c035273296b1b9c81760a491032b3c5a98bee4" => :sierra
+    sha256 "2f3f99b11c0546f102dbd894bed382792810601d47d7adfab948c511bb20324d" => :el_capitan
+    sha256 "8702e21161d2b28efa45d463b023c60cb4236a39b5e3033ee11420cd9becf2e9" => :yosemite
   end
 
   depends_on "go" => :build
