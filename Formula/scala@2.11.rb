@@ -1,9 +1,9 @@
 class ScalaAT211 < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz"
+  url "https://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz"
   mirror "https://downloads.typesafe.com/scala/2.10.6/scala-2.11.8.tgz"
-  mirror "http://www.scala-lang.org/files/archive/scala-2.11.8.tgz"
+  mirror "https://www.scala-lang.org/files/archive/scala-2.11.8.tgz"
   sha256 "87fc86a19d9725edb5fd9866c5ee9424cdb2cd86b767f1bb7d47313e8e391ace"
 
   option "with-docs", "Also install library documentation"
@@ -16,7 +16,7 @@ class ScalaAT211 < Formula
 
   resource "docs" do
     url "https://downloads.lightbend.com/scala/2.11.8/scala-docs-2.11.8.txz"
-    mirror "http://www.scala-lang.org/files/archive/scala-docs-2.11.8.txz"
+    mirror "https://www.scala-lang.org/files/archive/scala-docs-2.11.8.txz"
     sha256 "f79180418c9a4827306c2e30d8de451d29daf72ec441e023ae73d25b39b3c0db"
   end
 
