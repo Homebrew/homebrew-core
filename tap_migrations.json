@@ -255,6 +255,7 @@
   "sshfs": "homebrew/fuse",
   "stormfs": "homebrew/fuse",
   "sundials": "homebrew/science",
+  "suomi-malaga-voikko": "homebrew/boneyard",
   "swatchbooker": "homebrew/boneyard",
   "swish-e": "homebrew/boneyard",
   "synfigstudio": "homebrew/boneyard",
