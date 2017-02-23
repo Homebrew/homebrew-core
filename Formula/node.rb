@@ -114,27 +114,13 @@ class Node < Formula
   end
 
   def caveats
-    s = ""
-
     if build.without? "npm"
-      s += <<-EOS.undent
+      <<-EOS.undent
         Homebrew has NOT installed npm. If you later install it, you should supplement
         your NODE_PATH with the npm module folder:
           #{HOMEBREW_PREFIX}/lib/node_modules
       EOS
     end
-
-    if build.without? "full-icu"
-      s += <<-EOS.undent
-        Please note by default only English locale support is provided. If you need
-        full locale support you should either rebuild with full icu:
-          `brew reinstall node --with-full-icu`
-        or add full icu data at runtime following:
-          https://github.com/nodejs/node/wiki/Intl#using-and-customizing-the-small-icu-build
-      EOS
-    end
-
-    s
   end
 
   test do
