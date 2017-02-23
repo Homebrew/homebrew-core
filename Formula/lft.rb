@@ -1,7 +1,7 @@
 class Lft < Formula
   desc "Layer Four Traceroute (LFT), an advanced traceroute tool"
-  homepage "http://pwhois.org/lft/"
-  url "http://pwhois.org/dl/index.who?file=lft-3.77.tar.gz"
+  homepage "https://pwhois.org/lft/"
+  url "https://pwhois.org/dl/index.who?file=lft-3.77.tar.gz"
   sha256 "d182d6774e64dcdeb19ed1a598fa588e57ddb6cbb6847d9277c405d3a4597d89"
 
   bottle do
