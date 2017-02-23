@@ -1,10 +1,10 @@
 class I3status < Formula
   desc "Status bar for i3"
-  homepage "http://i3wm.org/i3status"
+  homepage "https://i3wm.org/i3status"
   head "https://github.com/i3/i3status.git"
 
   stable do
-    url "http://i3wm.org/i3status/i3status-2.10.tar.bz2"
+    url "https://i3wm.org/i3status/i3status-2.10.tar.bz2"
     sha256 "daf5d07611b054a43da1a3d28850b05e2dbdbd6d25fd5e25ede98bb1b66e2791"
 
     # NOTE: Remove the patches on the next release, since they have been reported and merged upstream
