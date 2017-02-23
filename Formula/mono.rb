@@ -1,8 +1,8 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "http://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-4.6.2.16.tar.bz2"
-  sha256 "8965d107f4ebf4583ba1b50e0dcad39f0dc6adac8df7a083e9c5879ad93c0ea4"
+  url "https://download.mono-project.com/sources/mono/mono-4.8.0.495.tar.bz2"
+  sha256 "7ba62e6f42559d58dc447a19fc1cb2a9c7977d6c6e21e1e335f73917dea120cb"
 
   bottle do
     sha256 "c7b2d897cf3d10a758eaeb59bf82b482b63ba322885b656668b75fc44c59c719" => :sierra
@@ -26,14 +26,15 @@ class Mono < Formula
   depends_on "automake" => :build
   depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
 
   conflicts_with "xsd", :because => "both install `xsd` binaries"
   conflicts_with "czmq", :because => "both install `makecert` binaries"
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag => "4.0.1.20",
-        :revision => "9bd7c2420e06c1597ef5a37b6cb6e0f8d2911b10"
+        :tag => "4.1.0.1",
+        :revision => "262deb017cfcd0f0d4138779ff42ede7dbf44c46"
   end
 
   def install
@@ -108,7 +109,10 @@ class Mono < Formula
     if build.with? "fsharp"
       # Test that fsharpi is working
       ENV.prepend_path "PATH", bin
-      output = pipe_output("#{bin}/fsharpi", "printfn \"#{test_str}\"; exit 0")
+      (testpath/"test.fsx").write <<-EOS.undent
+        printfn "#{test_str}"; 0
+      EOS
+      output = pipe_output("#{bin}/fsharpi test.fsx")
       assert_match test_str, output
 
       # Tests that xbuild is able to execute fsc.exe
