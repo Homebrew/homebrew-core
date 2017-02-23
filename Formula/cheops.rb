@@ -12,28 +12,7 @@ class Cheops < Formula
     sha256 "de719231c43b1494c0a77fe0ef97868399bd67e3c3386fecfd6564f26f4acbdf" => :yosemite
   end
 
-  head do
-    url "https://github.com/logological/cheops.git"
-
-    option "with-tex", "Build pdf manual"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on :tex => [:build, :optional]
-  end
-
   def install
-    if build.head?
-      if build.without? "tex"
-        inreplace "Makefile.am",
-          "doc_DATA = COPYING NEWS AUTHORS THANKS README doc/cheops.pdf",
-          "doc_DATA = COPYING NEWS AUTHORS THANKS README"
-      end
-
-      system "autoreconf", "-fiv"
-    end
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
