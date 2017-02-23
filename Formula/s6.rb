@@ -1,18 +1,18 @@
 class S6 < Formula
   desc "Small & secure supervision software suite."
-  homepage "http://skarnet.org/software/s6/"
+  homepage "https://skarnet.org/software/s6/"
 
   stable do
-    url "http://skarnet.org/software/s6/s6-2.4.0.0.tar.gz"
+    url "https://skarnet.org/software/s6/s6-2.4.0.0.tar.gz"
     sha256 "5e788d5935dbcce76ac9a99cfcf6ee46a2ffb84220c84225df7589e9a3585560"
 
     resource "skalibs" do
-      url "http://skarnet.org/software/skalibs/skalibs-2.4.0.0.tar.gz"
+      url "https://skarnet.org/software/skalibs/skalibs-2.4.0.0.tar.gz"
       sha256 "a58cdcc8a2f083090632cdee01f962bee2f99c3f8be61f36c1e13adaef42cea9"
     end
 
     resource "execline" do
-      url "http://skarnet.org/software/execline/execline-2.2.0.0.tar.gz"
+      url "https://skarnet.org/software/execline/execline-2.2.0.0.tar.gz"
       sha256 "93bd744f2e3ad204cb89f147efdc6ca4e622f9c6bfc9895e0b2cb8b0480029de"
     end
   end
