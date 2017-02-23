@@ -3,7 +3,7 @@ class Scala < Formula
   homepage "https://www.scala-lang.org/"
   url "https://downloads.lightbend.com/scala/2.12.1/scala-2.12.1.tgz"
   mirror "https://downloads.typesafe.com/scala/2.12.1/scala-2.12.1.tgz"
-  mirror "http://www.scala-lang.org/files/archive/scala-2.12.1.tgz"
+  mirror "https://www.scala-lang.org/files/archive/scala-2.12.1.tgz"
   sha256 "4db068884532a3e27010df17befaca0f06ea50f69433d58e06a5e63c7a3cc359"
 
   bottle do
@@ -20,7 +20,7 @@ class Scala < Formula
 
   resource "docs" do
     url "https://downloads.lightbend.com/scala/2.12.1/scala-docs-2.12.1.txz"
-    mirror "http://www.scala-lang.org/files/archive/scala-docs-2.12.1.txz"
+    mirror "https://www.scala-lang.org/files/archive/scala-docs-2.12.1.txz"
     sha256 "b8730008ab64cddb0cfaebae61396147461a5a1a75258640b92033b7e2661e4d"
   end
 
