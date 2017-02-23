@@ -1,7 +1,7 @@
 class ArgusClients < Formula
   desc "Audit Record Generation and Utilization System clients"
-  homepage "http://qosient.com/argus/"
-  url "http://qosient.com/argus/src/argus-clients-3.0.8.2.tar.gz"
+  homepage "https://qosient.com/argus/"
+  url "https://qosient.com/argus/src/argus-clients-3.0.8.2.tar.gz"
   sha256 "32073a60ddd56ea8407a4d1b134448ff4bcdba0ee7399160c2f801a0aa913bb1"
   revision 1
 
