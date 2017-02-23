@@ -1,9 +1,9 @@
 class ScmManager < Formula
   desc "Manage Git, Mercurial, and Subversion repos over HTTP"
   homepage "https://www.scm-manager.org"
-  url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/scm-server/1.47/scm-server-1.47-app.tar.gz"
-  version "1.47"
-  sha256 "58e86e0cd3465733a14db09d95a0ef72906b69df1341140ee7d0329a5bbe47a3"
+  url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/scm-server/1.51/scm-server-1.51-app.tar.gz"
+  version "1.51"
+  sha256 "a7302f064443c814da44baf961227568575aff110e3e974d0a7d07894f81567f"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,12 +13,12 @@ class ScmManager < Formula
     sha256 "10f94fa5dafdb40dbcf6a7744a98b2433e294af16e7712a572de49daaed031e0" => :mavericks
   end
 
-  depends_on :java => "1.6+"
+  depends_on :java => "1.7+"
 
   resource "client" do
-    url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/clients/scm-cli-client/1.47/scm-cli-client-1.47-jar-with-dependencies.jar"
-    version "1.47"
-    sha256 "d4424b9d5104a1668f90278134cbe86a52d8bceba7bc85c4c9f5991debc54739"
+    url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/clients/scm-cli-client/1.51/scm-cli-client-1.51-jar-with-dependencies.jar"
+    version "1.51"
+    sha256 "9697f390fb0a3d02a805ea66e9b6bb2b3fdf4d53036ec1bea7348e0872e1baae"
   end
 
   def install
@@ -30,7 +30,7 @@ class ScmManager < Formula
       #!/bin/bash
       BASEDIR="#{libexec}"
       REPO="#{libexec}/lib"
-      export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)
+      export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
       "#{libexec}/bin/scm-server" "$@"
     EOS
     chmod 0755, bin/"scm-server"
