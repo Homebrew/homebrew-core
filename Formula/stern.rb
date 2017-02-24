@@ -8,9 +8,10 @@ class Stern < Formula
     :shallow => false
 
   bottle do
-    sha256 "9d4132b959e849104478bee303de9d8e3072ce92c8b185650f8eca251c2aef7c" => :sierra
-    sha256 "ffd3fe0afd636bf2724e53f01658fd0819e7af4007ccbacf09f73a2899f21ac2" => :el_capitan
-    sha256 "388d15c31e4e1e7991b1c91e8b95a4955883e1a5a412a6ca63d1e45c96afd46d" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "29ea851395807715565c0c0b57db219fa2179bb5112145c635dc99750dcf6d47" => :sierra
+    sha256 "12feb38b3536c7e3c64c255564d9b22b5cb9cea34f6cf6ff1d5d2de0d694a758" => :el_capitan
+    sha256 "aaebfee6d6dfd03a9ce310669f48397469b20a726b427cf4783427d476509ca6" => :yosemite
   end
 
   depends_on "go" => :build
