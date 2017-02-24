@@ -13,6 +13,7 @@ class Pygobject3 < Formula
 
   option :universal
   option "without-python", "Build without python2 support"
+  option "without-python3", "Build without python3 support"
 
   depends_on "pkg-config" => :build
   depends_on "libffi" => :optional
