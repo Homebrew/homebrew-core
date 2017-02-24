@@ -4,9 +4,10 @@ class Libfabric < Formula
   head "https://github.com/ofiwg/libfabric.git"
 
   stable do
-    url "https://github.com/ofiwg/libfabric/releases/download/v1.4.0/libfabric-1.4.0.tar.bz2"
-    sha256 "e9f449a137d2f1713ffc970f80a9a8c1fd2970f74f1d118941eafd4b2021bc94"
+    url "https://github.com/ofiwg/libfabric/releases/download/v1.4.1/libfabric-1.4.1.tar.bz2"
+    sha256 "fb165fe140a1c1828c49a4780860e669657221a2fc48f28b3934289b5da882a6"
 
+    # Remove for > 1.4.1
     # Upstream commit from 19 Nov 2016 "core: remove use of clock_gettime(3)"
     patch do
       url "https://github.com/ofiwg/libfabric/commit/0b0c889.patch"
