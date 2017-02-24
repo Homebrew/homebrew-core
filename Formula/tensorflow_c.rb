@@ -8,7 +8,17 @@ class TensorflowC < Formula
   depends_on "pkg-config" => :run
 
   def install
-    system 'echo "\n\n\n\n\n\n\n\n\n" | ./configure'
+    ENV["PYTHON_BIN_PATH"]=`which python`.strip
+    ENV["CC_OPT_FLAGS"]="-march=native"
+    ENV["TF_NEED_JEMALLOC"]="1"
+    ENV["TF_NEED_GCP"]="0"
+    ENV["TF_NEED_HDFS"]="0"
+    ENV["TF_ENABLE_XLA"]="0"
+    ENV["USE_DEFAULT_PYTHON_LIB_PATH"]="1"
+    ENV["TF_NEED_OPENCL"]="0"
+    ENV["TF_NEED_CUDA"]="0"
+    system "./configure"
+
     system "bazel", "build", "--compilation_mode=opt", "--copt=-march=native", "tensorflow:libtensorflow_c.so"
     lib.install "bazel-bin/tensorflow/libtensorflow_c.so"
     include.install "tensorflow/c/c_api.h" => "tensorflow_c_api.h"
