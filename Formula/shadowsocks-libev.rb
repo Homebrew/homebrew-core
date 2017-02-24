@@ -1,8 +1,8 @@
 class ShadowsocksLibev < Formula
   desc "Libev port of shadowsocks"
   homepage "https://github.com/shadowsocks/shadowsocks-libev"
-  url "https://github.com/shadowsocks/shadowsocks-libev/releases/download/v2.6.3/shadowsocks-libev-2.6.3.tar.gz"
-  sha256 "9d435c41f017860b9015af2397181eeb1ad6b729e538fb8a8ddeb099c74b4726"
+  url "https://github.com/shadowsocks/shadowsocks-libev/releases/download/v3.0.3/shadowsocks-libev-3.0.3.tar.gz"
+  sha256 "0d115543fa97880bd4b34d0cf36a3dede04f0c89292538bd9a952925dee7c4ef"
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class ShadowsocksLibev < Formula
   depends_on "xmlto" => :build
   depends_on "libev"
   depends_on "libsodium"
-  depends_on "openssl"
+  depends_on "mbedtls"
   depends_on "pcre"
   depends_on "udns"
 
@@ -75,7 +75,7 @@ class ShadowsocksLibev < Formula
           "local_port":9999,
           "password":"test",
           "timeout":600,
-          "method":"table"
+          "method":null
       }
     EOS
     server = fork { exec bin/"ss-server", "-c", testpath/"shadowsocks-libev.json" }
