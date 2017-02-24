@@ -19,6 +19,12 @@ class Readline < Formula
     sha256 "9ac1b3ac2ec7b1bf0709af047f2d7d2a34ccde353684e57c6b47ebca77d7a376"
   end
 
+  patch :p0 do
+    url "https://ftpmirror.gnu.org/readline/readline-7.0-patches/readline70-001"
+    mirror "https://ftp.gnu.org/gnu/readline/readline-7.0-patches/readline70-001"
+    sha256 "9ac1b3ac2ec7b1bf0709af047f2d7d2a34ccde353684e57c6b47ebca77d7a376"
+  end
+
   keg_only :shadowed_by_osx, <<-EOS.undent
     macOS provides the BSD libedit library, which shadows libreadline.
     In order to prevent conflicts when programs look for libreadline we are
