@@ -31,6 +31,6 @@ class TensorflowC < Formula
       }
     EOS
     system "sh", "-c", "gcc `pkg-config --libs --cflags tensorflow_c` -o test_tf test.c"
-    assert_equal version, shell_output("test_tf")
+    assert_equal version, shell_output("./test_tf")
   end
 end
