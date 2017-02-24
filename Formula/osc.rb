@@ -10,9 +10,9 @@ class Osc < Formula
 
   bottle do
     cellar :any
-    sha256 "51247f4ee5b8dc607b37a0a8dd153473d71cdf68476402e338f21bfdeb433a5e" => :sierra
-    sha256 "dfcc29e38cc4033fcbe3520ecf58f1da75e62c8eb86e92155ebb9c5e034649ce" => :el_capitan
-    sha256 "de8da7afe2fd2fdd9885a45a33bfaf575c24f313db46830a555d054db8b52c59" => :yosemite
+    sha256 "9bc7727512a9faf3c07ecfb495192d3bd2ffe184736b2b5e04edfe5362a1deb6" => :sierra
+    sha256 "318d1bfa7d18859a4053e4fd995603a1e7a7c79d3ff3c301a152ba997597ed94" => :el_capitan
+    sha256 "12d12e4037e864af383584feb3c8f1e2fa114d0efa86909aed82e7e82982dbf6" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
