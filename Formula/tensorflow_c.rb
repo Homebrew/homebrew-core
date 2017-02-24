@@ -40,7 +40,7 @@ class TensorflowC < Formula
         printf("%s", TF_Version());
       }
     EOS
-    system "gcc", "-L#{lib}", "-ltensorflow_c", "-o", "test_tf", "test.c"
+    system ENV.gcc, "-L#{lib}", "-ltensorflow_c", "-o", "test_tf", "test.c"
     assert_equal version, shell_output("./test_tf")
   end
 end
