@@ -17,15 +17,8 @@ class Vimpager < Formula
   depends_on "pandoc" => [:build, :optional]
 
   def install
+    system "make", "install", "PREFIX=#{prefix}"
     system "make", "docs" if build.with? "pandoc"
-    bin.install "vimcat"
-    bin.install "vimpager"
-    if build.head?
-      doc.install "README.md"
-    else
-      doc.install "README.md", "vimcat.md", "vimpager.md"
-    end
-    man1.install "vimcat.1", "vimpager.1" if build.with? "pandoc"
   end
 
   def caveats; <<-EOS.undent
