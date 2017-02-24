@@ -1,8 +1,8 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.11.1.tar.xz"
-  sha256 "c0a779cae325d48a1d5ba08b6ee1febcc31d0657a6da01fd1dec1c6e10976415"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.12.0.tar.xz"
+  sha256 "1821766479062d052cc1897d0ded95212e81e5c7f1039786bc4aec2225a32027"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
@@ -31,13 +31,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.11.1.tar.xz"
-    sha256 "1a5f1e4a5eadad89b0783efa08bb1f7e3802d4a4d0a135bf5f61fd672ea3846e"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.12.0.tar.xz"
+    sha256 "bd548faa2c9e63403e528ce4f4e87561e78949a0349a9e2a27e0d6e581d3a8bd"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.11.1.tar.xz"
-    sha256 "69486ed339ee0591001ae83d43c888aa26351b9680b6ceb59e06b593051bca31"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.12.0.tar.xz"
+    sha256 "8b8356f8d50eff6499c5d05e87c106a7b1b48bd16de1742fa022631909804773"
   end
 
   def install
@@ -48,14 +48,6 @@ class Git < Formula
     ENV["NO_R_TO_GCC_LINKER"] = "1" # pass arguments to LD correctly
     ENV["PYTHON_PATH"] = which "python"
     ENV["PERL_PATH"] = which "perl"
-
-    # Support Tcl versions before "lime" color name was introduced
-    # https://github.com/Homebrew/homebrew-core/issues/115
-    # https://www.mail-archive.com/git%40vger.kernel.org/msg92017.html
-    #
-    # This has been resolved in Git (6e8fda5fd), which is currently present
-    # in HEAD but not in the stable.  This should be removed later.
-    inreplace "gitk-git/gitk", "lime", '"#99FF00"' if build.stable?
 
     perl_version = /\d\.\d+/.match(`perl --version`)
 
