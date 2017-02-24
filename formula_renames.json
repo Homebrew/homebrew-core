@@ -41,6 +41,7 @@
   "go-app-engine-64": "app-engine-go-64",
   "go14": "go@1.4",
   "go15": "go@1.5",
+  "go16": "go@1.6",
   "google-app-engine": "app-engine-python",
   "google-perftools": "gperftools",
   "hamsterdb": "upscaledb",
