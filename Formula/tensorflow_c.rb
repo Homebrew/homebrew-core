@@ -22,7 +22,7 @@ class TensorflowC < Formula
   end
 
   test do
-    # test a call on TF_Version(), checking .h, .so, pkg-config setup.
+    # test a call on TF_Version()
     (testpath/"test.c").write <<-EOS.undent
       #include <stdio.h>
       #include <tensorflow_c_api.h>
@@ -30,7 +30,7 @@ class TensorflowC < Formula
         printf("%s", TF_Version());
       }
     EOS
-    system "sh", "-c", "gcc `pkg-config --libs --cflags tensorflow_c` -o test_tf test.c"
+    system "gcc", "-L#{lib}", "-ltensorflow_c", "-o", "test_tf", "test.c"
     assert_equal version, shell_output("./test_tf")
   end
 end
