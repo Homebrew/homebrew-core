@@ -5,8 +5,8 @@ class Osc < Formula
   homepage "https://github.com/openSUSE/osc"
   url "https://github.com/openSUSE/osc/archive/0.155.1.tar.gz"
   sha256 "bd392cf601fade0770e2b1fef2a964dfaa02ee002a615708f230549708f26acc"
+  revision 2
   head "https://github.com/openSUSE/osc.git"
-  revision 1
 
   bottle do
     cellar :any
