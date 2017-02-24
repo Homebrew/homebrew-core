@@ -16,9 +16,9 @@ class Libfabric < Formula
   end
 
   bottle do
-    sha256 "91db7ba6edb2403f887680ce9ddb5119bd3e41e0a39a8c4bf7b926c05fad87c4" => :sierra
-    sha256 "af0db4773b9ecdacc665747faaaf30e5b7be52f0e7c892196a21a42755d5d2b6" => :el_capitan
-    sha256 "9c79ea7f17ce4286abf11c6bdd2c2639bf72ce1588f32f63b611458097f725a7" => :yosemite
+    sha256 "4e2a4c0d2fb8bdebc755da278dbc0795b2dbc5a63d5fd10d4d5354d302f9be9b" => :sierra
+    sha256 "161ed93f9280d8963febf33096982a53db604e3be4cf62f10c4e9c15fd083423" => :el_capitan
+    sha256 "625c5c11377542f70ca2df2ac95d47a4140fba65d417725c2a99cc481bb63d10" => :yosemite
   end
 
   depends_on "autoconf" => :build
