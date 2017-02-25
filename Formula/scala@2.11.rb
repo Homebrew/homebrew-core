@@ -2,17 +2,17 @@ class ScalaAT211 < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
   url "https://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz"
-  mirror "https://downloads.typesafe.com/scala/2.10.6/scala-2.11.8.tgz"
+  mirror "https://downloads.typesafe.com/scala/2.11.8/scala-2.11.8.tgz"
   mirror "https://www.scala-lang.org/files/archive/scala-2.11.8.tgz"
   sha256 "87fc86a19d9725edb5fd9866c5ee9424cdb2cd86b767f1bb7d47313e8e391ace"
+  revision 1
+
+  keg_only :versioned_formula
 
   option "with-docs", "Also install library documentation"
   option "with-src", "Also install sources for IDE support"
 
   depends_on :java => "1.6+"
-
-  conflicts_with "scala", :because => "Differing version of same formula"
-  conflicts_with "scala@2.10", :because => "Differing version of same formula"
 
   resource "docs" do
     url "https://downloads.lightbend.com/scala/2.11.8/scala-docs-2.11.8.txz"
