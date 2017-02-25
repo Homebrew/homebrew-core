@@ -26,6 +26,8 @@ class Ldc < Formula
     end
   end
 
+  option "with-shared-libs", "build shared libs"
+
   needs :cxx11
 
   depends_on "cmake" => :build
@@ -35,9 +37,11 @@ class Ldc < Formula
   def install
     ENV.cxx11
     (buildpath/"ldc-lts").install resource("ldc-lts")
+    is_shared = (build.with? "shared-libs") ? "ON" : "OFF"
     cd "ldc-lts" do
       mkdir "build" do
         args = std_cmake_args + %W[
+          -DBUILD_SHARED_LIBS=#{is_shared}
           -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         ]
         system "cmake", "..", *args
@@ -46,6 +50,7 @@ class Ldc < Formula
     end
     mkdir "build" do
       args = std_cmake_args + %W[
+        -DBUILD_SHARED_LIBS=#{is_shared}
         -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
         -DD_COMPILER=#{buildpath}/ldc-lts/build/bin/ldmd2
