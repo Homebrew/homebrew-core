@@ -1,8 +1,8 @@
 class Unicorn < Formula
   desc "Lightweight multi-architecture CPU emulation framework"
   homepage "http://www.unicorn-engine.org"
-  url "https://github.com/unicorn-engine/unicorn/archive/0.9.tar.gz"
-  sha256 "1ca03b1c8f6360335567b528210713461e839d47c4eb7c676ba3aa4f72b8cf10"
+  url "https://github.com/unicorn-engine/unicorn/archive/1.0.tar.gz"
+  sha256 "27efa24e465f3eca9a1fa8f7f456f6fecd91beeba0b4be21b34308040047def9"
   head "https://github.com/unicorn-engine/unicorn.git"
 
   bottle do
@@ -31,6 +31,7 @@ class Unicorn < Formula
     else
       ENV["UNICORN_DEBUG"] = "no"
     end
+    system "make"
     system "make", "install"
   end
 
