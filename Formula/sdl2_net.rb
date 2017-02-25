@@ -12,13 +12,10 @@ class Sdl2Net < Formula
     sha256 "ebabcb8f4df6fdee7855a6e19080aea42d9909205b287312015179bb9b3f472a" => :mavericks
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "sdl2"
 
   def install
-    ENV.universal_binary if build.universal?
     inreplace "SDL2_net.pc.in", "@prefix@", HOMEBREW_PREFIX
 
     system "./configure", "--disable-dependency-tracking",
