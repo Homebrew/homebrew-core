@@ -104,6 +104,14 @@ class AndroidSdk < Formula
 
     # automatically install platform and build tools
     system "echo y | bash #{bin}/android --verbose update sdk --no-ui --all --filter platform-tools,build-tools-#{build_tools_version}"
+
+    %w[qemu-system-aarch64 qemu-system-mips64el qemu-system-x86_64].each do |f|
+      macho = MachO.open("#{prefix}/tools/qemu/darwin-x86_64/#{f}")
+      macho.dylib_load_commands.each do |c|
+        macho.delete_command(c) if c.name.to_s == "/tmp/android-build-build-temp-74102/install-darwin-x86_64/lib/libz.1.dylib"
+      end
+      macho.write!
+    end
   end
 
   def caveats; <<-EOS.undent
