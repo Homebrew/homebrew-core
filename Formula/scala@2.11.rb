@@ -7,6 +7,13 @@ class ScalaAT211 < Formula
   sha256 "87fc86a19d9725edb5fd9866c5ee9424cdb2cd86b767f1bb7d47313e8e391ace"
   revision 1
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "b448b114a8f51481c2e62d1e3050316856d920a0225a2c4a957a97aca1571205" => :sierra
+    sha256 "b448b114a8f51481c2e62d1e3050316856d920a0225a2c4a957a97aca1571205" => :el_capitan
+    sha256 "b448b114a8f51481c2e62d1e3050316856d920a0225a2c4a957a97aca1571205" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-docs", "Also install library documentation"
