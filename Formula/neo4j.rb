@@ -18,7 +18,7 @@ class Neo4j < Formula
     libexec.install Dir["*"]
 
     # Symlink binaries
-    bin.install Dir["#{libexec}/bin/neo4j{,-shell,-import,-shared.sh,-admin}"]
+    bin.install Dir["#{libexec}/bin/neo4j{,-shell,-import,-shared.sh,-admin}", "#{libexec}/bin/cypher-shell"]
     bin.env_script_all_files(libexec/"bin", :NEO4J_HOME => ENV["NEO4J_HOME"])
 
     # Adjust UDC props
