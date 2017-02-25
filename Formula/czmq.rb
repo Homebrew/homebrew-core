@@ -19,7 +19,6 @@ class Czmq < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
   option "with-drafts", "Build and install draft classes and methods"
 
   depends_on "asciidoc" => :build
@@ -30,7 +29,6 @@ class Czmq < Formula
   conflicts_with "mono", :because => "both install `makecert` binaries"
 
   def install
-    ENV.universal_binary if build.universal?
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
