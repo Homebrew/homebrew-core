@@ -16,11 +16,11 @@ class Infer < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libffi" => :run
   depends_on "libtool" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
+  depends_on "libffi"
 
   def install
     if build.without?("clang") && build.without?("java")
