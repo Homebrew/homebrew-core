@@ -22,7 +22,6 @@ class Sdl < Formula
 
   option "with-x11", "Compile with support for X11 video driver"
   option "with-test", "Compile and install the tests"
-  option :universal
 
   deprecated_option "with-x11-driver" => "with-x11"
   deprecated_option "with-tests" => "with-test"
@@ -59,8 +58,6 @@ class Sdl < Formula
     # are installed to the same prefix. Consequently SDL stuff cannot be
     # keg-only but I doubt that will be needed.
     inreplace %w[sdl.pc.in sdl-config.in], "@prefix@", HOMEBREW_PREFIX
-
-    ENV.universal_binary if build.universal?
 
     system "./autogen.sh" if build.head? || build.with?("x11")
 
