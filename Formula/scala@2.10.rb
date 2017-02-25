@@ -5,14 +5,14 @@ class ScalaAT210 < Formula
   mirror "https://downloads.typesafe.com/scala/2.10.6/scala-2.10.6.tgz"
   mirror "https://www.scala-lang.org/files/archive/scala-2.10.6.tgz"
   sha256 "54adf583dae6734d66328cafa26d9fa03b8c4cf607e27b9f3915f96e9bcd2d67"
+  revision 1
+
+  keg_only :versioned_formula
 
   option "with-docs", "Also install library documentation"
   option "with-src", "Also install sources for IDE support"
 
   depends_on :java => "1.6+"
-
-  conflicts_with "scala", :because => "Differing version of same formula"
-  conflicts_with "scala@2.11", :because => "Differing version of same formula"
 
   resource "docs" do
     url "https://downloads.lightbend.com/scala/2.10.6/scala-docs-2.10.6.txz"
