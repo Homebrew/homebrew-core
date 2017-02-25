@@ -1,9 +1,8 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/3.04.01.tar.gz"
-  sha256 "57f63e1b14ae04c3932a2683e4be4954a2849e17edd638ffe91bc5a2156adc6a"
-  revision 2
+  url "https://github.com/tesseract-ocr/tesseract/archive/3.05.00.tar.gz"
+  sha256 "3fe83e06d0f73b39f6e92ed9fc7ccba3ef734877b76aa5ddaaa778fac095d996"
 
   bottle do
     sha256 "cf3f65725fee58769174390c9679fb50d91c31f050f78c168562e8201a9d4947" => :sierra
@@ -14,13 +13,6 @@ class Tesseract < Formula
 
   head do
     url "https://github.com/tesseract-ocr/tesseract.git"
-
-    depends_on "autoconf" => :build
-    depends_on "autoconf-archive" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
-
     resource "tessdata-head" do
       url "https://github.com/tesseract-ocr/tessdata.git"
     end
@@ -32,6 +24,12 @@ class Tesseract < Formula
   option "with-serial-num-pack", "Install serial number recognition pack"
 
   deprecated_option "all-languages" => "with-all-languages"
+
+  depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
 
   depends_on "leptonica"
   depends_on "libtiff" => :recommended
@@ -88,12 +86,7 @@ class Tesseract < Formula
 
     ENV.cxx11
 
-    # Fix broken pkg-config file
-    # Can be removed with next version bump
-    # https://github.com/tesseract-ocr/tesseract/issues/241
-    inreplace "tesseract.pc.in", "@OPENCL_LIB@", "@OPENCL_LDFLAGS@" if build.stable?
-
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
 
     args = %W[
       --disable-dependency-tracking
