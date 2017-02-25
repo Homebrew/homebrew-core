@@ -20,7 +20,6 @@ class Freetds < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
   option "with-msdblib", "Enable Microsoft behavior in the DB-Library API where it diverges from Sybase's"
   option "with-sybase-compat", "Enable close compatibility with Sybase's ABI, at the expense of other features"
   option "with-odbc-wide", "Enable odbc wide, prevent unicode - MemoryError's"
@@ -66,8 +65,6 @@ class Freetds < Formula
         args << "--enable-#{option}"
       end
     end
-
-    ENV.universal_binary if build.universal?
 
     if build.head?
       system "./autogen.sh", *args
