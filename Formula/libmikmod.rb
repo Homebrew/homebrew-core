@@ -12,11 +12,9 @@ class Libmikmod < Formula
   end
 
   option "with-debug", "Enable debugging symbols"
-  option :universal
 
   def install
     ENV.O2 if build.with? "debug"
-    ENV.universal_binary if build.universal?
 
     # macOS has CoreAudio, but ALSA is not for this OS nor is SAM9407 nor ULTRA.
     args = %W[
