@@ -13,13 +13,6 @@ class Tesseract < Formula
 
   head do
     url "https://github.com/tesseract-ocr/tesseract.git"
-
-    depends_on "autoconf" => :build
-    depends_on "autoconf-archive" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
-
     resource "tessdata-head" do
       url "https://github.com/tesseract-ocr/tessdata.git"
     end
@@ -31,6 +24,12 @@ class Tesseract < Formula
   option "with-serial-num-pack", "Install serial number recognition pack"
 
   deprecated_option "all-languages" => "with-all-languages"
+
+  depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
 
   depends_on "leptonica"
   depends_on "libtiff" => :recommended
@@ -90,9 +89,9 @@ class Tesseract < Formula
     # Fix broken pkg-config file
     # Can be removed with next version bump
     # https://github.com/tesseract-ocr/tesseract/issues/241
-    inreplace "tesseract.pc.in", "@OPENCL_LIB@", "@OPENCL_LDFLAGS@" if build.stable?
+    # inreplace "tesseract.pc.in", "@OPENCL_LIB@", "@OPENCL_LDFLAGS@" if build.stable?
 
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
 
     args = %W[
       --disable-dependency-tracking
