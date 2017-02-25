@@ -12,8 +12,6 @@ class Devil < Formula
     sha256 "906a89e5b5b593260a6bbd4cbab351adee051bde3dcaec7e61db62eacbcd74bd" => :yosemite
   end
 
-  option :universal
-
   depends_on "cmake" => :build
   depends_on "jasper"
   depends_on "jpeg"
@@ -22,7 +20,6 @@ class Devil < Formula
   depends_on "little-cms2"
 
   def install
-    ENV.universal_binary if build.universal?
     cd "DevIL" do
       system "cmake", ".", *std_cmake_args
       system "make", "install"
