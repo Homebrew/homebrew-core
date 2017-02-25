@@ -1,8 +1,8 @@
 class Ringojs < Formula
   desc "CommonJS-based JavaScript runtime"
   homepage "https://ringojs.org"
-  url "https://github.com/ringo/ringojs/releases/download/v1.1.0/ringojs-1.1.0.tar.gz"
-  sha256 "2da497a3850a628b0c060474be55d575c3576ad08c314beca30ab91d5aea6bd2"
+  url "https://github.com/ringo/ringojs/releases/download/v1.1.1/ringojs-1.1.1.tar.gz"
+  sha256 "6ac2687f85e1acc48ab9f9528a64ff2895d787ff303f44aad6906de25af55498"
 
   bottle :unneeded
 
