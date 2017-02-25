@@ -86,6 +86,7 @@ class Python3 < Formula
       --datadir=#{share}
       --enable-framework=#{frameworks}
       --without-ensurepip
+      --with-dtrace
     ]
 
     args << "--without-gcc" if ENV.compiler == :clang
