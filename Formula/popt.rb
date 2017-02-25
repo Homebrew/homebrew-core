@@ -13,10 +13,7 @@ class Popt < Formula
     sha256 "6d95c3530a7bd4d7099d91f448669b53bb51a071c5e9a8b9915cdc750bd72aec" => :mountain_lion
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
