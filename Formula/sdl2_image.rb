@@ -12,8 +12,6 @@ class Sdl2Image < Formula
     sha256 "f5aaf7b8c035d662c696fa818ac4d82f33108ae1874f88e471368b29938ae20f" => :yosemite
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "sdl2"
   depends_on "jpeg" => :recommended
@@ -22,8 +20,6 @@ class Sdl2Image < Formula
   depends_on "webp" => :recommended
 
   def install
-    ENV.universal_binary if build.universal?
-
     inreplace "SDL2_image.pc.in", "@prefix@", HOMEBREW_PREFIX
 
     system "./configure", "--disable-dependency-tracking",
