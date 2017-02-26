@@ -6,9 +6,9 @@ class AnsibleCmdb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8ca754d561e02b3d75fb6b21e94e032cab3d7830ed997990a215287ac0da1b3a" => :sierra
-    sha256 "8ca754d561e02b3d75fb6b21e94e032cab3d7830ed997990a215287ac0da1b3a" => :el_capitan
-    sha256 "8ca754d561e02b3d75fb6b21e94e032cab3d7830ed997990a215287ac0da1b3a" => :yosemite
+    sha256 "20c2907fa46c4e89ae89eb1d63a4cb29a9d4f1cbfc40d7fdd8bc8c147a6ff1c0" => :sierra
+    sha256 "20c2907fa46c4e89ae89eb1d63a4cb29a9d4f1cbfc40d7fdd8bc8c147a6ff1c0" => :el_capitan
+    sha256 "20c2907fa46c4e89ae89eb1d63a4cb29a9d4f1cbfc40d7fdd8bc8c147a6ff1c0" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
