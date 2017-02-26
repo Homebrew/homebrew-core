@@ -10,40 +10,42 @@ class QpidProton < Formula
 
   def install
     # Javascript bindings switched off - leads to build errors
-    # Perl, Python, Ruby bindings switched off - leads to linking errors
-    cmake_args = %w[
+
+    args = %w[
       -DBUILD_JAVASCRIPT=OFF
-      -DBUILD_PYTHON=OFF
-      -DBUILD_PERL=OFF
-      -DBUILD_RUBY=OFF
     ]
 
-    # qpid-proton require build in a subdirectory
-    Dir.mkdir("build")
-    Dir.chdir("build")
+    if MacOS.version == "10.12" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      args << "-DCLOCK_GETTIME_IN_LIBC:INTERNAL=0"
+    end
 
     ENV["OPENSSL_ROOT_DIR"] = Formula["openssl"].opt_prefix
 
-    system "cmake", "..", *cmake_args, *std_cmake_args
-    system "make", "install"
+    # Enforce installation into lib/ instead of lib64/
+    system "sed", "-i.orig", "1s/^/set(LIB_SUFFIX \"\") /", "CMakeLists.txt"
+
+    mkdir "build" do
+      system "cmake", "..", *args, *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
     (testpath/"test.c").write <<-EOS.undent
-          #include "proton/message.h"
-          #include "proton/messenger.h"
-          int main()
-          {
-              pn_message_t * message;
-              pn_messenger_t * messenger;
-              pn_data_t * body;
+      #include "proton/message.h"
+      #include "proton/messenger.h"
+      int main()
+      {
+          pn_message_t * message;
+          pn_messenger_t * messenger;
+          pn_data_t * body;
 
-              message = pn_message();
-              messenger = pn_messenger(NULL);
-              return 0;
-          }
-        EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}64", "-lqpid-proton", "-o", "test"
+          message = pn_message();
+          messenger = pn_messenger(NULL);
+          return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lqpid-proton", "-o", "test"
     system "./test"
   end
 end
