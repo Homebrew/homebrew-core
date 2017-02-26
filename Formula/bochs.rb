@@ -34,13 +34,16 @@ class Bochs < Formula
       --enable-debugger-gui
       --enable-readline
       --enable-iodebug
-      --enable-xpm
       --enable-show-ips
       --enable-logging
       --enable-usb
       --enable-ne2000
       --enable-cpu-level=6
       --enable-clgd54xx
+      --enable-avx
+      --enable-vmx
+      --enable-smp
+      --enable-long-phy-addres
       --with-term
     ]
 
