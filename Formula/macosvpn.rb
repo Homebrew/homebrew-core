@@ -13,7 +13,7 @@ class Macosvpn < Formula
   depends_on :xcode => ["7.3", :build]
 
   def install
-    xcodebuild
+    xcodebuild "SYMROOT=build"
     bin.install "build/Release/macosvpn"
   end
 
