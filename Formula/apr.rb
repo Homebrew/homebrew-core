@@ -15,10 +15,7 @@ class Apr < Formula
 
   keg_only :provided_by_osx, "Apple's CLT package contains apr."
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
 
     # https://bz.apache.org/bugzilla/show_bug.cgi?id=57359
