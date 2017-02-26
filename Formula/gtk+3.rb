@@ -10,7 +10,6 @@ class Gtkx3 < Formula
     sha256 "d5686fe43e5f51a2cc42ee787abcc02b2e6e3087a0e564910cf677bb7721ad4e" => :yosemite
   end
 
-  option :universal
   option "with-quartz-relocation", "Build with quartz relocation support"
 
   depends_on "pkg-config" => :build
@@ -25,8 +24,6 @@ class Gtkx3 < Formula
   depends_on "jasper" => :optional
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = %W[
       --enable-debug=minimal
       --disable-dependency-tracking
