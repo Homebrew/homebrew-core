@@ -13,22 +13,13 @@ class Libfreenect < Formula
     sha256 "f714532e1b21365063746846544a340dac70cf0c5cc877a207dd17284ee100b7" => :mavericks
   end
 
-  option :universal
-
   depends_on "cmake" => :build
   depends_on "libusb"
 
   def install
-    args = std_cmake_args
-    args << "-DBUILD_OPENNI2_DRIVER=ON"
-
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args,
+                      "-DBUILD_OPENNI2_DRIVER=ON"
       system "make", "install"
     end
   end
