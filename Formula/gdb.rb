@@ -69,13 +69,11 @@ class Gdb < Formula
 
     system "./configure", *args
     system "make"
-    system "make", "install"
 
-    # Remove conflicting items with binutils
-    rm_rf include
-    rm_rf lib
-    rm_rf share/"locale"
-    rm_rf share/"info"
+    # Don't install bfd or opcodes, as they are provided by binutils
+    inreplace ["bfd/Makefile", "opcodes/Makefile"], /^install:/, "dontinstall:"
+
+    system "make", "install"
   end
 
   def caveats; <<-EOS.undent
