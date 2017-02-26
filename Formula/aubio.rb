@@ -13,8 +13,6 @@ class Aubio < Formula
     sha256 "c826af70ae0ac208299282b6935747736ef58d5505b9c7235c699590ac26020d" => :yosemite
   end
 
-  option :universal
-
   depends_on :macos => :lion
 
   depends_on :python => :optional
@@ -32,8 +30,6 @@ class Aubio < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-
     # Needed due to issue with recent cland (-fno-fused-madd))
     ENV.refurbish_args
 
