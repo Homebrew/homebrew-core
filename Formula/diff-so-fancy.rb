@@ -8,9 +8,9 @@ class DiffSoFancy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "adba36ed17880a80cd5ccfa74f5d24f804642c19db79657a565a4903ac6b9c8f" => :sierra
-    sha256 "bee8bbbd22db737d47a124362040262b19d1cec2fb409fcdadadd9687af049d1" => :el_capitan
-    sha256 "1dd0562ea0f0329ada0671410681ca7e31e04db2163c58675528ef80924268b8" => :yosemite
+    sha256 "95d00f3a8ba764b5b4d6dff98580f6da0ba10af473c59711134e60ab51780672" => :sierra
+    sha256 "f147e2bf87cbdb65df2d3cd3ac864649a53287fce6123697e565b8e6978c4a2e" => :el_capitan
+    sha256 "6a96d02b3d6ca2e8e9c622197a73f3060debce7a2cf5b66aa90da4d0468a9ad9" => :yosemite
   end
 
   depends_on "node" => :build
