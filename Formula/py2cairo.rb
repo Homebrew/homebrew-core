@@ -15,8 +15,6 @@ class Py2cairo < Formula
     sha256 "784e49b2f15f30af7f4e255eb2263c6e99ae4e0d0ec961412ff033d0954fd298" => :mountain_lion
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on :python if MacOS.version <= :snow_leopard
@@ -30,8 +28,8 @@ class Py2cairo < Formula
     ENV["LINKFLAGS"] = "-undefined dynamic_lookup"
     ENV.append_to_cflags `python-config --includes`
 
-    # Python extensions default to universal but cairo may not be universal
-    ENV["ARCHFLAGS"] = "-arch #{MacOS.preferred_arch}" unless build.universal?
+    # Python extensions default to universal but cairo is not universal
+    ENV["ARCHFLAGS"] = "-arch #{MacOS.preferred_arch}"
 
     system "./waf", "configure", "--prefix=#{prefix}", "--nopyc", "--nopyo"
     system "./waf", "install"
