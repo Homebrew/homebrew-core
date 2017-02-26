@@ -26,8 +26,6 @@ class Wxpython < Formula
     sha256 "41ec8003758d804b8c426ce654a87f2d9f4be3be40fcbcb3d5686e3ecabaddbc" => :mavericks
   end
 
-  option :universal
-
   if MacOS.version <= :snow_leopard
     depends_on :python
     depends_on FrameworkPythonRequirement
@@ -36,12 +34,7 @@ class Wxpython < Formula
 
   def install
     ENV["WXWIN"] = buildpath
-
-    if build.universal?
-      ENV.universal_binary
-    else
-      ENV.append_to_cflags "-arch #{MacOS.preferred_arch}"
-    end
+    ENV.append_to_cflags "-arch #{MacOS.preferred_arch}"
 
     # wxPython is hardcoded to install headers in wx's prefix;
     # set it to use wxPython's prefix instead
