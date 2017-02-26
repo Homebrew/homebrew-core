@@ -16,10 +16,7 @@ class Expat < Formula
 
   keg_only :provided_by_osx, "macOS includes Expat 1.5."
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make", "install"
