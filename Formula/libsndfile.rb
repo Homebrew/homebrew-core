@@ -11,8 +11,6 @@ class Libsndfile < Formula
     sha256 "4b6e891dc0dde551f1ee73ea508553ebb1c84c08fbdc5ae0e874e30ab0367ffb" => :yosemite
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -22,8 +20,6 @@ class Libsndfile < Formula
   depends_on "libvorbis"
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "autoreconf", "-i"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"

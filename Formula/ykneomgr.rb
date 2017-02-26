@@ -20,15 +20,11 @@ class Ykneomgr < Formula
     depends_on "gengetopt" => :build
   end
 
-  option :universal
-
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
   depends_on "libzip"
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "make", "autoreconf" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

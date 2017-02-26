@@ -13,7 +13,6 @@ class RabbitmqC < Formula
     sha256 "f4e4d641af6559ee49beec28a7620af68e643ac26429c5f031953e8d79c8b0b6" => :mavericks
   end
 
-  option :universal
   option "without-tools", "Build without command-line tools"
 
   depends_on "pkg-config" => :build
@@ -22,7 +21,6 @@ class RabbitmqC < Formula
   depends_on "openssl"
 
   def install
-    ENV.universal_binary if build.universal?
     args = std_cmake_args
     args << "-DBUILD_EXAMPLES=OFF"
     args << "-DBUILD_TESTS=OFF"

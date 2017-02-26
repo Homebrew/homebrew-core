@@ -12,8 +12,6 @@ class SdlImage < Formula
     sha256 "6d6105e20e0b8c11cddc1b0b1eda7184c50ec4e69ad71f85980b146a54adb431" => :yosemite
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "sdl"
   depends_on "jpeg" => :recommended
@@ -30,7 +28,6 @@ class SdlImage < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     inreplace "SDL_image.pc.in", "@prefix@", HOMEBREW_PREFIX
 
     args = %W[

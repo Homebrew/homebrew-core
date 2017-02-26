@@ -12,8 +12,6 @@ class WithReadline < Formula
     sha256 "05cd5dac85256b656838e839a81cd5abdc22caa3d916e7316f7ce517d17f6059" => :yosemite
   end
 
-  option :universal
-
   depends_on "readline"
 
   def install

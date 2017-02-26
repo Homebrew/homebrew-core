@@ -14,7 +14,6 @@ class Gcore < Formula
   end
 
   def install
-    ENV.universal_binary
     system "make"
     bin.install "gcore"
   end

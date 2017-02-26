@@ -28,11 +28,6 @@ class Libdap < Formula
   needs :cxx11 if MacOS.version < :mavericks
 
   def install
-    # NOTE:
-    # To future maintainers: if you ever want to build this library as a
-    # universal binary, see William Kyngesburye's notes:
-    #     http://www.kyngchaos.com/macosx/build/dap
-
     # Otherwise, "make check" fails
     ENV.cxx11 if MacOS.version < :mavericks
 

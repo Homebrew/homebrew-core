@@ -10,7 +10,6 @@ class Glib < Formula
     sha256 "cec760af010c6740593f8e8b888c3981b8d66225e4524737f79f7f75d985047d" => :yosemite
   end
 
-  option :universal
   option "with-test", "Build a debug build and run tests. NOTE: Not all tests succeed yet"
 
   deprecated_option "test" => "with-test"
@@ -42,13 +41,6 @@ class Glib < Formula
     sha256 "284cbf626f814c21f30167699e6e59dcc0d31000d71151f25862b997a8c8493d"
   end
 
-  if build.universal?
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/fe50d25d/glib/universal.diff"
-      sha256 "e21f902907cca543023c930101afe1d0c1a7ad351daa0678ba855341f3fd1b57"
-    end
-  end
-
   # Reverts GNotification support on macOS.
   # This only supports OS X 10.9, and the reverted commits removed the
   # ability to build glib on older versions of OS X.
@@ -64,8 +56,6 @@ class Glib < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-
     inreplace %w[gio/gdbusprivate.c gio/xdgmime/xdgmime.c glib/gutils.c],
       "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
@@ -87,11 +77,6 @@ class Glib < Formula
     ]
 
     system "./configure", *args
-
-    if build.universal?
-      buildpath.install resource("config.h.ed")
-      system "ed -s - config.h <config.h.ed"
-    end
 
     # disable creating directory for GIO_MOUDLE_DIR, we will do this manually in post_install
     inreplace "gio/Makefile", "$(mkinstalldirs) $(DESTDIR)$(GIO_MODULE_DIR)", ""

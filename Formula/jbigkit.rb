@@ -17,15 +17,11 @@ class Jbigkit < Formula
     sha256 "0afb6297101bc3269f0ebca1590cda66a62cbd90e3fdbec38dc011131711d32b" => :mountain_lion
   end
 
-  option :universal
   option "with-test", "Verify the library during install"
 
   deprecated_option "with-check" => "with-test"
 
   def install
-    # Set for a universal build and patch the Makefile.
-    # There's no configure. It creates a static lib.
-    ENV.universal_binary if build.universal?
     system "make", "CC=#{ENV.cc}", "CCFLAGS=#{ENV.cflags}"
 
     if build.with? "test"

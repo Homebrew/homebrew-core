@@ -14,8 +14,6 @@ class SdlTtf < Formula
     sha256 "909f446963645f9634ae76e5f5eb3f3045e6872108a8c124b690bb3c53bb8630" => :mountain_lion
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "sdl"
   depends_on "freetype"
@@ -28,7 +26,6 @@ class SdlTtf < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     inreplace "SDL_ttf.pc.in", "@prefix@", HOMEBREW_PREFIX
 
     system "./configure", "--disable-debug",

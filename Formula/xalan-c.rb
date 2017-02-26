@@ -13,7 +13,6 @@ class XalanC < Formula
   end
 
   option "with-docs", "Install HTML docs"
-  option :universal
 
   if build.with? "docs"
     depends_on "doxygen" => :build
@@ -26,7 +25,6 @@ class XalanC < Formula
 
   def install
     ENV.deparallelize # See https://issues.apache.org/jira/browse/XALANC-696
-    ENV.universal_binary if build.universal?
     ENV["XALANCROOT"] = "#{buildpath}/c"
     ENV["XALAN_LOCALE_SYSTEM"] = "inmem"
     ENV["XALAN_LOCALE"] = "en_US"
