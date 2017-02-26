@@ -18,4 +18,16 @@ class Check < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.tc").write <<-EOS.undent
+      #test test1
+      ck_assert_msg(1, "This should always pass");
+    EOS
+
+    system "#{bin/"checkmk"} test.tc > test.c"
+
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lcheck", "-o", "test"
+    system "./test"
+  end
 end
