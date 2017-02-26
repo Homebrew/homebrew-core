@@ -15,8 +15,6 @@ class OpenalSoft < Formula
 
   keg_only :provided_by_osx, "macOS provides OpenAL.framework."
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "portaudio" => :optional
@@ -27,8 +25,6 @@ class OpenalSoft < Formula
   fails_with(:clang) { build 425 }
 
   def install
-    ENV.universal_binary if build.universal?
-
     # Please don't reenable example building. See:
     # https://github.com/Homebrew/homebrew/issues/38274
     args = std_cmake_args
