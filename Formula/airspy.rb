@@ -11,8 +11,6 @@ class Airspy < Formula
     sha256 "1d6af7e52534bc50625eabcaa2b586e5824a3abbb4c3b42e032e5b4de41c6bfb" => :yosemite
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "libusb"
@@ -23,11 +21,6 @@ class Airspy < Formula
     libusb = Formula["libusb"]
     args << "-DLIBUSB_INCLUDE_DIR=#{libusb.opt_include}/libusb-1.0"
     args << "-DLIBUSB_LIBRARIES=#{libusb.opt_lib}/libusb-1.0.dylib"
-
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
 
     mkdir "build" do
       system "cmake", "..", *args
