@@ -1,8 +1,8 @@
 class Handbrake < Formula
   desc "Open-source video transcoder available for Linux, Mac, and Windows."
   homepage "https://handbrake.fr/"
-  url "https://handbrake.fr/rotation.php?file=HandBrake-1.0.2.tar.bz2"
-  sha256 "18e4563cc150309df03f7e73462b823ba2eca61644a7a536c9930611f3f9aa1e"
+  url "https://handbrake.fr/rotation.php?file=HandBrake-1.0.3.tar.bz2"
+  sha256 "591fb489edd6146136f0a92f895c2098365f612ad308d5ff9dc83223ad73ed27"
   head "https://github.com/HandBrake/HandBrake.git"
 
   bottle do
