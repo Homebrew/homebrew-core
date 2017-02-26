@@ -12,8 +12,6 @@ class Uhd < Formula
     sha256 "37a83dbf239ce5949230ab6ae1e6776bb927b5d26f566c74286c08cc5f73c7eb" => :yosemite
   end
 
-  option :universal
-
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "libusb"
@@ -27,13 +25,6 @@ class Uhd < Formula
   end
 
   def install
-    args = std_cmake_args
-
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
 
     resource("Mako").stage do
@@ -41,7 +32,7 @@ class Uhd < Formula
     end
 
     mkdir "host/build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make"
       system "make", "test"
       system "make", "install"

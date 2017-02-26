@@ -64,7 +64,6 @@ class Wxmac < Formula
     end
   end
 
-  option :universal
   option "with-stl", "use standard C++ classes for everything"
   option "with-static", "build static libraries"
 
@@ -106,11 +105,6 @@ class Wxmac < Formula
       # This is the default option, but be explicit
       "--disable-monolithic",
     ]
-
-    if build.universal?
-      ENV.universal_binary
-      args << "--enable-universal_binary=#{Hardware::CPU.universal_archs.join(",")}"
-    end
 
     args << "--enable-stl" if build.with? "stl"
 

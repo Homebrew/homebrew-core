@@ -10,12 +10,9 @@ class Swig < Formula
     sha256 "3443dbf17f78be0cecb5419772c71bb418caa91763590072224c196a57317717" => :yosemite
   end
 
-  option :universal
-
   depends_on "pcre"
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
