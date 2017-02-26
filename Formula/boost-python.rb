@@ -12,7 +12,6 @@ class BoostPython < Formula
     sha256 "14b55a75a1328adfe89f9234c72ed769d159f93fc0a7e140c956de2c3c5d54c9" => :yosemite
   end
 
-  option :universal
   option :cxx11
 
   option "without-python", "Build without python 2 support"
@@ -25,8 +24,6 @@ class BoostPython < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-
     # "layout" should be synchronized with boost
     args = ["--prefix=#{prefix}",
             "--libdir=#{lib}",
@@ -36,8 +33,6 @@ class BoostPython < Formula
             "--user-config=user-config.jam",
             "threading=multi,single",
             "link=shared,static"]
-
-    args << "address-model=32_64" << "architecture=x86" << "pch=off" if build.universal?
 
     # Build in C++11 mode if boost was built in C++11 mode.
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
