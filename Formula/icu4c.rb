@@ -17,11 +17,9 @@ class Icu4c < Formula
 
   keg_only :provided_by_osx, "macOS provides libicucore.dylib (but nothing else)."
 
-  option :universal
   option :cxx11
 
   def install
-    ENV.universal_binary if build.universal?
     ENV.cxx11 if build.cxx11?
 
     args = %W[--prefix=#{prefix} --disable-samples --disable-tests --enable-static]
