@@ -19,10 +19,9 @@ class Perl < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "2d17be7f00decaec2d9d9d25335962e78319b5ee121112ae6e6325227c50313a" => :sierra
-    sha256 "bbc3eb4e2a1e7d9585918862adf718e5be80e4dae793e547bf71da8a07b372d8" => :el_capitan
-    sha256 "7f4410ad668128cb66085a8e7fa995258cb60ba8b2551ab170ae612d3101d021" => :yosemite
+    sha256 "af578c645e5ff6162b29c693c6145345fef4dfc848f9d999a6e1f36330318c63" => :sierra
+    sha256 "c66b2d1daf5e4d77b8f4943b9718610c6d24d20537e6a1b6a87ccf74fd54ec02" => :el_capitan
+    sha256 "3474d4c2ddf177e331d70af4dbe1f51199139e525add8424b43b6339358950ab" => :yosemite
   end
 
   option "with-dtrace", "Build with DTrace probes"
