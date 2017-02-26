@@ -11,14 +11,10 @@ class Libepoxy < Formula
     sha256 "f95aff4f5d3aed6991335ea6f67e3377a8a99200a554ca2cb0026c5e20630523" => :yosemite
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on :python => :build if MacOS.version <= :snow_leopard
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
