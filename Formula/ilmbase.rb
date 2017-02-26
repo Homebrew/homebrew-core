@@ -12,10 +12,7 @@ class Ilmbase < Formula
     sha256 "2bfd8bef08f89e6c84d6f9da5f5b3db38b787d33a3c6e6bb9751a9c43bbea2de" => :yosemite
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
