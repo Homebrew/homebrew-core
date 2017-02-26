@@ -13,15 +13,8 @@ class ProxychainsNg < Formula
     sha256 "2298ad9f27411a1da59bd925bf9cf49ae5579d368acbaebf1c29103e84684a09" => :yosemite
   end
 
-  option :universal
-
   def install
-    args = ["--prefix=#{prefix}", "--sysconfdir=#{etc}"]
-    if build.universal?
-      ENV.universal_binary
-      args << "--fat-binary"
-    end
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}"
     system "make"
     system "make", "install"
     system "make", "install-config"

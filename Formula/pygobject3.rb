@@ -11,7 +11,6 @@ class Pygobject3 < Formula
     sha256 "dd5e3f9c4c01bd6633635d3189f6ca3af9af81c1c302de8df22414e067252ee0" => :yosemite
   end
 
-  option :universal
   option "without-python", "Build without python2 support"
 
   depends_on "pkg-config" => :build
@@ -23,8 +22,6 @@ class Pygobject3 < Formula
   depends_on "gobject-introspection"
 
   def install
-    ENV.universal_binary if build.universal?
-
     Language::Python.each_python(build) do |python, _version|
       system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "PYTHON=#{python}"
       system "make", "install"

@@ -14,11 +14,7 @@ class Muparser < Formula
     sha256 "e6945023b6e8e758c0fd3ec69d66119a60b3179881b4dedd18bdfbddeb75eb53" => :mavericks
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
