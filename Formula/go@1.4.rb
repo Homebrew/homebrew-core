@@ -6,6 +6,12 @@ class GoAT14 < Formula
   version "1.4.3"
   sha256 "9947fc705b0b841b5938c48b22dc33e9647ec0752bae66e50278df4f23f64959"
 
+  bottle do
+    sha256 "310b4c2b5d3a63e7d16dbac1f3d1283600171db07ec469a4b2521a313a4a8040" => :sierra
+    sha256 "79e55be417a0b861ca8a72dfa368b467f64f677e399f0b57dce6f0f898dfcd12" => :el_capitan
+    sha256 "1a213e281e70b4526f4d57e7aca3ef57e9a132e63ac8c713e24735720915dc59" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-cc-all", "Build with cross-compilers and runtime support for all supported platforms"
