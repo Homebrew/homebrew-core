@@ -3,6 +3,7 @@ class Bochs < Formula
   homepage "https://bochs.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.8/bochs-2.6.8.tar.gz"
   sha256 "79700ef0914a0973f62d9908ff700ef7def62d4a28ed5de418ef61f3576585ce"
+  revision 1
 
   bottle do
     sha256 "6797f2b0af54f4ab18d6e299c1a58b87058a6d4d40605479ff8e9084814cf08b" => :sierra
@@ -34,13 +35,16 @@ class Bochs < Formula
       --enable-debugger-gui
       --enable-readline
       --enable-iodebug
-      --enable-xpm
       --enable-show-ips
       --enable-logging
       --enable-usb
       --enable-ne2000
       --enable-cpu-level=6
       --enable-clgd54xx
+      --enable-avx
+      --enable-vmx
+      --enable-smp
+      --enable-long-phy-addres
       --with-term
     ]
 
