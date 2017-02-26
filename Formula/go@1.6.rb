@@ -6,6 +6,12 @@ class GoAT16 < Formula
   version "1.6.4"
   sha256 "8796cc48217b59595832aa9de6db45f58706dae68c9c7fbbd78c9fdbe3cd9032"
 
+  bottle do
+    sha256 "0ea01c61e996e2bd88bd56f2a939ee39c05cdbc5670dc8e90be8839c90bd561f" => :sierra
+    sha256 "90f9be2b14367dd4911f9dd7e3b047cc0d132c1c406d09f24d30770da908efe4" => :el_capitan
+    sha256 "8707772cc1bc28c57a1a8e6a6bab71c18d93c43cd86654f016ae03480a7d5bee" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "without-cgo", "Build without cgo (also disables race detector)"
