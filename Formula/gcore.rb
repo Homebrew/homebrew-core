@@ -3,6 +3,7 @@ class Gcore < Formula
   homepage "https://osxbook.com/book/bonus/chapter8/core/"
   url "https://osxbook.com/book/bonus/chapter8/core/download/gcore-1.3.tar.gz"
   sha256 "6b58095c80189bb5848a4178f282102024bbd7b985f9543021a3bf1c1a36aa2a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,9 +14,14 @@ class Gcore < Formula
     sha256 "6479ee2516b07716c506155dee9e9d6be8484ae5f8ac044945644eb22db49a3b" => :mavericks
   end
 
+  keg_only :provided_by_osx if MacOS.version >= :sierra
+
   def install
-    ENV.universal_binary
     system "make"
     bin.install "gcore"
+  end
+
+  test do
+    assert_match "<pid>", shell_output("#{bin}/gcore 2>&1", 22)
   end
 end
