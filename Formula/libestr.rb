@@ -12,12 +12,9 @@ class Libestr < Formula
     sha256 "5215ffe64cf57a7c95561588e8e117983419fece70fbc3c61d26099a249cf098" => :mavericks
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
