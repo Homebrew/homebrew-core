@@ -11,8 +11,6 @@ class Gnuradio < Formula
     sha256 "464555aaac52b55b9e09ec2b0b2e0e4cabc024b655a1bf815d7ddde59aec92fe" => :yosemite
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -104,11 +102,6 @@ class Gnuradio < Formula
     resource("cppzmq").stage include.to_s
 
     args = std_cmake_args
-
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
 
     args << "-DENABLE_DEFAULT=OFF"
     enabled_components = %w[gr-analog gr-fft volk gr-filter gnuradio-runtime
