@@ -1,8 +1,8 @@
 class Hana < Formula
   desc "The Boost.Hana C++14 metaprogramming library"
   homepage "https://github.com/boostorg/hana"
-  url "https://github.com/boostorg/hana/archive/v1.0.2.tar.gz"
-  sha256 "51be7e5d11c4bafa595d7a4ebd90185e19e213fa4de291b74a44acc635e86e95"
+  url "https://github.com/boostorg/hana/archive/v1.1.0.tar.gz"
+  sha256 "bb33358842300524fbac61710850a349771ae125fba16f3c39a047a15c9bcfb9"
   head "https://github.com/boostorg/hana.git", :branch => "develop"
 
   bottle do
