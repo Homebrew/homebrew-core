@@ -13,12 +13,20 @@ class Check < Formula
     sha256 "b223c76b5519c5aa3300488b230c5b5b2cbd32d896f2fab0f1a0700a24e1f975" => :mountain_lion
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.tc").write <<-EOS.undent
+      #test test1
+      ck_assert_msg(1, "This should always pass");
+    EOS
+
+    system "#{bin/"checkmk"} test.tc > test.c"
+
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lcheck", "-o", "test"
+    system "./test"
   end
 end
