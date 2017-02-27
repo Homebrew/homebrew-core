@@ -5,10 +5,9 @@ class Pango < Formula
   sha256 "f8fdc5fc66356dc4edf915048cceeee065a0e0cb70b3b2598f62bda320129a3e"
 
   bottle do
-    sha256 "e64fe3eacf55ceb1dbd50d1eb597fd42abed140b9d527aa3be9aa43f9a668b9c" => :sierra
-    sha256 "3139d621454aaaaedd9ed42dd7fc1b40124152d7db750873448aeb839ca6d59d" => :el_capitan
-    sha256 "380fff999d7a0e3931aa3c08f365071b90acb55a2d85f998aa5c9fa38cfacdfc" => :yosemite
-    sha256 "0a914c5cd46cdcf2c2b52ce1f4eda1a6820c77fbb333f5e789b26582356902a9" => :mavericks
+    sha256 "a3099d0b90c8f2eb594782877777391a70a65ec579df477b02c3e60306536ce5" => :sierra
+    sha256 "0bcbfb2561ee8b7d7e43724d05461a1f33c4063fb56b3c508951e8871c047f90" => :el_capitan
+    sha256 "954959c96ca8d1a7a94fc1c8932d28801728a0a7f6d5e9510677d6585b7c3347" => :yosemite
   end
 
   head do
