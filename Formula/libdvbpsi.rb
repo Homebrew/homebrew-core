@@ -1,8 +1,8 @@
 class Libdvbpsi < Formula
   desc "Library to decode/generate MPEG TS and DVB PSI tables"
   homepage "https://www.videolan.org/developers/libdvbpsi.html"
-  url "https://download.videolan.org/pub/libdvbpsi/1.3.0/libdvbpsi-1.3.0.tar.bz2"
-  sha256 "a2fed1d11980662f919bbd1f29e2462719e0f6227e1a531310bd5a706db0a1fe"
+  url "https://download.videolan.org/pub/libdvbpsi/1.3.1/libdvbpsi-1.3.1.tar.bz2"
+  sha256 "d68367afd5ad8e6ebca813e7958a3ceb9743b421adb4265eceeb6a3511c84420"
 
   bottle do
     cellar :any
