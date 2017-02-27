@@ -5,7 +5,7 @@ class Httpie < Formula
   homepage "https://httpie.org/"
   url "https://github.com/jkbrzt/httpie/archive/0.9.8.tar.gz"
   sha256 "5ccc65dd8e60a9310f575c1a9600f3cc7daf8704cc88bf6c40118b3659b98dc7"
-  revision 1
+  revision 2
   head "https://github.com/jkbrzt/httpie.git"
 
   bottle do
