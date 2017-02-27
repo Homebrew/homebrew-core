@@ -25,6 +25,8 @@ class SaneBackends < Formula
     sha256 "37f8e076bdddbdc868076456c308d21fbbef40ab647297f69bf5ca4b88a07688" => :mavericks
   end
 
+  option :universal
+
   depends_on "jpeg"
   depends_on "libtiff"
   depends_on "libusb-compat"
@@ -32,6 +34,7 @@ class SaneBackends < Formula
   depends_on "net-snmp"
 
   def install
+    ENV.universal_binary if build.universal?
     ENV.deparallelize # Makefile does not seem to be parallel-safe
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
