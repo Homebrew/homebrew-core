@@ -1,8 +1,8 @@
 class Libre < Formula
   desc "Toolkit library for asynchronous network I/O with protocol stacks"
   homepage "http://www.creytiv.com"
-  url "http://www.creytiv.com/pub/re-0.5.0.tar.gz"
-  sha256 "a2dd2204351b96b9af8a61680bfaa76231f5b47930080ec0af5eeba04a6cbaa2"
+  url "http://www.creytiv.com/pub/re-0.5.1.tar.gz"
+  sha256 "4ae7622490b164a992f80592e326c0091654a887905e1bee152cf247dd7d46e3"
 
   bottle do
     cellar :any
