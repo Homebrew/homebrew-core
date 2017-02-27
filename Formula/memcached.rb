@@ -6,9 +6,9 @@ class Memcached < Formula
 
   bottle do
     cellar :any
-    sha256 "0ffe1d65c709372aab427d0edc61e13038ff09facb22a7c27d8c69603b200243" => :sierra
-    sha256 "35445a6e7e7a958947b07c1f79bb61a847ce01b591a56b9a231b74a094375041" => :el_capitan
-    sha256 "c966d6177fa3d492df276996234297b6552a592988c56741a73d9dbc77c8c19b" => :yosemite
+    sha256 "e2eb1c84fd921b949606ec1c0102ba62a1f365a3fc091c720ac78c86efa17a98" => :sierra
+    sha256 "b2345fa0cda0e8217d42933bc670501f89364f7e1fee12a02a88f56db697df9d" => :el_capitan
+    sha256 "052fbcbf4ca1acac8671f39f0658766c7b75f6a8d4d666d44f432c49f67a82ac" => :yosemite
   end
 
   option "with-sasl", "Enable SASL support -- disables ASCII protocol!"
