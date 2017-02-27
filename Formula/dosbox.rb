@@ -24,6 +24,8 @@ class Dosbox < Formula
   depends_on "sdl_sound" => ["--with-libogg", "--with-libvorbis"]
   depends_on "libpng"
 
+  conflicts_with "dosbox-x", :because => "both install `dosbox` binaries"
+
   def install
     args = %W[
       --prefix=#{prefix}
