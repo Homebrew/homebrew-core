@@ -13,6 +13,8 @@ class Advancemame < Formula
   depends_on "sdl"
   depends_on "freetype"
 
+  conflicts_with "advancemenu", :because => "both install `advmenu` binaries"
+
   def install
     ENV.delete "SDKROOT" if MacOS.version == :yosemite
     system "./configure", "--prefix=#{prefix}"
