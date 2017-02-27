@@ -9,9 +9,9 @@ class Gron < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "72c06e0f5f429b505edf12ef4286bee205c3805815e3ef9672be88696d8a9000" => :sierra
-    sha256 "af5dd44dd022ea9e84d66e8a904596b35561174959188c2c05314fabd0ceda84" => :el_capitan
-    sha256 "88abd47eddfef7782733fa7200393a47f4b56367396d39d2166623d467ad90f0" => :yosemite
+    sha256 "912f8260a07b40a3f71a8f5da4a3c2c052354eb60184503eb99b478d3088324d" => :sierra
+    sha256 "c2ec4063402fdf9ecaf03977bd18faa2be5922e4478461a3648773ab0de9df92" => :el_capitan
+    sha256 "b40c42cd53fdbab2b94504a67451a99744966734a35bc8f02795fea6568c4d95" => :yosemite
   end
 
   depends_on "go" => :build
