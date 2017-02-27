@@ -5,16 +5,9 @@ class BazelAT032 < Formula
   sha256 "9692ac3318a40e8a0530f68bbfc473ae5f6a4a5c0fe08d2f88612ca4d40ba54a"
   head "https://github.com/bazelbuild/bazel.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "8c28efdb500103fc2fe69f5d32b2b433e00345c55c5003cdc53f76e9aec3a22e" => :sierra
-    sha256 "9baa84e3f84d5060d39166ff682f7280e93dd173713b83dd5c95c23dda78c942" => :el_capitan
-    sha256 "526bcf3e24b646c1f1648d47868654a16e8f566dcf1575034b039f7e17aa91d4" => :yosemite
-  end
-
   depends_on :java => "1.8+"
   depends_on :macos => :yosemite
+  keg_only :versioned_formula
 
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
