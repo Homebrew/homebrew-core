@@ -38,6 +38,8 @@ class ArxLibertatis < Formula
   depends_on "sdl"
   depends_on "innoextract" => :recommended
 
+  conflicts_with "rnv", :because => "both install `arx` binaries"
+
   def install
     args = std_cmake_args
 
