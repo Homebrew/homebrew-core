@@ -45,7 +45,7 @@ class Snapcast < Formula
     EOS
   end
   test do
-    system "#{bin}/snapclient", "--version"
-    system "#{bin}/snapserver", "--version"
+    system bin/"snapclient", "--version"
+    system bin/"snapserver", "--version"
   end
 end
