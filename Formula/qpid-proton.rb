@@ -15,8 +15,10 @@ class QpidProton < Formula
       -DBUILD_JAVASCRIPT=OFF
     ]
 
-    if MacOS.version == "10.12" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      args << "-DCLOCK_GETTIME_IN_LIBC:INTERNAL=0"
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "proton-c/CMakeLists.txt",
+        "CHECK_SYMBOL_EXISTS(clock_gettime \"time.h\" CLOCK_GETTIME_IN_LIBC)",
+        "CHECK_SYMBOL_EXISTS(undefined_gibberish \"time.h\" CLOCK_GETTIME_IN_LIBC)"
     end
 
     ENV["OPENSSL_ROOT_DIR"] = Formula["openssl"].opt_prefix
