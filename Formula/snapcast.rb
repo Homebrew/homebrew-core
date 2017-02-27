@@ -8,8 +8,8 @@ class Snapcast < Formula
   head do
     url "https://github.com/badaix/snapcast.git"
   end
-  depends_on "flac" => :build
-  depends_on "libvorbis" => :build
+  depends_on "flac"
+  depends_on "libvorbis"
   def install
     args = %W[
       prefix=#{prefix}
