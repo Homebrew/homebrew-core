@@ -6,10 +6,9 @@ class Libdvbpsi < Formula
 
   bottle do
     cellar :any
-    sha256 "11c95243fafbca574d4270a3c5ae60997f77f4b5871fac75f17006014b32afdb" => :sierra
-    sha256 "4a2441b1d7ef602c05e46744a394373de1de33284955c455937b4bbdecddfc89" => :el_capitan
-    sha256 "db2d97fb4e3460aa1b44e75af5398c0b9d2d8b860f18cb8a197c18e9e1ec8229" => :yosemite
-    sha256 "45af2a1bd8b769216fcff8b5c8c37dd136ab4db99167e46a8371db4880afc2c9" => :mavericks
+    sha256 "8f59f8abb62f324c1898be55e219192245eaab01fca96bd1f5e4e5d650d23862" => :sierra
+    sha256 "dd6206de7987a2dcc315e36725bf82565e36651c6004d9ede3efbcc3614323b2" => :el_capitan
+    sha256 "c85ff88dc9ccb4d9474d78c8b0dce4ee4926d5129bc7bf2b35dac3cbb47dbe06" => :yosemite
   end
 
   def install
