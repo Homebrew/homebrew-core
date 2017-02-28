@@ -3,8 +3,8 @@ require "language/node"
 class Elixirscript < Formula
   desc "Elixir to JavaScript compiler"
   homepage "https://github.com/bryanjos/elixirscript"
-  url "https://github.com/bryanjos/elixirscript/archive/v0.25.0.tar.gz"
-  sha256 "b3c9f732d76de2375f1b2b11dbcbd8b907219061ff31fb004620e3793d38e0fb"
+  url "https://github.com/bryanjos/elixirscript/archive/v0.26.1.tar.gz"
+  sha256 "31e12411f4a354944824c9b6deb7ccd57f916baf5d42c9bb74fc950f21e7d574"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,7 +23,7 @@ class Elixirscript < Formula
     system "mix", "local.rebar", "--force"
     system "mix", "deps.get"
     system "npm", "install", *Language::Node.local_npm_install_args
-    system "mix", "std_lib"
+    system "npm", "run", "build"
     system "mix", "clean"
     system "mix", "compile"
     system "mix", "dist"
@@ -39,7 +39,7 @@ class Elixirscript < Formula
   end
 
   test do
-    output = shell_output("#{bin}/elixirscript -ex :keith")
-    assert_equal "Symbol.for('keith')", output.strip
+    output = shell_output("#{bin}/elixirscript --elixir :keith")
+    assert_match "Symbol.for('keith')", output
   end
 end
