@@ -1,8 +1,8 @@
 class Quantlib < Formula
   desc "Library for quantitative finance"
   homepage "http://quantlib.org/"
-  url "https://downloads.sourceforge.net/project/quantlib/QuantLib/1.9.1/QuantLib-1.9.1.tar.gz"
-  sha256 "80c0349dd5f8f6d33ea5205dbb6cc64fce7a0778942506d0c942b632b82c03ed"
+  url "https://downloads.sourceforge.net/project/quantlib/QuantLib/1.9.2/QuantLib-1.9.2.tar.gz"
+  sha256 "9342bd7184a99a2769399a8738da58467804df36b582b389ffaaab5de22c019d"
 
   bottle do
     cellar :any
