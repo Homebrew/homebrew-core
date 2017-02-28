@@ -2,8 +2,8 @@ class DockerMachine < Formula
   desc "Create Docker hosts locally and on cloud providers"
   homepage "https://docs.docker.com/machine"
   url "https://github.com/docker/machine.git",
-      :tag => "v0.9.0",
-      :revision => "15fd4c70403bab784d91031af02d9e169ce66412"
+      :tag => "v0.10.0",
+      :revision => "76ed2a62eabf714bf0a842cda780b034eb0b21c0"
   head "https://github.com/docker/machine.git"
 
   bottle do
