@@ -6,9 +6,9 @@ class Vim < Formula
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "61dad8fe16b3ba5c0be617de976666bd0b22cc7a8af23fd139b272b2c4c0fc19" => :sierra
-    sha256 "83ee734263b83bf752047549ca0917adedd86bda04bc9198de8797ca026cde1b" => :el_capitan
-    sha256 "8994639adc00be52b68bc8fbb5db318bd60f91026a33f0fa2afbff4a280909b6" => :yosemite
+    sha256 "58209ce36e0e3ee4f3e523f016933dfa96be753ffac4037b1d57e84082a19d54" => :sierra
+    sha256 "a38ff430cb8ba2aa59c91776f721bb3d28cc168d02eda6ab29dc57fe5bea4d4a" => :el_capitan
+    sha256 "b8b2ab3f46d8d2a0f7e2399ff72d8ee247669730022d5661c2ac635f56fc1c4a" => :yosemite
   end
 
   deprecated_option "disable-nls" => "without-nls"
