@@ -109,7 +109,10 @@ class Mono < Formula
     if build.with? "fsharp"
       # Test that fsharpi is working
       ENV.prepend_path "PATH", bin
-      output = pipe_output("#{bin}/fsharpi", "printfn \"#{test_str}\"; exit 0")
+      (testpath/"test.fsx").write <<-EOS.undent
+        printfn "#{test_str}"; 0
+      EOS
+      output = pipe_output("#{bin}/fsharpi test.fsx")
       assert_match test_str, output
 
       # Tests that xbuild is able to execute fsc.exe
