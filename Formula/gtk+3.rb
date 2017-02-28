@@ -1,6 +1,6 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
-  homepage "http://gtk.org/"
+  homepage "https://gtk.org/"
   url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.9.tar.xz"
   sha256 "e414542c96dc9966d40774451331bd8f73f77b6670226a5bbd057973a0c6a3e1"
 
