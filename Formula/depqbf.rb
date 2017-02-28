@@ -1,8 +1,8 @@
 class Depqbf < Formula
   desc "Solver for quantified boolean formulae (QBF)"
   homepage "https://lonsing.github.io/depqbf/"
-  url "https://github.com/lonsing/depqbf/archive/version-5.0.tar.gz"
-  sha256 "9a4c9a60246e1c00128ae687f201b6dd309ece1e7601a6aa042a6317206f5dc7"
+  url "https://github.com/lonsing/depqbf/archive/version-6.01.tar.gz"
+  sha256 "e1f6ce3c611cc039633c172336be5db8cbf70553d79135db96219e1971109d73"
   head "https://github.com/lonsing/depqbf.git"
 
   bottle do
@@ -13,15 +13,26 @@ class Depqbf < Formula
     sha256 "92ef32e3fff775db370d3c83ee1b09c0d3c7debab448be37f30465094b17f028" => :mavericks
   end
 
-  def install
-    # Fixes "ld: unknown option: -soname"
-    # Reported 5 Sep 2016 https://github.com/lonsing/depqbf/issues/8
-    inreplace "makefile" do |s|
-      s.gsub! "-Wl,-soname,libqdpll.so.$(MAJOR)", ""
-      s.gsub! ".so.$(VERSION)", ".$(VERSION).dylib"
-    end
+  resource "bloqqer" do
+    url "http://fmv.jku.at/bloqqer/bloqqer-035-f899eab-141029.tar.gz"
+    sha256 "f4640baa75ddee156ca938f2c6669d2636fe5418046235e37dbffa9f246a318a"
+  end
 
-    system "make"
+  resource "picosat" do
+    url "http://fmv.jku.at/picosat/picosat-960.tar.gz"
+    sha256 "edb3184a04766933b092713d0ae5782e4a3da31498629f8bb2b31234a563e817"
+  end
+
+  def install
+    inreplace "makefile" do |s|
+      s.gsub! "$(CC) $(CFLAGS) -static qdpll_main.o",
+              "$(CC) $(CFLAGS) qdpll_main.o"
+      s.gsub! "-Wl,$(SONAME),libqdpll.so.$(MAJOR)",
+              "-Wl,$(SONAME),libqdpll.$(VERSION).dylib"
+    end
+    (buildpath/"bloqqer35").install resource("bloqqer")
+    (buildpath/"picosat-960").install resource("picosat")
+    system "./compile.sh"
     bin.install "depqbf"
     lib.install "libqdpll.a", "libqdpll.1.0.dylib"
   end
