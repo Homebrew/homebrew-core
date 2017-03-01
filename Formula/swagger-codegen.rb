@@ -1,8 +1,8 @@
 class SwaggerCodegen < Formula
   desc "Generation of client and server from Swagger definition"
-  homepage "http://swagger.io/swagger-codegen/"
-  url "https://github.com/swagger-api/swagger-codegen/archive/v2.2.1.tar.gz"
-  sha256 "bdf6d5828cdcdeb43f377d58f13a73f8c297fb90c3bad900f0e0a266ebf8d778"
+  homepage "https://swagger.io/swagger-codegen/"
+  url "https://github.com/swagger-api/swagger-codegen/archive/v2.2.2.tar.gz"
+  sha256 "59f2fcd130836a61d8093cf711ccb34feb157762c36d7cb452e93a899ce1ed26"
   head "https://github.com/swagger-api/swagger-codegen.git"
 
   bottle do
