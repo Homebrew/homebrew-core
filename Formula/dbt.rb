@@ -2,10 +2,11 @@ class Dbt < Formula
   include Language::Python::Virtualenv
 
   desc "Data build tool"
-  homepage "https://github.com/analyst-collective/dbt"
-  url "https://files.pythonhosted.org/packages/10/24/6a06082afbaf7171387a1dc37b067c2d15bd946981a77c731209db0d4112/dbt-0.7.0.tar.gz"
-  sha256 "f52b87724b551be90b873870e0acc9865c1ae16786b769d09de570f3280efeb5"
-  head "https://github.com/analyst-collective/dbt.git", :branch => "development"
+  homepage "https://github.com/fishtown-analytics/dbt"
+  url "https://files.pythonhosted.org/packages/1e/a0/d75ae9f42939e40442422592847f10339e68cfcf83fa2566142c5eb2183b/dbt-0.7.1.tar.gz"
+  sha256 "47cfb828590e25420ebbcdbfcad2e5afde36b3e4ed4d6e0618401850eb6ab368"
+
+  head "https://github.com/fishtown-analytics/dbt.git", :branch => "development"
 
   bottle do
     sha256 "ccb780cec3c5d0153ad6b549e28fb9d7fc6c26b4e100e330ff78c56e4dfa8915" => :sierra
@@ -88,8 +89,8 @@ class Dbt < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/94/fe/efb1cb6f505e1a560b3d080ae6b9fddc11e7c542d694ce4635c49b1ccdcb/idna-2.2.tar.gz"
-    sha256 "0ac27740937d86850010e035c6a10a564158a5accddf1aa24df89b0309252426"
+    url "https://files.pythonhosted.org/packages/81/62/c32d933d487d9756f55782de85a70b90cd6827a59a3e330f6adada408241/idna-2.3.tar.gz"
+    sha256 "fe077ccaefbcc84b1b1fe8fae9dc0c3b71079df4bf5398796ece0b84be9cbdc3"
   end
 
   resource "ijson" do
@@ -138,8 +139,8 @@ class Dbt < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/57/f7/c18a86169bb9995a69195177b23e736776b347fd92592da0c3cac9f1a724/pyasn1-0.2.2.tar.gz"
-    sha256 "6b42f96b942406712e0be5ea2bbbc57d8f30c7835a4904c9c195cc669736d435"
+    url "https://files.pythonhosted.org/packages/69/17/eec927b7604d2663fef82204578a0056e11e0fc08d485fdb3b6199d9b590/pyasn1-0.2.3.tar.gz"
+    sha256 "738c4ebd88a718e700ee35c8d129acce2286542daa80a82823a7073644f706ad"
   end
 
   resource "pyasn1-modules" do
@@ -150,6 +151,21 @@ class Dbt < Formula
   resource "PyContracts" do
     url "https://files.pythonhosted.org/packages/05/cf/93c6bba08bf268063c13cd9ad7656c9ab12d15cd7d88a9abe38e7eb0c74e/PyContracts-1.7.15.tar.gz"
     sha256 "24bf3ab5cfd61d0e296af82fb8b73ba875ea09733a8ca562f53016cf980dc469"
+  end
+
+  resource "pycparser" do
+    url "https://files.pythonhosted.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
+    sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
+  end
+
+  resource "pycryptodome" do
+    url "https://files.pythonhosted.org/packages/45/ca/f0c2ca6c65084d60f68553cf072de7db0d918c7bb07ece88781f6af24625/pycryptodome-3.4.5.tar.gz"
+    sha256 "be84544eadc2bb71d4ace39e4984ed2990111f053f24267a07afb4b4e1e5428f"
+  end
+
+  resource "pyOpenSSL" do
+    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
+    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
   end
 
   resource "pyparsing" do
@@ -170,21 +186,6 @@ class Dbt < Formula
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
     sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
-    sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
-  end
-
-  resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/45/ca/f0c2ca6c65084d60f68553cf072de7db0d918c7bb07ece88781f6af24625/pycryptodome-3.4.5.tar.gz"
-    sha256 "be84544eadc2bb71d4ace39e4984ed2990111f053f24267a07afb4b4e1e5428f"
-  end
-
-  resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
-    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
   end
 
   resource "redis" do
@@ -218,8 +219,8 @@ class Dbt < Formula
   end
 
   resource "SQLAlchemy" do
-    url "https://files.pythonhosted.org/packages/da/04/8048a5075d6e29235bbd6f1ea092a38dbe2630c670e73d4aa923a4e5521c/SQLAlchemy-1.1.5.tar.gz"
-    sha256 "68fb40049690e567ebda7b270176f5abf0d53d9fbd515fec4e43326f601119b6"
+    url "https://files.pythonhosted.org/packages/24/de/66d96cbad7a91443af1399469e9aa0aec8a41669ba6d0faae8b8411ddb27/SQLAlchemy-1.1.6.tar.gz"
+    sha256 "815924e3218d878ddd195d2f9f5bf3d2bb39fabaddb1ea27dace6ac27d9865e4"
   end
 
   resource "sqlparse" do
