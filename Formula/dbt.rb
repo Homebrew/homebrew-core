@@ -153,21 +153,6 @@ class Dbt < Formula
     sha256 "24bf3ab5cfd61d0e296af82fb8b73ba875ea09733a8ca562f53016cf980dc469"
   end
 
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
-    sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
-  end
-
-  resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/45/ca/f0c2ca6c65084d60f68553cf072de7db0d918c7bb07ece88781f6af24625/pycryptodome-3.4.5.tar.gz"
-    sha256 "be84544eadc2bb71d4ace39e4984ed2990111f053f24267a07afb4b4e1e5428f"
-  end
-
-  resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
-    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
-  end
-
   resource "pyparsing" do
     url "https://files.pythonhosted.org/packages/38/bb/bf325351dd8ab6eb3c3b7c07c3978f38b2103e2ab48d59726916907cd6fb/pyparsing-2.1.10.tar.gz"
     sha256 "811c3e7b0031021137fc83e051795025fcb98674d07eb8fe922ba4de53d39188"
@@ -186,6 +171,21 @@ class Dbt < Formula
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
     sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+  end
+
+  resource "pycparser" do
+    url "https://files.pythonhosted.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
+    sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
+  end
+
+  resource "pycryptodome" do
+    url "https://files.pythonhosted.org/packages/45/ca/f0c2ca6c65084d60f68553cf072de7db0d918c7bb07ece88781f6af24625/pycryptodome-3.4.5.tar.gz"
+    sha256 "be84544eadc2bb71d4ace39e4984ed2990111f053f24267a07afb4b4e1e5428f"
+  end
+
+  resource "pyOpenSSL" do
+    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
+    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
   end
 
   resource "redis" do
