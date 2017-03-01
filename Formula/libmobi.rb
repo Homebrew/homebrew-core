@@ -9,7 +9,7 @@ class Libmobi < Formula
   depends_on "automake" => :build
 
   def install
-    system "./autogen"
+    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make"
