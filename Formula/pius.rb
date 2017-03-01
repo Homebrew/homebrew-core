@@ -3,8 +3,8 @@ class Pius < Formula
 
   desc "PGP individual UID signer"
   homepage "https://www.phildev.net/pius/"
-  url "https://github.com/jaymzh/pius/archive/v2.2.3.tar.gz"
-  sha256 "fef64e5b2d239770a7dd1a42c600b319da77087e549f3e8ade0f95a4ee11dab0"
+  url "https://github.com/jaymzh/pius/archive/v2.2.4.tar.gz"
+  sha256 "876763c351ba8538d0c614c31f1873b5e821425927631139c83378532215516c"
   head "https://github.com/jaymzh/pius.git"
 
   bottle do
