@@ -1,13 +1,13 @@
 class AtlassianCli < Formula
   desc "Command-line interface clients for Atlassian products"
   homepage "https://bobswift.atlassian.net/wiki/pages/viewpage.action?pageId=1966101"
-  url "https://bobswift.atlassian.net/wiki/download/attachments/16285777/atlassian-cli-5.7.0-distribution.zip"
-  version "5.7.0"
-  sha256 "7d1af9dd7b5fe0fa35ba13f24d5d98fa49e0146bbae2181c43d845f3bf93ad2f"
+  url "https://bobswift.atlassian.net/wiki/download/attachments/16285777/atlassian-cli-6.2.0-distribution.zip"
+  version "6.2.0"
+  sha256 "e6c2cfaa8c00419de9e509bb740ad891cf4f425405402a43d2dd2c9d89bbc68f"
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8+"
 
   def install
     Dir.glob("*.sh") do |f|
