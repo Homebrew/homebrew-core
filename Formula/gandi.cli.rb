@@ -6,6 +6,13 @@ class GandiCli < Formula
   url "https://files.pythonhosted.org/packages/73/ae/f63bd762bdd0adb1bc0ad102076acf7e33f12b4ce4280a41fa0807b44f9b/gandi.cli-0.19.tar.gz"
   sha256 "0e8e1150f68c8921f279c629e6e7beaa4125d10c0d1990ede991fb0ceec928f3"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "2afc3fbad32a5803e5418d34751ea960609be4d38f16d1a0f2cff4397cc5e6ca" => :sierra
+    sha256 "874e57d20b0f53bd5c0cda268c48b69c53ba66df64091f8f0f206009b323af2b" => :el_capitan
+    sha256 "b834f66d8c9d149306d4a7fb49a074f300077e7a3d64555d1930a94ebec1dd58" => :yosemite
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "appdirs" do
