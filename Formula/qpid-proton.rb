@@ -7,10 +7,11 @@ class QpidProton < Formula
   depends_on "cmake" => :build
   depends_on "libuv"
   depends_on "openssl"
+  depends_on "perl" if Formula["perl"].installed?
+  depends_on "python" if Formula["python"].installed?
 
   def install
     # Javascript bindings switched off - leads to build errors
-
     args = %w[
       -DBUILD_JAVASCRIPT=OFF
     ]
@@ -21,6 +22,10 @@ class QpidProton < Formula
         "CHECK_SYMBOL_EXISTS(undefined_gibberish \"time.h\" CLOCK_GETTIME_IN_LIBC)"
     end
 
+    inreplace "proton-c/bindings/perl/CMakeLists.txt",
+        "RENAME cproton_perl.so",
+        "RENAME cproton_perl.bundle"
+
     ENV["OPENSSL_ROOT_DIR"] = Formula["openssl"].opt_prefix
 
     # Enforce installation into lib/ instead of lib64/
@@ -30,6 +35,12 @@ class QpidProton < Formula
       system "cmake", "..", *args, *std_cmake_args
       system "make", "install"
     end
+  end
+
+ def caveats; <<-EOS.undent
+      The modules for the perl and python bindings can be found in
+        #{Formula["qpid-proton"].opt_prefix}/lib/proton/bindings
+    EOS
   end
 
   test do
