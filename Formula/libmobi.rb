@@ -1,6 +1,7 @@
 class Libmobi < Formula
   desc "C library for handling Kindle (MOBI) formats of ebook documents"
   homepage "https://github.com/bfabiszewski/libmobi"
+  version "0.3"
   url "https://github.com/bfabiszewski/libmobi/archive/v0.3.tar.gz"
   sha256 "2146edd490acfa03e58bc81f5d4de610b07729a3e8fdc327df360cbf319bbd86"
 
@@ -8,6 +9,7 @@ class Libmobi < Formula
   depends_on "automake" => :build
 
   def install
+    system "./autogen"
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make"
