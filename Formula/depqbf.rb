@@ -7,10 +7,9 @@ class Depqbf < Formula
 
   bottle do
     cellar :any
-    sha256 "8d500845a553dafeffbc2ac3a34d15d05f84e39707141ad6eddf30dd68b80c8a" => :sierra
-    sha256 "7c0b8ef336f9d2bac14e11f0ca838620428376ba4b1f29b6ac3614d3a5f61774" => :el_capitan
-    sha256 "d10617714d882cce0a4a8754c03fe7f9df7adf01de8b0016cceafe092e98c163" => :yosemite
-    sha256 "92ef32e3fff775db370d3c83ee1b09c0d3c7debab448be37f30465094b17f028" => :mavericks
+    sha256 "3b26eb6dfa10a2297904e3d0024f10f513e3df10fa6f27201c64b31c553893b9" => :sierra
+    sha256 "5a4004f64cc0b9a3e4be0d99ddaa51fe06df333bbffea827f80dba70fe8dd28d" => :el_capitan
+    sha256 "4019f3d5d76accf7dd6b04cb097b3972baf9de770cd9d0d0294e34360a9cf528" => :yosemite
   end
 
   resource "bloqqer" do
