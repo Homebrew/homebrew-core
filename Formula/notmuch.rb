@@ -1,8 +1,8 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org"
-  url "https://notmuchmail.org/releases/notmuch-0.23.5.tar.gz"
-  sha256 "c62694b3c5f04db48ed3bbf37a801ea2a03439826c6be318e23b34de749ac267"
+  url "https://notmuchmail.org/releases/notmuch-0.23.7.tar.gz"
+  sha256 "f11bb10d71945f6c3f16d23117afc70810aa485878e66bb4bf43cc3f08038913"
 
   bottle do
     cellar :any
@@ -21,10 +21,10 @@ class Notmuch < Formula
   depends_on :python3 => :optional
   depends_on :ruby => ["1.9", :optional]
 
-  # Requires zlib >= 1.2.10
+  # Requires zlib >= 1.2.11
   resource "zlib" do
-    url "http://zlib.net/zlib-1.2.10.tar.gz"
-    sha256 "8d7e9f698ce48787b6e1c67e6bff79e487303e66077e25cb9784ac8835978017"
+    url "http://zlib.net/zlib-1.2.11.tar.gz"
+    sha256 "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1"
   end
 
   # Fix SIP issue with python bindings
