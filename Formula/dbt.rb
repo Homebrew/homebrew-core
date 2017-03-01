@@ -9,9 +9,9 @@ class Dbt < Formula
   head "https://github.com/fishtown-analytics/dbt.git", :branch => "development"
 
   bottle do
-    sha256 "ccb780cec3c5d0153ad6b549e28fb9d7fc6c26b4e100e330ff78c56e4dfa8915" => :sierra
-    sha256 "a7251ef4e9ed5d35788d99755884efe35ce294822161df5a6c20f3962ebb0b86" => :el_capitan
-    sha256 "233c558f4ce25af044be762761601ace3e2cdfdb648fe7f8ab606a7b1a294990" => :yosemite
+    sha256 "8c2bb62b47e9719c1190fe29ae189baf051fe3108af286f963ea4bb9182e3164" => :sierra
+    sha256 "e1f112423c0bc0a70ce2d253a13e5b7994ee63ae6731fab9cfeaf8e253a6b64f" => :el_capitan
+    sha256 "db6fe641839c015bd68b29fabe8a880e5c0353ef7e9af2fb22dbb7902645bcb6" => :yosemite
   end
 
   depends_on "python3"
