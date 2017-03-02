@@ -4,6 +4,13 @@ class Uniutils < Formula
   url "https://billposer.org/Software/Downloads/uniutils-2.27.tar.gz"
   sha256 "c662a9215a3a67aae60510f679135d479dbddaf90f5c85a3c5bab1c89da61596"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "5f6609e92596f48fbb20bd0245437f4e967ebc9d06d9fc5e130584f394dce21a" => :sierra
+    sha256 "9e83bffe9268c4be17f6e37254da13d2edfeee19869bd075580eeaa8f770078b" => :el_capitan
+    sha256 "8707e4003370e82a9dc93f928f35f7160b4fa52d6954df916f292020bf9a790b" => :yosemite
+  end
+
   # Allow build with clang. This patch was reported to debian here:
   # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=740968
   # And emailed to the upstream source at billposer@alum.mit.edu
