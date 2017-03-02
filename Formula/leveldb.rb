@@ -6,10 +6,9 @@ class Leveldb < Formula
 
   bottle do
     cellar :any
-    sha256 "688768ac09d7b8facf8e76f12f42482ed1a58323a7067a087705b276ea9aabf0" => :sierra
-    sha256 "a1cd94640590b34d997f4fc68fda303785c3087a592504500f5110b23cd91c85" => :el_capitan
-    sha256 "a3c1d90348b005180c3c83c9d1180dea206b37b8f50f53725f63955552bd8485" => :yosemite
-    sha256 "3de4411766fb99c683ab13e49dd6d788f7193c388b7e244b3b8868b9e23c4cdb" => :mavericks
+    sha256 "429fe042688a6c7bab742fd73e518336b4c656af562797e8b3a08b21d4a5453b" => :sierra
+    sha256 "161dbb44dada171246c6c00efe96822621cfa366ce8057eac18ec464d20ce072" => :el_capitan
+    sha256 "556dd6f11381e5fa8685b79f73ebc602e83d0412af5d8c5f196abd4d2e12be6e" => :yosemite
   end
 
   option "with-test", "Verify the build with make check"
