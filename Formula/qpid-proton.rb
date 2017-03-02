@@ -37,7 +37,7 @@ class QpidProton < Formula
     end
   end
 
- def caveats; <<-EOS.undent
+  def caveats; <<-EOS.undent
       The modules for the perl and python bindings can be found in
         #{Formula["qpid-proton"].opt_prefix}/lib/proton/bindings
     EOS
