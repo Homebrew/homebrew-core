@@ -6,9 +6,8 @@ class Chaiscript < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "23ab43c15675e41f22e6e40c3bbe26ae5acc42db43d7be50f9eb6f5a25c89311" => :sierra
-    sha256 "e95df6e61bc1260f0773042a82b14f6a13cc69a13b632a3a032910175b230815" => :el_capitan
-    sha256 "74ce285fe6b4a995f568f7bd89f4e7cc386d9b2202d4553ad3cf43c8091d4467" => :yosemite
+    sha256 "0f69ef5b0abc817e48108d954c9db79400fda08318b93f2e512fb43183c04921" => :sierra
+    sha256 "eea2d33732098ba3075a9011124d095f13359e182f2bed3e3fc27d47722262a6" => :el_capitan
   end
 
   depends_on "cmake" => :build
