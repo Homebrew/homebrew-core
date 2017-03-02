@@ -4,8 +4,8 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/mitchellh/packer.git",
-      :tag => "v0.12.2",
-      :revision => "f25949eb2dd5cafb8661048ef4a97b68e7186e8b"
+      :tag => "v0.12.3",
+      :revision => "c0f2b4768d7f9265adb1aa3c91a0206ca707d91e"
 
   bottle do
     sha256 "ed99cef7cc09a7523287c87ade35abdc07116ed2c240076a2b592adcfe402c8a" => :sierra
@@ -29,7 +29,7 @@ class Packer < Formula
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :revision => "fcfba28e23c7bbd8474b355ca7d6a9d88afcca00"
+        :revision => "1dce95f761bfeb6fe2aa3c4e9ffdb261b69b3fc4"
   end
 
   def install
