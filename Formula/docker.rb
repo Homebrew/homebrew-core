@@ -2,8 +2,8 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/docker.git",
-      :tag => "v1.13.1",
-      :revision => "092cba3727bb9b4a2f0e922cd6c0f93ea270e363"
+      :tag => "v17.03.0-ce",
+      :revision => "60ccb2265b0574d6c1c1090876a1d1ab32bed60e"
 
   head "https://github.com/docker/docker.git"
 
@@ -30,7 +30,7 @@ class Docker < Formula
 
     system "hack/make.sh", "dynbinary-client"
 
-    build_version = build.head? ? File.read("VERSION").chomp : version
+    build_version = build.head? ? File.read("VERSION").chomp : "#{version}-ce"
     bin.install "bundles/#{build_version}/dynbinary-client/docker-#{build_version}" => "docker"
 
     if build.with? "completions"
