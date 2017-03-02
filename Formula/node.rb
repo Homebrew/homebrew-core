@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v7.6.0/node-v7.6.0.tar.xz"
-  sha256 "6ff9042696fff0b49647f5864e71cb495e554e4f66e61443494210f5e16ab4a9"
+  url "https://nodejs.org/dist/v7.7.1/node-v7.7.1.tar.xz"
+  sha256 "965fc82aa767223be574e41d7f78ec4bd2ab3da619cef1256e46c30d053b7611"
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -131,7 +131,7 @@ class Node < Formula
     assert_equal "hello", output
     output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat(\"en-EN\").format(1234.56))'").strip
     assert_equal "1,234.56", output
-    if build.with? "full-icu"
+    if build.with? "icu4c"
       output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat(\"de-DE\").format(1234.56))'").strip
       assert_equal "1.234,56", output
     end
