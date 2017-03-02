@@ -1,8 +1,8 @@
 class Sqlmap < Formula
   desc "Penetration testing for SQL injection and database servers"
   homepage "http://sqlmap.org"
-  url "https://github.com/sqlmapproject/sqlmap/archive/1.1.2.tar.gz"
-  sha256 "98a71c8f9ae457185163096479d5ff2e93ac8833136be5f7045d5cf3c303ce57"
+  url "https://github.com/sqlmapproject/sqlmap/archive/1.1.3.tar.gz"
+  sha256 "22edbb4435f5a8b3f7ce58009c771bdd65375acbfff641cbca13d23d00d9b094"
   head "https://github.com/sqlmapproject/sqlmap.git"
 
   bottle :unneeded
