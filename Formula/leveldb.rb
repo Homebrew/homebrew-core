@@ -1,8 +1,8 @@
 class Leveldb < Formula
   desc "Key-value storage library with ordered mapping"
   homepage "https://github.com/google/leveldb/"
-  url "https://github.com/google/leveldb/archive/v1.19.tar.gz"
-  sha256 "7d7a14ae825e66aabeb156c1c3fae9f9a76d640ef6b40ede74cc73da937e5202"
+  url "https://github.com/google/leveldb/archive/v1.20.tar.gz"
+  sha256 "f5abe8b5b209c2f36560b75f32ce61412f39a2922f7045ae764a2c23335b6664"
 
   bottle do
     cellar :any
@@ -24,10 +24,10 @@ class Leveldb < Formula
     include.install "include/leveldb"
     bin.install "out-static/leveldbutil"
     lib.install "out-static/libleveldb.a"
-    lib.install "out-shared/libleveldb.dylib.1.19" => "libleveldb.1.19.dylib"
-    lib.install_symlink lib/"libleveldb.1.19.dylib" => "libleveldb.dylib"
-    lib.install_symlink lib/"libleveldb.1.19.dylib" => "libleveldb.1.dylib"
-    MachO::Tools.change_dylib_id("#{lib}/libleveldb.1.dylib", "#{lib}/libleveldb.1.19.dylib")
+    lib.install "out-shared/libleveldb.dylib.1.20" => "libleveldb.1.20.dylib"
+    lib.install_symlink lib/"libleveldb.1.20.dylib" => "libleveldb.dylib"
+    lib.install_symlink lib/"libleveldb.1.20.dylib" => "libleveldb.1.dylib"
+    MachO::Tools.change_dylib_id("#{lib}/libleveldb.1.dylib", "#{lib}/libleveldb.1.20.dylib")
   end
 
   test do
