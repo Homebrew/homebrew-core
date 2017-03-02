@@ -1,6 +1,6 @@
 class Sonarqube < Formula
   desc "Manage code quality"
-  homepage "http://www.sonarqube.org/"
+  homepage "https://www.sonarqube.org/"
   url "https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.2.zip"
   sha256 "6bb187b8568d493131952e3b66e65940992f1a62c7962c1bf5801f6f48f1c160"
 
@@ -10,23 +10,11 @@ class Sonarqube < Formula
 
   def install
     # Delete native bin directories for other systems
-    rm_rf Dir["bin/{aix,hpux,linux,solaris,windows}-*"]
+    rm_rf Dir["bin/{linux,windows}-*"]
 
-    if MacOS.prefer_64_bit?
-      rm_rf "bin/macosx-universal-32"
-    else
-      rm_rf "bin/macosx-universal-64"
-    end
-
-    # Delete Windows files
-    rm_f Dir["war/*.bat"]
     libexec.install Dir["*"]
 
-    if MacOS.prefer_64_bit?
-      bin.install_symlink "#{libexec}/bin/macosx-universal-64/sonar.sh" => "sonar"
-    else
-      bin.install_symlink "#{libexec}/bin/macosx-universal-32/sonar.sh" => "sonar"
-    end
+    bin.install_symlink "#{libexec}/bin/macosx-universal-64/sonar.sh" => "sonar"
   end
 
   plist_options :manual => "sonar console"
