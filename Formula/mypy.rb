@@ -2,8 +2,8 @@ class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
   url "https://github.com/python/mypy.git",
-      :tag => "v0.471",
-      :revision => "f16a63957d897a889d9c1dfd93abdb1ad51a2ab2"
+      :tag => "v0.500",
+      :revision => "9aee8abbf2b918f7e3ced3507fde1ef8166b99ea"
   head "https://github.com/python/mypy.git"
 
   bottle do
@@ -25,6 +25,11 @@ class Mypy < Formula
     sha256 "273846f8aacac32bf9542365a593b495b68d8035c2e382c9ccedcac387c9a0a1"
   end
 
+  resource "typed-ast" do
+    url "https://files.pythonhosted.org/packages/1e/5e/ca6cef7a04c6c5df26b827e6cdca71af047fcf4d439b28a0f7bbf3b9a720/typed-ast-1.0.1.zip"
+    sha256 "b5f578a05498922300b8150716f9689ec4c3e7071f99f6568eed73e68bfa5983"
+  end
+
   def install
     xy = Language::Python.major_minor_version "python3"
 
@@ -43,6 +48,13 @@ class Mypy < Formula
       doc.install Dir["docs/build/html/*"]
 
       rm version_static
+    end
+
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      end
     end
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
