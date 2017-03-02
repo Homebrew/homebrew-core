@@ -6,9 +6,9 @@ class GnupgPkcs11Scd < Formula
 
   bottle do
     cellar :any
-    sha256 "720587bc6d99e67f4ed5a1e0a966a5e79dd4246b02439d8e9c5f1d39cbe9b131" => :sierra
-    sha256 "20bf6e1bd39c9d664365e7179b5add79a4f1c5ab8a66d18ad4abd6e4c74cebbf" => :el_capitan
-    sha256 "8a0d9351dea28bef9f0ede96fe8777b6dd0f483ab58fd96e57467dbb255f72e7" => :yosemite
+    sha256 "76fe29258ec0b931a468d7f0333eeee6db03ef6fa440cdf8a222b3cb9775403f" => :sierra
+    sha256 "7ab95867800f969ae1c45637a55d66c61f5671aed35413d3c5519d24fd7cc385" => :el_capitan
+    sha256 "cc2788faa88ecb33a0bbb5ffe58e466d98ab588a2074293df6b71b5d0f37287b" => :yosemite
   end
 
   depends_on "pkg-config" => :build
