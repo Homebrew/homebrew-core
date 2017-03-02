@@ -15,7 +15,7 @@ class Sha1dc < Formula
     # By default tries to build with HAVEAVX=1, fails.
     system "make", "HAVEAVX=0"
 
-    system "make", "PREFIX=#{prefix}", "install"
+    system "make", "HAVEAVX=0", "PREFIX=#{prefix}", "install"
     (pkgshare/"test").install Dir["test/*"]
 
   end
