@@ -2,8 +2,8 @@ class Dscanner < Formula
   desc "Analyses e.g. the style and syntax of D code."
   homepage "https://github.com/Hackerpilot/Dscanner"
   url "https://github.com/Hackerpilot/Dscanner.git",
-    :tag => "v0.3.0",
-    :revision => "ab08f0b28b2851063e273f5f8073b575a4d17083"
+    :tag => "v0.4.0",
+    :revision => "87e42ae1941aeda81cc8e6c4343ab3c8d77036cd"
 
   head "https://github.com/Hackerpilot/Dscanner.git"
 
@@ -12,13 +12,6 @@ class Dscanner < Formula
     sha256 "e4109d118bfc3ea842bf3d2aa9588dec4e5be8350557f644727b752ec261cd32" => :el_capitan
     sha256 "5f8b2e4fb9df04ba43eaba0c1f7fe53c3cee1bf71c4f23f0fcd7871c7269ba4a" => :yosemite
     sha256 "93916657176868ebab187de76075da38ef1f62e7fcf126670c297d1413c172af" => :mavericks
-  end
-
-  devel do
-    url "https://github.com/Hackerpilot/Dscanner.git",
-      :tag => "v0.4.0-beta.3",
-      :revision => "bf3b942b9a102616c4c67611301738883845c906"
-    version "0.4.0-beta.3"
   end
 
   depends_on "dmd" => :build
