@@ -1,8 +1,8 @@
 class Graphene < Formula
   desc "Thin layer of graphic data types"
   homepage "https://ebassi.github.io/graphene/"
-  url "https://download.gnome.org/sources/graphene/1.2/graphene-1.2.10.tar.xz"
-  sha256 "e7b58334a91ae75b776fda987c29867710008673040fc996949933f2c5f17fdb"
+  url "https://download.gnome.org/sources/graphene/1.6/graphene-1.6.0.tar.xz"
+  sha256 "c3a9910f8dd298c1459d1f3c699ddf2e7440f9e561bfcbef59ae784400e27b5d"
 
   bottle do
     sha256 "fe4ea086531c7c99ac358bc5dcf7017dee230530cbb1c9ab5ff069ab16aa4f63" => :sierra
@@ -15,10 +15,10 @@ class Graphene < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
+  depends_on "python3"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make"
