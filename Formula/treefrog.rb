@@ -11,7 +11,6 @@ class Treefrog < Formula
   end
 
   option "with-mysql", "enable --with-mysql option for Qt build"
-  option "with-oci", "enable --with-oci option for Qt build"
   option "with-postgresql", "enable --with-postgresql option for Qt build"
   option "with-qt5", "build and link with QtGui module"
 
@@ -19,7 +18,6 @@ class Treefrog < Formula
   depends_on :xcode => [:build, "8.0"]
 
   qt5_build_options = []
-  qt5_build_options << "with-oci" if build.with?("oci") && ENV["ORACLE_HOME"]
   qt5_build_options << "with-mysql" if build.with?("mysql")
   qt5_build_options << "with-postgresql" if build.with?("postgresql")
   depends_on "qt5" => qt5_build_options
