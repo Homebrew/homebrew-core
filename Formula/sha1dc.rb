@@ -14,14 +14,15 @@ class Sha1dc < Formula
 
     # By default tries to build with HAVEAVX=1, fails.
     system "make", "HAVEAVX=0"
-
+    # Some bug in the Makefile...
+    system "mkdir", "-p", "#{prefix}/bin", "#{prefix}/lib" 
     system "make", "HAVEAVX=0", "PREFIX=#{prefix}", "install"
     (pkgshare/"test").install Dir["test/*"]
-
   end
 
   test do
-    # Build system's 'make' ran 'make test'
-    system "#{bin}/sha1dcsum"
+    system "#{bin}/sha1dcsum #{pkgshare}/test/shattered-1.pdf | fgrep -q '*coll*'"
+    system "#{bin}/sha1dcsum #{pkgshare}/test/shattered-2.pdf | fgrep -q '*coll*'"
+    system "#{bin}/sha1dcsum_partialcoll #{pkgshare}/test/sha1_reducedsha_coll.bin | fgrep -q '*coll*'"
   end
 end
