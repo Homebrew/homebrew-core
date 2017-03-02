@@ -1,8 +1,8 @@
 class Libepoxy < Formula
   desc "Library for handling OpenGL function pointer management"
   homepage "https://github.com/anholt/libepoxy"
-  url "https://download.gnome.org/sources/libepoxy/1.4/libepoxy-1.4.0.tar.xz"
-  sha256 "25a906b14a921bc2b488cfeaa21a00486fe92630e4a9dd346e4ecabeae52ab41"
+  url "https://download.gnome.org/sources/libepoxy/1.4/libepoxy-1.4.1.tar.xz"
+  sha256 "88c6abf5522fc29bab7d6c555fd51a855cbd9253c4315f8ea44e832baef21aa6"
 
   bottle do
     cellar :any
