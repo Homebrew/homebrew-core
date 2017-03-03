@@ -8,9 +8,9 @@ class Certbot < Formula
   head "https://github.com/certbot/certbot.git"
 
   bottle do
-    sha256 "1cee2be416f68b08b853a02fd5f83022412f09185dd1cad82d32afa409a20616" => :sierra
-    sha256 "1c5b6c6bc933b0d1ac0843670433a650fcedc850eff8b43c7c392106071ac6b7" => :el_capitan
-    sha256 "d47f016ae48e15f6914a6ff1312521d0065f3cdd3f9b7e6a275f02d9872fc983" => :yosemite
+    sha256 "9829d574339506e5d32e996a59243a21fbd2f2e36dfde6ee7a782328c4906715" => :sierra
+    sha256 "bf56f71a462200aa9119febbbebc1bfdb948e417544431cd4802570134d3cf95" => :el_capitan
+    sha256 "d3d84c74c23827d0fd276f6edab999cd2fa79c2c01c3e06f1e6b809f9d0adc76" => :yosemite
   end
 
   depends_on "augeas"
