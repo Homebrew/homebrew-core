@@ -75,6 +75,36 @@ class GitlabCiMultiRunner < Formula
     end
   end
 
+  plist_options :manual => "gitlab-ci-multi-runner start"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>SessionCreate</key><false/>
+        <key>KeepAlive</key><true/>
+        <key>RunAtLoad</key><true/>
+        <key>Disabled</key><false/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/gitlab-ci-multi-runner</string>
+          <string>run</string>
+          <string>--working-directory</string>
+          <string>#{ENV["HOME"]}</string>
+          <string>--config</string>
+          <string>#{ENV["HOME"]}/.gitlab-runner/config.toml</string>
+          <string>--service</string>
+          <string>gitlab-runner</string>
+          <string>--syslog</string>
+        </array>
+      </dict>
+    </plist>
+    EOS
+  end
+
   test do
     assert_match version.to_s, shell_output("#{bin}/gitlab-runner --version")
   end
