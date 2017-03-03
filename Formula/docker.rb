@@ -30,7 +30,7 @@ class Docker < Formula
 
     system "hack/make.sh", "dynbinary-client"
 
-    build_version = build.head? ? File.read("VERSION").chomp : version
+    build_version = build.head? ? File.read("VERSION").chomp : "#{version}-ce"
     bin.install "bundles/#{build_version}/dynbinary-client/docker-#{build_version}" => "docker"
 
     if build.with? "completions"
