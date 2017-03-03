@@ -3,7 +3,7 @@ class Sha1dc < Formula
   homepage "https://github.com/cr-marcstevens/sha1collisiondetection"
   url "https://github.com/cr-marcstevens/sha1collisiondetection.git",
       :revision => "6b1c12f3606d0959f8658d44a324fcf5f4497f88"
-  version "HEAD-6b1c12"
+  version "git-6b1c12"
 
   depends_on "libtool" => :build
 
