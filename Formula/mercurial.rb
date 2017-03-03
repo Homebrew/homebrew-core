@@ -8,9 +8,9 @@ class Mercurial < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6c66a096f76d77b35febca52870df73b320e491810587b395ecb72591326d5b4" => :sierra
-    sha256 "6f8f61e23762cd42398902f3a4de6568e1c338826b1dce5b3694908d1748c27b" => :el_capitan
-    sha256 "0ba0f500d97bfba5715d9bee5407d452e0d9d5bb56f9ffbcdb09dadfcda289ae" => :yosemite
+    sha256 "5527615a14972fa172a6c1b8bd7d45256fb257eec85c910fd3c1fffb7c7de1d9" => :sierra
+    sha256 "f6ffda7603408c8f9f7bf59d8f2dfe8158d0e5fc69730f77de71192e9c5631b3" => :el_capitan
+    sha256 "9106b86ebdbf92e27a08d7761398162471085861ab35fc3c4d802ab5de060c19" => :yosemite
   end
 
   option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"
