@@ -15,7 +15,7 @@ class Sslscan < Formula
 
   option "with-openssl", "Don't statically link OpenSSL"
 
-  depends_on "openssl" => :recommended
+  depends_on "openssl" => :optional
 
   resource "openssl" do
     url "https://github.com/openssl/openssl.git",
