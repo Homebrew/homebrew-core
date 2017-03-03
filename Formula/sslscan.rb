@@ -13,26 +13,31 @@ class Sslscan < Formula
     sha256 "b69483d7db7813ad144004b0f8c4f6848e6f8f59d305c2d8fd4499ec355247de" => :yosemite
   end
 
-  option "with-static-openssl", "Statically link OpenSSL to enable weak ciphers"
+  option "with-openssl", "Don't statically link OpenSSL"
 
-  if build.without? "static-openssl"
-    depends_on "openssl"
+  depends_on "openssl" => :recommended
+
+  resource "openssl" do
+    url "https://github.com/openssl/openssl.git",
+        :branch => "OpenSSL_1_0_2-stable"
   end
 
   def install
-    if build.with? "static-openssl"
-      system "make", "static"
-    else
+    if build.with? "openssl"
       system "make"
+    else
+      (buildpath/"openssl").install resource("openssl")
+      ENV.deparallelize do
+        system "make", "static"
+      end
     end
 
     system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
-    if build.with? "static-openssl"
-      version = pipe_output([bin/"sslscan", "--version"], nil, 0)
-      assert_match(/-static$/, version.lines.first)
+    if build.without? "openssl"
+      assert_match "static", shell_output("#{bin}/sslscan --version")
     end
     system "#{bin}/sslscan", "google.com"
   end
