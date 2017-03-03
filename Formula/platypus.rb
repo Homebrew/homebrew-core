@@ -1,9 +1,9 @@
 class Platypus < Formula
   desc "Create macOS applications from {Perl,Ruby,sh,Python} scripts"
   homepage "https://sveinbjorn.org/platypus"
-  url "https://sveinbjorn.org/files/software/platypus/platypus5.1.src.zip"
-  version "5.1"
-  sha256 "7ff3a5e7c5a01603855e3294763d5603b90f8cfa100670771abc1097fd85fc7a"
+  url "https://sveinbjorn.org/files/software/platypus/platypus5.2.src.zip"
+  version "5.2"
+  sha256 "0c0201804e13c09a33fe95ba715ed995872d35d3cdfa2cb694cf378980ed4c08"
   head "https://github.com/sveinbjornt/Platypus.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Platypus < Formula
     sha256 "db54229624888569c9a9e5356e1a91ee141b96a257cab6f3230880938faf6d7f" => :yosemite
   end
 
-  depends_on :xcode => ["7.0", :build]
+  depends_on :xcode => ["8.0", :build]
 
   def install
     xcodebuild "SYMROOT=build", "DSTROOT=#{buildpath}",
