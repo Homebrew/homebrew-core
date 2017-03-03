@@ -4,6 +4,13 @@ class MysqlUtilities < Formula
   url "https://github.com/mysql/mysql-utilities/archive/release-1.6.5.tar.gz"
   sha256 "40b6987064f204fed2286c682c9a6ded8ba4670f7543edd310aab91fee8fbc3b"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "7166858aeafbd28075334ede9d60569a282ccd0a87dcf353cb6b56a40ae987c0" => :sierra
+    sha256 "7166858aeafbd28075334ede9d60569a282ccd0a87dcf353cb6b56a40ae987c0" => :el_capitan
+    sha256 "7166858aeafbd28075334ede9d60569a282ccd0a87dcf353cb6b56a40ae987c0" => :yosemite
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "mysql-connector-python" do
