@@ -5,9 +5,9 @@ class GnomeAutoar < Formula
   sha256 "f642935e9213663c114988403fba26c02e79a644b33cb0e4da0d4aec570fb1fb"
 
   bottle do
-    sha256 "491fb56f2c6845b382768cfc708c416e0399fd442449886166f53d90e60f9c42" => :sierra
-    sha256 "64f833b3fcd9542136cb566a626acd27b0b639b299481d1956ba654289ae6ad9" => :el_capitan
-    sha256 "89ef58b548f67ac6955659a1c6470afdba44a76d1d6daf2e2c61af26b5fea310" => :yosemite
+    sha256 "52e7ea44914e44d29a13933ee07e041410fe00d51ecaaa3299289c373f9b9b8d" => :sierra
+    sha256 "d0400907d7327030cebc0ccbf2b708210f24976212a97c2a2435d1d3205d240f" => :el_capitan
+    sha256 "58e0e8252f49ba983cae0d3523270e052db1333466879ee1feced3d1e860b91e" => :yosemite
   end
 
   depends_on "pkg-config" => :build
