@@ -3,8 +3,8 @@ class Vdirsyncer < Formula
 
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
-  url "https://files.pythonhosted.org/packages/7f/3b/24b44d91eb591f75a658928fc228cbe6571d499a8778730f9ddae389ca5e/vdirsyncer-0.14.1.tar.gz"
-  sha256 "c51734cdbaf4ede98c375f87bc7a673032a4026378d4963cf9b7a1265d008e10"
+  url "https://files.pythonhosted.org/packages/d7/83/1173613bc62b85f8c074b6589072951ad4f7e674d51d8bad875be38bc813/vdirsyncer-0.15.0.tar.gz"
+  sha256 "52f7acccab443ce20aca2623b80475f741844929977c08b2f8f11fc9ba2f4a21"
   head "https://github.com/pimutils/vdirsyncer"
 
   bottle do
@@ -23,8 +23,8 @@ class Vdirsyncer < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"
-    sha256 "cc6a19da8ebff6e7074f731447ef7e112bd23adf3de5c597cf9989f2fd8defe9"
+    url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
+    sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
   end
 
   resource "click-log" do
@@ -33,18 +33,18 @@ class Vdirsyncer < Formula
   end
 
   resource "click-threading" do
-    url "https://files.pythonhosted.org/packages/ef/67/7d75738e83b4d7f30242ed1e4379e4207da5d0c0aa9876148778790433f6/click-threading-0.4.2.tar.gz"
-    sha256 "400b0bb63d9096b6bf2806efaf742a1cc8b6c88e0484f0afe7d7a7f0e9870609"
+    url "https://files.pythonhosted.org/packages/66/7f/2afa4041e4b693b317c8bb800cbc87baeb22de9a1c4fac7a89e37276e82c/click-threading-0.4.3.tar.gz"
+    sha256 "8f91a9abc8bb40287338e70587bf6043449808a0228c496ff4ef03cdc55b4477"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/5b/0b/34be574b1ec997247796e5d516f3a6b6509c4e064f2885a96ed885ce7579/requests-2.12.4.tar.gz"
-    sha256 "ed98431a0631e309bb4b63c81d561c1654822cb103de1ac7b47e45c26be7ae34"
+    url "https://files.pythonhosted.org/packages/16/09/37b69de7c924d318e51ece1c4ceb679bf93be9d05973bb30c35babd596e2/requests-2.13.0.tar.gz"
+    sha256 "5722cd09762faa01276230270ff16af7acf7c5c45d623868d9ba116f15791ce8"
   end
 
   resource "requests-toolbelt" do
-    url "https://files.pythonhosted.org/packages/59/78/1d391d30ebf74079a8e4de6ab66fdca5362903ef2df64496f4697e9bb626/requests-toolbelt-0.7.0.tar.gz"
-    sha256 "33899d4a559c3f0f5e9fbc115d337c4236febdc083755a160a4132d92fc3c91a"
+    url "https://files.pythonhosted.org/packages/ab/bf/2af6b25f880e2d529a524f98837d33b1048a2a15703fc4806185b54e9672/requests-toolbelt-0.7.1.tar.gz"
+    sha256 "c3843884269d79e492522f3e9f490917e074c1ddbb80111968970e721fe36eaf"
   end
 
   def install
@@ -67,19 +67,19 @@ class Vdirsyncer < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
     (testpath/".config/vdirsyncer/config").write <<-EOS.undent
       [general]
-      status_path = #{testpath}/.vdirsyncer/status/
+      status_path = "#{testpath}/.vdirsyncer/status/"
       [pair contacts]
-      a = contacts_a
-      b = contacts_b
+      a = "contacts_a"
+      b = "contacts_b"
       collections = ["from a"]
       [storage contacts_a]
-      type = filesystem
-      path = ~/.contacts/a/
-      fileext = .vcf
+      type = "filesystem"
+      path = "~/.contacts/a/"
+      fileext = ".vcf"
       [storage contacts_b]
-      type = filesystem
-      path = ~/.contacts/b/
-      fileext = .vcf
+      type = "filesystem"
+      path = "~/.contacts/b/"
+      fileext = ".vcf"
     EOS
     (testpath/".contacts/a/foo/092a1e3b55.vcf").write <<-EOS.undent
       BEGIN:VCARD
