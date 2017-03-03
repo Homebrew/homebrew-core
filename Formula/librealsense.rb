@@ -6,7 +6,7 @@ class Librealsense < Formula
 
   head "https://github.com/IntelRealSense/librealsense.git"
 
-  option "with-examples", "Install C and python examples (sources)"
+  option "with-examples", "Install examples"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
