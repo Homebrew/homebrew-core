@@ -1,8 +1,8 @@
 class RancherCompose < Formula
   desc "Docker Compose compatible client to deploy to Rancher"
   homepage "https://github.com/rancher/rancher-compose"
-  url "https://github.com/rancher/rancher-compose/archive/v0.12.2.tar.gz"
-  sha256 "5b9311479eac85f4a0665258b4e1859e7b5eba3cbae66eb7c6864c59ff78d806"
+  url "https://github.com/rancher/rancher-compose/archive/v0.12.3.tar.gz"
+  sha256 "37af26f28d96301c0e1813c0c3dd0078573a5902bad5d7c449f0a4857afcb93e"
 
   bottle do
     cellar :any_skip_relocation
