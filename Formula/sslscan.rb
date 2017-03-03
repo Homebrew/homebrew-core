@@ -13,18 +13,27 @@ class Sslscan < Formula
     sha256 "b69483d7db7813ad144004b0f8c4f6848e6f8f59d305c2d8fd4499ec355247de" => :yosemite
   end
 
-  depends_on "openssl"
+  option "with-static-openssl", "Statically link OpenSSL to enable weak ciphers"
+
+  if build.without? "static-openssl"
+    depends_on "openssl"
+  end
 
   def install
-    system "make"
-    # This regression was fixed upstream, but not in this release.
-    # https://github.com/rbsec/sslscan/commit/6e89c0597ebc779ac82
-    # Remove the below line on next stable release.
-    mkdir_p [bin, man1]
+    if build.with? "static-openssl"
+      system "make", "static"
+    else
+      system "make"
+    end
+
     system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
+    if build.with? "static-openssl"
+      version = pipe_output([bin/"sslscan", "--version"], nil, 0)
+      assert_match(/-static$/, version.lines.first)
+    end
     system "#{bin}/sslscan", "google.com"
   end
 end
