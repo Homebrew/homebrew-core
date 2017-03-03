@@ -17,6 +17,7 @@ class Abcde < Formula
   depends_on "cdrtools"
   depends_on "id3v2"
   depends_on "mkcue"
+  depends_on "md5sha1sum"
   depends_on "flac" => :optional
   depends_on "lame" => :optional
   depends_on "vorbis-tools" => :optional
