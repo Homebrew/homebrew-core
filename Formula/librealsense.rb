@@ -6,6 +6,13 @@ class Librealsense < Formula
 
   head "https://github.com/IntelRealSense/librealsense.git"
 
+  bottle do
+    cellar :any
+    sha256 "3076d299219ddee4b4b11e68238f339fc6f1b85f2acc360e11d815b85ed6a577" => :sierra
+    sha256 "ee7fe9916adcdca8fbea9a2bfc9f90662db0fbe8ec94c61ef6342eb2ec27775d" => :el_capitan
+    sha256 "36faefdb0a151dfbd090ce80c4e0692bde78b9ee4a1cde7bdd8ab82f15f96dae" => :yosemite
+  end
+
   option "with-examples", "Install examples"
 
   depends_on "cmake" => :build
