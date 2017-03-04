@@ -39,8 +39,6 @@ class BoostAT155 < Formula
 
   keg_only :versioned_formula
 
-  env :userpaths
-
   option "with-icu", "Build regexp engine with icu support"
   option "without-single", "Disable building single-threading variant"
   option "without-static", "Disable building static library variant"
