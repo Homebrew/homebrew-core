@@ -16,9 +16,7 @@ class Librealsense < Formula
   def install
     args = std_cmake_args
 
-    if build.with? "examples"
-      args << "-DBUILD_EXAMPLES=true"
-    end
+    args << "-DBUILD_EXAMPLES=true" if build.with? "examples"
 
     system "cmake", ".", *args
     system "make", "install"
@@ -35,6 +33,6 @@ class Librealsense < Formula
       }
     EOS
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-o", "test"
-    assert_equal `./test`.strip, version.to_s
+    assert_equal shell_output("./test").strip, version.to_s
   end
 end
