@@ -1,22 +1,30 @@
 class Sha1dc < Formula
   desc "Tool to detect SHA-1 collisions in files, including SHAttered"
   homepage "https://github.com/cr-marcstevens/sha1collisiondetection"
-  url "https://github.com/cr-marcstevens/sha1collisiondetection.git",
-      :revision => "6b1c12f3606d0959f8658d44a324fcf5f4497f88"
-  version "git-6b1c12"
+
+  # The "master" branch is unusably broken and behind the "simplified_c90" branch
+  # that's the basis for release.
+  head "https://github.com/cr-marcstevens/sha1collisiondetection.git",
+       :using => :git,
+       :branch => "simplified_c90"
+
+  devel do
+    url "https://github.com/cr-marcstevens/sha1collisiondetection/archive/development-v1.0.1.tar.gz"
+    sha256 "a414aad7ab1da30193d053ad31651d39a449c2f9f74eac777e467929d0de3c93"
+    version "dev-v1.0.1"
+  end
 
   depends_on "libtool" => :build
+  depends_on "coreutils" => :build
 
   def install
-    inreplace "Makefile", "libtool", "glibtool"
+    # Workaround a poor Makefile choice that prevents cmdline override of INSTALL
+    inreplace "Makefile", "INSTALL ?= install", "INSTALL ?= ginstall"
 
     ENV.deparallelize
 
-    # By default tries to build with HAVEAVX=1, fails.
-    system "make", "HAVEAVX=0"
-    # Some bug in the Makefile...
-    system "mkdir", "-p", "#{prefix}/bin", "#{prefix}/lib" 
-    system "make", "HAVEAVX=0", "PREFIX=#{prefix}", "install"
+    system "make", "LIBTOOL=glibtool"
+    system "make", "LIBTOOL=glibtool", "PREFIX=#{prefix}", "install"
     (pkgshare/"test").install Dir["test/*"]
   end
 
