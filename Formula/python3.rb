@@ -7,9 +7,9 @@ class Python3 < Formula
   revision 1
 
   bottle do
-    sha256 "b9b1de457689c84376fb8c35c67b0de4745ccb573ddc5f8ce0257b3b73358917" => :sierra
-    sha256 "8588e0f338a9c2187569cfd63180a7f6e4124929f0402f2e2a9e3337d23f9d94" => :el_capitan
-    sha256 "6db855fa31e33ceed7703f249f6c0e098e74db05294d7191cf175f0a4bffb1e2" => :yosemite
+    sha256 "e8b177926ce5e110d7cf9f03f9d11c60b08ad74ccee07bc72fe38ac981bf0cef" => :sierra
+    sha256 "0ddeba54962af4c14b115e279f5cefb72df55fc9bc98a1a60a5b4a2d5cf2fc77" => :el_capitan
+    sha256 "10b8bf96e157e88188492923ba0130f5f8b5e1d56a5bf4dc9f6dbc2b028bb24b" => :yosemite
   end
 
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
