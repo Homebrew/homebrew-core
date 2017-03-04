@@ -1,6 +1,6 @@
 class BoostAT155 < Formula
   desc "Collection of portable C++ source libraries"
-  homepage "http://www.boost.org"
+  homepage "https://www.boost.org"
   revision 1
 
   stable do
