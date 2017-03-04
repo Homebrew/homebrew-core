@@ -3,8 +3,8 @@ class MongoOrchestration < Formula
 
   desc "REST API to manage MongoDB configurations on a single host."
   homepage "https://github.com/10gen/mongo-orchestration"
-  url "https://files.pythonhosted.org/packages/ef/fd/0d4151edb6543db86f27282c872225f2519115fabb2eacd0f8cacea9095c/mongo-orchestration-0.6.8.tar.gz"
-  sha256 "ed27f9efa2ca701a3aa221f95c8cec4a6c3b623f82b594aa717d8be76cc15bdc"
+  url "https://files.pythonhosted.org/packages/96/91/271dce3d51e2b276c352c5061699650b596cb07987f1e0a101513f9aa93e/mongo-orchestration-0.6.9.tar.gz"
+  sha256 "a48ba59e0d15800544683f3aa69d3b6936d9b1e297a91b6beb0b6f1dfec5a523"
   head "https://github.com/10gen/mongo-orchestration"
 
   bottle do
