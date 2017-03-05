@@ -5,9 +5,9 @@ class BashCompletionAT2 < Formula
   sha256 "b0b9540c65532825eca030f1241731383f89b2b65e80f3492c5dd2f0438c95cf"
   head "https://github.com/scop/bash-completion.git"
 
-  keg_only :versioned_formula
-
   depends_on "bash"
+
+  conflicts_with "bash-completion", :because => "Differing version of same formula"
 
   def install
     inreplace "bash_completion", "readlink -f", "readlink"
