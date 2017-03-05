@@ -2,8 +2,8 @@ class Sha1dc < Formula
   desc "Tool to detect SHA-1 collisions in files, including SHAttered"
   homepage "https://github.com/cr-marcstevens/sha1collisiondetection"
 
-  # The "master" branch is unusably broken and behind the "simplified_c90" branch
-  # that's the basis for release.
+  # The "master" branch is unusably broken and behind the
+  # "simplified_c90" branch that's the basis for release.
   head "https://github.com/cr-marcstevens/sha1collisiondetection.git",
        :using => :git,
        :branch => "simplified_c90"
@@ -15,15 +15,12 @@ class Sha1dc < Formula
   end
 
   depends_on "libtool" => :build
-  depends_on "coreutils" => :build
+  depends_on "coreutils" => :build # GNU install
 
   def install
     # Workaround a poor Makefile choice that prevents cmdline override of INSTALL
     inreplace "Makefile", "INSTALL ?= install", "INSTALL ?= ginstall"
 
-    ENV.deparallelize
-
-    system "make", "LIBTOOL=glibtool"
     system "make", "LIBTOOL=glibtool", "PREFIX=#{prefix}", "install"
     (pkgshare/"test").install Dir["test/*"]
   end
