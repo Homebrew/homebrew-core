@@ -1,24 +1,18 @@
 class Sha1dc < Formula
   desc "Tool to detect SHA-1 collisions in files, including SHAttered"
   homepage "https://github.com/cr-marcstevens/sha1collisiondetection"
+  url "https://github.com/cr-marcstevens/sha1collisiondetection/archive/stable-v1.0.2.tar.gz"
+  sha256 "ab1a5624d12417b5af9ffe6662546b6932c39c0e4c4bef822851a2d0e53df790"
 
   # The "master" branch is unusably broken and behind the
   # "simplified_c90" branch that's the basis for release.
   head "https://github.com/cr-marcstevens/sha1collisiondetection.git",
-       :using => :git,
-       :branch => "simplified_c90"
-
-  devel do
-    url "https://github.com/cr-marcstevens/sha1collisiondetection/archive/development-v1.0.1.tar.gz"
-    sha256 "a414aad7ab1da30193d053ad31651d39a449c2f9f74eac777e467929d0de3c93"
-    version "dev-v1.0.1"
-  end
+       :using => :git
 
   depends_on "libtool" => :build
   depends_on "coreutils" => :build # GNU install
 
   def install
-
     system "make", "INSTALL=ginstall", "PREFIX=#{prefix}", "install"
     (pkgshare/"test").install Dir["test/*"]
   end
