@@ -1,8 +1,8 @@
 class Algol68g < Formula
   desc "Algol 68 compiler-interpreter"
   homepage "https://jmvdveer.home.xs4all.nl/algol.html"
-  url "https://jmvdveer.home.xs4all.nl/algol68g-2.8.3.tar.gz"
-  sha256 "568bc93950463f8a70c3973097360945a4dfb300c422a8410cfc638d6ba548e7"
+  url "https://jmvdveer.home.xs4all.nl/algol68g-2.8.4.tar.gz"
+  sha256 "5823ccd0c18fe10a368a117cc3924748c4a5d0fe8dff0d9d818ff73c342565f0"
 
   bottle do
     sha256 "35d3ba002e09ec60ff236c6d0a6fcc815ea49f5e9b40f0155057b22da87e1245" => :sierra
