@@ -3,7 +3,7 @@ class NodeAT010 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v0.10.48/node-v0.10.48.tar.xz"
   sha256 "365a93d9acc076a0d93f087d269f376abeebccad599a9dab72f2f6ed96c8ae6e"
-  revision 1
+  revision 2
   head "https://github.com/nodejs/node.git", :branch => "v0.10-staging"
 
   bottle do
@@ -11,8 +11,6 @@ class NodeAT010 < Formula
     sha256 "8ce0ceb59591ce55c8cd26b0f7c3d5fd5abac589d7889dbfa533cda1aec6a129" => :el_capitan
     sha256 "92d2adc6b4da184b09142ca42e1c66abe7febd45ab7018dfd07735b841a7385c" => :yosemite
   end
-
-  keg_only :versioned_formula
 
   deprecated_option "enable-debug" => "with-debug"
 
@@ -22,6 +20,9 @@ class NodeAT010 < Formula
 
   depends_on :python => :build
   depends_on "openssl" => :optional
+
+  conflicts_with "node", :because => "Differing version of same formula"
+  conflicts_with "node@0.12", :because => "Differing version of same formula"
 
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-2.15.1.tgz"
