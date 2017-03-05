@@ -10,6 +10,8 @@ class PostgresqlAT95 < Formula
     sha256 "e60d51ca79ff282189fcdbe26aa8dbaf26835822495ad84c859e1a3d0e91a2ab" => :yosemite
   end
 
+  keg_only :versioned_formula
+
   option "without-perl", "Build without Perl support"
   option "without-tcl", "Build without Tcl support"
   option "with-dtrace", "Build with DTrace support"
@@ -23,11 +25,6 @@ class PostgresqlAT95 < Formula
 
   option "with-python3", "Enable PL/Python3 (incompatible with --with-python)"
   depends_on :python3 => :optional
-
-  conflicts_with "postgres-xc",
-    :because => "postgresql and postgres-xc install the same binaries."
-  conflicts_with "postgresql",
-    :because => "Differing versions of the same formula."
 
   fails_with :clang do
     build 211
