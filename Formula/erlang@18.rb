@@ -4,6 +4,13 @@ class ErlangAT18 < Formula
   url "https://github.com/erlang/otp/archive/OTP-18.3.4.tar.gz"
   sha256 "d9e68a8cdef4db0935b02d4b163cf3af403405f756488874736298cf48b90ae9"
 
+  bottle do
+    cellar :any
+    sha256 "44d49f4e02a162114a8e4760315278490482f2fabe61cce2e56e6606abec72c6" => :sierra
+    sha256 "e01b1d83bfb10b62ae1f4aa78e096ce29eebcac0a3630256b70a5613ed00a389" => :el_capitan
+    sha256 "8321028e343f226c150e01e9a0890918b66bd68542533a77b29c024feef9a808" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "without-hipe", "Disable building hipe; fails on various macOS systems"
