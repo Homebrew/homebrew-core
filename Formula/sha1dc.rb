@@ -18,10 +18,8 @@ class Sha1dc < Formula
   depends_on "coreutils" => :build # GNU install
 
   def install
-    # Workaround a poor Makefile choice that prevents cmdline override of INSTALL
-    inreplace "Makefile", "INSTALL ?= install", "INSTALL ?= ginstall"
 
-    system "make", "LIBTOOL=glibtool", "PREFIX=#{prefix}", "install"
+    system "make", "INSTALL=ginstall", "PREFIX=#{prefix}", "install"
     (pkgshare/"test").install Dir["test/*"]
   end
 
