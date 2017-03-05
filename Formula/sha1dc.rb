@@ -26,8 +26,8 @@ class Sha1dc < Formula
   end
 
   test do
-    system "#{bin}/sha1dcsum #{pkgshare}/test/shattered-1.pdf | fgrep -q '*coll*'"
-    system "#{bin}/sha1dcsum #{pkgshare}/test/shattered-2.pdf | fgrep -q '*coll*'"
-    system "#{bin}/sha1dcsum_partialcoll #{pkgshare}/test/sha1_reducedsha_coll.bin | fgrep -q '*coll*'"
+    assert_match "*coll*", shell_output("#{bin}/sha1dcsum #{pkgshare}/test/shattered-1.pdf")
+    assert_match "*coll*", shell_output("#{bin}/sha1dcsum #{pkgshare}/test/shattered-2.pdf")
+    assert_match "*coll*", shell_output("#{bin}/sha1dcsum_partialcoll #{pkgshare}/test/sha1_reducedsha_coll.bin")
   end
 end
