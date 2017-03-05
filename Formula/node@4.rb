@@ -3,6 +3,7 @@ class NodeAT4 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v4.8.0/node-v4.8.0.tar.xz"
   sha256 "67ea720419f902bd47e5c45a16ed45f8083c38ccd307b206a1dc53e862fad965"
+  revision 1
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
@@ -22,9 +23,10 @@ class NodeAT4 < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl" => :optional
 
+  # Keep in sync with main node formula
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-2.15.11.tgz"
-    sha256 "927974142c9a44e9bd879d9e9762e7de379b43c5acfae32b02b44f60e59a9c9c"
+    url "https://registry.npmjs.org/npm/-/npm-4.1.2.tgz"
+    sha256 "87f2c95f98ac53d14d9e2c506f8ecfe1d891cd7c970450c74bf0daff24d65cfd"
   end
 
   resource "icu4c" do
