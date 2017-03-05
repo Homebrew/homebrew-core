@@ -1,7 +1,7 @@
 class Ack < Formula
   desc "Search tool like grep, but optimized for programmers"
-  homepage "http://beyondgrep.com/"
-  url "http://beyondgrep.com/ack-2.14-single-file"
+  homepage "https://beyondgrep.com/"
+  url "https://beyondgrep.com/ack-2.14-single-file"
   version "2.14"
   sha256 "1d203cfbc52ce8f49e3992be1cd3e4d7d5dfb7daa3739e8628aa9858ccc5b9df"
 
