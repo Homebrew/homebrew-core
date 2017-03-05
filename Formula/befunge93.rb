@@ -1,7 +1,7 @@
 class Befunge93 < Formula
   desc "Esoteric programming language"
-  homepage "http://catseye.tc/node/Befunge-93.html"
-  url "http://catseye.tc/distfiles/befunge-93-2.23-2015.0101.zip"
+  homepage "https://catseye.tc/node/Befunge-93.html"
+  url "https://catseye.tc/distfiles/befunge-93-2.23-2015.0101.zip"
   version "2.23-2015.0101"
   sha256 "7ca6509b9d25627f90b9ff81da896a8ab54853e87a5be918d79cf425bcb8246e"
   head "https://github.com/catseye/Befunge-93.git"
