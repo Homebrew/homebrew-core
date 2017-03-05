@@ -1,9 +1,9 @@
 class Entr < Formula
   desc "Run arbitrary commands when files change"
   homepage "http://entrproject.org/"
-  url "http://entrproject.org/code/entr-3.6.tar.gz"
-  mirror "https://bitbucket.org/eradman/entr/get/entr-3.6.tar.gz"
-  sha256 "a42746d81c548d7e557d500f93422b8ec9731d719309eb2601b8be69ae0dc8eb"
+  url "http://entrproject.org/code/entr-3.7.tar.gz"
+  mirror "https://bitbucket.org/eradman/entr/get/entr-3.7.tar.gz"
+  sha256 "94efd50c8f7e9d569060d5deebf366c3565e81e814ab332b973d7298fa8ea22f"
 
   bottle do
     cellar :any_skip_relocation
