@@ -3,7 +3,7 @@ class Aqbanking < Formula
   homepage "https://www.aquamaniac.de/sites/home/"
   url "https://www.aquamaniac.de/sites/download/download.php?package=03&release=208&file=01&dummy=aqbanking-5.6.12.tar.gz"
   sha256 "0652706a487d594640a7d544271976261165bf269d90dc70447b38b363e54b22"
-  head "https://git.aqbanking.de/git/aqbanking"
+  head "https://git.aqbanking.de/git/aqbanking", :using => :git
 
   bottle do
     sha256 "55d0359a888464040bedd5a893d2894435ad388d5374bab9728abe49a4dc00e1" => :sierra
