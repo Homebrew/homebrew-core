@@ -3,6 +3,7 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v7.7.1/node-v7.7.1.tar.xz"
   sha256 "965fc82aa767223be574e41d7f78ec4bd2ab3da619cef1256e46c30d053b7611"
+  revision 1
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -23,6 +24,9 @@ class Node < Formula
   depends_on "pkg-config" => :build
   depends_on "icu4c" => :recommended
   depends_on "openssl" => :optional
+
+  conflicts_with "node@0.12", :because => "Differing version of same formula"
+  conflicts_with "node@0.10", :because => "Differing version of same formula"
 
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
