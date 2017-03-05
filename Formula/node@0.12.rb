@@ -3,7 +3,7 @@ class NodeAT012 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v0.12.18/node-v0.12.18.tar.xz"
   sha256 "aec65fae74d1b8d649c145f8ede70afa481002af49cca3336368a7502cb0dc1f"
-  revision 1
+  revision 2
   head "https://github.com/nodejs/node.git", :branch => "v0.12-staging"
 
   bottle do
@@ -11,8 +11,6 @@ class NodeAT012 < Formula
     sha256 "00e66c633a605d3bbe9ba83135c88ade073ac714627677da7c6b7c9215bc136b" => :el_capitan
     sha256 "7c4c720e9ba818f29fac785915431c11323cdd557793e49de3837cc0f0ce3656" => :yosemite
   end
-
-  keg_only :versioned_formula
 
   option "with-debug", "Build with debugger hooks"
   option "without-npm", "npm will not be installed"
@@ -25,6 +23,9 @@ class NodeAT012 < Formula
   # https://github.com/nodejs/node-v0.x-archive/issues/7919
   # https://github.com/Homebrew/homebrew/issues/36681
   depends_on "icu4c" => :optional
+
+  conflicts_with "node", :because => "Differing version of same formula"
+  conflicts_with "node@0.10", :because => "Differing version of same formula"
 
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-2.15.11.tgz"
