@@ -3,6 +3,7 @@ class NodeAT6 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v6.10.0/node-v6.10.0.tar.xz"
   sha256 "f65d5d4b7253ee29f3ba4edabd3473845075e43569bceea4267e7bf3e00ebb96"
+  revision 1
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
@@ -31,12 +32,10 @@ class NodeAT6 < Formula
     fails_with :gcc => n
   end
 
-  # We track major/minor from upstream Node releases.
-  # We will accept *important* npm patch releases when necessary.
-  # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
+  # Keep in sync with main node formula
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.10.10.tgz"
-    sha256 "1a7cd203ac30fd1417326d576ca5c66ae2ae6a2bf1ada151bee2fc0d6965f99a"
+    url "https://registry.npmjs.org/npm/-/npm-4.1.2.tgz"
+    sha256 "87f2c95f98ac53d14d9e2c506f8ecfe1d891cd7c970450c74bf0daff24d65cfd"
   end
 
   resource "icu4c" do
