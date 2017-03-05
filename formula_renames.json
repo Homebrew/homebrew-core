@@ -78,6 +78,7 @@
   "plt-racket": "racket",
   "ppl011": "ppl@0.11",
   "polarssl": "mbedtls",
+  "postgresql95": "postgresql@95",
   "protobuf250": "protobuf@2.5",
   "protobuf260": "protobuf@2.6",
   "qt55": "qt@5.5",
