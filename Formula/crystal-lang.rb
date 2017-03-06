@@ -1,8 +1,8 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  url "https://github.com/crystal-lang/crystal/archive/0.21.0.tar.gz"
-  sha256 "4dd01703f5304a0eda7f02fc362fba27ba069666097c0f921f8a3ee58808779c"
+  url "https://github.com/crystal-lang/crystal/archive/0.21.1.tar.gz"
+  sha256 "eb93de3b388641fd2a09a2d10ab9fe40a58148d888fc48e4583a86ee1ddb1085"
   head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
@@ -24,9 +24,9 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.20.5/crystal-0.20.5-1-darwin-x86_64.tar.gz"
-    version "0.20.5"
-    sha256 "79462c8ff994b36cff219c356967844a17e8cb2817bb24a196a960a08b8c9e47"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.21.0/crystal-0.21.0-1-darwin-x86_64.tar.gz"
+    version "0.21.0"
+    sha256 "e92abb33a9a592febb4e629ad68375b2577acd791a71220b8dc407904be469ee"
   end
 
   resource "shards" do
@@ -34,44 +34,8 @@ class CrystalLang < Formula
     sha256 "31de819c66518479682ec781a39ef42c157a1a8e6e865544194534e2567cb110"
   end
 
-  resource "bdw-gc-7.6.0" do
-    url "https://www.hboehm.info/gc/gc_source/gc-7.6.0.tar.gz"
-    sha256 "a14a28b1129be90e55cd6f71127ffc5594e1091d5d54131528c24cd0c03b7d90"
-  end
-
-  resource "libevent-2.0.22" do
-    url "https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz"
-    sha256 "71c2c49f0adadacfdbe6332a372c38cf9c8b7895bb73dabeaa53cdcc1d4e1fa3"
-  end
-
   def install
-    resource("bdw-gc-7.6.0").stage do
-      system "./configure", "--disable-debug",
-                            "--disable-dependency-tracking",
-                            "--prefix=#{buildpath}/vendor/bdw-gc",
-                            "--enable-cplusplus"
-      system "make"
-      system "make", "install"
-    end
-
-    resource("libevent-2.0.22").stage do
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-debug-mode",
-                            "--prefix=#{buildpath}/vendor/libevent"
-      ENV.deparallelize do
-        system "make"
-        system "make", "install"
-      end
-    end
-
     (buildpath/"boot").install resource("boot")
-
-    macho = MachO.open("#{buildpath}/boot/embedded/bin/crystal")
-    macho.change_dylib("/usr/local/opt/libevent/lib/libevent-2.0.5.dylib",
-                       "#{buildpath}/vendor/libevent/lib/libevent-2.0.5.dylib")
-    macho.change_dylib("/usr/local/opt/bdw-gc/lib/libgc.1.dylib",
-                       "#{buildpath}/vendor/bdw-gc/lib/libgc.1.dylib")
-    macho.write!
 
     if build.head?
       ENV["CRYSTAL_CONFIG_VERSION"] = Utils.popen_read("git rev-parse --short HEAD").strip
