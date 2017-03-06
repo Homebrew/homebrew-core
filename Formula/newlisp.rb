@@ -1,9 +1,8 @@
 class Newlisp < Formula
   desc "Lisp-like, general-purpose scripting language"
   homepage "http://www.newlisp.org/"
-  url "http://www.newlisp.org/downloads/newlisp-10.7.0.tgz"
-  sha256 "c4963bf32d67eef7e4957f7118632a0c40350fd0e28064bce095865b383137bb"
-  revision 1
+  url "http://www.newlisp.org/downloads/newlisp-10.7.1.tgz"
+  sha256 "2e300c8bed365a564d284bf3ad6c49e036256e7fc3f469ebda0b45e6e196a7cc"
 
   bottle do
     sha256 "76637be4fb4ba87141134cab1dc708d53b4220aa96879b762f253544157cc2f1" => :sierra
