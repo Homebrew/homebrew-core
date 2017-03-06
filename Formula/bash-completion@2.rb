@@ -5,6 +5,13 @@ class BashCompletionAT2 < Formula
   sha256 "b0b9540c65532825eca030f1241731383f89b2b65e80f3492c5dd2f0438c95cf"
   head "https://github.com/scop/bash-completion.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "fb3aa25f0e5d40a7e92d2e79e521a01558a95c4c4e31999697ba5fdc7c7c28f8" => :sierra
+    sha256 "fb3aa25f0e5d40a7e92d2e79e521a01558a95c4c4e31999697ba5fdc7c7c28f8" => :el_capitan
+    sha256 "fb3aa25f0e5d40a7e92d2e79e521a01558a95c4c4e31999697ba5fdc7c7c28f8" => :yosemite
+  end
+
   depends_on "bash"
 
   conflicts_with "bash-completion", :because => "Differing version of same formula"
