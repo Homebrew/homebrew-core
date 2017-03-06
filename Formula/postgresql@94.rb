@@ -10,7 +10,7 @@ class PostgresqlAT94 < Formula
     sha256 "6adb9f87b93d61f64d29f4f4b8336f6c30c68d8b98d11325cf5de6a81254303a" => :yosemite
   end
 
-  revision 1
+  keg_only :versioned_formula
 
   option "without-perl", "Build without Perl support"
   option "without-tcl", "Build without Tcl support"
@@ -25,11 +25,6 @@ class PostgresqlAT94 < Formula
     build 211
     cause "Miscompilation resulting in segfault on queries"
   end
-
-  conflicts_with "postgres-xc",
-    :because => "postgresql and postgres-xc install the same binaries."
-  conflicts_with "postgresql",
-    :because => "Differing versions of the same formula."
 
   patch :DATA
 
