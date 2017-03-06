@@ -1,8 +1,8 @@
 class Timelimit < Formula
   desc "Limit a process's absolute execution time"
   homepage "https://devel.ringlet.net/sysutils/timelimit/"
-  url "https://devel.ringlet.net/sysutils/timelimit/timelimit-1.8.tar.gz"
-  sha256 "026e72b345f8407ebaa002036fd785b2136b2dfc4f8854f14536196ee3079996"
+  url "https://devel.ringlet.net/files/sys/timelimit/timelimit-1.8.1.tar.gz"
+  sha256 "7043d9ff1ec9650f7f50118529a4cea129720ea9d1035d986cb77e6358c7179d"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,9 +13,9 @@ class Timelimit < Formula
   end
 
   def install
-    # don't install for a specific user
+    # don't install for specific users
     inreplace "Makefile", "-o ${BINOWN} -g ${BINGRP}", ""
-    inreplace "Makefile", "-o ${MANOWN} -g ${MANGRP}", ""
+    inreplace "Makefile", "-o ${SHAREOWN} -g ${SHAREGRP}", ""
 
     args = %W[LOCALBASE=#{prefix} MANDIR=#{man}/man]
 
