@@ -9,6 +9,7 @@
   "autoconf213": "autoconf@213",
   "autoconf264": "autoconf@264",
   "automake112": "automake@112",
+  "bash-completion2": "bash-completion@2",
   "beanstalk": "beanstalkd",
   "berkeley-db4": "berkeley-db@4",
   "boost155": "boost@1.55",
