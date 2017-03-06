@@ -6,8 +6,7 @@ class Sha1dc < Formula
 
   # The "master" branch is unusably broken and behind the
   # "simplified_c90" branch that's the basis for release.
-  head "https://github.com/cr-marcstevens/sha1collisiondetection.git",
-       :using => :git
+  head "https://github.com/cr-marcstevens/sha1collisiondetection.git"
 
   depends_on "libtool" => :build
   depends_on "coreutils" => :build # GNU install
