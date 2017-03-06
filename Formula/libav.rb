@@ -1,10 +1,8 @@
 class Libav < Formula
   desc "Audio and video processing tools"
   homepage "https://libav.org/"
-  url "https://libav.org/releases/libav-11.4.tar.xz"
-  sha256 "0b7dabc2605f3a254ee410bb4b1a857945696aab495fe21b34c3b6544ff5d525"
-  revision 2
-
+  url "https://libav.org/releases/libav-12.tar.xz"
+  sha256 "72291ec223b08716fe5204b7b79ea8b90d75003730caa1c575dbf4232277a90e"
   head "https://git.libav.org/libav.git"
 
   bottle do
@@ -59,13 +57,6 @@ class Libav < Formula
   depends_on "sdl" => :optional
   depends_on "speex" => :optional
   depends_on "theora" => :optional
-
-  # Fixes the use of a removed identifier in libvpx;
-  # will be fixed in the next release.
-  patch do
-    url "https://github.com/libav/libav/commit/4d05e9392f84702e3c833efa86e84c7f1cf5f612.patch"
-    sha256 "78f02e231f3931a6630ec4293994fc6933c6a1c3d1dd501989155236843c47f9"
-  end
 
   def install
     args = [
