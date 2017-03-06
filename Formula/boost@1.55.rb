@@ -1,6 +1,6 @@
 class BoostAT155 < Formula
   desc "Collection of portable C++ source libraries"
-  homepage "http://www.boost.org"
+  homepage "https://www.boost.org"
   revision 1
 
   stable do
@@ -38,8 +38,6 @@ class BoostAT155 < Formula
   end
 
   keg_only :versioned_formula
-
-  env :userpaths
 
   option "with-icu", "Build regexp engine with icu support"
   option "without-single", "Disable building single-threading variant"
