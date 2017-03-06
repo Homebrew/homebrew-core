@@ -1,8 +1,8 @@
 class CouchdbLucene < Formula
   desc "Full-text search of CouchDB documents using Lucene"
   homepage "https://github.com/rnewson/couchdb-lucene"
-  url "https://github.com/rnewson/couchdb-lucene/archive/v1.1.0.tar.gz"
-  sha256 "854ea7410e542a81a458d0b7a55c6ff7dc40d02e79221928059556292f001087"
+  url "https://github.com/rnewson/couchdb-lucene/archive/v2.0.0.tar.gz"
+  sha256 "82c1c0c49317441a83247ad668d4ad5e5d2aac66c8214a35edc677478a4037c0"
 
   bottle do
     cellar :any_skip_relocation
