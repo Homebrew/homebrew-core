@@ -19,8 +19,8 @@ class BashCompletionAT2 < Formula
 
   def caveats; <<-EOS.undent
     Add the following to your ~/.bash_profile:
-      if [ -f #{opt_share}/bash-completion/bash_completion ]; then
-        . #{opt_share}/bash-completion/bash_completion
+      if [ -f #{HOMEBREW_PREFIX}/share/bash-completion/bash_completion ]; then
+        . #{HOMEBREW_PREFIX}/share/bash-completion/bash_completion
       fi
     EOS
   end
