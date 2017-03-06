@@ -29,8 +29,6 @@ class BoostAT157 < Formula
 
   needs :cxx11 if build.cxx11?
 
-  env :userpaths
-
   def install
     # https://svn.boost.org/trac/boost/ticket/8841
     if build.with?("mpi") && build.with?("single")
