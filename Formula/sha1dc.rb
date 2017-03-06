@@ -8,6 +8,13 @@ class Sha1dc < Formula
   # "simplified_c90" branch that's the basis for release.
   head "https://github.com/cr-marcstevens/sha1collisiondetection.git"
 
+  bottle do
+    cellar :any
+    sha256 "c4c4e68b8082833ac655f8a7188ccd3293242ca487393b6c0d23d2438e6d913e" => :sierra
+    sha256 "79b6dd2488c08d8cd967246dd896f23182bdd11b62b8c24d0b5303b0e1fdb6bc" => :el_capitan
+    sha256 "79a369c74f776477df991ee0c022cb16ddba18bed3d0da6082fec72e271735a7" => :yosemite
+  end
+
   depends_on "libtool" => :build
   depends_on "coreutils" => :build # GNU install
 
