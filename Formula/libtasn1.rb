@@ -12,10 +12,7 @@ class Libtasn1 < Formula
     sha256 "e506e5613818094ab8029cbf94b51068e7f1d1683bcc5bc6b06c84eb9be2576d" => :yosemite
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking",
                           "--disable-silent-rules"
     system "make", "install"
