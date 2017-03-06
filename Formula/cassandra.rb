@@ -4,6 +4,7 @@ class Cassandra < Formula
   url "https://www.apache.org/dyn/closer.lua/cassandra/3.10/apache-cassandra-3.10-bin.tar.gz"
   mirror "https://archive.apache.org/dist/cassandra/3.10/apache-cassandra-3.10-bin.tar.gz"
   sha256 "c09c3f92d4f80d5639e3f1624c9eec45d25793bbb6b3e3640937b68a9c6d107f"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,13 +17,13 @@ class Cassandra < Formula
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/7a/a8/5877fa2cec00f7678618fb465878fd9356858f0894b60c6960364b5cf816/setuptools-24.0.1.tar.gz"
-    sha256 "5d3ae6f1cc9f1d3e1fe420c5daaeb8d79059fcb12624f4897d5ed8a9348ee1d2"
+    url "https://files.pythonhosted.org/packages/26/d1/dc7fe14ce4a3ff3faebf1ac11350de4104ea2d2a80c98393b55c84362b0c/setuptools-32.1.0.tar.gz"
+    sha256 "86d57bf86edc0ecfd2dc0907ed3710bc4501fb13a06c0fcaf7632305b00ce832"
   end
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/b1/51/bd5ef7dff3ae02a2c6047aa18d3d06df2fb8a40b00e938e7ea2f75544cac/Cython-0.24.tar.gz"
-    sha256 "6de44d8c482128efc12334641347a9c3e5098d807dd3c69e867fa8f84ec2a3f1"
+    url "https://files.pythonhosted.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz"
+    sha256 "f141d1f9c27a07b5a93f7dc5339472067e2d7140d1c5a9e20112a5665ca60306"
   end
 
   resource "futures" do
@@ -36,8 +37,8 @@ class Cassandra < Formula
   end
 
   resource "thrift" do
-    url "https://files.pythonhosted.org/packages/ae/58/35e3f0cd290039ff862c2c9d8ae8a76896665d70343d833bdc2f748b8e55/thrift-0.9.3.tar.gz"
-    sha256 "dfbc3d3bd19d396718dab05abaf46d93ae8005e2df798ef02e32793cd963877e"
+    url "https://files.pythonhosted.org/packages/a3/ea/84a41e03f1ab14fb314c8bcf1c451090efa14c5cdfb9797d1079f502b54e/thrift-0.10.0.zip"
+    sha256 "b7f6c09155321169af03f9fb20dc15a4a0c7481e7c334a5ba8f7f0d864633209"
   end
 
   resource "cql" do
@@ -46,8 +47,8 @@ class Cassandra < Formula
   end
 
   resource "cassandra-driver" do
-    url "https://files.pythonhosted.org/packages/de/d0/38682a3bc9d581444e2106366ceaaa684bff4b2b5977e5f85b6014f7b6cc/cassandra-driver-3.5.0.tar.gz"
-    sha256 "924ea4f3458d39fad54eab5e2f0f5b98ccc636d1ee415f869f66c5163d405e0f"
+    url "https://files.pythonhosted.org/packages/d0/eb/9b9e7f1adcc8e11a9f106a2f40316e22b51af50107a449139ba796e9a71f/cassandra-driver-3.8.0.tar.gz"
+    sha256 "10b0c88854f3bddcfd994cb208d780507de62524ef8dcb4f068c084d335b7054"
   end
 
   def install
