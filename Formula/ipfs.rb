@@ -8,9 +8,9 @@ class Ipfs < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "77c22864edac09c9feac71e13a1b712cdb707bf1f5a93a03c8b3267836ff75a6" => :sierra
-    sha256 "26238cf78c5ff06914ef46b3836d9089261ca87e55636e4b50478bc7a76f6c2d" => :el_capitan
-    sha256 "ab771d7fafdc31f01105b00c3fb4b4eada6e1db875d5680a1e510e54690aeb20" => :yosemite
+    sha256 "f6eeab37b4054a1c4a20182b1d8779be436ab57c0e8ab213373cd0728e9384f8" => :sierra
+    sha256 "72bbaa7d093ee906b7fd989f21fc5c7f583d50d6112f03d6e059042ba78eba17" => :el_capitan
+    sha256 "9c8c0923a7a823b121a29abf9033f64f6c2baf73d6cf54f8b6509cfa3ddf8427" => :yosemite
   end
 
   depends_on "go" => :build
