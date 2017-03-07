@@ -14,32 +14,9 @@ class ReattachToUserNamespace < Formula
     sha256 "992f682ed9778b151164ade1a0fc67b85ce1368094c962857e0acbd408f6ace6" => :mavericks
   end
 
-  option "with-wrap-pbcopy-and-pbpaste", "Include wrappers for pbcopy/pbpaste that shim in this fix"
-  option "with-wrap-launchctl", "Include wrapper for launchctl with this fix"
-  deprecated_option "wrap-pbcopy-and-pbpaste" => "with-wrap-pbcopy-and-pbpaste"
-  deprecated_option "wrap-launchctl" => "with-wrap-launchctl"
-
   def install
     system "make"
     bin.install "reattach-to-user-namespace"
-    wrap_pbpasteboard_commands if build.with? "wrap-pbcopy-and-pbpaste"
-    wrap_launchctl if build.with? "wrap-launchctl"
-  end
-
-  def wrap_pbpasteboard_commands
-    make_executable_with_content("pbcopy", "cat - | reattach-to-user-namespace /usr/bin/pbcopy")
-    make_executable_with_content("pbpaste", "reattach-to-user-namespace /usr/bin/pbpaste")
-  end
-
-  def wrap_launchctl
-    make_executable_with_content("launchctl", 'reattach-to-user-namespace /bin/launchctl "$@"')
-  end
-
-  def make_executable_with_content(executable_name, content_lines)
-    executable = bin.join(executable_name)
-    content = [*content_lines].unshift("#!/bin/sh").join("\n")
-    executable.write(content)
-    executable.chmod(0755)
   end
 
   test do
