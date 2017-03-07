@@ -5,6 +5,7 @@ class VertX < Formula
   sha256 "dfd8bacc19c6a0c40c98cf557eabb688692ead0be749ba2f1200505eb490d3b0"
 
   bottle :unneeded
+  depends_on :java => "1.8+"
 
   def install
     rm_f Dir["bin/*.bat"]
