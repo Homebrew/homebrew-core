@@ -1,8 +1,8 @@
 class Mikutter < Formula
   desc "Extensible Twitter client."
   homepage "http://mikutter.hachune.net"
-  url "http://mikutter.hachune.net/bin/mikutter.3.5.2.tar.gz"
-  sha256 "a5c6d88ff7062014339d1af1f44bcc3736dbbd25e503f1c83f0b4e6e3c72b61f"
+  url "http://mikutter.hachune.net/bin/mikutter.3.5.3.tar.gz"
+  sha256 "906ed1d2851a6d51134d5c78344f1e79b0c7082589ef7578d3c5f3345070a58e"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
