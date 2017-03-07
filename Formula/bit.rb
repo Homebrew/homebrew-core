@@ -2,8 +2,8 @@ require "language/node"
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://www.bitsrc.io"
-  url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.1.31/bit-0.1.31-brew.tar.gz"
-  sha256 "e4df0bdabd21c9f9af81850a044ad9ea61c4392fe1515538e3462c4a00772071"
+  url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.2.6/bit-0.2.6-brew.tar.gz"
+  sha256 "59b3ef677c99ddd2c07b28c15b90fc82d56019e30879c48b2fe099ebae8a7f4a"
 
   bottle do
     sha256 "a3c8f1d2888e2320928dfc76ea6bc7b5b5b699929afc98fc542d0d9ac8184d40" => :sierra
@@ -19,6 +19,7 @@ class Bit < Formula
   end
 
   test do
-    assert_equal "successfully initialized an empty bit scope.\n", shell_output("#{bin}/bit init")
+    assert_equal "successfully initialized an empty bit scope.\n",
+                 shell_output("#{bin}/bit init --skip-update")
   end
 end
