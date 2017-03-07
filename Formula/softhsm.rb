@@ -5,9 +5,9 @@ class Softhsm < Formula
   sha256 "eb6928ae08da44fca4135d84d6b79ad7345f408193208c54bf69f5b2e71f85f7"
 
   bottle do
-    sha256 "6d50085c72282396e0d850a440c307130dae3087cc7ed21376d219184278c258" => :sierra
-    sha256 "562ec5baec50d318c7eae4a2f12def095008c19d24d359d05e794e0fa17212fa" => :el_capitan
-    sha256 "39f1bc348f541d122a8bd03d978be09ca971f7e9373707c26e9ba82eee262563" => :yosemite
+    sha256 "59d5370c78d7efec097ec01bbcdd45b6a9d03fbfcd25ba95eb6bb339f69fbeec" => :sierra
+    sha256 "f85bd50478506c2b885e1170ff7ad2761663d82ff3ffcaead3726a79358a3aea" => :el_capitan
+    sha256 "64c03ef2f241c633f8b74987e89b09274d590147629c7c292fa209f821c01947" => :yosemite
   end
 
   depends_on "openssl"
