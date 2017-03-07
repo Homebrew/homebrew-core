@@ -3,6 +3,7 @@ class PerconaServer < Formula
   homepage "https://www.percona.com"
   url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.17-13/source/tarball/percona-server-5.7.17-13.tar.gz"
   sha256 "31abe11f5aa7a85be4a2834e68abdd1fcb42016e73136b5da2b47070d7497a93"
+  revision 1
 
   bottle do
     sha256 "99a4df804615f630ad9d8fd69b586d4eaa50e8f3047461e41215f9f96b29ae99" => :sierra
@@ -55,6 +56,12 @@ class PerconaServer < Formula
       "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
       "COMMAND libtool -static -o ${TARGET_LOCATION}"
 
+    # dialog.so dynamic linking is broken on Mac OS X
+    # https://bugs.launchpad.net/percona-server/+bug/1671357
+    inreplace "plugin/percona-pam-for-mysql/src/dialog.c",
+      "#include <stdlib.h>",
+      "#include <stdlib.h>\n#include <../strings/my_stpnmov.c>"
+
     args = std_cmake_args + %W[
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
@@ -68,13 +75,8 @@ class PerconaServer < Formula
       -DDEFAULT_COLLATION=utf8_general_ci
       -DCOMPILATION_COMMENT=Homebrew
       -DWITH_EDITLINE=system
-    ]
-
-    # PAM plugin is Linux-only at the moment
-    args.concat %w[
-      -DWITHOUT_AUTH_PAM=1
-      -DWITHOUT_AUTH_PAM_COMPAT=1
-      -DWITHOUT_DIALOG=1
+      -DWITH_PAM=yes
+      -DHAVE_STRUCT_IFREQ_IFR_NAME=yes
     ]
 
     # TokuDB is broken on MacOsX
@@ -119,6 +121,10 @@ class PerconaServer < Formula
     end
 
     bin.install_symlink prefix/"support-files/mysql.server"
+
+    # The soft link is missing on Mac OS X
+    # https://bugs.launchpad.net/percona-server/+bug/1671357
+    lib.install_symlink prefix/"lib/mysql/plugin"
   end
 
   def caveats; <<-EOS.undent
