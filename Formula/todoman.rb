@@ -3,8 +3,8 @@ class Todoman < Formula
 
   desc "Simple CalDAV-based todo manager"
   homepage "https://todoman.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/2f/06/a377b38dcd3cba5334f3e6444ab5a26a0d7b134a6d040ac46a16ed70568f/todoman-1.8.0.tar.gz"
-  sha256 "8ccd602da8b0870dab8273dd50631847b2b9ad7e902a8ec5bfe901e0ea6c72a2"
+  url "https://files.pythonhosted.org/packages/1b/06/20d03c0807907088d2ce404d80f6ffdbe0161cd31c0167219961f0e42bbd/todoman-2.1.0.tar.gz"
+  sha256 "aacb4320daf74cddae93445fa10f211b8f664f96e930fb4257a46c9b8f7344ed"
   head "https://github.com/pimutils/todoman.git"
 
   bottle do
@@ -25,14 +25,24 @@ class Todoman < Formula
     sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
   end
 
+  resource "configobj" do
+    url "https://files.pythonhosted.org/packages/64/61/079eb60459c44929e684fa7d9e2fdca403f67d64dd9dbac27296be2e0fab/configobj-5.0.6.tar.gz"
+    sha256 "a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902"
+  end
+
+  resource "future" do
+    url "https://files.pythonhosted.org/packages/00/2b/8d082ddfed935f3608cc61140df6dcbf0edea1bc3ab52fb6c29ae3e81e85/future-0.16.0.tar.gz"
+    sha256 "e39ced1ab767b5936646cedba8bcce582398233d6a627067d4c6a454c90cfedb"
+  end
+
   resource "icalendar" do
-    url "https://files.pythonhosted.org/packages/e7/e7/71810ac9d3d5a062d3d7d16090ce2ea3e7877c2124afe23f9f7b8e2ffedd/icalendar-3.11.2.tar.gz"
-    sha256 "4f1df994cc0fe7ce63fec7adf1d9b3074b784faf3b1e702e7112cfb4b2f12c9f"
+    url "https://files.pythonhosted.org/packages/7f/0b/f13fa6ec05f44c13014ab7d7dd2ffae349c94d71151a311a8c5e7198b0a8/icalendar-3.11.3.tar.gz"
+    sha256 "6317d716563c41ca44b4694458f0a94734e35bb8c708994eb4503c8638d5d220"
   end
 
   resource "parsedatetime" do
-    url "https://files.pythonhosted.org/packages/8b/20/37822d52be72c99cad913fad0b992d982928cac882efbbc491d4b9d216a9/parsedatetime-2.1.tar.gz"
-    sha256 "17c578775520c99131634e09cfca5a05ea9e1bd2a05cd06967ebece10df7af2d"
+    url "https://files.pythonhosted.org/packages/62/a3/0c546deec0c1ea5e20320daf7719df9419c2bee97f1a11b9feaf0143b0fc/parsedatetime-2.2.tar.gz"
+    sha256 "1b1b647812e336f85be84206e4fb1f2df3852e036ac35b18dec809e7ebff1309"
   end
 
   resource "python-dateutil" do
