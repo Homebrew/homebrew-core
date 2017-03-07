@@ -28,6 +28,6 @@ class Gobuster < Formula
   end
 
   test do
-    system "#{bin}/gobuster"
+    assert_match(/\[!\] WordList \(-w\): Must be specified/, shell_output("#{bin}/gobuster -q"))
   end
 end
