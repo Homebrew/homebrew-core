@@ -1,8 +1,8 @@
 class Svgcleaner < Formula
   desc "Cleans your SVG files by removing unnecessary data."
   homepage "https://github.com/RazrFalcon/svgcleaner"
-  url "https://github.com/RazrFalcon/svgcleaner/archive/v0.7.1.tar.gz"
-  sha256 "6f79cbe0776dcd00404b26951657ca59b66212de95103e9c68842bf7a8df1875"
+  url "https://github.com/RazrFalcon/svgcleaner/archive/v0.8.1.tar.gz"
+  sha256 "843abc42a012cd65cf680473657e2d3c0f30415c80b8e6edb86a0c5589b3db06"
   head "https://github.com/RazrFalcon/svgcleaner.git"
 
   bottle do
