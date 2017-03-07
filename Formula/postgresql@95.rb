@@ -41,9 +41,9 @@ class PostgresqlAT95 < Formula
     args = %W[
       --disable-debug
       --prefix=#{prefix}
-      --datadir=#{HOMEBREW_PREFIX}/share/#{name}
-      --libdir=#{HOMEBREW_PREFIX}/lib
-      --sysconfdir=#{etc}
+      --datadir=#{pkgshare}
+      --libdir=#{lib}
+      --sysconfdir=#{prefix}/etc
       --docdir=#{doc}
       --enable-thread-safety
       --with-bonjour
@@ -83,14 +83,14 @@ class PostgresqlAT95 < Formula
     system "make"
     system "make", "install-world", "datadir=#{pkgshare}",
                                     "libdir=#{lib}",
-                                    "pkglibdir=#{lib}/postgresql"
+                                    "pkglibdir=#{lib}"
   end
 
   def post_install
     (var/"log").mkpath
-    (var/"postgres").mkpath
-    unless File.exist? "#{var}/postgres/PG_VERSION"
-      system "#{bin}/initdb", "#{var}/postgres"
+    (var/name).mkpath
+    unless File.exist? "#{var}/#{name}/PG_VERSION"
+      system "#{bin}/initdb", "#{var}/#{name}"
     end
   end
 
@@ -106,11 +106,11 @@ class PostgresqlAT95 < Formula
       https://www.postgresql.org/docs/9.5/static/pgupgrade.html
 
       You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
-      Do not run `brew cleanup postgresql` until you have performed the migration.
+      Do not run `brew cleanup postgresql@95` until you have performed the migration.
     EOS
   end
 
-  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgres start"
+  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/#{name} start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -125,14 +125,14 @@ class PostgresqlAT95 < Formula
       <array>
         <string>#{opt_bin}/postgres</string>
         <string>-D</string>
-        <string>#{var}/postgres</string>
+        <string>#{var}/#{name}</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
       <key>WorkingDirectory</key>
       <string>#{HOMEBREW_PREFIX}</string>
       <key>StandardErrorPath</key>
-      <string>#{var}/log/postgres.log</string>
+      <string>#{var}/log/#{name}.log</string>
     </dict>
     </plist>
     EOS
@@ -140,8 +140,8 @@ class PostgresqlAT95 < Formula
 
   test do
     system "#{bin}/initdb", testpath/"test"
-    assert_equal "#{HOMEBREW_PREFIX}/share/#{name}", shell_output("#{bin}/pg_config --sharedir").chomp
-    assert_equal "#{HOMEBREW_PREFIX}/lib", shell_output("#{bin}/pg_config --libdir").chomp
-    assert_equal "#{HOMEBREW_PREFIX}/lib/postgresql", shell_output("#{bin}/pg_config --pkglibdir").chomp
+    assert_equal pkgshare.to_s, shell_output("#{bin}/pg_config --sharedir").chomp
+    assert_equal lib.to_s, shell_output("#{bin}/pg_config --libdir").chomp
+    assert_equal lib.to_s, shell_output("#{bin}/pg_config --pkglibdir").chomp
   end
 end
