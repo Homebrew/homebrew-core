@@ -3,8 +3,8 @@ require "language/go"
 class Jid < Formula
   desc "Json incremental digger"
   homepage "https://github.com/simeji/jid"
-  url "https://github.com/simeji/jid/archive/0.7.1.tar.gz"
-  sha256 "4d641a2df2fbdc90f28b727782f08573024c712178e3ef373eda2dbc014d482a"
+  url "https://github.com/simeji/jid/archive/0.7.2.tar.gz"
+  sha256 "a16932049fb617fd7490742fcd3b5f131873309a12d97adbaf41a882cd1b99d1"
 
   bottle do
     sha256 "eab1a6374fa2aa8de529e44684246418fdcdaf8ef60258365141ff4e66cfb980" => :sierra
@@ -56,12 +56,6 @@ class Jid < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-
-    # Fix version
-    # Reported 14 Jan 2017 https://github.com/simeji/jid/issues/57
-    inreplace "cmd/jid/jid.go", "VERSION = \"0.6.2\"",
-                                "VERSION = \"#{version}\""
-
     (buildpath/"src/github.com/simeji").mkpath
     ln_sf buildpath, buildpath/"src/github.com/simeji/jid"
     Language::Go.stage_deps resources, buildpath/"src"
