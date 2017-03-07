@@ -1,8 +1,8 @@
 class Softhsm < Formula
   desc "Cryptographic store accessible through a PKCS#11 interface"
   homepage "https://www.opendnssec.org/softhsm/"
-  url "https://dist.opendnssec.org/source/softhsm-2.1.0.tar.gz"
-  sha256 "0399b06f196fbfaebe73b4aeff2e2d65d0dc1901161513d0d6a94f031dcd827e"
+  url "https://dist.opendnssec.org/source/softhsm-2.2.0.tar.gz"
+  sha256 "eb6928ae08da44fca4135d84d6b79ad7345f408193208c54bf69f5b2e71f85f7"
 
   bottle do
     sha256 "6d50085c72282396e0d850a440c307130dae3087cc7ed21376d219184278c258" => :sierra
@@ -10,14 +10,21 @@ class Softhsm < Formula
     sha256 "39f1bc348f541d122a8bd03d978be09ca971f7e9373707c26e9ba82eee262563" => :yosemite
   end
 
-  depends_on "botan"
+  depends_on "openssl"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}/softhsm",
+                          "--localstatedir=#{var}",
+                          "--with-crypto-backend=openssl",
+                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
+  end
+
+  def post_install
+    (var/"lib/softhsm/tokens").mkpath
   end
 
   test do
