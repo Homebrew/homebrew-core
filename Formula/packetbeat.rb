@@ -7,9 +7,10 @@ class Packetbeat < Formula
   head "https://github.com/elastic/beats.git"
 
   bottle do
-    sha256 "77b72c2af484dc5ce409757e62083fd8ff60872ac280f71e8c00e8cb9c261d24" => :sierra
-    sha256 "0d4fe922c914391ae9d4b07f63be10232b9bf9e85c12fba9e09619961ae0bd6e" => :el_capitan
-    sha256 "1ed699f8aad1f2743c32acbde472b7d30068b7bbe19fcd6d9397d881b2b98115" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "43c6fdbad0dc9e40cec17aa644be9d8851f4fdf2cd1dfc945daccd8ddfcfef01" => :sierra
+    sha256 "4c488c0a7bb1f78c4154bab14e4594edf539e1e702a693d598b080fcf3445bd8" => :el_capitan
+    sha256 "3b313ef88497e5c0719e8a2a3ad5f2fb031e815429411e3ac8a6cd5e11ed3848" => :yosemite
   end
 
   depends_on "go" => :build
