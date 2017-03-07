@@ -7,9 +7,9 @@ class Certigo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b7534755644c1964262462b21345dc8010a56befd720d36933a8bfc4d6d06959" => :sierra
-    sha256 "3da4468e46a25ba74f85512300c66d78a55670a6534104b999c6436c09a19ed0" => :el_capitan
-    sha256 "3e178d2df777912f9e3d6c98ecddf30a6aa109b892ac28a1542d858bd6780c86" => :yosemite
+    sha256 "2bcac7dc463b26b676b2862be33f6b2f436ac46df7c541620900820371245abe" => :sierra
+    sha256 "03cf577fe07ee6e6007565f9502c17e298e2107409a41ca57f2992bd53328946" => :el_capitan
+    sha256 "46615a2eaf1e1104dbb29afb1a0528b4cda03d3c7081a571fb6e602921aede27" => :yosemite
   end
 
   depends_on "go" => :build
