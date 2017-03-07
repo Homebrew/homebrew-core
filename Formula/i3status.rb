@@ -1,19 +1,10 @@
 class I3status < Formula
   desc "Status bar for i3"
   homepage "https://i3wm.org/i3status"
+  url "https://i3wm.org/i3status/i3status-2.11.tar.bz2"
+  sha256 "98db7e730f0ce908eb656ac10d713ae6a885676621391d54f00b719752f18c5f"
   head "https://github.com/i3/i3status.git"
 
-  stable do
-    url "https://i3wm.org/i3status/i3status-2.10.tar.bz2"
-    sha256 "daf5d07611b054a43da1a3d28850b05e2dbdbd6d25fd5e25ede98bb1b66e2791"
-
-    # NOTE: Remove the patches on the next release, since they have been reported and merged upstream
-    # Add ifdef to compile wireless_info on Mac
-    patch do
-      url "https://github.com/i3/i3status/commit/0a2d4d8a04dcfa71f9e8cecb2bd2772df989b228.patch"
-      sha256 "f183f05f9295d420a13dee0afbb7a9781216da13c88c8568e49dbfdadf958b64"
-    end
-  end
   bottle do
     cellar :any
     sha256 "3548d5e6f451ffa9c132116d596accae5fd161a546865b8e328b9d83320bcbe5" => :sierra
