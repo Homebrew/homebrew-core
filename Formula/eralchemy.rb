@@ -8,10 +8,9 @@ class Eralchemy < Formula
 
   bottle do
     cellar :any
-    sha256 "e19fbc52d9e66741c918786c6525fc05a91c9b30ab9d550a26f25a4549ad01a3" => :sierra
-    sha256 "cfdc556c98b2d81d8627d4614183f2964abd53c2838205f5831982ff061a83db" => :el_capitan
-    sha256 "176f5a19c8b68d7eeec32fe3f36d53798ec99736c14a02f835590100af905ddd" => :yosemite
-    sha256 "755bdac7cf8a455170209f3ad60be836ef6502c59268d39a8d764c5e750b5374" => :mavericks
+    sha256 "d6f58baabdf8db3224ff90ded790a18d805571e31d4a82c323d6b2b7a5af654c" => :sierra
+    sha256 "35b67ce15da8c1189760249239518bcf56332674bf7def6113adcd57b68eb503" => :el_capitan
+    sha256 "2b1556bf861cbc976d5eaa6f7cf4282bebf34b9f387dbaa29a7d7e1527a9d344" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
