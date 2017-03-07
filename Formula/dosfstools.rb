@@ -4,9 +4,8 @@ class Dosfstools < Formula
   head "https://github.com/dosfstools/dosfstools.git"
 
   stable do
-    url "https://github.com/dosfstools/dosfstools/releases/download/v4.0/dosfstools-4.0.tar.gz"
-    mirror "https://fossies.org/linux/misc/dosfstools-4.0.tar.gz"
-    sha256 "25809c30403c9a945ae34827ec75df32ff55017415a720864fefccc8c8f9991f"
+    url "https://github.com/dosfstools/dosfstools/releases/download/v4.1/dosfstools-4.1.tar.gz"
+    sha256 "dc49997fd9fcd6e550c1a0dd5f97863d6ded99d465c33633a2b8769f4d72a137"
 
     # This patch restores the old defaults in versions up to v3.0.28
     patch do
