@@ -1,9 +1,8 @@
 class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
-  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.4.3.tar.gz"
-  sha256 "501b9302d4ae622f04305debacd2f59941409c6345056ebb272779ac375f874d"
-  revision 2
+  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.6.0.tar.gz"
+  sha256 "42875ecdc0cab65fe3bb861f40b17f2dbd71764c030a07a0f0863b8f405eeb0d"
   head "https://github.com/Project-OSRM/osrm-backend.git"
 
   bottle do
@@ -12,6 +11,10 @@ class OsrmBackend < Formula
     sha256 "657a7fb717477ab7f79a6cf1edcf55c7ef71dfb37d3041ecb6d6cb88ef3c27b9" => :el_capitan
     sha256 "e65bf2c7c5f6baa953e85702a30f952acebba68c5cf20d99795a813f39f18441" => :yosemite
   end
+
+  # "invalid use of non-static data member 'offset'"
+  # https://github.com/Project-OSRM/osrm-backend/issues/3719
+  depends_on :macos => :el_capitan
 
   depends_on "cmake" => :build
   depends_on "boost"
