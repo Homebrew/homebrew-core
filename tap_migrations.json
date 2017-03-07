@@ -231,6 +231,7 @@
   "rubber": "homebrew/tex",
   "s3-backer": "homebrew/fuse",
   "s3fs": "homebrew/fuse",
+  "s3sync": "homebrew/boneyard",
   "salt": "homebrew/science",
   "sam2p": "homebrew/boneyard",
   "samba": "homebrew/boneyard",
