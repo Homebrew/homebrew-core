@@ -3,8 +3,8 @@ require "language/go"
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
-  url "https://github.com/lxc/lxd/archive/lxd-2.8.tar.gz"
-  sha256 "8722d9ea4cc4341742b0dd3646ee679f074756d675ee98ae324f1a2a4b6fa0b5"
+  url "https://github.com/lxc/lxd/archive/lxd-2.10.tar.gz"
+  sha256 "926b50a15523b4e181b0c3503b9accb35b276c27034a295fc56ae45a5dc1a811"
 
   bottle do
     cellar :any_skip_relocation
