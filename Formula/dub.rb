@@ -13,6 +13,12 @@ class Dub < Formula
     sha256 "fdc6753ba4c44dc2cbe6ac04217603c86e91b2f2e2018491d6afe94bcd61560e" => :yosemite
   end
 
+  devel do
+    url "https://github.com/dlang/dub/archive/v1.2.2-beta.1.tar.gz"
+    sha256 "16f1de8db0c54b6fe7dc7e5944c6dc0146e9c8e51f38869944ddc778af78e537"
+    version "1.2.2-beta.1"
+  end
+
   depends_on "pkg-config" => [:recommended, :run]
   depends_on "dmd" => :build
 
