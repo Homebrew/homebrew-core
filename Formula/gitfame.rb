@@ -4,8 +4,6 @@ class Gitfame < Formula
   url "https://github.com/ArtSabintsev/GitFame.git", :tag => "1.0.0"
   head "https://github.com/ArtSabintsev/GitFame.git"
 
-  depends_on :xcode => ["8.0", :build]
-
   def install
     xcodebuild "-project", "GitFame.xcodeproj",
     "CONFIGURATION_BUILD_DIR=build"
