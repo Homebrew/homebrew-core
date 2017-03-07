@@ -1,8 +1,8 @@
 class Stout < Formula
   desc "Reliable static website deploy tool"
   homepage "http://stout.is"
-  url "https://github.com/EagerIO/Stout/archive/v1.2.3.tar.gz"
-  sha256 "0c4b10be84b2a2de18020215e49d59c380aba38a13d5c975c7f45d2b8e3cf4bc"
+  url "https://github.com/EagerIO/Stout/archive/v1.3.1.tar.gz"
+  sha256 "455e238e238bf79f58d2e5a41f5ac582361c71a7eec72f45554f1c8f64de7006"
 
   bottle do
     cellar :any_skip_relocation
