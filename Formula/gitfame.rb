@@ -1,4 +1,4 @@
-class GitFame < Formula
+class Gitfame < Formula
   desc "A Swift CLI that logs your GitHub Stars and Forks."
   homepage "http://www.sabintsev.com"
   url "https://github.com/ArtSabintsev/GitFame.git", :tag => "1.0.0"
@@ -7,7 +7,9 @@ class GitFame < Formula
   depends_on :xcode => ["8.0", :build]
 
   def install
-    sh "xcodebuild -project 'GitFame.xcodeproj'"
+    xcodebuild "-project", "GitFame.xcodeproj",
+    "CONFIGURATION_BUILD_DIR=build"
+    bin.install "build/gitfame"
   end
 
   test do
