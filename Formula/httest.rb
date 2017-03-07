@@ -1,8 +1,8 @@
 class Httest < Formula
   desc "Provides a large variety of HTTP-related test functionality."
   homepage "https://htt.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/htt/htt2.4/httest-2.4.12/httest-2.4.12.tar.gz"
-  sha256 "fd18cdc996c199d56d77e9355c07e1e1701d5550c03fbecb06a255ce72d79bd1"
+  url "https://downloads.sourceforge.net/project/htt/htt2.4/httest-2.4.19/httest-2.4.19.tar.gz"
+  sha256 "0cf2454de50995c14c460040cdf29863dd49082805e2bc61fb6938a7042b2dbd"
 
   bottle do
     cellar :any
@@ -18,15 +18,12 @@ class Httest < Formula
   depends_on "lua"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
+    (buildpath/"brew_include").install_symlink Formula["pcre"].opt_include => "pcre"
+    ENV.prepend "CPPFLAGS", "-I#{buildpath}/brew_include"
+    system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-apr=#{Formula["apr"].opt_prefix/"bin"}",
-                          "--with-lua=#{Formula["lua"].opt_prefix}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
-
-    system "make"
+                          "--with-apr=#{Formula["apr"].opt_bin}",
+                          "--enable-lua-module"
     system "make", "install"
   end
 
