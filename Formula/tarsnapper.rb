@@ -3,8 +3,8 @@ class Tarsnapper < Formula
 
   desc "tarsnap wrapper which expires backups using a gfs-scheme."
   homepage "https://github.com/miracle2k/tarsnapper"
-  url "https://github.com/miracle2k/tarsnapper/archive/0.3.0.tar.gz"
-  sha256 "519d95a91c436e8bd8379d74d9747cafffab8ee35d26d754bfe84cbbb074aa54"
+  url "https://github.com/miracle2k/tarsnapper/archive/0.4.tar.gz"
+  sha256 "94ac22c3ed72e6321596f7d229b34fd21b59a00035162c5b22f2a1ee64dc6d01"
 
   bottle do
     cellar :any_skip_relocation
