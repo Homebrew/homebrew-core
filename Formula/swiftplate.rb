@@ -7,8 +7,8 @@ class Swiftplate < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1f2f6159e6de0243545bc2f18eca9618a33ecc56995dcd92db46b4298c6eb372" => :sierra
-    sha256 "80484682a0aff82ec7b34d4b4beeecbf1cfed673ab5b3cd1ad2af2d3fcbbc020" => :el_capitan
+    sha256 "08c2ec29bd298efa3c3634c218667307dcd0bac874bc23a80e04262749d4e30b" => :sierra
+    sha256 "60af116ef0834a8e610288caf3ed28d53bf9144cbb3637e6836d55a617347c9a" => :el_capitan
   end
 
   depends_on :xcode => "8.2"
