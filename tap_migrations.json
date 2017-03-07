@@ -145,6 +145,7 @@
   "libdbusmenu-qt": "homebrew/boneyard",
   "libdlna": "homebrew/boneyard",
   "libechonest": "homebrew/boneyard",
+  "libgroove": "homebrew/boneyard",
   "libgtextutils": "homebrew/science",
   "libiomp": "homebrew/boneyard",
   "libmarisa": "homebrew/boneyard",
