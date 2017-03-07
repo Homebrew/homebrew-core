@@ -4,9 +4,9 @@ class Mighttpd2 < Formula
   include Language::Haskell::Cabal
 
   desc "HTTP server"
-  homepage "http://www.mew.org/~kazu/proj/mighttpd/en/"
-  url "https://hackage.haskell.org/package/mighttpd2-3.3.4/mighttpd2-3.3.4.tar.gz"
-  sha256 "9a8dd3e2bf2a62f34695a8baf8b715223c3aa57de1c3b30d5a604d364ae1d4b4"
+  homepage "https://www.mew.org/~kazu/proj/mighttpd/en/"
+  url "https://hackage.haskell.org/package/mighttpd2-3.4.1/mighttpd2-3.4.1.tar.gz"
+  sha256 "0f24c72662be4a0e3d75956fff53899216e29ac7eb29dae771c7e4eb77bdd8d5"
 
   bottle do
     sha256 "a6e59a654b245351c7e1c22e4bb41c9d597f9dca58c56c7866802940c0a06584" => :sierra
