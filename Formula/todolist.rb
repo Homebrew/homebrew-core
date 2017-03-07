@@ -1,8 +1,8 @@
 class Todolist < Formula
   desc "Very fast, simple task manager for the command-line, based upon GTD."
   homepage "http://todolist.site"
-  url "https://github.com/gammons/todolist/archive/0.3.1.tar.gz"
-  sha256 "4d6587fba04e12793642df749f2c923d352c742c1409980820e6a51f6eec992f"
+  url "https://github.com/gammons/todolist/archive/0.5.1.tar.gz"
+  sha256 "c7eff52b380a7e8287fceb049be9eca88fe1214598d4764f183a2fef469e5ae9"
 
   bottle do
     cellar :any_skip_relocation
