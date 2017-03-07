@@ -7,11 +7,9 @@ class Jrnl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "c4b8a9bf7750571fd06084b6a2213c4c044467fa9a4b22a1338f9568114b9f3a" => :sierra
-    sha256 "c7cbd9c2eeaa34510b936fa44e58da8239475e96582a4efdd2d5d57cd170432a" => :el_capitan
-    sha256 "157caf5eecbc9feaead712675e575c8c2414ee2fdc54fe062cd849cc83033aeb" => :yosemite
-    sha256 "2d7764d897c93c87ad3bc36595118e0adef3e275912c5126b5c63574c689a624" => :mavericks
+    sha256 "ecd709c46c9bb70293fdec35d5024eb018682293dad29fc66a604cc649d5c0bf" => :sierra
+    sha256 "f29a67273bdd14e87e93ff3062a81e8e946aada52acbb61f9e1b75e372fabc00" => :el_capitan
+    sha256 "9e44aeb99a2923c3c7b00619f85c30d6d160289dfe43901c2e4df46d914009db" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
