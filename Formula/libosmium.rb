@@ -1,8 +1,8 @@
 class Libosmium < Formula
   desc "Fast and flexible C++ library for working with OpenStreetMap data."
   homepage "http://osmcode.org/libosmium/"
-  url "https://github.com/osmcode/libosmium/archive/v2.11.0.tar.gz"
-  sha256 "32e0b0725efa6a93cf2752862b6f32991eb0978eae793692aab202d7c4f7be4f"
+  url "https://github.com/osmcode/libosmium/archive/v2.11.1.tar.gz"
+  sha256 "9b96166530b7b56787cc49be1a91c6f8724538b59f362a2870e99ccfa261c43f"
 
   bottle do
     cellar :any_skip_relocation
