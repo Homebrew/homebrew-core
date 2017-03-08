@@ -1,8 +1,8 @@
 class Hebcal < Formula
   desc "Perpetual Jewish calendar for the command-line"
   homepage "https://github.com/hebcal/hebcal"
-  url "https://github.com/hebcal/hebcal/archive/v4.11.tar.gz"
-  sha256 "3b32b579c1153e29572b81c0b10a019c983200ac13f5423fff5caab10de28a5e"
+  url "https://github.com/hebcal/hebcal/archive/v4.12.tar.gz"
+  sha256 "4aa4de2cd725bc6dbcb245175f20da8630650343df6eb60a17e3bcb2cba29242"
 
   bottle do
     cellar :any_skip_relocation
