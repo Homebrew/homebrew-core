@@ -6,9 +6,9 @@ class Bit < Formula
   sha256 "e328c05abb0327e2691b1f1c30bae7a71a9db52cf1aa99f7fa55f6de6dc9330d"
 
   bottle do
-    sha256 "03f5414552b1cadc5328ff540c5344bd40fb0ff89a5db2095080c760f9420045" => :sierra
-    sha256 "92cf43f793cb91fdbda85b9e95f565aaaea612f4d6ecf41874587fd5585da8a0" => :el_capitan
-    sha256 "89235cb38c0eaa9e6d7f1d2f3fe022647480744ff881f4a7842d51add4238acb" => :yosemite
+    sha256 "003e4ce34fd481171e0dc932248d61ae115e562387afeffd2b409c8e110e14f1" => :sierra
+    sha256 "464ca185774365c3c51a53a38bf95da4d99214568f721a97b834c9e656232e53" => :el_capitan
+    sha256 "54a0cfc3a89d9b6eeeedf2d8f8e9c091242ca73b6f7a91edfc9ee48e6f7ad185" => :yosemite
   end
 
   depends_on "node"
