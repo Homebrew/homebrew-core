@@ -26,16 +26,15 @@ class PostgresqlAT94 < Formula
     cause "Miscompilation resulting in segfault on queries"
   end
 
-  patch :DATA
-
   def install
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl"].opt_include} -I#{Formula["readline"].opt_include}"
+    ENV.append_to_cflags "-D_XOPEN_SOURCE"
 
     args = %W[
       --disable-debug
       --prefix=#{prefix}
-      --datadir=#{share}/#{name}
+      --datadir=#{pkgshare}
       --docdir=#{doc}
       --enable-thread-safety
       --with-bonjour
@@ -69,8 +68,8 @@ class PostgresqlAT94 < Formula
   def post_install
     (var/"log").mkpath
     (var/"postgres").mkpath
-    unless File.exist? "#{var}/postgres/PG_VERSION"
-      system "#{bin}/initdb", "#{var}/postgres"
+    unless File.exist? "#{var}/#{name}/PG_VERSION"
+      system "#{bin}/initdb", "#{var}/#{name}"
     end
   end
 
@@ -97,7 +96,7 @@ class PostgresqlAT94 < Formula
     s
   end
 
-  plist_options :manual => "postgres -D #{HOMEBREW_PREFIX}/var/postgres"
+  plist_options :manual => "postgres -D #{HOMEBREW_PREFIX}/var/postgresql@94"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -112,14 +111,14 @@ class PostgresqlAT94 < Formula
       <array>
         <string>#{opt_bin}/postgres</string>
         <string>-D</string>
-        <string>#{var}/postgres</string>
+        <string>#{var}/postgresql@94</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
       <key>WorkingDirectory</key>
       <string>#{HOMEBREW_PREFIX}</string>
       <key>StandardErrorPath</key>
-      <string>#{var}/log/postgres.log</string>
+      <string>#{var}/log/postgresql@94.log</string>
     </dict>
     </plist>
     EOS
@@ -129,17 +128,3 @@ class PostgresqlAT94 < Formula
     system "#{bin}/initdb", testpath/"test"
   end
 end
-
-
-__END__
---- a/contrib/uuid-ossp/uuid-ossp.c	2012-07-30 18:34:53.000000000 -0700
-+++ b/contrib/uuid-ossp/uuid-ossp.c	2012-07-30 18:35:03.000000000 -0700
-@@ -9,6 +9,8 @@
-  *-------------------------------------------------------------------------
-  */
-
-+#define _XOPEN_SOURCE
-+
- #include "postgres.h"
- #include "fmgr.h"
- #include "utils/builtins.h"
