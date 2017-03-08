@@ -3,6 +3,7 @@ class GnomeAutoar < Formula
   homepage "https://github.com/GNOME/gnome-autoar"
   url "https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.1.tar.xz"
   sha256 "f642935e9213663c114988403fba26c02e79a644b33cb0e4da0d4aec570fb1fb"
+  revision 1
 
   bottle do
     sha256 "52e7ea44914e44d29a13933ee07e041410fe00d51ecaaa3299289c373f9b9b8d" => :sierra
@@ -15,6 +16,7 @@ class GnomeAutoar < Formula
   depends_on "gtk+3"
 
   def install
+    ENV.delete "SDKROOT"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
