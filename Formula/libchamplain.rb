@@ -1,8 +1,8 @@
 class Libchamplain < Formula
   desc "ClutterActor for displaying maps"
   homepage "https://wiki.gnome.org/Projects/libchamplain"
-  url "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.12.tar.xz"
-  sha256 "e7de797200a91dba07bd8ba6583a672e1b3dcee842b9b100798925ebde8254a6"
+  url "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.15.tar.xz"
+  sha256 "54721a210bdef6d73c5192ed83542023117bf5d7441257e7a7a9f8c05550b874"
 
   bottle do
     sha256 "d4552bdf2859480550459fb0be2658269ad98328d08c4ad8078eff44f2a0bcf6" => :sierra
@@ -20,6 +20,7 @@ class Libchamplain < Formula
   depends_on "vala" => :optional
 
   def install
+    ENV.delete "SDKROOT"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
