@@ -94,13 +94,14 @@ class Postgresql < Formula
   end
 
   def post_install
-    require "open3"
     (var/"log").mkpath
     (var/"postgres").mkpath
     unless File.exist? "#{var}/postgres/PG_VERSION"
       system "#{bin}/initdb", "#{var}/postgres"
+      system "brew", "services", "start", "postgresql"
+      system "createdb"
+      system "brew", "services", "stop", "postgresql"
     end
-    _stdout, _stderr, _status = Open3.capture3("createdb")
   end
 
   def caveats; <<-EOS.undent
