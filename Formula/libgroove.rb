@@ -20,6 +20,11 @@ class Libgroove < Formula
   depends_on "sdl2"
 
   def install
+    # "typedef redefinition with different types ('int' vs 'enum clockid_t')"
+    if DevelopmentTools.clang_build_version >= 800
+      inreplace "grooveplayer/osx_time_shim.h", "typedef int clockid_t;", ""
+    end
+
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
