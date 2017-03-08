@@ -110,7 +110,7 @@ class PostgresqlAT95 < Formula
     EOS
   end
 
-  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/#{name} start"
+  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@95 start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
