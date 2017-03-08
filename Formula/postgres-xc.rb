@@ -33,10 +33,11 @@ class PostgresXc < Formula
   end
 
   # Fix PL/Python build: https://github.com/Homebrew/homebrew/issues/11162
-  # Fix uuid-ossp build issues: https://www.postgresql.org/message-id/05843630-E25D-442A-A6B0-5CA63622A400@likeness.com
   patch :DATA
 
   def install
+    # Fix uuid-ossp build issues: https://www.postgresql.org/message-id/05843630-E25D-442A-A6B0-5CA63622A400@likeness.com
+    ENV.append_to_cflags "-D_XOPEN_SOURCE"
     # See https://sourceforge.net/mailarchive/forum.php?thread_name=82E44F89-543A-44F2-8AF8-F6909B5DC561%40uniud.it&forum_name=postgres-xc-bugs
     ENV.append "CFLAGS", "-D_FORTIFY_SOURCE=0 -O2" if MacOS.version >= :mavericks
 
@@ -316,14 +317,3 @@ __END__
  endif
 
  # If we don't have a shared library and the platform doesn't allow it
---- a/contrib/uuid-ossp/uuid-ossp.c	2012-07-30 18:34:53.000000000 -0700
-+++ b/contrib/uuid-ossp/uuid-ossp.c	2012-07-30 18:35:03.000000000 -0700
-@@ -9,6 +9,8 @@
-  *-------------------------------------------------------------------------
-  */
-
-+#define _XOPEN_SOURCE
-+
- #include "postgres.h"
- #include "fmgr.h"
- #include "utils/builtins.h"
