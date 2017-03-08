@@ -1,14 +1,9 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-
-  stable do
-    url "https://botan.randombit.net/releases/Botan-1.10.13.tgz"
-    sha256 "23ec973d4b4a4fe04f490d409e08ac5638afe3aa09acd7f520daaff38ba19b90"
-
-    # upstream ticket: https://bugs.randombit.net/show_bug.cgi?id=267
-    patch :DATA
-  end
+  url "https://botan.randombit.net/releases/Botan-2.0.1.tgz"
+  sha256 "a138ed316d11450a8405451b9c9664b8e640a9b7ad84d3f3ad34e8071f364e0b"
+  head "https://github.com/randombit/botan.git"
 
   bottle do
     cellar :any
@@ -18,11 +13,6 @@ class Botan < Formula
     sha256 "da4e989fedc710e3e65cb6ec387b9fd865740cc1878f660f371522ba255b307f" => :mavericks
   end
 
-  devel do
-    url "https://botan.randombit.net/releases/Botan-1.11.31.tgz"
-    sha256 "0e751c9182c84f961e90be51f086b1ec254155c3d056cbb37eebff5f5e39ddee"
-  end
-
   option "with-debug", "Enable debug build of Botan"
 
   deprecated_option "enable-debug" => "with-debug"
@@ -30,10 +20,10 @@ class Botan < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl"
 
-  needs :cxx11 if build.devel?
+  needs :cxx11
 
   def install
-    ENV.cxx11 if build.devel?
+    ENV.cxx11
 
     args = %W[
       --prefix=#{prefix}
@@ -55,27 +45,8 @@ class Botan < Formula
   end
 
   test do
-    # stable version doesn't have `botan` executable
-    if stable?
-      assert_match "lcrypto", shell_output("#{bin}/botan-config-1.10 --libs")
-    else
-      (testpath/"test.txt").write "Homebrew"
-      (testpath/"testout.txt").write Utils.popen_read("#{bin}/botan base64_enc test.txt")
-      assert_match "Homebrew", shell_output("#{bin}/botan base64_dec testout.txt")
-    end
+    (testpath/"test.txt").write "Homebrew"
+    (testpath/"testout.txt").write Utils.popen_read("#{bin}/botan base64_enc test.txt")
+    assert_match "Homebrew", shell_output("#{bin}/botan base64_dec testout.txt")
   end
 end
-
-__END__
---- a/src/build-data/makefile/unix_shr.in
-+++ b/src/build-data/makefile/unix_shr.in
-@@ -57,8 +57,8 @@
- LIBNAME       = %{lib_prefix}libbotan
- STATIC_LIB    = $(LIBNAME)-$(SERIES).a
-
--SONAME        = $(LIBNAME)-$(SERIES).%{so_suffix}.%{so_abi_rev}
--SHARED_LIB    = $(SONAME).%{version_patch}
-+SONAME        = $(LIBNAME)-$(SERIES).%{so_abi_rev}.%{so_suffix}
-+SHARED_LIB    = $(LIBNAME)-$(SERIES).%{so_abi_rev}.%{version_patch}.%{so_suffix}
-
- SYMLINK       = $(LIBNAME)-$(SERIES).%{so_suffix}

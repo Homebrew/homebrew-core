@@ -3,7 +3,7 @@ class Monotone < Formula
   homepage "http://monotone.ca/"
   url "http://www.monotone.ca/downloads/1.1/monotone-1.1.tar.bz2"
   sha256 "f95cf60a22d4e461bec9d0e72f5d3609c9a4576fb1cc45f553d0202ce2e38c88"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -12,20 +12,44 @@ class Monotone < Formula
     sha256 "9ec274bfec3311fb327dbf699b28c77166422920e8cff252c8d8beecd98c9a4a" => :mavericks
   end
 
+  # Monotone only needs Boost headers, not any built libraries
+  depends_on "boost" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libidn"
   depends_on "lua"
   depends_on "pcre"
-  depends_on "botan"
-  # Monotone only needs headers, not any built libraries
-  depends_on "boost" => :build
+  # For the vendored Botan.
+  depends_on "openssl"
+
+  resource "old_botan" do
+    url "https://botan.randombit.net/releases/Botan-1.10.15.tgz"
+    sha256 "c0cc8ffd470fda4b257c3ef9faf5cf93751f4c283dfba878148acafedfab70fe"
+  end
 
   def install
-    botan = Formula["botan"]
+    botan = libexec/"vendor/old_botan"
+    resource("old_botan").stage do
+      inreplace "src/build-data/makefile/unix_shr.in" do |s|
+        s.gsub! "= $(LIBNAME)-$(SERIES).%{so_suffix}.%{so_abi_rev}",
+                "= $(LIBNAME)-$(SERIES).%{so_abi_rev}.%{so_suffix}"
+        s.gsub! "= $(SONAME).%{version_patch}",
+                "= $(LIBNAME)-$(SERIES).%{so_abi_rev}.%{version_patch}.%{so_suffix}"
+      end
 
-    ENV["botan_CFLAGS"] = "-I#{botan.opt_include}/botan-1.10"
-    ENV["botan_LIBS"] = "-L#{botan.opt_lib} -lbotan-1.10"
+      system "./configure.py", "--prefix=#{botan}",
+                               "--docdir=share/doc",
+                               "--cpu=#{MacOS.preferred_arch}",
+                               "--cc=#{ENV.compiler}",
+                               "--os=darwin",
+                               "--with-openssl",
+                               "--with-zlib",
+                               "--with-bzip2"
+      system "make", "install", "MACH_OPT=#{ENV.cflags}"
+    end
+
+    ENV["botan_CFLAGS"] = "-I#{botan}/include/botan-1.10"
+    ENV["botan_LIBS"] = "-L#{botan}/lib -lbotan-1.10"
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
@@ -39,5 +63,9 @@ class Monotone < Formula
     # every time a new terminal is opened. See:
     # https://github.com/Homebrew/homebrew/issues/29272
     rm prefix/"etc/bash_completion.d/monotone.bash_completion"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/mtn --version")
   end
 end
