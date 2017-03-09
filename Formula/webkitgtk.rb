@@ -41,6 +41,7 @@ class Webkitgtk < Formula
       -DENABLE_GEOLOCATION=OFF
       -DENABLE_OPENGL=OFF
       -DENABLE_GRAPHICS_CONTEXT_3D=OFF
+      -DENABLE_API_TESTS=ON
       -DUSE_LIBNOTIFY=OFF
       -DUSE_LIBHYPHEN=OFF
       -DCMAKE_SHARED_LINKER_FLAGS=-L/path/to/nonexistent/folder
@@ -48,6 +49,8 @@ class Webkitgtk < Formula
 
     mkdir "build" do
       system "cmake", "..", *(std_cmake_args + extra_args)
+      system "make"
+      system "make", "test"
       system "make", "install"
     end
   end
