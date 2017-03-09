@@ -6,9 +6,9 @@ class Sflowtool < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9644466fe789330526f6fe2300f3de69050e0c3a7f2475a2357d496eb54ee627" => :sierra
-    sha256 "c543ae1a2f3cdea6c6c7b4b79e9d2d6e1c33ea7f2eae9d7b5928b9cf6bbdcbcc" => :el_capitan
-    sha256 "55f3a9bf8b015dc8f024d50555bbbc91c4cd7251d85e1a5ba9c3b2b856b76ff2" => :yosemite
+    sha256 "ac55bee65e2e84443119f222b145c1600aeb7630db5cfc822c506b0f6fac3ae1" => :sierra
+    sha256 "2c81cf680275146cde13fd6fa0ba0994684c78978b3ad465540a28feb8d123ab" => :el_capitan
+    sha256 "f6c5719944abcaed4cd8926deee4e87c72ca6988267dfb1032e6bfb53e77a3f4" => :yosemite
   end
 
   resource "scripts" do
