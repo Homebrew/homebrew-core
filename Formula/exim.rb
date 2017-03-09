@@ -5,9 +5,9 @@ class Exim < Formula
   sha256 "912f2ee03c8dba06a3a4c0ee40522d367e1b65dc59e38dfcc1f5d9eecff51ab0"
 
   bottle do
-    sha256 "9f30aa0e9a3bcf526f46cfb2a00e9b74f31a41285e7eb3f33c415481354932d6" => :sierra
-    sha256 "a267c527f5972746372c7fe0737b157ef30e4d16a3615da6f828fd3ee97be5d7" => :el_capitan
-    sha256 "7133e4f8b62324185d339d9601b72c4d8b3e749b7da2d76e165fa0594b0b85af" => :yosemite
+    sha256 "b76c1dc01d5ff622c16ddbaee4405b6738bd0a4443fa162714994bc055224014" => :sierra
+    sha256 "d65075ea2095eeb918d4314493a634b35f330813425ee1a84b2bfdeadc346404" => :el_capitan
+    sha256 "eaaca1b7231700c5d7dd558c1a754c94c3643a3132ddedc415bd50382bbcb598" => :yosemite
   end
 
   deprecated_option "support-maildir" => "with-maildir"
