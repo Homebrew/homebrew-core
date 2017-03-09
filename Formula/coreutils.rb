@@ -1,9 +1,9 @@
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils"
-  url "https://ftpmirror.gnu.org/coreutils/coreutils-8.26.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/coreutils/coreutils-8.26.tar.xz"
-  sha256 "155e94d748f8e2bc327c66e0cbebdb8d6ab265d2f37c3c928f7bf6c3beba9a8e"
+  url "https://ftpmirror.gnu.org/coreutils/coreutils-8.27.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/coreutils/coreutils-8.27.tar.xz"
+  sha256 "8891d349ee87b9ff7870f52b6d9312a9db672d2439d289bc57084771ca21656b"
 
   bottle do
     sha256 "9409628a4780999323b47bbc5f7e3d622360766995e5b2d97fabbc9930b6d78d" => :sierra
