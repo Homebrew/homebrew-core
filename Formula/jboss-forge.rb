@@ -6,7 +6,8 @@ class JbossForge < Formula
   sha256 "e7093b7beef94031d00c771306aeccf69a15d45029de92bef51d8b3c3ab3af9d"
 
   bottle :unneeded
-
+  depends_on :java => "1.8+"
+  
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[addons bin lib logging.properties]
