@@ -8,9 +8,9 @@ class Xonsh < Formula
   head "https://github.com/scopatz/xonsh.git"
 
   bottle do
-    sha256 "2a13124f9dbda8620024dcaa484a8770f2de556de78736e38cb550dfa0b611f0" => :sierra
-    sha256 "c3c667a7bc5f15a0fc67b9f664939b1632bff314808cf0021b6e4f824ceaafbf" => :el_capitan
-    sha256 "e10642eb1e1dec6bb73ce142a4b767c1fc4fa08424347c926d3e258d7de0e706" => :yosemite
+    sha256 "b3453f6b5469523eb3bb7ef566b1a858ea4d93d1ac695d0aa94021ba4a79415e" => :sierra
+    sha256 "f33a600f051925edac4627c724d2659de131af17ee36d52b4580b106a336b449" => :el_capitan
+    sha256 "5ac056e5d1c959584584f5755a0577d8d403df9eecc8ece4f0dfa936148ccf21" => :yosemite
   end
 
   depends_on :python3
