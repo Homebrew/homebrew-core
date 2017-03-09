@@ -2,7 +2,7 @@ class Bash < Formula
   desc "Bourne-Again SHell, a UNIX command interpreter"
   homepage "https://www.gnu.org/software/bash/"
 
-  head "http://git.savannah.gnu.org/r/bash.git"
+  head "https://git.savannah.gnu.org/git/bash.git"
 
   stable do
     url "https://ftpmirror.gnu.org/bash/bash-4.4.tar.gz"
