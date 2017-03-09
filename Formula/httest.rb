@@ -11,6 +11,8 @@ class Httest < Formula
     sha256 "9d738b97356995a8e8cf68aa25cb7ebba74c659ffbf0d8f33f9a8984482ec36a" => :yosemite
   end
 
+  env :std
+
   depends_on "apr"
   depends_on "apr-util"
   depends_on "openssl"
@@ -18,8 +20,7 @@ class Httest < Formula
   depends_on "lua"
 
   def install
-    (buildpath/"brew_include").install_symlink Formula["pcre"].opt_include => "pcre"
-    ENV.prepend "CPPFLAGS", "-I#{buildpath}/brew_include"
+    ENV.deparallelize
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-apr=#{Formula["apr"].opt_bin}",
