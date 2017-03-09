@@ -1,8 +1,8 @@
 class Fpc < Formula
   desc "Free Pascal: multi-architecture Pascal compiler"
   homepage "http://www.freepascal.org/"
-  url "https://downloads.sourceforge.net/project/freepascal/Source/3.0.0/fpc-3.0.0.source.tar.gz"
-  sha256 "46354862cefab8011bcfe3bc2942c435f96a8958b245c42e10283ec3e44be2dd"
+  url "https://downloads.sourceforge.net/project/freepascal/Source/3.0.2/fpc-3.0.2.source.tar.gz"
+  sha256 "67fccddf5da992356f4e90d836444750ce9363608c7db8e38c077f710fcb6258"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,20 +13,15 @@ class Fpc < Formula
   end
 
   resource "bootstrap" do
-    url "https://downloads.sourceforge.net/project/freepascal/Bootstrap/2.6.4/universal-macosx-10.5-ppcuniversal.tar.bz2"
-    sha256 "e7243e83e6a04de147ebab7530754ec92cd1fbabbc9b6b00a3f90a796312f3e9"
+    url "ftp://ftp.freepascal.org/pub/fpc/dist/3.0.0/bootstrap/x86_64-macosx-10.7-ppcx64.tar.bz2"
+    sha256 "a67ef5def356d122a4692e21b209c328f6d46deef4539f4d4506c3dc1eecb4b0"
   end
 
   def install
-    # The bootstrap binary does not recognize anything above 10.9
-    # http://bugs.freepascal.org/view.php?id=30711
-    # https://github.com/Homebrew/homebrew-core/issues/5732
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = "10.9"
-
     fpc_bootstrap = buildpath/"bootstrap"
     resource("bootstrap").stage { fpc_bootstrap.install Dir["*"] }
 
-    fpc_compiler = fpc_bootstrap/"ppcuniversal"
+    fpc_compiler = fpc_bootstrap/"ppcx64"
     system "make", "build", "PP=#{fpc_compiler}"
     system "make", "install", "PP=#{fpc_compiler}", "PREFIX=#{prefix}"
 
