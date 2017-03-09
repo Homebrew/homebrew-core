@@ -20,7 +20,7 @@ class Zsh < Formula
   end
 
   head do
-    url "git://git.code.sf.net/p/zsh/code"
+    url "https://git.code.sf.net/p/zsh/code.git"
     depends_on "autoconf" => :build
 
     option "with-unicode9", "Build with Unicode 9 character width support"
