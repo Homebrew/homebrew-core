@@ -7,7 +7,7 @@ class JbossForge < Formula
 
   bottle :unneeded
   depends_on :java=>"1.8+"
-  
+
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[addons bin lib logging.properties]
