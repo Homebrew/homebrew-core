@@ -1,10 +1,8 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/exim-4.88.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/exim/exim4/exim-4.88.tar.bz2"
-  sha256 "119d5fd7e31fc224e84dfa458fe182f200856bae7adf852a8287c242161f8a2d"
-  revision 1
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.89.tar.bz2"
+  sha256 "912f2ee03c8dba06a3a4c0ee40522d367e1b65dc59e38dfcc1f5d9eecff51ab0"
 
   bottle do
     sha256 "9f30aa0e9a3bcf526f46cfb2a00e9b74f31a41285e7eb3f33c415481354932d6" => :sierra
