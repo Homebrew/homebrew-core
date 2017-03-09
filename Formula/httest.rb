@@ -18,8 +18,11 @@ class Httest < Formula
   depends_on "lua"
 
   def install
+    # Fix "fatal error: 'pcre/pcre.h' file not found"
+    # Reported 9 Mar 2017 https://sourceforge.net/p/htt/tickets/4/
     (buildpath/"brew_include").install_symlink Formula["pcre"].opt_include => "pcre"
     ENV.prepend "CPPFLAGS", "-I#{buildpath}/brew_include"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-apr=#{Formula["apr"].opt_bin}",
