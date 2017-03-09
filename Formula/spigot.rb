@@ -4,6 +4,13 @@ class Spigot < Formula
   url "http://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20170219.02cd6ee.tar.gz"
   sha256 "c14f220de17c02b3b67f428b5d92618f1a0167bcbad890201de3a114a076aabb"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "1d2b314268104da5860c5a9bee9bdc432a1b51a0ca65054d6db245d2b631ddb0" => :sierra
+    sha256 "36174128a0c9666b2401bc8818bb662a1a91914ff8bee9c0f3e017cf5287aec9" => :el_capitan
+    sha256 "85ded0973a21995681f45284887d5146ae7982e955c2353d0e8d2297751b38c0" => :yosemite
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
