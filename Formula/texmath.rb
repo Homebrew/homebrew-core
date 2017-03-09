@@ -4,9 +4,9 @@ class Texmath < Formula
   include Language::Haskell::Cabal
 
   desc "Haskell library for converting LaTeX math to MathML"
-  homepage "http://johnmacfarlane.net/texmath.html"
-  url "https://hackage.haskell.org/package/texmath-0.9.1/texmath-0.9.1.tar.gz"
-  sha256 "cafb98d25da63bdd76f75b29bf395c9e023cf46d753db9a1534e84879cb8697e"
+  homepage "https://johnmacfarlane.net/texmath.html"
+  url "https://hackage.haskell.org/package/texmath-0.9.1.1/texmath-0.9.1.1.tar.gz"
+  sha256 "b31e7e9caffdfb50c65297fd1ccda544fa95bc06c1cfe44cd10bddf7e0dc5382"
 
   bottle do
     sha256 "484fb1878e136839d6e7d1c83db6f425b4da85fc3c4470f7fe9be0f24240e818" => :sierra
