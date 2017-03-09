@@ -6,10 +6,10 @@ class Sshguard < Formula
   version_scheme 1
 
   bottle do
-    rebuild 2
-    sha256 "53632d2d0342927a1a7f03333db69ba4c48959d06397588485c170839530711f" => :sierra
-    sha256 "66170f748cb7f94d4d6f85b6e9a5caca4dfba074641587614c948f1feccf4031" => :el_capitan
-    sha256 "ac7d61e2bf2adb13185b55c5afdc8647c3842328b8ec379995acdfa99105f46c" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "2c125d21e3bd15476ee49dba004e0bdc694f8dbf16aa5b8d2753a8b700146e32" => :sierra
+    sha256 "8ad59f971162f79c1a65c48238b07058a03256784a9283c0675c25f1d582dfde" => :el_capitan
+    sha256 "20918ad422229e3d3fec35af56916d396963014b95341206bd1e905a3f553384" => :yosemite
   end
 
   depends_on "automake" => :build
