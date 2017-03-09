@@ -85,6 +85,7 @@
   "protobuf260": "protobuf@2.6",
   "qt55": "qt@5.5",
   "racket": "minimal-racket",
+  "rebar3": "rebar@3",
   "scala210": "scala@2.10",
   "scala211": "scala@2.11",
   "screenbrightness": "brightness",
