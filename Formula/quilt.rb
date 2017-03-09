@@ -4,7 +4,7 @@ class Quilt < Formula
   url "https://download.savannah.gnu.org/releases/quilt/quilt-0.65.tar.gz"
   sha256 "f6cbc788e5cbbb381a3c6eab5b9efce67c776a8662a7795c7432fd27aa096819"
 
-  head "http://git.savannah.gnu.org/r/quilt.git"
+  head "https://git.savannah.gnu.org/git/quilt.git"
 
   bottle do
     cellar :any_skip_relocation
