@@ -3,7 +3,6 @@ class RebarAT3 < Formula
   homepage "https://github.com/erlang/rebar3"
   url "https://github.com/erlang/rebar3/archive/3.3.5.tar.gz"
   sha256 "b17661bedaf2060179e0b7b2c4a64350b7a303d809397325ee4be38cc1dc9058"
-
   head "https://github.com/rebar/rebar3.git"
 
   depends_on "erlang"
