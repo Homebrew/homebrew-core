@@ -18,13 +18,12 @@ class Dcmtk < Formula
   option "with-docs", "Install development libraries/headers and HTML docs"
   option "with-libiconv", "Build with brewed libiconv. Dcmtk and system libiconv can have problems with utf8."
   option "with-dicomdict", "Build with baked-in DICOM data dictionary."
-  option "without-openssl", "Build without support for OpenSSL."
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build if build.with? "docs"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "openssl" => :build unless build.without? "openssl"
+  depends_on "openssl" => :recommended
   depends_on "homebrew/dupes/libiconv" => :optional
 
   def install
