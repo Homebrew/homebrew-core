@@ -12,7 +12,7 @@ class RebarAT3 < Formula
     bin.install "rebar3"
 
     bash_completion.install "priv/shell-completion/bash/rebar3"
-    zsh_completion.install "priv/shell-completion/zsh/_rebar3" => "_rebar3"
+    zsh_completion.install "priv/shell-completion/zsh/_rebar3"
     fish_completion.install "priv/shell-completion/fish/rebar3.fish"
   end
 
