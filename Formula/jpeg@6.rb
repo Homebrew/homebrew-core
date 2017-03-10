@@ -1,4 +1,4 @@
-class Jpeg6b < Formula
+class JpegAT6 < Formula
   desc "Image manipulation library"
   homepage "http://www.ijg.org"
   url "http://www.ijg.org/files/jpegsrc.v6b.tar.gz"
