@@ -15,15 +15,13 @@ class PostgresqlAT95 < Formula
   option "without-perl", "Build without Perl support"
   option "without-tcl", "Build without Tcl support"
   option "with-dtrace", "Build with DTrace support"
+  option "with-python", "Build with Python2 (incompatible with --with-python3)"
+  option "with-python3", "Build with Python3 (incompatible with --with-python)"
 
   depends_on "openssl"
   depends_on "readline"
   depends_on "libxml2" if MacOS.version <= :leopard # Leopard libxml is too old
-
-  option "with-python", "Enable PL/Python2"
   depends_on :python => :optional
-
-  option "with-python3", "Enable PL/Python3 (incompatible with --with-python)"
   depends_on :python3 => :optional
 
   fails_with :clang do
@@ -32,11 +30,11 @@ class PostgresqlAT95 < Formula
   end
 
   def install
-    # avoid adding the SDK library directory to the linker search path
-    ENV["XML2_CONFIG"] = "xml2-config --exec-prefix=/usr"
-
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl"].opt_include} -I#{Formula["readline"].opt_include}"
+
+    # avoid adding the SDK library directory to the linker search path
+    ENV["XML2_CONFIG"] = "xml2-config --exec-prefix=/usr"
 
     args = %W[
       --disable-debug
