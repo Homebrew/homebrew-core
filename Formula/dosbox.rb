@@ -12,7 +12,7 @@ class Dosbox < Formula
   end
 
   head do
-    url "http://svn.code.sf.net/p/dosbox/code-0/dosbox/trunk"
+    url "https://svn.code.sf.net/p/dosbox/code-0/dosbox/trunk"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
@@ -37,7 +37,7 @@ class Dosbox < Formula
 
     if build.head?
       # Prevent unstable build with clang
-      # http://sourceforge.net/p/dosbox/code-0/3894/
+      # https://sourceforge.net/p/dosbox/code-0/3894/
       ENV.O0
     else
       # Disable dynamic cpu core recompilation that crashes on 64-bit platform
