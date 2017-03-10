@@ -4,6 +4,12 @@ class Gtef < Formula
   url "https://download.gnome.org/sources/gtef/1.0/gtef-1.0.0.tar.xz"
   sha256 "8d17c33adf6d7edd8c55f0bb8f4701c8d8822a67d28c389df04c775eb95fc1b4"
 
+  bottle do
+    sha256 "027cd5f9151a8d73dc61d9708815d02e551010db4a1ff50c41daa484efc617d9" => :sierra
+    sha256 "0dc2178d62adbb9ea38515e4e9136f4294e18ee24b832c16fa15275acddec90d" => :el_capitan
+    sha256 "7c558cee5794e809d0e5c333e97f3031b7cff702c1e8ed6909687431fb240f88" => :yosemite
+  end
+
   depends_on "pkg-config" => :build
   depends_on "vala" => :recommended
   depends_on "gtksourceview3"
