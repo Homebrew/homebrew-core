@@ -1,6 +1,6 @@
 class ClangFormatAT38 < Formula
-  desc "Formatting tools for C, C++, ObjC, Java, JavaScript, TypeScript"
-  homepage "http://clang.llvm.org/docs/ClangFormat.html"
+  desc "Formatting tools for C/C++/ObjC/Java/JavaScript/TypeScript"
+  homepage "https://clang.llvm.org/docs/ClangFormat.html"
   url "http://llvm.org/releases/3.8.0/llvm-3.8.0.src.tar.xz"
   sha256 "555b028e9ee0f6445ff8f949ea10e9cd8be0d084840e21fbbe1d31d51fc06e46"
 
