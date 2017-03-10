@@ -26,6 +26,11 @@ class Doxymacs < Formula
     # https://sourceforge.net/tracker/?func=detail&aid=3577208&group_id=23584&atid=378985
     ENV.append "CFLAGS", "-std=gnu89"
 
+    # Fix undefined symbol errors for _xmlCheckVersion, etc.
+    # This prevents a mismatch between /usr/bin/xml2-config and the SDK headers,
+    # which would cause the build system not to pass the LDFLAGS for libxml2.
+    ENV.prepend_path "PATH", "#{MacOS.sdk_path}/usr/bin"
+
     system "./bootstrap" if build.head?
     system "./configure", "--prefix=#{prefix}",
                           "--with-lispdir=#{elisp}",
