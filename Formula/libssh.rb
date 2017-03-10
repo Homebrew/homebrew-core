@@ -3,7 +3,7 @@ class Libssh < Formula
   homepage "https://www.libssh.org/"
   url "https://red.libssh.org/attachments/download/210/libssh-0.7.4.tar.xz"
   sha256 "39e1bec3b3cb452af3b8fd7f59c12c5ef5b9ed64f057c7eb0d1a5cac67ba6c0d"
-  head "git://git.libssh.org/projects/libssh.git"
+  head "https://git.libssh.org/projects/libssh.git"
 
   bottle do
     cellar :any
