@@ -46,8 +46,9 @@ class PostgresqlAT94 < Formula
       --with-libxslt
     ]
 
-    args << "--with-python" if build.with? "python"
     args << "--with-perl" if build.with? "perl"
+
+    args << "--with-python" if build.with? "python"
 
     # The CLT is required to build tcl support on 10.7 and 10.8 because tclConfig.sh is not part of the SDK
     if build.with?("tcl") && (MacOS.version >= :mavericks || MacOS::CLT.installed?)
@@ -67,7 +68,7 @@ class PostgresqlAT94 < Formula
 
   def post_install
     (var/"log").mkpath
-    (var/"postgres").mkpath
+    (var/name).mkpath
     unless File.exist? "#{var}/#{name}/PG_VERSION"
       system "#{bin}/initdb", "#{var}/#{name}"
     end
@@ -96,7 +97,7 @@ class PostgresqlAT94 < Formula
     s
   end
 
-  plist_options :manual => "postgres -D #{HOMEBREW_PREFIX}/var/postgresql@94"
+  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@94 start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -111,14 +112,14 @@ class PostgresqlAT94 < Formula
       <array>
         <string>#{opt_bin}/postgres</string>
         <string>-D</string>
-        <string>#{var}/postgresql@94</string>
+        <string>#{var}/#{name}</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
       <key>WorkingDirectory</key>
       <string>#{HOMEBREW_PREFIX}</string>
       <key>StandardErrorPath</key>
-      <string>#{var}/log/postgresql@94.log</string>
+      <string>#{var}/log/#{name}.log</string>
     </dict>
     </plist>
     EOS
