@@ -4,7 +4,7 @@ class Prest < Formula
   url "https://github.com/nuveo/prest/archive/v0.1.4.tar.gz"
   sha256 "8d1a38e1ea45ebf7bffb34258ba2db5c404a58139597b6a8439bcaaeec12084e"
 
-  depends_on 'go' => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
