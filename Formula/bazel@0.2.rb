@@ -13,8 +13,8 @@ class BazelAT02 < Formula
   if MacOS.version >= :sierra
     # Use nanosleep(2) instead of poll(2) to sleep.
     patch do
-      url "https://github.com/bazelbuild/bazel/pull/1803.patch"
-      sha256 "a6673fb1875adec23630950d579a6ba11237045fb3c645cb4c690efd5b313986"
+      url "https://github.com/bazelbuild/bazel/commit/fefd232.patch"
+      sha256 "1f668d35ed81ce4c3d12c0011b1aaaabbf8ee65f633733cd96b77e57e79f8536"
     end
   end
 
