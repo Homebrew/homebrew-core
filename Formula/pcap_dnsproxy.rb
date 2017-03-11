@@ -1,8 +1,8 @@
 class PcapDnsproxy < Formula
   desc "Powerful DNS proxy designed to anti DNS spoofing"
   homepage "https://github.com/chengr28/Pcap_DNSProxy"
-  url "https://github.com/chengr28/Pcap_DNSProxy/archive/v0.4.7.8.tar.gz"
-  sha256 "57af22d8688cd23e74e5eee0b716ea0c8e68671d3be34ef993df7b8303aa73d0"
+  url "https://github.com/chengr28/Pcap_DNSProxy/archive/v0.4.8.0.tar.gz"
+  sha256 "8e04b241fbe310499d4101bc230f74f470965a969d6a3791a95e0fde8427c22c"
   head "https://github.com/chengr28/Pcap_DNSProxy.git"
 
   bottle do
