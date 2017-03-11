@@ -7,7 +7,7 @@ class GstPluginsBaseAT010 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "gstreamer010"
+  depends_on "gstreamer@0.10"
 
   # The set of optional dependencies is based on the intersection of
   # gst-plugins-base-0.10.35/REQUIREMENTS and Homebrew formulae
