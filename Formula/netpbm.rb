@@ -1,13 +1,13 @@
 class Netpbm < Formula
   desc "Image manipulation"
-  homepage "https://netpbm.sourceforge.io"
+  homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
   url "http://svn.code.sf.net/p/netpbm/code/stable", :revision => 2885
   version "10.73.07"
   version_scheme 1
 
-  head "http://svn.code.sf.net/p/netpbm/code/trunk"
+  head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
   bottle do
     cellar :any
