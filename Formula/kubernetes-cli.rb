@@ -15,9 +15,9 @@ class KubernetesCli < Formula
 
   devel do
     url "https://github.com/kubernetes/kubernetes.git",
-        :tag => "v1.6.0-beta.2",
-        :revision => "8af9c3e53bc2c508d9948cb511372057339656f1"
-    version "1.6.0-beta.2"
+        :tag => "v1.6.0-beta.3",
+        :revision => "0cd5ed469508e6dfc807ee6681561c845828917e"
+    version "1.6.0-beta.3"
   end
 
   depends_on "go" => :build
