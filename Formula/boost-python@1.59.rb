@@ -12,9 +12,9 @@ class BoostPythonAT159 < Formula
   depends_on :python3 => :optional
 
   if build.cxx11?
-    depends_on "boost159" => "c++11"
+    depends_on "boost@1.59" => "c++11"
   else
-    depends_on "boost159"
+    depends_on "boost@1.59"
   end
 
   def install
