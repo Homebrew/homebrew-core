@@ -1,7 +1,13 @@
 class Exult < Formula
   desc "Recreation of Ultima 7"
   homepage "https://exult.sourceforge.io/"
-  url "svn://svn.code.sf.net/p/exult/code/exult/trunk", :revision => 7520
+  # TODO: move to: https://github.com/exult/exult
+  if MacOS.version >= :sierra
+    url "https://svn.code.sf.net/p/exult/code/exult/trunk", :revision => 7520
+  else
+    url "http://svn.code.sf.net/p/exult/code/exult/trunk", :revision => 7520
+  end
+
   version "1.4.9rc1+r7520"
   head "https://github.com/exult/exult.git"
 
