@@ -1,10 +1,10 @@
 class Quex < Formula
   desc "Generate lexical analyzers"
   homepage "http://quex.org/"
-  url "https://downloads.sourceforge.net/project/quex/DOWNLOAD/quex-0.65.11.zip"
-  sha256 "5384fbff8645bfbdd5d6659b79aba9012a8db184d93d25026c764074b8beb503"
+  url "https://downloads.sourceforge.net/project/quex/DOWNLOAD/quex-0.67.1.zip"
+  sha256 "b37c34c2933e0da8ab964cbb2c22887702f21b02be8863d31d6cad11a6285ec5"
 
-  head "http://svn.code.sf.net/p/quex/code/trunk"
+  head "https://svn.code.sf.net/p/quex/code/trunk"
 
   bottle do
     cellar :any_skip_relocation
