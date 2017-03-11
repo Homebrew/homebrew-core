@@ -1,8 +1,9 @@
 class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://hcs64.com/vgmstream.html"
-  url "http://svn.code.sf.net/p/vgmstream/code", :revision => 1040
+  url "https://gitlab.kode54.net/kode54/vgmstream/repository/archive.zip?ref=r1040"
   version "r1040"
+  sha256 "1f1ffb295138d02f01503b5eddd5c836811b7b02dca8a8cecc6a04b02ce9584a"
   head "https://gitlab.kode54.net/kode54/vgmstream.git"
 
   bottle do
