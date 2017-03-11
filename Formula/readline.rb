@@ -5,6 +5,7 @@ class Readline < Formula
   mirror "https://ftp.gnu.org/gnu/readline/readline-7.0.tar.gz"
   version "7.0.3"
   sha256 "750d437185286f40a369e1e4f4764eda932b9459b5ec9a731628393dd3d32334"
+  revision 1
 
   bottle do
     cellar :any
@@ -32,7 +33,6 @@ class Readline < Formula
   EOS
 
   def install
-    ENV.universal_binary
     system "./configure", "--prefix=#{prefix}", "--enable-multibyte"
     system "make", "install"
   end
