@@ -4,12 +4,6 @@ class PostgresqlAT94 < Formula
   url "https://ftp.postgresql.org/pub/source/v9.4.11/postgresql-9.4.11.tar.bz2"
   sha256 "e3eb51d045c180b03d2de1f0c3af9356e10be49448e966ca01dfc2c6d1cc9d23"
 
-  bottle do
-    sha256 "29478f6c29e47219bf9759921dce3286aaea2fbc6ca35624d8dbc2a185891710" => :sierra
-    sha256 "92cc910081bc9098488ffe0fbe1ba3d9b17a16a45c768a471e385e43b5985943" => :el_capitan
-    sha256 "6adb9f87b93d61f64d29f4f4b8336f6c30c68d8b98d11325cf5de6a81254303a" => :yosemite
-  end
-
   keg_only :versioned_formula
 
   option "without-perl", "Build without Perl support"
@@ -97,7 +91,7 @@ class PostgresqlAT94 < Formula
     s
   end
 
-  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@94 start"
+  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.4 start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
