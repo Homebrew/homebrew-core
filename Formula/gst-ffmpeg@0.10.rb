@@ -7,7 +7,7 @@ class GstFfmpegAT010 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "gst-plugins-base010"
+  depends_on "gst-plugins-base@0.10"
 
   def install
     args = %W[
