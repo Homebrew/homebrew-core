@@ -1,6 +1,6 @@
 class GiflibAT5 < Formula
   desc "Library and utilities for processing GIFs"
-  homepage "http://giflib.sourceforge.net/"
+  homepage "https://giflib.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/giflib/giflib-5.1.3.tar.bz2"
   sha256 "5096d27805283599b01074d487ad3f8e02bd26b84d759b9017be876ca3d5b81d"
 
