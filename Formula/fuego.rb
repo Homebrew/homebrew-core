@@ -4,7 +4,7 @@ class Fuego < Formula
   url "http://svn.code.sf.net/p/fuego/code/trunk", :revision => 1981
   version "1.1.SVN"
 
-  head "http://svn.code.sf.net/p/fuego/code/trunk"
+  head "https://svn.code.sf.net/p/fuego/code/trunk"
 
   bottle do
     sha256 "0d3274bc3c26894df8b01725486b3c8a66a33dc47e057974bb56b96b64165ab0" => :sierra
