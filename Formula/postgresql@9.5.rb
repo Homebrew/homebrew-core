@@ -4,12 +4,6 @@ class PostgresqlAT95 < Formula
   url "https://ftp.postgresql.org/pub/source/v9.5.6/postgresql-9.5.6.tar.bz2"
   sha256 "bb9e5f6d34e20783e96e10c1d6c0c09c31749e802aaa46b793ce2522725ae12f"
 
-  bottle do
-    sha256 "2b566a555bf58761e0ab2e3c3a7685ba09f253117a7522d3e83b0915ab137688" => :sierra
-    sha256 "890536e87f961756994d08f2e152708db4b16898faad76f92d4852bfff1b3274" => :el_capitan
-    sha256 "e60d51ca79ff282189fcdbe26aa8dbaf26835822495ad84c859e1a3d0e91a2ab" => :yosemite
-  end
-
   keg_only :versioned_formula
 
   option "without-perl", "Build without Perl support"
@@ -104,11 +98,11 @@ class PostgresqlAT95 < Formula
       https://www.postgresql.org/docs/9.5/static/pgupgrade.html
 
       You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
-      Do not run `brew cleanup postgresql@95` until you have performed the migration.
+      Do not run `brew cleanup postgresql@9.5` until you have performed the migration.
     EOS
   end
 
-  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@95 start"
+  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.5 start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
