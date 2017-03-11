@@ -5,10 +5,10 @@ class Ponyc < Formula
   sha256 "cab55c2457c508f807f8cdf1b62bcc492018bdebddf232abc94478d6127e4606"
 
   bottle do
-    cellar :any
-    sha256 "fbebe46e066f54949e3f9c4ffec2558701176832f6a20e17a01382235b8b0ed2" => :sierra
-    sha256 "65cdcce76a06a45427cf52a94e698761a3a3b567b19e666a8f430f7011972cee" => :el_capitan
-    sha256 "1dd21947ea374eb05b3a06d405c3bffceedf5673b108f49069aeaab12bf83673" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "49f8f3d40ca13a8713c4be445471d21970d672bb1aae1924e49b3526aa1420ca" => :sierra
+    sha256 "e0ef7ec8da6ffb0ed2bf5830ec86c17253da15b93f0e42ecedf24ced3dcc409f" => :el_capitan
+    sha256 "a01357438f259a24d473a2a47855df6b9dc6bfdaa6f86635616b81a01b475b2e" => :yosemite
   end
 
   depends_on :macos => :yosemite
