@@ -492,9 +492,9 @@ class Wine < Formula
   end
 
   test do
-    assert_equal shell_output("hostname"), shell_output("#{bin}/wine hostname.exe 2>/dev/null")
+    assert_equal shell_output("hostname").chomp, shell_output("#{bin}/wine hostname.exe 2>/dev/null").chomp
     if build.with? "win64"
-      assert_equal shell_output("hostname"), shell_output("#{bin}/wine64 hostname.exe 2>/dev/null")
+      assert_equal shell_output("hostname").chomp, shell_output("#{bin}/wine64 hostname.exe 2>/dev/null").chomp
     end
   end
 end
