@@ -1,13 +1,17 @@
 class Prest < Formula
   desc "Serve a RESTful API from any PostgreSQL database"
   homepage "https://github.com/nuveo/prest"
-  url "https://github.com/nuveo/prest/releases/download/v0.1.3/prest-darwin-10.6-amd64"
-  sha256 "3635541e64f18dd7e3c40022f74d8ee94ed4f385dff73251e4c8f93dedc93fbc"
+  url "https://github.com/nuveo/prest/archive/v0.1.3.tar.gz"
+  sha256 "ddb7485d8e6395438d645c93a557fb981b1581ad93f97545ccd411dbf2ae3cc1"
 
+  depends_on 'go'
   bottle :unneeded
 
   def install
-    mv "prest-darwin-10.6-amd64", "prest"
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/nuveo").mkpath
+    ln_s buildpath, buildpath/"src/github.com/nuveo/prest"
+    system "go", "build", "-o", "prest"
     bin.install "prest"
   end
 
