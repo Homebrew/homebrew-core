@@ -1,6 +1,6 @@
 class GrailsAT25 < Formula
   desc "Web application framework for the Groovy language"
-  homepage "http://grails.org"
+  homepage "https://grails.org"
   url "https://github.com/grails/grails-core/releases/download/v2.5.4/grails-2.5.4.zip"
   sha256 "c1170104156c93be58f737cb1a22ac4e9785ca1fded43c44d9705d20d011df28"
 
