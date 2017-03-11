@@ -6,7 +6,7 @@ class Puzzles < Formula
   version "20161228.7cae89f"
   sha256 "96b6915941b8490188652ab5c81bcb3ee42117e6fb7c03eed3e4333fa97ed852"
 
-  head "git://git.tartarus.org/simon/puzzles.git"
+  head "https://git.tartarus.org/simon/puzzles.git"
 
   bottle do
     cellar :any_skip_relocation
