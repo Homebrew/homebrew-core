@@ -1,8 +1,8 @@
 class Offlineimap < Formula
   desc "Synchronizes emails between two repositories"
   homepage "http://offlineimap.org/"
-  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.0.13.tar.gz"
-  sha256 "f744843f943c6adaa754e1244e16bfd6eaa825affe385169f16475db191787ce"
+  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.0.14.tar.gz"
+  sha256 "19494ecad4d7234ac69480abb7462d0cdcfcec444b55f5381651057d9fdfad44"
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
   bottle do
