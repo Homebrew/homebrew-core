@@ -1,7 +1,11 @@
 class Fuego < Formula
   desc "Collection of C++ libraries for the game of Go"
   homepage "https://fuego.sourceforge.io/"
-  url "http://svn.code.sf.net/p/fuego/code/trunk", :revision => 1981
+  if MacOS.version >= :sierra
+    url "https://svn.code.sf.net/p/fuego/code/trunk", :revision => 1981
+  else
+    url "http://svn.code.sf.net/p/fuego/code/trunk", :revision => 1981
+  end
   version "1.1.SVN"
 
   head "https://svn.code.sf.net/p/fuego/code/trunk"
