@@ -8,7 +8,7 @@ class GstPluginsBadAT010 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "gst-plugins-base010"
+  depends_on "gst-plugins-base@0.10"
   depends_on "openssl"
 
   # These optional dependencies are based on the intersection of
