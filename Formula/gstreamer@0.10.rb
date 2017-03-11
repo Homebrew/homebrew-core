@@ -32,6 +32,10 @@ class GstreamerAT010 < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    system bin/"gst-inspect-0.10"
+  end
 end
 
 __END__
