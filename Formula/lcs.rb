@@ -4,7 +4,7 @@ class Lcs < Formula
   url "svn://svn.code.sf.net/p/lcsgame/code/trunk", :revision => "738"
   version "4.07.4b"
 
-  head "svn://svn.code.sf.net/p/lcsgame/code/trunk"
+  head "https://svn.code.sf.net/p/lcsgame/code/trunk"
 
   bottle do
     sha256 "a8fa614ec5adc3ee2d7417a024bf5e9c78e9f8d4e043e0b916dc5a99f1bb1d9c" => :sierra
