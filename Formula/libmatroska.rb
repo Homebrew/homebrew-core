@@ -1,9 +1,8 @@
 class Libmatroska < Formula
   desc "Extensible, open standard container format for audio/video"
   homepage "https://www.matroska.org/"
-  url "https://dl.matroska.org/downloads/libmatroska/libmatroska-1.4.5.tar.bz2"
-  mirror "https://www.bunkus.org/videotools/mkvtoolnix/sources/libmatroska-1.4.5.tar.bz2"
-  sha256 "79023fa46901e5562b27d93a9dd168278fa101361d7fd11a35e84e58e11557bc"
+  url "https://dl.matroska.org/downloads/libmatroska/libmatroska-1.4.7.tar.bz2"
+  sha256 "46441eb3bae9f970f68affaa211dd74302a7072dcd2becfb1114da11b66525fa"
 
   bottle do
     cellar :any
