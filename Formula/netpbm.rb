@@ -3,7 +3,11 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "http://svn.code.sf.net/p/netpbm/code/stable", :revision => 2885
+  if MacOS.version >= :sierra
+    url "https://svn.code.sf.net/p/netpbm/code/stable", :revision => 2885
+  else
+    url "http://svn.code.sf.net/p/netpbm/code/stable", :revision => 2885
+  end
   version "10.73.07"
   version_scheme 1
 
