@@ -20,4 +20,8 @@ class GstFfmpegAT010 < Formula
     system "./configure", *args
     system "make", "install"
   end
+
+  test do
+    system "#{Formula["gstreamer@0.10"].opt_bin}/gst-inspect-0.10", "ffmpeg"
+  end
 end
