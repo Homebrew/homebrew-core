@@ -207,14 +207,6 @@ class Wine < Formula
         ENV.delete("PERL")
         ENV.delete("PERL5LIB")
 
-        # Load zlib from an explicit path instead of relying on dyld's fallback
-        # path, which is empty in a SIP context. This patch will be unnecessary
-        # when we begin building openssl with no-comp to disable TLS compression.
-        # https://langui.sh/2015/11/27/sip-and-dlopen
-        inreplace "crypto/comp/c_zlib.c",
-                  'zlib_dso = DSO_load(NULL, "z", NULL, 0);',
-                  'zlib_dso = DSO_load(NULL, "/usr/lib/libz.dylib", NULL, DSO_FLAG_NO_NAME_TRANSLATION);'
-
         archs = Hardware::CPU.universal_archs
 
         dirs = []
@@ -225,7 +217,7 @@ class Wine < Formula
           system "make", "clean"
           system "perl", "./Configure", "--prefix=#{libexec}",
                                         "no-ssl2",
-                                        "zlib-dynamic",
+                                        "no-zlib",
                                         "shared",
                                         "enable-cms",
                                         *openssl_arch_args[arch]
@@ -362,7 +354,7 @@ class Wine < Formula
                               "--prefix=#{libexec}",
                               "--disable-static",
                               "--with-add-fonts=/System/Library/Fonts,/Library/Fonts,~/Library/Fonts",
-                              "--localstatedir=#{var}",
+                              "--localstatedir=#{var}/vendored_wine_fontconfig",
                               "--sysconfdir=#{prefix}",
                               *depflags
         system "make", "install", "RUN_FC_CACHE_TEST=false"
@@ -405,8 +397,8 @@ class Wine < Formula
                               "--disable-static",
                               "--enable-ipv6",
                               "--with-defaults",
-                              "--with-persistent-directory=#{var}/db/net-snmp",
-                              "--with-logfile=#{var}/log/snmpd.log",
+                              "--with-persistent-directory=#{var}/db/net-snmp_vendored_wine",
+                              "--with-logfile=#{var}/log/snmpd_vendored_wine.log",
                               "--with-mib-modules=host\ ucd-snmp/diskio",
                               "--without-rpm",
                               "--without-kmem-usage",
@@ -495,11 +487,14 @@ class Wine < Formula
     system "#{libexec}/bin/fc-cache", "-frv"
 
     # For net-snmp
-    (var/"db/net-snmp").mkpath
+    (var/"db/net-snmp_vendored_wine").mkpath
     (var/"log").mkpath
   end
 
   test do
-    system "#{bin}/wine", "--version"
+    assert_equal shell_output("#{bin}/wine hostname.exe 2>/dev/null"), shell_output("hostname")
+    if build.with? "win64"
+      assert_equal shell_output("#{bin}/wine64 hostname.exe 2>/dev/null"), shell_output("hostname")
+    end
   end
 end
