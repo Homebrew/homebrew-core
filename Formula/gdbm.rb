@@ -1,9 +1,9 @@
 class Gdbm < Formula
   desc "GNU database manager"
   homepage "https://www.gnu.org/software/gdbm/"
-  url "https://ftpmirror.gnu.org/gdbm/gdbm-1.12.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/gdbm/gdbm-1.12.tar.gz"
-  sha256 "d97b2166ee867fd6ca5c022efee80702d6f30dd66af0e03ed092285c3af9bcea"
+  url "https://ftpmirror.gnu.org/gdbm/gdbm-1.13.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/gdbm/gdbm-1.13.tar.gz"
+  sha256 "9d252cbd7d793f7b12bcceaddda98d257c14f4d1890d851c386c37207000a253"
 
   bottle do
     cellar :any
@@ -15,10 +15,13 @@ class Gdbm < Formula
 
   option "with-libgdbm-compat", "Build libgdbm_compat, a compatibility layer which provides UNIX-like dbm and ndbm interfaces."
 
+  # Use --without-readline because readline detection is broken in 1.13
+  # https://github.com/Homebrew/homebrew-core/pull/10903
   def install
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
+      --without-readline
       --prefix=#{prefix}
     ]
 
