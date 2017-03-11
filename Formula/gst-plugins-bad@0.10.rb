@@ -28,10 +28,20 @@ class GstPluginsBadAT010 < Formula
 
   def install
     ENV.append "CFLAGS", "-no-cpp-precomp -funroll-loops -fstrict-aliasing"
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-sdl"
+
+    args = %W[
+      --prefix=#{prefix}
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-sdl
+    ]
+
+    # Prevent "fatal error: 'QTKit/QTKit.h' file not found"
+    if DevelopmentTools.clang_build_version >= 800
+      args << "--disable-apple_media"
+    end
+
+    system "./configure", *args
     system "make"
     system "make", "install"
   end
