@@ -8,4 +8,22 @@ class GlfwAT2 < Formula
   def install
     system "make", "PREFIX=#{prefix}", "cocoa-dist-install"
   end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #define GLFW_INCLUDE_GLU
+      #include <GL/glfw.h>
+      #include <stdlib.h>
+      int main()
+      {
+        if (!glfwInit())
+          exit(EXIT_FAILURE);
+        glfwTerminate();
+        return 0;
+      }
+    EOS
+
+    system ENV.cc, "test.c", "-o", "test", "-I#{include}", "-L#{lib}", "-lglfw"
+    system "./test"
+  end
 end
