@@ -3,6 +3,7 @@ class Vgmstream < Formula
   homepage "https://hcs64.com/vgmstream.html"
   url "http://svn.code.sf.net/p/vgmstream/code", :revision => 1040
   version "r1040"
+  head "https://gitlab.kode54.net/kode54/vgmstream.git"
 
   bottle do
     cellar :any
