@@ -11,7 +11,11 @@ class Libcds < Formula
 
   def install
     ENV.cxx11
-    system "cmake", ".", "-DWITH_BOOST_ATOMIC=ON", *std_cmake_args
+    if MacOS.version >= "10.10"
+      system "cmake", ".", "-DCMAKE_C_COMPILER=gcc", "-DCMAKE_CXX_COMPILER=g++", "-DCMAKE_CXX_FLAGS=-stdlib=libc++", *std_cmake_args
+    else
+      system "cmake", ".", "-DWITH_BOOST_ATOMIC=ON", *std_cmake_args
+    end
     system "make"
     system "make", "install"
   end
