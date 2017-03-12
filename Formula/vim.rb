@@ -11,11 +11,10 @@ class Vim < Formula
     sha256 "144d5c2d2e13f3b5d0f5bcf7a7e28523fa71277738959b587b9b95dea7e27295" => :yosemite
   end
 
-  deprecated_option "disable-nls" => "without-nls"
   deprecated_option "override-system-vi" => "with-override-system-vi"
 
   option "with-override-system-vi", "Override system vi"
-  option "without-nls", "Build vim without National Language Support (translated messages, keymaps)"
+  option "with-nls", "Build vim with National Language Support (translated messages, keymaps)"
   option "with-client-server", "Enable client/server mode"
 
   LANGUAGES_OPTIONAL = %w[lua python3 tcl].freeze
@@ -74,7 +73,7 @@ class Vim < Formula
       opts -= %w[--enable-pythoninterp]
     end
 
-    if build.without? "nls"
+    if !build.with? "nls"
       opts << "--disable-nls"
     else
       gettext = Formula["gettext"]
