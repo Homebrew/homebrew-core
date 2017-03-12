@@ -491,8 +491,12 @@ class Wine < Formula
 
   def post_install
     # For fontconfig
-    ohai "Regenerating font cache, this may take a while"
-    system "#{libexec}/bin/fc-cache", "-frv"
+    if ENV["HOMEBREW_FONTCONFIG_CACHE_SKIP"] = "yes"
+      ohai "HOMEBREW_FONTCONFIG_CACHE_SKIP set to 'yes', skipping font cache update"
+    else
+      ohai "Regenerating font cache, this may take a while"
+      system "#{libexec}/bin/fc-cache", "-frv"
+    end
 
     # For net-snmp
     (var/"db/net-snmp_vendored_wine").mkpath
