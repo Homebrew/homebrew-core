@@ -13,7 +13,7 @@ class GnuApl < Formula
   end
 
   head do
-    url "http://svn.savannah.gnu.org/svn/apl/trunk"
+    url "https://svn.savannah.gnu.org/svn/apl/trunk"
 
     depends_on "automake" => :build
     depends_on "autoconf" => :build
