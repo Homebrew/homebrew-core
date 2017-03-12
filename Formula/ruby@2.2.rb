@@ -5,6 +5,12 @@ class RubyAT22 < Formula
   sha256 "22f0c6f34c0024e0bcaaa8e6831b7c0041e1ef6120c781618b833bde29626700"
   revision 2
 
+  bottle do
+    sha256 "ad2bc1d93865ff31746bc808b09c2dbd519f7bf9541b7918c7591e05a2bdf4d8" => :sierra
+    sha256 "59f79e977b5e904bd3a4af434c10e0ddb0411c19dc536b44f5b35eed011e12eb" => :el_capitan
+    sha256 "7c23f79682c7e6792bc0c1d0c75c319ab7e4f00dc35168cb5c95a8ecc14be36d" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-suffix", "Suffix commands with '22'"
