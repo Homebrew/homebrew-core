@@ -13,7 +13,7 @@ class Clhep < Formula
   end
 
   head do
-    url "http://git.cern.ch/pub/CLHEP", :using => :git
+    url "https://gitlab.cern.ch/CLHEP/CLHEP.git"
 
     depends_on "automake" => :build
     depends_on "autoconf" => :build
