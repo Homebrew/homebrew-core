@@ -7,12 +7,11 @@ class Libcds < Formula
   depends_on "cmake" => :build
   depends_on "boost"
 
+  needs :cxx11
+
   def install
-    if MacOS.version >= "10.10"
-      system "cmake", ".", "-DCMAKE_CXX_FLAGS='-stdlib=libc++ -std=c++11'", *std_cmake_args
-    else
-      system "cmake", ".", "-DWITH_BOOST_ATOMIC=ON", *std_cmake_args
-    end
+    ENV.cxx11
+    system "cmake", ".", "-DWITH_BOOST_ATOMIC=ON", *std_cmake_args
     system "make"
     system "make", "install"
   end
