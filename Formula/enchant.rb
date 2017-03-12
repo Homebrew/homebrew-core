@@ -1,8 +1,9 @@
 class Enchant < Formula
   desc "Spellchecker wrapping library"
-  homepage "http://www.abisource.com/projects/enchant/"
-  url "http://www.abisource.com/downloads/enchant/1.6.0/enchant-1.6.0.tar.gz"
-  sha256 "2fac9e7be7e9424b2c5570d8affe568db39f7572c10ed48d4e13cddf03f7097f"
+  homepage "https://abiword.github.io/enchant/"
+  url "https://github.com/AbiWord/enchant/archive/enchant-1-6-1.tar.gz"
+  version "1.6.1"
+  sha256 "ed2b11211a571ab5f963debf4c3bf3fc46541bb9cbb441b2997bd871ba8618d4"
 
   bottle do
     sha256 "22fe912e6addc1433750e5da08691be6ec4c721ac91e150b7d5a64b7637d3c19" => :sierra
@@ -19,8 +20,8 @@ class Enchant < Formula
 
   # https://pythonhosted.org/pyenchant/
   resource "pyenchant" do
-    url "https://pypi.python.org/packages/source/p/pyenchant/pyenchant-1.6.5.tar.gz"
-    sha256 "623f332a9fbb70ae6c9c2d0d4e7f7bae5922d36ba0fe34be8e32df32ebbb4f84"
+    url "https://files.pythonhosted.org/packages/73/73/49f95fe636ab3deed0ef1e3b9087902413bcdf74ec00298c3059e660cfbb/pyenchant-1.6.8.tar.gz"
+    sha256 "7ead2ee74f1a4fc2a7199b3d6012eaaaceea03fbcadcb5df67d2f9d0d51f050a"
   end
 
   def install
