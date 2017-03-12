@@ -15,9 +15,10 @@ class Unicorn < Formula
   option "with-all", "Build with support for ARM64, Motorola 64k, PowerPC and "\
     "SPARC"
   option "with-debug", "Create a debug build"
+  option "with-test", "Test build"
 
-  depends_on "glib"
   depends_on "pkg-config" => :build
+  depends_on "cmocka" => "with-test"
 
   def install
     archs  = %w[x86 x86_64 arm mips]
@@ -31,6 +32,7 @@ class Unicorn < Formula
       ENV["UNICORN_DEBUG"] = "no"
     end
     system "make"
+    system "make", "test" if build.with?("test")
     system "make", "install"
   end
 
