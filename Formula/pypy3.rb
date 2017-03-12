@@ -1,6 +1,6 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
-  homepage "http://pypy.org/"
+  homepage "https://pypy.org/"
   url "https://dl.bintray.com/homebrew/mirror/pypy3-5.5.0.tar.bz2"
   sha256 "d5591c34d77253e9ed57d182b6f49585b95f7c09c3e121f0e8630e5a7e75ab5f"
 
