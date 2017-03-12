@@ -11,8 +11,6 @@ class Vim < Formula
     sha256 "144d5c2d2e13f3b5d0f5bcf7a7e28523fa71277738959b587b9b95dea7e27295" => :yosemite
   end
 
-  deprecated_option "disable-nls" => "without-gettext"
-  deprecated_option "without-nls" => "without-gettext"
   deprecated_option "override-system-vi" => "with-override-system-vi"
 
   option "with-override-system-vi", "Override system vi"
