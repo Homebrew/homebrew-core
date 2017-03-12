@@ -1,6 +1,6 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
-  homepage "http://pypy.org/"
+  homepage "https://pypy.org/"
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   stable do
