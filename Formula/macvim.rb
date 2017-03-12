@@ -14,6 +14,7 @@ class Macvim < Formula
   end
 
   option "with-override-system-vim", "Override system vim"
+  option "with-gettext", "Build MacVim with +gettext."
 
   deprecated_option "override-system-vim" => "with-override-system-vim"
 
@@ -21,13 +22,18 @@ class Macvim < Formula
   depends_on "cscope" => :recommended
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
+  depends_on "gettext" => :optional
 
   if MacOS.version >= :mavericks
     option "with-custom-python", "Build with a custom Python 2 instead of the Homebrew version."
+    option "with-custom-ruby", "Build with a custom Ruby instead of the Homebrew version."
+    option "with-custom-perl", "Build with a custom Perl instead of the Homebrew version."
   end
 
   depends_on :python => :recommended
   depends_on :python3 => :optional
+  depends_on :ruby => "1.8" # Can be compiled against 1.8.x or >= 1.9.3-p385.
+  depends_on :perl => "5.3"
 
   def install
     # Avoid "fatal error: 'ruby/config.h' file not found"
@@ -87,6 +93,8 @@ class Macvim < Formula
       args << "--enable-pythoninterp"
     end
 
+    args << "--disable-nls" if build.without? "gettext"
+
     system "./configure", *args
     system "make"
 
@@ -112,9 +120,23 @@ class Macvim < Formula
 
   test do
     # Simple test to check if MacVim was linked to Python version in $PATH
-    if build.with? "python"
+    if build.with? "python3"
+      system_framework_path = `python3-config --exec-prefix`.chomp
+      assert_match system_framework_path, `mvim --version`
+    elsif build.with? "python"
       system_framework_path = `python-config --exec-prefix`.chomp
       assert_match system_framework_path, `mvim --version`
+    end
+
+    # Check whether MacVim is built with +gettext
+    if build.with? "gettext"
+      assert_match "+gettext", `#{bin}/mvim --version`
+    end
+
+    # Check if MacVim was linked to Ruby version in $PATH
+    if build.with? "ruby"
+      ruby_ver = `ruby -e 'print(RUBY_VERSION)'`.chomp
+      assert_match "-lruby" + ruby_ver, `#{bin}/mvim --version`
     end
   end
 end
