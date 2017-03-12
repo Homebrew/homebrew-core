@@ -5,8 +5,11 @@ class Libcds < Formula
   sha256 "e582fbd6492c91ff24b11468f094b111d5f62eca69e6445c88bf16cad50e40ed"
 
   depends_on "cmake" => :build
-  depends_on "gcc" if MacOS.version <= :yosemite
   depends_on "boost"
+  if DevelopmentTools.clang_build_version < 800
+    depends_on "gcc"
+    fails_with :clang
+  end
 
   needs :cxx11
 
