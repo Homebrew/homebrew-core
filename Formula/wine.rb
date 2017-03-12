@@ -134,7 +134,7 @@ class Wine < Formula
 
   resource "fontconfig" do
     url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.1.tar.bz2"
-    mirror "http://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.1.tar.bz2"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.1.tar.bz2"
     sha256 "b449a3e10c47e1d1c7a6ec6e2016cca73d3bd68fbbd4f0ae5cc6b573f7d6c7f3"
   end
 
