@@ -12,10 +12,10 @@ class Gcc < Formula
   end
 
   desc "GNU compiler collection"
-  homepage "https://gcc.gnu.org"
+  homepage "https://gcc.gnu.org/"
   revision 1
 
-  head "svn://gcc.gnu.org/svn/gcc/trunk"
+  head "https://gcc.gnu.org/svn/gcc/trunk", :using => :svn
 
   stable do
     url "https://ftpmirror.gnu.org/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
