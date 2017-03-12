@@ -1,10 +1,10 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
-  homepage "https://github.com/bentley/rgbds"
-  url "https://github.com/bentley/rgbds/releases/download/v0.2.4/rgbds-0.2.4.tar.gz"
+  homepage "https://github.com/rednex/rgbds"
+  url "https://github.com/rednex/rgbds/releases/download/v0.2.4/rgbds-0.2.4.tar.gz"
   sha256 "a7d32f369c6acf65fc0875c72873ef21f4d3a5813d3a2ab74ea604429f7f0435"
 
-  head "https://github.com/bentley/rgbds.git"
+  head "https://github.com/rednex/rgbds.git"
 
   bottle do
     cellar :any_skip_relocation
