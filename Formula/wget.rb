@@ -35,7 +35,7 @@ class Wget < Formula
   depends_on "gpgme" => :optional
 
   patch :p0, :DATA
-  
+
   def install
     # Fixes undefined symbols _iconv, _iconv_close, _iconv_open
     # Reported 10 Jun 2016: https://savannah.gnu.org/bugs/index.php?48193
