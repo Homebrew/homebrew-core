@@ -5,6 +5,12 @@ class RubyAT20 < Formula
   sha256 "087ad4dec748cfe665c856dbfbabdee5520268e94bb81a1d8565d76c3cc62166"
   revision 1
 
+  bottle do
+    sha256 "ac6d04c57a84adaaa52800ab04abbbb9a925c9b92c8f1e85e68e616b57dd762a" => :sierra
+    sha256 "8aa47571f6b8b63af45f85b6b822fbc434c5a10072f79dd02220133316a67933" => :el_capitan
+    sha256 "50e34d9ce5d7496696f84e9ffd6ad3a028b59511157fef92ec8acf91c52b4a57" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-suffix", "Suffix commands with '20'"
