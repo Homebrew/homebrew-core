@@ -42,6 +42,7 @@ class Vim < Formula
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
   depends_on :x11 if build.with? "client-server"
+  depends_on "gettext" if build.with? "nls"
 
   conflicts_with "ex-vi",
     :because => "vim and ex-vi both install bin/ex and bin/view"
@@ -73,7 +74,16 @@ class Vim < Formula
       opts -= %w[--enable-pythoninterp]
     end
 
-    opts << "--disable-nls" if build.without? "nls"
+    if build.without? "nls"
+      opts << "--disable-nls"
+    else
+      gettext = Formula["gettext"]
+      ENV.append "CPPFLAGS", "-I#{gettext.include}"
+      ENV.append "LDFLAGS", "-L#{gettext.lib}"
+      ENV.append "PATH", gettext.bin
+      opts << "MSGFMT=#{gettext.bin}/msgfmt"
+    end
+
     opts << "--enable-gui=no"
 
     if build.with? "client-server"
@@ -116,13 +126,24 @@ class Vim < Formula
   end
 
   test do
-    if build.with? "python"
+    if build.with? "python" and build.without? "python3"
       (testpath/"commands.vim").write <<-EOS.undent
         :python import vim; vim.current.buffer[0] = 'hello world'
         :wq
       EOS
       system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
       assert_equal (testpath/"test.txt").read, "hello world\n"
+    end
+    if build.with? "python3"
+      (testpath/"commands.vim").write <<-EOS.undent
+        :python3 import vim; vim.current.buffer[0] = 'hello python3'
+        :wq
+      EOS
+      system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
+      assert_equal (testpath/"test.txt").read, "hello python3\n"
+    end
+    if build.with? "nls"
+      system bin/"vim --version | grep '\\+gettext'"
     end
   end
 end
