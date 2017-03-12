@@ -5,6 +5,12 @@ class RubyAT19 < Formula
   sha256 "b0c5e37e3431d58613a160504b39542ec687d473de1d4da983dabcf3c5de771e"
   revision 4
 
+  bottle do
+    sha256 "3db7c4d297998e6f53b10e35626bdf94f8db0836778ce8ef943846e1d5b35fbc" => :sierra
+    sha256 "9c5dd40c620a597405e3c2d458bc9772ad1c661acf501b65f9e9d8871c300f7f" => :el_capitan
+    sha256 "9334e46da0b55e3ea20bba27c49352b8b9f95674a5dea1691b5fd04625f23eed" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-suffix", "Suffix commands with '193'"
