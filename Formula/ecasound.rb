@@ -1,7 +1,7 @@
 class Ecasound < Formula
   desc "Multitrack-capable audio recorder and effect processor"
-  homepage "http://www.eca.cx/ecasound/"
-  url "http://ecasound.seul.org/download/ecasound-2.9.1.tar.gz"
+  homepage "https://www.eca.cx/ecasound/"
+  url "https://ecasound.seul.org/download/ecasound-2.9.1.tar.gz"
   sha256 "39fce8becd84d80620fa3de31fb5223b2b7d4648d36c9c337d3739c2fad0dcf3"
 
   bottle do
