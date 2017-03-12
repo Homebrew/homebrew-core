@@ -11,10 +11,7 @@ class Libcds < Formula
     fails_with :clang
   end
 
-  needs :cxx11
-
   def install
-    ENV.cxx11
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
