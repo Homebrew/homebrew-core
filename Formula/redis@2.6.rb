@@ -5,6 +5,13 @@ class RedisAT26 < Formula
   sha256 "5a65b54bb6deef2a8a4fabd7bd6962654a5d35787e68f732f471bbf117f4768e"
   head "https://github.com/antirez/redis.git", :branch => "2.6"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "29e779868a0bfaf2d5fbeb275c12dacbc18c9509ccccfbfb41900053b63431df" => :sierra
+    sha256 "43fe747ac54b58150f90763f8e89de3c40f6048d7038c6014ec88b7dfe8a3ab0" => :el_capitan
+    sha256 "36e5677bc7fa1cfede9409a571823fc3585fe3e086e7087c98f8b14add5214ce" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   def install
