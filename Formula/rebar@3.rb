@@ -5,6 +5,13 @@ class RebarAT3 < Formula
   sha256 "b17661bedaf2060179e0b7b2c4a64350b7a303d809397325ee4be38cc1dc9058"
   head "https://github.com/rebar/rebar3.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "72164fa23dea1b2533bf4894d3c59231db5b9503ea27828dd66bc008de85d5fb" => :sierra
+    sha256 "663aa691ffbf6c49d13d1a0fd7c51f27859ac3e9b5673aa961df5b9682dfa8df" => :el_capitan
+    sha256 "e26e0b500939ac3eb9fcb54d9234def934624c241a3577438e8f71f99ec662ce" => :yosemite
+  end
+
   depends_on "erlang"
 
   def install
