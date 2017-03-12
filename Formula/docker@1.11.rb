@@ -7,6 +7,13 @@ class DockerAT111 < Formula
 
   head "https://github.com/docker/docker.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "900e30f27b73f3fdd7a7e08060ceb8788e242b050334f34f32c20d4fcb19e5b6" => :sierra
+    sha256 "395b70bc1a528d4615faa940c63eecdbfffd564821de4df0d0f121c4bf41fa68" => :el_capitan
+    sha256 "e8c7a80898ad0ea1eac2a2b373135b0abf9e5077c48d5cd8285313447be71df9" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-experimental", "Enable experimental features"
