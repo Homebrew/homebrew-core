@@ -73,14 +73,14 @@ class Vim < Formula
       opts -= %w[--enable-pythoninterp]
     end
 
-    if !build.with? "nls"
-      opts << "--disable-nls"
-    else
+    if build.with? "nls"
       gettext = Formula["gettext"]
       ENV.append "CPPFLAGS", "-I#{gettext.include}"
       ENV.append "LDFLAGS", "-L#{gettext.lib}"
       ENV.append "PATH", gettext.bin
       opts << "MSGFMT=#{gettext.bin}/msgfmt"
+    else
+      opts << "--disable-nls"
     end
 
     opts << "--enable-gui=no"
