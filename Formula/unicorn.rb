@@ -18,7 +18,7 @@ class Unicorn < Formula
   option "with-test", "Test build"
 
   depends_on "pkg-config" => :build
-  depends_on "cmocka" => "with-test"
+  depends_on "cmocka" => :build
 
   def install
     archs  = %w[x86 x86_64 arm mips]
