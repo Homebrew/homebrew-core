@@ -80,7 +80,7 @@ class Unicorn < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-o", testpath/"test1", testpath/"test1.c", "-lglib-2.0",
+    system ENV.cc, "-o", testpath/"test1", testpath/"test1.c",
       "-lpthread", "-lm", "-lunicorn"
     system testpath/"test1"
   end
