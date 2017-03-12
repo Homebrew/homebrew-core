@@ -14,7 +14,7 @@ class Vim < Formula
   deprecated_option "override-system-vi" => "with-override-system-vi"
 
   option "with-override-system-vi", "Override system vi"
-  option "with-nls", "Build vim with National Language Support (translated messages, keymaps)"
+  option "with-gettext", "Build vim with National Language Support (translated messages, keymaps)"
   option "with-client-server", "Enable client/server mode"
 
   LANGUAGES_OPTIONAL = %w[lua python3 tcl].freeze
@@ -41,7 +41,7 @@ class Vim < Formula
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
   depends_on :x11 if build.with? "client-server"
-  depends_on "gettext" if build.with? "nls"
+  depends_on "gettext" => :optional
 
   conflicts_with "ex-vi",
     :because => "vim and ex-vi both install bin/ex and bin/view"
@@ -73,7 +73,7 @@ class Vim < Formula
       opts -= %w[--enable-pythoninterp]
     end
 
-    if build.with? "nls"
+    if build.with? "gettext"
       gettext = Formula["gettext"]
       ENV.append "CPPFLAGS", "-I#{gettext.include}"
       ENV.append "LDFLAGS", "-L#{gettext.lib}"
@@ -141,7 +141,7 @@ class Vim < Formula
       system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
       assert_equal (testpath/"test.txt").read, "hello python3\n"
     end
-    if build.with? "nls"
+    if build.with? "gettext"
       system bin/"vim --version | grep '\\+gettext'"
     end
   end
