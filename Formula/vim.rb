@@ -126,7 +126,7 @@ class Vim < Formula
   end
 
   test do
-    if build.with? "python" and build.without? "python3"
+    if (build.with? "python") && (build.without? "python3")
       (testpath/"commands.vim").write <<-EOS.undent
         :python import vim; vim.current.buffer[0] = 'hello world'
         :wq
