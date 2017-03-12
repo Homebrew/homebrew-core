@@ -5,19 +5,14 @@ class Libcds < Formula
   sha256 "e582fbd6492c91ff24b11468f094b111d5f62eca69e6445c88bf16cad50e40ed"
 
   depends_on "cmake" => :build
-  depends_on "gcc" => :build if MacOS.version <= "10.10"
+  depends_on "gcc" if MacOS.version <= :yosemite
   depends_on "boost"
 
   needs :cxx11
 
   def install
     ENV.cxx11
-    if MacOS.version <= "10.10"
-      system "cmake", ".", "-DCMAKE_C_COMPILER=gcc-6", "-DCMAKE_CXX_COMPILER=g++-6", "-DCMAKE_CXX_FLAGS=-stdlib=libc++", *std_cmake_args
-    else
-      system "cmake", ".", "-DWITH_BOOST_ATOMIC=ON", *std_cmake_args
-    end
-    system "make"
+    system "cmake", ".", "-DWITH_BOOST_ATOMIC=ON", *std_cmake_args
     system "make", "install"
   end
 
