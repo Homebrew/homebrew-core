@@ -77,8 +77,7 @@ class Vim < Formula
       gettext = Formula["gettext"]
       ENV.append "CPPFLAGS", "-I#{gettext.include}"
       ENV.append "LDFLAGS", "-L#{gettext.lib}"
-      ENV.append "PATH", gettext.bin
-      opts << "MSGFMT=#{gettext.bin}/msgfmt"
+      ENV.append_path "PATH", gettext.bin
     else
       opts << "--disable-nls"
     end
@@ -125,13 +124,13 @@ class Vim < Formula
   end
 
   test do
-    if (build.with? "python") && (build.without? "python3")
+    if build.with?("python") && build.without?("python3")
       (testpath/"commands.vim").write <<-EOS.undent
         :python import vim; vim.current.buffer[0] = 'hello world'
         :wq
       EOS
       system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
-      assert_equal (testpath/"test.txt").read, "hello world\n"
+      assert_equal (testpath/"test.txt").read.strip, "hello world"
     end
     if build.with? "python3"
       (testpath/"commands.vim").write <<-EOS.undent
@@ -139,10 +138,10 @@ class Vim < Formula
         :wq
       EOS
       system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
-      assert_equal (testpath/"test.txt").read, "hello python3\n"
+      assert_equal (testpath/"test.txt").read.strip, "hello python3"
     end
     if build.with? "gettext"
-      system bin/"vim --version | grep '\\+gettext'"
+      assert_match "+gettext", shell_output("#{bin}/vim --version")
     end
   end
 end
