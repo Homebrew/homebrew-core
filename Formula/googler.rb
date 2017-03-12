@@ -7,9 +7,9 @@ class Googler < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "44f9bd65915294fa8230db2752b873211140beba4257e6a74dd5f443dc664f68" => :sierra
-    sha256 "94b3ac1de25be458fad9f89ce70d34b6c3dc2c52a4df067163e69e9251d85387" => :el_capitan
-    sha256 "94b3ac1de25be458fad9f89ce70d34b6c3dc2c52a4df067163e69e9251d85387" => :yosemite
+    sha256 "90604c6e10b8f29c2c483737a9cf89cf69fc87479b9f18acc6e45c50e338bce5" => :sierra
+    sha256 "90604c6e10b8f29c2c483737a9cf89cf69fc87479b9f18acc6e45c50e338bce5" => :el_capitan
+    sha256 "90604c6e10b8f29c2c483737a9cf89cf69fc87479b9f18acc6e45c50e338bce5" => :yosemite
   end
 
   depends_on :python3
