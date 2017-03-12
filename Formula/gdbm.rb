@@ -15,6 +15,8 @@ class Gdbm < Formula
 
   option "with-libgdbm-compat", "Build libgdbm_compat, a compatibility layer which provides UNIX-like dbm and ndbm interfaces."
 
+  # The --without-readline is to avoid a probable bug introduced in
+  # 1.13.
   def install
     args = %W[
       --disable-dependency-tracking
