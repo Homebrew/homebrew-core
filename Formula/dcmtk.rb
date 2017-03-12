@@ -26,8 +26,6 @@ class Dcmtk < Formula
   depends_on "homebrew/dupes/libiconv" => :optional
 
   def install
-    ENV.m64 if MacOS.prefer_64_bit?
-
     args = std_cmake_args
     args << "-DDCMTK_WITH_OPENSSL=YES"
     args << "-DDCMTK_WITH_DOXYGEN=YES" if build.with? "docs"
