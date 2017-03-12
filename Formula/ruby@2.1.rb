@@ -4,6 +4,12 @@ class RubyAT21 < Formula
   url "https://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.10.tar.bz2"
   sha256 "a74675578a9a801ac25eb7152bef3023432d6267f875b198eb9cd6944a5bf4f1"
 
+  bottle do
+    sha256 "29f650621310044c8cab15c73aeae5ca610d7cc27fa84354b7c656f2235adb11" => :sierra
+    sha256 "8cb6299101776e4f5848020e0e7e527ca2b050d8efd4d9e5bd293387da1c0269" => :el_capitan
+    sha256 "55021b56b07e2df5968a2a026fe1602df1143d5bc5dcd7d51f2d0040743dc352" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-suffix", "Suffix commands with '21'"
