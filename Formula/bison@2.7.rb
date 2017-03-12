@@ -5,6 +5,12 @@ class BisonAT27 < Formula
   mirror "https://ftp.gnu.org/gnu/bison/bison-2.7.1.tar.gz"
   sha256 "08e2296b024bab8ea36f3bb3b91d071165b22afda39a17ffc8ff53ade2883431"
 
+  bottle do
+    sha256 "f826962030514764d143e70416b82ad39b83b011f56836ed66dde769d267f1c5" => :sierra
+    sha256 "f445b3e75cf7ac40ef2b4bfa2953acaf477e21bc9fae7957584772a49b54872a" => :el_capitan
+    sha256 "bafa9e03f97e3de2199a7c612d86f15dbb9722f77865a35a6d1cffb2d501841a" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   def install
