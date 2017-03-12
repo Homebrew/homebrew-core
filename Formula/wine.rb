@@ -5,7 +5,7 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  head "git://source.winehq.org/git/wine.git"
+  head "https://source.winehq.org/git/wine.git"
 
   stable do
     url "https://dl.winehq.org/wine/source/2.0/wine-2.0.tar.bz2"
