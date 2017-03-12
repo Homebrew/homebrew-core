@@ -4,6 +4,13 @@ class CassandraAT21 < Formula
   url "https://archive.apache.org/dist/cassandra/2.1.13/apache-cassandra-2.1.13-bin.tar.gz"
   sha256 "102fffe21b1641696cbdaef0fb5a2fecf01f28da60c81a1dede06c2d8bdb6325"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "b1906ed9835c47a76953d8d24dd20a44754098dfd4981c2f990d6b63449b3c7b" => :sierra
+    sha256 "8db1bf5929051d59f296c485d5b771efd4e5baff6c2dde1b9157c9f910f45f8f" => :el_capitan
+    sha256 "fc9857b4742b5f7263e1979a7caf37ee3bd831026c6fb7cf819f64d70edaed7b" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   depends_on :python if MacOS.version <= :snow_leopard
