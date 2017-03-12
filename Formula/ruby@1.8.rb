@@ -5,6 +5,12 @@ class RubyAT18 < Formula
   sha256 "b4e34703137f7bfb8761c4ea474f7438d6ccf440b3d35f39cc5e4d4e239c07e3"
   revision 2
 
+  bottle do
+    sha256 "b7b546e51dd2db5c2cd656998041af71fb45bbb766d0806b80307c0af0beeb7c" => :sierra
+    sha256 "4ace3a1054114b29c38852966aac76140570981958cf44e74267fc92f30ad13e" => :el_capitan
+    sha256 "9940035c29b4c2949d60e277bd0cadd8f52d074e4a1259435f95e8e1174283d4" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-suffix", "Suffix commands with '187'"
