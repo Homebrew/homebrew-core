@@ -130,7 +130,7 @@ class Vim < Formula
         :wq
       EOS
       system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test-python.txt"
-      assert_equal "hello world", File.read("test-python.txt").strip
+      assert_equal "hello world", File.read("test-python.txt").chomp
     end
     if build.with? "python3"
       (testpath/"commands.vim").write <<-EOS.undent
@@ -138,7 +138,7 @@ class Vim < Formula
         :wq
       EOS
       system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test-python3.txt"
-      assert_equal "hello python3", File.read("test-python3.txt").strip
+      assert_equal "hello python3", File.read("test-python3.txt").chomp
     end
     if build.with? "gettext"
       assert_match "+gettext", shell_output("#{bin}/vim --version")
