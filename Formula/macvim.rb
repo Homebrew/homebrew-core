@@ -18,6 +18,9 @@ class Macvim < Formula
 
   deprecated_option "override-system-vim" => "with-override-system-vim"
 
+  conflicts_with "vim",
+    :because => "They both override system vim" if build.with? "override-system-vim"
+
   depends_on :xcode => :build
   depends_on "cscope" => :recommended
   depends_on "lua" => :optional
