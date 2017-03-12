@@ -129,16 +129,16 @@ class Vim < Formula
         :python import vim; vim.current.buffer[0] = 'hello world'
         :wq
       EOS
-      system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
-      assert_equal "hello world"， (testpath/"test.txt").read.strip
+      system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test-python.txt"
+      assert_equal "hello world", File.read("test-python.txt").strip
     end
     if build.with? "python3"
       (testpath/"commands.vim").write <<-EOS.undent
         :python3 import vim; vim.current.buffer[0] = 'hello python3'
         :wq
       EOS
-      system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
-      assert_equal "hello python3"， (testpath/"test.txt").read.strip
+      system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test-python3.txt"
+      assert_equal "hello python3", File.read("test-python3.txt").strip
     end
     if build.with? "gettext"
       assert_match "+gettext", shell_output("#{bin}/vim --version")
