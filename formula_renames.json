@@ -12,6 +12,7 @@
   "bash-completion2": "bash-completion@2",
   "beanstalk": "beanstalkd",
   "berkeley-db4": "berkeley-db@4",
+  "bigdata": "blazegraph",
   "boost155": "boost@1.55",
   "boost157": "boost@1.57",
   "boost159": "boost@1.59",
