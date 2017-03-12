@@ -25,6 +25,7 @@ class Wget < Formula
   deprecated_option "enable-debug" => "with-debug"
 
   option "with-debug", "Build with debug support"
+  option "with-test", "Build with test"
 
   depends_on "pkg-config" => :build
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
@@ -52,6 +53,7 @@ class Wget < Formula
 
     system "./bootstrap" if build.head?
     system "./configure", *args
+    system "make", "check" if build.with?("test") || build.bottle?
     system "make", "install"
   end
 
