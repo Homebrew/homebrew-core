@@ -11,6 +11,20 @@ class Wine < Formula
     url "https://dl.winehq.org/wine/source/2.0/wine-2.0.tar.bz2"
     mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.0.tar.bz2"
     sha256 "9756f5a2129b6a83ba701e546173cbff86caa671b0af73eb8f72c03b20c066c6"
+
+    # Patch to fix texture compression issues. Still relevant on 2.0.
+    # https://bugs.winehq.org/show_bug.cgi?id=14939
+    patch do
+      url "https://bugs.winehq.org/attachment.cgi?id=52384"
+      sha256 "30766403f5064a115f61de8cacba1defddffe2dd898b59557956400470adc699"
+    end
+
+    # Patch to fix screen-flickering issues. Still relevant on 2.0.
+    # https://bugs.winehq.org/show_bug.cgi?id=34166
+    patch do
+      url "https://bugs.winehq.org/attachment.cgi?id=55968"
+      sha256 "1b5086798ce6dc959b3cbb8f343ee236ae06c7910e4bbae7d9fde3f162f03a79"
+    end
   end
 
   bottle do
@@ -21,9 +35,16 @@ class Wine < Formula
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/2.x/wine-2.1.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.1.tar.xz"
-    sha256 "bfb9abf63691c93df28d9599aaa866dc2b4e27209b3b7b546df8a37d7d9d1e6e"
+    url "https://dl.winehq.org/wine/source/2.x/wine-2.3.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.3.tar.xz"
+    sha256 "afc95c7a87cc8f0730b462c50a5dfc9c462eb02c6bf5874b4fa99946f49e067e"
+
+    # Patch to fix screen-flickering issues. Still relevant on 2.3.
+    # https://bugs.winehq.org/show_bug.cgi?id=34166
+    patch do
+      url "https://bugs.winehq.org/attachment.cgi?id=57353"
+      sha256 "55436526e786c3cac35c7b522f01ca5cc5b826bd0d2bd9e98f53e6a5043a151e"
+    end
   end
 
   if MacOS.version >= :el_capitan
@@ -37,20 +58,6 @@ class Wine < Formula
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "makedepend" => :build
-
-  # Patch to fix texture compression issues. Still relevant on 2.0.
-  # https://bugs.winehq.org/show_bug.cgi?id=14939
-  patch do
-    url "https://bugs.winehq.org/attachment.cgi?id=52384"
-    sha256 "30766403f5064a115f61de8cacba1defddffe2dd898b59557956400470adc699"
-  end
-
-  # Patch to fix screen-flickering issues. Still relevant on 2.0.
-  # https://bugs.winehq.org/show_bug.cgi?id=34166
-  patch do
-    url "https://bugs.winehq.org/attachment.cgi?id=55968"
-    sha256 "1b5086798ce6dc959b3cbb8f343ee236ae06c7910e4bbae7d9fde3f162f03a79"
-  end
 
   resource "gecko-x86" do
     url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86.msi", :using => :nounzip
