@@ -34,7 +34,7 @@ class Wget < Formula
   depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
 
-  patch :p0, :DATA
+  patch :DATA
 
   def install
     # Fixes undefined symbols _iconv, _iconv_close, _iconv_open
