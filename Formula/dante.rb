@@ -6,11 +6,9 @@ class Dante < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "5430dd125d58a0d237c29eeb4bc34ad2de63d3d958737b3166bfa4b6475a87e7" => :sierra
-    sha256 "317f720310f59b8c3c8b12e5b971829e7c2f8513832bc1782ec01c8d598e529d" => :el_capitan
-    sha256 "610a391e6e28955b31a4f7a288ad446103e745a938c3d68f3082ff5fe1863574" => :yosemite
-    sha256 "66d48707c1e9d1fd7a891a145c4848812f5563c38357434d8dccb195b5bd7b8a" => :mavericks
+    sha256 "036442d258ec7128e6ac6a31f6862afe0aebf16fec6f268a96a32c438e706086" => :sierra
+    sha256 "78d19f01354b73e82ccc3a3eb59c45fddf65969b6bf36e307bb7813eeef7c8f1" => :el_capitan
+    sha256 "6bb94dda6feae85c407e7779c34f20dc10bd9b2fd377660af7d1c6467735053d" => :yosemite
   end
 
   depends_on "miniupnpc" => :optional
