@@ -15,7 +15,7 @@ class Libcds < Formula
 
   def install
     ENV.cxx11
-    system "cmake", ".", "-DWITH_BOOST_ATOMIC=ON", *std_cmake_args
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
