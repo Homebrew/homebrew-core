@@ -34,6 +34,8 @@ class Wget < Formula
   depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
 
+  patch :p0, :DATA
+  
   def install
     # Fixes undefined symbols _iconv, _iconv_close, _iconv_open
     # Reported 10 Jun 2016: https://savannah.gnu.org/bugs/index.php?48193
@@ -61,3 +63,29 @@ class Wget < Formula
     system bin/"wget", "-O", "/dev/null", "https://google.com"
   end
 end
+
+__END__
+diff --git a/tests/Makefile.am b/tests/Makefile.am
+index c27c4ce..9ac8572 100644
+--- a/tests/Makefile.am
++++ b/tests/Makefile.am
+@@ -86,7 +86,6 @@ PX_TESTS = \
+              Test-idn-robots-utf8.px \
+              Test-iri.px \
+              Test-iri-percent.px \
+-             Test-iri-disabled.px \
+              Test-iri-forced-remote.px \
+              Test-iri-list.px \
+              Test-k.px \
+diff --git a/tests/Makefile.in b/tests/Makefile.in
+index d7ef010..b1e1f4d 100644
+--- a/tests/Makefile.in
++++ b/tests/Makefile.in
+@@ -1569,7 +1569,6 @@ PX_TESTS = \
+              Test-idn-robots-utf8.px \
+              Test-iri.px \
+              Test-iri-percent.px \
+-             Test-iri-disabled.px \
+              Test-iri-forced-remote.px \
+              Test-iri-list.px \
+              Test-k.px \
