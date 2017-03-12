@@ -4,6 +4,13 @@ class ClangFormatAT38 < Formula
   url "http://llvm.org/releases/3.8.0/llvm-3.8.0.src.tar.xz"
   sha256 "555b028e9ee0f6445ff8f949ea10e9cd8be0d084840e21fbbe1d31d51fc06e46"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "5608a169a7b3ceb15253c693e29108acf744a4ab39b5daa51e99fd95f9a8d444" => :sierra
+    sha256 "28a37510286ddc1e67251c6be80b2e21a7f9216c3707facc0584dba7ba6eb56d" => :el_capitan
+    sha256 "1efd59ed98ad16d3f881e6e753146dd5695e1b7b16b4640b200e639f87a646e8" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
