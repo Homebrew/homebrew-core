@@ -1,8 +1,8 @@
 class Stuntman < Formula
   desc "Implementation of the STUN protocol"
   homepage "http://www.stunprotocol.org/"
-  url "http://www.stunprotocol.org/stunserver-1.2.10.tgz"
-  sha256 "6e5d734a9cd5cf5753a306a396cec2c19978bea296df5d707ee909c75d804406"
+  url "http://www.stunprotocol.org/stunserver-1.2.13.tgz"
+  sha256 "d336be76c23b330bcdbf7d0af9e82f1f4f9866f9caffd37062c7f44d9c272661"
   head "https://github.com/jselbie/stunserver.git"
 
   bottle do
