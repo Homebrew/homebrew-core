@@ -8,11 +8,9 @@ class Libmxml < Formula
 
   bottle do
     cellar :any
-    sha256 "09996d5f7f65b41706c42092a5a55e81b387a30f932741ebc3cab7afe27d72f3" => :sierra
-    sha256 "9cb1dd58ac3f4e3ec51a78bce4ca142eafb12cfc6a890fd3eef7f4613ef70aba" => :el_capitan
-    sha256 "804da1287c900a1938f8360bf5df961fa85de040ea85fd0ad6490b7f30373af1" => :yosemite
-    sha256 "d92c245dcf1edb8c4d218f7506748cced58a5c5a7b7cefb9632ef22958ae7abc" => :mavericks
-    sha256 "df203c2e058d9e4d7980c1bfef686a2033f3ad84e3b405ef2d698dbffbdc3919" => :mountain_lion
+    sha256 "4287dd3c4346f82d9a410bf4bdce69329ef1f931e7639e6c27fa8f79e1e31cb4" => :sierra
+    sha256 "01d01bf5766e398837a416949f74eb405e57903dbc27a55fc589e0559e60c518" => :el_capitan
+    sha256 "bb2a6d25c76e7e65eb5a14728763a03f41cb7c5f68bb43cd73da4f92df0226cc" => :yosemite
   end
 
   depends_on :xcode => :build # for docsetutil
