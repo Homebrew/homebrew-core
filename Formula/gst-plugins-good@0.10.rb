@@ -1,4 +1,5 @@
 class GstPluginsGoodAT010 < Formula
+  desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "http://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-0.10.31.tar.bz2"
   sha256 "7e27840e40a7932ef2dc032d7201f9f41afcaf0b437daf5d1d44dc96d9e35ac6"
