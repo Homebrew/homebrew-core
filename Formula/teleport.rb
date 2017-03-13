@@ -4,6 +4,12 @@ class Teleport < Formula
   url "https://github.com/gravitational/teleport/archive/v1.3.2.tar.gz"
   sha256 "2f2f5aa019c99d1a829f16745aa6d81778945ca29b3e936cc9117aac832e12e1"
 
+  bottle do
+    sha256 "9c20fb9e3008148730dab6e35d0a7cd0472100793737a98d4d7c95bd0175815b" => :sierra
+    sha256 "41e283da433d6623fa37b981551e631adeeda850e1835eb0a1968f64379e0f15" => :el_capitan
+    sha256 "e6ad71b1359c608d3740fe0410e67e5735027170ce6908b5f283f3fe03b8d43f" => :yosemite
+  end
+
   depends_on "go" => :build
   depends_on "godep" => :build
 
