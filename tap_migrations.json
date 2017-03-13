@@ -236,6 +236,7 @@
   "salt": "homebrew/science",
   "sam2p": "homebrew/boneyard",
   "samba": "homebrew/boneyard",
+  "scsh": "homebrew/boneyard",
   "sedna": "homebrew/boneyard",
   "sgfutils": "homebrew/boneyard",
   "shark": "homebrew/science",
