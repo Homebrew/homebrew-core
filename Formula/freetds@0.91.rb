@@ -4,6 +4,12 @@ class FreetdsAT091 < Formula
   url "ftp://ftp.freetds.org/pub/freetds/stable/freetds-0.91.112.tar.gz"
   sha256 "be4f04ee57328c32e7e7cd7e2e1483e535071cec6101e46b9dd15b857c5078ed"
 
+  bottle do
+    sha256 "ab0419c2290e4204524a74de3e652e8fae23b9d29dce793554c38c79a28be947" => :sierra
+    sha256 "3e9bfe7bf16e71cc6a68e1296c4af381f40ccb68363edaf94f276393e05d8ac6" => :el_capitan
+    sha256 "55b8960ca59ecc738e5973451195da1b4133eb0e31559454e87c5b1f103337bb" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-msdblib", "Enable Microsoft behavior in the DB-Library API where it diverges from Sybase's"
