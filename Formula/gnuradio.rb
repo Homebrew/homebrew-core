@@ -6,9 +6,9 @@ class Gnuradio < Formula
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 "7f2b54d889d4d568736e9ae8221b0a652015d6abb18b1466a5637f92a007884f" => :sierra
-    sha256 "7b70a05aeeb12d4457c81093880786468210d8dc1a409bc1181d6910607e3b3f" => :el_capitan
-    sha256 "464555aaac52b55b9e09ec2b0b2e0e4cabc024b655a1bf815d7ddde59aec92fe" => :yosemite
+    sha256 "4d064a778aa85bb11b16a9bb3ebcb2c403ab40405ffd54bf50ef35c5d8f14c2d" => :sierra
+    sha256 "1578ae20b2b080b2c71e7ff6ffb30179d8896e77853aa68c1266a4ed1eca36c5" => :el_capitan
+    sha256 "2125887a9ea16693e55a88ac70b5a3ae9e31df932f3a624169dd2620e53cece5" => :yosemite
   end
 
   # Fixes linkage of python (swig) bindings directly to python
