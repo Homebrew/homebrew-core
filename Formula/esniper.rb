@@ -1,9 +1,9 @@
 class Esniper < Formula
   desc "Snipe eBay auctions from the command-line"
   homepage "https://sourceforge.net/projects/esniper/"
-  url "https://downloads.sourceforge.net/project/esniper/esniper/2.32.0/esniper-2-32-0.tgz"
-  version "2.32"
-  sha256 "5ee3e5237c6a12059ae9d38380505d38448c2c12787f9fcc603cdb0a1a519312"
+  url "https://downloads.sourceforge.net/project/esniper/esniper/2.33.0/esniper-2-33-0.tgz"
+  version "2.33"
+  sha256 "c9b8b10aefe5c397d7dee4c569f87f227c6710de528b1dc402379e5b4f1793dd"
 
   bottle do
     cellar :any_skip_relocation
