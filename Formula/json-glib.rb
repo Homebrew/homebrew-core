@@ -1,8 +1,8 @@
 class JsonGlib < Formula
   desc "Library for JSON, based on GLib"
   homepage "https://live.gnome.org/JsonGlib"
-  url "https://download.gnome.org/sources/json-glib/1.2/json-glib-1.2.2.tar.xz"
-  sha256 "ea128ab52a824fcd06e5448fbb2bd8d9a13740d51c66d445828edba71321a621"
+  url "https://download.gnome.org/sources/json-glib/1.2/json-glib-1.2.6.tar.xz"
+  sha256 "958fa59909ef28399c811aff29a5340b330b20660ca3586b4c5aa3a53997776c"
 
   bottle do
     sha256 "be50545abc36b43fe093e29eda2692246111d8c37a3d154537724485e12a86a4" => :sierra
@@ -15,10 +15,11 @@ class JsonGlib < Formula
   depends_on "gobject-introspection"
 
   def install
-    system "./configure", "--disable-debug",
+    system "./configure", "--disable-silent-rules",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-introspection=yes"
+    system "make"
     system "make", "install"
   end
 
