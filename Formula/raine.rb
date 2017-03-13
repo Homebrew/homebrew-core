@@ -1,6 +1,6 @@
 class Raine < Formula
   desc "680x0 arcade emulator"
-  homepage "http://raine.1emulation.com/"
+  homepage "https://raine.1emulation.com/"
   url "https://github.com/zelurker/raine/archive/0.64.13.tar.gz"
   sha256 "0af13e67744ac81f987687a3f83703bc844897a6a1b828a19d82f96dfe8ab719"
   head "https://github.com/zelurker/raine.git"
@@ -103,7 +103,7 @@ class Raine < Formula
   end
 
   resource "freetype" do
-    url "https://downloads.sf.net/project/freetype/freetype2/2.7.1/freetype-2.7.1.tar.bz2"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.7.1/freetype-2.7.1.tar.bz2"
     mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.7.1.tar.bz2"
     sha256 "3a3bb2c4e15ffb433f2032f50a5b5a92558206822e22bfe8cbe339af4aa82f88"
   end
