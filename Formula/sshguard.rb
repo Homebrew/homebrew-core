@@ -16,12 +16,22 @@ class Sshguard < Formula
   depends_on "autoconf" => :build
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-firewall=#{firewall}"
+                          "--sysconfdir=#{etc}"
     system "make", "install"
+    mkdir "etc"
+    cp "examples/sshguard.conf.sample", "etc/sshguard.conf"
+    inreplace "etc/sshguard.conf" do |s|
+      s.gsub! /^#BACKEND=.*$/, "BACKEND=\"#{libexec}/sshg-fw-#{firewall}\""
+      if MacOS.version >= :sierra
+        s.gsub! %r{^#LOGREADER="/usr\/bin\/log}, "LOGREADER=\"/usr/bin/log"
+      else
+        s.gsub! /^#FILES.*$/, "FILES=#{log_path}"
+      end
+    end
+    etc.install "etc/sshguard.conf"
   end
 
   def firewall
@@ -59,8 +69,6 @@ class Sshguard < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_sbin}/sshguard</string>
-        <string>-l</string>
-        <string>#{log_path}</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
