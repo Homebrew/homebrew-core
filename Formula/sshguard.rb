@@ -4,6 +4,7 @@ class Sshguard < Formula
   url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.0.0/sshguard-2.0.0.tar.gz"
   sha256 "e87c6c4a6dddf06f440ea76464eb6197869c0293f0a60ffa51f8a6a0d7b0cb06"
   version_scheme 1
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,16 +13,22 @@ class Sshguard < Formula
     sha256 "20918ad422229e3d3fec35af56916d396963014b95341206bd1e905a3f553384" => :yosemite
   end
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-firewall=#{firewall}"
+                          "--sysconfdir=#{etc}"
     system "make", "install"
+    cp "examples/sshguard.conf.sample", "examples/sshguard.conf"
+    inreplace "examples/sshguard.conf" do |s|
+      s.gsub! /^#BACKEND=.*$/, "BACKEND=\"#{libexec}/sshg-fw-#{firewall}\""
+      if MacOS.version >= :sierra
+        s.gsub! %r{^#LOGREADER="/usr/bin/log}, "LOGREADER=\"/usr/bin/log"
+      else
+        s.gsub! /^#FILES.*$/, "FILES=#{log_path}"
+      end
+    end
+    etc.install "examples/sshguard.conf"
   end
 
   def firewall
@@ -59,8 +66,6 @@ class Sshguard < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_sbin}/sshguard</string>
-        <string>-l</string>
-        <string>#{log_path}</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
@@ -70,6 +75,6 @@ class Sshguard < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{sbin}/sshguard -v 2>&1", 78)
+    assert_match "SSHGuard #{version}", shell_output("#{sbin}/sshguard -v 2>&1")
   end
 end
