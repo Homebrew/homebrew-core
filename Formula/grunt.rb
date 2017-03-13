@@ -19,7 +19,7 @@ class Grunt < Formula
       "name": "grunt-homebrew-test",
       "version": "1.0.0",
       "devDependencies": {
-        "grunt": "*"
+        "grunt": ">=0.4.0"
       }
     }
     EOS
