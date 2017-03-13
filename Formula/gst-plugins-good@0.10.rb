@@ -44,4 +44,10 @@ class GstPluginsGoodAT010 < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    gst = Formula["gstreamer@0.10"].opt_bin/"gst-inspect-0.10"
+    output = shell_output("#{gst} --plugin cairo")
+    assert_match version.to_s, output
+  end
 end
