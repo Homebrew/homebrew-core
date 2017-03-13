@@ -1,8 +1,8 @@
 class Dvm < Formula
   desc "Docker Version Manager"
-  homepage "https://github.com/getcarina/dvm"
-  url "https://github.com/getcarina/dvm/archive/0.7.0.tar.gz"
-  sha256 "ba49aa8e34bbbd8b96d27aa79f1e84daee72f625a412b1b65f35d2804285a279"
+  homepage "https://github.com/howtowhale/dvm"
+  url "https://github.com/howtowhale/dvm/archive/0.8.2.tar.gz"
+  sha256 "b8297aaf07ea797429800a46fa76b2377edd6f6a0e67d61effee275df356575e"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,7 +21,7 @@ class Dvm < Formula
     #   CGO_ENABLED=0 go build ...
     #   dvm-helper/dvm-helper.go:16:2: cannot find package "github.com/blang/semver"
     #   make: *** [local] Error 1
-    # Reported 17 Feb 2017: https://github.com/getcarina/dvm/issues/151
+    # Reported 17 Feb 2017: https://github.com/howtowhale/dvm/issues/151
     ENV.deparallelize
 
     ENV["GOPATH"] = buildpath
@@ -30,9 +30,9 @@ class Dvm < Formula
     # `depends_on "glide"` already has this covered
     inreplace "Makefile", %r{^.*go get github.com/Masterminds/glide.*$\n}, ""
 
-    (buildpath/"src/github.com/getcarina/dvm").install buildpath.children
+    (buildpath/"src/github.com/howtowhale/dvm").install buildpath.children
 
-    cd "src/github.com/getcarina/dvm" do
+    cd "src/github.com/howtowhale/dvm" do
       system "make", "VERSION=#{version}", "UPGRADE_DISABLED=true"
       prefix.install "dvm.sh"
       bash_completion.install "bash_completion" => "dvm"
