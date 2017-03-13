@@ -1,6 +1,6 @@
 class GstPluginsUglyAT010 < Formula
   desc "GStreamer plugins (possibly problematic for distributors)"
-  homepage "http://gstreamer.freedesktop.org/"
+  homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-0.10.19.tar.bz2"
   sha256 "1ca90059275c0f5dca71d4d1601a8f429b7852baed0723e820703b977e2c8df0"
 
