@@ -12,6 +12,7 @@ class Mednafen < Formula
   depends_on "sdl"
   depends_on "libsndfile"
   depends_on "gettext"
+  depends_on "gcc" if DevelopmentTools.clang_build_version >= 800
 
   needs :cxx11
 
