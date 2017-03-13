@@ -5,7 +5,7 @@ class GstPluginsUglyAT010 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "gst-plugins-base010"
+  depends_on "gst-plugins-base@0.10"
 
   # The set of optional dependencies is based on the intersection of
   # gst-plugins-ugly-0.10.17/REQUIREMENTS and Homebrew formulae
