@@ -62,8 +62,12 @@ class Fontconfig < Formula
   end
 
   def post_install
-    ohai "Regenerating font cache, this may take a while"
-    system "#{bin}/fc-cache", "-frv"
+    if ENV["HOMEBREW_FONTCONFIG_CACHE_SKIP"] = "yes"
+      ohai "HOMEBREW_FONTCONFIG_CACHE_SKIP set to 'yes', skipping font cache update"
+    else
+      ohai "Regenerating font cache, this may take a while"
+      system "#{bin}/fc-cache", "-frv"
+    end
   end
 
   test do
