@@ -1,9 +1,9 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.1.0/mesos-1.1.0.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/1.1.0/mesos-1.1.0.tar.gz"
-  sha256 "0f6d591eff78483e07bee93aed4553c69064f7870b216817a0085def3569b2c1"
+  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.2.0/mesos-1.2.0.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/1.2.0/mesos-1.2.0.tar.gz"
+  sha256 "60dfd06cd1eec6f69af4ff77f7a92043fe7ead60bedf5605eecd14ffa7a3fb41"
 
   bottle do
     rebuild 1
@@ -19,8 +19,8 @@ class Mesos < Formula
   depends_on "subversion"
 
   resource "protobuf" do
-    url "https://pypi.python.org/packages/source/p/protobuf/protobuf-2.6.1.tar.gz"
-    sha256 "8faca1fb462ee1be58d00f5efb4ca4f64bde92187fe61fde32615bbee7b3e745"
+    url "https://pypi.python.org/packages/e0/2f/690a5f047e2cfef40c9c5eec0877b496dc1f5a0625ca6b0ac1cd11f12f6a/protobuf-3.2.0.tar.gz"
+    sha256 "a48475035c42d13284fd7bf3a2ffa193f8c472ad1e8539c8444ea7e2d25823a1"
   end
 
   # build dependencies for protobuf
@@ -30,8 +30,8 @@ class Mesos < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
-    sha256 "1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed"
+    url "https://files.pythonhosted.org/packages/51/fc/39a3fbde6864942e8bb24c93663734b74e281b984d1b8c4f95d64b0c21f6/python-dateutil-2.6.0.tar.gz"
+    sha256 "62a2f8df3d66f878373fd0072eacf4ee52194ba302e00082828e0d263b0418d2"
   end
 
   resource "pytz" do
@@ -40,8 +40,8 @@ class Mesos < Formula
   end
 
   resource "python-gflags" do
-    url "https://files.pythonhosted.org/packages/6b/1c/47996c14dc91249376f218c0f943da3b85ff7e9af9c5de05cd2600c8afb4/python-gflags-3.0.7.tar.gz"
-    sha256 "db889af55e39fa6a37125d6aa70dfdd788dbc180f9566d3053250e28877e68dc"
+    url "https://files.pythonhosted.org/packages/ea/30/b8469c0d1837ce58fe3706e1f7169cbf6ca1fb87d1f84cece5182b67cb0b/python-gflags-3.1.1.tar.gz"
+    sha256 "aaff6449ca74320c709052e4664a52337832b2338f4a4267088564f3e98f6c63"
   end
 
   resource "google-apputils" do
