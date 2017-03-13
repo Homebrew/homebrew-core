@@ -17,7 +17,6 @@ class GstPluginsGoodAT010 < Formula
   depends_on "check" => :optional
   depends_on "aalib" => :optional
   depends_on "libcdio" => :optional
-  depends_on "esound" => :optional
   depends_on "flac" => :optional
   depends_on "jpeg" => :optional
   depends_on "libcaca" => :optional
