@@ -5,10 +5,9 @@ class Ompl < Formula
   sha256 "87ab32541a461daca529d7a2d1aecd8d3f1df2d403756b7a7f98b6824be2d74e"
 
   bottle do
-    sha256 "4a90bb34ebda949327b8873faf73cebc22b2de9e603b0f0b8fbc023935cb46f2" => :sierra
-    sha256 "5f29d3dc453e5f1d294333d250fed884b4a38fa91f0bb1048a14eaa58774b709" => :el_capitan
-    sha256 "ee99c05b5f1084ded43e0cacf7bd3ca0a1d3046bf99c1d5faafd225db2fb3a61" => :yosemite
-    sha256 "ab89e5350fdf56e044503f363c0e36ab689e45ef4f38806cf66f214908720838" => :mavericks
+    sha256 "3dc98f4ee2f1d891e9262244e62af56deee44a35a91d2e66e6db946d4cb53047" => :sierra
+    sha256 "d2e172a1cc14a6c6a7e984b006a5f7a3d18f4a12415d21749e66fa208af67824" => :el_capitan
+    sha256 "eb966f1601007bf76e4b53108a039beb703f8fb08f571ff153e0eac7e1ffdc2e" => :yosemite
   end
 
   depends_on "cmake" => :build
