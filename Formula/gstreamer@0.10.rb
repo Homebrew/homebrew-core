@@ -4,6 +4,12 @@ class GstreamerAT010 < Formula
   url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-0.10.36.tar.bz2"
   sha256 "e556a529e0a8cf1cd0afd0cab2af5488c9524e7c3f409de29b5d82bb41ae7a30"
 
+  bottle do
+    sha256 "ed81ea32cc04a81b1ac8b53af69f76fc1b6d888af53aed15f5e8a2f97cdbe716" => :sierra
+    sha256 "9f89e9a28d5cb1e5f460040bca57411a52964cc0aae6d5368ae5c8b446b47b92" => :el_capitan
+    sha256 "c14907ea21e161018d7823832e55dc26966316a75147be5f84dc8e91f6b6bd01" => :yosemite
+  end
+
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
