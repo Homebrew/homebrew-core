@@ -6,8 +6,8 @@ class Crowdin < Formula
 
   def install
     bin.install "crowdin-cli.jar"
-    system "alias", "crowdin=\"java -jar #{bin}/crowdin-cli.jar\" >> ~/.bashrc"
-    system "alias", " crowdin=\"java -jar #{bin}/crowdin-cli.jar\" >> ~/.bash_profile"
+    system "alias", "crowdin=\"'java -jar #{bin}/crowdin-cli.jar'\" >> ~/.bashrc"
+    system "alias", "crowdin=\"'java -jar #{bin}/crowdin-cli.jar'\" >> ~/.bash_profile"
   end
 
   test do
