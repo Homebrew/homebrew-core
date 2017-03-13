@@ -1,8 +1,8 @@
 class Recipes < Formula
   desc "Formula for GNOME recipes"
   homepage "https://wiki.gnome.org/Apps/Recipes"
-  url "https://download.gnome.org/sources/recipes/0.4/recipes-0.4.2.tar.xz"
-  sha256 "9554d4f5d97eb9cd4032de0e4f9cc27a218c32d022dd1917a7e9efbd379c5bc1"
+  url "https://download.gnome.org/sources/gnome-recipes/0.22/gnome-recipes-0.22.0.tar.xz"
+  sha256 "ae4f669b1f1d20f2846ad1c9f6ba6580a15347288ef3d044972c2ba589d9c7b9"
 
   bottle do
     sha256 "3942e92f1710d0b1d01d88edfb45417d61c5db77959f8d5e23403529e4406db7" => :sierra
@@ -10,8 +10,10 @@ class Recipes < Formula
     sha256 "fff313a143c4e0f1c6db25e4f895582f1c38603a3f312ecda0a06cc13b722a93" => :yosemite
   end
 
+  depends_on "pkg-config" => :build
   depends_on "gtk+3"
   depends_on "gnome-icon-theme"
+  depends_on "libcanberra"
 
   def install
     # orces use of gtk3-update-icon-cache instead of gtk-update-icon-cache. No bugreport should
@@ -23,11 +25,16 @@ class Recipes < Formula
                           "--disable-debug",
                           "--prefix=#{prefix}",
                           "--disable-autoar",
-                          "--disable-gspell"
+                          "--disable-gspell",
+                          "--disable-schemas-compile"
     system "make", "install"
   end
 
+  def post_install
+    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
+  end
+
   test do
-    system "#{bin}/recipes", "--help"
+    system "#{bin}/gnome-recipes", "--help"
   end
 end
