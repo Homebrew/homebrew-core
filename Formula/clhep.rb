@@ -5,11 +5,10 @@ class Clhep < Formula
   sha256 "1019479265f956bd660c11cb439e1443d4fd1655e8d51accf8b1e703e4262dff"
 
   bottle do
-    cellar :any
-    sha256 "6e0e6197e025d371b9a8ed4c71a1bd117dc087116edbf34528e0592518ee641a" => :sierra
-    sha256 "ca3c67cfa4ed9cace3f0868d82322cabd3d4bee86b448c2942efab0a545ba46f" => :el_capitan
-    sha256 "c02e259a9a446d0578fe82ae3847a9d0050c6c3b032d98b95d6ce4f348361777" => :yosemite
-    sha256 "a9467330e9bd3b40011cc647cc7702c68f2665794f4ae62941eb70f8cccaebcb" => :mavericks
+    cellar :any_skip_relocation
+    sha256 "436a617b5e6356f083fb091ddd820b4d663eca38ebb4c47045002c1e8ba07067" => :sierra
+    sha256 "ca2d2e28a8d1c21df312fc407341df04387d3b085dae0c80493f2ac5f88f3bc9" => :el_capitan
+    sha256 "c2236e8c8561b24177c9383e0d3455e0f6d80c2c948e559d20165c570fca9715" => :yosemite
   end
 
   head do
