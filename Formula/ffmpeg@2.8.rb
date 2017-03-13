@@ -4,6 +4,12 @@ class FfmpegAT28 < Formula
   url "https://ffmpeg.org/releases/ffmpeg-2.8.11.tar.bz2"
   sha256 "9987e0f6b1f66311390f807a0c18ad9c90652b5097cff17b3dcbeabdd89f8d32"
 
+  bottle do
+    sha256 "e031f023b70ad0e7357dbfaf36bc5a9de82c5f678c5d41f39ed5f76edd6aaa61" => :sierra
+    sha256 "dd85334c99ee8f2af3cf57a11d8af01c63e2ef3127742b141915713d49868e0a" => :el_capitan
+    sha256 "991871ed17f2912831eb9157e912a1c6748ba2f573ac982a5ad8bf2932313ac3" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "without-x264", "Disable H.264 encoder"
