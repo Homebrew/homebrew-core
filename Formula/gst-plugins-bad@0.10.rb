@@ -5,8 +5,6 @@ class GstPluginsBadAT010 < Formula
   sha256 "0eae7d1a1357ae8377fded6a1b42e663887beabe0e6cc336e2ef9ada42e11491"
   revision 1
 
-  keg_only :versioned_formula
-
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gst-plugins-base@0.10"
