@@ -36,6 +36,7 @@
   "eigen32": "eigen@3.2",
   "elasticsearch17": "elasticsearch@1.7",
   "elasticsearch24": "elasticsearch@2.4",
+  "elasticsearch502": "elasticsearch@5.0.2",
   "erlang-r18": "erlang@18",
   "fig": "docker-compose",
   "gcc46": "gcc@4.6",
