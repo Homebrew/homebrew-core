@@ -1,8 +1,8 @@
 class Wesnoth < Formula
   desc "Single- and multi-player turn-based strategy game"
-  homepage "http://www.wesnoth.org/"
-  url "https://downloads.sourceforge.net/project/wesnoth/wesnoth-1.12/wesnoth-1.12.4/wesnoth-1.12.4.tar.bz2"
-  sha256 "bf525060da4201f1e62f861ed021f13175766e074a8a490b995052453df51ea7"
+  homepage "https://www.wesnoth.org/"
+  url "https://downloads.sourceforge.net/project/wesnoth/wesnoth-1.12/wesnoth-1.12.6/wesnoth-1.12.6.tar.bz2"
+  sha256 "a50f384cead15f68f31cfa1a311e76a12098428702cb674d3521eb169eb92e4e"
 
   head "https://github.com/wesnoth/wesnoth.git"
 
