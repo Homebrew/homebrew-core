@@ -1,8 +1,8 @@
 class Ompl < Formula
   desc "Open Motion Planning Library consists of many motion planning algorithms"
   homepage "http://ompl.kavrakilab.org"
-  url "https://bitbucket.org/ompl/ompl/downloads/ompl-1.1.0-Source.tar.gz"
-  sha256 "4d141ad3aa322c65ee7ecfa90017a44a8114955316e159b635fae5b5e7db74f8"
+  url "https://bitbucket.org/ompl/ompl/downloads/ompl-1.3.0-Source.tar.gz"
+  sha256 "87ab32541a461daca529d7a2d1aecd8d3f1df2d403756b7a7f98b6824be2d74e"
 
   bottle do
     sha256 "4a90bb34ebda949327b8873faf73cebc22b2de9e603b0f0b8fbc023935cb46f2" => :sierra
@@ -16,7 +16,10 @@ class Ompl < Formula
   depends_on "eigen" => :optional
   depends_on "ode" => :optional
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
