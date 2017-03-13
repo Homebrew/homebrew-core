@@ -104,7 +104,7 @@ class Wine < Formula
   end
 
   resource "freetype" do
-    url "https://downloads.sf.net/project/freetype/freetype2/2.7.1/freetype-2.7.1.tar.bz2"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.7.1/freetype-2.7.1.tar.bz2"
     mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.7.1.tar.bz2"
     sha256 "3a3bb2c4e15ffb433f2032f50a5b5a92558206822e22bfe8cbe339af4aa82f88"
   end
@@ -127,7 +127,7 @@ class Wine < Formula
 
   resource "fontconfig" do
     url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.1.tar.bz2"
-    mirror "http://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.1.tar.bz2"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.1.tar.bz2"
     sha256 "b449a3e10c47e1d1c7a6ec6e2016cca73d3bd68fbbd4f0ae5cc6b573f7d6c7f3"
   end
 
