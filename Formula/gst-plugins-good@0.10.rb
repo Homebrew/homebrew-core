@@ -6,7 +6,7 @@ class GstPluginsGoodAT010 < Formula
   depends_on :x11
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "gst-plugins-base010"
+  depends_on "gst-plugins-base@0.10"
   depends_on "cairo"
 
   # The set of optional dependencies is based on the intersection of
