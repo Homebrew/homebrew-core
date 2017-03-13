@@ -5,6 +5,12 @@ class GnupgAT21 < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.19.tar.bz2"
   sha256 "46cced1f5641ce29cc28250f52fadf6e417e649b3bfdec49a5a0d0b22a639bf0"
 
+  bottle do
+    sha256 "ee987dda5cb9a4d128da093096460c0e4d728a27d03cd68e950f50f3619fa84f" => :sierra
+    sha256 "0acf9dab68b75ffb1fba25aa077dbda6b9b89b1441b8fef8f97a95d41005bce6" => :el_capitan
+    sha256 "b6ef2a5a322fa40ac7dd4fbf362ab0b55e635d127207e0ec40f9ea2a0eb96bb4" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-gpgsplit", "Additionally install the gpgsplit utility"
