@@ -27,13 +27,20 @@ class GstPluginsGoodAT010 < Formula
   depends_on "libsoup" => :optional
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-schemas-install",
-                          "--disable-gtk-doc",
-                          "--disable-goom",
-                          "--with-default-videosink=ximagesink"
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --disable-schemas-install
+      --disable-gtk-doc
+      --disable-goom
+      --with-default-videosink=ximagesink
+    ]
+
+    # Prevent "fatal error: 'QuickTime/QuickTime.h' file not found"
+    args << "--disable-osx_video" if DevelopmentTools.clang_build_version >= 800
+
+    system "./configure", *args
     system "make"
     system "make", "install"
   end
