@@ -8,6 +8,8 @@ class GlfwAT2 < Formula
 
   def install
     system "make", "PREFIX=#{prefix}", "cocoa-dist-install"
+    MachO::Tools.change_dylib_id("#{lib}/libglfw.dylib",
+                                 "@opt_lib/libglfw.dylib")
   end
 
   test do
