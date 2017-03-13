@@ -5,9 +5,9 @@ class Gxml < Formula
   sha256 "3e1f28ba6fc06b5c96a57c1f099ad3bc21683c54bb3b5e5bc4d7ceaff7c74066"
 
   bottle do
-    sha256 "bfa5e9b306172cfebff6f082211097e4dd58d2ff38e539325b5bb2eb4f64e902" => :sierra
-    sha256 "311b442c57d36bce2236c3efd31be41bfbee6e1df36d6ebb3c070e7b8cfe9165" => :el_capitan
-    sha256 "39e9cbb51acb3e05455a4e7bef8f0bb0653d656c322532deb5186ff9bb8731bd" => :yosemite
+    sha256 "c278bf77ee2598784234af1831fbcec240884f8752f063b13be414e6771ea9e2" => :sierra
+    sha256 "d469006c231e641e60fad6af24830e7ca1228359c884e844461c90ea672596f5" => :el_capitan
+    sha256 "863382cf1bb3bac00b2443bf6d17701db99fc3c22be9ffd440c5043868b15936" => :yosemite
   end
 
   depends_on "pkg-config" => :build
