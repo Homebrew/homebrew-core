@@ -34,6 +34,8 @@ class Wget < Formula
   depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
 
+  # iri-disabled test fails 
+  # https://savannah.gnu.org/bugs/index.php?50528
   patch :DATA
 
   def install
