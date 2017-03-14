@@ -109,6 +109,7 @@
   "qt55": "qt@5.5",
   "racket": "minimal-racket",
   "rebar3": "rebar@3",
+  "recipes": "gnome-recipes",
   "redis26": "redis@2.6",
   "redis28": "redis@2.8",
   "ruby187": "ruby@1.8",
