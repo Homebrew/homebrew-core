@@ -18,9 +18,9 @@ class Rtags < Formula
   end
 
   bottle do
-    sha256 "3e2649ceda64ae71a42c1907c34ba186b9b6937faaee13cec239c60f134c30f7" => :sierra
-    sha256 "c221421644f29d5f2680d7fe6375d6c7c46f2b4eeb5665707ca29a26541cf50e" => :el_capitan
-    sha256 "d875068e438884f4166a7a859fad9affbcb7a12c4164df38277fd548e6dc203b" => :yosemite
+    sha256 "088013e76c721591a148609868ae179e554a6e9269ea68693fe649175edb4463" => :sierra
+    sha256 "49508a3d00d95ffa05712e9bb90c47b5c55f239e3c03877a0aa883527f5dfed9" => :el_capitan
+    sha256 "0d6b47e4439c4cbaad95a0761db221a4ed599bbe03d70603286da8dc1d8fe86a" => :yosemite
   end
 
   depends_on "cmake" => :build
