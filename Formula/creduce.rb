@@ -1,9 +1,22 @@
 class Creduce < Formula
   desc "Reduce a C/C++ program while keeping a property of interest"
   homepage "https://embed.cs.utah.edu/creduce/"
-  url "https://embed.cs.utah.edu/creduce/creduce-2.6.0.tar.gz"
-  sha256 "cdacc1046ca3ae2b0777b8f235428e7976b0fb97c2f69979c8accd8d2cc0c55d"
+  revision 1
   head "https://github.com/csmith-project/creduce.git"
+
+  stable do
+    url "https://embed.cs.utah.edu/creduce/creduce-2.6.0.tar.gz"
+    sha256 "cdacc1046ca3ae2b0777b8f235428e7976b0fb97c2f69979c8accd8d2cc0c55d"
+
+    # Remove for > 2.6.0
+    # LLVM 4.0 compatibility
+    # Upstream commit "clang_delta: Namespace-qualify clang::StringLiteral"
+    # Upstream PR from 19 Dec 2016 https://github.com/csmith-project/creduce/pull/128
+    patch do
+      url "https://github.com/csmith-project/creduce/commit/ba1b8a6.patch"
+      sha256 "c55148fc8f8d2b2e39ed25041b1335c8223185969656e4effa336cae9c7b671c"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
