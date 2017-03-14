@@ -22,9 +22,9 @@ class Ldc < Formula
   end
 
   bottle do
-    sha256 "786db8b395c0fdac2ca5a870b452501fb79b3882489463fe29f0a6c2503ed234" => :sierra
-    sha256 "deb0762cd588a6847c288f356dcc872d2509fed19645c3f79dd76512ba1cf133" => :el_capitan
-    sha256 "215d80adf9ef45ffc425d6aa0b4834e56b20eeeb197e6a662e25ceb1a0291471" => :yosemite
+    sha256 "fc28f525e6e84937e605075bb5a5544182246e88d03350cd5269223827ff6e6e" => :sierra
+    sha256 "9f991528ec26750e25732dd431e0c2b4b59e79abd03481a5b73cccdc2efe0ee6" => :el_capitan
+    sha256 "313b430f7066f800b0c9f99f57c17dbbec08650b4014058d4b011bac9bf67830" => :yosemite
   end
 
   head do
