@@ -23,6 +23,12 @@ class Gtkx3 < Formula
   depends_on "gsettings-desktop-schemas" => :recommended
   depends_on "jasper" => :optional
 
+  # bug reported upstream in https://bugzilla.gnome.org/show_bug.cgi?id=780019
+  patch do
+    url "https://bug780019.bugzilla-attachments.gnome.org/attachment.cgi?id=347944"
+    sha256 "e79586e4c9ff431a929cdd0d484abd932aed8b00951865019df2d5dc20ec52b4"
+  end
+
   def install
     args = %W[
       --enable-debug=minimal
