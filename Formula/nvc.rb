@@ -30,9 +30,9 @@ class Nvc < Formula
   end
 
   bottle do
-    sha256 "1e9c83fa64952cccf301e1652516697c6ab9e17a3d05e6f5f3861cb97689f1c0" => :sierra
-    sha256 "05d0071242e0e8cc1621e3ac0ea1e8b5bcdcfbfe9622db9bef8a7a3077c39983" => :el_capitan
-    sha256 "1b530bdf998bb161222efaae1ee59fe135889d6ed245f28dd2cee06e845ddc0e" => :yosemite
+    sha256 "8e6b72d2a0a7502387bbe37b4b2bf93025cb88cbe705204d10eb8c6ce73718b5" => :sierra
+    sha256 "45fd2562cc085317a9c7b838d48421603efaac1ee46c45dfb6fc0b7eb5c0c51f" => :el_capitan
+    sha256 "77392d16a838e2d28b8b50221a356b8f4899a60626d4163180eee1603f225084" => :yosemite
   end
 
   depends_on "autoconf" => :build
