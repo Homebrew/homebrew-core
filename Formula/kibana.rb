@@ -31,7 +31,7 @@ class Kibana < Formula
     if MacOS.prefer_64_bit?
       platform = "darwin-x64"
     else
-      raise "Installing Kibana via Homebrew is only supported on Darwin x86_64, Linux i386, Linux i686, and Linux x86_64"
+      raise "Installing Kibana via Homebrew is only supported on macOS x86_64"
     end
     platforms.delete(platform)
     sub = platforms.to_a.join("|")
