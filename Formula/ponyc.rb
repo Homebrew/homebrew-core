@@ -12,7 +12,7 @@ class Ponyc < Formula
   end
 
   depends_on :macos => :yosemite
-  depends_on "llvm"
+  depends_on "homebrew/versions/llvm38"
   depends_on "libressl"
   depends_on "pcre2"
   needs :cxx11
