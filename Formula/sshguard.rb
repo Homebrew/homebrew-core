@@ -12,18 +12,14 @@ class Sshguard < Formula
     sha256 "20918ad422229e3d3fec35af56916d396963014b95341206bd1e905a3f553384" => :yosemite
   end
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}"
     system "make", "install"
-    mkdir "etc"
-    cp "examples/sshguard.conf.sample", "etc/sshguard.conf"
-    inreplace "etc/sshguard.conf" do |s|
+    cp "examples/sshguard.conf.sample", "examples/sshguard.conf"
+    inreplace "examples/sshguard.conf" do |s|
       s.gsub! /^#BACKEND=.*$/, "BACKEND=\"#{libexec}/sshg-fw-#{firewall}\""
       if MacOS.version >= :sierra
         s.gsub! %r{^#LOGREADER="/usr\/bin\/log}, "LOGREADER=\"/usr/bin/log"
@@ -31,7 +27,7 @@ class Sshguard < Formula
         s.gsub! /^#FILES.*$/, "FILES=#{log_path}"
       end
     end
-    etc.install "etc/sshguard.conf"
+    etc.install "examples/sshguard.conf"
   end
 
   def firewall
@@ -78,6 +74,6 @@ class Sshguard < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{sbin}/sshguard -v 2>&1", 78)
+    assert_match "SSHGuard #{version.to_s}", shell_output("#{sbin}/sshguard -v 2>&1", 0)
   end
 end
