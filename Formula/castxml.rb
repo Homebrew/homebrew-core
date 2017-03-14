@@ -1,21 +1,11 @@
 class Castxml < Formula
   desc "C-family Abstract Syntax Tree XML Output"
   homepage "https://github.com/CastXML/CastXML"
-  revision 1
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/c/castxml/castxml_0.1+git20161215.orig.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/c/castxml/castxml_0.1+git20161215.orig.tar.xz"
+  version "0.1+git20161215"
+  sha256 "6710486f72ea32020d30e04ff9d6e629a94b79d4fb10b834f93d3f87ebd9c091"
   head "https://github.com/CastXML/castxml.git"
-
-  stable do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/c/castxml/castxml_0.1+git20160706.orig.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/c/castxml/castxml_0.1+git20160706.orig.tar.xz"
-    version "0.1+git20160706"
-    sha256 "28e7df5f9cc4de6222339d135a7b1583ae0c20aa0d18e47fa202939b81a7dada"
-
-    # changes from upstream to fix compilation with LLVM 3.9
-    patch do
-      url "https://github.com/CastXML/CastXML/commit/e1ee6852c79eddafa2ce1f134c097decd27aaa69.patch"
-      sha256 "d47f4566bda6f8592c120052aeec404de371dc27b0ef15d5c337c34f87976901"
-    end
-  end
 
   bottle do
     cellar :any
