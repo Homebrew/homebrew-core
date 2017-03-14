@@ -1,8 +1,8 @@
 class Biogeme < Formula
   desc "Maximum likelihood estimation of choice models"
   homepage "http://biogeme.epfl.ch"
-  url "http://biogeme.epfl.ch/distrib/biogeme-2.5.tar.gz"
-  sha256 "88548e99f4f83c24bf7ddb8e0de07588adc2bec515569c56e816ed5b20a624b3"
+  url "http://biogeme.epfl.ch/distrib/biogeme-2.6a.tar.gz"
+  sha256 "f6de0ea12f83ed183f31a41b9a56d1ec7226d2305549fb89ea7b1de8273ede49"
 
   bottle do
     sha256 "57b8dc37a3f62f8158019ba7ed16955d84603e9d5544bf8ec43ca1b7f2c8ff5b" => :sierra
@@ -14,10 +14,7 @@ class Biogeme < Formula
   depends_on "gtkmm3"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--enable-python",
-                          "--enable-bison",
-                          "--enable-gui"
+    system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
