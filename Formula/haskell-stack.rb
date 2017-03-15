@@ -5,9 +5,9 @@ class HaskellStack < Formula
 
   desc "The Haskell Tool Stack"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/releases/download/v1.3.2/stack-1.3.2-sdist-0.tar.gz"
-  version "1.3.2"
-  sha256 "369dfaa389b373e6d233b5920d071f717b10252279e6004be2c6c4e3cd9488d4"
+  url "https://github.com/commercialhaskell/stack/releases/download/v1.4.0/stack-1.4.0-sdist-0.tar.gz"
+  version "1.4.0"
+  sha256 "edad1b32eb44acc7632a6b16726cd634f74383fd1c05757dccca1744d1ca3642"
   head "https://github.com/commercialhaskell/stack.git"
 
   bottle do
@@ -18,37 +18,33 @@ class HaskellStack < Formula
 
   option "without-bootstrap", "Don't bootstrap a stage 2 stack"
 
-  # malformed mach-o: load commands size (40192) > 32768
-  depends_on MaximumMacOSRequirement => :el_capitan if build.bottle?
-
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
+  # Remove when stack-8.0.yaml is the default
+  resource "source_archive" do
+    url "https://github.com/commercialhaskell/stack/archive/v1.4.0.tar.gz"
+    sha256 "595d311ad117e41ad908b7065743917542b40f343d1334673e98171ee74d36e6"
+  end
+
   def install
-    if MacOS.version >= :sierra && build.with?("bootstrap")
-      raise <<-EOS.undent
-        stack cannot build with bootstrap on Sierra due to an upstream GHC
-        incompatiblity. Please use the pre-built bottle binary instead of attempting to
-        build from source or pass --without-bootstrap. For more details see
-          https://ghc.haskell.org/trac/ghc/ticket/12479
-          https://github.com/commercialhaskell/stack/issues/2577
-      EOS
-    end
-
     cabal_sandbox do
-      inreplace "stack.cabal", "directory >=1.2.1.0 && <1.3,",
-                               "directory >=1.2.1.0 && <1.4,"
-      system "cabal", "get", "hpc"
-      inreplace "hpc-0.6.0.3/hpc.cabal", "directory  >= 1.1   && < 1.3,",
-                                         "directory  >= 1.1   && < 1.4,"
-      cabal_sandbox_add_source "hpc-0.6.0.3"
-
       if build.with? "bootstrap"
         cabal_install
+
         # Let `stack` handle its own parallelization
         # Prevents "install: mkdir ... ghc-7.10.3/lib: File exists"
+        ENV.deparallelize
         jobs = ENV.make_jobs
-        ENV.deparallelize do
+
+        if MacOS.version >= :sierra
+          (buildpath/"source_archive").install resource("source_archive")
+          cd "source_archive" do
+            system "stack", "-j#{jobs}", "--stack-yaml=stack-8.0.yaml", "setup"
+            system "stack", "-j#{jobs}", "--stack-yaml=stack-8.0.yaml",
+                            "--local-bin-path=#{bin}", "install"
+          end
+        else
           system "stack", "-j#{jobs}", "setup"
           system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install"
         end
@@ -56,13 +52,6 @@ class HaskellStack < Formula
         install_cabal_package
       end
     end
-
-    # Remove the unneeded rpaths so that the binary works on Sierra
-    macho = MachO.open("#{bin}/stack")
-    macho.rpaths.each do |rpath|
-      macho.delete_rpath(rpath)
-    end
-    macho.write!
   end
 
   test do
