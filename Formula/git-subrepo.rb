@@ -8,9 +8,9 @@ class GitSubrepo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "abd5fef76d76dd765af949e2f44bd55e3ae122319671e64f551172c20123dc13" => :sierra
-    sha256 "23a7f23ad60d8fbb1e22177bc5862b6f5736f893582a63d121ca4eae4a389ce3" => :el_capitan
-    sha256 "23a7f23ad60d8fbb1e22177bc5862b6f5736f893582a63d121ca4eae4a389ce3" => :yosemite
+    sha256 "f7d319ded76484efef8f34b45853e97c5d663cc2c4e76e91ed0f6a7fae1a8edb" => :sierra
+    sha256 "f7d319ded76484efef8f34b45853e97c5d663cc2c4e76e91ed0f6a7fae1a8edb" => :el_capitan
+    sha256 "f7d319ded76484efef8f34b45853e97c5d663cc2c4e76e91ed0f6a7fae1a8edb" => :yosemite
   end
 
   def install
