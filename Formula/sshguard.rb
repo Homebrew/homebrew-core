@@ -75,6 +75,6 @@ class Sshguard < Formula
   end
 
   test do
-    assert_match "SSHGuard #{version.to_s}", shell_output("#{sbin}/sshguard -v 2>&1")
+    assert_match "SSHGuard #{version}", shell_output("#{sbin}/sshguard -v 2>&1")
   end
 end
