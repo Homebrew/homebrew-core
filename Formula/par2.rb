@@ -6,11 +6,9 @@ class Par2 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bf25adffe0240c407aa4cb09dbd00d710687087b9aa62a07ddbeab9f7be3bf2b" => :sierra
-    sha256 "0ad074a40f27a29d3cde489eab4f9e74c1f5bf6fa9be3ca116d4d9e123d290d2" => :el_capitan
-    sha256 "562c1b75782b0ce231416d4d27c7d9a8bc12b467f307db84102267bdfd355ef3" => :yosemite
-    sha256 "9423c0e84f2dbed9f4ab1df4b94551f350c6fdd98c53d13bacb799a77b2a04a5" => :mavericks
-    sha256 "367db0a915a8bdaa9de30be2abc6de9e641d8031864df71998efa7d1be7ef53f" => :mountain_lion
+    sha256 "c682521754ac3c1a98dcf7d83659dcfbba813a0ed0e0d03492e096ec81f7c131" => :sierra
+    sha256 "04f53dad3fca869a93bc3bac6e88fea06c0e7d3bb5ab1ca33864d9bbdb0e2e0d" => :el_capitan
+    sha256 "b4fa1c1bec1bd003fec831f89b3454c8f24f012688d6100d455d20f1e4f07f36" => :yosemite
   end
 
   depends_on "automake" => :build
