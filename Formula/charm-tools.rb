@@ -61,8 +61,8 @@ class CharmTools < Formula
   end
 
   resource "colander" do
-    url "https://pypi.python.org/packages/8f/6d/a0a1a254847ba8faeba4352c363a98c2054f98f4bac5ab564c160349c484/colander-1.3.2.tar.gz"
-    sha256 "cc436a49d6dfb29bfa27a9263eb55de3ccbfa1d135ed665167b3c0453b85a987"
+    url "https://files.pythonhosted.org/packages/4d/bc/48b9751b5c532ec74e78f3a8c09d26994f8e748e4895bbc5d2f6c8c5734b/colander-1.0b1.tar.gz"
+    sha256 "8a342bf278227be6ac96e90befa949c235e667254db17e773e79d834459be971"
   end
 
   resource "cryptography" do
