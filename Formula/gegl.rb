@@ -1,9 +1,9 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
   homepage "http://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.3/gegl-0.3.10.tar.bz2"
-  mirror "https://mirrors.kernel.org/debian/pool/main/g/gegl/gegl_0.3.10.orig.tar.bz2"
-  sha256 "26b4d6d0a8edb358ca2fbc097f9f97eec9d74e0ffe42f89fa1aff201728023d9"
+  url "https://download.gimp.org/pub/gegl/0.3/gegl-0.3.14.tar.bz2"
+  mirror "https://mirrors.kernel.org/debian/pool/main/g/gegl/gegl_0.3.14.orig.tar.bz2"
+  sha256 "09f5e2e6899697641d4660e3e274aed696f5bacc96ba389ac77674ee1156590a"
 
   bottle do
     sha256 "bbd227d4b5387e4a2531ba9f832230ea1101c0bc28d8dacabdc230f5c1f60b3a" => :sierra
