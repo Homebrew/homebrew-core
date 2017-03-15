@@ -8,14 +8,10 @@ class Biogeme < Formula
   depends_on "gtkmm3"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-    ]
-    args << "--enable-python"
-    args << "--enable-bison"
-    args << "--enable-gui"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--enable-python",
+                          "--enable-bison",
+                          "--enable-gui"
     system "make", "install"
   end
 
