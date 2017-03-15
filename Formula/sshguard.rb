@@ -23,7 +23,7 @@ class Sshguard < Formula
     inreplace "examples/sshguard.conf" do |s|
       s.gsub! /^#BACKEND=.*$/, "BACKEND=\"#{libexec}/sshg-fw-#{firewall}\""
       if MacOS.version >= :sierra
-        s.gsub! %r{^#LOGREADER="/usr\/bin\/log}, "LOGREADER=\"/usr/bin/log"
+        s.gsub! %r{^#LOGREADER="/usr/bin/log}, "LOGREADER=\"/usr/bin/log"
       else
         s.gsub! /^#FILES.*$/, "FILES=#{log_path}"
       end
@@ -75,6 +75,6 @@ class Sshguard < Formula
   end
 
   test do
-    assert_match "SSHGuard #{version.to_s}", shell_output("#{sbin}/sshguard -v 2>&1", 0)
+    assert_match "SSHGuard #{version.to_s}", shell_output("#{sbin}/sshguard -v 2>&1")
   end
 end
