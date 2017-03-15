@@ -1,8 +1,8 @@
 class Calcurse < Formula
   desc "Text-based personal organizer"
   homepage "http://calcurse.org/"
-  url "http://calcurse.org/files/calcurse-4.0.0.tar.gz"
-  sha256 "621b0019907618bd468f9c4dc1ce2186ee86254d3c9ade47dd2d7ab8e6656334"
+  url "http://calcurse.org/files/calcurse-4.2.2.tar.gz"
+  sha256 "c6881ddbd1cc7fbd02898187ac0fb4c6d8ac4c2715909b1cf00fb7a90cf08046"
 
   bottle do
     sha256 "efc4322d5103b6a2f8f93f5d7556459854245330bd3beaca923757502ff9733e" => :sierra
