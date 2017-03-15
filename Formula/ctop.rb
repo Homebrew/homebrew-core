@@ -1,9 +1,8 @@
 class Ctop < Formula
   desc "Top-like interface for container metrics"
   homepage "https://bcicen.github.io/ctop/"
-  url "https://github.com/bcicen/ctop/archive/v0.4.1-deps.tar.gz"
-  version "0.4.1"
-  sha256 "39c4247a7c6715bc45db078769419ff9bdab1219378ac39cb97febbc0130dbf5"
+  url "https://github.com/bcicen/ctop/archive/v0.5.tar.gz"
+  sha256 "b8054dba41c2549efac9deb226c3d734dfe6a3f6fb7da992715d4a97b0319b09"
 
   depends_on "go" => :build
   depends_on "glide" => :build
