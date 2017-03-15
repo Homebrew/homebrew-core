@@ -14,7 +14,6 @@ class Macvim < Formula
   end
 
   option "with-override-system-vim", "Override system vim"
-  option "with-gettext", "Build MacVim with +gettext."
 
   deprecated_option "override-system-vim" => "with-override-system-vim"
 
