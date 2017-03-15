@@ -3,6 +3,7 @@ class GitSubrepo < Formula
   homepage "https://github.com/ingydotnet/git-subrepo"
   url "https://github.com/ingydotnet/git-subrepo/archive/0.3.1.tar.gz"
   sha256 "f36fb9e6ccb82b1200ba94c2b9c1db7fb683d93d2051ac92ab69c049f2529906"
+  revision 1
   head "https://github.com/ingydotnet/git-subrepo.git"
 
   bottle do
@@ -16,6 +17,15 @@ class GitSubrepo < Formula
     libexec.mkpath
     system "make", "PREFIX=#{prefix}", "INSTALL_LIB=#{libexec}", "install"
     bin.install_symlink libexec/"git-subrepo"
+
+    # Remove test for $GIT_SUBREPO_ROOT in completion script
+    # https://github.com/ingydotnet/git-subrepo/issues/183
+    inreplace "share/zsh-completion/_git-subrepo",
+              /^if [[ -z $GIT_SUBREPO_ROOT ]].*?^fi$/m, ""
+
+    mv "share/completion.bash", "share/git-subrepo"
+    bash_completion.install "share/git-subrepo"
+    zsh_completion.install "share/zsh-completion/_git-subrepo"
   end
 
   test do
