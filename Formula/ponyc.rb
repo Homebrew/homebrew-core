@@ -3,7 +3,7 @@ class Ponyc < Formula
   homepage "http://www.ponylang.org"
   url "https://github.com/ponylang/ponyc/archive/0.11.1.tar.gz"
   sha256 "5bac06a49940c7be74b8ff9798e39e57bea8d8b549c6dbe61bbf0067a117f50b"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -12,8 +12,12 @@ class Ponyc < Formula
     sha256 "6b79be670f5cad10225213f05d06d0f52ea1baffbeb8ff2d52576caefec9eb0f" => :yosemite
   end
 
+  # Doesn't work with 4.0 yet and has a bug with 3.8
+  # For 4.0 issue see https://github.com/ponylang/ponyc/issues/1592
+  # For 3.8 issue see https://github.com/ponylang/ponyc/issues/1483#issuecomment-286739968
+  depends_on "llvm@3.7"
+
   depends_on :macos => :yosemite
-  depends_on "llvm@3.8"
   depends_on "libressl"
   depends_on "pcre2"
   needs :cxx11
@@ -29,7 +33,7 @@ class Ponyc < Formula
 
   def install
     ENV.cxx11
-    ENV["LLVM_CONFIG"]="#{Formula["llvm@3.8"].opt_bin}/llvm-config-3.8"
+    ENV["LLVM_CONFIG"] = "#{Formula["llvm@3.7"].opt_bin}/llvm-config-3.7"
     system "make", "config=release", "destdir=#{prefix}", "install", "verbose=1"
   end
 
