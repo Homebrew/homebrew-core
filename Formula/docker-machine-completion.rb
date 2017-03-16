@@ -11,7 +11,7 @@ class DockerMachineCompletion < Formula
     :because => "docker-machine already includes completion scripts"
 
   def install
-    bash_completion.install "contrib/completion/bash/docker-machine.bash"
+    bash_completion.install Dir["contrib/completion/bash/*.bash"]
     zsh_completion.install "contrib/completion/zsh/_docker-machine"
   end
 
