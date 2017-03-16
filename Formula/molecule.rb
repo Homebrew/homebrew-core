@@ -6,6 +6,12 @@ class Molecule < Formula
   url "https://files.pythonhosted.org/packages/ab/14/26f08286c839799777a0b0ed3de3bdb5ab945bb0bb95ea2e6cc6d8571cf6/molecule-1.20.3.tar.gz"
   sha256 "41c995cb654a201042c956e892aba3c42f9889b0970831dc6ee843b4122e5136"
 
+  bottle do
+    sha256 "db42c3a42e54cf3da190fa669df522072880b7c4349531b8d3e4cc81e2d06286" => :sierra
+    sha256 "a64728d0cdc6ed1c182d1685d7933b9a9865f369036e6387c30ec494c35af48a" => :el_capitan
+    sha256 "92980f819d28826c7732b7ef455443bd1f67f1afcec836a66377892b8a08442b" => :yosemite
+  end
+
   depends_on :python
   depends_on "openssl@1.1"
 
