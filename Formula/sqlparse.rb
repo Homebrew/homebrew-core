@@ -3,14 +3,14 @@ class Sqlparse < Formula
 
   desc "Non-validating SQL parser"
   homepage "https://github.com/andialbrecht/sqlparse"
-  url "https://files.pythonhosted.org/packages/55/ce/3944e990b03f80f36f0050b407ad46cde192a210d473f0d705b554bddd1d/sqlparse-0.2.2.tar.gz"
-  sha256 "d446296b2c26f9466860dd85fa32480bec523ab96bda8879262c38e8e8fbba21"
+  url "https://files.pythonhosted.org/packages/45/67/14bdaeff492e6d03a055fe80502bae10b679891c25a0dc59be2fe51002f8/sqlparse-0.2.3.tar.gz"
+  sha256 "becd7cc7cebbdf311de8ceedfcf2bd2403297024418801947f8c953025beeff8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9a42b6775a9f271af9c6d0689b21018e49456bc6d155df6565af9836fc281f7a" => :sierra
-    sha256 "b00598d85a30851dc3423224490161e4505d700f76fb9e94f7734a46a8670b2c" => :el_capitan
-    sha256 "6bf8422914fd86c7ec67be7f2cc968827869aa38b854a5d3edcef6fcb7e0e6f3" => :yosemite
+    sha256 "71e3a2ec0d8e4768883630a863e88a39c0b8cd122ff9d0d720df5f2b5fdf82c6" => :sierra
+    sha256 "ce87e30708dc8b0cfb7b0b3c69a49e230375ee67eadab2b7bf7524f87fd50976" => :el_capitan
+    sha256 "7a152da6d6a9520b05f6784db3f2867580a3fc16dd20c99185cc5012771534d4" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

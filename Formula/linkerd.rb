@@ -1,8 +1,8 @@
 class Linkerd < Formula
   desc "Drop-in RPC proxy designed for microservices"
   homepage "https://linkerd.io/"
-  url "https://github.com/BuoyantIO/linkerd/releases/download/0.8.5/linkerd-0.8.5.tgz"
-  sha256 "88331ffcc1011f5a604c1cbeb8a76c748841c171865dd4d6ab355aaf4258872e"
+  url "https://github.com/BuoyantIO/linkerd/releases/download/0.9.0/linkerd-0.9.0.tgz"
+  sha256 "85a71f831620dd1c9663d94d5abbc8effff427834d70c00e8051710b1abff552"
 
   bottle :unneeded
 

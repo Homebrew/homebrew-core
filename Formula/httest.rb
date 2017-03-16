@@ -1,14 +1,14 @@
 class Httest < Formula
   desc "Provides a large variety of HTTP-related test functionality."
   homepage "https://htt.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/htt/htt2.4/httest-2.4.12/httest-2.4.12.tar.gz"
-  sha256 "fd18cdc996c199d56d77e9355c07e1e1701d5550c03fbecb06a255ce72d79bd1"
+  url "https://downloads.sourceforge.net/project/htt/htt2.4/httest-2.4.19/httest-2.4.19.tar.gz"
+  sha256 "0cf2454de50995c14c460040cdf29863dd49082805e2bc61fb6938a7042b2dbd"
 
   bottle do
     cellar :any
-    sha256 "397795cc9e8bddc8f8a3164530eb1437735285dc3d0710868249a4e1faf28d89" => :sierra
-    sha256 "02ccd19470885531820f61c1734d4f024eac78b548247a68fa5f1be9f20a5501" => :el_capitan
-    sha256 "60b78ecb5540a2bc3d7eb7af04280943ea16c64e97f6e5d048219fb1789260aa" => :yosemite
+    sha256 "639ccc35988ae5df41ee3774343df00c447698453fcd9958a247ce81f0a24de2" => :sierra
+    sha256 "8d69771ad06e4d2e2bdd692255d8e55f272338414e5998b106dac669d96bba96" => :el_capitan
+    sha256 "9d738b97356995a8e8cf68aa25cb7ebba74c659ffbf0d8f33f9a8984482ec36a" => :yosemite
   end
 
   depends_on "apr"
@@ -18,15 +18,15 @@ class Httest < Formula
   depends_on "lua"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-apr=#{Formula["apr"].opt_prefix/"bin"}",
-                          "--with-lua=#{Formula["lua"].opt_prefix}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+    # Fix "fatal error: 'pcre/pcre.h' file not found"
+    # Reported 9 Mar 2017 https://sourceforge.net/p/htt/tickets/4/
+    (buildpath/"brew_include").install_symlink Formula["pcre"].opt_include => "pcre"
+    ENV.prepend "CPPFLAGS", "-I#{buildpath}/brew_include"
 
-    system "make"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--with-apr=#{Formula["apr"].opt_bin}",
+                          "--enable-lua-module"
     system "make", "install"
   end
 

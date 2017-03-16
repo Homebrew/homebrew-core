@@ -9,7 +9,7 @@ class Guile < Formula
 
     if MacOS.version >= :sierra
       # https://debbugs.gnu.org/cgi/bugreport.cgi?bug=23870
-      # http://osdir.com/ml/bug-guile-gnu/2016-06/msg00180.html
+      # https://git.net/ml/bug-guile-gnu/2016-06/msg00180.html
       # https://github.com/Homebrew/homebrew-core/issues/1957#issuecomment-229347476
       # https://gist.githubusercontent.com/rahulg/baa500e84136f0965e9ade2fb36b90ba/raw/4f1081838972ac9621fc68bb571daaf99fc0c045/libguile-stime-sierra.patch
       patch :p0 do
@@ -34,21 +34,17 @@ class Guile < Formula
   end
 
   devel do
-    url "http://git.savannah.gnu.org/r/guile.git",
-        :tag => "v2.1.7",
-        :revision => "c58c143f31fe4c1717fc8846a8681de2bb4b3869"
+    url "https://git.savannah.gnu.org/git/guile.git",
+        :tag => "v2.1.8",
+        :revision => "e3374320415df973a6d8b0e1065b5b74e9e3e5e0"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build
-
-    # Avoid undeclared identifier errors for SOCK_CLOEXEC and SOCK_NONBLOCK
-    # Reported 19 Feb 2017 https://debbugs.gnu.org/cgi/bugreport.cgi?bug=25790
-    patch :DATA
   end
 
   head do
-    url "http://git.sv.gnu.org/r/guile.git"
+    url "https://git.savannah.gnu.org/git/guile.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -69,14 +65,7 @@ class Guile < Formula
   end
 
   def install
-    unless build.stable?
-      # Avoid "address argument to atomic operation must be a pointer to _Atomic type"
-      # Reported 19 Feb 2017 http://debbugs.gnu.org/cgi/bugreport.cgi?bug=25791
-      ENV["ac_cv_header_stdatomic_h"] = "no"
-
-      system "./autogen.sh"
-    end
-
+    system "./autogen.sh" unless build.stable?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-libreadline-prefix=#{Formula["readline"].opt_prefix}",
@@ -103,21 +92,3 @@ class Guile < Formula
     system bin/"guile", hello
   end
 end
-
-__END__
-diff --git a/libguile/socket.c b/libguile/socket.c
-index 64df64f..446243c 100644
---- a/libguile/socket.c
-+++ b/libguile/socket.c
-@@ -1655,8 +1655,12 @@ scm_init_socket ()
- 
-   /* accept4 flags.  No ifdef as accept4 has a gnulib
-      implementation.  */
-+#ifdef SOCK_CLOEXEC
-   scm_c_define ("SOCK_CLOEXEC", scm_from_int (SOCK_CLOEXEC));
-+#endif
-+#ifdef SOCK_NONBLOCK
-   scm_c_define ("SOCK_NONBLOCK", scm_from_int (SOCK_NONBLOCK));
-+#endif
- 
-   /* setsockopt level.

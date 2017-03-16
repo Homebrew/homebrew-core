@@ -1,15 +1,14 @@
 class Eventql < Formula
   desc "Database for large-scale event analytics"
   homepage "https://eventql.io"
-  url "https://github.com/eventql/eventql/releases/download/v0.3.2/eventql-0.3.2.tgz"
-  sha256 "d235f3e78fa5f6569fc2db94161d3e3f9cb71dc0646e341acd91814cefd23640"
+  url "https://github.com/eventql/eventql/releases/download/v0.4.1/eventql-0.4.1.tgz"
+  sha256 "a61f093bc45a1f9b9b374331ab40665c0c1060a2278b2833c0b6eb6c547b4ef4"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "bb5a697a9e91c2523e24d8d81e842d26001992aa5d4d9867dac7ec4ebe6b81a0" => :sierra
-    sha256 "7d128462969fc4e431c6a486fca5f397fc15c46e657a622d042c0bf531efba82" => :el_capitan
-    sha256 "482a655e17d0b905d0101d2716f52266e1ec8bb6a4814f30a576431fa2d179e4" => :yosemite
-    sha256 "92adde0e08a4bc68c90f1e93f13ee7afc7bc1c7b69f2187610545bcbcb76abd8" => :mavericks
+    cellar :any
+    sha256 "d1675cdb38f322f561295746f1631c89754bd99600472baf13848d6efdc04866" => :sierra
+    sha256 "b4e4529266dab7d570531a569e558ca5f3d29de79e6f3a401cdfd347b59eaa68" => :el_capitan
+    sha256 "de93e092a5e3f158e2a6b1d34a1016abb2d1988701c2dac3c9012d395559ce81" => :yosemite
   end
 
   head do

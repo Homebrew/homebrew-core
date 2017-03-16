@@ -1,8 +1,8 @@
 class Bagit < Formula
   desc "Library for creation, manipulation, and validation of bags"
   homepage "https://github.com/LibraryOfCongress/bagit-java"
-  url "https://github.com/LibraryOfCongress/bagit-java/releases/download/v4.12.2/bagit-4.12.2.zip"
-  sha256 "6fa04f2d5f679894bd0dfcf0b2023dabdf6b2c254da6c28c9a226e8b5bf8303c"
+  url "https://github.com/LibraryOfCongress/bagit-java/releases/download/v4.12.3/bagit-v4.12.3.zip"
+  sha256 "7736d00fafe575ea298788a8d697a2af490dd12f856b43cd57bf579a374199e1"
 
   bottle :unneeded
 

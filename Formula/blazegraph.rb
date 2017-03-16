@@ -1,20 +1,19 @@
-class Bigdata < Formula
+class Blazegraph < Formula
   desc "Graph database supporting RDF data model, Sesame, and Blueprint APIs"
-  homepage "https://www.blazegraph.com/bigdata"
-  url "https://downloads.sourceforge.net/project/bigdata/bigdata/1.5.3/bigdata-bundled.jar"
-  version "1.5.3"
-  sha256 "d72a490a7e86ad96a85e26f52977675ac0f0621b8b02866ce29410796d70d552"
+  homepage "https://www.blazegraph.com/"
+  url "https://downloads.sourceforge.net/project/bigdata/bigdata/2.1.4/blazegraph.jar"
+  sha256 "b175d2b4aa9e2f65fcbf4d6f75f8dd12ef75022f82fb94df1fbd0bac5230af2a"
 
   bottle :unneeded
 
   depends_on :java => "1.7+"
 
   def install
-    libexec.install "bigdata-bundled.jar"
-    bin.write_jar_script libexec/"bigdata-bundled.jar", "bigdata"
+    libexec.install "blazegraph.jar"
+    bin.write_jar_script libexec/"blazegraph.jar", "blazegraph"
   end
 
-  plist_options :startup => "true", :manual => "bigdata start"
+  plist_options :startup => "true", :manual => "blazegraph start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -25,7 +24,7 @@ class Bigdata < Formula
         <key>Label</key>
         <string>#{plist_name}</string>
         <key>Program</key>
-        <string>#{opt_bin}/bigdata</string>
+        <string>#{opt_bin}/blazegraph</string>
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
@@ -37,11 +36,11 @@ class Bigdata < Formula
 
   test do
     server = fork do
-      exec bin/"bigdata"
+      exec bin/"blazegraph"
     end
     sleep 5
     Process.kill("TERM", server)
-    File.exist? "bigdata.jnl"
+    File.exist? "blazegraph.jnl"
     File.exist? "rules.log"
   end
 end

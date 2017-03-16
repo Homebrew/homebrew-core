@@ -4,7 +4,7 @@ class Parallel < Formula
   url "https://ftpmirror.gnu.org/parallel/parallel-20170222.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/parallel/parallel-20170222.tar.bz2"
   sha256 "6248cae7e0da7702710bf082290054b0ca3d26225fe66f7b03df20f3550ac955"
-  head "http://git.savannah.gnu.org/r/parallel.git"
+  head "https://git.savannah.gnu.org/git/parallel.git"
 
   bottle do
     cellar :any_skip_relocation

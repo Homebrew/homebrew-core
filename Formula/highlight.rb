@@ -3,7 +3,7 @@ class Highlight < Formula
   homepage "http://www.andre-simon.de/doku/highlight/en/highlight.html"
   url "http://www.andre-simon.de/zip/highlight-3.35.tar.bz2"
   sha256 "29b2111531230317fc6228b5f15ad0839448f20d65256279ac68d08319fa7a75"
-  head "svn://svn.code.sf.net/p/syntaxhighlight/code/highlight/"
+  head "https://svn.code.sf.net/p/syntaxhighlight/code/highlight/"
 
   bottle do
     sha256 "7c32a92de8de5008868253aa16ed0f6608f9813a2b26ac9eb244dbec4ba95a8f" => :sierra

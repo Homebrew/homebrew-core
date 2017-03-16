@@ -1,13 +1,21 @@
 class ClangFormat < Formula
   desc "Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript"
-  homepage "http://clang.llvm.org/docs/ClangFormat.html"
+  homepage "https://clang.llvm.org/docs/ClangFormat.html"
   version "2016-12-09"
 
   stable do
-    url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2016-12-09/", :using => :svn
+    if MacOS.version >= :sierra
+      url "https://llvm.org/svn/llvm-project/llvm/tags/google/stable/2016-12-09/", :using => :svn
+    else
+      url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2016-12-09/", :using => :svn
+    end
 
     resource "clang" do
-      url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2016-12-09/", :using => :svn
+      if MacOS.version >= :sierra
+        url "https://llvm.org/svn/llvm-project/cfe/tags/google/stable/2016-12-09/", :using => :svn
+      else
+        url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2016-12-09/", :using => :svn
+      end
     end
 
     resource "libcxx" do
@@ -24,10 +32,18 @@ class ClangFormat < Formula
   end
 
   head do
-    url "http://llvm.org/svn/llvm-project/llvm/trunk/", :using => :svn
+    if MacOS.version >= :sierra
+      url "https://llvm.org/svn/llvm-project/llvm/trunk/", :using => :svn
+    else
+      url "http://llvm.org/svn/llvm-project/llvm/trunk/", :using => :svn
+    end
 
     resource "clang" do
-      url "http://llvm.org/svn/llvm-project/cfe/trunk/", :using => :svn
+      if MacOS.version >= :sierra
+        url "https://llvm.org/svn/llvm-project/cfe/trunk/", :using => :svn
+      else
+        url "http://llvm.org/svn/llvm-project/cfe/trunk/", :using => :svn
+      end
     end
 
     resource "libcxx" do

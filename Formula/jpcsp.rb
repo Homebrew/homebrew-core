@@ -1,6 +1,6 @@
 class Jpcsp < Formula
   desc "PSP emulator written in Java"
-  homepage "http://jpcsp.org/"
+  homepage "https://jpcsp.org/"
   url "https://github.com/jpcsp/jpcsp.git", :revision => "9bf0cb72568e4c7170c6c5b0a975e0ff2f5205d1"
   version "0.7+20160322"
   head "https://github.com/jpcsp/jpcsp.git"

@@ -1,28 +1,24 @@
 class MongoCDriver < Formula
   desc "C driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-c-driver"
-  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.6.0/mongo-c-driver-1.6.0.tar.gz"
-  sha256 "d15fe571fb6b0331ceb9139ad724429fef0fdc0444900d7ebd6841590f4f8783"
+  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.6.1/mongo-c-driver-1.6.1.tar.gz"
+  sha256 "8dd237e8bc3c2956ebd1d39c3a34c1d7d071c03d36f3d18d5735025ad08753d4"
 
   bottle do
     cellar :any
-    sha256 "ba2e261beb85807dde6acb973ef620b66709715d2f91f6dfd9cc22816a372bb2" => :sierra
-    sha256 "00b8abff1a7790c24a9a40e3ad2f410af23f5c5786bd6ccb3885d7f809a94724" => :el_capitan
-    sha256 "51762a6eb11ce309b0666cf5ed776991681447d9ed9a5788765c926ae0a92085" => :yosemite
+    sha256 "26d89d86c058516dd809487a89a06739c8025795fa98055f1506c5283786576a" => :sierra
+    sha256 "230b32540cda8c9ac81816770ed76741129891d1e495209fd609c9d2b0b916ca" => :el_capitan
+    sha256 "84c857d33a26d63357c520e669822bf0f3e7320f434e3c393c4da91d096dc5fe" => :yosemite
   end
 
-  head do
-    url "https://github.com/mongodb/mongo-c-driver.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
 
   def install
-    system "./autogen.sh" if build.head?
+    system "autoreconf", "-fiv"
 
     args = %W[
       --disable-debug

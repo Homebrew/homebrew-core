@@ -1,13 +1,13 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.9.tar.xz"
-  sha256 "e414542c96dc9966d40774451331bd8f73f77b6670226a5bbd057973a0c6a3e1"
+  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.10.tar.xz"
+  sha256 "352a90b3d09256d597cb2768ee5d685285ccc284ff22adf19df16753a829c554"
 
   bottle do
-    sha256 "008d0ea9c247a6dc059605b51e2821dc95db5a290ca7640f685f9663ef0bc14d" => :sierra
-    sha256 "b694a37b88bc4b3ad7978dadd2cb801a2eb0c2875b5dfcbd445e77f38cf26cb3" => :el_capitan
-    sha256 "25214eee2ffcaa7c10346c3dcc690c8f3644e36b35c8392fb3936fd12652294c" => :yosemite
+    sha256 "19885f5432dd5c930a7d4791eba1d0ff1b4cc4e4a8d34ff2a3e8a63a25ce6207" => :sierra
+    sha256 "8241c92c65bbd3f72332dff2918da68a3f2e19ecd505da3d817ba7bc6feb5863" => :el_capitan
+    sha256 "67f5ba140fe203721ddd7dacff79bafbaf41a3281c05ea01ebd0c16257cdae29" => :yosemite
   end
 
   option "with-quartz-relocation", "Build with quartz relocation support"
@@ -22,6 +22,12 @@ class Gtkx3 < Formula
   depends_on "hicolor-icon-theme"
   depends_on "gsettings-desktop-schemas" => :recommended
   depends_on "jasper" => :optional
+
+  # bug reported upstream in https://bugzilla.gnome.org/show_bug.cgi?id=780019
+  patch do
+    url "https://bug780019.bugzilla-attachments.gnome.org/attachment.cgi?id=347944"
+    sha256 "e79586e4c9ff431a929cdd0d484abd932aed8b00951865019df2d5dc20ec52b4"
+  end
 
   def install
     args = %W[

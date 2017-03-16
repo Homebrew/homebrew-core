@@ -14,11 +14,7 @@ class Mercurial < Formula
   end
 
   option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"
-  if build.with? "custom-python"
-    depends_on :python
-  else
-    depends_on "python"
-  end
+  depends_on :python
 
   def install
     system "make", "PREFIX=#{prefix}", "install-bin"

@@ -14,7 +14,7 @@ class Isync < Formula
   end
 
   head do
-    url "git://git.code.sf.net/p/isync/isync"
+    url "https://git.code.sf.net/p/isync/isync.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

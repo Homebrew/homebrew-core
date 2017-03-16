@@ -1,7 +1,8 @@
 class Fcgi < Formula
   desc "Protocol for interfacing interactive programs with a web server"
-  homepage "http://www.fastcgi.com/"
-  url "https://ftp.ucsb.edu/pub/mirrors/linux/gentoo/distfiles/fcgi-2.4.0.tar.gz"
+  # The original homepage currently has no content: http://www.fastcgi.com/
+  homepage "https://fastcgi-archives.github.io/"
+  url "https://fossies.org/linux/www/old/fcgi-2.4.0.tar.gz"
   mirror "https://ftp.gwdg.de/pub/linux/gentoo/distfiles/fcgi-2.4.0.tar.gz"
   sha256 "66fc45c6b36a21bf2fbbb68e90f780cc21a9da1fffbae75e76d2b4402d3f05b9"
 

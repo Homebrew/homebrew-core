@@ -104,11 +104,11 @@ class MitScheme < Formula
     EOS
 
     output = shell_output(
-      "#{bin}/mit-scheme --load primes.scm --eval '(primes<= 72)' < /dev/null"
+      "#{bin}/mit-scheme --load primes.scm --eval '(primes<= 72)' < /dev/null",
     )
     assert_match(
       /;Value 2: \(2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71\)/,
-      output
+      output,
     )
   end
 end

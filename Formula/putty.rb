@@ -14,7 +14,7 @@ class Putty < Formula
   end
 
   head do
-    url "git://git.tartarus.org/simon/putty.git"
+    url "https://git.tartarus.org/simon/putty.git"
 
     depends_on "halibut" => :build
     depends_on "autoconf" => :build
