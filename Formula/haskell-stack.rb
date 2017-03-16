@@ -24,6 +24,9 @@ class HaskellStack < Formula
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
+  # https://github.com/commercialhaskell/stack/issues/2577
+  depends_on MaximumMacOSRequirement => :el_capitan
+
   def install
     if MacOS.version >= :sierra && build.with?("bootstrap")
       raise <<-EOS.undent
