@@ -2,8 +2,8 @@ class KubernetesHelm < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/kubernetes/helm.git",
-      :tag => "v2.2.2",
-      :revision => "1b330722aafcb8123114ae51f69d1e884a326f3e"
+      :tag => "v2.2.3",
+      :revision => "1402a4d6ec9fb349e17b912e32fe259ca21181e3"
   head "https://github.com/kubernetes/helm.git"
 
   bottle do
@@ -27,11 +27,6 @@ class KubernetesHelm < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      # Set git config to follow redirects
-      # Change in behavior in git: https://github.com/git/git/commit/50d3413740d1da599cdc0106e6e916741394cc98
-      # Upstream issue: https://github.com/niemeyer/gopkg/issues/50
-      system "git", "config", "--global", "http.https://gopkg.in.followRedirects", "true"
-
       # Bootstap build
       system "make", "bootstrap"
 
