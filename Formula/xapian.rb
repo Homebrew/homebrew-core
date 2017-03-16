@@ -1,9 +1,9 @@
 class Xapian < Formula
   desc "C++ search engine library with many bindings"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.2/xapian-core-1.4.2.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/x/xapian-core/xapian-core_1.4.2.orig.tar.xz"
-  sha256 "aec2c4352998127a2f2316218bf70f48cef0a466a87af3939f5f547c5246e1ce"
+  url "https://oligarchy.co.uk/xapian/1.4.3/xapian-core-1.4.3.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/x/xapian-core/xapian-core_1.4.3.orig.tar.xz"
+  sha256 "7d5295511ca2de70463a29e75f6a2393df5dc1485bf33074b778c66e1721e475"
 
   bottle do
     cellar :any
@@ -27,8 +27,8 @@ class Xapian < Formula
   skip_clean :la
 
   resource "bindings" do
-    url "https://oligarchy.co.uk/xapian/1.4.2/xapian-bindings-1.4.2.tar.xz"
-    sha256 "9ef59fbe38a120bd2a1774f1a277cf8132f0ca5ff2fc22bacf539ce74df35518"
+    url "https://oligarchy.co.uk/xapian/1.4.3/xapian-bindings-1.4.3.tar.xz"
+    sha256 "65b5455bf81e4f39fda49a6ad99353b05889d11d7c4c2cae001a0a1e0dac0d87"
   end
 
   def install
