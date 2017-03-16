@@ -3,8 +3,8 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.8.8.tar.gz"
-  sha256 "030714052a63dbdadc7cf290256a1c88ccad53650481129528495dd271ee11d2"
+  url "https://github.com/hashicorp/terraform/archive/v0.9.0.tar.gz"
+  sha256 "5c0d7f0b20fde05b0cf556508740468553d53bd26d5d67898a4b9ad46ebc1028"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
@@ -12,12 +12,6 @@ class Terraform < Formula
     sha256 "5a7099d14502f309093ba33240fb67c44233b7766bb4ff01404eb7679aab8b7a" => :sierra
     sha256 "b11a5f5dc1036400921af35eb4975d66ea51c8889cdca828d4f161caeb1d0972" => :el_capitan
     sha256 "f075b4005d08bca00129e17989fc7e098db46b5a81a83c2c375c335c389162b9" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/hashicorp/terraform/archive/v0.9.0-beta2.tar.gz"
-    sha256 "0485a8b209ab3a6ecba33b2e788058783404c532e2489f515f90a2e4232e15c0"
-    version "0.9.0-beta2"
   end
 
   depends_on "go" => :build
@@ -49,14 +43,21 @@ class Terraform < Formula
         :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
   end
 
+  # consul tests failing on 0.9.0 tag
+  # upstream issue: https://github.com/hashicorp/terraform/issues/12731
+  patch do
+    url "https://github.com/hashicorp/terraform/commit/7f9a57db1d64a7a5e6e56b4144a363ce47179408.patch"
+    sha256 "15c02bf7b70dd49d2c2f34f42f121df105122a2271f819d78a223c5f0dd382f1"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
     # For the gox buildtool used by terraform, which doesn't need to
     # get installed permanently
     ENV.append_path "PATH", buildpath
 
-    terrapath = buildpath/"src/github.com/hashicorp/terraform"
-    terrapath.install Dir["*"]
+    dir = buildpath/"src/github.com/hashicorp/terraform"
+    dir.install buildpath.children - [buildpath/".brew_home"]
     Language::Go.stage_deps resources, buildpath/"src"
 
     cd "src/github.com/mitchellh/gox" do
@@ -74,21 +75,15 @@ class Terraform < Formula
       buildpath.install "errcheck"
     end
 
-    cd terrapath do
+    cd dir do
       # v0.6.12 - source contains tests which fail if these environment variables are set locally.
       ENV.delete "AWS_ACCESS_KEY"
       ENV.delete "AWS_SECRET_KEY"
 
-      # Runs format check and test suite via makefile
-      ENV.deparallelize { system "make", "test", "vet" }
-
-      # Generate release binary
-      # Upsteam issue for parallelization errors:
-      # https://github.com/hashicorp/terraform/issues/12064
       arch = MacOS.prefer_64_bit? ? "amd64" : "386"
       ENV["XC_OS"] = "darwin"
       ENV["XC_ARCH"] = arch
-      ENV.deparallelize { system "make", "bin" }
+      system "make", "test", "vet", "bin"
 
       # Install release binary
       bin.install "pkg/darwin_#{arch}/terraform"
