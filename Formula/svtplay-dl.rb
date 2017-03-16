@@ -2,7 +2,7 @@ class SvtplayDl < Formula
   include Language::Python::Virtualenv
 
   desc "Download videos from http://svtplay.se"
-  homepage "https://svtplay-dl.se"
+  homepage "https://svtplay-dl.se/"
   url "https://pypi.python.org/packages/26/49/651d5c215049efb40f2c775904ecdaa83f4bc6b126256c60b8325f0738cc/svtplay-dl-1.9.3.tar.gz"
   sha256 "245ac9463ce7dd71ce434815ceb4140080bffdb7025d55fcd8c22fc023d4d6b7"
   revision 1
@@ -110,6 +110,6 @@ class SvtplayDl < Formula
   end
 
   test do
-    system bin/"svtplay-dl", "-g", "http://tv.aftonbladet.se/abtv/articles/121638"
+    system bin/"svtplay-dl", "-g", "https://tv.aftonbladet.se/abtv/articles/121638"
   end
 end
