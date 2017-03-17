@@ -1,10 +1,9 @@
 class GnuApl < Formula
   desc "GNU implementation of the programming language APL"
   homepage "https://www.gnu.org/software/apl/"
-  url "https://ftpmirror.gnu.org/apl/apl-1.6.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/apl/apl-1.6.tar.gz"
-  sha256 "5e0da83048d81fd99330186f65309661f8070de2472851a8e639b3b7f7e7ff14"
-  revision 1
+  url "https://ftpmirror.gnu.org/apl/apl-1.7.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/apl/apl-1.7.tar.gz"
+  sha256 "8ff6e28256d7a3cdfa9dc6025e3905312310b27a43645ef5d617fd4a5b43b81f"
 
   bottle do
     sha256 "7c5aebad3061ad6713b08465b6db4534937eabe655f85af52d1d20066811ebdf" => :sierra
@@ -25,9 +24,6 @@ class GnuApl < Formula
   depends_on :macos => :mavericks
 
   def install
-    # Fix "LApack.cc:21:10: fatal error: 'malloc.h' file not found"
-    inreplace "src/LApack.cc", "malloc.h", "malloc/malloc.h"
-
     system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
