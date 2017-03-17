@@ -14,7 +14,7 @@ class Rust < Formula
 
     resource "racer" do
       url "https://github.com/phildawes/racer/archive/2.0.6.tar.gz"
-      sha256 "f6cc46e0f87e01448943e1406bdd7d548ed41dc149b1f3cf6ddb5cfcc8b24448"
+      sha256 "a9704478f72037e76d4d3702fe39b3c50597bde35dac1a11bf8034de87bbdc70"
     end
   end
 
