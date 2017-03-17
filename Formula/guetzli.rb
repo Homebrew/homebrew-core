@@ -6,6 +6,12 @@ class Guetzli < Formula
 
   head "https://github.com/google/guetzli.git"
 
+  bottle do
+    cellar :any
+    sha256 "d9b1df09bb1aa76e94b0465c990bb7e296a3ee2f32f610aaebc9cb65dec864ca" => :sierra
+    sha256 "0becd4f0800be86e7b0bf4aee902e90723d2caba6b9fa72439a6b6314503890d" => :el_capitan
+  end
+
   depends_on "libpng"
   depends_on "gflags"
 
