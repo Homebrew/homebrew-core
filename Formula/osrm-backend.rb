@@ -22,7 +22,6 @@ class OsrmBackend < Formula
   depends_on "libzip"
   depends_on "lua"
   depends_on "tbb"
-  depends_on "ccache" => :optional
 
   def install
     mkdir "build" do
