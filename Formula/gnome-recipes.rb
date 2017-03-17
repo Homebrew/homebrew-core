@@ -1,8 +1,8 @@
 class GnomeRecipes < Formula
   desc "Formula for GNOME recipes"
   homepage "https://wiki.gnome.org/Apps/Recipes"
-  url "https://download.gnome.org/sources/gnome-recipes/0.22/gnome-recipes-0.22.0.tar.xz"
-  sha256 "ae4f669b1f1d20f2846ad1c9f6ba6580a15347288ef3d044972c2ba589d9c7b9"
+  url "https://download.gnome.org/sources/gnome-recipes/1.0/gnome-recipes-1.0.0.tar.xz"
+  sha256 "d291a597c9d5882b03ba21297d6b4b04cd1748cabebe8f4c97b97f9ece3df5c8"
 
   bottle do
     sha256 "424dff1e1c41b075d33b30a5f35413b074ea586df5d4e41a335fed0b59b7888b" => :sierra
@@ -14,6 +14,8 @@ class GnomeRecipes < Formula
   depends_on "gtk+3"
   depends_on "gnome-icon-theme"
   depends_on "libcanberra"
+  depends_on "gnome-autoar"
+  depends_on "gspell"
 
   def install
     # orces use of gtk3-update-icon-cache instead of gtk-update-icon-cache. No bugreport should
@@ -24,8 +26,8 @@ class GnomeRecipes < Formula
                           "--disable-silent-rules",
                           "--disable-debug",
                           "--prefix=#{prefix}",
-                          "--disable-autoar",
-                          "--disable-gspell",
+                          "--enable-autoar",
+                          "--enable-gspell",
                           "--disable-schemas-compile"
     system "make", "install"
   end
