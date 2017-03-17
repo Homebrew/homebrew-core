@@ -1,46 +1,14 @@
 class Guile < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
-
-  stable do
-    url "https://ftpmirror.gnu.org/guile/guile-2.0.14.tar.xz"
-    mirror "https://ftp.gnu.org/gnu/guile/guile-2.0.14.tar.xz"
-    sha256 "e8442566256e1be14e51fc18839cd799b966bc5b16c6a1d7a7c35155a8619d82"
-
-    if MacOS.version >= :sierra
-      # https://debbugs.gnu.org/cgi/bugreport.cgi?bug=23870
-      # https://git.net/ml/bug-guile-gnu/2016-06/msg00180.html
-      # https://github.com/Homebrew/homebrew-core/issues/1957#issuecomment-229347476
-      # https://gist.githubusercontent.com/rahulg/baa500e84136f0965e9ade2fb36b90ba/raw/4f1081838972ac9621fc68bb571daaf99fc0c045/libguile-stime-sierra.patch
-      patch :p0 do
-        url "https://raw.githubusercontent.com/macports/macports-ports/5a3bba7/lang/guile/files/sierra.patch"
-        sha256 "6947f15e1aa6129f12eb692253bcc1ff969862f804de1f4d6360ad4786ae53f0"
-      end
-
-      # Filter incompat. mkostemp(3) flags on macOS 10.12
-      # https://trac.macports.org/ticket/52613
-      # https://debbugs.gnu.org/cgi/bugreport.cgi?bug=24862
-      patch :p0 do
-        url "https://raw.githubusercontent.com/macports/macports-ports/8b7f401/lang/guile/files/sierra-filter-incompatible-mkostemp-flags.patch"
-        sha256 "90750429d92a2ea97c828435645a2fd3b399e1b571ced41ff1988894155b4934"
-      end
-    end
-  end
+  url "https://ftpmirror.gnu.org/guile/guile-2.2.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/guile/guile-2.2.0.tar.xz"
+  sha256 "c18198ff6e8b05c620dbdd49b816a2e63a2688af843b5cf8e965041f1adcb515"
 
   bottle do
     sha256 "1de107828ea1d6eb5448b56c9ddca985fdb36b89d0de77390d4a70a04581c964" => :sierra
     sha256 "d8fc01107161424ecf8c22bb2e1bc074b5805d70c2a0525c604996112c945fa7" => :el_capitan
     sha256 "e994c1c0ca0bf0f84d91838f2bf992eda7ada179b7eef6bbd4583fd74ce79fc9" => :yosemite
-  end
-
-  devel do
-    url "https://git.savannah.gnu.org/git/guile.git",
-        :tag => "v2.1.8",
-        :revision => "e3374320415df973a6d8b0e1065b5b74e9e3e5e0"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
   end
 
   head do
