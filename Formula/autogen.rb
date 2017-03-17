@@ -4,6 +4,7 @@ class Autogen < Formula
   url "https://ftpmirror.gnu.org/autogen/autogen-5.18.7.tar.xz"
   mirror "https://ftp.gnu.org/gnu/autogen/autogen-5.18.7.tar.xz"
   sha256 "a7a580a5e18931cb341b255cec2fee2dfd81bea5ddbf0d8ad722703e19aaa405"
+  revision 1
 
   bottle do
     sha256 "34f6959cbd858533dd3d86fa88663247f619fe2650df135616f983479da6cb68" => :sierra
@@ -14,6 +15,12 @@ class Autogen < Formula
 
   depends_on "pkg-config" => :build
   depends_on "guile"
+
+  # Allow guile 2.2 to be used
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0de886b/autogen/allow-guile-2.2.diff"
+    sha256 "438fe673432c96d5da449b84daa4d1c6ad238ea0b4ccd13491872df8c51fa978"
+  end
 
   def install
     system "./configure", "--disable-debug",
