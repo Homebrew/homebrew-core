@@ -51,9 +51,11 @@ class Rust < Formula
   end
 
   resource "cargobootstrap" do
-    url "https://s3.amazonaws.com/rust-lang-ci/cargo-builds/fbeea902d2c9a5be6d99cc35681565d8f7832592/cargo-nightly-x86_64-apple-darwin.tar.gz"
-    version "2016-12-15"
-    sha256 "ad6c31b41fef1d68e4523eb7d090fe8103848f30eb5ac8cba5128b7c11ed23fc"
+    # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
+    url "https://s3.amazonaws.com/rust-lang-ci/cargo-builds/6e0c18cccc8b0c06fba8a8d76486f81a792fb420/cargo-nightly-x86_64-apple-darwin.tar.gz"
+    # From name=cargo-nightly-x86_64-apple-darwin; tar -xf $name.tar.gz $name/version; cat $name/version
+    version "2017-01-27"
+    sha256 "0a6b78b8c6344e7a14f1aa57ebfa0154d4ea560332833846dbeaa3a6772a010a"
   end
 
   def install
