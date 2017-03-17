@@ -24,12 +24,13 @@ class ApacheZeppelin < Formula
         export ZEPPELIN_WAR_TEMPDIR="#{testpath}/webapps"
         export ZEPPELIN_PORT=9999
         export ZEPPELIN_NOTEBOOK_DIR="#{testpath}/notebooks"
+        export ZEPPELIN_MEM="-Xms256m -Xmx1024m -XX:MaxPermSize=256m"
       EOF
       ln_s "#{libexec}/conf/log4j.properties", conf
       ln_s "#{libexec}/conf/shiro.ini", conf
       system "#{bin}/zeppelin-daemon.sh", "start"
       begin
-        sleep 10
+        sleep 25
         json_text = shell_output("curl -s http://localhost:9999/api/notebook/")
         assert_equal JSON.parse(json_text)["status"], "OK"
       ensure
