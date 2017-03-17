@@ -1,9 +1,9 @@
 class SLang < Formula
   desc "Library for creating multi-platform software"
   homepage "http://www.jedsoft.org/slang/"
-  url "http://www.jedsoft.org/releases/slang/slang-2.3.0.tar.bz2"
-  mirror "http://pkgs.fedoraproject.org/repo/pkgs/slang/slang-2.3.0.tar.bz2/3bcc790460d52db1316c20395b7ac2f1/slang-2.3.0.tar.bz2"
-  sha256 "f95224060f45e0d8212a5039b339afa5f1a94a1bb0298e796104e5b12e926129"
+  url "http://www.jedsoft.org/releases/slang/slang-2.3.1a.tar.bz2"
+  mirror "http://pkgs.fedoraproject.org/repo/pkgs/slang/slang-2.3.1a.tar.bz2/sha512/e7236a189081ebcbaf4e7f0506671226a4d46aede8826e1a558f1a2f57bcbe3ad58eadeabe2df99cd3d8bacb4c93749996bcbce4f51d338fc9396e0f945933e7/slang-2.3.1a.tar.bz2"
+  sha256 "54f0c3007fde918039c058965dffdfd6c5aec0bad0f4227192cc486021f08c36"
 
   bottle do
     sha256 "e1aaf2f64bedf51fcab50c24cac9a85f25e5c53b78d3b3df00ff13d93dc3b1f5" => :sierra
