@@ -13,7 +13,7 @@ class Aha < Formula
   end
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "MANDIR=#{man}"
+    system "make", "install", "PREFIX=#{prefix}", "MANDIR=share/man"
   end
 
   test do
