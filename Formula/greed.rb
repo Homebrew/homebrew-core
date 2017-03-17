@@ -1,8 +1,8 @@
 class Greed < Formula
   desc "Game of consumption"
   homepage "http://www.catb.org/~esr/greed/"
-  url "http://www.catb.org/~esr/greed/greed-4.1.tar.gz"
-  sha256 "2356151b2f95badcb8ad413ca88ee7022a46b11b2edab5b096de6d033778b1ea"
+  url "http://www.catb.org/~esr/greed/greed-4.2.tar.gz"
+  sha256 "702bc0314ddedb2ba17d4b55d873384a1606886e8d69f35ce67f6e3024a8d3fd"
   head "https://gitlab.com/esr/greed.git"
 
   bottle do
