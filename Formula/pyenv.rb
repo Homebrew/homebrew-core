@@ -21,6 +21,13 @@ class Pyenv < Formula
     end
   end
 
+  def caveats; <<-EOS.undent
+    After installation, you'll need to add
+      eval "$(pyenv init -)"
+    to your profile (like ~/.bashrc, ~/.zshrc) manually.
+    EOS
+  end
+
   test do
     shell_output("eval \"$(#{bin}/pyenv init -)\" && pyenv versions")
   end
