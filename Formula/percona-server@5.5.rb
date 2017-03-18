@@ -6,6 +6,12 @@ class PerconaServerAT55 < Formula
   sha256 "4de65ccbdd6c266f18339c2ea5427a15d90a8ce1ce1c7574aa2e72f685a10833"
   revision 1
 
+  bottle do
+    sha256 "09e2e9ee7529adb2da47c389a2cfc898171d7acf3b4407b80c91630964614b52" => :sierra
+    sha256 "aafb9bc5c6b2d96106dc0889a5c9a3c25d5a23524df58df62987fbf970419b36" => :el_capitan
+    sha256 "8cdefe87ed6372e3ce2e16146aa6873f2044c8a255becf04e11e8ea3889c7cdf" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-test", "Build with unit tests"
