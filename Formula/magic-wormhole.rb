@@ -142,12 +142,15 @@ class MagicWormhole < Formula
 
   test do
     n = rand(1e6)
-    send_thread = Thread.new do
-      system bin/"wormhole", "send", "--code=#{n}-homebrew-test", "--text=foo"
+    pid = fork do
+      exec bin/"wormhole", "send", "--code=#{n}-homebrew-test", "--text=foo"
     end
     sleep 1
-    received = shell_output("#{bin}/wormhole receive #{n}-homebrew-test")
-    send_thread.join
-    assert_match received, "foo\n"
+    begin
+      received = shell_output("#{bin}/wormhole receive #{n}-homebrew-test")
+      assert_match received, "foo\n"
+    ensure
+      Process.wait(pid)
+    end
   end
 end
