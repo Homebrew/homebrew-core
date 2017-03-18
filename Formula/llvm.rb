@@ -242,6 +242,7 @@ class Llvm < Formula
 
     mktemp do
       if build.with? "ocaml"
+        args << "-DLLVM_OCAML_INSTALL_PATH=#{lib}/ocaml"
         ENV["OPAMYES"] = "1"
         ENV["OPAMROOT"] = Pathname.pwd/"opamroot"
         (Pathname.pwd/"opamroot").mkpath
