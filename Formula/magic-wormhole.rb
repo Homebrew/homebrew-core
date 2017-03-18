@@ -6,6 +6,12 @@ class MagicWormhole < Formula
   url "https://files.pythonhosted.org/packages/72/74/8e92a486f9ec785056c6fd98140a1ff4098609f981a8a65d391dc6e0d444/magic-wormhole-0.9.2.tar.gz"
   sha256 "14aed4b453278651d92c3fd8955a105e2d33dcde279fa25d1d759e0e769f16b3"
 
+  bottle do
+    sha256 "0e20136fa84484f543b1945bf173d8218792128ab2e7eac79e80f6f989bfb5fd" => :sierra
+    sha256 "425659c1f57bdf8a848eada8ec4ffebf38766d0d8c02621c6d2bc85d28ccae43" => :el_capitan
+    sha256 "7f12096efc5c26f91615f69ffe77aa7358814f00955f93601f973da8de457b09" => :yosemite
+  end
+
   depends_on :python
   depends_on "libsodium"
   depends_on "openssl@1.1"
