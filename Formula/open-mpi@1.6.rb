@@ -4,6 +4,12 @@ class OpenMpiAT16 < Formula
   url "https://www.open-mpi.org/software/ompi/v1.6/downloads/openmpi-1.6.5.tar.bz2"
   sha256 "fe37bab89b5ef234e0ac82dc798282c2ab08900bf564a1ec27239d3f1ad1fc85"
 
+  bottle do
+    sha256 "ae8d527e2b9802f27001c5b1a4a64e215208b9fc6af7b6a118f9fb7b042d0f05" => :sierra
+    sha256 "77ebcca1ed3f06a7a8d3db0b9b4dc45e79eed9c3e3dd02712d39a3e1f057ad27" => :el_capitan
+    sha256 "592617bbe7ed6037d66c7548008b1eff9b29293541515ec32a8b01af334ac150" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "without-fortran", "Do not build the Fortran bindings"
