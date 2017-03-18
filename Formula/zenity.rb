@@ -17,7 +17,6 @@ class Zenity < Formula
   depends_on "gtk+3"
   depends_on "gnome-doc-utils"
   depends_on "scrollkeeper"
-  depends_on "webkitgtk" => :optional
 
   def install
     system "./configure", "--prefix=#{prefix}"
