@@ -5,9 +5,9 @@ class Varnish < Formula
   sha256 "bd8c86a7492ebd5e2cb3868883caf2b7c107b9cee86968077d8c36b50ae6e599"
 
   bottle do
-    sha256 "00db5b99c29436e6ee014c484fa04c14ac1879e5b9a82f31977b6c07672513c7" => :sierra
-    sha256 "6850f4a8dde5a98e6b9b0a7488ca181464d534fbaf81a29e5b911aed34cfe836" => :el_capitan
-    sha256 "325bd9ad14efcfd5b6dc27dfe0076f325d9a2fd05d3e82449353dcad324a18cb" => :yosemite
+    sha256 "0aa3db9837c9beccee159b88f1aab8826908f3f808ceed91dae212dfe346aadd" => :sierra
+    sha256 "69e3624c38b42f29d1fcd4a49cc837ba01fc137947215ed6a69560aef55ff3bc" => :el_capitan
+    sha256 "0dac3f395ff229d059516ef8000ad3b484215edfdd7d9076a916413f212dcae0" => :yosemite
   end
 
   depends_on "pkg-config" => :build
