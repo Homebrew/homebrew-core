@@ -1,8 +1,8 @@
 class Lzo < Formula
   desc "Real-time data compression library"
   homepage "https://www.oberhumer.com/opensource/lzo/"
-  url "https://www.oberhumer.com/opensource/lzo/download/lzo-2.09.tar.gz"
-  sha256 "f294a7ced313063c057c504257f437c8335c41bfeed23531ee4e6a2b87bcb34c"
+  url "https://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz"
+  sha256 "c0f892943208266f9b6543b3ae308fab6284c5c90e627931446fb49b4221a072"
 
   bottle do
     cellar :any
