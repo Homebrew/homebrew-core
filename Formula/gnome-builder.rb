@@ -3,7 +3,7 @@ class GnomeBuilder < Formula
   homepage "https://wiki.gnome.org/Apps/Builder"
   url "https://download.gnome.org/sources/gnome-builder/3.22/gnome-builder-3.22.4.tar.xz"
   sha256 "d569446a83ab88872c265f238f8f42b5928a6b3eebb22fd1db3dbc0dd9128795"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "9696ce453f8388bf34a2bfb0259634accc017a505a46354829a6de1c651eaafa" => :sierra
@@ -24,9 +24,10 @@ class GnomeBuilder < Formula
   depends_on "desktop-file-utils"
   depends_on "pcre"
   depends_on "json-glib"
+  depends_on "libsoup"
   depends_on "gjs" => :recommended
-  depends_on "vala" => :recommended
-  depends_on "devhelp" => :recommended
+  # restore vala support in gnome-builder 3.24.0
+  # depends_on "vala" => :recommended
   depends_on "ctags" => :recommended
   depends_on "meson" => :recommended
   depends_on :python3 => :optional
@@ -36,6 +37,7 @@ class GnomeBuilder < Formula
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libgit2-glib"].opt_libexec/"libgit2/lib/pkgconfig"
+    ENV.delete("SDKROOT")
 
     ENV.cxx11
 
@@ -43,6 +45,7 @@ class GnomeBuilder < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
+                          "--enable-vala-pack-plugin=no",
                           "--disable-schemas-compile"
     system "make", "install"
   end
