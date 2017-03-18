@@ -1,8 +1,8 @@
 class Gspell < Formula
   desc "Flexible API to implement spellchecking in GTK+ applications"
   homepage "https://wiki.gnome.org/Projects/gspell"
-  url "https://download.gnome.org/sources/gspell/1.2/gspell-1.2.3.tar.xz"
-  sha256 "a64e158e47a6e2b8ec9a3a1fea98a416f78a13e275c909b2ed488494ff835f82"
+  url "https://download.gnome.org/sources/gspell/1.4/gspell-1.4.0.tar.xz"
+  sha256 "8d317c6bf6ae298b0a6c89aed63bc133c85c8ce7e8e799d870da560ad10b2d4e"
 
   bottle do
     sha256 "7c60f9943861c4319d9a6138efc578e70713a25140cff87550bddbf6b5c7615b" => :sierra
@@ -20,8 +20,6 @@ class Gspell < Formula
   depends_on "iso-codes"
   depends_on "vala" => :recommended
 
-  # ensures compilation on macOS
-  # submitted upstream as https://bugzilla.gnome.org/show_bug.cgi?id=759704
   patch :DATA
 
   def install
@@ -106,50 +104,28 @@ end
 
 __END__
 diff --git a/gspell/Makefile.am b/gspell/Makefile.am
-index f025b4d..13c9743 100644
+index 076a9fd..6c67184 100644
 --- a/gspell/Makefile.am
 +++ b/gspell/Makefile.am
-@@ -11,7 +11,8 @@ AM_CPPFLAGS =				\
-	$(WARN_CFLAGS)			\
-	$(CODE_COVERAGE_CPPFLAGS)	\
-	$(DEP_CFLAGS)			\
--	$(GTK_MAC_CFLAGS)
-+	$(GTK_MAC_CFLAGS)               \
+@@ -91,6 +91,7 @@ nodist_libgspell_core_la_SOURCES = \
+ 	$(BUILT_SOURCES)
+ 
+ libgspell_core_la_LIBADD =	\
++	$(GTK_MAC_LIBS)		\
+ 	$(CODE_COVERAGE_LIBS)
+ 
+ libgspell_core_la_CFLAGS =	\
+@@ -155,6 +156,12 @@ gspell_private_headers += \
+ gspell_private_c_files += \
+ 	gspell-osx.c
+ 
++libgspell_core_la_CFLAGS += \
 +	-xobjective-c
-
- BUILT_SOURCES =			\
-	gspell-resources.c
-@@ -75,7 +76,13 @@ libgspell_core_la_CFLAGS = \
- libgspell_core_la_LDFLAGS =		\
-	-no-undefined			\
-	$(WARN_LDFLAGS)			\
--	$(CODE_COVERAGE_LDFLAGS)
-+	$(CODE_COVERAGE_LDFLAGS)        \
-+	-framework Cocoa -framework Foundation -framework Cocoa
 +
++libgspell_core_la_LDFLAGS += \
++	-framework Cocoa
 +
-+libgspell_core_la_LIBADD =		\
-+	$(GTK_MAC_LIBS)
-+
+ endif # OS_OSX
+ 
+ if HAVE_INTROSPECTION
 
- # The real library.
- lib_LTLIBRARIES = libgspell-@GSPELL_API_VERSION@.la
-@@ -95,7 +102,8 @@ libgspell_@GSPELL_API_VERSION@_la_LDFLAGS =	\
-	-no-undefined				\
-	-export-symbols-regex "^gspell_.*"	\
-	$(WARN_LDFLAGS)				\
--	$(CODE_COVERAGE_LDFLAGS)
-+	$(CODE_COVERAGE_LDFLAGS)                \
-+	-framework Cocoa -framework Foundation -framework Cocoa
-
- libgspell_includedir = $(includedir)/gspell-@GSPELL_API_VERSION@/gspell
- libgspell_include_HEADERS = $(gspell_public_headers)
-@@ -108,7 +116,7 @@ CLEANFILES = $(BUILT_SOURCES)
-
- if OS_OSX
- libgspell_@GSPELL_API_VERSION@_la_LDFLAGS += \
--	-framework Cocoa
-+	-framework Cocoa -framework Foundation -framework Cocoa
-
- libgspell_@GSPELL_API_VERSION@_la_CFLAGS += \
-	-xobjective-c
