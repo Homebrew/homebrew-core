@@ -3,6 +3,7 @@ class Aha < Formula
   homepage "https://github.com/theZiz/aha"
   url "https://github.com/theZiz/aha/archive/0.4.10.5.tar.gz"
   sha256 "b2cd7a1a0f7b3a70c37446d7157b4b58e2939535cdd71112a2228b2e78f7e620"
+  revision 1
   head "https://github.com/theZiz/aha.git"
 
   bottle do
@@ -13,7 +14,9 @@ class Aha < Formula
   end
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "MANDIR=share/man"
+    system "make"
+    bin.install "aha"
+    man1.install "aha.1"
   end
 
   test do
