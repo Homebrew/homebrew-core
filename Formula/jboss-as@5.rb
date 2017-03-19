@@ -5,6 +5,13 @@ class JbossAsAT5 < Formula
   version "5.1.0GA"
   sha256 "be93bcb8f1ff03d7e64c98f2160a2415602268d84f44fb78cddb26303a8cbd3f"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "ce777eb70f57573fbfb831feeff704791ef0cc9fa56ad8532499701d1457ea0f" => :sierra
+    sha256 "ce777eb70f57573fbfb831feeff704791ef0cc9fa56ad8532499701d1457ea0f" => :el_capitan
+    sha256 "ce777eb70f57573fbfb831feeff704791ef0cc9fa56ad8532499701d1457ea0f" => :yosemite
+  end
+
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install Dir["*"]
