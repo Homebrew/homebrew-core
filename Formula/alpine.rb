@@ -1,8 +1,8 @@
 class Alpine < Formula
   desc "News and email agent"
   homepage "http://patches.freeiz.com/alpine/"
-  url "http://patches.freeiz.com/alpine/release/src/alpine-2.20.tar.xz"
-  sha256 "ed639b6e5bb97e6b0645c85262ca6a784316195d461ce8d8411999bf80449227"
+  url "http://patches.freeiz.com/alpine/release/src/alpine-2.21.tar.xz"
+  sha256 "6030b6881b8168546756ab3a5e43628d8d564539b0476578e287775573a77438"
 
   bottle do
     sha256 "40e1bb1dca0c3f775bd1ae01abb41a1b0034d2c646b3ccfd169a3d089f94af7a" => :sierra
