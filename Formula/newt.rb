@@ -1,9 +1,8 @@
 class Newt < Formula
   desc "Library for color text mode, widget based user interfaces"
   homepage "https://pagure.io/newt"
-  url "https://pagure.io/releases/newt/newt-0.52.18.tar.gz"
-  sha256 "771b0e634ede56ae6a6acd910728bb5832ac13ddb0d1d27919d2498dab70c91e"
-  revision 1
+  url "https://pagure.io/releases/newt/newt-0.52.20.tar.gz"
+  sha256 "8d66ba6beffc3f786d4ccfee9d2b43d93484680ef8db9397a4fb70b5adbb6dbc"
 
   bottle do
     cellar :any
@@ -16,13 +15,6 @@ class Newt < Formula
   depends_on "gettext"
   depends_on "popt"
   depends_on "s-lang"
-
-  # build dylibs with -dynamiclib; version libraries
-  # Patch via MacPorts
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0eb53878/newt/patch-Makefile.in.diff"
-    sha256 "6672c253b42696fdacd23424ae0e07af6d86313718e06cd44e40e532a892db16"
-  end
 
   def install
     args = ["--prefix=#{prefix}", "--without-tcl"]
