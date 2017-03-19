@@ -4,7 +4,6 @@
   "android-platform-tools": "caskroom/cask",
   "android-sdk": "caskroom/cask",
   "afuse": "homebrew/fuse",
-  "apple-gcc42": "homebrew/dupes",
   "archivemount": "homebrew/fuse",
   "auctex": "homebrew/tex",
   "avfs": "homebrew/fuse",
