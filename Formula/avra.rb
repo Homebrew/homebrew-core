@@ -13,6 +13,13 @@ class Avra < Formula
     sha256 "2e208cec5f270c91c9afc0349236a9abb0622e1e8208c67d25c90f017fcecf65" => :mavericks
   end
 
+  # Crashes with 'abort trap 6' unless this fix is applied.
+  # See: https://sourceforge.net/p/avra/patches/16/
+  patch do
+    url "https://gist.githubusercontent.com/adammck/7e4a14f7dd4cc58eea8afa99d1ad9f5d/raw/5cdbfe5ac310a12cae6671502697737d56827b05/avra-fix-osx.patch"
+    sha256 "03493058c351cfce0764a8c2e63c2a7b691601dd836c760048fe47ddb9e91682"
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
