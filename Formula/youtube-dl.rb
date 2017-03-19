@@ -11,8 +11,6 @@ class YoutubeDl < Formula
     depends_on "pandoc" => :build
   end
 
-  depends_on "rtmpdump" => :optional
-
   def install
     system "make", "PREFIX=#{prefix}" if build.head?
     bin.install "youtube-dl"
@@ -20,10 +18,6 @@ class YoutubeDl < Formula
     bash_completion.install "youtube-dl.bash-completion"
     zsh_completion.install "youtube-dl.zsh" => "_youtube-dl"
     fish_completion.install "youtube-dl.fish"
-  end
-
-  def caveats
-    "To use post-processing options, `brew install ffmpeg` or `brew install libav`."
   end
 
   test do
