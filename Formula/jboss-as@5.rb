@@ -1,7 +1,7 @@
 class JbossAsAT5 < Formula
   desc "JBoss Application Server"
   homepage "https://www.jboss.org/jbossas"
-  url "https://downloads.sf.net/project/jboss/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA.zip"
+  url "https://downloads.sourceforge.net/project/jboss/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA.zip"
   version "5.1.0GA"
   sha256 "be93bcb8f1ff03d7e64c98f2160a2415602268d84f44fb78cddb26303a8cbd3f"
 
