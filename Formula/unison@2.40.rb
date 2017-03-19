@@ -7,13 +7,23 @@ class UnisonAT240 < Formula
   keg_only :versioned_formula
 
   depends_on "ocaml" => :build
+  depends_on "opam" => :build
 
   def install
+    ENV["OPAMYES"] = "1"
+    ENV["OPAMROOT"] = Pathname.pwd/"opamroot"
+    (Pathname.pwd/"opamroot").mkpath
+
+    system "opam", "init", "--no-setup"
+    inreplace "opamroot/compilers/4.02.3/4.02.3/4.02.3.comp",
+      '["./configure"', '["./configure" "-no-graph"'
+    system "opam", "switch", "4.02.3"
+
     ENV.deparallelize
     ENV.delete "CFLAGS" # ocamlopt reads CFLAGS but doesn't understand common options
     ENV.delete "NAME" # https://github.com/Homebrew/homebrew/issues/28642
-    system "make", "./mkProjectInfo"
-    system "make", "UISTYLE=text"
+    system "opam", "config", "exec", "--", "make", "./mkProjectInfo"
+    system "opam", "config", "exec", "--", "make", "UISTYLE=text"
     bin.install "unison"
   end
 
