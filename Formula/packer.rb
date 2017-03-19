@@ -1,5 +1,3 @@
-require "language/go"
-
 class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
@@ -14,57 +12,21 @@ class Packer < Formula
     sha256 "a7ad3c8b1e29e5dbc0a3e2186a854734857dba886dbce220164e6515d53e1c76" => :yosemite
   end
 
-  depends_on :hg => :build
   depends_on "go" => :build
-  depends_on "govendor" => :build
-
-  go_resource "github.com/mitchellh/gox" do
-    url "https://github.com/mitchellh/gox.git",
-        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
-  end
-
-  go_resource "github.com/mitchellh/iochan" do
-    url "https://github.com/mitchellh/iochan.git",
-        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
-  end
-
-  go_resource "golang.org/x/tools" do
-    url "https://go.googlesource.com/tools.git",
-        :revision => "1dce95f761bfeb6fe2aa3c4e9ffdb261b69b3fc4"
-  end
 
   def install
-    ENV["XC_OS"] = "darwin"
-    ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
+    dir = buildpath/"src/github.com/mitchellh/packer"
+    dir.install buildpath.children - [buildpath/".brew_home"]
+
     ENV["GOPATH"] = buildpath
-    # For the gox buildtool used by packer, which
-    # doesn't need to be installed permanently.
-    ENV.append_path "PATH", buildpath
+    ENV.prepend_create_path "PATH", buildpath/"bin"
 
-    packerpath = buildpath/"src/github.com/mitchellh/packer"
-    packerpath.install Dir["{*,.git}"]
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/github.com/mitchellh/gox" do
-      system "go", "build"
-      buildpath.install "gox"
-    end
-
-    cd "src/golang.org/x/tools/cmd/stringer" do
-      system "go", "build"
-      buildpath.install "stringer"
-    end
-
-    cd "src/github.com/mitchellh/packer" do
-      # We handle this step above. Don't repeat it.
-      inreplace "Makefile" do |s|
-        s.gsub! "go get github.com/mitchellh/gox", ""
-        s.gsub! "go get golang.org/x/tools/cmd/stringer", ""
-        s.gsub! "go get github.com/kardianos/govendor", ""
-      end
-
-      (buildpath/"bin").mkpath
+    cd dir do
+      arch = MacOS.prefer_64_bit? ? "amd64" : "386"
+      ENV["XC_OS"] = "darwin"
+      ENV["XC_ARCH"] = arch
       system "make", "releasebin"
+
       bin.install buildpath/"bin/packer"
       zsh_completion.install "contrib/zsh-completion/_packer"
       prefix.install_metafiles
