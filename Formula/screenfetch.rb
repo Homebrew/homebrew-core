@@ -1,8 +1,8 @@
 class Screenfetch < Formula
   desc "Generate ASCII art with terminal, shell, and OS info"
   homepage "https://github.com/KittyKatt/screenFetch"
-  url "https://github.com/KittyKatt/screenFetch/archive/v3.7.0.tar.gz"
-  sha256 "6711fe924833919d53c1dfbbb43f3777d33e20357a1b1536c4472f6a1b3c6be0"
+  url "https://github.com/KittyKatt/screenFetch/archive/v3.8.0.tar.gz"
+  sha256 "248283ee3c24b0dbffb79ed685bdd518554073090c1c167d07ad2a729db26633"
   head "https://github.com/KittyKatt/screenFetch.git", :shallow => false
 
   bottle do
