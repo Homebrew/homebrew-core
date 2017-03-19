@@ -6,6 +6,12 @@ class KibanaAT41 < Formula
   url "https://github.com/elastic/kibana.git", :tag => "v4.1.8", :revision => "e4f4c5bef5fbec91f0890bd08f6a622f6c4648ad"
   head "https://github.com/elastic/kibana.git"
 
+  bottle do
+    sha256 "ec28125079c89536ba4a20be57b82de931cc486ab7a1ab64769a1f57cddd5a02" => :sierra
+    sha256 "55e4b928b6ec55c40fb32fb5efe12a445741d3dad2716ab9b5eb7850b3da71b4" => :el_capitan
+    sha256 "2ecc450f936d0b2507b25a7d8ed89bb0eef16f9f6e88d6ae6c51b48dc227addf" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   resource "node" do
