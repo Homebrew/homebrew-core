@@ -1,5 +1,3 @@
-require "language/node"
-
 class Yarn < Formula
   desc "JavaScript package manager"
   homepage "https://yarnpkg.com/"
@@ -17,12 +15,13 @@ class Yarn < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    libexec.install buildpath.children
+    bin.install_symlink Dir["#{libexec}/bin/yarn"]
+    bin.install_symlink Dir["#{libexec}/bin/yarn.js"]
   end
 
   test do
     (testpath/"package.json").write('{"name": "test"}')
-    system bin/"yarn", "add", "jquery"
+    system bin/"yarn", "add", "user-home"
   end
 end
