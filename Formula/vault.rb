@@ -1,5 +1,3 @@
-require "language/go"
-
 # Please don't update this formula until the release is official via
 # mailing list or blog post. There's a history of GitHub tags moving around.
 # https://github.com/hashicorp/vault/issues/1051
@@ -18,37 +16,22 @@ class Vault < Formula
     sha256 "ed6cb308d84c472d08a249ea051655ee8466f57658151e70c5870142697df6fb" => :yosemite
   end
 
-  option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"
-
   depends_on "go" => :build
 
-  go_resource "github.com/mitchellh/iochan" do
-    url "https://github.com/mitchellh/iochan.git",
-        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
-  end
-
-  go_resource "github.com/mitchellh/gox" do
-    url "https://github.com/mitchellh/gox.git",
-        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
-  end
-
   def install
+    dir = buildpath/"src/github.com/hashicorp/vault"
+    dir.install buildpath.children - [buildpath/".brew_home"]
+
     ENV["GOPATH"] = buildpath
-
-    contents = buildpath.children - [buildpath/".brew_home"]
-    (buildpath/"src/github.com/hashicorp/vault").install contents
-
     ENV.prepend_create_path "PATH", buildpath/"bin"
 
-    Language::Go.stage_deps resources, buildpath/"src"
+    cd dir do
+      arch = MacOS.prefer_64_bit? ? "amd64" : "386"
+      ENV["XC_OS"] = "darwin"
+      ENV["XC_ARCH"] = arch
+      system "make", "bootstrap"
+      system "make", "bin"
 
-    cd "src/github.com/mitchellh/gox" do
-      system "go", "install"
-    end
-
-    cd "src/github.com/hashicorp/vault" do
-      target = build.with?("dynamic") ? "dev-dynamic" : "dev"
-      system "make", target
       bin.install "bin/vault"
       prefix.install_metafiles
     end
