@@ -5,9 +5,9 @@ class GnomeBuilder < Formula
   sha256 "3c2948f451dd107b3838bd6580bd7df95aa455d16f595aefab6e7553cccfc8d2"
 
   bottle do
-    sha256 "7de45091638dcc78c6a8e7857527cf49d5f25087029e18181c852d0ba981250f" => :sierra
-    sha256 "b50cb8c9c4de8377b687fc5cc8fddb521c6a4efec96804e20874dd861cddd441" => :el_capitan
-    sha256 "0c7e34722c5194f2cee31a543ea135350fbb5add06a75d377e5400e87d39e532" => :yosemite
+    sha256 "178943fb60d754e189c50aad580be9591e0276cbc08826b80f57a03bd11a67fb" => :sierra
+    sha256 "71683effed8ec84d45e34053c8506b4a58074797dcc1a48b7a4420eee7147939" => :el_capitan
+    sha256 "940294499f8fabcc430ccded69ebe0aa922348ca04b8b3db4283f7191b44abf2" => :yosemite
   end
 
   depends_on "pkg-config" => :build
