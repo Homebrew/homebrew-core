@@ -1,9 +1,8 @@
 class Jshon < Formula
   desc "Parse, read, and create JSON from the shell"
   homepage "http://kmkeen.com/jshon/"
-  url "http://kmkeen.com/jshon/jshon.tar.gz"
-  version "8"
-  sha256 "bb8ffdbda89a24f15d23af06d23fc4a9a4319503eb631cc64a5eb4c25afd45fb"
+  url "https://github.com/keenerd/jshon/archive/20131105.tar.gz"
+  sha256 "28420f6f02c6b762732898692cc0b0795cfe1a59fbfb24e67b80f332cf6d4fa2"
 
   bottle do
     cellar :any
