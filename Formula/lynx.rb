@@ -31,6 +31,6 @@ class Lynx < Formula
   end
 
   test do
-    system "#{bin}/lynx", "-dump", "http://checkip.dyndns.org"
+    system "#{bin}/lynx", "-dump", "https://example.org/"
   end
 end
