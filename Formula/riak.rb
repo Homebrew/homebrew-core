@@ -1,18 +1,13 @@
 class Riak < Formula
   desc "Distributed database"
   homepage "http://basho.com/products/riak-kv/"
-  url "https://s3.amazonaws.com/downloads.basho.com/riak/2.2/2.2.0/osx/10.8/riak-2.2.0-OSX-x86_64.tar.gz"
-  version "2.2.0"
-  sha256 "51ea63d6efaa3bba4efb0ca13de81da2e2662b6691b4132cf552ca7635c8a857"
+  url "https://s3.amazonaws.com/downloads.basho.com/riak/2.2/2.2.1/osx/10.8/riak-2.2.1-OSX-x86_64.tar.gz"
+  version "2.2.1"
+  sha256 "3f56841d6b60990403cfa041d99ff0167fc65bb610e78a1b75a9d4a1e619d817"
 
   bottle :unneeded
 
-  # Broken dylib links (should be fixed in 2.2.1)
-  # https://github.com/basho/eleveldb/issues/236
-
-  # Currently refuses to use non-system OpenSSL
-  # https://github.com/basho/riak/issues/888
-  # depends_on "openssl"
+  depends_on "openssl"
 
   depends_on :macos => :mountain_lion
   depends_on :arch => :x86_64
