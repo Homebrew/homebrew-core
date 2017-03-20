@@ -18,6 +18,14 @@ class Mercurial < Formula
 
   def install
     system "make", "PREFIX=#{prefix}", "install-bin"
+
+    # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
+    cd "contrib/chg" do
+      system "make", "PREFIX=#{prefix}", "HGPATH=#{bin}/hg", \
+             "HG=#{bin}/hg"
+      bin.install "chg"
+    end
+
     # Install man pages, which come pre-built in source releases
     man1.install "doc/hg.1"
     man5.install "doc/hgignore.5", "doc/hgrc.5"
