@@ -1,8 +1,8 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.10.tar.xz"
-  sha256 "352a90b3d09256d597cb2768ee5d685285ccc284ff22adf19df16753a829c554"
+  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.11.tar.xz"
+  sha256 "db440670cb6f3c098b076df3735fbc4e69359bd605385e87c90ee48344a804ca"
 
   bottle do
     sha256 "19885f5432dd5c930a7d4791eba1d0ff1b4cc4e4a8d34ff2a3e8a63a25ce6207" => :sierra
@@ -22,12 +22,6 @@ class Gtkx3 < Formula
   depends_on "hicolor-icon-theme"
   depends_on "gsettings-desktop-schemas" => :recommended
   depends_on "jasper" => :optional
-
-  # bug reported upstream in https://bugzilla.gnome.org/show_bug.cgi?id=780019
-  patch do
-    url "https://bug780019.bugzilla-attachments.gnome.org/attachment.cgi?id=347944"
-    sha256 "e79586e4c9ff431a929cdd0d484abd932aed8b00951865019df2d5dc20ec52b4"
-  end
 
   def install
     args = %W[
