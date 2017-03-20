@@ -172,6 +172,7 @@
   "n98-magerun": "homebrew/php",
   "nant": "homebrew/boneyard",
   "net6": "homebrew/boneyard",
+  "netris": "homebrew/boneyard",
   "newick-utils": "homebrew/science",
   "ngrok": "homebrew/boneyard",
   "ninja-ide": "homebrew/boneyard",
