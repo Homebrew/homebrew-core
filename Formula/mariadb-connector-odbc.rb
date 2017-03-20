@@ -9,6 +9,8 @@ class MariadbConnectorOdbc < Formula
   depends_on "unixodbc"
   depends_on "openssl"
 
+  # Upstream pull request: https://github.com/MariaDB/mariadb-connector-odbc/pull/13
+  # This patch can be removed when 2.0.14 is released
   patch :DATA
 
   def install
