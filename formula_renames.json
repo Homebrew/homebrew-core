@@ -143,5 +143,6 @@
   "stash-cli": "atlassian-cli",
   "tomcat6": "tomcat@6",
   "tomcat7": "tomcat@7",
+  "v8-315": "v8@3.15",
   "wires": "geckodriver"
 }
