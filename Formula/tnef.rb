@@ -1,8 +1,8 @@
 class Tnef < Formula
   desc "Microsoft MS-TNEF attachment unpacker"
   homepage "https://github.com/verdammelt/tnef"
-  url "https://github.com/verdammelt/tnef/archive/1.4.13.tar.gz"
-  sha256 "e1d0eb2ba1f7e4689158cf3dfe10ed1571ea239eedc223b830331c6b0fbfcbf7"
+  url "https://github.com/verdammelt/tnef/archive/1.4.14.tar.gz"
+  sha256 "26cd7c1a91fa080b4a05b9e81cdee4af9fbd5c6cda44db5f112a2ae9b3c37bd8"
 
   bottle do
     cellar :any_skip_relocation
