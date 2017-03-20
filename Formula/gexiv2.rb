@@ -1,9 +1,8 @@
 class Gexiv2 < Formula
   desc "GObject wrapper around the Exiv2 photo metadata library"
   homepage "https://wiki.gnome.org/Projects/gexiv2"
-  url "https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.3.tar.xz"
-  sha256 "390cfb966197fa9f3f32200bc578d7c7f3560358c235e6419657206a362d3988"
-  revision 2
+  url "https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.5.tar.xz"
+  sha256 "318fe068cd414c0af91759a87c29fd577cd5d42bf7a6f50caff27535c02ac7f3"
 
   bottle do
     sha256 "9bcb50feeaedd2aa01a3c9dca279301f8e366c370d15f03fbc1dae014a77fc5c" => :sierra
@@ -13,7 +12,6 @@ class Gexiv2 < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libtool" => :build
   depends_on "gobject-introspection" => :build
   depends_on "python" if MacOS.version <= :mavericks
   depends_on "glib"
@@ -26,10 +24,6 @@ class Gexiv2 < Formula
                           "--enable-introspection",
                           "--prefix=#{prefix}"
 
-    # Sandbox fix to prevent directly installing in gobject-introspection Cellar.
-    inreplace "Makefile",
-              "`pkg-config gobject-introspection-no-export-1.0 --variable typelibdir`",
-              "$(libdir)/girepository-1.0"
 
     system "make", "install"
   end
