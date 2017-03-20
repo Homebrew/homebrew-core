@@ -1,9 +1,8 @@
 class GnomeBuilder < Formula
   desc "IDE for GNOME"
   homepage "https://wiki.gnome.org/Apps/Builder"
-  url "https://download.gnome.org/sources/gnome-builder/3.22/gnome-builder-3.22.4.tar.xz"
-  sha256 "d569446a83ab88872c265f238f8f42b5928a6b3eebb22fd1db3dbc0dd9128795"
-  revision 2
+  url "https://download.gnome.org/sources/gnome-builder/3.24/gnome-builder-3.24.0.tar.xz"
+  sha256 "3c2948f451dd107b3838bd6580bd7df95aa455d16f595aefab6e7553cccfc8d2"
 
   bottle do
     sha256 "7de45091638dcc78c6a8e7857527cf49d5f25087029e18181c852d0ba981250f" => :sierra
@@ -14,7 +13,7 @@ class GnomeBuilder < Formula
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
-  depends_on "mm-common" => :build
+  depends_on "coreutils" => :build
   depends_on "libgit2-glib"
   depends_on "gtk+3"
   depends_on "libpeas"
@@ -25,9 +24,10 @@ class GnomeBuilder < Formula
   depends_on "pcre"
   depends_on "json-glib"
   depends_on "libsoup"
+  depends_on "gspell"
+  depends_on "enchant"
   depends_on "gjs" => :recommended
-  # restore vala support in gnome-builder 3.24.0
-  # depends_on "vala" => :recommended
+  depends_on "vala" => :recommended
   depends_on "ctags" => :recommended
   depends_on "meson" => :recommended
   depends_on :python3 => :optional
@@ -37,7 +37,10 @@ class GnomeBuilder < Formula
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libgit2-glib"].opt_libexec/"libgit2/lib/pkgconfig"
-    ENV.delete("SDKROOT")
+
+    # Bugreport opened at https://bugzilla.gnome.org/show_bug.cgi?id=780293
+    ENV.append "LIBS", `pkg-config --libs enchant`.chomp
+    inreplace "doc/Makefile.in", "cp -R", "gcp -R"
 
     ENV.cxx11
 
@@ -45,7 +48,6 @@ class GnomeBuilder < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--enable-vala-pack-plugin=no",
                           "--disable-schemas-compile"
     system "make", "install"
   end
