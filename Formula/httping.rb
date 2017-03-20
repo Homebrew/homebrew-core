@@ -25,6 +25,10 @@ class Httping < Formula
   end
 
   test do
-    system bin/"httping", "-c", "2", "-g", "http://brew.sh"
+    if MacOS.version >= :el_capitan
+      system bin/"httping", "-c", "2", "-g", "https://brew.sh/"
+    else
+      system bin/"httping", "-c", "2", "-g", "http://brew.sh/"
+    end
   end
 end
