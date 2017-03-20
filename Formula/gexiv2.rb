@@ -5,10 +5,9 @@ class Gexiv2 < Formula
   sha256 "318fe068cd414c0af91759a87c29fd577cd5d42bf7a6f50caff27535c02ac7f3"
 
   bottle do
-    sha256 "9bcb50feeaedd2aa01a3c9dca279301f8e366c370d15f03fbc1dae014a77fc5c" => :sierra
-    sha256 "52056f0cc9405210101df91d2611652448f2c0e330c448a6e56bd0379a2065cc" => :el_capitan
-    sha256 "63ed0d6a7ccaf0bab215a21ccd54eee9e7ad36cd7e8c31b75c382def37bd53c0" => :yosemite
-    sha256 "04ba9507fd3e8c0aa84bcedad02db05387f12d965170d6dc594ab6a3d205106c" => :mavericks
+    sha256 "32a037cadf438566743c2e2bf9ce5eb964afeba84e95ae9397db10c1f59d6c6e" => :sierra
+    sha256 "1d957ba2a091887550e1cc7f72fe61489fb6a9085626486cb1a071bfc9ec169b" => :el_capitan
+    sha256 "57c5a3eec78d1091357be4ac89b93847837c592ceb8908d6dd0ba39dfa624d6a" => :yosemite
   end
 
   depends_on "pkg-config" => :build
