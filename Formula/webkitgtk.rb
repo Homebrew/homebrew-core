@@ -2,9 +2,8 @@ class Webkitgtk < Formula
   desc "Full-featured Gtk+ port of the WebKit rendering engine"
   homepage "https://webkitgtk.org/"
   homepage "https://webkitgtk.org"
-  url "https://webkitgtk.org/releases/webkitgtk-2.14.1.tar.xz"
-  sha256 "2e2d76c328de65bed6e0e4f096b2720a366654b27fc1af0830ece90bc4b7ceb5"
-  revision 2
+  url "https://webkitgtk.org/releases/webkitgtk-2.14.5.tar.xz"
+  sha256 "3ca8f1c33a9b43d6c753dcac1c0788656930e06382b10fdf5c2805ea8f96369f"
 
   bottle do
     sha256 "56e0d21409bdb19d458fae16b51f4b3ce0dac2e5bdf5961cc8c7359b457a888f" => :sierra
@@ -17,11 +16,6 @@ class Webkitgtk < Formula
   depends_on "libsoup"
   depends_on "enchant"
   depends_on "webp"
-
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/webkit/webkit-2.14.1.diff"
-    sha256 "df9af608b9c5c1f19c26db5970ad6b8638fc6b7573b9510f82e4ddadf248787d"
-  end
 
   def install
     ENV.delete "SDKROOT"
