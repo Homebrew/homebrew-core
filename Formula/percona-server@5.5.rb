@@ -1,6 +1,6 @@
 class PerconaServerAT55 < Formula
   desc "Drop-in MySQL replacement"
-  homepage "https://www.percona.com"
+  homepage "https://www.percona.com/"
   url "https://www.percona.com/downloads/Percona-Server-5.5/Percona-Server-5.5.41-37.0/source/tarball/percona-server-5.5.41-37.0.tar.gz"
   version "5.5.41-37.0"
   sha256 "4de65ccbdd6c266f18339c2ea5427a15d90a8ce1ce1c7574aa2e72f685a10833"
@@ -113,8 +113,8 @@ class PerconaServerAT55 < Formula
         mysql_install_db --help
 
     and view the MySQL documentation:
-      * http://dev.mysql.com/doc/refman/5.5/en/mysql-install-db.html
-      * http://dev.mysql.com/doc/refman/5.5/en/default-privileges.html
+      * https://dev.mysql.com/doc/refman/5.5/en/mysql-install-db.html
+      * https://dev.mysql.com/doc/refman/5.5/en/default-privileges.html
 
     To run as, for instance, user "mysql", you may need to `sudo`:
         sudo mysql_install_db ...options...
