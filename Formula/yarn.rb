@@ -19,6 +19,7 @@ class Yarn < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
+    inreplace "#{libexec}/lib/node_modules/yarn/package.json", '"installationMethod": "tar"', '"installationMethod": "brew"'
   end
 
   test do
