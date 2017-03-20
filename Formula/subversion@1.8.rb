@@ -62,6 +62,10 @@ class SubversionAT18 < Formula
   end
 
   def install
+    inreplace "Makefile.in",
+      "@APXS@ -i -S LIBEXECDIR=\"$(APACHE_LIBEXECDIR)\"",
+      "@APXS@ -i -S LIBEXECDIR=\"#{libexec.to_s.sub("@", "\\@")}\""
+
     serf_prefix = libexec/"serf"
 
     resource("serf").stage do
