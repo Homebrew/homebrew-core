@@ -60,7 +60,7 @@ class GlibNetworking < Formula
       "-I#{HOMEBREW_PREFIX}/opt/gettext/include",
       "-L#{HOMEBREW_PREFIX}/lib",
       "-L#{HOMEBREW_PREFIX}/opt/gettext/lib",
-      "-lgio-2.0", "-lgobject-2.0", "-lglib-2.0", "-lintl"
+      "-lgio-2.0", "-lgobject-2.0", "-lglib-2.0"
     ]
 
     system ENV.cc, "gtls-test.c", "-o", "gtls-test", *flags
