@@ -5,9 +5,9 @@ class Gupnp < Formula
   sha256 "5173fda779111c6b01cd4a5e41b594322be9d04f8c74d3361f0a0c2069c77610"
 
   bottle do
-    sha256 "6f83d007931b5cf9e272d1338e3f1d054aa28cdba9de39464a6ccac88bff5927" => :sierra
-    sha256 "372473313c01e897c81dd9d8d59d55ac1bc025c84e9df406343d60f4133a69c9" => :el_capitan
-    sha256 "75e0f3e4997c7f3e98ab47112df8fe2afc6d57c77ca057a7e3eea3d3c7bfd64f" => :yosemite
+    sha256 "28afff235b826e62bfd7133394b91a4b3746c3bf591efb5eb35767978e6e5f9a" => :sierra
+    sha256 "122ab1bd5cd7864e3ba5e8242d62fc4d1a46fe3827801751c967c4877958a19d" => :el_capitan
+    sha256 "c75c47821df5392618b6ce7f438f509e5c6833fe7f60f6657b3081adf537da37" => :yosemite
   end
 
   head do
