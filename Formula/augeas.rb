@@ -3,6 +3,7 @@ class Augeas < Formula
   homepage "http://augeas.net"
   url "http://download.augeas.net/augeas-1.7.0.tar.gz"
   sha256 "b9315575d07f7ba28ca2f9f60b4987dfe77b5970c98b59dc6ca7873fc4979763"
+  revision 1
 
   bottle do
     sha256 "5aea6d7dacc6810656d1818aaf7ef9a57bd086dad1ec2e2ad57a3c37b35438a5" => :sierra
@@ -20,7 +21,6 @@ class Augeas < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libxml2"
   depends_on "readline"
 
   def install
