@@ -1,8 +1,8 @@
 class Gucharmap < Formula
   desc "GNOME Character Map, based on the Unicode Character Database"
   homepage "https://live.gnome.org/Gucharmap"
-  url "https://download.gnome.org/sources/gucharmap/9.0/gucharmap-9.0.2.tar.xz"
-  sha256 "723ea92c8e877beae3986432b8e002807c6c2d1140590dff1c5bff34bb6ed265"
+  url "https://download.gnome.org/sources/gucharmap/9.0/gucharmap-9.0.3.tar.xz"
+  sha256 "badb002c4d15dca7f3e42b9995ac41dba51490a28709bfefb5a8523fd948f918"
 
   bottle do
     sha256 "58a9f1ad80737df84402e88890142d94a825c0f8de99998e097c2f720abf48bf" => :sierra
