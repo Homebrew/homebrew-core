@@ -1,14 +1,14 @@
 class Ctop < Formula
   desc "Top-like interface for container metrics"
   homepage "https://bcicen.github.io/ctop/"
-  url "https://github.com/bcicen/ctop/archive/v0.5.tar.gz"
-  sha256 "b8054dba41c2549efac9deb226c3d734dfe6a3f6fb7da992715d4a97b0319b09"
+  url "https://github.com/bcicen/ctop/archive/v0.5.1.tar.gz"
+  sha256 "45cdcd0bb145b1b1312c464690669635abfd09c0b591b41c3771492d0db6d43f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c37eaaaeb6eb5a9a1156be25439b9c7054d6b5437f119418c509a40ee732af4c" => :sierra
-    sha256 "13c419facebf37cdd92b182eefa5f71789e541e9f2d0513562f2e42f4131528d" => :el_capitan
-    sha256 "ae9d6a1f77e9e86020996dc7bfbbcaa2a977615453a5f4da33899ad6053cacb0" => :yosemite
+    sha256 "4925e2c0d9bfda6d11bb1a65be18f533e8255b8715608840cbd1ff2b5db8787a" => :sierra
+    sha256 "c3b3cc72c661c7b6ead5d1bb993aecb45e22df845b8252964cfce3779c6c1c7c" => :el_capitan
+    sha256 "0b294c3e766755428f1b96f60894ba75ba8d62c158135195f3acf0e39764378a" => :yosemite
   end
 
   depends_on "go" => :build
@@ -21,7 +21,8 @@ class Ctop < Formula
     dir.install Dir["*"]
     cd dir do
       system "glide", "install"
-      system "go", "build", "-o", bin/"ctop"
+      system "make", "build"
+      bin.install "ctop"
     end
   end
 
