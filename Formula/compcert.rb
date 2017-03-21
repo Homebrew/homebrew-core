@@ -1,8 +1,8 @@
 class Compcert < Formula
   desc "Formally verified C compiler"
   homepage "http://compcert.inria.fr"
-  url "http://compcert.inria.fr/release/compcert-3.0.tgz"
-  sha256 "f5e42c528849fffa840a4c820ad4cc6257a7e518f3b3b0fe54c06fa60270dd0d"
+  url "http://compcert.inria.fr/release/compcert-3.0.1.tgz"
+  sha256 "09c7dc18c681231c6e83a963b283b66a9352a9611c9695f4b0c4b7df8c90f935"
 
   bottle do
     cellar :any_skip_relocation
@@ -30,7 +30,7 @@ class Compcert < Formula
     ENV["OPAMROOT"] = Pathname.pwd/"opamroot"
     (Pathname.pwd/"opamroot").mkpath
     system "opam", "init", "--no-setup"
-    system "opam", "install", "coq=8.5.3"
+    system "opam", "install", "coq=8.6"
 
     if build.with? "config-x86_64"
       system "opam", "config", "exec", "--",
