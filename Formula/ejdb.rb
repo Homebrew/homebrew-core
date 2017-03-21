@@ -1,8 +1,8 @@
 class Ejdb < Formula
   desc "C library based on modified version of Tokyo Cabinet"
   homepage "http://ejdb.org"
-  url "https://github.com/Softmotions/ejdb/archive/v1.2.11.tar.gz"
-  sha256 "0d153f287185e77c82f0a9c3e3eb30baddfc0fcc0e04d188592fe0a44514c4e3"
+  url "https://github.com/Softmotions/ejdb/archive/v1.2.12.tar.gz"
+  sha256 "858b58409a2875eb2b0c812ce501661f1c8c0378f7756d2467a72a1738c8a0bf"
 
   head "https://github.com/Softmotions/ejdb.git"
 
