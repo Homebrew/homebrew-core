@@ -9,10 +9,9 @@ class Kibana < Formula
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    rebuild 2
-    sha256 "72c01043760154e9ff461f8977b7a5552a79733f49fab4c8cd3b8a869dc7a181" => :sierra
-    sha256 "db0702011efcec1afae4fc906f781953903f5e54ed439924bb81ecb65d1c38b7" => :el_capitan
-    sha256 "54f6e24dac4b6b2928515eb2e7d9f729d7c42a17e5c2819dc022b0d775c3545a" => :yosemite
+    sha256 "b7488a1b24a838e838d9363e2307b88c22174a4a6578d95efdce84195967b311" => :sierra
+    sha256 "5a6d7b70c9d07cd5ce9e1869f62ca09700bfa2cbf02cd33c4060a775a657aaab" => :el_capitan
+    sha256 "67064030f8b92983bb285b2a3c67721d84e40bb6e22494cd2beeefbcf37c87f3" => :yosemite
   end
 
   resource "node" do
