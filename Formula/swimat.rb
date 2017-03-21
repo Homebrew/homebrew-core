@@ -7,8 +7,8 @@ class Swimat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "640cf7210dd5ef0a87f695bc298024e5248f7dd6697c3200d13af0f6a438fd08" => :sierra
-    sha256 "6eee08900c80c2771f2925c535a04b59023db88c0d079cd40607338b32801dae" => :el_capitan
+    sha256 "67632bfd32c323efc95827f861af547850b6b5aa17bda219fa01286afcf9d664" => :sierra
+    sha256 "e03a5b43235b7449963345447353cab3fff4acc353c53a8ae0cc8215ffc13bf5" => :el_capitan
   end
 
   depends_on :xcode => "8.0"
