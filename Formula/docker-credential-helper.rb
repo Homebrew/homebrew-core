@@ -7,9 +7,9 @@ class DockerCredentialHelper < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ba8ed3e3ef6b633aa2980cd37376e13aeb732550d0e53b618bd03e5d68894d70" => :sierra
-    sha256 "c1162fb0846ada1307f1b53160aa8ee9c3223578f1e248829001ce0c033c7753" => :el_capitan
-    sha256 "38e33081722df0b7d0c220dfed7c490ae047dcb193fc87c88c08fac09e724866" => :yosemite
+    sha256 "828f38190cb50e4c46231ec8702045ba043bd235e01e4394c927af5c107b340b" => :sierra
+    sha256 "1802d5eceea5272559401accfe011d9a6f11df89e2686a7b937bf1dbe6f1475d" => :el_capitan
+    sha256 "f0397eb7d5f5729c134c775fd8a6087ed470c17826a914e320644811d6bc9fca" => :yosemite
   end
 
   depends_on "go" => :build
