@@ -1,9 +1,9 @@
 class AutoconfArchive < Formula
   desc "Collection of over 500 reusable autoconf macros"
   homepage "https://savannah.gnu.org/projects/autoconf-archive/"
-  url "https://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2016.09.16.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-2016.09.16.tar.xz"
-  sha256 "e8f2efd235f842bad2f6938bf4a72240a5e5fcd248e8444335e63beb60fabd82"
+  url "https://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2017.03.21.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-2017.03.21.tar.xz"
+  sha256 "386ad455f12bdeb3a7d19280441a5ab77355142349200ff11040a8d9d455d765"
 
   bottle do
     cellar :any_skip_relocation
