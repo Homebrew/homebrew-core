@@ -1,15 +1,15 @@
 class YoutubeDl < Formula
   desc "Download YouTube videos from the command-line"
   homepage "https://rg3.github.io/youtube-dl/"
-  url "https://github.com/rg3/youtube-dl/releases/download/2017.03.20/youtube-dl-2017.03.20.tar.gz"
-  sha256 "6e4201d7b45da75e9ed04c0393e9b1ce86fad27375337d5e1700549a26597215"
-
-  bottle :unneeded
+  url "https://github.com/rg3/youtube-dl/releases/download/2017.03.22/youtube-dl-2017.03.22.tar.gz"
+  sha256 "c9c0d929f887c2044a0cee88f314f2746a19f34b5842f1b065efc536c43be9ff"
 
   head do
     url "https://github.com/rg3/youtube-dl.git"
     depends_on "pandoc" => :build
   end
+
+  bottle :unneeded
 
   def install
     system "make", "PREFIX=#{prefix}" if build.head?
