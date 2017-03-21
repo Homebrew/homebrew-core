@@ -3,8 +3,8 @@ require "language/go"
 class Charm < Formula
   desc "Tool for managing Juju Charms"
   homepage "https://github.com/juju/charmstore-client"
-  url "https://github.com/juju/charmstore-client/archive/2.2.1.tar.gz"
-  sha256 "6ec369db9dfe2b8991ef08d885477772a78d5165a49a55d542ca368898349dbe"
+  url "https://github.com/juju/charmstore-client/archive/2.2.2.tar.gz"
+  sha256 "9e603b7af4f6e136c3cdfbfff0ce0f8f986cae49c0c17fa1bee2a2e3f7f4b853"
 
   bottle do
     cellar :any_skip_relocation
