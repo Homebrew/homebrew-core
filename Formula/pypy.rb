@@ -4,16 +4,8 @@ class Pypy < Formula
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   stable do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.6.0-src.tar.bz2"
-    sha256 "7411448045f77eb9e087afdce66fe7eafda1876c9e17aad88cf891f762b608b0"
-
-    # Disable clock_gettime() use on Darwin; applied upstream.
-    # This fixes 10.11 when built using the Xcode 8 SDK.
-    # See: https://github.com/Homebrew/homebrew-core/issues/6949
-    patch do
-      url "https://bitbucket.org/pypy/pypy/commits/91e202bbd0b983c88fa9c33b9215b0f910d1f405/raw"
-      sha256 "7a5f5d1c3c0e7bd1652c4d17018d8c1328338b73858712c02c41ef563a04314c"
-    end
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.7.0-src.tar.bz2"
+    sha256 "e522ea7ca51b16ee5505f22b86803664b762a263a6d69ba84c359fcf8365ad3e"
   end
 
   bottle do
