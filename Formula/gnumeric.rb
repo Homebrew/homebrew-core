@@ -1,8 +1,8 @@
 class Gnumeric < Formula
   desc "GNOME Spreadsheet Application"
   homepage "https://projects.gnome.org/gnumeric/"
-  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.33.tar.xz"
-  sha256 "7eade408b6c20d2e8ad557d539e5e2f29705845a2eaa181b38934bb0cad49c0b"
+  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.34.tar.xz"
+  sha256 "0b4920812d82ec4c25204543dff9dd3bdbac17bfaaabd1aa02d47fbe2981c725"
 
   bottle do
     sha256 "86643beecac3bca21414b58da0d78f6e9ecc690b3a29945327fa4fa2e3795396" => :sierra
