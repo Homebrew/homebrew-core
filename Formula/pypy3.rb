@@ -1,8 +1,8 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://dl.bintray.com/homebrew/mirror/pypy3-5.5.0.tar.bz2"
-  sha256 "d5591c34d77253e9ed57d182b6f49585b95f7c09c3e121f0e8630e5a7e75ab5f"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy3-v5.7.0-src.tar.bz2"
+  sha256 "f0f563b74f8b82ec33b022393219b93cc0d81e9f9500614fe8417b67a52e9569"
 
   bottle do
     cellar :any
@@ -40,14 +40,6 @@ class Pypy3 < Formula
 
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
   fails_with :gcc
-
-  # Disable clock_gettime() use on Darwin; applied upstream.
-  # This fixes 10.11 when built using the Xcode 8 SDK.
-  # See: https://github.com/Homebrew/homebrew-core/issues/6949
-  patch do
-    url "https://bitbucket.org/pypy/pypy/commits/91e202bbd0b983c88fa9c33b9215b0f910d1f405/raw"
-    sha256 "7a5f5d1c3c0e7bd1652c4d17018d8c1328338b73858712c02c41ef563a04314c"
-  end
 
   def install
     # Having PYTHONPATH set can cause the build to fail if another
