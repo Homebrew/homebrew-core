@@ -1,8 +1,8 @@
 class Libgee < Formula
   desc "Collection library providing GObject-based interfaces"
   homepage "https://wiki.gnome.org/Projects/Libgee"
-  url "https://download.gnome.org/sources/libgee/0.18/libgee-0.18.1.tar.xz"
-  sha256 "99686bbe5a9c89ba9502c25f61314ee8efa0dd2a1159c9a639afc1458c2839a2"
+  url "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.0.tar.xz"
+  sha256 "21308ba3ed77646dda2e724c0e8d5a2f8d101fb05e078975a532d7887223c2bb"
 
   bottle do
     cellar :any
