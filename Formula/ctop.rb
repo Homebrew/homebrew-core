@@ -21,7 +21,8 @@ class Ctop < Formula
     dir.install Dir["*"]
     cd dir do
       system "glide", "install"
-      system "go", "build", "-o", bin/"ctop"
+      system "make", "build"
+      bin.install "ctop"
     end
   end
 
