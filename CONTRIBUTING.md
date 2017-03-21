@@ -31,3 +31,7 @@ First time contributing to Homebrew? Read our [Code of Conduct](https://github.c
 * [open a pull request](http://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request.html) and fix any failing tests
 
 Thanks!
+
+### P.S. What about Linux specific changes?
+
+While it's much easier to make the package manager cross-platform without harming readability. Ideally we'll end up at a point where Linuxbrew can run an unpatched Homebrew/brew. This will never happen on homebrew-core without a cross-platform formula abstraction layer which will need to break backwards compatibility which we will never do. Linuxbrew should create their own homebrew-core (not a fork) and maintain formulae known to work on Linux configured how best makes sense on Linux.
