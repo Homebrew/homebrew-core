@@ -1,8 +1,8 @@
 class Carrot2 < Formula
   desc "Search results clustering engine"
   homepage "https://project.carrot2.org"
-  url "https://github.com/carrot2/carrot2/releases/download/release%2F3.15.0/carrot2-dcs-3.15.0.zip"
-  sha256 "db9c2dad798cdb984b1bec5e68ba8ffab1a5edc820357afddd8eb688c68b34b5"
+  url "https://github.com/carrot2/carrot2/releases/download/release%2F3.15.1/carrot2-dcs-3.15.1.zip"
+  sha256 "8aedcc83fc9303a978c722f66739e85ab197034f1617c7c4e2b831fb88d43c25"
 
   bottle :unneeded
 
