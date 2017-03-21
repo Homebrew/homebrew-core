@@ -41,7 +41,7 @@ class Llvm < Formula
     end
 
     # Only required to build & run Compiler-RT tests on macOS, optional otherwise.
-    # http://clang.llvm.org/get_started.html
+    # https://clang.llvm.org/get_started.html
     resource "libcxx" do
       url "http://releases.llvm.org/4.0.0/libcxx-4.0.0.src.tar.xz"
       sha256 "4f4d33c4ad69bf9e360eebe6b29b7b19486948b1a41decf89d4adec12473cf96"
