@@ -1,8 +1,8 @@
 class Slimerjs < Formula
   desc "Scriptable browser for Web developers"
   homepage "https://slimerjs.org/"
-  url "https://github.com/laurentj/slimerjs/archive/0.10.2.tar.gz"
-  sha256 "282b7522e5fcdf37258a7753441e4b62dcdde22f3a2ab8554f29fc9750c41a8d"
+  url "https://github.com/laurentj/slimerjs/archive/0.10.3.tar.gz"
+  sha256 "116f280c3c0932a00c11e8663d1c7b311a893ea2b8b56960ce0879ab9d2daa0a"
   head "https://github.com/laurentj/slimerjs.git"
 
   bottle :unneeded
