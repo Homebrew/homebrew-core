@@ -17,7 +17,7 @@ class Wmctrl < Formula
   depends_on :x11
 
   # Fix for 64-bit arch. See:
-  # http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=362068
+  # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=362068
   patch :DATA
 
   def install
