@@ -6,9 +6,9 @@ class Compcert < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "57afe3b1c9d98bb4d74e38012c3653479cd7ac9072410cc8ec168582543ca534" => :sierra
-    sha256 "751d20e855b3e356c34294f0c4fa40d0c8aa068632aac1d52dc2a33a74e7638a" => :el_capitan
-    sha256 "aa1f679c5442e7de7b52c8fa7a79dbabad8f046921b85eac657248046c756389" => :yosemite
+    sha256 "8c5306716040478221d6bceb6d4b01e7bee04bcb33b0b1242b8b73eb887634c5" => :sierra
+    sha256 "a1feea71910e24d885753b22505185a45c97262b63fef65c20a7a4b58e28d128" => :el_capitan
+    sha256 "017b63dd93c64946977153b5c8e52e30ada1c3e79795498ba3c68ff0b040da8e" => :yosemite
   end
 
   option "with-config-x86_64", "Build Compcert with ./configure 'x86_64'"
