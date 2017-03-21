@@ -1,8 +1,8 @@
 class Libsquish < Formula
   desc "Library for compressing images with the DXT standard."
   homepage "https://sourceforge.net/projects/libsquish/"
-  url "https://downloads.sourceforge.net/project/libsquish/libsquish-1.14.tgz"
-  sha256 "5ea955dc7b566d8c30b321e09d35ad7dc7c2dfa0c3330829b034f69cf92ebc7f"
+  url "https://downloads.sourceforge.net/project/libsquish/libsquish-1.15.tgz"
+  sha256 "628796eeba608866183a61d080d46967c9dda6723bc0a3ec52324c85d2147269"
 
   bottle do
     cellar :any_skip_relocation
