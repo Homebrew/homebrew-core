@@ -53,7 +53,7 @@ class ProtobufAT26 < Formula
   def install
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
-    # http://code.google.com/p/protobuf/source/browse/trunk/configure.ac#61
+    # https://github.com/google/protobuf/blob/e9a122eb19ec54dbca15da80355ed0c17cada9b1/configure.ac#L71-L74
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
     ENV.cxx11 if build.cxx11?
 
