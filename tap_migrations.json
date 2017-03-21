@@ -157,6 +157,7 @@
   "libtomcrypt": "homebrew/boneyard",
   "libtorrent": "homebrew/boneyard",
   "lilypond": "homebrew/tex",
+  "lv": "homebrew/boneyard",
   "magit": "dunn/emacs",
   "malaga": "homebrew/boneyard",
   "meld": "caskroom/cask",
