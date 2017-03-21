@@ -1,8 +1,8 @@
 class Guetzli < Formula
   desc "Perceptual JPEG encoder"
   homepage "https://github.com/google/guetzli"
-  url "https://github.com/google/guetzli/archive/v1.0.tar.gz"
-  sha256 "9766353d4bcfb9ea1c4018770d23a321986cdf1544d0805d14361686d7592c92"
+  url "https://github.com/google/guetzli/archive/v1.0.1.tar.gz"
+  sha256 "e52eb417a5c0fb5a3b08a858c8d10fa797627ada5373e203c196162d6a313697"
 
   head "https://github.com/google/guetzli.git"
 
@@ -12,11 +12,8 @@ class Guetzli < Formula
     sha256 "0becd4f0800be86e7b0bf4aee902e90723d2caba6b9fa72439a6b6314503890d" => :el_capitan
   end
 
+  depends_on "pkg-config" => :build
   depends_on "libpng"
-  depends_on "gflags"
-
-  # Linker fails with atom not found in symbolIndex on Yosemite
-  depends_on :macos => :el_capitan
 
   resource "test_image" do
     url "https://github.com/google/guetzli/releases/download/v1.0/bees.png"
