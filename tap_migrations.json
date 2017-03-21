@@ -171,6 +171,7 @@
   "mysqlreport": "homebrew/boneyard",
   "n98-magerun": "homebrew/php",
   "nant": "homebrew/boneyard",
+  "nazghul": "homebrew/boneyard",
   "net6": "homebrew/boneyard",
   "newick-utils": "homebrew/science",
   "ngrok": "homebrew/boneyard",
