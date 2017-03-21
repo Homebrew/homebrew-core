@@ -1,9 +1,8 @@
 class GnomeAutoar < Formula
   desc "GNOME library for archive handling"
   homepage "https://github.com/GNOME/gnome-autoar"
-  url "https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.1.tar.xz"
-  sha256 "f642935e9213663c114988403fba26c02e79a644b33cb0e4da0d4aec570fb1fb"
-  revision 1
+  url "https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.2.tar.xz"
+  sha256 "e1fe2c06eed30305c38bf0939c72b0e51b4716658e2663a0cf4a4bf57874ca62"
 
   bottle do
     sha256 "94421e49840cb95db58c73a2055c6108f26b5e696354eaff3e788a8251a16ccb" => :sierra
