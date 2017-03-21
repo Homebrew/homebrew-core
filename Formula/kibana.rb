@@ -37,6 +37,7 @@ class Kibana < Formula
     platforms.delete(platform)
     sub = platforms.to_a.join("|")
     inreplace buildpath/"tasks/config/platforms.js", /('(#{sub})',?(?!;))/, "// \\1"
+    inreplace buildpath/"tasks/build/notice.js", /linux-x64/, "darwin-x64"
 
     # trick the build into thinking we've already downloaded the Node.js binary
     mkdir_p buildpath/".node_binaries/#{resource("node").version}/#{platform}"
