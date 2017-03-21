@@ -3,13 +3,14 @@ class Libssh < Formula
   homepage "https://www.libssh.org/"
   url "https://red.libssh.org/attachments/download/210/libssh-0.7.4.tar.xz"
   sha256 "39e1bec3b3cb452af3b8fd7f59c12c5ef5b9ed64f057c7eb0d1a5cac67ba6c0d"
-  head "git://git.libssh.org/projects/libssh.git"
+  head "https://git.libssh.org/projects/libssh.git"
 
   bottle do
     cellar :any
-    sha256 "7353d11d1799080dbc4dceded7905f252479f590243f1d1a98b9c270dbe279de" => :sierra
-    sha256 "4e3416bd5087d748d049b00f857342db5e0d30cd4379d6c9257fe96f351d75ac" => :el_capitan
-    sha256 "3bb54bb7b07cabfdfbc44d17bda3254327287cae4bc47ed3c170ce85eca1f8c2" => :yosemite
+    rebuild 1
+    sha256 "09fb5a3a3f246e4962d3a966d9f0b8bdadcba7418585c528ec55cb72e032152d" => :sierra
+    sha256 "43cc3485c0f8844a5d5426e14b60074d6b6d0a42997bf5becd4a037e7e944db0" => :el_capitan
+    sha256 "8bce24f3728efa8965f116d095487789e3482e7a6c29586b7bc9a79ec6437292" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -17,7 +18,7 @@ class Libssh < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", "-DWITH_STATIC_LIB=ON", *std_cmake_args
       system "make", "install"
     end
   end

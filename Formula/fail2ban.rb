@@ -1,6 +1,6 @@
 class Fail2ban < Formula
   desc "Scan log files and ban IPs showing malicious signs"
-  homepage "http://www.fail2ban.org/"
+  homepage "https://www.fail2ban.org/"
   url "https://github.com/fail2ban/fail2ban/archive/0.8.14.tar.gz"
   sha256 "2d579d9f403eb95064781ffb28aca2b258ca55d7a2ba056a8fa2b3e6b79721f2"
 
@@ -50,8 +50,8 @@ class Fail2ban < Formula
       describes how to set up the Jails for the standard macOS Server
       services for the respective releases.
 
-        10.4: http://www.fail2ban.org/wiki/index.php/HOWTO_Mac_OS_X_Server_(10.4)
-        10.5: http://www.fail2ban.org/wiki/index.php/HOWTO_Mac_OS_X_Server_(10.5)
+        10.4: https://www.fail2ban.org/wiki/index.php/HOWTO_Mac_OS_X_Server_(10.4)
+        10.5: https://www.fail2ban.org/wiki/index.php/HOWTO_Mac_OS_X_Server_(10.5)
     EOS
   end
 

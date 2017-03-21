@@ -6,7 +6,7 @@ class Spidermonkey < Formula
   sha256 "5d12f7e1f5b4a99436685d97b9b7b75f094d33580227aa998c406bbae6f2a687"
   revision 2
 
-  head "https://hg.mozilla.org/tracemonkey/archive/tip.tar.gz"
+  head "https://hg.mozilla.org/mozilla-central", :using => :hg
 
   bottle do
     cellar :any

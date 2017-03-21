@@ -4,7 +4,7 @@ If Homebrew was updated on Aug 10-11th 2016 and `brew update` always says `Alrea
 
 - [ ] Ran `brew update` and retried your prior step?
 - [ ] Ran `brew doctor`, fixed as many issues as possible and retried your prior step?
-- [ ] Confirmed this is problem with specific formulae and not Homebrew/brew? If it's a general Homebrew/brew problem please file this issue at https://github.com/Homebrew/brew/issues/new
+- [ ] Confirmed this is a problem with specific formulae and not Homebrew/brew? If it's a general Homebrew/brew problem please file this issue at https://github.com/Homebrew/brew/issues/new
 
 _You can erase any parts of this template not applicable to your Issue._
 

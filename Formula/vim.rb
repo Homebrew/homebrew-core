@@ -1,21 +1,20 @@
 class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
-  url "https://github.com/vim/vim/archive/v8.0.0386.tar.gz"
-  sha256 "25b28f6ef55a8d0b3f255f0fbed90ad1450bde7f7b231cc09d86c5119adc95bc"
+  url "https://github.com/vim/vim/archive/v8.0.0495.tar.gz"
+  sha256 "0cc7c2f0f9ed3dd15d0533e2c1af82ac8d23d9fe813db44506b201ceb09dab9b"
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "58209ce36e0e3ee4f3e523f016933dfa96be753ffac4037b1d57e84082a19d54" => :sierra
-    sha256 "a38ff430cb8ba2aa59c91776f721bb3d28cc168d02eda6ab29dc57fe5bea4d4a" => :el_capitan
-    sha256 "b8b2ab3f46d8d2a0f7e2399ff72d8ee247669730022d5661c2ac635f56fc1c4a" => :yosemite
+    sha256 "329b8a16ab90267f8f44e9ea8673323c68c4c5d97c9758efee925a955e7b5d8b" => :sierra
+    sha256 "a2899abd2ace6f1bf96da2c55ad438a92593c8d6f39d776abe2d8a522e66d785" => :el_capitan
+    sha256 "dd54defb5a1ef6354060bba7acd5c9fea671f3e093d669982f65a0a9c11abfbb" => :yosemite
   end
 
-  deprecated_option "disable-nls" => "without-nls"
   deprecated_option "override-system-vi" => "with-override-system-vi"
 
   option "with-override-system-vi", "Override system vi"
-  option "without-nls", "Build vim without National Language Support (translated messages, keymaps)"
+  option "with-gettext", "Build vim with National Language Support (translated messages, keymaps)"
   option "with-client-server", "Enable client/server mode"
 
   LANGUAGES_OPTIONAL = %w[lua python3 tcl].freeze
@@ -42,6 +41,7 @@ class Vim < Formula
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
   depends_on :x11 if build.with? "client-server"
+  depends_on "gettext" => :optional
 
   conflicts_with "ex-vi",
     :because => "vim and ex-vi both install bin/ex and bin/view"
@@ -73,7 +73,7 @@ class Vim < Formula
       opts -= %w[--enable-pythoninterp]
     end
 
-    opts << "--disable-nls" if build.without? "nls"
+    opts << "--disable-nls" if build.without? "gettext"
     opts << "--enable-gui=no"
 
     if build.with? "client-server"
@@ -116,13 +116,23 @@ class Vim < Formula
   end
 
   test do
-    if build.with? "python"
+    if build.with? "python3"
+      (testpath/"commands.vim").write <<-EOS.undent
+        :python3 import vim; vim.current.buffer[0] = 'hello python3'
+        :wq
+      EOS
+      system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
+      assert_equal "hello python3", File.read("test.txt").chomp
+    elsif build.with? "python"
       (testpath/"commands.vim").write <<-EOS.undent
         :python import vim; vim.current.buffer[0] = 'hello world'
         :wq
       EOS
       system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
-      assert_equal (testpath/"test.txt").read, "hello world\n"
+      assert_equal "hello world", File.read("test.txt").chomp
+    end
+    if build.with? "gettext"
+      assert_match "+gettext", shell_output("#{bin}/vim --version")
     end
   end
 end

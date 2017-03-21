@@ -1,6 +1,6 @@
 class Mapcrafter < Formula
   desc "Minecraft map renderer"
-  homepage "http://mapcrafter.org"
+  homepage "https://mapcrafter.org"
   url "https://github.com/mapcrafter/mapcrafter/archive/v.2.3.1.tar.gz"
   sha256 "b88e53ccffc00f83717f2e686dbed047b95f011187af2b7a23ba7f5cd3537679"
 

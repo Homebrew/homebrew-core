@@ -1,14 +1,14 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
-  homepage "http://www.scipy.org"
-  url "https://github.com/scipy/scipy/releases/download/v0.18.1/scipy-0.18.1.tar.xz"
-  sha256 "406d4e2dec5e46ad9f2ab08620174d064d3b5aab987591d1acd77eda846bd95e"
+  homepage "https://www.scipy.org"
+  url "https://github.com/scipy/scipy/releases/download/v0.19.0/scipy-0.19.0.tar.xz"
+  sha256 "ed52232afb2b321a4978e39040d94bf81af90176ba64f58c4499dc305a024437"
   head "https://github.com/scipy/scipy.git"
 
   bottle do
-    sha256 "07ce1e43b9985be7728cd5e381bbcf4cd523d3fabbb309385ef14020874b8d2e" => :sierra
-    sha256 "21a66c03485a690bd4768099aedfe8b3830a7806d82f7f82c5b0e242a7bb8d36" => :el_capitan
-    sha256 "821b54bc33725fdb46970ef2cba2d7fc68492fe930078d2ba1b5d3303af7ba8f" => :yosemite
+    sha256 "24852ec494ce62531ab60744ffb2d7a4acf55a16a311bcaeb931a717640584d8" => :sierra
+    sha256 "fe83a68967644820a02109eb85cd2b1d0dc8be48ec8a7407c35863a8dc86c2e3" => :el_capitan
+    sha256 "681f5b88966188641b911fe7adc82297664a9df074640b080920566a0bed152c" => :yosemite
   end
 
   option "without-python", "Build without python2 support"

@@ -1,14 +1,14 @@
 class Greed < Formula
   desc "Game of consumption"
   homepage "http://www.catb.org/~esr/greed/"
-  url "http://www.catb.org/~esr/greed/greed-4.1.tar.gz"
-  sha256 "2356151b2f95badcb8ad413ca88ee7022a46b11b2edab5b096de6d033778b1ea"
+  url "http://www.catb.org/~esr/greed/greed-4.2.tar.gz"
+  sha256 "702bc0314ddedb2ba17d4b55d873384a1606886e8d69f35ce67f6e3024a8d3fd"
   head "https://gitlab.com/esr/greed.git"
 
   bottle do
-    sha256 "152ce580c6e8157f765217a537cab9fb05561433c9546696989eb5770c77ee3b" => :sierra
-    sha256 "136edae12bcf18054cc5afeb7bd5f0d05ca8c6979f8764126a6216c174644e31" => :el_capitan
-    sha256 "634db96b3c26b08026ea59b90e161af6ec0979f79dcdb5ca132ee49fc91b6cfa" => :yosemite
+    sha256 "9778c36a897958eac89c32b7c4ef3fa790a2800e22c03262442530e09474da77" => :sierra
+    sha256 "99eef3acefdd2f116d3d3052f11efa9baf848aa4ba6452f07741a922d18779f5" => :el_capitan
+    sha256 "2a503ee5dbbf11e7d7627e6535cc4691bd5606d981b0bfc416c20bfe9f393013" => :yosemite
   end
 
   def install

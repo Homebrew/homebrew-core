@@ -12,7 +12,7 @@ class Libspectrum < Formula
   end
 
   head do
-    url "http://svn.code.sf.net/p/fuse-emulator/code/trunk/libspectrum"
+    url "https://svn.code.sf.net/p/fuse-emulator/code/trunk/libspectrum"
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build

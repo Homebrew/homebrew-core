@@ -1,7 +1,7 @@
 class Libwandevent < Formula
   desc "API for developing event-driven programs"
-  homepage "http://research.wand.net.nz/software/libwandevent.php"
-  url "http://research.wand.net.nz/software/libwandevent/libwandevent-3.0.2.tar.gz"
+  homepage "https://research.wand.net.nz/software/libwandevent.php"
+  url "https://research.wand.net.nz/software/libwandevent/libwandevent-3.0.2.tar.gz"
   sha256 "48fa09918ff94f6249519118af735352e2119dc4f9b736c861ef35d59466644a"
 
   bottle do

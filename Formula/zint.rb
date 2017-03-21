@@ -5,7 +5,7 @@ class Zint < Formula
   sha256 "de2f4fd0d008530511f5dea2cff7f96f45df4c029b57431b2411b7e1f3a523e8"
   revision 2
 
-  head "git://zint.git.sourceforge.net/gitroot/zint/zint"
+  head "https://git.code.sf.net/p/zint/code.git"
 
   bottle do
     cellar :any

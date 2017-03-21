@@ -1,13 +1,13 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs920/ghostscript-9.20.tar.xz"
-  sha256 "3c0f3dc5df6f784850fa4ce7dcc3d6c56ef543af1fbaedd1d9f8d9f8b66de0ab"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs921/ghostscript-9.21.tar.xz"
+  sha256 "2be1d014888a34187ad4bbec19ab5692cc943bd1cb14886065aeb43a3393d053"
 
   bottle do
-    sha256 "131836d9dafc86893c126d29866c63288a39d56a17628ed197b7986460d41bb1" => :sierra
-    sha256 "69c116774403a9cd04ac8a10c047f499834fd01ac8fed3db06f7672fa47d2840" => :el_capitan
-    sha256 "3052f28538d8923fe15a0816a314a8d12638b336c3d9b765381ef200416620e9" => :yosemite
+    sha256 "f4de879cfb6e4ef5e5c93dddeab48adf458c5a07a8804682498967fe9d359742" => :sierra
+    sha256 "b8e066aece53c8e75f5883eac8617fde563733938029955a6cf07f7d8b4227c6" => :el_capitan
+    sha256 "37b17208e6839ca273a73c5dd0f0a7e8f625f6d5aa816b74bd57de3375f94b00" => :yosemite
   end
 
   head do

@@ -3,7 +3,7 @@ class Irrlicht < Formula
   homepage "https://irrlicht.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/irrlicht/Irrlicht%20SDK/1.8/1.8.4/irrlicht-1.8.4.zip"
   sha256 "f42b280bc608e545b820206fe2a999c55f290de5c7509a02bdbeeccc1bf9e433"
-  head "https://irrlicht.svn.sourceforge.net/svnroot/irrlicht/trunk"
+  head "https://svn.code.sf.net/p/irrlicht/code/trunk"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +18,7 @@ class Irrlicht < Formula
     # Fix "error: cannot initialize a parameter of type
     # 'id<NSApplicationDelegate> _Nullable' with an rvalue of type
     # 'id<NSFileManagerDelegate>'"
-    # Reported 5 Oct 2016 http://irrlicht.sourceforge.net/forum/viewtopic.php?f=7&t=51562
+    # Reported 5 Oct 2016 https://irrlicht.sourceforge.io/forum/viewtopic.php?f=7&t=51562
     inreplace "source/Irrlicht/MacOSX/CIrrDeviceMacOSX.mm",
       "[NSApp setDelegate:(id<NSFileManagerDelegate>)",
       "[NSApp setDelegate:(id<NSApplicationDelegate>)"

@@ -1,7 +1,7 @@
 class Apgdiff < Formula
   desc "Another PostgreSQL diff tool"
-  homepage "http://www.apgdiff.com/"
-  url "http://www.apgdiff.com/download/apgdiff-2.4-bin.zip"
+  homepage "https://www.apgdiff.com/"
+  url "https://www.apgdiff.com/download/apgdiff-2.4-bin.zip"
   sha256 "12d95fbb0b8188d7f90e7aaf8bdd29d0eecac26e08d6323624b5b7e3f7c7a3f7"
 
   head do

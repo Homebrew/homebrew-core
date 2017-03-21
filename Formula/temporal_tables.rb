@@ -1,6 +1,6 @@
 class TemporalTables < Formula
   desc "Temporal Tables PostgreSQL Extension"
-  homepage "http://pgxn.org/dist/temporal_tables/"
+  homepage "https://pgxn.org/dist/temporal_tables/"
   url "https://github.com/arkhipov/temporal_tables/archive/v1.1.1.tar.gz"
   sha256 "8e1496e8b04a1a8df98450710be71156d6e94d9089d31dba4e56cb156649ca45"
 

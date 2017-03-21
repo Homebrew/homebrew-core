@@ -9,9 +9,10 @@ class Kibana < Formula
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "190c3cfd9f2faa102c5760b0792ab9e8add7dd410fb4c5683006a12516e83150" => :sierra
-    sha256 "8e851b92e1878cf5f6de03a133b2b689ec773d449f0300340fe82e9d5eab1e8c" => :el_capitan
-    sha256 "c4260914193f719bcab3037ed008147dd631e2d905d81ce94b714bf0abcdee69" => :yosemite
+    rebuild 2
+    sha256 "72c01043760154e9ff461f8977b7a5552a79733f49fab4c8cd3b8a869dc7a181" => :sierra
+    sha256 "db0702011efcec1afae4fc906f781953903f5e54ed439924bb81ecb65d1c38b7" => :el_capitan
+    sha256 "54f6e24dac4b6b2928515eb2e7d9f729d7c42a17e5c2819dc022b0d775c3545a" => :yosemite
   end
 
   resource "node" do
@@ -31,7 +32,7 @@ class Kibana < Formula
     if MacOS.prefer_64_bit?
       platform = "darwin-x64"
     else
-      raise "Installing Kibana via Homebrew is only supported on Darwin x86_64, Linux i386, Linux i686, and Linux x86_64"
+      raise "Installing Kibana via Homebrew is only supported on macOS x86_64"
     end
     platforms.delete(platform)
     sub = platforms.to_a.join("|")
@@ -46,7 +47,7 @@ class Kibana < Formula
     system "npm", "install", "--verbose"
     system "npm", "run", "build", "--", "--release", "--skip-os-packages", "--skip-archives"
 
-    prefix.install Dir["build/kibana-#{version}-#{platform.sub("x64", "x86_64")}/{bin,config,node_modules,optimize,package.json,src,webpackShims}"]
+    prefix.install Dir["build/kibana-#{version}-#{platform.sub("x64", "x86_64")}/{bin,config,node_modules,optimize,package.json,src,ui_framework,webpackShims}"]
 
     inreplace "#{bin}/kibana", %r{/node/bin/node}, "/libexec/node/bin/node"
     inreplace "#{bin}/kibana-plugin", %r{/node/bin/node}, "/libexec/node/bin/node"

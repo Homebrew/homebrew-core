@@ -1,24 +1,26 @@
 class Gdbm < Formula
   desc "GNU database manager"
   homepage "https://www.gnu.org/software/gdbm/"
-  url "https://ftpmirror.gnu.org/gdbm/gdbm-1.12.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/gdbm/gdbm-1.12.tar.gz"
-  sha256 "d97b2166ee867fd6ca5c022efee80702d6f30dd66af0e03ed092285c3af9bcea"
+  url "https://ftpmirror.gnu.org/gdbm/gdbm-1.13.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/gdbm/gdbm-1.13.tar.gz"
+  sha256 "9d252cbd7d793f7b12bcceaddda98d257c14f4d1890d851c386c37207000a253"
 
   bottle do
     cellar :any
-    sha256 "ffe92893d1d2d331e749be3e6f530de13b598adb7ebfe95eaea81e2d0ccbf0ce" => :sierra
-    sha256 "80ee188768a6029012a576c29be718149378d058e1803c6149ee8a36ce879f58" => :el_capitan
-    sha256 "fa512dd57e18dc3db293cfcf305356d137a3fad0f85240a9788dc4057290ce9c" => :yosemite
-    sha256 "87bfecf948e8b6182519f627f95c244531b2a48c1941352bee0980275b515f43" => :mavericks
+    sha256 "9647a01c12d0aeddfe0a73daeed3994ccc655bb61114f3be6b54bdf982d72790" => :sierra
+    sha256 "f2f5f359af6a2ecb3da54e242c43e914f4a60343dc42f13380948ebc977284dc" => :el_capitan
+    sha256 "1fa21ba6e4c5dc5b5d6bf9faae3f8c8e1304a95a8bd201712d40bd4271767948" => :yosemite
   end
 
   option "with-libgdbm-compat", "Build libgdbm_compat, a compatibility layer which provides UNIX-like dbm and ndbm interfaces."
 
+  # Use --without-readline because readline detection is broken in 1.13
+  # https://github.com/Homebrew/homebrew-core/pull/10903
   def install
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
+      --without-readline
       --prefix=#{prefix}
     ]
 

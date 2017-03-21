@@ -1,15 +1,15 @@
 class MediaInfo < Formula
   desc "Unified display of technical and tag data for audio/video"
   homepage "https://mediaarea.net/"
-  url "https://mediaarea.net/download/binary/mediainfo/0.7.92.1/MediaInfo_CLI_0.7.92.1_GNU_FromSource.tar.bz2"
-  version "0.7.92.1"
-  sha256 "ff2c0ee44ae2e30e9c5fc271f973741a387b421cbcf3a808a13849282dccc30d"
+  url "https://mediaarea.net/download/binary/mediainfo/0.7.93/MediaInfo_CLI_0.7.93_GNU_FromSource.tar.bz2"
+  version "0.7.93"
+  sha256 "047df86b6440410ded0277e5e348f3b96ccd5381ac56a89388aa1b66b0f2dbd5"
 
   bottle do
     cellar :any
-    sha256 "6efc1eded0dac8a04d83f25d8d751f37a790cd237fd30a55a92fe8a3303318b2" => :sierra
-    sha256 "58f845224431384ed5c83152c346a431784b0fb38bc773070267a65df3cc4d1d" => :el_capitan
-    sha256 "d244fba83ac702131383359c363513d97830da84be545e4088ead04c10f6210d" => :yosemite
+    sha256 "8fef9f03fff1925ab9c5279fb1ac52470139add4b4e2f2adf5a10df08a70d96d" => :sierra
+    sha256 "1dab3eb4b641bd231a7526bec9907cbde1f1c71b651c63d8d7dc83b2683cc406" => :el_capitan
+    sha256 "c9a7da28d09c2fee2a7c412652f7f564b2c976b8e7207918c301881ed255d912" => :yosemite
   end
 
   depends_on "pkg-config" => :build

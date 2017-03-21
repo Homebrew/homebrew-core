@@ -1,6 +1,6 @@
 class Dosbox < Formula
   desc "DOS Emulator"
-  homepage "http://www.dosbox.com/"
+  homepage "https://www.dosbox.com/"
   url "https://downloads.sourceforge.net/project/dosbox/dosbox/0.74/dosbox-0.74.tar.gz"
   sha256 "13f74916e2d4002bad1978e55727f302ff6df3d9be2f9b0e271501bd0a938e05"
 
@@ -12,7 +12,7 @@ class Dosbox < Formula
   end
 
   head do
-    url "http://svn.code.sf.net/p/dosbox/code-0/dosbox/trunk"
+    url "https://svn.code.sf.net/p/dosbox/code-0/dosbox/trunk"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
@@ -23,6 +23,8 @@ class Dosbox < Formula
   depends_on "sdl_net"
   depends_on "sdl_sound" => ["--with-libogg", "--with-libvorbis"]
   depends_on "libpng"
+
+  conflicts_with "dosbox-x", :because => "both install `dosbox` binaries"
 
   def install
     args = %W[
@@ -35,7 +37,7 @@ class Dosbox < Formula
 
     if build.head?
       # Prevent unstable build with clang
-      # http://sourceforge.net/p/dosbox/code-0/3894/
+      # https://sourceforge.net/p/dosbox/code-0/3894/
       ENV.O0
     else
       # Disable dynamic cpu core recompilation that crashes on 64-bit platform

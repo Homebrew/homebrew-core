@@ -14,7 +14,7 @@ class Osslsigncode < Formula
   end
 
   head do
-    url "http://git.code.sf.net/p/osslsigncode/osslsigncode.git"
+    url "https://git.code.sf.net/p/osslsigncode/osslsigncode.git"
     depends_on "automake" => :build
   end
 

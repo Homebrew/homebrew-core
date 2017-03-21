@@ -1,6 +1,6 @@
 class Sleuthkit < Formula
   desc "Forensic toolkit"
-  homepage "http://www.sleuthkit.org/"
+  homepage "https://www.sleuthkit.org/"
   url "https://github.com/sleuthkit/sleuthkit/archive/sleuthkit-4.3.1.tar.gz"
   sha256 "91a9aa86041f8746038b8e8b0c6e07584971b025a9dd239c6f46d3db52c85d98"
   head "https://github.com/sleuthkit/sleuthkit.git", :branch => "develop"

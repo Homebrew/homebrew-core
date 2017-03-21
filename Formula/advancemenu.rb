@@ -12,6 +12,8 @@ class Advancemenu < Formula
 
   depends_on "sdl"
 
+  conflicts_with "advancemame", :because => "both install `advmenu` binaries"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install", "LDFLAGS=#{ENV.ldflags}", "mandir=#{man}"

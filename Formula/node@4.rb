@@ -3,12 +3,13 @@ class NodeAT4 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v4.8.0/node-v4.8.0.tar.xz"
   sha256 "67ea720419f902bd47e5c45a16ed45f8083c38ccd307b206a1dc53e862fad965"
+  revision 1
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
-    sha256 "3ba37b36b3cc7a8bc319172daf10cadaccde41dea4d8004e84e09c9c6b65e70f" => :sierra
-    sha256 "4af447884b3321d57dd5ad9530a064661f00f4d33119d9142e913ad1e41704e9" => :el_capitan
-    sha256 "26990932ad4876f9621cb84a1fc7782e583e543bc76dad39f7936913a63c15ae" => :yosemite
+    sha256 "eeab13ade2b36289cd5ab610b7314fe6f8e98886b56b440b379c80b508baf218" => :sierra
+    sha256 "dd53e0888ae04e6d41044f896b729163bc105a6e1e532397406c65017f4ec0e0" => :el_capitan
+    sha256 "59ea5acb727d52ec8614c5fc77551ed2a01d025b8850d5acbbd48e4509eadf98" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -22,9 +23,10 @@ class NodeAT4 < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl" => :optional
 
+  # Keep in sync with main node formula
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-2.15.11.tgz"
-    sha256 "927974142c9a44e9bd879d9e9762e7de379b43c5acfae32b02b44f60e59a9c9c"
+    url "https://registry.npmjs.org/npm/-/npm-4.1.2.tgz"
+    sha256 "87f2c95f98ac53d14d9e2c506f8ecfe1d891cd7c970450c74bf0daff24d65cfd"
   end
 
   resource "icu4c" do

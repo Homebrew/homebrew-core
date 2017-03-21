@@ -1,18 +1,51 @@
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils"
-  url "https://ftpmirror.gnu.org/coreutils/coreutils-8.26.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/coreutils/coreutils-8.26.tar.xz"
-  sha256 "155e94d748f8e2bc327c66e0cbebdb8d6ab265d2f37c3c928f7bf6c3beba9a8e"
+
+  stable do
+    url "https://ftpmirror.gnu.org/coreutils/coreutils-8.27.tar.xz"
+    mirror "https://ftp.gnu.org/gnu/coreutils/coreutils-8.27.tar.xz"
+    sha256 "8891d349ee87b9ff7870f52b6d9312a9db672d2439d289bc57084771ca21656b"
+
+    # Remove for > 8.27
+    # Fix "Undefined symbols _renameat"
+    # Reported upstream 10 Mar 2017 https://debbugs.gnu.org/cgi/bugreport.cgi?bug=26044
+    # The patches are from MacPorts. This has been fixed in HEAD.
+    if MacOS.version < :yosemite
+      depends_on "autoconf" => :build
+      depends_on "automake" => :build
+      depends_on "gettext" => :build
+
+      resource "renameat_c" do
+        url "https://raw.githubusercontent.com/macports/macports-ports/61f1b0d/sysutils/coreutils/files/renameat.c"
+        sha256 "1867c22dcb4e503bd1f075e5e78b7194af25cded7286225ea77ee2ec8703a1fb"
+      end
+
+      resource "renameat_m4" do
+        url "https://raw.githubusercontent.com/macports/macports-ports/61f1b0d/sysutils/coreutils/files/renameat.m4"
+        sha256 "09e79dea1d4ae8294297948d8d092ec1e3a1a4fb104faedef8b3d8f67293fd4d"
+      end
+
+      patch :p0 do
+        url "https://raw.githubusercontent.com/macports/macports-ports/61f1b0d/sysutils/coreutils/files/patch-m4_gnulib-comp.m4-add-renameat.diff"
+        sha256 "df9bedeae2ca6d335147b5b4c3f19db2f36ff8c84973fd15fe1697de70538247"
+      end
+
+      patch :p0 do
+        url "https://raw.githubusercontent.com/macports/macports-ports/61f1b0d/sysutils/coreutils/files/patch-lib_gnulib.mk-add-renameat.c.diff"
+        sha256 "f7e2b21f04085f589c3d10c2f6ac5a4185e2b907e8bdb5bb6e4f93888d7ab546"
+      end
+    end
+  end
 
   bottle do
-    sha256 "9409628a4780999323b47bbc5f7e3d622360766995e5b2d97fabbc9930b6d78d" => :sierra
-    sha256 "c37e171b4969db30c4ac11d6eda9297d0ad7253061569d8a8d849592664c8fd5" => :el_capitan
-    sha256 "fc6fc46b6c96c75424b4c0eeffaf3f493dfc605940960d4c35c17fdb2e598ed5" => :yosemite
+    sha256 "a951d21ffbf3407ca84356d369ed6009d248b263587b79f644d9a95300465fa6" => :sierra
+    sha256 "dafd72ff298ed109503928a3d7cf1623327b4bc65318e99b48f3415b7c469ac8" => :el_capitan
+    sha256 "5d636c1ad28b1ef25c140b1486fdb368486bcca563901ad543d62ce1bd5f8b70" => :yosemite
   end
 
   head do
-    url "git://git.sv.gnu.org/coreutils"
+    url "https://git.savannah.gnu.org/git/coreutils.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -40,7 +73,14 @@ class Coreutils < Formula
       ENV["gl_cv_func_getcwd_abort_bug"] = "no"
     end
 
-    system "./bootstrap" if build.head?
+    if build.head?
+      system "./bootstrap"
+    elsif MacOS.version < :yosemite
+      (buildpath/"lib").install resource("renameat_c")
+      (buildpath/"m4").install resource("renameat_m4")
+      system "autoreconf", "-fiv"
+    end
+
     args = %W[
       --prefix=#{prefix}
       --program-prefix=g

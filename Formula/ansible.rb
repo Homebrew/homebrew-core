@@ -5,13 +5,14 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.2.1.0.tar.gz"
   sha256 "63a12ea784c0f90e43293b973d5c75263634c7415e463352846cd676c188e93f"
-  revision 1
+  revision 2
+
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
-    sha256 "235101a64292d2e7073716da7d35e255d4733cca9d9c8c14fc7d86cdde660042" => :sierra
-    sha256 "9eb4b528fe870c4679e477c0c1b4c9d6a0c48aaba3b6b49020896dd36c027e88" => :el_capitan
-    sha256 "73894cfe2cec6d3863c4cafb1a8f1dabe2ed75c7fe2c30738cd6193c6bf94db5" => :yosemite
+    sha256 "3a3ed57c48fab11487fbd7b9526993d6de5597354bcec541f23834d7ace272c1" => :sierra
+    sha256 "05167277096f68dd05abc66c7ff40c9f5e2a9a2cbcdc1f31f96b83510ee40eba" => :el_capitan
+    sha256 "6d06db627c51b56ffb07449673ddbd53b10c52ae7c6d2d889ef77bdbf5f6b28e" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -59,6 +60,8 @@ class Ansible < Formula
   end
   ### end
 
+  # The rest of this list should always be sorted by:
+  # pip install homebrew-pypi-poet && poet_lint $(brew formula ansible)
   resource "Babel" do
     url "https://files.pythonhosted.org/packages/6e/96/ba2a2462ed25ca0e651fb7b66e7080f5315f91425a07ea5b34d7c870c114/Babel-2.3.4.tar.gz"
     sha256 "c535c4403802f6eb38173cd4863e419e2274921a01a8aad8a5b497c131c62875"
@@ -70,8 +73,8 @@ class Ansible < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"
-    sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
+    url "https://files.pythonhosted.org/packages/4d/de/32d741db316d8fdb7680822dd37001ef7a448255de9699ab4bfcbdf4172b/MarkupSafe-1.0.tar.gz"
+    sha256 "a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"
   end
 
   resource "PrettyTable" do
@@ -91,8 +94,13 @@ class Ansible < Formula
   end
 
   resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/bd/66/0a7f48a0f3fb1d3a4072bceb5bbd78b1a6de4d801fb7135578e7c7b1f563/appdirs-1.4.0.tar.gz"
-    sha256 "8fc245efb4387a4e3e0ac8ebcc704582df7d72ff6a42a53f5600bbb18fdaadc5"
+    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
+    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
+  end
+
+  resource "asn1crypto" do
+    url "https://files.pythonhosted.org/packages/ce/39/17e90c2efacc4060915f7d1f9b8d2a5b20e54e46233bdf3092e68193407d/asn1crypto-0.21.1.tar.gz"
+    sha256 "4e6d7b22814d680114a439faafeccb9402a78095fb23bf0b25f9404c6938a017"
   end
 
   resource "backports.ssl_match_hostname" do
@@ -101,8 +109,8 @@ class Ansible < Formula
   end
 
   resource "boto" do
-    url "https://files.pythonhosted.org/packages/01/e6/c49b2d0c91f644fc067122ddf098f88b02417079053870e26bbbfa9ebb2c/boto-2.45.0.tar.gz"
-    sha256 "053d64727b3bd7d24a64163d28feaa044257c5f49343f2c6cdd991c9fd4aab3b"
+    url "https://files.pythonhosted.org/packages/b1/f9/cf8fa9a4a48e651294fc88446edee96f8b965f1d3ca044befc5dd7c9449b/boto-2.46.1.tar.gz"
+    sha256 "d24a68d97276445d1b5baee6537bc565ab7070afcd449a72f2541b1da1328ed4"
   end
 
   resource "boto3" do
@@ -111,8 +119,8 @@ class Ansible < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/5c/b6/ff71f466fb6dcca7f190c5ea7b76da39870adef4814818bb61548ae7a336/botocore-1.5.2.tar.gz"
-    sha256 "f61533bd438d162050e351c87b2de8c434bb41dc22f610ad2f2252391eb7bb7c"
+    url "https://files.pythonhosted.org/packages/6f/c7/b4241da1abfd4b76c00409bcc76adf05ef942e178a2531fb490f098b26a0/botocore-1.5.24.tar.gz"
+    sha256 "43f95a338b3d56e3006cc67bb9d55dadebbe6276fe752e7b72edf57314f37604"
   end
 
   resource "cffi" do
@@ -131,8 +139,8 @@ class Ansible < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/82/f7/d6dfd7595910a20a563a83a762bf79a253c4df71759c3b228accb3d7e5e4/cryptography-1.7.1.tar.gz"
-    sha256 "953fef7d40a49a795f4d955c5ce4338abcec5dea822ed0414ed30348303fdb4c"
+    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
+    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
   end
 
   resource "debtcollector" do
@@ -191,8 +199,8 @@ class Ansible < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/94/fe/efb1cb6f505e1a560b3d080ae6b9fddc11e7c542d694ce4635c49b1ccdcb/idna-2.2.tar.gz"
-    sha256 "0ac27740937d86850010e035c6a10a564158a5accddf1aa24df89b0309252426"
+    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
+    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
   end
 
   resource "ip_associations_python_novaclient_ext" do
@@ -211,8 +219,8 @@ class Ansible < Formula
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/8f/d8/6e3e602a3e90c5e3961d3d159540df6b2ff32f5ab2ee8ee1d28235a425c1/jmespath-0.9.0.tar.gz"
-    sha256 "08dfaa06d4397f283a01e57089f3360e3b52b5b9da91a70e1fd91e9f0cdd3d3d"
+    url "https://files.pythonhosted.org/packages/9d/1a/c8ab901753ad7581032f99f88c759a45b6c72b75615f0cd731dd7c9dd0de/jmespath-0.9.1.tar.gz"
+    sha256 "e72d02de23c1814322f7c0dcffb46716271f9b52b129aace0ab6f5a0450d5f02"
   end
 
   resource "jsonpatch" do
@@ -281,8 +289,8 @@ class Ansible < Formula
   end
 
   resource "openstacksdk" do
-    url "https://files.pythonhosted.org/packages/2b/52/81d3ec316b757188990322a2e8fbb0ada551c466938715ee30ece6488a7e/openstacksdk-0.9.10.tar.gz"
-    sha256 "9d1e6bdee88d8dbefce2bb3823add5daf7ad037840ca5991dbaf5018442c51cf"
+    url "https://files.pythonhosted.org/packages/46/ee/b950c5a362ba67587974049a60428a1017bad57ca57f6840f0a5df0980be/openstacksdk-0.9.14.tar.gz"
+    sha256 "ac40cc1a5d4ade6a50fbe147a617de0b8adb2285b52a5ccd85896cc1e13a24e8"
   end
 
   resource "ordereddict" do
@@ -335,14 +343,19 @@ class Ansible < Formula
     sha256 "aa72be266fee787541c02baa9ac341ec4b1b01b0d5a097db459aee05b27b12fb"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
+    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
+  end
+
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/d1/5a/ebd00d884f30baf208359a027eb7b38372d81d0c004724bb1aa71ae43b37/paramiko-2.1.1.tar.gz"
-    sha256 "d51dada7ad0736c116f8bfe3263627925947e4a50e61436a83d58bfe7055b575"
+    url "https://files.pythonhosted.org/packages/64/79/5e8baeedb6baf1d5879efa8cd012f801efc232e56a068550ba00d7e82625/paramiko-2.1.2.tar.gz"
+    sha256 "5fae49bed35e2e3d45c4f7b0db2d38b9ca626312d91119b3991d0ecf8125e310"
   end
 
   resource "passlib" do
-    url "https://files.pythonhosted.org/packages/c7/9b/e09ca2fa46ad1503071a87a9398b424ceb38ec5fad689cbd235df1321d09/passlib-1.7.0.tar.gz"
-    sha256 "0be4f6053357c4ebba5578a065fbdad75a844501d4c6d91d4a3a0c1594c6abed"
+    url "https://files.pythonhosted.org/packages/25/4b/6fbfc66aabb3017cd8c3bd97b37f769d7503ead2899bf76e570eb91270de/passlib-1.7.1.tar.gz"
+    sha256 "3d948f64138c25633613f303bcc471126eae67c04d5e3f6b7b8ce6242f8653e0"
   end
 
   resource "positional" do
@@ -351,8 +364,8 @@ class Ansible < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/f7/83/377e3dd2e95f9020dbd0dfd3c47aaa7deebe3c68d3857a4e51917146ae8b/pyasn1-0.1.9.tar.gz"
-    sha256 "853cacd96d1f701ddd67aa03ecc05f51890135b7262e922710112f12a2ed2a7f"
+    url "https://files.pythonhosted.org/packages/69/17/eec927b7604d2663fef82204578a0056e11e0fc08d485fdb3b6199d9b590/pyasn1-0.2.3.tar.gz"
+    sha256 "738c4ebd88a718e700ee35c8d129acce2286542daa80a82823a7073644f706ad"
   end
 
   resource "pycparser" do
@@ -366,8 +379,8 @@ class Ansible < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/38/bb/bf325351dd8ab6eb3c3b7c07c3978f38b2103e2ab48d59726916907cd6fb/pyparsing-2.1.10.tar.gz"
-    sha256 "811c3e7b0031021137fc83e051795025fcb98674d07eb8fe922ba4de53d39188"
+    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
+    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
   end
 
   resource "pyrax" do
@@ -481,8 +494,8 @@ class Ansible < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/b6/61/7b374462d5b6b1d824977182db287758d549d8680444bad8d530195acba2/requests-2.12.5.tar.gz"
-    sha256 "d902a54f08d086a7cc6e58c20e2bb225b1ae82c19c35e5925269ee94fb9fce00"
+    url "https://files.pythonhosted.org/packages/16/09/37b69de7c924d318e51ece1c4ceb679bf93be9d05973bb30c35babd596e2/requests-2.13.0.tar.gz"
+    sha256 "5722cd09762faa01276230270ff16af7acf7c5c45d623868d9ba116f15791ce8"
   end
 
   resource "requests_ntlm" do
@@ -564,29 +577,13 @@ class Ansible < Formula
       s.gsub! "/etc/ansible", etc/"ansible"
     end
 
-    venv = virtualenv_create(libexec)
+    virtualenv_install_with_resources
 
-    resource("cryptography").stage do
-      if MacOS.version < :sierra
-        # Fixes .../cryptography/hazmat/bindings/_openssl.so: Symbol not found: _getentropy
-        # Reported 20 Dec 2016 https://github.com/pyca/cryptography/issues/3332
-        inreplace "src/_cffi_src/openssl/src/osrandom_engine.h",
-          "#elif defined(BSD) && defined(SYS_getentropy)",
-          "#elif defined(BSD) && defined(SYS_getentropy) && 0"
-      end
-      venv.pip_install Pathname.pwd
-    end
-
-    res = resources.map(&:name).to_set - ["cryptography"]
-
-    res.each do |r|
-      venv.pip_install resource(r)
-    end
-
-    venv.pip_install_and_link buildpath
-
-    # prettytable 0.7.2 has file permissions 600 for some files. We need to add read permissions in order to be able to use it as a different user than the one installing it.
-    # See https://github.com/Homebrew/homebrew-core/issues/6975
+    # prettytable 0.7.2 has file permissions 600 for some files.
+    # We need to add read permissions in order to be able to use it as a
+    # different user than the one installing it.
+    # See: https://github.com/Homebrew/homebrew-core/issues/6975
+    # Also: https://github.com/Homebrew/brew/pull/1709
     Pathname.glob(libexec/"lib/python*/site-packages/prettytable-0.7.2-py*.egg-info").each do |prettytable_path|
       chmod_R("a+r", prettytable_path)
     end

@@ -10,6 +10,12 @@ class H2o < Formula
     sha256 "b7f26e40e1f9d4f76ea5e6ae0d3fdbcb6fcddd9e915758c136636120eeea3685" => :yosemite
   end
 
+  devel do
+    url "https://github.com/h2o/h2o/archive/v2.2.0-beta2.tar.gz"
+    sha256 "9461d3187cba7635954837f8daad73319315b5b88ab40da2322e3d8657cc34cf"
+    version "2.2.0-beta2"
+  end
+
   option "with-libuv", "Build the H2O library in addition to the executable"
   option "without-mruby", "Don't build the bundled statically-linked mruby"
 

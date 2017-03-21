@@ -14,7 +14,7 @@ class Doxymacs < Formula
   end
 
   head do
-    url "git://git.code.sf.net/p/doxymacs/code"
+    url "https://git.code.sf.net/p/doxymacs/code.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
@@ -23,8 +23,13 @@ class Doxymacs < Formula
   depends_on "doxygen"
 
   def install
-    # https://sourceforge.net/tracker/?func=detail&aid=3577208&group_id=23584&atid=378985
+    # https://sourceforge.net/p/doxymacs/support-requests/5/
     ENV.append "CFLAGS", "-std=gnu89"
+
+    # Fix undefined symbol errors for _xmlCheckVersion, etc.
+    # This prevents a mismatch between /usr/bin/xml2-config and the SDK headers,
+    # which would cause the build system not to pass the LDFLAGS for libxml2.
+    ENV.prepend_path "PATH", "#{MacOS.sdk_path}/usr/bin"
 
     system "./bootstrap" if build.head?
     system "./configure", "--prefix=#{prefix}",

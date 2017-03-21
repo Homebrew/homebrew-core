@@ -3,12 +3,19 @@ class Aqbanking < Formula
   homepage "https://www.aquamaniac.de/sites/home/"
   url "https://www.aquamaniac.de/sites/download/download.php?package=03&release=208&file=01&dummy=aqbanking-5.6.12.tar.gz"
   sha256 "0652706a487d594640a7d544271976261165bf269d90dc70447b38b363e54b22"
-  head "https://git.aqbanking.de/git/aqbanking"
 
   bottle do
     sha256 "55d0359a888464040bedd5a893d2894435ad388d5374bab9728abe49a4dc00e1" => :sierra
     sha256 "ff953f175c8f6ddf772da822e133201c48085c2e7ccc08b7c53135daeafa5200" => :el_capitan
     sha256 "3cdbfa38e1459b83e70dae91fd68640207ca838098e1de21966583dea8122a63" => :yosemite
+  end
+
+  head do
+    url "https://git.aqbanking.de/git/aqbanking.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   depends_on "gwenhywfar"
@@ -22,6 +29,7 @@ class Aqbanking < Formula
 
   def install
     ENV.deparallelize
+    system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

@@ -1,14 +1,14 @@
 class Lynis < Formula
   desc "Security and system auditing tool to harden systems"
   homepage "https://cisofy.com/lynis/"
-  url "https://cisofy.com/files/lynis-2.4.3.tar.gz"
-  sha256 "1358a0de753ab5359e04ec7e53b62294d1a11ffe2be493dddb0d143881681290"
+  url "https://cisofy.com/files/lynis-2.4.6.tar.gz"
+  sha256 "55403a5baea674a412655e8504c2778c4ada5df6d60dc464e462bc8b97b93c8b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6b1b8b0f5908906fc31ea00da42b48c3fee6ed37d7e3323191d1a8e9b5232f2c" => :sierra
-    sha256 "6b1b8b0f5908906fc31ea00da42b48c3fee6ed37d7e3323191d1a8e9b5232f2c" => :el_capitan
-    sha256 "6b1b8b0f5908906fc31ea00da42b48c3fee6ed37d7e3323191d1a8e9b5232f2c" => :yosemite
+    sha256 "0d504a9d87afd2ed11d53ba3ce26dc603f7017333c9ab2100bda5f26ad99ce9b" => :sierra
+    sha256 "0d504a9d87afd2ed11d53ba3ce26dc603f7017333c9ab2100bda5f26ad99ce9b" => :el_capitan
+    sha256 "0d504a9d87afd2ed11d53ba3ce26dc603f7017333c9ab2100bda5f26ad99ce9b" => :yosemite
   end
 
   def install

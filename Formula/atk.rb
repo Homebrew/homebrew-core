@@ -1,13 +1,13 @@
 class Atk < Formula
   desc "GNOME accessibility toolkit"
   homepage "https://library.gnome.org/devel/atk/"
-  url "https://download.gnome.org/sources/atk/2.22/atk-2.22.0.tar.xz"
-  sha256 "d349f5ca4974c9c76a4963e5b254720523b0c78672cbc0e1a3475dbd9b3d44b6"
+  url "https://download.gnome.org/sources/atk/2.24/atk-2.24.0.tar.xz"
+  sha256 "bb2daa9a808c73a7a79d2983f333e0ba74be42fc51e3ba1faf2551a636487a49"
 
   bottle do
-    sha256 "0223438a41f539e2c9a9d1b8b8f68d8a67c5ac9dbaae32b7a117da68f8947828" => :sierra
-    sha256 "a065750a4ea385f6504b111f6f538b9bd64b3526bb65a72f705276ebecefbb7d" => :el_capitan
-    sha256 "5f9a612ac3616d720a14f148f19e0a4d3a2259d58fc18edc548443635bc28f48" => :yosemite
+    sha256 "89d59856b8bbd0a51961c0569237da2f6119fddd40f67b50d96651483fe9be10" => :sierra
+    sha256 "87028a5febfcdce413c64f7786468db61b1c62412799405e6b3ac179c0a8ae05" => :el_capitan
+    sha256 "e628db1461560fbe5fa9da800987ed2eab6e6c969709797de07a6052521a022e" => :yosemite
   end
 
   depends_on "pkg-config" => :build

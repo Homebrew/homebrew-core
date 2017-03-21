@@ -1,15 +1,13 @@
 class Alpine < Formula
   desc "News and email agent"
   homepage "http://patches.freeiz.com/alpine/"
-  url "http://patches.freeiz.com/alpine/release/src/alpine-2.20.tar.xz"
-  sha256 "ed639b6e5bb97e6b0645c85262ca6a784316195d461ce8d8411999bf80449227"
+  url "http://patches.freeiz.com/alpine/release/src/alpine-2.21.tar.xz"
+  sha256 "6030b6881b8168546756ab3a5e43628d8d564539b0476578e287775573a77438"
 
   bottle do
-    sha256 "40e1bb1dca0c3f775bd1ae01abb41a1b0034d2c646b3ccfd169a3d089f94af7a" => :sierra
-    sha256 "730553f37f597097bbba910de04dd5b9327d5b5a920c26f29406eca2d31f540d" => :el_capitan
-    sha256 "cd774d63bf4327c4109a6b97fd7189f9618d53bd608bb314101f4880368f7662" => :yosemite
-    sha256 "b35c3667a183c86dfa769e1d9e53669524930fda371422ab1c8519d3d807b8d5" => :mavericks
-    sha256 "8f52d4ebe9e445ec975cabdd74c4a48cef80eebb21f18c33644e99de1a6d2173" => :mountain_lion
+    sha256 "54f70a9e4c99187db5c75e0aa0dad06726de997824e306ba625e95466bad8b27" => :sierra
+    sha256 "ac340d52fc2055c7e78622809750274fa9957bb1f3d7a635a29f46416a312d85" => :el_capitan
+    sha256 "551758443501811d21f90d3fc4f29a0787cca2409e9413138c9b8fac96395da0" => :yosemite
   end
 
   depends_on "openssl"

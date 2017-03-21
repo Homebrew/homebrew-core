@@ -1,14 +1,14 @@
 class GnupgPkcs11Scd < Formula
   desc "Enable the use of PKCS#11 tokens with GnuPG"
   homepage "https://gnupg-pkcs11.sourceforge.io"
-  url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.7.4/gnupg-pkcs11-scd-0.7.4.tar.bz2"
-  sha256 "790dfd55f1651fe86f6186558cc8f1631897db81feb1a91c0e2f012049c6a922"
+  url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.7.5/gnupg-pkcs11-scd-0.7.5.tar.bz2"
+  sha256 "80ee610c0c798d2da887a22d5614366f4d9e06f296377dcf7e4fd59c2c1eb15e"
 
   bottle do
     cellar :any
-    sha256 "720587bc6d99e67f4ed5a1e0a966a5e79dd4246b02439d8e9c5f1d39cbe9b131" => :sierra
-    sha256 "20bf6e1bd39c9d664365e7179b5add79a4f1c5ab8a66d18ad4abd6e4c74cebbf" => :el_capitan
-    sha256 "8a0d9351dea28bef9f0ede96fe8777b6dd0f483ab58fd96e57467dbb255f72e7" => :yosemite
+    sha256 "76fe29258ec0b931a468d7f0333eeee6db03ef6fa440cdf8a222b3cb9775403f" => :sierra
+    sha256 "7ab95867800f969ae1c45637a55d66c61f5671aed35413d3c5519d24fd7cc385" => :el_capitan
+    sha256 "cc2788faa88ecb33a0bbb5ffe58e466d98ab588a2074293df6b71b5d0f37287b" => :yosemite
   end
 
   depends_on "pkg-config" => :build

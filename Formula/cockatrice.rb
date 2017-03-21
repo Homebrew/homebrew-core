@@ -2,15 +2,15 @@ class Cockatrice < Formula
   desc "Virtual tabletop for multiplayer card games"
   homepage "https://github.com/Cockatrice/Cockatrice"
   url "https://github.com/Cockatrice/Cockatrice.git",
-      :tag => "2017-01-20-Release",
-      :revision => "dab731656dd5856ca293e2660e142cc215acc66e"
-  version "2017-01-20"
+      :tag => "2017-03-14-Release",
+      :revision => "6e723b2a992022ba343d45d881b3c92b9d1c6ba2"
+  version "2017-03-14"
   head "https://github.com/Cockatrice/Cockatrice.git"
 
   bottle do
-    sha256 "2af03423fcf74a3f52b64acf9d0658efbb5b3ebd4a7cab80f92dbadb5ad0d6ef" => :sierra
-    sha256 "842d28f0b947e2d502b5c87d89dcf488a2f9a31d3cfe86a928a48b93a9cf8559" => :el_capitan
-    sha256 "4623ff8fd4c772a8c653c2b7dfa7be932621b659bbe2893b776c78b5389f95e2" => :yosemite
+    sha256 "75fa21c8c692249679a262dbd66f1e105b7182297e66f363e44968512fb0f0a0" => :sierra
+    sha256 "fa97822a7217a4b995619cc4745a831e77a23b63987e85620addad1f05e2465a" => :el_capitan
+    sha256 "c5497646ed72a5354a9219f846e6bca22fda579d1e665c8c02894e63804ae117" => :yosemite
   end
 
   option "with-server", "Build `servatrice` for running game servers"

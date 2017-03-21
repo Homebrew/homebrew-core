@@ -4,7 +4,7 @@ class FabricCompletion < Formula
   url "https://github.com/kbakulin/fabric-completion.git",
     :revision => "5b5910492046e6335af0e88550176d2583d9a510"
   version "1"
-  head "https://raw.githubusercontent.com/kbakulin/fabric-completion.git"
+  head "https://github.com/kbakulin/fabric-completion.git"
 
   bottle :unneeded
 

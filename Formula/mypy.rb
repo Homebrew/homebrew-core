@@ -2,15 +2,15 @@ class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
   url "https://github.com/python/mypy.git",
-      :tag => "v0.471",
-      :revision => "f16a63957d897a889d9c1dfd93abdb1ad51a2ab2"
+      :tag => "v0.501",
+      :revision => "ed6480d148dae49f99c8af40f42b17def9947899"
   head "https://github.com/python/mypy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f1ba1054e81ed0d0189e2142ef068f0b1da1a511d0b7671761a9e18652c2410" => :sierra
-    sha256 "8f1ba1054e81ed0d0189e2142ef068f0b1da1a511d0b7671761a9e18652c2410" => :el_capitan
-    sha256 "8f1ba1054e81ed0d0189e2142ef068f0b1da1a511d0b7671761a9e18652c2410" => :yosemite
+    sha256 "c984e0803ee7622c9a426f1f39dc28a5587f6c710bcbf9d75794ec4b7f95de05" => :sierra
+    sha256 "5f97075bafbe8b913ecd55d5c234b3786690ca0ea5f065e25d28b7b65a517b5d" => :el_capitan
+    sha256 "76b16d42477c7249c4b3e72744765f0667d9a0ff23fbf0e12020077e58b84485" => :yosemite
   end
 
   option "without-sphinx-doc", "Don't build documentation"
@@ -23,6 +23,11 @@ class Mypy < Formula
   resource "sphinx_rtd_theme" do
     url "https://files.pythonhosted.org/packages/99/b5/249a803a428b4fd438dd4580a37f79c0d552025fb65619d25f960369d76b/sphinx_rtd_theme-0.1.9.tar.gz"
     sha256 "273846f8aacac32bf9542365a593b495b68d8035c2e382c9ccedcac387c9a0a1"
+  end
+
+  resource "typed-ast" do
+    url "https://files.pythonhosted.org/packages/1e/5e/ca6cef7a04c6c5df26b827e6cdca71af047fcf4d439b28a0f7bbf3b9a720/typed-ast-1.0.1.zip"
+    sha256 "b5f578a05498922300b8150716f9689ec4c3e7071f99f6568eed73e68bfa5983"
   end
 
   def install
@@ -43,6 +48,13 @@ class Mypy < Formula
       doc.install Dir["docs/build/html/*"]
 
       rm version_static
+    end
+
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      end
     end
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"

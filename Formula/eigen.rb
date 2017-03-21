@@ -1,15 +1,15 @@
 class Eigen < Formula
   desc "C++ template library for linear algebra"
   homepage "https://eigen.tuxfamily.org/"
-  url "https://bitbucket.org/eigen/eigen/get/3.3.2.tar.bz2"
-  sha256 "3e1fa6e8c45635938193f84fee6c35a87fac26ee7c39c68c230e5080c4a8fe98"
+  url "https://bitbucket.org/eigen/eigen/get/3.3.3.tar.bz2"
+  sha256 "a4143fc45e4454b4b98fcea3516b3a79b8cdb3bc7fadf996d088c6a0d805fea1"
   head "https://bitbucket.org/eigen/eigen", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "141c35bade90aea1f3fcca7652dd7a28850467986aef26aa887370f5a0bf28fa" => :sierra
-    sha256 "26ef36ab67b11af368ac89fb1e6209136d3f9992bb825deec7399527fe75fa39" => :el_capitan
-    sha256 "141c35bade90aea1f3fcca7652dd7a28850467986aef26aa887370f5a0bf28fa" => :yosemite
+    sha256 "4dfbf894bb931eb44ebcadd1065d162d46916a9d93420a81596d049ccfb54820" => :sierra
+    sha256 "4dfbf894bb931eb44ebcadd1065d162d46916a9d93420a81596d049ccfb54820" => :el_capitan
+    sha256 "4dfbf894bb931eb44ebcadd1065d162d46916a9d93420a81596d049ccfb54820" => :yosemite
   end
 
   depends_on "cmake" => :build

@@ -1,14 +1,14 @@
 class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "http://www.grpc.io/"
-  url "https://github.com/grpc/grpc/archive/v1.1.2.tar.gz"
-  sha256 "373ef66b0919bedef70021ba6798eaefe1cb560a2c94ccd2631d38fc9268f524"
+  url "https://github.com/grpc/grpc/archive/v1.1.4.tar.gz"
+  sha256 "45ab5bdfa90ea41b17d4d81edbadcff303158b7cccdf9d7ea196ca9e104b214c"
   head "https://github.com/grpc/grpc.git"
 
   bottle do
-    sha256 "8fbabe0b1c7dd1b4ad29828c8f36683c8f424369f4f963caa607750a0512c3cb" => :sierra
-    sha256 "b468654d964c6e445d68e7dcac80da486f4319c45a4e7bb1ac23d50c716800db" => :el_capitan
-    sha256 "742be127a6ce2f9f6e9542e4fd7804a8464edcedd5a8e1e96a6be894c9bf3c13" => :yosemite
+    sha256 "da75e9100d176ec3933f651ea13de2028dfe315934ce549bf40101d0fc29d17d" => :sierra
+    sha256 "c8a35517d50636b96be79a64e4eed60c14fc3a4ec8b3091908b3a3a93c377c0a" => :el_capitan
+    sha256 "a038ccd59482d632e80bf22d9c5d54a45eae8f41473d6ee709ba8fba143062d5" => :yosemite
   end
 
   depends_on "openssl"

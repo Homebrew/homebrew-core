@@ -1,6 +1,6 @@
 class MesalibGlw < Formula
   desc "Open-source implementation of the OpenGL specification"
-  homepage "http://www.mesa3d.org"
+  homepage "https://www.mesa3d.org"
   url "https://downloads.sourceforge.net/project/mesa3d/MesaLib/7.2/MesaLib-7.2.tar.gz"
   sha256 "a7b7cc8201006685184e7348c47cb76aecf71be81475c71c35e3f5fe9de909c6"
 

@@ -1,15 +1,15 @@
 class Spdlog < Formula
   desc "Super fast C++ logging library."
   homepage "https://github.com/gabime/spdlog"
-  url "https://github.com/gabime/spdlog/archive/v0.11.0.tar.gz"
-  sha256 "8c0f1810fb6b7d23fef70c2ea8b6fa6768ac8d18d6e0de39be1f48865e22916e"
+  url "https://github.com/gabime/spdlog/archive/v0.12.0.tar.gz"
+  sha256 "5cfd6a0b3182a88e1eb35bcb65a7ef9035140d7c73b16ba6095939dbf07325b9"
   head "https://github.com/gabime/spdlog.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4b375facceceff48cf5da46f160890412adb6c9173b52b73a6be35c3a773947b" => :sierra
-    sha256 "844b241b922e72e637ff3cfe7c4793fb4fd7676be86d148db64a07f2ef68207f" => :el_capitan
-    sha256 "4b375facceceff48cf5da46f160890412adb6c9173b52b73a6be35c3a773947b" => :yosemite
+    sha256 "4bf4de89ae561eb4cf12aa1aeab454274533f8ec0aa8c253993b65e39781f66b" => :sierra
+    sha256 "4bf4de89ae561eb4cf12aa1aeab454274533f8ec0aa8c253993b65e39781f66b" => :el_capitan
+    sha256 "4bf4de89ae561eb4cf12aa1aeab454274533f8ec0aa8c253993b65e39781f66b" => :yosemite
   end
 
   depends_on "cmake" => :build

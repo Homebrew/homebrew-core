@@ -1,28 +1,19 @@
 class Boxes < Formula
   desc "Draw boxes around text"
   homepage "http://boxes.thomasjensen.com/"
-  url "https://github.com/ascii-boxes/boxes/archive/v1.1.2.tar.gz"
-  sha256 "4d5e536be91b476ee48640bef9122f3114b16fe2da9b9906947308b94682c5fe"
+  url "https://github.com/ascii-boxes/boxes/archive/v1.2.tar.gz"
+  sha256 "ba237f6d4936bdace133d5f370674fd4c63bf0d767999a104bada6460c5d1913"
   head "https://github.com/ascii-boxes/boxes.git"
 
   bottle do
-    rebuild 1
-    sha256 "21b2548489c34f7a11ac4f445e9129fbc42696a6dba5b50b20aeec99a570fef2" => :sierra
-    sha256 "d5a5b256a1ef58a8d9c3d69c57c27bb8dd5c5e40e8979f877f83278ff38fd950" => :el_capitan
-    sha256 "ee8b2795856fafcfaad79356325d7e1cf6aaa02359cb9adf162df2028243f429" => :yosemite
-    sha256 "4d82f6e37b1e18d48a2198ca4301d901e4a6b55681ed8f0b65dddeee1148221e" => :mavericks
+    sha256 "ebb5d353fb518ceb79ad3f52c0e53e867c5fc7bef1577cdca712ce91e522af56" => :sierra
+    sha256 "6f0a27e8bad4e4294bf4b4f82d1774eaf987cc7e8e6486f3204619ab84f01b13" => :el_capitan
+    sha256 "ae79b8cff43636d551a7f3e34dd74c5d6c15c526c79b6a9ad6b0fb2d3b60c0e0" => :yosemite
   end
 
   def install
-    ENV.m32
-
     # distro uses /usr/share/boxes change to prefix
-    system "make",
-      "GLOBALCONF=#{share}/boxes-config",
-      "CC=#{ENV.cc}",
-      # Force 32 bit compile
-      "CFLAGS_ADDTL=-m32",
-      "LDFLAGS_ADDTL=-m32"
+    system "make", "GLOBALCONF=#{share}/boxes-config", "CC=#{ENV.cc}"
 
     bin.install "src/boxes"
     man1.install "doc/boxes.1"
@@ -30,6 +21,6 @@ class Boxes < Formula
   end
 
   test do
-    assert_match "/* test brew */", pipe_output("#{bin}/boxes", "test brew")
+    assert_match "test brew", pipe_output("#{bin}/boxes", "test brew")
   end
 end

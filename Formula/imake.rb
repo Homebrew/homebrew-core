@@ -1,6 +1,6 @@
 class Imake < Formula
   desc "Build automation system written for X11"
-  homepage "http://xorg.freedesktop.org"
+  homepage "https://xorg.freedesktop.org"
   url "https://xorg.freedesktop.org/releases/individual/util/imake-1.0.7.tar.bz2"
   sha256 "690c2c4ac1fad2470a5ea73156cf930b8040dc821a0da4e322014a42c045f37e"
   revision 2

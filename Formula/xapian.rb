@@ -1,15 +1,15 @@
 class Xapian < Formula
   desc "C++ search engine library with many bindings"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.2/xapian-core-1.4.2.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/x/xapian-core/xapian-core_1.4.2.orig.tar.xz"
-  sha256 "aec2c4352998127a2f2316218bf70f48cef0a466a87af3939f5f547c5246e1ce"
+  url "https://oligarchy.co.uk/xapian/1.4.3/xapian-core-1.4.3.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/x/xapian-core/xapian-core_1.4.3.orig.tar.xz"
+  sha256 "7d5295511ca2de70463a29e75f6a2393df5dc1485bf33074b778c66e1721e475"
 
   bottle do
     cellar :any
-    sha256 "91ae9de4f7db80f7cf815f16370d37df12c81afd76c23a4971afb7e77f7a0ca5" => :sierra
-    sha256 "b42b9bf9109d678b357cafbfe828640f1472388c4997ae9a4c75220277ff0b29" => :el_capitan
-    sha256 "b289c6973e8f7f98f2ee26c2c912df1e9d4ea2dedaa0b7ff6a1bcbc3b3c14cdd" => :yosemite
+    sha256 "e11248557890fdeb41d5bb33640c86b2f19fed4313fed931c23af4f3d76116bb" => :sierra
+    sha256 "eb3cae89feb72d72af15bdaadc09e166fce85d630bb19a9db82408e9c870c234" => :el_capitan
+    sha256 "10c2dcc8f3370a94485092a65d5cd147c3bf0f52b07b00895154dc6fca4bd556" => :yosemite
   end
 
   option "with-java", "Java bindings"
@@ -27,8 +27,8 @@ class Xapian < Formula
   skip_clean :la
 
   resource "bindings" do
-    url "https://oligarchy.co.uk/xapian/1.4.2/xapian-bindings-1.4.2.tar.xz"
-    sha256 "9ef59fbe38a120bd2a1774f1a277cf8132f0ca5ff2fc22bacf539ce74df35518"
+    url "https://oligarchy.co.uk/xapian/1.4.3/xapian-bindings-1.4.3.tar.xz"
+    sha256 "65b5455bf81e4f39fda49a6ad99353b05889d11d7c4c2cae001a0a1e0dac0d87"
   end
 
   def install

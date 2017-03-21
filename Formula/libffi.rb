@@ -1,18 +1,16 @@
 class Libffi < Formula
   desc "Portable Foreign Function Interface library"
   homepage "https://sourceware.org/libffi/"
-  url "https://mirrorservice.org/sites/sources.redhat.com/pub/libffi/libffi-3.0.13.tar.gz"
-  mirror "ftp://sourceware.org/pub/libffi/libffi-3.0.13.tar.gz"
-  sha256 "1dddde1400c3bcb7749d398071af88c3e4754058d2d4c0b3696c2f82dc5cf11c"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libf/libffi/libffi_3.2.1.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libf/libffi/libffi_3.2.1.orig.tar.gz"
+  mirror "ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz"
+  sha256 "d06ebb8e1d9a22d19e38d63fdb83954253f39bedc5d46232a05645685722ca37"
 
   bottle do
     cellar :any
-    sha256 "aa56f6f4edc67950189bcd1e35cd824d59517f57d4e5cc1264108c24e3477118" => :sierra
-    sha256 "d512d7c3258d61e088097f1f9a1fd010bd1a197e760e0b3abc08a3f767624745" => :el_capitan
-    sha256 "f75c1beb848231ed3e2275c867620da91dd16be9dc7c4b88f86675ac62159323" => :yosemite
-    sha256 "aa60d56351d36a45f2e7f16114fc17f9bd8fe805931f36d744c6ccb5fa5df238" => :mavericks
-    sha256 "fad1fe049554d37471408fe451ef2e46628177c94eaafb23a3af56336603baad" => :mountain_lion
-    sha256 "dc4718ebb77ff384386e0ef1782d8418c821637044b5dff7c08f21c401d0668d" => :lion
+    sha256 "13836da147e311ac2920df5a1d0f04b672ce89204334b5e0233b428572860483" => :sierra
+    sha256 "82e5176c758030c4d7571ebd7b412624eed28b8379069c27e366952569168bda" => :el_capitan
+    sha256 "9047ca06422e869790ec80adf37cedb3eff6e422094bde0371e24d9bb18dc3f0" => :yosemite
   end
 
   head do
@@ -25,8 +23,6 @@ class Libffi < Formula
   keg_only :provided_by_osx, "Some formulae require a newer version of libffi."
 
   def install
-    ENV.deparallelize # https://github.com/Homebrew/homebrew/pull/19267
-    ENV.universal_binary
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
