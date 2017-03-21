@@ -8,8 +8,9 @@ class Guetzli < Formula
 
   bottle do
     cellar :any
-    sha256 "d9b1df09bb1aa76e94b0465c990bb7e296a3ee2f32f610aaebc9cb65dec864ca" => :sierra
-    sha256 "0becd4f0800be86e7b0bf4aee902e90723d2caba6b9fa72439a6b6314503890d" => :el_capitan
+    sha256 "c059346fa601885f550b50752d6d1a23eced66388b18e1c1db5169a0951dcad6" => :sierra
+    sha256 "a77327b3964a88a84879943171e0d10d6661cc72c5ceaa12ee2091f02930da1a" => :el_capitan
+    sha256 "04864f5c52c77f2d382247a57bf082052599a2bc9bd8fa28592ab17657342b08" => :yosemite
   end
 
   depends_on "pkg-config" => :build
