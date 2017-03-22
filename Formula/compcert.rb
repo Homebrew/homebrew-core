@@ -3,6 +3,7 @@ class Compcert < Formula
   homepage "http://compcert.inria.fr"
   url "http://compcert.inria.fr/release/compcert-3.0.1.tgz"
   sha256 "09c7dc18c681231c6e83a963b283b66a9352a9611c9695f4b0c4b7df8c90f935"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,9 +14,9 @@ class Compcert < Formula
 
   option "with-config-x86_64", "Build Compcert with ./configure 'x86_64'"
 
+  depends_on "coq" => :build
   depends_on "menhir" => :build
   depends_on "ocaml" => :build
-  depends_on "opam" => :build
 
   def install
     ENV.permit_arch_flags
@@ -26,24 +27,11 @@ class Compcert < Formula
     # causes problems with the compcert compiler at runtime.
     inreplace "configure", "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
 
-    ENV["OPAMYES"] = "1"
-    ENV["OPAMROOT"] = Pathname.pwd/"opamroot"
-    (Pathname.pwd/"opamroot").mkpath
-    system "opam", "init", "--no-setup"
-    system "opam", "install", "coq=8.6"
-
-    if build.with? "config-x86_64"
-      system "opam", "config", "exec", "--",
-             "./configure", "-prefix", prefix, "x86_64-macosx"
-    else
-      system "opam", "config", "exec", "--",
-             "./configure", "-prefix", prefix, "ia32-macosx"
-    end
-
-    system "opam", "config", "exec", "--",
-           "make", "all"
-    system "opam", "config", "exec", "--",
-           "make", "install"
+    args = ["-prefix", prefix]
+    args << (build.with?("config-x86_64") ? "x86_64-macosx" : "ia32-macosx")
+    system "./configure", *args
+    system "make", "all"
+    system "make", "install"
   end
 
   test do
