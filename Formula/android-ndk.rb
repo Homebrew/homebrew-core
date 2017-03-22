@@ -1,9 +1,8 @@
 class AndroidNdk < Formula
   desc "Android native-code language toolset"
   homepage "https://developer.android.com/ndk/index.html"
-  url "https://dl.google.com/android/repository/android-ndk-r14-darwin-x86_64.zip"
-  version "r14"
-  sha256 "553b361453c2ad89a288f4aeb73902b1130d2d81f2e8702b9add7fbde5b83ce5"
+  url "https://dl.google.com/android/repository/android-ndk-r14b-darwin-x86_64.zip"
+  sha256 "f5373dcb8ddc1ba8a4ccee864cba2cbdf500b2a32d6497378dfd32b375a8e6fa"
   version_scheme 1
 
   bottle :unneeded
