@@ -6,10 +6,6 @@ class JujuWait < Formula
   url "https://pypi.python.org/packages/96/82/6b1b566b75f668605469d9af220bed0104bd4dc12c66160771b32f3aab58/juju-wait-2.5.0.tar.gz"
   sha256 "05354b87e65b19a67176e470b4edf2588ae3ec301576b4a5214bc698c420671e"
 
-  bottle do
-    cellar :any
-  end
-
   depends_on :python3
   depends_on "libyaml"
   depends_on "juju"
