@@ -2,9 +2,9 @@ require "language/node"
 
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases."
-  homepage "https://grafana.com/"
-  url "https://github.com/grafana/grafana/archive/v4.1.1.tar.gz"
-  sha256 "34ecd6c7d3e30b7b0eecf78f57383ad3b4754f5da9da77f031ca4b5866fe9893"
+  homepage "https://grafana.com"
+  url "https://github.com/grafana/grafana/archive/v4.2.0.tar.gz"
+  sha256 "87c9f123b2511dd57a6ff14c7b67dc3def678eefd9d22fd27e8fbb907a8e076a"
 
   head "https://github.com/grafana/grafana.git"
 
@@ -16,6 +16,7 @@ class Grafana < Formula
 
   depends_on "go" => :build
   depends_on "node" => :build
+  depends_on "yarn" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -23,9 +24,8 @@ class Grafana < Formula
     grafana_path.install buildpath.children
 
     cd grafana_path do
-      system "go", "run", "build.go", "setup"
       system "go", "run", "build.go", "build"
-      system "npm", "install", *Language::Node.local_npm_install_args
+      system "yarn", "install"
       system "npm", "install", "grunt-cli", *Language::Node.local_npm_install_args
       system "node_modules/grunt-cli/bin/grunt", "build"
 
