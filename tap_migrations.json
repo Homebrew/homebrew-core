@@ -1,5 +1,8 @@
 {
   "adobe-air-sdk": "caskroom/cask",
+  "android-ndk": "caskroom/cask",
+  "android-platform-tools": "caskroom/cask",
+  "android-sdk": "caskroom/cask",
   "aeskeyfind": "homebrew/boneyard",
   "afuse": "homebrew/fuse",
   "aget": "homebrew/boneyard",
