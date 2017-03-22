@@ -3,9 +3,9 @@ class AndroidPlatformTools < Formula
   homepage "https://developer.android.com/studio/releases/platform-tools.html"
   # the url is from:
   # https://dl.google.com/android/repository/repository-12.xml
-  url "https://dl.google.com/android/repository/platform-tools_r25.0.3-darwin.zip"
-  version "25.0.3"
-  sha256 "640ce3236ba5eddc91bcd098b7e0c051b7ee3860339a14a4fe2d3caf7f6729cf"
+  url "https://dl.google.com/android/repository/platform-tools_r25.0.4-darwin.zip"
+  version "25.0.4"
+  sha256 "02eb6ed288bd8f02c00266e5ba8adacf07cb56f2546c5fe4ccf27719aa732947"
 
   bottle :unneeded
 
