@@ -6,10 +6,10 @@ class SimpleObfs < Formula
       :revision => "1f5dcace9ee50da6144824b9db9e89be889a9033"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "48259596cebc653218edff860e18a1f0daf53d6c8180969e62adb466d2c3e97d" => :sierra
-    sha256 "ce861a5056909c62375f163be15a4fd061473d555c60e6295d0656e513f2df7a" => :el_capitan
-    sha256 "62eb73c58140f4cbcc36715dd84fd6e95385f96eddb4f48ffc11a655b91c842d" => :yosemite
+    cellar :any
+    sha256 "bd8a043875d1e1f36105af0395a938c16fc92dfc494c1ec13f20847737ddae39" => :sierra
+    sha256 "dd9f3e70aa648d9e7dd625dc56b5f07e593c7d47d48fa73095db7651d8e5a85a" => :el_capitan
+    sha256 "d4c927a5c809c907d7b8641a0e13d3ec23745a143fc9da496d96b8a2352c7782" => :yosemite
   end
 
   depends_on "asciidoc" => :build
