@@ -3,8 +3,8 @@ require "language/node"
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases."
   homepage "http://grafana.org"
-  url "https://github.com/grafana/grafana/archive/v4.1.1.tar.gz"
-  sha256 "34ecd6c7d3e30b7b0eecf78f57383ad3b4754f5da9da77f031ca4b5866fe9893"
+  url "https://github.com/grafana/grafana/archive/v4.1.2.tar.gz"
+  sha256 "714ad24374a8e23d09613b910e5e9989c42f851e84596e85ab9c3603575abcb5"
 
   head "https://github.com/grafana/grafana.git"
 
@@ -23,11 +23,20 @@ class Grafana < Formula
     grafana_path.install buildpath.children
 
     cd grafana_path do
-      system "go", "run", "build.go", "setup"
       system "go", "run", "build.go", "build"
-      system "npm", "install", *Language::Node.local_npm_install_args
+
+      # yarn needs to be installed with --global
+      system "npm", "install", "yarn", *Language::Node.std_npm_install_args(buildpath/"vendor/yarn")
+      system buildpath/"vendor/yarn/bin/yarn", "install"
+
       system "npm", "install", "grunt-cli", *Language::Node.local_npm_install_args
-      system "node_modules/grunt-cli/bin/grunt", "build"
+
+      args = ["build"]
+
+      # Avoid PhantomJS error "unrecognized selector sent to instance"
+      args << "--force" unless build.bottle?
+
+      system "node_modules/grunt-cli/bin/grunt", *args
 
       bin.install "bin/grafana-cli"
       bin.install "bin/grafana-server"
