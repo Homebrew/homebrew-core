@@ -1,8 +1,8 @@
 class SimpleObfs < Formula
   desc "Simple obfusacting plugin of shadowsocks-libev."
   homepage "https://github.com/shadowsocks/simple-obfs"
-  url "https://github.com/shadowsocks/simple-obfs/archive/v0.0.2.tar.gz"
-  sha256 "cfd7b847be57401e1c664662781d41bc5b089b341232d94375ca4dd612b3852f"
+  url "https://github.com/shadowsocks/simple-obfs/archive/v0.0.3.tar.gz"
+  sha256 "350c22e138202868d5726cb55e3d71e9962aad3306988a9f746b80d0e8998a75"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,12 +13,20 @@ class SimpleObfs < Formula
 
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
+  depends_on "libtool" => :build
   depends_on "pcre"
   depends_on "openssl"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
+    system "git", "clone", "https://github.com/shadowsocks/libcork.git", "libcork/"
+    Dir.chdir("libcork")
+    system "git", "checkout", "3bcb8324431d3bd4be5e4ff2a4323b455c8d5409"
+    Dir.chdir("..")
+    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
