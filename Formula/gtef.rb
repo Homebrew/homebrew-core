@@ -1,8 +1,8 @@
 class Gtef < Formula
   desc "GNOME Text Editor Framework"
   homepage "https://wiki.gnome.org/Projects/Gtef"
-  url "https://download.gnome.org/sources/gtef/1.0/gtef-1.0.0.tar.xz"
-  sha256 "8d17c33adf6d7edd8c55f0bb8f4701c8d8822a67d28c389df04c775eb95fc1b4"
+  url "https://download.gnome.org/sources/gtef/2.0/gtef-2.0.0.tar.xz"
+  sha256 "12fb28b101bc14a7ed266a25e8ff41c0535e1201ce38905e443c8fca83e5ac71"
 
   bottle do
     sha256 "027cd5f9151a8d73dc61d9708815d02e551010db4a1ff50c41daa484efc617d9" => :sierra
@@ -63,7 +63,7 @@ class Gtef < Formula
       -I#{gtksourceview3.opt_include}/gtksourceview-3.0
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/gtef-1
+      -I#{include}/gtef-2
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0
@@ -88,7 +88,7 @@ class Gtef < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lgtef-1
+      -lgtef-2
       -lgtk-3
       -lgtksourceview-3.0
       -lintl
