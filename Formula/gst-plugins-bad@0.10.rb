@@ -3,7 +3,7 @@ class GstPluginsBadAT010 < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-0.10.23.tar.bz2"
   sha256 "0eae7d1a1357ae8377fded6a1b42e663887beabe0e6cc336e2ef9ada42e11491"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "5b2ee005df419f9b9397fd5b618f4a97f0d2b1af60404b5cc7d15f3c7d02c243" => :sierra
@@ -38,6 +38,7 @@ class GstPluginsBadAT010 < Formula
       --disable-debug
       --disable-dependency-tracking
       --disable-sdl
+      --disable-schemas-compile
     ]
 
     # Prevent "fatal error: 'QTKit/QTKit.h' file not found"
@@ -48,6 +49,10 @@ class GstPluginsBadAT010 < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+  end
+
+  def post_install
+    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
   end
 
   test do
