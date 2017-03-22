@@ -6,9 +6,9 @@ class Ktmpl < Formula
   head "https://github.com/InQuicker/ktmpl.git"
 
   bottle do
-    sha256 "68cf4712f2b536268caebf3023c0c79449da626880e13d522a066394ef28ecf7" => :sierra
-    sha256 "f6ba509072e175d269ecf5f22dcd51f6164ed701a25da2e5efc028b68cef35cc" => :el_capitan
-    sha256 "17cced6dbed0e08c56f42c5871aa9882e89caf55e447091044a1ce56d3bd3795" => :yosemite
+    sha256 "6bd6fbfaa9674d19070d46a3acff6b364173fd731ce0eeeefb0a8557b648dc76" => :sierra
+    sha256 "f8b81fedf479b28d6f8846a200ba67c35054f1641a4c8829e673482a9fb1a7ef" => :el_capitan
+    sha256 "4df7bf2ac55cc20278a547abcb25cd3d685e2fed69d2d29a983cc2bc565f0dca" => :yosemite
   end
 
   depends_on "rust" => :build
