@@ -4,6 +4,12 @@ class Latexila < Formula
   url "https://download.gnome.org/sources/latexila/3.24/latexila-3.24.0.tar.xz"
   sha256 "2c47d6bf0a647715a3029af2b38099e9dac0c4a0a60c122917b36afd3f6ce31f"
 
+  bottle do
+    sha256 "ed89fce16151b4f639aace9da401b28d9a97b6e7d431d0db0501d463f91b1282" => :sierra
+    sha256 "d72177928abac4aea9e52704c5d8b6b8c8b86a6683f05968c3010a6fcda048a1" => :el_capitan
+    sha256 "1f9b9bac1620676ded276ba07255fb6bf33bb9ac88018453f4d9dde8b0a970e6" => :yosemite
+  end
+
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
