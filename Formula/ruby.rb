@@ -1,8 +1,8 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0.tar.bz2"
-  sha256 "440bbbdc49d08d3650f340dccb35986d9399177ad69a204def56e5d3954600cf"
+  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.1.tar.bz2"
+  sha256 "ccfb2d0a61e2a9c374d51e099b0d833b09241ee78fc17e1fe38e3b282160237c"
 
   bottle do
     sha256 "17915322edb90adc7f3bb31dd203fde924d735a32681dbe220b45e099162b35b" => :sierra
@@ -93,7 +93,7 @@ class Ruby < Formula
   end
 
   def abi_version
-    "2.4.0"
+    "2.4.1"
   end
 
   def program_suffix
