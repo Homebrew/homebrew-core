@@ -16,6 +16,9 @@ class SimpleObfs < Formula
   depends_on "automake" => :build
   depends_on "autoconf" => :build
   depends_on "libtool" => :build
+  depends_on "udns"
+  depends_on "libev"
+  depends_on "libsodium"
   depends_on "pcre"
   depends_on "openssl"
 
