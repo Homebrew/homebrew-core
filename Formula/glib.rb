@@ -1,8 +1,8 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.50/glib-2.50.3.tar.xz"
-  sha256 "82ee94bf4c01459b6b00cb9db0545c2237921e3060c0b74cff13fbc020cfd999"
+  url "https://download.gnome.org/sources/glib/2.52/glib-2.52.0.tar.xz"
+  sha256 "4578e3e077b1b978cafeec8d28b676c680aba0c0475923874c4c993403df311a"
 
   bottle do
     sha256 "53a03f3cae2e738580bf2d841325f8d8f8515f15c1dc8daff9e126f4b6cd2de0" => :sierra
@@ -15,6 +15,9 @@ class Glib < Formula
   deprecated_option "test" => "with-test"
 
   depends_on "pkg-config" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
@@ -33,26 +36,19 @@ class Glib < Formula
     sha256 "a4cb96b5861672ec0750cb30ecebe1d417d38052cac12fbb8a77dbf04a886fcb"
   end
 
+  # Revert some bad macOS specific commits
+  # https://bugzilla.gnome.org/show_bug.cgi?id=780271
+  patch do
+    url "https://raw.githubusercontent.com/tschoonj/formula-patches/glib-2.52.0/glib/revert-appinfo-contenttype.patch"
+    sha256 "e37df4911633ab29717a7a70c2c1a9724eb65168a3a407f8c4f96b7f233a99ae"
+  end
+
   # Fixes compilation with FSF GCC. Doesn't fix it on every platform, due
   # to unrelated issues in GCC, but improves the situation.
   # Patch submitted upstream: https://bugzilla.gnome.org/show_bug.cgi?id=672777
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a39dec26/glib/gio.patch"
-    sha256 "284cbf626f814c21f30167699e6e59dcc0d31000d71151f25862b997a8c8493d"
-  end
-
-  # Reverts GNotification support on macOS.
-  # This only supports OS X 10.9, and the reverted commits removed the
-  # ability to build glib on older versions of OS X.
-  # https://bugzilla.gnome.org/show_bug.cgi?id=747146
-  # Reverts upstream commits 36e093a31a9eb12021e7780b9e322c29763ffa58
-  # and 89058e8a9b769ab223bc75739f5455dab18f7a3d, with equivalent changes
-  # also applied to configure and gio/Makefile.in
-  if MacOS.version < :mavericks
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a4fe61b/glib/gnotification-mountain.patch"
-      sha256 "5bf6d562dd2be811d71e6f84eb43fc6c51a112db49ec0346c1b30f4f6f4a4233"
-    end
+    url "https://raw.githubusercontent.com/tschoonj/formula-patches/glib-2.52.0/glib/gio.patch"
+    sha256 "628f8ea171a29c67fb06461ce4cfe549846b8fe64d83466e18e225726615b997"
   end
 
   def install
@@ -60,8 +56,9 @@ class Glib < Formula
       "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
     # renaming is necessary for patches to work
-    mv "gio/gcocoanotificationbackend.c", "gio/gcocoanotificationbackend.m" unless MacOS.version < :mavericks
+    mv "gio/gcocoanotificationbackend.c", "gio/gcocoanotificationbackend.m"
     mv "gio/gnextstepsettingsbackend.c", "gio/gnextstepsettingsbackend.m"
+    # mv "gio/gosxappinfo.c", "gio/gosxappinfo.m"
 
     # Disable dtrace; see https://trac.macports.org/ticket/30413
     args = %W[
@@ -76,6 +73,7 @@ class Glib < Formula
       --with-gio-module-dir=#{HOMEBREW_PREFIX}/lib/gio/modules
     ]
 
+    system "autoreconf", "-i", "-f"
     system "./configure", *args
 
     # disable creating directory for GIO_MOUDLE_DIR, we will do this manually in post_install
