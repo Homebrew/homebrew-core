@@ -15,6 +15,7 @@ class Glib < Formula
   deprecated_option "test" => "with-test"
 
   depends_on "pkg-config" => :build
+  # next three lines can be removed when bug 780271 is fixed and gio.patch is modified accordingly
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -58,7 +59,6 @@ class Glib < Formula
     # renaming is necessary for patches to work
     mv "gio/gcocoanotificationbackend.c", "gio/gcocoanotificationbackend.m"
     mv "gio/gnextstepsettingsbackend.c", "gio/gnextstepsettingsbackend.m"
-    # mv "gio/gosxappinfo.c", "gio/gosxappinfo.m"
 
     # Disable dtrace; see https://trac.macports.org/ticket/30413
     args = %W[
@@ -73,10 +73,12 @@ class Glib < Formula
       --with-gio-module-dir=#{HOMEBREW_PREFIX}/lib/gio/modules
     ]
 
+    # next line can be removed when bug 780271 is fixed and gio.patch is modified accordingly
     system "autoreconf", "-i", "-f"
+
     system "./configure", *args
 
-    # disable creating directory for GIO_MOUDLE_DIR, we will do this manually in post_install
+    # disable creating directory for GIO_MODULE_DIR, we will do this manually in post_install
     inreplace "gio/Makefile", "$(mkinstalldirs) $(DESTDIR)$(GIO_MODULE_DIR)", ""
 
     system "make"
