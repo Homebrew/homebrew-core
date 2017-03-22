@@ -1,8 +1,8 @@
 class Latexila < Formula
   desc "LaTeX editor for the GNOME desktop"
   homepage "https://wiki.gnome.org/Apps/LaTeXila"
-  url "https://download.gnome.org/sources/latexila/3.22/latexila-3.22.1.tar.xz"
-  sha256 "41692d850a48521d2a700ae296680464078ef0bef1c1383383b433c5ecdf2719"
+  url "https://download.gnome.org/sources/latexila/3.24/latexila-3.24.0.tar.xz"
+  sha256 "2c47d6bf0a647715a3029af2b38099e9dac0c4a0a60c122917b36afd3f6ce31f"
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
@@ -10,13 +10,13 @@ class Latexila < Formula
   depends_on "vala" => :build
   depends_on "gtksourceview3"
   depends_on "gspell"
+  depends_on "gtef"
   depends_on "libgee"
   depends_on "gobject-introspection"
   depends_on "gnome-icon-theme"
   depends_on "gnome-themes-standard" => :optional
   depends_on "libxml2" => "with-python"
   depends_on :python if MacOS.version <= :snow_leopard
-  depends_on :tex => :recommended
 
   def install
     ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
