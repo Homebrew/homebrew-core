@@ -23,12 +23,6 @@ class Glib < Formula
   depends_on "libffi"
   depends_on "pcre"
 
-  resource "config.h.ed" do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/eb51d82/glib/config.h.ed"
-    version "111532"
-    sha256 "9f1e23a084bc879880e589893c17f01a2f561e20835d6a6f08fcc1dad62388f1"
-  end
-
   # https://bugzilla.gnome.org/show_bug.cgi?id=673135 Resolved as wontfix,
   # but needed to fix an assumption about the location of the d-bus machine
   # id file.
@@ -40,7 +34,7 @@ class Glib < Formula
   # Revert some bad macOS specific commits
   # https://bugzilla.gnome.org/show_bug.cgi?id=780271
   patch do
-    url "https://raw.githubusercontent.com/tschoonj/formula-patches/glib-2.52.0/glib/revert-appinfo-contenttype.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/13efbb2e95e83ba3bd8a81ea5b2748828dbd4311/glib/revert-appinfo-contenttype.patch"
     sha256 "e37df4911633ab29717a7a70c2c1a9724eb65168a3a407f8c4f96b7f233a99ae"
   end
 
@@ -48,7 +42,7 @@ class Glib < Formula
   # to unrelated issues in GCC, but improves the situation.
   # Patch submitted upstream: https://bugzilla.gnome.org/show_bug.cgi?id=672777
   patch do
-    url "https://raw.githubusercontent.com/tschoonj/formula-patches/glib-2.52.0/glib/gio.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/13efbb2e95e83ba3bd8a81ea5b2748828dbd4311/glib/gio.patch"
     sha256 "628f8ea171a29c67fb06461ce4cfe549846b8fe64d83466e18e225726615b997"
   end
 
