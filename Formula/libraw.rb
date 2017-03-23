@@ -1,7 +1,7 @@
 class Libraw < Formula
   desc "Library for reading RAW files from digital photo cameras"
-  homepage "http://www.libraw.org/"
-  url "http://www.libraw.org/data/LibRaw-0.17.2.tar.gz"
+  homepage "https://www.libraw.org/"
+  url "https://www.libraw.org/data/LibRaw-0.17.2.tar.gz"
   mirror "https://fossies.org/linux/privat/LibRaw-0.17.2.tar.gz"
   mirror "https://distfiles.macports.org/libraw/LibRaw-0.17.2.tar.gz"
   sha256 "92b0c42c7666eca9307e5e1f97d6fefc196cf0b7ee089e22880259a76fafd15c"
@@ -26,13 +26,13 @@ class Libraw < Formula
   end
 
   resource "gpl2" do
-    url "http://www.libraw.org/data/LibRaw-demosaic-pack-GPL2-0.17.2.tar.gz"
+    url "https://www.libraw.org/data/LibRaw-demosaic-pack-GPL2-0.17.2.tar.gz"
     mirror "https://distfiles.macports.org/libraw/LibRaw-demosaic-pack-GPL2-0.17.2.tar.gz"
     sha256 "a2e5e9cc04fa8f3e94070110dce8a06aa3b0b2f573ed99c5fc3e327d15f014b7"
   end
 
   resource "gpl3" do
-    url "http://www.libraw.org/data/LibRaw-demosaic-pack-GPL3-0.17.2.tar.gz"
+    url "https://www.libraw.org/data/LibRaw-demosaic-pack-GPL3-0.17.2.tar.gz"
     mirror "https://distfiles.macports.org/libraw/LibRaw-demosaic-pack-GPL3-0.17.2.tar.gz"
     sha256 "b00cd0f54851bd3c8a66be4cacbf049e4508f1bac8ff85cb4528d8979739ed36"
   end
