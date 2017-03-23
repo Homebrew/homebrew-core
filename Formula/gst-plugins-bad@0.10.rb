@@ -6,9 +6,10 @@ class GstPluginsBadAT010 < Formula
   revision 2
 
   bottle do
-    sha256 "cb457e5de9fcacfb5ddc33cfe7abd4880a60f8a9a94435840ebb1c1c911702c0" => :sierra
-    sha256 "f12917530993bac1876a6b07764b3c784b0ccc50ef44b0d3694ee4bc30c9bed2" => :el_capitan
-    sha256 "d1db9d5e75ddbe8475050fdccf0f82147fecef42fa22289fd166936baaf41a6d" => :yosemite
+    rebuild 1
+    sha256 "81140c3bf87251f58a1394b0a0ce3ad5cf766813ef9f7f35a96dd377d37c3ea9" => :sierra
+    sha256 "69aeea1297d3c78858e9dd2a6de786c92fa43ec5a30e4d64fc86c3425b641841" => :el_capitan
+    sha256 "dca6d59de707b54eeb09f53f7c40847e118a01364c3a7d887adeda0c2ca85d02" => :yosemite
   end
 
   depends_on "pkg-config" => :build
