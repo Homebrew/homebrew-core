@@ -20,13 +20,13 @@ class GstPluginsBadAT010 < Formula
   # gst-plugins-bad-0.10.21/REQUIREMENTS and Homebrew formulae
   depends_on "dirac" => :optional
   depends_on "libdvdread" => :optional
-  depends_on "libmms" => :optional
+  depends_on "libmms" => :recommended
 
   # These are not mentioned in REQUIREMENTS, but configure look for them
   depends_on "libexif" => :optional
   depends_on "faac" => :optional
-  depends_on "faad2" => :optional
-  depends_on "libsndfile" => :optional
+  depends_on "faad2" => :recommended
+  depends_on "libsndfile" => :recommended
   depends_on "schroedinger" => :optional
   depends_on "rtmpdump" => :optional
 
