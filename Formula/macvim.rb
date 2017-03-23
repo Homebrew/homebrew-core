@@ -28,14 +28,17 @@ class Macvim < Formula
 
   if MacOS.version >= :mavericks
     option "with-custom-python", "Build with a custom Python 2 instead of the Homebrew version."
-    option "with-custom-ruby", "Build with a custom Ruby instead of the Homebrew version."
-    option "with-custom-perl", "Build with a custom Perl instead of the Homebrew version."
   end
+
+  option "with-ruby", "Build with brewed ruby instead of the system version"
+  option "with-perl", "Build with brewed perl instead of the system version"
 
   depends_on :python => :recommended
   depends_on :python3 => :optional
-  depends_on :ruby => "1.8" # Can be compiled against 1.8.x or >= 1.9.3-p385.
-  depends_on :perl => "5.3"
+  depends_on "ruby" => :optional
+  depends_on "perl" => :optional
+  depends_on "homebrew/dupes/ncurses" => :optional
+  depends_on "homebrew/dupes/libiconv" => :optional
 
   def install
     # Avoid "fatal error: 'ruby/config.h' file not found"
@@ -100,7 +103,17 @@ class Macvim < Formula
     system "./configure", *args
     system "make"
 
-    prefix.install "src/MacVim/build/Release/MacVim.app"
+    apppath = "src/MacVim/build/Release/MacVim.app"
+
+    if build.with? "gettext"
+      system "INSTALL_DATA=install " +
+             "FILEMOD=644 " +
+             "LOCALEDIR=../../#{apppath}/Contents/Resources/vim/runtime/lang " +
+             "make -C src/po install"
+    end
+
+    prefix.install apppath
+
     inreplace "src/MacVim/mvim", %r{^# VIM_APP_DIR=\/Applications$},
                                  "VIM_APP_DIR=#{prefix}"
     bin.install "src/MacVim/mvim"
