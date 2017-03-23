@@ -8,6 +8,12 @@ class ConjureUp < Formula
 
   head "https://github.com/conjure-up/conjure-up.git", :branch => "master"
 
+  bottle do
+    sha256 "44333b2f820368ba0b2a444c67168fba999152ba681c55a8535505462575376e" => :sierra
+    sha256 "64ae5c6a33c1e8a4b2c8bd0100d4ad5c91c77b172c885f07e056e5cf5e409b7f" => :el_capitan
+    sha256 "1e406f6345d405a67eca6f9d03a1566a65e5b510892b45d5a9e0aaf750d99b67" => :yosemite
+  end
+
   devel do
     url "https://github.com/conjure-up/conjure-up/archive/2.2.0-beta1.tar.gz"
     version "2.2-beta1"
