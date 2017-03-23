@@ -1,9 +1,8 @@
 class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.10.0/node-v6.10.0.tar.xz"
-  sha256 "f65d5d4b7253ee29f3ba4edabd3473845075e43569bceea4267e7bf3e00ebb96"
-  revision 1
+  url "https://nodejs.org/dist/v6.10.1/node-v6.10.1.tar.xz"
+  sha256 "6547c1c25440bd71d75f8a23590c2cd6d1c00c0c72736b5de79e7152566fd4b2"
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
@@ -39,10 +38,10 @@ class NodeAT6 < Formula
   end
 
   resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz"
-    mirror "https://fossies.org/linux/misc/icu4c-57_1-src.tgz"
-    version "57.1"
-    sha256 "ff8c67cb65949b1e7808f2359f2b80f722697048e90e7cfc382ec1fe229e9581"
+    url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
+    mirror "https://fossies.org/linux/misc/icu4c-58_2-src.tgz"
+    version "58.2"
+    sha256 "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
   end
 
   def install
