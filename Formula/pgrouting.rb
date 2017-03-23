@@ -12,6 +12,9 @@ class Pgrouting < Formula
     sha256 "c045bf01a7214435ab33ba178f0782449d1b8637fef820c590c8439c4d43fe9d" => :yosemite
   end
 
+  # Fix compiling error #767 for version 2.4.0
+  patch :DATA
+
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "cgal"
@@ -49,3 +52,18 @@ class Pgrouting < Formula
     end
   end
 end
+
+__END__
+diff --git a/src/bdDijkstra/src/pgr_bdDijkstra.hpp b/src/bdDijkstra/src/pgr_bdDijkstra.hpp
+index 56bd888..f792deb 100644
+--- a/src/bdDijkstra/src/pgr_bdDijkstra.hpp
++++ b/src/bdDijkstra/src/pgr_bdDijkstra.hpp
+@@ -81,7 +81,7 @@ class Pgr_bdDijkstra {
+      }
+ 
+      std::string log() const {return m_log.str();}
+-     void clean_log() {log.clear();}
++     void clean_log() {m_log.clear();}
+      void clear() {
+          while (!forward_queue.empty()) forward_queue.pop();
+          while (!backward_queue.empty()) backward_queue.pop();
