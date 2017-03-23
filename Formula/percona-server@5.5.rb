@@ -1,10 +1,9 @@
 class PerconaServerAT55 < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com/"
-  url "https://www.percona.com/downloads/Percona-Server-5.5/Percona-Server-5.5.41-37.0/source/tarball/percona-server-5.5.41-37.0.tar.gz"
-  version "5.5.41-37.0"
-  sha256 "4de65ccbdd6c266f18339c2ea5427a15d90a8ce1ce1c7574aa2e72f685a10833"
-  revision 1
+  url "https://www.percona.com/downloads/Percona-Server-5.5/Percona-Server-5.5.54-38.7/source/tarball/percona-server-5.5.54-38.7.tar.gz"
+  version "5.5.54-38.7"
+  sha256 "2c5f23a5bd41e36c681d882b94e021a2fe34acfb3951945146ee2ead2aeb7f1c"
 
   bottle do
     sha256 "09e2e9ee7529adb2da47c389a2cfc898171d7acf3b4407b80c91630964614b52" => :sierra
@@ -28,34 +27,38 @@ class PerconaServerAT55 < Formula
   depends_on "openssl"
 
   # Where the database files should be located. Existing installs have them
-  # under var/percona, but going forward they will be under var/msyql to be
+  # under var/percona, but going forward they will be under var/mysql to be
   # shared with the mysql and mariadb formulae.
-  def destination
-    @destination ||= (var/"percona").directory? ? "percona" : "mysql"
+  def datadir
+    @datadir ||= (var/"percona").directory? ? var/"percona" : var/"mysql"
+  end
+
+  pour_bottle? do
+    reason "The bottle needs a var/mysql datadir (yours is var/percona)."
+    satisfy { datadir == var/"mysql" }
   end
 
   def install
-    # Make sure that data directory exists
-    (var/destination).mkpath
+    args = std_cmake_args + %W[
+      -DMYSQL_DATADIR=#{datadir}
+      -DSYSCONFDIR=#{etc}
+      -DINSTALL_MANDIR=#{man}
+      -DINSTALL_DOCDIR=#{doc}
+      -DINSTALL_INFODIR=#{info}
+      -DINSTALL_INCLUDEDIR=include/mysql
+      -DINSTALL_MYSQLSHAREDIR=#{share.basename}/mysql
+      -DWITH_SSL=yes
+      -DDEFAULT_CHARSET=utf8
+      -DDEFAULT_COLLATION=utf8_general_ci
+      -DCOMPILATION_COMMENT=Homebrew
+      -DWITH_EDITLINE=system
+    ]
 
-    args = [
-      ".",
-      "-DCMAKE_INSTALL_PREFIX=#{prefix}",
-      "-DMYSQL_DATADIR=#{var}/#{destination}",
-      "-DINSTALL_MANDIR=#{man}",
-      "-DINSTALL_DOCDIR=#{doc}",
-      "-DINSTALL_INFODIR=#{info}",
-      # CMake prepends prefix, so use share.basename
-      "-DINSTALL_MYSQLSHAREDIR=#{share.basename}/mysql",
-      "-DWITH_SSL=yes",
-      "-DDEFAULT_CHARSET=utf8",
-      "-DDEFAULT_COLLATION=utf8_general_ci",
-      "-DSYSCONFDIR=#{etc}",
-      "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
-      # PAM plugin is Linux-only at the moment
-      "-DWITHOUT_AUTH_PAM=1",
-      "-DWITHOUT_AUTH_PAM_COMPAT=1",
-      "-DWITHOUT_DIALOG=1",
+    # PAM plugin is Linux-only at the moment
+    args.concat %w[
+      -DWITHOUT_AUTH_PAM=1
+      -DWITHOUT_AUTH_PAM_COMPAT=1
+      -DWITHOUT_DIALOG=1
     ]
 
     # To enable unit testing at build, we need to download the unit testing suite
@@ -106,7 +109,7 @@ class PerconaServerAT55 < Formula
   def caveats; <<-EOS.undent
     Set up databases to run AS YOUR USER ACCOUNT with:
         unset TMPDIR
-        mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix percona-server55)" --datadir=#{var}/#{destination} --tmpdir=/tmp
+        mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix percona-server55)" --datadir=#{datadir} --tmpdir=/tmp
 
     To set up base tables in another folder, or use a different user to run
     mysqld, view the help for mysqld_install_db:
