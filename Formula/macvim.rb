@@ -151,7 +151,7 @@ class Macvim < Formula
     # Check if MacVim was linked to Ruby version in $PATH
     if build.with? "ruby"
       ruby_ver = `ruby -e 'print(RUBY_VERSION)'`.chomp
-      assert_match "-lruby" + ruby_ver, `#{bin}/mvim --version`
+      assert_match "-lruby." + ruby_ver, `#{bin}/mvim --version`
     end
   end
 end
