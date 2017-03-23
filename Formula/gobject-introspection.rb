@@ -1,8 +1,8 @@
 class GobjectIntrospection < Formula
   desc "Generate introspection data for GObject libraries"
   homepage "https://live.gnome.org/GObjectIntrospection"
-  url "https://download.gnome.org/sources/gobject-introspection/1.50/gobject-introspection-1.50.0.tar.xz"
-  sha256 "1c6597c666f543c70ef3d7c893ab052968afae620efdc080c36657f4226337c5"
+  url "https://download.gnome.org/sources/gobject-introspection/1.52/gobject-introspection-1.52.0.tar.xz"
+  sha256 "9fc6d1ebce5ad98942cb21e2fe8dd67b722dcc01981840632a1b233f7d0e2c1e"
 
   bottle do
     sha256 "c50540846431e361498c8912c8b6852c1547f94458cb080cad9754ac9ffa4129" => :sierra
@@ -14,10 +14,7 @@ class GobjectIntrospection < Formula
   depends_on "glib"
   depends_on "cairo"
   depends_on "libffi"
-  # System python in Mavericks or below has bug in distutils/sysconfig.py, which breaks the install.
-  #    Caught exception: <type 'exceptions.AttributeError'> AttributeError("'NoneType' object has no attribute 'get'",)
-  #    > /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/distutils/sysconfig.py(171)customize_compiler()
-  depends_on "python" if MacOS.version <= :mavericks
+  depends_on "python" # never switch back to system python!
 
   resource "tutorial" do
     url "https://gist.github.com/7a0023656ccfe309337a.git",
