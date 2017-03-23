@@ -7,6 +7,13 @@ class Awslogs < Formula
   sha256 "614b8f6856a51cbe9677d2dfcc5b5c635916783a0dc75f972ba5a35b96359d7b"
   head "https://github.com/jorgebastida/awslogs.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "2bdb2d38f767d73a52a14ff20851b87bae0444004aa4ed1f1f162b4dc8ad8124" => :sierra
+    sha256 "855664da2786a254fa24ceb6b6ae25d6da7ab2933c19a9e2e91578a5f658547d" => :el_capitan
+    sha256 "38dca2746910d2cc4900669c8c411cd77bab01397020c880cef490fddcc14fef" => :yosemite
+  end
+
   resource "boto3" do
     url "https://pypi.python.org/packages/58/61/50d2e459049c5dbc963473a71fae928ac0e58ffe3fe7afd24c817ee210b9/boto3-1.4.4.tar.gz"
     sha256 "518f724c4758e5a5bed114fbcbd1cf470a15306d416ff421a025b76f1d390939"
