@@ -3,6 +3,7 @@ class Avra < Formula
   homepage "https://avra.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/avra/1.3.0/avra-1.3.0.tar.bz2"
   sha256 "a62cbf8662caf9cc4e75da6c634efce402778639202a65eb2d149002c1049712"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
