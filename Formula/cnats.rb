@@ -6,9 +6,9 @@ class Cnats < Formula
 
   bottle do
     cellar :any
-    sha256 "5519a5385a4459cd68a72eae9732e48ca1bcac95fe6e067f5719c984d749744e" => :sierra
-    sha256 "b2b3f93ddb948782066b2504e4f07e3cebe6d95819354394a3113518d87e4ee8" => :el_capitan
-    sha256 "77f3d37ac8fffce4a8853f2faadb6cdd7b7e753dd8d038986f45a7695b641a89" => :yosemite
+    sha256 "c5f6782a97fbc34c5eab1e691149584106f3cf431d3ffb6dc89a872b02ae8c4d" => :sierra
+    sha256 "0005f2119171c8eec7ba86d361558eebf4eecc45fc88f1ae21c8fb635e342ac2" => :el_capitan
+    sha256 "fa803d487a0d39706aff123c18d102df195b07149f71187549c808755aea5cd5" => :yosemite
   end
 
   depends_on "cmake" => :build
