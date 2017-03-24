@@ -1,21 +1,10 @@
 class Rtags < Formula
   desc "ctags-like source code cross-referencer with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
-  revision 1
+  url "https://github.com/Andersbakken/rtags.git",
+      :tag => "v2.9",
+      :revision => "ffa21b5408a30a346815bc4db6e74e2c6562d936"
   head "https://github.com/Andersbakken/rtags.git"
-
-  stable do
-    url "https://github.com/Andersbakken/rtags.git",
-        :tag => "v2.8",
-        :revision => "6ac7740eaf05cdd9b699185f71cc2d1f634a761b"
-
-    # Fix test failure "couldn't find process for pid"
-    # Upstream commit from 4 Jan 2017 "Copy environment from indexmessage"
-    patch do
-      url "https://github.com/Andersbakken/rtags/commit/cddf96a.patch"
-      sha256 "c7d2c62cba6ef8180ac6214af6dfdf2d0f6425b9453de7b55053ddcc74ce5fe2"
-    end
-  end
 
   bottle do
     sha256 "088013e76c721591a148609868ae179e554a6e9269ea68693fe649175edb4463" => :sierra
