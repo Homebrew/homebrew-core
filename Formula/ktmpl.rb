@@ -1,8 +1,8 @@
 class Ktmpl < Formula
   desc "Parameterized templates for Kubernetes manifests."
   homepage "https://github.com/InQuicker/ktmpl"
-  url "https://github.com/InQuicker/ktmpl/archive/0.6.0.tar.gz"
-  sha256 "16338b7129c2268350d6dd780f0e41a3c5a81a7399273d85ff0939065820eba0"
+  url "https://github.com/InQuicker/ktmpl/archive/0.7.0.tar.gz"
+  sha256 "c10d26f8e834543d8f0952a76b67292cd8f10f0814128cda9bb623ffe0952615"
   head "https://github.com/InQuicker/ktmpl.git"
 
   bottle do
