@@ -1,8 +1,8 @@
 class Pianod < Formula
   desc "Pandora client with multiple control interfaces"
   homepage "https://deviousfish.com/pianod/"
-  url "https://deviousfish.com/Downloads/pianod/pianod-175.tar.gz"
-  sha256 "19733d4937b48707eebcde75775d865d6bf925efa86d8989f0efb2392ab4cdf9"
+  url "https://deviousfish.com/Downloads/pianod2/Devel/pianod2-241.tar.gz"
+  sha256 "f274d2fbd07f43dd03deea5cb11c282639c6e33d675e0f616e8bb36788624b10"
 
   bottle do
     sha256 "9027233a185aad19ef50a5b2de2d94256015c3d781063d6a0587802a7b746a81" => :sierra
@@ -12,8 +12,8 @@ class Pianod < Formula
   end
 
   devel do
-    url "http://deviousfish.com/Downloads/pianod2/Devel/pianod2-189.tar.gz"
-    sha256 "dad7a1a5b18a712178d3835ef2cd898f0f92a8d608987bdfc807ce2226fab863"
+    url "https://deviousfish.com/Downloads/pianod2/Devel/pianod2-267.tar.gz"
+    sha256 "64847b870f36f311a0725a7b52ee7641bb8e2bf4f57c42fdb19150e60bf36a9c"
   end
 
   depends_on "pkg-config" => :build
