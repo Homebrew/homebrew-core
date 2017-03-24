@@ -3,6 +3,7 @@ class GobjectIntrospection < Formula
   homepage "https://live.gnome.org/GObjectIntrospection"
   url "https://download.gnome.org/sources/gobject-introspection/1.52/gobject-introspection-1.52.0.tar.xz"
   sha256 "9fc6d1ebce5ad98942cb21e2fe8dd67b722dcc01981840632a1b233f7d0e2c1e"
+  revision 1
 
   bottle do
     sha256 "ae50414990d2ff669b9a173df00d3ba1cdc106353b1916f343e0665fc16d892c" => :sierra
@@ -23,12 +24,13 @@ class GobjectIntrospection < Formula
 
   def install
     ENV["GI_SCANNER_DISABLE_CACHE"] = "true"
+    ENV["PYTHON"] = Formula["python"].bin/"python"
     inreplace "giscanner/transformer.py", "/usr/share", "#{HOMEBREW_PREFIX}/share"
     inreplace "configure" do |s|
       s.change_make_var! "GOBJECT_INTROSPECTION_LIBDIR", "#{HOMEBREW_PREFIX}/lib"
     end
 
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "PYTHON=python"
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
   end
