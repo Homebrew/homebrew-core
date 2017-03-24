@@ -11,6 +11,12 @@ class Juju < Formula
     sha256 "1743192126888e868dd613919897a8d8d559e024a0cfaa45c0d4ff7b3af66b60" => :yosemite
   end
 
+  devel do
+    url "https://launchpad.net/juju/2.2/2.2-beta1/+download/juju-core_2.2-beta1.tar.gz"
+    sha256 "1f0a27c13c19521f938f703c6f797a682d33f88f1c58c7826040388c192d43a8"
+    version "2.2-beta1"
+  end
+
   depends_on "go" => :build
 
   def install
