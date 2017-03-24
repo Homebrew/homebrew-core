@@ -1,8 +1,8 @@
 class Pgrouting < Formula
   desc "Provides geospatial routing for PostGIS/PostgreSQL database"
   homepage "http://www.pgrouting.org"
-  url "https://github.com/pgRouting/pgrouting/archive/v2.4.0.tar.gz"
-  sha256 "fe4733afba6c94d87145f9b90744d888312314530576a35c90016f2826d30297"
+  url "https://github.com/pgRouting/pgrouting/archive/v2.4.1.tar.gz"
+  sha256 "11d225391cdac8e15136a51664b22fa007d10cb78bf8208374470a9044850fd4"
   head "https://github.com/pgRouting/pgrouting.git"
 
   bottle do
@@ -11,9 +11,6 @@ class Pgrouting < Formula
     sha256 "e6fb19d18de31dd6bda92ea7bcf756942531caec218eed98cf2f3769a5979a83" => :el_capitan
     sha256 "c045bf01a7214435ab33ba178f0782449d1b8637fef820c590c8439c4d43fe9d" => :yosemite
   end
-
-  # Fix compiling error #767 for version 2.4.0
-  patch :DATA
 
   depends_on "cmake" => :build
   depends_on "boost"
@@ -52,18 +49,3 @@ class Pgrouting < Formula
     end
   end
 end
-
-__END__
-diff --git a/src/bdDijkstra/src/pgr_bdDijkstra.hpp b/src/bdDijkstra/src/pgr_bdDijkstra.hpp
-index 56bd888..f792deb 100644
---- a/src/bdDijkstra/src/pgr_bdDijkstra.hpp
-+++ b/src/bdDijkstra/src/pgr_bdDijkstra.hpp
-@@ -81,7 +81,7 @@ class Pgr_bdDijkstra {
-      }
- 
-      std::string log() const {return m_log.str();}
--     void clean_log() {log.clear();}
-+     void clean_log() {m_log.clear();}
-      void clear() {
-          while (!forward_queue.empty()) forward_queue.pop();
-          while (!backward_queue.empty()) backward_queue.pop();
