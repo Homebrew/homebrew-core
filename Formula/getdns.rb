@@ -1,10 +1,9 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/dist/getdns-0.9.0.tar.gz"
-  sha256 "b6b73a501ee79c0fafb0721023eb3a5d0e1bfa047fbe65302db278cb956bd1fe"
-
-  head "https://github.com/getdnsapi/getdns.git"
+  url "https://getdnsapi.net/releases/getdns-1-0-0/getdns-1.0.0.tar.gz"
+  sha256 "a0460269c6536501a7c0af9bc97f9339e05a012f8191d5c10f79042aa62f9e96"
+  head "https://github.com/getdnsapi/getdns.git", :branch => "develop"
 
   bottle do
     cellar :any
@@ -14,21 +13,43 @@ class Getdns < Formula
     sha256 "18dcbddc502946fc6a146a52f255a4de75df80235b9b2dfcbaeee054fac355b2" => :mavericks
   end
 
+  devel do
+    url "https://getdnsapi.net/releases/getdns-1-1-0-rc1/getdns-1.1.0-rc1.tar.gz"
+    sha256 "d91ec104b33880ac901f36b8cc01b22f9086fcf7d4ab94c0cbc56336d1f6bec0"
+  end
+
   depends_on "openssl"
-  depends_on "unbound"
-  depends_on "libidn"
-  depends_on "libevent" => :optional
+  depends_on "unbound" => :recommended
+  depends_on "libidn" => :recommended
+  depends_on "libevent" => :recommended
   depends_on "libuv" => :optional
   depends_on "libev" => :optional
 
+  if build.head?
+    depends_on "libtool"
+    depends_on "autoconf"
+    depends_on "automake"
+  end
+
   def install
+    if build.head?
+      system "glibtoolize", "-ci"
+      system "autoreconf", "-fi"
+    end
+
     args = [
       "--with-ssl=#{Formula["openssl"].opt_prefix}",
       "--with-trust-anchor=#{etc}/getdns-root.key",
     ]
+    args << "--enable-stub-only" if build.without? "unbound"
+    args << "--without-libidn" if build.without? "libidn"
     args << "--with-libevent" if build.with? "libevent"
-    args << "--with-libev" if build.with? "libev"
     args << "--with-libuv" if build.with? "libuv"
+    args << "--with-libev" if build.with? "libev"
+
+    # Current Makefile layout prevents simultaneous job execution
+    # https://github.com/getdnsapi/getdns/issues/166
+    ENV.deparallelize
 
     system "./configure", "--prefix=#{prefix}", *args
     system "make", "install"
