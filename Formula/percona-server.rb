@@ -1,8 +1,8 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.17-11/source/tarball/percona-server-5.7.17-11.tar.gz"
-  sha256 "755742455a370ae0b10ee2533a4e32a1c02585075ce2460bdbfa2cf9a3b89c8c"
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.17-12/source/tarball/percona-server-5.7.17-12.tar.gz"
+  sha256 "2f89b40c940009bb54093c6740024c2dda918859ba731d03e76340e83e0a47b5"
 
   bottle do
     sha256 "f5113eafdd51436722be9bab5bd9d57b130ebc1581241676006ab76192aedda0" => :sierra
@@ -57,15 +57,15 @@ class PerconaServer < Formula
 
     args = std_cmake_args + %W[
       -DMYSQL_DATADIR=#{datadir}
+      -DSYSCONFDIR=#{etc}
+      -DINSTALL_MANDIR=#{man}
+      -DINSTALL_DOCDIR=#{doc}
+      -DINSTALL_INFODIR=#{info}
       -DINSTALL_INCLUDEDIR=include/mysql
-      -DINSTALL_MANDIR=share/man
-      -DINSTALL_DOCDIR=share/doc/#{name}
-      -DINSTALL_INFODIR=share/info
-      -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DINSTALL_MYSQLSHAREDIR=#{share.basename}/mysql
       -DWITH_SSL=yes
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
-      -DSYSCONFDIR=#{etc}
       -DCOMPILATION_COMMENT=Homebrew
       -DWITH_EDITLINE=system
     ]
