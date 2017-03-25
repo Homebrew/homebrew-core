@@ -6,9 +6,9 @@ class Lft < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cf7e88c74aeb7ffaabd9e417ec4ae308ab590d9f3504ff91affa2310c5b64fda" => :sierra
-    sha256 "ba0daf2f7061bb4627c931ffc8f5d80f9941727fd575576e37bca6acf7e65904" => :el_capitan
-    sha256 "b7356272883fe608b6c5f56ed4ac468edc234f842a7f0307079720f06226a886" => :yosemite
+    sha256 "2e024fb99a6de1ccc416f7a87d7c44ebcabcd854bf66c5ba9d8a8c67969a3b02" => :sierra
+    sha256 "3282198e61767e578d7b5fc5123f4657093b331954e7ab6d02aaab723b24b35c" => :el_capitan
+    sha256 "170bcc6b837eac788cac1995632308210617628325e51ee1b9b0d255755e03cd" => :yosemite
   end
 
   def install
