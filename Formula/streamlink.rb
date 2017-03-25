@@ -4,6 +4,13 @@ class Streamlink < Formula
   url "https://github.com/streamlink/streamlink/releases/download/0.4.0/streamlink-0.4.0.tar.gz"
   sha256 "a7547382f08a92f0714394a4c3c5f601aae3555d0706147f3858acdc6ed04abb"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "af4b75750760fb1d0a6d11e4db57248b82ec854ce10de34244ec212f9b01a320" => :sierra
+    sha256 "93bcfd26d6798793d144fae087c3bfa7cf14f321ff823366aff63fb74aa3c570" => :el_capitan
+    sha256 "0df93b9883121690d161c09da04782d9a39ea2bff7dd6d7a7a52a9fa5c40adee" => :yosemite
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "futures" do
