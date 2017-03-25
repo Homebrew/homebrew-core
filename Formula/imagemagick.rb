@@ -10,9 +10,9 @@ class Imagemagick < Formula
   head "http://git.imagemagick.org/repos/ImageMagick.git"
 
   bottle do
-    sha256 "21e286abb8772de7b4e4aa66dd1d79f9879ff7ce773c85596b2fe5614e29c8e7" => :sierra
-    sha256 "b2852da79723017167dd734e7e4a9f5a1071f0615588c82c6afbe687d1ec91da" => :el_capitan
-    sha256 "0cb8eccf55cd24048bfee604836cee6f9835ab55dcdbbe03e11c14174b138906" => :yosemite
+    sha256 "051c8a5c2e005b4175ec8eac7e0f843c73a6b99e8be58b94be863c47fde5bc69" => :sierra
+    sha256 "11642fcf8dbd169ec19cdad0eda95e48db43e7f33dbf0bbbf54524d59691ddb4" => :el_capitan
+    sha256 "e0597fdc08585ce01de95bb5b480a89f13d5206e530cbfde8c39f661a6db0edb" => :yosemite
   end
 
   option "with-fftw", "Compile with FFTW support"
