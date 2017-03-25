@@ -1,9 +1,9 @@
 class PerconaServerAT56 < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.35-80.0/source/tarball/percona-server-5.6.35-80.0.tar.gz"
-  version "5.6.35-80.0"
-  sha256 "259b5aa2c6218958c8cc55170b9381955ea60445127bf46e02aa09903af7f26b"
+  url "https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.35-81.0/source/tarball/percona-server-5.6.35-81.0.tar.gz"
+  version "5.6.35-81.0"
+  sha256 "c71c3f80662982ade22a0a538c5fd595b1761472c98efc2509124ecc4004d1e7"
 
   bottle do
     sha256 "c027895028a816a16fcd6c61947df23d7a1ddf1f28859915eb04e36f5d535027" => :sierra
@@ -29,8 +29,9 @@ class PerconaServerAT56 < Formula
     @datadir ||= (var/"percona").directory? ? var/"percona" : var/"mysql"
   end
 
-  def pour_bottle?
-    datadir == var/"mysql"
+  pour_bottle? do
+    reason "The bottle needs a var/mysql datadir (yours is var/percona)."
+    satisfy { datadir == var/"mysql" }
   end
 
   def install
@@ -40,23 +41,21 @@ class PerconaServerAT56 < Formula
       "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
       "COMMAND libtool -static -o ${TARGET_LOCATION}"
 
-    args = %W[
-      -DCMAKE_INSTALL_PREFIX=#{prefix}
-      -DCMAKE_FIND_FRAMEWORK=LAST
-      -DCMAKE_VERBOSE_MAKEFILE=ON
+    args = std_cmake_args + %W[
       -DMYSQL_DATADIR=#{datadir}
+      -DSYSCONFDIR=#{etc}
+      -DINSTALL_MANDIR=#{man}
+      -DINSTALL_DOCDIR=#{doc}
+      -DINSTALL_INFODIR=#{info}
       -DINSTALL_INCLUDEDIR=include/mysql
-      -DINSTALL_MANDIR=share/man
-      -DINSTALL_DOCDIR=share/doc/#{name}
-      -DINSTALL_INFODIR=share/info
-      -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DINSTALL_MYSQLSHAREDIR=#{share.basename}/mysql
       -DWITH_SSL=yes
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
-      -DSYSCONFDIR=#{etc}
       -DCOMPILATION_COMMENT=Homebrew
       -DWITH_EDITLINE=system
-      -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      -DCMAKE_FIND_FRAMEWORK=LAST
+      -DCMAKE_VERBOSE_MAKEFILE=ON
     ]
 
     # PAM plugin is Linux-only at the moment
