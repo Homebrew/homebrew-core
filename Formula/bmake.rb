@@ -1,8 +1,8 @@
 class Bmake < Formula
   desc "Portable version of NetBSD make(1)"
   homepage "http://www.crufty.net/help/sjg/bmake.html"
-  url "http://www.crufty.net/ftp/pub/sjg/bmake-20160818.tar.gz"
-  sha256 "d64b23e3e4013b6d4ea590b05251874ffa9d841299b4e5344a6edf45ea7e1141"
+  url "http://www.crufty.net/ftp/pub/sjg/bmake-20170311.tar.gz"
+  sha256 "881bb42230650a6f756ac7a2054ca984f31e1002fe3362456a77631c162ba33a"
 
   bottle do
     sha256 "38e0b7712c5ae20b9a2639f21aa46c96e7893e3a44ce8956d1c64f5efb16ed66" => :sierra
@@ -11,8 +11,7 @@ class Bmake < Formula
   end
 
   def install
-    # The first, an oversight upstream; the second, don't pre-roff cat pages.
-    inreplace "bmake.1", ".Dt MAKE", ".Dt BMAKE"
+    # Don't pre-roff cat pages.
     inreplace "mk/man.mk", "MANTARGET?", "MANTARGET"
 
     # -DWITHOUT_PROG_LINK means "don't symlink as bmake-VERSION."
