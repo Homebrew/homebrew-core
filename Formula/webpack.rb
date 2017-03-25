@@ -9,9 +9,9 @@ class Webpack < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "08f29c847af454c6c49c335bb29992044961b69df87d2ada3ae394c13b58cd9a" => :sierra
-    sha256 "f6ddd1c2d399bb7a6a597a56a045b4659ec384a4738742b427bbd4b9dfcbb322" => :el_capitan
-    sha256 "df3e800e372983ff35ad65aea75ebd81e18742e57f065421f88c0605232a5a16" => :yosemite
+    sha256 "8d5534b627e90e3d055b49a5cf7ef216867c92b5830bf4ab3acbc9084ab4053a" => :sierra
+    sha256 "39a535607e94b3982c84bb1cb2b774c7c622c7f4af57b945edfdbabaf1e5c70a" => :el_capitan
+    sha256 "c4d89ea9e49c2224daaf5ea4fb92360d3cbf919e656ba37567a637490ce7e11a" => :yosemite
   end
 
   depends_on "node"
