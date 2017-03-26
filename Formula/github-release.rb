@@ -1,8 +1,8 @@
 class GithubRelease < Formula
   desc "Create and edit releases on Github (and upload artifacts)"
   homepage "https://github.com/aktau/github-release"
-  url "https://github.com/aktau/github-release/archive/v0.6.3.tar.gz"
-  sha256 "d72c614fae6603b60f3fb4b7473cb9f0ed6d592d8804729542481b5602fe6de1"
+  url "https://github.com/aktau/github-release/archive/v0.6.4.tar.gz"
+  sha256 "c310bb566a4b8717b781947effcbb79dd4e64972b732efb8c3eb330b527e6263"
   head "https://github.com/aktau/github-release.git"
 
   bottle do
