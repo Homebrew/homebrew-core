@@ -5,8 +5,8 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.10.7.tar.gz"
-  sha256 "059c016dc4af550f1f39db55095488653795025d72023fdcbab366d0c4af704e"
+  url "https://github.com/purescript/purescript/archive/v0.11.0.tar.gz"
+  sha256 "3ba5469b1244933dd2fe6fd62ec11c34b606863bf37280d0b53953eb271642a9"
   head "https://github.com/purescript/purescript.git"
 
   bottle do
@@ -31,7 +31,7 @@ class Purescript < Formula
       main :: Int
       main = 1
     EOS
-    system bin/"psc", test_module_path, "-o", test_target_path
+    system bin/"purs", "compile", test_module_path, "-o", test_target_path
     assert File.exist?(test_target_path)
   end
 end
