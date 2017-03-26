@@ -70,7 +70,6 @@
   "gst-plugins-ugly010": "gst-plugins-ugly@0.10",
   "gstreamer010": "gstreamer@0.10",
   "hamsterdb": "upscaledb",
-  "hdf4": "hdf@4",
   "heroku-toolbelt": "heroku",
   "influxdb08": "influxdb@0.8",
   "isl011": "isl@0.11",
