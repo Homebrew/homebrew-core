@@ -11,6 +11,12 @@ class Cocoapods < Formula
     sha256 "d31d6d9de2bc4aa582d5804ea9d1f5485d54ea6981f85db55ad69200dab06a25" => :yosemite
   end
 
+  devel do
+    url "https://github.com/CocoaPods/CocoaPods/archive/1.2.1.beta.1.tar.gz"
+    version "1.2.1.beta.1"
+    sha256 "df3f5ad6171f9b5852b722bbea9bbc3039318c295b28fccd128403205a2aa5b9"
+  end
+
   def install
     ENV["GEM_HOME"] = libexec
     system "gem", "build", "cocoapods.gemspec"
