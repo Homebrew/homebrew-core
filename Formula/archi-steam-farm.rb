@@ -7,9 +7,9 @@ class ArchiSteamFarm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ff52ca5cf441c28d3ee040048ce75cde101f087e8c350c5e3d0979bf28e0c535" => :sierra
-    sha256 "ff52ca5cf441c28d3ee040048ce75cde101f087e8c350c5e3d0979bf28e0c535" => :el_capitan
-    sha256 "ff52ca5cf441c28d3ee040048ce75cde101f087e8c350c5e3d0979bf28e0c535" => :yosemite
+    sha256 "ddf1afce7277a662a8ddc7fd554b8e413d35d8dc57535ecbbb2a6ba0c6791401" => :sierra
+    sha256 "ddf1afce7277a662a8ddc7fd554b8e413d35d8dc57535ecbbb2a6ba0c6791401" => :el_capitan
+    sha256 "ddf1afce7277a662a8ddc7fd554b8e413d35d8dc57535ecbbb2a6ba0c6791401" => :yosemite
   end
 
   depends_on "mono"
