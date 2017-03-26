@@ -3,6 +3,7 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.1.tar.bz2"
   sha256 "ccfb2d0a61e2a9c374d51e099b0d833b09241ee78fc17e1fe38e3b282160237c"
+  revision 1
 
   bottle do
     sha256 "baf85ad1fa8a558189174242c4a38eb0776ad619cb8fdf105e6a84d7159eea5d" => :sierra
@@ -79,21 +80,19 @@ class Ruby < Formula
   end
 
   def post_install
+    ruby = "#{bin}/ruby#{program_suffix}"
+    abi_version = `#{ruby} -e 'print Gem.ruby_api_version'`
+
     # Customize rubygems to look/install in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
     config_file = lib/"ruby/#{abi_version}/rubygems/defaults/operating_system.rb"
     config_file.unlink if config_file.exist?
-    config_file.write rubygems_config
+    config_file.write rubygems_config(abi_version)
 
     # Create the sitedir and vendordir that were skipped during install
-    ruby="#{bin}/ruby#{program_suffix}"
     %w[sitearchdir vendorarchdir].each do |dir|
       mkdir_p `#{ruby} -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
     end
-  end
-
-  def abi_version
-    "2.4.1"
   end
 
   def program_suffix
@@ -104,7 +103,7 @@ class Ruby < Formula
     "#{HOMEBREW_PREFIX}/bin"
   end
 
-  def rubygems_config; <<-EOS.undent
+  def rubygems_config(abi_version); <<-EOS.undent
     module Gem
       class << self
         alias :old_default_dir :default_dir
