@@ -1,9 +1,8 @@
 class Asn1c < Formula
   desc "Compile ASN.1 specifications into C source code"
   homepage "https://lionet.info/asn1c/blog/"
-  url "https://github.com/vlm/asn1c/releases/download/v0.9.27/asn1c-0.9.27.tar.gz"
-  mirror "https://lionet.info/soft/asn1c-0.9.27.tar.gz"
-  sha256 "025f64e1c27211b36e181350b52fde34ad23f4330fff96b2563ed3fda7b0db9e"
+  url "https://github.com/vlm/asn1c/releases/download/v0.9.28/asn1c-0.9.28.tar.gz"
+  sha256 "8007440b647ef2dd9fb73d931c33ac11764e6afb2437dbe638bb4e5fc82386b9"
 
   bottle do
     sha256 "3f959cce0a231c1aff0f4dd5c5f4824314e3546aeb914b549843fe93b66f8816" => :sierra
