@@ -195,6 +195,7 @@
   "pangox-compat": "homebrew/boneyard",
   "paq8px": "homebrew/boneyard",
   "par2tbb": "homebrew/boneyard",
+  "passpie": "homebrew/boneyard",
   "pcb": "homebrew/science",
   "pdf-tools": "dunn/emacs",
   "pdfjam": "homebrew/tex",
