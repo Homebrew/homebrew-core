@@ -3,8 +3,8 @@ class Shyaml < Formula
 
   desc "Command-line YAML parser"
   homepage "https://github.com/0k/shyaml"
-  url "https://files.pythonhosted.org/packages/c7/2e/91fa96f88c40fe65c8a85d5874090277b83024f872755f963d676a2bf177/shyaml-0.4.2.tar.gz"
-  sha256 "ec87ce7b633fe0b8a16b9491e7434fd4345e55aa6343a567bc22c50190ba4d0f"
+  url "https://files.pythonhosted.org/packages/f7/ec/4143e8ba92d1d3654535f17bc4354f72d3a3e7d6984926d9a7ce1dec46ed/shyaml-0.5.0.tar.gz"
+  sha256 "b3711011d37aae4e07b68b31e989aa3715548d5b0759898eda2ba437b9ae3c36"
   head "https://github.com/0k/shyaml.git"
 
   bottle do
