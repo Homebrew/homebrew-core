@@ -6,6 +6,13 @@ class WriteGood < Formula
   url "https://github.com/btford/write-good/archive/v0.10.0.tar.gz"
   sha256 "1800b456b8838b98045192aed1fe51255282007786a211141de4db7f70d5e13c"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "24e7a9e9bd36b2b42760876bfacd3eb1a963291cf8ec19a4f4569358bba3c578" => :sierra
+    sha256 "5e184f772e79b219537e6bb327c73b2e64506754a1fa7b64f19cca1695dcdd41" => :el_capitan
+    sha256 "37d206e7ac96493aa2cfb2424dc62f75765ae509f66fac44b6472e74ee02f4e7" => :yosemite
+  end
+
   depends_on "node"
 
   def install
