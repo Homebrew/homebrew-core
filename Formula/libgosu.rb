@@ -8,9 +8,9 @@ class Libgosu < Formula
 
   bottle do
     cellar :any
-    sha256 "56038b7f65a80e6a491d572b02eb04d59a93b04e102b72f74c6b16e8cb3dab12" => :sierra
-    sha256 "e1a31413ac54cc2963da75641d53194ca56bedfd33a0290790776659c326b5ca" => :el_capitan
-    sha256 "c1af350af10e5a4261097e929e17801cde54b11299837a7e7ee95454fae07ee4" => :yosemite
+    sha256 "6c17c6b07b7c34178d9f11311a1d4545c40d32d70111cae9d5f441c140f8f338" => :sierra
+    sha256 "f67880ff41a81d63c87dca466441d695552bad6026249eef361a301e9badae91" => :el_capitan
+    sha256 "9014132e29491f801da5f3fe223096d36326c63af3ad6801cd7376dc516bf5e1" => :yosemite
   end
 
   depends_on "cmake" => :build
