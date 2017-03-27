@@ -1,9 +1,8 @@
 class Libtommath < Formula
   desc "C library for number theoretic multiple-precision integers"
   homepage "http://www.libtom.net/LibTomMath/"
-  url "https://github.com/libtom/libtommath/releases/download/v0.42.0/ltm-0.42.0.tar.bz2"
-  mirror "https://distfiles.macports.org/libtommath/ltm-0.42.0.tar.bz2"
-  sha256 "7b5c258304c34ac5901cfddb9f809b9b3b8ac7d04f700cf006ac766a923eb217"
+  url "https://github.com/libtom/libtommath/releases/download/v1.0/ltm-1.0.tar.xz"
+  sha256 "993a7df9ee091fca430cdde3263df57d88ef62af8103903214da49fc51bbb56c"
   head "https://github.com/libtom/libtommath.git"
 
   bottle do
@@ -20,7 +19,13 @@ class Libtommath < Formula
     ENV["DESTDIR"] = prefix
 
     system "make"
+    system "make", "test_standalone"
     include.install Dir["tommath*.h"]
     lib.install "libtommath.a"
+    pkgshare.install "test"
+  end
+
+  test do
+    system pkgshare/"test"
   end
 end
