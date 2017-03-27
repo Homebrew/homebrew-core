@@ -4,9 +4,10 @@ class ElmFormat < Formula
   include Language::Haskell::Cabal
   desc "Elm source code formatter, inspired by gofmt."
   homepage "https://github.com/avh4/elm-format"
-  url "https://github.com/avh4/elm-format/archive/0.5.2-alpha.tar.gz"
-  version "0.5.2-alpha"
-  sha256 "3bf9d54298333139609a991364a3d8549766cf4462cb25021c65b7f5c5bc0bf3"
+  url "https://github.com/avh4/elm-format.git",
+      :tag => "0.6.0-alpha",
+      :revision => "6e79d9a5daf04d9e6d2c23b9098f50e59a734a8e"
+  version "0.6.0-alpha"
   head "https://github.com/avh4/elm-format.git"
 
   bottle do
