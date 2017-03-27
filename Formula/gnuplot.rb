@@ -22,7 +22,6 @@ class Gnuplot < Formula
   option "without-lua", "Build without the lua/TikZ terminal"
   option "with-test", "Verify the build with make check"
   option "with-wxmac", "Build wxmac support. Need with-cairo to build wxt terminal"
-  option "with-tex", "Build with LaTeX support"
   option "with-aquaterm", "Build with AquaTerm support"
   option "without-gd", "Build without gd based terminals"
   option "with-libcerf", "Build with libcerf support"
@@ -37,8 +36,6 @@ class Gnuplot < Formula
   deprecated_option "nolua" => "without-lua"
   deprecated_option "tests" => "with-test"
   deprecated_option "with-tests" => "with-test"
-  deprecated_option "latex" => "with-tex"
-  deprecated_option "with-latex" => "with-tex"
 
   depends_on "pkg-config" => :build
   depends_on "gd" => :recommended
@@ -48,7 +45,6 @@ class Gnuplot < Formula
   depends_on "pdflib-lite" => :optional
   depends_on "qt@5.7" => :optional
   depends_on "wxmac" => :optional
-  depends_on :tex => :optional
   depends_on :x11 => :optional
 
   needs :cxx11 if build.with? "qt@5.7"
@@ -88,6 +84,7 @@ class Gnuplot < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --with-readline=#{Formula["readline"].opt_prefix}
+      --without-latex
     ]
 
     args << "--without-libcerf" if build.without? "libcerf"
@@ -114,12 +111,6 @@ class Gnuplot < Formula
     args << "--without-lua" if build.without? "lua"
     args << ((build.with? "aquaterm") ? "--with-aquaterm" : "--without-aquaterm")
     args << ((build.with? "x11") ? "--with-x" : "--without-x")
-
-    if build.with? "tex"
-      args << "--with-latex"
-    else
-      args << "--without-latex"
-    end
 
     system "./prepare" if build.head?
     system "./configure", *args
