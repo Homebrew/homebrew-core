@@ -1,8 +1,8 @@
 class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
-  url "https://github.com/vim/vim/archive/v8.0.0512.tar.gz"
-  sha256 "79768d312a4d20240e7201a5768b5799097eb085bade967499864eda8cf00601"
+  url "https://github.com/vim/vim/archive/v8.0.0515.tar.gz"
+  sha256 "f7ee6be1232602a6eaa156e0bb5a6cea356ad8991bfe81b690b7f0cf235b635d"
   head "https://github.com/vim/vim.git"
 
   bottle do
