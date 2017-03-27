@@ -17,7 +17,7 @@ class Getdns < Formula
   depends_on "openssl"
   depends_on "unbound"
   depends_on "libidn"
-  depends_on "libevent" => :optional
+  depends_on "libevent" => :recommended
   depends_on "libuv" => :optional
   depends_on "libev" => :optional
 
