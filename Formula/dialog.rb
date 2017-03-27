@@ -1,9 +1,9 @@
 class Dialog < Formula
   desc "Display user-friendly dialog boxes from shell scripts"
   homepage "http://invisible-island.net/dialog/"
-  url "ftp://invisible-island.net/dialog/dialog-1.3-20160209.tgz"
-  mirror "https://fossies.org/linux/misc/dialog-1.3-20160209.tgz"
-  sha256 "0314f7f2195edc58e7567a024dc1d658c2f8ea732796d8fa4b4927df49803f87"
+  url "ftp://invisible-island.net/dialog/dialog-1.3-20170131.tgz"
+  mirror "https://fossies.org/linux/misc/dialog-1.3-20170131.tgz"
+  sha256 "81baec14cb7d76951763576ec276210b3a869e768ad5e2e6ee1cc53420ece8c9"
 
   bottle do
     cellar :any_skip_relocation
