@@ -13,10 +13,10 @@ class Lemon < Formula
   end
 
   def install
-    (share/"lemon").install "lempar.c"
+    pkgshare.install "lempar.c"
 
     # patch the parser generator to look for the 'lempar.c' template file where we've installed it
-    inreplace "lemon.c", / = pathsearch\([^)]*\);/, " = \"#{share}/lemon/lempar.c\";"
+    inreplace "lemon.c", / = pathsearch\([^)]*\);/, " = \"#{pkgshare}/lempar.c\";"
 
     system ENV.cc, "-o", "lemon", "lemon.c"
     bin.install "lemon"
