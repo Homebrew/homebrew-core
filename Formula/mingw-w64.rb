@@ -1,8 +1,8 @@
 class MingwW64 < Formula
   desc "Minimalist GNU for Windows and GCC cross-compilers"
   homepage "https://mingw-w64.org/"
-  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.1.tar.bz2"
-  sha256 "9bb5cd7df78817377841a63555e73596dc0af4acbb71b09bd48de7cf24aeadd2"
+  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.2.tar.bz2"
+  sha256 "5f46e80ff1a9102a37a3453743dae9df98262cba7c45306549ef7432cfd92cfd"
 
   bottle do
     sha256 "99d147a5ad2241d17eebf18ccc5a6614175d7b71f2046c091408d1b63578c261" => :sierra
