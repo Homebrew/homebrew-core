@@ -4,7 +4,7 @@ class Getdns < Formula
   url "https://getdnsapi.net/releases/getdns-1-0-0/getdns-1.0.0.tar.gz"
   sha256 "a0460269c6536501a7c0af9bc97f9339e05a012f8191d5c10f79042aa62f9e96"
 
-  head "https://github.com/getdnsapi/getdns.git"
+  head "https://github.com/getdnsapi/getdns.git", :branch => "develop"
 
   bottle do
     cellar :any
@@ -21,7 +21,18 @@ class Getdns < Formula
   depends_on "libuv" => :optional
   depends_on "libev" => :optional
 
+  if build.head?
+    depends_on "libtool"
+    depends_on "autoconf"
+    depends_on "automake"
+  end
+
   def install
+    if build.head?
+      system "glibtoolize", "-ci"
+      system "autoreconf", "-fi"
+    end
+
     args = [
       "--with-ssl=#{Formula["openssl"].opt_prefix}",
       "--with-trust-anchor=#{etc}/getdns-root.key",
