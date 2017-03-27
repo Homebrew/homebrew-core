@@ -18,7 +18,6 @@ class GnuplotAT4 < Formula
   option "without-lua", "Build without the lua/TikZ terminal"
   option "with-test", "Verify the build with make check (1 min)"
   option "without-emacs", "Do not build Emacs lisp files"
-  option "with-tex", "Build with LaTeX support"
   option "with-aquaterm", "Build with AquaTerm support"
   option "with-x11", "Build with X11 support"
 
@@ -33,7 +32,6 @@ class GnuplotAT4 < Formula
   depends_on "pango" if (build.with? "cairo") || (build.with? "wxmac")
   depends_on "pdflib-lite" => :optional
   depends_on "wxmac" => :optional
-  depends_on :tex => :optional
   depends_on :x11 => :optional
 
   def install
@@ -57,6 +55,7 @@ class GnuplotAT4 < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --with-readline=#{readline}
+      --without-latex
     ]
 
     args << "--with-pdf=#{pdflib}" if build.with? "pdflib-lite"
@@ -71,7 +70,6 @@ class GnuplotAT4 < Formula
     args << (build.with?("emacs") ? "--with-lispdir=#{elisp}" : "--without-lisp-files")
     args << (build.with?("aquaterm") ? "--with-aquaterm" : "--without-aquaterm")
     args << (build.with?("x11") ? "--with-x" : "--without-x")
-    args << (build.with?("tex") ? "--with-latex" : "--without-latex")
 
     # From latest gnuplot formula on core:
     # > The tutorial requires the deprecated subfigure TeX package installed
