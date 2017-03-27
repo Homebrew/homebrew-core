@@ -19,8 +19,8 @@ class MingwW64 < Formula
   depends_on "texinfo" => :build
 
   resource "binutils" do
-    url "https://ftpmirror.gnu.org/binutils/binutils-2.27.tar.gz"
-    sha256 "26253bf0f360ceeba1d9ab6965c57c6a48a01a8343382130d1ed47c468a3094f"
+    url "https://ftpmirror.gnu.org/binutils/binutils-2.28.tar.gz"
+    sha256 "cd717966fc761d840d451dbd58d44e1e5b92949d2073d75b73fccb476d772fcf"
   end
 
   resource "gcc" do
