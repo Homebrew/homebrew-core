@@ -8,9 +8,9 @@ class Todoman < Formula
   head "https://github.com/pimutils/todoman.git"
 
   bottle do
-    sha256 "7c255d2677b305960d54ca7b2d1f63575da83a5753f264b463401a7f37fb42c4" => :sierra
-    sha256 "33fb0ada27417cc296a5e8a83addb16232962769c146dbe1c62e564b23d1654f" => :el_capitan
-    sha256 "0da6d54ad69c07e56484292805fa65e35e9367d795c530f7d903dd15ee3f7aa9" => :yosemite
+    sha256 "977cfd59c0fa06d1a874c0b2fbeee964245c5c83767c20094fe9552e0b8df3dd" => :sierra
+    sha256 "825f9172dd01baaa93a6fe9e2eb75f5b9ef3c2aff0094d948a6332ace0b62e43" => :el_capitan
+    sha256 "a7c4bb8f55a5ac9734017905f313f11ee7d6533d8bfa8d6834bb3706c3dab8c4" => :yosemite
   end
 
   depends_on :python3
