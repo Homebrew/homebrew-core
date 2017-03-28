@@ -1,8 +1,8 @@
 class Ragel < Formula
   desc "State machine compiler"
   homepage "https://www.colm.net/open-source/ragel/"
-  url "https://www.colm.net/files/ragel/ragel-6.9.tar.gz"
-  sha256 "6e07be0fab5ca1d9c2d9e177718a018fc666141f594a5d6e7025658620cf660a"
+  url "https://www.colm.net/files/ragel/ragel-6.10.tar.gz"
+  sha256 "5f156edb65d20b856d638dd9ee2dfb43285914d9aa2b6ec779dac0270cd56c3f"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,8 +14,8 @@ class Ragel < Formula
   end
 
   resource "pdf" do
-    url "https://www.colm.net/files/ragel/ragel-guide-6.9.pdf"
-    sha256 "3f9406b0471facaf775c4d868fb545640d08f4df7ad9578db1e36ddef0afd608"
+    url "https://www.colm.net/files/ragel/ragel-guide-6.10.pdf"
+    sha256 "efa9cf3163640e1340157c497db03feb4bc67d918fc34bc5b28b32e57e5d3a4e"
   end
 
   def install
