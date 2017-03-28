@@ -3,8 +3,8 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v0.13.5.tar.gz"
-  sha256 "5771bd2f7a1ef796113c584bfefb82a8049aaff7de6d43d11d934f4cd4f285d3"
+  url "https://github.com/pre-commit/pre-commit/archive/v0.13.6.tar.gz"
+  sha256 "8c17b735467247097a1505b9259813a3ff7899e8534b12f4a68290b1f5fe6f32"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,8 +16,8 @@ class PreCommit < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "aspy.yaml" do
-    url "https://files.pythonhosted.org/packages/f0/68/49af646ea5d7ea4a53209109c89a811e5b2569e802d4fcd28763cdded43c/aspy.yaml-0.2.1.tar.gz"
-    sha256 "a91370183aea63c87d8487e7b399ed2d99a7c2f14b108d27c0bc8ad9ef595d9a"
+    url "https://github.com/asottile/aspy.yaml/archive/v0.2.2.tar.gz"
+    sha256 "91940ed68ae9bf4d72a70e26b133be2affc9912935c131dcfaeb99ba7099aa29"
   end
 
   resource "cached-property" do
