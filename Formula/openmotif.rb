@@ -1,9 +1,8 @@
 class Openmotif < Formula
   desc "LGPL release of the Motif toolkit"
   homepage "https://motif.ics.com/motif"
-  url "https://downloads.sourceforge.net/project/motif/Motif%202.3.6%20Source%20Code/motif-2.3.6.tar.gz"
-  sha256 "fa810e6bedeca0f5a2eb8216f42129bcf6bd23919068d433e386b7bfc05d58cf"
-  revision 1
+  url "https://downloads.sourceforge.net/project/motif/Motif%202.3.7%20Source%20Code/motif-2.3.7.tar.gz"
+  sha256 "8f7aadbb0f42df2093d4690735a2b9a02ea2bf69dfb15ae0a39cae28f1580d14"
 
   bottle do
     sha256 "eb39560a1fa08efa0e20f91497cf229a6481819c342ef1f2d457f0f9947abe19" => :sierra
@@ -36,12 +35,6 @@ class Openmotif < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/b10858b/openmotif/patch-lib-XmP.h.diff"
     sha256 "320754bd0c1fa520c7576f3c7a22249a9b741c12f29606652add4a7a62c75d3f"
-  end
-
-  # Fixes "malloc.h not found" (reported upstream via email)
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b10858b/openmotif/patch-demos-xrmLib.c.diff"
-    sha256 "047f7b4cac522f3374990a3a2fcfb49259750104488b8a43cccfb3109ac5c8e0"
   end
 
   # Fix VendorShell reference for XQuartz 2.7.9+
