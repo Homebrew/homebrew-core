@@ -45,6 +45,10 @@ class Getdns < Formula
     args << "--with-libev" if build.with? "libev"
     args << "--with-libuv" if build.with? "libuv"
 
+    # Current Makefile layout prevents simultaneous job execution
+    # https://github.com/getdnsapi/getdns/issues/166
+    ENV.deparallelize
+
     system "./configure", "--prefix=#{prefix}", *args
     system "make", "install"
   end
