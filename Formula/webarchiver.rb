@@ -17,7 +17,7 @@ class Webarchiver < Formula
   depends_on :xcode => ["6.0.1", :build]
 
   def install
-    xcodebuild
+    xcodebuild "SYMROOT=build"
     bin.install "./build/Release/webarchiver"
   end
 

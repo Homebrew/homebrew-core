@@ -37,7 +37,7 @@ class Platypus < Formula
     This formula only installs the command-line Platypus tool, not the GUI.
 
     The GUI can be downloaded from Platypus' website:
-      http://sveinbjorn.org/platypus
+      https://sveinbjorn.org/platypus
 
     Alternatively, install with Homebrew-Cask:
       brew cask install platypus

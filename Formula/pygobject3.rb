@@ -1,14 +1,14 @@
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
   homepage "https://live.gnome.org/PyGObject"
-  url "https://download.gnome.org/sources/pygobject/3.22/pygobject-3.22.0.tar.xz"
-  sha256 "08b29cfb08efc80f7a8630a2734dec65a99c1b59f1e5771c671d2e4ed8a5cbe7"
+  url "https://download.gnome.org/sources/pygobject/3.24/pygobject-3.24.0.tar.xz"
+  sha256 "4e228b1c0f36e810acd971fad1c7030014900d8427c308d63a560f3f1037fa3c"
 
   bottle do
     cellar :any
-    sha256 "50b65d122993af6a29aa5c4a658f8dc4fb2d7ff6b557248043550dff69bff643" => :sierra
-    sha256 "ab749908e5675d75b8709e711f56d51f5747b4d5242b847b4ede481ab681b7d2" => :el_capitan
-    sha256 "dd5e3f9c4c01bd6633635d3189f6ca3af9af81c1c302de8df22414e067252ee0" => :yosemite
+    sha256 "66741856284cc5db7d9af874c0928a77a02b24393283e1e2c79afd455ea8ac0e" => :sierra
+    sha256 "754210bae699dd5b6fb2d5947358a075aa1c1b073aedb501e5c428745abe9a12" => :el_capitan
+    sha256 "a24420da59fae5978cefe8caf71270e8113b8643772689617562ca6b8ef30a83" => :yosemite
   end
 
   option "without-python", "Build without python2 support"

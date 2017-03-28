@@ -1,18 +1,16 @@
 class Ejdb < Formula
   desc "C library based on modified version of Tokyo Cabinet"
   homepage "http://ejdb.org"
-  url "https://github.com/Softmotions/ejdb/archive/v1.2.10.tar.gz"
-  sha256 "3a6d4a487e02c05dd67e72a77ee6082fbb1f5a19d4f7f15d14e1c891bbfe520e"
+  url "https://github.com/Softmotions/ejdb/archive/v1.2.12.tar.gz"
+  sha256 "858b58409a2875eb2b0c812ce501661f1c8c0378f7756d2467a72a1738c8a0bf"
 
   head "https://github.com/Softmotions/ejdb.git"
 
   bottle do
-    cellar :any
-    sha256 "a8b8caef51716f75017c119a66d43cb82bab6dc5c9722c5d20d4b63f59c7e380" => :sierra
-    sha256 "d001784780d47984c2172aba208c881d884153c96c0aedecb3a35efd4c08710d" => :el_capitan
-    sha256 "15c0f59354c39a9481591bbfad7e46f8c87cfeda8371e27728009b0fc20fc923" => :yosemite
-    sha256 "4afc62e8452bc92ebd72c89b134b16f5d9781f56eee2b7b75e1ab03698ca5fc7" => :mavericks
-    sha256 "246e34413c364ce13accac4c23169ebf42daaba94f1aa90c770fafd6aa74a6b0" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "d48da7bc7966e2be2c5c460f99d0e724794af118d66113276324047f92373478" => :sierra
+    sha256 "1c641947e4fc5f639050f49421ad28701fb91a3f91884e46af81030ec4fff607" => :el_capitan
+    sha256 "c349070a47065657f970481d75e39045ede6762f97059c25cdd2f90a764d75f4" => :yosemite
   end
 
   depends_on "cmake" => :build

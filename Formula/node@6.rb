@@ -1,15 +1,14 @@
 class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.10.0/node-v6.10.0.tar.xz"
-  sha256 "f65d5d4b7253ee29f3ba4edabd3473845075e43569bceea4267e7bf3e00ebb96"
-  revision 1
+  url "https://nodejs.org/dist/v6.10.1/node-v6.10.1.tar.xz"
+  sha256 "6547c1c25440bd71d75f8a23590c2cd6d1c00c0c72736b5de79e7152566fd4b2"
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    sha256 "8cf46b61f3a6feead5dc512f6a20c5f9274416bc7cb84e004ea428092cd102bb" => :sierra
-    sha256 "9b5b15a0fcf0d2a5543f8188244a47585f85c95a44e7e126a9ea2d597533edf0" => :el_capitan
-    sha256 "6865ac26a811f504356d46e15b8dfadb066fed10d26e07304755216936ef84d7" => :yosemite
+    sha256 "56a4a26647c5a401a0c5bb9777614209cff3d1c10cf02a4c54c9256784b19689" => :sierra
+    sha256 "6ea6eee7a7cf172c8abee188ce21d752d52d21d24a133a85b39293359a2fa2e4" => :el_capitan
+    sha256 "6c457e56ebb0e12d9aa83594c435cad5916e61776f2fec71c6fefa3b05c7867e" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -39,10 +38,10 @@ class NodeAT6 < Formula
   end
 
   resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz"
-    mirror "https://fossies.org/linux/misc/icu4c-57_1-src.tgz"
-    version "57.1"
-    sha256 "ff8c67cb65949b1e7808f2359f2b80f722697048e90e7cfc382ec1fe229e9581"
+    url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
+    mirror "https://fossies.org/linux/misc/icu4c-58_2-src.tgz"
+    version "58.2"
+    sha256 "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
   end
 
   def install

@@ -9,9 +9,10 @@ class Yarn < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "20ebc2f2bce300095a0af7b9ef2aca712992bb24a8410424610ed133c3eabdef" => :sierra
-    sha256 "80a321ef5d474ce6d4093b994f425f43e4de05cf93b366c29190fe618fc4711b" => :el_capitan
-    sha256 "086f619f9712c9e012e9c1797db630b2118e2d91ad3ebc8102038d3da427353a" => :yosemite
+    rebuild 2
+    sha256 "9858ac5a34367b65a20ee828cba84ded38ac1bd9920f6c11c28e5d3a896755cf" => :sierra
+    sha256 "de303f2b4ab5fe273082118825b01c3ef64bb4e109fc62d36eeb37d23dfe7b81" => :el_capitan
+    sha256 "9b0b0e12931a58f5ef2a29372a353f46a65d81de492cf919cb9ece34019cd999" => :yosemite
   end
 
   depends_on "node"
@@ -19,6 +20,7 @@ class Yarn < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
+    inreplace "#{libexec}/lib/node_modules/yarn/package.json", '"installationMethod": "tar"', '"installationMethod": "homebrew"'
   end
 
   test do

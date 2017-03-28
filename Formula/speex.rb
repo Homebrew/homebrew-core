@@ -1,6 +1,6 @@
 class Speex < Formula
   desc "Audio codec designed for speech"
-  homepage "http://speex.org"
+  homepage "https://speex.org"
   url "http://downloads.us.xiph.org/releases/speex/speex-1.2.0.tar.gz"
   sha256 "eaae8af0ac742dc7d542c9439ac72f1f385ce838392dc849cae4536af9210094"
 

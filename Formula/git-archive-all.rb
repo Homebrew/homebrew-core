@@ -1,15 +1,15 @@
 class GitArchiveAll < Formula
   desc "Archive a project and its submodules"
   homepage "https://github.com/Kentzo/git-archive-all"
-  url "https://github.com/Kentzo/git-archive-all/archive/1.16.tar.gz"
-  sha256 "1e739d4ffeda6a9675b7474d23f80d7d115058225b44594175684a6230f141f0"
+  url "https://github.com/Kentzo/git-archive-all/archive/1.16.4.tar.gz"
+  sha256 "90ea149344cc467f218b4845521e6a86f6345d1bda92505d7dd384c3d9242cb1"
   head "https://github.com/Kentzo/git-archive-all.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "76c8a8c7a9b4918e8cd9751dd99bf2648711a1d7450949dc434415ea26d020cc" => :sierra
-    sha256 "76c8a8c7a9b4918e8cd9751dd99bf2648711a1d7450949dc434415ea26d020cc" => :el_capitan
-    sha256 "76c8a8c7a9b4918e8cd9751dd99bf2648711a1d7450949dc434415ea26d020cc" => :yosemite
+    sha256 "fcf25d28196f392663004bc5456484faed750e510b02bae78184180442f794c9" => :sierra
+    sha256 "fcf25d28196f392663004bc5456484faed750e510b02bae78184180442f794c9" => :el_capitan
+    sha256 "fcf25d28196f392663004bc5456484faed750e510b02bae78184180442f794c9" => :yosemite
   end
 
   def install

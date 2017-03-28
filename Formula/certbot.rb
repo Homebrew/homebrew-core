@@ -5,12 +5,14 @@ class Certbot < Formula
   homepage "https://certbot.eff.org/"
   url "https://github.com/certbot/certbot/archive/v0.12.0.tar.gz"
   sha256 "6f37d55d01c21e8360bbfb1bf988479216d8cbec65fde3c603bb07f3dd24c5b4"
+  revision 1
+
   head "https://github.com/certbot/certbot.git"
 
   bottle do
-    sha256 "9829d574339506e5d32e996a59243a21fbd2f2e36dfde6ee7a782328c4906715" => :sierra
-    sha256 "bf56f71a462200aa9119febbbebc1bfdb948e417544431cd4802570134d3cf95" => :el_capitan
-    sha256 "d3d84c74c23827d0fd276f6edab999cd2fa79c2c01c3e06f1e6b809f9d0adc76" => :yosemite
+    sha256 "addfe966d9b0a43b525fb2a9edb7244d5d82aedca35bcdac550ebf62ca43b7af" => :sierra
+    sha256 "8d250f456341a7ed45a8594846ee29fc5da8c20548d1cc21a43ab20dd63de56d" => :el_capitan
+    sha256 "afe30ebad81098fb638380d613da24825cc1c3453af9b216208bc07063c2a964" => :yosemite
   end
 
   depends_on "augeas"
@@ -19,8 +21,13 @@ class Certbot < Formula
   depends_on :python
 
   resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/88/99/293dac0b3cdf58ce029ec5393624fac5c6bde52f737f9775bd9ef608ec98/appdirs-1.4.2.tar.gz"
-    sha256 "e2de7ae2b3be52542b711eacf4221683f1d2f7706a5550cb2c562ee4ba93ee74"
+    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
+    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
+  end
+
+  resource "asn1crypto" do
+    url "https://files.pythonhosted.org/packages/ce/39/17e90c2efacc4060915f7d1f9b8d2a5b20e54e46233bdf3092e68193407d/asn1crypto-0.21.1.tar.gz"
+    sha256 "4e6d7b22814d680114a439faafeccb9402a78095fb23bf0b25f9404c6938a017"
   end
 
   resource "cffi" do
@@ -39,8 +46,8 @@ class Certbot < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/99/df/71c7260003f5c469cec3db4c547115df39e9ce6c719a99e067ba0e78fd8a/cryptography-1.7.2.tar.gz"
-    sha256 "878cb68b3da3d493ffd68f36db11c29deee623671d3287c3f8d685117ffda9a9"
+    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
+    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
   end
 
   resource "enum34" do
@@ -59,8 +66,8 @@ class Certbot < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/a3/06/40cb383eaea6e97047666db51abc2f2b32046f3e2a6e5ab2b946630f6062/idna-2.4.tar.gz"
-    sha256 "2a07165f6288f4b920aa8ab4357c1e59073c5d62e048a400510982769e039bd9"
+    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
+    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
   end
 
   resource "ipaddress" do
@@ -79,18 +86,13 @@ class Certbot < Formula
   end
 
   resource "parsedatetime" do
-    url "https://files.pythonhosted.org/packages/62/a3/0c546deec0c1ea5e20320daf7719df9419c2bee97f1a11b9feaf0143b0fc/parsedatetime-2.2.tar.gz"
-    sha256 "1b1b647812e336f85be84206e4fb1f2df3852e036ac35b18dec809e7ebff1309"
+    url "https://files.pythonhosted.org/packages/32/a8/29473ee95f1ceb5c3428d35387200be404cf6dfc60c110e75d775e27979a/parsedatetime-2.3.tar.gz"
+    sha256 "94ca3c9efcf2652a7a8ee6b11983e7344988a3c658fd617f8021689446ab79ee"
   end
 
   resource "pbr" do
     url "https://files.pythonhosted.org/packages/35/a5/3d1beff9fc149b3da814419369a8c24ecf0d1410637fc91002989f433a1a/pbr-2.0.0.tar.gz"
     sha256 "0ccd2db529afd070df815b1521f01401d43de03941170f8a800e7531faba265d"
-  end
-
-  resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/69/17/eec927b7604d2663fef82204578a0056e11e0fc08d485fdb3b6199d9b590/pyasn1-0.2.3.tar.gz"
-    sha256 "738c4ebd88a718e700ee35c8d129acce2286542daa80a82823a7073644f706ad"
   end
 
   resource "pycparser" do
@@ -104,8 +106,8 @@ class Certbot < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/38/bb/bf325351dd8ab6eb3c3b7c07c3978f38b2103e2ab48d59726916907cd6fb/pyparsing-2.1.10.tar.gz"
-    sha256 "811c3e7b0031021137fc83e051795025fcb98674d07eb8fe922ba4de53d39188"
+    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
+    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
   end
 
   resource "pyRFC3339" do
@@ -149,33 +151,8 @@ class Certbot < Formula
     sha256 "67d59d66cdba8d624e0389b87b2a83a176f21f16a87553b50f5703b23f29bac2"
   end
 
-  # Required for the nginx module.
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/38/bb/bf325351dd8ab6eb3c3b7c07c3978f38b2103e2ab48d59726916907cd6fb/pyparsing-2.1.10.tar.gz"
-    sha256 "811c3e7b0031021137fc83e051795025fcb98674d07eb8fe922ba4de53d39188"
-  end
-
   def install
-    venv = virtualenv_create(libexec)
-
-    resource("cryptography").stage do
-      if MacOS.version < :sierra
-        # Fixes .../cryptography/hazmat/bindings/_openssl.so: Symbol not found: _getentropy
-        # Reported 20 Dec 2016 https://github.com/pyca/cryptography/issues/3332
-        inreplace "src/_cffi_src/openssl/src/osrandom_engine.h",
-          "#elif defined(BSD) && defined(SYS_getentropy)",
-          "#elif defined(BSD) && defined(SYS_getentropy) && 0"
-      end
-      venv.pip_install Pathname.pwd
-    end
-
-    res = resources.map(&:name).to_set - ["cryptography"]
-
-    res.each do |r|
-      venv.pip_install resource(r)
-    end
-
-    venv.pip_install_and_link buildpath
+    venv = virtualenv_install_with_resources
 
     # Shipped with certbot, not external resources.
     %w[acme certbot-apache certbot-nginx].each do |r|

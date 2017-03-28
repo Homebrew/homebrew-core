@@ -1,18 +1,16 @@
 class Gotags < Formula
   desc "ctags-compatible tag generator for Go"
   homepage "https://github.com/jstemmer/gotags"
-  url "https://github.com/jstemmer/gotags/archive/v1.3.0.tar.gz"
-  sha256 "414e1f96b560b089f11f814cd9000974a8ee376bb2cd9119cce60368e89ba226"
+  url "https://github.com/jstemmer/gotags/archive/v1.4.0.tar.gz"
+  sha256 "7d186af067fbd998a92fd04ac5909b7e9ff15e693fbda666a160e280e47fdb7b"
 
   head "https://github.com/jstemmer/gotags.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e18d6c1bed87116106b8aad916712faf73dfe033e5f8a568e58447892446f3d7" => :sierra
-    sha256 "c3d45ab0288282b15e76d962064860c10fad509a68d58dcc339beee17f277609" => :el_capitan
-    sha256 "72d7d85afb135baca77daaff911ae71cb87bd4b5a63df3e7c509e809745ea272" => :yosemite
-    sha256 "c3d177bdf195516994e4179334d54897d74aef7e57b702d4e34224636b8a468e" => :mavericks
-    sha256 "55a3ed971042138f7e985547e0f6074c42bbd16ffe23c1ab4604285a69f1ec28" => :mountain_lion
+    sha256 "69101497dabc6607934235a8ab883935b60dcca5d0c355a58d0d2200203352e0" => :sierra
+    sha256 "42c5a4456f915aa0d2d248d1ddbd668356d30e3a4b6859314dbda4fcca715909" => :el_capitan
+    sha256 "caa89148a5f0271af601b5843893cbfdfc872bb278350819b6fa12c5ce051535" => :yosemite
   end
 
   depends_on "go" => :build

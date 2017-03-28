@@ -1,10 +1,10 @@
 class Blastem < Formula
   desc "Fast and accurate Genesis emulator"
-  homepage "http://rhope.retrodev.com/files/blastem.html"
-  url "http://rhope.retrodev.com/repos/blastem/archive/1ffa7891b4ec.tar.gz"
+  homepage "https://www.retrodev.com/blastem/"
+  url "https://www.retrodev.com/repos/blastem/archive/1ffa7891b4ec.tar.gz"
   version "0.4.1"
   sha256 "f9a15d2e381c7eb6f55f12b0d00f3d2779b0b29bea99b422484d6ada250655ba"
-  head "http://rhope.retrodev.com/repos/blastem", :using => :hg
+  head "https://www.retrodev.com/repos/blastem", :using => :hg
 
   bottle do
     cellar :any
@@ -70,7 +70,7 @@ class Blastem < Formula
     # https://github.com/Homebrew/homebrew-core/pull/1216
     resource("xcftools").stage do
       # Apply patch to build with libpng-1.5 or above
-      # http://anonscm.debian.org/cgit/collab-maint/xcftools.git/commit/?id=c40088b82c6a788792aae4068ddc8458de313a9b
+      # https://anonscm.debian.org/cgit/collab-maint/xcftools.git/commit/?id=c40088b82c6a788792aae4068ddc8458de313a9b
       inreplace "xcf2png.c", /png_(voidp|error_ptr)_NULL/, "NULL"
 
       system "./configure"

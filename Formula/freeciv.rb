@@ -1,6 +1,6 @@
 class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
-  homepage "http://freeciv.wikia.com"
+  homepage "https://freeciv.wikia.com/"
   url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.6/freeciv-2.5.6.tar.bz2"
   mirror "http://download.gna.org/freeciv/stable/freeciv-2.5.6.tar.bz2"
   sha256 "cfadc23eec11a5a8ae74a7d3719eb126026137f0700da065367fd55cbab6999b"

@@ -5,15 +5,26 @@ class Buku < Formula
   homepage "https://github.com/jarun/Buku"
   url "https://github.com/jarun/Buku/archive/v2.9.tar.gz"
   sha256 "d4175aab5fab72d41cd646f688311bc347d5fcdad23dc58ee87dffb695c5a51b"
+  revision 1
 
   bottle do
-    sha256 "05781a54d1595899a04375a5381fc079e9593d8665c0a009141ae8a76c28b091" => :sierra
-    sha256 "51df6f1c04872e0b9aff97a51a9a32ff5eefb48edf2ed18553ddc78c3b3ad048" => :el_capitan
-    sha256 "8d441a8293eb5acaf6a66592d39fe9fac574bbdeaea4bf792b68fea0e3a5c83c" => :yosemite
+    sha256 "6d237a8fbda814bc8f5f1c5739edeb4bad9701854fbe6760940aa6811684d700" => :sierra
+    sha256 "ba1c70daa46784ecb8bc317b9a9a8109c27be02b400e6fc000e2aa2bd16c7716" => :el_capitan
+    sha256 "079bdc221fe79f0b8f95dc35115ff9ee91324c8c6b7ad9a5737533a83c1240ce" => :yosemite
   end
 
   depends_on :python3
   depends_on "openssl@1.1"
+
+  resource "appdirs" do
+    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
+    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
+  end
+
+  resource "asn1crypto" do
+    url "https://files.pythonhosted.org/packages/ce/39/17e90c2efacc4060915f7d1f9b8d2a5b20e54e46233bdf3092e68193407d/asn1crypto-0.21.1.tar.gz"
+    sha256 "4e6d7b22814d680114a439faafeccb9402a78095fb23bf0b25f9404c6938a017"
+  end
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/9b/a5/c6fa2d08e6c671103f9508816588e0fb9cec40444e8e72993f3d4c325936/beautifulsoup4-4.5.3.tar.gz"
@@ -26,18 +37,18 @@ class Buku < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/99/df/71c7260003f5c469cec3db4c547115df39e9ce6c719a99e067ba0e78fd8a/cryptography-1.7.2.tar.gz"
-    sha256 "878cb68b3da3d493ffd68f36db11c29deee623671d3287c3f8d685117ffda9a9"
+    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
+    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/94/fe/efb1cb6f505e1a560b3d080ae6b9fddc11e7c542d694ce4635c49b1ccdcb/idna-2.2.tar.gz"
-    sha256 "0ac27740937d86850010e035c6a10a564158a5accddf1aa24df89b0309252426"
+    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
+    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
   end
 
-  resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/57/f7/c18a86169bb9995a69195177b23e736776b347fd92592da0c3cac9f1a724/pyasn1-0.2.2.tar.gz"
-    sha256 "6b42f96b942406712e0be5ea2bbbc57d8f30c7835a4904c9c195cc669736d435"
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
+    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
   end
 
   resource "pycparser" do
@@ -45,9 +56,9 @@ class Buku < Formula
     sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
   end
 
-  resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
-    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
+    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
   end
 
   resource "requests" do
@@ -67,22 +78,7 @@ class Buku < Formula
 
   def install
     venv = virtualenv_create(libexec, "python3")
-
-    resource("cryptography").stage do
-      if MacOS.version < :sierra
-        # Fixes .../cryptography/hazmat/bindings/_openssl.so: Symbol not found: _getentropy
-        # Reported 20 Dec 2016 https://github.com/pyca/cryptography/issues/3332
-        inreplace "src/_cffi_src/openssl/src/osrandom_engine.h",
-          "#elif defined(BSD) && defined(SYS_getentropy)",
-          "#elif defined(BSD) && defined(SYS_getentropy) && 0"
-      end
-      venv.pip_install Pathname.pwd
-    end
-
-    other_resources = resources.map(&:name).to_set - ["cryptography"]
-    other_resources.each do |r|
-      venv.pip_install resource(r)
-    end
+    venv.pip_install resources
 
     # Replace shebang with virtualenv python
     inreplace "buku.py", "#!/usr/bin/env python3", "#!#{libexec}/bin/python"

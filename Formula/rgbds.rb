@@ -1,17 +1,16 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
   homepage "https://github.com/rednex/rgbds"
-  url "https://github.com/rednex/rgbds/releases/download/v0.2.4/rgbds-0.2.4.tar.gz"
-  sha256 "a7d32f369c6acf65fc0875c72873ef21f4d3a5813d3a2ab74ea604429f7f0435"
+  url "https://github.com/rednex/rgbds/archive/v0.2.5.tar.gz"
+  sha256 "4bf10cbdd1f8f528c36d8ce92cc072d21e582fd75b5c21d13194b09d5c60ab25"
 
   head "https://github.com/rednex/rgbds.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ea6db1238c05eba1f3d37c06d55b73119f3dd8d7e8e748191b59fd24f91ad833" => :sierra
-    sha256 "46c4d64f4ac330933afec620fb70e469461157d28bd52ddc726ab25de412a3b4" => :el_capitan
-    sha256 "2cb8697c3899037e909218ad5b1786116ba1becbe735a68a0efc909e0c0a3478" => :yosemite
-    sha256 "c08b856ecf4cb57390ec99241d0bc87ba623536ab7e3e11d5cc23334230ff1cd" => :mavericks
+    cellar :any
+    sha256 "32bd3ca1a387e01d23ccc2b621b700c3f45bf7626b9bef91613c722b023eb77d" => :sierra
+    sha256 "9dbd994deb0e9f78e3bdaaefe4aa23b44b3a4cae1beddf87032f72ae006263ff" => :el_capitan
+    sha256 "7f71d3c42a1bb7908401f8bc45d3cd7ec00c48d6423c42c8b7add48e866d753f" => :yosemite
   end
 
   depends_on "pkg-config" => :build

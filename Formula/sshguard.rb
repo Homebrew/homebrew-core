@@ -4,24 +4,31 @@ class Sshguard < Formula
   url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.0.0/sshguard-2.0.0.tar.gz"
   sha256 "e87c6c4a6dddf06f440ea76464eb6197869c0293f0a60ffa51f8a6a0d7b0cb06"
   version_scheme 1
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2c125d21e3bd15476ee49dba004e0bdc694f8dbf16aa5b8d2753a8b700146e32" => :sierra
-    sha256 "8ad59f971162f79c1a65c48238b07058a03256784a9283c0675c25f1d582dfde" => :el_capitan
-    sha256 "20918ad422229e3d3fec35af56916d396963014b95341206bd1e905a3f553384" => :yosemite
+    sha256 "8a0e7842c9f1fc96dd135086b653b1fefe45353cbf630fb560f8852ea6aa91a0" => :sierra
+    sha256 "00091e528d72236eaa0f71a384f6ddd006349e36f9e3ac46b3bd2cf57941faeb" => :el_capitan
+    sha256 "280351ac89ad14d0b1aa589779d60c024bb1821d08571044a689c6aae39193d4" => :yosemite
   end
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-firewall=#{firewall}"
+                          "--sysconfdir=#{etc}"
     system "make", "install"
+    cp "examples/sshguard.conf.sample", "examples/sshguard.conf"
+    inreplace "examples/sshguard.conf" do |s|
+      s.gsub! /^#BACKEND=.*$/, "BACKEND=\"#{libexec}/sshg-fw-#{firewall}\""
+      if MacOS.version >= :sierra
+        s.gsub! %r{^#LOGREADER="/usr/bin/log}, "LOGREADER=\"/usr/bin/log"
+      else
+        s.gsub! /^#FILES.*$/, "FILES=#{log_path}"
+      end
+    end
+    etc.install "examples/sshguard.conf"
   end
 
   def firewall
@@ -59,8 +66,6 @@ class Sshguard < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_sbin}/sshguard</string>
-        <string>-l</string>
-        <string>#{log_path}</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
@@ -70,6 +75,6 @@ class Sshguard < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{sbin}/sshguard -v 2>&1", 78)
+    assert_match "SSHGuard #{version}", shell_output("#{sbin}/sshguard -v 2>&1")
   end
 end

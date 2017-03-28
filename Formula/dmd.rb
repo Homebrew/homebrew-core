@@ -28,6 +28,30 @@ class Dmd < Formula
     sha256 "5c2eeb78936b42e91edc2cb9038f6772b16af0ca2a3d24b4788261417077fcd3" => :yosemite
   end
 
+  devel do
+    url "https://github.com/dlang/dmd/archive/v2.074.0-b1.tar.gz"
+    sha256 "03f10875697a7d439620f2093873ea7c35085555e064382649ce087952549427"
+    version "2.074.0-b1"
+
+    resource "druntime" do
+      url "https://github.com/dlang/druntime/archive/v2.074.0-b1.tar.gz"
+      sha256 "501b8acb7dca5193f4614860523df099a0a16a2aec51e275f800ac5e09e14148"
+      version "2.074.0-b1"
+    end
+
+    resource "phobos" do
+      url "https://github.com/dlang/phobos/archive/v2.074.0-b1.tar.gz"
+      sha256 "1b7f26097026546560a0c03080b90120829560a847bec7ba368464152c09e3e5"
+      version "2.074.0-b1"
+    end
+
+    resource "tools" do
+      url "https://github.com/dlang/tools/archive/v2.074.0-b1.tar.gz"
+      sha256 "b92b6ebfebd69bca7453cfd742611fccadacae7bda52f5ddaad8ae20749e7625"
+      version "2.074.0-b1"
+    end
+  end
+
   head do
     url "https://github.com/dlang/dmd.git"
 

@@ -15,7 +15,7 @@ class Grap < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-example-dir=#{share}/grap/examples"
+                          "--with-example-dir=#{pkgshare}/examples"
     system "make"
     ENV.deparallelize
     system "make", "install"

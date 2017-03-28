@@ -1,5 +1,5 @@
 class GtkMacIntegration < Formula
-  desc "API to integrate GTK macOS applications with the Mac desktop"
+  desc "Integrates GTK macOS applications with the Mac desktop"
   homepage "https://wiki.gnome.org/Projects/GTK+/OSX/Integration"
   url "https://download.gnome.org/sources/gtk-mac-integration/2.0/gtk-mac-integration-2.0.8.tar.xz"
   sha256 "74fce9dbc5efe4e3d07a20b24796be1b1d6c3ac10a0ee6b1f1d685c809071b79"

@@ -1,6 +1,6 @@
 class Saldl < Formula
   desc "CLI downloader optimized for speed and early preview."
-  homepage "https://saldl.github.io"
+  homepage "https://saldl.github.io/"
   url "https://github.com/saldl/saldl/archive/v35.tar.gz"
   sha256 "6b5f45a8f7782bcad124df4a24876c8b3c47d45aa25d0b09b2030837c6ece82c"
 
@@ -42,7 +42,7 @@ class Saldl < Formula
   end
 
   test do
-    system "#{bin}/saldl", "http://brew.sh/index.html"
+    system "#{bin}/saldl", "https://brew.sh/index.html"
     assert File.exist? "index.html"
   end
 end

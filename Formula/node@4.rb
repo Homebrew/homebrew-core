@@ -1,15 +1,14 @@
 class NodeAT4 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v4.8.0/node-v4.8.0.tar.xz"
-  sha256 "67ea720419f902bd47e5c45a16ed45f8083c38ccd307b206a1dc53e862fad965"
-  revision 1
+  url "https://nodejs.org/dist/v4.8.1/node-v4.8.1.tar.xz"
+  sha256 "bae63f7fb43890047e3d9b0d5d51b839302890f12fec4af233030427afa78a4d"
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
-    sha256 "eeab13ade2b36289cd5ab610b7314fe6f8e98886b56b440b379c80b508baf218" => :sierra
-    sha256 "dd53e0888ae04e6d41044f896b729163bc105a6e1e532397406c65017f4ec0e0" => :el_capitan
-    sha256 "59ea5acb727d52ec8614c5fc77551ed2a01d025b8850d5acbbd48e4509eadf98" => :yosemite
+    sha256 "d0ca49718c6b1efba035bd390aa48d413136b74dc23fdfcc88d4f92eb739cbdb" => :sierra
+    sha256 "7e84a50e590c6de3010e5c34647a4232f5a1be17c76ad90b3a4160f2b1fb7e69" => :el_capitan
+    sha256 "266c7028cea96f14a5f4c9f8a64b63b64284e092f346e42a85c82f8e11104031" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -30,9 +29,9 @@ class NodeAT4 < Formula
   end
 
   resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/56.1/icu4c-56_1-src.tgz"
-    version "56.1"
-    sha256 "3a64e9105c734dcf631c0b3ed60404531bce6c0f5a64bfe1a6402a4cc2314816"
+    url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
+    version "58.2"
+    sha256 "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
   end
 
   def install

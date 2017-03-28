@@ -1,13 +1,13 @@
 class Gxml < Formula
   desc "GObject-based XML DOM API"
   homepage "https://wiki.gnome.org/GXml"
-  url "https://download.gnome.org/sources/gxml/0.12/gxml-0.12.0.tar.xz"
-  sha256 "f9310d81078df031c8a5defc90be814a4666e641fb242cd3f4b6f3b6706fb44d"
+  url "https://download.gnome.org/sources/gxml/0.14/gxml-0.14.1.tar.xz"
+  sha256 "9ed5277dd6d9f8aae4f185fe2f0151f146ab18871a48f378e59387383e0e0797"
 
   bottle do
-    sha256 "bfa5e9b306172cfebff6f082211097e4dd58d2ff38e539325b5bb2eb4f64e902" => :sierra
-    sha256 "311b442c57d36bce2236c3efd31be41bfbee6e1df36d6ebb3c070e7b8cfe9165" => :el_capitan
-    sha256 "39e9cbb51acb3e05455a4e7bef8f0bb0653d656c322532deb5186ff9bb8731bd" => :yosemite
+    sha256 "cdbd97020891f93bf0a7b21d1b904ac601046a59b80869c7add37e629a671798" => :sierra
+    sha256 "84ebd4e28631dd103839bbe34d18d601b2f70f3ac731cf95e946dabd4b1230e9" => :el_capitan
+    sha256 "883c9f6bdc530b517f4bd8309c2d22513c94c26bab11a69147a2a845f592f17b" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -57,7 +57,7 @@ class Gxml < Formula
       -I#{libxml2.opt_include}/libxml2
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/gxml-0.12
+      -I#{include}/gxml-0.14
       -I#{libgee.opt_include}/gee-0.8
       -D_REENTRANT
       -L#{gettext.opt_lib}
@@ -69,7 +69,7 @@ class Gxml < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lgxml-0.12
+      -lgxml-0.14
       -lintl
       -lxml2
     ]

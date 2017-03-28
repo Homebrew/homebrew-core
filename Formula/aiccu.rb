@@ -32,7 +32,7 @@ class Aiccu < Formula
         The TunTap project provides kernel extensions for macOS that allow
         creation of virtual network interfaces.
 
-        http://tuntaposx.sourceforge.net/
+        https://tuntaposx.sourceforge.io/
 
       You can install tuntap with homebrew using brew install tuntap
 

@@ -3,14 +3,15 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.3.3",
-      :revision => "d1d21cda78d60c1fe7cc2f86fe206522d0134528"
+      :tag => "2.3.4",
+      :revision => "f5bcc66ee39af1cdd1a9a55455e8e1543ae3f13e"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "22f6c145a95a2c238551b42ca7feeaa7510f794c3675fb171730c3749432986f" => :sierra
-    sha256 "e079ef9babf3a38729172a37b5971e0363dcb6d55a37544282cacceb907bdb3d" => :el_capitan
-    sha256 "c09ce9e5dce647bc53919955c29bbf2d1d02e79430b46ecc32adba86bca1e4d4" => :yosemite
+    sha256 "de745bc03d182d6156f6d793500cbc16087e7d869c175fb400db8b84d8a81440" => :sierra
+    sha256 "6f083844833d4d2522645d1d481fcc111731b44556d8e3e8f5d5108d1c2b8d56" => :el_capitan
+    sha256 "3e4bf00eb7f27daa347175b058bc3a7cbfbadf02f79490a6bce67d57b8c7b2b0" => :yosemite
   end
 
   fails_with :gcc => "6"
@@ -22,6 +23,7 @@ class Osquery < Formula
   depends_on "doxygen" => :build
   depends_on "asio"
   depends_on "augeas"
+  depends_on "boost"
   depends_on "snappy"
   depends_on "gflags"
   depends_on "glog"
@@ -51,11 +53,6 @@ class Osquery < Formula
   resource "aws-sdk-cpp" do
     url "https://github.com/aws/aws-sdk-cpp/archive/0.14.4.tar.gz"
     sha256 "2e935275c6f7eb25e7d850b354344c92cacb7c193b708ec64ffce10ec6afa7f4"
-  end
-
-  resource "boost" do
-    url "https://downloads.sourceforge.net/project/boost/boost/1.62.0/boost_1_62_0.tar.bz2"
-    sha256 "36c96b0f6155c98404091d8ceb48319a28279ca0333fba1ad8611eb90afb2ca0"
   end
 
   resource "cpp-netlib" do
@@ -104,47 +101,7 @@ class Osquery < Formula
       end
     end
 
-    resource("boost").stage do
-      # Force boost to compile with the desired compiler
-      open("user-config.jam", "a") do |file|
-        file.write "using darwin : : #{ENV.cxx} ;\n"
-        file.write "using mpi ;\n" if build.with? "mpi"
-      end
-
-      bootstrap_args = %W[
-        --without-icu
-        --prefix=#{vendor}/boost
-        --libdir=#{vendor}/boost/lib
-        --with-libraries=filesystem,regex,system,thread
-      ]
-
-      args = %W[
-        --prefix=#{vendor}/boost
-        --libdir=#{vendor}/boost/lib
-        -d2
-        -j#{ENV.make_jobs}
-        --ignore-site-config
-        --layout=tagged
-        --user-config=user-config.jam
-        install
-        threading=multi
-        link=static
-        optimization=space
-        variant=release
-        cxxflags=-std=c++11
-      ]
-
-      if ENV.compiler == :clang
-        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-      end
-
-      system "./bootstrap.sh", *bootstrap_args
-      system "./b2", "headers"
-      system "./b2", *args
-    end
-
     resource("cpp-netlib").stage do
-      ENV["BOOST_ROOT"] = vendor/"boost"
       args = std_cmake_args + %W[
         -DCMAKE_INSTALL_PREFIX=#{vendor}/cpp-netlib
         -DCPP-NETLIB_BUILD_TESTS=OFF
@@ -198,7 +155,6 @@ class Osquery < Formula
       system "./configure", "--disable-debug",
                             "--prefix=#{vendor}/thrift",
                             "--libdir=#{vendor}/thrift/lib",
-                            "--with-boost=#{vendor}/boost",
                             *exclusions
       system "make", "-j#{ENV.make_jobs}"
       system "make", "install"
@@ -211,8 +167,8 @@ class Osquery < Formula
     ENV.prepend_create_path "PYTHONPATH", buildpath/"third-party/python/lib/python2.7/site-packages"
     ENV["THRIFT_HOME"] = vendor/"thrift"
 
-    res = resources.map(&:name).to_set - %w[aws-sdk-cpp boost cpp-netlib
-                                            linenoise thrift thrift-patch]
+    res = resources.map(&:name).to_set - %w[aws-sdk-cpp cpp-netlib linenoise
+                                            thrift thrift-patch]
     res.each do |r|
       resource(r).stage do
         system "python", "setup.py", "install",
@@ -222,22 +178,16 @@ class Osquery < Formula
       end
     end
 
-    ENV["BOOST_ROOT"] = vendor/"boost/include"
-
     args = std_cmake_args + %W[
       -Daws-cpp-sdk-core_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-core.a
       -Daws-cpp-sdk-firehose_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-firehose.a
       -Daws-cpp-sdk-kinesis_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-kinesis.a
       -Daws-cpp-sdk-sts_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-sts.a
-      -Dboost_filesystem-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_filesystem-mt.a
-      -Dboost_regex-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_regex-mt.a
-      -Dboost_system-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_system-mt.a
-      -Dboost_thread-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_thread-mt.a
       -Dcppnetlib-client-connections_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-client-connections.a
       -Dcppnetlib-uri_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-uri.a
       -Dlinenoise_library:FILEPATH=#{vendor}/linenoise/lib/liblinenoise.a
       -Dthrift_library:FILEPATH=#{vendor}/thrift/lib/libthrift.a
-      -DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG\ -I#{MacOS.sdk_path}/usr/include/libxml2\ -I#{vendor}/aws-sdk-cpp/include\ -I#{vendor}/boost/include\ -I#{vendor}/cpp-netlib/include\ -I#{vendor}/linenoise/include\ -I#{vendor}/thrift/include\ -Wl,-L#{vendor}/linenoise/lib
+      -DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG\ -I#{MacOS.sdk_path}/usr/include/libxml2\ -I#{vendor}/aws-sdk-cpp/include\ -I#{vendor}/cpp-netlib/include\ -I#{vendor}/linenoise/include\ -I#{vendor}/thrift/include\ -Wl,-L#{vendor}/linenoise/lib
     ]
 
     # Link dynamically against brew-installed libraries.

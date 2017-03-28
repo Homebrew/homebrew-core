@@ -1,14 +1,14 @@
 class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
-  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.6.0.tar.gz"
-  sha256 "42875ecdc0cab65fe3bb861f40b17f2dbd71764c030a07a0f0863b8f405eeb0d"
+  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.6.3.tar.gz"
+  sha256 "87c010c9e99e56cda601c357d8ffdea1f5b4bb1bb79275f202ae6247bf3b308a"
   head "https://github.com/Project-OSRM/osrm-backend.git"
 
   bottle do
     cellar :any
-    sha256 "1c68222d39d25a43338bbcf2f17ff577c3a8ad2be1e6024ac5b4a6e4b2a13a15" => :sierra
-    sha256 "91c17b4af7b6b78354c7fc97a9285e0407ee6b77027970e606fffaec8bc11e44" => :el_capitan
+    sha256 "81dd0f510d17a4a6e6271878ca2c18a9a0759825d91e36d07e882a74269950e9" => :sierra
+    sha256 "f1a73aa28ce75844da8f485fe93464f51b3ff3c380f5d358ab390f033993e530" => :el_capitan
   end
 
   # "invalid use of non-static data member 'offset'"
@@ -20,8 +20,7 @@ class OsrmBackend < Formula
   depends_on "libstxxl"
   depends_on "libxml2"
   depends_on "libzip"
-  depends_on "lua@5.1"
-  depends_on "luabind"
+  depends_on "lua"
   depends_on "tbb"
 
   def install
