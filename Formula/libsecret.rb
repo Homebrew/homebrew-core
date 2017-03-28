@@ -3,6 +3,7 @@ class Libsecret < Formula
   homepage "https://wiki.gnome.org/Projects/Libsecret"
   url "https://download.gnome.org/sources/libsecret/0.18/libsecret-0.18.5.tar.xz"
   sha256 "9ce7bd8dd5831f2786c935d82638ac428fa085057cc6780aba0e39375887ccb3"
+  revision 1
 
   bottle do
     sha256 "a29a01464259946430fafbc568dbee944b54ea9163699f75c4d905c3d5c8a665" => :sierra
@@ -31,7 +32,7 @@ class Libsecret < Formula
       --prefix=#{prefix}
     ]
 
-    args << "--enable-gobject-introspection" if build.with? "gobject-introspection"
+    args << "--enable-introspection" if build.with? "gobject-introspection"
     args << "--enable-vala" if build.with? "vala"
 
     system "./configure", *args
