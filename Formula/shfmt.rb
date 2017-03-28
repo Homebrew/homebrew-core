@@ -9,10 +9,7 @@ class Shfmt < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/mvdan").mkpath
-    (buildpath/"src/github.com/mvdan/sh").install buildpath/"cmd"
-    (buildpath/"src/github.com/mvdan/sh").install buildpath/"fileutil"
-    (buildpath/"src/github.com/mvdan/sh").install buildpath/"syntax"
+    (buildpath/"src/github.com/mvdan/sh").install Dir.glob(buildpath/"*")
     system "go", "build", "-a", "-tags", "production brew", "-o", "#{bin}/shfmt", "github.com/mvdan/sh/cmd/shfmt"
   end
 
