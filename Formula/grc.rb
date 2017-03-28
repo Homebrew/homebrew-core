@@ -35,17 +35,8 @@ class Grc < Formula
   end
 
   def caveats; <<-EOS.undent
-    To use GRC automatically for new shell sessions:
-
-      Bash: add to ~/.profile:
-        . /usr/local/etc/grc.bashrc
-
-      ZSH: add to ~/.zshrc
-        [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
-
-      Fish: add to ~/.config/fish/config.fish or in a new file in
-      ~/.config/fish/conf.d/:
-        source /usr/local/etc/grc.fish
+    To use GRC automatically for new shell sessions, call the appropriate initializer in your profile:
+        source #{etc}/grc.<bashrc|zsh|fish>
     EOS
   end
 
