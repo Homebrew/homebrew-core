@@ -19,8 +19,8 @@ class Getdns < Formula
   end
 
   depends_on "openssl"
-  depends_on "unbound"
-  depends_on "libidn"
+  depends_on "unbound" => :recommended
+  depends_on "libidn" => :recommended
   depends_on "libevent" => :recommended
   depends_on "libuv" => :optional
   depends_on "libev" => :optional
@@ -41,9 +41,11 @@ class Getdns < Formula
       "--with-ssl=#{Formula["openssl"].opt_prefix}",
       "--with-trust-anchor=#{etc}/getdns-root.key",
     ]
+    args << "--enable-stub-only" if build.without? "unbound"
+    args << "--without-libidn" if build.without? "libidn"
     args << "--with-libevent" if build.with? "libevent"
-    args << "--with-libev" if build.with? "libev"
     args << "--with-libuv" if build.with? "libuv"
+    args << "--with-libev" if build.with? "libev"
 
     # Current Makefile layout prevents simultaneous job execution
     # https://github.com/getdnsapi/getdns/issues/166
