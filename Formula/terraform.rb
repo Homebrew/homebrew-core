@@ -3,9 +3,8 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.9.1.tar.gz"
-  sha256 "af8402ce84b85a16cfac3796c1f30f229a0d0e93585c6c618af2f25aae067e65"
-  revision 1
+  url "https://github.com/hashicorp/terraform/archive/v0.9.2.tar.gz"
+  sha256 "a5e3924bf72899149b572409c82da4b7d71ac556fd460790577bdf50f27709a4"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
@@ -31,24 +30,17 @@ class Terraform < Formula
 
   go_resource "github.com/kisielk/errcheck" do
     url "https://github.com/kisielk/errcheck.git",
-        :revision => "9c1292e1c962175f76516859f4a88aabd86dc495"
+        :revision => "23699b7e2cbfdb89481023524954ba2aeff6be90"
   end
 
   go_resource "github.com/kisielk/gotool" do
     url "https://github.com/kisielk/gotool.git",
-        :revision => "5e136deb9b893bbe6c8f23236ff4378b7a8a0dbb"
+        :revision => "0de1eaf82fa3f583ce21fde859f1e7e0c5e9b220"
   end
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
-  end
-
-  # vet error (please remove after next version release)
-  # upstream issue: https://github.com/hashicorp/terraform/pull/12839
-  patch do
-    url "https://github.com/hashicorp/terraform/commit/bc4a3d62a59dc14c11a8546cc4e7e32ec7553fab.patch"
-    sha256 "ac312a0cc46833a45ef51d56961bdc7c7d60cb8c709ee305f476e4b68e8685e5"
+        :revision => "d63e2b22b05a9682de336cd4802bba367ed429e7"
   end
 
   def install
@@ -72,7 +64,7 @@ class Terraform < Formula
       arch = MacOS.prefer_64_bit? ? "amd64" : "386"
       ENV["XC_OS"] = "darwin"
       ENV["XC_ARCH"] = arch
-      system "make", "test", "vet", "bin"
+      system "make", "bin"
 
       bin.install "pkg/darwin_#{arch}/terraform"
       zsh_completion.install "contrib/zsh-completion/_terraform"
