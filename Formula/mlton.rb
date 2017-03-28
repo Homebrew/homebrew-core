@@ -1,11 +1,11 @@
 class Mlton < Formula
   desc "Whole-program, optimizing compiler for Standard ML"
   homepage "http://mlton.org"
-  version "20130715"
   head "https://github.com/MLton/mlton.git"
 
   stable do
     url "https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715.src.tgz"
+    version "20130715"
     sha256 "215857ad11d44f8d94c27f75e74017aa44b2c9703304bcec9e38c20433143d6c"
 
     # Configure GMP location via Makefile (https://github.com/MLton/mlton/pull/136)
