@@ -30,7 +30,7 @@ class Pastebinit < Formula
 
   test do
     text = "Hello, world!"
-    # Returned URL is cleartext as of version 1.5
+    # Returned URL is cleartext as of 2017-03
     url = pipe_output("#{bin}/pastebinit -a test -b paste.ubuntu.com", text).chomp
     url.sub! "http:", "https:"
     assert_match text, shell_output("curl " + url)
