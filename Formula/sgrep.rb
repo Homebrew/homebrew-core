@@ -17,7 +17,7 @@ class Sgrep < Formula
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
-                          "--datadir=#{share}/sgrep"
+                          "--datadir=#{pkgshare}"
     system "make", "install"
   end
 
