@@ -1,11 +1,9 @@
 class PerconaToolkit < Formula
   desc "Percona Toolkit for MySQL"
   homepage "https://www.percona.com/software/percona-toolkit/"
-  url "https://www.percona.com/downloads/percona-toolkit/2.2.19/tarball/percona-toolkit-2.2.19.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/percona-toolkit/percona-toolkit_2.2.19.orig.tar.gz"
-  sha256 "e9f4d4730265813fa7a39ed8799d12ca5775c8e5d6fa27ff48bae11db0f7e671"
-  revision 1
-
+  url "https://www.percona.com/downloads/percona-toolkit/2.2.20/tarball/percona-toolkit-2.2.20.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/percona-toolkit/percona-toolkit_2.2.20.orig.tar.gz"
+  sha256 "8439be616ee43b22ba7526135719ef6f40af6621327acc30b84be5f18cd426b1"
   head "lp:percona-toolkit", :using => :bzr
 
   bottle :disable, "To use the user's database of choice."
@@ -14,9 +12,9 @@ class PerconaToolkit < Formula
   depends_on "openssl"
 
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
-    sha256 "4777de11c464b515db9da95c08c225900d0594b65ba3256982dc21f9f9379040"
+    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.042.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.042.tar.gz"
+    sha256 "dadb6884788dc3fdf40b13b72d8c60d5a83680cc2aeec7515c3e5999e064b455"
   end
 
   resource "JSON" do
