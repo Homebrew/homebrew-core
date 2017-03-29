@@ -24,16 +24,13 @@ class TerraformDocs < Formula
     (buildpath/"src/github.com/segmentio/terraform-docs").install buildpath.children
     Language::Go.stage_deps resources, buildpath/"src"
     cd "src/github.com/segmentio/terraform-docs" do
-      system "go", "build", "-o", "terraform-docs"
-
-      bin.install "terraform-docs"
+      system "go", "build", "-o", "#{bin}/terraform-docs"
       prefix.install_metafiles
     end
   end
 
   test do
-    minimal = testpath/"main.tf"
-    minimal.write <<-EOS.undent
+    (testpath/"main.tf").write <<-EOS.undent
       /**
       * Module usage:
       *
