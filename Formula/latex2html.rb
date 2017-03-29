@@ -6,9 +6,9 @@ class Latex2html < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "96aba432faa475b5201a84d032e5e4e90d95264e23387ba20bd59fea5d06403b" => :sierra
-    sha256 "093a49aaa3b77c884b9e7aa7ebcff872dc763a984c779fa03b3a50013c311ea1" => :el_capitan
-    sha256 "6a304d1b869c3bdb472c4eea5b4251e626a89446c3d55443da81bbbbe626a59c" => :yosemite
+    sha256 "8ef1c505140cf839ae71708e3785812a538622a19ee76c19ec1901b6a4567edc" => :sierra
+    sha256 "ee26a1cfa8ff76d1f1d7a0d3435e5a792fbc34e35e43cf84c22321c1df665f3a" => :el_capitan
+    sha256 "8c53c049249208b6441c43500b8921c0869b4d0fef6226194ce4e1a8a8c8cbfe" => :yosemite
   end
 
   depends_on "netpbm"
