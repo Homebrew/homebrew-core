@@ -1,8 +1,8 @@
 class Latex2html < Formula
   desc "LaTeX-to-HTML translator"
   homepage "https://www.ctan.org/pkg/latex2html"
-  url "http://mirrors.ctan.org/support/latex2html/latex2html-2016.tar.gz"
-  sha256 "ab1dbc18ab0ec62f65c1f8c14f2b74823a0a2fc54b07d73ca49524bcae071309"
+  url "http://mirrors.ctan.org/support/latex2html/latex2html-2017.2.tar.gz"
+  sha256 "4b8c21ef292817c85ba553f560129723bcae4ee9a6ec7a22ce2289329db7c1ef"
 
   bottle do
     cellar :any_skip_relocation
