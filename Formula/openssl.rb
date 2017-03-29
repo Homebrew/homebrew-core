@@ -18,19 +18,11 @@ class Openssl < Formula
   keg_only :provided_by_osx,
     "Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries"
 
-  option :universal
   option "without-test", "Skip build-time tests (not recommended)"
 
   deprecated_option "without-check" => "without-test"
 
   depends_on "makedepend" => :build
-
-  def arch_args
-    {
-      :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
-      :i386 => %w[darwin-i386-cc],
-    }
-  end
 
   def configure_args; %W[
     --prefix=#{prefix}
@@ -57,70 +49,18 @@ class Openssl < Formula
               'zlib_dso = DSO_load(NULL, "z", NULL, 0);',
               'zlib_dso = DSO_load(NULL, "/usr/lib/libz.dylib", NULL, DSO_FLAG_NO_NAME_TRANSLATION);'
 
-    if build.universal?
-      ENV.permit_arch_flags
-      archs = Hardware::CPU.universal_archs
-    elsif MacOS.prefer_64_bit?
-      archs = [Hardware::CPU.arch_64_bit]
+    if MacOS.prefer_64_bit?
+      arch_args = %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128]
     else
-      archs = [Hardware::CPU.arch_32_bit]
+      arch_args = %w[darwin-i386-cc]
     end
 
-    dirs = []
-
-    archs.each do |arch|
-      if build.universal?
-        dir = "build-#{arch}"
-        dirs << dir
-        mkdir dir
-        mkdir "#{dir}/engines"
-        system "make", "clean"
-      end
-
-      ENV.deparallelize
-      system "perl", "./Configure", *(configure_args + arch_args[arch])
-      system "make", "depend"
-      system "make"
-      system "make", "test" if build.with?("test")
-
-      next unless build.universal?
-      cp "include/openssl/opensslconf.h", dir
-      cp Dir["*.?.?.?.dylib", "*.a", "apps/openssl"], dir
-      cp Dir["engines/**/*.dylib"], "#{dir}/engines"
-    end
-
+    ENV.deparallelize
+    system "perl", "./Configure", *(configure_args + arch_args)
+    system "make", "depend"
+    system "make"
+    system "make", "test" if build.with?("test")
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
-
-    if build.universal?
-      %w[libcrypto libssl].each do |libname|
-        system "lipo", "-create", "#{dirs.first}/#{libname}.1.0.0.dylib",
-                                  "#{dirs.last}/#{libname}.1.0.0.dylib",
-                       "-output", "#{lib}/#{libname}.1.0.0.dylib"
-        system "lipo", "-create", "#{dirs.first}/#{libname}.a",
-                                  "#{dirs.last}/#{libname}.a",
-                       "-output", "#{lib}/#{libname}.a"
-      end
-
-      Dir.glob("#{dirs.first}/engines/*.dylib") do |engine|
-        libname = File.basename(engine)
-        system "lipo", "-create", "#{dirs.first}/engines/#{libname}",
-                                  "#{dirs.last}/engines/#{libname}",
-                       "-output", "#{lib}/engines/#{libname}"
-      end
-
-      system "lipo", "-create", "#{dirs.first}/openssl",
-                                "#{dirs.last}/openssl",
-                     "-output", "#{bin}/openssl"
-
-      confs = archs.map do |arch|
-        <<-EOS.undent
-          #ifdef __#{arch}__
-          #{(buildpath/"build-#{arch}/opensslconf.h").read}
-          #endif
-          EOS
-      end
-      (include/"openssl/opensslconf.h").atomic_write confs.join("\n")
-    end
   end
 
   def openssldir
