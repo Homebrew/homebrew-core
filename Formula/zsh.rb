@@ -3,9 +3,9 @@ class Zsh < Formula
   homepage "https://www.zsh.org/"
 
   stable do
-    url "https://downloads.sourceforge.net/project/zsh/zsh/5.3.1/zsh-5.3.1.tar.gz"
-    mirror "https://www.zsh.org/pub/zsh-5.3.1.tar.gz"
-    sha256 "3d94a590ff3c562ecf387da78ac356d6bea79b050a9ef81e3ecb9f8ee513040e"
+    url "https://downloads.sourceforge.net/project/zsh/zsh/5.3.1/zsh-5.3.1.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.3.1.tar.xz"
+    sha256 "fc886cb2ade032d006da8322c09a7e92b2309177811428b121192d44832920da"
 
     # We cannot build HTML doc on HEAD, because yodl which is required for
     # building zsh.texi is not available.
