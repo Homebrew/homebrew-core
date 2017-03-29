@@ -7,6 +7,7 @@ class Purescript < Formula
   homepage "http://www.purescript.org"
   url "https://github.com/purescript/purescript/archive/v0.11.1.tar.gz"
   sha256 "0faa3e814c11eab064bfa5fe37215441872fc502e0ce531bbcf8e55170614994"
+  revision 1
   head "https://github.com/purescript/purescript.git"
 
   bottle do
@@ -19,6 +20,8 @@ class Purescript < Formula
   depends_on "cabal-install" => :build
 
   def install
+    inreplace (buildpath/"scripts").children, /^purs /, "#{bin}/purs "
+    bin.install (buildpath/"scripts").children
     install_cabal_package :using => ["alex", "happy"]
   end
 
@@ -31,7 +34,7 @@ class Purescript < Formula
       main :: Int
       main = 1
     EOS
-    system bin/"purs", "compile", test_module_path, "-o", test_target_path
+    system bin/"psc", test_module_path, "-o", test_target_path
     assert File.exist?(test_target_path)
   end
 end
