@@ -29,9 +29,10 @@ class Pastebinit < Formula
   end
 
   test do
-    url = pipe_output("#{bin}/pastebinit", "Hello, world!").chomp
-    assert_match "http://pastebin.com/", url
-    # We can't actually fetch the URL to check the paste's success because
-    # pastebin blocks our fetches with curl, probably based on the user agent.
+    text = "Hello, world!"
+    # Returned URL is cleartext as of version 1.5
+    url = pipe_output("#{bin}/pastebinit -a test -b paste.ubuntu.com", text).chomp
+    url.sub! "http:", "https:"
+    assert_match text, shell_output("curl " + url)
   end
 end
