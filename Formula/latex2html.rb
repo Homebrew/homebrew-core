@@ -20,4 +20,18 @@ class Latex2html < Formula
                           "--with-texpath=#{share}/texmf/tex/latex/html"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.tex").write <<-EOS.undent
+      \\documentclass{article}
+      \\usepackage[utf8]{inputenc}
+      \\title{Experimental Setup}
+      \\date{\\today}
+      \\begin{document}
+      \\maketitle
+      \\end{document}
+    EOS
+    system "#{bin}/latex2html", "test.tex"
+    assert_match /Experimental Setup/, File.read("test/test.html")
+  end
 end
