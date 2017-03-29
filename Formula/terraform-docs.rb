@@ -7,6 +7,13 @@ class TerraformDocs < Formula
   sha256 "47e66da75e179e61cde11a785487b8b05970154153c60fc765ef1f93a376abe2"
   head "https://github.com/segmentio/terraform-docs.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "97799cadd0bd380e3176b6126a9f8b6c314872ab4818428e6f3b1492cd3e219a" => :sierra
+    sha256 "d54e4af90588085df0d27d585d88603e9815e772871d614f8025f9a73c28e17a" => :el_capitan
+    sha256 "7736b3768981e653d21b9c7faf92161ee3a5c48ceb26acb355071bd121dc0593" => :yosemite
+  end
+
   depends_on "go" => :build
 
   go_resource "github.com/hashicorp/hcl" do
