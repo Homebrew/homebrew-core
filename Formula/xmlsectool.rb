@@ -17,6 +17,6 @@ class Xmlsectool < Formula
 
   test do
     ENV["JAVA_HOME"] = `/usr/libexec/java_home`.chomp
-    system bin/"xmlsectool", "--listBlacklist"
+    system "#{bin}/xmlsectool", "--listBlacklist"
   end
 end
