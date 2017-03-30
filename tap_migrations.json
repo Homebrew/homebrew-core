@@ -66,6 +66,7 @@
   "dsniff": "homebrew/boneyard",
   "dupx": "homebrew/boneyard",
   "dwarf": "homebrew/boneyard",
+  "dwarf-fortress": "caskroom/cask",
   "echoping": "homebrew/boneyard",
   "edelta": "homebrew/boneyard",
   "ee": "homebrew/boneyard",
