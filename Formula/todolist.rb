@@ -1,8 +1,8 @@
 class Todolist < Formula
   desc "Very fast, simple task manager for the command-line, based upon GTD."
   homepage "http://todolist.site"
-  url "https://github.com/gammons/todolist/archive/0.5.2.tar.gz"
-  sha256 "915b3284fd4ace4d22486ce9a2662d11e63b21f13238437d49a6102c8a9b4c77"
+  url "https://github.com/gammons/todolist/archive/0.5.3.tar.gz"
+  sha256 "468b8394e78185956c3d5603cd49780255151fb90ef1aec91ae978fd5cceba2f"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,6 +25,6 @@ class Todolist < Formula
     system bin/"todolist", "init"
     assert File.exist?(".todos.json")
     add_task = shell_output("#{bin}/todolist add learn the Tango")
-    assert_match "Todo added", add_task
+    assert_match /Todo.* added/, add_task
   end
 end
