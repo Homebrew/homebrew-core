@@ -16,10 +16,9 @@ class Opensc < Formula
   end
 
   bottle do
-    sha256 "a0885f1ba63438d600212f1adf6c1d03bbc7355fc72778d8a21f0c877eaf97be" => :sierra
-    sha256 "bf69be51f29b45bd0c5f862560748d30f7d8661002b171a03e78823c73c5eeae" => :el_capitan
-    sha256 "1c76d44ec875c6d622a0f6d4ae1f873adb75a789afbe0f2ce3a96231dd3dafd6" => :yosemite
-    sha256 "8ef4c4c62042d5db9c6454a1fb050e79ce8ff0081be44483ce2b8b909d701af3" => :mavericks
+    sha256 "b3f2e064e807dcabaf847e89c8a66f4c1b2d0258f481bc8351faa862e6f50bef" => :sierra
+    sha256 "88e03e589902a65e99c085bac993fef782a3e5011757b330f98d1984a195ff42" => :el_capitan
+    sha256 "68f04600dd085c6720559b78ea8387f40ed7045fa4c281beedb13faa6545fdc0" => :yosemite
   end
 
   option "without-man-pages", "Skip building manual pages"
