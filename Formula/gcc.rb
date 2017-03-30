@@ -15,7 +15,7 @@ class Gcc < Formula
   homepage "https://gcc.gnu.org/"
   revision 1
 
-  head "https://gcc.gnu.org/svn/gcc/trunk", :using => :svn
+  head "svn://gcc.gnu.org/svn/gcc/trunk"
 
   stable do
     url "https://ftpmirror.gnu.org/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
