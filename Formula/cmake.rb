@@ -13,8 +13,8 @@ class Cmake < Formula
   end
 
   devel do
-    url "https://cmake.org/files/v3.8/cmake-3.8.0-rc3.tar.gz"
-    sha256 "12e86ab188193d8240ef8598fa1f5837a258aa933a5be9a672c5bfe2132a8102"
+    url "https://cmake.org/files/v3.8/cmake-3.8.0-rc4.tar.gz"
+    sha256 "7e271e8a7c8bcdbee957e1fc2ba27e9fe745146d3190d927a8c26e736cb03e32"
   end
 
   option "without-docs", "Don't build man pages"
