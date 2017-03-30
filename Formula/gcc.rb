@@ -15,7 +15,11 @@ class Gcc < Formula
   homepage "https://gcc.gnu.org/"
   revision 1
 
-  head "svn://gcc.gnu.org/svn/gcc/trunk"
+  if MacOS.version >= :sierra
+    head "https://gcc.gnu.org/svn/gcc/trunk", :using => :svn
+  else
+    head "svn://gcc.gnu.org/svn/gcc/trunk"
+  end
 
   stable do
     url "https://ftpmirror.gnu.org/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
