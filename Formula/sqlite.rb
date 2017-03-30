@@ -1,9 +1,9 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2017/sqlite-autoconf-3170000.tar.gz"
-  version "3.17.0"
-  sha256 "a4e485ad3a16e054765baf6371826b5000beed07e626510896069c0bf013874c"
+  url "https://sqlite.org/2017/sqlite-autoconf-3180000.tar.gz"
+  version "3.18.0"
+  sha256 "3757612463976e7d08c5e9f0af3021613fc24bbcfe1c51197d6776b9ece9ac5c"
 
   bottle do
     cellar :any
@@ -36,9 +36,9 @@ class Sqlite < Formula
   end
 
   resource "docs" do
-    url "https://www.sqlite.org/2017/sqlite-doc-3170000.zip"
-    version "3.17.0"
-    sha256 "3102d9eab879074776216357e4c9e272f63d0cda975a0819ec5baba5e0922ff6"
+    url "https://www.sqlite.org/2017/sqlite-doc-3180000.zip"
+    version "3.18.0"
+    sha256 "6f763eba9f51cb1096d1d40fbdd7ff974203060ddb892fc735adb2d7d42f1dad"
   end
 
   def install
@@ -46,7 +46,6 @@ class Sqlite < Formula
     # Default value of MAX_VARIABLE_NUMBER is 999 which is too low for many
     # applications. Set to 250000 (Same value used in Debian and Ubuntu).
     ENV.append "CPPFLAGS", "-DSQLITE_MAX_VARIABLE_NUMBER=250000"
-    ENV.append "CPPFLAGS", "-DSQLITE_DISABLE_INTRINSIC" if MacOS.version <= :yosemite && ENV.compiler == :clang
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_RTREE=1" if build.with? "rtree"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_FTS3_PARENTHESIS=1" if build.with? "fts"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_FTS5=1" if build.with? "fts5"
