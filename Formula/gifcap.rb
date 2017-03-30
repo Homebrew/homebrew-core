@@ -4,7 +4,6 @@ class Gifcap < Formula
   url "https://github.com/outlook/gifcap/archive/1.0.4.tar.gz"
   sha256 "32747a6cf77f7ea99380752ba35ecd929bb185167e5908cf910d2a92f05029ad"
   head "https://github.com/outlook/gifcap.git"
-  revision 1
 
   bottle :unneeded
 
