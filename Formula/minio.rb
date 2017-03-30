@@ -5,6 +5,7 @@ class Minio < Formula
     :tag => "RELEASE.2017-03-16T21-50-32Z",
     :revision => "6e7d33df203d0c11d014b6625bfd18aada22328a"
   version "20170316215032"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
