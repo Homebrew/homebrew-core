@@ -1,5 +1,5 @@
 class Exa < Formula
-  desc "Replacement for 'ls' written in Rust."
+  desc "Modern replacement for 'ls'"
   homepage "https://the.exa.website"
   url "https://github.com/ogham/exa/archive/v0.4.1.tar.gz"
   sha256 "1005f320aabc776971ac2adb422eaae001d7adafac47f67c9000f94e70c3b56a"
