@@ -16,9 +16,9 @@ class RubyAT23 < Formula
   end
 
   bottle do
-    sha256 "b65c706a4582caedab0f44343dfc516020a97b5adbe26d0f0c983a7cf5b5c08a" => :sierra
-    sha256 "394b88d104efd8d58cdfbb870e33914f1e495cc5d8b697189d0318547128a33a" => :el_capitan
-    sha256 "052a0d908559db900dd91c425723a1f346d5c5583986ed7b73f395a3c1b5afb3" => :yosemite
+    sha256 "51a3027c44128bbb9655b9d793a2bd2b14496870bc8ab353ab62b853871d0e35" => :sierra
+    sha256 "be70a90b4589fa664ece570627ab5886373eb01db3e57555588b1a81d5a532bb" => :el_capitan
+    sha256 "3d0cb6bdbac9062f6c3ee880013e2282f33351d0e6dd7951c3fe43f21c9362d3" => :yosemite
   end
 
   keg_only :versioned_formula
