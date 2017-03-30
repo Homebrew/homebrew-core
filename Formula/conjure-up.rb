@@ -4,7 +4,8 @@ class ConjureUp < Formula
   desc "Big software deployments so easy it's almost magical."
   homepage "http://conjure-up.io"
   url "https://github.com/conjure-up/conjure-up/archive/2.1.tar.gz"
-  sha256 "933f94c21b999fd24b4c304ba27c59bde9c83f478f5ee6a45cb8f265aaac2658"
+  sha256 "4f60e8cbbb7626c55b63928c65255cddad7df720f04ddb87f9888e1c3de1a44d"
+  revision 1
 
   head "https://github.com/conjure-up/conjure-up.git", :branch => "master"
 
@@ -15,9 +16,9 @@ class ConjureUp < Formula
   end
 
   devel do
-    url "https://github.com/conjure-up/conjure-up/archive/2.2.0-beta1.tar.gz"
-    version "2.2-beta1"
-    sha256 "1db2696b12e78aafc62d6987a879f8d4c37a5b058208ebe15f42a978b526268e"
+    url "https://github.com/conjure-up/conjure-up/archive/2.2.0-beta2.tar.gz"
+    version "2.2-beta2"
+    sha256 "82f41e8a41efdcc49644dc8d2069b787b413ee1845c1ec944494d85f1ff37265"
   end
 
   depends_on :python3
@@ -43,8 +44,8 @@ class ConjureUp < Formula
   end
 
   resource "progressbar2" do
-    url "https://pypi.python.org/packages/3c/3e/c4a8aca4eb5ce2e462d56a9c6bfc54f8502f07708462786b1b6caf91b7a2/progressbar2-3.16.0.tar.gz"
-    sha256 "2472df1f98e458d36294e5e43439825ca1fc64dd8e44bdb4740005bd38f963ba"
+    url "https://pypi.python.org/packages/8a/66/e0c1ace7ca3ee91a3e0c9e4a9ac9cb8e78679265e2a201286063d478e471/progressbar2-3.16.1.tar.gz"
+    sha256 "886142e7753bb5ec02b1af36d3cf936e37ea382b46e988456e0b3f1afd2821f3"
   end
 
   resource "requests" do
@@ -63,8 +64,8 @@ class ConjureUp < Formula
   end
 
   resource "ws4py" do
-    url "https://pypi.python.org/packages/aa/60/5d135c8161a2a67d7c227d57bb599fad967d818dbcdca08daa2d60eb87b9/ws4py-0.3.4.tar.gz"
-    sha256 "85d5c01bb0d031e151a32fad56094caf54e20c2ddb51cf25b5709421ff92d007"
+    url "https://pypi.python.org/packages/b8/98/a90f1d96ffcb15dfc220af524ce23e0a5881258dafa197673357ce1683dd/ws4py-0.4.2.tar.gz"
+    sha256 "7ac69ce3e6ec6917a5d678b65f0a18e244a4dc670db6414bc0271b3f4911237f"
   end
 
   resource "urwid" do
