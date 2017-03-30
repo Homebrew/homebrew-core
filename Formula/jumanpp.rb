@@ -1,8 +1,8 @@
 class Jumanpp < Formula
   desc "Japanese Morphological Analyzer based on RNNLM"
   homepage "http://nlp.ist.i.kyoto-u.ac.jp/EN/index.php?JUMAN%2B%2B"
-  url "http://lotus.kuee.kyoto-u.ac.jp/nl-resource/jumanpp/jumanpp-1.01.tar.xz"
-  sha256 "0d587416a3eb7123638f9c1e30a649b72dfb483448839168dcb48be572c5919a"
+  url "http://lotus.kuee.kyoto-u.ac.jp/nl-resource/jumanpp/jumanpp-1.02.tar.xz"
+  sha256 "01fa519cb1b66c9cccc9778900a4048b69b718e190a17e054453ad14c842e690"
 
   bottle do
     sha256 "0d7b87ef8e8e2321c4e6ae7adc54421be07ed062387bd251d2d52103496eb66d" => :sierra
