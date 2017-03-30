@@ -2,19 +2,17 @@ class RubyAT23 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
 
-  stable do
-    url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.3.tar.bz2"
-    sha256 "882e6146ed26c6e78c02342835f5d46b86de95f0dc4e16543294bc656594cc5b"
+  url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.4.tar.xz"
+  sha256 "341cd9032e9fd17c452ed8562a8d43f7e45bfe05e411d0d7d627751dd82c578c"
 
-    # Reverts an upstream commit which incorrectly tries to install headers
-    # into SDKROOT, if defined
-    # See https://bugs.ruby-lang.org/issues/11881
-    # The issue has been fixed on HEAD as of 1 Jan 2016, but has not been
-    # backported to the 2.3 branch yet and patch is still required.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/ba8cc6b88e6b7153ac37739e5a1a6bbbd8f43817/ruby/mkconfig.patch"
-      sha256 "929c618f74e89a5e42d899a962d7d2e4af75716523193af42626884eaba1d765"
-    end
+  # Reverts an upstream commit which incorrectly tries to install headers
+  # into SDKROOT, if defined
+  # See https://bugs.ruby-lang.org/issues/11881
+  # The issue has been fixed on HEAD as of 1 Jan 2016, but has not been
+  # backported to the 2.3 branch yet and patch is still required.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ba8cc6b88e6b7153ac37739e5a1a6bbbd8f43817/ruby/mkconfig.patch"
+    sha256 "929c618f74e89a5e42d899a962d7d2e4af75716523193af42626884eaba1d765"
   end
 
   bottle do
@@ -50,19 +48,11 @@ class RubyAT23 < Formula
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
     ]
 
-    if build.universal?
-      ENV.universal_binary
-      args << "--with-arch=#{Hardware::CPU.universal_archs.join(",")}"
-    end
-
     args << "--program-suffix=#{program_suffix}" if build.with? "suffix"
     args << "--with-out-ext=tk" if build.without? "tcltk"
     args << "--disable-install-doc" if build.without? "doc"
     args << "--disable-dtrace" unless MacOS::CLT.installed?
     args << "--without-gmp" if build.without? "gmp"
-
-    # Reported upstream: https://bugs.ruby-lang.org/issues/10272
-    args << "--with-setjmp-type=setjmp" if MacOS.version == :lion
 
     paths = [
       Formula["libyaml"].opt_prefix,
