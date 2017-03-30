@@ -4,6 +4,8 @@ class JvmMon < Formula
   url "https://github.com/ajermakovics/jvm-mon/releases/download/0.3/jvm-mon-0.3.tar.gz"
   sha256 "9b5dd3d280cb52b6e2a9a491451da2ee41c65c770002adadb61b02aa6690c940"
 
+  bottle :unneeded
+
   depends_on :java => "1.8+"
 
   def install
