@@ -14,13 +14,6 @@ class Jumanpp < Formula
   depends_on "boost"
   depends_on "gperftools"
 
-  patch do
-    # This problem is resolved on upstream: https://github.com/ku-nlp/jumanpp/commit/4cabe0fb0ff28d0176a11f40b959e224eccc541e
-    # After 1.02 will be released, this patch should be removed.
-    url "https://gist.githubusercontent.com/chezou/076cb9c407de729ad2e2d04749f07f3e/raw/8115a2dfca48e9f9f5aee12cea39377238c5110f/jumanpp-Makefilein.patch"
-    sha256 "f7a2b222ea74625d9ccfe62d61d2808a828669463b6cad509aef95de7537ebc9"
-  end
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
