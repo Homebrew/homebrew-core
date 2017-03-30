@@ -1,9 +1,19 @@
 class Opensc < Formula
   desc "Tools and libraries for smart cards"
   homepage "https://github.com/OpenSC/OpenSC/wiki"
-  url "https://github.com/OpenSC/OpenSC/releases/download/0.16.0/opensc-0.16.0.tar.gz"
-  sha256 "3ac8c29542bb48179e7086d35a1b8907a4e86aca3de3323c2f48bd74eaaf5729"
+  revision 1
   head "https://github.com/OpenSC/OpenSC.git"
+
+  stable do
+    url "https://github.com/OpenSC/OpenSC/releases/download/0.16.0/opensc-0.16.0.tar.gz"
+    sha256 "3ac8c29542bb48179e7086d35a1b8907a4e86aca3de3323c2f48bd74eaaf5729"
+
+    # Can be removed for next release: https://github.com/Homebrew/homebrew-core/issues/5338
+    patch do
+      url "https://github.com/OpenSC/OpenSC/commit/2746a7f430cb02fbd21cf9c2f0819124e6adca76.diff"
+      sha256 "0e39427cb9430971be70cdde3ae57aa10fb0f7fe0acea35bf066d8a651873270"
+    end
+  end
 
   bottle do
     sha256 "a0885f1ba63438d600212f1adf6c1d03bbc7355fc72778d8a21f0c877eaf97be" => :sierra
