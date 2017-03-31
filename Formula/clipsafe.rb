@@ -3,6 +3,7 @@ class Clipsafe < Formula
   homepage "http://waxandwane.org/clipsafe.html"
   url "http://waxandwane.org/download/clipsafe-1.1.tar.gz"
   sha256 "7a70b4f467094693a58814a42d272e98387916588c6337963fa7258bda7a3e48"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -21,15 +22,27 @@ class Clipsafe < Formula
   end
 
   resource "Digest::SHA" do
-    url "https://cpan.metacpan.org/authors/id/M/MS/MSHELOR/Digest-SHA-5.85.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/M/MS/MSHELOR/Digest-SHA-5.85.tar.gz"
-    sha256 "57eaa26fb2d2ccfd31af2fd312992272439d561c17e34274e8c7aa93e427ca49"
+    url "https://cpan.metacpan.org/authors/id/M/MS/MSHELOR/Digest-SHA-5.96.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/M/MS/MSHELOR/Digest-SHA-5.96.tar.gz"
+    sha256 "2b8e0a9b6e359d5e14159661647cc0fbde06beb7f2a24bf003f5fad0a3a2786a"
   end
 
   resource "DateTime" do
-    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.03.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-1.03.tar.gz"
-    sha256 "384f97c73da02492d771d6b5c3b37f6b18c2e12f4db3246b1d61ff19c6d6ad6d"
+    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.35.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-1.35.tar.gz"
+    sha256 "42da13b8b15373c1a1790ef4217742d34f7f80f7e5c51c377cc9eed3c7641525"
+  end
+
+  resource "DateTime::Locale" do
+    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.05.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-Locale-1.05.tar.gz"
+    sha256 "692d674558589e2a6ad2d68cf58a6e4e4b1bfe2f7f76caf20cb91b975a51d155"
+  end
+
+  resource "DateTime::TimeZone" do
+    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.01.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.01.tar.gz"
+    sha256 "1f673c8156fa42b2030aae46fd7e4c117f229da99dfbc7c57ef9eadd5eaa69e1"
   end
 
   def install
@@ -48,9 +61,21 @@ class Clipsafe < Formula
     end
 
     resource("DateTime").stage do
-      system "perl", "Build.PL", "--install_base=#{libexec}"
-      system "./Build"
-      system "./Build", "install"
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+      system "make"
+      system "make", "install"
+    end
+
+    resource("DateTime::Locale").stage do
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+      system "make"
+      system "make", "install"
+    end
+
+    resource("DateTime::TimeZone").stage do
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+      system "make"
+      system "make", "install"
     end
 
     bin.install "clipsafe"
