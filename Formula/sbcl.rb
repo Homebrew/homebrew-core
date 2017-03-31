@@ -1,9 +1,8 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.14/sbcl-1.3.14-source.tar.bz2"
-  sha256 "bf963d58533d839eb76a8028abd17071708d964d5dce07787839cfb6d0d6dcca"
-  revision 1
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.16/sbcl-1.3.16-source.tar.bz2"
+  sha256 "b7dd98017b70aec351ec4475c68438d52f3f6633269a4ae399216b632c9b8863"
 
   head "https://git.code.sf.net/p/sbcl/sbcl.git"
 
@@ -38,11 +37,6 @@ class Sbcl < Formula
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-make-doc.diff"
     sha256 "7c21c89fd6ec022d4f17670c3253bd33a4ac2784744e4c899c32fbe27203d87e"
-  end
-
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-posix-tests.diff"
-    sha256 "06908aaa94ba82447d64cf15eb8e011ac4c2ae4c3050b19b36316f64992ee21d"
   end
 
   patch :p0 do
