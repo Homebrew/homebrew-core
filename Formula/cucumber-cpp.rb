@@ -1,9 +1,8 @@
 class CucumberCpp < Formula
   desc "Support for writing Cucumber step definitions in C++"
   homepage "https://cucumber.io"
-  url "https://github.com/cucumber/cucumber-cpp/archive/v0.3.1.tar.gz"
-  sha256 "442c3fc3020c709f5609e33b76e25c3c9fc9166911e74f590590f794f24f8a9b"
-  revision 3
+  url "https://github.com/cucumber/cucumber-cpp/archive/v0.4.tar.gz"
+  sha256 "57391dfade3639e5c219463cecae2ee066c620aa29fbb89e834a7067f9b8e0c8"
 
   bottle do
     cellar :any_skip_relocation
@@ -44,7 +43,7 @@ class CucumberCpp < Formula
       port: 3902
     EOS
     (testpath/"test.cpp").write <<-EOS.undent
-      #include <cucumber-cpp/defs.hpp>
+      #include <cucumber-cpp/generic.hpp>
       GIVEN("^A given statement$") {
       }
       WHEN("^A when statement$") {
@@ -52,8 +51,10 @@ class CucumberCpp < Formula
       THEN("^A then statement$") {
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lcucumber-cpp", "-o", "test",
-      "-lboost_regex", "-lboost_system", "-lboost_program_options"
+    system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}",
+           "-lcucumber-cpp", "-I#{Formula["boost"].opt_include}",
+           "-L#{Formula["boost"].opt_lib}", "-lboost_regex", "-lboost_system",
+           "-lboost_program_options", "-lboost_filesystem"
     begin
       pid = fork { exec "./test" }
       expected = <<-EOS.undent
