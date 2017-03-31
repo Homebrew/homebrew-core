@@ -40,11 +40,6 @@ class Sbcl < Formula
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-posix-tests.diff"
-    sha256 "06908aaa94ba82447d64cf15eb8e011ac4c2ae4c3050b19b36316f64992ee21d"
-  end
-
-  patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-use-mach-exception-handler.diff"
     sha256 "089b8fdc576a9a32da0b2cdf2b7b2d8bfebf3d542ac567f1cb06f19c03eaf57d"
   end
