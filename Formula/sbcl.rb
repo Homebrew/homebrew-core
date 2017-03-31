@@ -13,7 +13,7 @@ class Sbcl < Formula
   end
 
   option "with-internal-xref", "Include XREF information for SBCL internals (increases core size by 5-6MB)"
-  option "with-ldb", "Include low-level debugger in the build"
+  option "without-ldb", "Don't include low-level debugger"
   option "without-sources", "Don't install SBCL sources"
   option "without-core-compression", "Build SBCL without support for compressed cores and without a dependency on zlib"
   option "without-threads", "Build SBCL without support for native threads"
