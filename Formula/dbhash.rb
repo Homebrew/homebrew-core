@@ -1,9 +1,9 @@
 class Dbhash < Formula
   desc "Computes the SHA1 hash of schema and content of a SQLite database"
   homepage "https://www.sqlite.org/dbhash.html"
-  url "https://www.sqlite.org/2017/sqlite-src-3170000.zip"
-  version "3.17.0"
-  sha256 "86754bee6bcaf1f2a6bf4a02676eb3a43d22d4e5d8339e217424cb2be6b748c3"
+  url "https://www.sqlite.org/2017/sqlite-src-3180000.zip"
+  version "3.18.0"
+  sha256 "eab4d137abd5aa1164244a5d558c9a02122071daf36984b236f8441d749b9ba6"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +13,6 @@ class Dbhash < Formula
   end
 
   def install
-    ENV.append "CPPFLAGS", "-DSQLITE_DISABLE_INTRINSIC" if MacOS.version <= :yosemite && ENV.compiler == :clang
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "dbhash"
     bin.install "dbhash"
