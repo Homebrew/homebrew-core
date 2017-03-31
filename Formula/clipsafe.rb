@@ -3,6 +3,7 @@ class Clipsafe < Formula
   homepage "http://waxandwane.org/clipsafe.html"
   url "http://waxandwane.org/download/clipsafe-1.1.tar.gz"
   sha256 "7a70b4f467094693a58814a42d272e98387916588c6337963fa7258bda7a3e48"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -21,15 +22,15 @@ class Clipsafe < Formula
   end
 
   resource "Digest::SHA" do
-    url "https://cpan.metacpan.org/authors/id/M/MS/MSHELOR/Digest-SHA-5.85.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/M/MS/MSHELOR/Digest-SHA-5.85.tar.gz"
-    sha256 "57eaa26fb2d2ccfd31af2fd312992272439d561c17e34274e8c7aa93e427ca49"
+    url "https://cpan.metacpan.org/authors/id/M/MS/MSHELOR/Digest-SHA-5.96.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/M/MS/MSHELOR/Digest-SHA-5.96.tar.gz"
+    sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   end
 
   resource "DateTime" do
-    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.03.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-1.03.tar.gz"
-    sha256 "384f97c73da02492d771d6b5c3b37f6b18c2e12f4db3246b1d61ff19c6d6ad6d"
+    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.42.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-1.42.tar.gz"
+    sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   end
 
   def install
