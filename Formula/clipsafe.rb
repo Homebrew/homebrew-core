@@ -46,9 +46,9 @@ class Clipsafe < Formula
     end
 
     resource("DateTime").stage do
-      system "perl", "Build.PL", "--install_base=#{libexec}"
-      system "./Build"
-      system "./Build", "install"
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+      system "make"
+      system "make", "install"
     end
 
     bin.install "clipsafe"
