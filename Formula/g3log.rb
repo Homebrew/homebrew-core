@@ -1,8 +1,8 @@
 class G3log < Formula
   desc 'asynchronous, "crash safe", logger that is easy to use.'
   homepage "https://github.com/KjellKod/g3log"
-  url "https://github.com/KjellKod/g3log/archive/1.2.tar.gz"
-  sha256 "6fd73ac5d07356b3acdde73ad06f2f40cfc1de11b1864a17375c1177b557c1be"
+  url "https://github.com/KjellKod/g3log/archive/1.3.tar.gz"
+  sha256 "b8be9ac9d888c241e1042103cd530a49baeef2853c0ab4b6dc696dad930b8784"
 
   bottle do
     cellar :any
@@ -12,6 +12,7 @@ class G3log < Formula
     sha256 "d23c1c572f56876de3d2b3fa1af8db3820c3eb958b3f9cf5f7386e530af91fe7" => :mavericks
   end
 
+  depends_on :macos => :el_capitan # needs thread-local storage
   depends_on "cmake" => :build
 
   def install
