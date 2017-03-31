@@ -68,6 +68,9 @@ class Mpv < Formula
       --zshdir=#{zsh_completion}
     ]
     args << "--enable-libarchive" if build.with? "libarchive"
+    args << "--enable-libbluray" if build.with? "libbluray"
+    args << "--enable-dvdnav" if build.with? "libdvdnav"
+    args << "--enable-dvdread" if build.with? "libdvdread"
     args << "--enable-pulse" if build.with? "pulseaudio"
 
     system "./bootstrap.py"
