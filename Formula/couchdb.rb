@@ -20,7 +20,7 @@ class Couchdb < Formula
   end
 
   head do
-    url "git://git.apache.org/couchdb.git"
+    url "https://github.com/apache/couchdb.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
