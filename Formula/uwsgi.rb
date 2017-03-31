@@ -1,9 +1,8 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
-  url "https://projects.unbit.it/downloads/uwsgi-2.0.14.tar.gz"
-  sha256 "21b3d1ef926d835ff23576193a2c60d4c896d8e21567850cf0677a4764122887"
-  revision 1
+  url "https://projects.unbit.it/downloads/uwsgi-2.0.15.tar.gz"
+  sha256 "572ef9696b97595b4f44f6198fe8c06e6f4e6351d930d22e5330b071391272ff"
   head "https://github.com/unbit/uwsgi.git"
 
   bottle do
