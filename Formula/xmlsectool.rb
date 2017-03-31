@@ -10,13 +10,10 @@ class Xmlsectool < Formula
     rm_rf "doc"
     prefix.install_metafiles
     libexec.install Dir["*"]
-    # temp workaround
-    inreplace "#{libexec}/xmlsectool.sh", "LOCATION=$0", "LOCATION=#{libexec}/"
-    bin.install_symlink "#{libexec}/xmlsectool.sh" => "xmlsectool"
+    (bin/"xmlsectool").write_env_script "#{libexec}/xmlsectool.sh", Language::Java.java_home_env
   end
 
   test do
-    ENV["JAVA_HOME"] = `/usr/libexec/java_home`.chomp
     system "#{bin}/xmlsectool", "--listBlacklist"
   end
 end
