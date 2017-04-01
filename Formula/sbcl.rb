@@ -15,9 +15,9 @@ class Sbcl < Formula
   end
 
   bottle do
-    sha256 "0319bfca503c34a5c6644dfb3a67079d83045101dda37500f6f741d969b02a4d" => :sierra
-    sha256 "8b0109891ff37154eb55fb5378285aa5cf321e46c2cd52d8d86caa7e9dce990d" => :el_capitan
-    sha256 "916eae4f6b5b9b2c6e77ede91153b7b88dd19c22ab7052f40fc9326dc3576767" => :yosemite
+    sha256 "61e6bffd237780167867996fc82fe3ba884369e9f0131366ffce7ea960fd14fc" => :sierra
+    sha256 "55d625750b1125bd5ffe734810182aeef9c2a8b5884040bc2580bfaa6fad3a99" => :el_capitan
+    sha256 "ab0aeab4e49f5c087916d9ac85958ae24686d86b23b668bb50b6143fc6e04225" => :yosemite
   end
 
   option "with-internal-xref", "Include XREF information for SBCL internals (increases core size by 5-6MB)"
