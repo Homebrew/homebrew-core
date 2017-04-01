@@ -6,10 +6,9 @@ class Honcho < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c65e7e9121ffc56269463e76b271ded4dc34c5851693146a4383c6b3902f31f3" => :sierra
-    sha256 "6469c1a7f8136472fd3222a392b7f14e2bb525e9818fb50e6563d4ba11153627" => :el_capitan
-    sha256 "67b976fb9de691ebd2424475a83688b20f2cfd630ad8080f1e96ff6954971964" => :yosemite
-    sha256 "3a52f9b3e325e2509362f00c4d42a718a295fed8ae13dcc53e57a1408f923032" => :mavericks
+    sha256 "cd5b5d510c350dbc1780bddb82760603ebcacbb2dd382955f2a9f4b781e02005" => :sierra
+    sha256 "0af8a184c2790eacbd3e0b43e90a55fc15baf17ba1f4963c5b05f78b7785737c" => :el_capitan
+    sha256 "0af8a184c2790eacbd3e0b43e90a55fc15baf17ba1f4963c5b05f78b7785737c" => :yosemite
   end
 
   def install
