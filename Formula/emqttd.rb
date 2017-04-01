@@ -2,7 +2,7 @@ class Emqttd < Formula
   desc "Erlang MQTT Broker"
   homepage "http://emqtt.io"
   url "http://emqtt.io/emqttd-macosx-2.1.0.zip"
-  sha256 "f543c989b6bef4d4b44d96eb08b5ec6db3b1f4c51aae4e23224da612055c8453"
+  sha256 "c3d213c1085e60ad767fe277635d369620903f041fadc0fb8c7630277b5d3af9"
 
   bottle :unneeded
 
