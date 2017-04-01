@@ -1,8 +1,8 @@
 class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/yaz"
-  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.20.3.tar.gz"
-  sha256 "f8b9127022d2e7fbad658a699a5eef5451c665be3e7b9325ffee987f62bfee82"
+  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.21.0.tar.gz"
+  sha256 "433abc999399af282691df81f6efa81c6b897d031bb710580423969d5d5c7400"
 
   bottle do
     cellar :any
