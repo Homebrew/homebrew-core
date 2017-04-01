@@ -3,8 +3,8 @@ require "language/node"
 class GenerateJsonSchema < Formula
   desc "Generate a JSON Schema from Sample JSON"
   homepage "https://github.com/Nijikokun/generate-schema"
-  url "https://registry.npmjs.org/generate-schema/-/generate-schema-2.3.3.tgz"
-  sha256 "08509250fc17cacfbf5f65c20ad84abccc30843c4da4f5ef7b356b63f6d350da"
+  url "https://registry.npmjs.org/generate-schema/-/generate-schema-2.4.0.tgz"
+  sha256 "42502872e1e1b187ef7ace1964b38f47e3a20d7c880b8548694b57ee526ea910"
   head "https://github.com/Nijikokun/generate-schema.git"
 
   bottle do
