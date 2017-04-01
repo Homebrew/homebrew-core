@@ -1,8 +1,8 @@
 class Sflowtool < Formula
   desc "Utilities and scripts for analyzing sFlow data"
   homepage "http://www.inmon.com/technology/sflowTools.php"
-  url "https://github.com/sflow/sflowtool/releases/download/v3.40/sflowtool-3.40.tar.gz"
-  sha256 "cbd471ac582e3d350e307704e9ca5a86a99b73a4b043939516b65d3c20a1e400"
+  url "https://github.com/sflow/sflowtool/releases/download/v3.41/sflowtool-3.41.tar.gz"
+  sha256 "0e807f182db5ca5b37d0fb55b77e970b1d51fee0cd8cb845646211befb35ca24"
 
   bottle do
     cellar :any_skip_relocation
