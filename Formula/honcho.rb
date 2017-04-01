@@ -1,8 +1,8 @@
 class Honcho < Formula
   desc "Python clone of Foreman, for managing Procfile-based applications"
   homepage "https://github.com/nickstenning/honcho"
-  url "https://github.com/nickstenning/honcho/archive/v0.7.1.tar.gz"
-  sha256 "6d838c77ffda1e59507542ac3aa062c2865e506aa7ead6814780c2f2e39cf959"
+  url "https://github.com/nickstenning/honcho/archive/v1.0.1.tar.gz"
+  sha256 "3271f986ff7c4732cfd390383078bfce68c46f9ad74f1804c1b0fc6283b13f7e"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,6 +23,6 @@ class Honcho < Formula
   test do
     (testpath/"Procfile").write("talk: echo $MY_VAR")
     (testpath/".env").write("MY_VAR=hi")
-    assert_match /talk\.\d+ \| \e\[0mhi/, shell_output("#{bin}/honcho start")
+    assert_match /talk\.\d+ \| hi/, shell_output("#{bin}/honcho start")
   end
 end
