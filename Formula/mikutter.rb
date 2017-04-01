@@ -1,9 +1,8 @@
 class Mikutter < Formula
   desc "Extensible Twitter client."
   homepage "http://mikutter.hachune.net"
-  url "http://mikutter.hachune.net/bin/mikutter.3.5.5.tar.gz"
-  sha256 "0527e9a853a51d557275b19107b1f988e6ee99980a642fed2433299de1277bdd"
-  revision 1
+  url "http://mikutter.hachune.net/bin/mikutter.3.5.6.tar.gz"
+  sha256 "6152cdf9203ed8ff2a5d862c5d6fa76953b399caf21ad93c6bdc920b7c35ee8c"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
@@ -17,8 +16,8 @@ class Mikutter < Formula
   depends_on :ruby => "2.1"
 
   resource "addressable" do
-    url "https://rubygems.org/gems/addressable-2.5.0.gem"
-    sha256 "bc5bf921b39640675fbb3484cdb45e4241b4c88d8d5a7d85a3985424ad02b9c8"
+    url "https://rubygems.org/gems/addressable-2.5.1.gem"
+    sha256 "b09603b313a94fa3674d8fbaae77cc7c778e9d3cde5fea3b7c1fe447941818c5"
   end
 
   resource "atk" do
