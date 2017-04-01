@@ -1,10 +1,18 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.16/sbcl-1.3.16-source.tar.bz2"
-  sha256 "b7dd98017b70aec351ec4475c68438d52f3f6633269a4ae399216b632c9b8863"
-
   head "https://git.code.sf.net/p/sbcl/sbcl.git"
+
+  stable do
+    url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.16/sbcl-1.3.16-source.tar.bz2"
+    sha256 "b7dd98017b70aec351ec4475c68438d52f3f6633269a4ae399216b632c9b8863"
+
+    # Fixes CI builds; see https://bugs.launchpad.net/sbcl/+bug/1678347
+    patch do
+      url "https://github.com/Homebrew/formula-patches/raw/59046765bf0dec14ac7910c51b6656256cd37514/sbcl/patch-float-state-saving.diff"
+      sha256 "71544ce39e6216fd3cdd6a6a2d3a845bdf0acc86482840addfeb6de069473eb9"
+    end
+  end
 
   bottle do
     sha256 "0319bfca503c34a5c6644dfb3a67079d83045101dda37500f6f741d969b02a4d" => :sierra
