@@ -63,8 +63,8 @@ class ConjureUp < Formula
   end
 
   resource "ws4py" do
-    url "https://pypi.python.org/packages/aa/60/5d135c8161a2a67d7c227d57bb599fad967d818dbcdca08daa2d60eb87b9/ws4py-0.3.4.tar.gz"
-    sha256 "85d5c01bb0d031e151a32fad56094caf54e20c2ddb51cf25b5709421ff92d007"
+    url "https://pypi.python.org/packages/b8/98/a90f1d96ffcb15dfc220af524ce23e0a5881258dafa197673357ce1683dd/ws4py-0.4.2.tar.gz"
+    sha256 "7ac69ce3e6ec6917a5d678b65f0a18e244a4dc670db6414bc0271b3f4911237f"
   end
 
   resource "urwid" do
