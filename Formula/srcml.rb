@@ -1,7 +1,8 @@
 class Srcml < Formula
   desc "convert source code to XML"
   homepage "http://www.srcml.org/"
-  url "https://github.com/yijunyu/homebrew-fast/raw/master/src/srcml-0.9.5.tar.gz"
+  url "http://131.123.42.38/lmcrs/beta/srcML-src.tar.gz"
+  version "0.9.5"
   sha256 "55dd2115548e270724af4251187343656d2dfda0e7d372fee15ae27262e3fa8e"
 
   depends_on "cmake" => :build
