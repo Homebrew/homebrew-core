@@ -44,8 +44,8 @@ class ConjureUp < Formula
   end
 
   resource "progressbar2" do
-    url "https://pypi.python.org/packages/3c/3e/c4a8aca4eb5ce2e462d56a9c6bfc54f8502f07708462786b1b6caf91b7a2/progressbar2-3.16.0.tar.gz"
-    sha256 "2472df1f98e458d36294e5e43439825ca1fc64dd8e44bdb4740005bd38f963ba"
+    url "https://pypi.python.org/packages/8a/66/e0c1ace7ca3ee91a3e0c9e4a9ac9cb8e78679265e2a201286063d478e471/progressbar2-3.16.1.tar.gz"
+    sha256 "886142e7753bb5ec02b1af36d3cf936e37ea382b46e988456e0b3f1afd2821f3"
   end
 
   resource "requests" do
