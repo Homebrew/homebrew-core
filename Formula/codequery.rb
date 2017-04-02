@@ -13,7 +13,7 @@ class Codequery < Formula
 
   depends_on "cmake" => :build
   depends_on "qt5"
-# Removed dependency of qscintilla2
+# Dependency on qscintilla2 removed
   
   def install
     args = std_cmake_args
