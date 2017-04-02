@@ -13,12 +13,10 @@ class Codequery < Formula
 
   depends_on "cmake" => :build
   depends_on "qt5"
-  depends_on "qscintilla2"
 
   def install
     args = std_cmake_args
     args << "-DBUILD_QT5=ON"
-    args << "-DQT5QSCINTILLA_LIBRARY=#{Formula["qscintilla2"].opt_lib}/libqscintilla2_qt5.dylib"
 
     share.install "test"
     mkdir "build" do
