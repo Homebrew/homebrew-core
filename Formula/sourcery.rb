@@ -14,9 +14,9 @@ class Sourcery < Formula
 
   def install
     rake "build"
-    inreplace "bin/sourcery", '"${parent_path}"', prefix
+    inreplace "bin/sourcery", '"${parent_path}"', libexec
     bin.install "bin/sourcery"
-    prefix.install "bin/Sourcery.app"
+    libexec.install "bin/Sourcery.app"
   end
 
   test do
