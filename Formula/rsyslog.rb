@@ -63,6 +63,10 @@ class Rsyslog < Formula
       --disable-libgcrypt
       ac_cv_lib_pthread_pthread_setname_np=no
     ]
+    
+    inreplace "plugins/mmexternal/mmexternal.c",
+               "defined(__FreeBSD__)",
+               "defined(__FreeBSD__) || defined(__APPLE__)"
 
     system "./configure", *args
     system "make"
