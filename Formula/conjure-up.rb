@@ -5,6 +5,7 @@ class ConjureUp < Formula
   homepage "http://conjure-up.io"
   url "https://github.com/conjure-up/conjure-up/archive/2.1.tar.gz"
   sha256 "4f60e8cbbb7626c55b63928c65255cddad7df720f04ddb87f9888e1c3de1a44d"
+  revision 1
 
   head "https://github.com/conjure-up/conjure-up.git", :branch => "master"
 
