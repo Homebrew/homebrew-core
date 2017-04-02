@@ -7,9 +7,9 @@ class Xmake < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e98f695e40d55d1192dc05d49260877f2312fe9b71d49fa9ee4ffa5bba91ade3" => :sierra
-    sha256 "e98f695e40d55d1192dc05d49260877f2312fe9b71d49fa9ee4ffa5bba91ade3" => :el_capitan
-    sha256 "3b812e8aa3cad37ea4c6c770b68a60c31c85c48540fdea65a180f3a20f36228e" => :yosemite
+    sha256 "fbafa253cf76a3e91495289676bd58ea6a34a83e9822a0bb2a8f754df605837c" => :sierra
+    sha256 "46bafc5940a7e5822a0771d95060eb0ee2dbeb0937b707103bc182623a917305" => :el_capitan
+    sha256 "de17adb4711c6eb76b200639d6089cc280055a199b75d18b46e91ba78f03ba77" => :yosemite
   end
 
   def install
