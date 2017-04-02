@@ -1,9 +1,10 @@
 class Ubertooth < Formula
   desc "Host tools for Project Ubertooth"
   homepage "https://github.com/greatscottgadgets/ubertooth/wiki"
-  url "https://github.com/greatscottgadgets/ubertooth/releases/download/2015-10-R1/ubertooth-2015-10-R1.tar.xz"
-  version "2015-10-R1"
-  sha256 "bc37e7978d137a64d918d7c8f1e7ca9cff093f9921d805e9809b12e5ab12ae35"
+  url "https://github.com/greatscottgadgets/ubertooth/releases/download/2017-03-R2/ubertooth-2017-03-R2.tar.xz"
+  version "2017-03-R2"
+  sha256 "fbf83fc0129cb9a4e2df614b19fce8ea73419d1a01831142987d25148a9bcd00"
+  head "https://github.com/greatscottgadgets/ubertooth.git"
 
   bottle do
     cellar :any
@@ -19,11 +20,9 @@ class Ubertooth < Formula
   depends_on "libusb"
 
   def install
-    cd "host" do
-      mkdir "build" do
-        system "cmake", "..", *std_cmake_args
-        system "make", "install"
-      end
+    mkdir "host/build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
     end
   end
 
