@@ -5,6 +5,12 @@ class SubversionAT18 < Formula
   mirror "https://archive.apache.org/dist/subversion/subversion-1.8.16.tar.bz2"
   sha256 "f18f6e8309270982135aae54d96958f9ca6b93f8a4e746dd634b1b5b84edb346"
 
+  bottle do
+    sha256 "3f6c2f5b14952261bd16b368026725411c6eb6aec91d3af340647a3f9aa92536" => :sierra
+    sha256 "fff0c975bfaec2a116b2f4c9ac93d702ee8e06381f31810d582b01bda8610a3e" => :el_capitan
+    sha256 "efa3eaee6fc8518354d09b80d2813c7b090495da8691703b31e1297ef0e750cd" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   deprecated_option "java" => "with-java"
