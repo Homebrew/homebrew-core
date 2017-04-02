@@ -1,8 +1,8 @@
 class Sysbench < Formula
   desc "System performance benchmark tool"
   homepage "https://github.com/akopytov/sysbench"
-  url "https://github.com/akopytov/sysbench/archive/1.0.4.tar.gz"
-  sha256 "fa8dbc56ddfd095b09b977c321f7ebbb12818cfc872542a0bffa195cab0716a1"
+  url "https://github.com/akopytov/sysbench/archive/1.0.5.tar.gz"
+  sha256 "6a97fa0008c3021ec3ddbe5d2dd5b69e2d1070c872eb914d3ac5134f163954a3"
 
   bottle do
     sha256 "404b5a31bff80d60da02b8c3aee5a08f2968c553f72342095d64e1632c993174" => :sierra
