@@ -1,8 +1,9 @@
 class Nudoku < Formula
   desc "ncurses based sudoku game"
   homepage "https://jubalh.github.io/nudoku/"
-  url "https://github.com/jubalh/nudoku/releases/download/0.2.4/nudoku-0.2.4.tar.xz"
-  sha256 "4a5c6ab215ed677e31b968f3aa0c418b91b4e643e4adfade543f533ce6cde53a"
+  url "https://github.com/jubalh/nudoku/archive/0.2.5.tar.gz"
+  sha256 "1478c339409abe8f1b857bf3e54c5edbeb43954432fb6e427e52a3ff6251cc25"
+  head "https://github.com/jubalh/nudoku.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,14 +12,11 @@ class Nudoku < Formula
     sha256 "7f1a30844a239c14e7c87b49b3ec4351320e7713682e1c12cb0804ec4a6dc5c7" => :yosemite
   end
 
-  head do
-    url "https://github.com/jubalh/nudoku.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   def install
-    system "autoreconf", "-i" if build.head?
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
@@ -26,6 +24,6 @@ class Nudoku < Formula
   end
 
   test do
-    assert_match /nudoku version #{version}$/, shell_output("#{bin}/nudoku -v")
+    assert_match "nudoku version #{version}", shell_output("#{bin}/nudoku -v")
   end
 end
